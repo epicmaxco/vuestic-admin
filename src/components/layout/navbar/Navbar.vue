@@ -8,10 +8,15 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#"><span class="i-nav-messages"></span></a>
+          <a class="nav-link" href="#"><span class="i-nav-messages notify"></span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><span class="i-nav-notification"></span></a>
+          <a class="nav-link" href="#"><span class="i-nav-notification notify"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <span class="avatar-container"></span>
+          </a>
         </li>
       </ul>
     </div>
@@ -32,5 +37,32 @@
     padding-left: $nav-padding-left;
     padding-right: $nav-padding-right;
     background-color: $top-nav-bg;
+
+    .avatar-container {
+      width: 50px;
+      height: 50px;
+      background-color: white;
+      border-radius: 50%;
+    }
+
+    .notify {
+      position: relative;
+
+      &::after {
+         content: '';
+         position: absolute;
+         right: -6px;
+         top: -6px;
+         background-color: $brand-primary;
+         height: 12px;
+         width: 12px;
+         border-radius: 50%;
+       }
+    }
+
+    .i-nav-notification.notify::after {
+      right: -4px;
+      top: 0;
+    }
   }
 </style>
