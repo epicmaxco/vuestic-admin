@@ -1,6 +1,26 @@
 // Colors //
 $light-gray: #eeeeee;
+$darkest-gray: #1e1d1d;
 
 // Layout //
 $body-bg: $light-gray;
+$top-nav-bg: $darkest-gray;
 
+// Typography
+// -------------------------
+
+//$text-color:            $gray !default;
+
+$font-size-root: 16px;
+
+$font-size-base:          1rem !default;
+$font-size-larger:        1.2rem;
+$font-size-mini:          0.8rem;
+
+$font-weight-bold: 700 !default;
+$font-weight-semi-bold: 600 !default;
+$font-weight-normal: 400 !default;
+$font-weight-thin: 300 !default;
+$font-weight-base: $font-weight-thin !default;
+
+$font-size-smaller: 85% !default;
