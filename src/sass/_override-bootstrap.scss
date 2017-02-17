@@ -1,3 +1,9 @@
-// Fonts
-//
-// Font, line-height, and color for body text, headings, and more.
+//Navbar
+.navbar .navbar-nav > .nav-item > .nav-link {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-right: 38px;
+  padding-left: 38px;
+}
+
