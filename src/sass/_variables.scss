@@ -10,9 +10,24 @@ $brand-primary: #33cc99 !default;
 $body-bg: $light-gray;
 $top-nav-bg: $darkest-gray;
 
+$layout-padding: 24px;
+$layout-padding-right: 44px;
+
 $top-nav-height: 72px;
-$nav-padding-left: 25px;
-$nav-padding-right: 45px;
+$nav-padding-left: $layout-padding;
+$nav-padding-right: $layout-padding-right;
+
+$sidebar-bg: $darkest-gray;
+$sidebar-width: 225px;
+$sidebar-top: calc(#{$top-nav-height} + #{$layout-padding});
+$sidebar-left: $layout-padding;
+
+$content-wrap-ml: calc(#{$sidebar-left} + #{$sidebar-width} + 35px);
+$content-wrap-pr: $layout-padding-right;
+$content-wrap-pt: $layout-padding;
+$content-wrap-pb: $layout-padding;
+
+
 
 // Typography
 // -------------------------
