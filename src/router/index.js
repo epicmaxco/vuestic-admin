@@ -4,6 +4,8 @@ import Charts from 'components/statistics/charts/Charts'
 import ProgressBars from 'components/statistics/progress-bars/ProgressBars'
 import Dashboard from 'components/dashboard/Dashboard'
 
+// import menuModule from 'vuex-store/modules/menu'
+
 Vue.use(Router)
 
 export default new Router({
