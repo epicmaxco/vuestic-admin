@@ -1,18 +1,10 @@
 import * as types from '../../mutation-types'
-import lazyLoading from './lazyLoading'
 import statistics from './statistics'
-
-// show: meta.label -> name
-// name: component name
-// meta.label: display label
+import dashboard from './dashboard'
 
 const state = {
   items: [
-    {
-      name: 'Dashboard',
-      path: '/dashboard',
-      component: lazyLoading('dashboard/Dashboard')
-    },
+    dashboard,
     statistics
   ]
 }
