@@ -1,9 +1,12 @@
 //Navbar
 .navbar .navbar-nav > .nav-item > .nav-link {
-  height: 100%;
-  display: flex;
-  align-items: center;
   padding-right: 38px;
   padding-left: 38px;
+  line-height: 0;
+}
+
+.navbar .navbar-nav > .nav-item {
+  display: flex;
+  align-items: center;
 }
 
