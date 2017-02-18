@@ -1,5 +1,5 @@
-const menuitems = state => state.menu.items
+const menuItems = state => state.menu.items
 
 export {
-  menuitems
+  menuItems
 }

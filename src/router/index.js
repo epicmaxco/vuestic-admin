@@ -8,7 +8,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     ...generateRoutesFromMenu(menuModule.state.items),
-    {path: '/', redirect: { name: 'dashboard' }}
+    {path: '/', redirect: { name: 'Dashboard' }}
   ]
 })
 

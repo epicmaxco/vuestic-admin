@@ -1,38 +1,37 @@
 <template>
   <aside class="sidebar">
-    <router-link to="/charts" aria-expanded="show" @click.native="show = !show">
-      <span class="icon is-small"><i class="fa fa-bar-chart-o"></i></span>
-      Charts
-      <span class="icon is-small is-angle"><i class="fa fa-angle-down"></i></span>
-    </router-link>
-    <ul v-show="show">
-      <li>
-        <router-link to="/charts/chartjs">
-          ChartJs
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/charts/chartist">
-          Chartist
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/charts/peity">
-          Peity
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/charts/plotly">
-          Plotly
-        </router-link>
-      </li>
-    </ul>
+   <ul class="sidebar-menu">
+     <li v-for="(item, index) in menuItems">
+       <router-link :to="item.path || ''" @click.native="expandMenuItem(item)">
+         {{item.name}}
+       </router-link>
+       <ul class="sidebar-submenu" v-show="item.children && item.meta.expanded">
+         <li v-for="childItem in item.children">
+           <router-link :to="childItem.path">
+             {{childItem.name}}
+           </router-link>
+         </li>
+       </ul>
+     </li>
+   </ul>
   </aside>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
+
   export default {
     name: 'sidebar',
+    computed: mapGetters({
+      menuItems: 'menuItems'
+    }),
+    methods: {
+      expandMenuItem: (item) => {
+        if (item.children) {
+          console.log(item)
+        }
+      }
+    },
     data () {
       return {
         show: false
