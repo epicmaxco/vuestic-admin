@@ -1,30 +1,26 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Charts from 'components/statistics/charts/Charts'
-import ProgressBars from 'components/statistics/progress-bars/ProgressBars'
-import Dashboard from 'components/dashboard/Dashboard'
 
-// import menuModule from 'vuex-store/modules/menu'
+import menuModule from 'vuex-store/modules/menu'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
-      path: '/dashboard',
-      name: 'dashboard',
-      component: Dashboard
-    },
-    {
-      path: '/statistics/charts',
-      name: 'charts',
-      component: Charts
-    },
-    {
-      path: '/statistics/progress-bars',
-      name: 'progress-bars',
-      component: ProgressBars
-    },
+    ...generateRoutesFromMenu(menuModule.state.items),
     {path: '/', redirect: { name: 'dashboard' }}
   ]
 })
+
+function generateRoutesFromMenu (menu = [], routes = []) {
+  for (let i = 0, l = menu.length; i < l; i++) {
+    let item = menu[i]
+    if (item.path) {
+      routes.push(item)
+    }
+    if (!item.component && item.children) {
+      generateRoutesFromMenu(item.children, routes)
+    }
+  }
+  return routes
+}

@@ -11,9 +11,6 @@ const state = {
     {
       name: 'Dashboard',
       path: '/dashboard',
-      meta: {
-        icon: 'fa-tachometer'
-      },
       component: lazyLoading('dashboard/Dashboard')
     },
     statistics

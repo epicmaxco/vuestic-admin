@@ -2,7 +2,6 @@ import lazyLoading from './lazyLoading'
 
 export default {
   name: 'Statistics',
-  path: '/statistics',
   meta: {
     expanded: false
   },
@@ -11,12 +10,12 @@ export default {
   children: [
     {
       name: 'Charts',
-      path: 'charts',
+      path: '/statistics/charts',
       component: lazyLoading('statistics/charts/Charts')
     },
     {
       name: 'ProgressBars',
-      path: 'progress-bars',
+      path: '/statistics/progress-bars',
       component: lazyLoading('statistics/progress-bars/ProgressBars')
     }
   ]
