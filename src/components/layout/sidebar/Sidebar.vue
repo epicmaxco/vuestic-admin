@@ -3,12 +3,12 @@
    <ul class="sidebar-menu">
      <li v-for="(item, index) in menuItems">
        <router-link :to="item.path || ''" @click.native="toggleMenuItem(item)">
-         {{item.name}}
+         {{item.meta.title}}
        </router-link>
        <ul class="sidebar-submenu" v-show="item.children && item.meta.expanded">
          <li v-for="childItem in item.children">
            <router-link :to="childItem.path">
-             {{childItem.name}}
+             {{childItem.meta.title}}
            </router-link>
          </li>
        </ul>
