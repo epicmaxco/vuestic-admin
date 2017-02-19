@@ -2,9 +2,12 @@
   <aside class="sidebar">
    <ul class="sidebar-menu">
      <li v-for="(item, index) in menuItems">
-       <router-link :to="item.path || ''" @click.native="toggleMenuItem(item)">
+       <router-link :to="item.path" @click="toggleMenuItem(item)" v-if="item.path">
          {{item.meta.title}}
        </router-link>
+       <a href="#" @click.prevent="toggleMenuItem(item)" v-else>
+         {{item.meta.title}}
+       </a>
        <ul class="sidebar-submenu" v-show="item.children && item.meta.expanded">
          <li v-for="childItem in item.children">
            <router-link :to="childItem.path">
