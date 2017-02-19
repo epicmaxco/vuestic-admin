@@ -2,7 +2,7 @@
   <aside class="sidebar">
    <ul class="sidebar-menu">
      <li v-for="(item, index) in menuItems">
-       <router-link :to="item.path || ''" @click.native="expandMenuItem(item)">
+       <router-link :to="item.path || ''" @click.native="toggleMenuItem(item)">
          {{item.name}}
        </router-link>
        <ul class="sidebar-submenu" v-show="item.children && item.meta.expanded">
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapActions } from 'vuex'
 
   export default {
     name: 'sidebar',
@@ -26,9 +26,15 @@
       menuItems: 'menuItems'
     }),
     methods: {
-      expandMenuItem: (item) => {
+      ...mapActions({
+        expand: 'toggleExpandMenuItem'
+      }),
+      toggleMenuItem (item) {
         if (item.children) {
-          console.log(item)
+          this.expand({   // TODO: check default prop
+            menuItem: item,
+            expand: !item.meta.expanded
+          })
         }
       }
     },

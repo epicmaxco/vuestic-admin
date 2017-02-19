@@ -10,18 +10,23 @@ const state = {
 }
 
 const mutations = {
-  [types.EXPAND_MENU] (state, menuItem) {
-    if (menuItem.index > -1) {
-      if (state.items[menuItem.index] && state.items[menuItem.index].meta) {
-        state.items[menuItem.index].meta.expanded = menuItem.expanded
-      }
-    } else if (menuItem.item && 'expanded' in menuItem.item.meta) {
-      menuItem.item.meta.expanded = menuItem.expanded
+  [types.TOGGLE_EXPAND_MENU_ITEM] (state, payload) {
+    let menuItem = payload.menuItem
+    let expand = payload.expand
+    if (menuItem.children && menuItem.meta) {
+      menuItem.meta.expanded = expand
     }
+  }
+}
+
+const actions = {
+  toggleExpandMenuItem ({commit}, payload) {
+    commit(types.TOGGLE_EXPAND_MENU_ITEM, payload)
   }
 }
 
 export default {
   state,
-  mutations
+  mutations,
+  actions
 }
