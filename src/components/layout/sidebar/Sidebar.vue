@@ -22,9 +22,11 @@
 
   export default {
     name: 'sidebar',
+
     computed: mapGetters({
       menuItems: 'menuItems'
     }),
+
     methods: {
       ...mapActions({
         expand: 'toggleExpandMenuItem'
@@ -38,11 +40,34 @@
         }
       }
     },
+
+    watch: {
+      $route (route) {
+        let parent = _findMatchingParentMenuItem.call(this, route.name) || {}
+        this.menuItems.forEach((item) => {
+          this.expand({
+            menuItem: item,
+            expand: parent.name === item.name
+          })
+        })
+      }
+    },
+
     data () {
       return {
         show: false
       }
     }
+  }
+
+  function _findMatchingParentMenuItem (itemName) {
+    let parentItem
+
+    this.menuItems.forEach((item) => {
+      parentItem = (item.children && item.children.find((child) => child.name === itemName)) ? item : parentItem
+    })
+
+    return parentItem
   }
 </script>
 
@@ -55,5 +80,9 @@
     top: $sidebar-top;
     left: $sidebar-left;
     background: $sidebar-bg;
+
+    .router-link-active {
+      color: green;
+    }
   }
 </style>
