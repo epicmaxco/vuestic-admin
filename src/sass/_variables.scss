@@ -4,7 +4,7 @@ $light-gray: #eeeeee;
 $darkest-gray: #1e1d1d;
 $vue-green: #4ae387;
 
-$brand-primary: #33cc99 !default;
+$brand-primary: $vue-green !default;
 
 // Layout //
 $body-bg: $light-gray;
