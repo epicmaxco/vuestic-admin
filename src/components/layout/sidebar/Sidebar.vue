@@ -14,6 +14,7 @@
           v-bind:class="{expanded: item.meta.expanded}"
           v-else>
          {{item.meta.title}}
+         <i class="expand-icon fa fa-angle-down"></i>
        </a>
        <ul class="sidebar-submenu" v-show="item.children && item.meta.expanded">
          <li v-for="childItem in item.children">
@@ -93,16 +94,33 @@
     box-shadow: $sidebar-box-shadow;
 
     .sidebar-link {
+      position: relative;
       height: $sidebar-link-height;
       padding-left: $sidebar-link-pl;
       display: flex;
       flex-direction: row;
       align-items: center;
+      cursor: pointer;
+      text-decoration: none;
+
       &.router-link-active, &:hover, &.expanded {
         color: white;
-        text-decoration: none;
         background-color: $sidebar-link-active-bg;
       }
+
+      .expand-icon {
+        position: absolute;
+        right: $sidebar-arrow-right;
+        top: calc(50% - #{$font-size-root}/2);
+        font-weight: bold;
+      }
+
+      &.expanded {
+        .expand-icon {
+          transform: rotate(180deg);
+        }
+      }
+
     }
 
     .sidebar-menu, .sidebar-submenu {
