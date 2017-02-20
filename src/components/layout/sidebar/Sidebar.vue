@@ -147,7 +147,8 @@
     .sidebar-submenu {
       .sidebar-link {
         background-color: $sidebar-link-active-bg;
-        padding-left: 2 * $sidebar-link-pl;
+        padding-left: $sidebar-submenu-link-pl;
+        font-size: $font-size-smaller;
       }
     }
 
