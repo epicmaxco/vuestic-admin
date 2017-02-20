@@ -90,6 +90,7 @@
     top: $sidebar-top;
     left: $sidebar-left;
     background: $sidebar-bg;
+    box-shadow: $sidebar-box-shadow;
 
     .sidebar-link {
       height: $sidebar-link-height;
