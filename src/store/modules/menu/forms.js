@@ -4,7 +4,8 @@ export default {
   name: 'Forms',
   meta: {
     expanded: false,
-    title: 'Forms'
+    title: 'Forms',
+    iconClass: 'fa fa-edit'
   },
   children: [
     {

@@ -6,6 +6,7 @@
                     class="sidebar-link"
                     @click="toggleMenuItem(item)"
                     v-if="item.path">
+         <i class="sidebar-menu-item-icon" v-bind:class="item.meta.iconClass"></i>
          {{item.meta.title}}
        </router-link>
        <a href="#"
@@ -13,6 +14,7 @@
           class="sidebar-link"
           v-bind:class="{expanded: item.meta.expanded}"
           v-else>
+         <i class="sidebar-menu-item-icon" v-bind:class="item.meta.iconClass"></i>
          {{item.meta.title}}
          <i class="expand-icon fa fa-angle-down"></i>
        </a>
@@ -121,6 +123,15 @@
         }
       }
 
+      .sidebar-menu-item-icon {
+        font-size: $sidebar-menu-item-icon-size;
+        margin-right: 14px;
+
+        &.fa-dashboard {       /* Temp fix */
+          position: relative;
+          top: -2px
+        }
+      }
     }
 
     .sidebar-menu, .sidebar-submenu {
@@ -138,6 +149,10 @@
         background-color: $sidebar-link-active-bg;
         padding-left: 2 * $sidebar-link-pl;
       }
+    }
+
+    .sidebar-menu {
+      margin-bottom: 0;
     }
   }
 </style>

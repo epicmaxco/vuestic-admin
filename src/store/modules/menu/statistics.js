@@ -4,7 +4,8 @@ export default {
   name: 'Statistics',
   meta: {
     expanded: false,
-    title: 'Statistics'
+    title: 'Statistics',
+    iconClass: 'fa fa-bar-chart-o'
   },
 
   children: [

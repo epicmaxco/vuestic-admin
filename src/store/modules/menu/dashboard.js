@@ -6,6 +6,7 @@ export default {
   component: lazyLoading('dashboard/Dashboard'),
   meta: {
     default: true,
-    title: 'Dashboard'
+    title: 'Dashboard',
+    iconClass: 'fa fa-dashboard'
   }
 }
