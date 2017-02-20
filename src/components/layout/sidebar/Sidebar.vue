@@ -2,15 +2,22 @@
   <aside class="sidebar">
    <ul class="sidebar-menu">
      <li v-for="(item, index) in menuItems">
-       <router-link :to="item.path" @click="toggleMenuItem(item)" v-if="item.path">
+       <router-link :to="item.path"
+                    class="sidebar-link"
+                    @click="toggleMenuItem(item)"
+                    v-if="item.path">
          {{item.meta.title}}
        </router-link>
-       <a href="#" @click.prevent="toggleMenuItem(item)" v-else>
+       <a href="#"
+          @click.prevent="toggleMenuItem(item)"
+          class="sidebar-link"
+          v-bind:class="{expanded: item.meta.expanded}"
+          v-else>
          {{item.meta.title}}
        </a>
        <ul class="sidebar-submenu" v-show="item.children && item.meta.expanded">
          <li v-for="childItem in item.children">
-           <router-link :to="childItem.path">
+           <router-link :to="childItem.path" class="sidebar-link sidebar-sumenu-link">
              {{childItem.meta.title}}
            </router-link>
          </li>
@@ -84,8 +91,34 @@
     left: $sidebar-left;
     background: $sidebar-bg;
 
-    .router-link-active {
-      color: green;
+    .sidebar-link {
+      height: $sidebar-link-height;
+      padding-left: $sidebar-link-pl;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      &.router-link-active, &:hover, &.expanded {
+        color: white;
+        text-decoration: none;
+        background-color: $sidebar-link-active-bg;
+      }
+    }
+
+    .sidebar-menu, .sidebar-submenu {
+      list-style: none;
+      padding-left: 0;
+
+      li {
+        display: block;
+        padding-left: 0;
+      }
+    }
+
+    .sidebar-submenu {
+      .sidebar-link {
+        background-color: $sidebar-link-active-bg;
+        padding-left: 2 * $sidebar-link-pl;
+      }
     }
   }
 </style>
