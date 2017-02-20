@@ -6,7 +6,6 @@ export default {
     expanded: false,
     title: 'Statistics'
   },
-  component: lazyLoading('charts', true),
 
   children: [
     {
