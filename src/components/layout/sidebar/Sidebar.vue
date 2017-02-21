@@ -18,13 +18,15 @@
          {{item.meta.title}}
          <i class="expand-icon fa fa-angle-down"></i>
        </a>
-       <ul class="sidebar-submenu" v-show="item.children && item.meta.expanded">
-         <li v-for="childItem in item.children">
-           <router-link :to="childItem.path" class="sidebar-link sidebar-sumenu-link">
-             {{childItem.meta.title}}
-           </router-link>
-         </li>
-       </ul>
+       <expanding>
+         <ul class="sidebar-submenu" v-show="item.meta.expanded">
+           <li v-for="childItem in item.children">
+             <router-link :to="childItem.path" class="sidebar-link sidebar-sumenu-link">
+               {{childItem.meta.title}}
+             </router-link>
+           </li>
+         </ul>
+       </expanding>
      </li>
    </ul>
   </aside>
@@ -32,9 +34,14 @@
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
+  import Expanding from '../../../../node_modules/vue-bulma-expanding/src/Expanding'
 
   export default {
     name: 'sidebar',
+
+    components: {
+      Expanding
+    },
 
     computed: mapGetters({
       menuItems: 'menuItems'
@@ -119,6 +126,7 @@
         right: $sidebar-arrow-right;
         top: calc(50% - #{$font-size-root}/2);
         font-weight: bold;
+        transition: transform 0.3s ease;
       }
 
       &.expanded {
