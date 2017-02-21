@@ -105,9 +105,13 @@
       cursor: pointer;
       text-decoration: none;
 
-      &.router-link-active, &:hover, &.expanded {
+      &.router-link-active, &:hover {
         color: white;
         background-color: $sidebar-link-active-bg;
+
+        .sidebar-menu-item-icon {
+          color: white;
+        }
       }
 
       .expand-icon {
@@ -125,6 +129,7 @@
 
       .sidebar-menu-item-icon {
         font-size: $sidebar-menu-item-icon-size;
+        color: #000;
         margin-right: 14px;
 
         &.fa-dashboard {       /* Temp fix */
@@ -146,7 +151,6 @@
 
     .sidebar-submenu {
       .sidebar-link {
-        background-color: $sidebar-link-active-bg;
         padding-left: $sidebar-submenu-link-pl;
         font-size: $font-size-smaller;
       }
