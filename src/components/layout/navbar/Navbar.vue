@@ -4,7 +4,8 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a class="menu-icon i-menu-expanded" href="#"></a>
+    <a class="menu-icon i-menu-expanded" href="#" @click.prevent="toggleSidebar(false)" v-if="sidebarOpened"></a>
+    <a class="menu-icon i-menu-collapsed" href="#" @click.prevent="toggleSidebar(true)" v-else></a>
 
     <a class="navbar-brand" href="#">
       <i class="i-vuestic"></i>
@@ -29,8 +30,20 @@
 </template>
 
 <script>
+  import { mapGetters, mapActions } from 'vuex'
+
   export default {
-    name: 'navbar'
+    name: 'navbar',
+
+    computed: mapGetters([
+      'sidebarOpened'
+    ]),
+
+    methods: {
+      ...mapActions([
+        'toggleSidebar'
+      ])
+    }
   }
 </script>
 
