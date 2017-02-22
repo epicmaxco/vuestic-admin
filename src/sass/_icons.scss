@@ -18,3 +18,17 @@
   height: 15.4px;
   background: url('assets/icons/vuestic.svg') no-repeat center center;
 }
+
+.i-menu-expanded {
+  display: inline-block;
+  width: 24px;
+  height: 20px;
+  background: url('assets/icons/menu-expanded.svg') no-repeat center center;
+}
+
+.i-menu-collapsed {
+  display: inline-block;
+  width: 24px;
+  height: 20px;
+  background: url('assets/icons/menu-collapsed.svg') no-repeat center center;
+}

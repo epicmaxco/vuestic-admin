@@ -3,6 +3,9 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+    <a class="menu-icon i-menu-expanded" href="#"></a>
+
     <a class="navbar-brand" href="#">
       <i class="i-vuestic"></i>
     </a>
@@ -46,6 +49,10 @@
       height: 50px;
       background-color: white;
       border-radius: 50%;
+    }
+
+    .menu-icon {
+      margin-right: 28px;
     }
 
     .notify {
