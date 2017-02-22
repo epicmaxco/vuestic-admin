@@ -1,9 +1,9 @@
 
 // Colors //
-$light-gray: #eeeeee;
+$light-gray: #eee;
 $darkest-gray: #444;
 $vue-green: #4ae387;
-
+$white: #fff;
 $brand-primary: $vue-green !default;
 
 // Layout //
@@ -63,6 +63,6 @@ $sidebar-menu-item-icon-size: 19px;
 $sidebar-box-shadow: 0px 10px 25px 1px rgba(74,227,135,0.2);
 
 //Widgets
-$widget-bg: white;
+$widget-bg: $white;
 $widget-padding: 34px;
 $widget-box-shadow: 0px 4px 70px -18px rgba(112,112,112,1);

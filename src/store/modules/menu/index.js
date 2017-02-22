@@ -2,12 +2,14 @@ import * as types from '../../mutation-types'
 import statistics from './statistics'
 import forms from './forms'
 import dashboard from './dashboard'
+import ui from './ui'
 
 const state = {
   items: [
     dashboard,
     statistics,
-    forms
+    forms,
+    ui
   ]
 }
 
