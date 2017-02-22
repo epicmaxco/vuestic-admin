@@ -101,6 +101,11 @@
     left: $sidebar-left;
     background: $sidebar-bg;
     box-shadow: $sidebar-box-shadow;
+    transition: left 0.3s ease;
+
+    .sidebar-hidden & {
+      left: -$sidebar-width;
+    }
 
     .sidebar-link {
       position: relative;
