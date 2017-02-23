@@ -27,6 +27,8 @@ $content-wrap-pr: $layout-padding-right;
 $content-wrap-pt: $layout-padding;
 $content-wrap-pb: $layout-padding;
 
+$min-z-index: -1000;
+
 
 
 // Typography
@@ -59,6 +61,8 @@ $sidebar-submenu-link-pl: 74px;
 $sidebar-link-active-bg: #2d2d2d;
 $sidebar-arrow-right: 16px;
 $sidebar-menu-item-icon-size: 19px;
+
+$sidebar-hidden-top: -150px;
 
 $sidebar-box-shadow: 0px 10px 25px 1px rgba(74,227,135,0.2);
 

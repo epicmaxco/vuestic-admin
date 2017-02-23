@@ -101,10 +101,14 @@
     left: $sidebar-left;
     background: $sidebar-bg;
     box-shadow: $sidebar-box-shadow;
-    transition: left 0.3s ease;
+    transition: all 0.2s ease;
+    opacity: 1;
+    z-index: 1;
 
     .sidebar-hidden & {
-      left: -$sidebar-width;
+      top: $sidebar-hidden-top;
+      opacity: 0;
+      z-index: $min-z-index;
     }
 
     .sidebar-link {
