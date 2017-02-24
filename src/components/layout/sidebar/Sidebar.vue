@@ -122,11 +122,11 @@
       text-decoration: none;
 
       &.router-link-active, &:hover {
-        color: white;
+        color: $white;
         background-color: $sidebar-link-active-bg;
 
         .sidebar-menu-item-icon {
-          color: white;
+          color: $white;
         }
       }
 
@@ -154,6 +154,10 @@
           top: -2px
         }
       }
+    }
+
+    .sidebar-sumenu-link {
+    height: $sidebar-submenu-link-height;
     }
 
     .sidebar-menu, .sidebar-submenu {

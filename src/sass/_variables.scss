@@ -1,7 +1,7 @@
 
 // Colors //
 $light-gray: #eee;
-$darkest-gray: #444;
+$darkest-gray: #333;
 $vue-green: #4ae387;
 $white: #fff;
 $brand-primary: $vue-green !default;
@@ -36,7 +36,7 @@ $min-z-index: -1000;
 
 //$text-color:            $gray !default;
 
-$font-family-sans-serif: 'Roboto', sans-serif !default;
+$font-family-sans-serif: 'Source Sans Pro', sans-serif !default;
 
 $font-size-root: 16px;
 
@@ -56,9 +56,10 @@ $font-size-smaller: 85% !default;
 
 //Sidebar
 $sidebar-link-height: 64px;
+$sidebar-submenu-link-height: 48px;
 $sidebar-link-pl: 25px;
 $sidebar-submenu-link-pl: 74px;
-$sidebar-link-active-bg: #2d2d2d;
+$sidebar-link-active-bg: #161616;
 $sidebar-arrow-right: 16px;
 $sidebar-menu-item-icon-size: 19px;
 
