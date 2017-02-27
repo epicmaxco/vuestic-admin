@@ -33,10 +33,18 @@
               </div>
           </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
+        <li class="nav-item dropdown navbar-dropdown" v-dropdown>
+          <a class="nav-link dropdown-toggle" href="#">
             <span class="avatar-container"></span>
           </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-item plain-link-item">
+              <a class="plain-link" href="#">My Profile</a>
+            </div>
+            <div class="dropdown-item plain-link-item">
+              <a class="plain-link" href="#">Logout</a>
+            </div>
+          </div>
         </li>
       </ul>
     </div>
