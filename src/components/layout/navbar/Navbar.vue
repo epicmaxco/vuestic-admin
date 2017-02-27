@@ -16,8 +16,13 @@
         <li class="nav-item">
           <a class="nav-link" href="#"><span class="i-nav-messages notify"></span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><span class="i-nav-notification notify"></span></a>
+        <li class="nav-item dropdown" v-dropdown>
+          <a class="nav-link dropdown-toggle" href="#"><span class="i-nav-notification notify"></span></a>
+          <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
@@ -31,9 +36,14 @@
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
+  import Dropdown from 'directives/Dropdown'
 
   export default {
     name: 'navbar',
+
+    directives: {
+      dropdown: Dropdown
+    },
 
     computed: mapGetters([
       'sidebarOpened'
@@ -66,6 +76,12 @@
 
     .menu-icon {
       margin-right: 28px;
+    }
+
+    .dropdown-toggle {
+      &:after {
+        display: none;
+      }
     }
 
     .notify {
