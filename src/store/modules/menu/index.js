@@ -3,13 +3,15 @@ import statistics from './statistics'
 import forms from './forms'
 import dashboard from './dashboard'
 import ui from './ui'
+import maps from './maps'
 
 const state = {
   items: [
     dashboard,
     statistics,
     forms,
-    ui
+    ui,
+    maps
   ]
 }
 
