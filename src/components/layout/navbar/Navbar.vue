@@ -28,9 +28,9 @@
               <a class="dropdown-item" href="#">
                 <span class="ellipsis">Andrei H started a new topic</span>
               </a>
-              <a class="dropdown-item simple-link" href="#">
-                <span class="ellipsis">Andrei H started a new topic</span>
-              </a>
+              <div class="dropdown-item plain-link-item">
+                <a class="plain-link" href="#">See all notifications</a>
+              </div>
           </div>
         </li>
         <li class="nav-item">
@@ -135,6 +135,18 @@
         &:hover, &:active, &:focus {
           outline: none;
           background-color: $navbar-dd-item-hover-bg;
+        }
+
+        &.plain-link-item {
+          color: $brand-primary;
+
+          &:hover, &:active, &:focus {
+            background-color: $darkest-gray;
+          }
+
+          .plain-link {
+            text-decoration: none;
+          }
         }
       }
     }
