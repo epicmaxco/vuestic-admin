@@ -19,9 +19,18 @@
         <li class="nav-item dropdown navbar-dropdown" v-dropdown>
           <a class="nav-link dropdown-toggle" href="#"><span class="i-nav-notification notify"></span></a>
           <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Vasily S sent you a message</a>
-              <a class="dropdown-item" href="#">Oleg M uploaded new Zip file with typography component</a>
-              <a class="dropdown-item" href="#">Andrei H started a new topic</a>
+              <a class="dropdown-item" href="#">
+                <span class="ellipsis">Vasily S sent you a message</span>
+              </a>
+              <a class="dropdown-item" href="#">
+                <span class="ellipsis">Oleg M uploaded new Zip file with typography component</span>
+              </a>
+              <a class="dropdown-item" href="#">
+                <span class="ellipsis">Andrei H started a new topic</span>
+              </a>
+              <a class="dropdown-item simple-link" href="#">
+                <span class="ellipsis">Andrei H started a new topic</span>
+              </a>
           </div>
         </li>
         <li class="nav-item">
@@ -90,11 +99,24 @@
           left: auto;
           right: 0;
         }
+        &:after {
+           position: absolute;
+           bottom: -16px;
+           right: calc(50% - 10px);
+           width: 0;
+           height: 0;
+           display: block;
+           content: '';
+           border-left: 10px solid transparent;
+           border-right: 10px solid transparent;
+           border-bottom: 10px solid $darkest-gray;
+         }
       }
 
       .dropdown-menu {
         margin-top: 15px;
         padding: 0;
+        max-width: 345px;
         border-radius: 0;
         background-color: $darkest-gray;
         box-shadow: $navbar-dd-box-shadow;
@@ -108,6 +130,7 @@
         align-items: center;
         color: $navbar-dd-item-color;
         padding: 0 25px;
+        cursor: pointer;
 
         &:hover, &:active, &:focus {
           outline: none;

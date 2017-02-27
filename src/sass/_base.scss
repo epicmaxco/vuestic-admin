@@ -4,3 +4,10 @@ html {
 body {
   min-height: 100%;
 }
+
+//Util classes
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
