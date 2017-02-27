@@ -16,12 +16,12 @@
         <li class="nav-item">
           <a class="nav-link" href="#"><span class="i-nav-messages notify"></span></a>
         </li>
-        <li class="nav-item dropdown" v-dropdown>
+        <li class="nav-item dropdown navbar-dropdown" v-dropdown>
           <a class="nav-link dropdown-toggle" href="#"><span class="i-nav-notification notify"></span></a>
           <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="#">Vasily S sent you a message</a>
+              <a class="dropdown-item" href="#">Oleg M uploaded new Zip file with typography component</a>
+              <a class="dropdown-item" href="#">Andrei H started a new topic</a>
           </div>
         </li>
         <li class="nav-item">
@@ -78,9 +78,41 @@
       margin-right: 28px;
     }
 
-    .dropdown-toggle {
-      &:after {
-        display: none;
+    .dropdown.navbar-dropdown {
+      .dropdown-toggle {
+        &:after {
+           display: none;
+         }
+      }
+
+      &.show {
+        .dropdown-menu {
+          left: auto;
+          right: 0;
+        }
+      }
+
+      .dropdown-menu {
+        margin-top: 15px;
+        padding: 0;
+        border-radius: 0;
+        background-color: $darkest-gray;
+        box-shadow: $navbar-dd-box-shadow;
+      }
+
+
+      .dropdown-item {
+        height: $navbar-dd-item-height;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        color: $navbar-dd-item-color;
+        padding: 0 25px;
+
+        &:hover, &:active, &:focus {
+          outline: none;
+          background-color: $navbar-dd-item-hover-bg;
+        }
       }
     }
 

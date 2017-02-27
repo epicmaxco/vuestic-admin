@@ -2,6 +2,7 @@
 // Colors //
 $light-gray: #eee;
 $darkest-gray: #333;
+$almost-black: #161616;
 $vue-green: #4ae387;
 $white: #fff;
 $brand-primary: $vue-green !default;
@@ -26,6 +27,8 @@ $content-wrap-ml: calc(#{$sidebar-left} + #{$sidebar-width} + 35px);
 $content-wrap-pr: $layout-padding-right;
 $content-wrap-pt: $layout-padding;
 $content-wrap-pb: $layout-padding;
+
+$greeny-box-shadow: 0px 10px 25px 1px rgba(74,227,135,0.2);
 
 $min-z-index: -1000;
 
@@ -53,19 +56,24 @@ $font-weight-base: $font-weight-thin !default;
 
 $font-size-smaller: 85% !default;
 
+//Navbar
+$navbar-dd-item-height: 48px;
+$navbar-dd-item-color: $white;
+$navbar-dd-item-hover-bg: $almost-black;
+$navbar-dd-box-shadow: $greeny-box-shadow;
 
 //Sidebar
 $sidebar-link-height: 64px;
 $sidebar-submenu-link-height: 48px;
 $sidebar-link-pl: 25px;
 $sidebar-submenu-link-pl: 74px;
-$sidebar-link-active-bg: #161616;
+$sidebar-link-active-bg: $almost-black;
 $sidebar-arrow-right: 16px;
 $sidebar-menu-item-icon-size: 19px;
 
 $sidebar-hidden-top: -150px;
 
-$sidebar-box-shadow: 0px 10px 25px 1px rgba(74,227,135,0.2);
+$sidebar-box-shadow: $greeny-box-shadow;
 
 //Widgets
 $widget-bg: $white;
