@@ -3,8 +3,9 @@ export default function (el) {
   let ddMenu = el.querySelector('.dropdown-menu')
 
   ddToggle.addEventListener('click', function (evt) {
-    el.classList.toggle('show')
-    evt.stopPropagation()
+    evt.preventDefault()
+    let isShown = el.classList.contains('show')
+    setTimeout(() => el.classList.toggle('show', !isShown))
   })
 
   window.addEventListener('click', function () {
