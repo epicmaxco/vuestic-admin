@@ -1,5 +1,5 @@
 <template>
-  <div class="google-maps-page">
+  <div class="bubble-maps-page">
     <div class="row">
       <widget class="col-sm-12">
         <bubble-map></bubble-map>
