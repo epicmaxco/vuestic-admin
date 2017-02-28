@@ -24,6 +24,14 @@ export default {
       meta: {
         title: 'Leaflet Maps'
       }
+    },
+    {
+      name: 'BubbleMaps',
+      path: '/maps/bubble-maps',
+      component: lazyLoading('maps/bubble-maps/BubbleMapsPage'),
+      meta: {
+        title: 'Bubble Maps'
+      }
     }
   ]
 }
