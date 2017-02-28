@@ -12,7 +12,7 @@
           <p>The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands, mountains, and coastal hills. However, various anthropogenic factors have had a severe impact on zebra populations, in particular hunting for skins and habitat destruction. Grévy's zebra and the mountain highlighted text zebra are endangered.</p>
           <blockquote class="blockquote">
             <p>Blockquotes. However, various anthropogenic factors have had a severe impact on zebra populations, in particular hunting for skins. </p>
-            <footer class="blockquote-footer">--- Jefferey Lebowski</footer>
+            <footer class="blockquote-footer">Jefferey Lebowski</footer>
           </blockquote>
           <p>lthough zebra species may have overlapping ranges, they do not interbreed. In captivity, plains zebras have been crossed with mountain zebras. The hybrid foals selected text lacked a dewlap and resembled the plains zebra apart from their larger ears and their hindquarters pattern.</p>
         </div>
@@ -21,7 +21,7 @@
           <div class="row">
             <div class="col-md-6">
               <h3>Unodrered</h3>
-              <ul>
+              <ul class="vue-unordered">
                 <li>A wide variety of hypotheses have been proposed to account for the evolution of the striking stripes of zebras.</li>
                 <li>The more traditional of these (1 and 2, below) relate to camouflage.</li>
                 <li>The vertical striping may help the zebra hide in the grass by disrupting its outline.</li>
@@ -38,7 +38,7 @@
             </div>
             <div class="col-md-6">
               <h3>Ordered</h3>
-              <ol>
+              <ol class="vue-ordered">
                 <li>A wide variety of hypotheses have been proposed to account for the evolution of the striking stripes of zebras.</li>
                 <li>The more traditional of these (1 and 2, below) relate to camouflage.</li>
                 <li>The vertical striping may help the zebra hide in the grass by disrupting its outline.</li>
@@ -63,9 +63,13 @@
               <h3>Address</h3>
               <address>
                 <strong>SJØNNA</strong><br>
-                1355 Market Street, Suite 900<br>
-                San Francisco, CA 94103<br>
-                <abbr title="Phone">P:</abbr> (123) 456-7890
+                Nezalezhnasti Ave, 13 - 28A<br>
+                Minsk, Belarus, 220141<br>
+                +375 29 319-53-98<br>
+                <br>
+                <b>Vasili Savitski</b><br>
+                <a href="mailto">hello@sjonja.by</a>
+
               </address>
             </div>
             <div class="col-md-6">

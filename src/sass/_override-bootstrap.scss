@@ -10,3 +10,33 @@
   align-items: center;
 }
 
+//Typography
+h1, .h1 {
+  margin-bottom :2.25rem;
+}
+h2, .h2 {
+  margin-bottom :2rem;
+}
+h3, .h3 {
+  margin-bottom :1.5rem;
+}
+h4, .h4 {
+  margin-bottom :1rem;
+}
+
+.blockquote {
+  padding: 0 ($spacer *1.625);
+
+  color: $blockquote-small-color;
+  line-height: 2rem;
+
+  //p:last-of-type {
+  //  margin-bottom :0;
+  //}
+}
+
+.blockquote-footer {
+  &::before {
+    content: "--- "; // em dash, nbsp
+  }
+}
