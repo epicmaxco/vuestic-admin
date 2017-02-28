@@ -4,13 +4,33 @@
 </template>
 
 <script>
+  import 'leaflet-map'
+  import * as L from 'leaflet'
+
   export default {
     name: 'leaflet-map',
 
-    mounted () {}
+    mounted () {
+      L.Icon.Default.imagePath = 'assets/vendor/leaflet'
+
+      var map = L.map(this.$el).setView([51.505, -0.09], 13)
+
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map)
+
+      L.marker([51.5, -0.09]).addTo(map)
+        .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+        .openPopup()
+    }
   }
 </script>
 
 <style lang="scss">
+  @import "../../../../node_modules/leaflet/dist/leaflet.css";
   @import "../../../sass/_variables.scss";
+
+  .leaflet-map {
+    height: $widget-content-viewport-height;
+  }
 </style>
