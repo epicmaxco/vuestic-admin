@@ -13,8 +13,19 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#"><span class="i-nav-messages notify"></span></a>
+        <li class="nav-item dropdown navbar-dropdown" v-dropdown>
+          <a class="nav-link dropdown-toggle" href="#"><span class="i-nav-messages notify"></span></a>
+          <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">
+            <span class="ellipsis">New messages from Oleg M</span>
+          </a>
+          <a class="dropdown-item" href="#">
+            <span class="ellipsis">New messages from Andrei H</span>
+          </a>
+            <div class="dropdown-item plain-link-item">
+              <a class="plain-link" href="#">See all messages</a>
+            </div>
+          </div>
         </li>
         <li class="nav-item dropdown navbar-dropdown" v-dropdown>
           <a class="nav-link dropdown-toggle" href="#"><span class="i-nav-notification notify"></span></a>
