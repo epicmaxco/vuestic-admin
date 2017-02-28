@@ -11,7 +11,8 @@
     name: 'leaflet-map',
 
     mounted () {
-      L.Icon.Default.imagePath = 'assets/vendor/leaflet'
+//    L.Icon.Default.imagePath = 'assets/vendor/leaflet' TODO: make it work with webpack
+      L.Icon.Default.imagePath = 'https://unpkg.com/leaflet@1.0.3/dist/images'
 
       var map = L.map(this.$el).setView([51.505, -0.09], 13)
 
