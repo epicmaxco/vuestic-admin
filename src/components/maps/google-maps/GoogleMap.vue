@@ -4,12 +4,19 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
   import * as GoogleMapsLoader from 'google-maps'
 
   export default {
     name: 'google-map',
 
+    computed: mapGetters({
+      config: 'config'
+    }),
+
     mounted () {
+      GoogleMapsLoader.KEY = this.config.googleMaps.apiKey
+
       GoogleMapsLoader.load((google) => {
         /* eslint-disable no-new */
         new google.maps.Map(this.$el, {

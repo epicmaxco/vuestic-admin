@@ -3,6 +3,11 @@ import * as types from '../mutation-types'
 const state = {
   sidebar: {
     opened: true
+  },
+  config: {
+    googleMaps: {
+      apiKey: 'AIzaSyBNAqPrTQoz9P4NBlDDyfxrnKiafkaL8iQ'
+    }
   }
 }
 
