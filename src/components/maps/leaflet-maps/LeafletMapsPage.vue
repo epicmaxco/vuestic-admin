@@ -2,20 +2,20 @@
   <div class="google-maps-page">
     <div class="row">
       <widget class="col-sm-12">
-        <google-map></google-map>
+        <leaflet-map></leaflet-map>
       </widget>
     </div>
   </div>
 </template>
 
 <script>
-  import GoogleMap from './GoogleMap'
+  import LeafletMap from './LeafletMap'
   import Widget from 'components/common/widget/Widget'
 
   export default {
-    name: 'google-maps-page',
+    name: 'leaflet-maps-page',
     components: {
-      GoogleMap,
+      LeafletMap,
       Widget
     }
   }

@@ -16,6 +16,14 @@ export default {
       meta: {
         title: 'Google Maps'
       }
+    },
+    {
+      name: 'LeafletMaps',
+      path: '/maps/leaflet-maps',
+      component: lazyLoading('maps/leaflet-maps/LeafletMapsPage'),
+      meta: {
+        title: 'Leaflet Maps'
+      }
     }
   ]
 }

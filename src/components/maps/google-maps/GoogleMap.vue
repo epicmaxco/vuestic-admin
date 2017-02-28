@@ -1,5 +1,5 @@
 <template>
-  <div class="google-maps">
+  <div class="google-map">
   </div>
 </template>
 
@@ -7,7 +7,7 @@
   import * as GoogleMapsLoader from 'google-maps'
 
   export default {
-    name: 'google-maps',
+    name: 'google-map',
 
     mounted () {
       GoogleMapsLoader.load((google) => {
@@ -25,7 +25,7 @@
 <style lang="scss">
   @import "../../../sass/_variables.scss";
 
-  .google-maps {
+  .google-map {
     height: $widget-content-viewport-height;
   }
 </style>
