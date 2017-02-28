@@ -12,7 +12,7 @@ export default {
     {
       name: 'GoogleMaps',
       path: '/maps/google-maps',
-      component: lazyLoading('maps/google-maps/GoogleMaps'),
+      component: lazyLoading('maps/google-maps/GoogleMapsPage'),
       meta: {
         title: 'Google Maps'
       }
