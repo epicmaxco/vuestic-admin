@@ -10,6 +10,7 @@
 
 <script>
   import LineMap from './LineMap'
+  import LineMapData from './LineMapData'
   import Widget from 'components/common/widget/Widget'
 
   export default {
@@ -20,7 +21,7 @@
     },
     data: function () {
       return {
-        lineMapData: {}
+        lineMapData: LineMapData
       }
     }
   }
