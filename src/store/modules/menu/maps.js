@@ -32,6 +32,14 @@ export default {
       meta: {
         title: 'Bubble Maps'
       }
+    },
+    {
+      name: 'LineMaps',
+      path: '/maps/line-maps',
+      component: lazyLoading('maps/line-maps/LineMapsPage'),
+      meta: {
+        title: 'Line Maps'
+      }
     }
   ]
 }
