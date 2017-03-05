@@ -1,7 +1,7 @@
 <template>
   <div class="google-maps-page">
     <div class="row">
-      <widget class="col-sm-12 widget-viewport-height">
+      <widget class="col-sm-12 widget-viewport-height" header-text="Leaflet Maps">
         <leaflet-map></leaflet-map>
       </widget>
     </div>
