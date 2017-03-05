@@ -32,6 +32,6 @@
   @import "../../../sass/_variables.scss";
 
   .leaflet-map {
-    height: $widget-content-viewport-height;
+    height: 100%;
   }
 </style>

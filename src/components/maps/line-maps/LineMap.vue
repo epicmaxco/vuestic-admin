@@ -62,6 +62,6 @@
   @import '../../../../node_modules/ammap3/ammap/ammap.css';
 
   .line-map {
-    height: $widget-content-viewport-height;
+    height: 100%;
   }
 </style>

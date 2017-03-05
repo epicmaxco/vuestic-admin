@@ -100,6 +100,6 @@
   @import '../../../../node_modules/ammap3/ammap/ammap.css';
 
   .bubble-map {
-    height: $widget-content-viewport-height;
+    height: 100%;
   }
 </style>

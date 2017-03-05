@@ -33,6 +33,6 @@
   @import "../../../sass/_variables.scss";
 
   .google-map {
-    height: $widget-content-viewport-height;
+    height: 100%;
   }
 </style>

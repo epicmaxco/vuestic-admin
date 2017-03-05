@@ -1,7 +1,7 @@
 <template>
   <div class="bubble-maps-page">
     <div class="row">
-      <widget class="col-sm-12">
+      <widget class="col-sm-12 widget-viewport-height">
         <bubble-map v-bind:map-data="bubbleMapData"></bubble-map>
       </widget>
     </div>
