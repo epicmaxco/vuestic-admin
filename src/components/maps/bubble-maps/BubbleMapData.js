@@ -969,27 +969,27 @@ let data = [{
   'code': 'AL',
   'name': 'Albania',
   'value': 3215988,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'DZ',
   'name': 'Algeria',
   'value': 35980193,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'AO',
   'name': 'Angola',
   'value': 19618432,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'AR',
   'name': 'Argentina',
   'value': 40764561,
-  'color': '#86a965'
+  'color': '#6be59c'
 }, {
   'code': 'AM',
   'name': 'Armenia',
   'value': 3100236,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'AU',
   'name': 'Australia',
@@ -999,12 +999,12 @@ let data = [{
   'code': 'AT',
   'name': 'Austria',
   'value': 8413429,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'AZ',
   'name': 'Azerbaijan',
   'value': 9306023,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'BH',
   'name': 'Bahrain',
@@ -1019,17 +1019,17 @@ let data = [{
   'code': 'BY',
   'name': 'Belarus',
   'value': 9559441,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'BE',
   'name': 'Belgium',
   'value': 10754056,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'BJ',
   'name': 'Benin',
   'value': 9099922,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'BT',
   'name': 'Bhutan',
@@ -1039,22 +1039,22 @@ let data = [{
   'code': 'BO',
   'name': 'Bolivia',
   'value': 10088108,
-  'color': '#86a965'
+  'color': '#6be59c'
 }, {
   'code': 'BA',
   'name': 'Bosnia and Herzegovina',
   'value': 3752228,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'BW',
   'name': 'Botswana',
   'value': 2030738,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'BR',
   'name': 'Brazil',
   'value': 196655014,
-  'color': '#86a965'
+  'color': '#6be59c'
 }, {
   'code': 'BN',
   'name': 'Brunei',
@@ -1064,17 +1064,17 @@ let data = [{
   'code': 'BG',
   'name': 'Bulgaria',
   'value': 7446135,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'BF',
   'name': 'Burkina Faso',
   'value': 16967845,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'BI',
   'name': 'Burundi',
   'value': 8575172,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'KH',
   'name': 'Cambodia',
@@ -1084,32 +1084,32 @@ let data = [{
   'code': 'CM',
   'name': 'Cameroon',
   'value': 20030362,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'CA',
   'name': 'Canada',
   'value': 34349561,
-  'color': '#a7a737'
+  'color': '#f6d35b'
 }, {
   'code': 'CV',
   'name': 'Cape Verde',
   'value': 500585,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'CF',
   'name': 'Central African Rep.',
   'value': 4486837,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'TD',
   'name': 'Chad',
   'value': 11525496,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'CL',
   'name': 'Chile',
   'value': 17269525,
-  'color': '#86a965'
+  'color': '#6be59c'
 }, {
   'code': 'CN',
   'name': 'China',
@@ -1119,102 +1119,102 @@ let data = [{
   'code': 'CO',
   'name': 'Colombia',
   'value': 46927125,
-  'color': '#86a965'
+  'color': '#6be59c'
 }, {
   'code': 'KM',
   'name': 'Comoros',
   'value': 753943,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'CD',
   'name': 'Congo, Dem. Rep.',
   'value': 67757577,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'CG',
   'name': 'Congo, Rep.',
   'value': 4139748,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'CR',
   'name': 'Costa Rica',
   'value': 4726575,
-  'color': '#a7a737'
+  'color': '#f6d35b'
 }, {
   'code': 'CI',
   'name': 'Cote d\'Ivoire',
   'value': 20152894,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'HR',
   'name': 'Croatia',
   'value': 4395560,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'CU',
   'name': 'Cuba',
   'value': 11253665,
-  'color': '#a7a737'
+  'color': '#f6d35b'
 }, {
   'code': 'CY',
   'name': 'Cyprus',
   'value': 1116564,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'CZ',
   'name': 'Czech Rep.',
   'value': 10534293,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'DK',
   'name': 'Denmark',
   'value': 5572594,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'DJ',
   'name': 'Djibouti',
   'value': 905564,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'DO',
   'name': 'Dominican Rep.',
   'value': 10056181,
-  'color': '#a7a737'
+  'color': '#f6d35b'
 }, {
   'code': 'EC',
   'name': 'Ecuador',
   'value': 14666055,
-  'color': '#86a965'
+  'color': '#6be59c'
 }, {
   'code': 'EG',
   'name': 'Egypt',
   'value': 82536770,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'SV',
   'name': 'El Salvador',
   'value': 6227491,
-  'color': '#a7a737'
+  'color': '#f6d35b'
 }, {
   'code': 'GQ',
   'name': 'Equatorial Guinea',
   'value': 720213,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'ER',
   'name': 'Eritrea',
   'value': 5415280,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'EE',
   'name': 'Estonia',
   'value': 1340537,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'ET',
   'name': 'Ethiopia',
   'value': 84734262,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'FJ',
   'name': 'Fiji',
@@ -1224,72 +1224,72 @@ let data = [{
   'code': 'FI',
   'name': 'Finland',
   'value': 5384770,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'FR',
   'name': 'France',
   'value': 63125894,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'GA',
   'name': 'Gabon',
   'value': 1534262,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'GM',
   'name': 'Gambia',
   'value': 1776103,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'GE',
   'name': 'Georgia',
   'value': 4329026,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'DE',
   'name': 'Germany',
   'value': 82162512,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'GH',
   'name': 'Ghana',
   'value': 24965816,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'GR',
   'name': 'Greece',
   'value': 11390031,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'GT',
   'name': 'Guatemala',
   'value': 14757316,
-  'color': '#a7a737'
+  'color': '#f6d35b'
 }, {
   'code': 'GN',
   'name': 'Guinea',
   'value': 10221808,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'GW',
   'name': 'Guinea-Bissau',
   'value': 1547061,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'GY',
   'name': 'Guyana',
   'value': 756040,
-  'color': '#86a965'
+  'color': '#6be59c'
 }, {
   'code': 'HT',
   'name': 'Haiti',
   'value': 10123787,
-  'color': '#a7a737'
+  'color': '#f6d35b'
 }, {
   'code': 'HN',
   'name': 'Honduras',
   'value': 7754687,
-  'color': '#a7a737'
+  'color': '#f6d35b'
 }, {
   'code': 'HK',
   'name': 'Hong Kong, China',
@@ -1299,12 +1299,12 @@ let data = [{
   'code': 'HU',
   'name': 'Hungary',
   'value': 9966116,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'IS',
   'name': 'Iceland',
   'value': 324366,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'IN',
   'name': 'India',
@@ -1329,7 +1329,7 @@ let data = [{
   'code': 'IE',
   'name': 'Ireland',
   'value': 4525802,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'IL',
   'name': 'Israel',
@@ -1339,12 +1339,12 @@ let data = [{
   'code': 'IT',
   'name': 'Italy',
   'value': 60788694,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'JM',
   'name': 'Jamaica',
   'value': 2751273,
-  'color': '#a7a737'
+  'color': '#f6d35b'
 }, {
   'code': 'JP',
   'name': 'Japan',
@@ -1364,7 +1364,7 @@ let data = [{
   'code': 'KE',
   'name': 'Kenya',
   'value': 41609728,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'KR',
   'name': 'Korea, Dem. Rep.',
@@ -1394,7 +1394,7 @@ let data = [{
   'code': 'LV',
   'name': 'Latvia',
   'value': 2243142,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'LB',
   'name': 'Lebanon',
@@ -1404,42 +1404,42 @@ let data = [{
   'code': 'LS',
   'name': 'Lesotho',
   'value': 2193843,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'LR',
   'name': 'Liberia',
   'value': 4128572,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'LY',
   'name': 'Libya',
   'value': 6422772,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'LT',
   'name': 'Lithuania',
   'value': 3307481,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'LU',
   'name': 'Luxembourg',
   'value': 515941,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'MK',
   'name': 'Macedonia, FYR',
   'value': 2063893,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'MG',
   'name': 'Madagascar',
   'value': 21315135,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'MW',
   'name': 'Malawi',
   'value': 15380888,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'MY',
   'name': 'Malaysia',
@@ -1449,27 +1449,27 @@ let data = [{
   'code': 'ML',
   'name': 'Mali',
   'value': 15839538,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'MR',
   'name': 'Mauritania',
   'value': 3541540,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'MU',
   'name': 'Mauritius',
   'value': 1306593,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'MX',
   'name': 'Mexico',
   'value': 114793341,
-  'color': '#a7a737'
+  'color': '#f6d35b'
 }, {
   'code': 'MD',
   'name': 'Moldova',
   'value': 3544864,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'MN',
   'name': 'Mongolia',
@@ -1479,17 +1479,17 @@ let data = [{
   'code': 'ME',
   'name': 'Montenegro',
   'value': 632261,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'MA',
   'name': 'Morocco',
   'value': 32272974,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'MZ',
   'name': 'Mozambique',
   'value': 23929708,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'MM',
   'name': 'Myanmar',
@@ -1499,7 +1499,7 @@ let data = [{
   'code': 'NA',
   'name': 'Namibia',
   'value': 2324004,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'NP',
   'name': 'Nepal',
@@ -1509,7 +1509,7 @@ let data = [{
   'code': 'NL',
   'name': 'Netherlands',
   'value': 16664746,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'NZ',
   'name': 'New Zealand',
@@ -1519,22 +1519,22 @@ let data = [{
   'code': 'NI',
   'name': 'Nicaragua',
   'value': 5869859,
-  'color': '#a7a737'
+  'color': '#f6d35b'
 }, {
   'code': 'NE',
   'name': 'Niger',
   'value': 16068994,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'NG',
   'name': 'Nigeria',
   'value': 162470737,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'NO',
   'name': 'Norway',
   'value': 4924848,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'OM',
   'name': 'Oman',
@@ -1549,7 +1549,7 @@ let data = [{
   'code': 'PA',
   'name': 'Panama',
   'value': 3571185,
-  'color': '#a7a737'
+  'color': '#f6d35b'
 }, {
   'code': 'PG',
   'name': 'Papua New Guinea',
@@ -1559,12 +1559,12 @@ let data = [{
   'code': 'PY',
   'name': 'Paraguay',
   'value': 6568290,
-  'color': '#86a965'
+  'color': '#6be59c'
 }, {
   'code': 'PE',
   'name': 'Peru',
   'value': 29399817,
-  'color': '#86a965'
+  'color': '#6be59c'
 }, {
   'code': 'PH',
   'name': 'Philippines',
@@ -1574,17 +1574,17 @@ let data = [{
   'code': 'PL',
   'name': 'Poland',
   'value': 38298949,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'PT',
   'name': 'Portugal',
   'value': 10689663,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'PR',
   'name': 'Puerto Rico',
   'value': 3745526,
-  'color': '#a7a737'
+  'color': '#f6d35b'
 }, {
   'code': 'QA',
   'name': 'Qatar',
@@ -1594,17 +1594,17 @@ let data = [{
   'code': 'RO',
   'name': 'Romania',
   'value': 21436495,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'RU',
   'name': 'Russia',
   'value': 142835555,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'RW',
   'name': 'Rwanda',
   'value': 10942950,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'SA',
   'name': 'Saudi Arabia',
@@ -1614,17 +1614,17 @@ let data = [{
   'code': 'SN',
   'name': 'Senegal',
   'value': 12767556,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'RS',
   'name': 'Serbia',
   'value': 9853969,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'SL',
   'name': 'Sierra Leone',
   'value': 5997486,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'SG',
   'name': 'Singapore',
@@ -1634,12 +1634,12 @@ let data = [{
   'code': 'SK',
   'name': 'Slovak Republic',
   'value': 5471502,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'SI',
   'name': 'Slovenia',
   'value': 2035012,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'SB',
   'name': 'Solomon Islands',
@@ -1649,17 +1649,17 @@ let data = [{
   'code': 'SO',
   'name': 'Somalia',
   'value': 9556873,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'ZA',
   'name': 'South Africa',
   'value': 50459978,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'ES',
   'name': 'Spain',
   'value': 46454895,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'LK',
   'name': 'Sri Lanka',
@@ -1669,27 +1669,27 @@ let data = [{
   'code': 'SD',
   'name': 'Sudan',
   'value': 34735288,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'SR',
   'name': 'Suriname',
   'value': 529419,
-  'color': '#86a965'
+  'color': '#6be59c'
 }, {
   'code': 'SZ',
   'name': 'Swaziland',
   'value': 1203330,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'SE',
   'name': 'Sweden',
   'value': 9440747,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'CH',
   'name': 'Switzerland',
   'value': 7701690,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'SY',
   'name': 'Syria',
@@ -1709,7 +1709,7 @@ let data = [{
   'code': 'TZ',
   'name': 'Tanzania',
   'value': 46218486,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'TH',
   'name': 'Thailand',
@@ -1719,22 +1719,22 @@ let data = [{
   'code': 'TG',
   'name': 'Togo',
   'value': 6154813,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'TT',
   'name': 'Trinidad and Tobago',
   'value': 1346350,
-  'color': '#a7a737'
+  'color': '#f6d35b'
 }, {
   'code': 'TN',
   'name': 'Tunisia',
   'value': 10594057,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'TR',
   'name': 'Turkey',
   'value': 73639596,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'TM',
   'name': 'Turkmenistan',
@@ -1744,12 +1744,12 @@ let data = [{
   'code': 'UG',
   'name': 'Uganda',
   'value': 34509205,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'UA',
   'name': 'Ukraine',
   'value': 45190180,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'AE',
   'name': 'United Arab Emirates',
@@ -1759,17 +1759,17 @@ let data = [{
   'code': 'GB',
   'name': 'United Kingdom',
   'value': 62417431,
-  'color': '#d8854f'
+  'color': '#6bbfe4'
 }, {
   'code': 'US',
   'name': 'United States',
   'value': 313085380,
-  'color': '#a7a737'
+  'color': '#f6d35b'
 }, {
   'code': 'UY',
   'name': 'Uruguay',
   'value': 3380008,
-  'color': '#86a965'
+  'color': '#6be59c'
 }, {
   'code': 'UZ',
   'name': 'Uzbekistan',
@@ -1779,7 +1779,7 @@ let data = [{
   'code': 'VE',
   'name': 'Venezuela',
   'value': 29436891,
-  'color': '#86a965'
+  'color': '#6be59c'
 }, {
   'code': 'PS',
   'name': 'West Bank and Gaza',
@@ -1799,12 +1799,12 @@ let data = [{
   'code': 'ZM',
   'name': 'Zambia',
   'value': 13474959,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }, {
   'code': 'ZW',
   'name': 'Zimbabwe',
   'value': 12754378,
-  'color': '#de4c4f'
+  'color': '#e96e6e'
 }]
 
 export default {

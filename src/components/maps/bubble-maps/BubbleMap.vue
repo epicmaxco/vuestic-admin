@@ -41,15 +41,17 @@
         map = new AmCharts.AmMap()
 
         map.projection = 'winkel3'
-        map.addTitle('Population of the World in 2011', 14)
-        map.addTitle('source: Gapminder', 11)
+        map.addTitle('Population of the World in 2011', 14, 1, 1, false)
+        map.addTitle('source: Gapminder', 11, 1, 1, 1, false)
         map.areasSettings = {
-          unlistedAreasColor: '#343434',
-          unlistedAreasAlpha: 1
+          unlistedAreasColor: '#eee',
+          unlistedAreasAlpha: 1,
+          outlineColor: '#fff',
+          outlineThickness: 2
         }
         map.imagesSettings = {
           balloonText: '<span style="font-size:14px"><b>[[title]]</b>: [[value]]</span>',
-          alpha: 0.6
+          alpha: 0.75
         }
 
         let dataProvider = {
