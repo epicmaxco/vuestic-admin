@@ -4,7 +4,7 @@ var planeSVG = 'M19.671,8.11l-2.777,2.777l-3.837-0.861c0.362-0.505,0.916-1.683,0
 
 var london = {
   id: 'london',
-  color: '#000000',
+  color: '#6be59c',
   svgPath: targetSVG,
   title: 'London',
   latitude: 51.5002,
@@ -57,16 +57,16 @@ var london = {
       svgPath: planeSVG,
       left: 100,
       top: 45,
-      color: '#CC0000',
-      labelColor: '#CC0000',
-      labelRollOverColor: '#CC0000',
+      color: '#6bbfe4',
+      labelColor: '#6bbfe4',
+      labelRollOverColor: '#6bbfe4',
       labelFontSize: 20},
     {
       label: 'show flights from Vilnius',
       left: 110,
       top: 70,
-      labelColor: '#000000',
-      labelRollOverColor: '#CC0000',
+      labelColor: '#6be59c',
+      labelRollOverColor: '#6bbfe4',
       labelFontSize: 11,
       linkToObject: 'vilnius'
     }
@@ -75,7 +75,7 @@ var london = {
 // VILNIUS
 var vilnius = {
   id: 'vilnius',
-  color: '#000000',
+  color: '#6be59c',
   svgPath: targetSVG,
   title: 'Vilnius',
   latitude: 54.6896,
@@ -136,16 +136,16 @@ var vilnius = {
       svgPath: planeSVG,
       left: 100,
       top: 45,
-      color: '#CC0000',
-      labelColor: '#CC0000',
-      labelRollOverColor: '#CC0000',
+      color: '#6bbfe4',
+      labelColor: '#6bbfe4',
+      labelRollOverColor: '#6bbfe4',
       labelFontSize: 20},
     {
       label: 'show flights from London',
       left: 110,
       top: 70,
-      labelColor: '#000000',
-      labelRollOverColor: '#CC0000',
+      labelColor: '#6be59c',
+      labelRollOverColor: '#6bbfe4',
       labelFontSize: 11,
       linkToObject: 'london'
     }

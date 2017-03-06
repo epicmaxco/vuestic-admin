@@ -29,15 +29,18 @@
           mapVar: AmCharts.maps.worldLow
         }
         map.areasSettings = {
-          unlistedAreasColor: '#FFCC00'
+          unlistedAreasColor: '#eee',
+          unlistedAreasAlpha: 1,
+          outlineColor: '#fff',
+          outlineThickness: 2
         }
         map.imagesSettings = {
-          color: '#CC0000',
-          rollOverColor: '#CC0000',
-          selectedColor: '#000000'
+          color: '#6bbfe4',
+          rollOverColor: '#6bbfe4',
+          selectedColor: '#6be59c'
         }
         map.linesSettings = {
-          color: '#CC0000',
+          color: '#6bbfe4',
           alpha: 0.4
         }
 
