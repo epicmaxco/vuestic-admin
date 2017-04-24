@@ -40,3 +40,39 @@ h4, .h4 {
     content: "--- "; // em dash, nbsp
   }
 }
+
+//Buttons
+
+.btn {
+  min-width: 200px;
+  height: 56px;
+  box-shadow: $btn-box-shadow;
+  padding: $btn-padding-y $btn-padding-x;
+  font-family: inherit;
+  border-radius: 30px;
+  letter-spacing: 3px;
+
+  &:focus, &:active, &.focus {
+    box-shadow: $btn-box-shadow;
+  }
+}
+
+.btn.btn-primary {
+  &:hover{
+    background-color: lighten($btn-primary-bg, 10%);
+  }
+
+  &.hover {
+    background-color: lighten($btn-primary-bg, 10%) !important;
+  }
+
+  &:active, &:focus, &.focus {
+    background-color: darken($btn-primary-bg, 15%);
+  }
+
+  &[disabled] {
+    background-color: $btn-primary-bg;
+    color: darken($btn-primary-bg, 30%);
+    opacity: 0.5;
+  }
+}

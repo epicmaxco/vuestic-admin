@@ -93,3 +93,8 @@ $widget-header-border: 2px solid $light-gray;
 $widget-header-height: 55px;
 $widget-body-no-header-height: 100%;
 $widget-body-with-header-height: calc(100% - #{$widget-header-height});
+
+//Buttons
+$input-btn-border-width: 0px;
+$btn-padding-x: 1.25rem;
+$btn-box-shadow: 0px 4px 70px -16px rgb(111, 67, 67);
