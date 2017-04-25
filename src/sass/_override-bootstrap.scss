@@ -195,3 +195,46 @@ h4, .h4 {
   }
 }
 
+.btn.btn-dark {
+  background-color: $btn-dark-bg;
+  color: $white;
+  box-shadow: $greeny-box-shadow;
+
+  &:hover{
+    color: $white;
+    background-color: lighten($btn-dark-bg, 10%);
+  }
+
+  &:active, &:focus {
+    background-color: darken($btn-dark-bg, 15%);
+    color: $white;
+  }
+
+  &[disabled], &[disabled]:hover {
+    background-color: $btn-dark-bg;
+    color: darken($btn-dark-bg, 30%);
+    opacity: 0.5;
+  }
+}
+
+.btn.btn-pale {
+  background-color: $btn-pale-bg;
+  color: $white;
+
+  &:hover{
+    color: $white;
+    background-color: lighten($btn-pale-bg, 5%);
+  }
+
+  &:active, &:focus {
+    background-color: darken($btn-pale-bg, 15%);
+    color: $white;
+  }
+
+  &[disabled], &[disabled]:hover {
+    background-color: $btn-pale-bg;
+    color: darken($btn-pale-bg, 30%);
+    opacity: 0.5;
+  }
+}
+

@@ -70,12 +70,12 @@
             </button>
           </div>
           <div class="col-sm-3">
-            <button class="btn btn-info hover">
+            <button class="btn btn-info">
               BUTTON
             </button>
           </div>
           <div class="col-sm-3">
-            <button class="btn btn-primary focus">
+            <button class="btn btn-dark">
               BUTTON
             </button>
           </div>
@@ -93,7 +93,7 @@
             </button>
           </div>
           <div class="col-sm-3">
-            <button class="btn btn-secondary hover">
+            <button class="btn btn-pale">
               BUTTON
             </button>
           </div>
