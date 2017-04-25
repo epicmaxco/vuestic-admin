@@ -62,6 +62,34 @@
     </div>
 
     <div class="row">
+      <widget class="col-sm-12 color-buttons" header-text="Icons, Groups, Dropdowns">
+        <div class="row">
+          <div class="col-sm-3">
+            <button class="btn btn-primary btn-with-icon">
+              <i class="fa fa-close"></i>
+              BUTTON
+            </button>
+          </div>
+          <div class="col-sm-3">
+            <button class="btn btn-info">
+              BUTTON
+            </button>
+          </div>
+          <div class="col-sm-3">
+            <button class="btn btn-dark">
+              BUTTON
+            </button>
+          </div>
+          <div class="col-sm-3">
+            <button class="btn btn-warning">
+              BUTTON
+            </button>
+          </div>
+        </div>
+      </widget>
+    </div>
+
+    <div class="row">
       <widget class="col-sm-12 color-buttons" header-text="Colors">
         <div class="row">
           <div class="col-sm-3">
