@@ -24,6 +24,30 @@
             </button>
           </div>
         </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <button class="btn btn-secondary">
+              BUTTON
+            </button>
+          </div>
+          <div class="col-sm-3">
+            <button class="btn btn-secondary hover">
+              HOVER
+            </button>
+          </div>
+          <div class="col-sm-3">
+            <button class="btn btn-secondary focus">
+              PRESSED
+            </button>
+          </div>
+          <div class="col-sm-3">
+            <button class="btn btn-secondary" disabled>
+              DISABLED
+            </button>
+          </div>
+        </div>
+
       </widget>
     </div>
   </div>

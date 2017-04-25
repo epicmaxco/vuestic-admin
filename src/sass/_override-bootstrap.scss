@@ -10,6 +10,11 @@
   align-items: center;
 }
 
+//Grid
+.row:not(:last-child) {
+  margin-bottom: 45px;
+}
+
 //Typography
 h1, .h1 {
   margin-bottom :2.25rem;
@@ -58,21 +63,51 @@ h4, .h4 {
 }
 
 .btn.btn-primary {
-  &:hover{
-    background-color: lighten($btn-primary-bg, 10%);
-  }
-
-  &.hover {
-    background-color: lighten($btn-primary-bg, 10%) !important;
-  }
-
-  &:active, &:focus, &.focus {
-    background-color: darken($btn-primary-bg, 15%);
-  }
-
-  &[disabled] {
+  &[disabled], &[disabled]:hover {
     background-color: $btn-primary-bg;
     color: darken($btn-primary-bg, 30%);
     opacity: 0.5;
   }
 }
+
+.btn.btn-secondary {
+  box-shadow: none;
+  color: $btn-primary-bg;
+  border: 2px solid $btn-primary-bg;
+
+  &[disabled], &[disabled]:hover {
+    background-color: $white;
+    color: $btn-primary-bg;
+    border: 2px solid $btn-primary-bg;
+  }
+
+  &:hover {
+    border: 2px solid lighten($btn-primary-bg, 10%);
+  }
+
+  &.hover {
+    border: 2px solid lighten($btn-primary-bg, 10%) !important;
+  }
+
+  &:active, &:focus, &.focus {
+    border: 2px solid darken($btn-primary-bg, 15%);
+  }
+}
+
+.btn.btn-primary, .btn.btn-secondary {
+  &:hover{
+    color: $white;
+    background-color: lighten($btn-primary-bg, 10%);
+  }
+
+  &.hover {
+    background-color: lighten($btn-primary-bg, 10%) !important;
+    color: $white;
+  }
+
+  &:active, &:focus, &.focus {
+    background-color: darken($btn-primary-bg, 15%);
+    color: $white;
+  }
+}
+
