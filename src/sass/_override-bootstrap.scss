@@ -123,3 +123,75 @@ h4, .h4 {
   }
 }
 
+.btn.btn-danger {
+  &:hover{
+    color: $white;
+    background-color: lighten($btn-danger-bg, 10%);
+  }
+
+  &:active, &:focus {
+    background-color: darken($btn-danger-bg, 15%);
+    color: $white;
+  }
+
+  &[disabled], &[disabled]:hover {
+    background-color: $btn-danger-bg;
+    color: darken($btn-danger-bg, 30%);
+    opacity: 0.5;
+  }
+}
+
+.btn.btn-warning {
+  &:hover{
+    color: $white;
+    background-color: lighten($btn-warning-bg, 10%);
+  }
+
+  &:active, &:focus {
+    background-color: darken($btn-warning-bg, 15%);
+    color: $white;
+  }
+
+  &[disabled], &[disabled]:hover {
+    background-color: $btn-warning-bg;
+    color: darken($btn-warning-bg, 30%);
+    opacity: 0.5;
+  }
+}
+
+.btn.btn-info {
+   &:hover{
+     color: $white;
+     background-color: lighten($btn-info-bg, 10%);
+   }
+
+   &:active, &:focus {
+     background-color: darken($btn-info-bg, 15%);
+     color: $white;
+   }
+
+   &[disabled], &[disabled]:hover {
+     background-color: $btn-info-bg;
+     color: darken($btn-info-bg, 30%);
+     opacity: 0.5;
+   }
+ }
+
+.btn.btn-success {
+  &:hover{
+    color: $white;
+    background-color: lighten($btn-success-bg, 10%);
+  }
+
+  &:active, &:focus {
+    background-color: darken($btn-success-bg, 15%);
+    color: $white;
+  }
+
+  &[disabled], &[disabled]:hover {
+    background-color: $btn-success-bg;
+    color: darken($btn-success-bg, 30%);
+    opacity: 0.5;
+  }
+}
+

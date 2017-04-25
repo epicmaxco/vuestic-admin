@@ -60,6 +60,46 @@
         </div>
       </widget>
     </div>
+
+    <div class="row">
+      <widget class="col-sm-12 color-buttons" header-text="Colors">
+        <div class="row">
+          <div class="col-sm-3">
+            <button class="btn btn-danger">
+              BUTTON
+            </button>
+          </div>
+          <div class="col-sm-3">
+            <button class="btn btn-info hover">
+              BUTTON
+            </button>
+          </div>
+          <div class="col-sm-3">
+            <button class="btn btn-primary focus">
+              BUTTON
+            </button>
+          </div>
+          <div class="col-sm-3">
+            <button class="btn btn-warning">
+              BUTTON
+            </button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <button class="btn btn-success">
+              BUTTON
+            </button>
+          </div>
+          <div class="col-sm-3">
+            <button class="btn btn-secondary hover">
+              BUTTON
+            </button>
+          </div>
+        </div>
+      </widget>
+    </div>
   </div>
 </template>
 
@@ -80,7 +120,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-    
+
       .btn-micro {
         margin-left: 20px;
       }

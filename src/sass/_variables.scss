@@ -6,7 +6,15 @@ $almost-black : #161616;
 $vue-green : #4ae387;
 $vue-darkest-blue : #34495e;
 $white : #fff;
+$theme-red: #e34a4a;
+$theme-orange: #f7cc36;
+$theme-blue: #4ab2e3;
+$theme-violet: #db76df;
 $brand-primary : $vue-green !default;
+$brand-danger: $theme-red;
+$brand-warning: $theme-orange;
+$brand-info: $theme-blue;
+$brand-success: $theme-violet;
 
 // Layout //
 $body-bg : $light-gray;
