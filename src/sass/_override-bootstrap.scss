@@ -62,6 +62,18 @@ h4, .h4 {
   }
 }
 
+.btn.btn-sm {
+  height: 42px;
+  min-width: 140px;
+  font-size: $font-size-base;
+}
+
+.btn.btn-micro {
+  height: 36px;
+  min-width: 110px;
+  font-size: $font-size-smaller;
+}
+
 .btn.btn-primary {
   &[disabled], &[disabled]:hover {
     background-color: $btn-primary-bg;

@@ -1,7 +1,7 @@
 <template>
-  <div class="buttons-page-page">
+  <div class="buttons-page">
     <div class="row">
-      <widget class="col-sm-12"  header-text="Primary & Secondary Buttons">
+      <widget class="col-sm-12 primary-secondary-buttons" header-text="Primary & Secondary Buttons">
         <div class="row">
           <div class="col-sm-3">
             <button class="btn btn-primary">
@@ -48,6 +48,16 @@
           </div>
         </div>
 
+        <div class="row">
+          <div class="col-sm-12">
+            <button class="btn btn-primary btn-sm">
+              SMALL
+            </button>
+            <button class="btn btn-primary btn-micro">
+              MICRO
+            </button>
+          </div>
+        </div>
       </widget>
     </div>
   </div>
@@ -65,5 +75,12 @@
 </script>
 
 <style lang="scss">
-
+  .buttons-page {
+    .primary-secondary-buttons {
+      .btn-micro {
+        margin-top: 4px;
+        margin-left: 20px;
+      }
+    }
+  }
 </style>
