@@ -49,7 +49,7 @@
         </div>
 
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-sm-12 smaller-buttons">
             <button class="btn btn-primary btn-sm">
               SMALL
             </button>
@@ -76,9 +76,12 @@
 
 <style lang="scss">
   .buttons-page {
-    .primary-secondary-buttons {
+    .smaller-buttons {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    
       .btn-micro {
-        margin-top: 4px;
         margin-left: 20px;
       }
     }
