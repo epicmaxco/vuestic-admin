@@ -82,5 +82,10 @@
         margin-left: 20px;
       }
     }
+
+    .widget .widget-body {
+      padding-top: 47px;
+      padding-bottom: 47px;
+    }
   }
 </style>
