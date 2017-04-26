@@ -238,3 +238,26 @@ h4, .h4 {
   }
 }
 
+.btn.btn-with-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  i {
+    font-size: 32px;
+    position: relative;
+    top: 1px;
+    margin-right: 7px;
+  }
+
+  &.rounded-icon {
+    width: 56px;
+    min-width: 56px;
+    border-radius: 50%;
+
+    i {
+      margin-right: 0;
+    }
+  }
+}
+
