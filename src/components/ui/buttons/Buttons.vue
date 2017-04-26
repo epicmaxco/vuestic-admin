@@ -78,9 +78,14 @@
             </button>
           </div>
           <div class="col-sm-3">
-            <button class="btn btn-dark">
-              BUTTON
-            </button>
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+              <div class="btn-group mr-2" role="group" aria-label="First group">
+                <button type="button" class="btn btn-primary">1</button>
+                <button type="button" class="btn btn-primary focus">2</button>
+                <button type="button" class="btn btn-primary">3</button>
+                <button type="button" class="btn btn-primary">4</button>
+              </div>
+            </div>
           </div>
           <div class="col-sm-3">
             <button class="btn btn-primary btn-with-icon rounded-icon">

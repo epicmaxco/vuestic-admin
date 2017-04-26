@@ -54,7 +54,7 @@ h4, .h4 {
   box-shadow: $btn-box-shadow;
   padding: $btn-padding-y $btn-padding-x;
   font-family: inherit;
-  border-radius: 30px;
+  border-radius: $btn-border-radius;
   letter-spacing: 3px;
 
   &:focus, &:active, &.focus {
@@ -101,7 +101,7 @@ h4, .h4 {
     border: 2px solid lighten($btn-primary-bg, 10%) !important;
   }
 
-  &:active, &:focus, &.focus {
+  &:active, &:focus, &.focus, .active {
     border: 2px solid darken($btn-primary-bg, 15%);
   }
 }
@@ -129,7 +129,7 @@ h4, .h4 {
     background-color: lighten($btn-danger-bg, 10%);
   }
 
-  &:active, &:focus {
+  &:active, &:focus, .active {
     background-color: darken($btn-danger-bg, 15%);
     color: $white;
   }
@@ -147,7 +147,7 @@ h4, .h4 {
     background-color: lighten($btn-warning-bg, 10%);
   }
 
-  &:active, &:focus {
+  &:active, &:focus, .active {
     background-color: darken($btn-warning-bg, 15%);
     color: $white;
   }
@@ -160,12 +160,12 @@ h4, .h4 {
 }
 
 .btn.btn-info {
-   &:hover{
+   &:hover {
      color: $white;
      background-color: lighten($btn-info-bg, 10%);
    }
 
-   &:active, &:focus {
+   &:active, &:focus, .active {
      background-color: darken($btn-info-bg, 15%);
      color: $white;
    }
@@ -183,7 +183,7 @@ h4, .h4 {
     background-color: lighten($btn-success-bg, 10%);
   }
 
-  &:active, &:focus {
+  &:active, &:focus, .active {
     background-color: darken($btn-success-bg, 15%);
     color: $white;
   }
@@ -205,7 +205,7 @@ h4, .h4 {
     background-color: lighten($btn-dark-bg, 10%);
   }
 
-  &:active, &:focus {
+  &:active, &:focus, .active {
     background-color: darken($btn-dark-bg, 15%);
     color: $white;
   }
@@ -226,7 +226,7 @@ h4, .h4 {
     background-color: lighten($btn-pale-bg, 5%);
   }
 
-  &:active, &:focus {
+  &:active, &:focus, .active {
     background-color: darken($btn-pale-bg, 15%);
     color: $white;
   }
@@ -263,6 +263,15 @@ h4, .h4 {
     i {
       margin-right: 0;
     }
+  }
+}
+
+.btn-group {
+  box-shadow: $btn-box-shadow;
+  border-radius: $btn-border-radius;
+  .btn {
+    min-width: 60px;
+    box-shadow: none;
   }
 }
 
