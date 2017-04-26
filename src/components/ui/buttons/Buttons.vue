@@ -66,8 +66,10 @@
         <div class="row">
           <div class="col-sm-3">
             <button class="btn btn-primary btn-with-icon">
-              <i class="ion-android-close"></i>
-              BUTTON
+              <div class="btn-with-icon-content">
+                <i class="ion-android-close ion"></i>
+                BUTTON
+              </div>
             </button>
           </div>
           <div class="col-sm-3">
@@ -82,7 +84,9 @@
           </div>
           <div class="col-sm-3">
             <button class="btn btn-primary btn-with-icon rounded-icon">
-              <i class="ion-android-close"></i>
+              <div class="btn-with-icon-content">
+                <i class="ion-android-close ion"></i>
+              </div>
             </button>
           </div>
         </div>
