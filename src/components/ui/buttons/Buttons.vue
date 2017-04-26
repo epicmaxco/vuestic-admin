@@ -73,9 +73,17 @@
             </button>
           </div>
           <div class="col-sm-3">
-            <button class="btn btn-info">
-              BUTTON
-            </button>
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                BUTTON
+                <i class="ion-chevron-down arrow-down"></i>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
           </div>
           <div class="col-sm-3">
             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">

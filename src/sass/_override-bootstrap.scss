@@ -46,6 +46,8 @@ h4, .h4 {
   }
 }
 
+
+
 //Buttons
 
 .btn {
@@ -274,4 +276,21 @@ h4, .h4 {
     box-shadow: none;
   }
 }
+
+.btn.dropdown-toggle {
+  position: relative;
+  padding: $btn-padding-y $btn-padding-x + $btn-dd-arrow-size*1.5;
+
+  .arrow-down {
+    position: absolute;
+    font-size: $btn-dd-arrow-size;
+    right: $btn-padding-x;
+    top: calc(50% - #{$btn-dd-arrow-size}/2);
+  }
+
+  &::after {
+    display: none;
+  }
+}
+
 
