@@ -3,22 +3,22 @@
     <div class="row">
       <widget class="col-sm-12 primary-secondary-buttons" header-text="Primary & Secondary Buttons">
         <div class="row btn-margin-row">
-          <div class="col-sm-3">
+          <div class="col-md-3 col-sm-6">
             <button class="btn btn-primary">
               BUTTON
             </button>
           </div>
-          <div class="col-sm-3">
+          <div class="col-md-3 col-sm-6">
             <button class="btn btn-primary hover">
               HOVER
             </button>
           </div>
-          <div class="col-sm-3">
+          <div class="col-md-3 col-sm-6">
             <button class="btn btn-primary focus">
               PRESSED
             </button>
           </div>
-          <div class="col-sm-3">
+          <div class="col-md-3 col-sm-6">
             <button class="btn btn-primary" disabled>
               DISABLED
             </button>
@@ -26,22 +26,22 @@
         </div>
 
         <div class="row btn-margin-row">
-          <div class="col-sm-3">
+          <div class="col-md-3 col-sm-6">
             <button class="btn btn-secondary">
               BUTTON
             </button>
           </div>
-          <div class="col-sm-3">
+          <div class="col-md-3 col-sm-6">
             <button class="btn btn-secondary hover">
               HOVER
             </button>
           </div>
-          <div class="col-sm-3">
+          <div class="col-md-3 col-sm-6">
             <button class="btn btn-secondary focus">
               PRESSED
             </button>
           </div>
-          <div class="col-sm-3">
+          <div class="col-md-3 col-sm-6">
             <button class="btn btn-secondary" disabled>
               DISABLED
             </button>
@@ -64,7 +64,7 @@
     <div class="row">
       <widget class="col-sm-12 color-buttons" header-text="Icons, Groups, Dropdowns">
         <div class="row">
-          <div class="col-sm-3">
+          <div class="col-md-3 col-sm-6">
             <button class="btn btn-primary btn-with-icon">
               <div class="btn-with-icon-content">
                 <i class="ion-android-close ion"></i>
@@ -72,7 +72,7 @@
               </div>
             </button>
           </div>
-          <div class="col-sm-3">
+          <div class="col-md-3 col-sm-6">
             <div class="dropdown" v-dropdown>
               <button class="btn btn-primary dropdown-toggle theme-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown">
                 BUTTON
@@ -85,7 +85,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-3">
+          <div class="col-md-4 col-sm-6">
             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
               <div class="btn-group mr-2" role="group" aria-label="First group">
                 <button type="button" class="btn btn-primary">1</button>
@@ -95,7 +95,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-3">
+          <div class="col-md-2">
             <button class="btn btn-primary btn-with-icon rounded-icon">
               <div class="btn-with-icon-content">
                 <i class="ion-android-close ion"></i>
@@ -109,22 +109,22 @@
     <div class="row">
       <widget class="col-sm-12 color-buttons" header-text="Colors">
         <div class="row btn-margin-row">
-          <div class="col-sm-3">
+          <div class="col-md-3">
             <button class="btn btn-danger">
               BUTTON
             </button>
           </div>
-          <div class="col-sm-3">
+          <div class="col-md-3 col-sm-6">
             <button class="btn btn-info">
               BUTTON
             </button>
           </div>
-          <div class="col-sm-3">
+          <div class="col-md-3 col-sm-6">
             <button class="btn btn-dark">
               BUTTON
             </button>
           </div>
-          <div class="col-sm-3">
+          <div class="col-md-3 col-sm-6">
             <button class="btn btn-warning">
               BUTTON
             </button>
@@ -132,12 +132,12 @@
         </div>
 
         <div class="row">
-          <div class="col-sm-3">
+          <div class="col-md-3 col-sm-6">
             <button class="btn btn-success">
               BUTTON
             </button>
           </div>
-          <div class="col-sm-3">
+          <div class="col-md-3 col-sm-6">
             <button class="btn btn-pale">
               BUTTON
             </button>
@@ -166,8 +166,12 @@
 <style lang="scss">
   .buttons-page {
 
-    .btn-margin-row .btn {
+    .btn, .btn-group {
       margin-bottom: 45px;
+    }
+
+    .btn-group .btn {
+      margin-bottom: 0;
     }
 
     .smaller-buttons {
@@ -181,8 +185,8 @@
     }
 
     .widget .widget-body {
-      padding-top: 47px;
-      padding-bottom: 47px;
+      padding-top: 45px;
+      padding-bottom: 0;
     }
   }
 </style>
