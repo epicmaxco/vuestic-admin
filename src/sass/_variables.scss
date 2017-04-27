@@ -102,7 +102,19 @@ $widget-body-with-header-height: calc(100% - #{$widget-header-height});
 
 //Buttons
 $input-btn-border-width: 0px;
-$btn-padding-x: 1.25rem;
+$btn-padding-x: 3.9rem;
+$btn-padding-y: 1.1rem;
+$btn-padding-y-sm: 0.7rem;
+$btn-padding-x-sm: 2.5rem;
+$btn-padding-y-micro: 0.625rem;
+$btn-padding-x-micro: 1.8rem;
+$btn-with-icon-text-margin: 1.875rem;
+$btn-with-icon-padding-x: 2.8125rem;
+$btn-with-icon-rounded-size: 3.5rem;
+$btn-with-icon-icon-top: .75rem;
+$btn-with-icon-rounded-icon-left: 1.23rem;
+$btn-with-icon-icon-size: 2rem;
+$btn-group-button-padding-x: 1.53rem;
 $btn-box-shadow: 0px 4px 70px -16px rgb(111, 67, 67);
 $btn-border-radius: 1.875rem;
 $btn-dark-color: $white;

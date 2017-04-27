@@ -51,13 +51,13 @@ h4, .h4 {
 //Buttons
 
 .btn {
-  min-width: 200px;
-  height: 56px;
   box-shadow: $btn-box-shadow;
-  padding: $btn-padding-y $btn-padding-x;
   font-family: inherit;
-  border-radius: $btn-border-radius;
   letter-spacing: 3px;
+
+  &.dropdown-toggle.theme-toggle {
+    @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-border-radius);
+  }
 
   &:focus, &:active, &.focus {
     box-shadow: $btn-box-shadow;
@@ -65,15 +65,11 @@ h4, .h4 {
 }
 
 .btn.btn-sm {
-  height: 42px;
-  min-width: 140px;
-  font-size: $font-size-base;
+  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-base, $btn-border-radius);
 }
 
 .btn.btn-micro {
-  height: 36px;
-  min-width: 110px;
-  font-size: $font-size-smaller;
+  @include button-size($btn-padding-y-micro, $btn-padding-x-micro, $font-size-smaller, $btn-border-radius);
 }
 
 .btn.btn-primary {
@@ -241,29 +237,30 @@ h4, .h4 {
 }
 
 .btn.btn-with-icon {
+  position: relative;
+  padding: $btn-padding-y $btn-with-icon-padding-x;
   .btn-with-icon-content {
-    height: 100%;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: $btn-with-icon-text-margin;
   }
 
   i {
-    position: relative;
-    margin-right: 7px;
-    left: 1px;
-    font-size: 32px;
+    position: absolute;
+    left: $btn-with-icon-padding-x;
+    top: $btn-with-icon-icon-top;
+    font-size: $btn-with-icon-icon-size;
   }
 
   &.rounded-icon {
-    width: 56px;
-    min-width: 56px;
+    width: $btn-with-icon-rounded-size;
+    height: $btn-with-icon-rounded-size;
     border-radius: 50%;
     padding: 0;
 
     i {
-      margin-right: 0;
+      left: $btn-with-icon-rounded-icon-left;
     }
   }
 }
@@ -272,19 +269,20 @@ h4, .h4 {
   box-shadow: $btn-box-shadow;
   border-radius: $btn-border-radius;
   .btn {
-    min-width: 60px;
+    padding-left: $btn-group-button-padding-x;
+    padding-right: $btn-group-button-padding-x;
     box-shadow: none;
   }
 }
 
 .btn.dropdown-toggle {
   position: relative;
-  padding: $btn-padding-y $btn-padding-x + $btn-dd-arrow-size*1.5;
+  padding: $btn-padding-y $btn-padding-x + $btn-dd-arrow-size*1.5; //TODO: check
 
   .arrow-down {
     position: absolute;
     font-size: $btn-dd-arrow-size;
-    right: $btn-padding-x;
+    right: 1rem;
     top: calc(50% - #{$btn-dd-arrow-size}/2);
   }
 

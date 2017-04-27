@@ -74,7 +74,7 @@
           </div>
           <div class="col-sm-3">
             <div class="dropdown" v-dropdown>
-              <button class="btn btn-primary dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown">
+              <button class="btn btn-primary dropdown-toggle theme-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown">
                 BUTTON
                 <i class="ion-chevron-down arrow-down"></i>
               </button>
