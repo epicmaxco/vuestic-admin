@@ -73,17 +73,25 @@ h4, .h4 {
 }
 
 .btn.btn-primary {
-  &[disabled], &[disabled]:hover {
-    background-color: $btn-primary-bg;
-    color: darken($btn-primary-bg, 30%);
-    opacity: 0.5;
+ @include theme-button-variant($white, $btn-primary-bg, $btn-border, $btn-box-shadow);
+
+  &.hover {
+    background-color: lighten($btn-primary-bg, 10%) !important;
+    color: $white;
+  }
+
+  &.focus {
+    background-color: darken($btn-primary-bg, 15%);
+    color: $white;
   }
 }
 
 .btn.btn-secondary {
-  box-shadow: none;
+  @include theme-button-variant($white, $btn-primary-bg, $btn-secondary-theme-border, none);
+
   color: $btn-primary-bg;
-  border: 2px solid $btn-primary-bg;
+  border: $btn-secondary-theme-border;
+  background-color: $white;
 
   &[disabled], &[disabled]:hover {
     background-color: $white;
@@ -97,142 +105,45 @@ h4, .h4 {
 
   &.hover {
     border: 2px solid lighten($btn-primary-bg, 10%) !important;
-  }
-
-  &:active, &:focus, &.focus, .active {
-    border: 2px solid darken($btn-primary-bg, 15%);
-  }
-}
-
-.btn.btn-primary, .btn.btn-secondary {
-  &:hover{
-    color: $white;
-    background-color: lighten($btn-primary-bg, 10%);
-  }
-
-  &.hover {
     background-color: lighten($btn-primary-bg, 10%) !important;
     color: $white;
   }
 
   &:active, &:focus, &.focus {
+    border: 2px solid darken($btn-primary-bg, 15%);
     background-color: darken($btn-primary-bg, 15%);
     color: $white;
   }
+
 }
 
 .btn.btn-danger {
-  &:hover{
-    color: $white;
-    background-color: lighten($btn-danger-bg, 10%);
-  }
-
-  &:active, &:focus, .active {
-    background-color: darken($btn-danger-bg, 15%);
-    color: $white;
-  }
-
-  &[disabled], &[disabled]:hover {
-    background-color: $btn-danger-bg;
-    color: darken($btn-danger-bg, 30%);
-    opacity: 0.5;
-  }
+  @include theme-button-variant($white, $btn-danger-bg, $btn-border, $btn-box-shadow);
 }
 
 .btn.btn-warning {
-  &:hover{
-    color: $white;
-    background-color: lighten($btn-warning-bg, 10%);
-  }
-
-  &:active, &:focus, .active {
-    background-color: darken($btn-warning-bg, 15%);
-    color: $white;
-  }
-
-  &[disabled], &[disabled]:hover {
-    background-color: $btn-warning-bg;
-    color: darken($btn-warning-bg, 30%);
-    opacity: 0.5;
-  }
+  @include theme-button-variant($white, $btn-warning-bg, $btn-border, $btn-box-shadow);
 }
 
 .btn.btn-info {
-   &:hover {
-     color: $white;
-     background-color: lighten($btn-info-bg, 10%);
-   }
-
-   &:active, &:focus, .active {
-     background-color: darken($btn-info-bg, 15%);
-     color: $white;
-   }
-
-   &[disabled], &[disabled]:hover {
-     background-color: $btn-info-bg;
-     color: darken($btn-info-bg, 30%);
-     opacity: 0.5;
-   }
+  @include theme-button-variant($white, $btn-info-bg, $btn-border, $btn-box-shadow);
  }
 
 .btn.btn-success {
-  &:hover{
-    color: $white;
-    background-color: lighten($btn-success-bg, 10%);
-  }
-
-  &:active, &:focus, .active {
-    background-color: darken($btn-success-bg, 15%);
-    color: $white;
-  }
-
-  &[disabled], &[disabled]:hover {
-    background-color: $btn-success-bg;
-    color: darken($btn-success-bg, 30%);
-    opacity: 0.5;
-  }
+  @include theme-button-variant($white, $btn-success-bg, $btn-border, $btn-box-shadow);
 }
 
 .btn.btn-dark {
-  background-color: $btn-dark-bg;
-  color: $white;
-  box-shadow: $greeny-box-shadow;
-
-  &:hover{
-    color: $white;
-    background-color: lighten($btn-dark-bg, 10%);
-  }
-
-  &:active, &:focus, .active {
-    background-color: darken($btn-dark-bg, 15%);
-    color: $white;
-  }
-
-  &[disabled], &[disabled]:hover {
-    background-color: $btn-dark-bg;
-    color: darken($btn-dark-bg, 30%);
-    opacity: 0.5;
-  }
+  @include theme-button-variant($white, $btn-dark-bg, $btn-border, $greeny-box-shadow);
 }
 
 .btn.btn-pale {
-  background-color: $btn-pale-bg;
-  color: $white;
-
-  &:hover{
-    color: $white;
+  @include theme-button-variant($white, $btn-pale-bg, $btn-border, $btn-box-shadow);
+  &:hover {
     background-color: lighten($btn-pale-bg, 5%);
-  }
-
-  &:active, &:focus, .active {
-    background-color: darken($btn-pale-bg, 15%);
-    color: $white;
-  }
-
-  &[disabled], &[disabled]:hover {
-    background-color: $btn-pale-bg;
-    color: darken($btn-pale-bg, 30%);
-    opacity: 0.5;
+    &:focus, &:active, &.active {
+      background-color: darken($btn-pale-bg, 15%);
+    }
   }
 }
 

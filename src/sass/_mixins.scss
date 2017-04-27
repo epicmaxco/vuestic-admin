@@ -1,0 +1,27 @@
+@mixin theme-button-variant($color, $background, $border, $shadow) {
+  $hover-bg: lighten($background, 10%);
+  $disabled-bg: darken($background, 15%);
+  $active-bg: darken($background, 15%);
+  $disabled-color: darken($background, 30%);
+
+  background-color: $background;
+  color: $color;
+  box-shadow: $shadow;
+  border: $border;
+
+  &:hover{
+    color: $color;
+    background-color: $hover-bg;
+  }
+
+  &:active, &:focus, .active {
+    background-color: $active-bg;
+    color: $color;
+  }
+
+  &[disabled], &[disabled]:hover {
+    background-color: $disabled-bg;
+    color: $disabled-color;
+    opacity: 0.5;
+  }
+}
