@@ -174,6 +174,10 @@
       margin-bottom: 0;
     }
 
+    .dropdown-menu {
+      margin-top: -43px;
+    }
+
     .smaller-buttons {
       display: flex;
       flex-direction: row;
