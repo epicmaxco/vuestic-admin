@@ -2,7 +2,7 @@
   <div class="buttons-page">
     <div class="row">
       <widget class="col-sm-12 primary-secondary-buttons" header-text="Primary & Secondary Buttons">
-        <div class="row">
+        <div class="row btn-margin-row">
           <div class="col-sm-3">
             <button class="btn btn-primary">
               BUTTON
@@ -25,7 +25,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row btn-margin-row">
           <div class="col-sm-3">
             <button class="btn btn-secondary">
               BUTTON
@@ -108,7 +108,7 @@
 
     <div class="row">
       <widget class="col-sm-12 color-buttons" header-text="Colors">
-        <div class="row">
+        <div class="row btn-margin-row">
           <div class="col-sm-3">
             <button class="btn btn-danger">
               BUTTON
@@ -165,6 +165,11 @@
 
 <style lang="scss">
   .buttons-page {
+
+    .btn-margin-row .btn {
+      margin-bottom: 45px;
+    }
+
     .smaller-buttons {
       display: flex;
       flex-direction: row;

@@ -10,11 +10,6 @@
   align-items: center;
 }
 
-//Grid
-.row:not(:last-child) {
-  margin-bottom: 45px;
-}
-
 //Typography
 h1, .h1 {
   margin-bottom :2.25rem;
@@ -188,7 +183,6 @@ h4, .h4 {
 
 .btn.dropdown-toggle {
   position: relative;
-  padding: $btn-padding-y $btn-padding-x + $btn-dd-arrow-size*1.5; //TODO: check
 
   .arrow-down {
     position: absolute;

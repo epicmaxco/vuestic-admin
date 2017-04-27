@@ -21,6 +21,7 @@
   .widget {
     background: $widget-bg;
     box-shadow: $widget-box-shadow;
+    margin-bottom: $widget-mb;
     padding: 0;
 
     &.no-header {
