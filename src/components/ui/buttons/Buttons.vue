@@ -73,7 +73,7 @@
             </button>
           </div>
           <div class="col-sm-3">
-            <div class="dropdown">
+            <div class="dropdown" v-dropdown>
               <button class="btn btn-primary dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown">
                 BUTTON
                 <i class="ion-chevron-down arrow-down"></i>
@@ -150,11 +150,15 @@
 
 <script>
   import Widget from 'components/common/widget/Widget'
+  import Dropdown from 'directives/Dropdown'
 
   export default {
     name: 'buttons',
     components: {
       Widget
+    },
+    directives: {
+      Dropdown
     }
   }
 </script>

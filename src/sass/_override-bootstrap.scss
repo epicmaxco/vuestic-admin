@@ -293,4 +293,21 @@ h4, .h4 {
   }
 }
 
+// Dropdowns & Selects
+.dropdown-menu {
+  border-radius: 0;
+  background-color: $dropdown-background;
+  box-shadow: $dropdown-box-shadow;
+  padding: $dropdown-menu-padding-y $dropdown-menu-padding-x;
+}
+
+.dropdown-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: $dropdown-item-height;
+  padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+  font-size: $font-size-sm;
+}
+
 

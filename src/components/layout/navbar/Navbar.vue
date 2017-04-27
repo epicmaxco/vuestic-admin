@@ -134,33 +134,24 @@
 
       .dropdown-menu {
         margin-top: 15px;
-        padding: 0;
         max-width: 345px;
-        border-radius: 0;
-        background-color: $darkest-gray;
-        box-shadow: $navbar-dd-box-shadow;
       }
 
 
       .dropdown-item {
         height: $navbar-dd-item-height;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        color: $navbar-dd-item-color;
-        padding: 0 25px;
         cursor: pointer;
+        font-size: $font-size-base;
 
-        &:hover, &:active, &:focus {
+        &:hover, &:active, &:focus, &.active {
           outline: none;
-          background-color: $navbar-dd-item-hover-bg;
         }
 
         &.plain-link-item {
           color: $brand-primary;
 
           &:hover, &:active, &:focus {
-            background-color: $darkest-gray;
+            background: $dropdown-background;
           }
 
           .plain-link {

@@ -76,9 +76,6 @@ $blockquote-border-width : 0.375rem !default;
 $blockquote-font-size : 1.5rem !default;
 //Navbar
 $navbar-dd-item-height : 48px;
-$navbar-dd-item-color : $white;
-$navbar-dd-item-hover-bg : $almost-black;
-$navbar-dd-box-shadow : $greeny-box-shadow;
 
 //Sidebar
 $sidebar-link-height : 64px;
@@ -114,3 +111,19 @@ $btn-dark-border: $darkest-gray;
 $btn-pale-bg: $theme-pale;
 $btn-pale-color: $white;
 $btn-dd-arrow-size: 0.75rem;
+
+//Dropdowns
+$dropdown-link-color : $white;
+$dropdown-box-shadow : $greeny-box-shadow;
+$dropdown-background: $darkest-gray;
+$dropdown-link-color: $white;
+$dropdown-link-hover-color: $white;
+$dropdown-link-hover-bg: $almost-black;
+$dropdown-link-active-color: $white;
+$dropdown-link-active-bg: $almost-black;
+$dropdown-item-padding-x: 25px;
+$dropdown-item-padding-y: 0;
+$dropdown-item-height: 40px;
+$dropdown-menu-padding-y: 10px;
+$dropdown-menu-padding-x: 0;
+$dropdown-min-width: 15rem;
