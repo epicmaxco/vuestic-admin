@@ -7,7 +7,6 @@
             <!--Header-->
             <div class="modal-header">
               <slot name="header">
-                <!--<a type="button" class="close" @click="cancel">x</a>-->
                 <div class="modal-title">
                   <slot name="title"></slot>
                 </div>
@@ -19,7 +18,10 @@
             </div>
             <!--Footer-->
             <div class="modal-footer">
-              <slot name="footer"></slot>
+              <slot name="footer">
+                <button type="button" :class="okClass" @click="ok">{{okText}}</button>
+                <button type="button" :class="cancelClass" @click="cancel">{{cancelText}}</button>
+              </slot>
             </div>
           </div>
         </div>
@@ -48,6 +50,25 @@
       full: {
         type: Boolean,
         default: false
+      },
+      okText: {
+        type: String,
+        default: 'CONFIRM'
+      },
+      // 取消按钮text
+      cancelText: {
+        type: String,
+        default: 'CANCEL'
+      },
+      // 确认按钮className
+      okClass: {
+        type: String,
+        default: 'btn btn-primary'
+      },
+      // 取消按钮className
+      cancelClass: {
+        type: String,
+        default: 'btn btn-secondary'
       }
     },
     data () {
@@ -87,9 +108,7 @@
     methods: {
       ok () {
         this.$emit('ok')
-        if (this.closeWhenOK) {
-          this.show = false
-        }
+        this.show = false
       },
       cancel () {
         this.$emit('cancel')
@@ -143,6 +162,12 @@
 
   .modal-footer {
     justify-content: center;
-    padding: 0 $modal-inner-padding $modal-inner-padding $modal-inner-padding;
+    padding: 0 $modal-inner-padding;
+    padding-bottom: calc(#{$modal-inner-padding} - 20px);
+    flex-wrap: wrap;
+    .btn {
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
   }
 </style>
