@@ -30,6 +30,12 @@
       }
     }
 
+    &.larger-padding {
+       .widget-body {
+         padding: $widget-larger-padding;
+       }
+    }
+
     .widget-body {
       height: $widget-body-with-header-height;
       padding: $widget-padding;

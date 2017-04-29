@@ -1,7 +1,7 @@
 <template>
   <div class="buttons-page">
     <div class="row">
-      <widget class="col-sm-12 primary-secondary-buttons" header-text="Primary & Secondary Buttons">
+      <widget class="col-sm-12 primary-secondary-buttons larger-padding" header-text="Primary & Secondary Buttons">
         <div class="row btn-margin-row">
           <div class="col-md-3 col-sm-6">
             <button class="btn btn-primary">
@@ -189,7 +189,6 @@
     }
 
     .widget .widget-body {
-      padding-top: 45px;
       padding-bottom: 0;
     }
   }

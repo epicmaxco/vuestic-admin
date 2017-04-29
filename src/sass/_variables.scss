@@ -93,6 +93,7 @@ $sidebar-box-shadow : $greeny-box-shadow;
 //Widgets
 $widget-bg : $white;
 $widget-padding : 25px;
+$widget-larger-padding: 45px;
 $widget-box-shadow : 0px 4px 70px -18px rgba(112, 112, 112, 1);
 $widget-viewport-height : calc(100vh - #{$top-nav-height} - #{$content-wrap-pt} - #{$content-wrap-pb});
 $widget-header-border: 2px solid $light-gray;
