@@ -8,9 +8,9 @@
             <div class="modal-header">
               <slot name="header">
                 <!--<a type="button" class="close" @click="cancel">x</a>-->
-                <h4 class="modal-title">
+                <div class="modal-title">
                   <slot name="title"></slot>
-                </h4>
+                </div>
               </slot>
             </div>
             <!--Container-->
@@ -108,6 +108,7 @@
 <style lang="scss" scoped>
   @import "../../../sass/_variables.scss";
 
+  // For Transitioning
   .modal {
     display: block;
   }
@@ -123,5 +124,25 @@
   }
   .modal-backdrop {
     opacity: 0.5;
+  }
+
+  //Modal styles
+
+  .modal-header {
+    height: $modal-header-height;
+    padding:$modal-header-padding-y $modal-header-padding-x;
+    border-bottom: $modal-header-border;
+    font-size: $font-size-larger;
+    display: flex;
+    align-items: center;
+  }
+
+  .modal-content {
+    border-radius: $modal-content-border-radius;
+  }
+
+  .modal-footer {
+    justify-content: center;
+    padding: 0 $modal-inner-padding $modal-inner-padding $modal-inner-padding;
   }
 </style>
