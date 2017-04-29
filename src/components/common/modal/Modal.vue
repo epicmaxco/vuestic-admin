@@ -1,30 +1,32 @@
 <template>
-  <div v-show="show" :transition="transition">
-    <div class="modal" @click.self="clickMask">
-      <div class="modal-dialog" :class="modalClass">
-        <div class="modal-content">
-          <!--Header-->
-          <div class="modal-header">
-            <slot name="header">
-              <!--<a type="button" class="close" @click="cancel">x</a>-->
-              <h4 class="modal-title">
-                <slot name="title"></slot>
-              </h4>
-            </slot>
-          </div>
-          <!--Container-->
-          <div class="modal-body">
-            <slot></slot>
-          </div>
-          <!--Footer-->
-          <div class="modal-footer">
-            <slot name="footer"></slot>
+  <transition name="modal" :duration="duration">
+    <div v-show="show" class="modal-container">
+      <div class="modal" @click.self="clickMask">
+        <div class="modal-dialog" :class="modalClass">
+          <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+              <slot name="header">
+                <!--<a type="button" class="close" @click="cancel">x</a>-->
+                <h4 class="modal-title">
+                  <slot name="title"></slot>
+                </h4>
+              </slot>
+            </div>
+            <!--Container-->
+            <div class="modal-body">
+              <slot></slot>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+              <slot name="footer"></slot>
+            </div>
           </div>
         </div>
       </div>
+      <div class="modal-backdrop"></div>
     </div>
-    <div class="modal-backdrop in"></div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -50,7 +52,8 @@
     },
     data () {
       return {
-        show: false
+        show: false,
+        duration: 500
       }
     },
     computed: {
@@ -75,12 +78,9 @@
         if (value) {
           document.body.className += ' modal-open'
         } else {
-          if (!this.duration) {
-            this.duration = window.getComputedStyle(this.$el)['transition-duration'].replace('s', '') * 1000
-          }
           window.setTimeout(() => {
             document.body.className = document.body.className.replace(/\s?modal-open/, '')
-          }, this.duration || 0)
+          }, this.duration)
         }
       }
     },
@@ -111,20 +111,14 @@
   .modal {
     display: block;
   }
-  .modal-transition {
-    transition: all .6s ease;
-  }
-  .modal-leave {
-    border-radius: 1px !important;
-  }
-  .modal-transition .modal-dialog, .modal-transition .modal-backdrop {
+  .modal-dialog, .modal-backdrop {
     transition: all .5s ease;
   }
-  .modal-enter .modal-dialog, .modal-leave .modal-dialog {
+  .modal-enter .modal-dialog, .modal-leave-active .modal-dialog {
     opacity: 0;
     transform: translateY(-30%);
   }
-  .modal-enter .modal-backdrop, .modal-leave .modal-backdrop {
+  .modal-enter .modal-backdrop, .modal-leave-active .modal-backdrop {
     opacity: 0;
   }
   .modal-backdrop {
