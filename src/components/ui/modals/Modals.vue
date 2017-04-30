@@ -11,6 +11,9 @@
         <button class="btn btn-warning" @click="showLargeModal()">
           LARGE
         </button>
+        <button class="btn btn-success" @click="showStaticModal()">
+          STATIC
+        </button>
       </widget>
     </div>
 
@@ -42,6 +45,12 @@
         horse-like. All three belong to the genus Equus, along with other living equids.
       </div>
     </modal>
+    <modal :show.sync="show" v-bind:small="true" v-bind:force="true" ref="staticModal" :cancelClass="'none'" :okText="'CLOSE'">
+      <div slot="title">Static Modal</div>
+      <div>
+        This is static modal, backdrop click will not close it.
+      </div>
+    </modal>
   </div>
 </template>
 
@@ -69,6 +78,9 @@
       },
       showLargeModal () {
         this.$refs.largeModal.open()
+      },
+      showStaticModal () {
+        this.$refs.staticModal.open()
       }
     }
   }

@@ -47,7 +47,7 @@
         type: Boolean,
         default: false
       },
-      full: {
+      force: {
         type: Boolean,
         default: false
       },
@@ -55,17 +55,14 @@
         type: String,
         default: 'CONFIRM'
       },
-      // 取消按钮text
       cancelText: {
         type: String,
         default: 'CANCEL'
       },
-      // 确认按钮className
       okClass: {
         type: String,
         default: 'btn btn-primary'
       },
-      // 取消按钮className
       cancelClass: {
         type: String,
         default: 'btn btn-secondary'
@@ -81,8 +78,7 @@
       modalClass () {
         return {
           'modal-lg': this.large,
-          'modal-sm': this.small,
-          'modal-full': this.full
+          'modal-sm': this.small
         }
       }
     },
@@ -115,7 +111,9 @@
         this.show = false
       },
       clickMask () {
-        this.cancel()
+        if (!this.force) {
+          this.cancel()
+        }
       },
       open () {
         this.show = true
