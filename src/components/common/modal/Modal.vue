@@ -161,11 +161,10 @@
   .modal-footer {
     justify-content: center;
     padding: 0 $modal-inner-padding;
-    padding-bottom: calc(#{$modal-inner-padding} - 20px);
+    padding-bottom: calc(#{$modal-inner-padding} - #{$modal-footer-btns-padding-bottom});
     flex-wrap: wrap;
     .btn {
-      margin-right: 20px;
-      margin-bottom: 20px;
+      margin: 0 $modal-footer-btns-margin-x $modal-footer-btns-padding-bottom $modal-footer-btns-margin-x;
     }
   }
 </style>

@@ -48,7 +48,7 @@
     <modal :show.sync="show" v-bind:small="true" v-bind:force="true" ref="staticModal" :cancelClass="'none'" :okText="'CLOSE'">
       <div slot="title">Static Modal</div>
       <div>
-        This is static modal, backdrop click will not close it.
+        This is a static modal, backdrop click will not close it.
       </div>
     </modal>
   </div>
