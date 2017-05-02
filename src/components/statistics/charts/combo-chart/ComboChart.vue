@@ -22,7 +22,7 @@
     methods: {
       drawChart () {
         /* global AmCharts */
-        var chart = AmCharts.makeChart(this.$el, {
+        this.chart = AmCharts.makeChart(this.$el, {
           'type': 'serial',
           'pathToImages': 'https://www.amcharts.com/lib/3/images/',
           'theme': 'light',
@@ -33,8 +33,8 @@
             'title': 'Sales',
             'position': 'left',
             'autoGridCount': false,
-            'labelFunction': function(value) {
-              return '$' + Math.round(value) + 'M';
+            'labelFunction': function (value) {
+              return '$' + Math.round(value) + 'M'
             }
           }, {
             'id': 'v2',
