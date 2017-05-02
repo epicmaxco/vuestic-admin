@@ -16,6 +16,9 @@
       <widget class="col-sm-12 chart-widget"  header-text="Clustered Bar Chart">
         <clustered-bar-chart v-bind:chart-data="clusteredBarChartData"></clustered-bar-chart>
       </widget>
+      <widget class="col-sm-12 chart-widget"  header-text="Pie Chart">
+        <pie-chart v-bind:chart-data="pieChartData"></pie-chart>
+      </widget>
     </div>
   </div>
 </template>
@@ -31,6 +34,8 @@
   import LayeredColumnChartData from './layered-column-chart/LayeredColumnChartData'
   import ClusteredBarChart from './clustered-bar-chart/ClusteredBarChart.vue'
   import ClusteredBarChartData from './clustered-bar-chart/ClusteredBarChartData'
+  import PieChart from './pie-chart/PieChart.vue'
+  import PieChartData from './pie-chart/PieChartData'
   import Widget from 'components/common/widget/Widget'
 
   export default {
@@ -41,7 +46,8 @@
       ColumnChart,
       TimeBasedAreaChart,
       LayeredColumnChart,
-      ClusteredBarChart
+      ClusteredBarChart,
+      PieChart
     },
     data: function () {
       return {
@@ -49,7 +55,8 @@
         columnChartData: ColumnChartData,
         timeBasedAreaChartData: TimeBasedAreaChartData,
         layeredColumnChartData: LayeredColumnChartData,
-        clusteredBarChartData: ClusteredBarChartData
+        clusteredBarChartData: ClusteredBarChartData,
+        pieChartData: PieChartData
       }
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <div class='layered-column-chart'></div>
+  <div class='clustered-bar-chart'></div>
 </template>
 
 <script>
@@ -9,7 +9,7 @@
   import 'amcharts3/amcharts/themes/light'
 
   export default {
-    name: 'layered-column-chart',
+    name: 'clustered-bar-chart',
 
     props: ['chartData'],
 
@@ -83,7 +83,7 @@
   @import '../../../../sass/_variables.scss';
   @import '../../../../../node_modules/ammap3/ammap/ammap.css';
 
-  .layered-column-chart {
+  .clustered-bar-chart {
     width: 100%;
     height: 100%;
   }
