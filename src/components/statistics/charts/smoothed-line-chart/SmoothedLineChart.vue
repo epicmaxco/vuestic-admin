@@ -19,7 +19,6 @@
         var chart = AmCharts.makeChart(this.$el, {
           'type': 'serial',
           'theme': 'light',
-          'path': '/node_modules/amcharts3',
           'marginTop': 0,
           'marginRight': 80,
           'dataProvider': this.chartData,
