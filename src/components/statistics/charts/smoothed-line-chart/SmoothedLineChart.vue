@@ -1,5 +1,5 @@
 <template>
-  <div class="smoothed-line-chart"></div>
+  <div class='smoothed-line-chart'></div>
 </template>
 
 <script>
@@ -8,91 +8,87 @@
   import 'amcharts3/amcharts/serial.js'
   import 'amcharts3/amcharts/themes/light'
 
-  import 'ammap3'
-  import 'ammap3/ammap/maps/js/worldLow'
-
   export default {
     name: 'smoothed-line-chart',
 
     props: ['chartData'],
 
     methods: {
-      drawMap () {
+      drawChart () {
         /* global AmCharts */
-        let map
-        let minBulletSize = 3
-        let maxBulletSize = 70
-        let min = Infinity
-        let max = -Infinity
-        AmCharts.theme = AmCharts.themes.light
+        var chart = AmCharts.makeChart(this.$el, {
+          'type': 'serial',
+          'theme': 'light',
+          'path': '/node_modules/amcharts3',
+          'marginTop': 0,
+          'marginRight': 80,
+          'dataProvider': this.chartData,
+          'valueAxes': [{
+            'axisAlpha': 0,
+            'position': 'left'
+          }],
+          'graphs': [{
+            'id': 'g1',
+            'balloonText': '[[category]]<br><b><span style="font-size:14px">[[value]]</span></b>',
+            'bullet': 'round',
+            'bulletSize': 8,
+            'lineColor': '#d1655d',
+            'lineThickness': 2,
+            'negativeLineColor': '#637bb6',
+            'type': 'smoothedLine',
+            'valueField': 'value'
+          }],
+          'chartScrollbar': {
+            'graph': 'g1',
+            'gridAlpha': 0,
+            'color': '#888888',
+            'scrollbarHeight': 55,
+            'backgroundAlpha': 0,
+            'selectedBackgroundAlpha': 0.1,
+            'selectedBackgroundColor': '#888888',
+            'graphFillAlpha': 0,
+            'autoGridCount': true,
+            'selectedGraphFillAlpha': 0,
+            'graphLineAlpha': 0.2,
+            'graphLineColor': '#c2c2c2',
+            'selectedGraphLineColor': '#888888',
+            'selectedGraphLineAlpha': 1
 
-        // get min and max values
-        this.chartData.data.forEach((dataItem) => {
-          let value = dataItem.value
-          if (value < min) {
-            min = value
-          }
-          if (value > max) {
-            max = value
+          },
+          'chartCursor': {
+            'categoryBalloonDateFormat': 'YYYY',
+            'cursorAlpha': 0,
+            'valueLineEnabled': true,
+            'valueLineBalloonEnabled': true,
+            'valueLineAlpha': 0.5,
+            'fullWidth': true
+          },
+          'dataDateFormat': 'YYYY',
+          'categoryField': 'year',
+          'categoryAxis': {
+            'minPeriod': 'YYYY',
+            'parseDates': true,
+            'minorGridAlpha': 0.1,
+            'minorGridEnabled': true
+          },
+          'export': {
+            'enabled': true
           }
         })
 
-        // build map
-        map = new AmCharts.AmMap()
-
-        map.projection = 'winkel3'
-        map.addTitle('Population of the World in 2011', 14, 1, 1, false)
-        map.addTitle('source: Gapminder', 11, 1, 1, 1, false)
-        map.areasSettings = {
-          unlistedAreasColor: '#eee',
-          unlistedAreasAlpha: 1,
-          outlineColor: '#fff',
-          outlineThickness: 2
-        }
-        map.imagesSettings = {
-          balloonText: '<span style="font-size:14px"><b>[[title]]</b>: [[value]]</span>',
-          alpha: 0.75
+        chart.addListener('rendered', zoomChart)
+        if (chart.zoomChart) {
+          chart.zoomChart()
         }
 
-        let dataProvider = {
-          mapVar: AmCharts.maps.worldLow,
-          images: []
+        function zoomChart () {
+          chart.zoomToIndexes(Math.round(chart.dataProvider.length * 0.4), Math.round(chart.dataProvider.length * 0.55))
         }
-
-        // create circle for each country
-        // it's better to use circle square to show difference between values, not a radius
-        var maxSquare = maxBulletSize * maxBulletSize * 2 * Math.PI
-        var minSquare = minBulletSize * minBulletSize * 2 * Math.PI
-
-        // create circle for each country
-        this.chartData.data.forEach((dataItem) => {
-          var value = dataItem.value
-          // calculate size of a bubble
-          var square = (value - min) / (max - min) * (maxSquare - minSquare) + minSquare
-          if (square < minSquare) {
-            square = minSquare
-          }
-          var size = Math.sqrt(square / (Math.PI * 2))
-          var id = dataItem.code
-          dataProvider.images.push({
-            type: 'circle',
-            width: size,
-            height: size,
-            color: dataItem.color,
-            longitude: this.chartData.latlong[id].longitude,
-            latitude: this.chartData.latlong[id].latitude,
-            title: dataItem.name,
-            value: value
-          })
-        })
-
-        map.dataProvider = dataProvider
-        map.write(this.$el)
       }
     },
 
     mounted () {
-      this.drawMap()
+      this.drawChart()
     }
   }
 </script>
@@ -102,6 +98,7 @@
   @import '../../../../../node_modules/ammap3/ammap/ammap.css';
 
   .smoothed-line-chart {
+    width: 100%;
     height: 100%;
   }
 </style>
