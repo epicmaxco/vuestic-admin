@@ -69,8 +69,10 @@
   }
 </script>
 
-<style lang="scss" scoped>
-  .chart-widget {
-    min-height: 600px;
+<style lang="scss">
+  .widget.chart-widget {
+    .widget-body {
+      height: 550px;
+    }
   }
 </style>
