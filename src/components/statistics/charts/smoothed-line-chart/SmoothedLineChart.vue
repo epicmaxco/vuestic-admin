@@ -18,6 +18,7 @@
         /* global AmCharts */
         var chart = AmCharts.makeChart(this.$el, {
           'type': 'serial',
+          'pathToImages': 'https://www.amcharts.com/lib/3/images/',
           'theme': 'light',
           'marginTop': 0,
           'marginRight': 80,

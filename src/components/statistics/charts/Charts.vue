@@ -7,10 +7,10 @@
       <widget class="col-sm-12 chart-widget"  header-text="Column Chart">
         <column-chart v-bind:chart-data="columnChartData"></column-chart>
       </widget>
-      <widget class="col-sm-12 chart-widget"  header-text="Column Chart">
+      <widget class="col-sm-12 chart-widget"  header-text="Time Based Area Chart">
         <time-based-area-chart v-bind:chart-data="timeBasedAreaChartData"></time-based-area-chart>
       </widget>
-      <widget class="col-sm-12 chart-widget"  header-text="Column Chart">
+      <widget class="col-sm-12 chart-widget"  header-text="Layered Column Chart">
         <layered-column-chart v-bind:chart-data="layeredColumnChartData"></layered-column-chart>
       </widget>
       <widget class="col-sm-12 chart-widget"  header-text="Clustered Bar Chart">

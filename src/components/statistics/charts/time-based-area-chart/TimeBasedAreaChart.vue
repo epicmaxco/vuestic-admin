@@ -24,6 +24,7 @@
         /* global AmCharts */
         this.chart = AmCharts.makeChart(this.$el, {
           'type': 'serial',
+          'pathToImages': 'https://www.amcharts.com/lib/3/images/',
           'theme': 'light',
           'marginRight': 80,
           'dataProvider': this.chartData,
