@@ -13,6 +13,9 @@
       <widget class="col-sm-12 chart-widget"  header-text="Column Chart">
         <layered-column-chart v-bind:chart-data="layeredColumnChartData"></layered-column-chart>
       </widget>
+      <widget class="col-sm-12 chart-widget"  header-text="Clustered Bar Chart">
+        <clustered-bar-chart v-bind:chart-data="clusteredBarChartData"></clustered-bar-chart>
+      </widget>
     </div>
   </div>
 </template>
@@ -26,6 +29,8 @@
   import TimeBasedAreaChartData from './time-based-area-chart/TimeBasedAreaChartData'
   import LayeredColumnChart from './layered-column-chart/LayeredColumnChart.vue'
   import LayeredColumnChartData from './layered-column-chart/LayeredColumnChartData'
+  import ClusteredBarChart from './clustered-bar-chart/ClusteredBarChart.vue'
+  import ClusteredBarChartData from './clustered-bar-chart/ClusteredBarChartData'
   import Widget from 'components/common/widget/Widget'
 
   export default {
@@ -35,14 +40,16 @@
       SmoothedLineChart,
       ColumnChart,
       TimeBasedAreaChart,
-      LayeredColumnChart
+      LayeredColumnChart,
+      ClusteredBarChart
     },
     data: function () {
       return {
         smoothedLineChartData: SmoothedLineChartData,
         columnChartData: ColumnChartData,
         timeBasedAreaChartData: TimeBasedAreaChartData,
-        layeredColumnChartData: LayeredColumnChartData
+        layeredColumnChartData: LayeredColumnChartData,
+        clusteredBarChartData: ClusteredBarChartData
       }
     }
   }
