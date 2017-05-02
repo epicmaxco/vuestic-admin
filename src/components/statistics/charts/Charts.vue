@@ -1,6 +1,13 @@
 <template>
   <div class="charts-page">
     <div class="row">
+      <div class="col-md-12">
+        <widget class="chart-widget"  header-text="Combo Chart">
+          <combo-chart v-bind:chart-data="comboChartData"></combo-chart>
+        </widget>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-md-6">
         <widget class="chart-widget"  header-text="Column Chart">
           <column-chart v-bind:chart-data="columnChartData"></column-chart>
@@ -64,6 +71,8 @@
   import PieChartData from './pie-chart/PieChartData'
   import DonutChart from './donut-chart/DonutChart.vue'
   import DonutChartData from './donut-chart/DonutChartData'
+  import ComboChart from './combo-chart/ComboChart.vue'
+  import ComboChartData from './combo-chart/ComboChartData'
   import Widget from 'components/common/widget/Widget'
 
   export default {
@@ -76,7 +85,8 @@
       LayeredColumnChart,
       ClusteredBarChart,
       PieChart,
-      DonutChart
+      DonutChart,
+      ComboChart
     },
     data: function () {
       return {
@@ -86,7 +96,8 @@
         layeredColumnChartData: LayeredColumnChartData,
         clusteredBarChartData: ClusteredBarChartData,
         pieChartData: PieChartData,
-        donutChartData: DonutChartData
+        donutChartData: DonutChartData,
+        comboChartData: ComboChartData
       }
     }
   }
