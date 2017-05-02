@@ -19,6 +19,9 @@
       <widget class="col-sm-12 chart-widget"  header-text="Pie Chart">
         <pie-chart v-bind:chart-data="pieChartData"></pie-chart>
       </widget>
+      <widget class="col-sm-12 chart-widget"  header-text="Donut Chart">
+        <donut-chart v-bind:chart-data="donutChartData"></donut-chart>
+      </widget>
     </div>
   </div>
 </template>
@@ -36,6 +39,8 @@
   import ClusteredBarChartData from './clustered-bar-chart/ClusteredBarChartData'
   import PieChart from './pie-chart/PieChart.vue'
   import PieChartData from './pie-chart/PieChartData'
+  import DonutChart from './donut-chart/DonutChart.vue'
+  import DonutChartData from './donut-chart/DonutChartData'
   import Widget from 'components/common/widget/Widget'
 
   export default {
@@ -47,7 +52,8 @@
       TimeBasedAreaChart,
       LayeredColumnChart,
       ClusteredBarChart,
-      PieChart
+      PieChart,
+      DonutChart
     },
     data: function () {
       return {
@@ -56,7 +62,8 @@
         timeBasedAreaChartData: TimeBasedAreaChartData,
         layeredColumnChartData: LayeredColumnChartData,
         clusteredBarChartData: ClusteredBarChartData,
-        pieChartData: PieChartData
+        pieChartData: PieChartData,
+        donutChartData: DonutChartData
       }
     }
   }
