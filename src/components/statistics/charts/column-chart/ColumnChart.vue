@@ -16,7 +16,7 @@
     methods: {
       drawChart () {
         /* global AmCharts */
-        AmCharts.makeChart( this.$el, {
+        AmCharts.makeChart(this.$el, {
           'type': 'serial',
           'theme': 'light',
           'dataProvider': this.chartData,

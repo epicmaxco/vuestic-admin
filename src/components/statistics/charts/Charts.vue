@@ -7,6 +7,9 @@
       <widget class="col-sm-12 chart-widget"  header-text="Column Chart">
         <column-chart v-bind:chart-data="columnChartData"></column-chart>
       </widget>
+      <widget class="col-sm-12 chart-widget"  header-text="Column Chart">
+        <time-based-area-chart v-bind:chart-data="timeBasedAreaChartData"></time-based-area-chart>
+      </widget>
     </div>
   </div>
 </template>
@@ -16,6 +19,8 @@
   import SmoothedLineChartData from './smoothed-line-chart/SmoothedLineChartData'
   import ColumnChart from './column-chart/ColumnChart.vue'
   import ColumnChartData from './column-chart/ColumnChartData'
+  import TimeBasedAreaChart from './time-based-area-chart/TimeBasedAreaChart.vue'
+  import TimeBasedAreaChartData from './time-based-area-chart/TimeBasedAreaChartData'
   import Widget from 'components/common/widget/Widget'
 
   export default {
@@ -23,12 +28,14 @@
     components: {
       Widget,
       SmoothedLineChart,
-      ColumnChart
+      ColumnChart,
+      TimeBasedAreaChart
     },
     data: function () {
       return {
         smoothedLineChartData: SmoothedLineChartData,
-        columnChartData: ColumnChartData
+        columnChartData: ColumnChartData,
+        timeBasedAreaChartData: TimeBasedAreaChartData
       }
     }
   }
