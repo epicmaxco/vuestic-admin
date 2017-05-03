@@ -13,7 +13,7 @@
     &::after{
       width: 20px;
       height: 20px;
-      top: 5px;
+      top: 2px;
       left: 2px;
     }
 
@@ -30,6 +30,13 @@
 
     &:focus + label::before{
       outline: none;
+    }
+
+
+    &:checked + label::after{
+      font-family: "Ionicons";
+      content: "\f122";
+      font-size: 15px;
     }
 
     &:disabled + label{
