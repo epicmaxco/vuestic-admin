@@ -1,6 +1,7 @@
 // Colors //
 $gray-light : #acb5be !default;
 $light-gray : #eee;
+$lighter-gray: #ddd;
 $darkest-gray : #333;
 $almost-black : #161616;
 $vue-green : #4ae387;
@@ -156,3 +157,6 @@ $modal-footer-btns-padding-bottom: 20px;
 $modal-footer-btns-margin-x: 10px;
 $modal-md: 650px;
 $modal-lg: 850px;
+
+//Forms
+$input-border-color: $lighter-gray;
