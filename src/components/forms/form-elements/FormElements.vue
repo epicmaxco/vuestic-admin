@@ -33,6 +33,36 @@
                   </div>
                 </fieldset>
               </div>
+
+              <div class="col-md-4">
+                <fieldset>
+                  <div class="abc-checkbox abc-checkbox-primary abc-checkbox-circle">
+                    <input id="checkbox7" type="checkbox">
+                    <label for="checkbox7">
+                      <span class="abc-label-text">Subscribe to newsletter</span>
+                    </label>
+                  </div>
+                  <div class="abc-checkbox abc-checkbox-primary abc-checkbox-circle">
+                    <input id="checkbox8" type="checkbox" checked>
+                    <label for="checkbox8">
+                      <span class="abc-label-text">Subscribe to newsletter</span>
+                    </label>
+                  </div>
+                  <div class="abc-checkbox abc-checkbox-primary abc-checkbox-circle">
+                    <input id="checkbox9" type="checkbox" disabled>
+                    <label for="checkbox9">
+                      <span class="abc-label-text">Subscribe to newsletter</span>
+                    </label>
+                  </div>
+                  <div class="abc-checkbox abc-checkbox-primary abc-checkbox-circle">
+                    <input id="checkbox10" type="checkbox" checked disabled>
+                    <label for="checkbox10">
+                      <span class="abc-label-text">Subscribe to newsletter</span>
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
+
             </div>
           </form>
         </widget>
