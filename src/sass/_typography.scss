@@ -1,4 +1,64 @@
+.widget-body {
+  padding: 60px 75px 0 35px !important
+}
+
+h3, h4, strong, b {
+  font-weight: 600 !important;
+}
+
+
+.typo-articles {
+  width: 80%;
+  margin-bottom: 100px;
+
+  > p {
+    width: 90%;
+    .vue-woodlands {
+      color: $vue-green;
+    }
+
+    .vue-mountains {
+      color: $vue-green;
+      &:hover {
+        color: #70f0a3;
+        cursor: pointer;
+      }
+    }
+
+    .vue-highlighted {
+      background-color: #dbf9e7;
+      padding: 2px 1px 1px 2px;
+    }
+
+    .vue-selected {
+      background-color: $vue-green;
+      padding: 2px 1px 2px 2px;
+      color: white;
+    }
+  }
+
+  .blockquote {
+    margin: 40px 0px 40px 16px;
+    font-style: oblique;
+  }
+}
+
 //Lists
+.vue-lists {
+  .col-md-6 {
+    margin-right: 0;
+    li {
+      margin-top: 40px;
+      margin-bottom: -40px;
+      width: 95%;
+      li {
+        margin-top: 13px;
+        margin-bottom: -27px;
+      }
+    }
+  }
+}
+
 ul.vue-unordered {
   padding         : 0;
   list-style-type : none;
@@ -27,7 +87,7 @@ ul.vue-unordered {
     li {
       &::before {
         background-color : $white;
-        border           : 2px solid $vue-green;
+        border           : 2.5px solid $vue-green;
       }
     }
   }
@@ -70,8 +130,7 @@ ol.vue-ordered {
         top              : 0.0625rem;
         margin-right     : -0.75em;
         border-radius    : 0.75rem;
-        background-color : $white;
-        border           : 2px solid $vue-green;
+        background-color : $vue-green;
       }
 
     }
@@ -79,9 +138,13 @@ ol.vue-ordered {
 
 }
 
+.vue-misc {
+  margin-top: 90px;
+}
+
 //Well
 .well {
-  padding          : 1rem 2rem;
+  // width: 95%;
+  padding          : 30px 35px 30px 25px;
   background-color : #f7f7f7;
-  border           : 1px solid #e8e8e8;
 }

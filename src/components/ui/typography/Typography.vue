@@ -8,19 +8,20 @@
           <h3>Articles & Block Headings H3</h3>
           <h4>Random Tiny Heading H4</h4>
         </div>
-        <div>
-          <p>The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands, mountains, and coastal hills. However, various anthropogenic factors have had a severe impact on zebra populations, in particular hunting for skins and habitat destruction. Grévy's zebra and the mountain highlighted text zebra are endangered.</p>
+        <div class="typo-articles">
+          <p>The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, <span class="vue-woodlands">woodlands</span>, thorny scrublands, <span class="vue-mountains">mountains</span> , and coastal hills. However, various anthropogenic factors have had a severe impact on zebra populations, in particular hunting for skins and habitat destruction. Grévy's zebra and the mountain <span class="vue-highlighted">highlighted text</span> zebra are endangered.</p>
           <blockquote class="blockquote">
             <p>Blockquotes. However, various anthropogenic factors have had a severe impact on zebra populations, in particular hunting for skins. </p>
             <footer class="blockquote-footer">Jefferey Lebowski</footer>
           </blockquote>
-          <p>lthough zebra species may have overlapping ranges, they do not interbreed. In captivity, plains zebras have been crossed with mountain zebras. The hybrid foals selected text lacked a dewlap and resembled the plains zebra apart from their larger ears and their hindquarters pattern.</p>
+          <p>lthough zebra species may have overlapping ranges, they do not interbreed. In captivity, plains zebras have been crossed with mountain zebras. The hybrid foals <span class="vue-selected">selected text</span> lacked a dewlap and resembled their
+          </p>
         </div>
-        <div>
+        <div class="vue-lists">
           <h2>Lists</h2>
           <div class="row">
             <div class="col-md-6">
-              <h3>Unodrered</h3>
+              <h3>Unordered</h3>
               <ul class="vue-unordered">
                 <li>A wide variety of hypotheses have been proposed to account for the evolution of the striking stripes of zebras.</li>
                 <li>The more traditional of these (1 and 2, below) relate to camouflage.</li>
@@ -36,7 +37,8 @@
                 <li>Before seeing it from a distance, especially at night.</li>
               </ul>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 text-left">
+            <div>
               <h3>Ordered</h3>
               <ol class="vue-ordered">
                 <li>A wide variety of hypotheses have been proposed to account for the evolution of the striking stripes of zebras.</li>
@@ -54,9 +56,10 @@
                 <li>Before seeing it from a distance, especially at night.</li>
               </ol>
             </div>
+            </div>
           </div>
         </div>
-        <div>
+        <div class="vue-misc">
           <h2>Misc</h2>
           <div class="row">
             <div class="col-md-6">
