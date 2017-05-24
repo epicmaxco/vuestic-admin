@@ -113,19 +113,19 @@ h4, .h4 {
 }
 
 .btn.btn-danger {
-  @include theme-button-variant($white, $btn-danger-bg, $btn-border, $btn-box-shadow);
+  @include theme-button-variant($white, $btn-danger-bg, $btn-border, $btn-box-danger-shadow);
 }
 
 .btn.btn-warning {
-  @include theme-button-variant($white, $btn-warning-bg, $btn-border, $btn-box-shadow);
+  @include theme-button-variant($white, $btn-warning-bg, $btn-border, $btn-box-warning-shadow);
 }
 
 .btn.btn-info {
-  @include theme-button-variant($white, $btn-info-bg, $btn-border, $btn-box-shadow);
+  @include theme-button-variant($white, $btn-info-bg, $btn-border, $btn-box-info-shadow);
  }
 
 .btn.btn-success {
-  @include theme-button-variant($white, $btn-success-bg, $btn-border, $btn-box-shadow);
+  @include theme-button-variant($white, $btn-success-bg, $btn-border, $btn-box-success-shadow);
 }
 
 .btn.btn-dark {
@@ -133,7 +133,7 @@ h4, .h4 {
 }
 
 .btn.btn-pale {
-  @include theme-button-variant($white, $btn-pale-bg, $btn-border, $btn-box-shadow);
+  @include theme-button-variant($white, $btn-pale-bg, $btn-border, $btn-box-pale-shadow);
   &:hover {
     background-color: lighten($btn-pale-bg, 5%);
     &:focus, &:active, &.active {
