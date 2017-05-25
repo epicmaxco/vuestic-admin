@@ -3,36 +3,36 @@ h1, h2, h3, h4, h5, h6, strong, b {
 }
 
 .blockquote {
-  margin: 40px 0px 40px 16px;
+  margin: 2.5rem 0 2.5rem 1rem;
   font-style: oblique;
 }
 
-.vue-woodlands {
+.vue-green-text {
   color: $vue-green;
 }
 
-.vue-mountains {
+.vue-clickable-text {
   color: $vue-green;
   &:hover {
-    color: #70f0a3;
+    color: lighten($vue-green, 10%);
     cursor: pointer;
   }
 }
 
-.vue-highlighted {
-  background-color: #dbf9e7;
+.vue-highlighted-text {
+  background-color: $brand-highlighted;
   padding: 2px 1px 1px 2px;
 }
 
-.vue-selected {
+.vue-selected-text {
   background-color: $vue-green;
   padding: 2px 1px 2px 2px;
-  color: white;
+  color: $white;
 }
 
 ul.vue-list-inner, ol.vue-list-inner {
   li:first-child {
-    margin-top: 24px;
+    margin-top: 1.5rem;
   }
 
   li:last-child {
@@ -120,12 +120,13 @@ ol.vue-ordered {
 }
 
 .vue-misc {
-  margin-top: 90px;
+  margin-top: 5.625rem;
+  margin-bottom: 2rem;
 }
 
 //Well
 .well {
-  // width: 95%;
-  padding          : 30px 35px 30px 25px;
-  background-color : #f7f7f7;
+  padding          : 1.9rem 2.2rem 1.9rem 1.6rem;
+  // background-color : #f7f7f7;
+  background-color: $light-gray;
 }

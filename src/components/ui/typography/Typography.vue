@@ -9,12 +9,12 @@
           <h4>Random Tiny Heading H4</h4>
         </div>
         <div class="typo-articles">
-          <p>The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, <span class="vue-woodlands">woodlands</span>, thorny scrublands, <span class="vue-mountains">mountains</span> , and coastal hills. However, various anthropogenic factors have had a severe impact on zebra populations, in particular hunting for skins and habitat destruction. Grévy's zebra and the mountain <span class="vue-highlighted">highlighted text</span> zebra are endangered.</p>
+          <p>The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, <span class="vue-green-text">woodlands</span>, thorny scrublands, <span class="vue-clickable-text">mountains</span> , and coastal hills. However, various anthropogenic factors have had a severe impact on zebra populations, in particular hunting for skins and habitat destruction. Grévy's zebra and the mountain <span class="vue-highlighted-text">highlighted text</span> zebra are endangered.</p>
           <blockquote class="blockquote">
             <p>Blockquotes. However, various anthropogenic factors have had a severe impact on zebra populations, in particular hunting for skins. </p>
             <footer class="blockquote-footer">Jefferey Lebowski</footer>
           </blockquote>
-          <p>lthough zebra species may have overlapping ranges, they do not interbreed. In captivity, plains zebras have been crossed with mountain zebras. The hybrid foals <span class="vue-selected">selected text</span> lacked a dewlap and resembled their
+          <p>lthough zebra species may have overlapping ranges, they do not interbreed. In captivity, plains zebras have been crossed with mountain zebras. The hybrid foals <span class="vue-selected-text">selected text</span> lacked a dewlap and resembled their
           </p>
         </div>
         <div class="vue-lists">
@@ -102,12 +102,20 @@
 <style lang="scss">
   .ui-typography {
     .typo-articles {
-      margin-bottom: 100px;
+      margin-bottom: 6.25rem;
       width: 90%;
     }
 
     .widget-body {
-      padding: 60px 75px 0 35px;
+      padding: 3.75rem 4.7rem 0 2.2rem !important;
+    }
+    
+    .col-md-6 {
+      padding-right: 0;
+    }
+
+    .vue-lists ul, ol {
+      width: 85%;
     }
   }
 
