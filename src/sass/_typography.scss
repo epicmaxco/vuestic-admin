@@ -1,61 +1,42 @@
-.widget-body {
-  padding: 60px 75px 0 35px !important
+h1, h2, h3, h4, h5, h6, strong, b {
+  font-weight: 600;
 }
 
-h3, h4, strong, b {
-  font-weight: 600 !important;
+.blockquote {
+  margin: 40px 0px 40px 16px;
+  font-style: oblique;
 }
 
+.vue-woodlands {
+  color: $vue-green;
+}
 
-.typo-articles {
-  // width: 80%;
-  margin-bottom: 100px;
-
-  > p {
-    width: 90%;
-    .vue-woodlands {
-      color: $vue-green;
-    }
-
-    .vue-mountains {
-      color: $vue-green;
-      &:hover {
-        color: #70f0a3;
-        cursor: pointer;
-      }
-    }
-
-    .vue-highlighted {
-      background-color: #dbf9e7;
-      padding: 2px 1px 1px 2px;
-    }
-
-    .vue-selected {
-      background-color: $vue-green;
-      padding: 2px 1px 2px 2px;
-      color: white;
-    }
-  }
-
-  .blockquote {
-    margin: 40px 0px 40px 16px;
-    font-style: oblique;
+.vue-mountains {
+  color: $vue-green;
+  &:hover {
+    color: #70f0a3;
+    cursor: pointer;
   }
 }
 
-//Lists
-.vue-lists {
-  .col-md-6 {
-    margin-right: 0;
-    li {
-      margin-top: 40px;
-      margin-bottom: -40px;
-      width: 95%;
-      li {
-        margin-top: 13px;
-        margin-bottom: -27px;
-      }
-    }
+.vue-highlighted {
+  background-color: #dbf9e7;
+  padding: 2px 1px 1px 2px;
+}
+
+.vue-selected {
+  background-color: $vue-green;
+  padding: 2px 1px 2px 2px;
+  color: white;
+}
+
+ul.vue-list-inner, ol.vue-list-inner {
+  li:first-child {
+    margin-top: 24px;
+  }
+
+  li:last-child {
+    padding-bottom: 0;
   }
 }
 

@@ -28,7 +28,7 @@
                 <li>The vertical striping may help the zebra hide in the grass by disrupting its outline.</li>
                 <li>
                   In addition, even at moderate distances, the striking striping merges to an apparent grey.
-                  <ul>
+                  <ul class="vue-list-inner">
                     <li>However, the camouflage has been contested with arguments that most of a zebra's predator.</li>
                     <li>Such as lions and hyenas cannot see well at a distance.</li>
                     <li>More likely to have smelled or heard a zebra.</li>
@@ -46,7 +46,7 @@
                 <li>The vertical striping may help the zebra hide in the grass by disrupting its outline.</li>
                 <li>
                   In addition, even at moderate distances, the striking striping merges to an apparent grey.
-                  <ul>
+                  <ul class="vue-list-inner">
                     <li>However, the camouflage has been contested with arguments that most of a zebra's predator.
                     </li>
                     <li>Such as lions and hyenas cannot see well at a distance.</li>
@@ -100,5 +100,15 @@
 </script>
 
 <style lang="scss">
+  .ui-typography {
+    .typo-articles {
+      margin-bottom: 100px;
+      width: 90%;
+    }
+
+    .widget-body {
+      padding: 60px 75px 0 35px;
+    }
+  }
 
 </style>
