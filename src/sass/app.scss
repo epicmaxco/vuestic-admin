@@ -3,14 +3,15 @@
 @import "mixins";
 @import "fonts";
 @import "variables";
-@import "base";
-@import "typography";
-@import "icons";
 
 @import "~bootstrap/scss/bootstrap";
 @import "~font-awesome/css/font-awesome.css";
 @import "~ionicons/css/ionicons.css";
 @import "~awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.scss";
+
+@import "base";
+@import "typography";
+@import "icons";
 
 @import "override-custom-libs";
 @import "override-bootstrap";
