@@ -1,6 +1,6 @@
 <template>
   <div class="ui-grid">
-    <widget headerText="non-responsive(???)">
+    <widget headerText="Fixed Grid">
       <div class="row">
         <div v-for="i in 3" class="col"><div>.col</div></div>
       </div>
@@ -12,7 +12,7 @@
       </div>
     </widget>
 
-    <widget headerText="responsive">
+    <widget headerText="Desktop Grid">
       <div class="row">
         <div v-for="i in 3" class="col-md-4"><div>.col-md-4</div></div>
       </div>
@@ -24,7 +24,7 @@
       </div>
     </widget>
 
-    <widget headerText="mobile and desktop">
+    <widget headerText="Mobile and Desktop Grid">
       <div class="row">
         <div class="col-md-6 col-sm-12">
           <div>.col-md-3 .col-sm-8</div>
@@ -51,7 +51,7 @@
       </div>
     </widget>
 
-    <widget headerText="offsets">
+    <widget headerText="Offsets">
       <div class="row">
         <div class="col-md-6 offset-md-6 col-sm-6">
           <div>.col-md-6 .offset-md-6 .col-sm-6</div>
@@ -92,10 +92,13 @@
       div[class^=col] {
         padding: 0;
         div {
+          display: flex;
+          align-items:center;
+          justify-content: center;
+          text-align: center;
           margin: .5rem .25rem;
           min-height: 3rem;
           color: $white;
-          text-align: center;
           background-color: $brand-primary;
           border-radius: 0.5rem;
         }
