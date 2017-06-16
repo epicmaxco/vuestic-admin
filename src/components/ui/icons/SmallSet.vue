@@ -2,7 +2,9 @@
   <div class="small-set">
     {{name}}
     <div class="set-content">
-      <div class="overlay"><a :href="href"><div class="btn btn-primary btn-sm">ok</div></a></div>
+      <div class="overlay"><router-link :to="{path: href}" append>
+        <div class="btn btn-primary btn-sm">ok</div></router-link>
+      </div>
       <div>
         <template v-for="subList in subLists">
           <div class="row">
@@ -20,24 +22,27 @@
 
 <script>
   import Widget from '../../common/widget/Widget'
+  import {mapGetters} from 'vuex'
+
   export default {
     components: {Widget},
     name: 'small-set',
     props: {
-      set: {
-        type: Object,
+      nameOfSet: {
         required: true
-      },
-      href: String
+      }
     },
     methods: {
-      iconClass: function (icon) {
+      iconClass (icon) {
         return this.prefix + ' ' + this.prefix + '-' + icon
       }
     },
     computed: {
-      subLists: function () {
-        let list = this.set.lists[0].list
+      ...mapGetters([
+        'setOfIconsByName'
+      ]),
+      subLists () {
+        let list = this.set.lists[0].icons
         console.log(list)
         let subLists = []
         subLists.push(list.slice(0, 6))
@@ -45,11 +50,17 @@
         subLists.push(list.slice(12, 18))
         return subLists
       },
-      prefix: function () {
+      prefix () {
         return this.set.prefix
       },
-      name: function () {
+      name () {
         return this.set.name
+      },
+      href () {
+        return this.set.href
+      },
+      set () {
+        return this.setOfIconsByName(this.nameOfSet)
       }
     }
   }
@@ -67,6 +78,7 @@
           padding: 0;
           margin: 1rem 0;
           .icon {
+            font-size: .85rem;
             text-align: center;
           }
         }

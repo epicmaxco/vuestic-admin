@@ -25,12 +25,31 @@ export default {
       }
     },
     {
-      name: 'Icons',
       path: '/ui/icons',
-      component: lazyLoading('ui/icons/Icons'),
+      component: {
+        template: '<router-view></router-view>'
+      },
       meta: {
         title: 'Icons'
-      }
+      },
+      children: [
+        {
+          name: 'Icons',
+          path: '',
+          component: lazyLoading('ui/icons/Icons'),
+          meta: {
+            title: 'Icons'
+          }
+        },
+        {
+          path: ':nameOfSet',
+          component: lazyLoading('ui/icons/FullSet'),
+          props: true,
+          meta: {
+            title: 'Set'
+          }
+        }
+      ]
     },
     {
       name: 'Grid',
