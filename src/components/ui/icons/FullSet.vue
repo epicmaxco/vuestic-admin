@@ -47,6 +47,9 @@
         return this.setOfIconsByName(this.nameOfSet)
       },
       validatedLists () {
+        if (this.selector === '') {
+          return this.set.lists
+        }
         let result = []
         this.set.lists.forEach(list => {
           let resultIcons = []
