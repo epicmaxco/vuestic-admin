@@ -6,13 +6,18 @@
       <input v-model="selector"/>
     </div>
 
+    <div class="range">
+      <input type="range" min="1" max="64" v-on:input="changeIconSize()"
+             v-model.number.lazy="iconSize" id="iconSizeRange" /> {{iconSize}}px
+    </div>
+
     <template v-for="list in validatedLists">
       <widget :headerText="list.name">
         <template v-for="i in Math.floor(list.icons.length/12+1)">
           <div class="row">
             <div class="col-lg-1 col-md-2 col-sm-3 col-xs-4 vertical-align" v-for="j in 12">
               <div class="icon">
-                <i :class="iconClass(list.icons[(i-1)*12 + j-1])"></i>
+                <i :class="iconClass(list.icons[(i-1)*12 + j-1])" :style="'font-size: '+iconSize+'px'"></i>
                 <div class="iconText">{{list.icons[(i-1)*12 + j-1]}}</div>
               </div>
             </div>
@@ -35,7 +40,7 @@
       iconClass (icon) {
         return this.set.prefix + ' ' + this.set.prefix + '-' + icon
       },
-      isCorrect (icon) {
+      changeIconSize (icon) {
 
       }
     },
@@ -65,7 +70,8 @@
     },
     data: function () {
       return {
-        selector: ''
+        selector: '',
+        iconSize: 16
       }
     }
   }
@@ -74,6 +80,10 @@
 <style lang="scss">
   .setOfIcons {
     .search {
+      text-align: center;
+    }
+
+    .range {
       text-align: center;
     }
 
@@ -89,7 +99,7 @@
           font-size: .6rem;
         }
         i {
-          font-size: 1.30rem;
+          /*font-size: 1.30rem;*/
         }
       }
     }
