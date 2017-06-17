@@ -15,7 +15,7 @@
       <widget :headerText="list.name">
         <template v-for="i in Math.floor(list.icons.length/12+1)">
           <div class="row">
-            <div class="col-lg-1 col-md-2 col-sm-3 col-xs-4" v-for="j in 12">
+            <div class="col-lg-1 col-md-2 col-sm-3 col-xs-4" v-for="j in 12" v-if="list.icons[(i-1)*12 + j-1]">
               <div class="icon">
                 <i :class="iconClass(list.icons[(i-1)*12 + j-1])" :style="'font-size: '+iconSize+'px'"></i>
                 <div class="iconText">{{list.icons[(i-1)*12 + j-1]}}</div>
@@ -94,7 +94,6 @@
       div[class^='col'] {
         padding: 0;
         margin: 0 0 .5rem;
-        /*word-wrap: break-word;*/
         &:hover{
           background-color: $brand-primary;
           .icon {
