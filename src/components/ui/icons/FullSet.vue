@@ -1,13 +1,19 @@
 <template>
   <div class="setOfIcons">
-    <template v-for="list in set.lists">
+
+    <div class="search">
+      <h2>Search from {{set.name}}</h2>
+      <input v-model="selector"/>
+    </div>
+
+    <template v-for="list in validatedLists">
       <widget :headerText="list.name">
-        <template v-for="i in Math.floor(list.icons.length/12)">
+        <template v-for="i in Math.floor(list.icons.length/12+1)">
           <div class="row">
-            <div class="col-lg-1 col-md-2 col-sm-3 col-xs-4" v-for="j in 12">
+            <div class="col-lg-1 col-md-2 col-sm-3 col-xs-4 vertical-align" v-for="j in 12">
               <div class="icon">
-                <div><i :class="iconClass(list.icons[j + i*10])"></i></div>
-                {{list.icons[j + i*10]}}
+                <i :class="iconClass(list.icons[(i-1)*12 + j-1])"></i>
+                <div class="iconText">{{list.icons[(i-1)*12 + j-1]}}</div>
               </div>
             </div>
           </div>
@@ -29,7 +35,7 @@
       iconClass (icon) {
         return this.set.prefix + ' ' + this.set.prefix + '-' + icon
       },
-      count (list) {
+      isCorrect (icon) {
 
       }
     },
@@ -39,6 +45,24 @@
       ]),
       set () {
         return this.setOfIconsByName(this.nameOfSet)
+      },
+      validatedLists () {
+        let result = []
+        this.set.lists.forEach(list => {
+          let resultIcons = []
+          list.icons.forEach(icon => {
+            if (icon.match(this.selector)) {
+              resultIcons.push(icon)
+            }
+          })
+          result.push({name: list.name, icons: resultIcons})
+        })
+        return result
+      }
+    },
+    data: function () {
+      return {
+        selector: ''
       }
     }
   }
@@ -46,13 +70,22 @@
 
 <style lang="scss">
   .setOfIcons {
-    .row {
-      margin: 2rem 0 2rem;
+    .search {
       text-align: center;
+    }
+
+    .row {
+      text-align: center;
+      div[class^='col'] {
+        padding: 0;
+        height: 5rem;
+      }
       .icon {
-        text-align: center;
-        font-size: 0.85rem;
-        div {
+        padding: 0 0 .5rem 0;
+        .iconText {
+          font-size: .6rem;
+        }
+        i {
           font-size: 1.30rem;
         }
       }
