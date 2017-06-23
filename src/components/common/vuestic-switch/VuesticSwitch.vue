@@ -34,15 +34,19 @@
     flex-direction: row;
 
     .vuestic-switch-option {
-      padding: 5px 38px;
-      border-top: 2px solid transparent;
-      border-bottom: 2px solid $brand-primary;
+      padding: $vuestic-switch-padding;
+      border-top: $vuestic-switch-border-size solid transparent;
+      border-bottom: $vuestic-switch-border-size solid $vuestic-switch-bg;
       background-color: transparent;
-      transition: background-color 0.15s ease;
+      transition: all 0.15s ease;
 
       &.active {
         color: $white;
-        background-color: $brand-primary;
+        background-color: $vuestic-switch-bg;
+      }
+
+      &:not(.active):hover {
+        color: $brand-primary;
       }
     }
   }
