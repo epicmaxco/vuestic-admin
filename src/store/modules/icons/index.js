@@ -2,7 +2,7 @@
  * Created by yarik on 14.6.17.
  */
 const state = {
-  namesOfSetsOfIcons: ['font-awesome', 'font-awesome', 'font-awesome'],
+  namesOfSetsOfIcons: ['font-awesome', 'ionicons', 'glyphicons', 'iconic-stroke', 'entypo', 'brandico', 'fontelico', 'maki', 'openweb'],
   setsOfIcons: {}
 }
 
@@ -13,7 +13,7 @@ const mutations = {
   downloadSetsOfIcons (state) {
     for (let name of state.namesOfSetsOfIcons) {
       if (!state.setsOfIcons[name]) {
-        let set = require('./icons_sets/' + name + '.json')
+        let set = require('./sets/' + name + '.json')
         mutations.addSetOfIcons(state, name, set)
       }
     }
