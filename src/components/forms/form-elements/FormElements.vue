@@ -2,6 +2,27 @@
   <div class="form-elements">
     <div class="row">
       <div class="col-md-12">
+        <widget class="chart-widget"  header-text="Inputs">
+            <form role="form">
+
+              <div class="row">
+                <div class="col-md-4">
+                  <fieldset>
+                    <div class="form-group">
+                      <input type="text" id="simple-input" required="required"/>
+                      <label class="control-label" for="simple-input">Text input</label><i class="bar"></i>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+
+            </form>
+        </widget>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
         <widget class="chart-widget"  header-text="Checkboxes, Radios, Swithces">
           <form role="form">
             <div class="row">
