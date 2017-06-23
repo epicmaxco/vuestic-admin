@@ -5,7 +5,7 @@
         <widget class="chart-widget"  header-text="Checkboxes, Radios, Swithces">
           <form role="form">
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <fieldset>
                   <div class="abc-checkbox abc-checkbox-primary">
                     <input id="checkbox1" type="checkbox">
@@ -34,7 +34,7 @@
                 </fieldset>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <fieldset>
                   <div class="abc-checkbox abc-checkbox-primary abc-checkbox-circle">
                     <input id="checkbox7" type="checkbox">
@@ -63,7 +63,7 @@
                 </fieldset>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <fieldset>
                   <div class="radio abc-radio abc-radio-primary">
                     <input type="radio" name="radio1" id="radio1" value="option1" checked>
@@ -96,6 +96,15 @@
                   </div>
                 </fieldset>
               </div>
+
+              <div class="col-md-3">
+                <fieldset>
+                  <vuestic-switch v-model="isMale">
+                    <span slot="trueTitle">Male</span>
+                    <span slot="falseTitle">Female</span>
+                  </vuestic-switch>
+                </fieldset>
+              </div>
             </div>
           </form>
         </widget>
@@ -106,11 +115,18 @@
 
 <script>
   import Widget from 'components/common/widget/Widget'
+  import VuesticSwitch from 'components/common/vuestic-switch/VuesticSwitch'
 
   export default {
     name: 'form-elements',
     components: {
-      Widget
+      Widget,
+      VuesticSwitch
+    },
+    data () {
+      return {
+        isMale: true
+      }
     }
   }
 </script>
