@@ -2,17 +2,17 @@
   <div class="setOfIcons">
 
     <div class="search">
-      <h2>Search from {{set.name}}</h2>
+      <h2>{{set.name}}</h2>
       <input v-model="selector"/>
     </div>
 
     <div class="range">
-      <input type="range" min="1" max="64" v-on:input="changeIconSize()"
-             v-model.number.lazy="iconSize" id="iconSizeRange" /> {{iconSize}}px
+      <input type="range" min="20" max="40" v-on:input="changeIconSize()"
+             v-model.number="iconSize" id="iconSizeRange" /> {{iconSize}}px
     </div>
-
     <template v-for="list in validatedLists">
       <widget :headerText="list.name">
+        <h4 v-if="list.icons.length === 0">No icons found</h4>
         <template v-for="i in Math.floor(list.icons.length/12+1)">
           <div class="row">
             <div class="col-lg-1 col-md-2 col-sm-3 col-xs-4" v-for="j in 12" v-if="list.icons[(i-1)*12 + j-1]">
@@ -55,15 +55,13 @@
         if (this.selector === '') {
           return this.set.lists
         }
-        let result = []
+        let result = [{name: 'Found Icons', icons: []}]
         this.set.lists.forEach(list => {
-          let resultIcons = []
           list.icons.forEach(icon => {
             if (icon.match(this.selector)) {
-              resultIcons.push(icon)
+              result[0].icons.push(icon)
             }
           })
-          result.push({name: list.name, icons: resultIcons})
         })
         return result
       }
@@ -71,7 +69,7 @@
     data: function () {
       return {
         selector: '',
-        iconSize: 16
+        iconSize: 20
       }
     }
   }
@@ -79,6 +77,30 @@
 
 <style lang="scss">
   @import "../../../sass/_variables.scss";
+
+  @import url(http://weloveiconfonts.com/api/?family=entypo);
+
+  /* entypo */
+  [class*="entypo-"]:before {
+    font-family: 'entypo', sans-serif;
+    font-style: normal;
+  }
+
+  @import url(http://weloveiconfonts.com/api/?family=iconicfill);
+
+  /* iconicfill */
+  [class*="iconicfill-"]:before {
+    font-family: 'IconicFill', sans-serif;
+    font-style: normal;
+  }
+
+  @import url(http://weloveiconfonts.com/api/?family=iconicstroke);
+
+  /* iconicstroke */
+  [class*="iconicstroke-"]:before {
+    font-family: 'IconicStroke', sans-serif;
+    font-style: normal;
+  }
 
   .setOfIcons {
     .search {
@@ -95,15 +117,15 @@
         padding: 0;
         margin: 0 0 .5rem;
         &:hover{
-          background-color: $brand-primary;
-          .icon {
-            color: $white;
-          }
+          color: $brand-primary;
         }
         .icon {
-          padding: 1rem;
+          height: 100%;
+          padding: 1rem 0 0;
+          margin: 0 0 .5rem;
           .iconText {
             font-size: .6rem;
+            text-align: center;
           }
           i {
             /*font-size: 1.30rem;*/
