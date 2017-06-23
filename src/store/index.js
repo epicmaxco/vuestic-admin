@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 import menu from './modules/menu'
 import app from './modules/app'
-import icons from './modules/icons'
+import icons from './modules/icons/'
 
 import * as getters from './getters'
 

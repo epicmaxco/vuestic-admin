@@ -1,6 +1,6 @@
 <template>
   <div class="small-set">
-    {{name}}
+    {{set.name}}
     <div class="set-content">
       <div class="overlay"><router-link :to="{path: set.href}" append>
         <div class="btn btn-primary btn-sm">ok</div></router-link>

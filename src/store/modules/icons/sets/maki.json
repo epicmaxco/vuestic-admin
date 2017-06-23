@@ -1,0 +1,10 @@
+{
+  "name": "Maki",
+  "href": "maki",
+  "prefix": "maki",
+  "lists": [
+    {
+      "name": "Icons",
+      "icons": ["aboveground-rail","airfield","airport","art-gallery","bar","baseball","basketball","beer","belowground-rail","bicycle","bus","cafe","campsite","cemetery","cinema","college","commerical-building","credit-card","cricket","embassy","fast-food","ferry","fire-station","football","fuel","garden","giraffe","golf","grocery-store","harbor","heliport","hospital","industrial-building","library","lodging","london-underground","minefield","monument","museum","pharmacy","pitch","police","post","prison","rail","religious-christian","religious-islam","religious-jewish","restaurant","roadblock","school","shop","skiing","soccer","swimming","tennis","theatre","toilet","town-hall","trash","tree-1","tree-2","warehouse"]    }
+  ]
+}

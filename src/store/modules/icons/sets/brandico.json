@@ -1,0 +1,11 @@
+{
+  "name": "Brandico",
+  "href": "brandico",
+  "prefix": "brandico",
+  "lists": [
+    {
+      "name": "Icons",
+      "icons": ["facebook","facebook-rect","twitter","twitter-bird","vimeo","vimeo-rect","tumblr","tumblr-rect","googleplus-rect","github-text","github","skype","icq","yandex","yandex-rect","vkontakte-rect","odnoklassniki","odnoklassniki-rect","friendfeed","friendfeed-rect","blogger","blogger-rect","deviantart","jabber","lastfm","lastfm-rect","linkedin","linkedin-rect","picasa","wordpress","instagram","instagram-filled"]
+    }
+  ]
+}

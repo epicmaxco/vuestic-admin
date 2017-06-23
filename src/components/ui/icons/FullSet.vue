@@ -17,7 +17,8 @@
           <div class="row">
             <div class="col-lg-1 col-md-2 col-sm-3 col-xs-4" v-for="j in 12" v-if="list.icons[(i-1)*12 + j-1]">
               <div class="icon">
-                <i :class="iconClass(list.icons[(i-1)*12 + j-1])" :style="'font-size: '+iconSize+'px'"></i>
+                <span :class="iconClass(list.icons[(i-1)*12 + j-1])" aria-hidden="true"
+                      :style="'font-size: '+iconSize+'px'"></span>
                 <div class="iconText">{{list.icons[(i-1)*12 + j-1]}}</div>
               </div>
             </div>
@@ -78,7 +79,13 @@
 <style lang="scss">
   @import "../../../sass/_variables.scss";
 
-  @import url(http://weloveiconfonts.com/api/?family=entypo);
+  @import url(http://weloveiconfonts.com/api/?family=brandico|entypo|fontelico|iconicfill|iconicstroke|maki|openwebicons|typicons|zocial);
+
+  /* brandico */
+  [class*="brandico-"]:before {
+    font-family: 'brandico', sans-serif;
+    font-style: normal;
+  }
 
   /* entypo */
   [class*="entypo-"]:before {
@@ -86,7 +93,11 @@
     font-style: normal;
   }
 
-  @import url(http://weloveiconfonts.com/api/?family=iconicfill);
+  /* fontelico */
+  [class*="fontelico-"]:before {
+    font-family: 'fontelico', sans-serif;
+    font-style: normal;
+  }
 
   /* iconicfill */
   [class*="iconicfill-"]:before {
@@ -94,12 +105,33 @@
     font-style: normal;
   }
 
-  @import url(http://weloveiconfonts.com/api/?family=iconicstroke);
-
   /* iconicstroke */
   [class*="iconicstroke-"]:before {
     font-family: 'IconicStroke', sans-serif;
     font-style: normal;
+  }
+
+  /* maki */
+  [class*="maki-"]:before {
+    font-family: 'maki', sans-serif;
+    font-style: normal;
+  }
+
+  /* openwebicons */
+  [class*="openwebicons-"]:before {
+    font-family: 'OpenWeb Icons', sans-serif;
+    font-style: normal;
+  }
+
+  /* typicons */
+  [class*="typicons-"]:before {
+    font-family: 'Typicons', sans-serif;
+    font-style: normal;
+  }
+
+  /* zocial */
+  [class*="zocial-"]:before {
+    font-family: 'zocial', sans-serif;
   }
 
   .setOfIcons {
