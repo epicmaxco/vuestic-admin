@@ -20,7 +20,7 @@ $mf-checkbox-top: 0 !default;
 $mf-radio-margin: $mf-font-size / -4 !default;
 
 // Colors
-$mf-input-color: #333 !default;
+$mf-input-color: $body-color !default;
 $mf-border-color: #999 !default;
 $mf-label-color: lighten($mf-border-color, 10%) !default;
 $mf-active-color: darken($mf-border-color, 10%) !default;
@@ -29,7 +29,6 @@ $mf-error-color: $brand-danger !default;
 
 // Animation
 $mf-transition-speed: 0.28s !default;
-
 
 
 .button-container {
@@ -43,7 +42,6 @@ fieldset {
   border: none;
 }
 
-.form-radio,
 .form-group {
   position: relative;
   margin-top: ($mf-gap * 1.5);
@@ -64,8 +62,6 @@ fieldset {
   color: $mf-label-color;
   font-size: $mf-active-font-size;
 
-  .checkbox &,
-  .form-radio &,
   .form-group & {
     position: absolute;
     width: 100%;
@@ -74,11 +70,6 @@ fieldset {
   .checkbox & {
     position: relative;
     margin-bottom: $mf-font-size;
-  }
-
-  .form-radio & {
-    padding-top: ($mf-spacer * 2);
-    margin-top: -$mf-font-size;
   }
 }
 
@@ -195,154 +186,6 @@ fieldset {
   }
 }
 
-// Radio & Checkbox
-.checkbox,
-.form-radio {
-  label {
-    position: relative;
-    cursor: pointer;
-    padding-left: $mf-checkbox-gap;
-    text-align: left;
-    color: $mf-input-color;
-    display: block;
-  }
-
-  input {
-    width: auto;
-    opacity: 0.00000001;
-    position: absolute;
-    left: 0;
-  }
-}
-
-.radio {
-  margin-bottom: $mf-font-size;
-
-  .helper {
-    position: absolute;
-    top: $mf-radio-margin;
-    left: $mf-radio-margin;
-    cursor: pointer;
-    display: block;
-    font-size: $mf-font-size;
-    user-select: none;
-    color: $mf-border-color;
-
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      margin: ($mf-spacer * 2);
-      width: $mf-font-size;
-      height: $mf-font-size;
-      transition: transform $mf-transition-speed ease;
-      border-radius: 50%;
-      border: ($mf-font-size / 8) solid currentColor;
-    }
-
-    &::after {
-      transform: scale(0);
-      background-color: $mf-focus-color;
-      border-color: $mf-focus-color;
-    }
-  }
-
-  label:hover .helper {
-    color: $mf-focus-color;
-  }
-
-  // scss-lint:disable QualifyingElement, NestingDepth
-  input:checked {
-    ~ .helper {
-      &::after {
-        transform: scale(0.5);
-      }
-      &::before {
-        color: $mf-focus-color;
-      }
-    }
-  }
-}
-
-.checkbox {
-  // scss-lint:disable QualifyingElement
-
-  margin-top: ($mf-gap * 2);
-  margin-bottom: $mf-font-size;
-
-  .helper {
-    color: $mf-border-color;
-    position: absolute;
-    top: $mf-checkbox-top;
-    left: 0;
-    width: $mf-font-size;
-    height: $mf-font-size;
-    z-index: 0;
-    border: ($mf-font-size / 8) solid currentColor;
-    border-radius: ($mf-font-size / 16);
-    transition: border-color $mf-transition-speed ease;
-
-    &::before,
-    &::after {
-      position: absolute;
-      height: 0;
-      width: ($mf-font-size * 0.2);
-      background-color: $mf-focus-color;
-      display: block;
-      transform-origin: left top;
-      border-radius: ($mf-font-size / 4);
-      content: '';
-      transition: opacity $mf-transition-speed ease, height 0s linear $mf-transition-speed;
-      opacity: 0;
-    }
-
-    &::before {
-      top: ($mf-font-size * 0.65);
-      left: ($mf-font-size * 0.38);
-      transform: rotate(-135deg);
-      box-shadow: 0 0 0 ($mf-font-size / 16) $body-bg;
-    }
-
-    &::after {
-      top: ($mf-font-size * 0.3);
-      left: 0;
-      transform: rotate(-45deg);
-    }
-  }
-
-  label:hover .helper {
-    color: $mf-focus-color;
-  }
-
-  input:checked {
-    ~ .helper {
-      color: $mf-focus-color;
-
-      &::after,
-      &::before {
-        opacity: 1;
-        transition: height $mf-transition-speed ease;
-      }
-
-      &::after {
-        height: ($mf-font-size / 2);
-      }
-
-      &::before {
-        height: ($mf-font-size * 1.2);
-        transition-delay: $mf-transition-speed;
-      }
-    }
-  }
-}
-
-.radio + .radio,
-.checkbox + .checkbox {
-  margin-top: $mf-font-size;
-}
-
 .has-error {
   .legend.legend,
   &.form-group .control-label.control-label {
@@ -351,9 +194,7 @@ fieldset {
   }
 
   &.form-group,
-  &.checkbox,
-  &.radio,
-  &.form-radio {
+  &.checkbox {
     .form-help,
     .helper {
       color: $mf-error-color;
