@@ -2,7 +2,7 @@
   <div class="small-set">
     {{name}}
     <div class="set-content">
-      <div class="overlay"><router-link :to="{path: href}" append>
+      <div class="overlay"><router-link :to="{path: set.href}" append>
         <div class="btn btn-primary btn-sm">ok</div></router-link>
       </div>
       <div>
@@ -34,7 +34,7 @@
     },
     methods: {
       iconClass (icon) {
-        return this.prefix + ' ' + this.prefix + '-' + icon
+        return this.set.prefix + ' ' + this.set.prefix + '-' + icon
       }
     },
     computed: {
@@ -49,15 +49,6 @@
         subLists.push(list.slice(6, 12))
         subLists.push(list.slice(12, 18))
         return subLists
-      },
-      prefix () {
-        return this.set.prefix
-      },
-      name () {
-        return this.set.name
-      },
-      href () {
-        return this.set.href
       },
       set () {
         return this.setOfIconsByName(this.nameOfSet)

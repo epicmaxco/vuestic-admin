@@ -12,7 +12,7 @@
     </div>
     <template v-for="list in validatedLists">
       <widget :headerText="list.name">
-        <h4 v-if="list.icons.length === 0">No icons found</h4>
+        <span v-if="list.icons.length === 0">No icons found</span>
         <template v-for="i in Math.floor(list.icons.length/12+1)">
           <div class="row">
             <div class="col-lg-1 col-md-2 col-sm-3 col-xs-4" v-for="j in 12" v-if="list.icons[(i-1)*12 + j-1]">
