@@ -32,6 +32,11 @@
                       <i class="fa fa-envelope-o icon-left input-icon"></i>
                       <label class="control-label" for="input-icon-left">Input with icon</label><i class="bar"></i>
                     </div>
+                    <div class="form-group with-icon-right">
+                      <input type="text" v-model="clearableText" id="clear-input" name="clear-input" required="required"/>
+                      <i class="fa fa-times icon-right input-icon pointer" @click="clear('clearableText')"></i>
+                      <label class="control-label" for="clear-input" role="button">Input with clear button</label><i class="bar"></i>
+                    </div>
                   </fieldset>
                 </div>
               </div>
@@ -166,7 +171,13 @@
     },
     data () {
       return {
-        isMale: true
+        isMale: true,
+        clearableText: ''
+      }
+    },
+    methods: {
+      clear (field) {
+        this[field] = ''
       }
     }
   }
