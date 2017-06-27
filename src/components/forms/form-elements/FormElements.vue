@@ -12,6 +12,10 @@
                       <input type="text" id="simple-input" required="required"/>
                       <label class="control-label" for="simple-input">Text input</label><i class="bar"></i>
                     </div>
+                    <div class="form-group">
+                      <textarea type="text" id="simple-textarea" required="required"></textarea>
+                      <label class="control-label" for="simple-textarea">Textarea</label><i class="bar"></i>
+                    </div>
                   </fieldset>
                 </div>
               </div>
