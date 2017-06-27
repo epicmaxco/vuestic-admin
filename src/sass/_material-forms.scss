@@ -47,6 +47,18 @@ fieldset {
   position: relative;
   margin-top: ($mf-gap * 1.5);
   margin-bottom: ($mf-gap * 1.5);
+
+  &.with-icon-right {
+    input {
+      padding-right: 22px;
+    }
+
+    .icon-right {
+      position: absolute;
+      top: 7px;
+      right: 0;
+    }
+  }
 }
 
 .form-inline {
@@ -192,6 +204,12 @@ fieldset {
   &.form-group .control-label.control-label {
     // Prevent !importantRule
     color: $mf-error-color;
+  }
+
+  &.form-group {
+    .icon-right {
+      color: $mf-error-color;
+    }
   }
 
   &.form-group,

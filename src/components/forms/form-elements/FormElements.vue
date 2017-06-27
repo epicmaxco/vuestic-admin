@@ -17,6 +17,12 @@
                       <label class="control-label" for="simple-textarea">Textarea</label><i class="bar"></i>
                     </div>
                   </fieldset>
+                  <div class="form-group with-icon-right" :class="{'has-error': errors.has('email')}">
+                    <input type="text" id="email" name="email" v-validate="'required|email'" required="required"/>
+                    <i class="fa fa-exclamation-triangle icon-right" v-show="errors.has('email')"></i>
+                    <label class="control-label" for="email">Email (validated)</label><i class="bar"></i>
+                    <small v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</small>
+                  </div>
                 </div>
               </div>
 

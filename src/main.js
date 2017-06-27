@@ -2,12 +2,14 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
+import VeeValidate from 'vee-validate'
 import App from './App'
 import store from './store'
 import router from './router'
 import { sync } from 'vuex-router-sync'
 
 Vue.use(BootstrapVue)
+Vue.use(VeeValidate)
 
 sync(store, router)
 
