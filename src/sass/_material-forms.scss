@@ -18,8 +18,10 @@ $mf-fieldset-margin: 0 0 $mf-gap * 2 !default;
 $mf-checkbox-gap: $mf-font-size * 2 !default;
 $mf-checkbox-top: 0 !default;
 $mf-radio-margin: $mf-font-size / -4 !default;
+$mf-icon-gutter: 1.375rem;
+$mf-icon-top: 0.4375rem;
 
-// Colors
+  // Colors
 $mf-input-color: $body-color !default;
 $mf-border-color: #999 !default;
 $mf-label-color: lighten($mf-border-color, 10%) !default;
@@ -48,15 +50,53 @@ fieldset {
   margin-top: ($mf-gap * 1.5);
   margin-bottom: ($mf-gap * 1.5);
 
+  &.with-icon-left, &.with-icon-right {
+    .input-icon {
+      position: absolute;
+      top: $mf-icon-top;
+      color: $mf-label-color;
+    }
+  }
+
   &.with-icon-right {
     input {
-      padding-right: 22px;
+      padding-right: $mf-icon-gutter;
     }
 
     .icon-right {
-      position: absolute;
-      top: 7px;
       right: 0;
+    }
+  }
+
+  &.with-icon-left {
+    input,
+    textarea
+    {
+      padding-left: $mf-icon-gutter;
+
+      ~ .control-label {
+        padding-left: $mf-icon-gutter;
+      }
+    }
+
+    select,
+    input:focus,
+    input:valid,
+    input.form-file,
+    input.has-value,
+    textarea:focus,
+    textarea:valid,
+    textarea.form-file,
+    textarea.has-value {
+      color: $mf-input-color;
+
+      ~ .control-label {
+        padding-left: 0;
+      }
+    }
+
+    .icon-left {
+      left: 0;
     }
   }
 }
