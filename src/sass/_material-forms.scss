@@ -26,6 +26,7 @@ $mf-label-color: lighten($mf-border-color, 10%) !default;
 $mf-active-color: darken($mf-border-color, 10%) !default;
 $mf-focus-color: $brand-primary !default;
 $mf-error-color: $brand-danger !default;
+$mf-focus-border-color: $charcoal !default;
 
 // Animation
 $mf-transition-speed: 0.28s !default;
@@ -37,7 +38,7 @@ $mf-transition-speed: 0.28s !default;
 
 // The Styles for the form
 fieldset {
-  margin: $mf-fieldset-margin;
+  //margin: $mf-fieldset-margin;
   padding: 0;
   border: none;
 }
@@ -118,7 +119,7 @@ fieldset {
       left: 50%;
       bottom: ($mf-font-size / -16);
       position: absolute;
-      background: $mf-focus-color;
+      background: $mf-focus-border-color;
       transition: left $mf-transition-speed ease, width $mf-transition-speed ease;
       z-index: 2;
     }
