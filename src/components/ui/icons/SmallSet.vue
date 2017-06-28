@@ -62,6 +62,10 @@
   @import "../../../sass/_variables.scss";
 
   .small-set {
+    .btn {
+      width: 13.75rem;
+    }
+
     margin: 0 0 1.5rem;
     .set-content {
       background-color: $light-gray;
@@ -83,18 +87,18 @@
         width: 90%;
         height: 90%;
         position: absolute;
-        visibility: hidden;
+        /*visibility: hidden;*/
         display: flex;
         align-items: center;
         justify-content: center;
         z-index: 2;
       }
 
-      &:hover {
-        .overlay {
-          visibility: visible;
-        }
-      }
+      /*&:hover {*/
+        /*.overlay {*/
+          /*visibility: visible;*/
+        /*}*/
+      /*}*/
 
     }
   }

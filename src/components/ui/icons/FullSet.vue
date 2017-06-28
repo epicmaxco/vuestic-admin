@@ -21,7 +21,7 @@
         <span v-if="list.icons.length === 0">No icons found</span>
         <template v-for="i in Math.floor(list.icons.length/8+1)">
           <div class="row">
-            <div class="col-xl col-sm-3" v-for="j in 8" v-if="list.icons[(i-1)*8 + j-1]">
+            <div class="col8-custom" v-for="j in 8" v-if="list.icons[(i-1)*8 + j-1]">
               <div class="icon">
                 <span :class="iconClass(list.icons[(i-1)*8 + j-1])" aria-hidden="true"
                       :style="'font-size: '+iconSize+'px'"></span>
@@ -83,64 +83,10 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/_variables.scss";
-
-  @import url(http://weloveiconfonts.com/api/?family=brandico|entypo|fontelico|iconicfill|iconicstroke|maki|openwebicons|typicons|zocial);
-
-  /* brandico */
-  [class*="brandico-"]:before {
-    font-family: 'brandico', sans-serif;
-    font-style: normal;
-  }
-
-  /* entypo */
-  [class*="entypo-"]:before {
-    font-family: 'entypo', sans-serif;
-    font-style: normal;
-  }
-
-  /* fontelico */
-  [class*="fontelico-"]:before {
-    font-family: 'fontelico', sans-serif;
-    font-style: normal;
-  }
-
-  /* iconicfill */
-  [class*="iconicfill-"]:before {
-    font-family: 'IconicFill', sans-serif;
-    font-style: normal;
-  }
-
-  /* iconicstroke */
-  [class*="iconicstroke-"]:before {
-    font-family: 'IconicStroke', sans-serif;
-    font-style: normal;
-  }
-
-  /* maki */
-  [class*="maki-"]:before {
-    font-family: 'maki', sans-serif;
-    font-style: normal;
-  }
-
-  /* openwebicons */
-  [class*="openwebicons-"]:before {
-    font-family: 'OpenWeb Icons', sans-serif;
-    font-style: normal;
-  }
-
-  /* typicons */
-  [class*="typicons-"]:before {
-    font-family: 'Typicons', sans-serif;
-    font-style: normal;
-  }
-
-  /* zocial */
-  [class*="zocial-"]:before {
-    font-family: 'zocial', sans-serif;
-  }
+  @import "../../../sass/variables";
 
   .setOfIcons {
+
     .header {
       background-color: white;
       padding: 1.75rem 1.75rem 1.125rem 0;
@@ -175,26 +121,59 @@
     }
 
     .row {
-      text-align: center;
-      div[class^='col'] {
+      .col8-custom {
+        text-align: center;
         padding: 0;
         margin: 0 0 .5rem;
+        height: 6rem;
+        &:hover {
+          background-color: $brand-primary;
+          color: white;
+          cursor: pointer;
+        }
         .icon {
-          height: 5rem;
           padding: 1rem 0 0;
           margin: 0 0 .5rem;
-          span {
-            margin: 0 2.5rem;
-          }
           .iconText {
             font-size: .6rem;
             text-align: center;
           }
-          &:hover {
-            background-color: $brand-primary;
-            color: white;
-            cursor: pointer;
-          }
+        }
+
+        @media (min-width: $screen-lg-min) {
+          position: relative;
+          min-height: 1px;
+          padding-right: 10px;
+          padding-left: 10px;
+          width: 12.5%;
+          float: left;
+        }
+
+        @media (max-width: $screen-md-max) {
+          position: relative;
+          min-height: 1px;
+          padding-right: 10px;
+          padding-left: 10px;
+          width: 12.5%;
+          float: left;
+        }
+
+        @media (max-width: $screen-sm-max){
+          position: relative;
+          min-height: 1px;
+          padding-right: 10px;
+          padding-left: 10px;
+          width: 25%;
+          float: left;
+        }
+
+        @media (max-width: $screen-xs-max){
+          position: relative;
+          min-height: 1px;
+          padding-right: 10px;
+          padding-left: 10px;
+          width: 100%;
+          float: left;
         }
       }
     }
