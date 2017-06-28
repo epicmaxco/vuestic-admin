@@ -1,6 +1,6 @@
 <template>
-  <div class="ui-grid">
-    <widget headerText="Fixed Grid">
+  <div class="ui-grid row">
+    <widget headerText="Fixed Grid" class="col-12">
       <div class="row">
         <div v-for="i in 3" class="col"><div>.col</div></div>
       </div>
@@ -12,7 +12,7 @@
       </div>
     </widget>
 
-    <widget headerText="Desktop Grid">
+    <widget headerText="Desktop Grid" class="col-12">
       <div class="row">
         <div v-for="i in 3" class="col-md-4"><div>.col-md-4</div></div>
       </div>
@@ -24,7 +24,7 @@
       </div>
     </widget>
 
-    <widget headerText="Mobile and Desktop Grid">
+    <widget headerText="Mobile and Desktop Grid" class="col-12">
       <div class="row">
         <div class="col-md-6 col-sm-12">
           <div>.col-md-3 .col-sm-8</div>
@@ -51,7 +51,7 @@
       </div>
     </widget>
 
-    <widget headerText="Offsets">
+    <widget headerText="Offsets" class="col-12">
       <div class="row">
         <div class="col-md-6 offset-md-6 col-sm-6">
           <div>.col-md-6 .offset-md-6 .col-sm-6</div>

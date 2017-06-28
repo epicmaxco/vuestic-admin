@@ -1,23 +1,24 @@
 <template>
-  <div class="small-set">
-    {{set.name}}
-    <div class="set-content">
-      <div class="overlay"><router-link :to="{path: set.href}" append>
-        <div class="btn btn-primary btn-sm">ok</div></router-link>
-      </div>
-      <div>
-        <template v-for="subList in subLists">
-          <div class="row">
-            <div class="col-sm-2" v-for="icon in subList">
-              <div class="icon">
-                <i :class="iconClass(icon)" aria-hidden="true"></i>
+  <!--<div class="small-set-container">-->
+    <div class="small-set">
+      <div class="set-content">
+        <div class="overlay"><router-link :to="{path: set.href}" append>
+          <div class="btn btn-primary btn-sm">{{set.name.toUpperCase()}}</div></router-link>
+        </div>
+        <div>
+          <template v-for="subList in subLists">
+            <div class="row">
+              <div class="col-sm-2" v-for="icon in subList">
+                <div class="icon">
+                  <i :class="iconClass(icon)" aria-hidden="true"></i>
+                </div>
               </div>
             </div>
-          </div>
-        </template>
+          </template>
+        </div>
       </div>
     </div>
-  </div>
+  <!--</div>-->
 </template>
 
 <script>
@@ -59,8 +60,9 @@
 </script>
 <style lang="scss">
   @import "../../../sass/_variables.scss";
-  .small-set {
 
+  .small-set {
+    margin: 0 0 1.5rem;
     .set-content {
       background-color: $light-gray;
       > div {
