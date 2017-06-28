@@ -56,6 +56,10 @@ fieldset {
     color: $mf-label-color;
   }
 
+  .text-secondary {
+    color: $mf-label-color;
+  }
+
   &.with-icon-right {
     input {
       padding-right: $mf-icon-gutter;

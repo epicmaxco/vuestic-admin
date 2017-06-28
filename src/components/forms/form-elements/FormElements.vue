@@ -56,6 +56,14 @@
                       <i class="fa fa-times icon-right input-icon pointer" @click="clear('clearableText')"></i>
                       <label class="control-label" for="clear-input" role="button">Input with clear button</label><i class="bar"></i>
                     </div>
+                    <div class="form-group">
+                      <input type="text" id="inputWithDescription" required="required"/>
+                      <label class="control-label" for="simple-input">Text input (with description)</label><i class="bar"></i>
+                      <small class="help text-secondary">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                        do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      </small>
+                    </div>
                   </fieldset>
                 </div>
               </div>
