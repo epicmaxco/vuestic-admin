@@ -50,12 +50,10 @@ fieldset {
   margin-top: ($mf-gap * 1.5);
   margin-bottom: ($mf-gap * 1.5);
 
-  &.with-icon-left, &.with-icon-right {
-    .input-icon {
-      position: absolute;
-      top: $mf-icon-top;
-      color: $mf-label-color;
-    }
+  .input-icon {
+    position: absolute;
+    top: $mf-icon-top;
+    color: $mf-label-color;
   }
 
   &.with-icon-right {
@@ -98,6 +96,10 @@ fieldset {
     .icon-left {
       left: 0;
     }
+  }
+
+  .error-icon, .valid-icon {
+    display: none;
   }
 }
 
@@ -239,10 +241,28 @@ fieldset {
   }
 }
 
+.valid {
+  .legend.legend,
+  &.form-group .control-label.control-label {
+    // Prevent !importantRule
+    color: $mf-focus-color;
+  }
+
+  .valid-icon {
+    display: inline-block;
+    color: $mf-focus-color;
+  }
+}
+
 .has-error {
   .legend.legend,
   &.form-group .control-label.control-label {
     // Prevent !importantRule
+    color: $mf-error-color;
+  }
+
+  .error-icon {
+    display: inline-block;
     color: $mf-error-color;
   }
 

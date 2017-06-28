@@ -2,7 +2,7 @@
   <div class="form-elements">
     <div class="row">
       <div class="col-md-12">
-        <widget class="chart-widget"  header-text="Inputs">
+        <widget class="chart-widget" header-text="Inputs">
             <form role="form">
 
               <div class="row">
@@ -12,11 +12,30 @@
                       <input type="text" id="simple-input" required="required"/>
                       <label class="control-label" for="simple-input">Text input</label><i class="bar"></i>
                     </div>
-                    <div class="form-group with-icon-right" :class="{'has-error': errors.has('email')}">
-                      <input type="text" id="email" name="email" v-validate="'required|email'" required="required"/>
-                      <i class="fa fa-exclamation-triangle icon-right input-icon" v-show="errors.has('email')"></i>
-                      <label class="control-label" for="email">Email (validated)</label><i class="bar"></i>
-                      <small v-show="errors.has('email')" class="help text-danger">{{ errors.first('email') }}</small>
+                    <div class="form-group with-icon-right" :class="{'has-error': errors.has('wrongEmail')}">
+                      <input
+                        type="text"
+                        id="wrongEmail"
+                        name="wrongEmail"
+                        v-model="wrongEmail"
+                        v-validate="'required|email'"
+                        required="required"/>
+                      <i class="fa fa-exclamation-triangle icon-right input-icon" v-show="errors.has('wrongEmail')"></i>
+                      <label class="control-label" for="wrongEmail">Email (validated)</label><i class="bar"></i>
+                      <small v-show="errors.has('wrongEmail')" class="help text-danger">{{ errors.first('wrongEmail') }}</small>
+                    </div>
+                    <div class="form-group with-icon-right" :class="{'has-error': errors.has('successfulEmail'), 'valid': isSuccessfulEmailValid}">
+                      <input
+                        type="text"
+                        id="successfulEmail"
+                        name="successfulEmail"
+                        v-model="successfulEmail"
+                        v-validate="'required|email'"
+                        required="required"/>
+                      <i class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
+                      <i class="fa fa-check valid-icon icon-right input-icon"></i>
+                      <label class="control-label" for="successfulEmail">Email (validated with success)</label><i class="bar"></i>
+                      <small v-show="errors.has('successfulEmail')" class="help text-danger">{{ errors.first('successfulEmail') }}</small>
                     </div>
                     <div class="form-group">
                       <textarea type="text" id="simple-textarea" required="required"></textarea>
@@ -169,16 +188,30 @@
       Widget,
       VuesticSwitch
     },
+    computed: {
+      isSuccessfulEmailValid () {
+        let isValid = false
+        if (this.fields.successfulEmail) {
+          isValid = this.fields.successfulEmail.validated && this.fields.successfulEmail.valid
+        }
+        return isValid
+      }
+    },
     data () {
       return {
         isMale: true,
-        clearableText: ''
+        clearableText: '',
+        successfulEmail: 'andrei@dreamsupport.io',
+        wrongEmail: 'andrei@dreamsupport'
       }
     },
     methods: {
       clear (field) {
         this[field] = ''
       }
+    },
+    mounted () {
+      this.$validator.validateAll()
     }
   }
 </script>
