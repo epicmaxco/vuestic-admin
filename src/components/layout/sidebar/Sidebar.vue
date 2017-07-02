@@ -1,52 +1,55 @@
 <template>
   <aside class="sidebar">
-   <ul class="sidebar-menu">
-     <li v-for="(item, index) in menuItems">
-       <router-link :to="item.path"
-                    class="sidebar-link"
-                    @click="toggleMenuItem(item)"
-                    v-if="item.path">
-         <i class="sidebar-menu-item-icon" v-bind:class="item.meta.iconClass"></i>
-         {{item.meta.title}}
-       </router-link>
-       <a href="#"
-          @click.prevent="toggleMenuItem(item)"
-          class="sidebar-link"
-          v-bind:class="{expanded: item.meta.expanded}"
-          v-else>
-         <i class="sidebar-menu-item-icon" v-bind:class="item.meta.iconClass"></i>
-         {{item.meta.title}}
-         <i class="expand-icon fa fa-angle-down"></i>
-       </a>
-       <expanding>
-         <ul class="sidebar-submenu" v-show="item.meta.expanded">
-           <li v-for="childItem in item.children">
-             <router-link :to="childItem.path" class="sidebar-link sidebar-sumenu-link">
-               {{childItem.meta.title}}
-             </router-link>
-           </li>
-         </ul>
-       </expanding>
-     </li>
-   </ul>
+    <vue-scrollbar class="scroll-area" ref="Scrollbar">
+      <ul class="sidebar-menu">
+        <li v-for="(item, index) in menuItems">
+          <router-link :to="item.path"
+                       class="sidebar-link"
+                       @click="toggleMenuItem(item)"
+                       v-if="item.path">
+            <i class="sidebar-menu-item-icon" v-bind:class="item.meta.iconClass"></i>
+            {{item.meta.title}}
+          </router-link>
+          <a href="#"
+             @click.prevent="toggleMenuItem(item)"
+             class="sidebar-link"
+             v-bind:class="{expanded: item.meta.expanded}"
+             v-else>
+            <i class="sidebar-menu-item-icon" v-bind:class="item.meta.iconClass"></i>
+            {{item.meta.title}}
+            <i class="expand-icon fa fa-angle-down"></i>
+          </a>
+          <expanding>
+            <ul class="sidebar-submenu" v-show="item.meta.expanded">
+              <li v-for="childItem in item.children">
+                <router-link :to="childItem.path" class="sidebar-link sidebar-sumenu-link">
+                  {{childItem.meta.title}}
+                </router-link>
+              </li>
+            </ul>
+          </expanding>
+        </li>
+      </ul>
+    </vue-scrollbar>
   </aside>
 </template>
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
   import Expanding from '../../../../node_modules/vue-bulma-expanding/src/Expanding'
+  import VueScrollbar from 'vue2-scrollbar'
 
   export default {
     name: 'sidebar',
 
     components: {
-      Expanding
+      Expanding,
+      VueScrollbar
     },
 
     computed: mapGetters({
       menuItems: 'menuItems'
     }),
-
     methods: {
       ...mapActions({
         expand: 'toggleExpandMenuItem'
@@ -93,8 +96,18 @@
 
 <style lang="scss">
   @import "../../../sass/_variables.scss";
+  @import "../../../../node_modules/vue2-scrollbar/dist/style/vue2-scrollbar.css";
 
   .sidebar {
+    .scroll-area {
+      background: inherit;
+      max-height: 32rem;
+      .vue-scrollbar__scrollbar-vertical {
+        width: .25rem;
+        visibility: visible;
+      }
+    }
+
     position: absolute;
     width: $sidebar-width;
     top: $sidebar-top;
@@ -178,6 +191,7 @@
     }
 
     .sidebar-menu {
+      max-height: 100%;
       margin-bottom: 0;
     }
   }

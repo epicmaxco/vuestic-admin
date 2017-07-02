@@ -15,6 +15,7 @@
     "awesome-bootstrap-checkbox": "^1.0.0-alpha.5",
     "bootstrap-vue": "^0.9.0",
     "font-awesome": "^4.7.0",
+    "gemini-scrollbar": "^1.5.1",
     "google-maps": "^3.2.1",
     "ionicons": "^2.0.1",
     "leaflet-map": "^0.2.1",
@@ -23,6 +24,7 @@
     "vue": "^2.3.0",
     "vue-bulma-expanding": "0.0.0",
     "vue-router": "^2.2.0",
+    "vue2-scrollbar": "0.0.1",
     "vuex": "2.1.1",
     "vuex-router-sync": "4.0.2"
   },
