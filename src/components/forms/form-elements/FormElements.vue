@@ -95,11 +95,11 @@
                         <input type="text" id="input-w-btn-round" required="required"/>
                         <label class="control-label" for="input-w-btn-round">Input with round button</label><i class="bar"></i>
                       </div>
-                      <button class="btn btn-primary btn-with-icon btn-micro rounded-icon">
+                      <div class="btn btn-primary btn-with-icon btn-micro rounded-icon">
                         <div class="btn-with-icon-content">
                           <i class="ion-android-cloud-outline ion"></i>
                         </div>
-                      </button>
+                      </div>
                     </div>
                   </fieldset>
                 </div>
