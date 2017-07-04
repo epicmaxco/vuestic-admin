@@ -26,8 +26,8 @@
                         <i class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
                         <i class="fa fa-check valid-icon icon-right input-icon"></i>
                         <label class="control-label" for="successfulEmail">Email (validated with success)</label><i class="bar"></i>
+                        <small v-show="errors.has('successfulEmail')" class="help text-danger">{{ errors.first('successfulEmail') }}</small>
                       </div>
-                      <small v-show="errors.has('successfulEmail')" class="help text-danger">{{ errors.first('successfulEmail') }}</small>
                     </div>
                     <div class="form-group with-icon-right" :class="{'has-error': errors.has('wrongEmail')}">
                       <div class="input-group">
@@ -40,8 +40,8 @@
                           required="required"/>
                         <i class="fa fa-exclamation-triangle icon-right input-icon" v-show="errors.has('wrongEmail')"></i>
                         <label class="control-label" for="wrongEmail">Email (validated)</label><i class="bar"></i>
+                        <small v-show="errors.has('wrongEmail')" class="help text-danger">{{ errors.first('wrongEmail') }}</small>
                       </div>
-                      <small v-show="errors.has('wrongEmail')" class="help text-danger">{{ errors.first('wrongEmail') }}</small>
                     </div>
                     <div class="form-group">
                       <div class="input-group">
@@ -72,11 +72,11 @@
                       <div class="input-group">
                         <input type="text" id="inputWithDescription" required="required"/>
                         <label class="control-label" for="simple-input">Text input (with description)</label><i class="bar"></i>
+                        <small class="help text-secondary">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                          do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </small>
                       </div>
-                      <small class="help text-secondary">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                        do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      </small>
                     </div>
                   </fieldset>
                 </div>

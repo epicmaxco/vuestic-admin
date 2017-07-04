@@ -67,7 +67,16 @@ fieldset {
 
   &.form-group-w-btn {
     display: flex;
+    flex-direction: row;
     align-items: center;
+
+    .input-group {
+      align-self: flex-end;
+    }
+
+    .btn {
+      align-self: flex-start;
+    }
   }
 
   &.with-icon-right {
