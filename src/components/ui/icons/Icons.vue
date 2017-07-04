@@ -1,8 +1,8 @@
 <template>
-  <div class="ui-icons">
-    <widget headerText="Icons">
+  <div class="ui-icons row">
+    <widget headerText="Icons" class="col-12">
       <div class="row">
-        <small-set v-for="name in namesOfSetsOfIcons" :nameOfSet="name" class="col-lg-4 col-sm-6 col-md-4"></small-set>
+        <small-set v-for="name in namesOfSetsOfIcons" :nameOfSet="name" class="col-lg-6"></small-set>
       </div>
     </widget>
   </div>
@@ -37,7 +37,10 @@
 </script>
 
 <style lang="scss">
-  .widget {
-
+  .ui-icons {
+    @import "icons-styles";
+    .widget-body {
+      padding: 1.9375rem 2.6875rem 1.9375rem 2.125rem;
+    }
   }
 </style>
