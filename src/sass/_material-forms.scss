@@ -60,6 +60,11 @@ fieldset {
     color: $mf-label-color;
   }
 
+  .input-group {
+    position: relative;
+    display: block;
+  }
+
   &.form-group-w-btn {
     display: flex;
     align-items: center;
