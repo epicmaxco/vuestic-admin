@@ -168,6 +168,18 @@ h4, .h4 {
     i {
       left: $btn-with-icon-rounded-icon-left;
     }
+
+    &.btn-micro {
+      height: $btn-with-icon-rounded-size-micro;
+      width: $btn-with-icon-rounded-size-micro;
+      flex: none;
+
+      i {
+        font-size: $btn-with-icon-rounded-font-micro;
+        left: $btn-with-icon-rounded-position;
+        top: $btn-with-icon-rounded-position;
+      }
+    }
   }
 }
 

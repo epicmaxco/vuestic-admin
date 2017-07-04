@@ -78,10 +78,14 @@
                     </div>
                     <div class="form-group form-group-w-btn">
                       <div class="input-group">
-                        <input type="text" id="input-w-btn" required="required"/>
-                        <label class="control-label" for="input-w-btn">Input with button</label><i class="bar"></i>
+                        <input type="text" id="input-w-btn-round" required="required"/>
+                        <label class="control-label" for="input-w-btn-round">Input with round button</label><i class="bar"></i>
                       </div>
-                      <div class="btn btn-micro btn-primary">UPLOAD</div>
+                      <button class="btn btn-primary btn-with-icon btn-micro rounded-icon">
+                        <div class="btn-with-icon-content">
+                          <i class="ion-android-cloud-outline ion"></i>
+                        </div>
+                      </button>
                     </div>
                   </fieldset>
                 </div>
