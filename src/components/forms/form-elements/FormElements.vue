@@ -66,6 +66,25 @@
                     </div>
                   </fieldset>
                 </div>
+
+                <div class="col-md-4">
+                  <fieldset>
+                    <div class="form-group form-group-w-btn">
+                      <div class="input-group">
+                        <input type="text" id="input-w-btn" required="required"/>
+                        <label class="control-label" for="input-w-btn">Input with button</label><i class="bar"></i>
+                      </div>
+                      <div class="btn btn-micro btn-primary">UPLOAD</div>
+                    </div>
+                    <div class="form-group form-group-w-btn">
+                      <div class="input-group">
+                        <input type="text" id="input-w-btn" required="required"/>
+                        <label class="control-label" for="input-w-btn">Input with button</label><i class="bar"></i>
+                      </div>
+                      <div class="btn btn-micro btn-primary">UPLOAD</div>
+                    </div>
+                  </fieldset>
+                </div>
               </div>
 
             </form>

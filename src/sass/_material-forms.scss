@@ -60,6 +60,11 @@ fieldset {
     color: $mf-label-color;
   }
 
+  &.form-group-w-btn {
+    display: flex;
+    align-items: baseline;
+  }
+
   &.with-icon-right {
     input {
       padding-right: $mf-icon-gutter;
