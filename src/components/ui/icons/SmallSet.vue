@@ -3,7 +3,7 @@
     <div class="small-set">
       <div class="set-content">
         <div class="overlay"><router-link :to="{path: set.href}" append>
-          <div class="btn btn-primary btn-sm">{{set.name.toUpperCase()}}</div></router-link>
+          <div class="btn btn-primary btn">{{set.name.toUpperCase()}}</div></router-link>
         </div>
         <div>
           <template v-for="subList in subLists">
@@ -64,6 +64,9 @@
   .small-set {
     .btn {
       width: 13.75rem;
+      padding-left: 0;
+      padding-right: 0;
+      text-align: center;
     }
 
     margin: 0 0 1.5rem;
