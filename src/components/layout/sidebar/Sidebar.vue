@@ -1,6 +1,6 @@
 <template>
   <aside class="sidebar">
-    <vue-scrollbar class="scroll-area" ref="Scrollbar">
+    <vue-scrollbar class="scroll-area" ref="Scrollbar" v-expandable="{refs: $refs, menuItems: menuItems}">
       <ul class="sidebar-menu">
         <li v-for="(item, index) in menuItems">
           <router-link :to="item.path"
@@ -19,7 +19,7 @@
             {{item.meta.title}}
             <i class="expand-icon fa fa-angle-down"></i>
           </a>
-          <expanding v-expandable="{refs: $refs, menuItems: menuItems}">
+          <expanding >
             <ul class="sidebar-submenu" v-show="item.meta.expanded">
               <li v-for="childItem in item.children">
                 <router-link :to="childItem.path" class="sidebar-link sidebar-submenu-link">
