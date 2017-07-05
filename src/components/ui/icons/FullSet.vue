@@ -6,13 +6,19 @@
           <h2>{{set.name}}</h2>
           <router-link :to="{name: 'Icons'}">Back to icons</router-link>
         </div>
+
         <div class="search col-lg-4">
-          <input v-model="selector"/>
+          <div class="form-group with-icon-left">
+            <div class="input-group">
+              <input type="text" id="input-icon-left" name="input-icon-left" required="required" v-model="selector"/>
+              <i class="fa fa-search icon-left input-icon"></i>
+              <label class="control-label" for="input-icon-left">Icon Search</label><i class="bar"></i>
+            </div>
+          </div>
         </div>
 
         <div class="range col-lg-4">
-          <h4>A</h4><input type="range" min="20" max="40" v-on:input="changeIconSize()"
-                 v-model.number="iconSize" id="iconSizeRange" placeholder="Icon search" /> <h2>A</h2>
+          <h4>A</h4><slider v-bind="slider" v-model="iconSize"></slider><h2>A</h2>
         </div>
       </div>
     </div>
@@ -38,17 +44,18 @@
 <script>
   import Widget from '../../common/widget/Widget'
   import {mapGetters} from 'vuex'
+  import Slider from 'vue-slider-component'
 
   export default {
-    components: {Widget},
+    components: {
+      Widget,
+      Slider
+    },
     name: 'full-set',
     props: ['nameOfSet'],
     methods: {
       iconClass (icon) {
         return this.set.prefix + ' ' + this.set.prefix + '-' + icon
-      },
-      changeIconSize (icon) {
-
       }
     },
     computed: {
@@ -76,7 +83,15 @@
     data: function () {
       return {
         selector: '',
-        iconSize: 20
+        iconSize: 20,
+        slider: {
+          height: 2,
+          direction: 'horizontal',
+          min: 0,
+          max: 40,
+          interval: 1,
+          speed: 0.5
+        }
       }
     }
   }
@@ -86,10 +101,9 @@
   @import "../../../sass/variables";
 
   .setOfIcons {
-
     .header {
       background-color: white;
-      padding: 1.75rem 1.75rem 1.125rem 0;
+      padding: 1.75rem 0rem 1.125rem 0;
 
       .header-text {
         text-align: left;
@@ -103,15 +117,31 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        text-align: center;
+        .input-group {
+          width: 13.25rem;
+        }
       }
 
       .range {
+        .vue-slider-wrap {
+          width: 9.3rem !important;
+          .vue-slider-process {
+            background-color: $brand-primary;
+          }
+          .vue-slider-tooltip {
+            background-color: $brand-primary;
+            border-color: $brand-primary;
+          }
+          .vue-slider-dot {
+            background-color: $brand-primary;
+            box-shadow: none;
+          }
+        }
+
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
-
         h2, h4 {
           margin: .5rem;
         }
