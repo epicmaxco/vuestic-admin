@@ -13,6 +13,7 @@ $mf-active-top: -$mf-font-size !default;
 
 // Margin & Paddings
 $mf-gap: $mf-font-size * 1.5 !default;
+$mf-min-height: 2.25rem;
 $mf-spacer: $mf-font-size / 8 !default;
 $mf-fieldset-margin: 0 0 $mf-gap * 2 !default;
 $mf-checkbox-gap: $mf-font-size * 2 !default;
@@ -47,8 +48,15 @@ fieldset {
 
 .form-group {
   position: relative;
-  margin-top: ($mf-gap * 1.5);
+  display: flex;
+  flex-direction: row;
+  min-height: $mf-min-height;
+  margin-top: ($mf-font-size * 0.5);
   margin-bottom: ($mf-gap * 1.5);
+
+  .input-group {
+    align-self: flex-end;
+  }
 
   .input-icon {
     position: absolute;
@@ -58,6 +66,17 @@ fieldset {
 
   .text-secondary {
     color: $mf-label-color;
+  }
+
+  .input-group {
+    position: relative;
+    display: block;
+  }
+
+  &.form-group-w-btn {
+    .btn {
+      align-self: flex-start;
+    }
   }
 
   &.with-icon-right {

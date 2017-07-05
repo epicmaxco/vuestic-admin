@@ -9,37 +9,45 @@
                 <div class="col-md-4">
                   <fieldset>
                     <div class="form-group">
-                      <input type="text" id="simple-input" required="required"/>
-                      <label class="control-label" for="simple-input">Text input</label><i class="bar"></i>
-                    </div>
-                    <div class="form-group with-icon-right" :class="{'has-error': errors.has('wrongEmail')}">
-                      <input
-                        type="text"
-                        id="wrongEmail"
-                        name="wrongEmail"
-                        v-model="wrongEmail"
-                        v-validate="'required|email'"
-                        required="required"/>
-                      <i class="fa fa-exclamation-triangle icon-right input-icon" v-show="errors.has('wrongEmail')"></i>
-                      <label class="control-label" for="wrongEmail">Email (validated)</label><i class="bar"></i>
-                      <small v-show="errors.has('wrongEmail')" class="help text-danger">{{ errors.first('wrongEmail') }}</small>
+                      <div class="input-group">
+                        <input type="text" id="simple-input" required="required"/>
+                        <label class="control-label" for="simple-input">Text input</label><i class="bar"></i>
+                      </div>
                     </div>
                     <div class="form-group with-icon-right" :class="{'has-error': errors.has('successfulEmail'), 'valid': isSuccessfulEmailValid}">
-                      <input
-                        type="text"
-                        id="successfulEmail"
-                        name="successfulEmail"
-                        v-model="successfulEmail"
-                        v-validate="'required|email'"
-                        required="required"/>
-                      <i class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
-                      <i class="fa fa-check valid-icon icon-right input-icon"></i>
-                      <label class="control-label" for="successfulEmail">Email (validated with success)</label><i class="bar"></i>
-                      <small v-show="errors.has('successfulEmail')" class="help text-danger">{{ errors.first('successfulEmail') }}</small>
+                      <div class="input-group">
+                        <input
+                          type="text"
+                          id="successfulEmail"
+                          name="successfulEmail"
+                          v-model="successfulEmail"
+                          v-validate="'required|email'"
+                          required="required"/>
+                        <i class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
+                        <i class="fa fa-check valid-icon icon-right input-icon"></i>
+                        <label class="control-label" for="successfulEmail">Email (validated with success)</label><i class="bar"></i>
+                        <small v-show="errors.has('successfulEmail')" class="help text-danger">{{ errors.first('successfulEmail') }}</small>
+                      </div>
+                    </div>
+                    <div class="form-group with-icon-right" :class="{'has-error': errors.has('wrongEmail')}">
+                      <div class="input-group">
+                        <input
+                          type="text"
+                          id="wrongEmail"
+                          name="wrongEmail"
+                          v-model="wrongEmail"
+                          v-validate="'required|email'"
+                          required="required"/>
+                        <i class="fa fa-exclamation-triangle icon-right input-icon" v-show="errors.has('wrongEmail')"></i>
+                        <label class="control-label" for="wrongEmail">Email (validated)</label><i class="bar"></i>
+                        <small v-show="errors.has('wrongEmail')" class="help text-danger">{{ errors.first('wrongEmail') }}</small>
+                      </div>
                     </div>
                     <div class="form-group">
-                      <textarea type="text" id="simple-textarea" required="required"></textarea>
-                      <label class="control-label" for="simple-textarea">Textarea</label><i class="bar"></i>
+                      <div class="input-group">
+                        <textarea type="text" id="simple-textarea" required="required"></textarea>
+                        <label class="control-label" for="simple-textarea">Textarea</label><i class="bar"></i>
+                      </div>
                     </div>
                   </fieldset>
                 </div>
@@ -47,22 +55,51 @@
                 <div class="col-md-4">
                   <fieldset>
                     <div class="form-group with-icon-left">
-                      <input type="text" id="input-icon-left" name="input-icon-left" required="required"/>
-                      <i class="fa fa-envelope-o icon-left input-icon"></i>
-                      <label class="control-label" for="input-icon-left">Input with icon</label><i class="bar"></i>
+                      <div class="input-group">
+                        <input type="text" id="input-icon-left" name="input-icon-left" required="required"/>
+                        <i class="fa fa-envelope-o icon-left input-icon"></i>
+                        <label class="control-label" for="input-icon-left">Input with icon</label><i class="bar"></i>
+                      </div>
                     </div>
                     <div class="form-group with-icon-right">
-                      <input type="text" v-model="clearableText" id="clear-input" name="clear-input" required="required"/>
-                      <i class="fa fa-times icon-right input-icon pointer" @click="clear('clearableText')"></i>
-                      <label class="control-label" for="clear-input" role="button">Input with clear button</label><i class="bar"></i>
+                      <div class="input-group">
+                        <input type="text" v-model="clearableText" id="clear-input" name="clear-input" required="required"/>
+                        <i class="fa fa-times icon-right input-icon pointer" @click="clear('clearableText')"></i>
+                        <label class="control-label" for="clear-input" role="button">Input with clear button</label><i class="bar"></i>
+                      </div>
                     </div>
                     <div class="form-group">
-                      <input type="text" id="inputWithDescription" required="required"/>
-                      <label class="control-label" for="simple-input">Text input (with description)</label><i class="bar"></i>
-                      <small class="help text-secondary">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                        do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      </small>
+                      <div class="input-group">
+                        <input type="text" id="inputWithDescription" required="required"/>
+                        <label class="control-label" for="simple-input">Text input (with description)</label><i class="bar"></i>
+                        <small class="help text-secondary">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                          do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </small>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+
+                <div class="col-md-4">
+                  <fieldset>
+                    <div class="form-group form-group-w-btn">
+                      <div class="input-group">
+                        <input type="text" id="input-w-btn" required="required"/>
+                        <label class="control-label" for="input-w-btn">Input with button</label><i class="bar"></i>
+                      </div>
+                      <div class="btn btn-micro btn-primary">UPLOAD</div>
+                    </div>
+                    <div class="form-group form-group-w-btn">
+                      <div class="input-group">
+                        <input type="text" id="input-w-btn-round" required="required"/>
+                        <label class="control-label" for="input-w-btn-round">Input with round button</label><i class="bar"></i>
+                      </div>
+                      <div class="btn btn-primary btn-with-icon btn-micro rounded-icon">
+                        <div class="btn-with-icon-content">
+                          <i class="ion-android-cloud-outline ion"></i>
+                        </div>
+                      </div>
                     </div>
                   </fieldset>
                 </div>
