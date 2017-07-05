@@ -73,6 +73,34 @@ fieldset {
     display: block;
   }
 
+  &.select-form-group {
+    .dropdown-toggle::after {
+      display: none;
+    }
+
+    .dropdown-menu {
+      width: 100%;
+    }
+
+    .dropdown-item {
+      cursor: pointer;
+
+      &.selected {
+        color: $mf-focus-color;
+      }
+    }
+
+    .input-icon {
+      color: $mf-active-color;
+      font-size: 0.8rem;
+      top: 1rem;
+    }
+
+    .bar::before {
+      display: none;
+    }
+  }
+
   &.form-group-w-btn {
     .btn {
       align-self: flex-start;
@@ -309,59 +337,5 @@ fieldset {
       left: 0;
       width: 100%;
     }
-  }
-}
-
-.button {
-  position: relative;
-  background: currentColor;
-  border: 1px solid currentColor;
-  font-size: ($mf-font-size * 1.1);
-  color: lighten($mf-focus-color, 10%);
-  margin:( $mf-gap * 2) 0;
-  padding: ($mf-gap / 2) ($mf-gap * 2);
-  cursor: pointer;
-  transition: background-color $mf-transition-speed ease, color $mf-transition-speed ease, box-shadow $mf-transition-speed ease;
-  overflow: hidden;
-  box-shadow: $shadow-2;
-
-  span {
-    color: #fff;
-    position: relative;
-    z-index: 1;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    background: darken($mf-focus-color, 40%);
-    border: 50vh solid darken($mf-focus-color, 20%);
-    width: 30vh;
-    height: 30vh;
-    border-radius: 50%;
-    display: block;
-    top: 50%;
-    left: 50%;
-    z-index: 0;
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(0);
-  }
-
-  &:hover {
-    color: $mf-focus-color;
-    box-shadow: $shadow-6;
-  }
-
-  &:active,
-  &:focus {
-    &::before {
-      transition: transform ($mf-transition-speed * 4) ease, opacity $mf-transition-speed ease ($mf-transition-speed * 1.3);
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 0;
-    }
-  }
-
-  &:focus {
-    outline: none;
   }
 }

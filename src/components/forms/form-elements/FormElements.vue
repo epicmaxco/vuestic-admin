@@ -112,6 +112,26 @@
 
     <div class="row">
       <div class="col-md-12">
+        <widget class="chart-widget" header-text="Selects">
+          <form role="form">
+            <div class="row">
+              <div class="col-md-4">
+                <fieldset>
+                 <vuestic-simple-select
+                   label="Simple select"
+                   v-model="simpleSelectModel"
+                   v-bind:options="simpleOptions">
+                 </vuestic-simple-select>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </widget>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
         <widget class="chart-widget"  header-text="Checkboxes, Radios, Swithces">
           <form role="form">
             <div class="row">
@@ -226,12 +246,14 @@
 <script>
   import Widget from 'components/common/widget/Widget'
   import VuesticSwitch from 'components/common/vuestic-switch/VuesticSwitch'
+  import VuesticSimpleSelect from 'components/common/vuestic-simple-select/VuesticSimpleSelect'
 
   export default {
     name: 'form-elements',
     components: {
       Widget,
-      VuesticSwitch
+      VuesticSwitch,
+      VuesticSimpleSelect
     },
     computed: {
       isSuccessfulEmailValid () {
@@ -247,7 +269,9 @@
         isMale: true,
         clearableText: '',
         successfulEmail: 'andrei@dreamsupport.io',
-        wrongEmail: 'andrei@dreamsupport'
+        wrongEmail: 'andrei@dreamsupport',
+        simpleOptions: ['First option', 'Second option', 'Third option'],
+        simpleSelectModel: ''
       }
     },
     methods: {
