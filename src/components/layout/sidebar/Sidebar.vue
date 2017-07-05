@@ -19,10 +19,10 @@
             {{item.meta.title}}
             <i class="expand-icon fa fa-angle-down"></i>
           </a>
-          <expanding>
+          <expanding v-expandable="{refs: $refs, menuItems: menuItems}">
             <ul class="sidebar-submenu" v-show="item.meta.expanded">
               <li v-for="childItem in item.children">
-                <router-link :to="childItem.path" class="sidebar-link sidebar-sumenu-link">
+                <router-link :to="childItem.path" class="sidebar-link sidebar-submenu-link">
                   {{childItem.meta.title}}
                 </router-link>
               </li>
@@ -38,6 +38,7 @@
   import { mapGetters, mapActions } from 'vuex'
   import Expanding from '../../../../node_modules/vue-bulma-expanding/src/Expanding'
   import VueScrollbar from 'vue2-scrollbar'
+  import Expandable from '../../../directives/Expandable'
 
   export default {
     name: 'sidebar',
@@ -46,7 +47,9 @@
       Expanding,
       VueScrollbar
     },
-
+    directives: {
+      Expandable
+    },
     computed: mapGetters({
       menuItems: 'menuItems'
     }),
@@ -101,7 +104,8 @@
   .sidebar {
     .scroll-area {
       background: inherit;
-      max-height: 32rem;
+      max-height: 32rem; //TODO: use calc
+      /*height: 32rem;*/
       .vue-scrollbar__scrollbar-vertical {
         width: .25rem;
         visibility: visible;
@@ -169,8 +173,8 @@
       }
     }
 
-    .sidebar-sumenu-link {
-    height: $sidebar-submenu-link-height;
+    .sidebar-submenu-link {
+      height: $sidebar-submenu-link-height;
     }
 
     .sidebar-menu, .sidebar-submenu {
