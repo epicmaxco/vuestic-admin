@@ -4,12 +4,13 @@ export default {
     let scrollbar = binding.value.refs.Scrollbar
     let domItems = document.getElementsByClassName('sidebar-submenu')
     let scrollbarTransition = document.getElementsByClassName('vue-scrollbar-transition')[0]
-    // for correct change scrollbar size
+
     let calculateSizeHandler = event => {
       scrollbar.calculateSize()
     }
+
     scrollbarTransition.addEventListener('transitionend', calculateSizeHandler)
-    // handler for every item in menuItems
+
     let expandHandler = item => {
       return event => {
         if (!item.meta.expanded) {
@@ -21,6 +22,7 @@ export default {
         scrollbar.calculateSize()
       }
     }
+
     for (let i = 0; i < items.length; i++) {
       let item = items[i]
       let domItem = domItems[i]
