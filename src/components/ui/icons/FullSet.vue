@@ -99,11 +99,13 @@
 
 <style lang="scss">
   @import "../../../sass/variables";
+  @import '../../../../node_modules/bootstrap/scss/mixins/breakpoints';
+  @import '../../../../node_modules/bootstrap/scss/variables';
 
   .setOfIcons {
     .header {
       background-color: white;
-      padding: 1.75rem 0rem 1.125rem 0;
+      padding: 1.75rem 0 1.125rem 0;
 
       .header-text {
         text-align: left;
@@ -152,10 +154,15 @@
 
     .row {
       .col8-custom {
-        text-align: center;
-        padding: 0;
+        padding-right: 10px;
+        padding-left: 10px;
         margin: 0 0 .5rem;
+        text-align: center;
         height: 6rem;
+        position: relative;
+        min-height: 1px;
+        float: left;
+
         &:hover {
           background-color: $brand-primary;
           color: white;
@@ -168,42 +175,6 @@
             font-size: .6rem;
             text-align: center;
           }
-        }
-
-        @media (min-width: $screen-lg-min) {
-          position: relative;
-          min-height: 1px;
-          padding-right: 10px;
-          padding-left: 10px;
-          width: 12.5%;
-          float: left;
-        }
-
-        @media (max-width: $screen-md-max) {
-          position: relative;
-          min-height: 1px;
-          padding-right: 10px;
-          padding-left: 10px;
-          width: 12.5%;
-          float: left;
-        }
-
-        @media (max-width: $screen-sm-max){
-          position: relative;
-          min-height: 1px;
-          padding-right: 10px;
-          padding-left: 10px;
-          width: 25%;
-          float: left;
-        }
-
-        @media (max-width: $screen-xs-max){
-          position: relative;
-          min-height: 1px;
-          padding-right: 10px;
-          padding-left: 10px;
-          width: 100%;
-          float: left;
         }
       }
     }
