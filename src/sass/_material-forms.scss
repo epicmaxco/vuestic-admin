@@ -266,7 +266,8 @@ fieldset {
 
     ~ .control-label {
       font-size: $mf-active-font-size;
-      color: $mf-active-color;
+      color: $mf-focus-color;
+      text-transform: uppercase;
       top: $mf-active-top;
       left: 0;
     }
