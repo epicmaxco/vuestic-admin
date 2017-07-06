@@ -154,8 +154,8 @@
 
     .row {
       .icon-grid-container {
-        padding-right: 10px;
-        padding-left: 10px;
+        padding-right: .625rem;
+        padding-left: .625rem;
         margin: 0 0 .5rem;
         text-align: center;
         height: 6rem;
