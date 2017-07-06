@@ -27,7 +27,7 @@
         <span v-if="list.icons.length === 0">No icons found</span>
         <template v-for="i in Math.floor(list.icons.length/8+1)">
           <div class="row">
-            <div class="col8-custom" v-for="j in 8" v-if="list.icons[(i-1)*8 + j-1]">
+            <div class="col-8-custom icon-grid-container" v-for="j in 8" v-if="list.icons[(i-1)*8 + j-1]">
               <div class="icon">
                 <span :class="iconClass(list.icons[(i-1)*8 + j-1])" aria-hidden="true"
                       :style="'font-size: '+iconSize+'px'"></span>
@@ -153,7 +153,7 @@
     }
 
     .row {
-      .col8-custom {
+      .icon-grid-container {
         padding-right: 10px;
         padding-left: 10px;
         margin: 0 0 .5rem;

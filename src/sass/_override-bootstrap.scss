@@ -227,7 +227,7 @@ h4, .h4 {
 
 //Grid
 
-.row > .col8-custom {
+.row > .col-8-custom {
   @include media-breakpoint-between(md, xl) {
     width: 12.5%;
   }
