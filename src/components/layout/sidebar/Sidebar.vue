@@ -102,13 +102,22 @@
 <style lang="scss">
   @import "../../../sass/_variables.scss";
   @import "../../../../node_modules/vue2-scrollbar/dist/style/vue2-scrollbar.css";
+  @import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+  @import "../../../../node_modules/bootstrap/scss/variables";
 
   .sidebar {
+    @include media-breakpoint-between(xs, sm) {
+      top: $sidebar-mobile-top;
+      left: $sidebar-mobile-left;
+      width: $sidebar-mobile-width;
+    }
+
     height: $sidebar-viewport-height;
     .scroll-area {
       background: $sidebar-bg;
       box-shadow: $sidebar-box-shadow;
       max-height: 100%;
+      z-index: 3;
       .vue-scrollbar__scrollbar-vertical {
         width: .25rem;
         visibility: visible;
@@ -121,7 +130,6 @@
     left: $sidebar-left;
     transition: all 0.2s ease;
     opacity: 1;
-    z-index: 1;
 
     .sidebar-hidden & {
       top: $sidebar-hidden-top;
