@@ -1,5 +1,5 @@
 <template>
-  <div class="form-group with-icon-right dropdown select-form-group" v-dropdown>
+  <div class="form-group with-icon-right dropdown select-form-group" v-dropdown.closeOnMenuClick>
     <div class="input-group dropdown-toggle">
       <input
         type="text"
@@ -40,7 +40,6 @@
         return this.value === option
       },
       selectOption (option) {
-        console.log('Selected', option, this.value)
         this.$emit('input', option)
       }
     }

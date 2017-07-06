@@ -1,6 +1,7 @@
-export default function (el) {
+export default function (el, binding) {
   let ddToggle = el.querySelector('.dropdown-toggle')
   let ddMenu = el.querySelector('.dropdown-menu')
+  let closeOnMenuClick = binding.modifiers.closeOnMenuClick
 
   ddToggle.addEventListener('click', function (evt) {
     evt.preventDefault()
@@ -13,6 +14,8 @@ export default function (el) {
   })
 
   ddMenu.addEventListener('click', function (evt) {
-    evt.stopPropagation()
+    if (!closeOnMenuClick) {
+      evt.stopPropagation()
+    }
   })
 }
