@@ -4,6 +4,7 @@ export default {
     let scrollbar = binding.value.refs.Scrollbar
     let parentId = binding.value.parentId
     let childClassName = binding.value.childClassName
+    let childHeight = binding.value.childHeight
     let domItems = document.getElementsByClassName(childClassName)
     let scrollbarTransition = document.getElementById(parentId).getElementsByClassName('vue-scrollbar-transition')[0]
 
@@ -16,10 +17,9 @@ export default {
     let expandHandler = item => {
       return event => {
         if (!item.meta.expanded) {
-          let childHeight = binding.value.childHeight
           scrollbar.scrollToY(scrollbar.top - childHeight * item.children.length)
         } else {
-          scrollbar.scrollToY(scrollbar.top + 48)
+          scrollbar.scrollToY(scrollbar.top + childHeight)
         }
         scrollbar.calculateSize()
       }
