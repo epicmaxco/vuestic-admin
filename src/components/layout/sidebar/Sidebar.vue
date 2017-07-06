@@ -104,7 +104,7 @@
   @import "../../../../node_modules/vue2-scrollbar/dist/style/vue2-scrollbar.css";
 
   .sidebar {
-    height: calc(100% - 120px);
+    height: $sidebar-viewport-height;
     .scroll-area {
       background: $sidebar-bg;
       box-shadow: $sidebar-box-shadow;
