@@ -46,12 +46,16 @@ $greeny-box-shadow : 0px 10px 25px 1px rgba(74, 227, 135, 0.2);
 $min-z-index : -1000;
 
 //Mobile Layout
+$top-mobile-nav-height: 90px;
 $layout-mobile-padding: 3px;
 $layout-mobile-padding-right: 6px;
 $sidebar-mobile-width: calc(100% - #{$layout-mobile-padding-right});
-$sidebar-mobile-top: $top-nav-height+$layout-mobile-padding;
+$sidebar-mobile-top: $top-mobile-nav-height+$layout-mobile-padding;
 $sidebar-mobile-left: $layout-mobile-padding;
 $content-mobile-wrap-margin: 18px;
+$nav-mobile-padding-h : $content-mobile-wrap-margin;
+$nav-mobile-pt: 48px;
+$nav-mobile-pb: 22px;
 
 // Typography
 // -------------------------
