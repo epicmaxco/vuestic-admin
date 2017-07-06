@@ -1,6 +1,8 @@
 <template>
   <aside class="sidebar">
-    <vue-scrollbar class="scroll-area" ref="Scrollbar" v-expandable="{refs: $refs, menuItems: menuItems}">
+    <vue-scrollbar class="scroll-area" ref="Scrollbar" id="sidebar-scrollbar"
+                   v-expandable="{refs: $refs, menuItems: menuItems, childClassName: 'sidebar-submenu',
+                   parentId: 'sidebar-scrollbar', childHeight: 48}">
       <ul class="sidebar-menu">
         <li v-for="(item, index) in menuItems">
           <router-link :to="item.path"
@@ -102,10 +104,11 @@
   @import "../../../../node_modules/vue2-scrollbar/dist/style/vue2-scrollbar.css";
 
   .sidebar {
+    height: calc(100% - 120px);
     .scroll-area {
-      background: inherit;
-      max-height: 32rem; //TODO: use calc
-      /*height: 32rem;*/
+      background: $sidebar-bg;
+      box-shadow: $sidebar-box-shadow;
+      max-height: 100%;
       .vue-scrollbar__scrollbar-vertical {
         width: .25rem;
         visibility: visible;
@@ -116,8 +119,6 @@
     width: $sidebar-width;
     top: $sidebar-top;
     left: $sidebar-left;
-    background: $sidebar-bg;
-    box-shadow: $sidebar-box-shadow;
     transition: all 0.2s ease;
     opacity: 1;
     z-index: 1;

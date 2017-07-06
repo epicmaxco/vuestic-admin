@@ -2,8 +2,10 @@ export default {
   inserted: function (el, binding) {
     let items = binding.value.menuItems
     let scrollbar = binding.value.refs.Scrollbar
-    let domItems = document.getElementsByClassName('sidebar-submenu')
-    let scrollbarTransition = document.getElementsByClassName('vue-scrollbar-transition')[0]
+    let parentId = binding.value.parentId
+    let childClassName = binding.value.childClassName
+    let domItems = document.getElementsByClassName(childClassName)
+    let scrollbarTransition = document.getElementById(parentId).getElementsByClassName('vue-scrollbar-transition')[0]
 
     let calculateSizeHandler = event => {
       scrollbar.calculateSize()
@@ -14,8 +16,8 @@ export default {
     let expandHandler = item => {
       return event => {
         if (!item.meta.expanded) {
-          let childrenHeight = 48 // TODO: fix hardcode
-          scrollbar.scrollToY(scrollbar.top - childrenHeight * item.children.length)
+          let childHeight = binding.value.childHeight
+          scrollbar.scrollToY(scrollbar.top - childHeight * item.children.length)
         } else {
           scrollbar.scrollToY(scrollbar.top + 48)
         }
