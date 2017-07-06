@@ -88,6 +88,7 @@ $sidebar-submenu-link-pl : 74px;
 $sidebar-link-active-bg : $almost-black;
 $sidebar-arrow-right : 16px;
 $sidebar-menu-item-icon-size : 19px;
+$sidebar-viewport-height: calc(100vh - #{$top-nav-height} - #{$content-wrap-pt} - #{$content-wrap-pb});
 
 $sidebar-hidden-top : -150px;
 
@@ -98,7 +99,7 @@ $widget-bg : $white;
 $widget-padding : 25px;
 $widget-larger-padding: 45px;
 $widget-box-shadow : 0px 4px 70px -18px rgba(112, 112, 112, 1);
-$widget-viewport-height : calc(100vh - #{$top-nav-height} - #{$content-wrap-pt} - #{$content-wrap-pb});
+$widget-viewport-height : $sidebar-viewport-height;
 $widget-header-border: 2px solid $light-gray;
 $widget-header-height: 55px;
 $widget-body-no-header-height: 100%;
