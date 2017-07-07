@@ -106,7 +106,7 @@
   @import "../../../../node_modules/bootstrap/scss/variables";
 
   .sidebar {
-    @include media-breakpoint-between(xs, sm) {
+    @include media-breakpoint-down(xs) {
       top: $sidebar-mobile-top;
       left: $sidebar-mobile-left;
       width: $sidebar-mobile-width;

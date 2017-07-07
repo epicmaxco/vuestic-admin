@@ -13,12 +13,12 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="menu-icon-container d-flex align-items-center justify-content-center justify-content-md-start col">
+      <div class="menu-icon-container d-flex align-items-center justify-content-center justify-content-sm-start col">
         <a class="menu-icon i-menu-expanded" href="#" @click.prevent="toggleSidebar(false)" v-if="sidebarOpened"></a>
         <a class="menu-icon i-menu-collapsed" href="#" @click.prevent="toggleSidebar(true)" v-else></a>
       </div>
 
-      <div class="offset-md-8"></div>
+      <div class="offset-sm-8"></div>
       <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center
 justify-content-lg-end" v-dropdown>
         <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#">
@@ -37,7 +37,7 @@ justify-content-lg-end" v-dropdown>
         </div>
       </div>
       <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center
-justify-content-lg-end" v-dropdown>
+justify-content-md-end" v-dropdown>
         <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#">
           <span class="i-nav-notification notify"></span>
         </a>
@@ -57,7 +57,7 @@ justify-content-lg-end" v-dropdown>
         </div>
       </div>
       <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center
-justify-content-md-end" v-dropdown>
+justify-content-sm-end" v-dropdown>
         <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#">
           <span class="avatar-container"></span>
         </a>
@@ -221,7 +221,7 @@ justify-content-md-end" v-dropdown>
       top: 0;
     }
 
-    @include media-breakpoint-between(xs, sm) {
+    @include media-breakpoint-down(xs) {
       height: $top-mobile-nav-height;
       padding: $nav-mobile-pt $nav-mobile-padding-h $nav-mobile-pb $nav-mobile-padding-h;
 
