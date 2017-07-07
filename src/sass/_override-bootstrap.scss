@@ -225,4 +225,18 @@ h4, .h4 {
   font-size: $font-size-sm;
 }
 
+//Grid
 
+.row > .col-8-custom {
+  @include media-breakpoint-between(md, xl) {
+    width: 12.5%;
+  }
+
+  @include media-breakpoint-only(sm) {
+    width: 25%;
+  }
+
+  @include media-breakpoint-only(xs){
+    width: 100%;
+  }
+}

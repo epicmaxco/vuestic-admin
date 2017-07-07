@@ -1,63 +1,75 @@
 <template>
   <nav class="navbar app-navbar navbar-toggleable-md">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div class="navbar-brand-container d-flex align-items-center justify-content-start">
+      <a class="navbar-brand" href="#">
+        <i class="i-vuestic"></i>
+      </a>
+    </div>
 
-    <a class="menu-icon i-menu-expanded" href="#" @click.prevent="toggleSidebar(false)" v-if="sidebarOpened"></a>
-    <a class="menu-icon i-menu-collapsed" href="#" @click.prevent="toggleSidebar(true)" v-else></a>
+    <div class="row navbar-container">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+              data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <a class="navbar-brand" href="#">
-      <i class="i-vuestic"></i>
-    </a>
+      <div class="menu-icon-container d-flex align-items-center justify-content-center justify-content-lg-start col">
+        <a class="menu-icon i-menu-expanded" href="#" @click.prevent="toggleSidebar(false)" v-if="sidebarOpened"></a>
+        <a class="menu-icon i-menu-collapsed" href="#" @click.prevent="toggleSidebar(true)" v-else></a>
+      </div>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown navbar-dropdown" v-dropdown>
-          <a class="nav-link dropdown-toggle" href="#"><span class="i-nav-messages notify"></span></a>
-          <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">
-            <span class="ellipsis">New messages from Oleg M</span>
-          </a>
+      <div class="offset-lg-8"></div>
+      <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center
+justify-content-lg-end" v-dropdown>
+        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#">
+          <span class="i-nav-messages notify"></span>
+        </a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">
+          <span class="ellipsis">New messages from Oleg M</span>
+        </a>
           <a class="dropdown-item" href="#">
             <span class="ellipsis">New messages from Andrei H</span>
           </a>
-            <div class="dropdown-item plain-link-item">
-              <a class="plain-link" href="#">See all messages</a>
-            </div>
+          <div class="dropdown-item plain-link-item">
+            <a class="plain-link" href="#">See all messages</a>
           </div>
-        </li>
-        <li class="nav-item dropdown navbar-dropdown" v-dropdown>
-          <a class="nav-link dropdown-toggle" href="#"><span class="i-nav-notification notify"></span></a>
-          <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">
-                <span class="ellipsis">Vasily S sent you a message</span>
-              </a>
-              <a class="dropdown-item" href="#">
-                <span class="ellipsis">Oleg M uploaded new Zip file with typography component</span>
-              </a>
-              <a class="dropdown-item" href="#">
-                <span class="ellipsis">Andrei H started a new topic</span>
-              </a>
-              <div class="dropdown-item plain-link-item">
-                <a class="plain-link" href="#">See all notifications</a>
-              </div>
+        </div>
+      </div>
+      <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center
+justify-content-lg-end" v-dropdown>
+        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#">
+          <span class="i-nav-notification notify"></span>
+        </a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">
+          <span class="ellipsis">Vasily S sent you a message</span>
+        </a>
+            <a class="dropdown-item" href="#">
+          <span class="ellipsis">Oleg M uploaded new Zip file with typography component</span>
+        </a>
+            <a class="dropdown-item" href="#">
+          <span class="ellipsis">Andrei H started a new topic</span>
+        </a>
+          <div class="dropdown-item plain-link-item">
+            <a class="plain-link" href="#">See all notifications</a>
           </div>
-        </li>
-        <li class="nav-item dropdown navbar-dropdown" v-dropdown>
-          <a class="nav-link dropdown-toggle" href="#">
-            <span class="avatar-container"></span>
-          </a>
-          <div class="dropdown-menu">
-            <div class="dropdown-item plain-link-item">
-              <a class="plain-link" href="#">My Profile</a>
-            </div>
-            <div class="dropdown-item plain-link-item">
-              <a class="plain-link" href="#">Logout</a>
-            </div>
+        </div>
+      </div>
+      <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center
+justify-content-lg-end" v-dropdown>
+        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#">
+          <span class="avatar-container"></span>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-item plain-link-item">
+            <a class="plain-link" href="#">My Profile</a>
           </div>
-        </li>
-      </ul>
+          <div class="dropdown-item plain-link-item">
+            <a class="plain-link" href="#">Logout</a>
+          </div>
+        </div>
+      </div>
     </div>
   </nav>
 </template>
@@ -87,8 +99,16 @@
 
 <style lang="scss">
   @import "../../../sass/_variables.scss";
+  @import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+  @import "../../../../node_modules/bootstrap/scss/variables";
 
   .navbar.app-navbar {
+    .navbar-container {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+
     height: $top-nav-height;
     padding-left: $nav-padding-left;
     padding-right: $nav-padding-right;
@@ -102,12 +122,27 @@
       border-radius: 50%;
     }
 
-    .menu-icon {
-      margin-right: 28px;
+    .menu-icon-container {
+      padding: 0;
+      font-size: $font-size-base;
+    }
+
+    .navbar-brand-container {
+      position: absolute;
+      z-index: 3;
+      height: 100%;
+      left: $navbar-brand-container-left;
+      top: 0;
+    }
+
+    .nav-item {
+      padding: 0;
+      height: 100%;
     }
 
     .dropdown.navbar-dropdown {
       .dropdown-toggle {
+        padding: 0;
         &:after {
            display: none;
          }
@@ -179,6 +214,36 @@
     .i-nav-notification.notify::after {
       right: -4px;
       top: 0;
+    }
+
+    @include media-breakpoint-down(md) {
+      height: $top-mobile-nav-height;
+      padding: $nav-mobile-pt $nav-mobile-padding-h $nav-mobile-pb $nav-mobile-padding-h;
+
+      .navbar-brand-container {
+        width: $nav-mobile-brand-width;
+        top: $nav-mobile-brand-top;
+        left: $nav-mobile-brand-left;
+        height: auto;
+        .navbar-brand {
+          height: $font-size-smaller;
+          padding: 0;
+          font-size: $font-size-smaller;
+        }
+      }
+
+      .dropdown.navbar-dropdown {
+        &.show {
+          &:after {
+            bottom: $dropdown-mobile-show-b;
+            z-index: 2;
+          }
+        }
+
+        .dropdown-menu {
+          margin-top: $droppdown-mobile-mp;
+        }
+      }
     }
   }
 </style>

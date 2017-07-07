@@ -13,6 +13,14 @@ Vue.use(VeeValidate)
 
 sync(store, router)
 
+router.afterEach((to, from) => {
+  if (window.matchMedia('(min-width: 992px)').matches) {
+    store.dispatch('toggleSidebar', true)
+  } else {
+    store.dispatch('toggleSidebar', false)
+  }
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

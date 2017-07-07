@@ -1,52 +1,60 @@
 <template>
   <aside class="sidebar">
-   <ul class="sidebar-menu">
-     <li v-for="(item, index) in menuItems">
-       <router-link :to="item.path"
-                    class="sidebar-link"
-                    @click="toggleMenuItem(item)"
-                    v-if="item.path">
-         <i class="sidebar-menu-item-icon" v-bind:class="item.meta.iconClass"></i>
-         {{item.meta.title}}
-       </router-link>
-       <a href="#"
-          @click.prevent="toggleMenuItem(item)"
-          class="sidebar-link"
-          v-bind:class="{expanded: item.meta.expanded}"
-          v-else>
-         <i class="sidebar-menu-item-icon" v-bind:class="item.meta.iconClass"></i>
-         {{item.meta.title}}
-         <i class="expand-icon fa fa-angle-down"></i>
-       </a>
-       <expanding>
-         <ul class="sidebar-submenu" v-show="item.meta.expanded">
-           <li v-for="childItem in item.children">
-             <router-link :to="childItem.path" class="sidebar-link sidebar-sumenu-link">
-               {{childItem.meta.title}}
-             </router-link>
-           </li>
-         </ul>
-       </expanding>
-     </li>
-   </ul>
+    <vue-scrollbar class="scroll-area" ref="Scrollbar" id="sidebar-scrollbar"
+                   v-expandable="{refs: $refs, menuItems: menuItems, childClassName: 'sidebar-submenu',
+                   parentId: 'sidebar-scrollbar', childHeight: 48}">
+      <ul class="sidebar-menu">
+        <li v-for="(item, index) in menuItems">
+          <router-link :to="item.path"
+                       class="sidebar-link"
+                       @click="toggleMenuItem(item)"
+                       v-if="item.path">
+            <i class="sidebar-menu-item-icon" v-bind:class="item.meta.iconClass"></i>
+            {{item.meta.title}}
+          </router-link>
+          <a href="#"
+             @click.prevent="toggleMenuItem(item)"
+             class="sidebar-link"
+             v-bind:class="{expanded: item.meta.expanded}"
+             v-else>
+            <i class="sidebar-menu-item-icon" v-bind:class="item.meta.iconClass"></i>
+            {{item.meta.title}}
+            <i class="expand-icon fa fa-angle-down"></i>
+          </a>
+          <expanding>
+            <ul class="sidebar-submenu" v-show="item.meta.expanded">
+              <li v-for="childItem in item.children">
+                <router-link :to="childItem.path" class="sidebar-link sidebar-submenu-link">
+                  {{childItem.meta.title}}
+                </router-link>
+              </li>
+            </ul>
+          </expanding>
+        </li>
+      </ul>
+    </vue-scrollbar>
   </aside>
 </template>
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
   import Expanding from '../../../../node_modules/vue-bulma-expanding/src/Expanding'
+  import VueScrollbar from 'vue2-scrollbar'
+  import Expandable from '../../../directives/Expandable'
 
   export default {
     name: 'sidebar',
 
     components: {
-      Expanding
+      Expanding,
+      VueScrollbar
     },
-
+    directives: {
+      Expandable
+    },
     computed: mapGetters({
       menuItems: 'menuItems'
     }),
-
     methods: {
       ...mapActions({
         expand: 'toggleExpandMenuItem'
@@ -93,17 +101,35 @@
 
 <style lang="scss">
   @import "../../../sass/_variables.scss";
+  @import "../../../../node_modules/vue2-scrollbar/dist/style/vue2-scrollbar.css";
+  @import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+  @import "../../../../node_modules/bootstrap/scss/variables";
 
   .sidebar {
+    @include media-breakpoint-down(md) {
+      top: $sidebar-mobile-top;
+      left: $sidebar-mobile-left;
+      width: $sidebar-mobile-width;
+    }
+
+    height: $sidebar-viewport-height;
+    .scroll-area {
+      background: $sidebar-bg;
+      box-shadow: $sidebar-box-shadow;
+      max-height: 100%;
+      z-index: 4;
+      .vue-scrollbar__scrollbar-vertical {
+        width: .25rem;
+        visibility: visible;
+      }
+    }
+
     position: absolute;
     width: $sidebar-width;
     top: $sidebar-top;
     left: $sidebar-left;
-    background: $sidebar-bg;
-    box-shadow: $sidebar-box-shadow;
     transition: all 0.2s ease;
     opacity: 1;
-    z-index: 1;
 
     .sidebar-hidden & {
       top: $sidebar-hidden-top;
@@ -156,8 +182,8 @@
       }
     }
 
-    .sidebar-sumenu-link {
-    height: $sidebar-submenu-link-height;
+    .sidebar-submenu-link {
+      height: $sidebar-submenu-link-height;
     }
 
     .sidebar-menu, .sidebar-submenu {
@@ -178,6 +204,7 @@
     }
 
     .sidebar-menu {
+      max-height: 100%;
       margin-bottom: 0;
     }
   }

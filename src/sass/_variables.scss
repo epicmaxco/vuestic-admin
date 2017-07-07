@@ -30,6 +30,7 @@ $layout-padding-right : 44px;
 $top-nav-height : 72px;
 $nav-padding-left : $layout-padding;
 $nav-padding-right : $layout-padding-right;
+$navbar-brand-container-left: 75px;
 
 $sidebar-bg : $darkest-gray;
 $sidebar-width : 225px;
@@ -44,6 +45,25 @@ $content-wrap-pb : $layout-padding;
 $greeny-box-shadow : 0px 10px 25px 1px rgba(74, 227, 135, 0.2);
 
 $min-z-index : -1000;
+
+//Mobile Layout
+$top-mobile-nav-height: 5.625rem;
+$layout-mobile-padding: 0.1875rem;
+$layout-mobile-padding-right: .375rem;
+$sidebar-mobile-width: calc(100% - #{$layout-mobile-padding-right});
+$sidebar-mobile-top: $top-mobile-nav-height+$layout-mobile-padding;
+$sidebar-mobile-left: $layout-mobile-padding;
+$content-mobile-wrap-margin: 1.125rem;
+$nav-mobile-padding-h : .875rem;
+$nav-mobile-pt: 3rem;
+$nav-mobile-pb: 1.375rem;
+$nav-mobile-brand-width: 4rem;
+$nav-mobile-brand-top: .875rem;
+$nav-mobile-brand-left: calc(50% - #{$nav-mobile-brand-width});
+$droppdown-mobile-mp: 1.9375rem;
+$dropdown-mobile-show-b: -$droppdown-mobile-mp - 1;
+
+
 
 // Typography
 // -------------------------
@@ -88,6 +108,7 @@ $sidebar-submenu-link-pl : 74px;
 $sidebar-link-active-bg : $almost-black;
 $sidebar-arrow-right : 16px;
 $sidebar-menu-item-icon-size : 19px;
+$sidebar-viewport-height: calc(100vh - #{$top-nav-height} - #{$content-wrap-pt} - #{$content-wrap-pb});
 
 $sidebar-hidden-top : -150px;
 
@@ -98,7 +119,7 @@ $widget-bg : $white;
 $widget-padding : 25px;
 $widget-larger-padding: 45px;
 $widget-box-shadow : 0px 4px 70px -18px rgba(112, 112, 112, 1);
-$widget-viewport-height : calc(100vh - #{$top-nav-height} - #{$content-wrap-pt} - #{$content-wrap-pb});
+$widget-viewport-height : $sidebar-viewport-height;
 $widget-header-border: 2px solid $light-gray;
 $widget-header-height: 55px;
 $widget-body-no-header-height: 100%;
@@ -175,9 +196,3 @@ $input-bg-disabled: $white;
 $vuestic-switch-bg: $brand-primary;
 $vuestic-switch-padding: 0.313rem 2.375rem;
 $vuestic-switch-border-size: 0.125rem;
-$screen-sm-min: 768px;
-$screen-xs-max: ($screen-sm-min - 1);
-$screen-md-min: 992px;
-$screen-sm-max: ($screen-md-min - 1);
-$screen-lg-min: 1200px;
-$screen-md-max: ($screen-lg-min - 1);
