@@ -122,6 +122,11 @@
                    v-model="simpleSelectModel"
                    v-bind:options="simpleOptions">
                  </vuestic-simple-select>
+                  <vuestic-simple-select
+                    label="Country select"
+                    v-model="chosenCountry"
+                    v-bind:options="countriesList">
+                  </vuestic-simple-select>
                 </fieldset>
               </div>
             </div>
@@ -247,6 +252,7 @@
   import Widget from 'components/common/widget/Widget'
   import VuesticSwitch from 'components/common/vuestic-switch/VuesticSwitch'
   import VuesticSimpleSelect from 'components/common/vuestic-simple-select/VuesticSimpleSelect'
+  import CountriesList from './CountriesList'
 
   export default {
     name: 'form-elements',
@@ -267,6 +273,8 @@
     data () {
       return {
         isMale: true,
+        countriesList: CountriesList,
+        chosenCountry: '',
         clearableText: '',
         successfulEmail: 'andrei@dreamsupport.io',
         wrongEmail: 'andrei@dreamsupport',
