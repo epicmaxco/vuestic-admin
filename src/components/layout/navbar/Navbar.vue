@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar app-navbar navbar-toggleable-md">
-    <div class="navbar-brand-container">
+    <div class="navbar-brand-container d-flex align-items-center justify-content-start">
       <a class="navbar-brand" href="#">
         <i class="i-vuestic"></i>
       </a>
@@ -13,14 +13,17 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="menu-icon-container col">
+      <div class="menu-icon-container d-flex align-items-center justify-content-center justify-content-md-start col">
         <a class="menu-icon i-menu-expanded" href="#" @click.prevent="toggleSidebar(false)" v-if="sidebarOpened"></a>
         <a class="menu-icon i-menu-collapsed" href="#" @click.prevent="toggleSidebar(true)" v-else></a>
       </div>
 
       <div class="offset-md-8"></div>
-      <div class="col nav-item dropdown navbar-dropdown" v-dropdown>
-        <a class="nav-link dropdown-toggle" href="#"><span class="i-nav-messages notify"></span></a>
+      <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center
+justify-content-lg-end" v-dropdown>
+        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#">
+          <span class="i-nav-messages notify"></span>
+        </a>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="#">
           <span class="ellipsis">New messages from Oleg M</span>
@@ -33,8 +36,11 @@
           </div>
         </div>
       </div>
-      <div class="col nav-item dropdown navbar-dropdown" v-dropdown>
-        <a class="nav-link dropdown-toggle" href="#"><span class="i-nav-notification notify"></span></a>
+      <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center
+justify-content-lg-end" v-dropdown>
+        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#">
+          <span class="i-nav-notification notify"></span>
+        </a>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="#">
           <span class="ellipsis">Vasily S sent you a message</span>
@@ -50,8 +56,9 @@
           </div>
         </div>
       </div>
-      <div class="col nav-item dropdown navbar-dropdown" v-dropdown>
-        <a class="nav-link dropdown-toggle" href="#">
+      <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center
+justify-content-md-end" v-dropdown>
+        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#">
           <span class="avatar-container"></span>
         </a>
         <div class="dropdown-menu">
@@ -121,28 +128,21 @@
       border-radius: 50%;
     }
 
-    .menu-icon {
-      height: 100%;
+    .menu-icon-container {
       padding: 0;
-      display: flex;
-      align-items: center;
+      font-size: $font-size-base;
     }
 
     .navbar-brand-container {
       position: absolute;
       z-index: 3;
       height: 100%;
-      left: 75px;
+      left: $navbar-brand-container-left;
       top: 0;
-      display: flex;
-      align-items: center;
     }
 
     .nav-item {
       padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
     .dropdown.navbar-dropdown {
@@ -224,21 +224,29 @@
     @include media-breakpoint-between(xs, sm) {
       height: $top-mobile-nav-height;
       padding: $nav-mobile-pt $nav-mobile-padding-h $nav-mobile-pb $nav-mobile-padding-h;
-      /*font-size: 0px;*/
-      .menu-icon-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+
       .navbar-brand-container {
-        top: 14px;
-        padding: 0;
-        left: calc(50% - 64px);
-        font-size: 13px;
+        width: $nav-mobile-brand-width;
+        top: $nav-mobile-brand-top;
+        left: $nav-mobile-brand-left;
         height: auto;
         .navbar-brand {
+          height: $font-size-smaller;
           padding: 0;
-          font-size: 13px;
+          font-size: $font-size-smaller;
+        }
+      }
+
+      .dropdown.navbar-dropdown {
+        &.show {
+          &:after {
+            bottom: $dropdown-mobile-show-b;
+            z-index: 2;
+          }
+        }
+
+        .dropdown-menu {
+          margin-top: $droppdown-mobile-mp;
         }
       }
     }

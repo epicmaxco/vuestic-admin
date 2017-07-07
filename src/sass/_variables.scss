@@ -30,6 +30,7 @@ $layout-padding-right : 44px;
 $top-nav-height : 72px;
 $nav-padding-left : $layout-padding;
 $nav-padding-right : $layout-padding-right;
+$navbar-brand-container-left: 75px;
 
 $sidebar-bg : $darkest-gray;
 $sidebar-width : 225px;
@@ -56,6 +57,13 @@ $content-mobile-wrap-margin: 18px;
 $nav-mobile-padding-h : 14px;
 $nav-mobile-pt: 48px;
 $nav-mobile-pb: 22px;
+$nav-mobile-brand-width: 4rem;
+$nav-mobile-brand-top: 14px;
+$nav-mobile-brand-left: calc(50% - #{$nav-mobile-brand-width});
+$droppdown-mobile-mp: 31px;
+$dropdown-mobile-show-b: -$droppdown-mobile-mp - 1;
+
+
 
 // Typography
 // -------------------------
