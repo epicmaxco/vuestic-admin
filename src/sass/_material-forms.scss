@@ -84,9 +84,18 @@ fieldset {
 
     .dropdown-item {
       cursor: pointer;
+      justify-content: space-between;
+
+      .selected-icon {
+        display: none;
+      }
 
       &.selected {
         color: $mf-focus-color;
+
+        .selected-icon {
+          display: inline-block;
+        }
       }
     }
 

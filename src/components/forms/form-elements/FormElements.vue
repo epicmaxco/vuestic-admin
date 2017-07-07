@@ -129,6 +129,20 @@
                   </vuestic-simple-select>
                 </fieldset>
               </div>
+              <div class="col-md-4">
+                <fieldset>
+                  <vuestic-multi-select
+                    label="Mutliselect"
+                    v-model="multiSelectModel"
+                    v-bind:options="simpleOptions">
+                  </vuestic-multi-select>
+                  <vuestic-multi-select
+                    label="Country multiselect"
+                    v-model="multiSelectCountriesModel"
+                    v-bind:options="countriesList">
+                  </vuestic-multi-select>
+                </fieldset>
+              </div>
             </div>
           </form>
         </widget>
@@ -252,6 +266,7 @@
   import Widget from 'components/common/widget/Widget'
   import VuesticSwitch from 'components/common/vuestic-switch/VuesticSwitch'
   import VuesticSimpleSelect from 'components/common/vuestic-simple-select/VuesticSimpleSelect'
+  import VuesticMultiSelect from 'components/common/vuestic-multi-select/VuesticMultiSelect'
   import CountriesList from './CountriesList'
 
   export default {
@@ -259,7 +274,8 @@
     components: {
       Widget,
       VuesticSwitch,
-      VuesticSimpleSelect
+      VuesticSimpleSelect,
+      VuesticMultiSelect
     },
     computed: {
       isSuccessfulEmailValid () {
@@ -279,7 +295,9 @@
         successfulEmail: 'andrei@dreamsupport.io',
         wrongEmail: 'andrei@dreamsupport',
         simpleOptions: ['First option', 'Second option', 'Third option'],
-        simpleSelectModel: ''
+        simpleSelectModel: '',
+        multiSelectModel: [],
+        multiSelectCountriesModel: []
       }
     },
     methods: {
