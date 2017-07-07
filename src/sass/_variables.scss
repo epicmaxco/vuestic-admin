@@ -47,20 +47,20 @@ $greeny-box-shadow : 0px 10px 25px 1px rgba(74, 227, 135, 0.2);
 $min-z-index : -1000;
 
 //Mobile Layout
-$top-mobile-nav-height: 90px;
-$layout-mobile-padding: 3px;
-$layout-mobile-padding-right: 6px;
+$top-mobile-nav-height: 5.625rem;
+$layout-mobile-padding: 0.1875rem;
+$layout-mobile-padding-right: .375rem;
 $sidebar-mobile-width: calc(100% - #{$layout-mobile-padding-right});
 $sidebar-mobile-top: $top-mobile-nav-height+$layout-mobile-padding;
 $sidebar-mobile-left: $layout-mobile-padding;
-$content-mobile-wrap-margin: 18px;
-$nav-mobile-padding-h : 14px;
-$nav-mobile-pt: 48px;
-$nav-mobile-pb: 22px;
+$content-mobile-wrap-margin: 1.125rem;
+$nav-mobile-padding-h : .875rem;
+$nav-mobile-pt: 3rem;
+$nav-mobile-pb: 1.375rem;
 $nav-mobile-brand-width: 4rem;
-$nav-mobile-brand-top: 14px;
+$nav-mobile-brand-top: .875rem;
 $nav-mobile-brand-left: calc(50% - #{$nav-mobile-brand-width});
-$droppdown-mobile-mp: 31px;
+$droppdown-mobile-mp: 1.9375rem;
 $dropdown-mobile-show-b: -$droppdown-mobile-mp - 1;
 
 
