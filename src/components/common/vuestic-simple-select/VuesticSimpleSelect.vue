@@ -14,7 +14,7 @@
       <div class="dropdown-item"
            :class="{'selected': isOptionSelected(option)}" v-for="option in options"
            @click="selectOption(option)">
-        {{option}}
+        <span class="ellipsis">{{option}}</span>
       </div>
     </div>
   </div>

@@ -14,7 +14,7 @@
       <div class="dropdown-item"
            :class="{'selected': isOptionSelected(option)}" v-for="option in options"
            @click="toggleSelection(option)">
-        {{option}}
+        <span class="ellipsis">{{option}}</span>
         <i class="fa fa-check selected-icon"></i>
       </div>
     </div>
