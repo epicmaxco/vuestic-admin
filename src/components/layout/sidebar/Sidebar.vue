@@ -117,7 +117,7 @@
       background: $sidebar-bg;
       box-shadow: $sidebar-box-shadow;
       max-height: 100%;
-      z-index: 3;
+      z-index: 4;
       .vue-scrollbar__scrollbar-vertical {
         width: .25rem;
         visibility: visible;

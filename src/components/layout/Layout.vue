@@ -11,7 +11,7 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
+  import {mapGetters} from 'vuex'
 
   import Navbar from './navbar/Navbar'
   import Sidebar from './sidebar/Sidebar'
@@ -23,10 +23,11 @@
       Navbar,
       Sidebar
     },
-
-    computed: mapGetters([
-      'sidebarOpened'
-    ])
+    computed: {
+      ...mapGetters([
+        'sidebarOpened'
+      ])
+    }
   }
 </script>
 
