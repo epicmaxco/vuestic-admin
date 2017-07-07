@@ -13,14 +13,14 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="menu-icon-container d-flex align-items-center justify-content-center justify-content-xl-start col">
+      <div class="menu-icon-container d-flex align-items-center justify-content-center justify-content-lg-start col">
         <a class="menu-icon i-menu-expanded" href="#" @click.prevent="toggleSidebar(false)" v-if="sidebarOpened"></a>
         <a class="menu-icon i-menu-collapsed" href="#" @click.prevent="toggleSidebar(true)" v-else></a>
       </div>
 
-      <div class="offset-xl-8"></div>
+      <div class="offset-lg-8"></div>
       <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center
-justify-content-xl-end" v-dropdown>
+justify-content-lg-end" v-dropdown>
         <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#">
           <span class="i-nav-messages notify"></span>
         </a>
@@ -37,7 +37,7 @@ justify-content-xl-end" v-dropdown>
         </div>
       </div>
       <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center
-justify-content-xl-end" v-dropdown>
+justify-content-lg-end" v-dropdown>
         <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#">
           <span class="i-nav-notification notify"></span>
         </a>
@@ -57,7 +57,7 @@ justify-content-xl-end" v-dropdown>
         </div>
       </div>
       <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center
-justify-content-xl-end" v-dropdown>
+justify-content-lg-end" v-dropdown>
         <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#">
           <span class="avatar-container"></span>
         </a>
@@ -70,12 +70,6 @@ justify-content-xl-end" v-dropdown>
           </div>
         </div>
       </div>
-
-      <!--<div class="col-md-3 offset-md-8 col-sm-3 navbar-items-container">-->
-        <!--<div class="row navbar-nav ml-auto">-->
-          <!---->
-        <!--</div>-->
-      <!--</div>-->
     </div>
   </nav>
 </template>
@@ -143,6 +137,7 @@ justify-content-xl-end" v-dropdown>
 
     .nav-item {
       padding: 0;
+      height: 100%;
     }
 
     .dropdown.navbar-dropdown {
@@ -221,7 +216,7 @@ justify-content-xl-end" v-dropdown>
       top: 0;
     }
 
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(md) {
       height: $top-mobile-nav-height;
       padding: $nav-mobile-pt $nav-mobile-padding-h $nav-mobile-pb $nav-mobile-padding-h;
 

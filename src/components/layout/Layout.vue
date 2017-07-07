@@ -45,7 +45,7 @@
       margin-left: $sidebar-left;
     }
 
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(md) {
       margin-left: $content-mobile-wrap-margin;
       padding-top: $layout-mobile-padding;
       padding-right: $content-mobile-wrap-margin;
