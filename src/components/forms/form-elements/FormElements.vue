@@ -267,7 +267,7 @@
   import VuesticSwitch from 'components/common/vuestic-switch/VuesticSwitch'
   import VuesticSimpleSelect from 'components/common/vuestic-simple-select/VuesticSimpleSelect'
   import VuesticMultiSelect from 'components/common/vuestic-multi-select/VuesticMultiSelect'
-  import CountriesList from './CountriesList'
+  import CountriesList from '../CountriesList'
 
   export default {
     name: 'form-elements',
