@@ -2,7 +2,7 @@ import * as types from '../mutation-types'
 
 const state = {
   sidebar: {
-    opened: true
+    opened: false
   },
   config: {
     googleMaps: {

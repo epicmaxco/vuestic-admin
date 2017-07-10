@@ -2,7 +2,7 @@
   <div class="form-elements">
     <div class="row">
       <div class="col-md-12">
-        <widget class="chart-widget" header-text="Inputs">
+        <widget header-text="Inputs">
             <form role="form">
 
               <div class="row">
@@ -112,7 +112,46 @@
 
     <div class="row">
       <div class="col-md-12">
-        <widget class="chart-widget"  header-text="Checkboxes, Radios, Swithces">
+        <widget header-text="Selects">
+          <form role="form">
+            <div class="row">
+              <div class="col-md-4">
+                <fieldset>
+                 <vuestic-simple-select
+                   label="Simple select"
+                   v-model="simpleSelectModel"
+                   v-bind:options="simpleOptions">
+                 </vuestic-simple-select>
+                  <vuestic-simple-select
+                    label="Country select"
+                    v-model="chosenCountry"
+                    v-bind:options="countriesList">
+                  </vuestic-simple-select>
+                </fieldset>
+              </div>
+              <div class="col-md-4">
+                <fieldset>
+                  <vuestic-multi-select
+                    label="Mutliselect"
+                    v-model="multiSelectModel"
+                    v-bind:options="simpleOptions">
+                  </vuestic-multi-select>
+                  <vuestic-multi-select
+                    label="Country multiselect"
+                    v-model="multiSelectCountriesModel"
+                    v-bind:options="countriesList">
+                  </vuestic-multi-select>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </widget>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <widget  header-text="Checkboxes, Radios, Swithces">
           <form role="form">
             <div class="row">
               <div class="col-md-3">
@@ -226,12 +265,17 @@
 <script>
   import Widget from 'components/common/widget/Widget'
   import VuesticSwitch from 'components/common/vuestic-switch/VuesticSwitch'
+  import VuesticSimpleSelect from 'components/common/vuestic-simple-select/VuesticSimpleSelect'
+  import VuesticMultiSelect from 'components/common/vuestic-multi-select/VuesticMultiSelect'
+  import CountriesList from './CountriesList'
 
   export default {
     name: 'form-elements',
     components: {
       Widget,
-      VuesticSwitch
+      VuesticSwitch,
+      VuesticSimpleSelect,
+      VuesticMultiSelect
     },
     computed: {
       isSuccessfulEmailValid () {
@@ -245,9 +289,15 @@
     data () {
       return {
         isMale: true,
+        countriesList: CountriesList,
+        chosenCountry: '',
         clearableText: '',
         successfulEmail: 'andrei@dreamsupport.io',
-        wrongEmail: 'andrei@dreamsupport'
+        wrongEmail: 'andrei@dreamsupport',
+        simpleOptions: ['First option', 'Second option', 'Third option'],
+        simpleSelectModel: '',
+        multiSelectModel: [],
+        multiSelectCountriesModel: []
       }
     },
     methods: {
