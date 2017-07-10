@@ -8,7 +8,7 @@
       </li>
     </ul>
     <div class="wizard-body">
-      <div class="wizard-body-step"><slot :name="currentSlot"></slot></div>
+      <div class="wizard-body-step"><slot :name="currentSlot" class="step-content"></slot></div>
       <div class="wizard-body-actions clearfix">
         <button v-if="backEnabled" class="btn btn-secondary wizard-back pull-left" @click="goBack()"> <span>Back</span> </button>
         <button v-if="currentStep != steps.length - 1" class="btn btn-primary wizard-next pull-right" @click="goNext()">
@@ -75,6 +75,11 @@
   $wizard-step-height: 3.75rem;
   $wizard-step-indicator-height: 1rem;
   $wizard-step-label-font-size: $font-size-h4;
+
+  $wizard-body-step-h-padding: 15%;
+  $wizard-body-step-v-padding: 2.25rem;
+
+  $wizard-body-step-item-margin-bottom: $wizard-body-step-v-padding;
 
   .wizard {
     position: relative;
@@ -163,23 +168,29 @@
   /* Wizard body
   *******************************/
   .wizard-body{
-    margin-top:  30px;
-    min-height:  400px;
-    margin-left:  50px;
-    margin-right:  50px;
+    padding: $wizard-body-step-v-padding  $wizard-body-step-h-padding;
     position: relative;
-    border-radius: 5px;
-    padding-bottom: 50px;
   }
   .wizard-body-step{
-    padding:  16px;
+    > * {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      > * {
+        margin-bottom: $wizard-body-step-item-margin-bottom;
+      }
+    }
   }
   /* Wizard body
   *******************************/
   .wizard-body-actions{
-    position:  absolute;
-    bottom:  0px;
-    height:  50px;
-    width:  100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .btn:first-child:not(:last-child) {
+      margin-right: $wizard-body-step-item-margin-bottom;
+    }
   }
 </style>
