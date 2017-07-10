@@ -2,7 +2,7 @@
   <div class="form-elements">
     <div class="row">
       <div class="col-md-12">
-        <widget class="chart-widget" header-text="Inputs">
+        <widget header-text="Inputs">
             <form role="form">
 
               <div class="row">
@@ -112,7 +112,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        <widget class="chart-widget" header-text="Selects">
+        <widget header-text="Selects">
           <form role="form">
             <div class="row">
               <div class="col-md-4">
@@ -151,7 +151,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        <widget class="chart-widget"  header-text="Checkboxes, Radios, Swithces">
+        <widget  header-text="Checkboxes, Radios, Swithces">
           <form role="form">
             <div class="row">
               <div class="col-md-3">

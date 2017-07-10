@@ -57,7 +57,11 @@
         return this.value.filter(item => item !== option)
       },
       updateDisplayValue (newVal) {
-        this.displayValue = newVal.join(', ')
+        if (newVal.length > 2) {
+          this.displayValue = `${newVal.length} of ${this.options.length} chosen`
+        } else {
+          this.displayValue = newVal.join(', ')
+        }
       }
     }
   }
