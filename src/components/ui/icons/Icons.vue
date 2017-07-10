@@ -28,11 +28,7 @@
       ...mapMutations([
         'downloadSetsOfIcons'
       ])
-    },
-    created: function () {
-      this.downloadSetsOfIcons()
     }
-
   }
 </script>
 
