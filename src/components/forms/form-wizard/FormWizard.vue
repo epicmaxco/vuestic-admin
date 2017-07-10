@@ -72,11 +72,23 @@
         steps: [
           {
             label: 'Step 1. Email',
-            slot: 'page1'
+            slot: 'page1',
+            onNext: () => {
+              this.validate('email')
+            },
+            isValid: () => {
+              return this.isFormFieldValid('email')
+            }
           },
           {
             label: 'Step 2. Country',
-            slot: 'page2'
+            slot: 'page2',
+            onNext: () => {
+              this.validate('country')
+            },
+            isValid: () => {
+              return this.isFormFieldValid('country')
+            }
           },
           {
             label: 'Step 3. Completed',
@@ -95,6 +107,9 @@
           isValid = this.fields[field].validated && this.fields[field].valid
         }
         return isValid
+      },
+      validate (field) {
+        this.$validator.validate(field)
       }
     }
   }

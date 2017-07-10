@@ -10,9 +10,11 @@
     <div class="wizard-body">
       <div class="wizard-body-step"><slot :name="currentSlot" class="step-content"></slot></div>
       <div class="wizard-body-actions clearfix">
-        <button v-if="backEnabled" class="btn btn-secondary wizard-back pull-left" @click="goBack()"> <span>Back</span> </button>
-        <button v-if="currentStep != steps.length - 1" class="btn btn-primary wizard-next pull-right" @click="goNext()">
-          <span>Next</span>
+        <button v-if="backEnabled" class="btn btn-secondary wizard-back pull-left" @click="goBack()">
+          Back
+        </button>
+        <button v-if="!isLastStep()" class="btn btn-primary wizard-next pull-right" @click="goNext()">
+          Next
         </button>
         <button v-if="currentStep == steps.length - 1" class="btn btn-primary wizard-next pull-right final-step" @click="goNext()">
           {{finalStepLabel}}
@@ -45,13 +47,9 @@
       }
     },
     methods: {
-      goNext (skipFunction) {
-        if (!skipFunction && typeof this.onNext === 'function') {
-          if (!this.onNext(this.currentStep)) {
-            return
-          }
-        }
-        if (this.currentStep < this.steps.length - 1) {
+      goNext () {
+        this.currentStepOnNext()
+        if (!this.isLastStep() && this.isCurrentStepValid()) {
           this.currentStep++
         }
       },
@@ -64,6 +62,18 @@
         if (this.currentStep > 0) {
           this.currentStep--
         }
+      },
+      isLastStep () {
+        return this.currentStep === this.steps.length - 1
+      },
+      currentStepOnNext () {
+        let step = this.steps[this.currentStep]
+        if (step.onNext) {
+          step.onNext()
+        }
+      },
+      isCurrentStepValid () {
+        return this.steps[this.currentStep].isValid()
       }
     }
   }
