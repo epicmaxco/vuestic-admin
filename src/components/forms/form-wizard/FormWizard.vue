@@ -46,7 +46,7 @@
             slot: 'page2'
           },
           {
-            label: 'Step 3. Share online',
+            label: 'Step 3. Completed',
             slot: 'page3'
           }
         ]

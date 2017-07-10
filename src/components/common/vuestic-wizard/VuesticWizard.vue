@@ -1,7 +1,7 @@
 <template>
   <div class="wizard">
     <ul class="wizard-steps">
-      <li class="wizard-step" :class="{'active': currentStep >= index}" :style="{ width: 100/steps.length + '%' }" v-for="(step, index) of steps">
+      <li class="wizard-step" :class="{'active': currentStep >= index, 'current': currentStep === index}" :style="{ width: 100/steps.length + '%' }" v-for="(step, index) of steps">
         <span class="wizard-step-line"></span>
         <span class="wizard-step-label">{{step.label}}</span>
         <span class="wizard-step-indicator"></span>
@@ -69,22 +69,13 @@
   }
 </script>
 
-<style lang="css" scoped>
-  /* Utilities
-  *******************************/
-  .pull-left{
-    float:  left !important;
-  }
-  .pull-right{
-    float:  right !important;
-  }
-  .clearfix::after {
-    display: block;
-    content: "";
-    clear: both;
-  }
-  /* Header Steps
-  *******************************/
+<style lang="scss" scoped>
+  @import "../../../sass/_variables.scss";
+
+  $wizard-step-height: 3.75rem;
+  $wizard-step-indicator-height: 1rem;
+  $wizard-step-label-font-size: $font-size-h4;
+
   .wizard {
     position: relative;
     width:  100%;
@@ -95,53 +86,79 @@
     -ms-text-justify: distribute-all-lines;
     text-justify: distribute-all-lines;
     padding:  0;
-    height:  70px;
+    height:  $wizard-step-height;
     position:  relative;
   }
-  .stretch {
-    width: 100%;
-    display: inline-block;
-    font-size: 0;
-    line-height: 0
-  }
   .wizard-step{
-    height: 70px;
+    height: $wizard-step-height;
     vertical-align: bottom;
     display: inline-block;
     text-align: center;
     position:  relative;
-  }
-  .wizard-step:not(:first-child) .wizard-step-line{
-    position: absolute;
-    width:  100%;
-    left:  -50%;
-    bottom:  12px;
-    height:  3px;
-    background-color: #b9c7d2;
-  }
-  .wizard-step-indicator{
-    box-sizing: content-box;
-    display:  block;
-    width:  16px;
-    height:  16px;
-    background-color: #51abe4;
-    border-radius: 50%;
-    border: 3px solid #fff;
-    position:  absolute;
-    left:  50%;
-    margin-left:  -10px;
-    bottom:  2px;
-    z-index: 1;
-  }
-  .wizard-step.active .wizard-step-indicator{
-    background-color: #6eb165;
-  }
-  .wizard-step.active:not(:first-child) .wizard-step-line{
-    background-color: #6eb165; /* green */
-  }
-  .wizard-step-label{
-    color:  #98a4af;
-    font-weight: bold;
+
+    .wizard-step-line{
+      position: absolute;
+      width:  100%;
+      left:  -50%;
+      bottom:  12px;
+      height:  2px;
+      background-color: $lighter-gray;
+      transition: background-color 300ms linear;
+    }
+
+    .wizard-step-indicator{
+      box-sizing: content-box;
+      display:  block;
+      width:  $wizard-step-indicator-height;
+      height:  $wizard-step-indicator-height;
+      background-color: $lighter-gray;
+      border-radius: 50%;
+      position:  absolute;
+      left:  50%;
+      margin-left:  -7px;
+      bottom:  5px;
+      z-index: 1;
+      transition: background-color 300ms linear;
+
+    }
+
+    .wizard-step-label{
+      color:  $lighter-gray;
+      font-size: $wizard-step-label-font-size;
+      font-weight: bold;
+      transition: color 300ms linear;
+    }
+
+    &:first-child {
+      .wizard-step-line {
+        width: 50%;
+        left: 0;
+      }
+    }
+
+    &:last-child {
+      .wizard-step-line {
+        width: 150%;
+
+      }
+    }
+
+    &.active {
+      .wizard-step-indicator{
+        background-color: $brand-primary;
+      }
+      .wizard-step-line{
+        background-color: $brand-primary;
+      }
+
+      .wizard-step-label {
+        color: $brand-primary;
+      }
+
+      &.current:not(:last-child) .wizard-step-label {
+        color: $vue-darkest-blue;
+      }
+    }
   }
   /* Wizard body
   *******************************/
