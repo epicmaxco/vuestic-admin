@@ -71,7 +71,7 @@
       isValid () {
         let isValid = true
         if (this.required) {
-          isValid = this.displayValue
+          isValid = !!this.displayValue
         }
         return isValid
       },
