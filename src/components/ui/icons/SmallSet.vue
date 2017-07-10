@@ -44,7 +44,6 @@
       ]),
       subLists () {
         let list = this.set.lists[0].icons
-        console.log(list)
         let subLists = []
         subLists.push(list.slice(0, 6))
         subLists.push(list.slice(6, 12))
