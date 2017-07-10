@@ -78,8 +78,13 @@ fieldset {
       display: none;
     }
 
+    .input-group {
+      z-index: 1;
+    }
+
     .dropdown-menu {
       width: 100%;
+      z-index: 100;
     }
 
     .dropdown-item {
