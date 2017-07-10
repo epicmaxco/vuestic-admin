@@ -29,15 +29,14 @@
               <p>Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
                 soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
                 their teeth all send a signal. For example, ears flat back means trouble, or "you better follow orders!"</p>
-              <div class="form-group with-icon-right" :class="{'has-error': errors.has('email'), 'valid': isFormFieldValid('email')}">
-                <div class="input-group">
-                  <vuestic-simple-select
-                    label="Select country"
-                    v-model="chosenCountry"
-                    v-bind:options="countriesList">
-                  </vuestic-simple-select>
-                </div>
-              </div>
+              <vuestic-simple-select
+                label="Select country"
+                v-model="chosenCountry"
+                name="country"
+                :required="true"
+                ref="countrySelect"
+                v-bind:options="countriesList">
+              </vuestic-simple-select>
             </div>
             <div slot="page3" class="form-wizard-tab-content">
               <h4>Wizard Successfully Completed!</h4>
@@ -74,7 +73,7 @@
             label: 'Step 1. Email',
             slot: 'page1',
             onNext: () => {
-              this.validate('email')
+              this.$validator.validate('email')
             },
             isValid: () => {
               return this.isFormFieldValid('email')
@@ -84,10 +83,10 @@
             label: 'Step 2. Country',
             slot: 'page2',
             onNext: () => {
-              this.validate('country')
+              this.$refs.countrySelect.validate()
             },
             isValid: () => {
-              return this.isFormFieldValid('country')
+              return this.$refs.countrySelect.isValid()
             }
           },
           {
@@ -107,9 +106,6 @@
           isValid = this.fields[field].validated && this.fields[field].valid
         }
         return isValid
-      },
-      validate (field) {
-        this.$validator.validate(field)
       }
     }
   }
