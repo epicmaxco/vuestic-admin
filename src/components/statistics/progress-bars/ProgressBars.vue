@@ -13,14 +13,18 @@
           </div>
           <div class="col-4">
             Thin
-            <div class="pb-container">
-              <progress-bar :value="72" size="thin"></progress-bar>
+            <div class="" v-on:mouseenter="$refs.hThin.value = 100"
+                 v-on:mouseleave="$refs.hThin.value = 0">
+              <progress-bar size="thin" ref="hThin">
+              </progress-bar>
             </div>
           </div>
           <div class="col-4">
             Thick
-            <div class="pb-container">
-              <progress-bar :value="72" size="thick"></progress-bar>
+            <div class="" v-on:mouseenter="$refs.hThick.value = 100"
+                 v-on:mouseleave="$refs.hThick.value = 0">
+              <progress-bar size="thick" ref="hThick">
+              </progress-bar>
             </div>
           </div>
           <div class="col-4">
@@ -28,20 +32,25 @@
             <div class="pb-container">
               <div v-on:mouseenter="$refs.vBasic.value = 100"
                    v-on:mouseleave="$refs.vBasic.value = 0">
-                <progress-bar type="vertical" :value="72" ref="vBasic"></progress-bar>
+                <progress-bar type="vertical" ref="vBasic"></progress-bar>
               </div>
             </div>
           </div>
           <div class="col-4">
             Thin Vertical
-            <div class="pb-container">
-              <progress-bar type="vertical" size="thin" :value="72"></progress-bar>
+            <div class="" v-on:mouseenter="$refs.vThin.value = 100"
+                 v-on:mouseleave="$refs.vThin.value = 0">
+              <progress-bar size="thin" type="vertical" ref="vThin">
+              </progress-bar>
             </div>
           </div>
           <div class="col-4">
             Circle
             <div class="pb-container">
-              <!--<progress-bar type="circle" value="72"></progress-bar>-->
+              <div v-on:mouseenter="$refs.circle.value = 100"
+                   v-on:mouseleave="$refs.circle.value = 0">
+                <progress-bar type="circle" ref="circle"></progress-bar>
+              </div>
             </div>
           </div>
         </div>

@@ -1,9 +1,7 @@
 <template>
-  <div class="circle">
-    <div class="progress">
-      <div class="overlay">
-        <span>{{value+'%'}}</span>
-      </div>
+  <div class="circle progress-bar" :class="'value-' + animatedValue"  v-progress-bar="{data: $data}">
+    <div class="overlay">
+      <span>{{animatedValue+'%'}}</span>
     </div>
   </div>
 </template>
@@ -23,34 +21,54 @@
         type: Number,
         default: 100
       },
-      size: {
-        default: {
-          radius: '25px',
-          borderWidth: '2px'
-        }
+      radius: {
+        default: '25px'
+      },
+      borderWidth: {
+        default: '2px'
       },
       color: {
         type: String,
         default: '$brand-primary'
+      },
+      isActive: {
+        type: Boolean,
+        default: 'false'
+      }
+    },
+    directives: {
+      progressBar (el, binding) {
+        binding.value.data.progressBarElement = el
       }
     },
     methods: {
-      setValue (value) {
-        console.log('test')
-        this.value = value
+      enableBarAnimation (flag) {
+//        if (flag) {
+//          this.progressBarElement.setAttribute('class', 'progress-bar active')
+//        } else {
+//          this.progressBarElement.setAttribute('class', 'progress-bar')
+//        }
       }
     },
     watch: {
-
+      isActive (flag) {
+        this.enableBarAnimation(flag)
+      }
+    },
+    data () {
+      return {
+        animatedValue: this.value,
+        progressBarElement: null
+      }
     }
   }
 </script>
 
 <style lang="scss">
-  /*@import "../../../../sass/variables";*/
-  /*@import "../../../../sass/mixins";*/
-  /*@import "../../../../../node_modules/bootstrap/scss/variables";*/
+  @import "../../../../sass/variables";
+  @import "../../../../sass/mixins";
+  @import "../../../../../node_modules/bootstrap/scss/variables";
 
-//  @include circle-progress-bar($brand-primary, 48px, 2px)
+  @include circle-progress-bar($brand-primary, 48px, 2px)
 
 </style>

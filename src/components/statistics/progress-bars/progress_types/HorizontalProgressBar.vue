@@ -3,7 +3,7 @@
     <div v-if="size != 'thick'" class="value">{{animatedValue + '%'}}</div>
     <div class="progress" :class="size" >
       <div class="progress-bar" :style="'width: ' + value + '%'" v-progress-bar="{data: $data}">
-        <span v-if="size == 'thick' && value != 0" class="value">{{animatedValue + '%'}}</span>
+        <span v-if="size == 'thick' && animatedValue != 0" class="value">{{animatedValue + '%'}}</span>
       </div>
     </div>
   </div>
@@ -31,18 +31,15 @@
       color: {
         type: String,
         default: '$brand-primary'
+      },
+      isActive: {
+        type: Boolean,
+        default: 'false'
       }
     },
     directives: {
       progressBar (el, binding) {
         binding.value.data.progressBarElement = el
-      }
-    },
-    watch: {
-      value () {
-        let animationInterval = 4000
-        this.animateValue(animationInterval)
-        this.enableBarAnimation(true)
       }
     },
     methods: {
@@ -52,25 +49,16 @@
         } else {
           this.progressBarElement.setAttribute('class', 'progress-bar')
         }
-      },
-      animateValue (animationInterval) {
-        let startValue = this.value
-        let valueMsecs = animationInterval / this.max
-        let delta = Math.sign(this.value - this.animatedValue)
-        let valueInterval = setInterval(() => {
-          if (startValue !== this.value || this.animatedValue === this.value) {
-            clearInterval(valueInterval)
-            this.enableBarAnimation(false)
-          } else {
-            this.animatedValue += delta
-          }
-        }, valueMsecs)
+      }
+    },
+    watch: {
+      isActive (flag) {
+        this.enableBarAnimation(flag)
       }
     },
     data () {
       return {
         animatedValue: this.value,
-        value: this.value,
         progressBarElement: null
       }
     }
@@ -86,10 +74,6 @@
     display: inline-block;
     width: 100%;
     vertical-align: middle;
-
-    .progress-bar {
-      transition: width linear 4s;
-    }
 
     .value {
       text-align: center;

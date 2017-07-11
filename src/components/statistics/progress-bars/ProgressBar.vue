@@ -1,11 +1,11 @@
 <template>
-  <div class="custom-progress-bar">
+  <div class="custom-progress-bar" v-set="{props: $props, refs: $refs, data: $data}">
     <horizontal-bar :min="min" :max="max" :value="value" :size="size" :color="color" v-if="type == 'horizontal'"
-                    ref="bar"></horizontal-bar>
+                    :isActive = "isActive" ref="bar"></horizontal-bar>
     <vertical-bar :min="min" :max="max" :value="value" :size="size" :color="color" v-if="type == 'vertical'"
-                  ref="bar"></vertical-bar>
+                  :isActive = "isActive" ref="bar"></vertical-bar>
     <circle-bar :min="min" :max="max" :value="value" :color="color" v-if="type == 'circle'"
-                ref="bar"></circle-bar>
+                :isActive = "isActive" ref="bar"></circle-bar>
   </div>
 </template>
 
@@ -42,9 +42,43 @@
         default: '$brand-primary'
       }
     },
+    directives: {
+      set (el, binding) {
+        binding.value.refs.bar.progressBarElement.style.transition = 'width linear ' +
+          binding.value.data.valueAnimationInterval + 'ms' + ',' + 'height linear ' +
+          binding.value.data.valueAnimationInterval + 'ms'
+      }
+    },
+    watch: {
+      value () {
+        this.animateValue()
+        if (this.isActive !== true) {
+          this.isActive = true
+        }
+      }
+    },
+    methods: {
+      animateValue () {
+        let startValue = this.value
+        let valueMsecs = this.valueAnimationInterval / this.max
+        let delta = Math.sign(this.value - this.$refs.bar.animatedValue)
+        let valueInterval = setInterval(() => {
+          if (startValue !== this.value || this.$refs.bar.animatedValue === this.value) {
+            clearInterval(valueInterval)
+//            if (this.value === this.max) {
+//              this.isActive = false
+//            }
+          } else {
+            this.$refs.bar.animatedValue += delta
+          }
+        }, valueMsecs)
+      }
+    },
     data () {
       return {
-        value: this.value
+        value: this.value,
+        valueAnimationInterval: 2000,
+        isActive: false
       }
     }
   }
@@ -57,16 +91,14 @@
 
   .custom-progress-bar {
     font-size: $font-size-pb-value !important; //TODO: fix thick font-size
-    color: $brand-primary;
     font-weight: $font-weight-bold !important; //TODO: fix thick font-weight
+    color: $brand-primary;
 
     .progress-bar.active {
-      animation: colorchange 1s linear infinite;
-      $v1: 25%;
-      $v2: 75;
+      animation: colorchange 1.5s linear infinite;
       @keyframes colorchange {
-        25% {background-color: lighten($brand-primary, 20%)}
-        75% {background-color: $brand-primary}
+        0% {background-color: lighten($brand-primary, 0%)}
+        50% {background-color: lighten($brand-primary, 30%)}
       }
     }
   }

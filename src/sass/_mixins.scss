@@ -27,7 +27,7 @@
 }
 
 @mixin circle-progress-bar($progressColor, $size, $width, $startColor: $gray-lighter, $innerColor: $white) {
-  .progress.circle {
+  .circle.progress-bar {
     float: left;
     position: relative;
     width: $size ;
@@ -39,6 +39,7 @@
     background-color: $progressColor;
 
     .overlay {
+      color: $progressColor;
       background-color: $innerColor;
       width: $size - 2*$width;
       height: $size - 2*$width;
@@ -56,7 +57,7 @@
   $half: round($loops / 2);
 
   @for $i from 0 through $loops {
-    .circle.progress-#{$i*$step} {
+    .circle.progress-bar.value-#{$i*$step} {
       @if $i < $half {
         $nextdeg: 90deg + ( $increment * $i );
         background-image: linear-gradient(90deg, $startColor 50%, transparent 50%, transparent),

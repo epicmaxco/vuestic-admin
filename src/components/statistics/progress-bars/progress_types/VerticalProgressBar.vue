@@ -30,18 +30,15 @@
       color: {
         type: String,
         default: '$brand-primary'
+      },
+      isActive: {
+        type: Boolean,
+        default: 'false'
       }
     },
     directives: {
       progressBar (el, binding) {
         binding.value.data.progressBarElement = el
-      }
-    },
-    watch: {
-      value () {
-        let animationInterval = 4000
-        this.animateValue(animationInterval)
-        this.enableBarAnimation(true)
       }
     },
     methods: {
@@ -51,25 +48,16 @@
         } else {
           this.progressBarElement.setAttribute('class', 'progress-bar')
         }
-      },
-      animateValue (animationInterval) {
-        let startValue = this.value
-        let valueMsecs = animationInterval / this.max
-        let delta = Math.sign(this.value - this.animatedValue)
-        let valueInterval = setInterval(() => {
-          if (startValue !== this.value || this.animatedValue === this.value) {
-            clearInterval(valueInterval)
-            this.enableBarAnimation(false)
-          } else {
-            this.animatedValue += delta
-          }
-        }, valueMsecs)
+      }
+    },
+    watch: {
+      isActive (flag) {
+        this.enableBarAnimation(flag)
       }
     },
     data () {
       return {
         animatedValue: this.value,
-        value: this.value,
         progressBarElement: null
       }
     }
@@ -78,10 +66,6 @@
 
 <style lang="scss">
   .vertical {
-    .progress-bar {
-      transition: height 4s linear;
-    }
-
     .progress {
       height: 5.75rem;
       float: left;
