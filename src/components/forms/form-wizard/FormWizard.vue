@@ -105,7 +105,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        <widget class="no-h-padding" header-text="Vertical Rich Wizard">
+        <widget header-text="Vertical Rich Wizard">
           <vuestic-wizard
             :steps="steps"
             wizard-layout="vertical"

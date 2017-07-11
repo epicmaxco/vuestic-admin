@@ -1,8 +1,14 @@
 <template>
-  <div class="wizard">
+  <div class="wizard" :class="wizardLayout">
 
-    <simple-horizontal-indicator v-if="wizardType === 'simple' && wizardLayout === 'horizontal'" :steps="steps" :currentStep="currentStep"></simple-horizontal-indicator>
-    <rich-horizontal-indicator v-if="wizardType === 'rich' && wizardLayout === 'horizontal'" :steps="steps" :currentStep="currentStep"></rich-horizontal-indicator>
+    <div v-if="wizardLayout === 'horizontal'" class="indicator-container">
+      <simple-horizontal-indicator v-if="wizardType === 'simple'" :steps="steps" :currentStep="currentStep"></simple-horizontal-indicator>
+      <rich-horizontal-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep"></rich-horizontal-indicator>
+    </div>
+
+    <div v-if="wizardLayout === 'vertical'" class="indicator-container">
+      <rich-horizontal-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep"></rich-horizontal-indicator>
+    </div>
 
     <div class="wizard-body">
       <div class="wizard-body-step"><slot :name="currentSlot" class="step-content"></slot></div>
@@ -94,19 +100,32 @@
 <style lang="scss" scoped>
   @import "../../../sass/_variables.scss";
 
-  $wizard-body-step-h-padding: 15%;
-  $wizard-body-step-v-padding: 2.25rem;
+  $wizard-body-vl-step-h-padding: 7%;
+  $wizard-indicator-vl-width: 20rem;
 
+  $wizard-body-hl-step-h-padding: 15%;
+
+  $wizard-body-step-v-padding: 2.25rem;
   $wizard-body-step-item-margin-bottom: $wizard-body-step-v-padding;
+
+
 
   .wizard {
     position: relative;
     width:  100%;
+    display: flex;
+
+    &.horizontal {
+      flex-direction: column;
+    }
+
+    &.vertical {
+      flex-direction: row;
+    }
   }
 
 
   .wizard-body{
-    padding: $wizard-body-step-v-padding  $wizard-body-step-h-padding;
     position: relative;
   }
   .wizard-body-step{
@@ -128,6 +147,24 @@
 
     .btn:first-child:not(:last-child) {
       margin-right: $wizard-body-step-item-margin-bottom;
+    }
+  }
+
+  .vertical {
+    .wizard-body {
+      padding: $wizard-body-step-v-padding  $wizard-body-vl-step-h-padding;
+    }
+
+    .indicator-container {
+      flex-basis: $wizard-indicator-vl-width;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+  }
+
+  .horizontal {
+    .wizard-body {
+      padding: $wizard-body-step-v-padding $wizard-body-hl-step-h-padding;
     }
   }
 </style>
