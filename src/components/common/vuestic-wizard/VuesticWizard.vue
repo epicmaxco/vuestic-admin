@@ -7,7 +7,7 @@
     </div>
 
     <div v-if="wizardLayout === 'vertical'" class="indicator-container">
-      <rich-horizontal-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep"></rich-horizontal-indicator>
+      <rich-vertical-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep"></rich-vertical-indicator>
     </div>
 
     <div class="wizard-body">
@@ -30,6 +30,7 @@
 <script>
   import SimpleHorizontalIndicator from './indicators/SimpleHorizontalIndicator.vue'
   import RichHorizontalIndicator from './indicators/RichHorizontalIndicator.vue'
+  import RichVerticalIndicator from './indicators/RichVerticalIndicator.vue'
 
   export default {
     name: 'vuestic-wizard',
@@ -54,7 +55,8 @@
     },
     components: {
       SimpleHorizontalIndicator,
-      RichHorizontalIndicator
+      RichHorizontalIndicator,
+      RichVerticalIndicator
     },
     computed: {
       currentSlot () {
@@ -102,6 +104,7 @@
 
   $wizard-body-vl-step-h-padding: 7%;
   $wizard-indicator-vl-width: 20rem;
+  $wizard-body-vl-min-height: 20rem;
 
   $wizard-body-hl-step-h-padding: 15%;
 
@@ -152,6 +155,10 @@
 
   .vertical {
     .wizard-body {
+      min-height: $wizard-body-vl-min-height;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       padding: $wizard-body-step-v-padding  $wizard-body-vl-step-h-padding;
     }
 
