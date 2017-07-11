@@ -104,12 +104,15 @@ justify-content-lg-end" v-dropdown>
         'toggleSidebar',
         'isToggleWithoutAnimation'
       ]),
-      // TODO fix toggle without animation
+      // TODO fix toggle without animation remove setTimeOut
       handleResize (event) {
         console.log('handleresize')
         if (window.matchMedia('(min-width: 992px)').matches) {
           this.isToggleWithoutAnimation(true)
           this.toggleSidebar(true)
+          setTimeout(() => {
+            this.isToggleWithoutAnimation(false)
+          }, 200)
         } else {
           this.toggleSidebar(false)
         }
