@@ -1,5 +1,6 @@
 <template>
-  <div class="circle progress-bar" :class="'value-' + animatedValue"  v-progress-bar="{data: $data}">
+  <div class="circle progress-bar"  :class="'value-' + animatedValue + ' color-' + color"
+       v-progress-bar="{data: $data}">
     <div class="overlay">
       <span>{{animatedValue+'%'}}</span>
     </div>
@@ -69,6 +70,65 @@
   @import "../../../../sass/mixins";
   @import "../../../../../node_modules/bootstrap/scss/variables";
 
-  @include circle-progress-bar($brand-primary, 48px, 2px)
+  .circle {
+    $size: 48px;
+    $width: 2px;
+    $innerColor: white;
+    $startColor: $gray-lighter;
+    $step: 1;
+    $loops: round(100 / $step);
+    $increment: 360 / $loops;
+    $half: round($loops / 2);
+
+    &.progress-bar {
+      float: left;
+      position: relative;
+      width: $size ;
+      height: $size;
+      padding-left: $width;
+      padding-top: $width;
+      border-radius: 50%;
+      border-width: 0;
+    }
+
+    .overlay {
+      width: $size - 2*$width;
+      height: $size - 2*$width;
+      border-radius: 50%;
+      border-width: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @each $name in map-keys($colors-map) {
+      &.color-#{$name} {
+        $progressColor: map-get($colors-map, $name);
+        &.progress-bar {
+          background-color: $progressColor;
+
+          .overlay {
+            color: $progressColor;
+            background-color: $innerColor;
+          }
+        }
+
+        @for $i from 0 through $loops {
+          &.progress-bar.value-#{$i*$step} {
+            @if $i < $half {
+              $nextdeg: 90deg + ( $increment * $i );
+              background-image: linear-gradient(90deg, $startColor 50%, transparent 50%, transparent),
+              linear-gradient($nextdeg, $progressColor 50%, $startColor 50%, $startColor);
+            }
+            @else {
+              $nextdeg: -90deg + ( $increment * ( $i - $half ) );
+              background-image: linear-gradient($nextdeg, $progressColor 50%, transparent 50%, transparent),
+              linear-gradient(270deg, $progressColor 50%, $startColor 50%, $startColor);
+            }
+          }
+        }
+      }
+    }
+  }
 
 </style>

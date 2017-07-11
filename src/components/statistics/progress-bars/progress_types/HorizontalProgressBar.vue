@@ -1,5 +1,5 @@
 <template>
-  <div class="horizontal">
+  <div class="horizontal" :class="'color-' + color">
     <div v-if="size != 'thick'" class="value">{{animatedValue + '%'}}</div>
     <div class="progress" :class="size" >
       <div class="progress-bar" :style="'width: ' + value + '%'" v-progress-bar="{data: $data}">
@@ -71,9 +71,25 @@
   @import "../../../../../node_modules/bootstrap/scss/variables";
 
   .horizontal {
+    @each $name in map-keys($colors-map) {
+      &.color-#{$name} {
+        $color: map-get($colors-map, $name);
+        color: $color;
+        .progress-bar {
+          background-color: $color;
+          &.active {
+            animation: change-#{$name} 1.5s linear infinite;
+            @keyframes change-#{$name} {
+              0% {background-color: $color}
+              50% {background-color: lighten($color, 30%)}
+            }
+          }
+        }
+      }
+    }
+
     display: inline-block;
     width: 100%;
-    vertical-align: middle;
 
     .value {
       text-align: center;

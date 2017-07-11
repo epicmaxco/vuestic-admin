@@ -20,6 +20,15 @@ $brand-warning: $theme-orange;
 $brand-info: $theme-blue;
 $brand-success: $theme-violet;
 
+$colors-map: (
+  brand-danger: $brand-danger,
+  brand-primary: $brand-primary,
+  brand-info: $brand-info,
+  brand-success: $brand-success,
+  brand-warning: $brand-warning,
+  black: black
+);
+
 // Layout //
 $body-bg : $light-gray;
 $top-nav-bg : $darkest-gray;

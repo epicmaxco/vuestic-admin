@@ -39,7 +39,7 @@
       },
       color: {
         type: String,
-        default: '$brand-primary'
+        default: 'brand-primary'
       }
     },
     directives: {
@@ -92,14 +92,5 @@
   .custom-progress-bar {
     font-size: $font-size-pb-value !important; //TODO: fix thick font-size
     font-weight: $font-weight-bold !important; //TODO: fix thick font-weight
-    color: $brand-primary;
-
-    .progress-bar.active {
-      animation: colorchange 1.5s linear infinite;
-      @keyframes colorchange {
-        0% {background-color: lighten($brand-primary, 0%)}
-        50% {background-color: lighten($brand-primary, 30%)}
-      }
-    }
   }
 </style>

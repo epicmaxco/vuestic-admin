@@ -1,5 +1,5 @@
 <template>
-  <div class="vertical">
+  <div class="vertical" :class="'color-' + color">
     <div class="progress" :class="size" >
       <div class="progress-bar" :style="'height: ' + value + '%'" v-progress-bar="{data: $data}">
       </div>
@@ -65,7 +65,28 @@
 </script>
 
 <style lang="scss">
+  @import "../../../../sass/variables";
+  @import "../../../../sass/mixins";
+  @import "../../../../../node_modules/bootstrap/scss/variables";
+
   .vertical {
+    @each $name in map-keys($colors-map) {
+      &.color-#{$name} {
+        $color: map-get($colors-map, $name);
+        color: $color;
+        .progress-bar {
+          background-color: $color;
+          &.active {
+            animation: change-#{$name} 1.5s linear infinite;
+            @keyframes change-#{$name} {
+              0% {background-color: $color}
+              50% {background-color: lighten($color, 30%)}
+            }
+          }
+        }
+      }
+    }
+
     .progress {
       height: 5.75rem;
       float: left;
