@@ -1,8 +1,8 @@
 <template>
   <div class="wizard">
 
-    <simple-horizontal-indicator v-if="wizardType === 'simple'" :steps="steps" :currentStep="currentStep"></simple-horizontal-indicator>
-    <rich-horizontal-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep"></rich-horizontal-indicator>
+    <simple-horizontal-indicator v-if="wizardType === 'simple' && wizardLayout === 'horizontal'" :steps="steps" :currentStep="currentStep"></simple-horizontal-indicator>
+    <rich-horizontal-indicator v-if="wizardType === 'rich' && wizardLayout === 'horizontal'" :steps="steps" :currentStep="currentStep"></rich-horizontal-indicator>
 
     <div class="wizard-body">
       <div class="wizard-body-step"><slot :name="currentSlot" class="step-content"></slot></div>
@@ -32,6 +32,10 @@
       wizardType: {
         type: String,
         default: 'simple'
+      },
+      wizardLayout: {
+        type: String,
+        default: 'horizontal'
       },
       finalStepLabel: {default: 'Save'},
       onNext: {},
