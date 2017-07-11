@@ -1,5 +1,7 @@
 <template>
-  <div class="form-group with-icon-right dropdown select-form-group multiselect-form-group" v-dropdown>
+  <div class="form-group with-icon-right dropdown select-form-group multiselect-form-group"
+       v-dropdown
+       :class="{'has-error': hasErrors()}">
     <div class="input-group dropdown-toggle">
       <input
         type="text"
@@ -9,6 +11,7 @@
         required="required"/>
       <i class="ion ion-chevron-down icon-right input-icon"></i>
       <label class="control-label">{{label}}</label><i class="bar"></i>
+      <small v-show="hasErrors()" class="help text-danger">{{ showRequiredError() }}</small>
     </div>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <vue-scrollbar class="dropdown-multi-scrollbar" ref="Scrollbar">
@@ -38,13 +41,22 @@
     },
     data () {
       return {
-        displayValue: ''
+        displayValue: '',
+        validated: false
       }
     },
     props: {
       label: String,
       options: Array,
-      value: Array
+      value: Array,
+      required: {
+        type: Boolean,
+        default: false
+      },
+      name: {
+        type: String,
+        default: 'multiselect'
+      }
     },
     mounted () {
       this.$emit('input', this.value)
@@ -70,6 +82,26 @@
         } else {
           this.displayValue = newVal.join(', ')
         }
+      },
+      validate () {
+        this.validated = true
+      },
+      isValid () {
+        let isValid = true
+        if (this.required) {
+          isValid = !!this.displayValue
+        }
+        return isValid
+      },
+      hasErrors () {
+        let hasErrors = false
+        if (this.required) {
+          hasErrors = this.validated && !this.displayValue
+        }
+        return hasErrors
+      },
+      showRequiredError () {
+        return `The ${this.name} field is required`
       }
     }
   }
