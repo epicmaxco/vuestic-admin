@@ -15,7 +15,7 @@
       <small v-show="hasErrors()" class="help text-danger">{{ showRequiredError() }}</small>
     </div>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <vue-scrollbar class="dropdown-simple-scrollbar" ref="Scrollbar">
+      <vue-scrollbar class="dropdown-simple-scrollbar" :speed="120" ref="Scrollbar">
         <div>
           <div class="dropdown-item"
                :class="{'selected': isOptionSelected(option)}" v-for="option in options"
@@ -103,5 +103,8 @@
   .dropdown-simple-scrollbar {
     background-color: $dropdown-background;
     max-height: $dropdown-item-height * $dropdown-simple-visible-items;
+  }
+  .vue-scrollbar__scrollbar-vertical .scrollbar {
+    width: 4px;
   }
 </style>
