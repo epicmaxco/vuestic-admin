@@ -53,9 +53,10 @@
 
     <div class="row">
       <div class="col-md-12">
-        <widget class="no-h-padding" header-text="Vertical Simple Wizard">
+        <widget class="no-h-padding" header-text="Rich Wizard">
           <vuestic-wizard
-            :steps="steps">
+            :steps="steps"
+            wizard-type="rich">
             <div slot="page1" class="form-wizard-tab-content">
               <p>Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
                 soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show

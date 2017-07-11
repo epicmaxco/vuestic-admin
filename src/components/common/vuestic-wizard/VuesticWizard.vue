@@ -1,7 +1,9 @@
 <template>
   <div class="wizard">
-    <simple-horizontal-indicator :steps="steps" :currentStep="currentStep"></simple-horizontal-indicator>
-    
+
+    <simple-horizontal-indicator v-if="wizardType === 'simple'" :steps="steps" :currentStep="currentStep"></simple-horizontal-indicator>
+    <rich-horizontal-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep"></rich-horizontal-indicator>
+
     <div class="wizard-body">
       <div class="wizard-body-step"><slot :name="currentSlot" class="step-content"></slot></div>
       <div class="wizard-body-actions clearfix">
@@ -21,11 +23,16 @@
 
 <script>
   import SimpleHorizontalIndicator from './indicators/SimpleHorizontalIndicator.vue'
+  import RichHorizontalIndicator from './indicators/RichHorizontalIndicator.vue'
 
   export default {
     name: 'vuestic-wizard',
     props: {
       steps: {},
+      wizardType: {
+        type: String,
+        default: 'simple'
+      },
       finalStepLabel: {default: 'Save'},
       onNext: {},
       onBack: {}
@@ -36,7 +43,8 @@
       }
     },
     components: {
-      SimpleHorizontalIndicator
+      SimpleHorizontalIndicator,
+      RichHorizontalIndicator
     },
     computed: {
       currentSlot () {
