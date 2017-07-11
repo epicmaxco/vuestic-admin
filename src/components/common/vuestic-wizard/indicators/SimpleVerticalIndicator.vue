@@ -1,6 +1,6 @@
 <template>
     <ul class="wizard-steps horizontal-steps simple-steps">
-      <li class="wizard-step" :class="{'active': currentStep >= index, 'current': currentStep === index}" :style="{ width: 100/steps.length + '%' }" v-for="(step, index) of steps">
+      <li class="wizard-step" :class="{'active': currentStep >= index, 'current': currentStep === index}" :style="{ height: 100/steps.length + '%' }" v-for="(step, index) of steps">
         <span class="wizard-step-line"></span>
         <span class="wizard-step-label">{{step.label}} Vertical</span>
         <span class="wizard-step-indicator"></span>
@@ -27,32 +27,32 @@
 <style lang="scss" scoped>
   @import "../../../../sass/_variables.scss";
 
-  $wizard-step-height: 3.75rem;
+  $wizard-steps-height: 100%;
+  $wizard-steps-p-v: 2.5rem;
+  $wizard-steps-p-h: 0;
   $wizard-step-indicator-height: 1rem;
   $wizard-step-label-font-size: $font-size-h4;
+  $wizard-step-label-m-l: 2rem;
 
   .wizard-steps{
     list-style-type:  none;
-    text-align: justify;
-    -ms-text-justify: distribute-all-lines;
-    text-justify: distribute-all-lines;
-    padding:  0;
-    height:  $wizard-step-height;
+    padding: $wizard-steps-p-v $wizard-steps-p-h;
+    height:  $wizard-steps-height;
     position:  relative;
   }
   .wizard-step{
-    height: $wizard-step-height;
     vertical-align: bottom;
-    display: inline-block;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     position:  relative;
 
     .wizard-step-line{
       position: absolute;
-      width:  100%;
-      left:  -50%;
-      bottom:  12px;
-      height:  2px;
+      height:  100%;
+      width:  2px;
+      left:  0;
+      top: -50%;
       background-color: $lighter-gray;
       transition: background-color 300ms linear;
     }
@@ -65,7 +65,8 @@
       background-color: $lighter-gray;
       border-radius: 50%;
       position:  absolute;
-      left:  50%;
+      left:  0;
+      top: calc(50% - #{$wizard-step-indicator-height}/2);
       margin-left:  -7px;
       bottom:  5px;
       z-index: 1;
@@ -77,20 +78,21 @@
       color:  $lighter-gray;
       font-size: $wizard-step-label-font-size;
       font-weight: bold;
+      margin-left: $wizard-step-label-m-l;
       transition: color 300ms linear;
     }
 
     &:first-child {
       .wizard-step-line {
-        width: 50%;
-        left: 0;
+        height: calc(50% + #{$wizard-steps-p-v});
+        top: -$wizard-steps-p-v;
       }
     }
 
     &:last-child {
       .wizard-step-line {
-        width: 150%;
-
+        height: calc(150% + #{$wizard-steps-p-v});
+        top: -50%;
       }
     }
 
