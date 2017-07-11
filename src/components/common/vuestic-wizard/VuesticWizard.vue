@@ -1,12 +1,16 @@
 <template>
-  <div class="wizard">
-    <ul class="wizard-steps">
-      <li class="wizard-step" :class="{'active': currentStep >= index, 'current': currentStep === index}" :style="{ width: 100/steps.length + '%' }" v-for="(step, index) of steps">
-        <span class="wizard-step-line"></span>
-        <span class="wizard-step-label">{{step.label}}</span>
-        <span class="wizard-step-indicator"></span>
-      </li>
-    </ul>
+  <div class="wizard" :class="wizardLayout">
+
+    <div v-if="wizardLayout === 'horizontal'" class="indicator-container">
+      <simple-horizontal-indicator v-if="wizardType === 'simple'" :steps="steps" :currentStep="currentStep"></simple-horizontal-indicator>
+      <rich-horizontal-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep"></rich-horizontal-indicator>
+    </div>
+
+    <div v-if="wizardLayout === 'vertical'" class="indicator-container">
+      <rich-vertical-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep"></rich-vertical-indicator>
+      <simple-vertical-indicator v-if="wizardType === 'simple'" :steps="steps" :currentStep="currentStep"></simple-vertical-indicator>
+    </div>
+
     <div class="wizard-body">
       <div class="wizard-body-step"><slot :name="currentSlot" class="step-content"></slot></div>
       <div class="wizard-body-actions clearfix">
@@ -25,10 +29,23 @@
 </template>
 
 <script>
+  import SimpleHorizontalIndicator from './indicators/SimpleHorizontalIndicator.vue'
+  import RichHorizontalIndicator from './indicators/RichHorizontalIndicator.vue'
+  import RichVerticalIndicator from './indicators/RichVerticalIndicator.vue'
+  import SimpleVerticalIndicator from './indicators/SimpleVerticalIndicator.vue'
+
   export default {
     name: 'vuestic-wizard',
     props: {
       steps: {},
+      wizardType: {
+        type: String,
+        default: 'simple'
+      },
+      wizardLayout: {
+        type: String,
+        default: 'horizontal'
+      },
       finalStepLabel: {default: 'Save'},
       onNext: {},
       onBack: {}
@@ -37,6 +54,12 @@
       return {
         currentStep: 0
       }
+    },
+    components: {
+      SimpleHorizontalIndicator,
+      RichHorizontalIndicator,
+      RichVerticalIndicator,
+      SimpleVerticalIndicator
     },
     computed: {
       currentSlot () {
@@ -82,103 +105,33 @@
 <style lang="scss" scoped>
   @import "../../../sass/_variables.scss";
 
-  $wizard-step-height: 3.75rem;
-  $wizard-step-indicator-height: 1rem;
-  $wizard-step-label-font-size: $font-size-h4;
+  $wizard-body-vl-step-h-padding: 7%;
+  $wizard-indicator-vl-width: 20rem;
+  $wizard-body-vl-min-height: 20rem;
 
-  $wizard-body-step-h-padding: 15%;
+  $wizard-body-hl-step-h-padding: 15%;
+
   $wizard-body-step-v-padding: 2.25rem;
-
   $wizard-body-step-item-margin-bottom: $wizard-body-step-v-padding;
+
+
 
   .wizard {
     position: relative;
     width:  100%;
-  }
-  .wizard-steps{
-    list-style-type:  none;
-    text-align: justify;
-    -ms-text-justify: distribute-all-lines;
-    text-justify: distribute-all-lines;
-    padding:  0;
-    height:  $wizard-step-height;
-    position:  relative;
-  }
-  .wizard-step{
-    height: $wizard-step-height;
-    vertical-align: bottom;
-    display: inline-block;
-    text-align: center;
-    position:  relative;
+    display: flex;
 
-    .wizard-step-line{
-      position: absolute;
-      width:  100%;
-      left:  -50%;
-      bottom:  12px;
-      height:  2px;
-      background-color: $lighter-gray;
-      transition: background-color 300ms linear;
+    &.horizontal {
+      flex-direction: column;
     }
 
-    .wizard-step-indicator{
-      box-sizing: content-box;
-      display:  block;
-      width:  $wizard-step-indicator-height;
-      height:  $wizard-step-indicator-height;
-      background-color: $lighter-gray;
-      border-radius: 50%;
-      position:  absolute;
-      left:  50%;
-      margin-left:  -7px;
-      bottom:  5px;
-      z-index: 1;
-      transition: background-color 300ms linear;
-
-    }
-
-    .wizard-step-label{
-      color:  $lighter-gray;
-      font-size: $wizard-step-label-font-size;
-      font-weight: bold;
-      transition: color 300ms linear;
-    }
-
-    &:first-child {
-      .wizard-step-line {
-        width: 50%;
-        left: 0;
-      }
-    }
-
-    &:last-child {
-      .wizard-step-line {
-        width: 150%;
-
-      }
-    }
-
-    &.active {
-      .wizard-step-indicator{
-        background-color: $brand-primary;
-      }
-      .wizard-step-line{
-        background-color: $brand-primary;
-      }
-
-      .wizard-step-label {
-        color: $brand-primary;
-      }
-
-      &.current:not(:last-child) .wizard-step-label {
-        color: $vue-darkest-blue;
-      }
+    &.vertical {
+      flex-direction: row;
     }
   }
-  /* Wizard body
-  *******************************/
+
+
   .wizard-body{
-    padding: $wizard-body-step-v-padding  $wizard-body-step-h-padding;
     position: relative;
   }
   .wizard-body-step{
@@ -192,8 +145,7 @@
       }
     }
   }
-  /* Wizard body
-  *******************************/
+
   .wizard-body-actions{
     display: flex;
     flex-direction: row;
@@ -201,6 +153,28 @@
 
     .btn:first-child:not(:last-child) {
       margin-right: $wizard-body-step-item-margin-bottom;
+    }
+  }
+
+  .vertical {
+    .wizard-body {
+      min-height: $wizard-body-vl-min-height;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: $wizard-body-step-v-padding  $wizard-body-vl-step-h-padding;
+    }
+
+    .indicator-container {
+      flex-basis: $wizard-indicator-vl-width;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+  }
+
+  .horizontal {
+    .wizard-body {
+      padding: $wizard-body-step-v-padding $wizard-body-hl-step-h-padding;
     }
   }
 </style>

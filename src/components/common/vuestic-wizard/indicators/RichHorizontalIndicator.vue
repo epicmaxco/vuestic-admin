@@ -1,0 +1,109 @@
+<template>
+    <ul class="wizard-steps horizontal-steps rich-steps">
+      <li class="wizard-step" :class="{'active': currentStep >= index, 'current': currentStep === index}" :style="{ width: 100/steps.length + '%' }" v-for="(step, index) of steps">
+        <i class="ion ion-android-close step-icon icon-cross"></i>
+        <i class="ion ion-android-done step-icon icon-check"></i>
+        <span class="wizard-step-label">{{step.label}}</span>
+        <span class="wizard-step-line"></span>
+      </li>
+    </ul>
+</template>
+
+<script>
+  export default {
+    name: 'vuestic-wizard-rich-horizontal-indicator',
+    props: {
+      steps: {
+        type: Array,
+        default: []
+      },
+      currentStep: {
+        type: Number,
+        default: 0
+      }
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+  @import "../../../../sass/_variables.scss";
+
+  $wizard-step-height: 5.5rem;
+  $wizard-step-label-font-size: $font-size-h4;
+  $wizard-step-padding-v: 0;
+  $wizard-step-padding-h: 0.315rem;
+  $wizard-step-icon-height: 2.25rem;
+  $wizard-step-icon-fs: 3.125rem;
+  $wizard-step-ion-icon-alignment: 0.5rem;
+
+  .wizard-steps{
+    list-style-type:  none;
+    padding: $wizard-step-padding-v $wizard-step-padding-h;
+    height:  $wizard-step-height;
+    position:  relative;
+  }
+  .wizard-step{
+    height: $wizard-step-height;
+    padding: $wizard-step-padding-v $wizard-step-padding-h;
+    color:  $lighter-gray;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: color 300ms linear;
+
+    .wizard-step-line{
+      width:  100%;
+      height:  2px;
+      background-color: $lighter-gray;
+      transition: background-color 300ms linear;
+    }
+
+    .wizard-step-label{
+      font-size: $wizard-step-label-font-size;
+      font-weight: bold;
+    }
+
+    .step-icon {
+      font-size: $wizard-step-icon-fs;
+      height: $wizard-step-icon-height;
+      position: relative;
+      top: $wizard-step-ion-icon-alignment;
+
+      &.icon-cross {
+        display: block;
+      }
+
+      &.icon-check {
+        display: none;
+      }
+
+      &::before {
+        position: relative;
+        top: -$wizard-step-ion-icon-alignment;
+      }
+    }
+
+    &.active {
+      color: $brand-primary;
+
+      .wizard-step-line{
+        background-color: $brand-primary;
+      }
+
+      &:not(.current), &.current:last-child {
+        .step-icon.icon-cross {
+          display: none;
+        }
+
+        .step-icon.icon-check {
+          display: block;
+        }
+      }
+
+      &.current:not(:last-child) {
+        color: $vue-darkest-blue;
+      }
+    }
+  }
+</style>
