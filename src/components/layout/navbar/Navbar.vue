@@ -86,13 +86,35 @@ justify-content-lg-end" v-dropdown>
     },
 
     computed: mapGetters([
-      'sidebarOpened'
+      'sidebarOpened',
+      'toggleWithoutAnimation'
     ]),
+
+    mounted () {
+      this.$nextTick(function () {
+        window.addEventListener('resize', this.handleResize)
+      })
+    },
+    beforeDestroy: function () {
+      window.removeEventListener('resize', this.handleResize)
+    },
 
     methods: {
       ...mapActions([
-        'toggleSidebar'
-      ])
+        'toggleSidebar',
+        'isToggleWithoutAnimation'
+      ]),
+      // TODO fix toggle without animation
+      handleResize (event) {
+        console.log('handleresize')
+        if (window.matchMedia('(min-width: 992px)').matches) {
+          this.isToggleWithoutAnimation(true)
+          this.toggleSidebar(true)
+        } else {
+          this.toggleSidebar(false)
+        }
+//        this.isToggleWithoutAnimation(false)
+      }
     }
   }
 </script>

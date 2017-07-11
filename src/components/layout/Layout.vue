@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'sidebar-hidden': !sidebarOpened}">
+  <div :class="classObject">
     <navbar></navbar>
     <sidebar></sidebar>
     <div class="content-wrap" id="content-wrap">
@@ -25,8 +25,16 @@
     },
     computed: {
       ...mapGetters([
-        'sidebarOpened'
-      ])
+        'sidebarOpened',
+        'toggleWithoutAnimation'
+      ]),
+      classObject: function () {
+        console.log(this.toggleWithoutAnimation)
+        return {
+          'sidebar-hidden': !this.toggleWithoutAnimation && !this.sidebarOpened,
+          'sidebar-hidden sidebar-hidden_without-animation': this.toggleWithoutAnimation && !this.sidebarOpened
+        }
+      }
     }
   }
 </script>

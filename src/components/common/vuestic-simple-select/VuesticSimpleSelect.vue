@@ -11,21 +11,29 @@
       <label class="control-label">{{label}}</label><i class="bar"></i>
     </div>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <div class="dropdown-item"
-           :class="{'selected': isOptionSelected(option)}" v-for="option in options"
-           @click="selectOption(option)">
-        <span class="ellipsis">{{option}}</span>
-      </div>
+      <vue-scrollbar class="dropdown-simple-scrollbar" ref="Scrollbar">
+        <div>
+          <div class="dropdown-item"
+               :class="{'selected': isOptionSelected(option)}" v-for="option in options"
+               @click="selectOption(option)">
+            <span class="ellipsis">{{option}}</span>
+          </div>
+        </div>
+      </vue-scrollbar>
     </div>
   </div>
 </template>
 
 <script>
   import Dropdown from 'directives/Dropdown'
+  import VueScrollbar from 'vue2-scrollbar'
 
   export default {
     directives: {
       dropdown: Dropdown
+    },
+    components: {
+      VueScrollbar
     },
     props: {
       label: String,
@@ -48,4 +56,9 @@
 
 <style lang="scss">
   @import "../../../sass/_variables.scss";
+
+  .dropdown-simple-scrollbar {
+    background-color: $dropdown-background;
+    max-height: $dropdown-item-height * $dropdown-simple-visible-items;
+  }
 </style>

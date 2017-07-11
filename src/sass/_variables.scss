@@ -54,6 +54,7 @@ $sidebar-mobile-width: calc(100% - #{$layout-mobile-padding-right});
 $sidebar-mobile-top: $top-mobile-nav-height+$layout-mobile-padding;
 $sidebar-mobile-left: $layout-mobile-padding;
 $content-mobile-wrap-margin: 1.125rem;
+$sidebar-mobile-z-index: 1000;
 $nav-mobile-padding-h : .875rem;
 $nav-mobile-pt: 3rem;
 $nav-mobile-pb: 1.375rem;
@@ -111,7 +112,8 @@ $sidebar-menu-item-icon-size : 19px;
 $sidebar-viewport-height: calc(100vh - #{$top-nav-height} - #{$content-wrap-pt} - #{$content-wrap-pb});
 
 $sidebar-hidden-top : -150px;
-
+$sidebar-hidden-top-mobile : $sidebar-mobile-top;
+$sidebar-hidden-height-mobile: 0;
 $sidebar-box-shadow : $greeny-box-shadow;
 
 //Widgets
@@ -175,6 +177,8 @@ $dropdown-item-height: 40px;
 $dropdown-menu-padding-y: 10px;
 $dropdown-menu-padding-x: 0;
 $dropdown-min-width: 15rem;
+$dropdown-simple-visible-items: 4;
+$dropdown-multi-visible-items: 4;
 
 //Modals
 $modal-header-padding-x: $widget-padding;

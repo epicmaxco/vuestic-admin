@@ -2,7 +2,8 @@ import * as types from '../mutation-types'
 
 const state = {
   sidebar: {
-    opened: false
+    opened: false,
+    withoutAnimation: false
   },
   config: {
     googleMaps: {
@@ -14,12 +15,18 @@ const state = {
 const mutations = {
   [types.TOGGLE_SIDEBAR] (state, opened) {
     state.sidebar.opened = opened
+  },
+  [types.TOGGLE_WITHOUT_ANIMATION] (state, value) {
+    state.sidebar.withoutAnimation = value
   }
 }
 
 const actions = {
   toggleSidebar ({ commit }, opened) {
     commit(types.TOGGLE_SIDEBAR, opened)
+  },
+  isToggleWithoutAnimation ({ commit }, value) {
+    commit(types.TOGGLE_WITHOUT_ANIMATION, value)
   }
 }
 
