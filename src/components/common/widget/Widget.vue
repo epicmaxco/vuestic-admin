@@ -36,6 +36,13 @@
        }
     }
 
+    &.no-h-padding {
+      .widget-body {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
     .widget-body {
       height: $widget-body-with-header-height;
       padding: $widget-padding;
