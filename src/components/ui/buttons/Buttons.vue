@@ -3,22 +3,22 @@
     <div class="row">
       <widget class="col-sm-12 primary-secondary-buttons larger-padding" header-text="Primary & Secondary Buttons">
         <div class="row btn-margin-row">
-          <div class="col-md-3 col-sm-6">
+          <div class="col-sm-6 d-flex justify-content-center"  :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-primary">
               BUTTON
             </button>
           </div>
-          <div class="col-md-3 col-sm-6">
+          <div class="col-sm-6 d-flex justify-content-center" :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-primary hover">
               HOVER
             </button>
           </div>
-          <div class="col-md-3 col-sm-6">
+          <div class="col-sm-6 d-flex justify-content-center"  :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-primary focus">
               PRESSED
             </button>
           </div>
-          <div class="col-md-3 col-sm-6">
+          <div class="col-sm-6 d-flex justify-content-center"  :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-primary" disabled>
               DISABLED
             </button>
@@ -26,22 +26,22 @@
         </div>
 
         <div class="row btn-margin-row">
-          <div class="col-md-3 col-sm-6">
+            <div class="col-sm-6 d-flex justify-content-center" :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-secondary">
               BUTTON
             </button>
           </div>
-          <div class="col-md-3 col-sm-6">
+          <div class="col-sm-6 d-flex justify-content-center" :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-secondary hover">
               HOVER
             </button>
           </div>
-          <div class="col-md-3 col-sm-6">
+          <div class="col-sm-6 d-flex justify-content-center" :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-secondary focus">
               PRESSED
             </button>
           </div>
-          <div class="col-md-3 col-sm-6">
+          <div class="col-sm-6 d-flex justify-content-center" :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-secondary" disabled>
               DISABLED
             </button>
@@ -49,14 +49,17 @@
         </div>
 
         <div class="row">
-          <div class="col-sm-12 smaller-buttons">
-            <button class="btn btn-primary btn-sm">
-              SMALL
-            </button>
-            <button class="btn btn-primary btn-micro">
-              MICRO
-            </button>
-          </div>
+
+            <div class="col-sm-6 d-flex justify-content-center" :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
+              <button class="btn btn-primary btn-sm">
+                SMALL
+              </button>
+            </div>
+            <div class="col-sm-6 d-flex justify-content-center align-items-center" :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
+              <button class="btn btn-primary btn-micro">
+                MICRO
+              </button>
+            </div>
         </div>
       </widget>
     </div>
@@ -64,7 +67,7 @@
     <div class="row">
       <widget class="col-sm-12 color-buttons" header-text="Icons, Groups, Dropdowns">
         <div class="row">
-          <div class="col-md-3 col-sm-6">
+          <div class="col-sm-6  d-flex justify-content-center" :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-primary btn-with-icon">
               <div class="btn-with-icon-content">
                 <i class="ion-android-close ion"></i>
@@ -72,10 +75,10 @@
               </div>
             </button>
           </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="dropdown" v-dropdown>
-              <button class="btn btn-primary dropdown-toggle theme-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown">
-                BUTTON
+          <div class="col-sm-6  d-flex justify-content-center" :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
+            <div class="dropdown d-inline-flex" v-dropdown>
+              <button class="btn btn-primary dropdown-toggle theme-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" >
+                DROPDOWN
                 <i class="ion-chevron-down arrow-down"></i>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -85,9 +88,9 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 col-sm-6">
-            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-              <div class="btn-group mr-2" role="group" aria-label="First group">
+          <div class="col-sm-6  d-flex justify-content-center" :class="{'col-lg-6 col-xl-4' : sidebarOpened, 'col-lg-4' : !sidebarOpened }">
+            <div class="btn-toolbar  d-inline-flex" role="toolbar" aria-label="Toolbar with button groups">
+              <div class="btn-group" role="group" aria-label="First group">
                 <button type="button" class="btn btn-primary">1</button>
                 <button type="button" class="btn btn-primary focus">2</button>
                 <button type="button" class="btn btn-primary">3</button>
@@ -95,7 +98,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-2">
+          <div class="col-sm-6  d-flex justify-content-center" :class="{'col-lg-6 col-xl-2' : sidebarOpened, 'col-lg-2' : !sidebarOpened }">
             <button class="btn btn-primary btn-with-icon rounded-icon">
               <div class="btn-with-icon-content">
                 <i class="ion-android-close ion"></i>
@@ -109,22 +112,22 @@
     <div class="row">
       <widget class="col-sm-12 color-buttons" header-text="Colors">
         <div class="row btn-margin-row">
-          <div class="col-md-3">
+          <div class="col-sm-6  d-flex justify-content-center" :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-danger">
               BUTTON
             </button>
           </div>
-          <div class="col-md-3 col-sm-6">
+          <div class="col-sm-6  d-flex justify-content-center" :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-info">
               BUTTON
             </button>
           </div>
-          <div class="col-md-3 col-sm-6">
+          <div class="col-sm-6  d-flex justify-content-center" :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-dark">
               BUTTON
             </button>
           </div>
-          <div class="col-md-3 col-sm-6">
+          <div class="col-sm-6  d-flex justify-content-center" :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-warning">
               BUTTON
             </button>
@@ -132,12 +135,12 @@
         </div>
 
         <div class="row">
-          <div class="col-md-3 col-sm-6">
+          <div class="col-sm-6  d-flex justify-content-center" :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-success">
               BUTTON
             </button>
           </div>
-          <div class="col-md-3 col-sm-6">
+          <div class="col-sm-6  d-flex justify-content-center" :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-pale">
               BUTTON
             </button>
@@ -149,6 +152,7 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
   import Widget from 'components/common/widget/Widget'
   import Dropdown from 'directives/Dropdown'
 
@@ -159,6 +163,11 @@
     },
     directives: {
       Dropdown
+    },
+    computed: {
+      ...mapGetters([
+        'sidebarOpened'
+      ])
     }
   }
 </script>

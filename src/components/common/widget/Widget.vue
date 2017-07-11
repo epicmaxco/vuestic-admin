@@ -36,6 +36,20 @@
        }
     }
 
+    &.no-h-padding {
+      .widget-body {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    &.no-v-padding {
+      .widget-body {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+
     .widget-body {
       height: $widget-body-with-header-height;
       padding: $widget-padding;
