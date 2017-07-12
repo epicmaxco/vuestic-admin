@@ -10,32 +10,14 @@
 
 <script>
   export default {
-    props: {
-      value: {
-        type: Number,
-        default: 0
-      },
-      min: {
-        type: Number,
-        default: 0
-      },
-      max: {
-        type: Number,
-        default: 100
-      },
-      size: {
-        type: String,
-        default: 'basic'
-      },
-      color: {
-        type: String,
-        default: '$brand-primary'
-      },
-      isActive: {
-        type: Boolean,
-        default: 'false'
-      }
-    },
+    props: [
+      'value',
+      'min',
+      'max',
+      'color',
+      'size',
+      'isActive'
+    ],
     directives: {
       progressBar (el, binding) {
         binding.value.data.progressBarElement = el
@@ -88,7 +70,7 @@
     }
 
     .progress {
-      height: 5.75rem;
+      height: $progress-bar-vertical-height;
       float: left;
       display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
       display: -ms-flexbox;  /* TWEENER - IE 10 */
@@ -100,32 +82,23 @@
 
     .value{
       float: left;
-      height: 5.75rem;
+      height: $progress-bar-vertical-height;
       display: flex;
       align-items: center;
       padding-left: .25rem;
     }
 
     .basic {
-      border-radius: .5rem;
+      border-radius: $progress-bar-width-basic;
       .progress-bar {
-        border-radius: .5rem;
-        width: .5rem;
+        border-radius: inherit;
+        width: $progress-bar-width-basic;
       }
     }
 
     .thin {
-      border-radius: 0;
       .progress-bar {
-        width: 2px;
-      }
-    }
-
-    .thick {
-      border-radius: 1rem;
-      margin-top: calc(1.5rem/2 - 2px);
-      .progress-bar {
-        width: 1.5rem;
+        width: $progress-bar-width-thin;
       }
     }
   }

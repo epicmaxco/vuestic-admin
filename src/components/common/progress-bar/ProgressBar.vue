@@ -65,9 +65,9 @@
         let valueInterval = setInterval(() => {
           if (startValue !== this.value || this.$refs.bar.animatedValue === this.value) {
             clearInterval(valueInterval)
-//            if (this.value === this.max) {
-//              this.isActive = false
-//            }
+            if (this.value === this.max) {
+              this.isActive = false
+            }
           } else {
             this.$refs.bar.animatedValue += delta
           }
@@ -76,7 +76,7 @@
     },
     data () {
       return {
-        value: this.value,
+        value: 0,
         valueAnimationInterval: 2000,
         isActive: false
       }
@@ -92,5 +92,8 @@
   .custom-progress-bar {
     font-size: $font-size-pb-value !important; //TODO: fix thick font-size
     font-weight: $font-weight-bold !important; //TODO: fix thick font-weight
+    &:hover {
+      cursor: pointer;
+    }
   }
 </style>

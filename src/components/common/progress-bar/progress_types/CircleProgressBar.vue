@@ -9,34 +9,13 @@
 
 <script>
   export default {
-    props: {
-      value: {
-        type: Number,
-        default: 0
-      },
-      min: {
-        type: Number,
-        default: 0
-      },
-      max: {
-        type: Number,
-        default: 100
-      },
-      radius: {
-        default: '25px'
-      },
-      borderWidth: {
-        default: '2px'
-      },
-      color: {
-        type: String,
-        default: '$brand-primary'
-      },
-      isActive: {
-        type: Boolean,
-        default: 'false'
-      }
-    },
+    props: [
+      'value',
+      'min',
+      'max',
+      'color',
+      'isActive'
+    ],
     directives: {
       progressBar (el, binding) {
         binding.value.data.progressBarElement = el
@@ -71,8 +50,6 @@
   @import "../../../../../node_modules/bootstrap/scss/variables";
 
   .circle {
-    $size: 48px;
-    $width: 2px;
     $innerColor: white;
     $startColor: $gray-lighter;
     $step: 1;
@@ -83,17 +60,17 @@
     &.progress-bar {
       float: left;
       position: relative;
-      width: $size ;
-      height: $size;
-      padding-left: $width;
-      padding-top: $width;
+      width: $progress-bar-circle-diameter;
+      height: $progress-bar-circle-diameter;
+      padding-left: $progress-bar-circle-bw;
+      padding-top: $progress-bar-circle-bw;
       border-radius: 50%;
       border-width: 0;
     }
 
     .overlay {
-      width: $size - 2*$width;
-      height: $size - 2*$width;
+      width: $progress-bar-circle-overlay-diameter;
+      height: $progress-bar-circle-diameter - 2*$progress-bar-circle-bw;
       border-radius: 50%;
       border-width: 0;
       display: flex;

@@ -206,3 +206,12 @@ $input-bg-disabled: $white;
 $vuestic-switch-bg: $brand-primary;
 $vuestic-switch-padding: 0.313rem 2.375rem;
 $vuestic-switch-border-size: 0.125rem;
+
+//Progress Bars
+$progress-bar-circle-diameter: 3.125rem;
+$progress-bar-circle-bw: .125rem;
+$progress-bar-circle-overlay-diameter: calc(#{$progress-bar-circle-diameter} - 2*#{$progress-bar-circle-bw});
+$progress-bar-vertical-height: 5.75rem;
+$progress-bar-width-thin: .125rem;
+$progress-bar-width-basic: .5rem;
+$progress-bar-width-thick: 1.5rem;

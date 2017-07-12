@@ -13,32 +13,14 @@
 
 <script>
   export default {
-    props: {
-      value: {
-        type: Number,
-        default: 0
-      },
-      min: {
-        type: Number,
-        default: 0
-      },
-      max: {
-        type: Number,
-        default: 100
-      },
-      size: {
-        type: String,
-        default: 'basic'
-      },
-      color: {
-        type: String,
-        default: '$brand-primary'
-      },
-      isActive: {
-        type: Boolean,
-        default: 'false'
-      }
-    },
+    props: [
+      'value',
+      'min',
+      'max',
+      'color',
+      'size',
+      'isActive'
+    ],
     directives: {
       progressBar (el, binding) {
         binding.value.data.progressBarElement = el
@@ -101,29 +83,27 @@
     }
 
     .basic {
-      border-radius: .5rem;
+      border-radius: $progress-bar-width-basic;
       .progress-bar {
-        border-radius: .5rem;
-        height: .5rem;
+        border-radius: inherit;
+        height: $progress-bar-width-basic;
       }
     }
 
     .thin {
-      border-radius: 0;
       .progress-bar {
-        height: 2px;
+        height: $progress-bar-width-thin;
       }
     }
 
     .thick {
-      border-radius: 1rem;
-      margin-top: calc(1.5rem/2 - 2px);
+      border-radius: $progress-bar-width-thick;
       .progress-bar {
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 1rem;
-        height: 1.5rem;
+        border-radius: inherit;
+        height: $progress-bar-width-thick;
       }
     }
 
