@@ -240,3 +240,49 @@ h4, .h4 {
     width: 100%;
   }
 }
+
+//Icons
+.error-icon {
+  display: inline-block;
+  color: $theme-red;
+}
+
+.success-icon {
+  display: inline-block;
+  color: $vue-green;
+}
+
+//Tables
+.table-striped {
+  tbody tr:nth-of-type(even) {
+    background-color: $striped-row;
+  }
+}
+
+.table {
+
+  thead tr {
+    border-bottom: 2px solid rgb(85, 85, 85);
+    color: $vue-green;
+  }
+
+  td:first-child {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  td:last-child {
+    width: 3rem;
+  }
+
+  td, th {
+    vertical-align: middle !important;
+  }
+
+  .badge {
+    min-width: 6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+}

@@ -127,19 +127,19 @@
                 <td>Manchester</td>
                 <td align="right">57</td>
                 <td align="middle">
-                  <img src="../../assets/icons/error.svg" alt="Error" height="20" width="20"/>
+                  <i class="fa fa-exclamation-triangle icon-right input-icon error-icon"></i>
                 </td>
               </tr>
               <tr class="table-success">
                 <td>
-                  <span class="badge badge-pill badge-success">SUCCESS</span>
+                  <span class="badge badge-pill badge-primary">SUCCESS</span>
                 </td>
                 <td>Lendley Wintz</td>
                 <td>9938198146@mailster.io</td>
                 <td>Wien</td>
                 <td align="right">113</td>
-                <td align="middle">
-                  <img src="../../assets/icons/check.svg" alt="Check" height="20" width="20"/>
+                <td align="middle" class="valid">
+                  <i class="fa fa-check success-icon icon-right input-icon"></i>
                 </td>
               </tr>
               <tr class="table-warning">
@@ -188,41 +188,5 @@
 </script>
 
 <style lang="scss">
-  @import "../../sass/_variables.scss";
-
-  .table-striped {
-    tbody tr:nth-of-type(even) {
-      background-color: $striped-row;
-    }
-  }
-
-  .table {
-
-    thead tr {
-      border-bottom: 2px solid rgb(85, 85, 85);
-      color: $vue-green;
-    }
-
-    td:first-child {
-      padding-left: 1.5rem;
-    }
-
-    td:last-child {
-      width: 3rem;
-    }
-
-    .badge {
-      width: 5rem;
-    }
-
-    .badge-success {
-      background-color: $vue-green;
-    }
-
-    img, .badge {
-      vertical-align: text-top;
-    }
-
-  }
 
 </style>
