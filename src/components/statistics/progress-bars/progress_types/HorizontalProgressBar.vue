@@ -3,7 +3,9 @@
     <div v-if="size != 'thick'" class="value">{{animatedValue + '%'}}</div>
     <div class="progress" :class="size" >
       <div class="progress-bar" :style="'width: ' + value + '%'" v-progress-bar="{data: $data}">
-        <span v-if="size == 'thick' && animatedValue != 0" class="value">{{animatedValue + '%'}}</span>
+        <span v-if="size == 'thick'" :class="{hidden: animatedValue == min}" class="value">
+          {{animatedValue + '%'}}
+        </span>
       </div>
     </div>
   </div>
@@ -93,6 +95,9 @@
 
     .value {
       text-align: center;
+      &.hidden {
+        visibility: hidden;
+      }
     }
 
     .basic {
