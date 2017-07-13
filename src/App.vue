@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <layout :if="isAuthorized"></layout>
+  <div id="app" class="app">
+    <layout v-if="isAuthorized"></layout>
     <unauthorized-layout v-else></unauthorized-layout>
   </div>
 </template>
@@ -25,4 +25,11 @@
 
 <style lang="scss">
   @import "sass/app.scss";
+
+  body {
+    height: 100%;
+    .app {
+      height: 100%;
+    }
+  }
 </style>

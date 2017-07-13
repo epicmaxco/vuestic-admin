@@ -5,9 +5,11 @@ import dashboard from './dashboard'
 import ui from './ui'
 import maps from './maps'
 import tables from './tables'
+import TEST_SIGNUP from './TEST_SIGNUP'
 
 const state = {
   items: [
+    TEST_SIGNUP,
     dashboard,
     statistics,
     forms,
