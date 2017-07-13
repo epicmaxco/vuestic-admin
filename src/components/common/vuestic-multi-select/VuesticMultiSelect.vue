@@ -14,30 +14,22 @@
       <small v-show="hasErrors()" class="help text-danger">{{ showRequiredError() }}</small>
     </div>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <vue-scrollbar class="dropdown-multi-scrollbar" :speed="120" ref="Scrollbar">
-        <div>
-          <div class="dropdown-item"
-               :class="{'selected': isOptionSelected(option)}" v-for="option in options"
-               @click="toggleSelection(option)">
-            <span class="ellipsis">{{option}}</span>
-            <i class="fa fa-check selected-icon"></i>
-          </div>
-        </div>
-      </vue-scrollbar>
+      <div class="dropdown-item"
+           :class="{'selected': isOptionSelected(option)}" v-for="option in options"
+           @click="toggleSelection(option)">
+        <span class="ellipsis">{{option}}</span>
+        <i class="fa fa-check selected-icon"></i>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
   import Dropdown from 'directives/Dropdown'
-  import VueScrollbar from 'vue2-scrollbar'
 
   export default {
     directives: {
       dropdown: Dropdown
-    },
-    components: {
-      VueScrollbar
     },
     data () {
       return {
@@ -109,12 +101,4 @@
 
 <style lang="scss">
   @import "../../../sass/_variables.scss";
-
-  .dropdown-multi-scrollbar {
-    background-color: $dropdown-background;
-    max-height: $dropdown-item-height * $dropdown-multi-visible-items;
-  }
-  .vue-scrollbar__scrollbar-vertical .scrollbar {
-    width: 4px;
-  }
 </style>
