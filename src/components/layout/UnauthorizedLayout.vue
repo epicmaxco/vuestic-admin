@@ -1,29 +1,9 @@
 <template>
-  <div class="signup row">
-    <div class="left-side col-6">
-      <div class="content">
-        <h1>Welcome!</h1>
-        <form method="post" action="#" name="signup">
-          <div class="form-group">
-            <div class="input-group">
-              <input type="text" id="email" required="required"/>
-              <label class="control-label" for="email">EMAIL</label><i class="bar"></i>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="input-group">
-              <input type="password" id="password" required="required"/>
-              <label class="control-label" for="password">PASSWORD</label><i class="bar"></i>
-            </div>
-          </div>
-          <button class="btn btn-primary" type="submit">
-            LOGIN
-          </button>
-        </form>
-      </div>
+  <div class="unauthorized-layout row">
+    <div class="left-side col-lg-6 col-12">
+      <router-view></router-view>
     </div>
-    <div class="right-side col-6">
-
+    <div class="right-side col-lg-6 hidden-md-down">
     </div>
   </div>
 </template>
@@ -35,7 +15,7 @@
 </script>
 
 <style lang="scss">
-  .signup {
+  .unauthorized-layout {
     height: 100%;
     margin: 0;
     .right-side {

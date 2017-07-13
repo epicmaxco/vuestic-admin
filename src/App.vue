@@ -8,17 +8,16 @@
 <script>
   import Layout from 'components/layout/Layout'
   import UnauthorizedLayout from 'components/layout/UnauthorizedLayout'
+  import {mapGetters} from 'vuex'
 
   export default {
     name: 'app',
-    props: {
-      isAuthorized: {
-        default: false
-      }
-    },
     components: {
       Layout,
       UnauthorizedLayout
+    },
+    computed: {
+      ...mapGetters(['isAuthorized'])
     }
   }
 </script>
