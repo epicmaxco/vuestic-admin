@@ -182,6 +182,7 @@
 
     .indicator-container {
       flex-basis: $wizard-indicator-vl-width;
+      max-width: $wizard-indicator-vl-width;
       flex-grow: 0;
       flex-shrink: 0;
     }

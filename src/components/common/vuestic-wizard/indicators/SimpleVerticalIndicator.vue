@@ -2,7 +2,7 @@
     <ul class="wizard-steps horizontal-steps simple-steps">
       <li class="wizard-step" :class="{'active': currentStep >= index, 'current': currentStep === index}" :style="{ height: 100/steps.length + '%' }" v-for="(step, index) of steps">
         <span class="wizard-step-line"></span>
-        <span class="wizard-step-label">{{step.label}} Vertical</span>
+        <span class="wizard-step-label ellipsis">{{step.label}}</span>
         <span class="wizard-step-indicator"></span>
       </li>
     </ul>
@@ -26,13 +26,18 @@
 
 <style lang="scss" scoped>
   @import "../../../../sass/_variables.scss";
+  @import "../../../../../node_modules/bootstrap/scss/variables";
+  @import "../../../../../node_modules/bootstrap/scss/mixins/breakpoints";
 
   $wizard-steps-height: 100%;
   $wizard-steps-p-v: 2.5rem;
   $wizard-steps-p-h: 0;
   $wizard-step-indicator-height: 1rem;
+
   $wizard-step-label-font-size: $font-size-h4;
   $wizard-step-label-m-l: 2rem;
+  $wizard-label-width: 100%;
+
 
   .wizard-steps{
     list-style-type:  none;
@@ -76,6 +81,8 @@
 
     .wizard-step-label{
       color:  $lighter-gray;
+      display: inline-block;
+      width: $wizard-label-width;
       font-size: $wizard-step-label-font-size;
       font-weight: bold;
       margin-left: $wizard-step-label-m-l;
