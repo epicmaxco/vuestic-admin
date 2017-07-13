@@ -3,7 +3,7 @@
       <li class="wizard-step" :class="{'active': currentStep >= index, 'current': currentStep === index}" :style="{ width: 100/steps.length + '%' }" v-for="(step, index) of steps">
         <i class="ion ion-android-close step-icon icon-cross"></i>
         <i class="ion ion-android-done step-icon icon-check"></i>
-        <span class="wizard-step-label">{{step.label}}</span>
+        <span class="wizard-step-label ellipsis">{{step.label}}</span>
         <span class="wizard-step-line"></span>
       </li>
     </ul>
@@ -27,6 +27,8 @@
 
 <style lang="scss" scoped>
   @import "../../../../sass/_variables.scss";
+  @import "../../../../../node_modules/bootstrap/scss/variables";
+  @import "../../../../../node_modules/bootstrap/scss/mixins/breakpoints";
 
   $wizard-step-height: 5.5rem;
   $wizard-step-label-font-size: $font-size-h4;
@@ -35,6 +37,9 @@
   $wizard-step-icon-height: 2.25rem;
   $wizard-step-icon-fs: 3.125rem;
   $wizard-step-ion-icon-alignment: 0.5rem;
+
+  $wizard-label-width: 100%;
+  $wizard-label-padding: 0 0.6rem;
 
   .wizard-steps{
     list-style-type:  none;
@@ -60,8 +65,20 @@
     }
 
     .wizard-step-label{
+      display: inline-block;
+      width: $wizard-label-width;
+      padding: $wizard-label-padding;
+      text-align: center;
       font-size: $wizard-step-label-font-size;
       font-weight: bold;
+
+      @include media-breakpoint-only(sm) {
+        font-size: $font-size-larger;
+      }
+
+      @include media-breakpoint-only(xs) {
+        font-size: $font-size-base;
+      }
     }
 
     .step-icon {
