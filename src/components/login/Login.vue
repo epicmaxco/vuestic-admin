@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="d-flex align-items-center justify-content-between">
-        <button class="btn btn-primary" type="submit">
+        <button v-on:click="asdf" class="btn btn-primary" type="submit">
           LOGIN
         </button>
         <router-link to="/signup">Create account</router-link>
@@ -25,11 +25,20 @@
 </template>
 
 <script>
+  import {mapMutations} from 'vuex'
+
   export default {
     name: 'login',
     template: 'test',
     beforeCreate () {
       console.log('test')
+    },
+    methods: {
+      ...mapMutations(['authorize']),
+      asdf () {
+        this.authorize(true)
+        this.$router.push({path: '/'})
+      }
     }
   }
 </script>
