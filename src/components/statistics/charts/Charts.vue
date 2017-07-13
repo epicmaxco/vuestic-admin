@@ -1,58 +1,58 @@
 <template>
   <div class="charts-page">
-    <div class="row">
-      <div class="col-md-12">
-        <widget class="chart-widget"  header-text="Combo Chart">
-          <combo-chart v-bind:chart-data="comboChartData"></combo-chart>
-        </widget>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <widget class="chart-widget"  header-text="Column Chart">
-          <column-chart v-bind:chart-data="columnChartData"></column-chart>
-        </widget>
-      </div>
-      <div class="col-md-6">
-        <widget class="chart-widget"  header-text="Time Based Area Chart">
-          <time-based-area-chart v-bind:chart-data="timeBasedAreaChartData"></time-based-area-chart>
-        </widget>
-      </div>
-    </div>
+    <!--<div class="row">-->
+      <!--<div class="col-md-12">-->
+        <!--<widget class="chart-widget"  header-text="Combo Chart">-->
+          <!--<combo-chart v-bind:chart-data="comboChartData"></combo-chart>-->
+        <!--</widget>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-6">-->
+        <!--<widget class="chart-widget"  header-text="Column Chart">-->
+          <!--<column-chart v-bind:chart-data="columnChartData"></column-chart>-->
+        <!--</widget>-->
+      <!--</div>-->
+      <!--<div class="col-md-6">-->
+        <!--<widget class="chart-widget"  header-text="Time Based Area Chart">-->
+          <!--<time-based-area-chart v-bind:chart-data="timeBasedAreaChartData"></time-based-area-chart>-->
+        <!--</widget>-->
+      <!--</div>-->
+    <!--</div>-->
 
-    <div class="row">
-      <div class="col-md-12">
-        <widget class="chart-widget"  header-text="Smoothed Line Chart">
-          <smoothed-line-chart v-bind:chart-data="smoothedLineChartData"></smoothed-line-chart>
-        </widget>
-      </div>
-    </div>
+    <!--<div class="row">-->
+      <!--<div class="col-md-12">-->
+        <!--<widget class="chart-widget"  header-text="Smoothed Line Chart">-->
+          <!--<smoothed-line-chart v-bind:chart-data="smoothedLineChartData"></smoothed-line-chart>-->
+        <!--</widget>-->
+      <!--</div>-->
+    <!--</div>-->
 
-    <div class="row">
-      <div class="col-md-6">
-        <widget class="chart-widget"  header-text="Layered Column Chart">
-          <layered-column-chart v-bind:chart-data="layeredColumnChartData"></layered-column-chart>
-        </widget>
-      </div>
-      <div class="col-md-6">
-        <widget class="chart-widget"  header-text="Clustered Bar Chart">
-          <clustered-bar-chart v-bind:chart-data="clusteredBarChartData"></clustered-bar-chart>
-        </widget>
-      </div>
-    </div>
+    <!--<div class="row">-->
+      <!--<div class="col-md-6">-->
+        <!--<widget class="chart-widget"  header-text="Layered Column Chart">-->
+          <!--<layered-column-chart v-bind:chart-data="layeredColumnChartData"></layered-column-chart>-->
+        <!--</widget>-->
+      <!--</div>-->
+      <!--<div class="col-md-6">-->
+        <!--<widget class="chart-widget"  header-text="Clustered Bar Chart">-->
+          <!--<clustered-bar-chart v-bind:chart-data="clusteredBarChartData"></clustered-bar-chart>-->
+        <!--</widget>-->
+      <!--</div>-->
+    <!--</div>-->
 
-    <div class="row">
-      <div class="col-md-6">
-        <widget class="chart-widget"  header-text="Pie Chart">
-          <pie-chart v-bind:chart-data="pieChartData"></pie-chart>
-        </widget>
-      </div>
-      <div class="col-md-6">
-        <widget class="chart-widget"  header-text="Donut Chart">
-          <donut-chart v-bind:chart-data="donutChartData"></donut-chart>
-        </widget>
-      </div>
-    </div>
+    <!--<div class="row">-->
+      <!--<div class="col-md-6">-->
+        <!--<widget class="chart-widget"  header-text="Pie Chart">-->
+          <!--<pie-chart v-bind:chart-data="pieChartData"></pie-chart>-->
+        <!--</widget>-->
+      <!--</div>-->
+      <!--<div class="col-md-6">-->
+        <!--<widget class="chart-widget"  header-text="Donut Chart">-->
+          <!--<donut-chart v-bind:chart-data="donutChartData"></donut-chart>-->
+        <!--</widget>-->
+      <!--</div>-->
+    <!--</div>-->
   </div>
 </template>
 

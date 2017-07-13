@@ -4,16 +4,16 @@ import forms from './forms'
 import dashboard from './dashboard'
 import ui from './ui'
 import maps from './maps'
-import TEST_SIGNUP from './TEST_SIGNUP'
+import tables from './tables'
 
 const state = {
   items: [
     dashboard,
     statistics,
     forms,
+    tables,
     ui,
-    maps,
-    TEST_SIGNUP
+    maps
   ]
 }
 
