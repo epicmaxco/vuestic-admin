@@ -1,5 +1,5 @@
 <template>
-  <div :class="classObject">
+  <div :class="classObject" v-resize>
     <navbar></navbar>
     <sidebar></sidebar>
     <div class="content-wrap" id="content-wrap">
@@ -15,6 +15,7 @@
 
   import Navbar from './navbar/Navbar'
   import Sidebar from './sidebar/Sidebar'
+  import Resize from 'directives/ResizeHandler'
 
   export default {
     name: 'layout',
@@ -22,6 +23,9 @@
     components: {
       Navbar,
       Sidebar
+    },
+    directives: {
+      resize: Resize
     },
     computed: {
       ...mapGetters([

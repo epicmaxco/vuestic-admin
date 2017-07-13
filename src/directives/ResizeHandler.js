@@ -1,3 +1,10 @@
-/**
- * Created by Dell on 13.07.2017.
- */
+import store from 'store'
+
+export default {
+  inserted: function (el) {
+    window.addEventListener('resize', function () {
+      store.dispatch('toggleSidebar', true)
+    })
+  }
+}
+
