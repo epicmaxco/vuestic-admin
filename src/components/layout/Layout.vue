@@ -27,6 +27,15 @@
       ...mapGetters([
         'sidebarOpened'
       ])
+    },
+    mounted () {
+      window.addEventListener('resize', () => {
+        if (window.matchMedia('(min-width: 992px)').matches) {
+          this.$store.dispatch('toggleSidebar', true)
+        } else {
+          this.$store.dispatch('toggleSidebar', false)
+        }
+      })
     }
   }
 </script>
