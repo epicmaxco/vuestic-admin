@@ -33,7 +33,6 @@
         'toggleWithoutAnimation'
       ]),
       classObject: function () {
-        console.log(this.toggleWithoutAnimation)
         return {
           'sidebar-hidden': !this.toggleWithoutAnimation && !this.sidebarOpened,
           'sidebar-hidden sidebar-hidden_without-animation': this.toggleWithoutAnimation && !this.sidebarOpened
