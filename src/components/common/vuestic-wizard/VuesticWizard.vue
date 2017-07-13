@@ -1,12 +1,12 @@
 <template>
   <div class="wizard" :class="wizardLayout">
 
-    <div v-if="wizardLayout === 'horizontal'" class="indicator-container">
+    <div v-if="wizardLayout === 'horizontal'" class="indicator-container indicator-container-horizontal">
       <simple-horizontal-indicator v-if="wizardType === 'simple'" :steps="steps" :currentStep="currentStep"></simple-horizontal-indicator>
       <rich-horizontal-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep"></rich-horizontal-indicator>
     </div>
 
-    <div v-if="wizardLayout === 'vertical'" class="indicator-container">
+    <div v-if="wizardLayout === 'vertical'" class="indicator-container indicator-container-vertical">
       <rich-vertical-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep"></rich-vertical-indicator>
       <simple-vertical-indicator v-if="wizardType === 'simple'" :steps="steps" :currentStep="currentStep"></simple-vertical-indicator>
     </div>
