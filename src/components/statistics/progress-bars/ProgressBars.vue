@@ -3,28 +3,28 @@
     <div class="row">
       <widget class="col-12" headerText="Progress Bars">
         <div class="row">
-          <div class="col-sm-4 col-6">
+          <div class="col-sm-4 col-12">
             Basic
             <div class="pb-container">
               <progress-bar ref="hBasic">
               </progress-bar>
             </div>
           </div>
-          <div class="col-sm-4 col-6">
+          <div class="col-sm-4 col-12">
             Thin
             <div class="pb-container">
               <progress-bar size="thin" ref="hThin">
               </progress-bar>
             </div>
           </div>
-          <div class="col-sm-4 col-6">
+          <div class="col-sm-4 col-12">
             Thick
             <div class="pb-container">
               <progress-bar size="thick" ref="hThick">
               </progress-bar>
             </div>
           </div>
-          <div class="col-sm-4 col-6">
+          <div class="col-sm-4 col-12">
             Basic Vertical
             <div class="pb-container">
               <div>
@@ -32,14 +32,14 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-4 col-6">
+          <div class="col-sm-4 col-12">
             Thin Vertical
             <div>
               <progress-bar size="thin" type="vertical" ref="vThin">
               </progress-bar>
             </div>
           </div>
-          <div class="col-sm-4 col-6">
+          <div class="col-sm-4 col-12">
             Circle
             <div>
               <progress-bar type="circle" ref="circle"></progress-bar>
@@ -49,28 +49,28 @@
       </widget>
       <widget class="col-12" headerText="Colorful Bars">
         <div class="row">
-          <div class="col-sm-4 col-6">
+          <div class="col-sm-4 col-12">
             Basic
             <div class="pb-container">
               <progress-bar ref="chBasic" color="brand-danger">
               </progress-bar>
             </div>
           </div>
-          <div class="col-sm-4 col-6">
+          <div class="col-sm-4 col-12">
             Thin
             <div class="pb-container">
               <progress-bar size="thin" ref="chThin" color="brand-info">
               </progress-bar>
             </div>
           </div>
-          <div class="col-sm-4 col-6">
+          <div class="col-sm-4 col-12">
             Thick
             <div class="pb-container">
               <progress-bar size="thick" ref="chThick" color="brand-warning">
               </progress-bar>
             </div>
           </div>
-          <div class="col-sm-4 col-6">
+          <div class="col-sm-4 col-12">
             Basic Vertical
             <div class="pb-container">
               <div>
@@ -78,14 +78,14 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-4 col-6">
+          <div class="col-sm-4 col-12">
             Thin Vertical
             <div class="pb-container">
               <progress-bar size="thin" type="vertical" ref="cvThin" color="black">
               </progress-bar>
             </div>
           </div>
-          <div class="col-sm-4 col-6">
+          <div class="col-sm-4 col-12">
             Circle
             <div class="pb-container">
               <progress-bar type="circle" ref="ccircle"></progress-bar>
@@ -111,7 +111,11 @@
       let delay = 0
       for (let ref in this.$refs) {
         this.$refs[ref].$data.valueAnimationInterval = this.valueAnimationInterval
-        setTimeout(() => {
+        let timeout = setTimeout(() => {
+          if (!this.$refs[ref]) {
+            clearTimeout(timeout)
+            return
+          }
           this.$refs[ref].$data.value = 100
         }, delay)
         delay += this.valueAnimationInterval

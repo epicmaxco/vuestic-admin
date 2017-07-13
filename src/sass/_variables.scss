@@ -88,7 +88,6 @@ $font-size-base : 1rem !default;
 $font-size-larger : 1.2rem;
 $font-size-large : 1.5rem;
 $font-size-mini : 0.8rem;
-$font-size-pb-value: 0.6875rem;
 
 $font-weight-bold : 700 !default;
 $font-weight-semi-bold : 600 !default;
@@ -209,6 +208,7 @@ $vuestic-switch-padding: 0.313rem 2.375rem;
 $vuestic-switch-border-size: 0.125rem;
 
 //Progress Bars
+$progress-bar-value-font-size: 0.6875rem;
 $progress-bar-circle-diameter: 3.125rem;
 $progress-bar-circle-bw: .125rem;
 $progress-bar-circle-overlay-diameter: calc(#{$progress-bar-circle-diameter} - 2*#{$progress-bar-circle-bw});
