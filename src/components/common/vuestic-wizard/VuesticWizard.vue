@@ -1,12 +1,15 @@
 <template>
-  <div class="wizard" :class="wizardLayout">
+  <div
+    class="wizard"
+    :class="computedLayout"
+    v-orientation-handler="{ layout: wizardLayout,  breakPoint: orientationBreakPoint }">
 
-    <div v-if="wizardLayout === 'horizontal'" class="indicator-container indicator-container-horizontal">
+    <div v-if="computedLayout === 'horizontal'" class="indicator-container indicator-container-horizontal">
       <simple-horizontal-indicator v-if="wizardType === 'simple'" :steps="steps" :currentStep="currentStep"></simple-horizontal-indicator>
       <rich-horizontal-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep"></rich-horizontal-indicator>
     </div>
 
-    <div v-if="wizardLayout === 'vertical'" class="indicator-container indicator-container-vertical">
+    <div v-if="computedLayout === 'vertical'" class="indicator-container indicator-container-vertical">
       <rich-vertical-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep"></rich-vertical-indicator>
       <simple-vertical-indicator v-if="wizardType === 'simple'" :steps="steps" :currentStep="currentStep"></simple-vertical-indicator>
     </div>
@@ -33,6 +36,7 @@
   import RichHorizontalIndicator from './indicators/RichHorizontalIndicator.vue'
   import RichVerticalIndicator from './indicators/RichVerticalIndicator.vue'
   import SimpleVerticalIndicator from './indicators/SimpleVerticalIndicator.vue'
+  import WizardOrientationHandler from './WizardOrientationHandler'
 
   export default {
     name: 'vuestic-wizard',
@@ -52,7 +56,9 @@
     },
     data () {
       return {
-        currentStep: 0
+        currentStep: 0,
+        orientationBreakPoint: 767, // TODO: into config,
+        computedLayout: this.wizardLayout
       }
     },
     components: {
@@ -60,6 +66,9 @@
       RichHorizontalIndicator,
       RichVerticalIndicator,
       SimpleVerticalIndicator
+    },
+    directives: {
+      orientationHandler: WizardOrientationHandler
     },
     computed: {
       currentSlot () {
@@ -69,7 +78,13 @@
         return this.currentStep !== 0
       }
     },
+    created () {
+      this.$on('wizardLayoutChange', this.updateLayout)
+    },
     methods: {
+      updateLayout (layout) {
+        this.computedLayout = layout
+      },
       goNext () {
         this.currentStepOnNext()
         if (!this.isLastStep() && this.isCurrentStepValid()) {
