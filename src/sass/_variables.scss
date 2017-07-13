@@ -19,6 +19,16 @@ $brand-danger: $theme-red;
 $brand-warning: $theme-orange;
 $brand-info: $theme-blue;
 $brand-success: $theme-violet;
+$light-grey: #eff4f5;
+
+$colors-map: (
+  brand-danger: $brand-danger,
+  brand-primary: $brand-primary,
+  brand-info: $brand-info,
+  brand-success: $brand-success,
+  brand-warning: $brand-warning,
+  black: black
+);
 
 // Layout //
 $body-bg : $light-gray;
@@ -79,6 +89,7 @@ $font-size-base : 1rem !default;
 $font-size-larger : 1.2rem;
 $font-size-large : 1.5rem;
 $font-size-mini : 0.8rem;
+$font-size-pb-value: 0.6875rem;
 
 $font-weight-bold : 700 !default;
 $font-weight-semi-bold : 600 !default;
@@ -200,3 +211,17 @@ $input-bg-disabled: $white;
 $vuestic-switch-bg: $brand-primary;
 $vuestic-switch-padding: 0.313rem 2.375rem;
 $vuestic-switch-border-size: 0.125rem;
+
+//Progress Bars
+$progress-bar-circle-diameter: 3.125rem;
+$progress-bar-circle-bw: .125rem;
+$progress-bar-circle-overlay-diameter: calc(#{$progress-bar-circle-diameter} - 2*#{$progress-bar-circle-bw});
+$progress-bar-vertical-height: 5.75rem;
+$progress-bar-width-thin: .125rem;
+$progress-bar-width-basic: .5rem;
+$progress-bar-width-thick: 1.5rem;
+
+//Tables
+$table-bg-accent: $white;
+$table-border-width: $white;
+$striped-row: $light-gray;

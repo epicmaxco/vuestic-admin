@@ -25,3 +25,27 @@
     opacity: 0.5;
   }
 }
+
+@mixin circle-progress-bar($progressColor, $size, $width, $startColor: $gray-lighter, $innerColor: $white) {
+
+
+  $step: 1;
+  $loops: round(100 / $step);
+  $increment: 360 / $loops;
+  $half: round($loops / 2);
+
+  @for $i from 0 through $loops {
+    &.progress-bar.value-#{$i*$step} {
+      @if $i < $half {
+        $nextdeg: 90deg + ( $increment * $i );
+        background-image: linear-gradient(90deg, $startColor 50%, transparent 50%, transparent),
+        linear-gradient($nextdeg, $progressColor 50%, $startColor 50%, $startColor);
+      }
+      @else {
+        $nextdeg: -90deg + ( $increment * ( $i - $half ) );
+        background-image: linear-gradient($nextdeg, $progressColor 50%, transparent 50%, transparent),
+        linear-gradient(270deg, $progressColor 50%, $startColor 50%, $startColor);
+      }
+    }
+  }
+}

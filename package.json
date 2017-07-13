@@ -25,8 +25,9 @@
     "vue": "^2.3.0",
     "vue-bulma-expanding": "0.0.0",
     "vue-router": "^2.2.0",
-    "vue2-scrollbar": "0.0.1",
     "vue-slider-component": "^2.3.3",
+    "vue2-circle-progress": "^1.0.3",
+    "vue2-scrollbar": "0.0.1",
     "vuex": "2.1.1",
     "vuex-router-sync": "4.0.2"
   },
