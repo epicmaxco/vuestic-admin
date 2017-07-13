@@ -43,7 +43,9 @@
     list-style-type:  none;
     padding: $wizard-steps-p-v $wizard-steps-p-h;
     height:  $wizard-steps-height;
-    position:  relative;
+    position:  absolute;
+    top: 0;
+    bottom: 0;
   }
   .wizard-step{
     vertical-align: bottom;

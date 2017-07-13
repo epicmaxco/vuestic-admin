@@ -41,7 +41,9 @@
     list-style-type:  none;
     padding: $wizard-steps-padding;
     height: $wizard-steps-height;
-    position:  relative;
+    position:  absolute;
+    top: 0;
+    bottom: 0;
   }
   .wizard-step{
     padding: $wizard-step-padding;

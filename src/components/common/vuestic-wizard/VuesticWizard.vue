@@ -185,6 +185,7 @@
       max-width: $wizard-indicator-vl-width;
       flex-grow: 0;
       flex-shrink: 0;
+      position: relative;
     }
   }
 
