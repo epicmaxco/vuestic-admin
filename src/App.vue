@@ -1,16 +1,24 @@
 <template>
   <div id="app">
-    <layout></layout>
+    <layout :if="isAuthorized"></layout>
+    <unauthorized-layout v-else></unauthorized-layout>
   </div>
 </template>
 
 <script>
   import Layout from 'components/layout/Layout'
+  import UnauthorizedLayout from 'components/layout/UnauthorizedLayout'
 
   export default {
     name: 'app',
+    props: {
+      isAuthorized: {
+        default: false
+      }
+    },
     components: {
-      Layout
+      Layout,
+      UnauthorizedLayout
     }
   }
 </script>
