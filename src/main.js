@@ -14,6 +14,11 @@ Vue.use(VeeValidate)
 sync(store, router)
 
 router.afterEach((to, from) => {
+  if (to.fullPath !== '/login' && to.fullPath !== '/signup' && !store.getters.isAuthorized) {
+    router.push('/login')
+  } else if ((to.fullPath === '/login' || to.fullPath === '/signup') && store.getters.isAuthorized) {
+    router.push('/')
+  }
   if (window.matchMedia('(min-width: 992px)').matches) {
     store.dispatch('toggleSidebar', true)
   } else {
