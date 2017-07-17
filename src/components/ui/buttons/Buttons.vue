@@ -48,7 +48,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row btn-margin-row">
 
             <div class="col-sm-6 d-flex justify-content-center" :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
               <button class="btn btn-primary btn-sm">
@@ -173,8 +173,16 @@
 </script>
 
 <style lang="scss">
-  .buttons-page {
+  @import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+  @import "../../../../node_modules/bootstrap/scss/variables";
 
+  .buttons-page {
+    @include media-breakpoint-only(xl) {
+      .btn-margin-row  {
+        margin-right: -35px;
+        margin-left: -40px;
+      }
+    }
     .btn, .btn-group {
       margin-bottom: 45px;
     }

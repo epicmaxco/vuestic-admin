@@ -110,6 +110,7 @@
       top: $sidebar-mobile-top;
       left: $sidebar-mobile-left;
       width: $sidebar-mobile-width;
+      z-index: $sidebar-mobile-z-index;
     }
 
     height: $sidebar-viewport-height;
@@ -131,10 +132,21 @@
     transition: all 0.2s ease;
     opacity: 1;
 
+    .sidebar-hidden_without-animation & {
+      transition: none;
+    }
+
     .sidebar-hidden & {
+      @include media-breakpoint-down(md) {
+        top: $sidebar-hidden-top-mobile;
+        opacity: 0;
+        z-index: $sidebar-mobile-z-index;
+        height: $sidebar-hidden-height-mobile;
+      }
       top: $sidebar-hidden-top;
       opacity: 0;
       z-index: $min-z-index;
+
     }
 
     .sidebar-link {

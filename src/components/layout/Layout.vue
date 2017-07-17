@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'sidebar-hidden': !sidebarOpened}">
+  <div :class="classObject" v-resize>
     <navbar></navbar>
     <sidebar></sidebar>
     <div class="content-wrap" id="content-wrap">
@@ -15,6 +15,7 @@
 
   import Navbar from './navbar/Navbar'
   import Sidebar from './sidebar/Sidebar'
+  import Resize from 'directives/ResizeHandler'
 
   export default {
     name: 'layout',
@@ -23,19 +24,20 @@
       Navbar,
       Sidebar
     },
+    directives: {
+      resize: Resize
+    },
     computed: {
       ...mapGetters([
-        'sidebarOpened'
-      ])
-    },
-    mounted () {
-      window.addEventListener('resize', () => {
-        if (window.matchMedia('(min-width: 992px)').matches) {
-          this.$store.dispatch('toggleSidebar', true)
-        } else {
-          this.$store.dispatch('toggleSidebar', false)
+        'sidebarOpened',
+        'toggleWithoutAnimation'
+      ]),
+      classObject: function () {
+        return {
+          'sidebar-hidden': !this.toggleWithoutAnimation && !this.sidebarOpened,
+          'sidebar-hidden sidebar-hidden_without-animation': this.toggleWithoutAnimation && !this.sidebarOpened
         }
-      })
+      }
     }
   }
 </script>
