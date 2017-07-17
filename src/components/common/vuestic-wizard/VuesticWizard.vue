@@ -24,16 +24,24 @@
       </div>
 
 
-      <div class="wizard-body-actions clearfix" v-if="!wizardCompleted">
-        <button v-if="backEnabled" class="btn btn-secondary wizard-back pull-left" @click="goBack()">
-          Back
-        </button>
-        <button v-if="!isLastStep()" class="btn btn-primary wizard-next pull-right" @click="goNext()">
-          Next
-        </button>
-        <button v-if="currentStep == steps.length - 1" class="btn btn-primary wizard-next pull-right final-step" @click="completeWizard()">
-          {{lastStepLabel}}
-        </button>
+      <div class="wizard-body-actions" v-if="!wizardCompleted">
+        <div class="btn-container" v-if="backEnabled">
+          <button class="btn btn-secondary wizard-back pull-left" @click="goBack()">
+            Back
+          </button>
+        </div>
+
+        <div class="btn-container" v-if="!isLastStep()">
+          <button class="btn btn-primary wizard-next pull-right" @click="goNext()">
+            Next
+          </button>
+        </div>
+
+        <div class="btn-container" v-if="currentStep == steps.length - 1">
+          <button  class="btn btn-primary wizard-next pull-right final-step" @click="completeWizard()">
+            {{lastStepLabel}}
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -181,6 +189,10 @@
       > * {
         margin-bottom: $wizard-body-step-item-margin-bottom;
       }
+
+      > *:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -188,9 +200,11 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
+    align-items: baseline;
 
-    .btn:first-child:not(:last-child) {
-      margin-right: $wizard-body-step-item-margin-bottom;
+    .btn-container {
+      margin: $wizard-body-step-item-margin-bottom  $wizard-body-step-item-margin-bottom/2 0  $wizard-body-step-item-margin-bottom/2;
     }
   }
 
