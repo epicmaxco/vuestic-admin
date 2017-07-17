@@ -213,6 +213,10 @@ fieldset {
   .control-label {
     position: absolute;
     top: ($mf-font-size / 4);
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     pointer-events: none;
     padding-left: $mf-spacer;
     z-index: 1;

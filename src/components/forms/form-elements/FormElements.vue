@@ -312,5 +312,8 @@
 </script>
 
 <style lang="scss">
-
+  .abc-checkbox, .abc-radio {
+    display: flex !important;
+    justify-content: flex-start;
+  }
 </style>
