@@ -30,6 +30,7 @@
   @import "../../../../../node_modules/bootstrap/scss/mixins/breakpoints";
 
   $wizard-steps-height: 100%;
+  $wizard-steps-width: 100%;
   $wizard-steps-p-v: 2.5rem;
   $wizard-steps-p-h: 0;
   $wizard-step-indicator-height: 1rem;
@@ -43,6 +44,7 @@
     list-style-type:  none;
     padding: $wizard-steps-p-v $wizard-steps-p-h;
     height:  $wizard-steps-height;
+    width: $wizard-steps-width;
     position:  absolute;
     top: 0;
     bottom: 0;

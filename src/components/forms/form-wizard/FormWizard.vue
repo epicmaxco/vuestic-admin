@@ -157,7 +157,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        <widget class="no-v-padding" header-text="Vertical Simple Wizard">
+        <widget class="simple-vertical-wizard-widget" header-text="Vertical Simple Wizard">
           <vuestic-wizard
             :steps="steps"
             wizard-layout="vertical"
@@ -268,5 +268,16 @@
 </script>
 
 <style lang="scss">
+  @import "../../../sass/_variables.scss";
+  @import "../../../../node_modules/bootstrap/scss/variables";
+  @import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
 
+  .widget.simple-vertical-wizard-widget {
+    .widget-body {
+      padding: 0 $widget-padding;
+      @include media-breakpoint-down(sm) {
+        padding: $widget-padding 0;
+      }
+    }
+  }
 </style>

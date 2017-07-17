@@ -4,7 +4,7 @@
         <span class="wizard-step-line"></span>
         <i class="ion ion-android-close step-icon icon-cross"></i>
         <i class="ion ion-android-done step-icon icon-check"></i>
-        <span class="wizard-step-label">{{step.label}}</span>
+        <span class="wizard-step-label ellipsis">{{step.label}}</span>
       </li>
     </ul>
 </template>
@@ -29,6 +29,7 @@
   @import "../../../../sass/_variables.scss";
 
   $wizard-steps-height: 100%;
+  $wizard-steps-width: 100%;
   $wizard-step-label-font-size: $font-size-h4;
   $wizard-steps-padding: 0;
   $wizard-step-padding: 0.625rem 0;
@@ -41,6 +42,7 @@
     list-style-type:  none;
     padding: $wizard-steps-padding;
     height: $wizard-steps-height;
+    width: $wizard-steps-width;
     position:  absolute;
     top: 0;
     bottom: 0;
