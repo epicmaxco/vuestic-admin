@@ -39,7 +39,7 @@
 <script>
   import { mapGetters, mapActions } from 'vuex'
   import Expanding from '../../../../node_modules/vue-bulma-expanding/src/Expanding'
-  import VueScrollbar from 'vue2-scrollbar'
+  import VueScrollbar from '../../common/vue2-scrollbar-custom/vue-scrollbar.vue'
   import Expandable from '../../../directives/Expandable'
 
   export default {
@@ -101,7 +101,6 @@
 
 <style lang="scss">
   @import "../../../sass/_variables.scss";
-  @import "../../../../node_modules/vue2-scrollbar/dist/style/vue2-scrollbar.css";
   @import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
   @import "../../../../node_modules/bootstrap/scss/variables";
 
