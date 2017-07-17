@@ -1,8 +1,9 @@
 <template>
-    <ul class="wizard-steps horizontal-steps simple-steps">
+    <ul class="wizard-steps horizontal-steps simple-steps" :class="{'completed': completed}">
       <li class="wizard-step" :class="{'active': currentStep >= index, 'current': currentStep === index}" :style="{ width: 100/steps.length + '%' }" v-for="(step, index) of steps">
         <span class="wizard-step-line"></span>
-        <span class="wizard-step-label">{{step.label}}</span>
+        <span class="wizard-step-line completed-line"></span>
+        <span class="wizard-step-label ellipsis">{{step.label}}</span>
         <span class="wizard-step-indicator"></span>
       </li>
     </ul>
@@ -19,6 +20,10 @@
       currentStep: {
         type: Number,
         default: 0
+      },
+      completed: {
+        type: Boolean,
+        default: false
       }
     }
   }
@@ -26,10 +31,14 @@
 
 <style lang="scss" scoped>
   @import "../../../../sass/_variables.scss";
+  @import "../../../../../node_modules/bootstrap/scss/variables";
+  @import "../../../../../node_modules/bootstrap/scss/mixins/breakpoints";
 
   $wizard-step-height: 3.75rem;
   $wizard-step-indicator-height: 1rem;
   $wizard-step-label-font-size: $font-size-h4;
+  $wizard-label-width: 100%;
+  $wizard-label-padding: 0 0.6rem;
 
   .wizard-steps{
     list-style-type:  none;
@@ -55,6 +64,12 @@
       height:  2px;
       background-color: $lighter-gray;
       transition: background-color 300ms linear;
+
+      &.completed-line {
+        display: none;
+        width: 50%;
+        left: 50%
+      }
     }
 
     .wizard-step-indicator{
@@ -74,10 +89,21 @@
     }
 
     .wizard-step-label{
+      display: inline-block;
+      width: $wizard-label-width;
+      padding: $wizard-label-padding;
       color:  $lighter-gray;
       font-size: $wizard-step-label-font-size;
       font-weight: bold;
       transition: color 300ms linear;
+
+        @include media-breakpoint-only(sm) {
+          font-size: $font-size-larger;
+        }
+
+        @include media-breakpoint-only(xs) {
+          font-size: $font-size-base;
+        }
     }
 
     &:first-child {
@@ -89,8 +115,9 @@
 
     &:last-child {
       .wizard-step-line {
-        width: 150%;
-
+        &.completed-line {
+          display: block;
+        }
       }
     }
 
@@ -98,15 +125,15 @@
       .wizard-step-indicator{
         background-color: $brand-primary;
       }
-      .wizard-step-line{
+      .wizard-step-line:not(.completed-line), .completed & .wizard-step-line {
         background-color: $brand-primary;
       }
 
-      .wizard-step-label {
+      .wizard-step-label, .completed &.current .wizard-step-label {
         color: $brand-primary;
       }
 
-      &.current:not(:last-child) .wizard-step-label {
+      &.current .wizard-step-label {
         color: $vue-darkest-blue;
       }
     }

@@ -99,7 +99,7 @@
 
 <script>
   import Widget from '../../common/widget/Widget'
-  import ProgressBar from '../../common/progress-bar/ProgressBar.vue'
+  import ProgressBar from '../../common/vuestic-progress-bar/VuesticProgressBar.vue'
 
   export default {
     components: {
