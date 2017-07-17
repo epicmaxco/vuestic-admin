@@ -19,7 +19,7 @@ $brand-danger: $theme-red;
 $brand-warning: $theme-orange;
 $brand-info: $theme-blue;
 $brand-success: $theme-violet;
-$light-grey: #eff4f5;
+$light-gray2: #eff4f5;
 
 $colors-map: (
   brand-danger: $brand-danger,
@@ -64,6 +64,7 @@ $sidebar-mobile-width: calc(100% - #{$layout-mobile-padding-right});
 $sidebar-mobile-top: $top-mobile-nav-height+$layout-mobile-padding;
 $sidebar-mobile-left: $layout-mobile-padding;
 $content-mobile-wrap-margin: 1.125rem;
+$sidebar-mobile-z-index: 1000;
 $nav-mobile-padding-h : .875rem;
 $nav-mobile-pt: 3rem;
 $nav-mobile-pb: 1.375rem;
@@ -88,7 +89,6 @@ $font-size-base : 1rem !default;
 $font-size-larger : 1.2rem;
 $font-size-large : 1.5rem;
 $font-size-mini : 0.8rem;
-$font-size-pb-value: 0.6875rem;
 
 $font-weight-bold : 700 !default;
 $font-weight-semi-bold : 600 !default;
@@ -122,7 +122,8 @@ $sidebar-menu-item-icon-size : 19px;
 $sidebar-viewport-height: calc(100vh - #{$top-nav-height} - #{$content-wrap-pt} - #{$content-wrap-pb});
 
 $sidebar-hidden-top : -150px;
-
+$sidebar-hidden-top-mobile : $sidebar-mobile-top;
+$sidebar-hidden-height-mobile: 0;
 $sidebar-box-shadow : $greeny-box-shadow;
 
 //Widgets
@@ -186,6 +187,8 @@ $dropdown-item-height: 40px;
 $dropdown-menu-padding-y: 10px;
 $dropdown-menu-padding-x: 0;
 $dropdown-min-width: 15rem;
+$dropdown-simple-visible-items: 4;
+$dropdown-multi-visible-items: 4;
 
 //Modals
 $modal-header-padding-x: $widget-padding;
@@ -209,6 +212,7 @@ $vuestic-switch-padding: 0.313rem 2.375rem;
 $vuestic-switch-border-size: 0.125rem;
 
 //Progress Bars
+$progress-bar-value-font-size: 0.6875rem;
 $progress-bar-circle-diameter: 3.125rem;
 $progress-bar-circle-bw: .125rem;
 $progress-bar-circle-overlay-diameter: calc(#{$progress-bar-circle-diameter} - 2*#{$progress-bar-circle-bw});
@@ -220,4 +224,4 @@ $progress-bar-width-thick: 1.5rem;
 //Tables
 $table-bg-accent: $white;
 $table-border-width: $white;
-$striped-row: $light-gray;
+$striped-row: $light-gray2;

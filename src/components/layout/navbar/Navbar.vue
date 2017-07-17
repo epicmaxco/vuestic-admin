@@ -86,12 +86,13 @@ justify-content-lg-end" v-dropdown>
     },
 
     computed: mapGetters([
-      'sidebarOpened'
+      'sidebarOpened',
+      'toggleWithoutAnimation'
     ]),
-
     methods: {
       ...mapActions([
-        'toggleSidebar'
+        'toggleSidebar',
+        'isToggleWithoutAnimation'
       ])
     }
   }

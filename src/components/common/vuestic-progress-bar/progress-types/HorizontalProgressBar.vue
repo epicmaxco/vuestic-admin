@@ -54,7 +54,7 @@
   @import "../../../../sass/mixins";
   @import "../../../../../node_modules/bootstrap/scss/variables";
 
-  .horizontal {
+  .vuestic-progress-bar .horizontal {
     @each $name in map-keys($colors-map) {
       &.color-#{$name} {
         $color: map-get($colors-map, $name);

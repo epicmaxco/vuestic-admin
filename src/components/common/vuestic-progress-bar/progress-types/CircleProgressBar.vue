@@ -23,11 +23,6 @@
     },
     methods: {
       enableBarAnimation (flag) {
-//        if (flag) {
-//          this.progressBarElement.setAttribute('class', 'progress-bar active')
-//        } else {
-//          this.progressBarElement.setAttribute('class', 'progress-bar')
-//        }
       }
     },
     watch: {
@@ -49,7 +44,7 @@
   @import "../../../../sass/mixins";
   @import "../../../../../node_modules/bootstrap/scss/variables";
 
-  .circle {
+  .vuestic-progress-bar .circle {
     $innerColor: white;
     $startColor: $gray-lighter;
     $step: 1;
