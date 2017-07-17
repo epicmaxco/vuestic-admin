@@ -1,5 +1,5 @@
 <template>
-    <ul class="wizard-steps horizontal-steps rich-steps">
+    <ul class="wizard-steps horizontal-steps rich-steps" :class="{'completed': completed}">
       <li class="wizard-step" :class="{'active': currentStep >= index, 'current': currentStep === index}" :style="{ height: 100/steps.length + '%' }" v-for="(step, index) of steps">
         <span class="wizard-step-line"></span>
         <i class="ion ion-android-close step-icon icon-cross"></i>
@@ -20,6 +20,10 @@
       currentStep: {
         type: Number,
         default: 0
+      },
+      completed: {
+        type: Boolean,
+        default: false
       }
     }
   }
@@ -94,7 +98,7 @@
         background-color: $brand-primary;
       }
 
-      &:not(.current), &.current:last-child {
+      &:not(.current), .completed &.current {
         .step-icon.icon-cross {
           display: none;
         }
@@ -104,8 +108,12 @@
         }
       }
 
-      &.current:not(:last-child) {
+      &.current {
         color: $vue-darkest-blue;
+      }
+
+      .completed &.current {
+        color: $brand-primary;
       }
     }
   }

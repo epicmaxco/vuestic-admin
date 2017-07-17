@@ -5,26 +5,26 @@
     v-orientation-handler="{ layout: wizardLayout,  breakPoint: orientationBreakPoint }">
 
     <div v-if="computedLayout === 'horizontal'" class="indicator-container indicator-container-horizontal">
-      <simple-horizontal-indicator v-if="wizardType === 'simple'" :steps="steps" :currentStep="currentStep"></simple-horizontal-indicator>
-      <rich-horizontal-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep"></rich-horizontal-indicator>
+      <simple-horizontal-indicator v-if="wizardType === 'simple'" :steps="steps" :currentStep="currentStep" :completed="wizardCompleted"></simple-horizontal-indicator>
+      <rich-horizontal-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep" :completed="wizardCompleted"></rich-horizontal-indicator>
     </div>
 
     <div v-if="computedLayout === 'vertical'" class="indicator-container indicator-container-vertical">
-      <rich-vertical-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep"></rich-vertical-indicator>
-      <simple-vertical-indicator v-if="wizardType === 'simple'" :steps="steps" :currentStep="currentStep"></simple-vertical-indicator>
+      <rich-vertical-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep" :completed="wizardCompleted"></rich-vertical-indicator>
+      <simple-vertical-indicator v-if="wizardType === 'simple'" :steps="steps" :currentStep="currentStep" :completed="wizardCompleted"></simple-vertical-indicator>
     </div>
 
     <div class="wizard-body">
       <div class="wizard-body-step"><slot :name="currentSlot" class="step-content"></slot></div>
-      <div class="wizard-body-actions clearfix">
+      <div class="wizard-body-actions clearfix" v-if="!wizardCompleted">
         <button v-if="backEnabled" class="btn btn-secondary wizard-back pull-left" @click="goBack()">
           Back
         </button>
         <button v-if="!isLastStep()" class="btn btn-primary wizard-next pull-right" @click="goNext()">
           Next
         </button>
-        <button v-if="currentStep == steps.length - 1" class="btn btn-primary wizard-next pull-right final-step" @click="goNext()">
-          {{finalStepLabel}}
+        <button v-if="currentStep == steps.length - 1" class="btn btn-primary wizard-next pull-right final-step" @click="completeWizard()">
+          {{lastStepLabel}}
         </button>
       </div>
     </div>
@@ -50,13 +50,15 @@
         type: String,
         default: 'horizontal'
       },
-      finalStepLabel: {default: 'Save'},
+      lastStepLabel: {default: 'Confirm'},
       onNext: {},
       onBack: {}
     },
     data () {
       return {
         currentStep: 0,
+        wizardCompleted: false,
+        wizardCompletedSlotName: 'wizardCompleted',
         orientationBreakPoint: 767, // TODO: into config,
         computedLayout: this.wizardLayout
       }
@@ -72,7 +74,11 @@
     },
     computed: {
       currentSlot () {
-        return this.steps[this.currentStep].slot
+        let slotName = this.steps[this.currentStep].slot
+        if (this.wizardCompleted) {
+          slotName = this.wizardCompletedSlotName
+        }
+        return slotName
       },
       backEnabled () {
         return this.currentStep !== 0
@@ -91,15 +97,14 @@
           this.currentStep++
         }
       },
-      goBack (skipFunction) {
-        if (!skipFunction && typeof this.onBack === 'function') {
-          if (!this.onBack(this.currentStep)) {
-            return
-          }
-        }
+      goBack () {
         if (this.currentStep > 0) {
           this.currentStep--
         }
+      },
+      completeWizard () {
+        this.wizardCompleted = true
+        this.goNext()
       },
       isLastStep () {
         return this.currentStep === this.steps.length - 1

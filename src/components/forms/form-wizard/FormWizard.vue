@@ -39,7 +39,15 @@
               </vuestic-simple-select>
             </div>
             <div slot="page3" class="form-wizard-tab-content">
-              <h4>Wizard Successfully Completed!</h4>
+              <h4>Confirm selection</h4>
+              <p>
+                Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
+                soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
+                their teeth all send a signal. For example, ears flat back means trouble, or "you better follow orders!"
+              </p>
+            </div>
+            <div slot="wizardCompleted" class="form-wizard-tab-content">
+              <h4>Wizard completed!</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
                 soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
@@ -91,7 +99,15 @@
               </vuestic-simple-select>
             </div>
             <div slot="page3" class="form-wizard-tab-content">
-              <h4>Wizard Successfully Completed!</h4>
+              <h4>Confirm selection</h4>
+              <p>
+                Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
+                soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
+                their teeth all send a signal. For example, ears flat back means trouble, or "you better follow orders!"
+              </p>
+            </div>
+            <div slot="wizardCompleted" class="form-wizard-tab-content">
+              <h4>Wizard completed!</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
                 soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
@@ -143,7 +159,15 @@
               </vuestic-simple-select>
             </div>
             <div slot="page3" class="form-wizard-tab-content">
-              <h4>Wizard Successfully Completed!</h4>
+              <h4>Confirm selection</h4>
+              <p>
+                Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
+                soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
+                their teeth all send a signal. For example, ears flat back means trouble, or "you better follow orders!"
+              </p>
+            </div>
+            <div slot="wizardCompleted" class="form-wizard-tab-content">
+              <h4>Wizard completed!</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
                 soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
@@ -195,7 +219,15 @@
               </vuestic-simple-select>
             </div>
             <div slot="page3" class="form-wizard-tab-content">
-              <h4>Wizard Successfully Completed!</h4>
+              <h4>Confirm selection</h4>
+              <p>
+                Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
+                soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
+                their teeth all send a signal. For example, ears flat back means trouble, or "you better follow orders!"
+              </p>
+            </div>
+            <div slot="wizardCompleted" class="form-wizard-tab-content">
+              <h4>Wizard completed!</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
                 soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
@@ -246,7 +278,7 @@
             }
           },
           {
-            label: 'Step 3. Completed',
+            label: 'Step 3. Confirm',
             slot: 'page3'
           }
         ],
