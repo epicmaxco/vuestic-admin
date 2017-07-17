@@ -264,6 +264,9 @@ h4, .h4 {
   thead tr {
     border-bottom: 2px solid rgb(85, 85, 85);
     color: $vue-green;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 
   td:first-child {
@@ -277,12 +280,34 @@ h4, .h4 {
 
   td, th {
     vertical-align: middle !important;
+    padding: .5rem;
   }
 
   .badge {
-    min-width: 6rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    line-height: .9rem;
+    width: 5rem;
+    display: inline-block;
+    font-size: .7rem;
+    font-family: "Source Sans Pro", serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    vertical-align: text-top;
+  }
+
+  .table-info {
+    background-color: #dcf1ff;
+  }
+
+  .table-warning {
+    background-color: #fff1c8;
+  }
+
+  .table-success {
+    background-color: #c8fac6;
+  }
+
+  .table-danger {
+    background-color: #ffcece;
   }
 
 }
