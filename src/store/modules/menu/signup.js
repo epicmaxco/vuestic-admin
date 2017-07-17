@@ -1,11 +1,11 @@
 import lazyLoading from './lazyLoading'
 
 export default {
-  name: 'TEST_SIGNUP',
-  path: '/TEST_SIGNUP',
+  name: 'Signup',
+  path: '/signup',
   component: lazyLoading('signup/Signup'),
   meta: {
-    default: true,
-    title: 'TEST_SIGNUP'
+    default: false,
+    title: 'Signup'
   }
 }

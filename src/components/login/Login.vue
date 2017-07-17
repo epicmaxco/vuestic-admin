@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <h2>Welcome!</h2>
-    <form method="post" action="#" name="login">
+    <form method="get" action="/" name="login">
       <div class="form-group">
         <div class="input-group">
           <input type="text" id="email" required="required"/>
@@ -14,33 +14,38 @@
           <label class="control-label" for="password">PASSWORD</label><i class="bar"></i>
         </div>
       </div>
-      <div class="d-flex align-items-center justify-content-between down-container">
-        <button v-on:click="asdf" class="btn btn-primary" type="submit">
+      <div class="d-flex flex-column flex-lg-row align-items-center justify-content-between down-container">
+        <button class="btn btn-primary" type="submit">
           LOGIN
         </button>
-        <router-link to="/signup">Create account</router-link>
+        <router-link class='link' to="/signup">Create account</router-link>
       </div>
     </form>
   </div>
 </template>
 
 <script>
-  import {mapMutations} from 'vuex'
-
   export default {
-    name: 'login',
-    methods: {
-      ...mapMutations(['authorize']),
-      asdf () {
-        this.authorize(true)
-        this.$router.push({path: '/'})
-      }
-    }
+    name: 'login'
   }
 </script>
 
 <style lang="scss">
+  @import '../../sass/variables';
+  @import '../../../node_modules/bootstrap/scss/mixins/breakpoints';
+  @import '../../../node_modules/bootstrap/scss/variables';
   .login {
+    @include media-breakpoint-down(md) {
+      width: 100%;
+      padding-right: 2rem;
+      padding-left: 2rem;
+      .down-container {
+        .link {
+          margin-top: 2rem;
+        }
+      }
+    }
+
     h2 {
       text-align: center;
     }

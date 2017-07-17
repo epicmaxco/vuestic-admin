@@ -5,11 +5,13 @@ import dashboard from './dashboard'
 import ui from './ui'
 import maps from './maps'
 import tables from './tables'
-import TEST_SIGNUP from './TEST_SIGNUP'
+import signup from './signup'
+import login from './login'
 
 const state = {
   items: [
-    TEST_SIGNUP,
+    signup,
+    login,
     dashboard,
     statistics,
     forms,

@@ -4,7 +4,6 @@ const state = {
   sidebar: {
     opened: false
   },
-  isAuthorized: false,
   config: {
     googleMaps: {
       apiKey: 'AIzaSyBNAqPrTQoz9P4NBlDDyfxrnKiafkaL8iQ'
@@ -15,11 +14,6 @@ const state = {
 const mutations = {
   [types.TOGGLE_SIDEBAR] (state, opened) {
     state.sidebar.opened = opened
-  },
-  authorize (state, authorized) {
-    if (authorized) {
-      state.isAuthorized = authorized
-    }
   }
 }
 

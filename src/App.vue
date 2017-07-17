@@ -8,7 +8,6 @@
 <script>
   import Layout from 'components/layout/Layout'
   import UnauthorizedLayout from 'components/layout/UnauthorizedLayout'
-  import {mapGetters} from 'vuex'
 
   export default {
     name: 'app',
@@ -17,7 +16,9 @@
       UnauthorizedLayout
     },
     computed: {
-      ...mapGetters(['isAuthorized'])
+      isAuthorized () {
+        return !(this.$route.path === '/login' || this.$route.path === '/signup')
+      }
     }
   }
 </script>

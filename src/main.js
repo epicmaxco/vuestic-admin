@@ -13,17 +13,16 @@ Vue.use(VeeValidate)
 
 sync(store, router)
 
-router.afterEach((to, from) => {
-  if (to.fullPath !== '/login' && to.fullPath !== '/signup' && !store.getters.isAuthorized) {
-    router.push('/login')
-  } else if ((to.fullPath === '/login' || to.fullPath === '/signup') && store.getters.isAuthorized) {
-    router.push('/')
-  }
+let mediaHandler = () => {
   if (window.matchMedia('(min-width: 992px)').matches) {
     store.dispatch('toggleSidebar', true)
   } else {
     store.dispatch('toggleSidebar', false)
   }
+}
+
+router.afterEach((to, from) => {
+  mediaHandler()
 })
 
 /* eslint-disable no-new */
