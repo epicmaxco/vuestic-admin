@@ -15,7 +15,15 @@
     </div>
 
     <div class="wizard-body">
-      <div class="wizard-body-step"><slot :name="currentSlot" class="step-content"></slot></div>
+      <div class="wizard-body-step" v-for="step in steps" v-show="isStepShown(step)">
+        <slot :name="step.slot" class="step-content"></slot>
+      </div>
+
+      <div class="wizard-body-step" v-show="wizardCompleted">
+        <slot :name="wizardCompletedSlotName" class="step-content"></slot>
+      </div>
+
+
       <div class="wizard-body-actions clearfix" v-if="!wizardCompleted">
         <button v-if="backEnabled" class="btn btn-secondary wizard-back pull-left" @click="goBack()">
           Back
@@ -98,6 +106,7 @@
         }
       },
       goBack () {
+        this.currentStepOnBack()
         if (this.currentStep > 0) {
           this.currentStep--
         }
@@ -115,8 +124,17 @@
           step.onNext()
         }
       },
+      currentStepOnBack () {
+        let step = this.steps[this.currentStep]
+        if (step.onBack) {
+          step.onBack()
+        }
+      },
       isCurrentStepValid () {
         return this.steps[this.currentStep].isValid()
+      },
+      isStepShown (step) {
+        return step.slot === this.currentSlot && !this.wizardCompleted
       }
     }
   }

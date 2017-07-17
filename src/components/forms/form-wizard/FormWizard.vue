@@ -259,7 +259,7 @@
             label: 'Step 1. Email',
             slot: 'page1',
             onNext: () => {
-              this.$validator.validate('hsEmail')
+              this.validateFormField('hsEmail')
             },
             isValid: () => {
               return this.isFormFieldValid('hsEmail')
@@ -285,7 +285,7 @@
             label: 'Step 1. Email',
             slot: 'page1',
             onNext: () => {
-              this.$validator.validate('hrEmail')
+              this.validateFormField('hrEmail')
             },
             isValid: () => {
               return this.isFormFieldValid('hrEmail')
@@ -311,10 +311,9 @@
             label: 'Step 1. Email',
             slot: 'page1',
             onNext: () => {
-              this.$validator.validate('vrEmail')
+              this.validateFormField('vrEmail')
             },
             isValid: () => {
-              console.log('is valid', this.isFormFieldValid('vrEmail'))
               return this.isFormFieldValid('vrEmail')
             }
           },
@@ -338,7 +337,7 @@
             label: 'Step 1. Email',
             slot: 'page1',
             onNext: () => {
-              this.$validator.validate('vsEmail')
+              this.validateFormField('vsEmail')
             },
             isValid: () => {
               return this.isFormFieldValid('vsEmail')
@@ -379,6 +378,9 @@
           isValid = this.fields[field].validated && this.fields[field].valid
         }
         return isValid
+      },
+      validateFormField (fieldName) {
+        this.$validator.validate(fieldName, this[fieldName])
       }
     }
   }
