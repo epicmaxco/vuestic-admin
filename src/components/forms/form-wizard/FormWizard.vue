@@ -1,5 +1,5 @@
 <template>
-  <div class="form-wizard">
+  <div class="form-wizard-page">
     <div class="row">
       <div class="col-md-12">
         <widget class="no-h-padding" header-text="Simple Wizard">
@@ -397,6 +397,14 @@
       @include media-breakpoint-down(sm) {
         padding: $widget-padding 0;
       }
+    }
+  }
+
+  .form-wizard-page {
+    .form-group {
+      min-width: 200px;
+      max-width: 360px;
+      width: 80%;
     }
   }
 </style>
