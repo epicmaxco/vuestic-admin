@@ -1,7 +1,8 @@
 <template>
-    <ul class="wizard-steps horizontal-steps simple-steps">
+    <ul class="wizard-steps horizontal-steps simple-steps" :class="{'completed': completed}">
       <li class="wizard-step" :class="{'active': currentStep >= index, 'current': currentStep === index}" :style="{ height: 100/steps.length + '%' }" v-for="(step, index) of steps">
         <span class="wizard-step-line"></span>
+        <span class="wizard-step-line completed-line"></span>
         <span class="wizard-step-label ellipsis">{{step.label}}</span>
         <span class="wizard-step-indicator"></span>
       </li>
@@ -19,6 +20,10 @@
       currentStep: {
         type: Number,
         default: 0
+      },
+      completed: {
+        type: Boolean,
+        default: false
       }
     }
   }
@@ -64,6 +69,10 @@
       top: -50%;
       background-color: $lighter-gray;
       transition: background-color 300ms linear;
+
+      &.completed-line {
+        display: none;
+      }
     }
 
     .wizard-step-indicator{
@@ -102,8 +111,14 @@
 
     &:last-child {
       .wizard-step-line {
-        height: calc(150% + #{$wizard-steps-p-v});
+        height: 100%;
         top: -50%;
+
+        &.completed-line {
+          display: block;
+          top: 50%;
+          height: calc(50% + #{$wizard-steps-p-v})
+        }
       }
     }
 
@@ -111,7 +126,8 @@
       .wizard-step-indicator{
         background-color: $brand-primary;
       }
-      .wizard-step-line{
+      
+      .wizard-step-line:not(.completed-line), .completed & .wizard-step-line {
         background-color: $brand-primary;
       }
 
@@ -119,7 +135,11 @@
         color: $brand-primary;
       }
 
-      &.current:not(:last-child) .wizard-step-label {
+      .wizard-step-label, .completed &.current .wizard-step-label {
+        color: $brand-primary;
+      }
+
+      &.current .wizard-step-label {
         color: $vue-darkest-blue;
       }
     }
