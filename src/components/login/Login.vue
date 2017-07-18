@@ -18,7 +18,7 @@
         <button class="btn btn-primary" type="submit">
           LOGIN
         </button>
-        <router-link class='link' to="/signup">Create account</router-link>
+        <router-link class='link' :to="{name: 'Signup'}">Create account</router-link>
       </div>
     </form>
   </div>

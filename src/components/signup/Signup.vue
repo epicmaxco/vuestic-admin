@@ -24,7 +24,7 @@
         <button class="btn btn-primary" type="submit">
           SIGN UP
         </button>
-        <router-link class='link' to="/login">Already joined?</router-link>
+        <router-link class='link' :to="{name: 'Login'}">Already joined?</router-link>
       </div>
     </form>
   </div>
