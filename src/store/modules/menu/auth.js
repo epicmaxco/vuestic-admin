@@ -12,7 +12,7 @@ export default {
   children: [
     {
       name: 'Login',
-      path: '/login',
+      path: '/auth/login',
       component: lazyLoading('login/Login'),
       meta: {
         default: false,
@@ -21,7 +21,7 @@ export default {
     },
     {
       name: 'Signup',
-      path: '/signup',
+      path: '/auth/signup',
       component: lazyLoading('signup/Signup'),
       meta: {
         default: false,
