@@ -4,13 +4,13 @@
       <div class="col-xs-12 col-md-12">
         <widget headerText="Basic Table">
           <div class="table-responsive">
-            <table class="table table-striped table-sm">
+            <table class="table table-striped">
               <thead>
               <tr>
-                <td>NAME</td>
-                <td>EMAIL</td>
-                <td>CITY</td>
-                <td align="right">SCORE</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>City</td>
+                <td align="right">Score</td>
                 <td></td>
               </tr>
               </thead>
@@ -82,14 +82,14 @@
       <div class="col-md-12">
         <widget headerText="Colors, Icons, Labels">
           <div class="table-responsive">
-            <table class="table table-striped table-sm">
+            <table class="table table-striped table-sm color-icon-label-table">
               <thead>
               <tr>
                 <td></td>
-                <td>NAME</td>
-                <td>EMAIL</td>
-                <td>CITY</td>
-                <td align="right">SCORE</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>City</td>
+                <td align="right">Score</td>
                 <td align="middle"></td>
               </tr>
               </thead>
@@ -189,4 +189,9 @@
 
 <style lang="scss">
 
+  .color-icon-label-table {
+    td:first-child {
+      width: 1rem;
+    }
+  }
 </style>
