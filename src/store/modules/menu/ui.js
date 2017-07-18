@@ -32,7 +32,6 @@ export default {
       },
       children: [
         {
-          name: 'Icons',
           path: '', // Default route
           component: lazyLoading('ui/icons/SetsList'),
           meta: {
