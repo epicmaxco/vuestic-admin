@@ -17,7 +17,6 @@
         return require(this.setsPath + 'names.json')
       },
       sets () {
-        console.log('Computed!')
         let sets = []
         this.names.forEach(name => {
           let set = require(this.setsPath + name + '.json')

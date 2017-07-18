@@ -4,7 +4,7 @@
       <div class="row">
         <div class="header-text col-lg-4">
           <h2>{{set.name}}</h2>
-          <router-link :to="{name: 'Icons'}">Back to icons</router-link>
+          <router-link :to="{path: '/ui/icons'}">Back to icons</router-link>
         </div>
 
         <div class="search col-lg-4">
