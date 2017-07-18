@@ -1,5 +1,5 @@
 <template>
-  <div class="setOfIcons row">
+  <div class="Set row">
     <div class="header col-12">
       <div class="row">
         <div class="header-text col-lg-4">
@@ -43,7 +43,6 @@
 
 <script>
   import Widget from '../../common/widget/Widget'
-  import {mapGetters} from 'vuex'
   import Slider from 'vue-slider-component'
 
   export default {
@@ -51,19 +50,18 @@
       Widget,
       Slider
     },
-    name: 'full-set',
-    props: ['nameOfSet'],
+    name: 'set',
+    props: ['name', 'sets'],
     methods: {
       iconClass (icon) {
         return this.set.prefix + ' ' + this.set.prefix + '-' + icon
       }
     },
     computed: {
-      ...mapGetters([
-        'setOfIconsByName'
-      ]),
       set () {
-        return this.setOfIconsByName(this.nameOfSet)
+        for (let set of this.sets) {
+          if (set.name === this.name) return set
+        }
       },
       validatedLists () {
         if (this.selector === '') {
@@ -102,7 +100,7 @@
   @import '../../../../node_modules/bootstrap/scss/mixins/breakpoints';
   @import '../../../../node_modules/bootstrap/scss/variables';
 
-  .setOfIcons {
+  .Set{
     .header {
       background-color: white;
       padding: 1.75rem 0 1.125rem 0;

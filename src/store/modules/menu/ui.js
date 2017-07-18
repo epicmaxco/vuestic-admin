@@ -26,24 +26,22 @@ export default {
     },
     {
       path: '/ui/icons',
-      component: {
-        template: '<router-view></router-view>'
-      },
+      component: lazyLoading('ui/icons/Icons'),
       meta: {
         title: 'Icons'
       },
       children: [
         {
           name: 'Icons',
-          path: '',
-          component: lazyLoading('ui/icons/Icons'),
+          path: '', // Default route
+          component: lazyLoading('ui/icons/SetsList'),
           meta: {
             title: 'Icons'
           }
         },
         {
-          path: ':nameOfSet',
-          component: lazyLoading('ui/icons/FullSet'),
+          path: ':name',
+          component: lazyLoading('ui/icons/Set'),
           props: true,
           meta: {
             title: 'Set'
