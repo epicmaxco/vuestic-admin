@@ -8,17 +8,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     ...generateRoutesFromMenu(menuModule.state.items),
-    {path: '*', redirect: { name: getDefaultRoute(menuModule.state.items).name }},
-    {
-      name: 'login',
-      path: '/login',
-      component: () => import('components/login/Login')
-    },
-    {
-      name: 'Signup',
-      path: '/signup',
-      component: () => import('components/signup/Signup')
-    }
+    {path: '*', redirect: { name: getDefaultRoute(menuModule.state.items).name }}
   ]
 })
 
