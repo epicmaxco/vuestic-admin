@@ -5,6 +5,7 @@ const state = {
     opened: false,
     withoutAnimation: false
   },
+  isAuthorized: true,
   config: {
     googleMaps: {
       apiKey: 'AIzaSyBNAqPrTQoz9P4NBlDDyfxrnKiafkaL8iQ'
@@ -19,6 +20,9 @@ const mutations = {
   },
   [types.TOGGLE_WITHOUT_ANIMATION] (state, value) {
     state.sidebar.withoutAnimation = value
+  },
+  authorize (state, flag) {
+    state.isAuthorized = flag
   }
 }
 
