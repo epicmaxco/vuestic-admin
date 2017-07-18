@@ -1,11 +1,12 @@
 <template>
-  <div class="unauthorized-layout">
+  <div class="auth-layout">
     <div class="nav hidden-lg-up"><i class="i-vuestic"></i></div>
     <div class="main row">
-      <div class="left-side col-lg-6 col-12">
+      <div class="auth-content col-lg-6 col-12">
         <router-view></router-view>
       </div>
-      <div class="right-side col-6 hidden-md-down">
+      <div class="auth-wallpaper col-6 hidden-md-down">
+        <div class="oblique"></div>
         <span class="i-vuestic"></span>
       </div>
     </div>
@@ -14,7 +15,7 @@
 
 <script>
   export default {
-    name: 'UnauthorizedLayout'
+    name: 'AuthLayout'
   }
 </script>
 
@@ -22,7 +23,7 @@
   @import '../../sass/variables';
   @import '../../../node_modules/bootstrap/scss/mixins/breakpoints';
   @import '../../../node_modules/bootstrap/scss/variables';
-  .unauthorized-layout {
+  .auth-layout {
     height: 100%;
     margin: 0;
     .nav {
@@ -39,29 +40,39 @@
     .main {
       margin: 0;
       height: 100%;
-      .left-side {
+      .auth-content {
         padding: 0;
         display: flex;
         align-items: center;
         justify-content: center;
         background-color: white;
       }
-      .right-side {
-        .i-vuestic {
-          height: 2.625rem;
-          width: 100%;
-        }
+      .auth-wallpaper {
         background-color: $top-nav-bg;
+        overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
+        .i-vuestic {
+          z-index: 2;
+          height: 2.625rem;
+          width: 100%;
+        }
+        .oblique {
+          position: absolute;
+          background-color: #282828;
+          left: calc(50% - 27%/2);
+          transform: rotate(15deg);
+          width: 27%;
+          height: 115%;
+        }
       }
     }
 
     @include media-breakpoint-down(md) {
       .main {
         height: calc(100% - #{$top-mobile-nav-height});
-        .left-side {
+        .auth-content {
           align-items: flex-start;
           padding-top: 2.875rem;
         }

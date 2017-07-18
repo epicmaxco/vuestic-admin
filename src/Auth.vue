@@ -1,16 +1,16 @@
 <template>
   <div id="auth" class="auth">
-    <unauthorized-layout></unauthorized-layout>
+    <auth-layout></auth-layout>
   </div>
 </template>
 
 <script>
-  import UnauthorizedLayout from './components/layout/UnauthorizedLayout'
+  import AuthLayout from './components/layout/AuthLayout'
 
   export default {
     name: 'auth',
     components: {
-      UnauthorizedLayout
+      AuthLayout
     }
   }
 </script>
