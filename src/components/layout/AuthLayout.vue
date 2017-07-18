@@ -33,7 +33,7 @@
       height: $top-mobile-nav-height;
       background-color: $top-nav-bg;
       .i-vuestic {
-        height: 1.5rem;
+        height: $auth-mobile-nav-ivuestic-h;
         width: 100%;
       }
     }
@@ -55,12 +55,12 @@
         justify-content: center;
         .i-vuestic {
           z-index: 2;
-          height: 2.625rem;
+          height: $auth-wallpaper-ivuestic-h;
           width: 100%;
         }
         .oblique {
           position: absolute;
-          background-color: #282828;
+          background-color: $auth-wallpaper-oblique-line;
           left: calc(50% - 27%/2);
           transform: rotate(15deg);
           width: 27%;
@@ -71,10 +71,10 @@
 
     @include media-breakpoint-down(md) {
       .main {
-        height: calc(100% - #{$top-mobile-nav-height});
+        height: $auth-mobile-main-h;
         .auth-content {
           align-items: flex-start;
-          padding-top: 2.875rem;
+          padding-top: $auth-content-padding-t;
         }
       }
     }
