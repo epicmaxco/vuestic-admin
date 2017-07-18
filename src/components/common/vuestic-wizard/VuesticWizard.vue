@@ -1,28 +1,47 @@
 <template>
-  <div class="wizard" :class="wizardLayout">
+  <div
+    class="wizard"
+    :class="computedLayout"
+    v-orientation-handler="{ layout: wizardLayout,  breakPoint: orientationBreakPoint }">
 
-    <div v-if="wizardLayout === 'horizontal'" class="indicator-container">
-      <simple-horizontal-indicator v-if="wizardType === 'simple'" :steps="steps" :currentStep="currentStep"></simple-horizontal-indicator>
-      <rich-horizontal-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep"></rich-horizontal-indicator>
+    <div v-if="computedLayout === 'horizontal'" class="indicator-container indicator-container-horizontal">
+      <simple-horizontal-indicator v-if="wizardType === 'simple'" :steps="steps" :currentStep="currentStep" :completed="wizardCompleted"></simple-horizontal-indicator>
+      <rich-horizontal-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep" :completed="wizardCompleted"></rich-horizontal-indicator>
     </div>
 
-    <div v-if="wizardLayout === 'vertical'" class="indicator-container">
-      <rich-vertical-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep"></rich-vertical-indicator>
-      <simple-vertical-indicator v-if="wizardType === 'simple'" :steps="steps" :currentStep="currentStep"></simple-vertical-indicator>
+    <div v-if="computedLayout === 'vertical'" class="indicator-container indicator-container-vertical">
+      <rich-vertical-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep" :completed="wizardCompleted"></rich-vertical-indicator>
+      <simple-vertical-indicator v-if="wizardType === 'simple'" :steps="steps" :currentStep="currentStep" :completed="wizardCompleted"></simple-vertical-indicator>
     </div>
 
     <div class="wizard-body">
-      <div class="wizard-body-step"><slot :name="currentSlot" class="step-content"></slot></div>
-      <div class="wizard-body-actions clearfix">
-        <button v-if="backEnabled" class="btn btn-secondary wizard-back pull-left" @click="goBack()">
-          Back
-        </button>
-        <button v-if="!isLastStep()" class="btn btn-primary wizard-next pull-right" @click="goNext()">
-          Next
-        </button>
-        <button v-if="currentStep == steps.length - 1" class="btn btn-primary wizard-next pull-right final-step" @click="goNext()">
-          {{finalStepLabel}}
-        </button>
+      <div class="wizard-body-step" v-for="step in steps" v-show="isStepShown(step)">
+        <slot :name="step.slot" class="step-content"></slot>
+      </div>
+
+      <div class="wizard-body-step" v-show="wizardCompleted">
+        <slot :name="wizardCompletedSlotName" class="step-content"></slot>
+      </div>
+
+
+      <div class="wizard-body-actions" v-if="!wizardCompleted">
+        <div class="btn-container" v-if="backEnabled">
+          <button class="btn btn-secondary wizard-back pull-left" @click="goBack()">
+            Back
+          </button>
+        </div>
+
+        <div class="btn-container" v-if="!isLastStep()">
+          <button class="btn btn-primary wizard-next pull-right" @click="goNext()">
+            Next
+          </button>
+        </div>
+
+        <div class="btn-container" v-if="currentStep == steps.length - 1">
+          <button  class="btn btn-primary wizard-next pull-right final-step" @click="completeWizard()">
+            {{lastStepLabel}}
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -33,6 +52,7 @@
   import RichHorizontalIndicator from './indicators/RichHorizontalIndicator.vue'
   import RichVerticalIndicator from './indicators/RichVerticalIndicator.vue'
   import SimpleVerticalIndicator from './indicators/SimpleVerticalIndicator.vue'
+  import WizardOrientationHandler from './WizardOrientationHandler'
 
   export default {
     name: 'vuestic-wizard',
@@ -46,13 +66,17 @@
         type: String,
         default: 'horizontal'
       },
-      finalStepLabel: {default: 'Save'},
+      lastStepLabel: {default: 'Confirm'},
       onNext: {},
       onBack: {}
     },
     data () {
       return {
-        currentStep: 0
+        currentStep: 0,
+        wizardCompleted: false,
+        wizardCompletedSlotName: 'wizardCompleted',
+        orientationBreakPoint: 767, // TODO: into config,
+        computedLayout: this.wizardLayout
       }
     },
     components: {
@@ -61,30 +85,43 @@
       RichVerticalIndicator,
       SimpleVerticalIndicator
     },
+    directives: {
+      orientationHandler: WizardOrientationHandler
+    },
     computed: {
       currentSlot () {
-        return this.steps[this.currentStep].slot
+        let slotName = this.steps[this.currentStep].slot
+        if (this.wizardCompleted) {
+          slotName = this.wizardCompletedSlotName
+        }
+        return slotName
       },
       backEnabled () {
         return this.currentStep !== 0
       }
     },
+    created () {
+      this.$on('wizardLayoutChange', this.updateLayout)
+    },
     methods: {
+      updateLayout (layout) {
+        this.computedLayout = layout
+      },
       goNext () {
         this.currentStepOnNext()
         if (!this.isLastStep() && this.isCurrentStepValid()) {
           this.currentStep++
         }
       },
-      goBack (skipFunction) {
-        if (!skipFunction && typeof this.onBack === 'function') {
-          if (!this.onBack(this.currentStep)) {
-            return
-          }
-        }
+      goBack () {
+        this.currentStepOnBack()
         if (this.currentStep > 0) {
           this.currentStep--
         }
+      },
+      completeWizard () {
+        this.wizardCompleted = true
+        this.goNext()
       },
       isLastStep () {
         return this.currentStep === this.steps.length - 1
@@ -95,8 +132,17 @@
           step.onNext()
         }
       },
+      currentStepOnBack () {
+        let step = this.steps[this.currentStep]
+        if (step.onBack) {
+          step.onBack()
+        }
+      },
       isCurrentStepValid () {
         return this.steps[this.currentStep].isValid()
+      },
+      isStepShown (step) {
+        return step.slot === this.currentSlot && !this.wizardCompleted
       }
     }
   }
@@ -143,6 +189,10 @@
       > * {
         margin-bottom: $wizard-body-step-item-margin-bottom;
       }
+
+      > *:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -150,9 +200,11 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
+    align-items: baseline;
 
-    .btn:first-child:not(:last-child) {
-      margin-right: $wizard-body-step-item-margin-bottom;
+    .btn-container {
+      margin: $wizard-body-step-item-margin-bottom  $wizard-body-step-item-margin-bottom/2 0  $wizard-body-step-item-margin-bottom/2;
     }
   }
 
@@ -167,8 +219,10 @@
 
     .indicator-container {
       flex-basis: $wizard-indicator-vl-width;
+      max-width: $wizard-indicator-vl-width;
       flex-grow: 0;
       flex-shrink: 0;
+      position: relative;
     }
   }
 

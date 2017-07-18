@@ -49,6 +49,8 @@ h4, .h4 {
   box-shadow: $btn-box-shadow;
   font-family: inherit;
   letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
 
   &.dropdown-toggle.theme-toggle {
     @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-border-radius);

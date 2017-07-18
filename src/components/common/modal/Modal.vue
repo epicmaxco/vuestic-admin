@@ -124,6 +124,7 @@
 
 <style lang="scss" scoped>
   @import "../../../sass/_variables.scss";
+  @import "../../../../node_modules/bootstrap/scss/variables";
 
   // For Transitioning
   .modal {
@@ -166,5 +167,9 @@
     .btn {
       margin: 0 $modal-footer-btns-margin-x $modal-footer-btns-padding-bottom $modal-footer-btns-margin-x;
     }
+  }
+
+  .modal-dialog {
+    box-shadow: $modal-content-sm-up-box-shadow;
   }
 </style>

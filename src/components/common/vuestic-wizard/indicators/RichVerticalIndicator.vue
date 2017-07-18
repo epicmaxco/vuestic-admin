@@ -1,10 +1,10 @@
 <template>
-    <ul class="wizard-steps horizontal-steps rich-steps">
+    <ul class="wizard-steps horizontal-steps rich-steps" :class="{'completed': completed}">
       <li class="wizard-step" :class="{'active': currentStep >= index, 'current': currentStep === index}" :style="{ height: 100/steps.length + '%' }" v-for="(step, index) of steps">
         <span class="wizard-step-line"></span>
         <i class="ion ion-android-close step-icon icon-cross"></i>
         <i class="ion ion-android-done step-icon icon-check"></i>
-        <span class="wizard-step-label">{{step.label}}</span>
+        <span class="wizard-step-label ellipsis">{{step.label}}</span>
       </li>
     </ul>
 </template>
@@ -20,6 +20,10 @@
       currentStep: {
         type: Number,
         default: 0
+      },
+      completed: {
+        type: Boolean,
+        default: false
       }
     }
   }
@@ -29,6 +33,7 @@
   @import "../../../../sass/_variables.scss";
 
   $wizard-steps-height: 100%;
+  $wizard-steps-width: 100%;
   $wizard-step-label-font-size: $font-size-h4;
   $wizard-steps-padding: 0;
   $wizard-step-padding: 0.625rem 0;
@@ -41,7 +46,10 @@
     list-style-type:  none;
     padding: $wizard-steps-padding;
     height: $wizard-steps-height;
-    position:  relative;
+    width: $wizard-steps-width;
+    position:  absolute;
+    top: 0;
+    bottom: 0;
   }
   .wizard-step{
     padding: $wizard-step-padding;
@@ -90,7 +98,7 @@
         background-color: $brand-primary;
       }
 
-      &:not(.current), &.current:last-child {
+      &:not(.current), .completed &.current {
         .step-icon.icon-cross {
           display: none;
         }
@@ -100,8 +108,12 @@
         }
       }
 
-      &.current:not(:last-child) {
+      &.current {
         color: $vue-darkest-blue;
+      }
+
+      .completed &.current {
+        color: $brand-primary;
       }
     }
   }
