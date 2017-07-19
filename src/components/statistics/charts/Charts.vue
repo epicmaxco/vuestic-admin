@@ -44,7 +44,7 @@
     <div class="row">
       <div class="col-md-6">
         <widget class="chart-widget"  header-text="Pie Chart">
-          <pie-chart v-bind:chart-data="pieChartData"></pie-chart>
+          <vuestic-pie-chart :data="pieChartData"></vuestic-pie-chart>
         </widget>
       </div>
       <div class="col-md-6">
@@ -67,8 +67,8 @@
   import LayeredColumnChartData from './layered-column-chart/LayeredColumnChartData'
   import ClusteredBarChart from './clustered-bar-chart/ClusteredBarChart.vue'
   import ClusteredBarChartData from './clustered-bar-chart/ClusteredBarChartData'
-  import PieChart from './pie-chart/PieChart.vue'
-  import PieChartData from './pie-chart/PieChartData'
+  import VuesticPieChart from './vuestic-pie-chart/VuesticPieChart.vue'
+  import PieChartData from './vuestic-pie-chart/PieChartData'
   import DonutChart from './donut-chart/DonutChart.vue'
   import DonutChartData from './donut-chart/DonutChartData'
   import ComboChart from './combo-chart/ComboChart.vue'
@@ -84,7 +84,7 @@
       TimeBasedAreaChart,
       LayeredColumnChart,
       ClusteredBarChart,
-      PieChart,
+      VuesticPieChart,
       DonutChart,
       ComboChart
     },
