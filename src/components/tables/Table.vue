@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-xs-12 col-md-12">
         <widget headerText="Basic Table">
+          <vuetable></vuetable>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -181,6 +182,7 @@
 
 <script>
   import Widget from '../common/widget/Widget'
+  
   export default {
     components: {Widget},
     names: 'Table'
