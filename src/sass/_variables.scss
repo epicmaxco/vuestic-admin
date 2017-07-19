@@ -20,7 +20,7 @@ $brand-warning: $theme-orange;
 $brand-info: $theme-blue;
 $brand-success: $theme-violet;
 $light-gray2: #eff4f5;
-$auth-wallpaper-oblique-line: #282828;
+$dark-gray: #282828;
 
 $colors-map: (
   brand-danger: $brand-danger,
@@ -57,7 +57,9 @@ $greeny-box-shadow : 0px 10px 25px 1px rgba(74, 227, 135, 0.2);
 
 $min-z-index : -1000;
 
+//Auth
 $auth-wallpaper-ivuestic-h: 2.625rem;
+$auth-wallpaper-oblique-line: $dark-gray;
 
 //Mobile Layout
 $top-mobile-nav-height: 5.625rem;
@@ -80,6 +82,7 @@ $nav-mobile-brand-left: calc(50% - #{$nav-mobile-brand-width});
 $droppdown-mobile-mp: 1.9375rem;
 $dropdown-mobile-show-b: -$droppdown-mobile-mp - 1;
 
+//Auth mobile
 $auth-mobile-nav-ivuestic-h: 1.5rem;
 $auth-mobile-main-h: calc(100% - #{$top-mobile-nav-height});
 $auth-content-padding-t: 2.875rem;
