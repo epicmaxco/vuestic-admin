@@ -8,9 +8,9 @@
               <div class="btn btn-primary btn">{{set.name.toUpperCase()}}</div></router-link>
             </div>
             <div>
-              <template v-for="subList in set.subLists">
+              <template v-for="filteredList in set.filteredLists">
                 <div class="row">
-                  <div class="col-sm-2" v-for="icon in subList">
+                  <div class="col-sm-2" v-for="icon in filteredList">
                     <div class="icon">
                       <i :class="iconClass(set, icon)" aria-hidden="true"></i>
                     </div>

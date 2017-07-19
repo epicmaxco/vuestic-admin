@@ -81,11 +81,12 @@
     data: function () {
       return {
         selector: '',
-        iconSize: 20,
+        iconSize: 30,
         slider: {
+          formatter: v => `${v}px`,
           height: 2,
           direction: 'horizontal',
-          min: 0,
+          min: 20,
           max: 40,
           interval: 1,
           speed: 0.5

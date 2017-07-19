@@ -13,27 +13,24 @@
       FullSet
     },
     computed: {
-      names () {
-        return require(this.setsPath + 'names.json')
-      },
       sets () {
         let sets = []
-        this.names.forEach(name => {
+        require(this.setsPath + 'names.json').forEach(name => {
           let set = require(this.setsPath + name + '.json')
-          this.addSublistsTo(set)
+          this.addfilteredListsTo(set)
           sets.push(set)
         })
         return sets
       }
     },
     methods: {
-      addSublistsTo (set) {
+      addfilteredListsTo (set) {
         let list = set.lists[0].icons
-        let subLists = []
-        subLists.push(list.slice(0, 6))
-        subLists.push(list.slice(6, 12))
-        subLists.push(list.slice(12, 18))
-        set.subLists = subLists
+        let filteredLists = []
+        filteredLists.push(list.slice(0, 6))
+        filteredLists.push(list.slice(6, 12))
+        filteredLists.push(list.slice(12, 18))
+        set.filteredLists = filteredLists
       }
     },
     data () {
