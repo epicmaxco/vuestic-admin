@@ -139,7 +139,7 @@
       margin-bottom: 3.75rem;
     }
 
-    .custom-progress-bar {
+    .vuestic-progress-bar {
       .progress.thick {
         margin-top: calc(#{$progress-bar-width-thick}/2 - .125rem);
       }

@@ -9,18 +9,18 @@
               <p>Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
                 soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
                 their teeth all send a signal. For example, ears flat back means trouble, or "you better follow orders!"</p>
-              <div class="form-group with-icon-right" :class="{'has-error': errors.has('hsEmail'), 'valid': isFormFieldValid('hsEmail')}">
+              <div class="form-group with-icon-right" :class="{'has-error': errors.has('hsName'), 'valid': isFormFieldValid('hsName')}">
                 <div class="input-group">
                   <input
                     type="text"
-                    name="hsEmail"
-                    v-model="hsEmail"
-                    v-validate="'required|email'"
+                    name="hsName"
+                    v-model="hsName"
+                    v-validate="'required'"
                     required="required"/>
                   <i class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
                   <i class="fa fa-check valid-icon icon-right input-icon"></i>
-                  <label class="control-label">Email</label><i class="bar"></i>
-                  <small v-show="errors.has('hsEmail')" class="help text-danger">{{ errors.first('hsEmail') }}</small>
+                  <label class="control-label">Name</label><i class="bar"></i>
+                  <small v-show="errors.has('hsName')" class="help text-danger">{{ errors.first('hsName') }}</small>
                 </div>
               </div>
             </div>
@@ -68,18 +68,18 @@
               <p>Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
                 soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
                 their teeth all send a signal. For example, ears flat back means trouble, or "you better follow orders!"</p>
-              <div class="form-group with-icon-right" :class="{'has-error': errors.has('hrEmail'), 'valid': isFormFieldValid('hrEmail')}">
+              <div class="form-group with-icon-right" :class="{'has-error': errors.has('hrName'), 'valid': isFormFieldValid('hrName')}">
                 <div class="input-group">
                   <input
                     type="text"
-                    name="hrEmail"
-                    v-model="hrEmail"
-                    v-validate="'required|email'"
+                    name="hrName"
+                    v-model="hrName"
+                    v-validate="'required'"
                     required="required"/>
                   <i class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
                   <i class="fa fa-check valid-icon icon-right input-icon"></i>
-                  <label class="control-label">Email</label><i class="bar"></i>
-                  <small v-show="errors.has('hrEmail')" class="help text-danger">{{ errors.first('hrEmail') }}</small>
+                  <label class="control-label">Name</label><i class="bar"></i>
+                  <small v-show="errors.has('hrName')" class="help text-danger">{{ errors.first('hrName') }}</small>
                 </div>
               </div>
             </div>
@@ -128,18 +128,18 @@
               <p>Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
                 soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
                 their teeth all send a signal. For example, ears flat back means trouble, or "you better follow orders!"</p>
-              <div class="form-group with-icon-right" :class="{'has-error': errors.has('vrEmail'), 'valid': isFormFieldValid('vrEmail')}">
+              <div class="form-group with-icon-right" :class="{'has-error': errors.has('vrName'), 'valid': isFormFieldValid('vrName')}">
                 <div class="input-group">
                   <input
                     type="text"
-                    name="vrEmail"
-                    v-model="vrEmail"
-                    v-validate="'required|email'"
+                    name="vrName"
+                    v-model="vrName"
+                    v-validate="'required'"
                     required="required"/>
                   <i class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
                   <i class="fa fa-check valid-icon icon-right input-icon"></i>
-                  <label class="control-label">Email</label><i class="bar"></i>
-                  <small v-show="errors.has('vrEmail')" class="help text-danger">{{ errors.first('vrEmail') }}</small>
+                  <label class="control-label">Name</label><i class="bar"></i>
+                  <small v-show="errors.has('vrName')" class="help text-danger">{{ errors.first('vrName') }}</small>
                 </div>
               </div>
             </div>
@@ -188,18 +188,18 @@
               <p>Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
                 soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
                 their teeth all send a signal. For example, ears flat back means trouble, or "you better follow orders!"</p>
-              <div class="form-group with-icon-right" :class="{'has-error': errors.has('vsEmail'), 'valid': isFormFieldValid('vsEmail')}">
+              <div class="form-group with-icon-right" :class="{'has-error': errors.has('vsName'), 'valid': isFormFieldValid('vsName')}">
                 <div class="input-group">
                   <input
                     type="text"
-                    name="vsEmail"
-                    v-model="vsEmail"
-                    v-validate="'required|email'"
+                    name="vsName"
+                    v-model="vsName"
+                    v-validate="'required'"
                     required="required"/>
                   <i class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
                   <i class="fa fa-check valid-icon icon-right input-icon"></i>
-                  <label class="control-label">Email</label><i class="bar"></i>
-                  <small v-show="errors.has('vsEmail')" class="help text-danger">{{ errors.first('vsEmail') }}</small>
+                  <label class="control-label">Name</label><i class="bar"></i>
+                  <small v-show="errors.has('vsName')" class="help text-danger">{{ errors.first('vsName') }}</small>
                 </div>
               </div>
             </div>
@@ -256,13 +256,13 @@
       return {
         hsSteps: [
           {
-            label: 'Step 1. Email',
+            label: 'Step 1. Name',
             slot: 'page1',
             onNext: () => {
-              this.validateFormField('hsEmail')
+              this.validateFormField('hsName')
             },
             isValid: () => {
-              return this.isFormFieldValid('hsEmail')
+              return this.isFormFieldValid('hsName')
             }
           },
           {
@@ -282,13 +282,13 @@
         ],
         hrSteps: [
           {
-            label: 'Step 1. Email',
+            label: 'Step 1. Name',
             slot: 'page1',
             onNext: () => {
-              this.validateFormField('hrEmail')
+              this.validateFormField('hrName')
             },
             isValid: () => {
-              return this.isFormFieldValid('hrEmail')
+              return this.isFormFieldValid('hrName')
             }
           },
           {
@@ -308,13 +308,13 @@
         ],
         vrSteps: [
           {
-            label: 'Step 1. Email',
+            label: 'Step 1. Name',
             slot: 'page1',
             onNext: () => {
-              this.validateFormField('vrEmail')
+              this.validateFormField('vrName')
             },
             isValid: () => {
-              return this.isFormFieldValid('vrEmail')
+              return this.isFormFieldValid('vrName')
             }
           },
           {
@@ -334,13 +334,13 @@
         ],
         vsSteps: [
           {
-            label: 'Step 1. Email',
+            label: 'Step 1. Name',
             slot: 'page1',
             onNext: () => {
-              this.validateFormField('vsEmail')
+              this.validateFormField('vsName')
             },
             isValid: () => {
-              return this.isFormFieldValid('vsEmail')
+              return this.isFormFieldValid('vsName')
             }
           },
           {
@@ -358,13 +358,13 @@
             slot: 'page3'
           }
         ],
-        hsEmail: '',
+        hsName: '',
         hsCountry: '',
-        hrEmail: '',
+        hrName: '',
         hrCountry: '',
-        vrEmail: '',
+        vrName: '',
         vrCountry: '',
-        vsEmail: '',
+        vsName: '',
         vsCountry: '',
         email: '',
         countriesList: CountriesList,
