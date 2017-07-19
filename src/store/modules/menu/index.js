@@ -9,8 +9,8 @@ import auth from './auth'
 
 const state = {
   items: [
-    auth,
     dashboard,
+    auth,
     statistics,
     forms,
     tables,

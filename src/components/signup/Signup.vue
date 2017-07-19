@@ -1,7 +1,7 @@
 <template>
   <div class="signup">
     <h2>Create New Account</h2>
-    <form method="get" action="/" name="signup">
+    <form method="post" action="/auth/signup" name="signup">
       <div class="form-group">
         <div class="input-group">
           <input type="text" id="email" required="required"/>
