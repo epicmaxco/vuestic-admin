@@ -14,7 +14,7 @@ Vue.use(VeeValidate)
 sync(store, router)
 
 let mediaHandler = () => {
-  if (window.matchMedia('(min-width: 992px)').matches) {
+  if (window.matchMedia(store.getters.config.windowMatchSizeLg).matches) {
     store.dispatch('toggleSidebar', true)
   } else {
     store.dispatch('toggleSidebar', false)
