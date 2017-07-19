@@ -60,7 +60,7 @@
     computed: {
       set () {
         for (let set of this.sets) {
-          if (set.name === this.name) return set
+          if (set.href === this.name) return set
         }
       },
       validatedLists () {

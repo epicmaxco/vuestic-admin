@@ -4,7 +4,7 @@
       <div class="row">
         <div class="small-set col-lg-6" v-for="set in sets">
           <div class="set-content">
-            <div class="overlay"><router-link :to="{path: set.name}" append>
+            <div class="overlay"><router-link :to="{path: set.href}" append>
               <div class="btn btn-primary btn">{{set.name.toUpperCase()}}</div></router-link>
             </div>
             <div>
