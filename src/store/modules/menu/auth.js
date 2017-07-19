@@ -7,7 +7,8 @@ export default {
   name: 'auth',
   meta: {
     expanded: false,
-    title: 'Auth'
+    title: 'Auth',
+    iconClass: 'fa fa-sign-in'
   },
   children: [
     {
