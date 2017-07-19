@@ -49,7 +49,7 @@
       </div>
       <div class="col-md-6">
         <widget class="chart-widget"  header-text="Donut Chart">
-          <donut-chart v-bind:chart-data="donutChartData"></donut-chart>
+          <vuestic-donut-chart v-bind:data="donutChartData"></vuestic-donut-chart>
         </widget>
       </div>
     </div>
@@ -69,8 +69,8 @@
   import ClusteredBarChartData from './clustered-bar-chart/ClusteredBarChartData'
   import VuesticPieChart from './vuestic-pie-chart/VuesticPieChart.vue'
   import PieChartData from './vuestic-pie-chart/PieChartData'
-  import DonutChart from './donut-chart/DonutChart.vue'
-  import DonutChartData from './donut-chart/DonutChartData'
+  import VuesticDonutChart from './vuestic-donut-chart/VuesticDonutChart.vue'
+  import DonutChartData from './vuestic-donut-chart/DonutChartData'
   import ComboChart from './combo-chart/ComboChart.vue'
   import ComboChartData from './combo-chart/ComboChartData'
   import Widget from 'components/common/widget/Widget'
@@ -85,7 +85,7 @@
       LayeredColumnChart,
       ClusteredBarChart,
       VuesticPieChart,
-      DonutChart,
+      VuesticDonutChart,
       ComboChart
     },
     data: function () {

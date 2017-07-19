@@ -1,17 +1,17 @@
 <template>
-  <div class='pie-chart'>
-    <pie-chart :options="options" :data="data"></pie-chart>
+  <div class='donut-chart'>
+    <donut-chart :options="options" :data="data"></donut-chart>
   </div>
 </template>
 
 <script>
-  import PieChart from './PieChart'
+  import DonutChart from './DonutChart'
 
   export default {
-    name: 'vuestic-pie-chart',
+    name: 'vuestic-donut-chart',
     props: ['data', 'options'],
     components: {
-      PieChart
+      DonutChart
     }
   }
 </script>
@@ -19,7 +19,7 @@
 <style lang='scss'>
   @import '../../../../sass/_variables.scss';
 
-  .pie-chart {
+  .donut-chart {
     width: 100%;
     height: 100%;
     display: flex;
