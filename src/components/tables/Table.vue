@@ -3,7 +3,10 @@
     <div class="row">
       <div class="col-xs-12 col-md-12">
         <widget headerText="Basic Table">
-          <vuetable></vuetable>
+          <vuetable ref="vuetable"
+                    api-url="https://vuetable.ratiw.net/api/users"
+                    :fields="['name', 'email', 'birthdate']"
+          ></vuetable>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -182,9 +185,10 @@
 
 <script>
   import Widget from '../common/widget/Widget'
-  
+  import Vuetable from 'vuetable-2/src/components/Vuetable'
+
   export default {
-    components: {Widget},
+    components: {Widget, Vuetable},
     names: 'Table'
   }
 </script>
