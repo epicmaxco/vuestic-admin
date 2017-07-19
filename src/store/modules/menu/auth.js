@@ -4,11 +4,10 @@
 import lazyLoading from './lazyLoading'
 
 export default {
-  name: 'Auth',
+  name: 'auth',
   meta: {
     expanded: false,
-    title: 'Auth',
-    iconClass: 'fa fa-sign-in'
+    title: 'Auth'
   },
   children: [
     {
