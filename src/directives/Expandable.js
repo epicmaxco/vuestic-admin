@@ -1,19 +1,14 @@
-export default {
-  inserted: function (el, binding) {
+let directive = {
+  dom: null,
+  inserted: (el, binding) => {
     let items = binding.value.menuItems
     let scrollbar = binding.value.refs.Scrollbar
-    let parentId = binding.value.parentId
     let childClassName = binding.value.childClassName
     let childHeight = binding.value.childHeight
-    let domItems = document.getElementsByClassName(childClassName)
-    let scrollbarTransition = document.getElementById(parentId).getElementsByClassName('vue-scrollbar-transition')[0]
-
-    let calculateSizeHandler = event => {
-      scrollbar.calculateSize()
+    this.dom = {
+      elements: document.getElementsByClassName(childClassName),
+      handlers: []
     }
-
-    scrollbarTransition.addEventListener('transitionend', calculateSizeHandler)
-
     let expandHandler = item => {
       return event => {
         if (!item.meta.expanded) {
@@ -27,10 +22,18 @@ export default {
 
     for (let i = 0; i < items.length; i++) {
       let item = items[i]
-      let domItem = domItems[i]
+      let domItem = this.dom.elements[i]
+      this.dom.handlers.push(expandHandler(item))
       if (item.children) {
-        domItem.addEventListener('transitionend', expandHandler(item))
+        domItem.addEventListener('transitionend', this.dom.handlers[i])
       }
+    }
+  },
+  unbind: () => {
+    for (let i = 0; i < this.dom.elements.length; i++) {
+      this.dom.elements[i].removeEventListener('transitionend', this.dom.handlers[i])
     }
   }
 }
+
+module.exports = directive

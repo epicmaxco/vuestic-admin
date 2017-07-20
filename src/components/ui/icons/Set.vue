@@ -1,10 +1,10 @@
 <template>
-  <div class="setOfIcons row">
+  <div class="Set row">
     <div class="header col-12">
       <div class="row">
         <div class="header-text col-lg-4">
           <h2>{{set.name}}</h2>
-          <router-link :to="{name: 'Icons'}">Back to icons</router-link>
+          <router-link :to="{path: '/ui/icons'}">Back to icons</router-link>
         </div>
 
         <div class="search col-lg-4">
@@ -43,7 +43,6 @@
 
 <script>
   import Widget from '../../common/widget/Widget'
-  import {mapGetters} from 'vuex'
   import Slider from 'vue-slider-component'
 
   export default {
@@ -51,19 +50,18 @@
       Widget,
       Slider
     },
-    name: 'full-set',
-    props: ['nameOfSet'],
+    name: 'set',
+    props: ['name', 'sets'],
     methods: {
       iconClass (icon) {
         return this.set.prefix + ' ' + this.set.prefix + '-' + icon
       }
     },
     computed: {
-      ...mapGetters([
-        'setOfIconsByName'
-      ]),
       set () {
-        return this.setOfIconsByName(this.nameOfSet)
+        for (let set of this.sets) {
+          if (set.href === this.name) return set
+        }
       },
       validatedLists () {
         if (this.selector === '') {
@@ -83,11 +81,12 @@
     data: function () {
       return {
         selector: '',
-        iconSize: 20,
+        iconSize: 30,
         slider: {
+          formatter: v => `${v}px`,
           height: 2,
           direction: 'horizontal',
-          min: 0,
+          min: 20,
           max: 40,
           interval: 1,
           speed: 0.5
@@ -102,7 +101,7 @@
   @import '../../../../node_modules/bootstrap/scss/mixins/breakpoints';
   @import '../../../../node_modules/bootstrap/scss/variables';
 
-  .setOfIcons {
+  .Set{
     .header {
       background-color: white;
       padding: 1.75rem 0 1.125rem 0;

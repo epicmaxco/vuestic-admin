@@ -248,7 +248,9 @@
         if (typeof cb !== 'function') {
           cb = null
         }
-
+        if (!this.$refs.scrollArea) { // TODO: Find in code place where invoke this AFTER destroy
+          return
+        }
         let elementSize = this.getSize()
 
         if (elementSize.scrollWrapperHeight !== this.scrollWrapperHeight ||

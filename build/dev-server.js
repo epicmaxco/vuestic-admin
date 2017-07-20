@@ -68,6 +68,10 @@ devMiddleware.waitUntilValid(function () {
   console.log('> Listening at ' + uri + '\n')
 })
 
+app.post('/auth/:action', (req, res) => {
+  res.redirect('/')
+})
+
 module.exports = app.listen(port, function (err) {
   if (err) {
     console.log(err)
