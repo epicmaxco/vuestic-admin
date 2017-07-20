@@ -1,18 +1,26 @@
-export default {
-  inserted: function (el, binding) {
+let directive = {
+  dom: null,
+  scrollbarTransition: {
+    el: null,
+    handler: null
+  },
+  inserted: (el, binding) => {
     let items = binding.value.menuItems
     let scrollbar = binding.value.refs.Scrollbar
-    let parentId = binding.value.parentId
     let childClassName = binding.value.childClassName
     let childHeight = binding.value.childHeight
-    let domItems = document.getElementsByClassName(childClassName)
-    let scrollbarTransition = document.getElementById(parentId).getElementsByClassName('vue-scrollbar-transition')[0]
+    directive.dom = {
+      elements: document.getElementsByClassName(childClassName),
+      handlers: []
+    }
+    let parentId = binding.value.parentId
+    directive.scrollbarTransition.el = document.getElementById(parentId).getElementsByClassName('vue-scrollbar-transition')[0]
 
-    let calculateSizeHandler = event => {
+    directive.scrollbarTransition.handler = event => {
       scrollbar.calculateSize()
     }
 
-    scrollbarTransition.addEventListener('transitionend', calculateSizeHandler)
+    directive.scrollbarTransition.el.addEventListener('transitionend', directive.scrollbarTransition.handler)
 
     let expandHandler = item => {
       return event => {
@@ -27,10 +35,20 @@ export default {
 
     for (let i = 0; i < items.length; i++) {
       let item = items[i]
-      let domItem = domItems[i]
+      let domItem = directive.dom.elements[i]
+      directive.dom.handlers.push(expandHandler(item))
       if (item.children) {
-        domItem.addEventListener('transitionend', expandHandler(item))
+        domItem.addEventListener('transitionend', directive.dom.handlers[i])
       }
+    }
+  },
+  unbind: () => {
+    directive.scrollbarTransition.el.removeEventListener('transitionend', directive.scrollbarTransition.handler)
+
+    for (let i = 0; i < directive.dom.elements.length; i++) {
+      directive.dom.elements[i].removeEventListener('transitionend', directive.dom.handlers[i])
     }
   }
 }
+
+module.exports = directive

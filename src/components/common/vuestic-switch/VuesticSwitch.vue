@@ -39,6 +39,10 @@
       border-bottom: $vuestic-switch-border-size solid $vuestic-switch-bg;
       background-color: transparent;
       transition: all 0.15s ease;
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       &.active {
         color: $white;

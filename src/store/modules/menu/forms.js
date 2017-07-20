@@ -17,11 +17,11 @@ export default {
       }
     },
     {
-      name: 'Form Wizard',
+      name: 'Form Wizards',
       path: '/forms/form-wizard',
       component: lazyLoading('forms/form-wizard/FormWizard'),
       meta: {
-        title: 'Form Wizard'
+        title: 'Form Wizards'
       }
     }
   ]
