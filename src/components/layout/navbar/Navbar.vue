@@ -19,8 +19,7 @@
       </div>
 
       <div class="offset-lg-8"></div>
-      <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center
-justify-content-lg-end" v-dropdown>
+      <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center" v-dropdown>
         <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#">
           <span class="i-nav-messages notify"></span>
         </a>
@@ -36,8 +35,7 @@ justify-content-lg-end" v-dropdown>
           </div>
         </div>
       </div>
-      <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center
-justify-content-lg-end" v-dropdown>
+      <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center" v-dropdown>
         <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#">
           <span class="i-nav-notification notify"></span>
         </a>
@@ -56,8 +54,7 @@ justify-content-lg-end" v-dropdown>
           </div>
         </div>
       </div>
-      <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center
-justify-content-lg-end" v-dropdown>
+      <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center" v-dropdown>
         <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#">
           <span class="avatar-container"></span>
         </a>
