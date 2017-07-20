@@ -2,12 +2,19 @@
   <div class="charts-page">
     <div class="row">
       <div class="col-md-12">
+        <widget class="chart-widget"  header-text="Line Chart">
+          <vuestic-line-chart v-bind:data="lineChartData"></vuestic-line-chart>
+        </widget>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
         <widget class="chart-widget"  header-text="Bubble Chart">
           <vuestic-bubble-chart v-bind:data="bubbleChartData"></vuestic-bubble-chart>
         </widget>
       </div>
     </div>
-
 
     <div class="row">
       <div class="col-md-6">
@@ -25,6 +32,8 @@
 </template>
 
 <script>
+  import VuesticLineChart from './vuestic-line-chart/VuesticLineChart.vue'
+  import LineChartData from './vuestic-line-chart/LineChartData'
   import VuesticBubbleChart from './vuestic-bubble-chart/VuesticBubbleChart.vue'
   import BubbleChartData from './vuestic-bubble-chart/BubbleChartData'
   import VuesticPieChart from './vuestic-pie-chart/VuesticPieChart.vue'
@@ -38,12 +47,14 @@
     components: {
       Widget,
       VuesticBubbleChart,
+      VuesticLineChart,
       VuesticPieChart,
       VuesticDonutChart
     },
     data: function () {
       return {
         bubbleChartData: BubbleChartData,
+        lineChartData: LineChartData,
         pieChartData: PieChartData,
         donutChartData: DonutChartData
       }

@@ -1,17 +1,17 @@
 <template>
   <div class='donut-chart'>
-    <bubble-chart :options="options" :data="data"></bubble-chart>
+    <line-chart :options="options" :data="data"></line-chart>
   </div>
 </template>
 
 <script>
-  import BubbleChart from './BubbleChart'
+  import LineChart from './LineChart'
 
   export default {
-    name: 'vuestic-bubble-chart',
+    name: 'vuestic-line-chart',
     props: ['data', 'options'],
     components: {
-      BubbleChart
+      LineChart
     }
   }
 </script>
