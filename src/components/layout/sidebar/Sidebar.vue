@@ -1,8 +1,6 @@
 <template>
   <aside class="sidebar">
-    <vue-scrollbar class="scroll-area" ref="Scrollbar" id="sidebar-scrollbar"
-                   v-expandable="{refs: $refs, menuItems: menuItems, childClassName: 'sidebar-submenu',
-                   parentId: 'sidebar-scrollbar', childHeight: 48}">
+    <scrollbar :speed="10">
       <ul class="sidebar-menu">
         <li v-for="(item, index) in menuItems">
           <router-link :to="item.path"
@@ -32,25 +30,21 @@
           </expanding>
         </li>
       </ul>
-    </vue-scrollbar>
+    </scrollbar>
   </aside>
 </template>
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
   import Expanding from '../../../../node_modules/vue-bulma-expanding/src/Expanding'
-  import VueScrollbar from '../../common/vue2-scrollbar-custom/vue-scrollbar.vue'
-  import Expandable from '../../../directives/Expandable'
+  import Scrollbar from 'components/common/vuestic-scrollbar/VuesticScrollbar'
 
   export default {
     name: 'sidebar',
 
     components: {
       Expanding,
-      VueScrollbar
-    },
-    directives: {
-      Expandable
+      Scrollbar
     },
     computed: mapGetters({
       menuItems: 'menuItems'
@@ -116,12 +110,6 @@
     .scroll-area {
       background: $sidebar-bg;
       box-shadow: $sidebar-box-shadow;
-      max-height: 100%;
-      z-index: 4;
-      .vue-scrollbar__scrollbar-vertical {
-        width: .25rem;
-        visibility: visible;
-      }
     }
 
     position: absolute;

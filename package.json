@@ -16,6 +16,7 @@
     "bootstrap": "^4.0.0-alpha.6",
     "bootstrap-vue": "^0.9.0",
     "chart.js": "^2.6.0",
+    "element-resize-detector": "^1.1.12",
     "font-awesome": "^4.7.0",
     "gemini-scrollbar": "^1.5.1",
     "google-maps": "^3.2.1",
