@@ -29,6 +29,7 @@ module.exports = {
       'src': resolve('src'),
       'assets': resolve('src/assets'),
       'components': resolve('src/components'),
+      'services': resolve('src/services'),
       'directives': resolve('src/directives'),
       'vuex-store': resolve('src/store')
     }
