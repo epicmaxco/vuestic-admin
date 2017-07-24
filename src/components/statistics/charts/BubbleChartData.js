@@ -8,6 +8,7 @@ export default {
     {
       label: 'USA',
       backgroundColor: utils.hex2rgb(palette.danger, 0.9).css,
+      borderColor: palette.transparent,
       data: [
         {
           x: 23,
@@ -54,6 +55,7 @@ export default {
     {
       label: 'Russia',
       backgroundColor: utils.hex2rgb(palette.primary, 0.9).css,
+      borderColor: palette.transparent,
       data: [
         {
           x: 0,
@@ -100,6 +102,7 @@ export default {
     {
       label: 'Canada',
       backgroundColor: utils.hex2rgb(palette.warning, 0.9).css,
+      borderColor: palette.transparent,
       data: [
         {
           x: 10,
@@ -141,6 +144,7 @@ export default {
     {
       label: 'Belarus',
       backgroundColor: utils.hex2rgb(palette.info, 0.9).css,
+      borderColor: palette.transparent,
       data: [
         {
           x: 35,
@@ -187,6 +191,7 @@ export default {
     {
       label: 'Ukraine',
       backgroundColor: utils.hex2rgb(palette.success, 0.9).css,
+      borderColor: palette.transparent,
       data: [
         {
           x: 25,
