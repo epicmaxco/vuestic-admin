@@ -7,12 +7,12 @@ export default {
   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
   datasets: [
     {
-      label: 'Data One',
+      label: 'Debit',
       backgroundColor: utils.hex2rgb(palette.primary, 0.6).css,
       data: [40, 39, 10, 40, 39, 80, 40]
     },
     {
-      label: 'Data Two',
+      label: 'Credit',
       backgroundColor: utils.hex2rgb(palette.info, 0.6).css,
       data: [50, 20, 70, 30, 10, 5, 70]
     }
