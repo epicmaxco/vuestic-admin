@@ -1,4 +1,5 @@
 import {Pie} from 'vue-chartjs'
+import DefaultOptions from '../DefaultOptions'
 
 export default Pie.extend({
   props: ['data', 'options'],
@@ -6,28 +7,13 @@ export default Pie.extend({
   data () {
     return {
       defaultOptions: {
-        legend: {
-          position: 'bottom',
-          labels: {
-            fontColor: '#34495e',
-            fontFamily: 'sans-serif',
-            fontSize: 14,
-            padding: 20,
-            usePointStyle: true
-          }
-        },
-        tooltips: {
-          bodyFontSize: 14,
-          bodyFontFamily: 'sans-serif'
-        },
-        responsive: true,
-        maintainAspectRatio: false
+
       }
     }
   },
 
   mounted () {
-    let options = Object.assign({}, this.defaultOptions, this.options)
+    let options = Object.assign({}, DefaultOptions, this.defaultOptions, this.options)
     this.renderChart(this.data, options)
   }
 })
