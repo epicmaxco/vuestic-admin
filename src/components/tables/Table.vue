@@ -3,10 +3,6 @@
     <div class="row">
       <div class="col-xs-12 col-md-12">
         <widget headerText="Basic Table">
-          <vuetable ref="vuetable"
-                    api-url="https://vuetable.ratiw.net/api/users"
-                    :fields="['name', 'email', 'birthdate']"
-          ></vuetable>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -180,16 +176,28 @@
         </widget>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <widget headerText="Search And Scroll">
+          <dataTable></dataTable>
+        </widget>
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
   import Widget from '../common/widget/Widget'
-  import Vuetable from 'vuetable-2/src/components/Vuetable'
+  import DataTable from './datatable/DataTable'
 
   export default {
-    components: {Widget, Vuetable},
-    names: 'Table'
+    components: {
+      DataTable,
+      Widget
+    },
+    name: 'Table'
   }
 </script>
 

@@ -22,7 +22,7 @@
     "ionicons": "^2.0.1",
     "leaflet-map": "^0.2.1",
     "normalize.css": "^5.0.0",
-    "vee-validate": "^2.0.0-rc.6",
+    "vee-validate": "2.0.0-rc.7",
     "vue": "^2.3.0",
     "vue-bulma-expanding": "0.0.0",
     "vue-chartjs": "^2.7.1",
@@ -31,7 +31,8 @@
     "vue2-circle-progress": "^1.0.3",
     "vuetable-2": "^1.6.5",
     "vuex": "2.1.1",
-    "vuex-router-sync": "4.0.2"
+    "vuex-router-sync": "4.0.2",
+    "vue-events": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
