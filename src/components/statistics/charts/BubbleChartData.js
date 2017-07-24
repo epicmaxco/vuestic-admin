@@ -1,8 +1,12 @@
+import store from 'vuex-store'
+
+let palette = store.getters.palette
+
 export default {
   datasets: [
     {
-      label: 'Data One',
-      backgroundColor: ' #e34a4a',
+      label: 'USA',
+      backgroundColor: palette.danger,
       data: [
         {
           x: 23,
@@ -27,8 +31,8 @@ export default {
       ]
     },
     {
-      label: 'Data Two',
-      backgroundColor: '#4ae387',
+      label: 'Russia',
+      backgroundColor: palette.primary,
       data: [
         {
           x: 0,
@@ -53,8 +57,8 @@ export default {
       ]
     },
     {
-      label: 'Data Three',
-      backgroundColor: '#f7cc36',
+      label: 'Canada',
+      backgroundColor: palette.warning,
       data: [
         {
           x: 10,
@@ -74,8 +78,8 @@ export default {
       ]
     },
     {
-      label: 'Data Four',
-      backgroundColor: '#4ab2e3',
+      label: 'Belarus',
+      backgroundColor: palette.info,
       data: [
         {
           x: 35,
@@ -100,8 +104,8 @@ export default {
       ]
     },
     {
-      label: 'Data Five',
-      backgroundColor: '#db76df',
+      label: 'Ukraine',
+      backgroundColor: palette.success,
       data: [
         {
           x: 25,
