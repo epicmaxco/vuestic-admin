@@ -1,14 +1,5 @@
 <template>
   <div class="charts-page">
-
-    <div class="row">
-      <div class="col-md-12">
-        <widget class="chart-widget"  header-text="Line Chart">
-          <vuestic-chart v-bind:data="lineChartData" type="line"></vuestic-chart>
-        </widget>
-      </div>
-    </div>
-
     <div class="row">
       <div class="col-md-6">
         <widget class="chart-widget"  header-text="Vertical Bar Chart">
@@ -24,8 +15,8 @@
 
     <div class="row">
       <div class="col-md-12">
-        <widget class="chart-widget"  header-text="Bubble Chart">
-          <vuestic-chart v-bind:data="bubbleChartData" type="bubble"></vuestic-chart>
+        <widget class="chart-widget"  header-text="Line Chart">
+          <vuestic-chart v-bind:data="lineChartData" type="line"></vuestic-chart>
         </widget>
       </div>
     </div>
@@ -39,6 +30,14 @@
       <div class="col-md-6">
         <widget class="chart-widget"  header-text="Donut Chart">
           <vuestic-chart v-bind:data="donutChartData" type="donut"></vuestic-chart>
+        </widget>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <widget class="chart-widget"  header-text="Bubble Chart">
+          <vuestic-chart v-bind:data="bubbleChartData" type="bubble"></vuestic-chart>
         </widget>
       </div>
     </div>
