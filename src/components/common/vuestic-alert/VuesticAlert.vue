@@ -1,8 +1,11 @@
 <template>
-  <div class='vuestic-alert alert' :class="alertClass">
-    <slot></slot>
-    <i class="fa fa-close alert-close" v-if="withCloseBtn"></i>
-  </div>
+  <transition name="fade">
+    <div class='vuestic-alert alert' :class="alertClass" v-if="!hidden">
+        <slot></slot>
+        <i class="fa fa-close alert-close" v-if="withCloseBtn" @click="hide()"></i>
+    </div>
+  </transition>
+
 </template>
 
 <script>
@@ -28,10 +31,27 @@
         type: Boolean,
         default: false
       }
+    },
+    data () {
+      return {
+        hidden: false
+      }
+    },
+    methods: {
+      hide () {
+        this.hidden = true;
+      }
     }
   }
 </script>
 
-<style lang='scss'>
+<style lang='scss' scoped>
   @import '../../../sass/_variables.scss';
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+    opacity: 0
+  }
 </style>
