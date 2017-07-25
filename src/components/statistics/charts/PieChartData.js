@@ -1,8 +1,12 @@
+import store from 'vuex-store'
+
+let palette = store.getters.palette
+
 export default {
   labels: ['Africa', 'Asia', 'Europe'],
   datasets: [{
     label: 'Population (millions)',
-    backgroundColor: ['#4ae387', '#f7cc36', '#e34a4a'],
+    backgroundColor: [palette.primary, palette.warning, palette.danger],
     data: [2478, 5267, 734]
   }]
 }
