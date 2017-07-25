@@ -22,6 +22,20 @@
           Change a few things up and try submitting again.
           <i class="fa fa-close alert-close"></i>
         </div>
+        <tabs :names="['Overview', 'Data Visualization', 'Users & Members', 'Setup Profile']">
+          <div slot="Overview">
+            overview
+          </div>
+          <div slot="Data Visualization">
+            Data Visualisation
+          </div>
+          <div slot="Users & Members">
+            Users & Members
+          </div>
+          <div slot="Setup Profile">
+            Setup Profile
+          </div>
+        </tabs>
       </div>
     </div>
   </div>
@@ -29,10 +43,12 @@
 
 <script>
   import Widget from 'components/common/widget/Widget'
+  import Tabs from '../tabs/Tabs.vue'
 
   export default {
     name: 'dashboard',
     components: {
+      Tabs,
       Widget
     }
   }
