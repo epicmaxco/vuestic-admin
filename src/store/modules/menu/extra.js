@@ -16,6 +16,14 @@ export default {
       meta: {
         title: 'Tabs'
       }
+    },
+    {
+      name: 'Alerts',
+      path: '/extra/alerts',
+      component: lazyLoading('extra/alerts/Alerts'),
+      meta: {
+        title: 'Alerts'
+      }
     }
   ]
 }
