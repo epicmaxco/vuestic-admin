@@ -1,11 +1,10 @@
 <template>
-  <div class="tabs">
+  <div class="vuestic-tabs">
     <nav class="nav nav-pills justify-content-between">
       <div class="nav-item" :class="{active: names.indexOf(name) == 0}" v-for="name in names">
-        <a class="nav-link" :href="'#' + toUnderScore(name)"><h5>{{name}}</h5></a>
+        <span class="nav-link" :id="'#' + toUnderScore(name)"><h5>{{name}}</h5></span>
       </div>
     </nav>
-
     <div class="tab-content">
       <div class="tab-pane" :class="{active: names.indexOf(name) == 0}" :id="toUnderScore(name)" v-for="name in names">
         <slot :name="name"></slot>
@@ -17,7 +16,7 @@
 <script>
 
   export default {
-    name: 'tabs',
+    name: 'vuestic-tabs',
     props: ['names'],
     methods: {
       toUnderScore (string) {
@@ -47,7 +46,7 @@
       let navItems = this.nav.getElementsByClassName('nav-item')
 
       for (let navItem of navItems) {
-        let id = navItem.getElementsByClassName('nav-link')[0].getAttribute('href').slice(1)
+        let id = navItem.getElementsByClassName('nav-link')[0].getAttribute('id').slice(1)
         let item = {
           navItem: navItem,
           id: id
@@ -69,29 +68,30 @@
 </script>
 
 <style lang="scss">
-  @import "../../sass/variables";
+  @import "../../../sass/variables";
 
-  .tabs {
-    padding-left: 80px;
-    padding-top: 36px;
-    padding-right: 67px;
+  .vuestic-tabs {
+    padding: $vuestic-tabs-padding;
+
     background-color: white;
     .nav-item {
       text-align: center;
-      a {
+      &:hover {
+        cursor: pointer;
+      }
+      .nav-link {
         padding: 0;
-        color: #adb3b9;
+        color: $gray;
       }
       &.active {
-        a {
-          color: #34495e;
+        .nav-link {
+          color: $vue-darkest-blue;
         }
-        border-bottom: $brand-primary solid 2px;
+        border-bottom: $brand-primary solid .125rem;
       }
     }
     .tab-content {
-      padding-top: 76px;
-      padding-bottom: 38px;
+      padding-top: $vuestic-tabs-content-padding-t;
     }
   }
 </style>

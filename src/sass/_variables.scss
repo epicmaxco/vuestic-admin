@@ -25,6 +25,7 @@ $brand-info: $theme-blue;
 $brand-success: $theme-violet;
 $light-gray2: #eff4f5;
 $dark-gray: #282828;
+$gray: #adb3b9;
 
 $colors-map: (
   brand-danger: $brand-danger,
@@ -64,6 +65,11 @@ $min-z-index : -1000;
 //Auth
 $auth-wallpaper-ivuestic-h: 2.625rem;
 $auth-wallpaper-oblique-line: $dark-gray;
+
+//VuesticTabs
+$vuestic-tabs-padding: 2.25rem 4.1875rem 2.375rem 5rem;
+$vuestic-tabs-content-padding-t: 4.75rem;
+
 
 //Mobile Layout
 $top-mobile-nav-height: 5.625rem;
