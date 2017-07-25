@@ -1,6 +1,6 @@
 <template>
   <div class="vuestic-scrollbar">
-    <div class="scroll-area">
+    <div class="scrollbar-wrapper">
       <div class="scrollbar-content">
         <slot></slot>
       </div>
@@ -17,23 +17,60 @@
     props: {
       speed: {
         default: 20
-      },
-      dragDelta: 0
+      }
     },
     methods: {
       calcSize () {
-        this.height = parseInt(this.scrollArea.offsetHeight, 10)
+        console.log('test')
+        this.isDown = this.isUp = false
+        this.maxHeight = parseInt(this.wrapper.offsetHeight, 10)
         this.contentHeight = parseInt(this.content.offsetHeight, 10)
         this.trackHeight = parseInt(this.track.offsetHeight, 10)
-        this.thumb.style.height = this.height / this.contentHeight < 1
-          ? this.height / this.contentHeight * this.trackHeight + 'px'
+        this.thumb.style.height = this.maxHeight / this.contentHeight < 1
+          ? this.maxHeight / this.contentHeight * this.trackHeight + 'px'
           : 0
-        this.thumb.style.top = (this.scrollArea.scrollTop / this.contentHeight * this.trackHeight) + 'px'
+//        if (this.contentHeight > this.maxHeight) {
+//          let currentMT = this.content.style.marginTop === ''
+//            ? 0
+//            : parseInt(this.content.style.marginTop, 10)
+//          this.content.style.marginTop = nextMT + 'px'
+//        }
+      },
+      calcThumb () {
+        let currentMT = this.content.style.marginTop === ''
+          ? 0
+          : parseInt(this.content.style.marginTop, 10)
+        this.thumb.style.top = (-currentMT / this.contentHeight * this.trackHeight) + 'px'
       },
       scroll (e) {
-        let delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)))
-        this.scrollArea.scrollTop = this.scrollArea.scrollTop - delta * this.speed
-        this.thumb.style.top = (this.scrollArea.scrollTop / this.contentHeight * this.trackHeight) + 'px'
+        let delta = (e.deltaY * 0.01 * this.speed)
+
+        if (this.isDown && delta > 0 || this.isUp && delta < 0 || this.contentHeight <= this.maxHeight) {
+          e.preventDefault()
+          return
+        }
+
+        let currentMT = this.content.style.marginTop === ''
+          ? 0
+          : parseInt(this.content.style.marginTop, 10)
+
+        let nextMT = 0
+
+        if (this.maxHeight - (currentMT - delta * this.speed) > this.contentHeight && delta > 0) {
+          nextMT = this.maxHeight - this.contentHeight
+          this.isDown = true
+        } else {
+          this.isDown = false
+          if (currentMT - delta > 0) {
+            this.isUp = true
+            nextMT = 0
+          } else {
+            nextMT = currentMT - delta
+            this.isUp = false
+          }
+        }
+        this.content.style.marginTop = nextMT + 'px'
+        this.calcThumb()
 
         e.preventDefault()
       }
@@ -42,24 +79,32 @@
       this.track = this.$el.getElementsByClassName('track')[0]
       this.thumb = this.track.getElementsByClassName('thumb')[0]
       this.content = this.$el.getElementsByClassName('scrollbar-content')[0]
-      this.scrollArea = this.$el.getElementsByClassName('scroll-area')[0]
-
-      erd.listenTo(this.content, this.calcSize)
+      this.wrapper = this.$el.getElementsByClassName('scrollbar-wrapper')[0]
+      let handler = () => {
+        this.calcSize()
+        this.calcThumb()
+      }
+      erd.listenTo(this.content, handler)
+      erd.listenTo(this.$el, handler)
       this.$el.addEventListener('wheel', this.scroll, false)
     },
     destroyed () {
       erd.removeAllListeners(this.content)
+      erd.removeAllListeners(this.$el)
       this.$el.removeEventListener('wheel', this.scroll, false)
     },
     data () {
       return {
-        scrollArea: undefined,
-        height: undefined,
+        displayedHeight: undefined,
+        wrapper: undefined,
+        maxHeight: undefined,
         thumb: undefined,
         track: undefined,
         trackHeight: undefined,
         content: undefined,
-        contentHeight: undefined
+        contentHeight: undefined,
+        isDown: false,
+        isUp: true
       }
     }
   }
@@ -72,8 +117,8 @@
   .vuestic-scrollbar {
     position: relative;
     height: 100%;
-    .scroll-area {
-      max-height: 100%;
+    .scrollbar-wrapper {
+      height: 100%;
       overflow: hidden;
     }
     .track {
@@ -83,8 +128,7 @@
       height: 100%;
       width: 3px;
       .thumb {
-        height: 1rem;
-        transition: opacity .5s linear, height .1s ease;
+        transition: top .2s linear;
         position: absolute;
         width: 3px;
         background-color: black;

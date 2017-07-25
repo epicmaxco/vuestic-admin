@@ -102,7 +102,7 @@
   .select-form-group {
     .dropdown-menu {
       padding: 0;
-      .scroll-area {
+      .scrollbar-content {
         background-color: inherit;
         max-height: $dropdown-item-height * 4;
       }

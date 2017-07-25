@@ -107,7 +107,7 @@
     }
 
     height: $sidebar-viewport-height;
-    .scroll-area {
+    .scrollbar-content {
       background: $sidebar-bg;
       box-shadow: $sidebar-box-shadow;
     }
