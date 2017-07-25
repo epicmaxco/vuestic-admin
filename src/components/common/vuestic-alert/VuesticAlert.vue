@@ -39,7 +39,7 @@
     },
     methods: {
       hide () {
-        this.hidden = true;
+        this.hidden = true
       }
     }
   }
