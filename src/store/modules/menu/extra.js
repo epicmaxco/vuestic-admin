@@ -24,6 +24,14 @@ export default {
       meta: {
         title: 'Alerts'
       }
+    },
+    {
+      name: 'Profile Card',
+      path: '/extra/profile-card',
+      component: lazyLoading('extra/profile-card/ProfileCard'),
+      meta: {
+        title: 'Profile Card'
+      }
     }
   ]
 }
