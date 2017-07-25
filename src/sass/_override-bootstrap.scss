@@ -286,13 +286,6 @@ h4, .h4 {
   }
 
   .badge {
-    line-height: .9rem;
-    width: 5rem;
-    display: inline-block;
-    font-size: .7rem;
-    font-family: "Source Sans Pro", serif;
-    font-weight: bold;
-    text-transform: uppercase;
     vertical-align: text-top;
   }
 
@@ -312,4 +305,74 @@ h4, .h4 {
     background-color: #ffcece;
   }
 
+}
+
+//Badges
+
+.badge {
+  min-width: $badge-min-width;
+  display: inline-block;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.badge-success {
+  @include badge-variant($badge-success-bg);
+}
+
+//Alerts
+
+.alert {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .badge {
+    margin-right: 0.63rem;
+  }
+
+  &.with-close {
+    padding-right: $with-close-pr;
+  }
+
+  .alert-close {
+    position: absolute;
+    right: 20px;
+    font-size: $font-size-base;
+    top: calc(50% - #{$font-size-base}/2);
+    cursor: pointer;
+  }
+}
+
+.alert-success {
+  box-shadow: $alert-success-shadow;
+
+  .alert-close {
+    color: $brand-primary;
+  }
+}
+
+.alert-warning {
+  box-shadow: $alert-warning-shadow;
+
+  .alert-close {
+    color: $brand-warning;
+  }
+}
+
+.alert-danger {
+  box-shadow: $alert-danger-shadow;
+
+  .alert-close {
+    color: $brand-danger;
+  }
+}
+
+.alert-info {
+  box-shadow: $alert-info-shadow;
+  
+  .alert-close {
+    color: $brand-info;
+  }
 }
