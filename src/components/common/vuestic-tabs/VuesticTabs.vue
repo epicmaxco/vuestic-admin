@@ -1,21 +1,26 @@
 <template>
-  <div class="vuestic-tabs">
-    <nav class="nav nav-pills justify-content-between">
-      <div class="nav-item" :class="{active: names.indexOf(name) == 0}" v-for="name in names">
-        <span class="nav-link" :id="'#' + toUnderScore(name)"><h5>{{name}}</h5></span>
-      </div>
-    </nav>
-    <div class="tab-content">
-      <div class="tab-pane" :class="{active: names.indexOf(name) == 0}" :id="toUnderScore(name)" v-for="name in names">
-        <slot :name="name"></slot>
+  <widget>
+    <div class="vuestic-tabs">
+      <nav class="nav nav-pills justify-content-between">
+        <div class="nav-item" :class="{active: names.indexOf(name) == 0}" v-for="name in names">
+          <span class="nav-link" :id="'#' + toUnderScore(name)"><h5>{{name}}</h5></span>
+        </div>
+      </nav>
+      <div class="tab-content">
+        <div class="tab-pane" :class="{active: names.indexOf(name) == 0}" :id="toUnderScore(name)" v-for="name in names">
+          <slot :name="name"></slot>
+        </div>
       </div>
     </div>
-  </div>
+  </widget>
 </template>
 
 <script>
 
+  import Widget from 'components/common/widget/Widget.vue'
+
   export default {
+    components: {Widget},
     name: 'vuestic-tabs',
     props: ['names'],
     methods: {

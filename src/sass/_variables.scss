@@ -66,14 +66,6 @@ $min-z-index : -1000;
 $auth-wallpaper-ivuestic-h: 2.625rem;
 $auth-wallpaper-oblique-line: $dark-gray;
 
-//VuesticTabs
-$vuestic-tabs-padding: 2.25rem 4.1875rem 2.375rem 5rem;
-$vuestic-tabs-content-padding-t: 4.75rem;
-
-//VuesticProfileCard
-$vuestic-profile-card-width: 12.6875rem;
-$vuestic-profile-card-photo-diameter: 9.375rem;
-
 //Mobile Layout
 $top-mobile-nav-height: 5.625rem;
 $layout-mobile-padding: 0.1875rem;
@@ -153,7 +145,7 @@ $sidebar-box-shadow : $greeny-box-shadow;
 
 //Widgets
 $widget-bg : $white;
-$widget-padding : 25px;
+$widget-padding : 1.5625rem;
 $widget-larger-padding: 45px;
 $widget-box-shadow : 0px 4px 70px -18px rgba(112, 112, 112, 1);
 $widget-viewport-height : $sidebar-viewport-height;
@@ -284,3 +276,12 @@ $alert-danger-bg:             $light-pink;
 $alert-danger-text:           $body-color;
 $alert-danger-border:         transparent;
 $alert-danger-shadow:         0px 4px 9.6px 0.4px rgba(206, 79, 79, 0.5);
+
+//VuesticTabs
+$vuestic-tabs-padding: 2.25rem - $widget-padding 4.1875rem - $widget-padding
+  2.375rem - $widget-padding 5rem - $widget-padding;
+$vuestic-tabs-content-padding-t: 4.75rem;
+
+//VuesticProfileCard
+$vuestic-profile-card-width: 12.6875rem;
+$vuestic-profile-card-photo-diameter: 9.375rem;
