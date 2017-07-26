@@ -43,8 +43,8 @@
 
     <div class="row">
       <div class="col-md-4">
-        <widget header-text="Profile Card" class="profile-card-container">
-          <div class="container d-flex justify-content-center">
+        <widget header-text="Profile Card" class="profile-card-widget">
+          <div class="profile-card-container">
             <vuestic-profile-card :name="'Veronique Lee'" :location="'Malaga, Spain'"
                                   :social="{twitter: 'twitter.com', facebook: 'facebook.com',
                                   instagram: 'instagram.com'}">
@@ -53,8 +53,10 @@
         </widget>
       </div>
       <div class="col-md-8">
-        <widget header-text="Chat" class="chat-container">
-          <vuestic-chat v-model="chatMessages"></vuestic-chat>
+        <widget header-text="Chat" class="chat-widget">
+          <div class="chat-container">
+            <vuestic-chat v-model="chatMessages"></vuestic-chat>
+          </div>
         </widget>
       </div>
     </div>
@@ -111,8 +113,13 @@
 </script>
 
 <style lang="scss">
-  .profile-card-container, .chat-container {
+  .profile-card-widget, .chat-widget {
     height: 100%;
-    margin: 0;
+    .profile-card-container, .chat-container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 </style>
