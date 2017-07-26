@@ -50,6 +50,10 @@
       }
     }
 
+    &.info-widget {
+      border-top: $info-widget-border;
+    }
+
     .widget-body {
       height: $widget-body-with-header-height;
       padding: $widget-padding;
