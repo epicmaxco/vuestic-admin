@@ -25,6 +25,7 @@ $brand-info: $theme-blue;
 $brand-success: $theme-violet;
 $light-gray2: #eff4f5;
 $dark-gray: #282828;
+$gray: #adb3b9;
 
 $colors-map: (
   brand-danger: $brand-danger,
@@ -144,7 +145,7 @@ $sidebar-box-shadow : $greeny-box-shadow;
 
 //Widgets
 $widget-bg : $white;
-$widget-padding : 25px;
+$widget-padding : 1.5625rem;
 $widget-larger-padding: 45px;
 $widget-box-shadow : 0px 4px 70px -18px rgba(112, 112, 112, 1);
 $widget-viewport-height : $sidebar-viewport-height;
@@ -275,3 +276,4 @@ $alert-danger-bg:             $light-pink;
 $alert-danger-text:           $body-color;
 $alert-danger-border:         transparent;
 $alert-danger-shadow:         0px 4px 9.6px 0.4px rgba(206, 79, 79, 0.5);
+
