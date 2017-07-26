@@ -22,6 +22,9 @@
   @import "../../../sass/variables";
   @import "../../../sass/icons-styles";
 
+  $vuestic-profile-card-width: 12.6875rem;
+  $vuestic-profile-card-photo-diameter: 9.375rem;
+
   .vuestic-profile-card {
     width: $vuestic-profile-card-width;
     .photo {

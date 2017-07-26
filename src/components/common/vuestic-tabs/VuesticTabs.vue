@@ -75,6 +75,10 @@
 <style lang="scss">
   @import "../../../sass/variables";
 
+  $vuestic-tabs-padding: 2.25rem - $widget-padding 4.1875rem - $widget-padding
+  2.375rem - $widget-padding 5rem - $widget-padding;
+  $vuestic-tabs-content-padding-t: 4.75rem;
+
   .vuestic-tabs {
     padding: $vuestic-tabs-padding;
 
