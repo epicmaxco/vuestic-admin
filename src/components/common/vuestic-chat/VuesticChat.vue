@@ -10,7 +10,7 @@
         <fieldset>
           <div class="form-group form-group-w-btn">
             <div class="input-group">
-              <input type="text" required="required" v-model="inputMessage"/>
+              <input type="text" @keypress="keyHandler($event)" v-model="inputMessage"/>
               <label class="control-label">Your message</label><i class="bar"></i>
             </div>
             <div class="btn btn-sm btn-primary" @click="sendMessage()">Send</div>
@@ -42,6 +42,11 @@
       }
     },
     methods: {
+      keyHandler(event) {
+        if (event.keyCode === 13) {
+          this.sendMessage()
+        }
+      },
       sendMessage () {
         if (this.inputMessage) {
           this.$emit('input', this.value.concat({
