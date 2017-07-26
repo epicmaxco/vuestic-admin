@@ -24,24 +24,22 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
-        <vuestic-tabs :names="['Overview', 'Data Visualization', 'Users & Members', 'Setup Profile']">
-          <div slot="Overview">
-            Overview
-          </div>
-          <div slot="Data Visualization">
-            Data Visualisation
-          </div>
-          <div slot="Users & Members">
-            Users & Members
-          </div>
-          <div slot="Setup Profile">
-            Setup Profile
-          </div>
-        </vuestic-tabs>
-      </div>
-    </div>
+    <widget class="no-padding no-v-padding no-h-padding">
+      <vuestic-tabs :names="['Overview', 'Data Visualization', 'Users & Members', 'Setup Profile']">
+        <div slot="Overview">
+          Overview
+        </div>
+        <div slot="Data Visualization">
+          Data Visualisation
+        </div>
+        <div slot="Users & Members">
+          Users & Members
+        </div>
+        <div slot="Setup Profile">
+          Setup Profile
+        </div>
+      </vuestic-tabs>
+    </widget>
 
     <div class="row">
       <div class="col-md-4">
