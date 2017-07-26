@@ -42,7 +42,7 @@
       }
     },
     methods: {
-      keyHandler(event) {
+      keyHandler (event) {
         if (event.keyCode === 13) {
           this.sendMessage()
         }
