@@ -10,7 +10,7 @@
     <div class="tab-content d-flex justify-content-center">
       <div class="tab-pane"
            :class="{active: name === currentActive}" v-for="name in names">
-        <slot :name="name" class="test"></slot>
+        <slot :name="name"></slot>
       </div>
     </div>
   </div>
