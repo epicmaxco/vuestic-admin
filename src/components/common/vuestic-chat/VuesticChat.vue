@@ -1,23 +1,8 @@
 <template>
  <div class="vuestic-chat">
-   <div class="chat-body">
-     <div class="chat-message alien">
-        Hello! So glad you liked my work. Do you want me to shoot you?
-     </div>
-     <div class="chat-message yours">
-        Yeah, that would be cool. Maybe this Sunday at 3 pm?
-     </div>
-     <div class="chat-message alien">
-        Sounds great! See you later!
-     </div>
-     <div class="chat-message yours">
-        Should I bring a lightbox with mer?
-     </div>
-     <div class="chat-message alien">
-        No, thanks. There is no need. Can we set up a meeting earlier?
-     </div>
-     <div class="chat-message yours">
-        I'm working on Vuestic, so let's meet at 3pm. Thanks!
+   <div class="chat-body" :style="{'height': height}">
+     <div class="chat-message alien" v-for="message in value" :class="{'yours': message.yours, 'alien': !message.yours}">
+        {{message.text}}
      </div>
    </div>
    <div class="chat-controls">
@@ -25,10 +10,10 @@
         <fieldset>
           <div class="form-group form-group-w-btn">
             <div class="input-group">
-              <input type="text" required="required"/>
+              <input type="text" required="required" v-model="inputMessage"/>
               <label class="control-label">Your message</label><i class="bar"></i>
             </div>
-            <div class="btn btn-sm btn-primary">Send</div>
+            <div class="btn btn-sm btn-primary" @click="sendMessage()">Send</div>
           </div>
         </fieldset>
       </form>
@@ -40,15 +25,32 @@
   export default {
     name: 'vuestic-chat',
     props: {
-
+      value: {
+        type: Array,
+        default: []
+      },
+      height: {
+        default: '20rem'
+      }
     },
     data () {
       return {
-
+        inputMessage: ''
       }
     },
     methods: {
-
+      sendMessage () {
+        if (this.inputMessage) {
+          this.$emit('input', this.value.concat({
+            text: this.inputMessage,
+            yours: true
+          }))
+          this.inputMessage = ''
+        }
+      }
+    },
+    mounted () {
+      this.$emit('input', this.value)
     }
   }
 </script>
@@ -59,7 +61,7 @@
   $chat-body-min-height: 18.75rem;
   $chat-body-mb: 1.5rem;
   $chat-message-mb: 0.625rem;
-  $chat-message-py: 0.66rem;
+  $chat-message-py: 0.657rem;
   $chat-message-px: 1.375rem;
   $chat-message-br: 0.875rem;
 
@@ -68,6 +70,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: $chat-body-mb;
+    overflow: auto;
   }
 
   .chat-message {
