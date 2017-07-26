@@ -1,6 +1,6 @@
 <template>
  <div class="vuestic-chat">
-   <div class="chat-body" :style="{'height': height}">
+   <div class="chat-body" :style="{'height': height}" v-sticky-scroll="{animate: true, duration: 500}">
      <div class="chat-message alien" v-for="message in value" :class="{'yours': message.yours, 'alien': !message.yours}">
         {{message.text}}
      </div>
@@ -22,8 +22,11 @@
 </template>
 
 <script>
+  import StickyScroll from 'directives/StickyScroll'
+
   export default {
     name: 'vuestic-chat',
+    directives: {StickyScroll},
     props: {
       value: {
         type: Array,
