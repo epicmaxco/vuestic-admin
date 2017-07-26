@@ -154,6 +154,7 @@ $widget-header-height: 55px;
 $widget-body-no-header-height: 100%;
 $widget-body-with-header-height: calc(100% - #{$widget-header-height});
 $widget-mb: 45px;
+$info-widget-border: 0.5rem solid $brand-primary;
 
 //Buttons
 $input-btn-border-width: 0px;
