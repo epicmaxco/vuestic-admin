@@ -1,26 +1,23 @@
 <template>
   <div class="extra">
     <widget headerText="Alerts">
-      <div class="alert alert-success with-close" role="alert">
+      <vuestic-alert type="success" :withCloseBtn="true">
         <span class="badge badge-pill badge-success">SUCCESS</span>
         You successfully read this important alert message.
         <i class="fa fa-close alert-close"></i>
-      </div>
-      <div class="alert alert-info with-close" role="alert">
+      </vuestic-alert>
+      <vuestic-alert type="info" :withCloseBtn="true">
         <span class="badge badge-pill badge-info">INFO</span>
         This alert needs your attention, but it's not super important.
-        <i class="fa fa-close alert-close"></i>
-      </div>
-      <div class="alert alert-warning with-close" role="alert">
+      </vuestic-alert>
+      <vuestic-alert type="warning" :withCloseBtn="true">
         <span class="badge badge-pill badge-warning">WARNING</span>
         Better check yourself, you're not looking too good.
-        <i class="fa fa-close alert-close"></i>
-      </div>
-      <div class="alert alert-danger with-close" role="alert">
+      </vuestic-alert>
+      <vuestic-alert type="danger" :withCloseBtn="true">
         <span class="badge badge-pill badge-danger">DANGER</span>
         Change a few things up and try submitting again.
-        <i class="fa fa-close alert-close"></i>
-      </div>
+      </vuestic-alert>
     </widget>
     <div class="tabs">
       <vuestic-tabs :names="['Overview', 'Data Visualization', 'Users & Members', 'Setup Profile']">
@@ -56,13 +53,15 @@
   import VuesticTabs from 'components/common/vuestic-tabs/VuesticTabs.vue'
   import Widget from 'components/common/widget/Widget'
   import VuesticProfileCard from 'components/common/vuestic-profile-card/VuesticProfileCard.vue'
+  import VuesticAlert from 'components/common/vuestic-alert/VuesticAlert'
 
   export default {
     name: 'extra',
     components: {
       Widget,
       VuesticTabs,
-      VuesticProfileCard
+      VuesticProfileCard,
+      VuesticAlert
     }
   }
 </script>
