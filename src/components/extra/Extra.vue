@@ -37,11 +37,16 @@
     </div>
     <div class="profile-card">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-4">
           <widget header-text="Profile Card">
             <div class="container d-flex justify-content-center">
               <vuestic-profile-card :name="'Veronique Lee'" :location="'Malaga, Spain'"></vuestic-profile-card>
             </div>
+          </widget>
+        </div>
+        <div class="col-md-8">
+          <widget header-text="Chat">
+            <vuestic-chat></vuestic-chat>
           </widget>
         </div>
       </div>
@@ -54,6 +59,7 @@
   import Widget from 'components/common/widget/Widget'
   import VuesticProfileCard from 'components/common/vuestic-profile-card/VuesticProfileCard.vue'
   import VuesticAlert from 'components/common/vuestic-alert/VuesticAlert'
+  import VuesticChat from 'components/common/vuestic-chat/VuesticChat'
 
   export default {
     name: 'extra',
@@ -61,7 +67,8 @@
       Widget,
       VuesticTabs,
       VuesticProfileCard,
-      VuesticAlert
+      VuesticAlert,
+      VuesticChat
     }
   }
 </script>

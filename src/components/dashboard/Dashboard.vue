@@ -9,28 +9,18 @@
         </vuestic-alert>
       </div>
     </div>
-
-    <div class="row">
-      <div class="col-md-8">
-        <widget header-text="Chat">
-          <vuestic-chat></vuestic-chat>
-        </widget>
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
   import Widget from 'components/common/widget/Widget'
   import VuesticAlert from 'components/common/vuestic-alert/VuesticAlert'
-  import VuesticChat from 'components/common/vuestic-chat/VuesticChat'
 
   export default {
     name: 'dashboard',
     components: {
       Widget,
-      VuesticAlert,
-      VuesticChat
+      VuesticAlert
     }
   }
 </script>
