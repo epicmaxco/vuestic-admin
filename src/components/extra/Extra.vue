@@ -24,35 +24,36 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
-        <vuestic-tabs :names="['Overview', 'Data Visualization', 'Users & Members', 'Setup Profile']">
-          <div slot="Overview">
-            Overview
-          </div>
-          <div slot="Data Visualization">
-            Data Visualisation
-          </div>
-          <div slot="Users & Members">
-            Users & Members
-          </div>
-          <div slot="Setup Profile">
-            Setup Profile
-          </div>
-        </vuestic-tabs>
-      </div>
-    </div>
+    <widget class="no-padding no-v-padding no-h-padding">
+      <vuestic-tabs :names="['Overview', 'Data Visualization', 'Users & Members', 'Setup Profile']">
+        <div slot="Overview">
+          Overview
+        </div>
+        <div slot="Data Visualization">
+          Data Visualisation
+        </div>
+        <div slot="Users & Members">
+          Users & Members
+        </div>
+        <div slot="Setup Profile">
+          Setup Profile
+        </div>
+      </vuestic-tabs>
+    </widget>
 
     <div class="row">
       <div class="col-md-4">
-        <widget header-text="Profile Card">
+        <widget header-text="Profile Card" class="profile-card-container">
           <div class="container d-flex justify-content-center">
-            <vuestic-profile-card :name="'Veronique Lee'" :location="'Malaga, Spain'"></vuestic-profile-card>
+            <vuestic-profile-card :name="'Veronique Lee'" :location="'Malaga, Spain'"
+                                  :social="{twitter: 'twitter.com', facebook: 'facebook.com',
+                                  instagram: 'instagram.com'}">
+            </vuestic-profile-card>
           </div>
         </widget>
       </div>
       <div class="col-md-8">
-        <widget header-text="Chat">
+        <widget header-text="Chat" class="chat-container">
           <vuestic-chat v-model="chatMessages"></vuestic-chat>
         </widget>
       </div>
@@ -108,3 +109,10 @@
     }
   }
 </script>
+
+<style lang="scss">
+  .profile-card-container, .chat-container {
+    height: 100%;
+    margin: 0;
+  }
+</style>

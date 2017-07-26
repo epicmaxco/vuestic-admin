@@ -4,9 +4,12 @@
     <h5 class="name">{{name}}</h5>
     <span class="location"><span class="icon glyphicon glyphicon-map-marker"></span> {{location}}</span>
     <div class="social">
-      <span class="icon brandico brandico-facebook-rect"></span>
-      <span class="icon brandico brandico-instagram"></span>
-      <span class="icon brandico brandico-twitter"></span>
+      <a class="icon brandico brandico-facebook-rect"
+         v-if="social.facebook" :href="'http://' + social.facebook" target="_blank"></a>
+      <a class="icon brandico brandico-instagram"
+         v-if="social.instagram" :href="'http://' + social.instagram" target="_blank"></a>
+      <a class="icon brandico brandico-twitter"
+         v-if="social.twitter" :href="'http://' + social.twitter" target="_blank"></a>
     </div>
   </div>
 </template>
@@ -14,7 +17,7 @@
 <script>
   export default {
     name: 'vuestic-profile-card',
-    props: ['photoSource', 'name', 'location']
+    props: ['photoSource', 'name', 'location', 'social']
   }
 </script>
 
@@ -58,11 +61,14 @@
       width: 100%;
       border-top: solid .125rem $light-gray;
       .icon {
+        color: $gray;
+        text-decoration: none;
         font-size: $font-size-h4;
         margin-right: .4375rem;
         margin-left: .4375rem;
         &:hover {
           cursor: pointer;
+          color: darken($gray, 50%);
         }
       }
     }
