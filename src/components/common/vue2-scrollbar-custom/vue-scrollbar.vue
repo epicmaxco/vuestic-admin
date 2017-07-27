@@ -122,9 +122,6 @@
 
       // DRAG EVENT JUST FOR TOUCH DEVICE~
       startDrag (e) {
-        e.preventDefault()
-        e.stopPropagation()
-
         e = e.changedTouches ? e.changedTouches[0] : e
 
         // Make sure the content height is not changed
