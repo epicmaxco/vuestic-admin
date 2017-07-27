@@ -37,36 +37,30 @@
         </widget>
       </div>
       <div class="col-md-6 col-xl-3">
-        <widget class="info-widget">
+        <widget class="info-widget brand-danger">
           <div class="info-widget-inner">
-            <div class="stats">
-              <div class="info-widget-number">
-                <i class="ion ion-arrow-graph-down-right text-danger number-icon"></i>
-                425
-              </div>
-              <div class="info-widget-subtitle">Commits</div>
-            </div>
-            <div class="btn btn-primary btn-with-icon btn-micro rounded-icon">
-              <div class="btn-with-icon-content">
-                <i class="ion-social-github ion"></i>
+            <div class="info-widget-inner">
+              <div class="stats">
+                <div class="info-widget-number">
+                  <i class="ion ion-android-people number-icon icon-wide"></i>
+                  5
+                </div>
+                <div class="info-widget-subtitle">Team Members</div>
               </div>
             </div>
           </div>
         </widget>
       </div>
       <div class="col-md-6 col-xl-3">
-        <widget class="info-widget">
+        <widget class="info-widget brand-info">
           <div class="info-widget-inner">
             <div class="stats">
               <div class="info-widget-number">
-                <i class="ion ion-arrow-graph-up-right text-primary number-icon"></i>
+                <i class="ion ion-android-people number-icon icon-wide"></i>
                 5
               </div>
-              <div class="info-widget-subtitle">Developers</div>
+              <div class="info-widget-subtitle">Team Members</div>
             </div>
-            <button class="btn btn-primary btn-micro">
-              add
-            </button>
           </div>
         </widget>
       </div>
@@ -112,10 +106,6 @@
       align-items: center;
       height: 100%;
     }
-
-    .btn {
-      margin-left: 16px;
-    }
   }
 
   .info-widget-number {
@@ -128,8 +118,14 @@
     margin-bottom: 0.5rem;
 
     .number-icon {
-      margin-right: 0.5rem;
       font-size: 25px;
+      position: absolute;
+      top: 10px;
+      left: -20px;
+
+      &.icon-wide {
+        left: -30px;
+      }
     }
   }
 

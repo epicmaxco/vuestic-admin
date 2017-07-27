@@ -52,6 +52,18 @@
 
     &.info-widget {
       border-top: $info-widget-border;
+
+      &.brand-info {
+        background-color: $brand-info;
+        border-top-color: $brand-info;
+        color: $white;
+      }
+
+      &.brand-danger {
+        background-color: $brand-danger;
+        border-top-color: $brand-danger;
+        color: $white;
+      }
     }
 
     .widget-body {
