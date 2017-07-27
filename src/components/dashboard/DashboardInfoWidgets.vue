@@ -29,13 +29,15 @@
     <div class="col-md-6 col-xl-3">
       <widget class="info-widget brand-danger">
         <div class="info-widget-inner">
-          <div class="info-widget-inner">
+          <div class="info-widget-inner has-chart">
             <div class="stats">
               <div class="info-widget-number">
-                <i class="ion ion-android-people number-icon icon-wide"></i>
-                5
+                425
               </div>
-              <div class="info-widget-subtitle">Team Members</div>
+              <div class="info-widget-subtitle">Commits</div>
+            </div>
+            <div class="chart-container">
+              <progress-bar type="circle" ref="circleProgress"></progress-bar>
             </div>
           </div>
         </div>
@@ -66,6 +68,10 @@
     components: {
       Widget,
       ProgressBar
+    },
+
+    mounted () {
+      this.$refs.circleProgress.$data.value = 70
     }
   }
 </script>
@@ -83,6 +89,11 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    width: 100%;
+
+    &.has-chart {
+      justify-content: space-between;
+    }
 
     .stats {
       display: flex;
