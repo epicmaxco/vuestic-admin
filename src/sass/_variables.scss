@@ -150,6 +150,8 @@ $widget-bg : $white;
 $widget-padding : 1.5625rem;
 $widget-larger-padding: 45px;
 $widget-box-shadow : 0px 4px 70px -18px rgba(112, 112, 112, 1);
+$widget-danger-shadow: 0px 4px 70px -16px $brand-danger;
+$widget-info-shadow: 0px 4px 70px -16px $brand-info;
 $widget-viewport-height : $sidebar-viewport-height;
 $widget-header-border: 2px solid $light-gray;
 $widget-header-height: 55px;
