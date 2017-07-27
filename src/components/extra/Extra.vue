@@ -42,7 +42,7 @@
     </widget>
 
     <div class="row">
-      <div class="col-md-4 d-flex align-content-stretch flex-wrap">
+      <div class="col-md-4 d-flex">
         <widget header-text="Profile Card" class="profile-card-widget">
           <vuestic-profile-card :name="'Veronique Lee'" :location="'Malaga, Spain'"
                                 :social="{twitter: 'twitter.com', facebook: 'facebook.com',
@@ -50,7 +50,7 @@
           </vuestic-profile-card>
         </widget>
       </div>
-      <div class="col-md-8 d-flex align-content-stretch flex-wrap">
+      <div class="col-md-8 d-flex">
         <widget header-text="Chat" class="chat-widget">
           <vuestic-chat v-model="chatMessages"></vuestic-chat>
         </widget>
@@ -58,47 +58,41 @@
     </div>
 
     <div class="row bottom-widgets">
-      <div class="col-md-6">
-        <widget class="feed">
+      <div class="col-md-6 d-flex">
+        <widget class="feed no-h-padding">
           <div class="post">
-            <div class="photo"></div>
+            <div class="photo-container"><div class="photo"></div></div>
             <div class="underscored">
-              <span class="name">Anthony Stark</span> <span class="text">have just started a live video.</span>
+              <span class="text"><span class="name">Anthony Stark</span> have just started a live video.</span>
               <button class="btn btn-micro btn-primary btn-with-icon rounded-icon">
-                <div class="btn-with-icon-content">
-                  <span class="entypo entypo-plus icon"></span>
-                </div>
+                <span class="entypo entypo-plus icon"></span>
               </button>
             </div>
           </div>
           <div class="post">
-            <div class="photo"></div>
+            <div class="photo-container"><div class="photo"></div></div>
             <div class="underscored">
-              <span class="name">Anthony Stark</span> <span class="text">have just started a live video.</span>
+              <span class="text"><span class="name">Mario Percuzio</span> joined the network.</span>
               <button class="btn btn-micro btn-primary btn-with-icon rounded-icon">
-                <div class="btn-with-icon-content">
-                  <span class="entypo entypo-plus icon"></span>
-                </div>
+                <span class="entypo entypo-plus icon"></span>
               </button>
             </div>
           </div>
-          <div class="post">
-            <div class="photo"></div>
+          <div class="post last">
+            <div class="photo-container"><div class="photo"></div></div>
             <div class="underscored">
-              <span class="name">Anthony Stark</span> <span class="text">have just started a live video.</span>
+              <span class="text"><span class="name">Selena McDonnalue</span> joined the network.</span>
               <button class="btn btn-micro btn-primary btn-with-icon rounded-icon">
-                <div class="btn-with-icon-content">
-                  <span class="entypo entypo-plus icon"></span>
-                </div>
+                <span class="entypo entypo-plus icon"></span>
               </button>
             </div>
           </div>
         </widget>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 d-flex">
         <widget class="business-posts">
           <div class="d-flex justify-content-between align-items-center text-w-btn">
-            <span>That was users have posted about your business.</span>
+            <span class="text">That was users have posted about your business.</span>
             <button class="btn btn-micro btn-primary">VIEW</button>
           </div>
           <div class="d-flex justify-content-between photos">
@@ -170,7 +164,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      align-content: stretch;
       & > div {
         width: 100%;
       }
@@ -178,49 +171,82 @@
   }
 
   .bottom-widgets {
-    div[class^='col'] {
-      /*padding-right: 7px;*/
-      /*padding-left: 7px;*/
+    > div[class^='col'] {
+      & > div {
+        width: 100%;
+      }
     }
 
-    .feed {
+    .feed .widget-body {
       .post {
-        width: 100%;
         display: flex;
-        .photo {
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          background-color: $gray;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 1.5rem;
+        .photo-container {
+          margin-right: 1rem;
+          .photo {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background-color: $lighter-gray;
+          }
         }
-        span {
-          font-size: $font-size-sm;
-        }
-        .btn {
-          .btn-with-icon-content {
-            margin: 0;
-            width: 100%;
-            height: 100%;
-            span {
-              font-size: 2rem;
+        .underscored {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border-bottom: $light-gray2 2px solid;
+          overflow: hidden;
+          padding-right: 0.7rem;
+          height: 4rem;
+          .text {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            .name {
+              font-weight: $font-weight-bold;
             }
+          }
+          .btn {
+            margin-left: 1rem;
+            .icon {
+              width: 1.5rem;
+              text-align: center;
+              display: inline-block;
+              padding-left: .18rem; // TODO : FIX IT !!!
+              font-size: 1.5rem;
+            }
+          }
+        }
+        &.last {
+          .underscored {
+            border-bottom: none;
           }
         }
       }
     }
 
     .business-posts .widget-body {
-      padding-left: 31px !important; // WTF
-      padding-right: 0 !important; // WTF
+      padding-left: 2rem;
+      padding-right: 0;
       .text-w-btn {
-        padding-right: 21px;
-        padding-bottom: 25px;
-        span {
+        padding-right: 1.3rem;
+        padding-bottom: 1.5rem;
+        overflow: hidden;
+        .text {
           font-size: $font-size-sm;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .btn {
+          margin-left: 1rem;
         }
       }
       .photos {
-        padding-right: 11%;
+        padding-right: 2rem;
         .photo {
           background-color: $gray;
           @include media-breakpoint-up(lg) {
