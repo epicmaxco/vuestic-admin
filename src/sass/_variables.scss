@@ -33,7 +33,9 @@ $colors-map: (
   brand-info: $brand-info,
   brand-success: $brand-success,
   brand-warning: $brand-warning,
-  black: black
+  black: black,
+  white: white,
+  lighter-gray: $lighter-gray
 );
 
 // Layout //
@@ -164,8 +166,6 @@ $btn-padding-y-sm: 0.7rem;
 $btn-padding-x-sm: 2.5rem;
 $btn-padding-y-micro: 0.625rem;
 $btn-padding-x-micro: 1.8rem;
-$btn-padding-y-CUSTOM-WTF: .875rem; // TODO: fix it
-$btn-padding-x-CUSTOM-WTF: 1.5625rem; // TODO: fix it
 $btn-with-icon-text-margin: 1.875rem;
 $btn-with-icon-padding-x: 2.8125rem;
 $btn-with-icon-rounded-size: 3.5rem;

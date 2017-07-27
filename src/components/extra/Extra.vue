@@ -59,13 +59,47 @@
 
     <div class="row bottom-widgets">
       <div class="col-md-6">
-        <widget class="">asdf</widget>
+        <widget class="feed">
+          <div class="post">
+            <div class="photo"></div>
+            <div class="underscored">
+              <span class="name">Anthony Stark</span> <span class="text">have just started a live video.</span>
+              <button class="btn btn-micro btn-primary btn-with-icon rounded-icon">
+                <div class="btn-with-icon-content">
+                  <span class="entypo entypo-plus icon"></span>
+                </div>
+              </button>
+            </div>
+          </div>
+          <div class="post">
+            <div class="photo"></div>
+            <div class="underscored">
+              <span class="name">Anthony Stark</span> <span class="text">have just started a live video.</span>
+              <button class="btn btn-micro btn-primary btn-with-icon rounded-icon">
+                <div class="btn-with-icon-content">
+                  <span class="entypo entypo-plus icon"></span>
+                </div>
+              </button>
+            </div>
+          </div>
+          <div class="post">
+            <div class="photo"></div>
+            <div class="underscored">
+              <span class="name">Anthony Stark</span> <span class="text">have just started a live video.</span>
+              <button class="btn btn-micro btn-primary btn-with-icon rounded-icon">
+                <div class="btn-with-icon-content">
+                  <span class="entypo entypo-plus icon"></span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </widget>
       </div>
       <div class="col-md-6">
         <widget class="business-posts">
           <div class="d-flex justify-content-between align-items-center text-w-btn">
             <span>That was users have posted about your business.</span>
-            <button class="btn btn-CUSTOM-WTF btn-primary">VIEW</button>
+            <button class="btn btn-micro btn-primary">VIEW</button>
           </div>
           <div class="d-flex justify-content-between photos">
             <div class="photo" v-for="i in 5"></div>
@@ -127,6 +161,8 @@
 
 <style lang="scss">
   @import "../../sass/variables";
+  @import "../../../node_modules/bootstrap/scss/variables";
+  @import "../../../node_modules/bootstrap/scss/mixins/breakpoints";
 
   .profile-card-widget, .chat-widget {
     width: 100%;
@@ -143,8 +179,34 @@
 
   .bottom-widgets {
     div[class^='col'] {
-      padding-right: 7px;
-      padding-left: 7px;
+      /*padding-right: 7px;*/
+      /*padding-left: 7px;*/
+    }
+
+    .feed {
+      .post {
+        width: 100%;
+        display: flex;
+        .photo {
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          background-color: $gray;
+        }
+        span {
+          font-size: $font-size-sm;
+        }
+        .btn {
+          .btn-with-icon-content {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            span {
+              font-size: 2rem;
+            }
+          }
+        }
+      }
     }
 
     .business-posts .widget-body {
@@ -154,16 +216,25 @@
         padding-right: 21px;
         padding-bottom: 25px;
         span {
-          font-size: $font-size-mini;
+          font-size: $font-size-sm;
         }
       }
       .photos {
-
-        padding-right: 60px;
+        padding-right: 11%;
         .photo {
-          width: 80px;
-          height: 80px;
           background-color: $gray;
+          @include media-breakpoint-up(lg) {
+            width: 4.8vw;
+            height: 4.8vw;
+          }
+          @include media-breakpoint-between(sm, md) {
+            width: 6vw;
+            height: 6vw;
+          }
+          @include media-breakpoint-between(xs, sm) {
+            width: 12vw;
+            height: 12vw;
+          }
         }
       }
     }
