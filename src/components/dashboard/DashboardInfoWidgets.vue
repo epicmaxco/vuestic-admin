@@ -37,7 +37,7 @@
               <div class="info-widget-subtitle">Commits</div>
             </div>
             <div class="chart-container">
-              <progress-bar type="circle" ref="circleProgress"></progress-bar>
+              <progress-bar type="circle" ref="circleProgress" :color="'white'" :background-color="'brand-danger'" :startColor="'brand-danger'"></progress-bar>
             </div>
           </div>
         </div>
