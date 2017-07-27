@@ -88,7 +88,8 @@
           <div class="col-sm-4 col-12">
             Circle
             <div class="pb-container">
-              <progress-bar type="circle" ref="ccircle"></progress-bar>
+              <progress-bar type="circle" ref="ccircle" :color="'white'" :background-color="'brand-danger'"
+                :startColor="'brand-danger'"></progress-bar>
             </div>
           </div>
         </div>

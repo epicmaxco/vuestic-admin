@@ -69,11 +69,6 @@ h4, .h4 {
   @include button-size($btn-padding-y-micro, $btn-padding-x-micro, $font-size-smaller, $btn-border-radius);
 }
 
-.btn.btn-CUSTOM-WTF { // TODO: fix it
-  @include button-size($btn-padding-y-CUSTOM-WTF, $btn-padding-x-CUSTOM-WTF, 9px, $btn-border-radius);
-  font-weight: $font-weight-bold;
-}
-
 .btn.btn-primary {
  @include theme-button-variant($white, $btn-primary-bg, $btn-border, $btn-box-shadow);
 
