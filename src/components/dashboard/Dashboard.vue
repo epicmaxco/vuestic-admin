@@ -71,12 +71,14 @@
 <script>
   import Widget from 'components/common/widget/Widget'
   import VuesticAlert from 'components/common/vuestic-alert/VuesticAlert'
+  import ProgressBar from 'components/common/vuestic-progress-bar/VuesticProgressBar'
 
   export default {
     name: 'dashboard',
     components: {
       Widget,
-      VuesticAlert
+      VuesticAlert,
+      ProgressBar
     }
   }
 </script>

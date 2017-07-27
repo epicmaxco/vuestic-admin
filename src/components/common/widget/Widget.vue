@@ -50,19 +50,27 @@
       }
     }
 
+    &.brand-info {
+      background-color: $brand-info;
+      color: $white;
+      box-shadow: $widget-info-shadow;
+    }
+
+    &.brand-danger {
+      background-color: $brand-danger;
+      color: $white;
+      box-shadow: $widget-danger-shadow;
+    }
+
     &.info-widget {
       border-top: $info-widget-border;
 
       &.brand-info {
-        background-color: $brand-info;
         border-top-color: $brand-info;
-        color: $white;
       }
 
       &.brand-danger {
-        background-color: $brand-danger;
         border-top-color: $brand-danger;
-        color: $white;
       }
     }
 
