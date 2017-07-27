@@ -4,11 +4,11 @@
       <widget class="info-widget">
         <div class="info-widget-inner">
           <div class="stats">
-            <div class="info-widget-number">
-              <i class="ion ion-arrow-up-c text-primary number-icon"></i>
+            <div class="stats-number">
+              <i class="ion ion-arrow-up-c text-primary stats-icon"></i>
               59
             </div>
-            <div class="info-widget-subtitle">Elements</div>
+            <div class="stats-title">Elements</div>
           </div>
         </div>
       </widget>
@@ -17,11 +17,11 @@
       <widget class="info-widget">
         <div class="info-widget-inner">
           <div class="stats">
-            <div class="info-widget-number">
-              <i class="ion ion-arrow-down-c text-danger number-icon"></i>
+            <div class="stats-number">
+              <i class="ion ion-arrow-down-c text-danger stats-icon"></i>
               12
             </div>
-            <div class="info-widget-subtitle">Versions</div>
+            <div class="stats-title">Versions</div>
           </div>
         </div>
       </widget>
@@ -31,10 +31,10 @@
         <div class="info-widget-inner">
           <div class="info-widget-inner has-chart">
             <div class="stats">
-              <div class="info-widget-number">
+              <div class="stats-number">
                 425
               </div>
-              <div class="info-widget-subtitle">Commits</div>
+              <div class="stats-title">Commits</div>
             </div>
             <div class="chart-container">
               <progress-bar type="circle" ref="circleProgress" :color="'white'" :background-color="'brand-danger'" :startColor="'brand-danger'"></progress-bar>
@@ -47,11 +47,11 @@
       <widget class="info-widget brand-info">
         <div class="info-widget-inner">
           <div class="stats">
-            <div class="info-widget-number">
-              <i class="ion ion-android-people number-icon icon-wide"></i>
+            <div class="stats-number">
+              <i class="ion ion-android-people stats-icon icon-wide"></i>
               5
             </div>
-            <div class="info-widget-subtitle">Team Members</div>
+            <div class="stats-title">Team Members</div>
           </div>
         </div>
       </widget>
@@ -79,7 +79,7 @@
 <style lang="scss" scoped>
   @import "../../sass/_variables.scss";
 
-  .info-widget-number, .info-widget-subtitle {
+  .stats-number, .stats-title {
     line-height: 1;
   }
 
@@ -104,7 +104,7 @@
     }
   }
 
-  .info-widget-number {
+  .stats-number {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -113,14 +113,14 @@
     font-size: 2.625rem;
     margin-bottom: 0.5rem;
 
-    .number-icon {
-      font-size: 25px;
+    .stats-icon {
+      font-size: 1.5625rem;
       position: absolute;
-      top: 10px;
-      left: -20px;
+      top: 0.625rem;
+      left: -1.25rem;
 
       &.icon-wide {
-        left: -30px;
+        left: -1.875rem;
       }
     }
   }

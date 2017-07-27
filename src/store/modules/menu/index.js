@@ -11,12 +11,12 @@ import extra from './extra'
 const state = {
   items: [
     dashboard,
-    auth,
-    extra,
     statistics,
     forms,
     tables,
     ui,
+    extra,
+    auth,
     maps
   ]
 }
