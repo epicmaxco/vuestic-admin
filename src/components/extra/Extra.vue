@@ -42,20 +42,33 @@
     </widget>
 
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4 d-flex align-content-stretch flex-wrap">
         <widget header-text="Profile Card" class="profile-card-widget">
-          <div class="profile-card-container">
-            <vuestic-profile-card :name="'Veronique Lee'" :location="'Malaga, Spain'"
-                                  :social="{twitter: 'twitter.com', facebook: 'facebook.com',
+          <vuestic-profile-card :name="'Veronique Lee'" :location="'Malaga, Spain'"
+                                :social="{twitter: 'twitter.com', facebook: 'facebook.com',
                                   instagram: 'instagram.com'}">
-            </vuestic-profile-card>
-          </div>
+          </vuestic-profile-card>
         </widget>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-8 d-flex align-content-stretch flex-wrap">
         <widget header-text="Chat" class="chat-widget">
-          <div class="chat-container">
-            <vuestic-chat v-model="chatMessages"></vuestic-chat>
+          <vuestic-chat v-model="chatMessages"></vuestic-chat>
+        </widget>
+      </div>
+    </div>
+
+    <div class="row bottom-widgets">
+      <div class="col-md-6">
+        <widget class="">asdf</widget>
+      </div>
+      <div class="col-md-6">
+        <widget class="business-posts">
+          <div class="d-flex justify-content-between align-items-center text-w-btn">
+            <span>That was users have posted about your business.</span>
+            <button class="btn btn-CUSTOM-WTF btn-primary">VIEW</button>
+          </div>
+          <div class="d-flex justify-content-between photos">
+            <div class="photo" v-for="i in 5"></div>
           </div>
         </widget>
       </div>
@@ -113,13 +126,46 @@
 </script>
 
 <style lang="scss">
+  @import "../../sass/variables";
+
   .profile-card-widget, .chat-widget {
-    height: 100%;
-    .profile-card-container, .chat-container {
-      height: 100%;
+    width: 100%;
+    .widget-body {
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      align-content: stretch;
+      & > div {
+        width: 100%;
+      }
+    }
+  }
+
+  .bottom-widgets {
+    div[class^='col'] {
+      padding-right: 7px;
+      padding-left: 7px;
+    }
+
+    .business-posts .widget-body {
+      padding-left: 31px !important; // WTF
+      padding-right: 0 !important; // WTF
+      .text-w-btn {
+        padding-right: 21px;
+        padding-bottom: 25px;
+        span {
+          font-size: $font-size-mini;
+        }
+      }
+      .photos {
+
+        padding-right: 60px;
+        .photo {
+          width: 80px;
+          height: 80px;
+          background-color: $gray;
+        }
+      }
     }
   }
 </style>
