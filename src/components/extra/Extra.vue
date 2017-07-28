@@ -59,45 +59,13 @@
 
     <div class="row bottom-widgets">
       <div class="col-md-6 d-flex">
-        <widget class="feed no-h-padding">
-          <div class="post">
-            <div class="photo-container"><div class="photo"></div></div>
-            <div class="underscored">
-              <span class="text"><span class="name">Anthony Stark</span> have just started a live video.</span>
-              <button class="btn btn-micro btn-primary btn-with-icon rounded-icon">
-                <span class="entypo entypo-plus icon"></span>
-              </button>
-            </div>
-          </div>
-          <div class="post">
-            <div class="photo-container"><div class="photo"></div></div>
-            <div class="underscored">
-              <span class="text"><span class="name">Mario Percuzio</span> joined the network.</span>
-              <button class="btn btn-micro btn-primary btn-with-icon rounded-icon">
-                <span class="entypo entypo-plus icon"></span>
-              </button>
-            </div>
-          </div>
-          <div class="post last">
-            <div class="photo-container"><div class="photo"></div></div>
-            <div class="underscored">
-              <span class="text"><span class="name">Selena McDonnalue</span> joined the network.</span>
-              <button class="btn btn-micro btn-primary btn-with-icon rounded-icon">
-                <span class="entypo entypo-plus icon"></span>
-              </button>
-            </div>
-          </div>
+        <widget class="no-h-padding no-v-padding">
+          <vuestic-feed :initialPosts="posts"></vuestic-feed>
         </widget>
       </div>
       <div class="col-md-6 d-flex">
         <widget class="business-posts">
-          <div class="d-flex justify-content-between align-items-center text-w-btn">
-            <span class="text">That was users have posted about your business.</span>
-            <button class="btn btn-micro btn-primary">VIEW</button>
-          </div>
-          <div class="d-flex justify-content-between photos">
-            <div class="photo" v-for="i in 5"></div>
-          </div>
+          <vuestic-social-news :news="news" :url="'http://instagram.com'"></vuestic-social-news>
         </widget>
       </div>
     </div>
@@ -110,10 +78,14 @@
   import VuesticProfileCard from 'components/common/vuestic-profile-card/VuesticProfileCard.vue'
   import VuesticAlert from 'components/common/vuestic-alert/VuesticAlert'
   import VuesticChat from 'components/common/vuestic-chat/VuesticChat'
+  import VuesticFeed from '../common/vuestic-feed/VuesticFeed.vue'
+  import VuesticSocialNews from '../common/vuestic-social-news/VuesticSocialNews.vue'
 
   export default {
     name: 'extra',
     components: {
+      VuesticSocialNews,
+      VuesticFeed,
       Widget,
       VuesticTabs,
       VuesticProfileCard,
@@ -147,6 +119,40 @@
             text: 'I\'m working on Vuestic, so let\'s meet at 3pm. Thanks!',
             yours: true
           }
+        ],
+        posts: [
+          {
+            name: 'Andrei Hrabouski',
+            text: 'have just started a live video',
+            photoURL: '/static/img/andrei-hrabouski.jpg'
+          },
+          {
+            name: 'Vasily Savitsky',
+            text: 'joined the network',
+            photoURL: '/static/img/vasily-savitsky.jpg'
+          },
+          {
+            name: 'Yarik Adamovich',
+            text: 'joined the network',
+            photoURL: '/static/img/yarik-adamovich.jpg'
+          }
+        ],
+        news: [
+          {
+            photoURL: '/static/img/andrei-hrabouski.jpg'
+          },
+          {
+            photoURL: '/static/img/vasily-savitsky.jpg'
+          },
+          {
+            photoURL: '/static/img/yarik-adamovich.jpg'
+          },
+          {
+            photoURL: '/static/img/alexander-rudnik.jpg'
+          },
+          {
+            photoURL: '/static/img/yarik-adamovich.jpg'
+          }
         ]
       }
     }
@@ -154,10 +160,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../sass/variables";
-  @import "../../../node_modules/bootstrap/scss/variables";
-  @import "../../../node_modules/bootstrap/scss/mixins/breakpoints";
-
   .profile-card-widget, .chat-widget {
     width: 100%;
     .widget-body {
@@ -174,94 +176,6 @@
     > div[class^='col'] {
       & > div {
         width: 100%;
-      }
-    }
-
-    .feed .widget-body {
-      .post {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-left: 1.5rem;
-        .photo-container {
-          margin-right: 1rem;
-          .photo {
-            width: 3rem;
-            height: 3rem;
-            border-radius: 50%;
-            background-color: $lighter-gray;
-          }
-        }
-        .underscored {
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          border-bottom: $light-gray2 2px solid;
-          overflow: hidden;
-          padding-right: 0.7rem;
-          height: 4rem;
-          .text {
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            .name {
-              font-weight: $font-weight-bold;
-            }
-          }
-          .btn {
-            margin-left: 1rem;
-            .icon {
-              width: 1.5rem;
-              text-align: center;
-              display: inline-block;
-              padding-left: .18rem; // TODO : FIX IT !!!
-              font-size: 1.5rem;
-            }
-          }
-        }
-        &.last {
-          .underscored {
-            border-bottom: none;
-          }
-        }
-      }
-    }
-
-    .business-posts .widget-body {
-      padding-left: 2rem;
-      padding-right: 0;
-      .text-w-btn {
-        padding-right: 1.3rem;
-        padding-bottom: 1.5rem;
-        overflow: hidden;
-        .text {
-          font-size: $font-size-sm;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-        }
-        .btn {
-          margin-left: 1rem;
-        }
-      }
-      .photos {
-        padding-right: 2rem;
-        .photo {
-          background-color: $gray;
-          @include media-breakpoint-up(lg) {
-            width: 4.8vw;
-            height: 4.8vw;
-          }
-          @include media-breakpoint-between(sm, md) {
-            width: 6vw;
-            height: 6vw;
-          }
-          @include media-breakpoint-between(xs, sm) {
-            width: 12vw;
-            height: 12vw;
-          }
-        }
       }
     }
   }
