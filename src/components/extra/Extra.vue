@@ -26,16 +26,16 @@
 
     <widget class="no-padding no-v-padding no-h-padding">
       <vuestic-tabs :names="['Overview', 'Data Visualization', 'Users & Members', 'Setup Profile']">
-        <div slot="Overview">
+        <div slot="Overview" class="d-flex justify-content-center">
           Overview
         </div>
-        <div slot="Data Visualization">
+        <div slot="Data Visualization" class="d-flex justify-content-center">
           Data Visualisation
         </div>
-        <div slot="Users & Members">
+        <div slot="Users & Members" class="d-flex justify-content-center">
           Users & Members
         </div>
-        <div slot="Setup Profile">
+        <div slot="Setup Profile" class="d-flex justify-content-center">
           Setup Profile
         </div>
       </vuestic-tabs>
@@ -44,7 +44,7 @@
     <div class="row">
       <div class="col-md-4 d-flex">
         <widget header-text="Profile Card" class="profile-card-widget">
-          <vuestic-profile-card :name="'Veronique Lee'" :location="'Malaga, Spain'"
+          <vuestic-profile-card :name="'Veronique Lee'" :location="'Malaga, Spain'" photoSource="http://i.imgur.com/UTc7Fne.png"
                                 :social="{twitter: 'twitter.com', facebook: 'facebook.com',
                                   instagram: 'instagram.com'}">
           </vuestic-profile-card>
@@ -108,7 +108,7 @@
             yours: false
           },
           {
-            text: 'Should I bring a lightbox with mer?',
+            text: 'Should I bring a lightbox with me?',
             yours: true
           },
           {

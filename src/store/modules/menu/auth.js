@@ -8,7 +8,7 @@ export default {
   meta: {
     expanded: false,
     title: 'Auth',
-    iconClass: 'fa fa-sign-in'
+    iconClass: 'vuestic-icon vuestic-icon-auth'
   },
   children: [
     {
