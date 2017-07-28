@@ -26,16 +26,16 @@
 
     <widget class="no-padding no-v-padding no-h-padding">
       <vuestic-tabs :names="['Overview', 'Data Visualization', 'Users & Members', 'Setup Profile']">
-        <div slot="Overview">
+        <div slot="Overview" class="d-flex justify-content-center">
           Overview
         </div>
-        <div slot="Data Visualization">
+        <div slot="Data Visualization" class="d-flex justify-content-center">
           Data Visualisation
         </div>
-        <div slot="Users & Members">
+        <div slot="Users & Members" class="d-flex justify-content-center">
           Users & Members
         </div>
-        <div slot="Setup Profile">
+        <div slot="Setup Profile" class="d-flex justify-content-center">
           Setup Profile
         </div>
       </vuestic-tabs>

@@ -12,7 +12,7 @@
 
     <dashboard-info-widgets></dashboard-info-widgets>
 
-    <widget class="no-padding no-v-padding no-h-padding">
+    <widget class="no-padding no-v-padding">
       <vuestic-tabs :names="['Overview', 'Data Visualization', 'Users & Members', 'Setup Profile']">
         <div slot="Overview">
           Overview
