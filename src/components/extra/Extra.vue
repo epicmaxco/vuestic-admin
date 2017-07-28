@@ -136,7 +136,7 @@
             yours: false
           },
           {
-            text: 'Should I bring a lightbox with mer?',
+            text: 'Should I bring a lightbox with me?',
             yours: true
           },
           {
