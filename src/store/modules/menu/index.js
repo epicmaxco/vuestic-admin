@@ -6,15 +6,17 @@ import ui from './ui'
 import maps from './maps'
 import tables from './tables'
 import auth from './auth'
+import extra from './extra'
 
 const state = {
   items: [
     dashboard,
-    auth,
     statistics,
     forms,
     tables,
     ui,
+    extra,
+    auth,
     maps
   ]
 }

@@ -1,2 +1,30 @@
 // Fonts //
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
+@font-face {
+  font-family: 'Glyphter';
+  src: url('#{$icon-font-path}/Glyphter.eot');
+  src: url('#{$icon-font-path}/Glyphter.eot?#iefix') format('embedded-opentype'),
+  url('#{$icon-font-path}/Glyphter.woff') format('woff'),
+  url('#{$icon-font-path}/Glyphter.ttf') format('truetype'),
+  url('#{$icon-font-path}/Glyphter.svg#Glyphter') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.vuestic-icon {
+  line-height: 1;
+}
+
+.vuestic-icon:before{
+  display: inline-block;
+  font-family: 'Glyphter';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+.vuestic-icon-dashboard:before{content:'\0041';}
+.vuestic-icon-forms:before{content:'\0042';}
