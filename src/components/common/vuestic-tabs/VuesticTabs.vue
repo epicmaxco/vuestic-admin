@@ -97,8 +97,8 @@
       }
     }
     .tab-content {
-      padding-top: 3.125rem;
-      padding-bottom: 1.5rem;
+      padding-top: $tab-content-pt;
+      padding-bottom: $tab-content-pb;
 
       > .tab-pane {
         width: 100%
