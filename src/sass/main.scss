@@ -1,8 +1,8 @@
 @import "~normalize.css";
 
 @import "mixins";
-@import "fonts";
 @import "variables";
+@import "fonts";
 
 @import "~bootstrap/scss/bootstrap";
 @import "~font-awesome/css/font-awesome.css";
@@ -19,8 +19,4 @@
 @import "override-custom-libs";
 @import "override-bootstrap";
 
-$bootstrap-sass-asset-helper: false;
-$icon-font-name: 'glyphicons-halflings-regular';
-$icon-font-svg-id: 'glyphicons_halflingsregular';
-$icon-font-path: './fonts/';
 @import "glyphicons";

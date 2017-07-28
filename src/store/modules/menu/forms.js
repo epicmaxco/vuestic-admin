@@ -5,7 +5,7 @@ export default {
   meta: {
     expanded: false,
     title: 'Forms',
-    iconClass: 'fa fa-edit'
+    iconClass: 'vuestic-icon vuestic-icon-forms'
   },
   children: [
     {

@@ -1,7 +1,7 @@
 <template>
  <div class="vuestic-chat">
    <div class="chat-body" :style="{'height': height}" v-sticky-scroll="{animate: true, duration: 500}">
-     <div class="chat-message alien" v-for="message in value" :class="{'yours': message.yours, 'alien': !message.yours}">
+     <div class="chat-message" v-for="message in value" :class="{'yours': message.yours, 'alien': !message.yours}">
         {{message.text}}
      </div>
    </div>
@@ -72,6 +72,10 @@
   $chat-message-py: 0.657rem;
   $chat-message-px: 1.375rem;
   $chat-message-br: 0.875rem;
+
+  .vuestic-chat {
+    width: 100%;
+  }
 
   .chat-body {
     min-height: $chat-body-min-height;

@@ -7,6 +7,6 @@ export default {
   meta: {
     default: true,
     title: 'Dashboard',
-    iconClass: 'fa fa-dashboard'
+    iconClass: 'vuestic-icon vuestic-icon-dashboard'
   }
 }

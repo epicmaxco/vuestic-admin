@@ -7,7 +7,7 @@ export default {
   meta: {
     default: false,
     title: 'Extra',
-    iconClass: 'fa fa-dashboard',
+    iconClass: 'vuestic-icon vuestic-icon-extras',
     expanded: false
   }
 }

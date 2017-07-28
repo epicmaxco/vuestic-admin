@@ -7,7 +7,7 @@
       </div>
     </nav>
     <div class="track"><div :class="underscoreClass"></div></div>
-    <div class="tab-content d-flex justify-content-center">
+    <div class="tab-content">
       <div class="tab-pane"
            :class="{active: name === currentActive}" v-for="name in names">
         <slot :name="name"></slot>
@@ -97,8 +97,12 @@
       }
     }
     .tab-content {
-      padding-top: 3.125rem;
-      padding-bottom: 1.5rem;
+      padding-top: $tab-content-pt;
+      padding-bottom: $tab-content-pb;
+
+      > .tab-pane {
+        width: 100%
+      }
     }
   }
 </style>

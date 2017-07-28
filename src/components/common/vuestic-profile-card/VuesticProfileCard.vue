@@ -1,6 +1,8 @@
 <template>
   <div class="vuestic-profile-card d-flex flex-column align-items-center">
-    <div class="photo"></div>
+    <div class="photo">
+      <img :src="photoSource" />
+    </div>
     <h5 class="name">{{name}}</h5>
     <span class="location"><span class="icon glyphicon glyphicon-map-marker"></span> {{location}}</span>
     <div class="social">
@@ -35,6 +37,12 @@
       width: $vuestic-profile-card-photo-diameter;
       border-radius: 50%;
       background-color: $lighter-gray;
+      overflow: hidden;
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
     }
     .name {
       margin-top: 1.325rem;
