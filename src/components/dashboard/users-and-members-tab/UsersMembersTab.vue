@@ -2,7 +2,7 @@
   <div class="users-members-tab dashboard-tab">
     <div class="row">
       <div class="col-md-4 d-flex">
-        <vuestic-profile-card :name="'Veronique Lee'" :location="'Malaga, Spain'"
+        <vuestic-profile-card :name="'Veronique Lee'" :location="'Malaga, Spain'" photoSource="http://i.imgur.com/UTc7Fne.png"
                               :social="{twitter: 'twitter.com', facebook: 'facebook.com',
                                   instagram: 'instagram.com'}">
         </vuestic-profile-card>
