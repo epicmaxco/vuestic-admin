@@ -24,7 +24,7 @@
           <users-members-tab></users-members-tab>
         </div>
         <div slot="Setup Profile">
-          Setup Profile
+          <setup-profile-tab></setup-profile-tab>
         </div>
       </vuestic-tabs>
     </widget>
@@ -38,6 +38,7 @@
   import DashboardInfoWidgets from './DashboardInfoWidgets'
   import VuesticTabs from 'components/common/vuestic-tabs/VuesticTabs.vue'
   import UsersMembersTab from './users-and-members-tab/UsersMembersTab.vue'
+  import SetupProfileTab from './setup-profile-tab/SetupProfileTab.vue'
 
   export default {
     name: 'dashboard',
@@ -46,7 +47,8 @@
       VuesticAlert,
       DashboardInfoWidgets,
       VuesticTabs,
-      UsersMembersTab
+      UsersMembersTab,
+      SetupProfileTab
     }
   }
 </script>
