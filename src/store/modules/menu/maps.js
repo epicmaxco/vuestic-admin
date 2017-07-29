@@ -5,7 +5,7 @@ export default {
   meta: {
     expanded: false,
     title: 'Maps',
-    iconClass: 'fa fa-location-arrow'
+    iconClass: 'vuestic-icon vuestic-icon-maps'
   },
 
   children: [

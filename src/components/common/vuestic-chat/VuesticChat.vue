@@ -73,6 +73,10 @@
   $chat-message-px: 1.375rem;
   $chat-message-br: 0.875rem;
 
+  .vuestic-chat {
+    width: 100%;
+  }
+
   .chat-body {
     min-height: $chat-body-min-height;
     display: flex;

@@ -4,7 +4,7 @@ export default {
   name: 'tables',
   meta: {
     title: 'Tables',
-    iconClass: 'fa fa-th-list'
+    iconClass: 'vuestic-icon vuestic-icon-tables'
   },
   path: '/tables',
   component: lazyLoading('tables/Table')
