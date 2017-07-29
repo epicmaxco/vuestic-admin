@@ -65,7 +65,7 @@
       </div>
       <div class="col-md-6 d-flex">
         <widget class="business-posts">
-          <vuestic-social-news :news="news" :url="'http://instagram.com'"></vuestic-social-news>
+          <vuestic-social-news :news="news" :url="'http://instagram.com/smartapant'"></vuestic-social-news>
         </widget>
       </div>
     </div>
@@ -122,36 +122,36 @@
         ],
         posts: [
           {
+            name: 'Irina Myatelskaya',
+            text: 'joined the network',
+            photoURL: 'http://i.imgur.com/LUi43z7.png'
+          },
+          {
             name: 'Andrei Hrabouski',
             text: 'have just started a live video',
-            photoURL: '/static/img/andrei-hrabouski.jpg'
+            photoURL: 'http://i.imgur.com/nryPD3a.png'
           },
           {
-            name: 'Vasily Savitsky',
+            name: 'Evan You',
             text: 'joined the network',
-            photoURL: '/static/img/vasily-savitsky.jpg'
-          },
-          {
-            name: 'Yarik Adamovich',
-            text: 'joined the network',
-            photoURL: '/static/img/yarik-adamovich.jpg'
+            photoURL: 'http://i.imgur.com/tnVJojM.jpgg'
           }
         ],
         news: [
           {
-            photoURL: '/static/img/andrei-hrabouski.jpg'
+            photoURL: 'http://i.imgur.com/QIqhHkO.png'
           },
           {
-            photoURL: '/static/img/vasily-savitsky.jpg'
+            photoURL: 'http://i.imgur.com/zIn9PMX.png'
           },
           {
-            photoURL: '/static/img/yarik-adamovich.jpg'
+            photoURL: 'http://i.imgur.com/26unzKs.png'
           },
           {
-            photoURL: '/static/img/alexander-rudnik.jpg'
+            photoURL: 'http://i.imgur.com/LwRuhvE.png'
           },
           {
-            photoURL: '/static/img/yarik-adamovich.jpg'
+            photoURL: 'http://i.imgur.com/9r5kq6n.png'
           }
         ]
       }
