@@ -26,6 +26,8 @@ $brand-success: $theme-violet;
 $light-gray2: #eff4f5;
 $dark-gray: #282828;
 $gray: #adb3b9;
+$violet: #db76df;
+$dark-blue: #0045b6;
 
 $colors-map: (
   brand-danger: $brand-danger,
@@ -248,12 +250,19 @@ $progress-bar-width-thick: 1.5rem;
 $table-bg-accent: $white;
 $table-border-width: $white;
 $striped-row: $light-gray2;
+$state-success-bg: #c8fac6;
+$state-danger-bg: #ffcece;
+$state-warning-bg: #fff1c8;
+$state-info-bg: #dcf1ff;
 
 //Badges
 $badge-padding-y: 0.28rem;
 $badge-min-width: 5rem;
 $badge-font-size: 0.7rem;
 $badge-success-bg: $brand-primary;
+$badge-warning-bg: #f7cc36;
+$badge-danger-bg: #e34a4a;
+$badge-info-bg: #4ab2e3;
 
 //Alerts
 $alert-padding-x:             1.25rem !default;

@@ -2,7 +2,8 @@
   <div>
     <div class="d-flex justify-content-between">
       <filter-bar></filter-bar>
-      <items-per-page></items-per-page>
+      <items-per-page :options="itemsPerPage"
+                      :defaultPerPage="perPage"></items-per-page>
     </div>
     <div class="table-responsive">
       <vuetable ref="vuetable"
@@ -11,24 +12,15 @@
                 :css="css.table"
                 paginationPath=""
                 :appendParams="moreParams"
+                :perPage="perPage"
                 @vuetable:pagination-data="onPaginationData"
       >
-        <template slot="color" scope="props">
-          <span class="badge" :class="{
-                  'badge-info': props.rowIndex % 6 === 0,
-                  'badge-warning': props.rowIndex % 6 === 1,
-                  'badge-danger': props.rowIndex % 6 === 2,
-                  'badge-success': props.rowIndex % 6 === 3,
-                  'badge-default': props.rowIndex % 6 === 4
-          }"></span>
-        </template>
       </vuetable>
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center mb-4">
         <vuetable-pagination ref="pagination"
                              :css="css.pagination"
                              @vuetable-pagination:change-page="onChangePage"></vuetable-pagination>
       </div>
-
     </div>
   </div>
 </template>
@@ -42,7 +34,6 @@
   import VueEvents from 'vue-events'
 
   Vue.use(VueEvents)
-  //  import TestData from './table-test-data'
 
   export default {
     name: 'dataTable',
@@ -52,18 +43,33 @@
       VuetablePagination,
       ItemsPerPage
     },
+    props: {
+      apiUrl: {
+        type: String,
+        required: true
+      },
+      tableFields: {
+        type: Array,
+        required: true
+      },
+      itemsPerPage: {
+        type: Array,
+        required: true
+      }
+    },
     data () {
       return {
+        perPage: 6,
         colorClasses: {},
         moreParams: {},
         css: {
           table: {
             tableClass: 'table table-striped',
-            ascendingIcon: 'glyphicon glyphicon-chevron-up',
-            descendingIcon: 'glyphicon glyphicon-chevron-down'
+            ascendingIcon: 'entypo entypo-up-dir',
+            descendingIcon: 'entypo entypo-down-dir'
           },
           pagination: {
-            wrapperClass: 'btn-group',
+            wrapperClass: 'btn-group green-box-shadow',
             activeClass: 'focus',
             disabledClass: 'disabled',
             pageClass: 'btn btn-primary',
@@ -75,40 +81,22 @@
               last: 'fa fa-angle-double-right'
             }
           }
-        },
-
-        tableFields: [
-          {
-            name: '__slot:color',
-            title: ''
-          },
-          {
-            name: 'name',
-            sortField: 'name'
-          },
-          {
-            name: 'email',
-            sortField: 'email'
-          },
-          {
-            name: 'address.line2',
-            title: 'city'
-          },
-          {
-            name: 'salary',
-            title: 'score'
-          }
-        ]
+        }
       }
     },
     mounted () {
       this.$events.$on('filter-set', eventData => this.onFilterSet(eventData))
+      this.$events.$on('items-per-page', eventData => this.onItemsPerPage(eventData))
     },
     methods: {
       onFilterSet (filterText) {
         this.moreParams = {
           'filter': filterText
         }
+        Vue.nextTick(() => this.$refs.vuetable.refresh())
+      },
+      onItemsPerPage (itemsPerPageValue) {
+        this.perPage = itemsPerPageValue
         Vue.nextTick(() => this.$refs.vuetable.refresh())
       },
       onPaginationData (paginationData) {
@@ -122,14 +110,5 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/variables";
 
-  .btn-group {
-    color: $white;
-  }
-
-  .middle {
-    /*todo fix box-shadow*/
-    box-shadow: 0 4px 70px -16px $vue-green;
-  }
 </style>

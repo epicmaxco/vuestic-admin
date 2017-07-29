@@ -4,7 +4,7 @@
       <div class="col-xs-12 col-md-12">
         <widget headerText="Basic Table">
           <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-striped first-td-padding">
               <thead>
               <tr>
                 <td>Name</td>
@@ -179,8 +179,10 @@
 
     <div class="row">
       <div class="col-md-12">
-        <widget headerText="Search And Scroll">
-          <dataTable></dataTable>
+        <widget headerText="Search & Scroll">
+          <dataTable apiUrl="https://vuetable.ratiw.net/api/users"
+                     :tableFields="tableFields"
+                     :itemsPerPage="itemsPerPage"></dataTable>
         </widget>
       </div>
     </div>
@@ -190,14 +192,57 @@
 
 <script>
   import Widget from '../common/widget/Widget'
-  import DataTable from './datatable/DataTable'
+  import DataTable from '../common/vuestic-datatable/DataTable'
+  import BadgeColumn from './BadgeColumn.vue'
+  import Vue from 'vue'
+
+  Vue.component('badge-column', BadgeColumn)
 
   export default {
     components: {
       DataTable,
       Widget
     },
-    name: 'Table'
+    name: 'Table',
+    data () {
+      return {
+        apiUrl: 'https://vuetable.ratiw.net/api/users',
+        tableFields: [
+          {
+            name: '__component:badge-column',
+            title: '',
+            dataClass: 'text-center'
+          },
+          {
+            name: 'name',
+            sortField: 'name'
+          },
+          {
+            name: 'email',
+            sortField: 'email'
+          },
+          {
+            name: 'address.line2',
+            title: 'city'
+          },
+          {
+            name: 'salary',
+            title: 'score'
+          }
+        ],
+        itemsPerPage: [
+          {
+            value: 5
+          },
+          {
+            value: 6
+          },
+          {
+            value: 10
+          }
+        ]
+      }
+    }
   }
 </script>
 

@@ -271,15 +271,6 @@ h4, .h4 {
     text-transform: uppercase;
   }
 
-  td:first-child {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-
-  td:last-child {
-    width: 3rem;
-  }
-
   td, th {
     vertical-align: middle !important;
     padding: .5rem;
@@ -307,6 +298,19 @@ h4, .h4 {
 
 }
 
+.first-td-padding {
+  td:first-child {
+    @extend .pl-4;
+  }
+}
+
+.sort-icon {
+  float: none !important;
+  margin-left: .2rem;
+  top: 1px;
+  font-size: 1rem;
+}
+
 //Badges
 
 .badge {
@@ -314,6 +318,16 @@ h4, .h4 {
   display: inline-block;
   font-weight: bold;
   text-transform: uppercase;
+  font-size: .625rem;
+  letter-spacing: .0625rem;
+}
+
+.badge-violet {
+  @include badge-variant($theme-violet);
+}
+
+.badge-dark-blue {
+  @include badge-variant($dark-blue);
 }
 
 .badge-success {
@@ -375,4 +389,35 @@ h4, .h4 {
   .alert-close {
     color: $brand-info;
   }
+}
+
+//General
+a:not([href]):not([tabindex]) {
+  color: $white;
+  cursor: pointer;
+}
+
+a:not([href]):not([tabindex]):hover {
+  color: $white;
+  cursor: pointer;
+}
+
+a:not([href]):not([tabindex]):focus {
+  color: $white;
+  cursor: pointer;
+}
+
+.circle {
+  width: .75rem;
+  height: .75rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.btn-group {
+  color: $white;
+}
+
+.green-box-shadow {
+  box-shadow: 0 4px 9.6px 0.4px rgba($vue-green, .5) !important;
 }
