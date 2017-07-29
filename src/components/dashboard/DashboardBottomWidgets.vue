@@ -7,7 +7,7 @@
     </div>
     <div class="col-md-6 d-flex">
       <widget class="business-posts">
-        <vuestic-social-news :news="news" :url="'http://instagram.com/smartapant'"></vuestic-social-news>
+        <vuestic-social-news class="vuestic-social-news" :news="news" :url="'http://instagram.com/smartapant'"></vuestic-social-news>
       </widget>
     </div>
   </div>
