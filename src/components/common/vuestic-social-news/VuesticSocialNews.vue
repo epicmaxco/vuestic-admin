@@ -39,6 +39,7 @@
       }
       .btn {
         margin-left: 1rem;
+        line-height: 1; //TODO: review btn styles
       }
     }
     .photos {
