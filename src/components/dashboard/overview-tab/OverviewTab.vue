@@ -46,6 +46,10 @@
           </div>
         </div>
       </div>
+
+    <div class="d-flex explore-row flex-row w-100 justify-content-center">
+      <button class="btn btn-primary explore-btn" @click="explore()">explore</button>
+    </div>
   </div>
 </template>
 
@@ -61,7 +65,9 @@
       }
     },
     methods: {
-
+      explore () {
+        this.$emit('explore')
+      }
     }
   }
 </script>
@@ -103,6 +109,11 @@
     @include media-breakpoint-down(xs) {
       flex-wrap: wrap;
     }
+  }
+
+  .explore-btn {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
   }
 
 

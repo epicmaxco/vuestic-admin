@@ -13,9 +13,9 @@
     <dashboard-info-widgets></dashboard-info-widgets>
 
     <widget class="no-padding no-v-padding">
-      <vuestic-tabs :names="['Overview', 'Data Visualization', 'Users & Members', 'Setup Profile']">
+      <vuestic-tabs :names="['Overview', 'Data Visualization', 'Users & Members', 'Setup Profile']" ref="tabs">
         <div slot="Overview">
-          <overview-tab></overview-tab>
+          <overview-tab @explore="explore"></overview-tab>
         </div>
         <div slot="Data Visualization">
           Data Visualisation
@@ -51,6 +51,11 @@
       UsersMembersTab,
       SetupProfileTab,
       OverviewTab
+    },
+    methods: {
+      explore () {
+        this.$refs.tabs.setActive('Data Visualization')
+      }
     }
   }
 </script>
