@@ -15,7 +15,12 @@
     <widget class="no-padding no-v-padding">
       <vuestic-tabs :names="['Overview', 'Data Visualization', 'Users & Members', 'Setup Profile']">
         <div slot="Overview">
-          Overview
+          <i class="i-vuestic-fresh"></i>
+          <i class="i-vuestic-clean-code"></i>
+          <i class="i-vuestic-free"></i>
+          <i class="i-vuestic-responsive"></i>
+          <i class="i-vuestic-rich"></i>
+          <i class="i-vuestic-vue"></i>
         </div>
         <div slot="Data Visualization">
           Data Visualisation
