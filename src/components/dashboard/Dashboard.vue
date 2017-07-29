@@ -29,6 +29,8 @@
       </vuestic-tabs>
     </widget>
 
+    <dashboard-bottom-widgets></dashboard-bottom-widgets>
+
   </div>
 </template>
 
@@ -41,6 +43,7 @@
   import SetupProfileTab from './setup-profile-tab/SetupProfileTab.vue'
   import OverviewTab from './overview-tab/OverviewTab.vue'
   import DataVisualisationTab from './data-visualisation-tab/DataVisualisation.vue'
+  import DashboardBottomWidgets from './DashboardBottomWidgets.vue'
 
   export default {
     name: 'dashboard',
@@ -52,7 +55,8 @@
       VuesticTabs,
       UsersMembersTab,
       SetupProfileTab,
-      OverviewTab
+      OverviewTab,
+      DashboardBottomWidgets
     },
     methods: {
       explore () {
