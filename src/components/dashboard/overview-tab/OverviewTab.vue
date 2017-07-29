@@ -1,8 +1,8 @@
 <template>
   <div class="overview-tab dashboard-tab">
-      <div class="d-flex row flex-row w-100 justify-content-between">
+      <div class="d-flex overview-row flex-row w-100 justify-content-sm-around justify-content-xs-start">
 
-        <div class="col-md-6 overview-col">
+        <div class="overview-col">
           <div class="overview-item">
             <div class="overview-icon-container">
               <i class="i-vuestic-vue"></i>
@@ -23,7 +23,9 @@
           </div>
         </div>
 
-        <div class="col-md-6 overview-col">
+        <div class="gutter"></div>
+
+        <div class="overview-col">
           <div class="overview-item">
             <div class="overview-icon-container">
               <i class="i-vuestic-responsive"></i>
@@ -88,12 +90,19 @@
     }
   }
 
-  .overview-col {
-    padding-left: 4rem;
+  .gutter {
+    max-width: 1rem;
+    min-width: 1rem;
+
+    @include media-breakpoint-down(xs) {
+      display: none;
+    }
   }
 
-  .overview-col:last-child {
-    padding-right: 4rem;
+  .overview-row {
+    @include media-breakpoint-down(xs) {
+      flex-wrap: wrap;
+    }
   }
 
 
