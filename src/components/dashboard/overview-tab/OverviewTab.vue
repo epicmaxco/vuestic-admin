@@ -23,8 +23,6 @@
           </div>
         </div>
 
-        <div class="gutter"></div>
-
         <div class="overview-col">
           <div class="overview-item">
             <div class="overview-icon-container">
@@ -77,11 +75,16 @@
   @import "../../../../node_modules/bootstrap/scss/variables";
   @import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
 
+  .overview-tab {
+    padding-top: 4rem;
+  }
+
   .overview-item {
     display: flex;
     align-items: center;
     height: 55px;
     margin-bottom: 2rem;
+    padding-right: 1rem;
     font-size: 1.25rem;
     font-weight: bold;
 
@@ -96,23 +99,21 @@
     }
   }
 
-  .gutter {
-    max-width: 1rem;
-    min-width: 1rem;
-
-    @include media-breakpoint-down(xs) {
-      display: none;
-    }
-  }
-
   .overview-row {
     @include media-breakpoint-down(xs) {
       flex-wrap: wrap;
     }
   }
 
+  .overview-col:first-child {
+    margin-left: 2rem;
+    @include media-breakpoint-down(md) {
+      margin-left: 0;
+    }
+  }
+
   .explore-btn {
-    margin-top: 1.5rem;
+    margin-top: 6rem;
     margin-bottom: 1rem;
   }
 
