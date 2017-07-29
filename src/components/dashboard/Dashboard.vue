@@ -18,7 +18,7 @@
           <overview-tab @explore="explore"></overview-tab>
         </div>
         <div slot="Data Visualization">
-          Data Visualisation
+          <data-visualisation-tab></data-visualisation-tab>
         </div>
         <div slot="Users & Members">
           <users-members-tab></users-members-tab>
@@ -40,10 +40,12 @@
   import UsersMembersTab from './users-and-members-tab/UsersMembersTab.vue'
   import SetupProfileTab from './setup-profile-tab/SetupProfileTab.vue'
   import OverviewTab from './overview-tab/OverviewTab.vue'
+  import DataVisualisationTab from './data-visualisation-tab/DataVisualisation.vue'
 
   export default {
     name: 'dashboard',
     components: {
+      DataVisualisationTab,
       Widget,
       VuesticAlert,
       DashboardInfoWidgets,
