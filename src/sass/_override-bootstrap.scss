@@ -131,7 +131,7 @@ h4, .h4 {
 }
 
 .btn.btn-dark {
-  @include theme-button-variant($white, $btn-dark-bg, $btn-border, $greeny-box-shadow);
+  @include theme-button-variant($white, $btn-dark-bg, $btn-border, $btn-box-dark-shadow);
 }
 
 .btn.btn-pale {
@@ -208,6 +208,10 @@ h4, .h4 {
   &::after {
     display: none;
   }
+}
+
+.btn-group {
+  color: $white;
 }
 
 // Dropdowns & Selects
@@ -389,35 +393,4 @@ h4, .h4 {
   .alert-close {
     color: $brand-info;
   }
-}
-
-//General
-a:not([href]):not([tabindex]) {
-  color: $white;
-  cursor: pointer;
-}
-
-a:not([href]):not([tabindex]):hover {
-  color: $white;
-  cursor: pointer;
-}
-
-a:not([href]):not([tabindex]):focus {
-  color: $white;
-  cursor: pointer;
-}
-
-.circle {
-  width: .75rem;
-  height: .75rem;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.btn-group {
-  color: $white;
-}
-
-.green-box-shadow {
-  box-shadow: 0 4px 9.6px 0.4px rgba($vue-green, .5) !important;
 }

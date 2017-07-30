@@ -36,7 +36,7 @@
   Vue.use(VueEvents)
 
   export default {
-    name: 'dataTable',
+    name: 'data-table',
     components: {
       FilterBar,
       Vuetable,

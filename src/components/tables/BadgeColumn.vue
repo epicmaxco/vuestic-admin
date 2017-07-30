@@ -4,7 +4,7 @@
 
 <script>
   export default {
-    name: 'badge-column',
+    name: 'badgeColumn',
     props: {
       rowData: {
         type: Object,
@@ -29,5 +29,11 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+  .circle {
+    width: .75rem;
+    height: .75rem;
+    border-radius: 50%;
+    display: inline-block;
+  }
 </style>

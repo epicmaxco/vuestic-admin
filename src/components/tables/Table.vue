@@ -180,9 +180,9 @@
     <div class="row">
       <div class="col-md-12">
         <widget headerText="Search & Scroll">
-          <dataTable apiUrl="https://vuetable.ratiw.net/api/users"
-                     :tableFields="tableFields"
-                     :itemsPerPage="itemsPerPage"></dataTable>
+          <data-table apiUrl="https://vuetable.ratiw.net/api/users"
+                      :tableFields="tableFields"
+                      :itemsPerPage="itemsPerPage"></data-table>
         </widget>
       </div>
     </div>
