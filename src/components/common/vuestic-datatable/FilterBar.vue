@@ -24,8 +24,19 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .search-icon {
     transform: rotate(90deg);
   }
+
+  .form-group {
+    min-width: 7rem;
+  }
+
+  @media (max-width: 768px) {
+    .form-group {
+      width: 80%;
+    }
+  }
+
 </style>

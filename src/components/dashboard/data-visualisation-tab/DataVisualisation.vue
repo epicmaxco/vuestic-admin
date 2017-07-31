@@ -10,7 +10,7 @@
         <data-table :apiUrl="apiUrl"
                     :tableFields="tableFields"
                     :itemsPerPage="itemsPerPage"
-                    :onEachSide="1">
+                    :onEachSide="onEachSide">
         </data-table>
       </div>
     </div>
@@ -39,6 +39,7 @@
       return {
         donutChartData: DonutChartData,
         apiUrl: 'https://vuetable.ratiw.net/api/users',
+        onEachSide: 0,
         tableFields: [
           {
             name: '__component:badge-column',
