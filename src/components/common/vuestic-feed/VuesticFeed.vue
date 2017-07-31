@@ -56,6 +56,8 @@
       align-items: center;
       .photo-container {
         margin-right: 1rem;
+        border-radius: 50%;
+        border: 2px solid $lighter-gray;
         .photo {
           background-size: cover !important;
           width: 3rem;
