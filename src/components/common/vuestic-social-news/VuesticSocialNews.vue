@@ -1,7 +1,7 @@
 <template>
   <div class="vuestic-social-news">
     <div class="d-flex justify-content-between align-items-center text-w-btn">
-      <span class="text">That was users have posted about your business.</span>
+      <span class="text">That what users have posted about your business.</span>
       <a :href="url" target="_blank">
         <button class="btn btn-micro btn-primary">VIEW</button>
       </a>
