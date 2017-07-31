@@ -20,6 +20,7 @@
       <div class="d-flex justify-content-center mb-4">
         <vuetable-pagination ref="pagination"
                              :css="css.pagination"
+                             :onEachSide="onEachSide"
                              @vuetable-pagination:change-page="onChangePage"></vuetable-pagination>
       </div>
     </div>
@@ -56,6 +57,10 @@
       itemsPerPage: {
         type: Array,
         required: true
+      },
+      onEachSide: {
+        type: Number,
+        default: 2
       }
     },
     data () {

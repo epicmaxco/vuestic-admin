@@ -6,7 +6,7 @@ export default {
   labels: ['North America', 'South America', 'Australia'],
   datasets: [{
     label: 'Population (millions)',
-    backgroundColor: [palette.danger, palette.info, palette.success],
-    data: [2478, 5267, 734]
+    backgroundColor: [palette.info, palette.warning, palette.primary],
+    data: [3000, 6000, 1500]
   }]
 }
