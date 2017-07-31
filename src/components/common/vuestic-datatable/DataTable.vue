@@ -1,27 +1,26 @@
 <template>
-  <div>
-    <div class="d-flex justify-content-between">
+  <div class="table-responsive">
+    <div class="d-flex flex-md-row flex-column justify-content-md-between align-items-center">
       <filter-bar @filter="onFilterSet"></filter-bar>
       <items-per-page :options="itemsPerPage"
                       :defaultPerPage="perPage"
                       @items-per-page="onItemsPerPage"></items-per-page>
     </div>
-    <div class="table-responsive">
-      <vuetable ref="vuetable"
-                apiUrl="https://vuetable.ratiw.net/api/users"
-                :fields="tableFields"
-                :css="css.table"
-                paginationPath=""
-                :appendParams="moreParams"
-                :perPage="perPage"
-                @vuetable:pagination-data="onPaginationData"
-      >
-      </vuetable>
-      <div class="d-flex justify-content-center mb-4">
-        <vuetable-pagination ref="pagination"
-                             :css="css.pagination"
-                             @vuetable-pagination:change-page="onChangePage"></vuetable-pagination>
-      </div>
+    <vuetable ref="vuetable"
+              apiUrl="https://vuetable.ratiw.net/api/users"
+              :fields="tableFields"
+              :css="css.table"
+              paginationPath=""
+              :appendParams="moreParams"
+              :perPage="perPage"
+              @vuetable:pagination-data="onPaginationData"
+    >
+    </vuetable>
+    <div class="d-flex justify-content-center mb-4">
+      <vuetable-pagination ref="pagination"
+                           :css="css.pagination"
+                           :onEachSide="onEachSide"
+                           @vuetable-pagination:change-page="onChangePage"></vuetable-pagination>
     </div>
   </div>
 </template>
@@ -32,9 +31,6 @@
   import FilterBar from './FilterBar.vue'
   import ItemsPerPage from './ItemsPerPage.vue'
   import Vue from 'vue'
-  import VueEvents from 'vue-events'
-
-  Vue.use(VueEvents)
 
   export default {
     name: 'data-table',
@@ -56,6 +52,10 @@
       itemsPerPage: {
         type: Array,
         required: true
+      },
+      onEachSide: {
+        type: Number,
+        default: 2
       }
     },
     data () {
@@ -70,11 +70,11 @@
             descendingIcon: 'entypo entypo-down-dir'
           },
           pagination: {
-            wrapperClass: 'btn-group green-box-shadow',
+            wrapperClass: 'btn-group',
             activeClass: 'focus',
             disabledClass: 'disabled',
             pageClass: 'btn btn-primary',
-            linkClass: 'btn btn-primary',
+            linkClass: 'btn btn-primary pagination-link-btn',
             icons: {
               first: 'fa fa-angle-double-left',
               prev: 'fa fa-angle-left',
@@ -84,10 +84,6 @@
           }
         }
       }
-    },
-    mounted () {
-      this.$events.$on('filter-set', eventData => this.onFilterSet(eventData))
-      this.$events.$on('items-per-page', eventData => this.onItemsPerPage(eventData))
     },
     methods: {
       onFilterSet (filterText) {
@@ -111,5 +107,21 @@
 </script>
 
 <style lang="scss">
+  @import "../../../sass/variables";
 
+  @media (max-width: 768px) {
+    .pagination-link-btn:first-child, .pagination-link-btn:last-child {
+      display: none;
+    }
+
+    .pagination-link-btn:nth-child(2) {
+      border-top-left-radius: $btn-border-radius !important;
+      border-bottom-left-radius: $btn-border-radius !important;
+    }
+
+    .pagination-link-btn:nth-last-child(2) {
+      border-top-right-radius: $btn-border-radius !important;
+      border-bottom-right-radius: $btn-border-radius !important;
+    }
+  }
 </style>
