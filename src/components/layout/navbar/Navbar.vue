@@ -120,6 +120,7 @@
       height: 50px;
       background-color: white;
       border-radius: 50%;
+      border: 2px solid $lighter-gray;
       overflow: hidden;
 
       img {

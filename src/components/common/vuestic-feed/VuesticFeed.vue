@@ -5,8 +5,8 @@
       <div class="photo-container"><div class="photo" :style="`background: url(${post.photoURL})`"></div></div>
       <div class="underscored">
         <span class="text"><span class="name">{{post.name}}</span> {{post.text}}.</span>
-        <button v-on:click="removePost(post)" class="btn btn-micro btn-primary btn-with-icon rounded-icon">
-          <span class="entypo entypo-cancel icon"></span>
+        <button v-on:click="removePost(post)" class="btn btn-micro btn-primary btn-with-icon close-btn rounded-icon">
+          <i class="ion-android-close ion"></i>
         </button>
       </div>
     </div>
@@ -56,6 +56,8 @@
       align-items: center;
       .photo-container {
         margin-right: 1rem;
+        border-radius: 50%;
+        border: 2px solid $lighter-gray;
         .photo {
           background-size: cover !important;
           width: 3rem;
@@ -80,13 +82,10 @@
             font-weight: $font-weight-bold;
           }
         }
-        .btn {
+        .close-btn {
           margin-left: 1rem;
-          .icon {
-            &:before {
-              padding-left: .18rem; // TODO : FIX IT !!!
-              font-size: 1.5rem;
-            }
+          i {
+            left: 10.5px;
           }
         }
       }

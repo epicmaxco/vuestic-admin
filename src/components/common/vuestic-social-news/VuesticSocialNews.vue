@@ -1,12 +1,12 @@
 <template>
   <div class="vuestic-social-news">
     <div class="d-flex justify-content-between align-items-center text-w-btn">
-      <span class="text">That was users have posted about your business.</span>
-      <a :href="url">
+      <span class="text">That what users have posted about your business.</span>
+      <a :href="url" target="_blank">
         <button class="btn btn-micro btn-primary">VIEW</button>
       </a>
     </div>
-    <div class="d-flex justify-content-between photos">
+    <div class="d-flex flex-row justify-content-around photos">
       <div class="photo" v-for="pieceOfNews in news" :style="`background: url(${pieceOfNews.photoURL})`"></div>
     </div>
   </div>
@@ -32,31 +32,26 @@
       padding-bottom: 1.5rem;
       overflow: hidden;
       .text {
-        font-size: $font-size-sm;
+        font-size: $font-size-base;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
       }
       .btn {
         margin-left: 1rem;
+        line-height: 1; //TODO: review btn styles
       }
     }
     .photos {
       padding-right: 2rem;
+      height: 80px;
+      flex-wrap: wrap;
+      overflow: hidden;
       .photo {
         background-size: cover !important;
-        @include media-breakpoint-up(lg) {
-          width: 4.8vw;
-          height: 4.8vw;
-        }
-        @include media-breakpoint-between(sm, md) {
-          width: 6vw;
-          height: 6vw;
-        }
-        @include media-breakpoint-between(xs, sm) {
-          width: 12vw;
-          height: 12vw;
-        }
+        width: 80px;
+        height: 80px;
+        margin-right: 2px;
       }
     }
   }

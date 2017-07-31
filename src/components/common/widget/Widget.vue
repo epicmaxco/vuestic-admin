@@ -84,6 +84,7 @@
       padding: 0 $widget-padding;
       border-bottom: $widget-header-border;
       font-size: $font-size-larger;
+      font-weight: 600;
       display: flex;
       align-items: center;
     }
