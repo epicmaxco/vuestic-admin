@@ -131,7 +131,7 @@ h4, .h4 {
 }
 
 .btn.btn-dark {
-  @include theme-button-variant($white, $btn-dark-bg, $btn-border, $greeny-box-shadow);
+  @include theme-button-variant($white, $btn-dark-bg, $btn-border, $btn-box-dark-shadow);
 }
 
 .btn.btn-pale {
@@ -210,6 +210,10 @@ h4, .h4 {
   }
 }
 
+.btn-group {
+  color: $white;
+}
+
 // Dropdowns & Selects
 .dropdown-menu {
   border-radius: 0;
@@ -271,15 +275,6 @@ h4, .h4 {
     text-transform: uppercase;
   }
 
-  td:first-child {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-
-  td:last-child {
-    width: 3rem;
-  }
-
   td, th {
     vertical-align: middle !important;
     padding: .5rem;
@@ -307,6 +302,24 @@ h4, .h4 {
 
 }
 
+.first-td-padding {
+  td:first-child {
+    @extend .pl-4;
+  }
+}
+
+.sort-icon {
+  float: none !important;
+  margin-left: .2rem;
+  top: 1px;
+  font-size: 1rem;
+}
+
+th.sortable:hover {
+  color: $vue-green !important;
+  opacity: .6;
+}
+
 //Badges
 
 .badge {
@@ -314,6 +327,16 @@ h4, .h4 {
   display: inline-block;
   font-weight: bold;
   text-transform: uppercase;
+  font-size: .625rem;
+  letter-spacing: .0625rem;
+}
+
+.badge-violet {
+  @include badge-variant($theme-violet);
+}
+
+.badge-dark-blue {
+  @include badge-variant($dark-blue);
 }
 
 .badge-success {
