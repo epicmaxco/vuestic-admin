@@ -59,6 +59,24 @@
           },
           {
             photoURL: 'http://i.imgur.com/9r5kq6n.png'
+          },
+          {
+            photoURL: 'http://i.imgur.com/KEYj5qO.png'
+          },
+          {
+            photoURL: 'http://i.imgur.com/C5FolB4.png'
+          },
+          {
+            photoURL: 'http://i.imgur.com/tDUFhhw.png'
+          },
+          {
+            photoURL: 'http://i.imgur.com/pLdLBRx.png'
+          },
+          {
+            photoURL: 'http://i.imgur.com/FPufYyY.png'
+          },
+          {
+            photoURL: 'http://i.imgur.com/pgrHrPu.png'
           }
         ]
       }
