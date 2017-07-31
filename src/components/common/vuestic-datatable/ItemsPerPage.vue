@@ -1,11 +1,11 @@
 <template>
   <div class="form-group dropdown" v-dropdown.closeOnMenuClick>
-    <button id="itemsPerPageBtn" class="btn btn-primary btn-sm dropdown-toggle green-box-shadow" type="button"
+    <button id="itemsPerPageBtn" class="btn btn-primary btn-sm dropdown-toggle" type="button"
             data-toggle="dropdown">
       {{selected}} per page
       <i class="ion-chevron-down arrow-down"></i>
     </button>
-    <div id="itemsPerPageMenu" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <a class="dropdown-item" v-for="option in options" @click="selectedItemsPerPage(option.value)">{{option.value}} per page</a>
     </div>
   </div>
@@ -36,16 +36,16 @@
     methods: {
       selectedItemsPerPage (optionValue) {
         this.selected = optionValue
-        this.$events.fire('items-per-page', this.selected)
+        this.$emit('items-per-page', this.selected)
       }
     }
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import "../../../sass/variables";
 
-  .btn#itemsPerPageBtn, #itemsPerPageMenu {
+  .btn.dropdown-toggle, .dropdown-menu {
     min-width: 13rem;
     max-width: 13rem;
   }

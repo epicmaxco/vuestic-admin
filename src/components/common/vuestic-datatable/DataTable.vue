@@ -1,9 +1,10 @@
 <template>
   <div>
     <div class="d-flex justify-content-between">
-      <filter-bar></filter-bar>
+      <filter-bar @filter="onFilterSet"></filter-bar>
       <items-per-page :options="itemsPerPage"
-                      :defaultPerPage="perPage"></items-per-page>
+                      :defaultPerPage="perPage"
+                      @items-per-page="onItemsPerPage"></items-per-page>
     </div>
     <div class="table-responsive">
       <vuetable ref="vuetable"

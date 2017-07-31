@@ -315,6 +315,11 @@ h4, .h4 {
   font-size: 1rem;
 }
 
+th.sortable:hover {
+  color: $vue-green !important;
+  opacity: .6;
+}
+
 //Badges
 
 .badge {
