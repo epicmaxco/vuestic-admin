@@ -181,7 +181,7 @@ $btn-with-icon-icon-top: .75rem;
 $btn-with-icon-rounded-icon-left: 1.23rem;
 $btn-with-icon-icon-size: 2rem;
 $btn-group-button-padding-x: 1.53rem;
-$btn-box-shadow: 0px 4px 70px -16px rgb(111, 67, 67);
+$btn-box-shadow: $greeny-box-shadow;
 $btn-box-danger-shadow: 0px 4px 70px -16px $brand-danger;
 $btn-box-warning-shadow: 0px 4px 70px -16px $brand-warning;
 $btn-box-success-shadow: 0px 4px 70px -16px $brand-success;
