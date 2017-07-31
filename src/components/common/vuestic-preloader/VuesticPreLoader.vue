@@ -1,16 +1,12 @@
 <template>
   <div class="vuestic-pre-loader">
-    <template  v-for="point in points">
-      <div class="point" :ref="points.indexOf(point)" :style="`left: ${point.x}px; top: ${point.y}px`"
-        :class="'lighten-' + point.lighten"></div>
-    </template>
-    <div ref="main" class="main-point" :style="'left: ' + (points[mainIndex].x - 4) +
-      'px; top: ' + (points[mainIndex].y - 4) + 'px'">
-    </div>
+    <canvas ref="canvas"></canvas>
   </div>
 </template>
 
 <script>
+  import {color, lightness} from 'kewler'
+
   export default {
     name: 'vuestic-pre-loader',
     methods: {
@@ -29,16 +25,46 @@
         let lighten = this.points[index].lighten
         this.points[index].lighten = lighten === 8 ? 1 : lighten + 1
       },
-      update () {
+      draw () {
+        let ctx = this.context
+        ctx.clearRect(0, 0, 140, 104)
+        let padding = 4
+        this.points.forEach(point => {
+          ctx.beginPath()
+          let delta = this.radius + padding
+          ctx.arc(point.x + delta, point.y + delta, this.radius, 0, Math.PI * 2, false)
+          ctx.fillStyle = this.color(lightness(point.lighten / 10 * 35))()
+          ctx.fill()
+        })
+        let main = this.points[this.mainIndex]
+        let delta = this.mainRadius - this.radius + padding
+        ctx.beginPath()
+        ctx.arc(main.x + delta, main.y + delta, this.mainRadius, 0, Math.PI * 2, false)
+        ctx.fillStyle = this.color()
+        ctx.fill()
+        ctx.closePath()
+      },
+      calculate () {
         this.mainIndex = this.getNext(this.mainIndex)
         let prevIndex = this.mainIndex
         for (let i = 0; i <= 7; i++) {
           prevIndex = this.getPrevious(prevIndex)
           this.setNextLighten(prevIndex)
         }
+      },
+      update () {
+        this.calculate()
+        this.draw()
+      },
+      animate () {
+        this.interval = setInterval(this.update, 30)
+      },
+      stop () {
+        clearInterval(this.interval)
       }
     },
-    created () {
+    mounted () {
+      this.context = this.$refs.canvas.getContext('2d')
       this.points = this.points.map(point => {
         return {
           lighten: 8,
@@ -48,43 +74,19 @@
       for (let i = 1; i <= 7; i++) {
         this.points[this.mainIndex - i].lighten = i
       }
-      setInterval(this.update, 100)
+      this.draw()
+      this.animate()
     },
     data () {
       return {
         points: require('./points.json'),
-        mainIndex: 7
+        color: color(this.$store.state.app.config.palette.primary),
+        mainIndex: 7,
+        context: {},
+        radius: 4,
+        mainRadius: 8,
+        interval: {}
       }
     }
   }
 </script>
-
-<style lang="scss">
-  @import "../../../sass/variables";
-
-  .vuestic-pre-loader {
-    width: 128px;
-    height: 96px;
-    position: relative;
-    .main-point {
-      transition: all linear .1s;
-      background: radial-gradient($brand-primary, white);
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-    }
-    .point {
-      transition: all linear .1s;
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      @for $i from 0 through 8 {
-        &.lighten-#{$i} {
-          background-color: lighten($brand-primary, $i/10*0.38*100%);
-        }
-      }
-    }
-  }
-</style>

@@ -4,7 +4,8 @@
     <sidebar></sidebar>
     <div class="content-wrap" id="content-wrap">
       <main id="content" class="content" role="main">
-        <router-view></router-view>
+        <vuestic-pre-loader v-show="isLoading" ref="preLoader" class="pre-loader"></vuestic-pre-loader>
+        <router-view v-show="!isLoading"></router-view>
       </main>
     </div>
   </div>
@@ -16,11 +17,13 @@
   import Navbar from './navbar/Navbar'
   import Sidebar from './sidebar/Sidebar'
   import Resize from 'directives/ResizeHandler'
+  import VuesticPreLoader from '../common/vuestic-preloader/VuesticPreLoader.vue'
 
   export default {
     name: 'layout',
 
     components: {
+      VuesticPreLoader,
       Navbar,
       Sidebar
     },
@@ -30,7 +33,8 @@
     computed: {
       ...mapGetters([
         'sidebarOpened',
-        'toggleWithoutAnimation'
+        'toggleWithoutAnimation',
+        'isLoading'
       ]),
       classObject: function () {
         return {
@@ -51,6 +55,12 @@
     margin-left: $content-wrap-ml;
     padding: $content-wrap-pt $content-wrap-pr $content-wrap-pb 0;
     transition: margin-left 0.3s ease;
+
+    .pre-loader {
+      position: absolute;
+      left: calc(50% - 140px/2);
+      top: calc(50% - 104px/2);
+    }
 
     .sidebar-hidden & {
       margin-left: $sidebar-left;

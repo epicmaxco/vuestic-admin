@@ -21,7 +21,8 @@ const state = {
       fontColor: '#34495e',
       transparent: 'transparent'
     }
-  }
+  },
+  isLoading: true
 }
 
 const mutations = {
@@ -30,6 +31,10 @@ const mutations = {
   },
   [types.TOGGLE_WITHOUT_ANIMATION] (state, value) {
     state.sidebar.withoutAnimation = value
+  },
+  setLoading (state, isLoading) {
+    state.isLoading = isLoading
+    console.log(Date.now() + ' ' + isLoading)
   }
 }
 

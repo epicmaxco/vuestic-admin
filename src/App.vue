@@ -1,6 +1,5 @@
 <template>
   <div id="app" class="app">
-    <vuestic-pre-loader v-show="showPreLoader"></vuestic-pre-loader>
     <auth-layout v-if="isAuth"></auth-layout>
     <layout v-else></layout>
   </div>
@@ -22,29 +21,12 @@
       isAuth () {
         return this.$route.path.match('auth')
       }
-    },
-    created () {
-      this.showPreLoader = true
-    },
-    mounted () {
-//      this.showPreLoader = false
-    },
-    data () {
-      return {
-        showPreLoader: true
-      }
     }
   }
 </script>
 
 <style lang="scss">
   @import "sass/main";
-  .test {
-    display: none;
-    &[v-cloak] {
-      display: none;
-    }
-  }
   body {
     height: 100%;
     .app {
