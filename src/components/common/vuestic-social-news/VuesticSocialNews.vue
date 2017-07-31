@@ -32,7 +32,7 @@
       padding-bottom: 1.5rem;
       overflow: hidden;
       .text {
-        font-size: $font-size-sm;
+        font-size: $font-size-base;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
