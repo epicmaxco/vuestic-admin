@@ -15,19 +15,27 @@
       <small v-show="hasErrors()" class="help text-danger">{{ showRequiredError() }}</small>
     </div>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <div class="dropdown-item"
-           :class="{'selected': isOptionSelected(option)}" v-for="option in options"
-           @click="selectOption(option)">
-        <span class="ellipsis">{{option}}</span>
-      </div>
+      <scrollbar>
+        <div class="scroll-container">
+          <div class="dropdown-item"
+               :class="{'selected': isOptionSelected(option)}" v-for="option in options"
+               @click="selectOption(option)">
+            <span class="ellipsis">{{option}}</span>
+          </div>
+        </div>
+      </scrollbar>
     </div>
   </div>
 </template>
 
 <script>
   import Dropdown from 'directives/Dropdown'
+  import Scrollbar from '../vuestic-scrollbar/VuesticScrollbar.vue'
 
   export default {
+    components: {
+      Scrollbar
+    },
     directives: {
       dropdown: Dropdown
     },
@@ -91,4 +99,12 @@
 
 <style lang="scss">
   @import "../../../sass/_variables.scss";
+  .select-form-group {
+    .dropdown-menu {
+      padding: 0;
+      .vuestic-scrollbar {
+        height: $dropdown-item-height * 4;
+      }
+    }
+  }
 </style>

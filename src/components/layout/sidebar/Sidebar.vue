@@ -186,8 +186,9 @@
         color: #000;
         margin-right: 14px;
 
-        &.vuestic-icon {
-          margin-top: 3px;
+        &.fa-dashboard {       /* Temp fix */
+          position: relative;
+          top: -2px
         }
       }
     }
