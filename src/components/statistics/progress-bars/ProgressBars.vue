@@ -52,21 +52,21 @@
           <div class="col-sm-4 col-12">
             Basic
             <div class="pb-container">
-              <progress-bar ref="chBasic" color="brand-danger">
+              <progress-bar ref="chBasic" colorName="danger">
               </progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
             Thin
             <div class="pb-container">
-              <progress-bar size="thin" ref="chThin" color="brand-info">
+              <progress-bar size="thin" ref="chThin" colorName="info">
               </progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
             Thick
             <div class="pb-container">
-              <progress-bar size="thick" ref="chThick" color="brand-warning">
+              <progress-bar size="thick" ref="chThick" colorName="warning">
               </progress-bar>
             </div>
           </div>
@@ -74,14 +74,14 @@
             Basic Vertical
             <div class="pb-container">
               <div>
-                <progress-bar type="vertical" ref="cvBasic" color="brand-success"></progress-bar>
+                <progress-bar type="vertical" ref="cvBasic" colorName="success"></progress-bar>
               </div>
             </div>
           </div>
           <div class="col-sm-4 col-12">
             Thin Vertical
             <div class="pb-container">
-              <progress-bar size="thin" type="vertical" ref="cvThin" color="black">
+              <progress-bar size="thin" type="vertical" ref="cvThin" colorName="black">
               </progress-bar>
             </div>
           </div>
