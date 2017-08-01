@@ -6,17 +6,15 @@
      </div>
    </div>
    <div class="chat-controls">
-      <form role="form">
         <fieldset>
           <div class="form-group form-group-w-btn">
             <div class="input-group">
-              <input type="text" @keypress="keyHandler($event)" v-model="inputMessage"/>
+              <input @keypress="keyHandler($event)" v-model="inputMessage" title=""/>
               <label class="control-label">Your message</label><i class="bar"></i>
             </div>
             <div class="btn btn-sm btn-primary" @click="sendMessage()">Send</div>
           </div>
         </fieldset>
-      </form>
    </div>
  </div>
 </template>

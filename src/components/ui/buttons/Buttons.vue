@@ -134,7 +134,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row btn-margin-row">
           <div class="col-sm-6  d-flex justify-content-center" :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-success">
               BUTTON
