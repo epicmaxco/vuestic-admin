@@ -102,9 +102,8 @@
   .select-form-group {
     .dropdown-menu {
       padding: 0;
-      .scrollbar-content {
-        background-color: inherit;
-        max-height: $dropdown-item-height * 4;
+      .vuestic-scrollbar {
+        height: $dropdown-item-height * 4;
       }
     }
   }

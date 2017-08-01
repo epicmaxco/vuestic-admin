@@ -29,12 +29,6 @@
         this.thumb.style.height = this.maxHeight / this.contentHeight < 1
           ? this.maxHeight / this.contentHeight * this.trackHeight + 'px'
           : 0
-//        if (this.contentHeight > this.maxHeight) {
-//          let currentMT = this.content.style.marginTop === ''
-//            ? 0
-//            : parseInt(this.content.style.marginTop, 10)
-//          this.content.style.marginTop = nextMT + 'px'
-//        }
       },
       calcThumb () {
         let currentMT = this.content.style.marginTop === ''
@@ -128,7 +122,6 @@
       height: 100%;
       width: 3px;
       .thumb {
-        transition: top .2s linear;
         position: absolute;
         width: 3px;
         background-color: black;
