@@ -37,15 +37,15 @@
         type: String,
         default: 'basic'
       },
-      color: {
+      colorName: {
         type: String,
-        default: 'brand-primary'
+        default: 'primary'
       },
-      startColor: {
+      startColorName: {
         type: String,
-        default: 'lighter-gray'
+        default: 'lighterGray'
       },
-      backgroundColor: {
+      backgroundColorName: {
         type: String,
         default: 'white'
       }
@@ -90,7 +90,10 @@
       return {
         value: 0,
         valueAnimationInterval: 2000,
-        isActive: false
+        isActive: false,
+        startColor: this.$store.state.app.config.palette[this.startColorName],
+        color: this.$store.state.app.config.palette[this.colorName],
+        backgroundColor: this.$store.state.app.config.palette[this.backgroundColorName]
       }
     }
   }
