@@ -56,7 +56,9 @@
       </div>
       <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center" v-dropdown>
         <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#">
-          <span class="avatar-container"></span>
+          <span class="avatar-container">
+            <img src="http://i.imgur.com/UTc7Fne.png" />
+          </span>
         </a>
         <div class="dropdown-menu">
           <div class="dropdown-item plain-link-item">
@@ -118,6 +120,13 @@
       height: 50px;
       background-color: white;
       border-radius: 50%;
+      border: 2px solid $lighter-gray;
+      overflow: hidden;
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
     }
 
     .menu-icon-container {

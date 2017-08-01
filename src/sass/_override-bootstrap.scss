@@ -131,7 +131,7 @@ h4, .h4 {
 }
 
 .btn.btn-dark {
-  @include theme-button-variant($white, $btn-dark-bg, $btn-border, $greeny-box-shadow);
+  @include theme-button-variant($white, $btn-dark-bg, $btn-border, $btn-box-dark-shadow);
 }
 
 .btn.btn-pale {
@@ -178,8 +178,8 @@ h4, .h4 {
 
       i {
         font-size: $btn-with-icon-rounded-font-micro;
-        left: $btn-with-icon-rounded-position;
-        top: $btn-with-icon-rounded-position;
+        left: $btn-with-icon-rounded-position-left;
+        top: $btn-with-icon-rounded-position-top;
       }
     }
   }
@@ -208,6 +208,10 @@ h4, .h4 {
   &::after {
     display: none;
   }
+}
+
+.btn-group {
+  color: $white;
 }
 
 // Dropdowns & Selects
@@ -271,28 +275,12 @@ h4, .h4 {
     text-transform: uppercase;
   }
 
-  td:first-child {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-
-  td:last-child {
-    width: 3rem;
-  }
-
   td, th {
     vertical-align: middle !important;
     padding: .5rem;
   }
 
   .badge {
-    line-height: .9rem;
-    width: 5rem;
-    display: inline-block;
-    font-size: .7rem;
-    font-family: "Source Sans Pro", serif;
-    font-weight: bold;
-    text-transform: uppercase;
     vertical-align: text-top;
   }
 
@@ -312,4 +300,102 @@ h4, .h4 {
     background-color: #ffcece;
   }
 
+}
+
+.first-td-padding {
+  td:first-child {
+    @extend .pl-4;
+  }
+}
+
+.sort-icon {
+  float: none !important;
+  margin-left: .2rem;
+  top: 1px;
+  font-size: 1rem;
+}
+
+th.sortable:hover {
+  color: $vue-green !important;
+  opacity: .6;
+}
+
+//Badges
+
+.badge {
+  min-width: $badge-min-width;
+  display: inline-block;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: .625rem;
+  letter-spacing: .0625rem;
+}
+
+.badge-violet {
+  @include badge-variant($theme-violet);
+}
+
+.badge-dark-blue {
+  @include badge-variant($dark-blue);
+}
+
+.badge-success {
+  @include badge-variant($badge-success-bg);
+}
+
+//Alerts
+
+.alert {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .badge {
+    margin-right: 0.63rem;
+  }
+
+  &.with-close {
+    padding-right: $with-close-pr;
+  }
+
+  .alert-close {
+    position: absolute;
+    right: 20px;
+    font-size: $font-size-base;
+    top: calc(50% - #{$font-size-base}/2);
+    cursor: pointer;
+  }
+}
+
+.alert-success {
+  box-shadow: $alert-success-shadow;
+
+  .alert-close {
+    color: $brand-primary;
+  }
+}
+
+.alert-warning {
+  box-shadow: $alert-warning-shadow;
+
+  .alert-close {
+    color: $brand-warning;
+  }
+}
+
+.alert-danger {
+  box-shadow: $alert-danger-shadow;
+
+  .alert-close {
+    color: $brand-danger;
+  }
+}
+
+.alert-info {
+  box-shadow: $alert-info-shadow;
+
+  .alert-close {
+    color: $brand-info;
+  }
 }

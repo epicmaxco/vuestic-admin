@@ -50,6 +50,30 @@
       }
     }
 
+    &.brand-info {
+      background-color: $brand-info;
+      color: $white;
+      box-shadow: $widget-info-shadow;
+    }
+
+    &.brand-danger {
+      background-color: $brand-danger;
+      color: $white;
+      box-shadow: $widget-danger-shadow;
+    }
+
+    &.info-widget {
+      border-top: $info-widget-border;
+
+      &.brand-info {
+        border-top-color: $brand-info;
+      }
+
+      &.brand-danger {
+        border-top-color: $brand-danger;
+      }
+    }
+
     .widget-body {
       height: $widget-body-with-header-height;
       padding: $widget-padding;
@@ -60,6 +84,7 @@
       padding: 0 $widget-padding;
       border-bottom: $widget-header-border;
       font-size: $font-size-larger;
+      font-weight: 600;
       display: flex;
       align-items: center;
     }

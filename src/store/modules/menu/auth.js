@@ -8,13 +8,13 @@ export default {
   meta: {
     expanded: false,
     title: 'Auth',
-    iconClass: 'fa fa-sign-in'
+    iconClass: 'vuestic-icon vuestic-icon-auth'
   },
   children: [
     {
       name: 'Login',
       path: '/auth/login',
-      component: lazyLoading('login/Login'),
+      component: lazyLoading('auth/login/Login'),
       meta: {
         default: false,
         title: 'Login'
@@ -23,7 +23,7 @@ export default {
     {
       name: 'Signup',
       path: '/auth/signup',
-      component: lazyLoading('signup/Signup'),
+      component: lazyLoading('auth/signup/Signup'),
       meta: {
         default: false,
         title: 'Signup'

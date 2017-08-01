@@ -4,8 +4,8 @@
                     :isActive = "isActive" ref="bar"></horizontal-bar>
     <vertical-bar :min="min" :max="max" :value="value" :size="size" :color="color" v-if="type == 'vertical'"
                   :isActive = "isActive" ref="bar"></vertical-bar>
-    <circle-bar :min="min" :max="max" :value="value" :color="color" v-if="type == 'circle'"
-                :isActive = "isActive" ref="bar"></circle-bar>
+    <circle-bar :min="min" :max="max" :value="value" :color="color" :background-color="backgroundColor"
+                :start-color="startColor" v-if="type == 'circle'" :isActive = "isActive" ref="bar"></circle-bar>
   </div>
 </template>
 
@@ -40,6 +40,14 @@
       color: {
         type: String,
         default: 'brand-primary'
+      },
+      startColor: {
+        type: String,
+        default: 'lighter-gray'
+      },
+      backgroundColor: {
+        type: String,
+        default: 'white'
       }
     },
     directives: {

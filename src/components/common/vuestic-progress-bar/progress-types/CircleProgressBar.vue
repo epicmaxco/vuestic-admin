@@ -1,5 +1,6 @@
 <template>
-  <div class="circle progress-bar"  :class="'value-' + animatedValue + ' color-' + color"
+  <div class="circle progress-bar"  :class="'value-' + animatedValue + ' color-' + color + ' ' +
+       'background-color-' + backgroundColor + ' ' + 'start-color-' + startColor"
        v-progress-bar="{data: $data}">
     <div class="overlay">
       <span>{{animatedValue+'%'}}</span>
@@ -14,6 +15,8 @@
       'min',
       'max',
       'color',
+      'startColor',
+      'backgroundColor',
       'isActive'
     ],
     directives: {
@@ -45,8 +48,6 @@
   @import "../../../../../node_modules/bootstrap/scss/variables";
 
   .vuestic-progress-bar .circle {
-    $innerColor: white;
-    $startColor: $gray-lighter;
     $step: 1;
     $loops: round(100 / $step);
     $increment: 360 / $loops;
@@ -73,34 +74,42 @@
       align-items: center;
     }
 
-    @each $name in map-keys($colors-map) {
-      &.color-#{$name} {
-        $progressColor: map-get($colors-map, $name);
-        &.progress-bar {
-          background-color: $progressColor;
-
-          .overlay {
-            color: $progressColor;
-            background-color: $innerColor;
-          }
+    @each $backgroundColorName in map-keys($colors-map) {
+      &.background-color-#{$backgroundColorName} {
+        .overlay {
+          background-color: map-get($colors-map, $backgroundColorName);
         }
+      }
+    }
 
-        @for $i from 0 through $loops {
-          &.progress-bar.value-#{$i*$step} {
-            @if $i < $half {
-              $nextdeg: 90deg + ( $increment * $i );
-              background-image: linear-gradient(90deg, $startColor 50%, transparent 50%, transparent),
-              linear-gradient($nextdeg, $progressColor 50%, $startColor 50%, $startColor);
+    @each $progressColorName in map-keys($colors-map) {
+      $progressColor: map-get($colors-map, $progressColorName);
+      @each $startColorName in map-keys($colors-map) {
+        &.color-#{$progressColorName}.start-color-#{$startColorName} {
+          $startColor: map-get($colors-map, $startColorName);
+          &.progress-bar {
+            background-color: $progressColor;
+            .overlay {
+              color: $progressColor;
             }
-            @else {
-              $nextdeg: -90deg + ( $increment * ( $i - $half ) );
-              background-image: linear-gradient($nextdeg, $progressColor 50%, transparent 50%, transparent),
-              linear-gradient(270deg, $progressColor 50%, $startColor 50%, $startColor);
+          }
+
+          @for $i from 0 through $loops {
+            &.progress-bar.value-#{$i*$step} {
+              @if $i < $half {
+                $nextdeg: 90deg + ( $increment * $i );
+                background-image: linear-gradient(90deg, $startColor 50%, transparent 50%, transparent),
+                linear-gradient($nextdeg, $progressColor 50%, $startColor 50%, $startColor);
+              }
+              @else {
+                $nextdeg: -90deg + ( $increment * ( $i - $half ) );
+                background-image: linear-gradient($nextdeg, $progressColor 50%, transparent 50%, transparent),
+                linear-gradient(270deg, $progressColor 50%, $startColor 50%, $startColor);
+              }
             }
           }
         }
       }
     }
   }
-
 </style>

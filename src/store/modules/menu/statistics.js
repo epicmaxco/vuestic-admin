@@ -5,7 +5,7 @@ export default {
   meta: {
     expanded: false,
     title: 'Statistics',
-    iconClass: 'fa fa-bar-chart-o'
+    iconClass: 'vuestic-icon vuestic-icon-statistics'
   },
 
   children: [
