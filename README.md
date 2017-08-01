@@ -1,6 +1,6 @@
-# Vuestic
+# Vuestic Admin Dashboard
 
-> Responsive admin dasboard template built with [Vue.js](https://vuejs.org) and [Bootstrap 4](https://v4-alpha.getbootstrap.com). Developed by [Epicmax](http://epicmax.co). Designed by [Vasily Savitsky](https://github.com/xx13/)
+Responsive admin dasboard template built with [Vue.js](https://vuejs.org) and [Bootstrap 4](https://v4-alpha.getbootstrap.com). Developed by [Epicmax](http://epicmax.co). Designed by [Vasily Savitsky](https://github.com/xx13/)
 
 ## Demo
 Check it out [live](http://vuestic.epicmax.co)!
