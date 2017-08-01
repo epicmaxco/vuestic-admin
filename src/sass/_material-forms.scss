@@ -8,8 +8,8 @@ $shadow-8: 0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12),0 5px 5
 
 // Font Sizes
 $mf-font-size: 1rem !default;
-$mf-active-font-size: $mf-font-size * 0.8 !default;
-$mf-active-top: -$mf-font-size !default;
+$mf-active-font-size: $mf-font-size * 0.6 !default;
+$mf-active-top: -$mf-font-size * 0.6 !default;
 
 // Margin & Paddings
 $mf-gap: $mf-font-size * 1.5 !default;
@@ -51,7 +51,7 @@ fieldset {
   display: flex;
   flex-direction: row;
   min-height: $mf-min-height;
-  margin-top: ($mf-font-size * 0.5);
+  margin-top: ($mf-font-size * 0.2);
   margin-bottom: ($mf-gap * 1.5);
 
   .input-group {
@@ -282,6 +282,7 @@ fieldset {
     ~ .control-label {
       font-size: $mf-active-font-size;
       color: $mf-focus-color;
+      font-weight: 600;
       text-transform: uppercase;
       top: $mf-active-top;
       left: 0;
