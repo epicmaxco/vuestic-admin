@@ -68,9 +68,4 @@
 
 <style lang="scss" scoped>
   @import "../../sass/_variables.scss";
-
-  .vuestic-alert {
-    margin-bottom: 1.75rem;
-  }
-
 </style>
