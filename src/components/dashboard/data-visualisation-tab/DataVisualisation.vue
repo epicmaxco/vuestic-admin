@@ -18,9 +18,9 @@
 </template>
 
 <script>
-  import VuesticChart from '../../common/vuestic-chart/VuesticChart.vue'
+  import VuesticChart from '../../vuestic-components/vuestic-chart/VuesticChart.vue'
   import DonutChartData from './DonutChartData'
-  import DataTable from '../../common/vuestic-datatable/DataTable.vue'
+  import DataTable from '../../vuestic-components/vuestic-datatable/VuesticDataTable.vue'
   import Vue from 'vue'
   import BadgeColumn from '../../tables/BadgeColumn.vue'
 

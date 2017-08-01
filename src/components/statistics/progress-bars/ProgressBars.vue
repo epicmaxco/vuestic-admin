@@ -6,43 +6,43 @@
           <div class="col-sm-4 col-12">
             Basic
             <div class="pb-container">
-              <progress-bar ref="hBasic">
-              </progress-bar>
+              <vuestic-progress-bar ref="hBasic">
+              </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
             Thin
             <div class="pb-container">
-              <progress-bar size="thin" ref="hThin">
-              </progress-bar>
+              <vuestic-progress-bar size="thin" ref="hThin">
+              </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
             Thick
             <div class="pb-container">
-              <progress-bar size="thick" ref="hThick">
-              </progress-bar>
+              <vuestic-progress-bar size="thick" ref="hThick">
+              </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
             Basic Vertical
             <div class="pb-container">
               <div>
-                <progress-bar type="vertical" ref="vBasic"></progress-bar>
+                <vuestic-progress-bar type="vertical" ref="vBasic"></vuestic-progress-bar>
               </div>
             </div>
           </div>
           <div class="col-sm-4 col-12">
             Thin Vertical
             <div>
-              <progress-bar size="thin" type="vertical" ref="vThin">
-              </progress-bar>
+              <vuestic-progress-bar size="thin" type="vertical" ref="vThin">
+              </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
             Circle
             <div>
-              <progress-bar type="circle" ref="circle"></progress-bar>
+              <vuestic-progress-bar type="circle" ref="circle"></vuestic-progress-bar>
             </div>
           </div>
         </div>
@@ -52,43 +52,43 @@
           <div class="col-sm-4 col-12">
             Basic
             <div class="pb-container">
-              <progress-bar ref="chBasic" color="brand-danger">
-              </progress-bar>
+              <vuestic-progress-bar ref="chBasic" color="brand-danger">
+              </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
             Thin
             <div class="pb-container">
-              <progress-bar size="thin" ref="chThin" color="brand-info">
-              </progress-bar>
+              <vuestic-progress-bar size="thin" ref="chThin" color="brand-info">
+              </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
             Thick
             <div class="pb-container">
-              <progress-bar size="thick" ref="chThick" color="brand-warning">
-              </progress-bar>
+              <vuestic-progress-bar size="thick" ref="chThick" color="brand-warning">
+              </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
             Basic Vertical
             <div class="pb-container">
               <div>
-                <progress-bar type="vertical" ref="cvBasic" color="brand-success"></progress-bar>
+                <vuestic-progress-bar type="vertical" ref="cvBasic" color="brand-success"></vuestic-progress-bar>
               </div>
             </div>
           </div>
           <div class="col-sm-4 col-12">
             Thin Vertical
             <div class="pb-container">
-              <progress-bar size="thin" type="vertical" ref="cvThin" color="black">
-              </progress-bar>
+              <vuestic-progress-bar size="thin" type="vertical" ref="cvThin" color="black">
+              </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
             Circle
             <div class="pb-container">
-              <progress-bar type="circle" ref="ccircle"></progress-bar>
+              <vuestic-progress-bar type="circle" ref="ccircle"></vuestic-progress-bar>
             </div>
           </div>
         </div>
@@ -98,13 +98,13 @@
 </template>
 
 <script>
-  import Widget from '../../common/widget/Widget'
-  import ProgressBar from '../../common/vuestic-progress-bar/VuesticProgressBar.vue'
+  import Widget from '../../vuestic-components/vuestic-widget/VuesticWidget'
+  //  import ProgressBar from '../../vuestic-components/vuestic-progress-bar/VuesticProgressBar.vue'
 
   export default {
     components: {
-      Widget,
-      ProgressBar
+      Widget
+//      ProgressBar
     },
     name: 'progress-bars',
     mounted () {

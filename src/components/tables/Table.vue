@@ -191,8 +191,8 @@
 </template>
 
 <script>
-  import Widget from '../common/widget/Widget'
-  import DataTable from '../common/vuestic-datatable/DataTable'
+  import Widget from '../vuestic-components/vuestic-widget/VuesticWidget'
+  import DataTable from '../vuestic-components/vuestic-datatable/VuesticDataTable'
   import BadgeColumn from './BadgeColumn.vue'
   import Vue from 'vue'
 

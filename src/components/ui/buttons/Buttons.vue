@@ -1,7 +1,8 @@
 <template>
   <div class="buttons-page">
     <div class="row">
-      <widget class="col-sm-12 primary-secondary-buttons larger-padding" header-text="Primary & Secondary Buttons">
+      <vuestic-widget class="col-sm-12 primary-secondary-buttons larger-padding"
+                      headerText="Primary & Secondary Buttons">
         <div class="row btn-margin-row">
           <div class="col-sm-6 d-flex justify-content-center"  :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-primary">
@@ -61,11 +62,11 @@
               </button>
             </div>
         </div>
-      </widget>
+      </vuestic-widget>
     </div>
 
     <div class="row">
-      <widget class="col-sm-12 color-buttons" header-text="Icons, Groups, Dropdowns">
+      <vuestic-widget class="col-sm-12 color-buttons" headerText="Icons, Groups, Dropdowns">
         <div class="row">
           <div class="col-sm-6  d-flex justify-content-center" :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-primary btn-with-icon">
@@ -106,11 +107,11 @@
             </button>
           </div>
         </div>
-      </widget>
+      </vuestic-widget>
     </div>
 
     <div class="row">
-      <widget class="col-sm-12 color-buttons" header-text="Colors">
+      <vuestic-widget class="col-sm-12 color-buttons" headerText="Colors">
         <div class="row btn-margin-row">
           <div class="col-sm-6  d-flex justify-content-center" :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-danger">
@@ -146,21 +147,17 @@
             </button>
           </div>
         </div>
-      </widget>
+      </vuestic-widget>
     </div>
   </div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
-  import Widget from 'components/common/widget/Widget'
-  import Dropdown from 'directives/Dropdown'
+  import Dropdown from '../../../directives/Dropdown'
 
   export default {
     name: 'buttons',
-    components: {
-      Widget
-    },
     directives: {
       Dropdown
     },

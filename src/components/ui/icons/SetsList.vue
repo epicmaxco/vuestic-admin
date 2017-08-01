@@ -1,6 +1,6 @@
 <template>
   <div class="sets-list row">
-    <widget headerText="Icons" class="col-12">
+    <vuestic-widget headerText="Icons" class="col-12">
       <div class="row">
         <div class="small-set col-lg-6" v-for="set in sets">
           <div class="set-content">
@@ -21,18 +21,13 @@
           </div>
         </div>
       </div>
-    </widget>
+    </vuestic-widget>
   </div>
 </template>
 
 <script>
-  import Widget from 'components/common/widget/Widget'
-
   export default {
     name: 'iconsList',
-    components: {
-      Widget
-    },
     props: ['sets'],
     methods: {
       iconClass (set, icon) {

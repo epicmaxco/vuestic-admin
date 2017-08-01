@@ -55,8 +55,8 @@
 </template>
 
 <script>
-  import Widget from 'components/common/widget/Widget'
-  import Modal from 'components/common/modal/Modal'
+  import Widget from '../../vuestic-components/vuestic-widget/VuesticWidget'
+  import Modal from '../../vuestic-components/vuestic-modal/VuesticModal'
 
   export default {
     name: 'modals',

@@ -59,8 +59,8 @@
 </template>
 
 <script>
-  import VuesticWizard from 'components/common/vuestic-wizard/VuesticWizard'
-  import VuesticSimpleSelect from 'components/common/vuestic-simple-select/VuesticSimpleSelect'
+  import VuesticWizard from 'components/vuestic-components/vuestic-wizard/VuesticWizard'
+  import VuesticSimpleSelect from 'components/vuestic-components/vuestic-simple-select/VuesticSimpleSelect'
   import CountriesList from './CountriesList'
 
   export default {

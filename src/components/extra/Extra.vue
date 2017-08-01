@@ -2,7 +2,7 @@
   <div class="extra">
     <div class="row">
       <div class="col-md-12">
-        <widget headerText="Alerts">
+        <vuestic-widget headerText="Alerts">
           <vuestic-alert type="success" :withCloseBtn="true">
             <span class="badge badge-pill badge-success">SUCCESS</span>
             You successfully read this important alert message.
@@ -20,11 +20,11 @@
             <span class="badge badge-pill badge-danger">DANGER</span>
             Change a few things up and try submitting again.
           </vuestic-alert>
-        </widget>
+        </vuestic-widget>
       </div>
     </div>
 
-    <widget class="no-padding no-v-padding no-h-padding">
+    <vuestic-widget class="no-padding no-v-padding no-h-padding">
       <vuestic-tabs :names="['Overview', 'Data Visualization', 'Users & Members', 'Setup Profile']">
         <div slot="Overview" class="d-flex justify-content-center">
           Overview
@@ -39,54 +39,52 @@
           Setup Profile
         </div>
       </vuestic-tabs>
-    </widget>
+    </vuestic-widget>
 
     <div class="row">
       <div class="col-md-4 d-flex">
-        <widget header-text="Profile Card" class="profile-card-widget">
+        <vuestic-widget headerText="Profile Card" class="profile-card-widget">
           <vuestic-profile-card :name="'Veronique Lee'" :location="'Malaga, Spain'" photoSource="http://i.imgur.com/UTc7Fne.png"
                                 :social="{twitter: 'twitter.com', facebook: 'facebook.com',
                                   instagram: 'instagram.com'}">
           </vuestic-profile-card>
-        </widget>
+        </vuestic-widget>
       </div>
       <div class="col-md-8 d-flex">
-        <widget header-text="Chat" class="chat-widget">
+        <vuestic-widget headerText="Chat" class="chat-widget">
           <vuestic-chat v-model="chatMessages"></vuestic-chat>
-        </widget>
+        </vuestic-widget>
       </div>
     </div>
 
     <div class="row bottom-widgets">
       <div class="col-md-6 d-flex">
-        <widget class="no-h-padding no-v-padding">
+        <vuestic-widget class="no-h-padding no-v-padding">
           <vuestic-feed :initialPosts="posts"></vuestic-feed>
-        </widget>
+        </vuestic-widget>
       </div>
       <div class="col-md-6 d-flex">
-        <widget class="business-posts">
+        <vuestic-widget class="business-posts">
           <vuestic-social-news :news="news" :url="'http://instagram.com/smartapant'"></vuestic-social-news>
-        </widget>
+        </vuestic-widget>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import VuesticTabs from 'components/common/vuestic-tabs/VuesticTabs.vue'
-  import Widget from 'components/common/widget/Widget'
-  import VuesticProfileCard from 'components/common/vuestic-profile-card/VuesticProfileCard.vue'
-  import VuesticAlert from 'components/common/vuestic-alert/VuesticAlert'
-  import VuesticChat from 'components/common/vuestic-chat/VuesticChat'
-  import VuesticFeed from '../common/vuestic-feed/VuesticFeed.vue'
-  import VuesticSocialNews from '../common/vuestic-social-news/VuesticSocialNews.vue'
+  import VuesticTabs from '../../components/vuestic-components/vuestic-tabs/VuesticTabs.vue'
+  import VuesticProfileCard from '../../components/vuestic-components/vuestic-profile-card/VuesticProfileCard.vue'
+  import VuesticAlert from '../../components/vuestic-components/vuestic-alert/VuesticAlert'
+  import VuesticChat from '../../components/vuestic-components/vuestic-chat/VuesticChat'
+  import VuesticFeed from '../vuestic-components/vuestic-feed/VuesticFeed.vue'
+  import VuesticSocialNews from '../vuestic-components/vuestic-social-news/VuesticSocialNews.vue'
 
   export default {
     name: 'extra',
     components: {
       VuesticSocialNews,
       VuesticFeed,
-      Widget,
       VuesticTabs,
       VuesticProfileCard,
       VuesticAlert,
@@ -128,7 +126,7 @@
           },
           {
             name: 'Andrei Hrabouski',
-            text: 'have just started a live video',
+            text: 'has just started a live video',
             photoURL: 'http://i.imgur.com/nryPD3a.png'
           },
           {

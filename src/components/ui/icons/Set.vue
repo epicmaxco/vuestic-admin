@@ -42,7 +42,7 @@
 </template>
 
 <script>
-  import Widget from '../../common/widget/Widget'
+  import Widget from '../../vuestic-components/vuestic-widget/VuesticWidget'
   import Slider from 'vue-slider-component'
 
   export default {
