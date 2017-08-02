@@ -179,7 +179,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        <widget headerText="Search & Scroll">
+        <widget headerText="Search & Pagination">
           <data-table apiUrl="https://vuetable.ratiw.net/api/users"
                       :tableFields="tableFields"
                       :itemsPerPage="itemsPerPage"></data-table>
