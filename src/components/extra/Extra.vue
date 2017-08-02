@@ -24,19 +24,16 @@
       </div>
     </div>
 
-    <vuestic-widget class="no-padding no-v-padding no-h-padding">
-      <vuestic-tabs :names="['Overview', 'Data Visualization', 'Users & Members', 'Setup Profile']">
+    <vuestic-widget class="no-v-padding">
+      <vuestic-tabs class="tabs" :names="['Chart', 'Setup Profile', 'Overview']">
         <div slot="Overview" class="d-flex justify-content-center">
-          Overview
+          <overview-tab></overview-tab>
         </div>
-        <div slot="Data Visualization" class="d-flex justify-content-center">
-          Data Visualisation
-        </div>
-        <div slot="Users & Members" class="d-flex justify-content-center">
-          Users & Members
+        <div slot="Chart" class="d-flex justify-content-center">
+          <vuestic-chart v-bind:data="bubbleChartData" type="bubble"></vuestic-chart>
         </div>
         <div slot="Setup Profile" class="d-flex justify-content-center">
-          Setup Profile
+          <setup-profile-tab wizardType="simple"></setup-profile-tab>
         </div>
       </vuestic-tabs>
     </vuestic-widget>
@@ -79,10 +76,15 @@
   import VuesticChat from '../../components/vuestic-components/vuestic-chat/VuesticChat'
   import VuesticFeed from '../vuestic-components/vuestic-feed/VuesticFeed.vue'
   import VuesticSocialNews from '../vuestic-components/vuestic-social-news/VuesticSocialNews.vue'
+  import OverviewTab from '../dashboard/overview-tab/OverviewTab.vue'
+  import SetupProfileTab from '../dashboard/setup-profile-tab/SetupProfileTab.vue'
+  import BubbleChartData from '../statistics/charts/BubbleChartData'
 
   export default {
     name: 'extra',
     components: {
+      SetupProfileTab,
+      OverviewTab,
       VuesticSocialNews,
       VuesticFeed,
       VuesticTabs,
@@ -169,13 +171,23 @@
           {
             photoURL: 'http://i.imgur.com/pgrHrPu.png'
           }
-        ]
+        ],
+        bubbleChartData: BubbleChartData
       }
     }
   }
 </script>
 
 <style lang="scss">
+  .tabs {
+    .overview-tab {
+      padding-top: 0 !important;
+      .explore-row {
+        display: none !important;
+      }
+    }
+  }
+
   .profile-card-widget, .chat-widget {
     width: 100%;
     .widget-body {
