@@ -114,7 +114,9 @@
     .dropdown-menu {
       padding: 0;
       .vuestic-scrollbar {
-        height: $dropdown-item-height * 4;
+        .scrollbar-wrapper {
+          max-height: $dropdown-item-height * 4;
+        }
       }
     }
   }
