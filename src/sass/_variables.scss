@@ -151,7 +151,7 @@ $sidebar-viewport-height: calc(100vh - #{$top-nav-height} - #{$content-wrap-pt} 
 $sidebar-hidden-top : -150px;
 $sidebar-hidden-top-mobile : $sidebar-mobile-top;
 $sidebar-hidden-height-mobile: 0;
-$sidebar-box-shadow : $greeny-box-shadow;
+$sidebar-box-shadow: 0px 8px 14.72px 1.28px rgba(#65a977, 0.3);
 
 //Widgets
 $widget-bg : $white;
