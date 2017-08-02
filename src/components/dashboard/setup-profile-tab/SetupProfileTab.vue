@@ -3,7 +3,7 @@
     <vuestic-wizard
       :steps="steps"
       wizard-layout="vertical"
-      wizard-type="rich">
+      :wizard-type="wizardType">
       <div slot="page1" class="form-wizard-tab-content">
         <h4>Type your name</h4>
         <p>Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
@@ -68,6 +68,11 @@
     components: {
       VuesticWizard,
       VuesticSimpleSelect
+    },
+    props: {
+      wizardType: {
+        default: 'rich'
+      }
     },
     data () {
       return {
