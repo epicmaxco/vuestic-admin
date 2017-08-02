@@ -35,7 +35,6 @@ const mutations = {
   },
   setLoading (state, isLoading) {
     state.isLoading = isLoading
-    console.log(Date.now() + ' ' + isLoading)
   }
 }
 
