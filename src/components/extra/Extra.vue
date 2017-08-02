@@ -30,7 +30,7 @@
           <overview-tab></overview-tab>
         </div>
         <div slot="Chart" class="d-flex justify-content-center">
-          <vuestic-chart v-bind:data="bubbleChartData" type="bubble"></vuestic-chart>
+          <vuestic-chart v-bind:data="chartData" type="line"></vuestic-chart>
         </div>
         <div slot="Setup Profile" class="d-flex justify-content-center">
           <setup-profile-tab wizardType="simple"></setup-profile-tab>
@@ -78,7 +78,7 @@
   import VuesticSocialNews from '../vuestic-components/vuestic-social-news/VuesticSocialNews.vue'
   import OverviewTab from '../dashboard/overview-tab/OverviewTab.vue'
   import SetupProfileTab from '../dashboard/setup-profile-tab/SetupProfileTab.vue'
-  import BubbleChartData from '../statistics/charts/BubbleChartData'
+  import chartData from '../statistics/charts/LineChartData'
 
   export default {
     name: 'extra',
@@ -172,7 +172,7 @@
             photoURL: 'http://i.imgur.com/pgrHrPu.png'
           }
         ],
-        bubbleChartData: BubbleChartData
+        chartData: chartData
       }
     }
   }
@@ -181,7 +181,6 @@
 <style lang="scss">
   .tabs {
     .overview-tab {
-      padding-top: 0 !important;
       .explore-row {
         display: none !important;
       }
