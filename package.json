@@ -1,9 +1,9 @@
 {
-  "name": "vuejs-admin",
+  "name": "vuestic-admin",
   "version": "1.0.0",
   "description": "Vue.js admin template",
   "author": "smartapant <smartapant@gmail.com>",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
