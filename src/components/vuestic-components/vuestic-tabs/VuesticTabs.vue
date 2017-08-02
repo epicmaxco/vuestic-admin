@@ -79,7 +79,6 @@
       width: 100%;
       height: .125rem;
       position: relative;
-      padding-bottom: $tab-content-pt;
       div[class^='underscore-']{
         background-color: $brand-primary;
         height: .125rem;
@@ -101,7 +100,7 @@
     }
     .tab-content {
       padding-bottom: $tab-content-pb;
-
+      padding-top: $tab-content-pt;
       > .tab-pane {
         width: 100%
       }
