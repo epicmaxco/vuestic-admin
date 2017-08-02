@@ -1,12 +1,15 @@
 <template>
   <div class="vuestic-tabs">
-    <nav class="nav nav-pills row">
-      <div class="nav-item col" v-on:click="setActive(name)"
-           :class="{active: name === currentActive}" v-for="name in names">
-        <span class="nav-link"><h5>{{name}}</h5></span>
-      </div>
-    </nav>
-    <div class="track"><div :class="underscoreClass"></div></div>
+    <div class="hidden-sm-down">
+      <nav class="nav nav-pills row">
+        <div class="nav-item col" v-on:click="setActive(name)"
+             :class="{active: name === currentActive}" v-for="name in names">
+          <span class="nav-link"><h5>{{name}}</h5></span>
+        </div>
+      </nav>
+      <div class="track"><div :class="underscoreClass"></div></div>
+    </div>
+    <simple-select class="hidden-md-up simple-select" v-bind:options="names" v-model="currentActive"></simple-select>
     <div class="tab-content">
       <div class="tab-pane"
            :class="{active: name === currentActive}" v-for="name in names">
@@ -19,9 +22,13 @@
 <script>
 
   import Widget from 'components/common/widget/Widget.vue'
+  import SimpleSelect from 'components/common/vuestic-simple-select/VuesticSimpleSelect.vue'
 
   export default {
-    components: {Widget},
+    components: {
+      Widget,
+      SimpleSelect
+    },
     name: 'vuestic-tabs',
     props: ['names'],
     computed: {
@@ -47,6 +54,9 @@
 
   .vuestic-tabs {
     background-color: white;
+    .simple-select {
+      padding-top: 1.5rem;
+    }
     .nav {
       margin: 0;
       padding-top: 2.25rem;
@@ -77,6 +87,7 @@
       width: 100%;
       height: .125rem;
       position: relative;
+      padding-bottom: $tab-content-pt;
       div[class^='underscore-']{
         background-color: $brand-primary;
         height: .125rem;
@@ -97,7 +108,6 @@
       }
     }
     .tab-content {
-      padding-top: $tab-content-pt;
       padding-bottom: $tab-content-pb;
 
       > .tab-pane {
