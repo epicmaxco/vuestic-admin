@@ -1,7 +1,7 @@
 <template>
   <div class="progress-bars">
     <div class="row">
-      <widget class="col-12" headerText="Progress Bars">
+      <vuestic-widget class="col-12" headerText="Progress Bars">
         <div class="row">
           <div class="col-sm-4 col-12">
             Basic
@@ -46,43 +46,43 @@
             </div>
           </div>
         </div>
-      </widget>
-      <widget class="col-12" headerText="Colorful Bars">
+      </vuestic-widget>
+      <vuestic-widget class="col-12" headerText="Colorful Bars">
         <div class="row">
           <div class="col-sm-4 col-12">
             Basic
             <div class="pb-container">
-              <progress-bar ref="chBasic" colorName="danger">
-              </progress-bar>
+              <vuestic-progress-bar ref="chBasic" colorName="danger">
+              </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
             Thin
             <div class="pb-container">
-              <progress-bar size="thin" ref="chThin" colorName="info">
-              </progress-bar>
+              <vuestic-progress-bar size="thin" ref="chThin" colorName="info">
+              </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
             Thick
             <div class="pb-container">
-              <progress-bar size="thick" ref="chThick" colorName="warning">
-              </progress-bar>
+              <vuestic-progress-bar size="thick" ref="chThick" colorName="warning">
+              </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
             Basic Vertical
             <div class="pb-container">
               <div>
-                <progress-bar type="vertical" ref="cvBasic" colorName="success"></progress-bar>
+                <vuestic-progress-bar type="vertical" ref="cvBasic" colorName="success"></vuestic-progress-bar>
               </div>
             </div>
           </div>
           <div class="col-sm-4 col-12">
             Thin Vertical
             <div class="pb-container">
-              <progress-bar size="thin" type="vertical" ref="cvThin" colorName="black">
-              </progress-bar>
+              <vuestic-progress-bar size="thin" type="vertical" ref="cvThin" colorName="black">
+              </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
@@ -92,20 +92,16 @@
             </div>
           </div>
         </div>
-      </widget>
+      </vuestic-widget>
     </div>
   </div>
 </template>
 
 <script>
-  import Widget from '../../vuestic-components/vuestic-widget/VuesticWidget'
-  //  import ProgressBar from '../../vuestic-components/vuestic-progress-bar/VuesticProgressBar.vue'
+  import VuesticWidget from '../../vuestic-components/vuestic-widget/VuesticWidget.vue'
 
   export default {
-    components: {
-      Widget
-//      ProgressBar
-    },
+    components: {VuesticWidget},
     name: 'progress-bars',
     mounted () {
       let delay = 0
