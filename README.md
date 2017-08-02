@@ -4,7 +4,7 @@ Responsive admin dasboard template built with [Vue.js](https://vuejs.org) and [B
 
 <p align="center"> 
   <a href="http://www.epicmax.co/vuestic" target="_blank">
-    <img src="http://i.imgur.com/TZyjC1R.png" align="center" width="703px"/>
+    <img src="http://i.imgur.com/pMuJVVc.png" align="center" width="888px"/>
   </a> 
 </p>
 
