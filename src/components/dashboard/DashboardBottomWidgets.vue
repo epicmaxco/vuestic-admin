@@ -1,29 +1,29 @@
 <template>
   <div class="row bottom-widgets">
     <div class="col-md-6 d-flex">
-      <widget class="no-h-padding no-v-padding">
+      <vuestic-widget class="no-h-padding no-v-padding">
         <vuestic-feed :initialPosts="posts"></vuestic-feed>
-      </widget>
+      </vuestic-widget>
     </div>
     <div class="col-md-6 d-flex">
-      <widget class="business-posts">
+      <vuestic-widget class="business-posts">
         <vuestic-social-news class="vuestic-social-news" :news="news" :url="'http://instagram.com/smartapant'"></vuestic-social-news>
-      </widget>
+      </vuestic-widget>
     </div>
   </div>
 </template>
 
 <script>
-  import Widget from 'components/common/widget/Widget'
-  import VuesticFeed from '../common/vuestic-feed/VuesticFeed.vue'
-  import VuesticSocialNews from '../common/vuestic-social-news/VuesticSocialNews.vue'
+  import VuesticWidget from '../vuestic-components/vuestic-widget/VuesticWidget'
+  import VuesticFeed from '../vuestic-components/vuestic-feed/VuesticFeed.vue'
+  import VuesticSocialNews from '../vuestic-components/vuestic-social-news/VuesticSocialNews.vue'
 
   export default {
     name: 'dashboard-bottom-widgets',
     components: {
       VuesticSocialNews,
       VuesticFeed,
-      Widget
+      VuesticWidget
     },
     data () {
       return {
@@ -35,7 +35,7 @@
           },
           {
             name: 'Andrei Hrabouski',
-            text: 'have just started a live video',
+            text: 'has just started a live video',
             photoURL: 'http://i.imgur.com/nryPD3a.png'
           },
           {

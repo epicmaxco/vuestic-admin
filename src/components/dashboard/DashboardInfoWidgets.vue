@@ -1,7 +1,7 @@
 <template>
   <div class="row dashboard-info-widgets">
     <div class="col-md-6 col-xl-3">
-      <widget class="info-widget">
+      <vuestic-widget class="info-widget">
         <div class="info-widget-inner">
           <div class="stats">
             <div class="stats-number">
@@ -11,10 +11,10 @@
             <div class="stats-title">Elements</div>
           </div>
         </div>
-      </widget>
+      </vuestic-widget>
     </div>
     <div class="col-md-6 col-xl-3">
-      <widget class="info-widget">
+      <vuestic-widget class="info-widget">
         <div class="info-widget-inner">
           <div class="stats">
             <div class="stats-number">
@@ -24,10 +24,10 @@
             <div class="stats-title">Versions</div>
           </div>
         </div>
-      </widget>
+      </vuestic-widget>
     </div>
     <div class="col-md-6 col-xl-3">
-      <widget class="info-widget brand-danger">
+      <vuestic-widget class="info-widget brand-danger">
         <div class="info-widget-inner">
           <div class="info-widget-inner has-chart">
             <div class="stats">
@@ -42,10 +42,10 @@
             </div>
           </div>
         </div>
-      </widget>
+      </vuestic-widget>
     </div>
     <div class="col-md-6 col-xl-3">
-      <widget class="info-widget brand-info">
+      <vuestic-widget class="info-widget brand-info">
         <div class="info-widget-inner">
           <div class="stats">
             <div class="stats-number">
@@ -55,19 +55,17 @@
             <div class="stats-title">Team Members</div>
           </div>
         </div>
-      </widget>
+      </vuestic-widget>
     </div>
   </div>
 </template>
 
 <script>
-  import Widget from 'components/common/widget/Widget'
-  import ProgressBar from 'components/common/vuestic-progress-bar/VuesticProgressBar'
+  import ProgressBar from '../../components/vuestic-components/vuestic-progress-bar/VuesticProgressBar'
 
   export default {
     name: 'dashboard-info-widgets',
     components: {
-      Widget,
       ProgressBar
     },
 

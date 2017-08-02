@@ -2,7 +2,7 @@
   <div class="form-wizard-page">
     <div class="row">
       <div class="col-md-12">
-        <widget class="no-h-padding" header-text="Simple Wizard">
+        <vuestic-widget class="no-h-padding" headerText="Simple Wizard">
           <vuestic-wizard
             :steps="hsSteps">
             <div slot="page1" class="form-wizard-tab-content">
@@ -12,11 +12,10 @@
               <div class="form-group with-icon-right" :class="{'has-error': errors.has('hsName'), 'valid': isFormFieldValid('hsName')}">
                 <div class="input-group">
                   <input
-                    type="text"
                     name="hsName"
                     v-model="hsName"
                     v-validate="'required'"
-                    required="required"/>
+                    required title=""/>
                   <i class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
                   <i class="fa fa-check valid-icon icon-right input-icon"></i>
                   <label class="control-label">Name</label><i class="bar"></i>
@@ -54,13 +53,13 @@
               </p>
             </div>
           </vuestic-wizard>
-        </widget>
+        </vuestic-widget>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12">
-        <widget class="no-h-padding" header-text="Rich Wizard">
+        <vuestic-widget class="no-h-padding" headerText="Rich Wizard">
           <vuestic-wizard
             :steps="hrSteps"
             wizard-type="rich">
@@ -71,11 +70,10 @@
               <div class="form-group with-icon-right" :class="{'has-error': errors.has('hrName'), 'valid': isFormFieldValid('hrName')}">
                 <div class="input-group">
                   <input
-                    type="text"
                     name="hrName"
                     v-model="hrName"
                     v-validate="'required'"
-                    required="required"/>
+                    required title=""/>
                   <i class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
                   <i class="fa fa-check valid-icon icon-right input-icon"></i>
                   <label class="control-label">Name</label><i class="bar"></i>
@@ -113,13 +111,13 @@
               </p>
             </div>
           </vuestic-wizard>
-        </widget>
+        </vuestic-widget>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12">
-        <widget header-text="Vertical Rich Wizard">
+        <vuestic-widget headerText="Vertical Rich Wizard">
           <vuestic-wizard
             :steps="vrSteps"
             wizard-layout="vertical"
@@ -131,11 +129,10 @@
               <div class="form-group with-icon-right" :class="{'has-error': errors.has('vrName'), 'valid': isFormFieldValid('vrName')}">
                 <div class="input-group">
                   <input
-                    type="text"
                     name="vrName"
                     v-model="vrName"
                     v-validate="'required'"
-                    required="required"/>
+                    required title=""/>
                   <i class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
                   <i class="fa fa-check valid-icon icon-right input-icon"></i>
                   <label class="control-label">Name</label><i class="bar"></i>
@@ -173,13 +170,13 @@
               </p>
             </div>
           </vuestic-wizard>
-        </widget>
+        </vuestic-widget>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12">
-        <widget class="simple-vertical-wizard-widget" header-text="Vertical Simple Wizard">
+        <vuestic-widget class="simple-vertical-wizard-widget" headerText="Vertical Simple Wizard">
           <vuestic-wizard
             :steps="vsSteps"
             wizard-layout="vertical"
@@ -191,11 +188,10 @@
               <div class="form-group with-icon-right" :class="{'has-error': errors.has('vsName'), 'valid': isFormFieldValid('vsName')}">
                 <div class="input-group">
                   <input
-                    type="text"
                     name="vsName"
                     v-model="vsName"
                     v-validate="'required'"
-                    required="required"/>
+                    required title=""/>
                   <i class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
                   <i class="fa fa-check valid-icon icon-right input-icon"></i>
                   <label class="control-label">Name</label><i class="bar"></i>
@@ -233,22 +229,20 @@
               </p>
             </div>
           </vuestic-wizard>
-        </widget>
+        </vuestic-widget>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import Widget from 'components/common/widget/Widget'
-  import VuesticWizard from 'components/common/vuestic-wizard/VuesticWizard'
+  import VuesticWizard from '../../vuestic-components/vuestic-wizard/VuesticWizard'
   import CountriesList from '../CountriesList'
-  import VuesticSimpleSelect from 'components/common/vuestic-simple-select/VuesticSimpleSelect'
+  import VuesticSimpleSelect from '../../vuestic-components/vuestic-simple-select/VuesticSimpleSelect'
 
   export default {
     name: 'form-wizard',
     components: {
-      Widget,
       VuesticWizard,
       VuesticSimpleSelect
     },

@@ -159,7 +159,7 @@ $widget-header-border: 2px solid $light-gray;
 $widget-header-height: 55px;
 $widget-body-no-header-height: 100%;
 $widget-body-with-header-height: calc(100% - #{$widget-header-height});
-$widget-mb: 45px;
+$widget-mb: 1.875rem;
 $info-widget-border: 0.5rem solid $brand-primary;
 
 //Buttons
@@ -268,6 +268,7 @@ $badge-info-bg: #4ab2e3;
 //Alerts
 $alert-padding-x:             1.25rem !default;
 $alert-padding-y:             .75rem !default;
+$alert-margin-bottom:         $widget-mb;
 $with-close-pr:               3.125rem;
 
 $alert-border-radius:         0;

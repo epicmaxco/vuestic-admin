@@ -1,6 +1,6 @@
 <template>
   <div class="ui-grid row">
-    <widget headerText="Fixed Grid" class="col-12">
+    <vuestic-widget headerText="Fixed Grid" class="col-12">
       <div class="row">
         <div v-for="i in 3" class="col"><div>.col</div></div>
       </div>
@@ -10,9 +10,9 @@
       <div class="row">
         <div v-for="i in 12" class="col"><div>.col</div></div>
       </div>
-    </widget>
+    </vuestic-widget>
 
-    <widget headerText="Desktop Grid" class="col-12">
+    <vuestic-widget headerText="Desktop Grid" class="col-12">
       <div class="row">
         <div v-for="i in 3" class="col-md-4"><div>.col-md-4</div></div>
       </div>
@@ -22,9 +22,9 @@
       <div class="row">
         <div v-for="i in 12" class="col-md-1"><div>.col-md-1</div></div>
       </div>
-    </widget>
+    </vuestic-widget>
 
-    <widget headerText="Mobile and Desktop Grid" class="col-12">
+    <vuestic-widget headerText="Mobile and Desktop Grid" class="col-12">
       <div class="row">
         <div class="col-md-6 col-sm-12">
           <div>.col-md-3 .col-sm-8</div>
@@ -49,9 +49,9 @@
           <div>.col-md-4 .col-sm-2</div>
         </div>
       </div>
-    </widget>
+    </vuestic-widget>
 
-    <widget headerText="Offsets" class="col-12">
+    <vuestic-widget headerText="Offsets" class="col-12">
       <div class="row">
         <div class="col-md-6 offset-md-6 col-sm-6">
           <div>.col-md-6 .offset-md-6 .col-sm-6</div>
@@ -70,18 +70,13 @@
           <div>.col-4 .offset-8</div>
         </div>
       </div>
-    </widget>
+    </vuestic-widget>
   </div>
 </template>
 
 <script>
-  import Widget from 'components/common/widget/Widget'
-
   export default {
-    name: 'grid',
-    components: {
-      Widget
-    }
+    name: 'grid'
   }
 </script>
 

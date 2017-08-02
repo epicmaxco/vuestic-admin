@@ -12,7 +12,7 @@
 
     <dashboard-info-widgets></dashboard-info-widgets>
 
-    <widget class="no-padding no-v-padding">
+    <vuestic-widget class="no-padding no-v-padding">
       <vuestic-tabs :names="['Overview', 'Data Visualization', 'Users & Members', 'Setup Profile']" ref="tabs">
         <div slot="Overview">
           <overview-tab @explore="explore"></overview-tab>
@@ -27,7 +27,7 @@
           <setup-profile-tab></setup-profile-tab>
         </div>
       </vuestic-tabs>
-    </widget>
+    </vuestic-widget>
 
     <dashboard-bottom-widgets></dashboard-bottom-widgets>
 
@@ -35,10 +35,10 @@
 </template>
 
 <script>
-  import Widget from 'components/common/widget/Widget'
-  import VuesticAlert from 'components/common/vuestic-alert/VuesticAlert'
+  import VuesticWidget from '../vuestic-components/vuestic-widget/VuesticWidget'
+  import VuesticAlert from '../vuestic-components/vuestic-alert/VuesticAlert'
   import DashboardInfoWidgets from './DashboardInfoWidgets'
-  import VuesticTabs from 'components/common/vuestic-tabs/VuesticTabs.vue'
+  import VuesticTabs from '../vuestic-components/vuestic-tabs/VuesticTabs.vue'
   import UsersMembersTab from './users-and-members-tab/UsersMembersTab.vue'
   import SetupProfileTab from './setup-profile-tab/SetupProfileTab.vue'
   import OverviewTab from './overview-tab/OverviewTab.vue'
@@ -49,7 +49,7 @@
     name: 'dashboard',
     components: {
       DataVisualisationTab,
-      Widget,
+      VuesticWidget,
       VuesticAlert,
       DashboardInfoWidgets,
       VuesticTabs,
@@ -68,9 +68,4 @@
 
 <style lang="scss" scoped>
   @import "../../sass/_variables.scss";
-
-  .vuestic-alert {
-    margin-bottom: 1.75rem;
-  }
-
 </style>
