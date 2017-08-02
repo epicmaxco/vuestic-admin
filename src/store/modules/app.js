@@ -19,7 +19,8 @@ const state = {
       white: '#fff',
       black: '#000',
       fontColor: '#34495e',
-      transparent: 'transparent'
+      transparent: 'transparent',
+      lighterGray: '#ddd'
     }
   },
   isLoading: true

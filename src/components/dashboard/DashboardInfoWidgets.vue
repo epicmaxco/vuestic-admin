@@ -37,7 +37,8 @@
               <div class="stats-title">Commits</div>
             </div>
             <div class="chart-container">
-              <progress-bar type="circle" ref="circleProgress" :color="'white'" :background-color="'brand-danger'" :startColor="'brand-danger'"></progress-bar>
+              <progress-bar type="circle" ref="circleProgress" :colorName="'white'" :backgroundColorName="'danger'"
+                            :startColorName="'danger'"></progress-bar>
             </div>
           </div>
         </div>

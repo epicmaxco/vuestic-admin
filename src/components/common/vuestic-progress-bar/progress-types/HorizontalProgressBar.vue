@@ -1,8 +1,8 @@
 <template>
-  <div class="horizontal" :class="'color-' + color">
+  <div class="horizontal">
     <div v-if="size != 'thick'" class="value">{{animatedValue + '%'}}</div>
     <div class="progress" :class="size" >
-      <div class="progress-bar" :style="'width: ' + value + '%'" v-progress-bar="{data: $data}">
+      <div class="progress-bar" ref="progressBar" :style="'width: ' + value + '%'">
         <span v-if="size == 'thick'" :class="{hidden: animatedValue == min}" class="value">
           {{animatedValue + '%'}}
         </span>
@@ -12,39 +12,31 @@
 </template>
 
 <script>
+  import {color, lightness} from 'kewler'
+
   export default {
     props: [
       'value',
+      'animatedValue',
       'min',
       'max',
       'color',
       'size',
       'isActive'
     ],
-    directives: {
-      progressBar (el, binding) {
-        binding.value.data.progressBarElement = el
-      }
-    },
-    methods: {
-      enableBarAnimation (flag) {
-        if (flag) {
-          this.progressBarElement.setAttribute('class', 'progress-bar active')
+    mounted () {
+      let progressBar = this.$refs.progressBar
+      console.log(progressBar.style.transition)
+      let progressColor = color(this.color)
+      let current = progressColor
+      setInterval(() => {
+        if (progressColor(lightness(30))() !== current()) {
+          current = progressColor(lightness(30))
         } else {
-          this.progressBarElement.setAttribute('class', 'progress-bar')
+          current = progressColor
         }
-      }
-    },
-    watch: {
-      isActive (flag) {
-        this.enableBarAnimation(flag)
-      }
-    },
-    data () {
-      return {
-        animatedValue: this.value,
-        progressBarElement: null
-      }
+        progressBar.style.backgroundColor = current()
+      }, 500)
     }
   }
 </script>
@@ -55,25 +47,12 @@
   @import "../../../../../node_modules/bootstrap/scss/variables";
 
   .vuestic-progress-bar .horizontal {
-    @each $name in map-keys($colors-map) {
-      &.color-#{$name} {
-        $color: map-get($colors-map, $name);
-        color: $color;
-        .progress-bar {
-          background-color: $color;
-          &.active {
-            animation: change-#{$name} 1.5s linear infinite;
-            @keyframes change-#{$name} {
-              0% {background-color: $color}
-              50% {background-color: lighten($color, 30%)}
-            }
-          }
-        }
-      }
-    }
-
     display: inline-block;
     width: 100%;
+
+    .progress-bar {
+      transition: background-color ease .5s, width 3s linear !important;
+    }
 
     .value {
       text-align: center;
