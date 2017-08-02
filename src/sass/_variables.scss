@@ -81,6 +81,12 @@ $sidebar-mobile-left: $layout-mobile-padding;
 $content-mobile-wrap-margin: 1.125rem;
 $sidebar-mobile-z-index: 1000;
 
+$content-mobile-wrap-pl: 1rem;
+$content-mobile-wrap-pr : 1rem;
+$content-mobile-wrap-pt : 2rem;
+$content-mobile-wrap-pb : $layout-padding;
+$content-mobile-wrap: $content-mobile-wrap-pt $content-mobile-wrap-pr $content-mobile-wrap-pb $content-mobile-wrap-pl;
+
 $nav-mobile-padding-h : .875rem;
 $nav-mobile-pt: 3rem;
 $nav-mobile-pb: 1.375rem;
@@ -305,4 +311,6 @@ $icon-font-path: './fonts/';
 $tab-content-pt: 3.125rem;
 $tab-content-pb: 1.5rem;
 
-
+//PreLoader
+$vuestic-preloader-left: calc(50% - 140px/2);
+$vuestic-preloader-top: calc(50% - 104px/2);

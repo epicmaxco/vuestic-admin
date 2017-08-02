@@ -58,8 +58,8 @@
 
     .pre-loader {
       position: absolute;
-      left: calc(50% - 140px/2);
-      top: calc(50% - 104px/2);
+      left: $vuestic-preloader-left;
+      top: $vuestic-preloader-top;
     }
 
     .sidebar-hidden & {
@@ -67,12 +67,11 @@
     }
 
     @include media-breakpoint-down(md) {
-      margin-left: $content-mobile-wrap-margin;
-      padding-top: $layout-mobile-padding;
-      padding-right: $content-mobile-wrap-margin;
+      padding: $content-mobile-wrap;
+      margin-left: 0;
 
       .sidebar-hidden & {
-        margin-left: $content-mobile-wrap-margin;
+        margin-left: 0;
       }
     }
   }
