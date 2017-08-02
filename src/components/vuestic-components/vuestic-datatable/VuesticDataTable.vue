@@ -73,7 +73,7 @@
             wrapperClass: 'btn-group',
             activeClass: 'focus',
             disabledClass: 'disabled',
-            pageClass: 'btn btn-primary',
+            pageClass: 'btn btn-primary hide-not-focused-btn',
             linkClass: 'btn btn-primary pagination-link-btn',
             icons: {
               first: 'fa fa-angle-double-left',
@@ -109,7 +109,7 @@
 <style lang="scss">
   @import "../../../sass/variables";
 
-  @media (max-width: 768px) {
+  @media (max-width: 1258px) {
     .pagination-link-btn:first-child, .pagination-link-btn:last-child {
       display: none;
     }
@@ -122,6 +122,12 @@
     .pagination-link-btn:nth-last-child(2) {
       border-top-right-radius: $btn-border-radius !important;
       border-bottom-right-radius: $btn-border-radius !important;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hide-not-focused-btn:not(.focus) {
+      display: none;
     }
   }
 </style>
