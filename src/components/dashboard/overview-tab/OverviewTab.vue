@@ -83,7 +83,7 @@
     display: flex;
     align-items: center;
     height: 55px;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     padding-right: 1rem;
     font-size: 1.25rem;
     font-weight: bold;
