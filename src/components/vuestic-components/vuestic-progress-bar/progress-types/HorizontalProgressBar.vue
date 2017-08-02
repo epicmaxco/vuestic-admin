@@ -26,7 +26,6 @@
     ],
     mounted () {
       let progressBar = this.$refs.progressBar
-      console.log(progressBar.style.transition)
       let progressColor = color(this.color)
       let current = progressColor
       setInterval(() => {
