@@ -18,7 +18,7 @@
   import LineChart from './chart-types/LineChart'
 
   export default {
-    name: 'vuestic-pie-chart',
+    name: 'vuestic-chart',
     props: ['data', 'options', 'type'],
     components: {
       PieChart,
