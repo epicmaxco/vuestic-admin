@@ -2,6 +2,8 @@
 
 Responsive admin dasboard template built with [Vue.js](https://vuejs.org) and [Bootstrap 4](https://v4-alpha.getbootstrap.com). Developed by [Epicmax](http://epicmax.co). Designed by [Vasili Savitski](https://github.com/xx13/)
 
+<p align="center"> <img src="http://i.imgur.com/kYtKCUa.png" align="center"/> </p>
+
 ## Demo
 Check it out [live](http://vuestic.epicmax.co)!
 

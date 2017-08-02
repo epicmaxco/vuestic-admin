@@ -39,7 +39,7 @@
       return {
         donutChartData: DonutChartData,
         apiUrl: 'https://vuetable.ratiw.net/api/users',
-        onEachSide: 0,
+        onEachSide: 1,
         tableFields: [
           {
             name: '__component:badge-column',
