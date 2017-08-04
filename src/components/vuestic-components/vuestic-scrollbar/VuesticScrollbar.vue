@@ -1,17 +1,18 @@
 <template>
-  <div class="vuestic-scrollbar">
-    <div class="scrollbar-wrapper">
-      <div class="scrollbar-content">
+  <div class="vuestic-scrollbar" @wheel="scroll">
+    <div class="scrollbar-wrapper" ref="scrollbarWrapper">
+      <div class="scrollbar-content" ref="scrollbarContent">
         <slot></slot>
       </div>
-      <div class="track"><div class="thumb"></div></div>
+      <div class="track" ref="track"><div class="thumb" ref="thumb"></div></div>
     </div>
   </div>
 </template>
 
 <script>
-  let erdMaker = require('element-resize-detector')
-  let erd = erdMaker()
+  const erdMaker = require('element-resize-detector')
+  const erd = erdMaker()
+  const browser = require('detect-browser')
 
   let vm = {
     name: 'vuestic-scrollbar',
@@ -38,18 +39,18 @@
       },
       scroll (e) {
         let delta = (e.deltaY * 0.01 * this.speed)
+        if (browser.name === 'firefox') {
+          delta *= 10
+        }
 
         if (this.isDown && delta > 0 || this.isUp && delta < 0 || this.contentHeight <= this.maxHeight) {
           e.preventDefault()
           return
         }
-
         let currentMT = this.content.style.marginTop === ''
           ? 0
-          : parseInt(this.content.style.marginTop, 10)
-
+          : parseFloat(this.content.style.marginTop, 10)
         let nextMT = 0
-
         if (this.maxHeight - (currentMT - delta * this.speed) > this.contentHeight && delta > 0) {
           nextMT = this.maxHeight - this.contentHeight
           this.isDown = true
@@ -63,6 +64,7 @@
             this.isUp = false
           }
         }
+
         this.content.style.marginTop = nextMT + 'px'
         this.calcThumb()
 
@@ -70,22 +72,20 @@
       }
     },
     mounted () {
-      this.track = this.$el.getElementsByClassName('track')[0]
-      this.thumb = this.track.getElementsByClassName('thumb')[0]
-      this.content = this.$el.getElementsByClassName('scrollbar-content')[0]
-      this.wrapper = this.$el.getElementsByClassName('scrollbar-wrapper')[0]
+      this.track = this.$refs.track
+      this.thumb = this.$refs.thumb
+      this.content = this.$refs.scrollbarContent
+      this.wrapper = this.$refs.scrollbarWrapper
       let handler = () => {
         this.calcSize()
         this.calcThumb()
       }
       erd.listenTo(this.content, handler)
       erd.listenTo(this.$el, handler)
-      this.$el.addEventListener('wheel', this.scroll, false)
     },
     destroyed () {
       erd.removeAllListeners(this.content)
       erd.removeAllListeners(this.$el)
-      this.$el.removeEventListener('wheel', this.scroll, false)
     },
     data () {
       return {
