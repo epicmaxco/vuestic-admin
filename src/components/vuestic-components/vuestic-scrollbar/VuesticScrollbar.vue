@@ -1,7 +1,12 @@
 <template>
-  <div class="vuestic-scrollbar" @wheel="scroll">
+  <div class="vuestic-scrollbar" @transitionend="onContainerResize">
     <div class="scrollbar-wrapper" ref="scrollbarWrapper">
-      <div class="scrollbar-content" ref="scrollbarContent">
+      <div class="scrollbar-content" ref="scrollbarContent"
+           @wheel="scroll"
+           @touchstart="startDrag"
+           @touchmove="onDrag"
+           @touchend="stopDrag"
+           @transitionend="onContentResize">
         <slot></slot>
       </div>
       <div class="track" ref="track"><div class="thumb" ref="thumb"></div></div>
@@ -10,8 +15,6 @@
 </template>
 
 <script>
-  const erdMaker = require('element-resize-detector')
-  const erd = erdMaker()
   const browser = require('detect-browser')
 
   let vm = {
@@ -24,12 +27,15 @@
     methods: {
       calcSize () {
         this.isDown = this.isUp = false
-        this.maxHeight = parseInt(this.wrapper.offsetHeight, 10)
-        this.contentHeight = parseInt(this.content.offsetHeight, 10)
-        this.trackHeight = parseInt(this.track.offsetHeight, 10)
-        this.thumb.style.height = this.maxHeight / this.contentHeight < 1
-          ? this.maxHeight / this.contentHeight * this.trackHeight + 'px'
-          : 0
+        this.maxHeight = parseFloat(this.wrapper.offsetHeight, 10)
+        this.contentHeight = parseFloat(this.content.offsetHeight, 10)
+        this.trackHeight = parseFloat(this.track.offsetHeight, 10)
+        this.thumb.style.height = this.maxHeight / this.contentHeight * this.trackHeight + 'px'
+        if (this.maxHeight / this.contentHeight < 1) {
+          this.thumb.classList.add('active')
+        } else {
+          this.thumb.classList.remove('active')
+        }
       },
       calcThumb () {
         let currentMT = this.content.style.marginTop === ''
@@ -37,21 +43,76 @@
           : parseInt(this.content.style.marginTop, 10)
         this.thumb.style.top = (-currentMT / this.contentHeight * this.trackHeight) + 'px'
       },
+      onContainerResize () {
+        this.calcSize()
+        this.calcThumb()
+      },
+      onContentResize () {
+        let prevHeight = this.contentHeight
+        this.calcSize()
+        this.calcThumb()
+        this.content.style.transition = 'margin-top .3s linear'
+        this.thumb.style.transition = 'top .3s linear'
+        this.setVertical(this.contentHeight - prevHeight)
+
+        let handler = (e) => {
+          if (e.propertyName === 'margin-top') {
+            this.content.style.transition = ''
+            this.calcSize()
+            this.calcThumb()
+            this.content.removeEventListener('transitionend', handler)
+          }
+        }
+        this.content.addEventListener('transitionend', handler)
+
+        let thumbTopHandler = (e) => {
+          if (e.propertyName === 'top') {
+            this.thumb.style.transition = ''
+            this.thumb.removeEventListener('transitionend', thumbTopHandler)
+          }
+        }
+        this.thumb.addEventListener('transitionend', thumbTopHandler)
+      },
+      startDrag (e) {
+        this.drag = {
+          isDragging: true,
+          start: {
+            y: e.clientY,
+            x: e.clientX
+          }
+        }
+      },
+      onDrag (e) {
+        if (this.drag.isDragging) {
+          e.preventDefault()
+          let delta = this.drag.start.y - e.clientY
+          this.setVertical(delta)
+          this.drag.start = {
+            y: e.clientY,
+            x: e.clientX
+          }
+        }
+      },
+      stopDrag (e) {
+        this.drag.isDragging = false
+      },
       scroll (e) {
         let delta = (e.deltaY * 0.01 * this.speed)
         if (browser.name === 'firefox') {
           delta *= 10
         }
-
+        this.setVertical(delta)
+        e.preventDefault()
+      },
+      setVertical (delta) {
         if (this.isDown && delta > 0 || this.isUp && delta < 0 || this.contentHeight <= this.maxHeight) {
-          e.preventDefault()
           return
         }
         let currentMT = this.content.style.marginTop === ''
           ? 0
           : parseFloat(this.content.style.marginTop, 10)
         let nextMT = 0
-        if (this.maxHeight - (currentMT - delta * this.speed) > this.contentHeight && delta > 0) {
+        if (this.maxHeight - (currentMT - delta) > this.contentHeight && delta > 0) {
           nextMT = this.maxHeight - this.contentHeight
           this.isDown = true
         } else {
@@ -67,8 +128,6 @@
 
         this.content.style.marginTop = nextMT + 'px'
         this.calcThumb()
-
-        e.preventDefault()
       }
     },
     mounted () {
@@ -76,20 +135,13 @@
       this.thumb = this.$refs.thumb
       this.content = this.$refs.scrollbarContent
       this.wrapper = this.$refs.scrollbarWrapper
-      let handler = () => {
+      this.$el.addEventListener('transitionend', (e) => {
         this.calcSize()
         this.calcThumb()
-      }
-      erd.listenTo(this.content, handler)
-      erd.listenTo(this.$el, handler)
-    },
-    destroyed () {
-      erd.removeAllListeners(this.content)
-      erd.removeAllListeners(this.$el)
+      })
     },
     data () {
       return {
-        displayedHeight: undefined,
         wrapper: undefined,
         maxHeight: undefined,
         thumb: undefined,
@@ -98,7 +150,8 @@
         content: undefined,
         contentHeight: undefined,
         isDown: false,
-        isUp: true
+        isUp: true,
+        drag: {}
       }
     }
   }
@@ -109,27 +162,33 @@
 
 <style lang="scss">
   .vuestic-scrollbar {
+    transition: all .3s linear;
     position: relative;
     height: 100%;
     .scrollbar-wrapper {
-      height: 100%;
+      position: relative;
       overflow: hidden;
-    }
-    .track {
-      position: absolute;
-      right: 0;
-      top: 0;
-      height: 100%;
-      width: 3px;
-      .thumb {
+      max-height: 100%;
+      .track {
         position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
         width: 3px;
-        background-color: black;
-        opacity: .3;
+        .thumb {
+          transition: height .3s linear, opacity .6s linear;
+          position: absolute;
+          width: 100%;
+          background-color: black;
+          opacity: 0;
+          &.active {
+            opacity: .3;
+          }
+        }
       }
     }
     &:hover {
-      .thumb {
+      .thumb.active {
         opacity: 1 !important;
       }
     }
