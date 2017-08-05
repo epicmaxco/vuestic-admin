@@ -20,7 +20,7 @@
 
       <div class="offset-lg-8"></div>
       <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center" v-dropdown>
-        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#">
+        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="toggleDropdown">
           <span class="i-nav-messages notify"></span>
         </a>
         <div class="dropdown-menu">
@@ -36,7 +36,7 @@
         </div>
       </div>
       <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center" v-dropdown>
-        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#">
+        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="toggleDropdown">
           <span class="i-nav-notification notify"></span>
         </a>
         <div class="dropdown-menu">
@@ -55,7 +55,7 @@
         </div>
       </div>
       <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center" v-dropdown>
-        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#">
+        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="toggleDropdown">
           <span class="avatar-container">
             <img src="http://i.imgur.com/UTc7Fne.png" />
           </span>
@@ -91,6 +91,7 @@
     methods: {
       ...mapActions([
         'toggleSidebar',
+        'toggleDropdown',
         'isToggleWithoutAnimation'
       ])
     }
