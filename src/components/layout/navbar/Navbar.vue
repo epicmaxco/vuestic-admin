@@ -64,7 +64,7 @@
             <img src="http://i.imgur.com/UTc7Fne.png" />
           </span>
         </a>
-        <div class="dropdown-menu">
+        <div class="dropdown-menu last">
           <div class="dropdown-menu-content">
             <div class="dropdown-item plain-link-item">
               <a class="plain-link" href="#">My Profile</a>
@@ -164,11 +164,13 @@
       &.show {
         .dropdown-menu {
           left: auto;
-          right: 0;
+          &.last {
+            right: 0;
+          }
         }
         &:after {
            position: absolute;
-           bottom: -16px;
+           bottom: -$dropdown-show-b;
            right: calc(50% - 10px);
            width: 0;
            height: 0;
@@ -181,8 +183,9 @@
       }
 
       .dropdown-menu {
-        margin-top: 15px;
-        max-width: 345px;
+        margin-top: $dropdown-show-b;
+        padding-top: 0;
+        width: 100%;
       }
 
 
@@ -248,13 +251,13 @@
       .dropdown.navbar-dropdown {
         &.show {
           &:after {
-            bottom: $dropdown-mobile-show-b;
+            bottom: -$dropdown-mobile-show-b;
             z-index: 2;
           }
         }
 
         .dropdown-menu {
-          margin-top: $droppdown-mobile-mp;
+          margin-top: $dropdown-mobile-show-b;
         }
       }
     }

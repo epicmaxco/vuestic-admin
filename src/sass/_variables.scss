@@ -95,7 +95,7 @@ $nav-mobile-brand-top: .875rem;
 $nav-mobile-brand-left: calc(50% - #{$nav-mobile-brand-width});
 
 $droppdown-mobile-mp: 1.9375rem;
-$dropdown-mobile-show-b: -$droppdown-mobile-mp - 1;
+$dropdown-mobile-show-b: 2rem;
 
 //Auth mobile
 $auth-mobile-nav-ivuestic-h: 1.5rem;
@@ -221,6 +221,7 @@ $dropdown-menu-padding-x: 0;
 $dropdown-min-width: 15rem;
 $dropdown-simple-visible-items: 4;
 $dropdown-multi-visible-items: 4;
+$dropdown-show-b: 1.125rem;
 
 //Modals
 $modal-header-padding-x: $widget-padding;
