@@ -51,50 +51,37 @@
         let prevHeight = this.contentHeight
         this.calcSize()
         this.calcThumb()
+
         this.content.style.transition = 'margin-top .3s linear'
         this.thumb.style.transition = 'top .3s linear'
-        this.setVertical(this.contentHeight - prevHeight)
-
         let handler = (e) => {
           if (e.propertyName === 'margin-top') {
             this.content.style.transition = ''
             this.calcSize()
             this.calcThumb()
             this.content.removeEventListener('transitionend', handler)
+            this.thumb.style.transition = ''
           }
         }
         this.content.addEventListener('transitionend', handler)
 
-        let thumbTopHandler = (e) => {
-          if (e.propertyName === 'top') {
-            this.thumb.style.transition = ''
-            this.thumb.removeEventListener('transitionend', thumbTopHandler)
-          }
-        }
-        this.thumb.addEventListener('transitionend', thumbTopHandler)
+        this.setVertical(this.contentHeight - prevHeight)
       },
       startDrag (e) {
-        this.drag = {
-          isDragging: true,
-          start: {
-            y: e.clientY,
-            x: e.clientX
-          }
-        }
+        this.isDragging = true
+        this.prevTouch = e.touches[0]
       },
       onDrag (e) {
-        if (this.drag.isDragging) {
+        if (this.isDragging) {
           e.preventDefault()
-          let delta = this.drag.start.y - e.clientY
+          let touch = e.touches[0]
+          let delta = this.prevTouch.clientY - touch.clientY
           this.setVertical(delta)
-          this.drag.start = {
-            y: e.clientY,
-            x: e.clientX
-          }
+          this.prevTouch = touch
         }
       },
       stopDrag (e) {
-        this.drag.isDragging = false
+        this.isDragging = false
       },
       scroll (e) {
         let delta = (e.deltaY * 0.01 * this.speed)
@@ -135,10 +122,8 @@
       this.thumb = this.$refs.thumb
       this.content = this.$refs.scrollbarContent
       this.wrapper = this.$refs.scrollbarWrapper
-      this.$el.addEventListener('transitionend', (e) => {
-        this.calcSize()
-        this.calcThumb()
-      })
+      this.calcSize()
+      this.calcThumb()
     },
     data () {
       return {
@@ -151,7 +136,8 @@
         contentHeight: undefined,
         isDown: false,
         isUp: true,
-        drag: {}
+        prevTouch: {},
+        isDragging: false
       }
     }
   }
