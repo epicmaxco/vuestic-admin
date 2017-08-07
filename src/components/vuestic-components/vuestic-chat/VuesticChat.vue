@@ -9,7 +9,7 @@
         <fieldset>
           <div class="form-group form-group-w-btn">
             <div class="input-group">
-              <input @keypress="keyHandler($event)" v-model="inputMessage" required title=""/>
+              <textarea @keypress="keyHandler($event)" v-model="inputMessage" required title=""></textarea>
               <label class="control-label">Your message</label><i class="bar"></i>
             </div>
             <div class="btn btn-sm btn-primary" @click="sendMessage()">Send</div>
@@ -87,6 +87,8 @@
     padding: $chat-message-py $chat-message-px;
     margin-bottom: $chat-message-mb;
     border-radius: $chat-message-br;
+    max-width: 70%;
+    overflow-wrap: break-word;
 
     &:last-child {
       margin-bottom: 0;
