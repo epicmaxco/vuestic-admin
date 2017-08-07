@@ -24,14 +24,16 @@
           <span class="i-nav-messages notify"></span>
         </a>
         <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">
-          <span class="ellipsis">New messages from Oleg M</span>
-        </a>
-          <a class="dropdown-item" href="#">
-            <span class="ellipsis">New messages from Andrei H</span>
-          </a>
-          <div class="dropdown-item plain-link-item">
-            <a class="plain-link" href="#">See all messages</a>
+          <div class="dropdown-menu-content">
+            <a class="dropdown-item" href="#">
+              <span class="ellipsis">New messages from Oleg M</span>
+            </a>
+            <a class="dropdown-item" href="#">
+              <span class="ellipsis">New messages from Andrei H</span>
+            </a>
+            <div class="dropdown-item plain-link-item">
+              <a class="plain-link" href="#">See all messages</a>
+            </div>
           </div>
         </div>
       </div>
@@ -40,17 +42,19 @@
           <span class="i-nav-notification notify"></span>
         </a>
         <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">
-          <span class="ellipsis">Vasily S sent you a message</span>
-        </a>
-            <a class="dropdown-item" href="#">
-          <span class="ellipsis">Oleg M uploaded new Zip file with typography component</span>
-        </a>
-            <a class="dropdown-item" href="#">
-          <span class="ellipsis">Andrei H started a new topic</span>
-        </a>
-          <div class="dropdown-item plain-link-item">
-            <a class="plain-link" href="#">See all notifications</a>
+          <div class="dropdown-menu-content">
+            <a class="dropdown-item" href="#">
+              <span class="ellipsis">Vasily S sent you a message</span>
+            </a>
+            <a class="dropdown-item" href="#">
+              <span class="ellipsis">Oleg M uploaded new Zip file with typography component</span>
+            </a>
+            <a class="dropdown-item" href="#">
+              <span class="ellipsis">Andrei H started a new topic</span>
+            </a>
+            <div class="dropdown-item plain-link-item">
+              <a class="plain-link" href="#">See all notifications</a>
+            </div>
           </div>
         </div>
       </div>
@@ -61,11 +65,13 @@
           </span>
         </a>
         <div class="dropdown-menu">
-          <div class="dropdown-item plain-link-item">
-            <a class="plain-link" href="#">My Profile</a>
-          </div>
-          <div class="dropdown-item plain-link-item">
-            <a class="plain-link" href="#">Logout</a>
+          <div class="dropdown-menu-content">
+            <div class="dropdown-item plain-link-item">
+              <a class="plain-link" href="#">My Profile</a>
+            </div>
+            <div class="dropdown-item plain-link-item">
+              <a class="plain-link" href="#">Logout</a>
+            </div>
           </div>
         </div>
       </div>
