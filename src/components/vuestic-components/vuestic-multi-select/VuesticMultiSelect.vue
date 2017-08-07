@@ -2,7 +2,7 @@
   <div class="form-group with-icon-right dropdown select-form-group multiselect-form-group"
        v-dropdown
        :class="{'has-error': hasErrors()}">
-    <div class="input-group dropdown-toggle">
+    <div class="input-group dropdown-toggle" @click="$refs.scrollbar.onContainerResize()">
       <input
         readonly
         :class="{'has-value': !!displayValue}"
@@ -13,8 +13,8 @@
       <small v-show="hasErrors()" class="help text-danger">{{ showRequiredError() }}</small>
     </div>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <scrollbar>
-        <div class="scroll-container">
+      <scrollbar ref="scrollbar">
+        <div class="dropdown-menu-content">
           <div class="dropdown-item"
                :class="{'selected': isOptionSelected(option)}" v-for="option in options"
                @click="toggleSelection(option)">
@@ -114,9 +114,7 @@
     .dropdown-menu {
       padding: 0;
       .vuestic-scrollbar {
-        .scrollbar-wrapper {
-          max-height: $dropdown-item-height * 4;
-        }
+        height: $dropdown-item-height * 4;
       }
     }
   }

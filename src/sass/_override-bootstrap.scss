@@ -217,9 +217,13 @@ h4, .h4 {
 // Dropdowns & Selects
 .dropdown-menu {
   border-radius: 0;
-  background-color: $dropdown-background;
-  box-shadow: $dropdown-box-shadow;
   padding: $dropdown-menu-padding-y $dropdown-menu-padding-x;
+  background: transparent;
+  border: none;
+  .dropdown-menu-content{
+    background-color: $dropdown-background;
+    box-shadow: $dropdown-box-shadow;
+  }
 }
 
 .dropdown-item {

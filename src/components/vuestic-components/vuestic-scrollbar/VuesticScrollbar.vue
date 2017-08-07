@@ -16,6 +16,7 @@
 
 <script>
   const browser = require('detect-browser')
+  const erd = require('element-resize-detector')()
 
   let vm = {
     name: 'vuestic-scrollbar',
@@ -44,8 +45,11 @@
         this.thumb.style.top = (-currentMT / this.contentHeight * this.trackHeight) + 'px'
       },
       onContainerResize () {
-        this.calcSize()
-        this.calcThumb()
+        erd.listenTo(this.content, () => {
+          this.calcSize()
+          this.calcThumb()
+          erd.removeAllListeners(this.content)
+        })
       },
       onContentResize () {
         let prevHeight = this.contentHeight
@@ -148,9 +152,9 @@
 
 <style lang="scss">
   .vuestic-scrollbar {
+    background: transparent;
     transition: all .3s linear;
     position: relative;
-    height: 100%;
     .scrollbar-wrapper {
       position: relative;
       overflow: hidden;
