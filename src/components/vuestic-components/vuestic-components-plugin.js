@@ -1,4 +1,3 @@
-import ScrollbarCustom from 'src/components/vuestic-components/vue2-scrollbar-custom/vue-scrollbar.vue'
 import Alert from 'src/components/vuestic-components/vuestic-alert/VuesticAlert.vue'
 import Chart from 'src/components/vuestic-components/vuestic-chart/VuesticChart.vue'
 import Chat from 'src/components/vuestic-components/vuestic-chat/VuesticChat.vue'
@@ -19,7 +18,6 @@ import Wizard from 'src/components/vuestic-components/vuestic-wizard/VuesticWiza
 
 const VuesticComponentsPlugin = {
   install (Vue, options) {
-    Vue.component(ScrollbarCustom.name, ScrollbarCustom)
     Vue.component(Alert.name, Alert)
     Vue.component(Chart.name, Chart)
     Vue.component(Chat.name, Chat)
