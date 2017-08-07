@@ -113,7 +113,7 @@ fieldset {
 
   &.form-group-w-btn {
     .btn {
-      align-self: flex-start;
+      align-self: flex-end;
     }
   }
 
@@ -191,7 +191,7 @@ fieldset {
 
 .form-group {
   // scss-lint:disable QualifyingElement, NestingDepth
-  input, textarea {
+  input {
     height: ($mf-font-size * 1.9);
   }
 
