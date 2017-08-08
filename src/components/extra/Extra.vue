@@ -139,37 +139,37 @@
         ],
         news: [
           {
-            photoURL: 'http://i.imgur.com/QIqhHkO.png'
+            photoURL: 'http://i.imgur.com/PiTDDcA.png'
           },
           {
-            photoURL: 'http://i.imgur.com/zIn9PMX.png'
+            photoURL: 'http://i.imgur.com/M6GugaM.png'
           },
           {
-            photoURL: 'http://i.imgur.com/26unzKs.png'
+            photoURL: 'http://i.imgur.com/vEy3fRU.png'
           },
           {
-            photoURL: 'http://i.imgur.com/LwRuhvE.png'
+            photoURL: 'http://i.imgur.com/Xrywphx.png'
           },
           {
-            photoURL: 'http://i.imgur.com/9r5kq6n.png'
+            photoURL: 'http://i.imgur.com/dqVtQGY.png'
           },
           {
-            photoURL: 'http://i.imgur.com/KEYj5qO.png'
+            photoURL: 'http://i.imgur.com/qP7rTCy.png'
           },
           {
-            photoURL: 'http://i.imgur.com/C5FolB4.png'
+            photoURL: 'http://i.imgur.com/6YLsM43.png'
           },
           {
-            photoURL: 'http://i.imgur.com/tDUFhhw.png'
+            photoURL: 'http://i.imgur.com/9PAOx55.png'
           },
           {
-            photoURL: 'http://i.imgur.com/pLdLBRx.png'
+            photoURL: 'http://i.imgur.com/mVpc04D.png'
           },
           {
-            photoURL: 'http://i.imgur.com/FPufYyY.png'
+            photoURL: 'http://i.imgur.com/WdbTSLn.png'
           },
           {
-            photoURL: 'http://i.imgur.com/pgrHrPu.png'
+            photoURL: 'http://i.imgur.com/ZXRIHfk.png'
           }
         ],
         chartData: chartData
