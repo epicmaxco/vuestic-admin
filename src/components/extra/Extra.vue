@@ -124,17 +124,17 @@
           {
             name: 'Irina Myatelskaya',
             text: 'joined the network',
-            photoURL: 'http://i.imgur.com/LUi43z7.png'
+            photoURL: 'http://i.imgur.com/VuTDC8u.png'
           },
           {
             name: 'Andrei Hrabouski',
             text: 'has just started a live video',
-            photoURL: 'http://i.imgur.com/nryPD3a.png'
+            photoURL: 'http://i.imgur.com/W3mGrmW.png'
           },
           {
             name: 'Evan You',
             text: 'joined the network',
-            photoURL: 'http://i.imgur.com/tnVJojM.jpgg'
+            photoURL: 'http://i.imgur.com/D7DOGBH.jpg'
           }
         ],
         news: [
