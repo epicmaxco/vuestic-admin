@@ -41,7 +41,7 @@
     <div class="row">
       <div class="col-md-4 d-flex">
         <vuestic-widget headerText="Profile Card" class="profile-card-widget">
-          <vuestic-profile-card :name="'Veronique Lee'" :location="'Malaga, Spain'" photoSource="http://i.imgur.com/UTc7Fne.png"
+          <vuestic-profile-card :name="'Veronique Lee'" :location="'Malaga, Spain'" photoSource="http://i.imgur.com/NLrdqsk.png"
                                 :social="{twitter: 'twitter.com', facebook: 'facebook.com',
                                   instagram: 'instagram.com'}">
           </vuestic-profile-card>
@@ -124,52 +124,52 @@
           {
             name: 'Irina Myatelskaya',
             text: 'joined the network',
-            photoURL: 'http://i.imgur.com/LUi43z7.png'
+            photoURL: 'http://i.imgur.com/VuTDC8u.png'
           },
           {
             name: 'Andrei Hrabouski',
             text: 'has just started a live video',
-            photoURL: 'http://i.imgur.com/nryPD3a.png'
+            photoURL: 'http://i.imgur.com/W3mGrmW.png'
           },
           {
             name: 'Evan You',
             text: 'joined the network',
-            photoURL: 'http://i.imgur.com/tnVJojM.jpgg'
+            photoURL: 'http://i.imgur.com/D7DOGBH.jpg'
           }
         ],
         news: [
           {
-            photoURL: 'http://i.imgur.com/QIqhHkO.png'
+            photoURL: 'http://i.imgur.com/PiTDDcA.png'
           },
           {
-            photoURL: 'http://i.imgur.com/zIn9PMX.png'
+            photoURL: 'http://i.imgur.com/M6GugaM.png'
           },
           {
-            photoURL: 'http://i.imgur.com/26unzKs.png'
+            photoURL: 'http://i.imgur.com/vEy3fRU.png'
           },
           {
-            photoURL: 'http://i.imgur.com/LwRuhvE.png'
+            photoURL: 'http://i.imgur.com/Xrywphx.png'
           },
           {
-            photoURL: 'http://i.imgur.com/9r5kq6n.png'
+            photoURL: 'http://i.imgur.com/dqVtQGY.png'
           },
           {
-            photoURL: 'http://i.imgur.com/KEYj5qO.png'
+            photoURL: 'http://i.imgur.com/qP7rTCy.png'
           },
           {
-            photoURL: 'http://i.imgur.com/C5FolB4.png'
+            photoURL: 'http://i.imgur.com/6YLsM43.png'
           },
           {
-            photoURL: 'http://i.imgur.com/tDUFhhw.png'
+            photoURL: 'http://i.imgur.com/9PAOx55.png'
           },
           {
-            photoURL: 'http://i.imgur.com/pLdLBRx.png'
+            photoURL: 'http://i.imgur.com/mVpc04D.png'
           },
           {
-            photoURL: 'http://i.imgur.com/FPufYyY.png'
+            photoURL: 'http://i.imgur.com/WdbTSLn.png'
           },
           {
-            photoURL: 'http://i.imgur.com/pgrHrPu.png'
+            photoURL: 'http://i.imgur.com/ZXRIHfk.png'
           }
         ],
         chartData: chartData
