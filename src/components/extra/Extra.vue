@@ -41,7 +41,7 @@
     <div class="row">
       <div class="col-md-4 d-flex">
         <vuestic-widget headerText="Profile Card" class="profile-card-widget">
-          <vuestic-profile-card :name="'Veronique Lee'" :location="'Malaga, Spain'" photoSource="http://i.imgur.com/UTc7Fne.png"
+          <vuestic-profile-card :name="'Veronique Lee'" :location="'Malaga, Spain'" photoSource="http://i.imgur.com/NLrdqsk.png"
                                 :social="{twitter: 'twitter.com', facebook: 'facebook.com',
                                   instagram: 'instagram.com'}">
           </vuestic-profile-card>
