@@ -191,7 +191,7 @@ fieldset {
 
 .form-group {
   // scss-lint:disable QualifyingElement, NestingDepth
-  input {
+  input, textarea.chat {
     height: ($mf-font-size * 1.9);
   }
 

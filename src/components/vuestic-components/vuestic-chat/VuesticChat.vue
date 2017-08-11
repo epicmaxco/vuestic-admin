@@ -9,7 +9,7 @@
         <fieldset>
           <div class="form-group form-group-w-btn">
             <div class="input-group">
-              <textarea @keypress="keyHandler($event)" v-model="inputMessage" required title=""></textarea>
+              <textarea class="chat" @keypress="keyHandler($event)" v-model="inputMessage" required title=""></textarea>
               <label class="control-label">Your message</label><i class="bar"></i>
             </div>
             <div class="btn btn-sm btn-primary" @click="sendMessage()">Send</div>
@@ -104,6 +104,10 @@
       align-self: flex-end;
       border-top-right-radius: 0;
       background-color: $brand-primary;
+    }
+
+    .chat-message-input {
+      resize: vertical !important;
     }
   }
 
