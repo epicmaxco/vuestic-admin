@@ -29,12 +29,8 @@
       let progressColor = color(this.color)
       let current = progressColor
       setInterval(() => {
-        if (this.isActive) {
-          if (progressColor(lightness(30))() !== current()) {
-            current = progressColor(lightness(30))
-          } else {
-            current = progressColor
-          }
+        if (progressColor(lightness(30))() !== current()) {
+          current = progressColor(lightness(30))
         } else {
           current = progressColor
         }
@@ -54,7 +50,7 @@
     width: 100%;
 
     .progress-bar {
-      transition: background-color ease .5s, width 2s linear !important;
+      transition: background-color ease .5s, width 3s linear !important;
     }
 
     .value {

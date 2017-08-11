@@ -52,21 +52,21 @@
           <div class="col-sm-4 col-12">
             Basic
             <div class="pb-container">
-              <vuestic-progress-bar ref="chBasic" :startValue="100" colorName="danger">
+              <vuestic-progress-bar ref="chBasic" colorName="danger">
               </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
             Thin
             <div class="pb-container">
-              <vuestic-progress-bar size="thin" ref="chThin" :startValue="100" colorName="info">
+              <vuestic-progress-bar size="thin" ref="chThin" colorName="info">
               </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
             Thick
             <div class="pb-container">
-              <vuestic-progress-bar size="thick" ref="chThick" :startValue="100" colorName="warning">
+              <vuestic-progress-bar size="thick" ref="chThick" colorName="warning">
               </vuestic-progress-bar>
             </div>
           </div>
@@ -74,21 +74,21 @@
             Basic Vertical
             <div class="pb-container">
               <div>
-                <vuestic-progress-bar type="vertical" ref="cvBasic" :startValue="100" colorName="success"></vuestic-progress-bar>
+                <vuestic-progress-bar type="vertical" ref="cvBasic" colorName="success"></vuestic-progress-bar>
               </div>
             </div>
           </div>
           <div class="col-sm-4 col-12">
             Thin Vertical
             <div class="pb-container">
-              <vuestic-progress-bar size="thin" type="vertical" ref="cvThin" :startValue="100" colorName="black">
+              <vuestic-progress-bar size="thin" type="vertical" ref="cvThin" colorName="black">
               </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
             Circle
             <div class="pb-container">
-              <vuestic-progress-bar type="circle" :startValue="100" ref="ccircle"></vuestic-progress-bar>
+              <vuestic-progress-bar type="circle" ref="ccircle"></vuestic-progress-bar>
             </div>
           </div>
         </div>
@@ -108,7 +108,7 @@
       for (let ref in this.$refs) {
         this.$refs[ref].$data.valueAnimationInterval = this.valueAnimationInterval
         let timeout = setTimeout(() => {
-          if (!this.$refs[ref] || this.$refs[ref].colorName !== 'primary') {
+          if (!this.$refs[ref]) {
             clearTimeout(timeout)
             return
           }
@@ -119,7 +119,7 @@
     },
     data () {
       return {
-        valueAnimationInterval: 2000
+        valueAnimationInterval: 3000
       }
     }
   }
