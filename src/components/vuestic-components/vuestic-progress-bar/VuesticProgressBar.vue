@@ -35,6 +35,10 @@
         type: Number,
         default: 100
       },
+      startValue: {
+        type: Number,
+        default: 0
+      },
       size: {
         type: String,
         default: 'basic'
@@ -80,9 +84,9 @@
     },
     data () {
       return {
-        value: 0,
+        value: this.startValue,
         valueAnimationInterval: 2000,
-        animatedValue: 0,
+        animatedValue: this.startalue,
         isActive: false,
         startColor: this.$store.state.app.config.palette[this.startColorName],
         color: this.$store.state.app.config.palette[this.colorName],

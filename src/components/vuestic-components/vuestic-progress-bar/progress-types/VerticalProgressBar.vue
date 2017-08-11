@@ -46,7 +46,7 @@
   .vuestic-progress-bar .vertical {
 
     .progress-bar {
-      transition: background-color ease .5s, height 3s linear !important;
+      transition: background-color ease .5s, height 2s linear !important;
     }
 
     .progress {
