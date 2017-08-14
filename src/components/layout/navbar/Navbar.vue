@@ -163,9 +163,9 @@
       }
 
       &.show {
-        .dropdown-menu {
-          left: auto;
-          &.last {
+        @include media-breakpoint-up(lg) {
+          .dropdown-menu {
+            left: auto;
             right: 0;
           }
         }
@@ -251,14 +251,18 @@
 
       .dropdown.navbar-dropdown {
         &.show {
+          display: flex;
           &:after {
             bottom: -$dropdown-mobile-show-b;
             z-index: 2;
           }
-        }
-
-        .dropdown-menu {
-          margin-top: $dropdown-mobile-show-b;
+          .dropdown-menu {
+            margin-top: $dropdown-mobile-show-b;
+            left: auto;
+            &.last {
+              right: 0;
+            }
+          }
         }
       }
     }
