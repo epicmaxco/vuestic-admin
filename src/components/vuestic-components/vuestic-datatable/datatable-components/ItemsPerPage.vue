@@ -6,7 +6,9 @@
       <i class="ion-chevron-down arrow-down"></i>
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" v-for="option in options" @click="selectedItemsPerPage(option.value)">{{option.value}} per page</a>
+      <div class="dropdown-menu-content">
+        <a class="dropdown-item" v-for="option in options" @click="selectedItemsPerPage(option.value)">{{option.value}} per page</a>
+      </div>
     </div>
   </div>
 
