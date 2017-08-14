@@ -109,9 +109,11 @@
     height: $sidebar-viewport-height;
     .vuestic-scrollbar {
       height: 100%;
+      .scrollbar-wrapper {
+        box-shadow: $sidebar-box-shadow;
+      }
       .scrollbar-content {
         background: $sidebar-bg;
-        box-shadow: $sidebar-box-shadow;
       }
     }
 
