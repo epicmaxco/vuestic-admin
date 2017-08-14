@@ -165,9 +165,7 @@
       &.show {
         .dropdown-menu {
           left: auto;
-          &.last {
-            right: 0;
-          }
+          right: 0;
         }
         &:after {
            position: absolute;
