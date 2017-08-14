@@ -13,10 +13,7 @@
     <dashboard-info-widgets></dashboard-info-widgets>
 
     <vuestic-widget class="no-padding no-v-padding">
-      <vuestic-tabs :names="['Overview', 'Data Visualization', 'Users & Members', 'Setup Profile']" ref="tabs">
-        <div slot="Overview">
-          <overview-tab @explore="explore"></overview-tab>
-        </div>
+      <vuestic-tabs :names="['Data Visualization', 'Users & Members', 'Setup Profile', 'Features']" ref="tabs">
         <div slot="Data Visualization">
           <data-visualisation-tab></data-visualisation-tab>
         </div>
@@ -25,6 +22,9 @@
         </div>
         <div slot="Setup Profile">
           <setup-profile-tab></setup-profile-tab>
+        </div>
+        <div slot="Features">
+          <features-tab></features-tab>
         </div>
       </vuestic-tabs>
     </vuestic-widget>
@@ -41,7 +41,7 @@
   import VuesticTabs from '../vuestic-components/vuestic-tabs/VuesticTabs.vue'
   import UsersMembersTab from './users-and-members-tab/UsersMembersTab.vue'
   import SetupProfileTab from './setup-profile-tab/SetupProfileTab.vue'
-  import OverviewTab from './overview-tab/OverviewTab.vue'
+  import FeaturesTab from './features-tab/FeaturesTab.vue'
   import DataVisualisationTab from './data-visualisation-tab/DataVisualisation.vue'
   import DashboardBottomWidgets from './DashboardBottomWidgets.vue'
 
@@ -55,13 +55,8 @@
       VuesticTabs,
       UsersMembersTab,
       SetupProfileTab,
-      OverviewTab,
+      FeaturesTab,
       DashboardBottomWidgets
-    },
-    methods: {
-      explore () {
-        this.$refs.tabs.setActive('Data Visualization')
-      }
     }
   }
 </script>

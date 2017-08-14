@@ -180,9 +180,12 @@
     <div class="row">
       <div class="col-md-12">
         <widget headerText="Search & Pagination">
-          <data-table apiUrl="https://vuetable.ratiw.net/api/users"
+          <data-table :apiUrl="apiUrl"
                       :tableFields="tableFields"
-                      :itemsPerPage="itemsPerPage"></data-table>
+                      :itemsPerPage="itemsPerPage"
+                      :sortFunctions="sortFunctions"
+                      :apiMode="apiMode"
+                      :paginationPath="paginationPath"></data-table>
         </widget>
       </div>
     </div>
@@ -195,6 +198,8 @@
   import DataTable from '../vuestic-components/vuestic-datatable/VuesticDataTable'
   import BadgeColumn from './BadgeColumn.vue'
   import Vue from 'vue'
+  import FieldsDef from '../vuestic-components/vuestic-datatable/data/fields-definition'
+  import ItemsPerPageDef from '../vuestic-components/vuestic-datatable/data/items-per-page-definition'
 
   Vue.component('badge-column', BadgeColumn)
 
@@ -207,40 +212,11 @@
     data () {
       return {
         apiUrl: 'https://vuetable.ratiw.net/api/users',
-        tableFields: [
-          {
-            name: '__component:badge-column',
-            title: '',
-            dataClass: 'text-center'
-          },
-          {
-            name: 'name',
-            sortField: 'name'
-          },
-          {
-            name: 'email',
-            sortField: 'email'
-          },
-          {
-            name: 'address.line2',
-            title: 'city'
-          },
-          {
-            name: 'salary',
-            title: 'score'
-          }
-        ],
-        itemsPerPage: [
-          {
-            value: 5
-          },
-          {
-            value: 6
-          },
-          {
-            value: 10
-          }
-        ]
+        apiMode: true,
+        tableFields: FieldsDef.tableFields,
+        itemsPerPage: ItemsPerPageDef.itemsPerPage,
+        sortFunctions: FieldsDef.sortFunctions,
+        paginationPath: ''
       }
     }
   }

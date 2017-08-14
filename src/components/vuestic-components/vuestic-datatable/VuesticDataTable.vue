@@ -7,20 +7,26 @@
                       @items-per-page="onItemsPerPage"></items-per-page>
     </div>
     <vuetable ref="vuetable"
-              apiUrl="https://vuetable.ratiw.net/api/users"
+              :apiUrl="apiUrl"
+              :apiMode="apiMode"
               :fields="tableFields"
+              :data="tableData"
+              :dataTotal="dataCount"
+              :dataManager="dataManager"
               :css="css.table"
-              paginationPath=""
+              dataPath="data"
+              v-bind:paginationPath="paginationPath"
               :appendParams="moreParams"
               :perPage="perPage"
-              @vuetable:pagination-data="onPaginationData"
-    >
+              @vuetable:pagination-data="onPaginationData">
     </vuetable>
     <div class="d-flex justify-content-center mb-4">
       <vuetable-pagination ref="pagination"
                            :css="css.pagination"
                            :onEachSide="onEachSide"
-                           @vuetable-pagination:change-page="onChangePage"></vuetable-pagination>
+                           @vuetable-pagination:change-page="onChangePage">
+
+      </vuetable-pagination>
     </div>
   </div>
 </template>
@@ -28,9 +34,13 @@
 <script>
   import Vuetable from 'vuetable-2/src/components/Vuetable'
   import VuetablePagination from 'vuetable-2/src/components/VuetablePagination'
-  import FilterBar from './FilterBar.vue'
-  import ItemsPerPage from './ItemsPerPage.vue'
+  import FilterBar from './datatable-components/FilterBar.vue'
+  import ItemsPerPage from './datatable-components/ItemsPerPage.vue'
   import Vue from 'vue'
+  import LocalData from './data/local-data'
+  import DataTableStyles from '../../vuestic-components/vuestic-datatable/data/data-table-styles'
+
+  const originalData = LocalData.data
 
   export default {
     name: 'vuestic-data-table',
@@ -42,8 +52,7 @@
     },
     props: {
       apiUrl: {
-        type: String,
-        required: true
+        type: String
       },
       tableFields: {
         type: Array,
@@ -55,40 +64,50 @@
       },
       onEachSide: {
         type: Number,
-        default: 2
+        default () {
+          return 2
+        }
+      },
+      apiMode: {
+        type: Boolean,
+        default () {
+          return true
+        }
+      },
+      data: {
+        type: Array
+      },
+      sortFunctions: {
+        type: Object
+      },
+      paginationPath: {
+        type: String,
+        default () {
+          return ''
+        }
       }
     },
     data () {
       return {
+        tableData: LocalData,
         perPage: 6,
         colorClasses: {},
         moreParams: {},
-        css: {
-          table: {
-            tableClass: 'table table-striped',
-            ascendingIcon: 'entypo entypo-up-dir',
-            descendingIcon: 'entypo entypo-down-dir'
-          },
-          pagination: {
-            wrapperClass: 'btn-group',
-            activeClass: 'focus',
-            disabledClass: 'disabled',
-            pageClass: 'btn btn-primary hide-not-focused-btn',
-            linkClass: 'btn btn-primary pagination-link-btn',
-            icons: {
-              first: 'fa fa-angle-double-left',
-              prev: 'fa fa-angle-left',
-              next: 'fa fa-angle-right',
-              last: 'fa fa-angle-double-right'
-            }
-          }
-        }
+        dataCount: 0,
+        css: DataTableStyles
       }
     },
     methods: {
       onFilterSet (filterText) {
-        this.moreParams = {
-          'filter': filterText
+        if (this.apiMode) {
+          this.moreParams = {
+            'filter': filterText
+          }
+        } else {
+          const txt = new RegExp(filterText, 'i')
+          this.tableData.data = originalData.filter(function (item) {
+            return item.name.search(txt) >= 0 || item.email.search(txt) >= 0
+          })
         }
         Vue.nextTick(() => this.$refs.vuetable.refresh())
       },
@@ -101,6 +120,31 @@
       },
       onChangePage (page) {
         this.$refs.vuetable.changePage(page)
+      },
+      dataManager (sortOrder, pagination) {
+        let data = this.tableData.data
+        let sortFunctions = this.sortFunctions
+
+        if (sortOrder.length > 0) {
+          data.sort(function (item1, item2) {
+            const sortField = sortOrder[0].sortField
+            let fn = sortFunctions[sortField]
+            if (fn) {
+              return fn(item1[sortField], item2[sortField])
+            }
+          })
+
+          if (sortOrder[0].direction === 'desc') {
+            data.reverse()
+          }
+        }
+
+        pagination = this.$refs.vuetable.makePagination(data.length)
+
+        return {
+          pagination: pagination,
+          data: data.slice(pagination.from - 1, pagination.to)
+        }
       }
     }
   }

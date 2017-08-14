@@ -153,7 +153,7 @@
         color: $white;
         background-color: $sidebar-link-active-bg;
 
-        .sidebar-menu-item-icon {
+        .sidebar-menu-item-icon, .expand-icon {
           color: $white;
         }
       }
@@ -174,7 +174,7 @@
 
       .sidebar-menu-item-icon {
         font-size: $sidebar-menu-item-icon-size;
-        color: #000;
+        color: $vue-green;
         margin-right: 14px;
 
         &.fa-dashboard {       /* Temp fix */
@@ -208,6 +208,15 @@
     .sidebar-menu {
       max-height: 100%;
       margin-bottom: 0;
+    }
+
+    .expand-icon {
+      color: $vue-green
+    }
+
+    a {
+      color: $white;
+      text-decoration: none;
     }
   }
 </style>
