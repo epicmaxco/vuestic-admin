@@ -76,7 +76,7 @@
   import VuesticChat from '../../components/vuestic-components/vuestic-chat/VuesticChat'
   import VuesticFeed from '../vuestic-components/vuestic-feed/VuesticFeed.vue'
   import VuesticSocialNews from '../vuestic-components/vuestic-social-news/VuesticSocialNews.vue'
-  import OverviewTab from '../dashboard/overview-tab/OverviewTab.vue'
+  import OverviewTab from '../dashboard/features-tab/FeaturesTab.vue'
   import SetupProfileTab from '../dashboard/setup-profile-tab/SetupProfileTab.vue'
   import chartData from '../statistics/charts/LineChartData'
 
