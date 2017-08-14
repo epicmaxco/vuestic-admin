@@ -152,11 +152,14 @@
 </script>
 
 <style lang="scss">
+  @import "../../../sass/variables";
+
   .vuestic-scrollbar {
     background: transparent;
     transition: all .3s linear;
     position: relative;
     .scrollbar-wrapper {
+      box-shadow: $sidebar-box-shadow;
       position: relative;
       overflow: hidden;
       max-height: 100%;

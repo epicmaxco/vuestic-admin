@@ -9,7 +9,7 @@
         <fieldset>
           <div class="form-group form-group-w-btn">
             <div class="input-group">
-              <textarea class="chat" @keypress="keyHandler($event)" v-model="inputMessage" required title=""></textarea>
+              <input @keypress="keyHandler($event)" v-model="inputMessage" required title=""/>
               <label class="control-label">Your message</label><i class="bar"></i>
             </div>
             <div class="btn btn-sm btn-primary" @click="sendMessage()">Send</div>
