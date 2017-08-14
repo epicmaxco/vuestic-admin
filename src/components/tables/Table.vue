@@ -212,7 +212,7 @@
     data () {
       return {
         apiUrl: 'https://vuetable.ratiw.net/api/users',
-        apiMode: false,
+        apiMode: true,
         tableFields: FieldsDef.tableFields,
         itemsPerPage: ItemsPerPageDef.itemsPerPage,
         sortFunctions: FieldsDef.sortFunctions,

@@ -7,10 +7,13 @@
         </div>
       </div>
       <div class="col-md-6">
-        <data-table :apiUrl="apiUrl"
+        <data-table :apiMode="apiMode"
+                    :data="tableData"
                     :tableFields="tableFields"
                     :itemsPerPage="itemsPerPage"
-                    :onEachSide="onEachSide">
+                    :onEachSide="onEachSide"
+                    :sortFunctions="sortFunctions"
+                    :paginationPath="paginationPath">
         </data-table>
       </div>
     </div>
@@ -23,6 +26,8 @@
   import DataTable from '../../vuestic-components/vuestic-datatable/VuesticDataTable.vue'
   import Vue from 'vue'
   import BadgeColumn from '../../tables/BadgeColumn.vue'
+  import LocalData from '../../vuestic-components/vuestic-datatable/data/local-data'
+  import FieldsDef from './fields-definition'
 
   Vue.component('badge-column', BadgeColumn)
 
@@ -38,24 +43,12 @@
     data () {
       return {
         donutChartData: DonutChartData,
-        apiUrl: 'https://vuetable.ratiw.net/api/users',
+        apiMode: false,
+        sortFunctions: FieldsDef.sortFunctions,
+        tableData: LocalData.data,
         onEachSide: 1,
-        tableFields: [
-          {
-            name: '__component:badge-column',
-            title: '',
-            dataClass: 'text-center'
-          },
-          {
-            name: 'name',
-            title: 'user',
-            sortField: 'name'
-          },
-          {
-            name: 'salary',
-            title: 'score'
-          }
-        ],
+        tableFields: FieldsDef.tableFields,
+        paginationPath: 'pagination',
         itemsPerPage: [
           {
             value: 5
