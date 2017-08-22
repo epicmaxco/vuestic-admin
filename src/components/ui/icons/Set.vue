@@ -10,7 +10,7 @@
         <div class="search col-lg-4">
           <div class="form-group with-icon-left">
             <div class="input-group">
-              <input type="text" id="input-icon-left" name="input-icon-left" required="required" v-model="selector"/>
+              <input id="input-icon-left" name="input-icon-left" required v-model="selector"/>
               <i class="fa fa-search icon-left input-icon"></i>
               <label class="control-label" for="input-icon-left">Icon Search</label><i class="bar"></i>
             </div>
@@ -43,7 +43,7 @@
 
 <script>
   import Widget from '../../vuestic-components/vuestic-widget/VuesticWidget'
-  import Slider from 'vue-slider-component'
+  import Slider from 'vue-slider-component/src/vue2-slider.vue'
 
   export default {
     components: {
