@@ -20,7 +20,7 @@
 
       <div class="offset-lg-8"></div>
       <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center" v-dropdown>
-        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="toggleDropdown">
+        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="closeMenu">
           <span class="i-nav-messages notify"></span>
         </a>
         <div class="dropdown-menu">
@@ -38,7 +38,7 @@
         </div>
       </div>
       <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center" v-dropdown>
-        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="toggleDropdown">
+        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="closeMenu">
           <span class="i-nav-notification notify"></span>
         </a>
         <div class="dropdown-menu">
@@ -59,7 +59,7 @@
         </div>
       </div>
       <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center" v-dropdown>
-        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="toggleDropdown">
+        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="closeMenu">
           <span class="avatar-container">
             <img src="http://i.imgur.com/nfa5itq.png" />
           </span>
@@ -96,8 +96,8 @@
     ]),
     methods: {
       ...mapActions([
+        'closeMenu',
         'toggleSidebar',
-        'toggleDropdown',
         'isToggleWithoutAnimation'
       ])
     }
