@@ -110,8 +110,8 @@
     methods: {
       isFormFieldValid (field) {
         let isValid = false
-        if (this.fields[field]) {
-          isValid = this.fields[field].validated && this.fields[field].valid
+        if (this.formFields[field]) {
+          isValid = this.formFields[field].validated && this.formFields[field].valid
         }
         return isValid
       },
