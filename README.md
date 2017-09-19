@@ -11,24 +11,30 @@ Responsive admin dashboard template built with [Vue.js](https://vuejs.org) and [
 ## Demo
 Check it out [live](http://vuestic.epicmax.co)!
 
+## Prerequisites:
+
+- [Node.js](https://nodejs.org/en/) (>=4.x or 6.x preferred)
+- npm version 3+ and [Git](https://git-scm.com/).
+- [vuestic-installer](https://github.com/epicmaxco/vuestic-installer) `npm install vuestic-installer -g`.
+
 ## Installation
 
 ``` bash
-# clone the repo 
-git clone https://github.com/epicmaxco/vuestic-admin.git
+# create new project via vuestic-installer command. 
+$ vuestic myproject
 
 # go into app's directory and install dependencies:
-cd vuestic-admin
-npm install
+$ cd vuestic-admin
+$ npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
+# serve with hot reload at localhost:8080.
+$ npm run dev
 
 # build for production with minification
-npm run build
+$ npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
+# build for production and view the bundle analyzer report.
+$ npm run build --report
 ```
 
 ## Features
