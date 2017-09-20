@@ -285,8 +285,7 @@
     computed: {
       isSuccessfulEmailValid () {
         let isValid = false
-        if (
-        .successfulEmail) {
+        if (this.formFields.successfulEmail) {
           isValid = this.formFields.successfulEmail.validated && this.formFields.successfulEmail.valid
         }
         return isValid
