@@ -11,7 +11,9 @@ import VuesticPlugin from 'src/components/vuestic-components/vuestic-components-
 
 Vue.use(VuesticPlugin)
 Vue.use(BootstrapVue)
-Vue.use(VeeValidate)
+
+// NOTE: workaround for VeeValidate + vuetable-2
+Vue.use(VeeValidate, {fieldsBagName: 'formFields'})
 
 sync(store, router)
 
