@@ -23,8 +23,13 @@ Check it out [live](http://vuestic.epicmax.co)!
 # create new project via vuestic-installer command. 
 $ vuestic myproject
 
+or
+
+# clone the repo
+$ git clone https://github.com/epicmaxco/vuestic-admin.git myproject
+
 # go into app's directory and install dependencies:
-$ cd vuestic-admin
+$ cd myproject
 $ npm install
 
 # serve with hot reload at localhost:8080.
