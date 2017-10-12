@@ -1,7 +1,7 @@
 <template>
   <div class="modals-page">
     <div class="row">
-      <widget class="col-sm-12 modals-list larger-padding" :header-text="$t('modals.title')">
+      <widget class="col-sm-12 modals-list larger-padding" :header-text="$t('modal.title')">
         <button class="btn btn-danger" @click="showSmallModal()">
           {{'modal.small' | translate }}
         </button>
