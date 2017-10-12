@@ -9,10 +9,23 @@
             </div>
             <div>
               <template v-for="filteredList in set.filteredLists">
-                <div class="row">
+                <div v-if="filteredList.length !== 2" class="row">
                   <div class="col-sm-2" v-for="icon in filteredList">
                     <div class="icon">
                       <i :class="iconClass(set, icon)" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+                <div v-if="filteredList.length === 2" class="row">
+                  <div class="col-sm-2">
+                    <div class="icon">
+                      <i :class="iconClass(set, filteredList[0])" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  <div class="col-sm-8"></div>
+                  <div class="col-sm-2">
+                    <div class="icon">
+                      <i :class="iconClass(set, filteredList[1])" aria-hidden="true"></i>
                     </div>
                   </div>
                 </div>
@@ -52,6 +65,8 @@
       margin: 0 0 1.5rem;
       .set-content {
         background-color: $light-gray;
+        height: 100%;
+        position: relative;
         > div {
           padding: 1rem;
           div[class^="col"] {
@@ -67,8 +82,8 @@
         .overlay {
           padding: 0;
           margin: 0;
-          width: 90%;
-          height: 90%;
+          width: 100%;
+          height: 100%;
           position: absolute;
           /*visibility: hidden;*/
           display: flex;
