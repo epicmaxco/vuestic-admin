@@ -8,6 +8,7 @@ import store from './store'
 import router from './router'
 import { sync } from 'vuex-router-sync'
 import VuesticPlugin from 'src/components/vuestic-components/vuestic-components-plugin'
+import './i18n'
 
 Vue.use(VuesticPlugin)
 Vue.use(BootstrapVue)

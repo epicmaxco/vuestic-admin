@@ -7,7 +7,7 @@ export default {
   name: 'auth',
   meta: {
     expanded: false,
-    title: 'Auth',
+    title: 'menu.auth',
     iconClass: 'vuestic-icon vuestic-icon-auth'
   },
   children: [
@@ -17,7 +17,7 @@ export default {
       component: lazyLoading('auth/login/Login'),
       meta: {
         default: false,
-        title: 'Login'
+        title: 'menu.login'
       }
     },
     {
@@ -26,7 +26,7 @@ export default {
       component: lazyLoading('auth/signup/Signup'),
       meta: {
         default: false,
-        title: 'Signup'
+        title: 'menu.signUp'
       }
     }
   ]

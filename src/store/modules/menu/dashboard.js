@@ -6,7 +6,7 @@ export default {
   component: lazyLoading('dashboard/Dashboard'),
   meta: {
     default: true,
-    title: 'Dashboard',
+    title: 'menu.dashboard',
     iconClass: 'vuestic-icon vuestic-icon-dashboard'
   }
 }

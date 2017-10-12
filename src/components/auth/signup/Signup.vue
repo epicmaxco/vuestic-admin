@@ -1,30 +1,30 @@
 <template>
   <div class="signup">
-    <h2>Create New Account</h2>
+    <h2>{{'auth.createNewAccount' | translate}}</h2>
     <form method="post" action="/auth/signup" name="signup">
       <div class="form-group">
         <div class="input-group">
           <input type="text" id="email" required="required"/>
-          <label class="control-label" for="email">Email</label><i class="bar"></i>
+          <label class="control-label" for="email">{{'auth.email' | translate}}</label><i class="bar"></i>
         </div>
       </div>
       <div class="form-group">
         <div class="input-group">
           <input type="password" id="password" required="required"/>
-          <label class="control-label" for="password">Password</label><i class="bar"></i>
+          <label class="control-label" for="password">{{'auth.password' | translate}}</label><i class="bar"></i>
         </div>
       </div>
       <div class="abc-checkbox abc-checkbox-primary">
         <input id="checkbox1" type="checkbox" checked>
         <label for="checkbox1">
-          <span class="abc-label-text">I agree to <router-link to="">Terms of Use.</router-link></span>
+          <span class="abc-label-text">{{'auth.agree' | translate}} <router-link to="">{{'auth.termsOfUse' | translate}}</router-link></span>
         </label>
       </div>
       <div class="d-flex flex-column flex-lg-row align-items-center justify-content-between down-container">
         <button class="btn btn-primary" type="submit">
-          Sign Up
+          {{'auth.signUp' | translate}}
         </button>
-        <router-link class='link' :to="{name: 'Login'}">Already joined?</router-link>
+        <router-link class='link' :to="{name: 'Login'}">{{'auth.alreadyJoined' | translate}}</router-link>
       </div>
     </form>
   </div>

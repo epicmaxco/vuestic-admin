@@ -2,30 +2,30 @@
   <div class="extra">
     <div class="row">
       <div class="col-md-12">
-        <vuestic-widget headerText="Alerts">
+        <vuestic-widget :headerText="'extra.alerts.title' | translate">
           <vuestic-alert type="success" :withCloseBtn="true">
-            <span class="badge badge-pill badge-success">SUCCESS</span>
-            You successfully read this important alert message.
+            <span class="badge badge-pill badge-success">{{'extra.alerts.success' | translate}}</span>
+          {{'extra.alerts.successMessage' | translate}}
             <i class="fa fa-close alert-close"></i>
           </vuestic-alert>
           <vuestic-alert type="info" :withCloseBtn="true">
-            <span class="badge badge-pill badge-info">INFO</span>
-            This alert needs your attention, but it's not super important.
+            <span class="badge badge-pill badge-info">{{'extra.alerts.info' | translate}}</span>
+          {{'extra.alerts.infoMessage' | translate}}
           </vuestic-alert>
           <vuestic-alert type="warning" :withCloseBtn="true">
-            <span class="badge badge-pill badge-warning">WARNING</span>
-            Better check yourself, you're not looking too good.
+            <span class="badge badge-pill badge-warning">{{'extra.alerts.warning' | translate}}</span>
+          {{'extra.alerts.warningMessage' | translate}}
           </vuestic-alert>
           <vuestic-alert type="danger" :withCloseBtn="true">
-            <span class="badge badge-pill badge-danger">DANGER</span>
-            Change a few things up and try submitting again.
+            <span class="badge badge-pill badge-danger">{{'extra.alerts.danger' | translate}}</span>
+          {{'extra.alerts.dangerMessage' | translate}}
           </vuestic-alert>
         </vuestic-widget>
       </div>
     </div>
 
     <vuestic-widget class="no-v-padding">
-      <vuestic-tabs class="tabs" :names="['Chart', 'Setup Profile', 'Overview']">
+      <vuestic-tabs class="tabs" :names="[$t('extra.chart'), $t('extra.setupProfile'), $t('extra.overview')]">
         <div slot="Overview" class="d-flex justify-content-center">
           <overview-tab></overview-tab>
         </div>
@@ -40,7 +40,7 @@
 
     <div class="row">
       <div class="col-md-4 d-flex">
-        <vuestic-widget headerText="Profile Card" class="profile-card-widget">
+        <vuestic-widget :headerText="$t('extra.profileCard')" class="profile-card-widget">
           <vuestic-profile-card :name="'Veronique Lee'" :location="'Malaga, Spain'" photoSource="http://i.imgur.com/NLrdqsk.png"
                                 :social="{twitter: 'twitter.com', facebook: 'facebook.com',
                                   instagram: 'instagram.com'}">
@@ -48,7 +48,7 @@
         </vuestic-widget>
       </div>
       <div class="col-md-8 d-flex">
-        <vuestic-widget headerText="Chat" class="chat-widget">
+        <vuestic-widget :headerText="$t('extra.chat')" class="chat-widget">
           <vuestic-chat v-model="chatMessages"></vuestic-chat>
         </vuestic-widget>
       </div>

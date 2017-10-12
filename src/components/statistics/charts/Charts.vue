@@ -2,12 +2,12 @@
   <div class="charts-page">
     <div class="row">
       <div class="col-md-6">
-        <vuestic-widget class="chart-widget" headerText="Vertical Bar Chart">
+        <vuestic-widget class="chart-widget" :headerText="'charts.verticalBarChart' | translate">
           <vuestic-chart v-bind:data="verticalBarChartData" type="vertical-bar"></vuestic-chart>
         </vuestic-widget>
       </div>
       <div class="col-md-6">
-        <vuestic-widget class="chart-widget" headerText="Horizontal Bar Chart">
+        <vuestic-widget class="chart-widget" :headerText="'charts.horizontalBarChart' | translate">
           <vuestic-chart v-bind:data="horizontalBarChartData" type="horizontal-bar"></vuestic-chart>
         </vuestic-widget>
       </div>
@@ -15,7 +15,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        <vuestic-widget class="chart-widget" headerText="Line Chart">
+        <vuestic-widget class="chart-widget" :headerText="'charts.lineChart' | translate">
           <vuestic-chart v-bind:data="lineChartData" type="line"></vuestic-chart>
         </vuestic-widget>
       </div>
@@ -23,12 +23,12 @@
 
     <div class="row">
       <div class="col-md-6">
-        <vuestic-widget class="chart-widget" headerText="Pie Chart">
+        <vuestic-widget class="chart-widget" :headerText="'charts.pieChart' | translate">
           <vuestic-chart :data="pieChartData" type="pie"></vuestic-chart>
         </vuestic-widget>
       </div>
       <div class="col-md-6">
-        <vuestic-widget class="chart-widget" headerText="Donut Chart">
+        <vuestic-widget class="chart-widget" :headerText="'charts.donutChart' | translate">
           <vuestic-chart v-bind:data="donutChartData" type="donut"></vuestic-chart>
         </vuestic-widget>
       </div>
@@ -36,7 +36,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        <vuestic-widget class="chart-widget" headerText="Bubble Chart">
+        <vuestic-widget class="chart-widget" :headerText="'charts.bubbleChart' | translate">
           <vuestic-chart v-bind:data="bubbleChartData" type="bubble"></vuestic-chart>
         </vuestic-widget>
       </div>

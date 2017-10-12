@@ -8,7 +8,7 @@
               <i class="ion ion-arrow-up-c text-primary stats-icon"></i>
               59
             </div>
-            <div class="stats-title">Elements</div>
+            <div class="stats-title">{{'dashboard.elements' | translate}}</div>
           </div>
         </div>
       </vuestic-widget>
@@ -21,7 +21,7 @@
               <i class="ion ion-arrow-down-c text-danger stats-icon"></i>
               12
             </div>
-            <div class="stats-title">Versions</div>
+            <div class="stats-title">{{'dashboard.versions' | translate}}</div>
           </div>
         </div>
       </vuestic-widget>
@@ -52,7 +52,7 @@
               <i class="ion ion-android-people stats-icon icon-wide"></i>
               5
             </div>
-            <div class="stats-title">Team Members</div>
+            <div class="stats-title">{{'dashboard.teamMembers' | translate}}</div>
           </div>
         </div>
       </vuestic-widget>

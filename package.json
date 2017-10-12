@@ -34,6 +34,7 @@
     "vue2-circle-progress": "^1.0.3",
     "vuetable-2": "^1.6.5",
     "vuex": "2.4.0",
+    "vuex-i18n": "^1.7.0",
     "vuex-router-sync": "4.0.2"
   },
   "devDependencies": {
