@@ -15,7 +15,9 @@
 </template>
 
 <script>
-  const browser = require('detect-browser')
+  const { detect } = require('detect-browser')
+  const browser = detect()
+
   const erd = require('element-resize-detector')()
 
   let vm = {
