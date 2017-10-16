@@ -20,7 +20,7 @@
             <i class="expand-icon fa fa-angle-down"></i>
           </a>
           <expanding>
-            <ul class="sidebar-submenu" v-show="item.meta.expanded">
+            <ul class="sidebar-submenu in" v-show="item.meta.expanded">
               <li v-for="childItem in item.children">
                 <router-link :to="childItem.path" class="sidebar-link sidebar-submenu-link">
                   {{childItem.meta.title}}

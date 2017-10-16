@@ -13,6 +13,7 @@
     "amcharts3": "github:amcharts/amcharts3",
     "ammap3": "github:amcharts/ammap3",
     "awesome-bootstrap-checkbox": "1.0.0-alpha.5",
+    "babel-polyfill": "^6.26.0",
     "bootstrap": "4.0.0-alpha.6",
     "bootstrap-vue": "^0.9.0",
     "chart.js": "^2.6.0",
