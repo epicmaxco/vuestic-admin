@@ -17,21 +17,13 @@ Vue.use(VeeValidate, {fieldsBagName: 'formFields'})
 
 sync(store, router)
 
-let mediaHandler = () => {
-  if (window.matchMedia(store.getters.config.windowMatchSizeLg).matches) {
-    store.dispatch('toggleSidebar', true)
-  } else {
-    store.dispatch('toggleSidebar', false)
-  }
-}
-
 router.beforeEach((to, from, next) => {
   store.commit('setLoading', true)
   next()
 })
 
 router.afterEach((to, from) => {
-  mediaHandler()
+  store.dispatch('toggleSidebar', window.matchMedia(store.getters.config.windowMatchSizeLg).matches)
   store.commit('setLoading', false)
 })
 
