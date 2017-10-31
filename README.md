@@ -42,6 +42,10 @@ $ npm run build
 $ npm run build --report
 ```
 
+## Documentation
+
+Got stuck? Check out our [documentation](https://github.com/epicmaxco/vuestic-admin/wiki) 🤓
+
 ## Features
 * Vue.js
 * Bootstrap 4
