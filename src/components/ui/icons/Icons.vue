@@ -28,8 +28,8 @@
         let list = set.lists[0].icons
         let filteredLists = []
         filteredLists.push(list.slice(0, 6))
-        filteredLists.push(list.slice(6, 12))
-        filteredLists.push(list.slice(12, 18))
+        filteredLists.push(list.slice(6, 8))
+        filteredLists.push(list.slice(8, 14))
         set.filteredLists = filteredLists
       }
     },

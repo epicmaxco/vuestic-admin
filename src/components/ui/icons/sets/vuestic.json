@@ -1,0 +1,11 @@
+{
+  "name": "Vuestic",
+  "href": "vuestic",
+  "prefix": "vuestic-icon",
+  "lists": [
+    {
+      "name": "Icons",
+      "icons": ["comments","components","dashboard","extras","files","forms","graph","auth","image","maps","music","settings","statistics","tables","time","ui-elements","user","video"]
+    }
+  ]
+}
