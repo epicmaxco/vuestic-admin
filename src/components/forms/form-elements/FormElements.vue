@@ -127,6 +127,7 @@
                   <vuestic-simple-select
                     label="Simple select"
                     v-model="simpleSelectModel"
+                    option-key="description"
                     v-bind:options="simpleOptions">
                   </vuestic-simple-select>
                   <vuestic-simple-select
@@ -141,6 +142,7 @@
                   <vuestic-multi-select
                     label="Mutliselect"
                     v-model="multiSelectModel"
+                    option-key="description"
                     v-bind:options="simpleOptions">
                   </vuestic-multi-select>
                   <vuestic-multi-select
@@ -299,7 +301,20 @@
         clearableText: '',
         successfulEmail: 'andrei@dreamsupport.io',
         wrongEmail: 'andrei@dreamsupport',
-        simpleOptions: ['First option', 'Second option', 'Third option'],
+        simpleOptions: [
+          {
+            id: 1,
+            description: 'First option'
+          },
+          {
+            id: 2,
+            description: 'Second option'
+          },
+          {
+            id: 3,
+            description: 'Third option'
+          }
+        ],
         simpleSelectModel: '',
         multiSelectModel: [],
         multiSelectCountriesModel: []

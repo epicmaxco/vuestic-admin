@@ -19,7 +19,7 @@
           <div class="dropdown-item"
                :class="{'selected': isOptionSelected(option)}" v-for="option in options"
                @click="selectOption(option)">
-            <span class="ellipsis">{{option}}</span>
+            <span class="ellipsis">{{optionKey ? option[optionKey] : option}}</span>
           </div>
         </div>
       </scrollbar>
@@ -49,6 +49,7 @@
       label: String,
       options: Array,
       value: {},
+      optionKey: String,
       required: {
         type: Boolean,
         default: false
@@ -76,7 +77,7 @@
         this.$emit('input', option)
       },
       updateDisplayValue (val) {
-        this.displayValue = val
+        this.displayValue = this.optionKey ? val[this.optionKey] : val
       },
       validate () {
         this.validated = true
