@@ -63,26 +63,24 @@
 
     .basic {
       border-radius: $progress-bar-width-basic;
+      height: $progress-bar-width-basic;
       .progress-bar {
         border-radius: inherit;
-        height: $progress-bar-width-basic;
       }
     }
 
     .thin {
-      .progress-bar {
-        height: $progress-bar-width-thin;
-      }
+      height: $progress-bar-width-thin;
     }
 
     .thick {
       border-radius: $progress-bar-width-thick;
+      height: $progress-bar-width-thick;
       .progress-bar {
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: inherit;
-        height: $progress-bar-width-thick;
       }
     }
 
