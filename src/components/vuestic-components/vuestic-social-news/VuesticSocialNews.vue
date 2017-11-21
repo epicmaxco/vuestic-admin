@@ -21,6 +21,7 @@
 
 <style lang="scss">
   @import "../../../sass/variables";
+  @import "../../../../node_modules/bootstrap/scss/functions";
   @import "../../../../node_modules/bootstrap/scss/variables";
   @import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
 
