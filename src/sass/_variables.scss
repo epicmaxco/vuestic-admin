@@ -1,24 +1,24 @@
 // Colors //
-$gray-light : #acb5be !default;
-$light-gray : #eee;
+$gray-light: #acb5be !default;
+$light-gray: #eee;
 $lighter-gray: #ddd;
 $charcoal: #555;
-$darkest-gray : #333;
-$almost-black : #161616;
-$vue-green : #4ae387;
+$darkest-gray: #333;
+$almost-black: #161616;
+$vue-green: #4ae387;
 $light-green: #c8f9c5;
 $light-blue: #dcf1ff;
 $light-yellow: #fff1c8;
 $light-pink: #ffcece;
-$vue-darkest-blue : #34495e;
+$vue-darkest-blue: #34495e;
 $vue-turquoise: #dbf9e7;
-$white : #fff;
+$white: #fff;
 $theme-red: #e34a4a;
 $theme-orange: #f7cc36;
 $theme-blue: #4ab2e3;
 $theme-violet: #db76df;
 $theme-pale: #d9d9d9;
-$brand-primary : $vue-green !default;
+$brand-primary: $vue-green !default;
 $brand-danger: $theme-red;
 $brand-warning: $theme-orange;
 $brand-info: $theme-blue;
@@ -38,6 +38,18 @@ $colors-map: (
   black: black,
   white: white,
   lighter-gray: $lighter-gray
+);
+
+$theme-colors: (
+  "primary":    $brand-primary,
+  "secondary":  $white,
+  "success":    $light-green,
+  "info":       $brand-info,
+  "warning":    $brand-warning,
+  "danger":     $brand-danger,
+  "light":      $light-gray2,
+  "dark":       $almost-black,
+  "pale":       $theme-pale
 );
 
 // Layout //
