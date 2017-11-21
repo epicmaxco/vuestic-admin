@@ -7,11 +7,15 @@ export default {
     ddToggle.addEventListener('click', function (evt) {
       evt.preventDefault()
       let isShown = el.classList.contains('show')
-      setTimeout(() => el.classList.toggle('show', !isShown))
+      setTimeout(() => {
+        el.classList.toggle('show', !isShown)
+        ddMenu.classList.toggle('show', !isShown)
+      })
     })
 
     window.addEventListener('click', function () {
       el.classList.remove('show')
+      ddMenu.classList.remove('show')
     })
 
     ddMenu.addEventListener('click', function (evt) {
