@@ -66,6 +66,10 @@
       cancelClass: {
         type: String,
         default: 'btn btn-secondary'
+      },
+      okToClose: {
+        type: Boolean,
+        default: true,
       }
     },
     data () {
@@ -108,7 +112,7 @@
       },
       cancel () {
         this.$emit('cancel')
-        this.show = false
+        void(this.okToClose ? this.show = false : null)
       },
       clickMask () {
         if (!this.force) {
@@ -117,6 +121,9 @@
       },
       open () {
         this.show = true
+      },
+      close () {
+        this.show = false
       }
     }
   }
