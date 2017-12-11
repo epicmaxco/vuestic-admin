@@ -1,6 +1,6 @@
 <template>
   <div class="vuestic-tabs">
-    <div class="hidden-sm-down">
+    <div class="d-none d-sm-none d-md-flex">
       <nav class="nav nav-pills row">
         <div class="nav-item col" v-on:click="setActive(name)"
              :class="{active: name === currentActive}" v-for="name in names">
@@ -9,7 +9,7 @@
       </nav>
       <div class="track"><div :class="underscoreClass"></div></div>
     </div>
-    <vuestic-simple-select class="hidden-md-up simple-select" v-bind:options="names" v-model="currentActive"></vuestic-simple-select>
+    <vuestic-simple-select class="d-none d-sm-flex d-md-none simple-select" v-bind:options="names" v-model="currentActive"></vuestic-simple-select>
     <div class="tab-content">
       <div class="tab-pane"
            :class="{active: name === currentActive}" v-for="name in names">
