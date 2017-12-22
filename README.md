@@ -30,7 +30,11 @@ $ git clone https://github.com/epicmaxco/vuestic-admin.git myproject
 
 # go into app's directory and install dependencies:
 $ cd myproject
+
+# Install using npm
 $ npm install
+# or install via
+$ yarn
 
 # serve with hot reload at localhost:8080.
 $ npm run dev
