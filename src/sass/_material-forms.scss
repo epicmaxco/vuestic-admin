@@ -213,6 +213,7 @@ fieldset {
   .control-label {
     position: absolute;
     top: ($mf-font-size / 4);
+    left: 0;
     max-width: 100%;
     overflow: hidden;
     white-space: nowrap;

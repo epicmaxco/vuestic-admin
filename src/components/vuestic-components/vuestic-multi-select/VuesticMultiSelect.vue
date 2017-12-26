@@ -61,6 +61,11 @@
     mounted () {
       this.$emit('input', this.value)
     },
+
+    updated: function () {
+      this.updateDisplayValue(this.value)
+    },
+
     methods: {
       toggleSelection (option) {
         let newVal = this.isOptionSelected(option) ? this.deselectOption(option) : this.selectOption(option)

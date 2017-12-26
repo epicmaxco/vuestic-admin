@@ -62,6 +62,11 @@
       this.updateDisplayValue(this.value)
       this.$emit('input', this.value)
     },
+
+    updated: function () {
+      this.updateDisplayValue(this.value)
+    },
+
     methods: {
       isOptionSelected (option) {
         return this.value === option
