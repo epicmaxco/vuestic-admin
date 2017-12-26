@@ -2,10 +2,10 @@
 
 Responsive admin dashboard template built with [Vue.js](https://vuejs.org) and [Bootstrap 4](https://v4-alpha.getbootstrap.com). Developed by [Epicmax](http://epicmax.co). Designed by [Vasili Savitski](https://xxsavitski.myportfolio.com/)
 
-<p align="center"> 
+<p align="center">
   <a href="http://vuestic.epicmax.co" target="_blank">
     <img src="http://i.imgur.com/pMuJVVc.png" align="center" width="888px"/>
-  </a> 
+  </a>
 </p>
 
 ## Demo
@@ -20,7 +20,7 @@ Check it out [live](http://vuestic.epicmax.co)!
 ## Installation
 
 ``` bash
-# create new project via vuestic-installer command. 
+# create new project via vuestic-installer command.
 $ vuestic myproject
 
 or
