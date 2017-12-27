@@ -86,7 +86,7 @@
               <thead>
               <tr>
                 <td></td>
-                 <td>{{'tables.headings.name' | translate}}</td>
+                <td>{{'tables.headings.name' | translate}}</td>
                 <td>{{'tables.headings.email' | translate}}</td>
                 <td>{{'tables.headings.city' | translate}}</td>
                 <td align="right">{{'tables.headings.score' | translate}}</td>
