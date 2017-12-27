@@ -18,7 +18,7 @@
           <div class="dropdown-item"
                :class="{'selected': isOptionSelected(option)}" v-for="option in options"
                @click="toggleSelection(option)">
-            <span class="ellipsis">{{option}}</span>
+            <span class="ellipsis">{{optionKey ? option[optionKey] : option}}</span>
             <i class="fa fa-check selected-icon"></i>
           </div>
         </div>
@@ -49,6 +49,7 @@
       label: String,
       options: Array,
       value: Array,
+      optionKey: String,
       required: {
         type: Boolean,
         default: false
@@ -85,7 +86,7 @@
         if (newVal.length > 2) {
           this.displayValue = `${newVal.length} of ${this.options.length} chosen`
         } else {
-          this.displayValue = newVal.join(', ')
+          this.displayValue = (this.optionKey ? newVal.map(item => item[this.optionKey]) : newVal).join(', ')
         }
       },
       validate () {
