@@ -1,25 +1,25 @@
 <template>
   <div class="modals-page">
     <div class="row">
-      <widget class="col-sm-12 modals-list larger-padding" header-text="Modals">
+      <widget class="col-sm-12 modals-list larger-padding" :header-text="$t('modal.title')">
         <button class="btn btn-danger" @click="showSmallModal()">
-          SMALL
+          {{'modal.small' | translate }}
         </button>
         <button class="btn btn-info" @click="showMediumModal()">
-          MEDIUM
+          {{'modal.medium' | translate }}
         </button>
         <button class="btn btn-warning" @click="showLargeModal()">
-          LARGE
+          {{'modal.large' | translate }}
         </button>
         <button class="btn btn-success" @click="showStaticModal()">
-          STATIC
+          {{'modal.static' | translate }}
         </button>
       </widget>
     </div>
 
     <!--//Modals-->
-    <modal :show.sync="show" ref="smallModal" v-bind:small="true" :cancelClass="'none'">
-      <div slot="title">Small modal</div>
+    <modal :show.sync="show" ref="smallModal" v-bind:small="true" :cancelClass="'none'" :okText="'modal.confirm' | translate" :cancelText="'modal.cancel' | translate">
+      <div slot="title">{{'modal.smallTitle' | translate}}</div>
       <div>
         There are three species of zebras: the plains zebra, the mountain zebra and the Grévy's zebra. The plains zebra
         and the mountain zebra belong to the subgenus Hippotigris, but Grévy's zebra is the sole species of subgenus
@@ -27,8 +27,8 @@
         horse-like. All three belong to the genus Equus, along with other living equids.
       </div>
     </modal>
-    <modal :show.sync="show" ref="mediumModal">
-      <div slot="title">Medium modal</div>
+    <modal :show.sync="show" ref="mediumModal" :okText="'modal.confirm' | translate" :cancelText="'modal.cancel' | translate">
+      <div slot="title">{{'modal.mediumTitle' | translate}}</div>
       <div>
         There are three species of zebras: the plains zebra, the mountain zebra and the Grévy's zebra. The plains zebra
         and the mountain zebra belong to the subgenus Hippotigris, but Grévy's zebra is the sole species of subgenus
@@ -36,8 +36,8 @@
         horse-like. All three belong to the genus Equus, along with other living equids.
       </div>
     </modal>
-    <modal :show.sync="show" v-bind:large="true" ref="largeModal">
-      <div slot="title">Large Modal</div>
+    <modal :show.sync="show" v-bind:large="true" ref="largeModal" :okText="'modal.confirm' | translate" :cancelText="'modal.cancel' | translate">
+      <div slot="title">{{'modal.largeTitle' | translate}}</div>
       <div>
         There are three species of zebras: the plains zebra, the mountain zebra and the Grévy's zebra. The plains zebra
         and the mountain zebra belong to the subgenus Hippotigris, but Grévy's zebra is the sole species of subgenus
@@ -45,10 +45,10 @@
         horse-like. All three belong to the genus Equus, along with other living equids.
       </div>
     </modal>
-    <modal :show.sync="show" v-bind:small="true" v-bind:force="true" ref="staticModal" :cancelClass="'none'" :okText="'CLOSE'">
-      <div slot="title">Static Modal</div>
+    <modal :show.sync="show" v-bind:small="true" v-bind:force="true" ref="staticModal" :cancelClass="'none'" :okText="'modal.close' | translate">
+      <div slot="title">{{'modal.staticTitle' | translate}}</div>
       <div>
-        This is a static modal, backdrop click will not close it.
+        {{'modal.staticMessage' | translate}}
       </div>
     </modal>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="sets-list row">
-    <vuestic-widget headerText="Icons" class="col-12">
+    <vuestic-widget :headerText="$t('icons.title')" class="col-12">
       <div class="row">
         <div class="small-set col-lg-6" v-for="set in sets">
           <div class="set-content">

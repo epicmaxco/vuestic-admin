@@ -4,7 +4,7 @@ export default {
   name: 'Forms',
   meta: {
     expanded: false,
-    title: 'Forms',
+    title: 'menu.forms',
     iconClass: 'vuestic-icon vuestic-icon-forms'
   },
   children: [
@@ -13,7 +13,7 @@ export default {
       path: '/forms/form-elements',
       component: lazyLoading('forms/form-elements/FormElements'),
       meta: {
-        title: 'Form Elements'
+        title: 'menu.formElements'
       }
     },
     {
@@ -21,7 +21,7 @@ export default {
       path: '/forms/form-wizard',
       component: lazyLoading('forms/form-wizard/FormWizard'),
       meta: {
-        title: 'Form Wizards'
+        title: 'menu.formWizards'
       }
     }
   ]

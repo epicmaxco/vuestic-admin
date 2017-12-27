@@ -1,0 +1,193 @@
+{
+  "auth": {
+    "agree": "I agree to",
+    "alreadyJoined": "Already joined?",
+    "createAccount": "Create account",
+    "createNewAccount": "Create account",
+    "email": "Email",
+    "login": "Login",
+    "password": "Password",
+    "signUp": "Sign Up",
+    "termsOfUse": "Terms of Use.",
+    "welcome": "Welcome!"
+  },
+  "buttons": {
+    "advanced": "Icons, Groups, Dropdowns",
+    "button": "BUTTON",
+    "colors": "Colors",
+    "disabled": "DISABLED",
+    "dropdown": "DROPDOWN",
+    "hover": "HOVER",
+    "main": "Primary & Secondary Buttons",
+    "micro": "MICRO",
+    "pressed": "PRESSED",
+    "small": "SMALL"
+  },
+  "charts": {
+    "horizontalBarChart": "Horizontal Bar Chart",
+    "verticalBarChart": "Vertical Bar Chart",
+    "lineChart": "Line Chart",
+    "pieChart": "Pie Chart",
+    "donutChart": "Donut Chart",
+    "bubbleChart": "Bubble Chart"
+  },
+  "dashboard": {
+    "dataVisualization": "Data Visualization",
+    "elements": "Elements",
+    "features": "Features",
+    "setupProfile": "Setup Profile",
+    "teamMembers": "Team Members",
+    "usersAndMembers": "Users & Members",
+    "versions": "Versions"
+  },
+  "extra": {
+    "alerts": {
+      "title": "Alerts",
+      "success": "SUCCESS",
+      "successMessage": "You successfully read this important alert message.",
+      "info": "INFO",
+      "infoMessage":
+        "This alert needs your attention, but it's not super important.",
+      "warning": "WARNING",
+      "warningMessage": "Better check yourself, you're not looking too good.",
+      "danger": "DANGER",
+      "dangerMessage": "Change a few things up and try submitting again."
+    },
+    "chat": "Chat",
+    "chart": "Chart",
+    "overview": "Overview",
+    "profileCard": "Profile Card",
+    "setupProfile": "Setup Profile"
+  },
+  "forms": {
+    "controls": {
+      "female": "Female",
+      "male": "Male",
+      "title": "Checkboxes, Radios, Switches",
+      "radioDisabled": "Disabled Radio",
+      "radio": "Radio",
+      "subscribe": "Subscribe to newsletter"
+    },
+    "inputs": {
+      "emailValidatedSuccess": "Email (validated with success)",
+      "emailValidated": "Email (validated)",
+      "inputWithIcon": "Input With Icon",
+      "inputWithButton": "Input With Button",
+      "inputWithClearButton": "Input With Clear Button",
+      "inputWithRoundButton": "Input With Round Button",
+      "textInput": "Text Input",
+      "textInputWithDescription": "Text Input (with description)",
+      "textArea": "Text Area",
+      "title": "Inputs",
+      "upload": "UPLOAD"
+    },
+    "selects": {
+      "country": "Country Select",
+      "countryMulti": "Country Multi Select",
+      "multi": "Multi Select",
+      "simple": "Simple Select",
+      "title": "Selects"
+    },
+    "wizard": {
+      "name": "Name",
+      "completed": "Wizard completed!",
+      "confirmSelection": "Confirm selection",
+      "rich": "Rich Wizard",
+      "simple": "Simple Wizard",
+      "stepOne": "Step 1. Name",
+      "stepTwo": "Step 2. Country",
+      "stepThree": "Step 3. Confirm",
+      "verticalRich": "Vertical Rich Wizard",
+      "verticalSimple": "Vertical Simple Wizard"
+    }
+  },
+  "grid": {
+    "desktop": "Desktop Grid",
+    "fixed": "Fixed Grid",
+    "offsets": "Offsets",
+    "responsive": "Responsive Grid"
+  },
+  "icons": {
+    "back": "Back to icons",
+    "none": "No icons found",
+    "search": "Icon search",
+    "title": "Icons"
+  },
+  "language": {
+    "english": "English",
+    "spanish": "Spanish"
+  },
+  "menu": {
+    "auth": "Auth",
+    "buttons": "Buttons",
+    "charts": "Charts",
+    "dashboard": "Dashboard",
+    "extra": "Extra",
+    "formElements": "Form Elements",
+    "forms": "Forms",
+    "formWizards": "Form Wizards",
+    "grid": "Grid",
+    "icons": "Icons",
+    "login": "Login",
+    "maps": "Maps",
+    "modals": "Modals",
+    "progressBars": "Progress Bars",
+    "signUp": "Sign up",
+    "statistics": "Statistics",
+    "tables": "Tables",
+    "typography": "Typography",
+    "uiElements": "UI Elements"
+  },
+  "messages": {
+    "all": "See all messages",
+    "new": "New messages from {name}"
+  },
+  "modal": {
+    "cancel": "CANCEL",
+    "close": "CLOSE",
+    "confirm": "CONFIRM",
+    "large": "Large",
+    "largeTitle": "Large Modal",
+    "medium": "Medium",
+    "mediumTitle": "Medium Modal",
+    "small": "Small",
+    "smallTitle": "Small Modal",
+    "static": "Static",
+    "staticMessage":
+      "This is a static modal, backdrop click will not close it.",
+    "staticTitle": "Static Modal",
+    "title": "Modals"
+  },
+  "notifications": {
+    "all": "See all notifications",
+    "sentMessage": "{name} sent you a message",
+    "uploadedZip": "{name} uploaded a new Zip file with {type}",
+    "startedTopic": "{name} started a new topic"
+  },
+  "progressBars": {
+    "basic": "Basic",
+    "basicVertical": "Basic Vertical",
+    "circle": "Circle",
+    "colorFulTitle": "Colorful Bars",
+    "thin": "Thin",
+    "thinVertical": "Thin Vertical",
+    "thick": "Thick",
+    "title": "Progress Bars"
+  },
+  "tables": {
+    "basic": "Basic Table",
+    "styled": "Colors, Icons, Labels",
+    "advanced": "Search & Pagination",
+    "headings": {
+      "city": "City",
+      "email": "Email",
+      "name": "Name",
+      "score": "Score"
+    }
+  },
+  "user": {
+    "language": "Change Language",
+    "logout": "Logout",
+    "profile": "My Profile"
+  }
+}

@@ -21,13 +21,13 @@
         <div class="dropdown-menu">
           <div class="dropdown-menu-content">
             <a class="dropdown-item" href="#">
-              <span class="ellipsis">New messages from Oleg M</span>
+              <span class="ellipsis">{{ $t('messages.new', {name: "Oleg M"})}}</span>
             </a>
             <a class="dropdown-item" href="#">
-              <span class="ellipsis">New messages from Andrei H</span>
+              <span class="ellipsis">{{ $t('messages.new', {name: "Andrei H"})}}</span>
             </a>
             <div class="dropdown-item plain-link-item">
-              <a class="plain-link" href="#">See all messages</a>
+              <a class="plain-link" href="#">{{'messages.all' | translate}}</a>
             </div>
           </div>
         </div>
@@ -39,16 +39,16 @@
         <div class="dropdown-menu">
           <div class="dropdown-menu-content">
             <a class="dropdown-item" href="#">
-              <span class="ellipsis">Vasily S sent you a message</span>
+              <span class="ellipsis">{{$t('notifications.sentMessage', {name: 'Vasily S'})}}</span>
             </a>
             <a class="dropdown-item" href="#">
-              <span class="ellipsis">Oleg M uploaded new Zip file with typography component</span>
+              <span class="ellipsis">{{$t('notifications.uploadedZip', { name: "Oleg M", type: "typography component"})}}</span>
             </a>
             <a class="dropdown-item" href="#">
-              <span class="ellipsis">Andrei H started a new topic</span>
+              <span class="ellipsis">{{$t('notifications.startedTopic',{name: "Andrei H"}) }}</span>
             </a>
             <div class="dropdown-item plain-link-item">
-              <a class="plain-link" href="#">See all notifications</a>
+              <a class="plain-link" href="#">{{'notifications.all' | translate}}</a>
             </div>
           </div>
         </div>
@@ -62,39 +62,70 @@
         <div class="dropdown-menu last">
           <div class="dropdown-menu-content">
             <div class="dropdown-item plain-link-item">
-              <a class="plain-link" href="#">My Profile</a>
+              <a class="plain-link" href="#">{{'user.profile' | translate}}</a>
             </div>
             <div class="dropdown-item plain-link-item">
-              <a class="plain-link" href="#">Logout</a>
+              <a class="plain-link" href="#" @click.prevent="showLanguageModal">{{'user.language' | translate}}</a>
+            </div>
+            <div class="dropdown-item plain-link-item">
+              <a class="plain-link" href="#">{{'user.logout' | translate}}</a>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <modal ref="languageModal"
+     v-bind:small="true" :okClass="'none'" :cancelClass="'none'">
+      <div slot="title">{{'user.language' | translate}}</div>
+      <div class="text-center">
+              <button class="btn btn-info" @click="setLanguage('en')">
+                {{'language.english' | translate}}
+              </button>
+              <hr>
+              <button class="btn btn-info" @click="setLanguage('es')">
+                {{'language.spanish' | translate}}
+              </button>
+      </div>
+    </modal>
   </nav>
 </template>
 
 <script>
+  import Vue from 'vue'
   import { mapGetters, mapActions } from 'vuex'
   import Dropdown from 'directives/Dropdown'
-
+  import Modal from '../../vuestic-components/vuestic-modal/VuesticModal'
   export default {
     name: 'navbar',
-
+    components: {
+      Modal
+    },
     directives: {
       dropdown: Dropdown
     },
 
-    computed: mapGetters([
-      'sidebarOpened',
-      'toggleWithoutAnimation'
-    ]),
+    computed: {
+      ...mapGetters([
+        'sidebarOpened',
+        'toggleWithoutAnimation'
+      ]),
+      currentLanguage () {
+        return Vue.i18n.locale() === 'en' ? 'English' : 'Spanish'
+      }
+    },
     methods: {
       ...mapActions([
         'closeMenu',
         'toggleSidebar',
         'isToggleWithoutAnimation'
-      ])
+      ]),
+      showLanguageModal () {
+        this.$refs.languageModal.open()
+      },
+      setLanguage (locale) {
+        Vue.i18n.set(locale)
+        this.$refs.languageModal.cancel()
+      }
     }
   }
 </script>

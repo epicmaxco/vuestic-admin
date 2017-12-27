@@ -2,15 +2,15 @@
   <div>
     <div class="row">
       <div class="col-xs-12 col-md-12">
-        <widget headerText="Basic Table">
+        <widget :headerText="$t('tables.basic')">
           <div class="table-responsive">
             <table class="table table-striped first-td-padding">
               <thead>
               <tr>
-                <td>Name</td>
-                <td>Email</td>
-                <td>City</td>
-                <td align="right">Score</td>
+                <td>{{'tables.headings.name' | translate}}</td>
+                <td>{{'tables.headings.email' | translate}}</td>
+                <td>{{'tables.headings.city' | translate}}</td>
+                <td align="right">{{'tables.headings.score' | translate}}</td>
                 <td></td>
               </tr>
               </thead>
@@ -80,16 +80,16 @@
 
     <div class="row">
       <div class="col-md-12">
-        <widget headerText="Colors, Icons, Labels">
+        <widget :headerText="$t('tables.styled')">
           <div class="table-responsive">
             <table class="table table-striped table-sm color-icon-label-table">
               <thead>
               <tr>
                 <td></td>
-                <td>Name</td>
-                <td>Email</td>
-                <td>City</td>
-                <td align="right">Score</td>
+                <td>{{'tables.headings.name' | translate}}</td>
+                <td>{{'tables.headings.email' | translate}}</td>
+                <td>{{'tables.headings.city' | translate}}</td>
+                <td align="right">{{'tables.headings.score' | translate}}</td>
                 <td align="middle"></td>
               </tr>
               </thead>
@@ -179,7 +179,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        <widget headerText="Search & Pagination">
+        <widget :headerText="$t('tables.advanced')">
           <data-table :apiUrl="apiUrl"
                       :tableFields="tableFields"
                       :itemsPerPage="itemsPerPage"

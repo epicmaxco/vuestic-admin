@@ -4,7 +4,7 @@
       <div class="row">
         <div class="header-text col-lg-4">
           <h2>{{set.name}}</h2>
-          <router-link :to="{path: '/ui/icons'}">Back to icons</router-link>
+          <router-link :to="{path: '/ui/icons'}">{{'icons.back' | translate}}</router-link>
         </div>
 
         <div class="search col-lg-4">
@@ -12,7 +12,7 @@
             <div class="input-group">
               <input id="input-icon-left" name="input-icon-left" required v-model="selector"/>
               <i class="fa fa-search icon-left input-icon"></i>
-              <label class="control-label" for="input-icon-left">Icon Search</label><i class="bar"></i>
+              <label class="control-label" for="input-icon-left">{{'icons.search' | translate}}</label><i class="bar"></i>
             </div>
           </div>
         </div>
@@ -24,7 +24,7 @@
     </div>
     <template v-for="list in validatedLists">
       <widget :headerText="list.name" class="col-12">
-        <span v-if="list.icons.length === 0">No icons found</span>
+        <span v-if="list.icons.length === 0">{{'icons.none' | translate}}</span>
         <template v-for="i in Math.floor(list.icons.length/8+1)">
           <div class="row">
             <div class="col-8-custom icon-grid-container" v-for="j in 8" v-if="list.icons[(i-1)*8 + j-1]">

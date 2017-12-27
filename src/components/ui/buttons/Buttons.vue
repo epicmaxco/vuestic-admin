@@ -2,30 +2,30 @@
   <div class="buttons-page">
     <div class="row">
       <vuestic-widget class="col-sm-12 primary-secondary-buttons larger-padding"
-                      headerText="Primary & Secondary Buttons">
+                      :headerText="$t('buttons.main')">
         <div class="row btn-margin-row">
           <div class="col-sm-6 d-flex justify-content-center"
                :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-primary">
-              BUTTON
+              {{'buttons.button' | translate}}
             </button>
           </div>
           <div class="col-sm-6 d-flex justify-content-center"
                :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-primary hover">
-              HOVER
+              {{'buttons.hover' | translate}}
             </button>
           </div>
           <div class="col-sm-6 d-flex justify-content-center"
                :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-primary focus">
-              PRESSED
+              {{'buttons.pressed' | translate}}
             </button>
           </div>
           <div class="col-sm-6 d-flex justify-content-center"
                :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-primary" disabled>
-              DISABLED
+              {{'buttons.disabled' | translate}}
             </button>
           </div>
         </div>
@@ -34,25 +34,25 @@
           <div class="col-sm-6 d-flex justify-content-center"
                :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-secondary">
-              BUTTON
+              {{'buttons.button' | translate}}
             </button>
           </div>
           <div class="col-sm-6 d-flex justify-content-center"
                :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-secondary hover">
-              HOVER
+              {{'buttons.hover' | translate}}
             </button>
           </div>
           <div class="col-sm-6 d-flex justify-content-center"
                :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-secondary focus">
-              PRESSED
+              {{'buttons.pressed' | translate}}
             </button>
           </div>
           <div class="col-sm-6 d-flex justify-content-center"
                :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-secondary" disabled>
-              DISABLED
+              {{'buttons.disabled' | translate}}
             </button>
           </div>
         </div>
@@ -62,13 +62,13 @@
           <div class="col-sm-6 d-flex justify-content-center"
                :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-primary btn-sm">
-              SMALL
+              {{'buttons.small' | translate}}
             </button>
           </div>
           <div class="col-sm-6 d-flex justify-content-center align-items-center"
                :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-primary btn-micro">
-              MICRO
+              {{'buttons.micro' | translate}}
             </button>
           </div>
         </div>
@@ -76,14 +76,14 @@
     </div>
 
     <div class="row">
-      <vuestic-widget class="col-sm-12 color-buttons" headerText="Icons, Groups, Dropdowns">
+      <vuestic-widget class="col-sm-12 color-buttons" :headerText="$t('buttons.advanced')">
         <div class="row">
           <div class="col-sm-6  d-flex justify-content-center"
                :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-primary btn-with-icon">
               <div class="btn-with-icon-content">
                 <i class="ion-android-close ion"></i>
-                BUTTON
+                {{'buttons.button' | translate}}
               </div>
             </button>
           </div>
@@ -128,30 +128,31 @@
     </div>
 
     <div class="row">
-      <vuestic-widget class="col-sm-12 color-buttons" headerText="Colors">
+      <vuestic-widget class="col-sm-12 color-buttons" :headerText="$t('buttons.colors')">
+
         <div class="row btn-margin-row">
           <div class="col-sm-6  d-flex justify-content-center"
                :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-danger">
-              BUTTON
+              {{'buttons.button' | translate}}
             </button>
           </div>
           <div class="col-sm-6  d-flex justify-content-center"
                :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-info">
-              BUTTON
+              {{'buttons.button' | translate}}
             </button>
           </div>
           <div class="col-sm-6  d-flex justify-content-center"
                :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-dark">
-              BUTTON
+              {{'buttons.button' | translate}}
             </button>
           </div>
           <div class="col-sm-6  d-flex justify-content-center"
                :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-warning">
-              BUTTON
+              {{'buttons.button' | translate}}
             </button>
           </div>
         </div>
@@ -160,13 +161,13 @@
           <div class="col-sm-6  d-flex justify-content-center"
                :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-success">
-              BUTTON
+              {{'buttons.button' | translate}}
             </button>
           </div>
           <div class="col-sm-6  d-flex justify-content-center"
                :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-pale">
-              BUTTON
+              {{'buttons.button' | translate}}
             </button>
           </div>
         </div>

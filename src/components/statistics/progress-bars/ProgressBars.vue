@@ -4,28 +4,28 @@
       <vuestic-widget class="col-12" headerText="Progress Bars">
         <div class="row">
           <div class="col-sm-4 col-12">
-            Basic
+            {{'progressBars.basic' | translate}}
             <div class="pb-container">
               <vuestic-progress-bar ref="hBasic">
               </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
-            Thin
+            {{'progressBars.thin' | translate}}
             <div class="pb-container">
               <vuestic-progress-bar size="thin" ref="hThin">
               </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
-            Thick
+            {{'progressBars.thick' | translate}}
             <div class="pb-container">
               <vuestic-progress-bar size="thick" ref="hThick">
               </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
-            Basic Vertical
+            {{'progressBars.basicVertical' | translate}}
             <div class="pb-container">
               <div>
                 <vuestic-progress-bar type="vertical" ref="vBasic"></vuestic-progress-bar>
@@ -33,14 +33,14 @@
             </div>
           </div>
           <div class="col-sm-4 col-12">
-            Thin Vertical
+            {{'progressBars.thinVertical' | translate}}
             <div>
               <vuestic-progress-bar size="thin" type="vertical" ref="vThin">
               </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
-            Circle
+            {{'progressBars.circle' | translate}}
             <div>
               <vuestic-progress-bar type="circle" ref="circle"></vuestic-progress-bar>
             </div>
@@ -50,28 +50,28 @@
       <vuestic-widget class="col-12" headerText="Colorful Bars">
         <div class="row">
           <div class="col-sm-4 col-12">
-            Basic
+            {{'progressBars.basic' | translate}}
             <div class="pb-container">
               <vuestic-progress-bar ref="chBasic" colorName="danger">
               </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
-            Thin
+            {{'progressBars.thin' | translate}}
             <div class="pb-container">
               <vuestic-progress-bar size="thin" ref="chThin" colorName="info">
               </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
-            Thick
+            {{'progressBars.thick' | translate}}
             <div class="pb-container">
               <vuestic-progress-bar size="thick" ref="chThick" colorName="warning">
               </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
-            Basic Vertical
+            {{'progressBars.basicVertical' | translate}}
             <div class="pb-container">
               <div>
                 <vuestic-progress-bar type="vertical" ref="cvBasic" colorName="success"></vuestic-progress-bar>
@@ -79,14 +79,14 @@
             </div>
           </div>
           <div class="col-sm-4 col-12">
-            Thin Vertical
+            {{'progressBars.thinVertical' | translate}}
             <div class="pb-container">
               <vuestic-progress-bar size="thin" type="vertical" ref="cvThin" colorName="black">
               </vuestic-progress-bar>
             </div>
           </div>
           <div class="col-sm-4 col-12">
-            Circle
+            {{'progressBars.circle' | translate}}
             <div class="pb-container">
               <vuestic-progress-bar type="circle" ref="ccircle"></vuestic-progress-bar>
             </div>

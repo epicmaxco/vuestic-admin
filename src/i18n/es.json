@@ -1,0 +1,190 @@
+{
+  "auth": {
+    "agree": "Acepto",
+    "alreadyJoined": "Ya tienes una cuenta?",
+    "createAccount": "Create cuenta",
+    "createNewAccount": "Crear cuenta",
+    "email": "Email",
+    "login": "Iniciar sesión",
+    "password": "Contraseña",
+    "signUp": "Registrar",
+    "termsOfUse": "Los terminos de uso",
+    "welcome": "Bienvenido!"
+  },
+  "buttons": {
+    "advanced": "Iconos, Grupos, Dropdowns",
+    "button": "BOTON",
+    "colors": "Colores",
+    "disabled": "DESHABILITADO",
+    "dropdown": "DESPLEGABLE",
+    "hover": "HOVER",
+    "main": "Botón Primario y Secundario",
+    "micro": "MICRO",
+    "pressed": "PRESIONADO",
+    "small": "PEQUEÑO"
+  },
+  "charts": {
+    "bubbleChart": "Bubble Chart",
+    "donutChart": "Donut Chart",
+    "horizontalBarChart": "Horizontal Bar Chart",
+    "lineChart": "Line Chart",
+    "pieChart": "Pie Chart",
+    "verticalBarChart": "Vertical Bar Chart"
+  },
+  "dashboard": {
+    "elements": "Elementos",
+    "teamMembers": "Miembros del Equipo",
+    "versions": "Versiones"
+  },
+  "extra": {
+    "alerts": {
+      "title": "Alerts",
+      "success": "ÉXITO",
+      "successMessage":
+        "Ha leído correctamente este mensaje de alerta importante.",
+      "info": "INFO",
+      "infoMessage":
+        "Esta alerta necesita tu atención, pero no es muy importante.",
+      "warning": "ADVERTENCIA",
+      "warningMessage": "Mejor compruébalo, esto no pinta bien.",
+      "danger": "PELIGRO",
+      "dangerMessage": "Cambiar algunas cosas e enviarlo de nuevo."
+    },
+    "chat": "Chat",
+    "chart": "Grafico",
+    "overview": "Visión de conjunto",
+    "profileCard": "Tarjeta de Perfil",
+    "setupProfile": "Perfil de Configuración"
+  },
+  "forms": {
+    "controls": {
+      "female": "Mujer",
+      "male": "Hombre",
+      "title": "Checkboxes, Radios, Switches",
+      "radioDisabled": "Radio Desactivado",
+      "radio": "Radio",
+      "subscribe": "Suscribirse a la newsletter"
+    },
+    "inputs": {
+      "emailValidatedSuccess": "Email (validado con éxito)",
+      "emailValidated": "Email (validado)",
+      "inputWithIcon": "Input con Icono",
+      "inputWithButton": "Input con Boton",
+      "inputWithClearButton": "Input With Clear Button",
+      "inputWithRoundButton": "Input With Round Button",
+      "textInput": "Input de Texto",
+      "textInputWithDescription": "Input de Texto (con descripcion)",
+      "textArea": "Text Area",
+      "title": "Inputs",
+      "upload": "SUBIR"
+    },
+    "selects": {
+      "country": "País Select",
+      "countryMulti": "País Multi Select",
+      "multi": "Multi Select",
+      "simple": "Select Simple",
+      "title": "Selects"
+    },
+    "wizard": {
+      "completed": "Asistente Completado!",
+      "confirmSelection": "Confirmar selección",
+      "name": "Nombre",
+      "rich": "Asistente Rico",
+      "simple": "Asistente Simple",
+      "stepOne": "Step 1. Nombre",
+      "stepTwo": "Step 2. País",
+      "stepThree": "Step 3. Confirmar",
+      "verticalRich": "Asistente Rico Vertical",
+      "verticalSimple": "Asistente Simple Vertical"
+    }
+  },
+  "grid": {
+    "fixed": "Grid Fijo",
+    "desktop": "Desktop Grid",
+    "responsive": "Responsive Grid",
+    "offsets": "Offsets"
+  },
+  "icons": {
+    "back": "Volver a los iconos",
+    "none": "No se han encontrado iconos",
+    "search": "Búsqueda de iconos",
+    "title": "Iconos"
+  },
+  "language": {
+    "english": "Ingles",
+    "spanish": "Español"
+  },
+  "menu": {
+    "auth": "Autenticación",
+    "buttons": "Botones",
+    "charts": "Gráficos",
+    "dashboard": "Dashboard",
+    "extra": "Extra",
+    "formElements": "Elementos de un Formulario",
+    "forms": "Formularios",
+    "formWizards": "Asistente para Formularios",
+    "grid": "Grid",
+    "icons": "Iconos",
+    "login": "Iniciar sesión",
+    "maps": "Mapas",
+    "modals": "Modals",
+    "progressBars": "Barras de Progreso",
+    "signUp": "Registrar",
+    "statistics": "Estadisticas",
+    "tables": "Tablas",
+    "typography": "Tipografía",
+    "uiElements": "Elementos UI"
+  },
+  "messages": {
+    "all": "Ver todos los mensajes",
+    "new": "Nuevo mensajes de {name}"
+  },
+  "modal": {
+    "cancel": "CANCELAR",
+    "close": "CERRAR",
+    "confirm": "CONFIRMAR",
+    "large": "Largo",
+    "largeTitle": "Modal Largo",
+    "medium": "Mediano",
+    "mediumTitle": "Modal Mediana",
+    "small": "Pequeño",
+    "static": "Estático",
+    "smallTitle": "Modal Pequeña",
+    "staticMessage":
+      "Esto es un modal estático. No se cerrará haciendo clic en el fondo.",
+    "staticTitle": "Modal Estático",
+    "title": "Modals"
+  },
+  "notifications": {
+    "all": "Ver todos los notificaciones",
+    "sentMessage": "{name} te ha mandado un mensaje",
+    "uploadedZip": "{name} ha subido un archivo Zip con {type}",
+    "startedTopic": "{name} ha creado una tema nueva"
+  },
+  "progressBars": {
+    "basic": "Basico",
+    "basicVertical": "Basico y Vertical",
+    "circle": "Circular",
+    "colorFulTitle": "Barras Coloridas",
+    "thin": "Delgado",
+    "thinVertical": "Delgado Vertical",
+    "thick": "Grueso",
+    "title": "Barras de Progresso"
+  },
+  "tables": {
+    "basic": "Tabla basica",
+    "styled": "Colores, Iconos, Etiquetas",
+    "advanced": "Búsqueda y Paginación",
+    "headings": {
+      "city": "Ciudad",
+      "email": "Email",
+      "name": "Nombre",
+      "score": "Puntuación"
+    }
+  },
+  "user": {
+    "language": "Cambiar Idioma",
+    "profile": "Mi Perfil",
+    "logout": "Cerrar Sesión"
+  }
+}
