@@ -76,7 +76,6 @@
         this.prevTouch = e.touches[0]
       },
       onDrag (e) {
-        console.log(e)
         if (this.isDragging) {
           e.preventDefault()
           let touch = e.touches[0]

@@ -3,4 +3,3 @@ node_modules/
 dist/
 npm-debug.log
 .idea/
-package-lock.json
