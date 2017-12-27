@@ -25,6 +25,7 @@
     "chart.js": "^2.6.0",
     "detect-browser": "^1.7.1",
     "element-resize-detector": "^1.1.12",
+    "epic-spinners": "^1.0.0",
     "font-awesome": "^4.7.0",
     "gemini-scrollbar": "^1.5.1",
     "google-maps": "^3.2.1",
