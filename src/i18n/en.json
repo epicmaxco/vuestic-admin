@@ -113,6 +113,9 @@
     "search": "Icon search",
     "title": "Icons"
   },
+  "spinners": {
+    "title": "Epic Spinners"
+  },
   "language": {
     "english": "English",
     "spanish": "Spanish"
@@ -128,6 +131,7 @@
     "formWizards": "Form Wizards",
     "grid": "Grid",
     "icons": "Icons",
+    "spinners": "Epic Spinners",
     "login": "Login",
     "maps": "Maps",
     "modals": "Modals",
