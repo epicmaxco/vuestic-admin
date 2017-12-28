@@ -12,6 +12,12 @@
             </component>
           </div>
         </div>
+        <div class="row align-center">
+          <div class="col text-center">
+            Powered by
+            <a :href="'http://epic-spinners.epicmax.co/'" target="_blank">Epic Spinners</a>
+          </div>
+        </div>
     </vuestic-widget>
   </div>
 </template>
@@ -27,7 +33,7 @@
       return {
         config: {
           animation: 1500,
-          color: '#fff1d5e',
+          color: '#1ec260',
           size: 50,
           group: 4
         }
