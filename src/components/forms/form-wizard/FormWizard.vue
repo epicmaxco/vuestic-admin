@@ -13,6 +13,7 @@
                 <div class="input-group">
                   <input
                     name="hsName"
+                    data-vv-as="Name"
                     v-model="hsName"
                     v-validate="'required'"
                     required title=""/>
@@ -71,6 +72,7 @@
                 <div class="input-group">
                   <input
                     name="hrName"
+                    data-vv-as="Name"
                     v-model="hrName"
                     v-validate="'required'"
                     required title=""/>
@@ -130,6 +132,7 @@
                 <div class="input-group">
                   <input
                     name="vrName"
+                    data-vv-as="Name"
                     v-model="vrName"
                     v-validate="'required'"
                     required title=""/>
@@ -189,6 +192,7 @@
                 <div class="input-group">
                   <input
                     name="vsName"
+                    data-vv-as="Name"
                     v-model="vsName"
                     v-validate="'required'"
                     required title=""/>
