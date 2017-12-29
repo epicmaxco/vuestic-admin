@@ -104,7 +104,7 @@
                     </div>
                     <div class="btn btn-primary btn-with-icon btn-micro rounded-icon">
                       <div class="btn-with-icon-content">
-                        <i class="ion-android-cloud-outline ion"></i>
+                        <i class="ion-md-cloud-outline ion"></i>
                       </div>
                     </div>
                   </div>

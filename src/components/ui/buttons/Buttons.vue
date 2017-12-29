@@ -82,7 +82,7 @@
                :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
             <button class="btn btn-primary btn-with-icon">
               <div class="btn-with-icon-content">
-                <i class="ion-android-close ion"></i>
+                <i class="ion-md-close ion"></i>
                 {{'buttons.button' | translate}}
               </div>
             </button>
@@ -119,7 +119,7 @@
                :class="{'col-lg-6 col-xl-2' : sidebarOpened, 'col-lg-2' : !sidebarOpened }">
             <button class="btn btn-primary btn-with-icon rounded-icon">
               <div class="btn-with-icon-content">
-                <i class="ion-android-close ion"></i>
+                <i class="ion-md-close ion"></i>
               </div>
             </button>
           </div>

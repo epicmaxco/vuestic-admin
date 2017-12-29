@@ -2,7 +2,7 @@
     <ul class="wizard-steps horizontal-steps rich-steps" :class="{'completed': completed}">
       <li class="wizard-step" :class="{'active': currentStep >= index, 'current': currentStep === index}" :style="{ height: 100/steps.length + '%' }" v-for="(step, index) of steps">
         <span class="wizard-step-line"></span>
-        <i class="ion ion-android-close step-icon icon-cross"></i>
+        <i class="ion ion-md-close step-icon icon-cross"></i>
         <i class="ion ion-android-done step-icon icon-check"></i>
         <span class="wizard-step-label ellipsis">{{step.label}}</span>
       </li>

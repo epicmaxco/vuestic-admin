@@ -6,7 +6,7 @@
       <div class="underscored">
         <span class="text"><span class="name">{{post.name}}</span> {{post.text}}.</span>
         <button v-on:click="removePost(post)" class="btn btn-micro btn-primary btn-with-icon close-btn rounded-icon">
-          <i class="ion-android-close ion"></i>
+          <i class="ion-md-close ion"></i>
         </button>
       </div>
     </div>
