@@ -114,7 +114,8 @@
     "title": "Icons"
   },
   "spinners": {
-    "title": "Epic Spinners"
+    "title": "Spinners",
+    "poweredBy": "Powered by"
   },
   "language": {
     "english": "English",
@@ -131,7 +132,7 @@
     "formWizards": "Form Wizards",
     "grid": "Grid",
     "icons": "Icons",
-    "spinners": "Epic Spinners",
+    "spinners": "Spinners",
     "login": "Login",
     "maps": "Maps",
     "modals": "Modals",

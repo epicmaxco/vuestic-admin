@@ -49,7 +49,7 @@ export default {
       ]
     },
     {
-      name: 'Epic Spinners',
+      name: 'Spinners',
       path: '/ui/spinners',
       component: lazyLoading('ui/spinners/Spinners'),
       meta: {
