@@ -1,5 +1,8 @@
 <template>
   <div class="row">
+    <vuestic-widget :headerText="$t('spinners.customize')" class="col-sm-12">
+      <vuestic-color v-model="selectedColor"></vuestic-color>
+    </vuestic-widget>
     <vuestic-widget :headerText="$t('spinners.title')" class="col-sm-12">
         <div v-for="(group, i) in groups" :key="i" class="row">
           <div v-for="item in group" :key="item" class="col-sm-12 col-md-3">
@@ -7,7 +10,7 @@
               <div class="spinner-box">
                 <component
                   :is="item"
-                  :color="palette.primary"
+                  :color="selectedColor"
                   :size="config.size">
                 </component>
               </div>
@@ -27,23 +30,24 @@
 
 <script>
   import * as spinners from 'epic-spinners'
-  import {mapGetters} from 'vuex'
+  import store from 'vuex-store'
+  import VuesticColor from 'components/vuestic-components/vuestic-color/VuesticColor'
 
   export default {
     components: {
-      ...spinners
+      ...spinners,
+      VuesticColor
     },
     data: function () {
       return {
         config: {
           size: 80,
           group: 4
-        }
+        },
+        selectedColor: store.getters.palette.primary
       }
     },
     computed: {
-      ...mapGetters(['palette']),
-
       groups () {
         return this.groupItems(Object.keys(spinners), this.config.group)
       }
@@ -83,5 +87,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .vuestic-color {
+    margin: 0 auto;
   }
 </style>
