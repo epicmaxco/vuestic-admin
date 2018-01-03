@@ -10,8 +10,10 @@
       SliderPicker
     },
     props: {
-      value: String,
-      required: true
+      value: {
+        type: String,
+        required: true
+      }
     },
     computed: {
       colorObj () {

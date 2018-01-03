@@ -116,7 +116,9 @@
   "spinners": {
     "title": "Spinners",
     "poweredBy": "Powered by",
-    "customize": "Customize"
+    "customize": "Customize",
+    "color": "Color",
+    "size": "Size"
   },
   "language": {
     "english": "English",
