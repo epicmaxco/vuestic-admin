@@ -29,7 +29,7 @@
         defaultOptions: {
           dotSize: 14,
           height: 3,
-          width: 300,
+          realTime: true,
           sliderStyle: {
             'background-color': store.getters.palette.primary
           },

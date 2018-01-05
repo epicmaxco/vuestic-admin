@@ -51,8 +51,8 @@
         config: {
           group: 4,
           slider: {
-            min: 30,
-            max: 100
+            min: 40,
+            max: 80
           }
         },
         selectedColor: store.getters.palette.primary,

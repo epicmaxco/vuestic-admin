@@ -2,6 +2,7 @@
   <slider-picker
     :value="colorObj"
     @input="change"
+    ref="sliderPicker"
     class="vuestic-color">
   </slider-picker>
 </template>
@@ -29,7 +30,11 @@
     },
     methods: {
       change (val) {
+        this.updateBackground(this.$refs.sliderPicker.$el.querySelector('.vc-hue-picker'), val.hex)
         this.$emit('input', val.hex)
+      },
+      updateBackground (el, color) {
+        el.style.backgroundColor = color
       }
     }
   }
@@ -39,7 +44,7 @@
   @import "../../../sass/_variables.scss";
 
   .vuestic-color.vc-slider {
-    width: 300px;
+    width: auto;
     padding: 7px;
 
     .vc-slider-swatches {
