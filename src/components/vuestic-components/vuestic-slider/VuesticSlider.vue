@@ -14,6 +14,7 @@
   import store from 'vuex-store'
 
   export default {
+    name: 'vuestic-slider',
     props: {
       value: {
         type: Number,

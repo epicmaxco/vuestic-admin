@@ -48,12 +48,10 @@
 
 <script>
   import Widget from '../../vuestic-components/vuestic-widget/VuesticWidget'
-  import VuesticSlider from 'components/vuestic-components/vuestic-slider/VuesticSlider'
 
   export default {
     components: {
-      Widget,
-      VuesticSlider
+      Widget
     },
     name: 'set',
     props: ['name', 'sets'],

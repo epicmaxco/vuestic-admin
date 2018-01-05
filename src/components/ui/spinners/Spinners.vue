@@ -43,14 +43,10 @@
 <script>
   import * as spinners from 'epic-spinners'
   import store from 'vuex-store'
-  import VuesticColor from 'components/vuestic-components/vuestic-color/VuesticColor'
-  import VuesticSlider from 'components/vuestic-components/vuestic-slider/VuesticSlider'
 
   export default {
     components: {
-      ...spinners,
-      VuesticColor,
-      VuesticSlider
+      ...spinners
     },
     data: function () {
       return {

@@ -6,6 +6,7 @@
   import {Slider as SliderPicker} from 'vue-color'
 
   export default {
+    name: 'vuestic-color',
     components: {
       SliderPicker
     },
