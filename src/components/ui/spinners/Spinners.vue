@@ -2,14 +2,14 @@
   <div class="row">
     <vuestic-widget :headerText="$t('spinners.customize')" class="col-sm-12">
       <div class="row">
-        <div class="col-sm-6">
-          <vuestic-color v-model="selectedColor"></vuestic-color>
-        </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6 mb-3 mb-sm-0">
           <vuestic-slider
             :options="config.slider"
             v-model="selectedSize">
           </vuestic-slider>
+        </div>
+        <div class="col-sm-6">
+          <vuestic-color v-model="selectedColor"></vuestic-color>
         </div>
       </div>
     </vuestic-widget>
