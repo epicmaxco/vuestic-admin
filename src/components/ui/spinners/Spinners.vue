@@ -3,11 +3,9 @@
     <vuestic-widget :headerText="$t('spinners.customize')" class="col-sm-12">
       <div class="row">
         <div class="col-sm-6">
-          <span>{{'spinners.color' | translate}}</span>
           <vuestic-color v-model="selectedColor"></vuestic-color>
         </div>
         <div class="col-sm-6">
-          {{'spinners.size' | translate}}
           <vuestic-slider
             :options="config.slider"
             v-model="selectedSize">
@@ -53,12 +51,12 @@
         config: {
           group: 4,
           slider: {
-            min: 40,
-            max: 80
+            min: 30,
+            max: 100
           }
         },
         selectedColor: store.getters.palette.primary,
-        selectedSize: 70
+        selectedSize: 60
       }
     },
     computed: {
@@ -101,5 +99,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .vuestic-color,
+  .vuestic-slider {
+    margin: 0 auto;
   }
 </style>

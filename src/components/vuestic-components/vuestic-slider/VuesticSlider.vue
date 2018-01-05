@@ -28,8 +28,8 @@
       return {
         defaultOptions: {
           dotSize: 14,
-          height: 2,
-          width: 240,
+          height: 3,
+          width: 300,
           sliderStyle: {
             'background-color': store.getters.palette.primary
           },
