@@ -1,7 +1,17 @@
 <template>
   <div class="row">
     <vuestic-widget :headerText="$t('spinners.customize')" class="col-sm-12">
-      <vuestic-color v-model="selectedColor"></vuestic-color>
+      <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <vuestic-slider
+            :options="config.slider"
+            v-model="selectedSize">
+          </vuestic-slider>
+        </div>
+        <div class="col-sm-6">
+          <vuestic-color v-model="selectedColor"></vuestic-color>
+        </div>
+      </div>
     </vuestic-widget>
     <vuestic-widget :headerText="$t('spinners.title')" class="col-sm-12">
         <div v-for="(group, i) in groups" :key="i" class="row">
@@ -11,7 +21,10 @@
                 <component
                   :is="item"
                   :color="selectedColor"
-                  :size="config.size">
+                  :size="selectedSize"
+                  :dot-size="dotSize"
+                  :circle-size="dotSize"
+                  :rhombus-size="dotSize">
                 </component>
               </div>
               <span>{{item | displayName}}</span>
@@ -31,25 +44,30 @@
 <script>
   import * as spinners from 'epic-spinners'
   import store from 'vuex-store'
-  import VuesticColor from 'components/vuestic-components/vuestic-color/VuesticColor'
 
   export default {
     components: {
-      ...spinners,
-      VuesticColor
+      ...spinners
     },
     data: function () {
       return {
         config: {
-          size: 80,
-          group: 4
+          group: 4,
+          slider: {
+            min: 40,
+            max: 80
+          }
         },
-        selectedColor: store.getters.palette.primary
+        selectedColor: store.getters.palette.primary,
+        selectedSize: 60
       }
     },
     computed: {
       groups () {
         return this.groupItems(Object.keys(spinners), this.config.group)
+      },
+      dotSize () {
+        return Math.round(this.selectedSize / 4)
       }
     },
     filters: {
@@ -89,7 +107,8 @@
     align-items: center;
   }
 
-  .vuestic-color {
+  .vuestic-color,
+  .vuestic-slider {
     margin: 0 auto;
   }
 </style>
