@@ -21,7 +21,10 @@
                 <component
                   :is="item"
                   :color="selectedColor"
-                  :size="selectedSize">
+                  :size="selectedSize"
+                  :dot-size="dotSize"
+                  :circle-size="dotSize"
+                  :rhombus-size="dotSize">
                 </component>
               </div>
               <span>{{item | displayName}}</span>
@@ -62,6 +65,9 @@
     computed: {
       groups () {
         return this.groupItems(Object.keys(spinners), this.config.group)
+      },
+      dotSize () {
+        return Math.round(this.selectedSize / 4)
       }
     },
     filters: {
