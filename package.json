@@ -4,7 +4,6 @@
   "description": "Vue.js admin template",
   "author": "smartapant <smartapant@gmail.com>",
   "private": false,
-
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
