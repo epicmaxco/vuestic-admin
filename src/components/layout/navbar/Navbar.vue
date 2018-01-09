@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar app-navbar navbar-toggleable-md">
     <div class="navbar-brand-container d-flex align-items-center justify-content-start">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="#/dashboard">
         <i class="i-vuestic"></i>
       </a>
     </div>
