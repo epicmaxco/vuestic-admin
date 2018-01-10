@@ -127,7 +127,7 @@ h4, .h4 {
  }
 
 .btn.btn-success {
-  @include theme-button-variant($white, theme-color("success"), $btn-border, $btn-box-success-shadow);
+  @include theme-button-variant($white, theme-color("primary"), $btn-border, $btn-box-success-shadow);
 }
 
 .btn.btn-dark {
@@ -263,6 +263,9 @@ h4, .h4 {
 
 //Tables
 .table-striped {
+  tbody tr:nth-of-type(odd) {
+    background-color: $striped-row-odd;
+  }
   tbody tr:nth-of-type(even) {
     background-color: $striped-row;
   }
@@ -282,6 +285,7 @@ h4, .h4 {
     border: none;
     vertical-align: middle !important;
     padding: .5rem;
+    border-top: solid $table-border-color;
   }
 
   .badge {
@@ -296,7 +300,7 @@ h4, .h4 {
     background-color: #fff1c8;
   }
 
-  .table-success {
+  .table-success, .table-success > td, .table-success > th {
     background-color: #c8fac6;
   }
 
@@ -325,6 +329,18 @@ th.sortable:hover {
 }
 
 //Badges
+@mixin badge-variant($bg) {
+  color: $white;
+  background-color: $bg;
+
+  &[href] {
+    @include hover-focus {
+      color: $white;
+      text-decoration: none;
+      background-color: darken($bg, 10%);
+    }
+  }
+}
 
 .badge {
   min-width: $badge-min-width;
@@ -332,6 +348,7 @@ th.sortable:hover {
   font-weight: bold;
   text-transform: uppercase;
   font-size: .625rem;
+  color: $white;
   letter-spacing: .0625rem;
 }
 
@@ -401,5 +418,51 @@ th.sortable:hover {
 
   .alert-close {
     color: $brand-info;
+  }
+}
+
+@function get-alert-def($type, $csspart) {
+  @if $csspart == 'bg' {
+    @if $type == 'success' {
+      @return $alert-success-bg;
+    } @else if $type == 'danger' {
+      @return $alert-danger-bg;
+    } @else if $type == 'warning' {
+      @return $alert-warning-bg;
+    } @else if $type == 'info' {
+      @return $alert-info-bg;
+    }
+
+    @return theme-color-level($type, -10);
+  } @else if $csspart == 'border' {
+    @if $type == 'success' {
+      @return $alert-success-border;
+    } @else if $type == 'danger' {
+      @return $alert-danger-border;
+    } @else if $type == 'warning' {
+      @return $alert-warning-border;
+    } @else if $type == 'info' {
+      @return $alert-info-border;
+    }
+
+    @return theme-color-level($type, -9);
+  } @else if $csspart == 'color' {
+    @if $type == 'success' {
+      @return $alert-success-text;
+    } @else if $type == 'danger' {
+      @return $alert-danger-text;
+    } @else if $type == 'warning' {
+      @return $alert-warning-text;
+    } @else if $type == 'info' {
+      @return $alert-info-text;
+    }
+
+    @return theme-color-level($type, 6);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .alert-#{$color} {
+    @include alert-variant(get-alert-def($color, 'bg'), get-alert-def($color, 'border'), get-alert-def($color, 'color'));
   }
 }

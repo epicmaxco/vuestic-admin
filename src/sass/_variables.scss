@@ -22,7 +22,7 @@ $brand-primary: $vue-green !default;
 $brand-danger: $theme-red;
 $brand-warning: $theme-orange;
 $brand-info: $theme-blue;
-$brand-success: $theme-violet;
+$brand-success: $vue-green;
 $light-gray2: #eff4f5;
 $dark-gray: #282828;
 $gray: #adb3b9;
@@ -273,7 +273,9 @@ $progress-bar-width-thick: 1.5rem;
 
 //Tables
 $table-bg-accent: $white;
-$table-border-width: $white;
+$table-border-width: 0;
+$table-border-color: #eceeef;
+$striped-row-odd: $white;
 $striped-row: $light-gray2;
 $state-success-bg: #c8fac6;
 $state-danger-bg: #ffcece;
@@ -284,10 +286,10 @@ $state-info-bg: #dcf1ff;
 $badge-padding-y: 0.28rem;
 $badge-min-width: 5rem;
 $badge-font-size: 0.7rem;
-$badge-success-bg: $brand-primary;
-$badge-warning-bg: #f7cc36;
-$badge-danger-bg: #e34a4a;
-$badge-info-bg: #4ab2e3;
+$badge-success-bg: $brand-success;
+$badge-warning-bg: $theme-orange;
+$badge-danger-bg: $theme-red;
+$badge-info-bg: $theme-blue;
 
 //Alerts
 $alert-padding-x:             1.25rem !default;
