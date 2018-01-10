@@ -125,7 +125,7 @@ h4, .h4 {
  }
 
 .btn.btn-success {
-  @include theme-button-variant($white, theme-color("success"), $btn-border, $btn-box-success-shadow);
+  @include theme-button-variant($white, theme-color("primary"), $btn-border, $btn-box-success-shadow);
 }
 
 .btn.btn-dark {
@@ -283,6 +283,7 @@ h4, .h4 {
     border: none;
     vertical-align: middle !important;
     padding: .5rem;
+    border-top: solid $table-border-color;
   }
 
   .badge {
