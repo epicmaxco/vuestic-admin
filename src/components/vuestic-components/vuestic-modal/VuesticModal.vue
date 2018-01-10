@@ -108,11 +108,11 @@
     methods: {
       ok () {
         this.$emit('ok')
-        this.show = false
+        this.okToClose ? this.show = false : null
       },
       cancel () {
         this.$emit('cancel')
-        void(this.okToClose ? this.show = false : null)
+        this.show = false
       },
       clickMask () {
         if (!this.force) {
