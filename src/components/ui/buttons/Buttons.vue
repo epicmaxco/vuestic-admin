@@ -93,7 +93,7 @@
               <button class="btn btn-primary dropdown-toggle theme-toggle " type="button" id="dropdownMenuButton"
                       data-toggle="dropdown">
                 DROPDOWN
-                <i class="ion-chevron-down arrow-down"></i>
+                <i class="ion-ios-arrow-down arrow-down"></i>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <div class="dropdown-menu-content">
