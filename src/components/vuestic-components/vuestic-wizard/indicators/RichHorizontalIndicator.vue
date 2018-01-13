@@ -1,8 +1,8 @@
 <template>
     <ul class="wizard-steps horizontal-steps rich-steps" :class="{'completed': completed}">
       <li class="wizard-step" :class="{'active': currentStep >= index, 'current': currentStep === index}" :style="{ width: 100/steps.length + '%' }" v-for="(step, index) of steps">
-        <i class="ion ion-md-close step-icon icon-cross"></i>
-        <i class="ion ion-md-checkmark step-icon icon-check"></i>
+        <i class="step-icon icon-cross" :class="pending(step)"></i>
+        <i class="step-icon icon-check" :class="success(step)"></i>
         <span class="wizard-step-label ellipsis">{{step.label}}</span>
         <span class="wizard-step-line"></span>
       </li>
@@ -24,6 +24,34 @@
       completed: {
         type: Boolean,
         default: false
+      }
+    },
+    methods: {
+      pending (step) {
+        if (step.hasOwnProperty('icons')) {
+          if (step.icons.hasOwnProperty('both')) {
+            return step.icons.both
+          } else if (step.icons.hasOwnProperty('pending')) {
+            return step.icons.pending
+          } else {
+            return 'ion ion-md-close'
+          }
+        } else {
+          return 'ion ion-md-close'
+        }
+      },
+      success (step) {
+        if (step.hasOwnProperty('icons')) {
+          if (step.icons.hasOwnProperty('both')) {
+            return step.icons.both
+          } else if (step.icons.hasOwnProperty('success')) {
+            return step.icons.success
+          } else {
+            return 'ion ion-md-checkmark'
+          }
+        } else {
+          return 'ion ion-md-checkmark'
+        }
       }
     }
   }
