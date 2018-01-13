@@ -29,8 +29,8 @@
     methods: {
       pending (step) {
         if (step.hasOwnProperty('icons')) {
-          if (step.icons.hasOwnProperty('both')) {
-            return step.icons.both
+          if ((typeof step.icons) === 'string') {
+            return step.icons
           } else if (step.icons.hasOwnProperty('pending')) {
             return step.icons.pending
           } else {
@@ -42,8 +42,8 @@
       },
       success (step) {
         if (step.hasOwnProperty('icons')) {
-          if (step.icons.hasOwnProperty('both')) {
-            return step.icons.both
+          if ((typeof step.icons) === 'string') {
+            return step.icons
           } else if (step.icons.hasOwnProperty('success')) {
             return step.icons.success
           } else {

@@ -284,9 +284,7 @@
           {
             label: this.$t('forms.wizard.stepOne'),
             slot: 'page1',
-            icons: {
-              both: 'ion ion-md-information-circle'
-            },
+            icons: 'ion ion-md-information-circle',
             onNext: () => {
               this.validateFormField('hrName')
             },
@@ -311,9 +309,7 @@
           {
             label: this.$t('forms.wizard.stepThree'),
             slot: 'page3',
-            icons: {
-              both: 'ion ion-logo-tux'
-            }
+            icons: 'ion ion-logo-tux'
           }
         ]
       },
