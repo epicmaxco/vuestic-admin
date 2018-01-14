@@ -17,7 +17,7 @@
       <div class="form-check abc-checkbox abc-checkbox-primary">
         <input class="form-check-input" id="checkbox1" type="checkbox" checked>
         <label class="form-check-label" for="checkbox1">
-          <span class="abc-label-text">{{'auth.agree' | translate}} <router-link to="">Terms of Use.</router-link></span>
+          <span class="abc-label-text">{{'auth.agree' | translate}} <router-link to="">{{'auth.termsOfUse' | translate}}</router-link></span>
         </label>
       </div>
       <div class="d-flex flex-column flex-lg-row align-items-center justify-content-between down-container">
