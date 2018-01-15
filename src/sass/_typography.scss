@@ -7,18 +7,6 @@ h1, h2, h3, h4, h5, h6, strong, b {
   font-style: oblique;
 }
 
-.vue-green-text {
-  color: $vue-green;
-}
-
-.vue-clickable-text {
-  color: $vue-green;
-  &:hover {
-    color: lighten($vue-green, 10%);
-    cursor: pointer;
-  }
-}
-
 .vue-highlighted-text {
   background-color: $vue-turquoise;
   padding: 2px 1px 1px 2px;
