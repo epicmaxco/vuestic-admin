@@ -17,7 +17,8 @@ export default {
       component: lazyLoading('auth/login/Login'),
       meta: {
         default: false,
-        title: 'menu.login'
+        title: 'menu.login',
+        newWindow: true
       }
     },
     {
@@ -26,7 +27,8 @@ export default {
       component: lazyLoading('auth/signup/Signup'),
       meta: {
         default: false,
-        title: 'menu.signUp'
+        title: 'menu.signUp',
+        newWindow: true
       }
     }
   ]

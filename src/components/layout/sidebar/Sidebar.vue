@@ -3,10 +3,12 @@
     <vuestic-scrollbar>
       <ul class="sidebar-menu">
         <li v-for="(item, index) in menuItems" :key="item.name">
-          <router-link :to="item.path"
-                       class="sidebar-link"
-                       @click="toggleMenuItem(item)"
-                       v-if="item.path">
+          <router-link
+            class="sidebar-link"
+            :to="item.path"
+            :target="item.meta.newWindow ? '_blank' : '_self'"
+            @click="toggleMenuItem(item)"
+            v-if="item.path">
             <i class="sidebar-menu-item-icon" v-bind:class="item.meta.iconClass"></i>
             {{item.meta.title | translate}}
           </router-link>
@@ -22,7 +24,10 @@
           <expanding>
             <ul class="sidebar-submenu in" v-show="item.meta.expanded">
               <li v-for="childItem in item.children" :key="childItem.name">
-                <router-link :to="childItem.path" class="sidebar-link sidebar-submenu-link">
+                <router-link
+                  class="sidebar-link sidebar-submenu-link"
+                  :to="childItem.path"
+                  :target="childItem.meta.newWindow ? '_blank' : '_self'">
                   {{childItem.meta.title | translate}}
                 </router-link>
               </li>
