@@ -9,12 +9,10 @@ h1, h2, h3, h4, h5, h6, strong, b {
 
 .vue-highlighted-text {
   background-color: $vue-turquoise;
-  padding: 2px 1px 1px 2px;
 }
 
-.vue-selected-text {
+.vue-selected-text, ::selection {
   background-color: $vue-green;
-  padding: 2px 1px 2px 2px;
   color: $white;
 }
 
