@@ -279,7 +279,8 @@ h4, .h4 {
     text-transform: uppercase;
   }
 
-  td, th {
+  td, th, thead th, thead td {
+    border: none;
     vertical-align: middle !important;
     padding: .5rem;
   }
