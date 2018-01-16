@@ -20,7 +20,7 @@
 </template>
 
 <script>
-  import StickyScroll from '../../../directives/StickyScroll'
+  import StickyScroll from 'directives/StickyScroll'
 
   export default {
     name: 'vuestic-chat',
