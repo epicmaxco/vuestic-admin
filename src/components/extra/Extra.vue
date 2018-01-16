@@ -70,27 +70,15 @@
 </template>
 
 <script>
-  import VuesticTabs from '../../components/vuestic-components/vuestic-tabs/VuesticTabs.vue'
-  import VuesticProfileCard from '../../components/vuestic-components/vuestic-profile-card/VuesticProfileCard.vue'
-  import VuesticAlert from '../../components/vuestic-components/vuestic-alert/VuesticAlert'
-  import VuesticChat from '../../components/vuestic-components/vuestic-chat/VuesticChat'
-  import VuesticFeed from '../vuestic-components/vuestic-feed/VuesticFeed.vue'
-  import VuesticSocialNews from '../vuestic-components/vuestic-social-news/VuesticSocialNews.vue'
-  import OverviewTab from '../dashboard/features-tab/FeaturesTab.vue'
-  import SetupProfileTab from '../dashboard/setup-profile-tab/SetupProfileTab.vue'
+  import OverviewTab from 'components/dashboard/features-tab/FeaturesTab.vue'
+  import SetupProfileTab from 'components/dashboard/setup-profile-tab/SetupProfileTab.vue'
   import chartData from 'data/charts/LineChartData'
 
   export default {
     name: 'extra',
     components: {
       SetupProfileTab,
-      OverviewTab,
-      VuesticSocialNews,
-      VuesticFeed,
-      VuesticTabs,
-      VuesticProfileCard,
-      VuesticAlert,
-      VuesticChat
+      OverviewTab
     },
     data () {
       return {
