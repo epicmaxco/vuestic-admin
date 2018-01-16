@@ -43,13 +43,11 @@
 <script>
   import { mapGetters, mapActions } from 'vuex'
   import Expanding from '../../../../node_modules/vue-bulma-expanding/src/Expanding'
-  import VuesticScrollbar from '../../vuestic-components/vuestic-scrollbar/VuesticScrollbar'
   export default {
     name: 'sidebar',
 
     components: {
-      Expanding,
-      VuesticScrollbar
+      Expanding
     },
     methods: {
       ...mapActions({

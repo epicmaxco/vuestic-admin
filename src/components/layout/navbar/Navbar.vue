@@ -74,7 +74,7 @@
         </div>
       </div>
     </div>
-    <modal ref="languageModal"
+    <vuestic-modal ref="languageModal"
      v-bind:small="true" :okClass="'none'" :cancelClass="'none'">
       <div slot="title">{{'user.language' | translate}}</div>
       <div class="text-center">
@@ -86,7 +86,7 @@
                 {{'language.spanish' | translate}}
               </button>
       </div>
-    </modal>
+    </vuestic-modal>
   </nav>
 </template>
 
@@ -94,12 +94,10 @@
   import Vue from 'vue'
   import { mapGetters, mapActions } from 'vuex'
   import Dropdown from 'directives/Dropdown'
-  import Modal from '../../vuestic-components/vuestic-modal/VuesticModal'
+  
   export default {
     name: 'navbar',
-    components: {
-      Modal
-    },
+
     directives: {
       dropdown: Dropdown
     },
