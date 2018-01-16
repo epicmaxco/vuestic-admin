@@ -272,18 +272,11 @@
 </template>
 
 <script>
-  import VuesticSwitch from '../../../components/vuestic-components/vuestic-switch/VuesticSwitch'
-  import VuesticSimpleSelect from '../../../components/vuestic-components/vuestic-simple-select/VuesticSimpleSelect'
-  import VuesticMultiSelect from '../../../components/vuestic-components/vuestic-multi-select/VuesticMultiSelect'
-  import CountriesList from '../CountriesList'
+  import CountriesList from 'data/CountriesList'
 
   export default {
     name: 'form-elements',
-    components: {
-      VuesticSwitch,
-      VuesticSimpleSelect,
-      VuesticMultiSelect
-    },
+
     computed: {
       isSuccessfulEmailValid () {
         let isValid = false
