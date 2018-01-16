@@ -14,9 +14,9 @@
           <label class="control-label" for="password">{{'auth.password' | translate}}</label><i class="bar"></i>
         </div>
       </div>
-      <div class="abc-checkbox abc-checkbox-primary">
-        <input id="checkbox1" type="checkbox" checked>
-        <label for="checkbox1">
+      <div class="form-check abc-checkbox abc-checkbox-primary">
+        <input class="form-check-input" id="checkbox1" type="checkbox" checked>
+        <label class="form-check-label" for="checkbox1">
           <span class="abc-label-text">{{'auth.agree' | translate}} <router-link to="">{{'auth.termsOfUse' | translate}}</router-link></span>
         </label>
       </div>
@@ -39,6 +39,7 @@
 <style lang="scss">
   @import '../../../sass/variables';
   @import '../../../../node_modules/bootstrap/scss/mixins/breakpoints';
+  @import "../../../../node_modules/bootstrap/scss/functions";
   @import '../../../../node_modules/bootstrap/scss/variables';
 
   .signup {

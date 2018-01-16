@@ -1,28 +1,28 @@
 // Colors //
-$gray-light : #acb5be !default;
-$light-gray : #eee;
+$gray-light: #acb5be !default;
+$light-gray: #eee;
 $lighter-gray: #ddd;
 $charcoal: #555;
-$darkest-gray : #333;
-$almost-black : #161616;
-$vue-green : #4ae387;
+$darkest-gray: #333;
+$almost-black: #161616;
+$vue-green: #4ae387;
 $light-green: #c8f9c5;
 $light-blue: #dcf1ff;
 $light-yellow: #fff1c8;
 $light-pink: #ffcece;
-$vue-darkest-blue : #34495e;
+$vue-darkest-blue: #34495e;
 $vue-turquoise: #dbf9e7;
-$white : #fff;
+$white: #fff;
 $theme-red: #e34a4a;
 $theme-orange: #f7cc36;
 $theme-blue: #4ab2e3;
 $theme-violet: #db76df;
 $theme-pale: #d9d9d9;
-$brand-primary : $vue-green !default;
+$brand-primary: $vue-green !default;
 $brand-danger: $theme-red;
 $brand-warning: $theme-orange;
 $brand-info: $theme-blue;
-$brand-success: $theme-violet;
+$brand-success: $vue-green;
 $light-gray2: #eff4f5;
 $dark-gray: #282828;
 $gray: #adb3b9;
@@ -38,6 +38,18 @@ $colors-map: (
   black: black,
   white: white,
   lighter-gray: $lighter-gray
+);
+
+$theme-colors: (
+  "primary":    $brand-primary,
+  "secondary":  $white,
+  "success":    $light-green,
+  "info":       $brand-info,
+  "warning":    $brand-warning,
+  "danger":     $brand-danger,
+  "light":      $light-gray2,
+  "dark":       $almost-black,
+  "pale":       $theme-pale
 );
 
 // Layout //
@@ -252,7 +264,7 @@ $vuestic-switch-border-size: 0.125rem;
 //Progress Bars
 $progress-bar-value-font-size: 0.6875rem;
 $progress-bar-circle-diameter: 3.125rem;
-$progress-bar-circle-bw: .125rem;
+$progress-bar-circle-bw: .0678rem;
 $progress-bar-circle-overlay-diameter: calc(#{$progress-bar-circle-diameter} - 2*#{$progress-bar-circle-bw});
 $progress-bar-vertical-height: 5.75rem;
 $progress-bar-width-thin: .125rem;
@@ -261,7 +273,9 @@ $progress-bar-width-thick: 1.5rem;
 
 //Tables
 $table-bg-accent: $white;
-$table-border-width: $white;
+$table-border-width: 0;
+$table-border-color: #eceeef;
+$striped-row-odd: $white;
 $striped-row: $light-gray2;
 $state-success-bg: #c8fac6;
 $state-danger-bg: #ffcece;
@@ -272,10 +286,10 @@ $state-info-bg: #dcf1ff;
 $badge-padding-y: 0.28rem;
 $badge-min-width: 5rem;
 $badge-font-size: 0.7rem;
-$badge-success-bg: $brand-primary;
-$badge-warning-bg: #f7cc36;
-$badge-danger-bg: #e34a4a;
-$badge-info-bg: #4ab2e3;
+$badge-success-bg: $brand-success;
+$badge-warning-bg: $theme-orange;
+$badge-danger-bg: $theme-red;
+$badge-info-bg: $theme-blue;
 
 //Alerts
 $alert-padding-x:             1.25rem !default;

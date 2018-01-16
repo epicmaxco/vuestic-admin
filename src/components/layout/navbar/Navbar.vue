@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar app-navbar navbar-toggleable-md">
     <div class="navbar-brand-container d-flex align-items-center justify-content-start">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="#/dashboard">
         <i class="i-vuestic"></i>
       </a>
     </div>
@@ -131,6 +131,7 @@
 <style lang="scss">
   @import "../../../sass/_variables.scss";
   @import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+  @import "../../../../node_modules/bootstrap/scss/functions";
   @import "../../../../node_modules/bootstrap/scss/variables";
 
   .navbar.app-navbar {

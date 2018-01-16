@@ -53,7 +53,7 @@ h4, .h4 {
   cursor: pointer;
 
   &.dropdown-toggle.theme-toggle {
-    @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-border-radius);
+    @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-line-height, $btn-border-radius);
   }
 
   &:focus, &:active, &.focus {
@@ -62,84 +62,84 @@ h4, .h4 {
 }
 
 .btn.btn-sm {
-  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-base, $btn-border-radius);
+  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-smaller, $btn-line-height-sm, $btn-border-radius);
 }
 
 .btn.btn-micro {
-  @include button-size($btn-padding-y-micro, $btn-padding-x-micro, $font-size-smaller, $btn-border-radius);
+  @include button-size($btn-padding-y-micro, $btn-padding-x-micro, $font-size-smaller, $btn-line-height-sm, $btn-border-radius);
 }
 
 .btn.btn-primary {
- @include theme-button-variant($white, $btn-primary-bg, $btn-border, $btn-box-shadow);
+ @include theme-button-variant($white, theme-color("primary"), $btn-border, $btn-box-shadow);
 
   &.hover {
-    background-color: lighten($btn-primary-bg, 10%) !important;
+    background-color: lighten(theme-color("primary"), 10%) !important;
     color: $white;
   }
 
   &.focus {
-    background-color: darken($btn-primary-bg, 15%);
+    background-color: darken(theme-color("primary"), 15%);
     color: $white;
   }
 }
 
 .btn.btn-secondary {
-  @include theme-button-variant($white, $btn-primary-bg, $btn-secondary-theme-border, none);
+  @include theme-button-variant($white, theme-color("primary"), $btn-secondary-theme-border, none);
 
-  color: $btn-primary-bg;
+  color: theme-color("primary");
   border: $btn-secondary-theme-border;
   background-color: $white;
 
   &[disabled], &[disabled]:hover {
     background-color: $white;
-    color: $btn-primary-bg;
-    border: 2px solid $btn-primary-bg;
+    color: theme-color("primary");
+    border: 2px solid theme-color("primary");
   }
 
   &:hover {
-    border: 2px solid lighten($btn-primary-bg, 10%);
+    border: 2px solid lighten(theme-color("primary"), 10%);
   }
 
   &.hover {
-    border: 2px solid lighten($btn-primary-bg, 10%) !important;
-    background-color: lighten($btn-primary-bg, 10%) !important;
+    border: 2px solid lighten(theme-color("primary"), 10%) !important;
+    background-color: lighten(theme-color("primary"), 10%) !important;
     color: $white;
   }
 
   &:active, &:focus, &.focus {
-    border: 2px solid darken($btn-primary-bg, 15%);
-    background-color: darken($btn-primary-bg, 15%);
+    border: 2px solid darken(theme-color("primary"), 15%);
+    background-color: darken(theme-color("primary"), 15%);
     color: $white;
   }
 
 }
 
 .btn.btn-danger {
-  @include theme-button-variant($white, $btn-danger-bg, $btn-border, $btn-box-danger-shadow);
+  @include theme-button-variant($white, theme-color("danger"), $btn-border, $btn-box-danger-shadow);
 }
 
 .btn.btn-warning {
-  @include theme-button-variant($white, $btn-warning-bg, $btn-border, $btn-box-warning-shadow);
+  @include theme-button-variant($white, theme-color("warning"), $btn-border, $btn-box-warning-shadow);
 }
 
 .btn.btn-info {
-  @include theme-button-variant($white, $btn-info-bg, $btn-border, $btn-box-info-shadow);
+  @include theme-button-variant($white, theme-color("info"), $btn-border, $btn-box-info-shadow);
  }
 
 .btn.btn-success {
-  @include theme-button-variant($white, $btn-success-bg, $btn-border, $btn-box-success-shadow);
+  @include theme-button-variant($white, theme-color("primary"), $btn-border, $btn-box-success-shadow);
 }
 
 .btn.btn-dark {
-  @include theme-button-variant($white, $btn-dark-bg, $btn-border, $btn-box-dark-shadow);
+  @include theme-button-variant($white, theme-color("dark"), $btn-border, $btn-box-dark-shadow);
 }
 
 .btn.btn-pale {
-  @include theme-button-variant($white, $btn-pale-bg, $btn-border, $btn-box-pale-shadow);
+  @include theme-button-variant($white, theme-color("pale"), $btn-border, $btn-box-pale-shadow);
   &:hover {
-    background-color: lighten($btn-pale-bg, 5%);
+    background-color: lighten(theme-color("pale"), 5%);
     &:focus, &:active, &.active {
-      background-color: darken($btn-pale-bg, 15%);
+      background-color: darken(theme-color("pale"), 15%);
     }
   }
 }
@@ -231,7 +231,6 @@ h4, .h4 {
   flex-direction: row;
   align-items: center;
   height: $dropdown-item-height;
-  padding: $dropdown-item-padding-y $dropdown-item-padding-x;
   font-size: $font-size-sm;
 }
 
@@ -264,6 +263,9 @@ h4, .h4 {
 
 //Tables
 .table-striped {
+  tbody tr:nth-of-type(odd) {
+    background-color: $striped-row-odd;
+  }
   tbody tr:nth-of-type(even) {
     background-color: $striped-row;
   }
@@ -283,6 +285,7 @@ h4, .h4 {
     border: none;
     vertical-align: middle !important;
     padding: .5rem;
+    border-top: solid $table-border-color;
   }
 
   .badge {
@@ -297,7 +300,7 @@ h4, .h4 {
     background-color: #fff1c8;
   }
 
-  .table-success {
+  .table-success, .table-success > td, .table-success > th {
     background-color: #c8fac6;
   }
 
@@ -326,6 +329,18 @@ th.sortable:hover {
 }
 
 //Badges
+@mixin badge-variant($bg) {
+  color: $white;
+  background-color: $bg;
+
+  &[href] {
+    @include hover-focus {
+      color: $white;
+      text-decoration: none;
+      background-color: darken($bg, 10%);
+    }
+  }
+}
 
 .badge {
   min-width: $badge-min-width;
@@ -333,6 +348,7 @@ th.sortable:hover {
   font-weight: bold;
   text-transform: uppercase;
   font-size: .625rem;
+  color: $white;
   letter-spacing: .0625rem;
 }
 
@@ -402,5 +418,51 @@ th.sortable:hover {
 
   .alert-close {
     color: $brand-info;
+  }
+}
+
+@function get-alert-def($type, $csspart) {
+  @if $csspart == 'bg' {
+    @if $type == 'success' {
+      @return $alert-success-bg;
+    } @else if $type == 'danger' {
+      @return $alert-danger-bg;
+    } @else if $type == 'warning' {
+      @return $alert-warning-bg;
+    } @else if $type == 'info' {
+      @return $alert-info-bg;
+    }
+
+    @return theme-color-level($type, -10);
+  } @else if $csspart == 'border' {
+    @if $type == 'success' {
+      @return $alert-success-border;
+    } @else if $type == 'danger' {
+      @return $alert-danger-border;
+    } @else if $type == 'warning' {
+      @return $alert-warning-border;
+    } @else if $type == 'info' {
+      @return $alert-info-border;
+    }
+
+    @return theme-color-level($type, -9);
+  } @else if $csspart == 'color' {
+    @if $type == 'success' {
+      @return $alert-success-text;
+    } @else if $type == 'danger' {
+      @return $alert-danger-text;
+    } @else if $type == 'warning' {
+      @return $alert-warning-text;
+    } @else if $type == 'info' {
+      @return $alert-info-text;
+    }
+
+    @return theme-color-level($type, 6);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .alert-#{$color} {
+    @include alert-variant(get-alert-def($color, 'bg'), get-alert-def($color, 'border'), get-alert-def($color, 'color'));
   }
 }

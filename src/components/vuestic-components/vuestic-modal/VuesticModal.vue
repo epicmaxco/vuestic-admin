@@ -124,6 +124,7 @@
 
 <style lang="scss" scoped>
   @import "../../../sass/_variables.scss";
+  @import "../../../../node_modules/bootstrap/scss/functions";
   @import "../../../../node_modules/bootstrap/scss/variables";
 
   // For Transitioning
@@ -174,6 +175,6 @@
   }
 
   .modal-dialog {
-    box-shadow: $modal-content-sm-up-box-shadow;
+    box-shadow: $modal-content-box-shadow-sm-up;
   }
 </style>

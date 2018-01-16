@@ -31,6 +31,7 @@
 
 <style lang="scss" scoped>
   @import "../../../../sass/_variables.scss";
+  @import "../../../../../node_modules/bootstrap/scss/functions";
   @import "../../../../../node_modules/bootstrap/scss/variables";
   @import "../../../../../node_modules/bootstrap/scss/mixins/breakpoints";
 
@@ -126,7 +127,7 @@
       .wizard-step-indicator{
         background-color: $brand-primary;
       }
-      
+
       .wizard-step-line:not(.completed-line), .completed & .wizard-step-line {
         background-color: $brand-primary;
       }

@@ -165,56 +165,27 @@
             <div class="row">
               <div class="col-md-3">
                 <fieldset>
-                  <div class="abc-checkbox abc-checkbox-primary">
-                    <input id="checkbox1" type="checkbox">
-                    <label for="checkbox1">
+                  <div class="form-check abc-checkbox abc-checkbox-primary">
+                    <input class="form-check-input" id="checkbox1" type="checkbox">
+                    <label class="form-check-label" for="checkbox1">
                       <span class="abc-label-text">{{'forms.controls.subscribe' | translate}}</span>
                     </label>
                   </div>
-                  <div class="abc-checkbox abc-checkbox-primary">
-                    <input id="checkbox2" type="checkbox" checked>
-                    <label for="checkbox2">
+                  <div class="form-check abc-checkbox abc-checkbox-primary">
+                    <input class="form-check-input" id="checkbox2" type="checkbox" checked>
+                    <label class="form-check-label" for="checkbox2">
                       <span class="abc-label-text">{{'forms.controls.subscribe' | translate}}</span>
                     </label>
                   </div>
-                  <div class="abc-checkbox abc-checkbox-primary">
-                    <input id="checkbox3" type="checkbox" disabled>
-                    <label for="checkbox3">
+                  <div class="form-check abc-checkbox abc-checkbox-primary">
+                    <input class="form-check-input" id="checkbox3" type="checkbox" disabled>
+                    <label class="form-check-label" for="checkbox3">
                       <span class="abc-label-text">{{'forms.controls.subscribe' | translate}}</span>
                     </label>
                   </div>
-                  <div class="abc-checkbox abc-checkbox-primary">
-                    <input id="checkbox4" type="checkbox" disabled checked>
-                    <label for="checkbox4">
-                      <span class="abc-label-text">{{'forms.controls.subscribe' | translate}}</span>
-                    </label>
-                  </div>
-                </fieldset>
-              </div>
-
-              <div class="col-md-3">
-                <fieldset>
-                  <div class="abc-checkbox abc-checkbox-primary abc-checkbox-circle">
-                    <input id="checkbox7" type="checkbox">
-                    <label for="checkbox7">
-                      <span class="abc-label-text">{{'forms.controls.subscribe' | translate}}</span>
-                    </label>
-                  </div>
-                  <div class="abc-checkbox abc-checkbox-primary abc-checkbox-circle">
-                    <input id="checkbox8" type="checkbox" checked>
-                    <label for="checkbox8">
-                      <span class="abc-label-text">{{'forms.controls.subscribe' | translate}}</span>
-                    </label>
-                  </div>
-                  <div class="abc-checkbox abc-checkbox-primary abc-checkbox-circle">
-                    <input id="checkbox9" type="checkbox" disabled>
-                    <label for="checkbox9">
-                      <span class="abc-label-text">{{'forms.controls.subscribe' | translate}}</span>
-                    </label>
-                  </div>
-                  <div class="abc-checkbox abc-checkbox-primary abc-checkbox-circle">
-                    <input id="checkbox10" type="checkbox" checked disabled>
-                    <label for="checkbox10">
+                  <div class="form-check abc-checkbox abc-checkbox-primary">
+                    <input class="form-check-input" id="checkbox4" type="checkbox" disabled checked>
+                    <label class="form-check-label" for="checkbox4">
                       <span class="abc-label-text">{{'forms.controls.subscribe' | translate}}</span>
                     </label>
                   </div>
@@ -223,32 +194,61 @@
 
               <div class="col-md-3">
                 <fieldset>
-                  <div class="radio abc-radio abc-radio-primary">
-                    <input type="radio" name="radio1" id="radio1" value="option1" checked>
-                    <label for="radio1">
+                  <div class="form-check abc-checkbox abc-checkbox-primary abc-checkbox-circle">
+                    <input class="form-check-input" id="checkbox7" type="checkbox">
+                    <label class="form-check-label" for="checkbox7">
+                      <span class="abc-label-text">{{'forms.controls.subscribe' | translate}}</span>
+                    </label>
+                  </div>
+                  <div class="form-check abc-checkbox abc-checkbox-primary abc-checkbox-circle">
+                    <input class="form-check-input" id="checkbox8" type="checkbox" checked>
+                    <label class="form-check-label" for="checkbox8">
+                      <span class="abc-label-text">{{'forms.controls.subscribe' | translate}}</span>
+                    </label>
+                  </div>
+                  <div class="form-check abc-checkbox abc-checkbox-primary abc-checkbox-circle">
+                    <input class="form-check-input" id="checkbox9" type="checkbox" disabled>
+                    <label class="form-check-label" for="checkbox9">
+                      <span class="abc-label-text">{{'forms.controls.subscribe' | translate}}</span>
+                    </label>
+                  </div>
+                  <div class="form-check abc-checkbox abc-checkbox-primary abc-checkbox-circle">
+                    <input class="form-check-input" id="checkbox10" type="checkbox" checked disabled>
+                    <label class="form-check-label" for="checkbox10">
+                      <span class="abc-label-text">{{'forms.controls.subscribe' | translate}}</span>
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div class="col-md-3">
+                <fieldset>
+                  <div class="form-check radio abc-radio abc-radio-primary">
+                    <input class="form-check-input" type="radio" name="radio1" id="radio1" value="option1" checked>
+                    <label class="form-check-label" for="radio1">
                       <span class="abc-label-text">{{'forms.controls.radio' | translate}}</span>
                     </label>
                   </div>
 
-                  <div class="radio abc-radio abc-radio-primary">
-                    <input type="radio" name="radio1" id="radio2" value="option2">
-                    <label for="radio2">
+                  <div class="form-check radio abc-radio abc-radio-primary">
+                    <input class="form-check-input" type="radio" name="radio1" id="radio2" value="option2">
+                    <label class="form-check-label" for="radio2">
                       <span class="abc-label-text">{{'forms.controls.radio' | translate}}</span>
                     </label>
                   </div>
                 </fieldset>
 
                 <fieldset>
-                  <div class="radio abc-radio abc-radio-primary">
-                    <input type="radio" name="radio3" id="radio3" value="option3" disabled>
-                    <label for="radio3">
+                  <div class="form-check radio abc-radio abc-radio-primary">
+                    <input class="form-check-input" type="radio" name="radio3" id="radio3" value="option3" disabled>
+                    <label class="form-check-label" for="radio3">
                       <span class="abc-label-text">{{'forms.controls.radioDisabled' | translate}}</span>
                     </label>
                   </div>
 
-                  <div class="radio abc-radio abc-radio-primary">
-                    <input type="radio" name="radio4" id="radio4" value="option4" checked disabled>
-                    <label for="radio4">
+                  <div class="form-check radio abc-radio abc-radio-primary">
+                    <input class="form-check-input" type="radio" name="radio4" id="radio4" value="option4" checked disabled>
+                    <label class="form-check-label" for="radio4">
                       <span class="abc-label-text">{{'forms.controls.radioDisabled' | translate}}</span>
                     </label>
                   </div>
