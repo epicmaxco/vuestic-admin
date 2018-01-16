@@ -2,7 +2,7 @@
   <div>
     <div class="row">
       <div class="col-xs-12 col-md-12">
-        <widget :headerText="$t('tables.basic')">
+        <vuestic-widget :headerText="$t('tables.basic')">
           <div class="table-responsive">
             <table class="table table-striped first-td-padding">
               <thead>
@@ -74,13 +74,13 @@
               </tbody>
             </table>
           </div>
-        </widget>
+        </vuestic-widget>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12">
-        <widget :headerText="$t('tables.styled')">
+        <vuestic-widget :headerText="$t('tables.styled')">
           <div class="table-responsive">
             <table class="table table-striped table-sm color-icon-label-table">
               <thead>
@@ -173,20 +173,20 @@
               </tbody>
             </table>
           </div>
-        </widget>
+        </vuestic-widget>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12">
-        <widget :headerText="$t('tables.advanced')">
-          <data-table :apiUrl="apiUrl"
+        <vuestic-widget :headerText="$t('tables.advanced')">
+          <vuestic-data-table :apiUrl="apiUrl"
                       :tableFields="tableFields"
                       :itemsPerPage="itemsPerPage"
                       :sortFunctions="sortFunctions"
                       :apiMode="apiMode"
-                      :paginationPath="paginationPath"></data-table>
-        </widget>
+                      :paginationPath="paginationPath"></vuestic-data-table>
+        </vuestic-widget>
       </div>
     </div>
 
@@ -194,21 +194,16 @@
 </template>
 
 <script>
-  import Widget from '../vuestic-components/vuestic-widget/VuesticWidget'
-  import DataTable from '../vuestic-components/vuestic-datatable/VuesticDataTable'
-  import BadgeColumn from './BadgeColumn.vue'
   import Vue from 'vue'
-  import FieldsDef from '../vuestic-components/vuestic-datatable/data/fields-definition'
-  import ItemsPerPageDef from '../vuestic-components/vuestic-datatable/data/items-per-page-definition'
+  import BadgeColumn from './BadgeColumn.vue'
+  import FieldsDef from 'components/vuestic-components/vuestic-datatable/data/fields-definition'
+  import ItemsPerPageDef from 'components/vuestic-components/vuestic-datatable/data/items-per-page-definition'
 
   Vue.component('badge-column', BadgeColumn)
 
   export default {
-    components: {
-      DataTable,
-      Widget
-    },
     name: 'Table',
+
     data () {
       return {
         apiUrl: 'https://vuetable.ratiw.net/api/users',
