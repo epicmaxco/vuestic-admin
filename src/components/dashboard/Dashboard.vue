@@ -35,10 +35,7 @@
 </template>
 
 <script>
-  import VuesticWidget from '../vuestic-components/vuestic-widget/VuesticWidget'
-  import VuesticAlert from '../vuestic-components/vuestic-alert/VuesticAlert'
   import DashboardInfoWidgets from './DashboardInfoWidgets'
-  import VuesticTabs from '../vuestic-components/vuestic-tabs/VuesticTabs.vue'
   import UsersMembersTab from './users-and-members-tab/UsersMembersTab.vue'
   import SetupProfileTab from './setup-profile-tab/SetupProfileTab.vue'
   import FeaturesTab from './features-tab/FeaturesTab.vue'
@@ -49,10 +46,7 @@
     name: 'dashboard',
     components: {
       DataVisualisationTab,
-      VuesticWidget,
-      VuesticAlert,
       DashboardInfoWidgets,
-      VuesticTabs,
       UsersMembersTab,
       SetupProfileTab,
       FeaturesTab,
