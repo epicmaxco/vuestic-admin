@@ -54,6 +54,7 @@
 
   export default {
     name: 'charts',
+
     data: function () {
       return {
         bubbleChartData: BubbleChartData,

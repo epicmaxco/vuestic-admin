@@ -98,11 +98,9 @@
 </template>
 
 <script>
-  import VuesticWidget from '../../vuestic-components/vuestic-widget/VuesticWidget.vue'
-
   export default {
-    components: {VuesticWidget},
     name: 'progress-bars',
+
     mounted () {
       let delay = 0
       for (let ref in this.$refs) {
@@ -117,6 +115,7 @@
         delay += this.valueAnimationInterval
       }
     },
+
     data () {
       return {
         valueAnimationInterval: 3000
