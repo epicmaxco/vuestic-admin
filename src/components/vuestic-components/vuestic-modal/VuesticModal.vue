@@ -102,13 +102,20 @@
       }
     },
     methods: {
+      listenKeyUp (event) {
+        if (event.key === 'Escape') {
+          this.cancel()
+        }
+      },
       ok () {
         this.$emit('ok')
         this.show = false
+        window.removeEventListener('keyup', this.listenKeyUp)
       },
       cancel () {
         this.$emit('cancel')
         this.show = false
+        window.removeEventListener('keyup', this.listenKeyUp)
       },
       clickMask () {
         if (!this.force) {
@@ -117,6 +124,7 @@
       },
       open () {
         this.show = true
+        window.addEventListener('keyup', this.listenKeyUp)
       }
     }
   }
