@@ -24,15 +24,15 @@
       </div>
     </div>
 
-    <vuestic-widget class="no-v-padding">
-      <vuestic-tabs class="tabs" :names="[$t('extra.chart'), $t('extra.setupProfile'), $t('extra.overview')]">
-        <div slot="Overview" class="d-flex justify-content-center">
+    <vuestic-widget :headerText="'extra.tabs.title' | translate" class="no-v-padding">
+      <vuestic-tabs class="tabs" :names="[$t('extra.tabs.maps'), $t('extra.tabs.setupProfile'), $t('extra.tabs.overview')]">
+        <div :slot="'extra.tabs.overview' | translate" class="d-flex justify-content-center">
           <overview-tab></overview-tab>
         </div>
-        <div slot="Chart" class="d-flex justify-content-center">
-          <vuestic-chart v-bind:data="chartData" type="line"></vuestic-chart>
+        <div :slot="'extra.tabs.maps' | translate" class="maps-tab">
+          <leaflet-map></leaflet-map>
         </div>
-        <div slot="Setup Profile" class="d-flex justify-content-center">
+        <div :slot="'extra.tabs.setupProfile' | translate" class="d-flex justify-content-center">
           <setup-profile-tab wizardType="simple"></setup-profile-tab>
         </div>
       </vuestic-tabs>
@@ -72,11 +72,12 @@
 <script>
   import OverviewTab from 'components/dashboard/features-tab/FeaturesTab.vue'
   import SetupProfileTab from 'components/dashboard/setup-profile-tab/SetupProfileTab.vue'
-  import chartData from 'data/charts/LineChartData'
+  import LeafletMap from 'components/maps/leaflet-maps/LeafletMap.vue'
 
   export default {
     name: 'extra',
     components: {
+      LeafletMap,
       SetupProfileTab,
       OverviewTab
     },
@@ -159,19 +160,22 @@
           {
             photoURL: 'http://i.imgur.com/ZXRIHfk.png'
           }
-        ],
-        chartData: chartData
+        ]
       }
     }
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .tabs {
     .overview-tab {
       .explore-row {
         display: none !important;
       }
+    }
+
+    .maps-tab {
+      height: 500px;
     }
   }
 

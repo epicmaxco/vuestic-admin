@@ -50,11 +50,14 @@
       "danger": "PELIGRO",
       "dangerMessage": "Cambiar algunas cosas e enviarlo de nuevo."
     },
+    "tabs": {
+      "title": "Tabs",
+      "maps": "Mapas",
+      "overview": "Visión de conjunto",
+      "setupProfile": "Perfil de Configuración"
+    },
     "chat": "Chat",
-    "chart": "Grafico",
-    "overview": "Visión de conjunto",
-    "profileCard": "Tarjeta de Perfil",
-    "setupProfile": "Perfil de Configuración"
+    "profileCard": "Tarjeta de Perfil"
   },
   "forms": {
     "controls": {

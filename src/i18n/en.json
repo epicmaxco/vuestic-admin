@@ -53,11 +53,14 @@
       "danger": "DANGER",
       "dangerMessage": "Change a few things up and try submitting again."
     },
+    "tabs": {
+      "title": "Tabs",
+      "maps": "Maps",
+      "overview": "Overview",
+      "setupProfile": "Setup Profile"
+    },
     "chat": "Chat",
-    "chart": "Chart",
-    "overview": "Overview",
-    "profileCard": "Profile Card",
-    "setupProfile": "Setup Profile"
+    "profileCard": "Profile Card"
   },
   "forms": {
     "controls": {
