@@ -94,7 +94,7 @@
   import Vue from 'vue'
   import { mapGetters, mapActions } from 'vuex'
   import Dropdown from 'directives/Dropdown'
-  
+
   export default {
     name: 'navbar',
 

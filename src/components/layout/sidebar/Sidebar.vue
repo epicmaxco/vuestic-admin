@@ -42,7 +42,7 @@
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
-  import Expanding from '../../../../node_modules/vue-bulma-expanding/src/Expanding'
+  import Expanding from 'vue-bulma-expanding/src/Expanding'
   export default {
     name: 'sidebar',
 
