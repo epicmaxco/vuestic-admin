@@ -69,7 +69,7 @@
       },
       okToClose: {
         type: Boolean,
-        default: true,
+        default: true
       }
     },
     data () {
@@ -108,7 +108,9 @@
     methods: {
       ok () {
         this.$emit('ok')
-        this.okToClose ? this.show = false : null
+        if (this.okToClose) {
+          this.show = false
+        }
       },
       cancel () {
         this.$emit('cancel')
