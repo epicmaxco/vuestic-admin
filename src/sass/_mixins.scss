@@ -14,9 +14,17 @@
     background-color: $hover-bg;
   }
 
-  &:active, &:focus, .active {
+  &.active,
+  &:active,
+  &:not([disabled]):not(.disabled):active,
+  &:not([disabled]):not(.disabled).active {
     background-color: $active-bg;
+    box-shadow: $shadow;
     color: $color;
+
+    &:focus {
+      box-shadow: $shadow;
+    }
   }
 
   &[disabled], &[disabled]:hover {

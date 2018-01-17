@@ -62,7 +62,7 @@ h4, .h4 {
 }
 
 .btn.btn-sm {
-  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-smaller, $btn-line-height-sm, $btn-border-radius);
+  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-base, $btn-line-height-sm, $btn-border-radius);
 }
 
 .btn.btn-micro {
@@ -107,8 +107,8 @@ h4, .h4 {
   }
 
   &:active, &:focus, &.focus {
-    border: 2px solid darken(theme-color("primary"), 15%);
-    background-color: darken(theme-color("primary"), 15%);
+    border: 2px solid darken(theme-color("primary"), 15%) !important;
+    background-color: darken(theme-color("primary"), 15%) !important;
     color: $white;
   }
 

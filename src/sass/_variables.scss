@@ -187,6 +187,8 @@ $link-hover-decoration: none;
 
 //Buttons
 $input-btn-border-width: 0px;
+$btn-line-height: 1.25;
+$btn-line-height-sm: $btn-line-height;
 $btn-padding-x: 3.9rem;
 $btn-padding-y: 1.1rem;
 $btn-padding-y-sm: 0.7rem;
@@ -207,7 +209,7 @@ $btn-group-button-padding-x: 1.53rem;
 $btn-box-shadow: $greeny-box-shadow;
 $btn-box-danger-shadow: 0px 4px 70px -16px $brand-danger;
 $btn-box-warning-shadow: 0px 4px 70px -16px $brand-warning;
-$btn-box-success-shadow: 0px 4px 70px -16px $brand-success;
+$btn-box-success-shadow: $greeny-box-shadow;
 $btn-box-info-shadow: 0px 4px 70px -16px $brand-info;
 $btn-box-pale-shadow: 0px 4px 70px -16px $theme-pale;
 $btn-box-dark-shadow: 0px 4px 70px -16px $almost-black;
