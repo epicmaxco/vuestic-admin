@@ -64,9 +64,7 @@ fieldset {
     color: $mf-label-color;
   }
 
-  .text-secondary {
-    color: $mf-label-color;
-  }
+  @include text-emphasis-variant(".text-secondary", $mf-label-color);
 
   .input-group {
     position: relative;
