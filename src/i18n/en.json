@@ -84,6 +84,9 @@
       "title": "Inputs",
       "upload": "UPLOAD"
     },
+    "mediumEditor": {
+      "title": "Medium Editor"
+    },
     "selects": {
       "country": "Country Select",
       "countryMulti": "Country Multi Select",
@@ -133,6 +136,7 @@
     "formElements": "Form Elements",
     "forms": "Forms",
     "formWizards": "Form Wizards",
+    "mediumEditor": "Medium Editor",
     "grid": "Grid",
     "icons": "Icons",
     "spinners": "Spinners",
