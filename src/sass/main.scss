@@ -9,6 +9,7 @@
 
 @import "~ionicons/dist/css/ionicons.css";
 @import "~awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.scss";
+@import "~medium-editor/src/sass/medium-editor";
 @import "_icons-styles.scss";
 
 @import "base";
@@ -16,7 +17,7 @@
 @import "icons";
 @import "material-forms";
 
-@import "override-custom-libs";
 @import "override-bootstrap";
+@import "override-custom-libs";
 
 @import "glyphicons";

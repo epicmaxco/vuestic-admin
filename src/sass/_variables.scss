@@ -337,3 +337,6 @@ $tab-content-pb: 1.5rem;
 //PreLoader
 $vuestic-preloader-left: calc(50% - 140px/2);
 $vuestic-preloader-top: calc(50% - 104px/2);
+
+//Medium Editor
+$medium-editor-button-size: $btn-padding-y * 2 + $font-size-base * $btn-line-height;
