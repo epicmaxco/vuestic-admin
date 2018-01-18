@@ -70,7 +70,22 @@
 
     data () {
       return {
-        editor: {}
+        editor: {},
+        editorOptions: {
+          buttonLabels: 'fontawesome',
+          autoLink: true,
+          toolbar: {
+            buttons: [
+              'bold',
+              'italic',
+              'underline',
+              'anchor',
+              'h1',
+              'h2',
+              'h3'
+            ]
+          }
+        }
       }
     },
 
