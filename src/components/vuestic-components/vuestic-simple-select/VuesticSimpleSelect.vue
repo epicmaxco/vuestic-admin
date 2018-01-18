@@ -107,6 +107,13 @@
   @import "../../../sass/_variables.scss";
 
   .select-form-group {
+    .dropdown-toggle {
+      input {
+        color: transparent;
+        text-shadow: 0 0 0 #000;
+        cursor: pointer;
+      }
+    }
     .dropdown-menu {
       padding: 0;
       .vuestic-scrollbar {
