@@ -26,13 +26,11 @@ h4, .h4 {
 
 .blockquote {
   padding: 0 ($spacer *1.625);
-
-  color: $blockquote-small-color;
+  margin: 2.5rem 0 2.5rem 1rem;
+  border-left: $blockquote-border-width solid $blockquote-border-color;
   line-height: 2rem;
-
-  //p:last-of-type {
-  //  margin-bottom :0;
-  //}
+  color: $blockquote-small-color;
+  font-style: oblique;
 }
 
 .blockquote-footer {
