@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12">
         <vuestic-widget :headerText="'forms.mediumEditor.title' | translate">
-          <vuestic-medium-editor @initialized="handleEditorInitialization">
+          <vuestic-medium-editor @initialized="handleEditorInitialization" :editor-options="editorOptions">
             <h1>Girl, no you don’t</h1>
 
             <p>
