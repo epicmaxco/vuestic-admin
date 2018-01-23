@@ -33,6 +33,8 @@
   },
   "dashboard": {
     "elements": "Elementos",
+    "success": "ÉXITO",
+    "successMessage": "Ha leído correctamente este mensaje de alerta importante.",
     "teamMembers": "Miembros del Equipo",
     "versions": "Versiones"
   },

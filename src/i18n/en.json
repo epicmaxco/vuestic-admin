@@ -33,6 +33,8 @@
   },
   "dashboard": {
     "dataVisualization": "Data Visualization",
+    "success": "SUCCESS",
+    "successMessage": "You successfully read this important alert message.",
     "elements": "Elements",
     "features": "Features",
     "setupProfile": "Setup Profile",

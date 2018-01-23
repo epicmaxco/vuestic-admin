@@ -3,8 +3,8 @@
     <div class="row">
       <div class="col-md-12">
         <vuestic-alert type="success" :withCloseBtn="true">
-          <span class="badge badge-pill badge-success">{{'extra.alerts.success' | translate}}</span>
-          {{'extra.alerts.successMessage' | translate}}
+          <span class="badge badge-pill badge-success">{{'dashboard.success' | translate}}</span>
+          {{'dashboard.successMessage' | translate}}
           <i class="fa fa-close alert-close"></i>
         </vuestic-alert>
       </div>
