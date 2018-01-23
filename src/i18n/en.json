@@ -40,19 +40,20 @@
     "usersAndMembers": "Users & Members",
     "versions": "Versions"
   },
-  "extra": {
+  "notificationsPage": {
     "alerts": {
       "title": "Alerts",
       "success": "SUCCESS",
       "successMessage": "You successfully read this important alert message.",
       "info": "INFO",
-      "infoMessage":
-        "This alert needs your attention, but it's not super important.",
+      "infoMessage": "This alert needs your attention, but it's not super important.",
       "warning": "WARNING",
       "warningMessage": "Better check yourself, you're not looking too good.",
       "danger": "DANGER",
       "dangerMessage": "Change a few things up and try submitting again."
-    },
+    }
+  },
+  "extra": {
     "tabs": {
       "title": "Tabs",
       "maps": "Maps",
@@ -143,6 +144,7 @@
     "login": "Login",
     "maps": "Maps",
     "modals": "Modals",
+    "notifications": "Notifications",
     "progressBars": "Progress Bars",
     "signUp": "Sign up",
     "statistics": "Statistics",

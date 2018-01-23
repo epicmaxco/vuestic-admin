@@ -36,20 +36,20 @@
     "teamMembers": "Miembros del Equipo",
     "versions": "Versiones"
   },
-  "extra": {
+  "notificationsPage": {
     "alerts": {
       "title": "Alerts",
       "success": "ÉXITO",
-      "successMessage":
-        "Ha leído correctamente este mensaje de alerta importante.",
+      "successMessage": "Ha leído correctamente este mensaje de alerta importante.",
       "info": "INFO",
-      "infoMessage":
-        "Esta alerta necesita tu atención, pero no es muy importante.",
+      "infoMessage": "Esta alerta necesita tu atención, pero no es muy importante.",
       "warning": "ADVERTENCIA",
       "warningMessage": "Mejor compruébalo, esto no pinta bien.",
       "danger": "PELIGRO",
       "dangerMessage": "Cambiar algunas cosas e enviarlo de nuevo."
-    },
+    }
+  },
+  "extra": {
     "tabs": {
       "title": "Tabs",
       "maps": "Mapas",
@@ -135,6 +135,7 @@
     "login": "Iniciar sesión",
     "maps": "Mapas",
     "modals": "Modals",
+    "notifications": "Notificaciones",
     "progressBars": "Barras de Progreso",
     "signUp": "Registrar",
     "statistics": "Estadisticas",
