@@ -165,3 +165,34 @@
     text-decoration: none;
   }
 }
+
+//v-tooltip
+
+.tooltip.vuestic-tooltip {
+  @extend .tooltip.show;
+
+  .tooltip-inner {
+    line-height: $tooltip-line-height;
+    font-weight: $tooltip-font-weight;
+  }
+
+  .tooltip-arrow {
+    @extend .arrow;
+  }
+
+  &[x-placement^="top"] {
+    @extend .bs-tooltip-top;
+  }
+
+  &[x-placement^="bottom"] {
+    @extend .bs-tooltip-bottom;
+  }
+
+  &[x-placement^="right"] {
+    @extend .bs-tooltip-right;
+  }
+
+  &[x-placement^="left"] {
+   @extend .bs-tooltip-left;
+  }
+}

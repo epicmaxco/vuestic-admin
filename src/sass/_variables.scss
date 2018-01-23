@@ -346,3 +346,21 @@ $vuestic-preloader-top: calc(50% - 104px/2);
 
 //Medium Editor
 $medium-editor-button-size: $btn-padding-y * 2 + $font-size-base * $btn-line-height;
+
+//tooltips
+
+$tooltip-font-size:           $font-size-base;
+$tooltip-max-width:           200px;
+$tooltip-color:               $white;
+$tooltip-bg:                  $darkest-gray;
+$tooltip-border-radius:       $font-size-base * 0.5;
+$tooltip-opacity:             .9;
+$tooltip-padding-y:           .5rem;
+$tooltip-padding-x:           .75rem;
+$tooltip-margin:              0 ;
+$tooltip-line-height:         1.13;
+$tooltip-font-weight:         300;
+
+$tooltip-arrow-width:         .8rem;
+$tooltip-arrow-height:        .4rem ;
+$tooltip-arrow-color:         $tooltip-bg;

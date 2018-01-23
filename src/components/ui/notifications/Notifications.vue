@@ -31,8 +31,37 @@
            </div>
            <div class="col-md-6">
               <p>
-                Any text can be used for <a href="#">top tooltip</a> showcase. Just anything you can possibly imagine to test
-                <a href="#">rightside tooltip</a>. But it can appear on the <a href="#">left</a>. Or just <a href="#">below</a> the item.
+                Any text can be used for
+                <a href="#"  v-tooltip="{
+                   content: 'You have 2 new messages',
+                   classes: 'vuestic-tooltip',
+                   placement: 'top'
+                }">
+                  top tooltip
+                </a>
+                showcase. Just anything you can possibly imagine to test
+                <a href="#"  v-tooltip="{
+                   content: 'You have 2 new messages',
+                   classes: 'vuestic-tooltip',
+                   placement: 'right'
+                }">
+                  rightside tooltip
+                </a>. But it can appear on the
+                <a href="#"  v-tooltip="{
+                   content: 'You have 2 new messages',
+                   classes: 'vuestic-tooltip',
+                   placement: 'left'
+                }">
+                  left
+                </a>. Or just
+                <a href="#"  v-tooltip="{
+                   content: 'You have 2 new messages',
+                   classes: 'vuestic-tooltip',
+                   placement: 'bottom'
+                }">
+                  below
+                </a>
+                the item.
               </p>
            </div>
          </div>
