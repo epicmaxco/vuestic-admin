@@ -2,6 +2,46 @@
   <div class="notifications-page">
     <div class="row">
       <div class="col-md-12">
+        <vuestic-widget :headerText="'Tooltips'">
+         <div class="row">
+           <div class="col-md-6">
+             <fieldset>
+               <div class="form-group">
+                 <div class="input-group">
+                   <input id="tooltip-title" v-model="tooltipTitle" required/>
+                   <label class="control-label" for="tooltip-title">Tooltip Title</label><i class="bar"></i>
+                 </div>
+               </div>
+               <div class="form-group">
+                 <div class="input-group">
+                   <input id="tooltip-text" v-model="tooltipText" required/>
+                   <label class="control-label" for="tooltip-text">Tooltip Text</label><i class="bar"></i>
+                 </div>
+               </div>
+               <div class="form-group">
+                 <div class="input-group">
+                   <input id="tooltip-icon" v-model="tooltipIcon" required/>
+                   <label class="control-label" for="tooltip-icon">Tooltip Icon</label><i class="bar"></i>
+                 </div>
+               </div>
+               <button class="btn btn-sm btn-primary">
+                 Show tooltip
+               </button>
+             </fieldset>
+           </div>
+           <div class="col-md-6">
+              <p>
+                Any text can be used for <a href="#">top tooltip</a> showcase. Just anything you can possibly imagine to test
+                <a href="#">rightside tooltip</a>. But it can appear on the <a href="#">left</a>. Or just <a href="#">below</a> the item.
+              </p>
+           </div>
+         </div>
+        </vuestic-widget>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
         <vuestic-widget :headerText="'notificationsPage.alerts.title' | translate">
           <vuestic-alert type="success" :withCloseBtn="true">
             <span class="badge badge-pill badge-success">{{'notificationsPage.alerts.success' | translate}}</span>
@@ -28,7 +68,15 @@
 
 <script>
   export default {
-    name: 'notifications'
+    name: 'notifications',
+
+    data () {
+      return {
+        tooltipTitle: 'Title',
+        tooltipText: 'Text',
+        tooltipIcon: 'Icon'
+      }
+    }
   }
 </script>
 
