@@ -1,12 +1,15 @@
 <template>
   <vuestic-widget class="no-padding no-v-padding">
     <div class='vuestic-breadcrumbs'>
-      <span >
-        <router-link :to="'/'">{{'menu.dashboard' | translate}}</router-link>
-      </span>
-      <span v-for="item in breadcrumbs" class="">
-        <router-link :to="{name: item.name}">{{item.meta.title | translate}}</router-link>
-      </span>
+      <router-link :to="'/'" class="crumb">{{'breadcrumbs.home' | translate}}</router-link>
+      <router-link
+              v-for="(item, index) in breadcrumbs"
+              :to="{path: item.path}"
+              :key="index"
+              class="crumb"
+              v-bind:class="{ disabled: !item.path }">
+        {{item.meta.title | translate}}
+      </router-link>
     </div>
   </vuestic-widget>
 
@@ -33,12 +36,16 @@
     display: flex;
     align-items: center;
 
-    span{
+    .crumb {
+      &.disabled {
+        pointer-events: none;
+      }
       &:last-child::after {
-          display: none;
+        display: none;
       }
 
       &::after {
+        padding: 0 5px;
         display: inline-block;
         content: $breadcrumbs-arrow-content;
         vertical-align: middle;
@@ -48,9 +55,7 @@
       }
     }
 
-
     a {
-      padding: 0 5px;
       color: $breadcrumbs-gray;
       &:hover {
         color: $vue-green;
