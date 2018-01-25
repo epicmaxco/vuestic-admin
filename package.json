@@ -19,7 +19,7 @@
     "ammap3": "github:amcharts/ammap3",
     "awesome-bootstrap-checkbox": "1.0.0-alpha.5",
     "babel-polyfill": "^6.26.0",
-    "bootstrap": "4.0.0-beta.3",
+    "bootstrap": "^4.0.0",
     "chart.js": "^2.6.0",
     "detect-browser": "^1.7.1",
     "element-resize-detector": "^1.1.12",

@@ -25,6 +25,14 @@ export default {
       }
     },
     {
+      name: 'Notifications',
+      path: '/ui/notifications',
+      component: lazyLoading('ui/notifications/Notifications'),
+      meta: {
+        title: 'menu.notifications'
+      }
+    },
+    {
       path: '/ui/icons',
       component: lazyLoading('ui/icons/Icons'),
       meta: {
