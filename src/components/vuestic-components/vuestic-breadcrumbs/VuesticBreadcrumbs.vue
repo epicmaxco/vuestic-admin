@@ -7,23 +7,22 @@
               :to="{path: item.path}"
               :key="index"
               class="crumb"
-              v-bind:class="{ disabled: !item.path }">
+              v-bind:class="{ disabled: !item.path }"
+      >
         {{item.meta.title | translate}}
       </router-link>
     </div>
   </vuestic-widget>
-
 </template>
 
 <script>
   export default {
     name: 'vuestic-breadcrumbs',
-    computed: {
-      breadcrumbs () {
-        return this.$store.getters.breadcrumbs(this.$route.name)
+    props: {
+      breadcrumbs: {
+        type: Array,
+        default: []
       }
-    },
-    methods: {
     }
   }
 </script>
@@ -49,7 +48,7 @@
         display: inline-block;
         content: $breadcrumbs-arrow-content;
         vertical-align: middle;
-        color: $vue-green;
+        color: $brand-primary;
         font-size: $breadcrumbs-arrow-font;
         font-family: FontAwesome;
       }

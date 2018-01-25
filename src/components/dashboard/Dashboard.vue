@@ -1,14 +1,5 @@
 <template>
   <div class="dashboard">
-    <div class="row">
-      <div class="col-md-12">
-        <vuestic-alert type="success" :withCloseBtn="true">
-          <span class="badge badge-pill badge-success">{{'extra.alerts.success' | translate}}</span>
-          {{'extra.alerts.successMessage' | translate}}
-          <i class="fa fa-close alert-close"></i>
-        </vuestic-alert>
-      </div>
-    </div>
 
     <dashboard-info-widgets></dashboard-info-widgets>
 
