@@ -24,9 +24,20 @@
                    <label class="control-label" for="tooltip-icon">Tooltip Icon</label><i class="bar"></i>
                  </div>
                </div>
-               <button class="btn btn-sm btn-primary">
-                 Show tooltip
-               </button>
+               <v-popover popover-class="vuestic-tooltip" placement="right">
+                 <button class="btn btn-sm btn-primary">
+                   Show tooltip
+                 </button>
+                 <template slot="popover">
+                   <div class="popover-icon">
+                     <i class="fa fa-image"></i>
+                   </div>
+                   <div class="popover-content">
+                     <div class="popover-header">Hey!</div>
+                     <div class="popover-body">This popover is amazing</div>
+                   </div>
+                 </template>
+               </v-popover>
              </fieldset>
            </div>
            <div class="col-md-6">

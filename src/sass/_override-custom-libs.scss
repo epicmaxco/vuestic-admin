@@ -172,6 +172,7 @@
   @extend .tooltip.show;
 
   .tooltip-inner {
+    box-shadow: $tooltip-box-shadow;
     line-height: $tooltip-line-height;
     font-weight: $tooltip-font-weight;
   }
@@ -194,5 +195,60 @@
 
   &[x-placement^="left"] {
    @extend .bs-tooltip-left;
+  }
+
+  &.popover {
+    line-height: $popover-line-height;
+    box-shadow: $popover-box-shadow;
+
+    .popover-header, .popover-body {
+      text-align: left;
+      padding-right: 0;
+    }
+
+    .popover-inner {
+      max-width: 100%;
+      box-shadow: none;
+
+      > * {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+
+    .popover-header {
+      font-weight: $popover-header-font-weight;
+    }
+
+    .popover-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $popover-icon-color;
+      font-size: $popover-icon-size;
+    }
+
+    .popover-content:first-child {
+      .popover-header, .popover-body {
+        padding:  $popover-body-padding-y $popover-header-no-icon-padding-x;
+        padding-right: 0;
+      }
+    }
+
+    &[x-placement^="top"] {
+      @extend .bs-popover-top;
+    }
+
+    &[x-placement^="bottom"] {
+      @extend .bs-popover-bottom;
+    }
+
+    &[x-placement^="right"] {
+      @extend .bs-popover-right;
+    }
+
+    &[x-placement^="left"] {
+      @extend .bs-popover-left;
+    }
   }
 }

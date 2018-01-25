@@ -350,6 +350,7 @@ $medium-editor-button-size: $btn-padding-y * 2 + $font-size-base * $btn-line-hei
 //tooltips
 
 $tooltip-font-size:           $font-size-base;
+$tooltip-box-shadow:          $greeny-box-shadow;
 $tooltip-max-width:           200px;
 $tooltip-color:               $white;
 $tooltip-bg:                  $darkest-gray;
@@ -364,3 +365,36 @@ $tooltip-font-weight:         300;
 $tooltip-arrow-width:         .8rem;
 $tooltip-arrow-height:        .4rem ;
 $tooltip-arrow-color:         $tooltip-bg;
+
+// Popovers
+
+$popover-font-size:                 $font-size-base;
+$popover-line-height:               $tooltip-line-height;
+$popover-box-shadow:                $tooltip-box-shadow;
+$popover-bg:                        $tooltip-bg;
+$popover-max-width:                 400px;
+$popover-border-width:              0;
+$popover-border-color:              transparent;
+$popover-border-radius:             $tooltip-border-radius;
+$popover-box-shadow:                $greeny-box-shadow;
+
+$popover-header-bg:                 $tooltip-bg;
+$popover-header-color:              $white;
+$popover-header-padding-y:          0;
+$popover-header-padding-x:          .75rem;
+$popover-header-no-icon-padding-x:  0;
+$popover-header-font-weight:        bold;
+
+$popover-body-color:                $white;
+$popover-body-padding-y:            $popover-header-padding-y;
+$popover-body-padding-x:            $popover-header-padding-x;
+$popover-body-no-icon-padding-x:  $popover-header-no-icon-padding-x;
+
+$popover-icon-size:                 1.35rem;
+$popover-icon-color:                $brand-primary;
+
+$popover-arrow-width:               1rem;
+$popover-arrow-height:              1rem;
+$popover-arrow-color:               transparent;
+
+$popover-arrow-outer-color:         fade-in($popover-border-color, .05);
