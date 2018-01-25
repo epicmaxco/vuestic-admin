@@ -11,6 +11,9 @@
     "termsOfUse": "Terms of Use.",
     "welcome": "Welcome!"
   },
+  "breadcrumbs": {
+    "home": "Home"
+  },
   "buttons": {
     "advanced": "Icons, Groups, Dropdowns",
     "button": "BUTTON",
