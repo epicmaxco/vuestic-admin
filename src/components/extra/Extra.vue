@@ -1,29 +1,5 @@
 <template>
   <div class="extra">
-    <div class="row">
-      <div class="col-md-12">
-        <vuestic-widget :headerText="'extra.alerts.title' | translate">
-          <vuestic-alert type="success" :withCloseBtn="true">
-            <span class="badge badge-pill badge-success">{{'extra.alerts.success' | translate}}</span>
-          {{'extra.alerts.successMessage' | translate}}
-            <i class="fa fa-close alert-close"></i>
-          </vuestic-alert>
-          <vuestic-alert type="info" :withCloseBtn="true">
-            <span class="badge badge-pill badge-info">{{'extra.alerts.info' | translate}}</span>
-          {{'extra.alerts.infoMessage' | translate}}
-          </vuestic-alert>
-          <vuestic-alert type="warning" :withCloseBtn="true">
-            <span class="badge badge-pill badge-warning">{{'extra.alerts.warning' | translate}}</span>
-          {{'extra.alerts.warningMessage' | translate}}
-          </vuestic-alert>
-          <vuestic-alert type="danger" :withCloseBtn="true">
-            <span class="badge badge-pill badge-danger">{{'extra.alerts.danger' | translate}}</span>
-          {{'extra.alerts.dangerMessage' | translate}}
-          </vuestic-alert>
-        </vuestic-widget>
-      </div>
-    </div>
-
     <vuestic-widget :headerText="'extra.tabs.title' | translate" class="no-v-padding">
       <vuestic-tabs class="tabs" :names="[$t('extra.tabs.maps'), $t('extra.tabs.setupProfile'), $t('extra.tabs.overview')]">
         <div :slot="'extra.tabs.overview' | translate" class="d-flex justify-content-center">
