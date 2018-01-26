@@ -137,10 +137,6 @@
   @import "../../../sass/mixins";
 
   .progress-bars {
-    div[class^='col'] {
-      margin-bottom: 3.75rem;
-    }
-
     .vuestic-progress-bar {
       .progress.thick {
         margin-top: calc(#{$progress-bar-width-thick} / 2 - .125rem);
