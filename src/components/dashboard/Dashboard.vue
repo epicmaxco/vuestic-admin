@@ -5,7 +5,6 @@
         <vuestic-alert type="success" :withCloseBtn="true">
           <span class="badge badge-pill badge-success">{{'dashboard.success' | translate}}</span>
           {{'dashboard.successMessage' | translate}}
-          <i class="fa fa-close alert-close"></i>
         </vuestic-alert>
       </div>
     </div>
