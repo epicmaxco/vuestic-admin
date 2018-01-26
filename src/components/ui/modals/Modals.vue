@@ -1,24 +1,27 @@
 <template>
   <div class="modals-page">
     <div class="row">
-      <vuestic-widget class="col-sm-12 modals-list larger-padding" :header-text="$t('modal.title')">
-        <button class="btn btn-danger" @click="showSmallModal()">
-          {{'modal.small' | translate }}
-        </button>
-        <button class="btn btn-info" @click="showMediumModal()">
-          {{'modal.medium' | translate }}
-        </button>
-        <button class="btn btn-warning" @click="showLargeModal()">
-          {{'modal.large' | translate }}
-        </button>
-        <button class="btn btn-success" @click="showStaticModal()">
-          {{'modal.static' | translate }}
-        </button>
-      </vuestic-widget>
+      <div class="col-md-12">
+        <vuestic-widget class="modals-list larger-padding" :header-text="$t('modal.title')">
+          <button class="btn btn-danger" @click="showSmallModal()">
+            {{'modal.small' | translate }}
+          </button>
+          <button class="btn btn-info" @click="showMediumModal()">
+            {{'modal.medium' | translate }}
+          </button>
+          <button class="btn btn-warning" @click="showLargeModal()">
+            {{'modal.large' | translate }}
+          </button>
+          <button class="btn btn-success" @click="showStaticModal()">
+            {{'modal.static' | translate }}
+          </button>
+        </vuestic-widget>
+      </div>
     </div>
 
     <!--//Modals-->
-    <vuestic-modal :show.sync="show" ref="smallModal" v-bind:small="true" :cancelClass="'none'" :okText="'modal.confirm' | translate" :cancelText="'modal.cancel' | translate">
+    <vuestic-modal :show.sync="show" ref="smallModal" v-bind:small="true" :cancelClass="'none'"
+                   :okText="'modal.confirm' | translate" :cancelText="'modal.cancel' | translate">
       <div slot="title">{{'modal.smallTitle' | translate}}</div>
       <div>
         There are three species of zebras: the plains zebra, the mountain zebra and the Grévy's zebra. The plains zebra
@@ -27,7 +30,8 @@
         horse-like. All three belong to the genus Equus, along with other living equids.
       </div>
     </vuestic-modal>
-    <vuestic-modal :show.sync="show" ref="mediumModal" :okText="'modal.confirm' | translate" :cancelText="'modal.cancel' | translate">
+    <vuestic-modal :show.sync="show" ref="mediumModal" :okText="'modal.confirm' | translate"
+                   :cancelText="'modal.cancel' | translate">
       <div slot="title">{{'modal.mediumTitle' | translate}}</div>
       <div>
         There are three species of zebras: the plains zebra, the mountain zebra and the Grévy's zebra. The plains zebra
@@ -36,7 +40,8 @@
         horse-like. All three belong to the genus Equus, along with other living equids.
       </div>
     </vuestic-modal>
-    <vuestic-modal :show.sync="show" v-bind:large="true" ref="largeModal" :okText="'modal.confirm' | translate" :cancelText="'modal.cancel' | translate">
+    <vuestic-modal :show.sync="show" v-bind:large="true" ref="largeModal" :okText="'modal.confirm' | translate"
+                   :cancelText="'modal.cancel' | translate">
       <div slot="title">{{'modal.largeTitle' | translate}}</div>
       <div>
         There are three species of zebras: the plains zebra, the mountain zebra and the Grévy's zebra. The plains zebra
@@ -45,7 +50,8 @@
         horse-like. All three belong to the genus Equus, along with other living equids.
       </div>
     </vuestic-modal>
-    <vuestic-modal :show.sync="show" v-bind:small="true" v-bind:force="true" ref="staticModal" :cancelClass="'none'" :okText="'modal.close' | translate">
+    <vuestic-modal :show.sync="show" v-bind:small="true" v-bind:force="true" ref="staticModal" :cancelClass="'none'"
+                   :okText="'modal.close' | translate">
       <div slot="title">{{'modal.staticTitle' | translate}}</div>
       <div>
         {{'modal.staticMessage' | translate}}

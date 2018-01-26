@@ -1,4 +1,5 @@
 import Alert from 'src/components/vuestic-components/vuestic-alert/VuesticAlert.vue'
+import Breadcrumbs from 'src/components/vuestic-components/vuestic-breadcrumbs/VuesticBreadcrumbs.vue'
 import Chart from 'src/components/vuestic-components/vuestic-chart/VuesticChart.vue'
 import Chat from 'src/components/vuestic-components/vuestic-chat/VuesticChat.vue'
 import DataTable from 'src/components/vuestic-components/vuestic-datatable/VuesticDataTable.vue'
@@ -20,6 +21,7 @@ import MediumEditor from 'src/components/vuestic-components/vuestic-medium-edito
 const VuesticComponentsPlugin = {
   install (Vue, options) {
     Vue.component(Alert.name, Alert)
+    Vue.component(Breadcrumbs.name, Breadcrumbs)
     Vue.component(Chart.name, Chart)
     Vue.component(Chat.name, Chat)
     Vue.component(DataTable.name, DataTable)

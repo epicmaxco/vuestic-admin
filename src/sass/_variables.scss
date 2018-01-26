@@ -28,6 +28,7 @@ $dark-gray: #282828;
 $gray: #adb3b9;
 $violet: #db76df;
 $dark-blue: #0045b6;
+$breadcrumbs-gray: #b4b4b4;
 
 $colors-map: (
   brand-danger: $brand-danger,
@@ -150,6 +151,11 @@ $blockquote-border-width : 0.375rem;
 $blockquote-font-size : 1.5rem;
 //Navbar
 $navbar-dd-item-height : 48px;
+
+//Breadcrumbs
+$breadcrumbs-height : 54px;
+$breadcrumbs-arrow-font: 0.7rem;
+$breadcrumbs-arrow-content: "\f054";
 
 //Sidebar
 $sidebar-link-height : 64px;
