@@ -1,18 +1,22 @@
 <template>
-  <vuestic-widget class="no-padding no-v-padding">
-    <div class='vuestic-breadcrumbs'>
-      <router-link :to="'/'" class="crumb">{{'breadcrumbs.home' | translate}}</router-link>
-      <router-link
-              v-for="(item, index) in breadcrumbs"
-              :to="{path: item.path}"
-              :key="index"
-              class="crumb"
-              v-bind:class="{ disabled: !item.path }"
-      >
-        {{item.meta.title | translate}}
-      </router-link>
+  <div class="row">
+    <div class="col-md-12">
+      <vuestic-widget class="no-padding no-v-padding">
+        <div class='vuestic-breadcrumbs'>
+          <router-link :to="'/'" class="crumb">{{'breadcrumbs.home' | translate}}</router-link>
+          <router-link
+                  v-for="(item, index) in breadcrumbs"
+                  :to="{path: item.path}"
+                  :key="index"
+                  class="crumb"
+                  v-bind:class="{ disabled: !item.path }"
+          >
+            {{item.meta.title | translate}}
+          </router-link>
+        </div>
+      </vuestic-widget>
     </div>
-  </vuestic-widget>
+  </div>
 </template>
 
 <script>
@@ -57,7 +61,7 @@
     a {
       color: $breadcrumbs-gray;
       &:hover {
-        color: $vue-green;
+        color: $brand-primary;
       }
     }
   }

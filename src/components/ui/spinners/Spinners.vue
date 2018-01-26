@@ -1,14 +1,15 @@
 <template>
   <div class="row">
-    <vuestic-widget :headerText="$t('spinners.title')" class="col-sm-12">
+    <div class="col-md-12">
+      <vuestic-widget :headerText="$t('spinners.title')">
         <div v-for="(group, i) in groups" :key="i" class="row">
           <div v-for="item in group" :key="item" class="col-sm-12 col-md-3">
             <div class="spinner-box-container">
               <div class="spinner-box">
                 <component
-                  :is="item"
-                  :color="palette.primary"
-                  :size="config.size">
+                        :is="item"
+                        :color="palette.primary"
+                        :size="config.size">
                 </component>
               </div>
               <span>{{item | displayName}}</span>
@@ -21,7 +22,8 @@
             <a :href="'http://epic-spinners.epicmax.co/'" target="_blank">Epic Spinners</a>
           </div>
         </div>
-    </vuestic-widget>
+      </vuestic-widget>
+    </div>
   </div>
 </template>
 
