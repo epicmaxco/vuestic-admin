@@ -191,10 +191,12 @@
 
   &[x-placement^="right"] {
     @extend .bs-tooltip-right;
+    margin-left: .15rem;
   }
 
   &[x-placement^="left"] {
-   @extend .bs-tooltip-left;
+    @extend .bs-tooltip-left;
+    margin-right: .15rem;
   }
 
   &.popover {

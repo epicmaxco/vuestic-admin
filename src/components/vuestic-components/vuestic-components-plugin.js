@@ -17,6 +17,7 @@ import Tabs from 'src/components/vuestic-components/vuestic-tabs/VuesticTabs.vue
 import Widget from 'src/components/vuestic-components/vuestic-widget/VuesticWidget.vue'
 import Wizard from 'src/components/vuestic-components/vuestic-wizard/VuesticWizard.vue'
 import MediumEditor from 'src/components/vuestic-components/vuestic-medium-editor/VuesticMediumEditor.vue'
+import Tooltip from 'src/components/vuestic-components/vuestic-tooltip/VuesticTooltip.vue'
 
 const VuesticComponentsPlugin = {
   install (Vue, options) {
@@ -39,6 +40,7 @@ const VuesticComponentsPlugin = {
     Vue.component(Widget.name, Widget)
     Vue.component(Wizard.name, Wizard)
     Vue.component(MediumEditor.name, MediumEditor)
+    Vue.component(Tooltip.name, Tooltip)
   }
 }
 
