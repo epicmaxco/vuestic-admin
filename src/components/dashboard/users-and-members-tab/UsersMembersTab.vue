@@ -15,15 +15,9 @@
 </template>
 
 <script>
-  import VuesticChat from '../../../components/vuestic-components/vuestic-chat/VuesticChat'
-  import VuesticProfileCard from '../../../components/vuestic-components/vuestic-profile-card/VuesticProfileCard.vue'
-
   export default {
     name: 'users-members-tab',
-    components: {
-      VuesticChat,
-      VuesticProfileCard
-    },
+
     data () {
       return {
         chatMessages: [
@@ -59,6 +53,7 @@
 
 <style lang="scss" scoped>
   @import "../../../sass/_variables.scss";
+  @import "../../../../node_modules/bootstrap/scss/functions";
   @import "../../../../node_modules/bootstrap/scss/variables";
   @import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
 

@@ -17,11 +17,19 @@ export default {
       }
     },
     {
-      name: 'Form Wizards',
+      name: 'FormWizards',
       path: '/forms/form-wizard',
       component: lazyLoading('forms/form-wizard/FormWizard'),
       meta: {
         title: 'menu.formWizards'
+      }
+    },
+    {
+      name: 'MediumEditor',
+      path: '/forms/medium-editor',
+      component: lazyLoading('forms/medium-editor/MediumEditor'),
+      meta: {
+        title: 'Medium Editor'
       }
     }
   ]

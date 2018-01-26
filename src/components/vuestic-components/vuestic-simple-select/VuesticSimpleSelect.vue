@@ -28,7 +28,7 @@
 </template>
 
 <script>
-  import Dropdown from '../../../directives/Dropdown'
+  import Dropdown from 'directives/Dropdown'
   import Scrollbar from '../vuestic-scrollbar/VuesticScrollbar.vue'
 
   export default {

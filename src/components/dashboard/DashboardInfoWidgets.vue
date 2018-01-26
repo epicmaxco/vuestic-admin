@@ -37,8 +37,8 @@
               <div class="stats-title">Commits</div>
             </div>
             <div class="chart-container">
-              <progress-bar type="circle" ref="circleProgress" :colorName="'white'" :backgroundColorName="'danger'"
-                            :startColorName="'danger'"></progress-bar>
+              <vuestic-progress-bar type="circle" ref="circleProgress" :colorName="'white'" :backgroundColorName="'danger'"
+                            :startColorName="'danger'"></vuestic-progress-bar>
             </div>
           </div>
         </div>
@@ -61,13 +61,8 @@
 </template>
 
 <script>
-  import ProgressBar from '../../components/vuestic-components/vuestic-progress-bar/VuesticProgressBar'
-
   export default {
     name: 'dashboard-info-widgets',
-    components: {
-      ProgressBar
-    },
 
     mounted () {
       this.$refs.circleProgress.$data.value = 70

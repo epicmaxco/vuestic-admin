@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar app-navbar navbar-toggleable-md">
     <div class="navbar-brand-container d-flex align-items-center justify-content-start">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="#/dashboard">
         <i class="i-vuestic"></i>
       </a>
     </div>
@@ -74,7 +74,7 @@
         </div>
       </div>
     </div>
-    <modal ref="languageModal"
+    <vuestic-modal ref="languageModal"
      v-bind:small="true" :okClass="'none'" :cancelClass="'none'">
       <div slot="title">{{'user.language' | translate}}</div>
       <div class="text-center">
@@ -86,7 +86,7 @@
                 {{'language.spanish' | translate}}
               </button>
       </div>
-    </modal>
+    </vuestic-modal>
   </nav>
 </template>
 
@@ -94,12 +94,10 @@
   import Vue from 'vue'
   import { mapGetters, mapActions } from 'vuex'
   import Dropdown from 'directives/Dropdown'
-  import Modal from '../../vuestic-components/vuestic-modal/VuesticModal'
+
   export default {
     name: 'navbar',
-    components: {
-      Modal
-    },
+
     directives: {
       dropdown: Dropdown
     },
@@ -133,6 +131,7 @@
 <style lang="scss">
   @import "../../../sass/_variables.scss";
   @import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+  @import "../../../../node_modules/bootstrap/scss/functions";
   @import "../../../../node_modules/bootstrap/scss/variables";
 
   .navbar.app-navbar {

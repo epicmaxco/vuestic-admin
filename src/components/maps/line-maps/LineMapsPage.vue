@@ -10,7 +10,7 @@
 
 <script>
   import LineMap from './LineMap'
-  import LineMapData from './LineMapData'
+  import LineMapData from 'data/maps/LineMapData'
 
   export default {
     name: 'line-maps-page',

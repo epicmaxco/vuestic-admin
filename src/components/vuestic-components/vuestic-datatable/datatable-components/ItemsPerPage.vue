@@ -3,7 +3,7 @@
     <button id="itemsPerPageBtn" class="btn btn-primary btn-sm dropdown-toggle" type="button"
             data-toggle="dropdown">
       {{selected}} per page
-      <i class="ion-chevron-down arrow-down"></i>
+      <i class="ion-ios-arrow-down arrow-down"></i>
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <div class="dropdown-menu-content">

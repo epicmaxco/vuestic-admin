@@ -42,14 +42,12 @@
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
-  import Expanding from '../../../../node_modules/vue-bulma-expanding/src/Expanding'
-  import VuesticScrollbar from '../../vuestic-components/vuestic-scrollbar/VuesticScrollbar'
+  import Expanding from 'vue-bulma-expanding/src/Expanding'
   export default {
     name: 'sidebar',
 
     components: {
-      Expanding,
-      VuesticScrollbar
+      Expanding
     },
     methods: {
       ...mapActions({
@@ -101,6 +99,7 @@
 <style lang="scss">
 @import "../../../sass/_variables.scss";
 @import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+@import "../../../../node_modules/bootstrap/scss/functions";
 @import "../../../../node_modules/bootstrap/scss/variables";
 
 .sidebar {

@@ -14,17 +14,9 @@
 </template>
 
 <script>
-  import VuesticWidget from '../vuestic-components/vuestic-widget/VuesticWidget'
-  import VuesticFeed from '../vuestic-components/vuestic-feed/VuesticFeed.vue'
-  import VuesticSocialNews from '../vuestic-components/vuestic-social-news/VuesticSocialNews.vue'
-
   export default {
     name: 'dashboard-bottom-widgets',
-    components: {
-      VuesticSocialNews,
-      VuesticFeed,
-      VuesticWidget
-    },
+
     data () {
       return {
         posts: [

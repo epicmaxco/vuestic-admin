@@ -17,13 +17,11 @@
   import Navbar from './navbar/Navbar'
   import Sidebar from './sidebar/Sidebar'
   import Resize from 'directives/ResizeHandler'
-  import VuesticPreLoader from '../vuestic-components/vuestic-preloader/VuesticPreLoader.vue'
 
   export default {
     name: 'layout',
 
     components: {
-      VuesticPreLoader,
       Navbar,
       Sidebar
     },
@@ -49,6 +47,7 @@
 <style lang="scss">
   @import "../../sass/_variables.scss";
   @import "../../../node_modules/bootstrap/scss/mixins/breakpoints";
+  @import "../../../node_modules/bootstrap/scss/functions";
   @import "../../../node_modules/bootstrap/scss/variables";
 
   .content-wrap {

@@ -1,38 +1,14 @@
 <template>
   <div class="extra">
-    <div class="row">
-      <div class="col-md-12">
-        <vuestic-widget :headerText="'extra.alerts.title' | translate">
-          <vuestic-alert type="success" :withCloseBtn="true">
-            <span class="badge badge-pill badge-success">{{'extra.alerts.success' | translate}}</span>
-          {{'extra.alerts.successMessage' | translate}}
-            <i class="fa fa-close alert-close"></i>
-          </vuestic-alert>
-          <vuestic-alert type="info" :withCloseBtn="true">
-            <span class="badge badge-pill badge-info">{{'extra.alerts.info' | translate}}</span>
-          {{'extra.alerts.infoMessage' | translate}}
-          </vuestic-alert>
-          <vuestic-alert type="warning" :withCloseBtn="true">
-            <span class="badge badge-pill badge-warning">{{'extra.alerts.warning' | translate}}</span>
-          {{'extra.alerts.warningMessage' | translate}}
-          </vuestic-alert>
-          <vuestic-alert type="danger" :withCloseBtn="true">
-            <span class="badge badge-pill badge-danger">{{'extra.alerts.danger' | translate}}</span>
-          {{'extra.alerts.dangerMessage' | translate}}
-          </vuestic-alert>
-        </vuestic-widget>
-      </div>
-    </div>
-
-    <vuestic-widget class="no-v-padding">
-      <vuestic-tabs class="tabs" :names="[$t('extra.chart'), $t('extra.setupProfile'), $t('extra.overview')]">
-        <div slot="Overview" class="d-flex justify-content-center">
+    <vuestic-widget :headerText="'extra.tabs.title' | translate" class="no-v-padding">
+      <vuestic-tabs class="tabs" :names="[$t('extra.tabs.maps'), $t('extra.tabs.setupProfile'), $t('extra.tabs.overview')]">
+        <div :slot="'extra.tabs.overview' | translate" class="d-flex justify-content-center">
           <overview-tab></overview-tab>
         </div>
-        <div slot="Chart" class="d-flex justify-content-center">
-          <vuestic-chart v-bind:data="chartData" type="line"></vuestic-chart>
+        <div :slot="'extra.tabs.maps' | translate" class="maps-tab">
+          <leaflet-map></leaflet-map>
         </div>
-        <div slot="Setup Profile" class="d-flex justify-content-center">
+        <div :slot="'extra.tabs.setupProfile' | translate" class="d-flex justify-content-center">
           <setup-profile-tab wizardType="simple"></setup-profile-tab>
         </div>
       </vuestic-tabs>
@@ -70,27 +46,16 @@
 </template>
 
 <script>
-  import VuesticTabs from '../../components/vuestic-components/vuestic-tabs/VuesticTabs.vue'
-  import VuesticProfileCard from '../../components/vuestic-components/vuestic-profile-card/VuesticProfileCard.vue'
-  import VuesticAlert from '../../components/vuestic-components/vuestic-alert/VuesticAlert'
-  import VuesticChat from '../../components/vuestic-components/vuestic-chat/VuesticChat'
-  import VuesticFeed from '../vuestic-components/vuestic-feed/VuesticFeed.vue'
-  import VuesticSocialNews from '../vuestic-components/vuestic-social-news/VuesticSocialNews.vue'
-  import OverviewTab from '../dashboard/features-tab/FeaturesTab.vue'
-  import SetupProfileTab from '../dashboard/setup-profile-tab/SetupProfileTab.vue'
-  import chartData from '../statistics/charts/LineChartData'
+  import OverviewTab from 'components/dashboard/features-tab/FeaturesTab.vue'
+  import SetupProfileTab from 'components/dashboard/setup-profile-tab/SetupProfileTab.vue'
+  import LeafletMap from 'components/maps/leaflet-maps/LeafletMap.vue'
 
   export default {
     name: 'extra',
     components: {
+      LeafletMap,
       SetupProfileTab,
-      OverviewTab,
-      VuesticSocialNews,
-      VuesticFeed,
-      VuesticTabs,
-      VuesticProfileCard,
-      VuesticAlert,
-      VuesticChat
+      OverviewTab
     },
     data () {
       return {
@@ -171,19 +136,22 @@
           {
             photoURL: 'http://i.imgur.com/ZXRIHfk.png'
           }
-        ],
-        chartData: chartData
+        ]
       }
     }
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .tabs {
     .overview-tab {
       .explore-row {
         display: none !important;
       }
+    }
+
+    .maps-tab {
+      height: 500px;
     }
   }
 

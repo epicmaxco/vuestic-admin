@@ -40,6 +40,7 @@
 <style lang="scss">
   @import "../../../../sass/variables";
   @import "../../../../sass/mixins";
+  @import "../../../../../node_modules/bootstrap/scss/functions";
   @import "../../../../../node_modules/bootstrap/scss/variables";
 
   .vuestic-progress-bar .vertical {

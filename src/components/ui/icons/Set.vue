@@ -23,7 +23,7 @@
       </div>
     </div>
     <template v-for="list in validatedLists">
-      <widget :headerText="list.name" class="col-12">
+      <vuestic-widget :headerText="list.name" class="col-12">
         <span v-if="list.icons.length === 0">{{'icons.none' | translate}}</span>
         <template v-for="i in Math.floor(list.icons.length/8+1)">
           <div class="row">
@@ -36,18 +36,16 @@
             </div>
           </div>
         </template>
-      </widget>
+      </vuestic-widget>
     </template>
   </div>
 </template>
 
 <script>
-  import Widget from '../../vuestic-components/vuestic-widget/VuesticWidget'
   import Slider from 'vue-slider-component/src/vue2-slider.vue'
 
   export default {
     components: {
-      Widget,
       Slider
     },
     name: 'set',
@@ -99,6 +97,7 @@
 <style lang="scss">
   @import "../../../sass/variables";
   @import '../../../../node_modules/bootstrap/scss/mixins/breakpoints';
+  @import "../../../../node_modules/bootstrap/scss/functions";
   @import '../../../../node_modules/bootstrap/scss/variables';
 
   .Set{
@@ -179,4 +178,3 @@
     }
   }
 </style>
-

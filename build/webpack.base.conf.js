@@ -29,6 +29,7 @@ module.exports = {
       'components': resolve('src/components'),
       'services': resolve('src/services'),
       'directives': resolve('src/directives'),
+      'data': resolve('src/data'),
       'vuex-store': resolve('src/store')
     }
   },

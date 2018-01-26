@@ -240,16 +240,11 @@
 </template>
 
 <script>
-  import VuesticWizard from '../../vuestic-components/vuestic-wizard/VuesticWizard'
-  import CountriesList from '../CountriesList'
-  import VuesticSimpleSelect from '../../vuestic-components/vuestic-simple-select/VuesticSimpleSelect'
+  import CountriesList from 'data/CountriesList'
 
   export default {
     name: 'form-wizard',
-    components: {
-      VuesticWizard,
-      VuesticSimpleSelect
-    },
+
     computed: {
       hsSteps () {
         return [
@@ -396,6 +391,7 @@
 
 <style lang="scss">
   @import "../../../sass/_variables.scss";
+  @import "../../../../node_modules/bootstrap/scss/functions";
   @import "../../../../node_modules/bootstrap/scss/variables";
   @import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
 
