@@ -19,8 +19,8 @@
             <!--Footer-->
             <div class="modal-footer">
               <slot name="footer">
-                <button type="button" :class="okClass" @click="ok">{{okText}}</button>
-                <button type="button" :class="cancelClass" @click="cancel">{{cancelText}}</button>
+                <button type="button" :class="okClass" @click="ok" :disabled="okDisabled">{{okText}}</button>
+                <button type="button" :class="cancelClass" @click="cancel" :disabled="cancelDisabled">{{cancelText}}</button>
               </slot>
             </div>
           </div>
@@ -66,6 +66,14 @@
       cancelClass: {
         type: String,
         default: 'btn btn-secondary'
+      },
+      okDisabled: {
+        type: Boolean,
+        default: false
+      },
+      cancelDisabled: {
+        type: Boolean,
+        default: false
       }
     },
     data () {
