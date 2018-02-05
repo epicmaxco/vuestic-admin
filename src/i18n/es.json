@@ -49,6 +49,17 @@
       "warningMessage": "Mejor compruébalo, esto no pinta bien.",
       "danger": "PELIGRO",
       "dangerMessage": "Cambiar algunas cosas e enviarlo de nuevo."
+    },
+    "popovers": {
+      "title": "Tooltips & Popovers",
+      "popoverTitleLabel": "Title de Popover",
+      "popoverTextLabel": "Texto de Popover",
+      "popoverIconLabel": "Icono de Popover (fontawesome)",
+      "showPopover": "Mostrar Popover",
+      "topTooltip": "tope tooltip",
+      "rightTooltip": "derecha tooltip",
+      "leftTooltip": "izquierda",
+      "bottomTooltip": "fondo"
     }
   },
   "extra": {

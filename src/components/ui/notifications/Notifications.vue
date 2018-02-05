@@ -2,37 +2,36 @@
   <div class="notifications-page">
     <div class="row">
       <div class="col-md-12">
-        <vuestic-widget :headerText="'Tooltips & Popovers'">
+        <vuestic-widget :headerText="'notificationsPage.popovers.title' | translate">
           <div class="row">
             <div class="col-md-6">
               <fieldset>
                 <div class="form-group">
                   <div class="input-group">
                     <input id="popover-title" v-model="popoverTitle" @input="checkPopoverContents" required/>
-                    <label class="control-label" for="popover-title">Popover Title</label><i class="bar"></i>
+                    <label class="control-label" for="popover-title">{{'notificationsPage.popovers.popoverTitleLabel' | translate}}</label><i class="bar"></i>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
                     <input id="popover-text" v-model="popoverText" @input="checkPopoverContents" required/>
-                    <label class="control-label" for="popover-text">Popover Text</label><i class="bar"></i>
+                    <label class="control-label" for="popover-text">{{'notificationsPage.popovers.popoverTextLabel' | translate}}</label><i class="bar"></i>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
                     <input id="popover-icon" v-model="popoverIcon" @input="checkPopoverContents" required/>
-                    <label class="control-label" for="popover-icon">Popover Icon (fontawesome)</label><i class="bar"></i>
+                    <label class="control-label" for="popover-icon">{{'notificationsPage.popovers.popoverIconLabel' | translate}}</label><i class="bar"></i>
                   </div>
                 </div>
                 <vuestic-popover popover-class="vuestic-tooltip" placement="right" :disabled="isPopoverDisabled">
                   <button slot="trigger" class="btn btn-sm btn-primary">
-                    Show popover
+                    {{'notificationsPage.popovers.showPopover' | translate}}
                   </button>
                   <i
                     slot="icon"
                     class="fa"
-                    :class="popoverIcon"
-                    v-if="popoverIcon">
+                    :class="popoverIcon">
                   </i>
                   <span slot="header">{{popoverTitle}}</span>
                   <span slot="body">{{popoverText}}</span>
@@ -42,13 +41,13 @@
             <div class="col-md-6">
               <p>
                 Any text can be used for
-                <vuestic-tooltip :options="topTooltipOptions"><a href="#"> top tooltip</a></vuestic-tooltip>
+                <vuestic-tooltip :options="topTooltipOptions"><a href="#">{{'notificationsPage.popovers.topTooltip' | translate}}</a></vuestic-tooltip>
                 showcase. Just anything you can possibly imagine to test
-                <vuestic-tooltip :options="rightTooltipOptions"><a href="#">rightside tooltip</a></vuestic-tooltip>.
+                <vuestic-tooltip :options="rightTooltipOptions"><a href="#">{{'notificationsPage.popovers.rightTooltip' | translate}}</a></vuestic-tooltip>.
                 But it can appear on the
-                <vuestic-tooltip :options="leftTooltipOptions"><a href="#">left</a></vuestic-tooltip>.
+                <vuestic-tooltip :options="leftTooltipOptions"><a href="#">{{'notificationsPage.popovers.leftTooltip' | translate}}</a></vuestic-tooltip>.
                 Or just
-                <vuestic-tooltip :options="bottomTooltipOptions"><a href="#">below</a></vuestic-tooltip>
+                <vuestic-tooltip :options="bottomTooltipOptions"><a href="#">{{'notificationsPage.popovers.bottomTooltip' | translate}}</a></vuestic-tooltip>
                 the item.
               </p>
             </div>
@@ -94,19 +93,19 @@
         popoverIcon: 'fa-image',
         isPopoverDisabled: false,
         topTooltipOptions: {
-          content: 'You have 2 new messages',
+          content: 'Top tooltip text',
           placement: 'top'
         },
         leftTooltipOptions: {
-          content: 'You have 2 new messages',
+          content: 'Left tooltip text',
           placement: 'left'
         },
         rightTooltipOptions: {
-          content: 'You have 2 new messages',
+          content: 'Right tooltip text',
           placement: 'right'
         },
         bottomTooltipOptions: {
-          content: 'You have 2 new messages',
+          content: 'Bottom tooltip text',
           placement: 'bottom'
         }
       }
