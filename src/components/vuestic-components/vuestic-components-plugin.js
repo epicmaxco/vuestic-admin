@@ -18,6 +18,7 @@ import Widget from 'src/components/vuestic-components/vuestic-widget/VuesticWidg
 import Wizard from 'src/components/vuestic-components/vuestic-wizard/VuesticWizard.vue'
 import MediumEditor from 'src/components/vuestic-components/vuestic-medium-editor/VuesticMediumEditor.vue'
 import Tooltip from 'src/components/vuestic-components/vuestic-tooltip/VuesticTooltip.vue'
+import Popover from 'src/components/vuestic-components/vuestic-popover/VuesticPopover.vue'
 
 const VuesticComponentsPlugin = {
   install (Vue, options) {
@@ -41,6 +42,7 @@ const VuesticComponentsPlugin = {
     Vue.component(Wizard.name, Wizard)
     Vue.component(MediumEditor.name, MediumEditor)
     Vue.component(Tooltip.name, Tooltip)
+    Vue.component(Popover.name, Popover)
   }
 }
 
