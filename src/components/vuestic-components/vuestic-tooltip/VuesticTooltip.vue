@@ -9,7 +9,7 @@
   export default {
     name: 'vuestic-tooltip',
 
-    directives: { VTooltip },
+    directives: { tooltip: VTooltip },
 
     computed: {
       tooltipOptions () {

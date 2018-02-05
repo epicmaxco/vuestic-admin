@@ -8,7 +8,7 @@
     >
     <slot name="trigger"></slot>
     <template slot="popover">
-      <div class="popover-icon" v-if="icon">
+      <div class="popover-icon" v-if="isIconPresent">
         <slot name="icon"></slot>
       </div>
       <div class="popover-content">
@@ -55,8 +55,8 @@
     },
 
     computed: {
-      icon () {
-        return this.$slots.icon
+      isIconPresent () {
+        return !!this.$slots.icon
       }
     }
   }

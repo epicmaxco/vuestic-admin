@@ -2,35 +2,40 @@
   <div class="notifications-page">
     <div class="row">
       <div class="col-md-12">
-        <vuestic-widget :headerText="'Tooltips'">
+        <vuestic-widget :headerText="'Tooltips & Popovers'">
           <div class="row">
             <div class="col-md-6">
               <fieldset>
                 <div class="form-group">
                   <div class="input-group">
-                    <input id="tooltip-title" v-model="tooltipTitle" required/>
-                    <label class="control-label" for="tooltip-title">Tooltip Title</label><i class="bar"></i>
+                    <input id="popover-title" v-model="popoverTitle" @input="checkPopoverContents" required/>
+                    <label class="control-label" for="popover-title">Popover Title</label><i class="bar"></i>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input id="tooltip-text" v-model="tooltipText" required/>
-                    <label class="control-label" for="tooltip-text">Tooltip Text</label><i class="bar"></i>
+                    <input id="popover-text" v-model="popoverText" @input="checkPopoverContents" required/>
+                    <label class="control-label" for="popover-text">Popover Text</label><i class="bar"></i>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input id="tooltip-icon" v-model="tooltipIcon" required/>
-                    <label class="control-label" for="tooltip-icon">Tooltip Icon</label><i class="bar"></i>
+                    <input id="popover-icon" v-model="popoverIcon" @input="checkPopoverContents" required/>
+                    <label class="control-label" for="popover-icon">Popover Icon (fontawesome)</label><i class="bar"></i>
                   </div>
                 </div>
-                <vuestic-popover popover-class="vuestic-tooltip" placement="right">
+                <vuestic-popover popover-class="vuestic-tooltip" placement="right" :disabled="isPopoverDisabled">
                   <button slot="trigger" class="btn btn-sm btn-primary">
-                    Show tooltip
+                    Show popover
                   </button>
-                  <i slot="icon" class="fa fa-image"></i>
-                  <span slot="header">Hey!</span>
-                  <span slot="body">This popover is amazing</span>
+                  <i
+                    slot="icon"
+                    class="fa"
+                    :class="popoverIcon"
+                    v-if="popoverIcon">
+                  </i>
+                  <span slot="header">{{popoverTitle}}</span>
+                  <span slot="body">{{popoverText}}</span>
                 </vuestic-popover>
               </fieldset>
             </div>
@@ -84,9 +89,10 @@
 
     data () {
       return {
-        tooltipTitle: 'Title',
-        tooltipText: 'Text',
-        tooltipIcon: 'Icon',
+        popoverTitle: 'Hey!',
+        popoverText: 'This popover is amazing',
+        popoverIcon: 'fa-image',
+        isPopoverDisabled: false,
         topTooltipOptions: {
           content: 'You have 2 new messages',
           placement: 'top'
@@ -102,6 +108,16 @@
         bottomTooltipOptions: {
           content: 'You have 2 new messages',
           placement: 'bottom'
+        }
+      }
+    },
+
+    methods: {
+      checkPopoverContents () {
+        if (!(this.popoverTitle || this.popoverText || this.popoverIcon)) {
+          this.isPopoverDisabled = true
+        } else {
+          this.isPopoverDisabled = false
         }
       }
     }
