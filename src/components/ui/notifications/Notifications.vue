@@ -79,12 +79,62 @@
         </vuestic-widget>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <vuestic-widget :headerText="'Toasts'">
+          <div class="row">
+            <div class="col-md-6">
+              <fieldset>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input id="toast-text" v-model="toastText" required/>
+                    <label class="control-label" for="toast-text">Text</label><i class="bar"></i>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input id="toast-duration" type="number" v-model="toastDuration" required/>
+                    <label class="control-label" for="toast-duration">Duration (seconds)</label><i class="bar"></i>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input id="toast-icon" v-model="toastIcon" required/>
+                    <label class="control-label" for="toast-icon">Icon (fontawesome)</label><i class="bar"></i>
+                  </div>
+                </div>
+                <div class="form-group toasts-position-group">
+                  <toast-position-picker></toast-position-picker>
+                  <div class="form-check abc-checkbox abc-checkbox-primary">
+                    <input class="form-check-input" id="toast-fullwidth" v-model="isToastFullWidth" type="checkbox">
+                    <label class="form-check-label" for="toast-fullwidth">
+                      <span class="abc-label-text">Fullwidth</span>
+                    </label>
+                  </div>
+                </div>
+                <button slot="trigger" class="btn btn-sm btn-primary">
+                  Launch toast
+                </button>
+              </fieldset>
+            </div>
+            <div class="col-md-6">
+
+            </div>
+          </div>
+        </vuestic-widget>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+  import ToastPositionPicker from './ToastPositionPicker.vue'
+
   export default {
     name: 'notifications',
+
+    components: {ToastPositionPicker},
 
     data () {
       return {
@@ -107,7 +157,11 @@
         bottomTooltipOptions: {
           content: 'Bottom tooltip text',
           placement: 'bottom'
-        }
+        },
+        toastText: 'This toast is awesome!',
+        toastDuration: 2,
+        toastIcon: 'fa-image',
+        isToastFullWidth: false,
       }
     },
 
@@ -124,5 +178,14 @@
 </script>
 
 <style lang="scss" scoped>
+
+  .toasts-position-group {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .toast-position-picker {
+    margin-right: 2rem;
+  }
 
 </style>

@@ -23,6 +23,8 @@
   padding-left: 20px;
 
   label{
+    padding-left: 0;
+
     &::before{
       border-radius: 0;
       @include transition(border 0.15s ease-in-out, color 0.15s ease-in-out, background-color 0.15s ease-in-out);
@@ -59,6 +61,7 @@
 .abc-radio {
 
   label {
+    padding-left: 0;
 
     &::after {
       width: 10px;
