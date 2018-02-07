@@ -257,3 +257,49 @@
     }
   }
 }
+
+//vue-toasted
+
+.toasted-container {
+  &.fullwidth {
+    width: calc(100% - #{$layout-padding} - #{$layout-padding-right});
+    transform: translateX(0);
+    left: 0;
+
+    .toasted.vuestic-toast {
+      max-width: 100%;
+      width: 100%;
+      left: $layout-padding;
+    }
+
+    @include media-breakpoint-down(md) {
+      width: calc(100% - #{$content-mobile-wrap-pl} - #{$content-mobile-wrap-pr});
+      left: 0;
+
+      .toasted.vuestic-toast {
+        left: $content-mobile-wrap-pl;
+      }
+    }
+  }
+}
+
+.toasted.vuestic-toast {
+  min-height: $toast-min-height;
+  padding: $toast-padding-y $toast-padding-x;
+  max-width: $toast-max-width;
+  font-size: $toast-font-size;
+  font-weight: $toast-font-weight;
+  line-height: $toast-line-height;
+  background: $toast-bg;
+  box-shadow: $toast-box-shadow;
+  color: $toast-color;
+  border-radius: $toast-border-radius;
+  opacity: $toast-opacity !important;  //important is needed to override lib's dynamic styles
+
+  i, i.fa {
+    font-size: $toast-icon-size;
+    color: $toast-icon-color;
+    margin-left: $toast-icon-ml;
+    margin-right: $toast-icon-mr;
+  }
+}

@@ -39,6 +39,7 @@
     "vue-chartjs": "^2.8.1",
     "vue-router": "^3.0.1",
     "vue-slider-component": "2.3.3",
+    "vue-toasted": "^1.1.24",
     "vue2-circle-progress": "^1.0.3",
     "vuetable-2": "1.7.0",
     "vuex": "^3.0.1",

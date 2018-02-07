@@ -113,7 +113,7 @@
                     </label>
                   </div>
                 </div>
-                <button slot="trigger" class="btn btn-sm btn-primary">
+                <button slot="trigger" class="btn btn-sm btn-primary" @click="launchToast">
                   Launch toast
                 </button>
               </fieldset>
@@ -161,7 +161,7 @@
         toastText: 'This toast is awesome!',
         toastDuration: 2,
         toastIcon: 'fa-image',
-        isToastFullWidth: false,
+        isToastFullWidth: false
       }
     },
 
@@ -172,6 +172,10 @@
         } else {
           this.isPopoverDisabled = false
         }
+      },
+
+      launchToast () {
+        this.$toasted.show('This toast is amazing!', {icon: 'fa-image'})
       }
     }
   }
