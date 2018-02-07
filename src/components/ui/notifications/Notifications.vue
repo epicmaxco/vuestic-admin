@@ -104,7 +104,7 @@
                     <label class="control-label" for="toast-icon">Icon (fontawesome)</label><i class="bar"></i>
                   </div>
                 </div>
-                <div class="form-group toasts-position-group">
+                <div class="form-group toasts-position-group d-flex flex-row">
                   <toast-position-picker></toast-position-picker>
                   <div class="form-check abc-checkbox abc-checkbox-primary">
                     <input class="form-check-input" id="toast-fullwidth" v-model="isToastFullWidth" type="checkbox">
@@ -118,8 +118,12 @@
                 </button>
               </fieldset>
             </div>
-            <div class="col-md-6">
-
+            <div class="col-md-6 justify-content-center align-items-center d-none d-md-flex">
+              <div class="toasted-container sample-toasted-container" v-if="isToastContentPresent">
+                <div class="toasted vuestic-toast primary default">
+                  <i class="fa" :class="toastIcon" v-if="toastIcon"></i>{{toastText}}
+                </div>
+              </div>
             </div>
           </div>
         </vuestic-widget>
@@ -165,6 +169,12 @@
       }
     },
 
+    computed: {
+      isToastContentPresent () {
+        return !!(this.toastText || this.toastIcon)
+      }
+    },
+
     methods: {
       checkPopoverContents () {
         if (!(this.popoverTitle || this.popoverText || this.popoverIcon)) {
@@ -183,13 +193,18 @@
 
 <style lang="scss" scoped>
 
-  .toasts-position-group {
-    display: flex;
-    flex-direction: row;
-  }
-
   .toast-position-picker {
     margin-right: 2rem;
+  }
+
+  .toasted-container.sample-toasted-container {
+    position: static;
+    transform: translateX(0);
+
+    .toasted {
+      position: static;
+      transform: translateY(0);
+    }
   }
 
 </style>
