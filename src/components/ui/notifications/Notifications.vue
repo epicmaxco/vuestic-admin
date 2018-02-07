@@ -175,7 +175,7 @@
       },
 
       launchToast () {
-        this.$toasted.show('This toast is amazing!', {icon: 'fa-image'})
+        this.showToast('This toast is amazing!', {icon: 'fa-image'})
       }
     }
   }

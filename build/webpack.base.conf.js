@@ -29,6 +29,8 @@ module.exports = {
       'components': resolve('src/components'),
       'services': resolve('src/services'),
       'directives': resolve('src/directives'),
+      'vuestic-mixins': resolve('src/vuestic-mixins'),
+      'vuestic-components': resolve('src/components/vuestic-components'),
       'data': resolve('src/data'),
       'vuex-store': resolve('src/store')
     }

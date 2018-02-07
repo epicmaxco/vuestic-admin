@@ -2,25 +2,19 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import VeeValidate from 'vee-validate'
-import Toasted from 'vue-toasted'
 import App from './App'
 import store from './store'
 import router from './router'
 import { sync } from 'vuex-router-sync'
-import VuesticPlugin from 'src/components/vuestic-components/vuestic-components-plugin'
+import VuesticPlugin from 'vuestic-components/vuestic-components-plugin'
+import VuesticMixinsPlugin from 'vuestic-mixins/vuestic-mixins-plugin'
 import './i18n'
 
 Vue.use(VuesticPlugin)
+Vue.use(VuesticMixinsPlugin)
 
 // NOTE: workaround for VeeValidate + vuetable-2
 Vue.use(VeeValidate, {fieldsBagName: 'formFields'})
-Vue.use(Toasted, {
-  theme: 'primary',
-  position: 'bottom-center',
-  className: 'vuestic-toast',
-  iconPack: 'fontawesome',
-  containerClass: 'fullwidth'
-})
 
 sync(store, router)
 
