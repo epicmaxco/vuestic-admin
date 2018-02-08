@@ -120,7 +120,7 @@
             </div>
             <div class="col-md-6 justify-content-center align-items-center d-none d-md-flex">
               <div class="toasted-container sample-toasted-container" v-if="isToastContentPresent">
-                <div class="toasted vuestic-toast primary default">
+                <div class="toasted vuestic-toast none default">
                   <i class="fa" :class="toastIcon" v-if="toastIcon"></i>{{toastText}}
                 </div>
               </div>
