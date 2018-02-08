@@ -318,8 +318,10 @@
         this[field] = ''
       }
     },
-    mounted () {
-      this.$validator.validateAll()
+    created () {
+      this.$nextTick(() => {
+        this.$validator.validateAll()
+      })
     }
   }
 </script>
