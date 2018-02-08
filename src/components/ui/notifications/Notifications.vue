@@ -95,7 +95,7 @@
                 <div class="form-group">
                   <div class="input-group">
                     <input id="toast-duration" type="number" v-model="toastDuration" required/>
-                    <label class="control-label" for="toast-duration">Duration (seconds)</label><i class="bar"></i>
+                    <label class="control-label" for="toast-duration">Duration (milliseconds)</label><i class="bar"></i>
                   </div>
                 </div>
                 <div class="form-group">
@@ -105,7 +105,7 @@
                   </div>
                 </div>
                 <div class="form-group toasts-position-group d-flex flex-row">
-                  <toast-position-picker></toast-position-picker>
+                  <toast-position-picker v-model="toastPosition" />
                   <div class="form-check abc-checkbox abc-checkbox-primary">
                     <input class="form-check-input" id="toast-fullwidth" v-model="isToastFullWidth" type="checkbox">
                     <label class="form-check-label" for="toast-fullwidth">
@@ -163,8 +163,9 @@
           placement: 'bottom'
         },
         toastText: 'This toast is awesome!',
-        toastDuration: 2,
-        toastIcon: 'fa-image',
+        toastDuration: 2500,
+        toastIcon: 'fa-star-o',
+        toastPosition: 'bottom-right',
         isToastFullWidth: false
       }
     },
@@ -185,7 +186,12 @@
       },
 
       launchToast () {
-        this.showToast('This toast is amazing!', {icon: 'fa-image'})
+        this.showToast(this.toastText, {
+          icon: this.toastIcon,
+          position: this.toastPosition,
+          duration: this.toastDuration,
+          containerClass: this.isToastFullWidth ? 'fullwidth' : ''
+        })
       }
     }
   }
