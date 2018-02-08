@@ -79,12 +79,66 @@
         </vuestic-widget>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <vuestic-widget :headerText="'notificationsPage.toasts.title' | translate">
+          <div class="row">
+            <div class="col-md-6">
+              <fieldset>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input id="toast-text" v-model="toastText" required/>
+                    <label class="control-label" for="toast-text">{{'notificationsPage.toasts.textLabel' | translate}}</label><i class="bar"></i>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input id="toast-duration" type="number" v-model="toastDuration" required/>
+                    <label class="control-label" for="toast-duration">{{'notificationsPage.toasts.durationLabel' | translate}}</label><i class="bar"></i>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input id="toast-icon" v-model="toastIcon" required/>
+                    <label class="control-label" for="toast-icon">{{'notificationsPage.toasts.iconLabel' | translate}}</label><i class="bar"></i>
+                  </div>
+                </div>
+                <div class="form-group toasts-position-group d-flex flex-row">
+                  <toast-position-picker v-model="toastPosition" />
+                  <div class="form-check abc-checkbox abc-checkbox-primary">
+                    <input class="form-check-input" id="toast-fullwidth" v-model="isToastFullWidth" type="checkbox">
+                    <label class="form-check-label" for="toast-fullwidth">
+                      <span class="abc-label-text">{{'notificationsPage.toasts.fullWidthLabel' | translate}}</span>
+                    </label>
+                  </div>
+                </div>
+                <button slot="trigger" class="btn btn-sm btn-primary" @click="launchToast">
+                  {{'notificationsPage.toasts.launchToast' | translate}}
+                </button>
+              </fieldset>
+            </div>
+            <div class="col-md-6 justify-content-center align-items-center d-none d-md-flex">
+              <div class="toasted-container sample-toasted-container" v-if="isToastContentPresent">
+                <div class="toasted vuestic-toast primary default">
+                  <i class="fa" :class="toastIcon" v-if="toastIcon"></i>{{toastText}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </vuestic-widget>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+  import ToastPositionPicker from './ToastPositionPicker.vue'
+
   export default {
     name: 'notifications',
+
+    components: {ToastPositionPicker},
 
     data () {
       return {
@@ -107,7 +161,18 @@
         bottomTooltipOptions: {
           content: 'Bottom tooltip text',
           placement: 'bottom'
-        }
+        },
+        toastText: 'This toast is awesome!',
+        toastDuration: 2500,
+        toastIcon: 'fa-star-o',
+        toastPosition: 'bottom-right',
+        isToastFullWidth: false
+      }
+    },
+
+    computed: {
+      isToastContentPresent () {
+        return !!(this.toastText || this.toastIcon)
       }
     },
 
@@ -118,11 +183,34 @@
         } else {
           this.isPopoverDisabled = false
         }
+      },
+
+      launchToast () {
+        this.showToast(this.toastText, {
+          icon: this.toastIcon,
+          position: this.toastPosition,
+          duration: this.toastDuration,
+          fullWidth: this.isToastFullWidth
+        })
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
+
+  .toast-position-picker {
+    margin-right: 2rem;
+  }
+
+  .toasted-container.sample-toasted-container {
+    position: static;
+    transform: translateX(0);
+
+    .toasted {
+      position: static;
+      transform: translateY(0);
+    }
+  }
 
 </style>

@@ -6,10 +6,12 @@ import App from './App'
 import store from './store'
 import router from './router'
 import { sync } from 'vuex-router-sync'
-import VuesticPlugin from 'src/components/vuestic-components/vuestic-components-plugin'
+import VuesticPlugin from 'vuestic-components/vuestic-components-plugin'
+import VuesticMixinsPlugin from 'vuestic-mixins/vuestic-mixins-plugin'
 import './i18n'
 
 Vue.use(VuesticPlugin)
+Vue.use(VuesticMixinsPlugin)
 
 // NOTE: workaround for VeeValidate + vuetable-2
 Vue.use(VeeValidate, {fieldsBagName: 'formFields'})

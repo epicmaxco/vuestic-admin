@@ -377,6 +377,7 @@ $popover-border-width:              0;
 $popover-border-color:              transparent;
 $popover-border-radius:             $tooltip-border-radius;
 $popover-box-shadow:                $greeny-box-shadow;
+$popover-opacity:                   $tooltip-opacity;
 
 $popover-header-bg:                 $tooltip-bg;
 $popover-header-color:              $white;
@@ -398,3 +399,23 @@ $popover-arrow-height:              1rem;
 $popover-arrow-color:               transparent;
 
 $popover-arrow-outer-color:         fade-in($popover-border-color, .05);
+
+// Toasts
+
+$toast-font-size:                   $popover-font-size;
+$toast-line-height:                 $popover-line-height;
+$toast-font-weight:                 normal;
+$toast-min-height:                  3.25rem;
+$toast-box-shadow:                  $popover-box-shadow;
+$toast-bg:                          $popover-bg;
+$toast-border-radius:               $popover-border-radius;
+$toast-color:                       $popover-body-color;
+$toast-opacity:                     $popover-opacity;
+
+$toast-padding-x:                   1.15rem;
+$toast-padding-y:                   0.5rem;
+
+$toast-icon-size:                   $popover-icon-size;
+$toast-icon-color:                  $popover-icon-color;
+$toast-icon-ml:                     0;
+$toast-icon-mr:                     0.625rem;

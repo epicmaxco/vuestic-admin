@@ -67,6 +67,14 @@
       "rightTooltip": "rightside tooltip",
       "leftTooltip": "left",
       "bottomTooltip": "below"
+    },
+    "toasts": {
+      "title": "Toasts",
+      "textLabel": "Text",
+      "durationLabel": "Duration (milliseconds)",
+      "iconLabel": "Icon (fontawesome)",
+      "fullWidthLabel": "Fullwidth",
+      "launchToast": "Launch toast"
     }
   },
   "extra": {
