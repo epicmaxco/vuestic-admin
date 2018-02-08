@@ -44,12 +44,6 @@
       DashboardBottomWidgets
     },
 
-    mounted () {
-      setTimeout(() => {
-        this.launchEpicmaxToast()
-      }, 3000)
-    },
-
     methods: {
       launchEpicmaxToast () {
         this.showToast(`Let's work together!`, {
