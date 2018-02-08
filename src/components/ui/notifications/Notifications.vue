@@ -82,26 +82,26 @@
 
     <div class="row">
       <div class="col-md-12">
-        <vuestic-widget :headerText="'Toasts'">
+        <vuestic-widget :headerText="'notificationsPage.toasts.title' | translate">
           <div class="row">
             <div class="col-md-6">
               <fieldset>
                 <div class="form-group">
                   <div class="input-group">
                     <input id="toast-text" v-model="toastText" required/>
-                    <label class="control-label" for="toast-text">Text</label><i class="bar"></i>
+                    <label class="control-label" for="toast-text">{{'notificationsPage.toasts.textLabel' | translate}}</label><i class="bar"></i>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
                     <input id="toast-duration" type="number" v-model="toastDuration" required/>
-                    <label class="control-label" for="toast-duration">Duration (milliseconds)</label><i class="bar"></i>
+                    <label class="control-label" for="toast-duration">{{'notificationsPage.toasts.durationLabel' | translate}}</label><i class="bar"></i>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
                     <input id="toast-icon" v-model="toastIcon" required/>
-                    <label class="control-label" for="toast-icon">Icon (fontawesome)</label><i class="bar"></i>
+                    <label class="control-label" for="toast-icon">{{'notificationsPage.toasts.iconLabel' | translate}}</label><i class="bar"></i>
                   </div>
                 </div>
                 <div class="form-group toasts-position-group d-flex flex-row">
@@ -109,12 +109,12 @@
                   <div class="form-check abc-checkbox abc-checkbox-primary">
                     <input class="form-check-input" id="toast-fullwidth" v-model="isToastFullWidth" type="checkbox">
                     <label class="form-check-label" for="toast-fullwidth">
-                      <span class="abc-label-text">Fullwidth</span>
+                      <span class="abc-label-text">{{'notificationsPage.toasts.fullWidthLabel' | translate}}</span>
                     </label>
                   </div>
                 </div>
                 <button slot="trigger" class="btn btn-sm btn-primary" @click="launchToast">
-                  Launch toast
+                  {{'notificationsPage.toasts.launchToast' | translate}}
                 </button>
               </fieldset>
             </div>
