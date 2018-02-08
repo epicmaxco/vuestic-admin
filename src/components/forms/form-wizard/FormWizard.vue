@@ -279,6 +279,7 @@
           {
             label: this.$t('forms.wizard.stepOne'),
             slot: 'page1',
+            icons: 'ion ion-md-information-circle',
             onNext: () => {
               this.validateFormField('hrName')
             },
@@ -289,6 +290,10 @@
           {
             label: this.$t('forms.wizard.stepTwo'),
             slot: 'page2',
+            icons: {
+              pending: 'fa fa-flag-o',
+              success: 'fa fa-flag'
+            },
             onNext: () => {
               this.$refs.hrCountrySelect.validate()
             },
@@ -298,7 +303,8 @@
           },
           {
             label: this.$t('forms.wizard.stepThree'),
-            slot: 'page3'
+            slot: 'page3',
+            icons: 'ion ion-logo-tux'
           }
         ]
       },
