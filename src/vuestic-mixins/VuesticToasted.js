@@ -2,7 +2,7 @@ import Toasted from 'vue-toasted'
 import Vue from 'vue'
 
 const toastOptions = {
-  theme: 'primary',
+  theme: 'none',
   position: 'bottom-center',
   className: 'vuestic-toast',
   iconPack: 'fontawesome',
