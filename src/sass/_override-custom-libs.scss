@@ -296,7 +296,10 @@
   box-shadow: $toast-box-shadow;
   color: $toast-color;
   border-radius: $toast-border-radius;
-  opacity: $toast-opacity !important;  //important is needed to override lib's dynamic styles
+
+  &:not(.panning) {
+    opacity: $toast-opacity !important;  //important is needed to override lib's dynamic styles
+  }
 
   i, i.fa {
     font-size: $toast-icon-size;
