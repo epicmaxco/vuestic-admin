@@ -302,4 +302,8 @@
     margin-left: $toast-icon-ml;
     margin-right: $toast-icon-mr;
   }
+
+  a.action:hover {
+    text-decoration: none;
+  }
 }
