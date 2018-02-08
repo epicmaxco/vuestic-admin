@@ -190,7 +190,7 @@
           icon: this.toastIcon,
           position: this.toastPosition,
           duration: this.toastDuration,
-          containerClass: this.isToastFullWidth ? 'fullwidth' : ''
+          fullWidth: this.isToastFullWidth
         })
       }
     }
