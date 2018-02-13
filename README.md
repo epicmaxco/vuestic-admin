@@ -62,6 +62,9 @@ Got stuck? Check out our [documentation](https://github.com/epicmaxco/vuestic-ad
 * 4 Form wizard types
 * Static tables and datatables
 * Login/signup pages templates
+* Medium editor
+* Toasts, tooltips, popovers,
+* i18n
 * and many more!
 
 ## How can I support developers?
