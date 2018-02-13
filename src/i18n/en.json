@@ -196,6 +196,9 @@
     "staticTitle": "Static Modal",
     "title": "Modals"
   },
+  "navbar": {
+    "messageUs": "Send us your questions or feedback to"
+  },
   "notifications": {
     "all": "See all notifications",
     "sentMessage": "{name} sent you a message",

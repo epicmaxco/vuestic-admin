@@ -184,6 +184,9 @@
     "staticTitle": "Modal Estático",
     "title": "Modals"
   },
+  "navbar": {
+    "messageUs": "Envíenos sus preguntas o comentarios a"
+  },
   "notifications": {
     "all": "Ver todos los notificaciones",
     "sentMessage": "{name} te ha mandado un mensaje",
