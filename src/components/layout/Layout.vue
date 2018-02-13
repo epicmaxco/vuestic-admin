@@ -2,12 +2,17 @@
   <div :class="classObject" v-resize>
     <navbar></navbar>
     <sidebar></sidebar>
+
     <div class="content-wrap" id="content-wrap">
       <main id="content" class="content" role="main">
         <vuestic-breadcrumbs :breadcrumbs="breadcrumbs"/>
         <vuestic-pre-loader v-show="isLoading" ref="preLoader" class="pre-loader"></vuestic-pre-loader>
         <router-view v-show="!isLoading"></router-view>
       </main>
+    </div>
+
+    <div class="made-by-footer">
+      ©2018. Made by&nbsp;<a href="http://epicmax.co" target="_blank">Epicmax</a>
     </div>
   </div>
 </template>
@@ -77,5 +82,15 @@
         margin-left: 0;
       }
     }
+  }
+
+  .made-by-footer {
+    position: absolute;
+    bottom: 0;
+    height: calc(#{$layout-padding} + #{$widget-mb});
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>
