@@ -4,6 +4,7 @@
   "description": "Vue.js admin template",
   "author": "smartapant <smartapant@gmail.com>",
   "private": false,
+
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
@@ -20,6 +21,7 @@
     "awesome-bootstrap-checkbox": "1.0.0-alpha.5",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.0.0",
+    "bootstrap-vue": "^1.4.0",
     "chart.js": "^2.6.0",
     "detect-browser": "^1.7.1",
     "element-resize-detector": "^1.1.12",
@@ -36,7 +38,6 @@
     "v-tooltip": "^2.0.0-rc.30",
     "vee-validate": "2.0.0-rc.7",
     "vue": "2.5.2",
-    "vue-bulma-expanding": "0.0.1",
     "vue-chartjs": "^2.8.1",
     "vue-router": "^3.0.1",
     "vue-slider-component": "2.3.3",

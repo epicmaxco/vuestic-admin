@@ -3,36 +3,30 @@
     <vuestic-scrollbar>
       <ul class="sidebar-menu">
         <li v-for="(item, index) in menuItems" :key="item.name">
-          <router-link
-            class="sidebar-link"
-            :to="item.path"
-            :target="item.meta.newWindow ? '_blank' : '_self'"
-            @click="toggleMenuItem(item)"
-            v-if="item.path">
+          <router-link :to="item.path"
+                       class="sidebar-link"
+                       @click="toggleMenuItem(item)"
+                       :aria-controls="'collpase_'+item.name"
+                       v-if="item.path">
             <i class="sidebar-menu-item-icon" v-bind:class="item.meta.iconClass"></i>
             {{item.meta.title | translate}}
           </router-link>
           <a href="#"
              @click.prevent="toggleMenuItem(item)"
              class="sidebar-link"
-             v-bind:class="{expanded: item.meta.expanded}"
+             v-bind:class="item.meta.expanded ? 'collapsed' : null"
              v-else>
             <i class="sidebar-menu-item-icon" v-bind:class="item.meta.iconClass"></i>
             {{item.meta.title | translate}}
             <i class="expand-icon fa fa-angle-down"></i>
           </a>
-          <expanding>
-            <ul class="sidebar-submenu in" v-show="item.meta.expanded">
-              <li v-for="childItem in item.children" :key="childItem.name">
-                <router-link
-                  class="sidebar-link sidebar-submenu-link"
-                  :to="childItem.path"
-                  :target="childItem.meta.newWindow ? '_blank' : '_self'">
-                  {{childItem.meta.title | translate}}
-                </router-link>
-              </li>
-            </ul>
-          </expanding>
+          <ul b-collapse class="sidebar-submenu in" :id="'collpase_'+item.name" v-show="item.meta.expanded">
+            <li v-for="childItem in item.children">
+              <router-link :to="childItem.path" class="sidebar-link sidebar-submenu-link">
+                {{childItem.meta.title | translate}}
+              </router-link>
+            </li>
+          </ul>
         </li>
       </ul>
     </vuestic-scrollbar>
@@ -42,12 +36,14 @@
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
-  import Expanding from 'vue-bulma-expanding/src/Expanding'
+  import { Collapse } from '../../../../node_modules/bootstrap-vue/es/components'
+  import VuesticScrollbar from '../../vuestic-components/vuestic-scrollbar/VuesticScrollbar'
   export default {
     name: 'sidebar',
 
     components: {
-      Expanding
+      Collapse,
+      VuesticScrollbar
     },
     methods: {
       ...mapActions({
@@ -173,7 +169,7 @@
       transition: transform 0.3s ease;
     }
 
-    &.expanded {
+    &.collapsed {
       .expand-icon {
         transform: rotate(180deg);
       }

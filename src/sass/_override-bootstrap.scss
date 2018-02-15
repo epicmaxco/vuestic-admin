@@ -287,6 +287,7 @@ h4, .h4 {
     border: none;
     vertical-align: middle !important;
     padding: .5rem;
+    border-top: solid $table-border-color;
   }
 
   .badge {
