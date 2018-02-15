@@ -56,6 +56,7 @@
           </div>
         </div>
       </div>
+      <language-selector :options="langs"></language-selector>
       <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center" v-dropdown>
         <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="closeMenu">
           <span class="avatar-container">
@@ -68,65 +69,59 @@
               <a class="plain-link" href="#">{{'user.profile' | translate}}</a>
             </div>
             <div class="dropdown-item plain-link-item">
-              <a class="plain-link" href="#" @click.prevent="showLanguageModal">{{'user.language' | translate}}</a>
-            </div>
-            <div class="dropdown-item plain-link-item">
               <a class="plain-link" href="#">{{'user.logout' | translate}}</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <vuestic-modal ref="languageModal"
-     v-bind:small="true" :okClass="'none'" :cancelClass="'none'">
-      <div slot="title">{{'user.language' | translate}}</div>
-      <div class="text-center">
-              <button class="btn btn-info" @click="setLanguage('en')">
-                {{'language.english' | translate}}
-              </button>
-              <hr>
-              <button class="btn btn-info" @click="setLanguage('es')">
-                {{'language.spanish' | translate}}
-              </button>
-      </div>
-    </vuestic-modal>
   </nav>
 </template>
 
 <script>
-  import Vue from 'vue'
   import { mapGetters, mapActions } from 'vuex'
-  import Dropdown from 'directives/Dropdown'
+  import Dropdown from '../../../directives/Dropdown'
+  import LanguageSelector from './LanguageSelector'
 
   export default {
     name: 'navbar',
 
+    components: {
+      LanguageSelector
+    },
+
     directives: {
       dropdown: Dropdown
+    },
+
+    data () {
+      return {
+        langs: [
+          {
+            code: 'gb',
+            name: 'english'
+          },
+          {
+            code: 'es',
+            name: 'spanish'
+          }
+        ]
+      }
     },
 
     computed: {
       ...mapGetters([
         'sidebarOpened',
         'toggleWithoutAnimation'
-      ]),
-      currentLanguage () {
-        return Vue.i18n.locale() === 'en' ? 'English' : 'Spanish'
-      }
+      ])
     },
+
     methods: {
       ...mapActions([
         'closeMenu',
         'toggleSidebar',
         'isToggleWithoutAnimation'
-      ]),
-      showLanguageModal () {
-        this.$refs.languageModal.open()
-      },
-      setLanguage (locale) {
-        Vue.i18n.set(locale)
-        this.$refs.languageModal.cancel()
-      }
+      ])
     }
   }
 </script>
