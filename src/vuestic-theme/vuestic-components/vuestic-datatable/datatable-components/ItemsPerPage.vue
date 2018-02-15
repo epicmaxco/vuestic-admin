@@ -15,7 +15,7 @@
 </template>
 
 <script>
-  import Dropdown from '../../../../directives/Dropdown'
+  import Dropdown from 'directives/Dropdown'
 
   export default {
     directives: {

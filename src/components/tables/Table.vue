@@ -196,8 +196,8 @@
 <script>
   import Vue from 'vue'
   import BadgeColumn from './BadgeColumn.vue'
-  import FieldsDef from 'components/vuestic-components/vuestic-datatable/data/fields-definition'
-  import ItemsPerPageDef from 'components/vuestic-components/vuestic-datatable/data/items-per-page-definition'
+  import FieldsDef from 'vuestic-components/vuestic-datatable/data/fields-definition'
+  import ItemsPerPageDef from 'vuestic-components/vuestic-datatable/data/items-per-page-definition'
 
   Vue.component('badge-column', BadgeColumn)
 

@@ -38,7 +38,7 @@
   import ItemsPerPage from './datatable-components/ItemsPerPage.vue'
   import Vue from 'vue'
   import LocalData from './data/local-data'
-  import DataTableStyles from '../../vuestic-components/vuestic-datatable/data/data-table-styles'
+  import DataTableStyles from '..//vuestic-datatable/data/data-table-styles'
 
   const originalData = LocalData.data
 

@@ -1,12 +1,13 @@
 <template>
-  <div class="form-group with-icon-right dropdown select-form-group multiselect-form-group"
-       v-dropdown
+  <div class="form-group with-icon-right dropdown select-form-group"
+       v-dropdown.closeOnMenuClick
        :class="{'has-error': hasErrors()}">
     <div class="input-group dropdown-toggle" @click="$refs.scrollbar.onContainerResize()">
       <input
         readonly
         :class="{'has-value': !!displayValue}"
-        v-bind:value="displayValue"
+        v-model="displayValue"
+        :name="name"
         required/>
       <i class="ion ion-chevron-down icon-right input-icon"></i>
       <label class="control-label">{{label}}</label><i class="bar"></i>
@@ -17,9 +18,8 @@
         <div class="dropdown-menu-content">
           <div class="dropdown-item"
                :class="{'selected': isOptionSelected(option)}" v-for="option in options"
-               @click="toggleSelection(option)">
+               @click="selectOption(option)">
             <span class="ellipsis">{{optionKey ? option[optionKey] : option}}</span>
-            <i class="fa fa-check selected-icon"></i>
           </div>
         </div>
       </scrollbar>
@@ -32,7 +32,7 @@
   import Scrollbar from '../vuestic-scrollbar/VuesticScrollbar.vue'
 
   export default {
-    name: 'vuestic-multi-select',
+    name: 'vuestic-simple-select',
     components: {
       Scrollbar
     },
@@ -48,7 +48,7 @@
     props: {
       label: String,
       options: Array,
-      value: Array,
+      value: {},
       optionKey: String,
       required: {
         type: Boolean,
@@ -56,10 +56,11 @@
       },
       name: {
         type: String,
-        default: 'multiselect'
+        default: 'simple-select'
       }
     },
     mounted () {
+      this.updateDisplayValue(this.value)
       this.$emit('input', this.value)
     },
 
@@ -68,26 +69,15 @@
     },
 
     methods: {
-      toggleSelection (option) {
-        let newVal = this.isOptionSelected(option) ? this.deselectOption(option) : this.selectOption(option)
-        this.updateDisplayValue(newVal)
-        this.$emit('input', newVal)
-      },
       isOptionSelected (option) {
-        return this.value.includes(option)
+        return this.value === option
       },
       selectOption (option) {
-        return this.value.concat(option)
+        this.updateDisplayValue(option)
+        this.$emit('input', option)
       },
-      deselectOption (option) {
-        return this.value.filter(item => item !== option)
-      },
-      updateDisplayValue (newVal) {
-        if (newVal.length > 2) {
-          this.displayValue = `${newVal.length} of ${this.options.length} chosen`
-        } else {
-          this.displayValue = (this.optionKey ? newVal.map(item => item[this.optionKey]) : newVal).join(', ')
-        }
+      updateDisplayValue (val) {
+        this.displayValue = this.optionKey ? val[this.optionKey] : val
       },
       validate () {
         this.validated = true
@@ -114,9 +104,16 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/_variables.scss";
+  @import "../../../sass/variables";
 
-  .multiselect-form-group {
+  .select-form-group {
+    .dropdown-toggle {
+      input {
+        color: transparent;
+        text-shadow: 0 0 0 #000;
+        cursor: pointer;
+      }
+    }
     .dropdown-menu {
       padding: 0;
       .vuestic-scrollbar {
