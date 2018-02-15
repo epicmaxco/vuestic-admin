@@ -20,11 +20,13 @@
 </template>
 
 <script>
-  import StickyScroll from 'directives/StickyScroll'
+  import StickyScroll from 'vuestic-directives/StickyScroll'
 
   export default {
     name: 'vuestic-chat',
+
     directives: {StickyScroll},
+
     props: {
       value: {
         type: Array,
@@ -34,17 +36,20 @@
         default: '20rem'
       }
     },
+
     data () {
       return {
         inputMessage: ''
       }
     },
+
     methods: {
       keyHandler (event) {
         if (event.keyCode === 13) {
           this.sendMessage()
         }
       },
+
       sendMessage () {
         if (this.inputMessage) {
           this.$emit('input', this.value.concat({
@@ -55,6 +60,7 @@
         }
       }
     },
+
     mounted () {
       this.$emit('input', this.value)
     }

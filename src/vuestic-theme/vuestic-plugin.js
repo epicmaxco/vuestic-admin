@@ -22,6 +22,9 @@ import Popover from './vuestic-components/vuestic-popover/VuesticPopover.vue'
 
 import VuesticToasted from './vuestic-mixins/VuesticToasted'
 
+import Dropdown from './vuestic-directives/Dropdown'
+import StickyScroll from './vuestic-directives/StickyScroll'
+
 const VuesticPlugin = {
   install (Vue, options) {
     Vue.component(Alert.name, Alert)
@@ -47,6 +50,9 @@ const VuesticPlugin = {
     Vue.component(Popover.name, Popover)
 
     Vue.mixin(VuesticToasted)
+
+    Vue.directive('dropdown', Dropdown)
+    Vue.directive('sticky-scroll', StickyScroll)
   }
 }
 

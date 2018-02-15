@@ -181,13 +181,10 @@
 
 <script>
   import {mapGetters} from 'vuex'
-  import Dropdown from 'directives/Dropdown'
 
   export default {
     name: 'buttons',
-    directives: {
-      Dropdown
-    },
+
     computed: {
       ...mapGetters([
         'sidebarOpened'

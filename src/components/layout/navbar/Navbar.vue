@@ -80,7 +80,6 @@
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
-  import Dropdown from '../../../directives/Dropdown'
   import LanguageSelector from './LanguageSelector'
 
   export default {
@@ -88,10 +87,6 @@
 
     components: {
       LanguageSelector
-    },
-
-    directives: {
-      dropdown: Dropdown
     },
 
     data () {

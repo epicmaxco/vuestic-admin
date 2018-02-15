@@ -23,14 +23,9 @@
 <script>
   import Vue from 'vue'
   import { mapActions } from 'vuex'
-  import Dropdown from '../../../directives/Dropdown'
 
   export default {
     name: 'language-selector',
-
-    directives: {
-      dropdown: Dropdown
-    },
 
     props: {
       options: {
@@ -151,7 +146,7 @@
         color: $vue-green;
         background-color: $darkest-gray;
       }
-      
+
       &:hover {
         background-color: $almost-black;
       }

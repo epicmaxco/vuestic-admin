@@ -31,6 +31,7 @@ module.exports = {
       'directives': resolve('src/directives'),
       'vuestic-mixins': resolve('src/vuestic-theme/vuestic-mixins'),
       'vuestic-components': resolve('src/vuestic-theme/vuestic-components'),
+      'vuestic-directives': resolve('src/vuestic-theme/vuestic-directives'),
       'vuestic-theme': resolve('src/vuestic-theme'),
       'data': resolve('src/data'),
       'vuex-store': resolve('src/store')
