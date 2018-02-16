@@ -14,15 +14,15 @@
         type: Number
       }
     },
-    data () {
-      return {
-        classObject: {
-          'badge-warning': this.rowIndex % 6 === 0,
-          'badge-primary': this.rowIndex % 6 === 1,
-          'badge-danger': this.rowIndex % 6 === 2,
-          'badge-info': this.rowIndex % 6 === 3,
-          'badge-violet': this.rowIndex % 6 === 4,
-          'badge-dark-blue': this.rowIndex % 6 === 5
+    computed : {
+      classObject: function(){
+        return {
+        'badge-warning': this.rowIndex % 6 === 0,
+        'badge-primary': this.rowIndex % 6 === 1,
+        'badge-danger': this.rowIndex % 6 === 2,
+        'badge-info': this.rowIndex % 6 === 3,
+        'badge-violet': this.rowIndex % 6 === 4,
+        'badge-dark-blue': this.rowIndex % 6 === 5
         }
       }
     }
