@@ -14,9 +14,6 @@
         type: Number
       }
     },
-    data: {
-      classObject: {}
-    },
     computed : {
       classObject: function(){
         return {
