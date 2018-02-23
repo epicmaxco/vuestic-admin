@@ -29,7 +29,7 @@
   @import "sass/main";
   body {
     height: 100%;
-    .app {
+    #app {
       height: 100%;
     }
   }
