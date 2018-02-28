@@ -231,7 +231,7 @@
                   </div>
 
                   <div class="form-check radio abc-radio abc-radio-primary">
-                    <input class="form-check-input" type="radio" name="radio1" id="radio2" value="option2">
+                    <input class="form-check-input" type="radio" name="radio2" id="radio2" value="option2">
                     <label class="form-check-label" for="radio2">
                       <span class="abc-label-text">{{'forms.controls.radio' | translate}}</span>
                     </label>
