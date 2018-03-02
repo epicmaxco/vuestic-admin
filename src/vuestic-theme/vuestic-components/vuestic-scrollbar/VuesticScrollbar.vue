@@ -1,5 +1,5 @@
 <template>
-  <div class="vuestic-scrollbar" @transitionend="onContainerResize">
+  <div class="vuestic-scrollbar">
     <div class="scrollbar-wrapper" ref="scrollbarWrapper">
       <div class="scrollbar-content" ref="scrollbarContent"
            @wheel="scroll"
@@ -43,13 +43,6 @@
           ? 0
           : parseInt(this.content.style.marginTop, 10)
         this.thumb.style.top = (-currentMT / this.contentHeight * this.trackHeight) + 'px'
-      },
-      onContainerResize () {
-        erd.listenTo(this.content, () => {
-          this.calcSize()
-          this.calcThumb()
-          erd.removeAllListeners(this.content)
-        })
       },
       onContentResize () {
         let prevHeight = this.contentHeight
@@ -128,6 +121,13 @@
       this.wrapper = this.$refs.scrollbarWrapper
       this.calcSize()
       this.calcThumb()
+      erd.listenTo(this.content, () => {
+        this.calcSize()
+        this.calcThumb()
+      })
+    },
+    beforeDestroy () {
+      erd.removeAllListeners(this.content)
     },
     data () {
       return {
