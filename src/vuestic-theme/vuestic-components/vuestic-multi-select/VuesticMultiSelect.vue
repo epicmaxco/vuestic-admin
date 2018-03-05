@@ -2,7 +2,7 @@
   <div class="form-group with-icon-right dropdown select-form-group multiselect-form-group"
        v-dropdown
        :class="{'has-error': hasErrors()}">
-    <div class="input-group dropdown-toggle" @click="$refs.scrollbar.onContainerResize()">
+    <div class="input-group dropdown-toggle">
       <input
         readonly
         :class="{'has-value': !!displayValue}"
