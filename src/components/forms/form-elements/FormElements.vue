@@ -224,14 +224,14 @@
               <div class="col-md-3">
                 <fieldset>
                   <div class="form-check radio abc-radio abc-radio-primary">
-                    <input class="form-check-input" type="radio" name="radio1" id="radio1" value="option1" checked>
+                    <input class="form-check-input" type="radio" name="radio" id="radio1" value="option1" v-model="radioModel">
                     <label class="form-check-label" for="radio1">
                       <span class="abc-label-text">{{'forms.controls.radio' | translate}}</span>
                     </label>
                   </div>
 
                   <div class="form-check radio abc-radio abc-radio-primary">
-                    <input class="form-check-input" type="radio" name="radio1" id="radio2" value="option2">
+                    <input class="form-check-input" type="radio" name="radio" id="radio2" value="option2" v-model="radioModel">
                     <label class="form-check-label" for="radio2">
                       <span class="abc-label-text">{{'forms.controls.radio' | translate}}</span>
                     </label>
@@ -240,14 +240,14 @@
 
                 <fieldset>
                   <div class="form-check radio abc-radio abc-radio-primary">
-                    <input class="form-check-input" type="radio" name="radio3" id="radio3" value="option3" disabled>
+                    <input class="form-check-input" type="radio" name="disabled-radio" id="radio3" value="option3" v-model="radioDisabledModel" disabled>
                     <label class="form-check-label" for="radio3">
                       <span class="abc-label-text">{{'forms.controls.radioDisabled' | translate}}</span>
                     </label>
                   </div>
 
                   <div class="form-check radio abc-radio abc-radio-primary">
-                    <input class="form-check-input" type="radio" name="radio4" id="radio4" value="option4" checked disabled>
+                    <input class="form-check-input" type="radio" name="disabled-radio" id="radio4" value="option4" v-model="radioDisabledModel" disabled>
                     <label class="form-check-label" for="radio4">
                       <span class="abc-label-text">{{'forms.controls.radioDisabled' | translate}}</span>
                     </label>
@@ -310,7 +310,9 @@
         ],
         simpleSelectModel: '',
         multiSelectModel: [],
-        multiSelectCountriesModel: []
+        multiSelectCountriesModel: [],
+        radioModel: 'option1',
+        radioDisabledModel: 'option4'
       }
     },
     methods: {
