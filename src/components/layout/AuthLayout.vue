@@ -25,7 +25,7 @@
   @import "../../../node_modules/bootstrap/scss/functions";
   @import '../../../node_modules/bootstrap/scss/variables';
   .auth-layout {
-    height: 100%;
+    height: 100vh;
     margin: 0;
     .nav {
       display: flex;
