@@ -47,6 +47,9 @@ const hotMiddleware = require('webpack-hot-middleware')(compiler, {
 // compilation error display
 app.use(hotMiddleware)
 
+// load the favicon
+app.use('/favicon.ico', express.static(__dirname + '/../favicon.ico'));
+
 // proxy api requests
 Object.keys(proxyTable).forEach(function (context) {
   let options = proxyTable[context]
