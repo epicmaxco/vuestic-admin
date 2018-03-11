@@ -16,9 +16,14 @@
             </div>
           </div>
         </div>
-
         <div class="range col-lg-4">
-          <h4>A</h4><slider v-bind="slider" v-model="iconSize"></slider><h2>A</h2>
+          <h4>A</h4>
+          <vuestic-slider
+            :options="slider"
+            v-model="iconSize"
+          >
+          </vuestic-slider>
+          <h2>A</h2>
         </div>
       </div>
     </div>
@@ -42,12 +47,7 @@
 </template>
 
 <script>
-  import Slider from 'vue-slider-component/src/vue2-slider.vue'
-
   export default {
-    components: {
-      Slider
-    },
     name: 'set',
     props: ['name', 'sets'],
     methods: {
@@ -82,12 +82,8 @@
         iconSize: 30,
         slider: {
           formatter: v => `${v}px`,
-          height: 2,
-          direction: 'horizontal',
           min: 20,
-          max: 40,
-          interval: 1,
-          speed: 0.5
+          max: 40
         }
       }
     }
@@ -123,25 +119,15 @@
       }
 
       .range {
-        .vue-slider-wrap {
-          width: 9.3rem !important;
-          .vue-slider-process {
-            background-color: $brand-primary;
-          }
-          .vue-slider-tooltip {
-            background-color: $brand-primary;
-            border-color: $brand-primary;
-          }
-          .vue-slider-dot {
-            background-color: $brand-primary;
-            box-shadow: none;
-          }
-        }
-
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
+
+        .vue-slider-wrap {
+          width: 9.3rem !important;
+        }
+
         h2, h4 {
           margin: .5rem;
         }
