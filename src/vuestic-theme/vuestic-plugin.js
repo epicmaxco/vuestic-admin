@@ -2,6 +2,7 @@ import Alert from './vuestic-components/vuestic-alert/VuesticAlert.vue'
 import Breadcrumbs from './vuestic-components/vuestic-breadcrumbs/VuesticBreadcrumbs.vue'
 import Chart from './vuestic-components/vuestic-chart/VuesticChart.vue'
 import Chat from './vuestic-components/vuestic-chat/VuesticChat.vue'
+import Checkbox from './vuestic-components/vuestic-checkbox/VuesticCheckbox.vue'
 import DataTable from './vuestic-components/vuestic-datatable/VuesticDataTable.vue'
 import Feed from './vuestic-components/vuestic-feed/VuesticFeed.vue'
 import Modal from './vuestic-components/vuestic-modal/VuesticModal.vue'
@@ -31,6 +32,7 @@ const VuesticPlugin = {
     Vue.component(Breadcrumbs.name, Breadcrumbs)
     Vue.component(Chart.name, Chart)
     Vue.component(Chat.name, Chat)
+    Vue.component(Checkbox.name, Checkbox)
     Vue.component(DataTable.name, DataTable)
     Vue.component(Feed.name, Feed)
     Vue.component(Modal.name, Modal)
