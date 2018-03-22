@@ -8,7 +8,7 @@
         :class="{'has-value': !!displayValue}"
         v-bind:value="displayValue"
         required/>
-      <i class="ion ion-chevron-down icon-right input-icon"></i>
+      <i class="ion ion-ios-arrow-down icon-right input-icon"></i>
       <label class="control-label">{{label}}</label><i class="bar"></i>
       <small v-show="hasErrors()" class="help text-danger">{{ showRequiredError() }}</small>
     </div>
