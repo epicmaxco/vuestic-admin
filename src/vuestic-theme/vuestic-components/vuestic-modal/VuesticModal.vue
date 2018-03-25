@@ -140,8 +140,8 @@
 
 <style lang="scss" scoped>
   @import "../../../sass/_variables.scss";
-  @import "../../../../node_modules/bootstrap/scss/functions";
-  @import "../../../../node_modules/bootstrap/scss/variables";
+  @import "~bootstrap/scss/functions";
+  @import "~bootstrap/scss/variables";
 
   // For Transitioning
   .modal {

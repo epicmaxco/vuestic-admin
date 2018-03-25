@@ -62,7 +62,7 @@
 
 <style lang='scss'>
   @import '../../../sass/_variables.scss';
-  @import '../../../../node_modules/ammap3/ammap/ammap.css';
+  @import '~ammap3/ammap/ammap.css';
 
   .line-map {
     height: 100%;
