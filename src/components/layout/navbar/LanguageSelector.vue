@@ -54,9 +54,9 @@
 
 <style lang="scss">
   @import "../../../sass/variables";
-  @import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
-  @import "../../../../node_modules/bootstrap/scss/functions";
-  @import "../../../../node_modules/bootstrap/scss/variables";
+  @import "~bootstrap/scss/mixins/breakpoints";
+  @import "~bootstrap/scss/functions";
+  @import "~bootstrap/scss/variables";
 
   .language-selector {
     display: flex;
