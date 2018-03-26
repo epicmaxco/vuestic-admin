@@ -14,12 +14,13 @@
           <label class="control-label" for="password">{{'auth.password' | translate}}</label><i class="bar"></i>
         </div>
       </div>
-      <div class="form-check abc-checkbox abc-checkbox-primary">
-        <input class="form-check-input" id="checkbox1" type="checkbox" checked>
-        <label class="form-check-label" for="checkbox1">
-          <span class="abc-label-text">{{'auth.agree' | translate}} <router-link to="">{{'auth.termsOfUse' | translate}}</router-link></span>
-        </label>
-      </div>
+      <vuestic-checkbox
+        :id="'checkbox1'"
+        v-model="checkboxOneModel">
+        <template slot="label">{{'auth.agree' | translate}}
+          <router-link to="">{{'auth.termsOfUse' | translate}}</router-link>
+        </template>
+      </vuestic-checkbox>
       <div class="d-flex flex-column flex-lg-row align-items-center justify-content-between down-container">
         <button class="btn btn-primary" type="submit">
           {{'auth.signUp' | translate}}
@@ -32,7 +33,12 @@
 
 <script>
   export default {
-    name: 'signup'
+    name: 'signup',
+    data () {
+      return {
+        checkboxOneModel: true
+      }
+    }
   }
 </script>
 

@@ -51,7 +51,7 @@
                 the item.
               </p>
             </div>
-         </div>
+          </div>
         </vuestic-widget>
       </div>
     </div>
@@ -106,12 +106,10 @@
                 </div>
                 <div class="form-group toasts-position-group d-flex flex-row">
                   <toast-position-picker v-model="toastPosition" />
-                  <div class="form-check abc-checkbox abc-checkbox-primary">
-                    <input class="form-check-input" id="toast-fullwidth" v-model="isToastFullWidth" type="checkbox">
-                    <label class="form-check-label" for="toast-fullwidth">
-                      <span class="abc-label-text">{{'notificationsPage.toasts.fullWidthLabel' | translate}}</span>
-                    </label>
-                  </div>
+                  <vuestic-checkbox
+                    :label="'notificationsPage.toasts.fullWidthLabel' | translate"
+                    :id="'toast-fullwidth'"
+                    v-model="isToastFullWidth"/>
                 </div>
                 <button slot="trigger" class="btn btn-sm btn-primary" @click="launchToast">
                   {{'notificationsPage.toasts.launchToast' | translate}}

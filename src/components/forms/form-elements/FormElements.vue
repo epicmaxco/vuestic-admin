@@ -165,59 +165,51 @@
             <div class="row">
               <div class="col-md-3">
                 <fieldset>
-                  <div class="form-check abc-checkbox abc-checkbox-primary">
-                    <input class="form-check-input" id="checkbox1" type="checkbox">
-                    <label class="form-check-label" for="checkbox1">
-                      <span class="abc-label-text">{{'forms.controls.subscribe' | translate}}</span>
-                    </label>
-                  </div>
-                  <div class="form-check abc-checkbox abc-checkbox-primary">
-                    <input class="form-check-input" id="checkbox2" type="checkbox" checked>
-                    <label class="form-check-label" for="checkbox2">
-                      <span class="abc-label-text">{{'forms.controls.subscribe' | translate}}</span>
-                    </label>
-                  </div>
-                  <div class="form-check abc-checkbox abc-checkbox-primary">
-                    <input class="form-check-input" id="checkbox3" type="checkbox" disabled>
-                    <label class="form-check-label" for="checkbox3">
-                      <span class="abc-label-text">{{'forms.controls.subscribe' | translate}}</span>
-                    </label>
-                  </div>
-                  <div class="form-check abc-checkbox abc-checkbox-primary">
-                    <input class="form-check-input" id="checkbox4" type="checkbox" disabled checked>
-                    <label class="form-check-label" for="checkbox4">
-                      <span class="abc-label-text">{{'forms.controls.subscribe' | translate}}</span>
-                    </label>
-                  </div>
+                  <vuestic-checkbox
+                    :label="'forms.controls.subscribe' | translate"
+                    :id="'checkbox1'"
+                    v-model="checkboxOneModel"/>
+                  <vuestic-checkbox
+                    :label="'forms.controls.subscribe' | translate"
+                    :id="'checkbox2'"
+                    v-model="checkboxTwoModel"/>
+                  <vuestic-checkbox
+                    :label="'forms.controls.subscribe' | translate"
+                    :id="'checkbox3'"
+                    :disabled="true"
+                    v-model="checkboxThreeModel"/>
+                  <vuestic-checkbox
+                    :label="'forms.controls.subscribe' | translate"
+                    :id="'checkbox4'"
+                    :disabled="true"
+                    v-model="checkboxFourModel"/>
                 </fieldset>
               </div>
 
               <div class="col-md-3">
                 <fieldset>
-                  <div class="form-check abc-checkbox abc-checkbox-primary abc-checkbox-circle">
-                    <input class="form-check-input" id="checkbox7" type="checkbox">
-                    <label class="form-check-label" for="checkbox7">
-                      <span class="abc-label-text">{{'forms.controls.subscribe' | translate}}</span>
-                    </label>
-                  </div>
-                  <div class="form-check abc-checkbox abc-checkbox-primary abc-checkbox-circle">
-                    <input class="form-check-input" id="checkbox8" type="checkbox" checked>
-                    <label class="form-check-label" for="checkbox8">
-                      <span class="abc-label-text">{{'forms.controls.subscribe' | translate}}</span>
-                    </label>
-                  </div>
-                  <div class="form-check abc-checkbox abc-checkbox-primary abc-checkbox-circle">
-                    <input class="form-check-input" id="checkbox9" type="checkbox" disabled>
-                    <label class="form-check-label" for="checkbox9">
-                      <span class="abc-label-text">{{'forms.controls.subscribe' | translate}}</span>
-                    </label>
-                  </div>
-                  <div class="form-check abc-checkbox abc-checkbox-primary abc-checkbox-circle">
-                    <input class="form-check-input" id="checkbox10" type="checkbox" checked disabled>
-                    <label class="form-check-label" for="checkbox10">
-                      <span class="abc-label-text">{{'forms.controls.subscribe' | translate}}</span>
-                    </label>
-                  </div>
+                  <vuestic-checkbox
+                    :label="'forms.controls.subscribe' | translate"
+                    :id="'checkbox5'"
+                    :isCircle="true"
+                    v-model="checkboxFiveModel"/>
+                  <vuestic-checkbox
+                    :label="'forms.controls.subscribe' | translate"
+                    :id="'checkbox6'"
+                    :isCircle="true"
+                    v-model="checkboxSixModel"/>
+                  <vuestic-checkbox
+                    :label="'forms.controls.subscribe' | translate"
+                    :id="'checkbox7'"
+                    :disabled="true"
+                    :isCircle="true"
+                    v-model="checkboxSevenModel"/>
+                  <vuestic-checkbox
+                    :label="'forms.controls.subscribe' | translate"
+                    :id="'checkbox8'"
+                    :disabled="true"
+                    :isCircle="true"
+                    v-model="checkboxEightModel"/>
                 </fieldset>
               </div>
 
@@ -312,7 +304,15 @@
         multiSelectModel: [],
         multiSelectCountriesModel: [],
         radioModel: 'option1',
-        radioDisabledModel: 'option4'
+        radioDisabledModel: 'option4',
+        checkboxOneModel: false,
+        checkboxTwoModel: true,
+        checkboxThreeModel: false,
+        checkboxFourModel: true,
+        checkboxFiveModel: false,
+        checkboxSixModel: true,
+        checkboxSevenModel: false,
+        checkboxEightModel: true
       }
     },
     methods: {
