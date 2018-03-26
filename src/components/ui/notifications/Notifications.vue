@@ -29,9 +29,9 @@
                     {{'notificationsPage.popovers.showPopover' | translate}}
                   </button>
                   <i
-                          slot="icon"
-                          class="fa"
-                          :class="popoverIcon">
+                    slot="icon"
+                    class="fa"
+                    :class="popoverIcon">
                   </i>
                   <span slot="header">{{popoverTitle}}</span>
                   <span slot="body">{{popoverText}}</span>
@@ -107,9 +107,9 @@
                 <div class="form-group toasts-position-group d-flex flex-row">
                   <toast-position-picker v-model="toastPosition" />
                   <vuestic-checkbox
-                          :label="'notificationsPage.toasts.fullWidthLabel' | translate"
-                          :id="'toast-fullwidth'"
-                          v-model="isToastFullWidth" />
+                    :label="'notificationsPage.toasts.fullWidthLabel' | translate"
+                    :id="'toast-fullwidth'"
+                    v-model="isToastFullWidth"/>
                 </div>
                 <button slot="trigger" class="btn btn-sm btn-primary" @click="launchToast">
                   {{'notificationsPage.toasts.launchToast' | translate}}

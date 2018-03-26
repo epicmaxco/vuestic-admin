@@ -18,15 +18,15 @@
                        :class="{'has-error': errors.has('successfulEmail'), 'valid': isSuccessfulEmailValid}">
                     <div class="input-group">
                       <input
-                              id="successfulEmail"
-                              name="successfulEmail"
-                              v-model="successfulEmail"
-                              v-validate="'required|email'"
-                              required/>
+                        id="successfulEmail"
+                        name="successfulEmail"
+                        v-model="successfulEmail"
+                        v-validate="'required|email'"
+                        required/>
                       <i class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
                       <i class="fa fa-check valid-icon icon-right input-icon"></i>
                       <label class="control-label" for="successfulEmail">{{'forms.inputs.emailValidatedSuccess'  | translate}} </label><i
-                            class="bar"></i>
+                      class="bar"></i>
                       <small v-show="errors.has('successfulEmail')" class="help text-danger">
                         {{ errors.first('successfulEmail') }}
                       </small>
@@ -35,11 +35,11 @@
                   <div class="form-group with-icon-right" :class="{'has-error': errors.has('wrongEmail')}">
                     <div class="input-group">
                       <input
-                              id="wrongEmail"
-                              name="wrongEmail"
-                              v-model="wrongEmail"
-                              v-validate="'required|email'"
-                              required/>
+                        id="wrongEmail"
+                        name="wrongEmail"
+                        v-model="wrongEmail"
+                        v-validate="'required|email'"
+                        required/>
                       <i class="fa fa-exclamation-triangle icon-right input-icon" v-show="errors.has('wrongEmail')"></i>
                       <label class="control-label" for="wrongEmail">{{'forms.inputs.emailValidated' | translate}}</label><i class="bar"></i>
                       <small v-show="errors.has('wrongEmail')" class="help text-danger">{{ errors.first('wrongEmail')
@@ -70,14 +70,14 @@
                       <input v-model="clearableText" id="clear-input" name="clear-input" required/>
                       <i class="fa fa-times icon-right input-icon pointer" @click="clear('clearableText')"></i>
                       <label class="control-label" for="clear-input" role="button">{{'forms.inputs.inputWithClearButton' | translate}}</label><i
-                            class="bar"></i>
+                      class="bar"></i>
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="input-group">
                       <input id="inputWithDescription" required title=""/>
                       <label class="control-label" for="simple-input">{{'forms.inputs.textInputWithDescription' | translate}}</label><i
-                            class="bar"></i>
+                      class="bar"></i>
                       <small class="help text-secondary">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                         do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -100,7 +100,7 @@
                     <div class="input-group">
                       <input id="input-w-btn-round" required/>
                       <label class="control-label" for="input-w-btn-round">{{'forms.inputs.inputWithRoundButton' | translate }}</label><i
-                            class="bar"></i>
+                      class="bar"></i>
                     </div>
                     <div class="btn btn-primary btn-with-icon btn-micro rounded-icon">
                       <div class="btn-with-icon-content">
@@ -125,30 +125,30 @@
               <div class="col-md-4">
                 <fieldset>
                   <vuestic-simple-select
-                          :label="'forms.selects.simple' | translate"
-                          v-model="simpleSelectModel"
-                          option-key="description"
-                          v-bind:options="simpleOptions">
+                    :label="'forms.selects.simple' | translate"
+                    v-model="simpleSelectModel"
+                    option-key="description"
+                    v-bind:options="simpleOptions">
                   </vuestic-simple-select>
                   <vuestic-simple-select
-                          :label="'forms.selects.country' | translate"
-                          v-model="chosenCountry"
-                          v-bind:options="countriesList">
+                    :label="'forms.selects.country' | translate"
+                    v-model="chosenCountry"
+                    v-bind:options="countriesList">
                   </vuestic-simple-select>
                 </fieldset>
               </div>
               <div class="col-md-4">
                 <fieldset>
                   <vuestic-multi-select
-                          :label="'forms.selects.multi' | translate"
-                          v-model="multiSelectModel"
-                          option-key="description"
-                          v-bind:options="simpleOptions">
+                    :label="'forms.selects.multi' | translate"
+                    v-model="multiSelectModel"
+                    option-key="description"
+                    v-bind:options="simpleOptions">
                   </vuestic-multi-select>
                   <vuestic-multi-select
-                          :label="'forms.selects.countryMulti' | translate"
-                          v-model="multiSelectCountriesModel"
-                          v-bind:options="countriesList">
+                    :label="'forms.selects.countryMulti' | translate"
+                    v-model="multiSelectCountriesModel"
+                    v-bind:options="countriesList">
                   </vuestic-multi-select>
                 </fieldset>
               </div>
@@ -166,50 +166,50 @@
               <div class="col-md-3">
                 <fieldset>
                   <vuestic-checkbox
-                          :label="'forms.controls.subscribe' | translate"
-                          :id="'checkbox1'"
-                          v-model="checkboxOneModel" />
+                    :label="'forms.controls.subscribe' | translate"
+                    :id="'checkbox1'"
+                    v-model="checkboxOneModel"/>
                   <vuestic-checkbox
-                          :label="'forms.controls.subscribe' | translate"
-                          :id="'checkbox2'"
-                          v-model="checkboxTwoModel" />
+                    :label="'forms.controls.subscribe' | translate"
+                    :id="'checkbox2'"
+                    v-model="checkboxTwoModel"/>
                   <vuestic-checkbox
-                          :label="'forms.controls.subscribe' | translate"
-                          :id="'checkbox3'"
-                          :disabled="true"
-                          v-model="checkboxThreeModel" />
+                    :label="'forms.controls.subscribe' | translate"
+                    :id="'checkbox3'"
+                    :disabled="true"
+                    v-model="checkboxThreeModel"/>
                   <vuestic-checkbox
-                          :label="'forms.controls.subscribe' | translate"
-                          :id="'checkbox4'"
-                          :disabled="true"
-                          v-model="checkboxFourModel" />
+                    :label="'forms.controls.subscribe' | translate"
+                    :id="'checkbox4'"
+                    :disabled="true"
+                    v-model="checkboxFourModel"/>
                 </fieldset>
               </div>
 
               <div class="col-md-3">
                 <fieldset>
                   <vuestic-checkbox
-                          :label="'forms.controls.subscribe' | translate"
-                          :id="'checkbox5'"
-                          :isCircle="true"
-                          v-model="checkboxFiveModel" />
+                    :label="'forms.controls.subscribe' | translate"
+                    :id="'checkbox5'"
+                    :isCircle="true"
+                    v-model="checkboxFiveModel"/>
                   <vuestic-checkbox
-                          :label="'forms.controls.subscribe' | translate"
-                          :id="'checkbox6'"
-                          :isCircle="true"
-                          v-model="checkboxSixModel" />
+                    :label="'forms.controls.subscribe' | translate"
+                    :id="'checkbox6'"
+                    :isCircle="true"
+                    v-model="checkboxSixModel"/>
                   <vuestic-checkbox
-                          :label="'forms.controls.subscribe' | translate"
-                          :id="'checkbox7'"
-                          :disabled="true"
-                          :isCircle="true"
-                          v-model="checkboxSevenModel" />
+                    :label="'forms.controls.subscribe' | translate"
+                    :id="'checkbox7'"
+                    :disabled="true"
+                    :isCircle="true"
+                    v-model="checkboxSevenModel"/>
                   <vuestic-checkbox
-                          :label="'forms.controls.subscribe' | translate"
-                          :id="'checkbox8'"
-                          :disabled="true"
-                          :isCircle="true"
-                          v-model="checkboxEightModel" />
+                    :label="'forms.controls.subscribe' | translate"
+                    :id="'checkbox8'"
+                    :disabled="true"
+                    :isCircle="true"
+                    v-model="checkboxEightModel"/>
                 </fieldset>
               </div>
 

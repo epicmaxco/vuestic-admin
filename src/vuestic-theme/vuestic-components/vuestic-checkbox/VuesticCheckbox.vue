@@ -1,19 +1,17 @@
 <template>
-    <div class="form-check abc-checkbox" :class="classArray">
-        <input class="form-check-input" :id="id" type="checkbox" :checked="checked" @change="onChange"
-               :disabled="disabled">
-        <label class="form-check-label" :for="id">
-            <template v-if="label">
-                <span class="abc-label-text" v-html="label"></span>
-            </template>
-            <template v-else>
-                <span class="abc-label-text">
-                    <slot name="label"></slot>
-                </span>
-            </template>
-
-        </label>
-    </div>
+  <div class="form-check abc-checkbox" :class="additionalClasses">
+    <input class="form-check-input" :id="id" type="checkbox" :checked="checked" @change="onChange" :disabled="disabled">
+    <label class="form-check-label" :for="id">
+      <template v-if="label">
+        <span class="abc-label-text">{{label}}</span>
+      </template>
+      <template v-else>
+        <span class="abc-label-text">
+          <slot name="label"></slot>
+        </span>
+      </template>
+    </label>
+  </div>
 </template>
 
 <script>
@@ -42,11 +40,11 @@
         type: Boolean,
         default: false
       },
-      contextualColor: {
+      brandColor: {
         type: String,
         default: 'primary',
         validator: value => {
-          return ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark', 'pale'].indexOf(value) >= 0
+          return ['primary', 'secondary', 'success', 'info', 'warning', 'danger'].indexOf(value) >= 0
         }
       }
     },
@@ -63,10 +61,10 @@
       }
     },
     computed: {
-      classArray () {
+      additionalClasses () {
         return [
           this.isCircle ? 'abc-checkbox-circle' : false,
-          'abc-checkbox-' + this.contextualColor
+          'abc-checkbox-' + this.brandColor
         ]
       }
     }

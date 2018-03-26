@@ -15,9 +15,11 @@
         </div>
       </div>
       <vuestic-checkbox
-              :id="'checkbox1'"
-              v-model="checkboxOneModel">
-        <template slot="label">{{'auth.agree' | translate}} <router-link to="">{{'auth.termsOfUse' | translate}}</router-link></template>
+        :id="'checkbox1'"
+        v-model="checkboxOneModel">
+        <template slot="label">{{'auth.agree' | translate}}
+          <router-link to="">{{'auth.termsOfUse' | translate}}</router-link>
+        </template>
       </vuestic-checkbox>
       <div class="d-flex flex-column flex-lg-row align-items-center justify-content-between down-container">
         <button class="btn btn-primary" type="submit">
