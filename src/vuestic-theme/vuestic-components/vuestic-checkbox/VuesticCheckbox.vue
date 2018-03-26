@@ -1,8 +1,17 @@
 <template>
-    <div class="form-check abc-checkbox abc-checkbox-primary" :class="{'abc-checkbox-circle': circle}">
-        <input class="form-check-input" :id="id" type="checkbox" :checked="checked" @change="onChange" :disabled="disabled">
+    <div class="form-check abc-checkbox" :class="classArray">
+        <input class="form-check-input" :id="id" type="checkbox" :checked="checked" @change="onChange"
+               :disabled="disabled">
         <label class="form-check-label" :for="id">
-            <span class="abc-label-text">{{label}}</span>
+            <template v-if="label">
+                <span class="abc-label-text" v-html="label"></span>
+            </template>
+            <template v-else>
+                <span class="abc-label-text">
+                    <slot name="label"></slot>
+                </span>
+            </template>
+
         </label>
     </div>
 </template>
@@ -15,9 +24,8 @@
       label: String,
       id: {
         type: String,
-        required: true
+        required: false
       },
-      value: String,
       checked: {
         type: Boolean,
         default: false
@@ -30,9 +38,16 @@
         type: String,
         default: ''
       },
-      circle: {
+      isCircle: {
         type: Boolean,
         default: false
+      },
+      contextualColor: {
+        type: String,
+        default: 'primary',
+        validator: value => {
+          return ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark', 'pale'].indexOf(value) >= 0
+        }
       }
     },
     model: {
@@ -45,17 +60,14 @@
     methods: {
       onChange (event) {
         this.$emit('change', event.target.checked)
-      },
-      validate () {
-        this.validated = true
-      },
-      isValid () {
-        let isValid = true
-        return isValid
-      },
-      hasErrors () {
-        let hasErrors = false
-        return hasErrors
+      }
+    },
+    computed: {
+      classArray () {
+        return [
+          this.isCircle ? 'abc-checkbox-circle' : false,
+          'abc-checkbox-' + this.contextualColor
+        ]
       }
     }
   }
