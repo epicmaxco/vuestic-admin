@@ -44,6 +44,10 @@
 <style lang="scss">
   .ui-icons {
     @import "../../../sass/icons-styles";
+
+    padding-left: 15px;
+    padding-right: 15px;
+
     .widget-body {
       padding: 1.9375rem 2.6875rem 1.9375rem 2.125rem;
     }
