@@ -215,35 +215,34 @@
 
               <div class="col-md-3">
                 <fieldset>
-                  <div class="form-check radio abc-radio abc-radio-primary">
-                    <input class="form-check-input" type="radio" name="radio" id="radio1" value="option1" v-model="radioModel">
-                    <label class="form-check-label" for="radio1">
-                      <span class="abc-label-text">{{'forms.controls.radio' | translate}}</span>
-                    </label>
-                  </div>
-
-                  <div class="form-check radio abc-radio abc-radio-primary">
-                    <input class="form-check-input" type="radio" name="radio" id="radio2" value="option2" v-model="radioModel">
-                    <label class="form-check-label" for="radio2">
-                      <span class="abc-label-text">{{'forms.controls.radio' | translate}}</span>
-                    </label>
-                  </div>
+                  <vuestic-radiobutton
+                    :label="'forms.controls.radio' | translate"
+                    :id="'radio1'"
+                    :value="'option1'"
+                    :name="'radio'"
+                    v-model="radioModel"/>
+                  <vuestic-radiobutton
+                    :label="'forms.controls.radio' | translate"
+                    :id="'radio2'"
+                    :value="'option2'"
+                    :name="'radio'"
+                    v-model="radioModel"/>
                 </fieldset>
-
                 <fieldset>
-                  <div class="form-check radio abc-radio abc-radio-primary">
-                    <input class="form-check-input" type="radio" name="disabled-radio" id="radio3" value="option3" v-model="radioDisabledModel" disabled>
-                    <label class="form-check-label" for="radio3">
-                      <span class="abc-label-text">{{'forms.controls.radioDisabled' | translate}}</span>
-                    </label>
-                  </div>
-
-                  <div class="form-check radio abc-radio abc-radio-primary">
-                    <input class="form-check-input" type="radio" name="disabled-radio" id="radio4" value="option4" v-model="radioDisabledModel" disabled>
-                    <label class="form-check-label" for="radio4">
-                      <span class="abc-label-text">{{'forms.controls.radioDisabled' | translate}}</span>
-                    </label>
-                  </div>
+                  <vuestic-radiobutton
+                    :label="'forms.controls.radioDisabled' | translate"
+                    :id="'radio3'"
+                    :value="'option3'"
+                    :name="'disabled-radio'"
+                    :disabled="true"
+                    v-model="radioDisabledModel"/>
+                  <vuestic-radiobutton
+                    :label="'forms.controls.radioDisabled' | translate"
+                    :id="'radio4'"
+                    :value="'option4'"
+                    :name="'disabled-radio'"
+                    :disabled="true"
+                    v-model="radioDisabledModel"/>
                 </fieldset>
               </div>
 
@@ -265,8 +264,10 @@
 
 <script>
   import CountriesList from 'data/CountriesList'
+  import VuesticRadiobutton from '../../../vuestic-theme/vuestic-components/vuestic-radiobutton/VuesticRadiobutton'
 
   export default {
+    components: {VuesticRadiobutton},
     name: 'form-elements',
 
     computed: {
