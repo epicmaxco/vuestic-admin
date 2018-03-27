@@ -215,13 +215,13 @@
 
               <div class="col-md-3">
                 <fieldset>
-                  <vuestic-radiobutton
+                  <vuestic-radio-button
                     :label="'forms.controls.radio' | translate"
                     :id="'radio1'"
                     :value="'option1'"
                     :name="'radio'"
                     v-model="radioModel"/>
-                  <vuestic-radiobutton
+                  <vuestic-radio-button
                     :label="'forms.controls.radio' | translate"
                     :id="'radio2'"
                     :value="'option2'"
@@ -229,14 +229,14 @@
                     v-model="radioModel"/>
                 </fieldset>
                 <fieldset>
-                  <vuestic-radiobutton
+                  <vuestic-radio-button
                     :label="'forms.controls.radioDisabled' | translate"
                     :id="'radio3'"
                     :value="'option3'"
                     :name="'disabled-radio'"
                     :disabled="true"
                     v-model="radioDisabledModel"/>
-                  <vuestic-radiobutton
+                  <vuestic-radio-button
                     :label="'forms.controls.radioDisabled' | translate"
                     :id="'radio4'"
                     :value="'option4'"
@@ -264,12 +264,9 @@
 
 <script>
   import CountriesList from 'data/CountriesList'
-  import VuesticRadiobutton from '../../../vuestic-theme/vuestic-components/vuestic-radiobutton/VuesticRadiobutton'
 
   export default {
-    components: {VuesticRadiobutton},
     name: 'form-elements',
-
     computed: {
       isSuccessfulEmailValid () {
         let isValid = false

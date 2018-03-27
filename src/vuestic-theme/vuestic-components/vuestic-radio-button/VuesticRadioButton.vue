@@ -1,6 +1,6 @@
 <template>
   <div class="form-check radio abc-radio" :class="additionalClasses">
-    <input class="form-check-input" type="radio" :name="name" :id="id" :value="value" :checked="state" @change="onChange" :disabled="disabled">
+    <input class="form-check-input" type="radio" :name="name" :id="id" :value="value" :checked="checkState" @change="onChange" :disabled="disabled">
     <label class="form-check-label" :for="id">
       <span class="abc-label-text">{{'forms.controls.radio' | translate}}</span>
     </label>
@@ -10,7 +10,7 @@
 <script>
 
   export default {
-    name: 'vuestic-radiobutton',
+    name: 'vuestic-radio-button',
     props: {
       label: String,
       value: {
@@ -50,7 +50,7 @@
       event: 'input'
     },
     mounted () {
-      if (this.checked && !this.state) {
+      if (this.checked && !this.checkState) {
         this.toggle()
       }
     },
@@ -59,11 +59,11 @@
         this.toggle()
       },
       toggle () {
-        this.$emit('input', this.state ? '' : this.value)
+        this.$emit('input', this.checkState ? '' : this.value)
       }
     },
     computed: {
-      state () {
+      checkState () {
         if (this.modelValue === undefined) {
           return this.checked
         }
@@ -77,7 +77,7 @@
     },
     watch: {
       checked (newValue) {
-        if (newValue !== this.state) {
+        if (newValue !== this.checkState) {
           this.toggle()
         }
       }
