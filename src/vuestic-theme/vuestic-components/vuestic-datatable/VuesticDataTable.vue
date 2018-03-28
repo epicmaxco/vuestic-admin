@@ -3,7 +3,7 @@
     <div class="d-flex flex-md-row flex-column justify-content-md-between align-items-center">
       <filter-bar @filter="onFilterSet"></filter-bar>
       <items-per-page :options="itemsPerPage"
-                      :defaultPerPage="perPage"
+                      :defaultPerPage="defaultPerPage"
                       @items-per-page="onItemsPerPage"></items-per-page>
     </div>
     <vuetable ref="vuetable"
@@ -36,9 +36,10 @@
   import VuetablePagination from 'vuetable-2/src/components/VuetablePagination'
   import FilterBar from './datatable-components/FilterBar.vue'
   import ItemsPerPage from './datatable-components/ItemsPerPage.vue'
+  import DefaultPerPageDefinition from './data/items-per-page-definition'
   import Vue from 'vue'
   import LocalData from './data/local-data'
-  import DataTableStyles from '..//vuestic-datatable/data/data-table-styles'
+  import DataTableStyles from '../vuestic-datatable/data/data-table-styles'
 
   const originalData = LocalData.data
 
@@ -60,7 +61,17 @@
       },
       itemsPerPage: {
         type: Array,
-        required: true
+        default: () => DefaultPerPageDefinition.itemsPerPage
+      },
+      defaultPerPage: {
+        type: Number,
+        default: () => {
+          let defaultPerPage = DefaultPerPageDefinition.itemsPerPage[0].value
+          if (this.itemsPerPage) {
+            defaultPerPage = this.itemsPerPage[0].value
+          }
+          return defaultPerPage
+        }
       },
       onEachSide: {
         type: Number,
@@ -90,7 +101,7 @@
     data () {
       return {
         tableData: LocalData,
-        perPage: 6,
+        perPage: this.defaultPerPage,
         colorClasses: {},
         moreParams: {},
         dataCount: 0,

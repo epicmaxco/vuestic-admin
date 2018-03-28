@@ -11,6 +11,7 @@
                     :data="tableData"
                     :tableFields="tableFields"
                     :itemsPerPage="itemsPerPage"
+                    :defaultPerPage="defaultTablePerPage"
                     :onEachSide="onEachSide"
                     :sortFunctions="sortFunctions"
                     :paginationPath="paginationPath">
@@ -48,7 +49,8 @@
           {
             value: 6
           }
-        ]
+        ],
+        defaultTablePerPage: 6
       }
     }
   }
