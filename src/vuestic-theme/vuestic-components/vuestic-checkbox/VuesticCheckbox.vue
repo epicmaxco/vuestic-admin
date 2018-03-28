@@ -1,6 +1,6 @@
 <template>
   <div class="form-check abc-checkbox" :class="additionalClasses">
-    <input class="form-check-input" :id="id" type="checkbox" :checked="checked" @change="onChange" :disabled="disabled">
+    <input class="form-check-input" :id="id" type="checkbox" :name="name" :checked="checked" @change="onChange" :disabled="disabled">
     <label class="form-check-label" :for="id">
       <template v-if="label">
         <span class="abc-label-text">{{label}}</span>

@@ -12,6 +12,7 @@ import Popover from './vuestic-components/vuestic-popover/VuesticPopover.vue'
 import PreLoader from './vuestic-components/vuestic-preloader/VuesticPreLoader.vue'
 import ProfileCard from './vuestic-components/vuestic-profile-card/VuesticProfileCard.vue'
 import ProgressBar from './vuestic-components/vuestic-progress-bar/VuesticProgressBar.vue'
+import RadioButton from './vuestic-components/vuestic-radio-button/VuesticRadioButton.vue'
 import Scrollbar from './vuestic-components/vuestic-scrollbar/VuesticScrollbar.vue'
 import SimpleSelect from './vuestic-components/vuestic-simple-select/VuesticSimpleSelect.vue'
 import Slider from './vuestic-components/vuestic-slider/VuesticSlider.vue'
@@ -41,6 +42,7 @@ const VuesticPlugin = {
     Vue.component(PreLoader.name, PreLoader)
     Vue.component(ProfileCard.name, ProfileCard)
     Vue.component(ProgressBar.name, ProgressBar)
+    Vue.component(RadioButton.name, RadioButton)
     Vue.component(Scrollbar.name, Scrollbar)
     Vue.component(SimpleSelect.name, SimpleSelect)
     Vue.component(Slider.name, Slider)
