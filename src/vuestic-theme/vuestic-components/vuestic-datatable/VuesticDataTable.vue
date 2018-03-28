@@ -3,7 +3,7 @@
     <div class="d-flex flex-md-row flex-column justify-content-md-between align-items-center">
       <filter-bar @filter="onFilterSet"></filter-bar>
       <items-per-page :options="itemsPerPage"
-                      :defaultPerPage="defaultPerPage"
+                      :defaultPerPage="defaultPerPageComputed"
                       @items-per-page="onItemsPerPage"></items-per-page>
     </div>
     <vuetable ref="vuetable"
@@ -65,13 +65,7 @@
       },
       defaultPerPage: {
         type: Number,
-        default: () => {
-          let defaultPerPage = DefaultPerPageDefinition.itemsPerPage[0].value
-          if (this.itemsPerPage) {
-            defaultPerPage = this.itemsPerPage[0].value
-          }
-          return defaultPerPage
-        }
+        default: DefaultPerPageDefinition.itemsPerPage[0].value
       },
       onEachSide: {
         type: Number,
@@ -106,6 +100,15 @@
         moreParams: {},
         dataCount: 0,
         css: DataTableStyles
+      }
+    },
+    computed: {
+      defaultPerPageComputed () {
+        let defaultPerPage = DefaultPerPageDefinition.itemsPerPage[0].value
+        if (this.$options.propsData.itemsPerPage) {
+          defaultPerPage = this.$options.propsData.itemsPerPage[0].value
+        }
+        return defaultPerPage
       }
     },
     methods: {
