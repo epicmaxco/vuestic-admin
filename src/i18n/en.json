@@ -174,7 +174,8 @@
     "statistics": "Statistics",
     "tables": "Tables",
     "typography": "Typography",
-    "uiElements": "UI Elements"
+    "uiElements": "UI Elements",
+    "treeView": "Tree view"
   },
   "messages": {
     "all": "See all messages",

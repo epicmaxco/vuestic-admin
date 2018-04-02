@@ -1,6 +1,9 @@
 <template>
-  <div class="form-check radio abc-radio" :class="additionalClasses">
-    <input class="form-check-input" type="radio" :name="name" :id="id" :value="value" :checked="checkState" @change="onChange" :disabled="disabled">
+  <div class="vuestic-radio-button form-check radio abc-radio"
+       :class="additionalClasses">
+    <input class="form-check-input" type="radio" :name="name" :id="id"
+           :value="value" :checked="checkState" @change="onChange"
+           :disabled="disabled">
     <label class="form-check-label" :for="id">
       <span class="abc-label-text">{{'forms.controls.radio' | translate}}</span>
     </label>
@@ -88,5 +91,7 @@
 <style lang="scss">
   @import "../../../sass/variables";
 
+  .vuestic-radio-button {
 
+  }
 </style>

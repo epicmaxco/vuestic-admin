@@ -1,6 +1,8 @@
 <template>
-  <div class="form-check abc-checkbox" :class="additionalClasses">
-    <input class="form-check-input" :id="id" type="checkbox" :name="name" :checked="checked" @change="onChange" :disabled="disabled">
+  <div class="vuestic-checkbox form-check abc-checkbox"
+       :class="additionalClasses">
+    <input class="form-check-input" :id="id" type="checkbox" :name="name"
+           :checked="checked" @change="onChange" :disabled="disabled">
     <label class="form-check-label" :for="id">
       <template v-if="label">
         <span class="abc-label-text">{{label}}</span>
@@ -15,7 +17,6 @@
 </template>
 
 <script>
-
   export default {
     name: 'vuestic-checkbox',
     props: {
@@ -72,7 +73,9 @@
 </script>
 
 <style lang="scss">
-    @import "../../../sass/variables";
+  @import "../../../sass/variables";
 
+  .vuestic-checkbox {
 
+  }
 </style>
