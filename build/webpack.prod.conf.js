@@ -99,7 +99,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, '../favicon.ico'),
-        to: config.build.assetsRoot,
+        to: config.build.assetsRoot
       }
     ])
   ]

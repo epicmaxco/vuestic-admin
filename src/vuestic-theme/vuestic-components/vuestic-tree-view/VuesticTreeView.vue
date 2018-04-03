@@ -1,15 +1,17 @@
 <template>
   <div class="vuestic-tree-view">
-    <template v-for="node in vuesticTreeRoot.nodes">
+    <div class="vuestic-tree-view__item" v-for="node in vuesticTreeRoot.nodes">
       <vuestic-tree-view-category-edit
         v-if="isCategory(node)"
         :vuesticTreeNodeCategory="node"
+        :showIcons="showIcons"
       />
       <vuestic-tree-view-node-edit
         v-else
         :vuesticTreeNode="node"
+        :showIcon="showIcons"
       />
-    </template>
+    </div>
   </div>
 </template>
 
@@ -22,6 +24,11 @@
   export default {
     name: 'vuestic-tree-view',
     components: { VuesticTreeViewNodeEdit, VuesticTreeViewCategoryEdit },
+    data () {
+      return {
+        vuesticTreeRootCached: null,
+      }
+    },
     props: {
       /**
        * @type VuesticTreeNode[]
@@ -29,6 +36,20 @@
       vuesticTreeRoot: {
         type: VuesticTreeRoot,
         required: true
+      },
+      showIcons: {
+        type: Boolean,
+        default: false
+      }
+    },
+    watch: {
+      value: {
+        handler (value) {
+
+        },
+        deep: true,
+        immediate: true,
+        once: true,
       }
     },
     methods: {
@@ -47,6 +68,9 @@
 
 <style lang="scss">
   .vuestic-tree-view {
+    &__item {
+      padding-bottom: 0.625rem;
+    }
     padding: 0.3125rem;
   }
 </style>

@@ -2,10 +2,19 @@
   <div class="vuestic-tree-view-node-edit"
        :class="{'vuestic-tree-view-node-edit--selected': selected}"
   >
-    <vuestic-div-checkbox v-model="selected"/>
-    <span class="vuestic-tree-view-node-edit__label">
+    <div class="vuestic-tree-view-node-edit__checkbox">
+      <vuestic-div-checkbox
+        v-model="selected"
+      />
+    </div>
+    <div class="vuestic-tree-view-node-edit__icon" v-if="showIcon">
+      <span class="icon">
+        <i :class="iconClass" aria-hidden="true"/>
+      </span>
+    </div>
+    <div class="vuestic-tree-view-node-edit__label">
       {{ vuesticTreeNode.label }}
-    </span>
+    </div>
   </div>
 </template>
 
@@ -25,9 +34,16 @@
       vuesticTreeNode: {
         type: VuesticTreeNode,
         required: true
+      },
+      showIcon: {
+        type: Boolean,
+        default: false
       }
     },
     computed: {
+      iconClass () {
+        return this.vuesticTreeNode.icon || 'ion ion-md-document'
+      },
       selected: {
         get () {
           return this.vuesticTreeNode.selected
@@ -44,14 +60,20 @@
   @import "../../../sass/variables";
 
   .vuestic-tree-view-node-edit {
-    &__label {
-      margin-left: 5px;
-      padding: 2px 0;
-      .vuestic-tree-view-node-edit--selected {
-        background-color: $vue-light-green;
-      }
+    display: flex;
+    &__checkbox {
+      margin-right: 0.75rem;
     }
-
+    &__icon {
+      margin-right: 0.375rem;
+    }
+    &__label {
+      word-wrap: break-word;
+      overflow: hidden;
+    }
+    &--selected #{&}__label {
+      background-color: $vue-light-green;
+    }
   }
 </style>
 

@@ -192,8 +192,7 @@
     "small": "Small",
     "smallTitle": "Small Modal",
     "static": "Static",
-    "staticMessage":
-      "This is a static modal, backdrop click will not close it.",
+    "staticMessage": "This is a static modal, backdrop click will not close it.",
     "staticTitle": "Static Modal",
     "title": "Modals"
   },
@@ -231,5 +230,11 @@
     "language": "Change Language",
     "logout": "Logout",
     "profile": "My Profile"
+  },
+  "treeView": {
+    "basic": "Basic",
+    "icons": "Icons",
+    "advanced": "Advanced",
+    "custom": "Custom icons"
   }
 }

@@ -1,5 +1,11 @@
 export default class VuesticTreeNode {
   constructor (data) {
+
+    /**
+     * @type string
+     */
+    this.icon = data.icon || ''
+
     /**
      * @type string
      */

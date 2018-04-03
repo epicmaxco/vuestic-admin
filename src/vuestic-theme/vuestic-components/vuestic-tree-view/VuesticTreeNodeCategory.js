@@ -1,6 +1,10 @@
 export default class VuesticTreeNodeCategory {
   constructor (data) {
     /**
+     * @type string
+     */
+    this.icon = data.icon || ''
+    /**
      * @type any
      */
     this.label = data.label || null

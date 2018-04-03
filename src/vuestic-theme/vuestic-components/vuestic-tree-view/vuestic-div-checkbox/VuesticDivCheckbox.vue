@@ -1,14 +1,15 @@
 <template>
   <div class="vuestic-div-checkbox" @click="selected = !selected">
-    <span class="vuestic-div-checkbox__icon"
-          :class="{
-            'vuestic-div-checkbox__icon--selected': selected,
-          }"
+    <span class="vuestic-div-checkbox__icon-selected"
+          v-if="selected"
     >
-      <span class="icon" v-if="selected">
-        <i class="ion ion-ios-checkmark-outline" aria-hidden="true"/>
+      <span class="icon">
+        <i class="ion ion-md-checkmark" aria-hidden="true"/>
       </span>
     </span>
+    <span class="vuestic-div-checkbox__icon-hollow"
+          v-else
+    />
   </div>
 </template>
 
@@ -38,23 +39,26 @@
   @import "../../../../sass/variables";
 
   .vuestic-div-checkbox {
-    display: inline-block;
     cursor: pointer;
-    &__icon {
+    &__icon-hollow {
       display: flex;
       justify-content: center;
       align-items: center;
 
-      font-size: 24px;
-      height: 22px;
-      width: 22px;
+      height: 1.375rem;
+      width: 1.375rem;
       color: $white;
-      border: solid 2px $lighter-gray;
+      border: solid 0.125rem $lighter-gray;
+    }
+    &__icon-selected {
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-      &--selected {
-        background-color: $vue-green;
-        border: none;
-      }
+      height: 1.375rem;
+      width: 1.375rem;
+      color: $white;
+      background-color: $vue-green;
     }
   }
 </style>
