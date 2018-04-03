@@ -44,12 +44,12 @@
     },
     watch: {
       value: {
-        handler (value) {
-
-        },
-        deep: true,
-        immediate: true,
-        once: true,
+        // handler (value) {
+        //
+        // },
+        // deep: true,
+        // immediate: true,
+        // once: true,
       }
     },
     methods: {
