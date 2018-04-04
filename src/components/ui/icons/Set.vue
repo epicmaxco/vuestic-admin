@@ -58,11 +58,10 @@
                   :class="iconClass(list.icons[(i - 1) * 8 + j - 1])"
                   :style="`font-size: ${iconSize}px`"
                   aria-hidden="true"
-                >
-                </span>
-                <div class="iconText">
-                  {{ list.icons[(i - 1) * 8 + j - 1] }}
-                </div>
+                />
+              </div>
+              <div class="iconText">
+                {{ list.icons[(i - 1) * 8 + j - 1] }}
               </div>
             </div>
           </div>
@@ -205,11 +204,11 @@
         .icon {
           margin: 0 0 .5rem;
           padding: 1rem 0 0;
+        }
 
-          .iconText {
-            font-size: .6rem;
-            text-align: center;
-          }
+        .iconText {
+          font-size: .6rem;
+          text-align: center;
         }
       }
     }
