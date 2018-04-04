@@ -42,16 +42,6 @@
         default: false
       }
     },
-    watch: {
-      value: {
-        // handler (value) {
-        //
-        // },
-        // deep: true,
-        // immediate: true,
-        // once: true,
-      }
-    },
     methods: {
       collapse () {
         this.vuesticTreeRoot.collapse()

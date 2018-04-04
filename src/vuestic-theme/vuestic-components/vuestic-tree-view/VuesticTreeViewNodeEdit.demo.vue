@@ -24,7 +24,7 @@
         showIcon: false,
         vuesticTreeNode: new VuesticTreeNode({
           label: 'Product'
-        })
+        }),
       }
     }
   }

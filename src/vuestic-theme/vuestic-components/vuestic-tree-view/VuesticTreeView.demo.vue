@@ -18,7 +18,7 @@
     Raw
     <vuestic-tree-view
       :showIcons="showIcons"
-      v-model="vuesticTreeRootRaw"
+      :vuesticTreeRoot="vuesticTreeRootMapped"
     />
   </div>
 </template>
@@ -30,23 +30,42 @@
 
   import VuesticTreeView from './VuesticTreeView.vue'
   import VuesticDivCheckbox from './vuestic-div-checkbox/VuesticDivCheckbox.vue'
+  import VuesticTreeRootMapper from './VuesticTreeRootMapper'
 
   export default {
     components: { VuesticDivCheckbox, VuesticTreeView },
     data () {
+      const vuesticTreeRootMapped = VuesticTreeRootMapper.map([
+        {
+          label: 'Open category',
+          isOpen: true,
+          children: [
+            {
+              label: 'Custom icon',
+              icon: 'ion ion-md-flower'
+            },
+            {
+              label: 'Selected',
+              selected: true
+            },
+            {
+              label: 'Nested category',
+              children: [
+                {
+                  label: 'Nested item',
+                }
+              ]
+            }
+          ]
+        },
+        { label: 'Another item' },
+      ])
+
+      console.log('vuesticTreeRootMapped', vuesticTreeRootMapped)
+
       return {
         showIcons: false,
-        vuesticTreeRootRaw: [
-          {
-            label: 'Category',
-            children: [
-              { label: 'Item one' },
-              { label: 'Item one' }
-            ]
-          },
-          { label: 'Item one' },
-          { label: 'Item two' }
-        ],
+        vuesticTreeRootMapped,
         vuesticTreeRoot: new VuesticTreeRoot([
           new VuesticTreeNode({
             label: 'Item one'
@@ -84,7 +103,7 @@
           }),
           new VuesticTreeNodeCategory({
             label: 'Electronics',
-            open: true,
+            isOpen: true,
             children: [
               new VuesticTreeNode({
                 label: 'Cellphones'

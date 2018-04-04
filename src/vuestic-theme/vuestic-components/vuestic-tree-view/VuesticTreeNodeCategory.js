@@ -1,4 +1,5 @@
 export default class VuesticTreeNodeCategory {
+
   constructor (data) {
     /**
      * @type string
@@ -18,10 +19,6 @@ export default class VuesticTreeNodeCategory {
      * @type boolean
      */
     this.isOpen = data.isOpen || false
-
-    if (!this.children.length) {
-      throw new Error('VuesticTreeNodeCategory should have at least one child')
-    }
   }
 
   /**

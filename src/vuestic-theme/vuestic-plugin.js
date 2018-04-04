@@ -22,7 +22,7 @@ import Tabs from './vuestic-components/vuestic-tabs/VuesticTabs.vue'
 import Tooltip from './vuestic-components/vuestic-tooltip/VuesticTooltip.vue'
 import Widget from './vuestic-components/vuestic-widget/VuesticWidget.vue'
 import Wizard from './vuestic-components/vuestic-wizard/VuesticWizard.vue'
-import TreeView from './vuestic-components/ui/tree-view/TreeView.vue'
+import TreeView from './vuestic-components/vuestic-tree-view/VuesticTreeView.vue'
 
 import VuesticToasted from './vuestic-mixins/VuesticToasted'
 
