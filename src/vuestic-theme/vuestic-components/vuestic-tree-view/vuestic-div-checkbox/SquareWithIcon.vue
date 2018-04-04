@@ -22,10 +22,6 @@
   @import "../../../../sass/variables";
 
   .square-with-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     height: 1.375rem;
     width: 1.375rem;
     color: $white;

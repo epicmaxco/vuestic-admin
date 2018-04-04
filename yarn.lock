@@ -2571,6 +2571,10 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
+flatpickr@^4.4.3:
+  version "4.4.3"
+  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.4.3.tgz#53ba7b06523f73ee69175b3ed808c7fc0f245c4f"
+
 flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
