@@ -19,6 +19,7 @@ import Wizard from 'src/components/vuestic-components/vuestic-wizard/VuesticWiza
 import MediumEditor from 'src/components/vuestic-components/vuestic-medium-editor/VuesticMediumEditor.vue'
 import Tooltip from 'src/components/vuestic-components/vuestic-tooltip/VuesticTooltip.vue'
 import Popover from 'src/components/vuestic-components/vuestic-popover/VuesticPopover.vue'
+import DateTimePicker from 'src/components/vuestic-components/vuestic-date-time-picker/VuesticDateTimePicker.vue'
 
 const VuesticComponentsPlugin = {
   install (Vue, options) {
@@ -43,6 +44,7 @@ const VuesticComponentsPlugin = {
     Vue.component(MediumEditor.name, MediumEditor)
     Vue.component(Tooltip.name, Tooltip)
     Vue.component(Popover.name, Popover)
+    Vue.component(DateTimePicker.name, DateTimePicker)
   }
 }
 

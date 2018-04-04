@@ -122,6 +122,14 @@
       "stepThree": "Step 3. Confirm",
       "verticalRich": "Vertical Rich Wizard",
       "verticalSimple": "Vertical Simple Wizard"
+    },
+    "dateTimePickers": {
+      "simple": "Simple Date",
+      "period": "Period",
+      "month": "Month",
+      "advancedPicker": "Advanced Picker",
+      "advancedPickerSelect": "Advanced Picker Select",
+      "time": "Time"
     }
   },
   "grid": {

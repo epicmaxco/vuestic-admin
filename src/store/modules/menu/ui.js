@@ -79,6 +79,14 @@ export default {
       meta: {
         title: 'menu.modals'
       }
+    },
+    {
+      name: 'DateTimePickers',
+      path: '/ui/date-time-pickers',
+      component: lazyLoading('ui/date-time-pickers/DateTimePickers'),
+      meta: {
+        title: 'Date & Time Pickers'
+      }
     }
   ]
 }
