@@ -35,7 +35,7 @@ export default class TreeViewRootFactory {
       }),
       new VuesticTreeNodeCategory({
         label: 'Electronics',
-        open: true,
+        isOpen: true,
         children: [
           new VuesticTreeNode({
             label: 'Cellphones'
@@ -98,7 +98,7 @@ export default class TreeViewRootFactory {
       }),
       new VuesticTreeNodeCategory({
         label: 'Music',
-        open: true,
+        isOpen: true,
         children: [
           new VuesticTreeNode({
             label: 'Taylor_swift_hello.mp3'
@@ -167,7 +167,7 @@ export default class TreeViewRootFactory {
       new VuesticTreeNodeCategory({
         label: 'Music',
         icon: 'ion ion-md-star-outline',
-        open: true,
+        isOpen: true,
         children: [
           new VuesticTreeNode({
             icon: 'ion ion-md-musical-notes',
