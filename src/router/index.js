@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === 'development') {
   const VueComponentTree = require('vue-component-tree')
 
   demoRoutes.push(
-    VueComponentTree(require.context('./..', true, /.demo.vue$/), '/demo')
+    VueComponentTree.default(require.context('./..', true, /.demo.vue$/), '/demo')
   )
 }
 
