@@ -77,26 +77,18 @@
 </template>
 
 <script>
-  import VuesticTreeView
-    from '../../../vuestic-theme/vuestic-components/vuestic-tree-view/VuesticTreeView.vue'
   import VuesticWidget
     from '../../../vuestic-theme/vuestic-components/vuestic-widget/VuesticWidget.vue'
-
-  import TreeViewRootFactory from './TreeViewRootFactory'
 
   export default {
     name: 'tree-view',
     components: {
-      VuesticTreeView,
       VuesticWidget
     },
     data () {
       return {
         treeViewData: {
-          products: TreeViewRootFactory.products(),
-          personalDocuments1: TreeViewRootFactory.personalDocuments(),
-          personalDocuments2: TreeViewRootFactory.personalDocuments(),
-          personalDocuments3: TreeViewRootFactory.personalDocumentsWithCustomIcons()
+
         }
       }
     }
