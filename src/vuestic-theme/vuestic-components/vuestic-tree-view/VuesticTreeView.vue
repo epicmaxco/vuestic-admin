@@ -26,7 +26,7 @@
     components: { VuesticTreeViewNodeEdit, VuesticTreeViewCategoryEdit },
     data () {
       return {
-        vuesticTreeRootCached: null,
+        vuesticTreeRootCached: null
       }
     },
     props: {

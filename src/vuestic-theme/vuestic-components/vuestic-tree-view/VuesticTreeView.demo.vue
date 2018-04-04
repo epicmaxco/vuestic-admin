@@ -27,7 +27,6 @@
   import VuesticTreeNodeCategory from './VuesticTreeNodeCategory'
   import VuesticTreeNode from './VuesticTreeNode'
   import VuesticTreeRoot from './VuesticTreeRoot'
-
   import VuesticTreeView from './VuesticTreeView.vue'
   import VuesticDivCheckbox from './vuestic-div-checkbox/VuesticDivCheckbox.vue'
   import VuesticTreeRootMapper from './VuesticTreeRootMapper'
@@ -52,13 +51,13 @@
               label: 'Nested category',
               children: [
                 {
-                  label: 'Nested item',
+                  label: 'Nested item'
                 }
               ]
             }
           ]
         },
-        { label: 'Another item' },
+        { label: 'Another item' }
       ])
 
       console.log('vuesticTreeRootMapped', vuesticTreeRootMapped)

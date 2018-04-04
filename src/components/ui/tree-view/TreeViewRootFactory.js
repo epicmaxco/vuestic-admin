@@ -22,7 +22,7 @@ export default class TreeViewRootFactory {
               }),
               new VuesticTreeNode({
                 label: 'Optical'
-              }),
+              })
             ]
           }),
           new VuesticTreeNode({

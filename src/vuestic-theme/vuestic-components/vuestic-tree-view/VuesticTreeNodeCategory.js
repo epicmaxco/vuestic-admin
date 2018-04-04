@@ -1,5 +1,4 @@
 export default class VuesticTreeNodeCategory {
-
   constructor (data) {
     /**
      * @type string

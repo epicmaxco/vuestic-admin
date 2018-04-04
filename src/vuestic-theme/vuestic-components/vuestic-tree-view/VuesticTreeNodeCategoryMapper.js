@@ -6,7 +6,7 @@ export default class VuesticTreeNodeCategoryMapper {
     const category = new VuesticTreeNodeCategory({
       icon: categoryData.icon,
       label: categoryData.label,
-      isOpen: categoryData.isOpen,
+      isOpen: categoryData.isOpen
     })
 
     const children = categoryData.children.map(nodeData => {

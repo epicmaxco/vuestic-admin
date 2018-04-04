@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import VueComponentTree from 'vue-component-tree'
-
 import menuModule from 'vuex-store/modules/menu'
 
 Vue.use(Router)
 
 const demoRoutes = []
 if (process.env.NODE_ENV === 'development') {
+  const VueComponentTree = require('vue-component-tree')
+
   demoRoutes.push(
     VueComponentTree(require.context('./..', true, /.demo.vue$/), '/demo')
   )

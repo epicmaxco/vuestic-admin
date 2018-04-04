@@ -1,11 +1,9 @@
 import VuesticTreeRoot from './VuesticTreeRoot'
 import VuesticTreeNodeCategoryMapper from './VuesticTreeNodeCategoryMapper'
-import VuesticTreeNode from './VuesticTreeNode'
 import VuesticTreeNodeCategory from './VuesticTreeNodeCategory'
 import VuesticTreeNodeMapper from './VuesticTreeNodeMapper'
 
 export default class VuesticTreeRootMapper {
-
   static map (data = []) {
     const nodes = data.map(nodeData => {
       const isCategory = !!nodeData.children
@@ -26,5 +24,4 @@ export default class VuesticTreeRootMapper {
       return VuesticTreeNodeMapper.transform(node)
     })
   }
-
 }
