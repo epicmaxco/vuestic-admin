@@ -186,14 +186,16 @@
 
     .row {
       .icon-grid-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
         position: relative;
         float: left;
         height: 6rem;
         min-height: 1px;
         margin: 0 0 .5rem;
-        padding-right: .625rem;
-        padding-left: .625rem;
-        padding-top: 1.25rem;
         text-align: center;
 
         &:hover {
@@ -203,7 +205,7 @@
         }
 
         .icon {
-          margin: 0 0 .5rem;
+          margin: 0 0 1rem;
           padding: 1rem 0 0;
         }
 
