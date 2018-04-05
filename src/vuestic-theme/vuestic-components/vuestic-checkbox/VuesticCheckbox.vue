@@ -1,29 +1,38 @@
 <template>
   <div class="vuestic-checkbox form-check abc-checkbox"
-       :class="additionalClasses">
-    <input class="form-check-input" :id="id" type="checkbox" :name="name"
-           :checked="checked" @change="onChange" :disabled="disabled">
+       :class="additionalClasses"
+  >
+    <input class="form-check-input"
+           type="checkbox"
+           :id="id"
+           :name="name"
+           :checked="checked"
+           @change="onChange"
+           :disabled="disabled"
+    >
     <label class="form-check-label" :for="id">
-      <template v-if="label">
-        <span class="abc-label-text">{{label}}</span>
-      </template>
-      <template v-else>
-        <span class="abc-label-text">
-          <slot name="label"></slot>
-        </span>
-      </template>
+      <span class="abc-label-text">
+        <slot name="label">{{ label }}</slot>
+      </span>
     </label>
   </div>
 </template>
 
 <script>
+  function generateRandomId () {
+    return Math.floor(Math.random() * Math.pow(10, 10))
+  }
+
   export default {
     name: 'vuestic-checkbox',
     props: {
       label: String,
       id: {
         type: String,
-        required: false
+        default () {
+          // We require unique id to show label
+          return 'label-' + generateRandomId()
+        }
       },
       checked: {
         type: Boolean,
@@ -59,7 +68,7 @@
     methods: {
       onChange (event) {
         this.$emit('change', event.target.checked)
-      }
+      },
     },
     computed: {
       additionalClasses () {
@@ -73,8 +82,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/variables";
-
   .vuestic-checkbox {
 
   }

@@ -1,30 +1,25 @@
 <template>
   <div class="vuestic-tree-node"
-       :class="{'vuestic-tree-node--selected': selected}"
+       :class="{'vuestic-tree-node-selected': selected}"
   >
-    <div class="vuestic-tree-node__checkbox" v-if="$slots.checkbox">
+    <div class="vuestic-tree-node-checkbox" v-if="$slots.checkbox">
       <slot name="checkbox"/>
     </div>
-    <div class="vuestic-tree-node__icon" v-if="$slots.icon">
+    <div class="vuestic-tree-node-icon" v-if="$slots.icon">
       <slot name="icon"/>
     </div>
-    <div class="vuestic-tree-node__label">
+    <div class="vuestic-tree-node-label">
       <slot/>
     </div>
-    <div class="vuestic-tree-node__icon-right" v-if="$slots.iconRight">
+    <div class="vuestic-tree-node-icon-right" v-if="$slots.iconRight">
       <slot name="iconRight"/>
     </div>
   </div>
 </template>
 
 <script>
-  import VuesticDivCheckbox from './vuestic-div-checkbox/VuesticDivCheckbox.vue'
-
   export default {
     name: 'vuestic-tree-node',
-    components: {
-      VuesticDivCheckbox
-    },
     props: {
       selected: {
         type: Boolean,
@@ -42,30 +37,37 @@
       margin-bottom: 0px;
     }
     display: flex;
-    &__checkbox {
+    &-checkbox {
       margin-right: 0.75rem;
     }
-    &__icon {
+    &-icon {
       display: flex;
       justify-content: center;
       align-items: center;
 
       margin-right: 0.375rem;
     }
-    &__icon-right {
+    &-icon-right {
       display: flex;
       justify-content: center;
       align-items: center;
 
       margin-right: 0.375rem;
     }
-    &__label {
+    &-label {
       flex-grow: 1;
       word-wrap: break-word;
       overflow: hidden;
     }
-    &--selected #{&}__label {
+    &-selected #{&}-label {
       background-color: $vue-light-green;
+    }
+
+    // HACK Checkbox for presentation page
+    .vuestic-checkbox {
+      margin-bottom: 0;
+      margin-top: -0.125rem;
+      margin-right: -0.625rem;
     }
   }
 </style>

@@ -21,12 +21,11 @@
           </div>
         </div>
         <div slot="iconRight" class="icon" @click="removeProduct(product)">
-          <span aria-hidden="true"
-                class="ion ion-md-close"/>
+          <span aria-hidden="true" class="ion ion-md-close"/>
         </div>
       </vuestic-tree-node>
       <vuestic-tree-node>
-        <button class="btn btn-primary btn-micro"
+        <button class="btn btn-primary btn-micro mb-2"
                 @click="addProduct()"
         >
           Add new product
@@ -51,7 +50,7 @@
           { id: 4, name: 'Cables' },
           { id: 5, name: 'Monitors' },
           { id: 6, name: 'Keyboards' },
-        ]
+        ],
       }
     },
     methods: {
@@ -67,3 +66,7 @@
     },
   }
 </script>
+
+<style scoped>
+
+</style>

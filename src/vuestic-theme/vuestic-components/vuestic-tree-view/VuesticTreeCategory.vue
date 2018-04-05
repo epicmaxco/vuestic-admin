@@ -27,12 +27,12 @@
 </template>
 
 <script>
-  import VuesticDivCheckbox from './vuestic-div-checkbox/VuesticDivCheckbox.vue'
   import SquareWithIcon from './vuestic-div-checkbox/SquareWithIcon.vue'
+  import VuesticCheckbox from '../vuestic-checkbox/VuesticCheckbox'
 
   export default {
     name: 'vuestic-tree-category',
-    components: { SquareWithIcon, VuesticDivCheckbox },
+    components: { SquareWithIcon, VuesticCheckbox },
     data () {
       return {
         isOpenCached: false,
@@ -96,6 +96,7 @@
   @import "../../../sass/variables";
 
   .vuestic-tree-category {
+
     &__header {
       display: flex;
     }

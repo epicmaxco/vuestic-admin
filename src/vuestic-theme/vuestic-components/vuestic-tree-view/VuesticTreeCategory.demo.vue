@@ -33,9 +33,8 @@
 
   import VuesticTreeCategory from './VuesticTreeCategory'
   import VuesticTreeNode from './VuesticTreeNode'
-  import VuesticDivCheckbox from './vuestic-div-checkbox/VuesticDivCheckbox'
 
   export default {
-    components: { VuesticDivCheckbox, VuesticTreeNode, VuesticTreeCategory },
+    components: { VuesticTreeNode, VuesticTreeCategory },
   }
 </script>
