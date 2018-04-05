@@ -234,7 +234,8 @@
   "treeView": {
     "basic": "Basic",
     "icons": "Icons",
-    "advanced": "Advanced",
-    "custom": "Custom icons"
+    "selectable": "Selectable",
+    "editable": "Editable",
+    "advanced": "Advanced"
   }
 }

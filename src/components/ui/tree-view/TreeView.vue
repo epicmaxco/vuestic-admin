@@ -7,9 +7,7 @@
           <vuestic-widget :headerText="$t('treeView.basic')">
             <div class="set-content">
               <div class="overlay">
-                <vuestic-tree-view
-                  :vuesticTreeRoot="treeViewData.products"
-                />
+                <tree-view-basic-preview/>
               </div>
             </div>
           </vuestic-widget>
@@ -19,10 +17,27 @@
           <vuestic-widget :headerText="$t('treeView.icons')">
             <div class="set-content">
               <div class="overlay">
-                <vuestic-tree-view
-                  showIcons
-                  :vuesticTreeRoot="treeViewData.personalDocuments1"
-                />
+                <tree-view-icons-preview/>
+              </div>
+            </div>
+          </vuestic-widget>
+        </div>
+
+        <div class="small-set col-lg-6">
+          <vuestic-widget :headerText="$t('treeView.selectable')">
+            <div class="set-content">
+              <div class="overlay">
+                <tree-view-selectable-preview/>
+              </div>
+            </div>
+          </vuestic-widget>
+        </div>
+
+        <div class="small-set col-lg-6">
+          <vuestic-widget :headerText="$t('treeView.editable')">
+            <div class="set-content">
+              <div class="overlay">
+                <tree-view-editable-preview/>
               </div>
             </div>
           </vuestic-widget>
@@ -32,40 +47,7 @@
           <vuestic-widget :headerText="$t('treeView.advanced')">
             <div class="set-content">
               <div class="overlay">
-
-                <div class="row mb-4">
-                  <div class="small-set col-sm-6 d-flex justify-content-center">
-                    <button class="btn btn-primary btn-micro"
-                            @click="treeViewData.personalDocuments2.expand()">
-                      EXPAND ALL
-                    </button>
-                  </div>
-                  <div class="small-set col-sm-6 d-flex justify-content-center">
-                    <button class="btn btn-primary btn-micro"
-                            @click="treeViewData.personalDocuments2.collapse()">
-                      COLLAPSE ALL
-                    </button>
-                  </div>
-                </div>
-
-
-                <vuestic-tree-view
-                  showIcons
-                  :vuesticTreeRoot="treeViewData.personalDocuments2"
-                />
-              </div>
-            </div>
-          </vuestic-widget>
-        </div>
-
-        <div class="small-set col-lg-6">
-          <vuestic-widget :headerText="$t('treeView.custom')">
-            <div class="set-content">
-              <div class="overlay">
-                <vuestic-tree-view
-                  showIcons
-                  :vuesticTreeRoot="treeViewData.personalDocuments3"
-                />
+                <tree-view-advanced-preview/>
               </div>
             </div>
           </vuestic-widget>
@@ -79,17 +61,34 @@
 <script>
   import VuesticWidget
     from '../../../vuestic-theme/vuestic-components/vuestic-widget/VuesticWidget.vue'
+  import VuesticTreeCategory
+    from '../../../vuestic-theme/vuestic-components/vuestic-tree-view/VuesticTreeCategory'
+  import VuesticTreeRoot
+    from '../../../vuestic-theme/vuestic-components/vuestic-tree-view/VuesticTreeRoot'
+  import VuesticTreeNode
+    from '../../../vuestic-theme/vuestic-components/vuestic-tree-view/VuesticTreeNode'
+  import TreeViewBasicPreview from './TreeViewBasicPreview'
+  import TreeViewIconsPreview from './TreeViewIconsPreview'
+  import TreeViewSelectablePreview from './TreeViewSelectablePreview'
+  import TreeViewAdvancedPreview from './TreeViewAdvancedPreview'
+  import TreeViewEditablePreview from './TreeViewEditablePreview'
 
   export default {
     name: 'tree-view',
     components: {
+      TreeViewEditablePreview,
+      TreeViewAdvancedPreview,
+      TreeViewSelectablePreview,
+      TreeViewIconsPreview,
+      TreeViewBasicPreview,
+      VuesticTreeNode,
+      VuesticTreeRoot,
+      VuesticTreeCategory,
       VuesticWidget
     },
     data () {
       return {
-        treeViewData: {
-
-        }
+        treeViewData: {}
       }
     }
   }

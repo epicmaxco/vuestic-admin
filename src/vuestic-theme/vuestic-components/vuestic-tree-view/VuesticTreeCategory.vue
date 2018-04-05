@@ -67,10 +67,12 @@
        */
       collapse () {
         this.isOpenCached = false
-        this.$children.forEach(child => {
-          if (child.$options.name === 'vuestic-tree-category') {
-            child.collapse()
-          }
+        this.$nextTick(() => {
+          this.$children.forEach(child => {
+            if (child.$options.name === 'vuestic-tree-category') {
+              child.collapse()
+            }
+          })
         })
       },
       /**
@@ -78,10 +80,12 @@
        */
       expand () {
         this.isOpenCached = true
-        this.$children.forEach(child => {
-          if (child.$options.name === 'vuestic-tree-category') {
-            child.expand()
-          }
+        this.$nextTick(() => {
+          this.$children.forEach(child => {
+            if (child.$options.name === 'vuestic-tree-category') {
+              child.expand()
+            }
+          })
         })
       },
     }
@@ -114,7 +118,7 @@
       padding-left: 1.5rem;
     }
     // List items require padding. Somewhat hacky, but the only remaining option is using render functions.
-    #{&} + #{&}, .vuestic-tree-node + .vuestic-tree-node, #{&} + .vuestic-tree-node, .vuestic-tree-node + #{&} {
+    .vuestic-tree-category + .vuestic-tree-category, .vuestic-tree-node + .vuestic-tree-node, .vuestic-tree-category + .vuestic-tree-node, .vuestic-tree-node + .vuestic-tree-category {
       margin-top: 0.625rem;
     }
   }
