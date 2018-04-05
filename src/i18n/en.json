@@ -174,7 +174,8 @@
     "statistics": "Statistics",
     "tables": "Tables",
     "typography": "Typography",
-    "uiElements": "UI Elements"
+    "uiElements": "UI Elements",
+    "treeView": "Tree view"
   },
   "messages": {
     "all": "See all messages",
@@ -191,8 +192,7 @@
     "small": "Small",
     "smallTitle": "Small Modal",
     "static": "Static",
-    "staticMessage":
-      "This is a static modal, backdrop click will not close it.",
+    "staticMessage": "This is a static modal, backdrop click will not close it.",
     "staticTitle": "Static Modal",
     "title": "Modals"
   },
@@ -230,5 +230,12 @@
     "language": "Change Language",
     "logout": "Logout",
     "profile": "My Profile"
+  },
+  "treeView": {
+    "basic": "Basic",
+    "icons": "Icons",
+    "selectable": "Selectable",
+    "editable": "Editable",
+    "advanced": "Advanced"
   }
 }

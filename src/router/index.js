@@ -5,10 +5,23 @@ import menuModule from 'vuex-store/modules/menu'
 
 Vue.use(Router)
 
+const demoRoutes = []
+if (process.env.NODE_ENV === 'development') {
+  const VueComponentTree = require('vue-component-tree')
+
+  demoRoutes.push(
+    VueComponentTree.default(require.context('./..', true, /.demo.vue$/), '/demo')
+  )
+}
+
 export default new Router({
   routes: [
+    ...demoRoutes,
     ...generateRoutesFromMenu(menuModule.state.items),
-    {path: '*', redirect: { name: getDefaultRoute(menuModule.state.items).name }}
+    {
+      path: '*',
+      redirect: { name: getDefaultRoute(menuModule.state.items).name }
+    }
   ]
 })
 

@@ -79,6 +79,14 @@ export default {
       meta: {
         title: 'menu.modals'
       }
+    },
+    {
+      name: 'TreeView',
+      path: '/ui/tree-view',
+      component: lazyLoading('ui/tree-view/TreeView'),
+      meta: {
+        title: 'menu.treeView'
+      }
     }
   ]
 }
