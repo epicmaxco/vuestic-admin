@@ -193,6 +193,7 @@
         margin: 0 0 .5rem;
         padding-right: .625rem;
         padding-left: .625rem;
+        padding-top: 1.25rem;
         text-align: center;
 
         &:hover {

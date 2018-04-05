@@ -5,9 +5,7 @@
       <vuestic-tree-node v-for="electronic in electronics" :key="electronic.id">
         <div class="form-group">
           <div class="input-group">
-            <input id="simple-input" required="required"
-                   v-model="electronic.name">
-            <label for="simple-input" class="control-label">Electronic</label>
+            <input v-model="electronic.name">
             <i class="bar"></i>
           </div>
         </div>
@@ -18,8 +16,7 @@
       <vuestic-tree-node v-for="product in products" :key="product.id">
         <div class="form-group">
           <div class="input-group">
-            <input id="simple-input" required="required" v-model="product.name">
-            <label for="simple-input" class="control-label">Product</label>
+            <input v-model="product.name">
             <i class="bar"></i>
           </div>
         </div>

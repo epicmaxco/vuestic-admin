@@ -46,9 +46,17 @@
       margin-right: 0.75rem;
     }
     &__icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
       margin-right: 0.375rem;
     }
     &__icon-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
       margin-right: 0.375rem;
     }
     &__label {
