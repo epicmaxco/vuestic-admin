@@ -184,6 +184,7 @@
             :apiUrl="apiUrl"
             :tableFields="tableFields"
             :itemsPerPage="itemsPerPage"
+            :defaultPerPage="defaultTablePerPage"
             :sortFunctions="sortFunctions"
             :apiMode="apiMode"
             :paginationPath="paginationPath"
@@ -213,7 +214,8 @@
         tableFields: FieldsDef.tableFields,
         itemsPerPage: ItemsPerPageDef.itemsPerPage,
         sortFunctions: FieldsDef.sortFunctions,
-        paginationPath: ''
+        paginationPath: '',
+        defaultTablePerPage: 6
       }
     }
   }

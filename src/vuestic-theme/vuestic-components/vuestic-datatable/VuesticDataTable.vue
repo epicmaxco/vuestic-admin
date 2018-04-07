@@ -102,9 +102,13 @@
     computed: {
       defaultPerPageComputed () {
         let defaultPerPage = DefaultPerPageDefinition.itemsPerPage[0].value
-        if (this.$options.propsData.itemsPerPage) {
+
+        if (this.$options.propsData.defaultPerPage) {
+          defaultPerPage = this.$options.propsData.defaultPerPage
+        } else if (this.$options.propsData.itemsPerPage) {
           defaultPerPage = this.$options.propsData.itemsPerPage[0].value
         }
+
         return defaultPerPage
       }
     },
