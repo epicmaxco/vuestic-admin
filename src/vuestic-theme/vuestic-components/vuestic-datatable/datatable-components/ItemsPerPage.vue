@@ -35,6 +35,11 @@
         selected: this.defaultPerPage
       }
     },
+
+    mounted () {
+      this.selectedItemsPerPage(this.selected)
+    },
+
     methods: {
       selectedItemsPerPage (optionValue) {
         this.selected = optionValue

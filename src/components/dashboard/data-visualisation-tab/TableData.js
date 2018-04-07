@@ -1,14 +1,4 @@
 export default {
-  'pagination': {
-    'total': 200,
-    'per_page': 50,
-    'current_page': 1,
-    'last_page': 4,
-    'next_page_url': 'https://vuetable.ratiw.net/api/users?per_page=50&page=2',
-    'prev_page_url': null,
-    'from': 1,
-    'to': 50
-  },
   'data': [
     {
       'id': 1,
@@ -1360,5 +1350,7 @@ export default {
         'fax': '1-753-472-6796'
       }
     }
-  ]
+  ],
+  'filterableFields': ['name']
 }
+

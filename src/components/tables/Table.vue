@@ -180,12 +180,14 @@
     <div class="row">
       <div class="col-md-12">
         <vuestic-widget :headerText="$t('tables.advanced')">
-          <vuestic-data-table :apiUrl="apiUrl"
-                      :tableFields="tableFields"
-                      :itemsPerPage="itemsPerPage"
-                      :sortFunctions="sortFunctions"
-                      :apiMode="apiMode"
-                      :paginationPath="paginationPath"></vuestic-data-table>
+          <vuestic-data-table
+            :apiUrl="apiUrl"
+            :tableFields="tableFields"
+            :itemsPerPage="itemsPerPage"
+            :sortFunctions="sortFunctions"
+            :apiMode="apiMode"
+            :paginationPath="paginationPath"
+          />
         </vuestic-widget>
       </div>
     </div>

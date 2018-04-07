@@ -6,20 +6,21 @@
                       :defaultPerPage="defaultPerPageComputed"
                       @items-per-page="onItemsPerPage"></items-per-page>
     </div>
-    <vuetable ref="vuetable"
-              :apiUrl="apiUrl"
-              :apiMode="apiMode"
-              :fields="tableFields"
-              :data="tableData"
-              :dataTotal="dataCount"
-              :dataManager="dataManager"
-              :css="css.table"
-              dataPath="data"
-              v-bind:paginationPath="paginationPath"
-              :appendParams="moreParams"
-              :perPage="perPage"
-              @vuetable:pagination-data="onPaginationData">
-    </vuetable>
+    <vuetable
+      ref="vuetable"
+      :apiUrl="apiUrl"
+      :apiMode="apiMode"
+      :fields="tableFields"
+      :data="tableData"
+      :dataTotal="dataCount"
+      :dataManager="dataManager"
+      :css="css.table"
+      dataPath="data"
+      v-bind:paginationPath="paginationPath"
+      :appendParams="moreParams"
+      :perPage="perPage"
+      @vuetable:pagination-data="onPaginationData"
+    />
     <div class="d-flex justify-content-center mb-4">
       <vuetable-pagination ref="pagination"
                            :css="css.pagination"
@@ -38,10 +39,7 @@
   import ItemsPerPage from './datatable-components/ItemsPerPage.vue'
   import DefaultPerPageDefinition from './data/items-per-page-definition'
   import Vue from 'vue'
-  import LocalData from './data/local-data'
   import DataTableStyles from '../vuestic-datatable/data/data-table-styles'
-
-  const originalData = LocalData.data
 
   export default {
     name: 'vuestic-data-table',
@@ -69,32 +67,31 @@
       },
       onEachSide: {
         type: Number,
-        default () {
-          return 2
-        }
+        default: 2
       },
       apiMode: {
         type: Boolean,
-        default () {
-          return true
-        }
+        default: true
       },
-      data: {
-        type: Array
+      tableData: {
+        type: Object,
+        default () {
+          return {
+            data: []
+          }
+        }
       },
       sortFunctions: {
         type: Object
       },
       paginationPath: {
         type: String,
-        default () {
-          return ''
-        }
+        default: ''
       }
     },
     data () {
       return {
-        tableData: LocalData,
+        originalData: this.tableData.data.slice(),
         perPage: this.defaultPerPage,
         colorClasses: {},
         moreParams: {},
@@ -119,7 +116,7 @@
           }
         } else {
           const txt = new RegExp(filterText, 'i')
-          this.tableData.data = originalData.filter(function (item) {
+          this.tableData.data = this.originalData.filter(function (item) {
             return item.name.search(txt) >= 0 || item.email.search(txt) >= 0
           })
         }

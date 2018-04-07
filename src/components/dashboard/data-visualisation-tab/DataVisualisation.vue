@@ -7,15 +7,16 @@
         </div>
       </div>
       <div class="col-md-6">
-        <vuestic-data-table :apiMode="apiMode"
-                    :data="tableData"
-                    :tableFields="tableFields"
-                    :itemsPerPage="itemsPerPage"
-                    :defaultPerPage="defaultTablePerPage"
-                    :onEachSide="onEachSide"
-                    :sortFunctions="sortFunctions"
-                    :paginationPath="paginationPath">
-        </vuestic-data-table>
+        <vuestic-data-table
+          :apiMode="apiMode"
+          :tableData="tableData"
+          :tableFields="tableFields"
+          :itemsPerPage="itemsPerPage"
+          :defaultPerPage="defaultTablePerPage"
+          :onEachSide="onEachSide"
+          :sortFunctions="sortFunctions"
+          :paginationPath="paginationPath"
+        />
       </div>
     </div>
   </div>
@@ -24,7 +25,7 @@
 <script>
   import Vue from 'vue'
   import BadgeColumn from 'components/tables/BadgeColumn.vue'
-  import LocalData from 'vuestic-components/vuestic-datatable/data/local-data'
+  import TableData from './TableData'
   import DonutChartData from './DonutChartData'
   import FieldsDef from './fields-definition'
 
@@ -38,7 +39,7 @@
         donutChartData: DonutChartData,
         apiMode: false,
         sortFunctions: FieldsDef.sortFunctions,
-        tableData: LocalData.data,
+        tableData: TableData,
         onEachSide: 1,
         tableFields: FieldsDef.tableFields,
         paginationPath: 'pagination',
