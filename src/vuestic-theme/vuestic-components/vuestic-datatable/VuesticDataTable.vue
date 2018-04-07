@@ -1,5 +1,5 @@
 <template>
-  <div class="table-responsive">
+  <div class="vuestic-data-table table-responsive">
     <div class="d-flex flex-md-row flex-column justify-content-md-between align-items-center">
       <filter-bar @filter="onFilterSet"></filter-bar>
       <items-per-page :options="itemsPerPage"
@@ -167,25 +167,27 @@
 <style lang="scss">
   @import "../../../sass/variables";
 
-  @media (max-width: 1258px) {
-    .pagination-link-btn:first-child, .pagination-link-btn:last-child {
-      display: none;
+  .vuestic-data-table {
+    @media (max-width: 1258px) {
+      .pagination-link-btn:first-child, .pagination-link-btn:last-child {
+        display: none;
+      }
+
+      .pagination-link-btn:nth-child(2) {
+        border-top-left-radius: $btn-border-radius !important;
+        border-bottom-left-radius: $btn-border-radius !important;
+      }
+
+      .pagination-link-btn:nth-last-child(2) {
+        border-top-right-radius: $btn-border-radius !important;
+        border-bottom-right-radius: $btn-border-radius !important;
+      }
     }
 
-    .pagination-link-btn:nth-child(2) {
-      border-top-left-radius: $btn-border-radius !important;
-      border-bottom-left-radius: $btn-border-radius !important;
-    }
-
-    .pagination-link-btn:nth-last-child(2) {
-      border-top-right-radius: $btn-border-radius !important;
-      border-bottom-right-radius: $btn-border-radius !important;
-    }
-  }
-
-  @media (max-width: 576px) {
-    .hide-not-focused-btn:not(.focus) {
-      display: none;
+    @media (max-width: 576px) {
+      .hide-not-focused-btn:not(.focus) {
+        display: none;
+      }
     }
   }
 </style>

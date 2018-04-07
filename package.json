@@ -42,7 +42,7 @@
     "vue-slider-component": "2.3.3",
     "vue-toasted": "^1.1.24",
     "vue2-circle-progress": "^1.0.3",
-    "vuetable-2": "1.7.0",
+    "vuetable-2": "1.7.5",
     "vuex": "^3.0.1",
     "vuex-i18n": "^1.7.0",
     "vuex-router-sync": "5.0.0"
