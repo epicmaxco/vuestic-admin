@@ -7,38 +7,31 @@
         </div>
       </div>
       <div class="col-md-6">
-        <data-table :apiMode="apiMode"
+        <vuestic-data-table :apiMode="apiMode"
                     :data="tableData"
                     :tableFields="tableFields"
                     :itemsPerPage="itemsPerPage"
+                    :defaultPerPage="defaultTablePerPage"
                     :onEachSide="onEachSide"
                     :sortFunctions="sortFunctions"
                     :paginationPath="paginationPath">
-        </data-table>
+        </vuestic-data-table>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import VuesticChart from '../../vuestic-components/vuestic-chart/VuesticChart.vue'
-  import DonutChartData from './DonutChartData'
-  import DataTable from '../../vuestic-components/vuestic-datatable/VuesticDataTable.vue'
   import Vue from 'vue'
-  import BadgeColumn from '../../tables/BadgeColumn.vue'
-  import LocalData from '../../vuestic-components/vuestic-datatable/data/local-data'
+  import BadgeColumn from 'components/tables/BadgeColumn.vue'
+  import LocalData from 'vuestic-components/vuestic-datatable/data/local-data'
+  import DonutChartData from './DonutChartData'
   import FieldsDef from './fields-definition'
 
   Vue.component('badge-column', BadgeColumn)
 
   export default {
     name: 'data-visualisation-tab',
-
-    components: {
-      DataTable,
-      VuesticChart,
-      DonutChartData
-    },
 
     data () {
       return {
@@ -56,7 +49,8 @@
           {
             value: 6
           }
-        ]
+        ],
+        defaultTablePerPage: 6
       }
     }
   }
@@ -64,8 +58,9 @@
 
 <style lang="scss" scoped>
   @import "../../../sass/_variables.scss";
-  @import "../../../../node_modules/bootstrap/scss/variables";
-  @import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+  @import "~bootstrap/scss/functions";
+  @import "~bootstrap/scss/variables";
+  @import "~bootstrap/scss/mixins/breakpoints";
 
   .chart-container {
     padding: 0 2rem;

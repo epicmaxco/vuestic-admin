@@ -28,7 +28,7 @@
 </script>
 
 <style lang="scss">
-  @import "../../../../node_modules/leaflet/dist/leaflet.css";
+  @import "~leaflet/dist/leaflet.css";
   @import "../../../sass/_variables.scss";
 
   .leaflet-map {

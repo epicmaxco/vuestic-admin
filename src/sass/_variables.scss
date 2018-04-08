@@ -1,33 +1,35 @@
 // Colors //
-$gray-light : #acb5be !default;
-$light-gray : #eee;
+$gray-light: #acb5be !default;
+$light-gray: #eee;
 $lighter-gray: #ddd;
 $charcoal: #555;
-$darkest-gray : #333;
-$almost-black : #161616;
-$vue-green : #4ae387;
+$darkest-gray: #333;
+$almost-black: #161616;
+$vue-green: #4ae387;
+$vue-light-green: #dbf9e8;
 $light-green: #c8f9c5;
 $light-blue: #dcf1ff;
 $light-yellow: #fff1c8;
 $light-pink: #ffcece;
-$vue-darkest-blue : #34495e;
+$vue-darkest-blue: #34495e;
 $vue-turquoise: #dbf9e7;
-$white : #fff;
+$white: #fff;
 $theme-red: #e34a4a;
 $theme-orange: #f7cc36;
 $theme-blue: #4ab2e3;
 $theme-violet: #db76df;
 $theme-pale: #d9d9d9;
-$brand-primary : $vue-green !default;
+$brand-primary: $vue-green !default;
 $brand-danger: $theme-red;
 $brand-warning: $theme-orange;
 $brand-info: $theme-blue;
-$brand-success: $theme-violet;
+$brand-success: $vue-green;
 $light-gray2: #eff4f5;
 $dark-gray: #282828;
 $gray: #adb3b9;
 $violet: #db76df;
 $dark-blue: #0045b6;
+$breadcrumbs-gray: #b4b4b4;
 
 $colors-map: (
   brand-danger: $brand-danger,
@@ -38,6 +40,18 @@ $colors-map: (
   black: black,
   white: white,
   lighter-gray: $lighter-gray
+);
+
+$theme-colors: (
+  "primary":    $brand-primary,
+  "secondary":  $white,
+  "success":    $light-green,
+  "info":       $brand-info,
+  "warning":    $brand-warning,
+  "danger":     $brand-danger,
+  "light":      $light-gray2,
+  "dark":       $almost-black,
+  "pale":       $theme-pale
 );
 
 // Layout //
@@ -132,11 +146,17 @@ $font-size-h4 : 1.375rem !default;
 
 $headings-line-height : 1 !default;
 
-$blockquote-border-color : $vue-green !default;
-$blockquote-border-width : 0.375rem !default;
-$blockquote-font-size : 1.5rem !default;
+$blockquote-border-color : $vue-green;
+$blockquote-small-color:  $gray-light;
+$blockquote-border-width : 0.375rem;
+$blockquote-font-size : 1.5rem;
 //Navbar
 $navbar-dd-item-height : 48px;
+
+//Breadcrumbs
+$breadcrumbs-height : 54px;
+$breadcrumbs-arrow-font: 0.7rem;
+$breadcrumbs-arrow-content: "\f054";
 
 //Sidebar
 $sidebar-link-height : 64px;
@@ -168,8 +188,15 @@ $widget-body-with-header-height: calc(100% - #{$widget-header-height});
 $widget-mb: 1.875rem;
 $info-widget-border: 0.5rem solid $brand-primary;
 
+// Links
+$link-color: $brand-primary;
+$link-hover-color: lighten($link-color, 10%);
+$link-hover-decoration: none;
+
 //Buttons
 $input-btn-border-width: 0px;
+$btn-line-height: 1.25;
+$btn-line-height-sm: $btn-line-height;
 $btn-padding-x: 3.9rem;
 $btn-padding-y: 1.1rem;
 $btn-padding-y-sm: 0.7rem;
@@ -190,7 +217,7 @@ $btn-group-button-padding-x: 1.53rem;
 $btn-box-shadow: $greeny-box-shadow;
 $btn-box-danger-shadow: 0px 4px 70px -16px $brand-danger;
 $btn-box-warning-shadow: 0px 4px 70px -16px $brand-warning;
-$btn-box-success-shadow: 0px 4px 70px -16px $brand-success;
+$btn-box-success-shadow: $greeny-box-shadow;
 $btn-box-info-shadow: 0px 4px 70px -16px $brand-info;
 $btn-box-pale-shadow: 0px 4px 70px -16px $theme-pale;
 $btn-box-dark-shadow: 0px 4px 70px -16px $almost-black;
@@ -200,7 +227,7 @@ $btn-dark-bg: $darkest-gray;
 $btn-dark-border: $darkest-gray;
 $btn-pale-bg: $theme-pale;
 $btn-pale-color: $white;
-$btn-dd-arrow-size: 0.75rem;
+$btn-dd-arrow-size: 1rem;
 $btn-border: none;
 $btn-secondary-theme-border: 2px solid $brand-primary;
 
@@ -247,7 +274,7 @@ $vuestic-switch-border-size: 0.125rem;
 //Progress Bars
 $progress-bar-value-font-size: 0.6875rem;
 $progress-bar-circle-diameter: 3.125rem;
-$progress-bar-circle-bw: .125rem;
+$progress-bar-circle-bw: .0678rem;
 $progress-bar-circle-overlay-diameter: calc(#{$progress-bar-circle-diameter} - 2*#{$progress-bar-circle-bw});
 $progress-bar-vertical-height: 5.75rem;
 $progress-bar-width-thin: .125rem;
@@ -256,7 +283,9 @@ $progress-bar-width-thick: 1.5rem;
 
 //Tables
 $table-bg-accent: $white;
-$table-border-width: $white;
+$table-border-width: 0;
+$table-border-color: #eceeef;
+$striped-row-odd: $white;
 $striped-row: $light-gray2;
 $state-success-bg: #c8fac6;
 $state-danger-bg: #ffcece;
@@ -267,10 +296,10 @@ $state-info-bg: #dcf1ff;
 $badge-padding-y: 0.28rem;
 $badge-min-width: 5rem;
 $badge-font-size: 0.7rem;
-$badge-success-bg: $brand-primary;
-$badge-warning-bg: #f7cc36;
-$badge-danger-bg: #e34a4a;
-$badge-info-bg: #4ab2e3;
+$badge-success-bg: $brand-success;
+$badge-warning-bg: $theme-orange;
+$badge-danger-bg: $theme-red;
+$badge-info-bg: $theme-blue;
 
 //Alerts
 $alert-padding-x:             1.25rem !default;
@@ -315,3 +344,79 @@ $tab-content-pb: 1.5rem;
 //PreLoader
 $vuestic-preloader-left: calc(50% - 140px/2);
 $vuestic-preloader-top: calc(50% - 104px/2);
+
+//Medium Editor
+$medium-editor-button-size: $btn-padding-y * 2 + $font-size-base * $btn-line-height;
+
+//tooltips
+
+$tooltip-font-size:           $font-size-base;
+$tooltip-box-shadow:          $greeny-box-shadow;
+$tooltip-max-width:           200px;
+$tooltip-color:               $white;
+$tooltip-bg:                  $darkest-gray;
+$tooltip-border-radius:       $font-size-base * 0.5;
+$tooltip-opacity:             .9;
+$tooltip-padding-y:           .5rem;
+$tooltip-padding-x:           .75rem;
+$tooltip-margin:              0 ;
+$tooltip-line-height:         1.13;
+$tooltip-font-weight:         300;
+
+$tooltip-arrow-width:         .8rem;
+$tooltip-arrow-height:        .4rem ;
+$tooltip-arrow-color:         $tooltip-bg;
+
+// Popovers
+
+$popover-font-size:                 $font-size-base;
+$popover-line-height:               $tooltip-line-height;
+$popover-box-shadow:                $tooltip-box-shadow;
+$popover-bg:                        $tooltip-bg;
+$popover-max-width:                 400px;
+$popover-border-width:              0;
+$popover-border-color:              transparent;
+$popover-border-radius:             $tooltip-border-radius;
+$popover-box-shadow:                $greeny-box-shadow;
+$popover-opacity:                   $tooltip-opacity;
+
+$popover-header-bg:                 $tooltip-bg;
+$popover-header-color:              $white;
+$popover-header-padding-y:          0;
+$popover-header-padding-x:          .75rem;
+$popover-header-no-icon-padding-x:  0;
+$popover-header-font-weight:        bold;
+
+$popover-body-color:                $white;
+$popover-body-padding-y:            $popover-header-padding-y;
+$popover-body-padding-x:            $popover-header-padding-x;
+$popover-body-no-icon-padding-x:  $popover-header-no-icon-padding-x;
+
+$popover-icon-size:                 1.35rem;
+$popover-icon-color:                $brand-primary;
+
+$popover-arrow-width:               1rem;
+$popover-arrow-height:              1rem;
+$popover-arrow-color:               transparent;
+
+$popover-arrow-outer-color:         fade-in($popover-border-color, .05);
+
+// Toasts
+
+$toast-font-size:                   $popover-font-size;
+$toast-line-height:                 $popover-line-height;
+$toast-font-weight:                 normal;
+$toast-min-height:                  3.25rem;
+$toast-box-shadow:                  $popover-box-shadow;
+$toast-bg:                          $popover-bg;
+$toast-border-radius:               $popover-border-radius;
+$toast-color:                       $popover-body-color;
+$toast-opacity:                     $popover-opacity;
+
+$toast-padding-x:                   1.15rem;
+$toast-padding-y:                   0.5rem;
+
+$toast-icon-size:                   $popover-icon-size;
+$toast-icon-color:                  $popover-icon-color;
+$toast-icon-ml:                     0;
+$toast-icon-mr:                     0.625rem;

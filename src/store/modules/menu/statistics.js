@@ -4,25 +4,25 @@ export default {
   name: 'Statistics',
   meta: {
     expanded: false,
-    title: 'Statistics',
+    title: 'menu.statistics',
     iconClass: 'vuestic-icon vuestic-icon-statistics'
   },
 
   children: [
     {
-      name: 'Charts',
+      name: 'menu.charts',
       path: '/statistics/charts',
       component: lazyLoading('statistics/charts/Charts'),
       meta: {
-        title: 'Charts'
+        title: 'menu.charts'
       }
     },
     {
-      name: 'ProgressBars',
+      name: 'menu.progressBars',
       path: '/statistics/progress-bars',
       component: lazyLoading('statistics/progress-bars/ProgressBars'),
       meta: {
-        title: 'Progress Bars'
+        title: 'menu.progressBars'
       }
     }
   ]

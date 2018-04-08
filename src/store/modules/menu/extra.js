@@ -1,12 +1,12 @@
 import lazyLoading from './lazyLoading'
 
 export default {
-  name: 'Extra',
+  name: 'menu.extra',
   path: '/extra',
   component: lazyLoading('extra/Extra'),
   meta: {
     default: false,
-    title: 'Extra',
+    title: 'menu.extra',
     iconClass: 'vuestic-icon vuestic-icon-extras',
     expanded: false
   }

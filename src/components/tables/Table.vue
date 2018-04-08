@@ -2,15 +2,15 @@
   <div>
     <div class="row">
       <div class="col-xs-12 col-md-12">
-        <widget headerText="Basic Table">
+        <vuestic-widget :headerText="$t('tables.basic')">
           <div class="table-responsive">
             <table class="table table-striped first-td-padding">
               <thead>
               <tr>
-                <td>Name</td>
-                <td>Email</td>
-                <td>City</td>
-                <td align="right">Score</td>
+                <td>{{'tables.headings.name' | translate}}</td>
+                <td>{{'tables.headings.email' | translate}}</td>
+                <td>{{'tables.headings.city' | translate}}</td>
+                <td align="right">{{'tables.headings.score' | translate}}</td>
                 <td></td>
               </tr>
               </thead>
@@ -74,22 +74,22 @@
               </tbody>
             </table>
           </div>
-        </widget>
+        </vuestic-widget>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12">
-        <widget headerText="Colors, Icons, Labels">
+        <vuestic-widget :headerText="$t('tables.styled')">
           <div class="table-responsive">
             <table class="table table-striped table-sm color-icon-label-table">
               <thead>
               <tr>
                 <td></td>
-                <td>Name</td>
-                <td>Email</td>
-                <td>City</td>
-                <td align="right">Score</td>
+                <td>{{'tables.headings.name' | translate}}</td>
+                <td>{{'tables.headings.email' | translate}}</td>
+                <td>{{'tables.headings.city' | translate}}</td>
+                <td align="right">{{'tables.headings.score' | translate}}</td>
                 <td align="middle"></td>
               </tr>
               </thead>
@@ -173,20 +173,20 @@
               </tbody>
             </table>
           </div>
-        </widget>
+        </vuestic-widget>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12">
-        <widget headerText="Search & Pagination">
-          <data-table :apiUrl="apiUrl"
+        <vuestic-widget :headerText="$t('tables.advanced')">
+          <vuestic-data-table :apiUrl="apiUrl"
                       :tableFields="tableFields"
                       :itemsPerPage="itemsPerPage"
                       :sortFunctions="sortFunctions"
                       :apiMode="apiMode"
-                      :paginationPath="paginationPath"></data-table>
-        </widget>
+                      :paginationPath="paginationPath"></vuestic-data-table>
+        </vuestic-widget>
       </div>
     </div>
 
@@ -194,21 +194,16 @@
 </template>
 
 <script>
-  import Widget from '../vuestic-components/vuestic-widget/VuesticWidget'
-  import DataTable from '../vuestic-components/vuestic-datatable/VuesticDataTable'
-  import BadgeColumn from './BadgeColumn.vue'
   import Vue from 'vue'
-  import FieldsDef from '../vuestic-components/vuestic-datatable/data/fields-definition'
-  import ItemsPerPageDef from '../vuestic-components/vuestic-datatable/data/items-per-page-definition'
+  import BadgeColumn from './BadgeColumn.vue'
+  import FieldsDef from 'vuestic-components/vuestic-datatable/data/fields-definition'
+  import ItemsPerPageDef from 'vuestic-components/vuestic-datatable/data/items-per-page-definition'
 
   Vue.component('badge-column', BadgeColumn)
 
   export default {
-    components: {
-      DataTable,
-      Widget
-    },
     name: 'Table',
+
     data () {
       return {
         apiUrl: 'https://vuetable.ratiw.net/api/users',

@@ -59,21 +59,17 @@
 </template>
 
 <script>
-  import VuesticWizard from 'components/vuestic-components/vuestic-wizard/VuesticWizard'
-  import VuesticSimpleSelect from 'components/vuestic-components/vuestic-simple-select/VuesticSimpleSelect'
-  import CountriesList from './CountriesList'
+  import CountriesList from 'data/CountriesList'
 
   export default {
     name: 'setup-profile-tab',
-    components: {
-      VuesticWizard,
-      VuesticSimpleSelect
-    },
+
     props: {
       wizardType: {
         default: 'rich'
       }
     },
+
     data () {
       return {
         steps: [
@@ -124,8 +120,9 @@
 
 <style lang="scss" scoped>
   @import "../../../sass/_variables.scss";
-  @import "../../../../node_modules/bootstrap/scss/variables";
-  @import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+  @import "~bootstrap/scss/functions";
+  @import "~bootstrap/scss/variables";
+  @import "~bootstrap/scss/mixins/breakpoints";
 
   .form-group {
     min-width: 200px;

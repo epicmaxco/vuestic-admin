@@ -1,38 +1,14 @@
 <template>
   <div class="extra">
-    <div class="row">
-      <div class="col-md-12">
-        <vuestic-widget headerText="Alerts">
-          <vuestic-alert type="success" :withCloseBtn="true">
-            <span class="badge badge-pill badge-success">SUCCESS</span>
-            You successfully read this important alert message.
-            <i class="fa fa-close alert-close"></i>
-          </vuestic-alert>
-          <vuestic-alert type="info" :withCloseBtn="true">
-            <span class="badge badge-pill badge-info">INFO</span>
-            This alert needs your attention, but it's not super important.
-          </vuestic-alert>
-          <vuestic-alert type="warning" :withCloseBtn="true">
-            <span class="badge badge-pill badge-warning">WARNING</span>
-            Better check yourself, you're not looking too good.
-          </vuestic-alert>
-          <vuestic-alert type="danger" :withCloseBtn="true">
-            <span class="badge badge-pill badge-danger">DANGER</span>
-            Change a few things up and try submitting again.
-          </vuestic-alert>
-        </vuestic-widget>
-      </div>
-    </div>
-
-    <vuestic-widget class="no-v-padding">
-      <vuestic-tabs class="tabs" :names="['Chart', 'Setup Profile', 'Overview']">
-        <div slot="Overview" class="d-flex justify-content-center">
+    <vuestic-widget :headerText="'extra.tabs.title' | translate" class="no-v-padding">
+      <vuestic-tabs class="tabs" :names="[$t('extra.tabs.maps'), $t('extra.tabs.setupProfile'), $t('extra.tabs.overview')]">
+        <div :slot="'extra.tabs.overview' | translate" class="d-flex justify-content-center">
           <overview-tab></overview-tab>
         </div>
-        <div slot="Chart" class="d-flex justify-content-center">
-          <vuestic-chart v-bind:data="chartData" type="line"></vuestic-chart>
+        <div :slot="'extra.tabs.maps' | translate" class="maps-tab">
+          <leaflet-map></leaflet-map>
         </div>
-        <div slot="Setup Profile" class="d-flex justify-content-center">
+        <div :slot="'extra.tabs.setupProfile' | translate" class="d-flex justify-content-center">
           <setup-profile-tab wizardType="simple"></setup-profile-tab>
         </div>
       </vuestic-tabs>
@@ -40,7 +16,7 @@
 
     <div class="row">
       <div class="col-md-4 d-flex">
-        <vuestic-widget headerText="Profile Card" class="profile-card-widget">
+        <vuestic-widget :headerText="$t('extra.profileCard')" class="profile-card-widget">
           <vuestic-profile-card :name="'Veronique Lee'" :location="'Malaga, Spain'" photoSource="http://i.imgur.com/NLrdqsk.png"
                                 :social="{twitter: 'twitter.com', facebook: 'facebook.com',
                                   instagram: 'instagram.com'}">
@@ -48,7 +24,7 @@
         </vuestic-widget>
       </div>
       <div class="col-md-8 d-flex">
-        <vuestic-widget headerText="Chat" class="chat-widget">
+        <vuestic-widget :headerText="$t('extra.chat')" class="chat-widget">
           <vuestic-chat v-model="chatMessages"></vuestic-chat>
         </vuestic-widget>
       </div>
@@ -70,27 +46,16 @@
 </template>
 
 <script>
-  import VuesticTabs from '../../components/vuestic-components/vuestic-tabs/VuesticTabs.vue'
-  import VuesticProfileCard from '../../components/vuestic-components/vuestic-profile-card/VuesticProfileCard.vue'
-  import VuesticAlert from '../../components/vuestic-components/vuestic-alert/VuesticAlert'
-  import VuesticChat from '../../components/vuestic-components/vuestic-chat/VuesticChat'
-  import VuesticFeed from '../vuestic-components/vuestic-feed/VuesticFeed.vue'
-  import VuesticSocialNews from '../vuestic-components/vuestic-social-news/VuesticSocialNews.vue'
-  import OverviewTab from '../dashboard/features-tab/FeaturesTab.vue'
-  import SetupProfileTab from '../dashboard/setup-profile-tab/SetupProfileTab.vue'
-  import chartData from '../statistics/charts/LineChartData'
+  import OverviewTab from 'components/dashboard/features-tab/FeaturesTab.vue'
+  import SetupProfileTab from 'components/dashboard/setup-profile-tab/SetupProfileTab.vue'
+  import LeafletMap from 'components/maps/leaflet-maps/LeafletMap.vue'
 
   export default {
     name: 'extra',
     components: {
+      LeafletMap,
       SetupProfileTab,
-      OverviewTab,
-      VuesticSocialNews,
-      VuesticFeed,
-      VuesticTabs,
-      VuesticProfileCard,
-      VuesticAlert,
-      VuesticChat
+      OverviewTab
     },
     data () {
       return {
@@ -171,19 +136,22 @@
           {
             photoURL: 'http://i.imgur.com/ZXRIHfk.png'
           }
-        ],
-        chartData: chartData
+        ]
       }
     }
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .tabs {
     .overview-tab {
       .explore-row {
         display: none !important;
       }
+    }
+
+    .maps-tab {
+      height: 500px;
     }
   }
 
