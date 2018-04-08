@@ -1,9 +1,11 @@
 <template>
   <div class="google-maps-page">
     <div class="row">
-      <vuestic-widget class="col-sm-12 widget-viewport-height" headerText="Leaflet Maps">
-        <leaflet-map></leaflet-map>
-      </vuestic-widget>
+      <div class="col-md-12">
+        <vuestic-widget class="widget-viewport-height" headerText="Leaflet Maps">
+          <leaflet-map></leaflet-map>
+        </vuestic-widget>
+      </div>
     </div>
   </div>
 </template>

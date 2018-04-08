@@ -4,7 +4,7 @@ export default {
   name: 'Maps',
   meta: {
     expanded: false,
-    title: 'Maps',
+    title: 'menu.maps',
     iconClass: 'vuestic-icon vuestic-icon-maps'
   },
 

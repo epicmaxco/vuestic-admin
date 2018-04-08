@@ -1,16 +1,18 @@
 <template>
   <div class="bubble-maps-page">
     <div class="row">
-      <vuestic-widget class="col-sm-12 widget-viewport-height" headerText="Line Maps">
-        <line-map v-bind:map-data="lineMapData"></line-map>
-      </vuestic-widget>
+      <div class="col-md-12">
+        <vuestic-widget class="widget-viewport-height" headerText="Line Maps">
+          <line-map v-bind:map-data="lineMapData"></line-map>
+        </vuestic-widget>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
   import LineMap from './LineMap'
-  import LineMapData from './LineMapData'
+  import LineMapData from 'data/maps/LineMapData'
 
   export default {
     name: 'line-maps-page',

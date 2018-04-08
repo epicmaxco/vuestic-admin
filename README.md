@@ -2,10 +2,10 @@
 
 Responsive admin dashboard template built with [Vue.js](https://vuejs.org) and [Bootstrap 4](https://v4-alpha.getbootstrap.com). Developed by [Epicmax](http://epicmax.co). Designed by [Vasili Savitski](https://xxsavitski.myportfolio.com/)
 
-<p align="center"> 
-  <a href="http://www.epicmax.co/vuestic" target="_blank">
+<p align="center">
+  <a href="http://vuestic.epicmax.co" target="_blank">
     <img src="http://i.imgur.com/pMuJVVc.png" align="center" width="888px"/>
-  </a> 
+  </a>
 </p>
 
 ## Demo
@@ -17,10 +17,14 @@ Check it out [live](http://vuestic.epicmax.co)!
 - npm version 3+ and [Git](https://git-scm.com/).
 - [vuestic-installer](https://github.com/epicmaxco/vuestic-installer) `npm install vuestic-installer -g`.
 
+## Browser Support
+* Latest Chrome, Firefox, Safari, Edge
+* IE11 is not supported
+
 ## Installation
 
 ``` bash
-# create new project via vuestic-installer command. 
+# create new project via vuestic-installer command.
 $ vuestic myproject
 
 or
@@ -58,6 +62,9 @@ Got stuck? Check out our [documentation](https://github.com/epicmaxco/vuestic-ad
 * 4 Form wizard types
 * Static tables and datatables
 * Login/signup pages templates
+* Medium editor
+* Toasts, tooltips, popovers,
+* i18n
 * and many more!
 
 ## How can I support developers?

@@ -11,10 +11,9 @@
           </div>
           <div class="typo-articles">
             <p>
-              The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, <span
-              class="vue-green-text">woodlands</span>, thorny scrublands, <span
-              class="vue-clickable-text">mountains</span>
-              , and coastal hills. However, various anthropogenic factors have had a severe impact on zebra populations, in particular hunting for skins and habitat destruction. Grévy's zebra and the mountain <span
+              The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas,
+              <a href="#">woodlands</a>, thorny scrublands, <a href="#">mountains</a>,
+              and coastal hills. However, various anthropogenic factors have had a severe impact on zebra populations, in particular hunting for skins and habitat destruction. Grévy's zebra and the mountain <span
               class="vue-highlighted-text">highlighted text</span> zebra are endangered.</p>
             <blockquote class="blockquote">
               <p>

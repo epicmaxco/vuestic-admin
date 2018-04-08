@@ -1,11 +1,11 @@
 <template>
   <div class="auth-layout">
-    <div class="nav hidden-lg-up"><router-link class="i-vuestic" :to="{path: '/'}"></router-link></div>
+    <div class="nav d-lg-none"><router-link class="i-vuestic" :to="{path: '/'}"></router-link></div>
     <div class="main row">
       <div class="auth-content col-lg-6 col-12">
         <router-view></router-view>
       </div>
-      <div class="auth-wallpaper col-6 hidden-md-down">
+      <div class="auth-wallpaper col-6 d-none d-lg-flex">
         <div class="oblique"></div>
         <router-link class="i-vuestic" :to="{path: '/'}"></router-link>
       </div>
@@ -21,10 +21,11 @@
 
 <style lang="scss">
   @import '../../sass/variables';
-  @import '../../../node_modules/bootstrap/scss/mixins/breakpoints';
-  @import '../../../node_modules/bootstrap/scss/variables';
+  @import '~bootstrap/scss/mixins/breakpoints';
+  @import "~bootstrap/scss/functions";
+  @import '~bootstrap/scss/variables';
   .auth-layout {
-    height: 100%;
+    height: 100vh;
     margin: 0;
     .nav {
       display: flex;

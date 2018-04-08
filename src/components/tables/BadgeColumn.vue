@@ -5,18 +5,21 @@
 <script>
   export default {
     name: 'badgeColumn',
+
     props: {
       rowData: {
         type: Object,
         required: true
       },
+
       rowIndex: {
         type: Number
       }
     },
-    data () {
-      return {
-        classObject: {
+
+    computed: {
+      classObject: function () {
+        return {
           'badge-warning': this.rowIndex % 6 === 0,
           'badge-primary': this.rowIndex % 6 === 1,
           'badge-danger': this.rowIndex % 6 === 2,

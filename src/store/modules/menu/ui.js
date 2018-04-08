@@ -4,7 +4,7 @@ export default {
   name: 'ui',
   meta: {
     expanded: false,
-    title: 'UI Elements',
+    title: 'menu.uiElements',
     iconClass: 'vuestic-icon vuestic-icon-ui-elements'
   },
   children: [
@@ -13,7 +13,7 @@ export default {
       path: '/ui/typography',
       component: lazyLoading('ui/typography/Typography'),
       meta: {
-        title: 'Typography'
+        title: 'menu.typography'
       }
     },
     {
@@ -21,21 +21,29 @@ export default {
       path: '/ui/buttons',
       component: lazyLoading('ui/buttons/Buttons'),
       meta: {
-        title: 'Buttons'
+        title: 'menu.buttons'
+      }
+    },
+    {
+      name: 'Notifications',
+      path: '/ui/notifications',
+      component: lazyLoading('ui/notifications/Notifications'),
+      meta: {
+        title: 'menu.notifications'
       }
     },
     {
       path: '/ui/icons',
       component: lazyLoading('ui/icons/Icons'),
       meta: {
-        title: 'Icons'
+        title: 'menu.icons'
       },
       children: [
         {
           path: '', // Default route
           component: lazyLoading('ui/icons/SetsList'),
           meta: {
-            title: 'Icons'
+            title: 'menu.icons'
           }
         },
         {
@@ -49,11 +57,19 @@ export default {
       ]
     },
     {
+      name: 'Spinners',
+      path: '/ui/spinners',
+      component: lazyLoading('ui/spinners/Spinners'),
+      meta: {
+        title: 'menu.spinners'
+      }
+    },
+    {
       name: 'Grid',
       path: '/ui/grid',
       component: lazyLoading('ui/grid/Grid'),
       meta: {
-        title: 'Grid'
+        title: 'menu.grid'
       }
     },
     {
@@ -61,7 +77,15 @@ export default {
       path: '/ui/modals',
       component: lazyLoading('ui/modals/Modals'),
       meta: {
-        title: 'Modals'
+        title: 'menu.modals'
+      }
+    },
+    {
+      name: 'TreeView',
+      path: '/ui/tree-view',
+      component: lazyLoading('ui/tree-view/TreeView'),
+      meta: {
+        title: 'menu.treeView'
       }
     }
   ]

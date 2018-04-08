@@ -2,7 +2,7 @@
   <div class="form-wizard-page">
     <div class="row">
       <div class="col-md-12">
-        <vuestic-widget class="no-h-padding" headerText="Simple Wizard">
+        <vuestic-widget class="no-h-padding" :headerText="$t('forms.wizard.simple')">
           <vuestic-wizard
             :steps="hsSteps">
             <div slot="page1" class="form-wizard-tab-content">
@@ -13,12 +13,13 @@
                 <div class="input-group">
                   <input
                     name="hsName"
+                    data-vv-as="Name"
                     v-model="hsName"
                     v-validate="'required'"
                     required title=""/>
                   <i class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
                   <i class="fa fa-check valid-icon icon-right input-icon"></i>
-                  <label class="control-label">Name</label><i class="bar"></i>
+                  <label class="control-label">{{'forms.wizard.name' | translate}}</label><i class="bar"></i>
                   <small v-show="errors.has('hsName')" class="help text-danger">{{ errors.first('hsName') }}</small>
                 </div>
               </div>
@@ -37,7 +38,7 @@
               </vuestic-simple-select>
             </div>
             <div slot="page3" class="form-wizard-tab-content">
-              <h4>Confirm selection</h4>
+              <h4>{{'forms.wizard.confirmSelection' | translate}}</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
                 soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
@@ -45,7 +46,7 @@
               </p>
             </div>
             <div slot="wizardCompleted" class="form-wizard-tab-content">
-              <h4>Wizard completed!</h4>
+              <h4>{{'forms.wizard.completed' | translate}}</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
                 soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
@@ -59,7 +60,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        <vuestic-widget class="no-h-padding" headerText="Rich Wizard">
+        <vuestic-widget class="no-h-padding" :headerText="$t('forms.wizard.rich')">
           <vuestic-wizard
             :steps="hrSteps"
             wizard-type="rich">
@@ -71,12 +72,13 @@
                 <div class="input-group">
                   <input
                     name="hrName"
+                    data-vv-as="Name"
                     v-model="hrName"
                     v-validate="'required'"
                     required title=""/>
                   <i class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
                   <i class="fa fa-check valid-icon icon-right input-icon"></i>
-                  <label class="control-label">Name</label><i class="bar"></i>
+                  <label class="control-label">{{'forms.wizard.name' | translate}}</label><i class="bar"></i>
                   <small v-show="errors.has('hrName')" class="help text-danger">{{ errors.first('hrName') }}</small>
                 </div>
               </div>
@@ -95,7 +97,7 @@
               </vuestic-simple-select>
             </div>
             <div slot="page3" class="form-wizard-tab-content">
-              <h4>Confirm selection</h4>
+              <h4>{{'forms.wizard.confirmSelection' | translate}}</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
                 soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
@@ -103,7 +105,7 @@
               </p>
             </div>
             <div slot="wizardCompleted" class="form-wizard-tab-content">
-              <h4>Wizard completed!</h4>
+              <h4>{{'forms.wizard.completed' | translate}}</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
                 soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
@@ -117,7 +119,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        <vuestic-widget headerText="Vertical Rich Wizard">
+        <vuestic-widget :headerText="$t('forms.wizard.verticalRich')">
           <vuestic-wizard
             :steps="vrSteps"
             wizard-layout="vertical"
@@ -130,12 +132,13 @@
                 <div class="input-group">
                   <input
                     name="vrName"
+                    data-vv-as="Name"
                     v-model="vrName"
                     v-validate="'required'"
                     required title=""/>
                   <i class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
                   <i class="fa fa-check valid-icon icon-right input-icon"></i>
-                  <label class="control-label">Name</label><i class="bar"></i>
+                  <label class="control-label">{{'forms.wizard.name' | translate}}</label><i class="bar"></i>
                   <small v-show="errors.has('vrName')" class="help text-danger">{{ errors.first('vrName') }}</small>
                 </div>
               </div>
@@ -154,7 +157,7 @@
               </vuestic-simple-select>
             </div>
             <div slot="page3" class="form-wizard-tab-content">
-              <h4>Confirm selection</h4>
+              <h4>{{'forms.wizard.confirmSelection' | translate}}</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
                 soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
@@ -162,7 +165,7 @@
               </p>
             </div>
             <div slot="wizardCompleted" class="form-wizard-tab-content">
-              <h4>Wizard completed!</h4>
+              <h4>{{'forms.wizard.completed' | translate}}</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
                 soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
@@ -176,7 +179,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        <vuestic-widget class="simple-vertical-wizard-widget" headerText="Vertical Simple Wizard">
+        <vuestic-widget class="simple-vertical-wizard-widget" :headerText="$t('forms.wizard.verticalSimple')">
           <vuestic-wizard
             :steps="vsSteps"
             wizard-layout="vertical"
@@ -189,12 +192,13 @@
                 <div class="input-group">
                   <input
                     name="vsName"
+                    data-vv-as="Name"
                     v-model="vsName"
                     v-validate="'required'"
                     required title=""/>
                   <i class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
                   <i class="fa fa-check valid-icon icon-right input-icon"></i>
-                  <label class="control-label">Name</label><i class="bar"></i>
+                  <label class="control-label">{{'forms.wizard.name' | translate}}</label><i class="bar"></i>
                   <small v-show="errors.has('vsName')" class="help text-danger">{{ errors.first('vsName') }}</small>
                 </div>
               </div>
@@ -213,7 +217,7 @@
               </vuestic-simple-select>
             </div>
             <div slot="page3" class="form-wizard-tab-content">
-              <h4>Confirm selection</h4>
+              <h4>{{'forms.wizard.confirmSelection' | translate}}</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
                 soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
@@ -221,7 +225,7 @@
               </p>
             </div>
             <div slot="wizardCompleted" class="form-wizard-tab-content">
-              <h4>Wizard completed!</h4>
+              <h4>{{'forms.wizard.completed' | translate}}</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
                 soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
@@ -236,21 +240,16 @@
 </template>
 
 <script>
-  import VuesticWizard from '../../vuestic-components/vuestic-wizard/VuesticWizard'
-  import CountriesList from '../CountriesList'
-  import VuesticSimpleSelect from '../../vuestic-components/vuestic-simple-select/VuesticSimpleSelect'
+  import CountriesList from 'data/CountriesList'
 
   export default {
     name: 'form-wizard',
-    components: {
-      VuesticWizard,
-      VuesticSimpleSelect
-    },
-    data () {
-      return {
-        hsSteps: [
+
+    computed: {
+      hsSteps () {
+        return [
           {
-            label: 'Step 1. Name',
+            label: this.$t('forms.wizard.stepOne'),
             slot: 'page1',
             onNext: () => {
               this.validateFormField('hsName')
@@ -260,7 +259,7 @@
             }
           },
           {
-            label: 'Step 2. Country',
+            label: this.$t('forms.wizard.stepTwo'),
             slot: 'page2',
             onNext: () => {
               this.$refs.hsCountrySelect.validate()
@@ -270,13 +269,15 @@
             }
           },
           {
-            label: 'Step 3. Confirm',
+            label: this.$t('forms.wizard.stepThree'),
             slot: 'page3'
           }
-        ],
-        hrSteps: [
+        ]
+      },
+      hrSteps () {
+        return [
           {
-            label: 'Step 1. Name',
+            label: this.$t('forms.wizard.stepOne'),
             slot: 'page1',
             onNext: () => {
               this.validateFormField('hrName')
@@ -286,7 +287,7 @@
             }
           },
           {
-            label: 'Step 2. Country',
+            label: this.$t('forms.wizard.stepTwo'),
             slot: 'page2',
             onNext: () => {
               this.$refs.hrCountrySelect.validate()
@@ -296,13 +297,15 @@
             }
           },
           {
-            label: 'Step 3. Confirm',
+            label: this.$t('forms.wizard.stepThree'),
             slot: 'page3'
           }
-        ],
-        vrSteps: [
+        ]
+      },
+      vrSteps () {
+        return [
           {
-            label: 'Step 1. Name',
+            label: this.$t('forms.wizard.stepOne'),
             slot: 'page1',
             onNext: () => {
               this.validateFormField('vrName')
@@ -312,7 +315,7 @@
             }
           },
           {
-            label: 'Step 2. Country',
+            label: this.$t('forms.wizard.stepTwo'),
             slot: 'page2',
             onNext: () => {
               this.$refs.vrCountrySelect.validate()
@@ -322,13 +325,15 @@
             }
           },
           {
-            label: 'Step 3. Confirm',
+            label: this.$t('forms.wizard.stepThree'),
             slot: 'page3'
           }
-        ],
-        vsSteps: [
+        ]
+      },
+      vsSteps () {
+        return [
           {
-            label: 'Step 1. Name',
+            label: this.$t('forms.wizard.stepOne'),
             slot: 'page1',
             onNext: () => {
               this.validateFormField('vsName')
@@ -338,7 +343,7 @@
             }
           },
           {
-            label: 'Step 2. Country',
+            label: this.$t('forms.wizard.stepTwo'),
             slot: 'page2',
             onNext: () => {
               this.$refs.vsCountrySelect.validate()
@@ -348,10 +353,14 @@
             }
           },
           {
-            label: 'Step 3. Confirm',
+            label: this.$t('forms.wizard.stepThree'),
             slot: 'page3'
           }
-        ],
+        ]
+      }
+    },
+    data () {
+      return {
         hsName: '',
         hsCountry: '',
         hrName: '',
@@ -382,8 +391,9 @@
 
 <style lang="scss">
   @import "../../../sass/_variables.scss";
-  @import "../../../../node_modules/bootstrap/scss/variables";
-  @import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+  @import "~bootstrap/scss/functions";
+  @import "~bootstrap/scss/variables";
+  @import "~bootstrap/scss/mixins/breakpoints";
 
   .widget.simple-vertical-wizard-widget {
     .widget-body {

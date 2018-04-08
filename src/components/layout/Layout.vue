@@ -2,11 +2,17 @@
   <div :class="classObject" v-resize>
     <navbar></navbar>
     <sidebar></sidebar>
+
     <div class="content-wrap" id="content-wrap">
       <main id="content" class="content" role="main">
+        <vuestic-breadcrumbs :breadcrumbs="breadcrumbs"/>
         <vuestic-pre-loader v-show="isLoading" ref="preLoader" class="pre-loader"></vuestic-pre-loader>
         <router-view v-show="!isLoading"></router-view>
       </main>
+    </div>
+
+    <div class="made-by-footer">
+      ©2018. Made by&nbsp;<a href="http://epicmax.co" target="_blank">Epicmax</a>
     </div>
   </div>
 </template>
@@ -17,13 +23,11 @@
   import Navbar from './navbar/Navbar'
   import Sidebar from './sidebar/Sidebar'
   import Resize from 'directives/ResizeHandler'
-  import VuesticPreLoader from '../vuestic-components/vuestic-preloader/VuesticPreLoader.vue'
 
   export default {
     name: 'layout',
 
     components: {
-      VuesticPreLoader,
       Navbar,
       Sidebar
     },
@@ -41,6 +45,9 @@
           'sidebar-hidden': !this.toggleWithoutAnimation && !this.sidebarOpened,
           'sidebar-hidden sidebar-hidden_without-animation': this.toggleWithoutAnimation && !this.sidebarOpened
         }
+      },
+      breadcrumbs () {
+        return this.$store.getters.breadcrumbs(this.$route.name)
       }
     }
   }
@@ -48,8 +55,9 @@
 
 <style lang="scss">
   @import "../../sass/_variables.scss";
-  @import "../../../node_modules/bootstrap/scss/mixins/breakpoints";
-  @import "../../../node_modules/bootstrap/scss/variables";
+  @import "~bootstrap/scss/mixins/breakpoints";
+  @import "~bootstrap/scss/functions";
+  @import "~bootstrap/scss/variables";
 
   .content-wrap {
     margin-left: $content-wrap-ml;
@@ -74,5 +82,15 @@
         margin-left: 0;
       }
     }
+  }
+
+  .made-by-footer {
+    position: absolute;
+    bottom: 0;
+    height: calc(#{$layout-padding} + #{$widget-mb});
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>

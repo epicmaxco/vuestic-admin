@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar app-navbar navbar-toggleable-md">
     <div class="navbar-brand-container d-flex align-items-center justify-content-start">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="#/dashboard">
         <i class="i-vuestic"></i>
       </a>
     </div>
@@ -13,7 +13,10 @@
         <a class="menu-icon i-menu-collapsed" href="#" @click.prevent="toggleSidebar(true)" v-else></a>
       </div>
 
-      <div class="offset-lg-8"></div>
+      <div class="navbar-text offset-md-1 col-md-7 d-none d-lg-flex align-items-center justify-content-center">
+       {{'navbar.messageUs' | translate}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
+      </div>
+
       <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center" v-dropdown>
         <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="closeMenu">
           <span class="i-nav-messages notify"></span>
@@ -21,13 +24,13 @@
         <div class="dropdown-menu">
           <div class="dropdown-menu-content">
             <a class="dropdown-item" href="#">
-              <span class="ellipsis">New messages from Oleg M</span>
+              <span class="ellipsis">{{ $t('messages.new', {name: "Oleg M"})}}</span>
             </a>
             <a class="dropdown-item" href="#">
-              <span class="ellipsis">New messages from Andrei H</span>
+              <span class="ellipsis">{{ $t('messages.new', {name: "Andrei H"})}}</span>
             </a>
             <div class="dropdown-item plain-link-item">
-              <a class="plain-link" href="#">See all messages</a>
+              <a class="plain-link" href="#">{{'messages.all' | translate}}</a>
             </div>
           </div>
         </div>
@@ -39,20 +42,21 @@
         <div class="dropdown-menu">
           <div class="dropdown-menu-content">
             <a class="dropdown-item" href="#">
-              <span class="ellipsis">Vasily S sent you a message</span>
+              <span class="ellipsis">{{$t('notifications.sentMessage', {name: 'Vasily S'})}}</span>
             </a>
             <a class="dropdown-item" href="#">
-              <span class="ellipsis">Oleg M uploaded new Zip file with typography component</span>
+              <span class="ellipsis">{{$t('notifications.uploadedZip', { name: "Oleg M", type: "typography component"})}}</span>
             </a>
             <a class="dropdown-item" href="#">
-              <span class="ellipsis">Andrei H started a new topic</span>
+              <span class="ellipsis">{{$t('notifications.startedTopic',{name: "Andrei H"}) }}</span>
             </a>
             <div class="dropdown-item plain-link-item">
-              <a class="plain-link" href="#">See all notifications</a>
+              <a class="plain-link" href="#">{{'notifications.all' | translate}}</a>
             </div>
           </div>
         </div>
       </div>
+      <language-selector :options="langs"></language-selector>
       <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center" v-dropdown>
         <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="closeMenu">
           <span class="avatar-container">
@@ -62,10 +66,10 @@
         <div class="dropdown-menu last">
           <div class="dropdown-menu-content">
             <div class="dropdown-item plain-link-item">
-              <a class="plain-link" href="#">My Profile</a>
+              <a class="plain-link" href="#">{{'user.profile' | translate}}</a>
             </div>
             <div class="dropdown-item plain-link-item">
-              <a class="plain-link" href="#">Logout</a>
+              <a class="plain-link" href="#">{{'user.logout' | translate}}</a>
             </div>
           </div>
         </div>
@@ -76,19 +80,37 @@
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
-  import Dropdown from 'directives/Dropdown'
+  import LanguageSelector from './LanguageSelector'
 
   export default {
     name: 'navbar',
 
-    directives: {
-      dropdown: Dropdown
+    components: {
+      LanguageSelector
     },
 
-    computed: mapGetters([
-      'sidebarOpened',
-      'toggleWithoutAnimation'
-    ]),
+    data () {
+      return {
+        langs: [
+          {
+            code: 'gb',
+            name: 'english'
+          },
+          {
+            code: 'es',
+            name: 'spanish'
+          }
+        ]
+      }
+    },
+
+    computed: {
+      ...mapGetters([
+        'sidebarOpened',
+        'toggleWithoutAnimation'
+      ])
+    },
+
     methods: {
       ...mapActions([
         'closeMenu',
@@ -101,8 +123,9 @@
 
 <style lang="scss">
   @import "../../../sass/_variables.scss";
-  @import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
-  @import "../../../../node_modules/bootstrap/scss/variables";
+  @import "~bootstrap/scss/mixins/breakpoints";
+  @import "~bootstrap/scss/functions";
+  @import "~bootstrap/scss/variables";
 
   .navbar.app-navbar {
     .navbar-container {
