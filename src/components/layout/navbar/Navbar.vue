@@ -128,6 +128,7 @@
   @import "~bootstrap/scss/variables";
 
   .navbar.app-navbar {
+    position: fixed; top: 0; width: 100%; z-index: 1;
     .navbar-container {
       width: 100%;
       height: 100%;
