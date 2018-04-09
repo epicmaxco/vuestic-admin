@@ -177,6 +177,7 @@
   .tooltip-inner {
     box-shadow: $tooltip-box-shadow;
     font-weight: $tooltip-font-weight;
+    border-radius: 0;
   }
 
   .tooltip-arrow {
