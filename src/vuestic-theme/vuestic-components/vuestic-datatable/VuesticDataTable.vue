@@ -10,6 +10,8 @@
       ref="vuetable"
       :apiUrl="apiUrl"
       :apiMode="apiMode"
+      :httpFetch="httpFetch"
+      :httpOptions="httpOptions"
       :fields="tableFields"
       :dataManager="dataManager"
       :css="css.table"
@@ -51,6 +53,18 @@
       apiUrl: {
         type: String
       },
+      httpFetch: {
+        type: Function,
+        default: null
+      },
+      httpOptions: {
+        type: Object,
+        default: () => {}
+      },
+      filterQuery: {
+        type: String,
+        default: 'filter'
+      },
       tableFields: {
         type: Array,
         required: true
@@ -89,7 +103,7 @@
       paginationPath: {
         type: String,
         default: ''
-      }
+      },
     },
     data () {
       return {
@@ -103,7 +117,7 @@
     computed: {
       moreParams () {
         return {
-          'filter': this.filterText
+          [this.filterQuery]: this.filterText
         }
       },
       filteredTableData () {
