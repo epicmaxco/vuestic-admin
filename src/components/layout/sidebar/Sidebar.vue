@@ -170,7 +170,6 @@
       right: $sidebar-arrow-right;
       top: calc(50% - #{$font-size-root}/2);
       font-weight: bold;
-      transition: transform 0.3s ease;
     }
 
     &.expanded {

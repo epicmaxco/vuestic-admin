@@ -162,7 +162,7 @@
 
     .navbar-brand-container {
       position: absolute;
-      z-index: 3;
+      z-index: 1;
       height: 100%;
       left: $navbar-brand-container-left;
       top: 0;
@@ -177,8 +177,8 @@
       .dropdown-toggle {
         padding: 0;
         &:after {
-           display: none;
-         }
+          display: none;
+        }
       }
 
       &.show {
@@ -189,17 +189,17 @@
           }
         }
         &:after {
-           position: absolute;
-           bottom: -$dropdown-show-b;
-           right: calc(50% - 10px);
-           width: 0;
-           height: 0;
-           display: block;
-           content: '';
-           border-left: 10px solid transparent;
-           border-right: 10px solid transparent;
-           border-bottom: 10px solid $darkest-gray;
-         }
+          position: absolute;
+          bottom: -$dropdown-show-b;
+          right: calc(50% - 10px);
+          width: 0;
+          height: 0;
+          display: block;
+          content: '';
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-bottom: 10px solid $darkest-gray;
+        }
       }
 
       .dropdown-menu {
@@ -273,7 +273,7 @@
           display: flex;
           &:after {
             bottom: -$dropdown-mobile-show-b;
-            z-index: 2;
+            z-index: 1;
           }
           .dropdown-menu {
             margin-top: $dropdown-mobile-show-b;
