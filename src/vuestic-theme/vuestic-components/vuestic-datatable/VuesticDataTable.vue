@@ -2,9 +2,15 @@
   <div class="vuestic-data-table table-responsive">
     <div class="d-flex flex-md-row flex-column justify-content-md-between align-items-center">
       <filter-bar @filter="onFilterSet"></filter-bar>
-      <items-per-page :options="itemsPerPage"
-                      :defaultPerPage="defaultPerPageComputed"
-                      @items-per-page="onItemsPerPage"></items-per-page>
+      <div class="datatable-controls d-flex flex-row">
+        <div class="form-group">
+          <slot name="additionalTableControl"></slot>
+        </div>
+        <items-per-page :options="itemsPerPage"
+                        :defaultPerPage="defaultPerPageComputed"
+                        @items-per-page="onItemsPerPage"
+                        v-show="perPageSelectorShown"></items-per-page>
+      </div>
     </div>
     <vuetable
       ref="vuetable"
@@ -72,6 +78,10 @@
       itemsPerPage: {
         type: Array,
         default: () => DefaultPerPageDefinition.itemsPerPage
+      },
+      perPageSelectorShown: {
+        type: Boolean,
+        default: true
       },
       defaultPerPage: {
         type: Number,
@@ -214,6 +224,10 @@
   @import "../../../sass/variables";
 
   .vuestic-data-table {
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
     @media (max-width: 1258px) {
       .pagination-link-btn:first-child, .pagination-link-btn:last-child {
         display: none;
