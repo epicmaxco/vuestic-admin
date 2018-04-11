@@ -13,12 +13,15 @@
     name: 'filterBar',
     data () {
       return {
-        filterText: ''
+        filterText: '',
+        typingTimeout: null,
+        typingDelay: 250
       }
     },
     methods: {
       doFilter () {
-        this.$emit('filter', this.filterText)
+        this.typingTimeout && clearTimeout(this.typingTimeout)
+        this.typingTimeout = setTimeout(() => this.$emit('filter', this.filterText), this.typingDelay)
       }
     }
   }

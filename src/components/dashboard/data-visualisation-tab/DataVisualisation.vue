@@ -14,7 +14,7 @@
           :itemsPerPage="itemsPerPage"
           :onEachSide="onEachSide"
           :sortFunctions="sortFunctions"
-          :paginationPath="paginationPath"
+          :dataModeFilterableFields="dataModeFilterableFields"
         />
       </div>
     </div>
@@ -41,7 +41,7 @@
         tableData: TableData,
         onEachSide: 1,
         tableFields: FieldsDef.tableFields,
-        paginationPath: 'pagination',
+        dataModeFilterableFields: ['name'],
         itemsPerPage: [
           {
             value: 5

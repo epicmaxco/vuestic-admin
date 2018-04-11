@@ -11,8 +11,6 @@
       :apiUrl="apiUrl"
       :apiMode="apiMode"
       :fields="tableFields"
-      :data="tableData"
-      :dataTotal="dataCount"
       :dataManager="dataManager"
       :css="css.table"
       dataPath="data"
@@ -81,6 +79,10 @@
           }
         }
       },
+      dataModeFilterableFields: {
+        type: Array,
+        default: () => []
+      },
       sortFunctions: {
         type: Object
       },
@@ -91,15 +93,36 @@
     },
     data () {
       return {
-        originalData: this.tableData.data.slice(),
         perPage: this.defaultPerPage,
         colorClasses: {},
-        moreParams: {},
+        filterText: '',
         dataCount: 0,
         css: DataTableStyles
       }
     },
     computed: {
+      moreParams () {
+        return {
+          'filter': this.filterText
+        }
+      },
+      filteredTableData () {
+        const txt = new RegExp(this.filterText, 'i')
+        const filterableFields = this.getDataModeFilterableFields()
+
+        let filteredData = this.tableData.data.slice()
+
+        filteredData = this.tableData.data.filter((item) => {
+          return filterableFields.some(field => {
+            const val = item[field] + ''
+            return val.search(txt) >= 0
+          })
+        })
+
+        return {
+          data: filteredData
+        }
+      },
       defaultPerPageComputed () {
         let defaultPerPage = DefaultPerPageDefinition.itemsPerPage[0].value
 
@@ -112,19 +135,27 @@
         return defaultPerPage
       }
     },
+
     methods: {
       onFilterSet (filterText) {
-        if (this.apiMode) {
-          this.moreParams = {
-            'filter': filterText
-          }
-        } else {
-          const txt = new RegExp(filterText, 'i')
-          this.tableData.data = this.originalData.filter(function (item) {
-            return item.name.search(txt) >= 0 || item.email.search(txt) >= 0
+        this.filterText = filterText
+        Vue.nextTick(() => this.$refs.vuetable.refresh())
+      },
+
+      getDataModeFilterableFields () {
+        const dataItem = this.tableData.data[0] || {}
+        const filterableFields = this.dataModeFilterableFields
+
+        if (!filterableFields.length) {
+          const itemFields = Object.keys(dataItem)
+          itemFields.forEach(field => {
+            if (typeof dataItem[field] !== 'object') {
+              filterableFields.push(field)
+            }
           })
         }
-        Vue.nextTick(() => this.$refs.vuetable.refresh())
+
+        return filterableFields
       },
       onItemsPerPage (itemsPerPageValue) {
         this.perPage = itemsPerPageValue
@@ -137,7 +168,7 @@
         this.$refs.vuetable.changePage(page)
       },
       dataManager (sortOrder, pagination) {
-        let data = this.tableData.data
+        let data = this.filteredTableData.data
         let sortFunctions = this.sortFunctions
 
         if (sortOrder.length > 0) {
