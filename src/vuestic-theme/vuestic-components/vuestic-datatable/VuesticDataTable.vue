@@ -130,14 +130,28 @@
           [this.filterQuery]: this.filterText
         }
       },
+      dataModeFilterableFieldsComputed () {
+        const dataItem = this.tableData.data[0] || {}
+        const filterableFields = this.dataModeFilterableFields
+
+        if (!filterableFields.length) {
+          const itemFields = Object.keys(dataItem)
+          itemFields.forEach(field => {
+            if (typeof dataItem[field] !== 'object') {
+              filterableFields.push(field)
+            }
+          })
+        }
+
+        return filterableFields
+      },
       filteredTableData () {
         const txt = new RegExp(this.filterText, 'i')
-        const filterableFields = this.getDataModeFilterableFields()
 
         let filteredData = this.tableData.data.slice()
 
         filteredData = this.tableData.data.filter((item) => {
-          return filterableFields.some(field => {
+          return this.dataModeFilterableFieldsComputed.some(field => {
             const val = item[field] + ''
             return val.search(txt) >= 0
           })
@@ -164,22 +178,6 @@
       onFilterSet (filterText) {
         this.filterText = filterText
         Vue.nextTick(() => this.$refs.vuetable.refresh())
-      },
-
-      getDataModeFilterableFields () {
-        const dataItem = this.tableData.data[0] || {}
-        const filterableFields = this.dataModeFilterableFields
-
-        if (!filterableFields.length) {
-          const itemFields = Object.keys(dataItem)
-          itemFields.forEach(field => {
-            if (typeof dataItem[field] !== 'object') {
-              filterableFields.push(field)
-            }
-          })
-        }
-
-        return filterableFields
       },
       onItemsPerPage (itemsPerPageValue) {
         this.perPage = itemsPerPageValue
