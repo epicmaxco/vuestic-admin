@@ -14,7 +14,6 @@ export default {
       path: '/statistics/charts',
       component: lazyLoading('statistics/charts/Charts'),
       meta: {
-        iconClass: 'entypo entypo-flashlight',
         title: 'menu.charts'
       }
     },
