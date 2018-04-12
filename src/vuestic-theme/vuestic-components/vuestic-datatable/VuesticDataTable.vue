@@ -25,7 +25,7 @@
       :dataManager="dataManager"
       :css="css.table"
       dataPath="data"
-      v-bind:paginationPath="paginationPath"
+      :paginationPath="paginationPathComputed"
       :appendParams="moreParams"
       :perPage="perPage"
       @vuetable:pagination-data="onPaginationData"
@@ -138,7 +138,6 @@
           'justify-content-md-end': !this.filterInputShown
         }
       },
-
       moreParams () {
         return {
           [this.filterQuery]: this.filterText
@@ -185,6 +184,9 @@
         }
 
         return defaultPerPage
+      },
+      paginationPathComputed () {
+        return this.apiMode ? this.paginationPath : 'pagination'
       }
     },
 
