@@ -1,7 +1,10 @@
 <template>
   <div class="vuestic-data-table table-responsive">
-    <div class="d-flex flex-md-row flex-column justify-content-md-between align-items-center">
-      <filter-bar @filter="onFilterSet"></filter-bar>
+    <div class="d-flex flex-md-row flex-column align-items-center" :class="controlsAlignmentClass">
+      <filter-bar
+        @filter="onFilterSet"
+        v-show="filterInputShown"
+      />
       <div class="datatable-controls d-flex flex-row">
         <div class="form-group">
           <slot name="additionalTableControl"></slot>
@@ -83,6 +86,10 @@
         type: Boolean,
         default: true
       },
+      filterInputShown: {
+        type: Boolean,
+        default: true
+      },
       defaultPerPage: {
         type: Number,
         default: DefaultPerPageDefinition.itemsPerPage[0].value
@@ -125,6 +132,13 @@
       }
     },
     computed: {
+      controlsAlignmentClass () {
+        return {
+          'justify-content-md-between': this.filterInputShown,
+          'justify-content-md-end': !this.filterInputShown
+        }
+      },
+
       moreParams () {
         return {
           [this.filterQuery]: this.filterText
