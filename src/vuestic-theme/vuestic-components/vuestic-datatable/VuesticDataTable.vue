@@ -124,7 +124,7 @@
     },
     data () {
       return {
-        perPage: this.defaultPerPage,
+        perPage: 0,
         colorClasses: {},
         filterText: '',
         dataCount: 0,
@@ -188,6 +188,10 @@
       paginationPathComputed () {
         return this.apiMode ? this.paginationPath : 'pagination'
       }
+    },
+
+    created () {
+      this.perPage = this.defaultPerPageComputed
     },
 
     methods: {
