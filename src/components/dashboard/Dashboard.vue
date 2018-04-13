@@ -62,5 +62,7 @@
 </script>
 
 <style lang="scss" scoped>
+
+
   @import "../../sass/_variables.scss";
 </style>
