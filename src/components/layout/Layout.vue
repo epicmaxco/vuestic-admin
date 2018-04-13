@@ -1,6 +1,5 @@
 <template>
   <div class="layout" :class="classObject"  v-resize>
-    <div class="layout layout-fixed"></div>
     <navbar></navbar>
     <sidebar></sidebar>
 
@@ -70,20 +69,23 @@
   @import "~bootstrap/scss/functions";
   @import "~bootstrap/scss/variables";
 
-
   .layout {
     &-fixed {
-      .content-wrap {
-        padding-top: $sidebar-top;
+      .navbar{
+        position: fixed; top: 0; width: 100%; z-index: 1;
+      }
+
+      .sidebar{
+        position: fixed;
       }
     }
   }
 
-
-
   .content-wrap {
     margin-left: $content-wrap-ml;
     transition: margin-left 0.3s ease;
+    padding-right: $layout-padding-right;
+
 
     .pre-loader {
       position: absolute;
@@ -101,6 +103,7 @@
 
       .sidebar-hidden & {
         margin-left: 0;
+        padding-top: $content-mobile-wrap-sb-top;
       }
     }
   }
