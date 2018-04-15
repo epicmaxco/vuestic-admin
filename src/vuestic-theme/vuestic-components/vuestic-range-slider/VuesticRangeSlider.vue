@@ -1,8 +1,5 @@
 <template>
   <div>
-    <!-- <span>{{this.sliderVal}}</span> -->
-    <!-- <span class="float-left">{{this.min}}</span>
-    <span class="float-right">{{this.max}}</span> -->
     <input 
       class="range-slider" 
       :class="{'at-slider--disabled': disabled}" 
@@ -11,8 +8,7 @@
       :step="step" 
       :min="min" 
       :max="max" 
-      :disabled="disabled" 
-      @change="changeFoo"> 
+      :disabled="disabled"> 
   </div>
 </template>
 
@@ -44,11 +40,6 @@
       step: {
         type: Number,
         default: 1
-      }
-    },
-    methods: {
-      changeFoo () {
-        // console.log(this.inputValue)
       }
     },
     watch: {
