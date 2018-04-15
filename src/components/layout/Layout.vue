@@ -70,7 +70,12 @@
   @import "~bootstrap/scss/variables";
 
   .layout {
+
     &-fixed {
+      .content-wrap {
+        padding-right: $layout-padding-right;
+        padding-top: $sidebar-top;
+      }
       .navbar{
         position: fixed; top: 0; width: 100%; z-index: 1;
       }
@@ -85,7 +90,7 @@
     margin-left: $content-wrap-ml;
     transition: margin-left 0.3s ease;
     padding-right: $layout-padding-right;
-
+    padding-top: $layout-padding ;
 
     .pre-loader {
       position: absolute;
