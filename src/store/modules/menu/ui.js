@@ -57,6 +57,14 @@ export default {
       ]
     },
     {
+      name: 'RangeSlider',
+      path: '/ui/range-slider',
+      component: lazyLoading('ui/range-slider/RangeSlider'),
+      meta: {
+        title: 'menu.rangeSlider'
+      }
+    },
+    {
       name: 'Spinners',
       path: '/ui/spinners',
       component: lazyLoading('ui/spinners/Spinners'),

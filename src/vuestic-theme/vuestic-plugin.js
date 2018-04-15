@@ -21,6 +21,8 @@ import ProgressBar
   from './vuestic-components/vuestic-progress-bar/VuesticProgressBar.vue'
 import RadioButton
   from './vuestic-components/vuestic-radio-button/VuesticRadioButton.vue'
+import RangeSlider
+  from './vuestic-components/vuestic-range-slider/VuesticRangeSlider.vue'
 import Scrollbar
   from './vuestic-components/vuestic-scrollbar/VuesticScrollbar.vue'
 import SimpleSelect
@@ -59,6 +61,7 @@ const VuesticPlugin = {
       ProfileCard,
       ProgressBar,
       RadioButton,
+      RangeSlider,
       Scrollbar,
       SimpleSelect,
       Slider,
