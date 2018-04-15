@@ -100,6 +100,7 @@ $content-mobile-wrap-pr : 1rem;
 $content-mobile-wrap-pt : 2rem;
 $content-mobile-wrap-pb : $layout-padding;
 $content-mobile-wrap: $content-mobile-wrap-pt $content-mobile-wrap-pr $content-mobile-wrap-pb $content-mobile-wrap-pl;
+$content-mobile-wrap-sb-top: calc(#{$top-nav-height} + #{$layout-padding+20});
 
 $nav-mobile-padding-h : .875rem;
 $nav-mobile-pt: 3rem;
