@@ -29,7 +29,7 @@
     name: 'range-slider',
     data () {
       return {
-        valueA: 0,
+        valueA: 10,
         valueB: 20,
         valueC: 30,
         valueD: 50
