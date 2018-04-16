@@ -3,6 +3,7 @@
     <div class="d-flex flex-md-row flex-column align-items-center" :class="controlsAlignmentClass">
       <filter-bar
         @filter="onFilterSet"
+        :label="filterInputLabel"
         v-show="filterInputShown"
       />
       <div class="datatable-controls d-flex flex-row">
@@ -10,6 +11,7 @@
           <slot name="additionalTableControl"></slot>
         </div>
         <items-per-page :options="itemsPerPage"
+                        :label="itemsPerPageLabel"
                         :defaultPerPage="defaultPerPageComputed"
                         @items-per-page="onItemsPerPage"
                         v-show="perPageSelectorShown"></items-per-page>
@@ -89,6 +91,14 @@
       filterInputShown: {
         type: Boolean,
         default: true
+      },
+      filterInputLabel: {
+        type: String,
+        default: 'Search'
+      },
+      itemsPerPageLabel: {
+        type: String,
+        default: 'per page'
       },
       defaultPerPage: {
         type: Number,
@@ -192,6 +202,10 @@
 
     created () {
       this.perPage = this.defaultPerPageComputed
+    },
+
+    mounted () {
+      this.$emit('initialized', this.$refs.vuetable)
     },
 
     methods: {

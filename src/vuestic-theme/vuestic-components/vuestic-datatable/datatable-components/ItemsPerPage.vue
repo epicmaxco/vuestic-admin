@@ -2,7 +2,7 @@
   <div class="form-group dropdown" v-dropdown.closeOnMenuClick>
     <button id="itemsPerPageBtn" class="btn btn-primary btn-sm dropdown-toggle" type="button"
             data-toggle="dropdown">
-      {{selected}} per page
+      {{selected}} {{label}}
       <i class="ion-ios-arrow-down arrow-down"></i>
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -22,6 +22,9 @@
       Dropdown
     },
     props: {
+      label: {
+        type: String
+      },
       options: {
         type: Array,
         required: true
