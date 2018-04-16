@@ -5,11 +5,11 @@
         <div class='vuestic-breadcrumbs'>
           <router-link :to="'/'" class="crumb">{{'breadcrumbs.home' | translate}}</router-link>
           <router-link
-                  v-for="(item, index) in breadcrumbs"
-                  :to="{path: item.path}"
-                  :key="index"
-                  class="crumb"
-                  v-bind:class="{ disabled: !item.path }"
+            v-for="(item, index) in breadcrumbs"
+            :to="{name: item.name}"
+            :key="index"
+            class="crumb"
+            v-bind:class="{ disabled: !item.path || item.meta.breadcrumbDisabled }"
           >
             {{item.meta.title | translate}}
           </router-link>
