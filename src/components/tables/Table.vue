@@ -188,6 +188,7 @@
             :sortFunctions="sortFunctions"
             :apiMode="apiMode"
             :paginationPath="paginationPath"
+            :queryParams="queryParams"
           />
         </vuestic-widget>
       </div>
@@ -201,6 +202,7 @@
   import BadgeColumn from './BadgeColumn.vue'
   import FieldsDef from 'vuestic-components/vuestic-datatable/data/fields-definition'
   import ItemsPerPageDef from 'vuestic-components/vuestic-datatable/data/items-per-page-definition'
+  import QueryParams from 'vuestic-components/vuestic-datatable/data/query-params'
 
   Vue.component('badge-column', BadgeColumn)
 
@@ -215,7 +217,8 @@
         itemsPerPage: ItemsPerPageDef.itemsPerPage,
         sortFunctions: FieldsDef.sortFunctions,
         paginationPath: '',
-        defaultTablePerPage: 6
+        defaultTablePerPage: 6,
+        queryParams: QueryParams
       }
     }
   }
