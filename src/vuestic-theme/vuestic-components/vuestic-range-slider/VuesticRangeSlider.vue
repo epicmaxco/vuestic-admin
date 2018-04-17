@@ -32,25 +32,6 @@
 <script>
   export default {
     name: 'vuestic-range-slider',
-    data: function () {
-      return {
-        inputValue: null,
-        isHover: false,
-        isDrag: false,
-        startX: 0,
-        currentX: 0,
-        oldValue: this.value,
-        startPos: 0,
-        newPos: null,
-        currentPosition: `${(this.value - this.min) * 100 / (this.max - this.min)}%`,
-        topTooltipOptions: {
-          content: this.value,
-          placement: 'top',
-          show: this.isDrag,
-          trigger: 'manual',
-        },
-      }
-    },
     props: {
       value: {
         type: Number,
@@ -73,6 +54,25 @@
         default: 1
       }
     },
+    data () {
+      return {
+        inputValue: null,
+        isHover: false,
+        isDrag: false,
+        startX: 0,
+        currentX: 0,
+        oldValue: this.value,
+        startPos: 0,
+        newPos: null,
+        currentPosition: `${(this.value - this.min) * 100 / (this.max - this.min)}%`,
+        topTooltipOptions: {
+          content: this.value,
+          placement: 'top',
+          show: this.isDrag,
+          trigger: 'manual',
+        },
+      }
+    },
     computed: {
       sliderWidth () {
         return parseInt(this.$refs.slider.clientWidth)
@@ -81,16 +81,32 @@
     watch: {
       inputValue (val) {
         this.$emit('input', Number(val))
+      },
+      value (val) {
+        if (typeof val !== 'number' || isNaN(val) || val < this.min) {
+          this.$emit('input', this.min)
+          return
+        }
+
+        if (val > this.max) {
+          this.$emit('input', this.max)
+          return
+        }
+
+        this.inputValue = val
+        this.setPosition((val - this.min) * 100 / (this.max - this.min))
       }
     },
     methods: {
       handleMouseEnter () {
         clearTimeout(this._timer)
         this.isHover = true
+        this.topTooltipOptions.show = true
       },
       handleMouseLeave () {
         if (this.isDrag) return
         this.isHover = false
+        this.topTooltipOptions.show = false
       },
       handleMouseDown (evt) {
         if (this.disabled) return
