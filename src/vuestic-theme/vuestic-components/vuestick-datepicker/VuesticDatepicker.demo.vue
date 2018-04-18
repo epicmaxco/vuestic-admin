@@ -8,6 +8,6 @@
   import VuesticDatepicker from './VuesticDatepicker.vue'
 
   export default {
-    components: { VuesticDatepicker },
+    components: { VuesticDatepicker }
   }
 </script>
