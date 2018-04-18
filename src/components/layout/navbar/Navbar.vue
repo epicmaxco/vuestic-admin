@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar app-navbar navbar-toggleable-md">
     <div class="navbar-brand-container d-flex align-items-center justify-content-start">
-      <a class="navbar-brand" href="#/dashboard">
+      <router-link class="navbar-brand" to="/dashboard">
         <i class="i-vuestic"></i>
-      </a>
+      </router-link>
     </div>
 
     <div class="row navbar-container">

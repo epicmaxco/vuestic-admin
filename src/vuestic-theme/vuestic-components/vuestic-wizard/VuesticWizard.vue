@@ -215,6 +215,7 @@
       flex-direction: column;
       justify-content: center;
       padding: $wizard-body-step-v-padding  $wizard-body-vl-step-h-padding;
+      width: 100%; // IE11 only
     }
 
     .indicator-container {
