@@ -30,7 +30,7 @@
       :paginationPath="paginationPathComputed"
       :appendParams="moreParams"
       :perPage="perPage"
-      :query-params="queryParams"
+      :queryParams="queryParams"
       @vuetable:pagination-data="onPaginationData"
     />
     <div class="d-flex justify-content-center mb-4">
