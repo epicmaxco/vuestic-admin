@@ -122,8 +122,7 @@
       onDragging (evt) {
         if (this.isDrag) {
           let diff = 0
-          this.topTooltipOptions.show = this.isDrag
-          this.topTooltipOptions.content = this.value
+          this.tooltipTrigger()
           this.currentX = evt.clientX
           diff = (this.currentX - this.startX) * 100 / this.sliderWidth
           this.newPos = this.startPos + diff
@@ -133,12 +132,15 @@
       onDragEnd () {
         if (this.isDrag) {
           this.isDrag = false
-          this.topTooltipOptions.show = this.isDrag
-          this.topTooltipOptions.content = this.value
+          this.tooltipTrigger()
           this.setPosition(this.newPos)
           window.removeEventListener('mousemove', this.onDragging)
           window.removeEventListener('mouseup', this.onDragEnd)
         }
+      },
+      tooltipTrigger () {
+        this.topTooltipOptions.show = this.isDrag
+        this.topTooltipOptions.content = this.value
       },
       setPosition (pos) {
         if (pos < 0) {
@@ -160,6 +162,7 @@
           this.$emit('change', this.value)
           this.oldValue = this.value
         }
+        this.topTooltipOptions.content = this.value
       },
       onSliderClick (evt) {
         if (this.disabled || this.isDrag) return
