@@ -31,9 +31,9 @@
     }
 
     &.larger-padding {
-       .widget-body {
-         padding: $widget-larger-padding;
-       }
+      .widget-body {
+        padding: $widget-larger-padding;
+      }
     }
 
     &.no-h-padding {
@@ -90,3 +90,4 @@
     }
   }
 </style>
+

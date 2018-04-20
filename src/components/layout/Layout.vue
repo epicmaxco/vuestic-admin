@@ -1,8 +1,7 @@
 <template>
-  <div :class="classObject" v-resize>
+  <div class="layout" :class="classObject" v-resize>
     <navbar></navbar>
     <sidebar></sidebar>
-
     <div class="content-wrap" id="content-wrap">
       <main id="content" class="content" role="main">
         <vuestic-breadcrumbs :breadcrumbs="breadcrumbs"/>
@@ -10,7 +9,6 @@
         <router-view v-show="!isLoading"></router-view>
       </main>
     </div>
-
     <div class="made-by-footer">
       ©2018. Made by&nbsp;<a href="http://epicmax.co" target="_blank">Epicmax</a>
     </div>
@@ -34,6 +32,12 @@
     directives: {
       resize: Resize
     },
+    props: {
+      fixed: {
+        type: Boolean,
+        default: true,
+      }
+    },
     computed: {
       ...mapGetters([
         'sidebarOpened',
@@ -42,13 +46,14 @@
       ]),
       classObject: function () {
         return {
+          'layout-fixed': this.fixed,
           'sidebar-hidden': !this.toggleWithoutAnimation && !this.sidebarOpened,
           'sidebar-hidden sidebar-hidden_without-animation': this.toggleWithoutAnimation && !this.sidebarOpened
         }
       },
       breadcrumbs () {
         return this.$store.getters.breadcrumbs(this.$route.name)
-      }
+      },
     }
   }
 </script>
@@ -59,10 +64,26 @@
   @import "~bootstrap/scss/functions";
   @import "~bootstrap/scss/variables";
 
+  .layout {
+    &-fixed {
+      .content-wrap {
+        padding-right: $layout-padding-right;
+        padding-top: $sidebar-top;
+
+        @include media-breakpoint-down(md) {
+          padding: $content-mobile-wrap-fixed-layout;
+          margin-left: 0;
+
+        }
+      }
+    }
+  }
+
   .content-wrap {
     margin-left: $content-wrap-ml;
-    padding: $content-wrap-pt $content-wrap-pr $content-wrap-pb 0;
     transition: margin-left 0.3s ease;
+    padding-right: $layout-padding-right;
+    padding-top: $layout-padding;
 
     .pre-loader {
       position: absolute;
@@ -80,6 +101,7 @@
 
       .sidebar-hidden & {
         margin-left: 0;
+        padding-top: $content-mobile-wrap-sb-top;
       }
     }
   }
