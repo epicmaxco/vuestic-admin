@@ -1,7 +1,7 @@
 <template>
   <vue-flatpickr-component
-    v-on="$listeners"
     v-model="valueProxy"
+    v-on="$listeners"
     :config="fullConfig"
   />
 </template>
@@ -37,6 +37,7 @@
       },
       defaultConfig () {
         return {
+          allowInput: true, // false triggers `readonly` on input, which disables label animation.
           nextArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-forward"></span>',
           prevArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-back"></span>',
         }
@@ -47,16 +48,16 @@
 
 <style lang="scss">
   @import "../../../sass/mixins";
+  @import "../../../sass/variables";
 
-  $datepickerActive: #4ae487;
+  $datepickerActive: $vue-green;
   $datepickerBackground: #333333;
-  $datepickerText: #ffffff;
+  $datepickerText: $white;
 
-  $datepickerBackground: #333333;
   $datepickerOtherMonth: darken($datepickerText, 40);
   $datepickerWeekday: darken($datepickerText, 50);
   $datepickerDayHover: darken($datepickerText, 70);
-  $datepickerDayRange: #161616;
+  $datepickerDayRange: $almost-black;
 
   $borderPadding: 0.5rem;
   $dayPadding: 0.375rem;
@@ -131,11 +132,11 @@
           padding-top: 0.625rem;
           color: $datepickerText;
           .cur-month {
-            font-size: 16px;
+            font-size: 1rem;
             font-weight: inherit;
           }
           .cur-year {
-            font-size: 16px;
+            font-size: 1rem;
           }
           .numInputWrapper {
             .arrowUp {
@@ -166,7 +167,7 @@
         @include flex-center();
         height: 2.625rem;
         width: 1.625rem;
-        padding: 0px;
+        padding: 0;
         color: $datepickerText;
         &:hover {
           color: $datepickerActive;

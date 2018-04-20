@@ -175,7 +175,8 @@
     "tables": "Tables",
     "typography": "Typography",
     "uiElements": "UI Elements",
-    "treeView": "Tree view"
+    "treeView": "Tree view",
+    "dateTimePickers": "Date time pickers"
   },
   "messages": {
     "all": "See all messages",
@@ -237,5 +238,11 @@
     "selectable": "Selectable",
     "editable": "Editable",
     "advanced": "Advanced"
+  },
+  "dateTimePicker": {
+    "basic": "Basic",
+    "time": "Time",
+    "range": "Range",
+    "multiple": "Multiple"
   }
 }

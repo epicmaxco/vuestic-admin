@@ -87,6 +87,14 @@ export default {
       meta: {
         title: 'menu.treeView'
       }
+    },
+    {
+      name: 'DateTimePickers',
+      path: '/ui/date-time-pickers',
+      component: lazyLoading('ui/date-time-pickers/DateTimePickers'),
+      meta: {
+        title: 'menu.dateTimePickers'
+      }
     }
   ]
 }

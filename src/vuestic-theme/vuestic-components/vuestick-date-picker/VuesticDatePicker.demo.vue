@@ -1,6 +1,7 @@
 <template>
   <div
-    style="left: 420px; top: 180px; background-color: white; position: absolute">
+    style="left: 420px; top: 180px; background-color: white; position: absolute"
+  >
     <div class="form-group">
       <div class="input-group">
         <vuestic-date-picker
