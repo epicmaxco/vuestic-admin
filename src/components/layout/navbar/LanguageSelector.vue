@@ -88,7 +88,7 @@
       padding: 0;
 
       &:after {
-      display: none;
+        display: none;
       }
     }
 

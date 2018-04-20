@@ -1,18 +1,17 @@
 <template>
-  <div class="layout" :class="classObject"  v-resize>
+  <div class="layout" :class="classObject" v-resize>
     <navbar></navbar>
     <sidebar></sidebar>
-
+    <div class="content-wrap" id="content-wrap">
+      <main id="content" class="content" role="main">
+        <vuestic-breadcrumbs :breadcrumbs="breadcrumbs"/>
+        <vuestic-pre-loader v-show="isLoading" ref="preLoader" class="pre-loader"></vuestic-pre-loader>
+        <router-view v-show="!isLoading"></router-view>
+      </main>
+    </div>
     <div class="made-by-footer">
       ©2018. Made by&nbsp;<a href="http://epicmax.co" target="_blank">Epicmax</a>
     </div>
-    <div class="content-wrap" id="content-wrap">
-        <main id="content" class="content" role="main">
-          <vuestic-breadcrumbs :breadcrumbs="breadcrumbs"/>
-          <vuestic-pre-loader v-show="isLoading" ref="preLoader" class="pre-loader"></vuestic-pre-loader>
-          <router-view v-show="!isLoading"></router-view>
-        </main>
-      </div>
   </div>
 </template>
 
@@ -23,7 +22,6 @@
   import Sidebar from './sidebar/Sidebar'
   import Resize from 'directives/ResizeHandler'
 
-
   export default {
     name: 'layout',
 
@@ -31,18 +29,15 @@
       Navbar,
       Sidebar
     },
-
     directives: {
       resize: Resize
     },
-
     props: {
       fixed: {
         type: Boolean,
         default: true,
       }
     },
-
     computed: {
       ...mapGetters([
         'sidebarOpened',
@@ -70,18 +65,16 @@
   @import "~bootstrap/scss/variables";
 
   .layout {
-
     &-fixed {
       .content-wrap {
         padding-right: $layout-padding-right;
         padding-top: $sidebar-top;
-      }
-      .navbar{
-        position: fixed; top: 0; width: 100%; z-index: 1;
-      }
 
-      .sidebar{
-        position: fixed;
+        @include media-breakpoint-down(md) {
+          padding: $content-mobile-wrap-fixed-layout;
+          margin-left: 0;
+
+        }
       }
     }
   }
@@ -90,7 +83,7 @@
     margin-left: $content-wrap-ml;
     transition: margin-left 0.3s ease;
     padding-right: $layout-padding-right;
-    padding-top: $layout-padding ;
+    padding-top: $layout-padding;
 
     .pre-loader {
       position: absolute;
@@ -112,7 +105,6 @@
       }
     }
   }
-
 
   .made-by-footer {
     position: absolute;
