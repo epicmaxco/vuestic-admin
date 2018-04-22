@@ -10,6 +10,6 @@
   import SquareWithIcon from './SquareWithIcon.vue'
 
   export default {
-    components: { SquareWithIcon }
+    components: {SquareWithIcon}
   }
 </script>

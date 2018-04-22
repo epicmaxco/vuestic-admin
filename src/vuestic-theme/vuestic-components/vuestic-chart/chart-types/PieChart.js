@@ -1,4 +1,4 @@
-import { Pie } from 'vue-chartjs'
+import {Pie} from 'vue-chartjs'
 import DefaultOptions from '../DefaultOptions'
 
 export default Pie.extend({
@@ -6,9 +6,7 @@ export default Pie.extend({
 
   data () {
     return {
-      defaultOptions: {
-
-      }
+      defaultOptions: {}
     }
   },
 

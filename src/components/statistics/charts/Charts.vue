@@ -64,7 +64,12 @@
         verticalBarChartData: VerticalBarChartData,
         horizontalBarChartData: HorizontalBarChartData
       }
-    }
+    },
+   // created () {
+     // setInterval(() => {
+       // this.data.datasets.x[0] += 10
+     // }, 4000)
+   // }
   }
 </script>
 

@@ -1,3 +1,12 @@
+<template>
+  <div class="widget" :class="{'no-header': !headerText}">
+    <div class="widget-header" v-if="headerText">{{headerText}}</div>
+    <div class="widget-body">
+      <slot></slot>
+    </div>
+  </div>
+</template>
+
 <script>
   export default {
     name: 'vuestic-widget',
@@ -22,9 +31,9 @@
     }
 
     &.larger-padding {
-       .widget-body {
-         padding: $widget-larger-padding;
-       }
+      .widget-body {
+        padding: $widget-larger-padding;
+      }
     }
 
     &.no-h-padding {
@@ -82,11 +91,3 @@
   }
 </style>
 
-<template>
-  <div class="widget" :class="{'no-header': !headerText}">
-    <div class="widget-header" v-if="headerText">{{headerText}}</div>
-    <div class="widget-body">
-      <slot></slot>
-    </div>
-  </div>
-</template>
