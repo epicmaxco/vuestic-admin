@@ -107,6 +107,7 @@
   }
 
   .made-by-footer {
+    padding-top:60px;
     position: absolute;
     bottom: 0;
     height: calc(#{$layout-padding} + #{$widget-mb});
