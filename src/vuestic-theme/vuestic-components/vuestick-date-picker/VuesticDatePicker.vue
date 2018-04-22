@@ -30,7 +30,7 @@
         },
         set (value) {
           this.$emit('input', value)
-        }
+        },
       },
       fullConfig () {
         return Object.assign({}, this.defaultConfig, this.config)
@@ -54,10 +54,12 @@
   $datepickerBackground: #333333;
   $datepickerText: $white;
 
+  $datepickerToday: lighten($datepickerBackground, 5);
   $datepickerOtherMonth: darken($datepickerText, 40);
   $datepickerWeekday: darken($datepickerText, 50);
   $datepickerDayHover: darken($datepickerText, 70);
   $datepickerDayRange: $almost-black;
+  $datepickerSeparatorColor: $almost-black;
 
   $borderPadding: 0.5rem;
   $dayPadding: 0.375rem;
@@ -73,6 +75,15 @@
       }
       &:after {
         border-bottom-color: $datepickerBackground;
+      }
+    }
+
+    &.arrowBottom {
+      &:before {
+        border-top-color: $datepickerBackground;
+      }
+      &:after {
+        border-top-color: $datepickerBackground;
       }
     }
 
@@ -95,13 +106,11 @@
           margin-right: $dayPadding;
           border: none;
           color: $datepickerText;
+          &.today {
+            background-color: $datepickerToday;
+          }
           &:hover {
             background-color: $datepickerDayHover;
-          }
-          &.today {
-            // TODO Add today styles
-            /*background-color: #4ae487;*/
-            /*color: #ffffff;*/
           }
           &.selected {
             background-color: $datepickerActive;
@@ -125,7 +134,7 @@
 
     .flatpickr-months {
       height: 2.625rem;
-      border-bottom: solid 0.125rem $datepickerDayRange;
+      border-bottom: solid 0.125rem $datepickerSeparatorColor;
       .flatpickr-month {
         height: 100%;
         .flatpickr-current-month {
@@ -190,8 +199,31 @@
       }
     }
 
+    .flatpickr-weekwrapper {
+      .flatpickr-weekday {
+        text-transform: uppercase;
+        letter-spacing: 0.0625rem;
+        color: $datepickerWeekday;
+        font-weight: bold;
+        font-size: 0.6875rem;
+      }
+      .flatpickr-weeks {
+        box-shadow: 2px 0 0 $datepickerSeparatorColor;
+        padding-bottom: $borderPadding;
+        margin-top: -$dayPadding;
+        .flatpickr-day {
+          height: $daySize;
+          line-height: 1.7;
+          font-size: 1rem;
+          flex: 0 0 $daySize;
+          margin-top: $dayPadding;
+          color: $datepickerOtherMonth;
+        }
+      }
+    }
+
     &.showTimeInput.hasTime .flatpickr-time {
-      border-top: solid 0.125rem $datepickerDayRange;
+      border-top: solid 0.125rem $datepickerSeparatorColor;
 
       .numInputWrapper {
         &:hover {
