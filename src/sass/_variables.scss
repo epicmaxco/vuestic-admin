@@ -43,42 +43,43 @@ $colors-map: (
 );
 
 $theme-colors: (
-  "primary":    $brand-primary,
-  "secondary":  $white,
-  "success":    $light-green,
-  "info":       $brand-info,
-  "warning":    $brand-warning,
-  "danger":     $brand-danger,
-  "light":      $light-gray2,
-  "dark":       $almost-black,
-  "pale":       $theme-pale
+  "primary": $brand-primary,
+  "secondary": $white,
+  "success": $light-green,
+  "info": $brand-info,
+  "warning": $brand-warning,
+  "danger": $brand-danger,
+  "light": $light-gray2,
+  "dark": $almost-black,
+  "pale": $theme-pale
 );
 
 // Layout //
-$body-bg : $light-gray;
-$top-nav-bg : $darkest-gray;
-$body-color : $vue-darkest-blue !default;
-$layout-padding : 24px;
-$layout-padding-right : 44px;
+$body-bg: $light-gray;
+$top-nav-bg: $darkest-gray;
+$body-color: $vue-darkest-blue !default;
+$layout-padding: 24px;
+$layout-padding-right: 44px;
 
-$top-nav-height : 72px;
-$nav-padding-left : $layout-padding;
-$nav-padding-right : $layout-padding-right;
+$top-nav-height: 72px;
+$nav-padding-left: $layout-padding;
+$nav-padding-right: $layout-padding-right;
 $navbar-brand-container-left: 75px;
 
-$sidebar-bg : $darkest-gray;
-$sidebar-width : 225px;
-$sidebar-top : calc(#{$top-nav-height} + #{$layout-padding});
-$sidebar-left : $layout-padding;
+$sidebar-bg: $darkest-gray;
+$sidebar-width: 225px;
+$sidebar-top: calc(#{$top-nav-height} + #{$layout-padding});
+$sidebar-left: $layout-padding;
 
-$content-wrap-ml : calc(#{$sidebar-left} + #{$sidebar-width} + 35px);
-$content-wrap-pr : $layout-padding-right;
-$content-wrap-pt : $layout-padding;
-$content-wrap-pb : $layout-padding;
+$content-wrap-ml: calc(#{$sidebar-left} + #{$sidebar-width} + 35px);
+$content-wrap-pr: $layout-padding-right;
+$content-wrap-pt: $layout-padding;
+$content-wrap-pb: $layout-padding;
+$made-by-footer-pb: 27px;
 
 $greeny-box-shadow: 0 4px 9.6px 0.4px rgba($vue-green, .5);
 
-$min-z-index : -1000;
+$min-z-index: -1000;
 
 //Auth
 $auth-wallpaper-ivuestic-h: 2.625rem;
@@ -96,12 +97,15 @@ $content-mobile-wrap-margin: 1.125rem;
 $sidebar-mobile-z-index: 1000;
 
 $content-mobile-wrap-pl: 1rem;
-$content-mobile-wrap-pr : 1rem;
-$content-mobile-wrap-pt : 2rem;
-$content-mobile-wrap-pb : $layout-padding;
+$content-mobile-wrap-pr: 1rem;
+$content-mobile-wrap-pt: 2rem;
+$content-mobile-wrap-pt-fixed-layout: 7rem;
+$content-mobile-wrap-pb: $layout-padding;
 $content-mobile-wrap: $content-mobile-wrap-pt $content-mobile-wrap-pr $content-mobile-wrap-pb $content-mobile-wrap-pl;
+$content-mobile-wrap-fixed-layout: $content-mobile-wrap-pt-fixed-layout $content-mobile-wrap-pr $content-mobile-wrap-pb $content-mobile-wrap-pl;
+$content-mobile-wrap-sb-top: calc(#{$top-nav-height} + #{$layout-padding+20}) - 20 px;
 
-$nav-mobile-padding-h : .875rem;
+$nav-mobile-padding-h: .875rem;
 $nav-mobile-pt: 3rem;
 $nav-mobile-pb: 1.375rem;
 $nav-mobile-brand-width: 4rem;
@@ -116,71 +120,70 @@ $auth-mobile-nav-ivuestic-h: 1.5rem;
 $auth-mobile-main-h: calc(100% - #{$top-mobile-nav-height});
 $auth-content-padding-t: 2.875rem;
 
-
 // Typography
 // -------------------------
 
 //$text-color:            $gray !default;
 
-$font-family-sans-serif : 'Source Sans Pro', sans-serif !default;
+$font-family-sans-serif: 'Source Sans Pro', sans-serif !default;
 
-$font-size-root : 16px;
+$font-size-root: 16px;
 
-$font-size-base : 1rem !default;
-$font-size-larger : 1.2rem;
-$font-size-large : 1.5rem;
-$font-size-mini : 0.8rem;
+$font-size-base: 1rem !default;
+$font-size-larger: 1.2rem;
+$font-size-large: 1.5rem;
+$font-size-mini: 0.8rem;
 
-$font-weight-bold : 700 !default;
-$font-weight-semi-bold : 600 !default;
-$font-weight-normal : 400 !default;
-$font-weight-thin : 300 !default;
-$font-weight-base : $font-weight-thin !default;
+$font-weight-bold: 700 !default;
+$font-weight-semi-bold: 600 !default;
+$font-weight-normal: 400 !default;
+$font-weight-thin: 300 !default;
+$font-weight-base: $font-weight-thin !default;
 
-$font-size-smaller : 85% !default;
+$font-size-smaller: 85% !default;
 
-$font-size-h1 : 2.625rem !default;
-$font-size-h2 : 2.25rem !default;
-$font-size-h3 : 1.75rem !default;
-$font-size-h4 : 1.375rem !default;
+$font-size-h1: 2.625rem !default;
+$font-size-h2: 2.25rem !default;
+$font-size-h3: 1.75rem !default;
+$font-size-h4: 1.375rem !default;
 
-$headings-line-height : 1 !default;
+$headings-line-height: 1 !default;
 
-$blockquote-border-color : $vue-green;
-$blockquote-small-color:  $gray-light;
-$blockquote-border-width : 0.375rem;
-$blockquote-font-size : 1.5rem;
+$blockquote-border-color: $vue-green;
+$blockquote-small-color: $gray-light;
+$blockquote-border-width: 0.375rem;
+$blockquote-font-size: 1.5rem;
 //Navbar
-$navbar-dd-item-height : 48px;
+$navbar-dd-item-height: 48px;
 
 //Breadcrumbs
-$breadcrumbs-height : 54px;
+$breadcrumbs-height: 54px;
 $breadcrumbs-arrow-font: 0.7rem;
 $breadcrumbs-arrow-content: "\f054";
 
 //Sidebar
-$sidebar-link-height : 64px;
-$sidebar-submenu-link-height : 48px;
-$sidebar-link-pl : 25px;
-$sidebar-submenu-link-pl : 74px;
-$sidebar-link-active-bg : $almost-black;
-$sidebar-arrow-right : 16px;
-$sidebar-menu-item-icon-size : 19px;
+$sidebar-link-height: 64px;
+$sidebar-submenu-link-height: 48px;
+$sidebar-link-pl: 25px;
+$sidebar-submenu-link-pl: 74px;
+$sidebar-link-active-bg: $almost-black;
+$sidebar-arrow-right: 16px;
+$sidebar-menu-item-icon-size: 19px;
 $sidebar-viewport-height: calc(100vh - #{$top-nav-height} - #{$content-wrap-pt} - #{$content-wrap-pb});
 
-$sidebar-hidden-top : -150px;
-$sidebar-hidden-top-mobile : $sidebar-mobile-top;
+$sidebar-hidden-top: -150px;
+$sidebar-hidden-top-mobile: $sidebar-mobile-top;
 $sidebar-hidden-height-mobile: 0;
 $sidebar-box-shadow: 0px 8px 14.72px 1.28px rgba(#65a977, 0.3);
 
 //Widgets
-$widget-bg : $white;
-$widget-padding : 1.5625rem;
+$widget-bg: $white;
+$widget-padding: 1.5625rem;
 $widget-larger-padding: 45px;
-$widget-box-shadow : 0px 4px 70px -18px rgba(112, 112, 112, 1);
+$widget-box-shadow: 0px 4px 70px -18px rgba(112, 112, 112, 1);
 $widget-danger-shadow: 0px 4px 70px -16px $brand-danger;
 $widget-info-shadow: 0px 4px 70px -16px $brand-info;
-$widget-viewport-height : $sidebar-viewport-height;
+$widget-viewport-height: $sidebar-viewport-height;
 $widget-header-border: 2px solid $light-gray;
 $widget-header-height: 55px;
 $widget-body-no-header-height: 100%;
@@ -232,8 +235,8 @@ $btn-border: none;
 $btn-secondary-theme-border: 2px solid $brand-primary;
 
 //Dropdowns
-$dropdown-link-color : $white;
-$dropdown-box-shadow : $greeny-box-shadow;
+$dropdown-link-color: $white;
+$dropdown-box-shadow: $greeny-box-shadow;
 $dropdown-background: $darkest-gray;
 $dropdown-link-color: $white;
 $dropdown-link-hover-color: $white;
@@ -275,7 +278,7 @@ $vuestic-switch-border-size: 0.125rem;
 $progress-bar-value-font-size: 0.6875rem;
 $progress-bar-circle-diameter: 3.125rem;
 $progress-bar-circle-bw: .0678rem;
-$progress-bar-circle-overlay-diameter: calc(#{$progress-bar-circle-diameter} - 2*#{$progress-bar-circle-bw});
+$progress-bar-circle-overlay-diameter: calc(#{$progress-bar-circle-diameter} - 2 * #{$progress-bar-circle-bw});
 $progress-bar-vertical-height: 5.75rem;
 $progress-bar-width-thin: .125rem;
 $progress-bar-width-basic: .5rem;
@@ -302,33 +305,33 @@ $badge-danger-bg: $theme-red;
 $badge-info-bg: $theme-blue;
 
 //Alerts
-$alert-padding-x:             1.25rem !default;
-$alert-padding-y:             .75rem !default;
-$alert-margin-bottom:         $widget-mb;
-$with-close-pr:               3.125rem;
+$alert-padding-x: 1.25rem !default;
+$alert-padding-y: .75rem !default;
+$alert-margin-bottom: $widget-mb;
+$with-close-pr: 3.125rem;
 
-$alert-border-radius:         0;
-$alert-border-width:          0;
+$alert-border-radius: 0;
+$alert-border-width: 0;
 
-$alert-success-bg:            $light-green;
-$alert-success-text:          $body-color;
-$alert-success-border:        transparent;
-$alert-success-shadow:        0px 4px 9.6px 0.4px rgba(79, 206, 145, 0.5);
+$alert-success-bg: $light-green;
+$alert-success-text: $body-color;
+$alert-success-border: transparent;
+$alert-success-shadow: 0px 4px 9.6px 0.4px rgba(79, 206, 145, 0.5);
 
-$alert-info-bg:               $light-blue;
-$alert-info-text:             $body-color;
-$alert-info-border:           transparent;
-$alert-info-shadow:           0px 4px 9.6px 0.4px rgba(79, 142, 206, 0.5);
+$alert-info-bg: $light-blue;
+$alert-info-text: $body-color;
+$alert-info-border: transparent;
+$alert-info-shadow: 0px 4px 9.6px 0.4px rgba(79, 142, 206, 0.5);
 
-$alert-warning-bg:            $light-yellow;
-$alert-warning-text:          $body-color;
-$alert-warning-border:        transparent;
-$alert-warning-shadow:        0px 4px 9.6px 0.4px rgba(206, 178, 79, 0.5);
+$alert-warning-bg: $light-yellow;
+$alert-warning-text: $body-color;
+$alert-warning-border: transparent;
+$alert-warning-shadow: 0px 4px 9.6px 0.4px rgba(206, 178, 79, 0.5);
 
-$alert-danger-bg:             $light-pink;
-$alert-danger-text:           $body-color;
-$alert-danger-border:         transparent;
-$alert-danger-shadow:         0px 4px 9.6px 0.4px rgba(206, 79, 79, 0.5);
+$alert-danger-bg: $light-pink;
+$alert-danger-text: $body-color;
+$alert-danger-border: transparent;
+$alert-danger-shadow: 0px 4px 9.6px 0.4px rgba(206, 79, 79, 0.5);
 
 //Icons
 $bootstrap-sass-asset-helper: false;
@@ -342,81 +345,81 @@ $tab-content-pt: 3.125rem;
 $tab-content-pb: 1.5rem;
 
 //PreLoader
-$vuestic-preloader-left: calc(50% - 140px/2);
-$vuestic-preloader-top: calc(50% - 104px/2);
+$vuestic-preloader-left: calc(50% - 140px / 2);
+$vuestic-preloader-top: calc(50% - 104px / 2);
 
 //Medium Editor
 $medium-editor-button-size: $btn-padding-y * 2 + $font-size-base * $btn-line-height;
 
 //tooltips
 
-$tooltip-font-size:           $font-size-base;
-$tooltip-box-shadow:          $greeny-box-shadow;
-$tooltip-max-width:           200px;
-$tooltip-color:               $white;
-$tooltip-bg:                  $darkest-gray;
-$tooltip-border-radius:       $font-size-base * 0.5;
-$tooltip-opacity:             .9;
-$tooltip-padding-y:           .5rem;
-$tooltip-padding-x:           .75rem;
-$tooltip-margin:              0 ;
-$tooltip-line-height:         1.13;
-$tooltip-font-weight:         300;
+$tooltip-font-size: $font-size-base;
+$tooltip-box-shadow: $greeny-box-shadow;
+$tooltip-max-width: 200px;
+$tooltip-color: $white;
+$tooltip-bg: $darkest-gray;
+$tooltip-border-radius: $font-size-base * 0.5;
+$tooltip-opacity: .9;
+$tooltip-padding-y: .5rem;
+$tooltip-padding-x: .75rem;
+$tooltip-margin: 0;
+$tooltip-line-height: 1.13;
+$tooltip-font-weight: 300;
 
-$tooltip-arrow-width:         .8rem;
-$tooltip-arrow-height:        .4rem ;
-$tooltip-arrow-color:         $tooltip-bg;
+$tooltip-arrow-width: .8rem;
+$tooltip-arrow-height: .4rem;
+$tooltip-arrow-color: $tooltip-bg;
 
 // Popovers
 
-$popover-font-size:                 $font-size-base;
-$popover-line-height:               $tooltip-line-height;
-$popover-box-shadow:                $tooltip-box-shadow;
-$popover-bg:                        $tooltip-bg;
-$popover-max-width:                 400px;
-$popover-border-width:              0;
-$popover-border-color:              transparent;
-$popover-border-radius:             $tooltip-border-radius;
-$popover-box-shadow:                $greeny-box-shadow;
-$popover-opacity:                   $tooltip-opacity;
+$popover-font-size: $font-size-base;
+$popover-line-height: $tooltip-line-height;
+$popover-box-shadow: $tooltip-box-shadow;
+$popover-bg: $tooltip-bg;
+$popover-max-width: 400px;
+$popover-border-width: 0;
+$popover-border-color: transparent;
+$popover-border-radius: $tooltip-border-radius;
+$popover-box-shadow: $greeny-box-shadow;
+$popover-opacity: $tooltip-opacity;
 
-$popover-header-bg:                 $tooltip-bg;
-$popover-header-color:              $white;
-$popover-header-padding-y:          0;
-$popover-header-padding-x:          .75rem;
-$popover-header-no-icon-padding-x:  0;
-$popover-header-font-weight:        bold;
+$popover-header-bg: $tooltip-bg;
+$popover-header-color: $white;
+$popover-header-padding-y: 0;
+$popover-header-padding-x: .75rem;
+$popover-header-no-icon-padding-x: 0;
+$popover-header-font-weight: bold;
 
-$popover-body-color:                $white;
-$popover-body-padding-y:            $popover-header-padding-y;
-$popover-body-padding-x:            $popover-header-padding-x;
-$popover-body-no-icon-padding-x:  $popover-header-no-icon-padding-x;
+$popover-body-color: $white;
+$popover-body-padding-y: $popover-header-padding-y;
+$popover-body-padding-x: $popover-header-padding-x;
+$popover-body-no-icon-padding-x: $popover-header-no-icon-padding-x;
 
-$popover-icon-size:                 1.35rem;
-$popover-icon-color:                $brand-primary;
+$popover-icon-size: 1.35rem;
+$popover-icon-color: $brand-primary;
 
-$popover-arrow-width:               1rem;
-$popover-arrow-height:              1rem;
-$popover-arrow-color:               transparent;
+$popover-arrow-width: 1rem;
+$popover-arrow-height: 1rem;
+$popover-arrow-color: transparent;
 
-$popover-arrow-outer-color:         fade-in($popover-border-color, .05);
+$popover-arrow-outer-color: fade-in($popover-border-color, .05);
 
 // Toasts
 
-$toast-font-size:                   $popover-font-size;
-$toast-line-height:                 $popover-line-height;
-$toast-font-weight:                 normal;
-$toast-min-height:                  3.25rem;
-$toast-box-shadow:                  $popover-box-shadow;
-$toast-bg:                          $popover-bg;
-$toast-border-radius:               $popover-border-radius;
-$toast-color:                       $popover-body-color;
-$toast-opacity:                     $popover-opacity;
+$toast-font-size: $popover-font-size;
+$toast-line-height: $popover-line-height;
+$toast-font-weight: normal;
+$toast-min-height: 3.25rem;
+$toast-box-shadow: $popover-box-shadow;
+$toast-bg: $popover-bg;
+$toast-border-radius: $popover-border-radius;
+$toast-color: $popover-body-color;
+$toast-opacity: $popover-opacity;
 
-$toast-padding-x:                   1.15rem;
-$toast-padding-y:                   0.5rem;
+$toast-padding-x: 1.15rem;
+$toast-padding-y: 0.5rem;
 
-$toast-icon-size:                   $popover-icon-size;
-$toast-icon-color:                  $popover-icon-color;
-$toast-icon-ml:                     0;
-$toast-icon-mr:                     0.625rem;
+$toast-icon-size: $popover-icon-size;
+$toast-icon-color: $popover-icon-color;
+$toast-icon-ml: 0;
+$toast-icon-mr: 0.625rem;

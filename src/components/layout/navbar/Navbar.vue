@@ -14,11 +14,12 @@
       </div>
 
       <div class="navbar-text offset-md-1 col-md-7 d-none d-lg-flex align-items-center justify-content-center">
-       {{'navbar.messageUs' | translate}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
+        {{'navbar.messageUs' | translate}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
       </div>
 
       <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center" v-dropdown>
-        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="closeMenu">
+        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#"
+           @click.prevent="closeMenu">
           <span class="i-nav-messages notify"></span>
         </a>
         <div class="dropdown-menu">
@@ -36,7 +37,8 @@
         </div>
       </div>
       <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center" v-dropdown>
-        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="closeMenu">
+        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#"
+           @click.prevent="closeMenu">
           <span class="i-nav-notification notify"></span>
         </a>
         <div class="dropdown-menu">
@@ -58,9 +60,10 @@
       </div>
       <language-selector :options="langs"></language-selector>
       <div class="col nav-item dropdown navbar-dropdown d-flex align-items-center justify-content-center" v-dropdown>
-        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#" @click.prevent="closeMenu">
+        <a class="nav-link dropdown-toggle d-flex align-items-center justify-content" href="#"
+           @click.prevent="closeMenu">
           <span class="avatar-container">
-            <img src="http://i.imgur.com/nfa5itq.png" />
+            <img src="http://i.imgur.com/nfa5itq.png"/>
           </span>
         </a>
         <div class="dropdown-menu last">
@@ -79,7 +82,7 @@
 </template>
 
 <script>
-  import { mapGetters, mapActions } from 'vuex'
+  import {mapGetters, mapActions} from 'vuex'
   import LanguageSelector from './LanguageSelector'
 
   export default {
@@ -126,6 +129,15 @@
   @import "~bootstrap/scss/mixins/breakpoints";
   @import "~bootstrap/scss/functions";
   @import "~bootstrap/scss/variables";
+
+  .navbar {
+    .layout-fixed & {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+    }
+  }
 
   .navbar.app-navbar {
     .navbar-container {
@@ -176,8 +188,8 @@
       .dropdown-toggle {
         padding: 0;
         &:after {
-           display: none;
-         }
+          display: none;
+        }
       }
 
       &.show {
@@ -188,17 +200,17 @@
           }
         }
         &:after {
-           position: absolute;
-           bottom: -$dropdown-show-b;
-           right: calc(50% - 10px);
-           width: 0;
-           height: 0;
-           display: block;
-           content: '';
-           border-left: 10px solid transparent;
-           border-right: 10px solid transparent;
-           border-bottom: 10px solid $darkest-gray;
-         }
+          position: absolute;
+          bottom: -$dropdown-show-b;
+          right: calc(50% - 10px);
+          width: 0;
+          height: 0;
+          display: block;
+          content: '';
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-bottom: 10px solid $darkest-gray;
+        }
       }
 
       .dropdown-menu {
@@ -206,7 +218,6 @@
         padding-top: 0;
         width: 100%;
       }
-
 
       .dropdown-item {
         height: $navbar-dd-item-height;
@@ -235,15 +246,15 @@
       position: relative;
 
       &::after {
-         content: '';
-         position: absolute;
-         right: -6px;
-         top: -6px;
-         background-color: $brand-primary;
-         height: 12px;
-         width: 12px;
-         border-radius: 50%;
-       }
+        content: '';
+        position: absolute;
+        right: -6px;
+        top: -6px;
+        background-color: $brand-primary;
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+      }
     }
 
     .i-nav-notification.notify::after {
