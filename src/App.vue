@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="app">
-    <auth-layout v-if="isAuth"></auth-layout>
-    <layout v-else></layout>
+    <layout v-if="!isAuth"/>
+    <auth-layout v-else></auth-layout>
   </div>
 </template>
 
@@ -27,6 +27,7 @@
 
 <style lang="scss">
   @import "sass/main";
+
   body {
     height: 100%;
     #app {
