@@ -10,7 +10,7 @@
       </main>
     </div>
     <div class="made-by-footer">
-      ©2018. Made by&nbsp;<a href="http://epicmax.co" target="_blank">Epicmax</a>
+      ©2018. Made by&nbsp;<a href="http://epicmax.co" target="_blank">Epicmax </a>
     </div>
   </div>
 </template>
@@ -85,6 +85,8 @@
     padding-right: $layout-padding-right;
     padding-top: $layout-padding;
 
+    padding-bottom: $content-wrap-pb;
+
     .pre-loader {
       position: absolute;
       left: $vuestic-preloader-left;
@@ -107,9 +109,10 @@
   }
 
   .made-by-footer {
-    padding-top:60px;
+    padding-top:400px;
     position: absolute;
     bottom: 0;
+    padding-bottom: $made-by-footer-pb;
     height: calc(#{$layout-padding} + #{$widget-mb});
     width: 100%;
     display: flex;
