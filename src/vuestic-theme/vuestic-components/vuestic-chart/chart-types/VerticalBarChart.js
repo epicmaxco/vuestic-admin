@@ -1,19 +1,18 @@
-import { Bar } from 'vue-chartjs'
+import {Bar, mixins} from 'vue-chartjs'
 import DefaultOptions from '../DefaultOptions'
 
 export default Bar.extend({
-  props: ['data', 'options'],
+  mixins: [mixins.reactiveProp],
+  props: ['chartData', 'options'],
 
   data () {
     return {
-      defaultOptions: {
-
-      }
+      defaultOptions: {}
     }
   },
 
   mounted () {
     let options = Object.assign({}, DefaultOptions, this.defaultOptions, this.options)
-    this.renderChart(this.data, options)
+    this.renderChart(this.chartData, options)
   }
 })

@@ -1,8 +1,9 @@
-import {Pie} from 'vue-chartjs'
+import {Pie, mixins} from 'vue-chartjs'
 import DefaultOptions from '../DefaultOptions'
 
 export default Pie.extend({
-  props: ['data', 'options'],
+  mixins: [mixins.reactiveProp],
+  props: ['chartData', 'options'],
 
   data () {
     return {
@@ -12,6 +13,6 @@ export default Pie.extend({
 
   mounted () {
     let options = Object.assign({}, DefaultOptions, this.defaultOptions, this.options)
-    this.renderChart(this.data, options)
+    this.renderChart(this.chartData, options)
   }
 })
