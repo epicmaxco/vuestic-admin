@@ -9,7 +9,7 @@ export default {
       label: 'USA',
       backgroundColor: palette.primary,
       borderColor: palette.transparent,
-      data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
+      data: [50, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
     },
     {
       label: 'USSR',
