@@ -1,9 +1,8 @@
-import { Line } from 'vue-chartjs'
+import { Line, mixins } from 'vue-chartjs'
 import DefaultOptions from '../DefaultOptions'
-
 export default Line.extend({
-  props: ['data', 'options'],
-
+  props: ['chartData', 'options'],
+  mixins: [mixins.reactiveProp],
   data () {
     return {
       defaultOptions: {
@@ -11,9 +10,8 @@ export default Line.extend({
       }
     }
   },
-
   mounted () {
     let options = Object.assign({}, DefaultOptions, this.defaultOptions, this.options)
-    this.renderChart(this.data, options)
+    this.renderChart(this.chartData, options)
   }
 })
