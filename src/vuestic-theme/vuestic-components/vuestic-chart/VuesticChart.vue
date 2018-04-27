@@ -27,7 +27,7 @@
       HorizontalBarChart,
       DonutChart,
       BubbleChart
-    }
+    },
   }
 </script>
 
