@@ -13,7 +13,7 @@ Check it out [live](http://vuestic.epicmax.co)!
 
 ## Prerequisites:
 
-- [Node.js](https://nodejs.org/en/) (>=4.x or 6.x preferred)
+- [Node.js](https://nodejs.org/en/) (at least 4.x, 8.x recommended)
 - npm version 3+ and [Git](https://git-scm.com/).
 - [vuestic-installer](https://github.com/epicmaxco/vuestic-installer) `npm install vuestic-installer -g`.
 
