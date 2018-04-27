@@ -18,8 +18,7 @@ Check it out [live](http://vuestic.epicmax.co)!
 - [vuestic-installer](https://github.com/epicmaxco/vuestic-installer) `npm install vuestic-installer -g`.
 
 ## Browser Support
-* Latest Chrome, Firefox, Safari, Edge
-* IE11 is not supported
+* Latest Chrome, Firefox, Safari, Edge, IE11+
 
 ## Installation
 
