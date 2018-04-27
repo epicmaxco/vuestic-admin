@@ -1,8 +1,9 @@
-import { Doughnut } from 'vue-chartjs'
+import { Doughnut, mixins } from 'vue-chartjs'
 import DefaultOptions from '../DefaultOptions'
 
 export default Doughnut.extend({
-  props: ['data', 'options'],
+  mixins: [mixins.reactiveProp],
+  props: ['chartData', 'options'],
 
   data () {
     return {
@@ -14,6 +15,6 @@ export default Doughnut.extend({
 
   mounted () {
     let options = Object.assign({}, DefaultOptions, this.defaultOptions, this.options)
-    this.renderChart(this.data, options)
+    this.renderChart(this.chartData, options)
   }
 })
