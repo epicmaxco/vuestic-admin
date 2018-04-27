@@ -65,15 +65,6 @@
         horizontalBarChartData: HorizontalBarChartData
       }
     },
-    created () {
-      setInterval(() => {
-        this.lineChartData.datasets[0].data[0] += 10
-        this.bubbleChartData.datasets[0].data[0].x += 10
-        this.lineChartData = Object.assign({}, LineChartData)
-        this.bubbleChartData = Object.assign({}, BubbleChartData)
-        this.verticalBarChartData = Object.assign({}, VerticalBarChartData)
-      }, 2000)
-    }
   }
 </script>
 
