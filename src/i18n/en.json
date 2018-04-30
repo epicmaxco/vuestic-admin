@@ -144,6 +144,9 @@
     "search": "Icon search",
     "title": "Icons"
   },
+  "rangeSlider": {
+    "title": "Range Slider"
+  },
   "spinners": {
     "title": "Spinners",
     "poweredBy": "Powered by"
@@ -164,6 +167,7 @@
     "mediumEditor": "Medium Editor",
     "grid": "Grid",
     "icons": "Icons",
+    "rangeSlider": "Range Slider",
     "spinners": "Spinners",
     "login": "Login",
     "maps": "Maps",
