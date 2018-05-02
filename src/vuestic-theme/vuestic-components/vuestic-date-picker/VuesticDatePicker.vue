@@ -1,5 +1,6 @@
 <template>
   <vue-flatpickr-component
+    class="vuestic-date-picker"
     v-model="valueProxy"
     v-on="$listeners"
     :config="fullConfig"
@@ -10,6 +11,7 @@
   import VueFlatpickrComponent from 'vue-flatpickr-component'
 
   export default {
+    name: 'vuestic-date-picker',
     components: {
       VueFlatpickrComponent,
     },
@@ -68,21 +70,26 @@
   .flatpickr-calendar {
     background-color: $datepickerBackground;
     border-radius: 0;
+    box-shadow: none;
 
     &.arrowTop {
       &:before {
+        content: none;
         border-bottom-color: $datepickerBackground;
       }
       &:after {
+        content: none;
         border-bottom-color: $datepickerBackground;
       }
     }
 
     &.arrowBottom {
       &:before {
+        content: none;
         border-top-color: $datepickerBackground;
       }
       &:after {
+        content: none;
         border-top-color: $datepickerBackground;
       }
     }

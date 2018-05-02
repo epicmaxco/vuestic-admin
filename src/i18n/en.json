@@ -243,6 +243,7 @@
     "basic": "Basic",
     "time": "Time",
     "range": "Range",
-    "multiple": "Multiple"
+    "multiple": "Multiple",
+    "disabled": "Disabled"
   }
 }
