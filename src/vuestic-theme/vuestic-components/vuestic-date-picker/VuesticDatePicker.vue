@@ -1,6 +1,7 @@
 <template>
   <vue-flatpickr-component
     class="vuestic-date-picker"
+    :class="{'has-value': valueProxy && valueProxy.length}"
     v-model="valueProxy"
     v-on="$listeners"
     :config="fullConfig"
@@ -39,7 +40,7 @@
       },
       defaultConfig () {
         return {
-          allowInput: true, // false triggers `readonly` on input, which disables label animation.
+          // allowInput: true, // false triggers `readonly` on input, which disables label animation.
           nextArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-forward"></span>',
           prevArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-back"></span>',
         }
@@ -102,15 +103,13 @@
         width: ($daySize + $dayPadding) * 7;
         max-width: ($daySize + $dayPadding) * 7;
         min-width: ($daySize + $dayPadding) * 7;
-        margin-top: -$dayPadding;
-        margin-right: -$dayPadding;
+        margin: -$dayPadding / 2;
         .flatpickr-day {
           height: $daySize;
           line-height: 1.7;
           font-size: 1rem;
           flex: 0 0 $daySize;
-          margin-top: $dayPadding;
-          margin-right: $dayPadding;
+          margin: $dayPadding / 2;
           border: none;
           color: $datepickerText;
           &.today {
@@ -124,6 +123,12 @@
           }
           &.nextMonthDay, &.prevMonthDay {
             color: $datepickerOtherMonth;
+          }
+          &.disabled {
+            color: $datepickerOtherMonth;
+            &:hover {
+              background-color: inherit;
+            }
           }
           &.startRange, &.endRange, &.inRange {
             border-radius: 2rem;

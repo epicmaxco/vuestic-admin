@@ -146,7 +146,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        <vuestic-widget :headerText="'forms.inputs.title' | translate">
+        <vuestic-widget :headerText="$t('forms.dateTimePicker.title')">
           <form>
             <div class="row">
               <div class="col-md-4">
@@ -157,8 +157,9 @@
                         id="date-picker-basic"
                         v-model="datepicker.simple"
                       />
-                      <label class="control-label" for="date-picker-basic">{{
-                        $t('dateTimePicker.basic') }}</label>
+                      <label class="control-label" for="date-picker-basic">
+                        {{ $t('forms.dateTimePicker.basic') }}
+                      </label>
                       <i class="bar"></i>
                     </div>
                   </div>
@@ -169,8 +170,39 @@
                         :config="{enableTime: true}"
                         v-model="datepicker.time"
                       />
-                      <label class="control-label" for="date-picker-time">{{
-                        $t('dateTimePicker.time') }}</label>
+                      <label class="control-label" for="date-picker-time">
+                        {{ $t('forms.dateTimePicker.time') }}
+                      </label>
+                      <i class="bar"></i>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="col-md-4">
+                <fieldset>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <vuestic-date-picker
+                        id="date-picker-disabled"
+                        :config="{disable: datePickerDisabled}"
+                        v-model="datepicker.disabled"
+                      />
+                      <label class="control-label" for="date-picker-disabled">
+                        {{ $t('forms.dateTimePicker.disabled') }}
+                      </label>
+                      <i class="bar"></i>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <vuestic-date-picker
+                        id="date-picker-multiple"
+                        :config="{mode: 'multiple'}"
+                        v-model="datepicker.multiple"
+                      />
+                      <label class="control-label" for="date-picker-multiple">
+                        {{ $t('forms.dateTimePicker.multiple') }}
+                      </label>
                       <i class="bar"></i>
                     </div>
                   </div>
@@ -182,39 +214,12 @@
                     <div class="input-group">
                       <vuestic-date-picker
                         id="date-picker-range"
-                        :config="{mode: 'range'}"
+                        :config="{mode: 'range', inline: true}"
                         v-model="datepicker.range"
                       />
-                      <label class="control-label" for="date-picker-range">{{
-                        $t('dateTimePicker.range') }}</label>
-                      <i class="bar"></i>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <vuestic-date-picker
-                        id="date-picker-disabled"
-                        :config="{disable: datePickerDisabled}"
-                        v-model="datepicker.disabled"
-                      />
-                      <label class="control-label" for="date-picker-disabled">{{
-                        $t('dateTimePicker.disabled') }}</label>
-                      <i class="bar"></i>
-                    </div>
-                  </div>
-                </fieldset>
-              </div>
-              <div class="col-md-4">
-                <fieldset>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <vuestic-date-picker
-                        id="date-picker-multiple"
-                        :config="{mode: 'multiple', inline: true}"
-                        v-model="datepicker.multiple"
-                      />
-                      <label class="control-label" for="date-picker-multiple">{{
-                        $t('dateTimePicker.multiple') }}</label>
+                      <label class="control-label" for="date-picker-range">
+                        {{ $t('forms.dateTimePicker.range') }}
+                      </label>
                     </div>
                   </div>
                 </fieldset>
@@ -422,10 +427,10 @@
         checkboxSevenModel: false,
         checkboxEightModel: true,
         datepicker: {
-          simple: '',
-          time: '',
-          range: '',
-          disabled: '',
+          simple: '2018-05-09',
+          time: '2018-05-08 14:10',
+          range: '2018-05-08 to 2018-05-23',
+          disabled: '2018-05-09',
           multiple: '2018-04-25, 2018-04-27',
         },
       }

@@ -96,6 +96,14 @@
       "radio": "Radio",
       "subscribe": "Subscribe to newsletter"
     },
+    "dateTimePicker": {
+      "title": "Date time pickers",
+      "basic": "Basic",
+      "time": "Time",
+      "range": "Range",
+      "multiple": "Multiple",
+      "disabled": "Disabled"
+    },
     "inputs": {
       "emailValidatedSuccess": "Email (validated with success)",
       "emailValidated": "Email (validated)",
@@ -238,12 +246,5 @@
     "selectable": "Selectable",
     "editable": "Editable",
     "advanced": "Advanced"
-  },
-  "dateTimePicker": {
-    "basic": "Basic",
-    "time": "Time",
-    "range": "Range",
-    "multiple": "Multiple",
-    "disabled": "Disabled"
   }
 }
