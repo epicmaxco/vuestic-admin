@@ -7,10 +7,10 @@ Vue.use(Router)
 
 const demoRoutes = []
 if (process.env.NODE_ENV === 'development') {
-  const VueComponentTree = require('vue-component-tree')
+  const VueComponentTree = require('vue-component-tree').default
 
   demoRoutes.push(
-    VueComponentTree.default(require.context('./..', true, /.demo.vue$/), '/demo')
+    VueComponentTree(require.context('./..', true, /.demo.vue$/), '/demo')
   )
 }
 

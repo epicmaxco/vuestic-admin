@@ -6,7 +6,7 @@
 ```
 
 ```javascript
-import VuesticTreeViewRootMapper from 'vuestic-admin/src/vuestic-theme/vuestic-components/vuestic-tree-view/VuesticTreeRootMapper.js'
+import VuesticTreeViewRootMapper from '~vuestic-admin/src/vuestic-theme/vuestic-components/vuestic-tree-view/VuesticTreeRootMapper.js'
 
   data () {
     vuesticTreeRoot: VuesticTreeRootMapper.map([

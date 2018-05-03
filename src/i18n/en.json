@@ -96,6 +96,14 @@
       "radio": "Radio",
       "subscribe": "Subscribe to newsletter"
     },
+    "dateTimePicker": {
+      "title": "Date time pickers",
+      "basic": "Basic",
+      "time": "Time",
+      "range": "Range",
+      "multiple": "Multiple",
+      "disabled": "Disabled"
+    },
     "inputs": {
       "emailValidatedSuccess": "Email (validated with success)",
       "emailValidated": "Email (validated)",
@@ -175,7 +183,8 @@
     "tables": "Tables",
     "typography": "Typography",
     "uiElements": "UI Elements",
-    "treeView": "Tree view"
+    "treeView": "Tree view",
+    "dateTimePickers": "Date time pickers"
   },
   "messages": {
     "all": "See all messages",

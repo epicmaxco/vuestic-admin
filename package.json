@@ -89,6 +89,7 @@
     "shelljs": "0.7.6",
     "url-loader": "0.5.8",
     "vue-component-tree": "^2.2.1",
+    "vue-flatpickr-component": "^7.0.1",
     "vue-loader": "13.3.0",
     "vue-style-loader": "3.0.1",
     "vue-template-compiler": "2.5.2",

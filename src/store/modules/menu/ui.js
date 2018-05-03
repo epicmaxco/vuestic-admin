@@ -87,7 +87,7 @@ export default {
       meta: {
         title: 'menu.treeView'
       }
-    }
+    },
   ]
 }
 

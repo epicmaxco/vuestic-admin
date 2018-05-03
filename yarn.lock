@@ -2571,6 +2571,10 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
+flatpickr@^4.4.3:
+  version "4.4.3"
+  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.4.3.tgz#53ba7b06523f73ee69175b3ed808c7fc0f245c4f"
+
 flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
@@ -6162,6 +6166,12 @@ vue-component-tree@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/vue-component-tree/-/vue-component-tree-2.2.1.tgz#21f21117784d47e61d03b61877ca9b6695ba9b6c"
 
+vue-flatpickr-component@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/vue-flatpickr-component/-/vue-flatpickr-component-7.0.1.tgz#5af4ab8acc6e3d509e581db85429eb396a435fa8"
+  dependencies:
+    flatpickr "^4.4.3"
+
 vue-hot-reload-api@^2.2.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.0.tgz#97976142405d13d8efae154749e88c4e358cf926"
@@ -6241,9 +6251,9 @@ vue@2.5.2:
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.2.tgz#fd367a87bae7535e47f9dc5c9ec3b496e5feb5a4"
 
-vuetable-2@1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/vuetable-2/-/vuetable-2-1.7.0.tgz#7bd4268aa937b98884ab3250d7cbf20c4b3d539c"
+vuetable-2@1.7.5:
+  version "1.7.5"
+  resolved "https://registry.yarnpkg.com/vuetable-2/-/vuetable-2-1.7.5.tgz#7528c817279ccb774d9e26a169f1d19695b77310"
   dependencies:
     axios "^0.15.3"
 
