@@ -112,7 +112,7 @@
       for (let ref in this.$refs) {
         this.$refs[ref].$data.valueAnimationInterval = this.valueAnimationInterval
         let timeout = setTimeout(() => {
-          if (!this.$refs[ref]) {
+          if (!this.$refs[ref] && this.$refs[ref].$data.valueAnimationInterval !== 100) {
             clearTimeout(timeout)
             return
           }
