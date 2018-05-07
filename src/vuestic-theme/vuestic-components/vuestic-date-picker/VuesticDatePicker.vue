@@ -69,6 +69,7 @@
   $daySize: 1.75rem;
 
   .flatpickr-calendar {
+    width: $daySize * 7 + $dayPadding * 6 + $borderPadding * 2 !important;
     background-color: $datepickerBackground;
     border-radius: 0;
     box-shadow: none;
@@ -96,7 +97,7 @@
     }
 
     .flatpickr-days {
-      width: $daySize * 7 + $dayPadding * 6 + $borderPadding * 2;
+      width: $daySize * 7 + $dayPadding * 6 + $borderPadding * 2 !important;
       padding: 0 $borderPadding $borderPadding;
       display: block;
       .dayContainer {
@@ -160,6 +161,10 @@
             font-size: 1rem;
           }
           .numInputWrapper {
+            .numInput.cur-year {
+              color: $white;
+            }
+
             .arrowUp {
               &:hover {
                 &::after {
