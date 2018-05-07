@@ -311,6 +311,12 @@ h4, .h4 {
 
 }
 
+.basic-table {
+  tr:first-child {
+    color: black;
+  }
+}
+
 .first-td-padding {
   td:first-child {
     @extend .pl-4;
