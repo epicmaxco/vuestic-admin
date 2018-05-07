@@ -29,6 +29,11 @@
       let progressColor = color(this.color)
       let current = progressColor
       setInterval(() => {
+        if (this.animatedValue === 100) {
+          current = progressColor
+          progressBar.style.backgroundColor = current()
+          return
+        }
         if (progressColor(lightness(30))() !== current()) {
           current = progressColor(lightness(30))
         } else {
