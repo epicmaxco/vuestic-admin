@@ -22,10 +22,16 @@
       'isActive'
     ],
     mounted () {
+      // Starts blinking
       let progressBar = this.$refs.progressBar
       let progressColor = color(this.color)
       let current = progressColor
       setInterval(() => {
+        if (this.animatedValue === 100) {
+          current = progressColor
+          progressBar.style.backgroundColor = current()
+          return
+        }
         if (progressColor(lightness(30))() !== current()) {
           current = progressColor(lightness(30))
         } else {
@@ -56,8 +62,8 @@
       display: -ms-flexbox;  /* TWEENER - IE 10 */
       display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
       display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
-      align-items: flex-start;
-      -webkit-align-items: flex-start; /* Safari 7.0+ */
+      align-items: flex-end;
+      -webkit-align-items: flex-end; /* Safari 7.0+ */
     }
 
     .value{
