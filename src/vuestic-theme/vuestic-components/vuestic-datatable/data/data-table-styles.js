@@ -1,6 +1,6 @@
 export default {
   table: {
-    tableClass: 'table table-striped',
+    tableClass: 'table table-striped table-header-active',
     ascendingIcon: 'entypo entypo-up-dir',
     descendingIcon: 'entypo entypo-down-dir'
   },
