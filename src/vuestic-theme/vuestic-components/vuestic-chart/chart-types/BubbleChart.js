@@ -1,8 +1,9 @@
-import { Bubble } from 'vue-chartjs'
+import { Bubble, mixins } from 'vue-chartjs'
 import DefaultOptions from '../DefaultOptions'
 
 export default Bubble.extend({
-  props: ['data', 'options'],
+  mixins: [mixins.reactiveProp],
+  props: ['chartData', 'options'],
 
   data () {
     return {
@@ -14,6 +15,6 @@ export default Bubble.extend({
 
   mounted () {
     let options = Object.assign({}, DefaultOptions, this.defaultOptions, this.options)
-    this.renderChart(this.data, options)
+    this.renderChart(this.chartData, options)
   }
 })

@@ -18,5 +18,5 @@ export default {
       borderColor: palette.transparent,
       data: [50, 20, 70, 30, 10, 5, 70]
     }
-  ]
+  ],
 }

@@ -3,12 +3,12 @@
     <div class="row">
       <div class="col-md-6">
         <vuestic-widget class="chart-widget" :headerText="'charts.verticalBarChart' | translate">
-          <vuestic-chart v-bind:data="verticalBarChartData" type="vertical-bar"></vuestic-chart>
+          <vuestic-chart :data="verticalBarChartData" type="vertical-bar"></vuestic-chart>
         </vuestic-widget>
       </div>
       <div class="col-md-6">
         <vuestic-widget class="chart-widget" :headerText="'charts.horizontalBarChart' | translate">
-          <vuestic-chart v-bind:data="horizontalBarChartData" type="horizontal-bar"></vuestic-chart>
+          <vuestic-chart :data="horizontalBarChartData" type="horizontal-bar"></vuestic-chart>
         </vuestic-widget>
       </div>
     </div>
@@ -16,7 +16,7 @@
     <div class="row">
       <div class="col-md-12">
         <vuestic-widget class="chart-widget" :headerText="'charts.lineChart' | translate">
-          <vuestic-chart v-bind:data="lineChartData" type="line"></vuestic-chart>
+          <vuestic-chart :data="lineChartData" type="line"></vuestic-chart>
         </vuestic-widget>
       </div>
     </div>
@@ -29,7 +29,7 @@
       </div>
       <div class="col-md-6">
         <vuestic-widget class="chart-widget" :headerText="'charts.donutChart' | translate">
-          <vuestic-chart v-bind:data="donutChartData" type="donut"></vuestic-chart>
+          <vuestic-chart :data="donutChartData" type="donut"></vuestic-chart>
         </vuestic-widget>
       </div>
     </div>
@@ -37,7 +37,7 @@
     <div class="row">
       <div class="col-md-12">
         <vuestic-widget class="chart-widget" :headerText="'charts.bubbleChart' | translate">
-          <vuestic-chart v-bind:data="bubbleChartData" type="bubble"></vuestic-chart>
+          <vuestic-chart :data="bubbleChartData" type="bubble"></vuestic-chart>
         </vuestic-widget>
       </div>
     </div>
@@ -65,11 +65,6 @@
         horizontalBarChartData: HorizontalBarChartData
       }
     },
-   // created () {
-     // setInterval(() => {
-       // this.data.datasets.x[0] += 10
-     // }, 4000)
-   // }
   }
 </script>
 
