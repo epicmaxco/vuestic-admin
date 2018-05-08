@@ -110,7 +110,6 @@
 
   .made-by-footer {
     padding-top:25px;
-    padding-top:20px;
     position: absolute;
     bottom: 0;
     padding-bottom: $made-by-footer-pb;
