@@ -273,6 +273,13 @@ h4, .h4 {
   }
 }
 
+.col-md-12 {
+
+  thead td {
+    color: black;
+  }
+}
+
 .table {
 
   thead tr {
@@ -309,12 +316,6 @@ h4, .h4 {
     background-color: #ffcece;
   }
 
-}
-
-.basic-table {
-  tr:first-child {
-    color: black;
-  }
 }
 
 .first-td-padding {
