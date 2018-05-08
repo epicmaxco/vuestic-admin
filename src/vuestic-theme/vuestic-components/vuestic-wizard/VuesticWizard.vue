@@ -26,19 +26,19 @@
 
       <div class="wizard-body-actions" v-if="!wizardCompleted">
         <div class="btn-container" v-if="backEnabled">
-          <button class="btn btn-secondary wizard-back pull-left" @click="goBack()">
+          <button class="btn btn-secondary wizard-back pull-left" @click.prevent="goBack()">
             Back
           </button>
         </div>
 
         <div class="btn-container" v-if="!isLastStep()">
-          <button class="btn btn-primary wizard-next pull-right" @click="goNext()">
+          <button class="btn btn-primary wizard-next pull-right" @click.prevent="goNext()">
             Next
           </button>
         </div>
 
         <div class="btn-container" v-if="currentStep == steps.length - 1">
-          <button  class="btn btn-primary wizard-next pull-right final-step" @click="completeWizard()">
+          <button  class="btn btn-primary wizard-next pull-right final-step" @click.prevent="completeWizard()">
             {{lastStepLabel}}
           </button>
         </div>
@@ -121,6 +121,7 @@
       },
       completeWizard () {
         this.wizardCompleted = true
+        this.$emit('wizardComplete')
         this.goNext()
       },
       isLastStep () {
@@ -143,6 +144,11 @@
       },
       isStepShown (step) {
         return step.slot === this.currentSlot && !this.wizardCompleted
+      },
+      resetWizard () {
+        this.currentStep = 0
+        this.wizardCompleted = false
+        this.$emit('wizardReset')
       }
     }
   }
