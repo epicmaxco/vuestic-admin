@@ -1,0 +1,10 @@
+.card {
+  border-radius: 0;
+  & &-img-top {
+    border-radius: 0;
+  }
+  & &-title {
+    font-size: $font-size-h4;
+    margin-bottom: 1rem;
+  }
+}
