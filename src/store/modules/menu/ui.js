@@ -88,6 +88,14 @@ export default {
         title: 'menu.treeView'
       }
     },
+    {
+      name: 'Cards',
+      path: '/ui/cards',
+      component: lazyLoading('ui/cards/Cards'),
+      meta: {
+        title: 'menu.cards'
+      }
+    },
   ]
 }
 

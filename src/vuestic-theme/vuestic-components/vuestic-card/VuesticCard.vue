@@ -8,13 +8,14 @@
       >
       <div class="vuestic-card__image-container" v-if="titleOnImage">
         <img class="card-img-top" :src="image" :alt="imageAlt">
+        <div class="vuestic-card__image-container__overlay" v-if="overlay"/>
         <h5 class="vuestic-card__image-container__title card-title">
           <slot name="title"/>
         </h5>
       </div>
     </template>
     <div class="card-body">
-      <h5 class="card-title" v-if="!(image && titleOnImage)">
+      <h5 class="card-title" v-if="$slots.title && !(image && titleOnImage)">
         <slot name="title"/>
       </h5>
       <p class="card-text">
@@ -30,7 +31,7 @@
     props: {
       image: {
         type: String,
-        default: ''
+        default: '',
       },
       imageAlt: {
         type: String,
@@ -38,12 +39,20 @@
       },
       stripe: {
         type: String,
-        default: ''
+        default: '',
       },
       titleOnImage: {
         type: Boolean,
         default: false,
-      }
+      },
+      overlay: {
+        type: Boolean,
+        default: false,
+      },
+      theme: {
+        type: String,
+        default: 'base',
+      },
     },
     computed: {
       computedClass () {
@@ -51,9 +60,15 @@
         if (this.stripe) {
           computedClass.push(`vuestic-card--stripe-${this.stripe}`)
         }
+        if (this.theme === 'bright') {
+          computedClass.push(`vuestic-card--theme-bright`)
+        }
+        if (this.theme === 'dark') {
+          computedClass.push(`vuestic-card--theme-dark`)
+        }
         return computedClass
-      }
-    }
+      },
+    },
   }
 </script>
 
@@ -74,6 +89,30 @@
         padding: 1rem;
         margin-bottom: 0;
       }
+      &__overlay {
+        position: absolute;
+        pointer-events: none;
+        background-color: rgba(0, 0, 0, 0.3);
+        width: 100%;
+        height: 100%;
+        top: 0;
+      }
+    }
+
+    &--theme-bright {
+      background-color: $brand-primary;
+      color: $white;
+      a {
+        color: $vue-darkest-blue;
+        &:hover {
+          color: lighten($vue-darkest-blue, 15);
+        }
+      }
+    }
+
+    &--theme-dark {
+      background-color: $darkest-gray;
+      color: $white;
     }
 
     $colors: (

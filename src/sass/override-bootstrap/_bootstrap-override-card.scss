@@ -1,5 +1,15 @@
+.card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 3;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 4;
+  }
+}
+
 .card {
   border-radius: 0;
+  border: none;
   & &-img-top {
     border-radius: 0;
   }

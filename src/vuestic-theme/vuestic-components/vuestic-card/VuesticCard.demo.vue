@@ -5,8 +5,23 @@
     <vuestic-card
       stripe="warning"
       title-on-image
+      overlay
       style="width: 400px;"
       image="https://picsum.photos/300/200/?random"
+    >
+      <template slot="title">
+        Card with overlay and text on top of image
+      </template>
+      Running out of pages in your passport. Two trailer park girls go around the outside.
+    </vuestic-card>
+
+    <br>
+
+    <vuestic-card
+      stripe="danger"
+      style="width: 400px;"
+      image="https://picsum.photos/300/200/?random"
+      theme="bright"
     >
       <template slot="title">
         Card title that wraps to a new line
@@ -22,6 +37,7 @@
       stripe="primary"
       style="width: 400px;"
       image="https://picsum.photos/300/200/?random"
+      theme="dark"
     >
       <p slot="title">Card title that wraps to a new line</p>
       This is a longer card with supporting text below as a natural lead-in to

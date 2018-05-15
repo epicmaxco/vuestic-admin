@@ -184,7 +184,8 @@
     "typography": "Typography",
     "uiElements": "UI Elements",
     "treeView": "Tree view",
-    "dateTimePickers": "Date time pickers"
+    "dateTimePickers": "Date time pickers",
+    "cards" : "Cards"
   },
   "messages": {
     "all": "See all messages",
