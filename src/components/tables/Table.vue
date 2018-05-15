@@ -180,12 +180,16 @@
     <div class="row">
       <div class="col-md-12">
         <vuestic-widget :headerText="$t('tables.advanced')">
-          <vuestic-data-table :apiUrl="apiUrl"
-                      :tableFields="tableFields"
-                      :itemsPerPage="itemsPerPage"
-                      :sortFunctions="sortFunctions"
-                      :apiMode="apiMode"
-                      :paginationPath="paginationPath"></vuestic-data-table>
+          <vuestic-data-table
+            :apiUrl="apiUrl"
+            :tableFields="tableFields"
+            :itemsPerPage="itemsPerPage"
+            :defaultPerPage="defaultTablePerPage"
+            :sortFunctions="sortFunctions"
+            :apiMode="apiMode"
+            :paginationPath="paginationPath"
+            :queryParams="queryParams"
+          />
         </vuestic-widget>
       </div>
     </div>
@@ -198,6 +202,7 @@
   import BadgeColumn from './BadgeColumn.vue'
   import FieldsDef from 'vuestic-components/vuestic-datatable/data/fields-definition'
   import ItemsPerPageDef from 'vuestic-components/vuestic-datatable/data/items-per-page-definition'
+  import QueryParams from 'vuestic-components/vuestic-datatable/data/query-params'
 
   Vue.component('badge-column', BadgeColumn)
 
@@ -211,7 +216,9 @@
         tableFields: FieldsDef.tableFields,
         itemsPerPage: ItemsPerPageDef.itemsPerPage,
         sortFunctions: FieldsDef.sortFunctions,
-        paginationPath: ''
+        paginationPath: '',
+        defaultTablePerPage: 6,
+        queryParams: QueryParams
       }
     }
   }

@@ -1,34 +1,42 @@
 <template>
-  <transition name="modal" :duration="duration">
-    <div v-show="show" class="modal-container">
-      <div class="modal" @click.self="clickMask">
-        <div class="modal-dialog" :class="modalClass">
-          <div class="modal-content">
-            <!--Header-->
-            <div class="modal-header">
-              <slot name="header">
-                <div class="modal-title">
-                  <slot name="title"></slot>
-                </div>
-              </slot>
-            </div>
-            <!--Container-->
-            <div class="modal-body">
-              <slot></slot>
-            </div>
-            <!--Footer-->
-            <div class="modal-footer">
-              <slot name="footer">
-                <button type="button" :class="okClass" @click="ok" :disabled="okDisabled">{{okText}}</button>
-                <button type="button" :class="cancelClass" @click="cancel" :disabled="cancelDisabled">{{cancelText}}</button>
-              </slot>
+  <div class="vuestic-modal">
+    <transition name="modal" :duration="duration">
+      <div v-show="show" class="modal-container">
+        <div class="modal" @click.self="clickMask">
+          <div class="modal-dialog" :class="modalClass">
+            <div class="modal-content">
+              <!--Header-->
+              <div class="modal-header">
+                <slot name="header">
+                  <div class="modal-title">
+                    <slot name="title"></slot>
+                  </div>
+
+                  <i
+                    class="ion ion-md-close close-modal"
+                    v-if="closeIconShown"
+                    @click.prevent="cancel"
+                  />
+                </slot>
+              </div>
+              <!--Container-->
+              <div class="modal-body">
+                <slot></slot>
+              </div>
+              <!--Footer-->
+              <div class="modal-footer">
+                <slot name="footer">
+                  <button type="button" :class="okClass" @click="ok" :disabled="okDisabled">{{okText}}</button>
+                  <button type="button" :class="cancelClass" @click="cancel" :disabled="cancelDisabled">{{cancelText}}</button>
+                </slot>
+              </div>
             </div>
           </div>
         </div>
+        <div class="modal-backdrop"></div>
       </div>
-      <div class="modal-backdrop"></div>
-    </div>
-  </transition>
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -66,6 +74,10 @@
       cancelClass: {
         type: String,
         default: 'btn btn-secondary'
+      },
+      closeIconShown: {
+        type: Boolean,
+        default: true
       },
       okDisabled: {
         type: Boolean,
@@ -138,59 +150,71 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "../../../sass/_variables.scss";
   @import "~bootstrap/scss/functions";
   @import "~bootstrap/scss/variables";
 
-  // For Transitioning
-  .modal {
-    display: block;
-  }
+  .vuestic-modal {
+    height: 0;
+    width: 0;
 
-  .modal-dialog, .modal-backdrop {
-    transition: all .5s ease;
-  }
-
-  .modal-enter .modal-dialog, .modal-leave-active .modal-dialog {
-    opacity: 0;
-    transform: translateY(-30%);
-  }
-
-  .modal-enter .modal-backdrop, .modal-leave-active .modal-backdrop {
-    opacity: 0;
-  }
-
-  .modal-backdrop {
-    opacity: 0.5;
-  }
-
-  //Modal styles
-
-  .modal-header {
-    height: $modal-header-height;
-    padding: $modal-header-padding-y $modal-header-padding-x;
-    border-bottom: $modal-header-border;
-    font-size: $font-size-larger;
-    display: flex;
-    align-items: center;
-  }
-
-  .modal-content {
-    border-radius: $modal-content-border-radius;
-  }
-
-  .modal-footer {
-    justify-content: center;
-    padding: 0 $modal-inner-padding;
-    padding-bottom: calc(#{$modal-inner-padding} - #{$modal-footer-btns-padding-bottom});
-    flex-wrap: wrap;
-    .btn {
-      margin: 0 $modal-footer-btns-margin-x $modal-footer-btns-padding-bottom $modal-footer-btns-margin-x;
+    // For Transitioning
+    .modal {
+      display: block;
     }
-  }
 
-  .modal-dialog {
-    box-shadow: $modal-content-box-shadow-sm-up;
+    .modal-dialog, .modal-backdrop {
+      transition: all .5s ease;
+    }
+
+    .modal-enter .modal-dialog, .modal-leave-active .modal-dialog {
+      opacity: 0;
+      transform: translateY(-30%);
+    }
+
+    .modal-enter .modal-backdrop, .modal-leave-active .modal-backdrop {
+      opacity: 0;
+    }
+
+    .modal-backdrop {
+      opacity: 0.5;
+    }
+
+    //Modal styles
+
+    .modal-header {
+      height: $modal-header-height;
+      padding: $modal-header-padding-y $modal-header-padding-x;
+      border-bottom: $modal-header-border;
+      font-size: $font-size-larger;
+      display: flex;
+      align-items: center;
+    }
+
+    .close-modal {
+      margin-left: 1rem;
+      font-size: $font-size-large;
+      line-height: $font-size-large;
+      cursor: pointer;
+    }
+
+    .modal-content {
+      border-radius: $modal-content-border-radius;
+    }
+
+    .modal-footer {
+      justify-content: center;
+      padding: 0 $modal-inner-padding;
+      padding-bottom: calc(#{$modal-inner-padding} - #{$modal-footer-btns-padding-bottom});
+      flex-wrap: wrap;
+      .btn {
+        margin: 0 $modal-footer-btns-margin-x $modal-footer-btns-padding-bottom $modal-footer-btns-margin-x;
+      }
+    }
+
+    .modal-dialog {
+      box-shadow: $modal-content-box-shadow-sm-up;
+    }
   }
 </style>

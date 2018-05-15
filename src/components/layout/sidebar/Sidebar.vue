@@ -28,6 +28,10 @@
                   class="sidebar-link sidebar-submenu-link"
                   :to="childItem.path"
                   :target="childItem.meta.newWindow ? '_blank' : '_self'">
+                  <i class="sidebar-menu-item-icon"
+                     v-bind:class="childItem.meta.iconClass"
+                     v-if="childItem.meta.iconClass"
+                  ></i>
                   {{childItem.meta.title | translate}}
                 </router-link>
               </li>

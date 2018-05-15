@@ -178,6 +178,7 @@
     box-shadow: $tooltip-box-shadow;
     line-height: $tooltip-line-height;
     font-weight: $tooltip-font-weight;
+    border-radius: 0;
   }
 
   .tooltip-arrow {

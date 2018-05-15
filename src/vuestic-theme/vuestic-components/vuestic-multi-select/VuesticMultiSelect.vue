@@ -8,7 +8,7 @@
         :class="{'has-value': !!displayValue}"
         v-bind:value="displayValue"
         required/>
-      <i class="ion ion-chevron-down icon-right input-icon"></i>
+      <i class="ion ion-ios-arrow-down icon-right input-icon"></i>
       <label class="control-label">{{label}}</label><i class="bar"></i>
       <small v-show="hasErrors()" class="help text-danger">{{ showRequiredError() }}</small>
     </div>
@@ -47,6 +47,10 @@
     },
     props: {
       label: String,
+      itemsChosenPlaceholder: {
+        type: String,
+        default: 'chosen'
+      },
       options: Array,
       value: Array,
       optionKey: String,
@@ -84,7 +88,7 @@
       },
       updateDisplayValue (newVal) {
         if (newVal.length > 2) {
-          this.displayValue = `${newVal.length} of ${this.options.length} chosen`
+          this.displayValue = `${newVal.length}/${this.options.length} ${this.itemsChosenPlaceholder}`
         } else {
           this.displayValue = (this.optionKey ? newVal.map(item => item[this.optionKey]) : newVal).join(', ')
         }

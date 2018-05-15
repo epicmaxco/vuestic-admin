@@ -56,7 +56,7 @@
     methods: {
       addProduct () {
         this.products.push({
-          id: this.products[this.products.length - 1].id,
+          id: Math.floor(Math.random() * 100000),
           name: 'New product'
         })
       },

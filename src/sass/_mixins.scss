@@ -1,3 +1,9 @@
+@mixin flex-center () {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @mixin theme-button-variant($color, $background, $border, $shadow) {
   $hover-bg: lighten($background, 10%);
   $disabled-bg: darken($background, 15%);
