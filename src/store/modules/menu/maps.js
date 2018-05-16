@@ -18,6 +18,14 @@ export default {
       }
     },
     {
+      name: 'YandexMaps',
+      path: '/maps/yandex-maps',
+      component: lazyLoading('maps/yandex-maps/YandexMapsPage'),
+      meta: {
+        title: 'Yandex Maps'
+      }
+    },
+    {
       name: 'LeafletMaps',
       path: '/maps/leaflet-maps',
       component: lazyLoading('maps/leaflet-maps/LeafletMapsPage'),
