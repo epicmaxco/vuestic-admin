@@ -1,6 +1,6 @@
 <template>
   <div class="layout" :class="classObject" v-resize>
-    <navbar></navbar>
+    <app-navbar :value="opened"></app-navbar>
     <sidebar></sidebar>
     <div class="content-wrap" id="content-wrap">
       <main id="content" class="content" role="main">
@@ -18,7 +18,7 @@
 <script>
   import {mapGetters} from 'vuex'
 
-  import Navbar from './navbar/Navbar'
+  import AppNavbar from './app-navbar/AppNavbar'
   import Sidebar from './sidebar/Sidebar'
   import Resize from 'directives/ResizeHandler'
 
@@ -26,7 +26,7 @@
     name: 'layout',
 
     components: {
-      Navbar,
+      AppNavbar,
       Sidebar
     },
     directives: {
@@ -36,6 +36,10 @@
       fixed: {
         type: Boolean,
         default: false,
+      },
+      opened: {
+        type: Boolean,
+        default: true
       }
     },
     computed: {

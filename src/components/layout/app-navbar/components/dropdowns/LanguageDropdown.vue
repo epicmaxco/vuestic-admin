@@ -4,13 +4,8 @@
       <i class="flag-icon flag-icon-large" :class="flagIconClass(currentLanguage())"></i>
     </a>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a
-        class="dropdown-item"
-        :class="{ active: option.code === currentLanguage() }"
-        v-for="(option, id) in options"
-        :key="id"
-        @click="setLanguage(option.code)"
-      >
+      <a class="dropdown-item" :class="{ active: option.code === currentLanguage() }"
+        v-for="(option, id) in options" :key="id" @click="setLanguage(option.code)">
         <i class="flag-icon flag-icon-small" :class="flagIconClass(option.code)"></i>
         <span class="dropdown-item-text ellipsis">
           {{ `language.${option.name}` | translate }}
@@ -25,7 +20,7 @@
   import { mapActions } from 'vuex'
 
   export default {
-    name: 'language-selector',
+    name: 'language-dropdown',
 
     props: {
       options: {
@@ -53,20 +48,20 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/variables";
-  @import "~bootstrap/scss/mixins/breakpoints";
-  @import "~bootstrap/scss/functions";
-  @import "~bootstrap/scss/variables";
+  @import "../../../../../sass/variables";
+  @import "../../../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+  @import "../../../../../../node_modules/bootstrap/scss/functions";
+  @import "../../../../../../node_modules/bootstrap/scss/variables";
 
   .language-selector {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 0;
+    flex-grow: 1;
     max-width: 100%;
     height: 100%;
     padding: 0;
-    flex-basis: 0;
-    flex-grow: 1;
-    align-items: center;
-    justify-content: center;
 
     .language-selector-button {
       display: flex;
@@ -131,36 +126,36 @@
       background-color: $dropdown-background;
       box-shadow: $dropdown-box-shadow;
 
+      .dropdown-item {
+        display: flex;
+        align-items: center;
+        height: 38px;
+        padding: 9px 12px;
+
+        .dropdown-item-text {
+          padding-left: 12px;
+          font-size: $font-size-base;
+          line-height: 1.25;
+        }
+
+        &.active {
+          color: $vue-green;
+          background-color: $darkest-gray;
+        }
+
+        &:hover {
+          background-color: $almost-black;
+        }
+
+        &:last-child {
+          padding-top: 8px;
+          padding-bottom: 10px;
+        }
+      }
+
       @include media-breakpoint-up(lg) {
         top: 42px;
       }
-    }
-
-    .dropdown-item {
-      display: flex;
-      align-items: center;
-      height: 38px;
-      padding: 9px 12px;
-
-      &.active {
-        color: $vue-green;
-        background-color: $darkest-gray;
-      }
-
-      &:hover {
-        background-color: $almost-black;
-      }
-
-      &:last-child {
-        padding-top: 8px;
-        padding-bottom: 10px;
-      }
-    }
-
-    .dropdown-item-text {
-      padding-left: 12px;
-      font-size: $font-size-base;
-      line-height: 1.25;
     }
   }
 </style>
