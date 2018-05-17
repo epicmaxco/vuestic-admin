@@ -12,10 +12,11 @@ import router from './router'
 import { sync } from 'vuex-router-sync'
 import VuesticPlugin from 'vuestic-theme/vuestic-plugin'
 import './i18n'
-
+import YmapPlugin from 'vue-yandex-maps'
 
 
 Vue.use(VuesticPlugin)
+Vue.use(YmapPlugin)
 
 // NOTE: workaround for VeeValidate + vuetable-2
 Vue.use(VeeValidate, {fieldsBagName: 'formFields'})
