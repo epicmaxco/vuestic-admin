@@ -4,7 +4,7 @@
       <div class="col-xs-12 col-md-12">
         <vuestic-widget :headerText="$t('tables.basic')">
           <div class="table-responsive">
-            <table class="table table-striped first-td-padding">
+            <table class="table table-striped first-td-padding ">
               <thead>
               <tr>
                 <td>{{'tables.headings.name' | translate}}</td>
