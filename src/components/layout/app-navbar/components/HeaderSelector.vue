@@ -1,31 +1,21 @@
 <template>
-  <div class="menu-icon-container col">
-    <a class="menu-icon" :class="{ 'i-menu-expanded': openedLocal, 'i-menu-collapsed': !openedLocal }"
-       href="#" v-on:click="onClick"></a>
+  <div class="header-selector-container" v-on:click="onClick">
+    <i :class="{ 'i-menu-expanded': !openedLocal, 'i-menu-collapsed': openedLocal }"></i>
   </div>
 </template>
 
 <script>
   export default {
     name: 'header-selector',
-    model: {
-      prop: 'opened',
-      event: 'çlick'
-    },
     data () {
       return {
-        openedLocal: this.model
-      }
-    },
-    props: {
-      opened: {
-        type: Boolean
+        openedLocal: true
       }
     },
     methods: {
       onClick () {
         this.openedLocal = !this.openedLocal
-        this.$emit('click', !this.openedLocal)
+        this.$emit('click', this.openedLocal)
       }
     }
   }
@@ -33,9 +23,9 @@
 
 <style lang="scss">
 
-  .menu-icon-container {
+  .header-selector-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
   }
 

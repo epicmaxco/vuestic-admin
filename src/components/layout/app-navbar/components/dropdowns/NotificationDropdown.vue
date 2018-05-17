@@ -1,6 +1,6 @@
 <template>
   <div class="col nav-item dropdown navbar-dropdown" v-dropdown>
-    <a class="nav-link dropdown-toggle" href="#" @click.prevent="closeMenu">
+    <a class="nav-link dropdown-toggle" href="#">
       <slot></slot>
     </a>
     <div class="dropdown-menu">
@@ -17,8 +17,6 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
-
   export default {
     name: 'notification-dropdown',
 
@@ -28,16 +26,6 @@
         required: true
       }
     },
-
-    computed: {
-      ...mapActions(['closeMenu'])
-    },
-
-    methods: {
-      ...mapActions([
-        'closeMenu'
-      ])
-    }
   }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar-brand-container">
+  <div class="navbar-logo-container">
     <router-link class="navbar-brand" to="/dashboard">
       <slot></slot>
     </router-link>
@@ -18,7 +18,7 @@
   @import "../../../../../node_modules/bootstrap/scss/functions";
   @import "../../../../../node_modules/bootstrap/scss/variables";
 
-  .navbar-brand-container {
+  .navbar-logo-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,7 +30,7 @@
 
     @include media-breakpoint-down(md) {
 
-      .navbar-brand-container {
+      .navbar-logo-container {
         width: $nav-mobile-brand-width;
         top: $nav-mobile-brand-top;
         left: $nav-mobile-brand-left;

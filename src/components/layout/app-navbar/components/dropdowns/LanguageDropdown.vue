@@ -1,6 +1,6 @@
 <template>
   <div class="language-selector dropdown" v-dropdown.closeOnMenuClick>
-    <a class="language-selector-button dropdown-toggle" href="#" @click.prevent="closeMenu">
+    <a class="language-selector-button dropdown-toggle" href="#">
       <i class="flag-icon flag-icon-large" :class="flagIconClass(currentLanguage())"></i>
     </a>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -17,7 +17,6 @@
 
 <script>
   import Vue from 'vue'
-  import { mapActions } from 'vuex'
 
   export default {
     name: 'language-dropdown',
@@ -30,7 +29,6 @@
     },
 
     methods: {
-      ...mapActions(['closeMenu']),
 
       setLanguage (locale) {
         Vue.i18n.set(locale)

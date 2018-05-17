@@ -1,13 +1,12 @@
 <template>
 
   <vuestic-navbar>
-    <header-selector v-on:click="valueProxy = $event"  v-model="valueProxy" slot="selector">
-    </header-selector>
+    <header-selector v-on:click="valueProxy = $event" slot="selector"/>
     <header-logo slot="logo">
       <i class="i-vuestic"></i>
     </header-logo>
     <div slot="center" class="navbar-text offset-md-1 col-md-7 d-none d-lg-flex align-items-center justify-content-center">
-      {{'navbar.messageUs' | translate}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
+      {{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
     </div>
     <message-dropdown slot="message" :options="messages">
       <span class="i-nav-messages notify"></span>
@@ -109,6 +108,7 @@
           return this.value
         },
         set (value) {
+          console.log(value)
           this.toggleSidebar(value)
         },
       }
