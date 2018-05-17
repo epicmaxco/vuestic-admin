@@ -1,6 +1,6 @@
 <template>
   <div class="layout" :class="classObject" v-resize>
-    <app-navbar :value="opened"></app-navbar>
+    <app-navbar :value="opened" :triggerFunc="toggleSidebar"></app-navbar>
     <sidebar></sidebar>
     <div class="content-wrap" id="content-wrap">
       <main id="content" class="content" role="main">
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-  import {mapGetters} from 'vuex'
+  import {mapGetters, mapActions} from 'vuex'
 
   import AppNavbar from './app-navbar/AppNavbar'
   import Sidebar from './sidebar/Sidebar'
@@ -41,6 +41,11 @@
         type: Boolean,
         default: true
       }
+    },
+    methods: {
+      ...mapActions([
+        'toggleSidebar'
+      ])
     },
     computed: {
       ...mapGetters([

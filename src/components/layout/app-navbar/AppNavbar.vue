@@ -23,7 +23,6 @@
 </template>
 
 <script>
-  import {mapActions} from 'vuex'
   import VuesticNavbar from '../../../vuestic-theme/vuestic-components/vuestic-navbar/VuesticNavbar'
   import HeaderLogo from './components/HeaderLogo'
   import HeaderSelector from './components/HeaderSelector'
@@ -48,6 +47,10 @@
     props: {
       value: {
         type: Boolean,
+        required: true
+      },
+      triggerFunc: {
+        type: Function,
         required: true
       }
     },
@@ -103,21 +106,14 @@
       valueProxy: {
         get () {
           if (this.value === true) {
-            this.toggleSidebar(this.value)
+            this.triggerFunc(this.value)
           }
           return this.value
         },
         set (value) {
-          console.log(value)
-          this.toggleSidebar(value)
+          this.triggerFunc(value)
         },
       }
     },
-
-    methods: {
-      ...mapActions([
-        'toggleSidebar'
-      ])
-    }
   }
 </script>

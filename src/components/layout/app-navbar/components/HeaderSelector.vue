@@ -27,6 +27,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    i:hover {
+      cursor: pointer;
+    }
   }
 
 </style>
