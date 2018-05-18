@@ -1,6 +1,6 @@
 <template>
   <div class="layout" :class="classObject" v-resize>
-    <app-navbar :value="opened" :triggerFunc="toggleSidebar"></app-navbar>
+    <app-navbar :value="opened" v-on:toggle-menu="toggleSidebar($event)"></app-navbar>
     <sidebar></sidebar>
     <div class="content-wrap" id="content-wrap">
       <main id="content" class="content" role="main">

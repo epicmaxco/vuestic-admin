@@ -1,7 +1,7 @@
 <template>
   <div class="col nav-item dropdown navbar-dropdown" v-dropdown>
     <a class="nav-link dropdown-toggle" href="#">
-      <slot></slot>
+      <span class="i-nav-messages notify"></span>
     </a>
     <div class="dropdown-menu">
       <div class="dropdown-menu-content">
@@ -23,7 +23,18 @@
     props: {
       options: {
         type: Array,
-        required: true
+        default () {
+          return [
+            {
+              name: 'new',
+              details: { name: 'Oleg M' }
+            },
+            {
+              name: 'new',
+              details: { name: 'Andrei H' }
+            },
+          ]
+        }
       }
     },
   }

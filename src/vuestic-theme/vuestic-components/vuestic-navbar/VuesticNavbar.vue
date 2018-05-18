@@ -1,8 +1,14 @@
 <template>
   <nav class="navbar app-navbar navbar-toggleable-md">
-    <slot name="logo"></slot>
+    <div class="navbar-logo-container">
+      <router-link class="navbar-brand" to="/dashboard">
+        <slot name="logo"></slot>
+      </router-link>
+    </div>
     <div class="row navbar-container">
-      <slot name="selector"></slot>
+      <div class="d-flex align-items-center justify-content-center">
+        <slot name="selector"></slot>
+      </div>
       <slot name="center"></slot>
       <slot name="message"></slot>
       <slot name="notification"></slot>
@@ -44,6 +50,32 @@
     padding-left: $nav-padding-left;
     padding-right: $nav-padding-right;
     background-color: $top-nav-bg;
+
+    .navbar-logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      z-index: 3;
+      height: 100%;
+      left: $navbar-brand-container-left;
+      top: 0;
+
+      @include media-breakpoint-down(md) {
+
+        .navbar-logo-container {
+          width: $nav-mobile-brand-width;
+          top: $nav-mobile-brand-top;
+          left: $nav-mobile-brand-left;
+          height: auto;
+          .navbar-brand {
+            height: $font-size-smaller;
+            padding: 0;
+            font-size: $font-size-smaller;
+          }
+        }
+      }
+    }
 
     .menu-icon-container {
       padding: 0;

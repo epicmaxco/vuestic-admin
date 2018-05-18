@@ -1,6 +1,6 @@
 <template>
-  <div class="header-selector-container" v-on:click="onClick">
-    <i :class="{ 'i-menu-expanded': !openedLocal, 'i-menu-collapsed': openedLocal }"></i>
+  <div class="header-selector-container"
+       :class="{ 'i-menu-expanded': !openedLocal, 'i-menu-collapsed': openedLocal }" v-on:click="onClick">
   </div>
 </template>
 
