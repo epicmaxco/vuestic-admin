@@ -1,7 +1,7 @@
 <template>
   <div class="layout" :class="classObject" v-resize>
-    <app-navbar :value="opened" v-on:toggle-menu="toggleSidebar($event)"></app-navbar>
-    <sidebar></sidebar>
+    <app-navbar :value="opened" @toggle-menu="toggleSidebar"></app-navbar>
+    <sidebar/>
     <div class="content-wrap" id="content-wrap">
       <main id="content" class="content" role="main">
         <vuestic-breadcrumbs :breadcrumbs="breadcrumbs"/>
@@ -16,8 +16,9 @@
 </template>
 
 <script>
-  import {mapGetters, mapActions} from 'vuex'
+  import {mapGetters} from 'vuex'
 
+  import store from './../../store'
   import AppNavbar from './app-navbar/AppNavbar'
   import Sidebar from './sidebar/Sidebar'
   import Resize from 'directives/ResizeHandler'
@@ -37,15 +38,17 @@
         type: Boolean,
         default: false,
       },
-      opened: {
-        type: Boolean,
-        default: true
+    },
+    data () {
+      return {
+        opened: true
       }
     },
     methods: {
-      ...mapActions([
-        'toggleSidebar'
-      ])
+      toggleSidebar (opened) {
+        this.opened = opened
+        store.dispatch('toggleSidebar', this.opened)
+      }
     },
     computed: {
       ...mapGetters([

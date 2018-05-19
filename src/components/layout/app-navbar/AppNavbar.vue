@@ -1,7 +1,7 @@
 <template>
 
   <vuestic-navbar>
-    <header-selector slot="selector" v-on:click="valueProxy = $event"/>
+    <header-selector slot="selector" v-model="valueProxy"/>
     <i slot="logo" class="i-vuestic"></i>
     <div slot="center" class="navbar-text offset-md-1 col-md-7 d-none d-lg-flex align-items-center justify-content-center">
       {{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
@@ -46,9 +46,6 @@
     computed: {
       valueProxy: {
         get () {
-          if (this.value === true) {
-            this.$emit('toggle-menu', this.value)
-          }
           return this.value
         },
         set (value) {

@@ -53,6 +53,12 @@
     components: {
       Expanding
     },
+    /* props: {
+      show: {
+        type: Boolean,
+        default: true
+      },
+    }, */
     methods: {
       ...mapActions({
         expand: 'toggleExpandMenuItem'

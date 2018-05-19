@@ -1,21 +1,22 @@
 <template>
   <div class="header-selector-container"
-       :class="{ 'i-menu-expanded': !openedLocal, 'i-menu-collapsed': openedLocal }" v-on:click="onClick">
-  </div>
+       :class="{ 'i-menu-expanded': !value, 'i-menu-collapsed': value }"
+       @click="onClick()"
+  />
 </template>
 
 <script>
   export default {
     name: 'header-selector',
-    data () {
-      return {
-        openedLocal: true
-      }
+    props: {
+      value: {
+        type: Boolean,
+        required: true
+      },
     },
     methods: {
       onClick () {
-        this.openedLocal = !this.openedLocal
-        this.$emit('click', this.openedLocal)
+        this.$emit('input', !this.value)
       }
     }
   }
