@@ -1,5 +1,5 @@
 <template>
-  <div class="header-selector-container"
+  <span class="header-selector-container"
        :class="{ 'i-menu-expanded': !value, 'i-menu-collapsed': value }"
        @click="onClick()"
   />
