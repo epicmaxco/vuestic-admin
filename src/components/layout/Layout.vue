@@ -1,7 +1,7 @@
 <template>
   <div class="layout" :class="classObject" v-resize>
     <navbar></navbar>
-    <sidebar></sidebar>
+    <app-sidebar :items="menuItems"/>
     <div class="content-wrap" id="content-wrap">
       <main id="content" class="content" role="main">
         <vuestic-breadcrumbs :breadcrumbs="breadcrumbs"/>
@@ -16,10 +16,10 @@
 </template>
 
 <script>
-  import {mapGetters} from 'vuex'
 
+  import app from './../../store/modules/app'
   import Navbar from './navbar/Navbar'
-  import Sidebar from './sidebar/Sidebar'
+  import AppSidebar from './sidebar/AppSidebar'
   import Resize from 'directives/ResizeHandler'
 
   export default {
@@ -27,7 +27,7 @@
 
     components: {
       Navbar,
-      Sidebar
+      AppSidebar
     },
     directives: {
       resize: Resize
@@ -39,11 +39,18 @@
       }
     },
     computed: {
-      ...mapGetters([
-        'sidebarOpened',
-        'toggleWithoutAnimation',
-        'isLoading'
-      ]),
+      menuItems () {
+        return this.$store.getters.menuItems
+      },
+      toggleWithoutAnimation () {
+        return app.state.sidebar.withoutAnimation
+      },
+      sidebarOpened () {
+        return app.state.sidebar.opened
+      },
+      isLoading () {
+        return app.state.isLoading
+      },
       classObject: function () {
         return {
           'layout-fixed': this.fixed,
