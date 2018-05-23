@@ -31,7 +31,7 @@
         this.maxHeight = parseFloat(this.wrapper.offsetHeight, 10)
         this.contentHeight = parseFloat(this.content.offsetHeight, 10)
         this.trackHeight = parseFloat(this.track.offsetHeight, 10)
-        this.thumb.style.height = this.maxHeight / this.contentHeight * this.trackHeight + 'px'
+        this.thumb.style.height = this.maxHeight * 0.4 + 'px'
         if (this.maxHeight / this.contentHeight < 1) {
           this.thumb.classList.add('active')
         } else {
@@ -172,7 +172,7 @@
           transition: height .3s linear, opacity .6s linear;
           position: absolute;
           width: 100%;
-          background-color: black;
+          background-color: #868484;
           opacity: 0;
           &.active {
             opacity: .3;
