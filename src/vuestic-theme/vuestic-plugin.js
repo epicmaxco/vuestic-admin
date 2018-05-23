@@ -37,6 +37,8 @@ import TreeRoot from './vuestic-components/vuestic-tree-view/VuesticTreeRoot'
 import TreeCategory
   from './vuestic-components/vuestic-tree-view/VuesticTreeCategory'
 import TreeNode from './vuestic-components/vuestic-tree-view/VuesticTreeNode'
+import FileUpload
+  from './vuestic-components/vuestic-file-upload/VuesticFileUpload'
 
 import VuesticToasted from './vuestic-mixins/VuesticToasted'
 
@@ -73,6 +75,7 @@ const VuesticPlugin = {
       TreeRoot,
       TreeCategory,
       TreeNode,
+      FileUpload
     ].forEach(component => {
       Vue.component(component.name, component)
     })

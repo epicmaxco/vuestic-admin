@@ -81,6 +81,14 @@ export default {
       }
     },
     {
+      name: 'FileUpload',
+      path: '/ui/file-upload',
+      component: lazyLoading('ui/file-upload/FileUpload'),
+      meta: {
+        title: 'menu.fileUpload'
+      }
+    },
+    {
       name: 'TreeView',
       path: '/ui/tree-view',
       component: lazyLoading('ui/tree-view/TreeView'),
