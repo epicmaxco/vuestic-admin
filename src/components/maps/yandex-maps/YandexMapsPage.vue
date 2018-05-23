@@ -7,7 +7,7 @@
             :use-object-manager:="true"
             :coords="[55.8, 37.8]"
             :zoom="8"
-            style="width: 1450px; height: 765px;"
+            style="width: 100%; height: 100%"
             :behaviors="['default']"
             :controls="['trafficControl','zoomControl', 'geolocationControl','fullscreenControl', 'searchControl']"
             :placemarks="placemarks"
