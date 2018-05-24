@@ -208,7 +208,7 @@
     "fileDeleted": "File was succesfully deleted.",
     "undo": "Undo",
     "preview": "Preview",
-    "remove": "Remove",
+    "delete": "Delete",
     "deleteFile": "Delete file"
   },
   "navbar": {

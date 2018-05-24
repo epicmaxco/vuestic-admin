@@ -11,7 +11,7 @@
         </template>
         <template v-if="type === 'gallery'">
             <div class="row">
-                <vuestic-file-upload-list-image
+                <vuestic-file-upload-gallery-item
                     v-for="(file, index) in filesList"
                     :key="index"
                     :file="file"
@@ -24,13 +24,13 @@
 
 <script>
   import VuesticFileUploadListItem from './VuesticFileUploadListItem'
-  import VuesticFileUploadListImage from './VuesticFileUploadListImage'
+  import VuesticFileUploadGalleryItem from './VuesticFileUploadGalleryItem'
 
   export default {
     name: 'vuestic-file-upload-list',
     components: {
       VuesticFileUploadListItem: VuesticFileUploadListItem,
-      VuesticFileUploadListImage: VuesticFileUploadListImage
+      VuesticFileUploadGalleryItem: VuesticFileUploadGalleryItem
     },
     props: {
       type: {

@@ -1,7 +1,7 @@
 <template>
-    <div class="vuestic-file-upload__dropzone"
-         :class="{'vuestic-file-upload__dropzone--short': short}">
-        <div class="vuestic-file-upload__dropzone-label">
+    <div class="vuestic-file-upload__dropzone">
+        <div class="vuestic-file-upload__dropzone-label"
+            :class="{'vuestic-file-upload__dropzone-label--short': short}">
             {{ $t('fileUpload.dragNdropFiles') }}
         </div>
         <input type="file"
@@ -11,6 +11,10 @@
                multiple
                @change="$emit('upload', $event)"
         >
+
+        <div class="vuestic-file-upload__dropzone-main">
+            <slot/>
+        </div>
     </div>
 </template>
 
@@ -32,11 +36,6 @@
       acceptedFormats () {
         return this.type === 'gallery' && !this.fileTypes ? 'image/x-png, image/gif, image/jpeg' : this.fileTypes
       }
-    },
-    methods: {
-      drop () {
-        console.log('drop')
-      }
     }
   }
 </script>
@@ -47,18 +46,16 @@
     .vuestic-file-upload__dropzone {
         position: relative;
         overflow: hidden;
-        height: 150px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         cursor: pointer;
-        transition: height .2s;
-        &--short {
-            padding: 0;
-            height: 70px;
-        }
         &-label {
-
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 150px;
+            transition: height .2s;
+            &--short {
+                height: 70px;
+            }
         }
         &-input {
             position: absolute;
