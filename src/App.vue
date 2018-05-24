@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import Layout from 'components/layout/Layout'
+  import Layout from 'components/layout/AppLayout'
   import AuthLayout from 'components/layout/AuthLayout'
   import VuesticPreLoader from 'vuestic-components/vuestic-preloader/VuesticPreLoader.vue'
 
