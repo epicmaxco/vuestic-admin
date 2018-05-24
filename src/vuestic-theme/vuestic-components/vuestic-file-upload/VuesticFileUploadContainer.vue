@@ -92,4 +92,13 @@
             cursor: pointer;
         }
     }
+
+    @media (max-width: 576px) {
+        .vuestic-file-upload__field {
+            &--dropzone {
+                flex-direction: column;
+                padding: 0;
+            }
+        }
+    }
 </style>

@@ -39,14 +39,14 @@
     components: {
       VuesticFileUploadUndo: VuesticFileUploadUndo
     },
-    data () {
-      return {
-        removed: false
-      }
-    },
     props: {
       file: {
         type: Object
+      }
+    },
+    data () {
+      return {
+        removed: false
       }
     },
     methods: {

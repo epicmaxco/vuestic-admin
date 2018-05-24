@@ -49,11 +49,9 @@
       multiple: {
         type: Boolean,
         default: false
-      }
-    },
-    data () {
-      return {
-        files: []
+      },
+      value: {
+        default: () => []
       }
     },
     methods: {
@@ -64,6 +62,16 @@
       removeFile (index) {
         this.files.splice(index, 1)
       }
+    },
+    computed: {
+      files: {
+        get () {
+          return this.value
+        },
+        set (files) {
+          this.$emit('input', files)
+        },
+      },
     },
   }
 </script>
@@ -97,6 +105,14 @@
         }
         &--secondary {
             color: $white;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .vuestic-file-upload {
+            &--dropzone {
+                padding: 0 15px;
+            }
         }
     }
 </style>

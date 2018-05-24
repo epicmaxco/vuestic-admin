@@ -2,14 +2,12 @@
     <div
         :class="`vuestic-file-upload-${type}`">
         <template v-if="type === 'list'">
-
-                <vuestic-file-upload-list-item
-                        v-for="(file, index) in filesList"
-                        :key="index"
-                        :file="file"
-                        @remove="$emit('remove', index)"
-                />
-
+            <vuestic-file-upload-list-item
+                    v-for="(file, index) in filesList"
+                    :key="index"
+                    :file="file"
+                    @remove="$emit('remove', index)"
+            />
         </template>
         <template v-if="type === 'gallery'">
             <div class="row">
@@ -21,18 +19,26 @@
                 />
             </div>
         </template>
+
+        <vuestic-file-upload-single-item
+            v-if="type === 'single' && filesList.length"
+            :file="filesList[0]"
+            @remove="$emit('remove', 0)"
+        />
     </div>
 </template>
 
 <script>
   import VuesticFileUploadListItem from './VuesticFileUploadListItem'
   import VuesticFileUploadGalleryItem from './VuesticFileUploadGalleryItem'
+  import VuesticFileUploadSingleItem from './VuesticFileUploadSingleItem'
 
   export default {
     name: 'vuestic-file-upload-list',
     components: {
       VuesticFileUploadListItem: VuesticFileUploadListItem,
-      VuesticFileUploadGalleryItem: VuesticFileUploadGalleryItem
+      VuesticFileUploadGalleryItem: VuesticFileUploadGalleryItem,
+      VuesticFileUploadSingleItem: VuesticFileUploadSingleItem
     },
     props: {
       type: {
