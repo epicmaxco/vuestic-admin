@@ -1,30 +1,34 @@
 <template>
-    <div class="vuestic-file-upload">
-        <VuesticFileUploadDropzone
+    <div class="vuestic-file-upload"
+        :class="{'vuestic-file-upload--dropzone': dropzone}"
+    >
+        <VuesticFileUploadContainer
             :type="type"
             :fileTypes="fileTypes"
-            @upload="uploadFile"
+            :dropzone="dropzone"
             :short="!!files.length"
+            :multiple="multiple"
+            @upload="uploadFile"
         >
             <VuesticFileUploadList
-                    v-if="files.length"
-                    :type="type"
-                    :files="files"
-                    @remove="removeFile"
+                v-if="files.length"
+                :type="type"
+                :files="files"
+                @remove="removeFile"
             />
-        </VuesticFileUploadDropzone>
+        </VuesticFileUploadContainer>
     </div>
 </template>
 
 <script>
   import VuesticFileUploadList from './VuesticFileUploadList'
-  import VuesticFileUploadDropzone from './VuesticFileUploadDropzone'
+  import VuesticFileUploadContainer from './VuesticFileUploadContainer'
 
   export default {
     name: 'vuestic-file-upload',
     components: {
       VuesticFileUploadList: VuesticFileUploadList,
-      VuesticFileUploadDropzone: VuesticFileUploadDropzone
+      VuesticFileUploadContainer: VuesticFileUploadContainer
     },
     props: {
       fileTypes: {
@@ -35,8 +39,12 @@
         type: String,
         default: 'list',
         validator: function (value) {
-          return ['list', 'gallery'].indexOf(value) !== -1
+          return ['list', 'gallery', 'single'].indexOf(value) !== -1
         }
+      },
+      dropzone: {
+        type: Boolean,
+        default: false
       },
       multiple: {
         type: Boolean,
@@ -64,7 +72,11 @@
     @import '../../../sass/_variables.scss';
 
     .vuestic-file-upload {
-        background-color: $lighter-green;
+        &--dropzone {
+            background-color: $lighter-green;
+            padding: 0 30px;
+            overflow: hidden;
+        }
     }
 
     // Maybe we should create new component for text button

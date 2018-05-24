@@ -212,13 +212,16 @@
     "mediaGallery": "Media Gallery",
     "uploadList": "Upload List",
     "single": "Single",
-    "dragNdropFiles": "Drag’n’drop files or click to upload",
+    "dragNdropFiles": "Drag’n’drop files or",
     "uploadedOn": "Uploaded on",
     "fileDeleted": "File was succesfully deleted.",
     "undo": "Undo",
     "preview": "Preview",
     "delete": "Delete",
-    "deleteFile": "Delete file"
+    "deleteFile": "Delete file",
+    "uploadFile": "Upload file",
+    "uploadMedia": "Upload media",
+    "addAttachment": "Add attachment"
   },
   "navbar": {
     "messageUs": "Send us your questions or feedback to"
