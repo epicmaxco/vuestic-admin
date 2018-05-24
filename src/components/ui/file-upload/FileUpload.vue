@@ -5,33 +5,40 @@
                 <vuestic-widget :headerText="$t('fileUpload.advancedMediaGallery')">
                     <vuestic-file-upload
                         type="gallery"
+                        dropzone
                     />
                 </vuestic-widget>
             </div>
 
             <div class="col-md-12">
                 <vuestic-widget :headerText="$t('fileUpload.advancedUploadList')">
-                    <vuestic-file-upload/>
+                    <vuestic-file-upload
+                        dropzone
+                    />
                 </vuestic-widget>
             </div>
 
-            <!--<div class="col-md-12">-->
-                <!--<vuestic-widget :headerText="$t('fileUpload.single')">-->
-                    <!--<vuestic-file-upload/>-->
-                <!--</vuestic-widget>-->
-            <!--</div>-->
+            <div class="col-md-12">
+                <vuestic-widget :headerText="$t('fileUpload.single')">
+                    <vuestic-file-upload
+                         type="single"
+                    />
+                </vuestic-widget>
+            </div>
 
-            <!--<div class="col-md-12">-->
-                <!--<vuestic-widget :headerText="$t('fileUpload.mediaGallery')">-->
-                    <!--<vuestic-file-upload/>-->
-                <!--</vuestic-widget>-->
-            <!--</div>-->
+            <div class="col-md-12">
+                <vuestic-widget :headerText="$t('fileUpload.mediaGallery')">
+                    <vuestic-file-upload
+                         type="gallery"
+                    />
+                </vuestic-widget>
+            </div>
 
-            <!--<div class="col-md-12">-->
-                <!--<vuestic-widget :headerText="$t('fileUpload.uploadList')">-->
-                    <!--<vuestic-file-upload/>-->
-                <!--</vuestic-widget>-->
-            <!--</div>-->
+            <div class="col-md-12">
+                <vuestic-widget :headerText="$t('fileUpload.uploadList')">
+                    <vuestic-file-upload/>
+                </vuestic-widget>
+            </div>
         </div>
     </div>
 </template>

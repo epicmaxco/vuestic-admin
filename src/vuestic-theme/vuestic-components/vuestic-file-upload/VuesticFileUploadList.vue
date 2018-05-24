@@ -2,12 +2,14 @@
     <div
         :class="`vuestic-file-upload-${type}`">
         <template v-if="type === 'list'">
+
                 <vuestic-file-upload-list-item
                         v-for="(file, index) in filesList"
                         :key="index"
                         :file="file"
                         @remove="$emit('remove', index)"
                 />
+
         </template>
         <template v-if="type === 'gallery'">
             <div class="row">
@@ -87,9 +89,10 @@
     .vuestic-file-upload {
         &-list {
             padding-bottom: 30px;
+            margin: 0 -15px;
         }
         &-gallery {
-            padding: 0 30px 30px;
+            padding: 0 0 15px;
         }
     }
 </style>

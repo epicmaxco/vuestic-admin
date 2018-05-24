@@ -1,13 +1,14 @@
 <template>
-    <div class="col-md-2" v-if="removed">
-        <div class="file-upload-gallery__item file-upload-list__item--undo">
+    <div class="col-xl-2 col-lg-3 col-sm-4" v-if="removed">
+        <div class="file-upload-gallery__item">
             <vuestic-file-upload-undo
+                    class="file-upload-gallery__item-undo"
                     @recover="recoverImage"
             />
         </div>
     </div>
 
-    <div class="col-md-2" v-else>
+    <div class="col-xl-2 col-lg-3 col-sm-4" v-else>
         <div class="file-upload-gallery__item">
             <img :src="previewImage" alt="" class="file-upload-gallery__item-image">
             <div class="file-upload-gallery__item-overlay">
@@ -80,6 +81,7 @@
         position: relative;
         width: 100%;
         padding-top: 100%;
+        margin-bottom: 15px;
         &:hover {
             .file-upload-gallery__item-overlay {
                 display: flex;
@@ -113,6 +115,12 @@
         &-button {
             margin-top: auto;
             text-align: left;
+        }
+        &-undo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px 0 0;
         }
     }
 </style>
