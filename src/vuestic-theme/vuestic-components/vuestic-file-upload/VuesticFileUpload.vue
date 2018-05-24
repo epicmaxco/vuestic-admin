@@ -5,14 +5,14 @@
             :fileTypes="fileTypes"
             @upload="uploadFile"
             :short="!!files.length"
-        />
-
-        <VuesticFileUploadList
-           v-if="files.length"
-           :type="type"
-           :files="files"
-           @remove="removeFile"
-        />
+        >
+            <VuesticFileUploadList
+                    v-if="files.length"
+                    :type="type"
+                    :files="files"
+                    @remove="removeFile"
+            />
+        </VuesticFileUploadDropzone>
     </div>
 </template>
 
@@ -64,7 +64,6 @@
     @import '../../../sass/_variables.scss';
 
     .vuestic-file-upload {
-        min-height: 150px;
         background-color: $lighter-green;
     }
 
@@ -79,13 +78,13 @@
             margin-left: 24px;
         }
         &--primary {
-            color: #4ae387;
+            color: $vue-green;
             &:hover {
-                color: #4ae387;
+                opacity: 0.6;
             }
         }
         &--secondary {
-            color: #fff;
+            color: $white;
         }
     }
 </style>

@@ -1,12 +1,9 @@
 <template>
     <div class="file-upload-list__item file-upload-list__item--undo row" v-if="removed">
         <div class="col-md-12">
-            {{ $t('fileUpload.fileDeleted') }}
-            <button type="button"
-                    class="btn-text btn-text--primary"
-                    @click="recoverFile">
-                {{ $t('fileUpload.undo') }}?
-            </button>
+            <vuestic-file-upload-undo
+                @recover="recoverFile"
+            />
         </div>
     </div>
 
@@ -14,10 +11,10 @@
         <div class="file-upload-list__item-name col-md-4">
             {{ file.name }}
         </div>
-        <div class="file-upload-list__item-size col-md-1">
+        <div class="file-upload-list__item-size col-md-2">
             {{ file.size }}
         </div>
-        <div class="file-upload-list__item-date col-md-5">
+        <div class="file-upload-list__item-date col-md-4">
             <span>{{ $t('fileUpload.uploadedOn')}} {{ file.date }}</span>
         </div>
         <div class="file-upload-list__item-buttons col-md-2 d-flex">
@@ -28,15 +25,20 @@
             <button type="button"
                     class="btn-text btn-text--primary"
                     @click="removeFile">
-                {{ $t('fileUpload.remove') }}
+                {{ $t('fileUpload.delete') }}
             </button>
         </div>
     </div>
 </template>
 
 <script>
+  import VuesticFileUploadUndo from './VuesticFileUploadUndo'
+
   export default {
     name: 'vuestic-file-upload-list-item',
+    components: {
+      VuesticFileUploadUndo: VuesticFileUploadUndo
+    },
     data () {
       return {
         removed: false
@@ -75,7 +77,7 @@
             & + .file-upload-list__item {
                 margin-top: 8px;
             }
-            height: 40px;
+            min-height: 40px;
             display: flex;
             background-color: $white;
             box-shadow: $sidebar-box-shadow;
@@ -86,6 +88,10 @@
             }
             &-date {
                 color: $gray-light;
+            }
+            &-buttons {
+                display: flex;
+                justify-content: flex-end;
             }
             &--undo {
                 background: none;
