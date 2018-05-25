@@ -1,31 +1,31 @@
 <template>
-    <div
-        :class="`vuestic-file-upload-${type}`">
-        <template v-if="type === 'list'">
-            <vuestic-file-upload-list-item
-                    v-for="(file, index) in filesList"
-                    :key="index"
-                    :file="file"
-                    @remove="$emit('remove', index)"
-            />
-        </template>
-        <template v-if="type === 'gallery'">
-            <div class="row">
-                <vuestic-file-upload-gallery-item
-                    v-for="(file, index) in filesList"
-                    :key="index"
-                    :file="file"
-                    @remove="$emit('remove', index)"
-                />
-            </div>
-        </template>
-
-        <vuestic-file-upload-single-item
-            v-if="type === 'single' && filesList.length"
-            :file="filesList[0]"
-            @remove="$emit('remove', 0)"
+  <div
+      :class="`vuestic-file-upload-${type}`">
+    <template v-if="type === 'list'">
+      <vuestic-file-upload-list-item
+          v-for="(file, index) in filesList"
+          :key="index"
+          :file="file"
+          @remove="$emit('remove', index)"
+      />
+    </template>
+    <template v-if="type === 'gallery'">
+      <div class="row">
+        <vuestic-file-upload-gallery-item
+            v-for="(file, index) in filesList"
+            :key="index"
+            :file="file"
+            @remove="$emit('remove', index)"
         />
-    </div>
+      </div>
+    </template>
+
+    <vuestic-file-upload-single-item
+        v-if="type === 'single' && filesList.length"
+        :file="filesList[0]"
+        @remove="$emit('remove', 0)"
+    />
+  </div>
 </template>
 
 <script>
@@ -89,16 +89,16 @@
   }
 </script>
 
-<style lang='scss' scoped>
-    @import '../../../sass/_variables.scss';
+<style lang='scss'>
+  @import '../../../sass/_variables.scss';
 
-    .vuestic-file-upload {
-        &-list {
-            padding-bottom: 30px;
-            margin: 0 -15px;
-        }
-        &-gallery {
-            padding: 0 0 15px;
-        }
+  .vuestic-file-upload {
+    &-list {
+      padding-bottom: 30px;
+      margin: 0 -15px;
     }
+    &-gallery {
+      padding: 0 0 15px;
+    }
+  }
 </style>
