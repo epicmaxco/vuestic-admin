@@ -4,7 +4,6 @@
        :class="{'has-error': hasErrors()}">
     <div class="input-group dropdown-toggle">
       <input
-        readonly
         :class="{'has-value': !!displayValue}"
         v-model="displayValue"
         :name="name"
@@ -41,7 +40,6 @@
     },
     data () {
       return {
-        displayValue: '',
         validated: false
       }
     },

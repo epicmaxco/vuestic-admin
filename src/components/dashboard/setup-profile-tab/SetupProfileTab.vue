@@ -29,13 +29,14 @@
         <p>Zebras communicate with facial expressions and sounds. They make loud braying or barking sounds and
           soft snorting sounds. The position of their ears, how wide open their eyes are, and whether they show
           their teeth all send a signal. For example, ears flat back means trouble, or "you better follow orders!"</p>
+
         <vuestic-simple-select
           label="Select country"
           v-model="selectedCountry"
           name="country"
           :required="true"
           ref="selectedCountrySelect"
-          v-bind:options="countriesList">
+          v-bind:options="countriesListComputed">
         </vuestic-simple-select>
       </div>
       <div slot="page3" class="form-wizard-tab-content">
@@ -101,6 +102,11 @@
         name: '',
         selectedCountry: '',
         countriesList: CountriesList
+      }
+    },
+    computed: {
+      countriesListComputed () {
+        return this.countriesList.filter(country => country.length > 8)
       }
     },
     methods: {
