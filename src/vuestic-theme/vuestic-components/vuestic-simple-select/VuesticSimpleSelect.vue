@@ -6,7 +6,7 @@
       <input
         :class="{'has-value': !!displayValue}"
         v-model="displayValue"
-        :name="name"
+        :name="name" @keyup="onKeyUp()"
         required/>
       <i class="ion ion-ios-arrow-down icon-right input-icon"></i>
       <label class="control-label">{{label}}</label><i class="bar"></i>
@@ -40,13 +40,18 @@
     },
     data () {
       return {
-        validated: false
+        validated: false,
+        displayValue: '',
+        currentOptions: this.options
       }
     },
     props: {
       label: String,
       options: Array,
-      value: {},
+      value: {
+        type: String,
+        required: true
+      },
       optionKey: String,
       required: {
         type: Boolean,
@@ -63,10 +68,13 @@
     },
 
     updated: function () {
-      this.updateDisplayValue(this.value)
+      console.log(this.value)
     },
 
     methods: {
+      onKeyUp () {
+        this.$emit('check', this.displayValue)
+      },
       isOptionSelected (option) {
         return this.value === option
       },

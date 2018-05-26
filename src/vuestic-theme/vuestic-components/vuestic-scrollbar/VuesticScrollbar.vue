@@ -31,12 +31,11 @@
         this.maxHeight = parseFloat(this.wrapper.offsetHeight, 10)
         this.contentHeight = parseFloat(this.content.offsetHeight, 10)
         this.trackHeight = parseFloat(this.track.offsetHeight, 10)
-        this.thumb.style.height = this.maxHeight / this.contentHeight * this.trackHeight
 
-        if (this.thumb.style.height < 10) {
+        if (this.maxHeight / this.contentHeight * this.trackHeight < 10) {
           this.thumb.style.height = 10 + 'px'
         } else {
-          this.thumb.style.height += 'px'
+          this.thumb.style.height = this.maxHeight / this.contentHeight * this.trackHeight + 'px'
         }
 
         if (this.maxHeight / this.contentHeight < 1) {

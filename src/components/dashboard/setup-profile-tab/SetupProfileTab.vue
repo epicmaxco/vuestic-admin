@@ -36,7 +36,8 @@
           name="country"
           :required="true"
           ref="selectedCountrySelect"
-          v-bind:options="countriesListComputed">
+          @check="updateList($event)"
+          :options="countriesArray">
         </vuestic-simple-select>
       </div>
       <div slot="page3" class="form-wizard-tab-content">
@@ -68,6 +69,16 @@
     props: {
       wizardType: {
         default: 'rich'
+      },
+      selectedCountry: {
+        type: String,
+        default: ''
+      },
+      countriesArray: {
+        type: Array,
+        default: function () {
+          return CountriesList
+        }
       }
     },
 
@@ -104,12 +115,11 @@
         countriesList: CountriesList
       }
     },
-    computed: {
-      countriesListComputed () {
-        return this.countriesList.filter(country => country.length > 8)
-      }
-    },
     methods: {
+      updateList (value) {
+        this.countriesArray = this.countriesList.filter(country => country.search(value) === 0)
+        console.log(this.countriesArray)
+      },
       isFormFieldValid (field) {
         let isValid = false
         if (this.formFields[field]) {
