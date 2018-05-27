@@ -8,11 +8,13 @@
           image="https://picsum.photos/300/200/?image=1043"
         >
           <template slot="title">
-            Card with overlay and text on top of image
+            {{ $t('cards.title.overlayAndTextOnImage') }}
           </template>
-          Running out of pages in your passport. Two trailer park girls go around the outside.
+          {{ $t('cards.contentText') }}
           <p class="pt-3 mb-0">
-            <a class="pr-2" href="#">Secondary action</a>
+            <a class="pr-2 card-link-secondary" href="#">
+              {{ $t('cards.link.secondaryAction') }}
+            </a>
           </p>
         </vuestic-card>
 
@@ -20,10 +22,12 @@
           image="https://picsum.photos/300/200/?image=898"
         >
           <template slot="title">
-            Random Heading H4
+            {{ $t('cards.title.normal') }}
           </template>
-          Running out of pages in your passport.
-          <p class="pt-3 mb-0"><a href="#">Read full article</a></p>
+          {{ $t('cards.contentText') }}
+          <p class="pt-3 mb-0">
+            <a href="#">{{ $t('cards.link.readFull') }}</a>
+          </p>
         </vuestic-card>
 
         <vuestic-card
@@ -32,100 +36,114 @@
           overlay
         >
           <template slot="title">
-            Random heading H4
+            {{ $t('cards.title.titleOnImageNoOverlay') }}
           </template>
-          Running out of pages in your passport.
+          {{ $t('cards.contentText') }}
         </vuestic-card>
 
-        <vuestic-card
-          image="https://picsum.photos/300/200/?image=885"
-          theme="dark"
-        >
-          <p slot="title">Heading H4</p>
-          The unique stripes of zebras make them one of the animals most familiar to people.
-        </vuestic-card>
 
         <vuestic-card
-          image="https://picsum.photos/300/200/?random"
+          image="https://picsum.photos/300/200/?image=1067"
         >
           Short one
           <p class="mb-0 mt-2">
-            <a href="#" class="pr-2">Action 1</a>
-            <a href="#">Action 2</a>
+            <a href="#" class="pr-2">{{ $t('cards.link.action1') }}</a>
+            <a class="card-link-secondary" href="#">
+              {{ $t('cards.link.action2') }}</a>
           </p>
         </vuestic-card>
 
         <vuestic-card
           stripe="warning"
-          image="https://picsum.photos/300/200/?random"
+          image="https://picsum.photos/300/200/?image=1058"
         >
           <p class="mb-0">
-            <a href="#" class="pr-2">Edit</a>
-            <a href="#" class="pr-2">Set as default</a>
-            <a href="#">Delete</a>
+            <a href="#" class="pr-2">{{ $t('cards.link.edit') }}</a>
+            <a href="#" class="pr-2">{{ $t('cards.link.setAsDefault') }}</a>
+            <a href="#">{{ $t('cards.link.delete') }}</a>
           </p>
         </vuestic-card>
 
         <vuestic-card
-          image="https://picsum.photos/300/200/?image=997"
           theme="bright"
         >
           <template slot="title">
-            Heading
+            {{ $t('cards.title.bright') }}
           </template>
-          The unique stripes of zebras make them one of the animals most familiar to people.
+          {{ $t('cards.contentText') }}
           <p class="pt-3 mb-0">
-            <a class="pr-2" href="#">Edit</a>
-            <a class="pr-2" href="#">Set as default</a>
-            <a href="#">Delete</a>
+            <a href="#" class="pr-2">{{ $t('cards.link.edit') }}</a>
+            <a href="#" class="pr-2">{{ $t('cards.link.setAsDefault') }}</a>
+            <a href="#">{{ $t('cards.link.delete') }}</a>
           </p>
         </vuestic-card>
 
         <vuestic-card
           image="https://picsum.photos/300/200/?image=997"
-          theme="bright"
         >
-          Running out of pages in your passport
-          <button class="btn btn-link">
-            {{'buttons.button' | translate}}
-          </button>
+          {{ $t('cards.contentText') }}
+          <p class="pt-3 mb-0">
+            <button class="btn btn-primary btn-micro">
+              {{ $t('cards.button.main') }}
+            </button>
+            <a class="ml-2 mb-0" href="#">{{ $t('cards.button.cancel') }}</a>
+          </p>
         </vuestic-card>
 
-        <div class="card">
-          <img class="card-img-top" src="" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title that wraps to a new line</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <vuestic-card
+          stripe="success"
+        >
+          <p slot="title">{{ $t('cards.title.stripeNoImage') }}</p>
+          {{ $t('cards.contentText') }}
+        </vuestic-card>
+
+        <vuestic-card
+          image="https://picsum.photos/300/200/?image=1013"
+          theme="dark"
+        >
+          <p slot="title">{{ $t('cards.title.dark') }}</p>
+          {{ $t('cards.contentText') }}
+          <p class="pt-3 mb-0">
+            <a href="#" class="pr-2">{{ $t('cards.link.edit') }}</a>
+            <a href="#" class="pr-2">{{ $t('cards.link.setAsDefault') }}</a>
+            <a href="#">{{ $t('cards.link.delete') }}</a>
+          </p>
+        </vuestic-card>
+
+        <vuestic-card
+          image="https://picsum.photos/300/200/?image=885"
+        >
+          <div class="d-flex">
+            <p>{{ $t('cards.contentText') }}</p>
+            <div
+              class="btn btn-primary btn-with-icon btn-micro rounded-icon">
+              <div class="btn-with-icon-content">
+                <i class="ion-md-cloud-outline ion"></i>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <blockquote class="blockquote mb-0 card-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">
-              <small class="text-muted">
-                Someone famous in <cite title="Source Title">Source Title</cite>
-              </small>
-            </footer>
-          </blockquote>
-        </div>
-        <div class="card">
-          <img class="card-img-top" src="https://picsum.photos/300/200/?random" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <div class="card bg-primary text-white text-center p-3">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
-            <footer class="blockquote-footer">
-              <small>
-                Someone famous in <cite title="Source Title">Source Title</cite>
-              </small>
-            </footer>
-          </blockquote>
-        </div>
+        </vuestic-card>
+
+        <vuestic-card
+          image="https://picsum.photos/300/200/?image=1003"
+        >
+          <p>{{ $t('cards.contentText') }}</p>
+          <div class="card-separator"/>
+          <p class="mb-0">
+            <a href="#">{{ $t('cards.link.traveling') }}</a>
+            /
+            <a href="#">{{ $t('cards.link.france') }}</a>
+          </p>
+        </vuestic-card>
+
+        <vuestic-card theme="dark">
+          <p slot="title">{{ $t('cards.title.dark') }}</p>
+          {{ $t('cards.contentText') }}
+          <p class="pt-3 mb-0">
+            <a class="pr-2" href="#">{{ $t('cards.link.review') }}</a>
+            <a href="#">{{ $t('cards.link.feedback') }}</a>
+          </p>
+        </vuestic-card>
       </div>
     </div>
   </div>
@@ -134,6 +152,7 @@
 <script>
   import VuesticCard
     from '../../../vuestic-theme/vuestic-components/vuestic-card/VuesticCard'
+
   export default {
     name: 'cards',
     components: { VuesticCard },

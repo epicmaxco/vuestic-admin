@@ -77,6 +77,17 @@
 
   $shadow: $widget-box-shadow;
 
+  // Probably not the right place for this declaration
+  .card-separator {
+    margin: 1rem -#{(20/16)}rem;
+    height: #{(1/16)}rem;
+    width: calc(100% + #{(2* 20/16)}rem);
+    background-color: $light-gray;
+  }
+  .card-link-secondary {
+    color: #aaa;
+  }
+
   .vuestic-card {
     box-shadow: $shadow;
 
