@@ -118,7 +118,6 @@
     methods: {
       updateList (value) {
         this.countriesArray = this.countriesList.filter(country => country.search(value) === 0)
-        console.log(this.countriesArray)
       },
       isFormFieldValid (field) {
         let isValid = false

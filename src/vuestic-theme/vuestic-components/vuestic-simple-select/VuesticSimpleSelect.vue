@@ -67,10 +67,6 @@
       this.$emit('input', this.value)
     },
 
-    updated: function () {
-      console.log(this.value)
-    },
-
     methods: {
       onKeyUp () {
         this.$emit('check', this.displayValue)
