@@ -1,6 +1,8 @@
 <template>
-  <div class="vuestic-tree-category">
-    <div class="vuestic-tree-category__header">
+  <div class="vuestic-tree-category"
+       :class="{'vuestic-tree-category--is-clickable': isClickable}"
+  >
+    <div class="vuestic-tree-category__header" @click="isClickable && (isOpenCached = ! isOpenCached)">
       <div class="vuestic-tree-category__header-checkbox">
         <square-with-icon
           @click.native="isOpenCached = ! isOpenCached"
@@ -44,7 +46,7 @@
           this.isOpenCached = isOpen
         },
         immediate: true,
-      }
+      },
     },
     props: {
       label: {
@@ -54,7 +56,12 @@
       isOpen: {
         type: Boolean,
         default: false,
-      }
+      },
+      // If `false`, you can toggle category only by clicking on icon. If `true` - on header as well.
+      isClickable: {
+        type: Boolean,
+        default: true,
+      },
     },
     computed: {
       checkboxIconClass () {
@@ -88,7 +95,7 @@
           })
         })
       },
-    }
+    },
   }
 </script>
 
@@ -96,7 +103,11 @@
   @import "../../../sass/variables";
 
   .vuestic-tree-category {
-
+    &--is-clickable {
+      .vuestic-tree-category__header {
+        cursor: pointer;
+      }
+    }
     &__header {
       display: flex;
     }
