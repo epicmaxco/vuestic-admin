@@ -26,7 +26,7 @@
   .file-upload-single-item {
     display: flex;
     &-name {
-      margin-right: 15px;
+      margin-right: 1rem;
     }
   }
 </style>

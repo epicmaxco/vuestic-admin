@@ -15,9 +15,9 @@
           <div class="file-upload-gallery-item-name">
             {{ file.name }}
           </div>
-          <!--<div class="file-upload-gallery-item-size">-->
-            <!--{{ file.size }}-->
-          <!--</div>-->
+          <div class="file-upload-gallery-item-size">
+            {{ file.size }}
+          </div>
           <button type="button"
                   class="btn-text btn-text--secondary file-upload-gallery-item-button"
                   @click="removeImage">
@@ -45,6 +45,11 @@
     props: {
       file: {
         default: {}
+      }
+    },
+    watch: {
+      file () {
+        this.convertToImg()
       }
     },
     methods: {
@@ -81,7 +86,7 @@
     position: relative;
     width: 100%;
     padding-top: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
     &:hover {
       .file-upload-gallery-item-overlay {
         display: flex;
@@ -95,7 +100,7 @@
       top: 0;
       left: 0;
       flex-direction: column;
-      padding: 8px;
+      padding: 0.5rem;
       background: rgba($vue-green, 0.8);
       z-index: 1;
     }
@@ -120,7 +125,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      padding: 10px 0 0;
+      padding: 0.7rem 0 0;
     }
   }
 </style>

@@ -12,7 +12,7 @@
       <input type="file"
              title=" "
              class="vuestic-file-upload-field-input"
-             :accept="acceptedFormats"
+             :accept="fileTypes"
              :multiple="type !== 'single'"
              @change="$emit('upload', $event)"
       >
@@ -40,11 +40,6 @@
       type: {
         type: String
       },
-    },
-    computed: {
-      acceptedFormats () {
-        return this.type === 'gallery' && !this.fileTypes ? 'image/x-png, image/gif, image/jpeg' : this.fileTypes
-      }
     }
   }
 </script>
@@ -57,7 +52,7 @@
   }
 
   .vuestic-file-upload-field {
-    padding: 0 0 20px;
+    padding: 0 0 1.3rem;
     overflow: hidden;
     display: inline-block;
     position: relative;
@@ -65,8 +60,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 150px;
-      padding: 0 30px;
+      height: 10rem;
+      padding: 0 2rem;
       transition: height .2s;
       overflow: visible;
       position: static;
