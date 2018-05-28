@@ -15,9 +15,9 @@
           <div class="file-upload-gallery-item-name">
             {{ file.name }}
           </div>
-          <div class="file-upload-gallery-item-size">
-            {{ file.size }}
-          </div>
+          <!--<div class="file-upload-gallery-item-size">-->
+            <!--{{ file.size }}-->
+          <!--</div>-->
           <button type="button"
                   class="btn-text btn-text--secondary file-upload-gallery-item-button"
                   @click="removeImage">

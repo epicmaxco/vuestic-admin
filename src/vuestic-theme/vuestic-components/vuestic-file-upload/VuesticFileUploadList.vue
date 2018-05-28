@@ -1,6 +1,5 @@
 <template>
-  <div
-      :class="`vuestic-file-upload-${type}`">
+  <div :class="`vuestic-file-upload-${type}`">
     <template v-if="type === 'list'">
       <vuestic-file-upload-list-item
           v-for="(file, index) in filesList"
@@ -19,7 +18,6 @@
         />
       </div>
     </template>
-
     <vuestic-file-upload-single-item
         v-if="type === 'single' && filesList.length"
         :file="filesList[0]"
@@ -50,41 +48,36 @@
     },
     computed: {
       filesList () {
-        let filesList = []
-        if (this.files.length) {
-          // console.log(this.files)
-          for (let i = 0; i < this.files.length; i++) {
-            let file = this.files[i]
-            let convertedFile = {
-              name: file.name,
-              size: this.formatBytes(file.size),
-              date: file.lastModifiedDate.toLocaleDateString('en-US', {
-                hour: '2-digit',
-                minute: '2-digit',
-                month: 'short',
-                day: 'numeric',
-                year: 'numeric'
-              })
-            }
-
-            if (this.type === 'gallery') {
-              convertedFile.image = file
-            }
-            filesList.push(convertedFile)
-          }
-        }
-
-        return filesList
+        return this.files.map(this.convertFile)
       },
     },
     methods: {
-      formatBytes (bytes) {
+      convertFile (file) {
+        return {
+          name: file.name,
+          size: this.formatSize(file.size),
+          date: this.formatDate(file.lastModifiedDate),
+          image: file
+        }
+      },
+      formatSize (bytes) {
         if (bytes === 0) return '0 Bytes'
         let k = 1024
         let sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
         let i = Math.floor(Math.log(bytes) / Math.log(k))
         return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
       },
+      formatDate (date) {
+        if (date) {
+          return date.toLocaleDateString('en-US', {
+            hour: '2-digit',
+            minute: '2-digit',
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric'
+          })
+        }
+      }
     }
   }
 </script>
