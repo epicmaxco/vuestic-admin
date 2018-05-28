@@ -5,8 +5,9 @@
         <vuestic-checkbox
           slot="checkbox"
           v-model="product.selected"
-        />
-        {{ product.name }}
+        >
+          {{ product.name }}
+        </vuestic-checkbox>
       </vuestic-tree-node>
     </vuestic-tree-category>
     <vuestic-tree-category isOpen label="Electronics">
@@ -14,8 +15,9 @@
         <vuestic-checkbox
           slot="checkbox"
           v-model="electronic.selected"
-        />
-        {{ electronic.name }}
+        >
+          {{ electronic.name }}
+        </vuestic-checkbox>
       </vuestic-tree-node>
     </vuestic-tree-category>
   </vuestic-tree-root>
