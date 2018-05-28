@@ -6,7 +6,7 @@
       <main id="content" class="content" role="main">
         <vuestic-breadcrumbs :breadcrumbs="breadcrumbs"/>
         <vuestic-pre-loader v-show="isLoading" ref="preLoader" class="pre-loader"></vuestic-pre-loader>
-        <router-view v-show="!isLoading"></router-view>
+        <router-view></router-view>
       </main>
     </div>
     <div slot="footer-section" class="made-by-footer">
