@@ -26,18 +26,6 @@
         Three
       </vuestic-tree-node>
     </vuestic-tree-category>
-
-    <vuestic-tree-category label="Category not clickable" :isClickable="false">
-      <vuestic-tree-node>
-        One
-      </vuestic-tree-node>
-      <vuestic-tree-node>
-        Two
-      </vuestic-tree-node>
-      <vuestic-tree-node>
-        Three
-      </vuestic-tree-node>
-    </vuestic-tree-category>
   </div>
 </template>
 
