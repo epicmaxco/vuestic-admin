@@ -71,7 +71,7 @@
   @import "~bootstrap/scss/mixins/breakpoints";
 
   .file-upload-list-item {
-    & + .file-upload-list-item {
+    & + & {
       margin-top: 8px;
     }
     min-height: 40px;
