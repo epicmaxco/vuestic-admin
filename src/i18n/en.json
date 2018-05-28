@@ -249,14 +249,14 @@
     "advanced": "Advanced"
   },
   "cards": {
+    "cards": "Cards",
     "contentText": "The unique stripes of zebras make them one of the animals most familiar to people.",
     "title": {
-      "dark" : "Dark background",
+      "dark": "Dark background",
       "bright": "Very bright card",
       "titleOnImageNoOverlay": "Title on image, but no overlay",
       "normal": "Perfectly normal card",
       "overlayAndTextOnImage": "Card with overlay and text on top of image",
-
       "stripeNoImage": "Striped card without image"
     },
     "button": {

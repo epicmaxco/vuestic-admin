@@ -1,7 +1,35 @@
 <template>
   <div class="row">
     <div class="col-md-12">
-      <div class="card-columns">
+      <vuestic-widget class="color-buttons" :headerText="$t('cards.cards')">
+        <div class="row">
+          <div class="col-sm-6 col-lg-4  d-flex justify-content-center">
+            <div class="btn-toolbar  d-inline-flex" role="toolbar"
+                 aria-label="Toolbar with button groups">
+              <div class="btn-group" role="group" aria-label="First group">
+                <button type="button"
+                        class="btn btn-primary btn-micro"
+                        @click="layout = 'fixed'"
+                        :class="{'focus': layout === 'fixed'}"
+                >
+                  Fixed
+                </button>
+                <button type="button"
+                        class="btn btn-primary btn-micro"
+                        @click="layout = 'floating'"
+                        :class="{'focus': layout === 'floating'}"
+                >
+                  Floating
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </vuestic-widget>
+    </div>
+
+    <div class="col-md-12">
+      <vuestic-card-container :layout="layout">
         <vuestic-card
           title-on-image
           overlay
@@ -40,7 +68,6 @@
           </template>
           {{ $t('cards.contentText') }}
         </vuestic-card>
-
 
         <vuestic-card
           image="https://picsum.photos/300/200/?image=1067"
@@ -144,7 +171,7 @@
             <a href="#">{{ $t('cards.link.feedback') }}</a>
           </p>
         </vuestic-card>
-      </div>
+      </vuestic-card-container>
     </div>
   </div>
 </template>
@@ -152,10 +179,15 @@
 <script>
   import VuesticCard
     from '../../../vuestic-theme/vuestic-components/vuestic-card/VuesticCard'
+  import VuesticCardContainer
+    from '../../../vuestic-theme/vuestic-components/vuestic-card/VuesticCardContainer'
 
   export default {
     name: 'cards',
-    components: { VuesticCard },
+    components: { VuesticCardContainer, VuesticCard },
+    data () {
+      return { layout: 'floating' }
+    },
   }
 </script>
 
