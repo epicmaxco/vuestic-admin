@@ -1,6 +1,6 @@
 <template>
   <div class="vuestic-tree-category">
-    <div class="vuestic-tree-category__header" @click="isClickable && (isOpenCached = ! isOpenCached)">
+    <div class="vuestic-tree-category__header" @click="isOpenCached = ! isOpenCached">
       <div class="vuestic-tree-category__header-checkbox">
         <square-with-icon :iconClass="checkboxIconClass"/>
       </div>
