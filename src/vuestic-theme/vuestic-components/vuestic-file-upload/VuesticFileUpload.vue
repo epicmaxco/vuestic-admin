@@ -31,15 +31,17 @@
       VuesticFileUploadContainer: VuesticFileUploadContainer
     },
     props: {
-      fileTypes: {
-        type: String,
-        default: ''
-      },
       type: {
         type: String,
         default: 'list',
         validator: function (value) {
           return ['list', 'gallery', 'single'].indexOf(value) !== -1
+        }
+      },
+      fileTypes: {
+        type: String,
+        default: function () {
+          return this.type === 'gallery' ? '.png, .jpg, .jpeg, .gif' : ''
         }
       },
       dropzone: {
@@ -56,11 +58,23 @@
     },
     methods: {
       uploadFile (e) {
-        const files = e.target.files || e.dataTransfer.files
+        let files = e.target.files || e.dataTransfer.files
+
+        // type validation
+        if (this.fileTypes) {
+          files = this.validateFileTypes(files)
+        }
         this.files.push(...files)
       },
       removeFile (index) {
         this.files.splice(index, 1)
+      },
+      validateFileTypes (files) {
+        return [...files].filter(file => {
+          const fileName = file.name
+          const extn = fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase()
+          return this.fileTypes.indexOf(extn) !== -1
+        })
       }
     },
     computed: {
@@ -82,7 +96,7 @@
   .vuestic-file-upload {
     &--dropzone {
       background-color: $lighter-green;
-      padding: 0 30px;
+      padding: 0 2rem;
       overflow: hidden;
     }
   }
@@ -94,8 +108,8 @@
     outline: none;
     cursor: pointer;
     padding: 0;
-    & + .btn-text {
-      margin-left: 24px;
+    & + & {
+      margin-left: 1.5rem;
     }
     &--primary {
       color: $vue-green;
@@ -111,7 +125,7 @@
   @media (max-width: 576px) {
     .vuestic-file-upload {
       &--dropzone {
-        padding: 0 15px;
+        padding: 0 1rem;
       }
     }
   }

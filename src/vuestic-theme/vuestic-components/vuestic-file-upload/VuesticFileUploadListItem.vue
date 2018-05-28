@@ -19,7 +19,8 @@
     </div>
     <div class="file-upload-list-item-buttons col-xl-2 col-12 d-flex">
       <button type="button"
-              class="btn-text btn-text--primary">
+              class="btn-text btn-text--primary"
+              @click="showFilePreview">
         {{ $t('fileUpload.preview') }}
       </button>
       <button type="button"
@@ -50,6 +51,9 @@
       }
     },
     methods: {
+      showFilePreview () {
+
+      },
       removeFile () {
         this.removed = true
         setTimeout(() => {
@@ -72,14 +76,14 @@
 
   .file-upload-list-item {
     & + & {
-      margin-top: 8px;
+      margin-top: 0.5rem;
     }
-    min-height: 40px;
+    min-height: 2.7rem;
     display: flex;
     background-color: $white;
     box-shadow: $sidebar-box-shadow;
-    margin: 0 15px;
-    padding: 8px 10px;
+    margin: 0 1rem;
+    padding: 0.5rem 0.7rem;
     &-size {
       color: $gray-light;
     }
@@ -99,7 +103,7 @@
   @media (max-width: 1200px) {
     .file-upload-list-item {
       &-buttons {
-        margin-top: 10px;
+        margin-top: 0.7rem;
         justify-content: flex-start;
       }
     }
