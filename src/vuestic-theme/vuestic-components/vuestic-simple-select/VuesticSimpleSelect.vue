@@ -1,18 +1,22 @@
 <template>
-  <div class="form-group with-icon-right dropdown select-form-group"
-       v-dropdown.closeOnMenuClick
-       :class="{'has-error': hasErrors()}">
+  <div
+    class="form-group with-icon-right dropdown select-form-group"
+    v-dropdown.isBlocked = "isShown"
+    :class="{'has-error': hasErrors()}">
     <div class="input-group dropdown-toggle">
       <input
+        @focus="showDropdown()"
         :class="{'has-value': !!displayValue}"
         v-model="displayValue"
-        :name="name" @keyup="onKeyUp()"
+        :name="name"
+        @keyup="onKeyUp()"
         required/>
       <i class="ion ion-ios-arrow-down icon-right input-icon"></i>
       <label class="control-label">{{label}}</label><i class="bar"></i>
       <small v-show="hasErrors()" class="help text-danger">{{ showRequiredError() }}</small>
     </div>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <div
+      class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <scrollbar ref="scrollbar">
         <div class="dropdown-menu-content">
           <div class="dropdown-item"
@@ -60,6 +64,10 @@
       name: {
         type: String,
         default: 'simple-select'
+      },
+      isShown: {
+        type: Boolean,
+        default: false
       }
     },
     mounted () {
@@ -68,9 +76,13 @@
     },
 
     methods: {
+      showDropdown () {
+        this.isShown = true
+      },
       onKeyUp () {
         this.$emit('check', this.displayValue)
       },
+
       isOptionSelected (option) {
         return this.value === option
       },
@@ -109,13 +121,6 @@
   @import "../../../sass/variables";
 
   .select-form-group {
-    .dropdown-toggle {
-      input {
-        color: transparent;
-        text-shadow: 0 0 0 #000;
-        cursor: pointer;
-      }
-    }
     .dropdown-menu {
       padding: 0;
       .vuestic-scrollbar {

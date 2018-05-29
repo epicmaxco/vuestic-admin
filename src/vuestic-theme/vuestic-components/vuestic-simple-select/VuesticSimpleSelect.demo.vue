@@ -31,9 +31,7 @@
       },
       countriesArray: {
         type: Array,
-        default: function () {
-          return CountriesList
-        }
+        default: () => CountriesList
       }
     },
 
