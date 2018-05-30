@@ -21,7 +21,7 @@ export default {
       })
     })
 
-    window.addEventListener('click', function () {
+    window.addEventListener('click', function (evt) {
       if (!isBlocked) {
         el.classList.remove('show')
         ddMenu.classList.remove('show')
@@ -35,9 +35,14 @@ export default {
 
     ddMenu.addEventListener('click', function (evt) {
       if (!closeOnMenuClick) {
-        console.log('ddMenu')
         evt.stopPropagation()
       }
     })
+  },
+  unbind: function (el, binding) {
+    window.removeEventListener('click')
+    el.querySelector('.dropdown-toggle').removeEventListener('click')
+    el.querySelector('.dropdown-menu').removeEventListener('click')
+    el.querySelector('.dropdown-menu-content').removeEventListener('click')
   }
 }
