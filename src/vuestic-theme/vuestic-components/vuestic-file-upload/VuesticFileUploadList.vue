@@ -3,7 +3,7 @@
     <template v-if="type === 'list'">
       <vuestic-file-upload-list-item
           v-for="(file, index) in filesList"
-          :key="index"
+          :key="file.name"
           :file="file"
           @remove="$emit('remove', index)"
       />
@@ -12,7 +12,7 @@
       <div class="row">
         <vuestic-file-upload-gallery-item
             v-for="(file, index) in filesList"
-            :key="index"
+            :key="file.name"
             :file="file"
             @remove="$emit('remove', index)"
         />
@@ -52,6 +52,10 @@
       },
     },
     methods: {
+      removeListItem (index) {
+        console.log(index)
+        this.$emit('remove', index)
+      },
       convertFile (file) {
         return {
           name: file.name,

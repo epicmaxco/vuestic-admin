@@ -10,11 +10,12 @@
         {{ $t('fileUpload.uploadFile') }}
       </button>
       <input type="file"
-             title=" "
              class="vuestic-file-upload-field-input"
+             ref="fieldInput"
+             title=" "
              :accept="fileTypes"
              :multiple="type !== 'single'"
-             @change="$emit('upload', $event)"
+             @change="changeFieldValue"
       >
     </div>
     <div class="vuestic-file-upload-main">
@@ -40,6 +41,19 @@
       type: {
         type: String
       },
+    },
+    computed: {
+      // Hack for hiding title in Safari
+      // fieldTitle () {
+      //   const isSafari = navigator.userAgent.indexOf('Safari') > -1 && navigator.userAgent.indexOf('Chrome') === -1
+      //   return isSafari ? '' : ' '
+      // }
+    },
+    methods: {
+      changeFieldValue (e) {
+        this.$emit('upload', e)
+        this.$refs.fieldInput.value = ''
+      }
     }
   }
 </script>
@@ -80,7 +94,6 @@
       color: transparent;
       opacity: 0;
       filter: alpha(opacity=0);
-      text-align: right;
       cursor: pointer;
     }
   }

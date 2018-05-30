@@ -70,9 +70,8 @@
   }
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss'>
   @import '../../../sass/_variables.scss';
-  @import "~bootstrap/scss/mixins/breakpoints";
 
   .file-upload-list-item {
     & + & {
