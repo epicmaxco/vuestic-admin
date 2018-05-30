@@ -52,10 +52,6 @@
       },
     },
     methods: {
-      removeListItem (index) {
-        console.log(index)
-        this.$emit('remove', index)
-      },
       convertFile (file) {
         return {
           name: file.name,
