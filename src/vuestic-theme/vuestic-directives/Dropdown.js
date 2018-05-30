@@ -21,7 +21,7 @@ export default {
       })
     })
 
-    window.addEventListener('click', function (evt) {
+    window.addEventListener('click', function () {
       if (!isBlocked) {
         el.classList.remove('show')
         ddMenu.classList.remove('show')
