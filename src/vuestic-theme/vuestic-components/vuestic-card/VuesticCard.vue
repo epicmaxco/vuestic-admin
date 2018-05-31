@@ -1,6 +1,7 @@
 <template>
   <div class="vuestic-card card"
        :class="computedClass"
+       v-masonry-tile
   >
     <template v-if="image">
       <img v-if="!titleOnImage" class="card-img-top" :src="image"

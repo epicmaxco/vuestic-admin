@@ -1,5 +1,6 @@
 <template>
   <div class="vuestic-card-container"
+       v-masonry item-selector="vuestic-card"
        :class="classComputed"
   >
     <slot></slot>

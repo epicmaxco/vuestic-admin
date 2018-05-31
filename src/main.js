@@ -12,11 +12,14 @@ import router from './router'
 import { sync } from 'vuex-router-sync'
 import VuesticPlugin from 'vuestic-theme/vuestic-plugin'
 import './i18n'
+import {VueMasonryPlugin} from 'vue-masonry'
 
 Vue.use(VuesticPlugin)
 
 // NOTE: workaround for VeeValidate + vuetable-2
 Vue.use(VeeValidate, {fieldsBagName: 'formFields'})
+
+Vue.use(VueMasonryPlugin)
 
 sync(store, router)
 

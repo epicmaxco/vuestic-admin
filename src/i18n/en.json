@@ -250,7 +250,10 @@
   },
   "cards": {
     "cards": "Cards",
+    "fixed": "Fixed",
+    "floating": "Floating",
     "contentText": "The unique stripes of zebras make them one of the animals most familiar to people.",
+    "rowHeight": "Row height",
     "title": {
       "dark": "Dark background",
       "bright": "Very bright card",
