@@ -24,10 +24,8 @@ export default {
     dropDownToggle.addEventListener('click', window.handleClickOnToggle)
 
     window.handleClickOnWindow = () => {
-      if (!isBlocked) {
-        el.classList.remove('show')
-        dropDownMenu.classList.remove('show')
-      }
+      el.classList.remove('show')
+      dropDownMenu.classList.remove('show')
     }
     window.addEventListener('click', window.handleClickOnWindow)
 
