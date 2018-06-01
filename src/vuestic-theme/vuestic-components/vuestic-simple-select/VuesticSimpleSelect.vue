@@ -9,8 +9,10 @@
         :class="{'has-value': !!displayValue}"
         v-model="displayValue"
         :name="name"
-        @keyup="onKeyUp()"
-        required/>
+        @keyup="updateList()"
+        required
+        :options="options"
+        :tempOptions="tempOptions"/>
       <i class="ion ion-ios-arrow-down icon-right input-icon"></i>
       <label class="control-label">{{label}}</label><i class="bar"></i>
       <small v-show="hasErrors()" class="help text-danger">{{ showRequiredError() }}</small>
@@ -20,7 +22,7 @@
       <scrollbar ref="scrollbar">
         <div class="dropdown-menu-content">
           <div class="dropdown-item"
-               :class="{'selected': isOptionSelected(option)}" v-for="option in options"
+               :class="{'selected': isOptionSelected(option)}" v-for="option in tempOptions"
                @click="selectOption(option)">
             <span class="ellipsis">{{optionKey ? option[optionKey] : option}}</span>
           </div>
@@ -45,15 +47,17 @@
     data () {
       return {
         validated: false,
-        displayValue: '',
-        currentOptions: this.options
+        displayValue: this.value,
+        currentOptions: this.options,
       }
     },
     props: {
       label: String,
+      tempOptions: Array,
       options: Array,
       value: {
         type: String,
+        default: '',
         required: true
       },
       optionKey: String,
@@ -112,7 +116,14 @@
       },
       showRequiredError () {
         return `The ${this.name} field is required`
-      }
+      },
+      updateList () {
+        console.log()
+        this.$emit('check', this.displayValue)
+        // let options = this.options
+        this.tempOptions = this.options.filter(item => item.search(this.displayValue) === 0)
+        console.log(this.options, this.tempOptions, this.displayValue)
+      },
     }
   }
 </script>

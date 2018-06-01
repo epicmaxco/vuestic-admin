@@ -36,8 +36,8 @@
           name="country"
           :required="true"
           ref="selectedCountrySelect"
-          @check="updateList($event)"
-          :options="countriesArray">
+          :options="countriesList"
+          :tempOptions="countriesArray">
         </vuestic-simple-select>
       </div>
       <div slot="page3" class="form-wizard-tab-content">
@@ -65,7 +65,6 @@
 
   export default {
     name: 'setup-profile-tab',
-
     props: {
       wizardType: {
         default: 'rich'
@@ -81,7 +80,6 @@
         }
       }
     },
-
     data () {
       return {
         steps: [
@@ -112,13 +110,11 @@
         ],
         name: '',
         selectedCountry: '',
-        countriesList: CountriesList
+        countriesList: CountriesList,
+        countriesArray: CountriesList
       }
     },
     methods: {
-      updateList (value) {
-        this.countriesArray = this.countriesList.filter(country => country.search(value) === 0)
-      },
       isFormFieldValid (field) {
         let isValid = false
         if (this.formFields[field]) {
