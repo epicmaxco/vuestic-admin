@@ -96,6 +96,10 @@
       return {
         langs: [
           {
+            code: 'br',
+            name: 'brazilian_portuguese'
+          },
+          {
             code: 'gb',
             name: 'english'
           },
