@@ -3,7 +3,6 @@ import Vuex from 'vuex'
 import VuexI18n from 'vuex-i18n' // load vuex i18n module
 
 import app from './modules/app'
-import menu from './modules/menu'
 
 import * as getters from './getters'
 
@@ -13,8 +12,7 @@ const store = new Vuex.Store({
   strict: true, // process.env.NODE_ENV !== 'production',
   getters,
   modules: {
-    app,
-    menu
+    app
   },
   state: {},
   mutations: {}

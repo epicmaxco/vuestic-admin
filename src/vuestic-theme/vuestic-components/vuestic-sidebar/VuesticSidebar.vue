@@ -2,7 +2,7 @@
   <aside class="sidebar" :class="classObject">
     <vuestic-scrollbar>
       <ul class="sidebar-menu">
-        <li v-for="(item, index) in this.items" :key="item.name">
+        <li v-for="(item, index) in menuItems" :key="item.name">
           <router-link
             class="sidebar-link"
             :to="item.path"
@@ -13,7 +13,7 @@
             {{item.meta.title | translate}}
           </router-link>
           <a href="#"
-             @click.prevent="onClick(item)"
+             @click="onClick(item)"
              class="sidebar-link"
              v-bind:class="{expanded: item.meta.expanded}"
              v-else>
@@ -68,10 +68,15 @@
         required: true,
       }
     },
+    data () {
+      return {
+        menuItems: this.items
+      }
+    },
     methods: {
       onClick (item) {
         this.$emit('toggle-item', item)
-      }
+      },
     },
     computed: {
       classObject: function () {
