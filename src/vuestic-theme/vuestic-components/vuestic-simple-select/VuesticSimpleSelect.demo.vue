@@ -15,28 +15,28 @@
           :options="countriesList"
           :tempOptions="countriesList">
         </vuestic-simple-select>
-        <!--<div class="test">-->
-        <!--<h4>Select something</h4>-->
-        <!--<vuestic-simple-select-->
-          <!--label="Select item"-->
-          <!--v-model="selectedDemoItem"-->
-          <!--name="demoitem"-->
-          <!--:required="true"-->
-          <!--ref="selectedDemoSelect"-->
-          <!--@check="updateList1($event)"-->
-          <!--:options="demoArray"-->
-          <!--:tempOptions="demoArray">-->
-        <!--</vuestic-simple-select>-->
-        <!--</div>-->
-        <!--<vuestic-simple-select-->
-          <!--label="Select item2"-->
-          <!--v-model="selectedDemoItem1"-->
-          <!--name="demo item"-->
-          <!--:required="true"-->
-          <!--@check="updateList2($event)"-->
-          <!--:options="demoArray1"-->
-          <!--:tempOptions="demoArray1">-->
-        <!--</vuestic-simple-select>-->
+        <div class="test">
+        <h4>Select something</h4>
+        <vuestic-simple-select
+          label="Select item"
+          v-model="selectedDemoItem"
+          name="demoitem"
+          :required="true"
+          ref="selectedDemoSelect"
+          @check="updateList1($event)"
+          :options="demoArray"
+          :tempOptions="demoArray">
+        </vuestic-simple-select>
+        </div>
+        <vuestic-simple-select
+          label="Select item2"
+          v-model="selectedDemoItem1"
+          name="demo item"
+          :required="true"
+          @check="updateList2($event)"
+          :options="demoArray1"
+          :tempOptions="demoArray1">
+        </vuestic-simple-select>
       </div>
     </vuestic-wizard>
 </template>
@@ -48,22 +48,22 @@
     name: 'setup-profile-tab',
 
     props: {
-      // selectedDemoItem: {
-      //   type: String,
-      //   default: ''
-      // },
-      // demoArray: {
-      //   type: Array,
-      //   default: () => DemoList
-      // },
+      selectedDemoItem: {
+        type: String,
+        default: ''
+      },
+      demoArray: {
+        type: Array,
+        default: () => ['aa', 'bbaba', 'caav', 'aabba', 'qwrrty']
+      },
       countriesList: {
         type: Array,
         default: () => CountriesList
       },
-      // demoArray1: {
-      //   type: Array,
-      //   default: () => ['lala', 'qwera', 'lalla', 'bbbba']
-      // }
+      demoArray1: {
+        type: Array,
+        default: () => ['lala', 'qwera', 'lalla', 'bbbba']
+      }
     },
 
     data () {
@@ -80,29 +80,12 @@
           },
         ],
         selectedCountry: '',
-        // selectedDemoItem: '',
+        selectedDemoItem: '',
+        selectedDemoItem1: '',
         countriesList: CountriesList,
         countriesArray: CountriesList,
-        // demoArray: DemoList
       }
     },
-    // methods: {
-    //   updateList () {
-    //     console.log(this.countriesList, this.countriesArray)
-    //   },
-    //   updateList1 (value) {
-    //     if (value === '') {
-    //       this.demoArray = ['aaa', 'bbb', 'cccc', 'dddd', 'eeee', 'fffff', 'abcd', 'aabbccdd']
-    //     } else {
-    //       this.demoArray = DemoList.filter(item => item.search(value) === 0)
-    //       console.log(value)
-    //       console.log(this.demoArray.filter(item => item.search(value) === 0))
-    //     }
-    //   },
-    //   updateList2 (value) {
-    //     this.demoArray1 = this.demoArray1.filter(item => item.search(value) === 0)
-    //   }
-    // }
   }
 </script>
 
