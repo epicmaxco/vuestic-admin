@@ -1,5 +1,5 @@
 <template>
-  <div class="layout" v-resize>
+  <div class="layout" v-resize :class="classObject">
     <slot name="navbar-section"></slot>
     <slot name="sidebar-section"></slot>
     <slot name="content-section"></slot>
@@ -22,6 +22,13 @@
     },
     directives: {
       resize: Resize
+    },
+    computed: {
+      classObject: function () {
+        return {
+          'layout-fixed': this.fixed
+        }
+      }
     }
   }
 </script>

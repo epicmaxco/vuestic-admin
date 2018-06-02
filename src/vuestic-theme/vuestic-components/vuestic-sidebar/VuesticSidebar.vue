@@ -45,12 +45,9 @@
 </template>
 
 <script>
-
   import Expanding from 'vue-bulma-expanding/src/Expanding'
-
   export default {
     name: 'vuestic-sidebar',
-
     components: {
       Expanding,
     },
@@ -94,17 +91,13 @@
   @import "~bootstrap/scss/mixins/breakpoints";
   @import "~bootstrap/scss/functions";
   @import "~bootstrap/scss/variables";
-
   .sidebar {
-
     @include media-breakpoint-down(md) {
-
       top: $sidebar-mobile-top;
       left: $sidebar-mobile-left;
       width: $sidebar-mobile-width;
       z-index: $sidebar-mobile-z-index;
     }
-
     height: $sidebar-viewport-height;
     .vuestic-scrollbar {
       height: 100%;
@@ -115,45 +108,37 @@
         background: $sidebar-bg;
       }
     }
-
     position: absolute;
     width: $sidebar-width;
     top: $sidebar-top;
     left: $sidebar-left;
     transition: all 0.2s ease;
     opacity: 1;
-
     &.sidebar-hidden_without-animation {
       transition: none;
     }
-
     &.sidebar-hidden {
       margin-left: $sidebar-left;
     }
-
     &.sidebar-hidden + .content-wrap {
       margin-left: $sidebar-left;
       @include media-breakpoint-down(md) {
         padding: $content-mobile-wrap;
         margin-left: 0;
-
         &.sidebar-hidden + .content-wrap {
           margin-left: 0;
           padding-top: $content-mobile-wrap-sb-top;
         }
       }
     }
-
     @include media-breakpoint-down(md) {
       padding: $content-mobile-wrap;
       margin-left: 0;
-
       &.sidebar-hidden {
         margin-left: 0;
         padding-top: $content-mobile-wrap-sb-top;
       }
     }
-
     &.sidebar-hidden {
       @include media-breakpoint-down(md) {
         top: $sidebar-hidden-top-mobile;
@@ -165,11 +150,9 @@
       opacity: 0;
       z-index: $min-z-index;
     }
-
     .layout-fixed & {
       position: fixed;
     }
-
     .sidebar-link {
       position: relative;
       height: $sidebar-link-height;
@@ -179,18 +162,15 @@
       align-items: center;
       cursor: pointer;
       text-decoration: none;
-
       &.router-link-active,
       &:hover {
         color: $white;
         background-color: $sidebar-link-active-bg;
-
         .sidebar-menu-item-icon,
         .expand-icon {
           color: $white;
         }
       }
-
       .expand-icon {
         position: absolute;
         right: $sidebar-arrow-right;
@@ -198,18 +178,15 @@
         font-weight: bold;
         transition: transform 0.3s ease;
       }
-
       &.expanded {
         .expand-icon {
           transform: rotate(180deg);
         }
       }
-
       .sidebar-menu-item-icon {
         font-size: $sidebar-menu-item-icon-size;
         color: $vue-green;
         margin-right: 14px;
-
         &.fa-dashboard {
           /* Temp fix */
           position: relative;
@@ -217,38 +194,31 @@
         }
       }
     }
-
     .sidebar-submenu-link {
       height: $sidebar-submenu-link-height;
     }
-
     .sidebar-menu,
     .sidebar-submenu {
       list-style: none;
       padding-left: 0;
-
       li {
         display: block;
         padding-left: 0;
       }
     }
-
     .sidebar-submenu {
       .sidebar-link {
         padding-left: $sidebar-submenu-link-pl;
         font-size: $font-size-smaller;
       }
     }
-
     .sidebar-menu {
       max-height: 100%;
       margin-bottom: 0;
     }
-
     .expand-icon {
       color: $vue-green;
     }
-
     a {
       color: $white;
       text-decoration: none;

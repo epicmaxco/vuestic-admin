@@ -20,7 +20,7 @@
   import VuesticLayout from '../../vuestic-theme/vuestic-components/vuestic-layout/VuesticLayout'
   import AppNavbar from './app-navbar/AppNavbar'
   import AppSidebar from './app-sidebar/AppSidebar'
-  import store from './../../store'
+  import store from '../../store/index'
   import {mapGetters} from 'vuex'
 
   export default {
