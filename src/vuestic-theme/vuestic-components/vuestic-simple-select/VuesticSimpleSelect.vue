@@ -118,11 +118,8 @@
         return `The ${this.name} field is required`
       },
       updateList () {
-        console.log()
         this.$emit('check', this.displayValue)
-        // let options = this.options
         this.tempOptions = this.options.filter(item => item.search(this.displayValue) === 0)
-        console.log(this.options, this.tempOptions, this.displayValue)
       },
     }
   }
