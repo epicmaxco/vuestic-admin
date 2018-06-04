@@ -14,7 +14,8 @@ export default {
       path: '/maps/google-maps',
       component: lazyLoading('maps/google-maps/GoogleMapsPage'),
       meta: {
-        title: 'Google Maps'
+        title: 'Google Maps',
+        iconClass: 'fa fa-circle-o'
       }
     },
     {
@@ -22,7 +23,8 @@ export default {
       path: '/maps/yandex-maps',
       component: lazyLoading('maps/yandex-maps/YandexMapsPage'),
       meta: {
-        title: 'Yandex Maps'
+        title: 'Yandex Maps',
+        iconClass: 'fa fa-circle-o'
       }
     },
     {
@@ -30,7 +32,8 @@ export default {
       path: '/maps/leaflet-maps',
       component: lazyLoading('maps/leaflet-maps/LeafletMapsPage'),
       meta: {
-        title: 'Leaflet Maps'
+        title: 'Leaflet Maps',
+        iconClass: 'fa fa-circle-o'
       }
     },
     {
@@ -38,7 +41,8 @@ export default {
       path: '/maps/bubble-maps',
       component: lazyLoading('maps/bubble-maps/BubbleMapsPage'),
       meta: {
-        title: 'Bubble Maps'
+        title: 'Bubble Maps',
+        iconClass: 'fa fa-circle-o'
       }
     },
     {
@@ -46,7 +50,8 @@ export default {
       path: '/maps/line-maps',
       component: lazyLoading('maps/line-maps/LineMapsPage'),
       meta: {
-        title: 'Line Maps'
+        title: 'Line Maps',
+        iconClass: 'fa fa-circle-o'
       }
     }
   ]

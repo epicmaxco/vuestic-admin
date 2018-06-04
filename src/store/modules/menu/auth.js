@@ -18,7 +18,8 @@ export default {
       meta: {
         default: false,
         title: 'menu.login',
-        newWindow: true
+        newWindow: true,
+        iconClass: 'fa fa-circle-o'
       }
     },
     {
@@ -28,7 +29,8 @@ export default {
       meta: {
         default: false,
         title: 'menu.signUp',
-        newWindow: true
+        newWindow: true,
+        iconClass: 'fa fa-circle-o'
       }
     }
   ]
