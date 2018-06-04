@@ -13,7 +13,8 @@ export default {
       path: '/forms/form-elements',
       component: lazyLoading('forms/form-elements/FormElements'),
       meta: {
-        title: 'menu.formElements'
+        title: 'menu.formElements',
+        iconClass: 'fa fa-circle-o'
       }
     },
     {
@@ -21,7 +22,8 @@ export default {
       path: '/forms/form-wizard',
       component: lazyLoading('forms/form-wizard/FormWizard'),
       meta: {
-        title: 'menu.formWizards'
+        title: 'menu.formWizards',
+        iconClass: 'fa fa-circle-o'
       }
     },
     {
@@ -29,7 +31,8 @@ export default {
       path: '/forms/medium-editor',
       component: lazyLoading('forms/medium-editor/MediumEditor'),
       meta: {
-        title: 'Medium Editor'
+        title: 'Medium Editor',
+        iconClass: 'fa fa-circle-o'
       }
     }
   ]

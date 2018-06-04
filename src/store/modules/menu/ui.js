@@ -13,7 +13,8 @@ export default {
       path: '/ui/typography',
       component: lazyLoading('ui/typography/Typography'),
       meta: {
-        title: 'menu.typography'
+        title: 'menu.typography',
+        iconClass: 'fa fa-circle-o'
       }
     },
     {
@@ -21,7 +22,8 @@ export default {
       path: '/ui/buttons',
       component: lazyLoading('ui/buttons/Buttons'),
       meta: {
-        title: 'menu.buttons'
+        title: 'menu.buttons',
+        iconClass: 'fa fa-circle-o'
       }
     },
     {
@@ -29,14 +31,16 @@ export default {
       path: '/ui/notifications',
       component: lazyLoading('ui/notifications/Notifications'),
       meta: {
-        title: 'menu.notifications'
+        title: 'menu.notifications',
+        iconClass: 'fa fa-circle-o'
       }
     },
     {
       path: '/ui/icons',
       component: lazyLoading('ui/icons/Icons'),
       meta: {
-        title: 'menu.icons'
+        title: 'menu.icons',
+        iconClass: 'fa fa-circle-o'
       },
       children: [
         {
@@ -61,7 +65,8 @@ export default {
       path: '/ui/spinners',
       component: lazyLoading('ui/spinners/Spinners'),
       meta: {
-        title: 'menu.spinners'
+        title: 'menu.spinners',
+        iconClass: 'fa fa-circle-o'
       }
     },
     {
@@ -69,7 +74,8 @@ export default {
       path: '/ui/grid',
       component: lazyLoading('ui/grid/Grid'),
       meta: {
-        title: 'menu.grid'
+        title: 'menu.grid',
+        iconClass: 'fa fa-circle-o'
       }
     },
     {
@@ -77,7 +83,8 @@ export default {
       path: '/ui/modals',
       component: lazyLoading('ui/modals/Modals'),
       meta: {
-        title: 'menu.modals'
+        title: 'menu.modals',
+        iconClass: 'fa fa-circle-o'
       }
     },
     {
@@ -85,7 +92,8 @@ export default {
       path: '/ui/tree-view',
       component: lazyLoading('ui/tree-view/TreeView'),
       meta: {
-        title: 'menu.treeView'
+        title: 'menu.treeView',
+        iconClass: 'fa fa-circle-o'
       }
     },
   ]
