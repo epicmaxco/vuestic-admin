@@ -25,6 +25,14 @@ export default {
       }
     },
     {
+      name: 'Color Pickers',
+      path: '/ui/ColorPickers',
+      component: lazyLoading('ui/color-pickers/ColorPickers'),
+      meta: {
+        title: 'Color Pickers'
+      }
+    },
+    {
       name: 'Notifications',
       path: '/ui/notifications',
       component: lazyLoading('ui/notifications/Notifications'),
