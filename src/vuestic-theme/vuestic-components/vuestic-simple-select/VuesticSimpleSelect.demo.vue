@@ -1,8 +1,7 @@
 <template>
     <vuestic-wizard
       :steps="steps"
-      wizard-layout="vertical"
-      :wizard-type="wizardType">
+      wizard-layout="vertical">
       <div slot="page" class="form-wizard-tab-content">
         <h4>Select your country</h4>
         <vuestic-simple-select
@@ -28,15 +27,6 @@
           :tempOptions="demoArray">
         </vuestic-simple-select>
         </div>
-        <vuestic-simple-select
-          label="Select item2"
-          v-model="selectedDemoItem1"
-          name="demo item"
-          :required="true"
-          @check="updateList2($event)"
-          :options="demoArray1"
-          :tempOptions="demoArray1">
-        </vuestic-simple-select>
       </div>
     </vuestic-wizard>
 </template>
@@ -45,8 +35,6 @@
   import CountriesList from 'data/CountriesList'
   // import DemoList from 'data/DemoList'
   export default {
-    name: 'setup-profile-tab',
-
     props: {
       selectedDemoItem: {
         type: String,
@@ -60,10 +48,6 @@
         type: Array,
         default: () => CountriesList
       },
-      demoArray1: {
-        type: Array,
-        default: () => ['lala', 'qwera', 'lalla', 'bbbba']
-      }
     },
 
     data () {
@@ -73,16 +57,10 @@
             slot: 'page',
             onNext: () => {
               this.$refs.selectedCountrySelect.validate()
-            },
-            isValid: () => {
-              return this.$refs.selectedDemoSelect.isValid()
             }
           },
         ],
         selectedCountry: '',
-        selectedDemoItem: '',
-        selectedDemoItem1: '',
-        countriesList: CountriesList,
         countriesArray: CountriesList,
       }
     },

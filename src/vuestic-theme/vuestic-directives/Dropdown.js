@@ -1,14 +1,13 @@
 export default {
+
   bind: function (el, binding) {
     let ddToggle = el.querySelector('.dropdown-toggle')
     let ddToggleInput = el.querySelector('.dropdown-toggle input')
     let ddMenu = el.querySelector('.dropdown-menu')
-    let ddItem = el.querySelector('.dropdown-menu-content')
     let closeOnMenuClick = binding.modifiers.closeOnMenuClick
     let isBlocked = binding.modifiers.isBlocked
 
     ddToggle.addEventListener('click', function (evt) {
-      console.log(evt.target)
       evt.preventDefault()
       let isShown = el.classList.contains('show')
       setTimeout(() => {
@@ -24,18 +23,15 @@ export default {
       })
     })
 
-    window.addEventListener('click', function (evt) {
-      if (evt.target !== ddToggleInput) {
+    el.a = (event) => {
+      console.log('idioot')
+      if (event.target !== ddToggleInput) {
         el.classList.remove('show')
         ddMenu.classList.remove('show')
       }
-    })
+    }
 
-    ddItem.addEventListener('click', function (evt) {
-      el.classList.remove('show')
-      ddMenu.classList.remove('show')
-      evt.stopPropagation()
-    })
+    window.addEventListener('click', el.a)
 
     ddMenu.addEventListener('click', function (evt) {
       if (!closeOnMenuClick) {
@@ -43,7 +39,7 @@ export default {
       }
     })
   },
-  unbind: () => {
-    window.removeEventListener('click', this.listener)
+  unbind: (el) => {
+    window.removeEventListener('click', el.a)
   }
 }
