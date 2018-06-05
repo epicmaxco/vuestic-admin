@@ -1,7 +1,6 @@
 <template>
-  <vuestic-sidebar :hidden="this.opened"
+  <vuestic-sidebar :hidden="this.isOpen"
                    :toggleWithoutAnimation="toggleWithoutAnimation"
-                   :items="menuItems"
                    @toggle-item="toggleMenuItem($event)">
     <template slot="menu">
       <sidebar-link
@@ -158,18 +157,12 @@
       SidebarLinkGroup
     },
     props: {
-      opened: {
+      isOpen: {
         type: Boolean,
         required: true
       }
     },
-    methods: {
-      mounted () {
-        this.sidebar = this.$refs.sidebar
-        console.log(this.sidebar)
-      },
-    },
-    watch: {
+    /* watch: {
       $route (route) {
         const parent = _findMatchingParentMenuItem.call(this, route.name) || {}
         this.menuItems.forEach((item) => {
@@ -179,7 +172,7 @@
           })
         })
       }
-    },
+    }, */
     computed: {
       ...mapGetters([
         'toggleWithoutAnimation'
@@ -187,11 +180,11 @@
     }
   }
 
-  function _findMatchingParentMenuItem (itemName) {
+  /* function _findMatchingParentMenuItem (itemName) {
     let parentItem
     this.menuItems.forEach((item) => {
       parentItem = (item.children && item.children.find((child) => child.name === itemName)) ? item : parentItem
     })
     return parentItem
-  }
+  } */
 </script>

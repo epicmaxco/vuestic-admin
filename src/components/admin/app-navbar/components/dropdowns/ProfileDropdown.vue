@@ -23,16 +23,7 @@
     props: {
       options: {
         type: Array,
-        default () {
-          return [
-            {
-              name: 'profile'
-            },
-            {
-              name: 'logout'
-            }
-          ]
-        }
+        required: true
       }
     },
   }

@@ -1,9 +1,12 @@
 <template>
   <div class="layout" v-resize :class="classObject">
-    <slot name="navbar"></slot>
-    <slot name="sidebar"></slot>
-    <slot name="content"></slot>
-    <slot name="footer"></slot>
+    <slot></slot>
+    <div class="content-wrap" id="content-wrap">
+      <slot name="content"></slot>
+    </div>
+    <div class="made-by-footer">
+      <slot name="footer"></slot>
+    </div>
   </div>
 </template>
 
@@ -52,29 +55,27 @@
         }
       }
     }
-  }
+    .content-wrap {
+      margin-left: $content-wrap-ml;
+      transition: margin-left 0.3s ease;
+      padding: $layout-padding $layout-padding-right $content-wrap-pb 0;
 
-  .content-wrap {
-    margin-left: $content-wrap-ml;
-    transition: margin-left 0.3s ease;
-    padding: $layout-padding $layout-padding-right $content-wrap-pb 0;
-
-    .pre-loader {
-      position: absolute;
-      left: $vuestic-preloader-left;
-      top: $vuestic-preloader-top;
+      .pre-loader {
+        position: absolute;
+        left: $vuestic-preloader-left;
+        top: $vuestic-preloader-top;
+      }
     }
-  }
-
-  .made-by-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 25px;
-    padding-bottom: $made-by-footer-pb;
-    position: absolute;
-    bottom: 0;
-    height: calc(#{$layout-padding} + #{$widget-mb});
-    width: 100%;
+    .made-by-footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 25px;
+      padding-bottom: $made-by-footer-pb;
+      position: absolute;
+      bottom: 0;
+      height: calc(#{$layout-padding} + #{$widget-mb});
+      width: 100%;
+    }
   }
 </style>

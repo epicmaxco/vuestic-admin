@@ -1,7 +1,7 @@
 <template>
   <span class="header-selector"
        :class="{ 'i-menu-expanded': !value, 'i-menu-collapsed': value }"
-       @click="onClick()"
+       @click="$emit('input', !value)"
   />
 </template>
 
@@ -13,21 +13,16 @@
         type: Boolean,
         required: true
       },
-    },
-    methods: {
-      onClick () {
-        this.$emit('input', !this.value)
-      }
     }
   }
 </script>
 
 <style lang="scss">
 
+  @import "../../../../sass/mixins";
+
   .header-selector {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center();
     cursor: pointer;
   }
 

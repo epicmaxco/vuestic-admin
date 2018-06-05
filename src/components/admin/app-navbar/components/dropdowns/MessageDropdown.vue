@@ -23,18 +23,7 @@
     props: {
       options: {
         type: Array,
-        default () {
-          return [
-            {
-              name: 'new',
-              details: { name: 'Oleg M' }
-            },
-            {
-              name: 'new',
-              details: { name: 'Andrei H' }
-            },
-          ]
-        }
+        required: true
       }
     },
   }

@@ -3,45 +3,8 @@
     <vuestic-scrollbar>
       <ul class="sidebar-menu">
         <slot name="menu"></slot>
-        <!--<li v-for="(item, index) in this.items" :key="item.name">
-          <router-link
-            class="sidebar-link"
-            :to="item.path"
-            :target="item.meta.newWindow ? '_blank' : '_self'"
-            @click="onClick(item)"
-            v-if="item.path">
-            <i class="sidebar-menu-item-icon" v-bind:class="item.meta.iconClass"></i>
-            {{item.meta.title | translate}}
-          </router-link>
-          <a href="#"
-             @click="onClick(item)"
-             class="sidebar-link"
-             v-bind:class="{expanded: item.meta.expanded}"
-             v-else>
-            <i class="sidebar-menu-item-icon" v-bind:class="item.meta.iconClass"></i>
-            {{item.meta.title | translate}}
-            <i class="expand-icon fa fa-angle-down"></i>
-          </a>
-          <expanding>
-            <ul class="sidebar-submenu in" v-show="item.meta.expanded">
-              <li v-for="childItem in item.children" :key="childItem.name">
-                <router-link
-                  class="sidebar-link sidebar-submenu-link"
-                  :to="childItem.path"
-                  :target="childItem.meta.newWindow ? '_blank' : '_self'">
-                  <i class="sidebar-menu-item-icon"
-                     v-bind:class="childItem.meta.iconClass"
-                     v-if="childItem.meta.iconClass"
-                  ></i>
-                  {{childItem.meta.title | translate}}
-                </router-link>
-              </li>
-            </ul>
-          </expanding>
-        </li>-->
       </ul>
     </vuestic-scrollbar>
-
   </aside>
 </template>
 
@@ -53,10 +16,6 @@
       Expanding,
     },
     props: {
-      items: {
-        type: Array,
-        required: true
-      },
       hidden: {
         type: Boolean,
         required: true,
@@ -65,11 +24,6 @@
         type: Boolean,
         required: true,
       }
-    },
-    methods: {
-      onClick (item) {
-        this.$emit('toggle-item', item)
-      },
     },
     computed: {
       classObject: function () {

@@ -1,6 +1,6 @@
 <template>
-  <div class="language-selector dropdown" v-dropdown.closeOnMenuClick>
-    <a class="language-selector-button dropdown-toggle" href="#">
+  <div class="language-dropdown dropdown" v-dropdown.closeOnMenuClick>
+    <a class="language-dropdown-button dropdown-toggle" href="#">
       <span class="flag-icon flag-icon-large" :class="flagIconClass(currentLanguage())"></span>
     </a>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -27,18 +27,7 @@
     props: {
       options: {
         type: Array,
-        default () {
-          return [
-            {
-              code: 'gb',
-              name: 'english'
-            },
-            {
-              code: 'es',
-              name: 'spanish'
-            }
-          ]
-        }
+        required: true
       }
     },
 
@@ -65,7 +54,7 @@
   @import "../../../../../../node_modules/bootstrap/scss/functions";
   @import "../../../../../../node_modules/bootstrap/scss/variables";
 
-  .language-selector {
+  .language-dropdown {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -75,7 +64,7 @@
     height: 100%;
     padding: 0;
 
-    .language-selector-button {
+    .language-dropdown-button {
       display: flex;
       align-items: center;
       justify-content: center;

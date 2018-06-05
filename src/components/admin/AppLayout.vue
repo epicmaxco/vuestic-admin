@@ -1,17 +1,13 @@
 <template>
   <vuestic-layout>
-    <app-navbar slot="navbar" :value="opened" @toggle-menu="toggleSidebar"/>
-    <app-sidebar slot="sidebar" :opened="opened"/>
-    <div slot="content" class="content-wrap" id="content-wrap">
-      <main id="content" class="content" role="main">
-        <vuestic-breadcrumbs :breadcrumbs="breadcrumbs"/>
-        <vuestic-pre-loader v-show="isLoading" ref="preLoader" class="pre-loader"></vuestic-pre-loader>
-        <router-view></router-view>
-      </main>
-    </div>
-    <div slot="footer" class="made-by-footer">
-      ©2018. Made by&nbsp;<a href="http://epicmax.co" target="_blank">Epicmax </a>
-    </div>
+    <app-navbar :isOpen="opened" @toggle-menu="toggleSidebar"/>
+    <app-sidebar :isOpen="opened"/>
+    <main slot="content" id="content" class="content" role="main">
+      <vuestic-breadcrumbs :breadcrumbs="breadcrumbs"/>
+      <vuestic-pre-loader v-show="isLoading" ref="preLoader" class="pre-loader"></vuestic-pre-loader>
+      <router-view></router-view>
+    </main>
+    <span slot="footer">©2018. Made by&nbsp;<a href="http://epicmax.co" target="_blank">Epicmax </a></span>
   </vuestic-layout>
 </template>
 
@@ -20,7 +16,6 @@
   import VuesticLayout from '../../vuestic-theme/vuestic-components/vuestic-layout/VuesticLayout'
   import AppNavbar from './app-navbar/AppNavbar'
   import AppSidebar from './app-sidebar/AppSidebar'
-  import store from '../../store/index'
   import {mapGetters} from 'vuex'
 
   export default {
@@ -39,7 +34,6 @@
     methods: {
       toggleSidebar (opened) {
         this.opened = opened
-        store.dispatch('toggleSidebar', this.opened)
       }
     },
     computed: {

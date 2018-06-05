@@ -9,11 +9,10 @@
       <div class="header-elem-wrapper">
         <slot name="selector"></slot>
       </div>
-      <slot name="center"></slot>
-      <slot name="message"></slot>
-      <slot name="notification"></slot>
-      <slot name="language"></slot>
-      <slot name="profile"></slot>
+      <div class="header-elem-wrapper navbar-text offset-md-1 col-md-7">
+        <slot name="center"></slot>
+      </div>
+      <slot></slot>
     </div>
   </nav>
 </template>
@@ -55,6 +54,26 @@
     padding-left: $nav-padding-left;
     padding-right: $nav-padding-right;
     background-color: $top-nav-bg;
+
+    .notify {
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: -6px;
+        top: -6px;
+        background-color: $brand-primary;
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+      }
+    }
+
+    .i-nav-notification.notify::after {
+      right: -4px;
+      top: 0;
+    }
 
     .navbar-logo-container {
       display: flex;

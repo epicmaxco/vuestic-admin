@@ -19,27 +19,22 @@ export default new Router({
   routes: [
     ...demoRoutes,
     {
+      path: '*',
+      redirect: { name: 'Dashboard' }
+    },
+    {
       name: 'auth',
       path: '/auth',
       component: AuthLayout,
-      meta: {
-        title: 'menu.auth',
-      },
       children: [
         {
           path: '/auth/login',
           component: lazyLoading('auth/login/Login'),
-          meta: {
-            default: true,
-            title: 'menu.login'
-          }
+          default: true,
         },
         {
           path: '/auth/signup',
-          component: lazyLoading('auth/signup/Signup'),
-          meta: {
-            title: 'menu.signUp'
-          }
+          component: lazyLoading('auth/signup/Signup')
         },
       ]
     },
@@ -49,6 +44,7 @@ export default new Router({
       component: AppLayout,
       children: [
         {
+          name: 'Dashboard',
           path: '/admin/dashboard',
           component: lazyLoading('dashboard/Dashboard'),
           default: true

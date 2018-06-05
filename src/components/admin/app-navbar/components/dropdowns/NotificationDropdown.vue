@@ -23,48 +23,8 @@
     props: {
       options: {
         type: Array,
-        default () {
-          return [
-            {
-              name: 'sentMessage',
-              details: { name: 'Vasily S' }
-            },
-            {
-              name: 'uploadedZip',
-              details: { name: 'Oleg M', type: 'typography component' }
-            },
-            {
-              name: 'startedTopic',
-              details: { name: 'Andrei H' }
-            }
-          ]
-        }
+        required: true
       }
     },
   }
 </script>
-
-<style lang="scss">
-  @import "../../../../../sass/variables";
-
-  .notify {
-    position: relative;
-
-    &::after {
-      content: '';
-      position: absolute;
-      right: -6px;
-      top: -6px;
-      background-color: $brand-primary;
-      height: 12px;
-      width: 12px;
-      border-radius: 50%;
-    }
-  }
-
-  .i-nav-notification.notify::after {
-    right: -4px;
-    top: 0;
-  }
-
-</style>
