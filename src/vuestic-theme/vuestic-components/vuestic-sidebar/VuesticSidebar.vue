@@ -2,7 +2,8 @@
   <aside class="sidebar" :class="classObject">
     <vuestic-scrollbar>
       <ul class="sidebar-menu">
-        <li v-for="(item, index) in menuItems" :key="item.name">
+        <slot name="menu"></slot>
+        <!--<li v-for="(item, index) in this.items" :key="item.name">
           <router-link
             class="sidebar-link"
             :to="item.path"
@@ -37,7 +38,7 @@
               </li>
             </ul>
           </expanding>
-        </li>
+        </li>-->
       </ul>
     </vuestic-scrollbar>
 
@@ -63,11 +64,6 @@
       toggleWithoutAnimation: {
         type: Boolean,
         required: true,
-      }
-    },
-    data () {
-      return {
-        menuItems: this.items
       }
     },
     methods: {
@@ -152,76 +148,6 @@
     }
     .layout-fixed & {
       position: fixed;
-    }
-    .sidebar-link {
-      position: relative;
-      height: $sidebar-link-height;
-      padding-left: $sidebar-link-pl;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      cursor: pointer;
-      text-decoration: none;
-      &.router-link-active,
-      &:hover {
-        color: $white;
-        background-color: $sidebar-link-active-bg;
-        .sidebar-menu-item-icon,
-        .expand-icon {
-          color: $white;
-        }
-      }
-      .expand-icon {
-        position: absolute;
-        right: $sidebar-arrow-right;
-        top: calc(50% - #{$font-size-root} / 2);
-        font-weight: bold;
-        transition: transform 0.3s ease;
-      }
-      &.expanded {
-        .expand-icon {
-          transform: rotate(180deg);
-        }
-      }
-      .sidebar-menu-item-icon {
-        font-size: $sidebar-menu-item-icon-size;
-        color: $vue-green;
-        margin-right: 14px;
-        &.fa-dashboard {
-          /* Temp fix */
-          position: relative;
-          top: -2px;
-        }
-      }
-    }
-    .sidebar-submenu-link {
-      height: $sidebar-submenu-link-height;
-    }
-    .sidebar-menu,
-    .sidebar-submenu {
-      list-style: none;
-      padding-left: 0;
-      li {
-        display: block;
-        padding-left: 0;
-      }
-    }
-    .sidebar-submenu {
-      .sidebar-link {
-        padding-left: $sidebar-submenu-link-pl;
-        font-size: $font-size-smaller;
-      }
-    }
-    .sidebar-menu {
-      max-height: 100%;
-      margin-bottom: 0;
-    }
-    .expand-icon {
-      color: $vue-green;
-    }
-    a {
-      color: $white;
-      text-decoration: none;
     }
   }
 </style>

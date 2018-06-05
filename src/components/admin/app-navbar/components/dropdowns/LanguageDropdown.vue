@@ -4,8 +4,11 @@
       <span class="flag-icon flag-icon-large" :class="flagIconClass(currentLanguage())"></span>
     </a>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" :class="{ active: option.code === currentLanguage() }"
-        v-for="(option, id) in options" :key="id" @click="setLanguage(option.code)">
+      <a class="dropdown-item"
+         :class="{ active: option.code === currentLanguage() }"
+         v-for="(option, id) in options"
+         :key="id"
+         @click="setLanguage(option.code)">
         <span class="flag-icon flag-icon-small" :class="flagIconClass(option.code)"></span>
         <span class="dropdown-item-text ellipsis">
           {{ `language.${option.name}` | translate }}

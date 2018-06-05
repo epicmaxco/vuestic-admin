@@ -1,5 +1,5 @@
 <template>
-  <span class="header-selector-container"
+  <span class="header-selector"
        :class="{ 'i-menu-expanded': !value, 'i-menu-collapsed': value }"
        @click="onClick()"
   />
@@ -24,13 +24,11 @@
 
 <style lang="scss">
 
-  .header-selector-container {
+  .header-selector {
     display: flex;
     justify-content: center;
     align-items: center;
-    i:hover {
-      cursor: pointer;
-    }
+    cursor: pointer;
   }
 
 </style>

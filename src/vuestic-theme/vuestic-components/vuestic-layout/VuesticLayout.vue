@@ -1,9 +1,9 @@
 <template>
   <div class="layout" v-resize :class="classObject">
-    <slot name="navbar-section"></slot>
-    <slot name="sidebar-section"></slot>
-    <slot name="content-section"></slot>
-    <slot name="footer-section"></slot>
+    <slot name="navbar"></slot>
+    <slot name="sidebar"></slot>
+    <slot name="content"></slot>
+    <slot name="footer"></slot>
   </div>
 </template>
 
