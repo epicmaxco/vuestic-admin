@@ -12,7 +12,7 @@
         @keyup="updateList()"
         required
         :options="options"
-        :tempOptions="tempOptions"/>
+        />
       <i class="ion ion-ios-arrow-down icon-right input-icon"></i>
       <label class="control-label">{{label}}</label><i class="bar"></i>
       <small v-show="hasErrors()" class="help text-danger">{{ showRequiredError() }}</small>
@@ -22,7 +22,7 @@
       <scrollbar ref="scrollbar">
         <div class="dropdown-menu-content">
           <div class="dropdown-item"
-               :class="{'selected': isOptionSelected(option)}" v-for="option in tempOptions"
+               :class="{'selected': isOptionSelected(option)}" v-for="option in options"
                @click="selectOption(option)">
             <span class="ellipsis">{{optionKey ? option[optionKey] : option}}</span>
           </div>
@@ -49,6 +49,12 @@
         validated: false,
         displayValue: this.value,
         currentOptions: this.options,
+        opt: this.compOptions
+      }
+    },
+    computed: {
+      compOptions: () => {
+        return this.options.filter(item => item.search(this.displayValue) === 0)
       }
     },
     props: {
@@ -83,9 +89,6 @@
       showDropdown () {
         this.isShown = true
       },
-      onKeyUp () {
-        this.$emit('check', this.displayValue)
-      },
 
       isOptionSelected (option) {
         return this.value === option
@@ -119,9 +122,8 @@
       },
       updateList () {
         this.$emit('check', this.displayValue)
-        this.tempOptions = this.options.filter(item => item.search(this.displayValue) === 0)
       },
-    }
+    },
   }
 </script>
 

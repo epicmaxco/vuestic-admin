@@ -24,7 +24,6 @@ export default {
     })
 
     el.a = (event) => {
-      console.log('idioot')
       if (event.target !== ddToggleInput) {
         el.classList.remove('show')
         ddMenu.classList.remove('show')
