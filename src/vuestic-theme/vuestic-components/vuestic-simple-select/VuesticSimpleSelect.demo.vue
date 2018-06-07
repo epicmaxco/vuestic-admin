@@ -7,9 +7,7 @@
           name="country"
           :required="true"
           ref="selectedCountrySelect"
-          @check="updateList()"
-          :options="countriesList"
-          :tempOptions="countriesList">
+          :options="countriesList">
         </vuestic-simple-select>
         <vuestic-simple-select
           style="width: 200px; left: 600px;"
@@ -18,7 +16,6 @@
           name="demoitem"
           :required="true"
           ref="selectedDemoSelect"
-          @check="updateList($event)"
           :options="demoArray"
           >
         </vuestic-simple-select>

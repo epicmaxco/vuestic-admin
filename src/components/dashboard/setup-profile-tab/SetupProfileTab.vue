@@ -36,8 +36,7 @@
           name="country"
           :required="true"
           ref="selectedCountrySelect"
-          :options="countriesList"
-          :tempOptions="countriesArray">
+          :options="countriesList">
         </vuestic-simple-select>
       </div>
       <div slot="page3" class="form-wizard-tab-content">
@@ -110,8 +109,7 @@
         ],
         name: '',
         selectedCountry: '',
-        countriesList: CountriesList,
-        countriesArray: CountriesList
+        countriesList: CountriesList
       }
     },
     methods: {

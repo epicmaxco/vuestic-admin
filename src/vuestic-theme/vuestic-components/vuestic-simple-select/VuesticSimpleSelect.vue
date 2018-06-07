@@ -9,10 +9,7 @@
         :class="{'has-value': !!displayValue}"
         v-model="displayValue"
         :name="name"
-        @keyup="updateList()"
-        required
-        :options="options"
-        />
+        :options="options"/>
       <i class="ion ion-ios-arrow-down icon-right input-icon"></i>
       <label class="control-label">{{label}}</label><i class="bar"></i>
       <small v-show="hasErrors()" class="help text-danger">{{ showRequiredError() }}</small>
@@ -22,7 +19,7 @@
       <scrollbar ref="scrollbar">
         <div class="dropdown-menu-content">
           <div class="dropdown-item"
-               :class="{'selected': isOptionSelected(option)}" v-for="option in options"
+               :class="{'selected': isOptionSelected(option)}" v-for="option in sortedList"
                @click="selectOption(option)">
             <span class="ellipsis">{{optionKey ? option[optionKey] : option}}</span>
           </div>
@@ -35,7 +32,6 @@
 <script>
   import Dropdown from 'vuestic-directives/Dropdown'
   import Scrollbar from '../vuestic-scrollbar/VuesticScrollbar.vue'
-
   export default {
     name: 'vuestic-simple-select',
     components: {
@@ -49,12 +45,13 @@
         validated: false,
         displayValue: this.value,
         currentOptions: this.options,
-        opt: this.compOptions
       }
     },
     computed: {
-      compOptions: () => {
-        return this.options.filter(item => item.search(this.displayValue) === 0)
+      sortedList: {
+        get: function () {
+          return this.options.filter(item => item.search(this.displayValue) === 0)
+        }
       }
     },
     props: {
@@ -84,12 +81,10 @@
       this.updateDisplayValue(this.value)
       this.$emit('input', this.value)
     },
-
     methods: {
       showDropdown () {
         this.isShown = true
       },
-
       isOptionSelected (option) {
         return this.value === option
       },
@@ -120,16 +115,12 @@
       showRequiredError () {
         return `The ${this.name} field is required`
       },
-      updateList () {
-        this.$emit('check', this.displayValue)
-      },
-    },
+    }
   }
 </script>
 
 <style lang="scss">
   @import "../../../sass/variables";
-
   .select-form-group {
     .dropdown-menu {
       padding: 0;
