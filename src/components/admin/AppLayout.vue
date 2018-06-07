@@ -3,7 +3,7 @@
     <app-navbar :isOpen="opened" @toggle-menu="toggleSidebar"/>
     <app-sidebar :isOpen="opened"/>
     <main slot="content" id="content" class="content" role="main">
-      <vuestic-breadcrumbs :breadcrumbs="breadcrumbs"/>
+      <vuestic-breadcrumbs/>
       <vuestic-pre-loader v-show="isLoading" ref="preLoader" class="pre-loader"></vuestic-pre-loader>
       <router-view></router-view>
     </main>
@@ -39,10 +39,7 @@
     computed: {
       ...mapGetters([
         'isLoading'
-      ]),
-      breadcrumbs () {
-        return this.$store.getters.breadcrumbs(this.$route.name)
-      },
+      ])
     }
   }
 </script>

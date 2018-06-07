@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import AppLayout from '../components/admin/AppLayout'
 import AuthLayout from '../components/auth/AuthLayout'
-import lazyLoading from './../store/modules/menu/lazyLoading'
+import lazyLoading from './lazyLoading'
 
 Vue.use(Router)
 

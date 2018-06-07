@@ -55,26 +55,6 @@
     padding-right: $nav-padding-right;
     background-color: $top-nav-bg;
 
-    .notify {
-      position: relative;
-
-      &::after {
-        content: '';
-        position: absolute;
-        right: -6px;
-        top: -6px;
-        background-color: $brand-primary;
-        height: 12px;
-        width: 12px;
-        border-radius: 50%;
-      }
-    }
-
-    .i-nav-notification.notify::after {
-      right: -4px;
-      top: 0;
-    }
-
     .navbar-logo-container {
       display: flex;
       align-items: center;

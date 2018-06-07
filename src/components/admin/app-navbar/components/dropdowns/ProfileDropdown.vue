@@ -1,5 +1,5 @@
 <template>
-  <div class="col nav-item dropdown navbar-dropdown" v-dropdown>
+  <div class="profile-dropdown col nav-item dropdown navbar-dropdown" v-dropdown>
     <a class="nav-link dropdown-toggle" href="#">
       <span class="profile-section-avatar-container">
         <slot></slot>
@@ -32,7 +32,7 @@
 <style lang="scss">
   @import "../../../../../sass/variables";
 
-  .dropdown.navbar-dropdown {
+  .profile-dropdown {
 
     .profile-section-avatar-container {
       display: inline-block;

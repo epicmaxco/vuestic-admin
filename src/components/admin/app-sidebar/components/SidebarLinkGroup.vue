@@ -4,13 +4,13 @@
        @click="toggleMenuItem()"
        target="_self"
        class="sidebar-link"
-       v-bind:class="{expanded: this.expanded}">
+       :class="{expanded: this.expanded}">
       <slot name="icon"></slot>
       <slot name="title"></slot>
       <i class="expand-icon fa fa-angle-down"></i>
     </a>
     <expanding>
-      <ul class="sidebar-submenu in" v-show="this.expanded">
+      <ul class="sidebar-submenu in" v-show="this.expanded" ref="linkGroupWrapper">
         <slot></slot>
       </ul>
     </expanding>
@@ -32,12 +32,19 @@
         expanded: false
       }
     },
+    mounted () {
+      let linkGroup = this.$refs.linkGroupWrapper
+      if (linkGroup.querySelector('.router-link-active') !== null) {
+        this.expanded = true
+      }
+    },
     methods: {
       toggleMenuItem () {
         this.expanded = !this.expanded
       }
     }
   }
+
 </script>
 
 <style lang="scss">

@@ -1,7 +1,7 @@
 <template>
   <div class="col nav-item dropdown navbar-dropdown" v-dropdown>
     <a class="nav-link dropdown-toggle" href="#">
-      <span class="i-nav-notification notify"></span>
+      <span class="i-nav-notification"></span>
     </a>
     <div class="dropdown-menu">
       <div class="dropdown-menu-content">
@@ -28,3 +28,28 @@
     },
   }
 </script>
+
+<style lang="scss">
+  @import "../../../../../sass/variables";
+
+   .i-nav-notification {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: -6px;
+      top: -6px;
+      background-color: $brand-primary;
+      height: 12px;
+      width: 12px;
+      border-radius: 50%;
+    }
+  }
+
+  .i-nav-notification::after {
+    right: -4px;
+    top: 0;
+  }
+
+</style>

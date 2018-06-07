@@ -1,7 +1,6 @@
 <template>
   <vuestic-sidebar :hidden="this.isOpen"
-                   :toggleWithoutAnimation="toggleWithoutAnimation"
-                   @toggle-item="toggleMenuItem($event)">
+                   :toggleWithoutAnimation="toggleWithoutAnimation">
     <template slot="menu">
       <sidebar-link
         :to="'/admin/dashboard'">
@@ -162,29 +161,10 @@
         required: true
       }
     },
-    /* watch: {
-      $route (route) {
-        const parent = _findMatchingParentMenuItem.call(this, route.name) || {}
-        this.menuItems.forEach((item) => {
-          this.$store.dispatch('toggleExpandMenuItem', {
-            menuItem: item,
-            expand: parent.name === item.name
-          })
-        })
-      }
-    }, */
     computed: {
       ...mapGetters([
         'toggleWithoutAnimation'
       ])
     }
   }
-
-  /* function _findMatchingParentMenuItem (itemName) {
-    let parentItem
-    this.menuItems.forEach((item) => {
-      parentItem = (item.children && item.children.find((child) => child.name === itemName)) ? item : parentItem
-    })
-    return parentItem
-  } */
 </script>
