@@ -19,7 +19,7 @@
       <scrollbar ref="scrollbar">
         <div class="dropdown-menu-content">
           <div class="dropdown-item"
-               :class="{'selected': isOptionSelected(option)}" v-for="option in sortedList"
+               :class="{'selected': isOptionSelected(option)}" v-for="option in filteredList"
                @click="selectOption(option)">
             <span class="ellipsis">{{optionKey ? option[optionKey] : option}}</span>
           </div>
@@ -45,10 +45,11 @@
         validated: false,
         displayValue: this.value,
         currentOptions: this.options,
+        isShown: false
       }
     },
     computed: {
-      sortedList: {
+      filteredList: {
         get: function () {
           return this.options.filter(item => item.search(this.displayValue) === 0)
         }
@@ -72,10 +73,6 @@
         type: String,
         default: 'simple-select'
       },
-      isShown: {
-        type: Boolean,
-        default: false
-      }
     },
     mounted () {
       this.updateDisplayValue(this.value)
