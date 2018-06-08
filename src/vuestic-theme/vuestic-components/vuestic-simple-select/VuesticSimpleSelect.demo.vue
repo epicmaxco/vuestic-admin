@@ -1,5 +1,5 @@
 <template>
-      <div slot="page" class="form-wizard-tab-content">
+      <div class="form-wizard-tab-content">
         <vuestic-simple-select
           style="width: 200px; padding-top: 500px; left: 300px"
           label="Select country"
@@ -38,21 +38,10 @@
         type: Array,
         default: () => CountriesList
       },
-    },
-
-    data () {
-      return {
-        steps: [
-          {
-            slot: 'page',
-            onNext: () => {
-              this.$refs.selectedCountrySelect.validate()
-            }
-          },
-        ],
-        selectedCountry: '',
-        countriesArray: CountriesList,
-      }
+      selectedCountry: {
+        type: String,
+        default: ''
+      },
     },
   }
 </script>

@@ -26,7 +26,6 @@ export default {
 
     el.a = (event) => {
       if (event.target !== dropdownToggleInput) {
-        console.log('here')
         el.classList.remove('show')
         dropdownMenu.classList.remove('show')
       }
