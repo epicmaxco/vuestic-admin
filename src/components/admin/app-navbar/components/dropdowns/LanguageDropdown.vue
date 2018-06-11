@@ -27,7 +27,16 @@
     props: {
       options: {
         type: Array,
-        required: true
+        default: () => [
+          {
+            code: 'gb',
+            name: 'english'
+          },
+          {
+            code: 'es',
+            name: 'spanish'
+          }
+        ]
       }
     },
 

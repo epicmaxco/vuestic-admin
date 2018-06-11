@@ -3,136 +3,152 @@
                    :toggleWithoutAnimation="toggleWithoutAnimation">
     <template slot="menu">
       <sidebar-link
-        :to="'/admin/dashboard'">
-        <span slot="icon" class="sidebar-menu-item-icon vuestic-icon vuestic-icon-dashboard"></span>
-        <span slot="title">{{'Dashboard' | translate}}</span>
+        :to="{ name: 'Dashboard' }">
+        <span slot="title">
+          <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-dashboard"></span>
+          <span>{{'Dashboard' | translate}}</span>
+        </span>
       </sidebar-link>
       <sidebar-link-group>
-        <span slot="icon" class="sidebar-menu-item-icon vuestic-icon vuestic-icon-statistics"></span>
-        <span slot="title">{{'Statistics' | translate}}</span>
+        <span slot="title">
+          <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-statistics"></span>
+          <span>{{'Statistics' | translate}}</span>
+        </span>
         <sidebar-link
-          :to="'/admin/statistics/charts'"
+          :to="{ name: 'Charts' }"
           :isChildLink="true">
           <span slot="title">{{'Charts' | translate}}</span>
         </sidebar-link>
         <sidebar-link
-          :to="'/admin/statistics/progress-bars'"
+          :to="{ name: 'Progress Bars' }"
           :isChildLink="true">
           <span slot="title">{{'Progress Bars' | translate}}</span>
         </sidebar-link>
       </sidebar-link-group>
       <sidebar-link-group>
-        <span slot="icon" class="sidebar-menu-item-icon vuestic-icon vuestic-icon-forms"></span>
-        <span slot="title">{{'Forms' | translate}}</span>
+        <span slot="title">
+          <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-forms"></span>
+          <span>{{'Forms' | translate}}</span>
+        </span>
         <sidebar-link
-          :to="'/admin/forms/form-elements'"
+          :to="{ name: 'Form Elements' }"
           :isChildLink="true">
           <span slot="title">{{'Form Elements' | translate}}</span>
         </sidebar-link>
         <sidebar-link
-          :to="'/admin/forms/form-wizard'"
+          :to="{ name: 'Form Wizard' }"
           :isChildLink="true">
-          <span slot="title">{{'Form Wizards' | translate}}</span>
+          <span slot="title">{{'Form Wizard' | translate}}</span>
         </sidebar-link>
         <sidebar-link
-          :to="'/admin/forms/medium-editor'"
+          :to="{ name: 'Medium Editor' }"
           :isChildLink="true">
           <span slot="title">{{'Medium Editor' | translate}}</span>
         </sidebar-link>
       </sidebar-link-group>
       <sidebar-link
-        :to="'/admin/tables'">
-        <span slot="icon" class="sidebar-menu-item-icon vuestic-icon vuestic-icon-tables"></span>
-        <span slot="title">{{'Tables' | translate}}</span>
+        :to="{ name: 'Tables' }">
+        <span slot="title">
+          <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-tables"></span>
+          <span>{{'Tables' | translate}}</span>
+        </span>
       </sidebar-link>
       <sidebar-link-group>
-        <span slot="icon" class="sidebar-menu-item-icon vuestic-icon vuestic-icon-ui-elements"></span>
-        <span slot="title">{{'UI Elements' | translate}}</span>
+        <span slot="title">
+          <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-ui-elements"></span>
+          <span>{{'UI Elements' | translate}}</span>
+        </span>
         <sidebar-link
-          :to="'/admin/ui/typography'"
+          :to="{ name: 'Typography' }"
           :isChildLink="true">
           <span slot="title">{{'Typography' | translate}}</span>
         </sidebar-link>
         <sidebar-link
-          :to="'/admin/ui/buttons'"
+          :to="{ name: 'Buttons' }"
           :isChildLink="true">
           <span slot="title">{{'Buttons' | translate}}</span>
         </sidebar-link>
         <sidebar-link
-          :to="'/admin/ui/notifications'"
+          :to="{ name: 'Notifications' }"
           :isChildLink="true">
           <span slot="title">{{'Notifications' | translate}}</span>
         </sidebar-link>
         <sidebar-link
-          :to="'/admin/ui/icons'"
+          :to="{ name: 'Icons' }"
           :isChildLink="true">
           <span slot="title">{{'Icons' | translate}}</span>
         </sidebar-link>
         <sidebar-link
-          :to="'/admin/ui/spinners'"
+          :to="{ name: 'Spinners' }"
           :isChildLink="true">
           <span slot="title">{{'Spinners' | translate}}</span>
         </sidebar-link>
         <sidebar-link
-          :to="'/admin/ui/grid'"
+          :to="{ name: 'Grid' }"
           :isChildLink="true">
           <span slot="title">{{'Grid' | translate}}</span>
         </sidebar-link>
         <sidebar-link
-          :to="'/admin/ui/modals'"
+          :to="{ name: 'Modals' }"
           :isChildLink="true">
           <span slot="title">{{'Modals' | translate}}</span>
         </sidebar-link>
         <sidebar-link
-          :to="'/admin/ui/tree-view'"
+          :to="{ name: 'Tree View' }"
           :isChildLink="true">
           <span slot="title">{{'Tree View' | translate}}</span>
         </sidebar-link>
       </sidebar-link-group>
       <sidebar-link
-        :to="'/admin/extra'">
-        <span slot="icon" class="sidebar-menu-item-icon vuestic-icon vuestic-icon-extras"></span>
-        <span slot="title">{{'Extra' | translate}}</span>
+        :to="{ name: 'Extra' }">
+        <span slot="title">
+          <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-extras"></span>
+          <span>{{'Extra' | translate}}</span>
+        </span>
       </sidebar-link>
       <sidebar-link-group>
-        <span slot="icon" class="sidebar-menu-item-icon vuestic-icon vuestic-icon-auth"></span>
-        <span slot="title">{{'Auth' | translate}}</span>
+        <span slot="title">
+          <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-auth"></span>
+          <span>{{'Auth' | translate}}</span>
+        </span>
         <sidebar-link
-          :to="'/admin/auth/login'"
+          :to="{ name: 'Login' }"
           :isChildLink="true">
           <span slot="title">{{'Login' | translate}}</span>
         </sidebar-link>
         <sidebar-link
-          :to="'/admin/auth/signup'"
+          :to="{ name: 'Signup' }"
           :isChildLink="true">
           <span slot="title">{{'Signup' | translate}}</span>
         </sidebar-link>
       </sidebar-link-group>
       <sidebar-link-group>
-        <span slot="icon" class="sidebar-menu-item-icon vuestic-icon vuestic-icon-auth"></span>
-        <span slot="title">{{'Maps' | translate}}</span>
+        <span slot="title">
+          <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-auth"></span>
+          <span>{{'Maps' | translate}}</span>
+        </span>
         <sidebar-link
-          :to="'/admin/maps/google-maps'"
+          :to="{ name: 'Google Maps' }"
           :isChildLink="true">
           <span slot="title">{{'Google Maps' | translate}}</span>
         </sidebar-link>
         <sidebar-link
-          :to="'/admin/maps/yandex-maps'"
+          :to="{ name: 'Yandex Maps' }"
           :isChildLink="true">
           <span slot="title">{{'Yandex Maps' | translate}}</span>
         </sidebar-link>
         <sidebar-link
-          :to="'/admin/maps/leaflet-maps'"
+          :to="{ name: 'Leaflet Maps' }"
           :isChildLink="true">
           <span slot="title">{{'Leaflet Maps' | translate}}</span>
         </sidebar-link>
         <sidebar-link
-          :to="'/admin/maps/bubble-maps'"
+          :to="{ name: 'Bubble Maps' }"
           :isChildLink="true">
           <span slot="title">{{'Bubble Maps' | translate}}</span>
         </sidebar-link>
         <sidebar-link
-          :to="'/admin/maps/line-maps'"
+          :to="{ name: 'Line Maps' }"
           :isChildLink="true">
           <span slot="title">{{'Line Maps' | translate}}</span>
         </sidebar-link>
@@ -164,7 +180,9 @@
     computed: {
       ...mapGetters([
         'toggleWithoutAnimation'
-      ])
+      ]),
     }
   }
+
+
 </script>

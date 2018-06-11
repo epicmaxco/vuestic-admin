@@ -51,9 +51,13 @@
   import DonutChartData from 'data/charts/DonutChartData'
   import VerticalBarChartData from 'data/charts/VerticalBarChartData'
   import HorizontalBarChartData from 'data/charts/HorizontalBarChartData'
+  import SidebarLink from '../../admin/app-sidebar/components/SidebarLink'
 
   export default {
     name: 'charts',
+    components: {
+      SidebarLink
+    },
 
     data: function () {
       return {

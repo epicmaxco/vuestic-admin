@@ -1,11 +1,11 @@
 <template>
-  <nav class="navbar app-navbar navbar-toggleable-md">
-    <div class="navbar-logo-container">
+  <nav class="vuestic-navbar navbar navbar-toggleable-md">
+    <div class="vuestic-navbar__logo">
       <router-link class="navbar-brand" to="/dashboard">
         <slot name="logo"></slot>
       </router-link>
     </div>
-    <div class="row navbar-container">
+    <div class="row vuestic-navbar__content">
       <div class="header-elem-wrapper">
         <slot name="selector"></slot>
       </div>
@@ -29,22 +29,21 @@
   @import "~bootstrap/scss/functions";
   @import "~bootstrap/scss/variables";
 
-  .navbar {
+  .vuestic-navbar {
     .layout-fixed & {
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1;
     }
+
     .header-elem-wrapper {
       display: flex;
       align-items: center;
       justify-content: center;
     }
-  }
 
-  .navbar.app-navbar {
-    .navbar-container {
+    .vuestic-navbar__content {
       width: 100%;
       height: 100%;
       margin: 0;
@@ -55,7 +54,7 @@
     padding-right: $nav-padding-right;
     background-color: $top-nav-bg;
 
-    .navbar-logo-container {
+    .vuestic-navbar__logo {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -67,7 +66,7 @@
 
       @include media-breakpoint-down(md) {
 
-        .navbar-logo-container {
+        .vuestic-navbar__logo {
           width: $nav-mobile-brand-width;
           top: $nav-mobile-brand-top;
           left: $nav-mobile-brand-left;

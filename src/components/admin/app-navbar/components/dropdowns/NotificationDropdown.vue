@@ -23,7 +23,20 @@
     props: {
       options: {
         type: Array,
-        required: true
+        default: () => [
+          {
+            name: 'sentMessage',
+            details: { name: 'Vasily S' }
+          },
+          {
+            name: 'uploadedZip',
+            details: { name: 'Oleg M', type: 'typography component' }
+          },
+          {
+            name: 'startedTopic',
+            details: { name: 'Andrei H' }
+          }
+        ],
       }
     },
   }

@@ -1,7 +1,7 @@
 <template>
   <span class="header-selector"
-       :class="{ 'i-menu-expanded': !value, 'i-menu-collapsed': value }"
-       @click="$emit('input', !value)"
+       :class="{ 'i-menu-expanded': !isOpen, 'i-menu-collapsed': isOpen }"
+       @click="$emit('update:isOpen', !isOpen)"
   />
 </template>
 
@@ -9,7 +9,7 @@
   export default {
     name: 'header-selector',
     props: {
-      value: {
+      isOpen: {
         type: Boolean,
         required: true
       },

@@ -1,5 +1,5 @@
 <template>
-  <aside class="sidebar" :class="classObject">
+  <aside class="vuestic-sidebar" :class="classObject">
     <vuestic-scrollbar>
       <ul class="sidebar-menu">
         <slot name="menu"></slot>
@@ -41,7 +41,8 @@
   @import "~bootstrap/scss/mixins/breakpoints";
   @import "~bootstrap/scss/functions";
   @import "~bootstrap/scss/variables";
-  .sidebar {
+
+  .vuestic-sidebar {
     @include media-breakpoint-down(md) {
       top: $sidebar-mobile-top;
       left: $sidebar-mobile-left;
@@ -51,12 +52,26 @@
     height: $sidebar-viewport-height;
     .vuestic-scrollbar {
       height: 100%;
+
+      .sidebar-menu {
+        max-height: 100%;
+        margin-bottom: 0;
+        list-style: none;
+        padding-left: 0;
+        li {
+          display: block;
+          padding-left: 0;
+        }
+      }
+
       .scrollbar-wrapper {
         box-shadow: $sidebar-box-shadow;
       }
+
       .scrollbar-content {
         background: $sidebar-bg;
       }
+
     }
     position: absolute;
     width: $sidebar-width;
@@ -99,9 +114,6 @@
       top: $sidebar-hidden-top;
       opacity: 0;
       z-index: $min-z-index;
-    }
-    .layout-fixed & {
-      position: fixed;
     }
   }
 </style>

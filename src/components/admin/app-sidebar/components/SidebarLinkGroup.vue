@@ -1,11 +1,10 @@
 <template>
-  <li>
+  <li class="sidebar-link-group sidebar-link"
+      :class="classObject">
     <a href="#"
-       @click="toggleMenuItem()"
        target="_self"
-       class="sidebar-link"
-       :class="{expanded: this.expanded}">
-      <slot name="icon"></slot>
+       @click="toggleMenuItem()"
+       class="sidebar-link-wrapper">
       <slot name="title"></slot>
       <i class="expand-icon fa fa-angle-down"></i>
     </a>
@@ -29,7 +28,7 @@
     },
     data () {
       return {
-        expanded: false
+        expanded: this.expanded
       }
     },
     mounted () {
@@ -42,6 +41,13 @@
       toggleMenuItem () {
         this.expanded = !this.expanded
       }
+    },
+    computed: {
+      classObject: function () {
+        return {
+          'expanded': this.expanded
+        }
+      },
     }
   }
 
@@ -53,28 +59,39 @@
   @import "~bootstrap/scss/functions";
   @import "~bootstrap/scss/variables";
 
-  .sidebar-submenu-link {
-    height: $sidebar-submenu-link-height;
-  }
-  .sidebar-menu,
-  .sidebar-submenu {
-    list-style: none;
-    padding-left: 0;
-    li {
-      display: block;
+  .sidebar-link-group {
+    .sidebar-link-wrapper {
+      .expand-icon {
+        position: absolute;
+        right: $sidebar-arrow-right;
+        top: calc(50% - #{$font-size-root} / 2);
+        font-weight: bold;
+        transition: transform 0.3s ease;
+      }
+      &.expanded {
+        .expand-icon {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    .sidebar-submenu {
+      list-style: none;
       padding-left: 0;
+      li {
+        display: block;
+        padding-left: 0;
+      }
+      .sidebar-link-wrapper {
+        padding-left: $sidebar-submenu-link-pl;
+        font-size: $font-size-smaller;
+      }
+      .sidebar-submenu-link {
+        height: $sidebar-submenu-link-height;
+      }
     }
   }
-  .sidebar-submenu {
-    .sidebar-link {
-      padding-left: $sidebar-submenu-link-pl;
-      font-size: $font-size-smaller;
-    }
-  }
-  .sidebar-menu {
-    max-height: 100%;
-    margin-bottom: 0;
-  }
+
   .expand-icon {
     color: $vue-green;
   }
