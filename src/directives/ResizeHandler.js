@@ -21,6 +21,6 @@ export default {
       }
       prevMatchlg = getWindowMatch()
     })
-  }
+  },
 }
 
