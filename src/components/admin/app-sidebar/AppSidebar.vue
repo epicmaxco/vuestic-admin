@@ -3,153 +3,134 @@
                    :toggleWithoutAnimation="toggleWithoutAnimation">
     <template slot="menu">
       <sidebar-link
-        :to="{ name: 'Dashboard' }">
+        :to="{ name: 'dashboard' }">
         <span slot="title">
           <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-dashboard"></span>
-          <span>{{ $t('Dashboard') }}</span>
+          <span>{{ $t('menu.dashboard') }}</span>
         </span>
       </sidebar-link>
       <sidebar-link-group>
         <span slot="title">
           <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-statistics"></span>
-          <span>{{ $t('Statistics') }}</span>
+          <span>{{ $t('menu.statistics') }}</span>
         </span>
         <sidebar-link
-          :to="{ name: 'Charts' }"
-          :isChildLink="true">
-          <span slot="title">{{ $t('Charts') }}</span>
+          :to="{ name: 'charts' }">
+          <span slot="title">{{ $t('menu.charts') }}</span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'Progress Bars' }"
-          :isChildLink="true">
-          <span slot="title">{{ $t('Progress Bars') }}</span>
+          :to="{ name: 'progress-bars' }">
+          <span slot="title">{{ $t('menu.progressBars') | translate }}</span>
         </sidebar-link>
       </sidebar-link-group>
       <sidebar-link-group>
         <span slot="title">
           <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-forms"></span>
-          <span>{{ $t('Forms') }}</span>
+          <span>{{ $t('menu.forms') }}</span>
         </span>
         <sidebar-link
-          :to="{ name: 'Form Elements' }"
-          :isChildLink="true">
-          <span slot="title">{{ $t('Form Elements') }}</span>
+          :to="{ name: 'form-elements' }">
+          <span slot="title">{{ $t('menu.formElements') }}</span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'Form Wizard' }"
-          :isChildLink="true">
-          <span slot="title">{{ $t('Form Wizard') }}</span>
+          :to="{ name: 'form-wizard' }">
+          <span slot="title">{{ $t('menu.formWizards') }}</span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'Medium Editor' }"
-          :isChildLink="true">
-          <span slot="title">{{ $t('Medium Editor') }}</span>
+          :to="{ name: 'medium-editor' }">
+          <span slot="title">{{ $t('menu.mediumEditor') }}</span>
         </sidebar-link>
       </sidebar-link-group>
       <sidebar-link
-        :to="{ name: 'Tables' }">
+        :to="{ name: 'tables' }">
         <span slot="title">
           <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-tables"></span>
-          <span>{{ $t('Tables') }}</span>
+          <span>{{ $t('menu.tables') }}</span>
         </span>
       </sidebar-link>
       <sidebar-link-group>
         <span slot="title">
           <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-ui-elements"></span>
-          <span>{{ $t('UI Elements') }}</span>
+          <span>{{ $t('menu.uiElements') }}</span>
         </span>
         <sidebar-link
-          :to="{ name: 'Typography' }"
-          :isChildLink="true">
-          <span slot="title">{{ $t('Typography') }}</span>
+          :to="{ name: 'typography' }">
+          <span slot="title">{{ $t('menu.typography') }}</span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'Buttons' }"
-          :isChildLink="true">
-          <span slot="title">{{ $t('Buttons') }}</span>
+          :to="{ name: 'buttons' }">
+          <span slot="title">{{ $t('menu.buttons') }}</span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'Notifications' }"
-          :isChildLink="true">
-          <span slot="title">{{ $t('Notifications') }}</span>
+          :to="{ name: 'notifications' }">
+          <span slot="title">{{ $t('menu.notifications') }}</span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'Icons' }"
-          :isChildLink="true">
-          <span slot="title">{{ $t('Icons') }}</span>
+          :to="{ name: 'icons' }">
+          <span slot="title">{{ $t('menu.icons') }}</span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'Spinners' }"
-          :isChildLink="true">
-          <span slot="title">{{ $t('Spinners') }}</span>
+          :to="{ name: 'spinners' }">
+          <span slot="title">{{ $t('menu.spinners') }}</span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'Grid' }"
-          :isChildLink="true">
-          <span slot="title">{{ $t('Grid') }}</span>
+          :to="{ name: 'grid' }">
+          <span slot="title">{{ $t('menu.grid') }}</span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'Modals' }"
-          :isChildLink="true">
-          <span slot="title">{{ $t('Modals') }}</span>
+          :to="{ name: 'modals' }">
+          <span slot="title">{{ $t('menu.modals') }}</span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'Tree View' }"
-          :isChildLink="true">
-          <span slot="title">{{ $t('Tree View') }}</span>
+          :to="{ name: 'tree-view' }">
+          <span slot="title">{{ $t('menu.treeView') }}</span>
         </sidebar-link>
       </sidebar-link-group>
       <sidebar-link
-        :to="{ name: 'Extra' }">
+        :to="{ name: 'extra' }">
         <span slot="title">
           <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-extras"></span>
-          <span>{{ $t('Extra') }}</span>
+          <span>{{ $t('menu.extra') }}</span>
         </span>
       </sidebar-link>
       <sidebar-link-group>
         <span slot="title">
           <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-auth"></span>
-          <span>{{ $t('Auth') }}</span>
+          <span>{{ $t('menu.auth') }}</span>
         </span>
         <sidebar-link
-          :to="{ name: 'Login' }"
+          :to="{ name: 'login' }"
           :isChildLink="true">
-          <span slot="title">{{ $t('Login') }}</span>
+          <span slot="title">{{ $t('menu.login') }}</span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'Signup' }"
-          :isChildLink="true">
-          <span slot="title">{{ $t('Signup') }}</span>
+          :to="{ name: 'signup' }">
+          <span slot="title">{{ $t('menu.signUp') }}</span>
         </sidebar-link>
       </sidebar-link-group>
       <sidebar-link-group>
         <span slot="title">
           <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-auth"></span>
-          <span>{{ $t('Maps') }}</span>
+          <span>{{ $t('menu.maps') }}</span>
         </span>
         <sidebar-link
-          :to="{ name: 'Google Maps' }"
-          :isChildLink="true">
-          <span slot="title">{{ $t('Google Maps') }}</span>
+          :to="{ name: 'google-maps' }">
+          <span slot="title">{{ 'Google Maps' }}</span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'Yandex Maps' }"
-          :isChildLink="true">
-          <span slot="title">{{ $t('Yandex Maps') }}</span>
+          :to="{ name: 'yandex-maps' }">
+          <span slot="title">{{ 'Yandex Maps' }}</span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'Leaflet Maps' }"
-          :isChildLink="true">
-          <span slot="title">{{ $t('Leaflet Maps') }}</span>
+          :to="{ name: 'leaflet-maps' }">
+          <span slot="title">{{ 'Leaflet Maps' }}</span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'Bubble Maps' }"
-          :isChildLink="true">
+          :to="{ name: 'bubble-maps' }">
           <span slot="title">{{ $t('Bubble Maps') }}</span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'Line Maps' }"
-          :isChildLink="true">
+          :to="{ name: 'line-maps' }">
           <span slot="title">{{ $t('Line Maps') }}</span>
         </sidebar-link>
       </sidebar-link-group>

@@ -4,7 +4,7 @@
     <a href="#"
        target="_self"
        @click="toggleMenuItem()"
-       class="sidebar-link-wrapper">
+       class="sidebar-link__router-link">
       <slot name="title"></slot>
       <i class="expand-icon fa fa-angle-down"></i>
     </a>
@@ -65,7 +65,7 @@
   @import "~bootstrap/scss/variables";
 
   .sidebar-link-group {
-    .sidebar-link-wrapper {
+    .sidebar-link__router-link {
       .expand-icon {
         position: absolute;
         right: $sidebar-arrow-right;
@@ -87,12 +87,10 @@
         display: block;
         padding-left: 0;
       }
-      .sidebar-link-wrapper {
+      .sidebar-link__router-link {
+        height: $sidebar-submenu-link-height;
         padding-left: $sidebar-submenu-link-pl;
         font-size: $font-size-smaller;
-      }
-      .sidebar-submenu-link {
-        height: $sidebar-submenu-link-height;
       }
     }
   }

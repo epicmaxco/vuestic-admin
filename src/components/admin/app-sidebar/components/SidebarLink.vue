@@ -1,9 +1,7 @@
 <template>
   <li class="sidebar-link">
     <router-link
-      class="sidebar-link-wrapper"
-      :class="{'sidebar-submenu-link': this.isChildLink, 'active-link': isActive }"
-      @click=""
+      class="sidebar-link__router-link"
       :to="to"
       target="_self">
       <slot name="title"></slot>
@@ -18,26 +16,23 @@
       to: {
         type: Object,
         required: true
-      },
-      isChildLink: {
-        type: Boolean
       }
     },
     watch: {
       $route (route) {
-        const linkGroup = this.$parent.$parent
-        linkGroup.$children[0].$children.forEach(link => {
-          if (link.isActive) {
-            linkGroup.expanded = true
+        this.$nextTick(() => {
+          const isActive = this.$children[0].$el.classList.contains('router-link-active')
+          if (!isActive) {
+            return
           }
+          const linkGroup = this.$parent && this.$parent.$parent
+          if (linkGroup.$options.name !== 'sidebar-link-group') {
+            return
+          }
+          linkGroup.expanded = true
         })
       }
     },
-    computed: {
-      isActive () {
-        return this.$route.name === this.to.name
-      }
-    }
   }
 </script>
 
@@ -49,7 +44,7 @@
 
 
   .sidebar-link {
-    .sidebar-link-wrapper {
+    .sidebar-link__router-link {
       position: relative;
       height: $sidebar-link-height;
       padding-left: $sidebar-link-pl;

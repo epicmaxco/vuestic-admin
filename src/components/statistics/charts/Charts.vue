@@ -1,5 +1,9 @@
 <template>
   <div class="charts-page">
+    <sidebar-link
+      :to="{ name: 'form-elements' }">
+      <span slot="title">{{ $t('menu.formElements') }}</span>
+    </sidebar-link>
     <div class="row">
       <div class="col-md-6">
         <vuestic-widget class="chart-widget" :headerText="'charts.verticalBarChart' | translate">
