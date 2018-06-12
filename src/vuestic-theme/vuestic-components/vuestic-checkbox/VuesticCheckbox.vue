@@ -12,7 +12,7 @@
     >
     <label class="form-check-label" :for="id">
       <span class="abc-label-text">
-        <slot name="label">{{ label }}</slot>
+        <slot>{{ label }}</slot>
       </span>
     </label>
   </div>

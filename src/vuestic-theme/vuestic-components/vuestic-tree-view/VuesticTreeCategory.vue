@@ -1,11 +1,8 @@
 <template>
   <div class="vuestic-tree-category">
-    <div class="vuestic-tree-category__header">
+    <div class="vuestic-tree-category__header" @click="isOpenCached = ! isOpenCached">
       <div class="vuestic-tree-category__header-checkbox">
-        <square-with-icon
-          @click.native="isOpenCached = ! isOpenCached"
-          :iconClass="checkboxIconClass"
-        />
+        <square-with-icon :iconClass="checkboxIconClass"/>
       </div>
       <div class="vuestic-tree-category__header-icon"
            v-if="$slots.icon"
@@ -44,7 +41,7 @@
           this.isOpenCached = isOpen
         },
         immediate: true,
-      }
+      },
     },
     props: {
       label: {
@@ -54,7 +51,7 @@
       isOpen: {
         type: Boolean,
         default: false,
-      }
+      },
     },
     computed: {
       checkboxIconClass () {
@@ -88,7 +85,7 @@
           })
         })
       },
-    }
+    },
   }
 </script>
 
@@ -96,8 +93,8 @@
   @import "../../../sass/variables";
 
   .vuestic-tree-category {
-
     &__header {
+      cursor: pointer;
       display: flex;
     }
     &__header-checkbox {
