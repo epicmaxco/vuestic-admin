@@ -6,11 +6,12 @@
     <div class="input-group dropdown-toggle">
       <input
         @focus="showDropdown()"
+        @blur="removeDropdown()"
         :class="{'has-value': !!value}"
         :value="value"
         :name="name"
         :options="options"
-        @input="event => $emit('input', event.target.value )"/>
+        @input="event => $emit('input', event.target.value)"/>
       <i class="ion ion-ios-arrow-down icon-right input-icon"></i>
       <label class="control-label">{{label}}</label><i class="bar"></i>
       <small v-show="hasErrors()" class="help text-danger">{{
@@ -54,6 +55,7 @@
         default: '',
         required: true
       },
+      changeValue: '',
       optionKey: String,
       required: {
         type: Boolean,
@@ -83,10 +85,12 @@
     },
     methods: {
       showDropdown () {
-        this.filteredList.forEach(item => {
-        })
         this.isShown = true
+        this.changeValue = this.value
         this.value = ''
+      },
+      removeDropdown () {
+        this.value = this.changeValue
       },
       isOptionSelected (option) {
         return this.value === option
