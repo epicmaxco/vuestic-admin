@@ -37,6 +37,11 @@
         this.expanded = true
       }
     },
+    watch: {
+      $route (route) {
+        this.expanded = false
+      }
+    },
     methods: {
       toggleMenuItem () {
         this.expanded = !this.expanded

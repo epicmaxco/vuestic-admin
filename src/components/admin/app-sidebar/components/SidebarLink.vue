@@ -25,15 +25,10 @@
     },
     watch: {
       $route (route) {
-        const sidebarGroups = this.$parent.$parent.$parent.$children
-        sidebarGroups.forEach(item => {
-          item.expanded = false
-          if (item.$el.classList.contains('sidebar-link-group')) {
-            item.$children[0].$children.forEach(link => {
-              if (link.isActive) {
-                item.expanded = true
-              }
-            })
+        const linkGroup = this.$parent.$parent
+        linkGroup.$children[0].$children.forEach(link => {
+          if (link.isActive) {
+            linkGroup.expanded = true
           }
         })
       }
