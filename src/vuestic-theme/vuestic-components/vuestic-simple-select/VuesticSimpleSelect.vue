@@ -78,10 +78,8 @@
       }
     },
     computed: {
-      filteredList: {
-        get: function () {
-          return this.options.filter(item => item.search(this.displayValue) === 0)
-        }
+      filteredList () {
+        return this.options.filter(item => item.search(this.displayValue) === 0)
       },
     },
     methods: {
