@@ -127,9 +127,6 @@
       padding: 0;
       .vuestic-scrollbar {
         height: $dropdown-item-height * 4;
-        .track {
-          width: 5px;
-        }
       }
     }
   }

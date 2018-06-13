@@ -9,7 +9,9 @@
            @transitionend="onContentResize">
         <slot></slot>
       </div>
-      <div class="track" ref="track"><div class="thumb" ref="thumb"></div></div>
+      <div class="track" ref="track">
+        <div class="thumb" ref="thumb"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -169,11 +171,11 @@
       overflow: hidden;
       max-height: 100%;
       .track {
+        width: 5px;
         position: absolute;
         right: 0;
         top: 0;
         height: 100%;
-        width: 3px;
         .thumb {
           transition: height .3s linear, opacity .6s linear;
           position: absolute;
