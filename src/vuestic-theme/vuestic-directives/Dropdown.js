@@ -9,8 +9,8 @@ export default {
     let closeOnMenuClick = binding.modifiers.closeOnMenuClick
     let isBlocked = binding.modifiers.isBlocked
 
-    dropdownToggle.addEventListener('click', (evt) => {
-      evt.preventDefault()
+    dropdownToggle.addEventListener('click', (event) => {
+      event.preventDefault()
       let isShown = el.classList.contains('show')
       setTimeout(() => {
         if (isBlocked) {
@@ -26,7 +26,7 @@ export default {
       })
     })
 
-    el.a = (event) => {
+    el.removeShow = (event) => {
       if (event.target !== dropdownToggleInput) {
         if (dropdownIon) {
           if (dropdownIon.classList.contains('ion-ios-arrow-up')) {
@@ -38,7 +38,7 @@ export default {
       }
     }
 
-    window.addEventListener('click', el.a)
+    window.addEventListener('click', el.removeShow)
 
     dropdownMenu.addEventListener('click', (evt) => {
       if (!closeOnMenuClick) {
@@ -59,6 +59,6 @@ export default {
     }
   },
   unbind: (el) => {
-    window.removeEventListener('click', el.a)
+    window.removeEventListener('click', el.removeShow)
   },
 }

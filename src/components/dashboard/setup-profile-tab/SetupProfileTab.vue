@@ -85,12 +85,6 @@
       wizardType: {
         default: 'rich'
       },
-      countriesArray: {
-        type: Array,
-        default: function () {
-          return CountriesList
-        }
-      }
     },
     data () {
       return {

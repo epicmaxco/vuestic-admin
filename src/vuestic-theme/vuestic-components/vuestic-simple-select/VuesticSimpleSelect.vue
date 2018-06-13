@@ -67,7 +67,6 @@
       return {
         validated: false,
         displayValue: this.value,
-        currentOptions: this.options,
       }
     },
     watch: {
@@ -96,7 +95,6 @@
       selectOption (option) {
         this.displayValue = option
         this.$emit('input', option)
-        console.log('selectOption', this.displayValue)
       },
       validate () {
         this.validated = true
