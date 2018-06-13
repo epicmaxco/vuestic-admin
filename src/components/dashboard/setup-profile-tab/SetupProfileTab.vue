@@ -44,7 +44,6 @@
           label="Select country"
           v-model="selectedCountry"
           name="country"
-          :required="true"
           :options="countriesList">
         </vuestic-simple-select>
       </div>
@@ -84,10 +83,6 @@
       wizardType: {
         default: 'rich'
       },
-      selectedCountry: {
-        type: String,
-        default: ''
-      },
       countriesArray: {
         type: Array,
         default: function () {
@@ -123,6 +118,7 @@
             slot: 'page3'
           }
         ],
+        selectedCountry: '',
         name: '',
         countriesList: CountriesList
       }

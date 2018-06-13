@@ -1,7 +1,7 @@
 <template>
   <div
     class="form-group with-icon-right dropdown select-form-group"
-    v-dropdown.isBlocked="isShown"
+    v-dropdown.isBlocked
     :class="{'has-error': hasErrors()}">
     <div class="input-group dropdown-toggle">
       <input
@@ -12,8 +12,8 @@
         :options="options"/>
       <i class="ion ion-ios-arrow-down icon-right input-icon"></i>
       <label class="control-label">{{label}}</label><i class="bar"></i>
-      <small v-show="hasErrors()" class="help text-danger">{{
-        showRequiredError() }}
+      <small v-show="hasErrors()" class="help text-danger">
+        {{ showRequiredError() }}
       </small>
     </div>
     <div
@@ -68,8 +68,14 @@
         validated: false,
         displayValue: this.value,
         currentOptions: this.options,
-        isShown: false,
-        mutableValue: this.value
+      }
+    },
+    watch: {
+      value: {
+        handler (value) {
+          this.displayValue = value || ''
+        },
+        immediate: true,
       }
     },
     computed: {
@@ -79,12 +85,8 @@
         }
       },
     },
-    mounted () {
-      this.$emit('input', this.value)
-    },
     methods: {
       showDropdown () {
-        this.isShown = true
         this.displayValue = ''
       },
       isOptionSelected (option) {
@@ -93,7 +95,6 @@
       selectOption (option) {
         this.displayValue = option
         this.$emit('input', option)
-        console.log(this.displayValue)
       },
       validate () {
         this.validated = true
