@@ -44,6 +44,8 @@
           label="Select country"
           v-model="selectedCountry"
           name="country"
+          :required="true"
+          ref="selectedCountrySelect"
           :options="countriesList">
         </vuestic-simple-select>
       </div>
