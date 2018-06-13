@@ -25,7 +25,9 @@
     props: {
       breadcrumbs: {
         type: Array,
-        default: []
+        default: function () {
+          return []
+        }
       }
     }
   }
