@@ -76,6 +76,7 @@
           this.displayValue = value || ''
         },
         immediate: true,
+        mutableValue: this.value
       }
     },
     computed: {
@@ -95,6 +96,7 @@
       selectOption (option) {
         this.displayValue = option
         this.$emit('input', option)
+        console.log('selectOption', this.displayValue)
       },
       validate () {
         this.validated = true

@@ -16,17 +16,19 @@
 </template>
 
 <script>
-  import CountriesList from 'data/CountriesList'
-  import VuesticSimpleSelect from './VuesticSimpleSelect'
-  export default {
-    components: {
-      VuesticSimpleSelect,
-    },
-    data () {
-      return {
-        selectedCountry: '',
-        CountriesList,
-      }
-    },
-  }
+
+import CountriesList from 'data/CountriesList'
+import VuesticSimpleSelect from './VuesticSimpleSelect'
+
+export default {
+  components: {
+    VuesticSimpleSelect,
+  },
+  data () {
+    return {
+      selectedCountry: '',
+      CountriesList,
+    }
+  },
+}
 </script>
