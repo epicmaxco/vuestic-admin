@@ -5,6 +5,7 @@ export default {
     let dropdownToggleInput = el.querySelector('.dropdown-toggle input')
     let dropdownMenu = el.querySelector('.dropdown-menu')
     let dropdownItem = el.querySelector('.dropdown-menu-content')
+    let dropdownIon = el.querySelector('.ion')
     let closeOnMenuClick = binding.modifiers.closeOnMenuClick
     let isBlocked = binding.modifiers.isBlocked
 
@@ -14,6 +15,7 @@ export default {
       setTimeout(() => {
         if (isBlocked) {
           if (!isShown) {
+            dropdownIon.classList.add('ion-ios-arrow-up')
             el.classList.toggle('show', !isShown)
             dropdownMenu.classList.toggle('show', !isShown)
           }
@@ -26,6 +28,11 @@ export default {
 
     el.a = (event) => {
       if (event.target !== dropdownToggleInput) {
+        if (dropdownIon) {
+          if (dropdownIon.classList.contains('ion-ios-arrow-up')) {
+            dropdownIon.classList.remove('ion-ios-arrow-up')
+          }
+        }
         el.classList.remove('show')
         dropdownMenu.classList.remove('show')
       }
@@ -39,10 +46,17 @@ export default {
       }
     })
 
-    dropdownItem.addEventListener('click', () => {
-      dropdownMenu.classList.remove('show')
-      el.classList.remove('show')
-    })
+    if (dropdownItem) {
+      dropdownItem.addEventListener('click', () => {
+        if (dropdownIon) {
+          if (dropdownIon.classList.contains('ion-ios-arrow-up')) {
+            dropdownIon.classList.remove('ion-ios-arrow-up')
+          }
+        }
+        dropdownMenu.classList.remove('show')
+        el.classList.remove('show')
+      })
+    }
   },
   unbind: (el) => {
     window.removeEventListener('click', el.a)

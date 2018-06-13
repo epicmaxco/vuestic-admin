@@ -6,12 +6,10 @@
     <div class="input-group dropdown-toggle">
       <input
         @focus="showDropdown()"
-        @blur="removeDropdown()"
         :class="{'has-value': !!value}"
-        :value="value"
+        v-model="displayValue"
         :name="name"
-        :options="options"
-        @input="event => $emit('input', event.target.value)"/>
+        :options="options"/>
       <i class="ion ion-ios-arrow-down icon-right input-icon"></i>
       <label class="control-label">{{label}}</label><i class="bar"></i>
       <small v-show="hasErrors()" class="help text-danger">{{
@@ -55,7 +53,6 @@
         default: '',
         required: true
       },
-      changeValue: '',
       optionKey: String,
       required: {
         type: Boolean,
@@ -69,14 +66,16 @@
     data () {
       return {
         validated: false,
+        displayValue: this.value,
         currentOptions: this.options,
-        isShown: false
+        isShown: false,
+        mutableValue: this.value
       }
     },
     computed: {
       filteredList: {
         get: function () {
-          return this.options.filter(item => item.search(this.value) === 0)
+          return this.options.filter(item => item.search(this.displayValue) === 0)
         }
       },
     },
@@ -86,17 +85,15 @@
     methods: {
       showDropdown () {
         this.isShown = true
-        this.changeValue = this.value
-        this.value = ''
-      },
-      removeDropdown () {
-        this.value = this.changeValue
+        this.displayValue = ''
       },
       isOptionSelected (option) {
-        return this.value === option
+        return this.displayValue === option
       },
       selectOption (option) {
+        this.displayValue = option
         this.$emit('input', option)
+        console.log(this.displayValue)
       },
       validate () {
         this.validated = true
