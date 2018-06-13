@@ -72,15 +72,20 @@
         mutableValue: this.value
       }
     },
+    watch: {
+      value: {
+        handler (value) {
+          this.displayValue = value || ''
+        },
+        immediate: true,
+      }
+    },
     computed: {
       filteredList: {
         get: function () {
           return this.options.filter(item => item.search(this.displayValue) === 0)
         }
       },
-    },
-    mounted () {
-      this.$emit('input', this.value)
     },
     methods: {
       showDropdown () {
@@ -93,7 +98,7 @@
       selectOption (option) {
         this.displayValue = option
         this.$emit('input', option)
-        console.log(this.displayValue)
+        console.log('selectOption', this.displayValue)
       },
       validate () {
         this.validated = true
