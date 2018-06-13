@@ -75,7 +75,6 @@
           this.displayValue = value || ''
         },
         immediate: true,
-        mutableValue: this.value
       }
     },
     computed: {
