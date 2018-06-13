@@ -21,7 +21,6 @@
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.0.0",
     "chart.js": "^2.6.0",
-    "data": "^0.6.1",
     "detect-browser": "^1.7.1",
     "element-resize-detector": "^1.1.12",
     "epic-spinners": "^1.0.1",
