@@ -277,7 +277,7 @@ h4, .h4 {
 
   thead tr {
     border-bottom: 2px solid rgb(85, 85, 85);
-    color: $vue-green;
+    color: black;
     font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
@@ -308,7 +308,12 @@ h4, .h4 {
   .table-danger {
     background-color: #ffcece;
   }
+}
 
+.table-header-active {
+  thead tr {
+    color: $vue-green;
+  }
 }
 
 .first-td-padding {

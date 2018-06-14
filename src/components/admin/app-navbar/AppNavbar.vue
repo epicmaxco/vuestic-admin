@@ -1,15 +1,15 @@
 <template>
 
   <vuestic-navbar>
-    <header-selector slot="selector" v-model="valueProxy"/>
+    <header-selector slot="selector" :isOpen.sync="valueProxy"/>
     <span slot="logo" class="i-vuestic"></span>
-    <div slot="center" class="navbar-text offset-md-1 col-md-7 d-none d-lg-flex align-items-center justify-content-center">
+    <span slot="center">
       {{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
-    </div>
-    <message-dropdown slot="message"></message-dropdown>
-    <notification-dropdown slot="notification"></notification-dropdown>
-    <language-dropdown slot="language"></language-dropdown>
-    <profile-dropdown slot="profile">
+    </span>
+    <message-dropdown/>
+    <notification-dropdown/>
+    <language-dropdown/>
+    <profile-dropdown>
       <img src="http://i.imgur.com/nfa5itq.png"/>
     </profile-dropdown>
   </vuestic-navbar>
@@ -37,19 +37,18 @@
     },
 
     props: {
-      value: {
+      isOpen: {
         type: Boolean,
         required: true
       }
     },
-
     computed: {
       valueProxy: {
         get () {
-          return this.value
+          return this.isOpen
         },
-        set (value) {
-          this.$emit('toggle-menu', value)
+        set (opened) {
+          this.$emit('toggle-menu', opened)
         },
       }
     },

@@ -6,7 +6,7 @@
           slot="checkbox"
           v-model="product.selected"
         />
-        {{ product.name }}
+          {{ product.name }}
       </vuestic-tree-node>
     </vuestic-tree-category>
     <vuestic-tree-category isOpen label="Electronics">

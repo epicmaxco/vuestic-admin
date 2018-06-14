@@ -1,15 +1,15 @@
 <template>
   <div class="col nav-item dropdown navbar-dropdown" v-dropdown>
     <a class="nav-link dropdown-toggle" href="#">
-      <span class="i-nav-notification notify"></span>
+      <span class="i-nav-messages"></span>
     </a>
     <div class="dropdown-menu">
       <div class="dropdown-menu-content">
         <a v-for="(option, id) in options" :key="id" class="dropdown-item" href="#">
-          <span class="ellipsis">{{$t(`notifications.${option.name}`, { name: option.details.name, type: option.details.type })}}</span>
+          <span class="ellipsis">{{ $t(`messages.${option.name}`, { name: option.details.name})}}</span>
         </a>
         <div class="dropdown-item plain-link-item">
-          <a class="plain-link" href="#">{{'notifications.all' | translate}}</a>
+          <a class="plain-link" href="#">{{'messages.all' | translate}}</a>
         </div>
       </div>
     </div>
@@ -18,27 +18,21 @@
 
 <script>
   export default {
-    name: 'notification-dropdown',
+    name: 'message-dropdown',
 
     props: {
       options: {
         type: Array,
-        default () {
-          return [
-            {
-              name: 'sentMessage',
-              details: { name: 'Vasily S' }
-            },
-            {
-              name: 'uploadedZip',
-              details: { name: 'Oleg M', type: 'typography component' }
-            },
-            {
-              name: 'startedTopic',
-              details: { name: 'Andrei H' }
-            }
-          ]
-        }
+        default: () => [
+          {
+            name: 'new',
+            details: { name: 'Oleg M' }
+          },
+          {
+            name: 'new',
+            details: { name: 'Andrei H' }
+          },
+        ]
       }
     },
   }
@@ -47,7 +41,7 @@
 <style lang="scss">
   @import "../../../../../sass/variables";
 
-  .notify {
+  .i-nav-messages {
     position: relative;
 
     &::after {
@@ -60,11 +54,6 @@
       width: 12px;
       border-radius: 50%;
     }
-  }
-
-  .i-nav-notification.notify::after {
-    right: -4px;
-    top: 0;
   }
 
 </style>
