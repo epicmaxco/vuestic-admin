@@ -1,26 +1,10 @@
 <template>
-<<<<<<< HEAD
-  <nav class="navbar app-navbar navbar-toggleable-md">
-    <div class="navbar-logo-container">
-=======
   <nav class="vuestic-navbar navbar navbar-toggleable-md">
     <div class="vuestic-navbar__logo">
->>>>>>> master
       <router-link class="navbar-brand" to="/dashboard">
         <slot name="logo"></slot>
       </router-link>
     </div>
-<<<<<<< HEAD
-    <div class="row navbar-container">
-      <div class="d-flex align-items-center justify-content-center">
-        <slot name="selector"></slot>
-      </div>
-      <slot name="center"></slot>
-      <slot name="message"></slot>
-      <slot name="notification"></slot>
-      <slot name="language"></slot>
-      <slot name="profile"></slot>
-=======
     <div class="row vuestic-navbar__content">
       <div class="header-elem-wrapper">
         <slot name="selector"></slot>
@@ -29,7 +13,6 @@
         <slot name="center"></slot>
       </div>
       <slot></slot>
->>>>>>> master
     </div>
   </nav>
 </template>
@@ -46,23 +29,13 @@
   @import "~bootstrap/scss/functions";
   @import "~bootstrap/scss/variables";
 
-<<<<<<< HEAD
-  .navbar {
-=======
   .vuestic-navbar {
->>>>>>> master
     .layout-fixed & {
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1;
     }
-<<<<<<< HEAD
-  }
-
-  .navbar.app-navbar {
-    .navbar-container {
-=======
 
     .header-elem-wrapper {
       display: flex;
@@ -71,7 +44,6 @@
     }
 
     .vuestic-navbar__content {
->>>>>>> master
       width: 100%;
       height: 100%;
       margin: 0;
@@ -82,11 +54,7 @@
     padding-right: $nav-padding-right;
     background-color: $top-nav-bg;
 
-<<<<<<< HEAD
-    .navbar-logo-container {
-=======
     .vuestic-navbar__logo {
->>>>>>> master
       display: flex;
       align-items: center;
       justify-content: center;
@@ -97,12 +65,8 @@
       top: 0;
 
       @include media-breakpoint-down(md) {
-
-<<<<<<< HEAD
-        .navbar-logo-container {
-=======
+        
         .vuestic-navbar__logo {
->>>>>>> master
           width: $nav-mobile-brand-width;
           top: $nav-mobile-brand-top;
           left: $nav-mobile-brand-left;

@@ -138,8 +138,9 @@
     "title": "Iconos"
   },
   "language": {
-    "english": "Ingles",
-    "spanish": "Español"
+    "brazilian_portuguese": "Português",
+    "english": "English",
+    "spanish": "Spanish"
   },
   "menu": {
     "auth": "Autenticación",
