@@ -65,7 +65,7 @@
       top: 0;
 
       @include media-breakpoint-down(md) {
-
+        
         .vuestic-navbar__logo {
           width: $nav-mobile-brand-width;
           top: $nav-mobile-brand-top;

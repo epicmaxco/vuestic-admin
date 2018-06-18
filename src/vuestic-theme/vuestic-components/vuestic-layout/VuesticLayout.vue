@@ -11,7 +11,6 @@
 </template>
 
 <script>
-
   import Resize from 'directives/ResizeHandler'
 
   export default {
