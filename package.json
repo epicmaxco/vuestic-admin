@@ -47,7 +47,8 @@
     "vuetable-2": "1.7.5",
     "vuex": "^3.0.1",
     "vuex-i18n": "^1.7.0",
-    "vuex-router-sync": "5.0.0"
+    "vuex-router-sync": "5.0.0",
+    "tinycolor2": "latest"
   },
   "devDependencies": {
     "autoprefixer": "7.1.2",
