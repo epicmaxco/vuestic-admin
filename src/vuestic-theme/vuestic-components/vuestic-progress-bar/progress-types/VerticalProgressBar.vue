@@ -1,44 +1,38 @@
 <template>
   <div class="vertical">
-    <div class="progress" :class="size" >
-      <div class="progress-bar" ref="progressBar" :style="'height: ' + value + '%'">
+    <div class="progress"
+         :class="classObject">
+      <div class="progress-bar" :style="styleObject">
       </div>
     </div>
-    <div class="value">{{animatedValue + '%'}}</div>
+    <div class="value">{{value + '%'}}</div>
   </div>
 </template>
 
 <script>
-  import {color, lightness} from 'kewler'
-
   export default {
     props: [
       'value',
-      'animatedValue',
       'min',
       'max',
       'color',
       'size',
-      'isActive'
+      'disabled'
     ],
-    mounted () {
-      // Starts blinking
-      let progressBar = this.$refs.progressBar
-      let progressColor = color(this.color)
-      let current = progressColor
-      setInterval(() => {
-        if (this.animatedValue === 100) {
-          current = progressColor
-          progressBar.style.backgroundColor = current()
-          return
+    computed: {
+      styleObject: function () {
+        return {
+          backgroundColor: this.color,
+          height: this.value + '%'
         }
-        if (progressColor(lightness(30))() !== current()) {
-          current = progressColor(lightness(30))
-        } else {
-          current = progressColor
+      },
+      classObject: function () {
+        return {
+          'progress-basic': this.size === 'basic',
+          'progress-thin': this.size === 'thin',
+          'progress-disabled': this.disabled
         }
-        progressBar.style.backgroundColor = current()
-      }, 500)
+      }
     }
   }
 </script>
@@ -50,6 +44,11 @@
   @import "~bootstrap/scss/variables";
 
   .vuestic-progress-bar .vertical {
+
+    .pb-container & {
+      margin-top: 1.25rem;
+      margin-left: .125rem;
+    }
 
     .progress-bar {
       transition: background-color ease .5s, height 3s linear !important;
@@ -66,7 +65,7 @@
       -webkit-align-items: flex-end; /* Safari 7.0+ */
     }
 
-    .value{
+    .value {
       float: left;
       height: $progress-bar-vertical-height;
       display: flex;
@@ -74,7 +73,7 @@
       padding-left: .25rem;
     }
 
-    .basic {
+    .progress-basic {
       border-radius: $progress-bar-width-basic;
       .progress-bar {
         border-radius: inherit;
@@ -82,10 +81,14 @@
       }
     }
 
-    .thin {
+    .progress-thin {
       .progress-bar {
         width: $progress-bar-width-thin;
       }
+    }
+
+    .progress-disabled {
+      opacity: 0.5
     }
   }
 

@@ -1,7 +1,7 @@
 <template>
-  <div class="circle progress-bar" :style="'background-image: ' + backgroundImage">
-    <div class="overlay" :style="'background-color: ' + backgroundColor + '; color: ' + color">
-      <span>{{animatedValue+'%'}}</span>
+  <div class="circle progress-bar" :class="classObject" :style="'background-image: ' + backgroundImage">
+    <div class="overlay" :style="styleObject">
+      <span>{{ value + '%'}}</span>
     </div>
   </div>
 </template>
@@ -10,25 +10,32 @@
   export default {
     props: [
       'value',
-      'animatedValue',
-      'min',
-      'max',
       'color',
-      'startColor',
       'backgroundColor',
-      'isActive'
+      'disabled'
     ],
     computed: {
       backgroundImage () {
         let result = {}
-        if (this.animatedValue < 50) {
-          let nextDeg = 90 + (3.6 * this.animatedValue) + 'deg'
-          result = `linear-gradient(90deg, ${this.startColor} 50%, transparent 50%, transparent), linear-gradient(${nextDeg}, ${this.color} 50%, ${this.startColor} 50%, ${this.startColor})`
+        if (this.value < 50) {
+          let nextDeg = 90 + (3.6 * this.value) + 'deg'
+          result = `linear-gradient(90deg, ${this.backgroundColor} 50%, transparent 50%, transparent), linear-gradient(${nextDeg}, ${this.color} 50%, ${this.backgroundColor} 50%, ${this.backgroundColor})`
         } else {
-          let nextDeg = -90 + (3.6 * (this.animatedValue - 50)) + 'deg'
-          result = `linear-gradient(${nextDeg}, ${this.color} 50%, transparent 50%, transparent), linear-gradient(270deg, ${this.color} 50%, ${this.startColor} 50%, ${this.startColor})`
+          let nextDeg = -90 + (3.6 * (this.value - 50)) + 'deg'
+          result = `linear-gradient(${nextDeg}, ${this.color} 50%, transparent 50%, transparent), linear-gradient(270deg, ${this.color} 50%, ${this.backgroundColor} 50%, ${this.backgroundColor})`
         }
         return result
+      },
+      styleObject: function () {
+        return {
+          backgroundColor: this.backgroundColor,
+          color: this.color
+        }
+      },
+      classObject: function () {
+        return {
+          'progress-disabled': this.disabled
+        }
       }
     }
   }
@@ -45,6 +52,11 @@
     $loops: round(100 / $step);
     $increment: 360 / $loops;
     $half: round($loops / 2);
+
+    .pb-container & {
+      margin-top: 1.25rem;
+      margin-left: .125rem;
+    }
 
     &.progress-bar {
       float: left;
@@ -67,6 +79,8 @@
       align-items: center;
     }
 
-
+    &.progress-disabled {
+      opacity: 0.5
+    }
   }
 </style>

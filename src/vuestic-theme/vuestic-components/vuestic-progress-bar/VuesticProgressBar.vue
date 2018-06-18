@@ -1,12 +1,20 @@
 <template>
-  <div class="vuestic-progress-bar" ref="bar">
-    <horizontal-bar :min="min" :max="max" :value="value" :size="size" :color="color" v-if="type == 'horizontal'"
-                    :isActive = "isActive" ref="bar" :animatedValue="animatedValue"></horizontal-bar>
-    <vertical-bar :min="min" :max="max" :value="value" :size="size" :color="color" v-if="type == 'vertical'"
-                  :isActive = "isActive" ref="bar" :animatedValue="animatedValue"></vertical-bar>
-    <circle-bar :min="min" :max="max" :value="value" :color="color" :background-color="backgroundColor"
-                :start-color="startColor" v-if="type == 'circle'" :isActive = "isActive" ref="bar"
-                :animatedValue="animatedValue"></circle-bar>
+  <div class="vuestic-progress-bar">
+    <horizontal-bar :value="value"
+                    :size="size"
+                    :disabled="disabled"
+                    :color="normalizedColor"
+                    v-if="type == 'horizontal'"/>
+    <vertical-bar :value="value"
+                  :size="size"
+                  :disabled="disabled"
+                  :color="normalizedColor"
+                  v-if="type == 'vertical'"/>
+    <circle-bar :value="value"
+                :disabled="disabled"
+                :color="normalizedColor"
+                :background-color="normalizedBackgroundColor"
+                v-if="type == 'circle'"/>
   </div>
 </template>
 
@@ -23,72 +31,39 @@
       CircleBar
     },
     props: {
+      value: {
+        type: Number,
+        default: 100
+      },
+      color: {
+        type: String,
+        default: 'primary'
+      },
+      backgroundColor: {
+        type: String,
+        default: 'white'
+      },
       type: {
         type: String,
         default: 'horizontal'
-      },
-      min: {
-        type: Number,
-        default: 0
-      },
-      max: {
-        type: Number,
-        default: 100
       },
       size: {
         type: String,
         default: 'basic'
       },
-      colorName: {
-        type: String,
-        default: 'primary'
+      disabled: {
+        type: Boolean,
+        default: false
+      }
+    },
+    computed: {
+      normalizedColor: function () {
+        return this.$store.state.app.config.palette[this.color]
       },
-      startColorName: {
-        type: String,
-        default: 'lighterGray'
+      normalizedBackgroundColor: function () {
+        return this.$store.state.app.config.palette[this.backgroundColor]
       },
-      backgroundColorName: {
-        type: String,
-        default: 'white'
-      }
     },
-    watch: {
-      value () {
-        this.animateValue()
-      }
-    },
-    methods: {
-      animateValue () {
-        let startValue = this.value
-        let valueMsecs = this.valueAnimationInterval / this.max
-        let delta = Math.sign(this.value - this.animatedValue)
-        let valueInterval = setInterval(() => {
-          if (!this.$refs.bar) {
-            clearInterval(valueInterval)
-            return
-          }
-          if (startValue !== this.value || this.animatedValue === this.value) {
-            clearInterval(valueInterval)
-            if (this.value === this.max) {
-              this.isActive = false
-            }
-          } else {
-            this.animatedValue += delta
-          }
-        }, valueMsecs)
-      }
-    },
-    data () {
-      return {
-        value: 0,
-        valueAnimationInterval: 2000,
-        animatedValue: 0,
-        isActive: false,
-        startColor: this.$store.state.app.config.palette[this.startColorName],
-        color: this.$store.state.app.config.palette[this.colorName],
-        backgroundColor: this.$store.state.app.config.palette[this.backgroundColorName]
-      }
-    }
   }
 </script>
 

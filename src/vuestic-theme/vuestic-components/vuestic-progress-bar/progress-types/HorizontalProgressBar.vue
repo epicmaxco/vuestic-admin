@@ -1,10 +1,10 @@
 <template>
   <div class="horizontal">
-    <div v-if="size != 'thick'" class="value">{{animatedValue + '%'}}</div>
-    <div class="progress" :class="size" >
-      <div class="progress-bar" ref="progressBar" :style="'width: ' + value + '%'">
-        <span v-if="size == 'thick'" :class="{hidden: animatedValue == min}" class="value">
-          {{animatedValue + '%'}}
+    <div v-if="size != 'thick'" class="value">{{value + '%'}}</div>
+    <div class="progress" :class="classObject">
+      <div class="progress-bar" :style="styleObject">
+        <span v-if="size == 'thick'" :class="{hidden: value == 0}" class="value">
+          {{value + '%'}}
         </span>
       </div>
     </div>
@@ -12,35 +12,29 @@
 </template>
 
 <script>
-  import {color, lightness} from 'kewler'
 
   export default {
     props: [
       'value',
-      'animatedValue',
-      'min',
-      'max',
       'color',
       'size',
-      'isActive'
+      'disabled'
     ],
-    mounted () {
-      let progressBar = this.$refs.progressBar
-      let progressColor = color(this.color)
-      let current = progressColor
-      setInterval(() => {
-        if (this.animatedValue === 100) {
-          current = progressColor
-          progressBar.style.backgroundColor = current()
-          return
+    computed: {
+      styleObject: function () {
+        return {
+          backgroundColor: this.color,
+          width: this.value + '%'
         }
-        if (progressColor(lightness(30))() !== current()) {
-          current = progressColor(lightness(30))
-        } else {
-          current = progressColor
+      },
+      classObject: function () {
+        return {
+          'progress-thick': this.size === 'thick',
+          'progress-thin': this.size === 'thin',
+          'progress-basic': this.size === 'basic',
+          'progress-disabled': this.disabled
         }
-        progressBar.style.backgroundColor = current()
-      }, 500)
+      }
     }
   }
 </script>
@@ -57,6 +51,9 @@
 
     .progress-bar {
       transition: background-color ease .5s, width 3s linear !important;
+      .progress-bar_disabled {
+        opacity: 0.5
+      }
     }
 
     .value {
@@ -66,7 +63,7 @@
       }
     }
 
-    .basic {
+    .progress-basic {
       border-radius: $progress-bar-width-basic;
       height: $progress-bar-width-basic;
       .progress-bar {
@@ -74,19 +71,29 @@
       }
     }
 
-    .thin {
+    .progress-thin {
       height: $progress-bar-width-thin;
+      .pb-container & {
+        margin-top: .125rem;
+      }
     }
 
-    .thick {
+    .progress-thick {
       border-radius: $progress-bar-width-thick;
       height: $progress-bar-width-thick;
+      .pb-container & {
+        margin-top: calc(#{$progress-bar-width-thick} / 2 - .125rem);
+      }
       .progress-bar {
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: inherit;
       }
+    }
+
+    .progress-disabled {
+      opacity: 0.5
     }
 
   }
