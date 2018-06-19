@@ -15,6 +15,10 @@ if (process.env.NODE_ENV === 'development') {
   )
 }
 
+const EmptyParentComponent = {
+  template: '<router-view></router-view>'
+}
+
 export default new Router({
   routes: [
     ...demoRoutes,
@@ -23,21 +27,23 @@ export default new Router({
       redirect: { name: 'dashboard' }
     },
     {
-      name: 'auth',
       path: '/auth',
       component: AuthLayout,
       children: [
         {
           name: 'login',
           path: 'login',
-          component: lazyLoading('auth/login/Login'),
-          default: true,
+          component: lazyLoading('auth/login/Login')
         },
         {
           name: 'signup',
           path: 'signup',
           component: lazyLoading('auth/signup/Signup')
         },
+        {
+          path: '',
+          redirect: {name: 'login'}
+        }
       ]
     },
     {
@@ -52,37 +58,49 @@ export default new Router({
           default: true
         },
         {
-          name: 'statistics',
-          path: 'statistics'
+          path: 'statistics',
+          component: EmptyParentComponent,
+          children: [
+            {
+              name: 'charts',
+              path: 'charts',
+              component: lazyLoading('statistics/charts/Charts')
+            },
+            {
+              name: 'progress-bars',
+              path: 'progress-bars',
+              component: lazyLoading('statistics/progress-bars/ProgressBars'),
+            },
+            {
+              path: '',
+              redirect: {name: 'charts'}
+            }
+          ]
         },
         {
-          name: 'charts',
-          path: 'statistics/charts',
-          component: lazyLoading('statistics/charts/Charts')
-        },
-        {
-          name: 'progress-bars',
-          path: 'statistics/progress-bars',
-          component: lazyLoading('statistics/progress-bars/ProgressBars'),
-        },
-        {
-          name: 'forms',
-          path: 'forms'
-        },
-        {
-          name: 'form-elements',
-          path: 'forms/form-elements',
-          component: lazyLoading('forms/form-elements/FormElements')
-        },
-        {
-          name: 'form-wizard',
-          path: 'forms/form-wizard',
-          component: lazyLoading('forms/form-wizard/FormWizard')
-        },
-        {
-          name: 'medium-editor',
-          path: 'forms/medium-editor',
-          component: lazyLoading('forms/medium-editor/MediumEditor')
+          path: 'forms',
+          component: EmptyParentComponent,
+          children: [
+            {
+              name: 'form-elements',
+              path: 'form-elements',
+              component: lazyLoading('forms/form-elements/FormElements')
+            },
+            {
+              name: 'form-wizard',
+              path: 'form-wizard',
+              component: lazyLoading('forms/form-wizard/FormWizard')
+            },
+            {
+              name: 'medium-editor',
+              path: 'medium-editor',
+              component: lazyLoading('forms/medium-editor/MediumEditor')
+            },
+            {
+              path: '',
+              redirect: {name: 'form-elements'}
+            }
+          ]
         },
         {
           name: 'tables',
@@ -90,59 +108,65 @@ export default new Router({
           component: lazyLoading('tables/Table')
         },
         {
-          name: 'ui-elements',
-          path: 'ui'
-        },
-        {
-          name: 'typography',
-          path: 'ui/typography',
-          component: lazyLoading('ui/typography/Typography')
-        },
-        {
-          name: 'buttons',
-          path: 'ui/buttons',
-          component: lazyLoading('ui/buttons/Buttons')
-        },
-        {
-          name: 'notifications',
-          path: 'ui/notifications',
-          component: lazyLoading('ui/notifications/Notifications')
-        },
-        {
-          path: 'ui/icons',
-          component: lazyLoading('ui/icons/Icons'),
+          path: 'ui',
+          component: EmptyParentComponent,
           children: [
             {
-              name: 'icons',
-              path: '', // Default route
-              component: lazyLoading('ui/icons/SetsList')
+              name: 'typography',
+              path: 'typography',
+              component: lazyLoading('ui/typography/Typography')
             },
             {
-              path: ':name',
-              component: lazyLoading('ui/icons/Set'),
-              props: true
+              name: 'buttons',
+              path: 'buttons',
+              component: lazyLoading('ui/buttons/Buttons')
+            },
+            {
+              name: 'notifications',
+              path: 'notifications',
+              component: lazyLoading('ui/notifications/Notifications')
+            },
+            {
+              path: 'icons',
+              component: lazyLoading('ui/icons/Icons'),
+              children: [
+                {
+                  name: 'icons',
+                  path: '', // Default route
+                  component: lazyLoading('ui/icons/SetsList')
+                },
+                {
+                  path: ':name',
+                  component: lazyLoading('ui/icons/Set'),
+                  props: true
+                }
+              ]
+            },
+            {
+              name: 'spinners',
+              path: 'spinners',
+              component: lazyLoading('ui/spinners/Spinners')
+            },
+            {
+              name: 'grid',
+              path: 'grid',
+              component: lazyLoading('ui/grid/Grid')
+            },
+            {
+              name: 'modals',
+              path: 'modals',
+              component: lazyLoading('ui/modals/Modals')
+            },
+            {
+              name: 'tree-view',
+              path: 'tree-view',
+              component: lazyLoading('ui/tree-view/TreeView')
+            },
+            {
+              path: '',
+              redirect: {name: 'typography'}
             }
           ]
-        },
-        {
-          name: 'spinners',
-          path: 'ui/spinners',
-          component: lazyLoading('ui/spinners/Spinners')
-        },
-        {
-          name: 'grid',
-          path: 'ui/grid',
-          component: lazyLoading('ui/grid/Grid')
-        },
-        {
-          name: 'modals',
-          path: 'ui/modals',
-          component: lazyLoading('ui/modals/Modals')
-        },
-        {
-          name: 'tree-view',
-          path: 'ui/tree-view',
-          component: lazyLoading('ui/tree-view/TreeView')
         },
         {
           name: 'extra',
@@ -150,33 +174,39 @@ export default new Router({
           component: lazyLoading('extra/Extra')
         },
         {
-          name: 'maps',
-          path: 'maps'
-        },
-        {
-          name: 'google-maps',
-          path: 'maps/google-maps',
-          component: lazyLoading('maps/google-maps/GoogleMapsPage')
-        },
-        {
-          name: 'yandex-maps',
-          path: 'maps/yandex-maps',
-          component: lazyLoading('maps/yandex-maps/YandexMapsPage')
-        },
-        {
-          name: 'leaflet-maps',
-          path: 'maps/leaflet-maps',
-          component: lazyLoading('maps/leaflet-maps/LeafletMapsPage'),
-        },
-        {
-          name: 'bubble-maps',
-          path: 'maps/bubble-maps',
-          component: lazyLoading('maps/bubble-maps/BubbleMapsPage'),
-        },
-        {
-          name: 'line-maps',
-          path: 'maps/line-maps',
-          component: lazyLoading('maps/line-maps/LineMapsPage')
+          path: 'maps',
+          component: EmptyParentComponent,
+          children: [
+            {
+              name: 'google-maps',
+              path: 'google-maps',
+              component: lazyLoading('maps/google-maps/GoogleMapsPage')
+            },
+            {
+              name: 'yandex-maps',
+              path: 'yandex-maps',
+              component: lazyLoading('maps/yandex-maps/YandexMapsPage')
+            },
+            {
+              name: 'leaflet-maps',
+              path: 'leaflet-maps',
+              component: lazyLoading('maps/leaflet-maps/LeafletMapsPage'),
+            },
+            {
+              name: 'bubble-maps',
+              path: 'bubble-maps',
+              component: lazyLoading('maps/bubble-maps/BubbleMapsPage'),
+            },
+            {
+              name: 'line-maps',
+              path: 'line-maps',
+              component: lazyLoading('maps/line-maps/LineMapsPage')
+            },
+            {
+              path: '',
+              redirect: {name: 'google-maps'}
+            }
+          ]
         }
       ]
     }
