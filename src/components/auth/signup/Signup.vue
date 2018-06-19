@@ -25,7 +25,7 @@
         <button class="btn btn-primary" type="submit">
           {{'auth.signUp' | translate}}
         </button>
-        <router-link class='link' :to="{name: 'Login'}">{{'auth.alreadyJoined' | translate}}</router-link>
+        <router-link class='link' :to="{name: 'login'}">{{'auth.alreadyJoined' | translate}}</router-link>
       </div>
     </form>
   </div>
