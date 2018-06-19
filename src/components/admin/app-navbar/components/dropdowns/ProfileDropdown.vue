@@ -9,7 +9,7 @@
       <div class="dropdown-menu-content">
         <div v-for="(option, id) in options" :key="id"
           class="dropdown-item plain-link-item">
-          <a class="plain-link" href="#">{{ `user.${option.name}` | translate}}</a>
+          <router-link :to="{name: option.redirectTo}" class="plain-link" href="#">{{ `user.${option.name}` | translate}}</router-link>
         </div>
       </div>
     </div>
@@ -25,10 +25,12 @@
         type: Array,
         default: () => [
           {
-            name: 'profile'
+            name: 'profile',
+            redirectTo: '',
           },
           {
-            name: 'logout'
+            name: 'logout',
+            redirectTo: 'login'
           }
         ]
       }
