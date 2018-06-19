@@ -23,17 +23,19 @@ export default new Router({
       redirect: { name: 'dashboard' }
     },
     {
-      name: 'separate-auth',
+      name: 'auth',
       path: '/auth',
       component: AuthLayout,
       children: [
         {
-          path: '/auth/login',
+          name: 'login',
+          path: 'login',
           component: lazyLoading('auth/login/Login'),
           default: true,
         },
         {
-          path: '/auth/signup',
+          name: 'signup',
+          path: 'signup',
           component: lazyLoading('auth/signup/Signup')
         },
       ]
@@ -45,69 +47,69 @@ export default new Router({
       children: [
         {
           name: 'dashboard',
-          path: '/admin/dashboard',
+          path: 'dashboard',
           component: lazyLoading('dashboard/Dashboard'),
           default: true
         },
         {
           name: 'statistics',
-          path: '/admin/statistics'
+          path: 'statistics'
         },
         {
           name: 'charts',
-          path: '/admin/statistics/charts',
+          path: 'statistics/charts',
           component: lazyLoading('statistics/charts/Charts')
         },
         {
           name: 'progress-bars',
-          path: '/admin/statistics/progress-bars',
+          path: 'statistics/progress-bars',
           component: lazyLoading('statistics/progress-bars/ProgressBars'),
         },
         {
           name: 'forms',
-          path: '/admin/forms'
+          path: 'forms'
         },
         {
           name: 'form-elements',
-          path: '/admin/forms/form-elements',
+          path: 'forms/form-elements',
           component: lazyLoading('forms/form-elements/FormElements')
         },
         {
           name: 'form-wizard',
-          path: '/admin/forms/form-wizard',
+          path: 'forms/form-wizard',
           component: lazyLoading('forms/form-wizard/FormWizard')
         },
         {
           name: 'medium-editor',
-          path: '/admin/forms/medium-editor',
+          path: 'forms/medium-editor',
           component: lazyLoading('forms/medium-editor/MediumEditor')
         },
         {
           name: 'tables',
-          path: '/admin/tables',
+          path: 'tables',
           component: lazyLoading('tables/Table')
         },
         {
           name: 'ui-elements',
-          path: '/admin/ui'
+          path: 'ui'
         },
         {
           name: 'typography',
-          path: '/admin/ui/typography',
+          path: 'ui/typography',
           component: lazyLoading('ui/typography/Typography')
         },
         {
           name: 'buttons',
-          path: '/admin/ui/buttons',
+          path: 'ui/buttons',
           component: lazyLoading('ui/buttons/Buttons')
         },
         {
           name: 'notifications',
-          path: '/admin/ui/notifications',
+          path: 'ui/notifications',
           component: lazyLoading('ui/notifications/Notifications')
         },
         {
-          path: '/admin/ui/icons',
+          path: 'ui/icons',
           component: lazyLoading('ui/icons/Icons'),
           children: [
             {
@@ -124,70 +126,56 @@ export default new Router({
         },
         {
           name: 'spinners',
-          path: '/admin/ui/spinners',
+          path: 'ui/spinners',
           component: lazyLoading('ui/spinners/Spinners')
         },
         {
           name: 'grid',
-          path: '/admin/ui/grid',
+          path: 'ui/grid',
           component: lazyLoading('ui/grid/Grid')
         },
         {
           name: 'modals',
-          path: '/admin/ui/modals',
+          path: 'ui/modals',
           component: lazyLoading('ui/modals/Modals')
         },
         {
           name: 'tree-view',
-          path: '/admin/ui/tree-view',
+          path: 'ui/tree-view',
           component: lazyLoading('ui/tree-view/TreeView')
         },
         {
           name: 'extra',
-          path: '/admin/extra',
+          path: 'extra',
           component: lazyLoading('extra/Extra')
         },
         {
-          name: 'auth',
-          path: '/admin/auth'
-        },
-        {
-          name: 'login',
-          path: '/admin/auth/login',
-          component: lazyLoading('auth/login/Login')
-        },
-        {
-          name: 'signup',
-          path: '/admin/auth/signup',
-          component: lazyLoading('auth/signup/Signup')
-        },
-        {
           name: 'maps',
-          path: '/admin/maps'
+          path: 'maps'
         },
         {
           name: 'google-maps',
-          path: '/admin/maps/google-maps',
+          path: 'maps/google-maps',
           component: lazyLoading('maps/google-maps/GoogleMapsPage')
         },
         {
           name: 'yandex-maps',
-          path: '/admin/maps/yandex-maps',
+          path: 'maps/yandex-maps',
           component: lazyLoading('maps/yandex-maps/YandexMapsPage')
         },
         {
           name: 'leaflet-maps',
-          path: '/admin/maps/leaflet-maps',
+          path: 'maps/leaflet-maps',
           component: lazyLoading('maps/leaflet-maps/LeafletMapsPage'),
         },
         {
           name: 'bubble-maps',
-          path: '/admin/maps/bubble-maps',
+          path: 'maps/bubble-maps',
           component: lazyLoading('maps/bubble-maps/BubbleMapsPage'),
         },
         {
           name: 'line-maps',
-          path: '/admin/maps/line-maps',
+          path: 'maps/line-maps',
           component: lazyLoading('maps/line-maps/LineMapsPage')
         }
       ]
