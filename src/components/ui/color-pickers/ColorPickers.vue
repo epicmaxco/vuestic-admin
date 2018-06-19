@@ -6,12 +6,12 @@
           <span class="text-uppercase simple">simple</span>
           <span class="text-uppercase slider">slider</span>
           <span class="text-uppercase advanced">advanced</span>
-          <div class="row" v-model="colors">
-            <colored-square :color="'#f81953'"></colored-square>
+          <div class="row">
+            <colored-square :value="'#f81953'"></colored-square>
             <colored-square class="offset-1"
-                            :color="'#22194c'"></colored-square>
+                            :value="'#22194c'"></colored-square>
             <colored-square class="offset-1"
-                            :color="'#ffd50a'"></colored-square>
+                            :value="'#ffd50a'"></colored-square>
           </div>
         </vuestic-widget>
       </div>
@@ -21,7 +21,7 @@
         <vuestic-widget headerText="Simple Inline">
           <div class="row">
             <div class="col-md-1">
-              <colored-square :color="'#f81953'"/>
+              <colored-square/>
             </div>
             <div class="col-md-6">
               <vuestic-color-picker/>
@@ -35,10 +35,10 @@
         <vuestic-widget headerText="Slider">
           <div class="row">
             <div class="col-md-1">
-              <colored-square :color="'#22194c'"/>
+              <colored-square v-model="sliderColor"/>
             </div>
             <div class="col-md-6">
-              <slider-picker v-model="colors"/>
+              <slider-picker v-model="sliderColor"/>
             </div>
           </div>
         </vuestic-widget>
@@ -49,10 +49,10 @@
         <vuestic-widget headerText="Advanced">
           <div class="row">
             <div class="col-md-1">
-              <colored-square :color="'#ffd50a'"/>
+              <colored-square v-model="advancedColor"/>
             </div>
             <div class="col-md-1">
-              <chrome-picker v-model="colors"/>
+              <chrome-picker v-model="advancedColor"/>
             </div>
           </div>
         </vuestic-widget>
@@ -79,6 +79,8 @@
     from '../../../vuestic-theme/vuestic-components/vuestic-alert/VuesticAlert'
   import ColoredSquare
     from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/ColoredSquare'
+  var sliderColor = '#194d33'
+  var advancedColor = '#194d33'
   // import VuesticWidget from '../../../vuestic-theme/vuestic-components/vuestic-widget/VuesticWidget'
   export default {
     name: 'ColorPickers',
@@ -98,11 +100,8 @@
     },
     data () {
       return {
-        colors: {
-          h: 50,
-          s: 0.5,
-          l: 0.2
-        }
+        sliderColor: sliderColor,
+        advancedColor: advancedColor
       }
     },
   }
