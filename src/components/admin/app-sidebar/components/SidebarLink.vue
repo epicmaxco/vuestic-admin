@@ -3,7 +3,7 @@
     <router-link
       class="sidebar-link__router-link"
       :to="to"
-      target="_self">
+      :target="target">
       <slot name="title"></slot>
     </router-link>
   </li>
@@ -16,6 +16,10 @@
       to: {
         type: Object,
         required: true
+      },
+      target: {
+        type: String,
+        default: '_self'
       }
     },
     watch: {

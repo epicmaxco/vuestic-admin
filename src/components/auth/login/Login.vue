@@ -18,7 +18,7 @@
         <button class="btn btn-primary" type="submit">
           {{'auth.login' | translate}}
         </button>
-        <router-link class='link' :to="{name: 'Signup'}">{{'auth.createAccount' | translate}}</router-link>
+        <router-link class='link' :to="{name: 'signup'}">{{'auth.createAccount' | translate}}</router-link>
       </div>
     </form>
   </div>
