@@ -43,8 +43,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../../../sass/variables";
-
    .i-nav-notification {
     position: relative;
 

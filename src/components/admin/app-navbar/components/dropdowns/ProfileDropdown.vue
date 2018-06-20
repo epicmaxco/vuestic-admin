@@ -39,8 +39,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../../../sass/variables";
-
   .profile-dropdown {
 
     .profile-section-avatar-container {

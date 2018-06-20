@@ -39,8 +39,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../../../sass/variables";
-
   .i-nav-messages {
     position: relative;
 

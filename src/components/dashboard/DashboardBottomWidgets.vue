@@ -77,7 +77,6 @@
 </script>
 
 <style lang="scss" scoped>
-
   .bottom-widgets {
     > div[class^='col'] {
       & > div {

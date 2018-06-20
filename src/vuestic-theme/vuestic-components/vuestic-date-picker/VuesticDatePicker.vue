@@ -50,9 +50,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/mixins";
-  @import "../../../sass/variables";
-
   $datepickerActive: $vue-green;
   $datepickerBackground: #333333;
   $datepickerText: $white;

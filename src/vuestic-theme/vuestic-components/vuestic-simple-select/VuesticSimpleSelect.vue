@@ -118,8 +118,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/variables";
-
   .select-form-group {
     .dropdown-menu {
       padding: 0;
