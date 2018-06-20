@@ -43,8 +43,6 @@
 
 <style lang="scss">
   .ui-icons {
-    @import "../../../sass/icons-styles";
-
     padding-left: 15px;
     padding-right: 15px;
 

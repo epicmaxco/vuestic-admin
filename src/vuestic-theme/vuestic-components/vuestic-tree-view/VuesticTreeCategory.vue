@@ -90,8 +90,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/variables";
-
   .vuestic-tree-category {
     &__header {
       cursor: pointer;
