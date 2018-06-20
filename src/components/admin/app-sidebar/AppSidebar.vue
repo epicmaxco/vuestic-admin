@@ -118,6 +118,13 @@
           </span>
         </sidebar-link>
         <sidebar-link
+          :to="{ name: 'file-upload' }">
+          <span slot="title">
+            <span class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
+            <span>{{ $t('menu.fileUpload') }}</span>
+          </span>
+        </sidebar-link>
+        <sidebar-link
           :to="{ name: 'tree-view' }">
           <span slot="title">
             <span class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
