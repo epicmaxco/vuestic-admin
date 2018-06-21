@@ -6,10 +6,10 @@
     <span slot="center">
       {{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
     </span>
-    <message-dropdown/>
-    <notification-dropdown/>
-    <language-dropdown/>
-    <profile-dropdown>
+    <message-dropdown @toggle-menu="hideSidebar()"/>
+    <notification-dropdown @toggle-menu="hideSidebar()"/>
+    <language-dropdown @toggle-menu="hideSidebar()"/>
+    <profile-dropdown @toggle-menu="hideSidebar()">
       <img src="http://i.imgur.com/nfa5itq.png"/>
     </profile-dropdown>
   </vuestic-navbar>
@@ -40,6 +40,11 @@
       isOpen: {
         type: Boolean,
         required: true
+      }
+    },
+    methods: {
+      hideSidebar () {
+        this.$emit('toggle-menu', false)
       }
     },
     computed: {

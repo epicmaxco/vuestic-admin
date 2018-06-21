@@ -25,11 +25,6 @@
         required: true,
       }
     },
-    methods: {
-      toggleMenuItem () {
-        this.hidden = false
-      }
-    },
     computed: {
       classObject: function () {
         return {

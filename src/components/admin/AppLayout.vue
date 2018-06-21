@@ -1,7 +1,7 @@
 <template>
   <vuestic-layout>
     <app-navbar :isOpen="opened" @toggle-menu="toggleSidebar"/>
-    <app-sidebar :isOpen="opened"/>
+    <app-sidebar :isOpen="opened" @toggle-menu="toggleSidebar"/>
     <main slot="content" id="content" class="content" role="main">
       <vuestic-breadcrumbs/>
       <vuestic-pre-loader v-show="isLoading" ref="preLoader" class="pre-loader"></vuestic-pre-loader>

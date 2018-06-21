@@ -1,6 +1,6 @@
 <template>
   <div class="col nav-item dropdown navbar-dropdown" v-dropdown>
-    <a class="nav-link dropdown-toggle" href="#">
+    <a class="nav-link dropdown-toggle" href="#" @click.prevent="$emit('toggle-menu')">
       <span class="i-nav-notification"></span>
     </a>
     <div class="dropdown-menu">

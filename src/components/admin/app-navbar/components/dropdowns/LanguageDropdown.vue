@@ -1,6 +1,6 @@
 <template>
-  <div class="language-dropdown dropdown" v-dropdown.closeOnMenuClick>
-    <a class="language-dropdown-button dropdown-toggle" href="#">
+  <div class="language-dropdown dropdown" v-dropdown>
+    <a class="language-dropdown-button dropdown-toggle" href="#" @click.prevent="$emit('toggle-menu')">
       <span class="flag-icon flag-icon-large" :class="flagIconClass(currentLanguage())"></span>
     </a>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
