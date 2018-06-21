@@ -31,8 +31,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/variables";
-
   .vuestic-tree-node {
     .form-group {
       margin-bottom: 0px;

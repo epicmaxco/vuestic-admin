@@ -53,8 +53,6 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../../../../sass/variables";
-
   .btn.dropdown-toggle, .dropdown-menu {
     min-width: 13rem;
     max-width: 13rem;

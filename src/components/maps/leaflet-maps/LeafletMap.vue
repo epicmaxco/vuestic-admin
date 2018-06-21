@@ -29,7 +29,6 @@
 
 <style lang="scss">
   @import "~leaflet/dist/leaflet.css";
-  @import "../../../sass/_variables.scss";
 
   .leaflet-map {
     height: 100%;

@@ -25,7 +25,7 @@
         <button class="btn btn-primary" type="submit">
           {{'auth.signUp' | translate}}
         </button>
-        <router-link class='link' :to="{name: 'Login'}">{{'auth.alreadyJoined' | translate}}</router-link>
+        <router-link class='link' :to="{name: 'login'}">{{'auth.alreadyJoined' | translate}}</router-link>
       </div>
     </form>
   </div>
@@ -43,11 +43,6 @@
 </script>
 
 <style lang="scss">
-  @import '../../../sass/variables';
-  @import '~bootstrap/scss/mixins/breakpoints';
-  @import "~bootstrap/scss/functions";
-  @import '~bootstrap/scss/variables';
-
   .signup {
     @include media-breakpoint-down(md) {
       width: 100%;

@@ -37,11 +37,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/_variables.scss";
-  @import "~bootstrap/scss/mixins/breakpoints";
-  @import "~bootstrap/scss/functions";
-  @import "~bootstrap/scss/variables";
-
   .vuestic-sidebar {
     @include media-breakpoint-down(md) {
       top: $sidebar-mobile-top;
