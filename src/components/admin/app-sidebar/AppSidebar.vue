@@ -126,13 +126,15 @@
         </span>
         <sidebar-link
           :to="{ name: 'login' }"
+          target="_blank"
           :isChildLink="true">
           <span slot="title">
             <span>{{ $t('menu.login') }}</span>
           </span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'signup' }">
+          :to="{ name: 'signup' }"
+          target="_blank">
           <span slot="title">
             <span>{{ $t('menu.signUp') }}</span>
           </span>

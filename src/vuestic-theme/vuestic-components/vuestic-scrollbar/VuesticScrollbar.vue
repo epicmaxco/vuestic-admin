@@ -159,8 +159,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/variables";
-
   .vuestic-scrollbar {
     background: transparent;
     transition: all .3s linear;

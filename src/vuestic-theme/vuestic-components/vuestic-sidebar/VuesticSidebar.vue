@@ -25,6 +25,11 @@
         required: true,
       }
     },
+    methods: {
+      toggleMenuItem () {
+        this.hidden = false
+      }
+    },
     computed: {
       classObject: function () {
         return {
@@ -37,11 +42,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/_variables.scss";
-  @import "~bootstrap/scss/mixins/breakpoints";
-  @import "~bootstrap/scss/functions";
-  @import "~bootstrap/scss/variables";
-
   .vuestic-sidebar {
     @include media-breakpoint-down(md) {
       top: $sidebar-mobile-top;
@@ -98,6 +98,9 @@
       z-index: $min-z-index;
     }
     &.sidebar-hidden + .content-wrap {
+      @include media-breakpoint-down(md) {
+        margin-left: 0;
+      }
       margin-left: $sidebar-left;
     }
   }

@@ -24,11 +24,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/_variables.scss";
-  @import "~bootstrap/scss/mixins/breakpoints";
-  @import "~bootstrap/scss/functions";
-  @import "~bootstrap/scss/variables";
-
   .vuestic-navbar {
     .layout-fixed & {
       position: fixed;
@@ -63,6 +58,21 @@
       height: 100%;
       left: $navbar-brand-container-left;
       top: 0;
+
+      @include media-breakpoint-down(md) {
+
+        .vuestic-navbar__logo {
+          width: $nav-mobile-brand-width;
+          top: $nav-mobile-brand-top;
+          left: $nav-mobile-brand-left;
+          height: auto;
+          .navbar-brand {
+            height: $font-size-smaller;
+            padding: 0;
+            font-size: $font-size-smaller;
+          }
+        }
+      }
     }
 
     .menu-icon-container {

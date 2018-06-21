@@ -257,8 +257,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/variables";
-
   .vuestic-data-table {
     .form-group {
       margin-bottom: 1rem;

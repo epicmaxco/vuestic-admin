@@ -18,9 +18,6 @@
 </script>
 
 <style lang="scss">
-
-  @import "../../../../sass/mixins";
-
   .header-selector {
     @include flex-center();
     cursor: pointer;

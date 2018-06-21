@@ -137,11 +137,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/variables";
-  @import "~bootstrap/scss/mixins/breakpoints";
-  @import "~bootstrap/scss/functions";
-  @import "~bootstrap/scss/variables";
-
   .set {
     .header {
       padding: 1.75rem 0 1.125rem;

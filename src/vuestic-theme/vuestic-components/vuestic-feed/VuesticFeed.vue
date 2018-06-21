@@ -37,8 +37,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/variables";
-
   .vuestic-feed {
     padding-top: .5rem;
     padding-bottom: .5rem;
