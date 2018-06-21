@@ -40,6 +40,9 @@
             <div class="col-md-4">
               <vuestic-simple-color-picker v-model="simpleColor"/>
             </div>
+            <div class="col-md-2">
+              <vuestic-color-input v-model="simpleColor" style="padding-right: 30px; padding-top: 14px"></vuestic-color-input>
+            </div>
           </div>
         </vuestic-widget>
       </div>
@@ -85,10 +88,13 @@
     from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticSliderColorPicker'
   import VuesticAdvancedColorPicker
     from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticAdvancedColorPicker'
+  import VuesticColorInput
+    from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticColorInput'
 
   export default {
     name: 'ColorPickers',
     components: {
+      VuesticColorInput,
       VuesticAdvancedColorPicker,
       VuesticSliderColorPicker,
       ColoredSquare,

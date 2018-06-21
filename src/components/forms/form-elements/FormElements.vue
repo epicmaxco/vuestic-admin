@@ -12,7 +12,7 @@
                     <div class="input-group">
                       <input id="simple-input" required/>
                       <label class="control-label" for="simple-input">{{'forms.inputs.textInput'
-                        | translate}}</label><i class="bar"></i>
+                      | translate}}</label><i class="bar"></i>
                     </div>
                   </div>
                   <div class="form-group with-icon-right"
