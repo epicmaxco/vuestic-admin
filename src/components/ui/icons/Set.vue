@@ -53,7 +53,7 @@
               v-if="list.icons[(i - 1) * 8 + j - 1]"
               class="col-8-custom icon-grid-container"
             >
-              <div class="icon">
+              <div class="vuestic-icon">
                 <span
                   :class="iconClass(list.icons[(i - 1) * 8 + j - 1])"
                   :style="`font-size: ${iconSize}px`"
@@ -204,7 +204,7 @@
           cursor: pointer;
         }
 
-        .icon {
+        .vuestic-icon {
           margin: 0 0 1rem;
           padding: 1rem 0 0;
         }

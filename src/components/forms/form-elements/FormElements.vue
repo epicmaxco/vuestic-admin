@@ -399,6 +399,11 @@
         clearableText: '',
         successfulEmail: 'andrei@dreamsupport.io',
         wrongEmail: 'andrei@dreamsupport',
+        simpleOptions2: [
+          'First option',
+          'Second option',
+          'Third option'
+        ],
         simpleOptions: [
           {
             id: 1,

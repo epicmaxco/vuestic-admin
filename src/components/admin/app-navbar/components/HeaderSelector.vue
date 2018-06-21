@@ -1,6 +1,6 @@
 <template>
   <span class="header-selector"
-       :class="{ 'i-menu-expanded': !isOpen, 'i-menu-collapsed': isOpen }"
+       :class="{ 'i-menu-expanded': isOpen, 'i-menu-collapsed': !isOpen }"
        @click="$emit('update:isOpen', !isOpen)"
   />
 </template>

@@ -54,6 +54,7 @@
         }
       }
     }
+
     .content-wrap {
       margin-left: $content-wrap-ml;
       transition: margin-left 0.3s ease;
@@ -63,6 +64,15 @@
         position: absolute;
         left: $vuestic-preloader-left;
         top: $vuestic-preloader-top;
+      }
+
+      @include media-breakpoint-down(md) {
+        padding: $content-mobile-wrap;
+        margin-left: 0;
+        .sidebar-hidden & {
+          margin-left: 0;
+          padding-top: $content-mobile-wrap-sb-top;
+        }
       }
     }
     .made-by-footer {
