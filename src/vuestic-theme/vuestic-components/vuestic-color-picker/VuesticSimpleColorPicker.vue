@@ -5,14 +5,13 @@
             :aria-label="'color:' + c"
             @click="handlerClick(c)"
             :class="{'dot-selected': isSelected(c)}"
-            :style="{background: c}">
-      </span>
+            :style="{background: c}"
+      />
     </ul>
   </div>
 </template>
 
 <script scoped>
-
   const defaultColors = [
     '#4ae387', '#49b2e3', '#f81953', '#161616', '#f7cc36'
   ]

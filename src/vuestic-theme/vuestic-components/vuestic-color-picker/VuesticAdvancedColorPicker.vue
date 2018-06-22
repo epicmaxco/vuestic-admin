@@ -1,25 +1,29 @@
 <template>
-  <advanced-picker :value="value" @input="onModelChange"></advanced-picker>
+  <advanced-picker
+    :value="value"
+    @input="onModelChange"
+  />
 </template>
 
 <script>
-  import {Chrome} from 'vue-color'
-  export default {
-    name: 'vuestic-advanced-color-picker',
-    components: {
-      'advanced-picker': Chrome
+import { Chrome } from 'vue-color'
+
+export default {
+  name: 'vuestic-advanced-color-picker',
+  components: {
+    'advanced-picker': Chrome,
+  },
+  props: {
+    value: {
+      default: '',
     },
-    props: {
-      value: {
-        default: ''
-      }
+  },
+  methods: {
+    onModelChange (model) {
+      this.$emit('input', model)
     },
-    methods: {
-      onModelChange (model) {
-        this.$emit('input', model)
-      }
-    }
-  }
+  },
+}
 </script>
 
 <style lang="scss">
