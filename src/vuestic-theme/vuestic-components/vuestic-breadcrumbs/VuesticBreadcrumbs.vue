@@ -9,9 +9,9 @@
             :to="{path: item.path}"
             :key="index"
             class="crumb"
-            v-bind:class="{ disabled: !item.path || item.meta.breadcrumbDisabled }"
+            v-bind:class="{ disabled: !item.path }"
           >
-            {{item.meta.title | translate}}
+            {{normalizeName(item.path) | translate}}
           </router-link>
         </div>
       </vuestic-widget>
@@ -29,7 +29,16 @@
           return []
         }
       }
-    }
+    },
+    methods: {
+      normalizeName (name) {
+        const pos = name.indexOf('-', 0)
+        if (pos !== -1) {
+          name = name.substring(0, pos) + ' ' + name.substring(pos + 1, pos.length)
+        }
+        return name
+      }
+    },
   }
 </script>
 
@@ -40,6 +49,7 @@
     align-items: center;
 
     .crumb {
+      text-transform: capitalize;
       &.disabled {
         pointer-events: none;
       }

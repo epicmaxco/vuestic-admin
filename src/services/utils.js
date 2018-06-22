@@ -32,12 +32,31 @@ export default {
 
   findInNestedByName (array, name) {
     if (typeof array !== 'undefined') {
-      for (let i = 0; i < array.length; i++) {
-        if (array[i].name === name) return [{...array[i]}]
-        let a = this.findInNestedByName(array[i].children, name)
-        if (a != null) {
-          a.unshift({...array[i]})
-          return [...a]
+      if (array.children) {
+        for (let i = 0; i < array.children.length; i++) {
+          let tempArray = []
+          if (array.children[i].name === name) {
+            tempArray.push(array.children[i])
+            return tempArray
+          }
+          let a = this.findInNestedByName(array.children[i].children, name)
+          if (a != null) {
+            a.unshift(array.children[i])
+            return a
+          }
+        }
+      } else {
+        for (let i = 0; i < array.length; i++) {
+          let tempArray = []
+          if (array[i].name === name) {
+            tempArray.push(array[i])
+            return tempArray
+          }
+          let a = this.findInNestedByName(array[i].children, name)
+          if (a != null) {
+            a.unshift(array[i])
+            return a
+          }
         }
       }
     }
