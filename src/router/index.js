@@ -122,6 +122,11 @@ export default new Router({
               component: lazyLoading('ui/buttons/Buttons')
             },
             {
+              name: 'color-pickers',
+              path: 'color-pickers',
+              component: lazyLoading('ui/color-pickers/ColorPickers')
+            },
+            {
               name: 'notifications',
               path: 'notifications',
               component: lazyLoading('ui/notifications/Notifications')
