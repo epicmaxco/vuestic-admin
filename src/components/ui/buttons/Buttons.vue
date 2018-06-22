@@ -194,10 +194,6 @@
 </script>
 
 <style lang="scss">
-  @import "~bootstrap/scss/mixins/breakpoints";
-  @import "~bootstrap/scss/functions";
-  @import "~bootstrap/scss/variables";
-
   .buttons-page {
     @include media-breakpoint-only(xl) {
       .btn-margin-row {

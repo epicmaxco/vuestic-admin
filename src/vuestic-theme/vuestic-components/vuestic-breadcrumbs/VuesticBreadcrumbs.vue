@@ -25,15 +25,15 @@
     props: {
       breadcrumbs: {
         type: Array,
-        default: []
+        default: function () {
+          return []
+        }
       }
     }
   }
 </script>
 
 <style lang='scss' scoped>
-  @import '../../../sass/variables';
-
   .vuestic-breadcrumbs {
     height: $breadcrumbs-height;
     display: flex;

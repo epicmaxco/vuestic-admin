@@ -24,13 +24,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/variables";
-  @import "~bootstrap/scss/functions";
-  @import "~bootstrap/scss/variables";
-  @import "../../../sass/mixins";
-
-  // HACK Shouldn't be here.
-
   .progress-bars {
     .vuestic-progress-bar {
       .progress.thick {

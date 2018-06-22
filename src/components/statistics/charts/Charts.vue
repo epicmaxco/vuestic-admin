@@ -1,5 +1,9 @@
 <template>
   <div class="charts-page">
+    <sidebar-link
+      :to="{ name: 'form-elements' }">
+      <span slot="title">{{ $t('menu.formElements') }}</span>
+    </sidebar-link>
     <div class="row">
       <div class="col-md-6">
         <vuestic-widget class="chart-widget" :headerText="'charts.verticalBarChart' | translate">
@@ -51,9 +55,13 @@
   import DonutChartData from 'data/charts/DonutChartData'
   import VerticalBarChartData from 'data/charts/VerticalBarChartData'
   import HorizontalBarChartData from 'data/charts/HorizontalBarChartData'
+  import SidebarLink from '../../admin/app-sidebar/components/SidebarLink'
 
   export default {
     name: 'charts',
+    components: {
+      SidebarLink
+    },
 
     data: function () {
       return {

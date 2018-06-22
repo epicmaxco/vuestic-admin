@@ -93,11 +93,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/variables";
-  @import "../../../sass/mixins";
-  @import "~bootstrap/scss/functions";
-  @import "~bootstrap/scss/variables";
-
   .vuestic-progress-bar {
     font-size: $progress-bar-value-font-size;
     font-weight: $font-weight-bold;

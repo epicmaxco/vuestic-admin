@@ -1,5 +1,5 @@
 <template>
-  <div class="vuestic-scrollbar">
+  <div class="vuestic-scrollbar" ref="vuesticScrollbar">
     <div class="scrollbar-wrapper" ref="scrollbarWrapper">
       <div class="scrollbar-content" ref="scrollbarContent"
            @wheel="scroll"
@@ -9,7 +9,9 @@
            @transitionend="onContentResize">
         <slot></slot>
       </div>
-      <div class="track" ref="track"><div class="thumb" ref="thumb"></div></div>
+      <div class="track" ref="track">
+        <div class="thumb" ref="thumb"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -31,7 +33,13 @@
         this.maxHeight = parseFloat(this.wrapper.offsetHeight, 10)
         this.contentHeight = parseFloat(this.content.offsetHeight, 10)
         this.trackHeight = parseFloat(this.track.offsetHeight, 10)
-        this.thumb.style.height = this.maxHeight / this.contentHeight * this.trackHeight + 'px'
+
+        if (this.maxHeight / this.contentHeight * this.trackHeight < 10) {
+          this.thumb.style.height = 10 + 'px'
+        } else {
+          this.thumb.style.height = this.maxHeight / this.contentHeight * this.trackHeight + 'px'
+        }
+
         if (this.maxHeight / this.contentHeight < 1) {
           this.thumb.classList.add('active')
         } else {
@@ -151,8 +159,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/variables";
-
   .vuestic-scrollbar {
     background: transparent;
     transition: all .3s linear;
@@ -163,16 +169,16 @@
       overflow: hidden;
       max-height: 100%;
       .track {
+        width: 5px;
         position: absolute;
         right: 0;
         top: 0;
         height: 100%;
-        width: 3px;
         .thumb {
           transition: height .3s linear, opacity .6s linear;
           position: absolute;
           width: 100%;
-          background-color: black;
+          background-color: $vue-green;
           opacity: 0;
           &.active {
             opacity: .3;

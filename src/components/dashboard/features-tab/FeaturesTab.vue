@@ -54,11 +54,6 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../../../sass/_variables.scss";
-  @import "~bootstrap/scss/functions";
-  @import "~bootstrap/scss/variables";
-  @import "~bootstrap/scss/mixins/breakpoints";
-
   .overview-item {
     display: flex;
     align-items: center;

@@ -1,0 +1,251 @@
+{
+  "auth": {
+    "agree": "Eu aceito.",
+    "alreadyJoined": "Já entrou.",
+    "createAccount": "Criar conta",
+    "createNewAccount": "Criar uma nova conta",
+    "email": "Email",
+    "login": "Entrar",
+    "password": "Senha",
+    "signUp": "Cadastrar-se",
+    "termsOfUse": "Termos de uso.",
+    "welcome": "Bem vindo!"
+  },
+  "breadcrumbs": {
+    "home": "Início"
+  },
+  "buttons": {
+    "advanced": "Icones, Grupos, Dropdowns",
+    "button": "BOTÃO",
+    "colors": "Cores",
+    "disabled": "DESABILITADO",
+    "dropdown": "DROPDOWN",
+    "hover": "HOVER",
+    "main": "Primeiro & Segundo Botão",
+    "micro": "MICRO",
+    "pressed": "PRESSIONADO",
+    "small": "PEQUENO"
+  },
+  "charts": {
+    "horizontalBarChart": "Barra de Gráfico Horizontal",
+    "verticalBarChart": "Barra de Gráfico Vertical",
+    "lineChart": "Gráfico de Linha",
+    "pieChart": "Gráfico Pizza",
+    "donutChart": "Gráfico Rosca",
+    "bubbleChart": "Gráfico Bolhas"
+  },
+  "dashboard": {
+    "dataVisualization": "Data da Visualização",
+    "success": "SUCESSO",
+    "successMessage": "Você leu com sucesso esta mensagem importante de alerta.",
+    "elements": "Elementos",
+    "features": "Características",
+    "setupProfile": "Perfil de instalação",
+    "teamMembers": "Membros da Equipe",
+    "usersAndMembers": "Usuários & Membros",
+    "versions": "Versões"
+  },
+  "notificationsPage": {
+    "alerts": {
+      "title": "Alertas",
+      "success": "SUCESSO",
+      "successMessage": "Você leu com sucesso esta mensagem importante de alerta.",
+      "info": "INFORMAÇÃO",
+      "infoMessage": "Esse alerta precisa da sua atenção, mas não é super importante.",
+      "warning": "AVISO",
+      "warningMessage": "Melhor verificar a si mesmo, você não está muito bem.",
+      "danger": "PERÍGO",
+      "dangerMessage": "Mude algumas coisas e tente enviar novamente."
+    },
+    "popovers": {
+      "title": "Dicas de ferramentas & Pop-Ups",
+      "popoverTitleLabel": "Título Popover",
+      "popoverTextLabel": "Texto Popover",
+      "popoverIconLabel": "Icone Popover (fontawesome)",
+      "showPopover": "Mostrar Popover",
+      "topTooltip": "top dicas de ferramentas",
+      "rightTooltip": "sugestão ao lado direito",
+      "leftTooltip": "esquerda",
+      "bottomTooltip": "abaixo"
+    },
+    "toasts": {
+      "title": "Torradas",
+      "textLabel": "Texto",
+      "durationLabel": "Duração (milisegundos)",
+      "iconLabel": "Icone (fontawesome)",
+      "fullWidthLabel": "Largura completa",
+      "launchToast": "Launch toast"
+    }
+  },
+  "extra": {
+    "tabs": {
+      "title": "Guias",
+      "maps": "Mapas",
+      "overview": "Visão geral",
+      "setupProfile": "Perfil de instalação"
+    },
+    "chat": "Gráficos",
+    "profileCard": "Cartão de perfil"
+  },
+  "forms": {
+    "controls": {
+      "female": "Feminino",
+      "male": "Masculino",
+      "title": "Checkboxes, Radios, Switches",
+      "radioDisabled": "Radio Desabilitado",
+      "radio": "Radio",
+      "subscribe": "Assine a newsletter"
+    },
+    "dateTimePicker": {
+      "title": "Seletores de data e hora",
+      "basic": "Básico",
+      "time": "Hora",
+      "range": "Alcance",
+      "multiple": "Múltiplo",
+      "disabled": "Desabilitado"
+    },
+    "inputs": {
+      "emailValidatedSuccess": "Email (validado com sucesso)",
+      "emailValidated": "Email (validado)",
+      "inputWithIcon": "Entrada com ícone",
+      "inputWithButton": "Entrada com botão",
+      "inputWithClearButton": "Entrada com Botão Claro",
+      "inputWithRoundButton": "Entrada com Botão Redondo",
+      "textInput": "Entrada de Texto",
+      "textInputWithDescription": "Entrada de Texto (com descrição)",
+      "textArea": "Área de Texto",
+      "title": "Entrada",
+      "upload": "UPLOAD"
+    },
+    "mediumEditor": {
+      "title": "Editor Medium"
+    },
+    "selects": {
+      "country": "Selecionar Região",
+      "countryMulti": "Selecionar Multiplas Regiões",
+      "multi": "Selecionar Múltiplos",
+      "simple": "Selecionador Simples",
+      "title": "Selecionadores"
+    },
+    "wizard": {
+      "name": "Nome",
+      "completed": "Wizard completo!",
+      "confirmSelection": "Confirmar seleção",
+      "rich": "Preencher Wizard",
+      "simple": "Wizard Simples",
+      "stepOne": "Etapa 1. Nome",
+      "stepTwo": "Etapa 2. Região",
+      "stepThree": "Etapa 3. Confirme",
+      "verticalRich": "Preencher Wizard Vertical",
+      "verticalSimple": "Wizard Vertical Simples"
+    }
+  },
+  "grid": {
+    "desktop": "Grid Área de Trabalho",
+    "fixed": "Grid Fixo",
+    "offsets": "Offsets",
+    "responsive": "Grid Responssivo"
+  },
+  "icons": {
+    "back": "Retornar aos icones",
+    "none": "Incones não encontrados",
+    "search": "Pesquisar Icone",
+    "title": "Icones"
+  },
+  "spinners": {
+    "title": "Spinners",
+    "poweredBy": "Distribuido por"
+  },
+  "language": {
+    "brazilian_portuguese": "Português",
+    "english": "English",
+    "spanish": "Spanish"
+  },
+  "menu": {
+    "auth": "Autorização",
+    "buttons": "Botões",
+    "charts": "Gráficos",
+    "dashboard": "Painel principal",
+    "extra": "Extra",
+    "formElements": "Elementos de Formulários",
+    "forms": "Formulários",
+    "formWizards": "Formulários Wizards",
+    "mediumEditor": "Editor Medium",
+    "grid": "Grid",
+    "icons": "Icones",
+    "spinners": "Spinners",
+    "login": "Login",
+    "maps": "Mapas",
+    "modals": "Modals",
+    "notifications": "Notificações",
+    "progressBars": "Barra de progresso",
+    "signUp": "Cadastrar-se",
+    "statistics": "Estatística",
+    "tables": "Tabelas",
+    "typography": "Tipografia",
+    "uiElements": "Elementos UI",
+    "treeView": "Árvore de visualização",
+    "dateTimePickers": "Selecionar Data e Hora"
+  },
+  "messages": {
+    "all": "Ver todas as menssagens",
+    "new": "Nova menssagem de {name}"
+  },
+  "modal": {
+    "cancel": "CANCELAR",
+    "close": "FECHAR",
+    "confirm": "CONFIRMAR",
+    "large": "Grande",
+    "largeTitle": "Modal Grande",
+    "medium": "Médio",
+    "mediumTitle": "Modal Médio",
+    "small": "Pequeno",
+    "smallTitle": "Modal Pequeno",
+    "static": "Estático",
+    "staticMessage": "Este é um modal é estático, clicar no pano de fundo não o fechará.",
+    "staticTitle": "Modal Estático",
+    "title": "Modals"
+  },
+  "navbar": {
+    "messageUs": "Enviar uma pergunta ou feedback para"
+  },
+  "notifications": {
+    "all": "Ver todas as notificações",
+    "sentMessage": "{name} enviou uma menssagem",
+    "uploadedZip": "{name} fez uploaded de um novo arquivo Zip com {type}",
+    "startedTopic": "{name} iniciou um novo tópico"
+  },
+  "progressBars": {
+    "basic": "Básico",
+    "basicVertical": "Básico Vertical",
+    "circle": "Círculo",
+    "colorFulTitle": "Barra Colorida completa",
+    "thin": "Fina",
+    "thinVertical": "Fina Vertical",
+    "thick": "Grosso",
+    "title": "Barra de Progresso"
+  },
+  "tables": {
+    "basic": "Tabela Básico",
+    "styled": "Cores, Icones, Rótulos",
+    "advanced": "Pesquisar & Paginação",
+    "headings": {
+      "city": "Cidade",
+      "email": "Email",
+      "name": "Nome",
+      "score": "Contagem"
+    }
+  },
+  "user": {
+    "language": "Trocar Linguagem",
+    "logout": "Sair",
+    "profile": "Meu Perfil"
+  },
+  "treeView": {
+    "basic": "Básico",
+    "icons": "Icones",
+    "selectable": "Selecionável",
+    "editable": "Editável",
+    "advanced": "Advançado"
+  }
+}
