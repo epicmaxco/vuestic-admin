@@ -35,7 +35,7 @@ export default {
       if (array.children) {
         for (let i = 0; i < array.children.length; i++) {
           let tempArray = []
-          if (array.children[i].name === name) {
+          if (array.children[i].path === name) {
             tempArray.push(array.children[i])
             return tempArray
           }
@@ -48,7 +48,7 @@ export default {
       } else {
         for (let i = 0; i < array.length; i++) {
           let tempArray = []
-          if (array[i].name === name) {
+          if (array[i].path === name) {
             tempArray.push(array[i])
             return tempArray
           }

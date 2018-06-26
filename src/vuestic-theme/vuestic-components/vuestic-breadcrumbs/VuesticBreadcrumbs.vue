@@ -32,6 +32,9 @@
     },
     methods: {
       normalizeName (name) {
+        if (name === 'ui') {
+          name = 'UI Elements'
+        }
         const pos = name.indexOf('-', 0)
         if (pos !== -1) {
           name = name.substring(0, pos) + ' ' + name.substring(pos + 1, pos.length)

@@ -42,7 +42,7 @@
           </span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'form-wizard' }">
+          :to="{ name: 'form-wizards' }">
           <span slot="title">
             <span class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ $t('menu.formWizards') }}</span>
