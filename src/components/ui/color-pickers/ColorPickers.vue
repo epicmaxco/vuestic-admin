@@ -16,15 +16,15 @@
           </div>
           <div class="row">
             <div class="col-md-2">
-              <colored-square :value="'#f81953'"></colored-square>
+              <colored-square value="#f81953"></colored-square>
             </div>
             <div class="col-md-2">
               <colored-square class="offset-1"
-                              :value="'#22194c'"></colored-square>
+                              value="#22194c"></colored-square>
             </div>
             <div class="col-md-2">
               <colored-square class="offset-1"
-                              :value="'#ffd50a'"></colored-square>
+                              value="#ffd50a"></colored-square>
             </div>
           </div>
         </vuestic-widget>
@@ -37,8 +37,8 @@
             <div class="col-md-1">
               <colored-square :value="simpleColor"/>
             </div>
-            <div class="col-md-4">
-              <vuestic-simple-color-picker v-model="simpleColor"/>
+            <div class="col-md-2">
+              <vuestic-simple-color-picker :palette="['#4ae387', '#49b2e3', '#f81953', '#161616', '#f7cc36']" v-model="simpleColor"/>
             </div>
             <div class="col-md-2">
               <vuestic-color-input v-model="simpleColor" style="padding-right: 30px; padding-top: 14px"></vuestic-color-input>
@@ -80,6 +80,7 @@
 </template>
 
 <script>
+
   import VuesticSimpleColorPicker
     from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticSimpleColorPicker'
   import ColoredSquare
@@ -110,7 +111,7 @@
   }
 </script>
 
-<style scoped>
+<style>
   .simple {
     width: 46px;
     height: 24px;

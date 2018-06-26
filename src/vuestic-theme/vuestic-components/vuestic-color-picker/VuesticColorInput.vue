@@ -1,10 +1,12 @@
 <template>
-  <div class="row" style="padding-top: 10px; padding-right: 30px">
+  <div class="row vuestic-color-input">
     <div class="col-md-3">
             <span
-              class="vuestic-color-item dot"
+              class="vuestic-color-item vuestic-color-input-dot"
               @click="handlerClick"
-              :style="{background: normalizedColor}"/>
+              :style="{background: normalizedColor}"
+              :class="{'vuestic-color-input-dot-selected': isShown}"
+            />
     </div>
     <div class="col-md-8">
       <div class="form-group">
@@ -14,10 +16,10 @@
         </div>
       </div>
     </div>
-      <div class="col-md-12" v-if="isShown === true">
-        <vuestic-advanced-color-picker :value="value"
-                                       @input="onModelChange"></vuestic-advanced-color-picker>
-      </div>
+    <div class="col-md-12" v-if="isShown === true">
+      <vuestic-advanced-color-picker :value="value"
+                                     @input="onModelChange"/>
+    </div>
   </div>
 </template>
 
@@ -72,6 +74,11 @@
 </script>
 
 <style lang="scss">
+  .vuestic-color-input {
+    padding-top: 10px;
+    padding-right: 30px
+  }
+
   .vuestic-color-item {
     list-style: none;
     width: 15px;
@@ -83,7 +90,7 @@
     cursor: pointer;
   }
 
-  .dot {
+  .vuestic-color-input-dot {
     margin-left: 10px;
     height: 15px;
     width: 15px;
@@ -96,6 +103,10 @@
     width: 64px;
     height: 18px;
     background-color: #dddddd;
+  }
+
+  .vuestic-color-input-dot-selected {
+    border: solid 3px #6088b3;
   }
 
 </style>

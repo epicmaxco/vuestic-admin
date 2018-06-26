@@ -7,7 +7,7 @@
     name: 'colored-square',
     props: {
       value: {
-        default: '#AAA'
+        required: true
       }
     },
     computed: {
@@ -21,7 +21,7 @@
   }
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss'>
   .colored-square {
     height: 48px;
     width: 48px;

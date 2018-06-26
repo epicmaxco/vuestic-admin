@@ -1,12 +1,12 @@
 <template>
-  <div class="row">
-    <div class="col-md-1">
+  <div
+    style="left: 420px; top: 180px; background-color: white; position: absolute"
+  >
+    <div class="demo-container">
       {{ demoColor }}
-    </div>
-    <div class="col-md-8">
       <vuestic-simple-color-picker
-        style=" left: 420px; top: 380px; background-color: white;position: absolute"
         v-model="demoColor"
+        :palette="['#4ae387', '#49b2e3', '#f81953', '#161616', '#f7cc36']"
       />
     </div>
   </div>

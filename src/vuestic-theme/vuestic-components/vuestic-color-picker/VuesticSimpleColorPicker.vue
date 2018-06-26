@@ -1,10 +1,11 @@
 <template>
   <div class="vuestic-simple-color-picker">
-    <ul class="vuestic-colors" style="padding-top: 15px">
-      <span class="vuestic-color-item dot" v-for="c in palette"
+    <ul class="vuestic-colors">
+      <span class="vuestic-color-item vuestic-color-picker-dot"
+            v-for="c in palette"
             :aria-label="'color:' + c"
             @click="handlerClick(c)"
-            :class="{'dot-selected': isSelected(c)}"
+            :class="{'vuestic-color-picker-dot-selected': isSelected(c)}"
             :style="{background: c}"
       />
     </ul>
@@ -12,38 +13,35 @@
 </template>
 
 <script scoped>
-  const defaultColors = [
-    '#4ae387', '#49b2e3', '#f81953', '#161616', '#f7cc36'
-  ]
+
   export default {
     name: 'vuestic-simple-color-picker',
     props: {
       palette: {
         type: Array,
-        default () {
-          return defaultColors
-        }
+        required: true
       },
+      selectedColor: ''
     },
     data () {
       return {
-        selectedColor: ''
+        selectedColorLocal: this.selectedColor
       }
     },
     methods: {
       handlerClick (c) {
-        this.selectedColor = c
+        this.selectedColorLocal = c
         this.$emit('input', c)
       },
       isSelected (c) {
-        return this.selectedColor === c
+        return this.selectedColorLocal === c
       }
     }
   }
 </script>
 
 <style>
-  .dot {
+  .vuestic-color-picker-dot {
     margin-left: 10px;
     height: 15px;
     width: 15px;
@@ -52,7 +50,7 @@
     display: inline-block;
   }
 
-  .dot-selected {
+  .vuestic-color-picker-dot-selected {
     border: solid 3px #6088b3;
   }
 
