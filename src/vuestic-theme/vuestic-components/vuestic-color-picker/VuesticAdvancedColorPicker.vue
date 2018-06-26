@@ -1,5 +1,5 @@
 <template>
-  <advanced-picker :value="value" @input="onModelChange"></advanced-picker>
+  <advanced-picker v-model="valueProxy"/>
 </template>
 
 <script>
@@ -15,13 +15,19 @@
         default: '',
       },
     },
-    methods: {
-      onModelChange (model) {
-        this.$emit('input', model)
+    computed: {
+      valueProxy: {
+        get () {
+          return this.value
+        },
+        set (value) {
+          this.$emit('input', value.hex)
+        },
       },
-    },
+    }
   }
 </script>
 
 <style lang="scss">
+
 </style>
