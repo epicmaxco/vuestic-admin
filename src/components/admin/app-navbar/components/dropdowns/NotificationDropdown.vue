@@ -1,12 +1,14 @@
 <template>
   <div class="col nav-item dropdown navbar-dropdown" v-dropdown>
-    <a class="nav-link dropdown-toggle" href="#" @click.prevent="$emit('toggle-menu')">
+    <a class="nav-link dropdown-toggle" href="#">
       <span class="i-nav-notification"></span>
     </a>
     <div class="dropdown-menu">
       <div class="dropdown-menu-content">
         <a v-for="(option, id) in options" :key="id" class="dropdown-item" href="#">
-          <span class="ellipsis">{{$t(`notifications.${option.name}`, { name: option.details.name, type: option.details.type })}}</span>
+          <span class="ellipsis">{{$t(`notifications.${option.name}`,
+            { name: option.details.name, type: option.details.type })}}
+          </span>
         </a>
         <div class="dropdown-item plain-link-item">
           <a class="plain-link" href="#">{{'notifications.all' | translate}}</a>

@@ -1,5 +1,7 @@
 <template>
-  <div class="layout" v-resize :class="classObject">
+  <div class="layout"
+       v-resize
+       :class="classObject">
     <slot></slot>
     <div class="content-wrap" id="content-wrap">
       <slot name="content"></slot>
@@ -23,7 +25,7 @@
       },
     },
     directives: {
-      resize: Resize
+      resize: Resize,
     },
     computed: {
       classObject: function () {

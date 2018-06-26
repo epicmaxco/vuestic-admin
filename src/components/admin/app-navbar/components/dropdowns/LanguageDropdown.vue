@@ -1,6 +1,6 @@
 <template>
-  <div class="language-dropdown dropdown" v-dropdown>
-    <a class="language-dropdown-button dropdown-toggle" href="#" @click.prevent="$emit('toggle-menu')">
+  <div class="language-dropdown dropdown navbar-dropdown" v-dropdown>
+    <a class="language-dropdown-button dropdown-toggle" href="#">
       <span class="flag-icon flag-icon-large" :class="flagIconClass(currentLanguage())"></span>
     </a>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -43,9 +43,7 @@
         ]
       }
     },
-
     methods: {
-
       setLanguage (locale) {
         Vue.i18n.set(locale)
       },

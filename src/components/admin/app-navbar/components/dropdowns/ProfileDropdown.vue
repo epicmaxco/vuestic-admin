@@ -1,6 +1,6 @@
 <template>
   <div class="profile-dropdown col nav-item dropdown navbar-dropdown" v-dropdown>
-    <a class="nav-link dropdown-toggle" href="#" @click.prevent="$emit('toggle-menu')">
+    <a class="nav-link dropdown-toggle" href="#">
       <span class="profile-section-avatar-container">
         <slot></slot>
       </span>
@@ -9,7 +9,9 @@
       <div class="dropdown-menu-content">
         <div v-for="(option, id) in options" :key="id"
           class="dropdown-item plain-link-item">
-          <router-link :to="{name: option.redirectTo}" class="plain-link" href="#">{{ `user.${option.name}` | translate}}</router-link>
+          <router-link :to="{name: option.redirectTo}" class="plain-link" href="#">
+            {{ `user.${option.name}` | translate}}
+          </router-link>
         </div>
       </div>
     </div>

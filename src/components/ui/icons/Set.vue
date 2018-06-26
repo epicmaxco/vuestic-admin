@@ -1,5 +1,5 @@
 <template>
-  <div class="set row">
+  <div class="vuestic-icon-set row">
     <div class="header col-12">
       <div class="row">
         <div class="header-text col-lg-4">
@@ -47,7 +47,7 @@
           {{ 'icons.none' | translate }}
         </span>
         <template v-for="i in Math.floor(list.icons.length / 8 + 1)">
-          <div class="row">
+          <div class="row vuestic-icon-container">
             <div
               v-for="j in 8"
               v-if="list.icons[(i - 1) * 8 + j - 1]"
@@ -60,7 +60,7 @@
                   aria-hidden="true"
                 />
               </div>
-              <div class="iconText">
+              <div class="icon-text">
                 {{ list.icons[(i - 1) * 8 + j - 1] }}
               </div>
             </div>
@@ -137,7 +137,7 @@
 </script>
 
 <style lang="scss">
-  .set {
+  .vuestic-icon-set {
     .header {
       padding: 1.75rem 0 1.125rem;
       background-color: white;
@@ -179,7 +179,7 @@
       margin-bottom: 2rem;
     }
 
-    .row {
+    .vuestic-icon-container {
       .icon-grid-container {
         display: flex;
         align-items: center;
@@ -204,7 +204,7 @@
           padding: 1rem 0 0;
         }
 
-        .iconText {
+        .icon-text {
           font-size: .6rem;
           text-align: center;
         }

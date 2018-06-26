@@ -35,14 +35,10 @@
     "bubbleChart": "Gráfico Bolhas"
   },
   "dashboard": {
-    "dataVisualization": "Data da Visualização",
     "success": "SUCESSO",
     "successMessage": "Você leu com sucesso esta mensagem importante de alerta.",
     "elements": "Elementos",
-    "features": "Características",
-    "setupProfile": "Perfil de instalação",
     "teamMembers": "Membros da Equipe",
-    "usersAndMembers": "Usuários & Membros",
     "versions": "Versões"
   },
   "notificationsPage": {

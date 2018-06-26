@@ -1,6 +1,5 @@
 <template>
-  <li class="sidebar-link"
-      @click="toggleMenuItem()">
+  <li class="sidebar-link">
     <router-link
       class="sidebar-link__router-link"
       :to="to"
@@ -22,13 +21,6 @@
         type: String,
         default: '_self'
       }
-    },
-    methods: {
-      toggleMenuItem () {
-        if (document.documentElement.clientWidth < 992) {
-          this.$emit('toggle-menu')
-        }
-      },
     },
     watch: {
       $route (route) {

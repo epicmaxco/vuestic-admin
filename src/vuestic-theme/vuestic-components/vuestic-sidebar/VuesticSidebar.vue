@@ -28,7 +28,6 @@
     computed: {
       classObject: function () {
         return {
-          'sidebar-hidden': !this.toggleWithoutAnimation && !this.hidden,
           'sidebar-hidden sidebar-hidden_without-animation': this.toggleWithoutAnimation && !this.hidden
         }
       }
