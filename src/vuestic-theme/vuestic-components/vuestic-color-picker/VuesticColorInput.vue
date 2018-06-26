@@ -1,5 +1,5 @@
 <template>
-  <div class="row vuestic-color-input">
+  <div class="row vuestic-color-input dropdown">
     <div class="col-md-3">
             <span
               class="vuestic-color-item vuestic-color-input-dot"
@@ -11,7 +11,10 @@
     <div class="col-md-8">
       <div class="form-group">
         <div class="input-group">
-          <label>{{normalizedColor}}</label>
+          <input
+            v-model=value
+            placeholder="input color"
+          >
           <i class="bar"></i>
         </div>
       </div>
@@ -26,11 +29,15 @@
 <script>
 
   import VuesticAdvancedColorPicker from './VuesticAdvancedColorPicker'
+  import Dropdown from 'vuestic-directives/Dropdown'
 
   export default {
     name: 'vuestic-color-input',
     components: {
       VuesticAdvancedColorPicker
+    },
+    directives: {
+      dropdown: Dropdown
     },
     props: {
       value: {
@@ -53,7 +60,7 @@
       },
       normalizedColor: function () {
         if (this.value.hex) {
-          return this.value.hex
+          this.value = this.value.hex
         }
         return this.value
       }
