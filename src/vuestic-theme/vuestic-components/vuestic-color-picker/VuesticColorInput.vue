@@ -1,19 +1,17 @@
 <template>
-  <div class="row vuestic-color-input dropdown">
+  <div class="row" style="padding-top: 10px; padding-right: 30px">
     <div class="col-md-3">
             <span
-              class="vuestic-color-item vuestic-color-input-dot"
+              class="vuestic-color-item dot"
               @click="handlerClick"
-              :style="{background: normalizedColor}"
-              :class="{'vuestic-color-input-dot-selected': isShown}"
-            />
+              :style="{background: normalizedColor}"/>
     </div>
     <div class="col-md-8">
       <div class="form-group">
         <div class="input-group">
           <input
             :readonly="!enableInput"
-            v-model=value
+            v-model=value.hex
             placeholder="input color"
           >
           <i class="bar"></i>
@@ -21,23 +19,18 @@
       </div>
     </div>
     <div class="col-md-12" v-if="isShown === true">
-      <vuestic-advanced-color-picker @input="onModelChange"/>
+      <vuestic-advanced-color-picker :value="value"
+                                     @input="onModelChange"></vuestic-advanced-color-picker>
     </div>
   </div>
 </template>
 
 <script>
-
   import VuesticAdvancedColorPicker from './VuesticAdvancedColorPicker'
-  import Dropdown from 'vuestic-directives/Dropdown'
-
   export default {
     name: 'vuestic-color-input',
     components: {
       VuesticAdvancedColorPicker
-    },
-    directives: {
-      dropdown: Dropdown
     },
     props: {
       value: {
@@ -64,7 +57,7 @@
       },
       normalizedColor: function () {
         if (this.value.hex) {
-          this.value = this.value.hex
+          return this.value.hex
         }
         return this.value
       }
@@ -79,17 +72,12 @@
       },
       onModelChange (model) {
         this.$emit('input', model)
-      },
+      }
     }
   }
 </script>
 
 <style lang="scss">
-  .vuestic-color-input {
-    padding-top: 10px;
-    padding-right: 30px
-  }
-
   .vuestic-color-item {
     list-style: none;
     width: 15px;
@@ -100,8 +88,7 @@
     position: relative;
     cursor: pointer;
   }
-
-  .vuestic-color-input-dot {
+  .dot {
     margin-left: 10px;
     height: 15px;
     width: 15px;
@@ -109,15 +96,9 @@
     border-radius: 50%;
     display: inline-block;
   }
-
   .custom-input {
     width: 64px;
     height: 18px;
     background-color: #dddddd;
   }
-
-  .vuestic-color-input-dot-selected {
-    border: solid 3px #6088b3;
-  }
-
 </style>
