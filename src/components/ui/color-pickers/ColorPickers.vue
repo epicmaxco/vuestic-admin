@@ -16,15 +16,15 @@
           </div>
           <div class="row">
             <div class="col-md-2">
-              <colored-square value="#f81953"></colored-square>
+              <colored-square :value="simpleColor"></colored-square>
             </div>
             <div class="col-md-2">
               <colored-square class="offset-1"
-                              value="#22194c"></colored-square>
+                              :value="sliderColor"></colored-square>
             </div>
             <div class="col-md-2">
               <colored-square class="offset-1"
-                              value="#ffd50a"></colored-square>
+                              :value="advancedColor"></colored-square>
             </div>
           </div>
         </vuestic-widget>

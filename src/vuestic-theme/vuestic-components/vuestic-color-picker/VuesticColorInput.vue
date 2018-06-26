@@ -12,6 +12,7 @@
       <div class="form-group">
         <div class="input-group">
           <input
+            :readonly="!enableInput"
             v-model=value
             placeholder="input color"
           >
@@ -20,8 +21,7 @@
       </div>
     </div>
     <div class="col-md-12" v-if="isShown === true">
-      <vuestic-advanced-color-picker :value="value"
-                                     @input="onModelChange"/>
+      <vuestic-advanced-color-picker @input="onModelChange"/>
     </div>
   </div>
 </template>
@@ -46,11 +46,15 @@
       show: {
         type: Boolean,
         default: false
+      },
+      enableInput: {
+        type: Boolean,
+        default: true
       }
     },
     data () {
       return {
-        color: '#FFF',
+        color: '',
         mutableShow: this.show
       }
     },
@@ -75,7 +79,7 @@
       },
       onModelChange (model) {
         this.$emit('input', model)
-      }
+      },
     }
   }
 </script>
