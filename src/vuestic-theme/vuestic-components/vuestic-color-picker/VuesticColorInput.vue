@@ -2,9 +2,10 @@
   <div class="row" style="padding-top: 10px; padding-right: 30px">
     <div class="col-md-3">
             <span
-              class="vuestic-color-item dot"
+              class="vuestic-color-item vuestic-color-input-dot"
               @click="handlerClick"
-              :style="{background: normalizedColor}"/>
+              :style="{background: normalizedColor}"
+              :class="{'vuestic-color-input-dot-selected': isShown}"/>
     </div>
     <div class="col-md-8">
       <div class="form-group">
@@ -27,6 +28,7 @@
 
 <script>
   import VuesticAdvancedColorPicker from './VuesticAdvancedColorPicker'
+
   export default {
     name: 'vuestic-color-input',
     components: {
@@ -88,7 +90,8 @@
     position: relative;
     cursor: pointer;
   }
-  .dot {
+
+  .vuestic-color-input-dot {
     margin-left: 10px;
     height: 15px;
     width: 15px;
@@ -96,9 +99,14 @@
     border-radius: 50%;
     display: inline-block;
   }
+
   .custom-input {
     width: 64px;
     height: 18px;
     background-color: #dddddd;
+  }
+
+  .vuestic-color-input-dot-selected {
+    border: solid 3px #6088b3;
   }
 </style>
