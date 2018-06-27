@@ -1,16 +1,17 @@
 <template>
-  <div
-    style="left: 420px; top: 180px; background-color: white; position: absolute"
-  >
-    <vuestic-advanced-color-picker
-      style=" left:300px;position: absolute"
-      v-model="demoColor"/>
-    <vuestic-advanced-color-picker
-      style=" left:620px; position: absolute"
-      v-model="demoColor"/>
-    <vuestic-advanced-color-picker
-      style="position: absolute"
-      v-model="demoColor"/>
+  <div class="demo-container">
+    <div class="demo-container__item">
+      <vuestic-advanced-color-picker
+        v-model="value"/>
+    </div>
+    <div class="demo-container__item">
+      <vuestic-advanced-color-picker
+        v-model="value"/>
+    </div>
+    <div class="demo-container__item">
+      <vuestic-advanced-color-picker
+        v-model="value"/>
+    </div>
   </div>
 </template>
 
@@ -23,7 +24,7 @@
     },
     data () {
       return {
-        demoColor: '#AAA'
+        value: '#AAA'
       }
     }
   }

@@ -1,9 +1,8 @@
 <template>
-  <div
-    style="left: 420px; top: 180px; background-color: white; position: absolute"
-  >
-    <vuestic-color-input v-model="demoColor"
-                         style="padding-right: 30px; padding-top: 14px"></vuestic-color-input>
+  <div class="demo-container">
+    <div class="demo-container__item">
+      <vuestic-color-input v-model="value"/>
+    </div>
   </div>
 </template>
 
@@ -16,7 +15,7 @@
     },
     data () {
       return {
-        demoColor: ''
+        value: ''
       }
     }
   }

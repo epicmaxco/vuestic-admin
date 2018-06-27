@@ -1,25 +1,29 @@
 <template>
-  <advanced-picker :value="value" @input="onModelChange"></advanced-picker>
+  <ChromePicker v-model="valueProxy"/>
 </template>
 
 <script>
   import { Chrome } from 'vue-color'
-
   export default {
     name: 'vuestic-advanced-color-picker',
     components: {
-      'advanced-picker': Chrome,
+      'ChromePicker': Chrome,
     },
     props: {
       value: {
         default: '',
       },
     },
-    methods: {
-      onModelChange (model) {
-        this.$emit('input', model)
+    computed: {
+      valueProxy: {
+        get () {
+          return this.value
+        },
+        set (value) {
+          this.$emit('input', value.hex)
+        },
       },
-    },
+    }
   }
 </script>
 

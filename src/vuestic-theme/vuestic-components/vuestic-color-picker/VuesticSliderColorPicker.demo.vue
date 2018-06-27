@@ -1,16 +1,17 @@
 <template>
-  <div
-    style="left: 420px; top: 180px; background-color: white; position: absolute"
-  >
-    <vuestic-slider-color-picker
-      style=" left:650px; top: 380px;position: absolute"
-      v-model="demoColor"/>
-    <vuestic-slider-color-picker
-      style=" left:650px; top: 580px;position: absolute"
-      v-model="demoColor"/>
-    <vuestic-slider-color-picker
-      style=" left:650px; top: 180px;position: absolute"
-      v-model="demoColor"/>
+  <div class="demo-container">
+    <div class="demo-container__item">
+      <vuestic-slider-color-picker
+        v-model="value"/>
+    </div>
+    <div class="demo-container__item">
+      <vuestic-slider-color-picker
+        v-model="value"/>
+    </div>
+    <div class="demo-container__item">
+      <vuestic-slider-color-picker
+        v-model="value"/>
+    </div>
   </div>
 </template>
 
@@ -24,7 +25,7 @@
     },
     data () {
       return {
-        demoColor: '#34495e'
+        value: '#34495e'
       }
     }
   }

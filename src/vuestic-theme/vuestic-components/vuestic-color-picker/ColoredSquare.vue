@@ -1,5 +1,5 @@
 <template>
-  <div class="colored-square" :style="{background: normalizedColor}"></div>
+  <div class="colored-square" :style="{background: value}"></div>
 </template>
 
 <script>
@@ -9,14 +9,6 @@
       value: {
         required: true
       }
-    },
-    computed: {
-      normalizedColor: function () {
-        if (this.value.hex) {
-          return this.value.hex
-        }
-        return this.value
-      },
     }
   }
 </script>

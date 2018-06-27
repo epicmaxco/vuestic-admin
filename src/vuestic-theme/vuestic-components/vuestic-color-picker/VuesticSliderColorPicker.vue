@@ -1,5 +1,5 @@
 <template>
-  <slider-picker :value="value" @input="onModelChange"></slider-picker>
+  <SliderPicker v-model="valueProxy"/>
 </template>
 
 <script>
@@ -10,12 +10,22 @@
   export default {
     name: 'vuestic-slider-color-picker',
     components: {
-      'slider-picker': Slider
+      'SliderPicker': Slider
     },
     props: {
       value: {
         default: ''
       }
+    },
+    computed: {
+      valueProxy: {
+        get () {
+          return this.value
+        },
+        set (value) {
+          this.$emit('input', value.hex)
+        },
+      },
     },
     methods: {
       onModelChange (model) {
