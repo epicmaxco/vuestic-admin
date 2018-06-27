@@ -6,15 +6,15 @@
           <div class="row">
             <div class="col-md-2 color-pickers-text">
               <span
-                class="text-uppercase color-pickers-text">simple</span>
+                class="text-uppercase colored-square-header">simple</span>
             </div>
             <div class="col-md-2">
               <span
-                class="text-uppercase color-pickers-text offset-1">slider</span>
+                class="text-uppercase colored-square-header offset-1">slider</span>
             </div>
             <div class="col-md-2">
               <span
-                class="text-uppercase color-pickers-text offset-1">advanced</span>
+                class="text-uppercase colored-square-header offset-1">advanced</span>
             </div>
           </div>
           <div class="row">
@@ -115,19 +115,3 @@
     },
   }
 </script>
-
-<style lang="scss">
-  .color-pickers-text {
-    width: 46px;
-    height: 24px;
-    font-family: SourceSansPro;
-    font-size: 14px;
-    font-weight: bold;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.71;
-    letter-spacing: normal;
-    text-align: left;
-    color: #4ae387;
-  }
-</style>

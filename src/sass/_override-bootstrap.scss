@@ -316,6 +316,20 @@ h4, .h4 {
   }
 }
 
+.colored-square-header {
+  width: 46px;
+  height: 24px;
+  font-family: SourceSansPro;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.71;
+  letter-spacing: normal;
+  text-align: left;
+  color: #4ae387;
+}
+
 .first-td-padding {
   td:first-child {
     @extend .pl-4;
