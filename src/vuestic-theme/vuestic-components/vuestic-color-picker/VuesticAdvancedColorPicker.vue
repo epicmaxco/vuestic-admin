@@ -1,5 +1,5 @@
 <template>
-  <advanced-picker v-model="valueProxy"/>
+  <ChromePicker v-model="valueProxy"/>
 </template>
 
 <script>
@@ -7,7 +7,7 @@
   export default {
     name: 'vuestic-advanced-color-picker',
     components: {
-      'advanced-picker': Chrome,
+      'ChromePicker': Chrome,
     },
     props: {
       value: {

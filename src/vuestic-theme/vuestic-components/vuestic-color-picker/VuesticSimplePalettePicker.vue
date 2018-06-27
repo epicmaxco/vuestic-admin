@@ -3,11 +3,11 @@
     <ul class="vuestic-simple-palette-picker__colors">
       <span
         class="vuestic-simple-palette-picker__item vuestic-simple-palette-picker__dot"
-        v-for="c in palette"
-        :aria-label="'color:' + c"
-        @click="handlerClick(c)"
-        :class="{'vuestic-simple-palette-picker__dot-selected': isSelected(c)}"
-        :style="{background: c}"
+        v-for="color in palette"
+        :aria-label="'color:' + color"
+        @click="handlerClick(color)"
+        :class="{'vuestic-simple-palette-picker__dot-selected': isSelected(color)}"
+        :style="{background: color}"
       />
     </ul>
   </div>
@@ -36,11 +36,11 @@
       },
     },
     methods: {
-      handlerClick (c) {
-        this.valueProxy = c
+      handlerClick (color) {
+        this.valueProxy = color
       },
-      isSelected (c) {
-        return this.value === c
+      isSelected (color) {
+        return this.value === color
       }
     }
   }

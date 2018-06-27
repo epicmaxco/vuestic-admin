@@ -27,11 +27,6 @@
         },
       },
     },
-    methods: {
-      onModelChange (model) {
-        this.$emit('input', model)
-      }
-    }
   }
 </script>
 

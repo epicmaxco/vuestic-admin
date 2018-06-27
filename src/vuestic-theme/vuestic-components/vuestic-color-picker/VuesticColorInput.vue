@@ -4,11 +4,12 @@
               class="vuestic-color-input__item vuestic-color-input__dot"
               @click="handlerClick"
               :style="{background: value}"
-              :class="{'vuestic-color-input__dot-selected': isShown}"/>
+              :class="{'vuestic-color-input__dot-selected': isShown}"
+            />
     <div class="form-group">
       <div class="input-group">
         <input
-          :readonly="disabled"
+          :disabled="disabled"
           v-model=value
           placeholder="input color"
         >
@@ -16,8 +17,8 @@
       </div>
     </div>
     <div v-if="isShown === true">
-      <vuestic-advanced-color-picker :value="value"
-                                     @input="onModelChange"/>
+      <vuestic-advanced-color-picker @input="onModelChange"
+      />
     </div>
   </div>
 </template>
