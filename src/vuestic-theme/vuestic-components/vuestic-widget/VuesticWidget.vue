@@ -16,8 +16,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/_variables.scss";
-
   .widget {
     background: $widget-bg;
     box-shadow: $widget-box-shadow;

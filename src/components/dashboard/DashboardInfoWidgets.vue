@@ -66,8 +66,6 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../../sass/_variables.scss";
-
   .stats-number, .stats-title {
     line-height: 1;
   }

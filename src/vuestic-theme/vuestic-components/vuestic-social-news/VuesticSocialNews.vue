@@ -20,11 +20,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/variables";
-  @import "~bootstrap/scss/functions";
-  @import "~bootstrap/scss/variables";
-  @import "~bootstrap/scss/mixins/breakpoints";
-
   .business-posts .widget-body {
     padding-left: 2rem;
     padding-right: 0;

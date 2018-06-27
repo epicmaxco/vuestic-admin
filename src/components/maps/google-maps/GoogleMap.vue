@@ -30,8 +30,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/_variables.scss";
-
   .google-map {
     height: 100%;
   }

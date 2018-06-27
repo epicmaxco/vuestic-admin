@@ -42,8 +42,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/variables";
-
   .vuestic-tabs {
     background-color: white;
     .simple-select {

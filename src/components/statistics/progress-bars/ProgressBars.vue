@@ -24,9 +24,19 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/variables";
-  @import "~bootstrap/scss/functions";
-  @import "~bootstrap/scss/variables";
-  @import "../../../sass/mixins";
+  .progress-bars {
+    .vuestic-progress-bar {
+      .progress.thick {
+        margin-top: calc(#{$progress-bar-width-thick} / 2 - .125rem);
+      }
+      .progress.thin {
+        margin-top: .125rem;
+      }
+    }
 
+    .vertical, .circle {
+      margin-top: 1.25rem;
+      margin-left: .125rem;
+    }
+  }
 </style>

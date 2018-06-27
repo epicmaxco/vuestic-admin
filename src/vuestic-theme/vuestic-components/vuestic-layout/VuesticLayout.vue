@@ -11,11 +11,11 @@
 </template>
 
 <script>
-
   import Resize from 'directives/ResizeHandler'
 
   export default {
     name: 'vuestic-layout',
+
     props: {
       fixed: {
         type: Boolean,
@@ -36,11 +36,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/_variables.scss";
-  @import "~bootstrap/scss/mixins/breakpoints";
-  @import "~bootstrap/scss/functions";
-  @import "~bootstrap/scss/variables";
-
   .layout {
     &-fixed {
       .content-wrap {

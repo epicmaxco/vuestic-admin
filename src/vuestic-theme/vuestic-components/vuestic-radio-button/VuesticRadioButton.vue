@@ -89,8 +89,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/variables";
-
   .vuestic-radio-button {
 
   }

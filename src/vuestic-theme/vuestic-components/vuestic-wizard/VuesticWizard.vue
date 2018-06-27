@@ -155,8 +155,6 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../../../sass/_variables.scss";
-
   $wizard-body-vl-step-h-padding: 7%;
   $wizard-indicator-vl-width: 20rem;
   $wizard-body-vl-min-height: 20rem;

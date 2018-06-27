@@ -19,8 +19,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../../sass/variables";
-
   .square-with-icon {
     display: flex;
     justify-content: center;
