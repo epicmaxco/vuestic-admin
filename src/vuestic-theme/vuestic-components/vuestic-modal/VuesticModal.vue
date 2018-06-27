@@ -151,10 +151,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/_variables.scss";
-  @import "~bootstrap/scss/functions";
-  @import "~bootstrap/scss/variables";
-
   .vuestic-modal {
     height: 0;
     width: 0;

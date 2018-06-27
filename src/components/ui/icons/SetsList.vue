@@ -55,8 +55,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/_variables.scss";
-
   .sets-list {
     .small-set {
       .btn {

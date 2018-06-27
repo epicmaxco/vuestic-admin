@@ -8,16 +8,16 @@
   </div>
 
   <div class="file-upload-list-item row" v-else>
-    <div class="file-upload-list-item-name col-lg-4 col-12">
+    <div class="file-upload-list-item-name col-lg-3 col-xl-3 col-12">
       {{ file.name }}
     </div>
-    <div class="file-upload-list-item-size col-lg-3 col-xl-2 col-12">
+    <div class="file-upload-list-item-size col-lg-3 col-xl-3 col-12">
       {{ file.size }}
     </div>
-    <div class="file-upload-list-item-date col-lg-5 col-xl-4 col-12">
+    <div class="file-upload-list-item-date col-lg-4 col-xl-4 col-12">
       <span>{{ $t('fileUpload.uploadedOn')}} {{ file.date }}</span>
     </div>
-    <div class="file-upload-list-item-buttons col-xl-2 col-12 d-flex">
+    <div class="file-upload-list-item-buttons col-lg-2 col-xl-2 col-12 d-flex">
       <button type="button"
               class="btn-text btn-text--primary"
               @click="removeFile">
@@ -77,11 +77,16 @@
     background-color: $white;
     box-shadow: $sidebar-box-shadow;
     margin: 0 1rem;
-    padding: 0.5rem 0.7rem;
+    padding: 0.1rem 0.1rem;
+    &-name {
+      margin: auto;
+    }
     &-size {
+      margin: auto;
       color: $gray-light;
     }
     &-date {
+      margin: auto;
       color: $gray-light;
     }
     &-buttons {

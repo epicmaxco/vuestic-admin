@@ -55,8 +55,6 @@
 </script>
 
 <style lang='scss' scoped>
-  @import '../../../sass/_variables.scss';
-
   .toast-position-picker {
     width: 112px;
     height: 76px;

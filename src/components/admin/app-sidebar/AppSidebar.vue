@@ -146,6 +146,7 @@
         </span>
         <sidebar-link
           :to="{ name: 'login' }"
+          target="_blank"
           :isChildLink="true">
           <span slot="title">
             <span class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
@@ -153,7 +154,8 @@
           </span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'signup' }">
+          :to="{ name: 'signup' }"
+          target="_blank">
           <span slot="title">
             <span class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ $t('menu.signUp') }}</span>

@@ -32,8 +32,6 @@
 </script>
 
 <style lang='scss'>
-  @import '../../../sass/_variables.scss';
-
   .vuestic-chart {
     width: 100%;
     height: 100%;

@@ -102,8 +102,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/_variables.scss";
-
   .ui-grid {
     .row {
       div[class^=col] {
