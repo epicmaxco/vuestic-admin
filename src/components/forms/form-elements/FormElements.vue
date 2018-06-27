@@ -241,13 +241,13 @@
                     :label="'forms.selects.simple' | translate"
                     v-model="simpleSelectModel"
                     option-key="description"
-                    v-bind:options="simpleOptions">
-                  </vuestic-simple-select>
+                    v-bind:options="simpleOptions"
+                  />
                   <vuestic-simple-select
                     :label="'forms.selects.country' | translate"
                     v-model="chosenCountry"
-                    v-bind:options="countriesList">
-                  </vuestic-simple-select>
+                    v-bind:options="countriesList"
+                  />
                 </fieldset>
               </div>
               <div class="col-md-4">
@@ -256,13 +256,13 @@
                     :label="'forms.selects.multi' | translate"
                     v-model="multiSelectModel"
                     option-key="description"
-                    v-bind:options="simpleOptions">
-                  </vuestic-multi-select>
+                    v-bind:options="simpleOptions"
+                  />
                   <vuestic-multi-select
                     :label="'forms.selects.countryMulti' | translate"
                     v-model="multiSelectCountriesModel"
-                    v-bind:options="countriesList">
-                  </vuestic-multi-select>
+                    v-bind:options="countriesList"
+                  />
                 </fieldset>
               </div>
             </div>

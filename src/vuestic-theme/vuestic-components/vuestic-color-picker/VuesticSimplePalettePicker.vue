@@ -5,7 +5,7 @@
         class="vuestic-simple-palette-picker__item vuestic-simple-palette-picker__dot"
         v-for="color in palette"
         :aria-label="'color:' + color"
-        @click="handlerClick(color)"
+        @click="valueProxy = color"
         :class="{'vuestic-simple-palette-picker__dot-selected': isSelected(color)}"
         :style="{background: color}"
       />
@@ -36,9 +36,6 @@
       },
     },
     methods: {
-      handlerClick (color) {
-        this.valueProxy = color
-      },
       isSelected (color) {
         return this.value === color
       }
