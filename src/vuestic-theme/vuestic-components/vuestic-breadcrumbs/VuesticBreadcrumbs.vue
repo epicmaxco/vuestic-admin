@@ -11,7 +11,7 @@
             class="crumb"
             v-bind:class="{ disabled: !item.path }"
           >
-            {{normalizeName(item.path) | translate}}
+            {{$t(normalizeName(item.path))}}
           </router-link>
         </div>
       </vuestic-widget>
