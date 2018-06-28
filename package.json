@@ -94,6 +94,7 @@
     "vue-flatpickr-component": "^7.0.1",
     "vue-loader": "13.3.0",
     "vue-masonry": "^0.11.4",
+    "vue-masonry-css": "^1.0.2",
     "vue-style-loader": "3.0.1",
     "vue-template-compiler": "2.5.2",
     "webpack": "3.6.0",

@@ -1,5 +1,5 @@
 <template>
-  <div class="vuestic-card card"
+  <div class="new-card"
        :class="computedClass"
        v-masonry-tile
   >

@@ -1,6 +1,14 @@
 <template>
-  <div class="vuestic-card-container"
-       v-masonry item-selector="vuestic-card"
+  <div v-if="layout == 'fixed'"
+       class="vuestic-card-container"
+       :class="classComputed"
+  >
+    <slot></slot>
+  </div>
+  <div v-else class="new-card-container"
+       v-masonry item-selector=".new-card"
+       column-width="#grid-sizer"
+       gutter=".grid-gutter"
        :class="classComputed"
   >
     <slot></slot>
@@ -32,7 +40,20 @@
 <style lang="scss">
   $singleGutter: #{(19/16)}rem;
 
+  .new-card-container {
+    width: 800px;
+  }
+
+  #grid-sizer {
+    width: 50%;
+  }
+
+  #grid-sizer {
+    width: 20px;
+  }
+
   .vuestic-card-container {
+    max-width: 100%;
     &--fixed {
       display: flex;
       flex-wrap: wrap;
@@ -44,9 +65,9 @@
         margin: $singleGutter;
         box-sizing: border-box;
         word-wrap: break-word;
-        width: calc(50% - #{$singleGutter} * 2);
+        // width: calc(50% - #{$singleGutter} * 2);
         @media screen and (min-width: 560px) {
-          width: calc(25% - #{$singleGutter} * 2);
+          // width: calc(25% - #{$singleGutter} * 2);
         }
       }
     }

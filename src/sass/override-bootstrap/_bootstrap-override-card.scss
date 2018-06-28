@@ -1,5 +1,5 @@
 
-.card-columns {
+/*.card-columns {
   @include media-breakpoint-up(sm) {
     column-gap: #{(2* 19/16)}rem;
   }
@@ -12,7 +12,7 @@
   .card {
     margin-bottom: #{(2* 19/16)}rem;
   }
-}
+} */
 
 .card {
   border-radius: 0;

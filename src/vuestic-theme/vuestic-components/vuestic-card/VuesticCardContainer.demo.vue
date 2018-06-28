@@ -48,6 +48,8 @@
           Running out of pages in your passport. Two trailer park girls go
           around the outside.
         </vuestic-card>
+        <div id="grid-sizer"></div>
+        <div class="grid-gutter"></div>
       </vuestic-card-container>
     </div>
   </div>
@@ -68,7 +70,7 @@
       VuesticCardContainer,
     },
     data () {
-      return { layout: 'fixed' }
+      return { layout: 'floating' }
     },
   }
 </script>
