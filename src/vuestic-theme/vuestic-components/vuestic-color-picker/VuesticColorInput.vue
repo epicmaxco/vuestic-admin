@@ -1,16 +1,15 @@
 <template>
   <div class="vuestic-color-input">
-    <div
-      class="vuestic-color-input__item vuestic-color-input__dot"
-      @click="handlerClick"
-      :style="{background: value}"
-      :class="{'vuestic-color-input__dot-selected': isShown}"
+    <color-dot
+      @click.native="handlerClick"
+      :selected="selected"
+      v-model="valueProxy"
     />
     <div class="form-group">
       <div class="input-group">
         <input
           :disabled="disabled"
-          v-model=value
+          v-model=valueProxy
           placeholder="input color"
         >
         <i class="bar"/>
@@ -24,10 +23,12 @@
 
 <script>
 import VuesticAdvancedColorPicker from './VuesticAdvancedColorPicker'
+import ColorDot from './ColorDot'
 
 export default {
   name: 'vuestic-color-input',
   components: {
+    ColorDot,
     VuesticAdvancedColorPicker,
   },
   props: {
@@ -47,11 +48,20 @@ export default {
     return {
       color: '',
       mutableShow: this.show,
+      selected: false
     }
   },
   computed: {
     isShown () {
       return this.mutableShow
+    },
+    valueProxy: {
+      get () {
+        return this.value
+      },
+      set (value) {
+        this.$emit('input', value)
+      },
     },
   },
   methods: {
@@ -61,6 +71,11 @@ export default {
       } else {
         this.mutableShow = true
       }
+      if (this.selected === true) {
+        this.selected = false
+      } else {
+        this.selected = true
+      }
     },
     onModelChange (model) {
       this.$emit('input', model)
@@ -68,30 +83,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.vuestic-color-input {
-
-  &__item {
-    list-style: none;
-    width: 15px;
-    height: 15px;
-    float: left;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    position: relative;
-    cursor: pointer;
-  }
-  &__dot-selected {
-    border: solid 3px #6088b3;
-  }
-  &__dot {
-    margin-left: 10px;
-    height: 15px;
-    width: 15px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-  }
-}
-</style>

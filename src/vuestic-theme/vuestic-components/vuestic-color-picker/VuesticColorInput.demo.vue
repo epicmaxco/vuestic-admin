@@ -8,7 +8,6 @@
 
 <script>
   import VuesticColorInput from './VuesticColorInput'
-
   export default {
     components: {
       VuesticColorInput

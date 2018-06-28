@@ -7,7 +7,7 @@
   export default {
     name: 'vuestic-advanced-color-picker',
     components: {
-      'ChromePicker': Chrome,
+      ChromePicker: Chrome,
     },
     props: {
       value: {

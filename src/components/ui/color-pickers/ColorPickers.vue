@@ -6,15 +6,15 @@
           <div class="row">
             <div class="col-md-2 color-pickers-text">
               <span
-                class="text-uppercase colored-square-header">simple</span>
+                class="text-uppercase">simple</span>
             </div>
             <div class="col-md-2">
               <span
-                class="text-uppercase colored-square-header offset-1">slider</span>
+                class="text-uppercase offset-1">slider</span>
             </div>
             <div class="col-md-2">
               <span
-                class="text-uppercase colored-square-header offset-1">advanced</span>
+                class="text-uppercase offset-1">advanced</span>
             </div>
           </div>
           <div class="row">
@@ -86,32 +86,32 @@
 
 <script>
 
-  import VuesticSimplePalettePicker
-    from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticSimplePalettePicker'
-  import ColoredSquare
-    from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/ColoredSquare'
-  import VuesticSliderColorPicker
-    from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticSliderColorPicker'
-  import VuesticAdvancedColorPicker
-    from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticAdvancedColorPicker'
-  import VuesticColorInput
-    from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticColorInput'
+import VuesticSimplePalettePicker
+  from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticSimplePalettePicker'
+import ColoredSquare
+  from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/ColoredSquare'
+import VuesticSliderColorPicker
+  from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticSliderColorPicker'
+import VuesticAdvancedColorPicker
+  from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticAdvancedColorPicker'
+import VuesticColorInput
+  from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticColorInput'
 
-  export default {
-    name: 'color-pickers',
-    components: {
-      VuesticColorInput,
-      VuesticAdvancedColorPicker,
-      VuesticSliderColorPicker,
-      ColoredSquare,
-      VuesticSimplePalettePicker
-    },
-    data () {
-      return {
-        sliderColor: '#34495e',
-        advancedColor: '#ffd50a',
-        simpleColor: '#f81953'
-      }
-    },
-  }
+export default {
+  name: 'color-pickers',
+  components: {
+    VuesticColorInput,
+    VuesticAdvancedColorPicker,
+    VuesticSliderColorPicker,
+    ColoredSquare,
+    VuesticSimplePalettePicker
+  },
+  data () {
+    return {
+      sliderColor: '#34495e',
+      advancedColor: '#ffd50a',
+      simpleColor: '#f81953'
+    }
+  },
+}
 </script>

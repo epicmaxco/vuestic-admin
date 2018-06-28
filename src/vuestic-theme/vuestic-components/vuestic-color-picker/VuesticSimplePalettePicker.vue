@@ -1,76 +1,58 @@
 <template>
   <div class="vuestic-simple-palette-picker">
     <ul class="vuestic-simple-palette-picker__colors">
-      <span
-        class="vuestic-simple-palette-picker__item vuestic-simple-palette-picker__dot"
+      <color-dot
         v-for="color in palette"
         :aria-label="'color:' + color"
-        @click="valueProxy = color"
-        :class="{'vuestic-simple-palette-picker__dot-selected': isSelected(color)}"
-        :style="{background: color}"
+        :value="color"
+        @click.native="handlerClick(color)"
+        :selected="isSelected(color)"
       />
     </ul>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-simple-palette-picker',
-    props: {
-      palette: {
-        type: Array,
-        required: true
-      },
-      value: {
-        default: ''
-      }
+import ColorDot from './ColorDot'
+
+export default {
+  name: 'vuestic-simple-palette-picker',
+  components: {
+    ColorDot
+  },
+  props: {
+    palette: {
+      type: Array,
+      required: true
     },
-    computed: {
-      valueProxy: {
-        get () {
-          return this.value
-        },
-        set (value) {
-          this.$emit('input', value)
-        },
+    value: {
+      default: ''
+    },
+  },
+  data: () => {
+    return {
+      selectedOne: ''
+    }
+  },
+  computed: {
+    valueProxy: {
+      get () {
+        return this.value
+      },
+      set (value) {
+        this.$emit('input', value)
+        console.log(this.valueProxy)
       },
     },
-    methods: {
-      isSelected (color) {
-        return this.value === color
-      }
+  },
+  methods: {
+    isSelected (color) {
+      return this.selectedOne === color
+    },
+    handlerClick (color) {
+      this.valueProxy = color
+      this.selectedOne = color
     }
   }
+}
 </script>
-
-<style lang="scss">
-  .vuestic-simple-palette-picker {
-
-    &__colors {
-      overflow: hidden;
-      padding: 0;
-      margin: 0;
-    }
-    &__dot-selected {
-      border: solid 3px #6088b3;
-    }
-    &__dot {
-      margin-left: 10px;
-      height: 15px;
-      width: 15px;
-      background-color: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-    }
-    &__item {
-      list-style: none;
-      width: 15px;
-      height: 15px;
-      float: left;
-      margin-right: 5px;
-      margin-bottom: 5px;
-      position: relative;
-      cursor: pointer;
-    }
-  }
-</style>
