@@ -158,6 +158,11 @@ export default new Router({
               component: lazyLoading('ui/modals/Modals')
             },
             {
+              name: 'file-upload',
+              path: 'file-upload',
+              component: lazyLoading('ui/file-upload/FileUpload')
+            },
+            {
               name: 'tree-view',
               path: 'tree-view',
               component: lazyLoading('ui/tree-view/TreeView')
