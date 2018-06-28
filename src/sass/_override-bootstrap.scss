@@ -472,3 +472,5 @@ th.sortable:hover {
     @include alert-variant(get-alert-def($color, 'bg'), get-alert-def($color, 'border'), get-alert-def($color, 'color'));
   }
 }
+
+@import "override-bootstrap/bootstrap-override-card";

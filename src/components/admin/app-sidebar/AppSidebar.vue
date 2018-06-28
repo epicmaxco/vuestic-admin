@@ -124,6 +124,13 @@
             <span>{{ $t('menu.treeView') }}</span>
           </span>
         </sidebar-link>
+        <sidebar-link
+          :to="{ name: 'cards' }">
+          <span slot="title">
+            <span class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
+            <span>{{ $t('menu.cards') }}</span>
+          </span>
+        </sidebar-link>
       </sidebar-link-group>
       <sidebar-link
         :to="{ name: 'extra' }">

@@ -158,6 +158,11 @@ export default new Router({
               component: lazyLoading('ui/modals/Modals')
             },
             {
+              name: 'cards',
+              path: 'cards',
+              component: lazyLoading('ui/cards/Cards'),
+            },
+            {
               name: 'tree-view',
               path: 'tree-view',
               component: lazyLoading('ui/tree-view/TreeView')
