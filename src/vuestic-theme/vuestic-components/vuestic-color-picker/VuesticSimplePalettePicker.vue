@@ -2,8 +2,7 @@
   <div class="vuestic-simple-palette-picker">
     <ul class="vuestic-simple-palette-picker__colors">
       <color-dot
-        v-for="color in palette"
-        :aria-label="'color:' + color"
+        v-for="(color, index) in palette" :key="index"
         :value="color"
         @click.native="handlerClick(color)"
         :selected="isSelected(color)"
