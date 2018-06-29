@@ -4,11 +4,13 @@ export default {
     let navbar = el.querySelector('.vuestic-navbar')
     let sidebar = el.querySelector('.vuestic-sidebar')
 
-    navbar.addEventListener('click', (evt) => {
+    const desktopWidth = 992
+
+    el.resizeWindow = (evt) => {
       setTimeout(function () {
         let openedDropdown = navbar.querySelector('.show')
         let selector = navbar.querySelector('.header-selector')
-        if (openedDropdown && document.documentElement.clientWidth < 992 &&
+        if (openedDropdown && document.documentElement.clientWidth < desktopWidth &&
           !evt.target.classList.contains('header-selector')) {
           sidebar.classList.add('sidebar-hidden')
           selector.classList.remove('i-menu-expanded')
@@ -20,12 +22,17 @@ export default {
           selector.classList.toggle('i-menu-collapsed')
         }
       }, 0)
-    })
+    }
+
+    navbar.addEventListener('click', el.resizeWindow)
 
     sidebar.addEventListener('click', () => {
-      if (document.documentElement.clientWidth < 992) {
+      if (document.documentElement.clientWidth < desktopWidth) {
         sidebar.classList.add('sidebar-hidden')
       }
     })
+  },
+  unbind: (el) => {
+    el.removeEventListener('click', el.resizeWindow)
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <aside class="vuestic-sidebar" :class="classObject">
+  <aside class="vuestic-sidebar">
     <vuestic-scrollbar>
       <ul class="sidebar-menu">
         <slot name="menu"></slot>
@@ -19,17 +19,6 @@
       hidden: {
         type: Boolean,
         required: true,
-      },
-      toggleWithoutAnimation: {
-        type: Boolean,
-        required: true,
-      }
-    },
-    computed: {
-      classObject: function () {
-        return {
-          'sidebar-hidden sidebar-hidden_without-animation': this.toggleWithoutAnimation && !this.hidden
-        }
       }
     }
   }
@@ -74,10 +63,6 @@
         background: $sidebar-bg;
       }
 
-    }
-
-    &.sidebar-hidden_without-animation {
-      transition: none;
     }
 
     &.sidebar-hidden {

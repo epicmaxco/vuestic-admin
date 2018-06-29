@@ -1,6 +1,5 @@
 <template>
-  <vuestic-sidebar :hidden="isOpen"
-                   :toggleWithoutAnimation="toggleWithoutAnimation">
+  <vuestic-sidebar :hidden="isOpen">
     <template slot="menu">
       <sidebar-link
         :to="{ name: 'dashboard' }">
@@ -183,7 +182,6 @@
 <script>
 
   import VuesticSidebar from '../../../vuestic-theme/vuestic-components/vuestic-sidebar/VuesticSidebar'
-  import {mapGetters} from 'vuex'
   import SidebarLink from './components/SidebarLink'
   import SidebarLinkGroup from './components/SidebarLinkGroup'
 
@@ -199,11 +197,6 @@
         type: Boolean,
         required: true
       }
-    },
-    computed: {
-      ...mapGetters([
-        'toggleWithoutAnimation'
-      ]),
     }
   }
 

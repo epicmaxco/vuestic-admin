@@ -16,7 +16,7 @@
   import VuesticLayout from '../../vuestic-theme/vuestic-components/vuestic-layout/VuesticLayout'
   import AppNavbar from './app-navbar/AppNavbar'
   import AppSidebar from './app-sidebar/AppSidebar'
-  import Layout from './../../vuestic-theme/vuestic-directives/Layout'
+  import Layout from 'vuestic-theme/vuestic-directives/Layout'
   import {mapGetters} from 'vuex'
 
   export default {
