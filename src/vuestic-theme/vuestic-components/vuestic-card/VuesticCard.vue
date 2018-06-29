@@ -1,9 +1,9 @@
 <template>
-  <div class="new-card"
+  <div v-masonry-tile
+       class="new-card"
        :class="computedClass"
-       v-masonry-tile
   >
-    <template v-if="image">
+    <!--<template v-if="image">
       <img v-if="!titleOnImage" class="card-img-top" :src="image"
            :alt="imageAlt"
       >
@@ -14,15 +14,17 @@
           <slot name="title"/>
         </h5>
       </div>
-    </template>
-    <div class="card-body">
-      <h5 class="card-title" v-if="$slots.title && !(image && titleOnImage)">
+    </template>-->
+    <!--<div>-->
+      <!--<h5 v-if="$slots.title && !(image && titleOnImage)">
         <slot name="title"/>
-      </h5>
-      <p class="card-text">
+      </h5>-->
+      <!--<p>
+        asdasdasdasdasdasdsadasdasdasdasdasdasdasdasdasdasdasd
         <slot/>
-      </p>
-    </div>
+      </p>-->
+    <!--</div>-->
+    <span>Sanya works as</span>
   </div>
 </template>
 
@@ -91,6 +93,7 @@
 
   .vuestic-card {
     box-shadow: $shadow;
+    overflow: hidden;
 
     &__image-container {
       position: relative;
