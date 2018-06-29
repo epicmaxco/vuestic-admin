@@ -1,12 +1,12 @@
 <template>
-  <div class="colored-square" :style="{background: value}"></div>
+  <div class="vuestic-color-square" :style="{'background-color': color}"></div>
 </template>
 
 <script>
   export default {
-    name: 'colored-square',
+    name: 'vuestic-color-square',
     props: {
-      value: {
+      color: {
         required: true
       }
     }
@@ -14,7 +14,7 @@
 </script>
 
 <style lang='scss'>
-  .colored-square {
+  .vuestic-color-square {
     height: 48px;
     width: 48px;
   }

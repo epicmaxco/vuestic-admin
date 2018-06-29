@@ -5,29 +5,30 @@
         <vuestic-widget :headerText="$t('menu.colorPickers')">
           <div class="row">
             <div class="col-md-2 color-pickers-text">
-              <span
-                class="text-uppercase">simple</span>
+              <span class="text-uppercase">simple</span>
             </div>
             <div class="col-md-2">
-              <span
-                class="text-uppercase offset-1">slider</span>
+              <span class="text-uppercase offset-1">slider</span>
             </div>
             <div class="col-md-2">
-              <span
-                class="text-uppercase offset-1">advanced</span>
+              <span class="text-uppercase offset-1">advanced</span>
             </div>
           </div>
           <div class="row">
             <div class="col-md-2">
-              <colored-square :value="simpleColor"/>
+              <vuestic-color-square :color="simpleColor"/>
             </div>
             <div class="col-md-2">
-              <colored-square class="offset-1"
-                              :value="sliderColor"/>
+              <vuestic-color-square
+                class="offset-1"
+                :color="sliderColor"
+              />
             </div>
             <div class="col-md-2">
-              <colored-square class="offset-1"
-                              :value="advancedColor"/>
+              <vuestic-color-square
+                class="offset-1"
+                :color="advancedColor"
+              />
             </div>
           </div>
         </vuestic-widget>
@@ -38,7 +39,7 @@
         <vuestic-widget headerText="Simple Inline">
           <div class="row">
             <div class="col-md-1">
-              <colored-square :value="simpleColor"/>
+              <vuestic-color-square :color="simpleColor"/>
             </div>
             <div class="col-md-2">
               <vuestic-simple-palette-picker
@@ -57,7 +58,7 @@
         <vuestic-widget headerText="Slider">
           <div class="row">
             <div class="col-md-1">
-              <colored-square :value="sliderColor"/>
+              <vuestic-color-square :color="sliderColor"/>
             </div>
             <div class="col-md-6">
               <vuestic-slider-color-picker v-model="sliderColor"/>
@@ -71,7 +72,7 @@
         <vuestic-widget headerText="Advanced">
           <div class="row">
             <div class="col-md-1">
-              <colored-square :value="advancedColor"/>
+              <vuestic-color-square :color="advancedColor"/>
             </div>
             <div class="col-md-1">
               <vuestic-advanced-color-picker v-model="advancedColor"/>
@@ -88,8 +89,8 @@
 
 import VuesticSimplePalettePicker
   from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticSimplePalettePicker'
-import ColoredSquare
-  from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/ColoredSquare'
+import VuesticColorSquare
+  from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticColorSquare'
 import VuesticSliderColorPicker
   from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticSliderColorPicker'
 import VuesticAdvancedColorPicker
@@ -103,14 +104,14 @@ export default {
     VuesticColorInput,
     VuesticAdvancedColorPicker,
     VuesticSliderColorPicker,
-    ColoredSquare,
-    VuesticSimplePalettePicker
+    VuesticColorSquare,
+    VuesticSimplePalettePicker,
   },
   data () {
     return {
       sliderColor: '#34495e',
       advancedColor: '#ffd50a',
-      simpleColor: '#f81953'
+      simpleColor: '#f81953',
     }
   },
 }
