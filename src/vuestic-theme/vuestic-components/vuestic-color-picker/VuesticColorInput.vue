@@ -3,7 +3,7 @@
     <color-dot
       @click.native="handlerClick"
       :selected="selected"
-      v-model="valueProxy"
+      :color="value"
     />
     <div class="form-group">
       <div class="input-group">

@@ -1,8 +1,9 @@
 <template>
   <div
+    @click="$emit('click')"
     class="color-dot"
-    :class="{'selected': selected}"
-    :style="{background: value}"
+    :class="{'color-dot--selected': selected}"
+    :style="{'background-color': color}"
   />
 </template>
 
@@ -10,7 +11,7 @@
 export default {
   name: 'color-dot',
   props: {
-    value: {
+    color: {
       default: ''
     },
     selected: {
@@ -30,7 +31,7 @@ export default {
   cursor: pointer;
   margin-left: 10px;
   border-radius: 50%;
-  &.selected {
+  &--selected {
     border: solid 3px #6088b3;
   }
 }
