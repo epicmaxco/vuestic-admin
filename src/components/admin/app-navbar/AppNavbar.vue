@@ -6,10 +6,10 @@
     <span slot="center">
       {{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
     </span>
-    <message-dropdown :isOpen.sync="valueProxy"/>
-    <notification-dropdown :isOpen.sync="valueProxy"/>
-    <language-dropdown :isOpen.sync="valueProxy"/>
-    <profile-dropdown :isOpen.sync="valueProxy">
+    <message-dropdown/>
+    <notification-dropdown/>
+    <language-dropdown/>
+    <profile-dropdown>
       <img src="http://i.imgur.com/nfa5itq.png"/>
     </profile-dropdown>
   </vuestic-navbar>
