@@ -27,7 +27,6 @@ export default {
   width: 15px;
   height: 15px;
   float: left;
-  margin-bottom: 5px;
   cursor: pointer;
   margin-left: 10px;
   border-radius: 50%;

@@ -46,7 +46,7 @@
                 :palette="['#4ae387', '#49b2e3', '#f81953', '#161616', '#f7cc36']"
                 v-model="simpleColor"/>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-1">
               <vuestic-color-input v-model="simpleColor"/>
             </div>
           </div>

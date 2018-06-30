@@ -10,16 +10,16 @@
 
 <script>
 
-  import VuesticSliderColorPicker from './VuesticSliderColorPicker'
+import VuesticSliderColorPicker from './VuesticSliderColorPicker'
 
-  export default {
-    components: {
-      VuesticSliderColorPicker,
-    },
-    data () {
-      return {
-        value: '#34495e'
-      }
+export default {
+  components: {
+    VuesticSliderColorPicker,
+  },
+  data () {
+    return {
+      value: '#34495e'
     }
   }
+}
 </script>
