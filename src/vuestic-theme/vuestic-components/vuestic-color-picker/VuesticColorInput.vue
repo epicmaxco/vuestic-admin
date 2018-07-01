@@ -1,23 +1,20 @@
 <template>
   <div class="vuestic-color-input">
+    <color-dot
+      class="vuestic-color-input__dot"
+      @click.native="handlerClick"
+      :selected="selected"
+      :color="value"
+    />
     <div class="form-group">
-      <color-dot
-        class="vuestic-color-input-dot"
-        @click.native="handlerClick"
-        :selected="selected"
-        :color="value"
-      />
       <div class="input-group">
         <input
           :disabled="disabled"
-          v-model=valueProxy
+          v-model="valueProxy"
           placeholder="input color"
         >
         <i class="bar"/>
       </div>
-    </div>
-    <div v-if="isShown === true">
-      <vuestic-advanced-color-picker @input="onModelChange"/>
     </div>
   </div>
 </template>
@@ -25,6 +22,7 @@
 <script>
 import VuesticAdvancedColorPicker from './VuesticAdvancedColorPicker'
 import ColorDot from './ColorDot'
+
 export default {
   name: 'vuestic-color-input',
   components: {
@@ -43,18 +41,17 @@ export default {
       type: Boolean,
       default: false,
     },
+    selected: {
+      type: Boolean,
+      default: false,
+    }
   },
   data () {
     return {
       color: '',
-      mutableShow: this.show,
-      selected: false
     }
   },
   computed: {
-    isShown () {
-      return this.mutableShow
-    },
     valueProxy: {
       get () {
         return this.value
@@ -64,30 +61,16 @@ export default {
       },
     },
   },
-  methods: {
-    handlerClick () {
-      if (this.mutableShow) {
-        this.mutableShow = false
-      } else {
-        this.mutableShow = true
-      }
-      if (this.selected === true) {
-        this.selected = false
-      } else {
-        this.selected = true
-      }
-    },
-    onModelChange (model) {
-      this.$emit('input', model)
-    },
-  },
 }
 </script>
 
 <style lang="scss">
-.vuestic-color-input-dot {
-  margin-top: 14px;
-  margin-right: 15px;
+.vuestic-color-input {
+  display: flex;
+
+  &__dot {
+    @include flex-center();
+  }
 }
 
 </style>

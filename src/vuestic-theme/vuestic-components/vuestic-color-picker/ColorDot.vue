@@ -33,9 +33,11 @@ export default {
   cursor: pointer;
   @include flex-center();
 
+  border-radius: 50%;
+  border: solid 0.125rem transparent;
+
   &--selected {
-    border-radius: 50%;
-    border: solid 0.125rem $vue-darkest-blue;
+    border-color: $vue-darkest-blue;
   }
 
   &__core {
