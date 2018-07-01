@@ -1,11 +1,12 @@
 <template>
   <div class="vuestic-color-input">
-    <color-dot
-      @click.native="handlerClick"
-      :selected="selected"
-      :color="value"
-    />
     <div class="form-group">
+      <color-dot
+        class="vuestic-color-input-dot"
+        @click.native="handlerClick"
+        :selected="selected"
+        :color="value"
+      />
       <div class="input-group">
         <input
           :disabled="disabled"
@@ -82,3 +83,11 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.vuestic-color-input-dot {
+  margin-top: 14px;
+  margin-right: 15px;
+}
+
+</style>

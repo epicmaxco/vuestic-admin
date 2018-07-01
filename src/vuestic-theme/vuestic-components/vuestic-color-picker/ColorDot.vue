@@ -1,10 +1,15 @@
 <template>
-  <div
-    @click="$emit('click')"
-    class="color-dot"
-    :class="{'color-dot--selected': selected}"
-    :style="{'background-color': color}"
-  />
+  <div class="color-dot">
+    <div class="flex-container"
+         :class="{'flex-container--selected': selected}"
+    >
+      <div
+        @click="$emit('click')"
+        class="dot"
+        :style="{'background-color': color}"
+      />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -24,14 +29,26 @@ export default {
 
 <style lang="scss">
 .color-dot {
-  width: 15px;
-  height: 15px;
-  float: left;
-  cursor: pointer;
-  margin-left: 10px;
-  border-radius: 50%;
-  &--selected {
-    border: solid 3px #6088b3;
+  .flex-container {
+    &--selected {
+      border-radius: 50%;
+      border: solid 2px #34495e;
+    }
+    width: 24px;
+    height: 24px;
+    position: relative;
+    .dot {
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 8%;
+      right: 8%;
+      float: left;
+      cursor: pointer;
+      margin-left: 5px;
+      border-radius: 50%;
+    }
   }
+
 }
 </style>

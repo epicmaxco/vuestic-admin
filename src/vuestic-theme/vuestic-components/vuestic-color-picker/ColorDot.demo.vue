@@ -2,14 +2,12 @@
   <div class="demo-container">
     <div class="demo-container__item">
       <color-dot
-        color="blue"
+        color="#AAA"
         :selected="selected"
         @click="selected = !selected"
       />
     </div>
     <div class="demo-container__item">
-      <- Compare to what you have.
-      <img src="https://i.imgur.com/Rm23NjT.png" alt="">
     </div>
   </div>
 </template>
