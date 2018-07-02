@@ -44,10 +44,5 @@
 <script>
   export default {
     name: 'standard-bars',
-    data () {
-      return {
-        valueAnimationInterval: 3000
-      }
-    }
   }
 </script>
