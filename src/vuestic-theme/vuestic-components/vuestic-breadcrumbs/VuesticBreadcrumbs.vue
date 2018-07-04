@@ -3,15 +3,15 @@
     <div class="col-md-12">
       <vuestic-widget class="no-padding no-v-padding">
         <div class='vuestic-breadcrumbs'>
-          <router-link :to="'/'" class="crumb">{{'breadcrumbs.home' | translate}}</router-link>
+          <router-link :to="'/'" class="crumb">{{$t('breadcrumbs.home')}}</router-link>
           <router-link
             v-for="(item, index) in breadcrumbs"
-            :to="{path: item.path}"
+            :to="{path: item.key}"
             :key="index"
             class="crumb"
-            v-bind:class="{ disabled: !item.path }"
+            v-bind:class="{ disabled: item.children }"
           >
-            {{$t(normalizeName(item.path))}}
+            {{$t(item.value)}}
           </router-link>
         </div>
       </vuestic-widget>
@@ -29,19 +29,7 @@
           return []
         }
       }
-    },
-    methods: {
-      normalizeName (name) {
-        if (name === 'ui') {
-          name = 'UI Elements'
-        }
-        const pos = name.indexOf('-', 0)
-        if (pos !== -1) {
-          name = name.substring(0, pos) + ' ' + name.substring(pos + 1, pos.length)
-        }
-        return name
-      }
-    },
+    }
   }
 </script>
 

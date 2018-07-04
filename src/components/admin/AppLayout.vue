@@ -17,6 +17,8 @@
   import AppNavbar from './app-navbar/AppNavbar'
   import AppSidebar from './app-sidebar/AppSidebar'
   import {mapGetters} from 'vuex'
+  import utils from 'services/utils'
+  import Breadcrumbs from 'data/breadcrumbs/Breadcrumbs'
 
   export default {
     name: 'app-layout',
@@ -41,7 +43,7 @@
         'isLoading'
       ]),
       breadcrumbs () {
-        return this.$store.getters.breadcrumbs(this.$route.name)
+        return utils.findInNestedByName(Breadcrumbs, this.$route.name)
       },
     }
   }
