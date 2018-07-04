@@ -2,7 +2,6 @@
   <div class="vuestic-color-input">
     <color-dot
       class="vuestic-color-input__dot"
-      @click.native="handlerClick"
       :selected="selected"
       :color="value"
     />
@@ -13,7 +12,8 @@
           v-model="valueProxy"
           placeholder="input color"
         >
-        <i class="bar"/>
+        <i class="bar"
+           :style="'width: ' + barSize + 'px'"/>
       </div>
     </div>
   </div>
@@ -60,15 +60,26 @@ export default {
         this.$emit('input', value)
       },
     },
+    barSize: {
+      get () {
+        if (this.value.length !== 0) {
+          return this.value.length * 12
+        } else {
+          return 10
+        }
+      },
+    }
   },
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .vuestic-color-input {
   display: flex;
 
   &__dot {
+    margin-top: 15px;
+    margin-right: 15px;
     @include flex-center();
   }
 }
