@@ -8,6 +8,7 @@
     <div class="form-group">
       <div class="input-group">
         <input
+          class="vuestic-color-input__input"
           :disabled="disabled"
           v-model="valueProxy"
           placeholder="input color"
@@ -62,10 +63,12 @@ export default {
     },
     barSize: {
       get () {
-        if (this.value.length !== 0) {
-          return this.value.length * 12
-        } else {
-          return 10
+        while (this.value.length <= 7) {
+          if (this.value.length !== 0) {
+            return this.value.length * 12
+          } else {
+            return 10
+          }
         }
       },
     }
@@ -81,6 +84,10 @@ export default {
     margin-top: 15px;
     margin-right: 15px;
     @include flex-center();
+  }
+
+  &__input {
+    width: 75px;
   }
 }
 
