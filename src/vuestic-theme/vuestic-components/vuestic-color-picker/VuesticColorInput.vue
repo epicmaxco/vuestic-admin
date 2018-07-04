@@ -14,7 +14,7 @@
           placeholder="input color"
         >
         <i class="bar"
-           :style="'width: ' + barSize + 'px'"/>
+           :style="'width: ' + 9 + 'ch'"/>
       </div>
     </div>
   </div>
@@ -61,17 +61,6 @@ export default {
         this.$emit('input', value)
       },
     },
-    barSize: {
-      get () {
-        while (this.value.length <= 7) {
-          if (this.value.length !== 0) {
-            return this.value.length * 12
-          } else {
-            return 10
-          }
-        }
-      },
-    }
   },
 }
 </script>
@@ -87,7 +76,7 @@ export default {
   }
 
   &__input {
-    width: 75px;
+    width: 9ch;
   }
 }
 
