@@ -2,24 +2,27 @@
   <div class="vuestic-progress-bar">
     <horizontal-bar
       :value="value"
+      :text="text"
       :size="size"
       :disabled="disabled"
       :color="normalizedColor"
-      v-if="type == 'horizontal'"
+      v-if="type == 'horizontal' && validateValue(value) && validateSize(type, size)"
     />
     <vertical-bar
       :value="value"
+      :text="text"
       :size="size"
       :disabled="disabled"
       :color="normalizedColor"
-      v-if="type == 'vertical'"
+      v-if="type == 'vertical' && validateValue(value) && validateSize(type, size)"
     />
     <circle-bar
       :value="value"
+      :text="text"
       :disabled="disabled"
       :color="normalizedColor"
       :background-color="normalizedBackgroundColor"
-      v-if="type == 'circle'"
+      v-if="type == 'circle' && validateValue(value)"
     />
   </div>
 </template>
@@ -40,6 +43,10 @@ export default {
     value: {
       type: Number,
       default: 100,
+    },
+    text: {
+      type: String,
+      default: ''
     },
     color: {
       type: String,
@@ -62,6 +69,36 @@ export default {
       default: false,
     },
   },
+  data () {
+    return {
+      options: {
+        horizontal: [
+          'thin', 'thick', 'basic'
+        ],
+        vertical: [
+          'thin', 'basic'
+        ]
+      }
+    }
+  },
+  methods: {
+    validateValue (name) {
+      if (name >= 0 && name <= 100) {
+        return true
+      } else {
+        console.error('Value is not in the range!')
+        return false
+      }
+    },
+    validateSize (type, size) {
+      if (this.options[type].includes(size)) {
+        return true
+      } else {
+        console.error('This bar type is invalid!')
+        return false
+      }
+    }
+  },
   computed: {
     normalizedColor: function () {
       return this.$store.state.app.config.palette[this.color]
@@ -77,5 +114,6 @@ export default {
 .vuestic-progress-bar {
   font-size: $progress-bar-value-font-size;
   font-weight: $font-weight-bold;
+
 }
 </style>

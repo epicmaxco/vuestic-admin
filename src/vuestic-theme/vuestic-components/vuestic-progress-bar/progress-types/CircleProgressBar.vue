@@ -1,7 +1,8 @@
 <template>
   <div class="circle progress-bar" :class="classObject" :style="'background-image: ' + backgroundImage">
     <div class="overlay" :style="styleObject">
-      <span>{{ value + '%'}}</span>
+      <span v-if="!text">{{value + '%'}}</span>
+      <span v-else>{{text}}</span>
     </div>
   </div>
 </template>
@@ -10,6 +11,7 @@
   export default {
     props: [
       'value',
+      'text',
       'color',
       'backgroundColor',
       'disabled'
@@ -34,7 +36,7 @@
       },
       classObject: function () {
         return {
-          'progress-disabled': this.disabled
+          'vuestic-progress-bar--disabled': this.disabled
         }
       }
     }
@@ -47,11 +49,6 @@
     $loops: round(100 / $step);
     $increment: 360 / $loops;
     $half: round($loops / 2);
-
-    .pb-container & {
-      margin-top: 1.25rem;
-      margin-left: .125rem;
-    }
 
     &.progress-bar {
       float: left;
@@ -74,7 +71,7 @@
       align-items: center;
     }
 
-    &.progress-disabled {
+    &.vuestic-progress-bar--disabled {
       opacity: 0.5
     }
   }

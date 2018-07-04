@@ -5,7 +5,10 @@
       <div class="progress-bar" :style="styleObject">
       </div>
     </div>
-    <div class="value">{{value + '%'}}</div>
+    <div class="value">
+      <span v-if="!text">{{value + '%'}}</span>
+      <span v-else>{{text}}</span>
+    </div>
   </div>
 </template>
 
@@ -13,8 +16,7 @@
   export default {
     props: [
       'value',
-      'min',
-      'max',
+      'text',
       'color',
       'size',
       'disabled'
@@ -28,9 +30,9 @@
       },
       classObject: function () {
         return {
-          'progress-basic': this.size === 'basic',
-          'progress-thin': this.size === 'thin',
-          'progress-disabled': this.disabled
+          'vuestic-progress-bar--basic': this.size === 'basic',
+          'vuestic-progress-bar--thin': this.size === 'thin',
+          'vuestic-progress-bar--disabled': this.disabled
         }
       }
     }
@@ -39,11 +41,6 @@
 
 <style lang="scss">
   .vuestic-progress-bar .vertical {
-
-    .pb-container & {
-      margin-top: 1.25rem;
-      margin-left: .125rem;
-    }
 
     .progress-bar {
       transition: background-color ease .5s, height 3s linear !important;
@@ -68,7 +65,7 @@
       padding-left: .25rem;
     }
 
-    .progress-basic {
+    .vuestic-progress-bar--basic {
       border-radius: $progress-bar-width-basic;
       .progress-bar {
         border-radius: inherit;
@@ -76,13 +73,13 @@
       }
     }
 
-    .progress-thin {
+    .vuestic-progress-bar--thin {
       .progress-bar {
         width: $progress-bar-width-thin;
       }
     }
 
-    .progress-disabled {
+    .vuestic-progress-bar--disabled {
       opacity: 0.5
     }
   }

@@ -3,34 +3,26 @@
     <div class="row">
       <div class="col-sm-4 col-12">
         {{'progressBars.basic' | translate}}
-        <div class="pb-container">
-          <vuestic-progress-bar :color="'danger'"/>
-        </div>
+        <vuestic-progress-bar color="danger"/>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.thin' | translate}}
-        <div class="pb-container">
-          <vuestic-progress-bar size="thin" :color="'info'"/>
-        </div>
+        <vuestic-progress-bar size="thin" color="info"/>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.thick' | translate}}
-        <div class="pb-container">
-          <vuestic-progress-bar size="thick" :color="'warning'"/>
-        </div>
+        <vuestic-progress-bar size="thick" color="warning"/>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.basicVertical' | translate}}
         <div class="pb-container">
-          <div>
-            <vuestic-progress-bar type="vertical" :color="'success'"/>
-          </div>
+          <vuestic-progress-bar type="vertical" color="success"/>
         </div>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.thinVertical' | translate}}
         <div class="pb-container">
-          <vuestic-progress-bar size="thin" type="vertical" :color="'black'"/>
+          <vuestic-progress-bar size="thin" type="vertical" color="black"/>
         </div>
       </div>
       <div class="col-sm-4 col-12">

@@ -3,21 +3,15 @@
     <div class="row">
       <div class="col-sm-4 col-12">
         {{'progressBars.basic' | translate}}
-        <div class="pb-container">
-          <vuestic-progress-bar/>
-        </div>
+        <vuestic-progress-bar/>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.thin' | translate}}
-        <div class="pb-container">
-          <vuestic-progress-bar size="thin"/>
-        </div>
+        <vuestic-progress-bar size="thin"/>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.thick' | translate}}
-        <div class="pb-container">
-          <vuestic-progress-bar size="thick"/>
-        </div>
+        <vuestic-progress-bar size="thick"/>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.basicVertical' | translate}}

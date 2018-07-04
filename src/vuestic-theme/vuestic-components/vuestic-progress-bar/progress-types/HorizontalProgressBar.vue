@@ -1,10 +1,14 @@
 <template>
   <div class="horizontal">
-    <div v-if="size != 'thick'" class="value">{{value + '%'}}</div>
+    <div v-if="size != 'thick'" class="value">
+      <span v-if="!text">{{value + '%'}}</span>
+      <span v-else>{{text}}</span>
+    </div>
     <div class="progress" :class="classObject">
       <div class="progress-bar" :style="styleObject">
         <span v-if="size == 'thick'" :class="{hidden: value == 0}" class="value">
-          {{value + '%'}}
+          <span v-if="!text">{{value + '%'}}</span>
+          <span v-else>{{text}}</span>
         </span>
       </div>
     </div>
@@ -16,6 +20,7 @@
   export default {
     props: [
       'value',
+      'text',
       'color',
       'size',
       'disabled'
@@ -29,10 +34,10 @@
       },
       classObject: function () {
         return {
-          'progress-thick': this.size === 'thick',
-          'progress-thin': this.size === 'thin',
-          'progress-basic': this.size === 'basic',
-          'progress-disabled': this.disabled
+          'vuestic-progress-bar--thick': this.size === 'thick',
+          'vuestic-progress-bar--thin': this.size === 'thin',
+          'vuestic-progress-bar--basic': this.size === 'basic',
+          'vuestic-progress-bar--disabled': this.disabled
         }
       }
     }
@@ -46,9 +51,6 @@
 
     .progress-bar {
       transition: background-color ease .5s, width 3s linear !important;
-      .progress-bar_disabled {
-        opacity: 0.5
-      }
     }
 
     .value {
@@ -58,7 +60,7 @@
       }
     }
 
-    .progress-basic {
+    .vuestic-progress-bar--basic {
       border-radius: $progress-bar-width-basic;
       height: $progress-bar-width-basic;
       .progress-bar {
@@ -66,19 +68,15 @@
       }
     }
 
-    .progress-thin {
+    .vuestic-progress-bar--thin {
       height: $progress-bar-width-thin;
-      .pb-container & {
-        margin-top: .125rem;
-      }
+      margin-top: .125rem;
     }
 
-    .progress-thick {
+    .vuestic-progress-bar--thick {
       border-radius: $progress-bar-width-thick;
       height: $progress-bar-width-thick;
-      .pb-container & {
-        margin-top: calc(#{$progress-bar-width-thick} / 2 - .125rem);
-      }
+      margin-top: calc(#{$progress-bar-width-thick} / 2 - .125rem);
       .progress-bar {
         display: flex;
         justify-content: center;
@@ -87,7 +85,7 @@
       }
     }
 
-    .progress-disabled {
+    .vuestic-progress-bar--disabled {
       opacity: 0.5
     }
 

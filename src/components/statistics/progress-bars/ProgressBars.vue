@@ -25,16 +25,7 @@
 
 <style lang="scss">
   .progress-bars {
-    .vuestic-progress-bar {
-      .progress.thick {
-        margin-top: calc(#{$progress-bar-width-thick} / 2 - .125rem);
-      }
-      .progress.thin {
-        margin-top: .125rem;
-      }
-    }
-
-    .vertical, .circle {
+    .pb-container {
       margin-top: 1.25rem;
       margin-left: .125rem;
     }
