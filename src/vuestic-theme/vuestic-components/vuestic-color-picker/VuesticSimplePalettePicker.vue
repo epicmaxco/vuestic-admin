@@ -55,3 +55,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.vuestic-simple-palette-picker {
+
+  &__colors {
+    display: flex;
+  }
+}
+
+</style>
