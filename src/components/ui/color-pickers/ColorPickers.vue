@@ -16,19 +16,19 @@
           </div>
           <div class="row">
             <div class="col-md-2">
-              <vuestic-color-square :color="simpleColor"/>
+              <vuestic-color-picker-input>
+                <vuestic-color-square :color="simpleColor"/>
+              </vuestic-color-picker-input>
             </div>
             <div class="col-md-2">
-              <vuestic-color-square
-                class="offset-1"
-                :color="sliderColor"
-              />
+              <vuestic-color-picker-input>
+                <vuestic-color-square :color="sliderColor"/>
+              </vuestic-color-picker-input>
             </div>
             <div class="col-md-2">
-              <vuestic-color-square
-                class="offset-1"
-                :color="advancedColor"
-              />
+              <vuestic-color-picker-input>
+                <vuestic-color-square :color="advancedColor"/>
+              </vuestic-color-picker-input>
             </div>
           </div>
         </vuestic-widget>
@@ -97,6 +97,8 @@ import VuesticAdvancedColorPicker
   from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticAdvancedColorPicker'
 import VuesticColorInput
   from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticColorInput'
+import VuesticColorPickerInput
+  from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticColorPickerInput'
 
 export default {
   name: 'color-pickers',
@@ -106,6 +108,7 @@ export default {
     VuesticSliderColorPicker,
     VuesticColorSquare,
     VuesticSimplePalettePicker,
+    VuesticColorPickerInput
   },
   data () {
     return {

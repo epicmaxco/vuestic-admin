@@ -11,6 +11,7 @@
         <vuestic-slider-color-picker v-model="valueProxy"/>
       </div>
     </div>
+    <slot v-else/>
   </div>
 
 </template>
@@ -29,8 +30,7 @@ export default {
   },
   props: {
     mode: {
-      type: String,
-      default: 'advanced'
+      type: String
     }
   },
   data () {
