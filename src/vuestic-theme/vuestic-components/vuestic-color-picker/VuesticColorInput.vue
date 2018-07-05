@@ -1,12 +1,14 @@
 <template>
-  <div class="vuestic-color-input">
+  <div class="vuestic-color-input dropdown" v-dropdown>
+
     <color-dot
       class="vuestic-color-input__dot"
       :selected="selected"
       :color="value"
     />
+
     <div class="form-group">
-      <div class="input-group">
+      <div class="input-group dropdown-toggle">
         <input
           class="vuestic-color-input__input"
           :disabled="disabled"
@@ -17,18 +19,27 @@
            :style="'width: ' + 9 + 'ch'"/>
       </div>
     </div>
+    <div class="dropdown-menu">
+      <vuestic-color-picker-input mode="advanced" v-model="valueProxy"/>
+    </div>
   </div>
 </template>
 
 <script>
 import VuesticAdvancedColorPicker from './VuesticAdvancedColorPicker'
 import ColorDot from './ColorDot'
+import VuesticColorPickerInput from './VuesticColorPickerInput'
+import Dropdown from 'vuestic-directives/Dropdown'
 
 export default {
   name: 'vuestic-color-input',
   components: {
     ColorDot,
     VuesticAdvancedColorPicker,
+    VuesticColorPickerInput
+  },
+  directives: {
+    dropdown: Dropdown
   },
   props: {
     value: {
@@ -69,10 +80,15 @@ export default {
 .vuestic-color-input {
   display: flex;
 
+  .form-group {
+    margin-bottom: 0;
+  }
+
   &__dot {
-    margin-top: 15px;
+    margin-top: 10px;
     margin-right: 8px;
     @include flex-center();
+
   }
 
   &__input {
