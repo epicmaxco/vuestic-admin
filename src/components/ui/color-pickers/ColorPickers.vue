@@ -16,17 +16,17 @@
           </div>
           <div class="row">
             <div class="col-md-2">
-              <vuestic-color-picker-input>
+              <vuestic-color-picker-input mode="palette" v-model="simpleColor" >
                 <vuestic-color-square :color="simpleColor"/>
               </vuestic-color-picker-input>
             </div>
             <div class="col-md-2">
-              <vuestic-color-picker-input>
+              <vuestic-color-picker-input mode="slider" v-model="sliderColor">
                 <vuestic-color-square :color="sliderColor"/>
               </vuestic-color-picker-input>
             </div>
             <div class="col-md-2">
-              <vuestic-color-picker-input>
+              <vuestic-color-picker-input mode="advanced" v-model="advancedColor">
                 <vuestic-color-square :color="advancedColor"/>
               </vuestic-color-picker-input>
             </div>

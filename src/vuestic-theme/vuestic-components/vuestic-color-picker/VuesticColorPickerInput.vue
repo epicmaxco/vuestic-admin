@@ -1,17 +1,23 @@
 <template>
   <div class="vuestic-color-picker-input">
-    <div v-if="validator(this.mode)">
-      <div v-if="this.mode==='advanced'">
+    <div @click="show = !show">
+      <slot>
         <vuestic-advanced-color-picker v-model="valueProxy"/>
-      </div>
-      <div v-if="this.mode==='simple'">
-        <vuestic-simple-palette-picker v-model="valueProxy" :palette="['#4ae387', '#49b2e3', '#f81953', '#161616', '#f7cc36']"/>
-      </div>
-      <div v-if="this.mode==='slider'">
-        <vuestic-slider-color-picker v-model="valueProxy"/>
+      </slot>
+    </div>
+    <div v-if="show">
+      <div v-if="validator(this.mode)">
+        <div v-if="this.mode==='advanced'">
+          <vuestic-advanced-color-picker v-model="valueProxy"/>
+        </div>
+        <div v-if="this.mode==='palette'">
+          <vuestic-simple-palette-picker v-model="valueProxy" :palette="['#4ae387', '#49b2e3', '#f81953', '#161616', '#f7cc36']"/>
+        </div>
+        <div v-if="this.mode==='slider'">
+          <vuestic-slider-color-picker v-model="valueProxy"/>
+        </div>
       </div>
     </div>
-    <slot v-else/>
   </div>
 
 </template>
@@ -35,7 +41,8 @@ export default {
   },
   data () {
     return {
-      value: ''
+      value: '',
+      show: false
     }
   },
   computed: {
@@ -50,7 +57,7 @@ export default {
   },
   methods: {
     validator (value) {
-      return ['simple', 'slider', 'advanced'].includes(value)
+      return ['palette', 'slider', 'advanced'].includes(value)
     }
   }
 }
