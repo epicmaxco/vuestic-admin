@@ -1,12 +1,10 @@
 <template>
   <div class="vuestic-color-input">
-
     <color-dot
       class="vuestic-color-input__dot"
       :selected="selected"
       :color="value"
     />
-
     <div class="form-group">
       <div class="input-group">
         <input
