@@ -1,7 +1,7 @@
 <template>
   <div class="demo-container">
     <div class="demo-container__item">
-      <vuestic-color-picker-input v-model="value" mode="palette">
+      <vuestic-color-picker-input v-model="value" mode="palette"  :palettePicker="['#4ae387', '#49b2e3', '#f81953', '#161616', '#f7cc36']">
         <color-dot :color="value"/>
       </vuestic-color-picker-input>
       {{ value }}

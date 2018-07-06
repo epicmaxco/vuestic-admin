@@ -10,7 +10,7 @@
         <vuestic-advanced-color-picker v-model="valueProxy"/>
       </div>
       <div v-if="this.mode==='palette'">
-        <vuestic-simple-palette-picker v-model="valueProxy" :palette="['#4ae387', '#49b2e3', '#f81953', '#161616', '#f7cc36']"/>
+        <vuestic-simple-palette-picker v-model="valueProxy" :palette="palettePicker"/>
       </div>
       <div v-if="this.mode==='slider'">
         <vuestic-slider-color-picker v-model="valueProxy"/>
@@ -44,7 +44,7 @@ export default {
     mode: {
       type: String
     },
-    palette1: {
+    palettePicker: {
       type: Array
     }
   },
