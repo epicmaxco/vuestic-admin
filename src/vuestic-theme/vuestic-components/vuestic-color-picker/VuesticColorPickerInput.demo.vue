@@ -8,7 +8,7 @@
     </div>
     <div class="demo-container__item">
       <vuestic-color-picker-input v-model="value" mode="slider">
-        <vuestic-color-square :color="value"/>
+        <vuestic-color-square :value="value"/>
       </vuestic-color-picker-input>
       {{ value }}
     </div>

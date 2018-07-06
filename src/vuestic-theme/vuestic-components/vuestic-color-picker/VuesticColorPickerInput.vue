@@ -2,7 +2,7 @@
   <div class="vuestic-color-picker-input dropdown" v-dropdown>
     <div class="dropdown-toggle">
       <slot>
-        <vuestic-color-square v-model="valueProxy"/>
+        <vuestic-color-input v-model="valueProxy"/>
       </slot>
     </div>
     <div v-if="validator(this.mode)" class="dropdown-menu">
@@ -10,7 +10,7 @@
         <vuestic-advanced-color-picker v-model="valueProxy"/>
       </div>
       <div v-if="this.mode==='palette'">
-        <vuestic-simple-palette-picker v-model="valueProxy"/>
+        <vuestic-simple-palette-picker v-model="valueProxy" :palette="['#4ae387', '#49b2e3', '#f81953', '#161616', '#f7cc36']"/>
       </div>
       <div v-if="this.mode==='slider'">
         <vuestic-slider-color-picker v-model="valueProxy"/>
@@ -26,6 +26,7 @@ import VuesticSimplePalettePicker from './VuesticSimplePalettePicker'
 import VuesticSliderColorPicker from './VuesticSliderColorPicker'
 import Dropdown from 'vuestic-directives/Dropdown'
 import VuesticColorSquare from './VuesticColorSquare'
+import VuesticColorInput from './VuesticColorInput'
 
 export default {
   name: 'vuestic-color-picker-input',
@@ -33,7 +34,8 @@ export default {
     VuesticColorSquare,
     VuesticSimplePalettePicker,
     VuesticAdvancedColorPicker,
-    VuesticSliderColorPicker
+    VuesticSliderColorPicker,
+    VuesticColorInput
   },
   directives: {
     dropdown: Dropdown
@@ -41,11 +43,14 @@ export default {
   props: {
     mode: {
       type: String
+    },
+    palette1: {
+      type: Array
     }
   },
   data () {
     return {
-      value: ''
+      value: '',
     }
   },
   computed: {

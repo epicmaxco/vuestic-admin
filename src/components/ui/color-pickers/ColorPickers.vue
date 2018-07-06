@@ -17,17 +17,17 @@
           <div class="row">
             <div class="col-md-2">
               <vuestic-color-picker-input mode="palette" v-model="simpleColor" >
-                <vuestic-color-square :color="simpleColor"/>
+                <vuestic-color-square :value="simpleColor"/>
               </vuestic-color-picker-input>
             </div>
             <div class="col-md-2">
               <vuestic-color-picker-input mode="slider" v-model="sliderColor">
-                <vuestic-color-square :color="sliderColor"/>
+                <vuestic-color-square :value="sliderColor"/>
               </vuestic-color-picker-input>
             </div>
             <div class="col-md-2">
               <vuestic-color-picker-input mode="advanced" v-model="advancedColor">
-                <vuestic-color-square :color="advancedColor"/>
+                <vuestic-color-square :value="advancedColor"/>
               </vuestic-color-picker-input>
             </div>
           </div>
@@ -39,7 +39,7 @@
         <vuestic-widget headerText="Simple Inline">
           <div class="row">
             <div class="col-md-1">
-              <vuestic-color-square :color="simpleColor"/>
+              <vuestic-color-square :value="simpleColor"/>
             </div>
             <div class="col-md-2">
               <vuestic-simple-palette-picker
@@ -58,7 +58,7 @@
         <vuestic-widget headerText="Slider">
           <div class="row">
             <div class="col-md-1">
-              <vuestic-color-square :color="sliderColor"/>
+              <vuestic-color-square :value="sliderColor"/>
             </div>
             <div class="col-md-6">
               <vuestic-slider-color-picker v-model="sliderColor"/>
@@ -72,7 +72,7 @@
         <vuestic-widget headerText="Advanced">
           <div class="row">
             <div class="col-md-1">
-              <vuestic-color-square :color="advancedColor"/>
+              <vuestic-color-square :value="advancedColor"/>
             </div>
             <div class="col-md-1">
               <vuestic-advanced-color-picker v-model="advancedColor"/>

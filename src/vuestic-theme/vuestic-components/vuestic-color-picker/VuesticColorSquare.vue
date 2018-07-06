@@ -1,12 +1,12 @@
 <template>
-  <div class="vuestic-color-square" :style="{'background-color': color}"></div>
+  <div class="vuestic-color-square" :style="{'background-color': value}"></div>
 </template>
 
 <script>
   export default {
     name: 'vuestic-color-square',
     props: {
-      color: {
+      value: {
         required: true
       }
     }
