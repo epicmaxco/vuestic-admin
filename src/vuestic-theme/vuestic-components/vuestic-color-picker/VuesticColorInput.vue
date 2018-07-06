@@ -23,14 +23,12 @@
 <script>
 import VuesticAdvancedColorPicker from './VuesticAdvancedColorPicker'
 import ColorDot from './ColorDot'
-import VuesticColorPickerInput from './VuesticColorPickerInput'
 
 export default {
   name: 'vuestic-color-input',
   components: {
     ColorDot,
     VuesticAdvancedColorPicker,
-    VuesticColorPickerInput
   },
   props: {
     value: {
