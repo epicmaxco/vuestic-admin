@@ -17,7 +17,7 @@
     <div class="demo-container__item">
       <label class="control-label" for="advanced">Advanced mode</label>
       <vuestic-color-picker-input v-model="value" mode="advanced" id="advanced">
-        <vuestic-color-input :value="value"/>
+        <vuestic-color-input v-model="value"/>
       </vuestic-color-picker-input>
     </div>
   </div>
