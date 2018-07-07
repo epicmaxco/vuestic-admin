@@ -2,8 +2,11 @@
   <div class="bubble-maps-page">
     <div class="row">
       <div class="col-md-12">
-        <vuestic-widget class="widget-viewport-height" headerText="Bubble Maps">
-          <bubble-map v-bind:map-data="bubbleMapData"></bubble-map>
+        <vuestic-widget
+          class="bubble-maps-page__widget"
+          headerText="Bubble Maps"
+        >
+          <bubble-map v-bind:map-data="bubbleMapData"/>
         </vuestic-widget>
       </div>
     </div>
@@ -11,22 +14,26 @@
 </template>
 
 <script>
-  import BubbleMap from './BubbleMap'
-  import BubbleMapData from 'data/maps/BubbleMapData'
+import BubbleMap from './BubbleMap'
+import BubbleMapData from 'data/maps/BubbleMapData'
 
-  export default {
-    name: 'bubble-maps-page',
-    components: {
-      BubbleMap
-    },
-    data: function () {
-      return {
-        bubbleMapData: BubbleMapData
-      }
+export default {
+  name: 'bubble-maps-page',
+  components: {
+    BubbleMap,
+  },
+  data: function () {
+    return {
+      bubbleMapData: BubbleMapData,
     }
-  }
+  },
+}
 </script>
 
 <style lang="scss">
-
+.bubble-maps-page {
+  &__widget {
+    height: 70vh;
+  }
+}
 </style>

@@ -50,7 +50,8 @@
         horse-like. All three belong to the genus Equus, along with other living equids.
       </div>
     </vuestic-modal>
-    <vuestic-modal :show.sync="show" v-bind:small="true" v-bind:force="true" ref="staticModal" :cancelClass="'none'"
+    <vuestic-modal :show.sync="show"
+                   v-bind:small="true" v-bind:force="true" ref="staticModal" :cancelClass="'none'"
                    :okText="'modal.close' | translate">
       <div slot="title">{{'modal.staticTitle' | translate}}</div>
       <div>

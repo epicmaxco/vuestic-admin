@@ -68,7 +68,7 @@
 </script>
 
 <style lang='scss' scoped>
-  @import '../../../sass/_variables.scss';
+  @import '../../../sass/resources/variables';
 
   $chat-body-min-height: 18.75rem;
   $chat-body-mb: 1.5rem;

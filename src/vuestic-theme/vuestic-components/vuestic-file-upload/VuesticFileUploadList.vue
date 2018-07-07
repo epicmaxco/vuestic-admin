@@ -82,7 +82,7 @@
 </script>
 
 <style lang='scss'>
-  @import '../../../sass/_variables.scss';
+  @import '../../../sass/resources/variables';
 
   .vuestic-file-upload {
     &-list {
