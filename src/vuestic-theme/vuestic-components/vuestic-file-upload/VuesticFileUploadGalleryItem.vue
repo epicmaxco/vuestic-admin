@@ -80,7 +80,7 @@
 </script>
 
 <style lang='scss'>
-  @import '../../../sass/_variables.scss';
+  @import '../../../sass/resources/variables';
 
   .file-upload-gallery-item {
     position: relative;

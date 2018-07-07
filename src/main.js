@@ -20,21 +20,12 @@ Vue.use(YmapPlugin)
 // NOTE: workaround for VeeValidate + vuetable-2
 Vue.use(VeeValidate, {fieldsBagName: 'formFields'})
 
-let mediaHandler = () => {
-  if (window.matchMedia(store.getters.config.windowMatchSizeLg).matches) {
-    store.dispatch('toggleSidebar', true)
-  } else {
-    store.dispatch('toggleSidebar', false)
-  }
-}
-
 router.beforeEach((to, from, next) => {
   store.commit('setLoading', true)
   next()
 })
 
 router.afterEach((to, from) => {
-  mediaHandler()
   store.commit('setLoading', false)
 })
 

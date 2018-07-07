@@ -30,7 +30,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../../../../sass/_variables.scss";
+  @import "../../../../sass/resources/variables";
 
   $wizard-steps-height: 100%;
   $wizard-steps-width: 100%;
