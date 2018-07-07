@@ -16,7 +16,7 @@
           </div>
           <div class="row">
             <div class="col-md-2">
-              <vuestic-color-picker-input mode="palette" v-model="simpleColor" :palette="['#4ae387', '#49b2e3', '#f81953', '#161616', '#f7cc36']"
+              <vuestic-color-picker-input mode="palette" v-model="simpleColor" :palette="palette"
               >
                 <vuestic-color-square :value="simpleColor"/>
               </vuestic-color-picker-input>
@@ -44,7 +44,7 @@
             </div>
             <div class="col-md-2">
               <vuestic-simple-palette-picker
-                :palette="['#4ae387', '#49b2e3', '#f81953', '#161616', '#f7cc36']"
+                :palette="palette"
                 v-model="simpleColor"/>
             </div>
             <div class="col-md-1">
@@ -100,6 +100,7 @@ import VuesticColorInput
   from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticColorInput'
 import VuesticColorPickerInput
   from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticColorPickerInput'
+import { colorArray } from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticTheme'
 
 export default {
   name: 'color-pickers',
@@ -116,6 +117,7 @@ export default {
       sliderColor: '#34495e',
       advancedColor: '#ffd50a',
       simpleColor: '#f81953',
+      palette: colorArray
     }
   },
 }

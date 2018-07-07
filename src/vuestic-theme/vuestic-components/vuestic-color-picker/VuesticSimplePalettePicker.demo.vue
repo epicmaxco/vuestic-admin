@@ -3,11 +3,11 @@
     <div class="demo-container__item">
       <vuestic-simple-palette-picker
         v-model="value"
-        :palette="['#4ae387', '#49b2e3', '#f81953', '#161616', '#f7cc36','#AAA']"
+        :palette="palette"
       />
       <vuestic-simple-palette-picker
         v-model="value"
-        :palette="['#4ae387', '#49b2e3', '#f81953', '#161616', '#f7cc36','#AAA']"
+        :palette="palette"
       />
       {{ value }}
     </div>
@@ -16,6 +16,7 @@
 
 <script>
 import VuesticSimplePalettePicker from './VuesticSimplePalettePicker'
+import {colorArray} from './VuesticTheme'
 
 export default {
   components: {
@@ -23,7 +24,8 @@ export default {
   },
   data () {
     return {
-      value: '#AAA'
+      value: '#AAA',
+      palette: colorArray
     }
   }
 }

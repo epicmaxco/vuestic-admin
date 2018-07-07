@@ -2,7 +2,7 @@
   <div class="vuestic-color-picker-input dropdown" v-dropdown>
     <div class="dropdown-toggle vuestic-color-picker-input__slot">
       <slot>
-        <vuestic-color-input :value="value" :disabled="disableInput"/>
+        <vuestic-color-input :value="value" mode="palette" :disabled="disableInput"/>
       </slot>
     </div>
     <div v-if="validator(this.mode)" class="dropdown-menu">
