@@ -6,7 +6,9 @@
     <div class="dropdown-menu">
       <div class="dropdown-menu-content">
         <a v-for="(option, id) in options" :key="id" class="dropdown-item" href="#">
-          <span class="ellipsis">{{$t(`notifications.${option.name}`, { name: option.details.name, type: option.details.type })}}</span>
+          <span class="ellipsis">{{$t(`notifications.${option.name}`,
+            { name: option.details.name, type: option.details.type })}}
+          </span>
         </a>
         <div class="dropdown-item plain-link-item">
           <a class="plain-link" href="#">{{'notifications.all' | translate}}</a>

@@ -8,23 +8,24 @@ export default {
     let dropdownIon = el.querySelector('.ion')
     let closeOnMenuClick = binding.modifiers.closeOnMenuClick
     let isBlocked = binding.modifiers.isBlocked
-
-    dropdownToggle.addEventListener('click', (event) => {
-      event.preventDefault()
-      let isShown = el.classList.contains('show')
-      setTimeout(() => {
-        if (isBlocked) {
-          if (!isShown) {
-            dropdownIon.classList.add('ion-ios-arrow-up')
+    if (dropdownToggle) {
+      dropdownToggle.addEventListener('click', (event) => {
+        event.preventDefault()
+        let isShown = el.classList.contains('show')
+        setTimeout(() => {
+          if (isBlocked) {
+            if (!isShown) {
+              dropdownIon.classList.add('ion-ios-arrow-up')
+              el.classList.toggle('show', !isShown)
+              dropdownMenu.classList.toggle('show', !isShown)
+            }
+          } else {
             el.classList.toggle('show', !isShown)
             dropdownMenu.classList.toggle('show', !isShown)
           }
-        } else {
-          el.classList.toggle('show', !isShown)
-          dropdownMenu.classList.toggle('show', !isShown)
-        }
+        })
       })
-    })
+    }
 
     el.removeShow = (event) => {
       if (event.target !== dropdownToggleInput) {
@@ -39,12 +40,13 @@ export default {
     }
 
     window.addEventListener('click', el.removeShow)
-
-    dropdownMenu.addEventListener('click', (evt) => {
-      if (!closeOnMenuClick) {
-        evt.stopPropagation()
-      }
-    })
+    if (dropdownMenu) {
+      dropdownMenu.addEventListener('click', (evt) => {
+        if (!closeOnMenuClick) {
+          evt.stopPropagation()
+        }
+      })
+    }
 
     if (dropdownItem) {
       dropdownItem.addEventListener('click', () => {

@@ -1,10 +1,10 @@
 <template>
-  <li class="sidebar-link-group sidebar-link"
-      :class="classObject">
+  <li class="sidebar-link-group sidebar-link">
     <a href="#"
        target="_self"
        @click="toggleMenuItem()"
-       class="sidebar-link__router-link">
+       class="sidebar-link__router-link"
+       :class="classObject">
       <slot name="title"></slot>
       <i class="expand-icon fa fa-angle-down"></i>
     </a>
@@ -92,10 +92,6 @@
 
   .expand-icon {
     color: $vue-green;
-  }
-  a {
-    color: $white;
-    text-decoration: none;
   }
 
 </style>
