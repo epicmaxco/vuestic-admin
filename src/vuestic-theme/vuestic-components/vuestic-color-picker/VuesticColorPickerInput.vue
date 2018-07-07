@@ -1,8 +1,8 @@
 <template>
   <div class="vuestic-color-picker-input dropdown" v-dropdown>
-    <div class="dropdown-toggle">
+    <div class="dropdown-toggle vuestic-color-picker-input__slot">
       <slot>
-        <vuestic-color-input v-model="valueProxy"/>
+        <vuestic-color-input :value="value" :disabled="disableInput"/>
       </slot>
     </div>
     <div v-if="validator(this.mode)" class="dropdown-menu">
@@ -10,7 +10,7 @@
         <vuestic-advanced-color-picker v-model="valueProxy"/>
       </div>
       <div v-if="this.mode==='palette'">
-        <vuestic-simple-palette-picker v-model="valueProxy" :palette="palettePicker"/>
+        <vuestic-simple-palette-picker v-model="valueProxy" :palette="palette"/>
       </div>
       <div v-if="this.mode==='slider'">
         <vuestic-slider-color-picker v-model="valueProxy"/>
@@ -44,13 +44,11 @@ export default {
     mode: {
       type: String
     },
-    palettePicker: {
+    palette: {
       type: Array
-    }
-  },
-  data () {
-    return {
-      value: '',
+    },
+    value: {
+      default: ''
     }
   },
   computed: {
@@ -62,6 +60,14 @@ export default {
         this.$emit('input', value)
       },
     },
+    disableInput () {
+      if (this.mode === 'palette') {
+        if (this.palette) {
+          return true
+        }
+      }
+      return false
+    }
   },
   methods: {
     validator (value) {
@@ -70,3 +76,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.vuestic-color-picker-input {
+  &__slot {
+    cursor: pointer
+  }
+}
+</style>

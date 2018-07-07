@@ -21,8 +21,7 @@ export default {
   },
   props: {
     palette: {
-      type: Array,
-      required: true
+      type: Array
     },
     value: {
       default: ''
@@ -40,7 +39,6 @@ export default {
       },
       set (value) {
         this.$emit('input', value)
-        console.log(this.valueProxy)
       },
     },
   },

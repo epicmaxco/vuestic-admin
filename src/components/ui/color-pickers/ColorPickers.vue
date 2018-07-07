@@ -16,7 +16,8 @@
           </div>
           <div class="row">
             <div class="col-md-2">
-              <vuestic-color-picker-input mode="palette" v-model="simpleColor" >
+              <vuestic-color-picker-input mode="palette" v-model="simpleColor" :palette="['#4ae387', '#49b2e3', '#f81953', '#161616', '#f7cc36']"
+              >
                 <vuestic-color-square :value="simpleColor"/>
               </vuestic-color-picker-input>
             </div>
@@ -47,7 +48,7 @@
                 v-model="simpleColor"/>
             </div>
             <div class="col-md-1">
-              <vuestic-color-input v-model="simpleColor"/>
+              <vuestic-color-picker-input v-model="simpleColor" mode="palette"/>
             </div>
           </div>
         </vuestic-widget>
