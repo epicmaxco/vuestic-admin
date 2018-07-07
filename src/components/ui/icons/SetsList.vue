@@ -14,20 +14,20 @@
                 <template v-for="filteredList in set.filteredLists">
                   <div v-if="filteredList.length !== 2" class="row">
                     <div class="col-sm-2" v-for="icon in filteredList">
-                      <div class="icon">
+                      <div class="vuestic-icon">
                         <i :class="iconClass(set, icon)" aria-hidden="true"></i>
                       </div>
                     </div>
                   </div>
                   <div v-if="filteredList.length === 2" class="row">
                     <div class="col-sm-2">
-                      <div class="icon">
+                      <div class="vuestic-icon">
                         <i :class="iconClass(set, filteredList[0])" aria-hidden="true"></i>
                       </div>
                     </div>
                     <div class="col-sm-8"></div>
                     <div class="col-sm-2">
-                      <div class="icon">
+                      <div class="vuestic-icon">
                         <i :class="iconClass(set, filteredList[1])" aria-hidden="true"></i>
                       </div>
                     </div>
@@ -74,7 +74,7 @@
           div[class^="col"] {
             padding: 0;
             margin: 1rem 0;
-            .icon {
+            .vuestic-icon {
               font-size: .85rem;
               text-align: center;
             }

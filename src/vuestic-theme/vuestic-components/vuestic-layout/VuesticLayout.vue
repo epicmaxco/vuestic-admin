@@ -1,5 +1,7 @@
 <template>
-  <div class="layout" v-resize :class="classObject">
+  <div class="layout"
+       v-resize
+       :class="classObject">
     <slot></slot>
     <div class="content-wrap" id="content-wrap">
       <slot name="content"></slot>
@@ -23,7 +25,7 @@
       },
     },
     directives: {
-      resize: Resize
+      resize: Resize,
     },
     computed: {
       classObject: function () {
@@ -49,6 +51,7 @@
         }
       }
     }
+
     .content-wrap {
       margin-left: $content-wrap-ml;
       transition: margin-left 0.3s ease;
@@ -58,6 +61,15 @@
         position: absolute;
         left: $vuestic-preloader-left;
         top: $vuestic-preloader-top;
+      }
+
+      @include media-breakpoint-down(md) {
+        padding: $content-mobile-wrap;
+        margin-left: 0;
+        .sidebar-hidden & {
+          margin-left: 0;
+          padding-top: $content-mobile-wrap-sb-top;
+        }
       }
     }
     .made-by-footer {

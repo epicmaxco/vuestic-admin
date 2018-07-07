@@ -1,5 +1,5 @@
 <template>
-  <div class="language-dropdown dropdown" v-dropdown.closeOnMenuClick>
+  <div class="language-dropdown dropdown navbar-dropdown" v-dropdown>
     <a class="language-dropdown-button dropdown-toggle" href="#">
       <span class="flag-icon flag-icon-large" :class="flagIconClass(currentLanguage())"></span>
     </a>
@@ -10,7 +10,7 @@
          :key="id"
          @click="setLanguage(option.code)">
         <span class="flag-icon flag-icon-small" :class="flagIconClass(option.code)"></span>
-        <span class="dropdown-item-text ellipsis">
+        <span class="dropdown-item__text ellipsis">
           {{ `language.${option.name}` | translate }}
         </span>
       </a>
@@ -43,9 +43,7 @@
         ]
       }
     },
-
     methods: {
-
       setLanguage (locale) {
         Vue.i18n.set(locale)
       },
@@ -141,7 +139,7 @@
         height: 38px;
         padding: 9px 12px;
 
-        .dropdown-item-text {
+        .dropdown-item__text {
           padding-left: 12px;
           font-size: $font-size-base;
           line-height: 1.25;
