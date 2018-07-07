@@ -3,7 +3,7 @@
     <app-navbar :isOpen="opened" @toggle-menu="toggleSidebar"/>
     <app-sidebar :isOpen="opened" @toggle-menu="toggleSidebar"/>
     <main slot="content" id="content" class="content" role="main">
-      <vuestic-breadcrumbs :breadcrumbs="breadcrumbs"/>
+      <app-breadcrumbs :breadcrumbs="breadcrumbs"/>
       <vuestic-pre-loader v-show="isLoading" ref="preLoader" class="pre-loader"></vuestic-pre-loader>
       <router-view></router-view>
     </main>
@@ -16,10 +16,10 @@
   import VuesticLayout from '../../vuestic-theme/vuestic-components/vuestic-layout/VuesticLayout'
   import AppNavbar from './app-navbar/AppNavbar'
   import AppSidebar from './app-sidebar/AppSidebar'
+  import AppBreadcrumbs from './app-breadcrumbs/AppBreadcrumbs'
   import Layout from 'vuestic-theme/vuestic-directives/Layout'
   import {mapGetters} from 'vuex'
-  import utils from 'services/utils'
-  import Breadcrumbs from 'data/breadcrumbs/Breadcrumbs'
+  import Breadcrumbs from './app-breadcrumbs/Breadcrumbs'
 
   export default {
     name: 'app-layout',
@@ -27,14 +27,16 @@
     components: {
       VuesticLayout,
       AppNavbar,
-      AppSidebar
+      AppSidebar,
+      AppBreadcrumbs
     },
     directives: {
       layout: Layout,
     },
     data () {
       return {
-        opened: true
+        opened: true,
+        breadcrumbs: Breadcrumbs
       }
     },
     methods: {
@@ -45,10 +47,7 @@
     computed: {
       ...mapGetters([
         'isLoading'
-      ]),
-      breadcrumbs () {
-        return utils.findInNestedByName(Breadcrumbs, this.$route.name)
-      },
+      ])
     }
   }
 </script>

@@ -1,22 +1,19 @@
 <template>
-  <div class="row">
-    <div class="col-md-12">
-      <vuestic-widget class="no-padding no-v-padding">
-        <div class='vuestic-breadcrumbs'>
-          <router-link :to="'/'" class="crumb">{{$t('breadcrumbs.home')}}</router-link>
-          <router-link
-            v-for="(item, index) in breadcrumbs"
-            :to="{path: item.key}"
-            :key="index"
-            class="crumb"
-            v-bind:class="{ disabled: item.children }"
-          >
-            {{$t(item.value)}}
-          </router-link>
-        </div>
-      </vuestic-widget>
+  <vuestic-widget class="no-padding no-v-padding">
+    <div class="vuestic-breadcrumbs">
+      <router-link :to="{ path: breadcrumbs.home.path }" class="crumb">
+        {{ $t(breadcrumbs.home.displayName) }}
+      </router-link>
+      <router-link
+        v-for="(item, index) in breadcrumbs.other"
+        :to="{path: item.path}"
+        :key="index"
+        class="crumb"
+        :class="{ disabled: item.disabled }">
+        {{ $t(item.displayName) }}
+      </router-link>
     </div>
-  </div>
+  </vuestic-widget>
 </template>
 
 <script>
@@ -24,9 +21,9 @@
     name: 'vuestic-breadcrumbs',
     props: {
       breadcrumbs: {
-        type: Array,
+        type: Object,
         default: function () {
-          return []
+          return {}
         }
       }
     }
