@@ -1,7 +1,7 @@
 <template>
   <div class="vuestic-progress-bar">
     <horizontal-bar
-      :value="value"
+      :value="transformedValue"
       :text="text"
       :size="size"
       :disabled="disabled"
@@ -9,7 +9,7 @@
       v-if="type == 'horizontal' && validateValue(value) && validateSize(type, size)"
     />
     <vertical-bar
-      :value="value"
+      :value="transformedValue"
       :text="text"
       :size="size"
       :disabled="disabled"
@@ -17,7 +17,7 @@
       v-if="type == 'vertical' && validateValue(value) && validateSize(type, size)"
     />
     <circle-bar
-      :value="value"
+      :value="transformedValue"
       :text="text"
       :disabled="disabled"
       :color="normalizedColor"
@@ -42,7 +42,7 @@ export default {
   props: {
     value: {
       type: Number,
-      default: 100,
+      default: 0,
     },
     text: {
       type: String,
@@ -68,6 +68,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    animated: {
+      type: Boolean,
+      default: false,
+    },
   },
   data () {
     return {
@@ -76,14 +80,32 @@ export default {
           'thin', 'thick', 'basic'
         ],
         vertical: [
-          'thin', 'basic'
+          'thin', 'thick', 'basic'
         ]
-      }
+      },
+      transformedValue: 0,
+      valueAnimationInterval: 2000
     }
   },
   methods: {
+    animateValue () {
+      let valueMsecs = this.valueAnimationInterval / this.value
+      let delta = Math.sign(this.value - this.transformedValue)
+      let valueInterval = setInterval(() => {
+        if (this.transformedValue === this.value) {
+          clearInterval(valueInterval)
+        } else {
+          this.transformedValue += delta
+        }
+      }, valueMsecs)
+    },
     validateValue (name) {
       if (name >= 0 && name <= 100) {
+        if (this.animated) {
+          this.animateValue()
+        } else {
+          this.transformedValue = this.value
+        }
         return true
       } else {
         console.error('Value is not in the range!')

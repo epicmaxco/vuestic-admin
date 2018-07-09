@@ -3,9 +3,13 @@
     <div class="progress"
          :class="classObject">
       <div class="progress-bar" :style="styleObject">
+        <span v-if="size == 'thick'">
+          <span v-if="!text">{{value + '%'}}</span>
+          <span v-else>{{text}}</span>
+        </span>
       </div>
     </div>
-    <div class="value">
+    <div class="value" v-if="size != 'thick'">
       <span v-if="!text">{{value + '%'}}</span>
       <span v-else>{{text}}</span>
     </div>
@@ -32,6 +36,7 @@
         return {
           'vuestic-progress-bar--basic': this.size === 'basic',
           'vuestic-progress-bar--thin': this.size === 'thin',
+          'vuestic-progress-bar--thick': this.size === 'thick',
           'vuestic-progress-bar--disabled': this.disabled
         }
       }
@@ -76,6 +81,12 @@
     .vuestic-progress-bar--thin {
       .progress-bar {
         width: $progress-bar-width-thin;
+      }
+    }
+
+    .vuestic-progress-bar--thick {
+      .progress-bar {
+        width: $vertical-progress-bar-width-thick;
       }
     }
 

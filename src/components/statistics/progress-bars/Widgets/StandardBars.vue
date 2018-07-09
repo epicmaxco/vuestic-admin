@@ -3,32 +3,32 @@
     <div class="row">
       <div class="col-sm-4 col-12">
         {{'progressBars.basic' | translate}}
-        <vuestic-progress-bar/>
+        <vuestic-progress-bar :value="100" :animated="true"/>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.thin' | translate}}
-        <vuestic-progress-bar size="thin"/>
+        <vuestic-progress-bar :value="100" size="thin" :animated="true"/>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.thick' | translate}}
-        <vuestic-progress-bar size="thick"/>
+        <vuestic-progress-bar :value="100" size="thick" :animated="true"/>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.basicVertical' | translate}}
         <div class="pb-container">
-          <vuestic-progress-bar type="vertical"/>
+          <vuestic-progress-bar :value="100" type="vertical" :animated="true"/>
         </div>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.thinVertical' | translate}}
         <div class="pb-container">
-          <vuestic-progress-bar size="thin" type="vertical"/>
+          <vuestic-progress-bar :value="100" size="thin" type="vertical" :animated="true"/>
         </div>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.circle' | translate}}
         <div class="pb-container">
-          <vuestic-progress-bar type="circle"/>
+          <vuestic-progress-bar :value="100" type="circle" :animated="true"/>
         </div>
       </div>
     </div>
@@ -37,6 +37,13 @@
 
 <script>
   export default {
-    name: 'standard-bars',
+    name: 'standard-bars'
   }
 </script>
+
+<style lang="scss">
+  .pb-container {
+    margin-top: 1.25rem;
+    margin-left: .125rem;
+  }
+</style>

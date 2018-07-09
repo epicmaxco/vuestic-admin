@@ -3,32 +3,32 @@
     <div class="row">
       <div class="col-sm-4 col-12">
         {{'progressBars.basic' | translate}}
-        <vuestic-progress-bar color="danger"/>
+        <vuestic-progress-bar :value="100" color="danger"/>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.thin' | translate}}
-        <vuestic-progress-bar size="thin" color="info"/>
+        <vuestic-progress-bar :value="100" size="thin" color="info"/>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.thick' | translate}}
-        <vuestic-progress-bar size="thick" color="warning"/>
+        <vuestic-progress-bar :value="100" size="thick" color="warning"/>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.basicVertical' | translate}}
         <div class="pb-container">
-          <vuestic-progress-bar type="vertical" color="success"/>
+          <vuestic-progress-bar :value="100" type="vertical" color="success"/>
         </div>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.thinVertical' | translate}}
         <div class="pb-container">
-          <vuestic-progress-bar size="thin" type="vertical" color="black"/>
+          <vuestic-progress-bar :value="100" size="thin" type="vertical" color="black"/>
         </div>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.circle' | translate}}
         <div class="pb-container">
-          <vuestic-progress-bar type="circle"/>
+          <vuestic-progress-bar :value="100" type="circle"/>
         </div>
       </div>
     </div>

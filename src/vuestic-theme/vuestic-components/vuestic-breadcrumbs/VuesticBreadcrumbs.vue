@@ -9,8 +9,7 @@
             :to="{path: item.path}"
             :key="index"
             class="crumb"
-            v-bind:class="{ disabled: !item.path || item.meta.breadcrumbDisabled }"
-          >
+            v-bind:class="{ disabled: !item.path || item.meta.breadcrumbDisabled }">
             {{item.meta.title | translate}}
           </router-link>
         </div>

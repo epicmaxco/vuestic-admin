@@ -20,6 +20,7 @@
   export default {
     props: [
       'value',
+      'animatedValue',
       'text',
       'color',
       'size',

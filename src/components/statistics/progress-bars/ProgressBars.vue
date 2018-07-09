@@ -22,12 +22,3 @@
     components: { StandardBars, ColorfulBars },
   }
 </script>
-
-<style lang="scss">
-  .progress-bars {
-    .pb-container {
-      margin-top: 1.25rem;
-      margin-left: .125rem;
-    }
-  }
-</style>
