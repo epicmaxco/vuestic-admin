@@ -49,7 +49,6 @@
       label: String,
       options: Array,
       value: {
-        type: String,
         default: '',
         required: true
       },
@@ -66,20 +65,32 @@
     data () {
       return {
         validated: false,
-        displayValue: this.value,
+        displayValue: this.value
       }
     },
     watch: {
       value: {
         handler (value) {
-          this.displayValue = value || ''
+          if (this.optionKey) {
+            this.displayValue = value[this.optionKey]
+          } else {
+            this.displayValue = value || ''
+          }
         },
         immediate: true,
       }
     },
     computed: {
       filteredList () {
-        return this.options.filter(item => item.search(this.displayValue) === 0)
+        const optionKey = this.optionKey
+        const displayValue = this.displayValue
+        return this.options.filter(function (item) {
+          if (optionKey && item[optionKey]) {
+            return item[optionKey].search(displayValue) === 0
+          } else {
+            return item.search(displayValue) === 0
+          }
+        })
       },
     },
     methods: {

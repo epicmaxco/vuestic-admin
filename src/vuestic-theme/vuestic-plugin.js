@@ -40,6 +40,8 @@ import TreeNode from './vuestic-components/vuestic-tree-view/VuesticTreeNode'
 import DatePicker
   from './vuestic-components/vuestic-date-picker/VuesticDatePicker'
 import Card from './vuestic-components/vuestic-card/VuesticCard'
+import FileUpload
+  from './vuestic-components/vuestic-file-upload/VuesticFileUpload'
 
 import VuesticToasted from './vuestic-mixins/VuesticToasted'
 
@@ -76,6 +78,7 @@ const VuesticPlugin = {
       TreeRoot,
       TreeCategory,
       TreeNode,
+      FileUpload,
       DatePicker,
       Card,
     ].forEach(component => {

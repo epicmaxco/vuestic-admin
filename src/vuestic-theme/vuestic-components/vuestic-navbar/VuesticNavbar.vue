@@ -1,15 +1,15 @@
 <template>
   <nav class="vuestic-navbar navbar navbar-toggleable-md">
-    <div class="vuestic-navbar__logo">
+    <div class="vuestic-navbar__logo navbar-brand-container d-flex align-items-center justify-content-start">
       <router-link class="navbar-brand" to="/dashboard">
         <slot name="logo"></slot>
       </router-link>
     </div>
     <div class="row vuestic-navbar__content">
-      <div class="header-elem-wrapper">
+      <div class="header-elem-wrapper menu-icon-container justify-content-lg-start col">
         <slot name="selector"></slot>
       </div>
-      <div class="header-elem-wrapper navbar-text offset-md-1 col-md-7">
+      <div class="header-elem-wrapper navbar-text offset-md-1 col-md-7 d-none d-lg-flex">
         <slot name="center"></slot>
       </div>
       <slot></slot>
@@ -154,6 +154,18 @@
     @include media-breakpoint-down(md) {
       height: $top-mobile-nav-height;
       padding: $nav-mobile-pt $nav-mobile-padding-h $nav-mobile-pb $nav-mobile-padding-h;
+
+      .vuestic-navbar__logo {
+        width: $nav-mobile-brand-width;
+        top: $nav-mobile-brand-top;
+        left: $nav-mobile-brand-left;
+        height: auto;
+        .navbar-brand {
+          height: $font-size-smaller;
+          padding: 0;
+          font-size: $font-size-smaller;
+        }
+      }
 
       .dropdown.navbar-dropdown {
         &.show {

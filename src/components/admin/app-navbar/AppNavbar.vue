@@ -35,7 +35,6 @@
       LanguageDropdown,
       ProfileDropdown
     },
-
     props: {
       isOpen: {
         type: Boolean,
@@ -50,7 +49,7 @@
         set (opened) {
           this.$emit('toggle-menu', opened)
         },
-      }
+      },
     },
   }
 </script>
