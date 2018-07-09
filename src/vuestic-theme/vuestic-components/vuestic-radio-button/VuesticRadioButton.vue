@@ -5,7 +5,7 @@
            :value="value" :checked="checkState" @change="onChange"
            :disabled="disabled">
     <label class="form-check-label" :for="id">
-      <span class="abc-label-text">{{'forms.controls.radio' | translate}}</span>
+      <span class="abc-label-text">{{ label }}</span>
     </label>
   </div>
 </template>
