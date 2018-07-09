@@ -14,7 +14,7 @@
     </div>
     <div class="demo-container__item">
       <vuestic-color-picker-input v-model="value" mode="advanced">
-        <vuestic-color-input :value="value"/>
+        <vuestic-color-input v-model="value"/>
       </vuestic-color-picker-input>
     </div>
     <div class="demo-container__item">

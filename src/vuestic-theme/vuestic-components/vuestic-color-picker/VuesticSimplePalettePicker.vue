@@ -57,8 +57,8 @@ export default {
 
 <style lang="scss">
 .vuestic-simple-palette-picker {
-
   &__colors {
+    padding-left: 0;
     display: flex;
   }
 }

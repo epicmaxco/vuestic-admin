@@ -1,5 +1,5 @@
 <template>
-  <ChromePicker v-model="valueProxy"/>
+  <ChromePicker v-model="valueProxy" class="vuestic-advanced-picker"/>
 </template>
 
 <script>
@@ -28,4 +28,7 @@
 </script>
 
 <style lang="scss">
+.vuestic-advanced-picker {
+  padding: 5px;
+}
 </style>
