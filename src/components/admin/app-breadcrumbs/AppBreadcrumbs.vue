@@ -7,14 +7,10 @@
 </template>
 
 <script>
-  import VuesticBreadcrumbs from '../../../vuestic-theme/vuestic-components/vuestic-breadcrumbs/VuesticBreadcrumbs'
-  import Breadcrumbs from './../app-breadcrumbs/Breadcrumbs'
+  import Breadcrumbs from './Breadcrumbs'
 
   export default {
     name: 'app-breadcrumbs',
-    components: {
-      VuesticBreadcrumbs,
-    },
     props: {
       breadcrumbs: {
         type: Object,

@@ -1,16 +1,19 @@
 <template>
-  <vuestic-widget class="vuestic-breadcrumbs">
-    <router-link :to="{ path: breadcrumbs.root.path }" class="crumb">
-      {{ $t(breadcrumbs.root.displayName) }}
-    </router-link>
-    <router-link
-      v-for="(item, index) in breadcrumbsConfig"
-      :to="{path: item.path}"
-      :key="index"
-      class="crumb"
-      :class="{ disabled: item.disabled }">
-      {{ $t(item.displayName) }}
-    </router-link>
+  <vuestic-widget class="no-padding no-v-padding">
+    <div class="vuestic-breadcrumbs">
+      <router-link :to="{ path: breadcrumbs.root.path }" class="crumb">
+        {{ $t(breadcrumbs.root.displayName) }}
+      </router-link>
+      <router-link
+        v-for="(item, index) in displayedCrumbs"
+        :to="{path: item.path}"
+        :key="index"
+        class="crumb"
+        :class="{ disabled: item.disabled }">
+        {{ $t(item.displayName) }}
+      </router-link>
+    </div>
+
   </vuestic-widget>
 </template>
 
@@ -30,7 +33,7 @@
       }
     },
     computed: {
-      breadcrumbsConfig () {
+      displayedCrumbs () {
         return this.findInNestedByName(this.breadcrumbs.routes, this.currentPath)
       },
     },
@@ -55,7 +58,6 @@
 <style lang='scss' scoped>
   .vuestic-breadcrumbs {
     height: $breadcrumbs-height;
-    padding-bottom: 25px;
     display: flex;
     align-items: center;
 
