@@ -48,7 +48,7 @@
                 v-model="simpleColor"/>
             </div>
             <div class="col-md-1">
-              <vuestic-color-picker-input v-model="simpleColor"/>
+              <vuestic-color-picker-input v-model="simpleColor" mode="advanced"/>
             </div>
           </div>
         </vuestic-widget>

@@ -1,10 +1,10 @@
 <template>
   <div class="vuestic-dropdown">
-    <div class="vuestic-dropdown__toggle" @click="toggle()">
+    <div class="vuestic-dropdown__toggle" ref="toggleRef" @click="toggle()">
       <slot name="toggle"/>
     </div>
-    <div v-if="isOpen">
-      <div class="vuestic-dropdown__content">
+    <div v-show="isOpen">
+      <div class="vuestic-dropdown__content" ref="content">
         <slot/>
       </div>
     </div>
@@ -24,6 +24,22 @@ export default {
       this.isOpen = !this.isOpen
     },
   },
+  mounted () {
+    const content = this.$refs.content
+    const toggleRef = this.$refs.toggleRef
+    window.addEventListener('click', (event) => {
+      let target = event.target
+      while (target !== null) {
+        target = target.parentNode
+        if (target === toggleRef || target === content) {
+          break
+        }
+      }
+      if (target !== toggleRef && target !== content) {
+        this.isOpen = false
+      }
+    })
+  }
 }
 </script>
 
