@@ -3,7 +3,7 @@
     <app-navbar :isOpen="opened" @toggle-menu="toggleSidebar"/>
     <app-sidebar :isOpen="opened" @toggle-menu="toggleSidebar"/>
     <main slot="content" id="content" class="content" role="main">
-      <app-breadcrumbs :breadcrumbs="breadcrumbs"/>
+      <app-breadcrumbs/>
       <vuestic-pre-loader v-show="isLoading" ref="preLoader" class="pre-loader"></vuestic-pre-loader>
       <router-view></router-view>
     </main>
@@ -19,7 +19,6 @@
   import AppBreadcrumbs from './app-breadcrumbs/AppBreadcrumbs'
   import Layout from 'vuestic-theme/vuestic-directives/Layout'
   import {mapGetters} from 'vuex'
-  import Breadcrumbs from './app-breadcrumbs/Breadcrumbs'
 
   export default {
     name: 'app-layout',
@@ -35,8 +34,7 @@
     },
     data () {
       return {
-        opened: true,
-        breadcrumbs: Breadcrumbs
+        opened: true
       }
     },
     methods: {

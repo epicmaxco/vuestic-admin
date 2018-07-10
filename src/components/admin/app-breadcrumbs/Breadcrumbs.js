@@ -1,9 +1,9 @@
 export default {
-  home: {
+  root: {
     path: '/',
     displayName: 'Home'
   },
-  other: [
+  routes: [
     {
       path: 'dashboard',
       displayName: 'menu.dashboard'
