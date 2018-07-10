@@ -88,8 +88,8 @@ export default new Router({
               component: lazyLoading('forms/form-elements/FormElements')
             },
             {
-              name: 'form-wizard',
-              path: 'form-wizard',
+              name: 'form-wizards',
+              path: 'form-wizards',
               component: lazyLoading('forms/form-wizard/FormWizard')
             },
             {

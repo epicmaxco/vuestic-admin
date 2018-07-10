@@ -38,7 +38,7 @@
           </span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'form-wizard' }">
+          :to="{ name: 'form-wizards' }">
           <span slot="title">
             <span>{{ $t('menu.formWizards') }}</span>
           </span>
@@ -107,7 +107,6 @@
         <sidebar-link
           :to="{ name: 'file-upload' }">
           <span slot="title">
-            <span class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ $t('menu.fileUpload') }}</span>
           </span>
         </sidebar-link>
@@ -206,6 +205,5 @@
       }
     }
   }
-
 
 </script>
