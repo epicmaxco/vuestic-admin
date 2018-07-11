@@ -10,7 +10,7 @@
         v-model="displayValue"
         :name="name"
         :options="options">
-      <div v-show="selectedValue !== ''">
+      <div v-if="clearable && selectedValue !== ''">
         <i
           class="fa fa-close icon-cross icon-right input-icon select-form-group__unselect"
           @click="deselectOption"
@@ -62,6 +62,10 @@ export default {
     required: {
       type: Boolean,
       default: false
+    },
+    clearable: {
+      type: Boolean,
+      default: true
     },
     name: {
       type: String,
