@@ -10,7 +10,7 @@
         v-model="displayValue"
         :name="name"
         :options="options">
-      <div v-if="clearable && selectedValue !== ''">
+      <div v-if="clearable && selectedValue !== '' && displayValue !== ''">
         <i
           class="fa fa-close icon-cross icon-right input-icon select-form-group__unselect"
           @click="deselectOption"
