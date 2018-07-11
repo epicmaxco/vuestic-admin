@@ -11,7 +11,7 @@
         :name="name"
         :options="options"
         :placeholder="selectedValue">
-      <div v-if="clearable && selectedValue !== '' && displayValue !== ''">
+      <div v-if="clearable && selectedValue !== '' && displayValue !== '' && selectedValue !== undefined">
         <i
           class="fa fa-close icon-cross icon-right input-icon select-form-group__unselect"
           @click="deselectOption"
@@ -85,6 +85,7 @@ export default {
       handler (value) {
         if (this.optionKey) {
           this.displayValue = value[this.optionKey]
+          this.selectedValue = value[this.optionKey]
         } else {
           this.displayValue = value || ''
         }
