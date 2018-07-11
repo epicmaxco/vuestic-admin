@@ -9,7 +9,8 @@
         :class="{'has-value': !!value}"
         v-model="displayValue"
         :name="name"
-        :options="options">
+        :options="options"
+        :placeholder="selectedValue">
       <div v-if="clearable && selectedValue !== '' && displayValue !== ''">
         <i
           class="fa fa-close icon-cross icon-right input-icon select-form-group__unselect"
