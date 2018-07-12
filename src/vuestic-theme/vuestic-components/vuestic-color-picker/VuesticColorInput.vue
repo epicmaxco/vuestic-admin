@@ -2,6 +2,7 @@
   <div class="vuestic-color-input">
     <color-dot
       class="vuestic-color-input__dot"
+      @click="toggleDot"
       :selected="selected"
       :color="value"
     />
@@ -11,6 +12,7 @@
           class="vuestic-color-input__input"
           :disabled="disabled"
           v-model="valueProxy"
+          :class="{'vuestic-color-input__input__pointer': disabled}"
           placeholder="input color"
         >
         <i class="bar"
@@ -38,14 +40,11 @@ export default {
       type: Boolean,
       default: false,
     },
-    selected: {
-      type: Boolean,
-      default: false,
-    }
   },
   data () {
     return {
       color: '',
+      selected: false
     }
   },
   computed: {
@@ -58,13 +57,21 @@ export default {
       },
     },
   },
+  methods: {
+    toggleDot () {
+      if (this.selected) {
+        this.selected = false
+      } else {
+        this.selected = true
+      }
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .vuestic-color-input {
   display: flex;
-
   .form-group {
     margin-bottom: 0;
   }
@@ -78,6 +85,9 @@ export default {
 
   &__input {
     width: 9ch;
+    &__pointer {
+      cursor: pointer;
+    }
   }
 }
 

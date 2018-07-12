@@ -3,32 +3,41 @@
 </template>
 
 <script>
-  import { Chrome } from 'vue-color'
-  export default {
-    name: 'vuestic-advanced-color-picker',
-    components: {
-      ChromePicker: Chrome,
+import { Chrome } from 'vue-color'
+
+export default {
+  name: 'vuestic-advanced-color-picker',
+  components: {
+    ChromePicker: Chrome,
+  },
+  props: {
+    value: {
+      default: '',
     },
-    props: {
-      value: {
-        default: '',
+  },
+  computed: {
+    valueProxy: {
+      get () {
+        return this.value
+      },
+      set (value) {
+        this.$emit('input', value.hex)
       },
     },
-    computed: {
-      valueProxy: {
-        get () {
-          return this.value
-        },
-        set (value) {
-          this.$emit('input', value.hex)
-        },
-      },
-    }
   }
+}
 </script>
 
 <style lang="scss">
 .vuestic-advanced-picker {
-  padding: 5px;
+  .vc-chrome-alpha-wrap {
+    height: 0;
+    .vc-alpha-picker {
+      height: 0;
+    }
+  }
+  .vc-chrome-hue-wrap {
+    margin-top: 10px;
+  }
 }
 </style>

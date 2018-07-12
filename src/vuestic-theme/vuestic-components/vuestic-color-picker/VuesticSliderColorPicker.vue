@@ -32,6 +32,6 @@
 
 <style>
 .vuestic-slider-picker {
-  padding: 5px;
+  padding: 8px;
 }
 </style>

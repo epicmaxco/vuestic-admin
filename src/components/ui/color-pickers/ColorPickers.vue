@@ -117,7 +117,7 @@ export default {
       topSimpleSquareColor: '#f81953',
       topSliderSquareColor: '#34495e',
       topAdvancedSquareColor: '#ffd50a',
-      sliderColor: '#34495e',
+      sliderColor: '#2e5e2a',
       advancedColor: '#ffd50a',
       simpleColor: '#f81953',
       palette: colorArray

@@ -28,11 +28,6 @@ export default {
       default: ''
     },
   },
-  data: () => {
-    return {
-      selectedOne: ''
-    }
-  },
   computed: {
     valueProxy: {
       get () {
@@ -45,11 +40,10 @@ export default {
   },
   methods: {
     isSelected (color) {
-      return this.selectedOne === color
+      return this.value === color
     },
     handlerClick (color) {
       this.valueProxy = color
-      this.selectedOne = color
     }
   }
 }
