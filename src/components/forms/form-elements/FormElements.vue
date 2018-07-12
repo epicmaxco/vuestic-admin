@@ -176,6 +176,19 @@
                       <i class="bar"></i>
                     </div>
                   </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <vuestic-date-picker
+                        id="date-picker-time"
+                        :config="{locale: {firstDayOfWeek: 1}}"
+                        v-model="datepicker.time"
+                      />
+                      <label class="control-label" for="date-picker-time">
+                        {{ $t('forms.dateTimePicker.customFirstDay') }}
+                      </label>
+                      <i class="bar"></i>
+                    </div>
+                  </div>
                 </fieldset>
               </div>
               <div class="col-md-4">
@@ -202,6 +215,19 @@
                       />
                       <label class="control-label" for="date-picker-multiple">
                         {{ $t('forms.dateTimePicker.multiple') }}
+                      </label>
+                      <i class="bar"></i>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <vuestic-date-picker
+                        id="date-picker-time"
+                        :config="{altInput: true, altFormat: 'F j, Y'}"
+                        v-model="datepicker.time"
+                      />
+                      <label class="control-label" for="date-picker-time">
+                        {{ $t('forms.dateTimePicker.customDateFormat') }}
                       </label>
                       <i class="bar"></i>
                     </div>

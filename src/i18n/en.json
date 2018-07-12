@@ -102,7 +102,9 @@
       "time": "Time",
       "range": "Range",
       "multiple": "Multiple",
-      "disabled": "Disabled"
+      "disabled": "Disabled",
+      "customFirstDay": "Custom first day",
+      "customDateFormat": "Custom date format"
     },
     "inputs": {
       "emailValidatedSuccess": "Email (validated with success)",
