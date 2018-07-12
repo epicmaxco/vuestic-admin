@@ -11,17 +11,17 @@
         :name="name"
         :options="options"
         :placeholder="selectedValue">
-      <div v-if="clearable && selectedValue !== '' && displayValue !== '' && selectedValue !== undefined">
-        <i
-          class="fa fa-close icon-cross icon-right input-icon select-form-group__unselect"
-          @click="deselectOption"
-        />
-      </div>
       <i class="ion ion-ios-arrow-down icon-right input-icon"/>
       <label class="control-label">{{label}}</label><i class="bar"/>
       <small v-show="hasErrors()" class="help text-danger">
         {{ showRequiredError() }}
       </small>
+    </div>
+    <div v-if="clearable && selectedValue !== '' && displayValue !== '' && selectedValue !== undefined">
+      <i
+        class="fa fa-close icon-cross icon-right input-icon select-form-group__unselect"
+        @click="deselectOption"
+      />
     </div>
     <div
       class="dropdown-menu" aria-labelledby="dropdownMenuButton">
