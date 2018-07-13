@@ -44,8 +44,7 @@ export default {
   },
   data () {
     return {
-      dotSelected: false,
-      inputValue: this.value
+      dotSelected: false
     }
   },
   methods: {
