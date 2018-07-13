@@ -10,7 +10,7 @@
             <div class="col-md-2">
               <span class="text-uppercase vuestic-color-picker-page__text">slider</span>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 vuestic-color-picker-page__text-advanced">
               <span class="text-uppercase vuestic-color-picker-page__text">advanced</span>
             </div>
           </div>
@@ -137,6 +137,10 @@ export default {
 
   &__text {
     color: $vue-green;
+  }
+
+  &__text-advanced {
+    padding-left: 5px;
   }
 
   &__palette-picker {
