@@ -4,7 +4,7 @@
       <vuestic-dropdown>
         <div slot="toggle" class="vuestic-color-picker-input__slot">
           <slot>
-            <vuestic-color-input v-model="valueProxy" mode="palette" :disabled="disableInput"/>
+            <vuestic-color-input v-model="valueProxy" mode="palette" :disabled="disableInput" :selected="selected"/>
           </slot>
         </div>
         <div class="vuestic-color-picker-input__dropdown">
@@ -56,6 +56,10 @@ export default {
     },
     value: {
       default: ''
+    },
+    selected: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {

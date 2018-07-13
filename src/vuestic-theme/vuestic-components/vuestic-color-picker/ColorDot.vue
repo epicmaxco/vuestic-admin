@@ -30,6 +30,7 @@ export default {
 .color-dot {
   width: 1.5rem;
   height: 1.5rem;
+  min-width: 1.5rem;
   cursor: pointer;
   @include flex-center();
 

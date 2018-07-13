@@ -17,10 +17,11 @@
 <script>
 import VuesticSimplePalettePicker from './VuesticSimplePalettePicker'
 import {colorArray} from './VuesticTheme'
-
+import VuesticPalletCustom from './VuesticPalletCustom'
 export default {
   components: {
     VuesticSimplePalettePicker,
+    VuesticPalletCustom
   },
   data () {
     return {

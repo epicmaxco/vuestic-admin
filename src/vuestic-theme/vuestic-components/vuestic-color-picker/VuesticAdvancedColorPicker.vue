@@ -31,13 +31,13 @@ export default {
 <style lang="scss">
 .vuestic-advanced-picker {
   .vc-chrome-alpha-wrap {
-    height: 0;
-    .vc-alpha-picker {
-      height: 0;
-    }
+    display: none;
   }
   .vc-chrome-hue-wrap {
     margin-top: 10px;
+  }
+  .vc-chrome-toggle-btn {
+    display: none;
   }
 }
 </style>

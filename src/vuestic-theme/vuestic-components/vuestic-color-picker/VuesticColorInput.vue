@@ -2,9 +2,9 @@
   <div class="vuestic-color-input">
     <color-dot
       class="vuestic-color-input__dot"
-      @click="toggleDot"
       :selected="selected"
       :color="value"
+      @click="onClick"
     />
     <div class="form-group">
       <div class="input-group">
@@ -40,11 +40,9 @@ export default {
       type: Boolean,
       default: false,
     },
-  },
-  data () {
-    return {
-      color: '',
-      selected: false
+    selected: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -54,16 +52,12 @@ export default {
       },
       set (value) {
         this.$emit('input', value)
-      },
-    },
+      }
+    }
   },
   methods: {
-    toggleDot () {
-      if (this.selected) {
-        this.selected = false
-      } else {
-        this.selected = true
-      }
+    onClick () {
+      this.$emit('click')
     }
   }
 }

@@ -16,20 +16,25 @@
           </div>
           <div class="row">
             <div class="col-md-2">
-              <vuestic-color-picker-input mode="palette" v-model="topSimpleSquareColor" :palette="palette"
-              >
-                <vuestic-color-square :value="topSimpleSquareColor"/>
-              </vuestic-color-picker-input>
+              <div class="vuestic-color-picker-page__top-square">
+                <vuestic-color-picker-input mode="palette" v-model="topSimpleSquareColor" :palette="palette">
+                  <vuestic-color-square :value="topSimpleSquareColor"/>
+                </vuestic-color-picker-input>
+              </div>
             </div>
             <div class="col-md-2">
-              <vuestic-color-picker-input mode="slider" v-model="topSliderSquareColor">
-                <vuestic-color-square :value="topSliderSquareColor"/>
-              </vuestic-color-picker-input>
+              <div class="vuestic-color-picker-page__top-square">
+                <vuestic-color-picker-input mode="slider" v-model="topSliderSquareColor">
+                  <vuestic-color-square :value="topSliderSquareColor"/>
+                </vuestic-color-picker-input>
+              </div>
             </div>
             <div class="col-md-2">
-              <vuestic-color-picker-input mode="advanced" v-model="topAdvancedSquareColor">
-                <vuestic-color-square :value="topAdvancedSquareColor"/>
-              </vuestic-color-picker-input>
+              <div class="vuestic-color-picker-page__top-square">
+                <vuestic-color-picker-input mode="advanced" v-model="topAdvancedSquareColor">
+                  <vuestic-color-square :value="topAdvancedSquareColor"/>
+                </vuestic-color-picker-input>
+              </div>
             </div>
           </div>
         </vuestic-widget>
@@ -42,13 +47,8 @@
             <div class="col-md-1">
               <vuestic-color-square :value="simpleColor"/>
             </div>
-            <div class="col-md-2 vuestic-color-picker-page__palette-picker">
-              <vuestic-simple-palette-picker
-                :palette="palette"
-                v-model="simpleColor"/>
-            </div>
-            <div class="col-md-1">
-              <vuestic-color-picker-input v-model="simpleColor" mode="advanced"/>
+            <div class="col-md-2">
+              <vuestic-pallet-custom :palette="palette" v-model="simpleColor"/>
             </div>
           </div>
         </vuestic-widget>
@@ -101,6 +101,8 @@ import VuesticColorInput
 import VuesticColorPickerInput
   from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticColorPickerInput'
 import { colorArray } from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticTheme'
+import VuesticPalletCustom
+  from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticPalletCustom'
 
 export default {
   name: 'color-pickers',
@@ -110,7 +112,8 @@ export default {
     VuesticSliderColorPicker,
     VuesticColorSquare,
     VuesticSimplePalettePicker,
-    VuesticColorPickerInput
+    VuesticColorPickerInput,
+    VuesticPalletCustom
   },
   data () {
     return {
@@ -120,7 +123,7 @@ export default {
       sliderColor: '#2e5e2a',
       advancedColor: '#ffd50a',
       simpleColor: '#f81953',
-      palette: colorArray
+      palette: colorArray,
     }
   },
 }
@@ -128,8 +131,12 @@ export default {
 
 <style lang="scss">
 .vuestic-color-picker-page {
+  &__top-square {
+    max-width: 48px;
+  }
+
   &__text {
-    color: $vue-green
+    color: $vue-green;
   }
 
   &__palette-picker {
