@@ -6,6 +6,7 @@
     <div class="input-group dropdown-toggle">
       <input
         @focus="showDropdown()"
+        @blur="closeDropdown()"
         :class="{'has-value': !!value}"
         v-model="displayValue"
         :name="name"
@@ -116,6 +117,11 @@ export default {
     },
     showDropdown () {
       this.displayValue = ''
+    },
+    closeDropdown () {
+      if (this.selectedValue !== '') {
+        this.displayValue = this.selectedValue
+      }
     },
     isOptionSelected (option) {
       return this.selectedValue === option
