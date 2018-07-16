@@ -84,12 +84,12 @@ export default {
         ]
       },
       transformedValue: 0,
-      valueAnimationInterval: 2000
+      valueAnimationInterval: 5000
     }
   },
   methods: {
     animateValue () {
-      let valueMsecs = this.valueAnimationInterval / this.value
+      let valueMsecs = this.valueAnimationInterval / 100
       let delta = Math.sign(this.value - this.transformedValue)
       let valueInterval = setInterval(() => {
         if (this.transformedValue === this.value) {

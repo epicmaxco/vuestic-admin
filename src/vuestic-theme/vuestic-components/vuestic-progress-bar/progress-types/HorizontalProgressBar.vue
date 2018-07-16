@@ -1,12 +1,12 @@
 <template>
-  <div class="horizontal">
-    <div v-if="size != 'thick'" class="value">
+  <div class="horizontal-bar">
+    <div v-if="size != 'thick'" class="horizontal-bar__value">
       <span v-if="!text">{{value + '%'}}</span>
       <span v-else>{{text}}</span>
     </div>
-    <div class="progress" :class="classObject">
-      <div class="progress-bar" :style="styleObject">
-        <span v-if="size == 'thick'" :class="{hidden: value == 0}" class="value">
+    <div class="progress" :class="horizontalBarType">
+      <div class="progress-bar horizontal-bar__progress-bar" :style="horizontalBarStyle">
+        <span v-if="size == 'thick'" :class="{hidden: value == 0}" class="horizontal-bar__value">
           <span v-if="!text">{{value + '%'}}</span>
           <span v-else>{{text}}</span>
         </span>
@@ -18,27 +18,41 @@
 <script>
 
   export default {
-    props: [
-      'value',
-      'animatedValue',
-      'text',
-      'color',
-      'size',
-      'disabled'
-    ],
+    props: {
+      value: {
+        type: Number,
+        default: 0,
+      },
+      text: {
+        type: String,
+        default: ''
+      },
+      color: {
+        type: String,
+        default: 'primary',
+      },
+      size: {
+        type: String,
+        default: 'basic',
+      },
+      disabled: {
+        type: Boolean,
+        default: false,
+      }
+    },
     computed: {
-      styleObject: function () {
+      horizontalBarStyle: function () {
         return {
           backgroundColor: this.color,
           width: this.value + '%'
         }
       },
-      classObject: function () {
+      horizontalBarType: function () {
         return {
-          'vuestic-progress-bar--thick': this.size === 'thick',
-          'vuestic-progress-bar--thin': this.size === 'thin',
-          'vuestic-progress-bar--basic': this.size === 'basic',
-          'vuestic-progress-bar--disabled': this.disabled
+          'horizontal-bar--thick': this.size === 'thick',
+          'horizontal-bar--thin': this.size === 'thin',
+          'horizontal-bar--basic': this.size === 'basic',
+          'horizontal-bar--disabled': this.disabled
         }
       }
     }
@@ -46,39 +60,39 @@
 </script>
 
 <style lang="scss">
-  .vuestic-progress-bar .horizontal {
+  .vuestic-progress-bar .horizontal-bar {
     display: inline-block;
     width: 100%;
 
-    .progress-bar {
+    .horizontal-bar__progress-bar {
       transition: background-color ease .5s, width 3s linear !important;
     }
 
-    .value {
+    .horizontal-bar__value {
       text-align: center;
       &.hidden {
         visibility: hidden;
       }
     }
 
-    .vuestic-progress-bar--basic {
+    .horizontal-bar--basic {
       border-radius: $progress-bar-width-basic;
       height: $progress-bar-width-basic;
-      .progress-bar {
+      .horizontal-bar__progress-bar {
         border-radius: inherit;
       }
     }
 
-    .vuestic-progress-bar--thin {
+    .horizontal-bar--thin {
       height: $progress-bar-width-thin;
       margin-top: .125rem;
     }
 
-    .vuestic-progress-bar--thick {
+    .horizontal-bar--thick {
       border-radius: $progress-bar-width-thick;
       height: $progress-bar-width-thick;
       margin-top: calc(#{$progress-bar-width-thick} / 2 - .125rem);
-      .progress-bar {
+      .horizontal-bar__progress-bar {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -86,7 +100,7 @@
       }
     }
 
-    .vuestic-progress-bar--disabled {
+    .horizontal-bar--disabled {
       opacity: 0.5
     }
 

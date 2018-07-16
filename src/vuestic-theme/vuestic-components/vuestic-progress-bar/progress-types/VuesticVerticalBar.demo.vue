@@ -9,7 +9,7 @@
           <vuestic-progress-bar :value="75" type="vertical" text="second"/>
         </div>
         <div class="col-lg-4">
-          <vuestic-progress-bar :value="100" type="vertical" size="thick" animated="true"/>
+          <vuestic-progress-bar :value="100" type="vertical" size="thick" :animated="true"/>
         </div>
       </div>
     </div>
