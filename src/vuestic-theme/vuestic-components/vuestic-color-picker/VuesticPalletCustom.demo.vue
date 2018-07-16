@@ -3,6 +3,9 @@
     <div class="demo-container__item">
       <vuestic-pullet-custom :palette="palette" v-model="color"/>
     </div>
+    <div class="demo-container__item">
+      <vuestic-pullet-custom :palette="palette" v-model="color"/>
+    </div>
   </div>
 </template>
 
@@ -18,7 +21,7 @@ export default {
   data () {
     return {
       palette: colorArray,
-      color: ''
+      color: '#aaaaaa'
     }
   }
 }

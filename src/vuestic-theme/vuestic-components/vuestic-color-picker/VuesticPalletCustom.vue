@@ -2,7 +2,7 @@
   <div class="vuestic-pallet-custom">
     <vuestic-simple-palette-picker :palette="palette" v-model="valueProxy" class="vuestic-pallet-custom__palette"/>
     <vuestic-color-picker-input mode="advanced" v-model="valueProxy" class="vuestic-pallet-custom__vuestic-color-picker-input">
-      <vuestic-color-input :selected="dotSelected" v-model="valueProxy"/>
+      <vuestic-color-input :selected="checkForDotSelected()" v-model="valueProxy"/>
     </vuestic-color-picker-input>
   </div>
 </template>
@@ -32,24 +32,22 @@ export default {
   computed: {
     valueProxy: {
       get () {
-        if (!this.palette.includes(this.value)) {
-          this.dotSelected = true
-        }
         return this.value
       },
       set (value) {
-        if (this.palette.includes(value)) {
-          this.dotSelected = false
-        } else {
-          this.dotSelected = true
-        }
         this.$emit('input', value)
       },
     },
   },
-  data () {
-    return {
-      dotSelected: false
+  methods: {
+    checkForDotSelected () {
+      if (this.value !== '') {
+        if (this.palette.includes(this.value)) {
+          return false
+        } else {
+          return true
+        }
+      }
     }
   }
 }
