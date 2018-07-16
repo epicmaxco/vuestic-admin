@@ -71,7 +71,7 @@ export default {
   }
 
   &__dot {
-    margin-top: 10px;
+    margin-top: 7px;
     margin-right: 8px;
     @include flex-center();
 
