@@ -4,13 +4,15 @@
       <sidebar-link
         :to="{ name: 'dashboard' }">
         <span slot="title">
-          <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-dashboard"></span>
+          <span
+            class="sidebar-menu-item-icon vuestic-icon vuestic-icon-dashboard"></span>
           <span>{{ $t('menu.dashboard') }}</span>
         </span>
       </sidebar-link>
       <sidebar-link-group>
         <span slot="title">
-          <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-statistics"></span>
+          <span
+            class="sidebar-menu-item-icon vuestic-icon vuestic-icon-statistics"></span>
           <span>{{ $t('menu.statistics') }}</span>
         </span>
         <sidebar-link
@@ -28,7 +30,8 @@
       </sidebar-link-group>
       <sidebar-link-group>
         <span slot="title">
-          <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-forms"></span>
+          <span
+            class="sidebar-menu-item-icon vuestic-icon vuestic-icon-forms"></span>
           <span>{{ $t('menu.forms') }}</span>
         </span>
         <sidebar-link
@@ -53,13 +56,15 @@
       <sidebar-link
         :to="{ name: 'tables' }">
         <span slot="title">
-          <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-tables"></span>
+          <span
+            class="sidebar-menu-item-icon vuestic-icon vuestic-icon-tables"></span>
           <span>{{ $t('menu.tables') }}</span>
         </span>
       </sidebar-link>
       <sidebar-link-group>
         <span slot="title">
-          <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-ui-elements"></span>
+          <span
+            class="sidebar-menu-item-icon vuestic-icon vuestic-icon-ui-elements"></span>
           <span>{{ $t('menu.uiElements') }}</span>
         </span>
         <sidebar-link
@@ -72,6 +77,14 @@
           :to="{ name: 'buttons' }">
           <span slot="title">
             <span>{{ $t('menu.buttons') }}</span>
+          </span>
+        </sidebar-link>
+        <sidebar-link
+          :to="{ name: 'color-pickers' }">
+          <span slot="title">
+            <span
+              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
+            <span>{{ $t('menu.colorPickers') }}</span>
           </span>
         </sidebar-link>
         <sidebar-link
@@ -120,13 +133,15 @@
       <sidebar-link
         :to="{ name: 'extra' }">
         <span slot="title">
-          <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-extras"></span>
+          <span
+            class="sidebar-menu-item-icon vuestic-icon vuestic-icon-extras"></span>
           <span>{{ $t('menu.extra') }}</span>
         </span>
       </sidebar-link>
       <sidebar-link-group>
         <span slot="title">
-          <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-auth"></span>
+          <span
+            class="sidebar-menu-item-icon vuestic-icon vuestic-icon-auth"></span>
           <span>{{ $t('menu.auth') }}</span>
         </span>
         <sidebar-link
@@ -147,7 +162,8 @@
       </sidebar-link-group>
       <sidebar-link-group>
         <span slot="title">
-          <span class="sidebar-menu-item-icon vuestic-icon vuestic-icon-maps"></span>
+          <span
+            class="sidebar-menu-item-icon vuestic-icon vuestic-icon-maps"></span>
           <span>{{ $t('menu.maps') }}</span>
         </span>
         <sidebar-link
