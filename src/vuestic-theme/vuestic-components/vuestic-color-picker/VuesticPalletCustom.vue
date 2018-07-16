@@ -2,7 +2,7 @@
   <div class="vuestic-pallet-custom">
     <vuestic-simple-palette-picker :palette="palette" v-model="valueProxy" class="vuestic-pallet-custom__palette"/>
     <vuestic-color-picker-input mode="advanced" v-model="valueProxy" class="vuestic-pallet-custom__vuestic-color-picker-input">
-      <vuestic-color-input :selected="checkForDotSelected()" v-model="valueProxy"/>
+      <vuestic-color-input :selected="checkForDotSelected" v-model="valueProxy"/>
     </vuestic-color-picker-input>
   </div>
 </template>
@@ -38,9 +38,7 @@ export default {
         this.$emit('input', value)
       },
     },
-  },
-  methods: {
-    checkForDotSelected () {
+    checkForDotSelected: function () {
       if (this.value !== '') {
         if (this.palette.includes(this.value)) {
           return false
