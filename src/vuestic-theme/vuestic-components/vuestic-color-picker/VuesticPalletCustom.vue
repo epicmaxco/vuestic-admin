@@ -56,8 +56,7 @@ export default {
   display: flex;
 
   &__palette {
-    padding-top: 7px;
-    padding-right: 50px;
+   margin-right: 20px;
   }
 
   &__vuestic-color-picker-input {
