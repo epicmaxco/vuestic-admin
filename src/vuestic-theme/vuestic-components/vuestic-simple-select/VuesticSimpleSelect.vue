@@ -11,7 +11,7 @@
           v-model="displayValue"
           :name="name"
           :options="options"
-          :placeholder="selectedValue">
+          :placeholder="placeholder">
         <label class="control-label">{{label}}</label><i class="bar"/>
         <small v-show="hasErrors()" class="help text-danger">
           {{ showRequiredError() }}
@@ -92,7 +92,6 @@ export default {
       handler (value) {
         if (this.optionKey) {
           this.displayValue = value[this.optionKey]
-          this.selectedValue = value[this.optionKey]
         } else {
           this.displayValue = value || ''
         }
@@ -118,6 +117,13 @@ export default {
     },
     isClearable () {
       return (this.clearable && this.selectedValue !== '' && this.displayValue !== '' && this.selectedValue !== undefined)
+    },
+    placeholder () {
+      if (this.optionKey !== undefined) {
+        return this.selectedValue[this.optionKey]
+      } else {
+        return this.selectedValue
+      }
     }
   },
   methods: {
