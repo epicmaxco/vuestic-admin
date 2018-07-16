@@ -1,6 +1,5 @@
 <template>
-  <vuestic-sidebar :hidden="this.isOpen"
-                   :toggleWithoutAnimation="toggleWithoutAnimation">
+  <vuestic-sidebar :hidden="isOpen">
     <template slot="menu">
       <sidebar-link
         :to="{ name: 'dashboard' }">
@@ -19,16 +18,12 @@
         <sidebar-link
           :to="{ name: 'charts' }">
           <span slot="title">
-            <span
-              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ $t('menu.charts') }}</span>
           </span>
         </sidebar-link>
         <sidebar-link
           :to="{ name: 'progress-bars' }">
           <span slot="title">
-            <span
-              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ $t('menu.progressBars') }}</span>
           </span>
         </sidebar-link>
@@ -42,24 +37,18 @@
         <sidebar-link
           :to="{ name: 'form-elements' }">
           <span slot="title">
-            <span
-              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ $t('menu.formElements') }}</span>
           </span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'form-wizard' }">
+          :to="{ name: 'form-wizards' }">
           <span slot="title">
-            <span
-              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ $t('menu.formWizards') }}</span>
           </span>
         </sidebar-link>
         <sidebar-link
           :to="{ name: 'medium-editor' }">
           <span slot="title">
-            <span
-              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ $t('menu.mediumEditor') }}</span>
           </span>
         </sidebar-link>
@@ -81,16 +70,12 @@
         <sidebar-link
           :to="{ name: 'typography' }">
           <span slot="title">
-            <span
-              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ $t('menu.typography') }}</span>
           </span>
         </sidebar-link>
         <sidebar-link
           :to="{ name: 'buttons' }">
           <span slot="title">
-            <span
-              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ $t('menu.buttons') }}</span>
           </span>
         </sidebar-link>
@@ -105,48 +90,42 @@
         <sidebar-link
           :to="{ name: 'notifications' }">
           <span slot="title">
-            <span
-              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ $t('menu.notifications') }}</span>
           </span>
         </sidebar-link>
         <sidebar-link
           :to="{ name: 'icons' }">
           <span slot="title">
-            <span
-              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ $t('menu.icons') }}</span>
           </span>
         </sidebar-link>
         <sidebar-link
           :to="{ name: 'spinners' }">
           <span slot="title">
-            <span
-              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ $t('menu.spinners') }}</span>
           </span>
         </sidebar-link>
         <sidebar-link
           :to="{ name: 'grid' }">
           <span slot="title">
-            <span
-              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ $t('menu.grid') }}</span>
           </span>
         </sidebar-link>
         <sidebar-link
           :to="{ name: 'modals' }">
           <span slot="title">
-            <span
-              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ $t('menu.modals') }}</span>
+          </span>
+        </sidebar-link>
+        <sidebar-link
+          :to="{ name: 'file-upload' }">
+          <span slot="title">
+            <span>{{ $t('menu.fileUpload') }}</span>
           </span>
         </sidebar-link>
         <sidebar-link
           :to="{ name: 'tree-view' }">
           <span slot="title">
-            <span
-              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ $t('menu.treeView') }}</span>
           </span>
         </sidebar-link>
@@ -170,8 +149,6 @@
           target="_blank"
           :isChildLink="true">
           <span slot="title">
-            <span
-              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ $t('menu.login') }}</span>
           </span>
         </sidebar-link>
@@ -179,8 +156,6 @@
           :to="{ name: 'signup' }"
           target="_blank">
           <span slot="title">
-            <span
-              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ $t('menu.signUp') }}</span>
           </span>
         </sidebar-link>
@@ -194,40 +169,30 @@
         <sidebar-link
           :to="{ name: 'google-maps' }">
           <span slot="title">
-            <span
-              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ 'Google Maps' }}</span>
           </span>
         </sidebar-link>
         <sidebar-link
           :to="{ name: 'yandex-maps' }">
           <span slot="title">
-            <span
-              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ 'Yandex Maps' }}</span>
           </span>
         </sidebar-link>
         <sidebar-link
           :to="{ name: 'leaflet-maps' }">
           <span slot="title">
-            <span
-              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ 'Leaflet Maps' }}</span>
           </span>
         </sidebar-link>
         <sidebar-link
           :to="{ name: 'bubble-maps' }">
           <span slot="title">
-            <span
-              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ $t('Bubble Maps') }}</span>
           </span>
         </sidebar-link>
         <sidebar-link
           :to="{ name: 'line-maps' }">
           <span slot="title">
-            <span
-              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ $t('Line Maps') }}</span>
           </span>
         </sidebar-link>
@@ -238,9 +203,7 @@
 
 <script>
 
-  import VuesticSidebar
-    from '../../../vuestic-theme/vuestic-components/vuestic-sidebar/VuesticSidebar'
-  import { mapGetters } from 'vuex'
+  import VuesticSidebar from '../../../vuestic-theme/vuestic-components/vuestic-sidebar/VuesticSidebar'
   import SidebarLink from './components/SidebarLink'
   import SidebarLinkGroup from './components/SidebarLinkGroup'
 
@@ -256,13 +219,7 @@
         type: Boolean,
         required: true
       }
-    },
-    computed: {
-      ...mapGetters([
-        'toggleWithoutAnimation'
-      ]),
     }
   }
-
 
 </script>

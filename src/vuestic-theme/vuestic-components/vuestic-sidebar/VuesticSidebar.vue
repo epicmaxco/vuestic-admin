@@ -1,5 +1,5 @@
 <template>
-  <aside class="vuestic-sidebar" :class="classObject">
+  <aside class="vuestic-sidebar">
     <vuestic-scrollbar>
       <ul class="sidebar-menu">
         <slot name="menu"></slot>
@@ -19,18 +19,6 @@
       hidden: {
         type: Boolean,
         required: true,
-      },
-      toggleWithoutAnimation: {
-        type: Boolean,
-        required: true,
-      }
-    },
-    computed: {
-      classObject: function () {
-        return {
-          'sidebar-hidden': !this.toggleWithoutAnimation && !this.hidden,
-          'sidebar-hidden sidebar-hidden_without-animation': this.toggleWithoutAnimation && !this.hidden
-        }
       }
     }
   }
@@ -44,7 +32,15 @@
       width: $sidebar-mobile-width;
       z-index: $sidebar-mobile-z-index;
     }
+
     height: $sidebar-viewport-height;
+    position: absolute;
+    width: $sidebar-width;
+    top: $sidebar-top;
+    left: $sidebar-left;
+    transition: all 0.2s ease;
+    opacity: 1;
+
     .vuestic-scrollbar {
       height: 100%;
 
@@ -68,37 +64,7 @@
       }
 
     }
-    position: absolute;
-    width: $sidebar-width;
-    top: $sidebar-top;
-    left: $sidebar-left;
-    transition: all 0.2s ease;
-    opacity: 1;
-    &.sidebar-hidden_without-animation {
-      transition: none;
-    }
-    &.sidebar-hidden {
-      margin-left: $sidebar-left;
-    }
-    &.sidebar-hidden + .content-wrap {
-      margin-left: $sidebar-left;
-      @include media-breakpoint-down(md) {
-        padding: $content-mobile-wrap;
-        margin-left: 0;
-        &.sidebar-hidden + .content-wrap {
-          margin-left: 0;
-          padding-top: $content-mobile-wrap-sb-top;
-        }
-      }
-    }
-    @include media-breakpoint-down(md) {
-      padding: $content-mobile-wrap;
-      margin-left: 0;
-      &.sidebar-hidden {
-        margin-left: 0;
-        padding-top: $content-mobile-wrap-sb-top;
-      }
-    }
+
     &.sidebar-hidden {
       @include media-breakpoint-down(md) {
         top: $sidebar-hidden-top-mobile;
@@ -109,6 +75,12 @@
       top: $sidebar-hidden-top;
       opacity: 0;
       z-index: $min-z-index;
+    }
+    &.sidebar-hidden + .content-wrap {
+      @include media-breakpoint-down(md) {
+        margin-left: 0;
+      }
+      margin-left: $sidebar-left;
     }
   }
 </style>

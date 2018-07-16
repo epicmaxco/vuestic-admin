@@ -102,7 +102,9 @@
       "time": "Time",
       "range": "Range",
       "multiple": "Multiple",
-      "disabled": "Disabled"
+      "disabled": "Disabled",
+      "customFirstDay": "Custom first day",
+      "customDateFormat": "Custom date format"
     },
     "inputs": {
       "emailValidatedSuccess": "Email (validated with success)",
@@ -186,7 +188,8 @@
     "typography": "Typography",
     "uiElements": "UI Elements",
     "treeView": "Tree view",
-    "dateTimePickers": "Date time pickers"
+    "dateTimePickers": "Date time pickers",
+    "fileUpload": "File Upload"
   },
   "messages": {
     "all": "See all messages",
@@ -207,8 +210,25 @@
     "staticTitle": "Static Modal",
     "title": "Modals"
   },
+  "fileUpload": {
+    "advancedMediaGallery": "Advanced, Media Gallery",
+    "advancedUploadList": "Advanced, Upload List",
+    "mediaGallery": "Media Gallery",
+    "uploadList": "Upload List",
+    "single": "Single",
+    "dragNdropFiles": "Drag’n’drop files or",
+    "uploadedOn": "Uploaded on",
+    "fileDeleted": "File was succesfully deleted.",
+    "undo": "Undo",
+    "preview": "Preview",
+    "delete": "Delete",
+    "deleteFile": "Delete file",
+    "uploadFile": "Upload file",
+    "uploadMedia": "Upload media",
+    "addAttachment": "Add attachment"
+  },
   "navbar": {
-    "messageUs": "Send us your questions or feedback to"
+    "messageUs": "Web development help needed? Contact us at"
   },
   "notifications": {
     "all": "See all notifications",

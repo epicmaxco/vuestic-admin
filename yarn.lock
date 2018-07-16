@@ -6183,6 +6183,10 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
+vue-book@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/vue-book/-/vue-book-0.0.3.tgz#e3791bd418823a0737add658a980a04606f8d793"
+
 vue-bulma-expanding@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/vue-bulma-expanding/-/vue-bulma-expanding-0.0.1.tgz#fcf71c2e8ef09157175bd5187eb71b3ce75a2229"

@@ -111,7 +111,10 @@
           border: none;
           color: $datepickerText;
           &.today {
-            background-color: $datepickerToday;
+            color: $datepickerActive;
+             &.selected {
+              color: $datepickerText;
+             }
           }
           &:hover {
             background-color: $datepickerDayHover;
@@ -272,6 +275,15 @@
           background-color: $datepickerDayHover;
         }
       }
+    }
+  }
+
+  .form-group {
+    .flatpickr-input {
+      width: 100%;
+      background: none;
+      outline: none;
+      box-shadow: none;
     }
   }
 </style>

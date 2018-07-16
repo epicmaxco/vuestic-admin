@@ -8,10 +8,11 @@ Vue.use(Router)
 
 const demoRoutes = []
 if (process.env.NODE_ENV === 'development') {
-  const VueComponentTree = require('vue-component-tree').default
+  const VueBook = require('vue-book').default
 
   demoRoutes.push(
-    VueComponentTree(require.context('./..', true, /.demo.vue$/), '/demo')
+    VueBook(require.context('./..', true, /.demo.vue$/), '/demo'),
+    VueBook(require.context('./../components', true, /.vue$/), '/presentation'),
   )
 }
 
@@ -87,8 +88,8 @@ export default new Router({
               component: lazyLoading('forms/form-elements/FormElements')
             },
             {
-              name: 'form-wizard',
-              path: 'form-wizard',
+              name: 'form-wizards',
+              path: 'form-wizards',
               component: lazyLoading('forms/form-wizard/FormWizard')
             },
             {
@@ -161,6 +162,11 @@ export default new Router({
               name: 'modals',
               path: 'modals',
               component: lazyLoading('ui/modals/Modals')
+            },
+            {
+              name: 'file-upload',
+              path: 'file-upload',
+              component: lazyLoading('ui/file-upload/FileUpload')
             },
             {
               name: 'tree-view',
