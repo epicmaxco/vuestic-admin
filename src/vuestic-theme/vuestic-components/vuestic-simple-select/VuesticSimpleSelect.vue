@@ -4,24 +4,30 @@
     v-dropdown.isBlocked
     :class="{'has-error': hasErrors()}">
     <div class="input-group dropdown-toggle">
-      <input
-        @focus="showDropdown()"
-        @blur="closeDropdown()"
-        :class="{'has-value': !!value}"
-        v-model="displayValue"
-        :name="name"
-        :options="options"
-        :placeholder="selectedValue">
-      <i class="ion ion-ios-arrow-down icon-right input-icon"/>
-      <label class="control-label">{{label}}</label><i class="bar"/>
-      <small v-show="hasErrors()" class="help text-danger">
-        {{ showRequiredError() }}
-      </small>
+      <div>
+        <input
+          @focus="showDropdown()"
+          :class="{'has-value': !!value}"
+          v-model="displayValue"
+          :name="name"
+          :options="options"
+          :placeholder="selectedValue">
+        <label class="control-label">{{label}}</label><i class="bar"/>
+        <small v-show="hasErrors()" class="help text-danger">
+          {{ showRequiredError() }}
+        </small>
+      </div>
+      <div>
+        <i
+          class="ion ion-ios-arrow-down icon-right input-icon dropdown-ion"
+          @click="showDropdown"
+        />
+      </div>
     </div>
-    <div v-if="clearable && selectedValue !== '' && displayValue !== '' && selectedValue !== undefined">
+    <div v-if="isClearable">
       <i
         class="fa fa-close icon-cross icon-right input-icon select-form-group__unselect"
-        @click="deselectOption"
+        @click="unselectOption"
       />
     </div>
     <div
@@ -98,30 +104,32 @@ export default {
     filteredList () {
       const optionKey = this.optionKey
       const displayValue = this.displayValue
-      return this.options.filter(function (item) {
-        if (optionKey && item[optionKey]) {
-          return item[optionKey].search(displayValue) === 0
-        } else {
-          return item.search(displayValue) === 0
-        }
-      })
+      if (displayValue === '') {
+        return this.options
+      } else {
+        return this.options.filter(function (item) {
+          if (optionKey && item[optionKey]) {
+            return item[optionKey].search(displayValue) === 0
+          } else {
+            return item.search(displayValue) === 0
+          }
+        })
+      }
     },
+    isClearable () {
+      return (this.clearable && this.selectedValue !== '' && this.displayValue !== '' && this.selectedValue !== undefined)
+    }
   },
   methods: {
     toggleSelection (option) {
-      this.isOptionSelected(option) ? this.deselectOption() : this.selectOption(option)
+      this.isOptionSelected(option) ? this.unselectOption() : this.selectOption(option)
     },
-    deselectOption () {
+    unselectOption () {
       this.selectedValue = ''
       this.$emit('input', this.selectedValue)
     },
     showDropdown () {
       this.displayValue = ''
-    },
-    closeDropdown () {
-      if (this.selectedValue !== '') {
-        this.displayValue = this.selectedValue
-      }
     },
     isOptionSelected (option) {
       return this.selectedValue === option
@@ -150,7 +158,7 @@ export default {
     },
     showRequiredError () {
       return `The ${this.name} field is required`
-    },
+    }
   }
 }
 </script>
@@ -158,9 +166,15 @@ export default {
 <style lang="scss" scoped>
 .select-form-group {
   &__unselect {
-    padding-right: 20px;
+    margin-right: 20px;
     cursor: pointer;
   }
+
+  .dropdown-ion{
+    top: 12px;
+    cursor: pointer;
+  }
+
   .dropdown-menu {
     padding: 0;
     .vuestic-scrollbar {
