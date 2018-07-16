@@ -38,7 +38,7 @@ export default {
         this.$emit('input', value)
       },
     },
-    checkForDotSelected () {
+    dotisSelected () {
       if (this.value !== '') {
         if (this.palette.includes(this.value)) {
           return false
