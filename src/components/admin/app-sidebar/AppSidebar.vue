@@ -82,8 +82,6 @@
         <sidebar-link
           :to="{ name: 'color-pickers' }">
           <span slot="title">
-            <span
-              class="sidebar-menu-item-icon vuestic-icon fa fa-circle-o"></span>
             <span>{{ $t('menu.colorPickers') }}</span>
           </span>
         </sidebar-link>
