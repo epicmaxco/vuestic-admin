@@ -8,7 +8,7 @@
         <input
           @focus="showDropdown()"
           :class="{'has-value': !!value}"
-          v-model="displayValue"
+          v-bind:value="displayValue"
           :name="name"
           :options="options"
           :placeholder="placeholder">
@@ -35,8 +35,8 @@
       <scrollbar ref="scrollbar">
         <div class="dropdown-menu-content">
           <div class="dropdown-item"
-               :class="{'selected': isOptionSelected(option)}"
                v-for="option in filteredList"
+               :class="{'selected': isOptionSelected(option)}"
                @click="toggleSelection(option)">
             <span
               class="ellipsis">{{optionKey ? option[optionKey] : option}}</span>
@@ -84,7 +84,7 @@ export default {
     return {
       validated: false,
       displayValue: this.value,
-      selectedValue: ''
+      selectedValue: this.value
     }
   },
   watch: {
@@ -92,8 +92,10 @@ export default {
       handler (value) {
         if (this.optionKey) {
           this.displayValue = value[this.optionKey]
+          this.selectedValue = value[this.optionKey]
         } else {
           this.displayValue = value || ''
+          this.selectedValue = value || ''
         }
       },
       immediate: true,
@@ -142,8 +144,8 @@ export default {
     },
     selectOption (option) {
       this.displayValue = option
-      this.selectedValue = option
-      this.$emit('input', option)
+      this.selectedValue = this.displayValue
+      this.$emit('input', this.selectedValue)
     },
     validate () {
       this.validated = true
@@ -176,7 +178,7 @@ export default {
     cursor: pointer;
   }
 
-  .dropdown-ion{
+  .dropdown-ion {
     top: 12px;
     cursor: pointer;
   }
@@ -189,3 +191,4 @@ export default {
   }
 }
 </style>
+
