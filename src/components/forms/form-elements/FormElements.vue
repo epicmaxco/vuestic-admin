@@ -12,7 +12,7 @@
                     <div class="input-group">
                       <input id="simple-input" required/>
                       <label class="control-label" for="simple-input">{{'forms.inputs.textInput'
-                        | translate}}</label><i class="bar"></i>
+                      | translate}}</label><i class="bar"></i>
                     </div>
                   </div>
                   <div class="form-group with-icon-right"
@@ -176,6 +176,19 @@
                       <i class="bar"></i>
                     </div>
                   </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <vuestic-date-picker
+                        id="date-picker-time"
+                        :config="{locale: {firstDayOfWeek: 1}}"
+                        v-model="datepicker.time"
+                      />
+                      <label class="control-label" for="date-picker-time">
+                        {{ $t('forms.dateTimePicker.customFirstDay') }}
+                      </label>
+                      <i class="bar"></i>
+                    </div>
+                  </div>
                 </fieldset>
               </div>
               <div class="col-md-4">
@@ -202,6 +215,19 @@
                       />
                       <label class="control-label" for="date-picker-multiple">
                         {{ $t('forms.dateTimePicker.multiple') }}
+                      </label>
+                      <i class="bar"></i>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <vuestic-date-picker
+                        id="date-picker-time"
+                        :config="{altInput: true, altFormat: 'F j, Y'}"
+                        v-model="datepicker.time"
+                      />
+                      <label class="control-label" for="date-picker-time">
+                        {{ $t('forms.dateTimePicker.customDateFormat') }}
                       </label>
                       <i class="bar"></i>
                     </div>
@@ -241,13 +267,13 @@
                     :label="'forms.selects.simple' | translate"
                     v-model="simpleSelectModel"
                     option-key="description"
-                    v-bind:options="simpleOptions">
-                  </vuestic-simple-select>
+                    v-bind:options="simpleOptions"
+                  />
                   <vuestic-simple-select
                     :label="'forms.selects.country' | translate"
                     v-model="chosenCountry"
-                    v-bind:options="countriesList">
-                  </vuestic-simple-select>
+                    v-bind:options="countriesList"
+                  />
                 </fieldset>
               </div>
               <div class="col-md-4">
@@ -256,13 +282,13 @@
                     :label="'forms.selects.multi' | translate"
                     v-model="multiSelectModel"
                     option-key="description"
-                    v-bind:options="simpleOptions">
-                  </vuestic-multi-select>
+                    v-bind:options="simpleOptions"
+                  />
                   <vuestic-multi-select
                     :label="'forms.selects.countryMulti' | translate"
                     v-model="multiSelectCountriesModel"
-                    v-bind:options="countriesList">
-                  </vuestic-multi-select>
+                    v-bind:options="countriesList"
+                  />
                 </fieldset>
               </div>
             </div>

@@ -37,7 +37,7 @@
               <div class="stats-title">Commits</div>
             </div>
             <div class="chart-container">
-              <vuestic-progress-bar type="circle" :value="70" color="white" backgroundColor="danger"/>
+              <vuestic-progress-bar type="circle" :value="70" theme="White" backgroundTheme="Danger"/>
             </div>
           </div>
         </div>

@@ -8,6 +8,8 @@
 </template>
 
 <script>
+  import { VuesticTheme, colorConfig } from './../../vuestic-color-picker/VuesticTheme'
+
   export default {
     props: {
       value: {
@@ -18,34 +20,56 @@
         type: String,
         default: ''
       },
-      color: {
+      theme: {
         type: String,
-        default: 'primary',
+        default: 'Primary',
       },
-      backgroundColor: {
+      backgroundTheme: {
         type: String
       },
       disabled: {
         type: Boolean,
         default: false,
+      },
+      animated: {
+        type: Boolean,
+        default: false,
+      }
+    },
+    mounted () {
+      this.animateValue()
+    },
+    methods: {
+      animateValue () {
+        let valueMsecs = this.valueAnimationInterval / 100
+        let delta = Math.sign(this.value - this.transformedValue)
+        let valueInterval = setInterval(() => {
+          if (this.transformedValue === this.value) {
+            clearInterval(valueInterval)
+          } else {
+            this.transformedValue += delta
+          }
+        }, valueMsecs)
       }
     },
     computed: {
       backgroundImage () {
         let result = {}
+        const theme = colorConfig[VuesticTheme[this.theme]]
+        const backgroundTheme = colorConfig[VuesticTheme[this.backgroundTheme]]
         if (this.value < 50) {
           let nextDeg = 90 + (3.6 * this.value) + 'deg'
-          result = `linear-gradient(90deg, ${this.backgroundColor} 50%, transparent 50%, transparent), linear-gradient(${nextDeg}, ${this.color} 50%, ${this.backgroundColor} 50%, ${this.backgroundColor})`
+          result = `linear-gradient(90deg, ${backgroundTheme} 50%, transparent 50%, transparent), linear-gradient(${nextDeg}, ${theme} 50%, ${backgroundTheme} 50%, ${backgroundTheme})`
         } else {
           let nextDeg = -90 + (3.6 * (this.value - 50)) + 'deg'
-          result = `linear-gradient(${nextDeg}, ${this.color} 50%, transparent 50%, transparent), linear-gradient(270deg, ${this.color} 50%, ${this.backgroundColor} 50%, ${this.backgroundColor})`
+          result = `linear-gradient(${nextDeg}, ${theme} 50%, transparent 50%, transparent), linear-gradient(270deg, ${theme} 50%, ${backgroundTheme} 50%, ${backgroundTheme})`
         }
         return result
       },
       circleBarStyle: function () {
         return {
-          backgroundColor: this.backgroundColor,
-          color: this.color
+          backgroundColor: colorConfig[VuesticTheme[this.backgroundTheme]],
+          color: colorConfig[VuesticTheme[this.theme]]
         }
       },
       circleBarType: function () {
@@ -67,9 +91,14 @@
     font-size: $progress-bar-value-font-size;
     font-weight: $font-weight-bold;
 
+    .circle-bar--animated {
+      transition: background-color ease .5s, width 3s linear !important;
+    }
+
     &.circle-bar__progress-bar {
       float: left;
       position: relative;
+      transition: background-color ease .5s, width 3s linear !important;
       width: $progress-bar-circle-diameter;
       height: $progress-bar-circle-diameter;
       padding-left: $progress-bar-circle-bw;

@@ -6,7 +6,7 @@
       :size="size"
       :disabled="disabled"
       :animated="animated"
-      :color="color"
+      :theme="theme"
       v-if="type == 'horizontal'"
     />
     <vertical-bar
@@ -14,15 +14,17 @@
       :text="text"
       :size="size"
       :disabled="disabled"
-      :color="color"
+      :animated="animated"
+      :theme="theme"
       v-if="type == 'vertical'"
     />
     <circle-bar
       :value="transformedValue"
       :text="text"
       :disabled="disabled"
-      :color="normalizedColor"
-      :background-color="normalizedBackgroundColor"
+      :animated="animated"
+      :theme="theme"
+      :background-theme="backgroundTheme"
       v-if="type == 'circle'"
     />
   </div>
@@ -45,20 +47,20 @@ export default {
       type: Number,
       default: 0,
       validator: function (value) {
-        return value >= 0 && value < 100
+        return value >= 0 && value <= 100
       }
     },
     text: {
       type: String,
       default: ''
     },
-    color: {
+    theme: {
       type: String,
-      default: 'primary'
+      default: 'Primary'
     },
-    backgroundColor: {
+    backgroundTheme: {
       type: String,
-      default: 'white'
+      default: 'White'
     },
     type: {
       type: String,
@@ -87,8 +89,8 @@ export default {
     }
   },
   mounted () {
-    if (this.animated === 'true') {
-      // this.animateValue()
+    if (this.type === 'circle' && this.animated) {
+      this.animateValue()
     } else {
       this.transformedValue = this.value
     }
@@ -105,14 +107,6 @@ export default {
         }
       }, valueMsecs)
     }
-  },
-  /* computed: {
-    normalizedColor: function () {
-      return this.$store.state.app.config.palette[this.color]
-    },
-    normalizedBackgroundColor: function () {
-      return this.$store.state.app.config.palette[this.backgroundColor]
-    },
-  } */
+  }
 }
 </script>

@@ -6,22 +6,21 @@
           <circle-bar
             :value="35"
             text="round"
-            color="warning"
-            background-color="white"
+            background-theme="White"
           />
         </div>
         <div class="col-lg-4">
           <circle-bar
             :value="65"
-            color="info"
-            background-color="white"
+            theme="Info"
+            background-theme="White"
           />
         </div>
         <div class="col-lg-4">
           <circle-bar
             :value="95"
-            color="danger"
-            background-color="white"
+            theme="Danger"
+            background-theme="White"
           />
         </div>
       </div>

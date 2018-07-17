@@ -2,7 +2,7 @@
   <div class="vertical-bar">
     <div class="progress vertical-bar__progress"
          :class="verticalBarType">
-      <div class="progress-bar"
+      <div class="progress-bar vertical-bar__progress-bar"
            :class="verticalBarAnimation"
            :style="verticalBarStyle">
         <span v-if="size == 'thick'">
@@ -19,6 +19,8 @@
 </template>
 
 <script>
+  import { VuesticTheme, colorConfig } from './../../vuestic-color-picker/VuesticTheme'
+
   export default {
     props: {
       value: {
@@ -29,9 +31,9 @@
         type: String,
         default: ''
       },
-      color: {
+      theme: {
         type: String,
-        default: 'primary',
+        default: 'Primary',
       },
       size: {
         type: String,
@@ -49,7 +51,7 @@
     computed: {
       verticalBarStyle: function () {
         return {
-          backgroundColor: this.$store.state.app.config.palette[this.color],
+          backgroundColor: colorConfig[VuesticTheme[this.theme]],
           height: this.value + '%'
         }
       },
@@ -63,7 +65,7 @@
       },
       verticalBarAnimation: function () {
         return {
-          'horizontal-bar--animated': this.animated,
+          'vertical-bar--animated': this.animated,
         }
       }
     }
@@ -75,7 +77,7 @@
     font-size: $progress-bar-value-font-size;
     font-weight: $font-weight-bold;
 
-    .vertical-bar__progress-bar {
+    .vertical-bar--animated {
       transition: background-color ease .5s, height 3s linear !important;
     }
 
@@ -100,6 +102,7 @@
 
     .vertical-bar--basic {
       border-radius: $progress-bar-width-basic;
+      width: $progress-bar-width-basic;
       .vertical-bar__progress-bar {
         border-radius: inherit;
         width: $progress-bar-width-basic;
@@ -107,9 +110,11 @@
     }
 
     .vertical-bar--thin {
+      width: $progress-bar-width-thin;
       .vertical-bar__progress-bar {
         width: $progress-bar-width-thin;
       }
+
     }
 
     .vertical-bar--thick {

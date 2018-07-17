@@ -5,7 +5,7 @@
       <span v-else>{{text}}</span>
     </div>
     <div class="progress" :class="horizontalBarType">
-      <div class="progress-bar"
+      <div class="progress-bar horizontal-bar__progress-bar"
            :class="horizontalBarAnimation"
            :style="horizontalBarStyle">
         <span v-if="size == 'thick'" :class="{hidden: value == 0}" class="horizontal-bar__value">
@@ -18,6 +18,7 @@
 </template>
 
 <script>
+  import { VuesticTheme, colorConfig } from './../../vuestic-color-picker/VuesticTheme'
 
   export default {
     props: {
@@ -29,9 +30,9 @@
         type: String,
         default: ''
       },
-      color: {
+      theme: {
         type: String,
-        default: 'primary',
+        default: 'Primary',
       },
       size: {
         type: String,
@@ -49,7 +50,7 @@
     computed: {
       horizontalBarStyle: function () {
         return {
-          backgroundColor: this.$store.state.app.config.palette[this.color],
+          backgroundColor: colorConfig[VuesticTheme[this.theme]],
           width: this.value + '%'
         }
       },
