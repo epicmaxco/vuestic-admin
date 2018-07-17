@@ -1,22 +1,20 @@
 <template>
-  <div class="row">
-    <div class="col-md-12">
-      <vuestic-widget class="no-padding no-v-padding">
-        <div class='vuestic-breadcrumbs'>
-          <router-link :to="'/'" class="crumb">{{'breadcrumbs.home' | translate}}</router-link>
-          <router-link
-            v-for="(item, index) in breadcrumbs"
-            :to="{path: item.path}"
-            :key="index"
-            class="crumb"
-            v-bind:class="{ disabled: !item.path || item.meta.breadcrumbDisabled }"
-          >
-            {{item.meta.title | translate}}
-          </router-link>
-        </div>
-      </vuestic-widget>
+  <vuestic-widget class="no-padding no-v-padding">
+    <div class="vuestic-breadcrumbs">
+      <router-link :to="{ path: breadcrumbs.root.path }" class="crumb">
+        {{ $t(breadcrumbs.root.displayName) }}
+      </router-link>
+      <router-link
+        v-for="(item, index) in displayedCrumbs"
+        :to="{path: item.path}"
+        :key="index"
+        class="crumb"
+        :class="{ disabled: item.disabled }">
+        {{ $t(item.displayName) }}
+      </router-link>
     </div>
-  </div>
+
+  </vuestic-widget>
 </template>
 
 <script>
@@ -24,10 +22,34 @@
     name: 'vuestic-breadcrumbs',
     props: {
       breadcrumbs: {
-        type: Array,
+        type: Object,
         default: function () {
-          return []
+          return {}
         }
+      },
+      currentPath: {
+        type: String,
+        default: ''
+      }
+    },
+    computed: {
+      displayedCrumbs () {
+        return this.findInNestedByName(this.breadcrumbs.routes, this.currentPath)
+      },
+    },
+    methods: {
+      findInNestedByName (array, name) {
+        if (typeof array !== 'undefined') {
+          for (let i = 0; i < array.length; i++) {
+            if (array[i].path === name) return [{...array[i]}]
+            let a = this.findInNestedByName(array[i].children, name)
+            if (a != null) {
+              a.unshift({...array[i]})
+              return [...a]
+            }
+          }
+        }
+        return null
       }
     }
   }
@@ -40,6 +62,7 @@
     align-items: center;
 
     .crumb {
+      text-transform: capitalize;
       &.disabled {
         pointer-events: none;
       }

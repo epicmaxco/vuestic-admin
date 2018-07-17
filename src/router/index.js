@@ -88,8 +88,8 @@ export default new Router({
               component: lazyLoading('forms/form-elements/FormElements')
             },
             {
-              name: 'form-wizard',
-              path: 'form-wizard',
+              name: 'form-wizards',
+              path: 'form-wizards',
               component: lazyLoading('forms/form-wizard/FormWizard')
             },
             {
@@ -121,6 +121,11 @@ export default new Router({
               name: 'buttons',
               path: 'buttons',
               component: lazyLoading('ui/buttons/Buttons')
+            },
+            {
+              name: 'color-pickers',
+              path: 'color-pickers',
+              component: lazyLoading('ui/color-pickers/ColorPickers')
             },
             {
               name: 'notifications',

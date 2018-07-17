@@ -39,6 +39,7 @@
     "vue-book": "0.0.3",
     "vue-bulma-expanding": "0.0.1",
     "vue-chartjs": "^2.8.1",
+    "vue-color": "^2.4.6",
     "vue-router": "^3.0.1",
     "vue-slider-component": "2.3.3",
     "vue-toasted": "^1.1.24",
