@@ -2,7 +2,8 @@
   <div class="vertical-bar">
     <div class="progress vertical-bar__progress"
          :class="verticalBarType">
-      <div class="progress-bar vertical-bar__progress-bar"
+      <div class="progress-bar"
+           :class="verticalBarAnimation"
            :style="verticalBarStyle">
         <span v-if="size == 'thick'">
           <span v-if="!text">{{value + '%'}}</span>
@@ -39,12 +40,16 @@
       disabled: {
         type: Boolean,
         default: false,
+      },
+      animated: {
+        type: Boolean,
+        default: false,
       }
     },
     computed: {
       verticalBarStyle: function () {
         return {
-          backgroundColor: this.color,
+          backgroundColor: this.$store.state.app.config.palette[this.color],
           height: this.value + '%'
         }
       },
@@ -55,13 +60,20 @@
           'vertical-bar--thick': this.size === 'thick',
           'vertical-bar--disabled': this.disabled
         }
+      },
+      verticalBarAnimation: function () {
+        return {
+          'horizontal-bar--animated': this.animated,
+        }
       }
     }
   }
 </script>
 
 <style lang="scss">
-  .vuestic-progress-bar .vertical-bar {
+  .vertical-bar {
+    font-size: $progress-bar-value-font-size;
+    font-weight: $font-weight-bold;
 
     .vertical-bar__progress-bar {
       transition: background-color ease .5s, height 3s linear !important;

@@ -5,7 +5,9 @@
       <span v-else>{{text}}</span>
     </div>
     <div class="progress" :class="horizontalBarType">
-      <div class="progress-bar horizontal-bar__progress-bar" :style="horizontalBarStyle">
+      <div class="progress-bar"
+           :class="horizontalBarAnimation"
+           :style="horizontalBarStyle">
         <span v-if="size == 'thick'" :class="{hidden: value == 0}" class="horizontal-bar__value">
           <span v-if="!text">{{value + '%'}}</span>
           <span v-else>{{text}}</span>
@@ -38,12 +40,16 @@
       disabled: {
         type: Boolean,
         default: false,
+      },
+      animated: {
+        type: Boolean,
+        default: false,
       }
     },
     computed: {
       horizontalBarStyle: function () {
         return {
-          backgroundColor: this.color,
+          backgroundColor: this.$store.state.app.config.palette[this.color],
           width: this.value + '%'
         }
       },
@@ -54,17 +60,24 @@
           'horizontal-bar--basic': this.size === 'basic',
           'horizontal-bar--disabled': this.disabled
         }
+      },
+      horizontalBarAnimation: function () {
+        return {
+          'horizontal-bar--animated': this.animated,
+        }
       }
     }
   }
 </script>
 
 <style lang="scss">
-  .vuestic-progress-bar .horizontal-bar {
+  .horizontal-bar {
     display: inline-block;
     width: 100%;
+    font-size: $progress-bar-value-font-size;
+    font-weight: $font-weight-bold;
 
-    .horizontal-bar__progress-bar {
+    .horizontal-bar--animated {
       transition: background-color ease .5s, width 3s linear !important;
     }
 

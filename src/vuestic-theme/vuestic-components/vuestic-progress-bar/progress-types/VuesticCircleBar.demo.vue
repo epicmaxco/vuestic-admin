@@ -3,30 +3,25 @@
     <div class="demo-container__item" style="width: 300px;">
       <div class="row">
         <div class="col-lg-4">
-          <vuestic-progress-bar
+          <circle-bar
             :value="35"
             text="round"
-            type="circle"
             color="warning"
             background-color="white"
           />
         </div>
         <div class="col-lg-4">
-          <vuestic-progress-bar
+          <circle-bar
             :value="65"
-            type="circle"
             color="info"
             background-color="white"
-            :animated="true"
           />
         </div>
         <div class="col-lg-4">
-          <vuestic-progress-bar
+          <circle-bar
             :value="95"
-            type="circle"
             color="danger"
             background-color="white"
-            :animated="true"
           />
         </div>
       </div>
@@ -36,11 +31,11 @@
 
 <script>
 
-import VuesticProgressBar from './../VuesticProgressBar'
+import CircleBar from './../progress-types/CircleProgressBar'
 
 export default {
   components: {
-    VuesticProgressBar,
+    CircleBar
   }
 }
 </script>

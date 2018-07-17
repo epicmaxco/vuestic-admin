@@ -1,6 +1,6 @@
 <template>
-  <div class="circle-bar circle-bar__progress-bar" :class="classObject" :style="'background-image: ' + backgroundImage">
-    <div class="circle-bar__overlay" :style="styleObject">
+  <div class="circle-bar circle-bar__progress-bar" :class="circleBarType" :style="'background-image: ' + backgroundImage">
+    <div class="circle-bar__overlay" :style="circleBarStyle">
       <span v-if="!text">{{value + '%'}}</span>
       <span v-else>{{text}}</span>
     </div>
@@ -42,13 +42,13 @@
         }
         return result
       },
-      styleObject: function () {
+      circleBarStyle: function () {
         return {
           backgroundColor: this.backgroundColor,
           color: this.color
         }
       },
-      classObject: function () {
+      circleBarType: function () {
         return {
           'circle-bar--disabled': this.disabled
         }
@@ -58,11 +58,14 @@
 </script>
 
 <style lang="scss">
-  .vuestic-progress-bar .circle-bar {
+  .circle-bar {
     $step: 1;
     $loops: round(100 / $step);
     $increment: 360 / $loops;
     $half: round($loops / 2);
+
+    font-size: $progress-bar-value-font-size;
+    font-weight: $font-weight-bold;
 
     &.circle-bar__progress-bar {
       float: left;

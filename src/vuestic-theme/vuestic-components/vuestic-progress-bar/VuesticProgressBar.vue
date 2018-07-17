@@ -5,16 +5,17 @@
       :text="text"
       :size="size"
       :disabled="disabled"
-      :color="normalizedColor"
-      v-if="type == 'horizontal' && validateValue(value) && validateSize(type, size)"
+      :animated="animated"
+      :color="color"
+      v-if="type == 'horizontal'"
     />
     <vertical-bar
       :value="transformedValue"
       :text="text"
       :size="size"
       :disabled="disabled"
-      :color="normalizedColor"
-      v-if="type == 'vertical' && validateValue(value) && validateSize(type, size)"
+      :color="color"
+      v-if="type == 'vertical'"
     />
     <circle-bar
       :value="transformedValue"
@@ -22,7 +23,7 @@
       :disabled="disabled"
       :color="normalizedColor"
       :background-color="normalizedBackgroundColor"
-      v-if="type == 'circle' && validateValue(value)"
+      v-if="type == 'circle'"
     />
   </div>
 </template>
@@ -43,6 +44,9 @@ export default {
     value: {
       type: Number,
       default: 0,
+      validator: function (value) {
+        return value >= 0 && value < 100
+      }
     },
     text: {
       type: String,
@@ -50,41 +54,43 @@ export default {
     },
     color: {
       type: String,
-      default: 'primary',
+      default: 'primary'
     },
     backgroundColor: {
       type: String,
-      default: 'white',
+      default: 'white'
     },
     type: {
       type: String,
-      default: 'horizontal',
+      default: 'horizontal'
     },
     size: {
       type: String,
       default: 'basic',
+      validator: function (value) {
+        return ['thin', 'thick', 'basic'].indexOf(value) !== -1
+      }
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     animated: {
       type: Boolean,
-      default: false,
+      default: false
     },
   },
   data () {
     return {
-      options: {
-        horizontal: [
-          'thin', 'thick', 'basic'
-        ],
-        vertical: [
-          'thin', 'thick', 'basic'
-        ]
-      },
       transformedValue: 0,
       valueAnimationInterval: 5000
+    }
+  },
+  mounted () {
+    if (this.animated === 'true') {
+      // this.animateValue()
+    } else {
+      this.transformedValue = this.value
     }
   },
   methods: {
@@ -98,44 +104,15 @@ export default {
           this.transformedValue += delta
         }
       }, valueMsecs)
-    },
-    validateValue (name) {
-      if (name >= 0 && name <= 100) {
-        if (this.animated) {
-          this.animateValue()
-        } else {
-          this.transformedValue = this.value
-        }
-        return true
-      } else {
-        console.error('Value is not in the range!')
-        return false
-      }
-    },
-    validateSize (type, size) {
-      if (this.options[type].includes(size)) {
-        return true
-      } else {
-        console.error('This bar type is invalid!')
-        return false
-      }
     }
   },
-  computed: {
+  /* computed: {
     normalizedColor: function () {
       return this.$store.state.app.config.palette[this.color]
     },
     normalizedBackgroundColor: function () {
       return this.$store.state.app.config.palette[this.backgroundColor]
     },
-  },
+  } */
 }
 </script>
-
-<style lang="scss">
-.vuestic-progress-bar {
-  font-size: $progress-bar-value-font-size;
-  font-weight: $font-weight-bold;
-
-}
-</style>

@@ -3,13 +3,13 @@
     <div class="demo-container__item" style="width: 300px">
       <div class="row">
         <div class="col-lg-4">
-          <vuestic-progress-bar :value="55" type="vertical" size="thin"/>
+          <vertical-bar :value="55" type="vertical" size="thin"/>
         </div>
         <div class="col-lg-4">
-          <vuestic-progress-bar :value="75" type="vertical" text="second"/>
+          <vertical-bar :value="75" type="vertical" text="second"/>
         </div>
         <div class="col-lg-4">
-          <vuestic-progress-bar :value="100" type="vertical" size="thick" :animated="true"/>
+          <vertical-bar :value="100" type="vertical" size="thick"/>
         </div>
       </div>
     </div>
@@ -18,11 +18,11 @@
 
 <script>
 
-import VuesticProgressBar from './../VuesticProgressBar'
+import VerticalBar from './../progress-types/VerticalProgressBar'
 
 export default {
   components: {
-    VuesticProgressBar,
+    VerticalBar,
   }
 }
 </script>
