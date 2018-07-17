@@ -121,7 +121,7 @@ export default {
       return (this.clearable && this.selectedValue !== '' && this.displayValue !== '' && this.selectedValue !== undefined)
     },
     placeholder () {
-      if (this.optionKey !== undefined) {
+      if (this.optionKey && this.selectedValue) {
         return this.selectedValue[this.optionKey]
       } else {
         return this.selectedValue
@@ -140,7 +140,11 @@ export default {
       this.displayValue = ''
     },
     isOptionSelected (option) {
-      return this.selectedValue === option
+      if (this.optionKey) {
+        return this.selectedValue === option[this.optionKey]
+      } else {
+        return this.selectedValue === option
+      }
     },
     selectOption (option) {
       this.displayValue = option
