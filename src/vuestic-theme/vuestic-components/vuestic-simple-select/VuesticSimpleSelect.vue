@@ -8,7 +8,7 @@
         <input
           @focus="showDropdown()"
           :class="{'has-value': !!value}"
-          v-bind:value="displayValue"
+          v-model="displayValue"
           :name="name"
           :options="options"
           :placeholder="placeholder">
