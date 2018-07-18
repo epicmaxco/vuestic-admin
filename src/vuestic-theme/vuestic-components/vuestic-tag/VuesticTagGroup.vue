@@ -1,0 +1,38 @@
+<template>
+  <div class="vuestic-tag-group">
+    <vuestic-tag
+      v-for="(item, index) in value"
+      :key="index"
+      :name="item"
+      @remove="removeTag(index)"
+    />
+  </div>
+</template>
+
+<script>
+  import VuesticTag from './VuesticTag.vue'
+
+  export default {
+    name: 'vuestic-tag-group',
+    props: {
+      value: {
+        type: Array
+      }
+    },
+    components: {
+      VuesticTag
+    },
+    methods: {
+      removeTag (tagIndex) {
+        this.$emit('input', this.value.filter((item, i) => i !== tagIndex))
+      }
+    }
+  }
+</script>
+
+<style lang="scss">
+  .vuestic-tag-group {
+    display: flex;
+    flex-wrap: wrap;
+  }
+</style>

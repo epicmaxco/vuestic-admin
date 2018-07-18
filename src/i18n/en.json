@@ -185,6 +185,7 @@
     "signUp": "Sign up",
     "statistics": "Statistics",
     "tables": "Tables",
+    "tags": "Tags",
     "typography": "Typography",
     "uiElements": "UI Elements",
     "treeView": "Tree view",
@@ -226,6 +227,18 @@
     "uploadFile": "Upload file",
     "uploadMedia": "Upload media",
     "addAttachment": "Add attachment"
+  },
+  "tags": {
+    "tags": "Tags",
+    "tagsGroup": "Tags group",
+    "type": {
+      "default": "Default",
+      "danger": "Danger",
+      "info": "Info",
+      "dark": "Dark",
+      "warning": "Warning",
+      "pale": "Pale"
+    }
   },
   "navbar": {
     "messageUs": "Web development help needed? Contact us at"
