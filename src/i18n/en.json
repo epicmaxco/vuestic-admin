@@ -255,6 +255,9 @@
       "email": "Email",
       "name": "Name",
       "score": "Score"
+    },
+    "dataTable": {
+      "noDataAvailable": "No Data Available"
     }
   },
   "user": {
