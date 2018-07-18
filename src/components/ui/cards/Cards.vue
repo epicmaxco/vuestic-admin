@@ -149,14 +149,14 @@
               </template>
             </div>
           </div>
-          <div class="col-lg-12 pre-loader-container" v-show="isShown">
-            <vuestic-pre-loader class="pre-loader"></vuestic-pre-loader>
-          </div>
           <div class="col-lg-12 d-lg-flex align-items-center justify-content-center">
-            <div class="pt-3">
-              <button class="btn btn-primary" @click="addCards()">
-                Show More
-              </button>
+            <div class="pre-loader-container">
+              <vuestic-pre-loader v-show="isShown" class="pre-loader"></vuestic-pre-loader>
+              <div v-if="!isShown">
+                <button class="btn btn-primary" @click="addCards()">
+                  Show More
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -202,8 +202,8 @@
   }
 
   .pre-loader-container {
-    margin-top: 80px;
-    margin-bottom: 80px;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 
   .cards-label {
