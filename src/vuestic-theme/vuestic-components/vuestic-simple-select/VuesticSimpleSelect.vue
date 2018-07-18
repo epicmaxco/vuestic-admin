@@ -1,49 +1,49 @@
 <template>
-  <div
-    class="form-group with-icon-right dropdown select-form-group"
-    v-dropdown.isBlocked
-    :class="{'has-error': hasErrors()}">
-    <div class="input-group dropdown-toggle">
-      <div>
-        <input
-          @focus="showDropdown()"
-          :class="{'has-value': !!value}"
-          v-model="displayValue"
-          :name="name"
-          @blur="closeDropdown()"
-          :options="options"
-          :placeholder="placeholder">
-        <label class="control-label">{{label}}</label><i class="bar"/>
-        <small v-show="hasErrors()" class="help text-danger">
-          {{ showRequiredError() }}
-        </small>
-      </div>
-      <div>
+  <div class="vuestic-simple-select">
+    <div
+      class="form-group with-icon-right dropdown select-form-group"
+      v-dropdown.isBlocked
+      :class="{'has-error': hasErrors()}">
+      <div class="input-group dropdown-toggle vuestic-simple-select__dropdown-toggle">
+        <div>
+          <input
+            @focus="showDropdown()"
+            :class="{'has-value': !!value}"
+            v-model="displayValue"
+            :name="name"
+            @blur="closeDropdown()"
+            :options="options"
+            :placeholder="placeholder">
+          <label class="control-label">{{label}}</label><i class="bar"/>
+          <small v-show="hasErrors()" class="help text-danger">
+            {{ showRequiredError() }}
+          </small>
+        </div>
         <i
-          class="ion ion-ios-arrow-down icon-right input-icon dropdown-ion"
+          class="ion ion-ios-arrow-down icon-right input-icon vuestic-simple-select__dropdown-arrow"
           @click="showDropdown"
         />
       </div>
-    </div>
-    <div v-if="isClearable">
-      <i
-        class="fa fa-close icon-cross icon-right input-icon select-form-group__unselect"
-        @click="unselectOption"
-      />
-    </div>
-    <div
-      class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <scrollbar ref="scrollbar">
-        <div class="dropdown-menu-content">
-          <div class="dropdown-item"
-               v-for="option in filteredList"
-               :class="{'selected': isOptionSelected(option)}"
-               @mousedown="toggleSelection(option)">
+      <div v-if="isClearable">
+        <i
+          class="fa fa-close icon-cross icon-right input-icon vuestic-simple-select__unselect"
+          @click="unselectOption"
+        />
+      </div>
+      <div
+        class="dropdown-menu vuestic-simple-select__dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <scrollbar ref="scrollbar">
+          <div class="dropdown-menu-content vuestic-simple-select__dropdown-menu-content">
+            <div class="dropdown-item vuestic-simple-select__dropdown-item"
+                 v-for="option in filteredList"
+                 :class="{'selected': isOptionSelected(option)}"
+                 @mousedown="toggleSelection(option)">
             <span
               class="ellipsis">{{optionKey ? option[optionKey] : option}}</span>
+            </div>
           </div>
-        </div>
-      </scrollbar>
+        </scrollbar>
+      </div>
     </div>
   </div>
 </template>
@@ -179,19 +179,20 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.select-form-group {
+<style lang="scss">
+.vuestic-simple-select {
+
   &__unselect {
     margin-right: 20px;
     cursor: pointer;
   }
 
-  .dropdown-ion {
+  .vuestic-simple-select__dropdown-arrow.vuestic-simple-select__dropdown-arrow {
     top: 12px;
     cursor: pointer;
   }
 
-  .dropdown-menu {
+  &__dropdown-menu {
     padding: 0;
     .vuestic-scrollbar {
       height: $dropdown-item-height * 4;
