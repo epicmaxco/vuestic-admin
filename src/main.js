@@ -5,7 +5,6 @@ import 'babel-polyfill'
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import VueMasonry from 'vue-masonry-css'
 import VeeValidate from 'vee-validate'
 import App from './App'
 import store from './store'
@@ -13,16 +12,12 @@ import router from './router'
 import VuesticPlugin from 'vuestic-theme/vuestic-plugin'
 import './i18n'
 import YmapPlugin from 'vue-yandex-maps'
-import {VueMasonryPlugin} from 'vue-masonry'
 
 Vue.use(VuesticPlugin)
 Vue.use(YmapPlugin)
 
 // NOTE: workaround for VeeValidate + vuetable-2
 Vue.use(VeeValidate, {fieldsBagName: 'formFields'})
-
-Vue.use(VueMasonryPlugin)
-Vue.use(VueMasonry)
 
 let mediaHandler = () => {
   if (window.matchMedia(store.getters.config.windowMatchSizeLg).matches) {

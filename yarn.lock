@@ -3799,6 +3799,10 @@ lodash.tail@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.tail/-/lodash.tail-4.1.1.tgz#d2333a36d9e7717c8ad2f7cacafec7c32b444664"
 
+lodash.throttle@^4.0.0:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+
 lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
@@ -3869,6 +3873,7 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+<<<<<<< HEAD
 masonry-layout@4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/masonry-layout/-/masonry-layout-4.2.0.tgz#43835c6b6e0d72eff2c31a118c8000cccc4ab965"
@@ -3881,6 +3886,11 @@ masonry@latest:
   resolved "https://registry.yarnpkg.com/masonry/-/masonry-0.0.2.tgz#c06a0b2efc043727eadd16b35fdae93a3908f432"
   dependencies:
     ejs "0.7.1"
+=======
+material-colors@^1.0.0:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/material-colors/-/material-colors-1.2.6.tgz#6d1958871126992ceecc72f4bcc4d8f010865f46"
+>>>>>>> master
 
 math-expression-evaluator@^1.2.14:
   version "1.2.17"
@@ -5952,6 +5962,10 @@ timers-browserify@^2.0.4:
   dependencies:
     setimmediate "^1.0.4"
 
+tinycolor2@^1.1.2:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.1.tgz#f4fad333447bc0b07d4dc8e9209d8f39a8ac77e8"
+
 to-arraybuffer@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/to-arraybuffer/-/to-arraybuffer-1.0.1.tgz#7d229b1fcc637e466ca081180836a7aabff83f43"
@@ -6234,6 +6248,14 @@ vue-chartjs@^2.8.1:
   dependencies:
     lodash.merge "^4.6.0"
 
+vue-color@^2.4.6:
+  version "2.4.6"
+  resolved "https://registry.yarnpkg.com/vue-color/-/vue-color-2.4.6.tgz#9dcd5850f7eec5ee3ac0b20bec7bbffb5f475f64"
+  dependencies:
+    lodash.throttle "^4.0.0"
+    material-colors "^1.0.0"
+    tinycolor2 "^1.1.2"
+
 vue-component-tree@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/vue-component-tree/-/vue-component-tree-2.2.1.tgz#21f21117784d47e61d03b61877ca9b6695ba9b6c"
@@ -6265,15 +6287,6 @@ vue-loader@13.3.0:
     vue-hot-reload-api "^2.2.0"
     vue-style-loader "^3.0.0"
     vue-template-es2015-compiler "^1.6.0"
-
-vue-masonry@^0.11.1:
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/vue-masonry/-/vue-masonry-0.11.1.tgz#f5004f971f6283e2355abb1efdaea93b7aa5242f"
-  dependencies:
-    imagesloaded latest
-    masonry latest
-    masonry-layout "4.2.0"
-    vue "^2.0.0"
 
 vue-resize@^0.4.3:
   version "0.4.4"

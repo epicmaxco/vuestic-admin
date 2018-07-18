@@ -2,9 +2,7 @@
   <div class="vuestic-card card"
        :class="computedClass">
     <template v-if="image">
-      <img v-if="!titleOnImage" class="card-img-top" :src="image"
-           :alt="imageAlt"
-      >
+      <img v-if="!titleOnImage" class="card-img-top" :src="image" :alt="imageAlt">
       <div class="vuestic-card__image-container" v-if="titleOnImage">
         <img class="card-img-top" :src="image" :alt="imageAlt">
         <div class="vuestic-card__image-container__overlay" v-if="overlay"/>
@@ -75,6 +73,7 @@
   @import "../../../sass/variables";
 
   $shadow: $widget-box-shadow;
+  $singleGutter: #{(19/16)}rem;
 
   // Probably not the right place for this declaration
   .card-separator {
@@ -88,7 +87,14 @@
   }
 
   .vuestic-card {
+    margin: $singleGutter;
+    box-sizing: border-box;
     box-shadow: $shadow;
+    word-wrap: break-word;
+    width: calc(50% - #{$singleGutter} * 2);
+    @media screen and (min-width: 560px) {
+      width: calc(25% - #{$singleGutter} * 2);
+    }
 
     &__image-container {
       position: relative;
