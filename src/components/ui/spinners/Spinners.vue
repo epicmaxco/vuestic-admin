@@ -6,20 +6,20 @@
           <div class="row">
             <div class="col-md-5">
               <div class="row">
-                <img src="https://i.imgur.com/XQ9F56E.png" class="spinners__icon-small" alt="">
+                <h5 class="spinners__icon-small">A</h5>
                 <div class="spinners__size-picker">
                   <vuestic-slider v-model="config.size" :options="sliderSize"/>
                 </div>
-                <img src="https://i.imgur.com/0hR7ogN.png" alt="">
+                <h3>A</h3>
               </div>
             </div>
             <div class="col-md-4">
               <div class="row">
-                <img src="https://i.imgur.com/UFPJDqP.png" class="spinners__icon-duration" alt="">
+                <div class="spinners__icon-duration i-vuestic-faster" />
                 <div class="spinners__duration-picker">
                   <vuestic-slider v-model="config.duration" :options="sliderDuration"/>
                 </div>
-                <img src="https://i.imgur.com/LvhG69I.png" class="spinners__icon-duration" alt="">
+                <div class="spinners__icon-duration i-vuestic-slower" />
               </div>
             </div>
             <div class="col-md-2">
@@ -27,9 +27,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="spinners__divider-copy">
-
-            </div>
+            <div class="spinners__divider-copy"/>
           </div>
         </div>
         <div v-for="(group, i) in groups" :key="i" class="row">
@@ -147,13 +145,13 @@ export default {
   }
 
   &__divider-copy {
-    width: 1377px;
+    width: 1700px;
     height: 2px;
     background-color: #eeeeee;
   }
 
   &__icon-small {
-    margin-top: 5px;
+    margin-top: 7px;
     margin-left: 30px;
   }
 
