@@ -76,6 +76,7 @@
   $singleGutter: #{(19/16)}rem;
 
   // Probably not the right place for this declaration
+
   .card-separator {
     margin: 1rem -#{(20/16)}rem;
     height: #{(1/16)}rem;
@@ -88,6 +89,8 @@
 
   .vuestic-card {
     margin: $singleGutter;
+    border-radius: 0;
+    border: none;
     box-sizing: border-box;
     box-shadow: $shadow;
     word-wrap: break-word;
@@ -96,14 +99,19 @@
       width: calc(25% - #{$singleGutter} * 2);
     }
 
+    .card-img-top {
+      border-radius: 0;
+    }
+
     &__image-container {
       position: relative;
       & &__title {
         position: absolute;
         bottom: 0px;
+        font-size: $font-size-h4;
         color: $white;
         padding: 1rem;
-        margin-bottom: 0;
+        margin-bottom: 1rem;
       }
       &__overlay {
         position: absolute;
