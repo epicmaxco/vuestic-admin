@@ -214,6 +214,9 @@
       "email": "Email",
       "name": "Nombre",
       "score": "Puntuación"
+    },
+    "dataTable": {
+      "noDataAvailable": "No Data Available"
     }
   },
   "user": {
