@@ -10,6 +10,7 @@
           :class="{'has-value': !!value}"
           v-model="displayValue"
           :name="name"
+          @blur="closeDropdown()"
           :options="options"
           :placeholder="placeholder">
         <label class="control-label">{{label}}</label><i class="bar"/>
@@ -37,7 +38,7 @@
           <div class="dropdown-item"
                v-for="option in filteredList"
                :class="{'selected': isOptionSelected(option)}"
-               @click="toggleSelection(option)">
+               @mousedown="toggleSelection(option)">
             <span
               class="ellipsis">{{optionKey ? option[optionKey] : option}}</span>
           </div>
@@ -91,8 +92,8 @@ export default {
     value: {
       handler (value) {
         if (this.optionKey) {
-          this.displayValue = value[this.optionKey]
           this.selectedValue = value[this.optionKey]
+          this.displayValue = value[this.optionKey]
         } else {
           this.displayValue = value || ''
           this.selectedValue = value || ''
@@ -138,6 +139,9 @@ export default {
     },
     showDropdown () {
       this.displayValue = ''
+    },
+    closeDropdown () {
+      this.displayValue = this.selectedValue
     },
     isOptionSelected (option) {
       if (this.optionKey) {
