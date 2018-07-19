@@ -231,6 +231,9 @@
       "email": "Email",
       "name": "Nome",
       "score": "Contagem"
+    },
+    "dataTable": {
+      "noDataAvailable": "No Data Available"
     }
   },
   "user": {

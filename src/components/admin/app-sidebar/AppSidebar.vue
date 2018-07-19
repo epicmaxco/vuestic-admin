@@ -122,6 +122,12 @@
           </span>
         </sidebar-link>
         <sidebar-link
+          :to="{ name: 'tags' }">
+          <span slot="title">
+            <span>{{ $t('menu.tags') }}</span>
+          </span>
+        </sidebar-link>
+        <sidebar-link
           :to="{ name: 'tree-view' }">
           <span slot="title">
             <span>{{ $t('menu.treeView') }}</span>

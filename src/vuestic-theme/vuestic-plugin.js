@@ -42,6 +42,8 @@ import DatePicker
 import Card from './vuestic-components/vuestic-card/VuesticCard'
 import FileUpload
   from './vuestic-components/vuestic-file-upload/VuesticFileUpload'
+import Tag from './vuestic-components/vuestic-tag/VuesticTag'
+import TagGroup from './vuestic-components/vuestic-tag/VuesticTagGroup'
 
 import VuesticToasted from './vuestic-mixins/VuesticToasted'
 
@@ -81,6 +83,8 @@ const VuesticPlugin = {
       FileUpload,
       DatePicker,
       Card,
+      Tag,
+      TagGroup
     ].forEach(component => {
       Vue.component(component.name, component)
     })
