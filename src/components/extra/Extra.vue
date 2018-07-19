@@ -38,7 +38,7 @@
       </div>
       <div class="col-md-6 d-flex">
         <vuestic-widget class="business-posts">
-          <vuestic-social-news :news="news" :url="'http://instagram.com/smartapant'"></vuestic-social-news>
+          <vuestic-social-news :news="news" :url="'https://instagram.com/smartapant'"></vuestic-social-news>
         </vuestic-widget>
       </div>
     </div>
