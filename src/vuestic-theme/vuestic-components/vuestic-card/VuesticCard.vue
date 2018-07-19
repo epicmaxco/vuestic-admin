@@ -108,10 +108,9 @@
       & &__title {
         position: absolute;
         bottom: 0px;
-        font-size: $font-size-h4;
         color: $white;
         padding: 1rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0;
       }
       &__overlay {
         position: absolute;
