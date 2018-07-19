@@ -3,33 +3,20 @@
     <div class="row">
 
       <div class="col-md-12">
-        <vuestic-widget :headerText="$t('tags.tags')">
-          <div class="row btn-margin-row">
-            <div class="col-sm-4 col-lg-2 d-flex">
-              <vuestic-tag :name="$t('tags.type.default')"/>
-            </div>
-            <div class="col-sm-4 col-lg-2 d-flex">
-              <vuestic-tag :name="$t('tags.type.danger')" type="danger"/>
-            </div>
-            <div class="col-sm-4 col-lg-2 d-flex">
-              <vuestic-tag :name="$t('tags.type.info')" type="info"/>
-            </div>
-            <div class="col-sm-4 col-lg-2 d-flex">
-              <vuestic-tag :name="$t('tags.type.dark')" type="dark"/>
-            </div>
-            <div class="col-sm-4 col-lg-2 d-flex">
-              <vuestic-tag :name="$t('tags.type.warning')" type="warning"/>
-            </div>
-            <div class="col-sm-4 col-lg-2 d-flex">
-              <vuestic-tag :name="$t('tags.type.pale')" type="pale"/>
-            </div>
-          </div>
+        <vuestic-widget :headerText="$t('tags.default')">
+          <vuestic-tag-group v-model="tags"/>
         </vuestic-widget>
       </div>
 
       <div class="col-md-12">
-        <vuestic-widget :headerText="$t('tags.tagsGroup')">
-          <vuestic-tag-group v-model="tags"/>
+        <vuestic-widget :headerText="$t('tags.removable')">
+          <vuestic-tag-group v-model="removableTags" removable/>
+        </vuestic-widget>
+      </div>
+
+      <div class="col-md-12">
+        <vuestic-widget :headerText="$t('tags.colored')">
+            <vuestic-tag-group v-model="coloredTags" removable/>
         </vuestic-widget>
       </div>
 
@@ -42,6 +29,7 @@
     name: 'tags',
     data () {
       return {
+        tagss: [],
         tags: [
           'Ford',
           'Toyota',
@@ -49,6 +37,40 @@
           'Opel',
           'Honda',
           'Porsche'
+        ],
+        removableTags: [
+          'Ford',
+          'Toyota',
+          'Volkswagen',
+          'Opel',
+          'Honda',
+          'Porsche'
+        ],
+        coloredTags: [
+          {
+            name: 'Potato',
+            type: 'primary'
+          },
+          {
+            name: 'Tomato',
+            type: 'danger'
+          },
+          {
+            name: 'Sweet corn',
+            type: 'info'
+          },
+          {
+            name: 'Carrot',
+            type: 'dark'
+          },
+          {
+            name: 'Broccoli',
+            type: 'warning'
+          },
+          {
+            name: 'Green bean',
+            type: 'pale'
+          }
         ]
       }
     }

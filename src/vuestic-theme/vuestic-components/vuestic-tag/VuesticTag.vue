@@ -2,6 +2,7 @@
   <div class="vuestic-tag" :class="tagClass">
     {{ name }}
     <span class="vuestic-tag-button"
+          v-if="removable"
           @click="remove">
       <i class="ion-md-close ion"></i>
     </span>
@@ -19,6 +20,10 @@
     props: {
       name: {
         type: String,
+      },
+      removable: {
+        type: Boolean,
+        default: false
       },
       type: {
         type: String,

@@ -229,16 +229,9 @@
     "addAttachment": "Add attachment"
   },
   "tags": {
-    "tags": "Tags",
-    "tagsGroup": "Tags group",
-    "type": {
-      "default": "Default",
-      "danger": "Danger",
-      "info": "Info",
-      "dark": "Dark",
-      "warning": "Warning",
-      "pale": "Pale"
-    }
+    "default": "Default",
+    "removable": "Removable",
+    "colored": "Colored"
   },
   "navbar": {
     "messageUs": "Web development help needed? Contact us at"
