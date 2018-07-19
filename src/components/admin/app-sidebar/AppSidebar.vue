@@ -133,6 +133,12 @@
             <span>{{ $t('menu.treeView') }}</span>
           </span>
         </sidebar-link>
+        <sidebar-link
+          :to="{ name: 'cards' }">
+          <span slot="title">
+            <span>{{ $t('menu.cards') }}</span>
+          </span>
+        </sidebar-link>
       </sidebar-link-group>
       <sidebar-link
         :to="{ name: 'extra' }">
