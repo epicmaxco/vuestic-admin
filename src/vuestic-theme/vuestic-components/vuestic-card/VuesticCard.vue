@@ -70,8 +70,6 @@
 </script>
 
 <style lang="scss">
-  @import "../../../sass/variables";
-
   $shadow: $widget-box-shadow;
   $singleGutter: #{(19/16)}rem;
 
@@ -86,7 +84,6 @@
   .card-link-secondary {
     color: #aaa;
   }
-
   .vuestic-card {
     margin: $singleGutter;
     border-radius: 0;
@@ -94,9 +91,22 @@
     box-sizing: border-box;
     box-shadow: $shadow;
     word-wrap: break-word;
-    width: calc(50% - #{$singleGutter} * 2);
-    @media screen and (min-width: 560px) {
+    width: calc(33% - #{$singleGutter} * 2);
+
+    @include media-breakpoint-only(xl) {
       width: calc(25% - #{$singleGutter} * 2);
+    }
+
+    @include media-breakpoint-only(lg) {
+      width: calc(33.3% - #{$singleGutter} * 2);
+    }
+
+    @include media-breakpoint-only(sm) {
+      width: calc(50% - #{$singleGutter} * 2);
+    }
+
+    @include media-breakpoint-only(xs) {
+      width: calc(100% - #{$singleGutter} * 2);
     }
 
     .card-img-top {

@@ -187,8 +187,6 @@
 </script>
 
 <style lang="scss">
-  @import '../../../sass/variables';
-
   $singleGutter: #{(19/16)}rem;
 
   .cards-container {
