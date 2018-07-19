@@ -109,9 +109,11 @@ export default {
       } else {
         return this.options.filter(function (item) {
           if (optionKey && item[optionKey]) {
-            return item[optionKey].search(displayValue) === 0
+            if (displayValue) {
+              return item[optionKey].toLowerCase().search(displayValue.toLowerCase()) === 0
+            }
           } else {
-            return item.search(displayValue) === 0
+            return item.toLowerCase().search(displayValue.toLowerCase()) === 0
           }
         })
       }
