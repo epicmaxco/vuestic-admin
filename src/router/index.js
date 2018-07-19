@@ -169,6 +169,11 @@ export default new Router({
               component: lazyLoading('ui/file-upload/FileUpload')
             },
             {
+              name: 'tags',
+              path: 'tags',
+              component: lazyLoading('ui/tags/Tags')
+            },
+            {
               name: 'tree-view',
               path: 'tree-view',
               component: lazyLoading('ui/tree-view/TreeView')
