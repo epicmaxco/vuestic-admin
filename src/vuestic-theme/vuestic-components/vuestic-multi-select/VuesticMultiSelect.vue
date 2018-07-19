@@ -23,7 +23,7 @@
         <div class="dropdown-menu-content">
           <div class="dropdown-item"
                :class="{'selected': isOptionSelected(option)}" v-for="option in options"
-               @mousedown="toggleSelection(option)">
+               @click="toggleSelection(option)">
             <span class="ellipsis">{{optionKey ? option[optionKey] : option}}</span>
             <i class="fa fa-check selected-icon"></i>
           </div>

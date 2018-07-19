@@ -11,9 +11,7 @@
             :class="{'has-value': !!value}"
             v-model="displayValue"
             :name="name"
-            @blur="closeDropdown()"
-            :options="options"
-            :placeholder="placeholder">
+            :options="options">
           <label class="control-label">{{label}}</label><i class="bar"/>
           <small v-show="hasErrors()" class="help text-danger">
             {{ showRequiredError() }}
@@ -37,7 +35,7 @@
             <div class="dropdown-item vuestic-simple-select__dropdown-item"
                  v-for="option in filteredList"
                  :class="{'selected': isOptionSelected(option)}"
-                 @mousedown="toggleSelection(option)">
+                 @click="toggleSelection(option)">
             <span
               class="ellipsis">{{optionKey ? option[optionKey] : option}}</span>
             </div>
@@ -139,9 +137,6 @@ export default {
     },
     showDropdown () {
       this.displayValue = ''
-    },
-    closeDropdown () {
-      this.displayValue = this.selectedValue
     },
     isOptionSelected (option) {
       if (this.optionKey) {

@@ -49,7 +49,7 @@ export default {
     }
 
     if (dropdownItem) {
-      dropdownItem.addEventListener('mousedown', () => {
+      dropdownItem.addEventListener('click', () => {
         if (dropdownIon) {
           if (dropdownIon.classList.contains('ion-ios-arrow-up')) {
             dropdownIon.classList.remove('ion-ios-arrow-up')
