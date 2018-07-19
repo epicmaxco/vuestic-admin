@@ -84,6 +84,10 @@ export default {
           displayName: 'menu.fileUpload'
         },
         {
+          path: 'tags',
+          displayName: 'menu.tags'
+        },
+        {
           path: 'tree-view',
           displayName: 'menu.treeView'
         }
