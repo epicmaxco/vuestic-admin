@@ -185,6 +185,7 @@
     "signUp": "Sign up",
     "statistics": "Statistics",
     "tables": "Tables",
+    "tags": "Tags",
     "typography": "Typography",
     "uiElements": "UI Elements",
     "treeView": "Tree view",
@@ -227,6 +228,11 @@
     "uploadMedia": "Upload media",
     "addAttachment": "Add attachment"
   },
+  "tags": {
+    "default": "Default",
+    "removable": "Removable",
+    "colored": "Colored"
+  },
   "navbar": {
     "messageUs": "Web development help needed? Contact us at"
   },
@@ -255,6 +261,9 @@
       "email": "Email",
       "name": "Name",
       "score": "Score"
+    },
+    "dataTable": {
+      "noDataAvailable": "No Data Available"
     }
   },
   "user": {

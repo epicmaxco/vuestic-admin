@@ -7,7 +7,7 @@
       <vuestic-pre-loader v-show="isLoading" ref="preLoader" class="pre-loader"></vuestic-pre-loader>
       <router-view></router-view>
     </main>
-    <span slot="footer">©2018. Made by&nbsp;<a href="http://epicmax.co" target="_blank">Epicmax </a></span>
+    <span slot="footer">©2018. Made by&nbsp;<a href="https://epicmax.co" target="_blank">Epicmax </a></span>
   </vuestic-layout>
 </template>
 

@@ -40,6 +40,8 @@ import TreeNode from './vuestic-components/vuestic-tree-view/VuesticTreeNode'
 import FileUpload
   from './vuestic-components/vuestic-file-upload/VuesticFileUpload'
 import DatePicker from './vuestic-components/vuestic-date-picker/VuesticDatePicker'
+import Tag from './vuestic-components/vuestic-tag/VuesticTag'
+import TagGroup from './vuestic-components/vuestic-tag/VuesticTagGroup'
 
 import VuesticToasted from './vuestic-mixins/VuesticToasted'
 
@@ -78,6 +80,8 @@ const VuesticPlugin = {
       TreeNode,
       FileUpload,
       DatePicker,
+      Tag,
+      TagGroup
     ].forEach(component => {
       Vue.component(component.name, component)
     })
