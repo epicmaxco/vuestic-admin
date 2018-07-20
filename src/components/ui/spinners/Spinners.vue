@@ -102,7 +102,7 @@ export default {
 
   watch: {
     speed: function (speed) {
-      this.config.duration = 3000 - speed
+      this.config.duration = this.sliderDuration.max + this.sliderDuration.min - speed
     }
   },
 
