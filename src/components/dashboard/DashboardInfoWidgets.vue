@@ -37,8 +37,7 @@
               <div class="stats-title">Commits</div>
             </div>
             <div class="chart-container">
-              <vuestic-progress-bar type="circle" ref="circleProgress" :colorName="'white'" :backgroundColorName="'danger'"
-                            :startColorName="'danger'"></vuestic-progress-bar>
+              <vuestic-progress-bar type="circle" :value="70" theme="White" backgroundTheme="Danger"/>
             </div>
           </div>
         </div>
@@ -62,11 +61,7 @@
 
 <script>
   export default {
-    name: 'dashboard-info-widgets',
-
-    mounted () {
-      this.$refs.circleProgress.$data.value = 70
-    }
+    name: 'dashboard-info-widgets'
   }
 </script>
 
