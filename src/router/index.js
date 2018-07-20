@@ -164,6 +164,11 @@ export default new Router({
               component: lazyLoading('ui/modals/Modals')
             },
             {
+              name: 'cards',
+              path: 'cards',
+              component: lazyLoading('ui/cards/Cards')
+            },
+            {
               name: 'file-upload',
               path: 'file-upload',
               component: lazyLoading('ui/file-upload/FileUpload')

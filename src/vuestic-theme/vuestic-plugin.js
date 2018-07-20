@@ -37,9 +37,11 @@ import TreeRoot from './vuestic-components/vuestic-tree-view/VuesticTreeRoot'
 import TreeCategory
   from './vuestic-components/vuestic-tree-view/VuesticTreeCategory'
 import TreeNode from './vuestic-components/vuestic-tree-view/VuesticTreeNode'
+import DatePicker
+  from './vuestic-components/vuestic-date-picker/VuesticDatePicker'
+import Card from './vuestic-components/vuestic-card/VuesticCard'
 import FileUpload
   from './vuestic-components/vuestic-file-upload/VuesticFileUpload'
-import DatePicker from './vuestic-components/vuestic-date-picker/VuesticDatePicker'
 import Tag from './vuestic-components/vuestic-tag/VuesticTag'
 import TagGroup from './vuestic-components/vuestic-tag/VuesticTagGroup'
 
@@ -80,6 +82,7 @@ const VuesticPlugin = {
       TreeNode,
       FileUpload,
       DatePicker,
+      Card,
       Tag,
       TagGroup
     ].forEach(component => {
@@ -90,7 +93,7 @@ const VuesticPlugin = {
 
     Vue.directive('dropdown', Dropdown)
     Vue.directive('sticky-scroll', StickyScroll)
-  }
+  },
 }
 
 export default VuesticPlugin

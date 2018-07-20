@@ -60,6 +60,10 @@ export default {
           displayName: 'menu.buttons'
         },
         {
+          path: 'color-pickers',
+          displayName: 'menu.colorPickers'
+        },
+        {
           path: 'notifications',
           displayName: 'menu.notifications'
         },
