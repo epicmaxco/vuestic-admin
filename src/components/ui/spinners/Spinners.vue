@@ -17,7 +17,7 @@
               <div class="row spinners__row">
                 <div class="spinners__icon-duration-faster i-vuestic-faster"/>
                 <div class="spinners__duration-picker">
-                  <vuestic-slider v-model="config.duration" :options="sliderDuration"/>
+                  <vuestic-slider v-model="speed" :options="sliderDuration"/>
                 </div>
                 <div class="spinners__icon-duration-slower i-vuestic-slower"/>
               </div>
@@ -78,6 +78,8 @@ export default {
         group: 4,
         duration: 1500
       },
+      speed: 1500,
+      prevSpeed: 1500,
       paletteArray: colorArray,
       color: '#4AE387',
       sliderSize: {
@@ -96,8 +98,20 @@ export default {
 
     groups () {
       return this.groupItems(Object.keys(spinners), this.config.group)
+    },
+  },
+
+  watch: {
+    speed: function (speed) {
+      if (this.prevSpeed > speed) {
+        this.config.duration += this.prevSpeed - speed
+      } else {
+        this.config.duration -= speed - this.prevSpeed
+      }
+      this.prevSpeed = speed
     }
   },
+
   filters: {
     displayName (name) {
       return name.replace('Spinner', '').match(/[A-Z][a-z]+/g).join(' ')
