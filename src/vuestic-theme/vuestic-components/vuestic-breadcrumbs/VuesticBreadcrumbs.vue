@@ -81,7 +81,7 @@
     }
 
     a {
-      color: $breadcrumbs-gray;
+      color: $text-gray;
       &:hover {
         color: $brand-primary;
       }

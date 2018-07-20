@@ -78,7 +78,7 @@
     font-size: $progress-bar-value-font-size;
     font-weight: $font-weight-bold;
 
-    .horizontal-bar--animated {
+    &--animated {
       transition: background-color ease .5s, width 3s linear !important;
     }
 
@@ -89,7 +89,7 @@
       }
     }
 
-    .horizontal-bar--basic {
+    &--basic {
       border-radius: $progress-bar-width-basic;
       height: $progress-bar-width-basic;
       .horizontal-bar__progress-bar {
@@ -97,12 +97,12 @@
       }
     }
 
-    .horizontal-bar--thin {
+    &--thin {
       height: $progress-bar-width-thin;
       margin-top: .125rem;
     }
 
-    .horizontal-bar--thick {
+    &--thick {
       border-radius: $progress-bar-width-thick;
       height: $progress-bar-width-thick;
       margin-top: calc(#{$progress-bar-width-thick} / 2 - .125rem);
@@ -114,7 +114,7 @@
       }
     }
 
-    .horizontal-bar--disabled {
+    &--disabled {
       opacity: 0.5
     }
 

@@ -20,7 +20,7 @@
   const browser = require('detect-browser')
   const erd = require('element-resize-detector')()
 
-  let vm = {
+  export default {
     name: 'vuestic-scrollbar',
     props: {
       speed: {
@@ -153,8 +153,6 @@
       }
     }
   }
-
-  module.exports = vm
 
 </script>
 

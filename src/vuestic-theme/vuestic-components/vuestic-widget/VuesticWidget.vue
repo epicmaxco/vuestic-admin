@@ -1,7 +1,7 @@
 <template>
   <div class="widget" :class="{'no-header': !headerText}">
     <div class="widget-header" v-if="headerText">{{headerText}}</div>
-    <div class="widget-body">
+    <div class="widget-body" v-if="hasSlotData">
       <slot></slot>
     </div>
   </div>
@@ -11,7 +11,12 @@
   export default {
     name: 'vuestic-widget',
 
-    props: ['headerText']
+    props: ['headerText'],
+    computed: {
+      hasSlotData () {
+        return this.$slots.default
+      }
+    }
   }
 </script>
 

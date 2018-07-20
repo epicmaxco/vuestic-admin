@@ -91,7 +91,7 @@
     font-size: $progress-bar-value-font-size;
     font-weight: $font-weight-bold;
 
-    .circle-bar--animated {
+    &--animated {
       transition: background-color ease .5s, width 3s linear !important;
     }
 
@@ -117,7 +117,7 @@
       align-items: center;
     }
 
-    &.circle-bar--disabled {
+    & &--disabled {
       opacity: 0.5
     }
   }

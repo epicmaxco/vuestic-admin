@@ -77,7 +77,7 @@
     font-size: $progress-bar-value-font-size;
     font-weight: $font-weight-bold;
 
-    .vertical-bar--animated {
+    &--animated {
       transition: background-color ease .5s, height 3s linear !important;
     }
 
@@ -100,7 +100,7 @@
       padding-left: .25rem;
     }
 
-    .vertical-bar--basic {
+    &--basic {
       border-radius: $progress-bar-width-basic;
       width: $progress-bar-width-basic;
       .vertical-bar__progress-bar {
@@ -109,7 +109,7 @@
       }
     }
 
-    .vertical-bar--thin {
+    &--thin {
       width: $progress-bar-width-thin;
       .vertical-bar__progress-bar {
         width: $progress-bar-width-thin;
@@ -117,14 +117,14 @@
 
     }
 
-    .vertical-bar--thick {
+    &--thick {
       border-radius: $progress-bar-width-thick;
       .vertical-bar__progress-bar {
         width: $vertical-progress-bar-width-thick;
       }
     }
 
-    .vertical-bar--disabled {
+    &--disabled {
       opacity: 0.5
     }
   }

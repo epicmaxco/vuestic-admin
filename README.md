@@ -5,13 +5,13 @@ Responsive admin dashboard template built with [Vue.js](https://vuejs.org) and [
 Subscribe to our [newsletter](https://epicmax.co/newsletter) to get Vuestic updates, our team's stories and Vue.js materials hand-picked by Epicmax.
 
 <p align="center">
-  <a href="http://vuestic.epicmax.co" target="_blank">
-    <img src="http://i.imgur.com/pMuJVVc.png" align="center" width="888px"/>
+  <a href="https://vuestic.epicmax.co" target="_blank">
+    <img src="https://i.imgur.com/pMuJVVc.png" align="center" width="888px"/>
   </a>
 </p>
 
 ## Demo
-Check it out [live](http://vuestic.epicmax.co)!
+Check it out [live](https://vuestic.epicmax.co)!
 
 ## Prerequisites:
 
