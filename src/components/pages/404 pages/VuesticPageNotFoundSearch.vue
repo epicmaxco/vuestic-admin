@@ -1,61 +1,59 @@
 <template>
   <div class="vuestic-page-not-found-search">
-    <div class="main">
-      <div class="auth-wallpaper">
-        <router-link class="i-vuestic vuestic-page-not-found-search__i-vuestic" :to="{path: '/'}"/>
-      </div>
-      <div class="nav d-lg-none">
-        <router-link class="i-vuestic" :to="{path: '/'}"/>
-      </div>
-      <div class="auth-wallpaper">
-        <div class="row">
-          <div class="col-12 d-none d-lg-flex">
-            <h3 class="vuestic-page-not-found-search__text">The page's gonna fishing.</h3>
-          </div>
+    <div class="auth-wallpaper">
+      <router-link class="i-vuestic vuestic-page-not-found-search__i-vuestic" :to="{path: '/'}"/>
+    </div>
+    <div class="nav d-lg-none">
+      <router-link class="i-vuestic" :to="{path: '/'}"/>
+    </div>
+    <div class="auth-wallpaper">
+      <div class="row">
+        <div class="col-12 d-none d-lg-flex">
+          <h3 class="vuestic-page-not-found-search__text">The page's gonna fishing.</h3>
         </div>
       </div>
-      <div class="auth-wallpaper">
-        <div class="row">
-          <div class="col-12 d-none d-lg-flex">
-            <h4 class="vuestic-page-not-found-search__text-small">If you fell that it's not right, please send us a message at &nbsp</h4>
-            <a href="mailto:hello@epicmax.co">hi@epicmax.co</a>
-          </div>
+    </div>
+    <div class="auth-wallpaper">
+      <div class="row">
+        <div class="col-12 d-none d-lg-flex">
+          <h4 class="vuestic-page-not-found-search__text-small">If you fell that it's not right, please send us a message at &nbsp</h4>
+          <a href="mailto:hello@epicmax.co">hi@epicmax.co</a>
         </div>
       </div>
-      <div class="auth-wallpaper">
-        <div class="row">
-          <div class="col-12 d-none d-lg-flex">
-            <div class="form-group">
-              <div class="input-group vuestic-page-not-found-search__input">
-                <input
-                  placeholder="Search on the menu"
-                  style="color: white"
-                  v-model="inputValue"
-                >
-                <i class="bar"
-                   :style="'width: ' + 310 + 'px'"/>
-              </div>
+    </div>
+    <div class="auth-wallpaper">
+      <div class="row">
+        <div class="col-12 d-none d-lg-flex">
+          <div class="form-group">
+            <div class="input-group vuestic-page-not-found-search__input">
+              <input
+                placeholder="Search on the menu"
+                style="color: white"
+                v-model="inputValue"
+              >
+              <i class="bar"
+                 :style="'width: ' + 310 + 'px'"/>
             </div>
           </div>
         </div>
       </div>
-      <div class="auth-wallpaper">
-        <div class="row">
-          <div class="col-12 d-none d-lg-flex">
-            <ul class="vuestic-page-not-found-search__ul" v-for="category in categories">
-              {{ category.categoryName }}
-              <li v-for="item in category.items">
-                <router-link :to="{ path: item.itemLink }">
-                  {{ item.itemName}}
-                </router-link>
-              </li>
-            </ul>
-          </div>
+    </div>
+    <div class="auth-wallpaper">
+      <div class="row">
+        <div class="col-12 d-none d-lg-flex">
+          <ul class="vuestic-page-not-found-search__ul" v-for="category in filterItems">
+            {{ category.categoryName }}
+            <li v-for="item in category.items">
+              <router-link :to="{ path: item.itemLink }">
+                {{ item.itemName}}
+              </router-link>
+            </li>
+          </ul>
         </div>
       </div>
-      <div class="auth-wallpaper vuestic-page-not-found-search__auth-wallpaper-sad">
-        <div class="i-vuestic-sad vuestic-page-not-found-search__i-vuestic-sad"/>
-      </div>
+    </div>
+    <div class="auth-wallpaper vuestic-page-not-found-search__auth-wallpaper-sad">
+      <div class="i-vuestic-sad vuestic-page-not-found-search__i-vuestic-sad"/>
     </div>
   </div>
 </template>
@@ -136,15 +134,57 @@ export default {
               itemLink: './admin/ui/tree-view'
             }
           ]
-        }
+        },
+        {
+          categoryName: 'Auth',
+          items: [
+            {
+              itemName: 'Login',
+              itemLink: './auth/login'
+            },
+            {
+              itemName: 'Sign up',
+              itemLink: './auth/signup'
+            }
+          ],
+        },
+        {
+          categoryName: 'Maps',
+          items: [
+            {
+              itemName: 'Google Maps',
+              itemLink: './admin/maps/google-maps'
+            },
+            {
+              itemName: 'Yandex Maps',
+              itemLink: './admin/maps/yandex-maps'
+            },
+            {
+              itemName: 'Leaflet Maps',
+              itemLink: './admin/maps/leaflet-maps'
+            },
+            {
+              itemName: 'Bubble Maps',
+              itemLink: './admin/maps/bubble-maps'
+            },
+            {
+              itemName: 'Line Maps',
+              itemLink: './admin/maps/line-maps'
+            }
+          ],
+        },
       ],
       inputValue: ''
     }
   },
   computed: {
     filterItems () {
+      let arr = JSON.parse(JSON.stringify(this.categories))
       if (this.inputValue !== '') {
-        return this.categories.filter(category => category.items.i)
+        for (let i = 0; i < this.categories.length; i++) {
+          arr[i].items = this.categories[i].items.filter(item => item.itemName.search(this.inputValue) !== -1)
+        }
+        return arr
       } else {
         return this.categories
       }
@@ -161,6 +201,9 @@ export default {
 
   &__i-vuestic {
     margin-top: 100px;
+  }
+
+  &__i-vuestic-sad {
   }
 
   &__ul {
@@ -201,35 +244,34 @@ export default {
       width: 100%;
     }
   }
-  .main {
-    margin: 0;
-    height: 100%;
-    .auth-content {
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: white;
-    }
-    .auth-wallpaper {
-      background-color: $top-nav-bg;
-      overflow: hidden;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      .i-vuestic {
-        z-index: 2;
-        height: $auth-wallpaper-ivuestic-h;
-        width: 100%;
-      }
-      .oblique {
-        position: absolute;
-        background-color: $auth-wallpaper-oblique-line;
-        left: calc(50% - 27% / 2);
-        transform: rotate(15deg);
-        width: 27%;
-        height: 115%;
-      }
+
+  .oblique {
+    position: absolute;
+    background-color: $auth-wallpaper-oblique-line;
+    left: calc(50% - 27% / 2);
+    transform: rotate(15deg);
+    width: 27%;
+    height: 115%;
+  }
+
+  .auth-content {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+  }
+
+  .auth-wallpaper {
+    background-color: $top-nav-bg;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    .i-vuestic {
+      z-index: 2;
+      height: $auth-wallpaper-ivuestic-h;
+      width: 100%;
     }
   }
 
