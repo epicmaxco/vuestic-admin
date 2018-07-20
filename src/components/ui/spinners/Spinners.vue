@@ -79,7 +79,6 @@ export default {
         duration: 1500
       },
       speed: 1500,
-      prevSpeed: 1500,
       paletteArray: colorArray,
       color: '#4AE387',
       sliderSize: {
@@ -103,12 +102,7 @@ export default {
 
   watch: {
     speed: function (speed) {
-      if (this.prevSpeed > speed) {
-        this.config.duration += this.prevSpeed - speed
-      } else {
-        this.config.duration -= speed - this.prevSpeed
-      }
-      this.prevSpeed = speed
+      this.config.duration = 3000 - speed
     }
   },
 
