@@ -15,11 +15,11 @@
             </div>
             <div class="col-md-4">
               <div class="row spinners__row">
-                <div class="spinners__icon-duration-faster i-vuestic-faster"/>
+                <div class="spinners__icon-duration-slower i-vuestic-slower"/>
                 <div class="spinners__duration-picker">
                   <vuestic-slider v-model="speed" :options="sliderDuration"/>
                 </div>
-                <div class="spinners__icon-duration-slower i-vuestic-slower"/>
+                <div class="spinners__icon-duration-faster i-vuestic-faster"/>
               </div>
             </div>
             <div class="col-md-2">
