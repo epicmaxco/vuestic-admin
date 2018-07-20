@@ -5,7 +5,7 @@
         <div class="spinners__customization">
           <div class="row">
             <div class="col-md-4">
-              <div class="row">
+              <div class="row spinners__size">
                 <h5 class="spinners__icon-small">A</h5>
                 <div class="spinners__size-picker">
                   <vuestic-slider v-model="config.size" :options="sliderSize"/>
@@ -14,15 +14,15 @@
               </div>
             </div>
             <div class="col-md-4">
-              <div class="row spinners__row">
+              <div class="row spinners__duration">
                 <div class="spinners__icon-duration-slower i-vuestic-slower"/>
                 <div class="spinners__duration-picker">
-                  <vuestic-slider v-model="speed" :options="sliderDuration"/>
+                  <vuestic-slider v-model="currentDuration" :options="sliderDuration"/>
                 </div>
                 <div class="spinners__icon-duration-faster i-vuestic-faster"/>
               </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 spinners__color">
               <vuestic-pallet-custom :palette="paletteArray" v-model="color" class="spinners__color-picker"/>
             </div>
           </div>
@@ -35,10 +35,11 @@
             <div class="spinner-box-container">
               <div class="spinner-box">
                 <component
-                  :animation-duration="config.duration"
+                  :animation-duration="speed"
                   :is="item"
                   :color="color"
-                  :size="config.size">
+                  :size="config.size"
+                >
                 </component>
               </div>
               <span>{{item | displayName}}</span>
@@ -78,7 +79,7 @@ export default {
         group: 4,
         duration: 1500
       },
-      speed: 1500,
+      currentDuration: 1500,
       paletteArray: colorArray,
       color: '#4AE387',
       sliderSize: {
@@ -95,15 +96,13 @@ export default {
   computed: {
     ...mapGetters(['palette']),
 
+    speed () {
+      return this.sliderDuration.min + this.sliderDuration.max - this.currentDuration
+    },
+
     groups () {
       return this.groupItems(Object.keys(spinners), this.config.group)
     },
-  },
-
-  watch: {
-    speed: function (speed) {
-      this.config.duration = this.sliderDuration.max + this.sliderDuration.min - speed
-    }
   },
 
   filters: {
@@ -128,7 +127,6 @@ export default {
 <style lang="scss">
 
 .spinners {
-
   &__customization {
 
   }
@@ -146,8 +144,17 @@ export default {
       margin-top: 30px;
     }
 
-    &__row {
-      margin-left: 10px;
+    & &__icon-small {
+      margin-left: 0;
+    }
+
+    &__duration {
+      margin: 0;
+      justify-content: center;
+    }
+
+    &__size {
+      justify-content: center;
     }
 
     & &__icon-duration-faster {
@@ -158,10 +165,14 @@ export default {
       margin-top: 33px;
     }
 
-    &__color-picker {
-      margin-top: 45px;
-      padding-left: 15px;
+    &__color {
+      justify-content: center;
+      margin-left: 12px;
+    }
 
+    &__color-picker {
+      margin-top: 50px;
+      padding-left: 15px;
       .vuestic-dropdown__content {
         right: 40px;
       }
@@ -190,7 +201,11 @@ export default {
     margin-left: 30px;
   }
 
-  &__icon-duration {
+  &__icon-duration-faster {
+    margin-top: 5px;
+  }
+
+  &__icon-duration-slower {
     margin-top: 5px;
   }
 

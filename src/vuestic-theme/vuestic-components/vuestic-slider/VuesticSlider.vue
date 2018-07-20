@@ -6,6 +6,7 @@
     :bg-style="sliderOptions.bgStyle"
     :slider-style="sliderOptions.sliderStyle"
     class="vuestic-slider"
+    :reverse="reverse"
   >
   </slider>
 </template>
@@ -29,6 +30,11 @@
 
       options: {
         type: Object
+      },
+
+      reverse: {
+        type: Boolean,
+        default: false
       }
     },
 
