@@ -4,7 +4,7 @@
       <vuestic-widget :headerText="$t('spinners.title')" class="spinners__widget">
         <div class="spinners__customization">
           <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-4">
               <div class="row">
                 <h5 class="spinners__icon-small">A</h5>
                 <div class="spinners__size-picker">
@@ -14,12 +14,12 @@
               </div>
             </div>
             <div class="col-md-4">
-              <div class="row">
-                <div class="spinners__icon-duration i-vuestic-faster" />
+              <div class="row spinners__row">
+                <div class="spinners__icon-duration-faster i-vuestic-faster"/>
                 <div class="spinners__duration-picker">
                   <vuestic-slider v-model="config.duration" :options="sliderDuration"/>
                 </div>
-                <div class="spinners__icon-duration i-vuestic-slower" />
+                <div class="spinners__icon-duration-slower i-vuestic-slower"/>
               </div>
             </div>
             <div class="col-md-2">
@@ -117,7 +117,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 .spinners {
 
@@ -131,6 +131,33 @@ export default {
 
   &__color-picker {
 
+  }
+
+  @include media-breakpoint-down(xs) {
+    &__duration-picker {
+      margin-top: 30px;
+    }
+
+    &__row {
+      margin-left: 10px;
+    }
+
+    & &__icon-duration-faster {
+      margin-top: 33px;
+    }
+
+    & &__icon-duration-slower {
+      margin-top: 33px;
+    }
+
+    &__color-picker {
+      margin-top: 45px;
+      padding-left: 15px;
+
+      .vuestic-dropdown__content {
+        right: 40px;
+      }
+    }
   }
 
   &__size-picker {
