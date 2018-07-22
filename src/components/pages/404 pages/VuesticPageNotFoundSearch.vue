@@ -1,59 +1,44 @@
 <template>
   <div class="vuestic-page-not-found-search">
-    <div class="auth-wallpaper">
-      <router-link class="i-vuestic vuestic-page-not-found-search__i-vuestic" :to="{path: '/'}"/>
-    </div>
-    <div class="nav d-lg-none">
-      <router-link class="i-vuestic" :to="{path: '/'}"/>
-    </div>
-    <div class="auth-wallpaper">
-      <div class="row">
-        <div class="col-12 d-none d-lg-flex">
-          <h3 class="vuestic-page-not-found-search__text">The page's gonna fishing.</h3>
-        </div>
+    <div class="vuestic-page-not-found-search__content">
+      <div class="auth-wallpaper">
+        <router-link class="i-vuestic vuestic-page-not-found-search__i-vuestic" :to="{path: '/'}"/>
       </div>
-    </div>
-    <div class="auth-wallpaper">
-      <div class="row">
-        <div class="col-12 d-none d-lg-flex">
+      <div class="auth-wallpaper">
+        <h3 class="vuestic-page-not-found-search__text">The page's gonna fishing.</h3>
+      </div>
+      <div class="auth-wallpaper col-md-12">
+        <div class="row">
           <h4 class="vuestic-page-not-found-search__text-small">If you fell that it's not right, please send us a message at &nbsp</h4>
           <a href="mailto:hello@epicmax.co">hi@epicmax.co</a>
         </div>
       </div>
-    </div>
-    <div class="auth-wallpaper">
-      <div class="row">
-        <div class="col-12 d-none d-lg-flex">
-          <div class="form-group">
-            <div class="input-group vuestic-page-not-found-search__input">
-              <input
-                placeholder="Search on the menu"
-                style="color: white"
-                v-model="inputValue"
-              >
-              <i class="bar"
-                 :style="'width: ' + 310 + 'px'"/>
-            </div>
+      <div class="auth-wallpaper">
+        <div class="form-group">
+          <div class="input-group vuestic-page-not-found-search__input">
+            <input
+              placeholder="Search on the menu"
+              style="color: white"
+              v-model="inputValue"
+            >
+            <i class="bar"
+               :style="'width: ' + 310 + 'px'"/>
           </div>
         </div>
       </div>
-    </div>
-    <div class="auth-wallpaper">
-      <div class="row">
-        <div class="col-12 d-none d-lg-flex">
-          <ul class="vuestic-page-not-found-search__ul" v-for="category in filterItems">
-            {{ category.categoryName }}
-            <li v-for="item in category.items">
-              <router-link :to="{ path: item.itemLink }">
-                {{ item.itemName}}
-              </router-link>
-            </li>
-          </ul>
-        </div>
+      <div class="auth-wallpaper col-md-12 vuestic-page-not-found-search__auth-wallpaper-list">
+        <ul class="vuestic-page-not-found-search__list" v-for="category in filterItems">
+          {{ category.categoryName }}
+          <li class="vuestic-page-not-found-search__list-element" v-for="item in category.items">
+            <router-link :to="{ path: item.itemLink }">
+              {{ item.itemName}}
+            </router-link>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="auth-wallpaper vuestic-page-not-found-search__auth-wallpaper-sad">
-      <div class="i-vuestic-sad vuestic-page-not-found-search__i-vuestic-sad"/>
+      <img src="https://i.imgur.com/hu80UGU.png" class="vuestic-page-not-found-search__sad-image"/>
     </div>
   </div>
 </template>
@@ -173,6 +158,19 @@ export default {
             }
           ],
         },
+        {
+          categoryName: 'Statistics',
+          items: [
+            {
+              itemName: 'Charts',
+              itemLink: './admin/statistics/charts'
+            },
+            {
+              itemName: 'Progress bars',
+              itemLink: './admin/statistics/progress-bars'
+            }
+          ]
+        }
       ],
       inputValue: ''
     }
@@ -184,6 +182,9 @@ export default {
         for (let i = 0; i < this.categories.length; i++) {
           arr[i].items = this.categories[i].items.filter(item => item.itemName.search(this.inputValue) !== -1)
         }
+        arr = arr.filter(function (category) {
+          return category.items.length > 0
+        })
         return arr
       } else {
         return this.categories
@@ -196,26 +197,24 @@ export default {
 <style lang="scss">
 .vuestic-page-not-found-search {
   height: 100vh;
-  margin: 0;
   background-color: $top-nav-bg;
 
-  &__i-vuestic {
-    margin-top: 100px;
+  &__sad-image {
+    width: 50%;
+    height: 100%;
   }
 
-  &__i-vuestic-sad {
-  }
+  &__content {
 
-  &__ul {
-    color: white;
-  }
-
-  &__input {
-    width: 310px;
-  }
-
-  &__auth-wallpaper-sad {
-    padding-left: 1000px;
+    .nav {
+      display: flex;
+      height: $top-mobile-nav-height;
+      background-color: $top-nav-bg;
+      .i-vuestic {
+        height: $auth-mobile-nav-ivuestic-h;
+        width: 100%;
+      }
+    }
   }
 
   &__text {
@@ -235,31 +234,23 @@ export default {
     color: #bbb4b2;
   }
 
-  .nav {
-    display: flex;
-    height: $top-mobile-nav-height;
-    background-color: $top-nav-bg;
-    .i-vuestic {
-      height: $auth-mobile-nav-ivuestic-h;
-      width: 100%;
-    }
+  &__i-vuestic {
+    margin-top: 100px;
   }
 
-  .oblique {
+  &__list {
+    color: white;
+  }
+
+  &__input {
+    width: 310px;
+  }
+
+  &__auth-wallpaper-sad {
     position: absolute;
-    background-color: $auth-wallpaper-oblique-line;
-    left: calc(50% - 27% / 2);
-    transform: rotate(15deg);
-    width: 27%;
-    height: 115%;
-  }
-
-  .auth-content {
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
+    height: 30%;
+    bottom: 0;
+    padding-left: 1000px;
   }
 
   .auth-wallpaper {
@@ -275,12 +266,34 @@ export default {
     }
   }
 
-  @include media-breakpoint-down(md) {
-    .main {
+  @include media-breakpoint-down(xs) {
+    .vuestic-page-not-found-search {
       height: $auth-mobile-main-h;
-      .auth-content {
-        align-items: flex-start;
-        padding-top: $auth-content-padding-t;
+
+      &__list {
+        padding-left: 20px;
+      }
+
+      &__list-element {
+        font-size: 10px;
+      }
+
+      &__auth-wallpaper-list {
+        font-size: 10px;
+        padding: 0;
+      }
+
+      &__i-vuestic {
+        margin-top: 5%;
+      }
+
+      &__auth-wallpaper-sad {
+        padding: 0;
+        height: 25%;
+      }
+
+      &__text-small {
+        font-size: 15px;
       }
     }
   }
