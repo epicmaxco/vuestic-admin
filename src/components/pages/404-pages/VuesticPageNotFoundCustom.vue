@@ -1,28 +1,31 @@
 <template>
-  <div class="vuestic-page-not-found-simple">
-    <div class="vuestic-page-not-found-simple__content">
+  <div class="vuestic-page-not-found-custom">
+    <div class="vuestic-page-not-found-custom__content">
       <div class="not-found-wallpaper">
-        <router-link class="i-vuestic vuestic-page-not-found-simple__i-vuestic" :to="{path: '/'}"/>
+        <router-link class="i-vuestic vuestic-page-not-found-custom__i-vuestic" :to="{path: '/'}"/>
       </div>
       <div class="not-found-wallpaper">
-        <h3 class="vuestic-page-not-found-simple__text">The page's gonna fishing.</h3>
+        <img src="https://i.imgur.com/wodIng5.png" class="vuestic-page-not-found-custom__custom-image"/>
+      </div>
+      <div class="not-found-wallpaper">
+        <h3 class="vuestic-page-not-found-custom__text">The page's gonna fishing.</h3>
       </div>
       <div class="not-found-wallpaper col-md-12">
-        <div class="row vuestic-page-not-found-simple__message">
-          <h4 class="vuestic-page-not-found-simple__text-small">If you fell that it's not right, please send us a message at &nbsp</h4>
+        <div class="row vuestic-page-not-found-custom__message">
+          <h4 class="vuestic-page-not-found-custom__text-small">If you fell that it's not right, please send us a message at &nbsp</h4>
           <a href="mailto:hello@epicmax.co">hi@epicmax.co</a>
         </div>
       </div>
       <div class="not-found-wallpaper col-md-12">
         <router-link :to="{ path: './dashboard' }">
-          <button class="btn btn-primary vuestic-page-not-found-simple__button">
+          <button class="btn btn-primary vuestic-page-not-found-custom__button">
             {{ 'Back to Dashboard' }}
           </button>
         </router-link>
       </div>
     </div>
-    <div class="not-found-wallpaper vuestic-page-not-found-simple__not-found-wallpaper-sad">
-      <img src="https://i.imgur.com/hu80UGU.png" class="vuestic-page-not-found-simple__sad-image"/>
+    <div class="not-found-wallpaper vuestic-page-not-found-custom__not-found-wallpaper-sad">
+      <img src="https://i.imgur.com/hu80UGU.png" class="vuestic-page-not-found-custom__sad-image"/>
     </div>
     <div class="made-by-footer">
       <span>
@@ -35,17 +38,21 @@
 
 <script>
 export default {
-  name: 'vuestic-page-not-found-simple'
+  name: 'vuestic-page-not-found-custom'
 }
 </script>
 
 <style lang="scss">
-.vuestic-page-not-found-simple {
+.vuestic-page-not-found-custom {
   height: 100vh;
   background-color: $top-nav-bg;
 
+  &__custom-image {
+    padding-top: 30px;
+    width: 20%;
+  }
+
   &__button {
-    margin-top: 25px;
     width: 234px;
     height: 42px;
     padding-left: 22px;
@@ -59,7 +66,7 @@ export default {
   }
 
   &__text {
-    padding-top: 10%;
+    padding-top: 6%;
     color: white;
   }
 
@@ -76,12 +83,12 @@ export default {
   }
 
   &__i-vuestic {
-    margin-top: 10%;
+    margin-top: 3%;
   }
 
   &__not-found-wallpaper-sad {
     position: absolute;
-    height: 30%;
+    height: 35%;
     bottom: 0;
     padding-left: 1000px;
   }
@@ -100,7 +107,7 @@ export default {
   }
 
   @include media-breakpoint-down(xs) {
-    .vuestic-page-not-found-simple {
+    .vuestic-page-not-found-custom {
       height: $auth-mobile-main-h;
 
       &__message {

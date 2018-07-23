@@ -20,8 +20,34 @@
             <div class="not-found-pages__simple-wallpaper">
               <img src="https://i.imgur.com/HttcXPi.png"/>
               <div class="not-found-pages__container">
-                <h6 class="not-found-pages__advanced-text">Simple layout</h6>
+                <h6 class="not-found-pages__advanced-text">Simple</h6>
                 <router-link :to="{ path: '/pages/not-found-simple' }">
+                  <button class="btn btn-primary not-found-pages__advanced-button">
+                    {{ 'View Example' }}
+                  </button>
+                </router-link>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="not-found-pages__simple-wallpaper">
+              <img src="https://i.imgur.com/dlcZMiG.png"/>
+              <div class="not-found-pages__container">
+                <h6 class="not-found-pages__advanced-text">Custom image</h6>
+                <router-link :to="{ path: '/pages/not-found-custom' }">
+                  <button class="btn btn-primary not-found-pages__advanced-button">
+                    {{ 'View Example' }}
+                  </button>
+                </router-link>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="not-found-pages__simple-wallpaper">
+              <img src="https://i.imgur.com/qcOlDz7.png"/>
+              <div class="not-found-pages__container">
+                <h6 class="not-found-pages__advanced-text">Large text heading</h6>
+                <router-link :to="{ path: '/pages/not-found-custom' }">
                   <button class="btn btn-primary not-found-pages__advanced-button">
                     {{ 'View Example' }}
                   </button>

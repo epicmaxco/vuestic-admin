@@ -1,19 +1,19 @@
 <template>
   <div class="vuestic-page-not-found-search">
     <div class="vuestic-page-not-found-search__content">
-      <div class="auth-wallpaper">
+      <div class="not-found-wallpaper">
         <router-link class="i-vuestic vuestic-page-not-found-search__i-vuestic" :to="{path: '/'}"/>
       </div>
-      <div class="auth-wallpaper">
+      <div class="not-found-wallpaper">
         <h3 class="vuestic-page-not-found-search__text">The page's gonna fishing.</h3>
       </div>
-      <div class="auth-wallpaper col-md-12">
+      <div class="not-found-wallpaper col-md-12">
         <div class="row vuestic-page-not-found-search__message">
           <h4 class="vuestic-page-not-found-search__text-small">If you fell that it's not right, please send us a message at &nbsp</h4>
           <a href="mailto:hello@epicmax.co">hi@epicmax.co</a>
         </div>
       </div>
-      <div class="auth-wallpaper">
+      <div class="not-found-wallpaper">
         <div class="form-group">
           <div class="input-group vuestic-page-not-found-search__input">
             <input
@@ -26,7 +26,7 @@
           </div>
         </div>
       </div>
-      <div class="auth-wallpaper col-md-12 vuestic-page-not-found-search__auth-wallpaper-list">
+      <div class="not-found-wallpaper col-md-12 vuestic-page-not-found-search__not-found-wallpaper-list">
         <ul class="vuestic-page-not-found-search__list" v-for="category in filterItems">
           {{ category.categoryName }}
           <li class="vuestic-page-not-found-search__list-element" v-for="item in category.items">
@@ -37,7 +37,7 @@
         </ul>
       </div>
     </div>
-    <div class="auth-wallpaper vuestic-page-not-found-search__auth-wallpaper-sad">
+    <div class="not-found-wallpaper vuestic-page-not-found-search__not-found-wallpaper-sad">
       <img src="https://i.imgur.com/hu80UGU.png" class="vuestic-page-not-found-search__sad-image"/>
     </div>
     <div class="made-by-footer">
@@ -210,19 +210,6 @@ export default {
     height: 100%;
   }
 
-  &__content {
-
-    .nav {
-      display: flex;
-      height: $top-mobile-nav-height;
-      background-color: $top-nav-bg;
-      .i-vuestic {
-        height: $auth-mobile-nav-ivuestic-h;
-        width: 100%;
-      }
-    }
-  }
-
   &__text {
     padding-top: 50px;
     color: white;
@@ -252,18 +239,18 @@ export default {
     width: 310px;
   }
 
-  &__auth-wallpaper-sad {
+  &__not-found-wallpaper-sad {
     position: absolute;
     height: 30%;
     bottom: 0;
     padding-left: 1000px;
   }
 
-  .auth-wallpaper {
+  .not-found-wallpaper {
     background-color: $top-nav-bg;
     overflow: hidden;
     display: flex;
-    align-items: flex-start;
+    align-items: fle    x-start;
     justify-content: center;
     .i-vuestic {
       z-index: 2;
@@ -288,7 +275,7 @@ export default {
         font-size: 10px;
       }
 
-      &__auth-wallpaper-list {
+      &__not-found-wallpaper-list {
         font-size: 10px;
         padding: 0;
       }
@@ -297,7 +284,7 @@ export default {
         margin-top: 5%;
       }
 
-      &__auth-wallpaper-sad {
+      &__not-found-wallpaper-sad {
         padding: 0;
         height: 25%;
       }
