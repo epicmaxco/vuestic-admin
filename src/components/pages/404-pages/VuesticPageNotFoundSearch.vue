@@ -8,7 +8,7 @@
         <h3 class="vuestic-page-not-found-search__text">The page's gonna fishing.</h3>
       </div>
       <div class="auth-wallpaper col-md-12">
-        <div class="row">
+        <div class="row vuestic-page-not-found-search__message">
           <h4 class="vuestic-page-not-found-search__text-small">If you fell that it's not right, please send us a message at &nbsp</h4>
           <a href="mailto:hello@epicmax.co">hi@epicmax.co</a>
         </div>
@@ -39,6 +39,12 @@
     </div>
     <div class="auth-wallpaper vuestic-page-not-found-search__auth-wallpaper-sad">
       <img src="https://i.imgur.com/hu80UGU.png" class="vuestic-page-not-found-search__sad-image"/>
+    </div>
+    <div class="made-by-footer">
+      <span>
+        ©2018. Made by &nbsp
+        <a href="http://epicmax.co"> Epicmax</a>
+      </span>
     </div>
   </div>
 </template>
@@ -270,6 +276,10 @@ export default {
     .vuestic-page-not-found-search {
       height: $auth-mobile-main-h;
 
+      &__message {
+        justify-content: center;
+      }
+
       &__list {
         padding-left: 20px;
       }
@@ -296,6 +306,18 @@ export default {
         font-size: 15px;
       }
     }
+  }
+  .made-by-footer {
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    padding-top: 25px;
+    padding-bottom: $made-by-footer-pb;
+    position: absolute;
+    bottom: 0;
+    height: calc(#{$layout-padding} + #{$widget-mb});
+    width: 100%;
   }
 }
 </style>

@@ -4,7 +4,9 @@ import AppLayout from '../components/admin/AppLayout'
 import AuthLayout from '../components/auth/AuthLayout'
 import lazyLoading from './lazyLoading'
 import VuesticPageNotFoundSearch
-  from '../components/pages/404 pages/VuesticPageNotFoundSearch'
+  from '../components/pages/404-pages/VuesticPageNotFoundSearch'
+import VuesticPageNotFoundSimple
+  from '../components/pages/404-pages/VuesticPageNotFoundSimple'
 
 Vue.use(Router)
 
@@ -50,8 +52,12 @@ export default new Router({
       ],
     },
     {
-      path: '/pages',
-      component: VuesticPageNotFoundSearch,
+      path: '/pages/not-found-advanced',
+      component: VuesticPageNotFoundSearch
+    },
+    {
+      path: '/pages/not-found-simple',
+      component: VuesticPageNotFoundSimple
     },
     {
       name: 'Admin',
@@ -225,6 +231,17 @@ export default new Router({
             },
           ],
         },
+        {
+          path: 'pages',
+          component: EmptyParentComponent,
+          children: [
+            {
+              name: '404-pages',
+              path: '404-pages',
+              component: lazyLoading('pages/404-pages/404PagesPage')
+            }
+          ]
+        }
       ],
     },
   ],
