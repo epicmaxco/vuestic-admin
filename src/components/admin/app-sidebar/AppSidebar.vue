@@ -198,7 +198,7 @@
       <sidebar-link-group>
         <span slot="title">
           <span
-            class="sidebar-menu-item-icon vuestic-icon vuestic-icon-statistics"></span>
+            class="sidebar-menu-item-icon vuestic-icon vuestic-icon-files"></span>
           <span>{{ $t('menu.pages') }}</span>
         </span>
         <sidebar-link
