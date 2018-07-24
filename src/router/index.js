@@ -9,6 +9,8 @@ import VuesticPageNotFoundSimple
   from '../components/pages/404-pages/VuesticPageNotFoundSimple'
 import VuesticPageNotFoundCustom
   from '../components/pages/404-pages/VuesticPageNotFoundCustom'
+import VuesticPageNotFoundLargeText
+  from '../components/pages/404-pages/VuesticPageNotFoundLargeText'
 
 Vue.use(Router)
 
@@ -64,6 +66,10 @@ export default new Router({
     {
       path: '/pages/not-found-custom',
       component: VuesticPageNotFoundCustom
+    },
+    {
+      path: '/pages/not-found-large-text',
+      component: VuesticPageNotFoundLargeText
     },
     {
       name: 'Admin',

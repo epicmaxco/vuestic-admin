@@ -1,31 +1,31 @@
 <template>
-  <div class="vuestic-page-not-found-custom">
+  <div class="vuestic-page-not-found-large-text">
     <div class="vuestic-page-not-found-custom__content">
       <div class="not-found-wallpaper">
-        <router-link class="i-vuestic vuestic-page-not-found-custom__i-vuestic" :to="{path: '/'}"/>
+        <router-link class="i-vuestic vuestic-page-not-found-large-text__i-vuestic" :to="{path: '/'}"/>
       </div>
       <div class="not-found-wallpaper">
-        <img src="https://i.imgur.com/wodIng5.png" class="vuestic-page-not-found-custom__custom-image"/>
+        <h1 class="vuestic-page-not-found-large-text__number">404</h1>
       </div>
       <div class="not-found-wallpaper">
-        <h3 class="vuestic-page-not-found-custom__text">The page's gonna fishing.</h3>
+        <h3 class="vuestic-page-not-found-large-text__text">The page's gonna fishing.</h3>
       </div>
       <div class="not-found-wallpaper col-md-12">
-        <div class="row vuestic-page-not-found-custom__message">
-          <h4 class="vuestic-page-not-found-custom__text-small">If you fell that it's not right, please send us a message at &nbsp</h4>
+        <div class="row vuestic-page-not-found-large-text__message">
+          <h4 class="vuestic-page-not-found-large-text__text-small">If you fell that it's not right, please send us a message at &nbsp</h4>
           <a href="mailto:hello@epicmax.co">hi@epicmax.co</a>
         </div>
       </div>
-      <div class="not-found-wallpaper col-md-12 vuestic-page-not-found-custom__wallpaper-button">
+      <div class="not-found-wallpaper col-md-12">
         <router-link :to="{ path: './dashboard' }">
-          <button class="btn btn-primary vuestic-page-not-found-custom__button">
+          <button class="btn btn-primary vuestic-page-not-found-large-text__button">
             {{ 'Back to Dashboard' }}
           </button>
         </router-link>
       </div>
     </div>
-    <div class="not-found-wallpaper vuestic-page-not-found-custom__not-found-wallpaper-sad">
-      <img src="https://i.imgur.com/hu80UGU.png" class="vuestic-page-not-found-custom__sad-image"/>
+    <div class="not-found-wallpaper vuestic-page-not-found-large-text__not-found-wallpaper-sad">
+      <img src="https://i.imgur.com/hu80UGU.png" class="vuestic-page-not-found-large-text__sad-image"/>
     </div>
     <div class="made-by-footer">
       <span>
@@ -38,27 +38,19 @@
 
 <script>
 export default {
-  name: 'vuestic-page-not-found-custom'
+  name: 'vuestic-page-not-found-large-text'
 }
 </script>
 
 <style lang="scss">
-.vuestic-page-not-found-custom {
+.vuestic-page-not-found-large-text {
   height: 100vh;
   background-color: $top-nav-bg;
 
-  &__custom-image {
-    padding-top: 30px;
-    width: 25%;
-    margin-right: 3%;
-  }
-
-  &__wallpaper-button {
-    z-index: 1;
-    position: absolute;
-    background: transparent;
-    width: 250px;
-    margin-left: 43%
+  &__number {
+    font-size: 250px;
+    text-align: center;
+    color: white;
   }
 
   &__button {
@@ -70,7 +62,7 @@ export default {
   }
 
   &__sad-image {
-    width: 60%;
+    width: 50%;
     height: 100%;
   }
 
@@ -97,7 +89,7 @@ export default {
 
   &__not-found-wallpaper-sad {
     position: absolute;
-    height: 40%;
+    height: 35%;
     bottom: 0;
     padding-left: 1000px;
   }
@@ -116,16 +108,11 @@ export default {
   }
 
   @include media-breakpoint-down(xs) {
-    .vuestic-page-not-found-custom {
+    .vuestic-page-not-found-large-text {
       height: $auth-mobile-main-h;
 
-      &__custom-image {
-        width: 70%;
-      }
-
-      &__wallpaper-button {
-        width: 100%;
-        margin-left: 0;
+      &__number {
+        font-size: 150px;
       }
 
       &__message {

@@ -3,7 +3,7 @@
     <div class="col-md-12">
       <vuestic-widget :headerText="'404 Pages'">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-3 not-found-pages__box">
             <div class="not-found-pages__advanced-wallpaper">
               <img src="https://i.imgur.com/GzUR0Wz.png not-found-pages__advanced-pic"/>
               <div class="not-found-pages__container">
@@ -47,7 +47,7 @@
               <img src="https://i.imgur.com/qcOlDz7.png"/>
               <div class="not-found-pages__container">
                 <h6 class="not-found-pages__advanced-text">Large text heading</h6>
-                <router-link :to="{ path: '/pages/not-found-custom' }">
+                <router-link :to="{ path: '/pages/not-found-large-text' }">
                   <button class="btn btn-primary not-found-pages__advanced-button">
                     {{ 'View Example' }}
                   </button>
@@ -110,10 +110,6 @@ export default {
     height: 268px;
     background-color: #ffffff;
     box-shadow: 0 8px 14.7px 1.3px rgba(188, 207, 190, 0.5);
-  }
-
-  &__advanced-pic {
-
   }
 }
 </style>
