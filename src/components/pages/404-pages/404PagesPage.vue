@@ -1,7 +1,11 @@
 <template>
   <div class="not-found-pages row">
     <div class="col-md-12">
-      <vuestic-widget :headerText="'404 Pages'">
+      <div class="widget">
+        <div class="widget-header">
+          404 pages
+        </div>
+      </div>
         <div class="row">
           <div class="col-md-3 not-found-pages__box">
             <div class="not-found-pages__advanced-wallpaper">
@@ -56,7 +60,6 @@
             </div>
           </div>
         </div>
-      </vuestic-widget>
     </div>
   </div>
 </template>
