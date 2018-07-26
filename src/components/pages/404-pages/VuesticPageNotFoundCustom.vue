@@ -72,6 +72,7 @@ export default {
   &__sad-image {
     width: 505px;
     height: 400px;
+    bottom: 0;
   }
 
   &__text {
@@ -98,8 +99,9 @@ export default {
     overflow: hidden;
     position: absolute;
     height: 40%;
-    padding-left: 70%;
+    width: 100%;
     bottom: 0;
+    padding-left: 80%;
   }
 
   &__wallpaper {
