@@ -1,22 +1,22 @@
 <template>
   <div class="vuestic-page-not-found-large-text">
-    <div class="vuestic-page-not-found-custom__content">
-      <div class="not-found-wallpaper">
+    <div class="vuestic-page-not-found-large-text__content">
+      <div class="vuestic-page-not-found-large-text__wallpaper">
         <router-link class="i-vuestic vuestic-page-not-found-large-text__i-vuestic" :to="{path: '/'}"/>
       </div>
-      <div class="not-found-wallpaper">
+      <div class="vuestic-page-not-found-large-text__wallpaper">
         <h1 class="vuestic-page-not-found-large-text__number">404</h1>
       </div>
-      <div class="not-found-wallpaper">
+      <div class="vuestic-page-not-found-large-text__wallpaper">
         <h3 class="vuestic-page-not-found-large-text__text">The page's gonna fishing.</h3>
       </div>
-      <div class="not-found-wallpaper col-md-12">
+      <div class="vuestic-page-not-found-large-text__wallpaper col-md-12">
         <div class="row vuestic-page-not-found-large-text__message">
           <h4 class="vuestic-page-not-found-large-text__text-small">If you fell that it's not right, please send us a message at &nbsp</h4>
           <a href="mailto:hello@epicmax.co">hi@epicmax.co</a>
         </div>
       </div>
-      <div class="not-found-wallpaper col-md-12">
+      <div class="vuestic-page-not-found-large-text__wallpaper col-md-12">
         <router-link :to="{ path: './dashboard' }">
           <button class="btn btn-primary vuestic-page-not-found-large-text__button">
             {{ 'Back to Dashboard' }}
@@ -24,10 +24,10 @@
         </router-link>
       </div>
     </div>
-    <div class="not-found-wallpaper vuestic-page-not-found-large-text__not-found-wallpaper-sad">
+    <div class="vuestic-page-not-found-large-text__wallpaper vuestic-page-not-found-large-text__not-found-wallpaper-sad">
       <img src="https://i.imgur.com/hu80UGU.png" class="vuestic-page-not-found-large-text__sad-image"/>
     </div>
-    <div class="made-by-footer">
+    <div class="vuestic-page-not-found-large-text__footer">
       <span>
         ©2018. Made by &nbsp
         <a href="http://epicmax.co"> Epicmax</a>
@@ -62,8 +62,9 @@ export default {
   }
 
   &__sad-image {
-    width: 50%;
-    height: 100%;
+    width: 505px;
+    height: 400px;
+    bottom: 0;
   }
 
   &__text {
@@ -72,13 +73,8 @@ export default {
   }
 
   &__text-small {
-    font-family: SourceSansPro;
     font-size: 16px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
     line-height: 1.5;
-    letter-spacing: normal;
     text-align: center;
     color: #bbb4b2;
   }
@@ -89,27 +85,37 @@ export default {
 
   &__not-found-wallpaper-sad {
     position: absolute;
-    height: 35%;
+    overflow: hidden;
+    height: 40%;
+    width: 100%;
     bottom: 0;
-    padding-left: 1000px;
+    padding-left: 80%;
   }
 
-  .not-found-wallpaper {
+  &__wallpaper {
     background-color: $top-nav-bg;
     overflow: hidden;
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    .i-vuestic {
-      z-index: 2;
-      height: $auth-wallpaper-ivuestic-h;
-      width: 100%;
-    }
+  }
+
+  &__i-vuestic {
+    z-index: 2;
+    height: $auth-wallpaper-ivuestic-h;
+    width: 100%;
   }
 
   @include media-breakpoint-down(xs) {
     .vuestic-page-not-found-large-text {
       height: $auth-mobile-main-h;
+
+      &__sad-image {
+        width: 360px;
+        height: 300px;
+        padding-left: 100px;
+        bottom: 0;
+      }
 
       &__number {
         font-size: 150px;
@@ -125,7 +131,7 @@ export default {
 
       &__not-found-wallpaper-sad {
         padding: 0;
-        height: 35%;
+        height: 36%;
       }
 
       &__text-small {
@@ -133,16 +139,12 @@ export default {
       }
     }
   }
-  .made-by-footer {
+  &__footer {
     display: flex;
     color: white;
     justify-content: center;
-    align-items: center;
-    padding-top: 25px;
-    padding-bottom: $made-by-footer-pb;
     position: absolute;
     bottom: 0;
-    height: calc(#{$layout-padding} + #{$widget-mb});
     width: 100%;
   }
 }

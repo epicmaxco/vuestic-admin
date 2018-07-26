@@ -8,7 +8,7 @@
         <img src="https://i.imgur.com/wodIng5.png" class="vuestic-page-not-found-custom__custom-image"/>
       </div>
       <div class="vuestic-page-not-found-custom__wallpaper">
-        <h3 class="vuestic-page-not-found-custom__text">The page's gonna fishing.</h3>
+        <h3 class="vuestic-page-not-found-custom__text">The page’s gone fishing.</h3>
       </div>
       <div class="vuestic-page-not-found-custom__wallpaper col-md-12">
         <div class="row vuestic-page-not-found-custom__message">
