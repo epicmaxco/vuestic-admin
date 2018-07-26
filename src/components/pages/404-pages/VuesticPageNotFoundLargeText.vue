@@ -12,7 +12,7 @@
       </div>
       <div class="vuestic-page-not-found-large-text__wallpaper col-md-12">
         <div class="row vuestic-page-not-found-large-text__message">
-          <h4 class="vuestic-page-not-found-large-text__text-small">If you fell that it's not right, please send us a message at &nbsp</h4>
+          <h4 class="vuestic-page-not-found-large-text__text-small">If you feel that it's not right, please send us a message at &nbsp</h4>
           <a href="mailto:hello@epicmax.co">hi@epicmax.co</a>
         </div>
       </div>

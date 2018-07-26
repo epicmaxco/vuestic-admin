@@ -9,7 +9,7 @@
       </div>
       <div class="vuestic-page-not-found-search__wallpaper col-md-12">
         <div class="row vuestic-page-not-found-search__message">
-          <h4 class="vuestic-page-not-found-search__text-small">If you fell that it's not right, please send us a message at &nbsp</h4>
+          <h4 class="vuestic-page-not-found-search__text-small">If you feel that it's not right, please send us a message at &nbsp</h4>
           <a href="mailto:hello@epicmax.co">hi@epicmax.co</a>
         </div>
       </div>
@@ -68,7 +68,7 @@ export default {
           category => {
             return {
               categoryName: category.categoryName,
-              items: category.items.filter(item => item.itemName.search(this.inputValue) !== -1)
+              items: category.items.filter(item => item.itemName.toLowerCase().search(this.inputValue.toLowerCase()) !== -1)
             }
           }
         ).filter(category => category.items.length >= 1)
