@@ -8,7 +8,7 @@
         <h1 class="vuestic-page-not-found-large-text__number">404</h1>
       </div>
       <div class="vuestic-page-not-found-large-text__wallpaper">
-        <h3 class="vuestic-page-not-found-large-text__text">The page's gonna fishing.</h3>
+        <h3 class="vuestic-page-not-found-large-text__text">The page's gone fishing.</h3>
       </div>
       <div class="vuestic-page-not-found-large-text__wallpaper col-md-12">
         <div class="row vuestic-page-not-found-large-text__message">
@@ -76,7 +76,8 @@ export default {
     font-size: 16px;
     line-height: 1.5;
     text-align: center;
-    color: #bbb4b2;
+    color: white;
+    font-weight: normal;
   }
 
   &__i-vuestic {

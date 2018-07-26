@@ -5,7 +5,7 @@
         <router-link class="i-vuestic vuestic-page-not-found-simple__i-vuestic" :to="{path: '/'}"/>
       </div>
       <div class="vuestic-page-not-found-simple__wallpaper">
-        <h3 class="vuestic-page-not-found-simple__text">The page's gonna fishing.</h3>
+        <h3 class="vuestic-page-not-found-simple__text">The page's gone fishing.</h3>
       </div>
       <div class="vuestic-page-not-found-simple__wallpaper col-md-12">
         <div class="row vuestic-page-not-found-simple__message">
@@ -68,7 +68,8 @@ export default {
     font-size: 16px;
     line-height: 1.5;
     text-align: center;
-    color: #bbb4b2;
+    color: white;
+    font-weight: normal;
   }
 
   &__i-vuestic {

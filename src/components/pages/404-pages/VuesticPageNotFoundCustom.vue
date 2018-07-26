@@ -83,7 +83,8 @@ export default {
     font-size: 16px;
     line-height: 1.5;
     text-align: center;
-    color: #bbb4b2;
+    color: white;
+    font-weight: normal;
   }
 
   &__i-vuestic {
