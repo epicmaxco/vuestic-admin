@@ -1,9 +1,6 @@
 <template>
   <div class="row">
     <div class="col-md-12">
-      <vuestic-widget class="color-buttons" :headerText="$t('cards.cards')"></vuestic-widget>
-    </div>
-    <div class="col-md-12">
       <div class="cards-container">
         <template v-for="loop in listLoops">
           <vuestic-card

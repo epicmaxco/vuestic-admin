@@ -13,7 +13,6 @@
         {{ $t(item.displayName) }}
       </router-link>
     </div>
-
   </vuestic-widget>
 </template>
 

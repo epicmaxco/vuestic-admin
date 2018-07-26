@@ -92,6 +92,10 @@ export default {
           displayName: 'menu.tags'
         },
         {
+          path: 'cards',
+          displayName: 'menu.cards'
+        },
+        {
           path: 'tree-view',
           displayName: 'menu.treeView'
         }
