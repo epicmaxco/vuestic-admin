@@ -1,16 +1,16 @@
 <template>
   <div class="demo-container">
     <div class="demo-container__item">
-      <vuestic-simple-select
+      <vuestic-multi-select
         label="Select country"
-        v-model="selectedCountry"
+        v-model="selectedCountries"
         :options="CountriesList"
       />
     </div>
     <div class="demo-container__item">
-      <vuestic-simple-select
+      <vuestic-multi-select
         label="Select country duplicate"
-        v-model="selectedCountry"
+        v-model="selectedCountries"
         :options="CountriesList"
       />
     </div>
@@ -20,15 +20,15 @@
 <script>
 
 import CountriesList from 'data/CountriesList'
-import VuesticSimpleSelect from './VuesticSimpleSelect'
+import VuesticMultiSelect from './VuesticMultiSelect'
 
 export default {
   components: {
-    VuesticSimpleSelect,
+    VuesticMultiSelect,
   },
   data () {
     return {
-      selectedCountry: '',
+      selectedCountries: [],
       CountriesList,
     }
   },

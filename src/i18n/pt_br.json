@@ -170,6 +170,7 @@
     "mediumEditor": "Editor Medium",
     "grid": "Grid",
     "icons": "Icones",
+    "cards": "Cards",
     "spinners": "Spinners",
     "login": "Login",
     "maps": "Mapas",
@@ -231,6 +232,9 @@
       "email": "Email",
       "name": "Nome",
       "score": "Contagem"
+    },
+    "dataTable": {
+      "noDataAvailable": "No Data Available"
     }
   },
   "user": {

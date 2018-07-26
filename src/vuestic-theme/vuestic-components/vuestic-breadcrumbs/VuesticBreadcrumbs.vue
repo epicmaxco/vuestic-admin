@@ -13,7 +13,6 @@
         {{ $t(item.displayName) }}
       </router-link>
     </div>
-
   </vuestic-widget>
 </template>
 
@@ -82,7 +81,7 @@
     }
 
     a {
-      color: $breadcrumbs-gray;
+      color: $text-gray;
       &:hover {
         color: $brand-primary;
       }

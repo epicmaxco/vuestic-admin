@@ -60,6 +60,10 @@ export default {
           displayName: 'menu.buttons'
         },
         {
+          path: 'color-pickers',
+          displayName: 'menu.colorPickers'
+        },
+        {
           path: 'notifications',
           displayName: 'menu.notifications'
         },
@@ -82,6 +86,14 @@ export default {
         {
           path: 'file-upload',
           displayName: 'menu.fileUpload'
+        },
+        {
+          path: 'tags',
+          displayName: 'menu.tags'
+        },
+        {
+          path: 'cards',
+          displayName: 'menu.cards'
         },
         {
           path: 'tree-view',

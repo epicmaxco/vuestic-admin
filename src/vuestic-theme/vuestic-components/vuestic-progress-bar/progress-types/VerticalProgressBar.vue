@@ -1,56 +1,87 @@
 <template>
-  <div class="vertical">
-    <div class="progress" :class="size" >
-      <div class="progress-bar" ref="progressBar" :style="'height: ' + value + '%'">
+  <div class="vertical-bar">
+    <div class="progress vertical-bar__progress"
+         :class="verticalBarType">
+      <div class="progress-bar vertical-bar__progress-bar"
+           :class="verticalBarAnimation"
+           :style="verticalBarStyle">
+        <span v-if="size == 'thick'">
+          <span v-if="!text">{{value + '%'}}</span>
+          <span v-else>{{text}}</span>
+        </span>
       </div>
     </div>
-    <div class="value">{{animatedValue + '%'}}</div>
+    <div class="vertical-bar__value" v-if="size != 'thick'">
+      <span v-if="!text">{{value + '%'}}</span>
+      <span v-else>{{text}}</span>
+    </div>
   </div>
 </template>
 
 <script>
-  import {color, lightness} from 'kewler'
+  import { VuesticTheme, colorConfig } from './../../vuestic-color-picker/VuesticTheme'
 
   export default {
-    props: [
-      'value',
-      'animatedValue',
-      'min',
-      'max',
-      'color',
-      'size',
-      'isActive'
-    ],
-    mounted () {
-      // Starts blinking
-      let progressBar = this.$refs.progressBar
-      let progressColor = color(this.color)
-      let current = progressColor
-      setInterval(() => {
-        if (this.animatedValue === 100) {
-          current = progressColor
-          progressBar.style.backgroundColor = current()
-          return
+    props: {
+      value: {
+        type: Number,
+        default: 0,
+      },
+      text: {
+        type: String,
+        default: ''
+      },
+      theme: {
+        type: String,
+        default: 'Primary',
+      },
+      size: {
+        type: String,
+        default: 'basic',
+      },
+      disabled: {
+        type: Boolean,
+        default: false,
+      },
+      animated: {
+        type: Boolean,
+        default: false,
+      }
+    },
+    computed: {
+      verticalBarStyle: function () {
+        return {
+          backgroundColor: colorConfig[VuesticTheme[this.theme]],
+          height: this.value + '%'
         }
-        if (progressColor(lightness(30))() !== current()) {
-          current = progressColor(lightness(30))
-        } else {
-          current = progressColor
+      },
+      verticalBarType: function () {
+        return {
+          'vertical-bar--basic': this.size === 'basic',
+          'vertical-bar--thin': this.size === 'thin',
+          'vertical-bar--thick': this.size === 'thick',
+          'vertical-bar--disabled': this.disabled
         }
-        progressBar.style.backgroundColor = current()
-      }, 500)
+      },
+      verticalBarAnimation: function () {
+        return {
+          'vertical-bar--animated': this.animated,
+        }
+      }
     }
   }
 </script>
 
 <style lang="scss">
-  .vuestic-progress-bar .vertical {
+  .vertical-bar {
+    font-size: $progress-bar-value-font-size;
+    font-weight: $font-weight-bold;
 
-    .progress-bar {
+    &--animated {
       transition: background-color ease .5s, height 3s linear !important;
     }
 
-    .progress {
+    .vertical-bar__progress {
       height: $progress-bar-vertical-height;
       float: left;
       display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
@@ -61,7 +92,7 @@
       -webkit-align-items: flex-end; /* Safari 7.0+ */
     }
 
-    .value{
+    .vertical-bar__value {
       float: left;
       height: $progress-bar-vertical-height;
       display: flex;
@@ -69,18 +100,32 @@
       padding-left: .25rem;
     }
 
-    .basic {
+    &--basic {
       border-radius: $progress-bar-width-basic;
-      .progress-bar {
+      width: $progress-bar-width-basic;
+      .vertical-bar__progress-bar {
         border-radius: inherit;
         width: $progress-bar-width-basic;
       }
     }
 
-    .thin {
-      .progress-bar {
+    &--thin {
+      width: $progress-bar-width-thin;
+      .vertical-bar__progress-bar {
         width: $progress-bar-width-thin;
       }
+
+    }
+
+    &--thick {
+      border-radius: $progress-bar-width-thick;
+      .vertical-bar__progress-bar {
+        width: $vertical-progress-bar-width-thick;
+      }
+    }
+
+    &--disabled {
+      opacity: 0.5
     }
   }
 

@@ -7,11 +7,11 @@
     <span class="location"><span class="icon glyphicon glyphicon-map-marker"></span> {{location}}</span>
     <div class="social">
       <a class="icon brandico brandico-facebook-rect"
-         v-if="social.facebook" :href="'http://' + social.facebook" target="_blank"></a>
+         v-if="social.facebook" :href="'https://' + social.facebook" target="_blank"></a>
       <a class="icon brandico brandico-instagram"
-         v-if="social.instagram" :href="'http://' + social.instagram" target="_blank"></a>
+         v-if="social.instagram" :href="'https://' + social.instagram" target="_blank"></a>
       <a class="icon brandico brandico-twitter"
-         v-if="social.twitter" :href="'http://' + social.twitter" target="_blank"></a>
+         v-if="social.twitter" :href="'https://' + social.twitter" target="_blank"></a>
     </div>
   </div>
 </template>
