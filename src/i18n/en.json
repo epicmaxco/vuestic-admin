@@ -81,6 +81,7 @@
     "tabs": {
       "title": "Tabs",
       "maps": "Maps",
+      "pages": "Pages",
       "overview": "Overview",
       "setupProfile": "Setup Profile"
     },
@@ -180,6 +181,7 @@
     "spinners": "Spinners",
     "login": "Login",
     "maps": "Maps",
+    "pages": "Pages",
     "modals": "Modals",
     "notifications": "Notifications",
     "progressBars": "Progress Bars",

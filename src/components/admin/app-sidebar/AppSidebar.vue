@@ -207,29 +207,43 @@
           </span>
         </sidebar-link>
       </sidebar-link-group>
+      <sidebar-link-group>
+        <span slot="title">
+          <span
+            class="sidebar-menu-item-icon vuestic-icon vuestic-icon-files"></span>
+          <span>{{ $t('menu.pages') }}</span>
+        </span>
+        <sidebar-link
+          :to="{ name: '404-pages' }">
+          <span slot="title">
+            <span>{{ $t('404 Pages') }}</span>
+          </span>
+        </sidebar-link>
+      </sidebar-link-group>
     </template>
   </vuestic-sidebar>
 </template>
 
 <script>
 
-  import VuesticSidebar from '../../../vuestic-theme/vuestic-components/vuestic-sidebar/VuesticSidebar'
-  import SidebarLink from './components/SidebarLink'
-  import SidebarLinkGroup from './components/SidebarLinkGroup'
+import VuesticSidebar
+  from '../../../vuestic-theme/vuestic-components/vuestic-sidebar/VuesticSidebar'
+import SidebarLink from './components/SidebarLink'
+import SidebarLinkGroup from './components/SidebarLinkGroup'
 
-  export default {
-    name: 'app-sidebar',
-    components: {
-      VuesticSidebar,
-      SidebarLink,
-      SidebarLinkGroup
-    },
-    props: {
-      isOpen: {
-        type: Boolean,
-        required: true
-      }
+export default {
+  name: 'app-sidebar',
+  components: {
+    VuesticSidebar,
+    SidebarLink,
+    SidebarLinkGroup
+  },
+  props: {
+    isOpen: {
+      type: Boolean,
+      required: true
     }
   }
+}
 
 </script>
