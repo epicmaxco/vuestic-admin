@@ -4,15 +4,15 @@ export default [
     items: [
       {
         itemName: 'Form Elements',
-        itemLink: './admin/forms/form-elements'
+        itemLink: '/admin/forms/form-elements'
       },
       {
         itemName: 'Form Wizards',
-        itemLink: './admin/forms/form-wizards'
+        itemLink: '/admin/forms/form-wizards'
       },
       {
         itemName: 'Medium Editor',
-        itemLink: './admin/forms/medium-editor'
+        itemLink: '/admin/forms/medium-editor'
       }
     ],
   },
@@ -21,23 +21,23 @@ export default [
     items: [
       {
         itemName: 'Google Maps',
-        itemLink: './admin/maps/google-maps'
+        itemLink: '/admin/maps/google-maps'
       },
       {
         itemName: 'Yandex Maps',
-        itemLink: './admin/maps/yandex-maps'
+        itemLink: '/admin/maps/yandex-maps'
       },
       {
         itemName: 'Leaflet Maps',
-        itemLink: './admin/maps/leaflet-maps'
+        itemLink: '/admin/maps/leaflet-maps'
       },
       {
         itemName: 'Bubble Maps',
-        itemLink: './admin/maps/bubble-maps'
+        itemLink: '/admin/maps/bubble-maps'
       },
       {
         itemName: 'Line Maps',
-        itemLink: './admin/maps/line-maps'
+        itemLink: '/admin/maps/line-maps'
       }
     ],
   },
@@ -46,7 +46,7 @@ export default [
     items: [
       {
         itemName: 'Dashboard',
-        itemLink: './admin/dashboard'
+        itemLink: '/admin/dashboard'
       }
     ]
   },
@@ -55,43 +55,43 @@ export default [
     items: [
       {
         itemName: 'Typography',
-        itemLink: './admin/ui/typography'
+        itemLink: '/admin/ui/typography'
       },
       {
         itemName: 'Buttons',
-        itemLink: './admin/ui/buttons'
+        itemLink: '/admin/ui/buttons'
       },
       {
         itemName: 'Color Pickers',
-        itemLink: './admin/ui/color-pickers'
+        itemLink: '/admin/ui/color-pickers'
       },
       {
         itemName: 'Notifications',
-        itemLink: './admin/ui/notifications'
+        itemLink: '/admin/ui/notifications'
       },
       {
         itemName: 'Icons',
-        itemLink: './admin/ui/icons'
+        itemLink: '/admin/ui/icons'
       },
       {
         itemName: 'Spinners',
-        itemLink: './admin/ui/spinners'
+        itemLink: '/admin/ui/spinners'
       },
       {
         itemName: 'Grid',
-        itemLink: './admin/ui/grid'
+        itemLink: '/admin/ui/grid'
       },
       {
         itemName: 'Modals',
-        itemLink: './admin/ui/modals'
+        itemLink: '/admin/ui/modals'
       },
       {
         itemName: 'File Upload',
-        itemLink: './admin/ui/file-upload'
+        itemLink: '/admin/ui/file-upload'
       },
       {
         itemName: 'Tree View',
-        itemLink: './admin/ui/tree-view'
+        itemLink: '/admin/ui/tree-view'
       }
     ]
   },
@@ -100,11 +100,11 @@ export default [
     items: [
       {
         itemName: 'Login',
-        itemLink: './auth/login'
+        itemLink: '/auth/login'
       },
       {
         itemName: 'Sign up',
-        itemLink: './auth/signup'
+        itemLink: '/auth/signup'
       }
     ],
   },
@@ -113,11 +113,11 @@ export default [
     items: [
       {
         itemName: 'Charts',
-        itemLink: './admin/statistics/charts'
+        itemLink: '/admin/statistics/charts'
       },
       {
         itemName: 'Progress bars',
-        itemLink: './admin/statistics/progress-bars'
+        itemLink: '/admin/statistics/progress-bars'
       }
     ]
   }

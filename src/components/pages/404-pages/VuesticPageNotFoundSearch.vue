@@ -39,7 +39,7 @@
         </div>
       </div>
     </div>
-    <div class="vuestic-page-not-found-search__wallpaper vuestic-page-not-found-search__not-found-wallpaper-sad">
+    <div class="vuestic-page-not-found-search__not-found-wallpaper-sad">
       <img src="https://i.imgur.com/hu80UGU.png" class="vuestic-page-not-found-search__sad-image"/>
     </div>
     <made-by-component/>
@@ -121,9 +121,9 @@ export default {
     overflow: hidden;
     position: absolute;
     height: 40%;
-    width: 100%;
+    margin-left: 1300px;
+    width: 30%;
     bottom: 0;
-    padding-left: 80%;
   }
 
   &__wallpaper {
