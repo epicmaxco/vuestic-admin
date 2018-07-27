@@ -42,19 +42,19 @@
     <div class="vuestic-page-not-found-search__wallpaper vuestic-page-not-found-search__not-found-wallpaper-sad">
       <img src="https://i.imgur.com/hu80UGU.png" class="vuestic-page-not-found-search__sad-image"/>
     </div>
-    <div class="vuestic-page-not-found-search__footer">
-      <span>
-        ©2018. Made by &nbsp
-        <a href="http://epicmax.co"> Epicmax</a>
-      </span>
-    </div>
+    <made-by-component/>
   </div>
 </template>
 
 <script>
 import CategoriesConfig from './CategoriesConfig'
+import MadeByComponent from './MadyByComponent'
+
 export default {
   name: 'vuestic-page-not-found-search',
+  components: {
+    MadeByComponent
+  },
   data () {
     return {
       categories: CategoriesConfig,
@@ -68,7 +68,8 @@ export default {
           category => {
             return {
               categoryName: category.categoryName,
-              items: category.items.filter(item => item.itemName.toLowerCase().search(this.inputValue.toLowerCase()) !== -1)
+              items: category.items.filter(item => item.itemName.toUpperCase()
+                .search(this.inputValue.toUpperCase()) !== -1)
             }
           }
         ).filter(category => category.items.length >= 1)
@@ -178,15 +179,6 @@ export default {
       }
     }
   }
-  &__footer {
-    display: flex;
-    color: white;
-    justify-content: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
-
   &__wrapper {
     display: grid;
     grid-template-columns: repeat(5, 1fr);

@@ -27,18 +27,18 @@
     <div class="vuestic-page-not-found-custom__not-found-wallpaper-sad">
       <img src="https://i.imgur.com/hu80UGU.png" class="vuestic-page-not-found-custom__sad-image"/>
     </div>
-    <div class="vuestic-page-not-found-custom__footer">
-      <span>
-        ©2018. Made by &nbsp
-        <a href="http://epicmax.co"> Epicmax.</a>
-      </span>
-    </div>
+    <made-by-component/>
   </div>
 </template>
 
 <script>
+import MadeByComponent from './MadyByComponent'
+
 export default {
-  name: 'vuestic-page-not-found-custom'
+  name: 'vuestic-page-not-found-custom',
+  components: {
+    MadeByComponent
+  }
 }
 </script>
 
@@ -58,7 +58,8 @@ export default {
     position: absolute;
     background: transparent;
     width: 250px;
-    margin-left: 43%
+    margin-left: 43%;
+    min-height: 150px;
   }
 
   &__button {
@@ -150,16 +151,6 @@ export default {
         font-size: 15px;
       }
     }
-  }
-
-  &__footer {
-    display: flex;
-    color: white;
-    justify-content: center;
-    padding-bottom: $made-by-footer-pb;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
   }
 }
 </style>

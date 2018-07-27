@@ -13,7 +13,7 @@
           <a href="mailto:hello@epicmax.co">hi@epicmax.co</a>
         </div>
       </div>
-      <div class="vuestic-page-not-found-simple__wallpaper col-md-12">
+      <div class="vuestic-page-not-found-simple__wallpaper-button col-md-12">
         <router-link :to="{ path: './dashboard' }">
           <button class="btn btn-primary vuestic-page-not-found-simple__button">
             {{ 'Back to Dashboard' }}
@@ -21,21 +21,21 @@
         </router-link>
       </div>
     </div>
-    <div class="vuestic-page-not-found-simple__wallpaper vuestic-page-not-found-simple__not-found-wallpaper-sad">
+    <div class=" vuestic-page-not-found-simple__not-found-wallpaper-sad">
       <img src="https://i.imgur.com/hu80UGU.png" class="vuestic-page-not-found-simple__sad-image"/>
     </div>
-    <div class="vuestic-page-not-found-simple__footer">
-      <span>
-        ©2018. Made by &nbsp
-        <a href="http://epicmax.co"> Epicmax</a>
-      </span>
-    </div>
+    <made-by-component/>
   </div>
 </template>
 
 <script>
+import MadeByComponent from './MadyByComponent'
+
 export default {
-  name: 'vuestic-page-not-found-simple'
+  name: 'vuestic-page-not-found-simple',
+  components: {
+    MadeByComponent
+  }
 }
 </script>
 
@@ -77,7 +77,7 @@ export default {
   }
 
   &__not-found-wallpaper-sad {
-    position: absolute;
+    position: fixed;
     overflow: hidden;
     height: 40%;
     width: 100%;
@@ -86,6 +86,15 @@ export default {
   }
 
   &__wallpaper {
+    background-color: $top-nav-bg;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  &__wallpaper-button {
+    min-height: 150px;
     background-color: $top-nav-bg;
     overflow: hidden;
     display: flex;
@@ -126,14 +135,6 @@ export default {
         bottom: 0;
       }
     }
-  }
-  &__footer {
-    display: flex;
-    color: white;
-    justify-content: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
   }
 }
 </style>
