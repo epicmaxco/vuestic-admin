@@ -18,8 +18,8 @@
       </div>
       <div class="vuestic-page-not-found-custom__wallpaper col-md-12 vuestic-page-not-found-custom__wallpaper-button">
         <router-link :to="{ path: './dashboard' }">
-          <button class="btn btn-primary vuestic-page-not-found-custom__button">
-            {{ 'Back to Dashboard' }}
+          <button class="btn btn-primary">
+            {{'Back to dashboard'}}
           </button>
         </router-link>
       </div>
@@ -57,17 +57,9 @@ export default {
     z-index: 1;
     position: absolute;
     background: transparent;
-    width: 250px;
+    width: 340px;
     margin-left: 43%;
     min-height: 150px;
-  }
-
-  &__button {
-    width: 234px;
-    height: 42px;
-    padding-left: 22px;
-    padding-top: 10px;
-    font-size: 16px;
   }
 
   &__sad-image {

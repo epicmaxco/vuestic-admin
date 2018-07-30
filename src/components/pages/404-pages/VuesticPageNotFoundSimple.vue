@@ -15,8 +15,8 @@
       </div>
       <div class="vuestic-page-not-found-simple__wallpaper-button col-md-12">
         <router-link :to="{ path: './dashboard' }">
-          <button class="btn btn-primary vuestic-page-not-found-simple__button">
-            {{ 'Back to Dashboard' }}
+          <button class="btn btn-primary">
+            {{'Back to dashboard'}}
           </button>
         </router-link>
       </div>
@@ -44,14 +44,6 @@ export default {
   height: 100vh;
   background-color: $top-nav-bg;
 
-  &__button {
-    margin-top: 25px;
-    width: 234px;
-    height: 42px;
-    padding-left: 22px;
-    padding-top: 10px;
-    font-size: 16px;
-  }
 
   &__sad-image {
     width: 505px;
@@ -95,9 +87,11 @@ export default {
 
   &__wallpaper-button {
     min-height: 150px;
+    width: 340px;
     background-color: $top-nav-bg;
     overflow: hidden;
     display: flex;
+    margin-left: 43%;
     align-items: flex-start;
     justify-content: center;
   }
@@ -114,6 +108,11 @@ export default {
 
       &__message {
         justify-content: center;
+      }
+
+      &__wallpaper-button {
+        width: 100%;
+        margin-left: 0;
       }
 
       &__i-vuestic {

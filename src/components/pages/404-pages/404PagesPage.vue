@@ -75,13 +75,15 @@ export default {
 <style lang="scss">
 .not-found-pages {
   &__advanced-button {
-    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    padding-top: 14px;
+    text-align: left;
+    color: #ffffff;
     line-height: 6px;
     padding-left: 30px;
-    margin-top: 5%;
-    width: 187px;
     height: 36px;
-    border-radius: 18px;
     background-color: #4ae387;
     box-shadow: 0 4px 9.6px 0.4px rgba(79, 206, 145, 0.5);
   }
