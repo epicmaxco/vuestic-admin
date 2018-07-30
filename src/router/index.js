@@ -29,6 +29,7 @@ const EmptyParentComponent = {
 }
 
 export default new Router({
+  mode: 'history',
   routes: [
     ...demoRoutes,
     {
