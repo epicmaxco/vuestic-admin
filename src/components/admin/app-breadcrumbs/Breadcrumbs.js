@@ -131,6 +131,17 @@ export default {
           displayName: 'Line Maps'
         }
       ]
+    },
+    {
+      path: 'pages',
+      displayName: 'menu.pages',
+      disabled: true,
+      children: [
+        {
+          path: '404-pages',
+          displayName: '404 Pages'
+        }
+      ]
     }
   ]
 }
