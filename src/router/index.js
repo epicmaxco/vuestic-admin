@@ -56,16 +56,25 @@ export default new Router({
       ],
     },
     {
-      path: '/pages/not-found-advanced',
-      component: VuesticPageNotFoundSearch
-    },
-    {
-      path: '/pages/not-found-simple',
-      component: VuesticPageNotFoundSimple
-    },
-    {
-      path: '/pages/not-found-custom',
-      component: VuesticPageNotFoundCustom
+      path: '/pages',
+      component: EmptyParentComponent,
+      children: [
+        {
+          name: 'not-found-advanced',
+          path: 'not-found-advanced',
+          component: VuesticPageNotFoundSearch
+        },
+        {
+          name: 'not-found-simple',
+          path: 'not-found-simple',
+          component: VuesticPageNotFoundSimple
+        },
+        {
+          name: 'not-found-custom',
+          path: 'not-found-custom',
+          component: VuesticPageNotFoundCustom
+        }
+      ]
     },
     {
       path: '/pages/not-found-large-text',

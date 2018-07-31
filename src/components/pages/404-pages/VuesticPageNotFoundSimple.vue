@@ -10,7 +10,7 @@
       <div class="vuestic-page-not-found-simple__wallpaper col-md-12">
         <div class="row vuestic-page-not-found-simple__message">
           <h4 class="vuestic-page-not-found-simple__text-small">If you feel that it's not right, please send us a message at &nbsp</h4>
-          <a href="mailto:hello@epicmax.co">hi@epicmax.co</a>
+          <a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
         </div>
       </div>
       <div class="vuestic-page-not-found-simple__wallpaper-button col-md-12">
@@ -43,31 +43,25 @@ export default {
 .vuestic-page-not-found-simple {
   height: 100vh;
   background-color: $top-nav-bg;
-
-
   &__sad-image {
     width: 505px;
     height: 400px;
     bottom: 0;
   }
-
   &__text {
     padding-top: 10%;
     color: white;
   }
-
   &__text-small {
-    font-size: 16px;
+    font-size: $font-size-root;
     line-height: 1.5;
     text-align: center;
     color: white;
     font-weight: normal;
   }
-
   &__i-vuestic {
     margin-top: 10%;
   }
-
   &__not-found-wallpaper-sad {
     position: fixed;
     overflow: hidden;
@@ -76,7 +70,6 @@ export default {
     bottom: 0;
     padding-left: 80%;
   }
-
   &__wallpaper {
     background-color: $top-nav-bg;
     overflow: hidden;
@@ -84,46 +77,33 @@ export default {
     align-items: flex-start;
     justify-content: center;
   }
-
   &__wallpaper-button {
+    padding-top: 20px;
     min-height: 150px;
-    width: 340px;
     background-color: $top-nav-bg;
     overflow: hidden;
     display: flex;
-    margin-left: 43%;
     align-items: flex-start;
     justify-content: center;
   }
-
   &__i-vuestic {
     z-index: 2;
     height: $auth-wallpaper-ivuestic-h;
     width: 100%;
   }
-
   @include media-breakpoint-down(xs) {
     .vuestic-page-not-found-simple {
       height: $auth-mobile-main-h;
-
       &__message {
         justify-content: center;
       }
-
-      &__wallpaper-button {
-        width: 100%;
-        margin-left: 0;
-      }
-
       &__i-vuestic {
         margin-top: 5%;
       }
-
       &__not-found-wallpaper-sad {
         padding: 0;
         height: 45%;
       }
-
       &__text-small {
         font-size: 15px;
       }
