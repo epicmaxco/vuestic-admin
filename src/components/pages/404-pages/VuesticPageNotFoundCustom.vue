@@ -13,7 +13,7 @@
       <div class="vuestic-page-not-found-custom__wallpaper col-md-12">
         <div class="row vuestic-page-not-found-custom__message">
           <h4 class="vuestic-page-not-found-custom__text-small">If you feel that it's not right, please send us a message at &nbsp</h4>
-          <a href="mailto:hello@epicmax.co">hi@epicmax.co</a>
+          <a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
         </div>
       </div>
       <div class="vuestic-page-not-found-custom__wallpaper col-md-12 vuestic-page-not-found-custom__wallpaper-button">
@@ -51,52 +51,47 @@ export default {
     padding-top: 30px;
     width: 30%;
     margin-right: 3%;
+    min-width: 350px;
   }
-
   &__wallpaper-button {
-    z-index: 1;
-    position: absolute;
-    background: transparent;
-    width: 340px;
-    margin-left: 43%;
+    padding-top: 20px;
     min-height: 150px;
+    background-color: $top-nav-bg;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
   }
-
   &__sad-image {
     width: 505px;
     height: 400px;
     bottom: 0;
   }
-
   &__text {
     padding-top: 3%;
     color: white;
   }
-
   &__text-small {
-    font-size: 16px;
+    font-size: $font-size-root;
     line-height: 1.5;
     text-align: center;
     color: white;
     font-weight: normal;
   }
-
   &__i-vuestic {
     margin-top: 3%;
     z-index: 2;
     height: $auth-wallpaper-ivuestic-h;
     width: 100%;
   }
-
   &__not-found-wallpaper-sad {
+    position: fixed;
     overflow: hidden;
-    position: absolute;
     height: 40%;
     width: 100%;
     bottom: 0;
     padding-left: 80%;
   }
-
   &__wallpaper {
     overflow: hidden;
     background-color: $top-nav-bg;
@@ -104,7 +99,6 @@ export default {
     align-items: flex-start;
     justify-content: center;
   }
-
   @include media-breakpoint-down(xs) {
     .vuestic-page-not-found-custom {
       overflow: hidden;
@@ -113,32 +107,26 @@ export default {
       &__custom-image {
         width: 90%;
       }
-
       &__sad-image {
         width: 200px;
         height: 200px;
         overflow: hidden;
       }
-
       &__wallpaper-button {
         width: 100%;
         margin-left: 0;
       }
-
       &__message {
         justify-content: center;
       }
-
       &__i-vuestic {
         margin-top: 5%;
       }
-
       &__not-found-wallpaper-sad {
         overflow: hidden;
         height: 25%;
         padding-left: 50%;
       }
-
       &__text-small {
         font-size: 15px;
       }
