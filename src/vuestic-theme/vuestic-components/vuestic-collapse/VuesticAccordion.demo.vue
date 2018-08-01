@@ -9,9 +9,7 @@
                 Expand This Block
               </div>
               <div slot="collapse-body">
-                <div>
-                  Expand first content
-                </div>
+                Expand first content
               </div>
             </vuestic-collapse>
             <vuestic-collapse :selected="true">
@@ -19,9 +17,7 @@
                 Another Block
               </div>
               <div slot="collapse-body">
-                <div>
-                  Expand second content
-                </div>
+                Expand second content
               </div>
             </vuestic-collapse>
             <vuestic-collapse :selected="true">
@@ -29,9 +25,7 @@
                 Let's Go
               </div>
               <div slot="collapse-body">
-                <div>
-                  Expand three content
-                </div>
+                Expand three content
               </div>
             </vuestic-collapse>
           </vuestic-accordion>
@@ -42,10 +36,10 @@
 </template>
 
 <script>
-  import VuesticCollapse from './VuesticCollapse.vue'
-  import VuesticAccordion from './VuesticAccordion.vue'
+import VuesticCollapse from './VuesticCollapse.vue'
+import VuesticAccordion from './VuesticAccordion.vue'
 
-  export default {
-    components: { VuesticCollapse, VuesticAccordion },
-  }
+export default {
+  components: { VuesticCollapse, VuesticAccordion },
+}
 </script>
