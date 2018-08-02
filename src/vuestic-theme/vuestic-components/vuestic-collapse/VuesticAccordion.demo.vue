@@ -42,12 +42,12 @@
 </template>
 
 <script>
-  import VuesticCollapse from './VuesticCollapse.vue'
-  import VuesticAccordion from './VuesticAccordion.vue'
+import VuesticCollapse from './VuesticCollapse.vue'
+import VuesticAccordion from './VuesticAccordion.vue'
 
-  export default {
-    components: { VuesticCollapse, VuesticAccordion },
-  }
+export default {
+  components: { VuesticCollapse, VuesticAccordion },
+}
 </script>
 
 <style lang="scss">
