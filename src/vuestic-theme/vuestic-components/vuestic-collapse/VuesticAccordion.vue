@@ -7,6 +7,12 @@
 <script>
   export default {
     name: 'vuestic-accordion',
+    props: {
+      expand: {
+        type: Boolean,
+        default: false
+      }
+    }
   }
 </script>
 

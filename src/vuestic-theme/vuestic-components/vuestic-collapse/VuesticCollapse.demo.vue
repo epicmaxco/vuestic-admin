@@ -4,13 +4,21 @@
       <div class="row">
         <div class="col-lg-12">
           <vuestic-collapse>
-            <div slot="collapse-header">
-              Let's Go
+            <div slot="header">
+              <button class="btn btn-primary">
+                <span> First Button </span>
+              </button>
+              <button class="btn btn-primary">
+                <span> Second Button </span>
+              </button>
             </div>
-            <div slot="collapse-body">
-              <div>
-                Expand three content
-              </div>
+            <div slot="body">
+              <div> Expand three content </div>
+              <div> Expand three content </div>
+              <div> Expand three content </div>
+              <div> Expand three content </div>
+              <div> Expand three content </div>
+              <div> Expand three content </div>
             </div>
           </vuestic-collapse>
         </div>

@@ -3,33 +3,33 @@
     <div class="demo-container__item" style="width: 900px;">
       <div class="row">
         <div class="col-lg-12">
-          <vuestic-accordion>
-            <vuestic-collapse :selected="true">
-              <div slot="collapse-header">
-                Expand This Block
-              </div>
-              <div slot="collapse-body">
-                <div>
+          <vuestic-accordion expand>
+            <vuestic-collapse>
+              <button class="btn btn-primary" slot="header">
+                <span> Expand This Block </span>
+              </button>
+              <div slot="body">
+                <div class="content-wrapper">
                   Expand first content
                 </div>
               </div>
             </vuestic-collapse>
-            <vuestic-collapse :selected="true">
-              <div slot="collapse-header">
-                Another Block
-              </div>
-              <div slot="collapse-body">
-                <div>
+            <vuestic-collapse>
+              <button class="btn btn-primary" slot="header">
+                <span> Another Block </span>
+              </button>
+              <div slot="body">
+                <div class="content-wrapper">
                   Expand second content
                 </div>
               </div>
             </vuestic-collapse>
-            <vuestic-collapse :selected="true">
-              <div slot="collapse-header">
-                Let's Go
-              </div>
-              <div slot="collapse-body">
-                <div>
+            <vuestic-collapse>
+              <button class="btn btn-primary" slot="header">
+                <span> Let's Go </span>
+              </button>
+              <div slot="body">
+                <div class="content-wrapper">
                   Expand three content
                 </div>
               </div>
@@ -49,3 +49,9 @@
     components: { VuesticCollapse, VuesticAccordion },
   }
 </script>
+
+<style lang="scss">
+  .content-wrapper {
+    padding: 10px;
+  }
+</style>
