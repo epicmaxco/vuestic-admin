@@ -48,7 +48,7 @@
 
 <script>
 import CategoriesConfig from './CategoriesConfig'
-import MadeByComponent from './MadyByComponent'
+import MadeByComponent from './MadeByComponent'
 
 export default {
   name: 'vuestic-page-not-found-search',

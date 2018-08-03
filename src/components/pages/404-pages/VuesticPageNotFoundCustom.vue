@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import MadeByComponent from './MadyByComponent'
+import MadeByComponent from './MadeByComponent'
 
 export default {
   name: 'vuestic-page-not-found-custom',
