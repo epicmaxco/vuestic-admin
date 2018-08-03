@@ -11,7 +11,7 @@
               :to="{ name: 'not-found-advanced' }"
               target="_blank"
             >
-              <button class="btn btn-primary not-found-pages__advanced-button">
+              <button class="btn btn-primary btn-sm not-found-pages__advanced-button">
                 {{ 'View Example' }}
               </button>
             </router-link>
@@ -26,7 +26,7 @@
               :to="{ name: 'not-found-simple' }"
               target="_blank"
             >
-              <button class="btn btn-primary not-found-pages__advanced-button">
+              <button class="btn btn-primary btn-sm not-found-pages__advanced-button">
                 {{ 'View Example' }}
               </button>
             </router-link>
@@ -41,7 +41,7 @@
               :to="{ name: 'not-found-custom' }"
               target="_blank"
             >
-              <button class="btn btn-primary not-found-pages__advanced-button">
+              <button class="btn btn-primary btn-sm not-found-pages__advanced-button">
                 {{ 'View Example' }}
               </button>
             </router-link>
@@ -56,7 +56,7 @@
               :to="{ name: 'not-found-large-text' }"
               target="_blank"
             >
-              <button class="btn btn-primary not-found-pages__advanced-button">
+              <button class="btn btn-primary btn-sm not-found-pages__advanced-button">
                 {{ 'View Example' }}
               </button>
             </router-link>
@@ -69,40 +69,28 @@
 
 <script>
 
-import VuesticWidget
-  from '../../../vuestic-theme/vuestic-components/vuestic-widget/VuesticWidget'
-import VuesticCard
-  from '../../../vuestic-theme/vuestic-components/vuestic-card/VuesticCard'
-
 export default {
-  name: 'not-found-pages',
-  components: {
-    VuesticCard,
-    VuesticWidget
-  }
+  name: 'not-found-pages'
 }
 </script>
 
 <style lang="scss">
 .not-found-pages {
-  &__cards {
+  $cardGutter: #{(19/16)}rem;
+  .vuestic-card.not-found-pages__cards {
     min-width: 220px;
     text-align: center;
+    margin: 0 $cardGutter calc(#{$cardGutter} * 2) $cardGutter;
   }
   &__button-container {
+    .btn.not-found-pages__advanced-button {
+      font-size: $font-size-root;
+      font-weight: $font-weight-bold;
+      padding-left: 0;
+      padding-right: 0;
+      width: 180px;
+    }
     text-align: center;
-  }
-  &__advanced-button {
-    font-size: $font-size-root;
-    font-weight: $font-weight-bold;
-    letter-spacing: 1.3px;
-    line-height: 6px;
-    text-align: center;
-    padding-left: 40px;
-    justify-content: center;
-    width: 180px;
-    background-color: $vue-green;
-    box-shadow: $greeny-box-shadow;
   }
 }
 </style>
