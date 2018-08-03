@@ -1,7 +1,6 @@
 <template>
   <li class="sidebar-link-group sidebar-link">
-    <a href="#"
-       target="_self"
+    <a target="_self"
        @click="toggleMenuItem()"
        class="sidebar-link__router-link"
        :class="classObject">
