@@ -7,7 +7,10 @@
           image="https://i.imgur.com/GzUR0Wz.png">
           {{ 'Advanced layout' }}
           <div class="not-found-pages__button-container  pt-3 mb-0">
-            <router-link :to="{ path: '/pages/not-found-advanced' }">
+            <router-link
+              :to="{ name: 'not-found-advanced' }"
+              target="_blank"
+            >
               <button class="btn btn-primary not-found-pages__advanced-button">
                 {{ 'View Example' }}
               </button>
@@ -19,7 +22,10 @@
           image="https://i.imgur.com/HttcXPi.png">
           {{ 'Simple' }}
           <div class="not-found-pages__button-container pt-3 mb-0">
-            <router-link :to="{ path: '/pages/not-found-simple' }">
+            <router-link
+              :to="{ name: 'not-found-simple' }"
+              target="_blank"
+            >
               <button class="btn btn-primary not-found-pages__advanced-button">
                 {{ 'View Example' }}
               </button>
@@ -31,7 +37,10 @@
           image="https://i.imgur.com/dlcZMiG.png">
           {{ 'Custom image' }}
           <div class="not-found-pages__button-container pt-3 mb-0">
-            <router-link :to="{ path: '/pages/not-found-custom' }">
+            <router-link
+              :to="{ name: 'not-found-custom' }"
+              target="_blank"
+            >
               <button class="btn btn-primary not-found-pages__advanced-button">
                 {{ 'View Example' }}
               </button>
@@ -43,7 +52,10 @@
           image="https://i.imgur.com/qcOlDz7.png">
           {{ 'Large text heading' }}
           <div class="not-found-pages__button-container pt-3 mb-0">
-            <router-link :to="{ path: '/pages/not-found-large-text' }">
+            <router-link
+              :to="{ name: 'not-found-large-text' }"
+              target="_blank"
+            >
               <button class="btn btn-primary not-found-pages__advanced-button">
                 {{ 'View Example' }}
               </button>

@@ -3,14 +3,6 @@ import Router from 'vue-router'
 import AppLayout from '../components/admin/AppLayout'
 import AuthLayout from '../components/auth/AuthLayout'
 import lazyLoading from './lazyLoading'
-import VuesticPageNotFoundSearch
-  from '../components/pages/404-pages/VuesticPageNotFoundSearch'
-import VuesticPageNotFoundSimple
-  from '../components/pages/404-pages/VuesticPageNotFoundSimple'
-import VuesticPageNotFoundCustom
-  from '../components/pages/404-pages/VuesticPageNotFoundCustom'
-import VuesticPageNotFoundLargeText
-  from '../components/pages/404-pages/VuesticPageNotFoundLargeText'
 
 Vue.use(Router)
 
@@ -56,29 +48,30 @@ export default new Router({
       ],
     },
     {
-      path: '/pages',
+      path: '/404',
       component: EmptyParentComponent,
       children: [
         {
           name: 'not-found-advanced',
           path: 'not-found-advanced',
-          component: VuesticPageNotFoundSearch
+          component: lazyLoading('pages/404-pages/VuesticPageNotFoundSearch')
         },
         {
           name: 'not-found-simple',
           path: 'not-found-simple',
-          component: VuesticPageNotFoundSimple
+          component: lazyLoading('pages/404-pages/VuesticPageNotFoundSimple')
         },
         {
           name: 'not-found-custom',
           path: 'not-found-custom',
-          component: VuesticPageNotFoundCustom
+          component: lazyLoading('pages/404-pages/VuesticPageNotFoundCustom')
+        },
+        {
+          name: 'not-found-large-text',
+          path: '/pages/not-found-large-text',
+          component: lazyLoading('pages/404-pages/VuesticPageNotFoundLargeText')
         }
       ]
-    },
-    {
-      path: '/pages/not-found-large-text',
-      component: VuesticPageNotFoundLargeText
     },
     {
       name: 'Admin',
