@@ -49,7 +49,7 @@ export default {
   background-color: $top-nav-bg;
 
   &__custom-image {
-    padding-top: 30px;
+    padding-top: 60px;
     width: 30%;
     margin-right: 3%;
     min-width: 350px;
@@ -93,6 +93,8 @@ export default {
 
       &__custom-image {
         width: 90%;
+        padding-top: 30px;
+        margin-right: 30px;
       }
       &__sad-image {
         width: 200px;

@@ -51,6 +51,10 @@ export default {
   &__number {
     font-size: 350px;
     text-align: center;
+    line-height: 1.4;
+    letter-spacing: 15px;
+    margin-right: -15px;
+    margin-bottom: 0;
     color: white;
   }
   &__text {
