@@ -2,7 +2,7 @@
   <li class="sidebar-link-group sidebar-link">
     <a href="#"
        target="_self"
-       @click="toggleMenuItem()"
+       @click.stop.prevent="toggleMenuItem()"
        class="sidebar-link__router-link"
        :class="classObject">
       <slot name="title"></slot>

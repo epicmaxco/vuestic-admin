@@ -13,78 +13,60 @@
       <div class="vuestic-page-not-found-large-text__wallpaper col-md-12">
         <div class="row vuestic-page-not-found-large-text__message">
           <h4 class="vuestic-page-not-found-large-text__text-small">If you feel that it's not right, please send us a message at &nbsp</h4>
-          <a href="mailto:hello@epicmax.co">hi@epicmax.co</a>
+          <a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
         </div>
       </div>
       <div class="vuestic-page-not-found-large-text__wallpaper-button col-md-12">
         <router-link :to="{ path: './dashboard' }">
-          <button class="btn btn-primary">
+          <button class="btn btn-primary back-button">
             {{'Back to dashboard'}}
           </button>
         </router-link>
       </div>
     </div>
-    <div class="vuestic-page-not-found-large-text__not-found-wallpaper-sad">
-      <img src="https://i.imgur.com/hu80UGU.png" class="vuestic-page-not-found-large-text__sad-image"/>
-    </div>
+    <vuestic-page-not-found-sad-wallpaper/>
     <made-by-component/>
   </div>
 </template>
 
 <script>
-import MadeByComponent from './MadyByComponent'
+import MadeByComponent from './MadeByComponent'
+import VuesticPageNotFoundSadWallpaper from './VuesticPageNotFoundSadWallpaper.vue'
 
 export default {
   name: 'vuestic-page-not-found-large-text',
   components: {
-    MadeByComponent
+    MadeByComponent,
+    VuesticPageNotFoundSadWallpaper
   }
 }
 </script>
 
 <style lang="scss">
 .vuestic-page-not-found-large-text {
-  height: 100vh;
+  min-height: 100vh;
+  padding-bottom: 84px;
   background-color: $top-nav-bg;
 
   &__number {
-    font-size: 250px;
+    font-size: 350px;
     text-align: center;
+    line-height: 1.4;
+    letter-spacing: 15px;
+    margin-right: -15px;
+    margin-bottom: 0;
     color: white;
   }
-
-  &__sad-image {
-    width: 505px;
-    height: 400px;
-    bottom: 0;
-  }
-
   &__text {
-    padding-top: 3%;
     color: white;
   }
-
   &__text-small {
-    font-size: 16px;
+    font-size: $font-size-root;
     line-height: 1.5;
     text-align: center;
     color: white;
     font-weight: normal;
   }
-
-  &__i-vuestic {
-    margin-top: 3%;
-  }
-
-  &__not-found-wallpaper-sad {
-    position: absolute;
-    overflow: hidden;
-    height: 40%;
-    width: 100%;
-    bottom: 0;
-    padding-left: 80%;
-  }
-
   &__wallpaper {
     background-color: $top-nav-bg;
     overflow: hidden;
@@ -92,57 +74,43 @@ export default {
     align-items: flex-start;
     justify-content: center;
   }
-
   &__wallpaper-button {
-    min-height: 150px;
-    width: 340px;
+    padding-top: 20px;
     background-color: $top-nav-bg;
     overflow: hidden;
     display: flex;
-    margin-left: 43%;
     align-items: flex-start;
     justify-content: center;
   }
-
   &__i-vuestic {
     z-index: 2;
+    margin-top: 8%;
     height: $auth-wallpaper-ivuestic-h;
     width: 100%;
   }
-
   @include media-breakpoint-down(xs) {
     .vuestic-page-not-found-large-text {
       height: $auth-mobile-main-h;
 
-      &__sad-image {
-        width: 360px;
-        height: 300px;
-        padding-left: 100px;
-        bottom: 0;
-      }
-
       &__wallpaper-button {
         width: 100%;
         margin-left: 0;
-      }
 
+        .back-button {
+          max-width: 300px;
+          padding-left: 30px;
+          padding-right: 30px;
+        }
+      }
       &__number {
         font-size: 150px;
       }
-
       &__message {
         justify-content: center;
       }
-
       &__i-vuestic {
         margin-top: 5%;
       }
-
-      &__not-found-wallpaper-sad {
-        padding: 0;
-        height: 36%;
-      }
-
       &__text-small {
         font-size: 15px;
       }
