@@ -18,7 +18,7 @@
       </div>
       <div class="vuestic-page-not-found-large-text__wallpaper-button col-md-12">
         <router-link :to="{ path: './dashboard' }">
-          <button class="btn btn-primary">
+          <button class="btn btn-primary back-button">
             {{'Back to dashboard'}}
           </button>
         </router-link>
@@ -91,6 +91,12 @@ export default {
       &__wallpaper-button {
         width: 100%;
         margin-left: 0;
+
+        .back-button {
+          max-width: 300px;
+          padding-left: 30px;
+          padding-right: 30px;
+        }
       }
       &__number {
         font-size: 150px;
