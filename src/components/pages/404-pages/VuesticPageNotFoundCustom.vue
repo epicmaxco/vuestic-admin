@@ -24,27 +24,28 @@
         </router-link>
       </div>
     </div>
-    <div class="vuestic-page-not-found-custom__not-found-wallpaper-sad">
-      <img src="https://i.imgur.com/hu80UGU.png" class="vuestic-page-not-found-custom__sad-image"/>
-    </div>
+    <vuestic-page-not-found-sad-wallpaper/>
     <made-by-component/>
   </div>
 </template>
 
 <script>
 import MadeByComponent from './MadeByComponent'
+import VuesticPageNotFoundSadWallpaper from './VuesticPageNotFoundSadWallpaper.vue'
 
 export default {
   name: 'vuestic-page-not-found-custom',
   components: {
-    MadeByComponent
+    MadeByComponent,
+    VuesticPageNotFoundSadWallpaper
   }
 }
 </script>
 
 <style lang="scss">
 .vuestic-page-not-found-custom {
-  height: 100vh;
+  min-height: 100vh;
+  padding-bottom: 84px;
   background-color: $top-nav-bg;
 
   &__custom-image {
@@ -55,17 +56,11 @@ export default {
   }
   &__wallpaper-button {
     padding-top: 20px;
-    min-height: 150px;
     background-color: $top-nav-bg;
     overflow: hidden;
     display: flex;
     align-items: flex-start;
     justify-content: center;
-  }
-  &__sad-image {
-    width: 505px;
-    height: 400px;
-    bottom: 0;
   }
   &__text {
     padding-top: 3%;
@@ -83,14 +78,6 @@ export default {
     z-index: 2;
     height: $auth-wallpaper-ivuestic-h;
     width: 100%;
-  }
-  &__not-found-wallpaper-sad {
-    position: fixed;
-    overflow: hidden;
-    height: 40%;
-    width: 100%;
-    bottom: 0;
-    padding-left: 80%;
   }
   &__wallpaper {
     overflow: hidden;

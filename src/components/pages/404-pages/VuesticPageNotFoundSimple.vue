@@ -21,33 +21,29 @@
         </router-link>
       </div>
     </div>
-    <div class=" vuestic-page-not-found-simple__not-found-wallpaper-sad">
-      <img src="https://i.imgur.com/hu80UGU.png" class="vuestic-page-not-found-simple__sad-image"/>
-    </div>
+    <vuestic-page-not-found-sad-wallpaper/>
     <made-by-component/>
   </div>
 </template>
 
 <script>
 import MadeByComponent from './MadeByComponent'
+import VuesticPageNotFoundSadWallpaper from './VuesticPageNotFoundSadWallpaper.vue'
 
 export default {
   name: 'vuestic-page-not-found-simple',
   components: {
-    MadeByComponent
+    MadeByComponent,
+    VuesticPageNotFoundSadWallpaper
   }
 }
 </script>
 
 <style lang="scss">
 .vuestic-page-not-found-simple {
-  height: 100vh;
+  min-height: 100vh;
+  padding-bottom: 84px;
   background-color: $top-nav-bg;
-  &__sad-image {
-    width: 505px;
-    height: 400px;
-    bottom: 0;
-  }
   &__text {
     padding-top: 10%;
     color: white;
@@ -62,14 +58,6 @@ export default {
   &__i-vuestic {
     margin-top: 10%;
   }
-  &__not-found-wallpaper-sad {
-    position: fixed;
-    overflow: hidden;
-    height: 40%;
-    width: 100%;
-    bottom: 0;
-    padding-left: 80%;
-  }
   &__wallpaper {
     background-color: $top-nav-bg;
     overflow: hidden;
@@ -79,7 +67,6 @@ export default {
   }
   &__wallpaper-button {
     padding-top: 20px;
-    min-height: 150px;
     background-color: $top-nav-bg;
     overflow: hidden;
     display: flex;
@@ -100,18 +87,8 @@ export default {
       &__i-vuestic {
         margin-top: 5%;
       }
-      &__not-found-wallpaper-sad {
-        padding: 0;
-        height: 45%;
-      }
       &__text-small {
         font-size: 15px;
-      }
-      &__sad-image {
-        width: 460px;
-        height: 400px;
-        padding-left: 100px;
-        bottom: 0;
       }
     }
   }

@@ -39,9 +39,7 @@
         </div>
       </div>
     </div>
-    <div class="vuestic-page-not-found-search__not-found-wallpaper-sad">
-      <img src="https://i.imgur.com/hu80UGU.png" class="vuestic-page-not-found-search__sad-image"/>
-    </div>
+    <vuestic-page-not-found-sad-wallpaper/>
     <made-by-component/>
   </div>
 </template>
@@ -49,11 +47,13 @@
 <script>
 import CategoriesConfig from './CategoriesConfig'
 import MadeByComponent from './MadeByComponent'
+import VuesticPageNotFoundSadWallpaper from './VuesticPageNotFoundSadWallpaper.vue'
 
 export default {
   name: 'vuestic-page-not-found-search',
   components: {
-    MadeByComponent
+    MadeByComponent,
+    VuesticPageNotFoundSadWallpaper
   },
   data () {
     return {
@@ -83,14 +83,10 @@ export default {
 
 <style lang="scss">
 .vuestic-page-not-found-search {
-  height: 100vh;
+  min-height: 100vh;
+  padding-bottom: 84px;
   background-color: $top-nav-bg;
 
-  &__sad-image {
-    width: 505px;
-    height: 400px;
-    bottom: 0;
-  }
   &__text {
     padding-top: 50px;
     color: white;
@@ -111,14 +107,6 @@ export default {
   &__input {
     width: 310px;
   }
-  &__not-found-wallpaper-sad {
-    position: fixed;
-    overflow: hidden;
-    height: 40%;
-    width: 100%;
-    bottom: 0;
-    padding-left: 80%;
-  }
   &__wallpaper {
     max-height: 40%;
     display: flex;
@@ -133,12 +121,6 @@ export default {
     .vuestic-page-not-found-search {
       height: $auth-mobile-main-h;
 
-      &__sad-image {
-        width: 260px;
-        height: 200px;
-        padding-left: 100px;
-        bottom: 0;
-      }
       &__message {
         justify-content: center;
       }
@@ -150,10 +132,6 @@ export default {
       }
       &__i-vuestic {
         margin-top: 5%;
-      }
-      &__not-found-wallpaper-sad {
-        padding: 0;
-        height: 25%;
       }
       &__text-small {
         font-size: 15px;

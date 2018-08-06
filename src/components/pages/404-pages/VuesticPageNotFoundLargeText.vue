@@ -24,38 +24,34 @@
         </router-link>
       </div>
     </div>
-    <div class="vuestic-page-not-found-large-text__not-found-wallpaper-sad">
-      <img src="https://i.imgur.com/hu80UGU.png" class="vuestic-page-not-found-large-text__sad-image"/>
-    </div>
+    <vuestic-page-not-found-sad-wallpaper/>
     <made-by-component/>
   </div>
 </template>
 
 <script>
 import MadeByComponent from './MadeByComponent'
+import VuesticPageNotFoundSadWallpaper from './VuesticPageNotFoundSadWallpaper.vue'
 
 export default {
   name: 'vuestic-page-not-found-large-text',
   components: {
-    MadeByComponent
+    MadeByComponent,
+    VuesticPageNotFoundSadWallpaper
   }
 }
 </script>
 
 <style lang="scss">
 .vuestic-page-not-found-large-text {
-  height: 100vh;
+  min-height: 100vh;
+  padding-bottom: 84px;
   background-color: $top-nav-bg;
 
   &__number {
     font-size: 350px;
     text-align: center;
     color: white;
-  }
-  &__sad-image {
-    width: 505px;
-    height: 400px;
-    bottom: 0;
   }
   &__text {
     color: white;
@@ -67,14 +63,6 @@ export default {
     color: white;
     font-weight: normal;
   }
-  &__not-found-wallpaper-sad {
-    position: absolute;
-    overflow: hidden;
-    height: 40%;
-    width: 100%;
-    bottom: 0;
-    padding-left: 80%;
-  }
   &__wallpaper {
     background-color: $top-nav-bg;
     overflow: hidden;
@@ -84,7 +72,6 @@ export default {
   }
   &__wallpaper-button {
     padding-top: 20px;
-    min-height: 150px;
     background-color: $top-nav-bg;
     overflow: hidden;
     display: flex;
@@ -101,12 +88,6 @@ export default {
     .vuestic-page-not-found-large-text {
       height: $auth-mobile-main-h;
 
-      &__sad-image {
-        width: 360px;
-        height: 300px;
-        padding-left: 100px;
-        bottom: 0;
-      }
       &__wallpaper-button {
         width: 100%;
         margin-left: 0;
@@ -119,10 +100,6 @@ export default {
       }
       &__i-vuestic {
         margin-top: 5%;
-      }
-      &__not-found-wallpaper-sad {
-        padding: 0;
-        height: 36%;
       }
       &__text-small {
         font-size: 15px;
