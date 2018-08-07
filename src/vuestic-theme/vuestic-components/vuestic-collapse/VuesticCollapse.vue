@@ -61,7 +61,7 @@
 
     &__body {
       height: 0;
-      transition: height 1s;
+      transition: height 0.3s;
       margin-top: 20px;
       background: $light-gray;
       overflow: hidden;
