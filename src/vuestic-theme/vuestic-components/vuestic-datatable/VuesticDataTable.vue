@@ -64,6 +64,7 @@
   import FilterBar from './datatable-components/FilterBar.vue'
   import ItemsPerPage from './datatable-components/ItemsPerPage.vue'
   import DefaultPerPageDefinition from './data/items-per-page-definition'
+  import QueryParams from './data/query-params'
   import Vue from 'vue'
   import DataTableStyles from '../vuestic-datatable/data/data-table-styles'
   import SpringSpinner from 'epic-spinners/src/components/lib/SpringSpinner'
@@ -150,7 +151,14 @@
         default: ''
       },
       queryParams: {
-        type: Object
+        type: Object,
+        default: () => QueryParams
+      },
+      appendParams: {
+        type: Object,
+        default () {
+          return {}
+        }
       }
     },
     data () {
@@ -172,9 +180,8 @@
         }
       },
       moreParams () {
-        return {
-          [this.filterQuery]: this.filterText
-        }
+        this.appendParams[this.filterQuery] = this.filterText
+        return this.appendParams
       },
       dataModeFilterableFieldsComputed () {
         const dataItem = this.tableData.data[0] || {}
