@@ -1,0 +1,18 @@
+// Global utility classes.
+// NOTE Try you best not to use them. Seek a chance to destroy.
+
+@import "typography";
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.none {
+  display: none;
+}
+
+.pointer {
+  cursor: pointer;
+}
