@@ -152,6 +152,11 @@ export default new Router({
               component: lazyLoading('ui/color-pickers/ColorPickers'),
             },
             {
+              name: 'timelines',
+              path: 'timelines',
+              component: lazyLoading('ui/timelines/Timelines')
+            },
+            {
               name: 'notifications',
               path: 'notifications',
               component: lazyLoading('ui/notifications/Notifications'),

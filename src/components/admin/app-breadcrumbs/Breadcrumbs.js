@@ -64,6 +64,10 @@ export default {
           displayName: 'menu.colorPickers'
         },
         {
+          path: 'timelines',
+          displayName: 'menu.timelines'
+        },
+        {
           path: 'notifications',
           displayName: 'menu.notifications'
         },

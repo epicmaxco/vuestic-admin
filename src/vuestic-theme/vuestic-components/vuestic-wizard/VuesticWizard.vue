@@ -20,7 +20,7 @@
       </div>
 
       <div class="wizard-body-step" v-show="wizardCompleted">
-        <slot :name="wizardCompletedSlotName" class="step-content"></slot>
+        <slot :name="wizardCompletedSlotName" clasчs="step-content"></slot>
       </div>
 
 

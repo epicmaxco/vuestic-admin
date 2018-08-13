@@ -1,17 +1,24 @@
 <template>
     <ul class="wizard-steps horizontal-steps simple-steps" :class="{'completed': completed}">
       <li class="wizard-step" :class="{'active': currentStep >= index, 'current': currentStep === index}" :style="{ width: 100/steps.length + '%' }" v-for="(step, index) of steps">
+        <vuestic-card class="wizard-step-card vuestic-card--stripe-success" v-if="step.cardInfo">
+          <p slot="title">{{ step.label }}</p>
+          {{ $t(step.cardInfo) }}
+        </vuestic-card>
         <span class="wizard-step-line"></span>
         <span class="wizard-step-line completed-line"></span>
-        <span class="wizard-step-label ellipsis">{{step.label}}</span>
+        <span v-if="!step.cardInfo" class="wizard-step-label ellipsis">{{step.label}}</span>
+        <span class="wizard-step-info" v-if="step.info">{{step.info}}</span>
         <span class="wizard-step-indicator"></span>
       </li>
     </ul>
 </template>
 
 <script>
+  import VuesticCard from '../../vuestic-card/VuesticCard'
   export default {
     name: 'vuestic-wizard-simple-horizontal-indicator',
+    components: { VuesticCard },
     props: {
       steps: {
         type: Array,
@@ -80,13 +87,16 @@
       height:  $wizard-step-indicator-height;
       background-color: $lighter-gray;
       border-radius: 50%;
-      position:  absolute;
+      position: absolute;
       left:  50%;
-      margin-left:  -7px;
-      bottom:  5px;
+      margin-left: -7px;
+      bottom: 5px;
       z-index: 1;
       transition: background-color 300ms linear;
+    }
 
+    .wizard-step-card {
+      width: 300px;
     }
 
     .wizard-step-label{

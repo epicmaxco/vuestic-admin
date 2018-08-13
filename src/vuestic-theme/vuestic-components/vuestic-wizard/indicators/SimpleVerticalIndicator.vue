@@ -1,17 +1,23 @@
 <template>
     <ul class="wizard-steps horizontal-steps simple-steps" :class="{'completed': completed}">
       <li class="wizard-step" :class="{'active': currentStep >= index, 'current': currentStep === index}" :style="{ height: 100/steps.length + '%' }" v-for="(step, index) of steps">
+        <vuestic-card class="wizard-step-card vuestic-card--stripe-success" v-if="step.cardInfo">
+          <p slot="title">{{ step.label }}</p>
+          {{ $t(step.cardInfo) }}
+        </vuestic-card>
         <span class="wizard-step-line"></span>
         <span class="wizard-step-line completed-line"></span>
-        <span class="wizard-step-label ellipsis">{{step.label}}</span>
+        <span v-if="!step.cardInfo" class="wizard-step-label ellipsis">{{step.label}}</span>
         <span class="wizard-step-indicator"></span>
       </li>
     </ul>
 </template>
 
 <script>
+  import VuesticCard from '../../vuestic-card/VuesticCard'
   export default {
     name: 'vuestic-wizard-simple-horizontal-indicator',
+    components: { VuesticCard },
     props: {
       steps: {
         type: Array,
@@ -90,7 +96,10 @@
       bottom:  5px;
       z-index: 1;
       transition: background-color 300ms linear;
+    }
 
+    .wizard-step-card {
+      width: 400px;
     }
 
     .wizard-step-label{
