@@ -37,34 +37,34 @@
 </template>
 
 <script>
-  export default {
-    name: 'tree-view-editable-preview',
-    data () {
-      return {
-        electronics: [
-          { id: 1, name: 'Cellphones' },
-          { id: 2, name: 'Camera Body Kits' },
-          { id: 3, name: 'External HDDs' },
-        ],
-        products: [
-          { id: 4, name: 'Cables' },
-          { id: 5, name: 'Monitors' },
-          { id: 6, name: 'Keyboards' },
-        ],
-      }
+export default {
+  name: 'tree-view-editable-preview',
+  data () {
+    return {
+      electronics: [
+        { id: 1, name: 'Cellphones' },
+        { id: 2, name: 'Camera Body Kits' },
+        { id: 3, name: 'External HDDs' },
+      ],
+      products: [
+        { id: 4, name: 'Cables' },
+        { id: 5, name: 'Monitors' },
+        { id: 6, name: 'Keyboards' },
+      ],
+    }
+  },
+  methods: {
+    addProduct () {
+      this.products.push({
+        id: Math.floor(Math.random() * 100000),
+        name: 'New product'
+      })
     },
-    methods: {
-      addProduct () {
-        this.products.push({
-          id: Math.floor(Math.random() * 100000),
-          name: 'New product'
-        })
-      },
-      removeProduct (product) {
-        this.products = this.products.filter(productToFilter => productToFilter !== product)
-      }
-    },
-  }
+    removeProduct (product) {
+      this.products = this.products.filter(productToFilter => productToFilter !== product)
+    }
+  },
+}
 </script>
 
 <style scoped>

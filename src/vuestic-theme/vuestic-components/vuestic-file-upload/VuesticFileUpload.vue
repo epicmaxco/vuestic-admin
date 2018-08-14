@@ -20,72 +20,72 @@
 </template>
 
 <script>
-  import VuesticFileUploadList from './VuesticFileUploadList'
-  import VuesticFileUploadContainer from './VuesticFileUploadContainer'
+import VuesticFileUploadList from './VuesticFileUploadList'
+import VuesticFileUploadContainer from './VuesticFileUploadContainer'
 
-  export default {
-    name: 'vuestic-file-upload',
-    components: {
-      VuesticFileUploadList: VuesticFileUploadList,
-      VuesticFileUploadContainer: VuesticFileUploadContainer
-    },
-    props: {
-      type: {
-        type: String,
-        default: 'list',
-        validator: function (value) {
-          return ['list', 'gallery', 'single'].indexOf(value) !== -1
-        }
-      },
-      fileTypes: {
-        type: String,
-        default: function () {
-          return this.type === 'gallery' ? '.png, .jpg, .jpeg, .gif' : ''
-        }
-      },
-      dropzone: {
-        type: Boolean,
-        default: false
-      },
-      value: {
-        default: () => []
+export default {
+  name: 'vuestic-file-upload',
+  components: {
+    VuesticFileUploadList: VuesticFileUploadList,
+    VuesticFileUploadContainer: VuesticFileUploadContainer
+  },
+  props: {
+    type: {
+      type: String,
+      default: 'list',
+      validator: function (value) {
+        return ['list', 'gallery', 'single'].indexOf(value) !== -1
       }
     },
-    methods: {
-      uploadFile (e) {
-        let files = e.target.files || e.dataTransfer.files
-
-        // type validation
-        if (this.fileTypes) {
-          files = this.validateFileTypes(files)
-        }
-        this.files.push(...files)
-      },
-      removeFile (index) {
-        this.files.splice(index, 1)
-      },
-      removeSingleFile () {
-        this.files = []
-      },
-      validateFileTypes (files) {
-        return [...files].filter(file => {
-          const fileName = file.name
-          const extn = fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase()
-          return this.fileTypes.indexOf(extn) !== -1
-        })
+    fileTypes: {
+      type: String,
+      default: function () {
+        return this.type === 'gallery' ? '.png, .jpg, .jpeg, .gif' : ''
       }
     },
-    computed: {
-      files: {
-        get () {
-          return this.value
-        },
-        set (files) {
-          this.$emit('input', files)
-        },
+    dropzone: {
+      type: Boolean,
+      default: false
+    },
+    value: {
+      default: () => []
+    }
+  },
+  methods: {
+    uploadFile (e) {
+      let files = e.target.files || e.dataTransfer.files
+
+      // type validation
+      if (this.fileTypes) {
+        files = this.validateFileTypes(files)
+      }
+      this.files.push(...files)
+    },
+    removeFile (index) {
+      this.files.splice(index, 1)
+    },
+    removeSingleFile () {
+      this.files = []
+    },
+    validateFileTypes (files) {
+      return [...files].filter(file => {
+        const fileName = file.name
+        const extn = fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase()
+        return this.fileTypes.indexOf(extn) !== -1
+      })
+    }
+  },
+  computed: {
+    files: {
+      get () {
+        return this.value
+      },
+      set (files) {
+        this.$emit('input', files)
       },
     },
-  }
+  },
+}
 </script>
 
 <style lang='scss'>

@@ -60,9 +60,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'dashboard-info-widgets'
-  }
+export default {
+  name: 'dashboard-info-widgets'
+}
 </script>
 
 <style lang="scss" scoped>

@@ -28,15 +28,14 @@ const mutations = {
   setLoading (state, isLoading) {
     state.isLoading = isLoading
   },
-  ['TOGGLE_WITHOUT_ANIMATION' ] (state, value) {
+  'TOGGLE_WITHOUT_ANIMATION' (state, value) {
     state.sidebar.withoutAnimation = value
   },
 }
 
-
 const actions = {
   isToggleWithoutAnimation ({ commit }, value) {
-    commit('TOGGLE_WITHOUT_ANIMATION' , value)
+    commit('TOGGLE_WITHOUT_ANIMATION', value)
   }
 }
 

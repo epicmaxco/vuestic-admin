@@ -50,16 +50,16 @@
 </template>
 
 <script>
-  export default {
-    name: 'file-upload',
-    data () {
-      return {
-        advancedGallery: [],
-        advancedList: [],
-        single: [],
-        gallery: [],
-        list: []
-      }
+export default {
+  name: 'file-upload',
+  data () {
+    return {
+      advancedGallery: [],
+      advancedList: [],
+      single: [],
+      gallery: [],
+      list: []
     }
   }
+}
 </script>

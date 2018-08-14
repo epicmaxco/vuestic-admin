@@ -21,7 +21,6 @@
           </vuestic-widget>
         </div>
 
-
         <div class="small-set col-lg-6">
           <vuestic-widget :headerText="$t('treeView.editable')">
             <tree-view-editable-preview/>
@@ -40,30 +39,30 @@
 </template>
 
 <script>
-  import VuesticWidget
-    from '../../../vuestic-theme/vuestic-components/vuestic-widget/VuesticWidget.vue'
-  import TreeViewBasicPreview from './TreeViewBasicPreview'
-  import TreeViewIconsPreview from './TreeViewIconsPreview'
-  import TreeViewSelectablePreview from './TreeViewSelectablePreview'
-  import TreeViewAdvancedPreview from './TreeViewAdvancedPreview'
-  import TreeViewEditablePreview from './TreeViewEditablePreview'
+import VuesticWidget
+  from '../../../vuestic-theme/vuestic-components/vuestic-widget/VuesticWidget.vue'
+import TreeViewBasicPreview from './TreeViewBasicPreview'
+import TreeViewIconsPreview from './TreeViewIconsPreview'
+import TreeViewSelectablePreview from './TreeViewSelectablePreview'
+import TreeViewAdvancedPreview from './TreeViewAdvancedPreview'
+import TreeViewEditablePreview from './TreeViewEditablePreview'
 
-  export default {
-    name: 'tree-view',
-    components: {
-      TreeViewEditablePreview,
-      TreeViewAdvancedPreview,
-      TreeViewSelectablePreview,
-      TreeViewIconsPreview,
-      TreeViewBasicPreview,
-      VuesticWidget
-    },
-    data () {
-      return {
-        treeViewData: {}
-      }
+export default {
+  name: 'tree-view',
+  components: {
+    TreeViewEditablePreview,
+    TreeViewAdvancedPreview,
+    TreeViewSelectablePreview,
+    TreeViewIconsPreview,
+    TreeViewBasicPreview,
+    VuesticWidget
+  },
+  data () {
+    return {
+      treeViewData: {}
     }
   }
+}
 </script>
 
 <style lang="scss">

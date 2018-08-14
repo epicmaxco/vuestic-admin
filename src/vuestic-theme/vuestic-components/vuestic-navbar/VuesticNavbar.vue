@@ -18,9 +18,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-navbar',
-  }
+export default {
+  name: 'vuestic-navbar',
+}
 </script>
 
 <style lang="scss">

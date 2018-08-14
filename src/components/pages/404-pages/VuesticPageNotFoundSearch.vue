@@ -9,7 +9,9 @@
       </div>
       <div class="vuestic-page-not-found-search__wallpaper col-md-12">
         <div class="row vuestic-page-not-found-search__message">
-          <h4 class="vuestic-page-not-found-search__text-small">If you feel that it's not right, please send us a message at &nbsp</h4>
+          <h4 class="vuestic-page-not-found-search__text-small">
+            If you feel that it's not right, please send us a message at &nbsp;
+          </h4>
           <a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
         </div>
       </div>
@@ -28,9 +30,17 @@
       </div>
       <div class="vuestic-page-not-found-search__wallpaper col-md-12 vuestic-page-not-found-search__not-found-wallpaper-list">
         <div class="vuestic-page-not-found-search__wrapper">
-          <ul class="vuestic-page-not-found-search__list" v-for="category in filterItems">
+          <ul
+            class="vuestic-page-not-found-search__list"
+            v-for="(category, index) in filterItems"
+            :key="index"
+          >
             {{ category.categoryName }}
-            <li class="vuestic-page-not-found-search__list-element" v-for="item in category.items">
+            <li
+              class="vuestic-page-not-found-search__list-element"
+              v-for="(item, index) in category.items"
+              :key="index"
+            >
               <router-link :to="{ path: item.itemLink }">
                 {{ item.itemName}}
               </router-link>

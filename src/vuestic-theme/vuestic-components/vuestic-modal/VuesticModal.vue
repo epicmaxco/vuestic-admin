@@ -40,114 +40,114 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-modal',
-    props: {
-      transition: {
-        type: String,
-        default: 'modal'
-      },
-      small: {
-        type: Boolean,
-        default: false
-      },
-      large: {
-        type: Boolean,
-        default: false
-      },
-      force: {
-        type: Boolean,
-        default: false
-      },
-      okText: {
-        type: String,
-        default: 'CONFIRM'
-      },
-      cancelText: {
-        type: String,
-        default: 'CANCEL'
-      },
-      okClass: {
-        type: String,
-        default: 'btn btn-primary'
-      },
-      cancelClass: {
-        type: String,
-        default: 'btn btn-secondary'
-      },
-      closeIconShown: {
-        type: Boolean,
-        default: true
-      },
-      okDisabled: {
-        type: Boolean,
-        default: false
-      },
-      cancelDisabled: {
-        type: Boolean,
-        default: false
-      }
+export default {
+  name: 'vuestic-modal',
+  props: {
+    transition: {
+      type: String,
+      default: 'modal'
     },
-    data () {
+    small: {
+      type: Boolean,
+      default: false
+    },
+    large: {
+      type: Boolean,
+      default: false
+    },
+    force: {
+      type: Boolean,
+      default: false
+    },
+    okText: {
+      type: String,
+      default: 'CONFIRM'
+    },
+    cancelText: {
+      type: String,
+      default: 'CANCEL'
+    },
+    okClass: {
+      type: String,
+      default: 'btn btn-primary'
+    },
+    cancelClass: {
+      type: String,
+      default: 'btn btn-secondary'
+    },
+    closeIconShown: {
+      type: Boolean,
+      default: true
+    },
+    okDisabled: {
+      type: Boolean,
+      default: false
+    },
+    cancelDisabled: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data () {
+    return {
+      show: false,
+      duration: 500
+    }
+  },
+  computed: {
+    modalClass () {
       return {
-        show: false,
-        duration: 500
-      }
-    },
-    computed: {
-      modalClass () {
-        return {
-          'modal-lg': this.large,
-          'modal-sm': this.small
-        }
-      }
-    },
-    created () {
-      if (this.show) {
-        document.body.className += ' modal-open'
-      }
-    },
-    beforeDestroy () {
-      document.body.className = document.body.className.replace(/\s?modal-open/, '')
-    },
-    watch: {
-      show (value) {
-        if (value) {
-          document.body.className += ' modal-open'
-        } else {
-          window.setTimeout(() => {
-            document.body.className = document.body.className.replace(/\s?modal-open/, '')
-          }, this.duration)
-        }
-      }
-    },
-    methods: {
-      listenKeyUp (event) {
-        if (event.key === 'Escape') {
-          this.cancel()
-        }
-      },
-      ok () {
-        this.$emit('ok')
-        this.show = false
-        window.removeEventListener('keyup', this.listenKeyUp)
-      },
-      cancel () {
-        this.$emit('cancel')
-        this.show = false
-        window.removeEventListener('keyup', this.listenKeyUp)
-      },
-      clickMask () {
-        if (!this.force) {
-          this.cancel()
-        }
-      },
-      open () {
-        this.show = true
-        window.addEventListener('keyup', this.listenKeyUp)
+        'modal-lg': this.large,
+        'modal-sm': this.small
       }
     }
+  },
+  created () {
+    if (this.show) {
+      document.body.className += ' modal-open'
+    }
+  },
+  beforeDestroy () {
+    document.body.className = document.body.className.replace(/\s?modal-open/, '')
+  },
+  watch: {
+    show (value) {
+      if (value) {
+        document.body.className += ' modal-open'
+      } else {
+        window.setTimeout(() => {
+          document.body.className = document.body.className.replace(/\s?modal-open/, '')
+        }, this.duration)
+      }
+    }
+  },
+  methods: {
+    listenKeyUp (event) {
+      if (event.key === 'Escape') {
+        this.cancel()
+      }
+    },
+    ok () {
+      this.$emit('ok')
+      this.show = false
+      window.removeEventListener('keyup', this.listenKeyUp)
+    },
+    cancel () {
+      this.$emit('cancel')
+      this.show = false
+      window.removeEventListener('keyup', this.listenKeyUp)
+    },
+    clickMask () {
+      if (!this.force) {
+        this.cancel()
+      }
+    },
+    open () {
+      this.show = true
+      window.addEventListener('keyup', this.listenKeyUp)
+    }
   }
+}
 </script>
 
 <style lang="scss">

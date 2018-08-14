@@ -14,14 +14,14 @@
 </template>
 
 <script>
-  import GoogleMap from './GoogleMap'
+import GoogleMap from './GoogleMap'
 
-  export default {
-    name: 'google-maps-page',
-    components: {
-      GoogleMap
-    }
+export default {
+  name: 'google-maps-page',
+  components: {
+    GoogleMap
   }
+}
 </script>
 
 <style lang="scss">
