@@ -59,237 +59,239 @@
 </template>
 
 <script>
-  import Vuetable from 'vuetable-2/src/components/Vuetable'
-  import VuetablePagination from 'vuetable-2/src/components/VuetablePagination'
-  import FilterBar from './datatable-components/FilterBar.vue'
-  import ItemsPerPage from './datatable-components/ItemsPerPage.vue'
-  import DefaultPerPageDefinition from './data/items-per-page-definition'
-  import QueryParams from './data/query-params'
-  import Vue from 'vue'
-  import DataTableStyles from '../vuestic-datatable/data/data-table-styles'
-  import SpringSpinner from 'epic-spinners/src/components/lib/SpringSpinner'
+import Vuetable from 'vuetable-2/src/components/Vuetable'
+import VuetablePagination from 'vuetable-2/src/components/VuetablePagination'
+import FilterBar from './datatable-components/FilterBar.vue'
+import ItemsPerPage from './datatable-components/ItemsPerPage.vue'
+import DefaultPerPageDefinition from './data/items-per-page-definition'
+import QueryParams from './data/query-params'
+import Vue from 'vue'
+import DataTableStyles from '../vuestic-datatable/data/data-table-styles'
+import SpringSpinner from 'epic-spinners/src/components/lib/SpringSpinner'
 
-  export default {
-    name: 'vuestic-data-table',
-    components: {
-      SpringSpinner,
-      FilterBar,
-      Vuetable,
-      VuetablePagination,
-      ItemsPerPage
+export default {
+  name: 'vuestic-data-table',
+  components: {
+    SpringSpinner,
+    FilterBar,
+    Vuetable,
+    VuetablePagination,
+    ItemsPerPage
+  },
+  props: {
+    apiUrl: {
+      type: String
     },
-    props: {
-      apiUrl: {
-        type: String
-      },
-      httpFetch: {
-        type: Function,
-        default: null
-      },
-      httpOptions: {
-        type: Object,
-        default: () => {
-        }
-      },
-      filterQuery: {
-        type: String,
-        default: 'filter'
-      },
-      tableFields: {
-        type: Array,
-        required: true
-      },
-      itemsPerPage: {
-        type: Array,
-        default: () => DefaultPerPageDefinition.itemsPerPage
-      },
-      perPageSelectorShown: {
-        type: Boolean,
-        default: true
-      },
-      filterInputShown: {
-        type: Boolean,
-        default: true
-      },
-      filterInputLabel: {
-        type: String,
-        default: 'Search'
-      },
-      itemsPerPageLabel: {
-        type: String,
-        default: 'per page'
-      },
-      defaultPerPage: {
-        type: Number,
-        default: DefaultPerPageDefinition.itemsPerPage[0].value
-      },
-      onEachSide: {
-        type: Number,
-        default: 2
-      },
-      apiMode: {
-        type: Boolean,
-        default: true
-      },
-      tableData: {
-        type: Object,
-        default () {
-          return {
-            data: []
-          }
-        }
-      },
-      dataModeFilterableFields: {
-        type: Array,
-        default: () => []
-      },
-      sortFunctions: {
-        type: Object
-      },
-      paginationPath: {
-        type: String,
-        default: ''
-      },
-      queryParams: {
-        type: Object,
-        default: () => QueryParams
-      },
-      appendParams: {
-        type: Object,
-        default () {
-          return {}
+    httpFetch: {
+      type: Function,
+      default: null
+    },
+    httpOptions: {
+      type: Object,
+      default: () => {
+      }
+    },
+    filterQuery: {
+      type: String,
+      default: 'filter'
+    },
+    tableFields: {
+      type: Array,
+      required: true
+    },
+    itemsPerPage: {
+      type: Array,
+      default: () => DefaultPerPageDefinition.itemsPerPage
+    },
+    perPageSelectorShown: {
+      type: Boolean,
+      default: true
+    },
+    filterInputShown: {
+      type: Boolean,
+      default: true
+    },
+    filterInputLabel: {
+      type: String,
+      default: 'Search'
+    },
+    itemsPerPageLabel: {
+      type: String,
+      default: 'per page'
+    },
+    defaultPerPage: {
+      type: Number,
+      default: DefaultPerPageDefinition.itemsPerPage[0].value
+    },
+    onEachSide: {
+      type: Number,
+      default: 2
+    },
+    apiMode: {
+      type: Boolean,
+      default: true
+    },
+    tableData: {
+      type: Object,
+      default () {
+        return {
+          data: []
         }
       }
     },
-    data () {
-      return {
-        perPage: 0,
-        colorClasses: {},
-        filterText: '',
-        dataCount: 0,
-        css: DataTableStyles,
-        loading: false,
-        noDataTemplate: ''
-      }
+    dataModeFilterableFields: {
+      type: Array,
+      default: () => []
     },
-    computed: {
-      controlsAlignmentClass () {
-        return {
-          'justify-content-md-between': this.filterInputShown,
-          'justify-content-md-end': !this.filterInputShown
-        }
-      },
-      moreParams () {
-        this.appendParams[this.filterQuery] = this.filterText
-        return this.appendParams
-      },
-      dataModeFilterableFieldsComputed () {
-        const dataItem = this.tableData.data[0] || {}
-        const filterableFields = this.dataModeFilterableFields
-
-        if (!filterableFields.length) {
-          const itemFields = Object.keys(dataItem)
-          itemFields.forEach(field => {
-            if (typeof dataItem[field] !== 'object') {
-              filterableFields.push(field)
-            }
-          })
-        }
-
-        return filterableFields
-      },
-      filteredTableData () {
-        const txt = new RegExp(this.filterText, 'i')
-
-        let filteredData = this.tableData.data.slice()
-
-        filteredData = this.tableData.data.filter((item) => {
-          return this.dataModeFilterableFieldsComputed.some(field => {
-            const val = item[field] + ''
-            return val.search(txt) >= 0
-          })
-        })
-
-        return {
-          data: filteredData
-        }
-      },
-      defaultPerPageComputed () {
-        let defaultPerPage = DefaultPerPageDefinition.itemsPerPage[0].value
-
-        if (this.$options.propsData.defaultPerPage) {
-          defaultPerPage = this.$options.propsData.defaultPerPage
-        } else if (this.$options.propsData.itemsPerPage) {
-          defaultPerPage = this.$options.propsData.itemsPerPage[0].value
-        }
-
-        return defaultPerPage
-      },
-      paginationPathComputed () {
-        return this.apiMode ? this.paginationPath : 'pagination'
-      }
+    sortFunctions: {
+      type: Object
     },
-
-    created () {
-      this.perPage = this.defaultPerPageComputed
+    paginationPath: {
+      type: String,
+      default: ''
     },
-
-    mounted () {
-      this.$emit('initialized', this.$refs.vuetable)
+    queryParams: {
+      type: Object,
+      default: () => QueryParams
     },
-
-    methods: {
-      onFilterSet (filterText) {
-        this.filterText = filterText
-        Vue.nextTick(() => this.$refs.vuetable.refresh())
-      },
-      onItemsPerPage (itemsPerPageValue) {
-        this.perPage = itemsPerPageValue
-        Vue.nextTick(() => this.$refs.vuetable.refresh())
-      },
-      onPaginationData (paginationData) {
-        this.$refs.pagination.setPaginationData(paginationData)
-      },
-      onChangePage (page) {
-        this.$refs.vuetable.changePage(page)
-      },
-      dataManager (sortOrder, pagination) {
-        let data = this.filteredTableData.data
-        let sortFunctions = this.sortFunctions
-
-        if (sortOrder.length > 0) {
-          data.sort(function (item1, item2) {
-            const sortField = sortOrder[0].sortField
-            let fn = sortFunctions[sortField]
-            if (fn) {
-              return fn(item1[sortField], item2[sortField])
-            }
-          })
-
-          if (sortOrder[0].direction === 'desc') {
-            data.reverse()
-          }
-        }
-
-        pagination = this.$refs.vuetable.makePagination(data.length)
-
-        return {
-          pagination: pagination,
-          data: data.slice(pagination.from - 1, pagination.to)
-        }
-      },
-      onLoading () {
-        this.noDataTemplate = ''
-        this.loading = true
-        this.$emit('vuestic:loading')
-      },
-      onLoaded () {
-        this.noDataTemplate = this.$t('tables.dataTable.noDataAvailable')
-        this.loading = false
-        this.$emit('vuestic:loaded')
+    appendParams: {
+      type: Object,
+      default () {
+        return {}
       }
     }
+  },
+  data () {
+    return {
+      perPage: 0,
+      colorClasses: {},
+      filterText: '',
+      dataCount: 0,
+      css: DataTableStyles,
+      loading: false,
+      noDataTemplate: ''
+    }
+  },
+  computed: {
+    controlsAlignmentClass () {
+      return {
+        'justify-content-md-between': this.filterInputShown,
+        'justify-content-md-end': !this.filterInputShown
+      }
+    },
+    moreParams () {
+      // HACK
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      this.appendParams[this.filterQuery] = this.filterText
+      return this.appendParams
+    },
+    dataModeFilterableFieldsComputed () {
+      const dataItem = this.tableData.data[0] || {}
+      const filterableFields = this.dataModeFilterableFields
+
+      if (!filterableFields.length) {
+        const itemFields = Object.keys(dataItem)
+        itemFields.forEach(field => {
+          if (typeof dataItem[field] !== 'object') {
+            filterableFields.push(field)
+          }
+        })
+      }
+
+      return filterableFields
+    },
+    filteredTableData () {
+      const txt = new RegExp(this.filterText, 'i')
+
+      let filteredData = this.tableData.data.slice()
+
+      filteredData = this.tableData.data.filter((item) => {
+        return this.dataModeFilterableFieldsComputed.some(field => {
+          const val = item[field] + ''
+          return val.search(txt) >= 0
+        })
+      })
+
+      return {
+        data: filteredData
+      }
+    },
+    defaultPerPageComputed () {
+      let defaultPerPage = DefaultPerPageDefinition.itemsPerPage[0].value
+
+      if (this.$options.propsData.defaultPerPage) {
+        defaultPerPage = this.$options.propsData.defaultPerPage
+      } else if (this.$options.propsData.itemsPerPage) {
+        defaultPerPage = this.$options.propsData.itemsPerPage[0].value
+      }
+
+      return defaultPerPage
+    },
+    paginationPathComputed () {
+      return this.apiMode ? this.paginationPath : 'pagination'
+    }
+  },
+
+  created () {
+    this.perPage = this.defaultPerPageComputed
+  },
+
+  mounted () {
+    this.$emit('initialized', this.$refs.vuetable)
+  },
+
+  methods: {
+    onFilterSet (filterText) {
+      this.filterText = filterText
+      Vue.nextTick(() => this.$refs.vuetable.refresh())
+    },
+    onItemsPerPage (itemsPerPageValue) {
+      this.perPage = itemsPerPageValue
+      Vue.nextTick(() => this.$refs.vuetable.refresh())
+    },
+    onPaginationData (paginationData) {
+      this.$refs.pagination.setPaginationData(paginationData)
+    },
+    onChangePage (page) {
+      this.$refs.vuetable.changePage(page)
+    },
+    dataManager (sortOrder, pagination) {
+      let data = this.filteredTableData.data
+      let sortFunctions = this.sortFunctions
+
+      if (sortOrder.length > 0) {
+        data.sort(function (item1, item2) {
+          const sortField = sortOrder[0].sortField
+          let fn = sortFunctions[sortField]
+          if (fn) {
+            return fn(item1[sortField], item2[sortField])
+          }
+        })
+
+        if (sortOrder[0].direction === 'desc') {
+          data.reverse()
+        }
+      }
+
+      pagination = this.$refs.vuetable.makePagination(data.length)
+
+      return {
+        pagination: pagination,
+        data: data.slice(pagination.from - 1, pagination.to)
+      }
+    },
+    onLoading () {
+      this.noDataTemplate = ''
+      this.loading = true
+      this.$emit('vuestic:loading')
+    },
+    onLoaded () {
+      this.noDataTemplate = this.$t('tables.dataTable.noDataAvailable')
+      this.loading = false
+      this.$emit('vuestic:loaded')
+    }
   }
+}
 </script>
 
 <style lang="scss">

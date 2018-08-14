@@ -29,54 +29,54 @@
 </template>
 
 <script>
-  import VuesticFileUploadUndo from './VuesticFileUploadUndo'
+import VuesticFileUploadUndo from './VuesticFileUploadUndo'
 
-  export default {
-    name: 'vuestic-file-upload-gallery-item',
-    components: {
-      VuesticFileUploadUndo: VuesticFileUploadUndo
-    },
-    data () {
-      return {
-        previewImage: '',
-        removed: false
-      }
-    },
-    props: {
-      file: {
-        default: {}
-      }
-    },
-    watch: {
-      file () {
-        this.convertToImg()
-      }
-    },
-    methods: {
-      removeImage () {
-        this.removed = true
-        setTimeout(() => {
-          if (this.removed) {
-            this.$emit('remove')
-            this.removed = false
-          }
-        }, 2000)
-      },
-      recoverImage () {
-        this.removed = false
-      },
-      convertToImg () {
-        const reader = new FileReader()
-        reader.readAsDataURL(this.file.image)
-        reader.onload = (e) => {
-          this.previewImage = e.target.result
-        }
-      }
-    },
-    mounted () {
+export default {
+  name: 'vuestic-file-upload-gallery-item',
+  components: {
+    VuesticFileUploadUndo: VuesticFileUploadUndo
+  },
+  data () {
+    return {
+      previewImage: '',
+      removed: false
+    }
+  },
+  props: {
+    file: {
+      default: {}
+    }
+  },
+  watch: {
+    file () {
       this.convertToImg()
+    }
+  },
+  methods: {
+    removeImage () {
+      this.removed = true
+      setTimeout(() => {
+        if (this.removed) {
+          this.$emit('remove')
+          this.removed = false
+        }
+      }, 2000)
     },
-  }
+    recoverImage () {
+      this.removed = false
+    },
+    convertToImg () {
+      const reader = new FileReader()
+      reader.readAsDataURL(this.file.image)
+      reader.onload = (e) => {
+        this.previewImage = e.target.result
+      }
+    }
+  },
+  mounted () {
+    this.convertToImg()
+  },
+}
 </script>
 
 <style lang='scss'>

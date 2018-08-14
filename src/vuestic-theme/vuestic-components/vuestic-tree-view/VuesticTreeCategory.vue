@@ -24,69 +24,69 @@
 </template>
 
 <script>
-  import SquareWithIcon from './vuestic-div-checkbox/SquareWithIcon.vue'
-  import VuesticCheckbox from '../vuestic-checkbox/VuesticCheckbox'
+import SquareWithIcon from './vuestic-div-checkbox/SquareWithIcon.vue'
+import VuesticCheckbox from '../vuestic-checkbox/VuesticCheckbox'
 
-  export default {
-    name: 'vuestic-tree-category',
-    components: { SquareWithIcon, VuesticCheckbox },
-    data () {
-      return {
-        isOpenCached: false,
-      }
-    },
-    watch: {
-      isOpen: {
-        handler (isOpen) {
-          this.isOpenCached = isOpen
-        },
-        immediate: true,
+export default {
+  name: 'vuestic-tree-category',
+  components: { SquareWithIcon, VuesticCheckbox },
+  data () {
+    return {
+      isOpenCached: false,
+    }
+  },
+  watch: {
+    isOpen: {
+      handler (isOpen) {
+        this.isOpenCached = isOpen
       },
+      immediate: true,
     },
-    props: {
-      label: {
-        type: [String, Number],
-        default: '',
-      },
-      isOpen: {
-        type: Boolean,
-        default: false,
-      },
+  },
+  props: {
+    label: {
+      type: [String, Number],
+      default: '',
     },
-    computed: {
-      checkboxIconClass () {
-        return this.isOpenCached ? 'ion ion-md-remove' : 'ion ion-md-add'
-      },
+    isOpen: {
+      type: Boolean,
+      default: false,
     },
-    methods: {
-      /**
+  },
+  computed: {
+    checkboxIconClass () {
+      return this.isOpenCached ? 'ion ion-md-remove' : 'ion ion-md-add'
+    },
+  },
+  methods: {
+    /**
        * @public
        */
-      collapse () {
-        this.isOpenCached = false
-        this.$nextTick(() => {
-          this.$children.forEach(child => {
-            if (child.$options.name === 'vuestic-tree-category') {
-              child.collapse()
-            }
-          })
+    collapse () {
+      this.isOpenCached = false
+      this.$nextTick(() => {
+        this.$children.forEach(child => {
+          if (child.$options.name === 'vuestic-tree-category') {
+            child.collapse()
+          }
         })
-      },
-      /**
+      })
+    },
+    /**
        * @public
        */
-      expand () {
-        this.isOpenCached = true
-        this.$nextTick(() => {
-          this.$children.forEach(child => {
-            if (child.$options.name === 'vuestic-tree-category') {
-              child.expand()
-            }
-          })
+    expand () {
+      this.isOpenCached = true
+      this.$nextTick(() => {
+        this.$children.forEach(child => {
+          if (child.$options.name === 'vuestic-tree-category') {
+            child.expand()
+          }
         })
-      },
+      })
     },
-  }
+  },
+}
 </script>
 
 <style lang="scss">
@@ -119,4 +119,3 @@
     }
   }
 </style>
-

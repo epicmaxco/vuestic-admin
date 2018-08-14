@@ -48,9 +48,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'features-tab'
-  }
+export default {
+  name: 'features-tab'
+}
 </script>
 
 <style lang="scss" scoped>

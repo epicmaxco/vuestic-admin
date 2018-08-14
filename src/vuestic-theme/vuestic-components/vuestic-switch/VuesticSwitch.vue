@@ -10,20 +10,20 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-switch',
-    props: {
-      value: Boolean
-    },
-    mounted () {
-      this.$emit('input', this.value)
-    },
-    methods: {
-      setValue (newVal) {
-        this.$emit('input', newVal)
-      }
+export default {
+  name: 'vuestic-switch',
+  props: {
+    value: Boolean
+  },
+  mounted () {
+    this.$emit('input', this.value)
+  },
+  methods: {
+    setValue (newVal) {
+      this.$emit('input', newVal)
     }
   }
+}
 </script>
 
 <style lang="scss">

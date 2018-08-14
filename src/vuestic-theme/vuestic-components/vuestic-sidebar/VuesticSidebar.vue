@@ -9,19 +9,19 @@
 </template>
 
 <script>
-  import Expanding from 'vue-bulma-expanding/src/Expanding'
-  export default {
-    name: 'vuestic-sidebar',
-    components: {
-      Expanding,
-    },
-    props: {
-      hidden: {
-        type: Boolean,
-        required: true,
-      }
+import Expanding from 'vue-bulma-expanding/src/Expanding'
+export default {
+  name: 'vuestic-sidebar',
+  components: {
+    Expanding,
+  },
+  props: {
+    hidden: {
+      type: Boolean,
+      required: true,
     }
   }
+}
 </script>
 
 <style lang="scss">

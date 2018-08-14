@@ -62,30 +62,30 @@
 </template>
 
 <script>
-  export default {
-    name: 'modals',
+export default {
+  name: 'modals',
 
-    data () {
-      return {
-        show: true
-      }
+  data () {
+    return {
+      show: true
+    }
+  },
+
+  methods: {
+    showSmallModal () {
+      this.$refs.smallModal.open()
     },
-
-    methods: {
-      showSmallModal () {
-        this.$refs.smallModal.open()
-      },
-      showMediumModal () {
-        this.$refs.mediumModal.open()
-      },
-      showLargeModal () {
-        this.$refs.largeModal.open()
-      },
-      showStaticModal () {
-        this.$refs.staticModal.open()
-      }
+    showMediumModal () {
+      this.$refs.mediumModal.open()
+    },
+    showLargeModal () {
+      this.$refs.largeModal.open()
+    },
+    showStaticModal () {
+      this.$refs.staticModal.open()
     }
   }
+}
 </script>
 
 <style lang="scss">

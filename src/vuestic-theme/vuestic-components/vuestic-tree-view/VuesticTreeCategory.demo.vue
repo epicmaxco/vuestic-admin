@@ -31,10 +31,10 @@
 
 <script>
 
-  import VuesticTreeCategory from './VuesticTreeCategory'
-  import VuesticTreeNode from './VuesticTreeNode'
+import VuesticTreeCategory from './VuesticTreeCategory'
+import VuesticTreeNode from './VuesticTreeNode'
 
-  export default {
-    components: { VuesticTreeNode, VuesticTreeCategory },
-  }
+export default {
+  components: { VuesticTreeNode, VuesticTreeCategory },
+}
 </script>

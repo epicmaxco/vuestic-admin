@@ -7,7 +7,14 @@
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <div class="dropdown-menu-content">
-        <a class="dropdown-item" v-for="option in options" @click="selectedItemsPerPage(option.value)">{{option.value}} per page</a>
+        <a
+          class="dropdown-item"
+          v-for="(option, index) in options"
+          :key="index"
+          @click="selectedItemsPerPage(option.value)"
+        >
+          {{option.value}} per page
+        </a>
       </div>
     </div>
   </div>
@@ -15,37 +22,37 @@
 </template>
 
 <script>
-  import Dropdown from 'vuestic-directives/Dropdown'
+import Dropdown from 'vuestic-directives/Dropdown'
 
-  export default {
-    directives: {
-      Dropdown
+export default {
+  directives: {
+    Dropdown
+  },
+  props: {
+    label: {
+      type: String
     },
-    props: {
-      label: {
-        type: String
-      },
-      options: {
-        type: Array,
-        required: true
-      },
-      defaultPerPage: {
-        type: Number
-      }
+    options: {
+      type: Array,
+      required: true
     },
-    data () {
-      return {
-        selected: this.defaultPerPage
-      }
-    },
+    defaultPerPage: {
+      type: Number
+    }
+  },
+  data () {
+    return {
+      selected: this.defaultPerPage
+    }
+  },
 
-    methods: {
-      selectedItemsPerPage (optionValue) {
-        this.selected = optionValue
-        this.$emit('items-per-page', this.selected)
-      }
+  methods: {
+    selectedItemsPerPage (optionValue) {
+      this.selected = optionValue
+      this.$emit('items-per-page', this.selected)
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>

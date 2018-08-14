@@ -13,7 +13,6 @@ import VuesticPlugin from 'vuestic-theme/vuestic-plugin'
 import './i18n'
 import YmapPlugin from 'vue-yandex-maps'
 
-
 Vue.use(VuesticPlugin)
 Vue.use(YmapPlugin)
 
