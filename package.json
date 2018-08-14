@@ -5,9 +5,11 @@
   "author": "smartapant <smartapant@gmail.com>",
   "private": false,
   "scripts": {
-    "dev": "node build/dev-server.js",
-    "build": "node build/build.js",
-    "lint": "eslint --ext .js,.vue src"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "dev-old": "node build/dev-server.js",
+    "build-old": "node build/build.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,6 @@
     "amcharts3": "github:amcharts/amcharts3",
     "ammap3": "github:amcharts/ammap3",
     "awesome-bootstrap-checkbox": "1.0.0-alpha.5",
-    "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.0.0",
     "chart.js": "^2.6.0",
     "detect-browser": "^1.7.1",
@@ -35,7 +36,7 @@
     "normalize.css": "7.0.0",
     "v-tooltip": "^2.0.0-rc.30",
     "vee-validate": "2.0.9",
-    "vue": "2.5.2",
+    "vue": "^2.5.17",
     "vue-book": "0.0.3",
     "vue-bulma-expanding": "0.0.1",
     "vue-chartjs": "^2.8.1",
@@ -52,56 +53,31 @@
   },
   "devDependencies": {
     "autoprefixer": "7.1.2",
-    "babel-core": "6.22.1",
-    "babel-eslint": "7.1.1",
-    "babel-loader": "7.1.1",
-    "babel-plugin-transform-runtime": "6.22.0",
-    "babel-preset-env": "1.6.1",
-    "babel-preset-es2015": "6.24.1",
-    "babel-preset-stage-2": "6.22.0",
-    "babel-register": "6.22.0",
     "chalk": "2.3.0",
     "connect-history-api-fallback": "1.3.0",
     "copy-webpack-plugin": "4.0.1",
-    "css-loader": "0.28.0",
-    "es6-promise": "^4.2.4",
-    "eslint": "3.19.0",
-    "eslint-config-standard": "10.2.1",
     "eslint-friendly-formatter": "3.0.0",
-    "eslint-loader": "1.7.1",
-    "eslint-plugin-html": "3.0.0",
-    "eslint-plugin-import": "2.7.0",
-    "eslint-plugin-node": "5.2.0",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "3.0.1",
+    "@vue/cli-plugin-babel": "^3.0.0",
+    "@vue/cli-plugin-eslint": "^3.0.0",
+    "@vue/cli-service": "^3.0.0",
+    "@vue/eslint-config-standard": "^3.0.0",
     "eventsource-polyfill": "0.9.6",
     "express": "^4.16.3",
     "extract-text-webpack-plugin": "3.0.0",
     "file-loader": "1.1.4",
     "friendly-errors-webpack-plugin": "1.6.1",
-    "html-webpack-plugin": "2.30.1",
-    "http-proxy-middleware": "0.17.3",
-    "node-sass": "^4.9.2",
+    "node-sass": "^4.9.0",
     "opn": "5.1.0",
     "optimize-css-assets-webpack-plugin": "3.2.0",
     "ora": "1.2.0",
     "portfinder": "1.0.13",
     "rimraf": "2.6.0",
-    "sass-loader": "6.0.6",
-    "sass-resources-loader": "^1.3.3",
+    "sass-loader": "^7.0.1",
+    "lint-staged": "^7.2.0",
     "semver": "5.3.0",
     "shelljs": "0.7.6",
-    "url-loader": "0.5.8",
-    "vue-component-tree": "^2.2.1",
     "vue-flatpickr-component": "^7.0.1",
-    "vue-loader": "13.3.0",
-    "vue-style-loader": "3.0.1",
-    "vue-template-compiler": "2.5.2",
-    "webpack": "3.6.0",
-    "webpack-bundle-analyzer": "^2.13.1",
-    "webpack-dev-middleware": "1.12.0",
-    "webpack-hot-middleware": "2.18.2",
-    "webpack-merge": "4.1.0"
+    "vue-template-compiler": "^2.5.17"
   },
   "engines": {
     "node": ">= 4.0.0",
@@ -111,5 +87,18 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "vue-cli-service lint",
+      "git add"
+    ],
+    "*.vue": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
 }
