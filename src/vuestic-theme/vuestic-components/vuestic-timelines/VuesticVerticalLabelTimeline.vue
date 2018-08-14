@@ -1,6 +1,6 @@
 <template>
   <div class="vuestic-vertical-label-timeline">
-    <simple-vertical-indicator :steps="steps" class="vuestic-vertical-label-timeline__indicator"/>
+    <simple-vertical-indicator :steps="steps.items" class="vuestic-vertical-label-timeline__indicator" :cardTheme="cardTheme" :type="steps.type"/>
   </div>
 </template>
 
@@ -14,7 +14,11 @@ export default {
     SimpleVerticalIndicator
   },
   props: {
-    steps: {}
+    steps: {},
+    cardTheme: {
+      type: String,
+      default: 'base'
+    }
   }
 }
 </script>

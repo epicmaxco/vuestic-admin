@@ -1,14 +1,24 @@
 <template>
     <ul class="wizard-steps horizontal-steps simple-steps" :class="{'completed': completed}">
       <li class="wizard-step" :class="{'active': currentStep >= index, 'current': currentStep === index}" :style="{ height: 100/steps.length + '%' }" v-for="(step, index) of steps">
-        <vuestic-card class="wizard-step-card vuestic-card--stripe-success" v-if="step.cardInfo">
+        <span v-if="type==='simple'" class="wizard-step-label ellipsis">{{step.label}}</span>
+        <span class="wizard-step-info" v-if="type==='vertical-label-cards'">{{ step.label }}</span>
+        <vuestic-card class="wizard-step-card vuestic-card--stripe-success" v-if="step.cardInfo"
+                      :theme="cardTheme"
+        >
           <p slot="title">{{ step.label }}</p>
           {{ $t(step.cardInfo) }}
         </vuestic-card>
-        <span class="wizard-step-line"></span>
-        <span class="wizard-step-line completed-line"></span>
-        <span v-if="!step.cardInfo" class="wizard-step-label ellipsis">{{step.label}}</span>
-        <span class="wizard-step-indicator"></span>
+        <span
+              :class="{'dateLeft': type==='vertical-label-cards'}"
+              class="wizard-step-indicator"
+        ></span>
+        <span class="wizard-step-line"
+        :class="{'dateLeft': type==='vertical-label-cards'}"
+        ></span>
+        <span class="wizard-step-line completed-line"
+              :class="{'dateLeft': type==='vertical-label-cards'}"
+        ></span>
       </li>
     </ul>
 </template>
@@ -30,6 +40,14 @@
       completed: {
         type: Boolean,
         default: false
+      },
+      cardTheme: {
+        type: String,
+        default: 'base'
+      },
+      type: {
+        type: String,
+        default: 'simple'
       }
     }
   }
@@ -100,6 +118,13 @@
 
     .wizard-step-card {
       width: 400px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      .wizard-step-card {
+        font-size: 10px;
+        width: 150px;
+      }
     }
 
     .wizard-step-label{

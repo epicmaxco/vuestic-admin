@@ -10,10 +10,15 @@
         <vuestic-horizontal-cards-timeline :steps="horizontalCardsEvents"/>
       </vuestic-widget>
     </div>
+    <div class="vuestic-timelines__vertical-simple">
+      <vuestic-widget class="no-h-padding vuestic-timelines__vertical-cards-widget" :headerText="$t('timelines.verticalSimple')">
+        <vuestic-vertical-label-timeline :steps="verticalCardsEvents" class="vuestic-timelines__vertical-simple-indicator"/>
+        <vuestic-vertical-label-timeline :steps="verticalCardsEvents" class="vuestic-timelines__vertical-simple-indicator-dark" :cardTheme="'dark'"/>
+      </vuestic-widget>
+    </div>
     <div class="vuestic-timelines__vertical-label">
-      <vuestic-widget class="no-h-padding vuestic-timelines__vertical-cards-widget" :headerText="$t('timelines.horizontalCards')">
-        <vuestic-vertical-label-timeline :steps="verticalCardsEvents" class="vuestic-timelines__vertical-label-indicator"/>
-        <vuestic-vertical-label-timeline :steps="verticalCardsEvents" class="vuestic-timelines__vertical-label-indicator"/>
+      <vuestic-widget class="no-h-padding vuestic-timelines__vertical-cards-label-widget" :headerText="$t('timelines.verticalLabel')">
+        <vuestic-vertical-label-timeline :steps="verticalLabelCardsEvents" class="vuestic-timelines__vertical-label-indicator"/>
       </vuestic-widget>
     </div>
   </div>
@@ -36,44 +41,66 @@ export default {
   },
   data () {
     return {
-      horizontalSimpleEvents: [
-        {
-          label: this.$t('timelines.firstDate'),
-          info: 'Pre-sail rate: 50%'
-        },
-        {
-          label: this.$t('timelines.secondDate'),
-          info: 'Pre-sail rate: 40%'
-        },
-        {
-          label: this.$t('timelines.thirdDate'),
-          info: 'Pre-sail rate: 20%'
-        },
-      ],
-      horizontalCardsEvents: [
-        {
-          label: this.$t('timelines.firstDate'),
-          cardInfo: 'cards.contentText'
-        },
-        {
-          label: this.$t('timelines.secondDate'),
-          cardInfo: 'timelines.cardsSecondInfo'
-        },
-        {
-          label: this.$t('timelines.thirdDate'),
-          cardInfo: 'timelines.cardsThirdInfo'
-        },
-      ],
-      verticalCardsEvents: [
-        {
-          label: this.$t('timelines.firstDate'),
-          cardInfo: 'timelines.verticalSimpleCardsFirstInfo'
-        },
-        {
-          label: this.$t('timelines.secondDate'),
-          cardInfo: 'timelines.verticalSimpleCardsSecondInfo'
-        }
-      ]
+      horizontalSimpleEvents: {
+        type: 'horizontal-simple',
+        items: [
+          {
+            label: this.$t('timelines.firstDate'),
+            info: 'Pre-sail rate: 50%'
+          },
+          {
+            label: this.$t('timelines.secondDate'),
+            info: 'Pre-sail rate: 40%'
+          },
+          {
+            label: this.$t('timelines.thirdDate'),
+            info: 'Pre-sail rate: 20%'
+          },
+        ],
+      },
+      horizontalCardsEvents: {
+        type: 'horizontal-cards',
+        items: [
+          {
+            label: this.$t('timelines.firstDate'),
+            cardInfo: 'cards.contentText'
+          },
+          {
+            label: this.$t('timelines.secondDate'),
+            cardInfo: 'timelines.cardsSecondInfo'
+          },
+          {
+            label: this.$t('timelines.thirdDate'),
+            cardInfo: 'timelines.cardsThirdInfo'
+          },
+        ],
+      },
+      verticalCardsEvents: {
+        type: 'vertical-cards',
+        items: [
+          {
+            label: this.$t('timelines.firstDate'),
+            cardInfo: 'timelines.verticalSimpleCardsFirstInfo'
+          },
+          {
+            label: this.$t('timelines.secondDate'),
+            cardInfo: 'timelines.verticalSimpleCardsSecondInfo'
+          }
+        ]
+      },
+      verticalLabelCardsEvents: {
+        type: 'vertical-label-cards',
+        items: [
+          {
+            label: this.$t('timelines.firstDate'),
+            cardInfo: 'timelines.verticalSimpleCardsFirstInfo'
+          },
+          {
+            label: this.$t('timelines.secondDate'),
+            cardInfo: 'timelines.verticalSimpleCardsSecondInfo'
+          }
+        ]
+      }
     }
   }
 }
@@ -84,6 +111,12 @@ export default {
   &__horizontal-simple {
     width: 100%;
   }
+  &__horizontal-cards {
+    overflow: hidden;
+  }
+  &__vertical-simple {
+    overflow: hidden;
+  }
   &__horizontal-cards-widget {
     .widget-body {
       height: 200px;
@@ -91,11 +124,28 @@ export default {
   }
   &__vertical-cards-widget {
     .widget-body {
+      width: 100%;
       display: inline-flex;
     }
   }
-  &__vertical-label-indicator {
+  &__vertical-simple-indicator {
     padding-left: 20px;
+  }
+  &__vertical-simple-indicator-dark {
+    padding-left: 19%;
+  }
+  &__vertical-label-indicator {
+    padding-left: 48%;
+  }
+  @include media-breakpoint-down(xs) {
+    &__vertical-simple-indicator-dark {
+      padding-left: 0;
+    }
+  }
+  @include media-breakpoint-down(xs) {
+    &__vertical-label-indicator {
+      padding-left: 28%;
+    }
   }
 }
 </style>

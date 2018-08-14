@@ -1,7 +1,7 @@
 <template>
   <div class="vuestic-horizontal-simple-timeline">
-      <simple-horizontal-indicator class="vuestic-horizontal-simple-timeline__indicator" :completed:="true" :steps="steps"/>
- </div>
+    <simple-horizontal-indicator class="vuestic-horizontal-simple-timeline__indicator" :completed:="true" :steps="steps.items" :type="steps.type"/>
+  </div>
 </template>
 
 <script>

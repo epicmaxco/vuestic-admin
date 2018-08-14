@@ -1,7 +1,9 @@
 <template>
     <ul class="wizard-steps horizontal-steps simple-steps" :class="{'completed': completed}">
       <li class="wizard-step" :class="{'active': currentStep >= index, 'current': currentStep === index}" :style="{ width: 100/steps.length + '%' }" v-for="(step, index) of steps">
-        <vuestic-card class="wizard-step-card vuestic-card--stripe-success" v-if="step.cardInfo">
+        <vuestic-card class="wizard-step-card vuestic-card--stripe-success" v-if="step.cardInfo"
+          :theme="cardTheme"
+        >
           <p slot="title">{{ step.label }}</p>
           {{ $t(step.cardInfo) }}
         </vuestic-card>
@@ -31,6 +33,14 @@
       completed: {
         type: Boolean,
         default: false
+      },
+      cardTheme: {
+        type: String,
+        default: 'base'
+      },
+      type: {
+        type: String,
+        default: 'simple'
       }
     }
   }
@@ -97,6 +107,12 @@
 
     .wizard-step-card {
       width: 300px;
+    }
+    @include media-breakpoint-down(xs) {
+      .wizard-step-card {
+        font-size: 10px;
+        width: 120px;
+      }
     }
 
     .wizard-step-label{

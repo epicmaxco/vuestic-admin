@@ -1,6 +1,6 @@
 <template>
   <div class="vuestic-horizontal-cards-timeline">
-    <simple-horizontal-indicator class="vuestic-horizontal-simple-timeline__indicator" :completed:="true" :steps="steps"/>
+    <simple-horizontal-indicator class="vuestic-horizontal-simple-timeline__indicator" :completed:="true" :steps="steps.items" :cardTheme="cardTheme" :type="steps.type"/>
   </div>
 </template>
 
@@ -19,7 +19,11 @@ export default {
     VuesticCard
   },
   props: {
-    steps: {}
+    steps: {},
+    cardTheme: {
+      type: String,
+      default: 'light'
+    }
   },
   data () {
     return {}
