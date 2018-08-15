@@ -1,4 +1,4 @@
-import {Pie, mixins} from 'vue-chartjs'
+import { Pie, mixins } from 'vue-chartjs'
 import DefaultOptions from '../DefaultOptions'
 
 export default Pie.extend({
