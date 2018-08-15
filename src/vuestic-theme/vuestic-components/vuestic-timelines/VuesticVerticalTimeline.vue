@@ -1,12 +1,6 @@
 <template>
   <div class="vuestic-vertical-timeline">
-    <simple-vertical-indicator
-      class="vuestic-vertical-timeline__indicator"
-      :steps="steps.items"
-      :type="steps.type"
-      :class="{'cardsHeight': steps.type==='label-cards' }"
-      :currentStep="currentStep"
-    />
+
   </div>
 </template>
 
@@ -17,7 +11,7 @@ import SimpleVerticalIndicator
 export default {
   name: 'vuestic-vertical-timeline',
   components: {
-    SimpleVerticalIndicator
+    SimpleVerticalIndicator,
   },
   props: {
     steps: {},
