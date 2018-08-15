@@ -2,102 +2,149 @@
   <div class="vuestic-timelines">
     <div class="vuestic-timelines__horizontal-simple">
       <vuestic-widget class="no-h-padding" :headerText="$t('timelines.horizontalSimple')">
-        <vuestic-horizontal-simple-timeline :steps="horizontalSimpleEvents"/>
+        <vuestic-horizontal-timeline :steps="horizontalSimpleEvents"/>
       </vuestic-widget>
     </div>
     <div class="vuestic-timelines__horizontal-cards">
       <vuestic-widget class="no-h-padding vuestic-timelines__horizontal-cards-widget" :headerText="$t('timelines.horizontalCards')">
-        <vuestic-horizontal-cards-timeline :steps="horizontalCardsEvents"/>
+        <vuestic-horizontal-timeline :steps="horizontalCardsEvents"/>
       </vuestic-widget>
     </div>
     <div class="vuestic-timelines__vertical-simple">
       <vuestic-widget class="no-h-padding vuestic-timelines__vertical-cards-widget" :headerText="$t('timelines.verticalSimple')">
-        <vuestic-vertical-label-timeline :steps="verticalCardsEvents" class="vuestic-timelines__vertical-simple-indicator"/>
-        <vuestic-vertical-label-timeline :steps="verticalCardsEvents" class="vuestic-timelines__vertical-simple-indicator-dark" :cardTheme="'dark'"/>
+        <vuestic-vertical-timeline :steps="verticalCardsEvents" class="vuestic-timelines__vertical-simple-indicator"/>
+        <vuestic-vertical-timeline :steps="verticalCardsEventsDark" class="vuestic-timelines__vertical-simple-indicator-dark"/>
       </vuestic-widget>
     </div>
     <div class="vuestic-timelines__vertical-label">
       <vuestic-widget class="no-h-padding vuestic-timelines__vertical-cards-label-widget" :headerText="$t('timelines.verticalLabel')">
-        <vuestic-vertical-label-timeline :steps="verticalLabelCardsEvents" class="vuestic-timelines__vertical-label-indicator"/>
+        <vuestic-vertical-timeline :steps="verticalLabelCardsEvents" class="vuestic-timelines__vertical-label-indicator"/>
+      </vuestic-widget>
+    </div>
+    <div class="vuestic-timelines__vertical-centered">
+      <vuestic-widget class="no-h-padding vuestic-timelines__vertical-cards-label-widget" :headerText="$t('timelines.verticalCentered')">
+        <vuestic-vertical-timeline :steps="verticalCenteredCardsEvents" class="vuestic-timelines__vertical-label-indicator"/>
       </vuestic-widget>
     </div>
   </div>
 </template>
 
 <script>
-import VuesticHorizontalSimpleTimeline
-  from '../../../vuestic-theme/vuestic-components/vuestic-timelines/VuesticHorizontalSimpleTimeline'
-import VuesticHorizontalCardsTimeline
-  from '../../../vuestic-theme/vuestic-components/vuestic-timelines/VuesticHorizontalCardsTimeline'
-import VuesticVerticalLabelTimeline
-  from '../../../vuestic-theme/vuestic-components/vuestic-timelines/VuesticVerticalLabelTimeline'
+import VuesticHorizontalTimeline
+  from '../../../vuestic-theme/vuestic-components/vuestic-timelines/VuesticHorizontalTimeline'
+import VuesticVerticalTimeline
+  from '../../../vuestic-theme/vuestic-components/vuestic-timelines/VuesticVerticalTimeline'
 
 export default {
   name: 'timelines',
   components: {
-    VuesticVerticalLabelTimeline,
-    VuesticHorizontalSimpleTimeline,
-    VuesticHorizontalCardsTimeline
+    VuesticVerticalTimeline,
+    VuesticHorizontalTimeline
   },
   data () {
     return {
       horizontalSimpleEvents: {
-        type: 'horizontal-simple',
+        type: 'simple',
         items: [
           {
             label: this.$t('timelines.firstDate'),
-            info: 'Pre-sail rate: 50%'
+            info: 'Pre-sail rate: 50%',
+            theme: 'base'
           },
           {
             label: this.$t('timelines.secondDate'),
-            info: 'Pre-sail rate: 40%'
+            info: 'Pre-sail rate: 40%',
+            theme: 'base'
           },
           {
             label: this.$t('timelines.thirdDate'),
-            info: 'Pre-sail rate: 20%'
+            info: 'Pre-sail rate: 20%',
+            theme: 'base'
           },
         ],
       },
       horizontalCardsEvents: {
-        type: 'horizontal-cards',
+        type: 'cards',
         items: [
           {
             label: this.$t('timelines.firstDate'),
-            cardInfo: 'cards.contentText'
+            cardInfo: 'cards.contentText',
+            theme: 'base'
           },
           {
             label: this.$t('timelines.secondDate'),
-            cardInfo: 'timelines.cardsSecondInfo'
+            cardInfo: 'timelines.cardsSecondInfo',
+            theme: 'base'
           },
           {
             label: this.$t('timelines.thirdDate'),
-            cardInfo: 'timelines.cardsThirdInfo'
+            cardInfo: 'timelines.cardsThirdInfo',
+            theme: 'base'
           },
         ],
       },
       verticalCardsEvents: {
-        type: 'vertical-cards',
+        type: 'cards',
         items: [
           {
             label: this.$t('timelines.firstDate'),
-            cardInfo: 'timelines.verticalSimpleCardsFirstInfo'
+            cardInfo: 'timelines.verticalSimpleCardsFirstInfo',
+            theme: 'base'
           },
           {
             label: this.$t('timelines.secondDate'),
-            cardInfo: 'timelines.verticalSimpleCardsSecondInfo'
+            cardInfo: 'timelines.verticalSimpleCardsSecondInfo',
+            theme: 'base'
+          }
+        ]
+      },
+      verticalCardsEventsDark: {
+        type: 'cards',
+        items: [
+          {
+            label: this.$t('timelines.firstDate'),
+            cardInfo: 'timelines.verticalSimpleCardsFirstInfo',
+            theme: 'dark'
+          },
+          {
+            label: this.$t('timelines.secondDate'),
+            cardInfo: 'timelines.verticalSimpleCardsSecondInfo',
+            theme: 'dark'
           }
         ]
       },
       verticalLabelCardsEvents: {
-        type: 'vertical-label-cards',
+        type: 'label-cards',
         items: [
           {
             label: this.$t('timelines.firstDate'),
-            cardInfo: 'timelines.verticalSimpleCardsFirstInfo'
+            cardInfo: 'timelines.verticalSimpleCardsFirstInfo',
+            theme: 'base'
           },
           {
             label: this.$t('timelines.secondDate'),
-            cardInfo: 'timelines.verticalSimpleCardsSecondInfo'
+            cardInfo: 'timelines.verticalSimpleCardsSecondInfo',
+            theme: 'base'
+          }
+        ]
+      },
+      verticalCenteredCardsEvents: {
+        type: 'label-cards',
+        items: [
+          {
+            label: this.$t('timelines.firstDate'),
+            cardInfo: 'cards.contentText',
+            theme: 'dark'
+          },
+          {
+            label: this.$t('timelines.secondDate'),
+            cardInfo: 'timelines.cardsSecondInfo',
+            theme: 'dark'
+          },
+          {
+            label: this.$t('timelines.thirdDate'),
+            cardInfo: 'timelines.cardsThirdInfo',
+            theme: 'dark'
           }
         ]
       }

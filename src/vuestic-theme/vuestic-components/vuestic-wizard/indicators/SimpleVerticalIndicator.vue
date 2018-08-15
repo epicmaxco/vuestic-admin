@@ -2,23 +2,19 @@
     <ul class="wizard-steps horizontal-steps simple-steps" :class="{'completed': completed}">
       <li class="wizard-step" :class="{'active': currentStep >= index, 'current': currentStep === index}" :style="{ height: 100/steps.length + '%' }" v-for="(step, index) of steps">
         <span v-if="type==='simple'" class="wizard-step-label ellipsis">{{step.label}}</span>
-        <span class="wizard-step-info" v-if="type==='vertical-label-cards'">{{ step.label }}</span>
-        <vuestic-card class="wizard-step-card vuestic-card--stripe-success" v-if="step.cardInfo"
-                      :theme="cardTheme"
+        <span class="wizard-step-info" v-if="type==='label-cards'">{{ step.label }}</span>
+        <vuestic-card
+          v-if="step.cardInfo"
+          class="wizard-step-card"
+          :theme="step.theme"
+          :class="{'vuestic-card--stripe-success' : step.theme==='base'}"
         >
           <p slot="title">{{ step.label }}</p>
           {{ $t(step.cardInfo) }}
         </vuestic-card>
-        <span
-              :class="{'dateLeft': type==='vertical-label-cards'}"
-              class="wizard-step-indicator"
-        ></span>
-        <span class="wizard-step-line"
-        :class="{'dateLeft': type==='vertical-label-cards'}"
-        ></span>
-        <span class="wizard-step-line completed-line"
-              :class="{'dateLeft': type==='vertical-label-cards'}"
-        ></span>
+        <span class="wizard-step-indicator"></span>
+        <span class="wizard-step-line"></span>
+        <span class="wizard-step-line completed-line"></span>
       </li>
     </ul>
 </template>
@@ -40,10 +36,6 @@
       completed: {
         type: Boolean,
         default: false
-      },
-      cardTheme: {
-        type: String,
-        default: 'base'
       },
       type: {
         type: String,
@@ -117,7 +109,7 @@
     }
 
     .wizard-step-card {
-      width: 400px;
+      width: 100%;
     }
 
     @include media-breakpoint-down(xs) {
