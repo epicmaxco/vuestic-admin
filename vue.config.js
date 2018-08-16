@@ -35,7 +35,7 @@ module.exports = {
         'data': path.resolve('src/data'),
         'vuex-store': path.resolve('src/store')
       }
-    }
+    },
   },
   css: {
     loaderOptions: {
