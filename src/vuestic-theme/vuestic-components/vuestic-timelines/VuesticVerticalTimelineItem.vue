@@ -1,12 +1,13 @@
 <template>
   <div class="vuestic-vertical-timeline-item">
     <div class="vuestic-vertical-timeline-item__date">
-      {{ date || '---' }}
+      {{ date }}
     </div>
     <div class="vuestic-vertical-timeline-item__line">
-      <div>|</div>
-      <div>o</div>
-      <div>|</div>
+      <simple-vertical-indicator
+        :step="step"
+        :isActive="step.isActive"
+      />
     </div>
     <div class="vuestic-vertical-timeline-item__content">
       <slot/>
@@ -15,10 +16,19 @@
 </template>
 
 <script>
+import SimpleVerticalIndicator
+  from '../../../vuestic-theme/vuestic-components/vuestic-wizard/indicators/SimpleVerticalIndicator'
+
 export default {
   name: 'vuestic-vertical-timeline-item',
+  components: {
+    SimpleVerticalIndicator
+  },
   props: {
-    date: {},
+    step: {},
+    date: {
+      default: 'April 10 15:00'
+    }
   },
 }
 </script>
@@ -29,6 +39,8 @@ $line-width: 40px;
 .vuestic-vertical-timeline-item {
   display: flex;
   &__date {
+    padding-top: 5%;
+    padding-right: 2%;
     flex: 1 1 40%;
     text-align: end;
   }
@@ -37,6 +49,7 @@ $line-width: 40px;
     flex-direction: column;
     flex: 0 0 $line-width;
     text-align: center;
+    position: relative;
   }
   &__content {
     flex: 1 1 40%;

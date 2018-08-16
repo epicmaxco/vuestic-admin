@@ -1,8 +1,8 @@
 <template>
   <div class="demo-container">
-    <div class="demo-container__item" style="width: 100%">
+    <div class="demo-container__item">
       <vuestic-vertical-timeline-item
-        date="April 10 15:00"
+        :step="item"
       >
         <vuestic-card>
           <template slot="title">The unique stripes of zebras</template>
@@ -22,5 +22,11 @@ export default {
     VuesticCard,
     VuesticVerticalTimelineItem,
   },
+  data () {
+    return {
+      item: {}
+    }
+  }
 }
 </script>
+

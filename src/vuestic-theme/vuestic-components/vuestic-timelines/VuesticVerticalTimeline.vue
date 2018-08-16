@@ -1,24 +1,30 @@
 <template>
   <div class="vuestic-vertical-timeline">
-
+    <div v-for="step of steps">
+      <vuestic-vertical-timeline-item
+        :step="step"
+        :date="step.date"
+      >
+        <vuestic-card>
+          <template slot="title">{{step.date}}</template>
+          {{step.content}}
+        </vuestic-card>
+      </vuestic-vertical-timeline-item>
+    </div>
   </div>
 </template>
 
 <script>
-import SimpleVerticalIndicator
-  from '../../../vuestic-theme/vuestic-components/vuestic-wizard/indicators/SimpleVerticalIndicator.vue'
+import VuesticVerticalTimelineItem from './VuesticVerticalTimelineItem'
 
 export default {
   name: 'vuestic-vertical-timeline',
   components: {
-    SimpleVerticalIndicator,
+    VuesticVerticalTimelineItem,
   },
   props: {
     steps: {},
-    currentStep: {
-      type: Number,
-      default: 0
-    }
+    date: {}
   }
 }
 </script>
