@@ -16,8 +16,8 @@
 
     <div class="wizard-body">
       <div class="wizard-body-step"
-           v-for="step in steps"
-           :key="step"
+           v-for="(step, index) in steps"
+           :key="index"
            v-show="isStepShown(step)"
       >
         <slot :name="step.slot" class="step-content"></slot>
