@@ -1,13 +1,16 @@
 <template>
   <div class="vuestic-horizontal-timeline-item">
-    <div class="vuestic-horizontal-timeline-item__date">
-      <div class="vuestic-horizontal-timeline-item__date-content">
-        {{ date }}
-      </div>
+    <div v-if="type==='simple'" class="vuestic-horizontal-timeline-item__date">
+      {{ date }}
+    </div>
+    <div v-if="type==='simple'" class="vuestic-horizontal-timeline-item__text">
+      {{ step.content }}
     </div>
     <div class="vuestic-horizontal-timeline-item__line">
       <simple-horizontal-indicator
+        class="vuestic-horizontal-timeline-item__line-indicator"
         :step="step"
+        :isActive="isActive"
       />
     </div>
     <div class="vuestic-horizontal-timeline-item__content">
@@ -30,7 +33,12 @@ export default {
     date: {
       type: String
     },
-  },
+    isActive: {
+      type: Boolean,
+      default: false
+    },
+    type: {}
+  }
 }
 </script>
 
@@ -42,12 +50,20 @@ $line-width: 40px;
     padding-top: 5%;
     padding-right: 2%;
     text-align: center;
+    color: $vue-green
+  }
+  &__text {
+    padding-top: 5%;
+    text-align: center;
   }
   &__line {
+    text-align: center;
+  }
+  &__line-indicator {
     .wizard-step-line.wizard-step-line {
+      color: $vue-green;
       width: 100%;
     }
-    text-align: center;
   }
   &__content {
     // HACK Remove after card fix (see https://github.com/epicmaxco/vuestic-admin/issues/307)

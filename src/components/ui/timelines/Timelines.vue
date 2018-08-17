@@ -2,12 +2,15 @@
   <div class="vuestic-timelines">
     <div class="vuestic-timelines__horizontal-simple">
       <vuestic-widget class="no-h-padding" :headerText="$t('timelines.horizontalSimple')">
-        <vuestic-horizontal-timeline :steps="horizontalSimpleEvents"/>
+        <vuestic-horizontal-timeline :steps="horizontalSimpleItems"/>
       </vuestic-widget>
     </div>
     <div class="vuestic-timelines__horizontal-cards">
       <vuestic-widget class="no-h-padding vuestic-timelines__horizontal-cards-widget" :headerText="$t('timelines.horizontalCards')">
-        <vuestic-horizontal-timeline :steps="horizontalCardsEvents"/>
+        <vuestic-horizontal-timeline
+          :steps="horizontalCardsItems"
+          :type="'card'"
+        />
       </vuestic-widget>
     </div>
     <div class="vuestic-timelines__vertical-simple">
@@ -29,9 +32,14 @@
         />
       </vuestic-widget>
     </div>
-    <div class="vuestic-timelines__vertical-centered">
-      <vuestic-widget class="no-h-padding vuestic-timelines__vertical-cards-label-widget" :headerText="$t('timelines.verticalCentered')">
-        <vuestic-vertical-timeline :steps="verticalCenteredCardsEvents" class="vuestic-timelines__vertical-label-indicator"/>
+    <div class="vuestic-timelines__vertical-label">
+      <vuestic-widget class="no-h-padding vuestic-timelines__vertical-label-cards-widget" :headerText="$t('timelines.verticalLabel')">
+        <vuestic-vertical-timeline
+          :steps="labelVerticalItems"
+          class="vuestic-timelines__vertical-label-indicator"
+          :type="'label'"
+          :theme="'dark'"
+        />
       </vuestic-widget>
     </div>
   </div>
@@ -51,47 +59,22 @@ export default {
   },
   data () {
     return {
-      horizontalSimpleEvents: {
-        type: 'simple',
-        items: [
-          {
-            label: this.$t('timelines.firstDate'),
-            info: 'Pre-sail rate: 50%',
-            theme: 'base'
-          },
-          {
-            label: this.$t('timelines.secondDate'),
-            info: 'Pre-sail rate: 40%',
-            theme: 'base'
-          },
-          {
-            label: this.$t('timelines.thirdDate'),
-            info: 'Pre-sail rate: 20%',
-            theme: 'base'
-          },
-        ],
-      },
-      horizontalCardsEvents: {
-        type: 'cards',
-        items: [
-          {
-            label: this.$t('timelines.firstDate'),
-            cardInfo: 'cards.contentText',
-            theme: 'base'
-          },
-          {
-            label: this.$t('timelines.secondDate'),
-            cardInfo: 'timelines.cardsSecondInfo',
-            theme: 'base'
-          },
-          {
-            label: this.$t('timelines.thirdDate'),
-            cardInfo: 'timelines.cardsThirdInfo',
-            theme: 'base'
-          },
-        ],
-      },
-      simpleVerticalitems: [
+      horizontalSimpleItems: [
+        {
+          date: 'April 10 15:00',
+          content: 'Pre-sail rate: 50%',
+          isActive: true
+        },
+        {
+          date: 'May 22 10:00',
+          content: 'Pre-sail rate: 40%'
+        },
+        {
+          date: 'July 19 17:45',
+          content: 'Pre-sail rate: 20%'
+        }
+      ],
+      horizontalCardsItems: [
         {
           date: 'April 10 15:00',
           content: 'The unique stripes of zebras make them one of the animals most familiar to people.',
@@ -100,6 +83,17 @@ export default {
         {
           date: 'May 22 10:00',
           content: 'They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands.'
+        },
+        {
+          date: 'July 19 17:45',
+          content: 'However, various anthropogenic factors have had a severe impact on zebra populations'
+        }
+      ],
+      simpleVerticalitems: [
+        {
+          date: 'April 10 15:00',
+          content: 'The unique stripes of zebras make them one of the animals most familiar to people.They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands.',
+          isActive: true
         },
         {
           date: 'July 19 17:45',
@@ -121,41 +115,6 @@ export default {
           content: 'However, various anthropogenic factors have had a severe impact on zebra populations'
         }
       ],
-      verticalLabelCardsEvents: {
-        type: 'label-cards',
-        items: [
-          {
-            label: this.$t('timelines.firstDate'),
-            cardInfo: 'timelines.verticalSimpleCardsFirstInfo',
-            theme: 'base'
-          },
-          {
-            label: this.$t('timelines.secondDate'),
-            cardInfo: 'timelines.verticalSimpleCardsSecondInfo',
-            theme: 'base'
-          }
-        ]
-      },
-      verticalCenteredCardsEvents: {
-        type: 'label-cards',
-        items: [
-          {
-            label: this.$t('timelines.firstDate'),
-            cardInfo: 'cards.contentText',
-            theme: 'dark'
-          },
-          {
-            label: this.$t('timelines.secondDate'),
-            cardInfo: 'timelines.cardsSecondInfo',
-            theme: 'dark'
-          },
-          {
-            label: this.$t('timelines.thirdDate'),
-            cardInfo: 'timelines.cardsThirdInfo',
-            theme: 'dark'
-          }
-        ]
-      }
     }
   }
 }
@@ -174,7 +133,7 @@ export default {
   }
   &__horizontal-cards-widget {
     .widget-body {
-      height: 200px;
+      height: 250px;
     }
   }
   &__vertical-cards-widget {

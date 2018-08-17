@@ -1,13 +1,22 @@
 <template>
   <div class="vuestic-horizontal-timeline">
-    <div v-for="step of steps">
+    <div
+      v-for="step of steps"
+      :style="{'width': 100/steps.length + '%'}"
+    >
       <vuestic-horizontal-timeline-item
         :step="step"
-        :date="'February 20 23:59'"
+        :date="step.date"
+        :isActive="step.isActive"
+        :type="type"
       >
-        <vuestic-card>
-          <template slot="title">The unique stripes of zebras</template>
-          The unique stripes of zebras make them one of the animals most familiar to people.
+        <vuestic-card
+          class="vuestic-horizontal-timeline__card"
+          v-if="type==='card'"
+          :class="{'vuestic-card--stripe-success': theme==='base'}"
+        >
+          <template slot="title">{{step.date}}</template>
+          {{step.content}}
         </vuestic-card>
       </vuestic-horizontal-timeline-item>
     </div>
@@ -27,6 +36,19 @@ export default {
     currentStep: {
       type: Number,
       default: 0
+    },
+    isActive: {
+      type: Boolean,
+      default: false
+    },
+    type: {
+      type: String,
+      validator: (val) => ['simple', 'card'].includes(val),
+      default: 'simple'
+    },
+    theme: {
+      type: String,
+      default: 'base'
     }
   },
   data () {
@@ -37,6 +59,12 @@ export default {
 
 <style lang="scss">
 .vuestic-horizontal-timeline {
+  @include media-breakpoint-down(xs) {
+    &__card {
+      font-size: 9px;
+    }
+  }
   display: inline-flex;
+  width: 100%;
 }
 </style>

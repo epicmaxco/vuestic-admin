@@ -12,7 +12,9 @@
       :style="{ height: 100 + '%' }"
       :class="{'active': isActive}"
     >
-      <span class="wizard-step-line"></span>
+      <span
+        class="wizard-step-line"
+      />
       <span class="wizard-step-line completed-line"></span>
       <span class="wizard-step-label ellipsis">{{step.label}}</span>
       <span class="wizard-step-indicator"></span>
@@ -65,6 +67,9 @@ $wizard-label-width: 100%;
   position:  absolute;
   top: 0;
   bottom: 0;
+}
+.makeActive {
+  color: $vue-green
 }
 .wizard-step{
   vertical-align: bottom;

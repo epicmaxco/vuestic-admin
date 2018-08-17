@@ -1,8 +1,14 @@
 <template>
   <div class="demo-container">
-    <div class="demo-container__item">
+    <div class="demo-container__item" style="width: 100%">
       <vuestic-horizontal-timeline
         :steps="items"
+        :type="'card'"
+      />
+    </div>
+    <div class="demo-container__item" style="width: 100%">
+      <vuestic-horizontal-timeline
+        :steps="horizontalSimpleItems"
       />
     </div>
   </div>
@@ -17,6 +23,21 @@ export default {
   },
   data () {
     return {
+      horizontalSimpleItems: [
+        {
+          date: 'April 10 15:00',
+          content: 'Pre-sail rate: 50%',
+          isActive: true
+        },
+        {
+          date: 'May 22 10:00',
+          content: 'Pre-sail rate: 40%'
+        },
+        {
+          date: 'July 19 17:45',
+          content: 'Pre-sail rate: 20%'
+        }
+      ],
       items: [
         {
           date: 'April 10 15:00',

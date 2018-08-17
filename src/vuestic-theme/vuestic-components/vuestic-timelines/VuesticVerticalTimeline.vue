@@ -1,6 +1,9 @@
 <template>
   <div class="vuestic-vertical-timeline">
-    <div v-for="step of steps">
+    <div
+      :style="{'height': 100/steps.length + '%'}"
+      v-for="step of steps"
+    >
       <vuestic-vertical-timeline-item
         :step="step"
         :date="step.date"
@@ -43,6 +46,7 @@ export default {
 
 <style lang="scss">
 .vuestic-vertical-timeline {
+  overflow: hidden;
   .vuestic-vertical-timeline__indicator.vuestic-vertical-timeline__indicator {
     position: relative;
   }

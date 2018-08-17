@@ -116,8 +116,8 @@ $wizard-label-padding: 0 0.6rem;
     }
   }
   &:first-child {
+    overflow: hidden;
     .wizard-step-line {
-      left: 0;
     }
   }
   &:last-child {
