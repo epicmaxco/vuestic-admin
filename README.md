@@ -32,11 +32,17 @@ $ npm install -g @vue/cli
 $ yarn global add @vue/cli
 ```
 
+You can create vuestic project via installer:
+
 ``` bash
 # create new project via vuestic-installer command.
 $ vuestic myproject
 
-# OR
+```
+
+or just by cloning repo:  
+
+```
 
 # clone the repo
 $ git clone https://github.com/epicmaxco/vuestic-admin.git myproject
