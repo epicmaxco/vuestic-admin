@@ -4,8 +4,12 @@
       <vuestic-vertical-timeline-item
         :step="step"
         :date="step.date"
+        :type="type"
       >
-        <vuestic-card>
+        <vuestic-card
+          :theme="theme"
+          :class="{'vuestic-card--stripe-success': theme==='base'}"
+        >
           <template slot="title">{{step.date}}</template>
           {{step.content}}
         </vuestic-card>
@@ -24,7 +28,15 @@ export default {
   },
   props: {
     steps: {},
-    date: {}
+    date: {},
+    theme: {
+      type: String,
+      default: 'base'
+    },
+    type: {
+      type: String,
+      default: 'simple'
+    }
   }
 }
 </script>

@@ -2,14 +2,7 @@
   <div class="demo-container">
     <div class="demo-container__item">
       <vuestic-horizontal-timeline
-        :steps="horizontalSimpleEvents"
-        :currentStep="1"
-      />
-    </div>
-    <div class="demo-container__item">
-      <vuestic-horizontal-timeline
-        :steps="horizontalCardsEvents"
-        :currentStep="0"
+        :steps="items"
       />
     </div>
   </div>
@@ -24,46 +17,21 @@ export default {
   },
   data () {
     return {
-      horizontalCardsEvents: {
-        type: 'cards',
-        items: [
-          {
-            label: this.$t('timelines.firstDate'),
-            cardInfo: 'cards.contentText',
-            theme: 'base'
-          },
-          {
-            label: this.$t('timelines.secondDate'),
-            cardInfo: 'timelines.cardsSecondInfo',
-            theme: 'dark'
-          },
-          {
-            label: this.$t('timelines.thirdDate'),
-            cardInfo: 'timelines.cardsThirdInfo',
-            theme: 'base'
-          },
-        ],
-      },
-      horizontalSimpleEvents: {
-        type: 'simple',
-        items: [
-          {
-            label: this.$t('timelines.firstDate'),
-            info: 'cards.contentText',
-            theme: 'base'
-          },
-          {
-            label: this.$t('timelines.secondDate'),
-            info: 'timelines.cardsSecondInfo',
-            theme: 'dark'
-          },
-          {
-            label: this.$t('timelines.thirdDate'),
-            info: 'timelines.cardsThirdInfo',
-            theme: 'base'
-          },
-        ],
-      }
+      items: [
+        {
+          date: 'April 10 15:00',
+          content: 'The unique stripes of zebras make them one of the animals most familiar to people.',
+          isActive: true
+        },
+        {
+          date: 'May 22 10:00',
+          content: 'They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands.'
+        },
+        {
+          date: 'July 19 17:45',
+          content: 'However, various anthropogenic factors have had a severe impact on zebra populations'
+        }
+      ]
     }
   }
 }

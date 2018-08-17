@@ -1,8 +1,12 @@
 <template>
-  <div class="vuestic-horizontal-timeline">
-    <div v-for="step of steps">
+  <div class="demo-container">
+    <div class="demo-container__item">
       <vuestic-horizontal-timeline-item
-        :step="step"
+        :step="item"
+        :date="'February 20 23:59'"
+      />
+      <vuestic-horizontal-timeline-item
+        :step="item"
         :date="'February 20 23:59'"
       >
         <vuestic-card>
@@ -15,28 +19,19 @@
 </template>
 
 <script>
-import VuesticHorizontalTimelineItem from './VuesticHorizontalTimelineItem'
+import VuesticHorizontalTimelineItem from './VuesticHorizontalTimelineItem.vue'
+import VuesticCard from '../vuestic-card/VuesticCard'
 
 export default {
-  name: 'vuestic-horizontal-timeline',
   components: {
-    VuesticHorizontalTimelineItem
-  },
-  props: {
-    steps: {},
-    currentStep: {
-      type: Number,
-      default: 0
-    }
+    VuesticCard,
+    VuesticHorizontalTimelineItem,
   },
   data () {
-    return {}
+    return {
+      item: {}
+    }
   }
 }
 </script>
 
-<style lang="scss">
-.vuestic-horizontal-timeline {
-  display: inline-flex;
-}
-</style>

@@ -1,7 +1,9 @@
 <template>
   <div class="vuestic-vertical-timeline-item">
     <div class="vuestic-vertical-timeline-item__date">
-      {{ date }}
+      <div v-if="type=='label'" class="vuestic-vertical-timeline-item__date-content">
+        {{ date }}
+      </div>
     </div>
     <div class="vuestic-vertical-timeline-item__line">
       <simple-vertical-indicator
@@ -28,6 +30,11 @@ export default {
     step: {},
     date: {
       default: 'April 10 15:00'
+    },
+    type: {
+      type: String,
+      validator: (val) => ['label', 'simple', 'centered'].includes(val),
+      default: 'simple'
     }
   },
 }
@@ -41,7 +48,7 @@ $line-width: 40px;
   &__date {
     padding-top: 5%;
     padding-right: 2%;
-    flex: 1 1 40%;
+    flex: 1 1 20%;
     text-align: end;
   }
   &__line {
