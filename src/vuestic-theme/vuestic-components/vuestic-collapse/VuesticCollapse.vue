@@ -1,5 +1,6 @@
 <template>
-  <div class="vuestic-collapse">
+  <div class="vuestic-collapse"
+       :class="{ 'open': show }">
     <div class="vuestic-collapse__header"
          @click="toggleCollapseBody()">
       <slot name="header"></slot>
@@ -22,28 +23,14 @@
     },
     data () {
       return {
-        show: this.value,
-        duration: 200
+        show: this.value
       }
     },
     methods: {
       toggleCollapseBody () {
         let bodyContent = this.$el.lastChild
-        let accordion = this.$parent
 
-        if (accordion.$el.classList.contains('vuestic-accordion') && !accordion.expand) {
-          let collapsesArray = this.$parent.$children
-          for (let i = 0; i < collapsesArray.length; i++) {
-            if (this === collapsesArray[i]) {
-              this.show = !this.show
-            } else {
-              collapsesArray[i].$el.lastChild.style.height = 0
-              collapsesArray[i].show = false
-            }
-          }
-        } else {
-          this.show = !this.show
-        }
+        this.show = !this.show
 
         if (bodyContent.classList.contains('open')) {
           bodyContent.style.height = 0
@@ -61,7 +48,7 @@
 
     &__body {
       height: 0;
-      transition: height 1s;
+      transition: height 0.3s;
       margin-top: 20px;
       background: $light-gray;
       overflow: hidden;
