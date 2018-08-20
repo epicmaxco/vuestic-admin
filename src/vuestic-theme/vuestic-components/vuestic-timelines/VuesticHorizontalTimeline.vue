@@ -9,6 +9,8 @@
         :date="step.date"
         :isActive="index<=currentStep"
         :type="type"
+        :indexCurrent="index"
+        :indexMax="currentStep"
       >
         <vuestic-card
           class="vuestic-horizontal-timeline__card"

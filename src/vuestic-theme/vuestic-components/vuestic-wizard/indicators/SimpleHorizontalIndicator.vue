@@ -1,10 +1,10 @@
 <template>
   <ul class="wizard-steps horizontal-steps simple-steps" :class="{'completed': completed}">
     <li v-if="steps" class="wizard-step" :class="{'active': currentStep >= index, 'current': currentStep === index}" :style="{ width: 100/steps.length + '%' }" v-for="(step, index) of steps">
-      <span class="wizard-step-line"></span>
-      <span class="wizard-step-line completed-line"></span>
+      <span class="wizard-step-line"/>
+      <span class="wizard-step-line completed-line"/>
       <span class="wizard-step-label ellipsis">{{step.label}}</span>
-      <span class="wizard-step-indicator"></span>
+      <span class="wizard-step-indicator"/>
     </li>
     <li
       v-if="step"
@@ -12,10 +12,13 @@
       :style="{ height: 100 + '%' }"
       :class="{'active': isActive}"
     >
-      <span class="wizard-step-line"></span>
-      <span class="wizard-step-line completed-line"></span>
+      <span class="wizard-step-line"/>
+      <span
+        class="wizard-step-line completed-line"
+        :class="{'makeActive': isActive && indexCurrent < indexMax}"
+      />
       <span class="wizard-step-label ellipsis">{{step.label}}</span>
-      <span class="wizard-step-indicator"></span>
+      <span class="wizard-step-indicator"/>
     </li>
   </ul>
 </template>
@@ -39,17 +42,14 @@ export default {
     isActive: {
       type: Boolean,
       default: false
-    }
+    },
+    indexCurrent: {},
+    indexMax: {}
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import "../../../../sass/_variables.scss";
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins/breakpoints";
-
 $wizard-step-height: 3.75rem;
 $wizard-step-indicator-height: 1rem;
 $wizard-step-label-font-size: $font-size-h4;
@@ -81,6 +81,9 @@ $wizard-label-padding: 0 0.6rem;
     background-color: $lighter-gray;
     transition: background-color 300ms linear;
     &.completed-line {
+      &.makeActive {
+        background-color: $vue-green;
+      }
       display: none;
       width: 50%;
       left: 50%

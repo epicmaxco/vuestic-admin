@@ -4,6 +4,7 @@
       <vuestic-horizontal-timeline
         :steps="items"
         :type="'card'"
+        :currentStep="1"
       />
     </div>
     <div class="demo-container__item" style="width: 100%">

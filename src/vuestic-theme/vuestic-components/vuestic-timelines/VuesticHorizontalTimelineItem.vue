@@ -11,6 +11,8 @@
         class="vuestic-horizontal-timeline-item__line-indicator"
         :step="step"
         :isActive="isActive"
+        :indexCurrent="indexCurrent"
+        :indexMax="indexMax"
       />
     </div>
     <div class="vuestic-horizontal-timeline-item__content">
@@ -39,7 +41,9 @@ export default {
     },
     type: {
       type: String
-    }
+    },
+    indexCurrent: {},
+    indexMax: {}
   }
 }
 </script>
@@ -63,12 +67,11 @@ $line-width: 40px;
   }
   &__line-indicator {
     .wizard-step-line.wizard-step-line {
-      color: $vue-green;
       width: 100%;
     }
   }
   &__content {
-    // HACK Remove after card fix (see https://github.com/epicmaxco/vuestic-admin/issues/307)
+    max-height: 152px;
     .vuestic-card {
       width: 80%;
     }
