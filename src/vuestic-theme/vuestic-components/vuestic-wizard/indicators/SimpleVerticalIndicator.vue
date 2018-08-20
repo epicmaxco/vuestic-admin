@@ -68,9 +68,6 @@ $wizard-label-width: 100%;
   top: 0;
   bottom: 0;
 }
-.makeActive {
-  color: $vue-green
-}
 .wizard-step{
   vertical-align: bottom;
   display: flex;

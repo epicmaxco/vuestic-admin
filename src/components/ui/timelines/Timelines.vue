@@ -37,7 +37,7 @@
         <vuestic-vertical-timeline
           :steps="labelVerticalItems"
           class="vuestic-timelines__vertical-label-indicator"
-          :type="'label'"
+          :type="'centered'"
           :theme="'dark'"
         />
       </vuestic-widget>
@@ -63,7 +63,6 @@ export default {
         {
           date: 'April 10 15:00',
           content: 'Pre-sail rate: 50%',
-          isActive: true
         },
         {
           date: 'May 22 10:00',
@@ -92,8 +91,7 @@ export default {
       simpleVerticalitems: [
         {
           date: 'April 10 15:00',
-          content: 'The unique stripes of zebras make them one of the animals most familiar to people.They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands.',
-          isActive: true
+          content: 'The unique stripes of zebras make them one of the animals most familiar to people.',
         },
         {
           date: 'July 19 17:45',
@@ -104,7 +102,6 @@ export default {
         {
           date: 'April 10 15:00',
           content: 'The unique stripes of zebras make them one of the animals most familiar to people.',
-          isActive: true
         },
         {
           date: 'May 22 10:00',
@@ -137,13 +134,16 @@ export default {
     }
   }
   &__vertical-cards-widget {
-    .widget-body {
+    .widget-body.widget-body {
       width: 100%;
       display: inline-flex;
+      padding-left: 15px;
+      padding-right: 15px;
     }
   }
-  &__vertical-label-cards-widget {
+  .vuestic-timelines__vertical-label-cards-widget.vuestic-timelines__vertical-label-cards-widget {
     .widget-body {
+      padding-right: 1px;
       justify-content: center;
       width: 100%;
       display: inline-flex;
@@ -157,6 +157,7 @@ export default {
   }
   &__vertical-label-indicator {
     padding-left: 0;
+    max-width: 700px;
   }
   @include media-breakpoint-down(xs) {
     &__vertical-simple-indicator-dark {
@@ -165,7 +166,7 @@ export default {
   }
   @include media-breakpoint-down(xs) {
     &__vertical-label-indicator {
-      padding-left: 28%;
+      padding-left: 0;
     }
   }
 }

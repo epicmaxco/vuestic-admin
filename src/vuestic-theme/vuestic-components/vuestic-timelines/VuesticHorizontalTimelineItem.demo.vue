@@ -4,10 +4,7 @@
       <vuestic-horizontal-timeline-item
         :step="item"
         :date="'February 20 23:59'"
-      />
-      <vuestic-horizontal-timeline-item
-        :step="item"
-        :date="'February 20 23:59'"
+        :isActive="true"
       >
         <vuestic-card>
           <template slot="title">The unique stripes of zebras</template>
@@ -29,7 +26,13 @@ export default {
   },
   data () {
     return {
-      item: {}
+      item: {},
+      horizontalSimpleItems: [
+        {
+          date: 'April 10 15:00',
+          content: 'Pre-sail rate: 50%',
+        },
+      ]
     }
   }
 }

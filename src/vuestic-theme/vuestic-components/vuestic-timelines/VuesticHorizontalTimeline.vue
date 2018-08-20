@@ -1,13 +1,13 @@
 <template>
   <div class="vuestic-horizontal-timeline">
     <div
-      v-for="step of steps"
+      v-for="(step, index) in steps"
       :style="{'width': 100/steps.length + '%'}"
     >
       <vuestic-horizontal-timeline-item
         :step="step"
         :date="step.date"
-        :isActive="step.isActive"
+        :isActive="index<=currentStep"
         :type="type"
       >
         <vuestic-card
@@ -36,10 +36,6 @@ export default {
     currentStep: {
       type: Number,
       default: 0
-    },
-    isActive: {
-      type: Boolean,
-      default: false
     },
     type: {
       type: String,

@@ -1,8 +1,9 @@
 <template>
   <div class="demo-container">
-    <div class="demo-container__item">
+    <div class="demo-container__item" style="overflow: hidden">
       <vuestic-vertical-timeline-item
         :step="item"
+        :isActive="true"
       >
         <vuestic-card>
           <template slot="title">The unique stripes of zebras</template>

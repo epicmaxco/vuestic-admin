@@ -37,7 +37,9 @@ export default {
       type: Boolean,
       default: false
     },
-    type: {}
+    type: {
+      type: String
+    }
   }
 }
 </script>

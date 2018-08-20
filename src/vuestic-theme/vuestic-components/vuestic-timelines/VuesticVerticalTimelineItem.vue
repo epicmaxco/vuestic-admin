@@ -1,14 +1,23 @@
 <template>
-  <div class="vuestic-vertical-timeline-item">
-    <div class="vuestic-vertical-timeline-item__date">
-      <div v-if="type=='label'" class="vuestic-vertical-timeline-item__date-content">
+  <div
+    class="vuestic-vertical-timeline-item"
+  >
+    <div
+      class="vuestic-vertical-timeline-item__date"
+      :class="{'reverse':type==='centered'}"
+    >
+      <div
+        v-if="type=='label' || type==='centered'"
+        class="vuestic-vertical-timeline-item__date-content"
+        :class="{'reverse':type==='centered'}"
+      >
         {{ date }}
       </div>
     </div>
     <div class="vuestic-vertical-timeline-item__line">
       <simple-vertical-indicator
         :step="step"
-        :isActive="step.isActive"
+        :isActive="isActive"
       />
     </div>
     <div class="vuestic-vertical-timeline-item__content">
@@ -28,13 +37,15 @@ export default {
   },
   props: {
     step: {},
-    date: {
-      default: 'April 10 15:00'
-    },
+    date: {},
     type: {
       type: String,
       validator: (val) => ['label', 'simple', 'centered'].includes(val),
       default: 'simple'
+    },
+    isActive: {
+      type: Boolean,
+      default: false
     }
   },
 }
@@ -46,9 +57,12 @@ $line-width: 40px;
 .vuestic-vertical-timeline-item {
   display: flex;
   &__date {
+    &.reverse {
+      flex: 1 1 40%;
+    }
     padding-top: 5%;
     padding-right: 2%;
-    flex: 1 1 20%;
+    flex: 1 1 4%;
     text-align: end;
   }
   &__line {
@@ -57,12 +71,24 @@ $line-width: 40px;
     flex: 0 0 $line-width;
     text-align: center;
     position: relative;
+    width: 10px;
+    .wizard-steps.wizard-steps {
+      padding: 0;
+      width: 10px;
+      .wizard-step {
+        width: 10px;
+      }
+    }
   }
   &__content {
     flex: 1 1 40%;
-    // HACK Remove after card fix (see https://github.com/epicmaxco/vuestic-admin/issues/307)
     .vuestic-card {
       width: calc(100% - 1.1875rem * 2);
+    }
+  }
+  @include media-breakpoint-down(xs) {
+    &__content {
+      font-size: 9px;
     }
   }
 }

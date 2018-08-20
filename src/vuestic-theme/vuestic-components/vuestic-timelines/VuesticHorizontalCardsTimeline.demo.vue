@@ -27,7 +27,6 @@ export default {
         {
           date: 'April 10 15:00',
           content: 'Pre-sail rate: 50%',
-          isActive: true
         },
         {
           date: 'May 22 10:00',
@@ -42,7 +41,6 @@ export default {
         {
           date: 'April 10 15:00',
           content: 'The unique stripes of zebras make them one of the animals most familiar to people.',
-          isActive: true
         },
         {
           date: 'May 22 10:00',
