@@ -2,7 +2,7 @@
   <div class="vuestic-collapse"
        :class="{ 'open': show }">
     <div class="vuestic-collapse__header"
-         @click="toggleCollapseBody()">
+         @click="toggleCollapse()">
       <slot name="header"></slot>
     </div>
     <div class="vuestic-collapse__body"
@@ -16,29 +16,36 @@
   export default {
     name: 'vuestic-collapse',
     props: {
-      value: {
+      isOpen: {
         type: Boolean,
         default: false
       }
     },
     data () {
       return {
-        show: this.value
+        show: this.isOpen
+      }
+    },
+    watch: {
+      isOpen () {
+        this.toggleCollapse()
       }
     },
     methods: {
-      toggleCollapseBody () {
-        let bodyContent = this.$el.lastChild
+      toggleCollapse () {
+        this.$nextTick(() => {
+          let bodyContent = this.$el.lastChild
 
-        this.show = !this.show
+          this.show = !this.show
 
-        if (bodyContent.classList.contains('open')) {
-          bodyContent.style.height = 0
-        } else {
-          bodyContent.style.height = this.$slots.body[0].elm.clientHeight + 'px'
-        }
+          if (bodyContent.classList.contains('open')) {
+            bodyContent.style.height = 0
+          } else {
+            bodyContent.style.height = this.$slots.body[0].elm.clientHeight + 'px'
+          }
+        })
       }
-    }
+    },
   }
 </script>
 

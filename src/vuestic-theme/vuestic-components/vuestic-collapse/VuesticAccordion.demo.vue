@@ -3,7 +3,7 @@
     <div class="demo-container__item" style="width: 900px;">
       <div class="row">
         <div class="col-lg-12">
-          <vuestic-accordion expand>
+          <vuestic-accordion>
             <vuestic-collapse>
               <button class="btn btn-primary" slot="header">
                 <span> Expand This Block </span>

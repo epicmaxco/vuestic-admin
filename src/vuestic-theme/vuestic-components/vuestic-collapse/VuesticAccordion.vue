@@ -1,5 +1,5 @@
 <template>
-  <div class="vuestic-accordion" @click="toggleCollapse($event)">
+  <div class="vuestic-accordion" @click="toggleAccordion($event)">
     <slot></slot>
   </div>
 </template>
@@ -19,19 +19,19 @@
       }
     },
     methods: {
-      toggleCollapse (event) {
+      toggleAccordion (event) {
         if (!event.target.classList.contains('collapse-content')) {
           this.$nextTick(() => {
             if (!this.expand) {
-              let collapsesArray = this.$children
+              const collapsesArray = this.$children
               // Step 1
-              let accordeonActiveTabChanged = false
+              let accordionActiveTabChanged = false
               for (let i = 0; i < collapsesArray.length; i++) {
                 if (collapsesArray[i].show) {
                   if (collapsesArray[i] !== this.lastClickedTab) {
                     this.lastClickedTab.show = false
                     this.lastClickedTab = collapsesArray[i]
-                    accordeonActiveTabChanged = true
+                    accordionActiveTabChanged = true
                   } else {
                     this.lastClickedTab.show = !this.lastClickedTab.show
                   }
@@ -40,7 +40,7 @@
                 }
               }
               // Step 2
-              if (accordeonActiveTabChanged) {
+              if (accordionActiveTabChanged) {
                 for (let i = 0; i < collapsesArray.length; i++) {
                   if (collapsesArray[i] !== this.lastClickedTab) {
                     collapsesArray[i].$el.lastChild.style.height = 0
