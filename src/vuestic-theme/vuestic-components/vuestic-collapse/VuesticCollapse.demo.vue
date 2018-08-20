@@ -10,12 +10,14 @@
               </button>
             </div>
             <div slot="body">
-              <div> Expand content </div>
-              <div> Expand content </div>
-              <div> Expand content </div>
-              <div> Expand content </div>
-              <div> Expand content </div>
-              <div> Expand content </div>
+              <div style="padding: 10px;">
+                <div> Expand content </div>
+                <div> Expand content </div>
+                <div> Expand content </div>
+                <div> Expand content </div>
+                <div> Expand content </div>
+                <div> Expand content </div>
+              </div>
             </div>
           </vuestic-collapse>
         </div>

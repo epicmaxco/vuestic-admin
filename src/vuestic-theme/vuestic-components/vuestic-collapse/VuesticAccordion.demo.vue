@@ -9,7 +9,7 @@
                 <span> Expand This Block </span>
               </button>
               <div slot="body">
-                <div class="content-wrapper">
+                <div style="padding: 10px;">
                   Expand first content
                 </div>
               </div>
@@ -19,7 +19,7 @@
                 <span> Another Block </span>
               </button>
               <div slot="body">
-                <div class="content-wrapper">
+                <div style="padding: 10px;">
                   Expand second content
                 </div>
               </div>
@@ -29,7 +29,7 @@
                 <span> Let's Go </span>
               </button>
               <div slot="body">
-                <div class="content-wrapper">
+                <div style="padding: 10px;">
                   Expand three content
                 </div>
               </div>
@@ -42,16 +42,10 @@
 </template>
 
 <script>
-import VuesticCollapse from './VuesticCollapse.vue'
-import VuesticAccordion from './VuesticAccordion.vue'
+  import VuesticCollapse from './VuesticCollapse.vue'
+  import VuesticAccordion from './VuesticAccordion.vue'
 
-export default {
-  components: { VuesticCollapse, VuesticAccordion },
-}
-</script>
-
-<style lang="scss">
-  .content-wrapper {
-    padding: 10px;
+  export default {
+    components: { VuesticCollapse, VuesticAccordion },
   }
-</style>
+</script>
