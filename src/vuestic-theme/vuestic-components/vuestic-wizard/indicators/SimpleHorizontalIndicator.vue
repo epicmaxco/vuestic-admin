@@ -17,7 +17,6 @@
         class="wizard-step-line completed-line"
         :class="{'makeActive': isActive && indexCurrent < indexMax}"
       />
-      <span class="wizard-step-label ellipsis">{{step.label}}</span>
       <span class="wizard-step-indicator"/>
     </li>
   </ul>

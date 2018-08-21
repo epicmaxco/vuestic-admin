@@ -132,8 +132,9 @@ export default {
     .widget-body {
       height: 250px;
     }
+    height: 410px;
     @include media-breakpoint-down(xs) {
-      height: 365px;
+      height: 450px;
     }
   }
   &__vertical-cards-widget {
@@ -142,10 +143,12 @@ export default {
       display: inline-flex;
       padding-left: 15px;
       padding-right: 15px;
+      padding: 0;
     }
   }
   .vuestic-timelines__vertical-label-cards-widget.vuestic-timelines__vertical-label-cards-widget {
     .widget-body {
+      padding: 0;
       padding-right: 1px;
       justify-content: center;
       width: 100%;
