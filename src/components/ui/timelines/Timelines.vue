@@ -33,7 +33,7 @@
       </vuestic-widget>
     </div>
     <div class="vuestic-timelines__vertical-label">
-      <vuestic-widget class="no-h-padding vuestic-timelines__vertical-label-cards-widget" :headerText="$t('timelines.verticalLabel')">
+      <vuestic-widget class="no-h-padding vuestic-timelines__vertical-label-cards-widget" :headerText="$t('timelines.verticalCentered')">
         <vuestic-vertical-timeline
           :steps="labelVerticalItems"
           class="vuestic-timelines__vertical-label-indicator"
@@ -131,6 +131,9 @@ export default {
   &__horizontal-cards-widget {
     .widget-body {
       height: 250px;
+    }
+    @include media-breakpoint-down(xs) {
+      height: 365px;
     }
   }
   &__vertical-cards-widget {
