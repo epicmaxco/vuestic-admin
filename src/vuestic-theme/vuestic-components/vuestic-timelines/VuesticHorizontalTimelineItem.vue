@@ -56,13 +56,18 @@ $line-width: 40px;
     padding-top: 5%;
     padding-right: 2%;
     text-align: center;
-    color: $vue-green
+    color: $vue-green;
+    font-weight: bold;
+    font-family: SourceSansPro;
   }
   &__text {
     padding-top: 5%;
     text-align: center;
+    font-family: SourceSansPro;
+    font-size: $font-size-root;
   }
   &__line {
+    width: 100%;
     text-align: center;
   }
   &__line-indicator {

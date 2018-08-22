@@ -123,7 +123,6 @@ $wizard-label-width: 100%;
       &.completed-line {
         display: block;
         top: 50%;
-        height: calc(50% + #{$wizard-steps-p-v})
       }
     }
   }

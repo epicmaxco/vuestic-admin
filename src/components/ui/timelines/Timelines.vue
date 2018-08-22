@@ -14,7 +14,7 @@
       </vuestic-widget>
     </div>
     <div class="vuestic-timelines__vertical-simple">
-      <vuestic-widget class="no-h-padding vuestic-timelines__vertical-cards-widget" :headerText="$t('timelines.verticalSimple')">
+      <vuestic-widget class="no-h-padding no-v-padding vuestic-timelines__vertical-cards-widget" :headerText="$t('timelines.verticalSimple')">
         <vuestic-vertical-timeline :steps="simpleVerticalitems" class="vuestic-timelines__vertical-simple-indicator"/>
         <vuestic-vertical-timeline
           :steps="simpleVerticalitems"
@@ -24,7 +24,7 @@
       </vuestic-widget>
     </div>
     <div class="vuestic-timelines__vertical-label">
-      <vuestic-widget class="no-h-padding vuestic-timelines__vertical-label-cards-widget" :headerText="$t('timelines.verticalLabel')">
+      <vuestic-widget class="no-h-padding no-v-padding vuestic-timelines__vertical-label-cards-widget" :headerText="$t('timelines.verticalLabel')">
         <vuestic-vertical-timeline
           :steps="labelVerticalItems"
           class="vuestic-timelines__vertical-label-indicator"
@@ -33,7 +33,7 @@
       </vuestic-widget>
     </div>
     <div class="vuestic-timelines__vertical-label">
-      <vuestic-widget class="no-h-padding vuestic-timelines__vertical-label-cards-widget" :headerText="$t('timelines.verticalCentered')">
+      <vuestic-widget class="no-h-padding no-v-padding vuestic-timelines__vertical-label-cards-widget" :headerText="$t('timelines.verticalCentered')">
         <vuestic-vertical-timeline
           :steps="labelVerticalItems"
           class="vuestic-timelines__vertical-label-indicator"
@@ -123,40 +123,33 @@ export default {
     width: 100%;
   }
   &__horizontal-cards {
-    overflow: hidden;
   }
   &__vertical-simple {
     overflow: hidden;
   }
   &__horizontal-cards-widget {
     .widget-body {
-      height: 250px;
+      overflow-x: auto;
     }
-    height: 410px;
     @include media-breakpoint-down(xs) {
-      height: 450px;
     }
   }
   &__vertical-cards-widget {
     .widget-body.widget-body {
-      width: 100%;
-      display: inline-flex;
-      padding-left: 15px;
-      padding-right: 15px;
-      padding: 0;
+      display: flex;
+      @include media-breakpoint-down(xs) {
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
     }
   }
   .vuestic-timelines__vertical-label-cards-widget.vuestic-timelines__vertical-label-cards-widget {
     .widget-body {
-      padding: 0;
       padding-right: 1px;
       justify-content: center;
       width: 100%;
       display: inline-flex;
     }
-  }
-  &__vertical-simple-indicator {
-    padding-left: 20px;
   }
   &__vertical-simple-indicator-dark {
     padding-left: 0;
@@ -169,10 +162,8 @@ export default {
     &__vertical-simple-indicator-dark {
       padding-left: 0;
     }
-  }
-  @include media-breakpoint-down(xs) {
-    &__vertical-label-indicator {
-      padding-left: 0;
+    &__vertical-simple-indicator {
+      margin-bottom: 20px;
     }
   }
 }

@@ -10,7 +10,6 @@
 <script>
   export default {
     name: 'vuestic-widget',
-
     props: ['headerText'],
     computed: {
       hasSlotData () {

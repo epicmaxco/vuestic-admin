@@ -3,11 +3,12 @@
     class="vuestic-vertical-timeline-item"
   >
     <div
+      v-if="type==='label' || type==='centered'"
       class="vuestic-vertical-timeline-item__date"
       :class="{'reverse':type==='centered'}"
     >
       <div
-        v-if="type=='label' || type==='centered'"
+        v-if="type==='label' || type==='centered'"
         class="vuestic-vertical-timeline-item__date-content"
         :class="{'reverse':type==='centered'}"
       >
@@ -64,6 +65,8 @@ $line-width: 40px;
     padding-right: 2%;
     flex: 1 1 4%;
     text-align: end;
+    font-family: SourceSansPro;
+    font-size: $font-size-root;
   }
   &__line {
     @include flex-center();
@@ -82,13 +85,13 @@ $line-width: 40px;
   }
   &__content {
     flex: 1 1 40%;
+    padding-bottom: 20px;
+    min-width: 250px;
+    @include media-breakpoint-down(xs) {
+      flex: 1 1 60%;
+    }
     .vuestic-card {
       width: calc(100% - 1.1875rem * 2);
-    }
-  }
-  @include media-breakpoint-down(xs) {
-    &__content {
-      font-size: 9px;
     }
   }
 }

@@ -1,5 +1,8 @@
 <template>
-  <div class="vuestic-horizontal-timeline">
+  <div
+    :class="{'simple': type==='simple'}"
+    class="vuestic-horizontal-timeline"
+  >
     <div
       v-for="(step, index) in steps"
       :style="{'width': 100/steps.length + '%'}"
@@ -57,12 +60,15 @@ export default {
 
 <style lang="scss">
 .vuestic-horizontal-timeline {
+  &.simple {
+    width: 100%;
+  }
   @include media-breakpoint-down(xs) {
     &__card {
-      font-size: 9px;
+      min-width: 300px;
+      font-size: 12px;
     }
   }
   display: inline-flex;
-  width: 100%;
 }
 </style>
