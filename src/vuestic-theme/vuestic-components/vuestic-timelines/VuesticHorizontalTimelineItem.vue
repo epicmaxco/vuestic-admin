@@ -59,9 +59,10 @@ $line-width: 40px;
     color: $vue-green;
     font-weight: bold;
     font-family: SourceSansPro;
+    font-weight: bold;
+    font-size: 14px;
   }
   &__text {
-    padding-top: 5%;
     text-align: center;
     font-family: SourceSansPro;
     font-size: $font-size-root;
