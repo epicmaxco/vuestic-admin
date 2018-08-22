@@ -1,4 +1,3 @@
-r
 <template>
   <div class="vuestic-vertical-timeline">
     <div
