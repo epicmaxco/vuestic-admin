@@ -1,57 +1,13 @@
 <template>
-  <div
-    :class="{'simple': type==='simple'}"
-    class="vuestic-horizontal-timeline"
-  >
-    <div
-      v-for="(step, index) in steps"
-      :style="{'width': 100/steps.length + '%'}"
-    >
-      <vuestic-horizontal-timeline-item
-        :step="step"
-        :date="step.date"
-        :isActive="index<=currentStep"
-        :type="type"
-        :indexCurrent="index"
-        :indexMax="currentStep"
-      >
-        <vuestic-card
-          class="vuestic-horizontal-timeline__card"
-          v-if="type==='card'"
-          :class="{'vuestic-card--stripe-success': theme==='base'}"
-        >
-          <template slot="title">{{step.date}}</template>
-          {{step.content}}
-        </vuestic-card>
-      </vuestic-horizontal-timeline-item>
-    </div>
+  <div class="vuestic-horizontal-timeline">
+    <slot/>
   </div>
 </template>
 
 <script>
-import VuesticHorizontalTimelineItem from './VuesticHorizontalTimelineItem'
 
 export default {
   name: 'vuestic-horizontal-timeline',
-  components: {
-    VuesticHorizontalTimelineItem
-  },
-  props: {
-    steps: {},
-    currentStep: {
-      type: Number,
-      default: 0
-    },
-    type: {
-      type: String,
-      validator: (val) => ['simple', 'card'].includes(val),
-      default: 'simple'
-    },
-    theme: {
-      type: String,
-      default: 'base'
-    }
-  },
   data () {
     return {}
   }
@@ -60,15 +16,31 @@ export default {
 
 <style lang="scss">
 .vuestic-horizontal-timeline {
-  &.simple {
-    width: 100%;
-  }
-  @include media-breakpoint-down(xs) {
-    &__card {
-      min-width: 300px;
-      font-size: 12px;
+  width: 100%;
+  display: inline-flex;
+  .vuestic-horizontal-timeline-item.active  {
+    .vuestic-horizontal-timeline-item__line {
+      .vuestic-horizontal-timeline-item__indicator {
+        .first-line {
+          background-color: $vue-green;
+        }
+        .wizard-step-indicator {
+          background-color: $vue-green;
+        }
+        .completed-line {
+          background-color: $vue-green
+        }
+      }
     }
   }
-  display: inline-flex;
+  .vuestic-horizontal-timeline-item.active ~ .vuestic-horizontal-timeline-item  {
+    .vuestic-horizontal-timeline-item__line {
+      .vuestic-horizontal-timeline-item__indicator {
+        .completed-line {
+          background-color: #DDD
+        }
+      }
+    }
+  }
 }
 </style>

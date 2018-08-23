@@ -2,13 +2,10 @@
   <div class="demo-container">
     <div class="demo-container__item" style="overflow: hidden">
       <vuestic-vertical-timeline-item
-        :step="item"
-        :isActive="true"
+        date="March 20 16:04"
       >
-        <vuestic-card>
-          <template slot="title">The unique stripes of zebras</template>
-          The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands.
-        </vuestic-card>
+        <span slot="date">{{ verticalCardDateFirst }}</span>
+        <span slot="content">{{ verticalCardContentFirst }}</span>
       </vuestic-vertical-timeline-item>
     </div>
   </div>
@@ -25,7 +22,8 @@ export default {
   },
   data () {
     return {
-      item: {}
+      VerticalCardDateFirst: 'April 10 15:00',
+      verticalCardContentFirst: 'The unique stripes of zebras make them one of the animals most familiar to people.',
     }
   }
 }

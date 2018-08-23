@@ -7,15 +7,15 @@
       <span class="wizard-step-indicator"/>
     </li>
     <li
-      v-if="step"
+      v-if="!steps"
       class="wizard-step"
       :style="{ height: 100 + '%' }"
       :class="{'active': isActive}"
     >
-      <span class="wizard-step-line"/>
+      <span class="wizard-step-line first-line"/>
       <span
         class="wizard-step-line completed-line"
-        :class="{'makeActive': isActive && indexCurrent < indexMax}"
+        :class="{'makeActive': isActive}"
       />
       <span class="wizard-step-indicator"/>
     </li>

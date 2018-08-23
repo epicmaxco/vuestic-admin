@@ -48,6 +48,7 @@
       },
       theme: {
         type: String,
+        validator: (val) => ['base', 'bright', 'dark'].includes(val),
         default: 'base',
       },
     },

@@ -1,6 +1,7 @@
 <template>
   <div
     class="vuestic-vertical-timeline-item"
+    :class="{'reverse': type==='centered'}"
   >
     <div
       v-if="type==='label' || type==='centered'"
@@ -17,12 +18,20 @@
     </div>
     <div class="vuestic-vertical-timeline-item__line">
       <simple-vertical-indicator
-        :step="step"
+        class="vuestic-vertical-timeline-item__indicator"
         :isActive="isActive"
       />
     </div>
     <div class="vuestic-vertical-timeline-item__content">
-      <slot/>
+      <vuestic-card
+        class="vuestic-vertical-timeline-item__card"
+        :theme="theme"
+        :class="{'vuestic-card--stripe-success': theme==='base'}"
+      >
+        <span v-if="type==='simple' " class="vuestic-vertical-timeline-item__date" slot="title"> <slot name="date"/> </span>
+        <span v-if="type!=='simple' " class="vuestic-vertical-timeline-item__date" slot="title"> <slot name="title"/> </span>
+        <slot name="content"/>
+      </vuestic-card>
     </div>
   </div>
 </template>
@@ -37,7 +46,6 @@ export default {
     SimpleVerticalIndicator
   },
   props: {
-    step: {},
     date: {},
     type: {
       type: String,
@@ -47,6 +55,10 @@ export default {
     isActive: {
       type: Boolean,
       default: false
+    },
+    theme: {
+      type: String,
+      default: 'base'
     }
   },
 }
@@ -57,16 +69,27 @@ $line-width: 40px;
 
 .vuestic-vertical-timeline-item {
   display: flex;
+  &.reverse {
+    @media(min-width: 900px) {
+      flex-direction: row-reverse;
+    }
+  }
   &__date {
     &.reverse {
-      flex: 1 1 40%;
+      @media(min-width: 900px) {
+        padding-left: 0;
+      }
     }
     padding-top: 5%;
+    padding-left: 30%;
     padding-right: 2%;
-    flex: 1 1 4%;
+    flex: 1 1 40%;
     text-align: end;
     font-family: SourceSansPro;
     font-size: $font-size-root;
+    @include media-breakpoint-down(xs) {
+      padding-left: 0;
+    }
   }
   &__line {
     @include flex-center();

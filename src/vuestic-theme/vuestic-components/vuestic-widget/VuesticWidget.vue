@@ -28,7 +28,6 @@
 
     &.no-header {
       .widget-body {
-        height: $widget-body-no-header-height;
       }
     }
 
@@ -77,7 +76,6 @@
     }
 
     .widget-body {
-      height: $widget-body-with-header-height;
       padding: $widget-padding;
     }
 

@@ -4,19 +4,25 @@
       {{ date }}
     </div>
     <div v-if="type==='simple'" class="vuestic-horizontal-timeline-item__text">
-      {{ step.content }}
+      {{ content }}
     </div>
     <div class="vuestic-horizontal-timeline-item__line">
       <simple-horizontal-indicator
-        class="vuestic-horizontal-timeline-item__line-indicator"
-        :step="step"
+        class="vuestic-horizontal-timeline-item__indicator"
         :isActive="isActive"
         :indexCurrent="indexCurrent"
         :indexMax="indexMax"
       />
     </div>
-    <div class="vuestic-horizontal-timeline-item__content">
-      <slot/>
+    <div class="vuestic-horizontal-timeline-item__content" v-if="type==='card'">
+      <vuestic-card
+        class="vuestic-horizontal-timeline-item__card"
+        :class="{'vuestic-card--stripe-success': theme==='base'}"
+        :theme="theme"
+      >
+        <span class="vuestic-horizontal-timeline-item__date" slot="title"> <slot name="date"/> </span>
+        <slot name="content"/>
+      </vuestic-card>
     </div>
   </div>
 </template>
@@ -31,10 +37,10 @@ export default {
     SimpleHorizontalIndicator
   },
   props: {
-    step: {},
     date: {
       type: String
     },
+    content: {},
     isActive: {
       type: Boolean,
       default: false
@@ -42,8 +48,18 @@ export default {
     type: {
       type: String
     },
-    indexCurrent: {},
-    indexMax: {}
+    indexCurrent: {
+      type: Number,
+      default: 0
+    },
+    indexMax: {
+      type: Number,
+      default: 0
+    },
+    theme: {
+      type: String,
+      default: 'base'
+    }
   }
 }
 </script>
@@ -52,6 +68,7 @@ export default {
 $line-width: 40px;
 
 .vuestic-horizontal-timeline-item {
+  width: 100%;
   &__date {
     padding-top: 5%;
     padding-right: 2%;
@@ -71,15 +88,25 @@ $line-width: 40px;
     width: 100%;
     text-align: center;
   }
-  &__line-indicator {
+  &__indicator {
     .wizard-step-line.wizard-step-line {
       width: 100%;
     }
+    .completed-line {
+      background-color: $vue-green
+    }
+
   }
   &__content {
     max-height: 152px;
     .vuestic-card {
       width: 80%;
+    }
+  }
+  @include media-breakpoint-down(xs) {
+    &__card {
+      min-width: 300px;
+      font-size: 12px;
     }
   }
 }

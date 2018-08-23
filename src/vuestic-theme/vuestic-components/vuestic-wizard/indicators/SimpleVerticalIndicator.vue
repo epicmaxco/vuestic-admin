@@ -7,7 +7,7 @@
       <span class="wizard-step-indicator"></span>
     </li>
     <li
-      v-if="step"
+      v-if="!steps"
       class="wizard-step"
       :style="{ height: 100 + '%' }"
       :class="{'active': isActive}"
@@ -16,7 +16,7 @@
         class="wizard-step-line"
       />
       <span class="wizard-step-line completed-line"></span>
-      <span class="wizard-step-label ellipsis">{{step.label}}</span>
+      <span class="wizard-step-label ellipsis"></span>
       <span class="wizard-step-indicator"></span>
     </li>
   </ul>
@@ -79,7 +79,6 @@ $wizard-label-width: 100%;
     height:  100%;
     width:  2px;
     left:  0;
-    top: -50%;
     background-color: $lighter-gray;
     transition: background-color 300ms linear;
     &.completed-line {
@@ -113,7 +112,6 @@ $wizard-label-width: 100%;
   &:first-child {
     .wizard-step-line {
       height: calc(50% + #{$wizard-steps-p-v});
-      top: -$wizard-steps-p-v;
     }
   }
   &:last-child {
