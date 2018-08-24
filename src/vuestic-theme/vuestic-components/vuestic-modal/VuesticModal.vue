@@ -86,6 +86,10 @@
       cancelDisabled: {
         type: Boolean,
         default: false
+      },
+      okToClose: {
+        type: Boolean,
+        default: true
       }
     },
     data () {
@@ -129,8 +133,10 @@
       },
       ok () {
         this.$emit('ok')
-        this.show = false
-        window.removeEventListener('keyup', this.listenKeyUp)
+        if (this.okToClose) {
+          this.show = false
+          window.removeEventListener('keyup', this.listenKeyUp)
+        }
       },
       cancel () {
         this.$emit('cancel')
@@ -145,6 +151,10 @@
       open () {
         this.show = true
         window.addEventListener('keyup', this.listenKeyUp)
+      },
+      close () {
+        this.show = false
+        window.removeEventListener('keyup', this.listenKeyUp)
       }
     }
   }
