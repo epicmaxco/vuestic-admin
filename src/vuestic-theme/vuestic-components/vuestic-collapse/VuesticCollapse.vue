@@ -1,13 +1,16 @@
 <template>
   <div class="vuestic-collapse"
-       :class="{ 'open': show }">
+       :class="{ 'open': show }"
+  >
     <div class="vuestic-collapse__header"
-         @click="toggleCollapse()">
-      <slot name="header"></slot>
+         @click="toggleCollapse()"
+    >
+      <slot name="header"/>
     </div>
     <div class="vuestic-collapse__body"
-         :class="{ 'open': show }">
-      <slot name="body"></slot>
+         :class="{ 'open': show }"
+    >
+      <slot name="body"/>
     </div>
   </div>
 </template>
