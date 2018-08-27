@@ -98,7 +98,6 @@ $line-width: 40px;
 
   }
   &__content {
-    max-height: 152px;
     .vuestic-card {
       width: 80%;
     }
@@ -108,6 +107,9 @@ $line-width: 40px;
       min-width: 300px;
       font-size: 12px;
     }
+  }
+  & &__card {
+    width: 90%;
   }
 }
 </style>

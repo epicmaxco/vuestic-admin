@@ -39,7 +39,7 @@
             <span slot="content">{{ contentSecond }}</span>
           </vuestic-vertical-timeline-item>
         </vuestic-vertical-timeline>
-        <vuestic-vertical-timeline class="vuestic-timelines__vertical-simple-indicator">
+        <vuestic-vertical-timeline class="vuestic-timelines__vertical-simple-indicator-dark">
           <vuestic-vertical-timeline-item :date="dateFirst" theme="dark" class="active">
             <span slot="date">{{ dateFirst }}</span>
             <span slot="content">{{ contentFirst }}</span>
@@ -66,7 +66,7 @@
       </vuestic-widget>
     </div>
     <div class="vuestic-timelines__vertical-label">
-      <vuestic-widget class="no-h-padding no-v-padding vuestic-timelines__vertical-label-cards-widget" :headerText="$t('timelines.verticalCentered')">
+      <vuestic-widget class="no-h-padding no-v-padding vuestic-timelines__vertical-centered-cards-widget" :headerText="$t('timelines.verticalCentered')">
         <vuestic-vertical-timeline class="vuestic-timelines__vertical-label-indicator">
           <vuestic-vertical-timeline-item :date="dateFirst" type="label" theme="dark" class="active">
             <span slot="title">{{ titleFirst }}</span>
@@ -146,7 +146,17 @@ export default {
       }
     }
   }
-  .vuestic-timelines__vertical-label-cards-widget.vuestic-timelines__vertical-label-cards-widget {
+  .vuestic-timelines__vertical-label-cards-widget {
+    .widget-body {
+      padding-right: 1px;
+      @media(min-width: 1300px) {
+        justify-content: center;
+      }
+      width: 100%;
+      display: inline-flex;
+    }
+  }
+  .vuestic-timelines__vertical-centered-cards-widget {
     .widget-body {
       padding-right: 1px;
       justify-content: center;
@@ -155,16 +165,15 @@ export default {
     }
   }
   &__vertical-simple-indicator-dark {
-    padding-left: 0;
+    @media(min-width: 1300px) {
+      padding-left: 100px;
+    }
   }
   &__vertical-label-indicator {
     padding-left: 0;
     max-width: 700px;
   }
   @include media-breakpoint-down(xs) {
-    &__vertical-simple-indicator-dark {
-      padding-left: 0;
-    }
     &__vertical-simple-indicator {
       margin-bottom: 20px;
     }

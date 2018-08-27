@@ -95,6 +95,7 @@ $line-width: 40px;
     @include flex-center();
     flex-direction: column;
     flex: 0 0 $line-width;
+    padding-left: 25px;
     text-align: center;
     position: relative;
     width: 10px;
@@ -109,6 +110,7 @@ $line-width: 40px;
   &__content {
     flex: 1 1 40%;
     padding-bottom: 20px;
+    padding-top: 20px;
     min-width: 250px;
     @include media-breakpoint-down(xs) {
       flex: 1 1 60%;
