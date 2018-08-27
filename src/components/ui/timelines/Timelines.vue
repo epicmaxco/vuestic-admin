@@ -172,7 +172,9 @@ export default {
   &__vertical-label-indicator {
     padding-left: 0;
     max-width: 700px;
-    margin-right: 10rem
+    @media (min-width: 590px) {
+      margin-right: 10rem;
+    }
   }
   &__vertical-centered-indicator {
     padding-left: 0;
