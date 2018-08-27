@@ -47,8 +47,3 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-.item.active ~ .item {
-  background-color: $vue-green
-}
-</style>

@@ -95,9 +95,10 @@ $line-width: 40px;
     .completed-line {
       background-color: $vue-green
     }
-
   }
   &__content {
+    padding-right: 10px;
+    padding-left: 10px;
     .vuestic-card {
       width: 80%;
     }
@@ -105,7 +106,6 @@ $line-width: 40px;
   @include media-breakpoint-down(xs) {
     &__card {
       min-width: 300px;
-      font-size: 12px;
     }
   }
   & &__card {

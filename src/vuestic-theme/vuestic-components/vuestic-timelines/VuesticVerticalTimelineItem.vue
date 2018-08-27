@@ -8,13 +8,7 @@
       class="vuestic-vertical-timeline-item__date"
       :class="{'reverse':type==='centered'}"
     >
-      <div
-        v-if="type==='label' || type==='centered'"
-        class="vuestic-vertical-timeline-item__date-content"
-        :class="{'reverse':type==='centered'}"
-      >
-        {{ date }}
-      </div>
+      {{ date }}
     </div>
     <div class="vuestic-vertical-timeline-item__line">
       <simple-vertical-indicator
@@ -69,6 +63,7 @@ $line-width: 40px;
 
 .vuestic-vertical-timeline-item {
   display: flex;
+  max-width: 700px;
   &.reverse {
     @media(min-width: 900px) {
       flex-direction: row-reverse;
@@ -79,11 +74,12 @@ $line-width: 40px;
       @media(min-width: 900px) {
         padding-left: 0;
       }
+      @media (min-width: 901px) {
+        text-align: left;
+      }
     }
     padding-top: 5%;
-    padding-left: 30%;
-    padding-right: 2%;
-    flex: 1 1 40%;
+    flex: 1 1 calc(17rem + 8px);
     text-align: end;
     font-family: SourceSansPro;
     font-size: $font-size-root;

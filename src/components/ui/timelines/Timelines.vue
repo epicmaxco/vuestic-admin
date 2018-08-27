@@ -29,7 +29,7 @@
     </div>
     <div class="vuestic-timelines__vertical-simple">
       <vuestic-widget class="no-h-padding no-v-padding vuestic-timelines__vertical-cards-widget" :headerText="$t('timelines.verticalSimple')">
-        <vuestic-vertical-timeline class="vuestic-timelines__vertical-simple-indicator">
+        <vuestic-vertical-timeline class="vuestic-timelines__vertical-simple-indicator col-md-6">
           <vuestic-vertical-timeline-item :date="dateFirst" class="active">
             <span slot="date">{{ dateFirst }}</span>
             <span slot="content">{{ contentFirst }}</span>
@@ -39,7 +39,7 @@
             <span slot="content">{{ contentSecond }}</span>
           </vuestic-vertical-timeline-item>
         </vuestic-vertical-timeline>
-        <vuestic-vertical-timeline class="vuestic-timelines__vertical-simple-indicator-dark">
+        <vuestic-vertical-timeline class="vuestic-timelines__vertical-simple-indicator-dark col-md-6">
           <vuestic-vertical-timeline-item :date="dateFirst" theme="dark" class="active">
             <span slot="date">{{ dateFirst }}</span>
             <span slot="content">{{ contentFirst }}</span>
@@ -67,7 +67,7 @@
     </div>
     <div class="vuestic-timelines__vertical-label">
       <vuestic-widget class="no-h-padding no-v-padding vuestic-timelines__vertical-centered-cards-widget" :headerText="$t('timelines.verticalCentered')">
-        <vuestic-vertical-timeline class="vuestic-timelines__vertical-label-indicator">
+        <vuestic-vertical-timeline class="vuestic-timelines__vertical-centered-indicator">
           <vuestic-vertical-timeline-item :date="dateFirst" type="label" theme="dark" class="active">
             <span slot="title">{{ titleFirst }}</span>
             <span slot="content">{{ contentFirst }}</span>
@@ -170,6 +170,11 @@ export default {
     }
   }
   &__vertical-label-indicator {
+    padding-left: 0;
+    max-width: 700px;
+    margin-right: 10rem
+  }
+  &__vertical-centered-indicator {
     padding-left: 0;
     max-width: 700px;
   }
