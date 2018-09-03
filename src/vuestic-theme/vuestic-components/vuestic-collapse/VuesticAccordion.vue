@@ -24,7 +24,12 @@
           this.$nextTick(() => {
             if (!this.expand) {
               const collapsesArray = this.$children
-              // Step 1
+              // HACK Accordion behaviour
+              //
+              // 1. Check, if last clicked tab is changed or not
+              // 2. If last clicked tab isn't changed, toggle state of opened tab into opposite
+              // 3. If last clicked tab is changed, collapse previous clicked tab and all tabs,
+              // except of recently clicked tab
               let accordionActiveTabChanged = false
               for (let i = 0; i < collapsesArray.length; i++) {
                 if (collapsesArray[i].show) {
@@ -39,7 +44,6 @@
                   collapsesArray[i].show = false
                 }
               }
-              // Step 2
               if (accordionActiveTabChanged) {
                 for (let i = 0; i < collapsesArray.length; i++) {
                   if (collapsesArray[i] !== this.lastClickedTab) {
@@ -56,6 +60,7 @@
   }
 </script>
 
+// HACK Accordion for presentation page
 <style lang="scss">
   .vuestic-accordion {
     .btn {

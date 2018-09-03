@@ -1,32 +1,23 @@
 <template>
   <div class="demo-container">
     <div class="demo-container__item" style="width: 900px;">
-      <div class="row">
-        <div class="col-lg-12">
-          <vuestic-collapse :isOpen="expand">
-            <div slot="header">
-              <button class="btn btn-primary">
-                <span> First Button </span>
-              </button>
-            </div>
-            <div slot="body">
-              <div style="padding: 10px;">
-                <div> Expand content </div>
-                <div> Expand content </div>
-                <div> Expand content </div>
-                <div> Expand content </div>
-                <div> Expand content </div>
-                <div> Expand content </div>
-              </div>
-            </div>
-          </vuestic-collapse>
-        </div>
-        <div class="col-lg-12">
-          <button class="btn btn-primary" @click="toggleCollapse()">
-            <span> Second Button </span>
+      <vuestic-collapse v-model="isOpen">
+        <div slot="header">
+          <button class="btn btn-primary">
+            <span> First Button </span>
           </button>
         </div>
-      </div>
+        <div slot="body">
+          <div style="padding: 10px;">
+            <div> Expand content </div>
+            <div> Expand content </div>
+            <div> Expand content </div>
+            <div> Expand content </div>
+            <div> Expand content </div>
+            <div> Expand content </div>
+          </div>
+        </div>
+      </vuestic-collapse>
     </div>
   </div>
 </template>
@@ -38,13 +29,8 @@
     components: { VuesticCollapse },
     data () {
       return {
-        expand: false
+        isOpen: false
       }
     },
-    methods: {
-      toggleCollapse () {
-        this.expand = !this.expand
-      }
-    }
   }
 </script>

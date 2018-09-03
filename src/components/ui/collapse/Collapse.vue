@@ -98,12 +98,7 @@
               <div class="row" slot="header">
                 <div class="col-md-4">
                   <button class="btn btn-primary">
-                    <span> Expand One </span>
-                  </button>
-                </div>
-                <div class="col-md-4">
-                  <button class="btn btn-primary">
-                    <span> Expand One </span>
+                    <span> Expand Button </span>
                   </button>
                 </div>
               </div>
