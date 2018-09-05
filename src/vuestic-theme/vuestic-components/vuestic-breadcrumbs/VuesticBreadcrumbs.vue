@@ -1,12 +1,13 @@
 <template>
   <vuestic-widget class="no-padding no-v-padding">
     <div class="vuestic-breadcrumbs">
-      <router-link :to="{ path: breadcrumbs.root.path }" class="crumb">
+      <router-link :to="{ path: breadcrumbs.root.name }" class="crumb">
         {{ $t(breadcrumbs.root.displayName) }}
       </router-link>
       <router-link
-        v-for="item in displayedCrumbs"
-        :to="{ path: item.path }"
+        v-for="(item, index) in displayedCrumbs"
+        :to="{ name: item.name }"
+        :key="index"
         class="crumb"
         :class="{ disabled: item.disabled }">
         {{ $t(item.displayName) }}
@@ -32,7 +33,6 @@
     },
     computed: {
       displayedCrumbs () {
-        console.log(this.findInNestedByName(this.breadcrumbs.routes, this.currentPath))
         return this.findInNestedByName(this.breadcrumbs.routes, this.currentPath)
       }
     },
@@ -40,7 +40,7 @@
       findInNestedByName (array, name) {
         if (typeof array !== 'undefined') {
           for (let i = 0; i < array.length; i++) {
-            if (array[i].path === name) return [{...array[i]}]
+            if (array[i].name === name) return [{...array[i]}]
             let a = this.findInNestedByName(array[i].children, name)
             if (a != null) {
               a.unshift({...array[i]})
