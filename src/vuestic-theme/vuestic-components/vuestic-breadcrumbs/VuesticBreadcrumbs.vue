@@ -5,15 +5,13 @@
         {{ $t(breadcrumbs.root.displayName) }}
       </router-link>
       <router-link
-        v-for="(item, index) in displayedCrumbs"
-        :to="{path: item.path}"
-        :key="index"
+        v-for="item in displayedCrumbs"
+        :to="{ path: item.path }"
         class="crumb"
         :class="{ disabled: item.disabled }">
         {{ $t(item.displayName) }}
       </router-link>
     </div>
-
   </vuestic-widget>
 </template>
 
@@ -34,8 +32,9 @@
     },
     computed: {
       displayedCrumbs () {
+        console.log(this.findInNestedByName(this.breadcrumbs.routes, this.currentPath))
         return this.findInNestedByName(this.breadcrumbs.routes, this.currentPath)
-      },
+      }
     },
     methods: {
       findInNestedByName (array, name) {
@@ -82,7 +81,7 @@
     }
 
     a {
-      color: $breadcrumbs-gray;
+      color: $text-gray;
       &:hover {
         color: $brand-primary;
       }

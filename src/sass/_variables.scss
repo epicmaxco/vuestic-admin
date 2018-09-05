@@ -30,7 +30,7 @@ $dark-gray: #282828;
 $gray: #adb3b9;
 $violet: #db76df;
 $dark-blue: #0045b6;
-$breadcrumbs-gray: #b4b4b4;
+$text-gray: #b4b4b4;
 
 $colors-map: (
   brand-danger: $brand-danger,
@@ -284,6 +284,7 @@ $progress-bar-vertical-height: 5.75rem;
 $progress-bar-width-thin: .125rem;
 $progress-bar-width-basic: .5rem;
 $progress-bar-width-thick: 1.5rem;
+$vertical-progress-bar-width-thick: 2rem;
 
 //Tables
 $table-bg-accent: $white;

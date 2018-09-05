@@ -146,6 +146,7 @@
     "auth": "Autenticación",
     "buttons": "Botones",
     "charts": "Gráficos",
+    "colorPickers": "Selector de color",
     "dashboard": "Dashboard",
     "extra": "Extra",
     "formElements": "Elementos de un Formulario",
@@ -154,6 +155,7 @@
     "mediumEditor": "Medium Editor",
     "grid": "Grid",
     "icons": "Iconos",
+    "cards": "Cards",
     "login": "Iniciar sesión",
     "maps": "Mapas",
     "modals": "Modals",
@@ -213,6 +215,9 @@
       "email": "Email",
       "name": "Nombre",
       "score": "Puntuación"
+    },
+    "dataTable": {
+      "noDataAvailable": "No Data Available"
     }
   },
   "user": {

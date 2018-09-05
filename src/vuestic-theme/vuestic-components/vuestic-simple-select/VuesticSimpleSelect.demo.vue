@@ -1,17 +1,19 @@
 <template>
-  <div class="row justify-content-around">
-    <vuestic-simple-select
-      style="width: 240px; padding-top: 400px"
-      label="Select country"
-      v-model="selectedCountry"
-      :options="CountriesList"
-    />
-    <vuestic-simple-select
-      style="width: 240px"
-      label="Select country duplicate"
-      v-model="selectedCountry"
-      :options="CountriesList"
-    />
+  <div class="demo-container">
+    <div class="demo-container__item">
+      <vuestic-simple-select
+        label="Select country"
+        v-model="selectedCountry"
+        :options="CountriesList"
+      />
+    </div>
+    <div class="demo-container__item">
+      <vuestic-simple-select
+        label="Select country duplicate"
+        v-model="selectedCountry"
+        :options="CountriesList"
+      />
+    </div>
   </div>
 </template>
 

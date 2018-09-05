@@ -1,103 +1,112 @@
 <template>
-  <div class="vuestic-progress-bar" ref="bar">
-    <horizontal-bar :min="min" :max="max" :value="value" :size="size" :color="color" v-if="type == 'horizontal'"
-                    :isActive = "isActive" ref="bar" :animatedValue="animatedValue"></horizontal-bar>
-    <vertical-bar :min="min" :max="max" :value="value" :size="size" :color="color" v-if="type == 'vertical'"
-                  :isActive = "isActive" ref="bar" :animatedValue="animatedValue"></vertical-bar>
-    <circle-bar :min="min" :max="max" :value="value" :color="color" :background-color="backgroundColor"
-                :start-color="startColor" v-if="type == 'circle'" :isActive = "isActive" ref="bar"
-                :animatedValue="animatedValue"></circle-bar>
+  <div class="vuestic-progress-bar">
+    <horizontal-bar
+      :value="transformedValue"
+      :text="text"
+      :size="size"
+      :disabled="disabled"
+      :animated="animated"
+      :theme="theme"
+      v-if="type == 'horizontal'"
+    />
+    <vertical-bar
+      :value="transformedValue"
+      :text="text"
+      :size="size"
+      :disabled="disabled"
+      :animated="animated"
+      :theme="theme"
+      v-if="type == 'vertical'"
+    />
+    <circle-bar
+      :value="transformedValue"
+      :text="text"
+      :disabled="disabled"
+      :animated="animated"
+      :theme="theme"
+      :background-theme="backgroundTheme"
+      v-if="type == 'circle'"
+    />
   </div>
 </template>
 
 <script>
-  import HorizontalBar from './progress-types/HorizontalProgressBar.vue'
-  import VerticalBar from './progress-types/VerticalProgressBar.vue'
-  import CircleBar from './progress-types/CircleProgressBar.vue'
+import HorizontalBar from './progress-types/HorizontalProgressBar.vue'
+import VerticalBar from './progress-types/VerticalProgressBar.vue'
+import CircleBar from './progress-types/CircleProgressBar.vue'
 
-  export default {
-    name: 'vuestic-progress-bar',
-    components: {
-      HorizontalBar,
-      VerticalBar,
-      CircleBar
-    },
-    props: {
-      type: {
-        type: String,
-        default: 'horizontal'
-      },
-      min: {
-        type: Number,
-        default: 0
-      },
-      max: {
-        type: Number,
-        default: 100
-      },
-      size: {
-        type: String,
-        default: 'basic'
-      },
-      colorName: {
-        type: String,
-        default: 'primary'
-      },
-      startColorName: {
-        type: String,
-        default: 'lighterGray'
-      },
-      backgroundColorName: {
-        type: String,
-        default: 'white'
+export default {
+  name: 'vuestic-progress-bar',
+  components: {
+    HorizontalBar,
+    VerticalBar,
+    CircleBar,
+  },
+  props: {
+    value: {
+      type: Number,
+      default: 0,
+      validator: function (value) {
+        return value >= 0 && value <= 100
       }
     },
-    watch: {
-      value () {
-        this.animateValue()
+    text: {
+      type: String,
+      default: ''
+    },
+    theme: {
+      type: String,
+      default: 'Primary'
+    },
+    backgroundTheme: {
+      type: String,
+      default: 'White'
+    },
+    type: {
+      type: String,
+      default: 'horizontal'
+    },
+    size: {
+      type: String,
+      default: 'basic',
+      validator: function (value) {
+        return ['thin', 'thick', 'basic'].indexOf(value) !== -1
       }
     },
-    methods: {
-      animateValue () {
-        let startValue = this.value
-        let valueMsecs = this.valueAnimationInterval / this.max
-        let delta = Math.sign(this.value - this.animatedValue)
-        let valueInterval = setInterval(() => {
-          if (!this.$refs.bar) {
-            clearInterval(valueInterval)
-            return
-          }
-          if (startValue !== this.value || this.animatedValue === this.value) {
-            clearInterval(valueInterval)
-            if (this.value === this.max) {
-              this.isActive = false
-            }
-          } else {
-            this.animatedValue += delta
-          }
-        }, valueMsecs)
-      }
+    disabled: {
+      type: Boolean,
+      default: false
     },
-    data () {
-      return {
-        value: 0,
-        valueAnimationInterval: 2000,
-        animatedValue: 0,
-        isActive: false,
-        startColor: this.$store.state.app.config.palette[this.startColorName],
-        color: this.$store.state.app.config.palette[this.colorName],
-        backgroundColor: this.$store.state.app.config.palette[this.backgroundColorName]
-      }
+    animated: {
+      type: Boolean,
+      default: false
+    },
+  },
+  data () {
+    return {
+      transformedValue: 0,
+      valueAnimationInterval: 5000
+    }
+  },
+  mounted () {
+    if (this.type === 'circle' && this.animated) {
+      this.animateValue()
+    } else {
+      this.transformedValue = this.value
+    }
+  },
+  methods: {
+    animateValue () {
+      let valueMsecs = this.valueAnimationInterval / 200
+      let delta = Math.sign(this.value - this.transformedValue)
+      let valueInterval = setInterval(() => {
+        if (this.transformedValue === this.value) {
+          clearInterval(valueInterval)
+        } else {
+          this.transformedValue += delta
+        }
+      }, valueMsecs)
     }
   }
+}
 </script>
-
-<style lang="scss">
-  .vuestic-progress-bar {
-    font-size: $progress-bar-value-font-size;
-    font-weight: $font-weight-bold;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-</style>

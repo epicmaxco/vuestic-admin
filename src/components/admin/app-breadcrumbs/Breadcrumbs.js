@@ -60,12 +60,26 @@ export default {
           displayName: 'menu.buttons'
         },
         {
+          path: 'color-pickers',
+          displayName: 'menu.colorPickers'
+        },
+        {
           path: 'notifications',
           displayName: 'menu.notifications'
         },
         {
           path: 'icons',
-          displayName: 'menu.icons'
+          displayName: 'menu.icons',
+          children: [
+            {
+              displayName: 'concrete',
+              path: '',
+            },
+            {
+              path: ':name',
+              displayName: 'concrete'
+            },
+          ]
         },
         {
           path: 'spinners',
@@ -82,6 +96,14 @@ export default {
         {
           path: 'file-upload',
           displayName: 'menu.fileUpload'
+        },
+        {
+          path: 'tags',
+          displayName: 'menu.tags'
+        },
+        {
+          path: 'cards',
+          displayName: 'menu.cards'
         },
         {
           path: 'tree-view',
@@ -117,6 +139,17 @@ export default {
         {
           path: 'line-maps',
           displayName: 'Line Maps'
+        }
+      ]
+    },
+    {
+      path: 'pages',
+      displayName: 'menu.pages',
+      disabled: true,
+      children: [
+        {
+          path: '404-pages',
+          displayName: '404 Pages'
         }
       ]
     }

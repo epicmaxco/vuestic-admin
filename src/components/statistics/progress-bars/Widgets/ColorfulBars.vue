@@ -3,42 +3,32 @@
     <div class="row">
       <div class="col-sm-4 col-12">
         {{'progressBars.basic' | translate}}
-        <div class="pb-container">
-          <vuestic-progress-bar ref="chBasic" colorName="danger"/>
-        </div>
+        <vuestic-progress-bar :value="100" theme="Danger"/>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.thin' | translate}}
-        <div class="pb-container">
-          <vuestic-progress-bar size="thin" ref="chThin" colorName="info"/>
-        </div>
+        <vuestic-progress-bar :value="100" size="thin" theme="Info"/>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.thick' | translate}}
-        <div class="pb-container">
-          <vuestic-progress-bar size="thick" ref="chThick" colorName="warning"/>
-        </div>
+        <vuestic-progress-bar :value="100" size="thick" theme="Warning"/>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.basicVertical' | translate}}
         <div class="pb-container">
-          <div>
-            <vuestic-progress-bar type="vertical" ref="cvBasic"
-                                  colorName="success"/>
-          </div>
+          <vuestic-progress-bar :value="100" type="vertical" theme="Success"/>
         </div>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.thinVertical' | translate}}
         <div class="pb-container">
-          <vuestic-progress-bar size="thin" type="vertical" ref="cvThin"
-                                colorName="black"/>
+          <vuestic-progress-bar :value="100" size="thin" type="vertical" theme="Black"/>
         </div>
       </div>
       <div class="col-sm-4 col-12">
         {{'progressBars.circle' | translate}}
         <div class="pb-container">
-          <vuestic-progress-bar type="circle" ref="ccircle"/>
+          <vuestic-progress-bar :value="100" type="circle"/>
         </div>
       </div>
     </div>
@@ -47,11 +37,6 @@
 
 <script>
   export default {
-    name: 'standard-bars',
-    mounted () {
-      for (let ref in this.$refs) {
-        this.$refs[ref].value = 100
-      }
-    },
+    name: 'standard-bars'
   }
 </script>

@@ -10,7 +10,7 @@
     <notification-dropdown/>
     <language-dropdown/>
     <profile-dropdown>
-      <img src="http://i.imgur.com/nfa5itq.png"/>
+      <img src="https://i.imgur.com/nfa5itq.png"/>
     </profile-dropdown>
   </vuestic-navbar>
 
