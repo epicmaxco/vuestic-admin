@@ -9,7 +9,7 @@
   </div>
 
   <div class="col-xl-2 col-lg-3 col-sm-4" v-else>
-    <div class="file-upload-gallery-item">
+    <div class="file-upload-gallery-item" :class="notGalleryItemClass">
       <img :src="previewImage" alt="" class="file-upload-gallery-item-image">
         <div class="file-upload-gallery-item-overlay">
           <div class="file-upload-gallery-item-name" :title="file.name">
@@ -39,7 +39,9 @@
     data () {
       return {
         previewImage: '',
-        removed: false
+        imageFileTypes: ['/png', '/jpg', '/jpeg', '/gif'],
+        removed: false,
+        isNotImage: false
       }
     },
     props: {
@@ -69,13 +71,30 @@
         const reader = new FileReader()
         reader.readAsDataURL(this.file.image)
         reader.onload = (e) => {
-          this.previewImage = e.target.result
+          console.log(e.target)
+          for (let i = 0; i < this.imageFileTypes.length; i++) {
+            console.log(e.target.result.indexOf(this.imageFileTypes[i]))
+            if (e.target.result.indexOf(this.imageFileTypes[i]) >= 0) {
+              this.previewImage = e.target.result
+            }
+          }
+          console.log(this.previewImage)
+          if (!this.previewImage) {
+            this.isNotImage = true
+          }
         }
       }
     },
+    computed: {
+      notGalleryItemClass: function () {
+        return {
+          'file-upload-gallery-item_not-image': this.isNotImage
+        }
+      },
+    },
     mounted () {
       this.convertToImg()
-    },
+    }
   }
 </script>
 
@@ -132,4 +151,10 @@
       padding: 0.7rem 0 0;
     }
   }
+  .file-upload-gallery-item_not-image {
+    .file-upload-gallery-item-overlay {
+      display: flex;
+    }
+  }
+
 </style>

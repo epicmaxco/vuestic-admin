@@ -216,21 +216,23 @@
     "title": "Modals"
   },
   "fileUpload": {
-    "advancedMediaGallery": "Advanced, Media Gallery",
+    "advancedMediaGallery": "Avanzado, Galería de medios",
     "advancedUploadList": "Advanced, Upload List",
     "mediaGallery": "Media Gallery",
     "uploadList": "Upload List",
     "single": "Single",
     "dragNdropFiles": "Drag’n’drop files or",
     "uploadedOn": "Uploaded on",
-    "fileDeleted": "File was succesfully deleted.",
+    "fileDeleted": "File was succesfully deleted",
     "undo": "Undo",
     "preview": "Preview",
     "delete": "Delete",
     "deleteFile": "Delete file",
     "uploadFile": "Upload file",
     "uploadMedia": "Upload media",
-    "addAttachment": "Add attachment"
+    "addAttachment": "Add attachment",
+    "modalTitle": "File validation",
+    "modalText": "File type is incorrect!"
   },
   "tags": {
     "default": "Default",

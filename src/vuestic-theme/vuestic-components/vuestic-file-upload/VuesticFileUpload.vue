@@ -15,6 +15,12 @@
           @remove="removeFile"
           @remove-single="removeSingleFile"
       />
+      <vuestic-modal ref="mediumModal" :no-buttons="true">
+        <div slot="title">{{ $t('fileUpload.modalTitle') }}</div>
+        <div>
+          {{ $t('fileUpload.modalText') }}
+        </div>
+      </vuestic-modal>
     </vuestic-file-upload-container>
   </div>
 </template>
@@ -39,9 +45,7 @@
       },
       fileTypes: {
         type: String,
-        default: function () {
-          return this.type === 'gallery' ? '.png, .jpg, .jpeg, .gif' : ''
-        }
+        default: ''
       },
       dropzone: {
         type: Boolean,
@@ -71,6 +75,9 @@
         return [...files].filter(file => {
           const fileName = file.name
           const extn = fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase()
+          if (this.fileTypes.indexOf(extn) === -1) {
+            this.$refs.mediumModal.open()
+          }
           return this.fileTypes.indexOf(extn) !== -1
         })
       }
