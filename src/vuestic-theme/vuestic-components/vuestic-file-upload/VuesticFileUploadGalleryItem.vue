@@ -39,7 +39,6 @@
     data () {
       return {
         previewImage: '',
-        imageFileTypes: ['/png', '/jpg', '/jpeg', '/gif'],
         removed: false,
         isNotImage: false
       }
@@ -69,16 +68,14 @@
       },
       convertToImg () {
         const reader = new FileReader()
+        const imageFileTypes = ['/png', '/jpg', '/jpeg', '/gif']
         reader.readAsDataURL(this.file.image)
         reader.onload = (e) => {
-          console.log(e.target)
-          for (let i = 0; i < this.imageFileTypes.length; i++) {
-            console.log(e.target.result.indexOf(this.imageFileTypes[i]))
-            if (e.target.result.indexOf(this.imageFileTypes[i]) >= 0) {
+          for (let i = 0; i < imageFileTypes.length; i++) {
+            if (e.target.result.indexOf(imageFileTypes[i]) >= 0) {
               this.previewImage = e.target.result
             }
           }
-          console.log(this.previewImage)
           if (!this.previewImage) {
             this.isNotImage = true
           }
