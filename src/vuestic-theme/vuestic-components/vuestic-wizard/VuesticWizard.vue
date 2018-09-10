@@ -16,19 +16,11 @@
 
     <div class="wizard-body">
       <div class="wizard-body-step" v-for="step in steps" v-show="isStepShown(step)">
-        <!--<div class="step-content">
-          <div class="step-content-text">-->
-            <slot :name="step.slot"></slot>
-            <!--</div>
-          <!--</div>-->
+        <slot :name="step.slot"></slot>
       </div>
 
       <div class="wizard-body-step" v-show="wizardCompleted">
-        <!--<div class="step-content">
-          <div class="step-content-text">-->
-            <slot :name="wizardCompletedSlotName"></slot>
-        <!--</div>
-      <!--</div>-->
+        <slot :name="wizardCompletedSlotName"></slot>
       </div>
 
 
