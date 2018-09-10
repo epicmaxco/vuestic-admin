@@ -198,11 +198,4 @@
     margin-top: 50px;
     margin-bottom: 50px;
   }
-
-  .cards-label {
-    color: $vue-green;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
 </style>
