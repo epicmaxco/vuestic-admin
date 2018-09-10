@@ -235,7 +235,6 @@
 </script>
 
 <style lang="scss">
-
   .color-icon-label-table {
     td:first-child {
       width: 1rem;

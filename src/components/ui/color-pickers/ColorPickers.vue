@@ -142,9 +142,5 @@ export default {
   &__text-advanced {
     padding-left: 5px;
   }
-
-  &__palette-picker {
-    padding-top: 10px;
-  }
 }
 </style>

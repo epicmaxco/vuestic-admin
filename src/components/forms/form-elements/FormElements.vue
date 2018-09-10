@@ -9,11 +9,7 @@
               <div class="col-md-4">
                 <fieldset>
                   <div class="form-group">
-                    <div class="input-group">
-                      <input id="simple-input" required/>
-                      <label class="control-label" for="simple-input">{{'forms.inputs.textInput'
-                      | translate}}</label><i class="bar"></i>
-                    </div>
+                    <vuestic-input :clearable="false" :title="$t('forms.inputs.textInput')"/>
                   </div>
                   <div class="form-group with-icon-right"
                        :class="{'has-error': errors.has('successfulEmail'), 'valid': isSuccessfulEmailValid}">
@@ -59,12 +55,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <div class="input-group">
-                      <textarea type="text" id="simple-textarea"
-                                required></textarea>
-                      <label class="control-label" for="simple-textarea">{{'forms.inputs.textArea'
-                        | translate}}</label><i class="bar"></i>
-                    </div>
+                    <vuestic-textarea :title="$t('forms.inputs.textArea')"/>
                   </div>
                 </fieldset>
               </div>
@@ -72,39 +63,23 @@
               <div class="col-md-4">
                 <fieldset>
                   <div class="form-group with-icon-left">
-                    <div class="input-group">
-                      <input id="input-icon-left" name="input-icon-left"
-                             required/>
-                      <i class="fa fa-envelope-o icon-left input-icon"></i>
-                      <label class="control-label" for="input-icon-left">{{'forms.inputs.inputWithIcon'
-                        | translate}}</label><i class="bar"></i>
-                    </div>
+                    <vuestic-input :clearable="false" :title="$t('forms.inputs.inputWithIcon')">
+                      <i slot="logo" class="fa fa-envelope-o icon-left input-icon"></i>
+                    </vuestic-input>
                   </div>
                   <div class="form-group with-icon-right">
-                    <div class="input-group">
-                      <input v-model="clearableText" id="clear-input"
-                             name="clear-input" required/>
-                      <i class="fa fa-times icon-right input-icon pointer"
-                         @click="clear('clearableText')"></i>
-                      <label class="control-label" for="clear-input"
-                             role="button">{{'forms.inputs.inputWithClearButton'
-                        | translate}}</label><i
-                      class="bar"></i>
-                    </div>
+                    <vuestic-input v-model="clearableText" :clearable="true"
+                                   :title="$t('forms.inputs.inputWithClearButton')"/>
                   </div>
                   <div class="form-group">
-                    <div class="input-group">
-                      <input id="inputWithDescription" required title=""/>
-                      <label class="control-label" for="simple-input">{{'forms.inputs.textInputWithDescription'
-                        | translate}}</label><i
-                      class="bar"></i>
-                      <small class="help text-secondary">
+                    <vuestic-input :clearable="false" :title="$t('forms.inputs.textInputWithDescription')">
+                      <span slot="description">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed
                         do eiusmod tempor incididunt ut labore et dolore magna
                         aliqua.
-                      </small>
-                    </div>
+                      </span>
+                    </vuestic-input>
                   </div>
                 </fieldset>
               </div>
@@ -112,24 +87,14 @@
               <div class="col-md-4">
                 <fieldset>
                   <div class="form-group form-group-w-btn">
-                    <div class="input-group">
-                      <input id="input-w-btn" required/>
-                      <label class="control-label" for="input-w-btn">{{'forms.inputs.inputWithButton'
-                        | translate}}</label><i class="bar"></i>
-                    </div>
-                    <div class="btn btn-micro btn-primary">
+                    <vuestic-input :clearable="false" :title="$t('forms.inputs.inputWithButton')"/>
+                    <div slot="button" class="btn btn-micro btn-primary">
                       {{'forms.inputs.upload' | translate}}
                     </div>
                   </div>
                   <div class="form-group form-group-w-btn">
-                    <div class="input-group">
-                      <input id="input-w-btn-round" required/>
-                      <label class="control-label" for="input-w-btn-round">{{'forms.inputs.inputWithRoundButton'
-                        | translate }}</label><i
-                      class="bar"></i>
-                    </div>
-                    <div
-                      class="btn btn-primary btn-with-icon btn-micro rounded-icon">
+                    <vuestic-input :clearable="false" :title="$t('forms.inputs.inputWithRoundButton')"/>
+                    <div class="btn btn-primary btn-with-icon btn-micro rounded-icon">
                       <div class="btn-with-icon-content">
                         <i class="ion-md-cloud-outline ion"></i>
                       </div>
@@ -403,10 +368,16 @@
 </template>
 
 <script>
+  import VuesticInput from './../../../vuestic-theme/vuestic-components/vuestic-input/VuesticInput'
+  import VuesticTextarea from './../../../vuestic-theme/vuestic-components/vuestic-textarea/VuesticTextarea'
   import CountriesList from 'data/CountriesList'
 
   export default {
     name: 'form-elements',
+    components: {
+      VuesticInput,
+      VuesticTextarea
+    },
     computed: {
       datePickerDisabled: () => [date => !(date.getDate() % 5)],
       isSuccessfulEmailValid () {
@@ -473,10 +444,3 @@
     },
   }
 </script>
-
-<style lang="scss">
-  input[type=checkbox]:disabled + label, input[type=radio]:disabled + label,
-  input[type=checkbox]:disabled, input[type=radio]:disabled {
-    cursor: not-allowed;
-  }
-</style>

@@ -16,11 +16,19 @@
 
     <div class="wizard-body">
       <div class="wizard-body-step" v-for="step in steps" v-show="isStepShown(step)">
-        <slot :name="step.slot" class="step-content"></slot>
+        <!--<div class="step-content">
+          <div class="step-content-text">-->
+            <slot :name="step.slot"></slot>
+            <!--</div>
+          <!--</div>-->
       </div>
 
       <div class="wizard-body-step" v-show="wizardCompleted">
-        <slot :name="wizardCompletedSlotName" class="step-content"></slot>
+        <!--<div class="step-content">
+          <div class="step-content-text">-->
+            <slot :name="wizardCompletedSlotName"></slot>
+        <!--</div>
+      <!--</div>-->
       </div>
 
 
@@ -178,6 +186,11 @@
     &.vertical {
       flex-direction: row;
     }
+    .form-group {
+      min-width: 200px;
+      max-width: 360px;
+      width: 80%;
+    }
   }
 
 
@@ -198,6 +211,8 @@
         margin-bottom: 0;
       }
     }
+
+    width: 100%; // IE11 only
   }
 
   .wizard-body-actions{
