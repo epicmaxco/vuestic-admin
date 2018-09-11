@@ -1,17 +1,24 @@
 <template>
   <vuestic-widget class="no-padding no-v-padding">
-    <div class="vuestic-breadcrumbs">
-      <router-link :to="{ path: breadcrumbs.root.path }" class="crumb">
-        {{ $t(breadcrumbs.root.displayName) }}
-      </router-link>
-      <router-link
-        v-for="(item, index) in displayedCrumbs"
-        :to="{path: item.path}"
-        :key="index"
-        class="crumb"
-        :class="{ disabled: item.disabled }">
-        {{ $t(item.displayName) }}
-      </router-link>
+    <div class="row vuestic-breadcrumbs">
+      <div class="col-lg-11 col-sm-12">
+        <router-link :to="{ path: breadcrumbs.root.path }" class="crumb">
+          {{ $t(breadcrumbs.root.displayName) }}
+        </router-link>
+        <router-link
+          v-for="(item, index) in displayedCrumbs"
+          :to="{path: item.path}"
+          :key="index"
+          class="crumb"
+          :class="{ disabled: item.disabled }">
+          {{ $t(item.displayName) }}
+        </router-link>
+      </div>
+      <div class="col-lg-1 col-sm-12">
+        <button class="btn btn-sm btn-primary" @click="moveToWiki()">
+          Docs
+        </button>
+      </div>
     </div>
   </vuestic-widget>
 </template>
@@ -49,6 +56,9 @@
           }
         }
         return null
+      },
+      moveToWiki () {
+        window.open('https://github.com/epicmaxco/vuestic-admin/wiki')
       }
     }
   }
@@ -56,7 +66,7 @@
 
 <style lang='scss' scoped>
   .vuestic-breadcrumbs {
-    height: $breadcrumbs-height;
+    min-height: $breadcrumbs-height;
     display: flex;
     align-items: center;
 
@@ -85,6 +95,10 @@
       &:hover {
         color: $brand-primary;
       }
+    }
+
+    .btn {
+      margin: 5px 0;
     }
   }
 </style>
