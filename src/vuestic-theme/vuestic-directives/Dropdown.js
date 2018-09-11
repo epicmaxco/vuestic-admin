@@ -39,6 +39,7 @@ export default {
       }
     }
 
+
     window.addEventListener('click', el.removeShow)
     if (dropdownMenu) {
       dropdownMenu.addEventListener('click', (evt) => {

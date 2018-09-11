@@ -64,6 +64,10 @@ export default {
           displayName: 'menu.colorPickers'
         },
         {
+          path: 'dropdowns',
+          displayName: 'menu.dropdowns'
+        },
+        {
           path: 'notifications',
           displayName: 'menu.notifications'
         },

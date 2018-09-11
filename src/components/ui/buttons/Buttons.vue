@@ -91,20 +91,20 @@
             </div>
             <div class="col-sm-6  d-flex justify-content-center"
                  :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }">
-              <div class="dropdown d-inline-flex" v-dropdown>
-                <button class="btn btn-primary dropdown-toggle theme-toggle " type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown">
+              <vuestic-dropdown plain>
+                <button class="btn btn-primary dropdown-toggle theme-toggle "
+                        type="button"
+                        slot="dropdown-button"
+                >
                   DROPDOWN
                   <i class="ion-ios-arrow-down arrow-down"></i>
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <div class="dropdown-menu-content">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </div>
-              </div>
+                <template>
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </template>
+              </vuestic-dropdown>
             </div>
             <div class="col-sm-6  d-flex justify-content-center"
                  :class="{'col-lg-6 col-xl-4' : sidebarOpened, 'col-lg-4' : !sidebarOpened }">
@@ -201,7 +201,7 @@ export default {
         margin-left: -40px;
       }
     }
-    .btn, .btn-group {
+    .btn, .btn-group, .dropdown {
       margin-bottom: 45px;
     }
 
@@ -209,8 +209,8 @@ export default {
       margin-bottom: 0;
     }
 
-    .dropdown-menu {
-      margin-top: -43px;
+    .dropdown-toggle {
+      margin-bottom: 0;
     }
 
     .smaller-buttons {

@@ -1,19 +1,18 @@
 <template>
-  <div class="col nav-item dropdown navbar-dropdown" v-dropdown>
-    <a class="nav-link dropdown-toggle" href="#">
-      <span class="i-nav-messages"></span>
-    </a>
-    <div class="dropdown-menu">
-      <div class="dropdown-menu-content">
-        <a v-for="(option, id) in options" :key="id" class="dropdown-item" href="#">
-          <span class="ellipsis">{{ $t(`messages.${option.name}`, { name: option.details.name})}}</span>
-        </a>
-        <div class="dropdown-item plain-link-item">
-          <a class="plain-link" href="#">{{'messages.all' | translate}}</a>
-        </div>
+  <vuestic-dropdown>
+    <span class="i-nav-messages" slot="dropdown-button"></span>
+    <template>
+      <a v-for="(option, id) in options"
+         :key="id"
+         class="dropdown-item"
+         href="#">
+        <span class="ellipsis">{{ $t(`messages.${option.name}`, { name: option.details.name})}}</span>
+      </a>
+      <div class="dropdown-item plain-link-item">
+        <a class="plain-link" href="#">{{'messages.all' | translate}}</a>
       </div>
-    </div>
-  </div>
+    </template>
+  </vuestic-dropdown>
 </template>
 
 <script>
@@ -53,5 +52,4 @@ export default {
       border-radius: 50%;
     }
   }
-
 </style>

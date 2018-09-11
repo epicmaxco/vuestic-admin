@@ -193,8 +193,8 @@
     "uiElements": "UI Elements",
     "treeView": "Tree view",
     "dateTimePickers": "Date time pickers",
-    "cards": "Cards",
-    "fileUpload": "File Upload"
+    "fileUpload": "File Upload",
+    "dropdowns": "Dropdowns"
   },
   "messages": {
     "all": "See all messages",
@@ -214,6 +214,10 @@
     "staticMessage": "This is a static modal, backdrop click will not close it.",
     "staticTitle": "Static Modal",
     "title": "Modals"
+  },
+  "dropdown": {
+    "default": "Default",
+    "withArrow": "With arrow"
   },
   "fileUpload": {
     "advancedMediaGallery": "Advanced, Media Gallery",

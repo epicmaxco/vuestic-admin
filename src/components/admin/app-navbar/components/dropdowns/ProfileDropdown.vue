@@ -1,21 +1,15 @@
 <template>
-  <div class="profile-dropdown col nav-item dropdown navbar-dropdown" v-dropdown>
-    <a class="nav-link dropdown-toggle" href="#">
-      <span class="profile-section-avatar-container">
-        <slot></slot>
-      </span>
-    </a>
-    <div class="dropdown-menu last">
-      <div class="dropdown-menu-content">
-        <div v-for="(option, id) in options" :key="id"
-          class="dropdown-item plain-link-item">
-          <router-link :to="{name: option.redirectTo}" class="plain-link" href="#">
-            {{ `user.${option.name}` | translate}}
-          </router-link>
-        </div>
-      </div>
+  <vuestic-dropdown class="profile-dropdown" placement="bottom-end">
+    <span slot="dropdown-button" class="profile-section-avatar-container">
+      <slot/>
+    </span>
+    <div v-for="(option, id) in options" :key="id"
+         class="dropdown-item plain-link-item">
+      <router-link :to="{name: option.redirectTo}" class="plain-link" href="#">
+        {{ `user.${option.name}` | translate}}
+      </router-link>
     </div>
-  </div>
+  </vuestic-dropdown>
 </template>
 
 <script>
@@ -42,7 +36,6 @@ export default {
 
 <style lang="scss">
   .profile-dropdown {
-
     .profile-section-avatar-container {
       display: inline-block;
       width: 50px;
@@ -57,7 +50,5 @@ export default {
         width: 100%;
       }
     }
-
   }
-
 </style>

@@ -44,6 +44,7 @@ import FileUpload
   from './vuestic-components/vuestic-file-upload/VuesticFileUpload'
 import Tag from './vuestic-components/vuestic-tag/VuesticTag'
 import TagGroup from './vuestic-components/vuestic-tag/VuesticTagGroup'
+import VuesticDropdown from './vuestic-components/vuestic-dropdown/VuesticDropdown'
 
 import VuesticToasted from './vuestic-mixins/VuesticToasted'
 
@@ -81,6 +82,7 @@ const VuesticPlugin = {
       TreeCategory,
       TreeNode,
       FileUpload,
+      VuesticDropdown,
       DatePicker,
       Card,
       Tag,

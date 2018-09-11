@@ -154,6 +154,11 @@ export default new Router({
               component: lazyLoading('ui/color-pickers/ColorPickers'),
             },
             {
+              name: 'dropdowns',
+              path: 'dropdowns',
+              component: lazyLoading('ui/dropdowns/Dropdowns'),
+            },
+            {
               name: 'notifications',
               path: 'notifications',
               component: lazyLoading('ui/notifications/Notifications'),

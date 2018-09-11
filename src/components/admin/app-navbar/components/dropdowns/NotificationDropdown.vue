@@ -1,21 +1,17 @@
 <template>
-  <div class="col nav-item dropdown navbar-dropdown" v-dropdown>
-    <a class="nav-link dropdown-toggle" href="#">
-      <span class="i-nav-notification"></span>
-    </a>
-    <div class="dropdown-menu">
-      <div class="dropdown-menu-content">
-        <a v-for="(option, id) in options" :key="id" class="dropdown-item" href="#">
+  <vuestic-dropdown>
+    <span slot="dropdown-button" class="i-nav-notification"></span>
+    <template>
+      <a v-for="(option, id) in options" :key="id" class="dropdown-item" href="#">
           <span class="ellipsis">{{$t(`notifications.${option.name}`,
             { name: option.details.name, type: option.details.type })}}
           </span>
-        </a>
-        <div class="dropdown-item plain-link-item">
-          <a class="plain-link" href="#">{{'notifications.all' | translate}}</a>
-        </div>
+      </a>
+      <div class="dropdown-item plain-link-item">
+        <a class="plain-link" href="#">{{'notifications.all' | translate}}</a>
       </div>
-    </div>
-  </div>
+    </template>
+  </vuestic-dropdown>
 </template>
 
 <script>
@@ -51,18 +47,12 @@ export default {
     &::after {
       content: '';
       position: absolute;
-      right: -6px;
-      top: -6px;
+      right: -4px;
+      top: 0;
       background-color: $brand-primary;
       height: 12px;
       width: 12px;
       border-radius: 50%;
     }
   }
-
-  .i-nav-notification::after {
-    right: -4px;
-    top: 0;
-  }
-
 </style>

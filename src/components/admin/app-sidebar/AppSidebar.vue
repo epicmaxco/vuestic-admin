@@ -86,6 +86,12 @@
           </span>
         </sidebar-link>
         <sidebar-link
+          :to="{ name: 'dropdowns' }">
+          <span slot="title">
+            <span>{{ $t('menu.dropdowns') }}</span>
+          </span>
+        </sidebar-link>
+        <sidebar-link
           :to="{ name: 'notifications' }">
           <span slot="title">
             <span>{{ $t('menu.notifications') }}</span>
