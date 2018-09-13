@@ -9,27 +9,27 @@
 </template>
 
 <script>
-  export default {
-    name: 'filterBar',
-    props: {
-      label: {
-        type: String
-      }
-    },
-    data () {
-      return {
-        filterText: '',
-        typingTimeout: null,
-        typingDelay: 250
-      }
-    },
-    methods: {
-      doFilter () {
-        this.typingTimeout && clearTimeout(this.typingTimeout)
-        this.typingTimeout = setTimeout(() => this.$emit('filter', this.filterText), this.typingDelay)
-      }
+export default {
+  name: 'filterBar',
+  props: {
+    label: {
+      type: String
+    }
+  },
+  data () {
+    return {
+      filterText: '',
+      typingTimeout: null,
+      typingDelay: 250
+    }
+  },
+  methods: {
+    doFilter () {
+      this.typingTimeout && clearTimeout(this.typingTimeout)
+      this.typingTimeout = setTimeout(() => this.$emit('filter', this.filterText), this.typingDelay)
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -7,16 +7,21 @@
       </a>
     </div>
     <div class="d-flex flex-row justify-content-around photos">
-      <div class="photo" v-for="pieceOfNews in news" :style="`background: url(${pieceOfNews.photoURL})`"></div>
+      <div
+        class="photo"
+        v-for="(pieceOfNews, index) in news"
+        :key="index"
+        :style="`background: url(${pieceOfNews.photoURL})`"
+      />
     </div>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-social-news',
-    props: ['news', 'url']
-  }
+export default {
+  name: 'vuestic-social-news',
+  props: ['news', 'url']
+}
 </script>
 
 <style lang="scss">

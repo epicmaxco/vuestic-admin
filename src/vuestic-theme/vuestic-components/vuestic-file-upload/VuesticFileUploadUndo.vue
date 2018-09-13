@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-file-upload-undo',
-  }
+export default {
+  name: 'vuestic-file-upload-undo',
+}
 </script>
