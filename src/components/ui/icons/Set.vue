@@ -38,102 +38,106 @@
         </div>
       </div>
     </div>
-    <template v-for="list in validatedLists">
-      <vuestic-widget
-        :headerText="list.name"
-        class="col-12"
+
+    <vuestic-widget
+      v-for="(list, index) in validatedLists"
+      :key="index"
+      :headerText="list.name"
+      class="col-12"
+    >
+      <span v-if="list.icons.length === 0">
+        {{ 'icons.none' | translate }}
+      </span>
+      <div
+        v-for="i in Math.floor(list.icons.length / 8 + 1)"
+        :key="i"
+        class="row vuestic-icon-container"
       >
-        <span v-if="list.icons.length === 0">
-          {{ 'icons.none' | translate }}
-        </span>
-        <template v-for="i in Math.floor(list.icons.length / 8 + 1)">
-          <div class="row vuestic-icon-container">
-            <div
-              v-for="j in 8"
-              v-if="list.icons[(i - 1) * 8 + j - 1]"
-              class="col-8-custom icon-grid-container"
-            >
-              <div class="vuestic-icon">
-                <span
-                  :class="iconClass(list.icons[(i - 1) * 8 + j - 1])"
-                  :style="`font-size: ${iconSize}px`"
-                  aria-hidden="true"
-                />
-              </div>
-              <div class="icon-text">
-                {{ list.icons[(i - 1) * 8 + j - 1] }}
-              </div>
-            </div>
+        <div
+          v-for="j in 8"
+          :key="j"
+          v-if="list.icons[(i - 1) * 8 + j - 1]"
+          class="col-8-custom icon-grid-container"
+        >
+          <div class="vuestic-icon">
+            <span
+              :class="iconClass(list.icons[(i - 1) * 8 + j - 1])"
+              :style="`font-size: ${iconSize}px`"
+              aria-hidden="true"
+            />
           </div>
-        </template>
-      </vuestic-widget>
-    </template>
+          <div class="icon-text">
+            {{ list.icons[(i - 1) * 8 + j - 1] }}
+          </div>
+        </div>
+      </div>
+    </vuestic-widget>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'set',
+export default {
+  name: 'set',
 
-    props: {
-      name: {
-        type: String
-      },
-
-      sets: {
-        type: Array
-      }
+  props: {
+    name: {
+      type: String
     },
 
-    data: function () {
-      return {
-        selector: '',
-        iconSize: 30,
-        slider: {
-          formatter: v => `${v}px`,
-          min: 20,
-          max: 40
-        }
-      }
-    },
+    sets: {
+      type: Array
+    }
+  },
 
-    computed: {
-      set () {
-        for (let set of this.sets) {
-          if (set.href === this.name) return set
-        }
-      },
-
-      validatedLists () {
-        if (this.selector === '') {
-          return this.set.lists
-        }
-
-        let result = [
-          {
-            name: 'Found Icons',
-            icons: []
-          }
-        ]
-
-        this.set.lists.forEach(list => {
-          list.icons.forEach(icon => {
-            if (icon.match(this.selector)) {
-              result[0].icons.push(icon)
-            }
-          })
-        })
-
-        return result
-      }
-    },
-
-    methods: {
-      iconClass (icon) {
-        return `${this.set.prefix} ${this.set.prefix}-${icon}`
+  data: function () {
+    return {
+      selector: '',
+      iconSize: 30,
+      slider: {
+        formatter: v => `${v}px`,
+        min: 20,
+        max: 40
       }
     }
+  },
+
+  computed: {
+    set () {
+      for (let set of this.sets) {
+        if (set.href === this.name) return set
+      }
+    },
+
+    validatedLists () {
+      if (this.selector === '') {
+        return this.set.lists
+      }
+
+      let result = [
+        {
+          name: 'Found Icons',
+          icons: []
+        }
+      ]
+
+      this.set.lists.forEach(list => {
+        list.icons.forEach(icon => {
+          if (icon.match(this.selector)) {
+            result[0].icons.push(icon)
+          }
+        })
+      })
+
+      return result
+    }
+  },
+
+  methods: {
+    iconClass (icon) {
+      return `${this.set.prefix} ${this.set.prefix}-${icon}`
+    }
   }
+}
 </script>
 
 <style lang="scss">

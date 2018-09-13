@@ -77,61 +77,61 @@
 </template>
 
 <script>
-  import CountriesList from 'data/CountriesList'
+import CountriesList from 'data/CountriesList'
 
-  export default {
-    name: 'setup-profile-tab',
-    props: {
-      wizardType: {
-        default: 'rich'
-      },
+export default {
+  name: 'setup-profile-tab',
+  props: {
+    wizardType: {
+      default: 'rich'
     },
-    data () {
-      return {
-        steps: [
-          {
-            label: 'Step 1. Name',
-            slot: 'page1',
-            onNext: () => {
-              this.validateFormField('name')
-            },
-            isValid: () => {
-              return this.isFormFieldValid('name')
-            }
+  },
+  data () {
+    return {
+      steps: [
+        {
+          label: 'Step 1. Name',
+          slot: 'page1',
+          onNext: () => {
+            this.validateFormField('name')
           },
-          {
-            label: 'Step 2. Country',
-            slot: 'page2',
-            onNext: () => {
-              this.$refs.selectedCountrySelect.validate()
-            },
-            isValid: () => {
-              return this.$refs.selectedCountrySelect.isValid()
-            }
-          },
-          {
-            label: 'Step 3. Confirm',
-            slot: 'page3'
+          isValid: () => {
+            return this.isFormFieldValid('name')
           }
-        ],
-        selectedCountry: '',
-        name: '',
-        countriesList: CountriesList
-      }
-    },
-    methods: {
-      isFormFieldValid (field) {
-        let isValid = false
-        if (this.formFields[field]) {
-          isValid = this.formFields[field].validated && this.formFields[field].valid
+        },
+        {
+          label: 'Step 2. Country',
+          slot: 'page2',
+          onNext: () => {
+            this.$refs.selectedCountrySelect.validate()
+          },
+          isValid: () => {
+            return this.$refs.selectedCountrySelect.isValid()
+          }
+        },
+        {
+          label: 'Step 3. Confirm',
+          slot: 'page3'
         }
-        return isValid
-      },
-      validateFormField (fieldName) {
-        this.$validator.validate(fieldName, this[fieldName])
+      ],
+      selectedCountry: '',
+      name: '',
+      countriesList: CountriesList
+    }
+  },
+  methods: {
+    isFormFieldValid (field) {
+      let isValid = false
+      if (this.formFields[field]) {
+        isValid = this.formFields[field].validated && this.formFields[field].valid
       }
+      return isValid
+    },
+    validateFormField (fieldName) {
+      this.$validator.validate(fieldName, this[fieldName])
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>

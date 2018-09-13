@@ -17,41 +17,41 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-breadcrumbs',
-    props: {
-      breadcrumbs: {
-        type: Object,
-        default: function () {
-          return {}
-        }
-      },
-      currentPath: {
-        type: String,
-        default: ''
+export default {
+  name: 'vuestic-breadcrumbs',
+  props: {
+    breadcrumbs: {
+      type: Object,
+      default: function () {
+        return {}
       }
     },
-    computed: {
-      displayedCrumbs () {
-        return this.findInNestedByName(this.breadcrumbs.routes, this.currentPath)
-      },
+    currentPath: {
+      type: String,
+      default: ''
+    }
+  },
+  computed: {
+    displayedCrumbs () {
+      return this.findInNestedByName(this.breadcrumbs.routes, this.currentPath)
     },
-    methods: {
-      findInNestedByName (array, name) {
-        if (typeof array !== 'undefined') {
-          for (let i = 0; i < array.length; i++) {
-            if (array[i].path === name) return [{...array[i]}]
-            let a = this.findInNestedByName(array[i].children, name)
-            if (a != null) {
-              a.unshift({...array[i]})
-              return [...a]
-            }
+  },
+  methods: {
+    findInNestedByName (array, name) {
+      if (typeof array !== 'undefined') {
+        for (let i = 0; i < array.length; i++) {
+          if (array[i].path === name) return [{...array[i]}]
+          let a = this.findInNestedByName(array[i].children, name)
+          if (a != null) {
+            a.unshift({...array[i]})
+            return [...a]
           }
         }
-        return null
       }
+      return null
     }
   }
+}
 </script>
 
 <style lang='scss' scoped>

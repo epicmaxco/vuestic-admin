@@ -327,153 +327,153 @@
 </template>
 
 <script>
-  import CountriesList from 'data/CountriesList'
+import CountriesList from 'data/CountriesList'
 
-  export default {
-    name: 'form-wizard',
+export default {
+  name: 'form-wizard',
 
-    computed: {
-      hsSteps () {
-        return [
-          {
-            label: this.$t('forms.wizard.stepOne'),
-            slot: 'page1',
-            onNext: () => {
-              this.validateFormField('hsName')
-            },
-            isValid: () => {
-              return this.isFormFieldValid('hsName')
-            },
+  computed: {
+    hsSteps () {
+      return [
+        {
+          label: this.$t('forms.wizard.stepOne'),
+          slot: 'page1',
+          onNext: () => {
+            this.validateFormField('hsName')
           },
-          {
-            label: this.$t('forms.wizard.stepTwo'),
-            slot: 'page2',
-            onNext: () => {
-              this.$refs.hsCountrySelect.validate()
-            },
-            isValid: () => {
-              return this.$refs.hsCountrySelect.isValid()
-            },
+          isValid: () => {
+            return this.isFormFieldValid('hsName')
           },
-          {
-            label: this.$t('forms.wizard.stepThree'),
-            slot: 'page3',
+        },
+        {
+          label: this.$t('forms.wizard.stepTwo'),
+          slot: 'page2',
+          onNext: () => {
+            this.$refs.hsCountrySelect.validate()
           },
-        ]
-      },
-      hrSteps () {
-        return [
-          {
-            label: this.$t('forms.wizard.stepOne'),
-            slot: 'page1',
-            onNext: () => {
-              this.validateFormField('hrName')
-            },
-            isValid: () => {
-              return this.isFormFieldValid('hrName')
-            },
+          isValid: () => {
+            return this.$refs.hsCountrySelect.isValid()
           },
-          {
-            label: this.$t('forms.wizard.stepTwo'),
-            slot: 'page2',
-            onNext: () => {
-              this.$refs.hrCountrySelect.validate()
-            },
-            isValid: () => {
-              return this.$refs.hrCountrySelect.isValid()
-            },
-          },
-          {
-            label: this.$t('forms.wizard.stepThree'),
-            slot: 'page3',
-          },
-        ]
-      },
-      vrSteps () {
-        return [
-          {
-            label: this.$t('forms.wizard.stepOne'),
-            slot: 'page1',
-            onNext: () => {
-              this.validateFormField('vrName')
-            },
-            isValid: () => {
-              return this.isFormFieldValid('vrName')
-            },
-          },
-          {
-            label: this.$t('forms.wizard.stepTwo'),
-            slot: 'page2',
-            onNext: () => {
-              this.$refs.vrCountrySelect.validate()
-            },
-            isValid: () => {
-              return this.$refs.vrCountrySelect.isValid()
-            },
-          },
-          {
-            label: this.$t('forms.wizard.stepThree'),
-            slot: 'page3',
-          },
-        ]
-      },
-      vsSteps () {
-        return [
-          {
-            label: this.$t('forms.wizard.stepOne'),
-            slot: 'page1',
-            onNext: () => {
-              this.validateFormField('vsName')
-            },
-            isValid: () => {
-              return this.isFormFieldValid('vsName')
-            },
-          },
-          {
-            label: this.$t('forms.wizard.stepTwo'),
-            slot: 'page2',
-            onNext: () => {
-              this.$refs.vsCountrySelect.validate()
-            },
-            isValid: () => {
-              return this.$refs.vsCountrySelect.isValid()
-            },
-          },
-          {
-            label: this.$t('forms.wizard.stepThree'),
-            slot: 'page3',
-          },
-        ]
-      },
+        },
+        {
+          label: this.$t('forms.wizard.stepThree'),
+          slot: 'page3',
+        },
+      ]
     },
-    data () {
-      return {
-        hsName: '',
-        hsCountry: '',
-        hrName: '',
-        hrCountry: '',
-        vrName: '',
-        vrCountry: '',
-        vsName: '',
-        vsCountry: '',
-        email: '',
-        countriesList: CountriesList,
-        chosenCountry: '',
+    hrSteps () {
+      return [
+        {
+          label: this.$t('forms.wizard.stepOne'),
+          slot: 'page1',
+          onNext: () => {
+            this.validateFormField('hrName')
+          },
+          isValid: () => {
+            return this.isFormFieldValid('hrName')
+          },
+        },
+        {
+          label: this.$t('forms.wizard.stepTwo'),
+          slot: 'page2',
+          onNext: () => {
+            this.$refs.hrCountrySelect.validate()
+          },
+          isValid: () => {
+            return this.$refs.hrCountrySelect.isValid()
+          },
+        },
+        {
+          label: this.$t('forms.wizard.stepThree'),
+          slot: 'page3',
+        },
+      ]
+    },
+    vrSteps () {
+      return [
+        {
+          label: this.$t('forms.wizard.stepOne'),
+          slot: 'page1',
+          onNext: () => {
+            this.validateFormField('vrName')
+          },
+          isValid: () => {
+            return this.isFormFieldValid('vrName')
+          },
+        },
+        {
+          label: this.$t('forms.wizard.stepTwo'),
+          slot: 'page2',
+          onNext: () => {
+            this.$refs.vrCountrySelect.validate()
+          },
+          isValid: () => {
+            return this.$refs.vrCountrySelect.isValid()
+          },
+        },
+        {
+          label: this.$t('forms.wizard.stepThree'),
+          slot: 'page3',
+        },
+      ]
+    },
+    vsSteps () {
+      return [
+        {
+          label: this.$t('forms.wizard.stepOne'),
+          slot: 'page1',
+          onNext: () => {
+            this.validateFormField('vsName')
+          },
+          isValid: () => {
+            return this.isFormFieldValid('vsName')
+          },
+        },
+        {
+          label: this.$t('forms.wizard.stepTwo'),
+          slot: 'page2',
+          onNext: () => {
+            this.$refs.vsCountrySelect.validate()
+          },
+          isValid: () => {
+            return this.$refs.vsCountrySelect.isValid()
+          },
+        },
+        {
+          label: this.$t('forms.wizard.stepThree'),
+          slot: 'page3',
+        },
+      ]
+    },
+  },
+  data () {
+    return {
+      hsName: '',
+      hsCountry: '',
+      hrName: '',
+      hrCountry: '',
+      vrName: '',
+      vrCountry: '',
+      vsName: '',
+      vsCountry: '',
+      email: '',
+      countriesList: CountriesList,
+      chosenCountry: '',
+    }
+  },
+  methods: {
+    isFormFieldValid (field) {
+      let isValid = false
+      if (this.formFields[field]) {
+        isValid = this.formFields[field].validated && this.formFields[field].valid
       }
+      return isValid
     },
-    methods: {
-      isFormFieldValid (field) {
-        let isValid = false
-        if (this.formFields[field]) {
-          isValid = this.formFields[field].validated && this.formFields[field].valid
-        }
-        return isValid
-      },
-      validateFormField (fieldName) {
-        this.$validator.validate(fieldName, this[fieldName])
-      },
+    validateFormField (fieldName) {
+      this.$validator.validate(fieldName, this[fieldName])
     },
-  }
+  },
+}
 </script>
 
 <style lang="scss">
