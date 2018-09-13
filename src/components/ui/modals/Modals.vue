@@ -50,7 +50,8 @@
         horse-like. All three belong to the genus Equus, along with other living equids.
       </div>
     </vuestic-modal>
-    <vuestic-modal :show.sync="show" v-bind:small="true" v-bind:force="true" ref="staticModal" :cancelClass="'none'"
+    <vuestic-modal :show.sync="show"
+                   v-bind:small="true" v-bind:force="true" ref="staticModal" :cancelClass="'none'"
                    :okText="'modal.close' | translate">
       <div slot="title">{{'modal.staticTitle' | translate}}</div>
       <div>
@@ -61,30 +62,30 @@
 </template>
 
 <script>
-  export default {
-    name: 'modals',
+export default {
+  name: 'modals',
 
-    data () {
-      return {
-        show: true
-      }
+  data () {
+    return {
+      show: true
+    }
+  },
+
+  methods: {
+    showSmallModal () {
+      this.$refs.smallModal.open()
     },
-
-    methods: {
-      showSmallModal () {
-        this.$refs.smallModal.open()
-      },
-      showMediumModal () {
-        this.$refs.mediumModal.open()
-      },
-      showLargeModal () {
-        this.$refs.largeModal.open()
-      },
-      showStaticModal () {
-        this.$refs.staticModal.open()
-      }
+    showMediumModal () {
+      this.$refs.mediumModal.open()
+    },
+    showLargeModal () {
+      this.$refs.largeModal.open()
+    },
+    showStaticModal () {
+      this.$refs.staticModal.open()
     }
   }
+}
 </script>
 
 <style lang="scss">

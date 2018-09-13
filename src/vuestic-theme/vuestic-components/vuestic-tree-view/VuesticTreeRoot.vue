@@ -5,35 +5,35 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-tree-root',
-    methods: {
-      /**
+export default {
+  name: 'vuestic-tree-root',
+  methods: {
+    /**
        * @public
        */
-      collapse () {
-        this.$nextTick(() => {
-          this.$children.forEach(child => {
-            if (child.$options.name === 'vuestic-tree-category') {
-              child.collapse()
-            }
-          })
+    collapse () {
+      this.$nextTick(() => {
+        this.$children.forEach(child => {
+          if (child.$options.name === 'vuestic-tree-category') {
+            child.collapse()
+          }
         })
-      },
-      /**
+      })
+    },
+    /**
        * @public
        */
-      expand () {
-        this.$nextTick(() => {
-          this.$children.forEach(child => {
-            if (child.$options.name === 'vuestic-tree-category') {
-              child.expand()
-            }
-          })
+    expand () {
+      this.$nextTick(() => {
+        this.$children.forEach(child => {
+          if (child.$options.name === 'vuestic-tree-category') {
+            child.expand()
+          }
         })
-      },
-    }
+      })
+    },
   }
+}
 </script>
 
 <style lang="scss">

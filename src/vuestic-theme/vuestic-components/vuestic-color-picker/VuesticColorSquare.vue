@@ -3,14 +3,14 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-color-square',
-    props: {
-      value: {
-        required: true
-      }
+export default {
+  name: 'vuestic-color-square',
+  props: {
+    value: {
+      required: true
     }
   }
+}
 </script>
 
 <style lang='scss'>

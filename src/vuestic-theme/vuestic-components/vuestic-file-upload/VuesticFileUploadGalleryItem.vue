@@ -29,70 +29,70 @@
 </template>
 
 <script>
-  import VuesticFileUploadUndo from './VuesticFileUploadUndo'
+import VuesticFileUploadUndo from './VuesticFileUploadUndo'
 
-  export default {
-    name: 'vuestic-file-upload-gallery-item',
-    components: {
-      VuesticFileUploadUndo: VuesticFileUploadUndo
-    },
-    data () {
-      return {
-        previewImage: '',
-        removed: false
-      }
-    },
-    props: {
-      file: {
-        default: {}
-      }
-    },
-    watch: {
-      file () {
-        this.convertToImg()
-      }
-    },
-    methods: {
-      removeImage () {
-        this.removed = true
-        setTimeout(() => {
-          if (this.removed) {
-            this.$emit('remove')
-            this.removed = false
-          }
-        }, 2000)
-      },
-      recoverImage () {
-        this.removed = false
-      },
-      convertToImg () {
-        const reader = new FileReader()
-        const imageFileTypes = ['/png', '/jpg', '/jpeg', '/gif']
-        reader.readAsDataURL(this.file.image)
-        reader.onload = (e) => {
-          for (let i = 0; i < imageFileTypes.length; i++) {
-            if (e.target.result.indexOf(imageFileTypes[i]) >= 0) {
-              this.previewImage = e.target.result
-            }
-          }
-        }
-      }
-    },
-    computed: {
-      notGalleryItemClass: function () {
-        return {
-          'file-upload-gallery-item_not-image': !this.previewImage
-        }
-      },
-    },
-    mounted () {
+export default {
+  name: 'vuestic-file-upload-gallery-item',
+  components: {
+    VuesticFileUploadUndo: VuesticFileUploadUndo
+  },
+  data () {
+    return {
+      previewImage: '',
+      removed: false
+    }
+  },
+  props: {
+    file: {
+      default: {}
+    }
+  },
+  watch: {
+    file () {
       this.convertToImg()
     }
+  },
+  methods: {
+    removeImage () {
+      this.removed = true
+      setTimeout(() => {
+        if (this.removed) {
+          this.$emit('remove')
+          this.removed = false
+        }
+      }, 2000)
+    },
+    recoverImage () {
+      this.removed = false
+    },
+    convertToImg () {
+      const reader = new FileReader()
+      const imageFileTypes = ['/png', '/jpg', '/jpeg', '/gif']
+      reader.readAsDataURL(this.file.image)
+      reader.onload = (e) => {
+        for (let i = 0; i < imageFileTypes.length; i++) {
+          if (e.target.result.indexOf(imageFileTypes[i]) >= 0) {
+            this.previewImage = e.target.result
+          }
+        }
+      }
+    }
+  },
+  computed: {
+    notGalleryItemClass: function () {
+      return {
+        'file-upload-gallery-item_not-image': !this.previewImage
+      }
+    },
+  },
+  mounted () {
+    this.convertToImg()
   }
+}
 </script>
 
 <style lang='scss'>
-  @import '../../../sass/_variables.scss';
+  @import '../../../sass/resources/variables';
 
   .file-upload-gallery-item {
     position: relative;

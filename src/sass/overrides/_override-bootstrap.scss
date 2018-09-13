@@ -273,6 +273,14 @@ h4, .h4 {
   }
 }
 
+.table-hover {
+  tbody tr {
+    @include hover {
+      background-color: $table-hover-bg;
+    }
+  }
+}
+
 .table {
 
   thead tr {
