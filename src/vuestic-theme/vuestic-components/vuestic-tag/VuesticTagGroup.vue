@@ -12,32 +12,32 @@
 </template>
 
 <script>
-  import VuesticTag from './VuesticTag.vue'
+import VuesticTag from './VuesticTag.vue'
 
-  export default {
-    name: 'vuestic-tag-group',
-    props: {
-      removable: {
-        type: Boolean,
-        default: false
-      },
-      value: {
-        type: Array
-      },
-      type: {
-        type: String,
-        default: '',
-      }
+export default {
+  name: 'vuestic-tag-group',
+  props: {
+    removable: {
+      type: Boolean,
+      default: false
     },
-    components: {
-      VuesticTag
+    value: {
+      type: Array
     },
-    methods: {
-      removeTag (tagIndex) {
-        this.$emit('input', this.value.filter((item, i) => i !== tagIndex))
-      }
+    type: {
+      type: String,
+      default: '',
+    }
+  },
+  components: {
+    VuesticTag
+  },
+  methods: {
+    removeTag (tagIndex) {
+      this.$emit('input', this.value.filter((item, i) => i !== tagIndex))
     }
   }
+}
 </script>
 
 <style lang="scss">

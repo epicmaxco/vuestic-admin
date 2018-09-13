@@ -36,9 +36,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'standard-bars'
-  }
+export default {
+  name: 'standard-bars'
+}
 </script>
 
 <style lang="scss">

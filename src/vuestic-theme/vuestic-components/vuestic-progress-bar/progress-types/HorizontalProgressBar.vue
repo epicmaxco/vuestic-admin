@@ -18,57 +18,57 @@
 </template>
 
 <script>
-  import { VuesticTheme, colorConfig } from './../../vuestic-color-picker/VuesticTheme'
+import { VuesticTheme, colorConfig } from './../../vuestic-color-picker/VuesticTheme'
 
-  export default {
-    props: {
-      value: {
-        type: Number,
-        default: 0,
-      },
-      text: {
-        type: String,
-        default: ''
-      },
-      theme: {
-        type: String,
-        default: 'Primary',
-      },
-      size: {
-        type: String,
-        default: 'basic',
-      },
-      disabled: {
-        type: Boolean,
-        default: false,
-      },
-      animated: {
-        type: Boolean,
-        default: false,
+export default {
+  props: {
+    value: {
+      type: Number,
+      default: 0,
+    },
+    text: {
+      type: String,
+      default: ''
+    },
+    theme: {
+      type: String,
+      default: 'Primary',
+    },
+    size: {
+      type: String,
+      default: 'basic',
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    animated: {
+      type: Boolean,
+      default: false,
+    }
+  },
+  computed: {
+    horizontalBarStyle: function () {
+      return {
+        backgroundColor: colorConfig[VuesticTheme[this.theme]],
+        width: this.value + '%'
       }
     },
-    computed: {
-      horizontalBarStyle: function () {
-        return {
-          backgroundColor: colorConfig[VuesticTheme[this.theme]],
-          width: this.value + '%'
-        }
-      },
-      horizontalBarType: function () {
-        return {
-          'horizontal-bar--thick': this.size === 'thick',
-          'horizontal-bar--thin': this.size === 'thin',
-          'horizontal-bar--basic': this.size === 'basic',
-          'horizontal-bar--disabled': this.disabled
-        }
-      },
-      horizontalBarAnimation: function () {
-        return {
-          'horizontal-bar--animated': this.animated,
-        }
+    horizontalBarType: function () {
+      return {
+        'horizontal-bar--thick': this.size === 'thick',
+        'horizontal-bar--thin': this.size === 'thin',
+        'horizontal-bar--basic': this.size === 'basic',
+        'horizontal-bar--disabled': this.disabled
+      }
+    },
+    horizontalBarAnimation: function () {
+      return {
+        'horizontal-bar--animated': this.animated,
       }
     }
   }
+}
 </script>
 
 <style lang="scss">
