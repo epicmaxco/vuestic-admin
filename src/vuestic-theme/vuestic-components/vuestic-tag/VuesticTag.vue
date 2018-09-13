@@ -10,41 +10,41 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-tag',
-    data () {
-      return {
-        deleted: false
-      }
+export default {
+  name: 'vuestic-tag',
+  data () {
+    return {
+      deleted: false
+    }
+  },
+  props: {
+    name: {
+      type: String,
     },
-    props: {
-      name: {
-        type: String,
-      },
-      removable: {
-        type: Boolean,
-        default: false
-      },
-      type: {
-        type: String,
-        default: 'primary',
-      },
+    removable: {
+      type: Boolean,
+      default: false
     },
-    computed: {
-      tagClass () {
-        return `vuestic-tag-${this.type} ${this.deleted ? 'vuestic-tag-deleted' : ''}`
-      },
+    type: {
+      type: String,
+      default: 'primary',
     },
-    methods: {
-      remove () {
-        this.deleted = true
-        setTimeout(() => {
-          this.$emit('remove')
-          this.deleted = false
-        }, 500)
-      }
+  },
+  computed: {
+    tagClass () {
+      return `vuestic-tag-${this.type} ${this.deleted ? 'vuestic-tag-deleted' : ''}`
+    },
+  },
+  methods: {
+    remove () {
+      this.deleted = true
+      setTimeout(() => {
+        this.$emit('remove')
+        this.deleted = false
+      }, 500)
     }
   }
+}
 </script>
 
 <style lang="scss">

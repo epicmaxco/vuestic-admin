@@ -8,16 +8,16 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-widget',
+export default {
+  name: 'vuestic-widget',
 
-    props: ['headerText'],
-    computed: {
-      hasSlotData () {
-        return this.$slots.default
-      }
+  props: ['headerText'],
+  computed: {
+    hasSlotData () {
+      return this.$slots.default
     }
   }
+}
 </script>
 
 <style lang="scss">
@@ -93,4 +93,3 @@
     }
   }
 </style>
-

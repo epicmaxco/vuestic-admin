@@ -10,25 +10,25 @@
 </template>
 
 <script>
-  import PieChart from './chart-types/PieChart'
-  import BubbleChart from './chart-types/BubbleChart'
-  import DonutChart from './chart-types/DonutChart'
-  import HorizontalBarChart from './chart-types/HorizontalBarChart'
-  import VerticalBarChart from './chart-types/VerticalBarChart'
-  import LineChart from './chart-types/LineChart'
+import PieChart from './chart-types/PieChart'
+import BubbleChart from './chart-types/BubbleChart'
+import DonutChart from './chart-types/DonutChart'
+import HorizontalBarChart from './chart-types/HorizontalBarChart'
+import VerticalBarChart from './chart-types/VerticalBarChart'
+import LineChart from './chart-types/LineChart'
 
-  export default {
-    name: 'vuestic-chart',
-    props: ['data', 'options', 'type'],
-    components: {
-      PieChart,
-      LineChart,
-      VerticalBarChart,
-      HorizontalBarChart,
-      DonutChart,
-      BubbleChart
-    },
-  }
+export default {
+  name: 'vuestic-chart',
+  props: ['data', 'options', 'type'],
+  components: {
+    PieChart,
+    LineChart,
+    VerticalBarChart,
+    HorizontalBarChart,
+    DonutChart,
+    BubbleChart
+  },
+}
 </script>
 
 <style lang='scss'>

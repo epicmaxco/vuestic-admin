@@ -5,59 +5,62 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-accordion',
-    props: {
-      expand: {
-        type: Boolean,
-        default: false
+export default {
+  name: 'vuestic-accordion',
+  props: {
+    expand: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data () {
+    return {
+      lastClickedTab: {}
+    }
+  },
+  methods: {
+    toggleAccordion (event) {
+      if (event.target.classList.contains('collapse-content')) {
+        return
       }
-    },
-    data () {
-      return {
-        lastClickedTab: {}
-      }
-    },
-    methods: {
-      toggleAccordion (event) {
-        if (!event.target.classList.contains('collapse-content')) {
-          this.$nextTick(() => {
-            if (!this.expand) {
-              const collapsesArray = this.$children
-              // HACK Accordion behaviour
-              //
-              // 1. Check, if last clicked tab is changed or not
-              // 2. If last clicked tab isn't changed, toggle state of opened tab into opposite
-              // 3. If last clicked tab is changed, collapse previous clicked tab and all tabs,
-              // except of recently clicked tab
-              let accordionActiveTabChanged = false
-              for (let i = 0; i < collapsesArray.length; i++) {
-                if (collapsesArray[i].show) {
-                  if (collapsesArray[i] !== this.lastClickedTab) {
-                    this.lastClickedTab.show = false
-                    this.lastClickedTab = collapsesArray[i]
-                    accordionActiveTabChanged = true
-                  } else {
-                    this.lastClickedTab.show = !this.lastClickedTab.show
-                  }
-                } else {
-                  collapsesArray[i].show = false
-                }
-              }
-              if (accordionActiveTabChanged) {
-                for (let i = 0; i < collapsesArray.length; i++) {
-                  if (collapsesArray[i] !== this.lastClickedTab) {
-                    collapsesArray[i].$el.lastChild.style.height = 0
-                    collapsesArray[i].show = false
-                  }
-                }
-              }
-            }
-          })
+      this.$nextTick(() => {
+        if (this.expand) {
+          return
         }
-      }
+        const collapsesArray = this.$children
+        // HACK Accordion behaviour
+        //
+        // 1. Check, if last clicked tab is changed or not
+        // 2. If last clicked tab isn't changed, toggle state of opened tab into opposite
+        // 3. If last clicked tab is changed, collapse previous clicked tab and all tabs,
+        // except of recently clicked tab
+        let accordionActiveTabChanged = false
+        for (let i = 0; i < collapsesArray.length; i++) {
+          if (collapsesArray[i].show) {
+            if (collapsesArray[i] === this.lastClickedTab) {
+              this.lastClickedTab.show = !this.lastClickedTab.show
+              break
+            }
+            this.lastClickedTab.show = false
+            this.lastClickedTab = collapsesArray[i]
+            accordionActiveTabChanged = true
+          } else {
+            collapsesArray[i].show = false
+          }
+        }
+        if (accordionActiveTabChanged) {
+          for (let i = 0; i < collapsesArray.length; i++) {
+            if (collapsesArray[i] === this.lastClickedTab) {
+              break
+            }
+            collapsesArray[i].$el.lastChild.style.height = 0
+            collapsesArray[i].show = false
+          }
+        }
+      })
     }
   }
+}
 </script>
 
 // HACK Accordion for presentation page

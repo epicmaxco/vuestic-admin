@@ -2,8 +2,13 @@
   <div class="vuestic-tabs">
     <div class="d-none d-md-block">
       <nav class="nav nav-pills row">
-        <div class="nav-item col" v-on:click="setActive(name)"
-             :class="{active: name === currentActive}" v-for="name in names">
+        <div
+          class="nav-item col"
+          @click="setActive(name)"
+          :class="{active: name === currentActive}"
+          v-for="name in names"
+          :key="name"
+        >
           <span class="nav-link"><h5>{{name}}</h5></span>
         </div>
       </nav>
@@ -11,8 +16,12 @@
     </div>
     <vuestic-simple-select class="d-flex d-md-none d-lg-none d-xl-none simple-select" v-bind:options="names" v-model="currentActive"></vuestic-simple-select>
     <div class="tab-content">
-      <div class="tab-pane"
-           :class="{active: name === currentActive}" v-for="name in names">
+      <div
+        class="tab-pane"
+        :class="{active: name === currentActive}"
+        v-for="name in names"
+        :key="name"
+      >
         <slot :name="name"></slot>
       </div>
     </div>
@@ -20,25 +29,25 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-tabs',
-    props: ['names'],
-    computed: {
-      underscoreClass () {
-        return 'underscore-' + this.names.length + '-' + this.names.indexOf(this.currentActive)
-      }
-    },
-    methods: {
-      setActive (name) {
-        this.currentActive = name
-      }
-    },
-    data () {
-      return {
-        currentActive: this.names[0]
-      }
+export default {
+  name: 'vuestic-tabs',
+  props: ['names'],
+  computed: {
+    underscoreClass () {
+      return 'underscore-' + this.names.length + '-' + this.names.indexOf(this.currentActive)
+    }
+  },
+  methods: {
+    setActive (name) {
+      this.currentActive = name
+    }
+  },
+  data () {
+    return {
+      currentActive: this.names[0]
     }
   }
+}
 </script>
 
 <style lang="scss">
