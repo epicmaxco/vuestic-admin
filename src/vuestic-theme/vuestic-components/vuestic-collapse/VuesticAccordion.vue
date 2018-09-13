@@ -37,24 +37,23 @@ export default {
         let accordionActiveTabChanged = false
         for (let i = 0; i < collapsesArray.length; i++) {
           if (collapsesArray[i].show) {
-            if (collapsesArray[i] === this.lastClickedTab) {
+            if (collapsesArray[i] !== this.lastClickedTab) {
+              this.lastClickedTab.show = false
+              this.lastClickedTab = collapsesArray[i]
+              accordionActiveTabChanged = true
+            } else {
               this.lastClickedTab.show = !this.lastClickedTab.show
-              break
             }
-            this.lastClickedTab.show = false
-            this.lastClickedTab = collapsesArray[i]
-            accordionActiveTabChanged = true
           } else {
             collapsesArray[i].show = false
           }
         }
         if (accordionActiveTabChanged) {
           for (let i = 0; i < collapsesArray.length; i++) {
-            if (collapsesArray[i] === this.lastClickedTab) {
-              break
+            if (collapsesArray[i] !== this.lastClickedTab) {
+              collapsesArray[i].$el.lastChild.style.height = 0
+              collapsesArray[i].show = false
             }
-            collapsesArray[i].$el.lastChild.style.height = 0
-            collapsesArray[i].show = false
           }
         }
       })
