@@ -7,15 +7,15 @@
 </template>
 
 <script>
-  export default {
-    name: 'square-with-icon',
-    props: {
-      iconClass: {
-        type: String,
-        required: true
-      }
+export default {
+  name: 'square-with-icon',
+  props: {
+    iconClass: {
+      type: String,
+      required: true
     }
   }
+}
 </script>
 
 <style lang="scss">

@@ -19,25 +19,25 @@
 </template>
 
 <script>
-  export default {
-    name: 'profile-section',
+export default {
+  name: 'profile-section',
 
-    props: {
-      options: {
-        type: Array,
-        default: () => [
-          {
-            name: 'profile',
-            redirectTo: '',
-          },
-          {
-            name: 'logout',
-            redirectTo: 'login'
-          }
-        ]
-      }
-    },
-  }
+  props: {
+    options: {
+      type: Array,
+      default: () => [
+        {
+          name: 'profile',
+          redirectTo: '',
+        },
+        {
+          name: 'logout',
+          redirectTo: 'login'
+        }
+      ]
+    }
+  },
+}
 </script>
 
 <style lang="scss">

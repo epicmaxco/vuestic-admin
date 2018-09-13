@@ -1,62 +1,72 @@
 <template>
   <vuestic-widget class="no-padding no-v-padding">
-    <div class="vuestic-breadcrumbs">
-      <router-link :to="{ path: breadcrumbs.root.path }" class="crumb">
-        {{ $t(breadcrumbs.root.displayName) }}
-      </router-link>
-      <router-link
-        v-for="(item, index) in displayedCrumbs"
-        :to="{path: item.path}"
-        :key="index"
-        class="crumb"
-        :class="{ disabled: item.disabled }">
-        {{ $t(item.displayName) }}
-      </router-link>
+    <div class="row vuestic-breadcrumbs">
+      <div class="col-lg-11 col-sm-12">
+        <router-link :to="{ path: breadcrumbs.root.path }" class="crumb">
+          {{ $t(breadcrumbs.root.displayName) }}
+        </router-link>
+        <router-link
+          v-for="(item, index) in displayedCrumbs"
+          :to="{path: item.path}"
+          :key="index"
+          class="crumb"
+          :class="{ disabled: item.disabled }">
+          {{ $t(item.displayName) }}
+        </router-link>
+      </div>
+      <div class="col-lg-1 col-sm-12">
+        <button class="btn btn-sm btn-primary" @click="moveToWiki()">
+          Docs
+        </button>
+      </div>
     </div>
   </vuestic-widget>
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-breadcrumbs',
-    props: {
-      breadcrumbs: {
-        type: Object,
-        default: function () {
-          return {}
-        }
-      },
-      currentPath: {
-        type: String,
-        default: ''
+export default {
+  name: 'vuestic-breadcrumbs',
+  props: {
+    breadcrumbs: {
+      type: Object,
+      default: function () {
+        return {}
       }
     },
-    computed: {
-      displayedCrumbs () {
-        return this.findInNestedByName(this.breadcrumbs.routes, this.currentPath)
-      },
+    currentPath: {
+      type: String,
+      default: ''
+    }
+  },
+  computed: {
+    displayedCrumbs () {
+      return this.findInNestedByName(this.breadcrumbs.routes, this.currentPath)
     },
-    methods: {
-      findInNestedByName (array, name) {
-        if (typeof array !== 'undefined') {
-          for (let i = 0; i < array.length; i++) {
-            if (array[i].path === name) return [{...array[i]}]
-            let a = this.findInNestedByName(array[i].children, name)
-            if (a != null) {
-              a.unshift({...array[i]})
-              return [...a]
-            }
+  },
+  methods: {
+    findInNestedByName (array, name) {
+      if (typeof array !== 'undefined') {
+        for (let i = 0; i < array.length; i++) {
+          if (array[i].path === name) return [{...array[i]}]
+          let a = this.findInNestedByName(array[i].children, name)
+          if (a != null) {
+            a.unshift({...array[i]})
+            return [...a]
           }
         }
         return null
       }
+    },
+    moveToWiki () {
+      window.open('https://github.com/epicmaxco/vuestic-admin/wiki')
     }
   }
+}
 </script>
 
 <style lang='scss' scoped>
   .vuestic-breadcrumbs {
-    height: $breadcrumbs-height;
+    min-height: $breadcrumbs-height;
     display: flex;
     align-items: center;
 
@@ -85,6 +95,10 @@
       &:hover {
         color: $brand-primary;
       }
+    }
+
+    .btn {
+      margin: 5px 0;
     }
   }
 </style>

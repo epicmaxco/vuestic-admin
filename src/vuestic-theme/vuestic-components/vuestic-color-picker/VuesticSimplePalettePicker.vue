@@ -14,7 +14,6 @@
 <script>
 import ColorDot from './ColorDot'
 
-
 export default {
   name: 'vuestic-simple-palette-picker',
   components: {

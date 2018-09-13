@@ -28,12 +28,11 @@
 </template>
 
 <script>
-  import VuesticTreeRoot from './VuesticTreeRoot.vue'
-  import VuesticTreeNode from './VuesticTreeNode'
-  import VuesticTreeCategory from './VuesticTreeCategory'
+import VuesticTreeRoot from './VuesticTreeRoot.vue'
+import VuesticTreeNode from './VuesticTreeNode'
+import VuesticTreeCategory from './VuesticTreeCategory'
 
-  export default {
-    components: { VuesticTreeCategory, VuesticTreeNode, VuesticTreeRoot },
-  }
+export default {
+  components: { VuesticTreeCategory, VuesticTreeNode, VuesticTreeRoot },
+}
 </script>
-

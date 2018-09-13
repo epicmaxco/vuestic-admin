@@ -102,9 +102,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'typography'
-  }
+export default {
+  name: 'typography'
+}
 </script>
 
 <style lang="scss">
