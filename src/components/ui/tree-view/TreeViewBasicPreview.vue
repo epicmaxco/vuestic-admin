@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  export default {
-    name: 'tree-view-basic-preview',
-  }
+export default {
+  name: 'tree-view-basic-preview',
+}
 </script>

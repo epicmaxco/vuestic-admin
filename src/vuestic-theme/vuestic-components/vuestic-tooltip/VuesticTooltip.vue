@@ -5,33 +5,33 @@
 </template>
 
 <script>
-  import { VTooltip } from 'v-tooltip'
-  export default {
-    name: 'vuestic-tooltip',
+import { VTooltip } from 'v-tooltip'
+export default {
+  name: 'vuestic-tooltip',
 
-    directives: { tooltip: VTooltip },
+  directives: { tooltip: VTooltip },
 
-    computed: {
-      tooltipOptions () {
-        return Object.assign({}, this.defaultOptions, this.options)
-      }
-    },
+  computed: {
+    tooltipOptions () {
+      return Object.assign({}, this.defaultOptions, this.options)
+    }
+  },
 
-    props: {
-      options: {
-        type: Object,
-        default: {}
-      }
-    },
+  props: {
+    options: {
+      type: Object,
+      default: () => []
+    }
+  },
 
-    data () {
-      return {
-        defaultOptions: {
-          classes: 'vuestic-tooltip'
-        }
+  data () {
+    return {
+      defaultOptions: {
+        classes: 'vuestic-tooltip'
       }
     }
   }
+}
 </script>
 
 <style lang='scss' scoped>
