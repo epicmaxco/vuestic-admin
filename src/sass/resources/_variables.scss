@@ -296,6 +296,8 @@ $state-success-bg: #c8fac6;
 $state-danger-bg: #ffcece;
 $state-warning-bg: #fff1c8;
 $state-info-bg: #dcf1ff;
+$table-hover-bg: rgba($vue-green, .5);
+$table-active-bg: $table-hover-bg;
 
 //Badges
 $badge-padding-y: 0.28rem;

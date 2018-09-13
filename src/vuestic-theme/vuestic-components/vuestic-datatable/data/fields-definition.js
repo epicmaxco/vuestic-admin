@@ -3,28 +3,23 @@ export default {
     {
       name: '__component:badge-column',
       title: '',
-      dataClass: 'text-center',
-      width: '4%'
+      dataClass: 'text-center'
     },
     {
       name: 'name',
-      sortField: 'name',
-      width: '24%'
+      sortField: 'name'
     },
     {
       name: 'email',
-      sortField: 'email',
-      width: '24%'
+      sortField: 'email'
     },
     {
       name: 'address.line2',
-      title: 'city',
-      width: '24%'
+      title: 'city'
     },
     {
       name: 'salary',
-      title: 'score',
-      width: '24%'
+      title: 'score'
     }
   ],
   sortFunctions: {

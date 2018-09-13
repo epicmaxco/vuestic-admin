@@ -32,14 +32,14 @@
 </template>
 
 <script>
-  export default {
-    name: 'signup',
-    data () {
-      return {
-        checkboxOneModel: true
-      }
+export default {
+  name: 'signup',
+  data () {
+    return {
+      checkboxOneModel: true
     }
   }
+}
 </script>
 
 <style lang="scss">

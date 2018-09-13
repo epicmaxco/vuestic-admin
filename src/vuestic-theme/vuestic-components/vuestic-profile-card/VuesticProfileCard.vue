@@ -17,10 +17,10 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-profile-card',
-    props: ['photoSource', 'name', 'location', 'social']
-  }
+export default {
+  name: 'vuestic-profile-card',
+  props: ['photoSource', 'name', 'location', 'social']
+}
 </script>
 
 <style lang="scss">

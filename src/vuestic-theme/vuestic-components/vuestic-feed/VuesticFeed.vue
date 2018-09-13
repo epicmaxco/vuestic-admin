@@ -1,7 +1,12 @@
 <template>
   <div class="vuestic-feed">
     <div v-if="posts.length == 0" class="empty">Your feed is empty.</div>
-    <div class="post" v-for="post in posts" :class="{last: posts.indexOf(post) === posts.length - 1}">
+    <div
+      class="post"
+      v-for="(post, index) in posts"
+      :key="index"
+      :class="{last: posts.indexOf(post) === posts.length - 1}"
+    >
       <div class="photo-container"><div class="photo" :style="`background: url(${post.photoURL})`"></div></div>
       <div class="underscored">
         <span class="text"><span class="name">{{post.name}}</span> {{post.text}}.</span>
@@ -14,26 +19,26 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-feed',
-    props: ['initialPosts'],
-    methods: {
-      removePost (target) {
-        let result = []
-        for (let post of this.posts) {
-          if (post !== target) {
-            result.push(post)
-          }
+export default {
+  name: 'vuestic-feed',
+  props: ['initialPosts'],
+  methods: {
+    removePost (target) {
+      let result = []
+      for (let post of this.posts) {
+        if (post !== target) {
+          result.push(post)
         }
-        this.posts = result
       }
-    },
-    data () {
-      return {
-        posts: this.initialPosts
-      }
+      this.posts = result
+    }
+  },
+  data () {
+    return {
+      posts: this.initialPosts
     }
   }
+}
 </script>
 
 <style lang="scss">
