@@ -7,8 +7,18 @@
 Messages must be matched by the following regex:
 
 ``` js
-/^(revert: )?(feat|fix|polish|docs|style|refactor|perf|test|workflow|ci|chore|types)(\(.+\))?: .{1,50}/
+/^(revert: )?(feat|fix|docs|style|refactor|test|ci|chore)(\(.+\))?: .{1,50}/
 ```
+
+#### Types
+* `feat` - feature. Something noticeable to end user. When feature takes several days of work - split it into several smaller features.
+* `fix` - patching a bug, bringing to life intended functionality.
+* `docs` - documentation and comments.
+* `style` - purely styling change (not necessarily in css).
+* `refactor` - reworking internals without impacting project interface.
+* `test` - tests and demo.
+* `ci` - deploy and continuous integration.
+* `chore` - no significant code changes: code formatting, version changes, tool updates, minor refactorings.
 
 #### Examples
 
@@ -29,7 +39,7 @@ close #28
 Appears under "Performance Improvements" header, and under "Breaking Changes" with the breaking change explanation:
 
 ```
-perf(core): improve vdom diffing by removing 'foo' option
+feat(core): improve vdom diffing by removing 'foo' option
 
 BREAKING CHANGE: The 'foo' option has been removed.
 ```
@@ -63,7 +73,7 @@ If the commit reverts a previous commit, it should begin with `revert: `, follow
 ### Type
 
 
-If the prefix is `feat`, `fix` or `perf`, it will appear in the changelog. However if there is any [BREAKING CHANGE](#footer), the commit will always appear in the changelog.
+If the prefix is `feat` or `fix` it will appear in the changelog. However if there is any [BREAKING CHANGE](#footer), the commit will always appear in the changelog.
 
 Other prefixes are up to your discretion. Suggested prefixes are `docs`, `chore`, `style`, `refactor`, and `test` for non-changelog related tasks.
 
