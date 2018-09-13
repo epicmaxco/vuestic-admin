@@ -19,44 +19,44 @@
 </template>
 
 <script>
-  import Vue from 'vue'
+import Vue from 'vue'
 
-  export default {
-    name: 'language-dropdown',
+export default {
+  name: 'language-dropdown',
 
-    props: {
-      options: {
-        type: Array,
-        default: () => [
-          {
-            code: 'gb',
-            name: 'english'
-          },
-          {
-            code: 'es',
-            name: 'spanish'
-          },
-          {
-            code: 'br',
-            name: 'brazilian_portuguese'
-          }
-        ]
-      }
+  props: {
+    options: {
+      type: Array,
+      default: () => [
+        {
+          code: 'gb',
+          name: 'english'
+        },
+        {
+          code: 'es',
+          name: 'spanish'
+        },
+        {
+          code: 'br',
+          name: 'brazilian_portuguese'
+        }
+      ]
+    }
+  },
+  methods: {
+    setLanguage (locale) {
+      Vue.i18n.set(locale)
     },
-    methods: {
-      setLanguage (locale) {
-        Vue.i18n.set(locale)
-      },
 
-      currentLanguage () {
-        return Vue.i18n.locale() === 'en' ? 'gb' : Vue.i18n.locale()
-      },
+    currentLanguage () {
+      return Vue.i18n.locale() === 'en' ? 'gb' : Vue.i18n.locale()
+    },
 
-      flagIconClass (code) {
-        return `flag-icon-${code}`
-      }
+    flagIconClass (code) {
+      return `flag-icon-${code}`
     }
   }
+}
 </script>
 
 <style lang="scss">

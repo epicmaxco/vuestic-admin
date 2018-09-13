@@ -23,50 +23,50 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-card',
-    props: {
-      image: {
-        type: String,
-        default: '',
-      },
-      imageAlt: {
-        type: String,
-        default: '',
-      },
-      stripe: {
-        type: String,
-        default: '',
-      },
-      titleOnImage: {
-        type: Boolean,
-        default: false,
-      },
-      overlay: {
-        type: Boolean,
-        default: false,
-      },
-      theme: {
-        type: String,
-        default: 'base',
-      },
+export default {
+  name: 'vuestic-card',
+  props: {
+    image: {
+      type: String,
+      default: '',
     },
-    computed: {
-      computedClass () {
-        const computedClass = []
-        if (this.stripe) {
-          computedClass.push(`vuestic-card--stripe-${this.stripe}`)
-        }
-        if (this.theme === 'bright') {
-          computedClass.push(`vuestic-card--theme-bright`)
-        }
-        if (this.theme === 'dark') {
-          computedClass.push(`vuestic-card--theme-dark`)
-        }
-        return computedClass
-      },
+    imageAlt: {
+      type: String,
+      default: '',
     },
-  }
+    stripe: {
+      type: String,
+      default: '',
+    },
+    titleOnImage: {
+      type: Boolean,
+      default: false,
+    },
+    overlay: {
+      type: Boolean,
+      default: false,
+    },
+    theme: {
+      type: String,
+      default: 'base',
+    },
+  },
+  computed: {
+    computedClass () {
+      const computedClass = []
+      if (this.stripe) {
+        computedClass.push(`vuestic-card--stripe-${this.stripe}`)
+      }
+      if (this.theme === 'bright') {
+        computedClass.push(`vuestic-card--theme-bright`)
+      }
+      if (this.theme === 'dark') {
+        computedClass.push(`vuestic-card--theme-dark`)
+      }
+      return computedClass
+    },
+  },
+}
 </script>
 
 <style lang="scss">

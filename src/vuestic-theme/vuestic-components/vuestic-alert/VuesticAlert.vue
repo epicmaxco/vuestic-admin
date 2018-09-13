@@ -9,40 +9,40 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-alert',
-    computed: {
-      alertClass () {
-        return {
-          'with-close': this.withCloseBtn,
-          'alert-success': this.type === 'success',
-          'alert-danger': this.type === 'danger',
-          'alert-warning': this.type === 'warning',
-          'alert-info': this.type === 'info'
-        }
-      }
-    },
-    props: {
-      type: {
-        type: String,
-        default: 'success'
-      },
-      withCloseBtn: {
-        type: Boolean,
-        default: false
-      }
-    },
-    data () {
+export default {
+  name: 'vuestic-alert',
+  computed: {
+    alertClass () {
       return {
-        hidden: false
-      }
-    },
-    methods: {
-      hide () {
-        this.hidden = true
+        'with-close': this.withCloseBtn,
+        'alert-success': this.type === 'success',
+        'alert-danger': this.type === 'danger',
+        'alert-warning': this.type === 'warning',
+        'alert-info': this.type === 'info'
       }
     }
+  },
+  props: {
+    type: {
+      type: String,
+      default: 'success'
+    },
+    withCloseBtn: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data () {
+    return {
+      hidden: false
+    }
+  },
+  methods: {
+    hide () {
+      this.hidden = true
+    }
   }
+}
 </script>
 
 <style lang='scss' scoped>

@@ -1,7 +1,8 @@
 <template>
   <div class="layout"
        v-resize
-       :class="classObject">
+       :class="classObject"
+  >
     <slot></slot>
     <div class="content-wrap" id="content-wrap">
       <slot name="content"></slot>
@@ -13,28 +14,28 @@
 </template>
 
 <script>
-  import Resize from 'directives/ResizeHandler'
+import Resize from '../../../directives/ResizeHandler'
 
-  export default {
-    name: 'vuestic-layout',
+export default {
+  name: 'vuestic-layout',
 
-    props: {
-      fixed: {
-        type: Boolean,
-        default: false,
-      },
+  props: {
+    fixed: {
+      type: Boolean,
+      default: false,
     },
-    directives: {
-      resize: Resize,
-    },
-    computed: {
-      classObject: function () {
-        return {
-          'layout-fixed': this.fixed
-        }
+  },
+  directives: {
+    resize: Resize,
+  },
+  computed: {
+    classObject: function () {
+      return {
+        'layout-fixed': this.fixed
       }
     }
   }
+}
 </script>
 
 <style lang="scss">

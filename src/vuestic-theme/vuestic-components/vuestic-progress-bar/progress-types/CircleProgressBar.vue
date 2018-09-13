@@ -8,77 +8,77 @@
 </template>
 
 <script>
-  import { VuesticTheme, colorConfig } from './../../vuestic-color-picker/VuesticTheme'
+import { VuesticTheme, colorConfig } from './../../vuestic-color-picker/VuesticTheme'
 
-  export default {
-    props: {
-      value: {
-        type: Number,
-        default: 0,
-      },
-      text: {
-        type: String,
-        default: ''
-      },
-      theme: {
-        type: String,
-        default: 'Primary',
-      },
-      backgroundTheme: {
-        type: String
-      },
-      disabled: {
-        type: Boolean,
-        default: false,
-      },
-      animated: {
-        type: Boolean,
-        default: false,
-      }
+export default {
+  props: {
+    value: {
+      type: Number,
+      default: 0,
     },
-    mounted () {
-      this.animateValue()
+    text: {
+      type: String,
+      default: ''
     },
-    methods: {
-      animateValue () {
-        let valueMsecs = this.valueAnimationInterval / 100
-        let delta = Math.sign(this.value - this.transformedValue)
-        let valueInterval = setInterval(() => {
-          if (this.transformedValue === this.value) {
-            clearInterval(valueInterval)
-          } else {
-            this.transformedValue += delta
-          }
-        }, valueMsecs)
-      }
+    theme: {
+      type: String,
+      default: 'Primary',
     },
-    computed: {
-      backgroundImage () {
-        let result = {}
-        const theme = colorConfig[VuesticTheme[this.theme]]
-        const backgroundTheme = colorConfig[VuesticTheme[this.backgroundTheme]]
-        if (this.value < 50) {
-          let nextDeg = 90 + (3.6 * this.value) + 'deg'
-          result = `linear-gradient(90deg, ${backgroundTheme} 50%, transparent 50%, transparent), linear-gradient(${nextDeg}, ${theme} 50%, ${backgroundTheme} 50%, ${backgroundTheme})`
+    backgroundTheme: {
+      type: String
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    animated: {
+      type: Boolean,
+      default: false,
+    }
+  },
+  mounted () {
+    this.animateValue()
+  },
+  methods: {
+    animateValue () {
+      let valueMsecs = this.valueAnimationInterval / 100
+      let delta = Math.sign(this.value - this.transformedValue)
+      let valueInterval = setInterval(() => {
+        if (this.transformedValue === this.value) {
+          clearInterval(valueInterval)
         } else {
-          let nextDeg = -90 + (3.6 * (this.value - 50)) + 'deg'
-          result = `linear-gradient(${nextDeg}, ${theme} 50%, transparent 50%, transparent), linear-gradient(270deg, ${theme} 50%, ${backgroundTheme} 50%, ${backgroundTheme})`
+          this.transformedValue += delta
         }
-        return result
-      },
-      circleBarStyle: function () {
-        return {
-          backgroundColor: colorConfig[VuesticTheme[this.backgroundTheme]],
-          color: colorConfig[VuesticTheme[this.theme]]
-        }
-      },
-      circleBarType: function () {
-        return {
-          'circle-bar--disabled': this.disabled
-        }
+      }, valueMsecs)
+    }
+  },
+  computed: {
+    backgroundImage () {
+      let result = {}
+      const theme = colorConfig[VuesticTheme[this.theme]]
+      const backgroundTheme = colorConfig[VuesticTheme[this.backgroundTheme]]
+      if (this.value < 50) {
+        let nextDeg = 90 + (3.6 * this.value) + 'deg'
+        result = `linear-gradient(90deg, ${backgroundTheme} 50%, transparent 50%, transparent), linear-gradient(${nextDeg}, ${theme} 50%, ${backgroundTheme} 50%, ${backgroundTheme})`
+      } else {
+        let nextDeg = -90 + (3.6 * (this.value - 50)) + 'deg'
+        result = `linear-gradient(${nextDeg}, ${theme} 50%, transparent 50%, transparent), linear-gradient(270deg, ${theme} 50%, ${backgroundTheme} 50%, ${backgroundTheme})`
+      }
+      return result
+    },
+    circleBarStyle: function () {
+      return {
+        backgroundColor: colorConfig[VuesticTheme[this.backgroundTheme]],
+        color: colorConfig[VuesticTheme[this.theme]]
+      }
+    },
+    circleBarType: function () {
+      return {
+        'circle-bar--disabled': this.disabled
       }
     }
   }
+}
 </script>
 
 <style lang="scss">

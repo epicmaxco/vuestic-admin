@@ -27,63 +27,61 @@
 </template>
 
 <script>
-  import VuesticFileUploadListItem from './VuesticFileUploadListItem'
-  import VuesticFileUploadGalleryItem from './VuesticFileUploadGalleryItem'
-  import VuesticFileUploadSingleItem from './VuesticFileUploadSingleItem'
+import VuesticFileUploadListItem from './VuesticFileUploadListItem'
+import VuesticFileUploadGalleryItem from './VuesticFileUploadGalleryItem'
+import VuesticFileUploadSingleItem from './VuesticFileUploadSingleItem'
 
-  export default {
-    name: 'vuestic-file-upload-list',
-    components: {
-      VuesticFileUploadListItem: VuesticFileUploadListItem,
-      VuesticFileUploadGalleryItem: VuesticFileUploadGalleryItem,
-      VuesticFileUploadSingleItem: VuesticFileUploadSingleItem
+export default {
+  name: 'vuestic-file-upload-list',
+  components: {
+    VuesticFileUploadListItem: VuesticFileUploadListItem,
+    VuesticFileUploadGalleryItem: VuesticFileUploadGalleryItem,
+    VuesticFileUploadSingleItem: VuesticFileUploadSingleItem
+  },
+  props: {
+    type: {
+      type: String
     },
-    props: {
-      type: {
-        type: String
-      },
-      files: {
-        default: null
+    files: {
+      default: null
+    }
+  },
+  computed: {
+    filesList () {
+      return this.files.map(this.convertFile)
+    },
+  },
+  methods: {
+    convertFile (file) {
+      return {
+        name: file.name,
+        size: this.formatSize(file.size),
+        date: this.formatDate(file.lastModifiedDate) || this.formatDate(new Date(file.lastModified)),
+        image: file
       }
     },
-    computed: {
-      filesList () {
-        return this.files.map(this.convertFile)
-      },
+    formatSize (bytes) {
+      if (bytes === 0) return '0 Bytes'
+      const k = 1024
+      const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+      const i = Math.floor(Math.log(bytes) / Math.log(k))
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
     },
-    methods: {
-      convertFile (file) {
-        return {
-          name: file.name,
-          size: this.formatSize(file.size),
-          date: this.formatDate(file.lastModifiedDate),
-          image: file
-        }
-      },
-      formatSize (bytes) {
-        if (bytes === 0) return '0 Bytes'
-        const k = 1024
-        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-        const i = Math.floor(Math.log(bytes) / Math.log(k))
-        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
-      },
-      formatDate (date) {
-        if (!date) return ''
-        return date.toLocaleDateString('en-US', {
-          hour: '2-digit',
-          minute: '2-digit',
-          month: 'short',
-          day: 'numeric',
-          year: 'numeric'
-        })
-      }
+    formatDate (date) {
+      if (!date) return ''
+      return date.toLocaleDateString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+      })
     }
   }
+}
 </script>
 
 <style lang='scss'>
-  @import '../../../sass/_variables.scss';
-
   .vuestic-file-upload {
     &-list {
       padding-bottom: 2rem;
