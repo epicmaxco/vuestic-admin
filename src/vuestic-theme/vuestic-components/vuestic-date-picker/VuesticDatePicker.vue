@@ -9,44 +9,44 @@
 </template>
 
 <script>
-  import VueFlatpickrComponent from 'vue-flatpickr-component'
+import VueFlatpickrComponent from 'vue-flatpickr-component'
 
-  export default {
-    name: 'vuestic-date-picker',
-    components: {
-      VueFlatpickrComponent,
+export default {
+  name: 'vuestic-date-picker',
+  components: {
+    VueFlatpickrComponent,
+  },
+  props: {
+    value: {
+      required: true,
     },
-    props: {
-      value: {
-        required: true,
-      },
-      config: {
-        default: () => {
-          return {}
-        },
-      },
-    },
-    computed: {
-      valueProxy: {
-        get () {
-          return this.value
-        },
-        set (value) {
-          this.$emit('input', value)
-        },
-      },
-      fullConfig () {
-        return Object.assign({}, this.defaultConfig, this.config)
-      },
-      defaultConfig () {
-        return {
-          // allowInput: true, // false triggers `readonly` on input, which disables label animation.
-          nextArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-forward"></span>',
-          prevArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-back"></span>',
-        }
+    config: {
+      default: () => {
+        return {}
       },
     },
-  }
+  },
+  computed: {
+    valueProxy: {
+      get () {
+        return this.value
+      },
+      set (value) {
+        this.$emit('input', value)
+      },
+    },
+    fullConfig () {
+      return Object.assign({}, this.defaultConfig, this.config)
+    },
+    defaultConfig () {
+      return {
+        // allowInput: true, // false triggers `readonly` on input, which disables label animation.
+        nextArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-forward"></span>',
+        prevArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-back"></span>',
+      }
+    },
+  },
+}
 </script>
 
 <style lang="scss">

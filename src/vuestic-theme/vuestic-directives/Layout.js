@@ -4,13 +4,13 @@ export default {
     let navbar = el.querySelector('.vuestic-navbar')
     let sidebar = el.querySelector('.vuestic-sidebar')
 
-    const desktopWidth = 992
+    const mobileWidth = 415
 
     el.resizeWindow = (evt) => {
       setTimeout(function () {
         let openedDropdown = navbar.querySelector('.show')
         let selector = navbar.querySelector('.header-selector')
-        if (openedDropdown && document.documentElement.clientWidth < desktopWidth &&
+        if (openedDropdown && document.documentElement.clientWidth < mobileWidth &&
           !evt.target.classList.contains('header-selector')) {
           sidebar.classList.add('sidebar-hidden')
           selector.classList.remove('i-menu-expanded')
@@ -27,7 +27,7 @@ export default {
     navbar.addEventListener('click', el.resizeWindow)
 
     sidebar.addEventListener('click', () => {
-      if (document.documentElement.clientWidth < desktopWidth) {
+      if (document.documentElement.clientWidth < mobileWidth) {
         sidebar.classList.add('sidebar-hidden')
       }
     })

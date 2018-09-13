@@ -18,16 +18,16 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-tree-node',
-    props: {
-      selected: {
-        type: Boolean,
-        default: false,
-      },
-
+export default {
+  name: 'vuestic-tree-node',
+  props: {
+    selected: {
+      type: Boolean,
+      default: false,
     },
-  }
+
+  },
+}
 </script>
 
 <style lang="scss">
@@ -70,4 +70,3 @@
     }
   }
 </style>
-

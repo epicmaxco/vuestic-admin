@@ -4,17 +4,29 @@
     <div class="col-md-12">
       <vuestic-widget headerText="Fixed Grid">
         <div class="row">
-          <div v-for="i in 3" class="col">
+          <div
+            v-for="i in 3"
+            :key="i"
+            class="col"
+          >
             <div>.col</div>
           </div>
         </div>
         <div class="row">
-          <div v-for="i in 6" class="col">
+          <div
+            v-for="i in 6"
+            :key="i"
+            class="col"
+          >
             <div>.col</div>
           </div>
         </div>
         <div class="row">
-          <div v-for="i in 12" class="col">
+          <div
+            v-for="i in 12"
+            :key="i"
+            class="col"
+          >
             <div>.col</div>
           </div>
         </div>
@@ -24,17 +36,29 @@
     <div class="col-md-12">
       <vuestic-widget headerText="Desktop Grid">
         <div class="row">
-          <div v-for="i in 3" class="col-md-4">
+          <div
+            v-for="i in 3"
+            :key="i"
+            class="col-md-4"
+          >
             <div>.col-md-4</div>
           </div>
         </div>
         <div class="row">
-          <div v-for="i in 6" class="col-md-2">
+          <div
+            v-for="i in 6"
+            :key="i"
+            class="col-md-2"
+          >
             <div>.col-md-2</div>
           </div>
         </div>
         <div class="row">
-          <div v-for="i in 12" class="col-md-1">
+          <div
+            v-for="i in 12"
+            :key="i"
+            class="col-md-1"
+          >
             <div>.col-md-1</div>
           </div>
         </div>
@@ -96,9 +120,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'grid'
-  }
+export default {
+  name: 'grid'
+}
 </script>
 
 <style lang="scss">
