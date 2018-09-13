@@ -56,7 +56,7 @@ export default {
       return {
         name: file.name,
         size: this.formatSize(file.size),
-        date: this.formatDate(file.lastModifiedDate),
+        date: this.formatDate(file.lastModifiedDate) || this.formatDate(new Date(file.lastModified)),
         image: file
       }
     },
@@ -82,8 +82,6 @@ export default {
 </script>
 
 <style lang='scss'>
-  @import '../../../sass/resources/variables';
-
   .vuestic-file-upload {
     &-list {
       padding-bottom: 2rem;

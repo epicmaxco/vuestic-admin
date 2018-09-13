@@ -187,6 +187,25 @@
     "staticTitle": "Modal Estático",
     "title": "Modals"
   },
+  "fileUpload": {
+    "advancedMediaGallery": "Avanzado, Galería de medios",
+    "advancedUploadList": "Avanzado, lista de carga",
+    "mediaGallery": "Galería media",
+    "uploadList": "Lista de carga",
+    "single": "Soltero",
+    "dragNdropFiles": "Arrastrar y soltar archivos",
+    "uploadedOn": "Subido en",
+    "fileDeleted": "El archivo fue eliminado exitosamente",
+    "undo": "Deshacer",
+    "preview": "Avance",
+    "delete": "Borrar",
+    "deleteFile": "Borrar archivo",
+    "uploadFile": "Subir archivo",
+    "uploadMedia": "Cargar medios",
+    "addAttachment": "Añadir un adjunto",
+    "modalTitle": "Validación de archivo",
+    "modalText": "El tipo de archivo es incorrecto!"
+  },
   "navbar": {
     "messageUs": "Envíenos sus preguntas o comentarios a"
   },

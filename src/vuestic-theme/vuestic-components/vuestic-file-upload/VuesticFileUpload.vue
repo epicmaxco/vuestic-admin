@@ -1,7 +1,6 @@
 <template>
   <div class="vuestic-file-upload"
-       :class="{'vuestic-file-upload--dropzone': dropzone}"
-  >
+       :class="{'vuestic-file-upload--dropzone': dropzone}">
     <vuestic-file-upload-container
         :type="type"
         :fileTypes="fileTypes"
@@ -15,6 +14,12 @@
           @remove="removeFile"
           @remove-single="removeSingleFile"
       />
+      <vuestic-modal ref="mediumModal" :no-buttons="true">
+        <div slot="title">{{ $t('fileUpload.modalTitle') }}</div>
+        <div>
+          {{ $t('fileUpload.modalText') }}
+        </div>
+      </vuestic-modal>
     </vuestic-file-upload-container>
   </div>
 </template>
@@ -39,9 +44,7 @@ export default {
     },
     fileTypes: {
       type: String,
-      default: function () {
-        return this.type === 'gallery' ? '.png, .jpg, .jpeg, .gif' : ''
-      }
+      default: ''
     },
     dropzone: {
       type: Boolean,
@@ -71,6 +74,9 @@ export default {
       return [...files].filter(file => {
         const fileName = file.name
         const extn = fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase()
+        if (this.fileTypes.indexOf(extn) === -1) {
+          this.$refs.mediumModal.open()
+        }
         return this.fileTypes.indexOf(extn) !== -1
       })
     }
@@ -89,8 +95,6 @@ export default {
 </script>
 
 <style lang='scss'>
-  @import '../../../sass/resources/variables';
-
   .vuestic-file-upload {
     &--dropzone {
       background-color: $lighter-green;
