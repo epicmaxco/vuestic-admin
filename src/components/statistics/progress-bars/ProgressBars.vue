@@ -14,11 +14,11 @@
 </template>
 
 <script>
-  import ColorfulBars from './Widgets/ColorfulBars'
-  import StandardBars from './Widgets/StandardBars'
+import ColorfulBars from './Widgets/ColorfulBars'
+import StandardBars from './Widgets/StandardBars'
 
-  export default {
-    name: 'progress-bars',
-    components: { StandardBars, ColorfulBars },
-  }
+export default {
+  name: 'progress-bars',
+  components: { StandardBars, ColorfulBars },
+}
 </script>

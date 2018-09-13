@@ -2,8 +2,10 @@
   <div class="row">
     <div class="col-md-12">
       <div class="cards-container">
+        <!-- eslint-disable vue/valid-v-for -->
         <template v-for="loop in listLoops">
           <vuestic-card
+            :key="loop"
             title-on-image
             overlay
             image="https://picsum.photos/300/200/?image=1043">
@@ -160,27 +162,27 @@
 </template>
 
 <script>
-  import VuesticCard from '../../../vuestic-theme/vuestic-components/vuestic-card/VuesticCard'
+import VuesticCard from '../../../vuestic-theme/vuestic-components/vuestic-card/VuesticCard'
 
-  export default {
-    name: 'cards',
-    components: { VuesticCard },
-    data () {
-      return {
-        listLoops: 1,
-        isShown: false
-      }
-    },
-    methods: {
-      addCards () {
-        this.isShown = true
-        setTimeout(() => {
-          this.isShown = false
-          ++this.listLoops
-        }, 1000)
-      }
+export default {
+  name: 'cards',
+  components: { VuesticCard },
+  data () {
+    return {
+      listLoops: 1,
+      isShown: false
+    }
+  },
+  methods: {
+    addCards () {
+      this.isShown = true
+      setTimeout(() => {
+        this.isShown = false
+        ++this.listLoops
+      }, 1000)
     }
   }
+}
 </script>
 
 <style lang="scss">

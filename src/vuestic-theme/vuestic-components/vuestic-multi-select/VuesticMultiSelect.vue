@@ -21,9 +21,13 @@
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <scrollbar ref="scrollbar">
         <div class="dropdown-menu-content">
-          <div class="dropdown-item"
-               :class="{'selected': isOptionSelected(option)}" v-for="option in options"
-               @click="toggleSelection(option)">
+          <div
+            class="dropdown-item"
+            :class="{'selected': isOptionSelected(option)}"
+            v-for="(option, index) in options"
+            :key="index"
+            @click="toggleSelection(option)"
+          >
             <span class="ellipsis">{{optionKey ? option[optionKey] : option}}</span>
             <i class="fa fa-check selected-icon"></i>
           </div>

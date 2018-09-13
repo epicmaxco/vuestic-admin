@@ -5,40 +5,40 @@
 </template>
 
 <script>
-  import FullSet from './Set'
+import FullSet from './Set'
 
-  export default {
-    name: 'icons',
-    components: {
-      FullSet
-    },
-    computed: {
-      sets () {
-        let sets = []
-        require(this.setsPath + 'names.json').forEach(name => {
-          let set = require(this.setsPath + name + '.json')
-          this.addfilteredListsTo(set)
-          sets.push(set)
-        })
-        return sets
-      }
-    },
-    methods: {
-      addfilteredListsTo (set) {
-        let list = set.lists[0].icons
-        let filteredLists = []
-        filteredLists.push(list.slice(0, 6))
-        filteredLists.push(list.slice(6, 8))
-        filteredLists.push(list.slice(8, 14))
-        set.filteredLists = filteredLists
-      }
-    },
-    data () {
-      return {
-        setsPath: './sets/'
-      }
+export default {
+  name: 'icons',
+  components: {
+    FullSet
+  },
+  computed: {
+    sets () {
+      let sets = []
+      require(this.setsPath + 'names.json').forEach(name => {
+        let set = require(this.setsPath + name + '.json')
+        this.addfilteredListsTo(set)
+        sets.push(set)
+      })
+      return sets
+    }
+  },
+  methods: {
+    addfilteredListsTo (set) {
+      let list = set.lists[0].icons
+      let filteredLists = []
+      filteredLists.push(list.slice(0, 6))
+      filteredLists.push(list.slice(6, 8))
+      filteredLists.push(list.slice(8, 14))
+      set.filteredLists = filteredLists
+    }
+  },
+  data () {
+    return {
+      setsPath: './sets/'
     }
   }
+}
 </script>
 
 <style lang="scss">

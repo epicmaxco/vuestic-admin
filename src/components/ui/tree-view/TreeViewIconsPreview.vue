@@ -73,7 +73,7 @@
 </template>
 
 <script>
-  export default {
-    name: 'tree-view-icons-preview',
-  }
+export default {
+  name: 'tree-view-icons-preview',
+}
 </script>
