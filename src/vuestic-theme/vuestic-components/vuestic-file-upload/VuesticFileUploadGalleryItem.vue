@@ -39,8 +39,7 @@
     data () {
       return {
         previewImage: '',
-        removed: false,
-        isNotImage: false
+        removed: false
       }
     },
     props: {
@@ -76,16 +75,13 @@
               this.previewImage = e.target.result
             }
           }
-          if (!this.previewImage) {
-            this.isNotImage = true
-          }
         }
       }
     },
     computed: {
       notGalleryItemClass: function () {
         return {
-          'file-upload-gallery-item_not-image': this.isNotImage
+          'file-upload-gallery-item_not-image': !this.previewImage
         }
       },
     },
