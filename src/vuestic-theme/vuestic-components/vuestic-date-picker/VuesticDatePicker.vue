@@ -50,6 +50,8 @@
 </script>
 
 <style lang="scss">
+  @import "~flatpickr/dist/flatpickr.css";
+
   $datepickerActive: $vue-green;
   $datepickerBackground: #333333;
   $datepickerText: $white;

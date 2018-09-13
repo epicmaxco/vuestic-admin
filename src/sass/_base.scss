@@ -3,9 +3,6 @@ html {
 }
 
 body {
-
-  height: 100%;
-  min-height: 100vh;
   position: relative;
 }
 
@@ -25,20 +22,5 @@ body {
 }
 
 .pointer {
-  cursor: pointer;
-}
-
-a:not([href]):not([tabindex]) {
-  color: $white;
-  cursor: pointer;
-}
-
-a:not([href]):not([tabindex]):hover {
-  color: $white;
-  cursor: pointer;
-}
-
-a:not([href]):not([tabindex]):focus {
-  color: $white;
   cursor: pointer;
 }

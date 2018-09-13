@@ -60,6 +60,8 @@
 </script>
 
 <style lang="scss">
+  @import "~flag-icon-css/css/flag-icon.css";
+
   .language-dropdown {
     display: flex;
     align-items: center;

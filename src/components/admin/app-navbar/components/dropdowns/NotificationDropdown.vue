@@ -19,9 +19,11 @@
 </template>
 
 <script>
+  import VuesticIconNotification
+    from '../../../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconCollapsed'
   export default {
     name: 'notification-dropdown',
-
+    components: {VuesticIconNotification},
     props: {
       options: {
         type: Array,
