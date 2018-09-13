@@ -210,6 +210,11 @@ export default new Router({
               component: lazyLoading('ui/tree-view/TreeView'),
             },
             {
+              name: 'collapse',
+              path: 'collapse',
+              component: lazyLoading('ui/collapse/Collapse')
+            },
+            {
               path: '',
               redirect: { name: 'typography' },
             },

@@ -34,6 +34,10 @@
     "donutChart": "Donut Chart",
     "bubbleChart": "Bubble Chart"
   },
+  "collapse": {
+    "accordion": "Accordion",
+    "buttons": "Buttons"
+  },
   "dashboard": {
     "dataVisualization": "Data Visualization",
     "success": "SUCCESS",
@@ -193,7 +197,7 @@
     "uiElements": "UI Elements",
     "treeView": "Tree view",
     "dateTimePickers": "Date time pickers",
-    "cards": "Cards",
+    "collapse": "Collapse",
     "fileUpload": "File Upload"
   },
   "messages": {
