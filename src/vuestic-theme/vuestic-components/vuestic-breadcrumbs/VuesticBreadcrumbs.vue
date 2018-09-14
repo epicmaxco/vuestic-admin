@@ -1,19 +1,21 @@
 <template>
-  <div class="row vuestic-breadcrumbs">
-    <div class="col-lg-11 col-sm-12">
-      <router-link :to="{ path: breadcrumbs.root.path }" class="crumb">
+  <div class="vuestic-breadcrumbs">
+    <div class="vuestic-breadcrumbs__nav-section">
+      <router-link
+        class="vuestic-breadcrumbs__nav-section-item"
+        :to="{ path: breadcrumbs.root.name }">
         {{ $t(breadcrumbs.root.displayName) }}
       </router-link>
       <router-link
         v-for="(item, index) in displayedCrumbs"
-        :to="{path: item.path}"
+        :to="{ name: item.name }"
         :key="index"
-        class="crumb"
+        class="vuestic-breadcrumbs__nav-section-item"
         :class="{ disabled: item.disabled }">
         {{ $t(item.displayName) }}
       </router-link>
     </div>
-    <div class="col-lg-1 col-sm-12">
+    <div class="vuestic-breadcrumbs__help-section">
       <a :href="currentRoute" class="btn btn-sm btn-primary">
         Docs
       </a>
@@ -62,25 +64,24 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss'>
   .vuestic-breadcrumbs {
     min-height: $breadcrumbs-height;
     display: flex;
     align-items: center;
-
-    .crumb {
-      text-transform: capitalize;
+    justify-content: space-between;
+    .vuestic-breadcrumbs__nav-section-item {
       color: $text-gray;
       &:hover {
         color: $brand-primary;
       }
+      text-transform: capitalize;
       &.disabled {
         pointer-events: none;
       }
       &:last-child::after {
         display: none;
       }
-
       &::after {
         padding: 0 5px;
         display: inline-block;
@@ -90,10 +91,6 @@ export default {
         font-size: $breadcrumbs-arrow-font;
         font-family: FontAwesome;
       }
-    }
-
-    .btn {
-      margin: 5px 0;
     }
   }
 </style>
