@@ -4,17 +4,17 @@
 
 #### TL;DR:
 
-Messages must be matched by the following regex:
+Messages must match the following regex:
 
 ``` js
-/^(revert: )?(feat|fix|docs|style|refactor|test|ci|chore)(\(.+\))?: .{1,50}/
+/^(revert: )?(feat|fix|docs|style|refactor|test|ci|chore)(\(.+\))?: .{1,70}/
 ```
 
 #### Types
-* `feat` - feature. Something noticeable to end user. When feature takes several days of work - split it into several smaller features.
-* `fix` - patching a bug, bringing to life intended functionality.
+* `feat` - new functionality.
+* `fix` - patching a bug.
 * `docs` - documentation and comments.
-* `style` - purely styling change (not necessarily in css).
+* `style` - style changes only (not necessarily in css).
 * `refactor` - reworking internals without impacting project interface.
 * `test` - tests and demo.
 * `ci` - deploy and continuous integration.
@@ -72,7 +72,6 @@ If the commit reverts a previous commit, it should begin with `revert: `, follow
 
 ### Type
 
-
 If the prefix is `feat` or `fix` it will appear in the changelog. However if there is any [BREAKING CHANGE](#footer), the commit will always appear in the changelog.
 
 Other prefixes are up to your discretion. Suggested prefixes are `docs`, `chore`, `style`, `refactor`, and `test` for non-changelog related tasks.
@@ -87,7 +86,7 @@ The subject contains succinct description of the change:
 
 * use the imperative, present tense: "change" not "changed" nor "changes"
 * don't capitalize first letter
-* no dot (.) at the end
+* no period (.) at the end
 
 ### Body
 
