@@ -9,7 +9,7 @@
   </div>
 
   <div class="col-xl-2 col-lg-3 col-sm-4" v-else>
-    <div class="file-upload-gallery-item">
+    <div class="file-upload-gallery-item" :class="notGalleryItemClass">
       <img :src="previewImage" alt="" class="file-upload-gallery-item-image">
         <div class="file-upload-gallery-item-overlay">
           <div class="file-upload-gallery-item-name" :title="file.name">
@@ -67,15 +67,27 @@ export default {
     },
     convertToImg () {
       const reader = new FileReader()
+      const imageFileTypes = ['/png', '/jpg', '/jpeg', '/gif']
       reader.readAsDataURL(this.file.image)
       reader.onload = (e) => {
-        this.previewImage = e.target.result
+        for (let i = 0; i < imageFileTypes.length; i++) {
+          if (e.target.result.indexOf(imageFileTypes[i]) >= 0) {
+            this.previewImage = e.target.result
+          }
+        }
       }
     }
   },
+  computed: {
+    notGalleryItemClass: function () {
+      return {
+        'file-upload-gallery-item_not-image': !this.previewImage
+      }
+    },
+  },
   mounted () {
     this.convertToImg()
-  },
+  }
 }
 </script>
 
@@ -132,4 +144,10 @@ export default {
       padding: 0.7rem 0 0;
     }
   }
+  .file-upload-gallery-item_not-image {
+    .file-upload-gallery-item-overlay {
+      display: flex;
+    }
+  }
+
 </style>
