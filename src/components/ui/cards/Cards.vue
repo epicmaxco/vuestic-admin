@@ -148,7 +148,7 @@
         </template>
       </div>
     </div>
-    <div class="col-md-12 d-lg-flex align-items-center justify-content-center">
+    <div class="col-md-12 d-flex align-items-center justify-content-center">
       <div class="pre-loader-container">
         <vuestic-pre-loader v-show="isShown" class="pre-loader"></vuestic-pre-loader>
         <div v-if="!isShown">
@@ -193,6 +193,25 @@ export default {
     flex-wrap: wrap;
     margin: -$singleGutter;
     align-items: flex-start;
+    .vuestic-card {
+      width: calc(33% - #{$singleGutter} * 2);
+
+      @include media-breakpoint-only(xl) {
+        width: calc(25% - #{$singleGutter} * 2);
+      }
+
+      @include media-breakpoint-only(lg) {
+        width: calc(33.3% - #{$singleGutter} * 2);
+      }
+
+      @include media-breakpoint-only(sm) {
+        width: calc(50% - #{$singleGutter} * 2);
+      }
+
+      @include media-breakpoint-only(xs) {
+        width: calc(100% - #{$singleGutter} * 2);
+      }
+    }
   }
 
   .pre-loader-container {

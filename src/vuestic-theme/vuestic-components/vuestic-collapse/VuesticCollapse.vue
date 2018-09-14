@@ -13,41 +13,41 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-collapse',
-    props: {
-      value: {
-        type: Boolean,
-        default: false
+export default {
+  name: 'vuestic-collapse',
+  props: {
+    value: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data () {
+    return {
+      show: this.value
+    }
+  },
+  watch: {
+    show (show) {
+      if (show) {
+        this.expand()
+      } else {
+        this.collapse()
       }
-    },
-    data () {
-      return {
-        show: this.value
-      }
-    },
-    watch: {
-      show (show) {
-        if (show) {
-          this.expand()
-        } else {
-          this.collapse()
-        }
-      }
-    },
-    methods: {
-      expand () {
-        let bodyContent = this.$refs.collapseBody
+    }
+  },
+  methods: {
+    expand () {
+      let bodyContent = this.$refs.collapseBody
 
-        bodyContent.style.height = this.$slots.body[0].elm.clientHeight + 'px'
-      },
-      collapse () {
-        let bodyContent = this.$refs.collapseBody
-
-        bodyContent.style.height = 0
-      }
+      bodyContent.style.height = this.$slots.body[0].elm.clientHeight + 'px'
     },
-  }
+    collapse () {
+      let bodyContent = this.$refs.collapseBody
+
+      bodyContent.style.height = 0
+    }
+  },
+}
 </script>
 
 <style lang="scss">

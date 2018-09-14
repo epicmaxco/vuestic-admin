@@ -134,13 +134,13 @@
 </template>
 
 <script>
-  import VuesticCollapse from '../../../vuestic-theme/vuestic-components/vuestic-collapse/VuesticCollapse'
-  import VuesticAccordion from '../../../vuestic-theme/vuestic-components/vuestic-collapse/VuesticAccordion'
+import VuesticCollapse from '../../../vuestic-theme/vuestic-components/vuestic-collapse/VuesticCollapse'
+import VuesticAccordion from '../../../vuestic-theme/vuestic-components/vuestic-collapse/VuesticAccordion'
 
-  export default {
-    name: 'cards',
-    components: { VuesticCollapse, VuesticAccordion }
-  }
+export default {
+  name: 'cards',
+  components: { VuesticCollapse, VuesticAccordion }
+}
 </script>
 
 <style lang="scss">
