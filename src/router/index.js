@@ -85,6 +85,7 @@ export default new Router({
           default: true,
         },
         {
+          name: 'statistics',
           path: 'statistics',
           component: EmptyParentComponent,
           children: [
@@ -103,14 +104,11 @@ export default new Router({
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Progress-Bars'
               }
-            },
-            {
-              path: '',
-              redirect: { name: 'charts' },
-            },
+            }
           ],
         },
         {
+          name: 'forms',
           path: 'forms',
           component: EmptyParentComponent,
           children: [
@@ -137,11 +135,7 @@ export default new Router({
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Medium-Editor'
               }
-            },
-            {
-              path: '',
-              redirect: { name: 'form-elements' },
-            },
+            }
           ],
         },
         {
@@ -153,6 +147,7 @@ export default new Router({
           }
         },
         {
+          name: 'ui',
           path: 'ui',
           component: EmptyParentComponent,
           children: [
@@ -187,11 +182,12 @@ export default new Router({
               component: lazyLoading('ui/icons/Icons'),
               children: [
                 {
-                  name: 'icons',
+                  name: 'icon-sets',
                   path: '', // Default route
                   component: lazyLoading('ui/icons/SetsList'),
                 },
                 {
+                  name: 'icon-set',
                   path: ':name',
                   component: lazyLoading('ui/icons/Set'),
                   props: true,
@@ -249,10 +245,11 @@ export default new Router({
               }
             },
             {
-              path: '',
-              redirect: { name: 'typography' },
-            },
-          ],
+              name: 'collapse',
+              path: 'collapse',
+              component: lazyLoading('ui/collapse/Collapse')
+            }
+          ]
         },
         {
           name: 'extra',
@@ -263,6 +260,7 @@ export default new Router({
           }
         },
         {
+          name: 'maps',
           path: 'maps',
           component: EmptyParentComponent,
           children: [
@@ -305,14 +303,11 @@ export default new Router({
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps'
               }
-            },
-            {
-              path: '',
-              redirect: { name: 'google-maps' },
-            },
+            }
           ],
         },
         {
+          name: 'pages',
           path: 'pages',
           component: EmptyParentComponent,
           children: [

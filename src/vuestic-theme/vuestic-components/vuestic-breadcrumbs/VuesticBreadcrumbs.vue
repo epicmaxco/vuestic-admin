@@ -1,26 +1,24 @@
 <template>
-  <vuestic-widget class="no-padding no-v-padding">
-    <div class="row vuestic-breadcrumbs">
-      <div class="col-lg-11 col-sm-12">
-        <router-link :to="{ path: breadcrumbs.root.path }" class="crumb">
-          {{ $t(breadcrumbs.root.displayName) }}
-        </router-link>
-        <router-link
-          v-for="(item, index) in displayedCrumbs"
-          :to="{path: item.path}"
-          :key="index"
-          class="crumb"
-          :class="{ disabled: item.disabled }">
-          {{ $t(item.displayName) }}
-        </router-link>
-      </div>
-      <div class="col-lg-1 col-sm-12">
-        <a :href="currentRoute" class="btn btn-sm btn-primary">
-          Docs
-        </a>
-      </div>
+  <div class="row vuestic-breadcrumbs">
+    <div class="col-lg-11 col-sm-12">
+      <router-link :to="{ path: breadcrumbs.root.path }" class="crumb">
+        {{ $t(breadcrumbs.root.displayName) }}
+      </router-link>
+      <router-link
+        v-for="(item, index) in displayedCrumbs"
+        :to="{path: item.path}"
+        :key="index"
+        class="crumb"
+        :class="{ disabled: item.disabled }">
+        {{ $t(item.displayName) }}
+      </router-link>
     </div>
-  </vuestic-widget>
+    <div class="col-lg-1 col-sm-12">
+      <a :href="currentRoute" class="btn btn-sm btn-primary">
+        Docs
+      </a>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -31,12 +29,12 @@ export default {
       type: Object,
       default: function () {
         return {}
-      }
+      },
     },
     currentPath: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
     displayedCrumbs () {
@@ -50,10 +48,10 @@ export default {
     findInNestedByName (array, name) {
       if (typeof array !== 'undefined') {
         for (let i = 0; i < array.length; i++) {
-          if (array[i].path === name) return [{...array[i]}]
+          if (array[i].name === name) return [{ ...array[i] }]
           let a = this.findInNestedByName(array[i].children, name)
           if (a != null) {
-            a.unshift({...array[i]})
+            a.unshift({ ...array[i] })
             return [...a]
           }
         }

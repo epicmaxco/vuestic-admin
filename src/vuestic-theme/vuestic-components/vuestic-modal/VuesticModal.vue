@@ -26,8 +26,12 @@
               <!--Footer-->
               <div class="modal-footer">
                 <slot name="footer">
-                  <button type="button" :class="okClass" @click="ok" :disabled="okDisabled">{{okText}}</button>
-                  <button type="button" :class="cancelClass" @click="cancel" :disabled="cancelDisabled">{{cancelText}}</button>
+                  <button type="button" v-if="!noButtons" :class="okClass" @click="ok" :disabled="okDisabled">
+                    {{ okText }}
+                  </button>
+                  <button type="button" v-if="!noButtons" :class="cancelClass" @click="cancel" :disabled="cancelDisabled">
+                    {{ cancelText }}
+                  </button>
                 </slot>
               </div>
             </div>
@@ -84,6 +88,10 @@ export default {
       default: false
     },
     cancelDisabled: {
+      type: Boolean,
+      default: false
+    },
+    noButtons: {
       type: Boolean,
       default: false
     }
