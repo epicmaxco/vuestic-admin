@@ -2,16 +2,19 @@
   <div class="yandex-maps-page">
     <div class="row">
       <div class="col-md-12">
-        <vuestic-widget class="widget-viewport-height" headerText="Yandex Maps">
+        <vuestic-widget
+          class="yandex-maps-page__widget"
+          headerText="Yandex Maps"
+        >
           <yandex-map
             :use-object-manager:="true"
-            :coords="[55.8, 37.8]"
+            :coords="[55.2, 38.8]"
             :zoom="8"
             style="width: 100%; height: 100%"
             :behaviors="['default']"
             :controls="['trafficControl','zoomControl', 'geolocationControl','fullscreenControl', 'searchControl']"
             :placemarks="placemarks"
-            map-type="hybrid"  >
+            map-type="hybrid">
           </yandex-map>
         </vuestic-widget>
       </div>
@@ -21,36 +24,39 @@
 
 <script>
 
-  import { yandexMap, ymapMarker } from 'vue-yandex-maps'
+import { yandexMap, ymapMarker } from 'vue-yandex-maps'
 
-  export default {
-    name: 'yandex-maps-page',
-    components: {
-      yandexMap,
-      ymapMarker
-    },
-    data () {
-      return {
-        placemarks: [
-          {
-            coords: [54.8, 39.8],
-            properties: {},
-            options: {},
-            clusterName: '1',
-            balloonTemplate: '<div>"Your custom template"</div>',
-            callbacks: { click: function () {} }
-          }
-        ]
-      }
+export default {
+  name: 'yandex-maps-page',
+  components: {
+    yandexMap,
+    ymapMarker,
+  },
+  data () {
+    return {
+      placemarks: [
+        {
+          coords: [54.8, 38.9],
+          properties: {},
+          options: {},
+          clusterName: '1',
+          balloonTemplate: '<div>"Your custom template"</div>',
+          callbacks: {
+            click: function () {
+            },
+          },
+        },
+      ],
     }
-  }
+  },
+}
 </script>
 <style lang="scss">
-  @import "../../../sass/_variables.scss";
+@import "../../../sass/resources/variables";
 
-  .yandex-maps-page {
-    height: 100%;
-    position: relative;
-    overflow: hidden;
+.yandex-maps-page {
+  &__widget {
+    height: 70vh;
   }
+}
 </style>

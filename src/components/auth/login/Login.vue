@@ -19,14 +19,14 @@
 </template>
 
 <script>
-  import VuesticInput from './../../../vuestic-theme/vuestic-components/vuestic-input/VuesticInput'
+import VuesticInput from './../../../vuestic-theme/vuestic-components/vuestic-input/VuesticInput'
 
-  export default {
-    name: 'login',
-    components: {
-      VuesticInput
-    }
+export default {
+  name: 'login',
+  components: {
+    VuesticInput
   }
+}
 </script>
 
 <style lang="scss">

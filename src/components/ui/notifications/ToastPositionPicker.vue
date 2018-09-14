@@ -32,26 +32,26 @@
 </template>
 
 <script>
-  export default {
-    name: 'toast-position-picker',
+export default {
+  name: 'toast-position-picker',
 
-    props: {
-      value: {
-        type: String,
-        default: 'bottom-center'
-      }
+  props: {
+    value: {
+      type: String,
+      default: 'bottom-center'
+    }
+  },
+
+  methods: {
+    updatePosition (position) {
+      this.$emit('input', position)
     },
 
-    methods: {
-      updatePosition (position) {
-        this.$emit('input', position)
-      },
-
-      isBoxSelected (position) {
-        return this.value === position
-      }
+    isBoxSelected (position) {
+      return this.value === position
     }
   }
+}
 </script>
 
 <style lang='scss' scoped>

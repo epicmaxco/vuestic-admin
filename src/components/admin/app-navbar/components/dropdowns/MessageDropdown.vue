@@ -17,25 +17,25 @@
 </template>
 
 <script>
-  export default {
-    name: 'message-dropdown',
+export default {
+  name: 'message-dropdown',
 
-    props: {
-      options: {
-        type: Array,
-        default: () => [
-          {
-            name: 'new',
-            details: { name: 'Oleg M' }
-          },
-          {
-            name: 'new',
-            details: { name: 'Andrei H' }
-          },
-        ]
-      }
-    },
-  }
+  props: {
+    options: {
+      type: Array,
+      default: () => [
+        {
+          name: 'new',
+          details: { name: 'Oleg M' }
+        },
+        {
+          name: 'new',
+          details: { name: 'Andrei H' }
+        },
+      ]
+    }
+  },
+}
 </script>
 
 <style lang="scss">

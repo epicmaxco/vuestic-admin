@@ -5,6 +5,7 @@
         <vuestic-widget :headerText="$t('fileUpload.advancedMediaGallery')">
           <vuestic-file-upload
               type="gallery"
+              :file-types="'.png, .jpg, .jpeg, .gif'"
               dropzone
               v-model="advancedGallery"
           />
@@ -33,6 +34,7 @@
         <vuestic-widget :headerText="$t('fileUpload.mediaGallery')">
           <vuestic-file-upload
               type="gallery"
+              :file-types="'.png, .jpg, .jpeg, .gif'"
               v-model="gallery"
           />
         </vuestic-widget>
@@ -50,16 +52,16 @@
 </template>
 
 <script>
-  export default {
-    name: 'file-upload',
-    data () {
-      return {
-        advancedGallery: [],
-        advancedList: [],
-        single: [],
-        gallery: [],
-        list: []
-      }
+export default {
+  name: 'file-upload',
+  data () {
+    return {
+      advancedGallery: [],
+      advancedList: [],
+      single: [],
+      gallery: [],
+      list: []
     }
   }
+}
 </script>

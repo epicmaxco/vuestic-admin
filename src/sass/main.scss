@@ -1,25 +1,25 @@
-@import "~normalize.css";
+// Reset
+@import "reset";
 
-@import "mixins";
-@import "variables";
-@import "fonts";
+@import "icons/icons";
 
+// Mixins, functions and variables
+@import "resources/resources";
+
+// NOTE We want to dispose of bootstrap styling at some point.
 @import "~bootstrap/scss/bootstrap";
-@import "~font-awesome/css/font-awesome.css";
 
-@import "~ionicons/dist/css/ionicons.css";
-@import "~flag-icon-css/css/flag-icon.css";
+// NOTE We should use our own styles for checkbox
 @import "~awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.scss";
-@import "~medium-editor/src/sass/medium-editor";
-@import "_icons-styles.scss";
-@import "~flatpickr/dist/flatpickr.css";
 
-@import "base";
-@import "typography";
-@import "icons";
+@import "overrides/overrides";
+
+// NOTW We want to dispose of these.
 @import "material-forms";
 
-@import "override-bootstrap";
-@import "override-custom-libs";
+// Vendor
+@import "~medium-editor/src/sass/medium-editor";
+@import "~flatpickr/dist/flatpickr.css";
 
-@import "glyphicons";
+@import "utility-global";
+

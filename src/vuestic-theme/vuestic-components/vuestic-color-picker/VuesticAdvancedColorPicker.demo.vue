@@ -11,16 +11,16 @@
 </template>
 
 <script>
-  import VuesticAdvancedColorPicker from './VuesticAdvancedColorPicker'
+import VuesticAdvancedColorPicker from './VuesticAdvancedColorPicker'
 
-  export default {
-    components: {
-      VuesticAdvancedColorPicker,
-    },
-    data () {
-      return {
-        value: '#AAA'
-      }
+export default {
+  components: {
+    VuesticAdvancedColorPicker,
+  },
+  data () {
+    return {
+      value: '#AAA'
     }
   }
+}
 </script>

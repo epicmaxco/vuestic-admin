@@ -26,19 +26,19 @@
 </template>
 
 <script>
-  import VuesticInput from './../../../vuestic-theme/vuestic-components/vuestic-input/VuesticInput'
+import VuesticInput from './../../../vuestic-theme/vuestic-components/vuestic-input/VuesticInput'
 
-  export default {
-    name: 'signup',
-    components: {
-      VuesticInput
-    },
-    data () {
-      return {
-        checkboxOneModel: true
-      }
+export default {
+  name: 'signup',
+  components: {
+    VuesticInput
+  },
+  data () {
+    return {
+      checkboxOneModel: true
     }
   }
+}
 </script>
 
 <style lang="scss">

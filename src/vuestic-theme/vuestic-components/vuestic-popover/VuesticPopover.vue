@@ -24,42 +24,42 @@
 </template>
 
 <script>
-  import { VPopover } from 'v-tooltip'
+import { VPopover } from 'v-tooltip'
 
-  export default {
-    name: 'vuestic-popover',
+export default {
+  name: 'vuestic-popover',
 
-    components: { VPopover },
+  components: { VPopover },
 
-    props: {
-      open: {
-        type: Boolean,
-        default: false
-      },
-      disabled: {
-        type: Boolean,
-        default: false
-      },
-      placement: {
-        type: String,
-        default: 'auto'
-      },
-      popoverClass: {
-        type: [String, Array],
-        default: 'vuestic-tooltip'
-      },
-      autoHide: {
-        type: Boolean,
-        default: false
-      }
+  props: {
+    open: {
+      type: Boolean,
+      default: false
     },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    placement: {
+      type: String,
+      default: 'auto'
+    },
+    popoverClass: {
+      type: [String, Array],
+      default: 'vuestic-tooltip'
+    },
+    autoHide: {
+      type: Boolean,
+      default: false
+    }
+  },
 
-    computed: {
-      isIconPresent () {
-        return !!this.$slots.icon
-      }
+  computed: {
+    isIconPresent () {
+      return !!this.$slots.icon
     }
   }
+}
 </script>
 
 <style lang='scss' scoped>

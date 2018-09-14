@@ -1353,4 +1353,3 @@ export default {
   ],
   'filterableFields': ['name']
 }
-
