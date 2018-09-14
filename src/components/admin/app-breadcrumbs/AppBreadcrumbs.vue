@@ -1,7 +1,9 @@
 <template>
   <div class="row">
     <div class="col-md-12">
-      <vuestic-breadcrumbs :breadcrumbs="breadcrumbs" :current-path="currentRoute"/>
+      <vuestic-widget class="no-padding no-v-padding">
+        <vuestic-breadcrumbs :breadcrumbs="breadcrumbs" :current-path="currentRoute"/>
+      </vuestic-widget>
     </div>
   </div>
 </template>
