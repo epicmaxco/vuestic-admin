@@ -60,7 +60,11 @@ export default {
           displayName: 'menu.buttons'
         },
         {
-          name: 'color-pickers',
+          path: 'collapse',
+          displayName: 'menu.collapse'
+        },
+        {
+          path: 'color-pickers',
           displayName: 'menu.colorPickers'
         },
         {
