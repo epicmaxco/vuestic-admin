@@ -38,12 +38,10 @@ export default {
   methods: {
     expand () {
       let bodyContent = this.$refs.collapseBody
-
       bodyContent.style.height = this.$slots.body[0].elm.clientHeight + 'px'
     },
     collapse () {
       let bodyContent = this.$refs.collapseBody
-
       bodyContent.style.height = 0
     }
   },
