@@ -72,16 +72,12 @@ export default {
           displayName: 'menu.notifications'
         },
         {
-          name: 'icons',
+          name: 'icon-sets',
           displayName: 'menu.icons',
           children: [
             {
               displayName: 'concrete',
-              name: '',
-            },
-            {
-              name: ':name',
-              displayName: 'concrete'
+              name: 'icon-set',
             },
           ]
         },

@@ -158,11 +158,12 @@ export default new Router({
               component: lazyLoading('ui/icons/Icons'),
               children: [
                 {
-                  name: 'icons',
+                  name: 'icon-sets',
                   path: '', // Default route
                   component: lazyLoading('ui/icons/SetsList'),
                 },
                 {
+                  name: 'icon-set',
                   path: ':name',
                   component: lazyLoading('ui/icons/Set'),
                   props: true,
