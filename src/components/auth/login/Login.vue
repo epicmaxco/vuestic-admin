@@ -1,12 +1,18 @@
 <template>
   <div class="login">
-    <h2 class="login__header">{{'auth.welcome' | translate}}</h2>
+    <h2>{{'auth.welcome' | translate}}</h2>
     <form method="post" action="/auth/login" name="login">
       <div class="form-group">
-        <vuestic-input :title="$t('auth.email')"/>
+        <div class="input-group">
+          <input type="text" id="email" required="required"/>
+          <label class="control-label" for="email">{{'auth.email' | translate}}</label><i class="bar"></i>
+        </div>
       </div>
       <div class="form-group">
-        <vuestic-input type="password" :title="$t('auth.password')"/>
+        <div class="input-group">
+          <input type="password" id="password" required="required"/>
+          <label class="control-label" for="password">{{'auth.password' | translate}}</label><i class="bar"></i>
+        </div>
       </div>
       <div class="d-flex flex-column flex-lg-row align-items-center justify-content-between down-container">
         <button class="btn btn-primary" type="submit">
@@ -19,13 +25,8 @@
 </template>
 
 <script>
-import VuesticInput from './../../../vuestic-theme/vuestic-components/vuestic-input/VuesticInput'
-
 export default {
-  name: 'login',
-  components: {
-    VuesticInput
-  }
+  name: 'login'
 }
 </script>
 
@@ -42,7 +43,7 @@ export default {
       }
     }
 
-    .login__header {
+    h2 {
       text-align: center;
     }
     width: 21.375rem;

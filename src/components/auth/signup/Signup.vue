@@ -3,10 +3,16 @@
     <h2>{{'auth.createNewAccount' | translate}}</h2>
     <form method="post" action="/auth/signup" name="signup">
       <div class="form-group">
-        <vuestic-input :title="$t('auth.email')"/>
+        <div class="input-group">
+          <input type="text" id="email" required="required"/>
+          <label class="control-label" for="email">{{'auth.email' | translate}}</label><i class="bar"></i>
+        </div>
       </div>
       <div class="form-group">
-        <vuestic-input type="password" :title="$t('auth.password')"/>
+        <div class="input-group">
+          <input type="password" id="password" required="required"/>
+          <label class="control-label" for="password">{{'auth.password' | translate}}</label><i class="bar"></i>
+        </div>
       </div>
       <vuestic-checkbox
         :id="'checkbox1'"
@@ -26,13 +32,8 @@
 </template>
 
 <script>
-import VuesticInput from './../../../vuestic-theme/vuestic-components/vuestic-input/VuesticInput'
-
 export default {
   name: 'signup',
-  components: {
-    VuesticInput
-  },
   data () {
     return {
       checkboxOneModel: true
