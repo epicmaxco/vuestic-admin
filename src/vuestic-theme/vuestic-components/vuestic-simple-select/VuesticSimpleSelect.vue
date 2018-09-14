@@ -32,10 +32,13 @@
         class="dropdown-menu vuestic-simple-select__dropdown-menu" aria-labelledby="dropdownMenuButton">
         <scrollbar ref="scrollbar">
           <div class="dropdown-menu-content vuestic-simple-select__dropdown-menu-content">
-            <div class="dropdown-item vuestic-simple-select__dropdown-item"
-                 v-for="option in filteredList"
-                 :class="{'selected': isOptionSelected(option)}"
-                 @click="toggleSelection(option)">
+            <div
+              class="dropdown-item vuestic-simple-select__dropdown-item"
+              v-for="(option, index) in filteredList"
+              :key="index"
+              :class="{'selected': isOptionSelected(option)}"
+              @click="toggleSelection(option)"
+            >
             <span
               class="ellipsis">{{optionKey ? option[optionKey] : option}}</span>
             </div>
@@ -197,4 +200,3 @@ export default {
   }
 }
 </style>
-

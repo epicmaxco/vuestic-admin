@@ -19,57 +19,57 @@
 </template>
 
 <script>
-  import { VuesticTheme, colorConfig } from './../../vuestic-color-picker/VuesticTheme'
+import { VuesticTheme, colorConfig } from './../../vuestic-color-picker/VuesticTheme'
 
-  export default {
-    props: {
-      value: {
-        type: Number,
-        default: 0,
-      },
-      text: {
-        type: String,
-        default: ''
-      },
-      theme: {
-        type: String,
-        default: 'Primary',
-      },
-      size: {
-        type: String,
-        default: 'basic',
-      },
-      disabled: {
-        type: Boolean,
-        default: false,
-      },
-      animated: {
-        type: Boolean,
-        default: false,
+export default {
+  props: {
+    value: {
+      type: Number,
+      default: 0,
+    },
+    text: {
+      type: String,
+      default: ''
+    },
+    theme: {
+      type: String,
+      default: 'Primary',
+    },
+    size: {
+      type: String,
+      default: 'basic',
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    animated: {
+      type: Boolean,
+      default: false,
+    }
+  },
+  computed: {
+    verticalBarStyle: function () {
+      return {
+        backgroundColor: colorConfig[VuesticTheme[this.theme]],
+        height: this.value + '%'
       }
     },
-    computed: {
-      verticalBarStyle: function () {
-        return {
-          backgroundColor: colorConfig[VuesticTheme[this.theme]],
-          height: this.value + '%'
-        }
-      },
-      verticalBarType: function () {
-        return {
-          'vertical-bar--basic': this.size === 'basic',
-          'vertical-bar--thin': this.size === 'thin',
-          'vertical-bar--thick': this.size === 'thick',
-          'vertical-bar--disabled': this.disabled
-        }
-      },
-      verticalBarAnimation: function () {
-        return {
-          'vertical-bar--animated': this.animated,
-        }
+    verticalBarType: function () {
+      return {
+        'vertical-bar--basic': this.size === 'basic',
+        'vertical-bar--thin': this.size === 'thin',
+        'vertical-bar--thick': this.size === 'thick',
+        'vertical-bar--disabled': this.disabled
+      }
+    },
+    verticalBarAnimation: function () {
+      return {
+        'vertical-bar--animated': this.animated,
       }
     }
   }
+}
 </script>
 
 <style lang="scss">
