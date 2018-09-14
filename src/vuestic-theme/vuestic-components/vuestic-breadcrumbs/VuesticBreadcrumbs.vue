@@ -15,9 +15,9 @@
         </router-link>
       </div>
       <div class="col-lg-1 col-sm-12">
-        <button class="btn btn-sm btn-primary" @click="moveToWiki()">
+        <a :href="currentRoute" class="btn btn-sm btn-primary">
           Docs
-        </button>
+        </a>
       </div>
     </div>
   </vuestic-widget>
@@ -42,6 +42,9 @@ export default {
     displayedCrumbs () {
       return this.findInNestedByName(this.breadcrumbs.routes, this.currentPath)
     },
+    currentRoute () {
+      return this.$route.meta.wikiLink || 'https://github.com/epicmaxco/vuestic-admin/wiki'
+    }
   },
   methods: {
     findInNestedByName (array, name) {
@@ -56,9 +59,6 @@ export default {
         }
         return null
       }
-    },
-    moveToWiki () {
-      window.open('https://github.com/epicmaxco/vuestic-admin/wiki')
     }
   }
 }
@@ -72,6 +72,10 @@ export default {
 
     .crumb {
       text-transform: capitalize;
+      color: $text-gray;
+      &:hover {
+        color: $brand-primary;
+      }
       &.disabled {
         pointer-events: none;
       }
@@ -87,13 +91,6 @@ export default {
         color: $brand-primary;
         font-size: $breadcrumbs-arrow-font;
         font-family: FontAwesome;
-      }
-    }
-
-    a {
-      color: $text-gray;
-      &:hover {
-        color: $brand-primary;
       }
     }
 

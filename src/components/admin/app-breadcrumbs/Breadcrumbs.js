@@ -15,7 +15,7 @@ export default {
       children: [
         {
           path: 'charts',
-          displayName: 'menu.charts',
+          displayName: 'menu.charts'
         },
         {
           path: 'progress-bars',
@@ -120,11 +120,11 @@ export default {
         },
         {
           path: 'leaflet-maps',
-          displayName: 'Leaflet Maps',
+          displayName: 'Leaflet Maps'
         },
         {
           path: 'bubble-maps',
-          displayName: 'Bubble Maps',
+          displayName: 'Bubble Maps'
         },
         {
           path: 'line-maps',
