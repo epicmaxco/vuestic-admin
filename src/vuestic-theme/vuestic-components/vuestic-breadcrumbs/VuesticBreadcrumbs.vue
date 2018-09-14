@@ -1,12 +1,12 @@
 <template>
   <vuestic-widget class="no-padding no-v-padding">
     <div class="vuestic-breadcrumbs">
-      <router-link :to="{ path: breadcrumbs.root.path }" class="crumb">
+      <router-link :to="{ path: breadcrumbs.root.name }" class="crumb">
         {{ $t(breadcrumbs.root.displayName) }}
       </router-link>
       <router-link
         v-for="(item, index) in displayedCrumbs"
-        :to="{path: item.path}"
+        :to="{ name: item.name }"
         :key="index"
         class="crumb"
         :class="{ disabled: item.disabled }">
@@ -17,41 +17,41 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-breadcrumbs',
-    props: {
-      breadcrumbs: {
-        type: Object,
-        default: function () {
-          return {}
-        }
-      },
-      currentPath: {
-        type: String,
-        default: ''
+export default {
+  name: 'vuestic-breadcrumbs',
+  props: {
+    breadcrumbs: {
+      type: Object,
+      default: function () {
+        return {}
       }
     },
-    computed: {
-      displayedCrumbs () {
-        return this.findInNestedByName(this.breadcrumbs.routes, this.currentPath)
-      },
-    },
-    methods: {
-      findInNestedByName (array, name) {
-        if (typeof array !== 'undefined') {
-          for (let i = 0; i < array.length; i++) {
-            if (array[i].path === name) return [{...array[i]}]
-            let a = this.findInNestedByName(array[i].children, name)
-            if (a != null) {
-              a.unshift({...array[i]})
-              return [...a]
-            }
+    currentPath: {
+      type: String,
+      default: ''
+    }
+  },
+  computed: {
+    displayedCrumbs () {
+      return this.findInNestedByName(this.breadcrumbs.routes, this.currentPath)
+    }
+  },
+  methods: {
+    findInNestedByName (array, name) {
+      if (typeof array !== 'undefined') {
+        for (let i = 0; i < array.length; i++) {
+          if (array[i].name === name) return [{...array[i]}]
+          let a = this.findInNestedByName(array[i].children, name)
+          if (a != null) {
+            a.unshift({...array[i]})
+            return [...a]
           }
         }
-        return null
       }
+      return null
     }
   }
+}
 </script>
 
 <style lang='scss' scoped>

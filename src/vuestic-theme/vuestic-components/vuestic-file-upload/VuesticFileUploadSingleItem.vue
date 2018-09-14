@@ -12,14 +12,14 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-file-upload-single-item',
-    props: {
-      file: {
-        type: Object
-      }
-    },
-  }
+export default {
+  name: 'vuestic-file-upload-single-item',
+  props: {
+    file: {
+      type: Object
+    }
+  },
+}
 </script>
 
 <style lang='scss'>

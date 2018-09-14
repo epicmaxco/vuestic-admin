@@ -85,6 +85,7 @@ export default new Router({
           default: true,
         },
         {
+          name: 'statistics',
           path: 'statistics',
           component: EmptyParentComponent,
           children: [
@@ -97,14 +98,11 @@ export default new Router({
               name: 'progress-bars',
               path: 'progress-bars',
               component: lazyLoading('statistics/progress-bars/ProgressBars'),
-            },
-            {
-              path: '',
-              redirect: { name: 'charts' },
-            },
+            }
           ],
         },
         {
+          name: 'forms',
           path: 'forms',
           component: EmptyParentComponent,
           children: [
@@ -116,17 +114,13 @@ export default new Router({
             {
               name: 'form-wizards',
               path: 'form-wizards',
-              component: lazyLoading('forms/form-wizard/FormWizard'),
+              component: lazyLoading('forms/form-wizard/FormWizard')
             },
             {
               name: 'medium-editor',
               path: 'medium-editor',
               component: lazyLoading('forms/medium-editor/MediumEditor'),
-            },
-            {
-              path: '',
-              redirect: { name: 'form-elements' },
-            },
+            }
           ],
         },
         {
@@ -135,6 +129,7 @@ export default new Router({
           component: lazyLoading('tables/Table'),
         },
         {
+          name: 'ui',
           path: 'ui',
           component: EmptyParentComponent,
           children: [
@@ -208,11 +203,7 @@ export default new Router({
               name: 'tree-view',
               path: 'tree-view',
               component: lazyLoading('ui/tree-view/TreeView'),
-            },
-            {
-              path: '',
-              redirect: { name: 'typography' },
-            },
+            }
           ],
         },
         {
@@ -221,6 +212,7 @@ export default new Router({
           component: lazyLoading('extra/Extra'),
         },
         {
+          name: 'maps',
           path: 'maps',
           component: EmptyParentComponent,
           children: [
@@ -248,14 +240,11 @@ export default new Router({
               name: 'line-maps',
               path: 'line-maps',
               component: lazyLoading('maps/line-maps/LineMapsPage'),
-            },
-            {
-              path: '',
-              redirect: { name: 'google-maps' },
-            },
+            }
           ],
         },
         {
+          name: 'pages',
           path: 'pages',
           component: EmptyParentComponent,
           children: [

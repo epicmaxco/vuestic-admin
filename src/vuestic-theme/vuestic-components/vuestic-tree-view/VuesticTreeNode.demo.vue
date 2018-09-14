@@ -18,19 +18,19 @@
 </template>
 
 <script>
-  import VuesticTreeNode from './VuesticTreeNode.vue'
+import VuesticTreeNode from './VuesticTreeNode.vue'
 
-  import VuesticCheckbox from '../vuestic-checkbox/VuesticCheckbox'
+import VuesticCheckbox from '../vuestic-checkbox/VuesticCheckbox'
 
-  export default {
-    components: {
-      VuesticTreeNode,
-      VuesticCheckbox,
-    },
-    data () {
-      return {
-        checkboxValue: false,
-      }
-    },
-  }
+export default {
+  components: {
+    VuesticTreeNode,
+    VuesticCheckbox,
+  },
+  data () {
+    return {
+      checkboxValue: false,
+    }
+  },
+}
 </script>

@@ -48,9 +48,9 @@
 </template>
 
 <script>
-  import VuesticCard from './VuesticCard.vue'
+import VuesticCard from './VuesticCard.vue'
 
-  export default {
-    components: { VuesticCard },
-  }
+export default {
+  components: { VuesticCard },
+}
 </script>
