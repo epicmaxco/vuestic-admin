@@ -98,7 +98,7 @@
           </span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'icons' }">
+          :to="{ name: 'icon-sets' }">
           <span slot="title">
             <span>{{ $t('menu.icons') }}</span>
           </span>

@@ -16,8 +16,8 @@
       </router-link>
     </div>
     <div class="vuestic-breadcrumbs__help-section">
-      <a :href="currentRoute" class="btn btn-sm btn-primary">
-        Docs
+      <a :href="currentRoute" class="btn btn-micro btn-info">
+        <span class="vuestic-icon vuestic-icon-files"></span>
       </a>
     </div>
   </div>
@@ -90,6 +90,11 @@ export default {
         color: $brand-primary;
         font-size: $breadcrumbs-arrow-font;
         font-family: FontAwesome;
+      }
+    }
+    .vuestic-breadcrumbs__help-section {
+      .vuestic-icon {
+        font-size: 20px;
       }
     }
   }
