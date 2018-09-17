@@ -131,68 +131,68 @@
 </template>
 
 <script>
-  import ToastPositionPicker from './ToastPositionPicker.vue'
+import ToastPositionPicker from './ToastPositionPicker.vue'
 
-  export default {
-    name: 'notifications',
+export default {
+  name: 'notifications',
 
-    components: {ToastPositionPicker},
+  components: {ToastPositionPicker},
 
-    data () {
-      return {
-        popoverTitle: 'Hey!',
-        popoverText: 'This popover is amazing',
-        popoverIcon: 'fa-image',
-        isPopoverDisabled: false,
-        topTooltipOptions: {
-          content: 'Top tooltip text',
-          placement: 'top'
-        },
-        leftTooltipOptions: {
-          content: 'Left tooltip text',
-          placement: 'left'
-        },
-        rightTooltipOptions: {
-          content: 'Right tooltip text',
-          placement: 'right'
-        },
-        bottomTooltipOptions: {
-          content: 'Bottom tooltip text',
-          placement: 'bottom'
-        },
-        toastText: 'This toast is awesome!',
-        toastDuration: 2500,
-        toastIcon: 'fa-star-o',
-        toastPosition: 'bottom-right',
-        isToastFullWidth: false
-      }
-    },
-
-    computed: {
-      isToastContentPresent () {
-        return !!(this.toastText || this.toastIcon)
-      }
-    },
-
-    methods: {
-      checkPopoverContents () {
-        if (!(this.popoverTitle || this.popoverText || this.popoverIcon)) {
-          this.isPopoverDisabled = true
-        } else {
-          this.isPopoverDisabled = false
-        }
+  data () {
+    return {
+      popoverTitle: 'Hey!',
+      popoverText: 'This popover is amazing',
+      popoverIcon: 'fa-image',
+      isPopoverDisabled: false,
+      topTooltipOptions: {
+        content: 'Top tooltip text',
+        placement: 'top'
       },
+      leftTooltipOptions: {
+        content: 'Left tooltip text',
+        placement: 'left'
+      },
+      rightTooltipOptions: {
+        content: 'Right tooltip text',
+        placement: 'right'
+      },
+      bottomTooltipOptions: {
+        content: 'Bottom tooltip text',
+        placement: 'bottom'
+      },
+      toastText: 'This toast is awesome!',
+      toastDuration: 2500,
+      toastIcon: 'fa-star-o',
+      toastPosition: 'bottom-right',
+      isToastFullWidth: false
+    }
+  },
 
-      launchToast () {
-        this.showToast(this.toastText, {
-          icon: this.toastIcon,
-          position: this.toastPosition,
-          duration: this.toastDuration,
-          fullWidth: this.isToastFullWidth
-        })
+  computed: {
+    isToastContentPresent () {
+      return !!(this.toastText || this.toastIcon)
+    }
+  },
+
+  methods: {
+    checkPopoverContents () {
+      if (!(this.popoverTitle || this.popoverText || this.popoverIcon)) {
+        this.isPopoverDisabled = true
+      } else {
+        this.isPopoverDisabled = false
       }
+    },
+
+    launchToast () {
+      this.showToast(this.toastText, {
+        icon: this.toastIcon,
+        position: this.toastPosition,
+        duration: this.toastDuration,
+        fullWidth: this.isToastFullWidth
+      })
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>

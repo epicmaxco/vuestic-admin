@@ -180,17 +180,17 @@
 </template>
 
 <script>
-  import {mapGetters} from 'vuex'
+import {mapGetters} from 'vuex'
 
-  export default {
-    name: 'buttons',
+export default {
+  name: 'buttons',
 
-    computed: {
-      ...mapGetters([
-        'sidebarOpened'
-      ])
-    }
+  computed: {
+    ...mapGetters([
+      'sidebarOpened'
+    ])
   }
+}
 </script>
 
 <style lang="scss">

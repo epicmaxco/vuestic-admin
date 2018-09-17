@@ -1,20 +1,12 @@
-html {
-  min-height: 100%;
-}
+// Global utility classes.
+// NOTE Try your best not to use them. Seek a chance to destroy.
 
-body {
-  position: relative;
-}
+@import "typography";
 
-//Util classes
 .ellipsis {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-}
-
-.widget-viewport-height {
-  height: $widget-viewport-height;
 }
 
 .none {

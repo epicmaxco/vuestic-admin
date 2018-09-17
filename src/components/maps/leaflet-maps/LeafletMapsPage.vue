@@ -1,9 +1,12 @@
 <template>
-  <div class="google-maps-page">
+  <div class="leaflet-maps-page">
     <div class="row">
       <div class="col-md-12">
-        <vuestic-widget class="widget-viewport-height" headerText="Leaflet Maps">
-          <leaflet-map></leaflet-map>
+        <vuestic-widget
+          class="leaflet-maps-page__widget"
+          headerText="Leaflet Maps"
+        >
+          <leaflet-map/>
         </vuestic-widget>
       </div>
     </div>
@@ -11,16 +14,20 @@
 </template>
 
 <script>
-  import LeafletMap from './LeafletMap'
+import LeafletMap from './LeafletMap'
 
-  export default {
-    name: 'leaflet-maps-page',
-    components: {
-      LeafletMap
-    }
-  }
+export default {
+  name: 'leaflet-maps-page',
+  components: {
+    LeafletMap,
+  },
+}
 </script>
 
 <style lang="scss">
-
+.leaflet-maps-page {
+  &__widget {
+    height: 70vh;
+  }
+}
 </style>

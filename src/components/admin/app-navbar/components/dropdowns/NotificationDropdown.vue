@@ -19,31 +19,28 @@
 </template>
 
 <script>
-  import VuesticIconNotification
-    from '../../../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconCollapsed'
-  export default {
-    name: 'notification-dropdown',
-    components: {VuesticIconNotification},
-    props: {
-      options: {
-        type: Array,
-        default: () => [
-          {
-            name: 'sentMessage',
-            details: { name: 'Vasily S' }
-          },
-          {
-            name: 'uploadedZip',
-            details: { name: 'Oleg M', type: 'typography component' }
-          },
-          {
-            name: 'startedTopic',
-            details: { name: 'Andrei H' }
-          }
-        ],
-      }
-    },
-  }
+export default {
+  name: 'notification-dropdown',
+  props: {
+    options: {
+      type: Array,
+      default: () => [
+        {
+          name: 'sentMessage',
+          details: { name: 'Vasily S' }
+        },
+        {
+          name: 'uploadedZip',
+          details: { name: 'Oleg M', type: 'typography component' }
+        },
+        {
+          name: 'startedTopic',
+          details: { name: 'Andrei H' }
+        }
+      ],
+    }
+  },
+}
 </script>
 
 <style lang="scss">

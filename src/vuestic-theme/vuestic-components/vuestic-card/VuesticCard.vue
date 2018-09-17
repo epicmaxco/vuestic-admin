@@ -23,50 +23,50 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-card',
-    props: {
-      image: {
-        type: String,
-        default: '',
-      },
-      imageAlt: {
-        type: String,
-        default: '',
-      },
-      stripe: {
-        type: String,
-        default: '',
-      },
-      titleOnImage: {
-        type: Boolean,
-        default: false,
-      },
-      overlay: {
-        type: Boolean,
-        default: false,
-      },
-      theme: {
-        type: String,
-        default: 'base',
-      },
+export default {
+  name: 'vuestic-card',
+  props: {
+    image: {
+      type: String,
+      default: '',
     },
-    computed: {
-      computedClass () {
-        const computedClass = []
-        if (this.stripe) {
-          computedClass.push(`vuestic-card--stripe-${this.stripe}`)
-        }
-        if (this.theme === 'bright') {
-          computedClass.push(`vuestic-card--theme-bright`)
-        }
-        if (this.theme === 'dark') {
-          computedClass.push(`vuestic-card--theme-dark`)
-        }
-        return computedClass
-      },
+    imageAlt: {
+      type: String,
+      default: '',
     },
-  }
+    stripe: {
+      type: String,
+      default: '',
+    },
+    titleOnImage: {
+      type: Boolean,
+      default: false,
+    },
+    overlay: {
+      type: Boolean,
+      default: false,
+    },
+    theme: {
+      type: String,
+      default: 'base',
+    },
+  },
+  computed: {
+    computedClass () {
+      const computedClass = []
+      if (this.stripe) {
+        computedClass.push(`vuestic-card--stripe-${this.stripe}`)
+      }
+      if (this.theme === 'bright') {
+        computedClass.push(`vuestic-card--theme-bright`)
+      }
+      if (this.theme === 'dark') {
+        computedClass.push(`vuestic-card--theme-dark`)
+      }
+      return computedClass
+    },
+  },
+}
 </script>
 
 <style lang="scss">
@@ -91,23 +91,6 @@
     box-sizing: border-box;
     box-shadow: $shadow;
     word-wrap: break-word;
-    width: calc(33% - #{$singleGutter} * 2);
-
-    @include media-breakpoint-only(xl) {
-      width: calc(25% - #{$singleGutter} * 2);
-    }
-
-    @include media-breakpoint-only(lg) {
-      width: calc(33.3% - #{$singleGutter} * 2);
-    }
-
-    @include media-breakpoint-only(sm) {
-      width: calc(50% - #{$singleGutter} * 2);
-    }
-
-    @include media-breakpoint-only(xs) {
-      width: calc(100% - #{$singleGutter} * 2);
-    }
 
     .card-img-top {
       border-radius: 0;

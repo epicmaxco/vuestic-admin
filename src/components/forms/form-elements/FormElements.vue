@@ -403,75 +403,75 @@
 </template>
 
 <script>
-  import CountriesList from 'data/CountriesList'
+import CountriesList from 'data/CountriesList'
 
-  export default {
-    name: 'form-elements',
-    computed: {
-      datePickerDisabled: () => [date => !(date.getDate() % 5)],
-      isSuccessfulEmailValid () {
-        let isValid = false
-        if (this.formFields.successfulEmail) {
-          isValid = this.formFields.successfulEmail.validated && this.formFields.successfulEmail.valid
-        }
-        return isValid
-      },
-    },
-    data () {
-      return {
-        isMale: true,
-        countriesList: CountriesList,
-        chosenCountry: '',
-        clearableText: '',
-        successfulEmail: 'andrei@dreamsupport.io',
-        wrongEmail: 'andrei@dreamsupport',
-        simpleOptions: [
-          {
-            id: 1,
-            description: 'First option',
-          },
-          {
-            id: 2,
-            description: 'Second option',
-          },
-          {
-            id: 3,
-            description: 'Third option',
-          },
-        ],
-        simpleSelectModel: '',
-        multiSelectModel: [],
-        multiSelectCountriesModel: [],
-        radioModel: 'option1',
-        radioDisabledModel: 'option4',
-        checkboxOneModel: false,
-        checkboxTwoModel: true,
-        checkboxThreeModel: false,
-        checkboxFourModel: true,
-        checkboxFiveModel: false,
-        checkboxSixModel: true,
-        checkboxSevenModel: false,
-        checkboxEightModel: true,
-        datepicker: {
-          simple: '2018-05-09',
-          time: '2018-05-08 14:10',
-          range: '2018-05-08 to 2018-05-23',
-          disabled: '2018-05-09',
-          multiple: '2018-04-25, 2018-04-27',
-        },
+export default {
+  name: 'form-elements',
+  computed: {
+    datePickerDisabled: () => [date => !(date.getDate() % 5)],
+    isSuccessfulEmailValid () {
+      let isValid = false
+      if (this.formFields.successfulEmail) {
+        isValid = this.formFields.successfulEmail.validated && this.formFields.successfulEmail.valid
       }
+      return isValid
     },
-    methods: {
-      clear (field) {
-        this[field] = ''
+  },
+  data () {
+    return {
+      isMale: true,
+      countriesList: CountriesList,
+      chosenCountry: '',
+      clearableText: '',
+      successfulEmail: 'andrei@dreamsupport.io',
+      wrongEmail: 'andrei@dreamsupport',
+      simpleOptions: [
+        {
+          id: 1,
+          description: 'First option',
+        },
+        {
+          id: 2,
+          description: 'Second option',
+        },
+        {
+          id: 3,
+          description: 'Third option',
+        },
+      ],
+      simpleSelectModel: '',
+      multiSelectModel: [],
+      multiSelectCountriesModel: [],
+      radioModel: 'option1',
+      radioDisabledModel: 'option4',
+      checkboxOneModel: false,
+      checkboxTwoModel: true,
+      checkboxThreeModel: false,
+      checkboxFourModel: true,
+      checkboxFiveModel: false,
+      checkboxSixModel: true,
+      checkboxSevenModel: false,
+      checkboxEightModel: true,
+      datepicker: {
+        simple: '2018-05-09',
+        time: '2018-05-08 14:10',
+        range: '2018-05-08 to 2018-05-23',
+        disabled: '2018-05-09',
+        multiple: '2018-04-25, 2018-04-27',
       },
+    }
+  },
+  methods: {
+    clear (field) {
+      this[field] = ''
     },
-    created () {
-      this.$nextTick(() => {
-        this.$validator.validateAll()
-      })
-    },
-  }
+  },
+  created () {
+    this.$nextTick(() => {
+      this.$validator.validateAll()
+    })
+  },
+}
 </script>
 
 <style lang="scss">
