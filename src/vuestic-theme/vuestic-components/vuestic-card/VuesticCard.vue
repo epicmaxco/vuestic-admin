@@ -91,23 +91,6 @@ export default {
     box-sizing: border-box;
     box-shadow: $shadow;
     word-wrap: break-word;
-    width: calc(33% - #{$singleGutter} * 2);
-
-    @include media-breakpoint-only(xl) {
-      width: calc(25% - #{$singleGutter} * 2);
-    }
-
-    @include media-breakpoint-only(lg) {
-      width: calc(33.3% - #{$singleGutter} * 2);
-    }
-
-    @include media-breakpoint-only(sm) {
-      width: calc(50% - #{$singleGutter} * 2);
-    }
-
-    @include media-breakpoint-only(xs) {
-      width: calc(100% - #{$singleGutter} * 2);
-    }
 
     .card-img-top {
       border-radius: 0;
