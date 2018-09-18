@@ -15,17 +15,25 @@
 }
 
 //Typography
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  line-height: 1.2;
+}
+
 h1, .h1 {
-  margin-bottom :2.25rem;
+  margin-top: 4.5rem;
+  margin-bottom: 2.25rem;
 }
 h2, .h2 {
-  margin-bottom :2rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
 }
 h3, .h3 {
-  margin-bottom :1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
 }
 h4, .h4 {
-  margin-bottom :1rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .blockquote {
