@@ -12,7 +12,7 @@
                     <div class="input-group">
                       <input id="simple-input" required/>
                       <label class="control-label" for="simple-input">{{'forms.inputs.textInput'
-                      | translate}}</label><i class="bar"></i>
+                        | translate}}</label><i class="bar"></i>
                     </div>
                   </div>
                   <div class="form-group with-icon-right"
@@ -473,10 +473,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-  input[type=checkbox]:disabled + label, input[type=radio]:disabled + label,
-  input[type=checkbox]:disabled, input[type=radio]:disabled {
-    cursor: not-allowed;
-  }
-</style>

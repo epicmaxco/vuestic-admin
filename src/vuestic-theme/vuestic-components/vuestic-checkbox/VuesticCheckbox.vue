@@ -83,6 +83,9 @@ export default {
 
 <style lang="scss">
   .vuestic-checkbox {
-
+    input[type=checkbox]:disabled + label, input[type=radio]:disabled + label,
+    input[type=checkbox]:disabled, input[type=radio]:disabled {
+      cursor: not-allowed;
+    }
   }
 </style>

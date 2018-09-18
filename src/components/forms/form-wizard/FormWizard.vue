@@ -485,16 +485,4 @@ export default {
       }
     }
   }
-
-  .form-wizard-page {
-    .form-group {
-      min-width: 200px;
-      max-width: 360px;
-      width: 80%;
-    }
-  }
-
-  .form-wizard-tab-content-text {
-    width: 100%; // IE11 only
-  }
 </style>
