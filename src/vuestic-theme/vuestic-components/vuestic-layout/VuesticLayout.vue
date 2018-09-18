@@ -56,7 +56,7 @@ export default {
     .content-wrap {
       margin-left: $content-wrap-ml;
       transition: margin-left 0.3s ease;
-      padding: $layout-padding $layout-padding-right $content-wrap-pb 0;
+      padding: $layout-padding $layout-padding-right 0 0;
 
       .pre-loader {
         position: absolute;
@@ -79,8 +79,6 @@ export default {
       align-items: center;
       padding-top: 25px;
       padding-bottom: $made-by-footer-pb;
-      position: absolute;
-      bottom: 0;
       height: calc(#{$layout-padding} + #{$widget-mb});
       width: 100%;
     }

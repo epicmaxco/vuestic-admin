@@ -1,5 +1,5 @@
 <template>
-  <div class="widget" :class="{'no-header': !headerText}">
+  <div class="widget" :class="{'no-header': !headerText }">
     <div class="widget-header" v-if="headerText">{{headerText}}</div>
     <div class="widget-body" v-if="hasSlotData">
       <slot></slot>

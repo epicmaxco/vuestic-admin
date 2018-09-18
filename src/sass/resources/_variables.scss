@@ -102,7 +102,7 @@ $content-mobile-wrap-pr: 1rem;
 $content-mobile-wrap-pt: 2rem;
 $content-mobile-wrap-pt-fixed-layout: 7rem;
 $content-mobile-wrap-pb: $layout-padding;
-$content-mobile-wrap: $content-mobile-wrap-pt $content-mobile-wrap-pr $content-mobile-wrap-pb $content-mobile-wrap-pl;
+$content-mobile-wrap: $content-mobile-wrap-pt $content-mobile-wrap-pr 0 $content-mobile-wrap-pl;
 $content-mobile-wrap-fixed-layout: $content-mobile-wrap-pt-fixed-layout $content-mobile-wrap-pr $content-mobile-wrap-pb $content-mobile-wrap-pl;
 $content-mobile-wrap-sb-top: calc(#{$top-nav-height} + #{$layout-padding+20}) - 20 px;
 

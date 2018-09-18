@@ -14,9 +14,9 @@ export default {
   @import "sass/main";
 
   body {
-    height: 100%;
+    height: 100vh;
     #app {
-      height: 100%;
+      height: 100vh;
     }
   }
 </style>
