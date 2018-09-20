@@ -21,6 +21,7 @@
 <script>
 export default {
   name: 'notification-dropdown',
+
   props: {
     options: {
       type: Array,
