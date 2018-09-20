@@ -1,6 +1,5 @@
 <template>
-  <span class="header-selector i-menu-expanded"
-       @click="$emit('update:isOpen', !isOpen)"/>
+  <span class="header-selector i-menu-expanded" @click="$emit('update:isOpen', !isOpen)"/>
 </template>
 
 <script>
@@ -20,5 +19,4 @@ export default {
     @include flex-center();
     cursor: pointer;
   }
-
 </style>
