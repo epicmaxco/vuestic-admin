@@ -273,6 +273,20 @@ h4, .h4 {
   }
 }
 
+.table-bordered {
+  td, th {
+    border: 1px solid $table-border-color;
+  }
+}
+
+.table-hover {
+  tbody tr {
+    @include hover {
+      background-color: $table-hover-bg;
+    }
+  }
+}
+
 .table {
 
   thead tr {
@@ -284,7 +298,6 @@ h4, .h4 {
   }
 
   td, th, thead th, thead td {
-    border: none;
     vertical-align: middle !important;
     padding: .5rem;
   }

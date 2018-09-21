@@ -25,54 +25,54 @@
 </template>
 
 <script>
-  export default {
-    name: 'tags',
-    data () {
-      return {
-        tagss: [],
-        tags: [
-          'Ford',
-          'Toyota',
-          'Volkswagen',
-          'Opel',
-          'Honda',
-          'Porsche'
-        ],
-        removableTags: [
-          'Ford',
-          'Toyota',
-          'Volkswagen',
-          'Opel',
-          'Honda',
-          'Porsche'
-        ],
-        coloredTags: [
-          {
-            name: 'Potato',
-            type: 'primary'
-          },
-          {
-            name: 'Tomato',
-            type: 'danger'
-          },
-          {
-            name: 'Sweet corn',
-            type: 'info'
-          },
-          {
-            name: 'Carrot',
-            type: 'dark'
-          },
-          {
-            name: 'Broccoli',
-            type: 'warning'
-          },
-          {
-            name: 'Green bean',
-            type: 'pale'
-          }
-        ]
-      }
+export default {
+  name: 'tags',
+  data () {
+    return {
+      tagss: [],
+      tags: [
+        'Ford',
+        'Toyota',
+        'Volkswagen',
+        'Opel',
+        'Honda',
+        'Porsche'
+      ],
+      removableTags: [
+        'Ford',
+        'Toyota',
+        'Volkswagen',
+        'Opel',
+        'Honda',
+        'Porsche'
+      ],
+      coloredTags: [
+        {
+          name: 'Potato',
+          type: 'primary'
+        },
+        {
+          name: 'Tomato',
+          type: 'danger'
+        },
+        {
+          name: 'Sweet corn',
+          type: 'info'
+        },
+        {
+          name: 'Carrot',
+          type: 'dark'
+        },
+        {
+          name: 'Broccoli',
+          type: 'warning'
+        },
+        {
+          name: 'Green bean',
+          type: 'pale'
+        }
+      ]
     }
   }
+}
 </script>

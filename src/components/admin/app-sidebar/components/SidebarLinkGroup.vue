@@ -2,7 +2,7 @@
   <li class="sidebar-link-group sidebar-link">
     <a href="#"
        target="_self"
-       @click="toggleMenuItem()"
+       @click.stop.prevent="toggleMenuItem()"
        class="sidebar-link__router-link"
        :class="classObject">
       <slot name="title"></slot>
@@ -17,44 +17,44 @@
 </template>
 
 <script>
-  import SidebarLink from './SidebarLink'
-  import Expanding from 'vue-bulma-expanding/src/Expanding'
+import SidebarLink from './SidebarLink'
+import Expanding from 'vue-bulma-expanding/src/Expanding'
 
-  export default {
-    name: 'sidebar-link-group',
-    components: {
-      SidebarLink,
-      Expanding
-    },
-    data () {
-      return {
-        expanded: this.expanded
-      }
-    },
-    mounted () {
-      let linkGroup = this.$refs.linkGroupWrapper
-      if (linkGroup.querySelector('.router-link-active') !== null) {
-        this.expanded = true
-      }
-    },
-    watch: {
-      $route (route) {
-        this.expanded = false
-      }
-    },
-    methods: {
-      toggleMenuItem () {
-        this.expanded = !this.expanded
-      }
-    },
-    computed: {
-      classObject: function () {
-        return {
-          'expanded': this.expanded
-        }
-      },
+export default {
+  name: 'sidebar-link-group',
+  components: {
+    SidebarLink,
+    Expanding
+  },
+  data () {
+    return {
+      expanded: this.expanded
     }
+  },
+  mounted () {
+    let linkGroup = this.$refs.linkGroupWrapper
+    if (linkGroup.querySelector('.router-link-active') !== null) {
+      this.expanded = true
+    }
+  },
+  watch: {
+    $route (route) {
+      this.expanded = false
+    }
+  },
+  methods: {
+    toggleMenuItem () {
+      this.expanded = !this.expanded
+    }
+  },
+  computed: {
+    classObject: function () {
+      return {
+        'expanded': this.expanded
+      }
+    },
   }
+}
 
 </script>
 

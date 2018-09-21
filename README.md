@@ -24,11 +24,25 @@ Check it out [live](https://vuestic.epicmax.co)!
 
 ## Installation
 
+vue-cli3 has to be installed globally. If it's not, do:
+
+```bash
+$ npm install -g @vue/cli
+# OR
+$ yarn global add @vue/cli
+```
+
+You can create vuestic project via installer:
+
 ``` bash
 # create new project via vuestic-installer command.
 $ vuestic myproject
 
-or
+```
+
+or just by cloning repo:  
+
+```
 
 # clone the repo
 $ git clone https://github.com/epicmaxco/vuestic-admin.git myproject
@@ -38,7 +52,7 @@ $ cd myproject
 $ npm install
 
 # serve with hot reload at localhost:8080.
-$ npm run dev
+$ npm run serve
 
 # build for production with minification
 $ npm run build
@@ -67,6 +81,11 @@ Got stuck? Check out our [documentation](https://github.com/epicmaxco/vuestic-ad
 * Toasts, tooltips, popovers,
 * i18n
 * and many more!
+
+## Contributing
+Thanks for all your wonderful PRs, issues and ideas!
+
+[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/0)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/0)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/1)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/1)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/2)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/2)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/3)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/3)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/4)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/4)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/5)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/5)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/6)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/6)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/7)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/7)
 
 ## How can I support developers?
 - Star our GitHub repo :star:

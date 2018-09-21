@@ -13,39 +13,39 @@
 
 <script>
 
-  import VuesticLayout from '../../vuestic-theme/vuestic-components/vuestic-layout/VuesticLayout'
-  import AppNavbar from './app-navbar/AppNavbar'
-  import AppSidebar from './app-sidebar/AppSidebar'
-  import AppBreadcrumbs from './app-breadcrumbs/AppBreadcrumbs'
-  import Layout from 'vuestic-theme/vuestic-directives/Layout'
-  import {mapGetters} from 'vuex'
+import VuesticLayout from '../../vuestic-theme/vuestic-components/vuestic-layout/VuesticLayout'
+import AppNavbar from './app-navbar/AppNavbar'
+import AppSidebar from './app-sidebar/AppSidebar'
+import AppBreadcrumbs from './app-breadcrumbs/AppBreadcrumbs'
+import Layout from 'vuestic-theme/vuestic-directives/Layout'
+import { mapGetters } from 'vuex'
 
-  export default {
-    name: 'app-layout',
+export default {
+  name: 'app-layout',
 
-    components: {
-      VuesticLayout,
-      AppNavbar,
-      AppSidebar,
-      AppBreadcrumbs
-    },
-    directives: {
-      layout: Layout,
-    },
-    data () {
-      return {
-        opened: true
-      }
-    },
-    methods: {
-      toggleSidebar (opened) {
-        this.opened = opened
-      }
-    },
-    computed: {
-      ...mapGetters([
-        'isLoading'
-      ])
+  components: {
+    VuesticLayout,
+    AppNavbar,
+    AppSidebar,
+    AppBreadcrumbs
+  },
+  directives: {
+    layout: Layout,
+  },
+  data () {
+    return {
+      opened: true
     }
+  },
+  methods: {
+    toggleSidebar (opened) {
+      this.opened = opened
+    }
+  },
+  computed: {
+    ...mapGetters([
+      'isLoading'
+    ])
   }
+}
 </script>

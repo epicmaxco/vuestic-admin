@@ -80,6 +80,12 @@
           </span>
         </sidebar-link>
         <sidebar-link
+          :to="{ name: 'collapse' }">
+          <span slot="title">
+            <span>{{ $t('menu.collapse') }}</span>
+          </span>
+        </sidebar-link>
+        <sidebar-link
           :to="{ name: 'color-pickers' }">
           <span slot="title">
             <span>{{ $t('menu.colorPickers') }}</span>
@@ -98,7 +104,7 @@
           </span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'icons' }">
+          :to="{ name: 'icon-sets' }">
           <span slot="title">
             <span>{{ $t('menu.icons') }}</span>
           </span>

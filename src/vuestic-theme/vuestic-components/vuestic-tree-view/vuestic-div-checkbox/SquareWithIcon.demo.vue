@@ -7,9 +7,9 @@
 </template>
 
 <script>
-  import SquareWithIcon from './SquareWithIcon.vue'
+import SquareWithIcon from './SquareWithIcon.vue'
 
-  export default {
-    components: {SquareWithIcon}
-  }
+export default {
+  components: { SquareWithIcon }
+}
 </script>

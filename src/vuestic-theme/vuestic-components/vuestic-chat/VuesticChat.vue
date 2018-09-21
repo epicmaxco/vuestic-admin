@@ -1,7 +1,12 @@
 <template>
  <div class="vuestic-chat">
    <div class="chat-body" :style="{'height': height}" v-sticky-scroll="{animate: true, duration: 500}">
-     <div class="chat-message" v-for="message in value" :class="{'yours': message.yours, 'alien': !message.yours}">
+     <div
+       class="chat-message"
+       v-for="(message, index) in value"
+       :key="index"
+       :class="{'yours': message.yours, 'alien': !message.yours}"
+     >
         {{message.text}}
      </div>
    </div>
@@ -20,56 +25,54 @@
 </template>
 
 <script>
-  import StickyScroll from 'vuestic-directives/StickyScroll'
+import StickyScroll from 'vuestic-directives/StickyScroll'
 
-  export default {
-    name: 'vuestic-chat',
+export default {
+  name: 'vuestic-chat',
 
-    directives: {StickyScroll},
+  directives: { StickyScroll },
 
-    props: {
-      value: {
-        type: Array,
-        default: []
-      },
-      height: {
-        default: '20rem'
-      }
+  props: {
+    value: {
+      type: Array,
+      default: () => []
     },
-
-    data () {
-      return {
-        inputMessage: ''
-      }
-    },
-
-    methods: {
-      keyHandler (event) {
-        if (event.keyCode === 13) {
-          this.sendMessage()
-        }
-      },
-
-      sendMessage () {
-        if (this.inputMessage) {
-          this.$emit('input', this.value.concat({
-            text: this.inputMessage,
-            yours: true
-          }))
-          this.inputMessage = ''
-        }
-      }
-    },
-
-    mounted () {
-      this.$emit('input', this.value)
+    height: {
+      default: '20rem'
     }
+  },
+
+  data () {
+    return {
+      inputMessage: ''
+    }
+  },
+
+  methods: {
+    keyHandler (event) {
+      if (event.keyCode === 13) {
+        this.sendMessage()
+      }
+    },
+
+    sendMessage () {
+      if (this.inputMessage) {
+        this.$emit('input', this.value.concat({
+          text: this.inputMessage,
+          yours: true
+        }))
+        this.inputMessage = ''
+      }
+    }
+  },
+
+  mounted () {
+    this.$emit('input', this.value)
   }
+}
 </script>
 
 <style lang='scss' scoped>
-  @import '../../../sass/_variables.scss';
-
   $chat-body-min-height: 18.75rem;
   $chat-body-mb: 1.5rem;
   $chat-message-mb: 0.625rem;
@@ -116,6 +119,5 @@
       resize: vertical !important;
     }
   }
-
 
 </style>
