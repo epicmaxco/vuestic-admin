@@ -66,8 +66,6 @@ export default {
 </script>
 
 <style lang='scss'>
-  @import '../../../sass/resources/variables';
-
   .file-upload-list-item {
     & + & {
       margin-top: 0.5rem;

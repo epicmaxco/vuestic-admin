@@ -1,25 +1,2 @@
-// Reset
-@import "reset";
-
-@import "icons/icons";
-
-// Mixins, functions and variables
-@import "resources/resources";
-
-// NOTE We want to dispose of bootstrap styling at some point.
-@import "~bootstrap/scss/bootstrap";
-
-// NOTE We should use our own styles for checkbox
-@import "~awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.scss";
-
-@import "overrides/overrides";
-
-// NOTW We want to dispose of these.
-@import "material-forms";
-
-// Vendor
-@import "~medium-editor/src/sass/medium-editor";
-@import "~flatpickr/dist/flatpickr.css";
-
-@import "utility-global";
+@import "vuestic-sass/vuestic-styles";
 

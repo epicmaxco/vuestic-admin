@@ -61,6 +61,8 @@ export default {
 </script>
 
 <style lang="scss">
+  @import "~medium-editor/src/sass/medium-editor";
+
   .vuestic-medium-editor {
     &:focus {
       outline: none;

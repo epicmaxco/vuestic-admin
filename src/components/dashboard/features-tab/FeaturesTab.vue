@@ -5,19 +5,19 @@
       <div class="overview-col">
         <div class="overview-item">
           <div class="overview-icon-container">
-            <i class="i-vuestic-vue"></i>
+            <vuestic-icon-vue/>
           </div>
           Built with Vue.js framework
         </div>
         <div class="overview-item">
           <div class="overview-icon-container">
-            <i class="i-vuestic-free"></i>
+            <vuestic-icon-free/>
           </div>
           Absolutely free for everyone
         </div>
         <div class="overview-item">
           <div class="overview-icon-container">
-            <i class="i-vuestic-fresh"></i>
+            <vuestic-icon-fresh/>
           </div>
           Fresh and crisp design
         </div>
@@ -26,19 +26,19 @@
       <div class="overview-col">
         <div class="overview-item">
           <div class="overview-icon-container">
-            <i class="i-vuestic-responsive"></i>
+            <vuestic-icon-responsive/>
           </div>
           Responsive and optimized for mobile
         </div>
         <div class="overview-item">
           <div class="overview-icon-container">
-            <i class="i-vuestic-rich"></i>
+            <vuestic-icon-rich/>
           </div>
           Tons of useful components
         </div>
         <div class="overview-item">
           <div class="overview-icon-container">
-            <i class="i-vuestic-clean-code"></i>
+            <vuestic-icon-clean-code/>
           </div>
           Completely jQuery free
         </div>
@@ -48,8 +48,27 @@
 </template>
 
 <script>
+import VuesticIconVue
+  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconVue'
+import VuesticIconFree
+  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconFree'
+import VuesticIconFresh
+  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconFresh'
+import VuesticIconResponsive
+  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconResponsive'
+import VuesticIconRich
+  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconRich'
+import VuesticIconCleanCode
+  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconCleanCode'
+
 export default {
-  name: 'features-tab'
+  name: 'features-tab',
+  components: { VuesticIconVue,
+    VuesticIconFree,
+    VuesticIconFresh,
+    VuesticIconResponsive,
+    VuesticIconRich,
+    VuesticIconCleanCode }
 }
 </script>
 
@@ -91,5 +110,4 @@ export default {
     margin-top: 6rem;
     margin-bottom: 1rem;
   }
-
 </style>

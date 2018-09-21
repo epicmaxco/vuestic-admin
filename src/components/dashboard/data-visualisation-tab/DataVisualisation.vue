@@ -56,11 +56,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "../../../sass/resources/variables";
-  @import "~bootstrap/scss/functions";
-  @import "~bootstrap/scss/variables";
-  @import "~bootstrap/scss/mixins/breakpoints";
-
   .chart-container {
     padding: 0 2rem;
     height: 24rem;
