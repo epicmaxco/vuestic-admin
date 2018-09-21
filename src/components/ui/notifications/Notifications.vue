@@ -136,7 +136,7 @@ import ToastPositionPicker from './ToastPositionPicker.vue'
 export default {
   name: 'notifications',
 
-  components: {ToastPositionPicker},
+  components: { ToastPositionPicker },
 
   data () {
     return {

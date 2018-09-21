@@ -18,7 +18,7 @@ import AppNavbar from './app-navbar/AppNavbar'
 import AppSidebar from './app-sidebar/AppSidebar'
 import AppBreadcrumbs from './app-breadcrumbs/AppBreadcrumbs'
 import Layout from 'vuestic-theme/vuestic-directives/Layout'
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'app-layout',
