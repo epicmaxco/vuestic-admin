@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import {color, lightness} from 'kewler'
+import { color, lightness } from 'kewler'
 
 export default {
   name: 'vuestic-pre-loader',
