@@ -2,8 +2,9 @@
   <div class="vuestic-simple-select">
     <div
       class="form-group with-icon-right dropdown select-form-group"
-      v-dropdown.isBlocked
-      :class="{'has-error': hasErrors()}">
+      v-dropdown="{ isBlocked: true, onDropdownClose: onDropdownClose }"
+      :class="{'has-error': hasErrors()}"
+    >
       <div class="input-group dropdown-toggle vuestic-simple-select__dropdown-toggle">
         <div>
           <input
@@ -11,7 +12,8 @@
             :class="{'has-value': !!value}"
             v-model="displayValue"
             :name="name"
-            :options="options">
+            :options="options"
+          >
           <label class="control-label">{{label}}</label><i class="bar"/>
           <small v-show="hasErrors()" class="help text-danger">
             {{ showRequiredError() }}
@@ -133,6 +135,9 @@ export default {
     }
   },
   methods: {
+    onDropdownClose () {
+      this.displayValue = this.value
+    },
     toggleSelection (option) {
       this.isOptionSelected(option) ? this.unselectOption() : this.selectOption(option)
     },
