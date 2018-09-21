@@ -17,7 +17,7 @@ Vue.use(VuesticPlugin)
 Vue.use(YmapPlugin)
 
 // NOTE: workaround for VeeValidate + vuetable-2
-Vue.use(VeeValidate, {fieldsBagName: 'formFields'})
+Vue.use(VeeValidate, { fieldsBagName: 'formFields' })
 
 router.beforeEach((to, from, next) => {
   store.commit('setLoading', true)
