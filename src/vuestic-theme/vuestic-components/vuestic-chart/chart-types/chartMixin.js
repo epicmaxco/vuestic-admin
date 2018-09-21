@@ -1,5 +1,5 @@
 import { mixins } from 'vue-chartjs'
-import DefaultOptions from '../DefaultOptions'
+import { defaultConfig } from '../VuesticChartConfigs'
 
 export const chartMixin = {
   mixins: [mixins.reactiveProp],
@@ -13,8 +13,9 @@ export const chartMixin = {
     }
   },
   computed: {
+    // `this.options` is used by vue-chartjs mixin on refresh.
     options () {
-      return Object.assign({}, DefaultOptions, this.chartOptions)
+      return Object.assign({}, defaultConfig, this.chartOptions)
     }
   },
 }

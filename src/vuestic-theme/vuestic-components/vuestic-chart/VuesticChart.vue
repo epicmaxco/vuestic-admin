@@ -15,15 +15,7 @@ import DonutChart from './chart-types/DonutChart'
 import HorizontalBarChart from './chart-types/HorizontalBarChart'
 import VerticalBarChart from './chart-types/VerticalBarChart'
 import LineChart from './chart-types/LineChart'
-
-const chartMap = {
-  pie: 'pie-chart',
-  donut: 'donut-chart',
-  bubble: 'bubble-chart',
-  line: 'line-chart',
-  'horizontal-bar': 'horizontal-bar-chart',
-  'vertical-bar': 'vertical-bar-chart',
-}
+import { chartTypesMap } from './VuesticChartConfigs'
 
 export default {
   name: 'vuestic-chart',
@@ -32,7 +24,7 @@ export default {
     options: {},
     type: {
       validator (type) {
-        const valid = type in chartMap
+        const valid = type in chartTypesMap
 
         if (!valid) {
           // eslint-disable-next-line no-console
@@ -53,7 +45,7 @@ export default {
   },
   computed: {
     chartComponent () {
-      return chartMap[this.type]
+      return chartTypesMap[this.type]
     },
   },
 }
