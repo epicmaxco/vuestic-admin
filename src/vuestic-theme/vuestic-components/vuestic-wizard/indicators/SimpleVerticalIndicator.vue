@@ -1,6 +1,12 @@
 <template>
   <ul class="wizard-steps horizontal-steps simple-steps" :class="{'completed': completed}">
-    <li v-if="steps" class="wizard-step" :class="{'active': currentStep >= index, 'current': currentStep === index}" :style="{ height: 100/steps.length + '%' }" v-for="(step, index) of steps">
+    <li
+      v-if="steps" class="wizard-step"
+      :class="{'active': currentStep >= index, 'current': currentStep === index}"
+      :style="{ height: 100/steps.length + '%' }"
+      v-for="(step, index) of steps"
+      :key="index"
+    >
       <span class="wizard-step-line"></span>
       <span class="wizard-step-line completed-line"></span>
       <span class="wizard-step-label ellipsis">{{step.label}}</span>
@@ -27,30 +33,27 @@ export default {
   name: 'vuestic-wizard-simple-horizontal-indicator',
   props: {
     steps: {
-      type: Array
+      type: Array,
     },
     step: {},
     currentStep: {
       type: Number,
-      default: 0
+      default: 0,
     },
     completed: {
       type: Boolean,
-      default: false
+      default: false,
     },
     isActive: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-@import "../../../../sass/variables";
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins/breakpoints";
+
 $wizard-steps-height: 100%;
 $wizard-steps-width: 100%;
 $wizard-steps-p-v: 2.5rem;
@@ -59,49 +62,51 @@ $wizard-step-indicator-height: 1rem;
 $wizard-step-label-font-size: $font-size-h4;
 $wizard-step-label-m-l: 2rem;
 $wizard-label-width: 100%;
-.wizard-steps{
-  list-style-type:  none;
+
+.wizard-steps {
+  list-style-type: none;
   padding: $wizard-steps-p-v $wizard-steps-p-h;
-  height:  $wizard-steps-height;
+  height: $wizard-steps-height;
   width: $wizard-steps-width;
-  position:  absolute;
+  position: absolute;
   top: 0;
   bottom: 0;
 }
-.wizard-step{
+
+.wizard-step {
   vertical-align: bottom;
   display: flex;
   flex-direction: row;
   align-items: center;
-  position:  relative;
-  .wizard-step-line{
+  position: relative;
+  .wizard-step-line {
     position: absolute;
-    height:  100%;
-    width:  2px;
-    left:  0;
+    height: 100%;
+    width: 2px;
+    left: 0;
     background-color: $lighter-gray;
     transition: background-color 300ms linear;
     &.completed-line {
       display: none;
     }
   }
-  .wizard-step-indicator{
+  .wizard-step-indicator {
     box-sizing: content-box;
-    display:  block;
-    width:  $wizard-step-indicator-height;
-    height:  $wizard-step-indicator-height;
+    display: block;
+    width: $wizard-step-indicator-height;
+    height: $wizard-step-indicator-height;
     background-color: $lighter-gray;
     border-radius: 50%;
-    position:  absolute;
-    left:  0;
-    top: calc(50% - #{$wizard-step-indicator-height}/2);
-    margin-left:  -7px;
-    bottom:  5px;
+    position: absolute;
+    left: 0;
+    top: calc(50% - #{$wizard-step-indicator-height} / 2);
+    margin-left: -7px;
+    bottom: 5px;
     z-index: 1;
     transition: background-color 300ms linear;
   }
-  .wizard-step-label{
-    color:  $lighter-gray;
+  .wizard-step-label {
+    color: $lighter-gray;
     display: inline-block;
     width: $wizard-label-width;
     font-size: $wizard-step-label-font-size;
@@ -125,7 +130,7 @@ $wizard-label-width: 100%;
     }
   }
   &.active {
-    .wizard-step-indicator{
+    .wizard-step-indicator {
       background-color: $brand-primary;
     }
     .wizard-step-line:not(.completed-line), .completed & .wizard-step-line {

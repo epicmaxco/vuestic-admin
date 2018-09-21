@@ -14,7 +14,6 @@
     </div>
     <div class="demo-container__item">
       <div class="form-group">
-
         <div class="input-group">
           <vuestic-date-picker
             id="simple-input-2"
