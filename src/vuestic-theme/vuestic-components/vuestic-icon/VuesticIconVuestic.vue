@@ -22,7 +22,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .vuestic-icon-vuestic {
     display: inline-block;
     width: 129px;

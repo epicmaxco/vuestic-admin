@@ -8,7 +8,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .vuestic-icon-fresh {
     display: inline-block;
     width: 51px;

@@ -2,7 +2,6 @@
   <svg class="vuestic-icon-slower" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: sketchtool 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
     <title>67046716-A590-445C-AC65-1EEF69089C00</title>
-    <desc>Created with sketchtool.</desc>
     <defs></defs>
     <g id="symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
       <g id="icon-slower" fill="#34495E">
@@ -23,7 +22,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .vuestic-icon-slower {
     width: 24px;
     height: 24px;
