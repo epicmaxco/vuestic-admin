@@ -60,11 +60,11 @@ export default {
           displayName: 'menu.buttons'
         },
         {
-          path: 'collapse',
+          name: 'collapse',
           displayName: 'menu.collapse'
         },
         {
-          path: 'color-pickers',
+          name: 'color-pickers',
           displayName: 'menu.colorPickers'
         },
         {
@@ -134,7 +134,7 @@ export default {
         },
         {
           name: 'bubble-maps',
-          displayName: 'Bubble Maps',
+          displayName: 'Bubble Maps'
         },
         {
           name: 'line-maps',

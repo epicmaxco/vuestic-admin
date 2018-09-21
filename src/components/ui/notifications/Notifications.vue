@@ -196,11 +196,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-  .toast-position-picker {
-    margin-right: 2rem;
-  }
-
   .toasted-container.sample-toasted-container {
     position: static;
     transform: translateX(0);

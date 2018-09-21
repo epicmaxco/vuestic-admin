@@ -18,13 +18,12 @@
       <div class="wizard-body-step"
            v-for="(step, index) in steps"
            :key="index"
-           v-show="isStepShown(step)"
-      >
-        <slot :name="step.slot" class="step-content"></slot>
+           v-show="isStepShown(step)">
+        <slot :name="step.slot"></slot>
       </div>
 
       <div class="wizard-body-step" v-show="wizardCompleted">
-        <slot :name="wizardCompletedSlotName" class="step-content"></slot>
+        <slot :name="wizardCompletedSlotName"></slot>
       </div>
 
       <div class="wizard-body-actions" v-if="!wizardCompleted">
@@ -199,6 +198,11 @@ $wizard-body-step-item-margin-bottom: $wizard-body-step-v-padding;
     > *:last-child {
       margin-bottom: 0;
     }
+    .form-group {
+      min-width: 200px;
+      max-width: 360px;
+      width: 80%;
+    }
   }
 }
 
@@ -209,8 +213,30 @@ $wizard-body-step-item-margin-bottom: $wizard-body-step-v-padding;
   flex-wrap: wrap;
   align-items: baseline;
 
-  .btn-container {
-    margin: $wizard-body-step-item-margin-bottom $wizard-body-step-item-margin-bottom/2 0 $wizard-body-step-item-margin-bottom/2;
+  .wizard-body{
+    position: relative;
+  }
+
+  .wizard-body-step {
+    > * {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      > * {
+        margin-bottom: $wizard-body-step-item-margin-bottom;
+      }
+
+      > *:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    width: 100%; // IE11 only
+
+    .btn-container {
+      margin: $wizard-body-step-item-margin-bottom $wizard-body-step-item-margin-bottom/2 0 $wizard-body-step-item-margin-bottom/2;
+    }
   }
 }
 

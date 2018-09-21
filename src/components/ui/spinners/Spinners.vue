@@ -127,18 +127,6 @@ export default {
 <style lang="scss">
 
 .spinners {
-  &__customization {
-
-  }
-
-  &__widget {
-
-  }
-
-  &__color-picker {
-
-  }
-
   @include media-breakpoint-down(xs) {
     &__duration-picker {
       margin-top: 30px;
