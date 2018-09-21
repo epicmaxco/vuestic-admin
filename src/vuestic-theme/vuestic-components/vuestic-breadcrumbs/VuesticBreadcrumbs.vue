@@ -1,19 +1,25 @@
 <template>
   <div class="vuestic-breadcrumbs">
-    <router-link
-      class="vuestic-breadcrumbs__item"
-      :to="{ path: breadcrumbs.root.name }"
-    >
-      {{ $t(breadcrumbs.root.displayName) }}
-    </router-link>
-    <router-link
-      v-for="(item, index) in displayedCrumbs"
-      :to="{ name: item.name }"
-      :key="index"
-      class="vuestic-breadcrumbs__item"
-      :class="{ disabled: item.disabled }">
-      {{ $t(item.displayName) }}
-    </router-link>
+    <div class="vuestic-breadcrumbs__nav-section">
+      <router-link
+        class="vuestic-breadcrumbs__nav-section-item"
+        :to="{ path: breadcrumbs.root.name }">
+        {{ $t(breadcrumbs.root.displayName) }}
+      </router-link>
+      <router-link
+        v-for="(item, index) in displayedCrumbs"
+        :to="{ name: item.name }"
+        :key="index"
+        class="vuestic-breadcrumbs__nav-section-item"
+        :class="{ disabled: item.disabled }">
+        {{ $t(item.displayName) }}
+      </router-link>
+    </div>
+    <div class="vuestic-breadcrumbs__help-section">
+      <a :href="currentRoute" class="btn btn-micro btn-info">
+        <span class="vuestic-icon vuestic-icon-files"></span>
+      </a>
+    </div>
   </div>
 </template>
 
@@ -36,6 +42,9 @@ export default {
     displayedCrumbs () {
       return this.findInNestedByName(this.breadcrumbs.routes, this.currentPath)
     },
+    currentRoute () {
+      return this.$route.meta.wikiLink || 'https://github.com/epicmaxco/vuestic-admin/wiki'
+    }
   },
   methods: {
     findInNestedByName (array, name) {
@@ -48,39 +57,45 @@ export default {
             return [...a]
           }
         }
+        return null
       }
-      return null
-    },
-  },
+    }
+  }
 }
 </script>
 
 <style lang='scss'>
-.vuestic-breadcrumbs {
-  height: $breadcrumbs-height;
-  display: flex;
-  align-items: center;
-  .vuestic-breadcrumbs__item {
-    color: $text-gray;
-    &:hover {
-      color: $brand-primary;
+  .vuestic-breadcrumbs {
+    min-height: $breadcrumbs-height;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .vuestic-breadcrumbs__nav-section-item {
+      color: $text-gray;
+      &:hover {
+        color: $brand-primary;
+      }
+      text-transform: capitalize;
+      &.disabled {
+        pointer-events: none;
+      }
+      &:last-child::after {
+        display: none;
+      }
+      &::after {
+        padding: 0 5px;
+        display: inline-block;
+        content: $breadcrumbs-arrow-content;
+        vertical-align: middle;
+        color: $brand-primary;
+        font-size: $breadcrumbs-arrow-font;
+        font-family: FontAwesome;
+      }
     }
-    text-transform: capitalize;
-    &.disabled {
-      pointer-events: none;
-    }
-    &:last-child::after {
-      display: none;
-    }
-    &::after {
-      padding: 0 5px;
-      display: inline-block;
-      content: $breadcrumbs-arrow-content;
-      vertical-align: middle;
-      color: $brand-primary;
-      font-size: $breadcrumbs-arrow-font;
-      font-family: FontAwesome;
+    .vuestic-breadcrumbs__help-section {
+      .vuestic-icon {
+        font-size: 20px;
+      }
     }
   }
-}
 </style>
