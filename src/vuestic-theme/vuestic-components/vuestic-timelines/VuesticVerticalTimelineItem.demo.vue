@@ -1,8 +1,43 @@
 <template>
   <div class="demo-container">
-    <div class="demo-container__item" style="overflow: hidden">
+    <div class="demo-container__item">
       <vuestic-vertical-timeline-item
         date="March 20 16:04"
+      >
+        <span slot="date">{{ verticalCardDateFirst }}</span>
+        <span slot="content">{{ verticalCardContentFirst }}</span>
+      </vuestic-vertical-timeline-item>
+      <vuestic-vertical-timeline-item
+        type="label"
+        date="March 20 16:04"
+      >
+        <span slot="date">{{ verticalCardDateFirst }}</span>
+        <span slot="content">{{ verticalCardContentFirst }}</span>
+      </vuestic-vertical-timeline-item>
+      <vuestic-vertical-timeline-item
+        type="centered"
+        date="March 20 16:04"
+      >
+        <span slot="date">{{ verticalCardDateFirst }}</span>
+        <span slot="content">{{ verticalCardContentFirst }}</span>
+      </vuestic-vertical-timeline-item>
+    </div>
+
+    <div class="demo-container__item">
+      <vuestic-vertical-timeline-item
+        label="March 20 16:04"
+      >
+        <span slot="date">{{ verticalCardDateFirst }}</span>
+        <span slot="content">{{ verticalCardContentFirst }}</span>
+      </vuestic-vertical-timeline-item>
+      <vuestic-vertical-timeline-item
+        label="March 20 16:04"
+      >
+        <span slot="date">{{ verticalCardDateFirst }}</span>
+        <span slot="content">{{ verticalCardContentFirst }}</span>
+      </vuestic-vertical-timeline-item>
+      <vuestic-vertical-timeline-item
+        label="March 20 16:04"
       >
         <span slot="date">{{ verticalCardDateFirst }}</span>
         <span slot="content">{{ verticalCardContentFirst }}</span>
@@ -22,10 +57,9 @@ export default {
   },
   data () {
     return {
-      VerticalCardDateFirst: 'April 10 15:00',
+      verticalCardDateFirst: 'April 10 15:00',
       verticalCardContentFirst: 'The unique stripes of zebras make them one of the animals most familiar to people.',
     }
   }
 }
 </script>
-

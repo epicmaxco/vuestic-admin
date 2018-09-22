@@ -1,6 +1,8 @@
 <template>
-  <div class="vuestic-card card"
-       :class="computedClass">
+  <div
+    class="vuestic-card card"
+    :class="computedClass"
+  >
     <template v-if="image">
       <img v-if="!titleOnImage" class="card-img-top" :src="image" :alt="imageAlt">
       <div class="vuestic-card__image-container" v-if="titleOnImage">

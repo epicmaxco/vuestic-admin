@@ -1,29 +1,31 @@
 <template>
   <div
     class="vuestic-vertical-timeline-item"
-    :class="{'reverse': type==='centered'}"
   >
     <div
-      v-if="type==='label' || type==='centered'"
+      v-if="type === 'label' || type === 'centered'"
       class="vuestic-vertical-timeline-item__date"
-      :class="{'reverse':type==='centered'}"
+      :class="{'reverse': type === 'centered'}"
     >
       {{ date }}
     </div>
     <div class="vuestic-vertical-timeline-item__line">
-      <simple-vertical-indicator
-        class="vuestic-vertical-timeline-item__indicator"
-        :isActive="isActive"
-      />
+      |
+      O
+      |
     </div>
     <div class="vuestic-vertical-timeline-item__content">
       <vuestic-card
         class="vuestic-vertical-timeline-item__card"
         :theme="theme"
-        :class="{'vuestic-card--stripe-success': theme==='base'}"
+        :class="{'vuestic-card--stripe-success': theme === 'base'}"
       >
-        <span v-if="type==='simple' " class="vuestic-vertical-timeline-item__date" slot="title"> <slot name="date"/> </span>
-        <span v-if="type!=='simple' " class="vuestic-vertical-timeline-item__date" slot="title"> <slot name="title"/> </span>
+        <span v-if="type === 'simple' " class="vuestic-vertical-timeline-item__date" slot="title">
+          <slot name="date"/>
+        </span>
+        <span v-if="type !== 'simple' " class="vuestic-vertical-timeline-item__date" slot="title">
+          <slot name="title"/>
+        </span>
         <slot name="content"/>
       </vuestic-card>
     </div>
@@ -37,23 +39,23 @@ import SimpleVerticalIndicator
 export default {
   name: 'vuestic-vertical-timeline-item',
   components: {
-    SimpleVerticalIndicator
+    SimpleVerticalIndicator,
   },
   props: {
     date: {},
     type: {
       type: String,
-      validator: (val) => ['label', 'simple', 'centered'].includes(val),
-      default: 'simple'
+      validator: (val) => ['simple', 'label'].includes(val),
+      default: 'simple',
     },
     isActive: {
       type: Boolean,
-      default: false
+      default: false,
     },
     theme: {
       type: String,
-      default: 'base'
-    }
+      default: 'base',
+    },
   },
 }
 </script>
@@ -63,29 +65,10 @@ $line-width: 40px;
 
 .vuestic-vertical-timeline-item {
   display: flex;
-  max-width: 700px;
-  &.reverse {
-    @media(min-width: 900px) {
-      flex-direction: row-reverse;
-    }
-  }
   &__date {
-    &.reverse {
-      @media(min-width: 900px) {
-        padding-left: 0;
-      }
-      @media (min-width: 901px) {
-        text-align: left;
-      }
-    }
-    padding-top: 5%;
-    flex: 1 1 calc(17rem + 8px);
-    text-align: end;
-    font-family: SourceSansPro;
-    font-size: $font-size-root;
-    @include media-breakpoint-down(xs) {
-      padding-left: 0;
-    }
+    padding-top: 2rem;
+    flex: 0 1;
+    white-space: nowrap;
   }
   &__line {
     @include flex-center();

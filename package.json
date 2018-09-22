@@ -37,7 +37,7 @@
     "v-tooltip": "^2.0.0-rc.30",
     "vee-validate": "2.0.9",
     "vue": "^2.5.17",
-    "vue-book": "0.0.14",
+    "vue-book": "0.0.15",
     "vue-bulma-expanding": "0.0.1",
     "vue-chartjs": "^3.4.0",
     "vue-color": "^2.4.6",
