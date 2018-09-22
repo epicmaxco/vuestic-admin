@@ -1,5 +1,5 @@
 <template>
-  <vuestic-dropdown class="language-dropdown" placement="bottom-end">
+  <vuestic-dropdown class="language-dropdown" placement="bottom-end" arrow>
     <span class="flag-icon flag-icon-large"
           slot="dropdown-button"
           :class="flagIconClass(currentLanguage())"

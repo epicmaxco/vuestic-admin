@@ -1,5 +1,5 @@
 <template>
-  <vuestic-dropdown>
+  <vuestic-dropdown arrow>
     <span class="i-nav-messages" slot="dropdown-button"></span>
     <template>
       <a v-for="(option, id) in options"

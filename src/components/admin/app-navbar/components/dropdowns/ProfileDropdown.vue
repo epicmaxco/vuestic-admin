@@ -1,5 +1,5 @@
 <template>
-  <vuestic-dropdown class="profile-dropdown" placement="bottom-end">
+  <vuestic-dropdown class="profile-dropdown" placement="bottom-end" arrow>
     <span slot="dropdown-button" class="profile-section-avatar-container">
       <slot/>
     </span>
