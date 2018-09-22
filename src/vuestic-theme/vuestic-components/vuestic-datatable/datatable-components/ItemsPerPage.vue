@@ -1,5 +1,5 @@
 <template>
-<vuestic-dropdown class="form-group dropdown" v-dropdown.closeOnMenuClick>
+  <vuestic-dropdown class="form-group" placement="bottom">
   <button
     class="btn btn-primary btn-sm dropdown-toggle"
     type="button"

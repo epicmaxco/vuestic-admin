@@ -1,6 +1,6 @@
 <template>
   <div class="dropdown"
-       :class="{'arrow': arrow}"
+       :class="{'dropdown--arrow': arrow}"
   >
     <div class="dropdown-content"
          v-show="show"
@@ -9,7 +9,7 @@
     </div>
     <span
       class="dropdown-button"
-      :class="{'dropdown-button--arrow': show}"
+      :class="{'dropdown-button--arrow': arrow && show}"
       @click="toggleDropdown"
       ref="dropdownButton"
     >
@@ -58,17 +58,33 @@ export default {
       const clickedButton = e.target.closest('.dropdown-button') || e.target
       if (clickedButton !== this.$refs.dropdownButton) {
         this.show = false
-        this.popper.destroy()
         document.removeEventListener('click', this.checkDropdown)
+        setTimeout(() => {
+          this.popper.destroy()
+        }, 10)
       }
-    },
+    }
+  },
+  beforeDestroy () {
+    document.removeEventListener('click', this.checkDropdown)
   }
 }
 </script>
 
 <style lang="scss">
   .dropdown {
-    .dropdown-button {
+    &-content {
+      position: absolute;
+      width: 100%;
+      min-width: 10rem;
+      padding: 0;
+      background-color: $darkest-gray;
+      z-index: 10;
+      margin: 0.75rem;
+      box-shadow: 0 4px 9.6px 0.4px rgba(74,227,135,.5);
+    }
+
+    &-button {
       display: flex;
       height: 100%;
       width: 100%;
@@ -81,7 +97,7 @@ export default {
       outline: none;
     }
 
-    &.arrow {
+    &--arrow {
       .dropdown-button--arrow:after {
         position: absolute;
         width: 0;
@@ -99,7 +115,7 @@ export default {
 
       .dropdown-item {
         &.active {
-          color: #4ae387;
+          color: $vue-green;
         }
       }
     }
@@ -110,7 +126,7 @@ export default {
       bottom: -1.125rem;
       left: calc(50% - 10px);
       border-width: 0 10px 10px 10px;
-      border-color: transparent transparent #333 transparent;
+      border-color: transparent transparent $darkest-gray transparent;
     }
   }
   [x-placement^=left] + .dropdown-button--arrow {
@@ -118,7 +134,7 @@ export default {
       left: -1.125rem;
       top: calc(50% - 10px);
       border-width: 10px 0 10px 10px;
-      border-color: transparent transparent transparent #333;
+      border-color: transparent transparent transparent $darkest-gray;
     }
   }
   [x-placement^=right] + .dropdown-button--arrow {
@@ -126,7 +142,7 @@ export default {
       right: -1.125rem;
       top: calc(50% - 10px);
       border-width: 10px 10px 10px 0;
-      border-color: transparent #333 transparent transparent;
+      border-color: transparent $darkest-gray transparent transparent;
     }
   }
   [x-placement^=top] + .dropdown-button--arrow {
@@ -134,18 +150,7 @@ export default {
       top: -1.125rem;
       left: calc(50% - 10px);
       border-width: 10px 10px 0 10px;
-      border-color: #333 transparent transparent transparent;
+      border-color: $darkest-gray transparent transparent transparent;
     }
-  }
-
-  .dropdown-content {
-    position: absolute;
-    width: 100%;
-    min-width: 10rem;
-    padding: 0;
-    background-color: #333;
-    z-index: 10;
-    margin: 0.75rem;
-    box-shadow: 0 4px 9.6px 0.4px rgba(74,227,135,.5);
   }
 </style>

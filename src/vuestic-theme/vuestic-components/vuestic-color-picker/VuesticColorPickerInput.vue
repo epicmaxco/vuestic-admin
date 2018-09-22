@@ -35,12 +35,12 @@ import VuesticSimplePalettePicker from './VuesticSimplePalettePicker'
 import VuesticSliderColorPicker from './VuesticSliderColorPicker'
 import VuesticColorSquare from './VuesticColorSquare'
 import VuesticColorInput from './VuesticColorInput'
-import VuesticDropdown from './VuesticDropdown'
+import VuesticColorDropdown from './VuesticColorDropdown'
 
 export default {
   name: 'vuestic-color-picker-input',
   components: {
-    VuesticDropdown,
+    VuesticColorDropdown,
     VuesticColorSquare,
     VuesticSimplePalettePicker,
     VuesticAdvancedColorPicker,

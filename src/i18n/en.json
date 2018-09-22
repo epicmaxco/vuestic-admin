@@ -217,7 +217,9 @@
   },
   "dropdown": {
     "default": "Default",
-    "withArrow": "With arrow"
+    "withArrow": "With arrow",
+    "note": "Note",
+    "noteText": "Dropdown will open in the specified direction if there is enough space on the screen, otherwise the direction will automatically change"
   },
   "fileUpload": {
     "advancedMediaGallery": "Advanced, Media Gallery",

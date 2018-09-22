@@ -15,7 +15,8 @@
                         :label="itemsPerPageLabel"
                         :defaultPerPage="defaultPerPageComputed"
                         @items-per-page="onItemsPerPage"
-                        v-show="perPageSelectorShown"></items-per-page>
+                        v-show="perPageSelectorShown"
+        />
       </div>
     </div>
     <div v-show="loading" class="data-table-loading">
