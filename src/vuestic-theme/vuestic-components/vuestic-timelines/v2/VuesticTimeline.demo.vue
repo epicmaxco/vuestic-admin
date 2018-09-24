@@ -7,7 +7,8 @@
           :key="index"
           :active="item"
         >
-          <span>Some text</span>
+          <span slot="before">Before text</span>
+          <span slot="after">After text</span>
         </vuestic-timeline-item>
       </vuestic-timeline>
     </div>
@@ -19,7 +20,12 @@
           :key="index"
           :active="item"
         >
-          <span>Some text</span>
+          <span slot="before">Before text</span>
+          <span slot="after">
+            <div>After text</div>
+            <div>After text</div>
+            <div>After text</div>
+          </span>
         </vuestic-timeline-item>
       </vuestic-timeline>
     </div>

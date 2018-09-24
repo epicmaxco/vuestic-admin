@@ -50,6 +50,11 @@ import VuesticToasted from './vuestic-mixins/VuesticToasted'
 import Dropdown from './vuestic-directives/Dropdown'
 import StickyScroll from './vuestic-directives/StickyScroll'
 
+import VuesticTimeline
+  from './vuestic-components/vuestic-timelines/v2/VuesticTimeline'
+import VuesticTimelineItem
+  from './vuestic-components/vuestic-timelines/v2/VuesticTimelineItem'
+
 const VuesticPlugin = {
   install (Vue, options) {
     [
@@ -84,7 +89,9 @@ const VuesticPlugin = {
       DatePicker,
       Card,
       Tag,
-      TagGroup
+      TagGroup,
+      VuesticTimeline,
+      VuesticTimelineItem,
     ].forEach(component => {
       Vue.component(component.name, component)
     })

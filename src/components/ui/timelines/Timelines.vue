@@ -2,56 +2,145 @@
   <div class="vuestic-timelines">
     <div class="vuestic-timelines__horizontal-simple">
       <vuestic-widget class="no-h-padding" :headerText="$t('timelines.horizontalSimple')">
-        <vuestic-horizontal-timeline>
-          <vuestic-horizontal-timeline-item :date=dateFirst :content=horizontalSimpleContentFirst type="simple" class="active"/>
-          <vuestic-horizontal-timeline-item :date=dateSecond :content=horizontalSimpleContentSecond type="simple" class="active"/>
-          <vuestic-horizontal-timeline-item :date=dateThird :content=horizontalSimpleContentThird type="simple"/>
-        </vuestic-horizontal-timeline>
+        <vuestic-timeline>
+          <vuestic-timeline-item active>
+            <template slot="before">
+              <div class="vuestic-timeline-item__title">
+                February 2018
+              </div>
+              <div class="vuestic-horizontal-timeline-item__text">
+                Pre-sail rate: 50%
+              </div>
+            </template>
+          </vuestic-timeline-item>
+          <vuestic-timeline-item active>
+            <template slot="before">
+              <div class="vuestic-timeline-item__title">
+                March 2018
+              </div>
+              <div class="vuestic-horizontal-timeline-item__text">
+                Pre-sail rate: 40%
+              </div>
+            </template>
+          </vuestic-timeline-item>
+          <vuestic-timeline-item>
+            <template slot="before">
+              <div class="vuestic-timeline-item__title">
+                April 2018
+              </div>
+              <div class="vuestic-horizontal-timeline-item__text">
+                Pre-sail rate: 20%
+              </div>
+            </template>
+          </vuestic-timeline-item>
+        </vuestic-timeline>
       </vuestic-widget>
     </div>
+
     <div class="vuestic-timelines__horizontal-cards">
       <vuestic-widget class="no-h-padding vuestic-timelines__horizontal-cards-widget" :headerText="$t('timelines.horizontalCards')">
-        <vuestic-horizontal-timeline>
-          <vuestic-horizontal-timeline-item date="April 10 15:00" content="Pre-sail rate: 50%" type="card" class="active">
-            <span slot="date">{{ dateFirst}}</span>
-            <span slot="content">{{ contentFirst }}</span>
-          </vuestic-horizontal-timeline-item>
-          <vuestic-horizontal-timeline-item date="April 10 15:00" content="Pre-sail rate: 40%" type="card" class="active">
-            <span slot="date">{{ dateSecond }}</span>
-            <span slot="content">{{ contentSecond }}</span>
-          </vuestic-horizontal-timeline-item>
-          <vuestic-horizontal-timeline-item date="April 10 15:00" content="Pre-sail rate: 20%" type="card">
-            <span slot="date">{{ dateThird }}</span>
-            <span slot="content">{{ contentThird }}</span>
-          </vuestic-horizontal-timeline-item>
-        </vuestic-horizontal-timeline>
+        <vuestic-timeline style="min-width: 700px">
+          <vuestic-timeline-item active>
+            <vuestic-card
+              slot="after"
+              stripe="success"
+            >
+              <template slot="title">{{ dateFirst }}</template>
+              {{ contentFirst }}
+            </vuestic-card>
+          </vuestic-timeline-item>
+          <vuestic-timeline-item active>
+            <vuestic-card
+              slot="after"
+              stripe="success"
+            >
+              <template slot="title">{{ dateSecond }}</template>
+              {{ contentFirst }}
+            </vuestic-card>
+          </vuestic-timeline-item>
+          <vuestic-timeline-item>
+            <vuestic-card
+              slot="after"
+              stripe="success"
+            >
+              <template slot="title">{{ dateThird }}</template>
+              {{ contentThird }}
+            </vuestic-card>
+          </vuestic-timeline-item>
+        </vuestic-timeline>
       </vuestic-widget>
     </div>
+
     <div class="vuestic-timelines__vertical-simple">
       <vuestic-widget class="no-h-padding no-v-padding vuestic-timelines__vertical-cards-widget" :headerText="$t('timelines.verticalSimple')">
-        <vuestic-vertical-timeline class="vuestic-timelines__vertical-simple-indicator col-md-6">
-          <vuestic-vertical-timeline-item :date="dateFirst" class="active">
-            <span slot="date">{{ dateFirst }}</span>
-            <span slot="content">{{ contentFirst }}</span>
-          </vuestic-vertical-timeline-item>
-          <vuestic-vertical-timeline-item :date="dateSecond">
-            <span slot="date">{{ dateSecond }}</span>
-            <span slot="content">{{ contentSecond }}</span>
-          </vuestic-vertical-timeline-item>
-        </vuestic-vertical-timeline>
-        <vuestic-vertical-timeline class="vuestic-timelines__vertical-simple-indicator-dark col-md-6">
-          <vuestic-vertical-timeline-item :date="dateFirst" theme="dark" class="active">
-            <span slot="date">{{ dateFirst }}</span>
-            <span slot="content">{{ contentFirst }}</span>
-          </vuestic-vertical-timeline-item>
-          <vuestic-vertical-timeline-item :date="dateSecond" theme="dark">
-            <span slot="date">{{ dateSecond }}</span>
-            <span slot="content">{{ contentSecond }}</span>
-          </vuestic-vertical-timeline-item>
-        </vuestic-vertical-timeline>
+        <vuestic-timeline  class="vuestic-timelines__vertical-simple-indicator col-md-6" vertical>
+          <vuestic-timeline-item active>
+            <vuestic-card
+              slot="after"
+              stripe="success"
+            >
+              <template slot="title">{{ dateFirst }}</template>
+              {{ contentFirst }}
+            </vuestic-card>
+          </vuestic-timeline-item>
+          <vuestic-timeline-item>
+            <vuestic-card
+              slot="after"
+              stripe="success"
+            >
+              <template slot="title">{{ dateSecond }}</template>
+              {{ contentFirst }}
+            </vuestic-card>
+          </vuestic-timeline-item>
+        </vuestic-timeline>
+        <vuestic-timeline  class="vuestic-timelines__vertical-simple-indicator col-md-6" vertical>
+          <vuestic-timeline-item active>
+            <vuestic-card
+              theme="dark"
+              slot="after"
+            >
+              <template slot="title">{{ dateFirst }}</template>
+              {{ contentFirst }}
+            </vuestic-card>
+          </vuestic-timeline-item>
+          <vuestic-timeline-item>
+            <vuestic-card
+              theme="dark"
+              slot="after"
+            >
+              <template slot="title">{{ dateSecond }}</template>
+              {{ contentFirst }}
+            </vuestic-card>
+          </vuestic-timeline-item>
+        </vuestic-timeline>
       </vuestic-widget>
     </div>
+
     <div class="vuestic-timelines__vertical-label">
+      <vuestic-widget class="no-h-padding no-v-padding vuestic-timelines__vertical-label-cards-widget" :headerText="$t('timelines.verticalLabel')">
+        <vuestic-timeline class="vuestic-timelines__vertical-simple-indicator" vertical>
+          <vuestic-timeline-item active>
+            <slot slot="before">{{ dateFirst }}</slot>
+            <vuestic-card
+              slot="after"
+              stripe="success"
+            >
+              <template slot="title">{{ titleFirst }}</template>
+              {{ contentFirst }}
+            </vuestic-card>
+          </vuestic-timeline-item>
+          <vuestic-timeline-item>
+            <slot slot="before">{{ dateSecond }}</slot>
+            <vuestic-card
+              slot="after"
+              stripe="success"
+            >
+              <template slot="title">{{ titleSecond }}</template>
+              {{ contentFirst }}
+            </vuestic-card>
+          </vuestic-timeline-item>
+        </vuestic-timeline>
+      </vuestic-widget>
       <vuestic-widget class="no-h-padding no-v-padding vuestic-timelines__vertical-label-cards-widget" :headerText="$t('timelines.verticalLabel')">
         <vuestic-vertical-timeline class="vuestic-timelines__vertical-label-indicator">
           <vuestic-vertical-timeline-item :date="dateFirst" type="label" class="active">
@@ -102,7 +191,7 @@ export default {
     VuesticVerticalTimeline,
     VuesticHorizontalTimeline,
     VuesticHorizontalTimelineItem,
-    VuesticVerticalTimelineItem
+    VuesticVerticalTimelineItem,
   },
   data () {
     return {
@@ -119,7 +208,7 @@ export default {
       contentSecond: 'They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands.',
       contentThird: 'However, various anthropogenic factors have had a severe impact on zebra populations',
     }
-  }
+  },
 }
 </script>
 

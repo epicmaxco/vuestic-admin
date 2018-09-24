@@ -37,7 +37,7 @@ export default {
     .vuestic-horizontal-timeline-item__line {
       .vuestic-horizontal-timeline-item__indicator {
         .completed-line {
-          background-color: #DDD
+          background-color: $white;
         }
       }
     }

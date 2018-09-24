@@ -173,6 +173,7 @@
     "buttons": "Buttons",
     "charts": "Charts",
     "colorPickers": "Color Pickers",
+    "collapse": "Collapse",
     "timelines": "Timelines",
     "dashboard": "Dashboard",
     "extra": "Extra",
@@ -199,8 +200,7 @@
     "treeView": "Tree view",
     "dateTimePickers": "Date time pickers",
     "cards": "Cards",
-    "fileUpload": "File Upload",
-    "timelines": "Timelines"
+    "fileUpload": "File Upload"
   },
   "messages": {
     "all": "See all messages",

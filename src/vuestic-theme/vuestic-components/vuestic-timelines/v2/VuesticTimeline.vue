@@ -4,7 +4,11 @@ const getPropsData = (slot) => {
 }
 const getIsActive = (slot) => {
   const propsData = getPropsData(slot)
-  return !!(propsData && propsData.active)
+  if (!propsData) {
+    return false
+  }
+
+  return !!(propsData.active || propsData.active === '') // Check because for boolean empty prop means true
 }
 const processSlots = (context) => {
   const slots = context.slots().default
@@ -19,16 +23,19 @@ const processSlots = (context) => {
     // Pass down vertical prop.
     propsData.vertical = context.props.vertical
 
+    const currentSlotActive = propsData.active || propsData.active === '' // Check because for boolean empty prop means true.
+
     // For inactive slot we props are default.
-    if (!propsData.active) {
+    if (!currentSlotActive) {
       return
     }
 
     if (index === 0) {
-      propsData.activePrevious = propsData.active
+      propsData.activePrevious = currentSlotActive
     }
+
     if (index === slots.length - 1) {
-      propsData.activeNext = propsData.active
+      propsData.activeNext = currentSlotActive
     }
 
     const previousSlotActive = getIsActive(slots[index - 1])
@@ -71,8 +78,13 @@ export default {
 <style lang="scss">
 .vuestic-timeline {
   display: flex;
+  flex-wrap: nowrap;
   &--vertical {
     flex-direction: column;
+  }
+
+  .vuestic-timeline-item {
+    flex: 1;
   }
 }
 </style>

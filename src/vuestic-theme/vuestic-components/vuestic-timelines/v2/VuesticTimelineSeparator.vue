@@ -52,6 +52,7 @@ export default {
     flex-direction: column;
   }
   &__line {
+    transition: background-color ease .5s;
     background-color: $lighter-gray;
     &--active {
       background-color: $vue-green;

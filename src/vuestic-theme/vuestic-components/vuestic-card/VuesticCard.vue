@@ -73,9 +73,6 @@ export default {
 </script>
 
 <style lang="scss">
-$shadow: $widget-box-shadow;
-$singleGutter: #{(19/16)}rem;
-
 // Probably not the right place for this declaration
 
 .card-separator {
@@ -90,11 +87,10 @@ $singleGutter: #{(19/16)}rem;
 }
 
 .vuestic-card {
-  margin: $singleGutter;
   border-radius: 0;
   border: none;
   box-sizing: border-box;
-  box-shadow: $shadow;
+  box-shadow: $widget-box-shadow;
   word-wrap: break-word;
 
   .card-img-top {
