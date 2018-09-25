@@ -1,10 +1,10 @@
 <template>
   <div class="demo-container">
     <div class="demo-container__item">
-      <vuestic-timeline-item>
-        <div slot="left">22 February, 2018</div>
+      <vuestic-timeline-item :isFirst="true" :isLast="true">
+        <div slot="before">22 February, 2018</div>
         <vuestic-card
-          slot="right"
+          slot="after"
           stripe="warning"
           title-on-image
           overlay

@@ -10,6 +10,9 @@ export default {
     active: Boolean,
     activePrevious: Boolean,
     activeNext: Boolean,
+    isFirst: Boolean,
+    isLast: Boolean,
+    inverted: Boolean,
   },
   render (createElement) {
     const props = {
@@ -28,7 +31,8 @@ export default {
       ),
     ]
 
-    if (this.$slots.before) {
+    const before = this.inverted ? this.$slots.after : this.$slots.before
+    if (before) {
       children.unshift(
         createElement(
           'div',
@@ -36,12 +40,13 @@ export default {
             class: `${$root}__before`,
             props,
           },
-          this.$slots.before,
+          before,
         ),
       )
     }
 
-    if (this.$slots.after) {
+    const after = this.inverted ? this.$slots.before : this.$slots.after
+    if (after) {
       children.push(
         createElement(
           'div',
@@ -49,7 +54,7 @@ export default {
             class: `${$root}__after`,
             props,
           },
-          this.$slots.after,
+          after,
         ),
       )
     }
@@ -60,6 +65,8 @@ export default {
         class: {
           [$root]: true,
           [`${$root}--vertical`]: this.vertical,
+          [`${$root}--is-first`]: this.isFirst,
+          [`${$root}--is-last`]: this.isLast,
         },
       },
       children,
@@ -76,13 +83,37 @@ export default {
   flex-direction: column;
   &__before, &__after {
     flex: 1;
-    padding: 0.5rem 1rem;
   }
   &--vertical {
-    .vuestic-timeline-item__before, .vuestic-timeline-item__after {
-      padding: 1rem 0.5rem;
+    .vuestic-timeline-item__before,
+    .vuestic-timeline-item__after {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
     }
-
+    .vuestic-timeline-item__before {
+      padding-right: 1rem;
+    }
+    .vuestic-timeline-item__after {
+      padding-left: 1rem;
+    }
+  }
+  #{&}__before #{&}__text {
+    float: right;
+  }
+  &:not(&--vertical){
+    .vuestic-timeline-item__before,
+    .vuestic-timeline-item__after {
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+    .vuestic-timeline-item__before {
+      padding-bottom: 1rem;
+    }
+    .vuestic-timeline-item__after {
+      padding-top: 1rem;
+    }
+  }
+  &--vertical {
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: stretch;
@@ -93,6 +124,12 @@ export default {
     font-weight: 700;
     font-size: $font-size-mini;
     text-transform: uppercase;
+  }
+  &__description {
+    text-align: center;
+  }
+  &__text {
+    line-height: 1;
   }
 }
 </style>
