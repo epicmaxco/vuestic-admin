@@ -179,23 +179,9 @@
 </template>
 
 <script>
-import VuesticHorizontalTimeline
-  from '../../../vuestic-theme/vuestic-components/vuestic-timelines/VuesticHorizontalTimeline'
-import VuesticHorizontalTimelineItem
-  from '../../../vuestic-theme/vuestic-components/vuestic-timelines/VuesticHorizontalTimelineItem'
-import VuesticVerticalTimelineItem
-  from '../../../vuestic-theme/vuestic-components/vuestic-timelines/VuesticVerticalTimelineItem'
-import VuesticVerticalTimeline
-  from '../../../vuestic-theme/vuestic-components/vuestic-timelines/VuesticVerticalTimeline'
 
 export default {
   name: 'timelines',
-  components: {
-    VuesticVerticalTimeline,
-    VuesticHorizontalTimeline,
-    VuesticHorizontalTimelineItem,
-    VuesticVerticalTimelineItem,
-  },
   data () {
     return {
       dateFirst: 'April 10 15:00',
