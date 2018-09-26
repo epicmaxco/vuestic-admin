@@ -1,7 +1,7 @@
 <template>
   <vuestic-dropdown class="language-dropdown" placement="bottom-end" arrow>
     <span class="flag-icon flag-icon-large"
-          slot="dropdown-button"
+          slot="actuator"
           :class="flagIconClass(currentLanguage())"
     >
     </span>

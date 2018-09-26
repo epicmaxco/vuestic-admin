@@ -1,6 +1,9 @@
 <template>
   <vuestic-dropdown arrow>
-    <span slot="dropdown-button" class="i-nav-notification"></span>
+    <span
+      slot="actuator"
+      class="i-nav-notification"
+    />
     <template>
       <a v-for="(option, id) in options" :key="id" class="dropdown-item" href="#">
           <span class="ellipsis">{{$t(`notifications.${option.name}`,

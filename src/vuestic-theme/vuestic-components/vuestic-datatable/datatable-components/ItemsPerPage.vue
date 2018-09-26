@@ -1,33 +1,31 @@
 <template>
-  <vuestic-dropdown class="form-group" placement="bottom">
+<vuestic-dropdown
+  class="form-group"
+  placement="bottom"
+>
   <button
     class="btn btn-primary btn-sm dropdown-toggle"
     type="button"
-    slot="dropdown-button"
+    slot="actuator"
   >
     {{selected}} {{label}}
-    <i class="ion-ios-arrow-down arrow-down"></i>
+    <i class="ion-ios-arrow-down arrow-down"/>
   </button>
   <template>
-      <a
-        class="dropdown-item"
-        v-for="(option, index) in options"
-        :key="index"
-        @click="selectedItemsPerPage(option.value)"
-      >
-        {{option.value}} per page
-      </a>
+    <a
+      class="dropdown-item"
+      v-for="(option, index) in options"
+      :key="index"
+      @click="selectedItemsPerPage(option.value)"
+    >
+      {{option.value}} per page
+    </a>
   </template>
 </vuestic-dropdown>
 </template>
 
 <script>
-import Dropdown from 'vuestic-directives/Dropdown'
-
 export default {
-  directives: {
-    Dropdown
-  },
   props: {
     label: {
       type: String
@@ -45,7 +43,6 @@ export default {
       selected: this.defaultPerPage
     }
   },
-
   methods: {
     selectedItemsPerPage (optionValue) {
       this.selected = optionValue

@@ -1,19 +1,21 @@
 <template>
-  <div class="dropdown"
-       :class="{'dropdown--arrow': arrow}"
+  <div class="vuestic-dropdown"
+       :class="{'vuestic-dropdown--arrow': arrow}"
   >
-    <div class="dropdown-content"
-         v-show="show"
-         ref="dropdownContent">
+    <div
+      class="vuestic-dropdown__content"
+      v-show="show"
+      ref="content"
+    >
       <slot/>
     </div>
     <span
-      class="dropdown-button"
-      :class="{'dropdown-button--arrow': arrow && show}"
+      class="vuestic-dropdown__actuator"
+      :class="{'vuestic-dropdown__actuator--arrow': arrow && show}"
       @click="toggleDropdown"
-      ref="dropdownButton"
+      ref="actuator"
     >
-      <slot name="dropdown-button"/>
+      <slot name="actuator"/>
     </span>
   </div>
 </template>
@@ -26,131 +28,137 @@ export default {
   props: {
     placement: {
       type: String,
-      default: 'bottom'
+      default: 'bottom',
     },
     arrow: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data () {
     return {
       show: false,
-      popper: null
+      popper: null,
     }
   },
   methods: {
     toggleDropdown () {
       this.show = !this.show
+
+      if (!this.show) {
+        this.removeListener()
+        setTimeout(() => {
+          this.popper && this.popper.destroy()
+        }, 10)
+        return
+      }
+
+      this.addListener()
       setTimeout(() => {
-        this.popper = new Popper(this.$refs.dropdownButton, this.$refs.dropdownContent, {
-          placement: this.placement
+        this.popper = new Popper(this.$refs.actuator, this.$refs.content, {
+          placement: this.placement,
         })
       })
-      if (this.show) {
-        document.addEventListener('click', this.checkDropdown)
-      } else {
-        document.removeEventListener('click', this.checkDropdown)
-      }
     },
 
     checkDropdown (e) {
-      const clickedButton = e.target.closest('.dropdown-button') || e.target
-      if (clickedButton !== this.$refs.dropdownButton) {
-        this.show = false
-        document.removeEventListener('click', this.checkDropdown)
-        setTimeout(() => {
-          this.popper.destroy()
-        }, 10)
+      const clickedButton = e.target.closest('.vuestic-dropdown__actuator') || e.target
+      if (clickedButton === this.$refs.actuator) {
+        return
       }
-    }
+      this.toggleDropdown()
+    },
+    addListener () {
+      document.addEventListener('click', this.checkDropdown)
+    },
+    removeListener () {
+      document.removeEventListener('click', this.checkDropdown)
+    },
   },
   beforeDestroy () {
-    document.removeEventListener('click', this.checkDropdown)
-  }
+    this.removeListener()
+  },
 }
 </script>
 
 <style lang="scss">
-  .dropdown {
-    &-content {
+.vuestic-dropdown {
+  position: relative;
+
+  &__content {
+    position: absolute;
+    width: 100%;
+    min-width: 10rem;
+    padding: 0;
+    background-color: $darkest-gray;
+    z-index: 10;
+    margin: 0.75rem;
+    box-shadow: 0 4px 9.6px 0.4px rgba(74, 227, 135, .5);
+  }
+
+  &__actuator {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+  }
+
+  &--arrow {
+    .vuestic-dropdown__actuator--arrow:after {
       position: absolute;
-      width: 100%;
-      min-width: 10rem;
-      padding: 0;
-      background-color: $darkest-gray;
+      width: 0;
+      height: 0;
+      display: block;
+      content: "";
+      border-style: solid;
       z-index: 10;
-      margin: 0.75rem;
-      box-shadow: 0 4px 9.6px 0.4px rgba(74,227,135,.5);
     }
 
-    &-button {
-      display: flex;
-      height: 100%;
-      width: 100%;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-      background: none;
-      border: none;
-      cursor: pointer;
-      outline: none;
+    .vuestic-dropdown__content {
+      max-width: 16rem;
+      margin: 1.125rem;
     }
 
-    &--arrow {
-      .dropdown-button--arrow:after {
-        position: absolute;
-        width: 0;
-        height: 0;
-        display: block;
-        content: "";
-        border-style: solid;
-        z-index: 10;
-      }
-
-      .dropdown-content {
-        max-width: 16rem;
-        margin: 1.125rem;
-      }
-
-      .dropdown-item {
-        &.active {
-          color: $vue-green;
-        }
+    // HACK Override bootstrap.
+    .dropdown-item {
+      &.active {
+        color: $vue-green;
       }
     }
   }
+}
 
-  [x-placement^=bottom] + .dropdown-button--arrow {
-    &:after {
-      bottom: -1.125rem;
-      left: calc(50% - 10px);
-      border-width: 0 10px 10px 10px;
-      border-color: transparent transparent $darkest-gray transparent;
-    }
-  }
-  [x-placement^=left] + .dropdown-button--arrow {
-    &:after {
-      left: -1.125rem;
-      top: calc(50% - 10px);
-      border-width: 10px 0 10px 10px;
-      border-color: transparent transparent transparent $darkest-gray;
-    }
-  }
-  [x-placement^=right] + .dropdown-button--arrow {
-    &:after {
-      right: -1.125rem;
-      top: calc(50% - 10px);
-      border-width: 10px 10px 10px 0;
-      border-color: transparent $darkest-gray transparent transparent;
-    }
-  }
-  [x-placement^=top] + .dropdown-button--arrow {
-    &:after {
-      top: -1.125rem;
-      left: calc(50% - 10px);
-      border-width: 10px 10px 0 10px;
-      border-color: $darkest-gray transparent transparent transparent;
-    }
-  }
+[x-placement^=top] + .vuestic-dropdown__actuator--arrow:after {
+  top: -1.125rem;
+  left: calc(50% - 10px);
+  border-width: 10px 10px 0 10px;
+  border-color: $darkest-gray transparent transparent transparent;
+}
+
+[x-placement^=right] + .vuestic-dropdown__actuator--arrow:after {
+  right: -1.125rem;
+  top: calc(50% - 10px);
+  border-width: 10px 10px 10px 0;
+  border-color: transparent $darkest-gray transparent transparent;
+}
+
+[x-placement^=bottom] + .vuestic-dropdown__actuator--arrow:after {
+  bottom: -1.125rem;
+  left: calc(50% - 10px);
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent $darkest-gray transparent;
+}
+
+[x-placement^=left] + .vuestic-dropdown__actuator--arrow:after {
+  left: -1.125rem;
+  top: calc(50% - 10px);
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent $darkest-gray;
+}
 </style>

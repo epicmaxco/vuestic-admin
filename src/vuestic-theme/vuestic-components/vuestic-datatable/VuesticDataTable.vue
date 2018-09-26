@@ -11,11 +11,12 @@
         <div class="form-group">
           <slot name="additionalTableControl"></slot>
         </div>
-        <items-per-page :options="itemsPerPage"
-                        :label="itemsPerPageLabel"
-                        :defaultPerPage="defaultPerPageComputed"
-                        @items-per-page="onItemsPerPage"
-                        v-show="perPageSelectorShown"
+        <items-per-page
+          :options="itemsPerPage"
+          :label="itemsPerPageLabel"
+          :defaultPerPage="defaultPerPageComputed"
+          @items-per-page="onItemsPerPage"
+          v-show="perPageSelectorShown"
         />
       </div>
     </div>
@@ -49,12 +50,12 @@
       @vuetable:loaded="onLoaded"
     />
     <div class="d-flex justify-content-center mb-4">
-      <vuetable-pagination ref="pagination"
-                           :css="css.pagination"
-                           :onEachSide="onEachSide"
-                           @vuetable-pagination:change-page="onChangePage">
-
-      </vuetable-pagination>
+      <vuetable-pagination
+        ref="pagination"
+        :css="css.pagination"
+        :onEachSide="onEachSide"
+        @vuetable-pagination:change-page="onChangePage"
+      />
     </div>
   </div>
 </template>

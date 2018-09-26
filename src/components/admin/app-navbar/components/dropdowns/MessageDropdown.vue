@@ -1,11 +1,12 @@
 <template>
   <vuestic-dropdown arrow>
-    <span class="i-nav-messages" slot="dropdown-button"></span>
+    <span class="i-nav-messages" slot="actuator"/>
     <template>
       <a v-for="(option, id) in options"
          :key="id"
          class="dropdown-item"
-         href="#">
+         href="#"
+      >
         <span class="ellipsis">{{ $t(`messages.${option.name}`, { name: option.details.name})}}</span>
       </a>
       <div class="dropdown-item plain-link-item">

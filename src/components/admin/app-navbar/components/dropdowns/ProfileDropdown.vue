@@ -1,6 +1,6 @@
 <template>
   <vuestic-dropdown class="profile-dropdown" placement="bottom-end" arrow>
-    <span slot="dropdown-button" class="profile-section-avatar-container">
+    <span slot="actuator" class="profile-section-avatar-container">
       <slot/>
     </span>
     <div v-for="(option, id) in options" :key="id"

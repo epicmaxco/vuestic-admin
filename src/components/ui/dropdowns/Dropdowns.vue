@@ -4,14 +4,15 @@
       <div class="col-md-12">
         <vuestic-widget :headerText="$t('dropdown.default')">
           <div class="row btn-margin-row">
-            <div class="col-sm-6 mb-4 d-flex justify-content-center"
-                 :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }"
+            <div class="col-sm-6 mb-4 col-lg-6 col-xl-3 d-flex justify-content-center"
                  v-for="(placement, idx) in placements"
                  :key="idx"
             >
               <vuestic-dropdown :placement="placement">
-                <button type="button" class="btn btn-primary dropdown-toggle theme-toggle"
-                        slot="dropdown-button"
+                <button
+                  type="button"
+                  class="btn btn-primary dropdown-toggle theme-toggle"
+                  slot="actuator"
                 >
                   {{ placement }}
                   <i class="ion-ios-arrow-down arrow-down"></i>
@@ -33,14 +34,15 @@
       <div class="col-md-12">
         <vuestic-widget :headerText="$t('dropdown.withArrow')">
           <div class="row btn-margin-row">
-            <div class="col-sm-6 mb-4 d-flex justify-content-center"
-                 :class="{'col-lg-6 col-xl-3' : sidebarOpened, 'col-lg-3' : !sidebarOpened }"
+            <div class="col-sm-6 col-lg-6 col-xl-3 mb-4 d-flex justify-content-center"
                  v-for="(placement, idx) in placements"
                  :key="idx"
             >
               <vuestic-dropdown :placement="placement" arrow>
-                <button type="button" class="btn btn-primary dropdown-toggle theme-toggle"
-                        slot="dropdown-button"
+                <button
+                  type="button"
+                  class="btn btn-primary dropdown-toggle theme-toggle"
+                  slot="actuator"
                 >
                   {{ placement }}
                   <i class="ion-ios-arrow-down arrow-down"></i>
@@ -69,15 +71,8 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
-
 export default {
   name: 'dropdowns',
-  computed: {
-    ...mapGetters([
-      'sidebarOpened'
-    ])
-  },
   data () {
     return {
       placements: [
@@ -89,9 +84,9 @@ export default {
       links: [
         'Action',
         'Another action',
-        'Something else here'
-      ]
+        'Something else here',
+      ],
     }
-  }
+  },
 }
 </script>
