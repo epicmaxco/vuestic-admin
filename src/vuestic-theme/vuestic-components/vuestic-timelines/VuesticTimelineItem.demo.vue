@@ -21,7 +21,7 @@
 
 <script>
 import VuesticTimelineItem from './VuesticTimelineItem.vue'
-import VuesticCard from '../../vuestic-card/VuesticCard'
+import VuesticCard from '../vuestic-card/VuesticCard'
 
 export default {
   components: {

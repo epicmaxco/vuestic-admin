@@ -76,7 +76,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../../../sass/resources/resources';
+@import '../../../sass/resources/resources';
 
 .vuestic-timeline-item {
   display: flex;

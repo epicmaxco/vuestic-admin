@@ -51,9 +51,9 @@ import Dropdown from './vuestic-directives/Dropdown'
 import StickyScroll from './vuestic-directives/StickyScroll'
 
 import VuesticTimeline
-  from './vuestic-components/vuestic-timelines/v2/VuesticTimeline'
+  from './vuestic-components/vuestic-timelines/VuesticTimeline'
 import VuesticTimelineItem
-  from './vuestic-components/vuestic-timelines/v2/VuesticTimelineItem'
+  from './vuestic-components/vuestic-timelines/VuesticTimelineItem'
 
 const VuesticPlugin = {
   install (Vue, options) {
