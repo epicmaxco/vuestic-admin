@@ -74,13 +74,18 @@ export default {
     centered: Boolean,
   },
   render (createElement, context) {
+    const classes = {
+      [$root]: true,
+      [`${$root}--vertical`]: context.props.vertical,
+    }
+    if (context.data.staticClass) {
+      classes[context.data.staticClass] = true
+    }
+
     return createElement(
       'div',
       {
-        class: {
-          [$root]: true,
-          [`${$root}--vertical`]: context.props.vertical,
-        },
+        class: classes,
         style: context.data.staticStyle,
       },
       processSlots(context),

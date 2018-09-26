@@ -1,183 +1,180 @@
 <template>
-  <div class="vuestic-timelines">
-    <div class="vuestic-timelines__horizontal-simple">
-      <vuestic-widget class="no-h-padding no-v-padding" :headerText="$t('timelines.horizontalSimple')">
-        <vuestic-timeline>
-          <vuestic-timeline-item active>
-            <template slot="before">
-              <div class="vuestic-timeline-item__title">
-                February 2018
-              </div>
-              <div class="vuestic-timeline-item__description">
-                Pre-sail rate: 50%
-              </div>
-            </template>
-          </vuestic-timeline-item>
-          <vuestic-timeline-item active>
-            <template slot="before">
-              <div class="vuestic-timeline-item__title">
-                March 2018
-              </div>
-              <div class="vuestic-timeline-item__description">
-                Pre-sail rate: 40%
-              </div>
-            </template>
-          </vuestic-timeline-item>
-          <vuestic-timeline-item>
-            <template slot="before">
-              <div class="vuestic-timeline-item__title">
-                April 2018
-              </div>
-              <div class="vuestic-timeline-item__description">
-                Pre-sail rate: 20%
-              </div>
-            </template>
-          </vuestic-timeline-item>
-        </vuestic-timeline>
-      </vuestic-widget>
-    </div>
+  <div class="timelines">
 
-    <div class="vuestic-timelines__horizontal-cards">
-      <vuestic-widget class="no-h-padding no-v-padding vuestic-timelines__horizontal-cards-widget" :headerText="$t('timelines.horizontalCards')">
-        <vuestic-timeline style="min-width: 800px">
-          <vuestic-timeline-item active>
-            <vuestic-card
-              slot="after"
-              stripe="success"
-            >
-              <template slot="title">{{ dateFirst }}</template>
-              {{ contentFirst }}
-            </vuestic-card>
-          </vuestic-timeline-item>
-          <vuestic-timeline-item active>
-            <vuestic-card
-              slot="after"
-              stripe="success"
-            >
-              <template slot="title">{{ dateSecond }}</template>
-              {{ contentFirst }}
-            </vuestic-card>
-          </vuestic-timeline-item>
-          <vuestic-timeline-item>
-            <vuestic-card
-              slot="after"
-              stripe="success"
-            >
-              <template slot="title">{{ dateThird }}</template>
-              {{ contentThird }}
-            </vuestic-card>
-          </vuestic-timeline-item>
-        </vuestic-timeline>
-      </vuestic-widget>
-    </div>
+    <vuestic-widget class="no-h-padding no-v-padding" :headerText="$t('timelines.horizontalSimple')">
+      <vuestic-timeline>
+        <vuestic-timeline-item active>
+          <template slot="before">
+            <div class="vuestic-timeline-item__title">
+              February 2018
+            </div>
+            <div class="vuestic-timeline-item__description">
+              Pre-sail rate: 50%
+            </div>
+          </template>
+        </vuestic-timeline-item>
+        <vuestic-timeline-item active>
+          <template slot="before">
+            <div class="vuestic-timeline-item__title">
+              March 2018
+            </div>
+            <div class="vuestic-timeline-item__description">
+              Pre-sail rate: 40%
+            </div>
+          </template>
+        </vuestic-timeline-item>
+        <vuestic-timeline-item>
+          <template slot="before">
+            <div class="vuestic-timeline-item__title">
+              April 2018
+            </div>
+            <div class="vuestic-timeline-item__description">
+              Pre-sail rate: 20%
+            </div>
+          </template>
+        </vuestic-timeline-item>
+      </vuestic-timeline>
+    </vuestic-widget>
 
-    <div class="vuestic-timelines__vertical-simple">
-      <vuestic-widget class="no-h-padding no-v-padding vuestic-timelines__vertical-cards-widget" :headerText="$t('timelines.verticalSimple')">
-        <vuestic-timeline  class="vuestic-timelines__vertical-simple-indicator col-md-6" vertical>
-          <vuestic-timeline-item active>
-            <vuestic-card
-              slot="after"
-              stripe="success"
-            >
-              <template slot="title">{{ dateFirst }}</template>
-              {{ contentFirst }}
-            </vuestic-card>
-          </vuestic-timeline-item>
-          <vuestic-timeline-item>
-            <vuestic-card
-              slot="after"
-              stripe="success"
-            >
-              <template slot="title">{{ dateSecond }}</template>
-              {{ contentFirst }}
-            </vuestic-card>
-          </vuestic-timeline-item>
-        </vuestic-timeline>
-        <vuestic-timeline  class="vuestic-timelines__vertical-simple-indicator col-md-6" vertical>
-          <vuestic-timeline-item active>
-            <vuestic-card
-              theme="dark"
-              slot="after"
-            >
-              <template slot="title">{{ dateFirst }}</template>
-              {{ contentFirst }}
-            </vuestic-card>
-          </vuestic-timeline-item>
-          <vuestic-timeline-item>
-            <vuestic-card
-              theme="dark"
-              slot="after"
-            >
-              <template slot="title">{{ dateSecond }}</template>
-              {{ contentFirst }}
-            </vuestic-card>
-          </vuestic-timeline-item>
-        </vuestic-timeline>
-      </vuestic-widget>
-    </div>
+    <vuestic-widget class="no-h-padding no-v-padding timelines__horizontal-long" :headerText="$t('timelines.horizontalCards')">
+      <vuestic-timeline class="timelines__horizontal-long__timeline">
+        <vuestic-timeline-item active>
+          <vuestic-card
+            slot="after"
+            stripe="success"
+          >
+            <template slot="title">{{ dateFirst }}</template>
+            {{ contentFirst }}
+          </vuestic-card>
+        </vuestic-timeline-item>
+        <vuestic-timeline-item active>
+          <vuestic-card
+            slot="after"
+            stripe="success"
+          >
+            <template slot="title">{{ dateSecond }}</template>
+            {{ contentFirst }}
+          </vuestic-card>
+        </vuestic-timeline-item>
+        <vuestic-timeline-item>
+          <vuestic-card
+            slot="after"
+            stripe="success"
+          >
+            <template slot="title">{{ dateThird }}</template>
+            {{ contentThird }}
+          </vuestic-card>
+        </vuestic-timeline-item>
+      </vuestic-timeline>
+    </vuestic-widget>
 
-    <div class="vuestic-timelines__vertical-label">
-      <vuestic-widget class="no-h-padding no-v-padding" :headerText="$t('timelines.verticalLabel')">
-        <vuestic-timeline vertical>
-          <vuestic-timeline-item active>
-            <span class="vuestic-timeline-item__text" slot="before">{{ dateFirst }}</span>
-            <vuestic-card
-              slot="after"
-              stripe="success"
-            >
-              <template slot="title">{{ titleFirst }}</template>
-              {{ contentFirst }}
-            </vuestic-card>
-          </vuestic-timeline-item>
-          <vuestic-timeline-item>
-            <span class="vuestic-timeline-item__text" slot="before">{{ dateSecond }}</span>
-            <vuestic-card
-              slot="after"
-              stripe="success"
-            >
-              <template slot="title">{{ titleSecond }}</template>
-              {{ contentFirst }}
-            </vuestic-card>
-          </vuestic-timeline-item>
-        </vuestic-timeline>
-      </vuestic-widget>
-    </div>
-    <div class="vuestic-timelines__vertical-label">
-      <vuestic-widget class="no-h-padding no-v-padding" :headerText="$t('timelines.verticalCentered')">
-        <vuestic-timeline vertical centered>
-          <vuestic-timeline-item active>
-            <span class="vuestic-timeline-item__text" slot="before">{{ dateFirst }}</span>
-            <vuestic-card
-              slot="after"
-              theme="dark"
-            >
-              <template slot="title">{{ titleFirst }}</template>
-              {{ contentFirst }}
-            </vuestic-card>
-          </vuestic-timeline-item>
-          <vuestic-timeline-item>
-            <span class="vuestic-timeline-item__text" slot="before">{{ dateSecond }}</span>
-            <vuestic-card
-              slot="after"
-              theme="dark"
-            >
-              <template slot="title">{{ titleSecond }}</template>
-              {{ contentFirst }}
-            </vuestic-card>
-          </vuestic-timeline-item>
-          <vuestic-timeline-item>
-            <span class="vuestic-timeline-item__text" slot="before">{{ dateSecond }}</span>
-            <vuestic-card
-              slot="after"
-              theme="dark"
-            >
-              <template slot="title">{{ titleSecond }}</template>
-              {{ contentFirst }}
-            </vuestic-card>
-          </vuestic-timeline-item>
-        </vuestic-timeline>
-      </vuestic-widget>
-    </div>
+    <vuestic-widget class="no-h-padding no-v-padding" :headerText="$t('timelines.verticalSimple')">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <vuestic-timeline vertical>
+            <vuestic-timeline-item active>
+              <vuestic-card
+                slot="after"
+              >
+                <template slot="title">{{ dateFirst }}</template>
+                {{ contentFirst }}
+              </vuestic-card>
+            </vuestic-timeline-item>
+            <vuestic-timeline-item>
+              <vuestic-card
+                slot="after"
+              >
+                <template slot="title">{{ dateSecond }}</template>
+                {{ contentFirst }}
+              </vuestic-card>
+            </vuestic-timeline-item>
+          </vuestic-timeline>
+        </div>
+        <div class="col-12 col-md-6">
+          <vuestic-timeline vertical>
+            <vuestic-timeline-item active>
+              <vuestic-card
+                theme="dark"
+                slot="after"
+              >
+                <template slot="title">{{ dateFirst }}</template>
+                {{ contentFirst }}
+              </vuestic-card>
+            </vuestic-timeline-item>
+            <vuestic-timeline-item>
+              <vuestic-card
+                theme="dark"
+                slot="after"
+              >
+                <template slot="title">{{ dateSecond }}</template>
+                {{ contentFirst }}
+              </vuestic-card>
+            </vuestic-timeline-item>
+          </vuestic-timeline>
+        </div>
+      </div>
+    </vuestic-widget>
+
+    <vuestic-widget class="no-h-padding no-v-padding" :headerText="$t('timelines.verticalLabel')">
+      <vuestic-timeline vertical>
+        <vuestic-timeline-item active>
+          <span class="vuestic-timeline-item__text" slot="before">{{ dateFirst }}</span>
+          <vuestic-card
+            slot="after"
+            stripe="success"
+          >
+            <template slot="title">{{ titleFirst }}</template>
+            {{ contentFirst }}
+          </vuestic-card>
+        </vuestic-timeline-item>
+        <vuestic-timeline-item>
+          <span class="vuestic-timeline-item__text" slot="before">{{ dateSecond }}</span>
+          <vuestic-card
+            slot="after"
+            stripe="success"
+          >
+            <template slot="title">{{ titleSecond }}</template>
+            {{ contentFirst }}
+          </vuestic-card>
+        </vuestic-timeline-item>
+      </vuestic-timeline>
+    </vuestic-widget>
+
+    <vuestic-widget class="no-h-padding no-v-padding" :headerText="$t('timelines.verticalCentered')">
+      <vuestic-timeline vertical centered>
+        <vuestic-timeline-item active>
+          <span class="vuestic-timeline-item__text" slot="before">{{ dateFirst }}</span>
+          <vuestic-card
+            slot="after"
+            theme="dark"
+          >
+            <template slot="title">{{ titleFirst }}</template>
+            {{ contentFirst }}
+          </vuestic-card>
+        </vuestic-timeline-item>
+        <vuestic-timeline-item>
+          <span class="vuestic-timeline-item__text" slot="before">{{ dateSecond }}</span>
+          <vuestic-card
+            slot="after"
+            theme="dark"
+          >
+            <template slot="title">{{ titleSecond }}</template>
+            {{ contentFirst }}
+          </vuestic-card>
+        </vuestic-timeline-item>
+        <vuestic-timeline-item>
+          <span class="vuestic-timeline-item__text" slot="before">{{ dateSecond }}</span>
+          <vuestic-card
+            slot="after"
+            theme="dark"
+          >
+            <template slot="title">{{ titleSecond }}</template>
+            {{ contentFirst }}
+          </vuestic-card>
+        </vuestic-timeline-item>
+      </vuestic-timeline>
+    </vuestic-widget>
+
   </div>
 </template>
 
@@ -219,47 +216,13 @@ export default {
 </script>
 
 <style lang="scss">
-.vuestic-timelines {
-  &__horizontal-cards-widget {
+.timelines {
+  &__horizontal-long {
     .widget-body {
       overflow-x: auto;
     }
-  }
-  &__vertical-cards-widget {
-    .widget-body.widget-body {
-      display: flex;
-      @include media-breakpoint-down(xs) {
-        flex-wrap: wrap;
-      }
-    }
-  }
-  .vuestic-timelines__vertical-centered-cards-widget {
-    .widget-body {
-      padding-right: 1px;
-      justify-content: center;
-      width: 100%;
-      display: inline-flex;
-    }
-  }
-  &__vertical-simple-indicator-dark {
-    @media(min-width: 1300px) {
-      padding-left: 100px;
-    }
-  }
-  &__vertical-label-indicator {
-    padding-left: 0;
-    max-width: 700px;
-    @media (min-width: 590px) {
-      margin-right: 10rem;
-    }
-  }
-  &__vertical-centered-indicator {
-    padding-left: 0;
-    max-width: 700px;
-  }
-  @include media-breakpoint-down(xs) {
-    &__vertical-simple-indicator {
-      margin-bottom: 20px;
+    &__timeline {
+      min-width: 800px;
     }
   }
 }
