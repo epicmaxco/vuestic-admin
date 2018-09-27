@@ -92,8 +92,6 @@ export default {
 </script>
 
 <style lang='scss'>
-  @import '../../../sass/resources/variables';
-
   .file-upload-gallery-item {
     position: relative;
     width: 100%;

@@ -73,8 +73,7 @@ export default {
 </script>
 
 <style lang="scss">
-// Probably not the right place for this declaration
-@import "../../../sass/resources/resources";
+@import "../../../sass/vuestic-sass/resources/resources";
 
 .card-separator {
   margin: 1rem -#{(20/16)}rem;

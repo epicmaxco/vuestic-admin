@@ -1,24 +1,118 @@
-//
-// Glyphicons for Bootstrap
-//
-// Since icons are fonts, they can be placed anywhere text is placed and are
-// thus automatically sized to match the surrounding child. To use, create an
-// inline element with the appropriate classes, like so:
-//
-// <a href="#"><span class="glyphicon glyphicon-star"></span> Star</a>
+@import url(http://weloveiconfonts.com/api/?family=brandico|entypo|fontelico|iconicfill|iconicstroke|maki|openwebicons|typicons|zocial);
 
-@at-root {
-  // Import the fonts
-  @font-face {
-    font-family: 'Glyphicons Halflings';
-    src: url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.eot'), '#{$icon-font-path}#{$icon-font-name}.eot'));
-    src: url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.eot?#iefix'), '#{$icon-font-path}#{$icon-font-name}.eot?#iefix')) format('embedded-opentype'),
-    url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.woff2'), '#{$icon-font-path}#{$icon-font-name}.woff2')) format('woff2'),
-    url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.woff'), '#{$icon-font-path}#{$icon-font-name}.woff')) format('woff'),
-    url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.ttf'), '#{$icon-font-path}#{$icon-font-name}.ttf')) format('truetype'),
-    url(if($bootstrap-sass-asset-helper, twbs-font-path('#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id}'), '#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id}')) format('svg');
-  }
+.i-nav-notification {
+  display: inline-block;
+  height: 32px;
+  width: 22px;
+  background: url('assets/icons/nav-notification.png') no-repeat center center;
 }
+
+.i-nav-messages {
+  display: inline-block;
+  height: 21px;
+  width: 26px;
+  background: url('assets/icons/nav-messages.png') no-repeat center center;
+}
+
+.i-menu-expanded {
+  display: inline-block;
+  width: 24px;
+  height: 20px;
+  background: url('assets/icons/menu-expanded.svg') no-repeat center center;
+}
+
+.i-menu-collapsed {
+  display: inline-block;
+  width: 24px;
+  height: 20px;
+  background: url('assets/icons/menu-collapsed.svg') no-repeat center center;
+}
+
+.vuestic-icon {
+  line-height: 1;
+}
+
+/* brandico */
+[class*="brandico-"]:before {
+  font-family: 'brandico', sans-serif;
+  font-style: normal;
+}
+
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+  font-style: normal;
+}
+
+/* fontelico */
+[class*="fontelico-"]:before {
+  font-family: 'fontelico', sans-serif;
+  font-style: normal;
+}
+
+/* iconicfill */
+[class*="iconicfill-"]:before {
+  font-family: 'IconicFill', sans-serif;
+  font-style: normal;
+}
+
+/* iconicstroke */
+[class*="iconicstroke-"]:before {
+  font-family: 'IconicStroke', sans-serif;
+  font-style: normal;
+}
+
+/* maki */
+[class*="maki-"]:before {
+  font-family: 'maki', sans-serif;
+  font-style: normal;
+}
+
+/* openwebicons */
+[class*="openwebicons-"]:before {
+  font-family: 'OpenWeb Icons', sans-serif;
+  font-style: normal;
+}
+
+/* typicons */
+[class*="typicons-"]:before {
+  font-family: 'Typicons', sans-serif;
+  font-style: normal;
+}
+
+/* zocial */
+[class*="zocial-"]:before {
+  font-family: 'zocial', sans-serif;
+}
+
+.vuestic-icon:before{
+  display: inline-block;
+  font-family: 'Vuestic Icons';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+.vuestic-icon-comments:before{content:'\0041';}
+.vuestic-icon-components:before{content:'\0042';}
+.vuestic-icon-dashboard:before{content:'\0043';}
+.vuestic-icon-extras:before{content:'\0044';}
+.vuestic-icon-files:before{content:'\0045';}
+.vuestic-icon-forms:before{content:'\0046';}
+.vuestic-icon-graph:before{content:'\0047';}
+.vuestic-icon-auth:before{content:'\0048';}
+.vuestic-icon-image:before{content:'\0049';}
+.vuestic-icon-maps:before{content:'\004a';}
+.vuestic-icon-music:before{content:'\004b';}
+.vuestic-icon-settings:before{content:'\004c';}
+.vuestic-icon-statistics:before{content:'\004d';}
+.vuestic-icon-tables:before{content:'\004e';}
+.vuestic-icon-time:before{content:'\004f';}
+.vuestic-icon-ui-elements:before{content:'\0050';}
+.vuestic-icon-user:before{content:'\0051';}
+.vuestic-icon-video:before{content:'\0052';}
 
 // Catchall baseclass
 .glyphicon {
@@ -305,3 +399,5 @@
 .glyphicon-menu-right             { &:before { content: "\e258"; } }
 .glyphicon-menu-down              { &:before { content: "\e259"; } }
 .glyphicon-menu-up { &:before { content: "\e260"; } }
+
+

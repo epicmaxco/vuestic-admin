@@ -15,11 +15,15 @@
             </div>
             <div class="col-md-4">
               <div class="row spinners__duration">
-                <div class="spinners__icon-duration-slower i-vuestic-slower"/>
+                <div class="spinners__icon-duration-slower">
+                  <vuestic-icon-slower/>
+                </div>
                 <div class="spinners__duration-picker">
                   <vuestic-slider v-model="currentDuration" :options="sliderDuration"/>
                 </div>
-                <div class="spinners__icon-duration-faster i-vuestic-faster"/>
+                <div class="spinners__icon-duration-faster">
+                  <vuestic-icon-faster/>
+                </div>
               </div>
             </div>
             <div class="col-md-2 spinners__color">
@@ -65,12 +69,18 @@ import VuesticPalletCustom
 import { colorArray } from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticTheme'
 import VuesticSlider
   from '../../../vuestic-theme/vuestic-components/vuestic-slider/VuesticSlider'
+import VuesticIconFaster
+  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconFaster'
+import VuesticIconSlower
+  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconSlower'
 
 export default {
   components: {
     ...spinners,
     VuesticPalletCustom,
-    VuesticSlider
+    VuesticSlider,
+    VuesticIconFaster,
+    VuesticIconSlower
   },
   data () {
     return {

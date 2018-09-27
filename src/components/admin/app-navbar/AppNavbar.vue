@@ -2,7 +2,9 @@
 
   <vuestic-navbar>
     <header-selector slot="selector" :isOpen.sync="valueProxy"/>
-    <span slot="logo" class="i-vuestic"></span>
+    <span slot="logo">
+      <vuestic-icon-vuestic/>
+    </span>
     <span slot="center">
       {{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
     </span>
@@ -17,6 +19,7 @@
 </template>
 
 <script>
+import VuesticIconVuestic from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconVuestic'
 import VuesticNavbar from '../../../vuestic-theme/vuestic-components/vuestic-navbar/VuesticNavbar'
 import HeaderSelector from './components/HeaderSelector'
 import LanguageDropdown from './components/dropdowns/LanguageDropdown'
@@ -28,6 +31,7 @@ export default {
   name: 'app-navbar',
 
   components: {
+    VuesticIconVuestic,
     VuesticNavbar,
     HeaderSelector,
     MessageDropdown,

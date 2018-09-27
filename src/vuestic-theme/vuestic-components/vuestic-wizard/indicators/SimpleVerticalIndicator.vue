@@ -53,7 +53,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 $wizard-steps-height: 100%;
 $wizard-steps-width: 100%;
 $wizard-steps-p-v: 2.5rem;
