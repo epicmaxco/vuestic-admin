@@ -194,6 +194,8 @@ export default {
     margin: -$singleGutter;
     align-items: flex-start;
     .vuestic-card {
+      margin: $singleGutter;
+
       width: calc(33% - #{$singleGutter} * 2);
 
       @include media-breakpoint-only(xl) {

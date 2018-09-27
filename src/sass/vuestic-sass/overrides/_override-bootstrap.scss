@@ -23,14 +23,17 @@ h1, .h1 {
   margin-top: 4.5rem;
   margin-bottom: 2.25rem;
 }
+
 h2, .h2 {
   margin-top: 4rem;
   margin-bottom: 2rem;
 }
+
 h3, .h3 {
   margin-top: 3rem;
   margin-bottom: 1.5rem;
 }
+
 h4, .h4 {
   margin-top: 2rem;
   margin-bottom: 1rem;
@@ -50,8 +53,6 @@ h4, .h4 {
     content: "--- "; // em dash, nbsp
   }
 }
-
-
 
 //Buttons
 
@@ -80,7 +81,7 @@ h4, .h4 {
 }
 
 .btn.btn-primary {
- @include theme-button-variant($white, theme-color("primary"), $btn-border, $btn-box-shadow);
+  @include theme-button-variant($white, theme-color("primary"), $btn-border, $btn-box-shadow);
 
   &.hover {
     background-color: lighten(theme-color("primary"), 10%) !important;
@@ -134,7 +135,7 @@ h4, .h4 {
 
 .btn.btn-info {
   @include theme-button-variant($white, theme-color("info"), $btn-border, $btn-box-info-shadow);
- }
+}
 
 .btn.btn-success {
   @include theme-button-variant($white, theme-color("primary"), $btn-border, $btn-box-success-shadow);
@@ -212,7 +213,7 @@ h4, .h4 {
     position: absolute;
     font-size: $btn-dd-arrow-size;
     right: 1rem;
-    top: calc(50% - #{$btn-dd-arrow-size}/1.4);
+    top: calc(50% - #{$btn-dd-arrow-size} / 1.4);
   }
 
   &::after {
@@ -230,7 +231,7 @@ h4, .h4 {
   padding: $dropdown-menu-padding-y $dropdown-menu-padding-x;
   background: transparent;
   border: none;
-  .dropdown-menu-content{
+  .dropdown-menu-content {
     background-color: $dropdown-background;
     box-shadow: $dropdown-box-shadow;
   }
@@ -255,7 +256,7 @@ h4, .h4 {
     width: 25%;
   }
 
-  @include media-breakpoint-only(xs){
+  @include media-breakpoint-only(xs) {
     width: 100%;
   }
 }
@@ -411,7 +412,7 @@ th.sortable:hover {
     position: absolute;
     right: 20px;
     font-size: $font-size-base;
-    top: calc(50% - #{$font-size-base}/2);
+    top: calc(50% - #{$font-size-base} / 2);
     cursor: pointer;
   }
 }

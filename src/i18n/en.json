@@ -173,6 +173,8 @@
     "buttons": "Buttons",
     "charts": "Charts",
     "colorPickers": "Color Pickers",
+    "collapse": "Collapse",
+    "timelines": "Timelines",
     "dashboard": "Dashboard",
     "extra": "Extra",
     "formElements": "Form Elements",
@@ -197,7 +199,7 @@
     "uiElements": "UI Elements",
     "treeView": "Tree view",
     "dateTimePickers": "Date time pickers",
-    "collapse": "Collapse",
+    "cards": "Cards",
     "fileUpload": "File Upload"
   },
   "messages": {
@@ -251,6 +253,20 @@
     "sentMessage": "{name} sent you a message",
     "uploadedZip": "{name} uploaded a new Zip file with {type}",
     "startedTopic": "{name} started a new topic"
+  },
+  "timelines": {
+    "horizontalSimple": "Horizontal Simple",
+    "horizontalCards": "Horizontal Cards",
+    "verticalSimple": "Vertical Simple",
+    "verticalLabel": "Vertical With Label",
+    "verticalCentered": "Vertical Centered",
+    "firstDate": "February 2018",
+    "secondDate": "March 2018",
+    "thirdDate": "April 2018",
+    "cardsSecondInfo": "They occur in a variety of habitats, such as grasslands.",
+    "cardsThirdInfo": "However, various anthropogenic factors have had a severe impact on zebra populations",
+    "verticalSimpleCardsFirstInfo": "The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands.",
+    "verticalSimpleCardsSecondInfo": "However, various anthropogenic factors have had a severe impact on zebra populations"
   },
   "progressBars": {
     "basic": "Basic",

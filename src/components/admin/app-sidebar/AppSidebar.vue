@@ -92,6 +92,12 @@
           </span>
         </sidebar-link>
         <sidebar-link
+          :to="{ name: 'timelines' }">
+          <span slot="title">
+            <span>{{ $t('menu.timelines') }}</span>
+          </span>
+        </sidebar-link>
+        <sidebar-link
           :to="{ name: 'notifications' }">
           <span slot="title">
             <span>{{ $t('menu.notifications') }}</span>

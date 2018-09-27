@@ -68,7 +68,11 @@ export default {
           displayName: 'menu.colorPickers'
         },
         {
-          name: 'notifications',
+          path: 'timelines',
+          displayName: 'menu.timelines'
+        },
+        {
+          path: 'notifications',
           displayName: 'menu.notifications'
         },
         {

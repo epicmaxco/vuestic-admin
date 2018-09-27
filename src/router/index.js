@@ -173,6 +173,14 @@ export default new Router({
               }
             },
             {
+              name: 'timelines',
+              path: 'timelines',
+              component: lazyLoading('ui/timelines/Timelines'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Timelines'
+              }
+            },
+            {
               name: 'notifications',
               path: 'notifications',
               component: lazyLoading('ui/notifications/Notifications'),
