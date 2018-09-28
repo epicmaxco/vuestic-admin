@@ -16,7 +16,11 @@
       </router-link>
     </div>
     <div class="vuestic-breadcrumbs__help-section">
-      <a :href="currentRoute" class="btn btn-micro btn-info">
+      <a
+        target="_blank"
+        :href="currentRoute"
+        class="btn btn-micro btn-info"
+      >
         <span class="vuestic-icon vuestic-icon-files"></span>
       </a>
     </div>
