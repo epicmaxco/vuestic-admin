@@ -52,7 +52,7 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "../../../sass/vuestic-sass/resources/variables";
+@import "../../../vuestic-theme/vuestic-sass/resources/variables";
 
 .yandex-maps-page {
   &__widget {

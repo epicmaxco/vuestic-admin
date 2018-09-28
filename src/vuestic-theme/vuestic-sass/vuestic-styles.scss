@@ -7,10 +7,10 @@
 @import "resources/resources";
 
 // NOTE We want to dispose of bootstrap styling at some point.
-@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap";
 
 // NOTE We should use our own styles for checkbox
-@import "../../../node_modules/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox";
+@import "~awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css";
 
 @import "overrides/overrides";
 
