@@ -73,7 +73,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../../sass/vuestic-sass/resources/resources";
+@import "../../vuestic-sass/resources/resources";
 
 $card-font-size: 1.375 rem;
 
