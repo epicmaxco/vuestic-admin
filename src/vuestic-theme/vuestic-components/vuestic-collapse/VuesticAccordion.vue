@@ -1,5 +1,5 @@
 <template>
-  <div class="vuestic-accordion" @click="toggleAccordion($event)">
+  <div class="vuestic-accordion">
     <slot></slot>
   </div>
 </template>
@@ -18,46 +18,32 @@ export default {
       lastClickedTab: {}
     }
   },
+  provide () {
+    return {
+      accordion: {
+        onChildChange: (child, state) => this.onChildChange(child, state)
+      }
+    }
+  },
   methods: {
-    toggleAccordion (event) {
-      if (event.target.classList.contains('collapse-content')) {
+    onChildChange (child, state) {
+      // Expand means opening one collapse won't close others.
+      if (this.expand) {
         return
       }
-      this.$nextTick(() => {
-        if (this.expand) {
+
+      // No reaction when user closes collapse.
+      if (state === false) {
+        return
+      }
+
+      this.$children.forEach(collapse => {
+        if (collapse === child) {
           return
         }
-        const collapsesArray = this.$children
-        // HACK Accordion behaviour
-        //
-        // 1. Check, if last clicked tab is changed or not
-        // 2. If last clicked tab isn't changed, toggle state of opened tab into opposite
-        // 3. If last clicked tab is changed, collapse previous clicked tab and all tabs,
-        // except of recently clicked tab
-        let accordionActiveTabChanged = false
-        for (let i = 0; i < collapsesArray.length; i++) {
-          if (collapsesArray[i].show) {
-            if (collapsesArray[i] !== this.lastClickedTab) {
-              this.lastClickedTab.show = false
-              this.lastClickedTab = collapsesArray[i]
-              accordionActiveTabChanged = true
-            } else {
-              this.lastClickedTab.show = !this.lastClickedTab.show
-            }
-          } else {
-            collapsesArray[i].show = false
-          }
-        }
-        if (accordionActiveTabChanged) {
-          for (let i = 0; i < collapsesArray.length; i++) {
-            if (collapsesArray[i] !== this.lastClickedTab) {
-              collapsesArray[i].$el.lastChild.style.height = 0
-              collapsesArray[i].show = false
-            }
-          }
-        }
+        collapse.collapse()
       })
-    }
+    },
   }
 }
 </script>
