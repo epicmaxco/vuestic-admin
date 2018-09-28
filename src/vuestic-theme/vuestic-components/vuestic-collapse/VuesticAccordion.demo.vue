@@ -3,9 +3,7 @@
     <div class="demo-container__item" style="width: 900px;">
       <vuestic-accordion>
         <vuestic-collapse>
-          <button class="btn btn-primary" slot="header">
-            <span> Expand This Block </span>
-          </button>
+          <span slot="header"> Expand This Block </span>
           <div slot="body">
             <div style="padding: 10px;">
               Expand first content
@@ -13,9 +11,7 @@
           </div>
         </vuestic-collapse>
         <vuestic-collapse>
-          <button class="btn btn-primary" slot="header">
-            <span> Another Block </span>
-          </button>
+          <span slot="header"> Another Block </span>
           <div slot="body">
             <div style="padding: 10px;">
               Expand second content
@@ -23,9 +19,7 @@
           </div>
         </vuestic-collapse>
         <vuestic-collapse>
-          <button class="btn btn-primary" slot="header">
-            <span> Let's Go </span>
-          </button>
+          <span slot="header"> Let's Go </span>
           <div slot="body">
             <div style="padding: 10px;">
               Expand three content
@@ -37,9 +31,7 @@
     <div class="demo-container__item" style="width: 900px;">
       <vuestic-accordion expand>
         <vuestic-collapse>
-          <button class="btn btn-primary" slot="header">
-            <span> Expand This Block </span>
-          </button>
+          <span slot="header"> Expand This Block </span>
           <div slot="body">
             <div style="padding: 10px;">
               Expand first content
@@ -47,9 +39,7 @@
           </div>
         </vuestic-collapse>
         <vuestic-collapse>
-          <button class="btn btn-primary" slot="header">
-            <span> Another Block </span>
-          </button>
+          <span slot="header"> Another Block </span>
           <div slot="body">
             <div style="padding: 10px;">
               Expand second content
@@ -57,9 +47,7 @@
           </div>
         </vuestic-collapse>
         <vuestic-collapse>
-          <button class="btn btn-primary" slot="header">
-            <span> Let's Go </span>
-          </button>
+          <span slot="header"> Let's Go </span>
           <div slot="body">
             <div style="padding: 10px;">
               Expand three content
