@@ -75,6 +75,8 @@ export default {
 <style lang="scss">
 @import "../../../sass/vuestic-sass/resources/resources";
 
+$card-font-size: 1.375 rem;
+
 .card-separator {
   margin: 1rem -#{(20/16)}rem;
   height: #{(1/16)}rem;
@@ -95,7 +97,7 @@ export default {
 
   &__title {
     font-weight: $font-weight-bold;
-    font-size: $font-size-large;
+    font-size: $card-font-size;
   }
 
   .card-img-top {
