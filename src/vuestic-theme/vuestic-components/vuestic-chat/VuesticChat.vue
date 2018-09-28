@@ -30,7 +30,7 @@ import StickyScroll from 'vuestic-directives/StickyScroll'
 export default {
   name: 'vuestic-chat',
 
-  directives: {StickyScroll},
+  directives: { StickyScroll },
 
   props: {
     value: {
@@ -73,8 +73,6 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-  @import '../../../sass/resources/variables';
-
   $chat-body-min-height: 18.75rem;
   $chat-body-mb: 1.5rem;
   $chat-message-mb: 0.625rem;

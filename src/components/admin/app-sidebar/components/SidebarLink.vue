@@ -60,6 +60,9 @@ export default {
           color: $white;
         }
       }
+      &:hover {
+        background-color: $hover-black;
+      }
       .sidebar-menu-item-icon {
         font-size: $sidebar-menu-item-icon-size;
         color: $vue-green;

@@ -1,0 +1,19 @@
+@import "override-bootstrap";
+@import "override-custom-libs";
+@import "material-forms";
+
+// NOTE We should investigate what exactly this overrides \/
+a:not([href]):not([tabindex]) {
+  color: $white;
+  cursor: pointer;
+}
+
+a:not([href]):not([tabindex]):hover {
+  color: $white;
+  cursor: pointer;
+}
+
+a:not([href]):not([tabindex]):focus {
+  color: $white;
+  cursor: pointer;
+}

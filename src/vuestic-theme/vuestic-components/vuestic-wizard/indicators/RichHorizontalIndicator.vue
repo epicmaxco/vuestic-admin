@@ -36,11 +36,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "../../../../sass/resources/variables";
-  @import "~bootstrap/scss/functions";
-  @import "~bootstrap/scss/variables";
-  @import "~bootstrap/scss/mixins/breakpoints";
-
   $wizard-step-height: 5.5rem;
   $wizard-step-label-font-size: $font-size-h4;
   $wizard-step-padding-v: 0;

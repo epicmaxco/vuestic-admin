@@ -58,6 +58,7 @@ export default {
   .toast-position-picker {
     width: 112px;
     height: 76px;
+    margin-right: 2rem;
   }
 
   .position-boxes-row {

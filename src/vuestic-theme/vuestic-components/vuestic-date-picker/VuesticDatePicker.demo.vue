@@ -14,7 +14,6 @@
     </div>
     <div class="demo-container__item">
       <div class="form-group">
-
         <div class="input-group">
           <vuestic-date-picker
             id="simple-input-2"
@@ -60,10 +59,10 @@
             id="simple-input-5"
             v-model="three"
             :config="{
-            altInput: true,
-            altFormat: 'F j, Y',
-            dateFormat: 'Y-m-d',
-          }"
+              altInput: true,
+              altFormat: 'F j, Y',
+              dateFormat: 'Y-m-d',
+            }"
             @on-change="doSomethingOnChange"
           />
           <label class="control-label" for="simple-input-5">Human readable</label>
@@ -88,6 +87,7 @@ export default {
   },
   methods: {
     doSomethingOnChange (input) {
+      // eslint-disable-next-line no-console
       console.log('input', input)
     },
   },

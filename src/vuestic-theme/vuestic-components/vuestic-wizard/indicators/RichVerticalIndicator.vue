@@ -36,8 +36,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "../../../../sass/resources/variables";
-
   $wizard-steps-height: 100%;
   $wizard-steps-width: 100%;
   $wizard-step-label-font-size: $font-size-h4;
