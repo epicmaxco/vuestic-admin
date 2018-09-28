@@ -1,17 +1,31 @@
 <template>
   <div class="vuestic-collapse">
+
     <div
       class="vuestic-collapse__header"
+      :class="{
+        'vuestic-collapse__header--no-header': noHeader,
+      }"
       @click="onHeaderClick()"
     >
-      <slot name="header"/>
+      <template v-if="noHeader">
+        <slot name="header"/>
+      </template>
+      <button
+        v-else
+        class="vuestic-collapse__header__button btn btn-primary"
+      >
+        <slot name="header"/>
+      </button>
     </div>
+
     <div
       class="vuestic-collapse__body"
       ref="collapseBody"
     >
       <slot name="body"/>
     </div>
+
   </div>
 </template>
 
@@ -23,6 +37,7 @@ export default {
       type: Boolean,
       default: false,
     },
+    noHeader: Boolean,
   },
   inject: {
     accordion: {
@@ -72,7 +87,9 @@ export default {
 
 <style lang="scss">
 .vuestic-collapse {
-  margin-bottom: 10px;
+  & + & {
+    margin-top: 8px;
+  }
 
   &__body {
     height: 0;
@@ -80,6 +97,22 @@ export default {
     margin-top: 20px;
     background: $light-gray;
     overflow: hidden;
+  }
+
+  &__header {
+    &__button {
+      width: 100%;
+      padding-left: 1.5rem;
+      border-radius: 0;
+      text-align: left;
+    }
+    &--no-header {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .vuestic-collapse__body {
+    margin-top: 0;
   }
 }
 </style>
