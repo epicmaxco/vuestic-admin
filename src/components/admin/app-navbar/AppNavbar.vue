@@ -1,5 +1,4 @@
 <template>
-
   <vuestic-navbar>
     <header-selector slot="selector" :isOpen.sync="valueProxy"/>
     <span slot="logo">
