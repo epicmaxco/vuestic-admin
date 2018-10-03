@@ -1,22 +1,27 @@
 <template>
-  <vuestic-dropdown class="language-dropdown" placement="bottom-end" arrow>
-    <span class="flag-icon flag-icon-large"
-          slot="actuator"
-          :class="flagIconClass(currentLanguage())"
+  <div class="language-dropdown">
+    <span
+      class="flag-icon flag-icon-large"
+      :class="flagIconClass(currentLanguage())"
+    />
+    <vuestic-dropdown
+      class="language-dropdown__container"
+      v-model="isShown"
+      position="bottom"
     >
-    </span>
-    <a class="dropdown-item"
-       v-for="(option, id) in options"
-       :key="id"
-       :class="{ active: option.code === currentLanguage() }"
-       @click="setLanguage(option.code)"
-    >
-      <span class="flag-icon flag-icon-small" :class="flagIconClass(option.code)"></span>
-      <span class="dropdown-item__text ellipsis">
-        {{ `language.${option.name}` | translate }}
-      </span>
-    </a>
-  </vuestic-dropdown>
+      <a class="dropdown-item"
+         v-for="(option, id) in options"
+         :key="id"
+         :class="{ active: option.code === currentLanguage() }"
+         @click="setLanguage(option.code)"
+      >
+        <span class="flag-icon flag-icon-small" :class="flagIconClass(option.code)"></span>
+        <span class="dropdown-item__text ellipsis">
+          {{ `language.${option.name}` | translate }}
+        </span>
+      </a>
+    </vuestic-dropdown>
+  </div>
 </template>
 
 <script>
@@ -24,25 +29,29 @@ import Vue from 'vue'
 
 export default {
   name: 'language-dropdown',
-
+  data () {
+    return {
+      isShown: false,
+    }
+  },
   props: {
     options: {
       type: Array,
       default: () => [
         {
           code: 'gb',
-          name: 'english'
+          name: 'english',
         },
         {
           code: 'es',
-          name: 'spanish'
+          name: 'spanish',
         },
         {
           code: 'br',
-          name: 'brazilian_portuguese'
-        }
-      ]
-    }
+          name: 'brazilian_portuguese',
+        },
+      ],
+    },
   },
   methods: {
     setLanguage (locale) {
@@ -55,25 +64,32 @@ export default {
 
     flagIconClass (code) {
       return `flag-icon-${code}`
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss">
-  @import "~flag-icon-css/css/flag-icon.css";
+@import '../../../../../vuestic-theme/vuestic-sass/resources/resources';
+@import "~flag-icon-css/css/flag-icon.css";
 
-  .language-dropdown {
-    .flag-icon-large {
-      display: block;
-      width: 31px;
-      height: 23px;
-    }
+.language-dropdown {
+  @include flex-center();
+  cursor: pointer;
+  .flag-icon-large {
+    display: block;
+    width: 31px;
+    height: 23px;
+  }
 
-    .flag-icon-small {
-      min-width: 22px;
-      height: 17px;
-      margin-right: 12px;
+  @at-root {
+    &__container {
+      .flag-icon-small {
+        min-width: 22px;
+        height: 17px;
+        margin-right: 12px;
+      }
     }
   }
+}
 </style>

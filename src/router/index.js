@@ -184,6 +184,9 @@ export default new Router({
               name: 'dropdowns',
               path: 'dropdowns',
               component: lazyLoading('ui/dropdowns/Dropdowns'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Dropdowns'
+              }
             },
             {
               name: 'notifications',

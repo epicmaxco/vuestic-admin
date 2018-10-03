@@ -1,7 +1,7 @@
 <template>
-  <vuestic-dropdown arrow>
-    <span class="i-nav-messages" slot="actuator"/>
-    <template>
+  <div class="message-dropdown">
+    <span class="i-nav-messages"/>
+    <vuestic-dropdown v-model="isOpen" position="bottom">
       <a v-for="(option, id) in options"
          :key="id"
          class="dropdown-item"
@@ -12,33 +12,43 @@
       <div class="dropdown-item plain-link-item">
         <a class="plain-link" href="#">{{'messages.all' | translate}}</a>
       </div>
-    </template>
-  </vuestic-dropdown>
+    </vuestic-dropdown>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'message-dropdown',
-
+  data () {
+    return {
+      isOpen: false,
+    }
+  },
   props: {
     options: {
       type: Array,
       default: () => [
         {
           name: 'new',
-          details: { name: 'Oleg M' }
+          details: { name: 'Oleg M' },
         },
         {
           name: 'new',
-          details: { name: 'Andrei H' }
+          details: { name: 'Andrei H' },
         },
-      ]
-    }
+      ],
+    },
   },
 }
 </script>
 
 <style lang="scss">
+@import '../../../../../vuestic-theme/vuestic-sass/resources/resources';
+
+.message-dropdown {
+  @include flex-center();
+  cursor: pointer;
+
   .i-nav-messages {
     position: relative;
 
@@ -53,4 +63,5 @@ export default {
       border-radius: 50%;
     }
   }
+}
 </style>
