@@ -3,7 +3,7 @@
        :class="{'data-loading': loading}">
     <div class="d-flex flex-md-row flex-column align-items-center" :class="controlsAlignmentClass">
       <filter-bar
-        @filter="onFilterSet"
+        @input="onFilterSet"
         :label="filterInputLabel"
         v-show="filterInputShown"
       />
@@ -70,7 +70,6 @@ import QueryParams from './data/query-params'
 import Vue from 'vue'
 import DataTableStyles from '../vuestic-datatable/data/data-table-styles'
 import SpringSpinner from 'epic-spinners/src/components/lib/SpringSpinner'
-
 export default {
   name: 'vuestic-data-table',
   components: {
@@ -190,7 +189,6 @@ export default {
     dataModeFilterableFieldsComputed () {
       const dataItem = this.tableData.data[0] || {}
       const filterableFields = this.dataModeFilterableFields
-
       if (!filterableFields.length) {
         const itemFields = Object.keys(dataItem)
         itemFields.forEach(field => {
@@ -199,49 +197,40 @@ export default {
           }
         })
       }
-
       return filterableFields
     },
     filteredTableData () {
       const txt = new RegExp(this.filterText, 'i')
-
       let filteredData = this.tableData.data.slice()
-
       filteredData = this.tableData.data.filter((item) => {
         return this.dataModeFilterableFieldsComputed.some(field => {
           const val = item[field] + ''
           return val.search(txt) >= 0
         })
       })
-
       return {
         data: filteredData
       }
     },
     defaultPerPageComputed () {
       let defaultPerPage = DefaultPerPageDefinition.itemsPerPage[0].value
-
       if (this.$options.propsData.defaultPerPage) {
         defaultPerPage = this.$options.propsData.defaultPerPage
       } else if (this.$options.propsData.itemsPerPage) {
         defaultPerPage = this.$options.propsData.itemsPerPage[0].value
       }
-
       return defaultPerPage
     },
     paginationPathComputed () {
       return this.apiMode ? this.paginationPath : 'pagination'
     }
   },
-
   created () {
     this.perPage = this.defaultPerPageComputed
   },
-
   mounted () {
     this.$emit('initialized', this.$refs.vuetable)
   },
-
   methods: {
     onFilterSet (filterText) {
       this.filterText = filterText
@@ -260,7 +249,6 @@ export default {
     dataManager (sortOrder, pagination) {
       let data = this.filteredTableData.data
       let sortFunctions = this.sortFunctions
-
       if (sortOrder.length > 0) {
         data.sort(function (item1, item2) {
           const sortField = sortOrder[0].sortField
@@ -269,14 +257,11 @@ export default {
             return fn(item1[sortField], item2[sortField])
           }
         })
-
         if (sortOrder[0].direction === 'desc') {
           data.reverse()
         }
       }
-
       pagination = this.$refs.vuetable.makePagination(data.length)
-
       return {
         pagination: pagination,
         data: data.slice(pagination.from - 1, pagination.to)
@@ -297,47 +282,40 @@ export default {
 </script>
 
 <style lang="scss">
-  .vuestic-data-table {
-    min-height: 24rem;
-
-    .form-group {
-      margin-bottom: 1rem;
+.vuestic-data-table {
+  min-height: 24rem;
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  @media (max-width: 1258px) {
+    .pagination-link-btn:first-child, .pagination-link-btn:last-child {
+      display: none;
     }
-
-    @media (max-width: 1258px) {
-      .pagination-link-btn:first-child, .pagination-link-btn:last-child {
-        display: none;
-      }
-
-      .pagination-link-btn:nth-child(2) {
-        border-top-left-radius: $btn-border-radius !important;
-        border-bottom-left-radius: $btn-border-radius !important;
-      }
-
-      .pagination-link-btn:nth-last-child(2) {
-        border-top-right-radius: $btn-border-radius !important;
-        border-bottom-right-radius: $btn-border-radius !important;
-      }
+    .pagination-link-btn:nth-child(2) {
+      border-top-left-radius: $btn-border-radius !important;
+      border-bottom-left-radius: $btn-border-radius !important;
     }
-
-    @media (max-width: 576px) {
-      .hide-not-focused-btn:not(.focus) {
-        display: none;
-      }
-    }
-
-    .data-table-loading {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      top: 40%;
-      left: 50%;
+    .pagination-link-btn:nth-last-child(2) {
+      border-top-right-radius: $btn-border-radius !important;
+      border-bottom-right-radius: $btn-border-radius !important;
     }
   }
-
-  .data-loading {
-    opacity: .5;
-    pointer-events: none;
+  @media (max-width: 576px) {
+    .hide-not-focused-btn:not(.focus) {
+      display: none;
+    }
   }
+  .data-table-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+  }
+}
+.data-loading {
+  opacity: .5;
+  pointer-events: none;
+}
 </style>

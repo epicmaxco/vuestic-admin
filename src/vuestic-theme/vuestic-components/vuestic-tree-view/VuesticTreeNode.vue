@@ -31,42 +31,42 @@ export default {
 </script>
 
 <style lang="scss">
-  .vuestic-tree-node {
-    .form-group {
-      margin-bottom: 0px;
-    }
-    display: flex;
-    &-checkbox {
-      margin-right: 0.75rem;
-    }
-    &-icon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      margin-right: 0.375rem;
-    }
-    &-icon-right {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      margin-right: 0.375rem;
-    }
-    &-label {
-      flex-grow: 1;
-      word-wrap: break-word;
-      overflow: hidden;
-    }
-    &-selected #{&}-label {
-      background-color: $vue-light-green;
-    }
-
-    // HACK Checkbox for presentation page
-    .vuestic-checkbox {
-      margin-bottom: 0;
-      margin-top: -0.125rem;
-      margin-right: -0.625rem;
-    }
+.vuestic-tree-node {
+  .form-group {
+    margin-bottom: 0px;
   }
+  display: flex;
+  &-checkbox {
+    margin-right: 0.75rem;
+  }
+  &-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 0.375rem;
+  }
+  &-icon-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 0.375rem;
+  }
+  &-label {
+    flex-grow: 1;
+    word-wrap: break-word;
+    overflow: hidden;
+  }
+  &-selected #{&}-label {
+    background-color: $vue-light-green;
+  }
+
+  // HACK Checkbox for presentation page
+  .vuestic-checkbox {
+    margin-bottom: 0;
+    margin-top: -0.125rem;
+    margin-right: -0.625rem;
+  }
+}
 </style>

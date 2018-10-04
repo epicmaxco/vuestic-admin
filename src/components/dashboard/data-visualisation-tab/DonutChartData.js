@@ -7,6 +7,6 @@ export default {
   datasets: [{
     label: 'Population (millions)',
     backgroundColor: [palette.info, palette.warning, palette.primary],
-    data: [3000, 6000, 1500]
-  }]
+    data: [3000, 6000, 1500],
+  }],
 }

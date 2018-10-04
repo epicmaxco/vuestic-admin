@@ -7,21 +7,34 @@
 <script>
 import FullSet from './Set'
 
+const iconTypes = [
+  'vuestic',
+  'brandico',
+  'entypo',
+  'font-awesome',
+  'fontelico',
+  'glyphicons',
+  'iconic-stroke',
+  'ionicons',
+  'maki',
+  'openweb',
+]
+
 export default {
   name: 'icons',
   components: {
-    FullSet
+    FullSet,
   },
   computed: {
     sets () {
       let sets = []
-      require(this.setsPath + 'names.json').forEach(name => {
-        let set = require(this.setsPath + name + '.json')
+      iconTypes.forEach(iconType => {
+        let set = require('./sets/' + iconType + '.json')
         this.addfilteredListsTo(set)
         sets.push(set)
       })
       return sets
-    }
+    },
   },
   methods: {
     addfilteredListsTo (set) {
@@ -31,18 +44,18 @@ export default {
       filteredLists.push(list.slice(6, 8))
       filteredLists.push(list.slice(8, 14))
       set.filteredLists = filteredLists
-    }
+    },
   },
   data () {
     return {
-      setsPath: './sets/'
+      setsPath: './sets/',
     }
-  }
+  },
 }
 </script>
 
 <style lang="scss">
-  .ui-icons {
+.ui-icons {
 
-  }
+}
 </style>

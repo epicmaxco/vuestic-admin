@@ -10,6 +10,7 @@ import App from './App'
 import store from './store'
 import router from './router'
 import VuesticPlugin from '@/vuestic-theme/vuestic-plugin'
+
 import './i18n'
 import YmapPlugin from 'vue-yandex-maps'
 
@@ -34,5 +35,5 @@ new Vue({
   el: '#app',
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
 })

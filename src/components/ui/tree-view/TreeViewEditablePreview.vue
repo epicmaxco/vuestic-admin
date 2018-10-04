@@ -57,12 +57,12 @@ export default {
     addProduct () {
       this.products.push({
         id: Math.floor(Math.random() * 100000),
-        name: 'New product'
+        name: 'New product',
       })
     },
     removeProduct (product) {
       this.products = this.products.filter(productToFilter => productToFilter !== product)
-    }
+    },
   },
 }
 </script>

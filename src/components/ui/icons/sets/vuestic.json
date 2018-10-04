@@ -5,7 +5,26 @@
   "lists": [
     {
       "name": "Icons",
-      "icons": ["comments","components","dashboard","extras","files","forms","graph","auth","image","maps","music","settings","statistics","tables","time","ui-elements","user","video"]
+      "icons": [
+        "comments",
+        "components",
+        "dashboard",
+        "extras",
+        "files",
+        "forms",
+        "graph",
+        "auth",
+        "image",
+        "maps",
+        "music",
+        "settings",
+        "statistics",
+        "tables",
+        "time",
+        "ui-elements",
+        "user",
+        "video"
+      ]
     }
   ]
 }

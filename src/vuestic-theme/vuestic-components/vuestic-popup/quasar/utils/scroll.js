@@ -55,6 +55,7 @@ export function setScrollPosition (scrollTarget, offset, duration) {
 }
 
 let size
+
 export function getScrollbarWidth () {
   if (size !== undefined) {
     return size
@@ -65,7 +66,7 @@ export function getScrollbarWidth () {
 
   css(inner, {
     width: '100%',
-    height: '200px'
+    height: '200px',
   })
   css(outer, {
     position: 'absolute',
@@ -74,7 +75,7 @@ export function getScrollbarWidth () {
     visibility: 'hidden',
     width: '200px',
     height: '150px',
-    overflow: 'hidden'
+    overflow: 'hidden',
   })
 
   outer.appendChild(inner)
@@ -124,5 +125,5 @@ export default {
   animScrollTo,
   setScrollPosition,
   getScrollbarWidth,
-  hasScrollbar
+  hasScrollbar,
 }

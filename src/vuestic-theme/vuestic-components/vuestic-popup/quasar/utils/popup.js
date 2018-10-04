@@ -8,7 +8,7 @@ export function getAnchorPosition (el, offset) {
     top,
     left,
     width: el.offsetWidth,
-    height: el.offsetHeight
+    height: el.offsetHeight,
   }
 
   if (offset) {
@@ -39,7 +39,7 @@ export function getTargetPosition (el) {
     bottom: el.offsetHeight,
     left: 0,
     middle: el.offsetWidth / 2,
-    right: el.offsetWidth
+    right: el.offsetWidth,
   }
 }
 
@@ -94,13 +94,31 @@ export function setPosition ({ el, animate, anchorEl, anchorOrigin, selfOrigin, 
 
   if (event && (!anchorClick || touchPosition)) {
     const { top, left } = eventPosition(event)
-    anchor = { top, left, width: 1, height: 1, right: left + 1, center: top, middle: left, bottom: top + 1 }
+    anchor = {
+      top,
+      left,
+      width: 1,
+      height: 1,
+      right: left + 1,
+      center: top,
+      middle: left,
+      bottom: top + 1,
+    }
   } else {
     if (touchOffset) {
       const { top: anchorTop, left: anchorLeft } = anchorEl.getBoundingClientRect()
       const top = anchorTop + touchOffset.top
       const left = anchorLeft + touchOffset.left
-      anchor = { top, left, width: 1, height: 1, right: left + 1, center: top, middle: left, bottom: top + 1 }
+      anchor = {
+        top,
+        left,
+        width: 1,
+        height: 1,
+        right: left + 1,
+        center: top,
+        middle: left,
+        bottom: top + 1,
+      }
     } else {
       anchor = getAnchorPosition(anchorEl, offset)
     }
@@ -109,7 +127,7 @@ export function setPosition ({ el, animate, anchorEl, anchorOrigin, selfOrigin, 
   let target = getTargetPosition(el)
   let targetPosition = {
     top: anchor[anchorOrigin.vertical] - target[selfOrigin.vertical],
-    left: anchor[anchorOrigin.horizontal] - target[selfOrigin.horizontal]
+    left: anchor[anchorOrigin.horizontal] - target[selfOrigin.horizontal],
   }
 
   targetPosition = repositionIfNeeded(anchor, target, selfOrigin, anchorOrigin, targetPosition, cover)
@@ -149,8 +167,12 @@ export function positionValidator (pos) {
 }
 
 export function offsetValidator (val) {
-  if (!val) { return true }
-  if (val.length !== 2) { return false }
+  if (!val) {
+    return true
+  }
+  if (val.length !== 2) {
+    return false
+  }
   if (typeof val[0] !== 'number' || typeof val[1] !== 'number') {
     return false
   }

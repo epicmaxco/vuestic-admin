@@ -22,12 +22,12 @@ import VuesticColorInput from './VuesticColorInput'
 
 export default {
   components: {
-    VuesticColorInput
+    VuesticColorInput,
   },
   data () {
     return {
-      value: '#aaaaaa'
+      value: '#aaaaaa',
     }
-  }
+  },
 }
 </script>

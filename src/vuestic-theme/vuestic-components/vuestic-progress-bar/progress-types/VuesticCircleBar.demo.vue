@@ -34,7 +34,7 @@ import CircleBar from './../progress-types/CircleProgressBar'
 
 export default {
   components: {
-    CircleBar
-  }
+    CircleBar,
+  },
 }
 </script>
