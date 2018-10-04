@@ -1,7 +1,7 @@
 <template>
-  <div class="widget" :class="{'no-header': !headerText}">
-    <div class="widget-header" v-if="headerText">{{headerText}}</div>
-    <div class="widget-body" v-if="hasSlotData">
+  <div class="vuestic-widget" :class="{'no-header': !headerText}">
+    <div class="vuestic-widget-header" v-if="headerText">{{headerText}}</div>
+    <div class="vuestic-widget-body" v-if="hasSlotData">
       <slot></slot>
     </div>
   </div>
@@ -20,32 +20,32 @@ export default {
 </script>
 
 <style lang="scss">
-.widget {
+.vuestic-widget {
   background: $widget-bg;
   box-shadow: $widget-box-shadow;
   margin-bottom: $widget-mb;
   padding: 0;
 
   &.no-header {
-    .widget-body {
+    .vuestic-widget-body {
     }
   }
 
   &.larger-padding {
-    .widget-body {
+    .vuestic-widget-body {
       padding: $widget-larger-padding;
     }
   }
 
   &.no-h-padding {
-    .widget-body {
+    .vuestic-widget-body {
       padding-left: 0;
       padding-right: 0;
     }
   }
 
   &.no-v-padding {
-    .widget-body {
+    .vuestic-widget-body {
       padding-top: 0;
       padding-bottom: 0;
     }
@@ -75,11 +75,11 @@ export default {
     }
   }
 
-  .widget-body {
+  .vuestic-widget-body {
     padding: $widget-padding;
   }
 
-  .widget-header {
+  .vuestic-widget-header {
     height: $widget-header-height;
     padding: 0 $widget-padding;
     border-bottom: $widget-header-border;
