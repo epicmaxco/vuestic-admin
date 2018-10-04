@@ -1,20 +1,26 @@
 <template>
-  <div class="language-dropdown dropdown navbar-dropdown" v-dropdown>
-    <a class="language-dropdown-button dropdown-toggle" href="#">
-      <span class="flag-icon flag-icon-large" :class="flagIconClass(currentLanguage())"></span>
-    </a>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  <div class="language-dropdown">
+    <span
+      class="flag-icon flag-icon-large"
+      :class="flagIconClass(currentLanguage())"
+    />
+    <vuestic-dropdown
+      class="language-dropdown__container"
+      v-model="isShown"
+      position="bottom"
+    >
       <a class="dropdown-item"
-         :class="{ active: option.code === currentLanguage() }"
          v-for="(option, id) in options"
          :key="id"
-         @click="setLanguage(option.code)">
+         :class="{ active: option.code === currentLanguage() }"
+         @click="setLanguage(option.code)"
+      >
         <span class="flag-icon flag-icon-small" :class="flagIconClass(option.code)"></span>
         <span class="dropdown-item__text ellipsis">
           {{ `language.${option.name}` | translate }}
         </span>
       </a>
-    </div>
+    </vuestic-dropdown>
   </div>
 </template>
 
@@ -23,25 +29,29 @@ import Vue from 'vue'
 
 export default {
   name: 'language-dropdown',
-
+  data () {
+    return {
+      isShown: false,
+    }
+  },
   props: {
     options: {
       type: Array,
       default: () => [
         {
           code: 'gb',
-          name: 'english'
+          name: 'english',
         },
         {
           code: 'es',
-          name: 'spanish'
+          name: 'spanish',
         },
         {
           code: 'br',
-          name: 'brazilian_portuguese'
-        }
-      ]
-    }
+          name: 'brazilian_portuguese',
+        },
+      ],
+    },
   },
   methods: {
     setLanguage (locale) {
@@ -54,117 +64,32 @@ export default {
 
     flagIconClass (code) {
       return `flag-icon-${code}`
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss">
-  @import "~flag-icon-css/css/flag-icon.css";
+@import '../../../../../vuestic-theme/vuestic-sass/resources/resources';
+@import "~flag-icon-css/css/flag-icon.css";
 
-  .language-dropdown {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-basis: 0;
-    flex-grow: 1;
-    max-width: 100%;
-    height: 100%;
-    padding: 0;
+.language-dropdown {
+  @include flex-center();
+  cursor: pointer;
+  .flag-icon-large {
+    display: block;
+    width: 31px;
+    height: 23px;
+  }
 
-    .language-dropdown-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .flag-icon-large {
-      width: 31px;
-      height: 23px;
-    }
-
-    .flag-icon-small {
-      min-width: 22px;
-      height: 17px;
-    }
-
-    .dropdown-toggle {
-      padding: 0;
-
-      &:after {
-        display: none;
-      }
-    }
-
-    &.show {
-      &:after {
-        position: absolute;
-        right: calc(50% - 10px);
-        bottom: -$dropdown-mobile-show-b;
-        display: block;
-        width: 0;
-        height: 0;
-        content: '';
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-bottom: 10px solid $darkest-gray;
-        z-index: 2;
-      }
-
-      .dropdown-menu {
-        left: auto;
-        margin-top: $dropdown-mobile-show-b;
-
-        &.last {
-          right: 0;
-        }
-
-        @include media-breakpoint-up(lg) {
-          right: auto;
-          left: 12px;
-          margin-top: 12px;
-        }
-      }
-    }
-
-    .dropdown-menu {
-      min-width: 8rem;
-      max-width: 11rem;
-      margin-top: $dropdown-show-b;
-      padding: 0;
-      background-color: $dropdown-background;
-      box-shadow: $dropdown-box-shadow;
-
-      .dropdown-item {
-        display: flex;
-        align-items: center;
-        height: 38px;
-        padding: 9px 12px;
-
-        .dropdown-item__text {
-          padding-left: 12px;
-          font-size: $font-size-base;
-          line-height: 1.25;
-        }
-
-        &.active {
-          color: $vue-green;
-          background-color: $darkest-gray;
-        }
-
-        &:hover {
-          background-color: $almost-black;
-        }
-
-        &:last-child {
-          padding-top: 8px;
-          padding-bottom: 10px;
-        }
-      }
-
-      @include media-breakpoint-up(lg) {
-        top: 42px;
+  @at-root {
+    &__container {
+      .flag-icon-small {
+        min-width: 22px;
+        height: 17px;
+        margin-right: 12px;
       }
     }
   }
+}
 </style>

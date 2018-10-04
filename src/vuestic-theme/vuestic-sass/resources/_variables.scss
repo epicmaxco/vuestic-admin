@@ -88,7 +88,7 @@ $auth-wallpaper-ivuestic-h: 2.625rem;
 $auth-wallpaper-oblique-line: $dark-gray;
 
 //Mobile Layout
-$top-mobile-nav-height: 5.625rem;
+$top-mobile-nav-height: 6.5rem;
 $layout-mobile-padding: 0.1875rem;
 $layout-mobile-padding-right: .375rem;
 
@@ -108,8 +108,8 @@ $content-mobile-wrap-fixed-layout: $content-mobile-wrap-pt-fixed-layout $content
 $content-mobile-wrap-sb-top: calc(#{$top-nav-height} + #{$layout-padding+20}) - 20 px;
 
 $nav-mobile-padding-h: .875rem;
-$nav-mobile-pt: 3rem;
-$nav-mobile-pb: 1.375rem;
+$nav-mobile-pt: 1.75rem;
+$nav-mobile-pb: 0.5rem;
 $nav-mobile-brand-width: 4rem;
 $nav-mobile-brand-top: .875rem;
 $nav-mobile-brand-left: calc(50% - #{$nav-mobile-brand-width});

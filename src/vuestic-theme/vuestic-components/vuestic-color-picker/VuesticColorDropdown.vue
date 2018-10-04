@@ -1,10 +1,10 @@
 <template>
-  <div class="vuestic-dropdown">
-    <div class="vuestic-dropdown__toggle" ref="toggleRef" @click="toggle()">
+  <div class="vuestic-color-dropdown">
+    <div class="vuestic-color-dropdown__toggle" ref="toggleRef" @click="toggle()">
       <slot name="toggle"/>
     </div>
     <div v-show="isOpen">
-      <div class="vuestic-dropdown__content" ref="content">
+      <div class="vuestic-color-dropdown__content" ref="content">
         <slot/>
       </div>
     </div>
@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'vuestic-dropdown',
+  name: 'vuestic-color-dropdown',
   data () {
     return {
       isOpen: false
@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style lang="scss">
-.vuestic-dropdown {
+.vuestic-color-dropdown {
   &__toggle {
     position: relative;
   }

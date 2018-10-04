@@ -7,10 +7,11 @@
     <span slot="center">
       {{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
     </span>
-    <message-dropdown/>
-    <notification-dropdown/>
-    <language-dropdown/>
-    <profile-dropdown>
+
+    <message-dropdown class="col nav-item"/>
+    <notification-dropdown class="col nav-item"/>
+    <language-dropdown class="col nav-item"/>
+    <profile-dropdown class="col nav-item">
       <img src="https://i.imgur.com/nfa5itq.png"/>
     </profile-dropdown>
   </vuestic-navbar>
@@ -21,6 +22,7 @@
 import VuesticIconVuestic from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconVuestic'
 import VuesticNavbar from '../../../vuestic-theme/vuestic-components/vuestic-navbar/VuesticNavbar'
 import HeaderSelector from './components/HeaderSelector'
+
 import LanguageDropdown from './components/dropdowns/LanguageDropdown'
 import ProfileDropdown from './components/dropdowns/ProfileDropdown'
 import NotificationDropdown from './components/dropdowns/NotificationDropdown'

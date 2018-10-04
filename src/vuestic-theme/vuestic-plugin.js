@@ -44,6 +44,8 @@ import FileUpload
   from './vuestic-components/vuestic-file-upload/VuesticFileUpload'
 import Tag from './vuestic-components/vuestic-tag/VuesticTag'
 import TagGroup from './vuestic-components/vuestic-tag/VuesticTagGroup'
+import VuesticDropdown
+  from './vuestic-components/vuestic-dropdown/VuesticDropdown'
 
 import VuesticToasted from './vuestic-mixins/VuesticToasted'
 
@@ -54,6 +56,14 @@ import VuesticTimeline
   from './vuestic-components/vuestic-timelines/VuesticTimeline'
 import VuesticTimelineItem
   from './vuestic-components/vuestic-timelines/VuesticTimelineItem'
+import VuesticPopup
+  from './vuestic-components/vuestic-popup/quasar/components/popup/VuesticPopup.vue'
+
+import { installQuasarPlatform } from './vuestic-components/vuestic-popup/quasar/install'
+
+// At the moment we use quasar platform install to make its components work.
+// Ideally we want to create similar vuestic platform object that holds needed values.
+installQuasarPlatform()
 
 const VuesticPlugin = {
   install (Vue, options) {
@@ -86,12 +96,14 @@ const VuesticPlugin = {
       TreeCategory,
       TreeNode,
       FileUpload,
+      VuesticDropdown,
       DatePicker,
       Card,
       Tag,
       TagGroup,
       VuesticTimeline,
       VuesticTimelineItem,
+      VuesticPopup,
     ].forEach(component => {
       Vue.component(component.name, component)
     })

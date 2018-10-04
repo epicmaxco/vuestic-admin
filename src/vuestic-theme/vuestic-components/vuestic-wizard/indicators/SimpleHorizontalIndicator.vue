@@ -1,6 +1,13 @@
 <template>
   <ul class="wizard-steps horizontal-steps simple-steps" :class="{'completed': completed}">
-    <li v-if="steps" class="wizard-step" :class="{'active': currentStep >= index, 'current': currentStep === index}" :style="{ width: 100/steps.length + '%' }" v-for="(step, index) of steps">
+    <li
+      v-if="steps"
+      class="wizard-step"
+      :class="{'active': currentStep >= index, 'current': currentStep === index}"
+      :style="{ width: 100/steps.length + '%' }"
+      v-for="(step, index) of steps"
+      :key="index"
+    >
       <span class="wizard-step-line"/>
       <span class="wizard-step-line completed-line"/>
       <span class="wizard-step-label ellipsis">{{step.label}}</span>
@@ -27,24 +34,24 @@ export default {
   name: 'vuestic-wizard-simple-horizontal-indicator',
   props: {
     steps: {
-      type: Array
+      type: Array,
     },
     currentStep: {
       type: Number,
-      default: 0
+      default: 0,
     },
     completed: {
       type: Boolean,
-      default: false
+      default: false,
     },
     step: {},
     isActive: {
       type: Boolean,
-      default: false
+      default: false,
     },
     indexCurrent: {},
-    indexMax: {}
-  }
+    indexMax: {},
+  },
 }
 </script>
 

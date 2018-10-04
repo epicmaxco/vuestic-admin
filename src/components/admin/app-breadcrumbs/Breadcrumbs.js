@@ -72,6 +72,10 @@ export default {
           displayName: 'menu.timelines'
         },
         {
+          path: 'dropdowns',
+          displayName: 'menu.dropdowns'
+        },
+        {
           path: 'notifications',
           displayName: 'menu.notifications'
         },

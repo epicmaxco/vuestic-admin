@@ -1,33 +1,31 @@
 <template>
-  <div class="form-group dropdown" v-dropdown.closeOnMenuClick>
-    <button id="itemsPerPageBtn" class="btn btn-primary btn-sm dropdown-toggle" type="button"
-            data-toggle="dropdown">
-      {{selected}} {{label}}
-      <i class="ion-ios-arrow-down arrow-down"></i>
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <div class="dropdown-menu-content">
-        <a
-          class="dropdown-item"
-          v-for="(option, index) in options"
-          :key="index"
-          @click="selectedItemsPerPage(option.value)"
-        >
-          {{option.value}} per page
-        </a>
-      </div>
-    </div>
-  </div>
-
+<vuestic-dropdown
+  class="form-group"
+  placement="bottom"
+>
+  <button
+    class="btn btn-primary btn-sm dropdown-toggle"
+    type="button"
+    slot="actuator"
+  >
+    {{selected}} {{label}}
+    <i class="ion-ios-arrow-down arrow-down"/>
+  </button>
+  <template>
+    <a
+      class="dropdown-item"
+      v-for="(option, index) in options"
+      :key="index"
+      @click="selectedItemsPerPage(option.value)"
+    >
+      {{option.value}} per page
+    </a>
+  </template>
+</vuestic-dropdown>
 </template>
 
 <script>
-import Dropdown from 'vuestic-directives/Dropdown'
-
 export default {
-  directives: {
-    Dropdown
-  },
   props: {
     label: {
       type: String
@@ -45,7 +43,6 @@ export default {
       selected: this.defaultPerPage
     }
   },
-
   methods: {
     selectedItemsPerPage (optionValue) {
       this.selected = optionValue
@@ -59,7 +56,6 @@ export default {
   .btn.dropdown-toggle, .dropdown-menu {
     min-width: 13rem;
     max-width: 13rem;
-    margin-left: 1rem;
   }
 
   .dropdown-item, .dropdown-toggle {
