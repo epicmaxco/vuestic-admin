@@ -75,6 +75,7 @@ export default {
     // We attach function to el to be able to remove event listeners from window on unbind.
     el.removeShow = removeShow
 
+    window.addEventListener('click', el.removeShow)
     // Probably also checking if element is select.
     if (dropdownMenu) {
       dropdownMenu.addEventListener('click', (event) => {
