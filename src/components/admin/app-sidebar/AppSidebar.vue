@@ -91,12 +91,12 @@
             <span>{{ $t('menu.colorPickers') }}</span>
           </span>
         </sidebar-link>
-        <sidebar-link
-          :to="{ name: 'dropdowns' }">
-          <span slot="title">
-            <span>{{ $t('menu.dropdowns') }}</span>
-          </span>
-        </sidebar-link>
+        <!--<sidebar-link-->
+          <!--:to="{ name: 'dropdowns' }">-->
+          <!--<span slot="title">-->
+            <!--<span>{{ $t('menu.dropdowns') }}</span>-->
+          <!--</span>-->
+        <!--</sidebar-link>-->
         <sidebar-link
           :to="{ name: 'timelines' }">
           <span slot="title">
