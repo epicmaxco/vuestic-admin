@@ -264,6 +264,11 @@ export default new Router({
               name: 'collapse',
               path: 'collapse',
               component: lazyLoading('ui/collapse/Collapse')
+            },
+            {
+              name: 'filters',
+              path: 'filters',
+              component: lazyLoading('ui/filters/Filters')
             }
           ]
         },

@@ -1,12 +1,13 @@
 <template>
-  <div class="vuestic-tag" :class="tagClass">
+  <span class="vuestic-tag" :class="tagClass">
     {{ name }}
     <span class="vuestic-tag-button"
           v-if="removable"
-          @click="remove">
+          @click="remove"
+    >
       <i class="ion-md-close ion"></i>
     </span>
-  </div>
+  </span>
 </template>
 
 <script>
