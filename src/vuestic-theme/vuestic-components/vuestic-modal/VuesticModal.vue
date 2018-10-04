@@ -153,6 +153,10 @@ export default {
     open () {
       this.show = true
       window.addEventListener('keyup', this.listenKeyUp)
+    },
+    close () {
+      this.show = false
+      window.removeEventListener('keyup', this.listenKeyUp)
     }
   }
 }
