@@ -77,23 +77,21 @@
                 </div>
               </button>
             </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3  d-flex justify-content-center">
-              <vuestic-dropdown class="align-self-start">
-                <template slot="actuator">
-                  <button
-                    class="btn btn-primary dropdown-toggle theme-toggle"
-                    type="button"
-                  >
-                    DROPDOWN
-                    <i class="ion-ios-arrow-down arrow-down"></i>
-                  </button>
-                </template>
-                <template>
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </template>
-              </vuestic-dropdown>
+            <div class="col-sm-6 col-lg-6 col-xl-3">
+              <button
+                class="btn btn-primary dropdown-toggle theme-toggle"
+                type="button"
+              >
+                DROPDOWN
+                <i class="ion-ios-arrow-down arrow-down"></i>
+                <vuestic-dropdown position="bottom">
+                  <template>
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </template>
+                </vuestic-dropdown>
+              </button>
             </div>
             <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center"
                  :class="{'col-lg-6 col-xl-4' : sidebarOpened, 'col-lg-4' : !sidebarOpened }">
