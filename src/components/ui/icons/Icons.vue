@@ -43,8 +43,6 @@ export default {
 
 <style lang="scss">
   .ui-icons {
-    .widget-body {
-      padding: 1.9375rem 2.6875rem 1.9375rem 2.125rem;
-    }
+
   }
 </style>

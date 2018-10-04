@@ -7,8 +7,7 @@
     :slider-style="sliderOptions.sliderStyle"
     class="vuestic-slider"
     :reverse="reverse"
-  >
-  </slider>
+  />
 </template>
 
 <script>

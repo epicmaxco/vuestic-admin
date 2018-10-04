@@ -1,6 +1,6 @@
 <template>
-  <div class="vuestic-icon-set row">
-    <div class="header col-12">
+  <div class="vuestic-icon-set">
+    <vuestic-widget class="header">
       <div class="row">
         <div class="header-text col-lg-4">
           <h2>{{ set.name }}</h2>
@@ -37,7 +37,7 @@
           <h2>A</h2>
         </div>
       </div>
-    </div>
+    </vuestic-widget>
 
     <vuestic-widget
       v-for="(list, index) in validatedLists"
@@ -81,23 +81,23 @@ export default {
 
   props: {
     name: {
-      type: String
+      type: String,
     },
 
     sets: {
-      type: Array
-    }
+      type: Array,
+    },
   },
 
-  data: function () {
+  data () {
     return {
       selector: '',
       iconSize: 30,
       slider: {
         formatter: v => `${v}px`,
         min: 20,
-        max: 40
-      }
+        max: 40,
+      },
     }
   },
 
@@ -116,8 +116,8 @@ export default {
       let result = [
         {
           name: 'Found Icons',
-          icons: []
-        }
+          icons: [],
+        },
       ]
 
       this.set.lists.forEach(list => {
@@ -129,90 +129,90 @@ export default {
       })
 
       return result
-    }
+    },
   },
 
   methods: {
     iconClass (icon) {
       return `${this.set.prefix} ${this.set.prefix}-${icon}`
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss">
-  .vuestic-icon-set {
-    .header {
-      padding: 1.75rem 0 1.125rem;
-      background-color: white;
+.vuestic-icon-set {
+  .header {
+    padding: 1.75rem 0 1.125rem;
+    background-color: white;
 
-      .header-text {
-        padding-left: 2.5rem;
-        text-align: left;
+    .header-text {
+      padding-left: 2.5rem;
+      text-align: left;
 
-        h2 {
-          margin-bottom: 0;
-        }
+      h2 {
+        margin-bottom: 0;
       }
-
-      .search {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        .input-group {
-          width: 13.25rem;
-        }
-      }
-
-      .range {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-
-        .vue-slider-wrap {
-          width: 9.3rem !important;
-        }
-
-        h2, h4 {
-          margin: .5rem;
-        }
-      }
-
-      margin-bottom: 2rem;
     }
 
-    .vuestic-icon-container {
-      .icon-grid-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+    .search {
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-        position: relative;
-        float: left;
-        height: 6rem;
-        min-height: 1px;
-        margin: 0 0 .5rem;
+      .input-group {
+        width: 13.25rem;
+      }
+    }
+
+    .range {
+      display: flex;
+      align-items: center;
+      padding-right: 2rem;
+      padding-left: 2rem;
+
+      h2, h4 {
+        flex-grow: 0;
+        margin: .5rem;
+      }
+      .vuestic-slider {
+        flex-grow: 1;
+      }
+    }
+
+    margin-bottom: 2rem;
+  }
+
+  .vuestic-icon-container {
+    .icon-grid-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      position: relative;
+      float: left;
+      height: 6rem;
+      min-height: 1px;
+      margin: 0 0 .5rem;
+      text-align: center;
+
+      &:hover {
+        color: white;
+        background-color: $brand-primary;
+        cursor: pointer;
+      }
+
+      .vuestic-icon {
+        margin: 0 0 1rem;
+        padding: 1rem 0 0;
+      }
+
+      .icon-text {
+        font-size: .6rem;
         text-align: center;
-
-        &:hover {
-          color: white;
-          background-color: $brand-primary;
-          cursor: pointer;
-        }
-
-        .vuestic-icon {
-          margin: 0 0 1rem;
-          padding: 1rem 0 0;
-        }
-
-        .icon-text {
-          font-size: .6rem;
-          text-align: center;
-        }
       }
     }
   }
+}
 </style>
