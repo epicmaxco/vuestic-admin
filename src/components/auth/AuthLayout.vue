@@ -1,21 +1,30 @@
 <template>
   <div class="auth-layout">
-    <div class="nav d-lg-none"><router-link class="i-vuestic" :to="{path: '/'}"></router-link></div>
+    <div class="nav d-lg-none">
+      <router-link :to="{path: '/'}">
+        <vuestic-icon-vuestic/>
+      </router-link>
+    </div>
     <div class="main row">
       <div class="auth-content col-lg-6 col-12">
         <router-view></router-view>
       </div>
       <div class="auth-wallpaper col-6 d-none d-lg-flex">
         <div class="oblique"></div>
-        <router-link class="i-vuestic" :to="{path: '/'}"></router-link>
+        <router-link class="auth-wallpaper__logo"  :to="{path: '/'}">
+          <vuestic-icon-vuestic/>
+        </router-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import VuesticIconVuestic
+  from '../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconVuestic'
 export default {
-  name: 'AuthLayout'
+  name: 'AuthLayout',
+  components: { VuesticIconVuestic },
 }
 </script>
 
@@ -29,7 +38,7 @@ export default {
       justify-content: center;
       height: $top-mobile-nav-height;
       background-color: $top-nav-bg;
-      .i-vuestic {
+      .vuestic-icon-vuestic {
         height: $auth-mobile-nav-ivuestic-h;
         width: 100%;
       }
@@ -50,8 +59,12 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-        .i-vuestic {
+        &__logo {
+          height: $auth-wallpaper-ivuestic-h;
           z-index: 2;
+          width: 100%;
+        }
+        .vuestic-icon-vuestic {
           height: $auth-wallpaper-ivuestic-h;
           width: 100%;
         }
