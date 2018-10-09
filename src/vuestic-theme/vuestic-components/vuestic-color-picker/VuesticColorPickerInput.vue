@@ -1,7 +1,7 @@
 <template>
   <div class="vuestic-color-picker-input">
     <div v-if="validator(this.mode)">
-      <vuestic-dropdown>
+      <vuestic-color-dropdown>
         <div slot="toggle" class="vuestic-color-picker-input__slot">
           <slot>
             <vuestic-color-input v-model="valueProxy" mode="palette" :disabled="disableInput" :selected="selected"/>
@@ -18,7 +18,7 @@
             <vuestic-slider-color-picker v-model="valueProxy"/>
           </div>
         </div>
-      </vuestic-dropdown>
+      </vuestic-color-dropdown>
     </div>
     <div v-else>
       <slot>
@@ -35,12 +35,12 @@ import VuesticSimplePalettePicker from './VuesticSimplePalettePicker'
 import VuesticSliderColorPicker from './VuesticSliderColorPicker'
 import VuesticColorSquare from './VuesticColorSquare'
 import VuesticColorInput from './VuesticColorInput'
-import VuesticDropdown from './VuesticDropdown'
+import VuesticColorDropdown from './VuesticColorDropdown'
 
 export default {
   name: 'vuestic-color-picker-input',
   components: {
-    VuesticDropdown,
+    VuesticColorDropdown,
     VuesticColorSquare,
     VuesticSimplePalettePicker,
     VuesticAdvancedColorPicker,

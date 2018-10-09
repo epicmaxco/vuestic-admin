@@ -34,6 +34,10 @@
     "donutChart": "Donut Chart",
     "bubbleChart": "Bubble Chart"
   },
+  "collapse": {
+    "accordion": "Accordion",
+    "buttons": "Buttons"
+  },
   "dashboard": {
     "dataVisualization": "Data Visualization",
     "success": "SUCCESS",
@@ -169,6 +173,8 @@
     "buttons": "Buttons",
     "charts": "Charts",
     "colorPickers": "Color Pickers",
+    "collapse": "Collapse",
+    "timelines": "Timelines",
     "dashboard": "Dashboard",
     "extra": "Extra",
     "formElements": "Form Elements",
@@ -193,8 +199,8 @@
     "uiElements": "UI Elements",
     "treeView": "Tree view",
     "dateTimePickers": "Date time pickers",
-    "cards": "Cards",
-    "fileUpload": "File Upload"
+    "fileUpload": "File Upload",
+    "dropdowns": "Dropdowns"
   },
   "messages": {
     "all": "See all messages",
@@ -215,6 +221,12 @@
     "staticTitle": "Static Modal",
     "title": "Modals"
   },
+  "dropdown": {
+    "default": "Default",
+    "withArrow": "With arrow",
+    "note": "Note",
+    "noteText": "Dropdown will open in the specified direction if there is enough space on the screen, otherwise the direction will automatically change"
+  },
   "fileUpload": {
     "advancedMediaGallery": "Advanced, Media Gallery",
     "advancedUploadList": "Advanced, Upload List",
@@ -223,14 +235,16 @@
     "single": "Single",
     "dragNdropFiles": "Drag’n’drop files or",
     "uploadedOn": "Uploaded on",
-    "fileDeleted": "File was succesfully deleted.",
+    "fileDeleted": "File was successfully deleted",
     "undo": "Undo",
     "preview": "Preview",
     "delete": "Delete",
     "deleteFile": "Delete file",
     "uploadFile": "Upload file",
     "uploadMedia": "Upload media",
-    "addAttachment": "Add attachment"
+    "addAttachment": "Add attachment",
+    "modalTitle": "File validation",
+    "modalText": "File type is incorrect!"
   },
   "tags": {
     "default": "Default",
@@ -245,6 +259,20 @@
     "sentMessage": "{name} sent you a message",
     "uploadedZip": "{name} uploaded a new Zip file with {type}",
     "startedTopic": "{name} started a new topic"
+  },
+  "timelines": {
+    "horizontalSimple": "Horizontal Simple",
+    "horizontalCards": "Horizontal Cards",
+    "verticalSimple": "Vertical Simple",
+    "verticalLabel": "Vertical With Label",
+    "verticalCentered": "Vertical Centered",
+    "firstDate": "February 2018",
+    "secondDate": "March 2018",
+    "thirdDate": "April 2018",
+    "cardsSecondInfo": "They occur in a variety of habitats, such as grasslands.",
+    "cardsThirdInfo": "However, various anthropogenic factors have had a severe impact on zebra populations",
+    "verticalSimpleCardsFirstInfo": "The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands.",
+    "verticalSimpleCardsSecondInfo": "However, various anthropogenic factors have had a severe impact on zebra populations"
   },
   "progressBars": {
     "basic": "Basic",

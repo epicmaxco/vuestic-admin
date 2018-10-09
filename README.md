@@ -24,11 +24,25 @@ Check it out [live](https://vuestic.epicmax.co)!
 
 ## Installation
 
+vue-cli3 has to be installed globally. If it's not, do:
+
+```bash
+$ npm install -g @vue/cli
+# OR
+$ yarn global add @vue/cli
+```
+
+You can create vuestic project via installer:
+
 ``` bash
 # create new project via vuestic-installer command.
 $ vuestic myproject
 
-or
+```
+
+or just by cloning repo:  
+
+```
 
 # clone the repo
 $ git clone https://github.com/epicmaxco/vuestic-admin.git myproject
@@ -38,7 +52,7 @@ $ cd myproject
 $ npm install
 
 # serve with hot reload at localhost:8080.
-$ npm run dev
+$ npm run serve
 
 # build for production with minification
 $ npm run build

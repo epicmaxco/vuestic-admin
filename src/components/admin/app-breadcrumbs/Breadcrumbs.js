@@ -1,144 +1,162 @@
 export default {
   root: {
-    path: '/',
+    name: '/',
     displayName: 'Home'
   },
   routes: [
     {
-      path: 'dashboard',
+      name: 'dashboard',
       displayName: 'menu.dashboard'
     },
     {
-      path: 'statistics',
+      name: 'statistics',
       displayName: 'menu.statistics',
       disabled: true,
       children: [
         {
-          path: 'charts',
+          name: 'charts',
           displayName: 'menu.charts',
         },
         {
-          path: 'progress-bars',
+          name: 'progress-bars',
           displayName: 'menu.progressBars'
         },
       ]
     },
     {
-      path: 'forms',
+      name: 'forms',
       displayName: 'menu.forms',
       disabled: true,
       children: [
         {
-          path: 'form-elements',
+          name: 'form-elements',
           displayName: 'menu.formElements'
         },
         {
-          path: 'form-wizards',
+          name: 'form-wizards',
           displayName: 'menu.formWizards'
         },
         {
-          path: 'medium-editor',
+          name: 'medium-editor',
           displayName: 'menu.mediumEditor'
         }
       ]
     },
     {
-      path: 'tables',
+      name: 'tables',
       displayName: 'menu.tables'
     },
     {
-      path: 'ui',
+      name: 'ui',
       displayName: 'menu.uiElements',
       disabled: true,
       children: [
         {
-          path: 'typography',
+          name: 'typography',
           displayName: 'menu.typography'
         },
         {
-          path: 'buttons',
+          name: 'buttons',
           displayName: 'menu.buttons'
         },
         {
-          path: 'color-pickers',
+          name: 'collapse',
+          displayName: 'menu.collapse'
+        },
+        {
+          name: 'color-pickers',
           displayName: 'menu.colorPickers'
+        },
+        {
+          path: 'timelines',
+          displayName: 'menu.timelines'
+        },
+        {
+          path: 'dropdowns',
+          displayName: 'menu.dropdowns'
         },
         {
           path: 'notifications',
           displayName: 'menu.notifications'
         },
         {
-          path: 'icons',
-          displayName: 'menu.icons'
+          name: 'icon-sets',
+          displayName: 'menu.icons',
+          children: [
+            {
+              displayName: 'concrete',
+              name: 'icon-set',
+            },
+          ]
         },
         {
-          path: 'spinners',
+          name: 'spinners',
           displayName: 'menu.spinners',
         },
         {
-          path: 'grid',
+          name: 'grid',
           displayName: 'menu.grid',
         },
         {
-          path: 'modals',
+          name: 'modals',
           displayName: 'menu.modals'
         },
         {
-          path: 'file-upload',
+          name: 'file-upload',
           displayName: 'menu.fileUpload'
         },
         {
-          path: 'tags',
+          name: 'tags',
           displayName: 'menu.tags'
         },
         {
-          path: 'cards',
+          name: 'cards',
           displayName: 'menu.cards'
         },
         {
-          path: 'tree-view',
+          name: 'tree-view',
           displayName: 'menu.treeView'
         }
       ]
     },
     {
-      path: 'extra',
+      name: 'extra',
       displayName: 'menu.extra'
     },
     {
-      path: 'maps',
+      name: 'maps',
       displayName: 'menu.maps',
       disabled: true,
       children: [
         {
-          path: 'google-maps',
+          name: 'google-maps',
           displayName: 'Google Maps'
         },
         {
-          path: 'yandex-maps',
+          name: 'yandex-maps',
           displayName: 'Yandex Maps'
         },
         {
-          path: 'leaflet-maps',
+          name: 'leaflet-maps',
           displayName: 'Leaflet Maps',
         },
         {
-          path: 'bubble-maps',
-          displayName: 'Bubble Maps',
+          name: 'bubble-maps',
+          displayName: 'Bubble Maps'
         },
         {
-          path: 'line-maps',
+          name: 'line-maps',
           displayName: 'Line Maps'
         }
       ]
     },
     {
-      path: 'pages',
+      name: 'pages',
       displayName: 'menu.pages',
       disabled: true,
       children: [
         {
-          path: '404-pages',
+          name: '404-pages',
           displayName: '404 Pages'
         }
       ]

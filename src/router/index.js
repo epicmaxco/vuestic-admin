@@ -85,6 +85,7 @@ export default new Router({
           default: true,
         },
         {
+          name: 'statistics',
           path: 'statistics',
           component: EmptyParentComponent,
           children: [
@@ -92,19 +93,22 @@ export default new Router({
               name: 'charts',
               path: 'charts',
               component: lazyLoading('statistics/charts/Charts'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Charts'
+              }
             },
             {
               name: 'progress-bars',
               path: 'progress-bars',
               component: lazyLoading('statistics/progress-bars/ProgressBars'),
-            },
-            {
-              path: '',
-              redirect: { name: 'charts' },
-            },
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Progress-Bars'
+              }
+            }
           ],
         },
         {
+          name: 'forms',
           path: 'forms',
           component: EmptyParentComponent,
           children: [
@@ -112,29 +116,38 @@ export default new Router({
               name: 'form-elements',
               path: 'form-elements',
               component: lazyLoading('forms/form-elements/FormElements'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/inputs'
+              }
             },
             {
               name: 'form-wizards',
               path: 'form-wizards',
               component: lazyLoading('forms/form-wizard/FormWizard'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Wizards'
+              }
             },
             {
               name: 'medium-editor',
               path: 'medium-editor',
               component: lazyLoading('forms/medium-editor/MediumEditor'),
-            },
-            {
-              path: '',
-              redirect: { name: 'form-elements' },
-            },
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Medium-Editor'
+              }
+            }
           ],
         },
         {
           name: 'tables',
           path: 'tables',
           component: lazyLoading('tables/Table'),
+          meta: {
+            wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tables'
+          }
         },
         {
+          name: 'ui',
           path: 'ui',
           component: EmptyParentComponent,
           children: [
@@ -147,11 +160,33 @@ export default new Router({
               name: 'buttons',
               path: 'buttons',
               component: lazyLoading('ui/buttons/Buttons'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Buttons'
+              }
             },
             {
               name: 'color-pickers',
               path: 'color-pickers',
               component: lazyLoading('ui/color-pickers/ColorPickers'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Color-Pickers'
+              }
+            },
+            {
+              name: 'timelines',
+              path: 'timelines',
+              component: lazyLoading('ui/timelines/Timelines'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Timelines'
+              }
+            },
+            {
+              name: 'dropdowns',
+              path: 'dropdowns',
+              component: lazyLoading('ui/dropdowns/Dropdowns'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Dropdowns'
+              }
             },
             {
               name: 'notifications',
@@ -163,11 +198,12 @@ export default new Router({
               component: lazyLoading('ui/icons/Icons'),
               children: [
                 {
-                  name: 'icons',
+                  name: 'icon-sets',
                   path: '', // Default route
                   component: lazyLoading('ui/icons/SetsList'),
                 },
                 {
+                  name: 'icon-set',
                   path: ':name',
                   component: lazyLoading('ui/icons/Set'),
                   props: true,
@@ -188,39 +224,59 @@ export default new Router({
               name: 'modals',
               path: 'modals',
               component: lazyLoading('ui/modals/Modals'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Modals'
+              }
             },
             {
               name: 'cards',
               path: 'cards',
-              component: lazyLoading('ui/cards/Cards')
+              component: lazyLoading('ui/cards/Cards'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Cards'
+              }
             },
             {
               name: 'file-upload',
               path: 'file-upload',
               component: lazyLoading('ui/file-upload/FileUpload'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/File-Upload'
+              }
             },
             {
               name: 'tags',
               path: 'tags',
-              component: lazyLoading('ui/tags/Tags')
+              component: lazyLoading('ui/tags/Tags'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tags'
+              }
             },
             {
               name: 'tree-view',
               path: 'tree-view',
               component: lazyLoading('ui/tree-view/TreeView'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tree-view'
+              }
             },
             {
-              path: '',
-              redirect: { name: 'typography' },
-            },
-          ],
+              name: 'collapse',
+              path: 'collapse',
+              component: lazyLoading('ui/collapse/Collapse')
+            }
+          ]
         },
         {
           name: 'extra',
           path: 'extra',
           component: lazyLoading('extra/Extra'),
+          meta: {
+            wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tabs'
+          }
         },
         {
+          name: 'maps',
           path: 'maps',
           component: EmptyParentComponent,
           children: [
@@ -228,34 +284,46 @@ export default new Router({
               name: 'google-maps',
               path: 'google-maps',
               component: lazyLoading('maps/google-maps/GoogleMapsPage'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps'
+              }
             },
             {
               name: 'yandex-maps',
               path: 'yandex-maps',
               component: lazyLoading('maps/yandex-maps/YandexMapsPage'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps'
+              }
             },
             {
               name: 'leaflet-maps',
               path: 'leaflet-maps',
               component: lazyLoading('maps/leaflet-maps/LeafletMapsPage'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps'
+              }
             },
             {
               name: 'bubble-maps',
               path: 'bubble-maps',
               component: lazyLoading('maps/bubble-maps/BubbleMapsPage'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps'
+              }
             },
             {
               name: 'line-maps',
               path: 'line-maps',
               component: lazyLoading('maps/line-maps/LineMapsPage'),
-            },
-            {
-              path: '',
-              redirect: { name: 'google-maps' },
-            },
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps'
+              }
+            }
           ],
         },
         {
+          name: 'pages',
           path: 'pages',
           component: EmptyParentComponent,
           children: [

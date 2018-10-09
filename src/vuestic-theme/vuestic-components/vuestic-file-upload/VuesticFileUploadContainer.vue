@@ -24,32 +24,30 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-file-upload-container',
-    props: {
-      dropzone: {
-        type: Boolean,
-        default: false
-      },
-      fileTypes: {
-        type: String
-      },
-      type: {
-        type: String
-      },
+export default {
+  name: 'vuestic-file-upload-container',
+  props: {
+    dropzone: {
+      type: Boolean,
+      default: false
     },
-    methods: {
-      changeFieldValue (e) {
-        this.$emit('upload', e)
-        this.$refs.fieldInput.value = ''
-      }
+    fileTypes: {
+      type: String
+    },
+    type: {
+      type: String
+    },
+  },
+  methods: {
+    changeFieldValue (e) {
+      this.$emit('upload', e)
+      this.$refs.fieldInput.value = ''
     }
   }
+}
 </script>
 
 <style lang='scss'>
-  @import '../../../sass/_variables.scss';
-
   .vuestic-file-upload-container {
     position: relative;
   }

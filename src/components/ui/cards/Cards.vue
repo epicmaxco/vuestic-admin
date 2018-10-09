@@ -2,8 +2,10 @@
   <div class="row">
     <div class="col-md-12">
       <div class="cards-container">
+        <!-- eslint-disable vue/valid-v-for -->
         <template v-for="loop in listLoops">
           <vuestic-card
+            :key="loop"
             title-on-image
             overlay
             image="https://picsum.photos/300/200/?image=1043">
@@ -146,7 +148,7 @@
         </template>
       </div>
     </div>
-    <div class="col-md-12 d-lg-flex align-items-center justify-content-center">
+    <div class="col-md-12 d-flex align-items-center justify-content-center">
       <div class="pre-loader-container">
         <vuestic-pre-loader v-show="isShown" class="pre-loader"></vuestic-pre-loader>
         <div v-if="!isShown">
@@ -160,27 +162,27 @@
 </template>
 
 <script>
-  import VuesticCard from '../../../vuestic-theme/vuestic-components/vuestic-card/VuesticCard'
+import VuesticCard from '../../../vuestic-theme/vuestic-components/vuestic-card/VuesticCard'
 
-  export default {
-    name: 'cards',
-    components: { VuesticCard },
-    data () {
-      return {
-        listLoops: 1,
-        isShown: false
-      }
-    },
-    methods: {
-      addCards () {
-        this.isShown = true
-        setTimeout(() => {
-          this.isShown = false
-          ++this.listLoops
-        }, 1000)
-      }
+export default {
+  name: 'cards',
+  components: { VuesticCard },
+  data () {
+    return {
+      listLoops: 1,
+      isShown: false
+    }
+  },
+  methods: {
+    addCards () {
+      this.isShown = true
+      setTimeout(() => {
+        this.isShown = false
+        ++this.listLoops
+      }, 1000)
     }
   }
+}
 </script>
 
 <style lang="scss">
@@ -191,18 +193,32 @@
     flex-wrap: wrap;
     margin: -$singleGutter;
     align-items: flex-start;
+    .vuestic-card {
+      margin: $singleGutter;
+
+      width: calc(33% - #{$singleGutter} * 2);
+
+      @include media-breakpoint-only(xl) {
+        width: calc(25% - #{$singleGutter} * 2);
+      }
+
+      @include media-breakpoint-only(lg) {
+        width: calc(33.3% - #{$singleGutter} * 2);
+      }
+
+      @include media-breakpoint-only(sm) {
+        width: calc(50% - #{$singleGutter} * 2);
+      }
+
+      @include media-breakpoint-only(xs) {
+        width: calc(100% - #{$singleGutter} * 2);
+      }
+    }
   }
 
   .pre-loader-container {
     height: 50px;
     margin-top: 50px;
     margin-bottom: 50px;
-  }
-
-  .cards-label {
-    color: $vue-green;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
   }
 </style>

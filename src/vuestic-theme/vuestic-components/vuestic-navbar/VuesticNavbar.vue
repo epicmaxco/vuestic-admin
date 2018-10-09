@@ -2,7 +2,7 @@
   <nav class="vuestic-navbar navbar navbar-toggleable-md">
     <div class="vuestic-navbar__logo navbar-brand-container d-flex align-items-center justify-content-start">
       <router-link class="navbar-brand" to="/dashboard">
-        <slot name="logo"></slot>
+        <slot name="logo"/>
       </router-link>
     </div>
     <div class="row vuestic-navbar__content">
@@ -18,9 +18,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'vuestic-navbar',
-  }
+export default {
+  name: 'vuestic-navbar',
+}
 </script>
 
 <style lang="scss">

@@ -1,0 +1,488 @@
+//Navbar
+.navbar .navbar-nav > .nav-item > .nav-link {
+  padding-right: 38px;
+  padding-left: 38px;
+  line-height: 0;
+}
+
+.navbar .navbar-nav > .nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-text {
+  color: $white;
+}
+
+//Typography
+h1, .h1 {
+  margin-bottom: 2.25rem;
+}
+
+h2, .h2 {
+  margin-bottom: 2rem;
+}
+
+h3, .h3 {
+  margin-bottom: 1.5rem;
+}
+
+h4, .h4 {
+  margin-bottom: 1rem;
+}
+
+.blockquote {
+  padding: 0 ($spacer *1.625);
+  margin: 2.5rem 0 2.5rem 1rem;
+  border-left: $blockquote-border-width solid $blockquote-border-color;
+  line-height: 2rem;
+  color: $blockquote-small-color;
+  font-style: oblique;
+}
+
+.blockquote-footer {
+  &::before {
+    content: "--- "; // em dash, nbsp
+  }
+}
+
+//Buttons
+
+.btn {
+  box-shadow: $btn-box-shadow;
+  font-family: inherit;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &.dropdown-toggle.theme-toggle {
+    @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-line-height, $btn-border-radius);
+  }
+
+  &:focus, &:active, &.focus {
+    box-shadow: $btn-box-shadow;
+  }
+}
+
+.btn.btn-sm {
+  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-base, $btn-line-height-sm, $btn-border-radius);
+}
+
+.btn.btn-micro {
+  @include button-size($btn-padding-y-micro, $btn-padding-x-micro, $font-size-smaller, $btn-line-height-sm, $btn-border-radius);
+}
+
+.btn.btn-primary {
+  @include theme-button-variant($white, theme-color("primary"), $btn-border, $btn-box-shadow);
+
+  &.hover {
+    background-color: lighten(theme-color("primary"), 10%) !important;
+    color: $white;
+  }
+
+  &.focus {
+    background-color: darken(theme-color("primary"), 15%);
+    color: $white;
+  }
+}
+
+.btn.btn-secondary {
+  @include theme-button-variant($white, theme-color("primary"), $btn-secondary-theme-border, none);
+
+  color: theme-color("primary");
+  border: $btn-secondary-theme-border;
+  background-color: $white;
+
+  &[disabled], &[disabled]:hover {
+    background-color: $white;
+    color: theme-color("primary");
+    border: 2px solid theme-color("primary");
+  }
+
+  &:hover {
+    border: 2px solid lighten(theme-color("primary"), 10%);
+  }
+
+  &.hover {
+    border: 2px solid lighten(theme-color("primary"), 10%) !important;
+    background-color: lighten(theme-color("primary"), 10%) !important;
+    color: $white;
+  }
+
+  &:active, &:focus, &.focus {
+    border: 2px solid darken(theme-color("primary"), 15%) !important;
+    background-color: darken(theme-color("primary"), 15%) !important;
+    color: $white;
+  }
+
+}
+
+.btn.btn-danger {
+  @include theme-button-variant($white, theme-color("danger"), $btn-border, $btn-box-danger-shadow);
+}
+
+.btn.btn-warning {
+  @include theme-button-variant($white, theme-color("warning"), $btn-border, $btn-box-warning-shadow);
+}
+
+.btn.btn-info {
+  @include theme-button-variant($white, theme-color("info"), $btn-border, $btn-box-info-shadow);
+}
+
+.btn.btn-success {
+  @include theme-button-variant($white, theme-color("primary"), $btn-border, $btn-box-success-shadow);
+}
+
+.btn.btn-dark {
+  @include theme-button-variant($white, theme-color("dark"), $btn-border, $btn-box-dark-shadow);
+}
+
+.btn.btn-pale {
+  @include theme-button-variant($white, theme-color("pale"), $btn-border, $btn-box-pale-shadow);
+  &:hover {
+    background-color: lighten(theme-color("pale"), 5%);
+    &:focus, &:active, &.active {
+      background-color: darken(theme-color("pale"), 15%);
+    }
+  }
+}
+
+.btn.btn-with-icon {
+  position: relative;
+  padding: $btn-padding-y $btn-with-icon-padding-x;
+  .btn-with-icon-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: $btn-with-icon-text-margin;
+  }
+
+  i {
+    position: absolute;
+    left: $btn-with-icon-padding-x;
+    top: $btn-with-icon-icon-top;
+    font-size: $btn-with-icon-icon-size;
+  }
+
+  &.rounded-icon {
+    width: $btn-with-icon-rounded-size;
+    height: $btn-with-icon-rounded-size;
+    border-radius: 50%;
+    padding: 0;
+
+    i {
+      left: $btn-with-icon-rounded-icon-left;
+    }
+
+    &.btn-micro {
+      height: $btn-with-icon-rounded-size-micro;
+      width: $btn-with-icon-rounded-size-micro;
+      flex: none;
+
+      i {
+        font-size: $btn-with-icon-rounded-font-micro;
+        left: $btn-with-icon-rounded-position-left;
+        top: $btn-with-icon-rounded-position-top;
+      }
+    }
+  }
+}
+
+.btn-group {
+  box-shadow: $btn-box-shadow;
+  border-radius: $btn-border-radius;
+  .btn {
+    padding-left: $btn-group-button-padding-x;
+    padding-right: $btn-group-button-padding-x;
+    box-shadow: none;
+  }
+}
+
+.btn.dropdown-toggle {
+  position: relative;
+
+  .arrow-down {
+    position: absolute;
+    font-size: $btn-dd-arrow-size;
+    right: 1rem;
+    top: calc(50% - #{$btn-dd-arrow-size} / 1.4);
+  }
+
+  &::after {
+    display: none;
+  }
+}
+
+.btn-group {
+  color: $white;
+}
+
+// Dropdowns & Selects
+.dropdown-menu {
+  border-radius: 0;
+  padding: $dropdown-menu-padding-y $dropdown-menu-padding-x;
+  background: transparent;
+  border: none;
+  .dropdown-menu-content {
+    background-color: $dropdown-background;
+    box-shadow: $dropdown-box-shadow;
+  }
+}
+
+.dropdown-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: $dropdown-item-height;
+  font-size: $font-size-sm;
+}
+
+//Grid
+
+.row > .col-8-custom {
+  @include media-breakpoint-between(md, xl) {
+    width: 12.5%;
+  }
+
+  @include media-breakpoint-only(sm) {
+    width: 25%;
+  }
+
+  @include media-breakpoint-only(xs) {
+    width: 100%;
+  }
+}
+
+//Icons
+.error-icon {
+  display: inline-block;
+  color: $theme-red;
+}
+
+.success-icon {
+  display: inline-block;
+  color: $vue-green;
+}
+
+//Tables
+.table-striped {
+  tbody tr:nth-of-type(odd) {
+    background-color: $striped-row-odd;
+  }
+  tbody tr:nth-of-type(even) {
+    background-color: $striped-row;
+  }
+}
+
+.table-bordered {
+  td, th {
+    border: 1px solid $table-border-color;
+  }
+}
+
+.table-hover {
+  tbody tr {
+    @include hover {
+      background-color: $table-hover-bg;
+    }
+  }
+}
+
+.table {
+
+  thead tr {
+    border-bottom: 2px solid rgb(85, 85, 85);
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  td, th, thead th, thead td {
+    vertical-align: middle !important;
+    padding: .5rem;
+  }
+
+  .badge {
+    vertical-align: text-top;
+  }
+
+  .table-info {
+    background-color: #dcf1ff;
+  }
+
+  .table-warning {
+    background-color: #fff1c8;
+  }
+
+  .table-success, .table-success > td, .table-success > th {
+    background-color: #c8fac6;
+  }
+
+  .table-danger {
+    background-color: #ffcece;
+  }
+}
+
+.table-header-active {
+  thead tr {
+    color: $vue-green;
+  }
+}
+
+.first-td-padding {
+  td:first-child {
+    @extend .pl-4;
+  }
+}
+
+.sort-icon {
+  float: none !important;
+  margin-left: .2rem;
+  top: 1px;
+  font-size: 1rem;
+}
+
+th.sortable:hover {
+  color: $vue-green !important;
+  opacity: .6;
+}
+
+//Badges
+@mixin badge-variant($bg) {
+  color: $white;
+  background-color: $bg;
+
+  &[href] {
+    @include hover-focus {
+      color: $white;
+      text-decoration: none;
+      background-color: darken($bg, 10%);
+    }
+  }
+}
+
+.badge {
+  min-width: $badge-min-width;
+  display: inline-block;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: .625rem;
+  color: $white;
+  letter-spacing: .0625rem;
+}
+
+.badge-violet {
+  @include badge-variant($theme-violet);
+}
+
+.badge-dark-blue {
+  @include badge-variant($dark-blue);
+}
+
+.badge-success {
+  @include badge-variant($badge-success-bg);
+}
+
+//Alerts
+
+.alert {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .badge {
+    margin-right: 0.63rem;
+  }
+
+  &.with-close {
+    padding-right: $with-close-pr;
+  }
+
+  .alert-close {
+    position: absolute;
+    right: 20px;
+    font-size: $font-size-base;
+    top: calc(50% - #{$font-size-base} / 2);
+    cursor: pointer;
+  }
+}
+
+.alert-success {
+  box-shadow: $alert-success-shadow;
+
+  .alert-close {
+    color: $brand-primary;
+  }
+}
+
+.alert-warning {
+  box-shadow: $alert-warning-shadow;
+
+  .alert-close {
+    color: $brand-warning;
+  }
+}
+
+.alert-danger {
+  box-shadow: $alert-danger-shadow;
+
+  .alert-close {
+    color: $brand-danger;
+  }
+}
+
+.alert-info {
+  box-shadow: $alert-info-shadow;
+
+  .alert-close {
+    color: $brand-info;
+  }
+}
+
+@function get-alert-def($type, $csspart) {
+  @if $csspart == 'bg' {
+    @if $type == 'success' {
+      @return $alert-success-bg;
+    } @else if $type == 'danger' {
+      @return $alert-danger-bg;
+    } @else if $type == 'warning' {
+      @return $alert-warning-bg;
+    } @else if $type == 'info' {
+      @return $alert-info-bg;
+    }
+
+    @return theme-color-level($type, -10);
+  } @else if $csspart == 'border' {
+    @if $type == 'success' {
+      @return $alert-success-border;
+    } @else if $type == 'danger' {
+      @return $alert-danger-border;
+    } @else if $type == 'warning' {
+      @return $alert-warning-border;
+    } @else if $type == 'info' {
+      @return $alert-info-border;
+    }
+
+    @return theme-color-level($type, -9);
+  } @else if $csspart == 'color' {
+    @if $type == 'success' {
+      @return $alert-success-text;
+    } @else if $type == 'danger' {
+      @return $alert-danger-text;
+    } @else if $type == 'warning' {
+      @return $alert-warning-text;
+    } @else if $type == 'info' {
+      @return $alert-info-text;
+    }
+
+    @return theme-color-level($type, 6);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .alert-#{$color} {
+    @include alert-variant(get-alert-def($color, 'bg'), get-alert-def($color, 'border'), get-alert-def($color, 'color'));
+  }
+}

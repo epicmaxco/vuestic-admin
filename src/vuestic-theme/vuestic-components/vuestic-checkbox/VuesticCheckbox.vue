@@ -19,70 +19,73 @@
 </template>
 
 <script>
-  function generateRandomId () {
-    return Math.floor(Math.random() * Math.pow(10, 10))
-  }
+function generateRandomId () {
+  return Math.floor(Math.random() * Math.pow(10, 10))
+}
 
-  export default {
-    name: 'vuestic-checkbox',
-    props: {
-      label: String,
-      id: {
-        type: String,
-        default () {
-          // We require unique id to show label
-          return 'label-' + generateRandomId()
-        }
-      },
-      checked: {
-        type: Boolean,
-        default: false
-      },
-      disabled: {
-        type: Boolean,
-        default: false
-      },
-      name: {
-        type: String,
-        default: ''
-      },
-      isCircle: {
-        type: Boolean,
-        default: false
-      },
-      brandColor: {
-        type: String,
-        default: 'primary',
-        validator: value => {
-          return ['primary', 'secondary', 'success', 'info', 'warning', 'danger'].indexOf(value) >= 0
-        }
+export default {
+  name: 'vuestic-checkbox',
+  props: {
+    label: String,
+    id: {
+      type: String,
+      default () {
+        // We require unique id to show label
+        return 'label-' + generateRandomId()
       }
     },
-    model: {
-      prop: 'checked',
-      event: 'change'
+    checked: {
+      type: Boolean,
+      default: false
     },
-    mounted () {
-      this.$emit('change', this.checked)
+    disabled: {
+      type: Boolean,
+      default: false
     },
-    methods: {
-      onChange (event) {
-        this.$emit('change', event.target.checked)
-      },
+    name: {
+      type: String,
+      default: ''
     },
-    computed: {
-      additionalClasses () {
-        return [
-          this.isCircle ? 'abc-checkbox-circle' : false,
-          'abc-checkbox-' + this.brandColor
-        ]
+    isCircle: {
+      type: Boolean,
+      default: false
+    },
+    brandColor: {
+      type: String,
+      default: 'primary',
+      validator: value => {
+        return ['primary', 'secondary', 'success', 'info', 'warning', 'danger'].indexOf(value) >= 0
       }
     }
+  },
+  model: {
+    prop: 'checked',
+    event: 'change'
+  },
+  mounted () {
+    this.$emit('change', this.checked)
+  },
+  methods: {
+    onChange (event) {
+      this.$emit('change', event.target.checked)
+    },
+  },
+  computed: {
+    additionalClasses () {
+      return [
+        this.isCircle ? 'abc-checkbox-circle' : false,
+        'abc-checkbox-' + this.brandColor
+      ]
+    }
   }
+}
 </script>
 
 <style lang="scss">
   .vuestic-checkbox {
-
+    input[type=checkbox]:disabled + label, input[type=radio]:disabled + label,
+    input[type=checkbox]:disabled, input[type=radio]:disabled {
+      cursor: not-allowed;
+    }
   }
 </style>

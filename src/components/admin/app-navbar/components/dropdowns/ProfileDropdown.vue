@@ -1,63 +1,71 @@
 <template>
-  <div class="profile-dropdown col nav-item dropdown navbar-dropdown" v-dropdown>
-    <a class="nav-link dropdown-toggle" href="#">
-      <span class="profile-section-avatar-container">
-        <slot></slot>
-      </span>
-    </a>
-    <div class="dropdown-menu last">
-      <div class="dropdown-menu-content">
-        <div v-for="(option, id) in options" :key="id"
-          class="dropdown-item plain-link-item">
-          <router-link :to="{name: option.redirectTo}" class="plain-link" href="#">
-            {{ `user.${option.name}` | translate}}
-          </router-link>
-        </div>
+  <div class="profile-dropdown">
+    <span class="profile-dropdown__avatar-container">
+      <slot/>
+    </span>
+    <vuestic-dropdown
+      v-model="isShown"
+      position="bottom"
+    >
+      <div
+        v-for="option in options"
+        :key="option.name"
+        class="dropdown-item plain-link-item"
+      >
+        <router-link :to="{name: option.redirectTo}" class="plain-link" href="#">
+          {{ $t(`user.${option.name}`) }}
+        </router-link>
       </div>
-    </div>
+    </vuestic-dropdown>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'profile-section',
-
-    props: {
-      options: {
-        type: Array,
-        default: () => [
-          {
-            name: 'profile',
-            redirectTo: '',
-          },
-          {
-            name: 'logout',
-            redirectTo: 'login'
-          }
-        ]
-      }
+export default {
+  name: 'profile-section',
+  data () {
+    return {
+      isShown: false,
+    }
+  },
+  props: {
+    options: {
+      type: Array,
+      default: () => [
+        {
+          name: 'profile',
+          redirectTo: '',
+        },
+        {
+          name: 'logout',
+          redirectTo: 'login',
+        },
+      ],
     },
-  }
+  },
+}
 </script>
 
 <style lang="scss">
-  .profile-dropdown {
+@import '../../../../../vuestic-theme/vuestic-sass/resources/resources';
 
-    .profile-section-avatar-container {
-      display: inline-block;
-      width: 50px;
-      height: 50px;
-      background-color: white;
-      border-radius: 50%;
-      border: 2px solid $lighter-gray;
-      overflow: hidden;
+.profile-dropdown {
+  @include flex-center();
+  cursor: pointer;
 
-      img {
-        height: 100%;
-        width: 100%;
-      }
+  &__avatar-container {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid $lighter-gray;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 100%;
     }
-
   }
-
+}
 </style>

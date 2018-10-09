@@ -28,46 +28,44 @@
 </template>
 
 <script>
-  import VuesticFileUploadUndo from './VuesticFileUploadUndo'
+import VuesticFileUploadUndo from './VuesticFileUploadUndo'
 
-  export default {
-    name: 'vuestic-file-upload-list-item',
-    components: {
-      VuesticFileUploadUndo: VuesticFileUploadUndo
-    },
-    props: {
-      file: {
-        type: Object
-      }
-    },
-    data () {
-      return {
-        removed: false
-      }
-    },
-    methods: {
-      showFilePreview () {
+export default {
+  name: 'vuestic-file-upload-list-item',
+  components: {
+    VuesticFileUploadUndo: VuesticFileUploadUndo
+  },
+  props: {
+    file: {
+      type: Object
+    }
+  },
+  data () {
+    return {
+      removed: false
+    }
+  },
+  methods: {
+    showFilePreview () {
 
-      },
-      removeFile () {
-        this.removed = true
-        setTimeout(() => {
-          if (this.removed) {
-            this.$emit('remove')
-            this.removed = false
-          }
-        }, 2000)
-      },
-      recoverFile () {
-        this.removed = false
-      }
+    },
+    removeFile () {
+      this.removed = true
+      setTimeout(() => {
+        if (this.removed) {
+          this.$emit('remove')
+          this.removed = false
+        }
+      }, 2000)
+    },
+    recoverFile () {
+      this.removed = false
     }
   }
+}
 </script>
 
 <style lang='scss'>
-  @import '../../../sass/_variables.scss';
-
   .file-upload-list-item {
     & + & {
       margin-top: 0.5rem;

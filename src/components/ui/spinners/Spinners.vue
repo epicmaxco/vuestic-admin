@@ -4,7 +4,7 @@
       <vuestic-widget :headerText="$t('spinners.title')" class="spinners__widget">
         <div class="spinners__customization">
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3 col-lg-4">
               <div class="row spinners__size">
                 <h5 class="spinners__icon-small">A</h5>
                 <div class="spinners__size-picker">
@@ -13,16 +13,20 @@
                 <h3>A</h3>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3 col-lg-4">
               <div class="row spinners__duration">
-                <div class="spinners__icon-duration-slower i-vuestic-slower"/>
+                <div class="spinners__icon-duration-slower">
+                  <vuestic-icon-slower/>
+                </div>
                 <div class="spinners__duration-picker">
                   <vuestic-slider v-model="currentDuration" :options="sliderDuration"/>
                 </div>
-                <div class="spinners__icon-duration-faster i-vuestic-faster"/>
+                <div class="spinners__icon-duration-faster">
+                  <vuestic-icon-faster/>
+                </div>
               </div>
             </div>
-            <div class="col-md-2 spinners__color">
+            <div class="col-md-6 col-lg-4 spinners__color">
               <vuestic-pallet-custom :palette="paletteArray" v-model="color" class="spinners__color-picker"/>
             </div>
           </div>
@@ -65,12 +69,18 @@ import VuesticPalletCustom
 import { colorArray } from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticTheme'
 import VuesticSlider
   from '../../../vuestic-theme/vuestic-components/vuestic-slider/VuesticSlider'
+import VuesticIconFaster
+  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconFaster'
+import VuesticIconSlower
+  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconSlower'
 
 export default {
   components: {
     ...spinners,
     VuesticPalletCustom,
-    VuesticSlider
+    VuesticSlider,
+    VuesticIconFaster,
+    VuesticIconSlower
   },
   data () {
     return {
@@ -127,18 +137,6 @@ export default {
 <style lang="scss">
 
 .spinners {
-  &__customization {
-
-  }
-
-  &__widget {
-
-  }
-
-  &__color-picker {
-
-  }
-
   @include media-breakpoint-down(xs) {
     &__duration-picker {
       margin-top: 30px;

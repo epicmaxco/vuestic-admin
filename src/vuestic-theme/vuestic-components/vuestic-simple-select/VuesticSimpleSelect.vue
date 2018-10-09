@@ -2,8 +2,9 @@
   <div class="vuestic-simple-select">
     <div
       class="form-group with-icon-right dropdown select-form-group"
-      v-dropdown.isBlocked
-      :class="{'has-error': hasErrors()}">
+      v-dropdown="{ isBlocked: true, onDropdownClose: onDropdownClose }"
+      :class="{'has-error': hasErrors()}"
+    >
       <div class="input-group dropdown-toggle vuestic-simple-select__dropdown-toggle">
         <div>
           <input
@@ -11,7 +12,8 @@
             :class="{'has-value': !!value}"
             v-model="displayValue"
             :name="name"
-            :options="options">
+            :options="options"
+          >
           <label class="control-label">{{label}}</label><i class="bar"/>
           <small v-show="hasErrors()" class="help text-danger">
             {{ showRequiredError() }}
@@ -32,10 +34,13 @@
         class="dropdown-menu vuestic-simple-select__dropdown-menu" aria-labelledby="dropdownMenuButton">
         <scrollbar ref="scrollbar">
           <div class="dropdown-menu-content vuestic-simple-select__dropdown-menu-content">
-            <div class="dropdown-item vuestic-simple-select__dropdown-item"
-                 v-for="option in filteredList"
-                 :class="{'selected': isOptionSelected(option)}"
-                 @click="toggleSelection(option)">
+            <div
+              class="dropdown-item vuestic-simple-select__dropdown-item"
+              v-for="(option, index) in filteredList"
+              :key="index"
+              :class="{'selected': isOptionSelected(option)}"
+              @click="toggleSelection(option)"
+            >
             <span
               class="ellipsis">{{optionKey ? option[optionKey] : option}}</span>
             </div>
@@ -130,6 +135,9 @@ export default {
     }
   },
   methods: {
+    onDropdownClose () {
+      this.displayValue = this.value
+    },
     toggleSelection (option) {
       this.isOptionSelected(option) ? this.unselectOption() : this.selectOption(option)
     },
@@ -192,9 +200,8 @@ export default {
   &__dropdown-menu {
     padding: 0;
     .vuestic-scrollbar {
-      height: $dropdown-item-height * 4;
+      max-height: $dropdown-item-height * 4;
     }
   }
 }
 </style>
-
