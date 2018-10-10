@@ -9,7 +9,8 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "dev-old": "node build/dev-server.js",
-    "build-old": "node build/build.js"
+    "build-old": "node build/build.js",
+    "inspect": "vue-cli-service inspect > inspect.js"
   },
   "repository": {
     "type": "git",

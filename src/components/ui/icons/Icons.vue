@@ -7,6 +7,19 @@
 <script>
 import FullSet from './Set'
 
+const iconTypes = [
+  'vuestic',
+  'brandico',
+  'entypo',
+  'font-awesome',
+  'fontelico',
+  'glyphicons',
+  'iconic-stroke',
+  'ionicons',
+  'maki',
+  'openweb'
+]
+
 export default {
   name: 'icons',
   components: {
@@ -15,8 +28,8 @@ export default {
   computed: {
     sets () {
       let sets = []
-      require(this.setsPath + 'names.json').forEach(name => {
-        let set = require(this.setsPath + name + '.json')
+      iconTypes.forEach(iconType => {
+        let set = require('./sets/' + iconType + '.json')
         this.addfilteredListsTo(set)
         sets.push(set)
       })
