@@ -2,13 +2,6 @@
   margin-bottom: 20px;
 
   label {
-    .abc-label-text {
-      display: inline-block;
-      position: relative;
-      top: 2px;
-      padding-left: 13px;
-    }
-
     &::before{
       width: 22px;
       height: 22px;

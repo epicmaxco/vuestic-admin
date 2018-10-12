@@ -1,18 +1,18 @@
 <template>
-  <div class="vuestic-checkbox form-check abc-checkbox"
-       :class="additionalClasses"
-  >
-    <input class="form-check-input"
-           type="checkbox"
-           :id="id"
-           :name="name"
-           :checked="checked"
-           @change="onChange"
-           :disabled="disabled"
+  <div class="vuestic-checkbox" @click="selected = !selected">
+    <span class="vuestic-checkbox__icon selected"
+          v-if="selected && !disabled"
     >
-    <label class="form-check-label" :for="id">
-      <span class="abc-label-text">
-        <slot>{{ label }}</slot>
+      <span class="icon">
+        <i class="ion ion-md-checkmark" aria-hidden="true"/>
+      </span>
+    </span>
+    <input class="vuestic-checkbox__icon"
+           v-else
+    />
+    <label :for="id">
+      <span class="vuestic-checkbox__label-text">
+        <slot name="label">{{ label }}</slot>
       </span>
     </label>
   </div>
@@ -27,6 +27,10 @@ export default {
   name: 'vuestic-checkbox',
   props: {
     label: String,
+    value: {
+      type: Boolean,
+      required: true
+    },
     id: {
       type: String,
       default () {
@@ -34,58 +38,61 @@ export default {
         return 'label-' + generateRandomId()
       }
     },
-    checked: {
-      type: Boolean,
-      default: false
-    },
     disabled: {
       type: Boolean,
       default: false
     },
-    name: {
-      type: String,
-      default: ''
-    },
-    isCircle: {
+    readonly: {
       type: Boolean,
       default: false
-    },
-    brandColor: {
-      type: String,
-      default: 'primary',
-      validator: value => {
-        return ['primary', 'secondary', 'success', 'info', 'warning', 'danger'].indexOf(value) >= 0
-      }
     }
   },
-  model: {
-    prop: 'checked',
-    event: 'change'
-  },
-  mounted () {
-    this.$emit('change', this.checked)
-  },
-  methods: {
-    onChange (event) {
-      this.$emit('change', event.target.checked)
-    },
-  },
   computed: {
-    additionalClasses () {
-      return [
-        this.isCircle ? 'abc-checkbox-circle' : false,
-        'abc-checkbox-' + this.brandColor
-      ]
+    selected: {
+      set (selected) {
+        if (!this.readonly) {
+          this.$emit('input', selected)
+        }
+      },
+      get () {
+        return this.value
+      }
     }
   }
 }
 </script>
 
 <style lang="scss">
-  .vuestic-checkbox {
-    input[type=checkbox]:disabled + label, input[type=radio]:disabled + label,
-    input[type=checkbox]:disabled, input[type=radio]:disabled {
-      cursor: not-allowed;
+.vuestic-checkbox {
+  cursor: pointer;
+  display: inline-flex;
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 1.375rem;
+    width: 1.375rem;
+    color: $white;
+    border: solid 0.125rem $lighter-gray;
+    @at-root {
+      &.selected {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 1.375rem;
+        width: 1.375rem;
+        color: $white;
+        background-color: $vue-green;
+        border: 0;
+      }
     }
   }
+  &__abc-label-text {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    padding-left: 13px;
+  }
+}
 </style>
