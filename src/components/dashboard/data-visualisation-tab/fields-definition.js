@@ -3,21 +3,21 @@ export default {
     {
       name: '__component:badge-column',
       title: '',
-      dataClass: 'text-center'
+      dataClass: 'text-center',
     },
     {
       name: 'name',
       title: 'user',
-      sortField: 'name'
+      sortField: 'name',
     },
     {
       name: 'salary',
-      title: 'score'
-    }
+      title: 'score',
+    },
   ],
   sortFunctions: {
     'name': function (item1, item2) {
       return item1 >= item2 ? 1 : -1
-    }
-  }
+    },
+  },
 }

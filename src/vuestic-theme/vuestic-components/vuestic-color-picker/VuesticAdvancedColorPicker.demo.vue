@@ -19,8 +19,8 @@ export default {
   },
   data () {
     return {
-      value: '#AAA'
+      value: '#AAA',
     }
-  }
+  },
 }
 </script>

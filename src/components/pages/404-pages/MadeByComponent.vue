@@ -2,14 +2,14 @@
   <div class="made-by-component">
     <span>
         ©2018. Made by
-        <a href="http://epicmax.co">Epicmax</a>
+        <a href="https://epicmax.co">Epicmax</a>
     </span>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'made-by'
+  name: 'made-by',
 }
 </script>
 

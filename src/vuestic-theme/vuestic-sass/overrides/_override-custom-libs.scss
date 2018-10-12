@@ -9,7 +9,7 @@
       padding-left: 13px;
     }
 
-    &::before{
+    &::before {
       width: 22px;
       height: 22px;
       border: 2px solid $input-border-color;
@@ -22,10 +22,10 @@
 .abc-checkbox {
   padding-left: 20px;
 
-  label{
+  label {
     padding-left: 0;
 
-    &::before{
+    &::before {
       border-radius: 0;
       @include transition(border 0.15s ease-in-out, color 0.15s ease-in-out, background-color 0.15s ease-in-out);
     }
@@ -41,18 +41,17 @@
   input[type="checkbox"],
   input[type="radio"] {
 
-    &:focus + label::before{
+    &:focus + label::before {
       outline: none;
     }
 
-
-    &:checked + label::after{
+    &:checked + label::after {
       font-family: "Ionicons";
       content: "\F2BC";
       font-size: 15px;
     }
 
-    &:disabled + label{
+    &:disabled + label {
       opacity: 0.5;
     }
   }
@@ -127,7 +126,7 @@
     &:-moz-placeholder { /* Firefox 18- */
       color: rgba($white, .8);
     }
-    &::-moz-placeholder {  /* Firefox 19+ */
+    &::-moz-placeholder { /* Firefox 19+ */
       color: rgba($white, .8);
     }
     &:-ms-input-placeholder {
@@ -236,7 +235,7 @@
 
     .popover-content:first-child {
       .popover-header, .popover-body {
-        padding:  $popover-body-padding-y $popover-header-no-icon-padding-x;
+        padding: $popover-body-padding-y $popover-header-no-icon-padding-x;
         padding-right: 0;
       }
     }

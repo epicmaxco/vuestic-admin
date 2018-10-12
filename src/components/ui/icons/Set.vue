@@ -4,8 +4,8 @@
       <div class="row">
         <div class="header-text col-lg-4">
           <h2>{{ set.name }}</h2>
-          <router-link :to="{ name: 'icons' }">
-            {{ 'icons.back' | translate }}
+          <router-link :to="{ name: 'icon-sets' }">
+            {{ $t('icons.back') }}
           </router-link>
         </div>
 

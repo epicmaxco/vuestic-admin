@@ -1,0 +1,97 @@
+@font-face {
+  font-family: 'Vuestic Icons';
+  font-weight: normal;
+  font-style: normal;
+  src: url('vuestic-theme/vuestic-sass/icons/icon-fonts/vuestic-icons/vuestic-icons.eot');
+  src: url('vuestic-theme/vuestic-sass/icons/icon-fonts/vuestic-icons/vuestic-icons.eot?#iefix') format('eot'),
+  url('vuestic-theme/vuestic-sass/icons/icon-fonts/vuestic-icons/vuestic-icons.woff') format('woff'),
+  url('vuestic-theme/vuestic-sass/icons/icon-fonts/vuestic-icons/vuestic-icons.ttf') format('truetype'),
+  url('vuestic-theme/vuestic-sass/icons/icon-fonts/vuestic-icons/vuestic-icons.svg#vuestic-icons') format('svg');
+
+}
+
+.vuestic-icon {
+  line-height: 1;
+}
+
+.vuestic-icon:before {
+  display: inline-block;
+  font-family: 'Vuestic Icons';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+.vuestic-icon-comments:before {
+  content: '\0041';
+}
+
+.vuestic-icon-components:before {
+  content: '\0042';
+}
+
+.vuestic-icon-dashboard:before {
+  content: '\0043';
+}
+
+.vuestic-icon-extras:before {
+  content: '\0044';
+}
+
+.vuestic-icon-files:before {
+  content: '\0045';
+}
+
+.vuestic-icon-forms:before {
+  content: '\0046';
+}
+
+.vuestic-icon-graph:before {
+  content: '\0047';
+}
+
+.vuestic-icon-auth:before {
+  content: '\0048';
+}
+
+.vuestic-icon-image:before {
+  content: '\0049';
+}
+
+.vuestic-icon-maps:before {
+  content: '\004a';
+}
+
+.vuestic-icon-music:before {
+  content: '\004b';
+}
+
+.vuestic-icon-settings:before {
+  content: '\004c';
+}
+
+.vuestic-icon-statistics:before {
+  content: '\004d';
+}
+
+.vuestic-icon-tables:before {
+  content: '\004e';
+}
+
+.vuestic-icon-time:before {
+  content: '\004f';
+}
+
+.vuestic-icon-ui-elements:before {
+  content: '\0050';
+}
+
+.vuestic-icon-user:before {
+  content: '\0051';
+}
+
+.vuestic-icon-video:before {
+  content: '\0052';
+}
