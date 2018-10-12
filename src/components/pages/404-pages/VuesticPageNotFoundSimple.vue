@@ -2,14 +2,17 @@
   <div class="vuestic-page-not-found-simple">
     <div class="vuestic-page-not-found-simple__content">
       <div class="vuestic-page-not-found-simple__wallpaper">
-        <router-link class="i-vuestic vuestic-page-not-found-simple__i-vuestic" :to="{path: '/'}"/>
+        <router-link class="i-vuestic vuestic-page-not-found-simple__i-vuestic"
+                     :to="{path: '/'}"/>
       </div>
       <div class="vuestic-page-not-found-simple__wallpaper">
-        <h3 class="vuestic-page-not-found-simple__text">The page's gone fishing.</h3>
+        <h3 class="vuestic-page-not-found-simple__text">The page's gone
+          fishing.</h3>
       </div>
       <div class="vuestic-page-not-found-simple__wallpaper col-md-12">
         <div class="row vuestic-page-not-found-simple__message">
-          <h4 class="vuestic-page-not-found-simple__text-small">If you feel that it's not right, please send us a message at &nbsp;</h4>
+          <h4 class="vuestic-page-not-found-simple__text-small">If you feel that
+            it's not right, please send us a message at &nbsp;</h4>
           <a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
         </div>
       </div>
@@ -28,14 +31,15 @@
 
 <script>
 import MadeByComponent from './MadeByComponent'
-import VuesticPageNotFoundSadWallpaper from './VuesticPageNotFoundSadWallpaper.vue'
+import VuesticPageNotFoundSadWallpaper
+  from './VuesticPageNotFoundSadWallpaper.vue'
 
 export default {
   name: 'vuestic-page-not-found-simple',
   components: {
     MadeByComponent,
-    VuesticPageNotFoundSadWallpaper
-  }
+    VuesticPageNotFoundSadWallpaper,
+  },
 }
 </script>
 

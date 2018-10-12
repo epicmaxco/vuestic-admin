@@ -1,7 +1,8 @@
 <template>
-  <div class="form-group with-icon-right dropdown select-form-group multiselect-form-group"
-       v-dropdown
-       :class="{'has-error': hasErrors()}">
+  <div
+    class="form-group with-icon-right dropdown select-form-group multiselect-form-group"
+    v-dropdown
+    :class="{'has-error': hasErrors()}">
     <div class="input-group dropdown-toggle">
       <input
         readonly
@@ -9,7 +10,9 @@
         v-bind:value="displayValue"
         required/>
       <label class="control-label">{{label}}</label><i class="bar"></i>
-      <small v-show="hasErrors()" class="help text-danger">{{ showRequiredError() }}</small>
+      <small v-show="hasErrors()" class="help text-danger">{{
+        showRequiredError() }}
+      </small>
       <i class="ion ion-ios-arrow-down icon-right input-icon dropdown-ion"></i>
     </div>
     <div v-if="isClearable">
@@ -28,7 +31,8 @@
             :key="index"
             @click="toggleSelection(option)"
           >
-            <span class="ellipsis">{{optionKey ? option[optionKey] : option}}</span>
+            <span
+              class="ellipsis">{{optionKey ? option[optionKey] : option}}</span>
             <i class="fa fa-check selected-icon"></i>
           </div>
         </div>
@@ -44,38 +48,38 @@ import Scrollbar from '../vuestic-scrollbar/VuesticScrollbar.vue'
 export default {
   name: 'vuestic-multi-select',
   components: {
-    Scrollbar
+    Scrollbar,
   },
   directives: {
-    dropdown: Dropdown
+    dropdown: Dropdown,
   },
   data () {
     return {
       displayValue: '',
-      validated: false
+      validated: false,
     }
   },
   props: {
     label: String,
     itemsChosenPlaceholder: {
       type: String,
-      default: 'chosen'
+      default: 'chosen',
     },
     clearable: {
       type: Boolean,
-      default: true
+      default: true,
     },
     options: Array,
     value: Array,
     optionKey: String,
     required: {
       type: Boolean,
-      default: false
+      default: false,
     },
     name: {
       type: String,
-      default: 'multiselect'
-    }
+      default: 'multiselect',
+    },
   },
   mounted () {
     this.$emit('input', this.value)
@@ -131,13 +135,13 @@ export default {
     },
     showRequiredError () {
       return `The ${this.name} field is required`
-    }
+    },
   },
   computed: {
     isClearable () {
       return (this.clearable && this.value.length !== 0 && this.displayValue !== '')
-    }
-  }
+    },
+  },
 }
 </script>
 

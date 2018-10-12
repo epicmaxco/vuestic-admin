@@ -15,7 +15,8 @@
          :class="{ active: option.code === currentLanguage() }"
          @click="setLanguage(option.code)"
       >
-        <span class="flag-icon flag-icon-small" :class="flagIconClass(option.code)"></span>
+        <span class="flag-icon flag-icon-small"
+              :class="flagIconClass(option.code)"></span>
         <span class="dropdown-item__text ellipsis">
           {{ `language.${option.name}` | translate }}
         </span>

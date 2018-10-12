@@ -65,7 +65,8 @@
             }"
             @on-change="doSomethingOnChange"
           />
-          <label class="control-label" for="simple-input-5">Human readable</label>
+          <label class="control-label" for="simple-input-5">Human
+            readable</label>
           <i class="bar"></i>
         </div>
       </div>

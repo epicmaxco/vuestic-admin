@@ -3,5 +3,5 @@ import { chartMixin } from './chartMixin'
 
 export default {
   extends: HorizontalBar,
-  mixins: [chartMixin]
+  mixins: [chartMixin],
 }

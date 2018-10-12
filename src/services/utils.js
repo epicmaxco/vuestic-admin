@@ -28,5 +28,5 @@ export default {
     rgb.css += (opacity ? ',' + opacity : '') + ')'
 
     return rgb
-  }
+  },
 }

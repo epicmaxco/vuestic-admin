@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-md-12">
       <vuestic-widget class="no-padding no-v-padding">
-        <vuestic-breadcrumbs :breadcrumbs="breadcrumbs" :current-path="currentRoute"/>
+        <vuestic-breadcrumbs :breadcrumbs="breadcrumbs"
+                             :current-path="currentRoute"/>
       </vuestic-widget>
     </div>
   </div>
@@ -18,14 +19,14 @@ export default {
       type: Object,
       default: function () {
         return Breadcrumbs
-      }
-    }
+      },
+    },
   },
   computed: {
     currentRoute () {
       return this.$route.name
-    }
-  }
+    },
+  },
 }
 
 </script>

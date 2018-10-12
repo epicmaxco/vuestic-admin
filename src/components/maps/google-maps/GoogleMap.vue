@@ -11,7 +11,7 @@ export default {
   name: 'google-map',
 
   computed: mapGetters({
-    config: 'config'
+    config: 'config',
   }),
 
   mounted () {
@@ -22,15 +22,15 @@ export default {
       new google.maps.Map(this.$el, {
         center: new google.maps.LatLng(44.5403, -78.5463),
         zoom: 8,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
       })
     })
-  }
+  },
 }
 </script>
 
 <style lang="scss">
-  .google-map {
-    height: 100%;
-  }
+.google-map {
+  height: 100%;
+}
 </style>

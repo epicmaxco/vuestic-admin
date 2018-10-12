@@ -1,7 +1,8 @@
 <template>
   <div class="row spinners">
     <div class="col-md-12">
-      <vuestic-widget :headerText="$t('spinners.title')" class="spinners__widget">
+      <vuestic-widget :headerText="$t('spinners.title')"
+                      class="spinners__widget">
         <div class="spinners__customization">
           <div class="row">
             <div class="col-md-3 col-lg-4">
@@ -19,7 +20,8 @@
                   <vuestic-icon-slower/>
                 </div>
                 <div class="spinners__duration-picker">
-                  <vuestic-slider v-model="currentDuration" :options="sliderDuration"/>
+                  <vuestic-slider v-model="currentDuration"
+                                  :options="sliderDuration"/>
                 </div>
                 <div class="spinners__icon-duration-faster">
                   <vuestic-icon-faster/>
@@ -27,7 +29,8 @@
               </div>
             </div>
             <div class="col-md-6 col-lg-4 spinners__color">
-              <vuestic-pallet-custom :palette="paletteArray" v-model="color" class="spinners__color-picker"/>
+              <vuestic-pallet-custom :palette="paletteArray" v-model="color"
+                                     class="spinners__color-picker"/>
             </div>
           </div>
           <div class="row">
@@ -53,7 +56,8 @@
         <div class="row align-center">
           <div class="col text-center">
             {{'spinners.poweredBy' | translate}}
-            <a :href="'http://epic-spinners.epicmax.co/'" target="_blank">Epic Spinners</a>
+            <a :href="'http://epic-spinners.epicmax.co/'" target="_blank">Epic
+              Spinners</a>
           </div>
         </div>
       </vuestic-widget>
@@ -80,14 +84,14 @@ export default {
     VuesticPalletCustom,
     VuesticSlider,
     VuesticIconFaster,
-    VuesticIconSlower
+    VuesticIconSlower,
   },
   data () {
     return {
       config: {
         size: 80,
         group: 4,
-        duration: 1500
+        duration: 1500,
       },
       currentDuration: 1500,
       paletteArray: colorArray,
@@ -95,12 +99,12 @@ export default {
       sliderSize: {
         formatter: v => `${v}px`,
         min: 40,
-        max: 100
+        max: 100,
       },
       sliderDuration: {
         min: 1000,
-        max: 2000
-      }
+        max: 2000,
+      },
     }
   },
   computed: {
@@ -118,7 +122,7 @@ export default {
   filters: {
     displayName (name) {
       return name.replace('Spinner', '').match(/[A-Z][a-z]+/g).join(' ')
-    }
+    },
   },
   methods: {
     groupItems (items, groupSize) {
@@ -129,8 +133,8 @@ export default {
       }
 
       return grouped
-    }
-  }
+    },
+  },
 }
 </script>
 

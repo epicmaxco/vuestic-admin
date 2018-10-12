@@ -19,38 +19,38 @@ export default {
     value: {
       type: String,
       default: '',
-      required: true
+      required: true,
     },
     checked: {
       type: Boolean,
-      default: false
+      default: false,
     },
     id: {
       type: String,
-      required: false
+      required: false,
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     name: {
       type: String,
-      required: true
+      required: true,
     },
     modelValue: {
-      default: undefined
+      default: undefined,
     },
     brandColor: {
       type: String,
       default: 'primary',
       validator: value => {
         return ['primary', 'secondary', 'success', 'info', 'warning', 'danger'].indexOf(value) >= 0
-      }
-    }
+      },
+    },
   },
   model: {
     prop: 'modelValue',
-    event: 'input'
+    event: 'input',
   },
   mounted () {
     if (this.checked && !this.checkState) {
@@ -63,7 +63,7 @@ export default {
     },
     toggle () {
       this.$emit('input', this.checkState ? '' : this.value)
-    }
+    },
   },
   computed: {
     checkState () {
@@ -74,22 +74,22 @@ export default {
     },
     additionalClasses () {
       return [
-        'abc-radio-' + this.brandColor
+        'abc-radio-' + this.brandColor,
       ]
-    }
+    },
   },
   watch: {
     checked (newValue) {
       if (newValue !== this.checkState) {
         this.toggle()
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss">
-  .vuestic-radio-button {
+.vuestic-radio-button {
 
-  }
+}
 </style>

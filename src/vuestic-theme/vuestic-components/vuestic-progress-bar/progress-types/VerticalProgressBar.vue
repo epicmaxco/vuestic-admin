@@ -19,7 +19,10 @@
 </template>
 
 <script>
-import { VuesticTheme, colorConfig } from './../../vuestic-color-picker/VuesticTheme'
+import {
+  colorConfig,
+  VuesticTheme,
+} from './../../vuestic-color-picker/VuesticTheme'
 
 export default {
   props: {
@@ -29,7 +32,7 @@ export default {
     },
     text: {
       type: String,
-      default: ''
+      default: '',
     },
     theme: {
       type: String,
@@ -46,13 +49,13 @@ export default {
     animated: {
       type: Boolean,
       default: false,
-    }
+    },
   },
   computed: {
     verticalBarStyle: function () {
       return {
         backgroundColor: colorConfig[VuesticTheme[this.theme]],
-        height: this.value + '%'
+        height: this.value + '%',
       }
     },
     verticalBarType: function () {
@@ -60,73 +63,73 @@ export default {
         'vertical-bar--basic': this.size === 'basic',
         'vertical-bar--thin': this.size === 'thin',
         'vertical-bar--thick': this.size === 'thick',
-        'vertical-bar--disabled': this.disabled
+        'vertical-bar--disabled': this.disabled,
       }
     },
     verticalBarAnimation: function () {
       return {
         'vertical-bar--animated': this.animated,
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss">
-  .vertical-bar {
-    font-size: $progress-bar-value-font-size;
-    font-weight: $font-weight-bold;
+.vertical-bar {
+  font-size: $progress-bar-value-font-size;
+  font-weight: $font-weight-bold;
 
-    &--animated {
-      transition: background-color ease .5s, height 3s linear !important;
-    }
+  &--animated {
+    transition: background-color ease .5s, height 3s linear !important;
+  }
 
-    .vertical-bar__progress {
-      height: $progress-bar-vertical-height;
-      float: left;
-      display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
-      display: -ms-flexbox;  /* TWEENER - IE 10 */
-      display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
-      display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
-      align-items: flex-end;
-      -webkit-align-items: flex-end; /* Safari 7.0+ */
-    }
+  .vertical-bar__progress {
+    height: $progress-bar-vertical-height;
+    float: left;
+    display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox; /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex; /* NEW, Spec - Firefox, Chrome, Opera */
+    align-items: flex-end;
+    -webkit-align-items: flex-end; /* Safari 7.0+ */
+  }
 
-    .vertical-bar__value {
-      float: left;
-      height: $progress-bar-vertical-height;
-      display: flex;
-      align-items: center;
-      padding-left: .25rem;
-    }
+  .vertical-bar__value {
+    float: left;
+    height: $progress-bar-vertical-height;
+    display: flex;
+    align-items: center;
+    padding-left: .25rem;
+  }
 
-    &--basic {
-      border-radius: $progress-bar-width-basic;
+  &--basic {
+    border-radius: $progress-bar-width-basic;
+    width: $progress-bar-width-basic;
+    .vertical-bar__progress-bar {
+      border-radius: inherit;
       width: $progress-bar-width-basic;
-      .vertical-bar__progress-bar {
-        border-radius: inherit;
-        width: $progress-bar-width-basic;
-      }
-    }
-
-    &--thin {
-      width: $progress-bar-width-thin;
-      .vertical-bar__progress-bar {
-        width: $progress-bar-width-thin;
-      }
-
-    }
-
-    &--thick {
-      border-radius: $progress-bar-width-thick;
-      .vertical-bar__progress-bar {
-        width: $vertical-progress-bar-width-thick;
-      }
-    }
-
-    &--disabled {
-      opacity: 0.5
     }
   }
+
+  &--thin {
+    width: $progress-bar-width-thin;
+    .vertical-bar__progress-bar {
+      width: $progress-bar-width-thin;
+    }
+
+  }
+
+  &--thick {
+    border-radius: $progress-bar-width-thick;
+    .vertical-bar__progress-bar {
+      width: $vertical-progress-bar-width-thick;
+    }
+  }
+
+  &--disabled {
+    opacity: 0.5
+  }
+}
 
 </style>

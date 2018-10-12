@@ -25,7 +25,7 @@ function getMatch (userAgent, platformMatch) {
     browser: match[5] || match[3] || match[1] || '',
     version: match[2] || match[4] || '0',
     versionNumber: match[4] || match[2] || '0',
-    platform: platformMatch[0] || ''
+    platform: platformMatch[0] || '',
   }
 }
 
@@ -178,7 +178,8 @@ export function hasWebStorage () {
       webStorage = true
       return true
     }
-  } catch (e) {}
+  } catch (e) {
+  }
 
   webStorage = false
   return false
@@ -188,27 +189,27 @@ function getClientProperties () {
   return {
     has: {
       touch: (() => !!('ontouchstart' in document.documentElement) || window.navigator.msMaxTouchPoints > 0)(),
-      webStorage: hasWebStorage()
+      webStorage: hasWebStorage(),
     },
     within: {
-      iframe: window.self !== window.top
-    }
+      iframe: window.self !== window.top,
+    },
   }
 }
 
 export default {
   has: {
     touch: false,
-    webStorage: false
+    webStorage: false,
   },
   parseSSR (/* ssrContext */ ssr) {
     return ssr ? {
       is: getPlatform(ssr.req.headers['user-agent']),
       has: this.has,
-      within: this.within
+      within: this.within,
     } : {
       is: getPlatform(),
-      ...getClientProperties()
+      ...getClientProperties(),
     }
   },
 
@@ -232,5 +233,5 @@ export default {
       Object.assign(this, getClientProperties())
       $q.platform = this
     }
-  }
+  },
 }
