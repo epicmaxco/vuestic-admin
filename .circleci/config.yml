@@ -54,7 +54,6 @@ jobs:
         command: |
           tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
           sudo apt install sshpass
-          ssh-keyscan -t rsa $DEPLOY_URL >> ~/.ssh/known_hosts
           sshpass -p $DEPLOY_PASSWORD scp ~/repo/dist.tar.gz $DEPLOY_USER@$DEPLOY_URL:~/tmp
           sshpass -p $DEPLOY_PASSWORD ssh $DEPLOY_USER@$DEPLOY_URL /bin/bash << EOF
             rm -rf $DEPLOY_PATH/*
@@ -69,6 +68,6 @@ workflows:
       - deploy
 #          requires:
 #            - build
-#          filters:
-#            branches:
-#              only: master
+          filters:
+            branches:
+              only: test/circle-ci
