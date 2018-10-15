@@ -45,24 +45,22 @@ jobs:
     - run: yarn build
     - run:
         name: Deploy to hosting
+        # TODO Move to sh file. Do comments properly.
         # Package dist folder
         # Do some hacks to be able to copy file without ssh key. (only with user/password)
         # Copy package to tmp folder
         # Run ssh session to remote host
         # Unpack the copied package
         command: |
-          tar -czf dist.tar.gz dist
+          tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
           sudo apt install sshpass
           ssh-keyscan -t rsa $DEPLOY_URL >> ~/.ssh/known_hosts
-          sshpass -p $DEPLOY_PASSWORD scp dist.tar.gz $DEPLOY_USER@$DEPLOY_URL:~/tmp
-          sshpass -p $DEPLOY_PASSWORD ssh $DEPLOY_USER@$DEPLOY_URL << EOF
-          dir
-          rm -rf $DEPLOY_PATH/*
-          tar -xzf ~/tmp/dist.tar.gz -C $DEPLOY_PATH
-          rm -f ~/tmp/dist.tar.gz
-          exit
+          sshpass -p $DEPLOY_PASSWORD scp ~/dist.tar.gz $DEPLOY_USER@$DEPLOY_URL:~/tmp
+          sshpass -p $DEPLOY_PASSWORD ssh $DEPLOY_USER@$DEPLOY_URL /bin/bash << EOF
+            rm -rf $DEPLOY_PATH/*
+            tar -xzf ~/tmp/dist.tar.gz -C $DEPLOY_PATH
+            rm -f ~/tmp/dist.tar.gz
           EOF
-
 workflows:
   version: 2
   build-and-deploy:
