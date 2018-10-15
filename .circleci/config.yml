@@ -51,6 +51,7 @@ jobs:
         # Package bundle and drop copy it to hosting
         command: |
           tar -czf dist.tar.gz dist
+          sudo apt install sshpass
           sshpass -p '{{ .Environment.DEPLOY_PASSWORD }}' scp dist.tar.gz {{ .Environment.DEPLOY_USER }}@{{ .Environment.DEPLOY_URL }}:~/tmp
           sshpass -p '{{ .Environment.DEPLOY_PASSWORD }}' ssh {{ .Environment.DEPLOY_USER }}@{{ .Environment.DEPLOY_URL }}
           rm -rf {{ .Environment.DEPLOY_PATH }}/*
