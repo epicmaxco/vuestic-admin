@@ -128,9 +128,11 @@ export default {
         background-color: $vue-green;
         border: 0;
       }
+
       &.readonly {
         opacity: 0.5;
       }
+
       &.error {
         display: flex;
         justify-content: center;
@@ -157,7 +159,7 @@ export default {
     padding: 8px;
     &.onFocus {
       background-color: rgba(187, 180, 178, 0.33);
-      border-radius: 15px;
+      border-radius: 20px;
     }
   }
 }
