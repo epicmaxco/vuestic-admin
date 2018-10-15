@@ -66,6 +66,6 @@ workflows:
   build-and-deploy:
     jobs:
     - deploy
-        filters:
-          branches:
-            only: test/circle-ci
+#        filters:
+#          branches:
+#            only: test/circle-ci
