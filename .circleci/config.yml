@@ -65,7 +65,7 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
-      - deploy
-          filters:
-            branches:
-              only: "test/circle-ci"
+    - deploy
+        filters:
+          branches:
+            only: test/circle-ci
