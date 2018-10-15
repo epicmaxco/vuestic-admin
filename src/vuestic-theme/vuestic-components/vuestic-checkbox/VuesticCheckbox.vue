@@ -11,7 +11,7 @@
         @keydown="selected = !selected"
       >
       <span class="vuestic-checkbox__icon selected"
-            :class="{'error': isError}"
+            :class="{'error': isError, 'readonly': readonly}"
             v-if="selected && !disabled"
             @mousedown="toggleFocus"
             @mouseup="toggleFocus"
@@ -107,7 +107,7 @@ export default {
 <style lang="scss">
 .vuestic-checkbox {
   cursor: pointer;
-  margin-bottom: 2px;
+  margin-bottom: 10px;
   &__icon {
     display: flex;
     justify-content: center;
@@ -127,6 +127,9 @@ export default {
         color: $white;
         background-color: $vue-green;
         border: 0;
+      }
+      &.readonly {
+        opacity: 0.5;
       }
       &.error {
         display: flex;

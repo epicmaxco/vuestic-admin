@@ -90,6 +90,31 @@ export default {
 
 <style lang="scss">
   .vuestic-radio-button {
+    margin-bottom: 20px;
+    label {
+      &::before{
+        width: 22px;
+        height: 22px;
+        border: 2px solid $input-border-color;
+      }
+    }
 
+    label {
+      padding-left: 0;
+
+      &::after {
+        width: 10px;
+        height: 10px;
+        top: 7.8px;
+        left: 6px;
+      }
+    }
+
+    input[type="radio"] {
+
+      &:focus + label::before {
+        outline: none;
+      }
+    }
   }
 </style>
