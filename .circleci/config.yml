@@ -52,9 +52,10 @@ jobs:
           ssh-keyscan -t rsa $DEPLOY_URL >> ~/.ssh/known_hosts
           sshpass -p '$DEPLOY_PASSWORD' scp dist.tar.gz $DEPLOY_USER@$DEPLOY_URL:~/tmp
           sshpass -p '$DEPLOY_PASSWORD' ssh $DEPLOY_USER@$DEPLOY_URL
-          rm -rf $DEPLOY_PATH/*
           tar -xzf ~/tmp/dist.tar.gz -C $DEPLOY_PATH
-          rm -f ~/tmp/dist.tar.gz
+
+#  rm -rf $DEPLOY_PATH/*
+#  rm -f ~/tmp/dist.tar.gz
 
 workflows:
   version: 2
