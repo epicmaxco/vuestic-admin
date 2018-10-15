@@ -39,3 +39,15 @@ jobs:
         name: Deploy to hosting
         command: |
           echo "Will be sent via ssh here"
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+#          filters:
+#            branches:
+#              only: master
