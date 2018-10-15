@@ -34,26 +34,22 @@ jobs:
     working_directory: ~/repo
     steps:
     - checkout
-    # Download and cache dependencies
     - restore_cache:
         keys:
-        - v1-dependencies-{{ checksum "yarn.lock" }}
-        # fallback to using the latest cache if no exact match is found
-        - v1-dependencies-
+        - yarn-packages-{{ checksum "yarn.lock" }}
     - run: yarn install
     - save_cache:
         paths:
         - node_modules
-        key: v1-dependencies-{{ checksum "yarn.lock" }}
+        key: yarn-packages-{{ checksum "yarn.lock" }}
     - run: yarn build
     - run:
         name: Deploy to hosting
         # Package bundle and drop copy it to hosting
         command: |
           tar -czf dist.tar.gz dist
-          echo 'Installing sshpass'
           sudo apt install sshpass
-          echo 'Installed sshpass'
+          echo '$DEPLOY_USER@$DEPLOY_URL'
           sshpass -p '$DEPLOY_PASSWORD' scp dist.tar.gz $DEPLOY_USER@$DEPLOY_URL:~/tmp
           sshpass -p '$DEPLOY_PASSWORD' ssh $DEPLOY_USER@$DEPLOY_URL
           rm -rf $DEPLOY_PATH/*
