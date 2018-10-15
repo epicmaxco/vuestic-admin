@@ -143,7 +143,7 @@ export default {
   &__label-text {
     display: inline-block;
     position: relative;
-    top: 2px;
+    padding-top: 5px;
     padding-left: 13px;
   }
   &__container {
