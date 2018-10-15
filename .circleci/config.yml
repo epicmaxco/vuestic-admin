@@ -60,14 +60,15 @@ jobs:
             tar -xzf ~/tmp/dist.tar.gz -C $DEPLOY_PATH
             rm -f ~/tmp/dist.tar.gz
           EOF
+
 workflows:
   version: 2
   build-and-deploy:
     jobs:
-#      - build
       - deploy
+        filters:
+          branches:
+            only: test/circle-ci
 #          requires:
 #            - build
-          filters:
-            branches:
-              only: test/circle-ci
+
