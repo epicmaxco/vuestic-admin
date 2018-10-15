@@ -55,12 +55,13 @@ jobs:
           sudo apt install sshpass
           ssh-keyscan -t rsa $DEPLOY_URL >> ~/.ssh/known_hosts
           sshpass -p $DEPLOY_PASSWORD scp dist.tar.gz $DEPLOY_USER@$DEPLOY_URL:~/tmp
-          sshpass -p $DEPLOY_PASSWORD ssh $DEPLOY_USER@$DEPLOY_URL bash -c
+          sshpass -p $DEPLOY_PASSWORD ssh $DEPLOY_USER@$DEPLOY_URL << EOF
           dist
           rm -rf $DEPLOY_PATH/*
           tar -xzf ~/tmp/dist.tar.gz -C $DEPLOY_PATH
           rm -f ~/tmp/dist.tar.gz
           exit
+          EOF
 
 workflows:
   version: 2
