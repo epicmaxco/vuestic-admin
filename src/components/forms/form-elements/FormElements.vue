@@ -315,8 +315,9 @@
                   <vuestic-checkbox
                     :label="'forms.controls.subscribe' | translate"
                     :id="'checkbox3'"
-                    :disabled="true"
-                    v-model="checkboxThreeModel"/>
+                    v-model="checkboxThreeModel"
+                    :readonly="true"
+                  />
                   <vuestic-checkbox
                     :label="'forms.controls.subscribe' | translate"
                     :id="'checkbox4'"
@@ -340,7 +341,7 @@
                   <vuestic-checkbox
                     :label="'forms.controls.subscribe' | translate"
                     :id="'checkbox7'"
-                    :disabled="true"
+                    :readonly="true"
                     :isCircle="true"
                     v-model="checkboxSevenModel"/>
                   <vuestic-checkbox
@@ -446,11 +447,11 @@ export default {
       radioDisabledModel: 'option4',
       checkboxOneModel: false,
       checkboxTwoModel: true,
-      checkboxThreeModel: false,
+      checkboxThreeModel: true,
       checkboxFourModel: true,
       checkboxFiveModel: false,
       checkboxSixModel: true,
-      checkboxSevenModel: false,
+      checkboxSevenModel: true,
       checkboxEightModel: true,
       datepicker: {
         simple: '2018-05-09',

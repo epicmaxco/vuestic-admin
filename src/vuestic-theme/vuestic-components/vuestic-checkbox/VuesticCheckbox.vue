@@ -1,14 +1,11 @@
 <template>
-  <div
-    class="vuestic-checkbox"
-  >
-    <div class="vuestic-checkbox__container"
-    >
+  <div class="vuestic-checkbox">
+    <div class="vuestic-checkbox__container">
       <div
         class="vuestic-checkbox__square"
         :class="{'onFocus': onFocus}"
-        @click="selected = !selected"
-        @keydown="selected = !selected"
+        @click="toggleSelection"
+        @keydown="toggleSelection"
       >
       <span class="vuestic-checkbox__icon selected"
             :class="{'error': isError, 'readonly': readonly}"
@@ -28,9 +25,9 @@
         />
       </div>
       <label v-if="label" :for="id">
-      <span class="vuestic-checkbox__label-text">
-        <slot name="label">{{ label }}</slot>
-      </span>
+        <span class="vuestic-checkbox__label-text">
+          <slot name="label">{{ label }}</slot>
+        </span>
       </label>
     </div>
   </div>
@@ -91,6 +88,9 @@ export default {
       if (!this.disabled && !this.readonly) {
         this.onFocus = !this.onFocus
       }
+    },
+    toggleSelection () {
+      this.selected = !this.selected
     }
   },
   created () {
