@@ -13,14 +13,12 @@ jobs:
     # Download and cache dependencies
     - restore_cache:
         keys:
-        - v1-dependencies-{{ checksum "yarn.lock" }}
-        # fallback to using the latest cache if no exact match is found
-        - v1-dependencies-
+        - yarn-packages-{{ checksum "yarn.lock" }}
     - run: yarn install
     - save_cache:
         paths:
         - node_modules
-        key: v1-dependencies-{{ checksum "yarn.lock" }}
+        key: yarn-packages-{{ checksum "yarn.lock" }}
 
     # run tests!
 #    - run: yarn test
@@ -50,8 +48,14 @@ jobs:
     - run: yarn build
     - run:
         name: Deploy to hosting
+        # Package bundle and drop copy it to hosting
         command: |
-          echo "Will be sent via ssh here"
+          tar -czf dist.tar.gz dist
+          sshpass -p '{{ .Environment.DEPLOY_PASSWORD }}' scp dist.tar.gz {{ .Environment.DEPLOY_USER }}@{{ .Environment.DEPLOY_URL }}:~/tmp
+          sshpass -p '{{ .Environment.DEPLOY_PASSWORD }}' ssh {{ .Environment.DEPLOY_USER }}@{{ .Environment.DEPLOY_URL }}
+          rm -rf {{ .Environment.DEPLOY_PATH }}/*
+          ~/tmp
+          tar -xzf ~/tmp/dist.tar.gz -C {{ .Environment.DEPLOY_PATH }}
 
 workflows:
   version: 2
