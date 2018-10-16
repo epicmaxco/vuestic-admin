@@ -1,28 +1,36 @@
 <template>
-  <div class="vuestic-checkbox">
+  <div
+    class="vuestic-checkbox"
+    :class="{'vuestic-checkbox--selected': selected, 'vuestic-checkbox--readonly': readonly,
+    'vuestic-checkbox--disabled': disabled, 'vuestic-checkbox--error': errorHandler}"
+  >
     <div class="vuestic-checkbox__container">
       <div
         class="vuestic-checkbox__square"
-        :class="{'onFocus': onFocus}"
+        :class="{'on-focus': onFocus}"
         @click="toggleSelection"
-        @keydown="toggleSelection"
+        @keypress="toggleSelection"
       >
-      <span class="vuestic-checkbox__icon selected"
-            :class="{'error': isError, 'readonly': readonly}"
-            v-if="selected && !disabled"
-            @mousedown="toggleFocus"
-            @mouseup="toggleFocus"
+      <span class="vuestic-checkbox__icon"
+            v-if="selected"
+            @mousedown="onFocusActivate"
+            @mouseup="onFocusDeactivate"
       >
       <span class="icon">
         <i class="ion ion-md-checkmark" aria-hidden="true"/>
       </span>
       </span>
         <input
+          :readonly="disabled"
           class="vuestic-checkbox__icon"
-          @focus="toggleFocus"
-          @blur="toggleFocus"
+          @focus="onFocusActivate"
+          @blur="onFocusDeactivate"
           v-else
         />
+        <span
+          class="vuestic-checkbox__error-message"
+          v-if="errorHandler"
+        >{{ errorMessage }}</span>
       </div>
       <label v-if="label" :for="id">
         <span class="vuestic-checkbox__label-text">
@@ -46,10 +54,6 @@ export default {
       type: Boolean,
       required: true
     },
-    isError: {
-      type: Boolean,
-      default: false
-    },
     id: {
       type: String,
       default () {
@@ -62,6 +66,14 @@ export default {
       default: false
     },
     readonly: {
+      type: Boolean,
+      default: false
+    },
+    errorMessage: {
+      type: String,
+      default: null
+    },
+    error: {
       type: Boolean,
       default: false
     }
@@ -81,16 +93,32 @@ export default {
       get () {
         return this.value
       }
+    },
+    errorHandler () {
+      // We make error active, if the error-message is not empty
+      if (this.errorMessage !== null || this.error) {
+        return true
+      } else {
+        return false
+      }
     }
   },
   methods: {
-    toggleFocus () {
-      if (!this.disabled && !this.readonly) {
-        this.onFocus = !this.onFocus
+    onFocusActivate () {
+      if (!this.disabled) {
+        this.onFocus = true
+      }
+    },
+    onFocusDeactivate () {
+      if (!this.disabled) {
+        this.onFocus = false
       }
     },
     toggleSelection () {
-      this.selected = !this.selected
+      if (!this.disabled) {
+        this.selected = !this.selected
+        this.onFocus = false
+      }
     }
   },
   created () {
@@ -106,19 +134,19 @@ export default {
 
 <style lang="scss">
 .vuestic-checkbox {
-  cursor: pointer;
   margin-bottom: 10px;
-  &__icon {
+  #{&}__icon {
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     height: 1.375rem;
+    outline: none;
     width: 1.375rem;
     color: $white;
     border: solid 0.125rem $lighter-gray;
     @at-root {
-      &.selected {
+      .vuestic-checkbox--selected#{&} {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -129,27 +157,29 @@ export default {
         border: 0;
       }
 
-      &.readonly {
-        opacity: 0.5;
+      .vuestic-checkbox--readonly#{&} {
       }
 
-      &.error {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 1.4rem;
-        width: 1.4rem;
-        color: $white;
-        background-color: $theme-red;
-        border: 0;
+      .vuestic-checkbox--disabled#{&} {
+        background-color: $lighter-gray;
+        cursor: initial;
+      }
+
+      .vuestic-checkbox--error#{&} {
+        border-color: $theme-red;
       }
     }
   }
-  &__label-text {
+  #{&}__label-text {
     display: inline-block;
     position: relative;
     padding-top: 5px;
     padding-left: 13px;
+    @at-root {
+      .vuestic-checkbox--error#{&} {
+        color: $theme-red;
+      }
+    }
   }
   &__container {
     display: flex;
@@ -157,10 +187,16 @@ export default {
   }
   &__square {
     padding: 8px;
-    &.onFocus {
+    &.on-focus {
       background-color: rgba(187, 180, 178, 0.33);
       border-radius: 20px;
     }
+  }
+  &__error-message {
+    position: absolute;
+    color: $theme-red;
+    margin-top: 0.8rem;
+    font-size: $font-size-mini;
   }
 }
 </style>
