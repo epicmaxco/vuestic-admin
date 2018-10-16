@@ -4,7 +4,7 @@
       <vuestic-checkbox v-model="value" label="Selected" style="margin-top: 5rem; margin-bottom: 1rem;"/>
       <vuestic-checkbox v-model="value" label="Readonly" :readonly="true" style="margin-bottom: 1rem;"/>
       <vuestic-checkbox v-model="value" label="Disabled" :disabled="true"/>
-      <vuestic-checkbox v-model="value" error label="Error" :isError="true" />
+      <vuestic-checkbox v-model="value" error label="Error" :isError="true"/>
       <vuestic-checkbox v-model="value" errorMessage="error" label="Error-message"/>
     </div>
   </div>
@@ -19,7 +19,7 @@ export default {
   },
   data () {
     return {
-      value: true,
+      value: true
     }
   }
 }

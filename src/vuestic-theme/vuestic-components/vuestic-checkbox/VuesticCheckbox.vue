@@ -29,8 +29,9 @@
         />
         <span
           class="vuestic-checkbox__error-message"
-          v-if="errorHandler"
-        >{{ errorMessage }}</span>
+          v-if="errorHandler">
+          {{ errorMessage }}
+        </span>
       </div>
       <label v-if="label" :for="id">
         <span class="vuestic-checkbox__label-text">
@@ -144,7 +145,7 @@ export default {
     outline: none;
     width: 1.375rem;
     color: $white;
-    border: solid 0.125rem $lighter-gray;
+    border: solid 0.125rem $gray-light;
     @at-root {
       .vuestic-checkbox--selected#{&} {
         display: flex;
@@ -161,7 +162,7 @@ export default {
       }
 
       .vuestic-checkbox--disabled#{&} {
-        background-color: $lighter-gray;
+        border-color: $lighter-gray;
         cursor: initial;
       }
 
