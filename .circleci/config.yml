@@ -4,29 +4,6 @@
 #
 version: 2
 jobs:
-  build:
-    docker:
-    - image: circleci/node:10.12.0
-    working_directory: ~/repo
-    steps:
-    - checkout
-    # Download and cache dependencies
-    - restore_cache:
-        keys:
-        - yarn-packages-{{ checksum "yarn.lock" }}
-    - run: yarn install
-    - save_cache:
-        paths:
-        - node_modules
-        key: yarn-packages-{{ checksum "yarn.lock" }}
-
-    # run tests!
-#    - run: yarn test
-
-    - persist_to_workspace:
-        root: .
-        paths: repo
-
   deploy:
     docker:
     - image: circleci/node:10.12.0
@@ -45,12 +22,13 @@ jobs:
     - run: yarn build
     - run:
         name: Deploy to hosting
-        # TODO Move to sh file. Do comments properly.
         # Package dist folder
-        # Do some hacks to be able to copy file without ssh key. (only with user/password)
+        # Do some hacks to be able to copy file without ssh key (only with user/password). That's not needed for normal hosting
         # Copy package to tmp folder
-        # Run ssh session to remote host
-        # Unpack the copied package
+        # On remote host:
+        # - remove public folder contents
+        # - unpack bundle archive into public folder
+        # - remove bundle archive
         command: |
           tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
           sudo apt install sshpass
