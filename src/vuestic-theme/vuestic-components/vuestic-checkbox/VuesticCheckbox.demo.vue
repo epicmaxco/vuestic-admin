@@ -5,7 +5,8 @@
       <vuestic-checkbox v-model="value" label="Readonly" :readonly="true" style="margin-bottom: 1rem;"/>
       <vuestic-checkbox v-model="value" label="Disabled" :disabled="true"/>
       <vuestic-checkbox v-model="value" error label="Error" :isError="true"/>
-      <vuestic-checkbox v-model="value" errorMessage="error" label="Error-message"/>
+      <vuestic-checkbox v-model="value" errorMessage="error message" label="Error-message"/>
+      <vuestic-checkbox v-model="value" error disabled label="Error + disabled" :isError="true"/>
     </div>
   </div>
 </template>

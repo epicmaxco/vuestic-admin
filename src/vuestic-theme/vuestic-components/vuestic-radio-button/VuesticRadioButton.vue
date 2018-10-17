@@ -1,11 +1,17 @@
 <template>
-  <div class="vuestic-radio-button form-check radio abc-radio"
-       :class="additionalClasses">
-    <input class="form-check-input" type="radio" :name="name" :id="id"
-           :value="value" :checked="checkState" @change="onChange"
-           :disabled="disabled">
-    <label class="form-check-label" :for="id">
-      <span class="abc-label-text">{{ label }}</span>
+  <div class="vuestic-radio-button" :class="{ 'vuestic-radio-button--unselected' : !checkState,
+   'vuestic-radio-button--disabled' : disabled }"
+  >
+    <div class="vuestic-radio-button__circle-container">
+      <div class="vuestic-radio-button__circle">
+        <div class="vuestic-radio-button__circle-inside"/>
+      </div>
+      <input class="vuestic-radio-button__input" type="radio" :name="name" :id="id"
+             :value="value" :checked="checkState" @change="onChange"
+             :disabled="disabled">
+    </div>
+    <label :for="id">
+      <span class="vuestic-radio-button__label">{{ label }}</span>
     </label>
   </div>
 </template>
@@ -39,13 +45,6 @@ export default {
     },
     modelValue: {
       default: undefined
-    },
-    brandColor: {
-      type: String,
-      default: 'primary',
-      validator: value => {
-        return ['primary', 'secondary', 'success', 'info', 'warning', 'danger'].indexOf(value) >= 0
-      }
     }
   },
   model: {
@@ -71,11 +70,6 @@ export default {
         return this.checked
       }
       return this.modelValue === this.value
-    },
-    additionalClasses () {
-      return [
-        'abc-radio-' + this.brandColor
-      ]
     }
   },
   watch: {
@@ -89,32 +83,60 @@ export default {
 </script>
 
 <style lang="scss">
-  .vuestic-radio-button {
-    margin-bottom: 20px;
-    label {
-      &::before{
-        width: 22px;
-        height: 22px;
-        border: 2px solid $input-border-color;
-      }
-    }
+.vuestic-radio-button {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
 
-    label {
-      padding-left: 0;
-
-      &::after {
-        width: 10px;
-        height: 10px;
-        top: 7.8px;
-        left: 6px;
-      }
-    }
-
-    input[type="radio"] {
-
-      &:focus + label::before {
-        outline: none;
+  #{&}__input {
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    @at-root {
+      .vuestic-radio-button--disabled#{&} {
+        cursor: initial;
       }
     }
   }
+  #{&}__circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    display: block;
+    position: absolute;
+    border: $vue-green solid 2px;
+    display: flex;
+    justify-content: center;
+    @at-root {
+      .vuestic-radio-button--unselected#{&} {
+        border: $gray solid 2px;
+      }
+      .vuestic-radio-button--disabled#{&} {
+        opacity: 0.4;
+      }
+    }
+  }
+  &__circle-container {
+    width: 20px;
+    height: 20px;
+  }
+  #{&}__circle-inside {
+    width: 5px;
+    height: 5px;
+    border-radius: 4px;
+    position: absolute;
+    border: $vue-green solid 4px;
+    margin-top: 3.5px;
+    @at-root {
+      .vuestic-radio-button--unselected#{&} {
+        display: none;
+      }
+    }
+  }
+  &__label {
+    margin-left: 0.5rem;
+  }
+}
 </style>

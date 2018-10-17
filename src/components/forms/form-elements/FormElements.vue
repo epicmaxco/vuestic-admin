@@ -302,7 +302,7 @@
         <vuestic-widget :headerText="'forms.controls.title' | translate">
           <form>
             <div class="row">
-              <div class="col-md-3">
+              <div class="col-md-4">
                 <fieldset>
                   <vuestic-checkbox
                     :label="'forms.controls.subscribe' | translate"
@@ -323,37 +323,19 @@
                     :id="'checkbox4'"
                     :disabled="true"
                     v-model="checkboxFourModel"/>
-                </fieldset>
-              </div>
-
-              <div class="col-md-3">
-                <fieldset>
                   <vuestic-checkbox
+                    error
                     :label="'forms.controls.subscribe' | translate"
-                    :id="'checkbox5'"
-                    :isCircle="true"
+                    :id="'checkbox4'"
                     v-model="checkboxFiveModel"/>
                   <vuestic-checkbox
+                    error-message="Subscribe newsletter"
                     :label="'forms.controls.subscribe' | translate"
-                    :id="'checkbox6'"
-                    :isCircle="true"
+                    :id="'checkbox4'"
                     v-model="checkboxSixModel"/>
-                  <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
-                    :id="'checkbox7'"
-                    :readonly="true"
-                    :isCircle="true"
-                    v-model="checkboxSevenModel"/>
-                  <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
-                    :id="'checkbox8'"
-                    :disabled="true"
-                    :isCircle="true"
-                    v-model="checkboxEightModel"/>
                 </fieldset>
               </div>
-
-              <div class="col-md-3">
+              <div class="col-md-4">
                 <fieldset>
                   <vuestic-radio-button
                     :label="'forms.controls.radio' | translate"
@@ -386,7 +368,7 @@
                 </fieldset>
               </div>
 
-              <div class="col-md-3">
+              <div class="col-md-4">
                 <fieldset>
                   <vuestic-switch v-model="isMale">
                     <span
