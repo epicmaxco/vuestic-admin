@@ -30,9 +30,6 @@ export default {
         'vuestic-radio-button--disable': this.disable
       }
     },
-    icon () {
-      return ['far', this.isActive ? 'dot-circle' : 'circle']
-    },
     isActive () {
       return this.value === this.option
     },
