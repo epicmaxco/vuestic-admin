@@ -1,74 +1,58 @@
 <template>
   <div class="demo-container">
-    <div class="demo-container__item" style="width: 200px;">
+    <div class="demo-container__item" style="width: 500px;">
       <vuestic-radio-button
-        :label="'forms.controls.radio' | translate"
-        :id="'radio1'"
-        :value="{id: 4}"
-        :name="'radio'"
-        v-model="radioModel"
-      />
-      <vuestic-radio-button
-        :label="'forms.controls.radio' | translate"
-        :id="'radio2'"
-        :value="Two"
-        :name="'radio'"
-        v-model="radioModel"
-      />
-      <vuestic-radio-button
-        :label="'forms.controls.radio' | translate"
-        :id="'radio3'"
-        :value="'option3'"
-        :name="'radio'"
-        v-model="radioModel"
-      />
-      <vuestic-radio-button
-        :label="'Disabled'"
-        :id="'radio3'"
-        :value="'option4'"
-        :name="'radio'"
-        disabled
-        v-model="radioModel"
-      />
-    </div>
-
-    <div class="demo-container__item" style="width: 200px;">
-      <vuestic-radio-button
-        v-for="option in options"
-        :key="option.id"
-        :label="option.name"
-        :option="option"
         v-model="selectedOption"
-      />
-    </div>
-    <div class="demo-container__item" style="width: 200px;">
+        option="one"
+      >
+        One
+      </vuestic-radio-button>
       <vuestic-radio-button
-        v-for="option in options"
-        :key="option.id"
-        :label="option.name"
-        :option="option"
         v-model="selectedOption"
-      />
+        option="two"
+      >
+        Two
+      </vuestic-radio-button>
+      <vuestic-radio-button
+        v-model="selectedOption"
+        option="three"
+      >
+        Three
+      </vuestic-radio-button>
+    </div>
+    <div class="demo-container__item" style="width: 500px;">
+      {{ selectedOption }}
+    </div>
+    <div class="demo-container__item">
+      <vuestic-radio-button
+        v-model="selectedOption1"
+        option="four"
+        disable
+      >
+        Four
+      </vuestic-radio-button>
+      <vuestic-radio-button
+        v-model="selectedOption1"
+        option="five"
+        disable
+      >
+        Five
+      </vuestic-radio-button>
     </div>
   </div>
 </template>
 
 <script>
-import VuesticRadioButton from './VuesticRadioButton'
+import VuesticRadioButton from './VuesticRadioButton '
+
 export default {
-  components: {
-    VuesticRadioButton
-  },
+  components: { VuesticRadioButton },
   data () {
     return {
-      radioModel: 'option1',
-
-      options: [
-        { id: 1, name: 'One' },
-        { id: 2, name: 'Two' },
-      ],
-      selectedOption: null,
+      selectedOption: 'one',
+      selectedOption1: 'four',
+      selectedOption2: 'five'
     }
-  }
+  },
 }
 </script>

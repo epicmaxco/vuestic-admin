@@ -338,33 +338,29 @@
               <div class="col-md-4">
                 <fieldset>
                   <vuestic-radio-button
-                    :label="'forms.controls.radio' | translate"
-                    :id="'radio1'"
-                    :value="'option1'"
-                    :name="'radio'"
-                    v-model="radioModel"/>
+                    option="option1"
+                    v-model="radioSelectedOption">
+                    {{'forms.controls.radio' | translate}}
+                  </vuestic-radio-button>
                   <vuestic-radio-button
-                    :label="'forms.controls.radio' | translate"
-                    :id="'radio2'"
-                    :value="'option2'"
-                    :name="'radio'"
-                    v-model="radioModel"/>
+                    option="option2"
+                    v-model="radioSelectedOption">
+                    {{'forms.controls.radio' | translate}}
+                  </vuestic-radio-button>
                 </fieldset>
                 <fieldset>
                   <vuestic-radio-button
-                    :label="'forms.controls.radioDisabled' | translate"
-                    :id="'radio3'"
-                    :value="'option3'"
-                    :name="'disabled-radio'"
-                    :disabled="true"
-                    v-model="radioDisabledModel"/>
+                    option="option1"
+                    disable
+                    v-model="radioSelectedDisableOption">
+                    {{'forms.controls.radioDisabled' | translate}}
+                  </vuestic-radio-button>
                   <vuestic-radio-button
-                    :label="'forms.controls.radioDisabled' | translate"
-                    :id="'radio4'"
-                    :value="'option4'"
-                    :name="'disabled-radio'"
-                    :disabled="true"
-                    v-model="radioDisabledModel"/>
+                    option="option2"
+                    disable
+                    v-model="radioSelectedDisableOption">
+                    {{'forms.controls.radioDisabled' | translate}}
+                  </vuestic-radio-button>
                 </fieldset>
               </div>
 
@@ -425,8 +421,8 @@ export default {
       simpleSelectModel: '',
       multiSelectModel: [],
       multiSelectCountriesModel: [],
-      radioModel: 'option1',
-      radioDisabledModel: 'option4',
+      radioSelectedOption: 'option1',
+      radioSelectedDisableOption: 'option1',
       checkboxOneModel: false,
       checkboxTwoModel: true,
       checkboxThreeModel: true,
