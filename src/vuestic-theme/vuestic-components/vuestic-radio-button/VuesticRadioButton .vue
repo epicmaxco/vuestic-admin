@@ -4,10 +4,15 @@
     :class="computedClass"
     @click="onClick"
   >
-    <div class="vuestic-radio-button__icon">
-      <div class="vuestic-radio-button__icon-circle"/>
+    <div class="vuestic-radio-button__content">
+      <input @keypress="isOnFocus=false" @focus="isOnFocus = true" @blur="isOnFocus = false" :checked="isActive" type="radio" class="vuestic-radio-button__input" :disabled="disable"/>
+      <div class="vuestic-radio-button__icon">
+        <div class="vuestic-radio-button__icon-circle"/>
+      </div>
     </div>
-    <slot/>
+    <div class="vuestic-radio-button__slot-container">
+      <slot/>
+    </div>
   </div>
 </template>
 
@@ -23,16 +28,30 @@ export default {
       default: false
     }
   },
+  data () {
+    return {
+      onFocus: false
+    }
+  },
   computed: {
     computedClass () {
       return {
         'vuestic-radio-button--active': this.isActive,
-        'vuestic-radio-button--disable': this.disable
+        'vuestic-radio-button--disable': this.disable,
+        'vuestic-radio-button--onFocus': this.isOnFocus
       }
     },
     isActive () {
       return this.value === this.option
     },
+    isOnFocus: {
+      set (onFocus) {
+        this.onFocus = onFocus
+      },
+      get () {
+        return this.onFocus
+      }
+    }
   },
   methods: {
     onClick () {
@@ -79,6 +98,27 @@ export default {
         margin-left: 4px;
       }
     }
+  }
+  &__input {
+    width: 24px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+  }
+  #{&}__content {
+    width: 30px;
+    height: 30px;
+    padding-left: 5px;
+    padding-top: 5px;
+    @at-root {
+      .vuestic-radio-button--onFocus#{&} {
+        background-color: rgba(187, 180, 178, 0.33);
+        border-radius: 25px;
+    }
+    }
+  }
+  &__slot-container {
+    padding-top: 5px;
   }
 }
 </style>

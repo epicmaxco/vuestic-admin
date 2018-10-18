@@ -19,11 +19,6 @@
       >
         Three
       </vuestic-radio-button>
-    </div>
-    <div class="demo-container__item" style="width: 500px;">
-      {{ selectedOption }}
-    </div>
-    <div class="demo-container__item">
       <vuestic-radio-button
         v-model="selectedOption1"
         option="four"
@@ -38,6 +33,9 @@
       >
         Five
       </vuestic-radio-button>
+    </div>
+    <div class="demo-container__item" style="width: 500px;">
+      {{ selectedOption }}
     </div>
   </div>
 </template>

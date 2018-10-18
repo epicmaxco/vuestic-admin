@@ -2,7 +2,7 @@
   <div
     class="vuestic-checkbox"
     :class="{'vuestic-checkbox--selected': selected, 'vuestic-checkbox--readonly': readonly,
-    'vuestic-checkbox--disabled': disabled, 'vuestic-checkbox--error': errorComputed}"
+    'vuestic-checkbox--disabled': disabled, 'vuestic-checkbox--error': errorComputed, 'vuestic-checkbox--onfocus': isOnFocus}"
   >
     <div class="vuestic-checkbox__content">
       <div class="vuestic-checkbox__square" @click="toggleSelection">
@@ -10,6 +10,8 @@
           <input
             :id="id"
             :readonly="true"
+            @focus="isOnFocus = true"
+            @blur="isOnFocus = false"
             class="vuestic-checkbox__input"
             @keypress="toggleSelection"
           />
@@ -75,6 +77,11 @@ export default {
       default: false
     }
   },
+  data () {
+    return {
+      onFocus: false
+    }
+  },
   computed: {
     selected: {
       set (selected) {
@@ -94,10 +101,19 @@ export default {
         }
         return false
       }
+    },
+    isOnFocus: {
+      set (onFocus) {
+        this.onFocus = onFocus
+      },
+      get () {
+        return this.onFocus
+      }
     }
   },
   methods: {
     toggleSelection () {
+      this.onFocus = false
       if (!this.disabled) {
         this.selected = !this.selected
       }
@@ -176,10 +192,20 @@ export default {
     margin-left: 30px;
   }
   #{&}__square {
+    padding-left: 5px;
+    padding-top: 5px;
     cursor: pointer;
+    width: 32px;
+    height: 32px;
+    position: absolute;
     @at-root {
       .vuestic-checkbox--disabled#{&} {
         cursor: initial;
+      }
+
+      .vuestic-checkbox--onfocus#{&} {
+        background-color: rgba(187, 180, 178, 0.33);
+        border-radius: 25px;
       }
     }
   }
