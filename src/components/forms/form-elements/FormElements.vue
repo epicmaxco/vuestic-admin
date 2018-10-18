@@ -305,32 +305,32 @@
               <div class="col-md-4">
                 <fieldset>
                   <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
+                    :label="'forms.controls.unselected' | translate"
                     :id="'checkbox1'"
                     v-model="checkboxOneModel"/>
                   <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
+                    :label="'forms.controls.selected' | translate"
                     :id="'checkbox2'"
                     v-model="checkboxTwoModel"/>
                   <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
+                    :label="'forms.controls.readonly' | translate"
                     :id="'checkbox3'"
                     v-model="checkboxThreeModel"
                     :readonly="true"
                   />
                   <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
+                    :label="'forms.controls.disabled' | translate"
                     :id="'checkbox4'"
                     :disabled="true"
                     v-model="checkboxFourModel"/>
                   <vuestic-checkbox
                     error
-                    :label="'forms.controls.subscribe' | translate"
+                    :label="'forms.controls.error' | translate"
                     :id="'checkbox4'"
                     v-model="checkboxFiveModel"/>
                   <vuestic-checkbox
-                    error-message="Subscribe newsletter"
-                    :label="'forms.controls.subscribe' | translate"
+                    error-message="error message"
+                    :label="'forms.controls.errorMessage' | translate"
                     :id="'checkbox4'"
                     v-model="checkboxSixModel"/>
                 </fieldset>

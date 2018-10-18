@@ -1,8 +1,8 @@
 <template>
-  <div class="demo-container" style="width: 300px">
+  <div class="demo-container" style="width: 300px; margin-top: 3rem">
     <div class="demo-container-item" style="margin-left: 5rem">
-      <vuestic-checkbox v-model="value" label="Selected" style="margin-top: 5rem; margin-bottom: 1rem;"/>
-      <vuestic-checkbox v-model="value" label="Readonly" :readonly="true" style="margin-bottom: 1rem;"/>
+      <vuestic-checkbox v-model="value" label="Selected"/>
+      <vuestic-checkbox v-model="value" label="Readonly" :readonly="true"/>
       <vuestic-checkbox v-model="value" label="Disabled" :disabled="true"/>
       <vuestic-checkbox v-model="value" error label="Error" :isError="true"/>
       <vuestic-checkbox v-model="value" errorMessage="error message" label="Error-message"/>

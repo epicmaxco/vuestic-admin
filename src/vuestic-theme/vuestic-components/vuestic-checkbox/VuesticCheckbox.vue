@@ -4,33 +4,35 @@
     :class="{'vuestic-checkbox--selected': selected, 'vuestic-checkbox--readonly': readonly,
     'vuestic-checkbox--disabled': disabled, 'vuestic-checkbox--error': errorComputed}"
   >
-    <div class="vuestic-checkbox__square" @click="toggleSelection">
-      <div class="vuestic-checkbox__input-container">
-        <input
-          :id="id"
-          :readonly="true"
-          class="vuestic-checkbox__input"
-          @keypress="toggleSelection"
-        />
-      </div>
-      <span class="vuestic-checkbox__icon-selected-container">
+    <div class="vuestic-checkbox__content">
+      <div class="vuestic-checkbox__square" @click="toggleSelection">
+        <div class="vuestic-checkbox__input-container">
+          <input
+            :id="id"
+            :readonly="true"
+            class="vuestic-checkbox__input"
+            @keypress="toggleSelection"
+          />
+        </div>
+        <span class="vuestic-checkbox__icon-selected-container">
           <i class="ion ion-md-checkmark vuestic-checkbox__icon-selected" aria-hidden="true"/>
       </span>
-      <div class="vuestic-checkbox__error-message-container">
-        <span
-          class="vuestic-checkbox__error-message"
-          v-if="errorComputed">
-            {{ errorMessage }}
-        </span>
       </div>
-    </div>
-    <div class="vuestic-checkbox__label-container">
+      <div class="vuestic-checkbox__label-container">
         <span
           v-if="label" :for="id"
           @click="toggleSelection"
           class="vuestic-checkbox__label-text"
         >
           {{ label }}
+        </span>
+      </div>
+    </div>
+    <div class="vuestic-checkbox__error-message-container">
+        <span
+          class="vuestic-checkbox__error-message"
+          v-if="errorComputed">
+            {{ errorMessage }}
         </span>
     </div>
   </div>
@@ -106,9 +108,9 @@ export default {
 
 <style lang="scss">
 .vuestic-checkbox {
-  margin-bottom: 16px;
+  margin-bottom: 25px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   #{&}__input {
     cursor: pointer;
     height: 1.375rem;
@@ -160,7 +162,6 @@ export default {
   &__error-message {
     color: $theme-red;
     font-size: $font-size-mini;
-    position: absolute;
   }
   &__icon-selected {
     position: absolute;
@@ -169,11 +170,10 @@ export default {
     padding-left: 5px;
   }
   &__error-message-container {
-    margin-top: 1.5rem;
   }
   &__label-container {
     max-width: 500px;
-    margin-left: 10px;
+    margin-left: 30px;
   }
   #{&}__square {
     cursor: pointer;
@@ -185,6 +185,9 @@ export default {
   }
   &__input-container {
     width: 24px;
+  }
+  &__content {
+    flex-direction: row;
   }
 }
 </style>
