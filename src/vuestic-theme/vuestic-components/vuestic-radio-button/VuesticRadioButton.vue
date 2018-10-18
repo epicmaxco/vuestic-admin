@@ -1,14 +1,23 @@
 <template>
-  <div class="vuestic-radio-button" :class="{ 'vuestic-radio-button--unselected' : !checkState,
-   'vuestic-radio-button--disabled' : disabled }"
+  <div class="vuestic-radio-button" :class="{
+      'vuestic-radio-button--unselected' : !checkState,
+      'vuestic-radio-button--disabled' : disabled
+    }"
   >
     <div class="vuestic-radio-button__circle-container">
       <div class="vuestic-radio-button__circle">
         <div class="vuestic-radio-button__circle-inside"/>
       </div>
-      <input class="vuestic-radio-button__input" type="radio" :name="name" :id="id"
-             :value="value" :checked="checkState" @change="onChange"
-             :disabled="disabled">
+      <input
+        class="vuestic-radio-button__input"
+        type="radio"
+        :name="name"
+        :id="id"
+        :value="value"
+        :checked="checkState"
+        @change="onChange"
+        :disabled="disabled"
+      >
     </div>
     <label :for="id">
       <span class="vuestic-radio-button__label">{{ label }}</span>
@@ -23,33 +32,32 @@ export default {
   props: {
     label: String,
     value: {
-      type: String,
       default: '',
-      required: true
+      required: true,
     },
     checked: {
       type: Boolean,
-      default: false
+      default: false,
     },
     id: {
       type: String,
-      required: false
+      required: false,
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     name: {
       type: String,
-      required: true
+      required: true,
     },
     modelValue: {
-      default: undefined
-    }
+      default: undefined,
+    },
   },
   model: {
     prop: 'modelValue',
-    event: 'input'
+    event: 'input',
   },
   mounted () {
     if (this.checked && !this.checkState) {
@@ -62,7 +70,7 @@ export default {
     },
     toggle () {
       this.$emit('input', this.checkState ? '' : this.value)
-    }
+    },
   },
   computed: {
     checkState () {
@@ -70,15 +78,15 @@ export default {
         return this.checked
       }
       return this.modelValue === this.value
-    }
+    },
   },
   watch: {
     checked (newValue) {
       if (newValue !== this.checkState) {
         this.toggle()
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -113,6 +121,7 @@ export default {
       .vuestic-radio-button--unselected#{&} {
         border: $gray solid 2px;
       }
+
       .vuestic-radio-button--disabled#{&} {
         opacity: 0.4;
       }
