@@ -1,6 +1,6 @@
 <template>
-  <div class="demo-container" style="width: 300px">
-    <div class="demo-container-item" style="margin-left: 5rem">
+  <div class="demo-container">
+    <div class="demo-container__item" style="width: 300px">
       <vuestic-checkbox v-model="value" label="Selected"/>
       <vuestic-checkbox v-model="value" label="Readonly" :readonly="true"/>
       <vuestic-checkbox v-model="value" label="Disabled" :disabled="true"/>
