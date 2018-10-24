@@ -22,14 +22,14 @@
       <vuestic-radio-button
         v-model="selectedOption1"
         option="four"
-        disable
+        disabled
       >
         Four
       </vuestic-radio-button>
       <vuestic-radio-button
         v-model="selectedOption1"
         option="five"
-        disable
+        disabled
       >
         Five
       </vuestic-radio-button>

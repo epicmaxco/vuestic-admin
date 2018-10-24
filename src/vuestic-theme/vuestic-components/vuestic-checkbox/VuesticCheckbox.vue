@@ -1,26 +1,28 @@
 <template>
   <div
     class="vuestic-checkbox"
-    :class="{'vuestic-checkbox--selected': selected, 'vuestic-checkbox--readonly': readonly,
-    'vuestic-checkbox--disabled': disabled, 'vuestic-checkbox--error': errorComputed, 'vuestic-checkbox--onfocus': isOnFocus}"
+    :class="{
+      'vuestic-checkbox--selected': selected,
+      'vuestic-checkbox--readonly': readonly,
+      'vuestic-checkbox--disabled': disabled,
+      'vuestic-checkbox--error': errorComputed,
+      'vuestic-checkbox--onfocus': isOnFocus
+    }"
   >
-    <div class="vuestic-checkbox__content">
-      <div class="vuestic-checkbox__square" @click="toggleSelection">
-        <div class="vuestic-checkbox__input-container">
-          <input
-            :id="id"
-            :readonly="true"
-            @focus="isOnFocus = true"
-            @blur="isOnFocus = false"
-            class="vuestic-checkbox__input"
-            @keypress="toggleSelection"
-          />
-        </div>
-        <span class="vuestic-checkbox__icon-selected-container">
+    <div class="vuestic-checkbox__square" @click="toggleSelection" @mousedown="activateOnFocus">
+      <input
+        :id="id"
+        readonly
+        @focus="activateOnFocus"
+        @blur="deactivateOnFocus"
+        class="vuestic-checkbox__input"
+        @keypress="onKeyToggleSelection"
+      />
+      <span class="vuestic-checkbox__icon-selected-container">
           <i class="ion ion-md-checkmark vuestic-checkbox__icon-selected" aria-hidden="true"/>
       </span>
-      </div>
-      <div class="vuestic-checkbox__label-container">
+    </div>
+    <div class="vuestic-checkbox__label-container">
         <span
           v-if="label" :for="id"
           @click="toggleSelection"
@@ -28,7 +30,6 @@
         >
           {{ label }}
         </span>
-      </div>
     </div>
     <div class="vuestic-checkbox__error-message-container">
         <span
@@ -79,7 +80,7 @@ export default {
   },
   data () {
     return {
-      onFocus: false
+      isOnFocus: false
     }
   },
   computed: {
@@ -102,21 +103,26 @@ export default {
         return false
       }
     },
-    isOnFocus: {
-      set (onFocus) {
-        this.onFocus = onFocus
-      },
-      get () {
-        return this.onFocus
-      }
-    }
   },
   methods: {
     toggleSelection () {
-      this.onFocus = false
+      if (!this.disabled) {
+        this.deactivateOnFocus()
+        this.selected = !this.selected
+      }
+    },
+    onKeyToggleSelection () {
       if (!this.disabled) {
         this.selected = !this.selected
       }
+    },
+    activateOnFocus () {
+      if (!this.disabled && !this.readonly) {
+        this.isOnFocus = true
+      }
+    },
+    deactivateOnFocus () {
+      this.isOnFocus = false
     }
   },
 }
@@ -124,13 +130,14 @@ export default {
 
 <style lang="scss">
 .vuestic-checkbox {
-  margin-bottom: 25px;
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
   #{&}__input {
     cursor: pointer;
     height: 1.375rem;
     position: absolute;
+    border-radius: 3px;
     width: 1.375rem;
     color: $white;
     border: solid 0.125rem $gray-light;
@@ -169,6 +176,8 @@ export default {
     position: relative;
     padding-top: 0px;
     cursor: pointer;
+    padding-top: 0.2rem;
+    margin-left: 0.35rem;
     @at-root {
       .vuestic-checkbox--error#{&} {
         color: $theme-red;
@@ -186,6 +195,7 @@ export default {
     padding-left: 5px;
   }
   &__error-message-container {
+    margin-left: 0.3rem;
   }
   &__label-container {
     max-width: 500px;
@@ -204,7 +214,7 @@ export default {
       }
 
       .vuestic-checkbox--onfocus#{&} {
-        background-color: rgba(187, 180, 178, 0.33);
+        background-color: $checkbox-on-focus;
         border-radius: 25px;
       }
     }

@@ -4,8 +4,10 @@
     :class="computedClass"
     @click="onClick"
   >
-    <div class="vuestic-radio-button__content">
-      <input @keypress="isOnFocus=false" @focus="isOnFocus = true" @blur="isOnFocus = false" :checked="isActive" type="radio" class="vuestic-radio-button__input" :disabled="disable"/>
+    <div class="vuestic-radio-button__content" @mousedown="deactivateOnFocus" @mouseup="deactivateOnFocus">
+      <input @focus="activateOnFocus" @blur="deactivateOnFocus"
+             :checked="isActive" type="radio" class="vuestic-radio-button__input"
+             :disabled="disabled"/>
       <div class="vuestic-radio-button__icon">
         <div class="vuestic-radio-button__icon-circle"/>
       </div>
@@ -23,34 +25,26 @@ export default {
   props: {
     value: '',
     option: '',
-    disable: {
+    disabled: {
       type: Boolean,
       default: false
     }
   },
   data () {
     return {
-      onFocus: false
+      isOnFocus: false
     }
   },
   computed: {
     computedClass () {
       return {
         'vuestic-radio-button--active': this.isActive,
-        'vuestic-radio-button--disable': this.disable,
-        'vuestic-radio-button--onFocus': this.isOnFocus
+        'vuestic-radio-button--disabled': this.disabled,
+        'vuestic-radio-button--on-focus': this.isOnFocus
       }
     },
     isActive () {
       return this.value === this.option
-    },
-    isOnFocus: {
-      set (onFocus) {
-        this.onFocus = onFocus
-      },
-      get () {
-        return this.onFocus
-      }
     }
   },
   methods: {
@@ -58,6 +52,12 @@ export default {
       if (!this.disable) {
         this.$emit('input', this.option)
       }
+    },
+    activateOnFocus () {
+      this.isOnFocus = true
+    },
+    deactivateOnFocus () {
+      this.isOnFocus = false
     }
   }
 }
@@ -71,17 +71,16 @@ export default {
   flex-direction: row;
   margin-bottom: 20px;
   &__icon {
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
+    width: 22px;
+    height: 22px;
+    border-radius: 11px;
     border: $gray solid 2px;
-    margin-right: 5px;
     @at-root {
       .vuestic-radio-button.vuestic-radio-button--active & {
         border: $vue-green solid 2px;
       }
 
-      .vuestic-radio-button.vuestic-radio-button--disable & {
+      .vuestic-radio-button.vuestic-radio-button--disabled & {
         opacity: 0.4;
       }
     }
@@ -89,18 +88,19 @@ export default {
   &__icon-circle {
     @at-root {
       .vuestic-radio-button.vuestic-radio-button--active & {
-        width: 5px;
-        height: 5px;
-        border-radius: 4px;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
         position: absolute;
-        border: $vue-green solid 4px;
-        margin-top: 4px;
+        border: $vue-green solid 5px;
+        margin-top: 4.3px;
         margin-left: 4px;
       }
     }
   }
   &__input {
     width: 24px;
+    height: 24px;
     position: absolute;
     cursor: pointer;
     opacity: 0;
@@ -108,17 +108,19 @@ export default {
   #{&}__content {
     width: 30px;
     height: 30px;
-    padding-left: 5px;
-    padding-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-top: 0.25rem;
+    padding-left: 0.25rem;
     @at-root {
-      .vuestic-radio-button--onFocus#{&} {
-        background-color: rgba(187, 180, 178, 0.33);
+      .vuestic-radio-button--on-focus#{&} {
+        background-color: $checkbox-on-focus;
         border-radius: 25px;
-    }
+      }
     }
   }
   &__slot-container {
-    padding-top: 5px;
+    padding-top: 0.1rem;
   }
 }
 </style>
