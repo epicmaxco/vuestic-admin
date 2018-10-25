@@ -22,7 +22,7 @@
     >
           {{ label }}
     </span>
-    <div class="vuestic-checkbox__error-message-container" v-if="errorComputed">
+    <div class="vuestic-checkbox__error-message-container" v-if="errorMessages">
         <span
           class="vuestic-checkbox__error-message"
           v-for="(error,i) in errorMessages.slice(0, errorCount)" :key="i"
@@ -86,7 +86,7 @@ export default {
         'vuestic-checkbox--selected': this.selected,
         'vuestic-checkbox--readonly': this.readonly,
         'vuestic-checkbox--disabled': this.disabled,
-        'vuestic-checkbox--error': this.errorComputed,
+        'vuestic-checkbox--error': this.showError,
         'vuestic-checkbox--onfocus': this.focused
       }
     },
@@ -116,7 +116,7 @@ export default {
         return this.value
       }
     },
-    errorComputed () {
+    showError () {
       // We make error active, if the error-message is not empty and checkbox is not disabled
       if (!this.disabled) {
         if (this.errorMessages || this.error) {

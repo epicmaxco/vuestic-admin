@@ -7,7 +7,8 @@
       <vuestic-checkbox v-model="value" error label="Error" isError/>
       <vuestic-checkbox v-model="value" :errorMessages="errorMessages" label="Error-message"/>
       <vuestic-checkbox v-model="value" :errorMessages="errorMessages" :errorCount="2" label="Error-message"/>
-      <vuestic-checkbox v-model="value" error disabled label="Error + disabled" isError/>
+      <vuestic-checkbox v-model="value" error disabled label="Error + disabled"/>
+      <vuestic-checkbox v-model="value" error label="Error + disabled"/>
     </div>
   </div>
 </template>

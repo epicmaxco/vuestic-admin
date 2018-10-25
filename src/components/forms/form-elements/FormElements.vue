@@ -325,11 +325,12 @@
                     v-model="checkboxFourModel"/>
                   <vuestic-checkbox
                     error
-                    :label="'forms.controls.error' | translate"
+                    :label="'forms.control  s.error' | translate"
                     :id="'checkbox4'"
                     v-model="checkboxFiveModel"/>
                   <vuestic-checkbox
-                    error-message="error message"
+                    :error-messages="errorMessages"
+                    :errorCount="2"
                     :label="'forms.controls.errorMessage' | translate"
                     :id="'checkbox4'"
                     v-model="checkboxSixModel"/>
@@ -435,6 +436,7 @@ export default {
       checkboxSixModel: true,
       checkboxSevenModel: true,
       checkboxEightModel: true,
+      errorMessages: ['error message 1', 'error message 2'],
       datepicker: {
         simple: '2018-05-09',
         time: '2018-05-08 14:10',
