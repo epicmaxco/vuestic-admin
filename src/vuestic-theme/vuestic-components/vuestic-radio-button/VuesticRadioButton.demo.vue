@@ -1,37 +1,38 @@
 <template>
   <div class="demo-container">
-    <div class="demo-container__item" style="width: 500px;">
+    <div class="demo-container__item">
       <vuestic-radio-button
         v-model="selectedOption"
         option="one"
+        :label="object"
+        optionKey="default"
       >
-        One
       </vuestic-radio-button>
       <vuestic-radio-button
         v-model="selectedOption"
         option="two"
+        label="Two"
       >
-        Two
       </vuestic-radio-button>
       <vuestic-radio-button
         v-model="selectedOption"
         option="three"
+        label="Three"
       >
-        Three
       </vuestic-radio-button>
       <vuestic-radio-button
         v-model="selectedOption1"
         option="four"
+        label="Four"
         disabled
       >
-        Four
       </vuestic-radio-button>
       <vuestic-radio-button
         v-model="selectedOption1"
         option="five"
+        label="Five"
         disabled
       >
-        Five
       </vuestic-radio-button>
     </div>
     <div class="demo-container__item" style="width: 500px;">
@@ -49,7 +50,11 @@ export default {
     return {
       selectedOption: 'one',
       selectedOption1: 'four',
-      selectedOption2: 'five'
+      selectedOption2: 'five',
+      object: {
+        type: String,
+        default: 'One'
+      }
     }
   },
 }

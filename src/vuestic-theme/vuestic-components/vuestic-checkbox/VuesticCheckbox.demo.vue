@@ -1,12 +1,13 @@
 <template>
   <div class="demo-container">
-    <div class="demo-container__item" style="width: 300px">
+    <div class="demo-container__item">
       <vuestic-checkbox v-model="value" label="Selected"/>
-      <vuestic-checkbox v-model="value" label="Readonly" :readonly="true"/>
-      <vuestic-checkbox v-model="value" label="Disabled" :disabled="true"/>
-      <vuestic-checkbox v-model="value" error label="Error" :isError="true"/>
-      <vuestic-checkbox v-model="value" errorMessage="error message" label="Error-message"/>
-      <vuestic-checkbox v-model="value" error disabled label="Error + disabled" :isError="true"/>
+      <vuestic-checkbox v-model="value" label="Readonly" readonly/>
+      <vuestic-checkbox v-model="value" label="Disabled" disabled/>
+      <vuestic-checkbox v-model="value" error label="Error" isError/>
+      <vuestic-checkbox v-model="value" :errorMessages="errorMessages" label="Error-message"/>
+      <vuestic-checkbox v-model="value" :errorMessages="errorMessages" :errorCount="2" label="Error-message"/>
+      <vuestic-checkbox v-model="value" error disabled label="Error + disabled" isError/>
     </div>
   </div>
 </template>
@@ -20,7 +21,8 @@ export default {
   },
   data () {
     return {
-      value: true
+      value: true,
+      errorMessages: ['error message 1', 'error message 2']
     }
   }
 }

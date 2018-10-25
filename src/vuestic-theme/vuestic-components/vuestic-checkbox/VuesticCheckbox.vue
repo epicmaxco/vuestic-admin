@@ -1,41 +1,34 @@
 <template>
   <div
     class="vuestic-checkbox"
-    :class="{
-      'vuestic-checkbox--selected': selected,
-      'vuestic-checkbox--readonly': readonly,
-      'vuestic-checkbox--disabled': disabled,
-      'vuestic-checkbox--error': errorComputed,
-      'vuestic-checkbox--onfocus': isOnFocus
-    }"
+    :class="computedClass"
   >
-    <div class="vuestic-checkbox__square" @click="toggleSelection" @mousedown="activateOnFocus">
+    <div class="vuestic-checkbox__square" @click="toggleSelection" @mousedown="focused = true">
       <input
         :id="id"
         readonly
-        @focus="activateOnFocus"
-        @blur="deactivateOnFocus"
+        @focus="focused = true"
+        @blur="focused = false"
         class="vuestic-checkbox__input"
         @keypress="onKeyToggleSelection"
+        :tabindex="tabIndex"
       />
-      <span class="vuestic-checkbox__icon-selected-container">
-          <i class="ion ion-md-checkmark vuestic-checkbox__icon-selected" aria-hidden="true"/>
-      </span>
+      <i class="ion ion-md-checkmark vuestic-checkbox__icon-selected" aria-hidden="true"/>
     </div>
-    <div class="vuestic-checkbox__label-container">
-        <span
-          v-if="label" :for="id"
-          @click="toggleSelection"
-          class="vuestic-checkbox__label-text"
-        >
+    <span
+      v-if="label" :for="id"
+      @click="toggleSelection"
+      class="vuestic-checkbox__label-text"
+    >
           {{ label }}
-        </span>
-    </div>
-    <div class="vuestic-checkbox__error-message-container">
+    </span>
+    <div class="vuestic-checkbox__error-message-container" v-if="errorComputed">
         <span
           class="vuestic-checkbox__error-message"
-          v-if="errorComputed">
-            {{ errorMessage }}
+          v-for="(error,i) in errorMessages.slice(0, errorCount)" :key="i"
+        >
+            {{ optionKey ? error[optionKey] : error }}
+          <br/>
         </span>
     </div>
   </div>
@@ -61,6 +54,7 @@ export default {
         return 'label-' + generateRandomId()
       }
     },
+    optionKey: String,
     disabled: {
       type: Boolean,
       default: false
@@ -69,9 +63,12 @@ export default {
       type: Boolean,
       default: false
     },
-    errorMessage: {
-      type: String,
-      default: null
+    errorMessages: {
+      type: Array
+    },
+    errorCount: {
+      type: Number,
+      default: 1
     },
     error: {
       type: Boolean,
@@ -80,10 +77,35 @@ export default {
   },
   data () {
     return {
-      isOnFocus: false
+      isFocused: false
     }
   },
   computed: {
+    computedClass () {
+      return {
+        'vuestic-checkbox--selected': this.selected,
+        'vuestic-checkbox--readonly': this.readonly,
+        'vuestic-checkbox--disabled': this.disabled,
+        'vuestic-checkbox--error': this.errorComputed,
+        'vuestic-checkbox--onfocus': this.focused
+      }
+    },
+    tabIndex () {
+      if (this.disabled || this.readonly) {
+        return -1
+      }
+      return 0
+    },
+    focused: {
+      set (isFocused) {
+        if (!this.disabled && !this.readonly) {
+          this.isFocused = isFocused
+        }
+      },
+      get () {
+        return this.isFocused
+      }
+    },
     selected: {
       set (selected) {
         if (!this.readonly && !this.disabled) {
@@ -97,17 +119,17 @@ export default {
     errorComputed () {
       // We make error active, if the error-message is not empty and checkbox is not disabled
       if (!this.disabled) {
-        if (this.errorMessage !== null || this.error) {
+        if (this.errorMessages || this.error) {
           return true
         }
-        return false
       }
+      return false
     },
   },
   methods: {
     toggleSelection () {
       if (!this.disabled) {
-        this.deactivateOnFocus()
+        this.focused = false
         this.selected = !this.selected
       }
     },
@@ -115,14 +137,6 @@ export default {
       if (!this.disabled) {
         this.selected = !this.selected
       }
-    },
-    activateOnFocus () {
-      if (!this.disabled && !this.readonly) {
-        this.isOnFocus = true
-      }
-    },
-    deactivateOnFocus () {
-      this.isOnFocus = false
     }
   },
 }
@@ -137,7 +151,7 @@ export default {
     cursor: pointer;
     height: 1.375rem;
     position: absolute;
-    border-radius: 3px;
+    border-radius: 0.25rem;
     width: 1.375rem;
     color: $white;
     border: solid 0.125rem $gray-light;
@@ -161,7 +175,7 @@ export default {
         cursor: initial;
         @at-root {
           .vuestic-checkbox--selected#{&} {
-            background-color: $lighter-gray;
+            opacity: 0.4;
           }
         }
       }
@@ -174,10 +188,10 @@ export default {
   #{&}__label-text {
     display: inline-block;
     position: relative;
-    padding-top: 0px;
+    padding-top: 0;
     cursor: pointer;
     padding-top: 0.2rem;
-    margin-left: 0.35rem;
+    margin-left: 2.35rem;
     @at-root {
       .vuestic-checkbox--error#{&} {
         color: $theme-red;
@@ -191,19 +205,18 @@ export default {
   &__icon-selected {
     position: absolute;
     color: $white;
-    padding-top: 3px;
-    padding-left: 5px;
+    padding-top: 0.15rem;
+    padding-left: 0.35rem;
   }
   &__error-message-container {
     margin-left: 0.3rem;
   }
   &__label-container {
-    max-width: 500px;
-    margin-left: 30px;
+    margin-left: 2rem;
   }
   #{&}__square {
-    padding-left: 5px;
-    padding-top: 5px;
+    padding-left: 0.3rem;
+    padding-top: 0.3rem;
     cursor: pointer;
     width: 32px;
     height: 32px;
@@ -214,8 +227,9 @@ export default {
       }
 
       .vuestic-checkbox--onfocus#{&} {
-        background-color: $checkbox-on-focus;
-        border-radius: 25px;
+        background-color: $on-focus-background-color;
+        transition: all, 0.6s, ease-in;
+        border-radius: 5rem;
       }
     }
   }

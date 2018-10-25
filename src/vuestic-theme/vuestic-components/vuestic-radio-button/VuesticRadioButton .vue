@@ -5,15 +5,19 @@
     @click="onClick"
   >
     <div class="vuestic-radio-button__content" @mousedown="deactivateOnFocus" @mouseup="deactivateOnFocus">
-      <input @focus="activateOnFocus" @blur="deactivateOnFocus"
-             :checked="isActive" type="radio" class="vuestic-radio-button__input"
-             :disabled="disabled"/>
+      <input
+        @focus="activateOnFocus"
+        @blur="deactivateOnFocus"
+        :checked="isActive" type="radio" class="vuestic-radio-button__input"
+        :disabled="disabled"
+        :tabindex="tabIndex"
+      />
       <div class="vuestic-radio-button__icon">
         <div class="vuestic-radio-button__icon-circle"/>
       </div>
     </div>
     <div class="vuestic-radio-button__slot-container">
-      <slot/>
+      {{ optionKey ? label[optionKey] : label }}
     </div>
   </div>
 </template>
@@ -28,7 +32,9 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    }
+    },
+    label: String,
+    optionKey: String
   },
   data () {
     return {
@@ -45,11 +51,17 @@ export default {
     },
     isActive () {
       return this.value === this.option
+    },
+    tabIndex () {
+      if (this.disabled) {
+        return -1
+      }
+      return 0
     }
   },
   methods: {
     onClick () {
-      if (!this.disable) {
+      if (!this.disabled) {
         this.$emit('input', this.option)
       }
     },
@@ -69,15 +81,15 @@ export default {
   cursor: pointer;
   display: flex;
   flex-direction: row;
-  margin-bottom: 20px;
+  margin-bottom: 1.3rem;
   &__icon {
     width: 22px;
     height: 22px;
-    border-radius: 11px;
-    border: $gray solid 2px;
+    border-radius: 1.8rem;
+    border: $gray solid 0.15rem;
     @at-root {
       .vuestic-radio-button.vuestic-radio-button--active & {
-        border: $vue-green solid 2px;
+        border: $vue-green solid 0.15rem;
       }
 
       .vuestic-radio-button.vuestic-radio-button--disabled & {
@@ -90,11 +102,11 @@ export default {
       .vuestic-radio-button.vuestic-radio-button--active & {
         width: 10px;
         height: 10px;
-        border-radius: 5px;
+        border-radius: 1rem;
         position: absolute;
         border: $vue-green solid 5px;
-        margin-top: 4.3px;
-        margin-left: 4px;
+        margin-top: 0.22rem;
+        margin-left: 0.24rem;
       }
     }
   }
@@ -108,14 +120,15 @@ export default {
   #{&}__content {
     width: 30px;
     height: 30px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
     padding-top: 0.25rem;
     padding-left: 0.25rem;
     @at-root {
       .vuestic-radio-button--on-focus#{&} {
-        background-color: $checkbox-on-focus;
-        border-radius: 25px;
+        background-color: $on-focus-background-color;
+        transition: all, 0.6s, ease-in;
+        border-radius: 3rem;
       }
     }
   }

@@ -339,27 +339,31 @@
                 <fieldset>
                   <vuestic-radio-button
                     option="option1"
-                    v-model="radioSelectedOption">
-                    {{'forms.controls.radio' | translate}}
+                    v-model="radioSelectedOption"
+                    label="Radio"
+                  >
                   </vuestic-radio-button>
                   <vuestic-radio-button
                     option="option2"
-                    v-model="radioSelectedOption">
-                    {{'forms.controls.radio' | translate}}
+                    v-model="radioSelectedOption"
+                    label="Radio"
+                  >
                   </vuestic-radio-button>
                 </fieldset>
                 <fieldset>
                   <vuestic-radio-button
                     option="option1"
-                    disable
-                    v-model="radioSelectedDisableOption">
-                    {{'forms.controls.radioDisabled' | translate}}
+                    disabled
+                    v-model="radioSelectedDisableOption"
+                    label="Disabled Radio"
+                  >
                   </vuestic-radio-button>
                   <vuestic-radio-button
                     option="option2"
-                    disable
-                    v-model="radioSelectedDisableOption">
-                    {{'forms.controls.radioDisabled' | translate}}
+                    disabled
+                    v-model="radioSelectedDisableOption"
+                    label="Disabled Radio"
+                  >
                   </vuestic-radio-button>
                 </fieldset>
               </div>
