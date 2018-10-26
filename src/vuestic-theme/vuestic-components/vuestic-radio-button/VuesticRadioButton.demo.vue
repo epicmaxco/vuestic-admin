@@ -4,8 +4,7 @@
       <vuestic-radio-button
         v-model="selectedOption"
         option="one"
-        :label="object"
-        optionKey="default"
+        :label="object.default"
       >
       </vuestic-radio-button>
       <vuestic-radio-button

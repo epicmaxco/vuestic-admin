@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="vuestic-radio-button__slot-container">
-      {{ optionKey ? label[optionKey] : label }}
+      {{ label }}
     </div>
   </div>
 </template>
@@ -34,7 +34,6 @@ export default {
       default: false
     },
     label: String,
-    optionKey: String
   },
   data () {
     return {
