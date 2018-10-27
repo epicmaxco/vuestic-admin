@@ -205,8 +205,7 @@ export default {
   &__icon-selected {
     position: absolute;
     color: $white;
-    padding-top: 0.15rem;
-    padding-left: 0.35rem;
+    padding-left: 0.1rem;
   }
   &__error-message-container {
     margin-left: 0.3rem;
@@ -215,8 +214,12 @@ export default {
     margin-left: 2rem;
   }
   #{&}__square {
-    padding-left: 0.3rem;
-    padding-top: 0.3rem;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     width: 32px;
     height: 32px;

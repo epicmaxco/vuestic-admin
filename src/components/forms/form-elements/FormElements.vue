@@ -325,7 +325,7 @@
                     v-model="checkboxFourModel"/>
                   <vuestic-checkbox
                     error
-                    :label="'forms.control  s.error' | translate"
+                    :label="'forms.controls.error' | translate"
                     :id="'checkbox4'"
                     v-model="checkboxFiveModel"/>
                   <vuestic-checkbox
