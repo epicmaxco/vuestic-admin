@@ -11,7 +11,7 @@
         @blur="focused = false"
         class="vuestic-checkbox__input"
         @keypress="onKeyToggleSelection"
-        :tabindex="tabIndex"
+        :disabled="!(tabIndex === -1)"
       />
       <i class="ion ion-md-checkmark vuestic-checkbox__icon-selected" aria-hidden="true"/>
     </div>
@@ -23,13 +23,17 @@
           {{ label }}
     </span>
     <div class="vuestic-checkbox__label-text"  @click="toggleSelection">
-      <slot name="label"></slot>
+      <slot name="label"/>
     </div>
-    <div class="vuestic-checkbox__error-message-container" v-if="errorMessages && showError">
+    <div
+      class="vuestic-checkbox__error-message-container"
+      v-if="errorMessages && showError"
+    >
         <span
           class="vuestic-checkbox__error-message"
           v-if="Array.isArray(errorMessages)"
-          v-for="(error,i) in errorMessages.slice(0, errorCount)" :key="i"
+          v-for="(error, index) in errorMessages.slice(0, errorCount)"
+          :key="index"
         >
             {{ error }}
           <br/>
