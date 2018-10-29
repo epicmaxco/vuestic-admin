@@ -250,6 +250,9 @@ $daySize: 1.75rem;
       }
       .numInput {
         color: $datepickerText;
+        &:hover, &:focus {
+          background: $datepickerDayHover;
+        }
       }
       .arrowUp {
         &::after {
