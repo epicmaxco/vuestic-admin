@@ -307,33 +307,33 @@
                   <vuestic-checkbox
                     :label="'forms.controls.unselected' | translate"
                     :id="'checkbox1'"
-                    v-model="checkboxOneModel"/>
+                    v-model="checkbox.firstModel"/>
                   <vuestic-checkbox
                     :label="'forms.controls.selected' | translate"
                     :id="'checkbox2'"
-                    v-model="checkboxTwoModel"/>
+                    v-model="checkbox.secondModel"/>
                   <vuestic-checkbox
                     :label="'forms.controls.readonly' | translate"
                     :id="'checkbox3'"
-                    v-model="checkboxThreeModel"
+                    v-model="checkbox.thirdModel"
                     :readonly="true"
                   />
                   <vuestic-checkbox
                     :label="'forms.controls.disabled' | translate"
                     :id="'checkbox4'"
                     :disabled="true"
-                    v-model="checkboxFourModel"/>
+                    v-model="checkbox.forthModel"/>
                   <vuestic-checkbox
                     error
                     :label="'forms.controls.error' | translate"
                     :id="'checkbox4'"
-                    v-model="checkboxFiveModel"/>
+                    v-model="checkbox.fivesModel"/>
                   <vuestic-checkbox
                     :error-messages="errorMessages"
                     :errorCount="2"
                     :label="'forms.controls.errorMessage' | translate"
                     :id="'checkbox4'"
-                    v-model="checkboxSixModel"/>
+                    v-model="checkbox.sixModel"/>
                 </fieldset>
               </div>
               <div class="col-md-4">
@@ -428,14 +428,16 @@ export default {
       multiSelectCountriesModel: [],
       radioSelectedOption: 'option1',
       radioSelectedDisableOption: 'option1',
-      checkboxOneModel: false,
-      checkboxTwoModel: true,
-      checkboxThreeModel: true,
-      checkboxFourModel: true,
-      checkboxFiveModel: false,
-      checkboxSixModel: true,
-      checkboxSevenModel: true,
-      checkboxEightModel: true,
+      checkbox: {
+        firstModel: false,
+        secondModel: true,
+        thirdModel: true,
+        forthModel: true,
+        fivesModel: false,
+        sixModel: true,
+        sevensModel: true,
+        eightsModel: true,
+      },
       errorMessages: ['error message 1', 'error message 2'],
       datepicker: {
         simple: '2018-05-09',

@@ -4,19 +4,13 @@
     :class="computedClass"
     @click="onClick"
   >
-    <div
-      class="vuestic-radio-button__content"
-      @mousedown="deactivateOnFocus"
-      @mouseup="deactivateOnFocus"
-    >
+    <div class="vuestic-radio-button__content" @mousedown="focused = false" @mouseup="focused = false">
       <input
-        @focus="activateOnFocus"
-        @blur="deactivateOnFocus"
-        :checked="isActive"
-        type="radio"
-        class="vuestic-radio-button__input"
+        @focus="focused = true"
+        @mouseout="focused = false"
+        @blur="focused = false"
+        :checked="isActive" type="radio" class="vuestic-radio-button__input"
         :disabled="disabled"
-        :tabindex="tabIndex"
       />
       <div class="vuestic-radio-button__icon">
         <div class="vuestic-radio-button__icon-circle"/>
@@ -39,13 +33,13 @@ export default {
     option: '',
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     label: String,
   },
   data () {
     return {
-      isOnFocus: false,
+      isFocused: false
     }
   },
   computed: {
@@ -53,7 +47,17 @@ export default {
       return {
         'vuestic-radio-button--active': this.isActive,
         'vuestic-radio-button--disabled': this.disabled,
-        'vuestic-radio-button--on-focus': this.isOnFocus,
+        'vuestic-radio-button--on-focus': this.focused
+      }
+    },
+    focused: {
+      set (isFocused) {
+        if (!this.disabled) {
+          this.isFocused = isFocused
+        }
+      },
+      get () {
+        return this.isFocused
       }
     },
     computedLabel () {
@@ -64,27 +68,15 @@ export default {
     },
     isActive () {
       return this.value === this.option
-    },
-    tabIndex () {
-      if (this.disabled) {
-        return -1
-      }
-      return 0
-    },
+    }
   },
   methods: {
     onClick () {
       if (!this.disabled) {
         this.$emit('input', this.option)
       }
-    },
-    activateOnFocus () {
-      this.isOnFocus = true
-    },
-    deactivateOnFocus () {
-      this.isOnFocus = false
-    },
-  },
+    }
+  }
 }
 </script>
 
@@ -96,8 +88,8 @@ export default {
   flex-direction: row;
   margin-bottom: 1rem;
   &__icon {
-    width: 22px;
-    height: 22px;
+    width: 1.4rem;
+    height: 1.4rem;
     border-radius: 1.8rem;
     border: $gray solid 0.15rem;
     @at-root {
@@ -117,7 +109,7 @@ export default {
         height: 10px;
         border-radius: 1rem;
         position: absolute;
-        border: $vue-green solid 5px;
+        border: $vue-green solid 0.3rem;
         margin-top: 0.22rem;
         margin-left: 0.24rem;
       }
@@ -134,9 +126,9 @@ export default {
     width: 30px;
     height: 30px;
     display: flex;
-    -webkit-align-items: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
+    align-items: center;
+    box-align: center;
+    flex-align: center;
     align-items: center;
     justify-content: center;
     @at-root {
@@ -148,7 +140,7 @@ export default {
     }
   }
   &__slot-container {
-    padding-top: 0.1rem;
+    padding-top: 0.2rem;
     margin-left: 0.3rem;
   }
 }

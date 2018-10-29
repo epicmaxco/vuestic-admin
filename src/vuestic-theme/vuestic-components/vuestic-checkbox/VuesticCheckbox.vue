@@ -8,43 +8,28 @@
         :id="id"
         readonly
         @focus="focused = true"
+        @mouseout="focused = false"
         @blur="focused = false"
         class="vuestic-checkbox__input"
         @keypress="onKeyToggleSelection"
-        :disabled="!(tabIndex === -1)"
+        :disabled="disabled"
       />
       <i class="ion ion-md-checkmark vuestic-checkbox__icon-selected" aria-hidden="true"/>
     </div>
-    <span
-      v-if="label" :for="id"
-      @click="toggleSelection"
-      class="vuestic-checkbox__label-text"
-    >
-          {{ label }}
-    </span>
-    <div class="vuestic-checkbox__label-text"  @click="toggleSelection">
-      <slot name="label"/>
-    </div>
     <div
-      class="vuestic-checkbox__error-message-container"
-      v-if="errorMessages && showError"
-    >
+      :for="id"
+      class="vuestic-checkbox__label-text" @click="toggleSelection">
+      <slot name="label">
+        {{ label }}
+      </slot>
+    </div>
+    <div class="vuestic-checkbox__error-message-container" v-if="showError">
         <span
           class="vuestic-checkbox__error-message"
-          v-if="Array.isArray(errorMessages)"
-          v-for="(error, index) in errorMessages.slice(0, errorCount)"
-          :key="index"
+          v-for="(error,i) in computedErrorMessages" :key="i"
         >
             {{ error }}
-          <br/>
         </span>
-      <span
-        class="vuestic-checkbox__error-message"
-        v-else
-      >
-            {{ errorMessages }}
-          <br/>
-      </span>
     </div>
   </div>
 </template>
@@ -100,18 +85,21 @@ export default {
   computed: {
     computedClass () {
       return {
-        'vuestic-checkbox--selected': this.selected,
+        'vuestic-checkbox--selected': this.valueProxy,
         'vuestic-checkbox--readonly': this.readonly,
         'vuestic-checkbox--disabled': this.disabled,
         'vuestic-checkbox--error': this.showError,
         'vuestic-checkbox--onfocus': this.focused
       }
     },
-    tabIndex () {
-      if (this.disabled || this.readonly) {
-        return -1
+    computedErrorMessages () {
+      if (Array.isArray(this.errorMessages)) {
+        return this.errorMessages.slice(0, this.errorCount)
+      } else {
+        let arr = []
+        arr.push(this.errorMessages)
+        return arr
       }
-      return 0
     },
     focused: {
       set (isFocused) {
@@ -123,10 +111,10 @@ export default {
         return this.isFocused
       }
     },
-    selected: {
-      set (selected) {
+    valueProxy: {
+      set (valueProxy) {
         if (!this.readonly && !this.disabled) {
-          this.$emit('input', selected)
+          this.$emit('input', valueProxy)
         }
       },
       get () {
@@ -147,12 +135,12 @@ export default {
     toggleSelection () {
       if (!this.disabled) {
         this.focused = false
-        this.selected = !this.selected
+        this.valueProxy = !this.valueProxy
       }
     },
     onKeyToggleSelection () {
       if (!this.disabled) {
-        this.selected = !this.selected
+        this.valueProxy = !this.valueProxy
       }
     }
   },
@@ -205,7 +193,6 @@ export default {
   #{&}__label-text {
     display: inline-block;
     position: relative;
-    padding-top: 0;
     cursor: pointer;
     padding-top: 0.2rem;
     margin-left: 2.35rem;
@@ -216,6 +203,8 @@ export default {
     }
   }
   &__error-message {
+    display:inline-block;
+    vertical-align:middle;
     color: $theme-red;
     font-size: $font-size-mini;
   }
@@ -226,15 +215,17 @@ export default {
   }
   &__error-message-container {
     margin-left: 0.3rem;
+    display: flex;
+    flex-direction: column;
   }
   &__label-container {
     margin-left: 2rem;
   }
   #{&}__square {
     display: flex;
-    -webkit-align-items: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
+    align-items: center;
+    box-align: center;
+    flex-align: center;
     align-items: center;
     justify-content: center;
     cursor: pointer;
