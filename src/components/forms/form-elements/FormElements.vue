@@ -181,7 +181,7 @@
                       <vuestic-date-picker
                         id="date-picker-time"
                         :config="{locale: {firstDayOfWeek: 1}}"
-                        v-model="datepicker.time"
+                        v-model="datepicker.customFirstDay"
                       />
                       <label class="control-label" for="date-picker-time">
                         {{ $t('forms.dateTimePicker.customFirstDay') }}
@@ -224,7 +224,7 @@
                       <vuestic-date-picker
                         id="date-picker-time"
                         :config="{altInput: true, altFormat: 'F j, Y'}"
-                        v-model="datepicker.time"
+                        v-model="datepicker.customDate"
                       />
                       <label class="control-label" for="date-picker-time">
                         {{ $t('forms.dateTimePicker.customDateFormat') }}
@@ -458,6 +458,8 @@ export default {
         range: '2018-05-08 to 2018-05-23',
         disabled: '2018-05-09',
         multiple: '2018-04-25, 2018-04-27',
+        customFirstDay: '2018-05-09',
+        customDate: '2018-05-09',
       },
     }
   },
