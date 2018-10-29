@@ -22,14 +22,25 @@
     >
           {{ label }}
     </span>
-    <div class="vuestic-checkbox__error-message-container" v-if="errorMessages">
+    <div class="vuestic-checkbox__label-text"  @click="toggleSelection">
+      <slot name="label"></slot>
+    </div>
+    <div class="vuestic-checkbox__error-message-container" v-if="errorMessages && showError">
         <span
           class="vuestic-checkbox__error-message"
+          v-if="Array.isArray(errorMessages)"
           v-for="(error,i) in errorMessages.slice(0, errorCount)" :key="i"
         >
-            {{ optionKey ? error[optionKey] : error }}
+            {{ error }}
           <br/>
         </span>
+      <span
+        class="vuestic-checkbox__error-message"
+        v-else
+      >
+            {{ errorMessages }}
+          <br/>
+      </span>
     </div>
   </div>
 </template>
@@ -64,7 +75,9 @@ export default {
       default: false
     },
     errorMessages: {
-      type: Array
+      type: [String, Array],
+      // this prop can take both string and array
+      default: () => []
     },
     errorCount: {
       type: Number,
@@ -119,7 +132,7 @@ export default {
     showError () {
       // We make error active, if the error-message is not empty and checkbox is not disabled
       if (!this.disabled) {
-        if (this.errorMessages || this.error) {
+        if (!(this.errorMessages.length === 0) || this.error) {
           return true
         }
       }

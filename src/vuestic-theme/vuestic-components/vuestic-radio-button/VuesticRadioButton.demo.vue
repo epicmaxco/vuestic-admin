@@ -4,13 +4,12 @@
       <vuestic-radio-button
         v-model="selectedOption"
         option="one"
-        :label="object.default"
       >
+        One
       </vuestic-radio-button>
       <vuestic-radio-button
         v-model="selectedOption"
         option="two"
-        label="Two"
       >
       </vuestic-radio-button>
       <vuestic-radio-button

@@ -17,7 +17,10 @@
       </div>
     </div>
     <div class="vuestic-radio-button__slot-container">
-      {{ label }}
+      <slot name="label"></slot>
+    </div>
+    <div class="vuestic-radio-button__slot-container">
+      {{ showLabel }}
     </div>
   </div>
 </template>
@@ -47,6 +50,12 @@ export default {
         'vuestic-radio-button--disabled': this.disabled,
         'vuestic-radio-button--on-focus': this.isOnFocus
       }
+    },
+    showLabel () {
+      if (!this.label) {
+        return this.option
+      }
+      return this.label
     },
     isActive () {
       return this.value === this.option
@@ -80,7 +89,7 @@ export default {
   cursor: pointer;
   display: flex;
   flex-direction: row;
-  margin-bottom: 1.3rem;
+  margin-bottom: 1rem;
   &__icon {
     width: 22px;
     height: 22px;
@@ -119,10 +128,12 @@ export default {
   #{&}__content {
     width: 30px;
     height: 30px;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    padding-top: 0.25rem;
-    padding-left: 0.25rem;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-content: center;
     @at-root {
       .vuestic-radio-button--on-focus#{&} {
         background-color: $on-focus-background-color;
@@ -133,6 +144,7 @@ export default {
   }
   &__slot-container {
     padding-top: 0.1rem;
+    margin-left: 0.3rem;
   }
 }
 </style>
