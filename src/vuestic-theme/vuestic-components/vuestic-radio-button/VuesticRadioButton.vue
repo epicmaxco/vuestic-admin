@@ -4,11 +4,17 @@
     :class="computedClass"
     @click="onClick"
   >
-    <div class="vuestic-radio-button__content" @mousedown="deactivateOnFocus" @mouseup="deactivateOnFocus">
+    <div
+      class="vuestic-radio-button__content"
+      @mousedown="deactivateOnFocus"
+      @mouseup="deactivateOnFocus"
+    >
       <input
         @focus="activateOnFocus"
         @blur="deactivateOnFocus"
-        :checked="isActive" type="radio" class="vuestic-radio-button__input"
+        :checked="isActive"
+        type="radio"
+        class="vuestic-radio-button__input"
         :disabled="disabled"
         :tabindex="tabIndex"
       />
@@ -17,10 +23,9 @@
       </div>
     </div>
     <div class="vuestic-radio-button__slot-container">
-      <slot name="label"></slot>
-    </div>
-    <div class="vuestic-radio-button__slot-container">
-      {{ showLabel }}
+      <slot name="label">
+        {{ computedLabel }}
+      </slot>
     </div>
   </div>
 </template>
@@ -34,13 +39,13 @@ export default {
     option: '',
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     label: String,
   },
   data () {
     return {
-      isOnFocus: false
+      isOnFocus: false,
     }
   },
   computed: {
@@ -48,10 +53,10 @@ export default {
       return {
         'vuestic-radio-button--active': this.isActive,
         'vuestic-radio-button--disabled': this.disabled,
-        'vuestic-radio-button--on-focus': this.isOnFocus
+        'vuestic-radio-button--on-focus': this.isOnFocus,
       }
     },
-    showLabel () {
+    computedLabel () {
       if (!this.label) {
         return this.option
       }
@@ -65,7 +70,7 @@ export default {
         return -1
       }
       return 0
-    }
+    },
   },
   methods: {
     onClick () {
@@ -78,8 +83,8 @@ export default {
     },
     deactivateOnFocus () {
       this.isOnFocus = false
-    }
-  }
+    },
+  },
 }
 </script>
 

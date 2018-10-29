@@ -2,57 +2,69 @@
   <div class="demo-container">
     <div class="demo-container__item">
       <vuestic-radio-button
-        v-model="selectedOption"
-        option="one"
-      >
-        One
-      </vuestic-radio-button>
-      <vuestic-radio-button
-        v-model="selectedOption"
-        option="two"
-      >
-      </vuestic-radio-button>
-      <vuestic-radio-button
-        v-model="selectedOption"
-        option="three"
-        label="Three"
-      >
-      </vuestic-radio-button>
-      <vuestic-radio-button
-        v-model="selectedOption1"
-        option="four"
-        label="Four"
-        disabled
-      >
-      </vuestic-radio-button>
-      <vuestic-radio-button
-        v-model="selectedOption1"
-        option="five"
-        label="Five"
-        disabled
-      >
-      </vuestic-radio-button>
+        v-for="(option, index) in options"
+        :key="index"
+        v-model="selectedOptionString"
+        :option="option"
+      />
     </div>
-    <div class="demo-container__item" style="width: 500px;">
-      {{ selectedOption }}
+    <div class="demo-container__item">
+      <vuestic-radio-button
+        v-for="(option, index) in options"
+        :key="index"
+        v-model="selectedOptionString"
+        :option="option"
+        :label="`((${option}))`"
+      />
+    </div>
+    <div class="demo-container__item">
+      <vuestic-radio-button
+        v-for="(option, index) in options"
+        :key="index"
+        v-model="selectedOptionString"
+        :option="option"
+        disabled
+      />
+    </div>
+    <div class="demo-container__item">
+      {{ selectedOptionString }}
+    </div>
+
+    <div class="demo-container__item">
+      <vuestic-radio-button
+        v-for="option in objectOptions"
+        :key="option.key"
+        v-model="selectedOptionObject"
+        :option="option"
+        :label="option.name"
+      />
+      {{selectedOptionObject}}
     </div>
   </div>
 </template>
 
 <script>
-import VuesticRadioButton from './VuesticRadioButton '
+import VuesticRadioButton from './VuesticRadioButton'
 
 export default {
   components: { VuesticRadioButton },
   data () {
+    const objectOptions = [
+      { key: 1, name: 'one' },
+      { key: 2, name: 'two' },
+      { key: 3, name: 'three' },
+    ]
+
     return {
-      selectedOption: 'one',
-      selectedOption1: 'four',
-      selectedOption2: 'five',
-      object: {
-        type: String,
-        default: 'One'
-      }
+      options: [
+        'one',
+        'two',
+        'three',
+      ],
+      selectedOptionString: 'one',
+
+      objectOptions,
+      selectedOptionObject: objectOptions[0],
     }
   },
 }
