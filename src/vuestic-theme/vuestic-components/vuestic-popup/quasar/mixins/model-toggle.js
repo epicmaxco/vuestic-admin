@@ -3,11 +3,11 @@ import History from '../history'
 
 export default {
   props: {
-    value: Boolean
+    value: Boolean,
   },
   data () {
     return {
-      showing: false
+      showing: false,
     }
   },
   watch: {
@@ -22,7 +22,7 @@ export default {
           this[val ? 'show' : 'hide']()
         }
       })
-    }
+    },
   },
   methods: {
     toggle (evt) {
@@ -42,7 +42,7 @@ export default {
 
       if (this.$options.modelToggle === void 0 || this.$options.modelToggle.history) {
         this.__historyEntry = {
-          handler: this.hide
+          handler: this.hide,
         }
         History.add(this.__historyEntry)
       }
@@ -59,7 +59,8 @@ export default {
           resolve(evt)
         }
         this.showPromiseReject = () => {
-          this.showPromise.catch(() => {})
+          this.showPromise.catch(() => {
+          })
           this.showPromise = null
           reject(null) // eslint prefer-promise-reject-errors: 0
         }
@@ -94,7 +95,8 @@ export default {
           resolve()
         }
         this.hidePromiseReject = () => {
-          this.hidePromise.catch(() => {})
+          this.hidePromise.catch(() => {
+          })
           this.hidePromise = null
           reject(null)
         }
@@ -109,7 +111,7 @@ export default {
         History.remove(this.__historyEntry)
         this.__historyEntry = null
       }
-    }
+    },
   },
   beforeDestroy () {
     if (this.showing) {
@@ -117,5 +119,5 @@ export default {
       this.hidePromise && this.hidePromiseReject()
       this.__removeHistory()
     }
-  }
+  },
 }

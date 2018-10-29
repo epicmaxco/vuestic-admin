@@ -52,16 +52,16 @@ export default {
       default () {
         // We require unique id to show label
         return 'label-' + generateRandomId()
-      }
+      },
     },
     optionKey: String,
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     readonly: {
       type: Boolean,
-      default: false
+      default: false,
     },
     errorMessages: {
       type: [String, Array],

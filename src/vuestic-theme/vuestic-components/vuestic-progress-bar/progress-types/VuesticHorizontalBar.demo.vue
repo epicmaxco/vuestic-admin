@@ -21,6 +21,6 @@ import HorizontalBar from './../progress-types/HorizontalProgressBar'
 export default {
   components: {
     HorizontalBar,
-  }
+  },
 }
 </script>

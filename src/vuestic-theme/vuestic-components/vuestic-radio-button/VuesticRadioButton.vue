@@ -33,7 +33,7 @@ export default {
     option: '',
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     label: String,
   },
@@ -75,8 +75,8 @@ export default {
       if (!this.disabled) {
         this.$emit('input', this.option)
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

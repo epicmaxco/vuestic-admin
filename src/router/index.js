@@ -54,24 +54,24 @@ export default new Router({
         {
           name: 'not-found-advanced',
           path: 'not-found-advanced',
-          component: lazyLoading('pages/404-pages/VuesticPageNotFoundSearch')
+          component: lazyLoading('pages/404-pages/VuesticPageNotFoundSearch'),
         },
         {
           name: 'not-found-simple',
           path: 'not-found-simple',
-          component: lazyLoading('pages/404-pages/VuesticPageNotFoundSimple')
+          component: lazyLoading('pages/404-pages/VuesticPageNotFoundSimple'),
         },
         {
           name: 'not-found-custom',
           path: 'not-found-custom',
-          component: lazyLoading('pages/404-pages/VuesticPageNotFoundCustom')
+          component: lazyLoading('pages/404-pages/VuesticPageNotFoundCustom'),
         },
         {
           name: 'not-found-large-text',
           path: '/pages/not-found-large-text',
-          component: lazyLoading('pages/404-pages/VuesticPageNotFoundLargeText')
-        }
-      ]
+          component: lazyLoading('pages/404-pages/VuesticPageNotFoundLargeText'),
+        },
+      ],
     },
     {
       name: 'Admin',
@@ -94,17 +94,17 @@ export default new Router({
               path: 'charts',
               component: lazyLoading('statistics/charts/Charts'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Charts'
-              }
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Charts',
+              },
             },
             {
               name: 'progress-bars',
               path: 'progress-bars',
               component: lazyLoading('statistics/progress-bars/ProgressBars'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Progress-Bars'
-              }
-            }
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Progress-Bars',
+              },
+            },
           ],
         },
         {
@@ -117,25 +117,25 @@ export default new Router({
               path: 'form-elements',
               component: lazyLoading('forms/form-elements/FormElements'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/inputs'
-              }
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/inputs',
+              },
             },
             {
               name: 'form-wizards',
               path: 'form-wizards',
               component: lazyLoading('forms/form-wizard/FormWizard'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Wizards'
-              }
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Wizards',
+              },
             },
             {
               name: 'medium-editor',
               path: 'medium-editor',
               component: lazyLoading('forms/medium-editor/MediumEditor'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Medium-Editor'
-              }
-            }
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Medium-Editor',
+              },
+            },
           ],
         },
         {
@@ -143,8 +143,8 @@ export default new Router({
           path: 'tables',
           component: lazyLoading('tables/Table'),
           meta: {
-            wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tables'
-          }
+            wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tables',
+          },
         },
         {
           name: 'ui',
@@ -161,32 +161,32 @@ export default new Router({
               path: 'buttons',
               component: lazyLoading('ui/buttons/Buttons'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Buttons'
-              }
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Buttons',
+              },
             },
             {
               name: 'color-pickers',
               path: 'color-pickers',
               component: lazyLoading('ui/color-pickers/ColorPickers'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Color-Pickers'
-              }
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Color-Pickers',
+              },
             },
             {
               name: 'timelines',
               path: 'timelines',
               component: lazyLoading('ui/timelines/Timelines'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Timelines'
-              }
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Timelines',
+              },
             },
             {
               name: 'dropdowns',
               path: 'dropdowns',
               component: lazyLoading('ui/dropdowns/Dropdowns'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Dropdowns'
-              }
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Dropdowns',
+              },
             },
             {
               name: 'notifications',
@@ -225,55 +225,55 @@ export default new Router({
               path: 'modals',
               component: lazyLoading('ui/modals/Modals'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Modals'
-              }
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Modals',
+              },
             },
             {
               name: 'cards',
               path: 'cards',
               component: lazyLoading('ui/cards/Cards'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Cards'
-              }
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Cards',
+              },
             },
             {
               name: 'file-upload',
               path: 'file-upload',
               component: lazyLoading('ui/file-upload/FileUpload'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/File-Upload'
-              }
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/File-Upload',
+              },
             },
             {
               name: 'tags',
               path: 'tags',
               component: lazyLoading('ui/tags/Tags'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tags'
-              }
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tags',
+              },
             },
             {
               name: 'tree-view',
               path: 'tree-view',
               component: lazyLoading('ui/tree-view/TreeView'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tree-view'
-              }
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tree-view',
+              },
             },
             {
               name: 'collapse',
               path: 'collapse',
-              component: lazyLoading('ui/collapse/Collapse')
-            }
-          ]
+              component: lazyLoading('ui/collapse/Collapse'),
+            },
+          ],
         },
         {
           name: 'extra',
           path: 'extra',
           component: lazyLoading('extra/Extra'),
           meta: {
-            wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tabs'
-          }
+            wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tabs',
+          },
         },
         {
           name: 'maps',
@@ -285,41 +285,41 @@ export default new Router({
               path: 'google-maps',
               component: lazyLoading('maps/google-maps/GoogleMapsPage'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps'
-              }
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps',
+              },
             },
             {
               name: 'yandex-maps',
               path: 'yandex-maps',
               component: lazyLoading('maps/yandex-maps/YandexMapsPage'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps'
-              }
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps',
+              },
             },
             {
               name: 'leaflet-maps',
               path: 'leaflet-maps',
               component: lazyLoading('maps/leaflet-maps/LeafletMapsPage'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps'
-              }
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps',
+              },
             },
             {
               name: 'bubble-maps',
               path: 'bubble-maps',
               component: lazyLoading('maps/bubble-maps/BubbleMapsPage'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps'
-              }
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps',
+              },
             },
             {
               name: 'line-maps',
               path: 'line-maps',
               component: lazyLoading('maps/line-maps/LineMapsPage'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps'
-              }
-            }
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps',
+              },
+            },
           ],
         },
         {
@@ -330,10 +330,10 @@ export default new Router({
             {
               name: '404-pages',
               path: '404-pages',
-              component: lazyLoading('pages/404-pages/404PagesPage')
-            }
-          ]
-        }
+              component: lazyLoading('pages/404-pages/404PagesPage'),
+            },
+          ],
+        },
       ],
     },
   ],

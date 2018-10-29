@@ -34,5 +34,5 @@ export default {
   },
   unbind: (el) => {
     el.removeEventListener('click', el.resizeWindow)
-  }
+  },
 }

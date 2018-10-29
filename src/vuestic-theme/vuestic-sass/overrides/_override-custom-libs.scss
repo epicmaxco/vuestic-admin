@@ -46,7 +46,7 @@
     &:-moz-placeholder { /* Firefox 18- */
       color: rgba($white, .8);
     }
-    &::-moz-placeholder {  /* Firefox 19+ */
+    &::-moz-placeholder { /* Firefox 19+ */
       color: rgba($white, .8);
     }
     &:-ms-input-placeholder {
@@ -155,7 +155,7 @@
 
     .popover-content:first-child {
       .popover-header, .popover-body {
-        padding:  $popover-body-padding-y $popover-header-no-icon-padding-x;
+        padding: $popover-body-padding-y $popover-header-no-icon-padding-x;
         padding-right: 0;
       }
     }

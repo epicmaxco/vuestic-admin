@@ -92,10 +92,10 @@
           </span>
         </sidebar-link>
         <!--<sidebar-link-->
-          <!--:to="{ name: 'dropdowns' }">-->
-          <!--<span slot="title">-->
-            <!--<span>{{ $t('menu.dropdowns') }}</span>-->
-          <!--</span>-->
+        <!--:to="{ name: 'dropdowns' }">-->
+        <!--<span slot="title">-->
+        <!--<span>{{ $t('menu.dropdowns') }}</span>-->
+        <!--</span>-->
         <!--</sidebar-link>-->
         <sidebar-link
           :to="{ name: 'timelines' }">
@@ -254,14 +254,14 @@ export default {
   components: {
     VuesticSidebar,
     SidebarLink,
-    SidebarLinkGroup
+    SidebarLinkGroup,
   },
   props: {
     isOpen: {
       type: Boolean,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 }
 
 </script>

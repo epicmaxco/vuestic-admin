@@ -10,15 +10,15 @@ export const defaultConfig = {
       fontFamily: 'sans-serif',
       fontSize: 14,
       padding: 20,
-      usePointStyle: true
-    }
+      usePointStyle: true,
+    },
   },
   tooltips: {
     bodyFontSize: 14,
-    bodyFontFamily: 'sans-serif'
+    bodyFontFamily: 'sans-serif',
   },
   responsive: true,
-  maintainAspectRatio: false
+  maintainAspectRatio: false,
 }
 
 export const chartTypesMap = {
