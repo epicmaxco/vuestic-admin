@@ -105,13 +105,13 @@ export default {
   &__icon-circle {
     @at-root {
       .vuestic-radio-button.vuestic-radio-button--active & {
-        width: 10px;
-        height: 10px;
+        width: 0.68rem;
+        height: 0.68rem;
         border-radius: 1rem;
         position: absolute;
-        border: $vue-green solid 0.3rem;
+        border: $vue-green solid 0.35rem;
         margin-top: 0.22rem;
-        margin-left: 0.24rem;
+        margin-left: 0.22rem;
       }
     }
   }
