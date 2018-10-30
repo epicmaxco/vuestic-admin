@@ -17,13 +17,13 @@ const iconTypes = [
   'iconic-stroke',
   'ionicons',
   'maki',
-  'openweb'
+  'openweb',
 ]
 
 export default {
   name: 'icons',
   components: {
-    FullSet
+    FullSet,
   },
   computed: {
     sets () {
@@ -34,7 +34,7 @@ export default {
         sets.push(set)
       })
       return sets
-    }
+    },
   },
   methods: {
     addfilteredListsTo (set) {
@@ -44,18 +44,18 @@ export default {
       filteredLists.push(list.slice(6, 8))
       filteredLists.push(list.slice(8, 14))
       set.filteredLists = filteredLists
-    }
+    },
   },
   data () {
     return {
-      setsPath: './sets/'
+      setsPath: './sets/',
     }
-  }
+  },
 }
 </script>
 
 <style lang="scss">
-  .ui-icons {
+.ui-icons {
 
-  }
+}
 </style>

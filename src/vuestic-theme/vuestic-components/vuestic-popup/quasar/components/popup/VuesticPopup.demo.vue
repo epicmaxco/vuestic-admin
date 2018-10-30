@@ -278,15 +278,15 @@ import { closeOverlay } from '../../directives/closeOverlay'
 export default {
   mixins: [logMixin],
   directives: {
-    'close-overlay': closeOverlay
+    'close-overlay': closeOverlay,
   },
   components: {
     VuesticPopup,
     TestComponent: {
       render (h) {
         return h('div', 'Test component')
-      }
-    }
+      },
+    },
   },
   data () {
     return {
@@ -315,7 +315,7 @@ export default {
       closeOverlay: false,
       eventTest: false,
     }
-  }
+  },
 }
 </script>
 

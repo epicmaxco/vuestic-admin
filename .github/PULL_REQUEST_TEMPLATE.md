@@ -1,6 +1,6 @@
 <!--
 MAKE SURE TO READ THE CONTRIBUTING GUIDE BEFORE CREATING A PR
-https://github.com/vuetifyjs/vuetify/master/CODE_OF_CONDUCT.md
+https://github.com/epicmaxco/vuestic-admin/blob/master/CODE_OF_CONDUCT.md
 -->
 
 <!-- Provide a general summary of your changes in the Title above -->

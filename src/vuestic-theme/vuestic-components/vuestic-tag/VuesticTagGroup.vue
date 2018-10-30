@@ -19,30 +19,30 @@ export default {
   props: {
     removable: {
       type: Boolean,
-      default: false
+      default: false,
     },
     value: {
-      type: Array
+      type: Array,
     },
     type: {
       type: String,
       default: '',
-    }
+    },
   },
   components: {
-    VuesticTag
+    VuesticTag,
   },
   methods: {
     removeTag (tagIndex) {
       this.$emit('input', this.value.filter((item, i) => i !== tagIndex))
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss">
-  .vuestic-tag-group {
-    display: flex;
-    flex-wrap: wrap;
-  }
+.vuestic-tag-group {
+  display: flex;
+  flex-wrap: wrap;
+}
 </style>

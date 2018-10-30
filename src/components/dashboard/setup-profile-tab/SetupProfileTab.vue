@@ -83,7 +83,7 @@ export default {
   name: 'setup-profile-tab',
   props: {
     wizardType: {
-      default: 'rich'
+      default: 'rich',
     },
   },
   data () {
@@ -97,7 +97,7 @@ export default {
           },
           isValid: () => {
             return this.isFormFieldValid('name')
-          }
+          },
         },
         {
           label: 'Step 2. Country',
@@ -107,16 +107,16 @@ export default {
           },
           isValid: () => {
             return this.$refs.selectedCountrySelect.isValid()
-          }
+          },
         },
         {
           label: 'Step 3. Confirm',
-          slot: 'page3'
-        }
+          slot: 'page3',
+        },
       ],
       selectedCountry: '',
       name: '',
-      countriesList: CountriesList
+      countriesList: CountriesList,
     }
   },
   methods: {
@@ -129,22 +129,22 @@ export default {
     },
     validateFormField (fieldName) {
       this.$validator.validate(fieldName, this[fieldName])
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-  .form-group {
-    min-width: 200px;
-    max-width: 360px;
-    width: 80%;
-  }
+.form-group {
+  min-width: 200px;
+  max-width: 360px;
+  width: 80%;
+}
 
-  .wizard-completed-tab {
-    @include media-breakpoint-up(md) {
-      margin-top: -$tab-content-pt;
-    }
+.wizard-completed-tab {
+  @include media-breakpoint-up(md) {
+    margin-top: -$tab-content-pt;
   }
+}
 
 </style>

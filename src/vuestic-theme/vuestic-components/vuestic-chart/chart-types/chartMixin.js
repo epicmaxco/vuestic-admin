@@ -10,12 +10,12 @@ export const chartMixin = {
   methods: {
     refresh () {
       this.renderChart(this.chartData, this.options)
-    }
+    },
   },
   computed: {
     // `this.options` is used by vue-chartjs mixin on refresh.
     options () {
       return Object.assign({}, defaultConfig, this.chartOptions)
-    }
+    },
   },
 }
