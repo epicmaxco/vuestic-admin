@@ -1,11 +1,11 @@
 const state = {
   sidebar: {
     opened: false,
-    withoutAnimation: false
+    withoutAnimation: false,
   },
   config: {
     googleMaps: {
-      apiKey: 'AIzaSyBNAqPrTQoz9P4NBlDDyfxrnKiafkaL8iQ'
+      apiKey: 'AIzaSyBNAqPrTQoz9P4NBlDDyfxrnKiafkaL8iQ',
     },
     windowMatchSizeLg: '(min-width: 992px)',
     palette: {
@@ -18,10 +18,10 @@ const state = {
       black: '#000',
       fontColor: '#34495e',
       transparent: 'transparent',
-      lighterGray: '#ddd'
-    }
+      lighterGray: '#ddd',
+    },
   },
-  isLoading: true
+  isLoading: true,
 }
 
 const mutations = {
@@ -36,7 +36,7 @@ const mutations = {
 const actions = {
   isToggleWithoutAnimation ({ commit }, value) {
     commit('TOGGLE_WITHOUT_ANIMATION', value)
-  }
+  },
 }
 
 export default {

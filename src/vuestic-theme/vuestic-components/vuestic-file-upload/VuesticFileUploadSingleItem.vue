@@ -16,17 +16,17 @@ export default {
   name: 'vuestic-file-upload-single-item',
   props: {
     file: {
-      type: Object
-    }
+      type: Object,
+    },
   },
 }
 </script>
 
 <style lang='scss'>
-  .file-upload-single-item {
-    display: flex;
-    &-name {
-      margin-right: 1rem;
-    }
+.file-upload-single-item {
+  display: flex;
+  &-name {
+    margin-right: 1rem;
   }
+}
 </style>

@@ -19,8 +19,10 @@
 </template>
 
 <script>
-import VuesticIconVuestic from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconVuestic'
-import VuesticNavbar from '../../../vuestic-theme/vuestic-components/vuestic-navbar/VuesticNavbar'
+import VuesticIconVuestic
+  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconVuestic'
+import VuesticNavbar
+  from '../../../vuestic-theme/vuestic-components/vuestic-navbar/VuesticNavbar'
 import HeaderSelector from './components/HeaderSelector'
 
 import LanguageDropdown from './components/dropdowns/LanguageDropdown'
@@ -38,13 +40,13 @@ export default {
     MessageDropdown,
     NotificationDropdown,
     LanguageDropdown,
-    ProfileDropdown
+    ProfileDropdown,
   },
   props: {
     isOpen: {
       type: Boolean,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     valueProxy: {

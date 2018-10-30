@@ -6,22 +6,26 @@
         <vuestic-widget class="primary-secondary-buttons larger-padding"
                         :headerText="$t('buttons.main')">
           <div class="row btn-margin-row">
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
+            <div
+              class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
               <button class="btn btn-primary">
                 {{'buttons.button' | translate}}
               </button>
             </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
+            <div
+              class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
               <button class="btn btn-primary hover">
                 {{'buttons.hover' | translate}}
               </button>
             </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
+            <div
+              class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
               <button class="btn btn-primary focus">
                 {{'buttons.pressed' | translate}}
               </button>
             </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
+            <div
+              class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
               <button class="btn btn-primary" disabled>
                 {{'buttons.disabled' | translate}}
               </button>
@@ -29,22 +33,26 @@
           </div>
 
           <div class="row btn-margin-row">
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
+            <div
+              class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
               <button class="btn btn-secondary">
                 {{'buttons.button' | translate}}
               </button>
             </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
+            <div
+              class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
               <button class="btn btn-secondary hover">
                 {{'buttons.hover' | translate}}
               </button>
             </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
+            <div
+              class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
               <button class="btn btn-secondary focus">
                 {{'buttons.pressed' | translate}}
               </button>
             </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
+            <div
+              class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
               <button class="btn btn-secondary" disabled>
                 {{'buttons.disabled' | translate}}
               </button>
@@ -52,12 +60,14 @@
           </div>
 
           <div class="row btn-margin-row">
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
+            <div
+              class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
               <button class="btn btn-primary btn-sm">
                 {{'buttons.small' | translate}}
               </button>
             </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3  d-flex justify-content-center align-items-center">
+            <div
+              class="col-sm-6 col-lg-6 col-xl-3  d-flex justify-content-center align-items-center">
               <button class="btn btn-primary btn-micro">
                 {{'buttons.micro' | translate}}
               </button>
@@ -67,9 +77,11 @@
       </div>
 
       <div class="col-md-12">
-        <vuestic-widget class="color-buttons" :headerText="$t('buttons.advanced')">
+        <vuestic-widget class="color-buttons"
+                        :headerText="$t('buttons.advanced')">
           <div class="row">
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
+            <div
+              class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
               <button class="btn btn-primary btn-with-icon">
                 <div class="btn-with-icon-content">
                   <i class="ion-md-close ion"></i>
@@ -93,9 +105,11 @@
                 </vuestic-dropdown>
               </button>
             </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center"
-                 :class="{'col-lg-6 col-xl-4' : sidebarOpened, 'col-lg-4' : !sidebarOpened }">
-              <div class="btn-toolbar  d-inline-flex" role="toolbar" aria-label="Toolbar with button groups">
+            <div
+              class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center"
+              :class="{'col-lg-6 col-xl-4' : sidebarOpened, 'col-lg-4' : !sidebarOpened }">
+              <div class="btn-toolbar  d-inline-flex" role="toolbar"
+                   aria-label="Toolbar with button groups">
                 <div class="btn-group" role="group" aria-label="First group">
                   <button type="button" class="btn btn-primary">1</button>
                   <button type="button" class="btn btn-primary focus">2</button>
@@ -104,8 +118,9 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center"
-                 :class="{'col-lg-6 col-xl-2' : sidebarOpened, 'col-lg-2' : !sidebarOpened }">
+            <div
+              class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center"
+              :class="{'col-lg-6 col-xl-2' : sidebarOpened, 'col-lg-2' : !sidebarOpened }">
               <button class="btn btn-primary btn-with-icon rounded-icon">
                 <div class="btn-with-icon-content">
                   <i class="ion-md-close ion"></i>
@@ -117,24 +132,29 @@
       </div>
 
       <div class="col-md-12">
-        <vuestic-widget class="color-buttons" :headerText="$t('buttons.colors')">
+        <vuestic-widget class="color-buttons"
+                        :headerText="$t('buttons.colors')">
           <div class="row btn-margin-row">
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
+            <div
+              class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
               <button class="btn btn-danger">
                 {{'buttons.button' | translate}}
               </button>
             </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
+            <div
+              class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
               <button class="btn btn-info">
                 {{'buttons.button' | translate}}
               </button>
             </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
+            <div
+              class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
               <button class="btn btn-dark">
                 {{'buttons.button' | translate}}
               </button>
             </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
+            <div
+              class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
               <button class="btn btn-warning">
                 {{'buttons.button' | translate}}
               </button>
@@ -142,12 +162,14 @@
           </div>
 
           <div class="row btn-margin-row">
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
+            <div
+              class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
               <button class="btn btn-success">
                 {{'buttons.button' | translate}}
               </button>
             </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
+            <div
+              class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
               <button class="btn btn-pale">
                 {{'buttons.button' | translate}}
               </button>

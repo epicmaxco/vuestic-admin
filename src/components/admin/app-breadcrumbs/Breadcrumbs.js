@@ -1,12 +1,12 @@
 export default {
   root: {
     name: '/',
-    displayName: 'Home'
+    displayName: 'Home',
   },
   routes: [
     {
       name: 'dashboard',
-      displayName: 'menu.dashboard'
+      displayName: 'menu.dashboard',
     },
     {
       name: 'statistics',
@@ -19,9 +19,9 @@ export default {
         },
         {
           name: 'progress-bars',
-          displayName: 'menu.progressBars'
+          displayName: 'menu.progressBars',
         },
-      ]
+      ],
     },
     {
       name: 'forms',
@@ -30,21 +30,21 @@ export default {
       children: [
         {
           name: 'form-elements',
-          displayName: 'menu.formElements'
+          displayName: 'menu.formElements',
         },
         {
           name: 'form-wizards',
-          displayName: 'menu.formWizards'
+          displayName: 'menu.formWizards',
         },
         {
           name: 'medium-editor',
-          displayName: 'menu.mediumEditor'
-        }
-      ]
+          displayName: 'menu.mediumEditor',
+        },
+      ],
     },
     {
       name: 'tables',
-      displayName: 'menu.tables'
+      displayName: 'menu.tables',
     },
     {
       name: 'ui',
@@ -53,31 +53,31 @@ export default {
       children: [
         {
           name: 'typography',
-          displayName: 'menu.typography'
+          displayName: 'menu.typography',
         },
         {
           name: 'buttons',
-          displayName: 'menu.buttons'
+          displayName: 'menu.buttons',
         },
         {
           name: 'collapse',
-          displayName: 'menu.collapse'
+          displayName: 'menu.collapse',
         },
         {
           name: 'color-pickers',
-          displayName: 'menu.colorPickers'
+          displayName: 'menu.colorPickers',
         },
         {
           path: 'timelines',
-          displayName: 'menu.timelines'
+          displayName: 'menu.timelines',
         },
         {
           path: 'dropdowns',
-          displayName: 'menu.dropdowns'
+          displayName: 'menu.dropdowns',
         },
         {
           path: 'notifications',
-          displayName: 'menu.notifications'
+          displayName: 'menu.notifications',
         },
         {
           name: 'icon-sets',
@@ -87,7 +87,7 @@ export default {
               displayName: 'concrete',
               name: 'icon-set',
             },
-          ]
+          ],
         },
         {
           name: 'spinners',
@@ -99,29 +99,29 @@ export default {
         },
         {
           name: 'modals',
-          displayName: 'menu.modals'
+          displayName: 'menu.modals',
         },
         {
           name: 'file-upload',
-          displayName: 'menu.fileUpload'
+          displayName: 'menu.fileUpload',
         },
         {
           name: 'tags',
-          displayName: 'menu.tags'
+          displayName: 'menu.tags',
         },
         {
           name: 'cards',
-          displayName: 'menu.cards'
+          displayName: 'menu.cards',
         },
         {
           name: 'tree-view',
-          displayName: 'menu.treeView'
-        }
-      ]
+          displayName: 'menu.treeView',
+        },
+      ],
     },
     {
       name: 'extra',
-      displayName: 'menu.extra'
+      displayName: 'menu.extra',
     },
     {
       name: 'maps',
@@ -130,11 +130,11 @@ export default {
       children: [
         {
           name: 'google-maps',
-          displayName: 'Google Maps'
+          displayName: 'Google Maps',
         },
         {
           name: 'yandex-maps',
-          displayName: 'Yandex Maps'
+          displayName: 'Yandex Maps',
         },
         {
           name: 'leaflet-maps',
@@ -142,13 +142,13 @@ export default {
         },
         {
           name: 'bubble-maps',
-          displayName: 'Bubble Maps'
+          displayName: 'Bubble Maps',
         },
         {
           name: 'line-maps',
-          displayName: 'Line Maps'
-        }
-      ]
+          displayName: 'Line Maps',
+        },
+      ],
     },
     {
       name: 'pages',
@@ -157,9 +157,9 @@ export default {
       children: [
         {
           name: '404-pages',
-          displayName: '404 Pages'
-        }
-      ]
-    }
-  ]
+          displayName: '404 Pages',
+        },
+      ],
+    },
+  ],
 }

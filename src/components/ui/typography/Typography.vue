@@ -11,18 +11,29 @@
           </div>
           <div class="typo-articles">
             <p>
-              The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas,
+              The unique stripes of zebras make them one of the animals most
+              familiar to people. They occur in a variety of habitats, such as
+              grasslands, savannas,
               <a href="#">woodlands</a>, thorny scrublands, <a href="#">mountains</a>,
-              and coastal hills. However, various anthropogenic factors have had a severe impact on zebra populations, in particular hunting for skins and habitat destruction. Grévy's zebra and the mountain <span
-              class="vue-highlighted-text">highlighted text</span> zebra are endangered.</p>
+              and coastal hills. However, various anthropogenic factors have had
+              a severe impact on zebra populations, in particular hunting for
+              skins and habitat destruction. Grévy's zebra and the mountain
+              <span
+                class="vue-highlighted-text">highlighted text</span> zebra are
+              endangered.</p>
             <blockquote class="blockquote">
               <p>
-                Blockquotes. However, various anthropogenic factors have had a severe impact on zebra populations, in particular hunting for skins. </p>
+                Blockquotes. However, various anthropogenic factors have had a
+                severe impact on zebra populations, in particular hunting for
+                skins. </p>
               <footer class="blockquote-footer">Jefferey Lebowski</footer>
             </blockquote>
             <p>
-              lthough zebra species may have overlapping ranges, they do not interbreed. In captivity, plains zebras have been crossed with mountain zebras. The hybrid foals <span
-              class="vue-selected-text">selected text</span> lacked a dewlap and resembled their
+              lthough zebra species may have overlapping ranges, they do not
+              interbreed. In captivity, plains zebras have been crossed with
+              mountain zebras. The hybrid foals <span
+              class="vue-selected-text">selected text</span> lacked a dewlap and
+              resembled their
             </p>
           </div>
           <div class="vue-lists">
@@ -32,19 +43,30 @@
                 <h3>Unordered</h3>
                 <ul class="vue-unordered">
                   <li>
-                    A wide variety of hypotheses have been proposed to account for the evolution of the striking stripes of zebras.
+                    A wide variety of hypotheses have been proposed to account
+                    for the evolution of the striking stripes of zebras.
                   </li>
-                  <li>The more traditional of these (1 and 2, below) relate to camouflage.</li>
-                  <li>The vertical striping may help the zebra hide in the grass by disrupting its outline.</li>
+                  <li>The more traditional of these (1 and 2, below) relate to
+                    camouflage.
+                  </li>
+                  <li>The vertical striping may help the zebra hide in the grass
+                    by disrupting its outline.
+                  </li>
                   <li>
-                    In addition, even at moderate distances, the striking striping merges to an apparent grey.
+                    In addition, even at moderate distances, the striking
+                    striping merges to an apparent grey.
                     <ul class="vue-list-inner">
-                      <li>However, the camouflage has been contested with arguments that most of a zebra's predator.</li>
-                      <li>Such as lions and hyenas cannot see well at a distance.</li>
+                      <li>However, the camouflage has been contested with
+                        arguments that most of a zebra's predator.
+                      </li>
+                      <li>Such as lions and hyenas cannot see well at a
+                        distance.
+                      </li>
                       <li>More likely to have smelled or heard a zebra.</li>
                     </ul>
                   </li>
-                  <li>Before seeing it from a distance, especially at night.</li>
+                  <li>Before seeing it from a distance, especially at night.
+                  </li>
                 </ul>
               </div>
               <div class="col-md-6 text-left">
@@ -52,20 +74,30 @@
                   <h3>Ordered</h3>
                   <ol class="vue-ordered">
                     <li>
-                      A wide variety of hypotheses have been proposed to account for the evolution of the striking stripes of zebras.
+                      A wide variety of hypotheses have been proposed to account
+                      for the evolution of the striking stripes of zebras.
                     </li>
-                    <li>The more traditional of these (1 and 2, below) relate to camouflage.</li>
-                    <li>The vertical striping may help the zebra hide in the grass by disrupting its outline.</li>
+                    <li>The more traditional of these (1 and 2, below) relate to
+                      camouflage.
+                    </li>
+                    <li>The vertical striping may help the zebra hide in the
+                      grass by disrupting its outline.
+                    </li>
                     <li>
-                      In addition, even at moderate distances, the striking striping merges to an apparent grey.
+                      In addition, even at moderate distances, the striking
+                      striping merges to an apparent grey.
                       <ul class="vue-list-inner">
-                        <li>However, the camouflage has been contested with arguments that most of a zebra's predator.
+                        <li>However, the camouflage has been contested with
+                          arguments that most of a zebra's predator.
                         </li>
-                        <li>Such as lions and hyenas cannot see well at a distance.</li>
+                        <li>Such as lions and hyenas cannot see well at a
+                          distance.
+                        </li>
                         <li>More likely to have smelled or heard a zebra.</li>
                       </ul>
                     </li>
-                    <li>Before seeing it from a distance, especially at night.</li>
+                    <li>Before seeing it from a distance, especially at night.
+                    </li>
                   </ol>
                 </div>
               </div>
@@ -90,7 +122,9 @@
               <div class="col-md-6">
                 <h3>Well</h3>
                 <div class="well">
-                  Zebras have excellent eyesight. It is believed that they can see in color. Like most ungulates, the zebra's eyes are on the sides of its head, giving it a wide field of view.
+                  Zebras have excellent eyesight. It is believed that they can
+                  see in color. Like most ungulates, the zebra's eyes are on the
+                  sides of its head, giving it a wide field of view.
                 </div>
               </div>
             </div>
@@ -103,28 +137,28 @@
 
 <script>
 export default {
-  name: 'typography'
+  name: 'typography',
 }
 </script>
 
 <style lang="scss">
-  .ui-typography {
-    .typo-articles {
-      margin-bottom: 6.25rem;
-      width: 90%;
-    }
-
-    .widget-body {
-      padding: 3.75rem 4.7rem 0 2.2rem !important;
-    }
-
-    .col-md-6 {
-      padding-right: 0;
-    }
-
-    .vue-lists ul, ol {
-      width: 85%;
-    }
+.ui-typography {
+  .typo-articles {
+    margin-bottom: 6.25rem;
+    width: 90%;
   }
+
+  .widget-body {
+    padding: 3.75rem 4.7rem 0 2.2rem !important;
+  }
+
+  .col-md-6 {
+    padding-right: 0;
+  }
+
+  .vue-lists ul, ol {
+    width: 85%;
+  }
+}
 
 </style>

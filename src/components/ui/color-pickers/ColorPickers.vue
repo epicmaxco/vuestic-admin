@@ -17,21 +17,25 @@
           <div class="row">
             <div class="col-md-2">
               <div class="vuestic-color-picker-page__top-square">
-                <vuestic-color-picker-input mode="palette" v-model="topSimpleSquareColor" :palette="palette">
+                <vuestic-color-picker-input mode="palette"
+                                            v-model="topSimpleSquareColor"
+                                            :palette="palette">
                   <vuestic-color-square :value="topSimpleSquareColor"/>
                 </vuestic-color-picker-input>
               </div>
             </div>
             <div class="col-md-2">
               <div class="vuestic-color-picker-page__top-square">
-                <vuestic-color-picker-input mode="slider" v-model="topSliderSquareColor">
+                <vuestic-color-picker-input mode="slider"
+                                            v-model="topSliderSquareColor">
                   <vuestic-color-square :value="topSliderSquareColor"/>
                 </vuestic-color-picker-input>
               </div>
             </div>
             <div class="col-md-2">
               <div class="vuestic-color-picker-page__top-square">
-                <vuestic-color-picker-input mode="advanced" v-model="topAdvancedSquareColor">
+                <vuestic-color-picker-input mode="advanced"
+                                            v-model="topAdvancedSquareColor">
                   <vuestic-color-square :value="topAdvancedSquareColor"/>
                 </vuestic-color-picker-input>
               </div>
@@ -113,7 +117,7 @@ export default {
     VuesticColorSquare,
     VuesticSimplePalettePicker,
     VuesticColorPickerInput,
-    VuesticPalletCustom
+    VuesticPalletCustom,
   },
   data () {
     return {

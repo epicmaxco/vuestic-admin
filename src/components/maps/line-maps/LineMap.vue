@@ -26,22 +26,22 @@ export default {
       map = new AmCharts.AmMap()
 
       let dataProvider = {
-        mapVar: AmCharts.maps.worldLow
+        mapVar: AmCharts.maps.worldLow,
       }
       map.areasSettings = {
         unlistedAreasColor: '#eee',
         unlistedAreasAlpha: 1,
         outlineColor: '#fff',
-        outlineThickness: 2
+        outlineThickness: 2,
       }
       map.imagesSettings = {
         color: '#6bbfe4',
         rollOverColor: '#6bbfe4',
-        selectedColor: '#6be59c'
+        selectedColor: '#6be59c',
       }
       map.linesSettings = {
         color: '#6bbfe4',
-        alpha: 0.4
+        alpha: 0.4,
       }
 
       dataProvider.linkToObject = this.mapData.mainCity
@@ -51,19 +51,19 @@ export default {
       map.linesAboveImages = true
 
       map.write(this.$el)
-    }
+    },
   },
 
   mounted () {
     this.drawMap()
-  }
+  },
 }
 </script>
 
 <style lang='scss'>
-  @import '~ammap3/ammap/ammap.css';
+@import '~ammap3/ammap/ammap.css';
 
-  .line-map {
-    height: 100%;
-  }
+.line-map {
+  height: 100%;
+}
 </style>

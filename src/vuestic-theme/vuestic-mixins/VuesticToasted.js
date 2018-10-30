@@ -6,7 +6,7 @@ const toastOptions = {
   position: 'bottom-center',
   className: 'vuestic-toast',
   iconPack: 'fontawesome',
-  duration: 2500
+  duration: 2500,
 }
 
 Vue.use(Toasted, toastOptions)
@@ -15,6 +15,6 @@ export default {
   methods: {
     showToast (msg, options) {
       this.$toasted.show(msg, options)
-    }
-  }
+    },
+  },
 }
