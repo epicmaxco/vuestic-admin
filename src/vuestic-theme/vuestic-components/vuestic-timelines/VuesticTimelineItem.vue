@@ -100,7 +100,7 @@ export default {
   #{&}__before #{&}__text {
     float: right;
   }
-  &:not(&--vertical){
+  &:not(&--vertical) {
     .vuestic-timeline-item__before,
     .vuestic-timeline-item__after {
       padding-right: 1rem;

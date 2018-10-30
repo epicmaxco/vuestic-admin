@@ -1,9 +1,9 @@
 <script>
 import {
-  positionValidator,
   offsetValidator,
   parsePosition,
-  setPosition
+  positionValidator,
+  setPosition,
 } from '../../utils/popup.js'
 import frameDebounce from '../../utils/frame-debounce.js'
 import { getScrollTarget } from '../../utils/scroll.js'
@@ -18,11 +18,11 @@ export default {
   props: {
     anchor: {
       type: String,
-      validator: positionValidator
+      validator: positionValidator,
     },
     self: {
       type: String,
-      validator: positionValidator
+      validator: positionValidator,
     },
     fit: Boolean,
     cover: Boolean,
@@ -36,20 +36,20 @@ export default {
         example: context menu component
       */
       type: Boolean,
-      default: true
+      default: true,
     },
     offset: {
       type: Array,
-      validator: offsetValidator
+      validator: offsetValidator,
     },
     noFocus: Boolean,
     noRefocus: Boolean,
-    disable: Boolean
+    disable: Boolean,
   },
   watch: {
     $route () {
       this.hide()
-    }
+    },
   },
   computed: {
     horizSide () {
@@ -60,23 +60,27 @@ export default {
       return parsePosition(
         this.cover
           ? `top ${this.horizSide}`
-          : this.anchor || `bottom ${this.horizSide}`
+          : this.anchor || `bottom ${this.horizSide}`,
       )
     },
     selfOrigin () {
       return parsePosition(this.self || `top ${this.horizSide}`)
-    }
+    },
   },
   render (h) {
-    if (!this.canRender) { return }
+    if (!this.canRender) {
+      return
+    }
 
     return h('div', {
       staticClass: 'q-popover scroll',
       ref: 'content',
       attrs: { tabindex: -1 },
       on: {
-        click (e) { e.stopPropagation() }
-      }
+        click (e) {
+          e.stopPropagation()
+        },
+      },
     }, this.$slots.default)
   },
   mounted () {
@@ -215,10 +219,10 @@ export default {
         anchorClick: this.anchorClick,
         touchPosition: this.touchPosition,
         touchOffset: this.touchOffset,
-        cover: this.cover
+        cover: this.cover,
       })
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -235,7 +239,7 @@ export default {
   overflow-x: hidden;
   max-width: 100vw;
   outline: 0;
-  > .q-list:only-child  {
+  > .q-list:only-child {
     border: none;
   }
 

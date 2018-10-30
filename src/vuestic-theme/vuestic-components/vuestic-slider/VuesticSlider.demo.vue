@@ -22,7 +22,7 @@ export default {
       options: {
         formatter: v => `${v}px`,
         min: 20,
-        max: 40
+        max: 40,
       },
       value: 30,
     }

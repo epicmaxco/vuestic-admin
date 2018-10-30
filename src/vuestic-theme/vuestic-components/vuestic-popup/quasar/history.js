@@ -2,8 +2,10 @@ import { isSSR } from './plugins/platform'
 
 export default {
   __history: [],
-  add: () => {},
-  remove: () => {},
+  add: () => {
+  },
+  remove: () => {
+  },
 
   install ($q, cfg) {
     if (isSSR || !$q.platform.is.cordova) {
@@ -33,5 +35,5 @@ export default {
         }
       }, false)
     })
-  }
+  },
 }

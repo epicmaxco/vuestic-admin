@@ -121,28 +121,28 @@
 
 <script>
 export default {
-  name: 'grid'
+  name: 'grid',
 }
 </script>
 
 <style lang="scss">
-  .ui-grid {
-    .row {
-      div[class^=col] {
-        padding: 0;
-        div {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          margin: .5rem .25rem;
-          min-height: 3rem;
-          color: $white;
-          background-color: $brand-primary;
-          border-radius: 0.5rem;
-        }
+.ui-grid {
+  .row {
+    div[class^=col] {
+      padding: 0;
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: .5rem .25rem;
+        min-height: 3rem;
+        color: $white;
+        background-color: $brand-primary;
+        border-radius: 0.5rem;
       }
     }
   }
+}
 
 </style>

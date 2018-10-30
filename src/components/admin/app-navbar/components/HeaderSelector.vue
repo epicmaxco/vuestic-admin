@@ -10,16 +10,16 @@ export default {
   props: {
     isOpen: {
       type: Boolean,
-      required: true
+      required: true,
     },
-  }
+  },
 }
 </script>
 
 <style lang="scss">
-  .header-selector {
-    @include flex-center();
-    cursor: pointer;
-  }
+.header-selector {
+  @include flex-center();
+  cursor: pointer;
+}
 
 </style>

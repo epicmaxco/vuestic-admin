@@ -10,7 +10,9 @@ const positionMap = {
 }
 
 const generatePosition = position => {
-  if (!position) { return {} }
+  if (!position) {
+    return {}
+  }
 
   return { ...positionMap[position], offset: [12, 12] }
 }
@@ -21,7 +23,7 @@ export default {
   props: {
     position: {
       type: String,
-      validate: position => position in positionMap
+      validate: position => position in positionMap,
     },
   },
   render (createElement) {

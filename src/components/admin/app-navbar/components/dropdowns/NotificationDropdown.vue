@@ -6,7 +6,8 @@
       position="bottom"
       class="notification-dropdown__list"
     >
-      <a v-for="(option, id) in options" :key="id" class="dropdown-item" href="#">
+      <a v-for="(option, id) in options" :key="id" class="dropdown-item"
+         href="#">
         <span class="ellipsis">{{$t(`notifications.${option.name}`,
           { name: option.details.name, type: option.details.type })}}
         </span>

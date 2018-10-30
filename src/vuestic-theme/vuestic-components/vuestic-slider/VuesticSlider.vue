@@ -18,23 +18,23 @@ export default {
   name: 'vuestic-slider',
 
   components: {
-    Slider
+    Slider,
   },
 
   props: {
     value: {
       type: Number,
-      required: true
+      required: true,
     },
 
     options: {
-      type: Object
+      type: Object,
     },
 
     reverse: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
 
   data: function () {
@@ -45,30 +45,30 @@ export default {
         realTime: true,
         sliderStyle: {
           'background-color': store.getters.palette.primary,
-          'box-shadow': 'none'
+          'box-shadow': 'none',
         },
         processStyle: {
-          'background-color': store.getters.palette.primary
+          'background-color': store.getters.palette.primary,
         },
         tooltipStyle: {
           'background-color': store.getters.palette.primary,
-          'border-color': store.getters.palette.primary
-        }
-      }
+          'border-color': store.getters.palette.primary,
+        },
+      },
     }
   },
 
   computed: {
     sliderOptions () {
       return Object.assign({}, this.defaultOptions, this.options)
-    }
+    },
   },
 
   methods: {
     change (value) {
       this.$emit('input', value)
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -1,8 +1,9 @@
 <template>
   <transition name="fade">
     <div class='vuestic-alert alert' :class="alertClass" v-if="!hidden">
-        <slot></slot>
-        <i class="fa fa-close alert-close" v-if="withCloseBtn" @click="hide()"></i>
+      <slot></slot>
+      <i class="fa fa-close alert-close" v-if="withCloseBtn"
+         @click="hide()"></i>
     </div>
   </transition>
 
@@ -18,38 +19,40 @@ export default {
         'alert-success': this.type === 'success',
         'alert-danger': this.type === 'danger',
         'alert-warning': this.type === 'warning',
-        'alert-info': this.type === 'info'
+        'alert-info': this.type === 'info',
       }
-    }
+    },
   },
   props: {
     type: {
       type: String,
-      default: 'success'
+      default: 'success',
     },
     withCloseBtn: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data () {
     return {
-      hidden: false
+      hidden: false,
     }
   },
   methods: {
     hide () {
       this.hidden = true
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang='scss' scoped>
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s
-  }
-  .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
-    opacity: 0
-  }
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */
+{
+  opacity: 0
+}
 </style>

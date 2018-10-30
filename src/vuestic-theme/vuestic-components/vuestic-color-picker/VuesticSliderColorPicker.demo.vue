@@ -18,8 +18,8 @@ export default {
   },
   data () {
     return {
-      value: '#34495e'
+      value: '#34495e',
     }
-  }
+  },
 }
 </script>

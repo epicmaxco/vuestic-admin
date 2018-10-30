@@ -1,7 +1,8 @@
 <template>
   <div class="vuestic-data-table table-responsive"
        :class="{'data-loading': loading}">
-    <div class="d-flex flex-md-row flex-column align-items-center" :class="controlsAlignmentClass">
+    <div class="d-flex flex-md-row flex-column align-items-center"
+         :class="controlsAlignmentClass">
       <filter-bar
         @filter="onFilterSet"
         :label="filterInputLabel"
@@ -78,90 +79,90 @@ export default {
     FilterBar,
     Vuetable,
     VuetablePagination,
-    ItemsPerPage
+    ItemsPerPage,
   },
   props: {
     apiUrl: {
-      type: String
+      type: String,
     },
     httpFetch: {
       type: Function,
-      default: null
+      default: null,
     },
     httpOptions: {
       type: Object,
       default: () => {
-      }
+      },
     },
     filterQuery: {
       type: String,
-      default: 'filter'
+      default: 'filter',
     },
     tableFields: {
       type: Array,
-      required: true
+      required: true,
     },
     itemsPerPage: {
       type: Array,
-      default: () => DefaultPerPageDefinition.itemsPerPage
+      default: () => DefaultPerPageDefinition.itemsPerPage,
     },
     perPageSelectorShown: {
       type: Boolean,
-      default: true
+      default: true,
     },
     filterInputShown: {
       type: Boolean,
-      default: true
+      default: true,
     },
     filterInputLabel: {
       type: String,
-      default: 'Search'
+      default: 'Search',
     },
     itemsPerPageLabel: {
       type: String,
-      default: 'per page'
+      default: 'per page',
     },
     defaultPerPage: {
       type: Number,
-      default: DefaultPerPageDefinition.itemsPerPage[0].value
+      default: DefaultPerPageDefinition.itemsPerPage[0].value,
     },
     onEachSide: {
       type: Number,
-      default: 2
+      default: 2,
     },
     apiMode: {
       type: Boolean,
-      default: true
+      default: true,
     },
     tableData: {
       type: Object,
       default () {
         return {
-          data: []
+          data: [],
         }
-      }
+      },
     },
     dataModeFilterableFields: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     sortFunctions: {
-      type: Object
+      type: Object,
     },
     paginationPath: {
       type: String,
-      default: ''
+      default: '',
     },
     queryParams: {
       type: Object,
-      default: () => QueryParams
+      default: () => QueryParams,
     },
     appendParams: {
       type: Object,
       default () {
         return {}
-      }
-    }
+      },
+    },
   },
   data () {
     return {
@@ -171,14 +172,14 @@ export default {
       dataCount: 0,
       css: DataTableStyles,
       loading: false,
-      noDataTemplate: ''
+      noDataTemplate: '',
     }
   },
   computed: {
     controlsAlignmentClass () {
       return {
         'justify-content-md-between': this.filterInputShown,
-        'justify-content-md-end': !this.filterInputShown
+        'justify-content-md-end': !this.filterInputShown,
       }
     },
     moreParams () {
@@ -215,7 +216,7 @@ export default {
       })
 
       return {
-        data: filteredData
+        data: filteredData,
       }
     },
     defaultPerPageComputed () {
@@ -231,7 +232,7 @@ export default {
     },
     paginationPathComputed () {
       return this.apiMode ? this.paginationPath : 'pagination'
-    }
+    },
   },
 
   created () {
@@ -279,7 +280,7 @@ export default {
 
       return {
         pagination: pagination,
-        data: data.slice(pagination.from - 1, pagination.to)
+        data: data.slice(pagination.from - 1, pagination.to),
       }
     },
     onLoading () {
@@ -291,53 +292,53 @@ export default {
       this.noDataTemplate = this.$t('tables.dataTable.noDataAvailable')
       this.loading = false
       this.$emit('vuestic:loaded')
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss">
-  .vuestic-data-table {
-    min-height: 24rem;
+.vuestic-data-table {
+  min-height: 24rem;
 
-    .form-group {
-      margin-bottom: 1rem;
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 1258px) {
+    .pagination-link-btn:first-child, .pagination-link-btn:last-child {
+      display: none;
     }
 
-    @media (max-width: 1258px) {
-      .pagination-link-btn:first-child, .pagination-link-btn:last-child {
-        display: none;
-      }
-
-      .pagination-link-btn:nth-child(2) {
-        border-top-left-radius: $btn-border-radius !important;
-        border-bottom-left-radius: $btn-border-radius !important;
-      }
-
-      .pagination-link-btn:nth-last-child(2) {
-        border-top-right-radius: $btn-border-radius !important;
-        border-bottom-right-radius: $btn-border-radius !important;
-      }
+    .pagination-link-btn:nth-child(2) {
+      border-top-left-radius: $btn-border-radius !important;
+      border-bottom-left-radius: $btn-border-radius !important;
     }
 
-    @media (max-width: 576px) {
-      .hide-not-focused-btn:not(.focus) {
-        display: none;
-      }
-    }
-
-    .data-table-loading {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      top: 40%;
-      left: 50%;
+    .pagination-link-btn:nth-last-child(2) {
+      border-top-right-radius: $btn-border-radius !important;
+      border-bottom-right-radius: $btn-border-radius !important;
     }
   }
 
-  .data-loading {
-    opacity: .5;
-    pointer-events: none;
+  @media (max-width: 576px) {
+    .hide-not-focused-btn:not(.focus) {
+      display: none;
+    }
   }
+
+  .data-table-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+  }
+}
+
+.data-loading {
+  opacity: .5;
+  pointer-events: none;
+}
 </style>
