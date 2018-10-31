@@ -5,7 +5,7 @@
   >
     <div
       class="vuestic-checkbox__square"
-      @click="toggleSelection"
+      @click="toggleSelection(), focused = false"
       @mousedown="focused = true"
       :class="{'active': value}"
     >
@@ -16,7 +16,7 @@
         @mouseout="focused = false"
         @blur="focused = false"
         class="vuestic-checkbox__input"
-        @keypress="onKeyToggleSelection"
+        @keypress="toggleSelection()"
         :disabled="disabled"
       />
       <i class="ion ion-md-checkmark vuestic-checkbox__icon-selected" aria-hidden="true"/>
@@ -30,7 +30,8 @@
     <div class="vuestic-checkbox__error-message-container" v-if="showError">
         <span
           class="vuestic-checkbox__error-message"
-          v-for="(error,i) in computedErrorMessages" :key="i"
+          v-for="(error, index) in computedErrorMessages"
+          :key="index"
         >
             {{ error }}
         </span>
@@ -100,7 +101,7 @@ export default {
       if (Array.isArray(this.errorMessages)) {
         return this.errorMessages.slice(0, this.errorCount)
       } else {
-        let arr = []
+        const arr = []
         arr.push(this.errorMessages)
         return arr
       }
@@ -138,15 +139,9 @@ export default {
   methods: {
     toggleSelection () {
       if (!this.disabled) {
-        this.focused = false
         this.valueProxy = !this.valueProxy
       }
     },
-    onKeyToggleSelection () {
-      if (!this.disabled) {
-        this.valueProxy = !this.valueProxy
-      }
-    }
   },
 }
 </script>
@@ -228,8 +223,8 @@ export default {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    height: 2rem;
     position: absolute;
     @at-root {
       .vuestic-checkbox--disabled#{&} {
@@ -246,7 +241,7 @@ export default {
     }
   }
   &__input-container {
-    width: 24px;
+    width: 1.5rem;
   }
   &__content {
     flex-direction: row;
