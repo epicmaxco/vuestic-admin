@@ -99,7 +99,13 @@
       "title": "Checkboxes, Radios, Switches",
       "radioDisabled": "Disabled Radio",
       "radio": "Radio",
-      "subscribe": "Subscribe to newsletter"
+      "subscribe": "Subscribe to newsletter",
+      "unselected": "Unselected checkbox",
+      "selected": "Selected checkbox",
+      "readonly": "Readonly checkbox",
+      "disabled": "Disabled checkbox",
+      "error": "Checkbox with error",
+      "errorMessage": "Checkbox with error messages"
     },
     "dateTimePicker": {
       "title": "Date time pickers",
