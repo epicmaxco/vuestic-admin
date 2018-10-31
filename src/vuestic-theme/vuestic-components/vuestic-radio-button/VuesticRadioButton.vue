@@ -4,7 +4,12 @@
     :class="computedClass"
     @click="onClick"
   >
-    <div class="vuestic-radio-button__content" @mousedown="focused = false" @mouseup="focused = false">
+    <div
+      class="vuestic-radio-button__content"
+      @mousedown="focused = false"
+      @mouseup="focused = false"
+      :class="{'active': isActive}"
+    >
       <input
         @focus="focused = true"
         @mouseout="focused = false"
@@ -133,9 +138,12 @@ export default {
     justify-content: center;
     @at-root {
       .vuestic-radio-button--on-focus#{&} {
-        background-color: $on-focus-background-color;
+        background-color: $light-gray;
         transition: all, 0.6s, ease-in;
         border-radius: 3rem;
+        &.active {
+          background-color: $lighter-green;
+        }
       }
     }
   }

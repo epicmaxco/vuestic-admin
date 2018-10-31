@@ -3,7 +3,12 @@
     class="vuestic-checkbox"
     :class="computedClass"
   >
-    <div class="vuestic-checkbox__square" @click="toggleSelection" @mousedown="focused = true">
+    <div
+      class="vuestic-checkbox__square"
+      @click="toggleSelection"
+      @mousedown="focused = true"
+      :class="{'active': value}"
+    >
       <input
         :id="id"
         readonly
@@ -236,11 +241,13 @@ export default {
       .vuestic-checkbox--disabled#{&} {
         cursor: initial;
       }
-
       .vuestic-checkbox--onfocus#{&} {
-        background-color: $on-focus-background-color;
+        background-color: $light-gray;
         transition: all, 0.6s, ease-in;
         border-radius: 5rem;
+        &.active {
+          background-color: $lighter-green;
+        }
       }
     }
   }

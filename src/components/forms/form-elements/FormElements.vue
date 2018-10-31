@@ -305,35 +305,47 @@
               <div class="col-md-4">
                 <fieldset>
                   <vuestic-checkbox
-                    :label="'forms.controls.unselected' | translate"
-                    :id="'checkbox1'"
-                    v-model="checkbox.firstModel"/>
+                    v-model="checkbox.checkboxOneModel">
+                    <div slot="label">
+                      {{'forms.controls.unselected' | translate}}
+                    </div>
+                  </vuestic-checkbox>
                   <vuestic-checkbox
-                    :label="'forms.controls.selected' | translate"
-                    :id="'checkbox2'"
-                    v-model="checkbox.secondModel"/>
+                    v-model="checkbox.checkboxTwoModel">
+                    <div slot="label">
+                      {{'forms.controls.selected' | translate}}
+                    </div>
+                  </vuestic-checkbox>
                   <vuestic-checkbox
-                    :label="'forms.controls.readonly' | translate"
-                    :id="'checkbox3'"
-                    v-model="checkbox.thirdModel"
+                    v-model="checkbox.checkboxThreeModel"
                     :readonly="true"
-                  />
+                  >
+                    <div slot="label">
+                      {{'forms.controls.readonly' | translate}}
+                    </div>
+                  </vuestic-checkbox>
                   <vuestic-checkbox
-                    :label="'forms.controls.disabled' | translate"
-                    :id="'checkbox4'"
                     :disabled="true"
-                    v-model="checkbox.forthModel"/>
+                    v-model="checkbox.checkboxFourModel">
+                    <div slot="label">
+                      {{'forms.controls.disabled' | translate}}
+                    </div>
+                  </vuestic-checkbox>
                   <vuestic-checkbox
                     error
-                    :label="'forms.controls.error' | translate"
-                    :id="'checkbox4'"
-                    v-model="checkbox.fivesModel"/>
+                    v-model="checkbox.checkboxFiveModel">
+                    <div slot="label">
+                      {{'forms.controls.error' | translate}}
+                    </div>
+                  </vuestic-checkbox>
                   <vuestic-checkbox
                     :error-messages="errorMessages"
                     :errorCount="2"
-                    :label="'forms.controls.errorMessage' | translate"
-                    :id="'checkbox4'"
-                    v-model="checkbox.sixModel"/>
+                    v-model="checkbox.checkboxSixModel">
+                    <div slot="label">
+                      {{'forms.controls.error' | translate}}
+                    </div>
+                  </vuestic-checkbox>
                 </fieldset>
               </div>
               <div class="col-md-4">
@@ -429,14 +441,14 @@ export default {
       radioSelectedOption: 'option1',
       radioSelectedDisableOption: 'option1',
       checkbox: {
-        firstModel: false,
-        secondModel: true,
-        thirdModel: true,
-        forthModel: true,
-        fivesModel: false,
-        sixModel: true,
-        sevensModel: true,
-        eightsModel: true,
+        checkboxOneModel: false,
+        checkboxTwoModel: true,
+        checkboxThreeModel: true,
+        checkboxFourModel: true,
+        checkboxFiveModel: false,
+        checkboxSixModel: true,
+        checkboxSevenModel: true,
+        checkboxEightModel: true,
       },
       errorMessages: ['error message 1', 'error message 2'],
       datepicker: {
