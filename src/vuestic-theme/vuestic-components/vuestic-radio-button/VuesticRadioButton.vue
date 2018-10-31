@@ -91,7 +91,7 @@ export default {
   cursor: pointer;
   display: flex;
   flex-direction: row;
-  margin-bottom: 1rem;
+  margin-bottom: $checkbox-between-items-margin;
   &__icon {
     width: 1.4rem;
     height: 1.4rem;
@@ -110,30 +110,28 @@ export default {
   &__icon-circle {
     @at-root {
       .vuestic-radio-button.vuestic-radio-button--active & {
-        width: 0.68rem;
-        height: 0.68rem;
+        width: 0.625rem;
+        height: 0.625rem;
         border-radius: 1rem;
         position: absolute;
         border: $vue-green solid 0.35rem;
-        margin-top: 0.22rem;
-        margin-left: 0.22rem;
+        margin-top: 0.1875rem;
+        margin-left: 0.1875rem;
       }
     }
   }
   &__input {
-    width: 24px;
-    height: 24px;
+    width: 1.375rem;
+    height: 1.375rem;
     position: absolute;
     cursor: pointer;
     opacity: 0;
   }
   #{&}__content {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     display: flex;
-    align-items: center;
-    box-align: center;
-    flex-align: center;
+    position: absolute;
     align-items: center;
     justify-content: center;
     @at-root {
@@ -148,8 +146,8 @@ export default {
     }
   }
   &__slot-container {
-    padding-top: 0.2rem;
-    margin-left: 0.3rem;
+    padding-top: $checkbox-label-margin-top;
+    margin-left: $checkbox-between-label-margin;
   }
 }
 </style>

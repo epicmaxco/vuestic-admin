@@ -373,7 +373,6 @@
                   </vuestic-radio-button>
                 </fieldset>
               </div>
-
               <div class="col-md-4">
                 <fieldset>
                   <vuestic-switch v-model="isMale">

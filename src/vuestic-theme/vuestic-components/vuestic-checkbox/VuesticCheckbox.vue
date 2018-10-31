@@ -22,7 +22,6 @@
       <i class="ion ion-md-checkmark vuestic-checkbox__icon-selected" aria-hidden="true"/>
     </div>
     <div
-      :for="id"
       class="vuestic-checkbox__label-text" @click="toggleSelection">
       <slot name="label">
         {{ label }}
@@ -154,7 +153,7 @@ export default {
 
 <style lang="scss">
 .vuestic-checkbox {
-  margin-bottom: 1rem;
+  margin-bottom: $checkbox-between-items-margin;
   display: flex;
   flex-direction: column;
   #{&}__input {
@@ -176,10 +175,8 @@ export default {
         background-color: $vue-green;
         border: 0;
       }
-
       .vuestic-checkbox--readonly#{&} {
       }
-
       .vuestic-checkbox--disabled#{&} {
         border-color: $lighter-gray;
         cursor: initial;
@@ -199,8 +196,8 @@ export default {
     display: inline-block;
     position: relative;
     cursor: pointer;
-    padding-top: 0.2rem;
-    margin-left: 2.35rem;
+    padding-top: $checkbox-label-margin-top;
+    margin-left: $checkbox-between-label-margin;
     @at-root {
       .vuestic-checkbox--error#{&} {
         color: $theme-red;
@@ -228,9 +225,6 @@ export default {
   }
   #{&}__square {
     display: flex;
-    align-items: center;
-    box-align: center;
-    flex-align: center;
     align-items: center;
     justify-content: center;
     cursor: pointer;
