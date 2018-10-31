@@ -179,11 +179,11 @@
                   <div class="form-group">
                     <div class="input-group">
                       <vuestic-date-picker
-                        id="date-picker-time"
+                        id="date-picker-custom-first-day"
                         :config="{locale: {firstDayOfWeek: 1}}"
                         v-model="datepicker.customFirstDay"
                       />
-                      <label class="control-label" for="date-picker-time">
+                      <label class="control-label" for="date-picker-custom-first-day">
                         {{ $t('forms.dateTimePicker.customFirstDay') }}
                       </label>
                       <i class="bar"></i>
@@ -222,11 +222,11 @@
                   <div class="form-group">
                     <div class="input-group">
                       <vuestic-date-picker
-                        id="date-picker-time"
+                        id="date-picker-custom-date-format"
                         :config="{altInput: true, altFormat: 'F j, Y'}"
                         v-model="datepicker.customDate"
                       />
-                      <label class="control-label" for="date-picker-time">
+                      <label class="control-label" for="date-picker-custom-date-format">
                         {{ $t('forms.dateTimePicker.customDateFormat') }}
                       </label>
                       <i class="bar"></i>
@@ -307,38 +307,32 @@
                   <vuestic-checkbox
                     :label="$t('forms.controls.unselected')"
                     v-model="checkbox.unselected"
-                  >
-                  </vuestic-checkbox>
+                  />
                   <vuestic-checkbox
                     :label="$t('forms.controls.selected')"
                     v-model="checkbox.selected"
-                  >
-                  </vuestic-checkbox>
+                  />
                   <vuestic-checkbox
                     :label="$t('forms.controls.readonly')"
                     v-model="checkbox.readonly"
                     :readonly="true"
-                  >
-                  </vuestic-checkbox>
+                  />
                   <vuestic-checkbox
                     :label="$t('forms.controls.disabled')"
                     :disabled="true"
                     v-model="checkbox.disabled"
-                  >
-                  </vuestic-checkbox>
+                  />
                   <vuestic-checkbox
                     :label="$t('forms.controls.error')"
                     error
                     v-model="checkbox.error"
-                  >
-                  </vuestic-checkbox>
+                  />
                   <vuestic-checkbox
                     :label="$t('forms.controls.errorMessage')"
                     :error-messages="errorMessages"
                     :errorCount="2"
                     v-model="checkbox.errorMessages"
-                  >
-                  </vuestic-checkbox>
+                  />
                 </fieldset>
               </div>
               <div class="col-md-4">
@@ -347,14 +341,12 @@
                     option="option1"
                     v-model="radioSelectedOption"
                     label="Radio"
-                  >
-                  </vuestic-radio-button>
+                  />
                   <vuestic-radio-button
                     option="option2"
                     v-model="radioSelectedOption"
                     label="Radio"
-                  >
-                  </vuestic-radio-button>
+                  />
                 </fieldset>
                 <fieldset>
                   <vuestic-radio-button
@@ -362,15 +354,13 @@
                     disabled
                     v-model="radioSelectedDisableOption"
                     label="Disabled Radio"
-                  >
-                  </vuestic-radio-button>
+                  />
                   <vuestic-radio-button
                     option="option2"
                     disabled
                     v-model="radioSelectedDisableOption"
                     label="Disabled Radio"
-                  >
-                  </vuestic-radio-button>
+                  />
                 </fieldset>
               </div>
 

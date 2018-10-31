@@ -5,7 +5,7 @@
   >
     <div
       class="vuestic-checkbox__square"
-      @click="toggleSelection"
+      @click="toggleSelection(), focused = false"
       @mousedown="focused = true"
       :class="{'active': value}"
     >
@@ -16,14 +16,15 @@
         @mouseout="focused = false"
         @blur="focused = false"
         class="vuestic-checkbox__input"
-        @keypress="onKeyToggleSelection"
+        @keypress="toggleSelection()"
         :disabled="disabled"
       />
       <i class="ion ion-md-checkmark vuestic-checkbox__icon-selected" aria-hidden="true"/>
     </div>
     <div
       :for="id"
-      class="vuestic-checkbox__label-text" @click="toggleSelection">
+      class="vuestic-checkbox__label-text" @click="toggleSelection(), focused = false"
+    >
       <slot name="label">
         {{ label }}
       </slot>
@@ -31,7 +32,8 @@
     <div class="vuestic-checkbox__error-message-container" v-if="showError">
         <span
           class="vuestic-checkbox__error-message"
-          v-for="(error,i) in computedErrorMessages" :key="i"
+          v-for="(error, index) in computedErrorMessages"
+          :key="index"
         >
             {{ error }}
         </span>
@@ -139,15 +141,9 @@ export default {
   methods: {
     toggleSelection () {
       if (!this.disabled) {
-        this.focused = false
         this.valueProxy = !this.valueProxy
       }
     },
-    onKeyToggleSelection () {
-      if (!this.disabled) {
-        this.valueProxy = !this.valueProxy
-      }
-    }
   },
 }
 </script>
