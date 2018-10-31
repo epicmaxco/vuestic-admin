@@ -103,7 +103,7 @@ export default {
       if (Array.isArray(this.errorMessages)) {
         return this.errorMessages.slice(0, this.errorCount)
       } else {
-        let arr = []
+        const arr = []
         arr.push(this.errorMessages)
         return arr
       }
@@ -225,13 +225,10 @@ export default {
   #{&}__square {
     display: flex;
     align-items: center;
-    box-align: center;
-    flex-align: center;
-    align-items: center;
     justify-content: center;
     cursor: pointer;
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    height: 2rem;
     position: absolute;
     @at-root {
       .vuestic-checkbox--disabled#{&} {
@@ -248,7 +245,7 @@ export default {
     }
   }
   &__input-container {
-    width: 24px;
+    width: 1.5rem;
   }
   &__content {
     flex-direction: row;

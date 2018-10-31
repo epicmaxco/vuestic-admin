@@ -110,8 +110,8 @@ export default {
   &__icon-circle {
     @at-root {
       .vuestic-radio-button.vuestic-radio-button--active & {
-        width: 0.68rem;
-        height: 0.68rem;
+        width: 0.6875rem;
+        height: 0.6875rem;
         border-radius: 1rem;
         position: absolute;
         border: $vue-green solid 0.35rem;
@@ -121,19 +121,16 @@ export default {
     }
   }
   &__input {
-    width: 24px;
-    height: 24px;
+    width: 1.5rem;
+    height: 1.5rem;
     position: absolute;
     cursor: pointer;
     opacity: 0;
   }
   #{&}__content {
-    width: 30px;
-    height: 30px;
+    width: 1.875rem;
+    height: 1.875rem;
     display: flex;
-    align-items: center;
-    box-align: center;
-    flex-align: center;
     align-items: center;
     justify-content: center;
     @at-root {
