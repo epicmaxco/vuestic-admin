@@ -105,7 +105,7 @@
       "readonly": "Readonly checkbox",
       "disabled": "Disabled checkbox",
       "error": "Checkbox with error",
-      "errorMessage": "Checkbox with error message"
+      "errorMessage": "Checkbox with error messages"
     },
     "dateTimePicker": {
       "title": "Date time pickers",
