@@ -40,10 +40,6 @@
 </template>
 
 <script>
-function generateRandomId () {
-  return Math.floor(Math.random() * Math.pow(10, 10))
-}
-
 export default {
   name: 'vuestic-checkbox',
   props: {
@@ -53,13 +49,8 @@ export default {
       required: true
     },
     id: {
-      type: String,
-      default () {
-        // We require unique id to show label
-        return 'label-' + generateRandomId()
-      },
+      type: String
     },
-    optionKey: String,
     disabled: {
       type: Boolean,
       default: false,
@@ -70,7 +61,6 @@ export default {
     },
     errorMessages: {
       type: [String, Array],
-      // this prop can take both string and array
       default: () => []
     },
     errorCount: {
@@ -208,10 +198,9 @@ export default {
   &__icon-selected {
     position: absolute;
     color: $white;
-    padding-left: 0.1rem;
   }
   &__error-message-container {
-    margin-left: 0.3rem;
+    margin-left: 0.3rem; // we need to move container because of square container, which we use because of onFocus
     display: flex;
     flex-direction: column;
   }
@@ -239,9 +228,6 @@ export default {
         }
       }
     }
-  }
-  &__input-container {
-    width: 1.5rem;
   }
   &__content {
     flex-direction: row;
