@@ -1,7 +1,9 @@
 <template>
   <div class="vuestic-pallet-custom">
-    <vuestic-simple-palette-picker :palette="palette" v-model="valueProxy" class="vuestic-pallet-custom__palette"/>
-    <vuestic-color-picker-input mode="advanced" v-model="valueProxy" class="vuestic-pallet-custom__input">
+    <vuestic-simple-palette-picker :palette="palette" v-model="valueProxy"
+                                   class="vuestic-pallet-custom__palette"/>
+    <vuestic-color-picker-input mode="advanced" v-model="valueProxy"
+                                class="vuestic-pallet-custom__input">
       <vuestic-color-input :selected="dotisSelected" v-model="valueProxy"/>
     </vuestic-color-picker-input>
   </div>
@@ -18,16 +20,16 @@ export default {
   components: {
     VuesticColorInput,
     VuesticColorPickerInput,
-    VuesticSimplePalettePicker
+    VuesticSimplePalettePicker,
   },
   props: {
     value: {
       type: String,
-      default: ''
+      default: '',
     },
     palette: {
-      type: Array
-    }
+      type: Array,
+    },
   },
   computed: {
     valueProxy: {
@@ -46,8 +48,8 @@ export default {
           return true
         }
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -56,7 +58,7 @@ export default {
   display: flex;
 
   &__palette {
-   margin-right: 20px;
+    margin-right: 20px;
   }
 
   &__input {

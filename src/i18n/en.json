@@ -99,7 +99,13 @@
       "title": "Checkboxes, Radios, Switches",
       "radioDisabled": "Disabled Radio",
       "radio": "Radio",
-      "subscribe": "Subscribe to newsletter"
+      "subscribe": "Subscribe to newsletter",
+      "unselected": "Unselected checkbox",
+      "selected": "Selected checkbox",
+      "readonly": "Readonly checkbox",
+      "disabled": "Disabled checkbox",
+      "error": "Checkbox with error",
+      "errorMessage": "Checkbox with error messages"
     },
     "dateTimePicker": {
       "title": "Date time pickers",
@@ -173,6 +179,8 @@
     "buttons": "Buttons",
     "charts": "Charts",
     "colorPickers": "Color Pickers",
+    "collapse": "Collapse",
+    "timelines": "Timelines",
     "dashboard": "Dashboard",
     "extra": "Extra",
     "formElements": "Form Elements",
@@ -197,8 +205,8 @@
     "uiElements": "UI Elements",
     "treeView": "Tree view",
     "dateTimePickers": "Date time pickers",
-    "collapse": "Collapse",
-    "fileUpload": "File Upload"
+    "fileUpload": "File Upload",
+    "dropdowns": "Dropdowns"
   },
   "messages": {
     "all": "See all messages",
@@ -218,6 +226,12 @@
     "staticMessage": "This is a static modal, backdrop click will not close it.",
     "staticTitle": "Static Modal",
     "title": "Modals"
+  },
+  "dropdown": {
+    "default": "Default",
+    "withArrow": "With arrow",
+    "note": "Note",
+    "noteText": "Dropdown will open in the specified direction if there is enough space on the screen, otherwise the direction will automatically change"
   },
   "fileUpload": {
     "advancedMediaGallery": "Advanced, Media Gallery",
@@ -251,6 +265,20 @@
     "sentMessage": "{name} sent you a message",
     "uploadedZip": "{name} uploaded a new Zip file with {type}",
     "startedTopic": "{name} started a new topic"
+  },
+  "timelines": {
+    "horizontalSimple": "Horizontal Simple",
+    "horizontalCards": "Horizontal Cards",
+    "verticalSimple": "Vertical Simple",
+    "verticalLabel": "Vertical With Label",
+    "verticalCentered": "Vertical Centered",
+    "firstDate": "February 2018",
+    "secondDate": "March 2018",
+    "thirdDate": "April 2018",
+    "cardsSecondInfo": "They occur in a variety of habitats, such as grasslands.",
+    "cardsThirdInfo": "However, various anthropogenic factors have had a severe impact on zebra populations",
+    "verticalSimpleCardsFirstInfo": "The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands.",
+    "verticalSimpleCardsSecondInfo": "However, various anthropogenic factors have had a severe impact on zebra populations"
   },
   "progressBars": {
     "basic": "Basic",

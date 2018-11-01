@@ -1,0 +1,207 @@
+@font-face {
+  font-family: 'OpenWeb Icons';
+  font-style: normal;
+  font-weight: normal;
+  src: url('vuestic-theme/vuestic-sass/icons/icon-fonts/openwebicons/openwebicons.eot');
+  src: url('vuestic-theme/vuestic-sass/icons/icon-fonts/openwebicons/openwebicons.eot?#iefix') format('eot'),
+  url('vuestic-theme/vuestic-sass/icons/icon-fonts/openwebicons/openwebicons.woff') format('woff'),
+  url('vuestic-theme/vuestic-sass/icons/icon-fonts/openwebicons/openwebicons.ttf') format('truetype'),
+  url('vuestic-theme/vuestic-sass/icons/icon-fonts/openwebicons/openwebicons.svg#openweb_iconsregular') format('svg');
+}
+
+[class*="openwebicons-"]:before {
+  font-family: 'OpenWeb Icons', sans-serif;
+  font-style: normal;
+}
+
+.openwebicons-apml:before {
+  content: "\f001"
+}
+
+.openwebicons-open-share:before {
+  content: "\f00E"
+}
+
+.openwebicons-open-share-simple:before {
+  content: "\f00F"
+}
+
+.openwebicons-share:before {
+  content: "\f006"
+}
+
+.openwebicons-share-simple:before {
+  content: "\f007"
+}
+
+.openwebicons-feed:before {
+  content: "\f009"
+}
+
+.openwebicons-feed-simple:before {
+  content: "\f00A"
+}
+
+.openwebicons-ostatus:before {
+  content: "\f004"
+}
+
+.openwebicons-ostatus-simple:before {
+  content: "\f005"
+}
+
+.openwebicons-opml:before {
+  content: "\f003"
+}
+
+.openwebicons-activity:before {
+  content: "\f010"
+}
+
+.openwebicons-microformats:before {
+  content: "\f00C"
+}
+
+.openwebicons-geo:before {
+  content: "\f00B"
+}
+
+.openwebicons-opensearch:before {
+  content: "\f002"
+}
+
+.openwebicons-oauth:before {
+  content: "\f008"
+}
+
+.openwebicons-openid:before {
+  content: "\f00D"
+}
+
+.openwebicons-rdf:before {
+  content: "\f000"
+}
+
+.openwebicons-dataportability:before {
+  content: "\f013"
+}
+
+.openwebicons-federated:before {
+  content: "\f011"
+}
+
+.openwebicons-web-intents:before {
+  content: "\f014"
+}
+
+.openwebicons-open-web:before {
+  content: "\f012"
+}
+
+.openwebicons-xmpp:before {
+  content: "\f015"
+}
+
+.openwebicons-html5:before {
+  content: "\f016"
+}
+
+.openwebicons-css3:before {
+  content: "\f017"
+}
+
+.openwebicons-connectivity:before {
+  content: "\f018"
+}
+
+.openwebicons-semantics:before {
+  content: "\f019"
+}
+
+.openwebicons-opengraph:before {
+  content: "\f020"
+}
+
+.openwebicons-epub:before {
+  content: "\f021"
+}
+
+.openwebicons-qr:before {
+  content: "\f022"
+}
+
+.openwebicons-foaf:before {
+  content: "\f023"
+}
+
+.openwebicons-info-card:before {
+  content: "\f024"
+}
+
+.openwebicons-browserid:before {
+  content: "\f025"
+}
+
+.openwebicons-remote-storage:before {
+  content: "\f026"
+}
+
+.openwebicons-persona:before {
+  content: "\f027"
+}
+
+.openwebicons-odata:before {
+  content: "\f028"
+}
+
+.openwebicons-markdown:before {
+  content: "\f029"
+}
+
+.openwebicons-tosdr:before {
+  content: "\f030"
+}
+
+.openwebicons-cc:before {
+  content: "\f080"
+}
+
+.openwebicons-cc-by:before {
+  content: "\f081"
+}
+
+.openwebicons-cc-nc:before {
+  content: "\f082"
+}
+
+.openwebicons-cc-nc-eu:before {
+  content: "\f083"
+}
+
+.openwebicons-cc-nc-jp:before {
+  content: "\f084"
+}
+
+.openwebicons-cc-sa:before {
+  content: "\f085"
+}
+
+.openwebicons-cc-nd:before {
+  content: "\f086"
+}
+
+.openwebicons-cc-public:before {
+  content: "\f087"
+}
+
+.openwebicons-cc-zero:before {
+  content: "\f088"
+}
+
+.openwebicons-cc-share:before {
+  content: "\f089"
+}
+
+.openwebicons-cc-remix:before {
+  content: "\f08a"
+}

@@ -91,6 +91,18 @@
             <span>{{ $t('menu.colorPickers') }}</span>
           </span>
         </sidebar-link>
+        <!--<sidebar-link-->
+        <!--:to="{ name: 'dropdowns' }">-->
+        <!--<span slot="title">-->
+        <!--<span>{{ $t('menu.dropdowns') }}</span>-->
+        <!--</span>-->
+        <!--</sidebar-link>-->
+        <sidebar-link
+          :to="{ name: 'timelines' }">
+          <span slot="title">
+            <span>{{ $t('menu.timelines') }}</span>
+          </span>
+        </sidebar-link>
         <sidebar-link
           :to="{ name: 'notifications' }">
           <span slot="title">
@@ -98,7 +110,7 @@
           </span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'icons' }">
+          :to="{ name: 'icon-sets' }">
           <span slot="title">
             <span>{{ $t('menu.icons') }}</span>
           </span>
@@ -242,14 +254,14 @@ export default {
   components: {
     VuesticSidebar,
     SidebarLink,
-    SidebarLinkGroup
+    SidebarLinkGroup,
   },
   props: {
     isOpen: {
       type: Boolean,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 }
 
 </script>

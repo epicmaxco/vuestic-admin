@@ -16,14 +16,14 @@ import VuesticPalletCustom from './VuesticPalletCustom'
 
 export default {
   components: {
-    VuesticPalletCustom
+    VuesticPalletCustom,
   },
   data () {
     return {
       palette: colorArray,
-      color: '#aaaaaa'
+      color: '#aaaaaa',
     }
-  }
+  },
 }
 </script>
 

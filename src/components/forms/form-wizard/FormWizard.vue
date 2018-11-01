@@ -477,24 +477,12 @@ export default {
 </script>
 
 <style lang="scss">
-  .widget.simple-vertical-wizard-widget {
-    .widget-body {
-      padding: 0 $widget-padding;
-      @include media-breakpoint-down(sm) {
-        padding: $widget-padding 0;
-      }
+.widget.simple-vertical-wizard-widget {
+  .widget-body {
+    padding: 0 $widget-padding;
+    @include media-breakpoint-down(sm) {
+      padding: $widget-padding 0;
     }
   }
-
-  .form-wizard-page {
-    .form-group {
-      min-width: 200px;
-      max-width: 360px;
-      width: 80%;
-    }
-  }
-
-  .form-wizard-tab-content-text {
-    width: 100%; // IE11 only
-  }
+}
 </style>

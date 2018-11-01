@@ -1,7 +1,8 @@
 <template>
   <div class="demo-container">
     <div class="demo-container__item">
-      <vuestic-color-picker-input v-model="value" mode="palette" :palette="palette">
+      <vuestic-color-picker-input v-model="value" mode="palette"
+                                  :palette="palette">
         <color-dot :color="value"/>
       </vuestic-color-picker-input>
       {{ value }}
@@ -18,7 +19,8 @@
       </vuestic-color-picker-input>
     </div>
     <div class="demo-container__item">
-      <vuestic-color-picker-input v-model="value" mode="palette" :palette="palette"/>
+      <vuestic-color-picker-input v-model="value" mode="palette"
+                                  :palette="palette"/>
     </div>
   </div>
 </template>
@@ -35,13 +37,13 @@ export default {
     VuesticColorPickerInput,
     ColorDot,
     VuesticColorSquare,
-    VuesticColorInput
+    VuesticColorInput,
   },
   data () {
     return {
       value: '#9b6caa',
-      palette: colorArray
+      palette: colorArray,
     }
-  }
+  },
 }
 </script>

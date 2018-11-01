@@ -24,7 +24,7 @@ export default {
         this.$emit('input', value.hex)
       },
     },
-  }
+  },
 }
 </script>
 

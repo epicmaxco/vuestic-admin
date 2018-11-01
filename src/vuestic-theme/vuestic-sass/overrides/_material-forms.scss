@@ -1,0 +1,354 @@
+$shadow-inset: inset 0 2px 2px 0 rgba(0, 0, 0, .14);
+$shadow-0: 0 0 1px rgba(0, 0, 0, 0);
+$shadow-2: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+$shadow-3: 0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .2), 0 1px 8px 0 rgba(0, 0, 0, .12);
+$shadow-4: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
+$shadow-6: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
+$shadow-8: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2);
+
+// Font Sizes
+$mf-font-size: 1rem !default;
+$mf-active-font-size: $mf-font-size * 0.6 !default;
+$mf-active-top: -$mf-font-size * 0.6 !default;
+
+// Margin & Paddings
+$mf-gap: $mf-font-size * 1.5 !default;
+$mf-min-height: 2.25rem;
+$mf-spacer: $mf-font-size / 8 !default;
+$mf-fieldset-margin: 0 0 $mf-gap * 2 !default;
+$mf-checkbox-gap: $mf-font-size * 2 !default;
+$mf-checkbox-top: 0 !default;
+$mf-radio-margin: $mf-font-size / -4 !default;
+$mf-icon-gutter: 1.375rem;
+$mf-icon-top: 0.4375rem;
+
+// Colors
+$mf-input-color: $body-color !default;
+$mf-border-color: #999 !default;
+$mf-label-color: lighten($mf-border-color, 10%) !default;
+$mf-active-color: darken($mf-border-color, 10%) !default;
+$mf-focus-color: $brand-primary !default;
+$mf-error-color: $brand-danger !default;
+$mf-focus-border-color: $charcoal !default;
+
+// Animation
+$mf-transition-speed: 0.28s !default;
+
+.button-container {
+  text-align: center;
+}
+
+// The Styles for the form
+fieldset {
+  //margin: $mf-fieldset-margin;
+  padding: 0;
+  border: none;
+}
+
+.form-group {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  min-height: $mf-min-height;
+  margin-top: ($mf-font-size * 0.2);
+  margin-bottom: ($mf-gap * 1.5);
+
+  .input-group {
+    align-self: flex-end;
+  }
+
+  .input-icon {
+    position: absolute;
+    top: $mf-icon-top;
+    color: $mf-label-color;
+  }
+
+  @include text-emphasis-variant(".text-secondary", $mf-label-color);
+
+  .input-group {
+    position: relative;
+    display: block;
+  }
+
+  &.select-form-group {
+    .dropdown-toggle::after {
+      display: none;
+    }
+
+    .dropdown-menu {
+      width: 100%;
+    }
+
+    .dropdown-item {
+      cursor: pointer;
+      justify-content: space-between;
+
+      .selected-icon {
+        display: none;
+        margin-left: 0.35rem;
+      }
+
+      &.selected {
+        color: $mf-focus-color;
+
+        .selected-icon {
+          display: inline-block;
+        }
+      }
+    }
+
+    .input-icon {
+      color: $mf-active-color;
+      font-size: 0.8rem;
+      top: 1rem;
+    }
+
+    .bar::before {
+      display: none;
+    }
+  }
+
+  &.form-group-w-btn {
+    .btn {
+      align-self: flex-end;
+    }
+  }
+
+  &.with-icon-right {
+    input {
+      padding-right: $mf-icon-gutter;
+    }
+
+    .icon-right {
+      right: 0;
+    }
+  }
+
+  &.with-icon-left {
+    input,
+    textarea {
+      padding-left: $mf-icon-gutter;
+
+      ~ .control-label {
+        padding-left: $mf-icon-gutter;
+      }
+    }
+
+    select,
+    input:focus,
+    input:valid,
+    input.form-file,
+    input.has-value,
+    textarea:focus,
+    textarea:valid,
+    textarea.form-file,
+    textarea.has-value {
+      color: $mf-input-color;
+
+      ~ .control-label {
+        padding-left: 0;
+      }
+    }
+
+    .icon-left {
+      left: 0;
+    }
+  }
+
+  .error-icon, .valid-icon {
+    display: none;
+  }
+}
+
+.form-inline {
+  > .form-group,
+  > .btn {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+}
+
+.form-help {
+  margin-top: $mf-spacer;
+  margin-left: $mf-spacer;
+  color: $mf-label-color;
+  font-size: $mf-active-font-size;
+
+  .form-group & {
+    position: absolute;
+    width: 100%;
+  }
+
+  .checkbox & {
+    position: relative;
+    margin-bottom: $mf-font-size;
+  }
+}
+
+.form-group {
+  // scss-lint:disable QualifyingElement, NestingDepth
+  input, textarea.chat {
+    height: ($mf-font-size * 1.9);
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  select {
+    width: 100%;
+    font-size: $mf-font-size;
+    height: ($mf-font-size * 1.6);
+    padding: $mf-spacer $mf-spacer ($mf-spacer / 2);
+    background: none;
+    border: none;
+    line-height: 1.6;
+    box-shadow: none;
+  }
+
+  .control-label {
+    position: absolute;
+    top: ($mf-font-size / 4);
+    left: 0;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    pointer-events: none;
+    padding-left: $mf-spacer;
+    z-index: 1;
+    color: $mf-label-color;
+    font-size: $mf-font-size;
+    font-weight: normal;
+    transition: all $mf-transition-speed ease;
+  }
+
+  .bar {
+    position: relative;
+    border-bottom: ($mf-font-size / 16) solid $mf-border-color;
+    display: block;
+
+    &::before {
+      content: '';
+      height: ($mf-font-size / 8);
+      width: 0;
+      left: 50%;
+      bottom: ($mf-font-size / -16);
+      position: absolute;
+      background: $mf-focus-border-color;
+      transition: left $mf-transition-speed ease, width $mf-transition-speed ease;
+      z-index: 2;
+    }
+  }
+
+  input,
+  textarea {
+    display: block;
+    background: none;
+    padding: $mf-spacer $mf-spacer ($mf-spacer / 2);
+    font-size: $mf-font-size;
+    border-width: 0;
+    border-color: transparent;
+    line-height: 1.9;
+    width: 100%;
+    transition: all $mf-transition-speed ease;
+    box-shadow: none;
+  }
+
+  input[type="file"] {
+    line-height: 1;
+
+    ~ .bar {
+      display: none;
+    }
+  }
+
+  &.show input,
+  select,
+  input:focus,
+  input:valid,
+  input.form-file,
+  input.has-value,
+  textarea:focus,
+  textarea:valid,
+  textarea.form-file,
+  textarea.has-value {
+    color: $mf-input-color;
+
+    ~ .control-label {
+      font-size: $mf-active-font-size;
+      color: $mf-focus-color;
+      font-weight: 600;
+      text-transform: uppercase;
+      top: $mf-active-top;
+      left: 0;
+    }
+  }
+
+  select,
+  input,
+  textarea {
+    &:focus {
+      outline: none;
+
+      ~ .control-label {
+        color: $mf-focus-color;
+      }
+
+      ~ .bar {
+        &::before {
+          width: 100%;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+
+.valid {
+  .legend.legend,
+  &.form-group .control-label.control-label {
+    // Prevent !importantRule
+    color: $mf-focus-color;
+  }
+
+  .valid-icon {
+    display: inline-block;
+    color: $mf-focus-color;
+  }
+}
+
+.has-error {
+  .legend.legend,
+  &.form-group .control-label.control-label {
+    // Prevent !importantRule
+    color: $mf-error-color;
+  }
+
+  .error-icon {
+    display: inline-block;
+    color: $mf-error-color;
+  }
+
+  &.form-group {
+    .icon-right {
+      color: $mf-error-color;
+    }
+  }
+
+  &.form-group,
+  &.checkbox {
+    .form-help,
+    .helper {
+      color: $mf-error-color;
+    }
+  }
+
+  .bar {
+    &::before {
+      background: $mf-error-color;
+      left: 0;
+      width: 100%;
+    }
+  }
+}

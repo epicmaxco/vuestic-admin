@@ -16,18 +16,19 @@
 
 <script>
 import VuesticSimplePalettePicker from './VuesticSimplePalettePicker'
-import {colorArray} from './VuesticTheme'
+import { colorArray } from './VuesticTheme'
 import VuesticPalletCustom from './VuesticPalletCustom'
+
 export default {
   components: {
     VuesticSimplePalettePicker,
-    VuesticPalletCustom
+    VuesticPalletCustom,
   },
   data () {
     return {
       value: '#AAA',
-      palette: colorArray
+      palette: colorArray,
     }
-  }
+  },
 }
 </script>

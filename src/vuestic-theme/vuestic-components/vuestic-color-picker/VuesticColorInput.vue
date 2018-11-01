@@ -42,8 +42,8 @@ export default {
     },
     selected: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     valueProxy: {
@@ -52,14 +52,14 @@ export default {
       },
       set (value) {
         this.$emit('input', value)
-      }
-    }
+      },
+    },
   },
   methods: {
     onClick () {
       this.$emit('click')
-    }
-  }
+    },
+  },
 }
 </script>
 

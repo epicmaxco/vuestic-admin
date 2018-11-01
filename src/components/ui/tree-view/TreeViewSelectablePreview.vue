@@ -6,7 +6,7 @@
           slot="checkbox"
           v-model="product.selected"
         />
-          {{ product.name }}
+        {{ product.name }}
       </vuestic-tree-node>
     </vuestic-tree-category>
     <vuestic-tree-category isOpen label="Electronics">
@@ -35,7 +35,7 @@ export default {
         { id: 4, name: 'Cables', selected: false },
         { id: 5, name: 'Monitors', selected: false },
         { id: 6, name: 'Keyboards', selected: false },
-      ]
+      ],
     }
   },
 }
