@@ -2,16 +2,38 @@
   <div
     class="wizard"
     :class="computedLayout"
-    v-orientation-handler="{ layout: wizardLayout,  breakPoint: orientationBreakPoint }">
-
-    <div v-if="computedLayout === 'horizontal'" class="indicator-container indicator-container-horizontal">
-      <simple-horizontal-indicator v-if="wizardType === 'simple'" :steps="steps" :currentStep="currentStep" :completed="wizardCompleted"></simple-horizontal-indicator>
-      <rich-horizontal-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep" :completed="wizardCompleted"></rich-horizontal-indicator>
+    v-orientation-handler="{ layout: wizardLayout,  breakPoint: orientationBreakPoint }"
+  >
+    <div v-if="computedLayout === 'horizontal'"
+         class="indicator-container indicator-container-horizontal">
+      <simple-horizontal-indicator
+        v-if="wizardType === 'simple'"
+        :steps="steps"
+        :currentStep="currentStep"
+        :completed="wizardCompleted"
+      />
+      <rich-horizontal-indicator
+        v-if="wizardType === 'rich'"
+        :steps="steps"
+        :currentStep="currentStep"
+        :completed="wizardCompleted"
+      />
     </div>
 
-    <div v-if="computedLayout === 'vertical'" class="indicator-container indicator-container-vertical">
-      <rich-vertical-indicator v-if="wizardType === 'rich'" :steps="steps" :currentStep="currentStep" :completed="wizardCompleted"></rich-vertical-indicator>
-      <simple-vertical-indicator v-if="wizardType === 'simple'" :steps="steps" :currentStep="currentStep" :completed="wizardCompleted"></simple-vertical-indicator>
+    <div v-if="computedLayout === 'vertical'"
+         class="indicator-container indicator-container-vertical">
+      <rich-vertical-indicator
+        v-if="wizardType === 'rich'"
+        :steps="steps"
+        :currentStep="currentStep"
+        :completed="wizardCompleted"
+      />
+      <simple-vertical-indicator
+        v-if="wizardType === 'simple'"
+        :steps="steps"
+        :currentStep="currentStep"
+        :completed="wizardCompleted"
+      />
     </div>
 
     <div class="wizard-body">
@@ -28,19 +50,22 @@
 
       <div class="wizard-body-actions" v-if="!wizardCompleted">
         <div class="btn-container" v-if="backEnabled">
-          <button class="btn btn-secondary wizard-back pull-left" @click.prevent="goBack()">
+          <button class="btn btn-secondary wizard-back pull-left"
+                  @click.prevent="goBack()">
             Back
           </button>
         </div>
 
         <div class="btn-container" v-if="!isLastStep()">
-          <button class="btn btn-primary wizard-next pull-right" @click.prevent="goNext()">
+          <button class="btn btn-primary wizard-next pull-right"
+                  @click.prevent="goNext()">
             Next
           </button>
         </div>
 
         <div class="btn-container" v-if="currentStep == steps.length - 1">
-          <button class="btn btn-primary wizard-next pull-right final-step" @click.prevent="completeWizard()">
+          <button class="btn btn-primary wizard-next pull-right final-step"
+                  @click.prevent="completeWizard()">
             {{lastStepLabel}}
           </button>
         </div>
@@ -207,13 +232,14 @@ $wizard-body-step-item-margin-bottom: $wizard-body-step-v-padding;
 }
 
 .wizard-body-actions {
+  margin-top: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
   align-items: baseline;
 
-  .wizard-body{
+  .wizard-body {
     position: relative;
   }
 

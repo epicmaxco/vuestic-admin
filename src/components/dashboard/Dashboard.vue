@@ -32,7 +32,8 @@ import DashboardInfoWidgets from './DashboardInfoWidgets'
 import UsersMembersTab from './users-and-members-tab/UsersMembersTab.vue'
 import SetupProfileTab from './setup-profile-tab/SetupProfileTab.vue'
 import FeaturesTab from './features-tab/FeaturesTab.vue'
-import DataVisualisationTab from './data-visualisation-tab/DataVisualisation.vue'
+import DataVisualisationTab
+  from './data-visualisation-tab/DataVisualisation.vue'
 import DashboardBottomWidgets from './DashboardBottomWidgets.vue'
 
 export default {
@@ -43,7 +44,7 @@ export default {
     UsersMembersTab,
     SetupProfileTab,
     FeaturesTab,
-    DashboardBottomWidgets
+    DashboardBottomWidgets,
   },
 
   methods: {
@@ -55,11 +56,11 @@ export default {
         action: {
           text: 'Hire us',
           href: 'http://epicmax.co/#/contact',
-          class: 'vuestic-toasted-link'
-        }
+          class: 'vuestic-toasted-link',
+        },
       })
-    }
-  }
+    },
+  },
 }
 
 </script>

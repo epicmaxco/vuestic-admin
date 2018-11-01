@@ -5,7 +5,7 @@ export const VuesticTheme = {
   Success: 'Success',
   Warning: 'Warning',
   White: 'White',
-  Black: 'Black'
+  Black: 'Black',
 }
 
 export const colorConfig = {
@@ -15,7 +15,7 @@ export const colorConfig = {
   [VuesticTheme.Success]: '#db76df',
   [VuesticTheme.Warning]: '#f7cc36',
   [VuesticTheme.White]: '#fff',
-  [VuesticTheme.Black]: '#000'
+  [VuesticTheme.Black]: '#000',
 }
 
 export const colorArray = Object.values(colorConfig)

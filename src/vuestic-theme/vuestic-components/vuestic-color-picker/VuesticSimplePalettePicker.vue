@@ -17,14 +17,14 @@ import ColorDot from './ColorDot'
 export default {
   name: 'vuestic-simple-palette-picker',
   components: {
-    ColorDot
+    ColorDot,
   },
   props: {
     palette: {
-      type: Array
+      type: Array,
     },
     value: {
-      default: ''
+      default: '',
     },
   },
   computed: {
@@ -43,8 +43,8 @@ export default {
     },
     handlerClick (color) {
       this.valueProxy = color
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -1,10 +1,11 @@
 <template>
   <div class="vuestic-color-picker-input">
     <div v-if="validator(this.mode)">
-      <vuestic-dropdown>
+      <vuestic-color-dropdown>
         <div slot="toggle" class="vuestic-color-picker-input__slot">
           <slot>
-            <vuestic-color-input v-model="valueProxy" mode="palette" :disabled="disableInput" :selected="selected"/>
+            <vuestic-color-input v-model="valueProxy" mode="palette"
+                                 :disabled="disableInput" :selected="selected"/>
           </slot>
         </div>
         <div class="vuestic-color-picker-input__dropdown">
@@ -12,17 +13,19 @@
             <vuestic-advanced-color-picker v-model="valueProxy"/>
           </div>
           <div v-if="this.mode==='palette'">
-            <vuestic-simple-palette-picker v-model="valueProxy" :palette="palette"/>
+            <vuestic-simple-palette-picker v-model="valueProxy"
+                                           :palette="palette"/>
           </div>
           <div v-if="this.mode==='slider'">
             <vuestic-slider-color-picker v-model="valueProxy"/>
           </div>
         </div>
-      </vuestic-dropdown>
+      </vuestic-color-dropdown>
     </div>
     <div v-else>
       <slot>
-        <vuestic-color-input v-model="valueProxy" mode="palette" :disabled="disableInput"/>
+        <vuestic-color-input v-model="valueProxy" mode="palette"
+                             :disabled="disableInput"/>
       </slot>
     </div>
   </div>
@@ -35,32 +38,32 @@ import VuesticSimplePalettePicker from './VuesticSimplePalettePicker'
 import VuesticSliderColorPicker from './VuesticSliderColorPicker'
 import VuesticColorSquare from './VuesticColorSquare'
 import VuesticColorInput from './VuesticColorInput'
-import VuesticDropdown from './VuesticDropdown'
+import VuesticColorDropdown from './VuesticColorDropdown'
 
 export default {
   name: 'vuestic-color-picker-input',
   components: {
-    VuesticDropdown,
+    VuesticColorDropdown,
     VuesticColorSquare,
     VuesticSimplePalettePicker,
     VuesticAdvancedColorPicker,
     VuesticSliderColorPicker,
-    VuesticColorInput
+    VuesticColorInput,
   },
   props: {
     mode: {
-      type: String
+      type: String,
     },
     palette: {
-      type: Array
+      type: Array,
     },
     value: {
-      default: ''
+      default: '',
     },
     selected: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     valueProxy: {
@@ -78,7 +81,7 @@ export default {
         }
       }
       return false
-    }
+    },
   },
   methods: {
     validator (value) {
@@ -87,8 +90,8 @@ export default {
       } else {
         return false
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

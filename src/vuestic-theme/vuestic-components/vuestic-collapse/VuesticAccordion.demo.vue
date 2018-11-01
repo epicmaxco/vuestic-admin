@@ -1,42 +1,60 @@
 <template>
   <div class="demo-container">
     <div class="demo-container__item" style="width: 900px;">
-      <div class="row">
-        <div class="col-lg-12">
-          <vuestic-accordion>
-            <vuestic-collapse>
-              <button class="btn btn-primary" slot="header">
-                <span> Expand This Block </span>
-              </button>
-              <div slot="body">
-                <div style="padding: 10px;">
-                  Expand first content
-                </div>
-              </div>
-            </vuestic-collapse>
-            <vuestic-collapse>
-              <button class="btn btn-primary" slot="header">
-                <span> Another Block </span>
-              </button>
-              <div slot="body">
-                <div style="padding: 10px;">
-                  Expand second content
-                </div>
-              </div>
-            </vuestic-collapse>
-            <vuestic-collapse>
-              <button class="btn btn-primary" slot="header">
-                <span> Let's Go </span>
-              </button>
-              <div slot="body">
-                <div style="padding: 10px;">
-                  Expand three content
-                </div>
-              </div>
-            </vuestic-collapse>
-          </vuestic-accordion>
-        </div>
-      </div>
+      <vuestic-accordion>
+        <vuestic-collapse>
+          <span slot="header"> Expand This Block </span>
+          <div slot="body">
+            <div style="padding: 10px;">
+              Expand first content
+            </div>
+          </div>
+        </vuestic-collapse>
+        <vuestic-collapse>
+          <span slot="header"> Another Block </span>
+          <div slot="body">
+            <div style="padding: 10px;">
+              Expand second content
+            </div>
+          </div>
+        </vuestic-collapse>
+        <vuestic-collapse>
+          <span slot="header"> Let's Go </span>
+          <div slot="body">
+            <div style="padding: 10px;">
+              Expand three content
+            </div>
+          </div>
+        </vuestic-collapse>
+      </vuestic-accordion>
+    </div>
+    <div class="demo-container__item" style="width: 900px;">
+      <vuestic-accordion expand>
+        <vuestic-collapse>
+          <span slot="header"> Expand This Block </span>
+          <div slot="body">
+            <div style="padding: 10px;">
+              Expand first content
+            </div>
+          </div>
+        </vuestic-collapse>
+        <vuestic-collapse>
+          <span slot="header"> Another Block </span>
+          <div slot="body">
+            <div style="padding: 10px;">
+              Expand second content
+            </div>
+          </div>
+        </vuestic-collapse>
+        <vuestic-collapse>
+          <span slot="header"> Let's Go </span>
+          <div slot="body">
+            <div style="padding: 10px;">
+              Expand three content
+            </div>
+          </div>
+        </vuestic-collapse>
+      </vuestic-accordion>
     </div>
   </div>
 </template>

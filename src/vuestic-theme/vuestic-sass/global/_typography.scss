@@ -1,0 +1,109 @@
+.vue-highlighted-text {
+  background-color: $vue-turquoise;
+}
+
+.vue-selected-text, ::selection {
+  background-color: $brand-primary;
+  color: $white;
+}
+
+ul.vue-list-inner, ol.vue-list-inner {
+  li:first-child {
+    margin-top: 1.5rem;
+  }
+
+  li:last-child {
+    padding-bottom: 0;
+  }
+}
+
+ul.vue-unordered {
+  padding: 0;
+  list-style-type: none;
+
+  ul {
+    padding: 0;
+    list-style-type: none;
+  }
+
+  li {
+    padding-left: 1.563rem;
+    padding-bottom: 1.5rem;
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 0.75rem;
+      height: 0.75rem;
+      position: relative;
+      right: 1.563rem;
+      top: 0.0625rem;
+      margin-right: -0.75em;
+      border-radius: 0.75rem;
+      background-color: $vue-green;
+    }
+
+    li {
+      &::before {
+        background-color: $white;
+        border: 2.5px solid $vue-green;
+      }
+    }
+  }
+}
+
+ol.vue-ordered {
+  padding: 0;
+  counter-reset: olCounter;
+
+  li {
+    list-style: none;
+    padding-left: 1.563rem;
+    padding-bottom: 1.5rem;
+  }
+
+  > li:before {
+    counter-increment: olCounter;
+    content: counter(olCounter) ". ";
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    position: relative;
+    right: 1.563rem;
+    top: 0.0625rem;
+    margin-right: -0.75em;
+  }
+
+  ul {
+    padding: 0;
+    list-style-type: none;
+    li {
+      padding-left: 1.563rem;
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 0.75rem;
+        height: 0.75rem;
+        position: relative;
+        right: 1.563rem;
+        top: 0.0625rem;
+        margin-right: -0.75em;
+        border-radius: 0.75rem;
+        background-color: $vue-green;
+      }
+
+    }
+  }
+
+}
+
+.vue-misc {
+  margin-top: 5.625rem;
+  margin-bottom: 2rem;
+}
+
+//Well
+.well {
+  padding: 1.9rem 2.2rem 1.9rem 1.6rem;
+  // background-color : #f7f7f7;
+  background-color: $light-gray;
+}

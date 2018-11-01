@@ -61,7 +61,7 @@ export default {
     },
     stop () {
       clearInterval(this.interval)
-    }
+    },
   },
   mounted () {
     this.context = this.$refs.canvas.getContext('2d')
@@ -85,8 +85,8 @@ export default {
       context: {},
       radius: 4,
       mainRadius: 8,
-      interval: {}
+      interval: {},
     }
-  }
+  },
 }
 </script>

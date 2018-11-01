@@ -1,0 +1,50 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  deploy:
+    docker:
+    - image: circleci/node:10.12.0
+    parallelism: 1
+    working_directory: ~/repo
+    steps:
+    - checkout
+    - restore_cache:
+        keys:
+        - yarn-packages-{{ checksum "yarn.lock" }}
+    - run: yarn install
+    - save_cache:
+        paths:
+        - node_modules
+        key: yarn-packages-{{ checksum "yarn.lock" }}
+    - run: yarn build
+    - run:
+        name: Deploy to hosting
+        # Package dist folder
+        # Do some hacks to be able to copy file without ssh key (only with user/password). That's not needed for normal hosting
+        # Copy package to tmp folder
+        # On remote host:
+        # - remove public folder contents
+        # - unpack bundle archive into public folder
+        # - remove bundle archive
+        command: |
+          tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
+          sudo apt install sshpass
+          ssh-keyscan -t rsa $DEPLOY_URL >> ~/.ssh/known_hosts
+          sshpass -p $DEPLOY_PASSWORD scp ~/repo/dist.tar.gz $DEPLOY_USER@$DEPLOY_URL:~/tmp
+          sshpass -p $DEPLOY_PASSWORD ssh $DEPLOY_USER@$DEPLOY_URL /bin/bash << EOF
+            rm -rf $DEPLOY_PATH/*
+            tar -xzf ~/tmp/dist.tar.gz -C $DEPLOY_PATH
+            rm -f ~/tmp/dist.tar.gz
+          EOF
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+    - deploy:
+        filters:
+          branches:
+            only: develop

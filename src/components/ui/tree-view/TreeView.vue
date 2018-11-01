@@ -55,13 +55,13 @@ export default {
     TreeViewSelectablePreview,
     TreeViewIconsPreview,
     TreeViewBasicPreview,
-    VuesticWidget
+    VuesticWidget,
   },
   data () {
     return {
-      treeViewData: {}
+      treeViewData: {},
     }
-  }
+  },
 }
 </script>
 

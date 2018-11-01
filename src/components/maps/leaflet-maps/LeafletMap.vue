@@ -17,20 +17,20 @@ export default {
     var map = L.map(this.$el).setView([51.505, -0.09], 13)
 
     L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+      attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(map)
 
     L.marker([51.5, -0.09]).addTo(map)
       .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
       .openPopup()
-  }
+  },
 }
 </script>
 
 <style lang="scss">
-  @import "~leaflet/dist/leaflet.css";
+@import "~leaflet/dist/leaflet.css";
 
-  .leaflet-map {
-    height: 100%;
-  }
+.leaflet-map {
+  height: 100%;
+}
 </style>

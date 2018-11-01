@@ -23,7 +23,8 @@ export default {
     const value = binding.value || {}
     const isBlocked = value.isBlocked || false
 
-    const onDropdownClose = value.onDropdownClose || (() => {})
+    const onDropdownClose = value.onDropdownClose || (() => {
+    })
 
     // ** Checking if declarations are sane. **
 
@@ -75,6 +76,7 @@ export default {
     // We attach function to el to be able to remove event listeners from window on unbind.
     el.removeShow = removeShow
 
+    window.addEventListener('click', el.removeShow)
     // Probably also checking if element is select.
     if (dropdownMenu) {
       dropdownMenu.addEventListener('click', (event) => {

@@ -19,15 +19,15 @@ import GoogleMap from './GoogleMap'
 export default {
   name: 'google-maps-page',
   components: {
-    GoogleMap
-  }
+    GoogleMap,
+  },
 }
 </script>
 
 <style lang="scss">
- .google-maps-page{
-   &__widget {
-     height: 70vh;
-   }
- }
+.google-maps-page {
+  &__widget {
+    height: 70vh;
+  }
+}
 </style>

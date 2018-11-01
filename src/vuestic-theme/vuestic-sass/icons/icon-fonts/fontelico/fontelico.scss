@@ -1,0 +1,135 @@
+@font-face {
+  font-family: 'fontelico';
+  font-style: normal;
+  font-weight: normal;
+  src: url('vuestic-theme/vuestic-sass/icons/icon-fonts/fontelico/fontelico.eot');
+  src: url('vuestic-theme/vuestic-sass/icons/icon-fonts/fontelico/fontelico.eot?#iefix') format('eot'),
+  url('vuestic-theme/vuestic-sass/icons/icon-fonts/fontelico/fontelico.woff') format('woff'),
+  url('vuestic-theme/vuestic-sass/icons/icon-fonts/fontelico/fontelico.ttf') format('truetype'),
+  url('vuestic-theme/vuestic-sass/icons/icon-fonts/fontelico/fontelico.svg#fontelico') format('svg');
+}
+
+[class*="fontelico-"]:before {
+  font-family: 'fontelico', sans-serif;
+  font-style: normal;
+}
+
+.fontelico-emo-happy:before {
+  content: '\e800'
+}
+
+.fontelico-emo-wink:before {
+  content: '\e801'
+}
+
+.fontelico-emo-wink2:before {
+  content: '\e813'
+}
+
+.fontelico-emo-unhappy:before {
+  content: '\e802'
+}
+
+.fontelico-emo-sleep:before {
+  content: '\e803'
+}
+
+.fontelico-emo-thumbsup:before {
+  content: '\e804'
+}
+
+.fontelico-emo-devil:before {
+  content: '\e805'
+}
+
+.fontelico-emo-surprised:before {
+  content: '\e806'
+}
+
+.fontelico-emo-tongue:before {
+  content: '\e807'
+}
+
+.fontelico-emo-coffee:before {
+  content: '\e808'
+}
+
+.fontelico-emo-sunglasses:before {
+  content: '\e809'
+}
+
+.fontelico-emo-displeased:before {
+  content: '\e80a'
+}
+
+.fontelico-emo-beer:before {
+  content: '\e80b'
+}
+
+.fontelico-emo-grin:before {
+  content: '\e80c'
+}
+
+.fontelico-emo-angry:before {
+  content: '\e80d'
+}
+
+.fontelico-emo-saint:before {
+  content: '\e80e'
+}
+
+.fontelico-emo-cry:before {
+  content: '\e80f'
+}
+
+.fontelico-emo-shoot:before {
+  content: '\e810'
+}
+
+.fontelico-emo-squint:before {
+  content: '\e811'
+}
+
+.fontelico-emo-laugh:before {
+  content: '\e812'
+}
+
+.fontelico-spin1:before {
+  content: '\e830'
+}
+
+.fontelico-spin2:before {
+  content: '\e831'
+}
+
+.fontelico-spin3:before {
+  content: '\e832'
+}
+
+.fontelico-spin4:before {
+  content: '\e834'
+}
+
+.fontelico-spin5:before {
+  content: '\e838'
+}
+
+.fontelico-spin6:before {
+  content: '\e839'
+}
+
+.fontelico-firefox:before {
+  content: '\e840'
+}
+
+.fontelico-chrome:before {
+  content: '\e841'
+}
+
+.fontelico-opera:before {
+  content: '\e842'
+}
+
+.fontelico-ie:before {
+  content: '\e843'
+}
