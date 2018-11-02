@@ -18,12 +18,9 @@
       <vuestic-data-table
         :apiUrl="apiUrl"
         :tableFields="tableFields"
-        :itemsPerPage="itemsPerPage"
-        :defaultPerPage="defaultTablePerPage"
-        :sortFunctions="sortFunctions"
-        :apiMode="apiMode"
-        :paginationPath="paginationPath"
-        :queryParams="queryParams"
+        :onFilterCustom="onFilter"
+        :filterInputShown="false"
+        :paginationOn="false"
       >
         <spring-spinner
           slot="loading"
@@ -34,12 +31,26 @@
       </vuestic-data-table>
     </vuestic-widget>
     <vuestic-widget>
+      <div class="row filters-page__filter-bar-container">
+        <filter-bar
+          @filter="onFilter1"
+          class="filters-page__filter-bar"
+        />
+        <filter-bar
+          @filter="onFilter1"
+          class="filters-page__filter-bar"
+        />
+        <filter-bar
+          @filter="onFilter1"
+          class="filters-page__filter-bar"
+        />
+      </div>
       <div class="filters-page__tags">
         <vuestic-tag
           v-if="carMaker"
           :name="`Car maker: ${ carMaker }`"
           removable
-          @remove="carMaker = undefined"
+          @remove="onFilterRemove"
         />
         <vuestic-tag
           v-if="user"
@@ -60,9 +71,12 @@ import FieldsDef
 import ItemsPerPageDef
   from 'vuestic-components/vuestic-datatable/data/items-per-page-definition'
 import QueryParams from 'vuestic-components/vuestic-datatable/data/query-params'
+import FilterBar from '../../../vuestic-theme/vuestic-components/vuestic-datatable/datatable-components/FilterBar.vue'
+import { SpringSpinner } from 'epic-spinners'
+
 export default {
   name: 'filters',
-  components: { VuesticWidget },
+  components: { VuesticWidget, FilterBar, SpringSpinner },
   data () {
     return {
       carMaker: 'o',
@@ -75,8 +89,18 @@ export default {
       paginationPath: '',
       defaultTablePerPage: 6,
       queryParams: QueryParams,
+      onFilter: ''
     }
   },
+  methods: {
+    onFilter1 (val) {
+      this.carMaker = val
+      this.onFilter = val
+    },
+    onFilterRemove () {
+      this.onFilter1('')
+    }
+  }
 }
 </script>
 
@@ -84,6 +108,13 @@ export default {
 .filters-page {
   &__tags {
     display: flex;
+  }
+  &__filter-bar {
+    margin: 1.5rem;
+    width: 300px;
+  }
+  &__filter-bar-container {
+    justify-content: space-between;
   }
 }
 </style>
