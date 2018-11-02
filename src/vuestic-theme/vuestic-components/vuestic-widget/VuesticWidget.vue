@@ -84,9 +84,15 @@ export default {
     padding: 0 $widget-padding;
     border-bottom: $widget-header-border;
     font-size: 1.375rem;
-    font-weight: 600;
+    font-weight: 900;
     display: flex;
     align-items: center;
+  }
+
+  @-moz-document url-prefix() {
+    .vuestic-widget-header {
+      letter-spacing: -0.5px;
+    }
   }
 }
 </style>
