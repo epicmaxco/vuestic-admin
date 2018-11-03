@@ -15,46 +15,54 @@
       </div>
     </vuestic-widget>
     <vuestic-widget>
-      <vuestic-data-table
-        :apiUrl="apiUrl"
-        :tableFields="tableFields"
-        :onFilterCustom="onFilter"
-        :filterInputShown="false"
-        :paginationOn="false"
-      >
-        <spring-spinner
-          slot="loading"
-          :animation-duration="2500"
-          :size="70"
-          color="#4ae387"
-        />
-      </vuestic-data-table>
+      <div class="table-responsive">
+        <table class="table table-striped first-td-padding">
+          <thead>
+          <tr>
+            <td>{{'tables.headings.name' | translate}}</td>
+            <td>{{'tables.headings.email' | translate}}</td>
+            <td>{{'tables.headings.city' | translate}}</td>
+            <td align="right">{{'tables.headings.score' | translate}}</td>
+            <td></td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr v-for="item in itemsFiltered" v-bind:key="item">
+            <td>{{ item.itemName }}</td>
+            <td>{{ item.itemEmail }}</td>
+            <td>{{ item.itemCity }}</td>
+            <td align="right">{{ item.itemScore }}</td>
+            <td></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
     </vuestic-widget>
     <vuestic-widget>
       <div class="row filters-page__filter-bar-container">
         <filter-bar
-          @filter="onFilter1"
+          @filter="filterName"
           class="filters-page__filter-bar"
         />
         <filter-bar
-          @filter="onFilter1"
+          @filter="filterEmail"
           class="filters-page__filter-bar"
         />
         <filter-bar
-          @filter="onFilter1"
+          @filter="onFilterInputName"
           class="filters-page__filter-bar"
         />
       </div>
       <div class="filters-page__tags">
         <vuestic-tag
-          v-if="carMaker"
-          :name="`Car maker: ${ carMaker }`"
+          v-if="name"
+          :name="`Name: ${ name }`"
           removable
           @remove="onFilterRemove"
         />
         <vuestic-tag
-          v-if="user"
-          :name="`Car maker: ${ user }`"
+          v-if="email"
+          :name="`Email: ${ email }`"
           removable
           @remove="user = undefined"
         />
@@ -66,12 +74,8 @@
 <script>
 import VuesticWidget
   from '../../../vuestic-theme/vuestic-components/vuestic-widget/VuesticWidget'
-import FieldsDef
-  from 'vuestic-components/vuestic-datatable/data/fields-definition'
-import ItemsPerPageDef
-  from 'vuestic-components/vuestic-datatable/data/items-per-page-definition'
-import QueryParams from 'vuestic-components/vuestic-datatable/data/query-params'
-import FilterBar from '../../../vuestic-theme/vuestic-components/vuestic-datatable/datatable-components/FilterBar.vue'
+import FilterBar
+  from '../../../vuestic-theme/vuestic-components/vuestic-datatable/datatable-components/FilterBar.vue'
 import { SpringSpinner } from 'epic-spinners'
 
 export default {
@@ -79,26 +83,148 @@ export default {
   components: { VuesticWidget, FilterBar, SpringSpinner },
   data () {
     return {
-      carMaker: 'o',
+      name: '',
+      email: '',
       user: 'Nancy',
-      apiUrl: 'https://vuetable.ratiw.net/api/users',
-      apiMode: true,
-      tableFields: FieldsDef.tableFields,
-      itemsPerPage: ItemsPerPageDef.itemsPerPage,
-      sortFunctions: FieldsDef.sortFunctions,
-      paginationPath: '',
-      defaultTablePerPage: 6,
-      queryParams: QueryParams,
-      onFilter: ''
+      items: [
+        {
+          itemName: 'Matthew McCormick',
+          itemEmail: 'matthew30@mail.ol',
+          itemCity: 'Vancouver',
+          itemScore: 93
+        },
+        {
+          itemName: 'Nancy Bo',
+          itemEmail: 'nancy@boonweb.com',
+          itemCity: 'Washington',
+          itemScore: 280
+        },
+        {
+          itemName: 'Frederiko Lopez',
+          itemEmail: 'fr.lopez@webmail.sp',
+          itemCity: 'Barcelona',
+          itemScore: 16
+        },
+        {
+          itemName: 'Stanley Hummer',
+          itemEmail: 'mr_winner_2999@gmail.cb',
+          itemCity: 'Manchester',
+          itemScore: 57
+        },
+        {
+          itemName: 'Lendley Wintz',
+          itemEmail: '9938198146@mailster.io',
+          itemCity: 'Wien',
+          itemScore: 113
+        },
+        {
+          itemName: 'Barbara Noz',
+          itemEmail: 'barbaranoz@mailster.io',
+          itemCity: 'Brussels',
+          itemScore: 68
+        },
+        {
+          itemName: 'Matthew McCormick',
+          itemEmail: 'matthew30@mail.ol',
+          itemCity: 'Vancouver',
+          itemScore: 93
+        },
+        {
+          itemName: 'ancy Bo',
+          itemEmail: 'nancy@boonweb.com',
+          itemCity: 'Washington',
+          itemScore: 280
+        }
+      ],
+      sortedList: [
+        {
+          itemName: 'Matthew McCormick',
+          itemEmail: 'matthew30@mail.ol',
+          itemCity: 'Vancouver',
+          itemScore: 93
+        },
+        {
+          itemName: 'Nancy Bo',
+          itemEmail: 'nancy@boonweb.com',
+          itemCity: 'Washington',
+          itemScore: 280
+        },
+        {
+          itemName: 'Frederiko Lopez',
+          itemEmail: 'fr.lopez@webmail.sp',
+          itemCity: 'Barcelona',
+          itemScore: 16
+        },
+        {
+          itemName: 'Stanley Hummer',
+          itemEmail: 'mr_winner_2999@gmail.cb',
+          itemCity: 'Manchester',
+          itemScore: 57
+        },
+        {
+          itemName: 'Lendley Wintz',
+          itemEmail: '9938198146@mailster.io',
+          itemCity: 'Wien',
+          itemScore: 113
+        },
+        {
+          itemName: 'Barbara Noz',
+          itemEmail: 'barbaranoz@mailster.io',
+          itemCity: 'Brussels',
+          itemScore: 68
+        },
+        {
+          itemName: 'Matthew McCormick',
+          itemEmail: 'matthew30@mail.ol',
+          itemCity: 'Vancouver',
+          itemScore: 93
+        },
+        {
+          itemName: 'ancy Bo',
+          itemEmail: 'nancy@boonweb.com',
+          itemCity: 'Washington',
+          itemScore: 280
+        }
+      ],
     }
   },
   methods: {
-    onFilter1 (val) {
-      this.carMaker = val
-      this.onFilter = val
+    onFilterInputName (val) {
     },
     onFilterRemove () {
-      this.onFilter1('')
+      this.onFilterInputName('')
+    },
+    filterName (val) {
+      if (val.length <= this.name.length) {
+        this.name = val
+        this.itemsFiltered = this.items.filter(item => item.itemName.toUpperCase().search(this.name.toUpperCase()) !== -1)
+      } else {
+        this.name = val
+        this.itemsFiltered = this.itemsFiltered.filter(item => item.itemName.toUpperCase().search(this.name.toUpperCase()) !== -1)
+      }
+    },
+    filterEmail (val) {
+      if (val.length < this.email.length) {
+        this.email = val
+        this.itemsFiltered = this.items.filter(item => item.itemEmail.toUpperCase().search(this.email.toUpperCase()) !== -1)
+      } else {
+        this.email = val
+        this.itemsFiltered = this.itemsFiltered.filter(item => item.itemEmail.toUpperCase().search(this.email.toUpperCase()) !== -1)
+      }
+    }
+  },
+  computed: {
+    itemsFiltered: {
+      get: function () {
+        if (this.sortedList.length > 0) {
+          return this.sortedList
+        } else {
+          return this.items
+        }
+      },
+      set: function (sortedList) {
+        this.sortedList = sortedList
+      }
     }
   }
 }
