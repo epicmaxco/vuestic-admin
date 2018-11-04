@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'vuestic-spacer',
+  name: 'VaSpacer',
   render: (createElement) => {
     return createElement('div', { class: 'spacer' })
   },

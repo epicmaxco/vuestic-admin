@@ -1,19 +1,18 @@
 <template>
   <div class="demo-container">
     <div class="demo-container__item">
-      <vuestic-spacer>
-
-      </vuestic-spacer>
+      <va-spacer/>
     </div>
   </div>
 </template>
 
 <script>
-import VuesticSpacer from './VuesticSpacer.vue'
+
+import VaSpacer from './VaSpacer'
 
 export default {
   components: {
-    VuesticSpacer,
+    VaSpacer,
   },
 }
 </script>
