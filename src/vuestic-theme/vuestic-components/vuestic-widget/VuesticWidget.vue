@@ -84,7 +84,7 @@ export default {
     padding: 0 $widget-padding;
     border-bottom: $widget-header-border;
     font-size: 1.375rem;
-    font-weight: 900;
+    font-weight: 600;
     display: flex;
     align-items: center;
   }

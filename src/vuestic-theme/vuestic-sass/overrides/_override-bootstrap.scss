@@ -48,20 +48,6 @@ h5, .h5 {
   margin-bottom: 0.5rem;
 }
 
-@-moz-document url-prefix() {
-  h1, .h1, h2, .h2 {
-    letter-spacing: 0.25px;
-  }
-
-  h3, .h3, h4, .h4 {
-    letter-spacing: 0.5px;
-  }
-
-  h5, .h5 {
-    font-weight: 600;
-  }
-}
-
 .blockquote {
   padding: 0 ($spacer *1.625);
   margin: 2.5rem 0 2.5rem 1rem;
