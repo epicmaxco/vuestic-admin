@@ -1,6 +1,6 @@
 <template>
   <div class="filters-page">
-    <vuestic-widget>
+    <vuestic-widget headerText="Show filters">
       <div class="row">
         <div class="col-md-12">
           <vuestic-collapse noHeader>
@@ -38,19 +38,23 @@
         </table>
       </div>
     </vuestic-widget>
-    <vuestic-widget>
+    <vuestic-widget headerText="Hide filters">
       <div class="row filters-page__filter-bar-container">
         <filter-bar
           @filter="filterName"
           class="filters-page__filter-bar"
+          label="Name"
         />
         <filter-bar
           @filter="filterEmail"
           class="filters-page__filter-bar"
+          label="Email"
         />
-        <filter-bar
-          @filter="onFilterInputName"
+        <vuestic-simple-select
           class="filters-page__filter-bar"
+          label="City"
+          v-model="city"
+          :options="CitiesList"
         />
       </div>
       <div class="filters-page__tags">
@@ -76,116 +80,26 @@ import VuesticWidget
   from '../../../vuestic-theme/vuestic-components/vuestic-widget/VuesticWidget'
 import FilterBar
   from '../../../vuestic-theme/vuestic-components/vuestic-datatable/datatable-components/FilterBar.vue'
+import VuesticSimpleSelect
+  from '../../../vuestic-theme/vuestic-components/vuestic-simple-select/VuesticSimpleSelect'
 import { SpringSpinner } from 'epic-spinners'
+import CitiesList from './CitiesList'
+import ItemsList from './ItemsList'
 
 export default {
   name: 'filters',
-  components: { VuesticWidget, FilterBar, SpringSpinner },
+  components: {
+    VuesticWidget, FilterBar, SpringSpinner, VuesticSimpleSelect, ItemsList
+  },
   data () {
     return {
       name: '',
       email: '',
-      user: 'Nancy',
-      items: [
-        {
-          itemName: 'Matthew McCormick',
-          itemEmail: 'matthew30@mail.ol',
-          itemCity: 'Vancouver',
-          itemScore: 93
-        },
-        {
-          itemName: 'Nancy Bo',
-          itemEmail: 'nancy@boonweb.com',
-          itemCity: 'Washington',
-          itemScore: 280
-        },
-        {
-          itemName: 'Frederiko Lopez',
-          itemEmail: 'fr.lopez@webmail.sp',
-          itemCity: 'Barcelona',
-          itemScore: 16
-        },
-        {
-          itemName: 'Stanley Hummer',
-          itemEmail: 'mr_winner_2999@gmail.cb',
-          itemCity: 'Manchester',
-          itemScore: 57
-        },
-        {
-          itemName: 'Lendley Wintz',
-          itemEmail: '9938198146@mailster.io',
-          itemCity: 'Wien',
-          itemScore: 113
-        },
-        {
-          itemName: 'Barbara Noz',
-          itemEmail: 'barbaranoz@mailster.io',
-          itemCity: 'Brussels',
-          itemScore: 68
-        },
-        {
-          itemName: 'Matthew McCormick',
-          itemEmail: 'matthew30@mail.ol',
-          itemCity: 'Vancouver',
-          itemScore: 93
-        },
-        {
-          itemName: 'ancy Bo',
-          itemEmail: 'nancy@boonweb.com',
-          itemCity: 'Washington',
-          itemScore: 280
-        }
-      ],
-      sortedList: [
-        {
-          itemName: 'Matthew McCormick',
-          itemEmail: 'matthew30@mail.ol',
-          itemCity: 'Vancouver',
-          itemScore: 93
-        },
-        {
-          itemName: 'Nancy Bo',
-          itemEmail: 'nancy@boonweb.com',
-          itemCity: 'Washington',
-          itemScore: 280
-        },
-        {
-          itemName: 'Frederiko Lopez',
-          itemEmail: 'fr.lopez@webmail.sp',
-          itemCity: 'Barcelona',
-          itemScore: 16
-        },
-        {
-          itemName: 'Stanley Hummer',
-          itemEmail: 'mr_winner_2999@gmail.cb',
-          itemCity: 'Manchester',
-          itemScore: 57
-        },
-        {
-          itemName: 'Lendley Wintz',
-          itemEmail: '9938198146@mailster.io',
-          itemCity: 'Wien',
-          itemScore: 113
-        },
-        {
-          itemName: 'Barbara Noz',
-          itemEmail: 'barbaranoz@mailster.io',
-          itemCity: 'Brussels',
-          itemScore: 68
-        },
-        {
-          itemName: 'Matthew McCormick',
-          itemEmail: 'matthew30@mail.ol',
-          itemCity: 'Vancouver',
-          itemScore: 93
-        },
-        {
-          itemName: 'ancy Bo',
-          itemEmail: 'nancy@boonweb.com',
-          itemCity: 'Washington',
-          itemScore: 280
-        }
-      ],
+      city: '',
+      selectedCity: '',
+      CitiesList,
+      items: ItemsList,
+      sortedList: ItemsList
     }
   },
   methods: {
@@ -197,34 +111,51 @@ export default {
     filterName (val) {
       if (val.length <= this.name.length) {
         this.name = val
-        this.itemsFiltered = this.items.filter(item => item.itemName.toUpperCase().search(this.name.toUpperCase()) !== -1)
+        this.itemsFiltered = this.items.filter(item => item.itemName.toUpperCase()
+          .search(this.name.toUpperCase()) !== -1)
       } else {
         this.name = val
-        this.itemsFiltered = this.itemsFiltered.filter(item => item.itemName.toUpperCase().search(this.name.toUpperCase()) !== -1)
+        this.itemsFiltered = this.itemsFiltered.filter(item => item.itemName.toUpperCase()
+          .search(this.name.toUpperCase()) !== -1)
       }
     },
     filterEmail (val) {
       if (val.length < this.email.length) {
         this.email = val
-        this.itemsFiltered = this.items.filter(item => item.itemEmail.toUpperCase().search(this.email.toUpperCase()) !== -1)
+        this.itemsFiltered = this.items.filter(item => item.itemEmail.toUpperCase()
+          .search(this.email.toUpperCase()) !== -1)
       } else {
         this.email = val
-        this.itemsFiltered = this.itemsFiltered.filter(item => item.itemEmail.toUpperCase().search(this.email.toUpperCase()) !== -1)
+        this.itemsFiltered = this.itemsFiltered.filter(item => item.itemEmail.toUpperCase()
+          .search(this.email.toUpperCase()) !== -1)
+      }
+    },
+    filterCities (val) {
+      if (!val) {
+        this.city = val
+        this.itemsFiltered = this.items.filter(item => item.itemCity.toUpperCase()
+          .search(this.city.toUpperCase()) !== -1)
+      } else {
+        this.city = val
+        this.itemsFiltered = this.itemsFiltered.filter(item => item.itemCity.toUpperCase()
+          .search(this.city.toUpperCase()) !== -1)
       }
     }
   },
   computed: {
     itemsFiltered: {
       get: function () {
-        if (this.sortedList.length > 0) {
-          return this.sortedList
-        } else {
-          return this.items
-        }
+        return this.sortedList
       },
       set: function (sortedList) {
         this.sortedList = sortedList
       }
+    }
+  },
+  watch: {
+    city: function (val) {
+      this.city = val
+      this.filterCities(val)
     }
   }
 }
@@ -236,10 +167,10 @@ export default {
     display: flex;
   }
   &__filter-bar {
-    margin: 1.5rem;
     width: 300px;
   }
   &__filter-bar-container {
+    margin: 0;
     justify-content: space-between;
   }
 }
