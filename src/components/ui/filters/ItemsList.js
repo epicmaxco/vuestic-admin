@@ -36,12 +36,6 @@ export default [
     itemScore: 68
   },
   {
-    itemName: 'Matthew McCormick',
-    itemEmail: 'matthew30@mail.ol',
-    itemCity: 'Vancouver',
-    itemScore: 93
-  },
-  {
     itemName: 'ancy Bo',
     itemEmail: 'nancy@boonweb.com',
     itemCity: 'Washington',

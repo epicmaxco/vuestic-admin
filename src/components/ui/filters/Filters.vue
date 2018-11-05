@@ -3,14 +3,23 @@
     <vuestic-widget headerText="Show filters">
       <div class="row">
         <div class="col-md-12">
-          <vuestic-collapse noHeader>
-            <span slot="header">
-              Show filters
-            </span>
-            <div slot="body">
-              Inputs here
-            </div>
-          </vuestic-collapse>
+          <div class="filters-page__tags">
+            <vuestic-tag
+              :name="`Name: ${ name }`"
+              removable
+              @remove="onFilterRemove(1)"
+            />
+            <vuestic-tag
+              :name="`Email: ${ email }`"
+              removable
+              @remove="onFilterRemove(2)"
+            />
+            <vuestic-tag
+              :name="`City: ${ city }`"
+              removable
+              @remove="onFilterRemove(3)"
+            />
+          </div>
         </div>
       </div>
     </vuestic-widget>
@@ -27,7 +36,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr v-for="item in itemsFiltered" v-bind:key="item">
+          <tr v-for="item in itemsFiltered" v-bind:key="item.itemName">
             <td>{{ item.itemName }}</td>
             <td>{{ item.itemEmail }}</td>
             <td>{{ item.itemCity }}</td>
@@ -42,6 +51,7 @@
       <div class="row filters-page__filter-bar-container">
         <filter-bar
           @filter="filterName"
+          v-model="name"
           class="filters-page__filter-bar"
           label="Name"
         />
@@ -59,16 +69,19 @@
       </div>
       <div class="filters-page__tags">
         <vuestic-tag
-          v-if="name"
           :name="`Name: ${ name }`"
           removable
-          @remove="onFilterRemove"
+          @remove="onFilterRemove(1)"
         />
         <vuestic-tag
-          v-if="email"
           :name="`Email: ${ email }`"
           removable
-          @remove="user = undefined"
+          @remove="onFilterRemove(2)"
+        />
+        <vuestic-tag
+          :name="`City: ${ city }`"
+          removable
+          @remove="onFilterRemove(3)"
         />
       </div>
     </vuestic-widget>
@@ -96,20 +109,25 @@ export default {
       name: '',
       email: '',
       city: '',
-      selectedCity: '',
       CitiesList,
       items: ItemsList,
       sortedList: ItemsList
     }
   },
   methods: {
-    onFilterInputName (val) {
-    },
-    onFilterRemove () {
-      this.onFilterInputName('')
+    onFilterRemove (parameter) {
+      if (parameter === 1) {
+        this.filterName('')
+      }
+      if (parameter === 2) {
+        this.email = ''
+      }
+      if (parameter === 3) {
+        this.city = ''
+      }
     },
     filterName (val) {
-      if (val.length <= this.name.length) {
+      if (val.length <= this.name.length || !this.name) {
         this.name = val
         this.itemsFiltered = this.items.filter(item => item.itemName.toUpperCase()
           .search(this.name.toUpperCase()) !== -1)
@@ -118,9 +136,10 @@ export default {
         this.itemsFiltered = this.itemsFiltered.filter(item => item.itemName.toUpperCase()
           .search(this.name.toUpperCase()) !== -1)
       }
+      this.checkCriteria(1)
     },
     filterEmail (val) {
-      if (val.length < this.email.length) {
+      if (val.length <= this.email.length || !this.email) {
         this.email = val
         this.itemsFiltered = this.items.filter(item => item.itemEmail.toUpperCase()
           .search(this.email.toUpperCase()) !== -1)
@@ -129,6 +148,7 @@ export default {
         this.itemsFiltered = this.itemsFiltered.filter(item => item.itemEmail.toUpperCase()
           .search(this.email.toUpperCase()) !== -1)
       }
+      this.checkCriteria(2)
     },
     filterCities (val) {
       if (!val) {
@@ -139,6 +159,21 @@ export default {
         this.city = val
         this.itemsFiltered = this.itemsFiltered.filter(item => item.itemCity.toUpperCase()
           .search(this.city.toUpperCase()) !== -1)
+      }
+      this.checkCriteria(3)
+    },
+    checkCriteria (parameter) {
+      if (this.city && parameter !== 3) {
+        this.itemsFiltered = this.itemsFiltered.filter(item => item.itemCity.toUpperCase()
+          .search(this.city.toUpperCase()) !== -1)
+      }
+      if (this.email && parameter !== 2) {
+        this.itemsFiltered = this.itemsFiltered.filter(item => item.itemEmail.toUpperCase()
+          .search(this.email.toUpperCase()) !== -1)
+      }
+      if (this.name && parameter !== 1) {
+        this.itemsFiltered = this.itemsFiltered.filter(item => item.itemName.toUpperCase()
+          .search(this.name.toUpperCase()) !== -1)
       }
     }
   },
