@@ -96,12 +96,6 @@ export default {
   }
 }
 
-@-moz-document url-prefix() {
-  .overview-item {
-    letter-spacing: -0.5px;
-  }
-}
-
 .overview-row {
   @include media-breakpoint-down(xs) {
     flex-wrap: wrap;

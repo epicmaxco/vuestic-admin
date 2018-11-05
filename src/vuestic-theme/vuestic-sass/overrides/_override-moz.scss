@@ -1,0 +1,25 @@
+@-moz-document url-prefix() {
+  h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+    letter-spacing: -0.25px;
+  }
+
+  h5, .h5 {
+    font-weight: 600;
+  }
+
+  .modal-title {
+    letter-spacing: -0.25px;
+  }
+
+  .vuestic-widget-header {
+    letter-spacing: -0.5px;
+  }
+
+  .wizard-step-label {
+    letter-spacing: -0.5px;
+  }
+
+  .overview-item {
+    letter-spacing: -0.5px;
+  }
+}
