@@ -82,6 +82,16 @@ h5, .h5 {
   color: white;
 }
 
+.btn-large.with-icon {
+  padding-left: 24px;
+
+  img {
+    width: 32px;
+    height: 26px;
+    padding-right: 8px;
+  }
+}
+
 .btn-small {
   @include button-size(2px, 16px, 14px, 1.43, 16px);
 
@@ -90,12 +100,32 @@ h5, .h5 {
   color: white;
 }
 
+.btn-small.with-icon {
+  padding-left: 8px;
+
+  img {
+    width: 18px;
+    height: 20px;
+    padding-right: 4px;
+  }
+}
+
 .btn-default {
   @include button-size(7px, 24px, 16px, 1.5, 24px);
 
   text-transform: initial;
   letter-spacing: normal;
   color: white;
+}
+
+.btn-default.with-icon {
+  padding-left: 16px;
+
+  img {
+    width: 28px;
+    height: 24px;
+    padding-right: 8px;
+  }
 }
 
 .btn.btn-primary {

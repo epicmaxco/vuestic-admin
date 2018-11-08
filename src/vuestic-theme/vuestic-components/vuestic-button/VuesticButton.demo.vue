@@ -4,16 +4,19 @@
       <div class="row">
         <div class="col-lg-4">
           <vuestic-button tag="button" :color="'vuestic-green'">
+            <img src="../../../assets/icons/plus-icon-def.svg"/>
             <span slot="title">Default Button</span>
           </vuestic-button>
         </div>
         <div class="col-lg-4">
           <vuestic-button large :color="'vuestic-blue'">
+            <img src="../../../assets/icons/plus-icon-lg.svg"/>
             <span slot="title">Large Button</span>
           </vuestic-button>
         </div>
         <div class="col-lg-4">
           <vuestic-button small :color="'vuestic-red'">
+            <img src="../../../assets/icons/plus-icon-sm.svg"/>
             <span slot="title">Small Button</span>
           </vuestic-button>
         </div>
