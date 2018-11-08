@@ -4,8 +4,10 @@
           :class="buttonClass"
           :disabled="disabled"
           :type="buttonType">
-    <slot></slot>
-    <slot name="title"/>
+    <div class="d-flex">
+      <slot></slot>
+      <slot name="title"/>
+    </div>
   </button>
   <a v-else-if="tag === 'a' || href !== ''"
      :href="href"
@@ -140,11 +142,15 @@ export default {
         'secondary': this.type === 'secondary',
         'text': this.type === 'text',
         'outline': this.outline,
+        'with-icon': this.hasSlotData,
         'disabled': this.disabled,
         'btn-large': this.large,
         'btn-small': this.small,
         'btn-default': !this.large && !this.small
       }
+    },
+    hasSlotData () {
+      return this.$slots.default
     },
   },
   methods: {
