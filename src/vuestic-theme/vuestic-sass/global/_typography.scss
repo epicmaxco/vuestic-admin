@@ -28,6 +28,59 @@
   color: $white;
 }
 
+.text {
+  &--bold {
+    font-weight: bold;
+  }
+  &--uppercase {
+    text-transform: uppercase !important;
+  }
+  &--lowercase {
+    text-transform: lowercase !important;
+  }
+  &--capitalize {
+    text-transform: capitalize !important;
+  }
+  &--no-wrap {
+    white-space: nowrap !important;
+  }
+  &--truncate {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+}
+
+.display-1 {
+  font-size: 48px;
+  font-weight: bold;
+  color: #34495e;
+}
+
+.display-2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #34495e;
+}
+
+.display-3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #34495e;
+}
+
+.display-4 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #34495e;
+}
+
+.display-5 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #34495e;
+}
+
 ul.vue-list-inner, ol.vue-list-inner {
   li:first-child {
     margin-top: 1.5rem;
