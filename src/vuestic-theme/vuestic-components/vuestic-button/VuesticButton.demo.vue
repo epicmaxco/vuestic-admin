@@ -18,7 +18,7 @@
           </vuestic-button>
         </div>
       </div>
-      <div class="row" style="margin-top: 100px;">
+      <div class="row" style="margin-top: 50px;">
         <div class="col-lg-4">
           <vuestic-button tag="button" :color="'vuestic-yellow'">
             <span slot="title">Default Button</span>
@@ -31,6 +31,74 @@
         </div>
         <div class="col-lg-4">
           <vuestic-button small :color="'vuestic-dark'">
+            <span slot="title">Small Button</span>
+          </vuestic-button>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 50px;">
+        <div class="col-lg-4">
+          <vuestic-button tag="button" :type="'secondary'" :color="'vuestic-green'">
+            <span slot="title">Default Button</span>
+          </vuestic-button>
+        </div>
+        <div class="col-lg-4">
+          <vuestic-button large :type="'secondary'" :color="'vuestic-blue'">
+            <span slot="title">Large Button</span>
+          </vuestic-button>
+        </div>
+        <div class="col-lg-4">
+          <vuestic-button small :type="'secondary'" :color="'vuestic-red'">
+            <span slot="title">Small Button</span>
+          </vuestic-button>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 50px;">
+        <div class="col-lg-4">
+          <vuestic-button tag="button" :type="'secondary'" :color="'vuestic-yellow'">
+            <span slot="title">Default Button</span>
+          </vuestic-button>
+        </div>
+        <div class="col-lg-4">
+          <vuestic-button large :type="'secondary'" :color="'vuestic-gray'">
+            <span slot="title">Large Button</span>
+          </vuestic-button>
+        </div>
+        <div class="col-lg-4">
+          <vuestic-button small :type="'secondary'" :color="'vuestic-dark'">
+            <span slot="title">Small Button</span>
+          </vuestic-button>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 50px;">
+        <div class="col-lg-4">
+          <vuestic-button tag="button" :type="'text'" :color="'vuestic-green'">
+            <span slot="title">Default Button</span>
+          </vuestic-button>
+        </div>
+        <div class="col-lg-4">
+          <vuestic-button large :type="'text'" :color="'vuestic-blue'">
+            <span slot="title">Large Button</span>
+          </vuestic-button>
+        </div>
+        <div class="col-lg-4">
+          <vuestic-button small :type="'text'" :color="'vuestic-red'">
+            <span slot="title">Small Button</span>
+          </vuestic-button>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 50px;">
+        <div class="col-lg-4">
+          <vuestic-button tag="button" :type="'text'" :color="'vuestic-yellow'">
+            <span slot="title">Default Button</span>
+          </vuestic-button>
+        </div>
+        <div class="col-lg-4">
+          <vuestic-button large :type="'text'" :color="'vuestic-gray'">
+            <span slot="title">Large Button</span>
+          </vuestic-button>
+        </div>
+        <div class="col-lg-4">
+          <vuestic-button small :type="'text'" :color="'vuestic-dark'">
             <span slot="title">Small Button</span>
           </vuestic-button>
         </div>
