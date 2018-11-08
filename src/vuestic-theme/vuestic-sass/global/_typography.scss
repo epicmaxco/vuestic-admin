@@ -2,6 +2,35 @@
   background-color: $vue-turquoise;
 }
 
+.link {
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #4ae387;
+  cursor: pointer;
+  &:hover {
+    color: #79eca8;
+  }
+  &:active {
+    color: #48c279;
+  }
+  &:visited {
+    color: #4ae387;
+  }
+  &--secondary {
+    color: #babfc2;
+    cursor: pointer;
+    &:hover {
+      color: #79eca8;
+    }
+    &:active {
+      color: #48c279;
+    }
+    &:visited {
+      color: #4ae387;
+    }
+  }
+}
+
 .vue-selected-text, ::selection {
   background-color: $brand-primary;
   color: $white;
