@@ -4,7 +4,6 @@
       <vuestic-tag
         name="Company"
         :removable="true"
-        @remove="removeTag(index)"
       />
     </div>
   </div>
