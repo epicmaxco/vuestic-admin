@@ -4,7 +4,7 @@
     <div class="d-flex flex-md-row flex-column align-items-center"
          :class="controlsAlignmentClass">
       <filter-bar
-        @filter="onFilterSet"
+        @input="onFilterSet"
         :label="filterInputLabel"
         v-show="filterInputShown"
       />
