@@ -1,23 +1,23 @@
 <template>
   <div
-    class="vuestic-card card"
+    class="vuestic-card"
     :class="computedClass"
   >
     <template v-if="image">
-      <img v-if="!titleOnImage" class="card-img-top" :src="image" :alt="imageAlt">
+      <img v-if="!titleOnImage" class="vuestic-card__image" :src="image" :alt="imageAlt">
       <div class="vuestic-card__image-container" v-if="titleOnImage">
-        <img class="card-img-top" :src="image" :alt="imageAlt">
+        <img class="vuestic-card__image" :src="image" :alt="imageAlt">
         <div class="vuestic-card__image-container__overlay" v-if="overlay"/>
-        <h5 class="vuestic-card__title card-title">
+        <h5 class="vuestic-card__title vuestic-card__card-title">
           <slot name="title"/>
         </h5>
       </div>
     </template>
-    <div class="card-body">
-      <h5 class="vuestic-card__title card-title" v-if="$slots.title && !(image && titleOnImage)">
+    <div class="vuestic-card__card-body">
+      <h5 class="vuestic-card__title vuestic-card__card-title" v-if="$slots.title && !(image && titleOnImage)">
         <slot name="title"/>
       </h5>
-      <p class="card-text">
+      <p class="vuestic-card__card-text">
         <slot/>
       </p>
     </div>
@@ -89,23 +89,39 @@ $card-font-size: 1.375 rem;
 }
 
 .vuestic-card {
-  border-radius: 0;
+  border-radius: 6px;
   border: none;
   box-sizing: border-box;
   box-shadow: $widget-box-shadow;
   word-wrap: break-word;
-
+  background-color: $white;
   &__title {
     font-weight: $font-weight-bold;
     font-size: $card-font-size;
   }
 
-  .card-img-top {
-    border-radius: 0;
+  &__card-title {
+    margin-bottom: 0.75rem;
+  }
+
+  &__card-body {
+    padding: 1.25rem;
+    flex: 1 1 auto;
+  }
+
+  &__card-text {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &__image {
+    border-radius: 6px;
+    width: 100%;
   }
 
   &__image-container {
     position: relative;
+    border-radius: 6px;
     .vuestic-card__title {
       position: absolute;
       bottom: 0px;
@@ -116,6 +132,7 @@ $card-font-size: 1.375 rem;
     &__overlay {
       position: absolute;
       pointer-events: none;
+      border-radius: 6px;
       background-color: rgba(0, 0, 0, 0.3);
       width: 100%;
       height: 100%;
