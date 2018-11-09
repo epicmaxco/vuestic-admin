@@ -4,7 +4,7 @@
     <div class="d-flex flex-md-row flex-column align-items-center"
          :class="controlsAlignmentClass">
       <filter-bar
-        @filter="onFilterSet"
+        @input="onFilterSet"
         :label="filterInputLabel"
         v-show="filterInputShown"
       />
@@ -50,7 +50,9 @@
       @vuetable:loading="onLoading"
       @vuetable:loaded="onLoaded"
     />
-    <div class="d-flex justify-content-center mb-4">
+    <div
+      class="d-flex justify-content-center mb-4"
+    >
       <vuetable-pagination
         ref="pagination"
         :css="css.pagination"
@@ -84,6 +86,14 @@ export default {
   props: {
     apiUrl: {
       type: String,
+    },
+    paginationOn: {
+      type: Boolean,
+      default: true
+    },
+    onFilterCustom: {
+      type: String,
+      default: null
     },
     httpFetch: {
       type: Function,
@@ -175,6 +185,11 @@ export default {
       noDataTemplate: '',
     }
   },
+  watch: {
+    onFilterCustom: function (val) {
+      this.onFilterSet(val)
+    }
+  },
   computed: {
     controlsAlignmentClass () {
       return {
@@ -191,7 +206,6 @@ export default {
     dataModeFilterableFieldsComputed () {
       const dataItem = this.tableData.data[0] || {}
       const filterableFields = this.dataModeFilterableFields
-
       if (!filterableFields.length) {
         const itemFields = Object.keys(dataItem)
         itemFields.forEach(field => {
@@ -214,14 +228,12 @@ export default {
           return val.search(txt) >= 0
         })
       })
-
       return {
         data: filteredData,
       }
     },
     defaultPerPageComputed () {
       let defaultPerPage = DefaultPerPageDefinition.itemsPerPage[0].value
-
       if (this.$options.propsData.defaultPerPage) {
         defaultPerPage = this.$options.propsData.defaultPerPage
       } else if (this.$options.propsData.itemsPerPage) {

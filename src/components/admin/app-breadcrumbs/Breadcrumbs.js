@@ -64,6 +64,10 @@ export default {
           displayName: 'menu.collapse',
         },
         {
+          name: 'filters',
+          displayName: 'menu.filters'
+        },
+        {
           name: 'color-pickers',
           displayName: 'menu.colorPickers',
         },
