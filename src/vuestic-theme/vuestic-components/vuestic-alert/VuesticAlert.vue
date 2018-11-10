@@ -30,6 +30,11 @@ export default {
     withCloseBtn: {
       type: Boolean,
       default: false
+    },
+    onClose :{
+      type : Function,
+      default : function () {  
+      }
     }
   },
   data () {
@@ -39,7 +44,8 @@ export default {
   },
   methods: {
     hide () {
-      this.hidden = true
+      this.hidden = true;
+      this.onClose();
     }
   }
 }
