@@ -112,8 +112,7 @@ $vuestic-colors: (
     }
 
     &:active, &:focus {
-      background-color: $border-color;
-      border: none;
+      background-color: darken($hover-color, 7%);
     }
   }
 
@@ -126,7 +125,7 @@ $vuestic-colors: (
     }
 
     &:active, &:focus {
-      background-color: $border-color;
+      background-color: darken($hover-color, 7%);
       border: none;
     }
 
