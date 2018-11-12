@@ -10,19 +10,19 @@ export default {
   props: {
     expand: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data () {
     return {
-      lastClickedTab: {}
+      lastClickedTab: {},
     }
   },
   provide () {
     return {
       accordion: {
-        onChildChange: (child, state) => this.onChildChange(child, state)
-      }
+        onChildChange: (child, state) => this.onChildChange(child, state),
+      },
     }
   },
   methods: {
@@ -44,13 +44,13 @@ export default {
         collapse.collapse()
       })
     },
-  }
+  },
 }
 </script>
 
 // HACK Accordion for presentation page
 <style lang="scss">
-  .vuestic-accordion {
+.vuestic-accordion {
 
-  }
+}
 </style>

@@ -4,7 +4,8 @@
     :class="computedClass"
   >
     <template v-if="image">
-      <img v-if="!titleOnImage" class="card-img-top" :src="image" :alt="imageAlt">
+      <img v-if="!titleOnImage" class="card-img-top" :src="image"
+           :alt="imageAlt">
       <div class="vuestic-card__image-container" v-if="titleOnImage">
         <img class="card-img-top" :src="image" :alt="imageAlt">
         <div class="vuestic-card__image-container__overlay" v-if="overlay"/>
@@ -14,7 +15,8 @@
       </div>
     </template>
     <div class="card-body">
-      <h5 class="vuestic-card__title card-title" v-if="$slots.title && !(image && titleOnImage)">
+      <h5 class="vuestic-card__title card-title"
+          v-if="$slots.title && !(image && titleOnImage)">
         <slot name="title"/>
       </h5>
       <p class="card-text">
@@ -75,7 +77,7 @@ export default {
 <style lang="scss">
 @import "../../vuestic-sass/resources/resources";
 
-$card-font-size: 1.375 rem;
+$card-font-size: 1.375rem;
 
 .card-separator {
   margin: 1rem -#{(20/16)}rem;

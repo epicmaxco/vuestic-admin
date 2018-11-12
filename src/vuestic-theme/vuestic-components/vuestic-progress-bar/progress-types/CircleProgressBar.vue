@@ -1,5 +1,6 @@
 <template>
-  <div class="circle-bar circle-bar__progress-bar" :class="circleBarType" :style="'background-image: ' + backgroundImage">
+  <div class="circle-bar circle-bar__progress-bar" :class="circleBarType"
+       :style="'background-image: ' + backgroundImage">
     <div class="circle-bar__overlay" :style="circleBarStyle">
       <span v-if="!text">{{value + '%'}}</span>
       <span v-else>{{text}}</span>
@@ -8,7 +9,10 @@
 </template>
 
 <script>
-import { VuesticTheme, colorConfig } from './../../vuestic-color-picker/VuesticTheme'
+import {
+  colorConfig,
+  VuesticTheme,
+} from './../../vuestic-color-picker/VuesticTheme'
 
 export default {
   props: {
@@ -18,14 +22,14 @@ export default {
     },
     text: {
       type: String,
-      default: ''
+      default: '',
     },
     theme: {
       type: String,
       default: 'Primary',
     },
     backgroundTheme: {
-      type: String
+      type: String,
     },
     disabled: {
       type: Boolean,
@@ -34,7 +38,7 @@ export default {
     animated: {
       type: Boolean,
       default: false,
-    }
+    },
   },
   mounted () {
     this.animateValue()
@@ -50,7 +54,7 @@ export default {
           this.transformedValue += delta
         }
       }, valueMsecs)
-    }
+    },
   },
   computed: {
     backgroundImage () {
@@ -69,56 +73,56 @@ export default {
     circleBarStyle: function () {
       return {
         backgroundColor: colorConfig[VuesticTheme[this.backgroundTheme]],
-        color: colorConfig[VuesticTheme[this.theme]]
+        color: colorConfig[VuesticTheme[this.theme]],
       }
     },
     circleBarType: function () {
       return {
-        'circle-bar--disabled': this.disabled
+        'circle-bar--disabled': this.disabled,
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss">
-  .circle-bar {
-    $step: 1;
-    $loops: round(100 / $step);
-    $increment: 360 / $loops;
-    $half: round($loops / 2);
+.circle-bar {
+  $step: 1;
+  $loops: round(100 / $step);
+  $increment: 360 / $loops;
+  $half: round($loops / 2);
 
-    font-size: $progress-bar-value-font-size;
-    font-weight: $font-weight-bold;
+  font-size: $progress-bar-value-font-size;
+  font-weight: $font-weight-bold;
 
-    &--animated {
-      transition: background-color ease .5s, width 3s linear !important;
-    }
-
-    &.circle-bar__progress-bar {
-      float: left;
-      position: relative;
-      transition: background-color ease .5s, width 3s linear !important;
-      width: $progress-bar-circle-diameter;
-      height: $progress-bar-circle-diameter;
-      padding-left: $progress-bar-circle-bw;
-      padding-top: $progress-bar-circle-bw;
-      border-radius: 50%;
-      border-width: 0;
-    }
-
-    .circle-bar__overlay {
-      width: $progress-bar-circle-overlay-diameter;
-      height: $progress-bar-circle-diameter - 2*$progress-bar-circle-bw;
-      border-radius: 50%;
-      border-width: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    & &--disabled {
-      opacity: 0.5
-    }
+  &--animated {
+    transition: background-color ease .5s, width 3s linear !important;
   }
+
+  &.circle-bar__progress-bar {
+    float: left;
+    position: relative;
+    transition: background-color ease .5s, width 3s linear !important;
+    width: $progress-bar-circle-diameter;
+    height: $progress-bar-circle-diameter;
+    padding-left: $progress-bar-circle-bw;
+    padding-top: $progress-bar-circle-bw;
+    border-radius: 50%;
+    border-width: 0;
+  }
+
+  .circle-bar__overlay {
+    width: $progress-bar-circle-overlay-diameter;
+    height: $progress-bar-circle-diameter - 2*$progress-bar-circle-bw;
+    border-radius: 50%;
+    border-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & &--disabled {
+    opacity: 0.5
+  }
+}
 </style>

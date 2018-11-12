@@ -2,26 +2,26 @@
   <div :class="`vuestic-file-upload-${type}`">
     <template v-if="type === 'list'">
       <vuestic-file-upload-list-item
-          v-for="(file, index) in filesList"
-          :key="file.name"
-          :file="file"
-          @remove="$emit('remove', index)"
+        v-for="(file, index) in filesList"
+        :key="file.name"
+        :file="file"
+        @remove="$emit('remove', index)"
       />
     </template>
     <template v-if="type === 'gallery'">
       <div class="row">
         <vuestic-file-upload-gallery-item
-            v-for="(file, index) in filesList"
-            :key="file.name"
-            :file="file"
-            @remove="$emit('remove', index)"
+          v-for="(file, index) in filesList"
+          :key="file.name"
+          :file="file"
+          @remove="$emit('remove', index)"
         />
       </div>
     </template>
     <vuestic-file-upload-single-item
-        v-if="type === 'single' && filesList.length"
-        :file="filesList[filesList.length - 1]"
-        @remove="$emit('remove-single')"
+      v-if="type === 'single' && filesList.length"
+      :file="filesList[filesList.length - 1]"
+      @remove="$emit('remove-single')"
     />
   </div>
 </template>
@@ -36,15 +36,15 @@ export default {
   components: {
     VuesticFileUploadListItem: VuesticFileUploadListItem,
     VuesticFileUploadGalleryItem: VuesticFileUploadGalleryItem,
-    VuesticFileUploadSingleItem: VuesticFileUploadSingleItem
+    VuesticFileUploadSingleItem: VuesticFileUploadSingleItem,
   },
   props: {
     type: {
-      type: String
+      type: String,
     },
     files: {
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
     filesList () {
@@ -57,7 +57,7 @@ export default {
         name: file.name,
         size: this.formatSize(file.size),
         date: this.formatDate(file.lastModifiedDate) || this.formatDate(new Date(file.lastModified)),
-        image: file
+        image: file,
       }
     },
     formatSize (bytes) {
@@ -74,21 +74,21 @@ export default {
         minute: '2-digit',
         month: 'short',
         day: 'numeric',
-        year: 'numeric'
+        year: 'numeric',
       })
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang='scss'>
-  .vuestic-file-upload {
-    &-list {
-      padding-bottom: 2rem;
-      margin: 0 -1rem;
-    }
-    &-gallery {
-      padding: 0 0 1rem;
-    }
+.vuestic-file-upload {
+  &-list {
+    padding-bottom: 2rem;
+    margin: 0 -1rem;
   }
+  &-gallery {
+    padding: 0 0 1rem;
+  }
+}
 </style>

@@ -16,7 +16,7 @@
 
       <div class="col-md-12">
         <vuestic-widget :headerText="$t('tags.colored')">
-            <vuestic-tag-group v-model="coloredTags" removable/>
+          <vuestic-tag-group v-model="coloredTags" removable/>
         </vuestic-widget>
       </div>
 
@@ -36,7 +36,7 @@ export default {
         'Volkswagen',
         'Opel',
         'Honda',
-        'Porsche'
+        'Porsche',
       ],
       removableTags: [
         'Ford',
@@ -44,35 +44,35 @@ export default {
         'Volkswagen',
         'Opel',
         'Honda',
-        'Porsche'
+        'Porsche',
       ],
       coloredTags: [
         {
           name: 'Potato',
-          type: 'primary'
+          type: 'primary',
         },
         {
           name: 'Tomato',
-          type: 'danger'
+          type: 'danger',
         },
         {
           name: 'Sweet corn',
-          type: 'info'
+          type: 'info',
         },
         {
           name: 'Carrot',
-          type: 'dark'
+          type: 'dark',
         },
         {
           name: 'Broccoli',
-          type: 'warning'
+          type: 'warning',
         },
         {
           name: 'Green bean',
-          type: 'pale'
-        }
-      ]
+          type: 'pale',
+        },
+      ],
     }
-  }
+  },
 }
 </script>

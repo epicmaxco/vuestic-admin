@@ -2,13 +2,16 @@
   <div class="vuestic-page-not-found-custom">
     <div class="vuestic-page-not-found-custom__content">
       <div class="not-found-wallpaper">
-        <router-link class="i-vuestic vuestic-page-not-found-custom__i-vuestic" :to="{path: '/'}"/>
+        <router-link class="i-vuestic vuestic-page-not-found-custom__i-vuestic"
+                     :to="{path: '/'}"/>
       </div>
       <div class="vuestic-page-not-found-custom__wallpaper">
-        <img src="https://i.imgur.com/wodIng5.png" class="vuestic-page-not-found-custom__custom-image"/>
+        <img src="https://i.imgur.com/wodIng5.png"
+             class="vuestic-page-not-found-custom__custom-image"/>
       </div>
       <div class="vuestic-page-not-found-custom__wallpaper">
-        <h3 class="vuestic-page-not-found-custom__text">The page’s gone fishing.</h3>
+        <h3 class="vuestic-page-not-found-custom__text">The page’s gone
+          fishing.</h3>
       </div>
       <div class="vuestic-page-not-found-custom__wallpaper col-md-12">
         <div class="row vuestic-page-not-found-custom__message">
@@ -18,7 +21,8 @@
           <a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
         </div>
       </div>
-      <div class="vuestic-page-not-found-custom__wallpaper col-md-12 vuestic-page-not-found-custom__wallpaper-button">
+      <div
+        class="vuestic-page-not-found-custom__wallpaper col-md-12 vuestic-page-not-found-custom__wallpaper-button">
         <router-link :to="{ path: './dashboard' }">
           <button class="btn btn-primary back-button">
             {{'Back to dashboard'}}
@@ -33,14 +37,15 @@
 
 <script>
 import MadeByComponent from './MadeByComponent'
-import VuesticPageNotFoundSadWallpaper from './VuesticPageNotFoundSadWallpaper.vue'
+import VuesticPageNotFoundSadWallpaper
+  from './VuesticPageNotFoundSadWallpaper.vue'
 
 export default {
   name: 'vuestic-page-not-found-custom',
   components: {
     MadeByComponent,
-    VuesticPageNotFoundSadWallpaper
-  }
+    VuesticPageNotFoundSadWallpaper,
+  },
 }
 </script>
 

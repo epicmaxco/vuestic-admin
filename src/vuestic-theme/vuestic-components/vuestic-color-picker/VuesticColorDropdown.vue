@@ -1,6 +1,7 @@
 <template>
   <div class="vuestic-color-dropdown">
-    <div class="vuestic-color-dropdown__toggle" ref="toggleRef" @click="toggle()">
+    <div class="vuestic-color-dropdown__toggle" ref="toggleRef"
+         @click="toggle()">
       <slot name="toggle"/>
     </div>
     <div v-show="isOpen">
@@ -16,7 +17,7 @@ export default {
   name: 'vuestic-color-dropdown',
   data () {
     return {
-      isOpen: false
+      isOpen: false,
     }
   },
   methods: {
@@ -39,7 +40,7 @@ export default {
         this.isOpen = false
       }
     })
-  }
+  },
 }
 </script>
 

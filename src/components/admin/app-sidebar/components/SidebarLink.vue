@@ -15,12 +15,12 @@ export default {
   props: {
     to: {
       type: Object,
-      required: true
+      required: true,
     },
     target: {
       type: String,
-      default: '_self'
-    }
+      default: '_self',
+    },
   },
   watch: {
     $route (route) {
@@ -35,50 +35,50 @@ export default {
         }
         linkGroup.expanded = true
       })
-    }
+    },
   },
 }
 </script>
 
 <style lang="scss">
-  .sidebar-link {
-    .sidebar-link__router-link {
-      position: relative;
-      height: $sidebar-link-height;
-      padding-left: $sidebar-link-pl;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      cursor: pointer;
-      text-decoration: none;
-      &.router-link-active,
-      &:hover {
+.sidebar-link {
+  .sidebar-link__router-link {
+    position: relative;
+    height: $sidebar-link-height;
+    padding-left: $sidebar-link-pl;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    &.router-link-active,
+    &:hover {
+      color: $white;
+      background-color: $sidebar-link-active-bg;
+      .sidebar-menu-item-icon,
+      .expand-icon {
         color: $white;
-        background-color: $sidebar-link-active-bg;
-        .sidebar-menu-item-icon,
-        .expand-icon {
-          color: $white;
-        }
-      }
-      &:hover {
-        background-color: $hover-black;
-      }
-      .sidebar-menu-item-icon {
-        font-size: $sidebar-menu-item-icon-size;
-        color: $vue-green;
-        margin-right: 14px;
-        &.fa-dashboard {
-          /* Temp fix */
-          position: relative;
-          top: -2px;
-        }
       }
     }
-
-    a {
-      color: $white;
-      text-decoration: none;
+    &:hover {
+      background-color: $hover-black;
+    }
+    .sidebar-menu-item-icon {
+      font-size: $sidebar-menu-item-icon-size;
+      color: $vue-green;
+      margin-right: 14px;
+      &.fa-dashboard {
+        /* Temp fix */
+        position: relative;
+        top: -2px;
+      }
     }
   }
+
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+}
 
 </style>

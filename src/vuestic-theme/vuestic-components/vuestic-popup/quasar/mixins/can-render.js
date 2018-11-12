@@ -4,10 +4,10 @@ import { onSSR } from '../plugins/platform'
 export default {
   data () {
     return {
-      canRender: !onSSR
+      canRender: !onSSR,
     }
   },
   mounted () {
     this.canRender === false && (this.canRender = true)
-  }
+  },
 }
