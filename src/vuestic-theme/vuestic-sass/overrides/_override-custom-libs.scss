@@ -16,7 +16,6 @@
   }
 
   .medium-editor-action {
-    @extend .btn.btn-primary;
     height: $medium-editor-button-size;
     padding: $btn-padding-y $btn-group-button-padding-x;
     box-shadow: none;
