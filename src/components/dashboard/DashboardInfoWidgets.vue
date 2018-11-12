@@ -37,8 +37,7 @@
               <div class="stats-title">Commits</div>
             </div>
             <div class="chart-container">
-              <vuestic-progress-bar type="circle" :value="70" theme="White"
-                                    backgroundTheme="Danger"/>
+              <vuestic-progress-bar type="circle" :value="70" theme="White" backgroundTheme="Danger"/>
             </div>
           </div>
         </div>
@@ -52,8 +51,7 @@
               <i class="ion ion-md-people stats-icon icon-wide"></i>
               5
             </div>
-            <div class="stats-title">{{'dashboard.teamMembers' | translate}}
-            </div>
+            <div class="stats-title">{{'dashboard.teamMembers' | translate}}</div>
           </div>
         </div>
       </vuestic-widget>
@@ -63,55 +61,55 @@
 
 <script>
 export default {
-  name: 'dashboard-info-widgets',
+  name: 'dashboard-info-widgets'
 }
 </script>
 
 <style lang="scss" scoped>
-.stats-number, .stats-title {
-  line-height: 1;
-}
-
-.info-widget-inner {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-
-  &.has-chart {
-    justify-content: space-between;
+  .stats-number, .stats-title {
+    line-height: 1;
   }
 
-  .stats {
+  .info-widget-inner {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
-    height: 100%;
-  }
-}
+    justify-content: center;
+    position: relative;
+    width: 100%;
 
-.stats-number {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.625rem;
-  margin-bottom: 0.5rem;
+    &.has-chart {
+      justify-content: space-between;
+    }
 
-  .stats-icon {
-    font-size: 1.5625rem;
-    position: absolute;
-    top: 0.625rem;
-    left: -1.25rem;
-
-    &.icon-wide {
-      left: -1.875rem;
+    .stats {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
     }
   }
-}
+
+  .stats-number {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.625rem;
+    margin-bottom: 0.5rem;
+
+    .stats-icon {
+      font-size: 1.5625rem;
+      position: absolute;
+      top: 0.625rem;
+      left: -1.25rem;
+
+      &.icon-wide {
+        left: -1.875rem;
+      }
+    }
+  }
 
 </style>

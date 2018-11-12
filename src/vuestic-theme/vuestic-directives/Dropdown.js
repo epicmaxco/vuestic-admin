@@ -23,8 +23,7 @@ export default {
     const value = binding.value || {}
     const isBlocked = value.isBlocked || false
 
-    const onDropdownClose = value.onDropdownClose || (() => {
-    })
+    const onDropdownClose = value.onDropdownClose || (() => {})
 
     // ** Checking if declarations are sane. **
 

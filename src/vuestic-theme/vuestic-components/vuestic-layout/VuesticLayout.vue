@@ -31,58 +31,58 @@ export default {
   computed: {
     classObject: function () {
       return {
-        'layout-fixed': this.fixed,
+        'layout-fixed': this.fixed
       }
-    },
-  },
+    }
+  }
 }
 </script>
 
 <style lang="scss">
-.layout {
-  &-fixed {
+  .layout {
+    &-fixed {
+      .content-wrap {
+        padding-right: $layout-padding-right;
+        padding-top: $sidebar-top;
+
+        @include media-breakpoint-down(md) {
+          padding: $content-mobile-wrap-fixed-layout;
+          margin-left: 0;
+
+        }
+      }
+    }
+
     .content-wrap {
-      padding-right: $layout-padding-right;
-      padding-top: $sidebar-top;
+      margin-left: $content-wrap-ml;
+      transition: margin-left 0.3s ease;
+      padding: $layout-padding $layout-padding-right $content-wrap-pb 0;
+
+      .pre-loader {
+        position: absolute;
+        left: $vuestic-preloader-left;
+        top: $vuestic-preloader-top;
+      }
 
       @include media-breakpoint-down(md) {
-        padding: $content-mobile-wrap-fixed-layout;
+        padding: $content-mobile-wrap;
         margin-left: 0;
-
+        .sidebar-hidden & {
+          margin-left: 0;
+          padding-top: $content-mobile-wrap-sb-top;
+        }
       }
     }
-  }
-
-  .content-wrap {
-    margin-left: $content-wrap-ml;
-    transition: margin-left 0.3s ease;
-    padding: $layout-padding $layout-padding-right $content-wrap-pb 0;
-
-    .pre-loader {
+    .made-by-footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 25px;
+      padding-bottom: $made-by-footer-pb;
       position: absolute;
-      left: $vuestic-preloader-left;
-      top: $vuestic-preloader-top;
-    }
-
-    @include media-breakpoint-down(md) {
-      padding: $content-mobile-wrap;
-      margin-left: 0;
-      .sidebar-hidden & {
-        margin-left: 0;
-        padding-top: $content-mobile-wrap-sb-top;
-      }
+      bottom: 0;
+      height: calc(#{$layout-padding} + #{$widget-mb});
+      width: 100%;
     }
   }
-  .made-by-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 25px;
-    padding-bottom: $made-by-footer-pb;
-    position: absolute;
-    bottom: 0;
-    height: calc(#{$layout-padding} + #{$widget-mb});
-    width: 100%;
-  }
-}
 </style>

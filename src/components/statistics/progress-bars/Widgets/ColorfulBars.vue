@@ -22,8 +22,7 @@
       <div class="col-sm-4 col-12">
         {{'progressBars.thinVertical' | translate}}
         <div class="pb-container">
-          <vuestic-progress-bar :value="100" size="thin" type="vertical"
-                                theme="Black"/>
+          <vuestic-progress-bar :value="100" size="thin" type="vertical" theme="Black"/>
         </div>
       </div>
       <div class="col-sm-4 col-12">
@@ -38,6 +37,6 @@
 
 <script>
 export default {
-  name: 'standard-bars',
+  name: 'standard-bars'
 }
 </script>

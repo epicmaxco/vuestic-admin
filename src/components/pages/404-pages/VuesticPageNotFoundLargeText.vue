@@ -2,16 +2,13 @@
   <div class="vuestic-page-not-found-large-text">
     <div class="vuestic-page-not-found-large-text__content">
       <div class="vuestic-page-not-found-large-text__wallpaper">
-        <router-link
-          class="i-vuestic vuestic-page-not-found-large-text__i-vuestic"
-          :to="{path: '/'}"/>
+        <router-link class="i-vuestic vuestic-page-not-found-large-text__i-vuestic" :to="{path: '/'}"/>
       </div>
       <div class="vuestic-page-not-found-large-text__wallpaper">
         <h1 class="vuestic-page-not-found-large-text__number">404</h1>
       </div>
       <div class="vuestic-page-not-found-large-text__wallpaper">
-        <h3 class="vuestic-page-not-found-large-text__text">The page's gone
-          fishing.</h3>
+        <h3 class="vuestic-page-not-found-large-text__text">The page's gone fishing.</h3>
       </div>
       <div class="vuestic-page-not-found-large-text__wallpaper col-md-12">
         <div class="row vuestic-page-not-found-large-text__message">
@@ -21,8 +18,7 @@
           <a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
         </div>
       </div>
-      <div
-        class="vuestic-page-not-found-large-text__wallpaper-button col-md-12">
+      <div class="vuestic-page-not-found-large-text__wallpaper-button col-md-12">
         <router-link :to="{ path: './dashboard' }">
           <button class="btn btn-primary back-button">
             {{'Back to dashboard'}}
@@ -37,15 +33,14 @@
 
 <script>
 import MadeByComponent from './MadeByComponent'
-import VuesticPageNotFoundSadWallpaper
-  from './VuesticPageNotFoundSadWallpaper.vue'
+import VuesticPageNotFoundSadWallpaper from './VuesticPageNotFoundSadWallpaper.vue'
 
 export default {
   name: 'vuestic-page-not-found-large-text',
   components: {
     MadeByComponent,
-    VuesticPageNotFoundSadWallpaper,
-  },
+    VuesticPageNotFoundSadWallpaper
+  }
 }
 </script>
 

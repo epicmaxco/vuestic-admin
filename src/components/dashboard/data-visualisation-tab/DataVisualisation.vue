@@ -3,8 +3,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="chart-container">
-          <vuestic-chart v-bind:data="donutChartData"
-                         type="donut"></vuestic-chart>
+          <vuestic-chart v-bind:data="donutChartData" type="donut"></vuestic-chart>
         </div>
       </div>
       <div class="col-md-6">
@@ -45,21 +44,21 @@ export default {
       dataModeFilterableFields: ['name'],
       itemsPerPage: [
         {
-          value: 5,
+          value: 5
         },
         {
-          value: 6,
-        },
+          value: 6
+        }
       ],
     }
-  },
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-.chart-container {
-  padding: 0 2rem;
-  height: 24rem;
-}
+  .chart-container {
+    padding: 0 2rem;
+    height: 24rem;
+  }
 
 </style>

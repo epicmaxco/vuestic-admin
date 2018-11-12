@@ -1,13 +1,12 @@
 <template>
   <div class=" vuestic-page-not-found-sad-wallpaper">
-    <img src="https://i.imgur.com/hu80UGU.png"
-         class="vuestic-page-not-found-sad-wallpaper__sad-image"/>
+    <img src="https://i.imgur.com/hu80UGU.png" class="vuestic-page-not-found-sad-wallpaper__sad-image"/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'VuesticPageNotFoundSadWallpaper',
+  name: 'VuesticPageNotFoundSadWallpaper'
 }
 </script>
 
@@ -42,7 +41,7 @@ export default {
   }
 
   @include media-breakpoint-down(xs) {
-    display: none;
+   display: none;
 
     &__sad-image {
       display: none;

@@ -1,6 +1,5 @@
 <template>
-  <ul class="wizard-steps horizontal-steps simple-steps"
-      :class="{'completed': completed}">
+  <ul class="wizard-steps horizontal-steps simple-steps" :class="{'completed': completed}">
     <li
       v-if="steps" class="wizard-step"
       :class="{'active': currentStep >= index, 'current': currentStep === index}"

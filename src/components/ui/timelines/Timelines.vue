@@ -1,8 +1,7 @@
 <template>
   <div class="timelines">
 
-    <vuestic-widget class="no-h-padding no-v-padding"
-                    :headerText="$t('timelines.horizontalSimple')">
+    <vuestic-widget class="no-h-padding no-v-padding" :headerText="$t('timelines.horizontalSimple')">
       <vuestic-timeline>
         <vuestic-timeline-item active>
           <template slot="before">
@@ -37,8 +36,7 @@
       </vuestic-timeline>
     </vuestic-widget>
 
-    <vuestic-widget class="no-h-padding no-v-padding timelines__horizontal-long"
-                    :headerText="$t('timelines.horizontalCards')">
+    <vuestic-widget class="no-h-padding no-v-padding timelines__horizontal-long" :headerText="$t('timelines.horizontalCards')">
       <vuestic-timeline class="timelines__horizontal-long__timeline">
         <vuestic-timeline-item active>
           <vuestic-card
@@ -70,8 +68,7 @@
       </vuestic-timeline>
     </vuestic-widget>
 
-    <vuestic-widget class="no-h-padding no-v-padding"
-                    :headerText="$t('timelines.verticalSimple')">
+    <vuestic-widget class="no-h-padding no-v-padding" :headerText="$t('timelines.verticalSimple')">
       <div class="row">
         <div class="col-12 col-md-6">
           <vuestic-timeline vertical>
@@ -118,8 +115,7 @@
       </div>
     </vuestic-widget>
 
-    <vuestic-widget class="no-h-padding no-v-padding"
-                    :headerText="$t('timelines.verticalLabel')">
+    <vuestic-widget class="no-h-padding no-v-padding" :headerText="$t('timelines.verticalLabel')">
       <vuestic-timeline vertical>
         <vuestic-timeline-item active>
           <span class="vuestic-timeline-item__text" slot="before">{{ dateFirst }}</span>
@@ -144,8 +140,7 @@
       </vuestic-timeline>
     </vuestic-widget>
 
-    <vuestic-widget class="no-h-padding no-v-padding"
-                    :headerText="$t('timelines.verticalCentered')">
+    <vuestic-widget class="no-h-padding no-v-padding" :headerText="$t('timelines.verticalCentered')">
       <vuestic-timeline vertical centered>
         <vuestic-timeline-item active>
           <span class="vuestic-timeline-item__text" slot="before">{{ dateFirst }}</span>

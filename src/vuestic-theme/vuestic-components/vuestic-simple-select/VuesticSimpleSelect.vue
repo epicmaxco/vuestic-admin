@@ -5,8 +5,7 @@
       v-dropdown="{ isBlocked: true, onDropdownClose: onDropdownClose }"
       :class="{'has-error': hasErrors()}"
     >
-      <div
-        class="input-group dropdown-toggle vuestic-simple-select__dropdown-toggle">
+      <div class="input-group dropdown-toggle vuestic-simple-select__dropdown-toggle">
         <div>
           <input
             @focus="showDropdown()"
@@ -32,11 +31,9 @@
         />
       </div>
       <div
-        class="dropdown-menu vuestic-simple-select__dropdown-menu"
-        aria-labelledby="dropdownMenuButton">
+        class="dropdown-menu vuestic-simple-select__dropdown-menu" aria-labelledby="dropdownMenuButton">
         <scrollbar ref="scrollbar">
-          <div
-            class="dropdown-menu-content vuestic-simple-select__dropdown-menu-content">
+          <div class="dropdown-menu-content vuestic-simple-select__dropdown-menu-content">
             <div
               class="dropdown-item vuestic-simple-select__dropdown-item"
               v-for="(option, index) in filteredList"
@@ -61,37 +58,37 @@ import Scrollbar from '../vuestic-scrollbar/VuesticScrollbar.vue'
 export default {
   name: 'vuestic-simple-select',
   components: {
-    Scrollbar,
+    Scrollbar
   },
   directives: {
-    dropdown: Dropdown,
+    dropdown: Dropdown
   },
   props: {
     label: String,
     options: Array,
     value: {
       default: '',
-      required: true,
+      required: true
     },
     optionKey: String,
     required: {
       type: Boolean,
-      default: false,
+      default: false
     },
     clearable: {
       type: Boolean,
-      default: true,
+      default: true
     },
     name: {
       type: String,
-      default: 'simple-select',
+      default: 'simple-select'
     },
   },
   data () {
     return {
       validated: false,
       displayValue: this.value,
-      selectedValue: this.value,
+      selectedValue: this.value
     }
   },
   watch: {
@@ -106,7 +103,7 @@ export default {
         }
       },
       immediate: true,
-    },
+    }
   },
   computed: {
     filteredList () {
@@ -118,8 +115,7 @@ export default {
         return this.options.filter(function (item) {
           if (optionKey && item[optionKey]) {
             if (displayValue) {
-              return item[optionKey].toLowerCase()
-                .search(displayValue.toLowerCase()) === 0
+              return item[optionKey].toLowerCase().search(displayValue.toLowerCase()) === 0
             }
           } else {
             return item.toLowerCase().search(displayValue.toLowerCase()) === 0
@@ -136,7 +132,7 @@ export default {
       } else {
         return this.selectedValue
       }
-    },
+    }
   },
   methods: {
     onDropdownClose () {
@@ -183,8 +179,8 @@ export default {
     },
     showRequiredError () {
       return `The ${this.name} field is required`
-    },
-  },
+    }
+  }
 }
 </script>
 

@@ -1,12 +1,9 @@
 <template>
   <div class="form-group with-icon-left">
     <div class="input-group">
-      <input id="input-icon-left" name="input-icon-left"
-             v-model="valueProxy" required/>
-      <i
-        class="glyphicon glyphicon-search icon-left input-icon search-icon"></i>
-      <label class="control-label" for="input-icon-left">{{label}}</label><i
-      class="bar"></i>
+      <input id="input-icon-left" name="input-icon-left" @keyup="doFilter()" v-model="filterText" required/>
+      <i class="glyphicon glyphicon-search icon-left input-icon search-icon"></i>
+      <label class="control-label" for="input-icon-left">{{label}}</label><i class="bar"></i>
     </div>
   </div>
 </template>
@@ -16,37 +13,38 @@ export default {
   name: 'filterBar',
   props: {
     label: {
-      type: String,
-    },
-    value: ''
+      type: String
+    }
   },
   data () {
-    return {}
+    return {
+      filterText: '',
+      typingTimeout: null,
+      typingDelay: 250
+    }
   },
-  methods: {},
-  computed: {
-    valueProxy: {
-      get () {
-        return this.value
-      },
-      set (value) {
-        this.$emit('input', value)
-      },
+  methods: {
+    doFilter () {
+      this.typingTimeout && clearTimeout(this.typingTimeout)
+      this.typingTimeout = setTimeout(() => this.$emit('filter', this.filterText), this.typingDelay)
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.search-icon {
-  transform: rotate(90deg);
-}
-.form-group {
-  min-width: 7rem;
-}
-@media (max-width: 768px) {
-  .form-group {
-    width: 80%;
+  .search-icon {
+    transform: rotate(90deg);
   }
-}
+
+  .form-group {
+    min-width: 7rem;
+  }
+
+  @media (max-width: 768px) {
+    .form-group {
+      width: 80%;
+    }
+  }
+
 </style>

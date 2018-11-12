@@ -8,21 +8,20 @@ Object.defineProperty(listenOpts, 'passive', {
       var opts = Object.defineProperty({}, 'passive', {
         get () {
           passive = { passive: true }
-        },
+        }
       })
       window.addEventListener('qtest', null, opts)
       window.removeEventListener('qtest', null, opts)
-    } catch (e) {
-    }
+    } catch (e) {}
 
     listenOpts.passive = passive
     return passive
   },
   set (val) {
     Object.defineProperty(this, 'passive', {
-      value: val,
+      value: val
     })
-  },
+  }
 })
 
 export function leftClick (e) {
@@ -64,7 +63,7 @@ export function position (e) {
 
   return {
     top: posy,
-    left: posx,
+    left: posx
   }
 }
 
@@ -145,5 +144,5 @@ export default {
   targetElement,
   getEventPath,
   getMouseWheelDistance,
-  stopAndPrevent,
+  stopAndPrevent
 }

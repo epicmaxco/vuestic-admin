@@ -22,11 +22,9 @@ export const closeOverlay = {
   },
   unbind (el) {
     const ctx = el.__qclose
-    if (!ctx) {
-      return
-    }
+    if (!ctx) { return }
     el.removeEventListener('click', ctx.handler)
     el.removeEventListener('keyup', ctx.handlerKey)
     delete el.__qclose
-  },
+  }
 }

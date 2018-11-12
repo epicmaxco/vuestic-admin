@@ -6,7 +6,6 @@
 
 <script>
 import { VTooltip } from 'v-tooltip'
-
 export default {
   name: 'vuestic-tooltip',
 
@@ -15,23 +14,23 @@ export default {
   computed: {
     tooltipOptions () {
       return Object.assign({}, this.defaultOptions, this.options)
-    },
+    }
   },
 
   props: {
     options: {
       type: Object,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
 
   data () {
     return {
       defaultOptions: {
-        classes: 'vuestic-tooltip',
-      },
+        classes: 'vuestic-tooltip'
+      }
     }
-  },
+  }
 }
 </script>
 

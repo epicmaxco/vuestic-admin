@@ -46,7 +46,6 @@ export function ready (fn) {
 }
 
 const prefix = ['-webkit-', '-moz-', '-ms-', '-o-']
-
 export function cssTransform (val) {
   let o = { transform: val }
   prefix.forEach(p => {
@@ -62,5 +61,5 @@ export default {
   width,
   css,
   ready,
-  cssTransform,
+  cssTransform
 }

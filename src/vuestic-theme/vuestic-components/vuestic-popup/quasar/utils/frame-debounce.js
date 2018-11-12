@@ -3,9 +3,7 @@ export default function (fn) {
   let frame
 
   function debounced (...args) {
-    if (wait) {
-      return
-    }
+    if (wait) { return }
 
     wait = true
     frame = requestAnimationFrame(() => {
