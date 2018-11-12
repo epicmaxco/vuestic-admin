@@ -56,6 +56,175 @@ h5, .h5 {
   }
 }
 
+//Buttons
+
+.vuestic-button {
+  @include button-size(7px, 24px, 16px, 1.5, 24px);
+  margin: 6px 8px;
+  letter-spacing: 0.55px;
+  color: white;
+  font-family: $font-family-sans-serif;
+  text-transform: initial;
+  cursor: pointer;
+}
+
+$vuestic-colors: (
+  success: (#63e5b3, #23e066, rgba(28, 173, 103, 0.6), #40e583, #d6ffd3),
+  danger: (#ff7455, #e34b4a, rgba(137, 13, 12, 0.6), #e34b4a, #ffebeb),
+  warning: (#ffd72d, #feb900, rgba(169, 124, 14, 0.6), #ffc202, #fff3d1),
+  info: (#32b5e4, #2c82e0, rgba(10, 82, 117, 0.6), #2c82e0, #caeeff),
+  gray: (#cdd0d5 #b4b6b9 rgba(104, 115, 125, 0.61) #babfc2 #e6e9ec),
+  dark: (#576675, #34495e, #aebcca, #34495e, #afb6bb)
+);
+
+@each $name, $colors in $vuestic-colors {
+  $gradient-color1: nth($colors, 1);
+  $gradient-color2: nth($colors, 2);
+  $box-shadow: nth($colors, 3);
+  $border-color: nth($colors, 4);
+  $hover-color: nth($colors, 5);
+
+  .vuestic-button--#{$name} {
+    background-image: none;
+    box-shadow: none;
+    border: 0 solid transparent;
+  }
+
+  .vuestic-button--#{$name}.vuestic-button--default{
+    background-image: linear-gradient(to right, $gradient-color1, $gradient-color2);
+    box-shadow: 0 2px 3px 0 $box-shadow;
+
+    &:hover {
+      background-image: linear-gradient(to right, lighten($gradient-color1, 15%), lighten($gradient-color2, 15%));
+    }
+
+    &:active, &:focus {
+      background-image: linear-gradient(to right, darken($gradient-color1, 15%), darken($gradient-color2, 15%));
+    }
+  }
+
+  .vuestic-button--#{$name}.vuestic-button--outline{
+    border: solid 2px $border-color;
+    color: $border-color;
+
+    &:hover {
+      background-color: $hover-color;
+    }
+
+    &:active, &:focus {
+      background-color: $border-color;
+      border: none;
+    }
+  }
+
+  .vuestic-button--#{$name}.vuestic-button--flat{
+    border: 0 solid transparent;
+    color: $border-color;
+
+    &:hover {
+      background-color: $hover-color;
+    }
+
+    &:active, &:focus {
+      background-color: $border-color;
+      border: none;
+    }
+
+    &.disabled {
+      opacity: 0.4;
+    }
+  }
+}
+
+.vuestic-button--large {
+  @include button-size(12px, 32px, 20px, 1.3, 32px);
+  letter-spacing: 0.7px;
+  color: white;
+}
+
+.vuestic-button--large.vuestic-button--with-icon {
+  padding-left: 24px;
+
+  img {
+    width: 32px;
+    height: 26px;
+    padding-right: 8px;
+  }
+}
+
+.vuestic-button--small {
+  @include button-size(2px, 16px, 14px, 1.43, 16px);
+  letter-spacing: 0.5px;
+  color: white;
+}
+
+.vuestic-button--small.vuestic-button--with-icon {
+  padding-left: 8px;
+
+  img {
+    width: 18px;
+    height: 20px;
+    padding-right: 4px;
+  }
+}
+
+.vuestic-button--normal {
+  @include button-size(7px, 24px, 16px, 1.5, 24px);
+  letter-spacing: 0.55px;
+  color: white;
+}
+
+.vuestic-button--normal.vuestic-button--with-icon {
+  padding-left: 16px;
+
+  img {
+    width: 28px;
+    height: 24px;
+    padding-right: 8px;
+  }
+}
+
+.btn.btn-with-icon {
+  position: relative;
+  padding: $btn-padding-y $btn-with-icon-padding-x;
+  .btn-with-icon-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: $btn-with-icon-text-margin;
+  }
+
+  i {
+    position: absolute;
+    left: $btn-with-icon-padding-x;
+    top: $btn-with-icon-icon-top;
+    font-size: $btn-with-icon-icon-size;
+  }
+
+  &.rounded-icon {
+    width: $btn-with-icon-rounded-size;
+    height: $btn-with-icon-rounded-size;
+    border-radius: 50%;
+    padding: 0;
+
+    i {
+      left: $btn-with-icon-rounded-icon-left;
+    }
+
+    &.btn-micro {
+      height: $btn-with-icon-rounded-size-micro;
+      width: $btn-with-icon-rounded-size-micro;
+      flex: none;
+
+      i {
+        font-size: $btn-with-icon-rounded-font-micro;
+        left: $btn-with-icon-rounded-position-left;
+        top: $btn-with-icon-rounded-position-top;
+      }
+    }
+  }
+}
+
 .btn-group {
   box-shadow: $btn-box-shadow;
   border-radius: $btn-border-radius;
