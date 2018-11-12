@@ -17,7 +17,7 @@
               />
               <vuestic-simple-select
                 class="filters-page__filter-bar"
-                label="city"
+                label="City"
                 v-model="city"
                 :options="cityList"
               />

@@ -1,10 +1,7 @@
 <template>
   <div class="demo-container">
     <div class="demo-container__item">
-      <vuestic-tag
-        name="Company"
-        :removable="true"
-      />
+      <vuestic-tag name="Company" removable />
     </div>
   </div>
 </template>

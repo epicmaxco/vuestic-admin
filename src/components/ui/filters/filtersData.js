@@ -1,5 +1,5 @@
-export let cityList = ['Vancouver', 'Washington', 'Barcelona', 'Manchester', 'Wien', 'Brussels']
-export let itemList = [
+export const cityList = ['Vancouver', 'Washington', 'Barcelona', 'Manchester', 'Wien', 'Brussels']
+export const itemList = [
   {
     name: 'Matthew McCormick',
     email: 'matthew30@mail.ol',
