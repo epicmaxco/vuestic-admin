@@ -115,7 +115,8 @@ $card-font-size: 1.375 rem;
   }
 
   &__image {
-    border-radius: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
     width: 100%;
   }
 
