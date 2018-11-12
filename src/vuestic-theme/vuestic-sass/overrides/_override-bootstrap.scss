@@ -58,31 +58,91 @@ h5, .h5 {
 
 //Buttons
 
-.btn {
-  box-shadow: $btn-box-shadow;
-  font-family: inherit;
-  letter-spacing: 3px;
-  text-transform: uppercase;
+.vuestic-button {
+  @include button-size(7px, 24px, 16px, 1.5, 24px);
+  margin: 6px 8px;
+  letter-spacing: 0.55px;
+  color: white;
+  font-family: $font-family-sans-serif;
+  text-transform: initial;
   cursor: pointer;
+}
 
-  &.dropdown-toggle.theme-toggle {
-    @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-line-height, $btn-border-radius);
+$vuestic-colors: (
+  success: (#63e5b3, #23e066, rgba(28, 173, 103, 0.6), #40e583, #d6ffd3),
+  danger: (#ff7455, #e34b4a, rgba(137, 13, 12, 0.6), #e34b4a, #ffebeb),
+  warning: (#ffd72d, #feb900, rgba(169, 124, 14, 0.6), #ffc202, #fff3d1),
+  info: (#32b5e4, #2c82e0, rgba(10, 82, 117, 0.6), #2c82e0, #caeeff),
+  gray: (#cdd0d5 #b4b6b9 rgba(104, 115, 125, 0.61) #babfc2 #e6e9ec),
+  dark: (#576675, #34495e, #aebcca, #34495e, #afb6bb)
+);
+
+@each $name, $colors in $vuestic-colors {
+  $gradient-color1: nth($colors, 1);
+  $gradient-color2: nth($colors, 2);
+  $box-shadow: nth($colors, 3);
+  $border-color: nth($colors, 4);
+  $hover-color: nth($colors, 5);
+
+  .vuestic-button--#{$name} {
+    background-image: none;
+    box-shadow: none;
+    border: 0 solid transparent;
   }
 
-  &:focus, &:active, &.focus {
-    box-shadow: $btn-box-shadow;
+  .vuestic-button--#{$name}.vuestic-button--default{
+    background-image: linear-gradient(to right, $gradient-color1, $gradient-color2);
+    box-shadow: 0 2px 3px 0 $box-shadow;
+
+    &:hover {
+      background-image: linear-gradient(to right, lighten($gradient-color1, 15%), lighten($gradient-color2, 15%));
+    }
+
+    &:active, &:focus {
+      background-image: linear-gradient(to right, darken($gradient-color1, 15%), darken($gradient-color2, 15%));
+    }
+  }
+
+  .vuestic-button--#{$name}.vuestic-button--outline{
+    border: solid 2px $border-color;
+    color: $border-color;
+
+    &:hover {
+      background-color: $hover-color;
+    }
+
+    &:active, &:focus {
+      background-color: $border-color;
+      border: none;
+    }
+  }
+
+  .vuestic-button--#{$name}.vuestic-button--flat{
+    border: 0 solid transparent;
+    color: $border-color;
+
+    &:hover {
+      background-color: $hover-color;
+    }
+
+    &:active, &:focus {
+      background-color: $border-color;
+      border: none;
+    }
+
+    &.disabled {
+      opacity: 0.4;
+    }
   }
 }
 
-.btn-large {
+.vuestic-button--large {
   @include button-size(12px, 32px, 20px, 1.3, 32px);
-
-  text-transform: initial;
-  letter-spacing: normal;
+  letter-spacing: 0.7px;
   color: white;
 }
 
-.btn-large.with-icon {
+.vuestic-button--large.vuestic-button--with-icon {
   padding-left: 24px;
 
   img {
@@ -92,15 +152,13 @@ h5, .h5 {
   }
 }
 
-.btn-small {
+.vuestic-button--small {
   @include button-size(2px, 16px, 14px, 1.43, 16px);
-
-  text-transform: initial;
-  letter-spacing: normal;
+  letter-spacing: 0.5px;
   color: white;
 }
 
-.btn-small.with-icon {
+.vuestic-button--small.vuestic-button--with-icon {
   padding-left: 8px;
 
   img {
@@ -110,96 +168,19 @@ h5, .h5 {
   }
 }
 
-.btn-default {
+.vuestic-button--normal {
   @include button-size(7px, 24px, 16px, 1.5, 24px);
-
-  text-transform: initial;
-  letter-spacing: normal;
+  letter-spacing: 0.55px;
   color: white;
 }
 
-.btn-default.with-icon {
+.vuestic-button--normal.vuestic-button--with-icon {
   padding-left: 16px;
 
   img {
     width: 28px;
     height: 24px;
     padding-right: 8px;
-  }
-}
-
-.btn.btn-primary {
-  @include theme-button-variant($white, theme-color("primary"), $btn-border, $btn-box-shadow);
-
-  &.hover {
-    background-color: lighten(theme-color("primary"), 10%) !important;
-    color: $white;
-  }
-
-  &.focus {
-    background-color: darken(theme-color("primary"), 15%);
-    color: $white;
-  }
-}
-
-.btn.btn-secondary {
-  @include theme-button-variant($white, theme-color("primary"), $btn-secondary-theme-border, none);
-
-  color: theme-color("primary");
-  border: $btn-secondary-theme-border;
-  background-color: $white;
-
-  &[disabled], &[disabled]:hover {
-    background-color: $white;
-    color: theme-color("primary");
-    border: 2px solid theme-color("primary");
-  }
-
-  &:hover {
-    border: 2px solid lighten(theme-color("primary"), 10%);
-  }
-
-  &.hover {
-    border: 2px solid lighten(theme-color("primary"), 10%) !important;
-    background-color: lighten(theme-color("primary"), 10%) !important;
-    color: $white;
-  }
-
-  &:active, &:focus, &.focus {
-    border: 2px solid darken(theme-color("primary"), 15%) !important;
-    background-color: darken(theme-color("primary"), 15%) !important;
-    color: $white;
-  }
-
-}
-
-.btn.btn-danger {
-  @include theme-button-variant($white, theme-color("danger"), $btn-border, $btn-box-danger-shadow);
-}
-
-.btn.btn-warning {
-  @include theme-button-variant($white, theme-color("warning"), $btn-border, $btn-box-warning-shadow);
-}
-
-.btn.btn-info {
-  @include theme-button-variant($white, theme-color("info"), $btn-border, $btn-box-info-shadow);
-}
-
-.btn.btn-success {
-  @include theme-button-variant($white, theme-color("primary"), $btn-border, $btn-box-success-shadow);
-}
-
-.btn.btn-dark {
-  @include theme-button-variant($white, theme-color("dark"), $btn-border, $btn-box-dark-shadow);
-}
-
-.btn.btn-pale {
-  @include theme-button-variant($white, theme-color("pale"), $btn-border, $btn-box-pale-shadow);
-  &:hover {
-    background-color: lighten(theme-color("pale"), 5%);
-    &:focus, &:active, &.active {
-      background-color: darken(theme-color("pale"), 15%);
-    }
   }
 }
 
