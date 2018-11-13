@@ -56,7 +56,7 @@ h5, .h5 {
   }
 }
 
-//Buttons
+//Buttons (redesigned)
 
 .vuestic-button {
   @include button-size(7px, 24px, 16px, 1.5, 24px);
@@ -66,6 +66,12 @@ h5, .h5 {
   font-family: $font-family-sans-serif;
   text-transform: initial;
   cursor: pointer;
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 $vuestic-colors: (
@@ -144,10 +150,21 @@ $vuestic-colors: (
 .vuestic-button--large.vuestic-button--with-icon {
   padding-left: 24px;
 
-  img {
-    width: 32px;
-    height: 26px;
+  .vuestic-button__icon-left {
     padding-right: 8px;
+
+    img {
+      width: 32px;
+      height: 26px;
+    }
+  }
+
+  .vuestic-button__icon-right {
+    padding-left: 8px;
+
+    img {
+      width: 19px;
+    }
   }
 }
 
@@ -160,10 +177,21 @@ $vuestic-colors: (
 .vuestic-button--small.vuestic-button--with-icon {
   padding-left: 8px;
 
-  img {
-    width: 18px;
-    height: 20px;
-    padding-right: 4px;
+  .vuestic-button__icon-left {
+    padding-right: 8px;
+
+    img {
+      width: 18px;
+      height: 20px;
+    }
+  }
+
+  .vuestic-button__icon-right {
+    padding-left: 8px;
+
+    img {
+      width: 10px;
+    }
   }
 }
 
@@ -176,50 +204,20 @@ $vuestic-colors: (
 .vuestic-button--normal.vuestic-button--with-icon {
   padding-left: 16px;
 
-  img {
-    width: 28px;
-    height: 24px;
+  .vuestic-button__icon-left {
     padding-right: 8px;
-  }
-}
 
-.btn.btn-with-icon {
-  position: relative;
-  padding: $btn-padding-y $btn-with-icon-padding-x;
-  .btn-with-icon-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: $btn-with-icon-text-margin;
-  }
-
-  i {
-    position: absolute;
-    left: $btn-with-icon-padding-x;
-    top: $btn-with-icon-icon-top;
-    font-size: $btn-with-icon-icon-size;
-  }
-
-  &.rounded-icon {
-    width: $btn-with-icon-rounded-size;
-    height: $btn-with-icon-rounded-size;
-    border-radius: 50%;
-    padding: 0;
-
-    i {
-      left: $btn-with-icon-rounded-icon-left;
+    img {
+      width: 28px;
+      height: 24px;
     }
+  }
 
-    &.btn-micro {
-      height: $btn-with-icon-rounded-size-micro;
-      width: $btn-with-icon-rounded-size-micro;
-      flex: none;
+  .vuestic-button__icon-right {
+    padding-left: 8px;
 
-      i {
-        font-size: $btn-with-icon-rounded-font-micro;
-        left: $btn-with-icon-rounded-position-left;
-        top: $btn-with-icon-rounded-position-top;
-      }
+    img {
+      width: 14px;
     }
   }
 }
@@ -231,21 +229,6 @@ $vuestic-colors: (
     padding-left: $btn-group-button-padding-x;
     padding-right: $btn-group-button-padding-x;
     box-shadow: none;
-  }
-}
-
-.btn.dropdown-toggle {
-  position: relative;
-
-  .arrow-down {
-    position: absolute;
-    font-size: $btn-dd-arrow-size;
-    right: 1rem;
-    top: calc(50% - #{$btn-dd-arrow-size} / 1.4);
-  }
-
-  &::after {
-    display: none;
   }
 }
 
