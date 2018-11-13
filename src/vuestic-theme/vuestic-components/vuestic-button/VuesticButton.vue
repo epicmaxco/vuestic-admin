@@ -5,15 +5,23 @@
           :disabled="disabled"
           :type="type">
     <div class="d-flex">
-      <slot></slot>
-      <slot name="title"/>
+      <div class="vuestic-button__icon-left">
+        <slot name="icon"></slot>
+      </div>
+      <div class="vuestic-button__content">
+        <slot/>
+      </div>
+      <div v-if="hasRightIconData" class="vuestic-button__icon-right">
+        <slot name="icon-right"></slot>
+      </div>
     </div>
   </button>
   <a v-else-if="computedTag === 'a'"
      :href="href"
      :target="target">
-    <slot></slot>
-    <slot name="title"/>
+    <slot name="icon"></slot>
+    <slot name="icon-right"></slot>
+    <slot/>
   </a>
   <router-link v-else-if="computedTag === 'router-link'"
                :to="to"
@@ -22,8 +30,9 @@
                :active-class="activeClass"
                :exact="exact"
                :exact-active-class="exactActiveClass">
-    <slot></slot>
-    <slot name="title"/>
+    <slot name="icon"></slot>
+    <slot name="icon-right"></slot>
+    <slot/>
   </router-link>
 </template>
 
@@ -112,15 +121,19 @@ export default {
         'vuestic-button--default': !this.flat && !this.outline,
         'vuestic-button--flat': this.flat,
         'vuestic-button--outline': this.outline,
-        'vuestic-button--with-icon': this.hasSlotData,
+        'vuestic-button--with-icon': this.hasIconData || this.hasRightIconData,
         'vuestic-button--disabled': this.disabled,
         'vuestic-button--large': this.large,
         'vuestic-button--small': this.small,
         'vuestic-button--normal': !this.large && !this.small
       }
     },
-    hasSlotData () {
-      return this.$slots.default
+    hasIconData () {
+      return this.$slots.icon
+    },
+    hasRightIconData () {
+      console.log(this.$slots)
+      return this.$slots['icon-right']
     },
     computedTag () {
       if (this.tag === 'a' || this.href || this.target) {
