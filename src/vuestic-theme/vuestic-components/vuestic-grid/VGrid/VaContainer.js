@@ -1,3 +1,3 @@
-import Grid from './grid'
+import Grid from './Grid'
 
 export default Grid('container')

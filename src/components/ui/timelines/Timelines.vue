@@ -72,8 +72,8 @@
 
     <vuestic-widget class="no-h-padding no-v-padding"
                     :headerText="$t('timelines.verticalSimple')">
-      <div class="row">
-        <div class="col-12 col-md-6">
+      <div class="va-row">
+        <div class="xs12 md6 flex">
           <vuestic-timeline vertical>
             <vuestic-timeline-item active>
               <vuestic-card
@@ -93,7 +93,7 @@
             </vuestic-timeline-item>
           </vuestic-timeline>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="xs12 md6 flex">
           <vuestic-timeline vertical>
             <vuestic-timeline-item active>
               <vuestic-card

@@ -5,7 +5,7 @@
 // Mixins are reserved for "smart stuffs", flex one-liners are kept intact
 @import "grid-mixins";
 
-.container {
+.va-layout {
   @include va-container();
 
   &.fluid {
@@ -18,7 +18,7 @@
     @include va-container--fill-height();
 
     // TODO Think on implementation.
-    > .layout {
+    > .va-row {
       flex: 1 1 auto;
       height: 100%;
     }
@@ -29,32 +29,32 @@
     &.gutter--#{$size} {
       padding: $gutter;
 
-      .layout:only-child {
+      .va-row:only-child {
         margin: -($gutter / 2);
       }
 
-      .layout:not(:only-child) {
+      .va-row:not(:only-child) {
         margin: auto (-($gutter / 2));
       }
 
       *:not(:only-child) {
-        .layout:first-child {
+        .va-row:first-child {
           margin-top: -($gutter / 2);
         }
 
-        .layout:last-child {
+        .va-row:last-child {
           margin-bottom: -($gutter / 2);
         }
       }
 
-      .layout .flex {
+      .va-row .flex {
         padding: $gutter / 2;
       }
     }
   }
 }
 
-.layout {
+.va-row {
   @include va-layout();
   &.row {
     flex-direction: row;
