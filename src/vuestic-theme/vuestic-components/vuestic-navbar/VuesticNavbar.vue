@@ -1,7 +1,7 @@
 <template>
   <nav class="vuestic-navbar navbar navbar-toggleable-md">
     <div
-      class="vuestic-navbar__logo navbar-brand-container d-flex align-items-center justify-content-start">
+      class="vuestic-navbar__logo navbar-brand-container align-items-center justify-content-start">
       <router-link class="navbar-brand" to="/dashboard">
         <slot name="logo"/>
       </router-link>
@@ -12,7 +12,7 @@
         <slot name="selector"></slot>
       </div>
       <div
-        class="header-elem-wrapper navbar-text offset-md-1 col-md-7 d-none d-lg-flex">
+        class="header-elem-wrapper navbar-text flex offset--md3 md5 d-none d-lg-flex">
         <slot name="center"></slot>
       </div>
       <slot></slot>

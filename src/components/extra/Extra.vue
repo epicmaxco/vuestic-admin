@@ -18,8 +18,8 @@
       </vuestic-tabs>
     </vuestic-widget>
 
-    <div class="row">
-      <div class="col-md-4 d-flex">
+    <div class="va-row">
+      <div class="flex md4">
         <vuestic-widget :headerText="$t('extra.profileCard')"
                         class="profile-card-widget">
           <vuestic-profile-card :name="'Veronique Lee'"
@@ -30,7 +30,7 @@
           </vuestic-profile-card>
         </vuestic-widget>
       </div>
-      <div class="col-md-8 d-flex">
+      <div class="flex md8">
         <vuestic-widget :headerText="$t('extra.chat')" class="chat-widget">
           <vuestic-chat v-model="chatMessages"></vuestic-chat>
         </vuestic-widget>
@@ -38,12 +38,12 @@
     </div>
 
     <div class="row bottom-widgets">
-      <div class="col-md-6 d-flex">
+      <div class="flex md6">
         <vuestic-widget class="no-h-padding no-v-padding">
           <vuestic-feed :initialPosts="posts"></vuestic-feed>
         </vuestic-widget>
       </div>
-      <div class="col-md-6 d-flex">
+      <div class="flex md6">
         <vuestic-widget class="business-posts">
           <vuestic-social-news :news="news"
                                :url="'https://instagram.com/smartapant'"></vuestic-social-news>

@@ -139,7 +139,7 @@
               </fieldset>
             </div>
             <div
-              class="col-md-6 justify-content-center align-items-center d-none d-md-flex">
+              class="flex offset--md4 justify-content-center d-none d-md-flex">
               <div class="toasted-container sample-toasted-container"
                    v-if="isToastContentPresent">
                 <div class="toasted vuestic-toast none default">

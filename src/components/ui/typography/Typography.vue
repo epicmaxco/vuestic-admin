@@ -152,10 +152,6 @@ export default {
     padding: 3.75rem 4.7rem 0 2.2rem !important;
   }
 
-  .col-md-6 {
-    padding-right: 0;
-  }
-
   .vue-lists ul, ol {
     width: 85%;
   }

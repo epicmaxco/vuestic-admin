@@ -5,11 +5,11 @@
         <vuestic-icon-vuestic/>
       </router-link>
     </div>
-    <div class="main row">
-      <div class="auth-content col-lg-6 col-12">
+    <div class="main va-row">
+      <div class="auth-content flex lg6 md12">
         <router-view></router-view>
       </div>
-      <div class="auth-wallpaper col-6 d-none d-lg-flex">
+      <div class="auth-wallpaper flex md6 d-none d-lg-flex">
         <div class="oblique"></div>
         <router-link class="auth-wallpaper__logo" :to="{path: '/'}">
           <vuestic-icon-vuestic/>

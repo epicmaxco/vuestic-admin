@@ -1,12 +1,12 @@
 <template>
   <div class="progress-bars">
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12">
         <standard-bars/>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12">
         <colorful-bars/>
       </div>
     </div>

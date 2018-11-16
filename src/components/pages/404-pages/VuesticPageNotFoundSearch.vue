@@ -9,7 +9,7 @@
         <h3 class="vuestic-page-not-found-search__text">The page's gone
           fishing.</h3>
       </div>
-      <div class="vuestic-page-not-found-search__wallpaper col-md-12">
+      <div class="vuestic-page-not-found-search__wallpaper flex md12">
         <div class="row vuestic-page-not-found-search__message">
           <h4 class="vuestic-page-not-found-search__text-small">
             If you feel that it's not right, please send us a message at &nbsp;
@@ -130,6 +130,9 @@ export default {
     z-index: 2;
     height: $auth-wallpaper-ivuestic-h;
     width: 100%;
+  }
+  &__message {
+    justify-content: center;
   }
   @include media-breakpoint-down(xs) {
     .vuestic-page-not-found-search {
