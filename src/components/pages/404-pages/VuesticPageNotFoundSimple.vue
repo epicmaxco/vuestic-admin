@@ -71,6 +71,7 @@ export default {
   }
   &__wallpaper-button {
     padding-top: 20px;
+    padding-bottom: 10px;
     background-color: $top-nav-bg;
     overflow: hidden;
     display: flex;

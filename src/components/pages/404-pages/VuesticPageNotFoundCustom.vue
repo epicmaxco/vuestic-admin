@@ -22,7 +22,7 @@
         </div>
       </div>
       <div
-        class="vuestic-page-not-found-custom__wallpaper col-md-12 vuestic-page-not-found-custom__wallpaper-button">
+        class="vuestic-page-not-found-custom__wallpaper md12 vuestic-page-not-found-custom__wallpaper-button">
         <router-link :to="{ path: './dashboard' }">
           <button class="btn btn-primary back-button">
             {{'Back to dashboard'}}
@@ -63,6 +63,7 @@ export default {
   }
   &__wallpaper-button {
     padding-top: 20px;
+    padding-bottom: 10px;
     background-color: $top-nav-bg;
     overflow: hidden;
     display: flex;

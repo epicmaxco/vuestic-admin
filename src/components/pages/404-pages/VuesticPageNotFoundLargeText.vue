@@ -84,6 +84,7 @@ export default {
   }
   &__wallpaper-button {
     padding-top: 20px;
+    padding-bottom: 10px;
     text-align: center;
     background-color: $top-nav-bg;
     overflow: hidden;
