@@ -8,7 +8,7 @@
       <div v-if="hasIconData" class="vuestic-button__content__icon-left">
         <slot name="icon"></slot>
       </div>
-      <div class="vuestic-button__content__title">
+      <div v-if="hasTitleData" class="vuestic-button__content__title">
         <slot/>
       </div>
       <div v-if="hasRightIconData" class="vuestic-button__content__icon-right">
@@ -143,6 +143,7 @@ export default {
         'vuestic-button--default': !this.flat && !this.outline,
         'vuestic-button--flat': this.flat,
         'vuestic-button--outline': this.outline,
+        'vuestic-button--without-title': !this.hasTitleData,
         'vuestic-button--with-left-icon': this.hasIconData,
         'vuestic-button--with-right-icon': this.hasRightIconData,
         'vuestic-button--disabled': this.disabled,
@@ -150,6 +151,9 @@ export default {
         'vuestic-button--small': this.small,
         'vuestic-button--normal': !this.large && !this.small
       }
+    },
+    hasTitleData () {
+      return this.$slots.default
     },
     hasIconData () {
       return this.$slots.icon
@@ -186,7 +190,8 @@ export default {
     margin: 6px 8px;
     background-image: none;
     box-shadow: none;
-    border: 0 solid transparent;
+    outline: none !important;
+    border: 0;
     font-family: $font-family-sans-serif;
     text-transform: initial;
     cursor: pointer;
@@ -210,6 +215,10 @@ export default {
 
       &.vuestic-button--with-left-icon {
         padding-left: 24px;
+
+        &.vuestic-button--without-title {
+          padding-right: 24px;
+        }
 
         .vuestic-button__content__title {
           padding-left: 8px;
@@ -247,6 +256,10 @@ export default {
       &.vuestic-button--with-left-icon {
         padding-left: 8px;
 
+        &.vuestic-button--without-title {
+          padding-right: 8px;
+        }
+
         .vuestic-button__content__title {
           padding-left: 4px;
         }
@@ -268,6 +281,10 @@ export default {
 
       &.vuestic-button--with-left-icon {
         padding-left: 16px;
+
+        &.vuestic-button--without-title {
+          padding-right: 16px;
+        }
 
         .vuestic-button__content__title {
           padding-left: 8px;
