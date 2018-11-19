@@ -16,18 +16,19 @@
   &:visited {
     color: #4ae387;
   }
-  &--secondary {
-    color: #babfc2;
-    cursor: pointer;
-    &:hover {
-      color: #79eca8;
-    }
-    &:active {
-      color: #48c279;
-    }
-    &:visited {
-      color: #4ae387;
-    }
+}
+
+.link-secondary {
+  color: #babfc2;
+  cursor: pointer;
+  &:hover {
+    color: #79eca8;
+  }
+  &:active {
+    color: #48c279;
+  }
+  &:visited {
+    color: #4ae387;
   }
 }
 
