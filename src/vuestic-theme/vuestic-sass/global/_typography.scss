@@ -2,6 +2,27 @@
   background-color: $vue-turquoise;
 }
 
+.link {
+  color: $va-link-color;
+}
+
+.link-secondary {
+  color: $va-link-color-secondary;
+}
+
+.link, .link-secondary {
+  cursor: pointer;
+  &:hover {
+    color: $va-link-color-hover;
+  }
+  &:active {
+    color: $va-link-color-active;
+  }
+  &:visited {
+    color: $va-link-color-visited;
+  }
+}
+
 .vue-selected-text, ::selection {
   background-color: $brand-primary;
   color: $white;
