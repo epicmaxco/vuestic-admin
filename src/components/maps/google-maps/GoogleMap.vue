@@ -16,10 +16,10 @@ export default {
 
   mounted () {
     GoogleMapsLoader.KEY = this.config.googleMaps.apiKey
-    GoogleMapsLoader.VERSION = '3.35' /* We stick to version updates instead of
-                                        weekly channel update because using weekly updates
-                                        you need to test them, but we prefer to use stable
-                                        versions. */
+    /* We stick to version updates instead of weekly channel update because
+       using weekly updates you need to test them, but we prefer to use stable
+       versions. */
+    GoogleMapsLoader.VERSION = '3.35'
     GoogleMapsLoader.load((google) => {
       /* eslint-disable no-new */
       new google.maps.Map(this.$el, {
