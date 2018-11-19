@@ -3,32 +3,23 @@
 }
 
 .link {
-  line-height: 1.5;
-  letter-spacing: normal;
-  color: #4ae387;
-  cursor: pointer;
-  &:hover {
-    color: #79eca8;
-  }
-  &:active {
-    color: #48c279;
-  }
-  &:visited {
-    color: #4ae387;
-  }
+  color: $va-link-color;
 }
 
 .link-secondary {
-  color: #babfc2;
+  color: $va-link-color-secondary;
+}
+
+.link, .link-secondary {
   cursor: pointer;
   &:hover {
-    color: #79eca8;
+    color: $va-link-color-hover;
   }
   &:active {
-    color: #48c279;
+    color: $va-link-color-active;
   }
   &:visited {
-    color: #4ae387;
+    color: $va-link-color-visited;
   }
 }
 
