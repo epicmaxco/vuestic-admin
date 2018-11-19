@@ -16,7 +16,7 @@ export default {
 
   mounted () {
     GoogleMapsLoader.KEY = this.config.googleMaps.apiKey
-
+    GoogleMapsLoader.VERSION = '3.36'
     GoogleMapsLoader.load((google) => {
       /* eslint-disable no-new */
       new google.maps.Map(this.$el, {

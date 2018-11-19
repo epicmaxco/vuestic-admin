@@ -34,6 +34,9 @@ export default {
 .bubble-maps-page {
   &__widget {
     height: 70vh;
+    .vuestic-widget-body {
+      height: 65vh;
+    }
   }
 }
 </style>

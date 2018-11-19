@@ -25,9 +25,12 @@ export default {
 </script>
 
 <style lang="scss">
-.google-maps-page {
-  &__widget {
-    height: 70vh;
-  }
-}
+ .google-maps-page{
+   &__widget {
+     height: 70vh;
+     .vuestic-widget-body {
+       height: 65vh;
+     }
+   }
+ }
 </style>
