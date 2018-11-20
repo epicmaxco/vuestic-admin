@@ -15,35 +15,20 @@
 }
 
 //Typography
-@mixin header-style($font-size, $font-weight, $line-height, $letter-spacing,
-  $font-family, $margin-top, $margin-bottom) {
-  font-size: $font-size;
-  font-weight: $font-weight;
-  line-height: $line-height;
-  letter-spacing: $letter-spacing;
-  font-family: $font-family;
-  margin-top: $margin-top;
-  margin-bottom: $margin-bottom;
-}
-
 h1, .h1 {
-  @include header-style(2.5rem, 500, 1.2, normal, inherit, 4.5rem, 2.25rem);
+  margin-bottom: 2.25rem;
 }
 
 h2, .h2 {
-  @include header-style(2rem, 500, 1.2, normal, inherit, 4rem, 2rem);
+  margin-bottom: 2rem;
 }
 
 h3, .h3 {
-  @include header-style(1.75rem, 500, 1.2, normal, inherit, 3rem, 1.5rem);
+  margin-bottom: 1.5rem;
 }
 
 h4, .h4 {
-  @include header-style(1.5rem, 500, 1.2, normal, inherit, 2rem, 1rem);
-}
-
-h5, .h5 {
-  @include header-style(1.25rem, 500, 1.2, normal, inherit, 1rem, 0.5rem);
+  margin-bottom: 1rem;
 }
 
 .blockquote {

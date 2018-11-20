@@ -125,10 +125,6 @@ export default {
     max-height: 40%;
     display: flex;
     justify-content: center;
-
-    a {
-      margin-top: 2rem;
-    }
   }
   &__i-vuestic {
     z-index: 2;

@@ -92,10 +92,6 @@ export default {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-
-    a {
-      margin-top: 2rem;
-    }
   }
   @include media-breakpoint-down(xs) {
     .vuestic-page-not-found-custom {
