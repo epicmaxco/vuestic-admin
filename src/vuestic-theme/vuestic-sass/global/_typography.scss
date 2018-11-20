@@ -55,37 +55,32 @@
   font-family: SourceCodePro;
   font-size: 14px;
   color: #ffffff;
+  background-color: $vue-darkest-blue;
   line-height: 1.5;
+}
+
+.display-1, .display-2, .display-3, .display-4, .display-5 {
+  color: $vue-darkest-blue;
 }
 
 .display-1 {
   font-size: 48px;
-  font-weight: bold;
-  color: #34495e;
 }
 
 .display-2 {
   font-size: 32px;
-  font-weight: bold;
-  color: #34495e;
 }
 
 .display-3 {
   font-size: 24px;
-  font-weight: bold;
-  color: #34495e;
 }
 
 .display-4 {
   font-size: 24px;
-  font-weight: bold;
-  color: #34495e;
 }
 
 .display-5 {
   font-size: 16px;
-  font-weight: bold;
-  color: #34495e;
 }
 
 ul.vue-list-inner, ol.vue-list-inner {
