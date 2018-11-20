@@ -18,7 +18,7 @@
     <div class="demo-container__item" style="margin-top: 20px; margin-left: 20px;">
       <vuestic-icon :icon="'vuestic-i vuestic-i-forms'" :color="'dark'" :size="'80px'"/>
     </div>
-    <div class="demo-container__item" style="margin-top: 20px; margin-left: 20px;">
+    <div class="demo-container__item" style="width: 900px; margin-top: 20px; margin-left: 20px;">
       <h4>Fixed Width</h4>
       <div v-for="(item, key) in icons" :key="key">
         <vuestic-icon :icon="item.icon" :color="'info'" fixed-width/>

@@ -61,6 +61,8 @@ export default {
 
 <style lang="scss">
 .vuestic-icon {
+  display: inline-block;
+
   &--large {
     font-size: 36px;
   }
@@ -70,8 +72,7 @@ export default {
   }
 
   &--fixed {
-    display: inline-block;
-    width: 50px;
+    width: 3rem;
     text-align: center;
   }
 }
