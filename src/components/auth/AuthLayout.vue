@@ -46,7 +46,7 @@ export default {
   }
   .main {
     margin: 0;
-    height: 100%;
+    height: 100vh;
     .auth-content {
       padding: 0;
       display: flex;
