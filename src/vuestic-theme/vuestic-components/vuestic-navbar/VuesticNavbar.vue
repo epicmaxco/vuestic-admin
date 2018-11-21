@@ -1,14 +1,14 @@
 <template>
   <nav class="vuestic-navbar navbar navbar-toggleable-md">
     <div
-      class="vuestic-navbar__logo navbar-brand-container align-items-center justify-content-start">
+      class="vuestic-navbar__logo navbar-brand-container align--center justify--start">
       <router-link class="navbar-brand" to="/dashboard">
         <slot name="logo"/>
       </router-link>
     </div>
     <div class="row vuestic-navbar__content">
       <div
-        class="header-elem-wrapper menu-icon-container justify-content-lg-start col">
+        class="header-elem-wrapper menu-icon-container justify--start col">
         <slot name="selector"></slot>
       </div>
       <div
@@ -38,7 +38,6 @@ export default {
   .header-elem-wrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
   }
 
   .vuestic-navbar__content {

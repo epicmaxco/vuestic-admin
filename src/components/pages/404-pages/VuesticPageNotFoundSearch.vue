@@ -31,7 +31,7 @@
         </div>
       </div>
       <div
-        class="vuestic-page-not-found-search__wallpaper md12 vuestic-page-not-found-search__not-found-wallpaper-list">
+        class="vuestic-page-not-found-search__wallpaper vuestic-page-not-found-search__not-found-wallpaper-list">
         <div class="vuestic-page-not-found-search__wrapper">
           <ul
             class="vuestic-page-not-found-search__list"

@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div>
     <div class="flex md12">
       <div class="cards-container">
         <!-- eslint-disable vue/valid-v-for -->
@@ -148,7 +148,7 @@
         </template>
       </div>
     </div>
-    <div class="flex md12 align-items-center justify-content-center">
+    <div class="flex md12 align--center justify--center">
       <div class="pre-loader-container">
         <vuestic-pre-loader v-show="isShown"
                             class="pre-loader"></vuestic-pre-loader>

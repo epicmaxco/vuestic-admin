@@ -1,12 +1,12 @@
 <template>
   <div class="vuestic-social-news">
-    <div class="d-flex justify-content-between align-items-center text-w-btn">
+    <div class="d-flex justify--space-between align--center text-w-btn">
       <span class="text">That what users have posted about your business.</span>
       <a :href="url" target="_blank">
         <button class="btn btn-micro btn-primary">VIEW</button>
       </a>
     </div>
-    <div class="d-flex flex-row justify-content-around photos">
+    <div class="d-flex flex-row justify--space-around photos">
       <div
         class="photo"
         v-for="(pieceOfNews, index) in news"

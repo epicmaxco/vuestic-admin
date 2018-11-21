@@ -5,7 +5,7 @@
         <vuestic-widget :headerText="$t('dropdown.default')">
           <div class="va-row btn-margin-row">
             <div
-              class="flex sm6 lg6 xl3 mb4 justify-content-center"
+              class="flex sm6 lg6 xl3 mb4 justify--center"
               v-for="(dropdown, index) in dropdowns"
               :key="index"
             >

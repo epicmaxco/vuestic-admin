@@ -5,25 +5,25 @@
                       :headerText="$t('buttons.main')">
         <div class="va-row btn-margin-row">
           <div
-            class="flex sm6 lg6 xl3 justify-content-center">
+            class="flex sm6 lg6 xl3 justify--center">
             <button class="btn btn-primary">
               {{'buttons.button' | translate}}
             </button>
           </div>
           <div
-            class="flex sm6 lg6 xl3 justify-content-center">
+            class="flex sm6 lg6 xl3 justify--center">
             <button class="btn btn-primary hover">
               {{'buttons.hover' | translate}}
             </button>
           </div>
           <div
-            class="flex sm6 lg6 xl3 justify-content-center">
+            class="flex sm6 lg6 xl3 justify--center">
             <button class="btn btn-primary focus">
               {{'buttons.pressed' | translate}}
             </button>
           </div>
           <div
-            class="flex sm6 lg6 xl3 justify-content-center">
+            class="flex sm6 lg6 xl3 justify--center">
             <button class="btn btn-primary" disabled>
               {{'buttons.disabled' | translate}}
             </button>
@@ -32,25 +32,25 @@
 
         <div class="va-row btn-margin-row">
           <div
-            class="flex sm6 lg6 xl3 justify-content-center">
+            class="flex sm6 lg6 xl3 justify--center">
             <button class="btn btn-secondary">
               {{'buttons.button' | translate}}
             </button>
           </div>
           <div
-            class="flex sm6 lg6 xl3 justify-content-center">
+            class="flex sm6 lg6 xl3 justify--center">
             <button class="btn btn-secondary hover">
               {{'buttons.hover' | translate}}
             </button>
           </div>
           <div
-            class="flex sm6 lg6 xl3 justify-content-center">
+            class="flex sm6 lg6 xl3 justify--center">
             <button class="btn btn-secondary focus">
               {{'buttons.pressed' | translate}}
             </button>
           </div>
           <div
-            class="flex sm6 lg6 xl3 justify-content-center">
+            class="flex sm6 lg6 xl3 justify--center">
             <button class="btn btn-secondary" disabled>
               {{'buttons.disabled' | translate}}
             </button>
@@ -59,13 +59,13 @@
 
         <div class="va-row btn-margin-row">
           <div
-            class="flex sm6 lg6 xl3 justify-content-center">
+            class="flex sm6 lg6 xl3 justify--center">
             <button class="btn btn-primary btn-sm">
               {{'buttons.small' | translate}}
             </button>
           </div>
           <div
-            class="flex sm6 lg6 xl3 justify-content-center align-items-center">
+            class="flex sm6 lg6 xl3 justify--center align--center">
             <button class="btn btn-primary btn-micro">
               {{'buttons.micro' | translate}}
             </button>
@@ -79,7 +79,7 @@
                       :headerText="$t('buttons.advanced')">
         <div class="va-row">
           <div
-            class="flex sm6 lg6 xl3 justify-content-center">
+            class="flex sm6 lg6 xl3 justify--center">
             <button class="btn btn-primary btn-with-icon">
               <div class="btn-with-icon-content">
                 <i class="ion-md-close ion"></i>
@@ -104,7 +104,7 @@
             </button>
           </div>
           <div
-            class="flex sm6 lg6 xl3 justify-content-center"
+            class="flex sm6 lg6 xl3 justify--center"
             :class="{'lg6 xl4' : sidebarOpened, 'lg4' : !sidebarOpened }">
             <div class="btn-toolbar  d-inline-flex" role="toolbar"
                  aria-label="Toolbar with button groups">
@@ -117,7 +117,7 @@
             </div>
           </div>
           <div
-            class="flex sm6 lg6 xl3 justify-content-center"
+            class="flex sm6 lg6 xl3 justify--center"
             :class="{'lg6 xl2' : sidebarOpened, 'lg2' : !sidebarOpened }">
             <button class="btn btn-primary btn-with-icon rounded-icon">
               <div class="btn-with-icon-content">
@@ -134,25 +134,25 @@
                       :headerText="$t('buttons.colors')">
         <div class="va-row btn-margin-row">
           <div
-            class="flex sm6 lg6 xl3 justify-content-center">
+            class="flex sm6 lg6 xl3 justify--center">
             <button class="btn btn-danger">
               {{'buttons.button' | translate}}
             </button>
           </div>
           <div
-            class="flex sm6 lg6 xl3 justify-content-center">
+            class="flex sm6 lg6 xl3 justify--center">
             <button class="btn btn-info">
               {{'buttons.button' | translate}}
             </button>
           </div>
           <div
-            class="flex sm6 lg6 xl3 justify-content-center">
+            class="flex sm6 lg6 xl3 justify--center">
             <button class="btn btn-dark">
               {{'buttons.button' | translate}}
             </button>
           </div>
           <div
-            class="flex sm6 lg6 xl3 justify-content-center">
+            class="flex sm6 lg6 xl3 justify--center">
             <button class="btn btn-warning">
               {{'buttons.button' | translate}}
             </button>
@@ -161,13 +161,13 @@
 
         <div class="va-row btn-margin-row">
           <div
-            class="flex sm6 lg6 xl3 justify-content-center">
+            class="flex sm6 lg6 xl3 justify--center">
             <button class="btn btn-success">
               {{'buttons.button' | translate}}
             </button>
           </div>
           <div
-            class="flex sm6 lg6 xl3 justify-content-center">
+            class="flex sm6 lg6 xl3 justify--center">
             <button class="btn btn-pale">
               {{'buttons.button' | translate}}
             </button>

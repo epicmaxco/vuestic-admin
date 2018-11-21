@@ -1,7 +1,7 @@
 <template>
   <div class="vuestic-data-table table-responsive"
        :class="{'data-loading': loading}">
-    <div class="d-flex flex-md-row flex-column align-items-center"
+    <div class="d-flex flex-md-row flex-column align--center"
          :class="controlsAlignmentClass">
       <filter-bar
         @filter="onFilterSet"
@@ -50,7 +50,7 @@
       @vuetable:loading="onLoading"
       @vuetable:loaded="onLoaded"
     />
-    <div class="d-flex justify-content-center mb-4">
+    <div class="d-flex justify--center mb-4">
       <vuetable-pagination
         ref="pagination"
         :css="css.pagination"
@@ -178,8 +178,8 @@ export default {
   computed: {
     controlsAlignmentClass () {
       return {
-        'justify-content-md-between': this.filterInputShown,
-        'justify-content-md-end': !this.filterInputShown,
+        'justify--space-between': this.filterInputShown,
+        'justify--end': !this.filterInputShown,
       }
     },
     moreParams () {

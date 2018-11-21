@@ -17,7 +17,7 @@
       </div>
     </div>
     <vuestic-simple-select
-      class="d-flex d-md-none d-lg-none d-xl-none simple-select"
+      class="d-md-none d-lg-none d-xl-none simple-select"
       v-bind:options="names" v-model="currentActive"></vuestic-simple-select>
     <div class="tab-content">
       <div
