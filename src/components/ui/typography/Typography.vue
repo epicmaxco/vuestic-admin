@@ -40,8 +40,8 @@
               <a href="/not-visited" class="link-secondary">secondary link</a>
             </div>
             <br/>
-            <a href="" class="link ui-typography__default-link">default link visited</a>
-            <a href="" class="link-secondary">secondary link visited</a>
+            <a href="#" class="link ui-typography__default-link">default link visited</a>
+            <a href="#" class="link-secondary">secondary link visited</a>
           </div>
         </vuestic-widget>
       </div>
@@ -61,18 +61,18 @@ export default {
 </script>
 
 <style lang="scss">
-  .ui-typography {
-    &__default-link {
-      margin-right: 5rem;
-    }
+    .ui-typography {
+      &__default-link {
+        margin-right: 5rem;
+      }
 
-    &__item {
-      margin-top: 1rem;
-      margin-bottom: 3rem;
-      &--links {
-        margin-bottom: 1rem;
+      &__item {
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+        &--links {
+          margin-bottom: 1rem;
+        }
       }
     }
-  }
 
 </style>
