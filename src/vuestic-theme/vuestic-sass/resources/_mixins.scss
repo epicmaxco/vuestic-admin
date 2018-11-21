@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+@mixin display () {
+  color: $vue-darkest-blue;
+}
+
 @mixin theme-button-variant($color, $background, $border, $shadow) {
   $hover-bg: lighten($background, 10%);
   $disabled-bg: darken($background, 15%);
