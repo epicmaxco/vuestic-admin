@@ -1,4 +1,4 @@
-import Alert from './vuestic-components/vuestic-alert/VuesticAlert.vue'
+import Alert from './vuestic-components/vuestic-alert/VaNotification.vue'
 import Breadcrumbs
   from './vuestic-components/vuestic-breadcrumbs/VuesticBreadcrumbs.vue'
 import Chart from './vuestic-components/vuestic-chart/VuesticChart.vue'
