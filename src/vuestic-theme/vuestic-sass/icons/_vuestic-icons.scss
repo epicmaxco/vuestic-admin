@@ -1,27 +1,6 @@
 // Removed because does not support https.
 @import "icon-fonts/icon-fonts";
 
-$vuestic-colors: (
-  success: (#63e5b3, #23e066, rgba(28, 173, 103, 0.6), #40e583, #d6ffd3),
-  danger: (#ff7455, #e34b4a, rgba(137, 13, 12, 0.6), #e34b4a, #ffebeb),
-  warning: (#ffd72d, #feb900, rgba(169, 124, 14, 0.6), #ffc202, #fff3d1),
-  info: (#32b5e4, #2c82e0, rgba(10, 82, 117, 0.6), #2c82e0, #caeeff),
-  gray: (#cdd0d5 #b4b6b9 rgba(104, 115, 125, 0.61) #babfc2 #e6e9ec),
-  dark: (#576675, #34495e, #aebcca, #34495e, #afb6bb)
-);
-
-@each $name, $colors in $vuestic-colors {
-  $icon-color: nth($colors, 4);
-
-  .vuestic-icon--#{$name}{
-    color: $icon-color !important;
-
-    path, rect, polygon {
-      fill: $icon-color !important;
-    }
-  }
-}
-
 .i-nav-notification {
   display: inline-block;
   height: 32px;
