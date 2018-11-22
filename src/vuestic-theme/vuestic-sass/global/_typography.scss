@@ -28,6 +28,10 @@
   color: $white;
 }
 
+.title {
+  text-transform: uppercase;
+}
+
 .text {
   &--bold {
     font-weight: bold;
@@ -61,7 +65,7 @@ $display-font-sizes: (
 
 @each $element, $size in $display-font-sizes {
   .display-#{$element} {
-    @include display($element);
+    @include va-display($element);
   }
 }
 
@@ -69,6 +73,7 @@ $display-font-sizes: (
   font-size: 14px;
   color: $white;
   padding: 1rem;
+  font-family: monospace;
   background-color: $vue-darkest-blue;
 }
 

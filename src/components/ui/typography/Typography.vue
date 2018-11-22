@@ -43,6 +43,26 @@
             <a href="#" class="link ui-typography__default-link">default link visited</a>
             <a href="#" class="link-secondary">secondary link visited</a>
           </div>
+          <div class="ui-typography__item">
+            <div style="width: 500px">
+              <p class="text--bold">Of all of the celestial bodies that capture our attention and fascination as astronomers, none has a greater influence.</p>
+              <p class="text--uppercase">Of all of the celestial bodies that capture our attention and fascination as astronomers, none has a greater influence.</p>
+              <p class="text--lowercase">Of all of the celestial bodies that capture our attention and fascination as astronomers, none has a greater influence.</p>
+              <p class="text--capitalize">Of all of the celestial bodies that capture our attention and fascination as astronomers, none has a greater influence.</p>
+              <p class="text--no-wrap">Of all of the celestial bodies that capture our attention and fascination as astronomers, none has a greater influence.</p>
+              <p class="text--truncate">Of all of the celestial bodies that capture our attention and fascination as astronomers, none has a greater influence.</p>
+            </div>
+          </div>
+          <ol class="vue-ordered">
+            <li>Of all of the celestial bodies that capture our attention and fascination as astronomers, none has a greater influence.</li>
+            <li>Earth than it’s own satellite, the moon. When you think about it.</li>
+            <li>Attention and fascination as .</li>
+          </ol>
+          <ul class="vue-unordered">
+            <li>Of all of the celestial bodies that capture our attention and fascination as astronomers, none has a greater influence.</li>
+            <li>Earth than it’s own satellite, the moon. When you think about it.</li>
+            <li>Attention and fascination as .</li>
+          </ul>
         </vuestic-widget>
       </div>
     </div>
@@ -53,26 +73,24 @@
 export default {
   name: 'typography',
   data () {
-    return {
-
-    }
+    return {}
   }
 }
 </script>
 
 <style lang="scss">
-    .ui-typography {
-      &__default-link {
-        margin-right: 5rem;
-      }
+.ui-typography {
+  &__default-link {
+    margin-right: 5rem;
+  }
 
-      &__item {
-        margin-top: 1rem;
-        margin-bottom: 3rem;
-        &--links {
-          margin-bottom: 1rem;
-        }
-      }
+  &__item {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    &--links {
+      margin-bottom: 1rem;
     }
+  }
+}
 
 </style>
