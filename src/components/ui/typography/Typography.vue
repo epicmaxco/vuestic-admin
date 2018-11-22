@@ -107,7 +107,7 @@
             <a href="#" class="link-secondary">secondary link visited</a>
           </div>
           <div class="ui-typography__item">
-            <div style="width: 500px">
+            <div style="width: 500px; border: 3px solid #4ae387;">
               <p class="text--bold">Of all of the celestial bodies that capture our attention and fascination as astronomers, none has a greater influence.</p>
               <p class="text--uppercase">Of all of the celestial bodies that capture our attention and fascination as astronomers, none has a greater influence.</p>
               <p class="text--lowercase">Of all of the celestial bodies that capture our attention and fascination as astronomers, none has a greater influence.</p>
