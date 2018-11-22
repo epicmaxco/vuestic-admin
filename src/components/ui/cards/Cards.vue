@@ -114,7 +114,7 @@
           <vuestic-card
             image="https://picsum.photos/300/200/?image=885"
           >
-            <div class="d-flex">
+            <div class="flex">
               <p>{{ $t('cards.contentText') }}</p>
               <div
                 class="btn btn-primary btn-with-icon btn-micro rounded-icon">

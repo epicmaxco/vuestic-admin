@@ -1,7 +1,7 @@
 <template>
   <div class="vuestic-color-picker-page">
     <div class="va-row">
-      <div class="flex md12">
+      <div class="flex md12 xs12">
         <vuestic-widget :headerText="$t('menu.colorPickers')">
           <div class="va-row">
             <div class="flex md2">
@@ -45,7 +45,7 @@
       </div>
     </div>
     <div class="va-row">
-      <div class="flex md12">
+      <div class="flex md12 xs12">
         <vuestic-widget headerText="Simple Inline">
           <div class="va-row">
             <div class="flex md1">
@@ -59,13 +59,13 @@
       </div>
     </div>
     <div class="va-row">
-      <div class="flex md12">
+      <div class="flex md12 xs12">
         <vuestic-widget headerText="Slider">
           <div class="va-row">
             <div class="flex md1">
               <vuestic-color-square :value="sliderColor"/>
             </div>
-            <div class="flex md6">
+            <div class="flex md6 xs12">
               <vuestic-slider-color-picker v-model="sliderColor"/>
             </div>
           </div>
@@ -73,7 +73,7 @@
       </div>
     </div>
     <div class="va-row">
-      <div class="flex md12">
+      <div class="flex md12 xs12">
         <vuestic-widget headerText="Advanced">
           <div class="va-row">
             <div class="flex md1">

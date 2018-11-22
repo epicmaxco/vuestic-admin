@@ -56,6 +56,7 @@
 
 .va-row {
   @include va-layout();
+  flex-wrap: wrap;
   &.row {
     flex-direction: row;
 

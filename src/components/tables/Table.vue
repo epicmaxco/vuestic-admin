@@ -79,7 +79,7 @@
     </div>
 
     <div class="va-row">
-      <div class="flex md12">
+      <div class="flex md12 xs12">
         <vuestic-widget :headerText="$t('tables.styled')">
           <div class="table-responsive">
             <table class="table table-striped table-sm color-icon-label-table">
@@ -179,7 +179,7 @@
     </div>
 
     <div class="va-row">
-      <div class="flex md12">
+      <div class="flex md12 xs12">
         <vuestic-widget :headerText="$t('tables.advanced')">
           <vuestic-data-table
             :apiUrl="apiUrl"

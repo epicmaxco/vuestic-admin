@@ -1,7 +1,7 @@
 <template>
   <div class="vuestic-tabs">
     <div class="d-none d-md-block">
-      <nav class="nav nav-pills row">
+      <nav class="nav nav-pills va-row">
         <div
           class="nav-item col"
           @click="setActive(name)"

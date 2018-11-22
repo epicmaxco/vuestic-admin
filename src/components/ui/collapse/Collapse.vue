@@ -98,7 +98,7 @@
         <div class="va-row">
           <div class="flex md12">
             <vuestic-collapse noHeader>
-              <div class="row" slot="header">
+              <div class="va-row" slot="header">
                 <div class="flex md4">
                   <button class="btn btn-primary">
                     <span> Expand Button </span>

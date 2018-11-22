@@ -28,7 +28,7 @@
                 </div>
               </div>
             </div>
-            <div class="flex md6 flex lg4 spinners__color">
+            <div class="flex md6 lg4 spinners__color">
               <vuestic-pallet-custom :palette="paletteArray" v-model="color"
                                      class="spinners__color-picker"/>
             </div>

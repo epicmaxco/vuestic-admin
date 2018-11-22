@@ -125,7 +125,7 @@
                       | translate}}</label><i class="bar"></i>
                   </div>
                 </div>
-                <div class="form-group toasts-position-group d-flex flex-row">
+                <div class="form-group toasts-position-group va-row">
                   <toast-position-picker v-model="toastPosition"/>
                   <vuestic-checkbox
                     :label="'notificationsPage.toasts.fullWidthLabel' | translate"
@@ -139,7 +139,7 @@
               </fieldset>
             </div>
             <div
-              class="flex offset--md4 justify--center d-none d-md-flex">
+              class="flex offset--md4 justify--center" v-show="false">
               <div class="toasted-container sample-toasted-container"
                    v-if="isToastContentPresent">
                 <div class="toasted vuestic-toast none default">

@@ -6,7 +6,7 @@
         <slot name="logo"/>
       </router-link>
     </div>
-    <div class="row vuestic-navbar__content">
+    <div class="va-row vuestic-navbar__content">
       <div
         class="header-elem-wrapper menu-icon-container justify--start col">
         <slot name="selector"></slot>

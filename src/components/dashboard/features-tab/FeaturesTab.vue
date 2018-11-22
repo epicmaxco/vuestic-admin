@@ -1,7 +1,7 @@
 <template>
   <div class="overview-tab dashboard-tab">
     <div
-      class="d-flex overview-row flex-row w-100 justify--space-around justify--start">
+      class="flex overview-row flex-row w-100 justify--space-around justify--start">
 
       <div class="overview-col">
         <div class="overview-item">

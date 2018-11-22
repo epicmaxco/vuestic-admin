@@ -1,14 +1,14 @@
 <template>
   <div class="vuestic-data-table table-responsive"
        :class="{'data-loading': loading}">
-    <div class="d-flex flex-md-row flex-column align--center"
+    <div class="flex flex-md-row flex-column align--center"
          :class="controlsAlignmentClass">
       <filter-bar
         @filter="onFilterSet"
         :label="filterInputLabel"
         v-show="filterInputShown"
       />
-      <div class="datatable-controls d-flex flex-row">
+      <div class="datatable-controls flex flex-row">
         <div class="form-group">
           <slot name="additionalTableControl"></slot>
         </div>
@@ -50,7 +50,7 @@
       @vuetable:loading="onLoading"
       @vuetable:loaded="onLoaded"
     />
-    <div class="d-flex justify--center mb-4">
+    <div class="flex justify--center mb-4">
       <vuetable-pagination
         ref="pagination"
         :css="css.pagination"

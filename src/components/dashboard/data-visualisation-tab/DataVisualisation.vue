@@ -1,7 +1,7 @@
 <template>
   <div class="data-visualisation-tab dashboard-tab">
     <div class="va-row">
-      <div class="flex md6">
+      <div class="flex md6 xs12">
         <div class="chart-container">
           <vuestic-chart v-bind:data="donutChartData"
                          type="donut"></vuestic-chart>

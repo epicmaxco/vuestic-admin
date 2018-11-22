@@ -10,7 +10,7 @@
           fishing.</h3>
       </div>
       <div class="vuestic-page-not-found-search__wallpaper flex md12">
-        <div class="row vuestic-page-not-found-search__message">
+        <div class="va-row vuestic-page-not-found-search__message">
           <h4 class="vuestic-page-not-found-search__text-small">
             If you feel that it's not right, please send us a message at &nbsp;
           </h4>

@@ -6,7 +6,7 @@
           Grid sizes
         </div>
       </div>
-      <div class="va-row row wrap">
+      <div class="va-row">
         <div class="flex xs12">
           <div class="_blue-rectangle">
             12
@@ -41,12 +41,12 @@
     </div>
 
     <div class="va-layout">
-      <div class="va-row row">
+      <div class="va-row">
         <div class="flex">
           Orders
         </div>
       </div>
-      <div class="va-row row wrap">
+      <div class="va-row">
         <div class="flex xs1 order--md3 order--lg2">
           <div class="_blue-rectangle">
             First
@@ -66,12 +66,12 @@
     </div>
 
     <div class="va-layout">
-      <div class="va-row row">
+      <div class="va-row">
         <div class="flex">
           Offsets
         </div>
       </div>
-      <div class="va-row row wrap">
+      <div class="va-row wrap">
         <div class="flex xs1 offset--md3 offset--lg2">
           <div class="_blue-rectangle">
             First
@@ -96,7 +96,7 @@
           No gutter container
         </div>
       </div>
-      <div class="va-row row wrap">
+      <div class="va-row wrap">
         <div class="flex xs2" v-for="i in 6" :key="`2${i}`">
           <div class="_blue-rectangle">
             2
@@ -111,7 +111,7 @@
           xs gutter
         </div>
       </div>
-      <div class="va-row row wrap">
+      <div class="va-row wrap">
         <div class="flex xs2" v-for="i in 6" :key="`2${i}`">
           <div class="_blue-rectangle">
             2
@@ -126,7 +126,7 @@
           sm gutter
         </div>
       </div>
-      <div class="va-row row wrap">
+      <div class="va-row wrap">
         <div class="flex xs2" v-for="i in 6" :key="`2${i}`">
           <div class="_blue-rectangle">
             2
@@ -141,7 +141,7 @@
           sm gutter
         </div>
       </div>
-      <div class="va-row row wrap">
+      <div class="va-row wrap">
         <div class="flex xs2" v-for="i in 6" :key="`2${i}`">
           <div class="_blue-rectangle">
             2
@@ -156,7 +156,7 @@
           md gutter
         </div>
       </div>
-      <div class="va-row row wrap">
+      <div class="va-row wrap">
         <div class="flex xs2" v-for="i in 6" :key="`2${i}`">
           <div class="_blue-rectangle">
             2
@@ -171,7 +171,7 @@
           lg gutter
         </div>
       </div>
-      <div class="va-row row wrap">
+      <div class="va-row wrap">
         <div class="flex xs2" v-for="i in 6" :key="`2${i}`">
           <div class="_blue-rectangle">
             2
@@ -186,7 +186,7 @@
           xl gutter
         </div>
       </div>
-      <div class="va-row row wrap">
+      <div class="va-row wrap">
         <div class="flex xs2" v-for="i in 6" :key="`2${i}`">
           <div class="_blue-rectangle">
             2

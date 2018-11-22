@@ -5,14 +5,14 @@
       <vuestic-tabs class="tabs"
                     :names="[$t('extra.tabs.maps'), $t('extra.tabs.setupProfile'), $t('extra.tabs.overview')]">
         <div :slot="'extra.tabs.overview' | translate"
-             class="d-flex justify--center">
+             class="flex justify--center">
           <overview-tab></overview-tab>
         </div>
         <div :slot="'extra.tabs.maps' | translate" class="maps-tab">
           <leaflet-map></leaflet-map>
         </div>
         <div :slot="'extra.tabs.setupProfile' | translate"
-             class="d-flex justify--center">
+             class="flex justify--center">
           <setup-profile-tab wizardType="simple"></setup-profile-tab>
         </div>
       </vuestic-tabs>
