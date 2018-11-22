@@ -7,5 +7,5 @@ export {
   toggleWithoutAnimation,
   config,
   palette,
-  isLoading
+  isLoading,
 }

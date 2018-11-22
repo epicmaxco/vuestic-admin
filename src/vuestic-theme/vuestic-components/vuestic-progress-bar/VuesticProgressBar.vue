@@ -48,44 +48,44 @@ export default {
       default: 0,
       validator: function (value) {
         return value >= 0 && value <= 100
-      }
+      },
     },
     text: {
       type: String,
-      default: ''
+      default: '',
     },
     theme: {
       type: String,
-      default: 'Primary'
+      default: 'Primary',
     },
     backgroundTheme: {
       type: String,
-      default: 'White'
+      default: 'White',
     },
     type: {
       type: String,
-      default: 'horizontal'
+      default: 'horizontal',
     },
     size: {
       type: String,
       default: 'basic',
       validator: function (value) {
         return ['thin', 'thick', 'basic'].indexOf(value) !== -1
-      }
+      },
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     animated: {
       type: Boolean,
-      default: false
+      default: false,
     },
   },
   data () {
     return {
       transformedValue: 0,
-      valueAnimationInterval: 5000
+      valueAnimationInterval: 5000,
     }
   },
   mounted () {
@@ -106,7 +106,7 @@ export default {
           this.transformedValue += delta
         }
       }, valueMsecs)
-    }
-  }
+    },
+  },
 }
 </script>

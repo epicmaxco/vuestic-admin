@@ -477,12 +477,12 @@ export default {
 </script>
 
 <style lang="scss">
-  .widget.simple-vertical-wizard-widget {
-    .widget-body {
-      padding: 0 $widget-padding;
-      @include media-breakpoint-down(sm) {
-        padding: $widget-padding 0;
-      }
+.widget.simple-vertical-wizard-widget {
+  .widget-body {
+    padding: 0 $widget-padding;
+    @include media-breakpoint-down(sm) {
+      padding: $widget-padding 0;
     }
   }
+}
 </style>

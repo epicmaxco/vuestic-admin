@@ -2,7 +2,7 @@ export default {
   table: {
     tableClass: 'table table-striped table-header-active',
     ascendingIcon: 'entypo entypo-up-dir',
-    descendingIcon: 'entypo entypo-down-dir'
+    descendingIcon: 'entypo entypo-down-dir',
   },
   pagination: {
     wrapperClass: 'btn-group',
@@ -14,7 +14,7 @@ export default {
       first: 'fa fa-angle-double-left',
       prev: 'fa fa-angle-left',
       next: 'fa fa-angle-right',
-      last: 'fa fa-angle-double-right'
-    }
-  }
+      last: 'fa fa-angle-double-right',
+    },
+  },
 }

@@ -29,68 +29,68 @@ export default {
   props: {
     dropzone: {
       type: Boolean,
-      default: false
+      default: false,
     },
     fileTypes: {
-      type: String
+      type: String,
     },
     type: {
-      type: String
+      type: String,
     },
   },
   methods: {
     changeFieldValue (e) {
       this.$emit('upload', e)
       this.$refs.fieldInput.value = ''
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang='scss'>
-  .vuestic-file-upload-container {
-    position: relative;
-  }
+.vuestic-file-upload-container {
+  position: relative;
+}
 
+.vuestic-file-upload-field {
+  padding: 0 0 1.3rem;
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+  &--dropzone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10rem;
+    padding: 0 2rem;
+    transition: height .2s;
+    overflow: visible;
+    position: static;
+  }
+  &-text {
+    padding-right: 10px;
+  }
+  &-input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    font-size: 999px;
+    min-height: 100%;
+    min-width: 100%;
+    color: transparent;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 576px) {
   .vuestic-file-upload-field {
-    padding: 0 0 1.3rem;
-    overflow: hidden;
-    display: inline-block;
-    position: relative;
     &--dropzone {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 10rem;
-      padding: 0 2rem;
-      transition: height .2s;
-      overflow: visible;
-      position: static;
-    }
-    &-text {
-      padding-right: 10px;
-    }
-    &-input {
-      position: absolute;
-      top: 0;
-      right: 0;
-      display: block;
-      font-size: 999px;
-      min-height: 100%;
-      min-width: 100%;
-      color: transparent;
-      opacity: 0;
-      filter: alpha(opacity=0);
-      cursor: pointer;
+      flex-direction: column;
+      padding: 0;
     }
   }
-
-  @media (max-width: 576px) {
-    .vuestic-file-upload-field {
-      &--dropzone {
-        flex-direction: column;
-        padding: 0;
-      }
-    }
-  }
+}
 </style>

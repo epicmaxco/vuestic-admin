@@ -19,8 +19,8 @@ import GoogleMap from './GoogleMap'
 export default {
   name: 'google-maps-page',
   components: {
-    GoogleMap
-  }
+    GoogleMap,
+  },
 }
 </script>
 
@@ -28,6 +28,9 @@ export default {
  .google-maps-page{
    &__widget {
      height: 70vh;
+     .vuestic-widget-body {
+       height: 65vh;
+     }
    }
  }
 </style>

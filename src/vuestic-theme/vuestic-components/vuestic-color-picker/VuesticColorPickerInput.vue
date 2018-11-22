@@ -4,7 +4,8 @@
       <vuestic-color-dropdown>
         <div slot="toggle" class="vuestic-color-picker-input__slot">
           <slot>
-            <vuestic-color-input v-model="valueProxy" mode="palette" :disabled="disableInput" :selected="selected"/>
+            <vuestic-color-input v-model="valueProxy" mode="palette"
+                                 :disabled="disableInput" :selected="selected"/>
           </slot>
         </div>
         <div class="vuestic-color-picker-input__dropdown">
@@ -12,7 +13,8 @@
             <vuestic-advanced-color-picker v-model="valueProxy"/>
           </div>
           <div v-if="this.mode==='palette'">
-            <vuestic-simple-palette-picker v-model="valueProxy" :palette="palette"/>
+            <vuestic-simple-palette-picker v-model="valueProxy"
+                                           :palette="palette"/>
           </div>
           <div v-if="this.mode==='slider'">
             <vuestic-slider-color-picker v-model="valueProxy"/>
@@ -22,7 +24,8 @@
     </div>
     <div v-else>
       <slot>
-        <vuestic-color-input v-model="valueProxy" mode="palette" :disabled="disableInput"/>
+        <vuestic-color-input v-model="valueProxy" mode="palette"
+                             :disabled="disableInput"/>
       </slot>
     </div>
   </div>
@@ -45,22 +48,22 @@ export default {
     VuesticSimplePalettePicker,
     VuesticAdvancedColorPicker,
     VuesticSliderColorPicker,
-    VuesticColorInput
+    VuesticColorInput,
   },
   props: {
     mode: {
-      type: String
+      type: String,
     },
     palette: {
-      type: Array
+      type: Array,
     },
     value: {
-      default: ''
+      default: '',
     },
     selected: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     valueProxy: {
@@ -78,7 +81,7 @@ export default {
         }
       }
       return false
-    }
+    },
   },
   methods: {
     validator (value) {
@@ -87,8 +90,8 @@ export default {
       } else {
         return false
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

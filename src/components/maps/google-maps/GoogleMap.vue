@@ -11,26 +11,26 @@ export default {
   name: 'google-map',
 
   computed: mapGetters({
-    config: 'config'
+    config: 'config',
   }),
 
   mounted () {
     GoogleMapsLoader.KEY = this.config.googleMaps.apiKey
-
+    GoogleMapsLoader.VERSION = '3.36'
     GoogleMapsLoader.load((google) => {
       /* eslint-disable no-new */
       new google.maps.Map(this.$el, {
         center: new google.maps.LatLng(44.5403, -78.5463),
         zoom: 8,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
       })
     })
-  }
+  },
 }
 </script>
 
 <style lang="scss">
-  .google-map {
-    height: 100%;
-  }
+.google-map {
+  height: 100%;
+}
 </style>
