@@ -12,7 +12,7 @@
         <slot name="selector"></slot>
       </div>
       <div
-        class="header-elem-wrapper navbar-text flex offset--md3 md5 d-none d-lg-flex">
+        class="header-elem-wrapper navbar-text flex offset--md3 md5">
         <slot name="center"></slot>
       </div>
       <slot></slot>
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+// d-none and d-lg-flex were deleted, bug will be fixed in the nearest update
 export default {
   name: 'vuestic-navbar',
 }

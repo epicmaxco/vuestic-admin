@@ -9,7 +9,7 @@
       <div class="auth-content flex lg6 md12 xs12">
         <router-view></router-view>
       </div>
-      <div class="auth-wallpaper flex md6 d-none d-lg-flex">
+      <div class="auth-wallpaper flex md6">
         <div class="oblique"></div>
         <router-link class="auth-wallpaper__logo" :to="{path: '/'}">
           <vuestic-icon-vuestic/>
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+// d-none and d-lg-flex were deleted, bug will be fixed in the nearest update
 import VuesticIconVuestic
   from '../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconVuestic'
 
