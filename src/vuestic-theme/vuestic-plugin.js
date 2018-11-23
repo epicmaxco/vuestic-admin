@@ -64,9 +64,9 @@ import VuesticTimelineItem
 import VuesticPopup
   from './vuestic-components/vuestic-popup/quasar/components/popup/VuesticPopup.vue'
 
-import VuesticContainer from './vuestic-components/vuestic-grid/VGrid/VaContainer'
-import VuestVaLayout from './vuestic-components/vuestic-grid/VGrid/VaLayout'
-import VuesticFlex from './vuestic-components/vuestic-grid/VGrid/VaFlex'
+import VuesticContainer from './vuestic-components/vuestic-grid/VGrid/Container'
+import VuestVaLayout from './vuestic-components/vuestic-grid/VGrid/Layout'
+import VuesticFlex from './vuestic-components/vuestic-grid/VGrid/Flex'
 
 import { installQuasarPlatform } from './vuestic-components/vuestic-popup/quasar/install'
 

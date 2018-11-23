@@ -8,7 +8,7 @@
           EXPAND ALL
         </button>
       </div>
-      <div class="small-set flex flex sm6 justify--center">
+      <div class="small-set flex sm6 justify--center">
         <button class="btn btn-primary btn-micro"
                 @click="$refs.treeView.collapse()"
         >

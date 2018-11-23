@@ -4,7 +4,7 @@
       <vuestic-widget :headerText="$t('icons.title')">
         <div class="va-row">
           <div
-            class="small-set flex lg6"
+            class="flex lg6 small-set"
             v-for="(set, index) in sets"
             :key="index"
           >

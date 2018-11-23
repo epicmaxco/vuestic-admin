@@ -6,7 +6,7 @@
         <button class="btn btn-micro btn-primary">VIEW</button>
       </a>
     </div>
-    <div class="flex flex-row justify--space-around photos">
+    <div class="flex justify--space-around photos">
       <div
         class="photo"
         v-for="(pieceOfNews, index) in news"

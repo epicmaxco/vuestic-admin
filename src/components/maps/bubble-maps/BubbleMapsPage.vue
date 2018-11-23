@@ -1,7 +1,7 @@
 <template>
   <div class="bubble-maps-page">
     <div class="va-row">
-      <div class="flex md12">
+      <div class="flex md12 xs12">
         <vuestic-widget
           class="bubble-maps-page__widget"
           headerText="Bubble Maps"

@@ -1,17 +1,17 @@
-import VContainer from './VContainer'
-import VFlex from './VFlex'
-import VLayout from './VLayout'
+import Container from './Container'
+import Flex from './Flex'
+import Layout from './Layout'
 
 export {
-  VContainer,
-  VFlex,
-  VLayout,
+  Container,
+  Flex,
+  Layout,
 }
 
 export default {
   $_vuetify_subcomponents: {
-    VContainer,
-    VFlex,
-    VLayout,
+    Container,
+    Flex,
+    Layout,
   }
 }

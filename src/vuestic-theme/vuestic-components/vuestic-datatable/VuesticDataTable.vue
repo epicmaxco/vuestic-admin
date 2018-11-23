@@ -1,14 +1,14 @@
 <template>
   <div class="vuestic-data-table table-responsive"
        :class="{'data-loading': loading}">
-    <div class="flex flex-md-row flex-column align--center"
+    <div class="d-flex align--center"
          :class="controlsAlignmentClass">
       <filter-bar
         @filter="onFilterSet"
         :label="filterInputLabel"
         v-show="filterInputShown"
       />
-      <div class="datatable-controls flex flex-row">
+      <div class="datatable-controls flex">
         <div class="form-group">
           <slot name="additionalTableControl"></slot>
         </div>

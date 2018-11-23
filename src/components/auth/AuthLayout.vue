@@ -6,7 +6,7 @@
       </router-link>
     </div>
     <div class="main va-row">
-      <div class="auth-content flex lg6 md12">
+      <div class="auth-content flex lg6 md12 xs12">
         <router-view></router-view>
       </div>
       <div class="auth-wallpaper flex md6 d-none d-lg-flex">

@@ -1,6 +1,6 @@
 <template>
   <div class="va-row">
-    <div class="flex md12">
+    <div class="flex md12 xs12">
       <vuestic-widget class="no-padding no-v-padding">
         <vuestic-breadcrumbs :breadcrumbs="breadcrumbs"
                              :current-path="currentRoute"/>

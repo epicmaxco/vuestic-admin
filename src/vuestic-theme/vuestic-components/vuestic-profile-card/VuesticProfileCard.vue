@@ -1,5 +1,5 @@
 <template>
-  <div class="vuestic-profile-card flex flex-column align--center">
+  <div class="vuestic-profile-card flex align--center">
     <div class="photo">
       <img :src="photoSource"/>
     </div>

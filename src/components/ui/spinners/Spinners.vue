@@ -1,6 +1,6 @@
 <template>
   <div class="va-row spinners">
-    <div class="flex md12">
+    <div class="flex md12 xs12">
       <vuestic-widget :headerText="$t('spinners.title')"
                       class="spinners__widget">
         <div class="spinners__customization">
@@ -15,7 +15,7 @@
               </div>
             </div>
             <div class="flex md3 lg4">
-              <div class="row spinners__duration">
+              <div class="va-row spinners__duration">
                 <div class="spinners__icon-duration-slower">
                   <vuestic-icon-slower/>
                 </div>
@@ -28,7 +28,7 @@
                 </div>
               </div>
             </div>
-            <div class="flex md6 lg4 spinners__color">
+            <div class="flex md6 lg4 xs4 spinners__color">
               <vuestic-pallet-custom :palette="paletteArray" v-model="color"
                                      class="spinners__color-picker"/>
             </div>

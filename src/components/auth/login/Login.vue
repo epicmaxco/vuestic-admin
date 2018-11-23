@@ -17,7 +17,7 @@
         </div>
       </div>
       <div
-        class="flex flex-column flex-lg-row align--center justify--space-between down-container">
+        class="flex flex-lg-row align--center justify--space-between down-container">
         <button class="btn btn-primary" type="submit">
           {{'auth.login' | translate}}
         </button>

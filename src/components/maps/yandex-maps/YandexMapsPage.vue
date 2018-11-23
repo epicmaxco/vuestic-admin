@@ -1,7 +1,7 @@
 <template>
   <div class="yandex-maps-page">
     <div class="va-row">
-      <div class="flex md12">
+      <div class="flex md12 xs12">
         <vuestic-widget
           class="yandex-maps-page__widget"
           headerText="Yandex Maps"
