@@ -32,7 +32,7 @@
 @mixin va-layout {
   display: flex;
   flex: 1 1 auto;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   // https://github.com/vuetifyjs/vuetify/issues/3873
   min-width: 0;
 }
