@@ -1,0 +1,39 @@
+//Override header styles for Firefox browser
+
+@-moz-document url-prefix() {
+  h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+    font-weight: 600;
+  }
+
+  h1, .h1 {
+    letter-spacing: -1px;
+  }
+
+  h2, .h2 {
+    letter-spacing: -0.75px;
+  }
+
+  h3, .h3, h4, .h4 {
+    letter-spacing: -0.5px;
+  }
+
+  h5, .h5 {
+    letter-spacing: -0.25px;
+  }
+
+  .modal-title {
+    letter-spacing: -0.25px;
+  }
+
+  .vuestic-widget-header {
+    letter-spacing: -0.5px;
+  }
+
+  .wizard-step-label {
+    letter-spacing: -0.5px;
+  }
+
+  .overview-item {
+    letter-spacing: -0.5px;
+  }
+}

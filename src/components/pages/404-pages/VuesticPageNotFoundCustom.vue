@@ -93,6 +93,10 @@ export default {
     display: flex;
     align-items: flex-start;
     justify-content: center;
+
+    a {
+      margin-top: 2rem;
+    }
   }
   &__message {
     justify-content: center;

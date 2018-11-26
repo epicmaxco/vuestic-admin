@@ -11,7 +11,7 @@
                 <div class="spinners__size-picker">
                   <vuestic-slider v-model="config.size" :options="sliderSize"/>
                 </div>
-                <h3>A</h3>
+                <h3 class="spinners__icon-large">A</h3>
               </div>
             </div>
             <div class="flex md3 lg4">
@@ -201,6 +201,10 @@ export default {
   &__icon-small {
     margin-top: 7px;
     margin-left: 30px;
+  }
+
+  &__icon-large {
+    margin-top: 2px;
   }
 
   &__icon-duration-faster {

@@ -81,6 +81,10 @@ export default {
     text-align: center;
     align-items: flex-start;
     justify-content: center;
+
+    a {
+      margin-top: 2rem;
+    }
   }
   &__wallpaper-button {
     padding-top: 20px;
