@@ -36,6 +36,12 @@
   &--bold {
     font-weight: bold;
   }
+  &--highlighted {
+    background-color: $text-highlighted;
+  }
+  &--selected {
+    background-color: $text-selected;
+  }
   &--uppercase {
     text-transform: uppercase !important;
   }
