@@ -5,11 +5,11 @@
         <vuestic-icon-vuestic/>
       </router-link>
     </div>
-    <div class="main row">
-      <div class="auth-content col-lg-6 col-12">
+    <div class="main va-row">
+      <div class="auth-content flex lg6 md12 xs12">
         <router-view></router-view>
       </div>
-      <div class="auth-wallpaper col-6 d-none d-lg-flex">
+      <div class="auth-wallpaper flex md6">
         <div class="oblique"></div>
         <router-link class="auth-wallpaper__logo" :to="{path: '/'}">
           <vuestic-icon-vuestic/>
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+// d-none and d-lg-flex were deleted, bug will be fixed in the nearest update
 import VuesticIconVuestic
   from '../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconVuestic'
 
@@ -46,7 +47,7 @@ export default {
   }
   .main {
     margin: 0;
-    height: 100%;
+    height: 100vh;
     .auth-content {
       padding: 0;
       display: flex;

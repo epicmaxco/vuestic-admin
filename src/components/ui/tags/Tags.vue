@@ -1,26 +1,23 @@
 <template>
   <div class="tags-page">
-    <div class="row">
-
-      <div class="col-md-12">
-        <vuestic-widget :headerText="$t('tags.default')">
-          <vuestic-tag-group v-model="tags"/>
-        </vuestic-widget>
-      </div>
-
-      <div class="col-md-12">
-        <vuestic-widget :headerText="$t('tags.removable')">
-          <vuestic-tag-group v-model="removableTags" removable/>
-        </vuestic-widget>
-      </div>
-
-      <div class="col-md-12">
-        <vuestic-widget :headerText="$t('tags.colored')">
-          <vuestic-tag-group v-model="coloredTags" removable/>
-        </vuestic-widget>
-      </div>
-
+    <div class="flex md12">
+      <vuestic-widget :headerText="$t('tags.default')">
+        <vuestic-tag-group v-model="tags"/>
+      </vuestic-widget>
     </div>
+
+    <div class="flex md12">
+      <vuestic-widget :headerText="$t('tags.removable')">
+        <vuestic-tag-group v-model="removableTags" removable/>
+      </vuestic-widget>
+    </div>
+
+    <div class="flex md12">
+      <vuestic-widget :headerText="$t('tags.colored')">
+        <vuestic-tag-group v-model="coloredTags" removable/>
+      </vuestic-widget>
+    </div>
+
   </div>
 </template>
 

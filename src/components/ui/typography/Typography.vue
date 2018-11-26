@@ -1,7 +1,7 @@
 <template>
   <div class="ui-typography">
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="md12 flex">
         <vuestic-widget>
           <p class="display-1 text--bold">H1 Heading</p>
           <p class="display-5 ui-typography__item">Of all of the celestial bodies that capture our

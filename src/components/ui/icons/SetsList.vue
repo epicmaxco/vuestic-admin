@@ -1,10 +1,10 @@
 <template>
-  <div class="sets-list row">
-    <div class="col-md-12">
+  <div class="sets-list va-row">
+    <div class="flex md12">
       <vuestic-widget :headerText="$t('icons.title')">
-        <div class="row">
+        <div class="va-row">
           <div
-            class="small-set col-lg-6"
+            class="flex lg6 small-set"
             v-for="(set, index) in sets"
             :key="index"
           >
@@ -18,9 +18,9 @@
               <div>
                 <template v-for="(filteredList, index) in set.filteredLists">
                   <div :key="index" v-if="filteredList.length !== 2"
-                       class="row">
+                       class="va-row">
                     <div
-                      class="col-sm-2"
+                      class="flex sm2"
                       v-for="(icon, index) in filteredList"
                       :key="index"
                     >
@@ -30,15 +30,15 @@
                     </div>
                   </div>
                   <div :key="index" v-if="filteredList.length === 2"
-                       class="row">
-                    <div class="col-sm-2">
+                       class="va-row">
+                    <div class="flex sm2">
                       <div class="vuestic-icon">
                         <i :class="iconClass(set, filteredList[0])"
                            aria-hidden="true"></i>
                       </div>
                     </div>
-                    <div class="col-sm-8"></div>
-                    <div class="col-sm-2">
+                    <div class="flex sm8"></div>
+                    <div class="flex sm2">
                       <div class="vuestic-icon">
                         <i :class="iconClass(set, filteredList[1])"
                            aria-hidden="true"></i>

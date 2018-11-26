@@ -1,24 +1,24 @@
 <template>
-  <div class="file-upload-list-item file-upload-list-item--undo row"
+  <div class="file-upload-list-item file-upload-list-item--undo va-row"
        v-if="removed">
-    <div class="col-md-12">
+    <div class="flex md12">
       <vuestic-file-upload-undo
         @recover="recoverFile"
       />
     </div>
   </div>
 
-  <div class="file-upload-list-item row" v-else>
-    <div class="file-upload-list-item-name col-lg-3 col-xl-3 col-12">
+  <div class="file-upload-list-item va-row" v-else>
+    <div class="file-upload-list-item-name flex lg3 xl3">
       {{ file.name }}
     </div>
-    <div class="file-upload-list-item-size col-lg-3 col-xl-3 col-12">
+    <div class="file-upload-list-item-size flex lg3 xl3">
       {{ file.size }}
     </div>
-    <div class="file-upload-list-item-date col-lg-4 col-xl-4 col-12">
+    <div class="file-upload-list-item-date flex lg4 xl4 md12">
       <span>{{ $t('fileUpload.uploadedOn')}} {{ file.date }}</span>
     </div>
-    <div class="file-upload-list-item-buttons col-lg-2 col-xl-2 col-12 d-flex">
+    <div class="file-upload-list-item-buttons flex lg2 xl2 md12 ">
       <button type="button"
               class="btn-text btn-text--primary"
               @click="removeFile">

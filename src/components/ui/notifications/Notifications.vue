@@ -1,11 +1,11 @@
 <template>
   <div class="notifications-page">
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12">
         <vuestic-widget
           :headerText="'notificationsPage.popovers.title' | translate">
-          <div class="row">
-            <div class="col-md-6">
+          <div class="va-row">
+            <div class="flex md6">
               <fieldset>
                 <div class="form-group">
                   <div class="input-group">
@@ -47,7 +47,7 @@
                 </vuestic-popover>
               </fieldset>
             </div>
-            <div class="col-md-6">
+            <div class="flex md6">
               <p>
                 Any text can be used for
                 <vuestic-tooltip :options="topTooltipOptions"><a href="#">{{'notificationsPage.popovers.topTooltip'
@@ -71,8 +71,8 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12">
         <vuestic-widget
           :headerText="'notificationsPage.alerts.title' | translate">
           <vuestic-alert type="success" :withCloseBtn="true">
@@ -96,12 +96,12 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12">
         <vuestic-widget
           :headerText="'notificationsPage.toasts.title' | translate">
-          <div class="row">
-            <div class="col-md-6">
+          <div class="va-row">
+            <div class="flex md6">
               <fieldset>
                 <div class="form-group">
                   <div class="input-group">
@@ -125,7 +125,7 @@
                       | translate}}</label><i class="bar"></i>
                   </div>
                 </div>
-                <div class="form-group toasts-position-group d-flex flex-row">
+                <div class="form-group toasts-position-group va-row">
                   <toast-position-picker v-model="toastPosition"/>
                   <vuestic-checkbox
                     :label="'notificationsPage.toasts.fullWidthLabel' | translate"
@@ -139,7 +139,7 @@
               </fieldset>
             </div>
             <div
-              class="col-md-6 justify-content-center align-items-center d-none d-md-flex">
+              class="flex offset--md4 justify--center" v-show="false">
               <div class="toasted-container sample-toasted-container"
                    v-if="isToastContentPresent">
                 <div class="toasted vuestic-toast none default">

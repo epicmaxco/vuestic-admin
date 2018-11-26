@@ -1,7 +1,7 @@
 <template>
   <div class="form-wizard-page">
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12">
         <vuestic-widget class="no-h-padding"
                         :headerText="$t('forms.wizard.simple')">
           <vuestic-wizard
@@ -80,8 +80,8 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12">
         <vuestic-widget class="no-h-padding"
                         :headerText="$t('forms.wizard.rich')">
           <vuestic-wizard
@@ -161,8 +161,8 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12">
         <vuestic-widget :headerText="$t('forms.wizard.verticalRich')">
           <vuestic-wizard
             :steps="vrSteps"
@@ -242,8 +242,8 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12">
         <vuestic-widget class="simple-vertical-wizard-widget"
                         :headerText="$t('forms.wizard.verticalSimple')">
           <vuestic-wizard

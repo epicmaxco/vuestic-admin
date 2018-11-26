@@ -2,7 +2,7 @@
   <vuestic-layout v-layout>
     <app-navbar :isOpen="opened" @toggle-menu="toggleSidebar"/>
     <app-sidebar :isOpen="opened" @toggle-menu="toggleSidebar"/>
-    <main slot="content" id="content" class="content" role="main">
+    <main slot="content" id="content" class="content va-layout gutter--lg fluid" role="main">
       <app-breadcrumbs/>
       <vuestic-pre-loader v-show="isLoading"
                           class="pre-loader"></vuestic-pre-loader>
