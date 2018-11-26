@@ -151,6 +151,7 @@ export default {
       text-align: left;
 
       h2 {
+        margin-top: 0;
         margin-bottom: 0;
       }
     }

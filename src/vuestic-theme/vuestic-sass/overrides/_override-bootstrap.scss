@@ -15,20 +15,30 @@
 }
 
 //Typography
+@mixin header-style($font-size, $margin-bottom) {
+  font-size: $font-size;
+  margin-top: $margin-bottom * 2;
+  margin-bottom: $margin-bottom;
+}
+
 h1, .h1 {
-  margin-bottom: 2.25rem;
+  @include header-style(2.5rem, 2.25rem);
 }
 
 h2, .h2 {
-  margin-bottom: 2rem;
+  @include header-style(2rem, 2rem);
 }
 
 h3, .h3 {
-  margin-bottom: 1.5rem;
+  @include header-style(1.75rem, 1.5rem);
 }
 
 h4, .h4 {
-  margin-bottom: 1rem;
+  @include header-style(1.5rem, 1rem);
+}
+
+h5, .h5 {
+  @include header-style(1.25rem, 0.5rem);
 }
 
 .blockquote {
