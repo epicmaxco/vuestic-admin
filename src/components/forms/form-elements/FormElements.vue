@@ -1,12 +1,12 @@
 <template>
   <div class="form-elements">
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12">
         <vuestic-widget :headerText="'forms.inputs.title' | translate">
           <form>
 
-            <div class="row">
-              <div class="col-md-4">
+            <div class="va-row">
+              <div class="flex md4">
                 <fieldset>
                   <div class="form-group">
                     <div class="input-group">
@@ -69,7 +69,7 @@
                 </fieldset>
               </div>
 
-              <div class="col-md-4">
+              <div class="flex md4">
                 <fieldset>
                   <div class="form-group with-icon-left">
                     <div class="input-group">
@@ -109,7 +109,7 @@
                 </fieldset>
               </div>
 
-              <div class="col-md-4">
+              <div class="flex md4">
                 <fieldset>
                   <div class="form-group form-group-w-btn">
                     <div class="input-group">
@@ -144,12 +144,12 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12">
         <vuestic-widget :headerText="$t('forms.dateTimePicker.title')">
           <form>
-            <div class="row">
-              <div class="col-md-4">
+            <div class="va-row">
+              <div class="flex md4">
                 <fieldset>
                   <div class="form-group">
                     <div class="input-group">
@@ -191,7 +191,7 @@
                   </div>
                 </fieldset>
               </div>
-              <div class="col-md-4">
+              <div class="flex md4">
                 <fieldset>
                   <div class="form-group">
                     <div class="input-group">
@@ -234,7 +234,7 @@
                   </div>
                 </fieldset>
               </div>
-              <div class="col-md-4">
+              <div class="flex md4">
                 <fieldset>
                   <div class="form-group">
                     <div class="input-group">
@@ -256,12 +256,12 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12">
         <vuestic-widget :headerText="'forms.selects.title' | translate">
           <form>
-            <div class="row">
-              <div class="col-md-4">
+            <div class="va-row">
+              <div class="flex md4">
                 <fieldset>
                   <vuestic-simple-select
                     :label="'forms.selects.simple' | translate"
@@ -276,7 +276,7 @@
                   />
                 </fieldset>
               </div>
-              <div class="col-md-4">
+              <div class="flex md4">
                 <fieldset>
                   <vuestic-multi-select
                     :label="'forms.selects.multi' | translate"
@@ -297,12 +297,12 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12">
         <vuestic-widget :headerText="'forms.controls.title' | translate">
           <form>
-            <div class="row">
-              <div class="col-md-4">
+            <div class="va-row">
+              <div class="flex md3">
                 <fieldset>
                   <vuestic-checkbox
                     :label="$t('forms.controls.unselected')"
@@ -335,7 +335,7 @@
                   />
                 </fieldset>
               </div>
-              <div class="col-md-4">
+              <div class="flex md3">
                 <fieldset>
                   <vuestic-radio-button
                     option="option1"
@@ -363,7 +363,7 @@
                   />
                 </fieldset>
               </div>
-              <div class="col-md-4">
+              <div class="flex md3">
                 <fieldset>
                   <vuestic-switch v-model="isMale">
                     <span

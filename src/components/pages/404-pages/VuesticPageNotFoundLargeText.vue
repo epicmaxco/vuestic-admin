@@ -13,8 +13,8 @@
         <h3 class="vuestic-page-not-found-large-text__text">The page's gone
           fishing.</h3>
       </div>
-      <div class="vuestic-page-not-found-large-text__wallpaper col-md-12">
-        <div class="row vuestic-page-not-found-large-text__message">
+      <div class="vuestic-page-not-found-large-text__wallpaper flex md12">
+        <div class="va-row vuestic-page-not-found-large-text__message justify--center">
           <h4 class="vuestic-page-not-found-large-text__text-small">
             If you feel that it's not right, please send us a message at &nbsp;
           </h4>
@@ -22,7 +22,7 @@
         </div>
       </div>
       <div
-        class="vuestic-page-not-found-large-text__wallpaper-button col-md-12">
+        class="vuestic-page-not-found-large-text__wallpaper-button flex md12">
         <router-link :to="{ path: './dashboard' }">
           <button class="btn btn-primary back-button">
             {{'Back to dashboard'}}
@@ -78,11 +78,14 @@ export default {
     background-color: $top-nav-bg;
     overflow: hidden;
     display: flex;
+    text-align: center;
     align-items: flex-start;
     justify-content: center;
   }
   &__wallpaper-button {
     padding-top: 20px;
+    padding-bottom: 10px;
+    text-align: center;
     background-color: $top-nav-bg;
     overflow: hidden;
     display: flex;
@@ -111,9 +114,6 @@ export default {
       }
       &__number {
         font-size: 150px;
-      }
-      &__message {
-        justify-content: center;
       }
       &__i-vuestic {
         margin-top: 5%;

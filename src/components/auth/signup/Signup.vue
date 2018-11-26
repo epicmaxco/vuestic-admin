@@ -24,7 +24,7 @@
         </template>
       </vuestic-checkbox>
       <div
-        class="d-flex flex-column flex-lg-row align-items-center justify-content-between down-container">
+        class="flex align--center justify--space-between down-container">
         <button class="btn btn-primary" type="submit">
           {{'auth.signUp' | translate}}
         </button>

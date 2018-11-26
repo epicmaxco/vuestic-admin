@@ -1,5 +1,5 @@
 <template>
-  <div class="col-xl-2 col-lg-3 col-sm-4" v-if="removed">
+  <div class="flex xl2 lg3 sm4" v-if="removed">
     <div class="file-upload-gallery-item">
       <vuestic-file-upload-undo
         class="file-upload-gallery-item-undo"
@@ -8,7 +8,7 @@
     </div>
   </div>
 
-  <div class="col-xl-2 col-lg-3 col-sm-4" v-else>
+  <div class="flex xl2 lg3 sm4" v-else>
     <div class="file-upload-gallery-item" :class="notGalleryItemClass">
       <img :src="previewImage" alt="" class="file-upload-gallery-item-image">
       <div class="file-upload-gallery-item-overlay">

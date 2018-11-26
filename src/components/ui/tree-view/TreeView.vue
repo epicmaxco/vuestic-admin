@@ -1,39 +1,40 @@
 <template>
-  <div class="sets-list row">
-    <div class="col-md-12">
-      <div class="row">
+  <div class="sets-list va-row">
+    <div class="flex md12 xs12">
+      <div class="va-row">
 
-        <div class="small-set col-lg-6">
+        <div class="small-set flex lg6 xs12">
           <vuestic-widget :headerText="$t('treeView.basic')">
             <tree-view-basic-preview/>
           </vuestic-widget>
         </div>
 
-        <div class="small-set col-lg-6">
+        <div class="small-set flex lg6 xs12">
           <vuestic-widget :headerText="$t('treeView.icons')">
             <tree-view-icons-preview/>
           </vuestic-widget>
         </div>
+      </div>
 
-        <div class="small-set col-lg-6">
+      <div class="va-row">
+        <div class="small-set flex lg6 xs12">
           <vuestic-widget :headerText="$t('treeView.advanced')">
             <tree-view-advanced-preview/>
           </vuestic-widget>
         </div>
 
-        <div class="small-set col-lg-6">
+        <div class="small-set flex lg6 xs12">
           <vuestic-widget :headerText="$t('treeView.editable')">
             <tree-view-editable-preview/>
           </vuestic-widget>
         </div>
-
-        <div class="small-set col-lg-6">
-          <vuestic-widget :headerText="$t('treeView.selectable')">
-            <tree-view-selectable-preview/>
-          </vuestic-widget>
-        </div>
-
       </div>
+      <div class="small-set flex lg6 xs12">
+        <vuestic-widget :headerText="$t('treeView.selectable')">
+          <tree-view-selectable-preview/>
+        </vuestic-widget>
+      </div>
+
     </div>
   </div>
 </template>

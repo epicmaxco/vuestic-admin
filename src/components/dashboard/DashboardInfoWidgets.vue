@@ -1,6 +1,6 @@
 <template>
-  <div class="row dashboard-info-widgets">
-    <div class="col-md-6 col-xl-3">
+  <div class="va-row dashboard-info-widgets">
+    <div class="flex md6 xl3 xs12">
       <vuestic-widget class="info-widget">
         <div class="info-widget-inner">
           <div class="stats">
@@ -13,7 +13,7 @@
         </div>
       </vuestic-widget>
     </div>
-    <div class="col-md-6 col-xl-3">
+    <div class="flex md6 xl3 xs12">
       <vuestic-widget class="info-widget">
         <div class="info-widget-inner">
           <div class="stats">
@@ -26,7 +26,7 @@
         </div>
       </vuestic-widget>
     </div>
-    <div class="col-md-6 col-xl-3">
+    <div class="flex md6 xl3 xs12">
       <vuestic-widget class="info-widget brand-danger">
         <div class="info-widget-inner">
           <div class="info-widget-inner has-chart">
@@ -44,7 +44,7 @@
         </div>
       </vuestic-widget>
     </div>
-    <div class="col-md-6 col-xl-3">
+    <div class="flex md6 xl3 xs12">
       <vuestic-widget class="info-widget brand-info">
         <div class="info-widget-inner">
           <div class="stats">

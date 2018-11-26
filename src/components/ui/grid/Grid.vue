@@ -1,117 +1,95 @@
 <template>
-  <div class="ui-grid row">
-
-    <div class="col-md-12">
+  <div class="ui-grid va-row">
+    <div class="flex xs12 md12">
       <vuestic-widget headerText="Fixed Grid">
-        <div class="row">
-          <div
-            v-for="i in 3"
-            :key="i"
-            class="col"
-          >
-            <div>.col</div>
-          </div>
-        </div>
-        <div class="row">
-          <div
-            v-for="i in 6"
-            :key="i"
-            class="col"
-          >
-            <div>.col</div>
-          </div>
-        </div>
-        <div class="row">
-          <div
-            v-for="i in 12"
-            :key="i"
-            class="col"
-          >
-            <div>.col</div>
+        <div>
+          <div class="va-row">
+            <div class="flex xs12">
+              <div class="_green-rectangle">
+                xs12
+              </div>
+            </div>
+            <div class="flex xs6" v-for="i in 2" :key="`6${i}`">
+              <div class="_green-rectangle">
+                xs6
+              </div>
+            </div>
+            <div class="flex xs4" v-for="i in 3" :key="`4${i}`">
+              <div class="_green-rectangle">
+                xs4
+              </div>
+            </div>
           </div>
         </div>
       </vuestic-widget>
     </div>
-
-    <div class="col-md-12">
+    <div class="flex md12 xs12">
       <vuestic-widget headerText="Desktop Grid">
-        <div class="row">
-          <div
-            v-for="i in 3"
-            :key="i"
-            class="col-md-4"
-          >
-            <div>.col-md-4</div>
+        <div class="va-row">
+          <div class="flex xs4" v-for="i in 3" :key="`4${i}`">
+            <div class="_green-rectangle">
+              xs4
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div
-            v-for="i in 6"
-            :key="i"
-            class="col-md-2"
-          >
-            <div>.col-md-2</div>
+        <div class="va-row">
+          <div v-for="i in 6" :key="i" class="flex xs2">
+            <div class="_green-rectangle">xs2</div>
           </div>
         </div>
-        <div class="row">
-          <div
-            v-for="i in 12"
-            :key="i"
-            class="col-md-1"
-          >
-            <div>.col-md-1</div>
+        <div class="va-row">
+          <div v-for="i in 12" :key="i" class="flex xs1">
+            <div class="_green-rectangle">xs1</div>
           </div>
         </div>
       </vuestic-widget>
     </div>
 
-    <div class="col-md-12">
+    <div class="flex md12 xs12">
       <vuestic-widget headerText="Mobile and Desktop Grid">
-        <div class="row">
-          <div class="col-md-6 col-sm-12">
-            <div>.col-md-3 .col-sm-8</div>
+        <div class="va-row">
+          <div class="flex xs12 md4">
+            <div class="_green-rectangle">xs12 md4</div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-3 col-sm-8">
-            <div>.col-md-3 .col-sm-8</div>
+        <div class="va-row">
+          <div class="flex xs8 md3">
+            <div class="_green-rectangle">xs8 md3</div>
           </div>
-          <div class="col-md-9 col-sm-4">
-            <div>.col-md-9 .col-sm-4</div>
+          <div class="flex xs4 md9">
+            <div class="_green-rectangle">xs4 md9</div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-4 col-sm-2">
-            <div>.col-md-4 .col-sm-2</div>
+        <div class="va-row">
+          <div class="flex xs2 md4">
+            <div class="_green-rectangle">xs2 md4</div>
           </div>
-          <div class="col-md-4 col-sm-8">
-            <div>.col-md-4 .col-sm-8</div>
+          <div class="flex xs8 md4">
+            <div class="_green-rectangle">xs8 md4</div>
           </div>
-          <div class="col-md-4 col-sm-2">
-            <div>.col-md-4 .col-sm-2</div>
+          <div class="flex xs2 md4">
+            <div class="_green-rectangle">xs2 md4</div>
           </div>
         </div>
       </vuestic-widget>
     </div>
 
-    <div class="col-md-12">
+    <div class="flex md12 xs12">
       <vuestic-widget headerText="Offsets">
-        <div class="row">
-          <div class="col-md-6 offset-md-6 col-sm-6">
-            <div>.col-md-6 .offset-md-6 .col-sm-6</div>
+        <div class="va-row">
+          <div class="flex xs6 md6 offset--md6">
+            <div class="_green-rectangle">xs6 md6 offset--md6</div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-6 offset-md-3">
-            <div>.col-md-6 .offset-md-3</div>
-          </div>
+        <div class="flex md6 offset--md3 ">
+          <div class="_green-rectangle">md6 offset--md3</div>
         </div>
-        <div class="row">
-          <div class="col-4">
-            <div>.col-4</div>
+        <div class="va-row">
+          <div class="flex md4">
+            <div class="_green-rectangle">md4</div>
           </div>
-          <div class="col-4 offset-4">
-            <div>.col-4 .offset-8</div>
+          <div class="flex md4 offset--md4">
+            <div class="_green-rectangle">md4 offset--md4</div>
           </div>
         </div>
       </vuestic-widget>
@@ -127,21 +105,15 @@ export default {
 
 <style lang="scss">
 .ui-grid {
-  .row {
-    div[class^=col] {
-      padding: 0;
-      div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        margin: .5rem .25rem;
-        min-height: 3rem;
-        color: $white;
-        background-color: $brand-primary;
-        border-radius: 0.5rem;
-      }
-    }
+  ._green-rectangle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 3rem;
+    color: $white;
+    background-color: $brand-primary;
+    border-radius: 0.5rem;
   }
 }
 

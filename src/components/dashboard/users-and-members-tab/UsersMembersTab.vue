@@ -1,7 +1,7 @@
 <template>
   <div class="users-members-tab dashboard-tab">
-    <div class="row">
-      <div class="col-md-3 d-flex justify-content-center align-items-center">
+    <div class="va-row">
+      <div class="flex md3 flex justify--center align--center">
         <vuestic-profile-card :name="'Veronique Lee'"
                               :location="'Malaga, Spain'"
                               photoSource="https://i.imgur.com/NLrdqsk.png"
@@ -9,7 +9,7 @@
                                   instagram: 'instagram.com'}">
         </vuestic-profile-card>
       </div>
-      <div class="col-md-9 d-flex">
+      <div class="flex md9">
         <vuestic-chat v-model="chatMessages"></vuestic-chat>
       </div>
     </div>

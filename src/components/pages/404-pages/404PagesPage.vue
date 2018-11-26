@@ -1,7 +1,7 @@
 <template>
-  <div class="not-found-pages row">
-    <div class="col-md-12">
-      <div class="row">
+  <div class="not-found-pages va-row">
+    <div class="flex md12">
+      <div class="va-row">
         <vuestic-card
           class="not-found-pages__cards"
           :image="item.imageUrl"

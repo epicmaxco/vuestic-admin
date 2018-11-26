@@ -1,8 +1,8 @@
 <template>
   <div class="demo-container">
     <div class="demo-container__item" style="width: 300px;">
-      <div class="row">
-        <div class="col-lg-4">
+      <div class="va-row">
+        <div class="flex lg4">
           <vuestic-progress-bar
             :value="35"
             type="circle"
@@ -10,7 +10,7 @@
             background-theme="White"
           />
         </div>
-        <div class="col-lg-4">
+        <div class="flex lg4">
           <vuestic-progress-bar
             :value="75"
             text="circle"
@@ -23,16 +23,16 @@
       </div>
     </div>
     <div class="demo-container__item" style="width: 300px">
-      <div class="row">
-        <div class="col-lg-4">
+      <div class="va-row">
+        <div class="flex lg4">
           <vuestic-progress-bar :value="55" theme="Warning" type="vertical"
                                 size="thin"/>
         </div>
-        <div class="col-lg-4">
+        <div class="flex lg4">
           <vuestic-progress-bar :value="40" theme="Danger" text="second"
                                 type="vertical"/>
         </div>
-        <div class="col-lg-4">
+        <div class="flex lg4">
           <vuestic-progress-bar :value="85" theme="Info" type="vertical"
                                 size="thick" :animated="true"/>
         </div>
