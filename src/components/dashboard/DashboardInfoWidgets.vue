@@ -1,5 +1,5 @@
 <template>
-  <div class="va-row wrap dashboard-info-widgets">
+  <div class="va-row dashboard-info-widgets">
     <div class="flex md6 xl3 xs12">
       <vuestic-widget class="info-widget">
         <div class="info-widget-inner">
