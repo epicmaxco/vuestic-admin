@@ -179,11 +179,11 @@
                   <div class="form-group">
                     <div class="input-group">
                       <vuestic-date-picker
-                        id="date-picker-time"
+                        id="date-picker-custom-first-day"
                         :config="{locale: {firstDayOfWeek: 1}}"
-                        v-model="datepicker.time"
+                        v-model="datepicker.customFirstDay"
                       />
-                      <label class="control-label" for="date-picker-time">
+                      <label class="control-label" for="date-picker-custom-first-day">
                         {{ $t('forms.dateTimePicker.customFirstDay') }}
                       </label>
                       <i class="bar"></i>
@@ -222,11 +222,11 @@
                   <div class="form-group">
                     <div class="input-group">
                       <vuestic-date-picker
-                        id="date-picker-time"
+                        id="date-picker-custom-date-format"
                         :config="{altInput: true, altFormat: 'F j, Y'}"
-                        v-model="datepicker.time"
+                        v-model="datepicker.customDate"
                       />
-                      <label class="control-label" for="date-picker-time">
+                      <label class="control-label" for="date-picker-custom-date-format">
                         {{ $t('forms.dateTimePicker.customDateFormat') }}
                       </label>
                       <i class="bar"></i>
@@ -305,86 +305,64 @@
               <div class="flex md3">
                 <fieldset>
                   <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
-                    :id="'checkbox1'"
-                    v-model="checkboxOneModel"/>
+                    :label="$t('forms.controls.unselected')"
+                    v-model="checkbox.unselected"
+                  />
                   <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
-                    :id="'checkbox2'"
-                    v-model="checkboxTwoModel"/>
+                    :label="$t('forms.controls.selected')"
+                    v-model="checkbox.selected"
+                  />
                   <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
-                    :id="'checkbox3'"
+                    :label="$t('forms.controls.readonly')"
+                    v-model="checkbox.readonly"
+                    :readonly="true"
+                  />
+                  <vuestic-checkbox
+                    :label="$t('forms.controls.disabled')"
                     :disabled="true"
-                    v-model="checkboxThreeModel"/>
+                    v-model="checkbox.disabled"
+                  />
                   <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
-                    :id="'checkbox4'"
-                    :disabled="true"
-                    v-model="checkboxFourModel"/>
+                    :label="$t('forms.controls.error')"
+                    error
+                    v-model="checkbox.error"
+                  />
+                  <vuestic-checkbox
+                    :label="$t('forms.controls.errorMessage')"
+                    :error-messages="errorMessages"
+                    :errorCount="2"
+                    v-model="checkbox.errorMessages"
+                  />
                 </fieldset>
               </div>
-
-              <div class="flex md3">
-                <fieldset>
-                  <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
-                    :id="'checkbox5'"
-                    :isCircle="true"
-                    v-model="checkboxFiveModel"/>
-                  <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
-                    :id="'checkbox6'"
-                    :isCircle="true"
-                    v-model="checkboxSixModel"/>
-                  <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
-                    :id="'checkbox7'"
-                    :disabled="true"
-                    :isCircle="true"
-                    v-model="checkboxSevenModel"/>
-                  <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
-                    :id="'checkbox8'"
-                    :disabled="true"
-                    :isCircle="true"
-                    v-model="checkboxEightModel"/>
-                </fieldset>
-              </div>
-
               <div class="flex md3">
                 <fieldset>
                   <vuestic-radio-button
-                    :label="'forms.controls.radio' | translate"
-                    :id="'radio1'"
-                    :value="'option1'"
-                    :name="'radio'"
-                    v-model="radioModel"/>
+                    option="option1"
+                    v-model="radioSelectedOption"
+                    label="Radio"
+                  />
                   <vuestic-radio-button
-                    :label="'forms.controls.radio' | translate"
-                    :id="'radio2'"
-                    :value="'option2'"
-                    :name="'radio'"
-                    v-model="radioModel"/>
+                    option="option2"
+                    v-model="radioSelectedOption"
+                    label="Radio"
+                  />
                 </fieldset>
                 <fieldset>
                   <vuestic-radio-button
-                    :label="'forms.controls.radioDisabled' | translate"
-                    :id="'radio3'"
-                    :value="'option3'"
-                    :name="'disabled-radio'"
-                    :disabled="true"
-                    v-model="radioDisabledModel"/>
+                    option="option1"
+                    disabled
+                    v-model="radioSelectedDisableOption"
+                    label="Disabled Radio"
+                  />
                   <vuestic-radio-button
-                    :label="'forms.controls.radioDisabled' | translate"
-                    :id="'radio4'"
-                    :value="'option4'"
-                    :name="'disabled-radio'"
-                    :disabled="true"
-                    v-model="radioDisabledModel"/>
+                    option="option2"
+                    disabled
+                    v-model="radioSelectedDisableOption"
+                    label="Disabled Radio"
+                  />
                 </fieldset>
               </div>
-
               <div class="flex md3">
                 <fieldset>
                   <vuestic-switch v-model="isMale">
@@ -442,22 +420,25 @@ export default {
       simpleSelectModel: '',
       multiSelectModel: [],
       multiSelectCountriesModel: [],
-      radioModel: 'option1',
-      radioDisabledModel: 'option4',
-      checkboxOneModel: false,
-      checkboxTwoModel: true,
-      checkboxThreeModel: false,
-      checkboxFourModel: true,
-      checkboxFiveModel: false,
-      checkboxSixModel: true,
-      checkboxSevenModel: false,
-      checkboxEightModel: true,
+      radioSelectedOption: 'option1',
+      radioSelectedDisableOption: 'option1',
+      checkbox: {
+        unselected: false,
+        selected: true,
+        readonly: true,
+        disabled: true,
+        error: false,
+        errorMessages: true
+      },
+      errorMessages: ['error message 1', 'error message 2'],
       datepicker: {
         simple: '2018-05-09',
         time: '2018-05-08 14:10',
         range: '2018-05-08 to 2018-05-23',
         disabled: '2018-05-09',
         multiple: '2018-04-25, 2018-04-27',
+        customFirstDay: '2018-05-09',
+        customDate: '2018-05-09',
       },
     }
   },

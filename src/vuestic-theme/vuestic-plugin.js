@@ -20,7 +20,7 @@ import ProfileCard
 import ProgressBar
   from './vuestic-components/vuestic-progress-bar/VuesticProgressBar.vue'
 import RadioButton
-  from './vuestic-components/vuestic-radio-button/VuesticRadioButton.vue'
+  from './vuestic-components/vuestic-radio-button/VuesticRadioButton'
 import Scrollbar
   from './vuestic-components/vuestic-scrollbar/VuesticScrollbar.vue'
 import SimpleSelect
