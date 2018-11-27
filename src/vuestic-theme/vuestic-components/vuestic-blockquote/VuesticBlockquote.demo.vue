@@ -17,9 +17,9 @@ export default {
   },
   data () {
     return {
-      quote: "BQ: Let’s talk about meat fondue recipes and what you need to know" +
-        " first. Meat fondue also known as oil fondue is a method of cooking all kinds.",
-      author: "Mister Lebowski"
+      quote: 'BQ: Let’s talk about meat fondue recipes and what you need to know' +
+        ' first. Meat fondue also known as oil fondue is a method of cooking all kinds.',
+      author: 'Mister Lebowski'
     }
   }
 }
