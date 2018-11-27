@@ -17,6 +17,12 @@
   }
 }
 
+@mixin va-flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @mixin va-container--fluid {
   max-width: 100%;
 }

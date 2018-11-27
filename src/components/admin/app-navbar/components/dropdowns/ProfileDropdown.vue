@@ -1,5 +1,5 @@
 <template>
-  <div class="profile-dropdown">
+  <div class="profile-dropdown flex-center">
     <span class="profile-dropdown__avatar-container">
       <slot/>
     </span>
@@ -51,7 +51,6 @@ export default {
 @import '../../../../../vuestic-theme/vuestic-sass/resources/resources';
 
 .profile-dropdown {
-  @include flex-center();
   cursor: pointer;
 
   &__avatar-container {

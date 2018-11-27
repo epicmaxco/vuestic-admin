@@ -50,7 +50,7 @@
       @vuetable:loading="onLoading"
       @vuetable:loaded="onLoaded"
     />
-    <div class="flex justify--center">
+    <div class="flex-center">
       <vuetable-pagination
         ref="pagination"
         :css="css.pagination"

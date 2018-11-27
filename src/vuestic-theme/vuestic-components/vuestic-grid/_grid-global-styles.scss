@@ -79,6 +79,9 @@
   }
 }
 
+.flex-center {
+  @include va-flex-center();
+}
 
 .flex {
   @include va-flex();

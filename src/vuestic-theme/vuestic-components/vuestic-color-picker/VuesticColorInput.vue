@@ -1,7 +1,7 @@
 <template>
   <div class="vuestic-color-input">
     <color-dot
-      class="vuestic-color-input__dot"
+      class="vuestic-color-input__dot flex-center"
       :selected="selected"
       :color="value"
       @click="onClick"
@@ -73,8 +73,6 @@ export default {
   &__dot {
     margin-top: 7px;
     margin-right: 8px;
-    @include flex-center();
-
   }
 
   &__input {
