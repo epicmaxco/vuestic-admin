@@ -1,5 +1,7 @@
 <template>
-  <div class="vuestic-scrollbar" ref="vuesticScrollbar">
+  <div class="vuestic-scrollbar" ref="vuesticScrollbar"
+  @mousemove="checkCoordinate"
+  >
     <div class="scrollbar-wrapper" ref="scrollbarWrapper">
       <div class="scrollbar-content" ref="scrollbarContent"
            @wheel="scroll"
@@ -9,8 +11,14 @@
            @transitionend="onContentResize">
         <slot></slot>
       </div>
-      <div class="track" ref="track">
-        <div class="thumb" ref="thumb"></div>
+      <div class="track" ref="track"
+           @mousemove="thumbScroll"
+      >
+        <div class="thumb" ref="thumb"
+             @mousedown="isScrolling = true"
+             @mouseout="isScrolling = false"
+             @mouseup="isScrolling = false"
+        ></div>
       </div>
     </div>
   </div>
@@ -28,6 +36,26 @@ export default {
     },
   },
   methods: {
+    checkCoordinate (e) {
+      this.previousCoordinate = e.clientY
+    },
+    thumbScroll (e) {
+      if (this.isScrolling) {
+        let thumbTop = this.thumb.style.top
+        if (e.clientY - this.previousCoordinate < 0) {
+          if (this.$refs.thumb.getBoundingClientRect().y > this.$refs.scrollbarContent.getBoundingClientRect().y) {
+            this.thumb.style.top = parseInt(thumbTop) - 1 + 'px'
+            this.content.style.marginTop = parseInt(this.content.style.marginTop) + 1 + 'px'
+          }
+        } else {
+          if (this.$refs.thumb.getBoundingClientRect().y + parseInt(this.thumb.style.height) <
+            this.$refs.scrollbarContent.getBoundingClientRect().y + this.contentHeight) {
+            this.thumb.style.top = parseInt(thumbTop) + 1 + 'px'
+            this.content.style.marginTop = parseInt(this.content.style.marginTop) - 1 + 'px'
+          }
+        }
+      }
+    },
     calcSize () {
       this.isDown = this.isUp = false
       this.maxHeight = parseFloat(this.wrapper.offsetHeight, 10)
@@ -89,6 +117,7 @@ export default {
       this.isDragging = false
     },
     scroll (e) {
+      console.log(e)
       let delta = (e.deltaY * 0.01 * this.speed)
       if (browser.name === 'firefox') {
         delta *= 10
@@ -147,7 +176,9 @@ export default {
       content: undefined,
       contentHeight: undefined,
       isDown: false,
+      isScrolling: false,
       isUp: true,
+      previousCoordinate: 0,
       prevTouch: {},
       isDragging: false,
     }
@@ -167,7 +198,7 @@ export default {
     overflow: hidden;
     max-height: 100%;
     .track {
-      width: 5px;
+      width: 8px;
       position: absolute;
       right: 0;
       top: 0;
@@ -175,6 +206,7 @@ export default {
       .thumb {
         transition: height .3s linear, opacity .6s linear;
         position: absolute;
+        cursor: pointer;
         width: 100%;
         background-color: $vue-green;
         opacity: 0;

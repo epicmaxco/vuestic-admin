@@ -85,7 +85,10 @@ export default {
     }
     .sidebar-link__router-link {
       height: $sidebar-submenu-link-height;
-      padding-left: $sidebar-submenu-link-pl;
+      display: flex;
+      padding-left: 0;
+      justify-content: center;
+      flex-wrap: wrap;
       font-size: $font-size-smaller;
     }
   }

@@ -47,6 +47,7 @@ export default {
     height: $sidebar-link-height;
     padding-left: $sidebar-link-pl;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
     cursor: pointer;
