@@ -3,16 +3,21 @@
     <div class="va-notification" :class="notificationClass">
       <slot name="icon"></slot>
       <slot></slot>
-      <i v-if="closeable"
-         class="va-notification__close-btn"
-         @click="hideNotification()"></i>
+      <vuestic-icon-close-btn v-if="closeable"
+                              class="va-notification__close-btn"
+                              @click="hideNotification()"/>
     </div>
   </transition>
 </template>
 
 <script>
+import VuesticIconCloseBtn from './../vuestic-icon/VuesticIconCloseBtn'
+
 export default {
   name: 'va-notification',
+  components: {
+    VuesticIconCloseBtn
+  },
   computed: {
     notificationClass () {
       return {
@@ -54,12 +59,20 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 12px 8px;
+    padding: 0.75rem 0.5rem;
     margin: 4px auto;
     border: 0 solid transparent;
-    border-radius: 8px;
+    border-radius: 0.5rem;
 
-    .badge {
+    &__badge {
+      padding: 2px 8px;
+      display: inline-block;
+      font-family: $font-family-sans-serif;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: .625rem;
+      color: $white;
+      letter-spacing: .0625rem;
       margin-right: 8px;
       border-radius: 9px;
     }
@@ -95,15 +108,18 @@ export default {
       background: $background-color;
       box-shadow: 0 2px 3px 0 $box-shadow-color;
 
-      .badge-#{$name}{
+      .va-notification__badge--#{$name}{
         background-color: $close-icon-color;
       }
 
       .va-notification__close-btn {
-        top: calc(50% - 12px);
+        top: calc(50% - 0.75rem);
         width: 24px;
         height: 24px;
-        background: url('../../../../src/assets/icons/close-btn/i-close-#{$name}.svg');
+
+        path:last-of-type {
+          fill: $close-icon-color;
+        }
       }
     }
   }

@@ -1,41 +1,41 @@
 <template>
   <div class="demo-container">
     <div class="demo-container__item" style="width: 900px;">
-      <va-notification :color="'success'" :closeable="true" v-model="value">
-        <span slot="icon" class="badge badge-pill badge-success">
-          {{'notificationsPage.alerts.success' | translate}}
+      <va-notification color="success" :closeable="true" v-model="value">
+        <span slot="icon" class="va-notification__badge va-notification__badge--success">
+          Paid
         </span>
-        {{'notificationsPage.alerts.successMessage' | translate}}
+        You successfully read this important alert message.
       </va-notification>
-      <va-notification :color="'info'" :closeable="true">
-        <span slot="icon" class="badge badge-pill badge-info">
-          {{'notificationsPage.alerts.info' | translate}}
+      <va-notification color="info" :closeable="true">
+        <span slot="icon" class="va-notification__badge va-notification__badge--info">
+          Info
         </span>
-        {{'notificationsPage.alerts.infoMessage' | translate}}
+        This alert needs your attention, but it's not super important.
       </va-notification>
-      <va-notification :color="'warning'" :closeable="true">
-        <span slot="icon" class="badge badge-pill badge-warning">
-          {{'notificationsPage.alerts.warning' | translate}}
+      <va-notification color="warning" :closeable="true">
+        <span slot="icon" class="va-notification__badge va-notification__badge--warning">
+          On Hold
         </span>
-        {{'notificationsPage.alerts.warningMessage' | translate}}
+        Better check yourself, you're not looking too good.
       </va-notification>
-      <va-notification :color="'danger'" :closeable="true">
-        <span slot="icon" class="badge badge-pill badge-danger">
-          {{'notificationsPage.alerts.danger' | translate}}
+      <va-notification color="danger" :closeable="true">
+        <span slot="icon" class="va-notification__badge va-notification__badge--danger">
+          Danger
         </span>
-        {{'notificationsPage.alerts.dangerMessage' | translate}}
+        Change a few things up and try submitting again.
       </va-notification>
-      <va-notification :color="'gray'" :closeable="true">
-        <span slot="icon" class="badge badge-pill badge-gray">
-          {{'notificationsPage.alerts.gray' | translate}}
+      <va-notification color="gray" :closeable="true">
+        <span slot="icon" class="va-notification__badge va-notification__badge--gray">
+          Processing
         </span>
-        {{'notificationsPage.alerts.warningMessage' | translate}}
+        Better check yourself, you're not looking too good.
       </va-notification>
-      <va-notification :color="'dark'" :closeable="true">
-        <span slot="icon" class="badge badge-pill badge-dark">
-          {{'notificationsPage.alerts.danger' | translate}}
+      <va-notification color="dark" :closeable="true">
+        <span slot="icon" class="va-notification__badge va-notification__badge--dark">
+          New Label
         </span>
-        {{'notificationsPage.alerts.dangerMessage' | translate}}
+        Change a few things up and try submitting again.
       </va-notification>
     </div>
   </div>
@@ -47,12 +47,6 @@ import VaNotification from './VaNotification'
 export default {
   components: {
     VaNotification
-  },
-  data () {
-    return {
-      value: true,
-      errorMessages: ['error message 1', 'error message 2']
-    }
   }
 }
 </script>
