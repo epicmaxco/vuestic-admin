@@ -44,14 +44,14 @@ export default {
         let thumbTop = this.thumb.style.top
         if (e.clientY - this.previousCoordinate < 0) {
           if (this.$refs.thumb.getBoundingClientRect().y > this.$refs.scrollbarContent.getBoundingClientRect().y) {
-            this.thumb.style.top = parseInt(thumbTop) - 1 + 'px'
-            this.content.style.marginTop = parseInt(this.content.style.marginTop) + 1 + 'px'
+            this.thumb.style.top = parseInt(thumbTop) - 3 + 'px'
+            this.content.style.marginTop = parseInt(this.content.style.marginTop) + 3 + 'px'
           }
         } else {
           if (this.$refs.thumb.getBoundingClientRect().y + parseInt(this.thumb.style.height) <
             this.$refs.scrollbarContent.getBoundingClientRect().y + this.contentHeight) {
-            this.thumb.style.top = parseInt(thumbTop) + 1 + 'px'
-            this.content.style.marginTop = parseInt(this.content.style.marginTop) - 1 + 'px'
+            this.thumb.style.top = parseInt(thumbTop) + 3 + 'px'
+            this.content.style.marginTop = parseInt(this.content.style.marginTop) - 3 + 'px'
           }
         }
       }
@@ -117,7 +117,6 @@ export default {
       this.isDragging = false
     },
     scroll (e) {
-      console.log(e)
       let delta = (e.deltaY * 0.01 * this.speed)
       if (browser.name === 'firefox') {
         delta *= 10
