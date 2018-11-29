@@ -1,8 +1,12 @@
 <template>
   <div class="vuestic-scrollbar" ref="vuesticScrollbar"
-  @mousemove="checkCoordinate"
+       @mousemove="checkCoordinate"
   >
-    <div class="scrollbar-wrapper" ref="scrollbarWrapper">
+    <div
+      class="scrollbar-wrapper"
+      :class="setItemsHeight(this.itemsCount)"
+      ref="scrollbarWrapper"
+    >
       <div class="scrollbar-content" ref="scrollbarContent"
            @wheel="scroll"
            @touchstart="startDrag"
@@ -34,8 +38,14 @@ export default {
     speed: {
       default: 20,
     },
+    itemsCount: null
   },
   methods: {
+    setItemsHeight (count) {
+      if (this.itemsCount !== null) {
+        return `items-height-${count}`
+      }
+    },
     checkCoordinate (e) {
       this.previousCoordinate = e.clientY
     },
@@ -196,8 +206,13 @@ export default {
     position: relative;
     overflow: hidden;
     max-height: 100%;
+    @each $count, $height in $simple-select-items {
+      &.items-height-#{$count} {
+        height: $height;
+      }
+    }
     .track {
-      width: 8px;
+      width: 6px;
       position: absolute;
       right: 0;
       top: 0;

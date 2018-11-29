@@ -34,7 +34,7 @@
       <div
         class="dropdown-menu vuestic-simple-select__dropdown-menu"
         aria-labelledby="dropdownMenuButton">
-        <scrollbar ref="scrollbar">
+        <scrollbar ref="scrollbar" :itemsCount="itemsCount">
           <div
             class="dropdown-menu-content vuestic-simple-select__dropdown-menu-content">
             <div
@@ -92,6 +92,7 @@ export default {
       validated: false,
       displayValue: this.value,
       selectedValue: this.value,
+      itemsCount: 4
     }
   },
   watch: {

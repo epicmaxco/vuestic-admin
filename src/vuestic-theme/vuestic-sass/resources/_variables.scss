@@ -434,3 +434,12 @@ $toast-icon-size: $popover-icon-size;
 $toast-icon-color: $popover-icon-color;
 $toast-icon-ml: 0;
 $toast-icon-mr: 0.625rem;
+
+// Dropdown Values for simple select
+
+$simple-select-items: (
+  4: 4 * $dropdown-item-height,
+  5: 5 * $dropdown-item-height,
+  6: 6 * $dropdown-item-height,
+  10: 10 * $dropdown-item-height,
+);
