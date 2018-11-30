@@ -14,11 +14,7 @@ $vuestic-colors: (
   $icon-color: nth($colors, 4);
 
   .vuestic-icon--#{$name}{
-    color: $icon-color !important;
-
-    path, rect, polygon {
-      fill: $icon-color !important;
-    }
+    color: $icon-color;
   }
 }
 
