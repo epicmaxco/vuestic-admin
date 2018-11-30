@@ -22,7 +22,6 @@ export default {
     },
     size: {
       type: [String, Number],
-      default: undefined
     },
     fixedWidth: {
       type: Boolean
@@ -36,7 +35,7 @@ export default {
     },
   },
   computed: {
-    iconClass: function () {
+    iconClass () {
       return {
         'vuestic-icon--large': this.large,
         'vuestic-icon--small': this.small,
@@ -49,7 +48,7 @@ export default {
         'vuestic-icon--dark': this.color === 'dark',
       }
     },
-    iconStyle: function () {
+    iconStyle () {
       return {
         transform: 'rotate(' + this.rotation + 'deg)',
         fontSize: typeof this.size === 'number' ? this.size + 'px' : this.size
@@ -72,7 +71,7 @@ export default {
   }
 
   &--fixed {
-    width: 3rem;
+    width: 1.25rem;
     text-align: center;
   }
 }
