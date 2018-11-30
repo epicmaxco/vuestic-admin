@@ -1,6 +1,8 @@
 <template>
-  <div @click="$emit('click', value)"
-       class="va-tab"
+  <div
+    v-if="isOn ()"
+    @click="$emit('click', value)"
+    class="va-tab"
   >
     <slot>
 
@@ -19,8 +21,10 @@ export default {
     }
   },
   methods: {
-
-  }
+    isOn () {
+      return this.value === this.$parent.valueProxy
+    }
+  },
 }
 </script>
 

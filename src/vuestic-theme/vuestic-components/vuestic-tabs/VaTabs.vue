@@ -1,17 +1,25 @@
 <template>
   <div class="va-tabs">
     <div class="va-tabs__bar">
-      <slot>item</slot>
+      <div v-for="title in titles" @click="setActive(title)" v-bind:key="title">{{ title }}</div>
     </div>
-    <slot name="content"/>
+    <slot/>
   </div>
 </template>
 
 <script>
+import VaTab from './VaTab'
+
 export default {
   name: 'va-tabs',
+  components: {
+    VaTab
+  },
   props: {
-    value: null
+    value: null,
+    titles: {
+      type: Array
+    }
   },
   computed: {
     valueProxy: {
@@ -25,18 +33,17 @@ export default {
   },
   methods: {
     setActive (value) {
+      this.valueProxy = value
     }
-  },
-  mounted () {
-    this.$slots.default.forEach(vnode => {
-      vnode.elm.addEventListener('click', this.setActive())
-    })
   }
 }
 </script>
 
 <style lang="scss">
 .va-tabs {
+  &__content {
+  }
+
   &__bar {
     display: flex;
     flex-wrap: nowrap;
