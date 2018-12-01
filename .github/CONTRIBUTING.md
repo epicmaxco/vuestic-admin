@@ -29,13 +29,15 @@ Commit messages should follow the [commit message convention](./COMMIT_CONVENTIO
 
 ### For core contributors
 
-The points below are mostly to simplify code review in a long run.
 * Keep amount of local branches minimal.
 * Always link PR to issue (via `fix #123`).
 * For small issues you may push to `develop` branch directly while adding (`fix #123`) to commit message.
-* Be sure to create single PR for one issue. If we have several PRs - move all code into a single one and close the rest. If one PR covers several issues - either split it in several PRs or mark one of the issues as duplicate.
+* Create single PR for one issue. If we have several PRs - move all the code into a single one and close the rest. If one PR covers several issues - either split it in several PRs or mark one of the issues as duplicate.
 * Be sure to have only one person assigned per issue.
 * Check your code: https://github.com/epicmaxco/vuestic-admin/issues/378.
+* We use [yarn](https://yarnpkg.com/lang/en/) for package management.
+* Be proactive. If you think something is wrong - create an issue or discuss.
+* Recommended tools: [GitKraken](https://www.gitkraken.com/), [WebStorm](https://www.jetbrains.com/webstorm/)
 
 ### Commonly used NPM scripts
 
