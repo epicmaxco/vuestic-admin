@@ -1,5 +1,5 @@
 <template>
-  <div class="layout"
+  <div class="vuestic-layout"
        v-resize
        :class="classObject"
   >
@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style lang="scss">
-.layout {
+.vuestic-layout {
   &-fixed {
     .content-wrap {
       padding-right: $layout-padding-right;

@@ -1,5 +1,5 @@
 <template>
-  <div class="language-dropdown">
+  <div class="language-dropdown flex-center">
     <span
       class="flag-icon flag-icon-large"
       :class="flagIconClass(currentLanguage())"
@@ -75,7 +75,6 @@ export default {
 @import "~flag-icon-css/css/flag-icon.css";
 
 .language-dropdown {
-  @include flex-center();
   cursor: pointer;
   .flag-icon-large {
     display: block;

@@ -1,0 +1,74 @@
+// Breakpoints are in px because they're bound to screen size, which is in px.
+// Everything else is in rem.
+$grid-breakpoints: (
+  xs: 0,
+  sm: 600px,
+  md: 960px,
+  lg: 1280px,
+  xl: 1920px,
+) !default;
+
+$grid-gutter-default: 0.5rem !default;
+$grid-columns: 12 !default;
+
+// These are meant to be dependent on $grid-breakpoints
+$grid-gutters: (
+  xs: $grid-gutter-default * 0.25,
+  sm: $grid-gutter-default * 0.5,
+  md: $grid-gutter-default,
+  lg: $grid-gutter-default * 2,
+  xl: $grid-gutter-default * 3,
+) !default;
+
+$container-max-widths: (
+  // xs and sm use fluid container essentially.
+  md: map-get($grid-breakpoints, md),
+  lg: map-get($grid-breakpoints, lg),
+  xl: map-get($grid-breakpoints, xl),
+) !default;
+
+$display-breakpoints: (
+  xs-only: 'only screen and (max-width: #{(map-get($grid-breakpoints, sm) - 1)})',
+  sm-only: 'only screen and (min-width: #{map-get($grid-breakpoints, sm)}) and (max-width: #{(map-get($grid-breakpoints, md)  - 1)})',
+  sm-and-down: 'only screen and (max-width: #{(map-get($grid-breakpoints, md) - 1)})',
+  sm-and-up: 'only screen and (min-width: #{map-get($grid-breakpoints, sm)})',
+  md-only: 'only screen and (min-width: #{map-get($grid-breakpoints, md)}) and (max-width: #{(map-get($grid-breakpoints, lg)  - 1)})',
+  md-and-down: 'only screen and (max-width: #{(map-get($grid-breakpoints, lg) - 1)})',
+  md-and-up: 'only screen and (min-width: #{map-get($grid-breakpoints, md)})',
+  lg-only: 'only screen and (min-width: #{map-get($grid-breakpoints, lg)}) and (max-width: #{(map-get($grid-breakpoints, xl) - 1)})',
+  lg-and-down: 'only screen and (max-width: (#{map-get($grid-breakpoints, xl)} - 1))',
+  lg-and-up: 'only screen and (min-width: #{map-get($grid-breakpoints, lg)})',
+  xl-only: 'only screen and (min-width: #{map-get($grid-breakpoints, xl)})',
+) !default;
+
+// These are used for various padding and typing to make them consistent.
+$spacer: 1rem !default;
+$spacer-x: $spacer !default;
+$spacer-y: $spacer !default;
+
+$spacers: (
+  zero: (
+    x: 0,
+    y: 0,
+  ),
+  one: (
+    x: $spacer-x * 0.25,
+    y: $spacer-y * 0.25,
+  ),
+  two: (
+    x: $spacer-x * 0.5,
+    y: $spacer-y * 0.5,
+  ),
+  three: (
+    x: $spacer-x,
+    y: $spacer-y,
+  ),
+  four: (
+    x: $spacer-x * 1.5,
+    y: $spacer-y * 1.5,
+  ),
+  five: (
+    x: $spacer-x * 3,
+    y: $spacer-y * 3,
+  ),
+) !default;

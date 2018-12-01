@@ -1,7 +1,7 @@
 <template>
   <div class="medium-editor">
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12">
         <vuestic-widget :headerText="'forms.mediumEditor.title' | translate">
           <vuestic-medium-editor @initialized="handleEditorInitialization"
                                  :editor-options="editorOptions">

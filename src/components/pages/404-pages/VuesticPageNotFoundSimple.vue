@@ -9,14 +9,14 @@
         <h3 class="vuestic-page-not-found-simple__text">The page's gone
           fishing.</h3>
       </div>
-      <div class="vuestic-page-not-found-simple__wallpaper col-md-12">
-        <div class="row vuestic-page-not-found-simple__message">
+      <div class="vuestic-page-not-found-simple__wallpaper flex md12">
+        <div class="va-row vuestic-page-not-found-simple__message">
           <h4 class="vuestic-page-not-found-simple__text-small">If you feel that
             it's not right, please send us a message at &nbsp;</h4>
           <a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
         </div>
       </div>
-      <div class="vuestic-page-not-found-simple__wallpaper-button col-md-12">
+      <div class="vuestic-page-not-found-simple__wallpaper-button flex md12">
         <router-link :to="{ path: './dashboard' }">
           <button class="btn btn-primary back-button">
             {{'Back to dashboard'}}
@@ -68,19 +68,28 @@ export default {
     display: flex;
     align-items: flex-start;
     justify-content: center;
+
+    a {
+      margin-top: 2rem;
+    }
   }
   &__wallpaper-button {
     padding-top: 20px;
+    padding-bottom: 10px;
     background-color: $top-nav-bg;
     overflow: hidden;
     display: flex;
     align-items: flex-start;
+    text-align: center;
     justify-content: center;
   }
   &__i-vuestic {
     z-index: 2;
     height: $auth-wallpaper-ivuestic-h;
     width: 100%;
+  }
+  &__message {
+    justify-content: center;
   }
   @include media-breakpoint-down(xs) {
     .vuestic-page-not-found-simple {

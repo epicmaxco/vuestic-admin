@@ -64,6 +64,10 @@ import VuesticTimelineItem
 import VuesticPopup
   from './vuestic-components/vuestic-popup/quasar/components/popup/VuesticPopup.vue'
 
+import VuesticContainer from './vuestic-components/vuestic-grid/VGrid/Container'
+import VuestVaLayout from './vuestic-components/vuestic-grid/VGrid/Layout'
+import VuesticFlex from './vuestic-components/vuestic-grid/VGrid/Flex'
+
 import { installQuasarPlatform } from './vuestic-components/vuestic-popup/quasar/install'
 
 // At the moment we use quasar platform install to make its components work.
@@ -111,6 +115,9 @@ const VuesticPlugin = {
       VuesticTimeline,
       VuesticTimelineItem,
       VuesticPopup,
+      VuesticContainer,
+      VuestVaLayout,
+      VuesticFlex,
     ].forEach(component => {
       Vue.component(component.name, component)
     })

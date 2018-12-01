@@ -1,8 +1,8 @@
 <template>
   <div class="demo-container">
     <div class="demo-container__item">
-      <div class="row">
-        <div class="col-md-3">
+      <div class="va-row">
+        <div class="flex md3">
           <vuestic-card
             stripe="warning"
             title-on-image
@@ -15,7 +15,7 @@
             around the outside.
           </vuestic-card>
         </div>
-        <div class="col-md-3">
+        <div class="flex md3">
           <vuestic-card
             stripe="danger"
             image="https://picsum.photos/300/200/?random"
@@ -32,8 +32,8 @@
       </div>
     </div>
     <div class="demo-container__item">
-      <div class="row">
-        <div class="col-md-4">
+      <div class="va-row">
+        <div class="flex md4">
           <vuestic-card
             stripe="danger"
             image="https://picsum.photos/300/200/?random"

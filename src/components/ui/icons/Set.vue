@@ -1,15 +1,15 @@
 <template>
   <div class="vuestic-icon-set">
     <vuestic-widget class="header">
-      <div class="row">
-        <div class="header-text col-lg-4">
+      <div class="va-row">
+        <div class="header-text flex lg4">
           <h2>{{ set.name }}</h2>
           <router-link :to="{ name: 'icon-sets' }">
             {{ $t('icons.back') }}
           </router-link>
         </div>
 
-        <div class="search col-lg-4">
+        <div class="search flex lg4">
           <div class="form-group with-icon-left">
             <div class="input-group">
               <input
@@ -27,7 +27,7 @@
           </div>
         </div>
 
-        <div class="range col-lg-4">
+        <div class="range flex lg4">
           <h4>A</h4>
           <vuestic-slider
             :options="slider"
@@ -43,7 +43,7 @@
       v-for="(list, index) in validatedLists"
       :key="index"
       :headerText="list.name"
-      class="col-12"
+      class="flex md12"
     >
       <span v-if="list.icons.length === 0">
         {{ 'icons.none' | translate }}
@@ -51,7 +51,7 @@
       <div
         v-for="i in Math.floor(list.icons.length / 8 + 1)"
         :key="i"
-        class="row vuestic-icon-container"
+        class="va-row vuestic-icon-container"
       >
         <div
           v-for="j in 8"
@@ -151,6 +151,7 @@ export default {
       text-align: left;
 
       h2 {
+        margin-top: 0;
         margin-bottom: 0;
       }
     }

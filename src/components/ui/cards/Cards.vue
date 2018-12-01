@@ -1,6 +1,6 @@
 <template>
-  <div class="row">
-    <div class="col-md-12">
+  <div>
+    <div class="flex md12">
       <div class="cards-container">
         <!-- eslint-disable vue/valid-v-for -->
         <template v-for="loop in listLoops">
@@ -114,7 +114,7 @@
           <vuestic-card
             image="https://picsum.photos/300/200/?image=885"
           >
-            <div class="d-flex">
+            <div class="flex">
               <p>{{ $t('cards.contentText') }}</p>
               <div
                 class="btn btn-primary btn-with-icon btn-micro rounded-icon">
@@ -148,7 +148,7 @@
         </template>
       </div>
     </div>
-    <div class="col-md-12 d-flex align-items-center justify-content-center">
+    <div class="flex md12 align--center justify--center">
       <div class="pre-loader-container">
         <vuestic-pre-loader v-show="isShown"
                             class="pre-loader"></vuestic-pre-loader>

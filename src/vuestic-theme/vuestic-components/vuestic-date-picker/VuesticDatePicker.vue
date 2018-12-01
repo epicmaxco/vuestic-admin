@@ -192,7 +192,6 @@ $daySize: 1.75rem;
     }
 
     .flatpickr-prev-month, .flatpickr-next-month {
-      @include flex-center();
       height: 2.625rem;
       width: 1.625rem;
       padding: 0;

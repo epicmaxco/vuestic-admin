@@ -1,5 +1,5 @@
 <template>
-  <div class="notification-dropdown">
+  <div class="notification-dropdown flex-center">
     <span class="i-nav-notification"/>
     <vuestic-dropdown
       v-model="isShown"
@@ -53,7 +53,6 @@ export default {
 @import '../../../../../vuestic-theme/vuestic-sass/resources/resources';
 
 .notification-dropdown {
-  @include flex-center();
   cursor: pointer;
 
   @at-root {

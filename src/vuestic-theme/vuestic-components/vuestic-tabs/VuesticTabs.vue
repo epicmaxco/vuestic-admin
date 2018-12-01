@@ -1,7 +1,7 @@
 <template>
   <div class="vuestic-tabs">
-    <div class="d-none d-md-block">
-      <nav class="nav nav-pills row">
+    <div>
+      <nav class="nav nav-pills va-row">
         <div
           class="nav-item col"
           @click="setActive(name)"
@@ -17,7 +17,8 @@
       </div>
     </div>
     <vuestic-simple-select
-      class="d-flex d-md-none d-lg-none d-xl-none simple-select"
+      class="simple-select"
+      v-show="false"
       v-bind:options="names" v-model="currentActive"></vuestic-simple-select>
     <div class="tab-content">
       <div
@@ -33,6 +34,7 @@
 </template>
 
 <script>
+// d-none and d-lg-flex were deleted, bug will be fixed in the nearest update
 export default {
   name: 'vuestic-tabs',
   props: ['names'],

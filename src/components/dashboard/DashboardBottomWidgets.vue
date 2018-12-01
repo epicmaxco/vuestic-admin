@@ -1,11 +1,11 @@
 <template>
-  <div class="row bottom-widgets">
-    <div class="col-md-6 d-flex">
+  <div class="va-row bottom-widgets">
+    <div class="flex md6 xs12">
       <vuestic-widget class="no-h-padding no-v-padding">
         <vuestic-feed :initialPosts="posts"></vuestic-feed>
       </vuestic-widget>
     </div>
-    <div class="col-md-6 d-flex">
+    <div class="flex md6 xs12">
       <vuestic-widget class="business-posts">
         <vuestic-social-news class="vuestic-social-news" :news="news"
                              :url="'http://instagram.com/smartapant'"></vuestic-social-news>

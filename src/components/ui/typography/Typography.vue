@@ -1,7 +1,7 @@
 <template>
   <div class="ui-typography">
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="md12 flex">
         <vuestic-widget>
           <div class="typo-headers">
             <h1>Very Important Information H1</h1>
@@ -38,8 +38,8 @@
           </div>
           <div class="vue-lists">
             <h2>Lists</h2>
-            <div class="row">
-              <div class="col-md-6">
+            <div class="va-row">
+              <div class="flex md6">
                 <h3>Unordered</h3>
                 <ul class="vue-unordered">
                   <li>
@@ -69,7 +69,7 @@
                   </li>
                 </ul>
               </div>
-              <div class="col-md-6 text-left">
+              <div class="flex md6 text-left">
                 <div>
                   <h3>Ordered</h3>
                   <ol class="vue-ordered">
@@ -105,8 +105,8 @@
           </div>
           <div class="vue-misc">
             <h2>Misc</h2>
-            <div class="row">
-              <div class="col-md-6">
+            <div class="va-row">
+              <div class="flex md6">
                 <h3>Address</h3>
                 <address>
                   <strong>SJØNNA</strong><br>
@@ -119,7 +119,7 @@
 
                 </address>
               </div>
-              <div class="col-md-6">
+              <div class="flex md6">
                 <h3>Well</h3>
                 <div class="well">
                   Zebras have excellent eyesight. It is believed that they can
@@ -150,10 +150,6 @@ export default {
 
   .widget-body {
     padding: 3.75rem 4.7rem 0 2.2rem !important;
-  }
-
-  .col-md-6 {
-    padding-right: 0;
   }
 
   .vue-lists ul, ol {
