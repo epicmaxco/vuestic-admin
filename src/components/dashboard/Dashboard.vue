@@ -6,8 +6,9 @@
     <vuestic-widget class="no-padding no-v-padding">
       <va-tabs
         v-model="value"
-        :titles="[$t('dashboard.dataVisualization'), $t('dashboard.usersAndMembers'), $t('dashboard.setupProfile'), $t('dashboard.features')]"
-        ref="tabs">
+        ref="tabs"
+        grow
+      >
         <va-tab :value="$t('dashboard.dataVisualization')">
           <data-visualisation-tab></data-visualisation-tab>
         </va-tab>

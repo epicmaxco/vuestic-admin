@@ -1,14 +1,29 @@
 <template>
   <div class="va-tabs">
-    <div class="va-tabs__bar">
+    <div
+      class="va-tabs__bar"
+      :class="{
+      'align-right': right,
+      'align-left': left,
+      'grow': grow
+      }"
+      :style="{'background-color': color}"
+    >
       <div
-        v-for="title in titles"
+        v-for="item in $slots.default"
+        v-bind:key="item"
         class="va-tabs__bar-item"
-        :class="{'active': checkForActive(title)}"
-        @click="setActive(title)"
-        v-bind:key="title"
+        :class="{
+          'active': item.componentOptions.propsData.value === valueProxy
+        }"
+        @click="valueProxy = item.componentOptions.propsData.value"
       >
-        {{ title }}
+        {{ item.componentOptions.propsData.value }}
+        <div
+          class="va-tabs__slider"
+          v-if="item.componentOptions.propsData.value === valueProxy
+          && !hideSlider"
+        />
       </div>
     </div>
     <slot/>
@@ -25,9 +40,14 @@ export default {
   },
   props: {
     value: null,
-    titles: {
-      type: Array
-    }
+    right: Boolean,
+    left: Boolean,
+    grow: Boolean,
+    color: {
+      type: String,
+      default: 'white'
+    },
+    hideSlider: Boolean
   },
   computed: {
     valueProxy: {
@@ -38,26 +58,26 @@ export default {
         return this.value
       }
     }
-  },
-  methods: {
-    setActive (value) {
-      this.valueProxy = value
-    },
-    checkForActive (value) {
-      return this.valueProxy === value
-    }
   }
 }
 </script>
 
 <style lang="scss">
 .va-tabs {
+
   &__bar {
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-around;
     margin-bottom: 3rem;
     padding-top: 1rem;
+    &.align-right {
+      justify-content: flex-end;
+    }
+    &.align-left {
+      justify-content: flex-start;
+    }
+    &.grow {
+      justify-content: space-around;
+    }
   }
 
   &__bar-item {
@@ -71,5 +91,10 @@ export default {
     }
   }
 
+  &__slider {
+    height: 2px;
+    margin-top: 0.2rem;
+    background-color: $vue-green
+  }
 }
 </style>
