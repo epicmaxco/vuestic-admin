@@ -67,7 +67,7 @@ export default {
   },
   data () {
     return {
-      value: 'Data Visualisation'
+      value: 'Data Visualization'
     }
   }
 }
