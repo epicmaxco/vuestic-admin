@@ -4,22 +4,23 @@
     <dashboard-info-widgets></dashboard-info-widgets>
 
     <vuestic-widget class="no-padding no-v-padding">
-      <vuestic-tabs
-        :names="[$t('dashboard.dataVisualization'), $t('dashboard.usersAndMembers'), $t('dashboard.setupProfile'), $t('dashboard.features')]"
+      <va-tabs
+        v-model="value"
+        :titles="[$t('dashboard.dataVisualization'), $t('dashboard.usersAndMembers'), $t('dashboard.setupProfile'), $t('dashboard.features')]"
         ref="tabs">
-        <div :slot="$t('dashboard.dataVisualization')">
+        <va-tab :value="$t('dashboard.dataVisualization')">
           <data-visualisation-tab></data-visualisation-tab>
-        </div>
-        <div :slot="$t('dashboard.usersAndMembers')">
+        </va-tab>
+        <va-tab :value="$t('dashboard.usersAndMembers')">
           <users-members-tab></users-members-tab>
-        </div>
-        <div :slot="$t('dashboard.setupProfile')">
+        </va-tab>
+        <va-tab :value="$t('dashboard.setupProfile')">
           <setup-profile-tab></setup-profile-tab>
-        </div>
-        <div :slot="$t('dashboard.features')">
+        </va-tab>
+        <va-tab :value="$t('dashboard.features')">
           <features-tab></features-tab>
-        </div>
-      </vuestic-tabs>
+        </va-tab>
+      </va-tabs>
     </vuestic-widget>
 
     <dashboard-bottom-widgets></dashboard-bottom-widgets>
@@ -35,7 +36,8 @@ import FeaturesTab from './features-tab/FeaturesTab.vue'
 import DataVisualisationTab
   from './data-visualisation-tab/DataVisualisation.vue'
 import DashboardBottomWidgets from './DashboardBottomWidgets.vue'
-
+import VaTabs from '../../vuestic-theme/vuestic-components/vuestic-tabs/VaTabs'
+import VaTab from '../../vuestic-theme/vuestic-components/vuestic-tabs/VaTab'
 export default {
   name: 'dashboard',
   components: {
@@ -45,6 +47,8 @@ export default {
     SetupProfileTab,
     FeaturesTab,
     DashboardBottomWidgets,
+    VaTabs,
+    VaTab
   },
 
   methods: {
@@ -61,6 +65,11 @@ export default {
       })
     },
   },
+  data () {
+    return {
+      value: 'Data Visualisation'
+    }
+  }
 }
 
 </script>
