@@ -11,7 +11,7 @@
     >
       <div
         v-for="item in $slots.default"
-        v-bind:key="item"
+        v-bind:key="item.value"
         class="va-tabs__bar-item"
         :class="{
           'active': item.componentOptions.propsData.value === valueProxy
