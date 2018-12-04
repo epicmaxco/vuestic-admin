@@ -1,12 +1,9 @@
 <template>
   <div
-    v-if="isOn ()"
-    @click="$emit('click', value)"
     class="va-tab"
+    v-if="isOn()"
   >
-    <slot>
-
-    </slot>
+    <slot/>
   </div>
 </template>
 
@@ -26,7 +23,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-
-</style>

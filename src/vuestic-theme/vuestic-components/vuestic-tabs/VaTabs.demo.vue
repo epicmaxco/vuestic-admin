@@ -3,12 +3,16 @@
     <div class="demo-container__item" style="width: 1000px">
       <va-tabs
         v-model="value"
-        :right="valueAlign==='align-right'"
-        :left="valueAlign === 'align-left'"
-        :grow="valueAlign == 'grow'"
+        :right="alignValue==='align-right'"
+        :grow="alignValue == 'grow'"
         :color="color"
       >
-        <va-tab v-for="n in count" v-bind:key="n" :value="'item' + n"> {{ 'item-' + n }} </va-tab>
+        <va-tab
+          v-for="n in count" :key="n"
+          :value="'item' + n"
+        >
+          {{ 'item-' + n }}
+        </va-tab>
       </va-tabs>
     </div>
     <div class="demo-container__item">
@@ -16,9 +20,9 @@
     </div>
     <div class="demo-container__item">
       <vuestic-radio-button
-        v-for="value in valuesAlign"
-        v-bind:key="value"
-        v-model="valueAlign"
+        v-for="value in alignValues"
+        :key="value"
+        v-model="alignValue"
         :option="value"
       />
     </div>
@@ -48,8 +52,8 @@ export default {
     return {
       count: 3,
       value: 'item1',
-      valuesAlign: ['default', 'align-left', 'align-right', 'grow'],
-      valueAlign: 'default',
+      alignValues: ['default', 'align-right', 'grow'],
+      alignValue: 'default',
       color: 'White'
     }
   }

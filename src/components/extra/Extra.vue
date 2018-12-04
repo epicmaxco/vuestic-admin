@@ -2,20 +2,19 @@
   <div class="extra">
     <vuestic-widget :headerText="'extra.tabs.title' | translate"
                     class="no-v-padding">
-      <vuestic-tabs class="tabs"
-                    :names="[$t('extra.tabs.maps'), $t('extra.tabs.setupProfile'), $t('extra.tabs.overview')]">
-        <div :slot="'extra.tabs.overview' | translate"
-             class="flex justify--center">
-          <overview-tab></overview-tab>
-        </div>
-        <div :slot="'extra.tabs.maps' | translate" class="maps-tab">
-          <leaflet-map></leaflet-map>
-        </div>
-        <div :slot="'extra.tabs.setupProfile' | translate"
-             class="flex justify--center">
+      <va-tabs grow v-model="value" class="tabs">
+        <va-tab :value="$t('extra.tabs.setupProfile')"
+                class="flex justify--center">
           <setup-profile-tab wizardType="simple"></setup-profile-tab>
-        </div>
-      </vuestic-tabs>
+        </va-tab>
+        <va-tab :value="$t('extra.tabs.maps')" class="maps-tab">
+          <leaflet-map></leaflet-map>
+        </va-tab>
+        <va-tab :value="$t('extra.tabs.overview')"
+                class="flex justify--center">
+          <overview-tab></overview-tab>
+        </va-tab>
+      </va-tabs>
     </vuestic-widget>
 
     <div class="va-row">
@@ -58,16 +57,21 @@ import OverviewTab from 'components/dashboard/features-tab/FeaturesTab.vue'
 import SetupProfileTab
   from 'components/dashboard/setup-profile-tab/SetupProfileTab.vue'
 import LeafletMap from 'components/maps/leaflet-maps/LeafletMap.vue'
+import VaTabs from '../../vuestic-theme/vuestic-components/vuestic-tabs/VaTabs'
+import VaTab from '../../vuestic-theme/vuestic-components/vuestic-tabs/VaTab'
 
 export default {
   name: 'extra',
   components: {
+    VaTab,
+    VaTabs,
     LeafletMap,
     SetupProfileTab,
     OverviewTab,
   },
   data () {
     return {
+      value: 'Setup Profile',
       chatMessages: [
         {
           text: 'Hello! So glad you liked my work. Do you want me to shoot you?',

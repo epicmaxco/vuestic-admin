@@ -4,25 +4,28 @@
       class="va-tabs__bar"
       :class="{
       'align-right': right,
-      'align-left': left,
       'grow': grow
       }"
       :style="{'background-color': color}"
     >
       <div
-        v-for="item in $slots.default"
-        v-bind:key="item.value"
+        v-for="item in this.$slots.default"
+        :key="item.value"
         class="va-tabs__bar-item"
+        @mouseover="setMouseover(item, true)"
+        @mouseleave="setMouseover(item, false)"
         :class="{
-          'active': item.componentOptions.propsData.value === valueProxy
+          'active': getItemValue(item) === valueProxy,
+          'mouseover': isMouseover(item)
         }"
-        @click="valueProxy = item.componentOptions.propsData.value"
+        @click="valueProxy = getItemValue(item)"
       >
-        {{ item.componentOptions.propsData.value }}
+        {{ getItemValue(item) }}
         <div
           class="va-tabs__slider"
-          v-if="item.componentOptions.propsData.value === valueProxy
-          && !hideSlider"
+          :class="{
+            'active': getItemValue(item) === valueProxy && !hideSlider
+          }"
         />
       </div>
     </div>
@@ -41,7 +44,6 @@ export default {
   props: {
     value: null,
     right: Boolean,
-    left: Boolean,
     grow: Boolean,
     color: {
       type: String,
@@ -58,6 +60,28 @@ export default {
         return this.value
       }
     }
+  },
+  data () {
+    return {
+      items: this.$slots.default,
+      mouseover: {
+        itemKey: null,
+        isOn: false
+      }
+    }
+  },
+  methods: {
+    setMouseover (item, value) {
+      this.mouseover.itemKey = item
+      this.mouseover.isOn = value
+    },
+    isMouseover (item) {
+      return this.mouseover.itemKey === item &&
+        this.mouseover.isOn === true
+    },
+    getItemValue (item) {
+      return item.componentOptions.propsData.value
+    }
   }
 }
 </script>
@@ -72,9 +96,6 @@ export default {
     &.align-right {
       justify-content: flex-end;
     }
-    &.align-left {
-      justify-content: flex-start;
-    }
     &.grow {
       justify-content: space-around;
     }
@@ -85,7 +106,7 @@ export default {
     font-size: $font-size-root;
     cursor: pointer;
     opacity: 0.4;
-    &.active {
+    &.active, &.mouseover {
       opacity: 1;
       font-weight: $font-weight-bold;
     }
@@ -94,7 +115,12 @@ export default {
   &__slider {
     height: 2px;
     margin-top: 0.2rem;
-    background-color: $vue-green
+    opacity: 0;
+    &.active {
+      opacity: 1;
+      transition: background-color 1s;
+      background-color: $vue-green
+    }
   }
 }
 </style>
