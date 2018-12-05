@@ -43,9 +43,6 @@
   &--bold {
     font-weight: bold;
   }
-  &--opacity {
-    opacity: 0.4;
-  }
   &--highlighted {
     background-color: $text-highlighted;
   }
@@ -71,6 +68,9 @@
     font-family: monospace;
     background-color: $vue-darkest-blue;
     padding: 0.1rem 0.2rem;
+  }
+  &--secondary {
+    opacity: 0.4;
   }
 }
 

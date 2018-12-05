@@ -40,6 +40,16 @@
             <p class="title--widget">Widget title, form section title, input label,
               inline label, table heading</p>
           </div>
+          <div class="ui-typography__item display-5">
+            Of all of the celestial bodies that capture our attention and fascination
+            as astronomers, none has a greater influence on life on planet Earth
+            than it’s own satellite, the moon. When you think about it.
+          </div>
+          <div class="ui-typography__item display-5 text--secondary">
+            Of all of the celestial bodies that capture our attention and fascination
+            as astronomers, none has a greater influence on life on planet Earth
+            than it’s own satellite, the moon. When you think about it.
+          </div>
           <div class="ui-typography__item">
             <p class="code-snippet">
               &lt;p&gt class=“code_snippet”> <br/>
