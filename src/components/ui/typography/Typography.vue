@@ -138,10 +138,4 @@ export default {
     margin-bottom: 0.5rem;
   }
 }
-
-  .vue-lists ul, ol {
-    width: 85%;
-  }
-}
-
 </style>
