@@ -12,9 +12,7 @@ export default {
   name: 'va-tab',
   props: {
     value: null,
-    disabled: {
-      type: Boolean
-    }
+    disabled: Boolean
   },
   methods: {
     isOn () {
