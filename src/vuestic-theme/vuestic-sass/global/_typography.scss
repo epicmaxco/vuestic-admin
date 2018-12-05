@@ -51,30 +51,24 @@
   }
 }
 
-$font-sizes: (
-  display-1: 48px,
-  display-2: 32px,
-  display-3: 24px,
-  display-4: 20px,
-  display-5: 16px
+$display-font-sizes: (
+  1: 48px,
+  2: 32px,
+  3: 24px,
+  4: 20px,
+  5: 16px
 );
 
-@function size($key) {
-  @if map-has-key($font-sizes, $key) {
-    @return map-get($font-sizes, $key);
-  }
-}
-
-@for $count from 1 through 5 {
-  .display-#{$count} {
-    @include display();
-    font-size: size(display-#{$count})
+@each $element, $size in $display-font-sizes {
+  .display-#{$element} {
+    @include display($element);
   }
 }
 
 .code-snippet {
   font-size: 14px;
   color: $white;
+  padding: 1rem;
   background-color: $vue-darkest-blue;
 }
 

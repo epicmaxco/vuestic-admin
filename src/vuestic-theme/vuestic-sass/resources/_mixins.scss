@@ -4,8 +4,9 @@
   align-items: center;
 }
 
-@mixin display () {
+@mixin display ($element) {
   color: $vue-darkest-blue;
+  font-size: map-get($display-font-sizes, $element)
 }
 
 @mixin theme-button-variant($color, $background, $border, $shadow) {

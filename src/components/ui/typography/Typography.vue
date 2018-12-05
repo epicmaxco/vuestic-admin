@@ -103,8 +103,8 @@
               </div>
             </div>
             <br/>
-            <a href="" class="link ui-typography__default-link">default link visited</a>
-            <a href="" class="link-secondary">secondary link visited</a>
+            <a href="#" class="link ui-typography__default-link">default link visited</a>
+            <a href="#" class="link-secondary">secondary link visited</a>
           </div>
           <div class="vue-misc">
             <h2>Misc</h2>
@@ -145,15 +145,19 @@ export default {
 </script>
 
 <style lang="scss">
-.ui-typography {
-  .typo-articles {
-    margin-bottom: 6.25rem;
-    width: 90%;
-  }
+    .ui-typography {
+      &__default-link {
+        margin-right: 5rem;
+      }
 
-  .widget-body {
-    padding: 3.75rem 4.7rem 0 2.2rem !important;
-  }
+      &__item {
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+        &--links {
+          margin-bottom: 1rem;
+        }
+      }
+    }
 
   .vue-lists ul, ol {
     width: 85%;
