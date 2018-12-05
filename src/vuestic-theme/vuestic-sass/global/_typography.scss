@@ -1,3 +1,7 @@
+::selection {
+  background-color: $text-selected;
+}
+
 .vue-highlighted-text {
   background-color: $vue-turquoise;
 }
@@ -23,24 +27,27 @@
   }
 }
 
-.vue-selected-text, ::selection {
-  background-color: $brand-primary;
-  color: $white;
-}
-
 .title {
   text-transform: uppercase;
+  &--widget {
+    color: $vue-green;
+    font-size: 10px;
+    letter-spacing: 0.6px;
+    line-height: 1.2;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
 }
 
 .text {
   &--bold {
     font-weight: bold;
   }
+  &--opacity {
+    opacity: 0.4;
+  }
   &--highlighted {
     background-color: $text-highlighted;
-  }
-  &--selected {
-    background-color: $text-selected;
   }
   &--uppercase {
     text-transform: uppercase !important;
@@ -58,6 +65,12 @@
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
+  }
+  &--code {
+    color: $white;
+    font-family: monospace;
+    background-color: $vue-darkest-blue;
+    padding: 0.1rem 0.2rem;
   }
 }
 
@@ -82,8 +95,6 @@ $display-font-sizes: (
   font-family: monospace;
   background-color: $vue-darkest-blue;
 }
-
-
 
 ul.vue-list-inner, ol.vue-list-inner {
   li:first-child {

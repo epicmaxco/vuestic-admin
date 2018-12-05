@@ -37,11 +37,21 @@
             </p>
           </div>
           <div class="ui-typography__item">
+            <p class="title--widget">Widget title, form section title, input label,
+              inline label, table heading</p>
+          </div>
+          <div class="ui-typography__item">
             <p class="code-snippet">
               &lt;p&gt class=“code_snippet”> <br/>
               &emsp;This is a wonderful example.<br/>
               &emsp; &lt;a&gt href=“#” onClick=“”>Read more&lt;/a&gt<br/>
               &lt;/p&gt <br/>
+            </p>
+            <p class="display-5">
+              Of all of the celestial bodies that capture our attention and fascination
+              as astronomers,
+              <span class="text--code">currentColor</span> none has a greater influence on life on planet
+              Earth than it’s own satellite, the moon.
             </p>
           </div>
           <div class="ui-typography__item">
@@ -49,24 +59,30 @@
               <a href="/not-visited" class="link ui-typography__default-link">default link</a>
               <a href="/not-visited" class="link-secondary flex offset--md1">secondary link</a>
             </div>
-            <div class="flex md8">
-              <a href="#" class="link ui-typography__default-link">default link visited</a>
-              <a href="#" class="link-secondary flex offset--md1">secondary link visited</a>
-            </div>
           </div>
           <div class="ui-typography__item">
             <p class="display-3 text--bold">Text transforms</p>
             <ul class="vue-unordered">
-              <li><span class="text--highlighted">.text--uppercase</span> - Sets text-transform to uppercase</li>
-              <li><span class="text--highlighted">.text-lowercase</span> - Sets text-transform to lowercase</li>
-              <li><span class="text--highlighted">.text-capitalize</span> - Sets text-transform to capitalize</li>
+              <li>
+                <span class="text--highlighted">.text--uppercase</span> - Sets text-transform to uppercase
+              </li>
+              <li>
+                <span class="text--highlighted">.text--lowercase</span> - Sets text-transform to lowercase
+              </li>
+              <li>
+                <span class="text--highlighted">.text--capitalize</span> - Sets text-transform to capitalize
+              </li>
             </ul>
           </div>
           <div class="ui-typography__item">
             <p class="display-3 text--bold">Text wrapping</p>
             <ul class="vue-unordered">
-              <li> <span class="text--highlighted">.text--no-wrap </span> - Sets whitespace to no-wrap</li>
-              <li> <span class="text--highlighted">.text--truncate</span> - Truncates overflowed text</li>
+              <li>
+                <span class="text--highlighted">.text--no-wrap </span> - Sets whitespace to no-wrap
+              </li>
+              <li>
+                <span class="text--highlighted">.text--truncate</span> - Truncates overflowed text
+              </li>
             </ul>
           </div>
           <p class="display-3 text--bold">Lists</p>
@@ -87,7 +103,7 @@
             <span class="display-5">
               life on planet Earth than it’s own satellite, the
             </span>
-            <span class="display-5 text--selected">selected chunk of text</span>
+            <span class="display-5">selected chunk of text</span>
             <span class="display-5">. When you think about it.</span>
           </div>
           <div class="va-row">
