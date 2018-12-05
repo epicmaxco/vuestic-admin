@@ -51,36 +51,31 @@
   }
 }
 
+$font-sizes: (
+  display-1: 48px,
+  display-2: 32px,
+  display-3: 24px,
+  display-4: 20px,
+  display-5: 16px
+);
+
+@function size($key) {
+  @if map-has-key($font-sizes, $key) {
+    @return map-get($font-sizes, $key);
+  }
+}
+
+@for $count from 1 through 5 {
+  .display-#{$count} {
+    @include display();
+    font-size: size(display-#{$count})
+  }
+}
+
 .code-snippet {
-  font-family: SourceCodePro;
   font-size: 14px;
-  color: #ffffff;
+  color: $white;
   background-color: $vue-darkest-blue;
-  line-height: 1.5;
-}
-
-.display-1, .display-2, .display-3, .display-4, .display-5 {
-  color: $vue-darkest-blue;
-}
-
-.display-1 {
-  font-size: 48px;
-}
-
-.display-2 {
-  font-size: 32px;
-}
-
-.display-3 {
-  font-size: 24px;
-}
-
-.display-4 {
-  font-size: 24px;
-}
-
-.display-5 {
-  font-size: 16px;
 }
 
 ul.vue-list-inner, ol.vue-list-inner {
