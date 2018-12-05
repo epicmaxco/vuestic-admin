@@ -102,6 +102,9 @@
                 </div>
               </div>
             </div>
+            <br/>
+            <a href="" class="link ui-typography__default-link">default link visited</a>
+            <a href="" class="link-secondary">secondary link visited</a>
           </div>
           <div class="vue-misc">
             <h2>Misc</h2>
