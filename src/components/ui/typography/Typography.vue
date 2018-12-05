@@ -66,21 +66,23 @@
           </div>
           <div class="ui-typography__item">
             <div class="flex md8">
-              <a href="/not-visited" class="link ui-typography__default-link">default link</a>
-              <a href="/not-visited" class="link-secondary flex offset--md1">secondary link</a>
+              <a href="#" class="link ui-typography__default-link">default link</a>
+              <a href="#" class="link-secondary flex offset--md1">secondary link</a>
             </div>
           </div>
           <div class="ui-typography__item">
             <p class="display-3 text--bold">Text transforms</p>
             <ul class="vue-unordered">
               <li>
-                <span class="text--highlighted">.text--uppercase</span> - Sets text-transform to uppercase
+                <span class="text--code">.text--uppercase</span> - uppercase<span class="text--uppercase">text</span>
               </li>
               <li>
-                <span class="text--highlighted">.text--lowercase</span> - Sets text-transform to lowercase
+                <span class="text--code">.text--lowercase</span> - lowercase
+                <span class="text--lowercase">text</span>
               </li>
               <li>
-                <span class="text--highlighted">.text--capitalize</span> - Sets text-transform to capitalize
+                <span class="text--code">.text--capitalize</span> - capitalize
+                <span class="text--capitalize">text</span>
               </li>
             </ul>
           </div>
@@ -116,7 +118,7 @@
             <span class="display-5">selected chunk of text</span>
             <span class="display-5">. When you think about it.</span>
           </div>
-          <div class="va-row">
+          <div class="ui-typography__item">
             <div class="well" style="width: 600px;">
               <p class="display-3 text--bold">Display-3 Heading</p>
               <span class="display-5">Of all of the celestial bodies that capture our
@@ -124,7 +126,9 @@
               influence on life on planet Earth than it’s own satellite,
               the moon. When you think about it.</span>
             </div>
-            <vuestic-blockquote :text="quote" :author="author" class="flex offset--md1">
+          </div>
+          <div class="ui-typography__item">
+            <vuestic-blockquote :text="quote" :author="author">
               <p class="ui-typography__quote">{{ quote }}</p>
               <p class="ui-typography__author">{{ '— '+ author }}</p>
             </vuestic-blockquote>

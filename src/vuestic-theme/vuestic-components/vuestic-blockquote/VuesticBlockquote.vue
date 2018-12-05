@@ -13,22 +13,12 @@
 <script>
 export default {
   name: 'vuestic-blockquote',
-  props: {
-    text: {
-      type: String,
-      required: true
-    },
-    author: {
-      type: String,
-      required: false
-    }
-  }
+  props: {}
 }
 </script>
 
 <style lang="scss">
 .vuestic-blockquote {
-  width: 600px;
   margin-top: 1rem;
   margin-bottom: 1rem;
   &__content {
@@ -37,7 +27,7 @@ export default {
   &__line {
     margin-right: 1rem;
     width: 0.4rem;
-    border-radius: 2px;
+    border-radius: 0.1rem;
     background-color: $vue-green;
   }
 }

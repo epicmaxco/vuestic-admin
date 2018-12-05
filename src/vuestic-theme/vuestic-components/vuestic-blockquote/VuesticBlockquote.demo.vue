@@ -1,7 +1,7 @@
 <template>
   <div class="demo-container">
     <div class="demo-container__item">
-      <vuestic-blockquote :text="quote" :author="author">
+      <vuestic-blockquote>
         <p style="color: #babfc2; margin-bottom: 0.5rem;">{{ quote }}</p>
       </vuestic-blockquote>
     </div>
