@@ -93,7 +93,7 @@
       <div class="row">
         <div class="col-md-12">
           <h4>Text Buttons, Hover</h4>
-          <p>On hover a colored background appear. Color are the same that are used for noticications, table rows, inputs.</p>
+          <p>On hover a colored background appear. Color are the same that are used for notifications, table rows, inputs.</p>
         </div>
       </div>
       <div class="row">
@@ -108,7 +108,7 @@
 </template>
 
 <script>
-import VuesticColorsPresentation from './VuesticColorsPresentation.vue'
+import VuesticColorsPresentation from './VuesticColorPresentation.vue'
 import { mainThemeColors, extraColors, buttonGradients, pressedButtonGradients, hoveredButtonGradients, textButtonHoveredItems, textButtonPessedItems } from './colorsData'
 
 export default {

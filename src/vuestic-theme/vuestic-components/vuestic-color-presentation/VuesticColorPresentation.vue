@@ -1,11 +1,11 @@
 <template>
-  <div class="vuestic-colors-presentation">
+  <div class="vuestic-color-presentation">
     <vuestic-tooltip :options="tooltipOptions">
-      <div class="vuestic-colors-presentation__color" :style="computedStyle" @click="colorCopy"></div>
+      <div class="vuestic-color-presentation__color" :style="computedStyle" @click="colorCopy"></div>
     </vuestic-tooltip>
-    <div class="vuestic-colors-presentation__description" v-if="name || description">
-      <div class="vuestic-colors-presentation__name link">{{name}}</div>
-      <div class="vuestic-colors-presentation__text">{{description}}</div>
+    <div class="vuestic-color-presentation__description" v-if="name || description">
+      <div class="vuestic-color-presentation__name">{{name}}</div>
+      <div class="vuestic-color-presentation__text">{{description}}</div>
     </div>
   </div>
 
@@ -15,10 +15,8 @@
 import VuesticTooltip from '../vuestic-tooltip/VuesticTooltip'
 
 export default {
-  name: 'vuestic-colors-presentation',
-
+  name: 'vuestic-color-presentation',
   components: { VuesticTooltip },
-
   props: {
     color: {
       type: String,
@@ -37,7 +35,6 @@ export default {
       default: ''
     }
   },
-
   data () {
     return {
       tooltipOptions: {
@@ -46,7 +43,6 @@ export default {
       }
     }
   },
-
   computed: {
     computedStyle () {
       return {
@@ -55,7 +51,6 @@ export default {
       }
     }
   },
-
   methods: {
     colorCopy () {
       this.$copyText(this.color)
@@ -67,7 +62,7 @@ export default {
 <style lang="scss">
   @import "../../vuestic-sass/resources/resources";
 
-  .vuestic-colors-presentation {
+  .vuestic-color-presentation {
     display: flex;
     margin-bottom: 16px;
     &__color {
