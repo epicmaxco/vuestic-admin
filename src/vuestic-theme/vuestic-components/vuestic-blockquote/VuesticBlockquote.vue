@@ -1,13 +1,10 @@
 <template>
-  <div class="vuestic-blockquote">
+  <blockquote class="vuestic-blockquote">
+    <div class="vuestic-blockquote__line"/>
     <div class="vuestic-blockquote__content">
-      <div class="vuestic-blockquote__line"/>
-      <div class="va-row column">
-        <slot></slot>
-        <slot name="footer"></slot>
-      </div>
+      <slot></slot>
     </div>
-  </div>
+  </blockquote>
 </template>
 
 <script>
@@ -21,13 +18,11 @@ export default {
 .vuestic-blockquote {
   margin-top: 1rem;
   margin-bottom: 1rem;
-  &__content {
-    display: inline-flex;
-  }
+  display: inline-flex;
   &__line {
     margin-right: 1rem;
-    width: 0.4rem;
-    border-radius: 0.1rem;
+    width: 0.25rem;
+    border-radius: 0.125rem;
     background-color: $vue-green;
   }
 }

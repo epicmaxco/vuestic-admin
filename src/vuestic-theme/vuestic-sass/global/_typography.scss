@@ -1,9 +1,6 @@
+
 ::selection {
   background-color: $text-selected;
-}
-
-.vue-highlighted-text {
-  background-color: $vue-turquoise;
 }
 
 .link {
@@ -28,15 +25,12 @@
 }
 
 .title {
-  text-transform: uppercase;
-  &--widget {
     color: $vue-green;
     font-size: 10px;
     letter-spacing: 0.6px;
     line-height: 1.2;
     font-weight: bold;
     text-transform: uppercase;
-  }
 }
 
 .text {
@@ -65,7 +59,7 @@
   }
   &--code {
     color: $white;
-    font-family: monospace;
+    font-family: "Source Code Pro";
     background-color: $vue-darkest-blue;
     padding: 0.1rem 0.2rem;
   }
@@ -84,6 +78,7 @@ $display-font-sizes: (
 
 @each $element, $size in $display-font-sizes {
   .display-#{$element} {
+    font-weight: bold;
     @include va-display($element);
   }
 }
@@ -92,7 +87,7 @@ $display-font-sizes: (
   font-size: 14px;
   color: $white;
   padding: 1rem;
-  font-family: monospace;
+  font-family: "Source Code Pro";
   background-color: $vue-darkest-blue;
 }
 
@@ -121,20 +116,20 @@ ul.vue-unordered {
     &::before {
       content: "";
       display: inline-block;
-      width: 0.75rem;
-      height: 0.75rem;
+      width: 0.5rem;
+      height: 0.5rem;
       position: relative;
       right: 1.563rem;
       top: 0.0625rem;
       margin-right: -0.75em;
       border-radius: 0.75rem;
-      background-color: $vue-green;
+      background-color: $unordered-list;
     }
 
     li {
       &::before {
         background-color: $white;
-        border: 2.5px solid $vue-green;
+        border: 2.5px solid $unordered-list;
       }
     }
   }
