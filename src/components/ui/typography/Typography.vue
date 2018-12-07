@@ -56,10 +56,10 @@
           </div>
           <div class="ui-typography__item">
             <pre class="code-snippet">
-              &lt;p&gt class=“code_snippet”>
-                 This is a wonderful example.
-                 &lt;a&gt href=“#” onClick=“”>Read more&lt;/a&gt
-              &lt;/p&gt
+    &lt;p&gt class=“code_snippet”>
+       This is a wonderful example.
+       &lt;a&gt href=“#” onClick=“”>Read more&lt;/a&gt
+    &lt;/p&gt
             </pre>
             <p>
               Of all of the celestial bodies that capture our attention and fascination
@@ -123,21 +123,23 @@
           <div class="ui-typography__item">
             <div class="well" style="width: 600px;">
               <p class="display-3">Display-3 Heading</p>
-              <span class="display-5">Of all of the celestial bodies that capture our
+              <span>Of all of the celestial bodies that capture our
               attention and fascination as astronomers, none has a greater
               influence on life on planet Earth than it’s own satellite,
               the moon. When you think about it.</span>
             </div>
           </div>
           <div class="ui-typography__item">
-            <vuestic-blockquote>
+            <blockquote class="va-blockquote">
               <p>
                 BQ: Let’s talk about meat fondue recipes and what you need to know
                 first. Meat fondue also known as oil fondue is a method of cooking
                 all kinds.
               </p>
-              <p> — Mister Lebowski</p>
-            </vuestic-blockquote>
+              <p>
+                — Mister Lebowski
+              </p>
+            </blockquote>
           </div>
         </div>
       </div>

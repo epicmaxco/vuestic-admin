@@ -67,7 +67,6 @@ import VuesticPopup
 import VuesticContainer from './vuestic-components/vuestic-grid/VGrid/Container'
 import VuestVaLayout from './vuestic-components/vuestic-grid/VGrid/Layout'
 import VuesticFlex from './vuestic-components/vuestic-grid/VGrid/Flex'
-import VuesticBlockquote from './vuestic-components/vuestic-blockquote/VuesticBlockquote'
 
 import { installQuasarPlatform } from './vuestic-components/vuestic-popup/quasar/install'
 
@@ -80,7 +79,6 @@ const VuesticPlugin = {
     [
       Alert,
       Breadcrumbs,
-      VuesticBlockquote,
       Chart,
       Chat,
       Checkbox,

@@ -68,6 +68,13 @@
   }
 }
 
+.va-blockquote {
+  border-left: 0.25rem solid $vue-green;
+  border-radius: 0.125rem;
+  padding-left: 0.8rem;
+  color: $blockquote-font-color;
+}
+
 $display-font-sizes: (
   1: 48px,
   2: 32px,
