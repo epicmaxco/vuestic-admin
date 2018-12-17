@@ -144,7 +144,12 @@ export default {
   },
   methods: {
     onDropdownClose () {
-      this.displayValue = this.value || ''
+      if (!this.value) {
+        this.displayValue = ''
+      }
+      if (this.value && this.optionKey) {
+        this.displayValue = this.value[this.optionKey]
+      }
     },
     toggleSelection (option) {
       this.isOptionSelected(option) ? this.unselectOption() : this.selectOption(option)
