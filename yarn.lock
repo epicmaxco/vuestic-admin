@@ -2708,11 +2708,10 @@ entities@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.1.tgz#6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0"
 
-epic-spinners@^1.0.1:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/epic-spinners/-/epic-spinners-1.0.3.tgz#f8ec3c59a4132de74acfe4edc0a8e1ce8b0c8312"
-  dependencies:
-    vue "2.5.16"
+epic-spinners@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/epic-spinners/-/epic-spinners-1.0.4.tgz#6372b4a7748eb7cad562e8b516cc7505d26fb5b3"
+  integrity sha512-oCcAN0/GrAlERMYBaMpjEQCfaqUyyAGZnHv8jad9W2EwKrxeGCRp4sjKezGB/m+quJ8ZWGNQZKHiCAA1GSUWJw==
 
 errno@^0.1.3, errno@~0.1.7:
   version "0.1.7"
@@ -7929,10 +7928,6 @@ vue2-circle-progress@^1.0.3:
     jquery-circle-progress "^1.2.2"
     jquery-easing "0.0.1"
     vue "^2.0.0"
-
-vue@2.5.16:
-  version "2.5.16"
-  resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.16.tgz#07edb75e8412aaeed871ebafa99f4672584a0085"
 
 vue@^2.0.0, vue@^2.5.17:
   version "2.5.17"

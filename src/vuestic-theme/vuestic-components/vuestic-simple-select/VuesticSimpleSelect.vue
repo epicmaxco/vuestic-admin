@@ -90,20 +90,20 @@ export default {
   data () {
     return {
       validated: false,
-      displayValue: this.value,
+      displayValue: this.value || '',
       selectedValue: this.value,
     }
   },
   watch: {
     value: {
       handler (value) {
-        if (this.optionKey) {
-          this.selectedValue = value[this.optionKey]
-          this.displayValue = value[this.optionKey]
-        } else {
+        if (!value || !this.optionKey) {
           this.displayValue = value || ''
           this.selectedValue = value || ''
+          return
         }
+        this.selectedValue = value[this.optionKey]
+        this.displayValue = value[this.optionKey]
       },
       immediate: true,
     },
@@ -115,14 +115,18 @@ export default {
       if (displayValue === '') {
         return this.options
       } else {
+        // HACK This is done poorly.
         return this.options.filter(function (item) {
-          if (optionKey && item[optionKey]) {
+          if (optionKey && item && item[optionKey]) {
+            // option is object
             if (displayValue) {
               return item[optionKey].toLowerCase()
                 .search(displayValue.toLowerCase()) === 0
             }
           } else {
-            return item.toLowerCase().search(displayValue.toLowerCase()) === 0
+            // option is string
+            return (item + '').toLowerCase()
+              .search(displayValue.toLowerCase()) === 0
           }
         })
       }
@@ -140,7 +144,7 @@ export default {
   },
   methods: {
     onDropdownClose () {
-      this.displayValue = this.value
+      this.displayValue = this.value || ''
     },
     toggleSelection (option) {
       this.isOptionSelected(option) ? this.unselectOption() : this.selectOption(option)
@@ -160,9 +164,14 @@ export default {
       }
     },
     selectOption (option) {
-      this.displayValue = option
-      this.selectedValue = this.displayValue
-      this.$emit('input', this.selectedValue)
+      if (!option) {
+        this.displayValue = ''
+      }
+      if (option && this.optionKey) {
+        this.displayValue = option[this.optionKey]
+      }
+      this.selectedValue = option
+      this.$emit('input', option)
     },
     validate () {
       this.validated = true
@@ -203,6 +212,7 @@ export default {
 
   &__dropdown-menu {
     padding: 0;
+
     .vuestic-scrollbar {
       max-height: $dropdown-item-height * 4;
     }
