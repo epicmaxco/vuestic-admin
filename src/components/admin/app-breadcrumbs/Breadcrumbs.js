@@ -1,4 +1,4 @@
-export default {
+export const breadcrumbs = {
   root: {
     name: '/',
     displayName: 'Home',
@@ -72,16 +72,16 @@ export default {
           displayName: 'menu.colorPickers',
         },
         {
-          path: 'timelines',
+          name: 'timelines',
           displayName: 'menu.timelines',
         },
         {
-          path: 'dropdowns',
-          displayName: 'menu.dropdowns',
+          name: 'notifications',
+          displayName: 'menu.notifications',
         },
         {
-          path: 'notifications',
-          displayName: 'menu.notifications',
+          name: 'dropdowns',
+          displayName: 'menu.dropdowns',
         },
         {
           name: 'icon-sets',
