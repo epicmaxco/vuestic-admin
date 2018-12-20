@@ -20,8 +20,7 @@
           <i class="bar"/>
         </div>
       </div>
-      <div
-        class="flex align--center justify--space-between down-container">
+      <div class="d-flex align--center justify--space-between">
         <button class="btn btn-primary" type="submit">
           {{ $t('auth.login') }}
         </button>
