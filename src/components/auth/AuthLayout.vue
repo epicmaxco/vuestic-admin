@@ -88,6 +88,9 @@ export default {
         align-items: flex-start;
         padding-top: $auth-content-padding-t;
       }
+      .auth-wallpaper {
+        display: none;
+      }
     }
   }
 }
