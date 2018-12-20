@@ -1,15 +1,15 @@
 <template>
   <div class="vuestic-icon-set">
-    <vuestic-widget class="header">
+    <vuestic-widget class="vuestic-icon-set__header">
       <div class="va-row">
-        <div class="header-text flex lg4">
+        <div class=" flex md4 xs12 vuestic-icon-set__header__text">
           <h2>{{ set.name }}</h2>
           <router-link :to="{ name: 'icon-sets' }">
             {{ $t('icons.back') }}
           </router-link>
         </div>
 
-        <div class="search flex lg4">
+        <div class=" flex md4 xs12">
           <div class="form-group with-icon-left">
             <div class="input-group">
               <input
@@ -18,16 +18,16 @@
                 name="input-icon-left"
                 required
               />
-              <i class="fa fa-search icon-left input-icon"></i>
+              <i class="fa fa-search icon-left input-icon"/>
               <label class="control-label" for="input-icon-left">
-                {{ 'icons.search' | translate }}
+                {{ $t('icons.search') }}
               </label>
               <i class="bar"></i>
             </div>
           </div>
         </div>
 
-        <div class="range flex lg4">
+        <div class=" flex md4 xs12 vuestic-icon-set__header__range">
           <h4>A</h4>
           <vuestic-slider
             :options="slider"
@@ -46,28 +46,23 @@
       class="flex md12"
     >
       <span v-if="list.icons.length === 0">
-        {{ 'icons.none' | translate }}
+        {{ $t('icons.none') }}
       </span>
-      <div
-        v-for="i in Math.floor(list.icons.length / 8 + 1)"
-        :key="i"
-        class="va-row vuestic-icon-container"
-      >
+      <div class="va-row">
         <div
-          v-for="j in 8"
-          :key="j"
-          v-if="list.icons[(i - 1) * 8 + j - 1]"
-          class="col-8-custom icon-grid-container"
+          class="flex xs3 md1 icon-grid-container"
+          v-for="icon in list.icons"
+          :key="icon"
         >
           <div class="vuestic-icon">
             <span
-              :class="iconClass(list.icons[(i - 1) * 8 + j - 1])"
+              :class="iconClass(icon)"
               :style="`font-size: ${iconSize}px`"
               aria-hidden="true"
             />
           </div>
           <div class="icon-text">
-            {{ list.icons[(i - 1) * 8 + j - 1] }}
+            {{ icon }}
           </div>
         </div>
       </div>
@@ -78,7 +73,6 @@
 <script>
 export default {
   name: 'set',
-
   props: {
     name: {
       type: String,
@@ -88,7 +82,6 @@ export default {
       type: Array,
     },
   },
-
   data () {
     return {
       selector: '',
@@ -100,7 +93,6 @@ export default {
       },
     }
   },
-
   computed: {
     set () {
       for (let set of this.sets) {
@@ -131,7 +123,6 @@ export default {
       return result
     },
   },
-
   methods: {
     iconClass (icon) {
       return `${this.set.prefix} ${this.set.prefix}-${icon}`
@@ -142,11 +133,11 @@ export default {
 
 <style lang="scss">
 .vuestic-icon-set {
-  .header {
+  &__header {
     padding: 1.75rem 0 1.125rem;
     background-color: white;
 
-    .header-text {
+    &__text {
       padding-left: 2.5rem;
       text-align: left;
 
@@ -156,17 +147,7 @@ export default {
       }
     }
 
-    .search {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      .input-group {
-        width: 13.25rem;
-      }
-    }
-
-    .range {
+    &__range {
       display: flex;
       align-items: center;
       padding-right: 2rem;
@@ -176,6 +157,7 @@ export default {
         flex-grow: 0;
         margin: .5rem;
       }
+
       .vuestic-slider {
         flex-grow: 1;
       }
@@ -184,35 +166,33 @@ export default {
     margin-bottom: 2rem;
   }
 
-  .vuestic-icon-container {
-    .icon-grid-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+  .icon-grid-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
-      position: relative;
-      float: left;
-      height: 6rem;
-      min-height: 1px;
-      margin: 0 0 .5rem;
+    position: relative;
+    float: left;
+    height: 6rem;
+    min-height: 1px;
+    margin: 0 0 .5rem;
+    text-align: center;
+
+    &:hover {
+      color: white;
+      background-color: $brand-primary;
+      cursor: pointer;
+    }
+
+    .vuestic-icon {
+      margin: 0 0 1rem;
+      padding: 1rem 0 0;
+    }
+
+    .icon-text {
+      font-size: .6rem;
       text-align: center;
-
-      &:hover {
-        color: white;
-        background-color: $brand-primary;
-        cursor: pointer;
-      }
-
-      .vuestic-icon {
-        margin: 0 0 1rem;
-        padding: 1rem 0 0;
-      }
-
-      .icon-text {
-        font-size: .6rem;
-        text-align: center;
-      }
     }
   }
 }

@@ -205,7 +205,7 @@ export default new Router({
                 {
                   name: 'icon-set',
                   path: ':name',
-                  component: lazyLoading('ui/icons/Set'),
+                  component: lazyLoading('ui/icons/IconSet'),
                   props: true,
                 },
               ],
