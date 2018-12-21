@@ -97,53 +97,71 @@
     </div>
 
     <div class="va-row">
-      <div class="flex md12">
-        <vuestic-widget
-          :headerText="'notificationsPage.toasts.title' | translate">
+      <div class="flex xs12">
+        <vuestic-widget :headerText="$t('notificationsPage.toasts.title')">
           <div class="va-row">
-            <div class="flex md6">
+            <div class="flex xs12 md6">
               <fieldset>
                 <div class="form-group">
                   <div class="input-group">
                     <input id="toast-text" v-model="toastText" required/>
-                    <label class="control-label" for="toast-text">{{'notificationsPage.toasts.textLabel'
-                      | translate}}</label><i class="bar"></i>
+                    <label class="control-label" for="toast-text">
+                      {{ $t('notificationsPage.toasts.textLabel') }}
+                    </label>
+                    <i class="bar"/>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input id="toast-duration" type="number"
-                           v-model="toastDuration" required/>
-                    <label class="control-label" for="toast-duration">{{'notificationsPage.toasts.durationLabel'
-                      | translate}}</label><i class="bar"></i>
+                    <input
+                      id="toast-duration"
+                      type="number"
+                      v-model="toastDuration" required
+                    />
+                    <label class="control-label" for="toast-duration">
+                      {{ $t('notificationsPage.toasts.durationLabel') }}
+                    </label>
+                    <i class="bar"/>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
                     <input id="toast-icon" v-model="toastIcon" required/>
-                    <label class="control-label" for="toast-icon">{{'notificationsPage.toasts.iconLabel'
-                      | translate}}</label><i class="bar"></i>
+                    <label class="control-label" for="toast-icon">
+                      {{ $t('notificationsPage.toasts.iconLabel') }}
+                    </label>
+                    <i class="bar"/>
                   </div>
                 </div>
-                <div class="form-group toasts-position-group va-row">
+                <!-- TODO Redo with global classes -->
+                <div class="form-group va-row" style="margin-bottom: 2rem">
                   <toast-position-picker v-model="toastPosition"/>
                   <vuestic-checkbox
                     :label="'notificationsPage.toasts.fullWidthLabel' | translate"
                     :id="'toast-fullwidth'"
-                    v-model="isToastFullWidth"/>
+                    v-model="isToastFullWidth"
+                  />
                 </div>
-                <button slot="trigger" class="btn btn-sm btn-primary"
-                        @click="launchToast">
-                  {{'notificationsPage.toasts.launchToast' | translate}}
+                <button
+                  slot="trigger"
+                  class="btn btn-sm btn-primary"
+                  @click="launchToast"
+                >
+                  {{ $t('notificationsPage.toasts.launchToast') }}
                 </button>
               </fieldset>
+              <br>
+              <br>
+              <br>
             </div>
-            <div
-              class="flex offset--md4 justify--center" v-show="false">
-              <div class="toasted-container sample-toasted-container"
-                   v-if="isToastContentPresent">
+            <div class="flex xs12 md6 flex-center">
+              <div
+                v-if="isToastContentPresent"
+                class="toasted-container sample-toasted-container shrink"
+              >
                 <div class="toasted vuestic-toast none default">
-                  <i class="fa" :class="toastIcon" v-if="toastIcon"></i>{{toastText}}
+                  <i class="fa" :class="toastIcon" v-if="toastIcon"/>
+                  {{toastText}}
                 </div>
               </div>
             </div>
@@ -159,9 +177,7 @@ import ToastPositionPicker from './ToastPositionPicker.vue'
 
 export default {
   name: 'notifications',
-
   components: { ToastPositionPicker },
-
   data () {
     return {
       popoverTitle: 'Hey!',
@@ -191,29 +207,25 @@ export default {
       isToastFullWidth: false,
     }
   },
-
   computed: {
     isToastContentPresent () {
       return !!(this.toastText || this.toastIcon)
     },
   },
-
   methods: {
     checkPopoverContents () {
-      if (!(this.popoverTitle || this.popoverText || this.popoverIcon)) {
-        this.isPopoverDisabled = true
-      } else {
-        this.isPopoverDisabled = false
-      }
+      this.isPopoverDisabled = !(this.popoverTitle || this.popoverText || this.popoverIcon)
     },
-
     launchToast () {
-      this.showToast(this.toastText, {
-        icon: this.toastIcon,
-        position: this.toastPosition,
-        duration: this.toastDuration,
-        fullWidth: this.isToastFullWidth,
-      })
+      this.showToast(
+        this.toastText,
+        {
+          icon: this.toastIcon,
+          position: this.toastPosition,
+          duration: this.toastDuration,
+          fullWidth: this.isToastFullWidth,
+        },
+      )
     },
   },
 }

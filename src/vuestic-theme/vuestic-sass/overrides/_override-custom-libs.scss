@@ -182,18 +182,6 @@
 
 .toasted-container {
   &.full-width {
-    max-width: 100%;
-    width: calc(100% - #{$layout-padding} - #{$layout-padding-right});
-    transform: translateX(0);
-    left: 0;
-
-    .toasted.vuestic-toast {
-      max-width: 100%;
-      width: 100%;
-      left: $layout-padding;
-      justify-content: normal;
-    }
-
     @include media-breakpoint-down(md) {
       width: calc(100% - #{$content-mobile-wrap-pl} - #{$content-mobile-wrap-pr});
       left: 0;
