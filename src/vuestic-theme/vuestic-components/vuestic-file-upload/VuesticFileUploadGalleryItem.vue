@@ -1,29 +1,25 @@
 <template>
-  <div class="flex xl2 lg3 sm4" v-if="removed">
-    <div class="file-upload-gallery-item">
-      <vuestic-file-upload-undo
-        class="file-upload-gallery-item-undo"
-        @recover="recoverImage"
-      />
-    </div>
+  <div v-if="removed" class="file-upload-gallery-item">
+    <vuestic-file-upload-undo
+      class="file-upload-gallery-item-undo"
+      @recover="recoverImage"
+    />
   </div>
 
-  <div class="flex xl2 lg3 sm4" v-else>
-    <div class="file-upload-gallery-item" :class="notGalleryItemClass">
-      <img :src="previewImage" alt="" class="file-upload-gallery-item-image">
-      <div class="file-upload-gallery-item-overlay">
-        <div class="file-upload-gallery-item-name" :title="file.name">
-          {{ file.name }}
-        </div>
-        <div class="file-upload-gallery-item-size">
-          {{ file.size }}
-        </div>
-        <button type="button"
-                class="btn-text btn-text--secondary file-upload-gallery-item-button"
-                @click="removeImage">
-          {{ $t('fileUpload.deleteFile') }}
-        </button>
+  <div v-else class="file-upload-gallery-item" :class="notGalleryItemClass">
+    <img :src="previewImage" alt="" class="file-upload-gallery-item-image">
+    <div class="file-upload-gallery-item-overlay">
+      <div class="file-upload-gallery-item-name" :title="file.name">
+        {{ file.name }}
       </div>
+      <div class="file-upload-gallery-item-size">
+        {{ file.size }}
+      </div>
+      <button type="button"
+              class="btn-text btn-text--secondary file-upload-gallery-item-button"
+              @click="removeImage">
+        {{ $t('fileUpload.deleteFile') }}
+      </button>
     </div>
   </div>
 </template>
@@ -32,7 +28,7 @@
 import VuesticFileUploadUndo from './VuesticFileUploadUndo'
 
 export default {
-  name: 'vuestic-file-upload-gallery-item',
+  name: 'file-upload-gallery-item',
   components: {
     VuesticFileUploadUndo: VuesticFileUploadUndo,
   },
@@ -97,11 +93,13 @@ export default {
   width: 100%;
   padding-top: 100%;
   margin-bottom: 1rem;
+
   &:hover {
     .file-upload-gallery-item-overlay {
       display: flex;
     }
   }
+
   &-overlay {
     display: none;
     position: absolute;
@@ -114,6 +112,7 @@ export default {
     background: rgba($vue-green, 0.8);
     z-index: 1;
   }
+
   &-image {
     position: absolute;
     top: 0;
@@ -122,19 +121,23 @@ export default {
     height: 100%;
     object-fit: scale-down;
   }
+
   &-name {
     color: $vue-darkest-blue;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
   &-size {
     color: $vue-darkest-blue;
   }
+
   &-button {
     margin-top: auto;
     text-align: left;
   }
+
   &-undo {
     position: absolute;
     top: 0;
