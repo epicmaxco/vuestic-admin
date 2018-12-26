@@ -25,7 +25,8 @@
         <button class="btn btn-primary" type="submit">
           {{ $t('auth.signUp') }}
         </button>
-        <router-link class='link' :to="{name: 'login'}">{{ $t('auth.alreadyJoined') }}
+        <router-link class='link pl-2 text-center' :to="{name: 'login'}">
+          {{ $t('auth.alreadyJoined') }}
         </router-link>
       </div>
     </form>
@@ -49,11 +50,6 @@ export default {
     width: 100%;
     padding-right: 2rem;
     padding-left: 2rem;
-    .down-container {
-      .link {
-        margin-top: 2rem;
-      }
-    }
   }
 
   h2 {

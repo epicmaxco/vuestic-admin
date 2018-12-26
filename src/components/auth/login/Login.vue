@@ -24,7 +24,7 @@
         <button class="btn btn-primary" type="submit">
           {{ $t('auth.login') }}
         </button>
-        <router-link class='link' :to="{name: 'signup'}">
+        <router-link class='link flex-center pl-2 text-center' :to="{name: 'signup'}">
           {{ $t('auth.createAccount') }}
         </router-link>
       </div>
@@ -47,9 +47,6 @@ export default {
     padding-left: 2rem;
     .down-container {
       display: none;
-      .link {
-        margin-top: 2rem;
-      }
     }
   }
 
