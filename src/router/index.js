@@ -8,11 +8,17 @@ Vue.use(Router)
 
 const demoRoutes = []
 if (process.env.NODE_ENV === 'development') {
-  const VueBook = require('vue-book').default
+  const createRoute = require('vue-book').createRoute
 
   demoRoutes.push(
-    VueBook(require.context('./..', true, /.demo.vue$/), '/demo'),
-    VueBook(require.context('./../components', true, /.vue$/), '/presentation'),
+    createRoute({
+      requireContext: require.context('./..', true, /.demo.vue$/),
+      path: '/demo',
+    }),
+    createRoute({
+      requireContext: require.context('./../components', true, /.vue$/),
+      path: '/presentation',
+    }),
   )
 }
 
