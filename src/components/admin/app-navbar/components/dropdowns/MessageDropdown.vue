@@ -1,5 +1,5 @@
 <template>
-  <div class="message-dropdown">
+  <div class="message-dropdown flex-center">
     <span class="i-nav-messages"/>
     <vuestic-dropdown v-model="isOpen" position="bottom">
       <a v-for="(option, id) in options"
@@ -46,7 +46,6 @@ export default {
 @import '../../../../../vuestic-theme/vuestic-sass/resources/resources';
 
 .message-dropdown {
-  @include flex-center();
   cursor: pointer;
 
   .i-nav-messages {

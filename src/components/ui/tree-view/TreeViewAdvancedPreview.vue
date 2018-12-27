@@ -1,14 +1,14 @@
 <template>
   <div class="tree-view-advanced-preview">
-    <div class="row mb-4">
-      <div class="small-set col-sm-6 d-flex justify-content-center">
+    <div class="va-row mb4">
+      <div class="small-set flex sm6 justify--center">
         <button class="btn btn-primary btn-micro"
                 @click="$refs.treeView.expand()"
         >
           EXPAND ALL
         </button>
       </div>
-      <div class="small-set col-sm-6 d-flex justify-content-center">
+      <div class="small-set flex sm6 justify--center">
         <button class="btn btn-primary btn-micro"
                 @click="$refs.treeView.collapse()"
         >

@@ -1,14 +1,16 @@
 <template>
   <div class="demo-container">
     <div class="demo-container__item" style="width: 300px">
-      <div class="row">
-        <div class="col-lg-4">
-          <vertical-bar :value="55" theme="Warning" type="vertical" size="thin"/>
+      <div class="va-row">
+        <div class="flex lg4">
+          <vertical-bar :value="55" theme="Warning" type="vertical"
+                        size="thin"/>
         </div>
-        <div class="col-lg-4">
-          <vertical-bar :value="75" theme="Danger" type="vertical" size="basic" text="second"/>
+        <div class="flex lg4">
+          <vertical-bar :value="75" theme="Danger" type="vertical" size="basic"
+                        text="second"/>
         </div>
-        <div class="col-lg-4">
+        <div class="flex lg4">
           <vertical-bar :value="100" theme="Info" size="thick"/>
         </div>
       </div>
@@ -21,7 +23,7 @@ import VerticalBar from './../progress-types/VerticalProgressBar'
 
 export default {
   components: {
-    VerticalBar
-  }
+    VerticalBar,
+  },
 }
 </script>

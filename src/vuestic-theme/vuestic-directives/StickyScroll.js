@@ -44,5 +44,5 @@ export default {
         el.scrollTop = el.scrollHeight
       }
     }
-  }
+  },
 }

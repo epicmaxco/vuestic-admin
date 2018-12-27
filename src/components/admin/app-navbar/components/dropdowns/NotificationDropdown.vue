@@ -1,12 +1,13 @@
 <template>
-  <div class="notification-dropdown">
+  <div class="notification-dropdown flex-center">
     <span class="i-nav-notification"/>
     <vuestic-dropdown
       v-model="isShown"
       position="bottom"
       class="notification-dropdown__list"
     >
-      <a v-for="(option, id) in options" :key="id" class="dropdown-item" href="#">
+      <a v-for="(option, id) in options" :key="id" class="dropdown-item"
+         href="#">
         <span class="ellipsis">{{$t(`notifications.${option.name}`,
           { name: option.details.name, type: option.details.type })}}
         </span>
@@ -52,7 +53,6 @@ export default {
 @import '../../../../../vuestic-theme/vuestic-sass/resources/resources';
 
 .notification-dropdown {
-  @include flex-center();
   cursor: pointer;
 
   @at-root {

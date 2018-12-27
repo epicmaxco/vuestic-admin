@@ -23,7 +23,7 @@
               v-for="(link, index) in links"
               :key="index"
             >{{ link }}</a>
-            <div class="col-lg-6"></div>
+            <div class="flex lg6"></div>
           </div>
         </vuestic-dropdown>
       </button>

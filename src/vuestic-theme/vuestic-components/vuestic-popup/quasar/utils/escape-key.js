@@ -31,5 +31,5 @@ export default {
     if (Platform.is.desktop) {
       handlers.pop()
     }
-  }
+  },
 }

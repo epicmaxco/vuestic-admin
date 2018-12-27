@@ -1,23 +1,28 @@
 <template>
   <div class="vuestic-file-upload-container">
-    <div class="vuestic-file-upload-field"
-         :class="{'vuestic-file-upload-field--dropzone': dropzone}">
-      <div class="vuestic-file-upload-field-text"
-           v-if="dropzone">
+    <div
+      class="vuestic-file-upload-container__field"
+      :class="{'vuestic-file-upload-container__field--dropzone': dropzone}"
+    >
+      <div
+        class="vuestic-file-upload-container__field__text"
+        v-if="dropzone"
+      >
         {{ $t('fileUpload.dragNdropFiles') }}
       </div>
       <button type="button" class="btn btn-primary btn-micro">
         {{ $t('fileUpload.uploadFile') }}
       </button>
-      <input type="file"
-             class="vuestic-file-upload-field-input"
-             ref="fieldInput"
-             :accept="fileTypes"
-             :multiple="type !== 'single'"
-             @change="changeFieldValue"
+      <input
+        type="file"
+        class="vuestic-file-upload-container__field__input"
+        ref="fieldInput"
+        :accept="fileTypes"
+        :multiple="type !== 'single'"
+        @change="changeFieldValue"
       >
     </div>
-    <div class="vuestic-file-upload-main">
+    <div class="vuestic-file-upload-container__main">
       <slot/>
     </div>
   </div>
@@ -29,34 +34,41 @@ export default {
   props: {
     dropzone: {
       type: Boolean,
-      default: false
+      default: false,
     },
     fileTypes: {
-      type: String
+      type: String,
     },
     type: {
-      type: String
+      type: String,
     },
   },
   methods: {
     changeFieldValue (e) {
       this.$emit('upload', e)
       this.$refs.fieldInput.value = ''
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang='scss'>
-  .vuestic-file-upload-container {
-    position: relative;
-  }
+.vuestic-file-upload-container {
+  position: relative;
 
-  .vuestic-file-upload-field {
+  &__field {
     padding: 0 0 1.3rem;
     overflow: hidden;
     display: inline-block;
     position: relative;
+
+    @media (max-width: 576px) {
+      &--dropzone {
+        flex-direction: column;
+        padding: 0;
+      }
+    }
+
     &--dropzone {
       display: flex;
       align-items: center;
@@ -67,16 +79,17 @@ export default {
       overflow: visible;
       position: static;
     }
-    &-text {
+
+    &__text {
       padding-right: 10px;
     }
-    &-input {
+
+    &__input {
       position: absolute;
       top: 0;
       right: 0;
       display: block;
-      font-size: 999px;
-      min-height: 100%;
+      min-height: 10rem;
       min-width: 100%;
       color: transparent;
       opacity: 0;
@@ -84,13 +97,6 @@ export default {
       cursor: pointer;
     }
   }
+}
 
-  @media (max-width: 576px) {
-    .vuestic-file-upload-field {
-      &--dropzone {
-        flex-direction: column;
-        padding: 0;
-      }
-    }
-  }
 </style>

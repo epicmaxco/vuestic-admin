@@ -1,8 +1,4 @@
-@mixin flex-center () {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+@import "../../vuestic-components/vuestic-grid/grid-mixins";
 
 @mixin theme-button-variant($color, $background, $border, $shadow) {
   $hover-bg: lighten($background, 10%);
@@ -15,7 +11,7 @@
   box-shadow: $shadow;
   border: $border;
 
-  &:hover{
+  &:hover {
     color: $color;
     background-color: $hover-bg;
   }
@@ -42,7 +38,6 @@
 
 @mixin circle-progress-bar($progressColor, $size, $width, $startColor: $gray-lighter, $innerColor: $white) {
 
-
   $step: 1;
   $loops: round(100 / $step);
   $increment: 360 / $loops;
@@ -54,8 +49,7 @@
         $nextdeg: 90deg + ( $increment * $i );
         background-image: linear-gradient(90deg, $startColor 50%, transparent 50%, transparent),
         linear-gradient($nextdeg, $progressColor 50%, $startColor 50%, $startColor);
-      }
-      @else {
+      } @else {
         $nextdeg: -90deg + ( $increment * ( $i - $half ) );
         background-image: linear-gradient($nextdeg, $progressColor 50%, transparent 50%, transparent),
         linear-gradient(270deg, $progressColor 50%, $startColor 50%, $startColor);

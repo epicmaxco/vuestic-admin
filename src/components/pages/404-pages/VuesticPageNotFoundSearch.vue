@@ -2,13 +2,15 @@
   <div class="vuestic-page-not-found-search">
     <div class="vuestic-page-not-found-search__content">
       <div class="vuestic-page-not-found-search__wallpaper">
-        <router-link class="i-vuestic vuestic-page-not-found-search__i-vuestic" :to="{path: '/'}"/>
+        <router-link class="i-vuestic vuestic-page-not-found-search__i-vuestic"
+                     :to="{path: '/'}"/>
       </div>
       <div class="vuestic-page-not-found-search__wallpaper">
-        <h3 class="vuestic-page-not-found-search__text">The page's gone fishing.</h3>
+        <h3 class="vuestic-page-not-found-search__text">The page's gone
+          fishing.</h3>
       </div>
-      <div class="vuestic-page-not-found-search__wallpaper col-md-12">
-        <div class="row vuestic-page-not-found-search__message">
+      <div class="vuestic-page-not-found-search__wallpaper flex md12">
+        <div class="va-row vuestic-page-not-found-search__message">
           <h4 class="vuestic-page-not-found-search__text-small">
             If you feel that it's not right, please send us a message at &nbsp;
           </h4>
@@ -28,7 +30,8 @@
           </div>
         </div>
       </div>
-      <div class="vuestic-page-not-found-search__wallpaper col-md-12 vuestic-page-not-found-search__not-found-wallpaper-list">
+      <div
+        class="vuestic-page-not-found-search__wallpaper vuestic-page-not-found-search__not-found-wallpaper-list">
         <div class="vuestic-page-not-found-search__wrapper">
           <ul
             class="vuestic-page-not-found-search__list"
@@ -57,18 +60,19 @@
 <script>
 import CategoriesConfig from './CategoriesConfig'
 import MadeByComponent from './MadeByComponent'
-import VuesticPageNotFoundSadWallpaper from './VuesticPageNotFoundSadWallpaper.vue'
+import VuesticPageNotFoundSadWallpaper
+  from './VuesticPageNotFoundSadWallpaper.vue'
 
 export default {
   name: 'vuestic-page-not-found-search',
   components: {
     MadeByComponent,
-    VuesticPageNotFoundSadWallpaper
+    VuesticPageNotFoundSadWallpaper,
   },
   data () {
     return {
       categories: CategoriesConfig,
-      inputValue: ''
+      inputValue: '',
     }
   },
   computed: {
@@ -79,15 +83,15 @@ export default {
             return {
               categoryName: category.categoryName,
               items: category.items.filter(item => item.itemName.toUpperCase()
-                .search(this.inputValue.toUpperCase()) !== -1)
+                .search(this.inputValue.toUpperCase()) !== -1),
             }
-          }
+          },
         ).filter(category => category.items.length >= 1)
       } else {
         return this.categories
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -121,11 +125,18 @@ export default {
     max-height: 40%;
     display: flex;
     justify-content: center;
+
+    a {
+      margin-top: 2rem;
+    }
   }
   &__i-vuestic {
     z-index: 2;
     height: $auth-wallpaper-ivuestic-h;
     width: 100%;
+  }
+  &__message {
+    justify-content: center;
   }
   @include media-breakpoint-down(xs) {
     .vuestic-page-not-found-search {

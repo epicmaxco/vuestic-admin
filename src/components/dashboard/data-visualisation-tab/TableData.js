@@ -15,7 +15,7 @@ export default {
       'group': {
         'id': 2,
         'name': 'Exec',
-        'description': 'Executives'
+        'description': 'Executives',
       },
       'address': {
         'id': 1,
@@ -24,8 +24,8 @@ export default {
         'line2': 'Cayman Islands',
         'zipcode': '92991-2805',
         'mobile': '1-742-816-9238x848',
-        'fax': '(484)438-4697x8638'
-      }
+        'fax': '(484)438-4697x8638',
+      },
     },
     {
       'id': 2,
@@ -42,7 +42,7 @@ export default {
       'group': {
         'id': 4,
         'name': 'Sup',
-        'description': 'Supervisors'
+        'description': 'Supervisors',
       },
       'address': {
         'id': 2,
@@ -51,8 +51,8 @@ export default {
         'line2': 'Cayman Islands',
         'zipcode': '41967',
         'mobile': '1-913-407-7558x503',
-        'fax': '(388)906-8002'
-      }
+        'fax': '(388)906-8002',
+      },
     },
     {
       'id': 3,
@@ -69,7 +69,7 @@ export default {
       'group': {
         'id': 3,
         'name': 'Mgr',
-        'description': 'Managers'
+        'description': 'Managers',
       },
       'address': {
         'id': 3,
@@ -78,8 +78,8 @@ export default {
         'line2': 'Antigua and Barbuda',
         'zipcode': '51722-4502',
         'mobile': '557.845.1830x844',
-        'fax': '1-831-304-7444x73027'
-      }
+        'fax': '1-831-304-7444x73027',
+      },
     },
     {
       'id': 4,
@@ -96,7 +96,7 @@ export default {
       'group': {
         'id': 3,
         'name': 'Mgr',
-        'description': 'Managers'
+        'description': 'Managers',
       },
       'address': {
         'id': 4,
@@ -105,8 +105,8 @@ export default {
         'line2': 'Uganda',
         'zipcode': '67639-6707',
         'mobile': '766.431.9121',
-        'fax': '(154)336-3674x08451'
-      }
+        'fax': '(154)336-3674x08451',
+      },
     },
     {
       'id': 5,
@@ -123,7 +123,7 @@ export default {
       'group': {
         'id': 2,
         'name': 'Exec',
-        'description': 'Executives'
+        'description': 'Executives',
       },
       'address': {
         'id': 5,
@@ -132,8 +132,8 @@ export default {
         'line2': 'Jamaica',
         'zipcode': '10101-1450',
         'mobile': '07507519787',
-        'fax': '+24(9)5120507985'
-      }
+        'fax': '+24(9)5120507985',
+      },
     },
     {
       'id': 6,
@@ -150,7 +150,7 @@ export default {
       'group': {
         'id': 4,
         'name': 'Sup',
-        'description': 'Supervisors'
+        'description': 'Supervisors',
       },
       'address': {
         'id': 6,
@@ -159,8 +159,8 @@ export default {
         'line2': 'Finland',
         'zipcode': '88917',
         'mobile': '1-851-069-9234x9566',
-        'fax': '(048)445-4691x33356'
-      }
+        'fax': '(048)445-4691x33356',
+      },
     },
     {
       'id': 7,
@@ -177,7 +177,7 @@ export default {
       'group': {
         'id': 4,
         'name': 'Sup',
-        'description': 'Supervisors'
+        'description': 'Supervisors',
       },
       'address': {
         'id': 7,
@@ -186,8 +186,8 @@ export default {
         'line2': 'Barbados',
         'zipcode': '79679',
         'mobile': '(736)058-1324',
-        'fax': '002.234.8466x49816'
-      }
+        'fax': '002.234.8466x49816',
+      },
     },
     {
       'id': 8,
@@ -204,7 +204,7 @@ export default {
       'group': {
         'id': 2,
         'name': 'Exec',
-        'description': 'Executives'
+        'description': 'Executives',
       },
       'address': {
         'id': 8,
@@ -213,8 +213,8 @@ export default {
         'line2': 'Netherlands Antilles',
         'zipcode': '94649-6628',
         'mobile': '472.825.7183',
-        'fax': '400-507-7463'
-      }
+        'fax': '400-507-7463',
+      },
     },
     {
       'id': 9,
@@ -231,7 +231,7 @@ export default {
       'group': {
         'id': 5,
         'name': 'Emp',
-        'description': 'Employees'
+        'description': 'Employees',
       },
       'address': {
         'id': 9,
@@ -240,8 +240,8 @@ export default {
         'line2': 'Hong Kong',
         'zipcode': '91204',
         'mobile': '831.652.0832',
-        'fax': '(688)788-8947'
-      }
+        'fax': '(688)788-8947',
+      },
     },
     {
       'id': 10,
@@ -258,7 +258,7 @@ export default {
       'group': {
         'id': 3,
         'name': 'Mgr',
-        'description': 'Managers'
+        'description': 'Managers',
       },
       'address': {
         'id': 10,
@@ -267,8 +267,8 @@ export default {
         'line2': 'Reunion',
         'zipcode': '77124-1459',
         'mobile': '1-129-438-6148',
-        'fax': '(913)441-3846'
-      }
+        'fax': '(913)441-3846',
+      },
     },
     {
       'id': 11,
@@ -285,7 +285,7 @@ export default {
       'group': {
         'id': 3,
         'name': 'Mgr',
-        'description': 'Managers'
+        'description': 'Managers',
       },
       'address': {
         'id': 11,
@@ -294,8 +294,8 @@ export default {
         'line2': 'Oman',
         'zipcode': '00642',
         'mobile': '1-296-172-2126x275',
-        'fax': '(559)203-8694'
-      }
+        'fax': '(559)203-8694',
+      },
     },
     {
       'id': 12,
@@ -312,7 +312,7 @@ export default {
       'group': {
         'id': 1,
         'name': 'Admin',
-        'description': 'Administrators'
+        'description': 'Administrators',
       },
       'address': {
         'id': 12,
@@ -321,8 +321,8 @@ export default {
         'line2': 'Nepal',
         'zipcode': '90316-7411',
         'mobile': '064.482.9432x9456',
-        'fax': '05936098280'
-      }
+        'fax': '05936098280',
+      },
     },
     {
       'id': 13,
@@ -339,7 +339,7 @@ export default {
       'group': {
         'id': 5,
         'name': 'Emp',
-        'description': 'Employees'
+        'description': 'Employees',
       },
       'address': {
         'id': 13,
@@ -348,8 +348,8 @@ export default {
         'line2': 'Uganda',
         'zipcode': '60996-2982',
         'mobile': '(508)122-5892',
-        'fax': '356-682-2023x07379'
-      }
+        'fax': '356-682-2023x07379',
+      },
     },
     {
       'id': 14,
@@ -366,7 +366,7 @@ export default {
       'group': {
         'id': 1,
         'name': 'Admin',
-        'description': 'Administrators'
+        'description': 'Administrators',
       },
       'address': {
         'id': 14,
@@ -375,8 +375,8 @@ export default {
         'line2': 'Gabon',
         'zipcode': '36943-1099',
         'mobile': '033-386-4972x26066',
-        'fax': '1-363-037-1381'
-      }
+        'fax': '1-363-037-1381',
+      },
     },
     {
       'id': 15,
@@ -393,7 +393,7 @@ export default {
       'group': {
         'id': 4,
         'name': 'Sup',
-        'description': 'Supervisors'
+        'description': 'Supervisors',
       },
       'address': {
         'id': 15,
@@ -402,8 +402,8 @@ export default {
         'line2': 'Tanzania',
         'zipcode': '75615',
         'mobile': '338.920.3112',
-        'fax': '(467)912-6668'
-      }
+        'fax': '(467)912-6668',
+      },
     },
     {
       'id': 16,
@@ -420,7 +420,7 @@ export default {
       'group': {
         'id': 3,
         'name': 'Mgr',
-        'description': 'Managers'
+        'description': 'Managers',
       },
       'address': {
         'id': 16,
@@ -429,8 +429,8 @@ export default {
         'line2': 'Turkmenistan',
         'zipcode': '17948',
         'mobile': '(163)991-1609x963',
-        'fax': '104.893.7648'
-      }
+        'fax': '104.893.7648',
+      },
     },
     {
       'id': 17,
@@ -447,7 +447,7 @@ export default {
       'group': {
         'id': 1,
         'name': 'Admin',
-        'description': 'Administrators'
+        'description': 'Administrators',
       },
       'address': {
         'id': 17,
@@ -456,8 +456,8 @@ export default {
         'line2': 'Gibraltar',
         'zipcode': '51150-2800',
         'mobile': '(977)115-7349',
-        'fax': '652-788-4860x1180'
-      }
+        'fax': '652-788-4860x1180',
+      },
     },
     {
       'id': 18,
@@ -474,7 +474,7 @@ export default {
       'group': {
         'id': 3,
         'name': 'Mgr',
-        'description': 'Managers'
+        'description': 'Managers',
       },
       'address': {
         'id': 18,
@@ -483,8 +483,8 @@ export default {
         'line2': 'Cambodia',
         'zipcode': '20591-3066',
         'mobile': '+64(7)3402369877',
-        'fax': '08960801902'
-      }
+        'fax': '08960801902',
+      },
     },
     {
       'id': 19,
@@ -501,7 +501,7 @@ export default {
       'group': {
         'id': 4,
         'name': 'Sup',
-        'description': 'Supervisors'
+        'description': 'Supervisors',
       },
       'address': {
         'id': 19,
@@ -510,8 +510,8 @@ export default {
         'line2': 'Qatar',
         'zipcode': '47870-8012',
         'mobile': '797-274-3187x45557',
-        'fax': '(461)432-8205'
-      }
+        'fax': '(461)432-8205',
+      },
     },
     {
       'id': 20,
@@ -528,7 +528,7 @@ export default {
       'group': {
         'id': 3,
         'name': 'Mgr',
-        'description': 'Managers'
+        'description': 'Managers',
       },
       'address': {
         'id': 20,
@@ -537,8 +537,8 @@ export default {
         'line2': 'Nigeria',
         'zipcode': '37859',
         'mobile': '1-457-536-1138',
-        'fax': '+98(5)0101745942'
-      }
+        'fax': '+98(5)0101745942',
+      },
     },
     {
       'id': 21,
@@ -555,7 +555,7 @@ export default {
       'group': {
         'id': 5,
         'name': 'Emp',
-        'description': 'Employees'
+        'description': 'Employees',
       },
       'address': {
         'id': 21,
@@ -564,8 +564,8 @@ export default {
         'line2': 'Brunei Darussalam',
         'zipcode': '69261',
         'mobile': '(487)423-0151x5127',
-        'fax': '784-058-9197'
-      }
+        'fax': '784-058-9197',
+      },
     },
     {
       'id': 22,
@@ -582,7 +582,7 @@ export default {
       'group': {
         'id': 2,
         'name': 'Exec',
-        'description': 'Executives'
+        'description': 'Executives',
       },
       'address': {
         'id': 22,
@@ -591,8 +591,8 @@ export default {
         'line2': 'Sri Lanka',
         'zipcode': '37165',
         'mobile': '653-487-3061x91119',
-        'fax': '370-709-1750'
-      }
+        'fax': '370-709-1750',
+      },
     },
     {
       'id': 23,
@@ -609,7 +609,7 @@ export default {
       'group': {
         'id': 5,
         'name': 'Emp',
-        'description': 'Employees'
+        'description': 'Employees',
       },
       'address': {
         'id': 23,
@@ -618,8 +618,8 @@ export default {
         'line2': 'Ukraine',
         'zipcode': '71848',
         'mobile': '174-502-0881x50649',
-        'fax': '02683328099'
-      }
+        'fax': '02683328099',
+      },
     },
     {
       'id': 24,
@@ -636,7 +636,7 @@ export default {
       'group': {
         'id': 4,
         'name': 'Sup',
-        'description': 'Supervisors'
+        'description': 'Supervisors',
       },
       'address': {
         'id': 24,
@@ -645,8 +645,8 @@ export default {
         'line2': 'Thailand',
         'zipcode': '94264-9132',
         'mobile': '624.042.8382x12243',
-        'fax': '274.716.7226x171'
-      }
+        'fax': '274.716.7226x171',
+      },
     },
     {
       'id': 25,
@@ -663,7 +663,7 @@ export default {
       'group': {
         'id': 4,
         'name': 'Sup',
-        'description': 'Supervisors'
+        'description': 'Supervisors',
       },
       'address': {
         'id': 25,
@@ -672,8 +672,8 @@ export default {
         'line2': 'Chad',
         'zipcode': '52396-8822',
         'mobile': '(950)170-8013',
-        'fax': '119.675.5485x79062'
-      }
+        'fax': '119.675.5485x79062',
+      },
     },
     {
       'id': 26,
@@ -690,7 +690,7 @@ export default {
       'group': {
         'id': 5,
         'name': 'Emp',
-        'description': 'Employees'
+        'description': 'Employees',
       },
       'address': {
         'id': 26,
@@ -699,8 +699,8 @@ export default {
         'line2': 'Syrian Arab Republic',
         'zipcode': '85415',
         'mobile': '1-212-704-6685',
-        'fax': '516-893-8515'
-      }
+        'fax': '516-893-8515',
+      },
     },
     {
       'id': 27,
@@ -717,7 +717,7 @@ export default {
       'group': {
         'id': 1,
         'name': 'Admin',
-        'description': 'Administrators'
+        'description': 'Administrators',
       },
       'address': {
         'id': 27,
@@ -726,8 +726,8 @@ export default {
         'line2': 'Comoros',
         'zipcode': '54147-7615',
         'mobile': '1-274-179-2031x915',
-        'fax': '867-583-0812x6728'
-      }
+        'fax': '867-583-0812x6728',
+      },
     },
     {
       'id': 28,
@@ -744,7 +744,7 @@ export default {
       'group': {
         'id': 1,
         'name': 'Admin',
-        'description': 'Administrators'
+        'description': 'Administrators',
       },
       'address': {
         'id': 28,
@@ -753,8 +753,8 @@ export default {
         'line2': 'Cocos (Keeling) Islands',
         'zipcode': '56090-7671',
         'mobile': '(718)856-9319x55184',
-        'fax': '(777)055-4685x56167'
-      }
+        'fax': '(777)055-4685x56167',
+      },
     },
     {
       'id': 29,
@@ -771,7 +771,7 @@ export default {
       'group': {
         'id': 5,
         'name': 'Emp',
-        'description': 'Employees'
+        'description': 'Employees',
       },
       'address': {
         'id': 29,
@@ -780,8 +780,8 @@ export default {
         'line2': 'Saudi Arabia',
         'zipcode': '07560-8569',
         'mobile': '788-579-8208',
-        'fax': '041-521-9215'
-      }
+        'fax': '041-521-9215',
+      },
     },
     {
       'id': 30,
@@ -798,7 +798,7 @@ export default {
       'group': {
         'id': 5,
         'name': 'Emp',
-        'description': 'Employees'
+        'description': 'Employees',
       },
       'address': {
         'id': 30,
@@ -807,8 +807,8 @@ export default {
         'line2': 'Lithuania',
         'zipcode': '95964-8864',
         'mobile': '681.200.3099',
-        'fax': '(567)652-4322x61475'
-      }
+        'fax': '(567)652-4322x61475',
+      },
     },
     {
       'id': 31,
@@ -825,7 +825,7 @@ export default {
       'group': {
         'id': 1,
         'name': 'Admin',
-        'description': 'Administrators'
+        'description': 'Administrators',
       },
       'address': {
         'id': 31,
@@ -834,8 +834,8 @@ export default {
         'line2': 'Thailand',
         'zipcode': '09965-7576',
         'mobile': '1-938-263-0257x47178',
-        'fax': '1-997-727-3198x4363'
-      }
+        'fax': '1-997-727-3198x4363',
+      },
     },
     {
       'id': 32,
@@ -852,7 +852,7 @@ export default {
       'group': {
         'id': 3,
         'name': 'Mgr',
-        'description': 'Managers'
+        'description': 'Managers',
       },
       'address': {
         'id': 32,
@@ -861,8 +861,8 @@ export default {
         'line2': 'Afghanistan',
         'zipcode': '02041-8706',
         'mobile': '(506)349-9443x7244',
-        'fax': '1-357-689-8479x3729'
-      }
+        'fax': '1-357-689-8479x3729',
+      },
     },
     {
       'id': 33,
@@ -879,7 +879,7 @@ export default {
       'group': {
         'id': 2,
         'name': 'Exec',
-        'description': 'Executives'
+        'description': 'Executives',
       },
       'address': {
         'id': 33,
@@ -888,8 +888,8 @@ export default {
         'line2': 'Kiribati',
         'zipcode': '64763',
         'mobile': '1-548-943-8405x460',
-        'fax': '+88(4)9493664736'
-      }
+        'fax': '+88(4)9493664736',
+      },
     },
     {
       'id': 34,
@@ -906,7 +906,7 @@ export default {
       'group': {
         'id': 5,
         'name': 'Emp',
-        'description': 'Employees'
+        'description': 'Employees',
       },
       'address': {
         'id': 34,
@@ -915,8 +915,8 @@ export default {
         'line2': 'Georgia',
         'zipcode': '88459',
         'mobile': '(877)526-6771',
-        'fax': '(724)630-5418'
-      }
+        'fax': '(724)630-5418',
+      },
     },
     {
       'id': 35,
@@ -933,7 +933,7 @@ export default {
       'group': {
         'id': 1,
         'name': 'Admin',
-        'description': 'Administrators'
+        'description': 'Administrators',
       },
       'address': {
         'id': 35,
@@ -942,8 +942,8 @@ export default {
         'line2': 'Gambia',
         'zipcode': '26853',
         'mobile': '(441)229-8922',
-        'fax': '(789)908-0620x15912'
-      }
+        'fax': '(789)908-0620x15912',
+      },
     },
     {
       'id': 36,
@@ -960,7 +960,7 @@ export default {
       'group': {
         'id': 1,
         'name': 'Admin',
-        'description': 'Administrators'
+        'description': 'Administrators',
       },
       'address': {
         'id': 36,
@@ -969,8 +969,8 @@ export default {
         'line2': 'Serbia',
         'zipcode': '96642',
         'mobile': '313.254.8635x06428',
-        'fax': '194.681.7297x74202'
-      }
+        'fax': '194.681.7297x74202',
+      },
     },
     {
       'id': 37,
@@ -987,7 +987,7 @@ export default {
       'group': {
         'id': 4,
         'name': 'Sup',
-        'description': 'Supervisors'
+        'description': 'Supervisors',
       },
       'address': {
         'id': 37,
@@ -996,8 +996,8 @@ export default {
         'line2': 'Guyana',
         'zipcode': '77776',
         'mobile': '(321)705-8910',
-        'fax': '(392)460-5663x665'
-      }
+        'fax': '(392)460-5663x665',
+      },
     },
     {
       'id': 38,
@@ -1014,7 +1014,7 @@ export default {
       'group': {
         'id': 4,
         'name': 'Sup',
-        'description': 'Supervisors'
+        'description': 'Supervisors',
       },
       'address': {
         'id': 38,
@@ -1023,8 +1023,8 @@ export default {
         'line2': 'Afghanistan',
         'zipcode': '54947-9310',
         'mobile': '09097085723',
-        'fax': '1-567-446-3094'
-      }
+        'fax': '1-567-446-3094',
+      },
     },
     {
       'id': 39,
@@ -1041,7 +1041,7 @@ export default {
       'group': {
         'id': 3,
         'name': 'Mgr',
-        'description': 'Managers'
+        'description': 'Managers',
       },
       'address': {
         'id': 39,
@@ -1050,8 +1050,8 @@ export default {
         'line2': 'Zimbabwe',
         'zipcode': '00474',
         'mobile': '1-165-445-8956x699',
-        'fax': '164-395-7526x1304'
-      }
+        'fax': '164-395-7526x1304',
+      },
     },
     {
       'id': 40,
@@ -1068,7 +1068,7 @@ export default {
       'group': {
         'id': 3,
         'name': 'Mgr',
-        'description': 'Managers'
+        'description': 'Managers',
       },
       'address': {
         'id': 40,
@@ -1077,8 +1077,8 @@ export default {
         'line2': 'Bolivia',
         'zipcode': '00960',
         'mobile': '(998)729-9537',
-        'fax': '(606)461-9736'
-      }
+        'fax': '(606)461-9736',
+      },
     },
     {
       'id': 41,
@@ -1095,7 +1095,7 @@ export default {
       'group': {
         'id': 5,
         'name': 'Emp',
-        'description': 'Employees'
+        'description': 'Employees',
       },
       'address': {
         'id': 41,
@@ -1104,8 +1104,8 @@ export default {
         'line2': 'Haiti',
         'zipcode': '08208-7956',
         'mobile': '625-483-9111x773',
-        'fax': '196-367-9338'
-      }
+        'fax': '196-367-9338',
+      },
     },
     {
       'id': 42,
@@ -1122,7 +1122,7 @@ export default {
       'group': {
         'id': 2,
         'name': 'Exec',
-        'description': 'Executives'
+        'description': 'Executives',
       },
       'address': {
         'id': 42,
@@ -1131,8 +1131,8 @@ export default {
         'line2': 'Chad',
         'zipcode': '61676-5075',
         'mobile': '172.676.4844x42744',
-        'fax': '129.383.7365x233'
-      }
+        'fax': '129.383.7365x233',
+      },
     },
     {
       'id': 43,
@@ -1149,7 +1149,7 @@ export default {
       'group': {
         'id': 5,
         'name': 'Emp',
-        'description': 'Employees'
+        'description': 'Employees',
       },
       'address': {
         'id': 43,
@@ -1158,8 +1158,8 @@ export default {
         'line2': 'Lithuania',
         'zipcode': '51634-6449',
         'mobile': '1-161-626-3235x57765',
-        'fax': '360-278-9045x9316'
-      }
+        'fax': '360-278-9045x9316',
+      },
     },
     {
       'id': 44,
@@ -1176,7 +1176,7 @@ export default {
       'group': {
         'id': 1,
         'name': 'Admin',
-        'description': 'Administrators'
+        'description': 'Administrators',
       },
       'address': {
         'id': 44,
@@ -1185,8 +1185,8 @@ export default {
         'line2': 'British Virgin Islands',
         'zipcode': '56087-0885',
         'mobile': '08227730599',
-        'fax': '1-079-566-2337x670'
-      }
+        'fax': '1-079-566-2337x670',
+      },
     },
     {
       'id': 45,
@@ -1203,7 +1203,7 @@ export default {
       'group': {
         'id': 3,
         'name': 'Mgr',
-        'description': 'Managers'
+        'description': 'Managers',
       },
       'address': {
         'id': 45,
@@ -1212,8 +1212,8 @@ export default {
         'line2': 'Mexico',
         'zipcode': '56689-3824',
         'mobile': '523.579.8757x9825',
-        'fax': '688.695.5156x073'
-      }
+        'fax': '688.695.5156x073',
+      },
     },
     {
       'id': 46,
@@ -1230,7 +1230,7 @@ export default {
       'group': {
         'id': 1,
         'name': 'Admin',
-        'description': 'Administrators'
+        'description': 'Administrators',
       },
       'address': {
         'id': 46,
@@ -1239,8 +1239,8 @@ export default {
         'line2': 'Malawi',
         'zipcode': '74027',
         'mobile': '887.196.2530x875',
-        'fax': '220.398.6969'
-      }
+        'fax': '220.398.6969',
+      },
     },
     {
       'id': 47,
@@ -1257,7 +1257,7 @@ export default {
       'group': {
         'id': 4,
         'name': 'Sup',
-        'description': 'Supervisors'
+        'description': 'Supervisors',
       },
       'address': {
         'id': 47,
@@ -1266,8 +1266,8 @@ export default {
         'line2': 'Serbia',
         'zipcode': '25234',
         'mobile': '(821)777-8137x4048',
-        'fax': '(398)917-7496x84537'
-      }
+        'fax': '(398)917-7496x84537',
+      },
     },
     {
       'id': 48,
@@ -1284,7 +1284,7 @@ export default {
       'group': {
         'id': 2,
         'name': 'Exec',
-        'description': 'Executives'
+        'description': 'Executives',
       },
       'address': {
         'id': 48,
@@ -1293,8 +1293,8 @@ export default {
         'line2': 'Latvia',
         'zipcode': '81749-2523',
         'mobile': '1-988-628-9566x4627',
-        'fax': '916.932.2071x569'
-      }
+        'fax': '916.932.2071x569',
+      },
     },
     {
       'id': 49,
@@ -1311,7 +1311,7 @@ export default {
       'group': {
         'id': 2,
         'name': 'Exec',
-        'description': 'Executives'
+        'description': 'Executives',
       },
       'address': {
         'id': 49,
@@ -1320,8 +1320,8 @@ export default {
         'line2': 'Rwanda',
         'zipcode': '75946-8166',
         'mobile': '(556)620-0323x81232',
-        'fax': '1-466-040-3197x6274'
-      }
+        'fax': '1-466-040-3197x6274',
+      },
     },
     {
       'id': 50,
@@ -1338,7 +1338,7 @@ export default {
       'group': {
         'id': 1,
         'name': 'Admin',
-        'description': 'Administrators'
+        'description': 'Administrators',
       },
       'address': {
         'id': 50,
@@ -1347,9 +1347,9 @@ export default {
         'line2': 'Greenland',
         'zipcode': '03127',
         'mobile': '1-044-098-3635x9446',
-        'fax': '1-753-472-6796'
-      }
-    }
+        'fax': '1-753-472-6796',
+      },
+    },
   ],
-  'filterableFields': ['name']
+  'filterableFields': ['name'],
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="vuestic-color-input">
     <color-dot
-      class="vuestic-color-input__dot"
+      class="vuestic-color-input__dot flex-center"
       :selected="selected"
       :color="value"
       @click="onClick"
@@ -42,8 +42,8 @@ export default {
     },
     selected: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     valueProxy: {
@@ -52,14 +52,14 @@ export default {
       },
       set (value) {
         this.$emit('input', value)
-      }
-    }
+      },
+    },
   },
   methods: {
     onClick () {
       this.$emit('click')
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -73,8 +73,6 @@ export default {
   &__dot {
     margin-top: 7px;
     margin-right: 8px;
-    @include flex-center();
-
   }
 
   &__input {

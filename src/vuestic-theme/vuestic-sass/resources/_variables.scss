@@ -32,6 +32,7 @@ $gray: #adb3b9;
 $violet: #db76df;
 $dark-blue: #0045b6;
 $text-gray: #b4b4b4;
+$on-focus-background-color: rgba(187, 180, 178, 0.71);
 
 $colors-map: (
   brand-danger: $brand-danger,
@@ -86,6 +87,11 @@ $min-z-index: -1000;
 //Auth
 $auth-wallpaper-ivuestic-h: 2.625rem;
 $auth-wallpaper-oblique-line: $dark-gray;
+
+//Checkbox and RadioButton
+$checkbox-between-items-margin: 1rem;
+$checkbox-between-label-margin: 2.35rem;
+$checkbox-label-margin-top: 0.2rem;
 
 //Mobile Layout
 $top-mobile-nav-height: 6.5rem;

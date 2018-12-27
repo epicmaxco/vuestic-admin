@@ -91,12 +91,20 @@
             <span>{{ $t('menu.colorPickers') }}</span>
           </span>
         </sidebar-link>
+        <!-- NOTE Dropdowns are not presentation ready yet. See https://github.com/epicmaxco/vuestic-admin/issues/438 -->
         <!--<sidebar-link-->
-          <!--:to="{ name: 'dropdowns' }">-->
+          <!--:to="{ name: 'dropdowns' }"-->
+        <!--&gt;-->
           <!--<span slot="title">-->
             <!--<span>{{ $t('menu.dropdowns') }}</span>-->
           <!--</span>-->
         <!--</sidebar-link>-->
+        <sidebar-link
+          :to="{ name: 'filters' }">
+          <span slot="title">
+            <span>{{ $t('menu.filters') }}</span>
+          </span>
+        </sidebar-link>
         <sidebar-link
           :to="{ name: 'timelines' }">
           <span slot="title">
@@ -254,14 +262,14 @@ export default {
   components: {
     VuesticSidebar,
     SidebarLink,
-    SidebarLinkGroup
+    SidebarLinkGroup,
   },
   props: {
     isOpen: {
       type: Boolean,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 }
 
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="charts-page">
-    <div class="row">
-      <div class="col-md-6">
+    <div class="va-row">
+      <div class="flex md6 xs12">
         <vuestic-widget
           class="chart-widget"
           :headerText="$t('charts.verticalBarChart')"
@@ -9,7 +9,7 @@
           <vuestic-chart :data="verticalBarChartData" type="vertical-bar"/>
         </vuestic-widget>
       </div>
-      <div class="col-md-6">
+      <div class="flex md6 xs12">
         <vuestic-widget
           class="chart-widget"
           :headerText="$t('charts.horizontalBarChart')"
@@ -19,8 +19,8 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12 xs12">
         <vuestic-widget
           class="chart-widget"
           :headerText="$t('charts.lineChart')"
@@ -30,8 +30,8 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-6">
+    <div class="va-row">
+      <div class="flex md6 xs12">
         <vuestic-widget
           class="chart-widget"
           :headerText="$t('charts.pieChart')"
@@ -39,7 +39,7 @@
           <vuestic-chart :data="pieChartData" type="pie"/>
         </vuestic-widget>
       </div>
-      <div class="col-md-6">
+      <div class="flex md6 xs12">
         <vuestic-widget
           class="chart-widget"
           :headerText="$t('charts.donutChart')"
@@ -49,8 +49,8 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12 xs12">
         <vuestic-widget
           class="chart-widget"
           :headerText="$t('charts.bubbleChart')"

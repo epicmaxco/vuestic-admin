@@ -25,17 +25,17 @@ export default {
               'anchor',
               'h1',
               'h2',
-              'h3'
-            ]
-          }
+              'h3',
+            ],
+          },
         }
-      }
-    }
+      },
+    },
   },
 
   data () {
     return {
-      editor: null
+      editor: null,
     }
   },
 
@@ -55,17 +55,17 @@ export default {
 
     destroyEditor () {
       this.editor.destroy()
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss">
-  @import "~medium-editor/src/sass/medium-editor";
+@import "~medium-editor/src/sass/medium-editor";
 
-  .vuestic-medium-editor {
-    &:focus {
-      outline: none;
-    }
+.vuestic-medium-editor {
+  &:focus {
+    outline: none;
   }
+}
 </style>

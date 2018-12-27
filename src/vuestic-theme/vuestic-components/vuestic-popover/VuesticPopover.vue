@@ -5,7 +5,7 @@
     :disabled="disabled"
     :placement="placement"
     :auto-hide="autoHide"
-    >
+  >
     <slot name="trigger"></slot>
     <template slot="popover">
       <div class="popover-icon" v-if="isIconPresent">
@@ -34,31 +34,31 @@ export default {
   props: {
     open: {
       type: Boolean,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     placement: {
       type: String,
-      default: 'auto'
+      default: 'auto',
     },
     popoverClass: {
       type: [String, Array],
-      default: 'vuestic-tooltip'
+      default: 'vuestic-tooltip',
     },
     autoHide: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
 
   computed: {
     isIconPresent () {
       return !!this.$slots.icon
-    }
-  }
+    },
+  },
 }
 </script>
 

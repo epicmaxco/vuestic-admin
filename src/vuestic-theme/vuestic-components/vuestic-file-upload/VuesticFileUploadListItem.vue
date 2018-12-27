@@ -1,28 +1,39 @@
 <template>
-  <div class="file-upload-list-item file-upload-list-item--undo row" v-if="removed">
-    <div class="col-md-12">
-      <vuestic-file-upload-undo
-        @recover="recoverFile"
-      />
+  <div
+    class="file-upload-list-item d-flex"
+    :class="{'file-upload-list-item--undo': removed}"
+  >
+    <div
+      class="va-row"
+      v-if="removed"
+    >
+      <div class="flex md12">
+        <vuestic-file-upload-undo
+          @recover="recoverFile"
+        />
+      </div>
     </div>
-  </div>
 
-  <div class="file-upload-list-item row" v-else>
-    <div class="file-upload-list-item-name col-lg-3 col-xl-3 col-12">
-      {{ file.name }}
-    </div>
-    <div class="file-upload-list-item-size col-lg-3 col-xl-3 col-12">
-      {{ file.size }}
-    </div>
-    <div class="file-upload-list-item-date col-lg-4 col-xl-4 col-12">
-      <span>{{ $t('fileUpload.uploadedOn')}} {{ file.date }}</span>
-    </div>
-    <div class="file-upload-list-item-buttons col-lg-2 col-xl-2 col-12 d-flex">
-      <button type="button"
-              class="btn-text btn-text--primary"
-              @click="removeFile">
-        {{ $t('fileUpload.delete') }}
-      </button>
+    <div class="va-row align--center" v-else>
+      <div class="file-upload-list-item__name flex xs12 lg3 ellipsis">
+        {{ file.name }}
+      </div>
+      <div class="file-upload-list-item__size flex xs12 lg3">
+        {{ file.size }}
+      </div>
+      <div class="file-upload-list-item__date flex xs12 lg4">
+        <span>{{ $t('fileUpload.uploadedOn')}} {{ file.date }}</span>
+      </div>
+      <!-- TODO Use global classes instead -->
+      <div class="file-upload-list-item__button-container flex xs12 lg2">
+        <button
+          type="button"
+          class="btn-text btn-text--primary"
+          @click="removeFile"
+        >
+          {{ $t('fileUpload.delete') }}
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -33,16 +44,16 @@ import VuesticFileUploadUndo from './VuesticFileUploadUndo'
 export default {
   name: 'vuestic-file-upload-list-item',
   components: {
-    VuesticFileUploadUndo: VuesticFileUploadUndo
+    VuesticFileUploadUndo: VuesticFileUploadUndo,
   },
   props: {
     file: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   data () {
     return {
-      removed: false
+      removed: false,
     }
   },
   methods: {
@@ -60,49 +71,40 @@ export default {
     },
     recoverFile () {
       this.removed = false
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang='scss'>
-  .file-upload-list-item {
-    & + & {
-      margin-top: 0.5rem;
-    }
-    min-height: 2.7rem;
-    display: flex;
-    background-color: $white;
-    box-shadow: $sidebar-box-shadow;
-    margin: 0 1rem;
-    padding: 0.1rem 0.1rem;
-    &-name {
-      margin: auto;
-    }
-    &-size {
-      margin: auto;
-      color: $gray-light;
-    }
-    &-date {
-      margin: auto;
-      color: $gray-light;
-    }
-    &-buttons {
-      display: flex;
-      justify-content: flex-end;
-    }
-    &--undo {
-      background: none;
-      box-shadow: none;
-    }
+.file-upload-list-item {
+  & + & {
+    margin-top: 0.5rem;
   }
 
-  @media (max-width: 1200px) {
-    .file-upload-list-item {
-      &-buttons {
-        margin-top: 0.7rem;
-        justify-content: flex-start;
-      }
+  background-color: $white;
+  box-shadow: $sidebar-box-shadow;
+  padding: 0.6rem 1rem;
+
+  &__size {
+    margin: auto;
+    color: $gray-light;
+  }
+
+  &__date {
+    margin: auto;
+    color: $gray-light;
+  }
+
+  &--undo {
+    background: none;
+    box-shadow: none;
+  }
+
+  @include media-breakpoint-up(lg) {
+    &__button-container {
+      text-align: right;
     }
   }
+}
 </style>

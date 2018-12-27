@@ -1,5 +1,5 @@
 <template>
-  <span class="header-selector i-menu-expanded"
+  <span class="flex-center header-selector i-menu-expanded"
         @click="$emit('update:isOpen', !isOpen)"
   />
 </template>
@@ -10,16 +10,15 @@ export default {
   props: {
     isOpen: {
       type: Boolean,
-      required: true
+      required: true,
     },
-  }
+  },
 }
 </script>
 
 <style lang="scss">
-  .header-selector {
-    @include flex-center();
-    cursor: pointer;
-  }
+.header-selector {
+  cursor: pointer;
+}
 
 </style>

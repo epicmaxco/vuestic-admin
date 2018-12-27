@@ -1,41 +1,44 @@
 <template>
-  <div class="row spinners">
-    <div class="col-md-12">
-      <vuestic-widget :headerText="$t('spinners.title')" class="spinners__widget">
+  <div class="va-row spinners">
+    <div class="flex md12 xs12">
+      <vuestic-widget :headerText="$t('spinners.title')"
+                      class="spinners__widget">
         <div class="spinners__customization">
-          <div class="row">
-            <div class="col-md-3 col-lg-4">
+          <div class="va-row">
+            <div class="flex md3 lg4">
               <div class="row spinners__size">
                 <h5 class="spinners__icon-small">A</h5>
                 <div class="spinners__size-picker">
                   <vuestic-slider v-model="config.size" :options="sliderSize"/>
                 </div>
-                <h3>A</h3>
+                <h3 class="spinners__icon-large">A</h3>
               </div>
             </div>
-            <div class="col-md-3 col-lg-4">
-              <div class="row spinners__duration">
+            <div class="flex md3 lg4">
+              <div class="va-row spinners__duration">
                 <div class="spinners__icon-duration-slower">
                   <vuestic-icon-slower/>
                 </div>
                 <div class="spinners__duration-picker">
-                  <vuestic-slider v-model="currentDuration" :options="sliderDuration"/>
+                  <vuestic-slider v-model="currentDuration"
+                                  :options="sliderDuration"/>
                 </div>
                 <div class="spinners__icon-duration-faster">
                   <vuestic-icon-faster/>
                 </div>
               </div>
             </div>
-            <div class="col-md-6 col-lg-4 spinners__color">
-              <vuestic-pallet-custom :palette="paletteArray" v-model="color" class="spinners__color-picker"/>
+            <div class="flex md6 lg4 xs4 spinners__color">
+              <vuestic-pallet-custom :palette="paletteArray" v-model="color"
+                                     class="spinners__color-picker"/>
             </div>
           </div>
-          <div class="row">
+          <div class="va-row">
             <div class="spinners__divider-copy"/>
           </div>
         </div>
-        <div v-for="(group, i) in groups" :key="i" class="row">
-          <div v-for="item in group" :key="item" class="col-sm-12 col-md-3">
+        <div v-for="(group, i) in groups" :key="i" class="va-row">
+          <div v-for="item in group" :key="item" class="flex sm12 md3">
             <div class="spinner-box-container">
               <div class="spinner-box">
                 <component
@@ -50,10 +53,11 @@
             </div>
           </div>
         </div>
-        <div class="row align-center">
-          <div class="col text-center">
+        <div class="va-row align-center">
+          <div class="text-center">
             {{'spinners.poweredBy' | translate}}
-            <a :href="'http://epic-spinners.epicmax.co/'" target="_blank">Epic Spinners</a>
+            <a :href="'http://epic-spinners.epicmax.co/'" target="_blank">Epic
+              Spinners</a>
           </div>
         </div>
       </vuestic-widget>
@@ -80,14 +84,14 @@ export default {
     VuesticPalletCustom,
     VuesticSlider,
     VuesticIconFaster,
-    VuesticIconSlower
+    VuesticIconSlower,
   },
   data () {
     return {
       config: {
         size: 80,
         group: 4,
-        duration: 1500
+        duration: 1500,
       },
       currentDuration: 1500,
       paletteArray: colorArray,
@@ -95,12 +99,12 @@ export default {
       sliderSize: {
         formatter: v => `${v}px`,
         min: 40,
-        max: 100
+        max: 100,
       },
       sliderDuration: {
         min: 1000,
-        max: 2000
-      }
+        max: 2000,
+      },
     }
   },
   computed: {
@@ -118,7 +122,7 @@ export default {
   filters: {
     displayName (name) {
       return name.replace('Spinner', '').match(/[A-Z][a-z]+/g).join(' ')
-    }
+    },
   },
   methods: {
     groupItems (items, groupSize) {
@@ -129,8 +133,8 @@ export default {
       }
 
       return grouped
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -197,6 +201,10 @@ export default {
   &__icon-small {
     margin-top: 7px;
     margin-left: 30px;
+  }
+
+  &__icon-large {
+    margin-top: 2px;
   }
 
   &__icon-duration-faster {

@@ -1,0 +1,119 @@
+// ----------------- Container ----------------------
+
+@mixin va-container {
+  flex: 1 1 100%;
+  margin: auto;
+  padding: map-get($grid-gutters, xl);
+  width: 100%;
+
+  @each $size, $width in $container-max-widths {
+    @media only screen and (min-width: $width) {
+      max-width: ($width * 0.9375);
+    }
+  }
+
+  @media #{map-get($display-breakpoints, sm-and-down)} {
+    padding: map-get($grid-gutters, lg);
+  }
+}
+
+@mixin va-flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin va-container--fluid {
+  max-width: 100%;
+}
+
+@mixin va-container--fill-height {
+  align-items: center;
+  display: flex;
+  height: 100%;
+}
+
+// ----------------- Layout ----------------------
+
+@mixin va-layout {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  // https://github.com/vuetifyjs/vuetify/issues/3873
+  min-width: 0;
+}
+
+// ----------------- Flex ----------------------
+
+@mixin va-flex {
+  > * {
+    flex: 1 1 auto;
+    max-width: 100%;
+  }
+}
+
+@mixin va-flex--size($portion) {
+  flex-basis: percentage($portion / $grid-columns);
+  flex-grow: 0;
+  max-width: percentage($portion / $grid-columns);
+}
+
+@mixin va-flex--breakpoint($breakpoint) {
+  @media all and (min-width: map-get($grid-breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+// Example:
+// @include va-flex--size-many((xs: 12, md: 6, lg: 3, xl: 2));
+@mixin va-flex--size-many($breakpoint-map) {
+  @each $breakpoint, $portion in $breakpoint-map {
+    @include va-flex--breakpoint($breakpoint) {
+      @include va-flex--size($portion);
+    }
+  }
+}
+
+@mixin va-flex--offset($portion) {
+  // Offsets can only ever work in row layouts
+  margin-left: percentage($portion / $grid-columns);
+}
+
+// ----------------- Breakpoint helpers ----------------------
+
+@mixin va-breakpoint($size: xs) {
+  @media #{map-get($display-breakpoints, $size)} {
+    @content;
+  }
+}
+
+// ----------------- Helpers ----------------------
+
+@mixin va-spacer {
+  flex-grow: 1 !important;
+}
+
+@mixin va-grow {
+  flex-grow: 1 !important;
+  flex-shrink: 0 !important;
+}
+
+@mixin va-shrink {
+  flex-grow: 0 !important;
+  flex-shrink: 1 !important;
+}
+
+@mixin va-shrink {
+  flex-grow: 0 !important;
+  flex-shrink: 1 !important;
+}
+
+@mixin va-no-wrap {
+  white-space: nowrap;
+}
+
+@mixin va-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
