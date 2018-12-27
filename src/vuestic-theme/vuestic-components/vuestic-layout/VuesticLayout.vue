@@ -1,8 +1,5 @@
 <template>
-  <div class="vuestic-layout"
-       v-resize
-       :class="classObject"
-  >
+  <div class="vuestic-layout" v-resize :class="classObject">
     <slot></slot>
     <div class="content-wrap" id="content-wrap">
       <slot name="content"></slot>
@@ -14,45 +11,32 @@
 </template>
 
 <script>
-import Resize from '../../../directives/ResizeHandler'
+import Resize from "../../../directives/ResizeHandler";
 
 export default {
-  name: 'vuestic-layout',
+  name: "vuestic-layout",
 
   props: {
     fixed: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   directives: {
-    resize: Resize,
+    resize: Resize
   },
   computed: {
-    classObject: function () {
+    classObject: function() {
       return {
-        'layout-fixed': this.fixed,
-      }
-    },
-  },
-}
+        "layout-fixed": this.fixed
+      };
+    }
+  }
+};
 </script>
 
 <style lang="scss">
 .vuestic-layout {
-  &-fixed {
-    .content-wrap {
-      padding-right: $layout-padding-right;
-      padding-top: $sidebar-top;
-
-      @include media-breakpoint-down(md) {
-        padding: $content-mobile-wrap-fixed-layout;
-        margin-left: 0;
-
-      }
-    }
-  }
-
   .content-wrap {
     margin-left: $content-wrap-ml;
     transition: margin-left 0.3s ease;
@@ -83,6 +67,18 @@ export default {
     bottom: 0;
     height: calc(#{$layout-padding} + #{$widget-mb});
     width: 100%;
+  }
+
+  &-fixed {
+    .content-wrap {
+      padding-right: $layout-padding-right;
+      padding-top: $sidebar-top;
+
+      @include media-breakpoint-down(md) {
+        padding: $content-mobile-wrap-fixed-layout;
+        margin-left: 0;
+      }
+    }
   }
 }
 </style>
