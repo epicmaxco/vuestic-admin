@@ -1,6 +1,9 @@
 <template>
-  <div class="circle-bar circle-bar__progress-bar" :class="circleBarType"
-       :style="'background-image: ' + backgroundImage">
+  <div
+    class="circle-bar circle-bar__progress-bar"
+    :class="computedClass"
+    :style="'background-image: ' + backgroundImage"
+  >
     <div class="circle-bar__overlay" :style="circleBarStyle">
       <span v-if="!text">{{value + '%'}}</span>
       <span v-else>{{text}}</span>
@@ -15,6 +18,12 @@ import {
 } from './../../vuestic-color-picker/VuesticTheme'
 
 export default {
+  data () {
+    return {
+      animatedValue: 0,
+      animateValueInterval: null
+    }
+  },
   props: {
     value: {
       type: Number,
@@ -30,53 +39,90 @@ export default {
     },
     backgroundTheme: {
       type: String,
+      default: 'White',
     },
     disabled: {
       type: Boolean,
       default: false,
     },
-    animated: {
+    noAnimation: {
       type: Boolean,
       default: false,
     },
+    startAnimated: {
+      type: Boolean,
+      default: false,
+    },
+    // Time it would take for animation to go from 0 to 100.
+    animationInterval: {
+      type: Number,
+      default: 2000,
+    }
   },
-  mounted () {
-    this.animateValue()
+  created () {
+    if (!this.startAnimated) {
+      this.setAnimatedValue(Math.round(this.value))
+    }
+  },
+  watch: {
+    value: {
+      immediate: true,
+      handler () {
+        // Only one such interval is meant to be on.
+        if (this.animateValueInterval) {
+          return
+        }
+        // 100 ms is not exactly no animation, but close enough.
+        // TODO Split value tracker into separate class. Add some tests.
+        const animationInterval = this.noAnimation ? 100 : this.animationInterval
+        this.animateValueInterval = setInterval(() => {
+          if (this.value === this.animatedValue) {
+            clearInterval(this.animateValueInterval)
+            this.animateValueInterval = null
+            return
+          }
+          const deltaValue = this.value < this.animatedValue ? -1 : 1
+          this.setAnimatedValue(this.animatedValue + deltaValue)
+        }, animationInterval / 100)
+      }
+    }
   },
   methods: {
-    animateValue () {
-      let valueMsecs = this.valueAnimationInterval / 100
-      let delta = Math.sign(this.value - this.transformedValue)
-      let valueInterval = setInterval(() => {
-        if (this.transformedValue === this.value) {
-          clearInterval(valueInterval)
-        } else {
-          this.transformedValue += delta
-        }
-      }, valueMsecs)
-    },
+    setAnimatedValue (value) {
+      if (value < 0) {
+        this.animatedValue = 0
+        return
+      }
+      if (value > 100) {
+        this.animatedValue = 100
+        return
+      }
+      this.animatedValue = value
+    }
   },
   computed: {
     backgroundImage () {
-      let result = {}
       const theme = colorConfig[VuesticTheme[this.theme]]
+      const value = this.animatedValue
       const backgroundTheme = colorConfig[VuesticTheme[this.backgroundTheme]]
-      if (this.value < 50) {
-        let nextDeg = 90 + (3.6 * this.value) + 'deg'
-        result = `linear-gradient(90deg, ${backgroundTheme} 50%, transparent 50%, transparent), linear-gradient(${nextDeg}, ${theme} 50%, ${backgroundTheme} 50%, ${backgroundTheme})`
+
+      if (value < 50) {
+        const nextDeg = 90 + (3.6 * value) + 'deg'
+        return `linear-gradient(90deg, ${backgroundTheme} 50%, transparent 50%, transparent), ` +
+        `linear-gradient(${nextDeg}, ${theme} 50%, ${backgroundTheme} 50%, ${backgroundTheme})`
       } else {
-        let nextDeg = -90 + (3.6 * (this.value - 50)) + 'deg'
-        result = `linear-gradient(${nextDeg}, ${theme} 50%, transparent 50%, transparent), linear-gradient(270deg, ${theme} 50%, ${backgroundTheme} 50%, ${backgroundTheme})`
+        const nextDeg = -90 + (3.6 * (value - 50)) + 'deg'
+        return `linear-gradient(${nextDeg}, ${theme} 50%, transparent 50%, transparent), ` +
+        `linear-gradient(270deg, ${theme} 50%, ${backgroundTheme} 50%, ${backgroundTheme})`
       }
-      return result
     },
-    circleBarStyle: function () {
+    circleBarStyle () {
       return {
         backgroundColor: colorConfig[VuesticTheme[this.backgroundTheme]],
         color: colorConfig[VuesticTheme[this.theme]],
       }
     },
-    circleBarType: function () {
+    computedClass () {
       return {
         'circle-bar--disabled': this.disabled,
       }
@@ -88,7 +134,7 @@ export default {
 <style lang="scss">
 .circle-bar {
   $step: 1;
-  $loops: round(100 / $step);
+  $loops: 100 / $step;
   $increment: 360 / $loops;
   $half: round($loops / 2);
 
@@ -116,9 +162,8 @@ export default {
     height: $progress-bar-circle-diameter - 2*$progress-bar-circle-bw;
     border-radius: 50%;
     border-width: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include va-flex-center();
+    text-align: center;
   }
 
   & &--disabled {
