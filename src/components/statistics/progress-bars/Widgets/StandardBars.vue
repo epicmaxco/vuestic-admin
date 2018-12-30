@@ -59,12 +59,9 @@ export default {
   name: 'standard-bars',
   data () {
     return {
-      value: 0,
+      value: 100,
     }
   },
-  mounted () {
-    this.value = 100
-  }
 }
 </script>
 

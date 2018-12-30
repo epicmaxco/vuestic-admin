@@ -1,12 +1,10 @@
 <template>
   <div
     class="circle-bar circle-bar__progress-bar"
-    :class="computedClass"
     :style="'background-image: ' + backgroundImage"
   >
     <div class="circle-bar__overlay" :style="circleBarStyle">
-      <span v-if="!text">{{value + '%'}}</span>
-      <span v-else>{{text}}</span>
+      {{ text ? text : value + '%'}}
     </div>
   </div>
 </template>
@@ -21,7 +19,7 @@ export default {
   data () {
     return {
       animatedValue: 0,
-      animateValueInterval: null
+      animateValueInterval: null,
     }
   },
   props: {
@@ -37,17 +35,10 @@ export default {
       type: String,
       default: 'Primary',
     },
+    // TODO Questionable. Ideally we should have transparent background.
     backgroundTheme: {
       type: String,
       default: 'White',
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    noAnimation: {
-      type: Boolean,
-      default: false,
     },
     startAnimated: {
       type: Boolean,
@@ -57,7 +48,7 @@ export default {
     animationInterval: {
       type: Number,
       default: 2000,
-    }
+    },
   },
   created () {
     if (!this.startAnimated) {
@@ -72,9 +63,8 @@ export default {
         if (this.animateValueInterval) {
           return
         }
-        // 100 ms is not exactly no animation, but close enough.
-        // TODO Split value tracker into separate class. Add some tests.
-        const animationInterval = this.noAnimation ? 100 : this.animationInterval
+        // We're updating `animatedValue` to follow `value` change.
+        // `animatedValue` is used to display actual bar.
         this.animateValueInterval = setInterval(() => {
           if (this.value === this.animatedValue) {
             clearInterval(this.animateValueInterval)
@@ -83,8 +73,14 @@ export default {
           }
           const deltaValue = this.value < this.animatedValue ? -1 : 1
           this.setAnimatedValue(this.animatedValue + deltaValue)
-        }, animationInterval / 100)
-      }
+        }, this.animationInterval / 100)
+      },
+    },
+  },
+  beforeDestroy () {
+    if (this.animateValueInterval) {
+      clearInterval(this.animateValueInterval)
+      this.animateValueInterval = null
     }
   },
   methods: {
@@ -98,7 +94,7 @@ export default {
         return
       }
       this.animatedValue = value
-    }
+    },
   },
   computed: {
     backgroundImage () {
@@ -109,22 +105,17 @@ export default {
       if (value < 50) {
         const nextDeg = 90 + (3.6 * value) + 'deg'
         return `linear-gradient(90deg, ${backgroundTheme} 50%, transparent 50%, transparent), ` +
-        `linear-gradient(${nextDeg}, ${theme} 50%, ${backgroundTheme} 50%, ${backgroundTheme})`
+          `linear-gradient(${nextDeg}, ${theme} 50%, ${backgroundTheme} 50%, ${backgroundTheme})`
       } else {
         const nextDeg = -90 + (3.6 * (value - 50)) + 'deg'
         return `linear-gradient(${nextDeg}, ${theme} 50%, transparent 50%, transparent), ` +
-        `linear-gradient(270deg, ${theme} 50%, ${backgroundTheme} 50%, ${backgroundTheme})`
+          `linear-gradient(270deg, ${theme} 50%, ${backgroundTheme} 50%, ${backgroundTheme})`
       }
     },
     circleBarStyle () {
       return {
         backgroundColor: colorConfig[VuesticTheme[this.backgroundTheme]],
         color: colorConfig[VuesticTheme[this.theme]],
-      }
-    },
-    computedClass () {
-      return {
-        'circle-bar--disabled': this.disabled,
       }
     },
   },
@@ -146,8 +137,6 @@ export default {
   }
 
   &.circle-bar__progress-bar {
-    float: left;
-    position: relative;
     transition: background-color ease .5s, width 3s linear !important;
     width: $progress-bar-circle-diameter;
     height: $progress-bar-circle-diameter;

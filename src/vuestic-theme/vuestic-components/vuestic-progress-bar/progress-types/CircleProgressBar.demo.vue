@@ -1,53 +1,49 @@
 <template>
-  <div class="demo-container">
-    <div class="demo-container__item">
-      <circle-bar/>
-      <circle-bar
-        :value="value"
-      />
-    </div>
+  <VbDemo>
+    <VbContainer title="Default">
+      <circle-bar :value="value"/>
+    </VbContainer>
 
-    <div class="demo-container__item">
-      Disabled
+    <VbContainer title="No value">
+      <circle-bar/>
+    </VbContainer>
+
+    <VbContainer title="Disabled">
       <circle-bar
         :value="value"
         disabled
       />
-    </div>
+    </VbContainer>
 
-    <div class="demo-container__item">
-      Start animated
+    <VbContainer title="Start animated" refresh>
       <circle-bar
         :value="value"
         start-animated
       />
-    </div>
+    </VbContainer>
 
-    <div class="demo-container__item">
-      No animation
+    <VbContainer title="No animation">
       <circle-bar
         :value="value"
         no-animation
       />
-    </div>
+    </VbContainer>
 
-    <div class="demo-container__item">
+    <VbContainer title="With text">
       <circle-bar
         :value="value"
-        text="some long text"
-        background-theme="White"
-        start-animated
+        text="some long text text text text"
       />
-    </div>
+    </VbContainer>
 
-    <div class="demo-container__item">
-      {{ value }}
-      <button @click="value -= 10">-10</button>
-      <button @click="value += 10">+10</button>
+    <VbContainer>
       <button @click="value -= 100">-100</button>
+      <button @click="value -= 10">-10</button>
+      {{ value }}
+      <button @click="value += 10">+10</button>
       <button @click="value += 100">+100</button>
-    </div>
-  </div>
+    </VbContainer>
+  </VbDemo>
 </template>
 
 <script>
