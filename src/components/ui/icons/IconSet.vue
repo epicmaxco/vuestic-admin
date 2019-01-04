@@ -13,7 +13,7 @@
           <div class="form-group with-icon-left">
             <div class="input-group">
               <input
-                v-model="selector"
+                v-model="search"
                 id="input-icon-left"
                 name="input-icon-left"
                 required
@@ -40,7 +40,7 @@
     </vuestic-widget>
 
     <vuestic-widget
-      v-for="(list, index) in validatedLists"
+      v-for="(list, index) in filteredLists"
       :key="index"
       :headerText="list.name"
       class="flex md12"
@@ -72,7 +72,7 @@
 
 <script>
 export default {
-  name: 'set',
+  name: 'vuestic-icon-set',
   props: {
     name: {
       type: String,
@@ -84,7 +84,7 @@ export default {
   },
   data () {
     return {
-      selector: '',
+      search: '',
       iconSize: 30,
       slider: {
         formatter: v => `${v}px`,
@@ -99,28 +99,31 @@ export default {
         if (set.href === this.name) return set
       }
     },
-
-    validatedLists () {
-      if (this.selector === '') {
+    filteredLists () {
+      if (!this.search) {
+        // If nothing is searched - we return all sets
         return this.set.lists
       }
 
-      let result = [
-        {
-          name: 'Found Icons',
-          icons: [],
-        },
-      ]
-
+      const foundIcons = []
       this.set.lists.forEach(list => {
         list.icons.forEach(icon => {
-          if (icon.match(this.selector)) {
-            result[0].icons.push(icon)
+          if (!icon.toUpperCase().includes(this.search.toUpperCase())) {
+            return
           }
+          // Same icon could be included in different sets.
+          if (foundIcons.includes(icon)) {
+            return
+          }
+          foundIcons.push(icon)
         })
       })
 
-      return result
+      // We return all found icons as a single set.
+      return [{
+        name: 'Found Icons',
+        icons: foundIcons,
+      }]
     },
   },
   methods: {
