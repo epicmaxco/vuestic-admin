@@ -10,6 +10,7 @@ jobs:
     parallelism: 1
     working_directory: ~/repo
     steps:
+    - checkout
     - restore_cache:
         name: Restore Yarn Package Cache
         keys:
