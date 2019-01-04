@@ -10,15 +10,18 @@ jobs:
     parallelism: 1
     working_directory: ~/repo
     steps:
-    - checkout
     - restore_cache:
+        name: Restore Yarn Package Cache
         keys:
         - yarn-packages-{{ checksum "yarn.lock" }}
-    - run: yarn install
+    - run:
+        name: Install Dependencies
+        command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
     - save_cache:
-        paths:
-        - node_modules
+        name: Save Yarn Package Cache
         key: yarn-packages-{{ checksum "yarn.lock" }}
+        paths:
+        - ~/.cache/yarn
     - run: yarn build
     - run:
         name: Deploy to hosting
