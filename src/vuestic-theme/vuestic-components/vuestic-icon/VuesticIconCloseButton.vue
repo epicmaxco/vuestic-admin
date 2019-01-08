@@ -1,5 +1,5 @@
 <template>
-  <svg class="va-icon-close-btn"
+  <svg class="va-icon-close-button"
        xmlns="http://www.w3.org/2000/svg"
        width="24" height="24" viewBox="0 0 24 24">
     <g fill="none" fill-rule="nonzero">
@@ -11,6 +11,6 @@
 
 <script>
 export default {
-  name: 'va-icon-close-btn',
+  name: 'va-icon-close-button',
 }
 </script>
