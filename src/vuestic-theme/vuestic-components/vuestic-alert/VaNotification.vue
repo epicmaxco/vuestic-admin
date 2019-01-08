@@ -67,7 +67,7 @@ export default {
     border: 0 solid transparent;
     border-radius: 0.5rem;
 
-    &__badge {
+    .va-badge {
       display: inline-flex;
       padding: 0.125rem 0.5rem;
       font-family: $font-family-sans-serif;
@@ -105,7 +105,7 @@ export default {
       background: $background-color;
       box-shadow: 0 0.125rem 0.125rem 0 $box-shadow-color;
 
-      .va-notification__badge--#{$name}{
+      .va-badge--#{$name}{
         background-color: $close-icon-color;
       }
 
