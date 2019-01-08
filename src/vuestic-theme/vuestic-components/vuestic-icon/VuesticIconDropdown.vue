@@ -1,0 +1,14 @@
+<template>
+  <svg class="vuestic-icon-dropdown" xmlns="http://www.w3.org/2000/svg" width="14" viewBox="0 0 14 9">
+    <g fill="none" fill-rule="evenodd">
+      <path d="M-7-13h32v32H-7z"/>
+      <path d="M7.333 8.677c-.368.01-.74-.125-1.02-.405L1.06 3.02a1.385 1.385 0 0 1 1.96-1.959l4.312 4.313 4.313-4.313a1.386 1.386 0 0 1 1.96 1.959L8.353 8.272c-.281.28-.653.415-1.02.405z"/>
+    </g>
+  </svg>
+</template>
+
+<script>
+export default {
+  name: 'vuestic-icon-dropdown'
+}
+</script>
