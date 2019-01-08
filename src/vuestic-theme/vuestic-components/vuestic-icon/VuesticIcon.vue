@@ -60,7 +60,7 @@ export default {
 
 <style lang="scss">
 .vuestic-icon {
-  display: inline-block;
+  display: inline-flex;
 
   &--large {
     font-size: 36px;
