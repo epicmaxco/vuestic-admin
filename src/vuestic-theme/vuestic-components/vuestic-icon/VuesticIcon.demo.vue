@@ -1,7 +1,7 @@
 <template>
   <div class="demo-container">
     <div class="demo-container__item"
-         style="width: 900px; margin-top: 20px; margin-left: 20px;"
+         style="width: 1200px; margin-top: 20px; margin-left: 20px;"
     >
       <table class="table table-bordered test-table">
         <tr>
@@ -19,13 +19,15 @@
             Size presets
           </td>
           <td>
-            <div>
-              <vuestic-icon icon="iconicstroke iconicstroke-info" small/>
-              <span style="margin-left: 30px; font-size: 16px;">Small</span>
-            </div>
-            <div>
-              <vuestic-icon icon="iconicstroke iconicstroke-info" large/>
-              <span style="margin-left: 30px; font-size: 16px;">Large</span>
+            <div class="row">
+              <div class="col-6">
+                <vuestic-icon icon="iconicstroke iconicstroke-info" small/>
+                <span style="margin-left: 30px; font-size: 16px;">Small</span>
+              </div>
+              <div class="col-6">
+                <vuestic-icon icon="iconicstroke iconicstroke-info" large/>
+                <span style="margin-left: 30px; font-size: 16px;">Large</span>
+              </div>
             </div>
           </td>
         </tr>
@@ -34,21 +36,15 @@
             Keep size
           </td>
           <td>
-            <div>
-              <vuestic-icon icon="iconicstroke iconicstroke-info" :size="20"/>
-              <span style="margin-left: 30px; font-size: 16px;">Size: 20</span>
-            </div>
-            <div>
-              <vuestic-icon icon="iconicstroke iconicstroke-info" size="40px"/>
-              <span style="margin-left: 30px; font-size: 16px;">Size: 40px</span>
-            </div>
-            <div>
-              <vuestic-icon icon="iconicstroke iconicstroke-info" :size="60"/>
-              <span style="margin-left: 30px; font-size: 16px;">Size: 60</span>
-            </div>
-            <div>
-              <vuestic-icon icon="iconicstroke iconicstroke-info" size="80px"/>
-              <span style="margin-left: 30px; font-size: 16px;">Size: 80px</span>
+            <div class="row">
+              <div class="col-6">
+                <vuestic-icon icon="iconicstroke iconicstroke-info" size="40px"/>
+                <span style="margin-left: 30px; font-size: 16px;">Size: 40px</span>
+              </div>
+              <div class="col-6">
+                <vuestic-icon icon="iconicstroke iconicstroke-info" :size="60"/>
+                <span style="margin-left: 30px; font-size: 16px;">Size: 60</span>
+              </div>
             </div>
           </td>
         </tr>
@@ -57,21 +53,31 @@
             Colored
           </td>
           <td>
-            <div>
-              <vuestic-icon icon="iconicstroke iconicstroke-info" large color="info"/>
-              <span style="margin-left: 30px; font-size: 16px;">Info</span>
-            </div>
-            <div>
-              <vuestic-icon icon="iconicstroke iconicstroke-info" large color="warning"/>
-              <span style="margin-left: 30px; font-size: 16px;">Warning</span>
-            </div>
-            <div>
-              <vuestic-icon icon="iconicstroke iconicstroke-info" large color="danger"/>
-              <span style="margin-left: 30px; font-size: 16px;">Danger</span>
-            </div>
-            <div>
-              <vuestic-icon icon="iconicstroke iconicstroke-info" large color="success"/>
-              <span style="margin-left: 30px; font-size: 16px;">Success</span>
+            <div class="row">
+              <div class="col-2">
+                <vuestic-icon icon="iconicstroke iconicstroke-info" color="info"/>
+                <span style="margin-left: 30px; font-size: 16px;">Info</span>
+              </div>
+              <div class="col-2">
+                <vuestic-icon icon="iconicstroke iconicstroke-info" color="warning"/>
+                <span style="margin-left: 30px; font-size: 16px;">Warning</span>
+              </div>
+              <div class="col-2">
+                <vuestic-icon icon="iconicstroke iconicstroke-info" color="danger"/>
+                <span style="margin-left: 30px; font-size: 16px;">Danger</span>
+              </div>
+              <div class="col-2">
+                <vuestic-icon icon="iconicstroke iconicstroke-info" color="success"/>
+                <span style="margin-left: 30px; font-size: 16px;">Success</span>
+              </div>
+              <div class="col-2">
+                <vuestic-icon icon="iconicstroke iconicstroke-info" color="gray"/>
+                <span style="margin-left: 30px; font-size: 16px;">Gray</span>
+              </div>
+              <div class="col-2">
+                <vuestic-icon icon="iconicstroke iconicstroke-info" color="dark"/>
+                <span style="margin-left: 30px; font-size: 16px;">Dark</span>
+              </div>
             </div>
           </td>
         </tr>
@@ -81,7 +87,7 @@
           </td>
           <td>
             <div>
-              <vuestic-icon icon="iconicstroke iconicstroke-info" color="info" fixed-width/>
+              <vuestic-icon icon="iconicstroke iconicstroke-info" fixed-width/>
               <span style="margin-left: 30px; font-size: 16px;">Item 1</span>
             </div>
           </td>
@@ -92,29 +98,33 @@
           </td>
           <td>
             <div>
-              <div>
-                <vuestic-icon icon="iconicstroke iconicstroke-hash" fixed-width/>
-                <span style="margin-left: 30px; font-size: 16px;">Iconic</span>
+              <div class="row">
+                <div class="col-4">
+                  <vuestic-icon icon="iconicstroke iconicstroke-hash" fixed-width/>
+                  <span style="margin-left: 30px; font-size: 16px;">Iconic</span>
+                </div>
+                <div class="col-4">
+                  <vuestic-icon icon="glyphicon glyphicon-star" fixed-width/>
+                  <span style="margin-left: 30px; font-size: 16px;">Glyphicon</span>
+                </div>
+                <div class="col-4">
+                  <vuestic-icon icon="maki maki-belowground-rail" fixed-width/>
+                  <span style="margin-left: 30px; font-size: 16px;">Maki</span>
+                </div>
               </div>
-              <div>
-                <vuestic-icon icon="glyphicon glyphicon-star" fixed-width/>
-                <span style="margin-left: 30px; font-size: 16px;">Glyphicon</span>
-              </div>
-              <div>
-                <vuestic-icon icon="maki maki-belowground-rail" fixed-width/>
-                <span style="margin-left: 30px; font-size: 16px;">Maki</span>
-              </div>
-              <div>
-                <vuestic-icon icon="entypo entypo-note" fixed-width/>
-                <span style="margin-left: 30px; font-size: 16px;">Entypo</span>
-              </div>
-              <div>
-                <vuestic-icon icon="brandico brandico-facebook" fixed-width/>
-                <span style="margin-left: 30px; font-size: 16px;">Brandico</span>
-              </div>
-              <div>
-                <vuestic-icon icon="fa fa-anchor" fixed-width/>
-                <span style="margin-left: 30px; font-size: 16px;">Font Awesome</span>
+              <div class="row">
+                <div class="col-4">
+                  <vuestic-icon icon="entypo entypo-note" fixed-width/>
+                  <span style="margin-left: 30px; font-size: 16px;">Entypo</span>
+                </div>
+                <div class="col-4">
+                  <vuestic-icon icon="brandico brandico-facebook" fixed-width/>
+                  <span style="margin-left: 30px; font-size: 16px;">Brandico</span>
+                </div>
+                <div class="col-4">
+                  <vuestic-icon icon="fa fa-anchor" fixed-width/>
+                  <span style="margin-left: 30px; font-size: 16px;">Font Awesome</span>
+                </div>
               </div>
             </div>
           </td>
