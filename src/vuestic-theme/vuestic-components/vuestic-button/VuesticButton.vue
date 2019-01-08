@@ -1,9 +1,9 @@
 <template>
   <button v-if="computedTag === 'button'"
-          class="vuestic-button"
-          :class="buttonClass"
-          :disabled="disabled"
-          :type="type">
+    class="vuestic-button"
+    :class="buttonClass"
+    :disabled="disabled"
+    :type="type">
     <div class="vuestic-button__content">
       <div v-if="hasIconData" class="vuestic-button__content__icon-left">
         <slot name="icon"></slot>
@@ -17,11 +17,11 @@
     </div>
   </button>
   <a v-else-if="computedTag === 'a'"
-     class="vuestic-button"
-     :class="buttonClass"
-     :disabled="disabled"
-     :href="href"
-     :target="target">
+    class="vuestic-button"
+    :class="buttonClass"
+    :disabled="disabled"
+    :href="href"
+    :target="target">
     <div class="vuestic-button__content">
       <div v-if="hasIconData" class="vuestic-button__content__icon-left">
         <slot name="icon"></slot>
@@ -35,15 +35,15 @@
     </div>
   </a>
   <router-link v-else-if="computedTag === 'router-link'"
-               class="vuestic-button"
-               :class="buttonClass"
-               :disabled="disabled"
-               :to="to"
-               :replace="replace"
-               :append="append"
-               :active-class="activeClass"
-               :exact="exact"
-               :exact-active-class="exactActiveClass">
+    class="vuestic-button"
+    :class="buttonClass"
+    :disabled="disabled"
+    :to="to"
+    :replace="replace"
+    :append="append"
+    :active-class="activeClass"
+    :exact="exact"
+    :exact-active-class="exactActiveClass">
     <div class="vuestic-button__content">
       <div v-if="hasIconData" class="vuestic-button__content__icon-left">
         <slot name="icon"></slot>
@@ -67,72 +67,57 @@ export default {
       default: 'button'
     },
     outline: {
-      type: Boolean,
-      default: false,
+      type: Boolean
     },
     flat: {
-      type: Boolean,
-      default: false,
+      type: Boolean
     },
     color: {
       type: String,
       default: 'success'
     },
     small: {
-      type: Boolean,
-      default: false,
+      type: Boolean
     },
     large: {
-      type: Boolean,
-      default: false,
+      type: Boolean
     },
     type: {
       type: String,
-      default: 'button',
-      validator: function (value) {
-        return ['button', 'reset', 'submit'].indexOf(value) !== -1
-      },
+      default: 'button'
     },
     disabled: {
-      type: Boolean,
-      default: false,
+      type: Boolean
     },
     /* Link props */
     href: {
-      type: [String, Object],
-      default: undefined
+      type: [String, Object]
     },
     target: {
       type: String,
-      default: undefined
     },
     /* Router link props */
     to: {
-      default: undefined
+      type: [String, Object]
     },
     replace: {
-      type: Boolean,
-      default: false,
+      type: Boolean
     },
     append: {
-      type: Boolean,
-      default: false,
+      type: Boolean
     },
     activeClass: {
-      type: String,
-      default: undefined
+      type: String
     },
     exact: {
-      type: Boolean,
-      default: false,
+      type: Boolean
     },
     exactActiveClass: {
-      type: String,
-      default: undefined
+      type: String
     }
   },
   computed: {
-    buttonClass: function () {
+    buttonClass () {
       return {
         'vuestic-button--success': this.color === 'success',
         'vuestic-button--info': this.color === 'info',
@@ -159,21 +144,19 @@ export default {
       return this.$slots.icon
     },
     hasRightIconData () {
-      console.log(this.$slots)
       return this.$slots['icon-right']
     },
     computedTag () {
-      console.log(this.tag)
       if (this.tag === 'a' || this.href || this.target) {
         return 'a'
-      } else if (this.tag === 'router-link' || this.to || this.append || this.replace ||
+      }
+      if (this.tag === 'router-link' || this.to || this.append || this.replace ||
         this.activeClass || this.exact || this.exactActiveClass) {
         return 'router-link'
-      } else {
-        return 'button'
       }
+      return 'button'
     }
-  },
+  }
 }
 </script>
 
@@ -213,6 +196,11 @@ export default {
       letter-spacing: 0.7px;
       color: white;
 
+      .vuestic-button__content__icon-left, .vuestic-button__content__icon-right {
+        width: 32px;
+        height: 32px;
+      }
+
       &.vuestic-button--with-left-icon {
         padding-left: 24px;
 
@@ -230,15 +218,6 @@ export default {
 
         .vuestic-button__content__title {
           padding-right: 8px;
-        }
-      }
-
-      &.vuestic-button--with-icon {
-        padding-left: 24px;
-
-        .vuestic-button__content__icon-left, .vuestic-button__content__icon-right {
-          width: 32px;
-          height: 32px;
         }
       }
     }
@@ -336,6 +315,10 @@ export default {
         background-image: linear-gradient(to right, darken($gradient-color1, 15%), darken($gradient-color2, 15%));
         color: white !important;
       }
+
+      &.vuestic-button--disabled {
+        opacity: 0.4;
+      }
     }
 
     .vuestic-button--#{$name}.vuestic-button--outline{
@@ -350,6 +333,10 @@ export default {
       &:active, &:focus {
         background-color: $focus-color;
         color: $border-color !important;
+      }
+
+      &.vuestic-button--disabled {
+        opacity: 0.4;
       }
     }
 
@@ -370,6 +357,24 @@ export default {
 
       &.vuestic-button--disabled {
         opacity: 0.4;
+      }
+    }
+
+    .vuestic-button--#{$name}.vuestic-button--default{
+      svg {
+
+        path:last-of-type {
+          fill: white;
+        }
+      }
+    }
+
+    .vuestic-button--#{$name}.vuestic-button--outline, .vuestic-button--#{$name}.vuestic-button--flat {
+      svg {
+
+        path:last-of-type {
+          fill: $border-color;
+        }
       }
     }
   }
