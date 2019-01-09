@@ -1,8 +1,8 @@
 <template>
   <i class="vuestic-icon"
     :class="[icon, iconClass]"
-    :style="iconStyle">
-  </i>
+    :style="iconStyle"
+  />
 </template>
 
 <script>

@@ -15,6 +15,12 @@
           </td>
         </tr>
         <tr>
+          <td>External styles</td>
+          <td style="font-size: 30px; color: red">
+            <vuestic-icon icon="iconicstroke iconicstroke-info"/>
+          </td>
+        </tr>
+        <tr>
           <td>
             Size presets
           </td>
@@ -90,6 +96,18 @@
               <vuestic-icon icon="iconicstroke iconicstroke-info" fixed-width/>
               <span style="margin-left: 30px; font-size: 16px;">Item 1</span>
             </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Fixed Width Problem
+          </td>
+          <td>
+            <button class="btn btn-secondary" disabled>
+              <vuestic-icon icon="iconicstroke iconicstroke-info" fixed-width/>
+              Some
+              <vuestic-icon icon="iconicstroke iconicstroke-info" fixed-width/>
+            </button>
           </td>
         </tr>
         <tr>
