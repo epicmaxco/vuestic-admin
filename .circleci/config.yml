@@ -4,51 +4,105 @@
 #
 version: 2
 jobs:
-  deploy:
+  deploy-dev:
     docker:
-    - image: circleci/node:10.12.0
+      - image: circleci/node:10.12.0
     parallelism: 1
     working_directory: ~/repo
     steps:
-    - checkout
-    - restore_cache:
-        name: Restore Yarn Package Cache
-        keys:
-        - yarn-packages-{{ checksum "yarn.lock" }}
-    - run:
-        name: Install Dependencies
-        command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
-    - save_cache:
-        name: Save Yarn Package Cache
-        key: yarn-packages-{{ checksum "yarn.lock" }}
-        paths:
-        - ~/.cache/yarn
-    - run: yarn build
-    - run:
-        name: Deploy to hosting
-        # Package dist folder
-        # Do some hacks to be able to copy file without ssh key (only with user/password). That's not needed for normal hosting
-        # Copy package to tmp folder
-        # On remote host:
-        # - remove public folder contents
-        # - unpack bundle archive into public folder
-        # - remove bundle archive
-        command: |
-          tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
-          sudo apt install sshpass
-          ssh-keyscan -t rsa $DEPLOY_URL >> ~/.ssh/known_hosts
-          sshpass -p $DEPLOY_PASSWORD scp ~/repo/dist.tar.gz $DEPLOY_USER@$DEPLOY_URL:~/tmp
-          sshpass -p $DEPLOY_PASSWORD ssh $DEPLOY_USER@$DEPLOY_URL /bin/bash << EOF
-            rm -rf $DEPLOY_PATH/*
-            tar -xzf ~/tmp/dist.tar.gz -C $DEPLOY_PATH
-            rm -f ~/tmp/dist.tar.gz
-          EOF
+      - checkout
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+      - run: yarn build
+      - run:
+          name: Deploy to hosting
+          # Package dist folder
+          # Do some hacks to be able to copy file without ssh key (only with user/password). That's not needed for normal hosting
+          # Copy package to tmp folder
+          # On remote host:
+          # - remove public folder contents
+          # - unpack bundle archive into public folder
+          # - remove bundle archive
+          command: |
+            tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
+            sudo apt install sshpass
+            ssh-keyscan -t rsa $DEPLOY_URL >> ~/.ssh/known_hosts
+            sshpass -p $DEPLOY_PASSWORD scp ~/repo/dist.tar.gz $DEPLOY_USER@$DEPLOY_URL:~/tmp
+            sshpass -p $DEPLOY_PASSWORD ssh $DEPLOY_USER@$DEPLOY_URL /bin/bash << EOF
+              rm -rf $DEPLOY_PATH/*
+              tar -xzf ~/tmp/dist.tar.gz -C $DEPLOY_PATH
+              rm -f ~/tmp/dist.tar.gz
+            EOF
+
+  deploy-prod:
+    docker:
+      - image: circleci/node:10.12.0
+    parallelism: 1
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - - run:
+            name: Add variables for Yandex Metrics and Drift live chat
+            command:
+              echo "VUE_APP_YANDEX_METRICS_KEY=$YANDEX_METRICS_KEY" >> .env.production.local &&
+              echo "VUE_APP_DRIFT_KEY=$DRIFT_KEY" >> .env.production.local
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+      - run: yarn build
+      - run:
+          name: Deploy to hosting
+          environment:
+            DEPLOY_PATH: /var/www/html/vuestic-admin
+          # Package dist folder
+          # Do some hacks to be able to copy file without ssh key (only with user/password). That's not needed for normal hosting
+          # Copy package to tmp folder
+          # On remote host:
+          # - remove public folder contents
+          # - unpack bundle archive into public folder
+          # - remove bundle archive
+          command: |
+            tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
+            sudo apt install sshpass
+            ssh-keyscan -t rsa $SERVER_IP >> ~/.ssh/known_hosts
+            sshpass -p $SERVER_PASS scp ~/repo/dist.tar.gz $SERVER_USER_NAME@$SERVER_IP:~/
+            sshpass -p $SERVER_PASS ssh $SERVER_USER_NAME@$SERVER_IP << EOF
+              mkdir -p tmp
+              rm -rf $DEPLOY_PATH/*
+              tar -xzf ~/dist.tar.gz -C $DEPLOY_PATH
+              rm -rf ~/dist.tar.gz ~/tmp
+            EOF
 
 workflows:
   version: 2
   build-and-deploy:
     jobs:
-    - deploy:
-        filters:
-          branches:
-            only: develop
+      - deploy-dev:
+          filters:
+            branches:
+              only: develop
+      - deploy-prod:
+          context: vuestic-prod
+          filters:
+            branches:
+              only: master
+
