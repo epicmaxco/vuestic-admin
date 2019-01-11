@@ -68,10 +68,9 @@ jobs:
             DEPLOY_PATH: /var/www/html/vuestic-admin
           command: |
             tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
-            sudo apt install sshpass
             ssh-keyscan -t rsa $SERVER_IP >> ~/.ssh/known_hosts
-            sshpass -p $SERVER_PASS scp ~/repo/dist.tar.gz $SERVER_USER_NAME@$SERVER_IP:~/
-            sshpass -p $SERVER_PASS ssh $SERVER_USER_NAME@$SERVER_IP << EOF
+            scp ~/repo/dist.tar.gz $SERVER_USER_NAME@$SERVER_IP:~/
+            ssh $SERVER_USER_NAME@$SERVER_IP << EOF
               mkdir -p tmp
               rm -rf $DEPLOY_PATH/*
               tar -xzf ~/dist.tar.gz -C $DEPLOY_PATH
