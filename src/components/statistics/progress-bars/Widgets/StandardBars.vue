@@ -2,36 +2,52 @@
   <vuestic-widget headerText="Progress Bars">
     <div class="va-row">
       <div class="flex sm4 md4">
-        {{'progressBars.basic' | translate}}
-        <vuestic-progress-bar :value="100" :animated="true"/>
+        {{ $t('progressBars.basic') }}
+        <vuestic-progress-bar :value="value" animated/>
       </div>
       <div class="flex sm4 md4">
-        {{'progressBars.thin' | translate}}
-        <vuestic-progress-bar :value="100" size="thin" :animated="true"/>
+        {{ $t('progressBars.thin') }}
+        <vuestic-progress-bar :value="value" size="thin" animated/>
       </div>
       <div class="flex sm4 md4">
-        {{'progressBars.thick' | translate}}
-        <vuestic-progress-bar :value="100" size="thick" :animated="true"/>
+        {{ $t('progressBars.thick') }}
+        <vuestic-progress-bar
+          :value="value"
+          size="thick"
+          animated
+        />
       </div>
     </div>
     <div class="va-row">
       <div class="flex sm4 md4">
-        {{'progressBars.basicVertical' | translate}}
+        {{ $t('progressBars.basicVertical') }}
         <div class="pb-container">
-          <vuestic-progress-bar :value="100" type="vertical" :animated="true"/>
+          <vuestic-progress-bar
+            :value="value"
+            type="vertical"
+            animated
+          />
         </div>
       </div>
       <div class="flex sm4 md4">
-        {{'progressBars.thinVertical' | translate}}
+        {{ $t('progressBars.thinVertical') }}
         <div class="pb-container">
-          <vuestic-progress-bar :value="100" size="thin" type="vertical"
-                                :animated="true"/>
+          <vuestic-progress-bar
+            :value="value"
+            size="thin"
+            type="vertical"
+            animated
+          />
         </div>
       </div>
       <div class="flex sm4 md4">
-        {{'progressBars.circle' | translate}}
+        {{ $t('progressBars.circle') }}
         <div class="pb-container">
-          <vuestic-progress-bar :value="100" type="circle" :animated="true"/>
+          <vuestic-progress-bar
+            :value="value"
+            type="circle"
+            animated
+          />
         </div>
       </div>
     </div>
@@ -41,6 +57,11 @@
 <script>
 export default {
   name: 'standard-bars',
+  data () {
+    return {
+      value: 100,
+    }
+  },
 }
 </script>
 

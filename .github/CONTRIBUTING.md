@@ -39,6 +39,9 @@ Commit messages should follow the [commit message convention](./COMMIT_CONVENTIO
 * Be proactive. If you think something is wrong - create an issue or discuss.
 * Recommended tools: [GitKraken](https://www.gitkraken.com/), [WebStorm](https://www.jetbrains.com/webstorm/)
 
+#### Before release workflow
+* Update package versions to newest ones. Update lock files (for both `npm` and `yarn`)
+
 ### Commonly used NPM scripts
 
 ``` bash

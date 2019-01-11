@@ -1,14 +1,14 @@
 <template>
   <div class="vuestic-social-news">
-    <div class="flex justify--space-between align--center text-w-btn">
+    <div class="d-flex justify--space-between align--center vuestic-social-news__text-with-button">
       <span class="text">That what users have posted about your business.</span>
       <a :href="url" target="_blank">
         <button class="btn btn-micro btn-primary">VIEW</button>
       </a>
     </div>
-    <div class="flex justify--space-around photos">
+    <div class="d-flex justify--space-around vuestic-social-news__photo-list">
       <div
-        class="photo"
+        class="vuestic-social-news__photo-list__photo"
         v-for="(pieceOfNews, index) in news"
         :key="index"
         :style="`background: url(${pieceOfNews.photoURL})`"
@@ -25,30 +25,26 @@ export default {
 </script>
 
 <style lang="scss">
-.business-posts .widget-body {
-  padding-left: 2rem;
-  padding-right: 0;
-  .text-w-btn {
-    padding-right: 1.3rem;
+.vuestic-social-news {
+  &__text-with-button {
     padding-bottom: 1.5rem;
     overflow: hidden;
     .text {
       font-size: $font-size-base;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      @include va-ellipsis();
     }
     .btn {
       margin-left: 1rem;
       line-height: 1; //TODO: review btn styles
     }
   }
-  .photos {
-    padding-right: 2rem;
+  &__photo-list {
+    // This hides photos that won't fit.
     height: 80px;
-    flex-wrap: wrap;
     overflow: hidden;
-    .photo {
+    flex-wrap: wrap;
+
+    &__photo {
       background-size: cover !important;
       width: 80px;
       height: 80px;

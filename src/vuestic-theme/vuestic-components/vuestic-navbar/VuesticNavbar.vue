@@ -159,7 +159,6 @@ export default {
     padding: $nav-mobile-pt $nav-mobile-padding-h $nav-mobile-pb $nav-mobile-padding-h;
 
     .vuestic-navbar__logo {
-      width: $nav-mobile-brand-width;
       top: $nav-mobile-brand-top;
       left: $nav-mobile-brand-left;
       height: auto;

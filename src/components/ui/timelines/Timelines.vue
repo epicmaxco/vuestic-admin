@@ -1,8 +1,9 @@
 <template>
   <div class="timelines">
-
-    <vuestic-widget class="no-h-padding no-v-padding"
-                    :headerText="$t('timelines.horizontalSimple')">
+    <vuestic-widget
+      class="no-h-padding no-v-padding"
+      :headerText="$t('timelines.horizontalSimple')"
+    >
       <vuestic-timeline>
         <vuestic-timeline-item active>
           <template slot="before">
@@ -212,6 +213,7 @@ export default {
     .widget-body {
       overflow-x: auto;
     }
+
     &__timeline {
       min-width: 800px;
     }

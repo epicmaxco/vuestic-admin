@@ -2,28 +2,27 @@
   <div class="va-row">
     <div class="flex md12 xs12">
       <vuestic-widget class="no-padding no-v-padding">
-        <vuestic-breadcrumbs :breadcrumbs="breadcrumbs"
-                             :current-path="currentRoute"/>
+        <vuestic-breadcrumbs
+          :breadcrumbs="breadcrumbs"
+          :currentRouteName="currentRouteName"
+        />
       </vuestic-widget>
     </div>
   </div>
 </template>
 
 <script>
-import Breadcrumbs from './Breadcrumbs'
+import { breadcrumbs } from './Breadcrumbs'
 
 export default {
   name: 'app-breadcrumbs',
-  props: {
-    breadcrumbs: {
-      type: Object,
-      default: function () {
-        return Breadcrumbs
-      },
-    },
+  data () {
+    return {
+      breadcrumbs: breadcrumbs,
+    }
   },
   computed: {
-    currentRoute () {
+    currentRouteName () {
       return this.$route.name
     },
   },

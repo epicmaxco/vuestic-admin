@@ -1,29 +1,39 @@
 <template>
-  <div class="file-upload-list-item file-upload-list-item--undo va-row"
-       v-if="removed">
-    <div class="flex md12">
-      <vuestic-file-upload-undo
-        @recover="recoverFile"
-      />
+  <div
+    class="file-upload-list-item d-flex"
+    :class="{'file-upload-list-item--undo': removed}"
+  >
+    <div
+      class="va-row"
+      v-if="removed"
+    >
+      <div class="flex md12">
+        <vuestic-file-upload-undo
+          @recover="recoverFile"
+        />
+      </div>
     </div>
-  </div>
 
-  <div class="file-upload-list-item va-row" v-else>
-    <div class="file-upload-list-item-name flex lg3 xl3">
-      {{ file.name }}
-    </div>
-    <div class="file-upload-list-item-size flex lg3 xl3">
-      {{ file.size }}
-    </div>
-    <div class="file-upload-list-item-date flex lg4 xl4 md12">
-      <span>{{ $t('fileUpload.uploadedOn')}} {{ file.date }}</span>
-    </div>
-    <div class="file-upload-list-item-buttons flex lg2 xl2 md12 ">
-      <button type="button"
-              class="btn-text btn-text--primary"
-              @click="removeFile">
-        {{ $t('fileUpload.delete') }}
-      </button>
+    <div class="va-row align--center" v-else>
+      <div class="file-upload-list-item__name flex xs12 lg3 ellipsis">
+        {{ file.name }}
+      </div>
+      <div class="file-upload-list-item__size flex xs12 lg3">
+        {{ file.size }}
+      </div>
+      <div class="file-upload-list-item__date flex xs12 lg4">
+        <span>{{ $t('fileUpload.uploadedOn')}} {{ file.date }}</span>
+      </div>
+      <!-- TODO Use global classes instead -->
+      <div class="file-upload-list-item__button-container flex xs12 lg2">
+        <button
+          type="button"
+          class="btn-text btn-text--primary"
+          @click="removeFile"
+        >
+          {{ $t('fileUpload.delete') }}
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -71,38 +81,29 @@ export default {
   & + & {
     margin-top: 0.5rem;
   }
-  min-height: 2.7rem;
-  display: flex;
+
   background-color: $white;
   box-shadow: $sidebar-box-shadow;
-  margin: 0 1rem;
-  padding: 0.1rem 0.1rem;
-  &-name {
-    margin: auto;
-  }
-  &-size {
+  padding: 0.6rem 1rem;
+
+  &__size {
     margin: auto;
     color: $gray-light;
   }
-  &-date {
+
+  &__date {
     margin: auto;
     color: $gray-light;
   }
-  &-buttons {
-    display: flex;
-    justify-content: flex-end;
-  }
+
   &--undo {
     background: none;
     box-shadow: none;
   }
-}
 
-@media (max-width: 1200px) {
-  .file-upload-list-item {
-    &-buttons {
-      margin-top: 0.7rem;
-      justify-content: flex-start;
+  @include media-breakpoint-up(lg) {
+    &__button-container {
+      text-align: right;
     }
   }
 }
