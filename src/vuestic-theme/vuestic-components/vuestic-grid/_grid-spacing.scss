@@ -1,45 +1,45 @@
 @each $prop, $abbrev in (margin: m, padding: p) {
   @each $level, $spacer in $spacers {
-    .va-#{$abbrev}a-#{$level},
-    .va-#{$abbrev}y-#{$level},
-    .va-#{$abbrev}t-#{$level} {
+    .#{$abbrev}a-#{$level},
+    .#{$abbrev}y-#{$level},
+    .#{$abbrev}t-#{$level} {
       #{$prop}-top: $spacer !important;
     }
-    .va-#{$abbrev}a-#{$level},
-    .va-#{$abbrev}y-#{$level},
-    .va-#{$abbrev}b-#{$level} {
+    .#{$abbrev}a-#{$level},
+    .#{$abbrev}y-#{$level},
+    .#{$abbrev}b-#{$level} {
       #{$prop}-bottom: $spacer !important;
     }
-    .va-#{$abbrev}a-#{$level},
-    .va-#{$abbrev}x-#{$level},
-    .va-#{$abbrev}r-#{$level} {
+    .#{$abbrev}a-#{$level},
+    .#{$abbrev}x-#{$level},
+    .#{$abbrev}r-#{$level} {
       #{$prop}-right: $spacer !important;
     }
-    .va-#{$abbrev}a-#{$level},
-    .va-#{$abbrev}x-#{$level},
-    .va-#{$abbrev}l-#{$level} {
+    .#{$abbrev}a-#{$level},
+    .#{$abbrev}x-#{$level},
+    .#{$abbrev}l-#{$level} {
       #{$prop}-left: $spacer !important;
     }
   }
-  .va-#{$abbrev}t-auto,
-  .va-#{$abbrev}y-auto,
-  .va-#{$abbrev}a-auto{
-    #{$prop}-top: auto;
+  .#{$abbrev}t-auto,
+  .#{$abbrev}y-auto,
+  .#{$abbrev}a-auto{
+    #{$prop}-top: auto !important;
   }
-  .va-#{$abbrev}r-auto,
-  .va-#{$abbrev}x-auto,
-  .va-#{$abbrev}a-auto{
-    #{$prop}-right: auto;
+  .#{$abbrev}r-auto,
+  .#{$abbrev}x-auto,
+  .#{$abbrev}a-auto{
+    #{$prop}-right: auto !important;
   }
-  .va-#{$abbrev}b-auto,
-  .va-#{$abbrev}y-auto,
-  .va-#{$abbrev}a-auto{
-    #{$prop}-bottom: auto;
+  .#{$abbrev}b-auto,
+  .#{$abbrev}y-auto,
+  .#{$abbrev}a-auto{
+    #{$prop}-bottom: auto !important;
   }
-  .va-#{$abbrev}l-auto,
-  .va-#{$abbrev}x-auto,
-  .va-#{$abbrev}a-auto{
-    #{$prop}-left: auto;
+  .#{$abbrev}l-auto,
+  .#{$abbrev}x-auto,
+  .#{$abbrev}a-auto{
+    #{$prop}-left: auto !important;
   }
 }
 
