@@ -190,7 +190,7 @@
               </div>
               <div class="col-4">
                 <vuestic-button href="http://epic-spinners.epicmax.co/" color="success">
-                  A-link Button
+                  "a" link Button
                 </vuestic-button>
               </div>
               <div class="col-4">
