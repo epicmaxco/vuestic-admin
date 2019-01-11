@@ -8,28 +8,15 @@
       }"
       :style="{'background-color': color}"
     >
-      <div
-        v-for="item in this.$slots.default"
-        :key="item.value"
-        class="va-tabs__bar-item"
-        @mouseover="setMouseover(item, true)"
-        @mouseleave="setMouseover(item, false)"
-        :class="{
-          'active': getItemValue(item) === valueProxy,
-          'mouseover': isMouseover(item)
-        }"
-        @click="valueProxy = getItemValue(item)"
-      >
-        {{ getItemValue(item) }}
-        <div
-          class="va-tabs__slider"
-          :class="{
-            'active': getItemValue(item) === valueProxy && !hideSlider
-          }"
-        />
-      </div>
+      <slot/>
     </div>
-    <slot/>
+    <div
+      class="va-tabs__slider"
+      :style="{
+        'width': 100/items.length + '%',
+        'margin-left': activeIndex * (100/items.length) + '%'
+      }"
+    />
   </div>
 </template>
 
@@ -67,20 +54,8 @@ export default {
       mouseover: {
         itemKey: null,
         isOn: false
-      }
-    }
-  },
-  methods: {
-    setMouseover (item, value) {
-      this.mouseover.itemKey = item
-      this.mouseover.isOn = value
-    },
-    isMouseover (item) {
-      return this.mouseover.itemKey === item &&
-        this.mouseover.isOn === true
-    },
-    getItemValue (item) {
-      return item.componentOptions.propsData.value
+      },
+      activeIndex: 0
     }
   }
 }
@@ -88,10 +63,8 @@ export default {
 
 <style lang="scss">
 .va-tabs {
-
   &__bar {
     display: flex;
-    margin-bottom: 3rem;
     padding-top: 1rem;
     &.align-right {
       justify-content: flex-end;
@@ -100,27 +73,16 @@ export default {
       justify-content: space-around;
     }
   }
-
   &__bar-item {
     margin-right: 2.4rem;
     font-size: $font-size-root;
     cursor: pointer;
     opacity: 0.4;
-    &.active, &.mouseover {
-      opacity: 1;
-      font-weight: $font-weight-bold;
-    }
   }
-
   &__slider {
     height: 2px;
-    margin-top: 0.2rem;
-    opacity: 0;
-    &.active {
-      opacity: 1;
-      transition: background-color 1s;
-      background-color: $vue-green
-    }
+    background-color: $vue-green;
+    transition: margin-left 0.3s;
   }
 }
 </style>

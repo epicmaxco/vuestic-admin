@@ -1,19 +1,19 @@
 <template>
   <div class="demo-container va-row column">
-    <div class="demo-container__item" style="width: 1000px">
+    <div class="demo-container__item">
       <va-tabs
         v-model="value"
         :right="alignValue==='align-right'"
         :grow="alignValue == 'grow'"
         :color="color"
       >
-        <va-tab
-          v-for="n in count" :key="n"
-          :value="'item' + n"
-        >
-          {{ 'item-' + n }}
-        </va-tab>
+        <va-tab>item1</va-tab>
+        <va-tab disabled>item2</va-tab>
+        <va-tab>item3</va-tab>
       </va-tabs>
+      <p v-if="value === 'item1'">First</p>
+      <p v-if="value === 'item2'">Second</p>
+      <p v-if="value === 'item3'">Third</p>
     </div>
     <div class="demo-container__item">
       <button @click="count++">add item</button>
