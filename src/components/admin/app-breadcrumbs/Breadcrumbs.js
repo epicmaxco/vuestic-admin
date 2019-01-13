@@ -121,6 +121,10 @@ export default {
           name: 'tree-view',
           displayName: 'menu.treeView',
         },
+        {
+          name: 'spacing',
+          displayName: 'menu.spacing'
+        }
       ],
     },
     {

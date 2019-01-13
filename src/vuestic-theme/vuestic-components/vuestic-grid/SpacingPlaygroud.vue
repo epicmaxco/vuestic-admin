@@ -1,7 +1,7 @@
 <template>
   <div class="va-layout gutter--md">
-    <div class="va-row">
-      <h3>Spacing playground</h3>
+    <div v-if="title" class="va-row">
+      <h3>{{title}}</h3>
     </div>
     <div class="va-row">
       <div class="flex xs3">
@@ -48,6 +48,12 @@ import VuesticColorPresentation from '../vuestic-color-presentation/VuesticColor
 export default {
   name: 'spacing-playgroud',
   components: { VuesticColorPresentation, VuesticSimpleSelect },
+  props: {
+    title: {
+      type: String,
+      default: 'Spacing playground'
+    }
+  },
   data () {
     return {
       directionList: ['a', 'y', 'x', 't', 'r', 'b', 'l'],

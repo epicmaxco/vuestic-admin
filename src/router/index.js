@@ -269,6 +269,11 @@ export default new Router({
               name: 'filters',
               path: 'filters',
               component: lazyLoading('ui/filters/Filters')
+            },
+            {
+              name: 'spacing',
+              path: 'spacing',
+              component: lazyLoading('ui/spacing/Spacing')
             }
           ]
         },
