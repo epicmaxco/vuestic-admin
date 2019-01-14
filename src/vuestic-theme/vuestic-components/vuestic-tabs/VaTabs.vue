@@ -3,20 +3,32 @@
     <div
       class="va-tabs__bar"
       :class="{
-      'align-right': right,
-      'grow': grow
+       'align-right': right,
+       'grow': grow
       }"
-      :style="{'background-color': color}"
     >
-      <slot/>
+      <div
+        class="va-tabs__bar-content"
+        :class="{'grow': grow}"
+        :style="{'background-color': color}"
+      >
+        <div
+          class="va-tabs__bar-content-items"
+          :class="{'grow': grow}"
+        >
+          <slot/>
+        </div>
+        <div v-if="!hideSlider" class="va-tabs__bar-content-slider">
+          <div
+            class="va-tabs__bar-content-slider-line"
+            :style="{
+              'width': 100/items.length + '%',
+              'margin-left': activeIndex * (100/items.length) + '%'
+            }"
+          />
+        </div>
+      </div>
     </div>
-    <div
-      class="va-tabs__slider"
-      :style="{
-        'width': 100/items.length + '%',
-        'margin-left': activeIndex * (100/items.length) + '%'
-      }"
-    />
   </div>
 </template>
 
@@ -72,17 +84,32 @@ export default {
     &.grow {
       justify-content: space-around;
     }
-  }
-  &__bar-item {
-    margin-right: 2.4rem;
-    font-size: $font-size-root;
-    cursor: pointer;
-    opacity: 0.4;
-  }
-  &__slider {
-    height: 2px;
-    background-color: $vue-green;
-    transition: margin-left 0.3s;
+    &-content {
+      &.grow {
+        width: 100%;
+      }
+      &-items {
+        display: flex;
+        &.grow {
+          justify-content: space-around;
+        }
+      }
+      &-slider {
+        display: flex;
+        width: 100%;
+        &.align-right {
+          justify-content: flex-end;
+        }
+        &.grow {
+          justify-content: space-around;
+        }
+        &-line {
+          height: 2px;
+          background-color: $vue-green;
+          transition: margin-left 0.3s;
+        }
+      }
+    }
   }
 }
 </style>

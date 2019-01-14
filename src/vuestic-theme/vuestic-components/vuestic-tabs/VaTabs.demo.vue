@@ -1,30 +1,32 @@
 <template>
   <div class="demo-container va-row column">
-    <div class="demo-container__item">
+    <div class="demo-container__item" style="width: 100%">
       <va-tabs
         v-model="value"
-        :right="alignValue==='align-right'"
-        :grow="alignValue == 'grow'"
+        :right="option==='align-right'"
+        :grow="option == 'grow'"
         :color="color"
+        :hide-slider="hideSlider"
       >
-        <va-tab>item1</va-tab>
-        <va-tab disabled>item2</va-tab>
-        <va-tab>item3</va-tab>
+        <va-tab v-for="n in count" :key="n">{{'item' + n}}</va-tab>
       </va-tabs>
-      <p v-if="value === 'item1'">First</p>
-      <p v-if="value === 'item2'">Second</p>
-      <p v-if="value === 'item3'">Third</p>
+      <div v-for="item in count" :key="item">
+        <p v-if="'item' + item === value">{{'item' + item}}</p>
+      </div>
     </div>
     <div class="demo-container__item">
       <button @click="count++">add item</button>
     </div>
     <div class="demo-container__item">
       <vuestic-radio-button
-        v-for="value in alignValues"
+        v-for="value in options"
         :key="value"
-        v-model="alignValue"
+        v-model="option"
         :option="value"
       />
+    </div>
+    <div class="demo-container__item">
+      <vuestic-checkbox v-model="hideSlider" label="hide-slider"/>
     </div>
     <div class="demo-container__item">
       <vuestic-advanced-color-picker v-model="color"/>
@@ -50,11 +52,12 @@ export default {
   },
   data () {
     return {
-      count: 3,
+      count: 4,
       value: 'item1',
-      alignValues: ['default', 'align-right', 'grow'],
-      alignValue: 'default',
-      color: 'White'
+      options: ['default', 'align-right', 'grow'],
+      option: 'default',
+      color: 'White',
+      hideSlider: false
     }
   }
 }
