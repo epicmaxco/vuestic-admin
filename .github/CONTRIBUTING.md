@@ -2,7 +2,7 @@
 
 Hi! We are really excited that you are interested in contributing to Vuestic. Before submitting your contribution though, please make sure to take a moment and read through the following guidelines.
 
-* [Code of Conduct](https://github.com/epicmaxco/vuestic-admin/master/CODE_OF_CONDUCT.md)
+* [Code of Conduct](./../CODE_OF_CONDUCT.md)
 
 ## Pull Request Guidelines
 
