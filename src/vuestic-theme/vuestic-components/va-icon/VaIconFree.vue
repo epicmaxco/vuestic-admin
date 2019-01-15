@@ -1,5 +1,5 @@
 <template>
-  <svg class="vuestic-icon-free" xmlns="http://www.w3.org/2000/svg"
+  <svg class="va-icon-free" xmlns="http://www.w3.org/2000/svg"
        viewBox="0 0 44.99 51.04">
     <defs></defs>
     <title>overview_icon_2</title>
@@ -19,12 +19,12 @@
 
 <script>
 export default {
-  name: 'vuestic-icon-free',
+  name: 'va-icon-free',
 }
 </script>
 
 <style lang="scss">
-.vuestic-icon-free {
+.va-icon-free {
   display: inline-block;
   width: 55px;
   height: 47.8px;

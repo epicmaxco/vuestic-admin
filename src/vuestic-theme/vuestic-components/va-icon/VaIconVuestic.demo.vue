@@ -1,17 +1,17 @@
 <template>
   <div class="demo-container">
     <div class="demo-container__item">
-      <vuestic-icon-vuestic/>
+      <va-icon-vuestic/>
     </div>
   </div>
 </template>
 
 <script>
-import VuesticIconVuestic from './VuesticIconVuestic.vue'
+import VaIconVuestic from './VaIconVuestic.vue'
 
 export default {
   components: {
-    VuesticIconVuestic,
+    VaIconVuestic
   },
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <svg class="vuestic-icon-vue" xmlns="http://www.w3.org/2000/svg"
+  <svg class="va-icon-vue" xmlns="http://www.w3.org/2000/svg"
        viewBox="0 0 55.05 47.8">
     <defs></defs>
     <title>overview_icon_1</title>
@@ -16,12 +16,12 @@
 
 <script>
 export default {
-  name: 'vuestic-icon-vue',
+  name: 'va-icon-vue',
 }
 </script>
 
 <style lang="scss">
-.vuestic-icon-vue {
+.va-icon-vue {
   display: inline-block;
   width: 55px;
   height: 47.8px;

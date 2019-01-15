@@ -74,9 +74,9 @@ import { colorArray } from '../../../vuestic-theme/vuestic-components/vuestic-co
 import VuesticSlider
   from '../../../vuestic-theme/vuestic-components/vuestic-slider/VuesticSlider'
 import VuesticIconFaster
-  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconFaster'
+  from '../../../vuestic-theme/vuestic-components/va-icon/VaIconFaster'
 import VuesticIconSlower
-  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconSlower'
+  from '../../../vuestic-theme/vuestic-components/va-icon/VaIconSlower'
 
 export default {
   components: {

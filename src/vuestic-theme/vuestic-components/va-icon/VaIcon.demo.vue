@@ -11,7 +11,7 @@
         <tr>
           <td>Exact Size</td>
           <td>
-            <vuestic-icon icon="iconicstroke iconicstroke-info"/>
+            <va-icon icon="iconicstroke iconicstroke-info"/>
           </td>
         </tr>
         <tr>
@@ -27,11 +27,11 @@
           <td>
             <div class="row">
               <div class="col-6">
-                <vuestic-icon icon="iconicstroke iconicstroke-info" small/>
+                <va-icon icon="iconicstroke iconicstroke-info" small/>
                 <span style="margin-left: 30px; font-size: 16px;">Small</span>
               </div>
               <div class="col-6">
-                <vuestic-icon icon="iconicstroke iconicstroke-info" large/>
+                <va-icon icon="iconicstroke iconicstroke-info" large/>
                 <span style="margin-left: 30px; font-size: 16px;">Large</span>
               </div>
             </div>
@@ -44,11 +44,11 @@
           <td>
             <div class="row">
               <div class="col-6">
-                <vuestic-icon icon="iconicstroke iconicstroke-info" size="40px"/>
+                <va-icon icon="iconicstroke iconicstroke-info" size="40px"/>
                 <span style="margin-left: 30px; font-size: 16px;">Size: 40px</span>
               </div>
               <div class="col-6">
-                <vuestic-icon icon="iconicstroke iconicstroke-info" :size="60"/>
+                <va-icon icon="iconicstroke iconicstroke-info" :size="60"/>
                 <span style="margin-left: 30px; font-size: 16px;">Size: 60</span>
               </div>
             </div>
@@ -61,28 +61,49 @@
           <td>
             <div class="row">
               <div class="col-2">
-                <vuestic-icon icon="iconicstroke iconicstroke-info" color="info"/>
+                <va-icon icon="iconicstroke iconicstroke-info" color="info"/>
                 <span style="margin-left: 30px; font-size: 16px;">Info</span>
               </div>
               <div class="col-2">
-                <vuestic-icon icon="iconicstroke iconicstroke-info" color="warning"/>
+                <va-icon icon="iconicstroke iconicstroke-info" color="warning"/>
                 <span style="margin-left: 30px; font-size: 16px;">Warning</span>
               </div>
               <div class="col-2">
-                <vuestic-icon icon="iconicstroke iconicstroke-info" color="danger"/>
+                <va-icon icon="iconicstroke iconicstroke-info" color="danger"/>
                 <span style="margin-left: 30px; font-size: 16px;">Danger</span>
               </div>
               <div class="col-2">
-                <vuestic-icon icon="iconicstroke iconicstroke-info" color="success"/>
+                <va-icon icon="iconicstroke iconicstroke-info" color="success"/>
                 <span style="margin-left: 30px; font-size: 16px;">Success</span>
               </div>
               <div class="col-2">
-                <vuestic-icon icon="iconicstroke iconicstroke-info" color="gray"/>
+                <va-icon icon="iconicstroke iconicstroke-info" color="gray"/>
                 <span style="margin-left: 30px; font-size: 16px;">Gray</span>
               </div>
               <div class="col-2">
-                <vuestic-icon icon="iconicstroke iconicstroke-info" color="dark"/>
+                <va-icon icon="iconicstroke iconicstroke-info" color="dark"/>
                 <span style="margin-left: 30px; font-size: 16px;">Dark</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Rotation
+          </td>
+          <td>
+            <div class="row">
+              <div class="col-4">
+                <va-icon icon="iconicstroke iconicstroke-info" :rotation="90"/>
+                <span style="margin-left: 30px; font-size: 16px;">90 deg</span>
+              </div>
+              <div class="col-4">
+                <va-icon icon="iconicstroke iconicstroke-info" :rotation="180"/>
+                <span style="margin-left: 30px; font-size: 16px;">180 deg</span>
+              </div>
+              <div class="col-4">
+                <va-icon icon="iconicstroke iconicstroke-info" :rotation="270"/>
+                <span style="margin-left: 30px; font-size: 16px;">270 deg</span>
               </div>
             </div>
           </td>
@@ -93,8 +114,11 @@
           </td>
           <td>
             <div>
-              <vuestic-icon icon="iconicstroke iconicstroke-info" fixed-width/>
-              <span style="margin-left: 30px; font-size: 16px;">Item 1</span>
+              <button class="btn btn-secondary">
+                <va-icon icon="iconicstroke iconicstroke-info" fixed-width/>
+                Some
+                <va-icon icon="iconicstroke iconicstroke-info" fixed-width/>
+              </button>
             </div>
           </td>
         </tr>
@@ -118,29 +142,29 @@
             <div>
               <div class="row">
                 <div class="col-4">
-                  <vuestic-icon icon="iconicstroke iconicstroke-hash" fixed-width/>
+                  <va-icon icon="iconicstroke iconicstroke-hash" fixed-width/>
                   <span style="margin-left: 30px; font-size: 16px;">Iconic</span>
                 </div>
                 <div class="col-4">
-                  <vuestic-icon icon="glyphicon glyphicon-star" fixed-width/>
+                  <va-icon icon="glyphicon glyphicon-star" fixed-width/>
                   <span style="margin-left: 30px; font-size: 16px;">Glyphicon</span>
                 </div>
                 <div class="col-4">
-                  <vuestic-icon icon="maki maki-belowground-rail" fixed-width/>
+                  <va-icon icon="maki maki-belowground-rail" fixed-width/>
                   <span style="margin-left: 30px; font-size: 16px;">Maki</span>
                 </div>
               </div>
               <div class="row">
                 <div class="col-4">
-                  <vuestic-icon icon="entypo entypo-note" fixed-width/>
+                  <va-icon icon="entypo entypo-note" fixed-width/>
                   <span style="margin-left: 30px; font-size: 16px;">Entypo</span>
                 </div>
                 <div class="col-4">
-                  <vuestic-icon icon="brandico brandico-facebook" fixed-width/>
+                  <va-icon icon="brandico brandico-facebook" fixed-width/>
                   <span style="margin-left: 30px; font-size: 16px;">Brandico</span>
                 </div>
                 <div class="col-4">
-                  <vuestic-icon icon="fa fa-anchor" fixed-width/>
+                  <va-icon icon="fa fa-anchor" fixed-width/>
                   <span style="margin-left: 30px; font-size: 16px;">Font Awesome</span>
                 </div>
               </div>
@@ -153,11 +177,11 @@
 </template>
 
 <script>
-import VuesticIcon from './VuesticIcon.vue'
+import VaIcon from './VaIcon.vue'
 
 export default {
   components: {
-    VuesticIcon
+    VaIcon
   }
 }
 </script>
