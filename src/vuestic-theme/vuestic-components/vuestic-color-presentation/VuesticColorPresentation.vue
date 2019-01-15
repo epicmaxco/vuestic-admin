@@ -75,7 +75,7 @@ export default {
       color: $vue-darkest-blue;
     }
     &__text {
-      color: $va-link-color-secondary;
+      color: $brand-secondary;
     }
   }
 </style>
