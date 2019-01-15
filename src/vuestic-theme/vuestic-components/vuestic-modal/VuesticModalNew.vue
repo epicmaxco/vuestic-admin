@@ -16,15 +16,17 @@
         @click="cancel"
         class="ion ion-md-close vuestic-modal-new__close"
       />
-      <div v-if="title" class="vuestic-modal-new__title">{{title}}</div>
-      <div v-if="hasHeaderSlot" class="vuestic-modal-new__header"><slot name="header"/></div>
-      <div v-if="message" class="vuestic-modal-new__message">{{message}}</div>
-      <div class="vuestic-modal-new__content">
-        <slot/>
-      </div>
-      <div v-if="cancelText !== '' || okText !== ''" class="vuestic-modal-new__actions">
-        <button v-if="cancelText !== ''" class="btn btn-secondary btn-micro" @click="cancel">{{cancelText}}</button>
-        <button class="btn btn-primary btn-micro" @click="ok">{{okText}}</button>
+      <div class="vuestic-modal-new__inner" :style="{maxHeight, maxWidth}">
+        <div v-if="title" class="vuestic-modal-new__title">{{title}}</div>
+        <div v-if="hasHeaderSlot" class="vuestic-modal-new__header"><slot name="header"/></div>
+        <div v-if="message" class="vuestic-modal-new__message">{{message}}</div>
+        <div class="vuestic-modal-new__content">
+          <slot/>
+        </div>
+        <div v-if="cancelText !== '' || okText !== ''" class="vuestic-modal-new__actions">
+          <button v-if="cancelText !== ''" class="btn btn-secondary btn-micro" @click="cancel">{{cancelText}}</button>
+          <button class="btn btn-primary btn-micro" @click="ok">{{okText}}</button>
+        </div>
       </div>
     </div>
   </transition>
@@ -73,7 +75,10 @@ export default {
     maxHeight: {
       type: String,
       default: '100vh'
-    }
+    },
+    fixedLayout: Boolean,
+    onOk: Function,
+    onCancel: Function
   },
   computed: {
     valueProxy: {
@@ -88,7 +93,8 @@ export default {
       return {
         'vuestic-modal-new_fullscreen': this.fullscreen,
         'vuestic-modal-new_mobile-fullscreen': this.mobileFullscreen,
-        [`vuestic-modal-new_position-${this.position}`]: this.position
+        [`vuestic-modal-new_position-${this.position}`]: this.position,
+        'vuestic-modal-new_fixed-layout': this.fixedLayout
       }
     },
     hasHeaderSlot () {
@@ -114,7 +120,7 @@ export default {
     },
     ok () {
       this.close()
-      this.onOk && this.onCancel()
+      this.onOk && this.onOk()
     },
     checkOutside (e) {
       if (!this.noOutsideDismiss) {
@@ -161,10 +167,6 @@ export default {
   left: 0;
   border-radius: 6px;
   box-shadow: 0 2px 3px 0 rgba(52, 56, 85, 0.25);
-  padding: 20px 24px 24px;
-  overflow: auto;
-  display: flex;
-  flex-flow: column;
   transition: all .5s ease;
   &_fullscreen {
     min-width: 100vw !important;
@@ -211,6 +213,20 @@ export default {
       margin: auto 1rem;
     }
   }
+  &_fixed-layout {
+    .vuestic-modal-new__inner {
+      overflow: hidden;
+      .vuestic-modal-new__message {
+        overflow: auto;
+      }
+    }
+  }
+  &__inner {
+    overflow: auto;
+    display: flex;
+    flex-flow: column;
+    padding: 20px 24px 24px;
+  }
   &__close {
     position: absolute;
     top: 16px;
@@ -228,8 +244,6 @@ export default {
     letter-spacing: 0.6px;
     margin-bottom: 24px;
   }
-  &__header {
-  }
   &__message {
     margin-bottom: 1.5rem;
   }
@@ -237,6 +251,7 @@ export default {
     display: flex;
     justify-content: center;
     margin-top: auto;
+    min-height: 36px;
     .btn {
       margin-right: 20px;
       &:last-of-type {

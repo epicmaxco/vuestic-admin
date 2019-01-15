@@ -35,17 +35,32 @@
     </vuestic-modal-new>
   </div>
   <div class="demo-container__item">
-    <p>no-outside-dismiss, no-esc-dismiss, max-width: 80vw, max-height: 150px</p>
+    <p>no-outside-dismiss, no-esc-dismiss, max-width: 800px, max-height: 250px, with scroll</p>
     <button @click="triggerActionsModal">Show modal</button>
     <vuestic-modal-new
       v-model="isActionsModalShow"
       :no-outside-dismiss="true"
       :no-esc-dismiss="true"
-      max-width="80vw"
-      max-height="150px"
+      max-width="800px"
+      max-height="250px"
       title="Step 2. Centered Layout"
-      message="About 64% of all on-line teens say that do things online that they wouldn’t want their parents to know about.   11% of all adult internet users visit dating websites and spend their time Some of the classify their behavior as “cyber affair”   More then 60% of employees use company PC for the personal needs during their work hours as long as 80 minutes per day."
+      message="About 64% of all on-line teens say that do things online that they wouldn’t want their parents to know about.   11% of all adult internet users visit dating websites and spend their time Some of the classify their behavior as “cyber affair”   More then 60% of employees use company PC for the personal needs during their work hours as long as 80 minutes per day. About 64% of all on-line teens say that do things online that they wouldn’t want their parents to know about.   11% of all adult internet users visit dating websites and spend their time Some of the classify their behavior as “cyber affair”   More then 60% of employees use company PC for the personal needs during their work hours as long as 80 minutes per day."
     />
+  </div>
+  <div class="demo-container__item">
+    <p>fixed layout && onOk, onCancel functions</p>
+    <button @click="triggerFixedLayoutModal">Show modal</button>
+    <vuestic-modal-new
+      v-model="isFixedLayoutModalShow"
+      max-width="800px"
+      max-height="250px"
+      :fixedLayout="true"
+      :on-ok="onOk"
+      :on-cancel="onCancel"
+      message="About 64% of all on-line teens say that do things online that they wouldn’t want their parents to know about.   11% of all adult internet users visit dating websites and spend their time Some of the classify their behavior as “cyber affair”   More then 60% of employees use company PC for the personal needs during their work hours as long as 80 minutes per day. About 64% of all on-line teens say that do things online that they wouldn’t want their parents to know about.   11% of all adult internet users visit dating websites and spend their time Some of the classify their behavior as “cyber affair”   More then 60% of employees use company PC for the personal needs during their work hours as long as 80 minutes per day."
+    >
+      <template slot="header"><p>Step 2. Centered Layout</p></template>
+    </vuestic-modal-new>
   </div>
 </div>
 </template>
@@ -61,6 +76,7 @@ export default {
       isModalShow: false,
       isFullScreenModalShow: false,
       isActionsModalShow: false,
+      isFixedLayoutModalShow: false,
       modalPosition: 'center'
     }
   },
@@ -73,6 +89,15 @@ export default {
     },
     triggerActionsModal () {
       this.isActionsModalShow = !this.isActionsModalShow
+    },
+    triggerFixedLayoutModal () {
+      this.isFixedLayoutModalShow = !this.isFixedLayoutModalShow
+    },
+    onOk () {
+      alert('OK')
+    },
+    onCancel () {
+      alert('Cancel')
     }
   }
 }
