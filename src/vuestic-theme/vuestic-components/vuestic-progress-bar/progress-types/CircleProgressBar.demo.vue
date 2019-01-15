@@ -1,39 +1,39 @@
 <template>
   <VbDemo>
+    <VbContainer title="No Value">
+      <circle-bar/>
+    </VbContainer>
+
     <VbContainer title="Default">
       <circle-bar :value="value"/>
     </VbContainer>
 
-    <VbContainer title="No value">
-      <circle-bar/>
+    <VbContainer title="Danger">
+      <circle-bar :value="value" :theme="'Danger'"/>
     </VbContainer>
 
-    <VbContainer title="Disabled">
-      <circle-bar
-        :value="value"
-        disabled
-      />
+    <VbContainer title="Static Slot">
+      <circle-bar :value="value">Static</circle-bar>
     </VbContainer>
 
-    <VbContainer title="Start animated" refresh>
-      <circle-bar
-        :value="value"
-        start-animated
-      />
+    <VbContainer title="Dynamic Slot">
+      <circle-bar :value="value">{{ value }}</circle-bar>
     </VbContainer>
 
-    <VbContainer title="No animation">
-      <circle-bar
-        :value="value"
-        no-animation
-      />
+    <VbContainer title="Slot Success">
+      <circle-bar :value="value" :theme="'Success'">{{ value }}</circle-bar>
     </VbContainer>
 
-    <VbContainer title="With text">
-      <circle-bar
-        :value="value"
-        text="some long text text text text"
-      />
+    <VbContainer title="Indeterminate">
+      <circle-bar :indeterminate="true"/>
+    </VbContainer>
+
+    <VbContainer title="Indeterminate Info">
+      <circle-bar :theme="'Info'" :indeterminate="true"/>
+    </VbContainer>
+
+    <VbContainer title="Indeterminate Slot">
+      <circle-bar :indeterminate="true">Slot</circle-bar>
     </VbContainer>
 
     <VbContainer>
@@ -47,17 +47,16 @@
 </template>
 
 <script>
-
 import CircleBar from './../progress-types/CircleProgressBar'
 
 export default {
   components: {
-    CircleBar,
+    CircleBar
   },
   data () {
     return {
       value: 35
     }
-  },
+  }
 }
 </script>

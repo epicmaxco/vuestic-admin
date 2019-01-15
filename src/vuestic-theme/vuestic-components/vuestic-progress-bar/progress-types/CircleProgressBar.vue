@@ -1,10 +1,25 @@
 <template>
-  <div
-    class="circle-bar circle-bar__progress-bar"
-    :style="'background-image: ' + backgroundImage"
-  >
-    <div class="circle-bar__overlay" :style="circleBarStyle">
-      {{ text ? text : value + '%'}}
+  <div class="va-circle-bar">
+    <svg
+      :class="{'va-circle-bar__progress-bar--indeterminate': indeterminate}"
+      class="va-circle-bar__progress-bar"
+      viewBox="21.25 21.25 42.5 42.5"
+    >
+      <circle
+        :class="{'va-circle-bar__overlay--indeterminate': indeterminate}"
+        class="va-circle-bar__overlay"
+        cx="42.5"
+        cy="42.5"
+        :r="radius"
+        fill="none"
+        :stroke="color"
+        stroke-width="2.5"
+        :stroke-dasharray="dasharray"
+        :stroke-dashoffset="dashoffset"
+      ></circle>
+    </svg>
+    <div :style="{color: color}" class="va-circle-bar__info">
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -12,151 +27,94 @@
 <script>
 import {
   colorConfig,
-  VuesticTheme,
+  VuesticTheme
 } from './../../vuestic-color-picker/VuesticTheme'
 
 export default {
-  data () {
-    return {
-      animatedValue: 0,
-      animateValueInterval: null,
-    }
-  },
   props: {
     value: {
       type: Number,
-      default: 0,
-    },
-    text: {
-      type: String,
-      default: '',
+      default: 0
     },
     theme: {
       type: String,
-      default: 'Primary',
+      default: 'Primary'
     },
-    // TODO Questionable. Ideally we should have transparent background.
-    backgroundTheme: {
-      type: String,
-      default: 'White',
-    },
-    startAnimated: {
+    // If 'indeterminate' is 'true' 'value' prop will be ignored.
+    indeterminate: {
       type: Boolean,
-      default: false,
-    },
-    // Time it would take for animation to go from 0 to 100.
-    animationInterval: {
-      type: Number,
-      default: 2000,
-    },
-  },
-  created () {
-    if (!this.startAnimated) {
-      this.setAnimatedValue(Math.round(this.value))
+      default: false
     }
-  },
-  watch: {
-    value: {
-      immediate: true,
-      handler () {
-        // Only one such interval is meant to be on.
-        if (this.animateValueInterval) {
-          return
-        }
-        // We're updating `animatedValue` to follow `value` change.
-        // `animatedValue` is used to display actual bar.
-        this.animateValueInterval = setInterval(() => {
-          if (this.value === this.animatedValue) {
-            clearInterval(this.animateValueInterval)
-            this.animateValueInterval = null
-            return
-          }
-          const deltaValue = this.value < this.animatedValue ? -1 : 1
-          this.setAnimatedValue(this.animatedValue + deltaValue)
-        }, this.animationInterval / 100)
-      },
-    },
-  },
-  beforeDestroy () {
-    if (this.animateValueInterval) {
-      clearInterval(this.animateValueInterval)
-      this.animateValueInterval = null
-    }
-  },
-  methods: {
-    setAnimatedValue (value) {
-      if (value < 0) {
-        this.animatedValue = 0
-        return
-      }
-      if (value > 100) {
-        this.animatedValue = 100
-        return
-      }
-      this.animatedValue = value
-    },
   },
   computed: {
-    backgroundImage () {
-      const theme = colorConfig[VuesticTheme[this.theme]]
-      const value = this.animatedValue
-      const backgroundTheme = colorConfig[VuesticTheme[this.backgroundTheme]]
-
-      if (value < 50) {
-        const nextDeg = 90 + (3.6 * value) + 'deg'
-        return `linear-gradient(90deg, ${backgroundTheme} 50%, transparent 50%, transparent), ` +
-          `linear-gradient(${nextDeg}, ${theme} 50%, ${backgroundTheme} 50%, ${backgroundTheme})`
-      } else {
-        const nextDeg = -90 + (3.6 * (value - 50)) + 'deg'
-        return `linear-gradient(${nextDeg}, ${theme} 50%, transparent 50%, transparent), ` +
-          `linear-gradient(270deg, ${theme} 50%, ${backgroundTheme} 50%, ${backgroundTheme})`
-      }
+    radius () {
+      return 20
     },
-    circleBarStyle () {
-      return {
-        backgroundColor: colorConfig[VuesticTheme[this.backgroundTheme]],
-        color: colorConfig[VuesticTheme[this.theme]],
-      }
+    normalizedValue () {
+      return this.value < 0 ? 0 : this.value > 100 ? 100 : this.value
     },
-  },
+    color () {
+      return colorConfig[VuesticTheme[this.theme]]
+    },
+    dasharray () {
+      return 2 * Math.PI * this.radius
+    },
+    dashoffset () {
+      return this.dasharray * (1 - this.normalizedValue / 100)
+    }
+  }
 }
 </script>
 
 <style lang="scss">
-.circle-bar {
-  $step: 1;
-  $loops: 100 / $step;
-  $increment: 360 / $loops;
-  $half: round($loops / 2);
+.va-circle-bar {
+  position: relative;
+  width: $progress-bar-circle-diameter;
+  height: $progress-bar-circle-diameter;
 
-  font-size: $progress-bar-value-font-size;
-  font-weight: $font-weight-bold;
+  .va-circle-bar__progress-bar {
+    transform: rotate(-90deg);
 
-  &--animated {
-    transition: background-color ease .5s, width 3s linear !important;
+    &--indeterminate {
+      animation: circle-bar__progress-bar--indeterminate 2s linear infinite;
+    }
   }
 
-  &.circle-bar__progress-bar {
-    transition: background-color ease .5s, width 3s linear !important;
-    width: $progress-bar-circle-diameter;
-    height: $progress-bar-circle-diameter;
-    padding-left: $progress-bar-circle-bw;
-    padding-top: $progress-bar-circle-bw;
-    border-radius: 50%;
-    border-width: 0;
+  .va-circle-bar__overlay {
+    transition: all ease 2s;
+
+    &--indeterminate {
+      animation: circle-bar__overlay--indeterminate 2s ease-in-out infinite;
+    }
   }
 
-  .circle-bar__overlay {
-    width: $progress-bar-circle-overlay-diameter;
-    height: $progress-bar-circle-diameter - 2*$progress-bar-circle-bw;
-    border-radius: 50%;
-    border-width: 0;
-    @include va-flex-center();
-    text-align: center;
+  .va-circle-bar__info {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: $progress-bar-value-font-size;
   }
+}
 
-  & &--disabled {
-    opacity: 0.5
+@keyframes circle-bar__progress-bar--indeterminate {
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes circle-bar__overlay--indeterminate {
+  0% {
+    stroke-dasharray: 1, 125;
+    stroke-dashoffset: 0px;
+  }
+  50% {
+    stroke-dasharray: 125, 125;
+    stroke-dashoffset: -65px;
+  }
+  100% {
+    stroke-dasharray: 125, 125;
+    stroke-dashoffset: -125px;
   }
 }
 </style>
