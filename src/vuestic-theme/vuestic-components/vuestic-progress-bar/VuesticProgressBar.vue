@@ -9,15 +9,6 @@
       :theme="theme"
       v-if="type == 'horizontal'"
     />
-    <vertical-bar
-      :value="transformedValue"
-      :text="text"
-      :size="size"
-      :disabled="disabled"
-      :animated="animated"
-      :theme="theme"
-      v-if="type == 'vertical'"
-    />
     <circle-bar
       :value="transformedValue"
       :text="text"
@@ -32,14 +23,12 @@
 
 <script>
 import HorizontalBar from './progress-types/HorizontalProgressBar.vue'
-import VerticalBar from './progress-types/VerticalProgressBar.vue'
 import CircleBar from './progress-types/CircleProgressBar.vue'
 
 export default {
   name: 'vuestic-progress-bar',
   components: {
     HorizontalBar,
-    VerticalBar,
     CircleBar,
   },
   props: {

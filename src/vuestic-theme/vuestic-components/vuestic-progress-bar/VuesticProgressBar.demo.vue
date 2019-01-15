@@ -23,22 +23,6 @@
       </div>
     </div>
     <div class="demo-container__item" style="width: 300px">
-      <div class="va-row">
-        <div class="flex lg4">
-          <vuestic-progress-bar :value="55" theme="Warning" type="vertical"
-                                size="thin"/>
-        </div>
-        <div class="flex lg4">
-          <vuestic-progress-bar :value="40" theme="Danger" text="second"
-                                type="vertical"/>
-        </div>
-        <div class="flex lg4">
-          <vuestic-progress-bar :value="85" theme="Info" type="vertical"
-                                size="thick" :animated="true"/>
-        </div>
-      </div>
-    </div>
-    <div class="demo-container__item" style="width: 300px">
       <vuestic-progress-bar :value="10" theme="Primary"/>
       <vuestic-progress-bar :value="30" theme="Info" text="blue"
                             :animated="true"/>
