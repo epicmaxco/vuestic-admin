@@ -1,5 +1,5 @@
 <template>
-  <i class="vuestic-icon"
+  <i class="va-icon"
     :class="[icon, iconClass]"
     :style="iconStyle"
   />
@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'vuestic-icon',
+  name: 'va-icon',
   props: {
     icon: {
       type: String
@@ -37,15 +37,15 @@ export default {
   computed: {
     iconClass () {
       return {
-        'vuestic-icon--large': this.large,
-        'vuestic-icon--small': this.small,
-        'vuestic-icon--fixed': this.fixedWidth,
-        'vuestic-icon--success': this.color === 'success',
-        'vuestic-icon--info': this.color === 'info',
-        'vuestic-icon--danger': this.color === 'danger',
-        'vuestic-icon--warning': this.color === 'warning',
-        'vuestic-icon--gray': this.color === 'gray',
-        'vuestic-icon--dark': this.color === 'dark',
+        'va-icon--large': this.large,
+        'va-icon--small': this.small,
+        'va-icon--fixed': this.fixedWidth,
+        'va-icon--success': this.color === 'success',
+        'va-icon--info': this.color === 'info',
+        'va-icon--danger': this.color === 'danger',
+        'va-icon--warning': this.color === 'warning',
+        'va-icon--gray': this.color === 'gray',
+        'va-icon--dark': this.color === 'dark',
       }
     },
     iconStyle () {
@@ -59,8 +59,8 @@ export default {
 </script>
 
 <style lang="scss">
-.vuestic-icon {
-  display: inline-flex;
+.va-icon {
+  display: inline-block;
 
   &--large {
     font-size: 36px;
