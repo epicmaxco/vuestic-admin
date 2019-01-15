@@ -39,6 +39,9 @@ export default {
 </script>
 
 <style lang="scss">
+$vuestic-preloader-left: calc(50% - 140px / 2);
+$vuestic-preloader-top: calc(50% - 104px / 2);
+
 .vuestic-layout {
   &-fixed {
     .content-wrap {

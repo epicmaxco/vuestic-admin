@@ -170,13 +170,10 @@ $modal-header-padding-x: $widget-padding;
 $modal-header-padding-y: 0;
 $modal-header-height: $widget-header-height;
 $modal-header-border: $widget-header-border;
-$modal-content-border-width: 0;
 $modal-content-border-radius: 0;
 $modal-inner-padding: 25px;
 $modal-footer-btns-padding-bottom: 20px;
 $modal-footer-btns-margin-x: 10px;
-$modal-md: 650px;
-$modal-lg: 850px;
 
 .vuestic-modal {
   height: 0;

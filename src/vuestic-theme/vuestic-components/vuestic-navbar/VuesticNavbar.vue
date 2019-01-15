@@ -28,6 +28,15 @@ export default {
 </script>
 
 <style lang="scss">
+$nav-mobile-padding-h: .875rem;
+$nav-mobile-pt: 1.75rem;
+$nav-mobile-pb: 0.5rem;
+$nav-mobile-brand-width: 4rem;
+$nav-mobile-brand-top: .875rem;
+$nav-mobile-brand-left: calc(50% - #{$nav-mobile-brand-width});
+$dropdown-mobile-show-b: 2rem;
+$navbar-dd-item-height: 48px;
+
 .vuestic-navbar {
   .layout-fixed & {
     position: fixed;

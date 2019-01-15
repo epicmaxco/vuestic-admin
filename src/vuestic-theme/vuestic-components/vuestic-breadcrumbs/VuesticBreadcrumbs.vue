@@ -84,6 +84,10 @@ export default {
 </script>
 
 <style lang='scss'>
+$breadcrumbs-height: 54px;
+$breadcrumbs-arrow-font: 0.7rem;
+$breadcrumbs-arrow-content: "\f054";
+
 .vuestic-breadcrumbs {
   min-height: $breadcrumbs-height;
   display: flex;

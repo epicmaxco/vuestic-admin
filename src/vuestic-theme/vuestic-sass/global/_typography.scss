@@ -1,3 +1,11 @@
+// Links
+$va-link-color: $brand-primary;
+$va-link-color-secondary: #babfc2;
+$va-link-color-hover: #79eca8;
+$va-link-color-active: #48c279;
+$va-link-color-visited: $va-link-color;
+$link-hover-decoration: none;
+
 .vue-highlighted-text {
   background-color: $vue-turquoise;
 }
