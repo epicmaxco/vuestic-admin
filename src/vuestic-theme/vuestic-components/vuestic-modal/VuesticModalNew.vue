@@ -1,14 +1,14 @@
 <template>
 <div
-  v-if="valueProxy"
+  v-show="valueProxy"
   class="vuestic-modal-new__overlay"
   @click="checkOutside"
 >
-  <transition name="modal" duration="5000">
+  <transition name="modal">
     <div
       class="vuestic-modal-new"
       :class="computedClass"
-      v-if="valueProxy"
+      v-show="valueProxy"
       :style="{maxWidth, maxHeight}"
     >
       <i
@@ -165,6 +165,7 @@ export default {
   overflow: auto;
   display: flex;
   flex-flow: column;
+  transition: all .5s ease;
   &_fullscreen {
     min-width: 100vw !important;
     height: 100vh !important;
@@ -177,6 +178,21 @@ export default {
       border-radius: 0;
     }
   }
+
+  &.modal-enter,
+  &.modal-leave-to
+  {
+    opacity: 0;
+    transform: translateY(-30%);
+  }
+
+  &.modal-enter-active {
+    transition: all .3s ease;
+  }
+  &.modal-leave-active {
+    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+
   &_position{
     &-top {
       bottom: auto;
