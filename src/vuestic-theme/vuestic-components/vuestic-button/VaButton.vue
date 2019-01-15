@@ -12,10 +12,12 @@
     :append="append"
     :active-class="activeClass"
     :exact="exact"
-    :exact-active-class="exactActiveClass">
+    :exact-active-class="exactActiveClass"
+  >
     <va-button-content
       :icon="icon"
-      :icon-right="iconRight">
+      :icon-right="iconRight"
+    >
       <slot/>
     </va-button-content>
   </component>
