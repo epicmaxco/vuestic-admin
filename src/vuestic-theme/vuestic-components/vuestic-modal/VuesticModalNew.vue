@@ -233,7 +233,7 @@ export default {
     right: 16px;
     cursor: pointer;
     font-size: 1.5rem;
-    color: $va-link-color-secondary;
+    color: $brand-secondary;
   }
   &__title {
     color: $vu-info;
