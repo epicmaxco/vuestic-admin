@@ -5,7 +5,9 @@
         :options="chartTypes"
         v-model="chartType"
       />
-      <button @click="refreshData()">Refresh data</button>
+      <va-button @click="refreshData()">
+        refreshData
+      </va-button>
 
       <vuestic-chart :data="chartData" :type="chartType"/>
     </div>
@@ -17,6 +19,7 @@ import VuesticChart from './VuesticChart.vue'
 import VuesticSimpleSelect from '../vuestic-simple-select/VuesticSimpleSelect'
 import { chartTypes } from './VuesticChartConfigs'
 import { getLineChartData } from '../../../data/charts/LineChartData'
+import VaButton from '../va-button/VaButton'
 
 export default {
   data () {
@@ -26,6 +29,7 @@ export default {
     }
   },
   components: {
+    VaButton,
     VuesticSimpleSelect,
     VuesticChart,
   },

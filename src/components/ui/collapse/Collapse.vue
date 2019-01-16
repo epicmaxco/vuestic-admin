@@ -98,11 +98,11 @@
         <div class="va-row">
           <div class="flex md12">
             <vuestic-collapse noHeader>
-              <div class="va-row" slot="header">
-                <div class="flex md4">
-                  <button class="btn btn-primary">
+              <div class="row" slot="header">
+                <div class="col-md-4">
+                  <va-button>
                     <span> Expand Button </span>
-                  </button>
+                  </va-button>
                 </div>
               </div>
               <div slot="body">
@@ -142,8 +142,13 @@
 </template>
 
 <script>
+import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
+
 export default {
   name: 'collapse',
+  components: {
+    VaButton
+  },
 }
 </script>
 

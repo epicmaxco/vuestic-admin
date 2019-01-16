@@ -20,19 +20,22 @@
           <va-icon icon="bar"/>
         </div>
       </div>
-      <div class="d-flex align--center justify--space-between">
-        <button class="btn btn-primary" type="submit">
+      <div
+        class="d-flex flex-column flex-lg-row align-items-center justify-content-between down-container">
+        <va-button type="submit">
           {{ $t('auth.login') }}
-        </button>
-        <router-link class='link flex-center pl-2 text-center' :to="{name: 'signup'}">
+        </va-button>
+        <va-button flat tag="router-link" :to="{ name: 'signup' }">
           {{ $t('auth.createAccount') }}
-        </router-link>
+        </va-button>
       </div>
     </form>
   </div>
 </template>
 
 <script>
+import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
+
 export default {
   name: 'login'
 }

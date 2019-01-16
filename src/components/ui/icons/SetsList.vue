@@ -1,63 +1,70 @@
 <template>
-  <vuestic-widget class="sets-list" :headerText="$t('icons.title')">
-    <div class="va-row">
-      <div
-        class="flex lg6 xs12 sets-list__set"
-        v-for="(set, index) in sets"
-        :key="index"
-      >
-        <div class="sets-list__set__content">
-          <div class="sets-list__set__content__overlay">
-            <router-link :to="{path: set.href}" append>
-              <div class="btn btn-primary btn">{{set.name.toUpperCase()}}
+  <div class="sets-list row">
+    <div class="col-md-12">
+      <vuestic-widget :headerText="$t('icons.title')">
+        <div class="row">
+          <div
+            class="small-set col-lg-6"
+            v-for="(set, index) in sets"
+            :key="index"
+          >
+            <div class="set-content">
+              <div class="overlay">
+                <va-button tag="router-link" :to="{path: set.href}" append>
+                  {{ set.name.toUpperCase() }}
+                </va-button>
               </div>
-            </router-link>
-          </div>
+            </div>
 
-          <template v-for="(filteredList, index) in set.filteredLists">
-            <div
-              class="va-row"
-              :key="index"
-              v-if="filteredList.length !== 2"
-            >
+            <template v-for="(filteredList, index) in set.filteredLists">
               <div
-                class="flex xs2 flex-center"
-                v-for="(icon, index) in filteredList"
+                class="va-row"
                 :key="index"
+                v-if="filteredList.length !== 2"
               >
-                <div class="sets-list__icon flex-center vuestic-icon">
-                  <va-icon :icon="iconClass(set, icon)"/>
+                <div
+                  class="flex xs2 flex-center"
+                  v-for="(icon, index) in filteredList"
+                  :key="index"
+                >
+                  <div class="sets-list__icon flex-center vuestic-icon">
+                    <va-icon :icon="iconClass(set, icon)"/>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="va-row"
-              :key="index"
-              v-if="filteredList.length === 2"
-            >
-              <div class="flex xs2 flex-center">
-                <div class="sets-list__icon flex-center vuestic-icon">
-                  <va-icon :icon="iconClass(set, filteredList[0])"/>
+              <div
+                class="va-row"
+                :key="index"
+                v-if="filteredList.length === 2"
+              >
+                <div class="flex xs2 flex-center">
+                  <div class="sets-list__icon flex-center vuestic-icon">
+                    <va-icon :icon="iconClass(set, filteredList[0])"/>
+                  </div>
+                </div>
+                <div class="flex xs8"/>
+                <div class="flex xs2 flex-center">
+                  <div class="sets-list__icon flex-center vuestic-icon">
+                    <va-icon :icon="iconClass(set, filteredList[1])"/>
+                  </div>
                 </div>
               </div>
-              <div class="flex xs8"/>
-              <div class="flex xs2 flex-center">
-                <div class="sets-list__icon flex-center vuestic-icon">
-                  <va-icon :icon="iconClass(set, filteredList[1])"/>
-                </div>
-              </div>
-            </div>
-          </template>
-
+            </template>
+          </div>
         </div>
-      </div>
+      </vuestic-widget>
     </div>
-  </vuestic-widget>
+  </div>
 </template>
 
 <script>
+import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
+
 export default {
   name: 'iconsList',
+  components: {
+    VaButton
+  },
   props: ['sets'],
   methods: {
     iconClass (set, icon) {
