@@ -1,21 +1,28 @@
 <template>
-  <div class="horizontal-bar">
-    <div v-if="size !== 'thick'" class="horizontal-bar__value">
-      <span v-if="!text">{{value + '%'}}</span>
-      <span v-else>{{text}}</span>
+  <div class="va-horizontal-bar">
+    <div :style="{color}" class="va-horizontal-bar__info">
+      <slot></slot>
     </div>
-    <div class="progress" :class="horizontalBarType">
+    <div class="va-horizontal-bar__progress-bar">
       <div
-        class="progress-bar horizontal-bar__progress-bar"
-        :class="horizontalBarAnimation"
-        :style="horizontalBarStyle"
-      >
-        <span v-if="size === 'thick'" :class="{hidden: value == 0}"
-              class="horizontal-bar__value">
-          <span v-if="!text">{{value + '%'}}</span>
-          <span v-else>{{text}}</span>
-        </span>
-      </div>
+        :style="{width: normalizedBuffer + '%', backgroundColor: color}"
+        class="va-horizontal-bar__buffer"
+      ></div>
+      <div
+        v-if="!indeterminate"
+        :style="{width: normalizedValue + '%', backgroundColor: color}"
+        class="va-horizontal-bar__overlay"
+      ></div>
+      <template v-else>
+        <div
+          :style="{backgroundColor: color}"
+          class="va-horizontal-bar__overlay--indeterminate-start"
+        ></div>
+        <div
+          :style="{backgroundColor: color}"
+          class="va-horizontal-bar__overlay--indeterminate-end"
+        ></div>
+      </template>
     </div>
   </div>
 </template>
@@ -23,110 +30,132 @@
 <script>
 import {
   colorConfig,
-  VuesticTheme,
+  VuesticTheme
 } from './../../vuestic-color-picker/VuesticTheme'
 
 export default {
   props: {
     value: {
       type: Number,
-      default: 0,
-    },
-    text: {
-      type: String,
-      default: '',
+      default: 0
     },
     theme: {
       type: String,
-      default: 'Primary',
+      default: 'Primary'
     },
-    size: {
-      type: String,
-      default: 'basic',
-    },
-    disabled: {
+    // If 'indeterminate' is 'true' 'value' and 'buffer' props will be ignored.
+    indeterminate: {
       type: Boolean,
-      default: false,
+      default: false
     },
-    animated: {
-      type: Boolean,
-      default: false,
-    },
+    buffer: {
+      type: Number,
+      default: 100
+    }
   },
   computed: {
-    horizontalBarStyle: function () {
-      return {
-        backgroundColor: colorConfig[VuesticTheme[this.theme]],
-        width: this.value + '%',
-      }
+    color () {
+      return colorConfig[VuesticTheme[this.theme]]
     },
-    horizontalBarType: function () {
-      return {
-        'horizontal-bar--thick': this.size === 'thick',
-        'horizontal-bar--thin': this.size === 'thin',
-        'horizontal-bar--basic': this.size === 'basic',
-        'horizontal-bar--disabled': this.disabled,
-      }
+    normalizedValue () {
+      return this.value < 0 ? 0 : this.value > 100 ? 100 : this.value
     },
-    horizontalBarAnimation: function () {
-      return {
-        'horizontal-bar--animated': this.animated,
+    normalizedBuffer () {
+      if (this.indeterminate) {
+        return 100
       }
-    },
-  },
+
+      return this.buffer < 0 ? 0 : this.buffer > 100 ? 100 : this.buffer
+    }
+  }
 }
 </script>
 
 <style lang="scss">
-.horizontal-bar {
-  display: inline-block;
+.va-horizontal-bar {
   width: 100%;
-  font-size: $progress-bar-value-font-size;
-  font-weight: $font-weight-bold;
+  position: relative;
+  overflow: hidden;
 
-  &--animated {
-    transition: background-color ease .5s, width 3s linear !important;
-  }
-
-  .horizontal-bar__value {
+  .va-horizontal-bar__info {
+    font-size: $progress-bar-value-font-size;
+    font-weight: $font-weight-bold;
     text-align: center;
+    text-transform: uppercase;
 
-    &.hidden {
-      visibility: hidden;
+    &:not(:empty) {
+      margin-bottom: 0.3125rem;
     }
   }
 
-  &--basic {
-    border-radius: $progress-bar-width-basic;
+  .va-horizontal-bar__progress-bar {
     height: $progress-bar-width-basic;
-
-    .horizontal-bar__progress-bar {
-      border-radius: inherit;
-    }
+    border-radius: $progress-bar-width-basic;
+    position: relative;
+    overflow: hidden;
   }
 
-  &--thin {
-    height: $progress-bar-width-thin;
-    margin-top: .125rem;
+  .va-horizontal-bar__buffer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: inherit;
+    border-radius: inherit;
+    opacity: 0.3;
+    transition: width ease 2s;
   }
 
-  &--thick {
-    border-radius: $progress-bar-width-thick;
-    height: $progress-bar-width-thick;
-    margin-top: calc(#{$progress-bar-width-thick} / 2 - .125rem);
-
-    .horizontal-bar__progress-bar {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: inherit;
-    }
+  .va-horizontal-bar__overlay {
+    height: inherit;
+    border-radius: inherit;
+    transition: width ease 2s;
   }
 
-  &--disabled {
-    opacity: 0.5
+  .va-horizontal-bar__overlay--indeterminate-start {
+    animation: horizontal-bar__overlay--indeterminate-start 2s ease-in infinite;
+    position: absolute;
+    height: inherit;
   }
 
+  .va-horizontal-bar__overlay--indeterminate-end {
+    animation: horizontal-bar__overlay--indeterminate-end 2s ease-out 1s
+      infinite;
+    position: absolute;
+    height: inherit;
+  }
 }
 
+@keyframes horizontal-bar__overlay--indeterminate-start {
+  0% {
+    width: 10%;
+    left: -10%;
+  }
+
+  50% {
+    width: 100%;
+    left: 100%;
+  }
+
+  100% {
+    width: 100%;
+    left: 100%;
+  }
+}
+
+@keyframes horizontal-bar__overlay--indeterminate-end {
+  0% {
+    width: 100%;
+    left: -100%;
+  }
+
+  50% {
+    width: 10%;
+    left: 100%;
+  }
+
+  100% {
+    width: 10%;
+    left: 100%;
+  }
+}
 </style>

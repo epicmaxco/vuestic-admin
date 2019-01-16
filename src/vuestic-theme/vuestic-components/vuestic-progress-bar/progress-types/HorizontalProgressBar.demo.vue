@@ -1,26 +1,62 @@
 <template>
-  <div class="demo-container">
-    <div class="demo-container__item" style="width: 300px">
-      <horizontal-bar :value="10" theme="Primary"/>
-      <horizontal-bar :value="20" size="thin" theme="Danger"/>
-      <horizontal-bar :value="40" theme="Success" :animated="true"/>
-      <horizontal-bar :value="50" size="thick" theme="Warning"/>
-      <horizontal-bar :value="60" theme="Info"/>
-      <horizontal-bar :value="70" size="thick" theme="Primary" text="black"/>
-      <horizontal-bar :value="80" theme="Success" size="basic"/>
-      <horizontal-bar :value="90" size="thin" theme="Info"/>
-      <horizontal-bar :value="100" theme="Danger"/>
-    </div>
-  </div>
+  <VbDemo>
+    <VbContainer>
+      <div class="horizontal-progress-bar-demo-wrapper">
+        <span>No value</span>
+        <horizontal-progress-bar/>
+        <span>Default</span>
+        <horizontal-progress-bar :value="value"></horizontal-progress-bar>
+        <span>Danger</span>
+        <horizontal-progress-bar :value="value" :theme="'Danger'"/>
+        <span>Static slot</span>
+        <horizontal-progress-bar :value="value">Slot</horizontal-progress-bar>
+        <span>Dynamic slot</span>
+        <horizontal-progress-bar :value="value">{{ value + '%' }}</horizontal-progress-bar>
+        <span>Slot Success</span>
+        <horizontal-progress-bar :value="value" :theme="'Success'">{{ value + '%' }}</horizontal-progress-bar>
+        <span>Buffer</span>
+        <horizontal-progress-bar :value="value" :buffer="value * 1.5"/>
+        <span>Indeterminate</span>
+        <horizontal-progress-bar :indeterminate="true"/>
+        <span>Indeterminate Info</span>
+        <horizontal-progress-bar :indeterminate="true" theme="Info"/>
+        <span>Indeterminate Slot</span>
+        <horizontal-progress-bar :indeterminate="true">Slot</horizontal-progress-bar>
+        <span>Indeterminate with :value and :buffer</span>
+        <horizontal-progress-bar :value="value" :buffer="value * 1.5" :indeterminate="true"/>
+      </div>
+    </VbContainer>
+    <VbContainer>
+      <button @click="value -= 100">-100</button>
+      <button @click="value -= 10">-10</button>
+      {{ value }}
+      <button @click="value += 10">+10</button>
+      <button @click="value += 100">+100</button>
+    </VbContainer>
+  </VbDemo>
 </template>
 
 <script>
-
-import HorizontalBar from './../progress-types/HorizontalProgressBar'
+import HorizontalProressBar from './HorizontalProgressBar.vue'
 
 export default {
   components: {
-    HorizontalBar,
+    'horizontal-progress-bar': HorizontalProressBar
   },
+  data () {
+    return {
+      value: 35
+    }
+  }
 }
 </script>
+
+<style lang="scss" scoped>
+.horizontal-progress-bar-demo-wrapper {
+  width: 400px;
+
+  div {
+    margin-bottom: 25px;
+  }
+}
+</style>
