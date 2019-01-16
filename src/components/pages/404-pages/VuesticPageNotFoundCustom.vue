@@ -23,7 +23,7 @@
       </div>
       <div
         class="vuestic-page-not-found-custom__wallpaper col-md-12 vuestic-page-not-found-custom__wallpaper-button">
-        <va-button tag="router-link" :to="{ path: './dashboard' }">
+        <va-button :to="{ name: 'dashboard' }">
           {{'Back to dashboard'}}
         </va-button>
       </div>
