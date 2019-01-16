@@ -17,8 +17,6 @@ import PreLoader
   from './vuestic-components/vuestic-preloader/VuesticPreLoader.vue'
 import ProfileCard
   from './vuestic-components/vuestic-profile-card/VuesticProfileCard.vue'
-import ProgressBar
-  from './vuestic-components/vuestic-progress-bar/VuesticProgressBar.vue'
 import RadioButton
   from './vuestic-components/vuestic-radio-button/VuesticRadioButton'
 import Scrollbar
@@ -88,7 +86,6 @@ const VuesticPlugin = {
       MultiSelect,
       PreLoader,
       ProfileCard,
-      ProgressBar,
       RadioButton,
       Scrollbar,
       SimpleSelect,
