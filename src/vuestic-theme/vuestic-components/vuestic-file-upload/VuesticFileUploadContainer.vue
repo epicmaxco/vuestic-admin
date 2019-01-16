@@ -10,8 +10,9 @@
       >
         {{ $t('fileUpload.dragNdropFiles') }}
       </div>
-      <button type="button" class="btn btn-primary btn-micro">
+      <va-button>
         {{ $t('fileUpload.uploadFile') }}
+<<<<<<< HEAD
       </button>
       <input
         type="file"
@@ -20,6 +21,15 @@
         :accept="fileTypes"
         :multiple="type !== 'single'"
         @change="changeFieldValue"
+=======
+      </va-button>
+      <input type="file"
+             class="vuestic-file-upload-field-input"
+             ref="fieldInput"
+             :accept="fileTypes"
+             :multiple="type !== 'single'"
+             @change="changeFieldValue"
+>>>>>>> feature/button-component: change button in whole app
       >
     </div>
     <div class="vuestic-file-upload-container__main">
@@ -29,8 +39,13 @@
 </template>
 
 <script>
+import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
+
 export default {
   name: 'vuestic-file-upload-container',
+  components: {
+    VaButton
+  },
   props: {
     dropzone: {
       type: Boolean,

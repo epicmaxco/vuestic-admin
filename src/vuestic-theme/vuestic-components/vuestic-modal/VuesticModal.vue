@@ -26,14 +26,12 @@
               <!--Footer-->
               <div class="modal-footer">
                 <slot name="footer">
-                  <button type="button" v-if="!noButtons" :class="okClass"
-                          @click="ok" :disabled="okDisabled">
+                  <va-button v-if="!noButtons" :class="okClass" @click="ok" :disabled="okDisabled">
                     {{ okText }}
-                  </button>
-                  <button type="button" v-if="!noButtons" :class="cancelClass"
-                          @click="cancel" :disabled="cancelDisabled">
+                  </va-button>
+                  <va-button v-if="!noButtons" :class="cancelClass" @click="cancel" :disabled="cancelDisabled">
                     {{ cancelText }}
-                  </button>
+                  </va-button>
                 </slot>
               </div>
             </div>
@@ -46,8 +44,12 @@
 </template>
 
 <script>
+import VaButton from '../va-button/VaButton'
 export default {
   name: 'vuestic-modal',
+  components: {
+    VaButton
+  },
   props: {
     transition: {
       type: String,

@@ -19,7 +19,9 @@
                    required title=""/>
             <label class="control-label">Your message</label><i class="bar"></i>
           </div>
-          <div class="btn btn-sm btn-primary" @click="sendMessage()">Send</div>
+          <va-button @click="sendMessage()">
+            Send
+          </va-button>
         </div>
       </fieldset>
     </div>
@@ -28,12 +30,16 @@
 
 <script>
 import StickyScroll from 'vuestic-directives/StickyScroll'
+import VaButton from './../va-button/VaButton'
 
 export default {
   name: 'vuestic-chat',
-
-  directives: { StickyScroll },
-
+  components: {
+    VaButton
+  },
+  directives: {
+    StickyScroll
+  },
   props: {
     value: {
       type: Array,

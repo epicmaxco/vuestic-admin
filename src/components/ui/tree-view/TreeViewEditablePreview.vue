@@ -25,11 +25,9 @@
         </div>
       </vuestic-tree-node>
       <vuestic-tree-node>
-        <button class="btn btn-primary btn-micro mb-2"
-                @click="addProduct()"
-        >
+        <va-button class="mb-2" @click="addProduct()">
           Add new product
-        </button>
+        </va-button>
       </vuestic-tree-node>
     </vuestic-tree-category>
 
@@ -37,8 +35,13 @@
 </template>
 
 <script>
+import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
+
 export default {
   name: 'tree-view-editable-preview',
+  components: {
+    VaButton
+  },
   data () {
     return {
       electronics: [

@@ -32,7 +32,9 @@
 
     <div class="demo-container__item">
       {{ items }}
-      <button @click="reroll()">Reroll</button>
+      <va-button @click="reroll()">
+        Reroll
+      </va-button>
     </div>
   </div>
 </template>
@@ -40,9 +42,11 @@
 <script>
 import VuesticTimeline from './VuesticTimeline.vue'
 import VuesticTimelineItem from './VuesticTimelineItem.vue'
+import VaButton from '../va-button/VaButton'
 
 export default {
   components: {
+    VaButton,
     VuesticTimeline,
     VuesticTimelineItem,
   },

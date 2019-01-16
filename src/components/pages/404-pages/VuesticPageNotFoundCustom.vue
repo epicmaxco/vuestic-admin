@@ -22,12 +22,10 @@
         </div>
       </div>
       <div
-        class="vuestic-page-not-found-custom__wallpaper vuestic-page-not-found-custom__wallpaper-button">
-        <router-link :to="{ path: './dashboard' }">
-          <button class="btn btn-primary back-button">
-            {{'Back to dashboard'}}
-          </button>
-        </router-link>
+        class="vuestic-page-not-found-custom__wallpaper col-md-12 vuestic-page-not-found-custom__wallpaper-button">
+        <va-button tag="router-link" :to="{ path: './dashboard' }">
+          {{'Back to dashboard'}}
+        </va-button>
       </div>
     </div>
     <vuestic-page-not-found-sad-wallpaper/>
@@ -39,10 +37,12 @@
 import MadeByComponent from './MadeByComponent'
 import VuesticPageNotFoundSadWallpaper
   from './VuesticPageNotFoundSadWallpaper.vue'
+import VaButton from './../../../vuestic-theme/vuestic-components/va-button/VaButton'
 
 export default {
   name: 'vuestic-page-not-found-custom',
   components: {
+    VaButton,
     MadeByComponent,
     VuesticPageNotFoundSadWallpaper,
   },

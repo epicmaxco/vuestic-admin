@@ -84,10 +84,12 @@
           >
             {{ $t('cards.contentText') }}
             <p class="pt-3 mb-0">
-              <button class="btn btn-primary btn-micro">
+              <va-button>
                 {{ $t('cards.button.main') }}
-              </button>
-              <a class="ml-2 mb-0" href="#">{{ $t('cards.button.cancel') }}</a>
+              </va-button>
+              <va-button flat tag="a" href="#">
+                {{ $t('cards.button.cancel') }}
+              </va-button>
             </p>
           </vuestic-card>
 
@@ -116,12 +118,7 @@
           >
             <div class="flex">
               <p>{{ $t('cards.contentText') }}</p>
-              <div
-                class="btn btn-primary btn-with-icon btn-micro rounded-icon">
-                <div class="btn-with-icon-content">
-                  <i class="ion-md-cloud-outline ion"></i>
-                </div>
-              </div>
+              <va-button icon="ion-md-cloud-outline ion"/>
             </div>
           </vuestic-card>
 
@@ -153,9 +150,9 @@
         <vuestic-pre-loader v-show="isShown"
                             class="pre-loader"></vuestic-pre-loader>
         <div v-if="!isShown">
-          <button class="btn btn-primary" @click="addCards()">
+          <va-button @click="addCards()">
             Show More
-          </button>
+          </va-button>
         </div>
       </div>
     </div>
@@ -165,10 +162,14 @@
 <script>
 import VuesticCard
   from '../../../vuestic-theme/vuestic-components/vuestic-card/VuesticCard'
+import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
 
 export default {
   name: 'cards',
-  components: { VuesticCard },
+  components: {
+    VuesticCard,
+    VaButton
+  },
   data () {
     return {
       listLoops: 1,

@@ -50,24 +50,15 @@
 
       <div class="wizard-body-actions" v-if="!wizardCompleted">
         <div class="btn-container" v-if="backEnabled">
-          <button class="btn btn-secondary wizard-back pull-left"
-                  @click.prevent="goBack()">
-            Back
-          </button>
+          <va-button outline @click.prevent="goBack()"> Back </va-button>
         </div>
 
         <div class="btn-container" v-if="!isLastStep()">
-          <button class="btn btn-primary wizard-next pull-right"
-                  @click.prevent="goNext()">
-            Next
-          </button>
+          <va-button @click.prevent="goNext()"> Next </va-button>
         </div>
 
         <div class="btn-container" v-if="currentStep == steps.length - 1">
-          <button class="btn btn-primary wizard-next pull-right final-step"
-                  @click.prevent="completeWizard()">
-            {{lastStepLabel}}
-          </button>
+          <va-button @click.prevent="completeWizard()"> {{ lastStepLabel }} </va-button>
         </div>
       </div>
     </div>
@@ -81,9 +72,17 @@ import RichHorizontalIndicator from './indicators/RichHorizontalIndicator.vue'
 import RichVerticalIndicator from './indicators/RichVerticalIndicator.vue'
 import SimpleVerticalIndicator from './indicators/SimpleVerticalIndicator.vue'
 import WizardOrientationHandler from './WizardOrientationHandler'
+import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
 
 export default {
   name: 'vuestic-wizard',
+  components: {
+    SimpleHorizontalIndicator,
+    RichHorizontalIndicator,
+    RichVerticalIndicator,
+    SimpleVerticalIndicator,
+    VaButton
+  },
   props: {
     steps: {},
     wizardType: {
@@ -106,12 +105,6 @@ export default {
       orientationBreakPoint: 767, // TODO: into config,
       computedLayout: this.wizardLayout,
     }
-  },
-  components: {
-    SimpleHorizontalIndicator,
-    RichHorizontalIndicator,
-    RichVerticalIndicator,
-    SimpleVerticalIndicator,
   },
   directives: {
     orientationHandler: WizardOrientationHandler,
