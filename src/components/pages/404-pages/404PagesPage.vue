@@ -11,9 +11,7 @@
           {{ item.label }}
           <div class="not-found-pages__button-container pt-3 mb-0">
             <va-button
-              tag="router-link"
-              :to="{ name: item.buttonTo }"
-              target="_blank">
+              :to="{ name: item.buttonTo }">
               {{ 'View Example' }}
             </va-button>
           </div>

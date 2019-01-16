@@ -50,15 +50,15 @@
 
       <div class="wizard-body-actions" v-if="!wizardCompleted">
         <div class="btn-container" v-if="backEnabled">
-          <va-button outline @click.prevent="goBack()"> Back </va-button>
+          <va-button outline @click.native="goBack()"> Back </va-button>
         </div>
 
         <div class="btn-container" v-if="!isLastStep()">
-          <va-button @click.prevent="goNext()"> Next </va-button>
+          <va-button @click.native="goNext()"> Next </va-button>
         </div>
 
         <div class="btn-container" v-if="currentStep == steps.length - 1">
-          <va-button @click.prevent="completeWizard()"> {{ lastStepLabel }} </va-button>
+          <va-button @click.native="completeWizard()"> {{ lastStepLabel }} </va-button>
         </div>
       </div>
     </div>
