@@ -5,6 +5,7 @@
   "description": "Vue.js admin template",
   "author": "smartapant <smartapant@gmail.com>",
   "scripts": {
+    "unit": "jest",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
@@ -67,6 +68,9 @@
     "express": "^4.16.3",
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "2.0.0",
+    "jest": "^23.6.0",
+    "jest-snapshots": "^1.1.2",
+    "jest-transform-stub": "^1.0.0",
     "lint-staged": "^7.2.0",
     "node-sass": "^4.9.0",
     "opn": "5.4.0",
@@ -79,7 +83,9 @@
     "semver": "5.5.1",
     "shelljs": "0.8.2",
     "vue-flatpickr-component": "^8.0.0",
-    "vue-template-compiler": "^2.5.17"
+    "vue-jest": "^3.0.2",
+    "vue-template-compiler": "^2.5.17",
+    "vue-test-utils": "^1.0.0-beta.11"
   },
   "engines": {
     "node": ">= 4.0.0",

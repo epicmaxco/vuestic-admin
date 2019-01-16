@@ -4,16 +4,16 @@
       <div class="flex md12">
         <vuestic-widget class="modals-list larger-padding"
                         :header-text="$t('modal.title')">
-          <va-button color="danger" @click="showSmallModal()">
+          <va-button color="danger" @click.native="showSmallModal()">
             {{ $t('modal.small') }}
           </va-button>
-          <va-button color="info" @click="showMediumModal()">
+          <va-button color="info" @click.native="showMediumModal()">
             {{ $t('modal.medium') }}
           </va-button>
-          <va-button color="warning" @click="showLargeModal()">
+          <va-button color="warning" @click.native="showLargeModal()">
             {{ $t('modal.large') }}
           </va-button>
-          <va-button color="success" @click="showStaticModal()">
+          <va-button color="success" @click.native="showStaticModal()">
             {{ $t('modal.static') }}
           </va-button>
         </vuestic-widget>
