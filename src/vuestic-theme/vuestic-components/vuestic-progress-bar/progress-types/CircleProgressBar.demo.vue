@@ -17,11 +17,11 @@
     </VbContainer>
 
     <VbContainer title="Dynamic Slot">
-      <circle-bar :value="value">{{ value }}</circle-bar>
+      <circle-bar :value="value">{{ value + '%' }}</circle-bar>
     </VbContainer>
 
     <VbContainer title="Slot Success">
-      <circle-bar :value="value" :theme="'Success'">{{ value }}</circle-bar>
+      <circle-bar :value="value" :theme="'Success'">{{ value + '%' }}</circle-bar>
     </VbContainer>
 
     <VbContainer title="Indeterminate">
