@@ -1,20 +1,16 @@
 {
   "name": "vuestic-admin",
   "version": "1.9.0",
+  "private": false,
   "description": "Vue.js admin template",
   "author": "smartapant <smartapant@gmail.com>",
-  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "inspect": "vue-cli-service inspect > inspect.js"
+    "inspect": "vue-cli-service inspect > inspect.js",
+    "test:unit": "vue-cli-service test:unit"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/epicmaxco/vuestic-admin.git"
-  },
-  "license": "MIT",
   "dependencies": {
     "amcharts3": "^3.21.13",
     "ammap3": "^3.21.13",
@@ -56,9 +52,13 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.5",
     "@vue/cli-plugin-eslint": "^3.0.5",
+    "@vue/cli-plugin-unit-jest": "^3.3.0",
     "@vue/cli-service": "^3.0.5",
     "@vue/eslint-config-standard": "^3.0.5",
+    "@vue/test-utils": "^1.0.0-beta.20",
     "autoprefixer": "9.1.5",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
     "chalk": "2.4.1",
     "connect-history-api-fallback": "1.5.0",
     "copy-webpack-plugin": "4.5.3",
@@ -88,6 +88,7 @@
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
+  "license": "MIT",
   "lint-staged": {
     "*.js": [
       "vue-cli-service lint",
@@ -97,5 +98,9 @@
       "vue-cli-service lint",
       "git add"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/epicmaxco/vuestic-admin.git"
   }
 }
