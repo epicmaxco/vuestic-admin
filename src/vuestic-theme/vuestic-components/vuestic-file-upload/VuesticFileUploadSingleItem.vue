@@ -3,19 +3,28 @@
     <div class="file-upload-single-item-name">
       {{ file.name }}
     </div>
+<<<<<<< HEAD
     <button
       type="button"
       class="btn-text btn-text--primary"
       @click="$emit('remove')"
     >
+=======
+    <va-button @click="$emit('remove')">
+>>>>>>> feature/button-component: change button in whole app
       {{ $t('fileUpload.delete') }}
-    </button>
+    </va-button>
   </div>
 </template>
 
 <script>
+import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
+
 export default {
   name: 'vuestic-file-upload-single-item',
+  components: {
+    VaButton
+  },
   props: {
     file: {
       type: Object,

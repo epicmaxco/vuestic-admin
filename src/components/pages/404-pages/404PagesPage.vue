@@ -10,15 +10,12 @@
         >
           {{ item.label }}
           <div class="not-found-pages__button-container pt-3 mb-0">
-            <router-link
+            <va-button
+              tag="router-link"
               :to="{ name: item.buttonTo }"
-              target="_blank"
-            >
-              <button
-                class="btn btn-primary btn-sm not-found-pages__advanced-button">
-                {{ 'View Example' }}
-              </button>
-            </router-link>
+              target="_blank">
+              {{ 'View Example' }}
+            </va-button>
           </div>
         </vuestic-card>
       </div>
@@ -27,9 +24,13 @@
 </template>
 
 <script>
+import VaButton from './../../../vuestic-theme/vuestic-components/va-button/VaButton'
 
 export default {
   name: 'not-found-pages',
+  components: {
+    VaButton
+  },
   data () {
     return {
       items: [
@@ -68,13 +69,6 @@ export default {
     margin: 0 $cardGutter calc(#{$cardGutter} * 2) $cardGutter;
   }
   &__button-container {
-    .btn.not-found-pages__advanced-button {
-      font-size: $font-size-root;
-      font-weight: $font-weight-bold;
-      padding-left: 0;
-      padding-right: 0;
-      width: 180px;
-    }
     text-align: center;
   }
 }

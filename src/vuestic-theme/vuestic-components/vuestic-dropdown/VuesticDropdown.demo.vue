@@ -5,13 +5,10 @@
       v-for="(dropdown, index) in dropdowns"
       :key="index"
     >
-      <button
-        type="button"
-        class="btn btn-primary dropdown-toggle theme-toggle"
-        slot="actuator"
-      >
+      <va-button
+        type="button" class="theme-toggle"
+        slot="actuator" icon-right="ion-ios-arrow-down arrow-down">
         {{ dropdown.text }}
-        <i class="ion-ios-arrow-down arrow-down"></i>
         <vuestic-dropdown
           v-model="dropdown.value"
           :position="dropdown.position"
@@ -26,16 +23,18 @@
             <div class="flex lg6"></div>
           </div>
         </vuestic-dropdown>
-      </button>
+      </va-button>
     </div>
   </div>
 </template>
 
 <script>
 import VuesticDropdown from './VuesticDropdown.vue'
+import VaButton from '../va-button/VaButton'
 
 export default {
   components: {
+    VaButton,
     VuesticDropdown,
   },
   data () {

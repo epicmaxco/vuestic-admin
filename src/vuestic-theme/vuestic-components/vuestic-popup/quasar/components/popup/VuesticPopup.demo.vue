@@ -240,9 +240,15 @@
     </div>
     <div class="demo-container__item">
       Event test {{eventTest}}
-      <button @click="$refs.eventTest.show('eventTest text')">Show</button>
-      <button @click="$refs.eventTest.hide('eventTest text')">Hide</button>
-      <button @click="$refs.eventTest.toggle('eventTest text')">Toggle</button>
+      <va-button @click="$refs.eventTest.show('eventTest text')">
+        Show
+      </va-button>
+      <va-button @click="$refs.eventTest.show('eventTest text')">
+        Hide
+      </va-button>
+      <va-button @click="$refs.eventTest.toggle('eventTest text')">
+        Toggle
+      </va-button>
       <div class="anchor">
         true
         <vuestic-popup
@@ -274,6 +280,7 @@
 import VuesticPopup from './VuesticPopup.vue'
 import { logMixin } from '../../mixins/logMixin'
 import { closeOverlay } from '../../directives/closeOverlay'
+import VaButton from '../../../../va-button/VaButton'
 
 export default {
   mixins: [logMixin],
@@ -281,6 +288,7 @@ export default {
     'close-overlay': closeOverlay,
   },
   components: {
+    VaButton,
     VuesticPopup,
     TestComponent: {
       render (h) {

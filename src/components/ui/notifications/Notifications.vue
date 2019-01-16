@@ -34,9 +34,9 @@
                 <vuestic-popover popover-class="vuestic-tooltip"
                                  placement="right"
                                  :disabled="isPopoverDisabled">
-                  <button slot="trigger" class="btn btn-sm btn-primary">
-                    {{'notificationsPage.popovers.showPopover' | translate}}
-                  </button>
+                  <va-button slot="trigger">
+                    {{ $t('notificationsPage.popovers.showPopover') }}
+                  </va-button>
                   <i
                     slot="icon"
                     class="fa"
@@ -142,13 +142,9 @@
                     v-model="isToastFullWidth"
                   />
                 </div>
-                <button
-                  slot="trigger"
-                  class="btn btn-sm btn-primary"
-                  @click="launchToast"
-                >
+                <va-button slot="trigger" @click="launchToast">
                   {{ $t('notificationsPage.toasts.launchToast') }}
-                </button>
+                </va-button>
               </fieldset>
               <br>
               <br>
@@ -174,10 +170,11 @@
 
 <script>
 import ToastPositionPicker from './ToastPositionPicker.vue'
+import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
 
 export default {
   name: 'notifications',
-  components: { ToastPositionPicker },
+  components: { ToastPositionPicker, VaButton },
   data () {
     return {
       popoverTitle: 'Hey!',

@@ -15,14 +15,15 @@
     "home": "Home"
   },
   "buttons": {
-    "advanced": "Icons, Groups, Dropdowns",
+    "advanced": "Buttons With Icons",
+    "size": "Button Sizes",
     "button": "BUTTON",
-    "colors": "Colors",
+    "colors": "Button Colors",
     "disabled": "DISABLED",
     "dropdown": "DROPDOWN",
     "hover": "HOVER",
-    "main": "Primary & Secondary Buttons",
-    "micro": "MICRO",
+    "main": "Primary, Outline & Flat Buttons",
+    "large": "LARGE",
     "pressed": "PRESSED",
     "small": "SMALL"
   },

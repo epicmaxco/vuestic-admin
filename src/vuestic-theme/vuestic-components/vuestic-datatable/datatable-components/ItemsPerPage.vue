@@ -3,14 +3,10 @@
     class="form-group"
     placement="bottom"
   >
-    <button
-      class="btn btn-primary btn-sm dropdown-toggle"
-      type="button"
-      slot="actuator"
-    >
+    <va-button
+      type="button" icon-right="ion-ios-arrow-down arrow-down" slot="actuator">
       {{selected}} {{label}}
-      <i class="ion-ios-arrow-down arrow-down"/>
-    </button>
+    </va-button>
     <template>
       <a
         class="dropdown-item"
@@ -25,7 +21,11 @@
 </template>
 
 <script>
+import VaButton from '../../va-button/VaButton'
 export default {
+  components: {
+    VaButton
+  },
   props: {
     label: {
       type: String,

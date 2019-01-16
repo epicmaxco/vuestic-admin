@@ -12,25 +12,28 @@
     :append="append"
     :active-class="activeClass"
     :exact="exact"
-    :exact-active-class="exactActiveClass"
-  >
-    <va-button-content
-      :icon="icon"
-      :icon-right="iconRight"
-    >
-      <slot/>
-    </va-button-content>
+    :exact-active-class="exactActiveClass">
+    <div class="va-button__content">
+      <i
+        v-if="icon"
+        class="va-button__content__icon va-button__content__icon-right"
+        :class="icon"></i>
+      <div
+        v-if="hasTitleData"
+        class="va-button__content__title">
+        <slot/>
+      </div>
+      <i
+        v-if="iconRight"
+        class="va-button__content__icon va-button__content__icon-right"
+        :class="iconRight"></i>
+    </div>
   </component>
 </template>
 
 <script>
-import VaButtonContent from './VaButtonContent'
-
 export default {
   name: 'va-button',
-  components: {
-    VaButtonContent
-  },
   props: {
     tag: {
       type: String,
@@ -104,12 +107,16 @@ export default {
         'va-button--flat': this.flat,
         'va-button--outline': this.outline,
         'va-button--disabled': this.disabled,
+        'va-button--without-title': !this.hasTitleData,
         'va-button--with-left-icon': this.icon,
         'va-button--with-right-icon': this.iconRight,
         'va-button--large': this.large,
         'va-button--small': this.small,
         'va-button--normal': !this.large && !this.small
       }
+    },
+    hasTitleData () {
+      return this.$slots.default
     },
     computedTag () {
       if (this.tag === 'a' || this.href || this.target) {
@@ -145,17 +152,44 @@ export default {
     cursor: pointer;
     transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
 
+    &__content {
+      display: flex;
+
+      &__title, &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+      }
+    }
+
     &--large {
       @include button-size(0.75rem, 2rem, 1.25rem, 1.3, 2rem);
       letter-spacing: 0.04rem;
       color: $white;
 
+      .va-button__content__icon {
+        width: 2rem;
+      }
+
       &.va-button--with-left-icon {
         padding-left: 1.75rem;
+
+        &.va-button--without-title {
+          padding-right: 1.75rem;
+        }
+
+        &.va-button__content__title {
+          padding-left: 0.5rem;
+        }
       }
 
       &.va-button--with-right-icon {
         padding-right: 1.5rem;
+
+        &.va-button__content__title {
+          padding-right: 0.63rem;
+        }
       }
     }
 
@@ -164,8 +198,20 @@ export default {
       letter-spacing: 0.03rem;
       color: $white;
 
+      .va-button__content__icon {
+        width: 1rem;
+      }
+
       &.va-button--with-left-icon, &.va-button--with-right-icon {
         padding-left: 0.5rem;
+
+        &.va-button--without-title {
+          padding-right: 0.5rem;
+        }
+
+        &.va-button__content__title {
+          padding-left: 0.25rem;
+        }
       }
     }
 
@@ -174,12 +220,32 @@ export default {
       letter-spacing: 0.032rem;
       color: $white;
 
+      .va-button__content__icon {
+        width: 1.5rem;
+      }
+
       &.va-button--with-left-icon {
         padding-left: 1rem;
+
+        .va-button__content__title {
+          padding-left: 0.5rem;
+        }
+
+        &.va-button--without-title {
+          padding-right: 1rem;
+        }
+      }
+
+      &.va-button--with-left-icon.vuestic-button--without-title{
+        padding-right: 1rem;
       }
 
       &.va-button--with-right-icon {
         padding-right: 0.75rem;
+
+        &.va-button__content__title {
+          padding-left: 0.5rem;
+        }
       }
     }
   }
@@ -217,8 +283,7 @@ export default {
 
       &.va-button--disabled {
         background-image: linear-gradient(to right, $gradient-color1, $gradient-color2);
-        cursor: default;
-        opacity: 0.4;
+        @include va-disabled;
       }
     }
 
@@ -239,8 +304,7 @@ export default {
 
       &.va-button--disabled {
         background: transparent;
-        cursor: default;
-        opacity: 0.4;
+        @include va-disabled;
       }
     }
 
@@ -262,8 +326,7 @@ export default {
 
       &.va-button--disabled {
         background: transparent;
-        cursor: default;
-        opacity: 0.4;
+        @include va-disabled;
       }
     }
 

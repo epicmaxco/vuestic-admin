@@ -4,18 +4,18 @@
       <div class="flex md12">
         <vuestic-widget class="modals-list larger-padding"
                         :header-text="$t('modal.title')">
-          <button class="btn btn-danger" @click="showSmallModal()">
-            {{'modal.small' | translate }}
-          </button>
-          <button class="btn btn-info" @click="showMediumModal()">
-            {{'modal.medium' | translate }}
-          </button>
-          <button class="btn btn-warning" @click="showLargeModal()">
-            {{'modal.large' | translate }}
-          </button>
-          <button class="btn btn-success" @click="showStaticModal()">
-            {{'modal.static' | translate }}
-          </button>
+          <va-button color="danger" @click="showSmallModal()">
+            {{ $t('modal.small') }}
+          </va-button>
+          <va-button color="info" @click="showMediumModal()">
+            {{ $t('modal.medium') }}
+          </va-button>
+          <va-button color="warning" @click="showLargeModal()">
+            {{ $t('modal.large') }}
+          </va-button>
+          <va-button color="success" @click="showStaticModal()">
+            {{ $t('modal.static') }}
+          </va-button>
         </vuestic-widget>
       </div>
     </div>
@@ -80,9 +80,13 @@
 </template>
 
 <script>
+import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
+
 export default {
   name: 'modals',
-
+  components: {
+    VaButton
+  },
   data () {
     return {
       show: true,
