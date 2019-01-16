@@ -202,8 +202,20 @@ export default {
         width: 1rem;
       }
 
-      &.va-button--with-left-icon, &.va-button--with-right-icon {
+      &.va-button--with-left-icon {
         padding-left: 0.5rem;
+
+        &.va-button--without-title {
+          padding-right: 0.5rem;
+        }
+
+        &.va-button__content__title {
+          padding-left: 0.25rem;
+        }
+      }
+
+      &.va-button--with-right-icon {
+        padding-right: 0.5rem;
 
         &.va-button--without-title {
           padding-right: 0.5rem;

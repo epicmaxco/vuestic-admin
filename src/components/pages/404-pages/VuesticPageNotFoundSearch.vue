@@ -44,9 +44,9 @@
               v-for="(item, index) in category.items"
               :key="index"
             >
-              <va-button tag="router-link" :to="{ path: item.itemLink }">
+              <router-link :to="{ path: item.itemLink }">
                 {{ item.itemName}}
-              </va-button>
+              </router-link>
             </li>
           </ul>
         </div>
