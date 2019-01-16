@@ -50,8 +50,12 @@
 </template>
 
 <script>
+import VaButton from '../va-button/VaButton'
 export default {
   name: 'vuestic-modal',
+  components: {
+    VaButton
+  },
   props: {
     transition: {
       type: String,

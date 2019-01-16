@@ -19,6 +19,7 @@ import VuesticChart from './VuesticChart.vue'
 import VuesticSimpleSelect from '../vuestic-simple-select/VuesticSimpleSelect'
 import { chartTypes } from './VuesticChartConfigs'
 import { getLineChartData } from '../../../data/charts/LineChartData'
+import VaButton from '../va-button/VaButton'
 
 export default {
   data () {
@@ -28,6 +29,7 @@ export default {
     }
   },
   components: {
+    VaButton,
     VuesticSimpleSelect,
     VuesticChart,
   },

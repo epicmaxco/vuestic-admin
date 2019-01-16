@@ -19,8 +19,13 @@
 </template>
 
 <script>
+import VaButton from '../va-button/VaButton'
+
 export default {
   name: 'vuestic-feed',
+  components: {
+    VaButton
+  },
   props: ['initialPosts'],
   methods: {
     removePost (target) {

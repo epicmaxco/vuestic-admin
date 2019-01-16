@@ -30,9 +30,11 @@
 
 <script>
 import VuesticDropdown from './VuesticDropdown.vue'
+import VaButton from '../va-button/VaButton'
 
 export default {
   components: {
+    VaButton,
     VuesticDropdown,
   },
   data () {

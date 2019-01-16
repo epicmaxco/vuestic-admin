@@ -19,16 +19,24 @@
     </div>
     <div class="vuestic-breadcrumbs__help-section">
       <va-button
-        tag="a" color="info" target="_blank"
-        :href="currentRoute" icon="vuestic-icon vuestic-icon-files">
+        color="info"
+        target="_blank"
+        :href="currentRoute"
+        icon="vuestic-icon vuestic-icon-files"
+      >
       </va-button>
     </div>
   </div>
 </template>
 
 <script>
+import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
+
 export default {
   name: 'vuestic-breadcrumbs',
+  components: {
+    VaButton
+  },
   props: {
     breadcrumbs: {
       type: Object,

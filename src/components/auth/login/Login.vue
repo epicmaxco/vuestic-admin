@@ -41,7 +41,6 @@ export default {
 
 <style lang="scss">
 .login {
-
   @include media-breakpoint-down(md) {
     width: 100%;
     padding-right: 2rem;

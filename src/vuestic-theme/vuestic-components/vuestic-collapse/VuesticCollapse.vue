@@ -28,8 +28,13 @@
 </template>
 
 <script>
+import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
+
 export default {
   name: 'vuestic-collapse',
+  components: {
+    VaButton
+  },
   props: {
     value: {
       type: Boolean,

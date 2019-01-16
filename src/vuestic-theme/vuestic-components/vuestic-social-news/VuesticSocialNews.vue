@@ -18,8 +18,13 @@
 </template>
 
 <script>
+import VaButton from './../va-button/VaButton'
+
 export default {
   name: 'vuestic-social-news',
+  components: {
+    VaButton
+  },
   props: ['news', 'url'],
 }
 </script>

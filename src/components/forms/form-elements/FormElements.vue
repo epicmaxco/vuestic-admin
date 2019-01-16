@@ -369,9 +369,13 @@
 
 <script>
 import CountriesList from 'data/CountriesList'
+import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
 
 export default {
   name: 'form-elements',
+  components: {
+    VaButton
+  },
   computed: {
     datePickerDisabled: () => [date => !(date.getDate() % 5)],
     isSuccessfulEmailValid () {

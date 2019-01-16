@@ -13,7 +13,8 @@
       <va-button>
         {{ $t('fileUpload.uploadFile') }}
       </va-button>
-      <input type="file"
+      <input
+        type="file"
         class="vuestic-file-upload-container__field__input"
         ref="fieldInput"
         :accept="fileTypes"
@@ -28,8 +29,13 @@
 </template>
 
 <script>
+import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
+
 export default {
   name: 'vuestic-file-upload-container',
+  components: {
+    VaButton
+  },
   props: {
     dropzone: {
       type: Boolean,

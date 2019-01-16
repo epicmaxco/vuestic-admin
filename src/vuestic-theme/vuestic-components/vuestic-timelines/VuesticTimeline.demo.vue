@@ -42,9 +42,11 @@
 <script>
 import VuesticTimeline from './VuesticTimeline.vue'
 import VuesticTimelineItem from './VuesticTimelineItem.vue'
+import VaButton from '../va-button/VaButton'
 
 export default {
   components: {
+    VaButton,
     VuesticTimeline,
     VuesticTimelineItem,
   },

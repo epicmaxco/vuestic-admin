@@ -35,8 +35,13 @@
 </template>
 
 <script>
+import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
+
 export default {
   name: 'tree-view-editable-preview',
+  components: {
+    VaButton
+  },
   data () {
     return {
       electronics: [

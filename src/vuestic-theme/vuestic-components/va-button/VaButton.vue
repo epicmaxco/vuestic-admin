@@ -12,13 +12,12 @@
     :append="append"
     :active-class="activeClass"
     :exact="exact"
-    :exact-active-class="exactActiveClass"
-    v-on="inputListeners">
+    :exact-active-class="exactActiveClass">
     <div class="va-button__content">
       <i
         v-if="icon"
         class="va-button__content__icon va-button__content__icon-right"
-        :class="icon"/>
+        :class="icon"></i>
       <div
         v-if="hasTitleData"
         class="va-button__content__title">
@@ -27,7 +26,7 @@
       <i
         v-if="iconRight"
         class="va-button__content__icon va-button__content__icon-right"
-        :class="iconRight"/>
+        :class="iconRight"></i>
     </div>
   </component>
 </template>
@@ -70,7 +69,7 @@ export default {
     },
     /* Link props */
     href: {
-      type: String
+      type: [String, Object]
     },
     target: {
       type: String,
@@ -128,17 +127,6 @@ export default {
         return 'router-link'
       }
       return 'button'
-    },
-    inputListeners () {
-      const vm = this
-      return Object.assign({},
-        this.$listeners,
-        {
-          click: function (event) {
-            vm.$emit('click', event)
-          }
-        }
-      )
     }
   },
 }
@@ -160,7 +148,6 @@ export default {
     outline: none !important;
     border: 0;
     font-family: $font-family-sans-serif;
-    text-decoration: none !important;
     text-transform: initial;
     cursor: pointer;
     transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
@@ -215,20 +202,8 @@ export default {
         width: 1rem;
       }
 
-      &.va-button--with-left-icon {
+      &.va-button--with-left-icon, &.va-button--with-right-icon {
         padding-left: 0.5rem;
-
-        &.va-button--without-title {
-          padding-right: 0.5rem;
-        }
-
-        &.va-button__content__title {
-          padding-left: 0.25rem;
-        }
-      }
-
-      &.va-button--with-right-icon {
-        padding-right: 0.5rem;
 
         &.va-button--without-title {
           padding-right: 0.5rem;
@@ -315,7 +290,6 @@ export default {
     .va-button--#{$name}.va-button--outline{
       background: transparent;
       border: solid 0.125rem $border-color;
-      text-decoration: none;
       color: $border-color !important;
 
       &:hover {
@@ -337,7 +311,6 @@ export default {
     .va-button--#{$name}.va-button--flat{
       background: transparent;
       border: 0 solid transparent;
-      text-decoration: none;
       color: $border-color !important;
 
       &:hover {

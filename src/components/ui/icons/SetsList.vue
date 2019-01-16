@@ -24,36 +24,29 @@
                 v-for="(icon, index) in filteredList"
                 :key="index"
               >
-                <div
-                  class="flex xs2 flex-center"
-                  v-for="(icon, index) in filteredList"
-                  :key="index"
-                >
-                  <div class="sets-list__icon flex-center vuestic-icon">
-                    <va-icon :icon="iconClass(set, icon)"/>
-                  </div>
+                <div class="sets-list__icon flex-center vuestic-icon">
+                  <va-icon :icon="iconClass(set, icon)"/>
                 </div>
               </div>
-              <div
-                class="va-row"
-                :key="index"
-                v-if="filteredList.length === 2"
-              >
-                <div class="flex xs2 flex-center">
-                  <div class="sets-list__icon flex-center vuestic-icon">
-                    <va-icon :icon="iconClass(set, filteredList[0])"/>
-                  </div>
+            </div>
+            <div
+              class="va-row"
+              :key="index"
+              v-if="filteredList.length === 2"
+            >
+              <div class="flex xs2 flex-center">
+                <div class="sets-list__icon flex-center vuestic-icon">
+                  <va-icon :icon="iconClass(set, filteredList[0])"/>
                 </div>
-                <div class="flex xs8"/>
-                <div class="flex xs2 flex-center">
-                  <div class="sets-list__icon flex-center vuestic-icon">
-                    <va-icon :icon="iconClass(set, filteredList[1])"/>
-                  </div>
+              </div>
+              <div class="flex xs8"/>
+              <div class="flex xs2 flex-center">
+                <div class="sets-list__icon flex-center vuestic-icon">
+                  <va-icon :icon="iconClass(set, filteredList[1])"/>
                 </div>
               </div>
             </div>
           </template>
-
         </div>
       </div>
     </div>
@@ -61,8 +54,13 @@
 </template>
 
 <script>
+import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
+
 export default {
   name: 'iconsList',
+  components: {
+    VaButton
+  },
   props: ['sets'],
   methods: {
     iconClass (set, icon) {

@@ -22,8 +22,16 @@
 </template>
 
 <script>
+<<<<<<< HEAD
+=======
+import VaButton from './../../../vuestic-theme/vuestic-components/va-button/VaButton'
+
+>>>>>>> feature/button-component: change button in whole app
 export default {
   name: 'not-found-pages',
+  components: {
+    VaButton
+  },
   data () {
     return {
       items: [

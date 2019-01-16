@@ -30,6 +30,7 @@
 
 <script>
 import StickyScroll from 'vuestic-directives/StickyScroll'
+import VaButton from './../va-button/VaButton'
 
 export default {
   name: 'vuestic-chat',

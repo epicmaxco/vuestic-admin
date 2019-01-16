@@ -165,10 +165,11 @@
 
 <script>
 import ToastPositionPicker from './ToastPositionPicker.vue'
+import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
 
 export default {
   name: 'notifications',
-  components: { ToastPositionPicker },
+  components: { ToastPositionPicker, VaButton },
   data () {
     return {
       popoverTitle: 'Hey!',

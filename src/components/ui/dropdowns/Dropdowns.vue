@@ -36,8 +36,13 @@
 </template>
 
 <script>
+import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
+
 export default {
   name: 'dropdowns',
+  components: {
+    VaButton
+  },
   data () {
     return {
       placements: [
