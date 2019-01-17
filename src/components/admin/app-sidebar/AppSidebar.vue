@@ -91,11 +91,13 @@
             <span>{{ $t('menu.colorPickers') }}</span>
           </span>
         </sidebar-link>
+        <!-- NOTE Dropdowns are not presentation ready yet. See https://github.com/epicmaxco/vuestic-admin/issues/438 -->
         <!--<sidebar-link-->
-        <!--:to="{ name: 'dropdowns' }">-->
-        <!--<span slot="title">-->
-        <!--<span>{{ $t('menu.dropdowns') }}</span>-->
-        <!--</span>-->
+          <!--:to="{ name: 'dropdowns' }"-->
+        <!--&gt;-->
+          <!--<span slot="title">-->
+            <!--<span>{{ $t('menu.dropdowns') }}</span>-->
+          <!--</span>-->
         <!--</sidebar-link>-->
         <sidebar-link
           :to="{ name: 'filters' }">

@@ -62,7 +62,7 @@ export default {
       if (this.fileTypes) {
         files = this.validateFileTypes(files)
       }
-      this.files.push(...files)
+      this.files = [...this.files, ...files]
     },
     removeFile (index) {
       this.files.splice(index, 1)
@@ -111,15 +111,19 @@ export default {
   outline: none;
   cursor: pointer;
   padding: 0;
+
   & + & {
     margin-left: 1.5rem;
   }
+
   &--primary {
     color: $vue-green;
+
     &:hover {
       opacity: 0.6;
     }
   }
+
   &--secondary {
     color: $white;
   }

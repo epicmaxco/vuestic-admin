@@ -1,35 +1,32 @@
 <template>
   <div class="signup">
-    <h2>{{'auth.createNewAccount' | translate}}</h2>
-    <form method="post" action="/auth/signup" name="signup">
+    <h2>{{ $t('auth.createNewAccount') }}</h2>
+    <form method="post" action="/#/auth/signup" name="signup">
       <div class="form-group">
         <div class="input-group">
           <input type="text" id="email" required="required"/>
-          <label class="control-label" for="email">{{'auth.email' |
-            translate}}</label><i class="bar"></i>
+          <label class="control-label" for="email">{{ $t('auth.email') }}</label><i class="bar"></i>
         </div>
       </div>
       <div class="form-group">
         <div class="input-group">
           <input type="password" id="password" required="required"/>
-          <label class="control-label" for="password">{{'auth.password' |
-            translate}}</label><i class="bar"></i>
+          <label class="control-label" for="password">{{ $t('auth.password') }}</label><i class="bar"></i>
         </div>
       </div>
-      <vuestic-checkbox
-        :id="'checkbox1'"
-        v-model="checkboxOneModel">
-        <template slot="label">{{'auth.agree' | translate}}
-          <router-link to="">{{'auth.termsOfUse' | translate}}</router-link>
+      <vuestic-checkbox name="agree-to-terms" v-model="agreedToTerms">
+        <template slot="label">
+          {{ $t('auth.agree') }}
+          <a class="link" href="#">{{ $t('auth.termsOfUse') }}</a>
         </template>
       </vuestic-checkbox>
       <div
-        class="flex align--center justify--space-between down-container">
+        class="d-flex align--center justify--space-between down-container">
         <button class="btn btn-primary" type="submit">
-          {{'auth.signUp' | translate}}
+          {{ $t('auth.signUp') }}
         </button>
-        <router-link class='link' :to="{name: 'login'}">{{'auth.alreadyJoined' |
-          translate}}
+        <router-link class='link pl-2 text-center' :to="{name: 'login'}">
+          {{ $t('auth.alreadyJoined') }}
         </router-link>
       </div>
     </form>
@@ -41,7 +38,7 @@ export default {
   name: 'signup',
   data () {
     return {
-      checkboxOneModel: true,
+      agreedToTerms: true,
     }
   },
 }
@@ -53,11 +50,6 @@ export default {
     width: 100%;
     padding-right: 2rem;
     padding-left: 2rem;
-    .down-container {
-      .link {
-        margin-top: 2rem;
-      }
-    }
   }
 
   h2 {

@@ -1,14 +1,16 @@
 <template>
   <div class="horizontal-bar">
-    <div v-if="size != 'thick'" class="horizontal-bar__value">
+    <div v-if="size !== 'thick'" class="horizontal-bar__value">
       <span v-if="!text">{{value + '%'}}</span>
       <span v-else>{{text}}</span>
     </div>
     <div class="progress" :class="horizontalBarType">
-      <div class="progress-bar horizontal-bar__progress-bar"
-           :class="horizontalBarAnimation"
-           :style="horizontalBarStyle">
-        <span v-if="size == 'thick'" :class="{hidden: value == 0}"
+      <div
+        class="progress-bar horizontal-bar__progress-bar"
+        :class="horizontalBarAnimation"
+        :style="horizontalBarStyle"
+      >
+        <span v-if="size === 'thick'" :class="{hidden: value == 0}"
               class="horizontal-bar__value">
           <span v-if="!text">{{value + '%'}}</span>
           <span v-else>{{text}}</span>
@@ -88,6 +90,7 @@ export default {
 
   .horizontal-bar__value {
     text-align: center;
+
     &.hidden {
       visibility: hidden;
     }
@@ -96,6 +99,7 @@ export default {
   &--basic {
     border-radius: $progress-bar-width-basic;
     height: $progress-bar-width-basic;
+
     .horizontal-bar__progress-bar {
       border-radius: inherit;
     }
@@ -110,6 +114,7 @@ export default {
     border-radius: $progress-bar-width-thick;
     height: $progress-bar-width-thick;
     margin-top: calc(#{$progress-bar-width-thick} / 2 - .125rem);
+
     .horizontal-bar__progress-bar {
       display: flex;
       justify-content: center;

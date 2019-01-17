@@ -1,5 +1,8 @@
 <template>
-  <div :class="`vuestic-file-upload-${type}`">
+  <div
+    class="vuestic-file-upload"
+    :class="`vuestic-file-upload-${type}`"
+  >
     <template v-if="type === 'list'">
       <vuestic-file-upload-list-item
         v-for="(file, index) in filesList"
@@ -10,12 +13,16 @@
     </template>
     <template v-if="type === 'gallery'">
       <div class="row">
-        <vuestic-file-upload-gallery-item
+        <div
+          class="flex xl2 lg3 sm4"
           v-for="(file, index) in filesList"
           :key="file.name"
-          :file="file"
-          @remove="$emit('remove', index)"
-        />
+        >
+          <vuestic-file-upload-gallery-item
+            :file="file"
+            @remove="$emit('remove', index)"
+          />
+        </div>
       </div>
     </template>
     <vuestic-file-upload-single-item
@@ -56,7 +63,7 @@ export default {
       return {
         name: file.name,
         size: this.formatSize(file.size),
-        date: this.formatDate(file.lastModifiedDate) || this.formatDate(new Date(file.lastModified)),
+        date: this.formatDate(new Date()),
         image: file,
       }
     },
@@ -85,8 +92,8 @@ export default {
 .vuestic-file-upload {
   &-list {
     padding-bottom: 2rem;
-    margin: 0 -1rem;
   }
+
   &-gallery {
     padding: 0 0 1rem;
   }

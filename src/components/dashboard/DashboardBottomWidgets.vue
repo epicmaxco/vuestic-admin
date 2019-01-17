@@ -7,8 +7,10 @@
     </div>
     <div class="flex md6 xs12">
       <vuestic-widget class="business-posts">
-        <vuestic-social-news class="vuestic-social-news" :news="news"
-                             :url="'http://instagram.com/smartapant'"></vuestic-social-news>
+        <vuestic-social-news
+          class="vuestic-social-news" :news="news"
+          :url="'http://instagram.com/smartapant'"
+        />
       </vuestic-widget>
     </div>
   </div>

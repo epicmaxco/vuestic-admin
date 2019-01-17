@@ -5,8 +5,6 @@
 </template>
 
 <script>
-import FullSet from './Set'
-
 const iconTypes = [
   'vuestic',
   'brandico',
@@ -22,24 +20,22 @@ const iconTypes = [
 
 export default {
   name: 'icons',
-  components: {
-    FullSet,
-  },
   computed: {
     sets () {
       let sets = []
       iconTypes.forEach(iconType => {
         let set = require('./sets/' + iconType + '.json')
-        this.addfilteredListsTo(set)
+        this.addFilteredListsTo(set)
         sets.push(set)
       })
       return sets
     },
   },
   methods: {
-    addfilteredListsTo (set) {
-      let list = set.lists[0].icons
-      let filteredLists = []
+    addFilteredListsTo (set) {
+      // This allows us to add icons to icon set.
+      const list = set.lists[0].icons
+      const filteredLists = []
       filteredLists.push(list.slice(0, 6))
       filteredLists.push(list.slice(6, 8))
       filteredLists.push(list.slice(8, 14))

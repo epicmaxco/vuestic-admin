@@ -6,8 +6,9 @@
            @touchstart="startDrag"
            @touchmove="onDrag"
            @touchend="stopDrag"
-           @transitionend="onContentResize">
-        <slot></slot>
+           @transitionend="onContentResize"
+      >
+        <slot/>
       </div>
       <div class="track" ref="track">
         <div class="thumb" ref="thumb"></div>

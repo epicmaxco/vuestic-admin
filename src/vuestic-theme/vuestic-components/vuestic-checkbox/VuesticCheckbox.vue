@@ -67,6 +67,7 @@ export default {
       type: Number,
       default: 1
     },
+    name: String,
     error: {
       type: Boolean,
       default: false

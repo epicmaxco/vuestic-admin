@@ -8,12 +8,20 @@ Vue.use(Router)
 
 const demoRoutes = []
 if (process.env.NODE_ENV === 'development') {
-  const VueBook = require('vue-book').default
+  const VueBook = require('vue-book')
 
   demoRoutes.push(
-    VueBook(require.context('./..', true, /.demo.vue$/), '/demo'),
-    VueBook(require.context('./../components', true, /.vue$/), '/presentation'),
+    VueBook.createRoute({
+      requireContext: require.context('./..', true, /.demo.vue$/),
+      path: '/demo',
+    }),
+    VueBook.createRoute({
+      requireContext: require.context('./../components', true, /.vue$/),
+      path: '/presentation',
+    }),
   )
+
+  Vue.use(VueBook.VueBookComponents)
 }
 
 const EmptyParentComponent = {
@@ -205,7 +213,7 @@ export default new Router({
                 {
                   name: 'icon-set',
                   path: ':name',
-                  component: lazyLoading('ui/icons/Set'),
+                  component: lazyLoading('ui/icons/IconSet'),
                   props: true,
                 },
               ],
