@@ -25,7 +25,7 @@
         </div>
       </vuestic-tree-node>
       <vuestic-tree-node>
-        <va-button class="mb-2" @click="addProduct()">
+        <va-button class="mb-2" @click.native="addProduct()">
           Add new product
         </va-button>
       </vuestic-tree-node>

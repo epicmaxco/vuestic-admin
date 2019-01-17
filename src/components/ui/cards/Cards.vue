@@ -14,9 +14,9 @@
             </template>
             {{ $t('cards.contentText') }}
             <p class="pt-3 mb-0">
-              <a class="pr-2 card-link-secondary" href="#">
+              <va-button tag="a" flat color="gray" href="#">
                 {{ $t('cards.link.secondaryAction') }}
-              </a>
+              </va-button>
             </p>
           </vuestic-card>
 
@@ -28,7 +28,9 @@
             </template>
             {{ $t('cards.contentText') }}
             <p class="pt-3 mb-0">
-              <a href="#">{{ $t('cards.link.readFull') }}</a>
+              <va-button tag="a" flat href="#">
+                {{ $t('cards.link.readFull') }}
+              </va-button>
             </p>
           </vuestic-card>
 
@@ -48,9 +50,12 @@
           >
             Short one
             <p class="mb-0 mt-2">
-              <a href="#" class="pr-2">{{ $t('cards.link.action1') }}</a>
-              <a class="card-link-secondary" href="#">
-                {{ $t('cards.link.action2') }}</a>
+              <va-button tag="a" flat href="#">
+                {{ $t('cards.link.action1') }}
+              </va-button>
+              <va-button tag="a" color="gray" flat href="#">
+                {{ $t('cards.link.action2') }}
+              </va-button>
             </p>
           </vuestic-card>
 
@@ -59,9 +64,15 @@
             image="https://picsum.photos/300/200/?image=1058"
           >
             <p class="mb-0">
-              <a href="#" class="pr-2">{{ $t('cards.link.edit') }}</a>
-              <a href="#" class="pr-2">{{ $t('cards.link.setAsDefault') }}</a>
-              <a href="#">{{ $t('cards.link.delete') }}</a>
+              <va-button tag="a" flat href="#">
+                {{ $t('cards.link.edit') }}
+              </va-button>
+              <va-button tag="a" flat href="#">
+                {{ $t('cards.link.setAsDefault') }}
+              </va-button>
+              <va-button tag="a" flat href="#">
+                {{ $t('cards.link.delete') }}
+              </va-button>
             </p>
           </vuestic-card>
 
@@ -73,9 +84,15 @@
             </template>
             {{ $t('cards.contentText') }}
             <p class="pt-3 mb-0">
-              <a href="#" class="pr-2">{{ $t('cards.link.edit') }}</a>
-              <a href="#" class="pr-2">{{ $t('cards.link.setAsDefault') }}</a>
-              <a href="#">{{ $t('cards.link.delete') }}</a>
+              <va-button tag="a" color="dark" flat href="#">
+                {{ $t('cards.link.edit') }}
+              </va-button>
+              <va-button tag="a" color="dark" flat href="#">
+                {{ $t('cards.link.setAsDefault') }}
+              </va-button>
+              <va-button tag="a" color="dark" flat href="#">
+                {{ $t('cards.link.delete') }}
+              </va-button>
             </p>
           </vuestic-card>
 
@@ -107,9 +124,15 @@
             <p slot="title">{{ $t('cards.title.dark') }}</p>
             {{ $t('cards.contentText') }}
             <p class="pt-3 mb-0">
-              <a href="#" class="pr-2">{{ $t('cards.link.edit') }}</a>
-              <a href="#" class="pr-2">{{ $t('cards.link.setAsDefault') }}</a>
-              <a href="#">{{ $t('cards.link.delete') }}</a>
+              <va-button tag="a" flat href="#">
+                {{ $t('cards.link.edit') }}
+              </va-button>
+              <va-button tag="a" flat href="#">
+                {{ $t('cards.link.setAsDefault') }}
+              </va-button>
+              <va-button tag="a" flat href="#">
+                {{ $t('cards.link.delete') }}
+              </va-button>
             </p>
           </vuestic-card>
 
@@ -128,9 +151,13 @@
             <p>{{ $t('cards.contentText') }}</p>
             <div class="card-separator"/>
             <p class="mb-0">
-              <a href="#">{{ $t('cards.link.traveling') }}</a>
+              <va-button tag="a" flat href="#">
+                {{ $t('cards.link.traveling') }}
+              </va-button>
               /
-              <a href="#">{{ $t('cards.link.france') }}</a>
+              <va-button tag="a" flat href="#">
+                {{ $t('cards.link.france') }}
+              </va-button>
             </p>
           </vuestic-card>
 
@@ -138,8 +165,12 @@
             <p slot="title">{{ $t('cards.title.dark') }}</p>
             {{ $t('cards.contentText') }}
             <p class="pt-3 mb-0">
-              <a class="pr-2" href="#">{{ $t('cards.link.review') }}</a>
-              <a href="#">{{ $t('cards.link.feedback') }}</a>
+              <va-button tag="a" flat href="#">
+                {{ $t('cards.link.review') }}
+              </va-button>
+              <va-button tag="a" flat href="#">
+                {{ $t('cards.link.feedback') }}
+              </va-button>
             </p>
           </vuestic-card>
         </template>
