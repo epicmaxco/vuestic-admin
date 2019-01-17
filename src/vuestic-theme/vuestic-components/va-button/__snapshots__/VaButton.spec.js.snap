@@ -1,0 +1,208 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VaButton a button 1`] = `
+<a href="http://epic-spinners.epicmax.co/" class="va-button va-button--success va-button--default va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</a>
+`;
+
+exports[`VaButton danger button 1`] = `
+<button class="va-button va-button--danger va-button--default va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
+exports[`VaButton dark button 1`] = `
+<button class="va-button va-button--dark va-button--default va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
+exports[`VaButton default button 1`] = `
+<button class="va-button va-button--success va-button--default va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
+exports[`VaButton disabled default button 1`] = `
+<button disabled="disabled" class="va-button va-button--success va-button--default va-button--disabled va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
+exports[`VaButton disabled flat button 1`] = `
+<button disabled="disabled" class="va-button va-button--success va-button--flat va-button--disabled va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
+exports[`VaButton disabled flat button 2`] = `
+<button disabled="disabled" class="va-button va-button--success va-button--flat va-button--disabled va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
+exports[`VaButton disabled outline button 1`] = `
+<button disabled="disabled" class="va-button va-button--success va-button--outline va-button--disabled va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
+exports[`VaButton flat button 1`] = `
+<button class="va-button va-button--success va-button--flat va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
+exports[`VaButton gray button 1`] = `
+<button class="va-button va-button--gray va-button--default va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
+exports[`VaButton icon left 1`] = `
+<button class="va-button va-button--success va-button--default va-button--without-title va-button--with-left-icon va-button--normal">
+  <div class="va-button__content"><i class="va-button__content__icon va-button__content__icon-right brandico brandico-facebook"></i>
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
+exports[`VaButton icon right 1`] = `
+<button class="va-button va-button--success va-button--default va-button--without-title va-button--with-right-icon va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!----> <i class="va-button__content__icon va-button__content__icon-right iconicstroke iconicstroke-info"></i></div>
+</button>
+`;
+
+exports[`VaButton info button 1`] = `
+<button class="va-button va-button--info va-button--default va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
+exports[`VaButton large button 1`] = `
+<button class="va-button va-button--success va-button--default va-button--without-title va-button--large">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
+exports[`VaButton micro button 1`] = `
+<button class="va-button va-button--success va-button--default va-button--without-title va-button--normal" micro="true">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
+exports[`VaButton outline button 1`] = `
+<button class="va-button va-button--success va-button--outline va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
+exports[`VaButton router-link button 1`] = `
+<router-link to="[object Object]" class="va-button va-button--success va-button--default va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</router-link>
+`;
+
+exports[`VaButton slot button 1`] = `
+<button class="va-button va-button--success va-button--default va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <div class="va-button__content__title"><span>Button</span></div>
+    <!---->
+  </div>
+</button>
+`;
+
+exports[`VaButton small button 1`] = `
+<button class="va-button va-button--success va-button--default va-button--without-title va-button--small">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
+exports[`VaButton success button 1`] = `
+<button class="va-button va-button--success va-button--default va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
+exports[`VaButton warning button 1`] = `
+<button class="va-button va-button--warning va-button--default va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
