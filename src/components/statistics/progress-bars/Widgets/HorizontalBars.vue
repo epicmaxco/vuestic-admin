@@ -2,13 +2,13 @@
   <vuestic-widget class="progress-bar-widget" :headerText="$t('progressBars.horizontal')">
     <div class="va-row">
       <div class="flex sm4 md4">
-        <vuestic-horizontal-progress :value="value / 3"></vuestic-horizontal-progress>
+        <vuestic-horizontal-progress :value="value / 3"/>
       </div>
       <div class="flex sm4 md4">
-        <vuestic-horizontal-progress :value="bufferValues.value" :buffer="bufferValues.buffer"></vuestic-horizontal-progress>
+        <vuestic-horizontal-progress :value="bufferValues.value" :buffer="bufferValues.buffer"/>
       </div>
       <div class="flex sm4 md4">
-        <vuestic-horizontal-progress :indeterminate="true"></vuestic-horizontal-progress>
+        <vuestic-horizontal-progress :indeterminate="true"/>
       </div>
     </div>
     <div class="va-row">

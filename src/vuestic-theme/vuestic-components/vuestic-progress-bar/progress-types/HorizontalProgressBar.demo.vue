@@ -5,7 +5,7 @@
         <span>No value</span>
         <horizontal-progress-bar/>
         <span>Default</span>
-        <horizontal-progress-bar :value="value"></horizontal-progress-bar>
+        <horizontal-progress-bar :value="value"/>
         <span>Danger</span>
         <horizontal-progress-bar :value="value" :theme="'Danger'"/>
         <span>Static slot</span>

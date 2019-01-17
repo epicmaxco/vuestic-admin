@@ -2,17 +2,17 @@
   <div class="progress-bars">
     <div class="va-row">
       <div class="flex md12">
-        <horizontal-bars></horizontal-bars>
+        <horizontal-bars/>
       </div>
     </div>
     <div class="va-row">
       <div class="flex md12">
-        <cirecle-bars></cirecle-bars>
+        <cirecle-bars/>
       </div>
     </div>
     <div class="va-row">
       <div class="flex md12">
-        <colorful-bars></colorful-bars>
+        <colorful-bars/>
       </div>
     </div>
   </div>
