@@ -19,7 +19,7 @@
                    required title=""/>
             <label class="control-label">Your message</label><va-icon icon="bar"/>
           </div>
-          <va-button @click="sendMessage()">
+          <va-button @click.native="sendMessage()">
             Send
           </va-button>
         </div>

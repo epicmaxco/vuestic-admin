@@ -14,15 +14,14 @@
       </div>
     </div>
 
-<<<<<<< HEAD
-    <div class="va-row align--center" v-else>
-      <div class="file-upload-list-item__name flex xs12 lg3 ellipsis">
+    <div class="file-upload-list-item row" v-else>
+      <div class="file-upload-list-item-name col-lg-3 col-xl-3 col-12">
         {{ file.name }}
       </div>
-      <div class="file-upload-list-item__size flex xs12 lg3">
+      <div class="file-upload-list-item-size col-lg-3 col-xl-3 col-12">
         {{ file.size }}
       </div>
-      <div class="file-upload-list-item__date flex xs12 lg4">
+      <div class="file-upload-list-item-date col-lg-4 col-xl-4 col-12">
         <span>{{ $t('fileUpload.uploadedOn')}} {{ file.date }}</span>
       </div>
       <div class="file-upload-list-item__button-container flex xs12 lg2">
@@ -30,22 +29,6 @@
           {{ $t('fileUpload.delete') }}
         </va-button>
       </div>
-=======
-  <div class="file-upload-list-item row" v-else>
-    <div class="file-upload-list-item-name col-lg-3 col-xl-3 col-12">
-      {{ file.name }}
-    </div>
-    <div class="file-upload-list-item-size col-lg-3 col-xl-3 col-12">
-      {{ file.size }}
-    </div>
-    <div class="file-upload-list-item-date col-lg-4 col-xl-4 col-12">
-      <span>{{ $t('fileUpload.uploadedOn')}} {{ file.date }}</span>
-    </div>
-    <div class="file-upload-list-item-buttons col-lg-2 col-xl-2 col-12 d-flex">
-      <va-button @click="removeFile">
-        {{ $t('fileUpload.delete') }}
-      </va-button>
->>>>>>> feature/button-component: change button in whole app
     </div>
   </div>
 </template>
