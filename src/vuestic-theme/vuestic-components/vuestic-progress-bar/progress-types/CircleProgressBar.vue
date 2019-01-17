@@ -32,6 +32,7 @@ import {
 } from './../../vuestic-color-picker/VuesticTheme'
 
 export default {
+  name: 'vuestic-circle-progress',
   props: {
     value: {
       type: Number,

@@ -35,6 +35,7 @@ import {
 } from './../../vuestic-color-picker/VuesticTheme'
 
 export default {
+  name: 'vuestic-horizontal-progress',
   props: {
     value: {
       type: Number,

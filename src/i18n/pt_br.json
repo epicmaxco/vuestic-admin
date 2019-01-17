@@ -214,14 +214,8 @@
     "startedTopic": "{name} iniciou um novo tópico"
   },
   "progressBars": {
-    "basic": "Básico",
-    "basicVertical": "Básico Vertical",
     "circle": "Círculo",
-    "colorFulTitle": "Barra Colorida completa",
-    "thin": "Fina",
-    "thinVertical": "Fina Vertical",
-    "thick": "Grosso",
-    "title": "Barra de Progresso"
+    "horizontal": "Horizontal"
   },
   "tables": {
     "basic": "Tabela Básico",

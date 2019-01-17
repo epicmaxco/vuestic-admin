@@ -2,23 +2,23 @@
   <div class="progress-bars">
     <div class="va-row">
       <div class="flex md12">
-        <standard-bars/>
+        <horizontal-bars></horizontal-bars>
       </div>
     </div>
     <div class="va-row">
       <div class="flex md12">
-        <colorful-bars/>
+        <cirecle-bars></cirecle-bars>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import ColorfulBars from './Widgets/ColorfulBars'
-import StandardBars from './Widgets/StandardBars'
+import HorizontalBars from './Widgets/HorizontalBars'
+import CirecleBars from './Widgets/CircleBars'
 
 export default {
   name: 'progress-bars',
-  components: { StandardBars, ColorfulBars },
+  components: { HorizontalBars, CirecleBars }
 }
 </script>
