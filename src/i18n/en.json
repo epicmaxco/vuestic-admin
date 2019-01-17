@@ -283,7 +283,8 @@
   },
   "progressBars": {
     "circle": "Circle",
-    "horizontal": "Horizontal"
+    "horizontal": "Horizontal",
+    "colors": "Colors"
   },
   "tables": {
     "basic": "Basic Table",

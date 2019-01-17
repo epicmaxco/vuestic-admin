@@ -31,9 +31,8 @@ export default {
   },
   methods: {
     animateValue () {
-      let vm = this
       setTimeout(() => {
-        vm.value = 100
+        this.value = 100
       })
     }
   }
