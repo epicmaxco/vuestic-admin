@@ -22,9 +22,7 @@
 
     <!--//Modals-->
     <vuestic-modal :show.sync="show" ref="smallModal" v-bind:small="true"
-                   :cancelClass="'none'"
-                   :okText="'modal.confirm' | translate"
-                   :cancelText="'modal.cancel' | translate">
+                   :okText="'modal.confirm' | translate">
       <div slot="title">{{'modal.smallTitle' | translate}}</div>
       <div>
         There are three species of zebras: the plains zebra, the mountain zebra
@@ -69,7 +67,6 @@
     </vuestic-modal>
     <vuestic-modal :show.sync="show"
                    v-bind:small="true" v-bind:force="true" ref="staticModal"
-                   :cancelClass="'none'"
                    :okText="'modal.close' | translate">
       <div slot="title">{{'modal.staticTitle' | translate}}</div>
       <div>

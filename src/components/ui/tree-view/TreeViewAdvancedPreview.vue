@@ -2,12 +2,12 @@
   <div class="tree-view-advanced-preview">
     <div class="row mb-4">
       <div class="small-set col-sm-6 d-flex justify-content-center">
-        <va-button @click="$refs.treeView.expand()">
+        <va-button @click.native="$refs.treeView.expand()">
           EXPAND ALL
         </va-button>
       </div>
       <div class="small-set col-sm-6 d-flex justify-content-center">
-        <va-button @click="$refs.treeView.collapse()">
+        <va-button @click.native="$refs.treeView.collapse()">
           COLLAPSE ALL
         </va-button>
       </div>
