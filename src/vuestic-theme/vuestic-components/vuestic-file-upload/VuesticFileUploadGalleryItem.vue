@@ -6,19 +6,14 @@
     />
   </div>
 
-  <div class="col-xl-2 col-lg-3 col-sm-4" v-else>
-    <div class="file-upload-gallery-item" :class="notGalleryItemClass">
-      <img :src="previewImage" alt="" class="file-upload-gallery-item-image">
-      <div class="file-upload-gallery-item-overlay">
-        <div class="file-upload-gallery-item-name" :title="file.name">
-          {{ file.name }}
-        </div>
-        <div class="file-upload-gallery-item-size">
-          {{ file.size }}
-        </div>
-        <va-button outline class="file-upload-gallery-item-button" @click="removeImage">
-          {{ $t('fileUpload.deleteFile') }}
-        </va-button>
+  <div v-else class="file-upload-gallery-item" :class="notGalleryItemClass">
+    <img :src="previewImage" alt="" class="file-upload-gallery-item-image">
+    <div class="file-upload-gallery-item-overlay">
+      <div class="file-upload-gallery-item-name" :title="file.name">
+        {{ file.name }}
+      </div>
+      <div class="file-upload-gallery-item-size">
+        {{ file.size }}
       </div>
       <va-button flat color="dark" class="file-upload-gallery-item-button" @click.native="removeImage">
         {{ $t('fileUpload.deleteFile') }}
@@ -29,12 +24,10 @@
 
 <script>
 import VuesticFileUploadUndo from './VuesticFileUploadUndo'
-import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
 
 export default {
   name: 'file-upload-gallery-item',
   components: {
-    VaButton,
     VuesticFileUploadUndo: VuesticFileUploadUndo,
   },
   data () {
