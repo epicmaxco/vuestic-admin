@@ -55,12 +55,10 @@
             </div>
           </div>
           <div class="ui-typography__item">
-            <pre class="code-snippet">
-    &lt;p&gt class=“code_snippet”>
-       This is a wonderful example.
-       &lt;a&gt href=“#” onClick=“”>Read more&lt;/a&gt
-    &lt;/p&gt
-            </pre>
+            <pre class="code-snippet">&lt;p class=“code_snippet”>
+  This is a wonderful example.
+  &lt;a&gt href=“#” onClick=“”>Read more&lt;/a&gt
+&lt;/p&gt</pre>
             <p>
               Of all of the celestial bodies that capture our attention and fascination
               as astronomers,
@@ -68,46 +66,65 @@
               Earth than it’s own satellite, the moon.
             </p>
           </div>
+
           <div class="ui-typography__item">
-            <div>
-              <a href="#" class="link">default link <br/></a>
-              <a href="#" class="link-secondary">secondary link</a>
-            </div>
+            <p class="display-3">Links</p>
+            <ul class="va-unordered">
+              <li>
+                <a href="/default"
+                  class="link"
+                  @click.prevent
+                >default link</a>
+              </li>
+              <li>
+                <a href="/secondary"
+                  class="link-secondary"
+                  @click.prevent
+                >secondary link</a>
+              </li>
+            </ul>
           </div>
+
           <div class="ui-typography__item">
             <p class="display-3">Text transforms</p>
-            <ul class="vue-unordered">
+            <ul class="va-unordered">
               <li>
-                <span class="text--code">.text--uppercase</span> - uppercase<span class="text--uppercase">text</span>
+                <span class="text--code">.text--uppercase</span>
+                - Sets text-transform to
+                <span class="text--uppercase text--bold">uppercase</span>
               </li>
               <li>
-                <span class="text--code">.text--lowercase</span> - lowercase
-                <span class="text--lowercase">text</span>
+                <span class="text--code">.text--lowercase</span>
+                - Sets text-transform to
+                <span class="text--lowercase text--bold">lowercase</span>
               </li>
               <li>
-                <span class="text--code">.text--capitalize</span> - capitalize
-                <span class="text--capitalize">text</span>
+                <span class="text--code">.text--capitalize</span>
+                - Sets text-transform to
+                <span class="text--capitalize text--bold">capitalize</span>
               </li>
             </ul>
           </div>
           <div class="ui-typography__item">
             <p class="display-3">Text wrapping</p>
-            <ul class="vue-unordered">
+            <ul class="va-unordered">
               <li>
-                <span class="text--highlighted">.text--no-wrap </span> - Sets whitespace to no-wrap
+                <span class="text--code">.text--no-wrap</span>
+                - Sets whitespace to no-wrap
               </li>
               <li>
-                <span class="text--highlighted">.text--truncate</span> - Truncates overflowed text
+                <span class="text--code">.text--truncate</span>
+                - Truncates overflowed text
               </li>
             </ul>
           </div>
           <p class="display-3">Lists</p>
-          <ol class="vue-ordered">
+          <ol class="va-ordered">
             <li>Of all of the celestial bodies that capture our attention and fascination as astronomers, none has a greater influence.</li>
             <li>Earth than it’s own satellite, the moon. When you think about it.</li>
-            <li>Attention and fascination as .</li>
+            <li>Attention and fascination as.</li>
           </ol>
-          <ul class="vue-unordered">
+          <ul class="va-unordered">
             <li>Of all of the celestial bodies that capture our attention and fascination as astronomers, none has a greater influence.</li>
             <li>Earth than it’s own satellite, the moon. When you think about it.</li>
             <li>Attention and fascination as .</li>
@@ -121,15 +138,6 @@
             </p>
           </div>
           <div class="ui-typography__item">
-            <div class="well" style="width: 600px;">
-              <p class="display-3">Display-3 Heading</p>
-              <span>Of all of the celestial bodies that capture our
-              attention and fascination as astronomers, none has a greater
-              influence on life on planet Earth than it’s own satellite,
-              the moon. When you think about it.</span>
-            </div>
-          </div>
-          <div class="ui-typography__item">
             <blockquote class="va-blockquote">
               <p>
                 BQ: Let’s talk about meat fondue recipes and what you need to know
@@ -137,9 +145,18 @@
                 all kinds.
               </p>
               <p>
-                — Mister Lebowski
+                <i>— Mister Lebowski</i>
               </p>
             </blockquote>
+          </div>
+          <div class="ui-typography__item">
+            <div class="text-block">
+              <p class="display-3">Display-3 Heading</p>
+              <span>Of all of the celestial bodies that capture our
+              attention and fascination as astronomers, none has a greater
+              influence on life on planet Earth than it’s own satellite,
+              the moon. When you think about it.</span>
+            </div>
           </div>
         </div>
       </div>

@@ -6,7 +6,9 @@
 
 @mixin va-display ($element) {
   color: $vue-darkest-blue;
-  font-size: map-get($display-font-sizes, $element)
+  font-size: map-get($display-font-sizes, $element);
+  font-weight: bold;
+  margin-bottom: 0.5em;
 }
 
 @mixin theme-button-variant($color, $background, $border, $shadow) {
