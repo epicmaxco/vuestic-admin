@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import utils from 'services/utils'
 import {
   colorConfig,
   VuesticTheme
@@ -58,14 +59,14 @@ export default {
       return colorConfig[VuesticTheme[this.theme]]
     },
     normalizedValue () {
-      return this.value < 0 ? 0 : this.value > 100 ? 100 : this.value
+      return utils.normalizeValue(this.value)
     },
     normalizedBuffer () {
       if (this.indeterminate) {
         return 100
       }
 
-      return this.buffer < 0 ? 0 : this.buffer > 100 ? 100 : this.buffer
+      return utils.normalizeValue(this.buffer)
     }
   }
 }

@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import utils from 'services/utils'
 import {
   colorConfig,
   VuesticTheme
@@ -51,7 +52,7 @@ export default {
       return 20
     },
     normalizedValue () {
-      return this.value < 0 ? 0 : this.value > 100 ? 100 : this.value
+      return utils.normalizeValue(this.value)
     },
     color () {
       return colorConfig[VuesticTheme[this.theme]]
