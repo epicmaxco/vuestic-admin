@@ -3,7 +3,7 @@
     <div class="file-upload-single-item-name">
       {{ file.name }}
     </div>
-    <va-button @click="$emit('remove')">
+    <va-button flat @click="$emit('remove')">
       {{ $t('fileUpload.delete') }}
     </va-button>
   </div>
@@ -28,6 +28,7 @@ export default {
 <style lang='scss'>
 .file-upload-single-item {
   display: flex;
+  align-items: center;
 
   &-name {
     margin-right: 1rem;

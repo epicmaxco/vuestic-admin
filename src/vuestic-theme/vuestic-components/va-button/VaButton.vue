@@ -148,6 +148,7 @@ export default {
     outline: none !important;
     border: 0;
     font-family: $font-family-sans-serif;
+    text-decoration: none !important;
     text-transform: initial;
     cursor: pointer;
     transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
@@ -302,6 +303,7 @@ export default {
     .va-button--#{$name}.va-button--outline{
       background: transparent;
       border: solid 0.125rem $border-color;
+      text-decoration: none;
       color: $border-color !important;
 
       &:hover {
@@ -323,6 +325,7 @@ export default {
     .va-button--#{$name}.va-button--flat{
       background: transparent;
       border: 0 solid transparent;
+      text-decoration: none;
       color: $border-color !important;
 
       &:hover {

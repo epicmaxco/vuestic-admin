@@ -14,18 +14,18 @@
       </div>
     </div>
 
-    <div class="file-upload-list-item row" v-else>
-      <div class="file-upload-list-item-name col-lg-3 col-xl-3 col-12">
+    <div class="va-row align--center" v-else>
+      <div class="file-upload-list-item__name flex xs12 lg3 ellipsis">
         {{ file.name }}
       </div>
-      <div class="file-upload-list-item-size col-lg-3 col-xl-3 col-12">
+      <div class="file-upload-list-item__size flex xs12 lg3">
         {{ file.size }}
       </div>
-      <div class="file-upload-list-item-date col-lg-4 col-xl-4 col-12">
+      <div class="ile-upload-list-item__date flex xs12 lg4">
         <span>{{ $t('fileUpload.uploadedOn')}} {{ file.date }}</span>
       </div>
-      <div class="file-upload-list-item-buttons col-lg-2 col-xl-2 col-12 d-flex">
-        <va-button @click="removeFile">
+      <div class="file-upload-list-item__button-container flex xs12 lg2">
+        <va-button outline @click.native="removeFile">
           {{ $t('fileUpload.delete') }}
         </va-button>
       </div>

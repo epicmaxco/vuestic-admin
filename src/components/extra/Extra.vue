@@ -37,7 +37,7 @@
       </div>
     </div>
 
-    <div class="row bottom-widgets">
+    <div class="va-row bottom-widgets">
       <div class="flex md6">
         <vuestic-widget class="no-h-padding no-v-padding">
           <vuestic-feed :initialPosts="posts"></vuestic-feed>
