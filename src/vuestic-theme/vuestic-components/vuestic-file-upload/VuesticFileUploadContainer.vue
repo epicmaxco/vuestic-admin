@@ -12,16 +12,6 @@
       </div>
       <va-button>
         {{ $t('fileUpload.uploadFile') }}
-<<<<<<< HEAD
-      </button>
-      <input
-        type="file"
-        class="vuestic-file-upload-container__field__input"
-        ref="fieldInput"
-        :accept="fileTypes"
-        :multiple="type !== 'single'"
-        @change="changeFieldValue"
-=======
       </va-button>
       <input type="file"
              class="vuestic-file-upload-field-input"
@@ -29,7 +19,6 @@
              :accept="fileTypes"
              :multiple="type !== 'single'"
              @change="changeFieldValue"
->>>>>>> feature/button-component: change button in whole app
       >
     </div>
     <div class="vuestic-file-upload-container__main">

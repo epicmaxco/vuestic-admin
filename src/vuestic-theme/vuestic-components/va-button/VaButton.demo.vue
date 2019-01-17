@@ -141,18 +141,16 @@
         <tr>
           <td>Button tags</td>
           <td>
-            <va-button color="success">
+            <va-button>
               Default Button
             </va-button>
             <va-button
               href="http://epic-spinners.epicmax.co/"
-              color="success"
             >
               A-link Button
             </va-button>
             <va-button
               :to="{ name: 'charts' }"
-              color="success"
             >
               Router-link Button
             </va-button>
