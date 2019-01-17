@@ -12,7 +12,7 @@
       </div>
       <div class="underscored">
         <span class="text"><span class="name">{{post.name}}</span> {{post.text}}.</span>
-        <va-button icon="ion-md-close ion" @click="removePost(post)"/>
+        <va-button icon="ion-md-close ion" @click.native="removePost(post)"/>
       </div>
     </div>
   </div>

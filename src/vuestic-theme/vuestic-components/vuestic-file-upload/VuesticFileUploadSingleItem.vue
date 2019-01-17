@@ -3,15 +3,7 @@
     <div class="file-upload-single-item-name">
       {{ file.name }}
     </div>
-<<<<<<< HEAD
-    <button
-      type="button"
-      class="btn-text btn-text--primary"
-      @click="$emit('remove')"
-    >
-=======
     <va-button @click="$emit('remove')">
->>>>>>> feature/button-component: change button in whole app
       {{ $t('fileUpload.delete') }}
     </va-button>
   </div>

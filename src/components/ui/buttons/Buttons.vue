@@ -54,15 +54,6 @@
               <va-button icon="ion-md-close ion"/>
             </div>
           </div>
-          <div
-            class="flex sm6 lg6 xl3 justify--center"
-            :class="{'lg6 xl2' : sidebarOpened, 'lg2' : !sidebarOpened }">
-            <button class="btn btn-primary btn-with-icon rounded-icon">
-              <div class="btn-with-icon-content">
-                <i class="ion-md-close ion"></i>
-              </div>
-            </button>
-          </div>
         </vuestic-widget>
       </div>
 
