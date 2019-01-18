@@ -22,7 +22,7 @@
         </div>
       </div>
       <div
-        class="vuestic-page-not-found-large-text__wallpaper-button col-md-12">
+        class="vuestic-page-not-found-large-text__wallpaper-button flex md12">
         <va-button :to="{ name: 'dashboard' }">
           {{'Back to dashboard'}}
         </va-button>

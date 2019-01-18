@@ -14,11 +14,11 @@
         {{ $t('fileUpload.uploadFile') }}
       </va-button>
       <input type="file"
-             class="vuestic-file-upload-container__field__input"
-             ref="fieldInput"
-             :accept="fileTypes"
-             :multiple="type !== 'single'"
-             @change="changeFieldValue"
+        class="vuestic-file-upload-container__field__input"
+        ref="fieldInput"
+        :accept="fileTypes"
+        :multiple="type !== 'single'"
+        @change="changeFieldValue"
       >
     </div>
     <div class="vuestic-file-upload-container__main">

@@ -78,49 +78,49 @@ export default {
 </script>
 
 <style lang="scss">
-  .sets-list {
-    &__icon {
-      height: 1.5rem;
-      max-width: 1.5rem;
-    }
+.sets-list {
+ &__icon {
+   height: 1.5rem;
+   max-width: 1.5rem;
+ }
 
-    &__set {
-      margin: 0 0 1.5rem;
-      height: 100%;
-      position: relative;
+ &__set {
+   margin: 0 0 1.5rem;
+   height: 100%;
+   position: relative;
 
-      .btn {
-        width: 13.75rem;
-        padding-left: 0;
-        padding-right: 0;
-        text-align: center;
-      }
+   .btn {
+     width: 13.75rem;
+     padding-left: 0;
+     padding-right: 0;
+     text-align: center;
+   }
 
-      &__content {
-        background-color: $light-gray;
+   &__content {
+     background-color: $light-gray;
 
-        > div {
-          padding: 1rem;
+     > div {
+       padding: 1rem;
 
-          div[class^="col"] {
-            padding: 0;
-            margin: 1rem 0;
+       div[class^="col"] {
+         padding: 0;
+         margin: 1rem 0;
 
-            .vuestic-icon {
-              font-size: .85rem;
-              text-align: center;
-            }
-          }
-        }
+         .vuestic-icon {
+           font-size: .85rem;
+           text-align: center;
+         }
+       }
+     }
 
-        &__overlay {
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          @include va-flex-center();
-          z-index: 2;
-        }
-      }
-    }
-  }
+     &__overlay {
+       width: 100%;
+       height: 100%;
+       position: absolute;
+       @include va-flex-center();
+       z-index: 2;
+     }
+   }
+ }
+}
 </style>
