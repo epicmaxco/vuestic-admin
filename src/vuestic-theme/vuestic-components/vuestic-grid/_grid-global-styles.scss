@@ -4,6 +4,8 @@
 // Mixins are reserved for "smart stuffs", flex one-liners are kept intact
 @import "grid-mixins";
 
+@import "grid-spacing";
+
 .va-layout {
   @include va-container();
 
