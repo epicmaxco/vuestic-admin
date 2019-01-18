@@ -20,11 +20,11 @@
         <div v-if="title" class="vuestic-modal-new__title">{{title}}</div>
         <div v-if="hasHeaderSlot" class="vuestic-modal-new__header"><slot name="header"/></div>
         <div v-if="message" class="vuestic-modal-new__message">{{message}}</div>
-        <div class="vuestic-modal-new__content">
+        <div v-if="hasContentSlot" class="vuestic-modal-new__content">
           <slot/>
         </div>
-        <div v-if="cancelText !== '' || okText !== ''" class="vuestic-modal-new__actions">
-          <button v-if="cancelText !== ''" class="btn btn-secondary btn-micro" @click="cancel">{{cancelText}}</button>
+        <div v-if="cancelText || okText" class="vuestic-modal-new__actions">
+          <button v-if="cancelText" class="btn btn-secondary btn-micro" @click="cancel">{{cancelText}}</button>
           <button class="btn btn-primary btn-micro" @click="ok">{{okText}}</button>
         </div>
       </div>
@@ -44,7 +44,7 @@ export default {
     position: {
       type: String,
       validator: function (value) {
-        return ['center', 'top', 'right', 'bottom', 'left'].indexOf(value) !== -1
+        return ['center', 'top', 'right', 'bottom', 'left'].includes(value)
       }
     },
     title: String,
@@ -68,14 +68,8 @@ export default {
     },
     noOutsideDismiss: Boolean,
     noEscDismiss: Boolean,
-    maxWidth: {
-      type: String,
-      default: '600px'
-    },
-    maxHeight: {
-      type: String,
-      default: '100vh'
-    },
+    maxWidth: String,
+    maxHeight: String,
     fixedLayout: Boolean,
     onOk: Function,
     onCancel: Function
@@ -97,6 +91,9 @@ export default {
         'vuestic-modal-new_fixed-layout': this.fixedLayout
       }
     },
+    hasContentSlot () {
+      return this.$slots.default
+    },
     hasHeaderSlot () {
       return this.$slots.header
     }
@@ -116,11 +113,11 @@ export default {
     },
     cancel () {
       this.close()
-      this.onCancel && this.onCancel()
+      this.$emit('cancel')
     },
     ok () {
       this.close()
-      this.onOk && this.onOk()
+      this.$emit('ok')
     },
     checkOutside (e) {
       if (!this.noOutsideDismiss) {
@@ -167,6 +164,8 @@ export default {
   left: 0;
   border-radius: 6px;
   box-shadow: 0 2px 3px 0 rgba(52, 56, 85, 0.25);
+  max-width: 600px;
+  max-height: 100vh;
   transition: all .5s ease;
   &_fullscreen {
     min-width: 100vw !important;
@@ -226,6 +225,9 @@ export default {
     display: flex;
     flex-flow: column;
     padding: 20px 24px 24px;
+    max-height: 100vh;
+    max-width: 600px;
+    margin: auto;
   }
   &__close {
     position: absolute;
@@ -245,6 +247,9 @@ export default {
     margin-bottom: 24px;
   }
   &__message {
+    margin-bottom: 1.5rem;
+  }
+  &__content {
     margin-bottom: 1.5rem;
   }
   &__actions {

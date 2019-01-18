@@ -55,8 +55,8 @@
       max-width="800px"
       max-height="250px"
       :fixedLayout="true"
-      :on-ok="onOk"
-      :on-cancel="onCancel"
+      v-on:ok="onOk"
+      v-on:cancel="onCancel"
       message="About 64% of all on-line teens say that do things online that they wouldn’t want their parents to know about.   11% of all adult internet users visit dating websites and spend their time Some of the classify their behavior as “cyber affair”   More then 60% of employees use company PC for the personal needs during their work hours as long as 80 minutes per day. About 64% of all on-line teens say that do things online that they wouldn’t want their parents to know about.   11% of all adult internet users visit dating websites and spend their time Some of the classify their behavior as “cyber affair”   More then 60% of employees use company PC for the personal needs during their work hours as long as 80 minutes per day."
     >
       <template slot="header"><p>Step 2. Centered Layout</p></template>
