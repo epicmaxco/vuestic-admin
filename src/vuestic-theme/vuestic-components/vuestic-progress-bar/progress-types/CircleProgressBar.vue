@@ -25,38 +25,14 @@
 </template>
 
 <script>
-import utils from 'services/utils'
-import {
-  colorConfig,
-  VuesticTheme
-} from './../../vuestic-color-picker/VuesticTheme'
+import { progressBarMixin } from './progressBarMixin'
 
 export default {
   name: 'vuestic-circle-progress',
-  props: {
-    value: {
-      type: Number,
-      default: 0
-    },
-    theme: {
-      type: String,
-      default: 'Primary'
-    },
-    // If 'indeterminate' is 'true' 'value' prop will be ignored.
-    indeterminate: {
-      type: Boolean,
-      default: false
-    }
-  },
+  mixins: [progressBarMixin],
   computed: {
     radius () {
       return 20
-    },
-    normalizedValue () {
-      return utils.normalizeValue(this.value)
-    },
-    color () {
-      return colorConfig[VuesticTheme[this.theme]]
     },
     dasharray () {
       return 2 * Math.PI * this.radius

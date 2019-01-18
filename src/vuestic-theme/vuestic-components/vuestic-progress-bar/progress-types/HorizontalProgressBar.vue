@@ -28,40 +28,19 @@
 </template>
 
 <script>
+import { progressBarMixin } from './progressBarMixin'
 import utils from 'services/utils'
-import {
-  colorConfig,
-  VuesticTheme
-} from './../../vuestic-color-picker/VuesticTheme'
 
 export default {
   name: 'vuestic-horizontal-progress',
+  mixins: [progressBarMixin],
   props: {
-    value: {
-      type: Number,
-      default: 0
-    },
-    theme: {
-      type: String,
-      default: 'Primary'
-    },
-    // If 'indeterminate' is 'true' 'value' and 'buffer' props will be ignored.
-    indeterminate: {
-      type: Boolean,
-      default: false
-    },
     buffer: {
       type: Number,
       default: 100
     }
   },
   computed: {
-    color () {
-      return colorConfig[VuesticTheme[this.theme]]
-    },
-    normalizedValue () {
-      return utils.normalizeValue(this.value)
-    },
     normalizedBuffer () {
       if (this.indeterminate) {
         return 100
