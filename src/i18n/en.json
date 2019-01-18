@@ -207,7 +207,8 @@
     "treeView": "Tree view",
     "dateTimePickers": "Date time pickers",
     "fileUpload": "File Upload",
-    "dropdowns": "Dropdowns"
+    "dropdowns": "Dropdowns",
+    "spacing": "Spacing"
   },
   "messages": {
     "all": "See all messages",

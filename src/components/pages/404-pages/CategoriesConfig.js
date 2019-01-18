@@ -93,6 +93,10 @@ export default [
         itemName: 'Tree View',
         itemLink: '/admin/ui/tree-view',
       },
+      {
+        itemName: 'Spacing',
+        itemLink: '/admin/ui/spacing'
+      }
     ],
   },
   {
