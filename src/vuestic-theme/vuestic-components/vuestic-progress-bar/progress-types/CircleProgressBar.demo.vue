@@ -9,7 +9,7 @@
     </VbContainer>
 
     <VbContainer title="Danger">
-      <circle-bar :value="value" :theme="'Danger'"/>
+      <circle-bar :value="value" theme="Danger"/>
     </VbContainer>
 
     <VbContainer title="Static Slot">
@@ -21,19 +21,19 @@
     </VbContainer>
 
     <VbContainer title="Slot Success">
-      <circle-bar :value="value" :theme="'Success'">{{ value + '%' }}</circle-bar>
+      <circle-bar :value="value" theme="Success">{{ value + '%' }}</circle-bar>
     </VbContainer>
 
     <VbContainer title="Indeterminate">
-      <circle-bar :indeterminate="true"/>
+      <circle-bar indeterminate/>
     </VbContainer>
 
     <VbContainer title="Indeterminate Info">
-      <circle-bar :theme="'Info'" :indeterminate="true"/>
+      <circle-bar indeterminate theme="Info"/>
     </VbContainer>
 
     <VbContainer title="Indeterminate Slot">
-      <circle-bar :indeterminate="true">Slot</circle-bar>
+      <circle-bar indeterminate>Slot</circle-bar>
     </VbContainer>
 
     <VbContainer>

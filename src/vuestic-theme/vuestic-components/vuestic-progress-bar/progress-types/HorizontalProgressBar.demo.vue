@@ -7,23 +7,23 @@
         <span>Default</span>
         <horizontal-progress-bar :value="value"/>
         <span>Danger</span>
-        <horizontal-progress-bar :value="value" :theme="'Danger'"/>
+        <horizontal-progress-bar :value="value" theme="Danger"/>
         <span>Static slot</span>
         <horizontal-progress-bar :value="value">Slot</horizontal-progress-bar>
         <span>Dynamic slot</span>
         <horizontal-progress-bar :value="value">{{ value + '%' }}</horizontal-progress-bar>
         <span>Slot Success</span>
-        <horizontal-progress-bar :value="value" :theme="'Success'">{{ value + '%' }}</horizontal-progress-bar>
+        <horizontal-progress-bar :value="value" theme="Success">{{ value + '%' }}</horizontal-progress-bar>
         <span>Buffer</span>
         <horizontal-progress-bar :value="value" :buffer="value * 1.5"/>
         <span>Indeterminate</span>
-        <horizontal-progress-bar :indeterminate="true"/>
+        <horizontal-progress-bar indeterminate/>
         <span>Indeterminate Info</span>
-        <horizontal-progress-bar :indeterminate="true" theme="Info"/>
+        <horizontal-progress-bar indeterminate theme="Info"/>
         <span>Indeterminate Slot</span>
-        <horizontal-progress-bar :indeterminate="true">Slot</horizontal-progress-bar>
+        <horizontal-progress-bar indeterminate>Slot</horizontal-progress-bar>
         <span>Indeterminate with :value and :buffer</span>
-        <horizontal-progress-bar :value="value" :buffer="value * 1.5" :indeterminate="true"/>
+        <horizontal-progress-bar :value="value" :buffer="value * 1.5" indeterminate/>
       </div>
     </VbContainer>
     <VbContainer>

@@ -8,7 +8,7 @@
         >{{ themes[n - 1] }}</vuestic-horizontal-progress>
       </div>
       <div class="flex sm3 md3">
-        <vuestic-horizontal-progress :indeterminate="true" :theme="'Black'">Black</vuestic-horizontal-progress>
+        <vuestic-horizontal-progress indeterminate theme="Black">Black</vuestic-horizontal-progress>
       </div>
     </div>
   </vuestic-widget>

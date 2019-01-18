@@ -8,22 +8,22 @@
         <vuestic-horizontal-progress :value="bufferValues.value" :buffer="bufferValues.buffer"/>
       </div>
       <div class="flex sm4 md4">
-        <vuestic-horizontal-progress :indeterminate="true"/>
+        <vuestic-horizontal-progress indeterminate/>
       </div>
     </div>
     <div class="va-row">
       <div class="flex sm4 md4">
-        <vuestic-horizontal-progress :value="value * 2 / 3" :theme="'Info'">66%</vuestic-horizontal-progress>
+        <vuestic-horizontal-progress :value="value * 2 / 3" theme="Info">66%</vuestic-horizontal-progress>
       </div>
       <div class="flex sm4 md4">
         <vuestic-horizontal-progress
           :value="bufferValues.value"
           :buffer="bufferValues.buffer"
-          :theme="'Info'"
+          theme="Info"
         >Buffering</vuestic-horizontal-progress>
       </div>
       <div class="flex sm4 md4">
-        <vuestic-horizontal-progress :indeterminate="true" :theme="'Info'">Loading...</vuestic-horizontal-progress>
+        <vuestic-horizontal-progress indeterminate theme="Info">Loading...</vuestic-horizontal-progress>
       </div>
     </div>
   </vuestic-widget>

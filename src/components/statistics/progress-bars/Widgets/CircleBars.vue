@@ -5,15 +5,15 @@
         <vuestic-circle-progress :value="value * n / 10"/>
       </div>
       <div class="flex sm1 md1">
-        <vuestic-circle-progress :indeterminate="true"/>
+        <vuestic-circle-progress indeterminate/>
       </div>
     </div>
     <div class="va-row">
       <div v-for="n in 10" :key="n" class="flex sm1 md1">
-        <vuestic-circle-progress :value="value * n / 10" :theme="'Info'">{{ value * n / 10 }}%</vuestic-circle-progress>
+        <vuestic-circle-progress :value="value * n / 10" theme="Info">{{ value * n / 10 }}%</vuestic-circle-progress>
       </div>
       <div class="flex sm1 md1">
-        <vuestic-circle-progress :indeterminate="true" :theme="'Info'"/>
+        <vuestic-circle-progress indeterminate theme="Info"/>
       </div>
     </div>
   </vuestic-widget>
