@@ -1,7 +1,7 @@
 <template>
   <VbDemo>
-    <VbContainer>
-      <div class="horizontal-progress-bar-demo-wrapper">
+    <VbContainer style="width: 400px">
+      <div>
         <span>No value</span>
         <horizontal-progress-bar/>
         <span>Default</span>
@@ -50,13 +50,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.horizontal-progress-bar-demo-wrapper {
-  width: 400px;
-
-  div {
-    margin-bottom: 25px;
-  }
-}
-</style>
