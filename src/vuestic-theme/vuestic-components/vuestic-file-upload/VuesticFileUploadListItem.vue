@@ -21,7 +21,7 @@
       <div class="file-upload-list-item__size flex xs12 lg3">
         {{ file.size }}
       </div>
-      <div class="ile-upload-list-item__date flex xs12 lg4">
+      <div class="file-upload-list-item__date flex xs12 lg4">
         <span>{{ $t('fileUpload.uploadedOn')}} {{ file.date }}</span>
       </div>
       <div class="file-upload-list-item__button-container flex xs12 lg2">

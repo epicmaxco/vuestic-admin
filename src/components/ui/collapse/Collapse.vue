@@ -98,13 +98,8 @@
         <div class="va-row">
           <div class="flex md12">
             <vuestic-collapse noHeader>
-<<<<<<< HEAD
               <div class="va-row" slot="header">
                 <div class="flex md4">
-=======
-              <div class="row" slot="header">
-                <div class="col-md-4">
->>>>>>> feature/button-component: change button in whole app
                   <va-button>
                     <span> Expand Button </span>
                   </va-button>
@@ -147,17 +142,8 @@
 </template>
 
 <script>
-import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
-
 export default {
-<<<<<<< HEAD
   name: 'collapse'
-=======
-  name: 'collapse',
-  components: {
-    VaButton
-  },
->>>>>>> feature/button-component: change button in whole app
 }
 </script>
 
