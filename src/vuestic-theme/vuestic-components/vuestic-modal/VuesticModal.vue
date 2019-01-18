@@ -1,240 +1,305 @@
 <template>
-  <div class="vuestic-modal">
-    <transition name="modal" :duration="duration">
-      <div v-show="show" class="modal-container">
-        <div class="modal" @click.self="clickMask">
-          <div class="modal-dialog" :class="modalClass">
-            <div class="modal-content">
-              <!--Header-->
-              <div class="modal-header">
-                <slot name="header">
-                  <div class="modal-title">
-                    <slot name="title"></slot>
-                  </div>
-
-                  <i
-                    class="ion ion-md-close close-modal"
-                    v-if="closeIconShown"
-                    @click.prevent="cancel"
-                  />
-                </slot>
-              </div>
-              <!--Container-->
-              <div class="modal-body">
-                <slot></slot>
-              </div>
-              <!--Footer-->
-              <div class="modal-footer">
-                <slot name="footer">
-                  <button type="button" v-if="!noButtons" :class="okClass"
-                          @click="ok" :disabled="okDisabled">
-                    {{ okText }}
-                  </button>
-                  <button type="button" v-if="!noButtons" :class="cancelClass"
-                          @click="cancel" :disabled="cancelDisabled">
-                    {{ cancelText }}
-                  </button>
-                </slot>
-              </div>
-            </div>
-          </div>
+<div
+  v-show="valueProxy"
+  class="vuestic-modal__overlay"
+  @click="checkOutside"
+>
+  <transition name="modal">
+    <div
+      class="vuestic-modal"
+      :class="computedClass"
+      v-show="valueProxy"
+      :style="{maxWidth, maxHeight}"
+    >
+      <i
+        v-if="closeButton || fullscreen"
+        @click="cancel"
+        class="ion ion-md-close vuestic-modal__close"
+      />
+      <div class="vuestic-modal__inner" :style="{maxHeight, maxWidth}">
+        <div v-if="title" class="vuestic-modal__title">{{title}}</div>
+        <div v-if="hasHeaderSlot" class="vuestic-modal__header"><slot name="header"/></div>
+        <div v-if="message" class="vuestic-modal__message">{{message}}</div>
+        <div v-if="hasContentSlot" class="vuestic-modal__content">
+          <slot/>
         </div>
-        <div class="modal-backdrop"></div>
+        <div v-if="cancelText || okText" class="vuestic-modal__actions">
+          <button v-if="cancelText" class="btn btn-secondary btn-micro" @click="cancel">{{cancelText}}</button>
+          <button class="btn btn-primary btn-micro" @click="ok">{{okText}}</button>
+        </div>
       </div>
-    </transition>
-  </div>
+    </div>
+  </transition>
+</div>
 </template>
 
 <script>
 export default {
   name: 'vuestic-modal',
   props: {
-    transition: {
+    value: {
+      required: true,
+      default: false
+    },
+    position: {
       type: String,
-      default: 'modal',
+      validator: function (value) {
+        return ['center', 'top', 'right', 'bottom', 'left'].includes(value)
+      }
     },
-    small: {
-      type: Boolean,
-      default: false,
-    },
-    large: {
-      type: Boolean,
-      default: false,
-    },
-    force: {
-      type: Boolean,
-      default: false,
-    },
+    title: String,
+    message: String,
     okText: {
       type: String,
-      default: 'CONFIRM',
+      default: 'OK'
     },
     cancelText: {
       type: String,
-      default: 'CANCEL',
+      default: 'Cancel'
     },
-    okClass: {
+    closeButton: {
+      type: Boolean,
+      default: true
+    },
+    fullscreen: Boolean,
+    mobileFullscreen: {
+      type: Boolean,
+      default: true
+    },
+    noOutsideDismiss: Boolean,
+    noEscDismiss: Boolean,
+    maxWidth: String,
+    maxHeight: String,
+    size: {
       type: String,
-      default: 'btn btn-primary',
-    },
-    cancelClass: {
-      type: String,
-      default: 'btn btn-secondary',
-    },
-    closeIconShown: {
-      type: Boolean,
-      default: true,
-    },
-    okDisabled: {
-      type: Boolean,
-      default: false,
-    },
-    cancelDisabled: {
-      type: Boolean,
-      default: false,
-    },
-    noButtons: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  data () {
-    return {
-      show: false,
-      duration: 500,
-    }
-  },
-  computed: {
-    modalClass () {
-      return {
-        'modal-lg': this.large,
-        'modal-sm': this.small,
+      default: 'medium',
+      validator: function (value) {
+        return ['medium', 'small', 'large'].includes(value)
       }
     },
+    fixedLayout: Boolean,
+    onOk: Function,
+    onCancel: Function
   },
-  created () {
-    if (this.show) {
-      document.body.className += ' modal-open'
+  computed: {
+    valueProxy: {
+      get () {
+        return this.value
+      },
+      set (value) {
+        this.$emit('input', value)
+      },
+    },
+    computedClass () {
+      return {
+        'vuestic-modal_fullscreen': this.fullscreen,
+        'vuestic-modal_mobile-fullscreen': this.mobileFullscreen,
+        [`vuestic-modal_position-${this.position}`]: this.position,
+        'vuestic-modal_fixed-layout': this.fixedLayout,
+        [`vuestic-modal_size-${this.size}`]: this.size !== 'medium'
+      }
+    },
+    hasContentSlot () {
+      return this.$slots.default
+    },
+    hasHeaderSlot () {
+      return this.$slots.header
     }
   },
-  beforeDestroy () {
-    document.body.className = document.body.className.replace(/\s?modal-open/, '')
-  },
   watch: {
-    show (value) {
+    valueProxy (value) {
       if (value) {
-        document.body.className += ' modal-open'
+        window.addEventListener('keyup', this.listenKeyUp)
       } else {
-        window.setTimeout(() => {
-          document.body.className = document.body.className.replace(/\s?modal-open/, '')
-        }, this.duration)
+        window.removeEventListener('keyup', this.listenKeyUp)
       }
     },
   },
   methods: {
-    listenKeyUp (event) {
-      if (event.key === 'Escape') {
-        this.cancel()
-      }
-    },
-    ok () {
-      this.$emit('ok')
-      this.show = false
-      window.removeEventListener('keyup', this.listenKeyUp)
+    close () {
+      this.valueProxy = false
     },
     cancel () {
+      this.close()
       this.$emit('cancel')
-      this.show = false
-      window.removeEventListener('keyup', this.listenKeyUp)
     },
-    clickMask () {
-      if (!this.force) {
-        this.cancel()
+    ok () {
+      this.close()
+      this.$emit('ok')
+    },
+    checkOutside (e) {
+      if (!this.noOutsideDismiss) {
+        let modal
+        e.target.childNodes.forEach(node => {
+          if (node.classList && node.classList.contains('vuestic-modal')) {
+            modal = node
+          }
+        })
+        if (modal) {
+          this.cancel()
+        }
       }
     },
-    open () {
-      this.show = true
-      window.addEventListener('keyup', this.listenKeyUp)
-    },
-    close () {
-      this.show = false
-      window.removeEventListener('keyup', this.listenKeyUp)
-    },
-  },
+    listenKeyUp (e) {
+      if (e.code === 'Escape' && !this.noEscDismiss) {
+        this.cancel()
+      }
+    }
+  }
 }
 </script>
 
 <style lang="scss">
-//Modals
-$modal-header-padding-x: $widget-padding;
-$modal-header-padding-y: 0;
-$modal-header-height: $widget-header-height;
-$modal-header-border: $widget-header-border;
-$modal-content-border-radius: 0;
-$modal-inner-padding: 25px;
-$modal-footer-btns-padding-bottom: 20px;
-$modal-footer-btns-margin-x: 10px;
-
 .vuestic-modal {
-  height: 0;
-  width: 0;
-
-  // For Transitioning
-  .modal {
-    display: block;
+  &__overlay {
+    background-color: rgba(0,0,0,0.6);
+    z-index: 1000;
+    position: absolute !important;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+  }
+  background: #fff;
+  position: absolute;
+  margin: auto;
+  min-height: 50px;
+  height: fit-content;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 6px;
+  box-shadow: 0 2px 3px 0 rgba(52, 56, 85, 0.25);
+  max-width: 600px;
+  max-height: 100vh;
+  transition: all .5s ease;
+  &_fullscreen {
+    min-width: 100vw !important;
+    height: 100vh !important;
+    border-radius: 0;
+  }
+  &_mobile-fullscreen {
+    @media all and (max-width: map-get($grid-breakpoints, sm)) {
+      min-width: 100vw !important;
+      height: 100vh !important;
+      border-radius: 0;
+      position: fixed;
+      .vuestic-modal__actions {
+        .btn {
+          margin: 0 0 20px 0;
+          width: 100%;
+        }
+      }
+    }
   }
 
-  .modal-dialog, .modal-backdrop {
-    transition: all .5s ease;
-  }
-
-  .modal-enter .modal-dialog, .modal-leave-active .modal-dialog {
+  &.modal-enter,
+  &.modal-leave-to
+  {
     opacity: 0;
     transform: translateY(-30%);
   }
 
-  .modal-enter .modal-backdrop, .modal-leave-active .modal-backdrop {
-    opacity: 0;
+  &.modal-enter-active {
+    transition: all .3s ease;
+  }
+  &.modal-leave-active {
+    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
   }
 
-  .modal-backdrop {
-    opacity: 0.5;
-  }
-
-  //Modal styles
-
-  .modal-header {
-    height: $modal-header-height;
-    padding: $modal-header-padding-y $modal-header-padding-x;
-    border-bottom: $modal-header-border;
-    font-size: $font-size-larger;
-    display: flex;
-    align-items: center;
-  }
-
-  .close-modal {
-    margin-left: 1rem;
-    font-size: $font-size-large;
-    line-height: $font-size-large;
-    cursor: pointer;
-  }
-
-  .modal-content {
-    border-radius: $modal-content-border-radius;
-  }
-
-  .modal-footer {
-    justify-content: center;
-    padding: 0 $modal-inner-padding;
-    padding-bottom: calc(#{$modal-inner-padding} - #{$modal-footer-btns-padding-bottom});
-    flex-wrap: wrap;
-    .btn {
-      margin: 0 $modal-footer-btns-margin-x $modal-footer-btns-padding-bottom $modal-footer-btns-margin-x;
+  &_position {
+    &-top {
+      bottom: auto;
+      margin: 1rem auto;
+    }
+    &-right {
+      left: auto;
+      margin: auto 1rem;
+    }
+    &-bottom {
+      top: auto;
+      margin: 1rem auto;
+    }
+    &-left {
+      right: auto;
+      margin: auto 1rem;
     }
   }
-
-  .modal-dialog {
-    box-shadow: $modal-content-box-shadow-sm-up;
+  &_size {
+    &-small {
+      max-width: 300px;
+      .vuestic-modal__inner {
+        max-width: 300px;
+        .vuestic-modal__actions .btn {
+          margin-right: 4px;
+          margin-bottom: 4px;
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    &-large {
+      max-width: 800px;
+      .vuestic-modal__inner {
+        max-width: 800px;
+      }
+    }
+  }
+  &_fixed-layout {
+    .vuestic-modal__inner {
+      overflow: hidden;
+      .vuestic-modal__message {
+        overflow: auto;
+      }
+    }
+  }
+  &__inner {
+    overflow: auto;
+    display: flex;
+    flex-flow: column;
+    padding: 20px 24px 24px;
+    max-height: 100vh;
+    max-width: 600px;
+    margin: auto;
+  }
+  &__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: $brand-secondary;
+  }
+  &__title {
+    color: $vu-info;
+    font-size: 0.625rem;
+    line-height: 1.2em;
+    text-transform: uppercase;
+    font-weight: $font-weight-bold;
+    letter-spacing: 0.6px;
+    margin-bottom: 24px;
+  }
+  &__message {
+    margin-bottom: 1.5rem;
+  }
+  &__content {
+    margin-bottom: 1.5rem;
+  }
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: auto;
+    min-height: 36px;
+    .btn {
+      margin-right: 20px;
+      &:last-of-type {
+        margin-tight: 0;
+      }
+    }
   }
 }
 </style>
