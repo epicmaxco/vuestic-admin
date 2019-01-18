@@ -1,6 +1,6 @@
 <template>
   <div class="notification-dropdown flex-center">
-    <span class="i-nav-notification"/>
+    <va-icon icon="i-nav-notification"/>
     <vuestic-dropdown
       v-model="isShown"
       position="bottom"
@@ -20,8 +20,13 @@
 </template>
 
 <script>
+import VaIcon from '../../../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
+
 export default {
   name: 'notification-dropdown',
+  components: {
+    VaIcon
+  },
   data () {
     return {
       isShown: false,

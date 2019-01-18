@@ -18,11 +18,11 @@
                 name="input-icon-left"
                 required
               />
-              <i class="fa fa-search icon-left input-icon"/>
+              <va-icon icon="fa fa-search icon-left input-icon"/>
               <label class="control-label" for="input-icon-left">
                 {{ $t('icons.search') }}
               </label>
-              <i class="bar"></i>
+              <va-icon icon="bar"/>
             </div>
           </div>
         </div>
@@ -71,8 +71,13 @@
 </template>
 
 <script>
+import VaIcon from '../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
+
 export default {
   name: 'vuestic-icon-set',
+  components: {
+    VaIcon
+  },
   props: {
     name: {
       type: String,

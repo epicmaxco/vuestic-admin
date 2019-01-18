@@ -3,17 +3,20 @@
     <div class="input-group">
       <input id="input-icon-left" name="input-icon-left"
              v-model="valueProxy" required/>
-      <i
-        class="glyphicon glyphicon-search icon-left input-icon search-icon"></i>
-      <label class="control-label" for="input-icon-left">{{label}}</label><i
-      class="bar"></i>
+      <va-icon icon="glyphicon glyphicon-search icon-left input-icon search-icon"/>
+      <label class="control-label" for="input-icon-left">{{label}}</label><va-icon icon="bar"/>
     </div>
   </div>
 </template>
 
 <script>
+import VaIcon from '../../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
+
 export default {
   name: 'filterBar',
+  components: {
+    VaIcon
+  },
   props: {
     label: {
       type: String,

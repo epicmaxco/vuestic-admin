@@ -6,7 +6,7 @@
       <table class="table table-bordered test-table">
         <tr>
           <th>Description</th>
-          <th>Vuestic Icon</th>
+          <th>Va Icon</th>
         </tr>
         <tr>
           <td>Exact Size</td>
@@ -15,17 +15,11 @@
           </td>
         </tr>
         <tr>
-          <td>External styles</td>
-          <td style="font-size: 30px; color: red">
-            <vuestic-icon icon="iconicstroke iconicstroke-info"/>
-          </td>
-        </tr>
-        <tr>
           <td>
             Size presets
           </td>
           <td>
-            <div class="row">
+            <div class="row d-flex align-items-center">
               <div class="col-6">
                 <va-icon icon="iconicstroke iconicstroke-info" small/>
                 <span style="margin-left: 30px; font-size: 16px;">Small</span>
@@ -42,7 +36,7 @@
             Keep size
           </td>
           <td>
-            <div class="row">
+            <div class="row d-flex align-items-center">
               <div class="col-6">
                 <va-icon icon="iconicstroke iconicstroke-info" size="40px"/>
                 <span style="margin-left: 30px; font-size: 16px;">Size: 40px</span>
@@ -124,18 +118,6 @@
         </tr>
         <tr>
           <td>
-            Fixed Width Problem
-          </td>
-          <td>
-            <button class="btn btn-secondary" disabled>
-              <vuestic-icon icon="iconicstroke iconicstroke-info" fixed-width/>
-              Some
-              <vuestic-icon icon="iconicstroke iconicstroke-info" fixed-width/>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>
             Different Iconsets
           </td>
           <td>
@@ -167,6 +149,133 @@
                   <va-icon icon="fa fa-anchor" fixed-width/>
                   <span style="margin-left: 30px; font-size: 16px;">Font Awesome</span>
                 </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Colored Different Size Icons
+          </td>
+          <td>
+            <div class="row d-flex align-items-center">
+              <div class="col-2">
+                <va-icon icon="iconicstroke iconicstroke-info" large color="info"/>
+                <span style="margin-left: 30px; font-size: 16px;">Info</span>
+              </div>
+              <div class="col-2">
+                <va-icon icon="iconicstroke iconicstroke-info" small color="warning"/>
+                <span style="margin-left: 30px; font-size: 16px;">Warning</span>
+              </div>
+              <div class="col-2">
+                <va-icon icon="iconicstroke iconicstroke-info" :size="35" color="danger"/>
+                <span style="margin-left: 30px; font-size: 16px;">Danger</span>
+              </div>
+              <div class="col-2">
+                <va-icon icon="iconicstroke iconicstroke-info" :size="10" color="success"/>
+                <span style="margin-left: 30px; font-size: 16px;">Success</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Fixed Width Icon with Rotation
+          </td>
+          <td>
+            <div>
+              <div class="row">
+                <div class="col-4">
+                  <va-icon icon="iconicstroke iconicstroke-info" fixed-width :rotation="60"/>
+                  <span style="margin-left: 30px; font-size: 16px;">Iconic</span>
+                </div>
+                <div class="col-4">
+                  <va-icon icon="iconicstroke iconicstroke-info" fixed-width :rotation="110"/>
+                  <span style="margin-left: 30px; font-size: 16px;">Glyphicon</span>
+                </div>
+                <div class="col-4">
+                  <va-icon icon="iconicstroke iconicstroke-info" fixed-width :rotation="200"/>
+                  <span style="margin-left: 30px; font-size: 16px;">Maki</span>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+             Different Icon Sizes with Rotation
+          </td>
+          <td>
+            <div>
+              <div class="row d-flex align-items-center">
+                <div class="col-3">
+                  <va-icon icon="iconicstroke iconicstroke-info" small :rotation="45"/>
+                  <span style="margin-left: 30px; font-size: 16px;">Iconic</span>
+                </div>
+                <div class="col-3">
+                  <va-icon icon="iconicstroke iconicstroke-info" large :rotation="90"/>
+                  <span style="margin-left: 30px; font-size: 16px;">Glyphicon</span>
+                </div>
+                <div class="col-3">
+                  <va-icon icon="iconicstroke iconicstroke-info" :size="40" :rotation="120"/>
+                  <span style="margin-left: 30px; font-size: 16px;">Maki</span>
+                </div>
+                <div class="col-3">
+                  <va-icon icon="iconicstroke iconicstroke-info" :size="60" :rotation="210"/>
+                  <span style="margin-left: 30px; font-size: 16px;">Maki</span>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Different Iconsets with Rotation
+          </td>
+          <td>
+            <div>
+              <div class="row">
+                <div class="col-3">
+                  <va-icon icon="iconicstroke iconicstroke-hash" :rotation="45"/>
+                  <span style="margin-left: 30px; font-size: 16px;">Iconic</span>
+                </div>
+                <div class="col-3">
+                  <va-icon icon="maki maki-belowground-rail" :rotation="70"/>
+                  <span style="margin-left: 30px; font-size: 16px;">Glyphicon</span>
+                </div>
+                <div class="col-3">
+                  <va-icon icon="brandico brandico-facebook" :rotation="125"/>
+                  <span style="margin-left: 30px; font-size: 16px;">Maki</span>
+                </div>
+                <div class="col-3">
+                  <va-icon icon="fa fa-anchor" :rotation="160"/>
+                  <span style="margin-left: 30px; font-size: 16px;">Maki</span>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Colored Different Size Icons with Rotation
+          </td>
+          <td>
+            <div class="row d-flex align-items-center">
+              <div class="col-2">
+                <va-icon icon="iconicstroke iconicstroke-info" large :rotation="45" color="info"/>
+                <span style="margin-left: 30px; font-size: 16px;">Info</span>
+              </div>
+              <div class="col-2">
+                <va-icon icon="iconicstroke iconicstroke-info" small :rotation="70" color="warning"/>
+                <span style="margin-left: 30px; font-size: 16px;">Warning</span>
+              </div>
+              <div class="col-2">
+                <va-icon icon="iconicstroke iconicstroke-info" :size="35" :rotation="125" color="danger"/>
+                <span style="margin-left: 30px; font-size: 16px;">Danger</span>
+              </div>
+              <div class="col-2">
+                <va-icon icon="iconicstroke iconicstroke-info" :size="10" :rotation="160" color="success"/>
+                <span style="margin-left: 30px; font-size: 16px;">Success</span>
               </div>
             </div>
           </td>

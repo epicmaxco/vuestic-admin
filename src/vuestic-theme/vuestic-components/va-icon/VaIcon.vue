@@ -10,7 +10,7 @@ export default {
   name: 'va-icon',
   props: {
     icon: {
-      type: String
+      type: [String, Array]
     },
     small: {
       type: Boolean,
@@ -30,8 +30,7 @@ export default {
       type: [String, Number]
     },
     color: {
-      type: String,
-      default: undefined
+      type: String
     },
   },
   computed: {
