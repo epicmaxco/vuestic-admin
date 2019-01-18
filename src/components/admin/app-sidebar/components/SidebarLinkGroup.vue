@@ -6,7 +6,7 @@
        class="sidebar-link__router-link"
        :class="classObject">
       <slot name="title"></slot>
-      <i class="expand-icon fa fa-angle-down"></i>
+      <va-icon icon="expand-icon fa fa-angle-down"/>
     </a>
     <expanding>
       <ul class="sidebar-submenu in" v-show="this.expanded"
@@ -20,12 +20,14 @@
 <script>
 import SidebarLink from './SidebarLink'
 import Expanding from 'vue-bulma-expanding/src/Expanding'
+import VaIcon from '../../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
 
 export default {
   name: 'sidebar-link-group',
   components: {
     SidebarLink,
     Expanding,
+    VaIcon
   },
   data () {
     return {

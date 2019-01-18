@@ -5,7 +5,7 @@
         <div class="info-widget-inner">
           <div class="stats">
             <div class="stats-number">
-              <i class="ion ion-md-arrow-up text-primary stats-icon"></i>
+              <va-icon icon="ion ion-md-arrow-up text-primary stats-icon"/>
               59
             </div>
             <div class="stats-title">{{'dashboard.elements' | translate}}</div>
@@ -18,7 +18,7 @@
         <div class="info-widget-inner">
           <div class="stats">
             <div class="stats-number">
-              <i class="ion ion-md-arrow-down text-danger stats-icon"></i>
+              <va-icon icon="ion ion-md-arrow-down text-danger stats-icon"/>
               12
             </div>
             <div class="stats-title">{{'dashboard.versions' | translate}}</div>
@@ -49,7 +49,7 @@
         <div class="info-widget-inner">
           <div class="stats">
             <div class="stats-number">
-              <i class="ion ion-md-people stats-icon icon-wide"></i>
+              <va-icon icon="ion ion-md-people stats-icon icon-wide"/>
               5
             </div>
             <div class="stats-title">{{'dashboard.teamMembers' | translate}}
@@ -62,8 +62,13 @@
 </template>
 
 <script>
+import VaIcon from '../../vuestic-theme/vuestic-components/va-icon/VaIcon'
+
 export default {
   name: 'dashboard-info-widgets',
+  components: {
+    VaIcon
+  }
 }
 </script>
 

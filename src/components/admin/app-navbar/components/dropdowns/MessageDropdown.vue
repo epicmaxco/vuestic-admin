@@ -1,6 +1,6 @@
 <template>
   <div class="message-dropdown flex-center">
-    <span class="i-nav-messages"/>
+    <va-icon icon="i-nav-messages"/>
     <vuestic-dropdown v-model="isOpen" position="bottom">
       <a v-for="(option, id) in options"
          :key="id"
@@ -17,8 +17,13 @@
 </template>
 
 <script>
+import VaIcon from '../../../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
+
 export default {
   name: 'message-dropdown',
+  components: {
+    VaIcon
+  },
   data () {
     return {
       isOpen: false,

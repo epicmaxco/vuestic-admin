@@ -11,7 +11,7 @@ $vuestic-colors: (
 );
 
 @each $name, $color in $vuestic-colors {
-  .vuestic-icon--#{$name}{
+  .va-icon--#{$name}{
     color: $color;
   }
 }

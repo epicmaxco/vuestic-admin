@@ -17,7 +17,7 @@
           <div class="input-group">
             <input @keypress="keyHandler($event)" v-model="inputMessage"
                    required title=""/>
-            <label class="control-label">Your message</label><i class="bar"></i>
+            <label class="control-label">Your message</label><va-icon icon="bar"/>
           </div>
           <div class="btn btn-sm btn-primary" @click="sendMessage()">Send</div>
         </div>
@@ -28,12 +28,14 @@
 
 <script>
 import StickyScroll from 'vuestic-directives/StickyScroll'
+import VaIcon from '../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
 
 export default {
   name: 'vuestic-chat',
-
+  components: {
+    VaIcon
+  },
   directives: { StickyScroll },
-
   props: {
     value: {
       type: Array,
