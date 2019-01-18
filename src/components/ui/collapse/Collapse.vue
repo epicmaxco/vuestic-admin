@@ -98,8 +98,8 @@
         <div class="va-row">
           <div class="flex md12">
             <vuestic-collapse noHeader>
-              <div class="row" slot="header">
-                <div class="col-md-4">
+              <div class="va-row" slot="header">
+                <div class="flex md4">
                   <va-button>
                     <span> Expand Button </span>
                   </va-button>

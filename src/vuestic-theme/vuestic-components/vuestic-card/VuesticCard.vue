@@ -96,7 +96,6 @@ $card-font-size: 1.375rem;
   box-sizing: border-box;
   box-shadow: $widget-box-shadow;
   word-wrap: break-word;
-  text-decoration: none;
 
   &__title {
     font-weight: $font-weight-bold;

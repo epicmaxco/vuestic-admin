@@ -26,10 +26,16 @@
               <!--Footer-->
               <div class="modal-footer">
                 <slot name="footer">
-                  <va-button v-if="!noButtons && okText" :class="okClass" @click="ok" :disabled="okDisabled">
+                  <va-button
+                    v-if="!noButtons && okText" :class="okClass"
+                    @click="ok" :disabled="okDisabled"
+                  >
                     {{ okText }}
                   </va-button>
-                  <va-button outline v-if="!noButtons && cancelText" :class="cancelClass" @click="cancel" :disabled="cancelDisabled">
+                  <va-button
+                    outline v-if="!noButtons && cancelText" :class="cancelClass"
+                    @click="cancel" :disabled="cancelDisabled"
+                  >
                     {{ cancelText }}
                   </va-button>
                 </slot>

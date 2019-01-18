@@ -21,7 +21,7 @@
         </div>
       </div>
       <div
-        class="d-flex flex-column flex-lg-row align-items-center justify-content-between down-container">
+        class="d-flex align--center justify--space-between">
         <va-button type="submit">
           {{ $t('auth.login') }}
         </va-button>
