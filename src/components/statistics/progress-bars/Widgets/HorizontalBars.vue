@@ -2,28 +2,28 @@
   <vuestic-widget class="progress-bar-widget" :headerText="$t('progressBars.horizontal')">
     <div class="va-row">
       <div class="flex md4 xs12">
-        <vuestic-horizontal-progress :value="value / 3"/>
+        <va-horizontal-progress-bar :value="value / 3"/>
       </div>
       <div class="flex md4 xs12">
-        <vuestic-horizontal-progress :value="bufferValues.value" :buffer="bufferValues.buffer"/>
+        <va-horizontal-progress-bar :value="bufferValues.value" :buffer="bufferValues.buffer"/>
       </div>
       <div class="flex md4 xs12">
-        <vuestic-horizontal-progress indeterminate/>
+        <va-horizontal-progress-bar indeterminate/>
       </div>
     </div>
     <div class="va-row">
       <div class="flex md4 xs12">
-        <vuestic-horizontal-progress :value="value * 2 / 3" theme="Info">66%</vuestic-horizontal-progress>
+        <va-horizontal-progress-bar :value="value * 2 / 3" theme="Info">66%</va-horizontal-progress-bar>
       </div>
       <div class="flex md4 xs12">
-        <vuestic-horizontal-progress
+        <va-horizontal-progress-bar
           :value="bufferValues.value"
           :buffer="bufferValues.buffer"
           theme="Info"
-        >Buffering</vuestic-horizontal-progress>
+        >Buffering</va-horizontal-progress-bar>
       </div>
       <div class="flex md4 xs12">
-        <vuestic-horizontal-progress indeterminate theme="Info">Loading...</vuestic-horizontal-progress>
+        <va-horizontal-progress-bar indeterminate theme="Info">Loading...</va-horizontal-progress-bar>
       </div>
     </div>
   </vuestic-widget>

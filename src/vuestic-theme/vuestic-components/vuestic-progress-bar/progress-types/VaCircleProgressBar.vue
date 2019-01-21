@@ -1,13 +1,16 @@
 <template>
-  <div class="va-circle-bar">
+  <div
+    class="va-circle-progress-bar"
+    :class="{
+      'va-circle-progress-bar--indeterminate': indeterminate,
+    }"
+  >
     <svg
-      :class="{'va-circle-bar__progress-bar--indeterminate': indeterminate}"
-      class="va-circle-bar__progress-bar"
+      class="va-circle-progress-bar__progress-bar"
       viewBox="21.25 21.25 42.5 42.5"
     >
       <circle
-        :class="{'va-circle-bar__overlay--indeterminate': indeterminate}"
-        class="va-circle-bar__overlay"
+        class="va-circle-progress-bar__overlay"
         cx="42.5"
         cy="42.5"
         :r="radius"
@@ -16,10 +19,10 @@
         stroke-width="2.5"
         :stroke-dasharray="dasharray"
         :stroke-dashoffset="dashoffset"
-      ></circle>
+      />
     </svg>
-    <div :style="{color: color}" class="va-circle-bar__info">
-      <slot></slot>
+    <div :style="{color: color}" class="va-circle-progress-bar__info">
+      <slot/>
     </div>
   </div>
 </template>
@@ -28,7 +31,7 @@
 import { progressBarMixin } from './progressBarMixin'
 
 export default {
-  name: 'vuestic-circle-progress',
+  name: 'va-circle-progress-bar',
   mixins: [progressBarMixin],
   computed: {
     radius () {
@@ -45,28 +48,30 @@ export default {
 </script>
 
 <style lang="scss">
-.va-circle-bar {
+.va-circle-progress-bar {
   position: relative;
   width: $progress-bar-circle-diameter;
   height: $progress-bar-circle-diameter;
 
-  .va-circle-bar__progress-bar {
+  &__progress-bar {
     transform: rotate(-90deg);
-
-    &--indeterminate {
-      animation: circle-bar__progress-bar--indeterminate 2s linear infinite;
+    @at-root {
+      .va-circle-progress-bar--indeterminate & {
+        animation: va-circle-progress-bar__progress-bar--indeterminate 2s linear infinite;
+      }
     }
   }
 
-  .va-circle-bar__overlay {
+  &__overlay {
     transition: all ease 2s;
-
-    &--indeterminate {
-      animation: circle-bar__overlay--indeterminate 2s ease-in-out infinite;
+    @at-root {
+      .va-circle-progress-bar--indeterminate & {
+        animation: va-circle-progress-bar__overlay--indeterminate 2s ease-in-out infinite;
+      }
     }
   }
 
-  .va-circle-bar__info {
+  &__info {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -75,13 +80,13 @@ export default {
   }
 }
 
-@keyframes circle-bar__progress-bar--indeterminate {
+@keyframes va-circle-progress-bar__progress-bar--indeterminate {
   100% {
     transform: rotate(270deg);
   }
 }
 
-@keyframes circle-bar__overlay--indeterminate {
+@keyframes va-circle-progress-bar__overlay--indeterminate {
   0% {
     stroke-dasharray: 1, 125;
     stroke-dashoffset: 0px;

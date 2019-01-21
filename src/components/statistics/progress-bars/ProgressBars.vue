@@ -7,7 +7,7 @@
     </div>
     <div class="va-row">
       <div class="flex md12 xs12">
-        <cirecle-bars/>
+        <circle-bars/>
       </div>
     </div>
     <div class="va-row">
@@ -20,11 +20,11 @@
 
 <script>
 import HorizontalBars from './Widgets/HorizontalBars'
-import CirecleBars from './Widgets/CircleBars'
+import CircleBars from './Widgets/CircleBars'
 import ColorfulBars from './Widgets/ColorfulBars'
 
 export default {
   name: 'progress-bars',
-  components: { HorizontalBars, CirecleBars, ColorfulBars }
+  components: { HorizontalBars, CircleBars, ColorfulBars }
 }
 </script>

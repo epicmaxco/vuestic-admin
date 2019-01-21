@@ -1,39 +1,43 @@
 <template>
   <VbDemo>
     <VbContainer title="No Value">
-      <circle-bar/>
+      <VaCircleProgressBar/>
     </VbContainer>
 
-    <VbContainer title="Default">
-      <circle-bar :value="value"/>
+    <VbContainer dashed no-padding>
+      <VaCircleProgressBar :value="value"/>
+    </VbContainer>
+
+    <VbContainer refresh title="Default">
+      <VaCircleProgressBar :value="value"/>
     </VbContainer>
 
     <VbContainer title="Danger">
-      <circle-bar :value="value" theme="Danger"/>
+      <VaCircleProgressBar :value="value" theme="Danger"/>
     </VbContainer>
 
     <VbContainer title="Static Slot">
-      <circle-bar :value="value">Static</circle-bar>
+      <VaCircleProgressBar :value="value">Static</VaCircleProgressBar>
     </VbContainer>
 
     <VbContainer title="Dynamic Slot">
-      <circle-bar :value="value">{{ value + '%' }}</circle-bar>
+      <VaCircleProgressBar :value="value">{{ value + '%' }}</VaCircleProgressBar>
     </VbContainer>
 
     <VbContainer title="Slot Success">
-      <circle-bar :value="value" theme="Success">{{ value + '%' }}</circle-bar>
+      <VaCircleProgressBar :value="value" theme="Success">{{ value + '%' }}</VaCircleProgressBar>
     </VbContainer>
 
-    <VbContainer title="Indeterminate">
-      <circle-bar indeterminate/>
+    <VbContainer refresh title="Indeterminate">
+      <VaCircleProgressBar indeterminate/>
     </VbContainer>
 
     <VbContainer title="Indeterminate Info">
-      <circle-bar indeterminate theme="Info"/>
+      <VaCircleProgressBar indeterminate theme="Info"/>
     </VbContainer>
 
     <VbContainer title="Indeterminate Slot">
-      <circle-bar indeterminate>Slot</circle-bar>
+      <VaCircleProgressBar indeterminate>Slot</VaCircleProgressBar>
     </VbContainer>
 
     <VbContainer>
@@ -47,11 +51,11 @@
 </template>
 
 <script>
-import CircleBar from './../progress-types/CircleProgressBar'
+import VaCircleProgressBar from './VaCircleProgressBar'
 
 export default {
   components: {
-    CircleBar
+    VaCircleProgressBar
   },
   data () {
     return {

@@ -1,4 +1,4 @@
-import utils from 'services/utils'
+import utils from '../../../../services/utils'
 import {
   colorConfig,
   VuesticTheme

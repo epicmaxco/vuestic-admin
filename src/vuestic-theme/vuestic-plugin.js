@@ -4,13 +4,13 @@ import Breadcrumbs
 import Chart from './vuestic-components/vuestic-chart/VuesticChart.vue'
 import Chat from './vuestic-components/vuestic-chat/VuesticChat.vue'
 import Checkbox from './vuestic-components/vuestic-checkbox/VuesticCheckbox.vue'
-import CircleProgress
-  from './vuestic-components/vuestic-progress-bar/progress-types/CircleProgressBar.vue'
+import VaCircleProgressBar
+  from './vuestic-components/vuestic-progress-bar/progress-types/VaCircleProgressBar.vue'
 import DataTable
   from './vuestic-components/vuestic-datatable/VuesticDataTable.vue'
 import Feed from './vuestic-components/vuestic-feed/VuesticFeed.vue'
-import HorizontalProgress
-  from './vuestic-components/vuestic-progress-bar/progress-types/HorizontalProgressBar.vue'
+import VaHorizontalProgressBar
+  from './vuestic-components/vuestic-progress-bar/progress-types/VaHorizontalProgressBar.vue'
 import MediumEditor
   from './vuestic-components/vuestic-medium-editor/VuesticMediumEditor.vue'
 import Modal from './vuestic-components/vuestic-modal/VuesticModal.vue'
@@ -84,10 +84,10 @@ const VuesticPlugin = {
       Chart,
       Chat,
       Checkbox,
-      CircleProgress,
+      VaHorizontalProgressBar,
       DataTable,
       Feed,
-      HorizontalProgress,
+      VaCircleProgressBar,
       Modal,
       MultiSelect,
       PreLoader,
