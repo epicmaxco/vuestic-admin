@@ -18,8 +18,8 @@
             </div>
           </div>
         </vuestic-collapse>
-        <vuestic-collapse>
-          <span slot="header"> Let's Go </span>
+        <vuestic-collapse add-background>
+          <span slot="header">Accordeon with background</span>
           <div slot="body">
             <div style="padding: 10px;">
               Expand three content
