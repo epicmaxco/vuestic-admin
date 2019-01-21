@@ -161,8 +161,7 @@ export default {
         background-color: $vue-green;
         border: 0;
       }
-      .vuestic-checkbox--readonly#{&} {
-      }
+      .vuestic-checkbox--readonly#{&} {}
       .vuestic-checkbox--disabled#{&} {
         border-color: $lighter-gray;
         cursor: initial;
@@ -172,7 +171,6 @@ export default {
           }
         }
       }
-
       .vuestic-checkbox--error#{&} {
         border-color: $theme-red;
       }
