@@ -29,13 +29,8 @@
 </template>
 
 <script>
-import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
-
 export default {
   name: 'vuestic-file-upload-container',
-  components: {
-    VaButton
-  },
   props: {
     dropzone: {
       type: Boolean,

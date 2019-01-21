@@ -4,13 +4,13 @@
       <div class="flex md12">
         <vuestic-widget class="modals-list larger-padding"
                         :header-text="$t('modal.title')">
-          <va-button color="danger" @click.native="showSmallModal()">
+          <va-button color="danger" @click="showSmallModal()">
             {{ $t('modal.small') }}
           </va-button>
-          <va-button color="info" @click.native="showMediumModal()">
+          <va-button color="info" @click="showMediumModal()">
             {{ $t('modal.medium') }}
           </va-button>
-          <va-button color="warning" @click.native="showLargeModal()">
+          <va-button color="warning" @click="showLargeModal()">
             {{ $t('modal.large') }}
           </va-button>
           <va-button @click="showStaticModal()">

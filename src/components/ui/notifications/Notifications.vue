@@ -137,7 +137,7 @@
                     v-model="isToastFullWidth"
                   />
                 </div>
-                <va-button slot="trigger" @click.native="launchToast">
+                <va-button slot="trigger" @click="launchToast">
                   {{ $t('notificationsPage.toasts.launchToast') }}
                 </va-button>
               </fieldset>
@@ -165,11 +165,10 @@
 
 <script>
 import ToastPositionPicker from './ToastPositionPicker.vue'
-import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
 
 export default {
   name: 'notifications',
-  components: { ToastPositionPicker, VaButton },
+  components: { ToastPositionPicker },
   data () {
     return {
       popoverTitle: 'Hey!',
