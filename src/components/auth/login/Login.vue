@@ -25,7 +25,7 @@
         <va-button type="submit">
           {{ $t('auth.login') }}
         </va-button>
-        <va-button flat tag="router-link" :to="{ name: 'signup' }">
+        <va-button flat :to="{ name: 'signup' }">
           {{ $t('auth.createAccount') }}
         </va-button>
       </div>
@@ -34,8 +34,6 @@
 </template>
 
 <script>
-import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
-
 export default {
   name: 'login'
 }

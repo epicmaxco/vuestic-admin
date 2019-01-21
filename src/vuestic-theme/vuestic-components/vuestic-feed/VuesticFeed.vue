@@ -12,20 +12,15 @@
       </div>
       <div class="underscored">
         <span class="text"><span class="name">{{post.name}}</span> {{post.text}}.</span>
-        <va-button icon="ion-md-close ion" @click.native="removePost(post)"/>
+        <va-button icon="ion-md-close ion" @click="removePost(post)"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import VaButton from '../va-button/VaButton'
-
 export default {
   name: 'vuestic-feed',
-  components: {
-    VaButton
-  },
   props: ['initialPosts'],
   methods: {
     removePost (target) {

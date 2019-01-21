@@ -19,7 +19,7 @@
                    required title=""/>
             <label class="control-label">Your message</label><va-icon icon="bar"/>
           </div>
-          <va-button @click.native="sendMessage()">
+          <va-button @click="sendMessage()">
             Send
           </va-button>
         </div>
@@ -30,7 +30,6 @@
 
 <script>
 import StickyScroll from 'vuestic-directives/StickyScroll'
-import VaButton from './../va-button/VaButton'
 
 export default {
   name: 'vuestic-chat',

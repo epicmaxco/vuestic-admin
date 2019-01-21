@@ -50,15 +50,15 @@
 
       <div class="wizard-body-actions" v-if="!wizardCompleted">
         <div class="btn-container" v-if="backEnabled">
-          <va-button outline @click.native="goBack()"> Back </va-button>
+          <va-button outline @click="goBack()"> Back </va-button>
         </div>
 
         <div class="btn-container" v-if="!isLastStep()">
-          <va-button @click.native="goNext()"> Next </va-button>
+          <va-button @click="goNext()"> Next </va-button>
         </div>
 
         <div class="btn-container" v-if="currentStep == steps.length - 1">
-          <va-button @click.native="completeWizard()"> {{ lastStepLabel }} </va-button>
+          <va-button @click="completeWizard()"> {{ lastStepLabel }} </va-button>
         </div>
       </div>
     </div>
@@ -72,7 +72,6 @@ import RichHorizontalIndicator from './indicators/RichHorizontalIndicator.vue'
 import RichVerticalIndicator from './indicators/RichVerticalIndicator.vue'
 import SimpleVerticalIndicator from './indicators/SimpleVerticalIndicator.vue'
 import WizardOrientationHandler from './WizardOrientationHandler'
-import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
 
 export default {
   name: 'vuestic-wizard',
@@ -80,8 +79,7 @@ export default {
     SimpleHorizontalIndicator,
     RichHorizontalIndicator,
     RichVerticalIndicator,
-    SimpleVerticalIndicator,
-    VaButton
+    SimpleVerticalIndicator
   },
   props: {
     steps: {},
