@@ -11,13 +11,8 @@
 </template>
 
 <script>
-import VaIcon from '../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
-
 export default {
   name: 'vuestic-tag',
-  components: {
-    VaIcon
-  },
   data () {
     return {
       deleted: false,

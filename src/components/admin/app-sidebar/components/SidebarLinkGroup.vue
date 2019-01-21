@@ -20,14 +20,12 @@
 <script>
 import SidebarLink from './SidebarLink'
 import Expanding from 'vue-bulma-expanding/src/Expanding'
-import VaIcon from '../../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
 
 export default {
   name: 'sidebar-link-group',
   components: {
     SidebarLink,
-    Expanding,
-    VaIcon
+    Expanding
   },
   data () {
     return {

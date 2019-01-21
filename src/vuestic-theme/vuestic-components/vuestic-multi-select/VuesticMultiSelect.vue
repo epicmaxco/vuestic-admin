@@ -43,13 +43,11 @@
 <script>
 import Dropdown from 'vuestic-directives/Dropdown'
 import Scrollbar from '../vuestic-scrollbar/VuesticScrollbar.vue'
-import VaIcon from '../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
 
 export default {
   name: 'vuestic-multi-select',
   components: {
     Scrollbar,
-    VaIcon
   },
   directives: {
     dropdown: Dropdown,

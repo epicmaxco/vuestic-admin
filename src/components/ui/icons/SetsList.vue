@@ -56,13 +56,8 @@
 </template>
 
 <script>
-import VaIcon from '../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
-
 export default {
   name: 'iconsList',
-  components: {
-    VaIcon
-  },
   props: ['sets'],
   methods: {
     iconClass (set, icon) {

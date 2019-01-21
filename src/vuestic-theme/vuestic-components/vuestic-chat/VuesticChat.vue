@@ -28,13 +28,9 @@
 
 <script>
 import StickyScroll from 'vuestic-directives/StickyScroll'
-import VaIcon from '../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
 
 export default {
   name: 'vuestic-chat',
-  components: {
-    VaIcon
-  },
   directives: { StickyScroll },
   props: {
     value: {

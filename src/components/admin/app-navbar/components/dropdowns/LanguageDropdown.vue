@@ -23,13 +23,9 @@
 
 <script>
 import Vue from 'vue'
-import VaIcon from '../../../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
 
 export default {
   name: 'language-dropdown',
-  components: {
-    VaIcon
-  },
   data () {
     return {
       isShown: false,

@@ -376,13 +376,9 @@
 
 <script>
 import CountriesList from 'data/CountriesList'
-import VaIcon from '../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
 
 export default {
   name: 'form-elements',
-  components: {
-    VaIcon
-  },
   computed: {
     datePickerDisabled: () => [date => !(date.getDate() % 5)],
     isSuccessfulEmailValid () {

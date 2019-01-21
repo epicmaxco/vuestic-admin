@@ -44,6 +44,7 @@ import FileUpload
   from './vuestic-components/vuestic-file-upload/VuesticFileUpload'
 import Tag from './vuestic-components/vuestic-tag/VuesticTag'
 import TagGroup from './vuestic-components/vuestic-tag/VuesticTagGroup'
+import VaIcon from './vuestic-components/va-icon/VaIcon'
 import VuesticDropdown
   from './vuestic-components/vuestic-dropdown/VuesticDropdown'
 
@@ -110,6 +111,7 @@ const VuesticPlugin = {
       Card,
       Tag,
       TagGroup,
+      VaIcon,
       VuesticAccordion,
       VuesticCollapse,
       VuesticTimeline,

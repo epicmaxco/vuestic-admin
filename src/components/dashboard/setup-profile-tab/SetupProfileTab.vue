@@ -77,13 +77,9 @@
 
 <script>
 import CountriesList from 'data/CountriesList'
-import VaIcon from '../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
 
 export default {
   name: 'setup-profile-tab',
-  components: {
-    VaIcon
-  },
   props: {
     wizardType: {
       default: 'rich',

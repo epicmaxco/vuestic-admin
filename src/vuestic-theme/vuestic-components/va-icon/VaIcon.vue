@@ -60,6 +60,7 @@ export default {
 <style lang="scss">
 .va-icon {
   display: inline-block;
+  letter-spacing: normal;
 
   &--large {
     font-size: 36px;

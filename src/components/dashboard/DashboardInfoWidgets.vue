@@ -62,13 +62,8 @@
 </template>
 
 <script>
-import VaIcon from '../../vuestic-theme/vuestic-components/va-icon/VaIcon'
-
 export default {
-  name: 'dashboard-info-widgets',
-  components: {
-    VaIcon
-  }
+  name: 'dashboard-info-widgets'
 }
 </script>
 
