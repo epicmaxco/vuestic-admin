@@ -61,13 +61,8 @@
 </template>
 
 <script>
-import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
-
 export default {
   name: 'iconsList',
-  components: {
-    VaButton
-  },
   props: ['sets'],
   methods: {
     iconClass (set, icon) {
@@ -79,7 +74,7 @@ export default {
 
 <style lang="scss">
 .sets-list {
- &__icon {
+  &__icon {
    height: 1.5rem;
    max-width: 1.5rem;
  }

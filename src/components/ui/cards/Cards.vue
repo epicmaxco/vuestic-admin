@@ -14,7 +14,7 @@
             </template>
             {{ $t('cards.contentText') }}
             <p class="pt-3 mb-0">
-              <va-button tag="a" flat color="gray" href="#">
+              <va-button flat color="gray" href="#">
                 {{ $t('cards.link.secondaryAction') }}
               </va-button>
             </p>
@@ -28,7 +28,7 @@
             </template>
             {{ $t('cards.contentText') }}
             <p class="pt-3 mb-0">
-              <va-button tag="a" flat href="#">
+              <va-button flat href="#">
                 {{ $t('cards.link.readFull') }}
               </va-button>
             </p>
@@ -50,10 +50,10 @@
           >
             Short one
             <p class="mb-0 mt-2">
-              <va-button tag="a" flat href="#">
+              <va-button flat href="#">
                 {{ $t('cards.link.action1') }}
               </va-button>
-              <va-button tag="a" color="gray" flat href="#">
+              <va-button color="gray" flat href="#">
                 {{ $t('cards.link.action2') }}
               </va-button>
             </p>
@@ -64,13 +64,13 @@
             image="https://picsum.photos/300/200/?image=1058"
           >
             <p class="mb-0">
-              <va-button tag="a" flat href="#">
+              <va-button flat href="#">
                 {{ $t('cards.link.edit') }}
               </va-button>
-              <va-button tag="a" flat href="#">
+              <va-button flat href="#">
                 {{ $t('cards.link.setAsDefault') }}
               </va-button>
-              <va-button tag="a" flat href="#">
+              <va-button flat href="#">
                 {{ $t('cards.link.delete') }}
               </va-button>
             </p>
@@ -84,13 +84,13 @@
             </template>
             {{ $t('cards.contentText') }}
             <p class="pt-3 mb-0">
-              <va-button tag="a" color="dark" flat href="#">
+              <va-button color="dark" flat href="#">
                 {{ $t('cards.link.edit') }}
               </va-button>
-              <va-button tag="a" color="dark" flat href="#">
+              <va-button color="dark" flat href="#">
                 {{ $t('cards.link.setAsDefault') }}
               </va-button>
-              <va-button tag="a" color="dark" flat href="#">
+              <va-button color="dark" flat href="#">
                 {{ $t('cards.link.delete') }}
               </va-button>
             </p>
@@ -104,7 +104,7 @@
               <va-button>
                 {{ $t('cards.button.main') }}
               </va-button>
-              <va-button flat tag="a" href="#">
+              <va-button flat href="#">
                 {{ $t('cards.button.cancel') }}
               </va-button>
             </p>
@@ -124,13 +124,13 @@
             <p slot="title">{{ $t('cards.title.dark') }}</p>
             {{ $t('cards.contentText') }}
             <p class="pt-3 mb-0">
-              <va-button tag="a" flat href="#">
+              <va-button flat href="#">
                 {{ $t('cards.link.edit') }}
               </va-button>
-              <va-button tag="a" flat href="#">
+              <va-button flat href="#">
                 {{ $t('cards.link.setAsDefault') }}
               </va-button>
-              <va-button tag="a" flat href="#">
+              <va-button flat href="#">
                 {{ $t('cards.link.delete') }}
               </va-button>
             </p>
@@ -151,11 +151,11 @@
             <p>{{ $t('cards.contentText') }}</p>
             <div class="card-separator"/>
             <p class="mb-0">
-              <va-button tag="a" flat href="#">
+              <va-button flat href="#">
                 {{ $t('cards.link.traveling') }}
               </va-button>
               /
-              <va-button tag="a" flat href="#">
+              <va-button flat href="#">
                 {{ $t('cards.link.france') }}
               </va-button>
             </p>
@@ -165,10 +165,10 @@
             <p slot="title">{{ $t('cards.title.dark') }}</p>
             {{ $t('cards.contentText') }}
             <p class="pt-3 mb-0">
-              <va-button tag="a" flat href="#">
+              <va-button flat href="#">
                 {{ $t('cards.link.review') }}
               </va-button>
-              <va-button tag="a" flat href="#">
+              <va-button flat href="#">
                 {{ $t('cards.link.feedback') }}
               </va-button>
             </p>
@@ -178,8 +178,9 @@
     </div>
     <div class="flex md12 align--center justify--center">
       <div class="pre-loader-container">
-        <vuestic-pre-loader v-show="isShown"
-                            class="pre-loader"></vuestic-pre-loader>
+        <vuestic-pre-loader
+          v-show="isShown"
+          class="pre-loader"/>
         <div v-if="!isShown">
           <va-button @click="addCards()">
             Show More
@@ -193,13 +194,11 @@
 <script>
 import VuesticCard
   from '../../../vuestic-theme/vuestic-components/vuestic-card/VuesticCard'
-import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
 
 export default {
   name: 'cards',
   components: {
     VuesticCard,
-    VaButton
   },
   data () {
     return {

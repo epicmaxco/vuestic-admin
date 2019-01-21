@@ -10,13 +10,8 @@
 </template>
 
 <script>
-import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
-
 export default {
   name: 'vuestic-file-upload-single-item',
-  components: {
-    VaButton
-  },
   props: {
     file: {
       type: Object,

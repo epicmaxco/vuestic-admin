@@ -22,13 +22,8 @@
 </template>
 
 <script>
-import VaButton from './../../../vuestic-theme/vuestic-components/va-button/VaButton'
-
 export default {
   name: 'not-found-pages',
-  components: {
-    VaButton
-  },
   data () {
     return {
       items: [

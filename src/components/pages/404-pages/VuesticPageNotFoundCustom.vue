@@ -37,12 +37,10 @@
 import MadeByComponent from './MadeByComponent'
 import VuesticPageNotFoundSadWallpaper
   from './VuesticPageNotFoundSadWallpaper.vue'
-import VaButton from './../../../vuestic-theme/vuestic-components/va-button/VaButton'
 
 export default {
   name: 'vuestic-page-not-found-custom',
   components: {
-    VaButton,
     MadeByComponent,
     VuesticPageNotFoundSadWallpaper,
   },

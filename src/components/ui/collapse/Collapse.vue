@@ -142,13 +142,8 @@
 </template>
 
 <script>
-import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
-
 export default {
-  name: 'collapse',
-  components: {
-    VaButton
-  },
+  name: 'collapse'
 }
 </script>
 

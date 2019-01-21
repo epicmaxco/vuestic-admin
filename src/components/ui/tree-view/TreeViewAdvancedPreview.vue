@@ -2,12 +2,12 @@
   <div class="tree-view-advanced-preview">
     <div class="va-row mb-4">
       <div class="small-set flex sm6 justify--center">
-        <va-button @click.native="$refs.treeView.expand()">
+        <va-button @click="$refs.treeView.expand()">
           EXPAND ALL
         </va-button>
       </div>
       <div class="small-set flex sm6 justify--center">
-        <va-button @click.native="$refs.treeView.collapse()">
+        <va-button @click="$refs.treeView.collapse()">
           COLLAPSE ALL
         </va-button>
       </div>
@@ -38,12 +38,7 @@
 </template>
 
 <script>
-import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
-
 export default {
-  name: 'tree-view-advanced-preview',
-  components: {
-    VaButton
-  }
+  name: 'tree-view-advanced-preview'
 }
 </script>
