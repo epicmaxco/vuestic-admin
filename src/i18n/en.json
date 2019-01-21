@@ -283,14 +283,9 @@
     "verticalSimpleCardsSecondInfo": "However, various anthropogenic factors have had a severe impact on zebra populations"
   },
   "progressBars": {
-    "basic": "Basic",
-    "basicVertical": "Basic Vertical",
     "circle": "Circle",
-    "colorFulTitle": "Colorful Bars",
-    "thin": "Thin",
-    "thinVertical": "Thin Vertical",
-    "thick": "Thick",
-    "title": "Progress Bars"
+    "horizontal": "Horizontal",
+    "colors": "Colors"
   },
   "tables": {
     "basic": "Basic Table",
