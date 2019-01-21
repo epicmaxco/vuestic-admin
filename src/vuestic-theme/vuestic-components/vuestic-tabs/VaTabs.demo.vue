@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-container va-row column">
+  <div class="demo-container column">
     <div class="demo-container__item" style="width: 100%">
       <va-tabs
         v-model="value"
@@ -27,9 +27,6 @@
     </div>
     <div class="demo-container__item">
       <vuestic-checkbox v-model="hideSlider" label="hide-slider"/>
-    </div>
-    <div class="demo-container__item">
-      <vuestic-advanced-color-picker v-model="color"/>
     </div>
   </div>
 </template>

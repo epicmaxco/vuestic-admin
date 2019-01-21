@@ -18,14 +18,15 @@
         >
           <slot/>
         </div>
-        <div v-if="!hideSlider" class="va-tabs__bar-content-slider">
-          <div
-            class="va-tabs__bar-content-slider-line"
-            :style="{
-              'width': 100/items.length + '%',
-              'margin-left': activeIndex * (100/items.length) + '%'
-            }"
-          />
+        <div
+          v-if="!hideSlider"
+          class="va-tabs__bar-content-slider"
+          :style="{
+            'width': 100/$slots.default.length  + '%' ,
+            'margin-left': this.activeIndex * (100 / this.$slots.default.length) + '%'
+          }"
+        >
+          <div class="va-tabs__bar-content-slider-line"/>
         </div>
       </div>
     </div>
@@ -33,8 +34,8 @@
 </template>
 
 <script>
-import VaTab from './VaTab'
 
+import VaTab from './VaTab'
 export default {
   name: 'va-tabs',
   components: {
@@ -62,11 +63,6 @@ export default {
   },
   data () {
     return {
-      items: this.$slots.default,
-      mouseover: {
-        itemKey: null,
-        isOn: false
-      },
       activeIndex: 0
     }
   }
@@ -96,7 +92,8 @@ export default {
       }
       &-slider {
         display: flex;
-        width: 100%;
+        margin-bottom: 40px;
+        transition: margin-left 0.3s;
         &.align-right {
           justify-content: flex-end;
         }
@@ -104,9 +101,10 @@ export default {
           justify-content: space-around;
         }
         &-line {
+          width: calc(100% - 40px);
           height: 2px;
+          margin-left: 20px;
           background-color: $vue-green;
-          transition: margin-left 0.3s;
         }
       }
     }

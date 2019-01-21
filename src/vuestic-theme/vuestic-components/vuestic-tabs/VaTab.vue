@@ -37,14 +37,16 @@ export default {
 
 <style lang="scss">
 .va-tab {
-  margin: 20px;
+  padding: 7px 12px;
+  margin-left: 8px;
+  margin-right: 8px;
+  opacity: 0.5;
+  font-weight: $font-weight-bold;
   cursor: pointer;
   &:hover, &.active {
-    font-weight: $font-weight-bold;
     opacity: 1;
   }
   &.disabled {
-    opacity: 0.5;
     cursor: default;
   }
 }
