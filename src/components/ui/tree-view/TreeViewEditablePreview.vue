@@ -25,7 +25,7 @@
         </div>
       </vuestic-tree-node>
       <vuestic-tree-node>
-        <va-button class="mb-2" @click.native="addProduct()">
+        <va-button class="mb-2" @click="addProduct()">
           Add new product
         </va-button>
       </vuestic-tree-node>
@@ -35,13 +35,8 @@
 </template>
 
 <script>
-import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
-
 export default {
   name: 'tree-view-editable-preview',
-  components: {
-    VaButton
-  },
   data () {
     return {
       electronics: [

@@ -21,11 +21,7 @@
 </template>
 
 <script>
-import VaButton from '../../va-button/VaButton'
 export default {
-  components: {
-    VaButton
-  },
   props: {
     label: {
       type: String,

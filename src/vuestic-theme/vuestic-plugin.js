@@ -21,6 +21,13 @@ import PreLoader
   from './vuestic-components/vuestic-preloader/VuesticPreLoader.vue'
 import ProfileCard
   from './vuestic-components/vuestic-profile-card/VuesticProfileCard.vue'
+<<<<<<< HEAD
+=======
+import ProgressBar
+  from './vuestic-components/vuestic-progress-bar/VuesticProgressBar.vue'
+import VaButton
+  from './vuestic-components/va-button/VaButton.vue'
+>>>>>>> feat(button-component): update tests
 import RadioButton
   from './vuestic-components/vuestic-radio-button/VuesticRadioButton'
 import Scrollbar
@@ -92,6 +99,8 @@ const VuesticPlugin = {
       MultiSelect,
       PreLoader,
       ProfileCard,
+      ProgressBar,
+      VaButton,
       RadioButton,
       Scrollbar,
       SimpleSelect,

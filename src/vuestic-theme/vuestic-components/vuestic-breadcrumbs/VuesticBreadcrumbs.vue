@@ -27,13 +27,8 @@
 </template>
 
 <script>
-import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
-
 export default {
   name: 'vuestic-breadcrumbs',
-  components: {
-    VaButton
-  },
   props: {
     breadcrumbs: {
       type: Object,

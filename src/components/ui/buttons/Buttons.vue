@@ -89,13 +89,8 @@
 </template>
 
 <script>
-import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
-
 export default {
-  name: 'buttons',
-  components: {
-    VaButton
-  }
+  name: 'buttons'
 }
 </script>
 

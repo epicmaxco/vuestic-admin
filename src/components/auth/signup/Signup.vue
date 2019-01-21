@@ -25,7 +25,7 @@
         <va-button type="submit">
           {{ $t('auth.signUp') }}
         </va-button>
-        <va-button flat tag="router-link" :to="{ name: 'login' }">
+        <va-button flat :to="{ name: 'login' }">
           {{ $t('auth.alreadyJoined') }}
         </va-button>
       </div>
@@ -34,13 +34,8 @@
 </template>
 
 <script>
-import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
-
 export default {
   name: 'signup',
-  components: {
-    VaButton
-  },
   data () {
     return {
       agreedToTerms: true,

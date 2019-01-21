@@ -12,12 +12,13 @@
     :append="append"
     :active-class="activeClass"
     :exact="exact"
-    :exact-active-class="exactActiveClass">
+    :exact-active-class="exactActiveClass"
+    v-on="inputListeners">
     <div class="va-button__content">
       <i
         v-if="icon"
         class="va-button__content__icon va-button__content__icon-right"
-        :class="icon"></i>
+        :class="icon"/>
       <div
         v-if="hasTitleData"
         class="va-button__content__title">
@@ -26,7 +27,7 @@
       <i
         v-if="iconRight"
         class="va-button__content__icon va-button__content__icon-right"
-        :class="iconRight"></i>
+        :class="iconRight"/>
     </div>
   </component>
 </template>
@@ -69,7 +70,7 @@ export default {
     },
     /* Link props */
     href: {
-      type: [String, Object]
+      type: String
     },
     target: {
       type: String,
@@ -127,6 +128,17 @@ export default {
         return 'router-link'
       }
       return 'button'
+    },
+    inputListeners () {
+      const vm = this
+      return Object.assign({},
+        this.$listeners,
+        {
+          click: function (event) {
+            vm.$emit('click', event)
+          }
+        }
+      )
     }
   },
 }

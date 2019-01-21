@@ -24,12 +24,10 @@
 
 <script>
 import VuesticFileUploadUndo from './VuesticFileUploadUndo'
-import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
 
 export default {
   name: 'file-upload-gallery-item',
   components: {
-    VaButton,
     VuesticFileUploadUndo: VuesticFileUploadUndo,
   },
   data () {

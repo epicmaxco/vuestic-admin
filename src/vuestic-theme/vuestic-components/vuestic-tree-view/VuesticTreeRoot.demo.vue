@@ -31,9 +31,8 @@
 import VuesticTreeRoot from './VuesticTreeRoot.vue'
 import VuesticTreeNode from './VuesticTreeNode'
 import VuesticTreeCategory from './VuesticTreeCategory'
-import VaButton from '../va-button/VaButton'
 
 export default {
-  components: { VaButton, VuesticTreeCategory, VuesticTreeNode, VuesticTreeRoot },
+  components: { VuesticTreeCategory, VuesticTreeNode, VuesticTreeRoot },
 }
 </script>

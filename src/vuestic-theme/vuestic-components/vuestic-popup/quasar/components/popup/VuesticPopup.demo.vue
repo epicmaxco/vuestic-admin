@@ -280,7 +280,6 @@
 import VuesticPopup from './VuesticPopup.vue'
 import { logMixin } from '../../mixins/logMixin'
 import { closeOverlay } from '../../directives/closeOverlay'
-import VaButton from '../../../../va-button/VaButton'
 
 export default {
   mixins: [logMixin],
@@ -288,7 +287,6 @@ export default {
     'close-overlay': closeOverlay,
   },
   components: {
-    VaButton,
     VuesticPopup,
     TestComponent: {
       render (h) {

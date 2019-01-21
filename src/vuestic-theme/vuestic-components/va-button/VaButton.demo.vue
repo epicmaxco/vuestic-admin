@@ -1,6 +1,6 @@
 <template>
-  <div class="demo-container">
-    <div class="demo-container__item" style="width: 100%;">
+  <VbDemo>
+    <VbContainer>
       <table class="table table-bordered">
         <tr>
           <th>Description</th>
@@ -9,13 +9,13 @@
         <tr>
           <td>Types</td>
           <td>
-            <va-button color="success">
+            <va-button>
               Default Button
             </va-button>
-            <va-button outline color="success">
+            <va-button outline>
               Outline Button
             </va-button>
-            <va-button flat color="success">
+            <va-button flat>
               Flat Button
             </va-button>
           </td>
@@ -23,13 +23,13 @@
         <tr>
           <td>Sizes</td>
           <td>
-            <va-button color="success">
+            <va-button>
               Default Button
             </va-button>
-            <va-button large color="success">
+            <va-button large>
               Large Button
             </va-button>
-            <va-button small color="success">
+            <va-button small>
               Small Button
             </va-button>
           </td>
@@ -38,7 +38,7 @@
           <td>Primary Button Colors</td>
           <td>
             <div>
-              <va-button color="success">
+              <va-button>
                 Success Button
               </va-button>
               <va-button color="info">
@@ -63,26 +63,6 @@
           <td>Outline Button Colors</td>
           <td>
             <div>
-              <va-button color="success">
-                Success Button
-              </va-button>
-              <va-button color="info">
-                Info Button
-              </va-button>
-              <va-button color="danger">
-                Danger Button
-              </va-button>
-              <va-button color="warning">
-                Warning Button
-              </va-button>
-              <va-button color="gray">
-                Gray Button
-              </va-button>
-              <va-button color="dark">
-                Dark Button
-              </va-button>
-            </div>
-            <div>
               <va-button outline color="success">
                 Success Button
               </va-button>
@@ -102,6 +82,11 @@
                 Dark Button
               </va-button>
             </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Flat Button Colors</td>
+          <td>
             <div>
               <va-button flat color="success">
                 Success Button
@@ -303,16 +288,6 @@
           </td>
         </tr>
       </table>
-    </div>
-  </div>
+    </VbContainer>
+  </VbDemo>
 </template>
-
-<script>
-import VaButton from './VaButton'
-
-export default {
-  components: {
-    VaButton,
-  },
-}
-</script>

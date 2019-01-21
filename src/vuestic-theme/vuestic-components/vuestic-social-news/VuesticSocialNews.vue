@@ -2,7 +2,7 @@
   <div class="vuestic-social-news">
     <div class="d-flex justify--space-between align--center vuestic-social-news__text-with-button">
       <span class="text">That what users have posted about your business.</span>
-      <va-button tag="a" :href="url" target="_blank">
+      <va-button :href="url" target="_blank">
         VIEW
       </va-button>
     </div>
@@ -18,13 +18,8 @@
 </template>
 
 <script>
-import VaButton from './../va-button/VaButton'
-
 export default {
   name: 'vuestic-social-news',
-  components: {
-    VaButton
-  },
   props: ['news', 'url'],
 }
 </script>

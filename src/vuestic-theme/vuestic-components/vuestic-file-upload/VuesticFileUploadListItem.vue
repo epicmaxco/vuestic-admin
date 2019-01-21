@@ -25,7 +25,7 @@
         <span>{{ $t('fileUpload.uploadedOn')}} {{ file.date }}</span>
       </div>
       <div class="file-upload-list-item__button-container flex xs12 lg2">
-        <va-button outline @click.native="removeFile">
+        <va-button outline @click="removeFile">
           {{ $t('fileUpload.delete') }}
         </va-button>
       </div>
@@ -35,12 +35,10 @@
 
 <script>
 import VuesticFileUploadUndo from './VuesticFileUploadUndo'
-import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
 
 export default {
   name: 'vuestic-file-upload-list-item',
   components: {
-    VaButton,
     VuesticFileUploadUndo: VuesticFileUploadUndo,
   },
   props: {
