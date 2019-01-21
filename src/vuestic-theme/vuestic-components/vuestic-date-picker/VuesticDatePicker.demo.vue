@@ -81,10 +81,9 @@
 <script>
 import VuesticDatePicker from './VuesticDatePicker.vue'
 import VueFlatpickrComponent from 'vue-flatpickr-component'
-import VaIcon from '../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
 
 export default {
-  components: { VuesticDatePicker, VueFlatpickrComponent, VaIcon },
+  components: { VuesticDatePicker, VueFlatpickrComponent },
   data () {
     return {
       simple: null,

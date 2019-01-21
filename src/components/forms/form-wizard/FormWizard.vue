@@ -324,13 +324,9 @@
 
 <script>
 import CountriesList from 'data/CountriesList'
-import VaIcon from '../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
 
 export default {
   name: 'form-wizard',
-  components: {
-    VaIcon
-  },
   computed: {
     hsSteps () {
       return [

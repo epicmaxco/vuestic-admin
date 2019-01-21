@@ -73,12 +73,7 @@
 </template>
 
 <script>
-import VaIcon from '../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
-
 export default {
-  name: 'tree-view-icons-preview',
-  components: {
-    VaIcon
-  }
+  name: 'tree-view-icons-preview'
 }
 </script>

@@ -20,13 +20,8 @@
 </template>
 
 <script>
-import VaIcon from '../../../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
-
 export default {
   name: 'notification-dropdown',
-  components: {
-    VaIcon
-  },
   data () {
     return {
       isShown: false,

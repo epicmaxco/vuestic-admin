@@ -37,13 +37,8 @@
 </template>
 
 <script>
-import VaIcon from '../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
-
 export default {
   name: 'tree-view-editable-preview',
-  components: {
-    VaIcon
-  },
   data () {
     return {
       electronics: [

@@ -34,13 +34,8 @@
 </template>
 
 <script>
-import VaIcon from '../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
-
 export default {
   name: 'signup',
-  components: {
-    VaIcon
-  },
   data () {
     return {
       agreedToTerms: true,

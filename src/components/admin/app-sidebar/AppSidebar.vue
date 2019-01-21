@@ -253,12 +253,10 @@ import VuesticSidebar
   from '../../../vuestic-theme/vuestic-components/vuestic-sidebar/VuesticSidebar'
 import SidebarLink from './components/SidebarLink'
 import SidebarLinkGroup from './components/SidebarLinkGroup'
-import VaIcon from '../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
 
 export default {
   name: 'app-sidebar',
   components: {
-    VaIcon,
     VuesticSidebar,
     SidebarLink,
     SidebarLinkGroup,

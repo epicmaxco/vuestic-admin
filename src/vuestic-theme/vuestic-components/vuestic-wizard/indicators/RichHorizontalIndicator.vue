@@ -17,13 +17,8 @@
 </template>
 
 <script>
-import VaIcon from '../../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
-
 export default {
   name: 'vuestic-wizard-rich-horizontal-indicator',
-  components: {
-    VaIcon
-  },
   props: {
     steps: {
       type: Array,

@@ -10,13 +10,8 @@
 </template>
 
 <script>
-import VaIcon from '../../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
-
 export default {
   name: 'filterBar',
-  components: {
-    VaIcon
-  },
   props: {
     label: {
       type: String,

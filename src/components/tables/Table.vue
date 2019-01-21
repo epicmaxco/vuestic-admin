@@ -212,7 +212,6 @@ import FieldsDef
 import ItemsPerPageDef
   from '../../vuestic-theme/vuestic-components/vuestic-datatable/data/items-per-page-definition'
 import QueryParams from '../../vuestic-theme/vuestic-components/vuestic-datatable/data/query-params'
-import VaIcon from '../../vuestic-theme/vuestic-components/va-icon/VaIcon'
 import { SpringSpinner } from 'epic-spinners'
 
 Vue.component('badge-column', BadgeColumn)
@@ -220,8 +219,7 @@ Vue.component('badge-column', BadgeColumn)
 export default {
   name: 'Table',
   components: {
-    SpringSpinner,
-    VaIcon
+    SpringSpinner
   },
   data () {
     return {
