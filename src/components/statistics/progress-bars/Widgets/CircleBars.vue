@@ -2,18 +2,18 @@
   <vuestic-widget class="progress-bar-widget" :headerText="$t('progressBars.circle')">
     <div class="va-row">
       <div v-for="n in 10" :key="n" class="flex xs2 md1">
-        <va-circle-progress-bar :value="value * n / 10"/>
+        <va-progress-circle :value="value * n / 10"/>
       </div>
       <div class="flex xs2 md1">
-        <va-circle-progress-bar indeterminate/>
+        <va-progress-circle indeterminate/>
       </div>
     </div>
     <div class="va-row">
       <div v-for="n in 10" :key="n" class="flex xs2 md1">
-        <va-circle-progress-bar :value="value * n / 10" theme="Info">{{ value * n / 10 }}%</va-circle-progress-bar>
+        <va-progress-circle :value="value * n / 10" theme="Info">{{ value * n / 10 }}%</va-progress-circle>
       </div>
       <div class="flex xs2 md1">
-        <va-circle-progress-bar indeterminate theme="Info"/>
+        <va-progress-circle indeterminate theme="Info"/>
       </div>
     </div>
   </vuestic-widget>

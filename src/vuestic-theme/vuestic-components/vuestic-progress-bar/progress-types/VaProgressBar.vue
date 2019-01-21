@@ -1,26 +1,26 @@
 <template>
-  <div class="va-horizontal-progress-bar">
-    <div :style="{color}" class="va-horizontal-progress-bar__info">
+  <div class="va-progress-bar">
+    <div :style="{color}" class="va-progress-bar__info">
       <slot/>
     </div>
-    <div class="va-horizontal-progress-bar__progress-bar">
+    <div class="va-progress-bar__progress-bar">
       <div
         :style="{width: normalizedBuffer + '%', backgroundColor: color}"
-        class="va-horizontal-progress-bar__buffer"
+        class="va-progress-bar__buffer"
       />
       <div
         v-if="!indeterminate"
         :style="{width: normalizedValue + '%', backgroundColor: color}"
-        class="va-horizontal-progress-bar__overlay"
+        class="va-progress-bar__overlay"
       />
       <template v-else>
         <div
           :style="{backgroundColor: color}"
-          class="va-horizontal-progress-bar__overlay__indeterminate-start"
+          class="va-progress-bar__overlay__indeterminate-start"
         />
         <div
           :style="{backgroundColor: color}"
-          class="va-horizontal-progress-bar__overlay__indeterminate-end"
+          class="va-progress-bar__overlay__indeterminate-end"
         />
       </template>
     </div>
@@ -28,12 +28,12 @@
 </template>
 
 <script>
-import { progressBarMixin } from './progressBarMixin'
+import { progressMixin } from './progressMixin'
 import utils from '../../../../services/utils'
 
 export default {
-  name: 'va-horizontal-progress-bar',
-  mixins: [progressBarMixin],
+  name: 'va-progress-bar',
+  mixins: [progressMixin],
   props: {
     buffer: {
       type: Number,
@@ -53,13 +53,13 @@ export default {
 </script>
 
 <style lang="scss">
-.va-horizontal-progress-bar {
+.va-progress-bar {
   width: 100%;
   position: relative;
   overflow: hidden;
 
   &__info {
-    font-size: $progress-bar-value-font-size;
+    font-size: $progress-value-font-size;
     font-weight: $font-weight-bold;
     text-align: center;
     text-transform: uppercase;
@@ -91,12 +91,12 @@ export default {
     border-radius: inherit;
     transition: width ease 2s;
     &__indeterminate-start {
-      animation: va-horizontal-progress-bar__overlay__indeterminate-start 2s ease-in infinite;
+      animation: va-progress-bar__overlay__indeterminate-start 2s ease-in infinite;
       position: absolute;
       height: inherit;
     }
     &__indeterminate-end {
-      animation: va-horizontal-progress-bar__overlay__indeterminate-end 2s ease-out 1s
+      animation: va-progress-bar__overlay__indeterminate-end 2s ease-out 1s
       infinite;
       position: absolute;
       height: inherit;
@@ -104,7 +104,7 @@ export default {
   }
 }
 
-@keyframes va-horizontal-progress-bar__overlay__indeterminate-start {
+@keyframes va-progress-bar__overlay__indeterminate-start {
   0% {
     width: 10%;
     left: -10%;
@@ -121,7 +121,7 @@ export default {
   }
 }
 
-@keyframes va-horizontal-progress-bar__overlay__indeterminate-end {
+@keyframes va-progress-bar__overlay__indeterminate-end {
   0% {
     width: 100%;
     left: -100%;

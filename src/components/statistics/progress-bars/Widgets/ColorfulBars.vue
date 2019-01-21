@@ -2,13 +2,13 @@
   <vuestic-widget class="progress-bar-widget" :headerText="$t('progressBars.colors')">
     <div class="va-row">
       <div v-for="n in 3" :key="n" class="flex md3 xs12">
-        <va-horizontal-progress-bar
+        <va-progress-bar
           :value="value * n / 4"
           :theme="themes[n - 1]"
-        >{{ themes[n - 1] }}</va-horizontal-progress-bar>
+        >{{ themes[n - 1] }}</va-progress-bar>
       </div>
       <div class="flex md3 xs12">
-        <va-horizontal-progress-bar indeterminate theme="Black">Black</va-horizontal-progress-bar>
+        <va-progress-bar indeterminate theme="Black">Black</va-progress-bar>
       </div>
     </div>
   </vuestic-widget>

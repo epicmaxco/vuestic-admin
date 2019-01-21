@@ -1,43 +1,43 @@
 <template>
   <VbDemo>
     <VbContainer title="No Value">
-      <VaCircleProgressBar/>
+      <VaProgressCircle/>
     </VbContainer>
 
     <VbContainer dashed no-padding>
-      <VaCircleProgressBar :value="value"/>
+      <VaProgressCircle :value="value"/>
     </VbContainer>
 
     <VbContainer refresh title="Default">
-      <VaCircleProgressBar :value="value"/>
+      <VaProgressCircle :value="value"/>
     </VbContainer>
 
     <VbContainer title="Danger">
-      <VaCircleProgressBar :value="value" theme="Danger"/>
+      <VaProgressCircle :value="value" theme="Danger"/>
     </VbContainer>
 
     <VbContainer title="Static Slot">
-      <VaCircleProgressBar :value="value">Static</VaCircleProgressBar>
+      <VaProgressCircle :value="value">Static</VaProgressCircle>
     </VbContainer>
 
     <VbContainer title="Dynamic Slot">
-      <VaCircleProgressBar :value="value">{{ value + '%' }}</VaCircleProgressBar>
+      <VaProgressCircle :value="value">{{ value + '%' }}</VaProgressCircle>
     </VbContainer>
 
     <VbContainer title="Slot Success">
-      <VaCircleProgressBar :value="value" theme="Success">{{ value + '%' }}</VaCircleProgressBar>
+      <VaProgressCircle :value="value" theme="Success">{{ value + '%' }}</VaProgressCircle>
     </VbContainer>
 
     <VbContainer refresh title="Indeterminate">
-      <VaCircleProgressBar indeterminate/>
+      <VaProgressCircle indeterminate/>
     </VbContainer>
 
     <VbContainer title="Indeterminate Info">
-      <VaCircleProgressBar indeterminate theme="Info"/>
+      <VaProgressCircle indeterminate theme="Info"/>
     </VbContainer>
 
     <VbContainer title="Indeterminate Slot">
-      <VaCircleProgressBar indeterminate>Slot</VaCircleProgressBar>
+      <VaProgressCircle indeterminate>Slot</VaProgressCircle>
     </VbContainer>
 
     <VbContainer>
@@ -51,11 +51,11 @@
 </template>
 
 <script>
-import VaCircleProgressBar from './VaCircleProgressBar'
+import VaProgressCircle from './VaProgressCircle'
 
 export default {
   components: {
-    VaCircleProgressBar
+    VaProgressCircle
   },
   data () {
     return {

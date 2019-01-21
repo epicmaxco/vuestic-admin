@@ -2,27 +2,27 @@
   <VbDemo>
     <VbContainer refresh width="400px">
       <span>No value</span>
-      <VaHorizontalProgressBar/>
+      <VaProgressBar/>
       <span>Default</span>
-      <VaHorizontalProgressBar :value="value"/>
+      <VaProgressBar :value="value"/>
       <span>Danger</span>
-      <VaHorizontalProgressBar :value="value" theme="Danger"/>
+      <VaProgressBar :value="value" theme="Danger"/>
       <span>Static slot</span>
-      <VaHorizontalProgressBar :value="value">Slot</VaHorizontalProgressBar>
+      <VaProgressBar :value="value">Slot</VaProgressBar>
       <span>Dynamic slot</span>
-      <VaHorizontalProgressBar :value="value">{{ value + '%' }}</VaHorizontalProgressBar>
+      <VaProgressBar :value="value">{{ value + '%' }}</VaProgressBar>
       <span>Slot Success</span>
-      <VaHorizontalProgressBar :value="value" theme="Success">{{ value + '%' }}</VaHorizontalProgressBar>
+      <VaProgressBar :value="value" theme="Success">{{ value + '%' }}</VaProgressBar>
       <span>Buffer</span>
-      <VaHorizontalProgressBar :value="value" :buffer="bufferValue"/>
+      <VaProgressBar :value="value" :buffer="bufferValue"/>
       <span>Indeterminate</span>
-      <VaHorizontalProgressBar indeterminate/>
+      <VaProgressBar indeterminate/>
       <span>Indeterminate Info</span>
-      <VaHorizontalProgressBar indeterminate theme="Info"/>
+      <VaProgressBar indeterminate theme="Info"/>
       <span>Indeterminate Slot</span>
-      <VaHorizontalProgressBar indeterminate>Slot</VaHorizontalProgressBar>
+      <VaProgressBar indeterminate>Slot</VaProgressBar>
       <span>Indeterminate with :value and :buffer should behave the same</span>
-      <VaHorizontalProgressBar :value="value" :buffer="bufferValue" indeterminate/>
+      <VaProgressBar :value="value" :buffer="bufferValue" indeterminate/>
     </VbContainer>
     <VbContainer title="Value">
       <button @click="value -= 100">-100</button>
@@ -42,11 +42,11 @@
 </template>
 
 <script>
-import VaHorizontalProgressBar from './VaHorizontalProgressBar.vue'
+import VaProgressBar from './VaProgressBar.vue'
 
 export default {
   components: {
-    VaHorizontalProgressBar
+    VaProgressBar
   },
   data () {
     return {

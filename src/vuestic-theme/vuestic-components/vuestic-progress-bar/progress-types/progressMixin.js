@@ -4,7 +4,7 @@ import {
   VuesticTheme
 } from './../../vuestic-color-picker/VuesticTheme'
 
-export const progressBarMixin = {
+export const progressMixin = {
   props: {
     value: {
       type: Number,

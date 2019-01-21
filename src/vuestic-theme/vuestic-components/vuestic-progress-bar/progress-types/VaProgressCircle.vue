@@ -1,16 +1,16 @@
 <template>
   <div
-    class="va-circle-progress-bar"
+    class="va-progress-circle"
     :class="{
-      'va-circle-progress-bar--indeterminate': indeterminate,
+      'va-progress-circle--indeterminate': indeterminate,
     }"
   >
     <svg
-      class="va-circle-progress-bar__progress-bar"
+      class="va-progress-circle__progress-bar"
       viewBox="21.25 21.25 42.5 42.5"
     >
       <circle
-        class="va-circle-progress-bar__overlay"
+        class="va-progress-circle__overlay"
         cx="42.5"
         cy="42.5"
         :r="radius"
@@ -21,18 +21,18 @@
         :stroke-dashoffset="dashoffset"
       />
     </svg>
-    <div :style="{color: color}" class="va-circle-progress-bar__info">
+    <div :style="{color: color}" class="va-progress-circle__info">
       <slot/>
     </div>
   </div>
 </template>
 
 <script>
-import { progressBarMixin } from './progressBarMixin'
+import { progressMixin } from './progressMixin'
 
 export default {
-  name: 'va-circle-progress-bar',
-  mixins: [progressBarMixin],
+  name: 'va-progress-circle',
+  mixins: [progressMixin],
   computed: {
     radius () {
       return 20
@@ -48,16 +48,16 @@ export default {
 </script>
 
 <style lang="scss">
-.va-circle-progress-bar {
+.va-progress-circle {
   position: relative;
-  width: $progress-bar-circle-diameter;
-  height: $progress-bar-circle-diameter;
+  width: $progress-circle-diameter;
+  height: $progress-circle-diameter;
 
   &__progress-bar {
     transform: rotate(-90deg);
     @at-root {
-      .va-circle-progress-bar--indeterminate & {
-        animation: va-circle-progress-bar__progress-bar--indeterminate 2s linear infinite;
+      .va-progress-circle--indeterminate & {
+        animation: va-progress-circle__progress-bar--indeterminate 2s linear infinite;
       }
     }
   }
@@ -65,8 +65,8 @@ export default {
   &__overlay {
     transition: all ease 2s;
     @at-root {
-      .va-circle-progress-bar--indeterminate & {
-        animation: va-circle-progress-bar__overlay--indeterminate 2s ease-in-out infinite;
+      .va-progress-circle--indeterminate & {
+        animation: va-progress-circle__overlay--indeterminate 2s ease-in-out infinite;
       }
     }
   }
@@ -76,17 +76,17 @@ export default {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    font-size: $progress-bar-value-font-size;
+    font-size: $progress-value-font-size;
   }
 }
 
-@keyframes va-circle-progress-bar__progress-bar--indeterminate {
+@keyframes va-progress-circle__progress-bar--indeterminate {
   100% {
     transform: rotate(270deg);
   }
 }
 
-@keyframes va-circle-progress-bar__overlay--indeterminate {
+@keyframes va-progress-circle__overlay--indeterminate {
   0% {
     stroke-dasharray: 1, 125;
     stroke-dashoffset: 0px;
