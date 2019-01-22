@@ -7,13 +7,19 @@
           <th>Va Button Group</th>
         </tr>
         <tr>
-          <td>Default Button Group Types</td>
+          <td>Button Group Types</td>
           <td>
             <VbContainer title="Default Button Group">
               <va-button-group>
                 <va-button> Button 1 </va-button>
                 <va-button> Button 2 </va-button>
                 <va-button> Button 3 </va-button>
+              </va-button-group>
+              <va-button-group>
+                <va-button> Button 1 </va-button>
+                <va-button> Button 2 </va-button>
+                <va-button> Button 3 </va-button>
+                <va-button> Button 4 </va-button>
               </va-button-group>
             </VbContainer>
             <VbContainer title="Outline Button Group">
