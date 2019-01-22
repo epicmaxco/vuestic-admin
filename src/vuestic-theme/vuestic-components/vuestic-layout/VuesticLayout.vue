@@ -1,8 +1,5 @@
 <template>
-  <div class="vuestic-layout"
-       v-resize
-       :class="classObject"
-  >
+  <div class="vuestic-layout" v-resize :class="classObject">
     <slot></slot>
     <div class="content-wrap" id="content-wrap">
       <slot name="content"></slot>
@@ -14,26 +11,26 @@
 </template>
 
 <script>
-import Resize from '../../../directives/ResizeHandler'
+import Resize from "../../../directives/ResizeHandler";
 export default {
-  name: 'vuestic-layout',
+  name: "vuestic-layout",
   props: {
     fixed: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   directives: {
-    resize: Resize,
+    resize: Resize
   },
   computed: {
-    classObject: function () {
+    classObject: function() {
       return {
-        'layout-fixed': this.fixed,
-      }
-    },
-  },
-}
+        "layout-fixed": this.fixed
+      };
+    }
+  }
+};
 </script>
 
 <style lang="scss">
@@ -50,10 +47,6 @@ export default {
     @include media-breakpoint-down(md) {
       padding: $content-mobile-wrap;
       margin-left: 0;
-      .sidebar-hidden & {
-        margin-left: 0;
-        padding-top: $content-mobile-wrap-sb-top;
-      }
     }
   }
   &-fixed {
@@ -66,7 +59,7 @@ export default {
       }
     }
   }
-  
+
   .made-by-footer {
     display: flex;
     justify-content: center;
