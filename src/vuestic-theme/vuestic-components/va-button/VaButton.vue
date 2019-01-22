@@ -13,7 +13,9 @@
     :active-class="activeClass"
     :exact="exact"
     :exact-active-class="exactActiveClass"
-    v-on="inputListeners">
+    v-on="inputListeners"
+    tabindex="0"
+  >
     <div class="va-button__content">
       <i
         v-if="icon"
@@ -315,9 +317,21 @@ export default {
         color: $border-color !important;
       }
 
-      &:active {
+      &:active, &:focus {
         background-color: $focus-color;
         color: $border-color !important;
+
+        .va-button-group & {
+          background-color: $border-color;
+
+          .va-button__content {
+            color: white;
+          }
+        }
+
+        i {
+          color: white;
+        }
       }
 
       &.va-button--disabled {
