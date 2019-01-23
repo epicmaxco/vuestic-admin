@@ -332,11 +332,44 @@ export default {
             color: $white;
           }
         }
+
+        .va-pagination .va-button-group & {
+          background-color: transparent;
+
+          .va-button__content, i {
+            color: $border-color;
+          }
+        }
+      }
+
+      &.va-button--active {
+        background-color: $border-color !important;
+
+        .va-button__content, i {
+          color: $white !important;
+        }
       }
 
       &.va-button--disabled {
         background: transparent;
         @include va-disabled;
+
+        &.va-button--active {
+          background-color: $brand-secondary !important;
+
+          .va-button__content, i {
+            color: $white !important;
+          }
+        }
+
+        .va-pagination .va-button-group & {
+          border-color: $brand-secondary;
+          opacity: 1;
+
+          .va-button__content, i {
+            color: $brand-secondary;
+          }
+        }
       }
     }
 
