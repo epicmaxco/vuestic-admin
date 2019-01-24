@@ -321,16 +321,16 @@ export default {
         background-color: $focus-color;
         color: $border-color !important;
 
+        i {
+          color: $white;
+        }
+
         .va-button-group & {
           background-color: $border-color;
 
           .va-button__content {
-            color: white;
+            color: $white;
           }
-        }
-
-        i {
-          color: white;
         }
       }
 

@@ -13,7 +13,7 @@ export default {
 <style lang='scss'>
  .va-button-group {
    display: flex;
-   margin: 6px 8px;
+   margin: 0.375rem 0.5rem;
 
    .va-button {
      margin: 0;
