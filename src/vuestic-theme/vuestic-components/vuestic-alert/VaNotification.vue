@@ -1,15 +1,19 @@
 <template>
   <transition v-if="value" name="fade">
-    <div class="va-notification" :class="notificationClass">
-      <div class="col">
+    <div class="va-notification va-row" :class="notificationClass">
+      <div class="flex md11">
         <slot/>
       </div>
-      <div class="col-md-1 va-notification__close-button">
-        <vuestic-icon-close-button
+      <div class="flex md1">
+        <i v-if="closeable"
+           class="ion-md-close ion va-notification__close-icon"
+           @click="hideNotification()"/>
+      </div>
+        <!--<slot/>-->
+        <!--<vuestic-icon-close-button
           v-if="closeable"
           @click="hideNotification()"
-        />
-      </div>
+        />-->
     </div>
   </transition>
 </template>
@@ -59,9 +63,6 @@ export default {
 
 <style lang='scss'>
   .va-notification {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     padding: 0.75rem 0.5rem;
     margin: 0.25rem auto;
     border: 0 solid transparent;
@@ -78,12 +79,6 @@ export default {
       letter-spacing: .0625rem;
       margin-right: 0.5rem;
       border-radius: 0.5rem;
-    }
-
-    &__close-button {
-      display: flex;
-      font-size: $font-size-base;
-      cursor: pointer;
     }
   }
 
