@@ -17,7 +17,7 @@
     <div class="va-button__content">
       <i
         v-if="icon"
-        class="va-button__content__icon va-button__content__icon-right"
+        class="va-button__content__icon"
         :class="icon"/>
       <div
         v-if="hasTitleData"
@@ -26,7 +26,7 @@
       </div>
       <i
         v-if="iconRight"
-        class="va-button__content__icon va-button__content__icon-right"
+        class="va-button__content__icon"
         :class="iconRight"/>
     </div>
   </component>
@@ -188,19 +188,19 @@ export default {
       &.va-button--with-left-icon {
         padding-left: 1.75rem;
 
-        &.va-button--without-title {
-          padding-right: 1.75rem;
+        .va-button__content__title {
+          padding-left: 0.63rem;
         }
 
-        &.va-button__content__title {
-          padding-left: 0.5rem;
+        &.va-button--without-title {
+          padding-right: 1.75rem;
         }
       }
 
       &.va-button--with-right-icon {
-        padding-right: 1.5rem;
+        padding-right: 1rem;
 
-        &.va-button__content__title {
+        .va-button__content__title {
           padding-right: 0.63rem;
         }
       }
@@ -218,24 +218,20 @@ export default {
       &.va-button--with-left-icon {
         padding-left: 0.5rem;
 
-        &.va-button--without-title {
-          padding-right: 0.5rem;
+        .va-button__content__title {
+          padding-left: 0.25rem;
         }
 
-        &.va-button__content__title {
-          padding-left: 0.25rem;
+        &.va-button--without-title {
+          padding-right: 0.5rem;
         }
       }
 
       &.va-button--with-right-icon {
         padding-right: 0.5rem;
 
-        &.va-button--without-title {
-          padding-right: 0.5rem;
-        }
-
-        &.va-button__content__title {
-          padding-left: 0.25rem;
+        .va-button__content__title {
+          padding-right: 0.25rem;
         }
       }
     }
@@ -261,15 +257,11 @@ export default {
         }
       }
 
-      &.va-button--with-left-icon.vuestic-button--without-title{
-        padding-right: 1rem;
-      }
-
       &.va-button--with-right-icon {
-        padding-right: 0.75rem;
+        padding-right: 1rem;
 
-        &.va-button__content__title {
-          padding-left: 0.5rem;
+        .va-button__content__title {
+          padding-right: 0.5rem;
         }
       }
     }

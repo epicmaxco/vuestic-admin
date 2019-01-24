@@ -5,22 +5,12 @@
         <vuestic-widget class="larger-padding"
                         :headerText="$t('buttons.main')">
           <div class="va-row">
-            <div class="flex sm6 lg3 xl3">
+            <div class="flex">
               <va-button> {{ $t('buttons.button') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
               <va-button disabled> {{ $t('buttons.button') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
               <va-button outline> {{ $t('buttons.button') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
               <va-button outline disabled> {{ $t('buttons.button') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
               <va-button flat> {{ $t('buttons.button') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
               <va-button flat disabled> {{ $t('buttons.button') }} </va-button>
             </div>
           </div>
@@ -31,10 +21,8 @@
         <vuestic-widget class="larger-padding"
                         :headerText="$t('buttons.size')">
           <div class="va-row">
-            <div class="flex sm6 lg3 xl3">
+            <div class="flex">
               <va-button small> {{ $t('buttons.small') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
               <va-button large> {{ $t('buttons.large') }} </va-button>
             </div>
           </div>
@@ -44,13 +32,14 @@
         <vuestic-widget class="larger-padding"
                         :headerText="$t('buttons.advanced')">
           <div class="va-row">
-            <div class="flex sm6 lg3 xl3">
+            <div class="flex">
               <va-button icon="ion-md-close ion"> {{ $t('buttons.button') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
               <va-button icon-right="ion-ios-arrow-down arrow-down"> {{ $t('buttons.button') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
+              <va-button
+                icon="ion-md-close ion"
+                icon-right="ion-ios-arrow-down arrow-down">
+                {{ $t('buttons.button') }}
+              </va-button>
               <va-button icon="ion-md-close ion"/>
             </div>
           </div>
@@ -61,24 +50,12 @@
         <vuestic-widget class="larger-padding"
                         :headerText="$t('buttons.colors')">
           <div class="va-row">
-            <div class="flex sm6 lg3 xl3">
+            <div class="flex">
               <va-button color="danger"> {{ $t('buttons.button') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
               <va-button color="info"> {{ $t('buttons.button') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
               <va-button color="dark"> {{ $t('buttons.button') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
               <va-button color="warning"> {{ $t('buttons.button') }} </va-button>
-            </div>
-          </div>
-          <div class="va-row">
-            <div class="flex sm6 lg3 xl3">
               <va-button color="success"> {{ $t('buttons.button') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
               <va-button color="gray"> {{ $t('buttons.button') }} </va-button>
             </div>
           </div>
