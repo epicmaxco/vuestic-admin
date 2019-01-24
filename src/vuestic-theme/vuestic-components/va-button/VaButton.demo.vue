@@ -63,7 +63,7 @@
           <td>Outline Button Colors</td>
           <td>
             <div>
-              <va-button outline color="success">
+              <va-button outline>
                 Success Button
               </va-button>
               <va-button outline color="info">
@@ -88,7 +88,7 @@
           <td>Flat Button Colors</td>
           <td>
             <div>
-              <va-button flat color="success">
+              <va-button flat>
                 Success Button
               </va-button>
               <va-button flat color="info">
@@ -112,13 +112,13 @@
         <tr>
           <td>Disabled state</td>
           <td>
-            <va-button disabled color="success">
+            <va-button disabled>
               Default Button
             </va-button>
-            <va-button disabled outline color="success">
+            <va-button disabled outline>
               Outline Button
             </va-button>
-            <va-button disabled flat color="success">
+            <va-button disabled flat>
               Flat Button
             </va-button>
           </td>
@@ -145,19 +145,16 @@
           <td>Primary Buttons With icons</td>
           <td>
             <va-button
-              color="success"
               icon="brandico brandico-facebook"
             >
               Plus Button
             </va-button>
             <va-button
-              color="success"
               icon-right="iconicstroke iconicstroke-info"
             >
               Dropdown button
             </va-button>
             <va-button
-              color="success"
               icon="brandico brandico-facebook"
               icon-right="iconicstroke iconicstroke-info"
             >
@@ -170,21 +167,18 @@
           <td>
             <va-button
               outline
-              color="success"
               icon="brandico brandico-facebook"
             >
               Plus Button
             </va-button>
             <va-button
               outline
-              color="success"
               icon-right="iconicstroke iconicstroke-info"
             >
               Dropdown button
             </va-button>
             <va-button
               outline
-              color="success"
               icon="brandico brandico-facebook"
               icon-right="iconicstroke iconicstroke-info"
             >
@@ -197,21 +191,18 @@
           <td>
             <va-button
               flat
-              color="success"
               icon="brandico brandico-facebook"
             >
               Plus Button
             </va-button>
             <va-button
               flat
-              color="success"
               icon-right="iconicstroke iconicstroke-info"
             >
               Dropdown button
             </va-button>
             <va-button
               flat
-              color="success"
               icon="brandico brandico-facebook"
               icon-right="iconicstroke iconicstroke-info"
             >
@@ -224,21 +215,18 @@
           <td>
             <va-button
               large
-              color="success"
               icon="brandico brandico-facebook"
             >
               Plus Button
             </va-button>
             <va-button
               outline large
-              color="success"
               icon-right="iconicstroke iconicstroke-info"
             >
               Dropdown button
             </va-button>
             <va-button
               flat large
-              color="success"
               icon="brandico brandico-facebook"
               icon-right="iconicstroke iconicstroke-info"
             >
@@ -251,21 +239,18 @@
           <td>
             <va-button
               small
-              color="success"
               icon="brandico brandico-facebook"
             >
               Plus Button
             </va-button>
             <va-button
               outline small
-              color="success"
               icon-right="iconicstroke iconicstroke-info"
             >
               Dropdown button
             </va-button>
             <va-button
               flat small
-              color="success"
               icon="brandico brandico-facebook"
               icon-right="iconicstroke iconicstroke-info"
             >

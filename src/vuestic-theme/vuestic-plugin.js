@@ -95,6 +95,7 @@ const VuesticPlugin = {
       MultiSelect,
       PreLoader,
       ProfileCard,
+      VaProgressBar,
       VaButton,
       RadioButton,
       Scrollbar,
