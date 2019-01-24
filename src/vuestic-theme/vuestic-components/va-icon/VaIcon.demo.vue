@@ -132,13 +132,3 @@
     </VbContainer>
   </VbDemo>
 </template>
-
-<script>
-import VaIcon from './VaIcon.vue'
-
-export default {
-  components: {
-    VaIcon
-  }
-}
-</script>
