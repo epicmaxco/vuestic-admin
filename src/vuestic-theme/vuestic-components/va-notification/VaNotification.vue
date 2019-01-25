@@ -3,9 +3,6 @@
     <div class="va-notification" :class="notificationClass">
       <div class="va-notification__content">
         <slot/>
-        <!--<i v-if="closeable"
-           class="flex align--center ion-md-close ion va-notification__close-icon"
-           @click="hideNotification()"/>-->
       </div>
       <i v-if="closeable"
          class="ion-md-close ion va-notification__close-icon"
