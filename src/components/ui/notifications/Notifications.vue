@@ -75,23 +75,22 @@
       <div class="flex md12">
         <vuestic-widget
           :headerText="'notificationsPage.alerts.title' | translate">
-          <vuestic-alert type="success" :withCloseBtn="true">
-            <span class="badge badge-pill badge-success">{{'notificationsPage.alerts.success' | translate}}</span>
+          <va-notification closeable>
+            <span class="va-badge va-badge--success">{{ $t('notificationsPage.alerts.success') }}</span>
             {{'notificationsPage.alerts.successMessage' | translate}}
-            <i class="fa fa-close alert-close"></i>
-          </vuestic-alert>
-          <vuestic-alert type="info" :withCloseBtn="true">
-            <span class="badge badge-pill badge-info">{{'notificationsPage.alerts.info' | translate}}</span>
+          </va-notification>
+          <va-notification color="info" closeable>
+            <span class="va-badge va-badge--info">{{ $t('notificationsPage.alerts.info') }}</span>
             {{'notificationsPage.alerts.infoMessage' | translate}}
-          </vuestic-alert>
-          <vuestic-alert type="warning" :withCloseBtn="true">
-            <span class="badge badge-pill badge-warning">{{'notificationsPage.alerts.warning' | translate}}</span>
+          </va-notification>
+          <va-notification color="warning" closeable>
+            <span class="va-badge va-badge--warning">{{ $t('notificationsPage.alerts.warning') }}</span>
             {{'notificationsPage.alerts.warningMessage' | translate}}
-          </vuestic-alert>
-          <vuestic-alert type="danger" :withCloseBtn="true">
-            <span class="badge badge-pill badge-danger">{{'notificationsPage.alerts.danger' | translate}}</span>
+          </va-notification>
+          <va-notification color="danger" closeable>
+            <span class="va-badge va-badge--danger">{{ $t('notificationsPage.alerts.danger') }}</span>
             {{'notificationsPage.alerts.dangerMessage' | translate}}
-          </vuestic-alert>
+          </va-notification>
         </vuestic-widget>
       </div>
     </div>
