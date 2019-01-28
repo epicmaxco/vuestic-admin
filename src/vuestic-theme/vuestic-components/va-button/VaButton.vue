@@ -299,7 +299,7 @@ export default {
         color: $white !important;
       }
 
-      &:active, &:focus {
+      &:active, &:focus, &.va-button--active {
         background-image: linear-gradient(to right, darken($gradient-color1, 15%), darken($gradient-color2, 15%));
         color: $white !important;
       }
@@ -321,7 +321,7 @@ export default {
         color: $border-color !important;
       }
 
-      &:active, &:focus {
+      &:active, &:focus, &.va-button--active {
         background-color: $focus-color;
         color: $border-color !important;
       }
