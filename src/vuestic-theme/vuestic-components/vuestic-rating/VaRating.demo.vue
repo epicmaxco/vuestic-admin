@@ -1,7 +1,7 @@
 <template>
   <div class="demo-container">
     <div class="demo-container__item">
-      <vuestic-rating
+      <va-rating
         :max="6"
         size="large"
         color="red"
@@ -10,7 +10,7 @@
       />
     </div>
     <div class="demo-container__item">
-      <vuestic-rating
+      <va-rating
         :max="6"
         size="large"
         color="green"
@@ -20,7 +20,7 @@
       disabled
     </div>
     <div class="demo-container__item">
-      <vuestic-rating
+      <va-rating
         :max="6"
         size="large"
         color="blue"
@@ -30,7 +30,7 @@
       readonly
     </div>
     <div class="demo-container__item">
-      <vuestic-rating
+      <va-rating
         :max="6"
         size="large"
         color="blue"
@@ -40,7 +40,7 @@
       numbers
     </div>
     <div class="demo-container__item">
-      <vuestic-rating
+      <va-rating
         :max="6"
         size="small"
         color="blue"
@@ -49,7 +49,7 @@
       small
     </div>
     <div class="demo-container__item">
-      <vuestic-rating
+      <va-rating
         :max="6"
         icon="fa fa-bug"
         color="blue"
@@ -60,10 +60,10 @@
 </template>
 
 <script>
-import VuesticRating from './VuesticRating'
+import VaRating from './VaRating'
 export default {
   components: {
-    VuesticRating
+    VaRating: VaRating
   },
   data () {
     return {
