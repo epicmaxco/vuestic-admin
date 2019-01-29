@@ -13,7 +13,8 @@
     :active-class="activeClass"
     :exact="exact"
     :exact-active-class="exactActiveClass"
-    v-on="inputListeners">
+    v-on="inputListeners"
+  >
     <div class="va-button__content">
       <i
         v-if="icon"
