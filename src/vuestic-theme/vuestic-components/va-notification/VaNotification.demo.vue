@@ -1,7 +1,7 @@
 <template>
   <VbDemo>
     <VbContainer>
-      <table class="table table-bordered">
+      <table style="width: 500px" class="table table-bordered">
         <tr>
           <th>Description</th>
           <th>Va Notification</th>
@@ -16,7 +16,7 @@
               </va-notification>
               <va-notification color="info">
                 <span class="va-badge va-badge--info"> Info </span>
-                This alert needs your attention, but it's not super important.
+                This alert needs your attention, but it's not super important. Longer text.
               </va-notification>
               <va-notification color="warning">
                 <span class="va-badge va-badge--warning"> On Hold </span>
