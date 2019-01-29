@@ -76,7 +76,6 @@ export default {
 <style lang="scss">
 .flex {
    display: flex;
-   align-items: baseline;
  }
 .playground-component {
   background-color: #ffd093;
