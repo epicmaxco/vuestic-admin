@@ -1,12 +1,17 @@
 <template>
   <transition v-if="value" name="fade">
-    <div class="va-notification" :class="notificationClass">
+    <div class="va-notification flex justify--space-between align--center"
+         :class="notificationClass"
+    >
       <div class="va-notification__content">
         <slot/>
       </div>
-      <i v-if="closeable"
-         class="ion-md-close ion va-notification__close-icon"
-         @click="hideNotification()"/>
+      <div class="va-notification__close-icon flex justify--end">
+        <i v-if="closeable"
+           class="ion-md-close ion"
+           @click="hideNotification()"
+        />
+      </div>
     </div>
   </transition>
 </template>
@@ -82,6 +87,7 @@ export default {
       font-family: $font-family-sans-serif;
       font-weight: bold;
       text-transform: uppercase;
+      white-space: nowrap;
       font-size: $va-badge-font-size;
       color: $white;
       letter-spacing: $va-badge-letter-spacing;
@@ -95,8 +101,8 @@ export default {
     }
 
     &__close-icon {
+      display: inline-flex;
       padding: $va-close-icon-padding-y $va-close-icon-padding-x;
-      float: right;
       font-size: $va-close-icon-font-size;
       cursor: pointer;
     }

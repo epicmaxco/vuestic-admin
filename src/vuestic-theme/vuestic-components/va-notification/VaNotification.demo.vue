@@ -9,7 +9,7 @@
         <tr>
           <td>Colorful Notification</td>
           <td>
-            <VaContainer>
+            <VbContainer>
               <va-notification>
                 <span class="va-badge va-badge--success"> Paid </span>
                 You successfully read this important alert message.
@@ -34,29 +34,29 @@
                 <span class="va-badge va-badge--dark"> New Label </span>
                 Change a few things up and try submitting again.
               </va-notification>
-            </VaContainer>
+            </VbContainer>
           </td>
         </tr>
         <tr>
           <td>Visible Notification</td>
           <td>
-            <VaContainer>
+            <VbContainer>
               <va-notification v-model="isVisible">
                 <span class="va-badge va-badge--success"> Paid </span>
                 You successfully read this important alert message.
               </va-notification>
-            </VaContainer>
+            </VbContainer>
           </td>
         </tr>
         <tr>
           <td>Closeable Notification</td>
           <td>
-            <VaContainer>
+            <VbContainer>
               <va-notification v-model="isVisible2" closeable>
                 <span class="va-badge va-badge--success"> Paid </span>
                 You successfully read this important alert message.
               </va-notification>
-            </VaContainer>
+            </VbContainer>
           </td>
         </tr>
       </table>
