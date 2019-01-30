@@ -23,6 +23,13 @@
                 <va-button outline> Button 3 </va-button>
               </va-button-group>
             </VbContainer>
+            <VbContainer title="Flat Button Group">
+              <va-button-group>
+                <va-button flat> Button 1 </va-button>
+                <va-button flat> Button 2 </va-button>
+                <va-button flat> Button 3 </va-button>
+              </va-button-group>
+            </VbContainer>
           </td>
         </tr>
         <tr>
@@ -56,6 +63,20 @@
                 <va-button small outline> Button 4 </va-button>
               </va-button-group>
             </VbContainer>
+            <VbContainer title="Flat Button Group">
+              <va-button-group>
+                <va-button large flat> Button 1 </va-button>
+                <va-button large flat> Button 2 </va-button>
+                <va-button large flat> Button 3 </va-button>
+                <va-button large flat> Button 4 </va-button>
+              </va-button-group>
+              <va-button-group>
+                <va-button small flat> Button 1 </va-button>
+                <va-button small flat> Button 2 </va-button>
+                <va-button small flat> Button 3 </va-button>
+                <va-button small flat> Button 4 </va-button>
+              </va-button-group>
+            </VbContainer>
           </td>
         </tr>
         <tr>
@@ -73,6 +94,13 @@
                 <va-button outline icon="glyphicon glyphicon-pencil"/>
                 <va-button outline icon="maki maki-art-gallery"/>
                 <va-button outline icon="glyphicon glyphicon-pencil"/>
+              </va-button-group>
+            </VbContainer>
+            <VbContainer title="Flat Button Group">
+              <va-button-group>
+                <va-button flat icon="glyphicon glyphicon-pencil"/>
+                <va-button flat icon="maki maki-art-gallery"/>
+                <va-button flat icon="glyphicon glyphicon-pencil"/>
               </va-button-group>
             </VbContainer>
           </td>
@@ -108,6 +136,20 @@
                 <va-button small outline icon="glyphicon glyphicon-pencil"/>
               </va-button-group>
             </VbContainer>
+            <VbContainer title="Flat Button Group">
+              <va-button-group>
+                <va-button large flat icon="glyphicon glyphicon-pencil"/>
+                <va-button large flat icon="maki maki-art-gallery"/>
+                <va-button large flat icon="maki maki-art-gallery"/>
+                <va-button large flat icon="glyphicon glyphicon-pencil"/>
+              </va-button-group>
+              <va-button-group>
+                <va-button small flat icon="glyphicon glyphicon-pencil"/>
+                <va-button small flat icon="maki maki-art-gallery"/>
+                <va-button small flat icon="maki maki-art-gallery"/>
+                <va-button small flat icon="glyphicon glyphicon-pencil"/>
+              </va-button-group>
+            </VbContainer>
           </td>
         </tr>
         <tr>
@@ -115,23 +157,23 @@
           <td>
             <VbContainer>
               <va-button-group>
-                <va-button small color="gray" icon="glyphicon glyphicon-envelope">
+                <va-button flat small color="gray" icon="glyphicon glyphicon-envelope">
                   First
                 </va-button>
-                <va-button small color="gray" icon="entypo entypo-user"> Second </va-button>
-                <va-button small color="gray" icon="ion ion-ios-alarm"> Third </va-button>
+                <va-button flat small color="gray" icon="entypo entypo-user"> Second </va-button>
+                <va-button flat small color="gray" icon="ion ion-ios-alarm"> Third </va-button>
               </va-button-group>
 
               <va-button-group>
-                <va-button color="danger" icon="maki maki-art-gallery"> First </va-button>
-                <va-button color="danger"> Second </va-button>
-                <va-button color="danger"> Third </va-button>
+                <va-button outline color="danger" icon="maki maki-art-gallery"> First </va-button>
+                <va-button outline color="danger"> Second </va-button>
+                <va-button outline color="danger"> Third </va-button>
               </va-button-group>
 
               <va-button-group>
-                <va-button color="warning" icon="glyphicon glyphicon-envelope"/>
-                <va-button color="warning" icon="entypo entypo-user"/>
-                <va-button color="warning" icon-right="ion ion-ios-alarm"> Update </va-button>
+                <va-button flat color="warning" icon="glyphicon glyphicon-envelope"/>
+                <va-button flat color="warning" icon="entypo entypo-user"/>
+                <va-button flat color="warning" icon-right="ion ion-ios-alarm"> Update </va-button>
               </va-button-group>
 
               <va-button-group>
@@ -142,9 +184,9 @@
               </va-button-group>
 
               <va-button-group>
-                <va-button large color="info"> First </va-button>
-                <va-button large color="info" icon-right="glyphicon glyphicon-pencil"> Second </va-button>
-                <va-button large color="info"> Third </va-button>
+                <va-button outline large color="info"> First </va-button>
+                <va-button outline large color="info" icon-right="glyphicon glyphicon-pencil"> Second </va-button>
+                <va-button outline large color="info"> Third </va-button>
               </va-button-group>
             </VbContainer>
           </td>
