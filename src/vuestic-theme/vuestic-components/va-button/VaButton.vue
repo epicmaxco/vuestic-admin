@@ -14,6 +14,7 @@
     :exact="exact"
     :exact-active-class="exactActiveClass"
     v-on="inputListeners"
+    tabindex="0"
   >
     <div class="va-button__content">
       <i
@@ -324,7 +325,7 @@ export default {
         color: $border-color !important;
       }
 
-      &:active {
+      &:active, &:focus {
         background-color: $focus-color;
         color: $border-color !important;
       }

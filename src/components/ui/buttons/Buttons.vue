@@ -3,7 +3,7 @@
     <div class="va-row">
       <div class="flex md12 xl12">
         <vuestic-widget class="larger-padding"
-                        :headerText="$t('buttons.main')">
+                        :headerText="$t('buttons.types')">
           <div class="va-row">
             <div class="flex sm6 lg3 xl3">
               <va-button> {{ $t('buttons.button') }} </va-button>
@@ -36,6 +36,26 @@
             </div>
             <div class="flex sm6 lg3 xl3">
               <va-button large> {{ $t('buttons.large') }} </va-button>
+            </div>
+          </div>
+        </vuestic-widget>
+      </div>
+      <div class="flex md12">
+        <vuestic-widget class="larger-padding"
+                        :headerText="$t('buttons.tags')">
+          <div class="va-row">
+            <div class="flex">
+              <va-button> {{ $t('buttons.button') }} </va-button>
+              <va-button
+                href="http://epic-spinners.epicmax.co/"
+              >
+                {{ $t('buttons.a-link') }}
+              </va-button>
+              <va-button
+                :to="{ name: 'charts' }"
+              >
+                {{ $t('buttons.router-link') }}
+              </va-button>
             </div>
           </div>
         </vuestic-widget>

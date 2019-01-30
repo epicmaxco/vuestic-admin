@@ -20,10 +20,37 @@ exports[`VaButton a button snapshot 1`] = `
 </a>
 `;
 
+exports[`VaButton a button with defined href and target 1`] = `
+<a href="http://epic-spinners.epicmax.co/" target="_blank" class="va-button va-button--success va-button--default va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</a>
+`;
+
 exports[`VaButton both icon button snapshot 1`] = `
 <button class="va-button va-button--success va-button--default va-button--without-title va-button--with-left-icon va-button--with-right-icon va-button--normal">
   <div class="va-button__content"><i class="va-button__content__icon va-button__content__icon-right brandico brandico-facebook"></i>
     <!----> <i class="va-button__content__icon va-button__content__icon-right iconicstroke iconicstroke-info"></i></div>
+</button>
+`;
+
+exports[`VaButton button with both icons 1`] = `
+<button class="va-button va-button--success va-button--default va-button--without-title va-button--with-left-icon va-button--with-right-icon va-button--normal">
+  <div class="va-button__content"><i class="va-button__content__icon brandico brandico-facebook"></i>
+    <!----> <i class="va-button__content__icon iconicstroke iconicstroke-info"></i></div>
+</button>
+`;
+
+exports[`VaButton danger button 1`] = `
+<button class="va-button va-button--danger va-button--default va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
 </button>
 `;
 
@@ -39,6 +66,16 @@ exports[`VaButton danger button 2 1`] = `
 
 exports[`VaButton danger button snapshot 1`] = `
 <button class="va-button va-button--danger va-button--default va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
+exports[`VaButton disabled button 1`] = `
+<button disabled="disabled" class="va-button va-button--success va-button--default va-button--disabled va-button--without-title va-button--normal">
   <div class="va-button__content">
     <!---->
     <!---->
@@ -67,6 +104,16 @@ exports[`VaButton disabled snapshot 1`] = `
 </button>
 `;
 
+exports[`VaButton flat button 1`] = `
+<button class="va-button va-button--success va-button--flat va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
 exports[`VaButton flat button 2 1`] = `
 <button class="va-button va-button--success va-button--flat va-button--without-title va-button--normal">
   <div class="va-button__content">
@@ -87,6 +134,16 @@ exports[`VaButton flat button snapshot 1`] = `
 </button>
 `;
 
+exports[`VaButton info button 1`] = `
+<button class="va-button va-button--info va-button--default va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
 exports[`VaButton info button 2 1`] = `
 <button class="va-button va-button--info va-button--default va-button--without-title va-button--normal">
   <div class="va-button__content">
@@ -99,6 +156,16 @@ exports[`VaButton info button 2 1`] = `
 
 exports[`VaButton info button snapshot 1`] = `
 <button class="va-button va-button--info va-button--default va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
+exports[`VaButton large button 1`] = `
+<button class="va-button va-button--success va-button--default va-button--without-title va-button--large">
   <div class="va-button__content">
     <!---->
     <!---->
@@ -134,6 +201,16 @@ exports[`VaButton mixed icon 1`] = `
 </button>
 `;
 
+exports[`VaButton outline button 1`] = `
+<button class="va-button va-button--success va-button--outline va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
 exports[`VaButton outline button 2 1`] = `
 <button class="va-button va-button--success va-button--outline va-button--without-title va-button--normal">
   <div class="va-button__content">
@@ -164,6 +241,16 @@ exports[`VaButton router-link button snapshot 1`] = `
 </router-link>
 `;
 
+exports[`VaButton router-link button with defined to and active class properties 1`] = `
+<router-link to="[object Object]" active-class="va-button--active" class="va-button va-button--success va-button--default va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</router-link>
+`;
+
 exports[`VaButton router-link snapshot 1`] = `
 <router-link to="[object Object]" append="true" active-class="va-button--active" class="va-button va-button--success va-button--default va-button--without-title va-button--normal">
   <div class="va-button__content">
@@ -172,6 +259,16 @@ exports[`VaButton router-link snapshot 1`] = `
     <!---->
   </div>
 </router-link>
+`;
+
+exports[`VaButton small button 1`] = `
+<button class="va-button va-button--success va-button--default va-button--without-title va-button--small">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
 `;
 
 exports[`VaButton small button 2 1`] = `
@@ -186,6 +283,16 @@ exports[`VaButton small button 2 1`] = `
 
 exports[`VaButton small button snapshot 1`] = `
 <button class="va-button va-button--success va-button--default va-button--without-title va-button--small">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</button>
+`;
+
+exports[`VaButton warning button 1`] = `
+<button class="va-button va-button--warning va-button--default va-button--without-title va-button--normal">
   <div class="va-button__content">
     <!---->
     <!---->
