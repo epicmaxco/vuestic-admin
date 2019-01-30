@@ -86,7 +86,6 @@
 }
 
 .flex {
-  display: flex;
   @include va-flex();
   @each $size, $width in $grid-breakpoints {
     @include va-flex--breakpoint($size) {

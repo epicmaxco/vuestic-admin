@@ -5,7 +5,7 @@
         <span class="va-badge va-badge--success"> Paid </span>
         You successfully read this important alert message.
       </va-notification>
-      <va-notification color="info" closeable>
+      <va-notification color="info">
         <span class="va-badge va-badge--info"> Info </span>
         This alert needs your attention, but it's not super important. Longer text.
       </va-notification>
