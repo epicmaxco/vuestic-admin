@@ -1,134 +1,79 @@
 <template>
   <VbDemo>
-    <VbContainer>
-      <table class="table table-bordered test-table">
-        <tr>
-          <th>Description</th>
-          <th>Va Icon</th>
-        </tr>
-        <tr>
-          <td>Exact Size</td>
-          <td>
-            <VbContainer>
-              <va-icon icon="iconicstroke iconicstroke-info"/>
-            </VbContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Size presets
-          </td>
-          <td>
-            <VbContainer>
-              <va-icon style="margin-right: 20px;" icon="iconicstroke iconicstroke-info" small/>
-              <va-icon style="margin-right: 20px;" icon="iconicstroke iconicstroke-info" large/>
-            </VbContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Keep size
-          </td>
-          <td>
-            <VbContainer title="Size in px">
-              <va-icon icon="iconicstroke iconicstroke-info" size="40px"/>
-            </VbContainer>
-            <VbContainer title="Size as number">
-              <va-icon icon="iconicstroke iconicstroke-info" :size="60"/>
-            </VbContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Colored
-          </td>
-          <td>
-            <VbContainer>
-              <va-icon style="margin-right: 20px;" icon="iconicstroke iconicstroke-info" color="info"/>
-              <va-icon style="margin-right: 20px;" icon="iconicstroke iconicstroke-info" color="warning"/>
-              <va-icon style="margin-right: 20px;" icon="iconicstroke iconicstroke-info" color="danger"/>
-              <va-icon style="margin-right: 20px;" icon="iconicstroke iconicstroke-info" color="success"/>
-              <va-icon style="margin-right: 20px;" icon="iconicstroke iconicstroke-info" color="gray"/>
-              <va-icon style="margin-right: 20px;" icon="iconicstroke iconicstroke-info" color="dark"/>
-            </VbContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Rotation
-          </td>
-          <td>
-            <VbContainer>
-              <va-icon style="margin-right: 20px;" icon="iconicstroke iconicstroke-info" :rotation="45"/>
-              <va-icon style="margin-right: 20px;" icon="iconicstroke iconicstroke-info" :rotation="180"/>
-              <va-icon style="margin-right: 20px;" icon="iconicstroke iconicstroke-info" :rotation="270"/>
-            </VbContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Fixed Width
-          </td>
-          <td>
-            <VbContainer>
-              <button class="btn btn-secondary">
-                <va-icon icon="iconicstroke iconicstroke-info" fixed-width/>
-                Some
-                <va-icon icon="iconicstroke iconicstroke-info" fixed-width/>
-              </button>
-            </VbContainer>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Different Iconsets
-          </td>
-          <td>
-            <VbContainer title="Iconic">
-              <va-icon style="margin-right: 20px;" icon="iconicstroke iconicstroke-hash"/>
-              <va-icon style="margin-right: 20px;" icon="iconicstroke iconicstroke-at"/>
-              <va-icon style="margin-right: 20px;" icon="iconicstroke iconicstroke-arrow-left"/>
-              <va-icon style="margin-right: 20px;" icon="iconicstroke iconicstroke-home"/>
-              <va-icon style="margin-right: 20px;" icon="iconicstroke iconicstroke-umbrella"/>
-            </VbContainer>
-            <VbContainer title="Glyphicon">
-              <va-icon style="margin-right: 20px;" icon="glyphicon glyphicon-star"/>
-              <va-icon style="margin-right: 20px;" icon="glyphicon glyphicon-glass"/>
-              <va-icon style="margin-right: 20px;" icon="glyphicon glyphicon-search"/>
-              <va-icon style="margin-right: 20px;" icon="glyphicon glyphicon-asterisk"/>
-              <va-icon style="margin-right: 20px;" icon="glyphicon glyphicon-cloud"/>
-            </VbContainer>
-            <VbContainer title="Maki">
-              <va-icon style="margin-right: 20px;" icon="maki maki-belowground-rail"/>
-              <va-icon style="margin-right: 20px;" icon="maki maki-bicycle"/>
-              <va-icon style="margin-right: 20px;" icon="maki maki-cafe"/>
-              <va-icon style="margin-right: 20px;" icon="maki maki-art-gallery"/>
-              <va-icon style="margin-right: 20px;" icon="maki maki-airfield"/>
-            </VbContainer>
-            <VbContainer title="Entypo">
-              <va-icon style="margin-right: 20px;" icon="entypo entypo-note"/>
-              <va-icon style="margin-right: 20px;" icon="entypo entypo-star"/>
-              <va-icon style="margin-right: 20px;" icon="entypo entypo-users"/>
-              <va-icon style="margin-right: 20px;" icon="entypo entypo-video"/>
-              <va-icon style="margin-right: 20px;" icon="entypo entypo-heart"/>
-            </VbContainer>
-            <VbContainer title="Brandico">
-              <va-icon style="margin-right: 20px;" icon="brandico brandico-facebook"/>
-              <va-icon style="margin-right: 20px;" icon="brandico brandico-twitter"/>
-              <va-icon style="margin-right: 20px;" icon="brandico brandico-twitter"/>
-              <va-icon style="margin-right: 20px;" icon="brandico brandico-googleplus-rect"/>
-              <va-icon style="margin-right: 20px;" icon="brandico brandico-github-text"/>
-            </VbContainer>
-            <VbContainer title="Font Awesome">
-              <va-icon style="margin-right: 20px;" icon="fa fa-anchor"/>
-              <va-icon style="margin-right: 20px;" icon="fa fa-area-chart"/>
-              <va-icon style="margin-right: 20px;" icon="fa fa-arrows"/>
-              <va-icon style="margin-right: 20px;" icon="fa fa-address-book"/>
-              <va-icon style="margin-right: 20px;" icon="fa fa-adjust"/>
-            </VbContainer>
-          </td>
-        </tr>
-      </table>
+    <VbContainer title="Default">
+      <va-icon :icon="icon"/>
+    </VbContainer>
+
+    <VbContainer title="Size in px">
+      <va-icon :icon="icon" size="40px"/>
+    </VbContainer>
+
+    <VbContainer title="Size as number">
+      <va-icon :icon="icon" :size="60"/>
+    </VbContainer>
+
+    <VbContainer title="Size presets">
+      <va-icon :icon="icon" small/>
+      <va-icon :icon="icon"/>
+      <va-icon :icon="icon" large/>
+    </VbContainer>
+
+    <VbContainer title="Themes">
+      <va-icon :icon="icon" color="info"/>
+      <va-icon :icon="icon" color="warning"/>
+      <va-icon :icon="icon" color="danger"/>
+      <va-icon :icon="icon" color="success"/>
+      <va-icon :icon="icon" color="gray"/>
+      <va-icon :icon="icon" color="dark"/>
+    </VbContainer>
+
+    <VbContainer title="Rotation">
+      <va-icon :icon="icon" :rotation="45"/>&nbsp;
+      <va-icon :icon="icon" :rotation="180"/>&nbsp;
+      <va-icon :icon="icon" :rotation="270"/>&nbsp;
+    </VbContainer>
+
+    <VbContainer title="Fixed width">
+      <button class="btn btn-secondary">
+        <va-icon :icon="icon" fixed-width/>
+        Some
+        <va-icon :icon="icon" fixed-width/>
+      </button>
+    </VbContainer>
+
+    <VbContainer title="Iconic">
+      <va-icon icon="iconicstroke iconicstroke-hash"/>
+      <va-icon icon="iconicstroke iconicstroke-at"/>
+    </VbContainer>
+    <VbContainer title="Glyphicon">
+      <va-icon icon="glyphicon glyphicon-star"/>
+      <va-icon icon="glyphicon glyphicon-glass"/>
+    </VbContainer>
+    <VbContainer title="Maki">
+      <va-icon icon="maki maki-belowground-rail"/>
+      <va-icon icon="maki maki-bicycle"/>
+    </VbContainer>
+    <VbContainer title="Entypo">
+      <va-icon icon="entypo entypo-note"/>
+      <va-icon icon="entypo entypo-star"/>
+    </VbContainer>
+    <VbContainer title="Brandico">
+      <va-icon icon="brandico brandico-facebook"/>
+      <va-icon icon="brandico brandico-twitter"/>
+    </VbContainer>
+    <VbContainer title="Font Awesome">
+      <va-icon icon="fa fa-anchor"/>
+      <va-icon icon="fa fa-area-chart"/>
     </VbContainer>
   </VbDemo>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      icon: 'iconicstroke iconicstroke-info',
+    }
+  },
+}
+</script>
