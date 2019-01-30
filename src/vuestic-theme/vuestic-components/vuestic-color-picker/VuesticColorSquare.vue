@@ -17,5 +17,6 @@ export default {
 .vuestic-color-square {
   height: 48px;
   width: 48px;
+  border: 1px solid $gray-light;
 }
 </style>
