@@ -13,9 +13,11 @@
     </VbContainer>
 
     <VbContainer title="Size presets">
-      <va-icon :icon="icon" small/>
-      <va-icon :icon="icon"/>
-      <va-icon :icon="icon" large/>
+      <div style="font-size: 24px">
+        <va-icon :icon="icon" small/>
+        <va-icon :icon="icon"/>
+        <va-icon :icon="icon" large/>
+      </div>
     </VbContainer>
 
     <VbContainer title="Themes">
