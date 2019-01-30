@@ -1,5 +1,5 @@
 <template>
-  <div class="va-layout gutter--md">
+  <div class="spacing-playground va-layout gutter--md">
     <div class="va-row">
       <h3>Spacing playground</h3>
     </div>
@@ -74,19 +74,17 @@ export default {
 </script>
 
 <style lang="scss">
-.flex {
-   display: flex;
-   align-items: baseline;
- }
-.playground-component {
-  background-color: #ffd093;
-  &__padding {
-    background-color: #c9f7db;
-  }
-  &__inner {
-    background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    height: 20px;
+.spacing-playground {
+  .playground-component {
+    background-color: #ffd093;
+    &__padding {
+      background-color: #c9f7db;
+    }
+    &__inner {
+      background-color: white;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      height: 20px;
+    }
   }
 }
 </style>
