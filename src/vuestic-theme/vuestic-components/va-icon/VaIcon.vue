@@ -63,11 +63,11 @@ export default {
   letter-spacing: normal;
 
   &--large {
-    font-size: 36px;
+    font-size: 2.25rem;
   }
 
   &--small {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   &--fixed {

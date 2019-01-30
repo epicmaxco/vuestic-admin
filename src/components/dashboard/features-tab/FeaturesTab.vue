@@ -50,17 +50,17 @@
 
 <script>
 import VuesticIconVue
-  from '../../../vuestic-theme/vuestic-components/va-icon/VaIconVue'
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-icon-examples/VaIconVue'
 import VuesticIconFree
-  from '../../../vuestic-theme/vuestic-components/va-icon/VaIconFree'
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-icon-examples/VaIconFree'
 import VuesticIconFresh
-  from '../../../vuestic-theme/vuestic-components/va-icon/VaIconFresh'
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-icon-examples/VaIconFresh'
 import VuesticIconResponsive
-  from '../../../vuestic-theme/vuestic-components/va-icon/VaIconResponsive'
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-icon-examples/VaIconResponsive'
 import VuesticIconRich
-  from '../../../vuestic-theme/vuestic-components/va-icon/VaIconRich'
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-icon-examples/VaIconRich'
 import VuesticIconCleanCode
-  from '../../../vuestic-theme/vuestic-components/va-icon/VaIconCleanCode'
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-icon-examples/VaIconCleanCode'
 
 export default {
   name: 'features-tab',
