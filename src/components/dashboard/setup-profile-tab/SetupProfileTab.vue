@@ -21,10 +21,9 @@
               v-model="name"
               v-validate="'required'"
               required="required"/>
-            <i
-              class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
-            <i class="fa fa-check valid-icon icon-right input-icon"></i>
-            <label class="control-label">Name</label><i class="bar"></i>
+            <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
+            <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
+            <label class="control-label">Name</label><va-icon icon="bar"/>
             <small v-show="errors.has('name')" class="help text-danger">{{
               errors.first('name') }}
             </small>

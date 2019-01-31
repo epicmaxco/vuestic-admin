@@ -1,5 +1,5 @@
 <template>
-  <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="vuestic-icon-slower" viewBox="0 0 24 24"
+  <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="va-icon-slower" viewBox="0 0 24 24"
        version="1.1"
        xmlns="http://www.w3.org/2000/svg">
     <!-- Generator: sketchtool 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
@@ -26,12 +26,12 @@
 
 <script>
 export default {
-  name: 'vuestic-icon-slower',
+  name: 'va-icon-slower',
 }
 </script>
 
 <style lang="scss">
-.vuestic-icon-slower {
+.va-icon-slower {
   width: 24px;
   height: 24px;
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="notification-dropdown flex-center">
-    <span class="i-nav-notification"/>
+    <va-icon icon="i-nav-notification"/>
     <vuestic-dropdown
       v-model="isShown"
       position="bottom"

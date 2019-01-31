@@ -6,7 +6,7 @@
         <div class="form-group">
           <div class="input-group">
             <input v-model="electronic.name">
-            <i class="bar"></i>
+            <va-icon icon="bar"/>
           </div>
         </div>
       </vuestic-tree-node>
@@ -17,7 +17,7 @@
         <div class="form-group">
           <div class="input-group">
             <input v-model="product.name">
-            <i class="bar"></i>
+            <va-icon icon="bar"/>
           </div>
         </div>
         <div slot="iconRight" class="icon" @click="removeProduct(product)">
