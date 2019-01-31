@@ -25,11 +25,7 @@
                 :key="index"
               >
                 <div class="sets-list__icon flex-center vuestic-icon">
-<<<<<<< HEAD
                   <va-icon :icon="iconClass(set, icon)"/>
-=======
-                  <i :class="iconClass(set, icon)" aria-hidden="true"></i>
->>>>>>> feat(button-component): tests were written
                 </div>
               </div>
             </div>
@@ -40,27 +36,13 @@
             >
               <div class="flex xs2 flex-center">
                 <div class="sets-list__icon flex-center vuestic-icon">
-<<<<<<< HEAD
                   <va-icon :icon="iconClass(set, filteredList[0])"/>
-=======
-                  <i
-                    :class="iconClass(set, filteredList[0])"
-                    aria-hidden="true"
-                  />
->>>>>>> feat(button-component): tests were written
                 </div>
               </div>
               <div class="flex xs8"/>
               <div class="flex xs2 flex-center">
                 <div class="sets-list__icon flex-center vuestic-icon">
-<<<<<<< HEAD
                   <va-icon :icon="iconClass(set, filteredList[1])"/>
-=======
-                  <i
-                    :class="iconClass(set, filteredList[1])"
-                    aria-hidden="true"
-                  />
->>>>>>> feat(button-component): tests were written
                 </div>
               </div>
             </div>

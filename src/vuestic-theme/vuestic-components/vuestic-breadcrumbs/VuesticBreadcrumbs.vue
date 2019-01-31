@@ -22,7 +22,7 @@
         color="info"
         target="_blank"
         :href="currentRoute"
-        icon="vuestic-icon vuestic-icon-files"
+        icon="vuestic-iconset vuestic-iconset-files"
       >
       </va-button>
     </div>

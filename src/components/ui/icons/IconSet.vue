@@ -55,11 +55,7 @@
           :key="icon"
         >
           <div class="vuestic-icon">
-            <span
-              :class="iconClass(icon)"
-              :style="`font-size: ${iconSize}px`"
-              aria-hidden="true"
-            />
+            <va-icon :icon="iconClass(icon)" size="iconSize"/>
           </div>
           <div class="icon-text">
             {{ icon }}

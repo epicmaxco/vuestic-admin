@@ -5,23 +5,13 @@
         <vuestic-widget class="larger-padding"
                         :headerText="$t('buttons.types')">
           <div class="va-row">
-            <div class="flex sm6 lg3 xl3">
-              <va-button> {{ $t('buttons.button') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
-              <va-button disabled> {{ $t('buttons.button') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
-              <va-button outline> {{ $t('buttons.button') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
-              <va-button outline disabled> {{ $t('buttons.button') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
-              <va-button flat> {{ $t('buttons.button') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
-              <va-button flat disabled> {{ $t('buttons.button') }} </va-button>
+            <div class="flex">
+              <va-button> {{ $t('buttons.default') }} </va-button>
+              <va-button disabled> {{ $t('buttons.disabled') }} </va-button>
+              <va-button outline> {{ $t('buttons.outline') }} </va-button>
+              <va-button outline disabled> {{ $t('buttons.disabled') }} </va-button>
+              <va-button flat> {{ $t('buttons.flat') }} </va-button>
+              <va-button flat disabled> {{ $t('buttons.disabled') }} </va-button>
             </div>
           </div>
         </vuestic-widget>
@@ -31,10 +21,9 @@
         <vuestic-widget class="larger-padding"
                         :headerText="$t('buttons.size')">
           <div class="va-row">
-            <div class="flex sm6 lg3 xl3">
+            <div class="flex">
               <va-button small> {{ $t('buttons.small') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
+              <va-button> {{ $t('buttons.normal') }} </va-button>
               <va-button large> {{ $t('buttons.large') }} </va-button>
             </div>
           </div>
@@ -64,13 +53,14 @@
         <vuestic-widget class="larger-padding"
                         :headerText="$t('buttons.advanced')">
           <div class="va-row">
-            <div class="flex sm6 lg3 xl3">
+            <div class="flex">
               <va-button icon="ion-md-close ion"> {{ $t('buttons.button') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
               <va-button icon-right="ion-ios-arrow-down arrow-down"> {{ $t('buttons.button') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
+              <va-button
+                icon="ion-md-close ion"
+                icon-right="ion-ios-arrow-down arrow-down">
+                {{ $t('buttons.button') }}
+              </va-button>
               <va-button icon="ion-md-close ion"/>
             </div>
           </div>
@@ -81,25 +71,33 @@
         <vuestic-widget class="larger-padding"
                         :headerText="$t('buttons.colors')">
           <div class="va-row">
-            <div class="flex sm6 lg3 xl3">
-              <va-button color="danger"> {{ $t('buttons.button') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
-              <va-button color="info"> {{ $t('buttons.button') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
-              <va-button color="dark"> {{ $t('buttons.button') }} </va-button>
-            </div>
-            <div class="flex sm6 lg3 xl3">
-              <va-button color="warning"> {{ $t('buttons.button') }} </va-button>
+            <div class="flex">
+              <va-button color="danger"> {{ $t('buttons.danger') }} </va-button>
+              <va-button color="info"> {{ $t('buttons.info') }} </va-button>
+              <va-button color="dark"> {{ $t('buttons.dark') }} </va-button>
+              <va-button color="warning"> {{ $t('buttons.warning') }} </va-button>
+              <va-button color="success"> {{ $t('buttons.success') }} </va-button>
+              <va-button color="gray"> {{ $t('buttons.gray') }} </va-button>
             </div>
           </div>
           <div class="va-row">
-            <div class="flex sm6 lg3 xl3">
-              <va-button color="success"> {{ $t('buttons.button') }} </va-button>
+            <div class="flex">
+              <va-button outline color="danger"> {{ $t('buttons.danger') }} </va-button>
+              <va-button outline color="info"> {{ $t('buttons.info') }} </va-button>
+              <va-button outline color="dark"> {{ $t('buttons.dark') }} </va-button>
+              <va-button outline color="warning"> {{ $t('buttons.warning') }} </va-button>
+              <va-button outline color="success"> {{ $t('buttons.success') }} </va-button>
+              <va-button outline color="gray"> {{ $t('buttons.gray') }} </va-button>
             </div>
-            <div class="flex sm6 lg3 xl3">
-              <va-button color="gray"> {{ $t('buttons.button') }} </va-button>
+          </div>
+          <div class="va-row">
+            <div class="flex">
+              <va-button flat color="danger"> {{ $t('buttons.danger') }} </va-button>
+              <va-button flat color="info"> {{ $t('buttons.info') }} </va-button>
+              <va-button flat color="dark"> {{ $t('buttons.dark') }} </va-button>
+              <va-button flat color="warning"> {{ $t('buttons.warning') }} </va-button>
+              <va-button flat color="success"> {{ $t('buttons.success') }} </va-button>
+              <va-button flat color="gray"> {{ $t('buttons.gray') }} </va-button>
             </div>
           </div>
         </vuestic-widget>

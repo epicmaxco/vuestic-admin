@@ -17,19 +17,21 @@
     tabindex="0"
   >
     <div class="va-button__content">
-      <i
+      <va-icon
         v-if="icon"
-        class="va-button__content__icon va-button__content__icon-right"
-        :class="icon"/>
+        fixed-width
+        class="va-button__content__icon va-button__content__icon-left"
+        :icon="icon"/>
       <div
         v-if="hasTitleData"
         class="va-button__content__title">
         <slot/>
       </div>
-      <i
+      <va-icon
         v-if="iconRight"
+        fixed-width
         class="va-button__content__icon va-button__content__icon-right"
-        :class="iconRight"/>
+        :icon="iconRight"/>
     </div>
   </component>
 </template>
