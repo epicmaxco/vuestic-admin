@@ -324,6 +324,18 @@ export default {
       &:active, &:focus, &.va-button--active {
         background-color: $focus-color;
         color: $border-color !important;
+
+        .va-button-toggle & {
+          background-color: $border-color;
+
+          .va-button__content {
+            color: $white;
+          }
+
+          i {
+            color: $white;
+          }
+        }
       }
 
       &.va-button--disabled {
@@ -343,8 +355,8 @@ export default {
         color: $border-color !important;
       }
 
-      &:active, &:focus {
-        background-color: $focus-color;
+      &:active, &:focus, &.va-button--active {
+        background-color: $focus-color !important;
         color: $border-color !important;
         border: none;
       }

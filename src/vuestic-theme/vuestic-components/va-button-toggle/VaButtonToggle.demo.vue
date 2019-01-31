@@ -11,6 +11,7 @@
           <td>
             <va-button-toggle v-model="model" :options="options"/>
             <va-button-toggle outline v-model="model" :options="options"/>
+            <va-button-toggle flat v-model="model" :options="options"/>
           </td>
         </tr>
         <tr>
@@ -48,10 +49,24 @@
           </td>
         </tr>
         <tr>
+          <td>Flat Button Toggle Colors</td>
+          <td>
+            <div>
+              <va-button-toggle flat v-model="model" :options="options"/>
+              <va-button-toggle flat color="info" v-model="model" :options="options"/>
+              <va-button-toggle flat color="danger" v-model="model" :options="options"/>
+              <va-button-toggle flat color="warning" v-model="model" :options="options"/>
+              <va-button-toggle flat color="gray" v-model="model" :options="options"/>
+              <va-button-toggle flat color="dark" v-model="model" :options="options"/>
+            </div>
+          </td>
+        </tr>
+        <tr>
           <td>Disabled Button Toggle</td>
           <td>
             <va-button-toggle disabled v-model="model" :options="options"/>
             <va-button-toggle disabled outline v-model="model" :options="options"/>
+            <va-button-toggle disabled flat v-model="model" :options="options"/>
           </td>
         </tr>
         <tr>
@@ -60,6 +75,10 @@
             <div>
               <va-button-toggle toggle-color="warning" v-model="model" :options="options"/>
               <va-button-toggle toggle-color="danger" color="info" v-model="model" :options="options"/>
+              <va-button-toggle outline toggle-color="gray" v-model="model" :options="options"/>
+              <va-button-toggle outline toggle-color="success" color="info" v-model="model" :options="options"/>
+              <va-button-toggle flat toggle-color="info" v-model="model" :options="options"/>
+              <va-button-toggle flat toggle-color="dark" color="info" v-model="model" :options="options"/>
             </div>
           </td>
         </tr>
