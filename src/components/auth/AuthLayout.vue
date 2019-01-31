@@ -26,7 +26,7 @@
 <script>
 // d-none and d-lg-flex were deleted, bug will be fixed in the nearest update
 import VuesticIconVuestic
-  from '../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconVuestic'
+  from '../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconVuestic'
 
 export default {
   name: 'AuthLayout',

@@ -8,7 +8,7 @@
           <label class="control-label" for="email">
             {{ $t('auth.email') }}
           </label>
-          <i class="bar"/>
+          <va-icon icon="bar"/>
         </div>
       </div>
       <div class="form-group">
@@ -17,7 +17,7 @@
           <label class="control-label" for="password">
             {{ $t('auth.password') }}
           </label>
-          <i class="bar"/>
+          <va-icon icon="bar"/>
         </div>
       </div>
       <div class="d-flex align--center justify--space-between">
@@ -34,7 +34,7 @@
 
 <script>
 export default {
-  name: 'login',
+  name: 'login'
 }
 </script>
 

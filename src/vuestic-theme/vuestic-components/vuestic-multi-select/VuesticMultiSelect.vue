@@ -9,17 +9,16 @@
         :class="{'has-value': !!displayValue}"
         v-bind:value="displayValue"
         required/>
-      <label class="control-label">{{label}}</label><i class="bar"></i>
+      <label class="control-label">{{label}}</label><va-icon icon="bar"/>
       <small v-show="hasErrors()" class="help text-danger">{{
         showRequiredError() }}
       </small>
-      <i class="ion ion-ios-arrow-down icon-right input-icon dropdown-ion"></i>
+      <va-icon icon="ion ion-ios-arrow-down icon-right input-icon dropdown-ion"/>
     </div>
     <div v-if="isClearable">
-      <i
-        class="fa fa-close icon-cross icon-right input-icon multiselect-form-group__unselect"
-        @click="unselectOptions"
-      />
+      <va-icon
+        icon="fa fa-close icon-cross icon-right input-icon multiselect-form-group__unselect"
+        @click.native="unselectOptions"/>
     </div>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <scrollbar ref="scrollbar">
@@ -33,7 +32,7 @@
           >
             <span
               class="ellipsis">{{optionKey ? option[optionKey] : option}}</span>
-            <i class="fa fa-check selected-icon"></i>
+            <va-icon icon="fa fa-check selected-icon"/>
           </div>
         </div>
       </scrollbar>

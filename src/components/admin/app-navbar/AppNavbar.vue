@@ -20,7 +20,7 @@
 
 <script>
 import VuesticIconVuestic
-  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconVuestic'
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconVuestic'
 import VuesticNavbar
   from '../../../vuestic-theme/vuestic-components/vuestic-navbar/VuesticNavbar'
 import HeaderSelector from './components/HeaderSelector'
