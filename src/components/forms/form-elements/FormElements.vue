@@ -113,9 +113,7 @@
                       <label class="control-label" for="input-w-btn">{{'forms.inputs.inputWithButton'
                         | translate}}</label><va-icon icon="bar"/>
                     </div>
-                    <div class="btn btn-micro btn-primary">
-                      {{'forms.inputs.upload' | translate}}
-                    </div>
+                    <va-button> {{ $t('forms.inputs.upload') }} </va-button>
                   </div>
                   <div class="form-group form-group-w-btn">
                     <div class="input-group">
@@ -123,12 +121,7 @@
                       <label class="control-label" for="input-w-btn-round">{{'forms.inputs.inputWithRoundButton'
                         | translate }}</label><va-icon icon="bar"/>
                     </div>
-                    <div
-                      class="btn btn-primary btn-with-icon btn-micro rounded-icon">
-                      <div class="btn-with-icon-content">
-                        <i class="ion-md-cloud-outline ion"></i>
-                      </div>
-                    </div>
+                    <va-button icon="ion-md-cloud-outline ion"/>
                   </div>
                 </fieldset>
               </div>

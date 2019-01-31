@@ -19,7 +19,9 @@
                    required title=""/>
             <label class="control-label">Your message</label><va-icon icon="bar"/>
           </div>
-          <div class="btn btn-sm btn-primary" @click="sendMessage()">Send</div>
+          <va-button @click="sendMessage()">
+            Send
+          </va-button>
         </div>
       </fieldset>
     </div>

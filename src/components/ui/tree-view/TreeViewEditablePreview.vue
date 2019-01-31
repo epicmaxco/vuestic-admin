@@ -25,11 +25,9 @@
         </div>
       </vuestic-tree-node>
       <vuestic-tree-node>
-        <button class="btn btn-primary btn-micro mb-2"
-                @click="addProduct()"
-        >
+        <va-button class="mb-2" @click="addProduct()">
           Add new product
-        </button>
+        </va-button>
       </vuestic-tree-node>
     </vuestic-tree-category>
 

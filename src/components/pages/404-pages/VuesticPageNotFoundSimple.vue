@@ -16,12 +16,10 @@
           <a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
         </div>
       </div>
-      <div class="vuestic-page-not-found-simple__wallpaper-button flex md12">
-        <router-link :to="{ path: './dashboard' }">
-          <button class="btn btn-primary back-button">
-            {{'Back to dashboard'}}
-          </button>
-        </router-link>
+      <div class="vuestic-page-not-found-simple__wallpaper-button">
+        <va-button :to="{ name: 'dashboard' }">
+          {{'Back to dashboard'}}
+        </va-button>
       </div>
     </div>
     <vuestic-page-not-found-sad-wallpaper/>

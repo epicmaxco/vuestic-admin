@@ -34,9 +34,9 @@
                 <vuestic-popover popover-class="vuestic-tooltip"
                                  placement="right"
                                  :disabled="isPopoverDisabled">
-                  <button slot="trigger" class="btn btn-sm btn-primary">
-                    {{'notificationsPage.popovers.showPopover' | translate}}
-                  </button>
+                  <va-button slot="trigger">
+                    {{ $t('notificationsPage.popovers.showPopover') }}
+                  </va-button>
                   <va-icon slot="icon" :icon="[ 'fa', popoverIcon ]"/>
                   <span slot="header">{{popoverTitle}}</span>
                   <span slot="body">{{popoverText}}</span>
@@ -137,13 +137,9 @@
                     v-model="isToastFullWidth"
                   />
                 </div>
-                <button
-                  slot="trigger"
-                  class="btn btn-sm btn-primary"
-                  @click="launchToast"
-                >
+                <va-button slot="trigger" @click="launchToast">
                   {{ $t('notificationsPage.toasts.launchToast') }}
-                </button>
+                </va-button>
               </fieldset>
               <br>
               <br>
