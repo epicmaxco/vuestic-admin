@@ -149,6 +149,14 @@ $blockquote-small-color: $gray-light;
 $blockquote-border-width: 0.375rem;
 $blockquote-font-size: 1.5rem;
 
+// Links
+$va-link-color: $brand-primary;
+$va-link-color-secondary: #babfc2;
+$va-link-color-hover: #79eca8;
+$va-link-color-active: #48c279;
+$va-link-color-visited: $va-link-color;
+$link-hover-decoration: none;
+
 //Sidebar
 $sidebar-link-height: 64px;
 $sidebar-submenu-link-height: 48px;

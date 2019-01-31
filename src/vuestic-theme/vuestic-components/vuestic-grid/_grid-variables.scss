@@ -11,7 +11,7 @@ $grid-breakpoints: (
 $grid-gutter-default: 0.5rem !default;
 $grid-columns: 12 !default;
 
-// These are meant to be dependent on $grid-breakpoints
+// Gutters correspond to $grid-breakpoints
 $grid-gutters: (
   xs: $grid-gutter-default * 0.25,
   sm: $grid-gutter-default * 0.5,
@@ -21,7 +21,7 @@ $grid-gutters: (
 ) !default;
 
 $container-max-widths: (
-  // xs and sm use fluid container essentially.
+  // xs and sm are full width.
   md: map-get($grid-breakpoints, md),
   lg: map-get($grid-breakpoints, lg),
   xl: map-get($grid-breakpoints, xl),
