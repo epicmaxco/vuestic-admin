@@ -3,9 +3,9 @@
 .medium-editor-toolbar-form,
 .medium-editor-toolbar-actions,
 .medium-editor-toolbar-anchor-preview {
-  box-shadow: 0 0.125rem 0.19rem 0 #77cea4;
+  box-shadow: $btn-box-shadow 0 #77cea4;
   background-color: $brand-primary;
-  border-radius: $btn-border-radius;
+  border-radius: $btn-border-radius-nrm;
 }
 
 .medium-editor-toolbar {
@@ -17,15 +17,15 @@
 
   .medium-editor-action {
     margin: 0;
-    border: 0;
-    padding: $btn-padding-y $btn-group-button-padding-x;
+    border: $btn-border;
+    padding: $btn-padding-y-nrm $btn-padding-x-nrm;
     height: $medium-editor-button-size;
     background-image: linear-gradient(to right, #63e5b3, #23e066);
     box-shadow: none;
     border-radius: 0;
 
     i {
-      color: white;
+      color: $white;
     }
 
     &.medium-editor-button-active {
@@ -55,7 +55,7 @@
     background: $brand-primary;
     box-sizing: border-box;
     color: $white;
-    padding-left: 16px;
+    padding-left: 1rem;
     width: 220px;
 
     &::-webkit-input-placeholder {
@@ -78,7 +78,7 @@
   }
 
   .medium-editor-toolbar-close {
-    margin-right: 16px;
+    margin-right: 1rem;
   }
 }
 
@@ -92,7 +92,7 @@
 }
 
 .medium-editor-toolbar-anchor-preview {
-  @include button-size(0.5rem, 1.5rem, 1rem, 1.5, 1.5rem);
+  @include button-size($btn-padding-y-nrm, $btn-padding-x-nrm, $btn-font-size-nrm, $btn-line-height-nrm, $btn-border-radius-nrm);
   .medium-editor-toolbar-anchor-preview {
     margin: 0;
   }
