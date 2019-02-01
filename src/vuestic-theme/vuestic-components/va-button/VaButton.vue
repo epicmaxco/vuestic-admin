@@ -17,19 +17,23 @@
     tabindex="0"
   >
     <div class="va-button__content">
-      <i
+      <va-icon
         v-if="icon"
-        class="va-button__content__icon"
-        :class="icon"/>
+        fixed-width
+        class="va-button__content__icon va-button__content__icon-left"
+        :icon="icon"
+      />
       <div
         v-if="hasTitleData"
         class="va-button__content__title">
         <slot/>
       </div>
-      <i
+      <va-icon
         v-if="iconRight"
-        class="va-button__content__icon"
-        :class="iconRight"/>
+        fixed-width
+        class="va-button__content__icon va-button__content__icon-right"
+        :icon="iconRight"
+      />
     </div>
   </component>
 </template>
@@ -188,19 +192,19 @@ export default {
       }
 
       &.va-button--with-left-icon {
-        padding-left: 1.75rem;
+        padding-left: 1.5rem;
+
+        &.va-button--without-title {
+          padding-right: 1.5rem;
+        }
 
         .va-button__content__title {
           padding-left: 0.63rem;
         }
-
-        &.va-button--without-title {
-          padding-right: 1.75rem;
-        }
       }
 
       &.va-button--with-right-icon {
-        padding-right: 1rem;
+        padding-right: 1.5rem;
 
         .va-button__content__title {
           padding-right: 0.63rem;
@@ -220,17 +224,21 @@ export default {
       &.va-button--with-left-icon {
         padding-left: 0.5rem;
 
-        .va-button__content__title {
-          padding-left: 0.25rem;
-        }
-
         &.va-button--without-title {
           padding-right: 0.5rem;
+        }
+
+        .va-button__content__title {
+          padding-left: 0.25rem;
         }
       }
 
       &.va-button--with-right-icon {
         padding-right: 0.5rem;
+
+        &.va-button--without-title {
+          padding-right: 0.5rem;
+        }
 
         .va-button__content__title {
           padding-right: 0.25rem;
@@ -259,8 +267,12 @@ export default {
         }
       }
 
-      &.va-button--with-right-icon {
+      &.va-button--with-left-icon.vuestic-button--without-title{
         padding-right: 1rem;
+      }
+
+      &.va-button--with-right-icon {
+        padding-right: 0.75rem;
 
         .va-button__content__title {
           padding-right: 0.5rem;

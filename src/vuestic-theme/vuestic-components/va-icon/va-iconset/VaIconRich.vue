@@ -1,5 +1,5 @@
 <template>
-  <svg class="vuestic-icon-rich" xmlns="http://www.w3.org/2000/svg"
+  <svg class="va-icon-rich" xmlns="http://www.w3.org/2000/svg"
        viewBox="0 0 56.99 55">
     <defs></defs>
     <title>overview_icon_6</title>
@@ -21,12 +21,12 @@
 
 <script>
 export default {
-  name: 'vuestic-icon-rich',
+  name: 'va-icon-rich',
 }
 </script>
 
 <style lang="scss">
-.vuestic-icon-rich {
+.va-icon-rich {
   display: inline-block;
   width: 57px;
   height: 55px;

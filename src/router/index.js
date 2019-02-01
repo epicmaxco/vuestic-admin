@@ -209,12 +209,18 @@ export default new Router({
                   name: 'icon-sets',
                   path: '', // Default route
                   component: lazyLoading('ui/icons/SetsList'),
+                  meta: {
+                    wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Icons',
+                  }
                 },
                 {
                   name: 'icon-set',
                   path: ':name',
                   component: lazyLoading('ui/icons/IconSet'),
                   props: true,
+                  meta: {
+                    wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Icons',
+                  }
                 },
               ],
             },

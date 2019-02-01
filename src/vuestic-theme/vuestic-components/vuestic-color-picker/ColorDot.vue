@@ -44,6 +44,7 @@ export default {
     border-radius: 50%;
     width: 1rem;
     height: 1rem;
+    border: 1px solid $gray-light;
   }
 }
 </style>

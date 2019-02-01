@@ -25,7 +25,7 @@
                 :key="index"
               >
                 <div class="sets-list__icon flex-center vuestic-icon">
-                  <i :class="iconClass(set, icon)" aria-hidden="true"></i>
+                  <va-icon :icon="iconClass(set, icon)"/>
                 </div>
               </div>
             </div>
@@ -36,24 +36,17 @@
             >
               <div class="flex xs2 flex-center">
                 <div class="sets-list__icon flex-center vuestic-icon">
-                  <i
-                    :class="iconClass(set, filteredList[0])"
-                    aria-hidden="true"
-                  />
+                  <va-icon :icon="iconClass(set, filteredList[0])"/>
                 </div>
               </div>
               <div class="flex xs8"/>
               <div class="flex xs2 flex-center">
                 <div class="sets-list__icon flex-center vuestic-icon">
-                  <i
-                    :class="iconClass(set, filteredList[1])"
-                    aria-hidden="true"
-                  />
+                  <va-icon :icon="iconClass(set, filteredList[1])"/>
                 </div>
               </div>
             </div>
           </template>
-
         </div>
       </div>
     </div>

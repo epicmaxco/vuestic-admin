@@ -19,8 +19,11 @@
     </div>
     <div class="vuestic-breadcrumbs__help-section">
       <va-button
-        tag="a" color="info" target="_blank"
-        :href="currentRoute" icon="vuestic-icon vuestic-icon-files">
+        color="info"
+        target="_blank"
+        :href="currentRoute"
+        icon="vuestic-iconset vuestic-iconset-files"
+      >
       </va-button>
     </div>
   </div>
