@@ -240,9 +240,15 @@
     </div>
     <div class="demo-container__item">
       Event test {{eventTest}}
-      <button @click="$refs.eventTest.show('eventTest text')">Show</button>
-      <button @click="$refs.eventTest.hide('eventTest text')">Hide</button>
-      <button @click="$refs.eventTest.toggle('eventTest text')">Toggle</button>
+      <va-button @click="$refs.eventTest.show('eventTest text')">
+        Show
+      </va-button>
+      <va-button @click="$refs.eventTest.show('eventTest text')">
+        Hide
+      </va-button>
+      <va-button @click="$refs.eventTest.toggle('eventTest text')">
+        Toggle
+      </va-button>
       <div class="anchor">
         true
         <vuestic-popup

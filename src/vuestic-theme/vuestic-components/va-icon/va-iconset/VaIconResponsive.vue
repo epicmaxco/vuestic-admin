@@ -1,5 +1,5 @@
 <template>
-  <svg class="vuestic-icon-responsive" xmlns="http://www.w3.org/2000/svg"
+  <svg class="va-icon-responsive" xmlns="http://www.w3.org/2000/svg"
        viewBox="0 0 47.5 49">
     <defs></defs>
     <title>overview_icon_3</title>
@@ -17,12 +17,12 @@
 
 <script>
 export default {
-  name: 'vuestic-icon-responsive',
+  name: 'va-icon-responsive',
 }
 </script>
 
 <style lang="scss">
-.vuestic-icon-responsive {
+.va-icon-responsive {
   display: inline-block;
   width: 47.5px;
   height: 49px;

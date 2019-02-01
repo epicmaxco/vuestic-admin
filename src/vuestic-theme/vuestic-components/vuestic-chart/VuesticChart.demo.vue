@@ -5,7 +5,9 @@
         :options="chartTypes"
         v-model="chartType"
       />
-      <button @click="refreshData()">Refresh data</button>
+      <va-button @click="refreshData()">
+        refreshData
+      </va-button>
 
       <vuestic-chart :data="chartData" :type="chartType"/>
     </div>

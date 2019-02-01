@@ -12,7 +12,7 @@
                     <input id="popover-title" v-model="popoverTitle"
                            @input="checkPopoverContents" required/>
                     <label class="control-label" for="popover-title">{{'notificationsPage.popovers.popoverTitleLabel'
-                      | translate}}</label><i class="bar"></i>
+                      | translate}}</label><va-icon icon="bar"/>
                   </div>
                 </div>
                 <div class="form-group">
@@ -20,7 +20,7 @@
                     <input id="popover-text" v-model="popoverText"
                            @input="checkPopoverContents" required/>
                     <label class="control-label" for="popover-text">{{'notificationsPage.popovers.popoverTextLabel'
-                      | translate}}</label><i class="bar"></i>
+                      | translate}}</label><va-icon icon="bar"/>
                   </div>
                 </div>
                 <div class="form-group">
@@ -28,20 +28,16 @@
                     <input id="popover-icon" v-model="popoverIcon"
                            @input="checkPopoverContents" required/>
                     <label class="control-label" for="popover-icon">{{'notificationsPage.popovers.popoverIconLabel'
-                      | translate}}</label><i class="bar"></i>
+                      | translate}}</label><va-icon icon="bar"/>
                   </div>
                 </div>
                 <vuestic-popover popover-class="vuestic-tooltip"
                                  placement="right"
                                  :disabled="isPopoverDisabled">
-                  <button slot="trigger" class="btn btn-sm btn-primary">
-                    {{'notificationsPage.popovers.showPopover' | translate}}
-                  </button>
-                  <i
-                    slot="icon"
-                    class="fa"
-                    :class="popoverIcon">
-                  </i>
+                  <va-button slot="trigger">
+                    {{ $t('notificationsPage.popovers.showPopover') }}
+                  </va-button>
+                  <va-icon slot="icon" :icon="[ 'fa', popoverIcon ]"/>
                   <span slot="header">{{popoverTitle}}</span>
                   <span slot="body">{{popoverText}}</span>
                 </vuestic-popover>
@@ -107,7 +103,7 @@
                     <label class="control-label" for="toast-text">
                       {{ $t('notificationsPage.toasts.textLabel') }}
                     </label>
-                    <i class="bar"/>
+                    <va-icon icon="bar"/>
                   </div>
                 </div>
                 <div class="form-group">
@@ -120,7 +116,7 @@
                     <label class="control-label" for="toast-duration">
                       {{ $t('notificationsPage.toasts.durationLabel') }}
                     </label>
-                    <i class="bar"/>
+                    <va-icon icon="bar"/>
                   </div>
                 </div>
                 <div class="form-group">
@@ -129,7 +125,7 @@
                     <label class="control-label" for="toast-icon">
                       {{ $t('notificationsPage.toasts.iconLabel') }}
                     </label>
-                    <i class="bar"/>
+                    <va-icon icon="bar"/>
                   </div>
                 </div>
                 <!-- TODO Redo with global classes -->
@@ -141,13 +137,9 @@
                     v-model="isToastFullWidth"
                   />
                 </div>
-                <button
-                  slot="trigger"
-                  class="btn btn-sm btn-primary"
-                  @click="launchToast"
-                >
+                <va-button slot="trigger" @click="launchToast">
                   {{ $t('notificationsPage.toasts.launchToast') }}
-                </button>
+                </va-button>
               </fieldset>
               <br>
               <br>
@@ -159,7 +151,7 @@
                 class="toasted-container sample-toasted-container shrink"
               >
                 <div class="toasted vuestic-toast none default">
-                  <i class="fa" :class="toastIcon" v-if="toastIcon"/>
+                  <va-icon v-if="toastIcon" :icon="['fa', toastIcon]"/>
                   {{toastText}}
                 </div>
               </div>

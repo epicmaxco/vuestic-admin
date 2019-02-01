@@ -9,8 +9,8 @@
       :key="index"
     >
       <span class="wizard-step-line"></span>
-      <i class="ion ion-md-close step-icon icon-cross"></i>
-      <i class="ion ion-md-checkmark step-icon icon-check"></i>
+      <va-icon icon="ion ion-md-close step-icon icon-cross"/>
+      <va-icon icon="ion ion-md-checkmark step-icon icon-check"/>
       <span class="wizard-step-label ellipsis">{{step.label}}</span>
     </li>
   </ul>

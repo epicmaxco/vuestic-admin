@@ -21,6 +21,8 @@ import PreLoader
   from './vuestic-components/vuestic-preloader/VuesticPreLoader.vue'
 import ProfileCard
   from './vuestic-components/vuestic-profile-card/VuesticProfileCard.vue'
+import VaButton
+  from './vuestic-components/va-button/VaButton.vue'
 import RadioButton
   from './vuestic-components/vuestic-radio-button/VuesticRadioButton'
 import Scrollbar
@@ -46,6 +48,7 @@ import FileUpload
   from './vuestic-components/vuestic-file-upload/VuesticFileUpload'
 import Tag from './vuestic-components/vuestic-tag/VuesticTag'
 import TagGroup from './vuestic-components/vuestic-tag/VuesticTagGroup'
+import VaIcon from './vuestic-components/va-icon/VaIcon'
 import VuesticDropdown
   from './vuestic-components/vuestic-dropdown/VuesticDropdown'
 
@@ -92,6 +95,8 @@ const VuesticPlugin = {
       MultiSelect,
       PreLoader,
       ProfileCard,
+      VaProgressBar,
+      VaButton,
       RadioButton,
       Scrollbar,
       SimpleSelect,
@@ -113,6 +118,7 @@ const VuesticPlugin = {
       Card,
       Tag,
       TagGroup,
+      VaIcon,
       VuesticAccordion,
       VuesticCollapse,
       VuesticTimeline,
