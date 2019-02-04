@@ -1,18 +1,18 @@
 <template>
-  <div class="demo-container">
-    <div class="demo-container__item">
-      <a href="/not-visited" class="link">default link</a>
-    </div>
-    <div class="demo-container__item">
-      <a href="/not-visited" class="link-secondary">secondary link</a>
-    </div>
-    <div class="demo-container__item">
-      <a href="#" class="link">default link visited</a>
-    </div>
-    <div class="demo-container__item">
-      <a href="#" class="link-secondary">secondary link visited</a>
-    </div>
-  </div>
+  <VbDemo>
+    <VbContainer>
+      <a href="/default-link" class="link">Default Link</a>
+    </VbContainer>
+    <VbContainer>
+      <a href="/not-visited-link" class="link-secondary">Secondary Link</a>
+    </VbContainer>
+    <VbContainer>
+      <a href="#" class="link">Default link Visited</a>
+    </VbContainer>
+    <VbContainer>
+      <a href="#" class="link-secondary">Secondary link Visited</a>
+    </VbContainer>
+  </VbDemo>
 </template>
 
 <script>
