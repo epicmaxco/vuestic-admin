@@ -2,7 +2,7 @@
   <div class="auth-layout">
     <div class="nav d-lg-none">
       <router-link :to="{path: '/'}">
-        <vuestic-icon-vuestic/>
+        <va-icon-vuestic/>
       </router-link>
     </div>
     <div class="main va-row">
@@ -15,7 +15,7 @@
         <div class="flex-center">
           <div class="auth-layout__auth-wallpaper__cross-line"/>
           <router-link class="auth-layout__auth-wallpaper__logo" :to="{path: '/'}">
-            <vuestic-icon-vuestic/>
+            <va-icon-vuestic/>
           </router-link>
         </div>
       </div>
@@ -25,12 +25,12 @@
 
 <script>
 // d-none and d-lg-flex were deleted, bug will be fixed in the nearest update
-import VuesticIconVuestic
+import VaIconVuestic
   from '../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconVuestic'
 
 export default {
   name: 'AuthLayout',
-  components: { VuesticIconVuestic },
+  components: { VaIconVuestic },
 }
 </script>
 
@@ -50,7 +50,7 @@ export default {
       height: $auth-wallpaper-ivuestic-h;
       width: 100%;
     }
-    .vuestic-icon-vuestic {
+    .va-icon-vuestic {
       height: $auth-wallpaper-ivuestic-h;
       width: 100%;
     }
@@ -72,7 +72,7 @@ export default {
     justify-content: center;
     height: $top-mobile-nav-height;
     background-color: $top-nav-bg;
-    .vuestic-icon-vuestic {
+    .va-icon-vuestic {
       height: $auth-mobile-nav-ivuestic-h;
       width: 100%;
     }

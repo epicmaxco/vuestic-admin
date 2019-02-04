@@ -25,8 +25,7 @@
               style="color: white"
               v-model="inputValue"
             >
-            <i class="bar"
-               :style="'width: ' + 310 + 'px'"/>
+            <va-icon icon="bar" :style="'width: ' + 310 + 'px'"/>
           </div>
         </div>
       </div>

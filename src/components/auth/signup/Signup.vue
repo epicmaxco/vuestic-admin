@@ -21,13 +21,13 @@
         </template>
       </vuestic-checkbox>
       <div
-        class="d-flex align--center justify--space-between down-container">
-        <button class="btn btn-primary" type="submit">
+        class="d-flex flex-column flex-lg-row align-items-center justify-content-between down-container">
+        <va-button type="submit">
           {{ $t('auth.signUp') }}
-        </button>
-        <router-link class='link pl-2 text-center' :to="{name: 'login'}">
+        </va-button>
+        <va-button flat :to="{ name: 'login' }">
           {{ $t('auth.alreadyJoined') }}
-        </router-link>
+        </va-button>
       </div>
     </form>
   </div>

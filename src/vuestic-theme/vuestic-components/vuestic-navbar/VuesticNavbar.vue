@@ -144,6 +144,7 @@ $navbar-dd-item-height: 48px;
       height: $navbar-dd-item-height;
       cursor: pointer;
       font-size: $font-size-base;
+      color: $white;
 
       &:hover, &:active, &:focus, &.active {
         outline: none;

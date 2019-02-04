@@ -20,13 +20,14 @@
           <va-icon icon="bar"/>
         </div>
       </div>
-      <div class="d-flex align--center justify--space-between">
-        <button class="btn btn-primary" type="submit">
+      <div
+        class="d-flex align--center justify--space-between">
+        <va-button type="submit">
           {{ $t('auth.login') }}
-        </button>
-        <router-link class='link flex-center pl-2 text-center' :to="{name: 'signup'}">
+        </va-button>
+        <va-button flat :to="{ name: 'signup' }">
           {{ $t('auth.createAccount') }}
-        </router-link>
+        </va-button>
       </div>
     </form>
   </div>
@@ -40,7 +41,6 @@ export default {
 
 <style lang="scss">
 .login {
-
   @include media-breakpoint-down(md) {
     width: 100%;
     padding-right: 2rem;

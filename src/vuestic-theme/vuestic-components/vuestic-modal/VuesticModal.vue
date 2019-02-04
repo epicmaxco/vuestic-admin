@@ -11,12 +11,10 @@
                   <div class="modal-title">
                     <slot name="title"></slot>
                   </div>
-
-                  <i
-                    class="ion ion-md-close close-modal"
+                  <va-icon
                     v-if="closeIconShown"
-                    @click.prevent="cancel"
-                  />
+                    icon="ion ion-md-close close-modal"
+                    @click.native="cancel"/>
                 </slot>
               </div>
               <!--Container-->
@@ -26,14 +24,18 @@
               <!--Footer-->
               <div class="modal-footer">
                 <slot name="footer">
-                  <button type="button" v-if="!noButtons" :class="okClass"
-                          @click="ok" :disabled="okDisabled">
+                  <va-button
+                    v-if="!noButtons && okText" :class="okClass"
+                    @click="ok" :disabled="okDisabled"
+                  >
                     {{ okText }}
-                  </button>
-                  <button type="button" v-if="!noButtons" :class="cancelClass"
-                          @click="cancel" :disabled="cancelDisabled">
+                  </va-button>
+                  <va-button
+                    outline v-if="!noButtons && cancelText" :class="cancelClass"
+                    @click="cancel" :disabled="cancelDisabled"
+                  >
                     {{ cancelText }}
-                  </button>
+                  </va-button>
                 </slot>
               </div>
             </div>
@@ -67,11 +69,9 @@ export default {
     },
     okText: {
       type: String,
-      default: 'CONFIRM',
     },
     cancelText: {
       type: String,
-      default: 'CANCEL',
     },
     okClass: {
       type: String,
@@ -228,6 +228,7 @@ $modal-footer-btns-margin-x: 10px;
     padding: 0 $modal-inner-padding;
     padding-bottom: calc(#{$modal-inner-padding} - #{$modal-footer-btns-padding-bottom});
     flex-wrap: wrap;
+    border-top: 0;
     .btn {
       margin: 0 $modal-footer-btns-margin-x $modal-footer-btns-padding-bottom $modal-footer-btns-margin-x;
     }

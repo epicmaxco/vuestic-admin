@@ -52,7 +52,7 @@ export default {
         transform: 'rotate(' + this.rotation + 'deg)',
         fontSize: typeof this.size === 'number' ? this.size + 'px' : this.size
       }
-    },
+    }
   }
 }
 </script>
