@@ -43,20 +43,12 @@ export default {
 .login {
   @include media-breakpoint-down(md) {
     width: 100%;
-    padding-right: 2rem;
-    padding-left: 2rem;
-    .down-container {
-      display: none;
-    }
+    padding: 0 2rem;
   }
 
   h2 {
     text-align: center;
   }
   width: 21.375rem;
-
-  .down-container {
-    margin-top: 3.125rem;
-  }
 }
 </style>

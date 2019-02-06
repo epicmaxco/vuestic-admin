@@ -243,6 +243,10 @@
   display: inline-flex !important;
 }
 
+.d-none {
+  display: none !important;
+}
+
 // Not solitary. Is used in other places.
 .fill-height {
   height: 100%;

@@ -56,13 +56,11 @@ export default {
 <style lang="scss">
 .not-found-pages {
   $cardGutter: #{(19/16)}rem;
+
   .vuestic-card.not-found-pages__cards {
     min-width: 220px;
     text-align: center;
     margin: 0 $cardGutter calc(#{$cardGutter} * 2) $cardGutter;
-  }
-  &__button-container {
-    text-align: center;
   }
 }
 </style>

@@ -111,11 +111,3 @@ export default {
   name: 'buttons'
 }
 </script>
-
-<style lang="scss">
-.buttons-page {
-  .widget .widget-body {
-    padding-bottom: 0;
-  }
-}
-</style>

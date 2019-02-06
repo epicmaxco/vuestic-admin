@@ -13,6 +13,3 @@ export default {
   components: { SpacingPlaygroud },
 }
 </script>
-
-<style lang="scss">
-</style>

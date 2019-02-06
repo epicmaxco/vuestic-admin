@@ -93,8 +93,8 @@ export default {
 </script>
 
 <style lang="scss">
-.widget.chart-widget {
-  .widget-body {
+.chart-widget {
+  .vuestic-widget-body {
     height: 550px;
   }
 }

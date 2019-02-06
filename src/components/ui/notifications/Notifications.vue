@@ -221,15 +221,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.toasted-container.sample-toasted-container {
-  position: static;
-  transform: translateX(0);
-
-  .toasted {
-    position: static;
-    transform: translateY(0);
-  }
-}
-</style>

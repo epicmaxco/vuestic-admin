@@ -1,11 +1,13 @@
 <template>
   <div class="vuestic-profile-card flex align--center">
-    <div class="photo">
+    <div class="vuestic-profile-card__photo">
       <img :src="photoSource"/>
     </div>
-    <h5 class="name">{{name}}</h5>
-    <span class="location"><span
-      class="icon glyphicon glyphicon-map-marker"></span> {{location}}</span>
+    <div class="vuestic-profile-card__info">
+      <h5 class="name">{{name}}</h5>
+      <span class="location"><span
+        class="icon glyphicon glyphicon-map-marker"></span> {{location}}</span>
+    </div>
     <div class="social">
       <a v-if="social.facebook" :href="'https://' + social.facebook"
          target="_blank">
@@ -35,8 +37,11 @@ $vuestic-profile-card-width: 12.6875rem;
 $vuestic-profile-card-photo-diameter: 9.375rem;
 
 .vuestic-profile-card {
+  margin: auto;
   width: $vuestic-profile-card-width;
-  .photo {
+
+  &__photo {
+    margin: auto;
     height: $vuestic-profile-card-photo-diameter;
     width: $vuestic-profile-card-photo-diameter;
     border-radius: 50%;
@@ -48,23 +53,29 @@ $vuestic-profile-card-photo-diameter: 9.375rem;
       width: 100%;
     }
   }
-  .name {
-    margin-top: 1.325rem;
-    margin-bottom: 0;
-  }
-  .location {
-    margin-top: 0.8125rem;
-    .icon {
-      color: $lighter-gray;
-      font-size: $font-size-larger;
+
+  &__info {
+    text-align: center;
+
+    .name {
+      margin-top: 1.325rem;
+      margin-bottom: 0;
     }
-    &:hover {
-      cursor: pointer;
+    .location {
+      margin-top: 0.8125rem;
       .icon {
-        color: red;
+        color: $lighter-gray;
+        font-size: $font-size-larger;
+      }
+      &:hover {
+        cursor: pointer;
+        .icon {
+          color: red;
+        }
       }
     }
   }
+
   .social {
     display: flex;
     justify-content: center;

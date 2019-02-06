@@ -1,5 +1,5 @@
 <template>
-  <div class="leaflet-map">
+  <div class="leaflet-map fill-height">
   </div>
 </template>
 
@@ -29,8 +29,4 @@ export default {
 
 <style lang="scss">
 @import "~leaflet/dist/leaflet.css";
-
-.leaflet-map {
-  height: 100%;
-}
 </style>

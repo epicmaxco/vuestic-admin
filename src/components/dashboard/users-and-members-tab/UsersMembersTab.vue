@@ -2,11 +2,11 @@
   <div class="users-members-tab dashboard-tab">
     <div class="va-row">
       <div class="flex md3 flex justify--center align--center">
-        <vuestic-profile-card :name="'Veronique Lee'"
-                              :location="'Malaga, Spain'"
-                              photoSource="https://i.imgur.com/NLrdqsk.png"
-                              :social="{twitter: 'twitter.com', facebook: 'facebook.com',
-                                  instagram: 'instagram.com'}">
+        <vuestic-profile-card
+          name="Veronique Lee"
+          location="Malaga, Spain"
+          photoSource="https://i.imgur.com/NLrdqsk.png"
+          :social="{twitter: 'twitter.com', facebook: 'facebook.com', instagram: 'instagram.com'}">
         </vuestic-profile-card>
       </div>
       <div class="flex md9">
@@ -52,19 +52,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.vuestic-profile-card {
-  margin-left: 1rem;
-
-  @include media-breakpoint-up(md) {
-    margin-top: -$tab-content-pt;
-  }
-
-  @include media-breakpoint-down(md) {
-    margin-bottom: $tab-content-pt;
-    margin-left: 0;
-  }
-}
-
-</style>

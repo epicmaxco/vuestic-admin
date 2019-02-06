@@ -153,12 +153,6 @@ export default {
 
 <style lang="scss" scoped>
 .tabs {
-  .overview-tab {
-    .explore-row {
-      display: none !important;
-    }
-  }
-
   .maps-tab {
     height: 500px;
   }
@@ -166,21 +160,5 @@ export default {
 
 .profile-card-widget, .chat-widget {
   width: 100%;
-  .widget-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    & > div {
-      width: 100%;
-    }
-  }
-}
-
-.bottom-widgets {
-  > div[class^='col'] {
-    & > div {
-      width: 100%;
-    }
-  }
 }
 </style>

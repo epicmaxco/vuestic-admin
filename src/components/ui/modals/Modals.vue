@@ -101,14 +101,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.modals-page {
-  .modals-list {
-    .btn {
-      margin-right: 20px;
-      margin-bottom: 25px;
-    }
-  }
-}
-</style>
