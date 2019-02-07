@@ -51,7 +51,7 @@
       </span>
       <div class="va-row">
         <div
-          class="d-flex justify--center align--center flex xs3 md1 mb-2 icon-grid-container"
+          class="va-row column d-flex justify--center align--center flex xs3 md1 mb-2 icon-grid-container"
           v-for="icon in list.icons"
           :key="icon"
         >
@@ -135,8 +135,6 @@ export default {
 .vuestic-icon-set {
 
   .icon-grid-container {
-    flex-direction: column;
-    text-align: center;
 
     &:hover {
       color: $white;
@@ -146,7 +144,6 @@ export default {
 
     .icon-text {
       font-size: .6rem;
-      text-align: center;
     }
   }
 }

@@ -43,25 +43,6 @@
         </div>
       </vuestic-widget>
     </div>
-    <!--<div class="flex md6 xl3 xs12">
-      <vuestic-widget class="info-widget brand-danger">
-        <div class="info-widget-inner d-flex justify--center align--center">
-          <div class="info-widget-inner justify--space-between">
-            <div class="stats fill-height d-flex justify--center align--center">
-              <div class="stats-number mb-2 d-flex justify--center align--center">
-                425
-              </div>
-              <div class="stats-title">Commits</div>
-            </div>
-            <div class="chart-container">
-              <va-progress-circle :value="70" theme="White">
-                70%
-              </va-progress-circle>
-            </div>
-          </div>
-        </div>
-      </vuestic-widget>
-    </div>-->
     <div class="flex md6 xl3 xs12">
       <vuestic-widget class="info-widget brand-info">
         <div class="info-widget-inner d-flex justify--center align--center">
@@ -91,7 +72,6 @@ export default {
   }
 
   .info-widget-inner {
-    flex-direction: row;
     position: relative;
     width: 100%;
 

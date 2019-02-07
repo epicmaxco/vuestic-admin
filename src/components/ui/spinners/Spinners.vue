@@ -49,7 +49,7 @@
                 >
                 </component>
               </div>
-              <span>{{item | displayName}}</span>
+              <div>{{item | displayName}}</div>
             </div>
           </div>
         </div>
@@ -167,10 +167,6 @@ export default {
 
   .spinner-box-container {
     text-align: center;
-
-    span {
-      font-size: .8rem;
-    }
   }
 
   .spinner-box {

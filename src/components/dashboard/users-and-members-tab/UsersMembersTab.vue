@@ -1,6 +1,6 @@
 <template>
   <div class="users-members-tab dashboard-tab">
-    <div class="va-row">
+    <div class="va-row justify--center">
       <div class="flex md3 flex justify--center align--center">
         <vuestic-profile-card
           name="Veronique Lee"

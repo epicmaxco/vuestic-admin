@@ -81,7 +81,6 @@ export default {
   font-size: 1.25rem;
 
   .overview-icon-container {
-    flex-direction: row;
     min-width: 85px;
     max-width: 85px;
   }

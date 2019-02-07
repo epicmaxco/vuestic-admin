@@ -56,6 +56,16 @@ $navbar-dd-item-height: 48px;
     margin: 0;
   }
 
+  .navbar-text {
+    display: flex;
+  }
+
+  @include media-breakpoint-down(xs) {
+    .navbar-text {
+      display: none;
+    }
+  }
+
   height: $top-nav-height;
   padding-left: $nav-padding-left;
   padding-right: $nav-padding-right;

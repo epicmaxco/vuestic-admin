@@ -129,7 +129,7 @@
                   </div>
                 </div>
                 <!-- TODO Redo with global classes -->
-                <div class="form-group va-row" style="margin-bottom: 2rem">
+                <div class="form-group va-row mb-4">
                   <toast-position-picker v-model="toastPosition"/>
                   <vuestic-checkbox
                     :label="'notificationsPage.toasts.fullWidthLabel' | translate"
