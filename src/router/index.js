@@ -200,6 +200,9 @@ export default new Router({
               name: 'notifications',
               path: 'notifications',
               component: lazyLoading('ui/notifications/Notifications'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Notifications',
+              },
             },
             {
               path: 'icons',

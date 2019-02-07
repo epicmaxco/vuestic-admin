@@ -1,4 +1,4 @@
-import Alert from './vuestic-components/vuestic-alert/VuesticAlert.vue'
+import VaNotification from './vuestic-components/va-notification/VaNotification.vue'
 import Breadcrumbs
   from './vuestic-components/vuestic-breadcrumbs/VuesticBreadcrumbs.vue'
 import Chart from './vuestic-components/vuestic-chart/VuesticChart.vue'
@@ -82,7 +82,7 @@ installQuasarPlatform()
 const VuesticPlugin = {
   install (Vue, options) {
     [
-      Alert,
+      VaNotification,
       Breadcrumbs,
       Chart,
       Chat,

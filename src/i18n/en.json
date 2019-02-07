@@ -64,15 +64,17 @@
     "versions": "Versions"
   },
   "notificationsPage": {
-    "alerts": {
-      "title": "Alerts",
-      "success": "SUCCESS",
+    "notifications": {
+      "title": "Notifications",
+      "gray": "Processing",
+      "dark": "New Label",
+      "success": "Paid",
       "successMessage": "You successfully read this important alert message.",
-      "info": "INFO",
+      "info": "Info",
       "infoMessage": "This alert needs your attention, but it's not super important.",
-      "warning": "WARNING",
+      "warning": "On Hold",
       "warningMessage": "Better check yourself, you're not looking too good.",
-      "danger": "DANGER",
+      "danger": "Danger",
       "dangerMessage": "Change a few things up and try submitting again."
     },
     "popovers": {
