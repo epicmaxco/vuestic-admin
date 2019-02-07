@@ -1,16 +1,16 @@
-import Alert from './vuestic-components/vuestic-alert/VuesticAlert.vue'
+import VaNotification from './vuestic-components/va-notification/VaNotification.vue'
 import Breadcrumbs
   from './vuestic-components/vuestic-breadcrumbs/VuesticBreadcrumbs.vue'
 import Chart from './vuestic-components/vuestic-chart/VuesticChart.vue'
 import Chat from './vuestic-components/vuestic-chat/VuesticChat.vue'
 import Checkbox from './vuestic-components/vuestic-checkbox/VuesticCheckbox.vue'
 import VaProgressCircle
-  from './vuestic-components/vuestic-progress-bar/progress-types/VaProgressCircle.vue'
+  from './vuestic-components/va-progress-bar/progress-types/VaProgressCircle.vue'
 import DataTable
   from './vuestic-components/vuestic-datatable/VuesticDataTable.vue'
 import Feed from './vuestic-components/vuestic-feed/VuesticFeed.vue'
 import VaProgressBar
-  from './vuestic-components/vuestic-progress-bar/progress-types/VaProgressBar.vue'
+  from './vuestic-components/va-progress-bar/progress-types/VaProgressBar.vue'
 import MediumEditor
   from './vuestic-components/vuestic-medium-editor/VuesticMediumEditor.vue'
 import Modal from './vuestic-components/vuestic-modal/VuesticModal.vue'
@@ -86,7 +86,7 @@ installQuasarPlatform()
 const VuesticPlugin = {
   install (Vue, options) {
     [
-      Alert,
+      VaNotification,
       Breadcrumbs,
       Chart,
       Chat,

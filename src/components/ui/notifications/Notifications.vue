@@ -70,23 +70,55 @@
     <div class="va-row">
       <div class="flex md12">
         <vuestic-widget
-          :headerText="'notificationsPage.alerts.title' | translate">
-          <vuestic-alert type="success" :withCloseBtn="true">
-            <span class="badge badge-pill badge-success">{{'notificationsPage.alerts.success' | translate}}</span>
-            {{'notificationsPage.alerts.successMessage' | translate}}
-          </vuestic-alert>
-          <vuestic-alert type="info" :withCloseBtn="true">
-            <span class="badge badge-pill badge-info">{{'notificationsPage.alerts.info' | translate}}</span>
-            {{'notificationsPage.alerts.infoMessage' | translate}}
-          </vuestic-alert>
-          <vuestic-alert type="warning" :withCloseBtn="true">
-            <span class="badge badge-pill badge-warning">{{'notificationsPage.alerts.warning' | translate}}</span>
-            {{'notificationsPage.alerts.warningMessage' | translate}}
-          </vuestic-alert>
-          <vuestic-alert type="danger" :withCloseBtn="true">
-            <span class="badge badge-pill badge-danger">{{'notificationsPage.alerts.danger' | translate}}</span>
-            {{'notificationsPage.alerts.dangerMessage' | translate}}
-          </vuestic-alert>
+          :headerText="'notificationsPage.notifications.title' | translate">
+          <div class="mb-3">
+            <va-notification closeable>
+              <span class="va-notification__badge va-notification__badge--success">
+                {{ $t('notificationsPage.notifications.success') }}
+              </span>
+              {{ $t('notificationsPage.notifications.successMessage') }}
+            </va-notification>
+          </div>
+          <div class="mb-3">
+            <va-notification color="info" closeable>
+              <span class="va-notification__badge va-notification__badge--info">
+                {{ $t('notificationsPage.notifications.info') }}
+              </span>
+              {{ $t('notificationsPage.notifications.infoMessage') }}
+            </va-notification>
+          </div>
+          <div class="mb-3">
+            <va-notification color="warning" closeable>
+              <span class="va-notification__badge va-notification__badge--warning">
+                {{ $t('notificationsPage.notifications.warning') }}
+              </span>
+              {{ $t('notificationsPage.notifications.warningMessage') }}
+            </va-notification>
+          </div>
+          <div class="mb-3">
+            <va-notification color="danger" closeable>
+              <span class="va-notification__badge va-notification__badge--danger">
+                {{ $t('notificationsPage.notifications.danger') }}
+              </span>
+              {{ $t('notificationsPage.notifications.dangerMessage') }}
+            </va-notification>
+          </div>
+          <div class="mb-3">
+            <va-notification color="gray" closeable>
+              <span class="va-notification__badge va-notification__badge--gray">
+                {{ $t('notificationsPage.notifications.gray') }}
+              </span>
+              {{ $t('notificationsPage.notifications.warningMessage') }}
+            </va-notification>
+          </div>
+          <div class="mb-3">
+            <va-notification color="dark" closeable>
+              <span class="va-notification__badge va-notification__badge--dark">
+                {{ $t('notificationsPage.notifications.dark') }}
+              </span>
+              {{ $t('notificationsPage.notifications.dangerMessage') }}
+            </va-notification>
+          </div>
         </vuestic-widget>
       </div>
     </div>
