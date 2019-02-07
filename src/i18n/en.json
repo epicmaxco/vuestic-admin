@@ -20,6 +20,7 @@
     "tags": "Button Tags",
     "button": "BUTTON",
     "buttonGroups": "Button Groups",
+    "buttonToggles": "Button Toggles",
     "a-link": "A-LINK",
     "router-link": "ROUTER-LINK",
     "colors": "Button Colors",

@@ -5,12 +5,12 @@ import Chart from './vuestic-components/vuestic-chart/VuesticChart.vue'
 import Chat from './vuestic-components/vuestic-chat/VuesticChat.vue'
 import Checkbox from './vuestic-components/vuestic-checkbox/VuesticCheckbox.vue'
 import VaProgressCircle
-  from './vuestic-components/vuestic-progress-bar/progress-types/VaProgressCircle.vue'
+  from './vuestic-components/va-progress-bar/progress-types/VaProgressCircle.vue'
 import DataTable
   from './vuestic-components/vuestic-datatable/VuesticDataTable.vue'
 import Feed from './vuestic-components/vuestic-feed/VuesticFeed.vue'
 import VaProgressBar
-  from './vuestic-components/vuestic-progress-bar/progress-types/VaProgressBar.vue'
+  from './vuestic-components/va-progress-bar/progress-types/VaProgressBar.vue'
 import MediumEditor
   from './vuestic-components/vuestic-medium-editor/VuesticMediumEditor.vue'
 import Modal from './vuestic-components/vuestic-modal/VuesticModal.vue'
@@ -25,6 +25,8 @@ import VaButton
   from './vuestic-components/va-button/VaButton.vue'
 import VaButtonGroup
   from './vuestic-components/va-button-group/VaButtonGroup.vue'
+import VaButtonToggle
+  from './vuestic-components/va-button-toggle/VaButtonToggle.vue'
 import RadioButton
   from './vuestic-components/vuestic-radio-button/VuesticRadioButton'
 import Scrollbar
@@ -100,6 +102,7 @@ const VuesticPlugin = {
       VaProgressBar,
       VaButton,
       VaButtonGroup,
+      VaButtonToggle,
       RadioButton,
       Scrollbar,
       SimpleSelect,

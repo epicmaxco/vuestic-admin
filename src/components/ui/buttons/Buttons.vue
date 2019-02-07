@@ -158,13 +158,69 @@
           </div>
         </vuestic-widget>
       </div>
+
+      <div class="flex md12 xl12">
+        <vuestic-widget class="larger-padding"
+                        :headerText="$t('buttons.buttonToggles')">
+          <div class="va-row">
+            <div class="flex xs12 md4">
+              <va-button-toggle
+                v-model="model" :options="options"
+                toggle-color="warning"
+              />
+            </div>
+            <div class="flex xs12 md4">
+              <va-button-toggle
+                outline v-model="model" :options="options"
+                color="danger" toggle-color="info"
+              />
+            </div>
+            <div class="flex xs12 md4">
+              <va-button-toggle
+                flat v-model="model" :options="options"
+                color="gray" toggle-color="success"
+              />
+            </div>
+          </div>
+          <div class="va-row">
+            <div class="flex xs12 md4">
+              <va-button-toggle
+                v-model="model" :options="options"
+                color="dark" toggle-color="danger"
+              />
+            </div>
+            <div class="flex xs12 md4">
+              <va-button-toggle
+                outline v-model="model" :options="options"
+                color="info" toggle-color="gray"
+              />
+            </div>
+            <div class="flex xs12 md4">
+              <va-button-toggle
+                flat v-model="model" :options="options"
+                color="warning" toggle-color="dark"
+              />
+            </div>
+          </div>
+        </vuestic-widget>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'buttons'
+  name: 'buttons',
+  data () {
+    return {
+      options: [
+        { label: 'One', value: 'one' },
+        { label: 'Two', value: 'two' },
+        { label: 'Three', value: 'three' }
+      ],
+      model: 'three'
+    }
+  }
 }
 </script>
 
