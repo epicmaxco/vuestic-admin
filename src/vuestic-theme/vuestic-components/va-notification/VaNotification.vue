@@ -3,7 +3,7 @@
     <div class="va-notification d-flex justify--space-between align--start"
          :class="notificationClass"
     >
-      <div class="va-notification__content">
+      <div class="va-notification__content d-inline-flex align--center">
         <slot/>
       </div>
       <div class="va-notification__close-icon d-flex justify--end align--start">
@@ -81,8 +81,7 @@ export default {
     border: $va-notification-border solid transparent;
     border-radius: $va-notification-border-radius;
 
-    .va-badge {
-      display: inline-flex;
+    &__badge {
       padding: $va-badge-padding-y $va-badge-padding-x;
       font-family: $font-family-sans-serif;
       font-weight: bold;
@@ -95,13 +94,7 @@ export default {
       border-radius: $va-badge-border-radius;
     }
 
-    &__content {
-      display: inline-flex;
-      align-items: center;
-    }
-
     &__close-icon {
-      display: inline-flex;
       padding: $va-close-icon-padding-y $va-close-icon-padding-x;
       font-size: $va-close-icon-font-size;
       cursor: pointer;
@@ -126,7 +119,7 @@ export default {
       background: $background-color;
       box-shadow: 0 $va-notification-box-shadow $va-notification-box-shadow 0 $box-shadow-color;
 
-      .va-badge--#{$name}{
+      .va-notification__badge--#{$name}{
         background-color: $close-icon-color;
       }
 

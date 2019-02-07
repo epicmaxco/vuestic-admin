@@ -73,37 +73,49 @@
           :headerText="'notificationsPage.notifications.title' | translate">
           <div class="mb-3">
             <va-notification closeable>
-              <span class="va-badge va-badge--success">{{ $t('notificationsPage.notifications.success') }}</span>
+              <span class="va-notification__badge va-notification__badge--success">
+                {{ $t('notificationsPage.notifications.success') }}
+              </span>
               {{ $t('notificationsPage.notifications.successMessage') }}
             </va-notification>
           </div>
           <div class="mb-3">
             <va-notification color="info" closeable>
-              <span class="va-badge va-badge--info">{{ $t('notificationsPage.notifications.info') }}</span>
+              <span class="va-notification__badge va-notification__badge--info">
+                {{ $t('notificationsPage.notifications.info') }}
+              </span>
               {{ $t('notificationsPage.notifications.infoMessage') }}
             </va-notification>
           </div>
           <div class="mb-3">
             <va-notification color="warning" closeable>
-              <span class="va-badge va-badge--warning">{{ $t('notificationsPage.notifications.warning') }}</span>
+              <span class="va-notification__badge va-notification__badge--warning">
+                {{ $t('notificationsPage.notifications.warning') }}
+              </span>
               {{ $t('notificationsPage.notifications.warningMessage') }}
             </va-notification>
           </div>
           <div class="mb-3">
             <va-notification color="danger" closeable>
-              <span class="va-badge va-badge--danger">{{ $t('notificationsPage.notifications.danger') }}</span>
+              <span class="va-notification__badge va-notification__badge--danger">
+                {{ $t('notificationsPage.notifications.danger') }}
+              </span>
               {{ $t('notificationsPage.notifications.dangerMessage') }}
             </va-notification>
           </div>
           <div class="mb-3">
             <va-notification color="gray" closeable>
-              <span class="va-badge va-badge--gray">{{ $t('notificationsPage.notifications.gray') }}</span>
+              <span class="va-notification__badge va-notification__badge--gray">
+                {{ $t('notificationsPage.notifications.gray') }}
+              </span>
               {{ $t('notificationsPage.notifications.warningMessage') }}
             </va-notification>
           </div>
           <div class="mb-3">
             <va-notification color="dark" closeable>
-              <span class="va-badge va-badge--dark">{{ $t('notificationsPage.notifications.dark') }}</span>
+              <span class="va-notification__badge va-notification__badge--dark">
+                {{ $t('notificationsPage.notifications.dark') }}
+              </span>
               {{ $t('notificationsPage.notifications.dangerMessage') }}
             </va-notification>
           </div>
