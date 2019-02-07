@@ -64,8 +64,8 @@
     "versions": "Versions"
   },
   "notificationsPage": {
-    "alerts": {
-      "title": "Alerts",
+    "notifications": {
+      "title": "Notifications",
       "gray": "Processing",
       "dark": "New Label",
       "success": "Paid",

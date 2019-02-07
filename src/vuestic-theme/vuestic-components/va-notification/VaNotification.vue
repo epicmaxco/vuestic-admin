@@ -1,12 +1,12 @@
 <template>
   <transition v-if="value" name="fade">
-    <div class="va-notification d-flex justify--space-between align--center"
+    <div class="va-notification d-flex justify--space-between align--start"
          :class="notificationClass"
     >
       <div class="va-notification__content">
         <slot/>
       </div>
-      <div class="va-notification__close-icon d-flex justify--end">
+      <div class="va-notification__close-icon d-flex justify--end align--start">
         <i v-if="closeable"
            class="ion-md-close ion"
            @click="hideNotification()"
