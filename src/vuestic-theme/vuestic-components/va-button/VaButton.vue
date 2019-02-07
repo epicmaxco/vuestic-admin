@@ -21,7 +21,8 @@
         v-if="icon"
         fixed-width
         class="va-button__content__icon va-button__content__icon-left"
-        :icon="icon"/>
+        :icon="icon"
+      />
       <div
         v-if="hasTitleData"
         class="va-button__content__title">
@@ -31,7 +32,8 @@
         v-if="iconRight"
         fixed-width
         class="va-button__content__icon va-button__content__icon-right"
-        :icon="iconRight"/>
+        :icon="iconRight"
+      />
     </div>
   </component>
 </template>
@@ -158,16 +160,16 @@ export default {
 
   .va-button {
     display: inline-block;
-    margin: 0.375rem 0.5rem;
+    margin: $btn-margin;
     background-image: none;
     box-shadow: none;
     outline: none !important;
-    border: 0;
+    border: $btn-border;
     font-family: $font-family-sans-serif;
     text-decoration: none !important;
     text-transform: initial;
     cursor: pointer;
-    transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+    transition: $btn-transition;
 
     &__content {
       display: flex;
@@ -181,99 +183,91 @@ export default {
     }
 
     &--large {
-      @include button-size(0.75rem, 2rem, 1.25rem, 1.3, 2rem);
-      letter-spacing: 0.04rem;
+      @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
+      letter-spacing: $btn-letter-spacing-lg;
       color: $white;
 
       .va-button__content__icon {
-        width: 2rem;
+        width: $btn-icon-width-lg;
       }
 
       &.va-button--with-left-icon {
-        padding-left: 1.75rem;
+        padding-left: $btn-with-icon-wrapper-padding-lg;
 
         &.va-button--without-title {
-          padding-right: 1.75rem;
+          padding-right: $btn-with-icon-wrapper-padding-lg;
         }
 
-        &.va-button__content__title {
-          padding-left: 0.5rem;
+        .va-button__content__title {
+          padding-left: $btn-with-icon-content-padding-lg;
         }
       }
 
       &.va-button--with-right-icon {
-        padding-right: 1.5rem;
+        padding-right: $btn-with-icon-wrapper-padding-lg;
 
-        &.va-button__content__title {
-          padding-right: 0.63rem;
+        .va-button__content__title {
+          padding-right: $btn-with-icon-content-padding-lg;
         }
       }
     }
 
     &--small {
-      @include button-size(0.125rem, 1rem, 0.875rem, 1.43, 1rem);
-      letter-spacing: 0.03rem;
+      @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
+      letter-spacing: $btn-letter-spacing-sm;
       color: $white;
 
       .va-button__content__icon {
-        width: 1rem;
+        width: $btn-icon-width-sm;
       }
 
       &.va-button--with-left-icon {
-        padding-left: 0.5rem;
+        padding-left: $btn-with-icon-wrapper-padding-sm;
 
         &.va-button--without-title {
-          padding-right: 0.5rem;
+          padding-right: $btn-with-icon-wrapper-padding-sm;
         }
 
-        &.va-button__content__title {
-          padding-left: 0.25rem;
+        .va-button__content__title {
+          padding-left: $btn-with-icon-content-padding-sm;
         }
       }
 
       &.va-button--with-right-icon {
-        padding-right: 0.5rem;
+        padding-right: $btn-with-icon-wrapper-padding-sm;
 
-        &.va-button--without-title {
-          padding-right: 0.5rem;
-        }
-
-        &.va-button__content__title {
-          padding-left: 0.25rem;
+        .va-button__content__title {
+          padding-right: $btn-with-icon-content-padding-sm;
         }
       }
     }
 
     &--normal {
-      @include button-size(0.5rem, 1.5rem, 1rem, 1.5, 1.5rem);
-      letter-spacing: 0.032rem;
+      @include button-size($btn-padding-y-nrm, $btn-padding-x-nrm, $btn-font-size-nrm, $btn-line-height-nrm, $btn-border-radius-nrm);
+      letter-spacing: $btn-letter-spacing-nrm;
       color: $white;
 
       .va-button__content__icon {
-        width: 1.5rem;
+        width: $btn-icon-width-nrm;
       }
 
       &.va-button--with-left-icon {
-        padding-left: 1rem;
-
-        .va-button__content__title {
-          padding-left: 0.5rem;
-        }
+        padding-left: $btn-with-icon-wrapper-padding-nrm;
 
         &.va-button--without-title {
-          padding-right: 1rem;
+          padding-right: $btn-with-icon-wrapper-padding-nrm;
         }
-      }
 
-      &.va-button--with-left-icon.vuestic-button--without-title{
-        padding-right: 1rem;
+        .va-button__content__title {
+          padding-left: $btn-with-icon-content-padding-nrm;
+        }
       }
 
       &.va-button--with-right-icon {
-        padding-right: 0.75rem;
+        padding-right: $btn-with-icon-wrapper-padding-nrm;
 
-        &.va-button__content__title {
-          padding-left: 0.5rem;
+        .va-button__content__title {
+          padding-right: $btn-with-icon-content-padding-nrm;
         }
       }
     }
@@ -298,7 +292,7 @@ export default {
 
     .va-button--#{$name}.va-button--default{
       background-image: linear-gradient(to right, $gradient-color1, $gradient-color2);
-      box-shadow: 0 0.125rem 0.19rem 0 $box-shadow;
+      box-shadow: $btn-box-shadow $box-shadow;
 
       &:hover {
         background-image: linear-gradient(to right, lighten($gradient-color1, 15%), lighten($gradient-color2, 15%));
@@ -318,7 +312,7 @@ export default {
 
     .va-button--#{$name}.va-button--outline{
       background: transparent;
-      border: solid 0.125rem $border-color;
+      border: solid $btn-border-outline $border-color;
       text-decoration: none;
       color: $border-color !important;
 
@@ -340,7 +334,7 @@ export default {
 
     .va-button--#{$name}.va-button--flat{
       background: transparent;
-      border: 0 solid transparent;
+      border: $btn-border solid transparent;
       text-decoration: none;
       color: $border-color !important;
 

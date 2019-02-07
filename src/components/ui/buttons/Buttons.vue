@@ -102,6 +102,62 @@
           </div>
         </vuestic-widget>
       </div>
+
+      <div class="flex md12 xl12">
+        <vuestic-widget class="larger-padding"
+                        :headerText="$t('buttons.buttonGroups')">
+          <div class="va-row">
+            <div class="flex xs12 md4">
+              <va-button-group>
+                <va-button large> Button 1 </va-button>
+                <va-button large> Button 2 </va-button>
+                <va-button large> Button 3 </va-button>
+                <va-button large> Button 4 </va-button>
+              </va-button-group>
+            </div>
+            <div class="flex xs12 md4">
+              <va-button-group>
+                <va-button outline small color="danger" icon="maki maki-art-gallery"> First </va-button>
+                <va-button outline small color="danger"> Second </va-button>
+                <va-button outline small color="danger"> Third </va-button>
+              </va-button-group>
+            </div>
+            <div class="flex xs12 md4">
+              <va-button-group>
+                <va-button flat color="gray" icon="glyphicon glyphicon-envelope">
+                  First
+                </va-button>
+                <va-button flat color="gray" icon="entypo entypo-user"> Second </va-button>
+                <va-button flat color="gray" icon="ion ion-ios-alarm"> Third </va-button>
+              </va-button-group>
+            </div>
+          </div>
+          <div class="va-row">
+            <div class="flex xs12 md4">
+              <va-button-group>
+                <va-button color="dark"> One </va-button>
+                <va-button color="dark"> Two </va-button>
+                <va-button color="dark"> Three </va-button>
+                <va-button color="dark" icon="ion-ios-arrow-down arrow-down"/>
+              </va-button-group>
+            </div>
+            <div class="flex xs12 md4">
+              <va-button-group>
+                <va-button outline large color="info"> First </va-button>
+                <va-button outline large color="info" icon-right="glyphicon glyphicon-pencil"> Second </va-button>
+                <va-button outline large color="info"> Third </va-button>
+              </va-button-group>
+            </div>
+            <div class="flex xs12 md4">
+              <va-button-group>
+                <va-button flat small color="warning" icon="glyphicon glyphicon-envelope"/>
+                <va-button flat small color="warning" icon="entypo entypo-user"/>
+                <va-button flat small color="warning" icon-right="ion ion-ios-alarm"> Update </va-button>
+              </va-button-group>
+            </div>
+          </div>
+        </vuestic-widget>
+      </div>
     </div>
   </div>
 </template>

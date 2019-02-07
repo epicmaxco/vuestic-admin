@@ -1,4 +1,4 @@
-import Alert from './vuestic-components/vuestic-alert/VuesticAlert.vue'
+import VaNotification from './vuestic-components/va-notification/VaNotification.vue'
 import Breadcrumbs
   from './vuestic-components/vuestic-breadcrumbs/VuesticBreadcrumbs.vue'
 import Chart from './vuestic-components/vuestic-chart/VuesticChart.vue'
@@ -23,6 +23,8 @@ import ProfileCard
   from './vuestic-components/vuestic-profile-card/VuesticProfileCard.vue'
 import VaButton
   from './vuestic-components/va-button/VaButton.vue'
+import VaButtonGroup
+  from './vuestic-components/va-button-group/VaButtonGroup.vue'
 import RadioButton
   from './vuestic-components/vuestic-radio-button/VuesticRadioButton'
 import Scrollbar
@@ -82,7 +84,7 @@ installQuasarPlatform()
 const VuesticPlugin = {
   install (Vue, options) {
     [
-      Alert,
+      VaNotification,
       Breadcrumbs,
       Chart,
       Chat,
@@ -97,6 +99,7 @@ const VuesticPlugin = {
       ProfileCard,
       VaProgressBar,
       VaButton,
+      VaButtonGroup,
       RadioButton,
       Scrollbar,
       SimpleSelect,

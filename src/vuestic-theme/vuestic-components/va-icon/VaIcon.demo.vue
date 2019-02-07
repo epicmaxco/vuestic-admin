@@ -36,11 +36,9 @@
     </VbContainer>
 
     <VbContainer title="Fixed width">
-      <button class="btn btn-secondary">
-        <va-icon :icon="icon" fixed-width/>
+      <va-button :icon="icon" :icon-right="icon">
         Some
-        <va-icon :icon="icon" fixed-width/>
-      </button>
+      </va-button>
     </VbContainer>
 
     <VbContainer title="Iconic">
