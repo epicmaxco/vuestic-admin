@@ -56,20 +56,6 @@ h5, .h5 {
   }
 }
 
-.btn-group {
-  box-shadow: $btn-box-shadow;
-  border-radius: $btn-border-radius;
-  .btn {
-    padding-left: $btn-group-button-padding-x;
-    padding-right: $btn-group-button-padding-x;
-    box-shadow: none;
-  }
-}
-
-.btn-group {
-  color: $white;
-}
-
 // Dropdowns & Selects
 .dropdown-menu {
   border-radius: 0;

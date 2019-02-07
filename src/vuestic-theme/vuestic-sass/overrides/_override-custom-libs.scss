@@ -3,9 +3,9 @@
 .medium-editor-toolbar-form,
 .medium-editor-toolbar-actions,
 .medium-editor-toolbar-anchor-preview {
+  box-shadow: $btn-box-shadow 0 #77cea4;
   background-color: $brand-primary;
-  border-radius: $btn-border-radius;
-  box-shadow: $btn-box-shadow;
+  border-radius: $btn-border-radius-nrm;
 }
 
 .medium-editor-toolbar {
@@ -16,14 +16,33 @@
   }
 
   .medium-editor-action {
+    margin: 0;
+    border: $btn-border;
+    padding: $btn-padding-y-nrm $btn-padding-x-nrm;
     height: $medium-editor-button-size;
-    padding: $btn-padding-y $btn-group-button-padding-x;
+    background-image: linear-gradient(to right, #63e5b3, #23e066);
     box-shadow: none;
     border-radius: 0;
+
+    i {
+      color: $white;
+    }
 
     &.medium-editor-button-active {
       background-color: darken($brand-primary, 15%);
     }
+  }
+
+  & > .medium-editor-action:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+  }
+
+  & > .medium-editor-action + .medium-editor-action {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 0;
   }
 }
 
@@ -36,7 +55,7 @@
     background: $brand-primary;
     box-sizing: border-box;
     color: $white;
-    padding-left: 16px;
+    padding-left: 1rem;
     width: 220px;
 
     &::-webkit-input-placeholder {
@@ -59,7 +78,7 @@
   }
 
   .medium-editor-toolbar-close {
-    margin-right: 16px;
+    margin-right: 1rem;
   }
 }
 
@@ -73,7 +92,7 @@
 }
 
 .medium-editor-toolbar-anchor-preview {
-  @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-line-height, $btn-border-radius);
+  @include button-size($btn-padding-y-nrm, $btn-padding-x-nrm, $btn-font-size-nrm, $btn-line-height-nrm, $btn-border-radius-nrm);
   .medium-editor-toolbar-anchor-preview {
     margin: 0;
   }

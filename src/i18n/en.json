@@ -19,6 +19,7 @@
     "size": "Button Sizes",
     "tags": "Button Tags",
     "button": "BUTTON",
+    "buttonGroups": "Button Groups",
     "a-link": "A-LINK",
     "router-link": "ROUTER-LINK",
     "colors": "Button Colors",

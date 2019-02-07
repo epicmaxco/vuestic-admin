@@ -23,6 +23,8 @@ import ProfileCard
   from './vuestic-components/vuestic-profile-card/VuesticProfileCard.vue'
 import VaButton
   from './vuestic-components/va-button/VaButton.vue'
+import VaButtonGroup
+  from './vuestic-components/va-button-group/VaButtonGroup.vue'
 import RadioButton
   from './vuestic-components/vuestic-radio-button/VuesticRadioButton'
 import Scrollbar
@@ -97,6 +99,7 @@ const VuesticPlugin = {
       ProfileCard,
       VaProgressBar,
       VaButton,
+      VaButtonGroup,
       RadioButton,
       Scrollbar,
       SimpleSelect,

@@ -63,15 +63,15 @@ export default {
   letter-spacing: normal;
 
   &--large {
-    font-size: 2.25rem;
+    font-size: $icon-lg-size;
   }
 
   &--small {
-    font-size: 1rem;
+    font-size: $icon-sm-size;
   }
 
   &--fixed {
-    width: 1.25rem;
+    width: $icon-fixed-width;
     text-align: center;
   }
 }

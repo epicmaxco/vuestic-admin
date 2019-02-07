@@ -171,37 +171,47 @@ $widget-header-border: 2px solid $light-gray;
 $widget-header-height: 55px;
 $widget-mb: 1.875rem;
 
+//Icons
+$icon-lg-size: 2.25rem;
+$icon-sm-size: 1rem;
+$icon-fixed-width: 1.25rem;
+
 //Buttons
-$btn-line-height: 1.25;
-$btn-line-height-sm: $btn-line-height;
-$btn-padding-x: 3.9rem;
-$btn-padding-y: 1.1rem;
-$btn-padding-y-sm: 0.7rem;
-$btn-padding-x-sm: 2.5rem;
-$btn-padding-y-micro: 0.625rem;
-$btn-padding-x-micro: 1.8rem;
-$btn-with-icon-text-margin: 1.875rem;
-$btn-with-icon-padding-x: 2.8125rem;
-$btn-with-icon-rounded-size: 3.5rem;
-$btn-with-icon-rounded-size-micro: 2.25rem;
-$btn-with-icon-rounded-font-micro: 1.5rem;
-$btn-with-icon-rounded-position-top: .4rem;
-$btn-with-icon-rounded-position-left: .46rem;
-$btn-with-icon-icon-top: .75rem;
-$btn-with-icon-rounded-icon-left: 1.23rem;
-$btn-with-icon-icon-size: 2rem;
-$btn-group-button-padding-x: 1.53rem;
-$btn-box-shadow: $greeny-box-shadow;
-$btn-box-danger-shadow: 0px 4px 70px -16px $brand-danger;
-$btn-box-warning-shadow: 0px 4px 70px -16px $brand-warning;
-$btn-box-success-shadow: $greeny-box-shadow;
-$btn-box-info-shadow: 0px 4px 70px -16px $brand-info;
-$btn-box-pale-shadow: 0px 4px 70px -16px $theme-pale;
-$btn-box-dark-shadow: 0px 4px 70px -16px $almost-black;
-$btn-border-radius: 1.875rem;
-$btn-dd-arrow-size: 1rem;
-$btn-border: none;
-$btn-secondary-theme-border: 2px solid $brand-primary;
+$btn-border: 0;
+$btn-border-outline: 0.125rem;
+$btn-box-shadow: 0 0.125rem 0.19rem 0;
+$btn-margin: 0.375rem 0.5rem;
+$btn-transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+
+$btn-padding-y-lg: 0.75rem;
+$btn-padding-x-lg: 2rem;
+$btn-font-size-lg: 1.25rem;
+$btn-line-height-lg: 1.3;
+$btn-border-radius-lg: 2rem;
+$btn-letter-spacing-lg: 0.04rem;
+$btn-icon-width-lg: 2rem;
+$btn-with-icon-wrapper-padding-lg: 1.5rem;
+$btn-with-icon-content-padding-lg: 0.63rem;
+
+$btn-padding-y-sm: 0.125rem;
+$btn-padding-x-sm: 1rem;
+$btn-font-size-sm: 0.875rem;
+$btn-line-height-sm: 1.43;
+$btn-border-radius-sm: 1rem;
+$btn-letter-spacing-sm: 0.03rem;
+$btn-icon-width-sm: 1rem;
+$btn-with-icon-wrapper-padding-sm: 0.5rem;
+$btn-with-icon-content-padding-sm: 0.25rem;
+
+$btn-padding-y-nrm: 0.5rem;
+$btn-padding-x-nrm: 1.5rem;
+$btn-font-size-nrm: 1rem;
+$btn-line-height-nrm: 1.5;
+$btn-border-radius-nrm: 1.5rem;
+$btn-letter-spacing-nrm: 0.032rem;
+$btn-icon-width-nrm: 1.5rem;
+$btn-with-icon-wrapper-padding-nrm: 1rem;
+$btn-with-icon-content-padding-nrm: 0.5rem;
 
 //Dropdowns
 $dropdown-box-shadow: $greeny-box-shadow;
@@ -257,7 +267,7 @@ $tab-content-pt: 3.125rem;
 $tab-content-pb: 1.5rem;
 
 //Medium Editor
-$medium-editor-button-size: $btn-padding-y * 2 + $font-size-base * $btn-line-height;
+$medium-editor-button-size: $btn-padding-y-lg * 2 + $font-size-base * $btn-line-height-lg;
 
 //tooltips
 
