@@ -2,32 +2,32 @@
   <div class="ui-typography">
     <vuestic-widget>
       <div class="mb-4">
-        <p class="display-1">display-1 Heading</p>
+        <p class="display-1">Display 1 Heading</p>
         <p>Of all of the celestial bodies that capture our
           attention and fascination as astronomers, none has a greater influence
           on life on planet Earth than it’s own satellite, the moon. When
           you think about it.</p>
       </div>
       <div class="mb-4">
-        <p class="display-2">display-2 Heading</p>
+        <p class="display-2">Display 2 Heading</p>
         <p>None has a greater influence on life on planet
           Earth than it’s own satellite, the moon. When you think about it.</p>
       </div>
       <div class="mb-4">
-        <p class="display-3">display-3 Heading</p>
+        <p class="display-3">Display 3 Heading</p>
         <p>Let’s talk about meat fondue recipes and what you
           need to know first. Meat fondue also known as oil fondue is a method
           of cooking all kinds of meats, poultry, and seafood in a pot of
           heated oil.</p>
       </div>
       <div class="mb-4">
-        <p class="display-4">display-4 Heading</p>
+        <p class="display-4">Display 4 Heading</p>
         <p>There is something about parenthood that gives us
           a sense of history and a deeply rooted desire to send on into the
           next generation the great things we have discovered about life.</p>
       </div>
       <div class="mb-4">
-        <p class="display-5">display-5 Heading</p>
+        <p class="display-5">Display 5 Heading</p>
         <p>
           There is a moment in the life of any aspiring astronomer that it is
           time to buy that first telescope. It’s exciting to think about
@@ -53,7 +53,7 @@
         </div>
       </div>
       <div class="mb-4">
-        <pre class="code-snippet">&lt;p class=“code_snippet”>
+        <pre class="code-snippet">&lt;p class=“code-snippet”>
   This is a wonderful example.
   &lt;a&gt href=“#” onClick=“”>Read more&lt;/a&gt
 &lt;/p&gt</pre>
@@ -70,10 +70,50 @@
         <li>Earth than it’s own satellite, the moon. When you think about it.</li>
         <li>Attention and fascination as.</li>
       </ol>
+      <ol class="va-ordered">
+        <li>Coffee</li>
+        <li>Tea
+          <ol>
+            <li>Black tea
+              <ol>
+                <li>Brooke Bond</li>
+                <li>Lipton</li>
+              </ol>
+            </li>
+            <li>Green tea
+              <ol>
+                <li>Greenfield</li>
+                <li>Tess</li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+        <li>Milk</li>
+      </ol>
       <ul class="va-unordered">
         <li>Of all of the celestial bodies that capture our attention and fascination as astronomers, none has a greater influence.</li>
         <li>Earth than it’s own satellite, the moon. When you think about it.</li>
         <li>Attention and fascination as .</li>
+      </ul>
+      <ul class="va-unordered">
+        <li>Coffee</li>
+        <li>Tea
+          <ul>
+            <li>Black tea
+              <ul>
+                <li>Brooke Bond</li>
+                <li>Lipton</li>
+              </ul>
+            </li>
+            <li>Green tea
+              <ul>
+                <li>Greenfield</li>
+                <li>Tess</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>Milk</li>
       </ul>
       <p class="display-3">Links</p>
       <div class="mb-4">
