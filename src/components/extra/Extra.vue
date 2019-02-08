@@ -2,7 +2,7 @@
   <div class="extra">
     <vuestic-widget :headerText="'extra.tabs.title' | translate"
                     class="no-v-padding">
-      <vuestic-tabs class="tabs"
+      <vuestic-tabs class="tabs mt-2"
                     :names="[$t('extra.tabs.maps'), $t('extra.tabs.setupProfile'), $t('extra.tabs.overview')]">
         <div :slot="'extra.tabs.overview' | translate"
              class="flex justify--center">
