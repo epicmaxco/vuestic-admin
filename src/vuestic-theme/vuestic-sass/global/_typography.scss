@@ -40,6 +40,15 @@
   &--highlighted {
     background-color: $text-highlighted;
   }
+  &--left {
+    text-align: left !important;
+  }
+  &--right {
+    text-align: right !important;
+  }
+  &--center {
+    text-align: center !important;
+  }
   &--uppercase {
     text-transform: uppercase !important;
   }
@@ -93,32 +102,6 @@ $display-font-sizes: (
 @each $element, $size in $display-font-sizes {
   .display-#{$element} {
     @include va-display($element);
-
-    @include media-breakpoint-down(xs) {
-      font-weight: 600;
-    }
-  }
-}
-
-@-moz-document url-prefix() {
-  .display-1 {
-    letter-spacing: -1px;
-  }
-
-  .display-2 {
-    letter-spacing: -0.75px;
-  }
-
-  .display-3 {
-    letter-spacing: -0.5px;
-  }
-
-  .display-4 {
-    letter-spacing: -0.5px;
-  }
-
-  .display-5 {
-    letter-spacing: -0.25px;
   }
 }
 
