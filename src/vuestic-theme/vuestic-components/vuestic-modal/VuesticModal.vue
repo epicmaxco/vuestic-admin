@@ -184,6 +184,12 @@ $modal-footer-btns-margin-x: 10px;
     display: block;
   }
 
+  @-moz-document url-prefix() {
+    .modal-title {
+      letter-spacing: -0.25px;
+    }
+  }
+
   .modal-dialog, .modal-backdrop {
     transition: all .5s ease;
   }

@@ -88,5 +88,11 @@ export default {
     display: flex;
     align-items: center;
   }
+
+  @-moz-document url-prefix() {
+    .vuestic-widget-header {
+      letter-spacing: -0.5px;
+    }
+  }
 }
 </style>

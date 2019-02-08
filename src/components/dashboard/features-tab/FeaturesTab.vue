@@ -85,6 +85,10 @@ export default {
   font-size: 1.25rem;
   font-weight: bold;
 
+  @-moz-document url-prefix() {
+    letter-spacing: -0.5px;
+  }
+
   .overview-icon-container {
     display: flex;
     justify-content: center;

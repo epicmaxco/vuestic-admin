@@ -222,6 +222,12 @@ $wizard-body-step-item-margin-bottom: $wizard-body-step-v-padding;
   }
 }
 
+@-moz-document url-prefix() {
+  .wizard-step-label {
+    letter-spacing: -0.5px;
+  }
+}
+
 .wizard-body-actions {
   margin-top: 1rem;
   display: flex;
