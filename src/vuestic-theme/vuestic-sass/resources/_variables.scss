@@ -1,6 +1,8 @@
 // Colors //
 $gray-light: #acb5be !default;
 $light-gray: #eeeeee;
+$light-gray2: #eff4f5;
+$light-gray3: #f5f8f9;
 $lighter-gray: #dddddd;
 $charcoal: #555555;
 $darkest-gray: #333333;
@@ -19,6 +21,7 @@ $white: #ffffff;
 $theme-red: #e34a4a;
 $theme-orange: #f7cc36;
 $theme-blue: #4ab2e3;
+$theme-blue-dark: #2c82e0;
 $theme-violet: #db76df;
 $theme-pale: #d9d9d9;
 $brand-primary: $vue-green !default;
@@ -112,7 +115,10 @@ $auth-mobile-main-h: calc(100% - #{$top-mobile-nav-height});
 $auth-content-padding-t: 2.875rem;
 
 // Typography
-// -------------------------
+$blockquote-font-color: $brand-secondary;
+$text-highlighted: #fff3d1;
+$text-selected: #40e583;
+$on-focus-background-color: rgba(187, 180, 178, 0.71);
 
 //$text-color:            $gray !default;
 $font-family-sans-serif: 'Source Sans Pro', sans-serif !default;
@@ -142,6 +148,14 @@ $blockquote-border-color: $vue-green;
 $blockquote-small-color: $gray-light;
 $blockquote-border-width: 0.375rem;
 $blockquote-font-size: 1.5rem;
+
+// Links
+$va-link-color: $brand-primary;
+$va-link-color-secondary: $brand-secondary;
+$va-link-color-hover: #79eca8;
+$va-link-color-active: #48c279;
+$va-link-color-visited: $va-link-color;
+$link-hover-decoration: none;
 
 //Sidebar
 $sidebar-link-height: 64px;
