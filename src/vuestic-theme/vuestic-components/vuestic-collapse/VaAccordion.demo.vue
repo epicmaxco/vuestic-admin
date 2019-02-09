@@ -1,69 +1,69 @@
 <template>
-  <div class="demo-container">
-    <div class="demo-container__item" style="width: 900px;">
-      <vuestic-accordion>
-        <vuestic-collapse>
+  <VbDemo>
+    <VbContainer style="width: 900px;">
+      <va-accordion>
+        <va-collapse>
           <span slot="header"> Expand This Block </span>
           <div slot="body">
             <div style="padding: 10px;">
               Expand first content
             </div>
           </div>
-        </vuestic-collapse>
-        <vuestic-collapse>
+        </va-collapse>
+        <va-collapse>
           <span slot="header"> Another Block </span>
           <div slot="body">
             <div style="padding: 10px;">
               Expand second content
             </div>
           </div>
-        </vuestic-collapse>
-        <vuestic-collapse add-background>
+        </va-collapse>
+        <va-collapse isBackgroundExists>
           <span slot="header">Accordeon with background</span>
           <div slot="body">
             <div style="padding: 10px;">
               Expand three content
             </div>
           </div>
-        </vuestic-collapse>
-      </vuestic-accordion>
-    </div>
-    <div class="demo-container__item" style="width: 900px;">
-      <vuestic-accordion expand>
-        <vuestic-collapse>
+        </va-collapse>
+      </va-accordion>
+    </VbContainer>
+    <VbContainer style="width: 900px;">
+      <va-accordion expand>
+        <va-collapse>
           <span slot="header"> Expand This Block </span>
           <div slot="body">
             <div style="padding: 10px;">
               Expand first content
             </div>
           </div>
-        </vuestic-collapse>
-        <vuestic-collapse>
+        </va-collapse>
+        <va-collapse>
           <span slot="header"> Another Block </span>
           <div slot="body">
             <div style="padding: 10px;">
               Expand second content
             </div>
           </div>
-        </vuestic-collapse>
-        <vuestic-collapse>
+        </va-collapse>
+        <va-collapse>
           <span slot="header"> Let's Go </span>
           <div slot="body">
             <div style="padding: 10px;">
               Expand three content
             </div>
           </div>
-        </vuestic-collapse>
-      </vuestic-accordion>
-    </div>
-  </div>
+        </va-collapse>
+      </va-accordion>
+    </VbContainer>
+  </VbDemo>
 </template>
 
 <script>
-import VuesticCollapse from './VuesticCollapse.vue'
-import VuesticAccordion from './VuesticAccordion.vue'
+import VaCollapse from './VaCollapse.vue'
+import VaAccordion from './VaAccordion.vue'
 
 export default {
-  components: { VuesticCollapse, VuesticAccordion },
+  components: { VaCollapse, VaAccordion },
 }
 </script>

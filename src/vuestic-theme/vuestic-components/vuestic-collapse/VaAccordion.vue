@@ -1,12 +1,12 @@
 <template>
-  <div class="vuestic-accordion">
+  <div class="va-accordion">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'vuestic-accordion',
+  name: 'va-accordion',
   props: {
     expand: {
       type: Boolean,
@@ -50,7 +50,7 @@ export default {
 
 // HACK Accordion for presentation page
 <style lang="scss">
-.vuestic-accordion {
+.va-accordion {
 
 }
 </style>

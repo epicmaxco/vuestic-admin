@@ -1,7 +1,7 @@
 <template>
-  <div class="demo-container">
-    <div class="demo-container__item" style="width: 900px;">
-      <vuestic-collapse v-model="expand">
+  <VbDemo>
+    <VbContainer style="width: 900px;">
+      <va-collapse v-model="expand">
         <button class="btn btn-info" slot="header">
           Toggle collapse
         </button>
@@ -19,16 +19,16 @@
           content Expand content Expand content Expand content Expand content
           Expand content Expand content Expand content Expand content
         </div>
-      </vuestic-collapse>
-    </div>
-  </div>
+      </va-collapse>
+    </VbContainer>
+  </VbDemo>
 </template>
 
 <script>
-import VuesticCollapse from './VuesticCollapse'
+import VaCollapse from './VaCollapse'
 
 export default {
-  components: { VuesticCollapse },
+  components: { VaCollapse },
   data () {
     return {
       expand: false,
