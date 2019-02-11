@@ -72,7 +72,7 @@ import VuesticPalletCustom
   from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticPalletCustom'
 import { colorArray } from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticTheme'
 import VuesticSlider
-  from '../../../vuestic-theme/vuestic-components/vuestic-slider/VuesticSlider'
+  from '../../../vuestic-theme/vuestic-components/va-slider/VaSlider'
 import VaIconFaster
   from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconFaster'
 import VaIconSlower
