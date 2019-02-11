@@ -1,10 +1,10 @@
 <template>
   <div
-    @click="click"
+    @click="selectTab"
     class="va-tab"
     :class="{
-    'active': isActive(),
-    'disabled': disabled
+    'va-tab--active': isActive(),
+    'va-tab--disabled': disabled
     }"
   >
     <slot/>
@@ -15,21 +15,23 @@
 export default {
   name: 'va-tab',
   props: {
-    disabled: Boolean
+    disabled: {
+      type: Boolean
+    }
   },
   methods: {
-    click () {
+    selectTab () {
       if (!this.disabled) {
         this.$parent.$children.forEach(item => {
           if (item === this) {
             this.$parent.activeIndex = this.$parent.$children.indexOf(item)
           }
         })
-        this.$parent.valueProxy = this.$slots.default[0].text
+        this.$parent.valueProxy = this.$slots.default[0].text.trim()
       }
     },
     isActive () {
-      return this.$parent.valueProxy === this.$slots.default[0].text
+      return this.$parent.valueProxy === this.$slots.default[0].text.trim()
     }
   }
 }
@@ -37,16 +39,16 @@ export default {
 
 <style lang="scss">
 .va-tab {
-  padding: 7px 12px;
+  padding: 0.4375rem 0.75rem;
   margin-left: 8px;
   margin-right: 8px;
   opacity: 0.5;
   font-weight: $font-weight-bold;
   cursor: pointer;
-  &:hover, &.active {
+  &:hover, &--active {
     opacity: 1;
   }
-  &.disabled {
+  &--disabled {
     cursor: default;
   }
 }

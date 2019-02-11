@@ -1,16 +1,15 @@
 <template>
   <div class="va-tabs">
     <div
-      class="va-tabs__bar"
+      class="va-tabs__bar va-row"
       :class="{
-       'align-right': right,
-       'grow': grow
+       'va-tabs__bar--align-right': right,
+       'va-tabs__bar--grow': grow
       }"
     >
       <div
         class="va-tabs__bar-content"
-        :class="{'grow': grow}"
-        :style="{'background-color': color}"
+        :class="{'va-tabs__bar-content--grow': grow}"
       >
         <div
           class="va-tabs__bar-content-items"
@@ -22,8 +21,8 @@
           v-if="!hideSlider"
           class="va-tabs__bar-content-slider"
           :style="{
-            'width': 100/$slots.default.length  + '%' ,
-            'margin-left': this.activeIndex * (100 / this.$slots.default.length) + '%'
+             width: getSliderWidth,
+             marginLeft: getSliderMarginLeft
           }"
         >
           <div class="va-tabs__bar-content-slider-line"/>
@@ -42,16 +41,20 @@ export default {
     VaTab
   },
   props: {
-    value: null,
+    value: {
+      required: true
+    },
     right: Boolean,
     grow: Boolean,
-    color: {
-      type: String,
-      default: 'white'
-    },
     hideSlider: Boolean
   },
   computed: {
+    getSliderWidth () {
+      return 100 / this.$slots.default.length + '%'
+    },
+    getSliderMarginLeft () {
+      return this.activeIndex * (100 / this.$slots.default.length) + '%'
+    },
     valueProxy: {
       set (valueProxy) {
         this.$emit('input', valueProxy)
@@ -72,16 +75,15 @@ export default {
 <style lang="scss">
 .va-tabs {
   &__bar {
-    display: flex;
     padding-top: 1rem;
-    &.align-right {
+    &--align-right {
       justify-content: flex-end;
     }
-    &.grow {
+    &--grow {
       justify-content: space-around;
     }
     &-content {
-      &.grow {
+      &--grow {
         width: 100%;
       }
       &-items {
@@ -92,7 +94,7 @@ export default {
       }
       &-slider {
         display: flex;
-        margin-bottom: 40px;
+        margin-bottom: 2.5rem;
         transition: margin-left 0.3s;
         &.align-right {
           justify-content: flex-end;
@@ -101,9 +103,9 @@ export default {
           justify-content: space-around;
         }
         &-line {
-          width: calc(100% - 40px);
+          width: calc(100% - 2.5rem);
           height: 2px;
-          margin-left: 20px;
+          margin-left: 1.25rem;
           background-color: $vue-green;
         }
       }

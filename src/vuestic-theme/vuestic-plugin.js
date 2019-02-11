@@ -37,7 +37,8 @@ import Slider from './vuestic-components/vuestic-slider/VuesticSlider.vue'
 import SocialNews
   from './vuestic-components/vuestic-social-news/VuesticSocialNews.vue'
 import Switch from './vuestic-components/vuestic-switch/VuesticSwitch.vue'
-import Tabs from './vuestic-components/vuestic-tabs/VuesticTabs.vue'
+import Tabs from './vuestic-components/vuestic-tabs/VaTabs.vue'
+import Tab from './vuestic-components/vuestic-tabs/VaTab.vue'
 import Tooltip from './vuestic-components/vuestic-tooltip/VuesticTooltip.vue'
 import Widget from './vuestic-components/vuestic-widget/VuesticWidget.vue'
 import Wizard from './vuestic-components/vuestic-wizard/VuesticWizard.vue'
@@ -110,6 +111,7 @@ const VuesticPlugin = {
       SocialNews,
       Switch,
       Tabs,
+      Tab,
       Widget,
       Wizard,
       MediumEditor,

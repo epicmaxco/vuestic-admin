@@ -1,51 +1,57 @@
 <template>
   <div class="extra">
-    <vuestic-widget :headerText="'extra.tabs.title' | translate"
-                    class="no-v-padding">
-      <va-tabs grow v-model="value" class="tabs">
-        <va-tab :value="$t('extra.tabs.setupProfile')"
-                class="flex justify--center">
-          <setup-profile-tab wizardType="simple"></setup-profile-tab>
+    <vuestic-widget
+      :headerText="$t('extra.tabs.title')"
+      class="no-v-padding"
+    >
+      <va-tabs grow v-model="value">
+        <va-tab >
+          {{$t('extra.tabs.setupProfile')}}
         </va-tab>
-        <va-tab :value="$t('extra.tabs.maps')" class="maps-tab">
-          <leaflet-map></leaflet-map>
+        <va-tab>
+          {{$t('extra.tabs.maps')}}
         </va-tab>
-        <va-tab :value="$t('extra.tabs.overview')"
-                class="flex justify--center">
-          <overview-tab></overview-tab>
+        <va-tab>
+          {{$t('extra.tabs.overview')}}
         </va-tab>
       </va-tabs>
+      <setup-profile-tab wizardType="simple" v-if="value === $t('extra.tabs.setupProfile')"/>
+      <leaflet-map v-if="value === $t('extra.tabs.maps')"/>
+      <overview-tab v-if="value === $t('extra.tabs.overview')"/>
     </vuestic-widget>
-
     <div class="va-row">
       <div class="flex md4">
-        <vuestic-widget :headerText="$t('extra.profileCard')"
-                        class="profile-card-widget">
-          <vuestic-profile-card :name="'Veronique Lee'"
-                                :location="'Malaga, Spain'"
-                                photoSource="https://i.imgur.com/NLrdqsk.png"
-                                :social="{twitter: 'twitter.com', facebook: 'facebook.com',
-                                  instagram: 'instagram.com'}">
-          </vuestic-profile-card>
+        <vuestic-widget
+          :headerText="$t('extra.profileCard')"
+          class="profile-card-widget"
+        >
+          <vuestic-profile-card
+            :name="'Veronique Lee'"
+            :location="'Malaga, Spain'"
+            photoSource="https://i.imgur.com/NLrdqsk.png"
+            :social="{twitter: 'twitter.com', facebook: 'facebook.com',
+            instagram: 'instagram.com'}"
+          />
         </vuestic-widget>
       </div>
       <div class="flex md8">
         <vuestic-widget :headerText="$t('extra.chat')" class="chat-widget">
-          <vuestic-chat v-model="chatMessages"></vuestic-chat>
+          <vuestic-chat v-model="chatMessages"/>
         </vuestic-widget>
       </div>
     </div>
-
     <div class="va-row bottom-widgets">
       <div class="flex md6">
         <vuestic-widget class="no-h-padding no-v-padding">
-          <vuestic-feed :initialPosts="posts"></vuestic-feed>
+          <vuestic-feed :initialPosts="posts"/>
         </vuestic-widget>
       </div>
       <div class="flex md6">
         <vuestic-widget class="business-posts">
-          <vuestic-social-news :news="news"
-                               :url="'https://instagram.com/smartapant'"></vuestic-social-news>
+          <vuestic-social-news
+            :news="news"
+            :url="'https://instagram.com/smartapant'"
+          />
         </vuestic-widget>
       </div>
     </div>
@@ -57,14 +63,10 @@ import OverviewTab from 'components/dashboard/features-tab/FeaturesTab.vue'
 import SetupProfileTab
   from 'components/dashboard/setup-profile-tab/SetupProfileTab.vue'
 import LeafletMap from 'components/maps/leaflet-maps/LeafletMap.vue'
-import VaTabs from '../../vuestic-theme/vuestic-components/vuestic-tabs/VaTabs'
-import VaTab from '../../vuestic-theme/vuestic-components/vuestic-tabs/VaTab'
 
 export default {
   name: 'extra',
   components: {
-    VaTab,
-    VaTabs,
     LeafletMap,
     SetupProfileTab,
     OverviewTab,

@@ -1,31 +1,31 @@
 <template>
   <div class="dashboard">
-
-    <dashboard-info-widgets></dashboard-info-widgets>
-
+    <dashboard-info-widgets/>
     <vuestic-widget class="no-padding no-v-padding">
       <va-tabs
         v-model="value"
         ref="tabs"
         grow
       >
-        <va-tab :value="$t('dashboard.dataVisualization')">
-          <data-visualisation-tab></data-visualisation-tab>
+        <va-tab>
+          {{$t('dashboard.dataVisualization')}}
         </va-tab>
-        <va-tab :value="$t('dashboard.usersAndMembers')">
-          <users-members-tab></users-members-tab>
+        <va-tab>
+          {{$t('dashboard.usersAndMembers')}}
         </va-tab>
-        <va-tab :value="$t('dashboard.setupProfile')">
-          <setup-profile-tab></setup-profile-tab>
+        <va-tab>
+          {{$t('dashboard.setupProfile')}}
         </va-tab>
-        <va-tab :value="$t('dashboard.features')">
-          <features-tab></features-tab>
+        <va-tab>
+          {{$t('dashboard.features')}}
         </va-tab>
       </va-tabs>
+      <data-visualisation-tab v-if="value === 'Data Visualization'"/>
+      <users-members-tab v-if="value === $t('dashboard.usersAndMembers')"/>
+      <setup-profile-tab v-if="value === 'Setup Profile'"/>
+      <features-tab v-if="value === 'Features'"/>
     </vuestic-widget>
-
     <dashboard-bottom-widgets></dashboard-bottom-widgets>
-
   </div>
 </template>
 
@@ -37,8 +37,6 @@ import FeaturesTab from './features-tab/FeaturesTab.vue'
 import DataVisualisationTab
   from './data-visualisation-tab/DataVisualisation.vue'
 import DashboardBottomWidgets from './DashboardBottomWidgets.vue'
-import VaTabs from '../../vuestic-theme/vuestic-components/vuestic-tabs/VaTabs'
-import VaTab from '../../vuestic-theme/vuestic-components/vuestic-tabs/VaTab'
 export default {
   name: 'dashboard',
   components: {
@@ -48,8 +46,6 @@ export default {
     SetupProfileTab,
     FeaturesTab,
     DashboardBottomWidgets,
-    VaTabs,
-    VaTab
   },
 
   methods: {
@@ -74,5 +70,3 @@ export default {
 }
 
 </script>
-<style lang="scss" scoped>
-</style>

@@ -1,9 +1,9 @@
 <template>
-  <div class="demo-container column">
-    <div class="demo-container__item" style="width: 100%">
+  <VbDemo>
+    <VbContainer style="width: 100%">
       <va-tabs
         v-model="value"
-        :right="option==='align-right'"
+        :right="option === 'align-right'"
         :grow="option == 'grow'"
         :color="color"
         :hide-slider="hideSlider"
@@ -13,27 +13,25 @@
       <div v-for="item in count" :key="item">
         <p v-if="'item' + item === value">{{'item' + item}}</p>
       </div>
-    </div>
-    <div class="demo-container__item">
+    </VbContainer>
+    <VbContainer>
       <button @click="count++">add item</button>
-    </div>
-    <div class="demo-container__item">
+    </VbContainer>
+    <VbContainer>
       <vuestic-radio-button
         v-for="value in options"
         :key="value"
         v-model="option"
         :option="value"
       />
-    </div>
-    <div class="demo-container__item">
+    </VbContainer>
+    <VbContainer>
       <vuestic-checkbox v-model="hideSlider" label="hide-slider"/>
-    </div>
-  </div>
+    </VbContainer>
+  </VbDemo>
 </template>
 
 <script>
-import VaTabs from './VaTabs'
-import VaTab from './VaTab'
 import VuesticCheckbox from '../vuestic-checkbox/VuesticCheckbox'
 import VuesticRadioButton from '../vuestic-radio-button/VuesticRadioButton'
 import VuesticAdvancedColorPicker
@@ -44,8 +42,6 @@ export default {
     VuesticAdvancedColorPicker,
     VuesticRadioButton,
     VuesticCheckbox,
-    VaTabs,
-    VaTab
   },
   data () {
     return {
