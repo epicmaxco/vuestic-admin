@@ -127,8 +127,7 @@
                 <td>Manchester</td>
                 <td align="right">57</td>
                 <td align="middle">
-                  <i
-                    class="fa fa-exclamation-triangle icon-right input-icon error-icon"></i>
+                  <va-icon icon="fa fa-exclamation-triangle icon-right input-icon error-icon"/>
                 </td>
               </tr>
               <tr class="table-success">
@@ -140,7 +139,7 @@
                 <td>Wien</td>
                 <td align="right">113</td>
                 <td align="middle" class="valid">
-                  <i class="fa fa-check success-icon icon-right input-icon"></i>
+                  <va-icon icon="fa fa-check success-icon icon-right input-icon"/>
                 </td>
               </tr>
               <tr class="table-warning">
@@ -220,7 +219,7 @@ Vue.component('badge-column', BadgeColumn)
 export default {
   name: 'Table',
   components: {
-    SpringSpinner,
+    SpringSpinner
   },
   data () {
     return {

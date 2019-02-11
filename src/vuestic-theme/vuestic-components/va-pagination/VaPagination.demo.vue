@@ -18,15 +18,15 @@
           <td>Pagination With Length</td>
           <td>
             <VbContainer>
-              <va-pagination :length="3" v-model="activePage2"/>
+              <va-pagination :length="4" v-model="activePage"/>
             </VbContainer>
           </td>
         </tr>
         <tr>
-          <td>Pagination With Length</td>
+          <td>Pagination With Total Pages</td>
           <td>
             <VbContainer>
-              <va-pagination :total-pages="20" v-model="activePage3"/>
+              <va-pagination :total-pages="20" v-model="activePage"/>
             </VbContainer>
           </td>
         </tr>
@@ -34,7 +34,7 @@
           <td>Disabled Pagination</td>
           <td>
             <VbContainer>
-              <va-pagination v-model="activePage4" disabled/>
+              <va-pagination v-model="activePage" disabled/>
             </VbContainer>
           </td>
         </tr>
@@ -47,10 +47,7 @@
 export default {
   data () {
     return {
-      activePage: 1,
-      activePage2: 2,
-      activePage3: 11,
-      activePage4: 3
+      activePage: 2
     }
   }
 }

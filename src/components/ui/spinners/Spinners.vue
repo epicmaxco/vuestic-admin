@@ -17,14 +17,14 @@
             <div class="flex md3 lg4">
               <div class="va-row spinners__duration">
                 <div class="spinners__icon-duration-slower">
-                  <vuestic-icon-slower/>
+                  <va-icon-slower/>
                 </div>
                 <div class="spinners__duration-picker">
                   <vuestic-slider v-model="currentDuration"
                                   :options="sliderDuration"/>
                 </div>
                 <div class="spinners__icon-duration-faster">
-                  <vuestic-icon-faster/>
+                  <va-icon-faster/>
                 </div>
               </div>
             </div>
@@ -53,7 +53,7 @@
             </div>
           </div>
         </div>
-        <div class="va-row align-center">
+        <div class="va-row justify--center align-center">
           <div class="text-center">
             {{'spinners.poweredBy' | translate}}
             <a :href="'http://epic-spinners.epicmax.co/'" target="_blank">Epic
@@ -73,18 +73,18 @@ import VuesticPalletCustom
 import { colorArray } from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticTheme'
 import VuesticSlider
   from '../../../vuestic-theme/vuestic-components/vuestic-slider/VuesticSlider'
-import VuesticIconFaster
-  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconFaster'
-import VuesticIconSlower
-  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconSlower'
+import VaIconFaster
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconFaster'
+import VaIconSlower
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconSlower'
 
 export default {
   components: {
     ...spinners,
     VuesticPalletCustom,
     VuesticSlider,
-    VuesticIconFaster,
-    VuesticIconSlower,
+    VaIconFaster,
+    VaIconSlower,
   },
   data () {
     return {

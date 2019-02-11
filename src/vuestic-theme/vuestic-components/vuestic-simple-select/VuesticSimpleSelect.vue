@@ -15,19 +15,19 @@
             :name="name"
             :options="options"
           >
-          <label class="control-label">{{label}}</label><i class="bar"/>
+          <label class="control-label">{{label}}</label><va-icon icon="bar"/>
           <small v-show="hasErrors()" class="help text-danger">
             {{ showRequiredError() }}
           </small>
         </div>
-        <i
-          class="ion ion-ios-arrow-down icon-right input-icon vuestic-simple-select__dropdown-arrow"
+        <va-icon
+          icon="ion ion-ios-arrow-down icon-right input-icon vuestic-simple-select__dropdown-arrow"
           @click="showDropdown"
         />
       </div>
       <div v-if="isClearable">
-        <i
-          class="fa fa-close icon-cross icon-right input-icon vuestic-simple-select__unselect"
+        <va-icon
+          icon="fa fa-close icon-cross icon-right input-icon vuestic-simple-select__unselect"
           @click="unselectOption"
         />
       </div>

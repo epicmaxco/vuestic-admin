@@ -11,12 +11,10 @@
                   <div class="modal-title">
                     <slot name="title"></slot>
                   </div>
-
-                  <i
-                    class="ion ion-md-close close-modal"
+                  <va-icon
                     v-if="closeIconShown"
-                    @click.prevent="cancel"
-                  />
+                    icon="ion ion-md-close close-modal"
+                    @click.native="cancel"/>
                 </slot>
               </div>
               <!--Container-->

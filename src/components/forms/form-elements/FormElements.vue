@@ -12,7 +12,7 @@
                     <div class="input-group">
                       <input id="simple-input" required/>
                       <label class="control-label" for="simple-input">{{'forms.inputs.textInput'
-                        | translate}}</label><i class="bar"></i>
+                        | translate}}</label><va-icon icon="bar"/>
                     </div>
                   </div>
                   <div class="form-group with-icon-right"
@@ -24,13 +24,10 @@
                         v-model="successfulEmail"
                         v-validate="'required|email'"
                         required/>
-                      <i
-                        class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
-                      <i
-                        class="fa fa-check valid-icon icon-right input-icon"></i>
+                      <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
+                      <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
                       <label class="control-label" for="successfulEmail">{{'forms.inputs.emailValidatedSuccess'
-                        | translate}} </label><i
-                      class="bar"></i>
+                        | translate}} </label><va-icon icon="bar"/>
                       <small v-show="errors.has('successfulEmail')"
                              class="help text-danger">
                         {{ errors.first('successfulEmail') }}
@@ -46,11 +43,11 @@
                         v-model="wrongEmail"
                         v-validate="'required|email'"
                         required/>
-                      <i
-                        class="fa fa-exclamation-triangle icon-right input-icon"
-                        v-show="errors.has('wrongEmail')"></i>
+                      <va-icon
+                        v-show="errors.has('wrongEmail')"
+                        icon="fa fa-exclamation-triangle icon-right input-icon"/>
                       <label class="control-label" for="wrongEmail">{{'forms.inputs.emailValidated'
-                        | translate}}</label><i class="bar"></i>
+                        | translate}}</label><va-icon icon="bar"/>
                       <small v-show="errors.has('wrongEmail')"
                              class="help text-danger">{{
                         errors.first('wrongEmail')
@@ -63,7 +60,7 @@
                       <textarea type="text" id="simple-textarea"
                                 required></textarea>
                       <label class="control-label" for="simple-textarea">{{'forms.inputs.textArea'
-                        | translate}}</label><i class="bar"></i>
+                        | translate}}</label><va-icon icon="bar"/>
                     </div>
                   </div>
                 </fieldset>
@@ -75,29 +72,28 @@
                     <div class="input-group">
                       <input id="input-icon-left" name="input-icon-left"
                              required/>
-                      <i class="fa fa-envelope-o icon-left input-icon"></i>
+                      <va-icon icon="fa fa-envelope-o icon-left input-icon"/>
                       <label class="control-label" for="input-icon-left">{{'forms.inputs.inputWithIcon'
-                        | translate}}</label><i class="bar"></i>
+                        | translate}}</label><va-icon icon="bar"/>
                     </div>
                   </div>
                   <div class="form-group with-icon-right">
                     <div class="input-group">
                       <input v-model="clearableText" id="clear-input"
                              name="clear-input" required/>
-                      <i class="fa fa-times icon-right input-icon pointer"
-                         @click="clear('clearableText')"></i>
+                      <va-icon
+                        class="fa fa-times icon-right input-icon pointer"
+                        @click.native="clear('clearableText')"/>
                       <label class="control-label" for="clear-input"
                              role="button">{{'forms.inputs.inputWithClearButton'
-                        | translate}}</label><i
-                      class="bar"></i>
+                        | translate}}</label><va-icon icon="bar"/>
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="input-group">
                       <input id="inputWithDescription" required title=""/>
                       <label class="control-label" for="simple-input">{{'forms.inputs.textInputWithDescription'
-                        | translate}}</label><i
-                      class="bar"></i>
+                        | translate}}</label><va-icon icon="bar"/>
                       <small class="help text-secondary">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed
@@ -115,7 +111,7 @@
                     <div class="input-group">
                       <input id="input-w-btn" required/>
                       <label class="control-label" for="input-w-btn">{{'forms.inputs.inputWithButton'
-                        | translate}}</label><i class="bar"></i>
+                        | translate}}</label><va-icon icon="bar"/>
                     </div>
                     <va-button> {{ $t('forms.inputs.upload') }} </va-button>
                   </div>
@@ -123,8 +119,7 @@
                     <div class="input-group">
                       <input id="input-w-btn-round" required/>
                       <label class="control-label" for="input-w-btn-round">{{'forms.inputs.inputWithRoundButton'
-                        | translate }}</label><i
-                      class="bar"></i>
+                        | translate }}</label><va-icon icon="bar"/>
                     </div>
                     <va-button icon="ion-md-cloud-outline ion"/>
                   </div>
@@ -152,8 +147,7 @@
                       />
                       <label class="control-label" for="date-picker-basic">
                         {{ $t('forms.dateTimePicker.basic') }}
-                      </label>
-                      <i class="bar"></i>
+                      </label><va-icon icon="bar"/>
                     </div>
                   </div>
                   <div class="form-group">
@@ -166,7 +160,7 @@
                       <label class="control-label" for="date-picker-time">
                         {{ $t('forms.dateTimePicker.time') }}
                       </label>
-                      <i class="bar"></i>
+                      <va-icon icon="bar"/>
                     </div>
                   </div>
                   <div class="form-group">
@@ -179,7 +173,7 @@
                       <label class="control-label" for="date-picker-custom-first-day">
                         {{ $t('forms.dateTimePicker.customFirstDay') }}
                       </label>
-                      <i class="bar"></i>
+                      <va-icon icon="bar"/>
                     </div>
                   </div>
                 </fieldset>
@@ -196,7 +190,7 @@
                       <label class="control-label" for="date-picker-disabled">
                         {{ $t('forms.dateTimePicker.disabled') }}
                       </label>
-                      <i class="bar"></i>
+                      <va-icon icon="bar"/>
                     </div>
                   </div>
                   <div class="form-group">
@@ -209,7 +203,7 @@
                       <label class="control-label" for="date-picker-multiple">
                         {{ $t('forms.dateTimePicker.multiple') }}
                       </label>
-                      <i class="bar"></i>
+                      <va-icon icon="bar"/>
                     </div>
                   </div>
                   <div class="form-group">
@@ -222,7 +216,7 @@
                       <label class="control-label" for="date-picker-custom-date-format">
                         {{ $t('forms.dateTimePicker.customDateFormat') }}
                       </label>
-                      <i class="bar"></i>
+                      <va-icon icon="bar"/>
                     </div>
                   </div>
                 </fieldset>

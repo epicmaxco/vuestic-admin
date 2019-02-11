@@ -8,7 +8,7 @@
           <label class="control-label" for="email">
             {{ $t('auth.email') }}
           </label>
-          <i class="bar"/>
+          <va-icon icon="bar"/>
         </div>
       </div>
       <div class="form-group">
@@ -17,7 +17,7 @@
           <label class="control-label" for="password">
             {{ $t('auth.password') }}
           </label>
-          <i class="bar"/>
+          <va-icon icon="bar"/>
         </div>
       </div>
       <div
@@ -41,7 +41,6 @@ export default {
 
 <style lang="scss">
 .login {
-
   @include media-breakpoint-down(md) {
     width: 100%;
     padding-right: 2rem;
