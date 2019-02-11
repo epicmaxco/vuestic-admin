@@ -158,6 +158,7 @@
           </div>
         </vuestic-widget>
       </div>
+
       <div class="flex md12 xl12">
         <vuestic-widget class="larger-padding"
                         :headerText="$t('buttons.buttonToggles')">

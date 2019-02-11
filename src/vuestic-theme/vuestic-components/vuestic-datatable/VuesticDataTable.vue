@@ -240,7 +240,6 @@ export default {
       } else if (this.$options.propsData.itemsPerPage) {
         defaultPerPage = this.$options.propsData.itemsPerPage[0].value
       }
-      console.log(defaultPerPage)
       return defaultPerPage
     },
     paginationPathComputed () {
