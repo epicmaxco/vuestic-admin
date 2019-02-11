@@ -8,12 +8,20 @@ Vue.use(Router)
 
 const demoRoutes = []
 if (process.env.NODE_ENV === 'development') {
-  const VueBook = require('vue-book').default
+  const VueBook = require('vue-book')
 
   demoRoutes.push(
-    VueBook(require.context('./..', true, /.demo.vue$/), '/demo'),
-    VueBook(require.context('./../components', true, /.vue$/), '/presentation'),
+    VueBook.createRoute({
+      requireContext: require.context('./..', true, /.demo.vue$/),
+      path: '/demo',
+    }),
+    VueBook.createRoute({
+      requireContext: require.context('./../components', true, /.vue$/),
+      path: '/presentation',
+    }),
   )
+
+  Vue.use(VueBook.VueBookComponents)
 }
 
 const EmptyParentComponent = {
@@ -192,6 +200,9 @@ export default new Router({
               name: 'notifications',
               path: 'notifications',
               component: lazyLoading('ui/notifications/Notifications'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Notifications',
+              },
             },
             {
               path: 'icons',
@@ -201,12 +212,18 @@ export default new Router({
                   name: 'icon-sets',
                   path: '', // Default route
                   component: lazyLoading('ui/icons/SetsList'),
+                  meta: {
+                    wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Icons',
+                  }
                 },
                 {
                   name: 'icon-set',
                   path: ':name',
-                  component: lazyLoading('ui/icons/Set'),
+                  component: lazyLoading('ui/icons/IconSet'),
                   props: true,
+                  meta: {
+                    wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Icons',
+                  }
                 },
               ],
             },
@@ -269,6 +286,11 @@ export default new Router({
               name: 'filters',
               path: 'filters',
               component: lazyLoading('ui/filters/Filters')
+            },
+            {
+              name: 'spacing',
+              path: 'spacing',
+              component: lazyLoading('ui/spacing/Spacing')
             }
           ]
         },

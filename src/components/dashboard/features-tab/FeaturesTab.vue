@@ -1,24 +1,24 @@
 <template>
   <div class="overview-tab dashboard-tab">
     <div
-      class="flex overview-ro justify--space-around justify--start">
+      class="d-flex overview-row justify--space-around justify--start">
 
       <div class="overview-col">
         <div class="overview-item">
           <div class="overview-icon-container">
-            <vuestic-icon-vue/>
+            <va-icon-vue/>
           </div>
           Built with Vue.js framework
         </div>
         <div class="overview-item">
           <div class="overview-icon-container">
-            <vuestic-icon-free/>
+            <va-icon-free/>
           </div>
           Absolutely free for everyone
         </div>
         <div class="overview-item">
           <div class="overview-icon-container">
-            <vuestic-icon-fresh/>
+            <va-icon-fresh/>
           </div>
           Fresh and crisp design
         </div>
@@ -27,19 +27,19 @@
       <div class="overview-col">
         <div class="overview-item">
           <div class="overview-icon-container">
-            <vuestic-icon-responsive/>
+            <va-icon-responsive/>
           </div>
           Responsive and optimized for mobile
         </div>
         <div class="overview-item">
           <div class="overview-icon-container">
-            <vuestic-icon-rich/>
+            <va-icon-rich/>
           </div>
           Tons of useful components
         </div>
         <div class="overview-item">
           <div class="overview-icon-container">
-            <vuestic-icon-clean-code/>
+            <va-icon-clean-code/>
           </div>
           Completely jQuery free
         </div>
@@ -49,28 +49,28 @@
 </template>
 
 <script>
-import VuesticIconVue
-  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconVue'
-import VuesticIconFree
-  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconFree'
-import VuesticIconFresh
-  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconFresh'
-import VuesticIconResponsive
-  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconResponsive'
-import VuesticIconRich
-  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconRich'
-import VuesticIconCleanCode
-  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconCleanCode'
+import VaIconVue
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconVue'
+import VaIconFree
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconFree'
+import VaIconFresh
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconFresh'
+import VaIconResponsive
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconResponsive'
+import VaIconRich
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconRich'
+import VaIconCleanCode
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconCleanCode'
 
 export default {
   name: 'features-tab',
   components: {
-    VuesticIconVue,
-    VuesticIconFree,
-    VuesticIconFresh,
-    VuesticIconResponsive,
-    VuesticIconRich,
-    VuesticIconCleanCode,
+    VaIconVue,
+    VaIconFree,
+    VaIconFresh,
+    VaIconResponsive,
+    VaIconRich,
+    VaIconCleanCode,
   },
 }
 </script>

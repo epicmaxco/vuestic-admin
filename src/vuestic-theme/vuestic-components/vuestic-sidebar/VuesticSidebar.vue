@@ -9,13 +9,8 @@
 </template>
 
 <script>
-import Expanding from 'vue-bulma-expanding/src/Expanding'
-
 export default {
   name: 'vuestic-sidebar',
-  components: {
-    Expanding,
-  },
   props: {
     hidden: {
       type: Boolean,

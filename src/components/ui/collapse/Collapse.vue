@@ -100,9 +100,9 @@
             <vuestic-collapse noHeader>
               <div class="va-row" slot="header">
                 <div class="flex md4">
-                  <button class="btn btn-primary">
+                  <va-button>
                     <span> Expand Button </span>
-                  </button>
+                  </va-button>
                 </div>
               </div>
               <div slot="body">
@@ -143,7 +143,7 @@
 
 <script>
 export default {
-  name: 'collapse',
+  name: 'collapse'
 }
 </script>
 

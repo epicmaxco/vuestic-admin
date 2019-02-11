@@ -29,6 +29,10 @@ export default {
 </script>
 
 <style lang="scss">
+$vuestic-switch-bg: $brand-primary;
+$vuestic-switch-padding: 0.313rem 2.375rem;
+$vuestic-switch-border-size: 0.125rem;
+
 .vuestic-switch {
   cursor: pointer;
   display: flex;

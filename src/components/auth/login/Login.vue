@@ -1,29 +1,33 @@
 <template>
   <div class="login">
-    <h2>{{'auth.welcome' | translate}}</h2>
+    <h2>{{ $t('auth.welcome') }}</h2>
     <form method="post" action="/auth/login" name="login">
       <div class="form-group">
         <div class="input-group">
           <input type="text" id="email" required="required"/>
-          <label class="control-label" for="email">{{'auth.email' |
-            translate}}</label><i class="bar"></i>
+          <label class="control-label" for="email">
+            {{ $t('auth.email') }}
+          </label>
+          <va-icon icon="bar"/>
         </div>
       </div>
       <div class="form-group">
         <div class="input-group">
           <input type="password" id="password" required="required"/>
-          <label class="control-label" for="password">{{'auth.password' |
-            translate}}</label><i class="bar"></i>
+          <label class="control-label" for="password">
+            {{ $t('auth.password') }}
+          </label>
+          <va-icon icon="bar"/>
         </div>
       </div>
       <div
-        class="flex align--center justify--space-between down-container">
-        <button class="btn btn-primary" type="submit">
-          {{'auth.login' | translate}}
-        </button>
-        <router-link class='link' :to="{name: 'signup'}">{{'auth.createAccount'
-          | translate}}
-        </router-link>
+        class="d-flex align--center justify--space-between">
+        <va-button type="submit">
+          {{ $t('auth.login') }}
+        </va-button>
+        <va-button flat :to="{ name: 'signup' }">
+          {{ $t('auth.createAccount') }}
+        </va-button>
       </div>
     </form>
   </div>
@@ -31,7 +35,7 @@
 
 <script>
 export default {
-  name: 'login',
+  name: 'login'
 }
 </script>
 
@@ -42,9 +46,7 @@ export default {
     padding-right: 2rem;
     padding-left: 2rem;
     .down-container {
-      .link {
-        margin-top: 2rem;
-      }
+      display: none;
     }
   }
 

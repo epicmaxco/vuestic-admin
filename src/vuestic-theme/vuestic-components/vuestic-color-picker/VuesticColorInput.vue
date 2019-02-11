@@ -15,8 +15,7 @@
           :class="{'vuestic-color-input__input__pointer': disabled}"
           placeholder="input color"
         >
-        <i class="bar"
-           :style="'width: ' + 9 + 'ch'"/>
+        <va-icon icon="bar" :style="'width: ' + 9 + 'ch'"/>
       </div>
     </div>
   </div>

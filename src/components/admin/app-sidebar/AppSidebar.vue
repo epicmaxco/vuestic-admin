@@ -4,15 +4,13 @@
       <sidebar-link
         :to="{ name: 'dashboard' }">
         <span slot="title">
-          <span
-            class="sidebar-menu-item-icon vuestic-icon vuestic-icon-dashboard"></span>
+          <va-icon icon="sidebar-menu-item-icon vuestic-iconset vuestic-iconset-dashboard"/>
           <span>{{ $t('menu.dashboard') }}</span>
         </span>
       </sidebar-link>
       <sidebar-link-group>
         <span slot="title">
-          <span
-            class="sidebar-menu-item-icon vuestic-icon vuestic-icon-statistics"></span>
+          <va-icon icon="sidebar-menu-item-icon vuestic-iconset vuestic-iconset-statistics"/>
           <span>{{ $t('menu.statistics') }}</span>
         </span>
         <sidebar-link
@@ -30,8 +28,7 @@
       </sidebar-link-group>
       <sidebar-link-group>
         <span slot="title">
-          <span
-            class="sidebar-menu-item-icon vuestic-icon vuestic-icon-forms"></span>
+          <va-icon icon="sidebar-menu-item-icon vuestic-iconset vuestic-iconset-forms"/>
           <span>{{ $t('menu.forms') }}</span>
         </span>
         <sidebar-link
@@ -56,15 +53,13 @@
       <sidebar-link
         :to="{ name: 'tables' }">
         <span slot="title">
-          <span
-            class="sidebar-menu-item-icon vuestic-icon vuestic-icon-tables"></span>
+          <va-icon icon="sidebar-menu-item-icon vuestic-iconset vuestic-iconset-tables"/>
           <span>{{ $t('menu.tables') }}</span>
         </span>
       </sidebar-link>
       <sidebar-link-group>
         <span slot="title">
-          <span
-            class="sidebar-menu-item-icon vuestic-icon vuestic-icon-ui-elements"></span>
+          <va-icon icon="sidebar-menu-item-icon vuestic-iconset vuestic-iconset-ui-elements"/>
           <span>{{ $t('menu.uiElements') }}</span>
         </span>
         <sidebar-link
@@ -91,11 +86,13 @@
             <span>{{ $t('menu.colorPickers') }}</span>
           </span>
         </sidebar-link>
+        <!-- NOTE Dropdowns are not presentation ready yet. See https://github.com/epicmaxco/vuestic-admin/issues/438 -->
         <!--<sidebar-link-->
-        <!--:to="{ name: 'dropdowns' }">-->
-        <!--<span slot="title">-->
-        <!--<span>{{ $t('menu.dropdowns') }}</span>-->
-        <!--</span>-->
+          <!--:to="{ name: 'dropdowns' }"-->
+        <!--&gt;-->
+          <!--<span slot="title">-->
+            <!--<span>{{ $t('menu.dropdowns') }}</span>-->
+          <!--</span>-->
         <!--</sidebar-link>-->
         <sidebar-link
           :to="{ name: 'filters' }">
@@ -163,19 +160,23 @@
             <span>{{ $t('menu.cards') }}</span>
           </span>
         </sidebar-link>
+        <sidebar-link
+          :to="{ name: 'spacing'}">
+          <span slot="title">
+            <span>{{ $t('menu.spacing') }}</span>
+          </span>
+        </sidebar-link>
       </sidebar-link-group>
       <sidebar-link
         :to="{ name: 'extra' }">
         <span slot="title">
-          <span
-            class="sidebar-menu-item-icon vuestic-icon vuestic-icon-extras"></span>
+          <va-icon icon="sidebar-menu-item-icon vuestic-iconset vuestic-iconset-extras"/>
           <span>{{ $t('menu.extra') }}</span>
         </span>
       </sidebar-link>
       <sidebar-link-group>
         <span slot="title">
-          <span
-            class="sidebar-menu-item-icon vuestic-icon vuestic-icon-auth"></span>
+          <va-icon icon="sidebar-menu-item-icon vuestic-iconset vuestic-iconset-auth"/>
           <span>{{ $t('menu.auth') }}</span>
         </span>
         <sidebar-link
@@ -196,8 +197,7 @@
       </sidebar-link-group>
       <sidebar-link-group>
         <span slot="title">
-          <span
-            class="sidebar-menu-item-icon vuestic-icon vuestic-icon-maps"></span>
+          <va-icon icon="sidebar-menu-item-icon vuestic-iconset vuestic-iconset-maps"/>
           <span>{{ $t('menu.maps') }}</span>
         </span>
         <sidebar-link
@@ -233,8 +233,7 @@
       </sidebar-link-group>
       <sidebar-link-group>
         <span slot="title">
-          <span
-            class="sidebar-menu-item-icon vuestic-icon vuestic-icon-files"></span>
+          <va-icon icon="sidebar-menu-item-icon vuestic-iconset vuestic-iconset-files"/>
           <span>{{ $t('menu.pages') }}</span>
         </span>
         <sidebar-link

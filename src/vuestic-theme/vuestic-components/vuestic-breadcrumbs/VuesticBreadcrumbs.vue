@@ -3,7 +3,8 @@
     <div class="vuestic-breadcrumbs__nav-section">
       <router-link
         class="vuestic-breadcrumbs__nav-section-item"
-        :to="{ path: breadcrumbs.root.name }">
+        :to="{ path: breadcrumbs.root.name }"
+      >
         {{ $t(breadcrumbs.root.displayName) }}
       </router-link>
       <router-link
@@ -11,18 +12,19 @@
         :to="{ name: item.name }"
         :key="index"
         class="vuestic-breadcrumbs__nav-section-item"
-        :class="{ disabled: item.disabled }">
+        :class="{ disabled: item.disabled }"
+      >
         {{ $t(item.displayName) }}
       </router-link>
     </div>
     <div class="vuestic-breadcrumbs__help-section">
-      <a
+      <va-button
+        color="info"
         target="_blank"
         :href="currentRoute"
-        class="btn btn-micro btn-info"
+        icon="vuestic-iconset vuestic-iconset-files"
       >
-        <span class="vuestic-icon vuestic-icon-files"></span>
-      </a>
+      </va-button>
     </div>
   </div>
 </template>
@@ -35,58 +37,80 @@ export default {
       type: Object,
       default: () => ({}),
     },
-    currentPath: {
+    currentRouteName: {
       type: String,
       default: '',
     },
   },
   computed: {
     displayedCrumbs () {
-      return this.findInNestedByName(this.breadcrumbs.routes, this.currentPath)
+      // Breadcrumbs object has root and routes. Root is required for us to display home page.
+      const routeBreadcrumbList = this.breadcrumbs.routes
+
+      const foundBreadcrumbs = this.findInNestedByName(routeBreadcrumbList, this.currentRouteName)
+
+      if (!foundBreadcrumbs.length) {
+        // eslint-disable-next-line no-console
+        console.warn(`No breadcrumbs registered for route with name "${this.currentRouteName}"`)
+      }
+
+      return foundBreadcrumbs
     },
     currentRoute () {
       return this.$route.meta.wikiLink || 'https://github.com/epicmaxco/vuestic-admin/wiki'
     },
   },
   methods: {
-    findInNestedByName (array, name) {
-      if (typeof array === 'undefined') {
-        return
-      }
-
-      // HACK Needs explainng and/or testing.
-      for (let i = 0; i < array.length; i++) {
-        if (array[i].name === name) return [{ ...array[i] }]
-        let a = this.findInNestedByName(array[i].children, name)
-        if (a != null) {
-          a.unshift({ ...array[i] })
-          return [...a]
+    findInNestedByName (routeBreadcrumbList, name) {
+      for (const routeBreadcrumb of routeBreadcrumbList) {
+        // We found breadcrumbs for route
+        if (routeBreadcrumb.name === name) {
+          return [routeBreadcrumb]
+        }
+        // We didn't find any breadcrumbs for route - means we have to go deeper!
+        // Which works only if route breadcrumb has children declared.
+        if (!routeBreadcrumb.children) {
+          continue
+        }
+        let result = this.findInNestedByName(routeBreadcrumb.children, name)
+        if (result.length) {
+          return [routeBreadcrumb, ...result]
         }
       }
-      return null
+      return []
     },
   },
 }
 </script>
 
 <style lang='scss'>
+$breadcrumbs-height: 54px;
+$breadcrumbs-arrow-font: 0.7rem;
+$breadcrumbs-arrow-content: "\f054";
+
 .vuestic-breadcrumbs {
   min-height: $breadcrumbs-height;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   .vuestic-breadcrumbs__nav-section-item {
     color: $text-gray;
+
     &:hover {
       color: $brand-primary;
     }
+
     text-transform: capitalize;
+
     &.disabled {
       pointer-events: none;
     }
+
     &:last-child::after {
       display: none;
     }
+
     &::after {
       padding: 0 5px;
       display: inline-block;
@@ -97,6 +121,7 @@ export default {
       font-family: FontAwesome;
     }
   }
+
   .vuestic-breadcrumbs__help-section {
     .vuestic-icon {
       font-size: 20px;

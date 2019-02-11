@@ -23,11 +23,9 @@
       </div>
       <div
         class="vuestic-page-not-found-custom__wallpaper vuestic-page-not-found-custom__wallpaper-button">
-        <router-link :to="{ path: './dashboard' }">
-          <button class="btn btn-primary back-button">
-            {{'Back to dashboard'}}
-          </button>
-        </router-link>
+        <va-button :to="{ name: 'dashboard' }">
+          {{'Back to dashboard'}}
+        </va-button>
       </div>
     </div>
     <vuestic-page-not-found-sad-wallpaper/>

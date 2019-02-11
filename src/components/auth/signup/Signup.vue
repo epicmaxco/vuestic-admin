@@ -1,36 +1,33 @@
 <template>
   <div class="signup">
-    <h2>{{'auth.createNewAccount' | translate}}</h2>
-    <form method="post" action="/auth/signup" name="signup">
+    <h2>{{ $t('auth.createNewAccount') }}</h2>
+    <form method="post" action="/#/auth/signup" name="signup">
       <div class="form-group">
         <div class="input-group">
           <input type="text" id="email" required="required"/>
-          <label class="control-label" for="email">{{'auth.email' |
-            translate}}</label><i class="bar"></i>
+          <label class="control-label" for="email">{{ $t('auth.email') }}</label><va-icon icon="bar"/>
         </div>
       </div>
       <div class="form-group">
         <div class="input-group">
           <input type="password" id="password" required="required"/>
-          <label class="control-label" for="password">{{'auth.password' |
-            translate}}</label><i class="bar"></i>
+          <label class="control-label" for="password">{{ $t('auth.password') }}</label><va-icon icon="bar"/>
         </div>
       </div>
-      <vuestic-checkbox
-        :id="'checkbox1'"
-        v-model="checkboxOneModel">
-        <template slot="label">{{'auth.agree' | translate}}
-          <router-link to="">{{'auth.termsOfUse' | translate}}</router-link>
+      <vuestic-checkbox name="agree-to-terms" v-model="agreedToTerms">
+        <template slot="label">
+          {{ $t('auth.agree') }}
+          <a class="link" href="#">{{ $t('auth.termsOfUse') }}</a>
         </template>
       </vuestic-checkbox>
       <div
-        class="flex align--center justify--space-between down-container">
-        <button class="btn btn-primary" type="submit">
-          {{'auth.signUp' | translate}}
-        </button>
-        <router-link class='link' :to="{name: 'login'}">{{'auth.alreadyJoined' |
-          translate}}
-        </router-link>
+        class="d-flex flex-column flex-lg-row align-items-center justify-content-between down-container">
+        <va-button type="submit">
+          {{ $t('auth.signUp') }}
+        </va-button>
+        <va-button flat :to="{ name: 'login' }">
+          {{ $t('auth.alreadyJoined') }}
+        </va-button>
       </div>
     </form>
   </div>
@@ -41,7 +38,7 @@ export default {
   name: 'signup',
   data () {
     return {
-      checkboxOneModel: true,
+      agreedToTerms: true,
     }
   },
 }
@@ -53,11 +50,6 @@ export default {
     width: 100%;
     padding-right: 2rem;
     padding-left: 2rem;
-    .down-container {
-      .link {
-        margin-top: 2rem;
-      }
-    }
   }
 
   h2 {

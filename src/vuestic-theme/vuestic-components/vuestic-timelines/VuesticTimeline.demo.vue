@@ -32,7 +32,9 @@
 
     <div class="demo-container__item">
       {{ items }}
-      <button @click="reroll()">Reroll</button>
+      <va-button @click="reroll()">
+        Reroll
+      </va-button>
     </div>
   </div>
 </template>
