@@ -4,7 +4,6 @@
     <vuestic-widget class="no-padding no-v-padding">
       <va-tabs
         v-model="value"
-        ref="tabs"
         grow
       >
         <va-tab>

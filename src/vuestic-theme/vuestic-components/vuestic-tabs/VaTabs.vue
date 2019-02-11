@@ -44,9 +44,15 @@ export default {
     value: {
       required: true
     },
-    right: Boolean,
-    grow: Boolean,
-    hideSlider: Boolean
+    right: {
+      type: Boolean
+    },
+    grow: {
+      type: Boolean
+    },
+    hideSlider: {
+      type: Boolean
+    }
   },
   computed: {
     getSliderWidth () {
