@@ -2,8 +2,8 @@
   <div class="collapse-page">
     <div class="flex md12">
       <vuestic-widget :headerText="$t('collapse.accordion')">
-        <vuestic-accordion>
-          <vuestic-collapse>
+        <va-accordion>
+          <va-collapse>
             <span slot="header"> Expand This Block </span>
             <div slot="body">
               <div class="va-row">
@@ -31,8 +31,8 @@
                 </div>
               </div>
             </div>
-          </vuestic-collapse>
-          <vuestic-collapse>
+          </va-collapse>
+          <va-collapse>
             <span slot="header"> Another Block </span>
             <div slot="body">
               <div class="va-row">
@@ -60,8 +60,8 @@
                 </div>
               </div>
             </div>
-          </vuestic-collapse>
-          <vuestic-collapse>
+          </va-collapse>
+          <va-collapse>
             <span slot="header"> Let's Go </span>
             <div slot="body">
               <div class="va-row">
@@ -89,15 +89,15 @@
                 </div>
               </div>
             </div>
-          </vuestic-collapse>
-        </vuestic-accordion>
+          </va-collapse>
+        </va-accordion>
       </vuestic-widget>
     </div>
     <div class="flex md12">
       <vuestic-widget :headerText="$t('collapse.buttons')">
         <div class="va-row">
           <div class="flex md12">
-            <vuestic-collapse noHeader>
+            <va-collapse noHeader>
               <div class="va-row" slot="header">
                 <div class="flex md4">
                   <va-button>
@@ -133,7 +133,7 @@
                   </div>
                 </div>
               </div>
-            </vuestic-collapse>
+            </va-collapse>
           </div>
         </div>
       </vuestic-widget>

@@ -12,7 +12,7 @@
       </template>
       <div
         v-else
-        class="va-collapse__header__button-container flex"
+        class="va-collapse__header__button-container va-row"
       >
         <button
           class="va-collapse__header__button"
@@ -77,13 +77,11 @@ export default {
     expand () {
       const bodyContent = this.$refs.collapseBody
       bodyContent.style.height = this.$slots.body[0].elm.clientHeight + 'px'
-
       this.show = true
     },
     collapse () {
       const bodyContent = this.$refs.collapseBody
       bodyContent.style.height = 0
-
       this.show = false
     },
     onHeaderClick () {
@@ -101,7 +99,7 @@ export default {
 <style lang="scss">
 .va-collapse {
   & + & {
-    margin-top: 8px;
+    margin-top: 1.5rem;
   }
   &__body {
     height: 0;
@@ -115,6 +113,8 @@ export default {
   }
   &__header {
     &__button-container {
+      justify-content: space-between;
+      cursor: pointer;
       background-color: $collapse-background;
       box-shadow: 0 2px 3px 0 rgba(98, 106, 119, 0.25);
       border-radius: 6px;
@@ -127,7 +127,6 @@ export default {
       padding-top: 11px;
       padding-bottom: 13px;
       padding-left: 1rem;
-      width: 100%;
       text-align: left;
     }
     &__icon {
