@@ -9,7 +9,7 @@ import DataTable
 import Feed from './vuestic-components/vuestic-feed/VuesticFeed.vue'
 import MediumEditor
   from './vuestic-components/vuestic-medium-editor/VuesticMediumEditor.vue'
-import Modal from './vuestic-components/vuestic-modal/VuesticModal.vue'
+import Modal from './vuestic-components/vuestic-modal/VaModal.vue'
 import MultiSelect
   from './vuestic-components/vuestic-multi-select/VuesticMultiSelect.vue'
 import Popover from './vuestic-components/vuestic-popover/VuesticPopover.vue'
