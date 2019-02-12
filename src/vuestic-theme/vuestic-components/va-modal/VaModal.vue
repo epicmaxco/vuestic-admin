@@ -1,74 +1,81 @@
 <template>
-<div
-  v-if="value"
-  class="va-modal__overlay"
-  :class="computedOverlayClass"
-  @click="checkOutside"
->
-  <transition name="modal">
-    <div
-      class="va-modal"
-      :class="computedClass"
-      v-show="value"
-      :style="{maxWidth, maxHeight}"
-    >
-      <i
-        v-if="closeButton || fullscreen"
-        @click="cancel"
-        class="ion ion-md-close va-modal__close"
-      />
-      <div class="va-modal__inner" :style="{maxHeight, maxWidth}">
-        <div v-if="title" class="va-modal__title">{{title}}</div>
-        <div v-if="hasHeaderSlot" class="va-modal__header"><slot name="header"/></div>
-        <div v-if="message" class="va-modal__message">{{message}}</div>
-        <div v-if="hasContentSlot" class="va-modal__content">
-          <slot/>
+  <div
+    v-if="value"
+    class="va-modal__overlay"
+    :class="computedOverlayClass"
+    @click="checkOutside"
+  >
+    <transition name="modal" appear>
+      <div
+        v-if="value"
+        class="va-modal"
+        :class="computedClass"
+        :style="{maxWidth, maxHeight}"
+      >
+        <i
+          v-if="closeButton || fullscreen"
+          @click="cancel"
+          class="ion ion-md-close va-modal__close"
+        />
+        <div class="va-modal__inner" :style="{maxHeight, maxWidth}">
+          <div v-if="title" class="va-modal__title">{{title}}</div>
+          <div v-if="hasHeaderSlot" class="va-modal__header">
+            <slot name="header"/>
+          </div>
+          <div v-if="message" class="va-modal__message">{{message}}</div>
+          <div v-if="hasContentSlot" class="va-modal__content">
+            <slot/>
+          </div>
+          <div v-if="cancelText || okText" class="va-modal__actions">
+            <va-button v-if="cancelText" color="gray" flat @click="cancel">
+              {{cancelText}}
+            </va-button>
+            <va-button @click="ok">{{okText}}</va-button>
+          </div>
+          <div v-if="hasActionsSlot" class="va-modal__actions">
+            <slot name="actions"/>
+          </div>
         </div>
-        <div v-if="cancelText || okText" class="va-modal__actions">
-          <va-button v-if="cancelText" color="gray" flat @click="cancel">{{cancelText}}</va-button>
-          <va-button @click="ok">{{okText}}</va-button>
-        </div>
-        <div v-if="hasActionsSlot" class="va-modal__actions"><slot name="actions"/></div>
       </div>
-    </div>
-  </transition>
-</div>
+    </transition>
+  </div>
 </template>
 
 <script>
 import VaButton from '../va-button/VaButton'
+
 export default {
   name: 'va-modal',
   components: { VaButton },
   props: {
     value: {
       required: true,
-      default: false
+      default: false,
     },
     position: {
       type: String,
       validator: value => {
         return ['center', 'top', 'right', 'bottom', 'left'].includes(value)
-      }
+      },
     },
     title: String,
     message: String,
     okText: {
       type: String,
-      default: 'OK'
+      default: 'OK',
     },
     cancelText: {
       type: String,
-      default: 'Cancel'
+      default: 'Cancel',
     },
     closeButton: {
       type: Boolean,
-      default: true
+      default: true,
     },
     fullscreen: Boolean,
     mobileFullscreen: {
       type: Boolean,
-      default: true
+      default: true,
     },
     noOutsideDismiss: Boolean,
     noEscDismiss: Boolean,
@@ -79,11 +86,11 @@ export default {
       default: 'medium',
       validator: value => {
         return ['medium', 'small', 'large'].includes(value)
-      }
+      },
     },
     fixedLayout: Boolean,
     onOk: Function,
-    onCancel: Function
+    onCancel: Function,
   },
   computed: {
     valueProxy: {
@@ -99,12 +106,12 @@ export default {
         'va-modal--fullscreen': this.fullscreen,
         'va-modal--mobile-fullscreen': this.mobileFullscreen,
         'va-modal--fixed-layout': this.fixedLayout,
-        [`va-modal--size-${this.size}`]: this.size !== 'medium'
+        [`va-modal--size-${this.size}`]: this.size !== 'medium',
       }
     },
     computedOverlayClass () {
       return {
-        [`va-modal--position-${this.position}`]: this.position
+        [`va-modal--position-${this.position}`]: this.position,
       }
     },
     hasContentSlot () {
@@ -115,7 +122,7 @@ export default {
     },
     hasActionsSlot () {
       return this.$slots.actions
-    }
+    },
   },
   watch: {
     value (value) {
@@ -155,14 +162,14 @@ export default {
       if (e.code === 'Escape' && !this.noEscDismiss) {
         this.cancel()
       }
-    }
+    },
   },
   mounted () {
     document.body.appendChild(this.$el)
   },
   beforeDestroy () {
     document.body.removeChild(this.$el)
-  }
+  },
 }
 </script>
 
@@ -178,10 +185,12 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+
     &:last-of-type {
-      background-color: rgba(0,0,0,0.6);
+      background-color: rgba(0, 0, 0, 0.6);
     }
   }
+
   background: #fff;
   min-height: 50px;
   height: fit-content;
@@ -192,12 +201,14 @@ export default {
   max-height: calc(100vh - 2rem);
   transition: all .5s ease;
   position: relative;
+
   &--fullscreen {
     min-width: 100vw !important;
     min-height: 100vh !important;
     border-radius: 0;
     margin: 0;
   }
+
   &--mobile-fullscreen {
     @media all and (max-width: map-get($grid-breakpoints, sm)) {
       min-width: 100vw !important;
@@ -208,40 +219,31 @@ export default {
     }
   }
 
-  &.modal-enter,
-  &.modal-leave-to
-  {
-    opacity: 0;
-    transform: translateY(-30%);
-  }
-
-  &.modal-enter-active {
-    transition: all .3s ease;
-  }
-  &.modal-leave-active {
-    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-  }
-
   &--position {
     &-top {
       align-items: flex-start;
     }
+
     &-right {
       justify-content: flex-end;
     }
+
     &-bottom {
       align-items: flex-end;
     }
+
     &-left {
       justify-content: flex-start;
     }
   }
+
   &--size {
     &-small {
       max-width: 300px;
       @media all and (max-width: map-get($grid-breakpoints, sm)) {
         max-width: 100vw !important;
       }
+
       .va-modal__inner {
         max-width: 300px;
         @media all and (max-width: map-get($grid-breakpoints, sm)) {
@@ -249,21 +251,26 @@ export default {
         }
       }
     }
+
     &-large {
       max-width: 800px;
+
       .va-modal__inner {
         max-width: 800px;
       }
     }
   }
+
   &--fixed-layout {
     .va-modal__inner {
       overflow: hidden;
+
       .va-modal__message {
         overflow: auto;
       }
     }
   }
+
   &__inner {
     overflow: auto;
     display: flex;
@@ -273,6 +280,7 @@ export default {
     max-width: 600px;
     margin: auto;
   }
+
   &__close {
     position: absolute;
     top: 16px;
@@ -281,6 +289,7 @@ export default {
     font-size: 1.5rem;
     color: $brand-secondary;
   }
+
   &__title {
     color: $vu-info;
     font-size: 0.625rem;
@@ -290,12 +299,15 @@ export default {
     letter-spacing: 0.6px;
     margin-bottom: 24px;
   }
+
   &__message {
     margin-bottom: 1.5rem;
   }
+
   &__content {
     margin-bottom: 1.5rem;
   }
+
   &__actions {
     display: flex;
     flex-wrap: wrap;
@@ -303,6 +315,7 @@ export default {
     margin-top: auto;
     min-height: fit-content;
     margin-bottom: 1rem;
+
     &:last-of-type {
       margin-bottom: 0;
     }

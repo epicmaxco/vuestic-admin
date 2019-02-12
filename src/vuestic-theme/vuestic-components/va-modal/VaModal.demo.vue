@@ -5,7 +5,6 @@
       <button @click="showModalPositionCenter = !showModalPositionCenter">show modal position center (default)</button>
       <va-modal
         v-model="showModalPositionCenter"
-        title="Simple Popup, Full Width"
         :message="message"
       />
     </p>
@@ -168,10 +167,9 @@
     <va-modal
       v-model="showFixedLayoutModal"
       :fixedLayout="true"
-      max-height="350px"
       v-on:ok="onOk"
       v-on:cancel="onCancel"
-      :message="message + message + message + message + message + message"
+      :message="message + message + message + message + message + message + message + message + message + message + message + message + message + message + message + message"
     >
       <template slot="header"><p>Step 2. Centered Layout</p></template>
     </va-modal>
