@@ -220,14 +220,9 @@
     "startedTopic": "{name} ha creado una tema nueva"
   },
   "progressBars": {
-    "basic": "Basico",
-    "basicVertical": "Basico y Vertical",
-    "circle": "Circular",
-    "colorFulTitle": "Barras Coloridas",
-    "thin": "Delgado",
-    "thinVertical": "Delgado Vertical",
-    "thick": "Grueso",
-    "title": "Barras de Progresso"
+    "circle": "Circulo",
+    "horizontal": "Horizontal",
+    "colors": "Colores"
   },
   "tables": {
     "basic": "Tabla basica",
