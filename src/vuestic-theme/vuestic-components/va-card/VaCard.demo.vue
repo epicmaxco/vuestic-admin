@@ -3,7 +3,7 @@
     <div class="demo-container__item">
       <div class="va-row">
         <div class="flex md3">
-          <vuestic-card
+          <va-card
             stripe="warning"
             title-on-image
             overlay
@@ -13,10 +13,10 @@
             </template>
             Running out of pages in your passport. Two trailer park girls go
             around the outside.
-          </vuestic-card>
+          </va-card>
         </div>
         <div class="flex md3">
-          <vuestic-card
+          <va-card
             stripe="danger"
             image="https://picsum.photos/300/200/?random"
             theme="bright">
@@ -27,14 +27,14 @@
             lead-in to
             additional content. This content is a little bit longer.
             <p slot="footer">Last updated 3 mins ago</p>
-          </vuestic-card>
+          </va-card>
         </div>
       </div>
     </div>
     <div class="demo-container__item">
       <div class="va-row">
         <div class="flex md4">
-          <vuestic-card
+          <va-card
             stripe="danger"
             image="https://picsum.photos/300/200/?random"
             theme="bright">
@@ -45,7 +45,7 @@
             lead-in to
             additional content. This content is a little bit longer.
             <p slot="footer">Last updated 3 mins ago</p>
-          </vuestic-card>
+          </va-card>
         </div>
       </div>
     </div>
@@ -53,9 +53,7 @@
 </template>
 
 <script>
-import VuesticCard from './VuesticCard.vue'
 
 export default {
-  components: { VuesticCard },
 }
 </script>

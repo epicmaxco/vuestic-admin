@@ -22,7 +22,7 @@
 
 <script>
 import VuesticTimelineItem from './VuesticTimelineItem.vue'
-import VuesticCard from '../vuestic-card/VuesticCard'
+import VuesticCard from '../va-card/VaCard'
 
 export default {
   components: {

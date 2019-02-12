@@ -47,7 +47,6 @@ import TreeCategory
 import TreeNode from './vuestic-components/vuestic-tree-view/VuesticTreeNode'
 import DatePicker
   from './vuestic-components/vuestic-date-picker/VuesticDatePicker'
-import Card from './vuestic-components/vuestic-card/VuesticCard'
 import FileUpload
   from './vuestic-components/vuestic-file-upload/VuesticFileUpload'
 import Tag from './vuestic-components/vuestic-tag/VuesticTag'
@@ -76,7 +75,7 @@ import VuesticPopup
 import VuesticContainer from './vuestic-components/vuestic-grid/VGrid/Container'
 import VuestVaLayout from './vuestic-components/vuestic-grid/VGrid/Layout'
 import VuesticFlex from './vuestic-components/vuestic-grid/VGrid/Flex'
-
+import Card from './vuestic-components/va-card/VaCard'
 import { installQuasarPlatform } from './vuestic-components/vuestic-popup/quasar/install'
 
 // At the moment we use quasar platform install to make its components work.
@@ -88,6 +87,7 @@ const VuesticPlugin = {
     [
       VaNotification,
       Breadcrumbs,
+      Card,
       Chart,
       Chat,
       Checkbox,

@@ -1,23 +1,23 @@
 <template>
   <div
-    class="vuestic-card"
+    class="va-card"
     :class="computedClass"
   >
     <template v-if="image">
-      <img v-if="!titleOnImage" class="vuestic-card__image" :src="image" :alt="imageAlt">
-      <div class="vuestic-card__image-container" v-if="titleOnImage">
-        <img class="vuestic-card__image" :src="image" :alt="imageAlt">
-        <div class="vuestic-card__image-container__overlay" v-if="overlay"/>
-        <h5 class="vuestic-card__title vuestic-card__card-title">
+      <img v-if="!titleOnImage" class="va-card__image" :src="image" :alt="imageAlt">
+      <div class="va-card__image-container" v-if="titleOnImage">
+        <img class="va-card__image" :src="image" :alt="imageAlt">
+        <div class="va-card__image-container__overlay" v-if="overlay"/>
+        <h5 class="va-card__title">
           <slot name="title"/>
         </h5>
       </div>
     </template>
-    <div class="vuestic-card__card-body">
-      <h5 class="vuestic-card__title vuestic-card__card-title" v-if="$slots.title && !(image && titleOnImage)">
+    <div class="va-card__body">
+      <h5 class="va-card__title" v-if="$slots.title && !(image && titleOnImage)">
         <slot name="title"/>
       </h5>
-      <p class="vuestic-card__card-text">
+      <p class="va-card__text">
         <slot/>
       </p>
     </div>
@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name: 'vuestic-card',
+  name: 'va-card',
   props: {
     image: {
       type: String,
@@ -58,13 +58,13 @@ export default {
     computedClass () {
       const computedClass = []
       if (this.stripe) {
-        computedClass.push(`vuestic-card--stripe-${this.stripe}`)
+        computedClass.push(`va-card--stripe-${this.stripe}`)
       }
       if (this.theme === 'bright') {
-        computedClass.push(`vuestic-card--theme-bright`)
+        computedClass.push(`va-card--theme-bright`)
       }
       if (this.theme === 'dark') {
-        computedClass.push(`vuestic-card--theme-dark`)
+        computedClass.push(`va-card--theme-dark`)
       }
       return computedClass
     },
@@ -88,8 +88,8 @@ $card-font-size: 1.375rem;
   color: #aaa;
 }
 
-.vuestic-card {
-  border-radius: 6px;
+.va-card {
+  border-radius: $card-border-radius;
   border: none;
   box-sizing: border-box;
   box-shadow: $widget-box-shadow;
@@ -98,32 +98,29 @@ $card-font-size: 1.375rem;
   &__title {
     font-weight: $font-weight-bold;
     font-size: $card-font-size;
-  }
-
-  &__card-title {
     margin-bottom: 0.75rem;
   }
 
-  &__card-body {
+  &__body {
     padding: 1.25rem;
     flex: 1 1 auto;
   }
 
-  &__card-text {
+  &__text {
     margin-top: 0;
     margin-bottom: 0;
   }
 
   &__image {
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    border-top-left-radius: $card-border-radius;
+    border-top-right-radius: $card-border-radius;
     width: 100%;
   }
 
   &__image-container {
     position: relative;
-    border-radius: 6px;
-    .vuestic-card__title {
+    border-radius: $card-border-radius;
+    .va-card__title {
       position: absolute;
       bottom: 0px;
       color: $white;
@@ -133,7 +130,7 @@ $card-font-size: 1.375rem;
     &__overlay {
       position: absolute;
       pointer-events: none;
-      border-radius: 6px;
+      border-radius: $card-border-radius;
       background-color: rgba(0, 0, 0, 0.3);
       width: 100%;
       height: 100%;

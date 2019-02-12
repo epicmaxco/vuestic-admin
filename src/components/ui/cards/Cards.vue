@@ -4,7 +4,7 @@
       <div class="cards-container">
         <!-- eslint-disable vue/valid-v-for -->
         <template v-for="loop in listLoops">
-          <vuestic-card
+          <va-card
             :key="loop"
             title-on-image
             overlay
@@ -18,9 +18,9 @@
                 {{ $t('cards.link.secondaryAction') }}
               </va-button>
             </p>
-          </vuestic-card>
+          </va-card>
 
-          <vuestic-card
+          <va-card
             image="https://picsum.photos/300/200/?image=898"
           >
             <template slot="title">
@@ -32,9 +32,9 @@
                 {{ $t('cards.link.readFull') }}
               </va-button>
             </p>
-          </vuestic-card>
+          </va-card>
 
-          <vuestic-card
+          <va-card
             image="https://picsum.photos/300/200/?image=1052"
             title-on-image
             overlay
@@ -43,9 +43,9 @@
               {{ $t('cards.title.titleOnImageNoOverlay') }}
             </template>
             {{ $t('cards.contentText') }}
-          </vuestic-card>
+          </va-card>
 
-          <vuestic-card
+          <va-card
             image="https://picsum.photos/300/200/?image=1067"
           >
             Short one
@@ -57,9 +57,9 @@
                 {{ $t('cards.link.action2') }}
               </va-button>
             </p>
-          </vuestic-card>
+          </va-card>
 
-          <vuestic-card
+          <va-card
             stripe="warning"
             image="https://picsum.photos/300/200/?image=1058"
           >
@@ -74,9 +74,9 @@
                 {{ $t('cards.link.delete') }}
               </va-button>
             </p>
-          </vuestic-card>
+          </va-card>
 
-          <vuestic-card
+          <va-card
             theme="bright"
           >
             <template slot="title">
@@ -94,9 +94,9 @@
                 {{ $t('cards.link.delete') }}
               </va-button>
             </p>
-          </vuestic-card>
+          </va-card>
 
-          <vuestic-card
+          <va-card
             image="https://picsum.photos/300/200/?image=997"
           >
             {{ $t('cards.contentText') }}
@@ -108,16 +108,16 @@
                 {{ $t('cards.button.cancel') }}
               </va-button>
             </p>
-          </vuestic-card>
+          </va-card>
 
-          <vuestic-card
+          <va-card
             stripe="success"
           >
             <p slot="title">{{ $t('cards.title.stripeNoImage') }}</p>
             {{ $t('cards.contentText') }}
-          </vuestic-card>
+          </va-card>
 
-          <vuestic-card
+          <va-card
             image="https://picsum.photos/300/200/?image=1013"
             theme="dark"
           >
@@ -134,18 +134,18 @@
                 {{ $t('cards.link.delete') }}
               </va-button>
             </p>
-          </vuestic-card>
+          </va-card>
 
-          <vuestic-card
+          <va-card
             image="https://picsum.photos/300/200/?image=885"
           >
             <div class="flex">
               <p>{{ $t('cards.contentText') }}</p>
               <va-button icon="ion-md-cloud-outline ion"/>
             </div>
-          </vuestic-card>
+          </va-card>
 
-          <vuestic-card
+          <va-card
             image="https://picsum.photos/300/200/?image=1003"
           >
             <p>{{ $t('cards.contentText') }}</p>
@@ -159,9 +159,9 @@
                 {{ $t('cards.link.france') }}
               </va-button>
             </p>
-          </vuestic-card>
+          </va-card>
 
-          <vuestic-card theme="dark">
+          <va-card theme="dark">
             <p slot="title">{{ $t('cards.title.dark') }}</p>
             {{ $t('cards.contentText') }}
             <p class="pt-3 mb-0">
@@ -172,7 +172,7 @@
                 {{ $t('cards.link.feedback') }}
               </va-button>
             </p>
-          </vuestic-card>
+          </va-card>
         </template>
       </div>
     </div>
@@ -192,14 +192,8 @@
 </template>
 
 <script>
-import VuesticCard
-  from '../../../vuestic-theme/vuestic-components/vuestic-card/VuesticCard'
-
 export default {
   name: 'cards',
-  components: {
-    VuesticCard,
-  },
   data () {
     return {
       listLoops: 1,
@@ -226,7 +220,7 @@ $singleGutter: #{(19/16)}rem;
   flex-wrap: wrap;
   margin: -$singleGutter;
   align-items: flex-start;
-  .vuestic-card {
+  .va-card {
     margin: $singleGutter;
 
     width: calc(33% - #{$singleGutter} * 2);
