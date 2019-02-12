@@ -147,37 +147,45 @@
     />
   </div>
   <div class="demo-container__item">
-    <p>fixed layout && onOk, onCancel functions</p>
-    <button @click="showFixedLayoutModal = !showFixedLayoutModal">Show modal</button>
-    <va-modal
-      v-model="showFixedLayoutModal"
-      max-width="800px"
-      max-height="250px"
-      :fixedLayout="true"
-      v-on:ok="onOk"
-      v-on:cancel="onCancel"
-      message="About 64% of all on-line teens say that do things online that they wouldn’t want their parents to know about.   11% of all adult internet users visit dating websites and spend their time Some of the classify their behavior as “cyber affair”   More then 60% of employees use company PC for the personal needs during their work hours as long as 80 minutes per day. About 64% of all on-line teens say that do things online that they wouldn’t want their parents to know about.   11% of all adult internet users visit dating websites and spend their time Some of the classify their behavior as “cyber affair”   More then 60% of employees use company PC for the personal needs during their work hours as long as 80 minutes per day."
-    >
-      <template slot="header"><p>Step 2. Centered Layout</p></template>
-    </va-modal>
-  </div>
-  <div class="demo-container__item">
     <h4>several lays</h4>
-    <button @click="firstLay = !firstLay">Show modal</button>
+    <button @click="showModalFirstLay = !showModalFirstLay">Show modal</button>
     <va-modal
-      v-model="firstLay"
+      v-model="showModalFirstLay"
       title="Several lays"
       :message="message"
     >
       <slot>
-        <button @click="secondLay = !secondLay">Show modal</button>
+        <button @click="showModalSecondLay = !showModalSecondLay">Show modal</button>
         <va-modal
-          v-model="secondLay"
+          v-model="showModalSecondLay"
           title="Several lays"
           :message="message"
         />
       </slot>
     </va-modal>
+  </div>
+  <div class="demo-container__item">
+    <h4>fixed layout && onOk, onCancel functions</h4>
+    <button @click="showFixedLayoutModal = !showFixedLayoutModal">Show modal</button>
+    <va-modal
+      v-model="showFixedLayoutModal"
+      :fixedLayout="true"
+      max-height="350px"
+      v-on:ok="onOk"
+      v-on:cancel="onCancel"
+      :message="message + message + message + message + message + message"
+    >
+      <template slot="header"><p>Step 2. Centered Layout</p></template>
+    </va-modal>
+  </div>
+  <div class="demo-container__item">
+    <h4>long message</h4>
+    <button @click="showModalLongMessage = !showModalLongMessage">Show modal</button>
+    <va-modal
+      v-model="showModalLongMessage"
+      title="Several lays"
+      :message="message + message + message + message + message + message"
+    />
   </div>
 </div>
 </template>
@@ -205,9 +213,10 @@ export default {
       showModalNotMobileFullScreen: false,
       showModalNoOutsideDismiss: false,
       showModalNoEscDismiss: false,
-      firstLay: false,
-      secondLay: false,
-      message: 'About 64% of all on-line teens say that do things online that they wouldn’t want their parents to know about.   11% of all adult internet users visit dating websites and spend their time Some of the classify their behavior as “cyber affair”   More then 60% of employees use company PC for the personal needs during their work hours as long as 80 minutes per day.'
+      showModalFirstLay: false,
+      showModalSecondLay: false,
+      showModalLongMessage: false,
+      message: 'About 64% of all on-line teens say that do things online that they wouldn’t want their parents to know about.   11% of all adult internet users visit dating websites and spend their time Some of the classify their behavior as “cyber affair”   More then 60% of employees use company PC for the personal needs during their work hours as long as 80 minutes per day.',
     }
   },
   methods: {

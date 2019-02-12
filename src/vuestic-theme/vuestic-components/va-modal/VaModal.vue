@@ -44,7 +44,7 @@ export default {
     },
     position: {
       type: String,
-      validator: function (value) {
+      validator: value => {
         return ['center', 'top', 'right', 'bottom', 'left'].includes(value)
       }
     },
@@ -74,7 +74,7 @@ export default {
     size: {
       type: String,
       default: 'medium',
-      validator: function (value) {
+      validator: value => {
         return ['medium', 'small', 'large'].includes(value)
       }
     },
@@ -178,8 +178,9 @@ export default {
   margin: 1rem;
   box-shadow: 0 2px 3px 0 rgba(52, 56, 85, 0.25);
   max-width: 600px;
-  max-height: 100vh;
+  max-height: calc(100vh - 2rem);
   transition: all .5s ease;
+  position: relative;
   &--fullscreen {
     min-width: 100vw !important;
     height: 100vh !important;
@@ -237,8 +238,14 @@ export default {
   &--size {
     &-small {
       max-width: 300px;
+      @media all and (max-width: map-get($grid-breakpoints, sm)) {
+        max-width: 100vw !important;
+      }
       .va-modal__inner {
         max-width: 300px;
+        @media all and (max-width: map-get($grid-breakpoints, sm)) {
+          max-width: 100vw !important;
+        }
         .va-modal__actions .btn {
           margin-right: 4px;
           margin-bottom: 4px;
@@ -255,7 +262,7 @@ export default {
       }
     }
   }
-  &_fixed-layout {
+  &--fixed-layout {
     .va-modal__inner {
       overflow: hidden;
       .va-modal__message {
@@ -268,7 +275,7 @@ export default {
     display: flex;
     flex-flow: column;
     padding: 20px 24px 24px;
-    max-height: 100vh;
+    max-height: calc(100vh - 2rem);
     max-width: 600px;
     margin: auto;
   }

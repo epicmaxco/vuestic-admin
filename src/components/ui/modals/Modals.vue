@@ -21,55 +21,34 @@
     </div>
 
     <!--//Modals-->
-    <vuestic-modal
+    <va-modal
       v-model="isShowSmallModal"
       size="small"
       :title="'modal.smallTitle' | translate"
-      message="There are three species of zebras: the plains zebra, the mountain zebra
-      and the Grévy's zebra. The plains zebra
-      and the mountain zebra belong to the subgenus Hippotigris, but Grévy's
-      zebra is the sole species of subgenus
-      Dolichohippus. The latter resembles an ass, to which it is closely
-      related, while the former two are more
-      horse-like. All three belong to the genus Equus, along with other living
-      equids."
+      :message="'modal.message' | translate"
       :okText="'modal.confirm' | translate"
       :cancelText="'modal.cancel' | translate"
     />
-    <vuestic-modal
+    <va-modal
       v-model="isShowMediumModal"
       :title="'modal.mediumTitle' | translate"
       :okText="'modal.confirm' | translate"
       :cancelText="'modal.cancel' | translate"
-      message="There are three species of zebras: the plains zebra, the mountain zebra
-        and the Grévy's zebra. The plains zebra
-        and the mountain zebra belong to the subgenus Hippotigris, but Grévy's
-        zebra is the sole species of subgenus
-        Dolichohippus. The latter resembles an ass, to which it is closely
-        related, while the former two are more
-        horse-like. All three belong to the genus Equus, along with other living
-        equids."
+      :message="'modal.message' | translate"
     />
-    <vuestic-modal
+    <va-modal
       v-model="isShowLargeModal"
       size="large"
       :title="'modal.largeTitle' | translate"
-      message="There are three species of zebras: the plains zebra, the mountain zebra
-        and the Grévy's zebra. The plains zebra
-        and the mountain zebra belong to the subgenus Hippotigris, but Grévy's
-        zebra is the sole species of subgenus
-        Dolichohippus. The latter resembles an ass, to which it is closely
-        related, while the former two are more
-        horse-like. All three belong to the genus Equus, along with other living
-        equids."
+      :message="'modal.message' | translate"
       :okText="'modal.confirm' | translate"
       :cancelText="'modal.cancel' | translate"
     />
-    <vuestic-modal
+    <va-modal
       v-model="isShowStaticModal"
       size="small"
       :title="'modal.staticTitle' | translate"
-      :cancelClass="'none'"
+      cancelClass="none"
       :okText="'modal.close' | translate"
       :message="'modal.staticMessage' | translate"
       :noOutsideDismiss="true"
