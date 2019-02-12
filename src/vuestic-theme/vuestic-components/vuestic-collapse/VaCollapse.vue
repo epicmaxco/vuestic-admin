@@ -21,11 +21,11 @@
         </button>
         <i
           v-if="show"
-          class="fa fa-angle-up va-collapse__header__icon flex"
+          class="fa fa-angle-up va-collapse__header__icon"
         />
         <i
           v-else
-          class="fa fa-angle-down va-collapse__header__icon flex"
+          class="fa fa-angle-down va-collapse__header__icon"
         />
       </div>
     </div>
@@ -130,10 +130,9 @@ export default {
       text-align: left;
     }
     &__icon {
-      justify-content: center;
       cursor: pointer;
-      padding-top: 16px;
-      padding-right: 8px;
+      padding-top: 1rem;
+      padding-right: 0.5rem;
       height: 24px;
       width: 24px;
       color: $gray;
