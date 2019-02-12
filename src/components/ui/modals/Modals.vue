@@ -2,20 +2,22 @@
   <div class="modals-page">
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget class="modals-list larger-padding"
-                        :header-text="$t('modal.title')">
-          <button class="btn btn-danger" @click="isShowSmallModal = true">
-            {{'modal.small' | translate }}
-          </button>
-          <button class="btn btn-info" @click="isShowMediumModal = true">
-            {{'modal.medium' | translate }}
-          </button>
-          <button class="btn btn-warning" @click="isShowLargeModal = true">
-            {{'modal.large' | translate }}
-          </button>
-          <button class="btn btn-success" @click="isShowStaticModal = true">
-            {{'modal.static' | translate }}
-          </button>
+        <vuestic-widget
+          class="modals-list larger-padding"
+          :header-text="$t('modal.title')"
+        >
+          <va-button color="danger" @click="isShowSmallModal = true">
+            {{ $t('modal.small') }}
+          </va-button>
+          <va-button color="info" @click="isShowMediumModal = true">
+            {{ $t('modal.medium') }}
+          </va-button>
+          <va-button color="warning" @click="isShowLargeModal = true">
+            {{ $t('modal.large') }}
+          </va-button>
+          <va-button color="success" @click="isShowStaticModal = true">
+            {{ $t('modal.static') }}
+          </va-button>
         </vuestic-widget>
       </div>
     </div>
@@ -24,42 +26,43 @@
     <va-modal
       v-model="isShowSmallModal"
       size="small"
-      :title="'modal.smallTitle' | translate"
-      :message="'modal.message' | translate"
-      :okText="'modal.confirm' | translate"
-      :cancelText="'modal.cancel' | translate"
+      :title=" $t('modal.smallTitle')"
+      :message=" $t('modal.message') "
+      :okText=" $t('modal.confirm') "
+      :cancelText=" $t('modal.cancel') "
     />
     <va-modal
       v-model="isShowMediumModal"
-      :title="'modal.mediumTitle' | translate"
-      :okText="'modal.confirm' | translate"
-      :cancelText="'modal.cancel' | translate"
-      :message="'modal.message' | translate"
+      :title=" $t('modal.mediumTitle') "
+      :okText=" $t('modal.confirm') "
+      :cancelText=" $t('modal.cancel') "
+      :message=" $t('modal.message') "
     />
     <va-modal
       v-model="isShowLargeModal"
       size="large"
-      :title="'modal.largeTitle' | translate"
-      :message="'modal.message' | translate"
-      :okText="'modal.confirm' | translate"
-      :cancelText="'modal.cancel' | translate"
+      :title=" $t('modal.largeTitle') "
+      :message=" $t('modal.message') "
+      :okText=" $t('modal.confirm') "
+      :cancelText=" $t('modal.cancel') "
     />
     <va-modal
       v-model="isShowStaticModal"
       size="small"
-      :title="'modal.staticTitle' | translate"
+      :title=" $t('modal.staticTitle') "
       cancelClass="none"
-      :okText="'modal.close' | translate"
-      :message="'modal.staticMessage' | translate"
+      :okText=" $t('modal.close') "
+      :message=" $t('modal.staticMessage') "
       :noOutsideDismiss="true"
     />
   </div>
 </template>
 
 <script>
+import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
 export default {
   name: 'modals',
-
+  components: { VaButton },
   data () {
     return {
       show: true,
@@ -71,14 +74,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.modals-page {
-  .modals-list {
-    .btn {
-      margin-right: 20px;
-      margin-bottom: 25px;
-    }
-  }
-}
-</style>

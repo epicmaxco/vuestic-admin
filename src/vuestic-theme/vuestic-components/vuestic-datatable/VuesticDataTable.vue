@@ -321,13 +321,13 @@ export default {
     }
 
     .pagination-link-btn:nth-child(2) {
-      border-top-left-radius: $btn-border-radius !important;
-      border-bottom-left-radius: $btn-border-radius !important;
+      border-top-left-radius: $btn-border-radius-nrm !important;
+      border-bottom-left-radius: $btn-border-radius-nrm !important;
     }
 
     .pagination-link-btn:nth-last-child(2) {
-      border-top-right-radius: $btn-border-radius !important;
-      border-bottom-right-radius: $btn-border-radius !important;
+      border-top-right-radius: $btn-border-radius-nrm !important;
+      border-bottom-right-radius: $btn-border-radius-nrm !important;
     }
   }
 

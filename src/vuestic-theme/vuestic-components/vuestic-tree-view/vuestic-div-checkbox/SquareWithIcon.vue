@@ -1,8 +1,6 @@
 <template>
   <div class="square-with-icon">
-    <span class="icon">
-      <i :class="iconClass" aria-hidden="true"/>
-    </span>
+    <va-icon :icon="iconClass"/>
   </div>
 </template>
 

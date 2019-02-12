@@ -19,7 +19,7 @@
         @keypress="toggleSelection()"
         :disabled="disabled"
       />
-      <i class="ion ion-md-checkmark vuestic-checkbox__icon-selected" aria-hidden="true"/>
+      <va-icon icon="ion ion-md-checkmark vuestic-checkbox__icon-selected"/>
     </div>
     <div
       class="vuestic-checkbox__label-text" @click="toggleSelection">

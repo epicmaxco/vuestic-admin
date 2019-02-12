@@ -6,7 +6,7 @@
        class="sidebar-link__router-link"
        :class="classObject">
       <slot name="title"></slot>
-      <i class="expand-icon fa fa-angle-down"></i>
+      <va-icon icon="expand-icon fa fa-angle-down"/>
     </a>
     <expanding>
       <ul class="sidebar-submenu in" v-show="this.expanded"
@@ -25,7 +25,7 @@ export default {
   name: 'sidebar-link-group',
   components: {
     SidebarLink,
-    Expanding,
+    Expanding
   },
   data () {
     return {

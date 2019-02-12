@@ -1,7 +1,8 @@
 <template>
 <div
-  v-if="value"
+  v-show="value"
   class="va-modal__overlay"
+  :class="computedOverlayClass"
   @click="checkOutside"
 >
   <transition name="modal">
@@ -24,8 +25,8 @@
           <slot/>
         </div>
         <div v-if="cancelText || okText" class="va-modal__actions">
-          <button v-if="cancelText" class="btn btn-secondary btn-micro" @click="cancel">{{cancelText}}</button>
-          <button class="btn btn-primary btn-micro" @click="ok">{{okText}}</button>
+          <va-button v-if="cancelText" color="gray" flat @click="cancel">{{cancelText}}</va-button>
+          <va-button @click="ok">{{okText}}</va-button>
         </div>
         <div v-if="hasActionsSlot" class="va-modal__actions"><slot name="actions"/></div>
       </div>
@@ -35,8 +36,10 @@
 </template>
 
 <script>
+import VaButton from '../va-button/VaButton'
 export default {
   name: 'va-modal',
+  components: { VaButton },
   props: {
     value: {
       required: true,
@@ -95,9 +98,13 @@ export default {
       return {
         'va-modal--fullscreen': this.fullscreen,
         'va-modal--mobile-fullscreen': this.mobileFullscreen,
-        [`va-modal--position-${this.position}`]: this.position,
         'va-modal--fixed-layout': this.fixedLayout,
         [`va-modal--size-${this.size}`]: this.size !== 'medium'
+      }
+    },
+    computedOverlayClass () {
+      return {
+        [`va-modal--position-${this.position}`]: this.position
       }
     },
     hasContentSlot () {
@@ -113,10 +120,8 @@ export default {
   watch: {
     value (value) {
       if (value) {
-        document.body.appendChild(this.$el)
         window.addEventListener('keyup', this.listenKeyUp)
       } else {
-        document.body.removeChild(this.$el)
         window.removeEventListener('keyup', this.listenKeyUp)
       }
     },
@@ -151,6 +156,12 @@ export default {
         this.cancel()
       }
     }
+  },
+  mounted () {
+    document.body.appendChild(this.$el)
+  },
+  beforeDestroy () {
+    document.body.removeChild(this.$el)
   }
 }
 </script>
@@ -183,23 +194,17 @@ export default {
   position: relative;
   &--fullscreen {
     min-width: 100vw !important;
-    height: 100vh !important;
+    min-height: 100vh !important;
     border-radius: 0;
     margin: 0;
   }
   &--mobile-fullscreen {
     @media all and (max-width: map-get($grid-breakpoints, sm)) {
       min-width: 100vw !important;
-      height: 100vh !important;
+      min-height: 100vh !important;
       border-radius: 0;
       position: fixed;
-      margin: 0;
-      .va-modal__actions {
-        .btn {
-          margin: 0 0 20px 0;
-          width: 100%;
-        }
-      }
+      margin: 0 !important;
     }
   }
 
@@ -219,20 +224,16 @@ export default {
 
   &--position {
     &-top {
-      bottom: auto;
-      margin: 1rem auto;
+      align-items: flex-start;
     }
     &-right {
-      left: auto;
-      margin: auto 1rem;
+      justify-content: flex-end;
     }
     &-bottom {
-      top: auto;
-      margin: 1rem auto;
+      align-items: flex-end;
     }
     &-left {
-      right: auto;
-      margin: auto 1rem;
+      justify-content: flex-start;
     }
   }
   &--size {
@@ -245,13 +246,6 @@ export default {
         max-width: 300px;
         @media all and (max-width: map-get($grid-breakpoints, sm)) {
           max-width: 100vw !important;
-        }
-        .va-modal__actions .btn {
-          margin-right: 4px;
-          margin-bottom: 4px;
-          &:last-of-type {
-            margin-bottom: 0;
-          }
         }
       }
     }
@@ -307,16 +301,10 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     margin-top: auto;
-    min-height: 36px;
+    min-height: fit-content;
     margin-bottom: 1rem;
     &:last-of-type {
       margin-bottom: 0;
-    }
-    .btn {
-      margin-right: 20px;
-      &:last-of-type {
-        margin-tight: 0;
-      }
     }
   }
 }

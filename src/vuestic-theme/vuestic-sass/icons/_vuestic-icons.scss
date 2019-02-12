@@ -1,6 +1,21 @@
 // Removed because does not support https.
 @import "icon-fonts/icon-fonts";
 
+$vuestic-colors: (
+  success: #40e583,
+  danger: #e34b4a,
+  warning: #ffc202,
+  info: #2c82e0,
+  gray: #babfc2,
+  dark: #34495e
+);
+
+@each $name, $color in $vuestic-colors {
+  .va-icon--#{$name}{
+    color: $color;
+  }
+}
+
 .i-nav-notification {
   display: inline-block;
   height: 32px;
