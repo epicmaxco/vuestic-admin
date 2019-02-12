@@ -1,7 +1,6 @@
 <template>
-<div class="demo-container">
-  <div class="demo-container__item">
-    <h4>Position</h4>
+<VbDemo>
+  <VbContainer title="Position">
     <p>
       <button @click="showModalPositionCenter = !showModalPositionCenter">show modal position center (default)</button>
       <va-modal
@@ -48,8 +47,8 @@
         position="left"
       />
     </p>
-  </div>
-  <div class="demo-container__item">
+  </VbContainer>
+  <VbContainer>
     <h4>modal size</h4>
     <p>
       <button @click="showModalSizeSmall = !showModalSizeSmall">show modal size small</button>
@@ -77,8 +76,8 @@
         size="large"
       />
     </p>
-  </div>
-  <div class="demo-container__item">
+  </VbContainer>
+  <VbContainer>
     <h4>closeButton - is close icon show on the top right</h4>
     <p>
       <button @click="showModalWithCloseButton = !showModalWithCloseButton">Show modal with close button (default)</button>
@@ -97,8 +96,8 @@
         :close-button="false"
       />
     </p>
-  </div>
-  <div class="demo-container__item">
+  </VbContainer>
+  <VbContainer>
     <h4>fullscreen, slots use, custom action</h4>
     <button @click="showFullScreenModal = !showFullScreenModal">Show modal</button>
     <va-modal
@@ -115,8 +114,8 @@
         <button @click="customActionClick">Custom action</button>
       </template>
     </va-modal>
-  </div>
-  <div class="demo-container__item">
+  </VbContainer>
+  <VbContainer>
     <h4>mobile-fullscreen: false</h4>
     <button @click="showModalNotMobileFullScreen = !showModalNotMobileFullScreen">Show modal</button>
     <va-modal
@@ -125,8 +124,8 @@
       title="Step 2. Centered Layout"
       :message="message"
     />
-  </div>
-  <div class="demo-container__item">
+  </VbContainer>
+  <VbContainer>
     <h4>no-outside-dismiss</h4>
     <button @click="showModalNoOutsideDismiss = !showModalNoOutsideDismiss">Show modal</button>
     <va-modal
@@ -135,8 +134,8 @@
       title="Step 2. Centered Layout"
       :message="message"
     />
-  </div>
-  <div class="demo-container__item">
+  </VbContainer>
+  <VbContainer>
     <h4>no-esc-dismiss</h4>
     <button @click="showModalNoEscDismiss = !showModalNoEscDismiss">Show modal</button>
     <va-modal
@@ -145,8 +144,8 @@
       title="Step 2. Centered Layout"
       :message="message"
     />
-  </div>
-  <div class="demo-container__item">
+  </VbContainer>
+  <VbContainer>
     <h4>several lays</h4>
     <button @click="showModalFirstLay = !showModalFirstLay">Show modal</button>
     <va-modal
@@ -163,9 +162,8 @@
         />
       </slot>
     </va-modal>
-  </div>
-  <div class="demo-container__item">
-    <h4>fixed layout && onOk, onCancel functions</h4>
+  </VbContainer>
+  <VbContainer title="fixed layout && onOk, onCancel functions">
     <button @click="showFixedLayoutModal = !showFixedLayoutModal">Show modal</button>
     <va-modal
       v-model="showFixedLayoutModal"
@@ -177,8 +175,8 @@
     >
       <template slot="header"><p>Step 2. Centered Layout</p></template>
     </va-modal>
-  </div>
-  <div class="demo-container__item">
+  </VbContainer>
+  <VbContainer>
     <h4>long message</h4>
     <button @click="showModalLongMessage = !showModalLongMessage">Show modal</button>
     <va-modal
@@ -186,8 +184,8 @@
       title="Several lays"
       :message="message + message + message + message + message + message"
     />
-  </div>
-</div>
+  </VbContainer>
+</VbDemo>
 </template>
 
 <script>
@@ -221,12 +219,15 @@ export default {
   },
   methods: {
     onOk () {
+      // eslint-disable-next-line no-console
       console.log('OK')
     },
     onCancel () {
+      // eslint-disable-next-line no-console
       console.log('Cancel')
     },
     customActionClick () {
+      // eslint-disable-next-line no-console
       console.log('custom action click')
     }
   }
