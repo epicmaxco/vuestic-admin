@@ -6,16 +6,16 @@
           class="modals-list larger-padding"
           :header-text="$t('modal.title')"
         >
-          <va-button color="danger" @click="isShowSmallModal = true">
+          <va-button color="danger" @click="showSmallModal = true">
             {{ $t('modal.small') }}
           </va-button>
-          <va-button color="info" @click="isShowMediumModal = true">
+          <va-button color="info" @click="showMediumModal = true">
             {{ $t('modal.medium') }}
           </va-button>
-          <va-button color="warning" @click="isShowLargeModal = true">
+          <va-button color="warning" @click="showLargeModal = true">
             {{ $t('modal.large') }}
           </va-button>
-          <va-button color="success" @click="isShowStaticModal = true">
+          <va-button color="success" @click="showStaticModal = true">
             {{ $t('modal.static') }}
           </va-button>
         </vuestic-widget>
@@ -24,7 +24,7 @@
 
     <!--//Modals-->
     <va-modal
-      v-model="isShowSmallModal"
+      v-model="showSmallModal"
       size="small"
       :title=" $t('modal.smallTitle')"
       :message=" $t('modal.message') "
@@ -32,14 +32,14 @@
       :cancelText=" $t('modal.cancel') "
     />
     <va-modal
-      v-model="isShowMediumModal"
+      v-model="showMediumModal"
       :title=" $t('modal.mediumTitle') "
       :okText=" $t('modal.confirm') "
       :cancelText=" $t('modal.cancel') "
       :message=" $t('modal.message') "
     />
     <va-modal
-      v-model="isShowLargeModal"
+      v-model="showLargeModal"
       size="large"
       :title=" $t('modal.largeTitle') "
       :message=" $t('modal.message') "
@@ -47,7 +47,7 @@
       :cancelText=" $t('modal.cancel') "
     />
     <va-modal
-      v-model="isShowStaticModal"
+      v-model="showStaticModal"
       size="small"
       :title=" $t('modal.staticTitle') "
       cancelClass="none"
@@ -66,10 +66,10 @@ export default {
   data () {
     return {
       show: true,
-      isShowSmallModal: false,
-      isShowMediumModal: false,
-      isShowLargeModal: false,
-      isShowStaticModal: false
+      showSmallModal: false,
+      showMediumModal: false,
+      showLargeModal: false,
+      showStaticModal: false
     }
   }
 }

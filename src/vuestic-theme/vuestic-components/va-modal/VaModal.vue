@@ -1,6 +1,6 @@
 <template>
 <div
-  v-show="value"
+  v-if="value"
   class="va-modal__overlay"
   :class="computedOverlayClass"
   @click="checkOutside"
@@ -9,7 +9,7 @@
     <div
       class="va-modal"
       :class="computedClass"
-      v-if="value"
+      v-show="value"
       :style="{maxWidth, maxHeight}"
     >
       <i
