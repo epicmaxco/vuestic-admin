@@ -1,7 +1,7 @@
 <template>
-  <div class="not-found-pages row">
-    <div class="col-md-12">
-      <div class="row">
+  <div class="not-found-pages va-row">
+    <div class="flex md12">
+      <div class="va-row">
         <vuestic-card
           class="not-found-pages__cards"
           :image="item.imageUrl"
@@ -10,14 +10,10 @@
         >
           {{ item.label }}
           <div class="not-found-pages__button-container pt-3 mb-0">
-            <router-link
-              :to="{ name: item.buttonTo }"
-              target="_blank"
-            >
-              <button class="btn btn-primary btn-sm not-found-pages__advanced-button">
-                {{ 'View Example' }}
-              </button>
-            </router-link>
+            <va-button
+              :to="{ name: item.buttonTo }">
+              {{ 'View Example' }}
+            </va-button>
           </div>
         </vuestic-card>
       </div>
@@ -26,7 +22,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'not-found-pages',
   data () {
@@ -35,26 +30,26 @@ export default {
         {
           imageUrl: 'https://i.imgur.com/GzUR0Wz.png',
           label: 'Advanced layout',
-          buttonTo: 'not-found-advanced'
+          buttonTo: 'not-found-advanced',
         },
         {
           imageUrl: 'https://i.imgur.com/HttcXPi.png',
           label: 'Simple',
-          buttonTo: 'not-found-simple'
+          buttonTo: 'not-found-simple',
         },
         {
           imageUrl: 'https://i.imgur.com/dlcZMiG.png',
           label: 'Custom image',
-          buttonTo: 'not-found-custom'
+          buttonTo: 'not-found-custom',
         },
         {
           imageUrl: 'https://i.imgur.com/qcOlDz7.png',
           label: 'Large text heading',
-          buttonTo: 'not-found-large-text'
-        }
-      ]
+          buttonTo: 'not-found-large-text',
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 
@@ -67,13 +62,6 @@ export default {
     margin: 0 $cardGutter calc(#{$cardGutter} * 2) $cardGutter;
   }
   &__button-container {
-    .btn.not-found-pages__advanced-button {
-      font-size: $font-size-root;
-      font-weight: $font-weight-bold;
-      padding-left: 0;
-      padding-right: 0;
-      width: 180px;
-    }
     text-align: center;
   }
 }

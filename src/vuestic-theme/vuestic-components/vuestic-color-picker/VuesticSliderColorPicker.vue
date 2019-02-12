@@ -3,19 +3,17 @@
 </template>
 
 <script>
-import {
-  Slider
-} from 'vue-color'
+import { Slider } from 'vue-color'
 
 export default {
   name: 'vuestic-slider-color-picker',
   components: {
-    'SliderPicker': Slider
+    'SliderPicker': Slider,
   },
   props: {
     value: {
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
     valueProxy: {

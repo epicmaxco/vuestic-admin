@@ -1,35 +1,14 @@
 <template>
-  <vuestic-widget headerText="Colorful Bars">
-    <div class="row">
-      <div class="col-sm-4 col-12">
-        {{'progressBars.basic' | translate}}
-        <vuestic-progress-bar :value="100" theme="Danger"/>
+  <vuestic-widget class="progress-bar-widget" :headerText="$t('progressBars.colors')">
+    <div class="va-row">
+      <div v-for="n in 3" :key="n" class="flex md3 xs12">
+        <va-progress-bar
+          :value="value * n / 4"
+          :theme="themes[n - 1]"
+        >{{ themes[n - 1] }}</va-progress-bar>
       </div>
-      <div class="col-sm-4 col-12">
-        {{'progressBars.thin' | translate}}
-        <vuestic-progress-bar :value="100" size="thin" theme="Info"/>
-      </div>
-      <div class="col-sm-4 col-12">
-        {{'progressBars.thick' | translate}}
-        <vuestic-progress-bar :value="100" size="thick" theme="Warning"/>
-      </div>
-      <div class="col-sm-4 col-12">
-        {{'progressBars.basicVertical' | translate}}
-        <div class="pb-container">
-          <vuestic-progress-bar :value="100" type="vertical" theme="Success"/>
-        </div>
-      </div>
-      <div class="col-sm-4 col-12">
-        {{'progressBars.thinVertical' | translate}}
-        <div class="pb-container">
-          <vuestic-progress-bar :value="100" size="thin" type="vertical" theme="Black"/>
-        </div>
-      </div>
-      <div class="col-sm-4 col-12">
-        {{'progressBars.circle' | translate}}
-        <div class="pb-container">
-          <vuestic-progress-bar :value="100" type="circle"/>
-        </div>
+      <div class="flex md3 xs12">
+        <va-progress-bar indeterminate theme="Black">Black</va-progress-bar>
       </div>
     </div>
   </vuestic-widget>
@@ -37,6 +16,19 @@
 
 <script>
 export default {
-  name: 'standard-bars'
+  data () {
+    return {
+      value: 0,
+      themes: ['Danger', 'Success', 'Warning']
+    }
+  },
+  mounted () {
+    this.animateValue()
+  },
+  methods: {
+    animateValue () {
+      setTimeout(() => (this.value = 100))
+    }
+  }
 }
 </script>

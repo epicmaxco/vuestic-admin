@@ -2,28 +2,30 @@
   <div class="vuestic-page-not-found-custom">
     <div class="vuestic-page-not-found-custom__content">
       <div class="not-found-wallpaper">
-        <router-link class="i-vuestic vuestic-page-not-found-custom__i-vuestic" :to="{path: '/'}"/>
+        <router-link class="i-vuestic vuestic-page-not-found-custom__i-vuestic"
+                     :to="{path: '/'}"/>
       </div>
       <div class="vuestic-page-not-found-custom__wallpaper">
-        <img src="https://i.imgur.com/wodIng5.png" class="vuestic-page-not-found-custom__custom-image"/>
+        <img src="https://i.imgur.com/wodIng5.png"
+             class="vuestic-page-not-found-custom__custom-image"/>
       </div>
       <div class="vuestic-page-not-found-custom__wallpaper">
-        <h3 class="vuestic-page-not-found-custom__text">The page’s gone fishing.</h3>
+        <h3 class="vuestic-page-not-found-custom__text">The page’s gone
+          fishing.</h3>
       </div>
-      <div class="vuestic-page-not-found-custom__wallpaper col-md-12">
-        <div class="row vuestic-page-not-found-custom__message">
+      <div class="vuestic-page-not-found-custom__wallpaper flex md12">
+        <div class="va-row vuestic-page-not-found-custom__message">
           <h4 class="vuestic-page-not-found-custom__text-small">
             If you feel that it's not right, please send us a message at &nbsp;
           </h4>
           <a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
         </div>
       </div>
-      <div class="vuestic-page-not-found-custom__wallpaper col-md-12 vuestic-page-not-found-custom__wallpaper-button">
-        <router-link :to="{ path: './dashboard' }">
-          <button class="btn btn-primary back-button">
-            {{'Back to dashboard'}}
-          </button>
-        </router-link>
+      <div
+        class="vuestic-page-not-found-custom__wallpaper vuestic-page-not-found-custom__wallpaper-button">
+        <va-button :to="{ name: 'dashboard' }">
+          {{'Back to dashboard'}}
+        </va-button>
       </div>
     </div>
     <vuestic-page-not-found-sad-wallpaper/>
@@ -33,14 +35,15 @@
 
 <script>
 import MadeByComponent from './MadeByComponent'
-import VuesticPageNotFoundSadWallpaper from './VuesticPageNotFoundSadWallpaper.vue'
+import VuesticPageNotFoundSadWallpaper
+  from './VuesticPageNotFoundSadWallpaper.vue'
 
 export default {
   name: 'vuestic-page-not-found-custom',
   components: {
     MadeByComponent,
-    VuesticPageNotFoundSadWallpaper
-  }
+    VuesticPageNotFoundSadWallpaper,
+  },
 }
 </script>
 
@@ -58,6 +61,7 @@ export default {
   }
   &__wallpaper-button {
     padding-top: 20px;
+    padding-bottom: 10px;
     background-color: $top-nav-bg;
     overflow: hidden;
     display: flex;
@@ -86,6 +90,13 @@ export default {
     background-color: $top-nav-bg;
     display: flex;
     align-items: flex-start;
+    justify-content: center;
+
+    a {
+      margin-top: 2rem;
+    }
+  }
+  &__message {
     justify-content: center;
   }
   @include media-breakpoint-down(xs) {

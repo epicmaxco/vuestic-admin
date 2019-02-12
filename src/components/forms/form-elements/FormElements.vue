@@ -1,18 +1,18 @@
 <template>
   <div class="form-elements">
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12">
         <vuestic-widget :headerText="'forms.inputs.title' | translate">
           <form>
 
-            <div class="row">
-              <div class="col-md-4">
+            <div class="va-row">
+              <div class="flex md4">
                 <fieldset>
                   <div class="form-group">
                     <div class="input-group">
                       <input id="simple-input" required/>
                       <label class="control-label" for="simple-input">{{'forms.inputs.textInput'
-                        | translate}}</label><i class="bar"></i>
+                        | translate}}</label><va-icon icon="bar"/>
                     </div>
                   </div>
                   <div class="form-group with-icon-right"
@@ -24,13 +24,10 @@
                         v-model="successfulEmail"
                         v-validate="'required|email'"
                         required/>
-                      <i
-                        class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
-                      <i
-                        class="fa fa-check valid-icon icon-right input-icon"></i>
+                      <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
+                      <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
                       <label class="control-label" for="successfulEmail">{{'forms.inputs.emailValidatedSuccess'
-                        | translate}} </label><i
-                      class="bar"></i>
+                        | translate}} </label><va-icon icon="bar"/>
                       <small v-show="errors.has('successfulEmail')"
                              class="help text-danger">
                         {{ errors.first('successfulEmail') }}
@@ -46,11 +43,11 @@
                         v-model="wrongEmail"
                         v-validate="'required|email'"
                         required/>
-                      <i
-                        class="fa fa-exclamation-triangle icon-right input-icon"
-                        v-show="errors.has('wrongEmail')"></i>
+                      <va-icon
+                        v-show="errors.has('wrongEmail')"
+                        icon="fa fa-exclamation-triangle icon-right input-icon"/>
                       <label class="control-label" for="wrongEmail">{{'forms.inputs.emailValidated'
-                        | translate}}</label><i class="bar"></i>
+                        | translate}}</label><va-icon icon="bar"/>
                       <small v-show="errors.has('wrongEmail')"
                              class="help text-danger">{{
                         errors.first('wrongEmail')
@@ -63,41 +60,40 @@
                       <textarea type="text" id="simple-textarea"
                                 required></textarea>
                       <label class="control-label" for="simple-textarea">{{'forms.inputs.textArea'
-                        | translate}}</label><i class="bar"></i>
+                        | translate}}</label><va-icon icon="bar"/>
                     </div>
                   </div>
                 </fieldset>
               </div>
 
-              <div class="col-md-4">
+              <div class="flex md4">
                 <fieldset>
                   <div class="form-group with-icon-left">
                     <div class="input-group">
                       <input id="input-icon-left" name="input-icon-left"
                              required/>
-                      <i class="fa fa-envelope-o icon-left input-icon"></i>
+                      <va-icon icon="fa fa-envelope-o icon-left input-icon"/>
                       <label class="control-label" for="input-icon-left">{{'forms.inputs.inputWithIcon'
-                        | translate}}</label><i class="bar"></i>
+                        | translate}}</label><va-icon icon="bar"/>
                     </div>
                   </div>
                   <div class="form-group with-icon-right">
                     <div class="input-group">
                       <input v-model="clearableText" id="clear-input"
                              name="clear-input" required/>
-                      <i class="fa fa-times icon-right input-icon pointer"
-                         @click="clear('clearableText')"></i>
+                      <va-icon
+                        class="fa fa-times icon-right input-icon pointer"
+                        @click.native="clear('clearableText')"/>
                       <label class="control-label" for="clear-input"
                              role="button">{{'forms.inputs.inputWithClearButton'
-                        | translate}}</label><i
-                      class="bar"></i>
+                        | translate}}</label><va-icon icon="bar"/>
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="input-group">
                       <input id="inputWithDescription" required title=""/>
                       <label class="control-label" for="simple-input">{{'forms.inputs.textInputWithDescription'
-                        | translate}}</label><i
-                      class="bar"></i>
+                        | translate}}</label><va-icon icon="bar"/>
                       <small class="help text-secondary">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed
@@ -109,31 +105,23 @@
                 </fieldset>
               </div>
 
-              <div class="col-md-4">
+              <div class="flex md4">
                 <fieldset>
                   <div class="form-group form-group-w-btn">
                     <div class="input-group">
                       <input id="input-w-btn" required/>
                       <label class="control-label" for="input-w-btn">{{'forms.inputs.inputWithButton'
-                        | translate}}</label><i class="bar"></i>
+                        | translate}}</label><va-icon icon="bar"/>
                     </div>
-                    <div class="btn btn-micro btn-primary">
-                      {{'forms.inputs.upload' | translate}}
-                    </div>
+                    <va-button> {{ $t('forms.inputs.upload') }} </va-button>
                   </div>
                   <div class="form-group form-group-w-btn">
                     <div class="input-group">
                       <input id="input-w-btn-round" required/>
                       <label class="control-label" for="input-w-btn-round">{{'forms.inputs.inputWithRoundButton'
-                        | translate }}</label><i
-                      class="bar"></i>
+                        | translate }}</label><va-icon icon="bar"/>
                     </div>
-                    <div
-                      class="btn btn-primary btn-with-icon btn-micro rounded-icon">
-                      <div class="btn-with-icon-content">
-                        <i class="ion-md-cloud-outline ion"></i>
-                      </div>
-                    </div>
+                    <va-button icon="ion-md-cloud-outline ion"/>
                   </div>
                 </fieldset>
               </div>
@@ -144,12 +132,12 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12">
         <vuestic-widget :headerText="$t('forms.dateTimePicker.title')">
           <form>
-            <div class="row">
-              <div class="col-md-4">
+            <div class="va-row">
+              <div class="flex md4">
                 <fieldset>
                   <div class="form-group">
                     <div class="input-group">
@@ -159,8 +147,7 @@
                       />
                       <label class="control-label" for="date-picker-basic">
                         {{ $t('forms.dateTimePicker.basic') }}
-                      </label>
-                      <i class="bar"></i>
+                      </label><va-icon icon="bar"/>
                     </div>
                   </div>
                   <div class="form-group">
@@ -173,25 +160,25 @@
                       <label class="control-label" for="date-picker-time">
                         {{ $t('forms.dateTimePicker.time') }}
                       </label>
-                      <i class="bar"></i>
+                      <va-icon icon="bar"/>
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="input-group">
                       <vuestic-date-picker
-                        id="date-picker-time"
+                        id="date-picker-custom-first-day"
                         :config="{locale: {firstDayOfWeek: 1}}"
-                        v-model="datepicker.time"
+                        v-model="datepicker.customFirstDay"
                       />
-                      <label class="control-label" for="date-picker-time">
+                      <label class="control-label" for="date-picker-custom-first-day">
                         {{ $t('forms.dateTimePicker.customFirstDay') }}
                       </label>
-                      <i class="bar"></i>
+                      <va-icon icon="bar"/>
                     </div>
                   </div>
                 </fieldset>
               </div>
-              <div class="col-md-4">
+              <div class="flex md4">
                 <fieldset>
                   <div class="form-group">
                     <div class="input-group">
@@ -203,7 +190,7 @@
                       <label class="control-label" for="date-picker-disabled">
                         {{ $t('forms.dateTimePicker.disabled') }}
                       </label>
-                      <i class="bar"></i>
+                      <va-icon icon="bar"/>
                     </div>
                   </div>
                   <div class="form-group">
@@ -216,25 +203,25 @@
                       <label class="control-label" for="date-picker-multiple">
                         {{ $t('forms.dateTimePicker.multiple') }}
                       </label>
-                      <i class="bar"></i>
+                      <va-icon icon="bar"/>
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="input-group">
                       <vuestic-date-picker
-                        id="date-picker-time"
+                        id="date-picker-custom-date-format"
                         :config="{altInput: true, altFormat: 'F j, Y'}"
-                        v-model="datepicker.time"
+                        v-model="datepicker.customDate"
                       />
-                      <label class="control-label" for="date-picker-time">
+                      <label class="control-label" for="date-picker-custom-date-format">
                         {{ $t('forms.dateTimePicker.customDateFormat') }}
                       </label>
-                      <i class="bar"></i>
+                      <va-icon icon="bar"/>
                     </div>
                   </div>
                 </fieldset>
               </div>
-              <div class="col-md-4">
+              <div class="flex md4">
                 <fieldset>
                   <div class="form-group">
                     <div class="input-group">
@@ -256,12 +243,12 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12">
         <vuestic-widget :headerText="'forms.selects.title' | translate">
           <form>
-            <div class="row">
-              <div class="col-md-4">
+            <div class="va-row">
+              <div class="flex md4">
                 <fieldset>
                   <vuestic-simple-select
                     :label="'forms.selects.simple' | translate"
@@ -276,7 +263,7 @@
                   />
                 </fieldset>
               </div>
-              <div class="col-md-4">
+              <div class="flex md4">
                 <fieldset>
                   <vuestic-multi-select
                     :label="'forms.selects.multi' | translate"
@@ -297,95 +284,73 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12">
         <vuestic-widget :headerText="'forms.controls.title' | translate">
           <form>
-            <div class="row">
-              <div class="col-md-3">
+            <div class="va-row">
+              <div class="flex md3">
                 <fieldset>
                   <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
-                    :id="'checkbox1'"
-                    v-model="checkboxOneModel"/>
+                    :label="$t('forms.controls.unselected')"
+                    v-model="checkbox.unselected"
+                  />
                   <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
-                    :id="'checkbox2'"
-                    v-model="checkboxTwoModel"/>
+                    :label="$t('forms.controls.selected')"
+                    v-model="checkbox.selected"
+                  />
                   <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
-                    :id="'checkbox3'"
+                    :label="$t('forms.controls.readonly')"
+                    v-model="checkbox.readonly"
+                    :readonly="true"
+                  />
+                  <vuestic-checkbox
+                    :label="$t('forms.controls.disabled')"
                     :disabled="true"
-                    v-model="checkboxThreeModel"/>
+                    v-model="checkbox.disabled"
+                  />
                   <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
-                    :id="'checkbox4'"
-                    :disabled="true"
-                    v-model="checkboxFourModel"/>
+                    :label="$t('forms.controls.error')"
+                    error
+                    v-model="checkbox.error"
+                  />
+                  <vuestic-checkbox
+                    :label="$t('forms.controls.errorMessage')"
+                    :error-messages="errorMessages"
+                    :errorCount="2"
+                    v-model="checkbox.errorMessages"
+                  />
                 </fieldset>
               </div>
-
-              <div class="col-md-3">
+              <div class="flex md3">
                 <fieldset>
-                  <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
-                    :id="'checkbox5'"
-                    :isCircle="true"
-                    v-model="checkboxFiveModel"/>
-                  <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
-                    :id="'checkbox6'"
-                    :isCircle="true"
-                    v-model="checkboxSixModel"/>
-                  <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
-                    :id="'checkbox7'"
-                    :disabled="true"
-                    :isCircle="true"
-                    v-model="checkboxSevenModel"/>
-                  <vuestic-checkbox
-                    :label="'forms.controls.subscribe' | translate"
-                    :id="'checkbox8'"
-                    :disabled="true"
-                    :isCircle="true"
-                    v-model="checkboxEightModel"/>
+                  <vuestic-radio-button
+                    option="option1"
+                    v-model="radioSelectedOption"
+                    label="Radio"
+                  />
+                  <vuestic-radio-button
+                    option="option2"
+                    v-model="radioSelectedOption"
+                    label="Radio"
+                  />
+                </fieldset>
+                <fieldset>
+                  <vuestic-radio-button
+                    option="option1"
+                    disabled
+                    v-model="radioSelectedDisableOption"
+                    label="Disabled Radio"
+                  />
+                  <vuestic-radio-button
+                    option="option2"
+                    disabled
+                    v-model="radioSelectedDisableOption"
+                    label="Disabled Radio"
+                  />
                 </fieldset>
               </div>
-
-              <div class="col-md-3">
-                <fieldset>
-                  <vuestic-radio-button
-                    :label="'forms.controls.radio' | translate"
-                    :id="'radio1'"
-                    :value="'option1'"
-                    :name="'radio'"
-                    v-model="radioModel"/>
-                  <vuestic-radio-button
-                    :label="'forms.controls.radio' | translate"
-                    :id="'radio2'"
-                    :value="'option2'"
-                    :name="'radio'"
-                    v-model="radioModel"/>
-                </fieldset>
-                <fieldset>
-                  <vuestic-radio-button
-                    :label="'forms.controls.radioDisabled' | translate"
-                    :id="'radio3'"
-                    :value="'option3'"
-                    :name="'disabled-radio'"
-                    :disabled="true"
-                    v-model="radioDisabledModel"/>
-                  <vuestic-radio-button
-                    :label="'forms.controls.radioDisabled' | translate"
-                    :id="'radio4'"
-                    :value="'option4'"
-                    :name="'disabled-radio'"
-                    :disabled="true"
-                    v-model="radioDisabledModel"/>
-                </fieldset>
-              </div>
-
-              <div class="col-md-3">
+              <div class="flex md3">
                 <fieldset>
                   <vuestic-switch v-model="isMale">
                     <span
@@ -442,22 +407,25 @@ export default {
       simpleSelectModel: '',
       multiSelectModel: [],
       multiSelectCountriesModel: [],
-      radioModel: 'option1',
-      radioDisabledModel: 'option4',
-      checkboxOneModel: false,
-      checkboxTwoModel: true,
-      checkboxThreeModel: false,
-      checkboxFourModel: true,
-      checkboxFiveModel: false,
-      checkboxSixModel: true,
-      checkboxSevenModel: false,
-      checkboxEightModel: true,
+      radioSelectedOption: 'option1',
+      radioSelectedDisableOption: 'option1',
+      checkbox: {
+        unselected: false,
+        selected: true,
+        readonly: true,
+        disabled: true,
+        error: false,
+        errorMessages: true
+      },
+      errorMessages: ['error message 1', 'error message 2'],
       datepicker: {
         simple: '2018-05-09',
         time: '2018-05-08 14:10',
         range: '2018-05-08 to 2018-05-23',
         disabled: '2018-05-09',
         multiple: '2018-04-25, 2018-04-27',
+        customFirstDay: '2018-05-09',
+        customDate: '2018-05-09',
       },
     }
   },

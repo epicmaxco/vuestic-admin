@@ -1,19 +1,15 @@
 <template>
   <div class="tree-view-advanced-preview">
-    <div class="row mb-4">
-      <div class="small-set col-sm-6 d-flex justify-content-center">
-        <button class="btn btn-primary btn-micro"
-                @click="$refs.treeView.expand()"
-        >
+    <div class="va-row mb-4">
+      <div class="small-set flex sm6 justify--center">
+        <va-button @click="$refs.treeView.expand()">
           EXPAND ALL
-        </button>
+        </va-button>
       </div>
-      <div class="small-set col-sm-6 d-flex justify-content-center">
-        <button class="btn btn-primary btn-micro"
-                @click="$refs.treeView.collapse()"
-        >
+      <div class="small-set flex sm6 justify--center">
+        <va-button @click="$refs.treeView.collapse()">
           COLLAPSE ALL
-        </button>
+        </va-button>
       </div>
     </div>
 
@@ -43,6 +39,6 @@
 
 <script>
 export default {
-  name: 'tree-view-advanced-preview',
+  name: 'tree-view-advanced-preview'
 }
 </script>

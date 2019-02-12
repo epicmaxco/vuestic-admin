@@ -75,7 +75,7 @@ export default {
 <style lang="scss">
 @import "../../vuestic-sass/resources/resources";
 
-$card-font-size: 1.375 rem;
+$card-font-size: 1.375rem;
 
 .card-separator {
   margin: 1rem -#{(20/16)}rem;

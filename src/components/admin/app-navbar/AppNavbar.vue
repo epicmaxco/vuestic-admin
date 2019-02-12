@@ -2,7 +2,7 @@
   <vuestic-navbar>
     <header-selector slot="selector" :isOpen.sync="valueProxy"/>
     <span slot="logo">
-      <vuestic-icon-vuestic/>
+      <va-icon-vuestic/>
     </span>
     <span slot="center">
       {{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
@@ -19,8 +19,10 @@
 </template>
 
 <script>
-import VuesticIconVuestic from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconVuestic'
-import VuesticNavbar from '../../../vuestic-theme/vuestic-components/vuestic-navbar/VuesticNavbar'
+import VaIconVuestic
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconVuestic'
+import VuesticNavbar
+  from '../../../vuestic-theme/vuestic-components/vuestic-navbar/VuesticNavbar'
 import HeaderSelector from './components/HeaderSelector'
 
 import LanguageDropdown from './components/dropdowns/LanguageDropdown'
@@ -32,19 +34,19 @@ export default {
   name: 'app-navbar',
 
   components: {
-    VuesticIconVuestic,
+    VaIconVuestic,
     VuesticNavbar,
     HeaderSelector,
     MessageDropdown,
     NotificationDropdown,
     LanguageDropdown,
-    ProfileDropdown
+    ProfileDropdown,
   },
   props: {
     isOpen: {
       type: Boolean,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     valueProxy: {

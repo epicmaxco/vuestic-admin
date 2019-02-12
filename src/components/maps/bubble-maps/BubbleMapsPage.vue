@@ -1,7 +1,7 @@
 <template>
   <div class="bubble-maps-page">
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12 xs12">
         <vuestic-widget
           class="bubble-maps-page__widget"
           headerText="Bubble Maps"
@@ -34,6 +34,9 @@ export default {
 .bubble-maps-page {
   &__widget {
     height: 70vh;
+    .vuestic-widget-body {
+      height: 65vh;
+    }
   }
 }
 </style>

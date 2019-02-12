@@ -6,7 +6,7 @@
         <div class="form-group">
           <div class="input-group">
             <input v-model="electronic.name">
-            <i class="bar"></i>
+            <va-icon icon="bar"/>
           </div>
         </div>
       </vuestic-tree-node>
@@ -17,7 +17,7 @@
         <div class="form-group">
           <div class="input-group">
             <input v-model="product.name">
-            <i class="bar"></i>
+            <va-icon icon="bar"/>
           </div>
         </div>
         <div slot="iconRight" class="icon" @click="removeProduct(product)">
@@ -25,11 +25,9 @@
         </div>
       </vuestic-tree-node>
       <vuestic-tree-node>
-        <button class="btn btn-primary btn-micro mb-2"
-                @click="addProduct()"
-        >
+        <va-button class="mb-2" @click="addProduct()">
           Add new product
-        </button>
+        </va-button>
       </vuestic-tree-node>
     </vuestic-tree-category>
 
@@ -57,12 +55,12 @@ export default {
     addProduct () {
       this.products.push({
         id: Math.floor(Math.random() * 100000),
-        name: 'New product'
+        name: 'New product',
       })
     },
     removeProduct (product) {
       this.products = this.products.filter(productToFilter => productToFilter !== product)
-    }
+    },
   },
 }
 </script>

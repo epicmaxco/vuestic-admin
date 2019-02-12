@@ -1,7 +1,7 @@
 <template>
   <div class="google-maps-page">
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12 xs12">
         <vuestic-widget
           class="google-maps-page__widget"
           headerText="Google Maps"
@@ -19,8 +19,8 @@ import GoogleMap from './GoogleMap'
 export default {
   name: 'google-maps-page',
   components: {
-    GoogleMap
-  }
+    GoogleMap,
+  },
 }
 </script>
 
@@ -28,6 +28,9 @@ export default {
  .google-maps-page{
    &__widget {
      height: 70vh;
+     .vuestic-widget-body {
+       height: 65vh;
+     }
    }
  }
 </style>

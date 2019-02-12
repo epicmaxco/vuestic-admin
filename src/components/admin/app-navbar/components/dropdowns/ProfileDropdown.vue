@@ -1,5 +1,5 @@
 <template>
-  <div class="profile-dropdown">
+  <div class="profile-dropdown flex-center">
     <span class="profile-dropdown__avatar-container">
       <slot/>
     </span>
@@ -12,7 +12,8 @@
         :key="option.name"
         class="dropdown-item plain-link-item"
       >
-        <router-link :to="{name: option.redirectTo}" class="plain-link" href="#">
+        <router-link :to="{name: option.redirectTo}" class="plain-link"
+                     href="#">
           {{ $t(`user.${option.name}`) }}
         </router-link>
       </div>
@@ -50,7 +51,6 @@ export default {
 @import '../../../../../vuestic-theme/vuestic-sass/resources/resources';
 
 .profile-dropdown {
-  @include flex-center();
   cursor: pointer;
 
   &__avatar-container {

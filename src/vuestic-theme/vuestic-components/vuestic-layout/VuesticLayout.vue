@@ -1,5 +1,5 @@
 <template>
-  <div class="layout"
+  <div class="vuestic-layout"
        v-resize
        :class="classObject"
   >
@@ -31,58 +31,61 @@ export default {
   computed: {
     classObject: function () {
       return {
-        'layout-fixed': this.fixed
+        'layout-fixed': this.fixed,
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss">
-  .layout {
-    &-fixed {
-      .content-wrap {
-        padding-right: $layout-padding-right;
-        padding-top: $sidebar-top;
+$vuestic-preloader-left: calc(50% - 140px / 2);
+$vuestic-preloader-top: calc(50% - 104px / 2);
 
-        @include media-breakpoint-down(md) {
-          padding: $content-mobile-wrap-fixed-layout;
-          margin-left: 0;
-
-        }
-      }
-    }
-
+.vuestic-layout {
+  &-fixed {
     .content-wrap {
-      margin-left: $content-wrap-ml;
-      transition: margin-left 0.3s ease;
-      padding: $layout-padding $layout-padding-right $content-wrap-pb 0;
-
-      .pre-loader {
-        position: absolute;
-        left: $vuestic-preloader-left;
-        top: $vuestic-preloader-top;
-      }
+      padding-right: $layout-padding-right;
+      padding-top: $sidebar-top;
 
       @include media-breakpoint-down(md) {
-        padding: $content-mobile-wrap;
+        padding: $content-mobile-wrap-fixed-layout;
         margin-left: 0;
-        .sidebar-hidden & {
-          margin-left: 0;
-          padding-top: $content-mobile-wrap-sb-top;
-        }
+
       }
     }
-    .made-by-footer {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-top: 25px;
-      padding-bottom: $made-by-footer-pb;
+  }
+
+  .content-wrap {
+    margin-left: $content-wrap-ml;
+    transition: margin-left 0.3s ease;
+    padding: $layout-padding $layout-padding-right $content-wrap-pb 0;
+
+    .pre-loader {
       position: absolute;
-      bottom: 0;
-      height: calc(#{$layout-padding} + #{$widget-mb});
-      width: 100%;
+      left: $vuestic-preloader-left;
+      top: $vuestic-preloader-top;
+    }
+
+    @include media-breakpoint-down(md) {
+      padding: $content-mobile-wrap;
+      margin-left: 0;
+      .sidebar-hidden & {
+        margin-left: 0;
+        padding-top: $content-mobile-wrap-sb-top;
+      }
     }
   }
+  .made-by-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 25px;
+    padding-bottom: $made-by-footer-pb;
+    position: absolute;
+    bottom: 0;
+    height: calc(#{$layout-padding} + #{$widget-mb});
+    width: 100%;
+  }
+}
 </style>

@@ -11,12 +11,10 @@
       <template v-if="noHeader">
         <slot name="header"/>
       </template>
-      <button
-        v-else
-        class="vuestic-collapse__header__button btn btn-primary"
-      >
-        <slot name="header"/>
-      </button>
+      <va-button
+        v-else class="vuestic-collapse__header__button"
+        @click.prevent="completeWizard()"> <slot name="header"/>
+      </va-button>
     </div>
 
     <div
@@ -42,7 +40,8 @@ export default {
   inject: {
     accordion: {
       default: () => ({
-        onChildChange: () => {},
+        onChildChange: () => {
+        },
       }),
     },
   },

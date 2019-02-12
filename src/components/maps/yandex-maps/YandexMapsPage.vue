@@ -1,7 +1,7 @@
 <template>
   <div class="yandex-maps-page">
-    <div class="row">
-      <div class="col-md-12">
+    <div class="va-row">
+      <div class="flex md12 xs12">
         <vuestic-widget
           class="yandex-maps-page__widget"
           headerText="Yandex Maps"
@@ -57,6 +57,9 @@ export default {
 .yandex-maps-page {
   &__widget {
     height: 70vh;
+    .vuestic-widget-body {
+      height: 65vh;
+    }
   }
 }
 </style>

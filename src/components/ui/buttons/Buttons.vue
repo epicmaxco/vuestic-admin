@@ -1,156 +1,205 @@
 <template>
   <div class="buttons-page">
-    <div class="row">
-
-      <div class="col-md-12">
-        <vuestic-widget class="primary-secondary-buttons larger-padding"
-                        :headerText="$t('buttons.main')">
-          <div class="row btn-margin-row">
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
-              <button class="btn btn-primary">
-                {{'buttons.button' | translate}}
-              </button>
-            </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
-              <button class="btn btn-primary hover">
-                {{'buttons.hover' | translate}}
-              </button>
-            </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
-              <button class="btn btn-primary focus">
-                {{'buttons.pressed' | translate}}
-              </button>
-            </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
-              <button class="btn btn-primary" disabled>
-                {{'buttons.disabled' | translate}}
-              </button>
-            </div>
-          </div>
-
-          <div class="row btn-margin-row">
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
-              <button class="btn btn-secondary">
-                {{'buttons.button' | translate}}
-              </button>
-            </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
-              <button class="btn btn-secondary hover">
-                {{'buttons.hover' | translate}}
-              </button>
-            </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
-              <button class="btn btn-secondary focus">
-                {{'buttons.pressed' | translate}}
-              </button>
-            </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
-              <button class="btn btn-secondary" disabled>
-                {{'buttons.disabled' | translate}}
-              </button>
-            </div>
-          </div>
-
-          <div class="row btn-margin-row">
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
-              <button class="btn btn-primary btn-sm">
-                {{'buttons.small' | translate}}
-              </button>
-            </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3  d-flex justify-content-center align-items-center">
-              <button class="btn btn-primary btn-micro">
-                {{'buttons.micro' | translate}}
-              </button>
+    <div class="va-row">
+      <div class="flex md12 xl12">
+        <vuestic-widget class="larger-padding"
+                        :headerText="$t('buttons.types')">
+          <div class="va-row">
+            <div class="flex">
+              <va-button> {{ $t('buttons.default') }} </va-button>
+              <va-button disabled> {{ $t('buttons.disabled') }} </va-button>
+              <va-button outline> {{ $t('buttons.outline') }} </va-button>
+              <va-button outline disabled> {{ $t('buttons.disabled') }} </va-button>
+              <va-button flat> {{ $t('buttons.flat') }} </va-button>
+              <va-button flat disabled> {{ $t('buttons.disabled') }} </va-button>
             </div>
           </div>
         </vuestic-widget>
       </div>
 
-      <div class="col-md-12">
-        <vuestic-widget class="color-buttons" :headerText="$t('buttons.advanced')">
-          <div class="row">
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
-              <button class="btn btn-primary btn-with-icon">
-                <div class="btn-with-icon-content">
-                  <i class="ion-md-close ion"></i>
-                  {{'buttons.button' | translate}}
-                </div>
-              </button>
+      <div class="flex md12">
+        <vuestic-widget class="larger-padding"
+                        :headerText="$t('buttons.size')">
+          <div class="va-row">
+            <div class="flex">
+              <va-button small> {{ $t('buttons.small') }} </va-button>
+              <va-button> {{ $t('buttons.normal') }} </va-button>
+              <va-button large> {{ $t('buttons.large') }} </va-button>
             </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3">
-              <button
-                class="btn btn-primary dropdown-toggle theme-toggle"
-                type="button"
+          </div>
+        </vuestic-widget>
+      </div>
+      <div class="flex md12">
+        <vuestic-widget class="larger-padding"
+                        :headerText="$t('buttons.tags')">
+          <div class="va-row">
+            <div class="flex">
+              <va-button> {{ $t('buttons.button') }} </va-button>
+              <va-button
+                href="http://epic-spinners.epicmax.co/"
               >
-                DROPDOWN
-                <i class="ion-ios-arrow-down arrow-down"></i>
-                <vuestic-dropdown position="bottom">
-                  <template>
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </template>
-                </vuestic-dropdown>
-              </button>
+                {{ $t('buttons.a-link') }}
+              </va-button>
+              <va-button
+                :to="{ name: 'charts' }"
+              >
+                {{ $t('buttons.router-link') }}
+              </va-button>
             </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center"
-                 :class="{'col-lg-6 col-xl-4' : sidebarOpened, 'col-lg-4' : !sidebarOpened }">
-              <div class="btn-toolbar  d-inline-flex" role="toolbar" aria-label="Toolbar with button groups">
-                <div class="btn-group" role="group" aria-label="First group">
-                  <button type="button" class="btn btn-primary">1</button>
-                  <button type="button" class="btn btn-primary focus">2</button>
-                  <button type="button" class="btn btn-primary">3</button>
-                  <button type="button" class="btn btn-primary">4</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center"
-                 :class="{'col-lg-6 col-xl-2' : sidebarOpened, 'col-lg-2' : !sidebarOpened }">
-              <button class="btn btn-primary btn-with-icon rounded-icon">
-                <div class="btn-with-icon-content">
-                  <i class="ion-md-close ion"></i>
-                </div>
-              </button>
+          </div>
+        </vuestic-widget>
+      </div>
+      <div class="flex md12">
+        <vuestic-widget class="larger-padding"
+                        :headerText="$t('buttons.advanced')">
+          <div class="va-row">
+            <div class="flex">
+              <va-button icon="ion-md-close ion"> {{ $t('buttons.button') }} </va-button>
+              <va-button icon-right="ion-ios-arrow-down arrow-down"> {{ $t('buttons.button') }} </va-button>
+              <va-button
+                icon="ion-md-close ion"
+                icon-right="ion-ios-arrow-down arrow-down">
+                {{ $t('buttons.button') }}
+              </va-button>
+              <va-button icon="ion-md-close ion"/>
             </div>
           </div>
         </vuestic-widget>
       </div>
 
-      <div class="col-md-12">
-        <vuestic-widget class="color-buttons" :headerText="$t('buttons.colors')">
-          <div class="row btn-margin-row">
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
-              <button class="btn btn-danger">
-                {{'buttons.button' | translate}}
-              </button>
-            </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
-              <button class="btn btn-info">
-                {{'buttons.button' | translate}}
-              </button>
-            </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
-              <button class="btn btn-dark">
-                {{'buttons.button' | translate}}
-              </button>
-            </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
-              <button class="btn btn-warning">
-                {{'buttons.button' | translate}}
-              </button>
+      <div class="flex md12">
+        <vuestic-widget class="larger-padding"
+                        :headerText="$t('buttons.colors')">
+          <div class="va-row">
+            <div class="flex">
+              <va-button color="danger"> {{ $t('buttons.danger') }} </va-button>
+              <va-button color="info"> {{ $t('buttons.info') }} </va-button>
+              <va-button color="dark"> {{ $t('buttons.dark') }} </va-button>
+              <va-button color="warning"> {{ $t('buttons.warning') }} </va-button>
+              <va-button color="success"> {{ $t('buttons.success') }} </va-button>
+              <va-button color="gray"> {{ $t('buttons.gray') }} </va-button>
             </div>
           </div>
-
-          <div class="row btn-margin-row">
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
-              <button class="btn btn-success">
-                {{'buttons.button' | translate}}
-              </button>
+          <div class="va-row">
+            <div class="flex">
+              <va-button outline color="danger"> {{ $t('buttons.danger') }} </va-button>
+              <va-button outline color="info"> {{ $t('buttons.info') }} </va-button>
+              <va-button outline color="dark"> {{ $t('buttons.dark') }} </va-button>
+              <va-button outline color="warning"> {{ $t('buttons.warning') }} </va-button>
+              <va-button outline color="success"> {{ $t('buttons.success') }} </va-button>
+              <va-button outline color="gray"> {{ $t('buttons.gray') }} </va-button>
             </div>
-            <div class="col-sm-6 col-lg-6 col-xl-3 d-flex justify-content-center">
-              <button class="btn btn-pale">
-                {{'buttons.button' | translate}}
-              </button>
+          </div>
+          <div class="va-row">
+            <div class="flex">
+              <va-button flat color="danger"> {{ $t('buttons.danger') }} </va-button>
+              <va-button flat color="info"> {{ $t('buttons.info') }} </va-button>
+              <va-button flat color="dark"> {{ $t('buttons.dark') }} </va-button>
+              <va-button flat color="warning"> {{ $t('buttons.warning') }} </va-button>
+              <va-button flat color="success"> {{ $t('buttons.success') }} </va-button>
+              <va-button flat color="gray"> {{ $t('buttons.gray') }} </va-button>
+            </div>
+          </div>
+        </vuestic-widget>
+      </div>
+
+      <div class="flex md12 xl12">
+        <vuestic-widget class="larger-padding"
+                        :headerText="$t('buttons.buttonGroups')">
+          <div class="va-row">
+            <div class="flex xs12 md4">
+              <va-button-group>
+                <va-button large> Button 1 </va-button>
+                <va-button large> Button 2 </va-button>
+                <va-button large> Button 3 </va-button>
+                <va-button large> Button 4 </va-button>
+              </va-button-group>
+            </div>
+            <div class="flex xs12 md4">
+              <va-button-group>
+                <va-button outline small color="danger" icon="maki maki-art-gallery"> First </va-button>
+                <va-button outline small color="danger"> Second </va-button>
+                <va-button outline small color="danger"> Third </va-button>
+              </va-button-group>
+            </div>
+            <div class="flex xs12 md4">
+              <va-button-group>
+                <va-button flat color="gray" icon="glyphicon glyphicon-envelope">
+                  First
+                </va-button>
+                <va-button flat color="gray" icon="entypo entypo-user"> Second </va-button>
+                <va-button flat color="gray" icon="ion ion-ios-alarm"> Third </va-button>
+              </va-button-group>
+            </div>
+          </div>
+          <div class="va-row">
+            <div class="flex xs12 md4">
+              <va-button-group>
+                <va-button color="dark"> One </va-button>
+                <va-button color="dark"> Two </va-button>
+                <va-button color="dark"> Three </va-button>
+                <va-button color="dark" icon="ion-ios-arrow-down arrow-down"/>
+              </va-button-group>
+            </div>
+            <div class="flex xs12 md4">
+              <va-button-group>
+                <va-button outline large color="info"> First </va-button>
+                <va-button outline large color="info" icon-right="glyphicon glyphicon-pencil"> Second </va-button>
+                <va-button outline large color="info"> Third </va-button>
+              </va-button-group>
+            </div>
+            <div class="flex xs12 md4">
+              <va-button-group>
+                <va-button flat small color="warning" icon="glyphicon glyphicon-envelope"/>
+                <va-button flat small color="warning" icon="entypo entypo-user"/>
+                <va-button flat small color="warning" icon-right="ion ion-ios-alarm"> Update </va-button>
+              </va-button-group>
+            </div>
+          </div>
+        </vuestic-widget>
+      </div>
+
+      <div class="flex md12 xl12">
+        <vuestic-widget class="larger-padding"
+                        :headerText="$t('buttons.buttonToggles')">
+          <div class="va-row">
+            <div class="flex xs12 md4">
+              <va-button-toggle
+                v-model="model" :options="options"
+                toggle-color="warning"
+              />
+            </div>
+            <div class="flex xs12 md4">
+              <va-button-toggle
+                outline v-model="model" :options="options"
+                color="danger" toggle-color="info"
+              />
+            </div>
+            <div class="flex xs12 md4">
+              <va-button-toggle
+                flat v-model="model" :options="options"
+                color="gray" toggle-color="success"
+              />
+            </div>
+          </div>
+          <div class="va-row">
+            <div class="flex xs12 md4">
+              <va-button-toggle
+                v-model="model" :options="options"
+                color="dark" toggle-color="danger"
+              />
+            </div>
+            <div class="flex xs12 md4">
+              <va-button-toggle
+                outline v-model="model" :options="options"
+                color="info" toggle-color="gray"
+              />
+            </div>
+            <div class="flex xs12 md4">
+              <va-button-toggle
+                flat v-model="model" :options="options"
+                color="warning" toggle-color="dark"
+              />
             </div>
           </div>
         </vuestic-widget>
@@ -160,49 +209,23 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
 export default {
   name: 'buttons',
-
-  computed: {
-    ...mapGetters([
-      'sidebarOpened',
-    ]),
-  },
+  data () {
+    return {
+      options: [
+        { label: 'One', value: 'one' },
+        { label: 'Two', value: 'two' },
+        { label: 'Three', value: 'three' }
+      ],
+      model: 'three'
+    }
+  }
 }
 </script>
 
 <style lang="scss">
 .buttons-page {
-  @include media-breakpoint-only(xl) {
-    .btn-margin-row {
-      margin-right: -35px;
-      margin-left: -40px;
-    }
-  }
-  .btn, .btn-group, .dropdown {
-    margin-bottom: 45px;
-  }
-
-  .btn-group .btn {
-    margin-bottom: 0;
-  }
-
-  .dropdown-toggle {
-    margin-bottom: 0;
-  }
-
-  .smaller-buttons {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    .btn-micro {
-      margin-left: 20px;
-    }
-  }
-
   .widget .widget-body {
     padding-bottom: 0;
   }

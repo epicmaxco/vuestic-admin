@@ -1,53 +1,56 @@
 <template>
-  <div class="sets-list row">
-    <div class="col-md-12">
-      <vuestic-widget :headerText="$t('icons.title')">
-        <div class="row">
-          <div
-            class="small-set col-lg-6"
-            v-for="(set, index) in sets"
-            :key="index"
-          >
-            <div class="set-content">
-              <div class="overlay">
-                <router-link :to="{path: set.href}" append>
-                  <div class="btn btn-primary btn">{{set.name.toUpperCase()}}</div>
-                </router-link>
-              </div>
-              <div>
-                <template v-for="(filteredList, index) in set.filteredLists">
-                  <div :key="index" v-if="filteredList.length !== 2" class="row">
-                    <div
-                      class="col-sm-2"
-                      v-for="(icon, index) in filteredList"
-                      :key="index"
-                    >
-                      <div class="vuestic-icon">
-                        <i :class="iconClass(set, icon)" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div :key="index" v-if="filteredList.length === 2" class="row">
-                    <div class="col-sm-2">
-                      <div class="vuestic-icon">
-                        <i :class="iconClass(set, filteredList[0])" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                    <div class="col-sm-8"></div>
-                    <div class="col-sm-2">
-                      <div class="vuestic-icon">
-                        <i :class="iconClass(set, filteredList[1])" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                </template>
+  <vuestic-widget class="sets-list" :headerText="$t('icons.title')">
+    <div class="va-row">
+      <div
+        class="flex lg6 xs12 sets-list__set"
+        v-for="(set, index) in sets"
+        :key="index"
+      >
+        <div class="sets-list__set__content">
+          <div class="sets-list__set__content__overlay">
+            <va-button :to="{path: set.href}" append>
+              {{set.name.toUpperCase()}}
+            </va-button>
+          </div>
+
+          <template v-for="(filteredList, index) in set.filteredLists">
+            <div
+              class="va-row"
+              :key="index"
+              v-if="filteredList.length !== 2"
+            >
+              <div
+                class="flex xs2 flex-center"
+                v-for="(icon, index) in filteredList"
+                :key="index"
+              >
+                <div class="sets-list__icon flex-center vuestic-icon">
+                  <va-icon :icon="iconClass(set, icon)"/>
+                </div>
               </div>
             </div>
-          </div>
+            <div
+              class="va-row"
+              :key="index"
+              v-if="filteredList.length === 2"
+            >
+              <div class="flex xs2 flex-center">
+                <div class="sets-list__icon flex-center vuestic-icon">
+                  <va-icon :icon="iconClass(set, filteredList[0])"/>
+                </div>
+              </div>
+              <div class="flex xs8"/>
+              <div class="flex xs2 flex-center">
+                <div class="sets-list__icon flex-center vuestic-icon">
+                  <va-icon :icon="iconClass(set, filteredList[1])"/>
+                </div>
+              </div>
+            </div>
+          </template>
         </div>
-      </vuestic-widget>
+      </div>
     </div>
-  </div>
+  </vuestic-widget>
 </template>
 
 <script>
@@ -57,51 +60,55 @@ export default {
   methods: {
     iconClass (set, icon) {
       return set.prefix + ' ' + set.prefix + '-' + icon
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss">
-  .sets-list {
-    .small-set {
-      .btn {
-        width: 13.75rem;
-        padding-left: 0;
-        padding-right: 0;
-        text-align: center;
-      }
+.sets-list {
+  &__icon {
+   height: 1.5rem;
+   max-width: 1.5rem;
+ }
 
-      margin: 0 0 1.5rem;
-      .set-content {
-        background-color: $light-gray;
-        height: 100%;
-        position: relative;
-        > div {
-          padding: 1rem;
-          div[class^="col"] {
-            padding: 0;
-            margin: 1rem 0;
-            .vuestic-icon {
-              font-size: .85rem;
-              text-align: center;
-            }
-          }
-        }
+ &__set {
+   margin: 0 0 1.5rem;
+   height: 100%;
+   position: relative;
 
-        .overlay {
-          padding: 0;
-          margin: 0;
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          /*visibility: hidden;*/
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 2;
-        }
-      }
-    }
-  }
+   .btn {
+     width: 13.75rem;
+     padding-left: 0;
+     padding-right: 0;
+     text-align: center;
+   }
+
+   &__content {
+     background-color: $light-gray;
+
+     > div {
+       padding: 1rem;
+
+       div[class^="col"] {
+         padding: 0;
+         margin: 1rem 0;
+
+         .vuestic-icon {
+           font-size: .85rem;
+           text-align: center;
+         }
+       }
+     }
+
+     &__overlay {
+       width: 100%;
+       height: 100%;
+       position: absolute;
+       @include va-flex-center();
+       z-index: 2;
+     }
+   }
+ }
+}
 </style>

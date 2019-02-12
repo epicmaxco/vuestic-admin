@@ -28,5 +28,17 @@ export default {
     rgb.css += (opacity ? ',' + opacity : '') + ')'
 
     return rgb
+  },
+
+  normalizeValue (value, minValue = 0, maxValue = 100) {
+    if (value <= minValue) {
+      return minValue
+    }
+
+    if (value >= maxValue) {
+      return maxValue
+    }
+
+    return value
   }
 }

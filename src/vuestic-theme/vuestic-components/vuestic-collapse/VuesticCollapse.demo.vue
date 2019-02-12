@@ -2,9 +2,9 @@
   <div class="demo-container">
     <div class="demo-container__item" style="width: 900px;">
       <vuestic-collapse v-model="expand">
-        <button class="btn btn-info" slot="header">
+        <div slot="header">
           Toggle collapse
-        </button>
+        </div>
         <div slot="body" style="padding: 10px;">
           Expand content Expand content Expand content Expand content Expand
           content Expand content Expand content Expand content Expand content

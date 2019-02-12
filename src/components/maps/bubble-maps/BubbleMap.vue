@@ -47,16 +47,16 @@ export default {
         unlistedAreasColor: '#eee',
         unlistedAreasAlpha: 1,
         outlineColor: '#fff',
-        outlineThickness: 2
+        outlineThickness: 2,
       }
       map.imagesSettings = {
         balloonText: '<span style="font-size:14px"><b>[[title]]</b>: [[value]]</span>',
-        alpha: 0.75
+        alpha: 0.75,
       }
 
       let dataProvider = {
         mapVar: AmCharts.maps.worldLow,
-        images: []
+        images: [],
       }
 
       // create circle for each country
@@ -82,25 +82,25 @@ export default {
           longitude: this.mapData.latlong[id].longitude,
           latitude: this.mapData.latlong[id].latitude,
           title: dataItem.name,
-          value: value
+          value: value,
         })
       })
 
       map.dataProvider = dataProvider
       map.write(this.$el)
-    }
+    },
   },
 
   mounted () {
     this.drawMap()
-  }
+  },
 }
 </script>
 
 <style lang='scss'>
-  @import '~ammap3/ammap/ammap.css';
+@import '~ammap3/ammap/ammap.css';
 
-  .bubble-map {
-    height: 100%;
-  }
+.bubble-map {
+  height: 100%;
+}
 </style>

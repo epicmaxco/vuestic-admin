@@ -5,13 +5,10 @@
       v-for="(dropdown, index) in dropdowns"
       :key="index"
     >
-      <button
-        type="button"
-        class="btn btn-primary dropdown-toggle theme-toggle"
-        slot="actuator"
-      >
+      <va-button
+        type="button" class="theme-toggle"
+        slot="actuator" icon-right="ion-ios-arrow-down arrow-down">
         {{ dropdown.text }}
-        <i class="ion-ios-arrow-down arrow-down"></i>
         <vuestic-dropdown
           v-model="dropdown.value"
           :position="dropdown.position"
@@ -23,10 +20,10 @@
               v-for="(link, index) in links"
               :key="index"
             >{{ link }}</a>
-            <div class="col-lg-6"></div>
+            <div class="flex lg6"></div>
           </div>
         </vuestic-dropdown>
-      </button>
+      </va-button>
     </div>
   </div>
 </template>

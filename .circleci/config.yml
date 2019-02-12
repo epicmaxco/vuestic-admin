@@ -1,0 +1,92 @@
+aliases:
+  - &restore_cache
+    name: Restore Yarn Package Cache
+    keys:
+      - yarn-packages-{{ checksum "yarn.lock" }}
+
+  - &install_dependencies
+    name: Install Dependencies
+    command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+
+  - &save_cache
+    name: Save Yarn Package Cache
+    key: yarn-packages-{{ checksum "yarn.lock" }}
+    paths:
+      - ~/.cache/yarn
+
+  - &build |
+    yarn build
+
+docker: &docker
+  docker:
+    - image: circleci/node:10.12.0
+
+defaults: &defaults
+  <<: *docker
+  parallelism: 1
+  working_directory: ~/repo
+
+version: 2
+jobs:
+  deploy-staging:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache: *restore_cache
+      - run: *install_dependencies
+      - save_cache: *save_cache
+      - run: *build
+      - run:
+          name: Deploy to hosting
+          command: |
+            tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
+            sudo apt install sshpass
+            ssh-keyscan -t rsa $DEPLOY_URL >> ~/.ssh/known_hosts
+            sshpass -p $DEPLOY_PASSWORD scp ~/repo/dist.tar.gz $DEPLOY_USER@$DEPLOY_URL:~/tmp
+            sshpass -p $DEPLOY_PASSWORD ssh $DEPLOY_USER@$DEPLOY_URL /bin/bash << EOF
+              rm -rf $DEPLOY_PATH/*
+              tar -xzf ~/tmp/dist.tar.gz -C $DEPLOY_PATH
+              rm -f ~/tmp/dist.tar.gz
+            EOF
+
+  deploy-production:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Add variables for Yandex Metrics and Drift live chat
+          command:
+            echo "VUE_APP_YANDEX_METRICS_KEY=$YANDEX_METRICS_KEY" >> .env.production.local &&
+            echo "VUE_APP_DRIFT_KEY=$DRIFT_KEY" >> .env.production.local
+      - restore_cache: *restore_cache
+      - run: *install_dependencies
+      - save_cache: *save_cache
+      - run: *build
+      - run:
+          name: Deploy to hosting
+          environment:
+            DEPLOY_PATH: /var/www/html/vuestic-admin
+          command: |
+            tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
+            ssh-keyscan -t rsa $SERVER_IP >> ~/.ssh/known_hosts
+            scp ~/repo/dist.tar.gz $SERVER_USER_NAME@$SERVER_IP:~/
+            ssh $SERVER_USER_NAME@$SERVER_IP << EOF
+              mkdir -p tmp
+              rm -rf $DEPLOY_PATH/*
+              tar -xzf ~/dist.tar.gz -C $DEPLOY_PATH
+              rm -rf ~/dist.tar.gz ~/tmp
+            EOF
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - deploy-staging:
+          filters:
+            branches:
+              only: develop
+      - deploy-production:
+          context: vuestic-production
+          filters:
+            branches:
+              only: master

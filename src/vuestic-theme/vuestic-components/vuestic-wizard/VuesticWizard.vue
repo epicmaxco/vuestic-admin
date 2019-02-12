@@ -4,7 +4,8 @@
     :class="computedLayout"
     v-orientation-handler="{ layout: wizardLayout,  breakPoint: orientationBreakPoint }"
   >
-    <div v-if="computedLayout === 'horizontal'" class="indicator-container indicator-container-horizontal">
+    <div v-if="computedLayout === 'horizontal'"
+         class="indicator-container indicator-container-horizontal">
       <simple-horizontal-indicator
         v-if="wizardType === 'simple'"
         :steps="steps"
@@ -19,7 +20,8 @@
       />
     </div>
 
-    <div v-if="computedLayout === 'vertical'" class="indicator-container indicator-container-vertical">
+    <div v-if="computedLayout === 'vertical'"
+         class="indicator-container indicator-container-vertical">
       <rich-vertical-indicator
         v-if="wizardType === 'rich'"
         :steps="steps"
@@ -48,21 +50,15 @@
 
       <div class="wizard-body-actions" v-if="!wizardCompleted">
         <div class="btn-container" v-if="backEnabled">
-          <button class="btn btn-secondary wizard-back pull-left" @click.prevent="goBack()">
-            Back
-          </button>
+          <va-button outline @click="goBack()"> Back </va-button>
         </div>
 
         <div class="btn-container" v-if="!isLastStep()">
-          <button class="btn btn-primary wizard-next pull-right" @click.prevent="goNext()">
-            Next
-          </button>
+          <va-button @click="goNext()"> Next </va-button>
         </div>
 
         <div class="btn-container" v-if="currentStep == steps.length - 1">
-          <button class="btn btn-primary wizard-next pull-right final-step" @click.prevent="completeWizard()">
-            {{lastStepLabel}}
-          </button>
+          <va-button @click="completeWizard()"> {{ lastStepLabel }} </va-button>
         </div>
       </div>
     </div>
@@ -79,6 +75,12 @@ import WizardOrientationHandler from './WizardOrientationHandler'
 
 export default {
   name: 'vuestic-wizard',
+  components: {
+    SimpleHorizontalIndicator,
+    RichHorizontalIndicator,
+    RichVerticalIndicator,
+    SimpleVerticalIndicator
+  },
   props: {
     steps: {},
     wizardType: {
@@ -101,12 +103,6 @@ export default {
       orientationBreakPoint: 767, // TODO: into config,
       computedLayout: this.wizardLayout,
     }
-  },
-  components: {
-    SimpleHorizontalIndicator,
-    RichHorizontalIndicator,
-    RichVerticalIndicator,
-    SimpleVerticalIndicator,
   },
   directives: {
     orientationHandler: WizardOrientationHandler,

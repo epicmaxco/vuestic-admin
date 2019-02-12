@@ -15,16 +15,32 @@
     "home": "Home"
   },
   "buttons": {
-    "advanced": "Icons, Groups, Dropdowns",
+    "advanced": "Buttons With Icons",
+    "size": "Button Sizes",
+    "tags": "Button Tags",
     "button": "BUTTON",
-    "colors": "Colors",
+    "buttonGroups": "Button Groups",
+    "buttonToggles": "Button Toggles",
+    "a-link": "A-LINK",
+    "router-link": "ROUTER-LINK",
+    "colors": "Button Colors",
     "disabled": "DISABLED",
     "dropdown": "DROPDOWN",
     "hover": "HOVER",
-    "main": "Primary & Secondary Buttons",
-    "micro": "MICRO",
+    "types": "Button Types",
     "pressed": "PRESSED",
-    "small": "SMALL"
+    "default": "DEFAULT",
+    "outline": "OUTLINE",
+    "flat": "FLAT",
+    "large": "LARGE",
+    "small": "SMALL",
+    "normal": "NORMAL",
+    "success": "SUCCESS",
+    "info": "INFO",
+    "danger": "DANGER",
+    "warning": "WARNING",
+    "gray": "GRAY",
+    "dark": "DARK"
   },
   "charts": {
     "horizontalBarChart": "Horizontal Bar Chart",
@@ -50,15 +66,17 @@
     "versions": "Versions"
   },
   "notificationsPage": {
-    "alerts": {
-      "title": "Alerts",
-      "success": "SUCCESS",
+    "notifications": {
+      "title": "Notifications",
+      "gray": "Processing",
+      "dark": "New Label",
+      "success": "Paid",
       "successMessage": "You successfully read this important alert message.",
-      "info": "INFO",
+      "info": "Info",
       "infoMessage": "This alert needs your attention, but it's not super important.",
-      "warning": "WARNING",
+      "warning": "On Hold",
       "warningMessage": "Better check yourself, you're not looking too good.",
-      "danger": "DANGER",
+      "danger": "Danger",
       "dangerMessage": "Change a few things up and try submitting again."
     },
     "popovers": {
@@ -99,7 +117,13 @@
       "title": "Checkboxes, Radios, Switches",
       "radioDisabled": "Disabled Radio",
       "radio": "Radio",
-      "subscribe": "Subscribe to newsletter"
+      "subscribe": "Subscribe to newsletter",
+      "unselected": "Unselected checkbox",
+      "selected": "Selected checkbox",
+      "readonly": "Readonly checkbox",
+      "disabled": "Disabled checkbox",
+      "error": "Checkbox with error",
+      "errorMessage": "Checkbox with error messages"
     },
     "dateTimePicker": {
       "title": "Date time pickers",
@@ -173,6 +197,7 @@
     "buttons": "Buttons",
     "charts": "Charts",
     "colorPickers": "Color Pickers",
+    "filters": "Filters",
     "collapse": "Collapse",
     "timelines": "Timelines",
     "dashboard": "Dashboard",
@@ -200,7 +225,8 @@
     "treeView": "Tree view",
     "dateTimePickers": "Date time pickers",
     "fileUpload": "File Upload",
-    "dropdowns": "Dropdowns"
+    "dropdowns": "Dropdowns",
+    "spacing": "Spacing"
   },
   "messages": {
     "all": "See all messages",
@@ -275,14 +301,9 @@
     "verticalSimpleCardsSecondInfo": "However, various anthropogenic factors have had a severe impact on zebra populations"
   },
   "progressBars": {
-    "basic": "Basic",
-    "basicVertical": "Basic Vertical",
     "circle": "Circle",
-    "colorFulTitle": "Colorful Bars",
-    "thin": "Thin",
-    "thinVertical": "Thin Vertical",
-    "thick": "Thick",
-    "title": "Progress Bars"
+    "horizontal": "Horizontal",
+    "colors": "Colors"
   },
   "tables": {
     "basic": "Basic Table",

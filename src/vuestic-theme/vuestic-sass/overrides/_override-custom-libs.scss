@@ -1,92 +1,11 @@
-.abc-checkbox, .abc-radio {
-  margin-bottom: 20px;
-
-  label {
-    .abc-label-text {
-      display: inline-block;
-      position: relative;
-      top: 2px;
-      padding-left: 13px;
-    }
-
-    &::before{
-      width: 22px;
-      height: 22px;
-      border: 2px solid $input-border-color;
-      @include transition(border 0.15s ease-in-out, color 0.15s ease-in-out, background-color 0.15s ease-in-out);
-    }
-
-  }
-}
-
-.abc-checkbox {
-  padding-left: 20px;
-
-  label{
-    padding-left: 0;
-
-    &::before{
-      border-radius: 0;
-      @include transition(border 0.15s ease-in-out, color 0.15s ease-in-out, background-color 0.15s ease-in-out);
-    }
-
-    &::after {
-      width: 20px;
-      height: 20px;
-      top: 2px;
-      left: 2px;
-    }
-  }
-
-  input[type="checkbox"],
-  input[type="radio"] {
-
-    &:focus + label::before{
-      outline: none;
-    }
-
-
-    &:checked + label::after{
-      font-family: "Ionicons";
-      content: "\F2BC";
-      font-size: 15px;
-    }
-
-    &:disabled + label{
-      opacity: 0.5;
-    }
-  }
-}
-
-.abc-radio {
-
-  label {
-    padding-left: 0;
-
-    &::after {
-      width: 10px;
-      height: 10px;
-      top: 7.8px;
-      left: 6px;
-    }
-  }
-
-  input[type="radio"] {
-
-    &:focus + label::before {
-      outline: none;
-    }
-  }
-}
-
 //Medium Editor
 .medium-editor-toolbar,
 .medium-editor-toolbar-form,
 .medium-editor-toolbar-actions,
 .medium-editor-toolbar-anchor-preview {
+  box-shadow: $btn-box-shadow 0 #77cea4;
   background-color: $brand-primary;
-  border-radius: $btn-border-radius;
-  box-shadow: $btn-box-shadow;
+  border-radius: $btn-border-radius-nrm;
 }
 
 .medium-editor-toolbar {
@@ -97,15 +16,33 @@
   }
 
   .medium-editor-action {
-    @extend .btn.btn-primary;
+    margin: 0;
+    border: $btn-border;
+    padding: $btn-padding-y-nrm $btn-padding-x-nrm;
     height: $medium-editor-button-size;
-    padding: $btn-padding-y $btn-group-button-padding-x;
+    background-image: linear-gradient(to right, #63e5b3, #23e066);
     box-shadow: none;
     border-radius: 0;
+
+    i {
+      color: $white;
+    }
 
     &.medium-editor-button-active {
       background-color: darken($brand-primary, 15%);
     }
+  }
+
+  & > .medium-editor-action:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+  }
+
+  & > .medium-editor-action + .medium-editor-action {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 0;
   }
 }
 
@@ -118,7 +55,7 @@
     background: $brand-primary;
     box-sizing: border-box;
     color: $white;
-    padding-left: 16px;
+    padding-left: 1rem;
     width: 220px;
 
     &::-webkit-input-placeholder {
@@ -127,7 +64,7 @@
     &:-moz-placeholder { /* Firefox 18- */
       color: rgba($white, .8);
     }
-    &::-moz-placeholder {  /* Firefox 19+ */
+    &::-moz-placeholder { /* Firefox 19+ */
       color: rgba($white, .8);
     }
     &:-ms-input-placeholder {
@@ -141,7 +78,7 @@
   }
 
   .medium-editor-toolbar-close {
-    margin-right: 16px;
+    margin-right: 1rem;
   }
 }
 
@@ -155,7 +92,7 @@
 }
 
 .medium-editor-toolbar-anchor-preview {
-  @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-line-height, $btn-border-radius);
+  @include button-size($btn-padding-y-nrm, $btn-padding-x-nrm, $btn-font-size-nrm, $btn-line-height-nrm, $btn-border-radius-nrm);
   .medium-editor-toolbar-anchor-preview {
     margin: 0;
   }
@@ -236,7 +173,7 @@
 
     .popover-content:first-child {
       .popover-header, .popover-body {
-        padding:  $popover-body-padding-y $popover-header-no-icon-padding-x;
+        padding: $popover-body-padding-y $popover-header-no-icon-padding-x;
         padding-right: 0;
       }
     }
@@ -263,18 +200,6 @@
 
 .toasted-container {
   &.full-width {
-    max-width: 100%;
-    width: calc(100% - #{$layout-padding} - #{$layout-padding-right});
-    transform: translateX(0);
-    left: 0;
-
-    .toasted.vuestic-toast {
-      max-width: 100%;
-      width: 100%;
-      left: $layout-padding;
-      justify-content: normal;
-    }
-
     @include media-breakpoint-down(md) {
       width: calc(100% - #{$content-mobile-wrap-pl} - #{$content-mobile-wrap-pr});
       left: 0;

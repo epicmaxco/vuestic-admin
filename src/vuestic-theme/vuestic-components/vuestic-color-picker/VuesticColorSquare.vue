@@ -7,15 +7,16 @@ export default {
   name: 'vuestic-color-square',
   props: {
     value: {
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 }
 </script>
 
 <style lang='scss'>
-  .vuestic-color-square {
-    height: 48px;
-    width: 48px;
-  }
+.vuestic-color-square {
+  height: 48px;
+  width: 48px;
+  border: 1px solid $gray-light;
+}
 </style>

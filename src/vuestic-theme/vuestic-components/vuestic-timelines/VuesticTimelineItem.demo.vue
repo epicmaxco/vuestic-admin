@@ -12,7 +12,8 @@
           <template slot="title">
             Card with overlay and text on top of image
           </template>
-          Running out of pages in your passport. Two trailer park girls go around the outside.
+          Running out of pages in your passport. Two trailer park girls go
+          around the outside.
         </vuestic-card>
       </vuestic-timeline-item>
     </div>

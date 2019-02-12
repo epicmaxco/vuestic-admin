@@ -1,5 +1,5 @@
 <template>
-  <div class="color-dot"
+  <div class="color-dot flex-center"
        @click="$emit('click')"
        :class="{'color-dot--selected': selected}"
   >
@@ -32,7 +32,6 @@ export default {
   height: 1.5rem;
   min-width: 1.5rem;
   cursor: pointer;
-  @include flex-center();
 
   border-radius: 50%;
   border: solid 0.125rem transparent;
@@ -45,6 +44,7 @@ export default {
     border-radius: 50%;
     width: 1rem;
     height: 1rem;
+    border: 1px solid $gray-light;
   }
 }
 </style>
