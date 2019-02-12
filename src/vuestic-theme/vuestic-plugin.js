@@ -69,6 +69,8 @@ import VuesticPopup
 import VuesticContainer from './vuestic-components/vuestic-grid/VGrid/Container'
 import VuestVaLayout from './vuestic-components/vuestic-grid/VGrid/Layout'
 import VuesticFlex from './vuestic-components/vuestic-grid/VGrid/Flex'
+import VaRating from './vuestic-components/va-rating/VaRating'
+import VaStar from './vuestic-components/va-rating/VaStar'
 
 import { installQuasarPlatform } from './vuestic-components/vuestic-popup/quasar/install'
 
@@ -113,6 +115,8 @@ const VuesticPlugin = {
       Card,
       Tag,
       TagGroup,
+      VaRating,
+      VaStar,
       VuesticAccordion,
       VuesticCollapse,
       VuesticTimeline,

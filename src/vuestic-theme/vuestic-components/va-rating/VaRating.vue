@@ -3,13 +3,13 @@
     <VbContainer>
       <div
         v-if="numbers === true"
-        class="vuestic-rating__numbers"
+        class="va-rating__numbers"
       >
         <div
           v-for="item in max"
           :key=item
           :class="setNumberClasses(item)"
-          class="vuestic-rating__numbers--number"
+          class="va-rating__numbers--number"
           :style="setNumberStyles(item)"
           @click="setCurrentValue(item)"
         >
@@ -18,13 +18,14 @@
       </div>
       <div
         v-if="numbers === false"
-        class="vuestic-rating__icons"
+        class="va-rating__icons"
       >
-        <i
+        <va-star
           v-for="item in max"
           :key=item
+          :icon="icon"
           :class="setIconClasses(item)"
-          class="vuestic-rating__icons--icon"
+          class="va-rating__icons--icon"
           :style="computedStylesIcon"
           @click="setCurrentValue(item)"
         />
@@ -34,8 +35,10 @@
 </template>
 
 <script>
+import VaStar from './VaStar'
 export default {
-  name: 'vuestic-rating',
+  name: 'va-rating',
+  components: { VaStar },
   props: {
     icon: {
       type: String,
@@ -76,7 +79,7 @@ export default {
     computedStylesIcon () {
       return {
         color: this.color,
-        'font-size': this.setIconSize() + 'px',
+        fontSize: this.setIconSize(),
         cursor: this.getCursor()
       }
     },
@@ -93,38 +96,42 @@ export default {
     setNumberStyles (item) {
       if (item <= this.value) {
         return {
-          'background-color': this.color,
-          height: this.setIconSize() + 'px',
-          width: this.setIconSize() + 'px',
+          backgroundColor: this.color,
+          height: this.setIconSize(),
+          width: this.setIconSize(),
           cursor: this.getCursor()
         }
       }
       return {
-        'background-color': this.color,
-        height: this.setIconSize() + 'px',
-        width: this.setIconSize() + 'px',
+        backgroundColor: this.color,
+        height: this.setIconSize(),
+        width: this.setIconSize(),
         cursor: this.getCursor(),
         color: this.color
       }
     },
     setIconSize () {
-      if (this.size === 'medium') {
-        return 16
-      } else if (this.size === 'large') {
-        return 24
-      } else {
-        return 12
+      if (isNaN(this.size.trim().substring(0, 1))) {
+        if (this.size.trim() === 'medium') {
+          return 16 + 'px'
+        } else if (this.size.trim() === 'large') {
+          return 24 + 'px'
+        } else {
+          return 12 + 'px'
+        }
       }
+      return this.size
     },
     setIconClasses (item) {
       if (this.emptyIcon) {
         return item <= this.value ? this.icon : this.emptyIcon
       }
-      return item <= this.value ? this.icon : this.icon + ' ' + 'vuestic-rating__icons--icon--empty'
+      return item <= this.value ? this.icon : this.icon + ' ' +
+        'va-rating__icons--icon--empty'
     },
     setNumberClasses (item) {
-      return item <= this.value ? 'this.icon' : 'vuestic-rating__numbers--number-' +
-        ' ' + 'vuestic-rating__numbers--number--empty'
+      return item <= this.value ? 'this.icon' : 'va-rating__numbers--number-' +
+        ' ' + 'va-rating__numbers--number--empty'
     },
     setCurrentValue (item) {
       if (!this.readonly && !this.disabled) {
@@ -145,7 +152,7 @@ export default {
 </script>
 
 <style lang="scss">
-.vuestic-rating {
+.va-rating {
   display: flex;
   &__icons {
     &--icon {
@@ -161,7 +168,7 @@ export default {
       color: $white;
       margin: 0.1rem;
       border-radius: 0.1rem;
-      display:flex;
+      display: flex;
       justify-content: center;
       &--empty {
         opacity: 0.4;

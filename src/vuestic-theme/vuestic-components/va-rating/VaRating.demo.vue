@@ -3,11 +3,12 @@
     <div class="demo-container__item">
       <va-rating
         :max="6"
-        size="large"
+        size="3rem"
         color="red"
         emptyIcon="fa fa-star-o"
         v-model="value"
       />
+      3rem
     </div>
     <div class="demo-container__item">
       <va-rating
@@ -60,11 +61,7 @@
 </template>
 
 <script>
-import VaRating from './VaRating'
 export default {
-  components: {
-    VaRating: VaRating
-  },
   data () {
     return {
       value: 2
