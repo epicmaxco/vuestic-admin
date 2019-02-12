@@ -21,6 +21,27 @@
         </vuestic-widget>
       </div>
     </div>
+    <div class="va-row">
+      <div class="flex md12">
+        <vuestic-widget
+          class="modals-list larger-padding"
+          :header-text="$t('modal.titlePosition')"
+        >
+          <va-button color="danger" @click="showTopModal = true">
+            {{ $t('modal.top') }}
+          </va-button>
+          <va-button color="info" @click="showRightModal = true">
+            {{ $t('modal.right') }}
+          </va-button>
+          <va-button color="warning" @click="showBottomModal = true">
+            {{ $t('modal.bottom') }}
+          </va-button>
+          <va-button color="success" @click="showLeftModal = true">
+            {{ $t('modal.left') }}
+          </va-button>
+        </vuestic-widget>
+      </div>
+    </div>
 
     <!--//Modals-->
     <va-modal
@@ -47,13 +68,45 @@
       :cancelText=" $t('modal.cancel') "
     />
     <va-modal
+      v-model="showTopModal"
+      position="top"
+      :title=" $t('modal.top')"
+      :message=" $t('modal.message') "
+      :okText=" $t('modal.confirm') "
+      :cancelText=" $t('modal.cancel') "
+    />
+    <va-modal
+      v-model="showRightModal"
+      position="right"
+      :title=" $t('modal.right') "
+      :okText=" $t('modal.confirm') "
+      :cancelText=" $t('modal.cancel') "
+      :message=" $t('modal.message') "
+    />
+    <va-modal
+      v-model="showBottomModal"
+      position="bottom"
+      :title=" $t('modal.bottom') "
+      :message=" $t('modal.message') "
+      :okText=" $t('modal.confirm') "
+      :cancelText=" $t('modal.cancel') "
+    />
+    <va-modal
+      v-model="showLeftModal"
+      position="left"
+      :title=" $t('modal.left') "
+      cancelClass="none"
+      :okText=" $t('modal.close') "
+      :message=" $t('modal.staticMessage') "
+    />
+    <va-modal
       v-model="showStaticModal"
-      size="small"
       :title=" $t('modal.staticTitle') "
       cancelClass="none"
       :okText=" $t('modal.close') "
       :message=" $t('modal.staticMessage') "
-      :noOutsideDismiss="true"
+      noOutsideDismiss
+      noEscDismiss
     />
   </div>
 </template>
@@ -69,6 +122,10 @@ export default {
       showSmallModal: false,
       showMediumModal: false,
       showLargeModal: false,
+      showTopModal: false,
+      showRightModal: false,
+      showBottomModal: false,
+      showLeftModal: false,
       showStaticModal: false
     }
   }
