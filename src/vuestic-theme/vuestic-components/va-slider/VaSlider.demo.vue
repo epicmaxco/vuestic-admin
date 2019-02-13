@@ -6,9 +6,16 @@
         v-model="value"
       />
     </VbContainer>
-    <VbContainer width="500px">
+    <!--<VbContainer width="500px">
       <va-slider
         disabled
+        v-model="value"
+      />
+    </VbContainer>
+    <VbContainer width="500px">
+      <va-slider
+        pins
+        :step="10"
         v-model="value"
       />
     </VbContainer>
@@ -44,7 +51,7 @@
         color="info"
         v-model="value"
       />
-    </VbContainer>
+    </VbContainer>-->
   </VbDemo>
 </template>
 
@@ -57,7 +64,7 @@ export default {
   },
   data () {
     return {
-      value: 30
+      value: 70
     }
   },
 }
