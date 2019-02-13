@@ -1,11 +1,12 @@
 <template>
-  <div
-    v-if="value"
+  <transition name="va-modal__overlay" appear>
+    <div
+    v-if="overlayValue"
     class="va-modal__overlay"
     :class="computedOverlayClass"
     @click="checkOutside"
   >
-    <transition name="modal" appear>
+    <transition name="va-modal" appear>
       <div
         v-if="value"
         class="va-modal"
@@ -39,6 +40,7 @@
       </div>
     </transition>
   </div>
+  </transition>
 </template>
 
 <script>
@@ -47,6 +49,12 @@ import VaButton from '../va-button/VaButton'
 export default {
   name: 'va-modal',
   components: { VaButton },
+  data () {
+    return {
+      // for leave animation
+      overlayValue: false
+    }
+  },
   props: {
     value: {
       required: true,
@@ -127,8 +135,10 @@ export default {
   watch: {
     value (value) {
       if (value) {
+        this.overlayValue = true
         window.addEventListener('keyup', this.listenKeyUp)
       } else {
+        setTimeout(() => { this.overlayValue = false }, 300)
         window.removeEventListener('keyup', this.listenKeyUp)
       }
     },
@@ -189,6 +199,19 @@ export default {
     &:last-of-type {
       background-color: rgba(0, 0, 0, 0.6);
     }
+
+    &-enter,
+    &-leave-to {
+      opacity: 0;
+    }
+
+    &-enter-active {
+      transition: all .2s ease;
+    }
+
+    &-leave-active {
+      transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
   }
 
   background: #fff;
@@ -199,8 +222,21 @@ export default {
   box-shadow: 0 2px 3px 0 rgba(52, 56, 85, 0.25);
   max-width: 600px;
   max-height: calc(100vh - 2rem);
-  transition: all .5s ease;
   position: relative;
+  transition: all .5s ease-out;
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+    transform: translateY(-30%);
+  }
+
+  &-enter-active {
+    transition: all .3s ease;
+  }
+
+  &-leave-active {
+    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
 
   &--fullscreen {
     min-width: 100vw !important;
@@ -264,9 +300,13 @@ export default {
   &--fixed-layout {
     .va-modal__inner {
       overflow: hidden;
-
+      padding: 20px 0 24px 0;
+      .va-modal__header, .va-modal__actions {
+        padding: 0 30px 0 24px;
+      }
       .va-modal__message {
         overflow: auto;
+        padding: 0 30px 0 24px;
       }
     }
   }
@@ -275,7 +315,7 @@ export default {
     overflow: auto;
     display: flex;
     flex-flow: column;
-    padding: 20px 24px 24px;
+    padding: 20px 30px 24px 24px;
     max-height: calc(100vh - 2rem);
     max-width: 600px;
     margin: auto;

@@ -47,8 +47,7 @@
       />
     </p>
   </VbContainer>
-  <VbContainer>
-    <h4>modal size</h4>
+  <VbContainer title="modal size">
     <p>
       <button @click="showModalSizeSmall = !showModalSizeSmall">show modal size small</button>
       <va-modal
@@ -76,8 +75,7 @@
       />
     </p>
   </VbContainer>
-  <VbContainer>
-    <h4>closeButton - is close icon show on the top right</h4>
+  <VbContainer title="closeButton - is close icon show on the top right">
     <p>
       <button @click="showModalWithCloseButton = !showModalWithCloseButton">Show modal with close button (default)</button>
       <va-modal
@@ -96,8 +94,7 @@
       />
     </p>
   </VbContainer>
-  <VbContainer>
-    <h4>fullscreen, slots use, custom action</h4>
+  <VbContainer title="fullscreen, slots use, custom action">
     <button @click="showFullScreenModal = !showFullScreenModal">Show modal</button>
     <va-modal
       v-model="showFullScreenModal"
@@ -114,8 +111,7 @@
       </template>
     </va-modal>
   </VbContainer>
-  <VbContainer>
-    <h4>mobile-fullscreen: false</h4>
+  <VbContainer title="mobile-fullscreen: false">
     <button @click="showModalNotMobileFullScreen = !showModalNotMobileFullScreen">Show modal</button>
     <va-modal
       v-model="showModalNotMobileFullScreen"
@@ -124,8 +120,7 @@
       :message="message"
     />
   </VbContainer>
-  <VbContainer>
-    <h4>no-outside-dismiss</h4>
+  <VbContainer title="no-outside-dismiss">
     <button @click="showModalNoOutsideDismiss = !showModalNoOutsideDismiss">Show modal</button>
     <va-modal
       v-model="showModalNoOutsideDismiss"
@@ -134,8 +129,7 @@
       :message="message"
     />
   </VbContainer>
-  <VbContainer>
-    <h4>no-esc-dismiss</h4>
+  <VbContainer title="no-esc-dismiss">
     <button @click="showModalNoEscDismiss = !showModalNoEscDismiss">Show modal</button>
     <va-modal
       v-model="showModalNoEscDismiss"
@@ -144,8 +138,7 @@
       :message="message"
     />
   </VbContainer>
-  <VbContainer>
-    <h4>several lays</h4>
+  <VbContainer title="several lays">
     <button @click="showModalFirstLay = !showModalFirstLay">Show modal</button>
     <va-modal
       v-model="showModalFirstLay"
@@ -162,11 +155,20 @@
       </slot>
     </va-modal>
   </VbContainer>
-  <VbContainer title="fixed layout && onOk, onCancel functions">
+  <VbContainer title="fixed layout">
     <button @click="showFixedLayoutModal = !showFixedLayoutModal">Show modal</button>
     <va-modal
       v-model="showFixedLayoutModal"
       :fixedLayout="true"
+      :message="message + message + message + message + message + message + message + message + message + message + message + message + message + message + message + message"
+    >
+      <template slot="header"><p>Step 2. Centered Layout</p></template>
+    </va-modal>
+  </VbContainer>
+  <VbContainer title="onOk, onCancel functions">
+    <button @click="showSpecialActionsModal = !showSpecialActionsModal">Show modal</button>
+    <va-modal
+      v-model="showSpecialActionsModal"
       v-on:ok="onOk"
       v-on:cancel="onCancel"
       :message="message + message + message + message + message + message + message + message + message + message + message + message + message + message + message + message"
@@ -174,13 +176,19 @@
       <template slot="header"><p>Step 2. Centered Layout</p></template>
     </va-modal>
   </VbContainer>
-  <VbContainer>
-    <h4>long message</h4>
+  <VbContainer title="long message">
     <button @click="showModalLongMessage = !showModalLongMessage">Show modal</button>
     <va-modal
       v-model="showModalLongMessage"
       title="Several lays"
-      :message="message + message + message + message + message + message"
+      :message="message + message + message + message + message + message + message + message + message + message + message + message + message + message + message + message"
+    />
+  </VbContainer>
+  <VbContainer title="without title">
+    <button @click="showModalWithoutTitle = !showModalWithoutTitle">Show modal</button>
+    <va-modal
+      v-model="showModalWithoutTitle"
+      :message="message + message + message + message + message + message + message + message + message + message + message + message + message + message + message + message"
     />
   </VbContainer>
 </VbDemo>
@@ -204,6 +212,7 @@ export default {
       showFullScreenModal: false,
       showActionsModal: false,
       showFixedLayoutModal: false,
+      showSpecialActionsModal: false,
       showModalWithCloseButton: false,
       showModalWithoutCloseButton: false,
       showModalNotMobileFullScreen: false,
@@ -212,6 +221,7 @@ export default {
       showModalFirstLay: false,
       showModalSecondLay: false,
       showModalLongMessage: false,
+      showModalWithoutTitle: false,
       message: 'About 64% of all on-line teens say that do things online that they wouldn’t want their parents to know about.   11% of all adult internet users visit dating websites and spend their time Some of the classify their behavior as “cyber affair”   More then 60% of employees use company PC for the personal needs during their work hours as long as 80 minutes per day.',
     }
   },
