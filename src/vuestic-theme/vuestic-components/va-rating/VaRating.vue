@@ -1,44 +1,48 @@
 <template>
-  <VbDemo>
-    <VbContainer>
+  <div class="va-rating">
+    <div
+      v-if="numbers === true"
+      class="va-rating__numbers"
+    >
       <div
-        v-if="numbers === true"
-        class="va-rating__numbers"
+        v-for="item in max"
+        :key=item
+        :class="getNumberClasses(item)"
+        class="va-rating__numbers--number"
+        :style="getNumberStyles(item)"
+        @click="setCurrentValue(item)"
       >
-        <div
-          v-for="item in max"
-          :key=item
-          :class="setNumberClasses(item)"
-          class="va-rating__numbers--number"
-          :style="setNumberStyles(item)"
-          @click="setCurrentValue(item)"
-        >
-          {{item}}
-        </div>
+        {{item}}
       </div>
-      <div
-        v-if="numbers === false"
-        class="va-rating__icons"
-      >
-        <va-star
-          v-for="item in max"
-          :key=item
-          :icon="icon"
-          :class="setIconClasses(item)"
-          class="va-rating__icons--icon"
-          :style="computedStylesIcon"
-          @click="setCurrentValue(item)"
-        />
-      </div>
-    </VbContainer>
-  </VbDemo>
+    </div>
+    <div
+      v-if="numbers === false"
+      class="va-rating__icons va-row"
+    >
+      <va-star
+        v-for="item in max"
+        :key=item
+        :icon="icon"
+        :emptyIcon="emptyIcon"
+        :value="getStarValue(item)"
+        :iconClasses="getIconClasses(item)"
+        :halfIcon="halfIcon"
+        class="va-rating__icons--icon"
+        :iconStyles="iconComputedStyles"
+        @click="setCurrentValue(item, $event)"
+        @hover="onHover(item, $event)"
+        :hover="setHover(item)"
+        :isHalf="item - value === 0.5"
+        @mouseout.native="onHover(value)"
+      />
+    </div>
+  </div>
 </template>
 
 <script>
-import VaStar from './VaStar'
+
 export default {
   name: 'va-rating',
-  components: { VaStar },
   props: {
     icon: {
       type: String,
@@ -46,6 +50,9 @@ export default {
     },
     halfIcon: {
       type: String
+    },
+    halves: {
+      type: Boolean
     },
     emptyIcon: {
       type: String
@@ -75,11 +82,16 @@ export default {
       type: String
     }
   },
+  data () {
+    return {
+      hoverItemNumber: this.value
+    }
+  },
   computed: {
-    computedStylesIcon () {
+    iconComputedStyles () {
       return {
         color: this.color,
-        fontSize: this.setIconSize(),
+        fontSize: this.getIconSize(),
         cursor: this.getCursor()
       }
     },
@@ -93,24 +105,33 @@ export default {
     },
   },
   methods: {
-    setNumberStyles (item) {
+    setHover (item) {
+      if (item <= this.hoverItemNumber) {
+        return true
+      }
+      return false
+    },
+    onHover (item, value) {
+      this.hoverItemNumber = item
+    },
+    getNumberStyles (item) {
       if (item <= this.value) {
         return {
           backgroundColor: this.color,
-          height: this.setIconSize(),
-          width: this.setIconSize(),
+          height: this.getIconSize(),
+          width: this.getIconSize(),
           cursor: this.getCursor()
         }
       }
       return {
         backgroundColor: this.color,
-        height: this.setIconSize(),
-        width: this.setIconSize(),
+        height: this.getIconSize(),
+        width: this.getIconSize(),
         cursor: this.getCursor(),
         color: this.color
       }
     },
-    setIconSize () {
+    getIconSize () {
       if (isNaN(this.size.trim().substring(0, 1))) {
         if (this.size.trim() === 'medium') {
           return 16 + 'px'
@@ -122,20 +143,20 @@ export default {
       }
       return this.size
     },
-    setIconClasses (item) {
+    getIconClasses (item) {
       if (this.emptyIcon) {
         return item <= this.value ? this.icon : this.emptyIcon
       }
       return item <= this.value ? this.icon : this.icon + ' ' +
         'va-rating__icons--icon--empty'
     },
-    setNumberClasses (item) {
+    getNumberClasses (item) {
       return item <= this.value ? 'this.icon' : 'va-rating__numbers--number-' +
         ' ' + 'va-rating__numbers--number--empty'
     },
-    setCurrentValue (item) {
+    setCurrentValue (item, value) {
       if (!this.readonly && !this.disabled) {
-        this.valueProxy = item
+        this.valueProxy = value === 1 ? item : item - 0.5
       }
     },
     getCursor () {
@@ -146,6 +167,9 @@ export default {
       } else {
         return 'pointer'
       }
+    },
+    getStarValue (item) {
+      return item <= this.value
     }
   }
 }
@@ -156,7 +180,6 @@ export default {
   display: flex;
   &__icons {
     &--icon {
-      padding: 0.1rem;
       &--empty {
         opacity: 0.4;
       }
