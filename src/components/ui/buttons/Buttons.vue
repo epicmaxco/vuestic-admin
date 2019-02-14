@@ -107,22 +107,21 @@
         <vuestic-widget class="larger-padding"
                         :headerText="$t('buttons.buttonGroups')">
           <div class="va-row">
-            <div class="flex xs12 md4">
+            <div class="flex xs12 lg12 xl6">
               <va-button-group>
-                <va-button large> Button 1 </va-button>
-                <va-button large> Button 2 </va-button>
-                <va-button large> Button 3 </va-button>
-                <va-button large> Button 4 </va-button>
+                <va-button large> One </va-button>
+                <va-button large> Two </va-button>
+                <va-button large> Three </va-button>
               </va-button-group>
             </div>
-            <div class="flex xs12 md4">
+            <div class="flex xs12 lg12 xl6">
               <va-button-group>
                 <va-button outline small color="danger" icon="maki maki-art-gallery"> First </va-button>
                 <va-button outline small color="danger"> Second </va-button>
                 <va-button outline small color="danger"> Third </va-button>
               </va-button-group>
             </div>
-            <div class="flex xs12 md4">
+            <div class="flex xs12 lg12 xl6">
               <va-button-group>
                 <va-button flat color="gray" icon="glyphicon glyphicon-envelope">
                   First
@@ -131,9 +130,7 @@
                 <va-button flat color="gray" icon="ion ion-ios-alarm"> Third </va-button>
               </va-button-group>
             </div>
-          </div>
-          <div class="va-row">
-            <div class="flex xs12 md4">
+            <div class="flex xs12 lg12 xl6">
               <va-button-group>
                 <va-button color="dark"> One </va-button>
                 <va-button color="dark"> Two </va-button>
@@ -141,14 +138,14 @@
                 <va-button color="dark" icon="ion-ios-arrow-down arrow-down"/>
               </va-button-group>
             </div>
-            <div class="flex xs12 md4">
+            <div class="flex xs12 lg12 xl6">
               <va-button-group>
                 <va-button outline large color="info"> First </va-button>
                 <va-button outline large color="info" icon-right="glyphicon glyphicon-pencil"> Second </va-button>
                 <va-button outline large color="info"> Third </va-button>
               </va-button-group>
             </div>
-            <div class="flex xs12 md4">
+            <div class="flex xs12 lg12 xl6">
               <va-button-group>
                 <va-button flat small color="warning" icon="glyphicon glyphicon-envelope"/>
                 <va-button flat small color="warning" icon="entypo entypo-user"/>
@@ -163,39 +160,37 @@
         <vuestic-widget class="larger-padding"
                         :headerText="$t('buttons.buttonToggles')">
           <div class="va-row">
-            <div class="flex xs12 md4">
+            <div class="flex xs12 md6 lg6">
               <va-button-toggle
                 v-model="model" :options="options"
                 toggle-color="warning"
               />
             </div>
-            <div class="flex xs12 md4">
+            <div class="flex xs12 md6 lg6">
               <va-button-toggle
                 outline v-model="model" :options="options"
                 color="danger" toggle-color="info"
               />
             </div>
-            <div class="flex xs12 md4">
+            <div class="flex xs12 md6 lg6">
               <va-button-toggle
                 flat v-model="model" :options="options"
                 color="gray" toggle-color="success"
               />
             </div>
-          </div>
-          <div class="va-row">
-            <div class="flex xs12 md4">
+            <div class="flex xs12 md6 lg6">
               <va-button-toggle
                 v-model="model" :options="options"
                 color="dark" toggle-color="danger"
               />
             </div>
-            <div class="flex xs12 md4">
+            <div class="flex xs12 md6 lg6">
               <va-button-toggle
                 outline v-model="model" :options="options"
                 color="info" toggle-color="gray"
               />
             </div>
-            <div class="flex xs12 md4">
+            <div class="flex xs12 md6 lg6">
               <va-button-toggle
                 flat v-model="model" :options="options"
                 color="warning" toggle-color="dark"
