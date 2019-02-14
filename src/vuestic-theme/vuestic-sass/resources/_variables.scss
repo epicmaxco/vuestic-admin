@@ -118,7 +118,10 @@ $auth-mobile-main-h: calc(100% - #{$top-mobile-nav-height});
 $auth-content-padding-t: 2.875rem;
 
 // Typography
-$blockquote-font-color: #babfc2;
+$blockquote-font-color: $brand-secondary;
+$text-highlighted: #fff3d1;
+$text-selected: #40e583;
+$on-focus-background-color: rgba(187, 180, 178, 0.71);
 
 //$text-color:            $gray !default;
 $font-family-sans-serif: 'Source Sans Pro', sans-serif !default;
@@ -151,7 +154,7 @@ $blockquote-font-size: 1.5rem;
 
 // Links
 $va-link-color: $brand-primary;
-$va-link-color-secondary: #babfc2;
+$va-link-color-secondary: $brand-secondary;
 $va-link-color-hover: #79eca8;
 $va-link-color-active: #48c279;
 $va-link-color-visited: $va-link-color;

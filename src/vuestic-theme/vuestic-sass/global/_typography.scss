@@ -40,6 +40,15 @@
   &--highlighted {
     background-color: $text-highlighted;
   }
+  &--left {
+    text-align: left !important;
+  }
+  &--right {
+    text-align: right !important;
+  }
+  &--center {
+    text-align: center !important;
+  }
   &--uppercase {
     text-transform: uppercase !important;
   }
@@ -110,7 +119,6 @@ ul.va-unordered {
 
   & > li {
     padding-left: 1rem;
-    padding-bottom: 1rem;
     position: relative;
 
     &:before {
