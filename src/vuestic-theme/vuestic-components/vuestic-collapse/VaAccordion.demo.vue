@@ -5,23 +5,15 @@
         <va-collapse>
           <span slot="header"> Expand This Block </span>
           <div slot="body">
-            <div style="padding: 10px;">
+            <div>
               Expand first content
-            </div>
-          </div>
-        </va-collapse>
-        <va-collapse>
-          <span slot="header"> Another Block </span>
-          <div slot="body">
-            <div style="padding: 10px;">
-              Expand second content
             </div>
           </div>
         </va-collapse>
         <va-collapse isBackgroundExists>
           <span slot="header">Accordeon with background</span>
           <div slot="body">
-            <div style="padding: 10px;">
+            <div>
               Expand three content
             </div>
           </div>
@@ -33,23 +25,15 @@
         <va-collapse>
           <span slot="header"> Expand This Block </span>
           <div slot="body">
-            <div style="padding: 10px;">
+            <div>
               Expand first content
             </div>
           </div>
         </va-collapse>
-        <va-collapse>
-          <span slot="header"> Another Block </span>
-          <div slot="body">
-            <div style="padding: 10px;">
-              Expand second content
-            </div>
-          </div>
-        </va-collapse>
-        <va-collapse>
+        <va-collapse :value="true">
           <span slot="header"> Let's Go </span>
           <div slot="body">
-            <div style="padding: 10px;">
+            <div>
               Expand three content
             </div>
           </div>

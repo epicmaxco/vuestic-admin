@@ -1,6 +1,5 @@
 <template>
   <div class="collapse-page">
-    <div class="flex md12">
       <vuestic-widget :headerText="$t('collapse.accordion')">
         <va-accordion>
           <va-collapse>
@@ -8,25 +7,21 @@
             <div slot="body">
               <div class="va-row">
                 <div class="flex md6">
-                  <div class="collapse-page__content">
-                    <h4 class="collapse-page__content__title">February 2018</h4>
-                    <div>
-                      The unique stripes of zebras make them one of the animals
-                      most familiar to people. They occur in a variety of
-                      habitats,
-                      such as grasslands, savannas, woodlands, thorny
-                      scrublands.
-                    </div>
+                  <p class="collapse-page__title">February 2018</p>
+                  <div>
+                    The unique stripes of zebras make them one of the animals
+                    most familiar to people. They occur in a variety of
+                    habitats,
+                    such as grasslands, savannas, woodlands, thorny
+                    scrublands.
                   </div>
                 </div>
                 <div class="flex md6">
-                  <div class="collapse-page__content">
-                    <h4 class="collapse-page__content__title">March 2018</h4>
-                    <div>
-                      They occur in a variety of habitats,
-                      such as grasslands, savannas, woodlands, thorny
-                      scrublands.
-                    </div>
+                  <p class="collapse-page__title">March 2018</p>
+                  <div>
+                    They occur in a variety of habitats,
+                    such as grasslands, savannas, woodlands, thorny
+                    scrublands.
                   </div>
                 </div>
               </div>
@@ -37,25 +32,21 @@
             <div slot="body">
               <div class="va-row">
                 <div class="flex md6">
-                  <div class="collapse-page__content">
-                    <h4 class="collapse-page__content__title">April 2018</h4>
-                    <div>
-                      The unique stripes of zebras make them one of the animals
-                      most familiar to people. They occur in a variety of
-                      habitats,
-                      such as grasslands, savannas, woodlands, thorny
-                      scrublands.
-                    </div>
+                  <p class="collapse-page__title">April 2018</p>
+                  <div>
+                    The unique stripes of zebras make them one of the animals
+                    most familiar to people. They occur in a variety of
+                    habitats,
+                    such as grasslands, savannas, woodlands, thorny
+                    scrublands.
                   </div>
                 </div>
                 <div class="flex md6">
-                  <div class="collapse-page__content">
-                    <h4 class="collapse-page__content__title">May 2018</h4>
-                    <div>
-                      They occur in a variety of habitats,
-                      such as grasslands, savannas, woodlands, thorny
-                      scrublands.
-                    </div>
+                  <p class="collapse-page__title">May 2018</p>
+                  <div>
+                    They occur in a variety of habitats,
+                    such as grasslands, savannas, woodlands, thorny
+                    scrublands.
                   </div>
                 </div>
               </div>
@@ -66,25 +57,21 @@
             <div slot="body">
               <div class="va-row">
                 <div class="flex md6">
-                  <div class="collapse-page__content">
-                    <h4 class="collapse-page__content__title">June 2018</h4>
-                    <div>
-                      The unique stripes of zebras make them one of the animals
-                      most familiar to people. They occur in a variety of
-                      habitats,
-                      such as grasslands, savannas, woodlands, thorny
-                      scrublands.
-                    </div>
+                  <p class="collapse-page__title">June 2018</p>
+                  <div>
+                    The unique stripes of zebras make them one of the animals
+                    most familiar to people. They occur in a variety of
+                    habitats,
+                    such as grasslands, savannas, woodlands, thorny
+                    scrublands.
                   </div>
                 </div>
                 <div class="flex md6">
-                  <div class="collapse-page__content">
-                    <h4 class="collapse-page__content__title">July 2018</h4>
-                    <div>
-                      They occur in a variety of habitats,
-                      such as grasslands, savannas, woodlands, thorny
-                      scrublands.
-                    </div>
+                  <p class="collapse-page__title">July 2018</p>
+                  <div>
+                    They occur in a variety of habitats,
+                    such as grasslands, savannas, woodlands, thorny
+                    scrublands.
                   </div>
                 </div>
               </div>
@@ -92,52 +79,85 @@
           </va-collapse>
         </va-accordion>
       </vuestic-widget>
-    </div>
-    <div class="flex md12">
-      <vuestic-widget :headerText="$t('collapse.buttons')">
-        <div class="va-row">
-          <div class="flex md12">
-            <va-collapse noHeader>
-              <div class="va-row" slot="header">
-                <div class="flex md4">
-                  <va-button>
-                    <span> Expand Button </span>
-                  </va-button>
+    <vuestic-widget :headerText="$t('collapse.accordionWithBackground')">
+      <va-accordion>
+        <va-collapse isBackgroundExists>
+          <span slot="header"> Expand This Block </span>
+          <div slot="body">
+            <div class="va-row">
+              <div class="flex md6">
+                <p class="collapse-page__title">February 2018</p>
+                <div>
+                  The unique stripes of zebras make them one of the animals
+                  most familiar to people. They occur in a variety of
+                  habitats,
+                  such as grasslands, savannas, woodlands, thorny
+                  scrublands.
                 </div>
               </div>
-              <div slot="body">
-                <div class="va-row">
-                  <div class="flex md6">
-                    <div class="collapse-page__content">
-                      <h4 class="collapse-page__content__title">February
-                        2018</h4>
-                      <div>
-                        The unique stripes of zebras make them one of the
-                        animals
-                        most familiar to people. They occur in a variety of
-                        habitats,
-                        such as grasslands, savannas, woodlands, thorny
-                        scrublands.
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex md6">
-                    <div class="collapse-page__content">
-                      <h4 class="collapse-page__content__title">March 2018</h4>
-                      <div>
-                        They occur in a variety of habitats,
-                        such as grasslands, savannas, woodlands, thorny
-                        scrublands.
-                      </div>
-                    </div>
-                  </div>
+              <div class="flex md6">
+                <p class="collapse-page__title">March 2018</p>
+                <div>
+                  They occur in a variety of habitats,
+                  such as grasslands, savannas, woodlands, thorny
+                  scrublands.
                 </div>
               </div>
-            </va-collapse>
+            </div>
           </div>
-        </div>
-      </vuestic-widget>
-    </div>
+        </va-collapse>
+        <va-collapse isBackgroundExists>
+          <span slot="header"> Another Block </span>
+          <div slot="body">
+            <div class="va-row">
+              <div class="flex md6">
+                <p class="collapse-page__title">April 2018</p>
+                <div>
+                  The unique stripes of zebras make them one of the animals
+                  most familiar to people. They occur in a variety of
+                  habitats,
+                  such as grasslands, savannas, woodlands, thorny
+                  scrublands.
+                </div>
+              </div>
+              <div class="flex md6">
+                <p class="collapse-page__title">May 2018</p>
+                <div>
+                  They occur in a variety of habitats,
+                  such as grasslands, savannas, woodlands, thorny
+                  scrublands.
+                </div>
+              </div>
+            </div>
+          </div>
+        </va-collapse>
+        <va-collapse isBackgroundExists>
+          <span slot="header"> Let's Go </span>
+          <div slot="body">
+            <div class="va-row">
+              <div class="flex md6">
+                <p class="collapse-page__title">June 2018</p>
+                <div>
+                  The unique stripes of zebras make them one of the animals
+                  most familiar to people. They occur in a variety of
+                  habitats,
+                  such as grasslands, savannas, woodlands, thorny
+                  scrublands.
+                </div>
+              </div>
+              <div class="flex md6">
+                <p class="collapse-page__title">July 2018</p>
+                <div>
+                  They occur in a variety of habitats,
+                  such as grasslands, savannas, woodlands, thorny
+                  scrublands.
+                </div>
+              </div>
+            </div>
+          </div>
+        </va-collapse>
+      </va-accordion>
+    </vuestic-widget>
   </div>
 </template>
 
@@ -149,15 +169,12 @@ export default {
 
 <style lang="scss">
 .collapse-page {
-  &__content {
-    padding: 2rem;
-    &__title {
-      font-size: 1.375rem;
-      font-weight: bold;
-    }
-    &__description {
+  &__title {
+    font-size: 1.375rem;
+    font-weight: bold;
+  }
+  &__description {
 
-    }
   }
 }
 </style>

@@ -51,8 +51,8 @@
     "bubbleChart": "Bubble Chart"
   },
   "collapse": {
-    "accordion": "Accordion",
-    "buttons": "Buttons"
+    "accordion": "Basic Accordion",
+    "accordionWithBackground": "Accordion with background"
   },
   "dashboard": {
     "dataVisualization": "Data Visualization",

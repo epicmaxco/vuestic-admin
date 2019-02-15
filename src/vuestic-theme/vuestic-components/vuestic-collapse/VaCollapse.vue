@@ -45,8 +45,7 @@ export default {
   name: 'va-collapse',
   props: {
     value: {
-      type: Boolean,
-      default: false,
+      type: Boolean
     },
     isBackgroundExists: Boolean,
     noHeader: Boolean,
@@ -76,12 +75,14 @@ export default {
   methods: {
     expand () {
       const bodyContent = this.$refs.collapseBody
-      bodyContent.style.height = this.$slots.body[0].elm.clientHeight + 'px'
+      bodyContent.style.height = this.$slots.body[0].elm.clientHeight + 36 + 'px'
+      bodyContent.style.padding = 1 + 'rem'
       this.show = true
     },
     collapse () {
       const bodyContent = this.$refs.collapseBody
       bodyContent.style.height = 0
+      bodyContent.style.padding = 0
       this.show = false
     },
     onHeaderClick () {
@@ -103,15 +104,16 @@ export default {
   }
   &__body {
     height: 0;
-    transition: height 0.3s;
+    transition: ease-in 0.3s;
     overflow: hidden;
     &--with-background {
-      margin-top: 0.25rem;
+      margin-top: 0.1rem;
       border-radius: 6px;
       background-color: $collapse-background;
     }
   }
   &__header {
+    height: 50px;
     &__button-container {
       justify-content: space-between;
       cursor: pointer;
