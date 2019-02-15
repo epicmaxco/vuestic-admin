@@ -76,13 +76,20 @@ export default {
     expand () {
       const bodyContent = this.$refs.collapseBody
       bodyContent.style.height = this.$slots.body[0].elm.clientHeight + 36 + 'px'
-      bodyContent.style.padding = 1 + 'rem'
+      if (!this.isBackgroundExists) {
+        bodyContent.style.paddingTop = 1 + 'rem'
+        bodyContent.style.paddingBottom = 1 + 'rem'
+      } else {
+        bodyContent.style.paddingTop = 0.75 + 'rem'
+        bodyContent.style.paddingBottom = 1.5 + 'rem'
+      }
       this.show = true
     },
     collapse () {
       const bodyContent = this.$refs.collapseBody
       bodyContent.style.height = 0
-      bodyContent.style.padding = 0
+      bodyContent.style.paddingTop = 0
+      bodyContent.style.paddingBottom = 0
       this.show = false
     },
     onHeaderClick () {
@@ -106,6 +113,8 @@ export default {
     height: 0;
     transition: ease-in 0.3s;
     overflow: hidden;
+    padding-left: 1rem;
+    padding-right: 1rem;
     &--with-background {
       margin-top: 0.1rem;
       border-radius: 6px;
