@@ -12,13 +12,9 @@
       </template>
       <div
         v-else
-        class="va-collapse__header__button-container va-row"
+        class="va-collapse__header__content va-row "
       >
-        <button
-          class="va-collapse__header__button"
-        >
-          <slot name="header"/>
-        </button>
+        <slot name="header"/>
         <i
           v-if="show"
           class="fa fa-angle-up va-collapse__header__icon"
@@ -47,8 +43,7 @@ export default {
     value: {
       type: Boolean
     },
-    isBackgroundExists: Boolean,
-    noHeader: Boolean,
+    isBackgroundExists: Boolean
   },
   inject: {
     accordion: {
@@ -61,6 +56,7 @@ export default {
   data () {
     return {
       show: this.value,
+      noHeader: !this.$slots.header
     }
   },
   watch: {
@@ -123,18 +119,16 @@ export default {
   }
   &__header {
     height: 50px;
-    &__button-container {
+    &__content {
       justify-content: space-between;
       cursor: pointer;
       background-color: $collapse-background;
       box-shadow: 0 2px 3px 0 rgba(98, 106, 119, 0.25);
       border-radius: 6px;
-    }
-    & &__button {
-      background-color: $collapse-background;
       cursor: pointer;
       outline: 0;
       border: 0;
+      align-items: center;
       padding-top: 11px;
       padding-bottom: 13px;
       padding-left: 1rem;
@@ -142,9 +136,6 @@ export default {
     }
     &__icon {
       cursor: pointer;
-      padding-top: 1rem;
-      padding-right: 0.5rem;
-      height: 24px;
       width: 24px;
       color: $gray;
     }

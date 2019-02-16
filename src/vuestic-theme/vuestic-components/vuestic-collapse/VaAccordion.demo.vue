@@ -30,7 +30,7 @@
             </div>
           </div>
         </va-collapse>
-        <va-collapse :value="true">
+        <va-collapse>
           <span slot="header"> Let's Go </span>
           <div slot="body">
             <div>

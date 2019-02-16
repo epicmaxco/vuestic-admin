@@ -20,6 +20,23 @@
           Expand content Expand content Expand content Expand content
         </div>
       </va-collapse>
+      <va-collapse v-model="expand" isBackgroundExists>
+        <span slot="header"> Expand This Block </span>
+        <div slot="body">
+          Expand content Expand content Expand content Expand content Expand
+          content Expand content Expand content Expand content Expand content
+          Expand content Expand content Expand content Expand content
+          Expand content Expand content Expand content Expand content Expand
+          content Expand content Expand content Expand content Expand content
+          Expand content Expand content Expand content Expand content
+          Expand content Expand content Expand content Expand content Expand
+          content Expand content Expand content Expand content Expand content
+          Expand content Expand content Expand content Expand content
+          Expand content Expand content Expand content Expand content Expand
+          content Expand content Expand content Expand content Expand content
+          Expand content Expand content Expand content Expand content
+        </div>
+      </va-collapse>
     </VbContainer>
   </VbDemo>
 </template>
