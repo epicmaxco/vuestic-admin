@@ -1,6 +1,6 @@
 <template>
-  <div class="demo-container">
-    <div class="demo-container__item">
+  <VbDemo>
+    <VbContainer>
       <va-rating
         :max="6"
         size="30px"
@@ -9,10 +9,9 @@
         halfIcon="fa fa-star-half-full"
         v-model="value"
       />
-      30px half-icon
-      {{value}}
-    </div>
-    <div class="demo-container__item">
+      half-icon
+    </VbContainer>
+    <VbContainer>
       <va-rating
         :max="6"
         size="large"
@@ -21,9 +20,8 @@
         v-model="value"
       />
       disabled
-      {{value}}
-    </div>
-    <div class="demo-container__item">
+    </VbContainer>
+    <VbContainer>
       <va-rating
         :max="6"
         size="large"
@@ -32,9 +30,8 @@
         readonly
       />
       readonly
-      {{value}}
-    </div>
-    <div class="demo-container__item">
+    </VbContainer>
+    <VbContainer>
       <va-rating
         :max="6"
         size="large"
@@ -43,9 +40,8 @@
         numbers
       />
       numbers
-      {{value}}
-    </div>
-    <div class="demo-container__item">
+    </VbContainer>
+    <VbContainer>
       <va-rating
         :max="6"
         size="small"
@@ -53,17 +49,19 @@
         v-model="value"
       />
       small
-      {{value}}
-    </div>
-    <div class="demo-container__item">
+    </VbContainer>
+    <VbContainer>
       <va-rating
         :max="8"
         icon="fa fa-bug"
         color="blue"
         v-model="value"
       />
-    </div>
-  </div>
+    </VbContainer>
+    <VbContainer>
+      value = {{value}}
+    </VbContainer>
+  </VbDemo>
 </template>
 
 <script>

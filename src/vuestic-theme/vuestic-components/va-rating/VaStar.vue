@@ -23,6 +23,9 @@ export default {
       type: String,
       default: 'fa fa-star'
     },
+    isRatingHover: {
+      type: Boolean
+    },
     halfIcon: {
       type: String
     },
@@ -54,19 +57,24 @@ export default {
   computed: {
     iconClassesComputed () {
       if (this.halfIcon) {
-        if (this.hover && this.hoverValue !== 0.5) {
-          return this.iconClasses + this.icon
-        } else if (this.isHalf && this.hoverValue === 0.5) {
-          return this.iconClasses + this.halfIcon
-        }
-        if (this.hover && this.hoverValue === 0.5) {
-          return this.halfIcon
-        }
-        if (!this.hover && !this.isHalf) {
-          return this.emptyIcon
-        }
-        if (this.isHalf && !this.hover) {
-          return this.emptyIcon
+        if (this.isRatingHover) {
+          if (this.hover) {
+            if (this.hoverValue !== 0.5) {
+              return this.iconClasses + this.icon
+            } else {
+              return this.halfIcon
+            }
+          } else {
+            return this.emptyIcon
+          }
+        } else {
+          if (this.value) {
+            return this.icon
+          } else if (this.isHalf) {
+            return this.halfIcon
+          } else {
+            return this.emptyIcon
+          }
         }
       }
       return this.iconClasses + this.extraClasses

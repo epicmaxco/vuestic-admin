@@ -10,7 +10,7 @@
         :class="getNumberClasses(item)"
         class="va-rating__numbers--number"
         :style="getNumberStyles(item)"
-        @click="setCurrentValue(item)"
+        @click="setCurrentValue(item, 1)"
       >
         {{item}}
       </div>
@@ -18,6 +18,8 @@
     <div
       v-if="numbers === false"
       class="va-rating__icons va-row"
+      @mouseover="isHover = true"
+      @mouseout="isHover = false"
     >
       <va-star
         v-for="item in max"
@@ -33,6 +35,7 @@
         @hover="onHover(item, $event)"
         :hover="setHover(item)"
         :isHalf="item - value === 0.5"
+        :isRatingHover="isHover"
         @mouseout.native="onHover(value)"
       />
     </div>
@@ -84,7 +87,8 @@ export default {
   },
   data () {
     return {
-      hoverItemNumber: this.value
+      hoverItemNumber: this.value,
+      isHover: false
     }
   },
   computed: {
@@ -106,7 +110,7 @@ export default {
   },
   methods: {
     setHover (item) {
-      if (item <= this.hoverItemNumber) {
+      if (item <= this.hoverItemNumber && this.isHover) {
         return true
       }
       return false
@@ -128,7 +132,6 @@ export default {
         height: this.getIconSize(),
         width: this.getIconSize(),
         cursor: this.getCursor(),
-        color: this.color
       }
     },
     getIconSize () {
@@ -169,7 +172,10 @@ export default {
       }
     },
     getStarValue (item) {
-      return item <= this.value
+      if (!this.hover) {
+        return item <= this.value
+      }
+      return false
     }
   }
 }
