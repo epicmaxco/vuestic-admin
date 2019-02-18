@@ -9,7 +9,10 @@
     <span v-if="icon" class="va-slider__label title">
       <va-icon :icon="icon" :color="color" :size="16"/>
     </span>
-    <div class="va-slider__container d-flex align--center">
+    <div
+      class="va-slider__container d-flex align--center"
+      ref="elem"
+    >
       <div
         class="va-slider-track"
         :style="{ width: max + '%', backgroundColor: color }"/>
@@ -18,27 +21,54 @@
           v-for="pin in pinsCol"
           :key="pin"
           class="va-slider-mark"
-          :class="{ 'va-slider-mark--active': pin * step < value }"
+          :class="{ 'va-slider-mark--active': pin * step < currentValue }"
           :style="{ left: pin * step + '%' }"
         />
       </template>
-      <div
-        ref="process"
-        class="va-slider-track va-slider-track--active"
-        :style="{ width: value + '%', backgroundColor: color }"
-        @mousedown="moveStart($event, 0, true)"
-        @touchstart="moveStart($event, 0, true)"/>
-      <div
-        ref="dot"
-        class="va-slider-handler"
-        :style="{ left: 'calc(' + value + '% - 8px)', backgroundColor: color }"
-        @touchstart="moveStart"
-        @mousedown="moveStart"
-      >
-        <div v-if="valueVisible" class="va-slider-handler__value d-inline-flex title">
-          {{ value }}
+      <template v-if="isRange">
+        <div
+          ref="process"
+          class="va-slider-track va-slider-track--active"
+          :style="{ left: currentValue[0] + '%', width: interval + '%', backgroundColor: color }"
+          @mousedown="moveStart($event, 0, true)"/>
+        <div
+          ref="dot0"
+          class="va-slider-handler"
+          :style="{ left: 'calc(' + currentValue[0] + '% - 8px)', backgroundColor: color }"
+          @mousedown="moveStart($event, 0)"
+        >
+          <div v-if="valueVisible" class="va-slider-handler__value d-inline-flex title">
+            {{ currentValue[0] }}
+          </div>
         </div>
-      </div>
+        <div
+          ref="dot1"
+          class="va-slider-handler"
+          :style="{ left: 'calc(' + currentValue[1] + '% - 8px)', backgroundColor: color }"
+          @mousedown="moveStart($event, 1)"
+        >
+          <div v-if="valueVisible" class="va-slider-handler__value d-inline-flex title">
+            {{ currentValue[1] }}
+          </div>
+        </div>
+      </template>
+      <template v-else>
+        <div
+          ref="process"
+          class="va-slider-track va-slider-track--active"
+          :style="{ width: currentValue + '%', backgroundColor: color }"
+          @mousedown="moveStart($event, 0, true)"/>
+        <div
+          ref="dot"
+          class="va-slider-handler"
+          :style="{ left: 'calc(' + currentValue + '% - 8px)', backgroundColor: color }"
+          @mousedown="moveStart"
+        >
+          <div v-if="valueVisible" class="va-slider-handler__value d-inline-flex title">
+            {{ currentValue }}
+          </div>
+        </div>
+      </template>
     </div>
     <span v-if="iconRight" class="va-slider__invert-label title">
       <va-icon :icon="iconRight" :color="color" :size="16"/>
@@ -57,7 +87,7 @@ export default {
       type: Boolean,
     },
     value: {
-      type: Number,
+      type: Number | Array,
     },
     valueVisible: {
       type: Boolean,
@@ -107,7 +137,7 @@ export default {
       size: 0,
       fixedValue: 0,
       focusSlider: 0,
-      currentValue: 0,
+      currentValue: this.value,
       currentSlider: 0,
       isComponentExists: true,
       isMounted: false
@@ -123,6 +153,9 @@ export default {
         'va-slider--disabled': this.disabled
       }
     },
+    interval () {
+      return this.currentValue[1] - this.currentValue[0]
+    },
     pinsCol () {
       return (this.max / this.step) - 1
     },
@@ -130,7 +163,7 @@ export default {
       return typeof this.dotWidth === 'number' ? this.dotWidth : 16
     },
     slider () {
-      return this.$refs.dot
+      return this.isRange ? [this.$refs.dot0, this.$refs.dot1] : this.$refs.dot
     },
     limit () {
       return [0, this.size]
@@ -140,6 +173,9 @@ export default {
     },
     disabledArray () {
       return this.disabled
+    },
+    isRange () {
+      return Array.isArray(this.value)
     },
   },
   watch: {
@@ -174,10 +210,11 @@ export default {
     },
     fixed () {
       this.computedFixedValue()
-    }
+    },
   },
   methods: {
     bindEvents () {
+      document.addEventListener('touchstart', this.moveStart)
       document.addEventListener('touchmove', this.moving, { passive: false })
       document.addEventListener('touchend', this.moveEnd, { passive: false })
       document.addEventListener('mousedown', this.blurSlider)
@@ -188,45 +225,76 @@ export default {
       document.addEventListener('keyup', this.handleKeyup)
       window.addEventListener('resize', this.refresh)
     },
+    unbindEvents () {
+      document.removeEventListener('touchmove', this.moving)
+      document.removeEventListener('touchend', this.moveEnd)
+      document.removeEventListener('mousedown', this.blurSlider)
+      document.removeEventListener('mousemove', this.moving)
+      document.removeEventListener('mouseup', this.moveEnd)
+      document.removeEventListener('mouseleave', this.moveEnd)
+      document.removeEventListener('keydown', this.handleKeydown)
+      document.removeEventListener('keyup', this.handleKeyup)
+      window.removeEventListener('resize', this.refresh)
+    },
     getPos (e) {
-      this.realTime && this.getStaticData()
+      this.getStaticData()
       return e.clientX - this.offset
     },
     setCurrentValue (val, isDrag, isIdleSlider) {
-      // let slider = isIdleSlider ? this.idleSlider : this.currentSlider
-      if (val < this.min || val > this.max) return false
-      if (this.isDiff(this.currentValue, val)) {
-        this.currentValue = val
-        if (!this.lazy || !this.flag) {
-          this.syncValue()
+      let slider = isIdleSlider ? this.idleSlider : this.currentSlider
+      console.log(val)
+      console.log(this.currentValue)
+      if (this.isRange) {
+        if (this.isDiff(this.currentValue[slider], val)) {
+          this.currentValue.splice(slider, 1, val)
+          if (!this.lazy || !this.flag) {
+            this.syncValue()
+          }
+        }
+      } else {
+        if (val < this.min || val > this.max) return false
+        if (this.isDiff(this.currentValue, val)) {
+          this.currentValue = val
+          if (!this.lazy || !this.flag) {
+            this.syncValue()
+          }
         }
       }
       isDrag || this.setPosition()
     },
+    getValueByIndex (index) {
+      let decimals = `${this.step}`.split('.')[1],
+        multiple = decimals ? Math.pow(10, decimals.length) : 1
+      let tempValue = ((this.step * multiple) * index + (this.min * multiple)) / this.step
+      this.$refs.process.style.width = `${tempValue}%`
+      return tempValue
+
+    },
     setValueOnPos (pos, isDrag) {
-      let range = this.limit
-      let valueRange = this.valueLimit
+      let range = this.limit,
+        valueRange = this.valueLimit,
+        diff = this.size / this.max,
+        decimals = `${this.step}`.split('.')[1],
+        multiple = decimals ? Math.pow(10, decimals.length) : 1
       if (pos >= range[0] && pos <= range[1]) {
+        console.log('Case 1')
         this.setTransform(pos)
-        let v = this.getValueByIndex(Math.round(pos / this.gap))
+        let v = this.getValueByIndex(Math.round(pos / diff))
         this.setCurrentValue(v, isDrag)
-        if (this.isRange && this.fixed) {
-          this.setTransform(pos + ((this.fixedValue * this.gap) * (this.currentSlider === 0 ? 1 : -1)), true)
-          this.setCurrentValue((v * this.multiple + (this.fixedValue * this.spacing * this.multiple * (this.currentSlider === 0 ? 1 : -1))) / this.multiple, isDrag, true)
+        if (this.isRange) {
+          this.setTransform(pos + ((this.fixedValue * diff) * (this.currentSlider === 0 ? 1 : -1)), true)
+          this.setCurrentValue((v * multiple + (this.fixedValue * this.step * multiple * (this.currentSlider === 0 ? 1 : -1))) / multiple, isDrag, true)
         }
       } else if (pos < range[0]) {
+        console.log('Case 2')
         this.setTransform(range[0])
         this.setCurrentValue(valueRange[0])
-        if (this.isRange && this.fixed) {
-          this.setTransform(this.limit[this.idleSlider][0], true)
-          this.setCurrentValue(this.valueLimit[this.idleSlider][0], isDrag, true)
-        } else if (!this.fixed && !this.disabledArray[0] && this.currentSlider === 1) {
+        if (!this.fixed && !this.disabledArray[0] && this.currentSlider === 1) {
           this.focusSlider = 0
           this.currentSlider = 0
         }
       } else {
-        console.log(range)
-        console.log(valueRange)
+        console.log('Case 3')
         this.setTransform(range[1])
         this.setCurrentValue(valueRange[1])
         if (!this.fixed && !this.disabledArray[1] && this.currentSlider === 0) {
@@ -236,10 +304,26 @@ export default {
       }
     },
     moveStart (e, index = 0, isProcess) {
+      console.log('Start')
+      if (this.isRange) {
+        this.currentSlider = index
+
+        if (isProcess) {
+          if (!this.processDragable) {
+            return false
+          }
+          this.processFlag = true
+          this.processSign = {
+            pos: this.position,
+            start: this.getPos((e.targetTouches && e.targetTouches[0]) ? e.targetTouches[0] : e)
+          }
+        }
+      }
       if (!isProcess && this.useKeyboard) {
         this.focusFlag = true
         this.focusSlider = index
       }
+
       this.flag = true
       this.$emit('drag-start', this)
     },
@@ -262,10 +346,10 @@ export default {
       }
     },
     moveEnd (e) {
+      console.log('End')
+      console.log(this.currentValue)
       if (this.flag) {
         this.$emit('drag-end', this)
-        console.log(this.val)
-        console.log(this.value)
         if (this.lazy && this.isDiff(this.val, this.value)) {
           this.syncValue()
         }
@@ -276,36 +360,50 @@ export default {
       window.setTimeout(() => {
         this.processFlag = false
       }, 0)
+
+      if (this.pins){
+        let currentRest = this.currentValue % this.step
+        if ((currentRest / this.step) >= 0.5){
+          this.currentValue = this.currentValue + (this.step - currentRest)
+        } else {
+          this.currentValue = this.currentValue - currentRest
+        }
+      }
+      this.$refs.process.style.width = `${this.currentValue}%`
       this.setPosition()
     },
-    setPosition (speed) {
-      this.flag || this.setTransitionTime(speed === undefined ? this.speed : speed)
-      console.log(this.position)
+    setPosition () {
       this.setTransform(this.position)
-      this.flag || this.setTransitionTime(0)
     },
-    setTransform (val) {
+    setTransform (val, isIdleSlider) {
       function roundToDPR () {
         const r = typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1
         return value => Math.round(value * r) / r
       }
 
+      const diff = this.size / this.max
+
+      let slider = isIdleSlider ? this.idleSlider : this.currentSlider
       let value = roundToDPR(((val - (this.dotWidthVal / 2))) * (this.reverse ? -1 : 1))
       let translateValue = `translateX(${value}px)`
-      this.slider.style.transform = translateValue
-      this.slider.style.WebkitTransform = translateValue
-      this.slider.style.msTransform = translateValue
-      this.$refs.process.style.width = `${val}px`
-      this.$refs.process.style['left'] = 0
-    },
-    setTransitionTime (time) {
-      // In order to avoid browser merge style and modify together
-      // time || this.$refs.process.offsetWidth
+      let processSize = `${(this.currentValue[1] - this.currentValue[0]) * diff}px`
+      let processPos = `${slider === 0 ? val : (val - (this.currentValue[1] - this.currentValue[0]) * diff)}px`
 
-      this.slider.style.transitionDuration = `${time}s`
-      this.slider.style.WebkitTransitionDuration = `${time}s`
-      this.$refs.process.style.transitionDuration = `${time}s`
-      this.$refs.process.style.WebkitTransitionDuration = `${time}s`
+      if (this.isRange) {
+        console.log(this.slider)
+        this.slider[slider].style.transform = translateValue
+        this.slider[slider].style.WebkitTransform = translateValue
+        this.slider[slider].style.msTransform = translateValue
+        this.$refs.process.style.width = processSize
+        this.$refs.process.style['left'] = processPos
+      } else {
+        console.log(this.slider)
+        this.slider.style.transform = translateValue
+        this.slider.style.WebkitTransform = translateValue
+        this.slider.style.msTransform = translateValue
+        this.$refs.process.style.width = `${val}px`
+        this.$refs.dot.style['left'] = `calc('${val}px - 8px)`
+      }
     },
     isDiff (a, b) {
       if (Object.prototype.toString.call(a) !== Object.prototype.toString.call(b)) {
@@ -317,7 +415,6 @@ export default {
     },
     syncValue (noCb) {
       let val = this.value
-      console.log(val)
       this.$emit('input', val)
       this.keydownFlag && this.$emit('on-keypress', val)
       noCb || this.$emit('callback', val)

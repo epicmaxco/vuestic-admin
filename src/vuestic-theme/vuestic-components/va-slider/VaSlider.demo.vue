@@ -2,8 +2,19 @@
   <VbDemo>
     <VbContainer width="500px">
       <va-slider
+        pins
         label="Label"
+        :step="20"
+        value-visible
         v-model="value"
+      />
+    </VbContainer>
+    <VbContainer width="500px">
+      <va-slider
+        range
+        label="Label"
+        value-visible
+        v-model="value2"
       />
     </VbContainer>
     <!--<VbContainer width="500px">
@@ -64,7 +75,8 @@ export default {
   },
   data () {
     return {
-      value: 70
+      value: 70,
+      value2: [20, 60]
     }
   },
 }
