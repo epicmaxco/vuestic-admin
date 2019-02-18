@@ -18,11 +18,11 @@
                 name="input-icon-left"
                 required
               />
-              <i class="fa fa-search icon-left input-icon"/>
+              <va-icon icon="fa fa-search icon-left input-icon"/>
               <label class="control-label" for="input-icon-left">
                 {{ $t('icons.search') }}
               </label>
-              <i class="bar"></i>
+              <va-icon icon="bar"/>
             </div>
           </div>
         </div>
@@ -55,11 +55,7 @@
           :key="icon"
         >
           <div class="vuestic-icon">
-            <span
-              :class="iconClass(icon)"
-              :style="`font-size: ${iconSize}px`"
-              aria-hidden="true"
-            />
+            <va-icon :icon="iconClass(icon)" size="iconSize"/>
           </div>
           <div class="icon-text">
             {{ icon }}

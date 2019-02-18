@@ -4,27 +4,25 @@
       <div class="flex md12">
         <vuestic-widget class="modals-list larger-padding"
                         :header-text="$t('modal.title')">
-          <button class="btn btn-danger" @click="showSmallModal()">
-            {{'modal.small' | translate }}
-          </button>
-          <button class="btn btn-info" @click="showMediumModal()">
-            {{'modal.medium' | translate }}
-          </button>
-          <button class="btn btn-warning" @click="showLargeModal()">
-            {{'modal.large' | translate }}
-          </button>
-          <button class="btn btn-success" @click="showStaticModal()">
-            {{'modal.static' | translate }}
-          </button>
+          <va-button color="danger" @click="showSmallModal()">
+            {{ $t('modal.small') }}
+          </va-button>
+          <va-button color="info" @click="showMediumModal()">
+            {{ $t('modal.medium') }}
+          </va-button>
+          <va-button color="warning" @click="showLargeModal()">
+            {{ $t('modal.large') }}
+          </va-button>
+          <va-button @click="showStaticModal()">
+            {{ $t('modal.static') }}
+          </va-button>
         </vuestic-widget>
       </div>
     </div>
 
     <!--//Modals-->
     <vuestic-modal :show.sync="show" ref="smallModal" v-bind:small="true"
-                   :cancelClass="'none'"
-                   :okText="'modal.confirm' | translate"
-                   :cancelText="'modal.cancel' | translate">
+                   :okText="'modal.confirm' | translate">
       <div slot="title">{{'modal.smallTitle' | translate}}</div>
       <div>
         There are three species of zebras: the plains zebra, the mountain zebra
@@ -69,7 +67,6 @@
     </vuestic-modal>
     <vuestic-modal :show.sync="show"
                    v-bind:small="true" v-bind:force="true" ref="staticModal"
-                   :cancelClass="'none'"
                    :okText="'modal.close' | translate">
       <div slot="title">{{'modal.staticTitle' | translate}}</div>
       <div>
@@ -82,7 +79,6 @@
 <script>
 export default {
   name: 'modals',
-
   data () {
     return {
       show: true,

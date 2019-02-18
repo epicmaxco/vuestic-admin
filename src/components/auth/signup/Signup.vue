@@ -5,13 +5,13 @@
       <div class="form-group">
         <div class="input-group">
           <input type="text" id="email" required="required"/>
-          <label class="control-label" for="email">{{ $t('auth.email') }}</label><i class="bar"></i>
+          <label class="control-label" for="email">{{ $t('auth.email') }}</label><va-icon icon="bar"/>
         </div>
       </div>
       <div class="form-group">
         <div class="input-group">
           <input type="password" id="password" required="required"/>
-          <label class="control-label" for="password">{{ $t('auth.password') }}</label><i class="bar"></i>
+          <label class="control-label" for="password">{{ $t('auth.password') }}</label><va-icon icon="bar"/>
         </div>
       </div>
       <vuestic-checkbox name="agree-to-terms" v-model="agreedToTerms">
@@ -21,13 +21,13 @@
         </template>
       </vuestic-checkbox>
       <div
-        class="d-flex align--center justify--space-between down-container">
-        <button class="btn btn-primary" type="submit">
+        class="d-flex flex-column flex-lg-row align-items-center justify-content-between down-container">
+        <va-button type="submit">
           {{ $t('auth.signUp') }}
-        </button>
-        <router-link class='link pl-2 text-center' :to="{name: 'login'}">
+        </va-button>
+        <va-button flat :to="{ name: 'login' }">
           {{ $t('auth.alreadyJoined') }}
-        </router-link>
+        </va-button>
       </div>
     </form>
   </div>

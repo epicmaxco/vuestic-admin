@@ -2,12 +2,12 @@
   <div
     style="left: 420px; top: 180px; background-color: white; position: absolute"
   >
-    <button class="btn btn-primary btn-sm" @click="$refs.treeView.expand()">
+    <va-button @click="$refs.treeView.expand()">
       EXPAND ALL
-    </button>
-    <button class="btn btn-primary btn-sm" @click="$refs.treeView.collapse()">
+    </va-button>
+    <va-button @click="$refs.treeView.collapse()">
       COLLAPSE ALL
-    </button>
+    </va-button>
 
     <vuestic-tree-root
       ref="treeView"

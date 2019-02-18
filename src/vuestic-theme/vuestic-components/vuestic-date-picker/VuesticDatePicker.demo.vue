@@ -8,7 +8,7 @@
             v-model="simple"
           />
           <label class="control-label" for="simple-input">Simple</label>
-          <i class="bar"></i>
+          <va-icon icon="bar"/>
         </div>
       </div>
 
@@ -23,7 +23,7 @@
             :config="{mode: 'range'}"
           />
           <label class="control-label" for="simple-input-2">Range</label>
-          <i class="bar"></i>
+          <va-icon icon="bar"/>
         </div>
       </div>
 
@@ -39,7 +39,7 @@
             @on-change="doSomethingOnChange"
           />
           <label class="control-label" for="simple-input-4">Day time</label>
-          <i class="bar"></i>
+          <va-icon icon="bar"/>
         </div>
       </div>
       <div class="form-group">
@@ -50,7 +50,7 @@
             :config="{enableTime: true}"
           />
           <label class="control-label" for="simple-input-3">Day time</label>
-          <i class="bar"></i>
+          <va-icon icon="bar"/>
         </div>
       </div>
       {{ dayTime }}
@@ -70,7 +70,7 @@
           />
           <label class="control-label" for="simple-input-5">Human
             readable</label>
-          <i class="bar"></i>
+          <va-icon icon="bar"/>
         </div>
       </div>
       {{ readableDayTime }}

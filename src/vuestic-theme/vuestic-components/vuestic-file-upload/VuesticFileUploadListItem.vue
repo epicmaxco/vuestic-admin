@@ -24,15 +24,10 @@
       <div class="file-upload-list-item__date flex xs12 lg4">
         <span>{{ $t('fileUpload.uploadedOn')}} {{ file.date }}</span>
       </div>
-      <!-- TODO Use global classes instead -->
       <div class="file-upload-list-item__button-container flex xs12 lg2">
-        <button
-          type="button"
-          class="btn-text btn-text--primary"
-          @click="removeFile"
-        >
+        <va-button outline @click="removeFile">
           {{ $t('fileUpload.delete') }}
-        </button>
+        </va-button>
       </div>
     </div>
   </div>

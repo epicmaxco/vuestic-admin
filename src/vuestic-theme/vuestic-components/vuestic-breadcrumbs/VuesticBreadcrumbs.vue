@@ -18,13 +18,13 @@
       </router-link>
     </div>
     <div class="vuestic-breadcrumbs__help-section">
-      <a
+      <va-button
+        color="info"
         target="_blank"
         :href="currentRoute"
-        class="btn btn-micro btn-info"
+        icon="vuestic-iconset vuestic-iconset-files"
       >
-        <span class="vuestic-icon vuestic-icon-files"/>
-      </a>
+      </va-button>
     </div>
   </div>
 </template>

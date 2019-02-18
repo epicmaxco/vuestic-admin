@@ -24,11 +24,10 @@
                     v-model="hsName"
                     v-validate="'required'"
                     required title=""/>
-                  <i
-                    class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
-                  <i class="fa fa-check valid-icon icon-right input-icon"></i>
+                  <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
+                  <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
                   <label class="control-label">{{'forms.wizard.name' |
-                    translate}}</label><i class="bar"></i>
+                    translate}}</label><va-icon icon="bar"/>
                   <small v-show="errors.has('hsName')" class="help text-danger">
                     {{ errors.first('hsName') }}
                   </small>
@@ -105,11 +104,10 @@
                     v-model="hrName"
                     v-validate="'required'"
                     required title=""/>
-                  <i
-                    class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
-                  <i class="fa fa-check valid-icon icon-right input-icon"></i>
+                  <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
+                  <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
                   <label class="control-label">{{'forms.wizard.name' |
-                    translate}}</label><i class="bar"></i>
+                    translate}}</label><va-icon icon="bar"/>
                   <small v-show="errors.has('hrName')" class="help text-danger">
                     {{ errors.first('hrName') }}
                   </small>
@@ -186,11 +184,10 @@
                     v-model="vrName"
                     v-validate="'required'"
                     required title=""/>
-                  <i
-                    class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
-                  <i class="fa fa-check valid-icon icon-right input-icon"></i>
+                  <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
+                  <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
                   <label class="control-label">{{'forms.wizard.name' |
-                    translate}}</label><i class="bar"></i>
+                    translate}}</label><va-icon icon="bar"/>
                   <small v-show="errors.has('vrName')" class="help text-danger">
                     {{ errors.first('vrName') }}
                   </small>
@@ -268,11 +265,10 @@
                     v-model="vsName"
                     v-validate="'required'"
                     required title=""/>
-                  <i
-                    class="fa fa-exclamation-triangle error-icon icon-right input-icon"></i>
-                  <i class="fa fa-check valid-icon icon-right input-icon"></i>
+                  <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
+                  <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
                   <label class="control-label">{{'forms.wizard.name' |
-                    translate}}</label><i class="bar"></i>
+                    translate}}</label><va-icon icon="bar"/>
                   <small v-show="errors.has('vsName')" class="help text-danger">
                     {{ errors.first('vsName') }}
                   </small>
@@ -331,7 +327,6 @@ import CountriesList from 'data/CountriesList'
 
 export default {
   name: 'form-wizard',
-
   computed: {
     hsSteps () {
       return [
