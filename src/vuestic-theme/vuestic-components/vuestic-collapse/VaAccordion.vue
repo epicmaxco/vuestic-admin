@@ -13,11 +13,6 @@ export default {
       default: false,
     },
   },
-  data () {
-    return {
-      lastClickedTab: {},
-    }
-  },
   provide () {
     return {
       accordion: {
@@ -48,7 +43,6 @@ export default {
 }
 </script>
 
-// HACK Accordion for presentation page
 <style lang="scss">
 .va-accordion {
 }

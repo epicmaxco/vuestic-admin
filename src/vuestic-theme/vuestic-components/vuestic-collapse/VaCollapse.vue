@@ -1,5 +1,8 @@
 <template>
-  <div class="va-collapse">
+  <div
+    class="va-collapse"
+    :class="{'va-collapse--with-background': withBackground}"
+  >
     <div
       class="va-collapse__header"
       :class="{
@@ -12,7 +15,7 @@
       </template>
       <div
         v-else
-        class="va-collapse__header__content va-row "
+        class="va-collapse__header__content"
       >
         <slot name="header"/>
         <i
@@ -27,12 +30,10 @@
     </div>
     <div
       class="va-collapse__body"
-      :class="{'va-collapse__body--with-background': isBackgroundExists}"
       ref="collapseBody"
     >
       <slot name="body"/>
     </div>
-
   </div>
 </template>
 
@@ -43,7 +44,8 @@ export default {
     value: {
       type: Boolean
     },
-    isBackgroundExists: Boolean
+    withBackground: Boolean,
+    noHeader: Boolean
   },
   inject: {
     accordion: {
@@ -56,7 +58,6 @@ export default {
   data () {
     return {
       show: this.value,
-      noHeader: !this.$slots.header
     }
   },
   watch: {
@@ -72,13 +73,8 @@ export default {
     expand () {
       const bodyContent = this.$refs.collapseBody
       bodyContent.style.height = this.$slots.body[0].elm.clientHeight + 36 + 'px'
-      if (!this.isBackgroundExists) {
-        bodyContent.style.paddingTop = 1 + 'rem'
-        bodyContent.style.paddingBottom = 1 + 'rem'
-      } else {
-        bodyContent.style.paddingTop = 0.75 + 'rem'
-        bodyContent.style.paddingBottom = 1.5 + 'rem'
-      }
+      bodyContent.style.paddingTop = 1 + 'rem'
+      bodyContent.style.paddingBottom = 1 + 'rem'
       this.show = true
     },
     collapse () {
@@ -92,7 +88,6 @@ export default {
       this.toggle()
       this.accordion.onChildChange(this, this.show)
     },
-    // Public
     toggle () {
       this.show ? this.collapse() : this.expand()
     },
@@ -109,22 +104,24 @@ export default {
     height: 0;
     transition: ease-in 0.3s;
     overflow: hidden;
+    margin-top: 0.1rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    &--with-background {
-      margin-top: 0.1rem;
-      border-radius: 6px;
-      background-color: $collapse-background;
-    }
+  }
+  &--with-background > &__body {
+    margin-top: 0.1rem;
+    border-radius: 0.375rem;
+    background-color: $light-gray3;
   }
   &__header {
     height: 50px;
     &__content {
+      display: flex;
       justify-content: space-between;
       cursor: pointer;
-      background-color: $collapse-background;
+      background-color: $light-gray3;
       box-shadow: 0 2px 3px 0 rgba(98, 106, 119, 0.25);
-      border-radius: 6px;
+      border-radius: 0.375rem;
       cursor: pointer;
       outline: 0;
       border: 0;

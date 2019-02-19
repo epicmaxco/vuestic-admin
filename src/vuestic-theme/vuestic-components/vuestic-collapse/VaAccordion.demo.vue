@@ -10,7 +10,7 @@
             </div>
           </div>
         </va-collapse>
-        <va-collapse isBackgroundExists>
+        <va-collapse withBackground>
           <span slot="header">Accordeon with background</span>
           <div slot="body">
             <div>
@@ -30,8 +30,12 @@
             </div>
           </div>
         </va-collapse>
-        <va-collapse>
-          <span slot="header"> Let's Go </span>
+        <va-collapse noHeader>
+          <span slot="header">
+            <va-button>
+              no-header mode
+            </va-button>
+          </span>
           <div slot="body">
             <div>
               Expand three content
