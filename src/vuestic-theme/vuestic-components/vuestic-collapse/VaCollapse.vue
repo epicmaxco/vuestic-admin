@@ -6,11 +6,11 @@
     <div
       class="va-collapse__header"
       :class="{
-        'vuestic-collapse__header--no-header': noHeader,
+        'vuestic-collapse__header--custom-header': customHeader,
       }"
       @click="onHeaderClick()"
     >
-      <template v-if="noHeader">
+      <template v-if="customHeader">
         <slot name="header"/>
       </template>
       <div
@@ -45,7 +45,7 @@ export default {
       type: Boolean
     },
     withBackground: Boolean,
-    noHeader: Boolean
+    customHeader: Boolean
   },
   inject: {
     accordion: {
@@ -136,7 +136,7 @@ export default {
       width: 24px;
       color: $gray;
     }
-    &--no-header {
+    &--custom-header {
       margin-bottom: 1rem;
     }
   }

@@ -30,7 +30,7 @@
             </div>
           </div>
         </va-collapse>
-        <va-collapse noHeader>
+        <va-collapse customHeader>
           <span slot="header">
             <va-button>
               no-header mode
