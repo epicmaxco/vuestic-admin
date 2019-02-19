@@ -58,18 +58,10 @@ export default {
     iconClassesComputed () {
       if (this.halfIcon) {
         if (this.isRatingHover) {
-          if (this.hover) {
-            return this.hoverValue !== 0.5 ? this.iconClasses + this.icon : this.halfIcon
-          }
-          return this.emptyIcon
-        } else {
-          if (this.value) {
-            return this.icon
-          } else if (this.isHalf) {
-            return this.halfIcon
-          }
-          return this.emptyIcon
+          return this.hover ? this.hoverValue !== 0.5 ? this.iconClasses + this.icon
+            : this.halfIcon : this.emptyIcon
         }
+        return this.value ? this.icon : this.isHalf ? this.halfIcon : this.emptyIcon
       }
       return this.iconClasses + this.extraClasses
     }
