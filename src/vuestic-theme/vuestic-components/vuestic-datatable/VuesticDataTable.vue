@@ -53,10 +53,10 @@
     <div class="flex-center">
       <va-pagination
         ref="pagination"
-        :length="3"
-        :total-pages="total"
-        v-model="currentPage"
-        @change-page="onChangePage"
+        :visible-pages="3"
+        :pages="total"
+        :value="currentPage"
+        @input="onChangePage"
       />
     </div>
   </div>

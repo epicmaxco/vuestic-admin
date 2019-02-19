@@ -14,7 +14,7 @@
             </VbContainer>
           </td>
         </tr>
-        <tr>
+        <!--<tr>
           <td>Pagination With Visible Pages</td>
           <td>
             <VbContainer>
@@ -71,23 +71,23 @@
             <VbContainer>
               <va-pagination
                 :pages="10" :visible-pages="3"
-                icon="fa fa-volume-off"
+                :icon="{ direction: 'fa fa-volume-off' }"
                 :boundary-links="false"
                 v-model="activePage"/>
               <va-pagination
                 :pages="10" :visible-pages="3"
-                icon-right="fa fa-volume-up"
+                :icon-right="{ direction: 'fa fa-volume-up' }"
                 :boundary-links="false"
                 v-model="activePage"/>
               <va-pagination
                 :pages="10" :visible-pages="3"
-                icon="fa fa-volume-off"
-                icon-right="fa fa-volume-up"
+                :icon="{ direction: 'fa fa-volume-off' }"
+                :icon-right="{ direction: 'fa fa-volume-up' }"
                 :boundary-links="false"
                 v-model="activePage"/>
             </VbContainer>
           </td>
-        </tr>
+        </tr>-->
       </table>
     </VbContainer>
   </VbDemo>
