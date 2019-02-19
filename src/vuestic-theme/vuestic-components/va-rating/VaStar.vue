@@ -6,7 +6,7 @@
       class="va-star__icon"
       @mousemove="onHover"
       @mouseleave="removeHover"
-      @click="rate()"
+      @click="onClick()"
       width="50"
     />
   </div>
@@ -59,29 +59,23 @@ export default {
       if (this.halfIcon) {
         if (this.isRatingHover) {
           if (this.hover) {
-            if (this.hoverValue !== 0.5) {
-              return this.iconClasses + this.icon
-            } else {
-              return this.halfIcon
-            }
-          } else {
-            return this.emptyIcon
+            return this.hoverValue !== 0.5 ? this.iconClasses + this.icon : this.halfIcon
           }
+          return this.emptyIcon
         } else {
           if (this.value) {
             return this.icon
           } else if (this.isHalf) {
             return this.halfIcon
-          } else {
-            return this.emptyIcon
           }
+          return this.emptyIcon
         }
       }
       return this.iconClasses + this.extraClasses
     }
   },
   methods: {
-    rate () {
+    onClick () {
       if (this.extraClasses === this.halfIcon) {
         this.$emit('click', 0.5)
       } else {
@@ -90,7 +84,7 @@ export default {
     },
     onHover (item) {
       if (this.halfIcon) {
-        let size = Number(this.iconStyles.fontSize.replace(/[^-0-9]/gim, ''))
+        const size = Number(this.iconStyles.fontSize.replace(/[^-0-9]/gim, ''))
         if (size / item.offsetX >= 2) {
           this.hoverValue = 0.5
           this.$emit('hover', 0.5)
@@ -112,7 +106,7 @@ export default {
           if (this.emptyIcon) {
             this.iconClasses = this.emptyIcon
           } else {
-            this.iconClasses = this.icon + ' va-star__icon--empty'
+            this.iconClasses = this.icon + 'text--secondary'
           }
         }
       }
@@ -125,9 +119,6 @@ export default {
 .va-star {
   padding: 0.1rem;
   &__icon {
-    &--empty {
-      opacity: 0.4;
-    }
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <VbDemo>
-    <VbContainer>
+    <VbContainer title="Half icon">
       <va-rating
         :max="6"
         size="30px"
@@ -9,9 +9,8 @@
         halfIcon="fa fa-star-half-full"
         v-model="value"
       />
-      half-icon
     </VbContainer>
-    <VbContainer>
+    <VbContainer title="Disabled icons">
       <va-rating
         :max="6"
         size="large"
@@ -19,9 +18,8 @@
         disabled
         v-model="value"
       />
-      disabled
     </VbContainer>
-    <VbContainer>
+    <VbContainer title="Readonly icons">
       <va-rating
         :max="6"
         size="large"
@@ -29,9 +27,8 @@
         v-model="value"
         readonly
       />
-      readonly
     </VbContainer>
-    <VbContainer>
+    <VbContainer title="Numbers icons">
       <va-rating
         :max="6"
         size="large"
@@ -39,18 +36,16 @@
         v-model="value"
         numbers
       />
-      numbers
     </VbContainer>
-    <VbContainer>
+    <VbContainer title="Small icons">
       <va-rating
         :max="6"
         size="small"
         color="blue"
         v-model="value"
       />
-      small
     </VbContainer>
-    <VbContainer>
+    <VbContainer title="Custom icons">
       <va-rating
         :max="8"
         icon="fa fa-bug"

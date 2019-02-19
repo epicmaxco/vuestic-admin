@@ -81,7 +81,7 @@ export default {
   data () {
     return {
       search: '',
-      setIconSize: 30,
+      iconSize: 30,
       slider: {
         formatter: v => `${v}px`,
         min: 20,

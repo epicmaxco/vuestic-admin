@@ -1,7 +1,7 @@
 <template>
   <div class="va-rating">
     <div
-      v-if="numbers === true"
+      v-if="numbers"
       class="va-rating__numbers"
     >
       <div
@@ -16,8 +16,8 @@
       </div>
     </div>
     <div
-      v-if="numbers === false"
-      class="va-rating__icons va-row"
+      v-else
+      class="va-rating__icons"
       @mouseover="isHover = true"
       @mouseout="isHover = false"
     >
@@ -119,7 +119,7 @@ export default {
       this.hoverItemNumber = item
     },
     getNumberStyles (item) {
-      if (item <= this.value) {
+      if (this.compareWithValue(item)) {
         return {
           backgroundColor: this.color,
           height: this.getIconSize(),
@@ -148,13 +148,13 @@ export default {
     },
     getIconClasses (item) {
       if (this.emptyIcon) {
-        return item <= this.value ? this.icon : this.emptyIcon
+        return this.compareWithValue(item) ? this.icon : this.emptyIcon
       }
-      return item <= this.value ? this.icon : this.icon + ' ' +
+      return this.compareWithValue(item) ? this.icon : this.icon + ' ' +
         'va-rating__icons--icon--empty'
     },
     getNumberClasses (item) {
-      return item <= this.value ? 'this.icon' : 'va-rating__numbers--number-' +
+      return this.compareWithValue(item) ? 'this.icon' : 'va-rating__numbers--number-' +
         ' ' + 'va-rating__numbers--number--empty'
     },
     setCurrentValue (item, value) {
@@ -173,9 +173,12 @@ export default {
     },
     getStarValue (item) {
       if (!this.hover) {
-        return item <= this.value
+        return this.compareWithValue(item)
       }
       return false
+    },
+    compareWithValue (item) {
+      return item <= this.value
     }
   }
 }
@@ -185,6 +188,7 @@ export default {
 .va-rating {
   display: flex;
   &__icons {
+    display: flex;
     &--icon {
       &--empty {
         opacity: 0.4;
