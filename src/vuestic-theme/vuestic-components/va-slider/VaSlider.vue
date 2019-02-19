@@ -153,6 +153,15 @@ export default {
         'va-slider--disabled': this.disabled
       }
     },
+    idleSlider () {
+      return this.currentSlider === 0 ? 0 : 1
+    },
+    minimum () {
+      return this.currentValue[0]
+    },
+    maximum () {
+      return this.currentValue[0]
+    },
     interval () {
       return this.currentValue[1] - this.currentValue[0]
     },
@@ -180,7 +189,6 @@ export default {
   },
   watch: {
     value (val) {
-      console.log(val)
       this.flag || this.setValue(val, true)
     },
     max (val) {
@@ -242,8 +250,6 @@ export default {
     },
     setCurrentValue (val, isDrag, isIdleSlider) {
       let slider = isIdleSlider ? this.idleSlider : this.currentSlider
-      console.log(val)
-      console.log(this.currentValue)
       if (this.isRange) {
         if (this.isDiff(this.currentValue[slider], val)) {
           this.currentValue.splice(slider, 1, val)
@@ -268,7 +274,15 @@ export default {
       let tempValue = ((this.step * multiple) * index + (this.min * multiple)) / this.step
       this.$refs.process.style.width = `${tempValue}%`
       return tempValue
-
+    },
+    normalizeValue (value) {
+      let currentRest = value % this.step
+      if ((currentRest / this.step) >= 0.5) {
+        value = value + (this.step - currentRest)
+      } else {
+        value = value - currentRest
+      }
+      return value
     },
     setValueOnPos (pos, isDrag) {
       let range = this.limit,
@@ -282,6 +296,7 @@ export default {
         let v = this.getValueByIndex(Math.round(pos / diff))
         this.setCurrentValue(v, isDrag)
         if (this.isRange) {
+          console.log(pos + ((this.fixedValue * diff) * (this.currentSlider === 0 ? 1 : -1)))
           this.setTransform(pos + ((this.fixedValue * diff) * (this.currentSlider === 0 ? 1 : -1)), true)
           this.setCurrentValue((v * multiple + (this.fixedValue * this.step * multiple * (this.currentSlider === 0 ? 1 : -1))) / multiple, isDrag, true)
         }
@@ -304,7 +319,6 @@ export default {
       }
     },
     moveStart (e, index = 0, isProcess) {
-      console.log('Start')
       if (this.isRange) {
         this.currentSlider = index
 
@@ -346,8 +360,6 @@ export default {
       }
     },
     moveEnd (e) {
-      console.log('End')
-      console.log(this.currentValue)
       if (this.flag) {
         this.$emit('drag-end', this)
         if (this.lazy && this.isDiff(this.val, this.value)) {
@@ -361,16 +373,25 @@ export default {
         this.processFlag = false
       }, 0)
 
-      if (this.pins){
-        let currentRest = this.currentValue % this.step
-        if ((currentRest / this.step) >= 0.5){
-          this.currentValue = this.currentValue + (this.step - currentRest)
+      if (this.pins) {
+        if (this.isRange){
+          if (this.currentValue[0] % this.step !== 0) {
+            this.currentValue[0] = this.normalizeValue(this.currentValue[0])
+            // this.setValueOnPos(this.getPos(e), true)
+            // this.$refs.process.style['left'] = `calc('${this.currentValue[0]}% - 8px)`
+            // this.$refs.process.style.width = `${this.currentValue[0]}%`
+            // this.$refs.dot0.style['left'] = `calc('${this.currentValue[0]}% - 8px)`
+          }
+          if (this.currentValue[1] % this.step !== 0) {
+            this.currentValue[1] = this.normalizeValue(this.currentValue[1])
+          }
         } else {
-          this.currentValue = this.currentValue - currentRest
+          this.currentValue = this.normalizeValue(this.currentValue)
+          // this.$refs.process.style.width = `${this.currentValue}%`
         }
       }
-      this.$refs.process.style.width = `${this.currentValue}%`
-      this.setPosition()
+      console.log(this.currentValue)
+      this.setPosition(this.getPos(e))
     },
     setPosition () {
       this.setTransform(this.position)
@@ -384,25 +405,32 @@ export default {
       const diff = this.size / this.max
 
       let slider = isIdleSlider ? this.idleSlider : this.currentSlider
-      let value = roundToDPR(((val - (this.dotWidthVal / 2))) * (this.reverse ? -1 : 1))
+      let value = roundToDPR(((val - (this.dotWidthVal / 2))))
       let translateValue = `translateX(${value}px)`
-      let processSize = `${(this.currentValue[1] - this.currentValue[0]) * diff}px`
-      let processPos = `${slider === 0 ? val : (val - (this.currentValue[1] - this.currentValue[0]) * diff)}px`
+      let processSize = `${this.currentValue[1] - this.currentValue[0]}%`
+      console.log(processSize)
+      console.log(slider)
+      let processPos = `${slider === 0 ? this.currentValue[0] : this.currentValue[1]}%`
+      console.log(processPos)
 
       if (this.isRange) {
-        console.log(this.slider)
         this.slider[slider].style.transform = translateValue
         this.slider[slider].style.WebkitTransform = translateValue
         this.slider[slider].style.msTransform = translateValue
         this.$refs.process.style.width = processSize
         this.$refs.process.style['left'] = processPos
+        /* if (slider === 0){
+          console.log(`calc('${processPos} - 8px)`)
+          this.$refs.dot0.style['left'] = `calc('${processPos} - 8px)`
+        } else {
+          this.$refs.dot1.style['left'] = `calc('${processPos} - 8px)`
+        } */
       } else {
-        console.log(this.slider)
         this.slider.style.transform = translateValue
         this.slider.style.WebkitTransform = translateValue
         this.slider.style.msTransform = translateValue
         this.$refs.process.style.width = `${val}px`
-        this.$refs.dot.style['left'] = `calc('${val}px - 8px)`
+        // this.$refs.dot.style['left'] = `calc('${val}px - 8px)`
       }
     },
     isDiff (a, b) {

@@ -12,7 +12,9 @@
     <VbContainer width="500px">
       <va-slider
         range
-        label="Label"
+        pins
+        label="Label2"
+        :step="10"
         value-visible
         v-model="value2"
       />
