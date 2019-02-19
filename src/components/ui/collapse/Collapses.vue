@@ -1,5 +1,5 @@
 <template>
-  <div class="collapse-page">
+  <div class="collapses">
     <div class="flex md12">
       <vuestic-widget :headerText="$t('collapse.accordion')">
         <vuestic-accordion>

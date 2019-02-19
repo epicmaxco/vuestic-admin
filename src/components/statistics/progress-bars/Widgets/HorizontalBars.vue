@@ -1,5 +1,5 @@
 <template>
-  <vuestic-widget class="progress-bar-widget" :headerText="$t('progressBars.horizontal')">
+  <vuestic-widget class="horizontal-bars progress-bar-widget" :headerText="$t('progressBars.horizontal')">
     <div class="va-row">
       <div class="flex md4 xs12">
         <va-progress-bar :value="value / 3"/>

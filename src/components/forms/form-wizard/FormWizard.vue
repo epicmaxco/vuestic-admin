@@ -1,5 +1,5 @@
 <template>
-  <div class="form-wizard-page">
+  <div class="form-wizard">
     <div class="va-row">
       <div class="flex md12">
         <vuestic-widget class="no-h-padding"

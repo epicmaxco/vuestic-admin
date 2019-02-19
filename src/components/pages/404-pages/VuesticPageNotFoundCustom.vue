@@ -1,13 +1,12 @@
 <template>
   <div class="vuestic-page-not-found-custom">
     <div class="vuestic-page-not-found-custom__content">
-      <div class="vuestic-page-not-found-custom__wallpaper d-flex justify--center
+      <div class="vuestic-page-not-found-custom__wallpaper text--center
         align--start overflow--hidden">
         <img src="https://i.imgur.com/wodIng5.png"
              class="vuestic-page-not-found-custom__custom-image mr-5 pt-5"/>
       </div>
-      <div class="vuestic-page-not-found-custom__wallpaper d-flex justify--center
-        align--start overflow--hidden">
+      <div class="vuestic-page-not-found-custom__wallpaper text--center overflow--hidden">
         <h3 class="vuestic-page-not-found-custom__text pt-5">The page’s gone
           fishing.</h3>
       </div>
@@ -21,7 +20,7 @@
         </div>
       </div>
       <div class="vuestic-page-not-found-custom__wallpaper d-flex justify--center
-        align--start pt-4 pb-3 overflow--hidden">
+        align--start py-3 overflow--hidden">
         <va-button :to="{ name: 'dashboard' }">
           {{'Back to dashboard'}}
         </va-button>

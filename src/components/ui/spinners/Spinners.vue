@@ -40,7 +40,7 @@
         <div v-for="(group, i) in groups" :key="i" class="va-row">
           <div v-for="item in group" :key="item" class="flex xs6 md3">
             <div class="spinner-box-container text--center pb-5">
-              <div class="spinner-box d-flex justify--center align--center">
+              <div class="spinner-box flex-center">
                 <component
                   :animation-duration="speed"
                   :is="item"

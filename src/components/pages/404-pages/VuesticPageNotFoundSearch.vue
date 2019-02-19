@@ -5,7 +5,7 @@
         <h3 class="vuestic-page-not-found-search__text pt-5">The page's gone
           fishing.</h3>
       </div>
-      <div class="vuestic-page-not-found-search__wallpaper d-flex justify--center flex md12">
+      <div class="vuestic-page-not-found-search__wallpaper flex md12">
         <div class="va-row justify--center vuestic-page-not-found-search__message">
           <span class="vuestic-page-not-found-search__text-small mt-4">
             If you feel that it's not right, please send us a message at &nbsp;

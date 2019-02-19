@@ -8,10 +8,10 @@
       {{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
     </span>
 
-    <message-dropdown class="spacer nav-item"/>
-    <notification-dropdown class="spacer nav-item"/>
-    <language-dropdown class="spacer nav-item"/>
-    <profile-dropdown class="spacer nav-item">
+    <message-dropdown class="nav-item"/>
+    <notification-dropdown class="nav-item"/>
+    <language-dropdown class="nav-item"/>
+    <profile-dropdown class="nav-item">
       <img src="https://i.imgur.com/nfa5itq.png"/>
     </profile-dropdown>
   </vuestic-navbar>

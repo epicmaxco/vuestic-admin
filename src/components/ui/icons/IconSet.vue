@@ -1,9 +1,9 @@
 <template>
-  <div class="vuestic-icon-set">
-    <vuestic-widget class="vuestic-icon-set__header mb-4 pt-4 pb-3">
+  <div class="icon-set">
+    <vuestic-widget class="icon-set__header mb-4 py-3">
       <div class="va-row">
-        <div class=" flex md4 xs12 pl-5 vuestic-icon-set__header__text">
-          <h2 class="mt-0 mb-0">{{ set.name }}</h2>
+        <div class=" flex md4 xs12 pl-5 icon-set__header__text">
+          <h2 class="my-0">{{ set.name }}</h2>
           <router-link :to="{ name: 'icon-sets' }">
             {{ $t('icons.back') }}
           </router-link>
@@ -27,7 +27,7 @@
           </div>
         </div>
 
-        <div class="d-flex flex align--center md4 xs12 pr-4 pl-4 vuestic-icon-set__header__range">
+        <div class="d-flex flex align--center md4 xs12 px-4 icon-set__header__range">
           <h4 class="ma-2 shrink">A</h4>
           <vuestic-slider
             class="grow"
@@ -51,7 +51,7 @@
       </span>
       <div class="va-row">
         <div
-          class="va-row column d-flex justify--center align--center flex xs3 md1 mb-2 icon-grid-container"
+          class="va-row column flex-center flex xs3 md1 mb-2 icon-grid-container"
           v-for="icon in list.icons"
           :key="icon"
         >
@@ -69,7 +69,7 @@
 
 <script>
 export default {
-  name: 'vuestic-icon-set',
+  name: 'icon-set',
   props: {
     name: {
       type: String,
@@ -132,7 +132,7 @@ export default {
 </script>
 
 <style lang="scss">
-.vuestic-icon-set {
+.icon-set {
 
   .icon-grid-container {
 

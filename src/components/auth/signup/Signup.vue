@@ -1,6 +1,6 @@
 <template>
   <div class="signup">
-    <div class="display-2 d-flex justify--center mt-5 mb-4">{{ $t('auth.createNewAccount') }}</div>
+    <div class="display-2 text--center my-4">{{ $t('auth.createNewAccount') }}</div>
     <form method="post" action="/#/auth/signup" name="signup">
       <div class="form-group">
         <div class="input-group">

@@ -1,5 +1,5 @@
 <template>
-  <div class="vuestic-color-picker-page">
+  <div class="color-pickers vuestic-color-picker-page">
     <div class="va-row">
       <div class="flex md12 xs12">
         <vuestic-widget :headerText="$t('menu.colorPickers')">

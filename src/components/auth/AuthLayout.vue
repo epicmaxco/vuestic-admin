@@ -1,12 +1,12 @@
 <template>
   <div class="auth-layout ma-0">
-    <div class="nav justify--center align--center">
+    <div class="nav flex-center">
       <router-link :to="{path: '/'}">
         <va-icon-vuestic/>
       </router-link>
     </div>
     <div class="main va-row ma-0">
-      <div class="auth-content d-flex justify--center align--center pa-0 flex lg6 xs12 fill-height">
+      <div class="auth-content flex-center pa-0 flex lg6 xs12 fill-height">
         <div class="flex-center">
           <router-view/>
         </div>

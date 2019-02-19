@@ -2,9 +2,9 @@
   <div class="va-row dashboard-info-widgets">
     <div class="flex md6 xl3 xs12">
       <vuestic-widget class="info-widget">
-        <div class="info-widget-inner d-flex justify--center align--center">
-          <div class="stats fill-height d-flex justify--center align--center">
-            <div class="stats-number mb-2 d-flex justify--center align--center">
+        <div class="info-widget-inner flex-center">
+          <div class="stats fill-height flex-center">
+            <div class="stats-number mb-2 flex-center">
               <va-icon icon="ion ion-md-arrow-up text-primary stats-icon"/>
               59
             </div>
@@ -15,9 +15,9 @@
     </div>
     <div class="flex md6 xl3 xs12">
       <vuestic-widget class="info-widget">
-        <div class="info-widget-inner d-flex justify--center align--center">
-          <div class="stats fill-height d-flex justify--center align--center">
-            <div class="stats-number mb-2 d-flex justify--center align--center">
+        <div class="info-widget-inner flex-center">
+          <div class="stats fill-height flex-center">
+            <div class="stats-number mb-2 flex-center">
               <va-icon icon="ion ion-md-arrow-down text-danger stats-icon"/>
               12
             </div>
@@ -30,7 +30,7 @@
       <vuestic-widget class="info-widget brand-danger">
         <div class="info-widget-inner d-flex justify--space-between align--center">
           <div class="stats fill-height d-flex align--center">
-            <div class="stats-number mb-2 d-flex justify--center align--center">
+            <div class="stats-number mb-2 flex-center">
               425
             </div>
             <div class="stats-title">Commits</div>
@@ -45,9 +45,9 @@
     </div>
     <div class="flex md6 xl3 xs12">
       <vuestic-widget class="info-widget brand-info">
-        <div class="info-widget-inner d-flex justify--center align--center">
-          <div class="stats fill-height d-flex justify--center align--center">
-            <div class="stats-number mb-2 d-flex justify--center align--center">
+        <div class="info-widget-inner flex-center">
+          <div class="stats fill-height flex-center">
+            <div class="stats-number mb-2 flex-center">
               <va-icon icon="ion ion-md-people stats-icon icon-wide"/>
               5
             </div>

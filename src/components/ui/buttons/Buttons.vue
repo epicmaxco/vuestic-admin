@@ -1,5 +1,5 @@
 <template>
-  <div class="buttons-page">
+  <div class="buttons">
     <div class="va-row">
       <div class="flex md12 xl12">
         <vuestic-widget class="larger-padding"

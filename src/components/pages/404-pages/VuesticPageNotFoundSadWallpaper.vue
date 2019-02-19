@@ -1,7 +1,7 @@
 <template>
   <div class=" vuestic-page-not-found-sad-wallpaper overflow--hidden">
     <img src="https://i.imgur.com/hu80UGU.png"
-         class="vuestic-page-not-found-sad-wallpaper__sad-image pt-3 pl-3 pr-3"/>
+         class="vuestic-page-not-found-sad-wallpaper__sad-image pt-3 px-3"/>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="ui-icons">
+  <div class="icons">
     <router-view :sets="sets"></router-view>
   </div>
 </template>

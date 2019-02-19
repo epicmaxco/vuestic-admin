@@ -1,5 +1,5 @@
 <template>
-  <div class="notifications-page">
+  <div class="notifications">
     <div class="va-row">
       <div class="flex md12">
         <vuestic-widget

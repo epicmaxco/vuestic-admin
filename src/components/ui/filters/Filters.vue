@@ -1,5 +1,5 @@
 <template>
-  <div class="filters-page">
+  <div class="filters">
     <vuestic-widget headerText="Show filters">
       <div class="va-row">
         <div class="flex md3">

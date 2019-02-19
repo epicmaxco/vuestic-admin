@@ -7,7 +7,7 @@
         :key="index"
       >
         <div class="sets-list__set__content">
-          <div class="sets-list__set__content__overlay d-flex justify--center align--center pa-3 fill-height">
+          <div class="sets-list__set__content__overlay flex-center pa-3 fill-height">
             <va-button :to="{path: set.href}" append>
               {{set.name.toUpperCase()}}
             </va-button>

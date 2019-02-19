@@ -1,17 +1,14 @@
 <template>
   <div class="vuestic-page-not-found-large-text">
     <div class="vuestic-page-not-found-large-text__content">
-      <div class="vuestic-page-not-found-large-text__wallpaper d-flex justify--center
-        align--start overflow--hidden">
+      <div class="vuestic-page-not-found-large-text__wallpaper text--center overflow--hidden">
         <h1 class="vuestic-page-not-found-large-text__number mb-0">404</h1>
       </div>
-      <div class="vuestic-page-not-found-large-text__wallpaper d-flex justify--center
-        align--start overflow--hidden">
+      <div class="vuestic-page-not-found-large-text__wallpaper text--center overflow--hidden">
         <h3 class="vuestic-page-not-found-large-text__text">The page's gone
           fishing.</h3>
       </div>
-      <div class="vuestic-page-not-found-large-text__wallpaper d-flex justify--center
-        align--start overflow--hidden flex md12">
+      <div class="vuestic-page-not-found-large-text__wallpaper overflow--hidden flex md12">
         <div class="va-row vuestic-page-not-found-large-text__message justify--center">
           <span class="vuestic-page-not-found-large-text__text-small mt-4">
             If you feel that it's not right, please send us a message at &nbsp;
@@ -19,8 +16,7 @@
           <a class="mt-4" href="mailto:hello@epicmax.co">hello@epicmax.co</a>
         </div>
       </div>
-      <div class="vuestic-page-not-found-large-text__wallpaper d-flex
-        justify--center align--start pt-4 pb-3 overflow--hidden">
+      <div class="vuestic-page-not-found-large-text__wallpaper text--center py-3 overflow--hidden">
         <va-button :to="{ name: 'dashboard' }">
           {{'Back to dashboard'}}
         </va-button>

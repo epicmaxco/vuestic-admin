@@ -1,5 +1,5 @@
 <template>
-  <div class="profile-dropdown flex-center">
+  <div class="spacer profile-dropdown flex-center">
     <span class="profile-dropdown__avatar-container">
       <slot/>
     </span>

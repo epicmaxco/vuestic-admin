@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <div class="display-2 d-flex justify--center mt-5 mb-4">{{ $t('auth.welcome') }}</div>
+    <div class="display-2 text--center my-4">{{ $t('auth.welcome') }}</div>
     <form method="post" action="/auth/login" name="login">
       <div class="form-group">
         <div class="input-group">

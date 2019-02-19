@@ -1,5 +1,5 @@
 <template>
-  <div class="made-by-component d-flex justify--center pb-3">
+  <div class="made-by-component text--center pb-3">
     <span>
         ©2018. Made by
         <a href="https://epicmax.co">Epicmax</a>

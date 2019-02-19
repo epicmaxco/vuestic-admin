@@ -1,13 +1,11 @@
 <template>
   <div class="vuestic-page-not-found-simple">
     <div class="vuestic-page-not-found-simple__content">
-      <div class="vuestic-page-not-found-simple__wallpaper d-flex justify--center
-        align--start overflow--hidden">
+      <div class="vuestic-page-not-found-simple__wallpaper text--center overflow--hidden">
         <h3 class="vuestic-page-not-found-simple__text">The page's gone
           fishing.</h3>
       </div>
-      <div class="vuestic-page-not-found-simple__wallpaper d-flex justify--center
-        align--start overflow--hidden flex md12">
+      <div class="vuestic-page-not-found-simple__wallpaper text--center overflow--hidden flex md12">
         <div class="va-row vuestic-page-not-found-simple__message justify--center">
           <span class="vuestic-page-not-found-simple__text-small mt-4">
             If you feel that it's not right, please send us a message at &nbsp;
@@ -15,8 +13,7 @@
           <a class="mt-4" href="mailto:hello@epicmax.co">hello@epicmax.co</a>
         </div>
       </div>
-      <div class="vuestic-page-not-found-simple__wallpaper d-flex justify--center
-        align--start pt-4 pb-3 overflow--hidden">
+      <div class="vuestic-page-not-found-simple__wallpaper text--center py-3 overflow--hidden">
         <va-button :to="{ name: 'dashboard' }">
           {{'Back to dashboard'}}
         </va-button>

@@ -1,5 +1,5 @@
 <template>
-  <div class="ui-typography">
+  <div class="typography">
     <vuestic-widget>
       <div class="mb-4">
         <p class="display-1">Display 1 Heading</p>
