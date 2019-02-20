@@ -1,44 +1,43 @@
 <template>
-  <div class="features-tab dashboard-tab">
-    <div
-      class="va-row d-flex overview-row justify--space-around justify--start">
+  <div class="features-tab">
+    <div class="va-row d-flex justify--space-around">
 
-      <div class="xs12 overview-col">
-        <div class="overview-item d-flex align--center mb-5 pr-3 text--bold">
-          <div class="overview-icon-container flex-center fill-height">
+      <div class="xs12">
+        <div class="features-tab__item d-flex align--center mb-5 pr-3 text--bold">
+          <div class="features-tab__item__icon-container flex-center fill-height">
             <va-icon-vue/>
           </div>
           Built with Vue.js framework
         </div>
-        <div class="overview-item d-flex align--center mb-5 pr-3 text--bold">
-          <div class="overview-icon-container flex-center fill-height">
+        <div class="features-tab__item d-flex align--center mb-5 pr-3 text--bold">
+          <div class="features-tab__item__icon-container flex-center fill-height">
             <va-icon-free/>
           </div>
           Absolutely free for everyone
         </div>
-        <div class="overview-item d-flex align--center mb-5 pr-3 text--bold">
-          <div class="overview-icon-container flex-center fill-height">
+        <div class="features-tab__item d-flex align--center mb-5 pr-3 text--bold">
+          <div class="features-tab__item__icon-container flex-center fill-height">
             <va-icon-fresh/>
           </div>
           Fresh and crisp design
         </div>
       </div>
 
-      <div class="xs12 overview-col">
-        <div class="overview-item d-flex align--center mb-5 pr-3 text--bold">
-          <div class="overview-icon-container flex-center fill-height">
+      <div class="xs12">
+        <div class="features-tab__item d-flex align--center mb-5 pr-3 text--bold">
+          <div class="features-tab__item__icon-container flex-center fill-height">
             <va-icon-responsive/>
           </div>
           Responsive and optimized for mobile
         </div>
-        <div class="overview-item d-flex align--center mb-5 pr-3 text--bold">
-          <div class="overview-icon-container flex-center fill-height">
+        <div class="features-tab__item d-flex align--center mb-5 pr-3 text--bold">
+          <div class="features-tab__item__icon-container flex-center fill-height">
             <va-icon-rich/>
           </div>
           Tons of useful components
         </div>
-        <div class="overview-item d-flex align--center mb-5 pr-3 text--bold">
-          <div class="overview-icon-container flex-center fill-height">
+        <div class="features-tab__item d-flex align--center mb-5 pr-3 text--bold">
+          <div class="features-tab__item__icon-container flex-center fill-height">
             <va-icon-clean-code/>
           </div>
           Completely jQuery free
@@ -76,13 +75,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.overview-item {
-  height: 55px;
-  font-size: 1.25rem;
+.features-tab {
+  &__item {
+    height: 55px;
+    font-size: 1.25rem;
 
-  .overview-icon-container {
-    min-width: 85px;
-    max-width: 85px;
+    &__icon-container {
+      min-width: 85px;
+      max-width: 85px;
+    }
   }
 }
 </style>

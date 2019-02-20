@@ -6,11 +6,11 @@
           name="Veronique Lee"
           location="Malaga, Spain"
           photoSource="https://i.imgur.com/NLrdqsk.png"
-          :social="{twitter: 'twitter.com', facebook: 'facebook.com', instagram: 'instagram.com'}">
-        </vuestic-profile-card>
+          :social="{twitter: 'twitter.com', facebook: 'facebook.com', instagram: 'instagram.com'}"
+        />
       </div>
       <div class="flex md9">
-        <vuestic-chat v-model="chatMessages"></vuestic-chat>
+        <vuestic-chat v-model="chatMessages"/>
       </div>
     </div>
   </div>

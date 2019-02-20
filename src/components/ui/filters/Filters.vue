@@ -5,20 +5,17 @@
         <div class="flex md3">
           <filter-bar
             v-model="name"
-            class="filters-page__filter-bar"
             label="Name"
           />
         </div>
         <div class="flex md3 offset--md1">
           <filter-bar
             v-model="email"
-            class="filters-page__filter-bar"
             label="Email"
           />
         </div>
         <div class="flex md3 offset--md1">
           <vuestic-simple-select
-            class="filters-page__filter-bar"
             label="City"
             v-model="city"
             :options="cityList"
