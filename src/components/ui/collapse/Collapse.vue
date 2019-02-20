@@ -1,6 +1,6 @@
 <template>
   <div class="collapse-page">
-    <vuestic-widget :headerText="$t('collapse.accordion')">
+    <vuestic-widget :headerText="$t('collapse.basic')">
       <va-accordion>
         <va-collapse>
           <span slot="header"> Expandable Area </span>
@@ -26,8 +26,8 @@
         </va-collapse>
       </va-accordion>
     </vuestic-widget>
-    <vuestic-widget :headerText="$t('collapse.accordionWithBackground')">
-      <va-accordion>
+    <vuestic-widget :headerText="$t('collapse.collapseWithBackground')">
+      <va-accordion expand>
         <va-collapse withBackground>
           <span slot="header"> Expand This Block </span>
           <div slot="body">
@@ -52,12 +52,40 @@
         </va-collapse>
       </va-accordion>
     </vuestic-widget>
+    <vuestic-widget :headerText="$t('collapse.collapseWithCustomHeader')">
+      <va-accordion>
+        <va-collapse customHeader>
+          <span slot="header">
+            <va-button>
+              Expand this block
+            </va-button>
+          </span>
+          <div slot="body">
+            <div>
+              Expand three content
+            </div>
+          </div>
+        </va-collapse>
+        <va-collapse customHeader>
+          <span slot="header">
+            <va-button>
+              Expand this block
+            </va-button>
+          </span>
+          <div slot="body">
+            <div>
+              Expand this block
+            </div>
+          </div>
+        </va-collapse>
+      </va-accordion>
+    </vuestic-widget>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'collapse'
+  name: 'collapse',
 }
 </script>
 

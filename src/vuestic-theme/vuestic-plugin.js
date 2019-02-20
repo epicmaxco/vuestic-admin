@@ -62,9 +62,9 @@ import Dropdown from './vuestic-directives/Dropdown'
 import StickyScroll from './vuestic-directives/StickyScroll'
 
 import VuesticAccordion
-  from './vuestic-components/vuestic-collapse/VaAccordion'
+  from './vuestic-components/va-collapse/VaAccordion'
 import VuesticCollapse
-  from './vuestic-components/vuestic-collapse/VaCollapse'
+  from './vuestic-components/va-collapse/VaCollapse'
 
 import VuesticTimeline
   from './vuestic-components/vuestic-timelines/VuesticTimeline'

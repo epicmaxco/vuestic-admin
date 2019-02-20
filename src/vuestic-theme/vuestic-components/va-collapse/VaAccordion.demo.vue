@@ -1,9 +1,9 @@
 <template>
   <VbDemo>
-    <VbContainer style="width: 900px;">
+    <VbContainer style="width: 900px;" title="Default accordion">
       <va-accordion>
         <va-collapse>
-          <span slot="header"> Expand This Block </span>
+          <span slot="header"> Default collapse </span>
           <div slot="body">
             <div>
               Expand first content
@@ -11,7 +11,7 @@
           </div>
         </va-collapse>
         <va-collapse withBackground>
-          <span slot="header">Accordeon with background</span>
+          <span slot="header">Collapse with background</span>
           <div slot="body">
             <div>
               Expand three content
@@ -20,10 +20,10 @@
         </va-collapse>
       </va-accordion>
     </VbContainer>
-    <VbContainer style="width: 900px;">
+    <VbContainer style="width: 900px;" title="Expand accordion">
       <va-accordion expand>
         <va-collapse>
-          <span slot="header"> Expand This Block </span>
+          <span slot="header"> Default collapse </span>
           <div slot="body">
             <div>
               Expand first content
@@ -33,7 +33,7 @@
         <va-collapse customHeader>
           <span slot="header">
             <va-button>
-              no-header mode
+              No-header collapse
             </va-button>
           </span>
           <div slot="body">
@@ -46,12 +46,3 @@
     </VbContainer>
   </VbDemo>
 </template>
-
-<script>
-import VaCollapse from './VaCollapse.vue'
-import VaAccordion from './VaAccordion.vue'
-
-export default {
-  components: { VaCollapse, VaAccordion },
-}
-</script>
