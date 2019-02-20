@@ -1,9 +1,9 @@
 <template>
-  <div class="va-star">
+  <div class="va-rating-item">
     <i
       :class="iconClassesComputed"
       :style="iconStyles"
-      class="va-star__icon"
+      class="va-rating-item__icon"
       @mousemove="onHover"
       @mouseleave="removeHover"
       @click="onClick()"
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'va-star',
+  name: 'va-rating-item',
   props: {
     value: {
       type: Boolean
@@ -33,16 +33,24 @@ export default {
       type: Boolean
     },
     iconClasses: {
-      type: String
+      type: String,
+      default: 'fa fa-star'
     },
     iconStyles: {
-      type: Object
+      type: Object,
+      default: () => {
+        return {
+          fontSize: 'medium',
+          cursor: 'pointer'
+        }
+      }
     },
     color: {
       type: String
     },
     emptyIcon: {
-      type: String
+      type: String,
+      default: 'fa fa-star-o'
     },
     hover: {
       type: Boolean
@@ -80,20 +88,20 @@ export default {
     //   return this.iconClasses + this.extraClasses
     // },
     iconClassesComputed () {
-      if (!this.halfIcon) {
-        return this.iconClasses + this.extraClasses
+      if (!this.isRatingHover && !this.value && !this.isHalf) {
+        return this.emptyIcon
       }
       if (!this.isRatingHover && this.value) {
         return this.icon
-      }
-      if (!this.isRatingHover && !this.value && !this.isHalf) {
-        return this.emptyIcon
       }
       if (this.isRatingHover && !this.hover) {
         return this.emptyIcon
       }
       if (this.isRatingHover && this.hover && this.hoverValue !== 0.5) {
         return this.iconClasses + this.icon
+      }
+      if (!this.halfIcon) {
+        return this.iconClasses + this.extraClasses
       }
       return this.halfIcon
     }
@@ -140,7 +148,7 @@ export default {
 </script>
 
 <style lang="scss">
-.va-star {
+.va-rating-item {
   padding: 0.1rem;
   &__icon {
   }

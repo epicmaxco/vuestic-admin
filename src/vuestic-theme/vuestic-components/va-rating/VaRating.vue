@@ -21,7 +21,7 @@
       @mouseover="isHover = true"
       @mouseout="isHover = false"
     >
-      <va-star
+      <va-rating-item
         v-for="item in max"
         :key=item
         :icon="icon"
@@ -44,8 +44,10 @@
 
 <script>
 
+import VaRatingItem from './VaRatingItem'
 export default {
   name: 'va-rating',
+  components: { VaRatingItem },
   props: {
     icon: {
       type: String,
