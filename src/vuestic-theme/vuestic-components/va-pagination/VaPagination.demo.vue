@@ -102,7 +102,7 @@ export default {
   },
   data () {
     return {
-      activePage: 6
+      activePage: 4
     }
   }
 }

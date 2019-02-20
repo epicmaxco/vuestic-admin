@@ -7,14 +7,14 @@ export const setPaginationRange = (value, visiblePages, pages, currentRange) => 
 
   if (value - paginationMiddlePage <= 0 || value > pages) {
     start = 1
-   } else {
+  } else {
     start = value + paginationMiddlePage > pages
-    ? pages - visiblePages + 1
-    : Math.ceil(value - paginationMiddlePage)
+      ? pages - visiblePages + 1
+      : Math.ceil(value - paginationMiddlePage)
   }
 
-  if (currentRange.length === 0 || start === 1 || value === firstRangePage
-    || value === lastRangePage || value === pages) {
+  if (currentRange.length === 0 || start === 1 || value === firstRangePage ||
+    value === lastRangePage || value === pages) {
     currentRange = []
 
     for (let i = 0; i < visiblePages; i++) {

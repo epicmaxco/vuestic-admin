@@ -1,67 +1,65 @@
 <template>
-  <div class="va-pagination">
-    <va-button-group>
-      <va-button
-        v-if="this.pages !== visiblePages && boundaryLinks"
-        class="va-button--no-effects"
-        outline
-        :color="color"
-        :small="small"
-        :large="large"
-        :disabled="disabled || value === 1"
-        :icon="icon && icon.boundary ? icon.boundary : 'fa fa-angle-double-left'"
-        @click="changePage(1)"
-      >
+  <va-button-group class="va-pagination">
+    <va-button
+      v-if="this.pages !== visiblePages && boundaryLinks"
+      class="va-button--no-effects"
+      outline
+      :color="color"
+      :small="small"
+      :large="large"
+      :disabled="disabled || value === 1"
+      :icon="icon && icon.boundary ? icon.boundary : 'fa fa-angle-double-left'"
+      @click="changePage(1)"
+    >
 
-      </va-button>
-      <va-button
-        v-if="this.pages !== visiblePages && directionLinks"
-        class="va-button--no-effects"
-        outline
-        :color="color"
-        :small="small"
-        :large="large"
-        :disabled="disabled || value === 1"
-        :icon="icon && icon.direction ? icon.direction : 'fa fa-angle-left'"
-        @click="changePage(value - 1)"
-      />
-      <va-button
-        outline
-        :color="color"
-        :small="small"
-        :large="large"
-        :disabled="disabled"
-        v-for="(n, key) in paginationRange"
-        :key="key"
-        :class="{ 'va-button--active': n === value }"
-        @click="changePage(n)"
-      >
-        {{ n }}
-      </va-button>
-      <va-button
-        v-if="this.pages !== visiblePages && directionLinks"
-        class="va-button--no-effects"
-        outline
-        :color="color"
-        :small="small"
-        :large="large"
-        :disabled="disabled || value === this.pages"
-        :icon="iconRight && iconRight.direction ? iconRight.direction : 'fa fa-angle-right'"
-        @click="changePage(value + 1)"
-      />
-      <va-button
-        v-if="this.pages !== visiblePages && boundaryLinks"
-        class="va-button--no-effects"
-        outline
-        :color="color"
-        :small="small"
-        :large="large"
-        :disabled="disabled || value === this.pages"
-        :icon="iconRight && iconRight.boundary ? iconRight.boundary : 'fa fa-angle-double-right'"
-        @click="changePage(lastPage)"
-      />
-    </va-button-group>
-  </div>
+    </va-button>
+    <va-button
+      v-if="this.pages !== visiblePages && directionLinks"
+      class="va-button--no-effects"
+      outline
+      :color="color"
+      :small="small"
+      :large="large"
+      :disabled="disabled || value === 1"
+      :icon="icon && icon.direction ? icon.direction : 'fa fa-angle-left'"
+      @click="changePage(value - 1)"
+    />
+    <va-button
+      outline
+      :color="color"
+      :small="small"
+      :large="large"
+      :disabled="disabled"
+      v-for="(n, key) in paginationRange"
+      :key="key"
+      :class="{ 'va-button--active': n === value }"
+      @click="changePage(n)"
+    >
+      {{ n }}
+    </va-button>
+    <va-button
+      v-if="this.pages !== visiblePages && directionLinks"
+      class="va-button--no-effects"
+      outline
+      :color="color"
+      :small="small"
+      :large="large"
+      :disabled="disabled || value === this.pages"
+      :icon="iconRight && iconRight.direction ? iconRight.direction : 'fa fa-angle-right'"
+      @click="changePage(value + 1)"
+    />
+    <va-button
+      v-if="this.pages !== visiblePages && boundaryLinks"
+      class="va-button--no-effects"
+      outline
+      :color="color"
+      :small="small"
+      :large="large"
+      :disabled="disabled || value === this.pages"
+      :icon="iconRight && iconRight.boundary ? iconRight.boundary : 'fa fa-angle-double-right'"
+      @click="changePage(lastPage)"
+    />
+  </va-button-group>
 </template>
 
 <script>

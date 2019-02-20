@@ -380,7 +380,7 @@ export default {
           }
         }
 
-        .va-pagination .va-button-group & {
+        .va-pagination & {
           border-color: $brand-secondary;
           opacity: 1;
 
