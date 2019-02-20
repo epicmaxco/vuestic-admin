@@ -55,15 +55,47 @@ export default {
     }
   },
   computed: {
+    // iconClassesComputed () {
+    //   if (this.halfIcon) {
+    //     if (this.isRatingHover) {
+    //       if (this.hover) {
+    //         if (this.hoverValue !== 0.5) {
+    //           return this.iconClasses + this.icon
+    //         } else {
+    //           return this.halfIcon
+    //         }
+    //       } else {
+    //         return this.emptyIcon
+    //       }
+    //     } else {
+    //       if (this.value) {
+    //         return this.icon
+    //       } else if (this.isHalf) {
+    //         return this.halfIcon
+    //       } else {
+    //         return this.emptyIcon
+    //       }
+    //     }
+    //   }
+    //   return this.iconClasses + this.extraClasses
+    // },
     iconClassesComputed () {
-      if (this.halfIcon) {
-        if (this.isRatingHover) {
-          return this.hover ? this.hoverValue !== 0.5 ? this.iconClasses + this.icon
-            : this.halfIcon : this.emptyIcon
-        }
-        return this.value ? this.icon : this.isHalf ? this.halfIcon : this.emptyIcon
+      if (!this.halfIcon) {
+        return this.iconClasses + this.extraClasses
       }
-      return this.iconClasses + this.extraClasses
+      if (!this.isRatingHover && this.value) {
+        return this.icon
+      }
+      if (!this.isRatingHover && !this.value && !this.isHalf) {
+        return this.emptyIcon
+      }
+      if (this.isRatingHover && !this.hover) {
+        return this.emptyIcon
+      }
+      if (this.isRatingHover && this.hover && this.hoverValue !== 0.5) {
+        return this.iconClasses + this.icon
+      }
+      return this.halfIcon
     }
   },
   methods: {
