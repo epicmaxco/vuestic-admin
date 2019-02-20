@@ -1,5 +1,5 @@
 <template>
-  <div class="va-row bottom-widgets">
+  <div class="va-row dashboard-bottom-widgets">
     <div class="flex md6 xs12">
       <vuestic-widget class="no-h-padding no-v-padding">
         <vuestic-feed :initialPosts="posts"></vuestic-feed>
@@ -78,13 +78,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.bottom-widgets {
-  > div[class^='col'] {
-    & > div {
-      width: 100%;
-    }
-  }
-}
-</style>

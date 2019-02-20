@@ -2,7 +2,7 @@
   <div class="extra">
     <vuestic-widget :headerText="'extra.tabs.title' | translate"
                     class="no-v-padding">
-      <vuestic-tabs class="tabs"
+      <vuestic-tabs class="tabs mt-2"
                     :names="[$t('extra.tabs.maps'), $t('extra.tabs.setupProfile'), $t('extra.tabs.overview')]">
         <div :slot="'extra.tabs.overview' | translate"
              class="flex justify--center">
@@ -153,12 +153,6 @@ export default {
 
 <style lang="scss" scoped>
 .tabs {
-  .overview-tab {
-    .explore-row {
-      display: none !important;
-    }
-  }
-
   .maps-tab {
     height: 500px;
   }
@@ -166,21 +160,5 @@ export default {
 
 .profile-card-widget, .chat-widget {
   width: 100%;
-  .widget-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    & > div {
-      width: 100%;
-    }
-  }
-}
-
-.bottom-widgets {
-  > div[class^='col'] {
-    & > div {
-      width: 100%;
-    }
-  }
 }
 </style>

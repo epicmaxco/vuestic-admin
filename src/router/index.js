@@ -149,7 +149,7 @@ export default new Router({
         {
           name: 'tables',
           path: 'tables',
-          component: lazyLoading('tables/Table'),
+          component: lazyLoading('tables/Tables'),
           meta: {
             wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tables',
           },
@@ -280,7 +280,7 @@ export default new Router({
             {
               name: 'collapse',
               path: 'collapse',
-              component: lazyLoading('ui/collapse/Collapse')
+              component: lazyLoading('ui/collapse/Collapses')
             },
             {
               name: 'filters',

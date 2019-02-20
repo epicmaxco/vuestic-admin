@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <h2>{{ $t('auth.welcome') }}</h2>
+    <div class="display-2 text--center my-4">{{ $t('auth.welcome') }}</div>
     <form method="post" action="/auth/login" name="login">
       <div class="form-group">
         <div class="input-group">
@@ -43,20 +43,9 @@ export default {
 .login {
   @include media-breakpoint-down(md) {
     width: 100%;
-    padding-right: 2rem;
-    padding-left: 2rem;
-    .down-container {
-      display: none;
-    }
+    padding: 0 2rem;
   }
 
-  h2 {
-    text-align: center;
-  }
   width: 21.375rem;
-
-  .down-container {
-    margin-top: 3.125rem;
-  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="modals-page">
+  <div class="modals">
     <div class="va-row">
       <div class="flex md12">
         <vuestic-widget class="modals-list larger-padding"
@@ -101,14 +101,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.modals-page {
-  .modals-list {
-    .btn {
-      margin-right: 20px;
-      margin-bottom: 25px;
-    }
-  }
-}
-</style>
