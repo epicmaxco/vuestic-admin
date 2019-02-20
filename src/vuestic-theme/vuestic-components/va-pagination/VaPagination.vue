@@ -65,6 +65,8 @@
 </template>
 
 <script>
+import { setPaginationRange } from './setPaginationRange'
+
 export default {
   name: 'va-pagination',
   props: {
@@ -109,7 +111,6 @@ export default {
   },
   methods: {
     changePage (pageNum) {
-      console.log(pageNum)
       if (pageNum < 1 || pageNum > this.pages) {
         return
       }
@@ -126,30 +127,7 @@ export default {
       return this.pages
     },
     paginationRange () {
-      let start = 0
-
-      const paginationMiddlePage = this.visiblePages / 2,
-        firstRangePage = this.range[0],
-        lastRangePage = this.range[this.range.length - 1]
-
-      if (this.value - paginationMiddlePage <= 0 || this.value > this.pages) {
-        start = 1
-      } else {
-        start = this.value + paginationMiddlePage > this.pages
-          ? this.pages - this.visiblePages + 1
-          : Math.ceil(this.value - paginationMiddlePage)
-      }
-
-      console.log(this.range.length === 0 || start === 1 || this.value === firstRangePage || this.value === lastRangePage)
-      if (this.range.length === 0 || start === 1 || this.value === firstRangePage || this.value === lastRangePage) {
-        console.log('Change it!')
-        this.range = []
-
-        for (let i = 0; i < this.visiblePages; i++) {
-          this.range.push(start + i)
-        }
-      }
-
+      this.range = setPaginationRange(this.value, this.visiblePages, this.pages, this.range)
       return this.range
     }
   }

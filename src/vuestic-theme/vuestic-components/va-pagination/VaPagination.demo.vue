@@ -14,7 +14,7 @@
             </VbContainer>
           </td>
         </tr>
-        <!--<tr>
+        <tr>
           <td>Pagination With Visible Pages</td>
           <td>
             <VbContainer>
@@ -87,7 +87,7 @@
                 v-model="activePage"/>
             </VbContainer>
           </td>
-        </tr>-->
+        </tr>
       </table>
     </VbContainer>
   </VbDemo>
