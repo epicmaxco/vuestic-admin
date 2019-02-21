@@ -119,7 +119,6 @@ ul.va-unordered {
 
   & > li {
     padding-left: 1rem;
-    padding-bottom: 1rem;
     position: relative;
 
     &:before {
@@ -142,7 +141,7 @@ ol.va-ordered {
 
   & > li {
     list-style: none;
-    padding: 0 0 1em 1em;
+    padding: 0 1rem;
 
     &:before {
       counter-increment: olCounter;

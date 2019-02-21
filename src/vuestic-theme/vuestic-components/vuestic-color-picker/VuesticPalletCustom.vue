@@ -1,7 +1,7 @@
 <template>
   <div class="vuestic-pallet-custom">
     <vuestic-simple-palette-picker :palette="palette" v-model="valueProxy"
-                                   class="vuestic-pallet-custom__palette"/>
+                                   class="vuestic-pallet-custom__palette mr-2"/>
     <vuestic-color-picker-input mode="advanced" v-model="valueProxy"
                                 class="vuestic-pallet-custom__input">
       <vuestic-color-input :selected="dotisSelected" v-model="valueProxy"/>
@@ -56,10 +56,6 @@ export default {
 <style lang="scss">
 .vuestic-pallet-custom {
   display: flex;
-
-  &__palette {
-    margin-right: 20px;
-  }
 
   &__input {
     float: right;

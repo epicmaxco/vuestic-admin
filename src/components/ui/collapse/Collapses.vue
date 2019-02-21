@@ -85,11 +85,6 @@
 
 <script>
 export default {
-  name: 'collapse',
+  name: 'collapses',
 }
 </script>
-
-<style lang="scss">
-.collapse-page {
-}
-</style>

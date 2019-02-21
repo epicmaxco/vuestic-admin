@@ -63,7 +63,7 @@ import StickyScroll from './vuestic-directives/StickyScroll'
 
 import VaAccordion
   from './vuestic-components/va-collapse/VaAccordion'
-import VuesticCollapse
+import VaCollapse
   from './vuestic-components/va-collapse/VaCollapse'
 
 import VuesticTimeline
@@ -126,7 +126,7 @@ const VuesticPlugin = {
       TagGroup,
       VaIcon,
       VaAccordion,
-      VuesticCollapse,
+      VaCollapse,
       VuesticTimeline,
       VuesticTimelineItem,
       VuesticPopup,

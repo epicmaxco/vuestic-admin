@@ -1,5 +1,5 @@
 <template>
-  <vuestic-widget class="progress-bar-widget" :headerText="$t('progressBars.circle')">
+  <vuestic-widget class="circle-bars progress-bar-widget" :headerText="$t('progressBars.circle')">
     <div class="va-row">
       <div v-for="n in 10" :key="n" class="flex xs2 md1">
         <va-progress-circle :value="value * n / 10"/>

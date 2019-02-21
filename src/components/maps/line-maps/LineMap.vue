@@ -1,5 +1,5 @@
 <template>
-  <div class='line-map'>
+  <div class="line-map fill-height">
     Line Map
   </div>
 </template>
@@ -59,11 +59,3 @@ export default {
   },
 }
 </script>
-
-<style lang='scss'>
-@import '~ammap3/ammap/ammap.css';
-
-.line-map {
-  height: 100%;
-}
-</style>

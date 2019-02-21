@@ -1,5 +1,5 @@
 <template>
-  <div class="google-map">
+  <div class="google-map fill-height">
   </div>
 </template>
 
@@ -31,9 +31,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.google-map {
-  height: 100%;
-}
-</style>

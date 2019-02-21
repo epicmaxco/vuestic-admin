@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="cards">
     <div class="flex md12">
-      <div class="cards-container">
+      <div class="cards-container va-row d-flex wrap align--start">
         <!-- eslint-disable vue/valid-v-for -->
         <template v-for="loop in listLoops">
           <vuestic-card
@@ -176,8 +176,8 @@
         </template>
       </div>
     </div>
-    <div class="flex md12 align--center justify--center">
-      <div class="pre-loader-container">
+    <div class="flex md12">
+      <div class="pre-loader-container flex-center my-5">
         <vuestic-pre-loader
           v-show="isShown"
           class="pre-loader"/>
@@ -222,10 +222,7 @@ export default {
 $singleGutter: #{(19/16)}rem;
 
 .cards-container {
-  display: flex;
-  flex-wrap: wrap;
   margin: -$singleGutter;
-  align-items: flex-start;
   .vuestic-card {
     margin: $singleGutter;
 
@@ -247,11 +244,5 @@ $singleGutter: #{(19/16)}rem;
       width: calc(100% - #{$singleGutter} * 2);
     }
   }
-}
-
-.pre-loader-container {
-  height: 50px;
-  margin-top: 50px;
-  margin-bottom: 50px;
 }
 </style>
