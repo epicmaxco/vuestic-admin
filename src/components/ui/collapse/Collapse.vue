@@ -27,7 +27,7 @@
       </va-accordion>
     </vuestic-widget>
     <vuestic-widget :headerText="$t('collapse.collapseWithBackground')">
-      <va-accordion expand>
+      <va-accordion>
         <va-collapse withBackground>
           <span slot="header"> Expand This Block </span>
           <div slot="body">

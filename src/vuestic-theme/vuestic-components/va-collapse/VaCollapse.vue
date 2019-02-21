@@ -10,19 +10,19 @@
       }"
       @click="onHeaderClick()"
     >
-      <template v-if="customHeader">
-        <slot name="header"/>
+      <template>
+        <slot name="header" v-if="customHeader"/>
       </template>
       <div
-        v-else
+        v-if="!customHeader"
         class="va-collapse__header__content"
       >
         <slot name="header"/>
-        <i
+        <va-icon
           v-if="show"
           class="fa fa-angle-up va-collapse__header__icon"
         />
-        <i
+        <va-icon
           v-else
           class="fa fa-angle-down va-collapse__header__icon"
         />
@@ -30,7 +30,7 @@
     </div>
     <div
       class="va-collapse__body"
-      ref="collapseBody"
+      :style="stylesComputed"
     >
       <slot name="body"/>
     </div>
@@ -38,10 +38,13 @@
 </template>
 
 <script>
+import VaIcon from '../va-icon/VaIcon'
+
 export default {
   name: 'va-collapse',
+  components: { VaIcon },
   props: {
-    value: {
+    defaultValue: {
       type: Boolean
     },
     withBackground: Boolean,
@@ -57,41 +60,50 @@ export default {
   },
   data () {
     return {
-      show: this.value,
+      show: this.defaultValue,
     }
   },
-  watch: {
-    show (show) {
-      if (show) {
-        this.expand()
-      } else {
-        this.collapse()
+  computed: {
+    stylesComputed () {
+      if (this.show) {
+        if (this.$slots.body[0]) {
+          return {
+            height: this.getHeight(),
+            paddingTop: 1 + 'rem',
+            paddingBottom: 1 + 'rem'
+          }
+        }
       }
-    },
+      return {
+        height: 0,
+        paddingTop: 0,
+        paddingBottom: 0
+      }
+    }
   },
   methods: {
-    expand () {
-      const bodyContent = this.$refs.collapseBody
-      bodyContent.style.height = this.$slots.body[0].elm.clientHeight + 36 + 'px'
-      bodyContent.style.paddingTop = 1 + 'rem'
-      bodyContent.style.paddingBottom = 1 + 'rem'
-      this.show = true
-    },
-    collapse () {
-      const bodyContent = this.$refs.collapseBody
-      bodyContent.style.height = 0
-      bodyContent.style.paddingTop = 0
-      bodyContent.style.paddingBottom = 0
-      this.show = false
-    },
     onHeaderClick () {
       this.toggle()
       this.accordion.onChildChange(this, this.show)
     },
-    toggle () {
-      this.show ? this.collapse() : this.expand()
+    collapse () {
+      this.show = false
     },
-  },
+    expand () {
+      this.show = true
+    },
+    toggle () {
+      if (this.show) {
+        this.collapse()
+      } else {
+        this.expand()
+      }
+    },
+    getHeight () {
+      return this.$slots.body[0].elm ? `calc(` + this.$slots.body[0].elm.clientHeight +
+        `px + 2rem)` : `100%`
+    }
+  }
 }
 </script>
 
@@ -107,14 +119,15 @@ export default {
     margin-top: 0.1rem;
     padding-left: 1rem;
     padding-right: 1rem;
-  }
-  &--with-background > &__body {
-    margin-top: 0.1rem;
-    border-radius: 0.375rem;
-    background-color: $light-gray3;
+    @at-root {
+      .va-collapse--with-background > & {
+        margin-top: 0.1rem;
+        border-radius: 0.375rem;
+        background-color: $light-gray3;
+      }
+    }
   }
   &__header {
-    height: 50px;
     &__content {
       display: flex;
       justify-content: space-between;
@@ -122,14 +135,10 @@ export default {
       background-color: $light-gray3;
       box-shadow: 0 2px 3px 0 rgba(98, 106, 119, 0.25);
       border-radius: 0.375rem;
-      cursor: pointer;
-      outline: 0;
-      border: 0;
       align-items: center;
       padding-top: 11px;
       padding-bottom: 13px;
       padding-left: 1rem;
-      text-align: left;
     }
     &__icon {
       cursor: pointer;

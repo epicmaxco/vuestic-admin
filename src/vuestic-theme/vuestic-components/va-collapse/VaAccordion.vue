@@ -7,12 +7,6 @@
 <script>
 export default {
   name: 'va-accordion',
-  props: {
-    expand: {
-      type: Boolean,
-      default: false,
-    },
-  },
   provide () {
     return {
       accordion: {
@@ -22,11 +16,6 @@ export default {
   },
   methods: {
     onChildChange (child, state) {
-      // Expand means opening one collapse won't close others.
-      if (this.expand) {
-        return
-      }
-
       // No reaction when user closes collapse.
       if (state === false) {
         return
