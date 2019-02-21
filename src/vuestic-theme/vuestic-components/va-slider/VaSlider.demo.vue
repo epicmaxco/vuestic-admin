@@ -14,7 +14,7 @@
         range
         pins
         label="Label2"
-        :step="10"
+        :step="20"
         value-visible
         v-model="value2"
       />
@@ -77,7 +77,7 @@ export default {
   },
   data () {
     return {
-      value: 70,
+      value: 90,
       value2: [20, 60]
     }
   },
