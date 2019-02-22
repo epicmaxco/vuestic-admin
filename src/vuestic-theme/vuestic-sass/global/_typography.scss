@@ -31,6 +31,18 @@
  line-height: 1.2;
  font-weight: bold;
  text-transform: uppercase;
+
+  &--info {
+    color: #2c82e0;
+  }
+
+  &--danger {
+    color: #e34b4a;
+  }
+
+  &--warning {
+    color: #ffc200;
+  }
 }
 
 .text {

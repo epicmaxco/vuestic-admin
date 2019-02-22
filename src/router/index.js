@@ -291,6 +291,11 @@ export default new Router({
               name: 'spacing',
               path: 'spacing',
               component: lazyLoading('ui/spacing/Spacing')
+            },
+            {
+              name: 'sliders',
+              path: 'sliders',
+              component: lazyLoading('ui/sliders/Sliders')
             }
           ]
         },

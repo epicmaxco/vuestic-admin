@@ -370,6 +370,10 @@ export default {
 
     .va-slider--#{$name} {
 
+      .va-slider__label, .va-slider__invert-label, .va-slider__container__handler-value {
+        color: $active-track;
+      }
+
       .va-slider__container__track--active, .va-slider__container__mark--active {
         background: $active-track !important;
       }

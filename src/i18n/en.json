@@ -54,6 +54,10 @@
     "accordion": "Accordion",
     "buttons": "Buttons"
   },
+  "sliders": {
+    "slider": "Sliders",
+    "range": "Ranges"
+  },
   "dashboard": {
     "dataVisualization": "Data Visualization",
     "success": "SUCCESS",
@@ -226,7 +230,8 @@
     "dateTimePickers": "Date time pickers",
     "fileUpload": "File Upload",
     "dropdowns": "Dropdowns",
-    "spacing": "Spacing"
+    "spacing": "Spacing",
+    "sliders": "Sliders"
   },
   "messages": {
     "all": "See all messages",

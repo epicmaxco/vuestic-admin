@@ -9,7 +9,7 @@
               <div class="row spinners__size">
                 <h5 class="spinners__icon-small">A</h5>
                 <div class="spinners__size-picker">
-                  <vuestic-slider v-model="config.size" :options="sliderSize"/>
+                  <va-slider v-model="config.size" :min="sliderSize.min" :max="sliderSize.max"/>
                 </div>
                 <h3 class="spinners__icon-large">A</h3>
               </div>
@@ -20,8 +20,9 @@
                   <va-icon-slower/>
                 </div>
                 <div class="spinners__duration-picker">
-                  <vuestic-slider v-model="currentDuration"
-                                  :options="sliderDuration"/>
+                  <va-slider v-model="currentDuration"
+                             :min="sliderDuration.min" :max="sliderDuration.max"
+                  />
                 </div>
                 <div class="spinners__icon-duration-faster">
                   <va-icon-faster/>
