@@ -4,7 +4,7 @@
       <va-slider
         pins
         label="Label"
-        :step="20"
+        :step="10"
         value-visible
         v-model="value"
       />

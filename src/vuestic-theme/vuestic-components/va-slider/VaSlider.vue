@@ -23,10 +23,10 @@
         :style="{ width: max + '%', backgroundColor: color }"/>
       <template v-if="pins">
         <div
-          v-for="pin in pinsCol"
-          :key="pin"
+          v-for="(pin, key) in pinsCol"
+          :key="key"
           class="va-slider__container__mark"
-          :class="{ 'va-slider-mark--active': pin * step < currentValue }"
+          :class="{ 'va-slider__container__mark--active': isRange ? pin * step > val[0] && pin * step < val[1] : pin * step < val}"
           :style="{ left: pin * step + '%' }"
         />
       </template>
@@ -34,28 +34,28 @@
         <div
           ref="process"
           class="va-slider__container__track va-slider__container__track--active"
-          :style="{ left: currentValue[0] + '%', width: interval + '%', backgroundColor: color }"
+          :style="{ left: val[0] + '%', width: interval + '%', backgroundColor: color }"
           @mousedown="moveStart($event, 0)"/>
         <div
           ref="dot0"
           class="va-slider__container__handler"
-          :style="{ left: 'calc(' + currentValue[0] + '% - 8px)', backgroundColor: color }"
+          :style="{ left: 'calc(' + val[0] + '% - 8px)', backgroundColor: color }"
           @mousedown="moveStart($event, 0)"
         >
           <div v-if="valueVisible" class="va-slider__container__handler-value d-inline-flex title">
-            {{ label0 }}
+            {{ val[0] }}
           </div>
         </div>
         <div
           ref="dot1"
           class="va-slider__container__handler"
-          :style="{ left: 'calc(' + currentValue[1] + '% - 8px)', backgroundColor: color }"
+          :style="{ left: 'calc(' + val[1] + '% - 8px)', backgroundColor: color }"
           @mousedown="moveStart($event, 1)"
         >
           <div
             v-if="valueVisible"
             class="va-slider__container__handler-value d-inline-flex title">
-            {{ label1 }}
+            {{ val[1] }}
           </div>
         </div>
       </template>
@@ -63,18 +63,18 @@
         <div
           ref="process"
           class="va-slider__container__track va-slider__container__track--active"
-          :style="{ width: currentValue + '%', backgroundColor: color }"
+          :style="{ width: val + '%', backgroundColor: color }"
           @mousedown="moveStart($event, 0)"/>
         <div
           ref="dot"
           class="va-slider__container__handler"
-          :style="{ left: 'calc(' + currentValue + '% - 8px)', backgroundColor: color }"
+          :style="{ left: 'calc(' + val + '% - 8px)', backgroundColor: color }"
           @mousedown="moveStart"
         >
           <div
             v-if="valueVisible"
             class="va-slider__container__handler-value d-inline-flex title">
-            {{ currentValue }}
+            {{ val }}
           </div>
         </div>
       </template>
@@ -146,9 +146,7 @@ export default {
       size: 0,
       currentValue: this.value,
       currentSlider: 0,
-      isComponentExists: false,
-      label0: Array.isArray(this.value) ? this.value[0] : '',
-      label1: Array.isArray(this.value) ? this.value[1] : ''
+      isComponentExists: false
     }
   },
   computed: {
@@ -161,9 +159,16 @@ export default {
         'va-slider--disabled': this.disabled
       }
     },
+    val: {
+      get () {
+        return this.value
+      },
+      set (val) {
+        this.$emit('input', val)
+      }
+    },
     interval () {
-      console.log(this.currentValue[1] - this.currentValue[0])
-      return this.currentValue[1] - this.currentValue[0]
+      return this.value[1] - this.value[0]
     },
     pinsCol () {
       return (this.max / this.step) - 1
@@ -198,17 +203,22 @@ export default {
       if (this.isRange) {
         if (this.isDiff(this.currentValue[slider], val)) {
           this.currentValue.splice(slider, 1, val)
+          if (slider === 0) {
+            this.val = [this.currentValue.splice(slider, 1, val)[0], this.currentValue[1]]
+          } else {
+            this.val = [this.currentValue[0], this.currentValue.splice(slider, 1, val)[0]]
+          }
         }
       } else {
         if (val < this.min || val > this.max) return false
         if (this.isDiff(this.currentValue, val)) {
           this.currentValue = val
+          this.val = val
         }
       }
     },
     getValueByIndex (index) {
       let tempValue = (this.step * index + this.min) / this.step
-      this.$refs.process.style.width = `${tempValue}%`
       return tempValue
     },
     normalizeValue (value) {
@@ -259,15 +269,18 @@ export default {
       this.flag = false
 
       if (this.pins) {
-        if (this.isRange){
+        if (this.isRange) {
           if (this.currentValue[0] % this.step !== 0) {
             this.currentValue[0] = this.normalizeValue(this.currentValue[0])
+            this.val = [this.currentValue[0], this.val[1]]
           }
           if (this.currentValue[1] % this.step !== 0) {
             this.currentValue[1] = this.normalizeValue(this.currentValue[1])
+            this.val = [this.val[0], this.currentValue[1]]
           }
         } else {
           this.currentValue = this.normalizeValue(this.currentValue)
+          this.val = this.currentValue
         }
       }
       this.setTransform()
@@ -280,12 +293,10 @@ export default {
       if (this.isRange) {
         this.$refs.process.style.width = processSize
         this.$refs.process.style['left'] = processPos
-        if (slider === 0){
+        if (slider === 0) {
           this.$refs.dot0.style['left'] = `calc('${processPos} - 8px)`
-          this.label0 = this.currentValue[0]
         } else {
           this.$refs.dot1.style['left'] = `calc('${processPos} - 8px)`
-          this.label1 = this.currentValue[1]
         }
       } else {
         this.$refs.process.style.width = `${val}px`
