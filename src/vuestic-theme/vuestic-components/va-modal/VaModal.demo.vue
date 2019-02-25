@@ -88,7 +88,7 @@
       <button @click="showModalWithoutCloseButton = !showModalWithoutCloseButton">Show modal without close button</button>
       <va-modal
         title="Title"
-        message="message"
+        :message="message"
         v-model="showModalWithoutCloseButton"
         :close-button="false"
       />
@@ -149,7 +149,7 @@
         <button @click="showModalSecondLay = !showModalSecondLay">Show modal</button>
         <va-modal
           v-model="showModalSecondLay"
-          title="Several lays"
+          title="Several layers"
           :message="message"
         />
       </slot>
@@ -191,6 +191,14 @@
       :message="message + message + message + message + message + message + message + message + message + message + message + message + message + message + message + message"
     />
   </VbContainer>
+  <VbContainer title="without transitions">
+    <button @click="showModalWithoutTrasitions = !showModalWithoutTrasitions">Show modal</button>
+    <va-modal
+      without-transitions
+      v-model="showModalWithoutTrasitions"
+      :message="message"
+    />
+  </VbContainer>
 </VbDemo>
 </template>
 
@@ -222,6 +230,7 @@ export default {
       showModalSecondLay: false,
       showModalLongMessage: false,
       showModalWithoutTitle: false,
+      showModalWithoutTrasitions: false,
       message: 'About 64% of all on-line teens say that do things online that they wouldn’t want their parents to know about.   11% of all adult internet users visit dating websites and spend their time Some of the classify their behavior as “cyber affair”   More then 60% of employees use company PC for the personal needs during their work hours as long as 80 minutes per day.',
     }
   },

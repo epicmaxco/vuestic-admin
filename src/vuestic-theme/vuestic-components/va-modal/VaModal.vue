@@ -1,12 +1,12 @@
 <template>
-  <transition name="va-modal__overlay" appear>
+  <transition name="va-modal__overlay__transition" appear>
     <div
     v-if="overlayValue"
     class="va-modal__overlay"
     :class="computedOverlayClass"
     @click="checkOutside"
   >
-    <transition name="va-modal" appear>
+    <transition name="va-modal__transition" appear>
       <div
         v-if="value"
         class="va-modal"
@@ -17,9 +17,11 @@
           v-if="closeButton || fullscreen"
           @click="cancel"
           class="ion ion-md-close va-modal__close"
+          :style="{'right': `calc(1rem + ${scrollWidth}`}"
         />
+
         <div class="va-modal__inner" :style="{maxHeight, maxWidth}">
-          <div v-if="title" class="va-modal__title">{{title}}</div>
+          <div v-if="title" class="title">{{title}}</div>
           <div v-if="hasHeaderSlot" class="va-modal__header">
             <slot name="header"/>
           </div>
@@ -99,6 +101,7 @@ export default {
     fixedLayout: Boolean,
     onOk: Function,
     onCancel: Function,
+    withoutTransitions: Boolean
   },
   computed: {
     valueProxy: {
@@ -115,11 +118,13 @@ export default {
         'va-modal--mobile-fullscreen': this.mobileFullscreen,
         'va-modal--fixed-layout': this.fixedLayout,
         [`va-modal--size-${this.size}`]: this.size !== 'medium',
+        'transition-off': this.withoutTransitions
       }
     },
     computedOverlayClass () {
       return {
         [`va-modal--position-${this.position}`]: this.position,
+        'transition-off': this.withoutTransitions
       }
     },
     hasContentSlot () {
@@ -131,6 +136,9 @@ export default {
     hasActionsSlot () {
       return this.$slots.actions
     },
+    scrollWidth () {
+      return document.body.offsetWidth - document.body.offsetWidth
+    }
   },
   watch: {
     value (value) {
@@ -138,7 +146,11 @@ export default {
         this.overlayValue = true
         window.addEventListener('keyup', this.listenKeyUp)
       } else {
-        setTimeout(() => { this.overlayValue = false }, 300)
+        if (this.withoutTransitions) {
+          this.overlayValue = false
+        } else {
+          setTimeout(() => { this.overlayValue = false }, 300)
+        }
         window.removeEventListener('keyup', this.listenKeyUp)
       }
     },
@@ -199,43 +211,62 @@ export default {
     &:last-of-type {
       background-color: rgba(0, 0, 0, 0.6);
     }
-
-    &-enter,
-    &-leave-to {
-      opacity: 0;
+    &.transition-off {
+      opacity: 1;
     }
+    &__transition {
+      &-enter,
+      &-leave-to {
+        opacity: 0;
+        &:nth-of-type(n+3){
+          opacity: 1;
+        }
+      }
 
-    &-enter-active {
-      transition: all .2s ease;
-    }
+      &-enter-active {
+        transition: all .2s ease;
+      }
 
-    &-leave-active {
-      transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+      &-leave-active {
+        transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+      }
     }
   }
 
-  background: #fff;
-  min-height: 50px;
+  background: $white;
+  min-height: 3.125rem;
   height: fit-content;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   margin: 1rem;
-  box-shadow: 0 2px 3px 0 rgba(52, 56, 85, 0.25);
-  max-width: 600px;
+  box-shadow: $widget-box-shadow;
+  max-width: map_get($grid-breakpoints, md);
   max-height: calc(100vh - 2rem);
   position: relative;
   transition: all .5s ease-out;
-  &-enter,
-  &-leave-to {
-    opacity: 0;
-    transform: translateY(-30%);
-  }
+  &__transition {
+    &-enter,
+    &-leave-to {
+      opacity: 0;
+      transform: translateY(-30%);
+      &.transition-off {
+        opacity: 1;
+        transform: none;
+      }
+    }
 
-  &-enter-active {
-    transition: all .3s ease;
-  }
+    &-enter-active {
+      transition: all .3s ease;
+      &.transition-off {
+        transition: none;
+      }
+    }
 
-  &-leave-active {
-    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    &-leave-active {
+      transition: all .15s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+      &.transition-off {
+        transition: none;
+      }
+    }
   }
 
   &--fullscreen {
@@ -275,13 +306,13 @@ export default {
 
   &--size {
     &-small {
-      max-width: 300px;
+      max-width: map_get($grid-breakpoints, sm);
       @media all and (max-width: map-get($grid-breakpoints, sm)) {
         max-width: 100vw !important;
       }
 
       .va-modal__inner {
-        max-width: 300px;
+        max-width: map_get($grid-breakpoints, sm);
         @media all and (max-width: map-get($grid-breakpoints, sm)) {
           max-width: 100vw !important;
         }
@@ -289,10 +320,10 @@ export default {
     }
 
     &-large {
-      max-width: 800px;
+      max-width: map-get($grid-breakpoints, lg);
 
       .va-modal__inner {
-        max-width: 800px;
+        max-width: map-get($grid-breakpoints, lg);
       }
     }
   }
@@ -300,13 +331,13 @@ export default {
   &--fixed-layout {
     .va-modal__inner {
       overflow: hidden;
-      padding: 20px 0 24px 0;
+      padding: 1.25rem 0 1.5rem 0;
       .va-modal__header, .va-modal__actions {
-        padding: 0 30px 0 24px;
+        padding: 0 1.875rem 0 1.5rem;
       }
       .va-modal__message {
         overflow: auto;
-        padding: 0 30px 0 24px;
+        padding: 0 1.875rem 0 1.5rem;
       }
     }
   }
@@ -314,30 +345,25 @@ export default {
   &__inner {
     overflow: auto;
     display: flex;
+    position: relative;
     flex-flow: column;
-    padding: 20px 30px 24px 24px;
+    padding: 1.25rem 1.875rem 1.5rem 1.5rem;
     max-height: calc(100vh - 2rem);
-    max-width: 600px;
+    max-width: map_get($grid-breakpoints, md);
     margin: auto;
   }
 
   &__close {
     position: absolute;
-    top: 16px;
-    right: 16px;
+    top: 1rem;
+    right: 1rem;
     cursor: pointer;
     font-size: 1.5rem;
     color: $brand-secondary;
   }
 
-  &__title {
-    color: $vu-info;
-    font-size: 0.625rem;
-    line-height: 1.2em;
-    text-transform: uppercase;
-    font-weight: $font-weight-bold;
-    letter-spacing: 0.6px;
-    margin-bottom: 24px;
+  .title {
+    margin-bottom: 1.5rem;
   }
 
   &__message {
