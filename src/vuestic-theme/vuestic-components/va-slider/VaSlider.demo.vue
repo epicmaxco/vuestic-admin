@@ -11,6 +11,15 @@
         v-model="value"
       />
     </VbContainer>
+    <VbContainer width="500px" title="Slider With Overwrited Value">
+      <va-slider
+        value-visible
+        v-model="value3"
+        :label-value="`${value3}px`"
+        :min="1000"
+        :max="2000"
+      />
+    </VbContainer>
     <VbContainer width="500px" title="Slider With Label">
       <va-slider
         label="Label"
@@ -93,6 +102,15 @@
         range
         value-visible
         v-model="value2"
+      />
+    </VbContainer>
+    <VbContainer width="500px" title="Range With Visible Value">
+      <va-slider
+        range
+        value-visible
+        v-model="value4"
+        :min="1000"
+        :max="2000"
       />
     </VbContainer>
     <VbContainer width="500px" title="Range With Label">
@@ -197,7 +215,9 @@ export default {
   data () {
     return {
       value: 90,
-      value2: [20, 60]
+      value2: [20, 60],
+      value3: 1500,
+      value4: [1100, 1320]
     }
   },
 }

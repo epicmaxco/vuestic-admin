@@ -28,13 +28,16 @@
         </div>
 
         <div class=" flex md4 xs12 vuestic-icon-set__header__range">
-          <h4>A</h4>
-          <vuestic-slider
-            :options="slider"
+          <h4 class="mr-3">A</h4>
+          <va-slider
+            value-visible
             v-model="iconSize"
+            :label-value="`${iconSize}px`"
+            :min="slider.min"
+            :max="slider.max"
           >
-          </vuestic-slider>
-          <h2>A</h2>
+          </va-slider>
+          <h2 class="ml-3">A</h2>
         </div>
       </div>
     </vuestic-widget>
@@ -55,7 +58,7 @@
           :key="icon"
         >
           <div class="vuestic-icon">
-            <va-icon :icon="iconClass(icon)" size="iconSize"/>
+            <va-icon :icon="iconClass(icon)" :size="iconSize"/>
           </div>
           <div class="icon-text">
             {{ icon }}

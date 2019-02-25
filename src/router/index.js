@@ -295,7 +295,10 @@ export default new Router({
             {
               name: 'sliders',
               path: 'sliders',
-              component: lazyLoading('ui/sliders/Sliders')
+              component: lazyLoading('ui/sliders/Sliders'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Sliders',
+              },
             }
           ]
         },

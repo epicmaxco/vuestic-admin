@@ -20,7 +20,7 @@
     >
       <div
         class="va-slider__container__track"
-        :style="{ width: max + '%', backgroundColor: color }"/>
+        :style="{ backgroundColor: color }"/>
       <template v-if="pins">
         <div
           v-for="(pin, key) in pinsCol"
@@ -34,7 +34,7 @@
         <div
           ref="process"
           class="va-slider__container__track va-slider__container__track--active"
-          :style="{ left: val[0] + '%', width: interval + '%', backgroundColor: color }"
+          :style="processStyles"
           @mousedown="moveStart($event, 0)"/>
         <div
           ref="dot0"
@@ -63,18 +63,18 @@
         <div
           ref="process"
           class="va-slider__container__track va-slider__container__track--active"
-          :style="{ width: val + '%', backgroundColor: color }"
+          :style="processStyles"
           @mousedown="moveStart($event, 0)"/>
         <div
           ref="dot"
           class="va-slider__container__handler"
-          :style="{ left: 'calc(' + val + '% - 8px)', backgroundColor: color }"
+          :style="dotStyles"
           @mousedown="moveStart"
         >
           <div
             v-if="valueVisible"
             class="va-slider__container__handler-value d-inline-flex title">
-            {{ val }}
+            {{ labelValue ? labelValue : val }}
           </div>
         </div>
       </template>
@@ -101,6 +101,9 @@ export default {
     },
     value: {
       type: Number | Array,
+    },
+    labelValue: {
+      type: String
     },
     valueVisible: {
       type: Boolean,
@@ -159,6 +162,31 @@ export default {
         'va-slider--disabled': this.disabled
       }
     },
+    processStyles () {
+      const val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100
+      const val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100
+
+      if (this.range){
+        return {
+          left: val0 + '%',
+          width: (val1 - val0) + '%',
+          backgroundColor: this.color
+        }
+      } else {
+        return {
+          width: ((this.value - this.min) / (this.max - this.min)) * 100 + '%',
+          backgroundColor: this.color
+        }
+      }
+    },
+    dotStyles (dotNumber) {
+      console.log(dotNumber)
+      const val = ((this.value - this.min) / (this.max - this.min)) * 100
+      return {
+        left: 'calc(' + val + '% - 8px)',
+        backgroundColor: this.color
+      }
+    },
     val: {
       get () {
         return this.value
@@ -166,6 +194,12 @@ export default {
       set (val) {
         this.$emit('input', val)
       }
+    },
+    total () {
+      return (this.max - this.min) / this.step
+    },
+    gap () {
+      return this.size / this.total
     },
     interval () {
       return this.value[1] - this.value[0]
@@ -232,11 +266,10 @@ export default {
     },
     setValueOnPos (pos, isDrag) {
       let range = this.limit,
-        valueRange = this.valueLimit,
-        diff = this.size / this.max
+        valueRange = this.valueLimit
       if (pos >= range[0] && pos <= range[1]) {
         this.setTransform(pos)
-        let v = this.getValueByIndex(Math.round(pos / diff))
+        let v = this.getValueByIndex(Math.round(pos / this.gap))
         this.setCurrentValue(v, isDrag)
       } else if (pos < range[0]) {
         this.setTransform(range[0])
@@ -300,6 +333,7 @@ export default {
         }
       } else {
         this.$refs.process.style.width = `${val}px`
+        this.$refs.dot.style['left'] = `${val - 8}px`
       }
     },
     isDiff (a, b) {
@@ -310,16 +344,31 @@ export default {
       }
       return a !== b
     },
-    limitValue (val) {
-      let isSliderExist = true
+    validateBorders () {
+      let isRightBorders = true
+
+      if (this.max < this.min) {
+        console.error('The maximum value can not be less than the minimum value.')
+        isRightBorders = false
+      }
+
+      if (this.min > this.max) {
+        console.error('The minimum value can not be greater than the maximum value.')
+        isRightBorders = false
+      }
+
+      return isRightBorders
+    },
+    validateValue (val) {
+      let isRightValue = true
 
       const inRange = (v) => {
         if (v < this.min) {
           console.error(`The value of the slider is ${v}, the minimum value is ${this.min}, the value of this slider can not be less than the minimum value`)
-          isSliderExist = false
+          isRightValue = false
         } else if (v > this.max) {
           console.error(`The value of the slider is ${v}, the maximum value is ${this.max}, the value of this slider can not be greater than the maximum value`)
-          isSliderExist = false
+          isRightValue = false
         }
       }
 
@@ -329,7 +378,15 @@ export default {
         inRange(val)
       }
 
-      return isSliderExist
+      return isRightValue
+    },
+    validatePins () {
+      if ((this.max - this.min) % this.step !== 0){
+        console.error('Step is illegal. Slider is nondivisible.')
+        return false
+      }
+
+      return true
     },
     getStaticData () {
       if (this.$refs.elem) {
@@ -340,7 +397,7 @@ export default {
   },
   mounted () {
     this.$nextTick(() => {
-      if (this.limitValue(this.value)) {
+      if (this.validateValue(this.value) && this.validateBorders() && this.validatePins()) {
         this.isComponentExists = true
         this.getStaticData()
         this.bindEvents()
@@ -415,7 +472,6 @@ export default {
 
         &--active {
           position: absolute;
-          width: 100%;
           height: 0.5rem;
           border-radius: 0.25rem;
         }

@@ -7,24 +7,32 @@
           <div class="va-row">
             <div class="flex md3 lg4">
               <div class="row spinners__size">
-                <h5 class="spinners__icon-small">A</h5>
+                <h5 class="spinners__icon-small mr-2">A</h5>
                 <div class="spinners__size-picker">
-                  <va-slider v-model="config.size" :min="sliderSize.min" :max="sliderSize.max"/>
+                  <va-slider
+                    value-visible
+                    v-model="config.size"
+                    :label-value="`${config.size}px`"
+                    :min="sliderSize.min"
+                    :max="sliderSize.max"/>
                 </div>
-                <h3 class="spinners__icon-large">A</h3>
+                <h3 class="spinners__icon-large ml-2">A</h3>
               </div>
             </div>
             <div class="flex md3 lg4">
               <div class="va-row spinners__duration">
-                <div class="spinners__icon-duration-slower">
+                <div class="spinners__icon-duration-slower mr-2">
                   <va-icon-slower/>
                 </div>
                 <div class="spinners__duration-picker">
-                  <va-slider v-model="currentDuration"
-                             :min="sliderDuration.min" :max="sliderDuration.max"
+                  <va-slider
+                    value-visible
+                    v-model="currentDuration"
+                    :min="sliderDuration.min"
+                    :max="sliderDuration.max"
                   />
                 </div>
-                <div class="spinners__icon-duration-faster">
+                <div class="spinners__icon-duration-faster ml-2">
                   <va-icon-faster/>
                 </div>
               </div>
@@ -183,14 +191,14 @@ export default {
   }
 
   &__size-picker {
-    padding-top: 10px;
+    padding-top: 12px;
     object-fit: contain;
     width: 136px;
   }
 
   &__duration-picker {
     width: 136px;
-    padding-top: 10px;
+    padding-top: 16px;
   }
 
   &__divider-copy {
