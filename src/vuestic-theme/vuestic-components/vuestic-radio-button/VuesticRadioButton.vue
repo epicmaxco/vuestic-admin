@@ -113,7 +113,6 @@ export default {
         width: 0.625rem;
         height: 0.625rem;
         border-radius: 1rem;
-        position: absolute;
         border: $vue-green solid 0.35rem;
         margin-top: 0.1875rem;
         margin-left: 0.1875rem;
@@ -131,7 +130,6 @@ export default {
     width: 32px;
     height: 32px;
     display: flex;
-    position: absolute;
     align-items: center;
     justify-content: center;
     @at-root {
@@ -147,7 +145,6 @@ export default {
   }
   &__slot-container {
     padding-top: $checkbox-label-margin-top;
-    margin-left: $checkbox-between-label-margin;
   }
 }
 </style>

@@ -1,10 +1,10 @@
 <template>
-  <div class="setup-profile-tab dashboard-tab">
+  <div class="setup-profile-tab">
     <vuestic-wizard
       :steps="steps"
       wizard-layout="vertical"
       :wizard-type="wizardType">
-      <div slot="page1" class="form-wizard-tab-content">
+      <div slot="page1">
         <h4>Type your name</h4>
         <p>Zebras communicate with facial expressions and sounds. They make loud
           braying or barking sounds and
@@ -30,7 +30,7 @@
           </div>
         </div>
       </div>
-      <div slot="page2" class="form-wizard-tab-content">
+      <div slot="page2">
         <h4>Select your country</h4>
         <p>Zebras communicate with facial expressions and sounds. They make loud
           braying or barking sounds and
@@ -48,7 +48,7 @@
           :options="countriesList">
         </vuestic-simple-select>
       </div>
-      <div slot="page3" class="form-wizard-tab-content">
+      <div slot="page3">
         <h4>Confirm selection</h4>
         <p>
           Zebras communicate with facial expressions and sounds. They make loud
@@ -59,8 +59,7 @@
           trouble, or "you better follow orders!"
         </p>
       </div>
-      <div slot="wizardCompleted"
-           class="form-wizard-tab-content wizard-completed-tab">
+      <div slot="wizardCompleted">
         <h4>Wizard completed!</h4>
         <p>
           Zebras communicate with facial expressions and sounds. They make loud
@@ -132,18 +131,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.form-group {
-  min-width: 200px;
-  max-width: 360px;
-  width: 80%;
-}
-
-.wizard-completed-tab {
-  @include media-breakpoint-up(md) {
-    margin-top: -$tab-content-pt;
-  }
-}
-
-</style>

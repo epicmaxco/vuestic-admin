@@ -206,17 +206,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.timelines {
-  &__horizontal-long {
-    .widget-body {
-      overflow-x: auto;
-    }
-
-    &__timeline {
-      min-width: 800px;
-    }
-  }
-}
-</style>

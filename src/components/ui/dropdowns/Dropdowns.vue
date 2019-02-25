@@ -1,5 +1,5 @@
 <template>
-  <div class="dropdowns-page">
+  <div class="dropdowns">
     <div class="va-row">
       <div class="flex md12">
         <vuestic-widget :headerText="$t('dropdown.default')">

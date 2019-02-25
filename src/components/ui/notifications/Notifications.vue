@@ -1,5 +1,5 @@
 <template>
-  <div class="notifications-page">
+  <div class="notifications">
     <div class="va-row">
       <div class="flex md12">
         <vuestic-widget
@@ -161,7 +161,7 @@
                   </div>
                 </div>
                 <!-- TODO Redo with global classes -->
-                <div class="form-group va-row" style="margin-bottom: 2rem">
+                <div class="form-group va-row mb-4">
                   <toast-position-picker v-model="toastPosition"/>
                   <vuestic-checkbox
                     :label="'notificationsPage.toasts.fullWidthLabel' | translate"
@@ -253,15 +253,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.toasted-container.sample-toasted-container {
-  position: static;
-  transform: translateX(0);
-
-  .toasted {
-    position: static;
-    transform: translateY(0);
-  }
-}
-</style>

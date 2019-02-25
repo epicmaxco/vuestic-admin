@@ -1,5 +1,5 @@
 <template>
-  <div class="ui-typography">
+  <div class="typography">
     <vuestic-widget>
       <div class="mb-4">
         <p class="display-1">Display 1 Heading</p>
@@ -73,15 +73,15 @@
       <ol class="va-ordered">
         <li>Coffee</li>
         <li>Tea
-          <ol>
+          <ol class="va-ordered">
             <li>Black tea
-              <ol>
+              <ol class="va-ordered">
                 <li>Brooke Bond</li>
                 <li>Lipton</li>
               </ol>
             </li>
             <li>Green tea
-              <ol>
+              <ol class="va-ordered">
                 <li>Greenfield</li>
                 <li>Tess</li>
               </ol>
@@ -98,15 +98,15 @@
       <ul class="va-unordered">
         <li>Coffee</li>
         <li>Tea
-          <ul>
+          <ul class="va-unordered">
             <li>Black tea
-              <ul>
+              <ul class="va-unordered">
                 <li>Brooke Bond</li>
                 <li>Lipton</li>
               </ul>
             </li>
             <li>Green tea
-              <ul>
+              <ul class="va-unordered">
                 <li>Greenfield</li>
                 <li>Tess</li>
               </ul>
