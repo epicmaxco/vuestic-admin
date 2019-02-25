@@ -16,6 +16,7 @@
     </VbContainer>
     <VbContainer>
       <button @click="count++">add item</button>
+      <button @click="count--">remove item</button>
     </VbContainer>
     <VbContainer>
       <vuestic-radio-button
