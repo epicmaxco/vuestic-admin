@@ -1,6 +1,10 @@
 <template>
   <VbDemo>
     <VbContainer>
+      <input v-model.number="activePage"/>
+      {{typeof activePage}}
+    </VbContainer>
+    <VbContainer>
       <table class="table table-bordered">
         <tr>
           <th>Description</th>
@@ -46,7 +50,7 @@
           <td>Disabled Pagination</td>
           <td>
             <VbContainer>
-              <va-pagination v-model="activePage" :pages="5" disabled/>
+              <va-pagination v-model="activePage"  :visible-pages="4" :pages="15" disabled/>
             </VbContainer>
           </td>
         </tr>
@@ -57,11 +61,13 @@
               <va-pagination
                 :pages="10" :visible-pages="3"
                 :boundary-links="false"
-                v-model="activePage"/>
+                v-model="activePage"
+              />
               <va-pagination
                 :pages="10" :visible-pages="3"
                 :direction-links="false"
-                v-model="activePage"/>
+                v-model="activePage"
+              />
             </VbContainer>
           </td>
         </tr>
@@ -73,18 +79,21 @@
                 :pages="10" :visible-pages="3"
                 :icon="{ direction: 'fa fa-volume-off' }"
                 :boundary-links="false"
-                v-model="activePage"/>
+                v-model="activePage"
+              />
               <va-pagination
                 :pages="10" :visible-pages="3"
                 :icon-right="{ direction: 'fa fa-volume-up' }"
                 :boundary-links="false"
-                v-model="activePage"/>
+                v-model="activePage"
+              />
               <va-pagination
                 :pages="10" :visible-pages="3"
                 :icon="{ direction: 'fa fa-volume-off' }"
                 :icon-right="{ direction: 'fa fa-volume-up' }"
                 :boundary-links="false"
-                v-model="activePage"/>
+                v-model="activePage"
+              />
             </VbContainer>
           </td>
         </tr>

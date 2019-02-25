@@ -10,9 +10,7 @@
       :disabled="disabled || value === 1"
       :icon="icon && icon.boundary ? icon.boundary : 'fa fa-angle-double-left'"
       @click="changePage(1)"
-    >
-
-    </va-button>
+    />
     <va-button
       v-if="this.pages !== visiblePages && directionLinks"
       class="va-button--no-effects"
