@@ -166,7 +166,7 @@ export default {
       const val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100
       const val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100
 
-      if (this.range){
+      if (this.range) {
         return {
           left: val0 + '%',
           width: (val1 - val0) + '%',
@@ -381,7 +381,7 @@ export default {
       return isRightValue
     },
     validatePins () {
-      if ((this.max - this.min) % this.step !== 0){
+      if ((this.max - this.min) % this.step !== 0) {
         console.error('Step is illegal. Slider is nondivisible.')
         return false
       }
