@@ -136,7 +136,7 @@ export default {
     }
     &__icon {
       cursor: pointer;
-      width: 24px;
+      margin: 0.5rem;
       color: $gray;
     }
   }
