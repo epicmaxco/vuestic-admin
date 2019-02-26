@@ -42,7 +42,7 @@
         @click="setCurrentValue(item, $event)"
         :size="getIconSize()"
         @hover="onHover(item, $event)"
-        :hover="setHover(item)"
+        :hover="item <= hoverItemNumber && isHover"
         :isHalf="item - value === 0.5"
         :isRatingHover="isHover"
         @mouseout.native="onHover(value)"
@@ -111,9 +111,6 @@ export default {
     },
   },
   methods: {
-    setHover (item) {
-      return item <= this.hoverItemNumber && this.isHover
-    },
     getNumbersFontSize () {
       return `calc(` + this.getIconSize() + ` - 0.4rem)`
     },
