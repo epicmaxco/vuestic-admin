@@ -268,7 +268,6 @@ export default {
       if (this.pins) {
         if (this.isRange) {
           if (this.currentValue[0] % this.step !== 0) {
-            console.log(this.currentValue)
             this.currentValue[0] = this.normalizeValue(this.currentValue[0])
             this.val = [this.currentValue[0], this.val[1]]
           }
@@ -321,10 +320,7 @@ export default {
         valueRange = this.valueLimit
       if (pos >= range[0] && pos <= range[1]) {
         this.setTransform(pos)
-        console.log(pos)
-        console.log(this.gap)
         let v = this.getValueByIndex(Math.round(pos / this.gap))
-        console.log(v)
         this.setCurrentValue(v, isDrag)
       } else if (pos < range[0]) {
         this.setTransform(range[0])
@@ -335,7 +331,6 @@ export default {
       }
     },
     setTransform (val) {
-      console.log(val)
       const slider = this.currentSlider,
         val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100,
         val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100,
