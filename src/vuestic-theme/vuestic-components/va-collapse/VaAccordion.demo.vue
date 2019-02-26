@@ -32,11 +32,13 @@
 </template>
 
 <script>
-import VaAccordion from './VaAccordion.vue'
 
+import VaAccordion from './VaAccordion'
+import VaCollapse from './VaCollapse'
 export default {
   components: {
     VaAccordion,
+    VaCollapse
   },
 }
 </script>

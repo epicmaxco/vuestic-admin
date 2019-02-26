@@ -5,9 +5,6 @@
   >
     <div
       class="va-collapse__header"
-      :class="{
-        'vuestic-collapse__header--custom-header': customHeader,
-      }"
       @click="onHeaderClick()"
     >
       <template>
@@ -142,9 +139,6 @@ export default {
       cursor: pointer;
       width: 24px;
       color: $gray;
-    }
-    &--custom-header {
-      margin-bottom: 1rem;
     }
   }
 }
