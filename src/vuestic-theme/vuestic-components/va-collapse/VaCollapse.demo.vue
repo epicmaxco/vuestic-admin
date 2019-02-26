@@ -8,6 +8,16 @@
         </div>
       </va-collapse>
     </VbContainer>
+    <VbContainer title="Custom header">
+      <va-collapse style="width: 400px;" customHeader>
+        <va-button slot="header" style="width: 100%">
+          {{collapseHeader}}
+        </va-button>
+        <div slot="body">
+          {{collapseContent}}
+        </div>
+      </va-collapse>
+    </VbContainer>
     <VbContainer title="With background">
       <va-collapse style="width: 400px;" withBackground>
         <span slot="header">{{collapseHeader}}</span>

@@ -7,7 +7,11 @@
       class="va-collapse__header"
       @click="onHeaderClick()"
     >
+      <template>
+        <slot name="header" v-if="customHeader"/>
+      </template>
       <div
+        v-if="!customHeader"
         class="va-collapse__header__content"
       >
         <slot name="header"/>
@@ -31,7 +35,6 @@
 </template>
 
 <script>
-
 import VaIcon from '../va-icon/VaIcon'
 export default {
   name: 'va-collapse',
@@ -40,7 +43,8 @@ export default {
     isOpenDefault: {
       type: Boolean
     },
-    withBackground: Boolean
+    withBackground: Boolean,
+    customHeader: Boolean
   },
   inject: {
     accordion: {
@@ -132,7 +136,7 @@ export default {
     }
     &__icon {
       cursor: pointer;
-      margin: 0.5rem;
+      width: 24px;
       color: $gray;
     }
   }
