@@ -199,6 +199,44 @@
           </div>
         </vuestic-widget>
       </div>
+
+      <div class="flex md12 xl12">
+        <vuestic-widget class="larger-padding"
+                        :headerText="$t('buttons.pagination')">
+          <div class="va-row">
+            <div class="flex xs12 lg12 xl6">
+              <va-pagination
+                v-model="activePage"
+                :visible-pages="3"
+                :pages="20"
+              />
+            </div>
+            <div class="flex xs12 lg12 xl6">
+              <va-pagination
+                v-model="activePage"
+                :visible-pages="4"
+                :pages="15"
+                color="danger"/>
+            </div>
+            <div class="flex xs12 lg12 xl6">
+              <va-pagination
+                v-model="activePage"
+                :pages="5"
+                disabled
+              />
+            </div>
+            <div class="flex xs12 lg12 xl6">
+              <va-pagination
+                v-model="activePage"
+                :pages="10"
+                :visible-pages="3"
+                :icon="{ boundary: 'fa fa-bell-slash', direction: 'fa fa-volume-off' }"
+                :icon-right="{ boundary: 'fa fa-bell', direction: 'fa fa-volume-up' }"
+                color="success"/>
+            </div>
+          </div>
+        </vuestic-widget>
+      </div>
     </div>
   </div>
 </template>
@@ -213,7 +251,8 @@ export default {
         { label: 'Two', value: 'two' },
         { label: 'Three', value: 'three' }
       ],
-      model: 'three'
+      model: 'three',
+      activePage: 4
     }
   }
 }

@@ -337,15 +337,15 @@ export default {
         .va-button__content {
           min-width: 20px;
         }
-      }
 
-      &.va-button--no-effects {
+        &.va-button--no-effects {
 
-        &:hover, &:active, &:focus {
-          background-color: transparent;
+          &:hover, &:active, &:focus {
+            background-color: transparent;
 
-          .va-button__content, i {
-            color: $border-color;
+            .va-button__content, i {
+              color: $border-color;
+            }
           }
         }
       }

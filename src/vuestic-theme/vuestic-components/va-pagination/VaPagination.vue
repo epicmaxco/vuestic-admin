@@ -8,7 +8,7 @@
       :small="small"
       :large="large"
       :disabled="disabled || value === 1"
-      :icon="icon && icon.boundary ? icon.boundary : 'fa fa-angle-double-left'"
+      :icon="iconClass.boundary"
       @click="changePage(1)"
     >
 
@@ -21,7 +21,7 @@
       :small="small"
       :large="large"
       :disabled="disabled || value === 1"
-      :icon="icon && icon.direction ? icon.direction : 'fa fa-angle-left'"
+      :icon="iconClass.direction"
       @click="changePage(value - 1)"
     />
     <va-button
@@ -45,7 +45,7 @@
       :small="small"
       :large="large"
       :disabled="disabled || value === this.pages"
-      :icon="iconRight && iconRight.direction ? iconRight.direction : 'fa fa-angle-right'"
+      :icon="iconRightClass.direction"
       @click="changePage(value + 1)"
     />
     <va-button
@@ -56,7 +56,7 @@
       :small="small"
       :large="large"
       :disabled="disabled || value === this.pages"
-      :icon="iconRight && iconRight.boundary ? iconRight.boundary : 'fa fa-angle-double-right'"
+      :icon="iconRightClass.boundary"
       @click="changePage(lastPage)"
     />
   </va-button-group>
@@ -101,10 +101,16 @@ export default {
       default: true
     },
     icon: {
-      type: Object
+      type: Object,
+      default: () => {
+        return {}
+      },
     },
     iconRight: {
-      type: Object
+      type: Object,
+      default: () => {
+        return {}
+      },
     },
   },
   methods: {
@@ -117,16 +123,28 @@ export default {
   },
   data () {
     return {
-      range: []
+      defaultIconClass: {
+        direction: 'fa fa-angle-left',
+        boundary: 'fa fa-angle-double-left',
+      },
+      defaultIconRightClass: {
+        direction: 'fa fa-angle-right',
+        boundary: 'fa fa-angle-double-right',
+      },
     }
   },
   computed: {
+    iconClass () {
+      return Object.assign({}, this.defaultIconClass, this.icon)
+    },
+    iconRightClass () {
+      return Object.assign({}, this.defaultIconRightClass, this.iconRight)
+    },
     lastPage () {
       return this.pages
     },
     paginationRange () {
-      this.range = setPaginationRange(this.value, this.visiblePages, this.pages, this.range)
-      return this.range
+      return setPaginationRange(this.value, this.visiblePages, this.pages)
     }
   }
 }

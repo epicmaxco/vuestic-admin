@@ -19,7 +19,6 @@
           <td>
             <VbContainer>
               <va-pagination :pages="10" :visible-pages="3" v-model="activePage"/>
-              <va-pagination :pages="20" :visible-pages="9" v-model="activePage"/>
             </VbContainer>
           </td>
         </tr>
@@ -55,7 +54,8 @@
           <td>
             <VbContainer>
               <va-pagination
-                :pages="10" :visible-pages="3"
+                :pages="10"
+                :visible-pages="3"
                 :boundary-links="false"
                 v-model="activePage"/>
               <va-pagination
@@ -70,20 +70,22 @@
           <td>
             <VbContainer>
               <va-pagination
-                :pages="10" :visible-pages="3"
-                :icon="{ direction: 'fa fa-volume-off' }"
-                :boundary-links="false"
-                v-model="activePage"/>
-              <va-pagination
-                :pages="10" :visible-pages="3"
-                :icon-right="{ direction: 'fa fa-volume-up' }"
-                :boundary-links="false"
-                v-model="activePage"/>
-              <va-pagination
-                :pages="10" :visible-pages="3"
+                :pages="10"
+                :visible-pages="3"
                 :icon="{ direction: 'fa fa-volume-off' }"
                 :icon-right="{ direction: 'fa fa-volume-up' }"
-                :boundary-links="false"
+                v-model="activePage"/>
+              <va-pagination
+                :pages="10"
+                :visible-pages="3"
+                :icon="{ boundary: 'fa fa-bell-slash' }"
+                :icon-right="{ boundary: 'fa fa-bell' }"
+                v-model="activePage"/>
+              <va-pagination
+                :pages="10"
+                :visible-pages="3"
+                :icon="{ boundary: 'fa fa-bell-slash', direction: 'fa fa-volume-off' }"
+                :icon-right="{ boundary: 'fa fa-bell', direction: 'fa fa-volume-up' }"
                 v-model="activePage"/>
             </VbContainer>
           </td>
