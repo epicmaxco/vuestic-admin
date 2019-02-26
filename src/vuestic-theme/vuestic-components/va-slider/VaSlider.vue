@@ -39,7 +39,7 @@
         <div
           ref="dot0"
           class="va-slider__container__handler"
-          :style="{ left: 'calc(' + val[0] + '% - 8px)', backgroundColor: color }"
+          :style="dotStyles[0]"
           @mousedown="moveStart($event, 0)"
         >
           <div v-if="valueVisible" class="va-slider__container__handler-value d-inline-flex title">
@@ -49,7 +49,7 @@
         <div
           ref="dot1"
           class="va-slider__container__handler"
-          :style="{ left: 'calc(' + val[1] + '% - 8px)', backgroundColor: color }"
+          :style="dotStyles[1]"
           @mousedown="moveStart($event, 1)"
         >
           <div
@@ -163,10 +163,10 @@ export default {
       }
     },
     processStyles () {
-      const val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100
-      const val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100
-
       if (this.range) {
+        const val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100
+        const val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100
+
         return {
           left: val0 + '%',
           width: (val1 - val0) + '%',
@@ -179,12 +179,28 @@ export default {
         }
       }
     },
-    dotStyles (dotNumber) {
-      console.log(dotNumber)
-      const val = ((this.value - this.min) / (this.max - this.min)) * 100
-      return {
-        left: 'calc(' + val + '% - 8px)',
-        backgroundColor: this.color
+    dotStyles () {
+      if (this.range){
+        const val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100
+        const val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100
+
+        return [
+          {
+            left: 'calc(' + val0 + '% - 8px)',
+            backgroundColor: this.color
+          },
+          {
+            left: 'calc(' + val1 + '% - 8px)',
+            backgroundColor: this.color
+          }
+        ]
+      } else {
+        const val = ((this.value - this.min) / (this.max - this.min)) * 100
+
+        return {
+          left: 'calc(' + val + '% - 8px)',
+          backgroundColor: this.color
+        }
       }
     },
     val: {
@@ -196,7 +212,7 @@ export default {
       }
     },
     total () {
-      return (this.max - this.min) / this.step
+      return this.max - this.min
     },
     gap () {
       return this.size / this.total
@@ -228,57 +244,6 @@ export default {
       document.removeEventListener('mouseup', this.moveEnd)
       document.removeEventListener('mouseleave', this.moveEnd)
     },
-    getPos (e) {
-      this.getStaticData()
-      return e.clientX - this.offset
-    },
-    setCurrentValue (val) {
-      let slider = this.currentSlider
-      if (this.isRange) {
-        if (this.isDiff(this.currentValue[slider], val)) {
-          this.currentValue.splice(slider, 1, val)
-          if (slider === 0) {
-            this.val = [this.currentValue.splice(slider, 1, val)[0], this.currentValue[1]]
-          } else {
-            this.val = [this.currentValue[0], this.currentValue.splice(slider, 1, val)[0]]
-          }
-        }
-      } else {
-        if (val < this.min || val > this.max) return false
-        if (this.isDiff(this.currentValue, val)) {
-          this.currentValue = val
-          this.val = val
-        }
-      }
-    },
-    getValueByIndex (index) {
-      let tempValue = (this.step * index + this.min) / this.step
-      return tempValue
-    },
-    normalizeValue (value) {
-      let currentRest = value % this.step
-      if ((currentRest / this.step) >= 0.5) {
-        value = value + (this.step - currentRest)
-      } else {
-        value = value - currentRest
-      }
-      return value
-    },
-    setValueOnPos (pos, isDrag) {
-      let range = this.limit,
-        valueRange = this.valueLimit
-      if (pos >= range[0] && pos <= range[1]) {
-        this.setTransform(pos)
-        let v = this.getValueByIndex(Math.round(pos / this.gap))
-        this.setCurrentValue(v, isDrag)
-      } else if (pos < range[0]) {
-        this.setTransform(range[0])
-        this.setCurrentValue(valueRange[0])
-      } else {
-        this.setTransform(range[1])
-        this.setCurrentValue(valueRange[1])
-      }
-    },
     moveStart (e, index = 0) {
       if (this.isRange) {
         this.currentSlider = index
@@ -300,10 +265,10 @@ export default {
         return false
       }
       this.flag = false
-
       if (this.pins) {
         if (this.isRange) {
           if (this.currentValue[0] % this.step !== 0) {
+            console.log(this.currentValue)
             this.currentValue[0] = this.normalizeValue(this.currentValue[0])
             this.val = [this.currentValue[0], this.val[1]]
           }
@@ -318,10 +283,64 @@ export default {
       }
       this.setTransform()
     },
-    setTransform (val) {
+    getPos (e) {
+      this.getStaticData()
+      return e.clientX - this.offset
+    },
+    getStaticData () {
+      if (this.$refs.elem) {
+        this.size = this.$refs.elem.offsetWidth
+        this.offset = this.$refs.elem.getBoundingClientRect().left
+      }
+    },
+    getValueByIndex (index) {
+      let tempValue = (this.step * index + this.min) / this.step
+      return tempValue
+    },
+    setCurrentValue (val) {
       let slider = this.currentSlider
-      let processSize = `${this.currentValue[1] - this.currentValue[0]}%`
-      let processPos = `${this.currentValue[0]}%`
+      if (this.isRange) {
+        if (this.isDiff(this.currentValue[slider], val)) {
+          this.currentValue.splice(slider, 1, val)
+          if (slider === 0) {
+            this.val = [this.currentValue.splice(slider, 1, val)[0], this.currentValue[1]]
+          } else {
+            this.val = [this.currentValue[0], this.currentValue.splice(slider, 1, val)[0]]
+          }
+        }
+      } else {
+        if (val < this.min || val > this.max) return false
+        if (this.isDiff(this.currentValue, val)) {
+          this.currentValue = val
+          this.val = val
+        }
+      }
+    },
+    setValueOnPos (pos, isDrag) {
+      let range = this.limit,
+        valueRange = this.valueLimit
+      if (pos >= range[0] && pos <= range[1]) {
+        this.setTransform(pos)
+        console.log(pos)
+        console.log(this.gap)
+        let v = this.getValueByIndex(Math.round(pos / this.gap))
+        console.log(v)
+        this.setCurrentValue(v, isDrag)
+      } else if (pos < range[0]) {
+        this.setTransform(range[0])
+        this.setCurrentValue(valueRange[0])
+      } else {
+        this.setTransform(range[1])
+        this.setCurrentValue(valueRange[1])
+      }
+    },
+    setTransform (val) {
+      console.log(val)
+      const slider = this.currentSlider,
+        val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100,
+        val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100,
+        processSize = `${val1 - val0}%`,
+        processPos = `${val0}%`
 
       if (this.isRange) {
         this.$refs.process.style.width = processSize
@@ -335,6 +354,15 @@ export default {
         this.$refs.process.style.width = `${val}px`
         this.$refs.dot.style['left'] = `${val - 8}px`
       }
+    },
+    normalizeValue (value) {
+      let currentRest = value % this.step
+      if ((currentRest / this.step) >= 0.5) {
+        value = value + (this.step - currentRest)
+      } else {
+        value = value - currentRest
+      }
+      return value
     },
     isDiff (a, b) {
       if (Object.prototype.toString.call(a) !== Object.prototype.toString.call(b)) {
@@ -387,12 +415,6 @@ export default {
       }
 
       return true
-    },
-    getStaticData () {
-      if (this.$refs.elem) {
-        this.size = this.$refs.elem.offsetWidth
-        this.offset = this.$refs.elem.getBoundingClientRect().left
-      }
     },
   },
   mounted () {

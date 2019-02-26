@@ -167,6 +167,7 @@
     </VbContainer>
     <VbContainer width="500px" title="Colorful Range">
       <va-slider
+        range
         color="info"
         v-model="value2"
       />
@@ -186,6 +187,7 @@
         </div>
         <div class="flex xs8 lg8 offset--xs1 offset--lg1">
           <va-slider
+            range
             v-model="value2"
           />
         </div>
