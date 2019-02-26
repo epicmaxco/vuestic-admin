@@ -28,7 +28,10 @@
 
 <script>
 import VaRatingItem from './VaRatingItem'
+
 export default {
-  components: { VaRatingItem }
+  components: {
+    VaRatingItem
+  }
 }
 </script>

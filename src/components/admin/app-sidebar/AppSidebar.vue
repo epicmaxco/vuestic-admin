@@ -166,6 +166,12 @@
             <span>{{ $t('menu.spacing') }}</span>
           </span>
         </sidebar-link>
+        <sidebar-link
+          :to="{ name: 'rating'}">
+          <span slot="title">
+            <span>{{ $t('menu.rating') }}</span>
+          </span>
+        </sidebar-link>
       </sidebar-link-group>
       <sidebar-link
         :to="{ name: 'extra' }">

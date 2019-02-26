@@ -2,12 +2,10 @@
   <div class="va-rating-item">
     <i
       :class="iconClassesComputed"
-      :style="iconStyles"
       class="va-rating-item__icon"
       @mousemove="onHover"
       @mouseleave="removeHover"
       @click="onClick()"
-      width="50"
     />
   </div>
 </template>
@@ -29,21 +27,14 @@ export default {
     halfIcon: {
       type: String
     },
+    size: {
+      type: String
+    },
     isHalf: {
       type: Boolean
     },
     iconClasses: {
-      type: String,
-      default: 'fa fa-star'
-    },
-    iconStyles: {
-      type: Object,
-      default: () => {
-        return {
-          fontSize: 'medium',
-          cursor: 'pointer'
-        }
-      }
+      type: String
     },
     color: {
       type: String
@@ -63,30 +54,6 @@ export default {
     }
   },
   computed: {
-    // iconClassesComputed () {
-    //   if (this.halfIcon) {
-    //     if (this.isRatingHover) {
-    //       if (this.hover) {
-    //         if (this.hoverValue !== 0.5) {
-    //           return this.iconClasses + this.icon
-    //         } else {
-    //           return this.halfIcon
-    //         }
-    //       } else {
-    //         return this.emptyIcon
-    //       }
-    //     } else {
-    //       if (this.value) {
-    //         return this.icon
-    //       } else if (this.isHalf) {
-    //         return this.halfIcon
-    //       } else {
-    //         return this.emptyIcon
-    //       }
-    //     }
-    //   }
-    //   return this.iconClasses + this.extraClasses
-    // },
     iconClassesComputed () {
       if (!this.isRatingHover && !this.value && !this.isHalf) {
         return this.emptyIcon
@@ -116,7 +83,7 @@ export default {
     },
     onHover (item) {
       if (this.halfIcon) {
-        const size = Number(this.iconStyles.fontSize.replace(/[^-0-9]/gim, ''))
+        const size = Number(this.size.replace(/[^-0-9]/gim, ''))
         if (size / item.offsetX >= 2) {
           this.hoverValue = 0.5
           this.$emit('hover', 0.5)
@@ -134,13 +101,13 @@ export default {
         this.hoverValue = 0
         if (this.value) {
           this.iconClasses = this.icon
-        } else {
-          if (this.emptyIcon) {
-            this.iconClasses = this.emptyIcon
-          } else {
-            this.iconClasses = this.icon + 'text--secondary'
-          }
+          return
         }
+        if (this.emptyIcon) {
+          this.iconClasses = this.emptyIcon
+          return
+        }
+        this.iconClasses = this.icon + 'text--secondary'
       }
     }
   }
@@ -149,8 +116,7 @@ export default {
 
 <style lang="scss">
 .va-rating-item {
-  padding: 0.1rem;
-  &__icon {
-  }
+  margin: 0.1rem;
+  &__icon {}
 }
 </style>

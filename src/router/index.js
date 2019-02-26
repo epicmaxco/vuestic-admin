@@ -173,6 +173,11 @@ export default new Router({
               },
             },
             {
+              name: 'rating',
+              path: 'rating',
+              component: lazyLoading('ui/rating/Rating')
+            },
+            {
               name: 'color-pickers',
               path: 'color-pickers',
               component: lazyLoading('ui/color-pickers/ColorPickers'),

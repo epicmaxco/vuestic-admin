@@ -1,15 +1,23 @@
 <template>
-  <div class="va-rating">
+  <div
+    class="va-rating"
+    :class="{'va-rating--disabled': disabled, 'va-rating--readonly':readonly}"
+  >
     <div
       v-if="numbers"
       class="va-rating__numbers"
     >
       <div
         v-for="item in max"
-        :key=item
-        :class="getNumberClasses(item)"
-        class="va-rating__numbers--number"
-        :style="getNumberStyles(item)"
+        :key="item"
+        :class="{'va-rating__numbers__number--empty' : !compareWithValue(item)}"
+        class="va-rating__numbers__number"
+        :style="{
+        'background-color' : color,
+        'height':getIconSize(),
+        'font-size': getNumbersFontSize(),
+        'width': getIconSize()
+        }"
         @click="setCurrentValue(item, 1)"
       >
         {{item}}
@@ -23,15 +31,16 @@
     >
       <va-rating-item
         v-for="item in max"
-        :key=item
+        :key="item"
         :icon="icon"
-        :emptyIcon="emptyIcon"
+        :emptyIcon="getIconClasses()"
         :value="getStarValue(item)"
         :iconClasses="getIconClasses(item)"
         :halfIcon="halfIcon"
-        class="va-rating__icons--icon"
-        :iconStyles="iconComputedStyles"
+        class="va-rating__icons__icon"
+        :style="{'color':color, 'font-size' : getIconSize()}"
         @click="setCurrentValue(item, $event)"
+        :size="getIconSize()"
         @hover="onHover(item, $event)"
         :hover="setHover(item)"
         :isHalf="item - value === 0.5"
@@ -43,8 +52,8 @@
 </template>
 
 <script>
-
 import VaRatingItem from './VaRatingItem'
+
 export default {
   name: 'va-rating',
   components: { VaRatingItem },
@@ -55,9 +64,6 @@ export default {
     },
     halfIcon: {
       type: String
-    },
-    halves: {
-      type: Boolean
     },
     emptyIcon: {
       type: String
@@ -84,7 +90,8 @@ export default {
       default: 'medium'
     },
     color: {
-      type: String
+      type: String,
+      default: '#4ae387'
     }
   },
   data () {
@@ -94,13 +101,6 @@ export default {
     }
   },
   computed: {
-    iconComputedStyles () {
-      return {
-        color: this.color,
-        fontSize: this.getIconSize(),
-        cursor: this.getCursor()
-      }
-    },
     valueProxy: {
       set (valueProxy) {
         this.$emit('input', valueProxy)
@@ -112,72 +112,47 @@ export default {
   },
   methods: {
     setHover (item) {
-      if (item <= this.hoverItemNumber && this.isHover) {
-        return true
-      }
-      return false
+      return item <= this.hoverItemNumber && this.isHover
+    },
+    getNumbersFontSize () {
+      return `calc(` + this.getIconSize() + ` - 0.4rem)`
     },
     onHover (item, value) {
       this.hoverItemNumber = item
     },
-    getNumberStyles (item) {
-      if (this.compareWithValue(item)) {
-        return {
-          backgroundColor: this.color,
-          height: this.getIconSize(),
-          width: this.getIconSize(),
-          cursor: this.getCursor()
-        }
-      }
-      return {
-        backgroundColor: this.color,
-        height: this.getIconSize(),
-        width: this.getIconSize(),
-        cursor: this.getCursor(),
-      }
-    },
     getIconSize () {
-      if (isNaN(this.size.trim().substring(0, 1))) {
-        if (this.size.trim() === 'medium') {
-          return 16 + 'px'
-        } else if (this.size.trim() === 'large') {
-          return 24 + 'px'
-        } else {
-          return 12 + 'px'
-        }
+      if (!isNaN(this.size.trim().substring(0, 1))) {
+        return this.size
       }
-      return this.size
+      if (this.size.trim() === 'medium') {
+        return 16 + 'px'
+      }
+      if (this.size.trim() === 'large') {
+        return 24 + 'px'
+      }
+      if (this.size.trim() === 'small') {
+        return 12 + 'px'
+      }
     },
     getIconClasses (item) {
       if (this.emptyIcon) {
         return this.compareWithValue(item) ? this.icon : this.emptyIcon
       }
       return this.compareWithValue(item) ? this.icon : this.icon + ' ' +
-        'va-rating__icons--icon--empty'
-    },
-    getNumberClasses (item) {
-      return this.compareWithValue(item) ? 'this.icon' : 'va-rating__numbers--number-' +
-        ' ' + 'va-rating__numbers--number--empty'
+        'va-rating__icons__icon--empty'
     },
     setCurrentValue (item, value) {
-      if (!this.readonly && !this.disabled) {
-        this.valueProxy = value === 1 ? item : item - 0.5
+      if (this.readonly || this.disabled) {
+        return
       }
-    },
-    getCursor () {
-      if (this.disabled) {
-        return 'not-allowed'
-      } else if (this.readonly) {
-        return 'initial'
-      } else {
-        return 'pointer'
-      }
+      this.isHover = false
+      this.valueProxy = value === 1 ? item : item - 0.5
     },
     getStarValue (item) {
-      if (!this.hover) {
-        return this.compareWithValue(item)
+      if (this.hover) {
+        return false
       }
-      return false
+      return this.compareWithValue(item)
     },
     compareWithValue (item) {
       return item <= this.value
@@ -191,7 +166,16 @@ export default {
   display: flex;
   &__icons {
     display: flex;
-    &--icon {
+    &__icon {
+      cursor: pointer;
+      @at-root {
+        .va-rating--disabled & {
+          cursor: not-allowed;
+        }
+        .va-rating--readonly & {
+          cursor: initial;
+        }
+      }
       &--empty {
         opacity: 0.4;
       }
@@ -199,12 +183,21 @@ export default {
   }
   &__numbers {
     display: flex;
-    &--number {
+    &__number {
       color: $white;
       margin: 0.1rem;
       border-radius: 0.1rem;
       display: flex;
       justify-content: center;
+      cursor: pointer;
+      @at-root {
+        .va-rating--disabled & {
+          cursor: not-allowed;
+        }
+        .va-rating--readonly & {
+          cursor: initial;
+        }
+      }
       &--empty {
         opacity: 0.4;
       }
