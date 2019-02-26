@@ -8,11 +8,11 @@
     </div>
     <div class="va-row vuestic-navbar__content">
       <div
-        class="header-elem-wrapper menu-icon-container justify--start col">
+        class="header-elem-wrapper menu-icon-container d-flex justify--start col">
         <slot name="selector"></slot>
       </div>
       <div
-        class="header-elem-wrapper navbar-text flex offset--md3 md5 d-none d-lg-flex">
+        class="header-elem-wrapper navbar-text flex offset--md3 md5">
         <slot name="center"></slot>
       </div>
       <slot></slot>
@@ -54,6 +54,16 @@ $navbar-dd-item-height: 48px;
     width: 100%;
     height: 100%;
     margin: 0;
+  }
+
+  .navbar-text {
+    display: flex;
+  }
+
+  @include media-breakpoint-down(xs) {
+    .navbar-text {
+      display: none;
+    }
   }
 
   height: $top-nav-height;

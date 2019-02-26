@@ -1,5 +1,5 @@
 <template>
-  <div class="bubble-map"></div>
+  <div class="bubble-map fill-height"></div>
 </template>
 
 <script>
@@ -96,11 +96,3 @@ export default {
   },
 }
 </script>
-
-<style lang='scss'>
-@import '~ammap3/ammap/ammap.css';
-
-.bubble-map {
-  height: 100%;
-}
-</style>

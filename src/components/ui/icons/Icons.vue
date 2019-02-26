@@ -1,5 +1,5 @@
 <template>
-  <div class="ui-icons">
+  <div class="icons">
     <router-view :sets="sets"></router-view>
   </div>
 </template>
@@ -49,9 +49,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.ui-icons {
-
-}
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="file-upload-page">
+  <div class="file-upload">
     <div class="flex md12">
       <vuestic-widget :headerText="$t('fileUpload.advancedMediaGallery')">
         <vuestic-file-upload

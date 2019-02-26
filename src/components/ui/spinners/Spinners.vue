@@ -5,10 +5,10 @@
                       class="spinners__widget">
         <div class="spinners__customization">
           <div class="va-row">
-            <div class="flex md3 lg4">
-              <div class="row spinners__size">
-                <h5 class="spinners__icon-small mr-2">A</h5>
-                <div class="spinners__size-picker">
+            <div class="flex xs12 md3 lg4">
+              <div class="va-row spinners__size">
+                <h5 class="mt-2 ml-4 mr-3">A</h5>
+                <div class="spinners__size-picker pt-3">
                   <va-slider
                     value-visible
                     v-model="config.size"
@@ -16,15 +16,15 @@
                     :min="sliderSize.min"
                     :max="sliderSize.max"/>
                 </div>
-                <h3 class="spinners__icon-large ml-2">A</h3>
+                <h3 class="mt-1 ml-3">A</h3>
               </div>
             </div>
-            <div class="flex md3 lg4">
-              <div class="va-row spinners__duration">
-                <div class="spinners__icon-duration-slower mr-2">
+            <div class="flex xs12 md3 lg4">
+              <div class="va-row spinners__duration ma-0">
+                <div class="spinners__icon-duration-slower mt-1 mr-3">
                   <va-icon-slower/>
                 </div>
-                <div class="spinners__duration-picker">
+                <div class="spinners__duration-picker pt-3">
                   <va-slider
                     value-visible
                     v-model="currentDuration"
@@ -32,7 +32,7 @@
                     :max="sliderDuration.max"
                   />
                 </div>
-                <div class="spinners__icon-duration-faster ml-2">
+                <div class="spinners__icon-duration-faster mt-1 ml-3">
                   <va-icon-faster/>
                 </div>
               </div>
@@ -47,9 +47,9 @@
           </div>
         </div>
         <div v-for="(group, i) in groups" :key="i" class="va-row">
-          <div v-for="item in group" :key="item" class="flex sm12 md3">
-            <div class="spinner-box-container">
-              <div class="spinner-box">
+          <div v-for="item in group" :key="item" class="flex xs6 md3">
+            <div class="spinner-box-container text--center pb-5">
+              <div class="spinner-box flex-center">
                 <component
                   :animation-duration="speed"
                   :is="item"
@@ -58,7 +58,7 @@
                 >
                 </component>
               </div>
-              <span>{{item | displayName}}</span>
+              <div>{{item | displayName}}</div>
             </div>
           </div>
         </div>
@@ -151,94 +151,32 @@ export default {
 
 .spinners {
   @include media-breakpoint-down(xs) {
-    &__duration-picker {
-      margin-top: 30px;
-    }
-
-    & &__icon-small {
-      margin-left: 0;
-    }
-
-    &__duration {
-      margin: 0;
-      justify-content: center;
-    }
-
-    &__size {
-      justify-content: center;
-    }
-
-    & &__icon-duration-faster {
-      margin-top: 33px;
-    }
-
-    & &__icon-duration-slower {
-      margin-top: 33px;
-    }
-
-    &__color {
-      justify-content: center;
-      margin-left: 12px;
-    }
 
     &__color-picker {
-      margin-top: 50px;
-      padding-left: 15px;
-      .vuestic-dropdown__content {
+      .vuestic-color-dropdown__content {
         right: 40px;
       }
     }
   }
 
   &__size-picker {
-    padding-top: 12px;
     object-fit: contain;
     width: 136px;
   }
 
   &__duration-picker {
     width: 136px;
-    padding-top: 16px;
   }
 
   &__divider-copy {
     width: 1700px;
     height: 2px;
-    background-color: #eeeeee;
-  }
-
-  &__icon-small {
-    margin-top: 7px;
-    margin-left: 30px;
-  }
-
-  &__icon-large {
-    margin-top: 2px;
-  }
-
-  &__icon-duration-faster {
-    margin-top: 5px;
-  }
-
-  &__icon-duration-slower {
-    margin-top: 5px;
-  }
-
-  .spinner-box-container {
-    text-align: center;
-    padding-bottom: 40px;
-
-    span {
-      font-size: .8rem;
-    }
+    background-color: $light-gray;
   }
 
   .spinner-box {
     height: 140px;
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 }
 </style>

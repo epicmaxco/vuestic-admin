@@ -1,6 +1,6 @@
 <template>
   <div class="signup">
-    <h2>{{ $t('auth.createNewAccount') }}</h2>
+    <div class="display-2 text--center my-4">{{ $t('auth.createNewAccount') }}</div>
     <form method="post" action="/#/auth/signup" name="signup">
       <div class="form-group">
         <div class="input-group">
@@ -21,7 +21,7 @@
         </template>
       </vuestic-checkbox>
       <div
-        class="d-flex flex-column flex-lg-row align-items-center justify-content-between down-container">
+        class="down-container mt-5 d-flex align-items-center justify-content-between">
         <va-button type="submit">
           {{ $t('auth.signUp') }}
         </va-button>
@@ -48,17 +48,9 @@ export default {
 .signup {
   @include media-breakpoint-down(md) {
     width: 100%;
-    padding-right: 2rem;
-    padding-left: 2rem;
+    padding: 0 2rem;
   }
 
-  h2 {
-    text-align: center;
-  }
   width: 21.375rem;
-
-  .down-container {
-    margin-top: 2.6875rem;
-  }
 }
 </style>

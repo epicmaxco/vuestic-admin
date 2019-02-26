@@ -1,5 +1,5 @@
 <template>
-  <div class="sets-list va-row">
+  <div class="tree-view sets-list va-row">
     <div class="flex md12 xs12">
       <div class="va-row">
 
@@ -65,7 +65,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-
-</style>

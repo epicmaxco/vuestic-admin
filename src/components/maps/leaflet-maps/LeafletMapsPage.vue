@@ -27,7 +27,6 @@ export default {
 <style lang="scss">
 .leaflet-maps-page {
   &__widget {
-    height: 70vh;
     .vuestic-widget-body {
       height: 65vh;
     }
