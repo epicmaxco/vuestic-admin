@@ -52,34 +52,6 @@
         </va-collapse>
       </va-accordion>
     </vuestic-widget>
-    <vuestic-widget :headerText="$t('collapse.collapseWithCustomHeader')">
-      <va-accordion>
-        <va-collapse customHeader>
-          <span slot="header">
-            <va-button>
-              Expand this block
-            </va-button>
-          </span>
-          <div slot="body">
-            <div>
-              Expand three content
-            </div>
-          </div>
-        </va-collapse>
-        <va-collapse customHeader>
-          <span slot="header">
-            <va-button>
-              Expand this block
-            </va-button>
-          </span>
-          <div slot="body">
-            <div>
-              Expand this block
-            </div>
-          </div>
-        </va-collapse>
-      </va-accordion>
-    </vuestic-widget>
   </div>
 </template>
 
