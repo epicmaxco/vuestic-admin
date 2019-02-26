@@ -180,7 +180,7 @@ export default {
       }
     },
     dotStyles () {
-      if (this.range){
+      if (this.range) {
         const val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100
         const val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100
 
