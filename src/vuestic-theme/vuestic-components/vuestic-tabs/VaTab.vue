@@ -33,6 +33,12 @@ export default {
     isActive () {
       return this.$parent.valueProxy === this.$slots.default[0].text.trim()
     }
+  },
+  beforeDestroy () {
+    if (this.$parent.activeIndex > 0) {
+      this.$parent.activeIndex--
+    }
+    this.$parent.valueProxy = this.$parent.$children[this.$parent.activeIndex].$slots.default[0].text.trim()
   }
 }
 </script>

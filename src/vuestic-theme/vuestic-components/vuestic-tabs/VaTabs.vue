@@ -21,7 +21,7 @@
           v-if="!hideSlider"
           class="va-tabs__bar-content-slider"
           :style="{
-             width: 100 / $slots.default.length + '%',
+             width: getBarWidth(),
              marginLeft: this.activeIndex * (100 / $slots.default.length) + '%'
           }"
         >
@@ -57,6 +57,7 @@ export default {
   computed: {
     valueProxy: {
       set (valueProxy) {
+        this.getBarWidth()
         this.$emit('input', valueProxy)
       },
       get () {
@@ -67,6 +68,11 @@ export default {
   data () {
     return {
       activeIndex: 0
+    }
+  },
+  methods: {
+    getBarWidth () {
+      return this.$slots.default[this.activeIndex].clientWidth + 'px'
     }
   }
 }
