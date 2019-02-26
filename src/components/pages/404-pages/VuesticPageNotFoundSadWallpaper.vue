@@ -1,7 +1,7 @@
 <template>
-  <div class=" vuestic-page-not-found-sad-wallpaper">
+  <div class=" vuestic-page-not-found-sad-wallpaper overflow--hidden">
     <img src="https://i.imgur.com/hu80UGU.png"
-         class="vuestic-page-not-found-sad-wallpaper__sad-image"/>
+         class="vuestic-page-not-found-sad-wallpaper__sad-image pt-3 px-3"/>
   </div>
 </template>
 
@@ -14,7 +14,6 @@ export default {
 <style lang="scss">
 .vuestic-page-not-found-sad-wallpaper {
   position: absolute;
-  overflow: hidden;
   height: 40%;
   width: 100%;
   bottom: 0;
@@ -24,7 +23,6 @@ export default {
     width: 505px;
     height: 400px;
     position: absolute;
-    padding: 20px 20px 0 20px;
     right: 0;
     bottom: 0;
   }

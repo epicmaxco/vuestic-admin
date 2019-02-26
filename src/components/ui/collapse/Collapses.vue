@@ -1,5 +1,5 @@
 <template>
-  <div class="collapse-page">
+  <div class="collapses">
     <div class="flex md12">
       <vuestic-widget :headerText="$t('collapse.accordion')">
         <vuestic-accordion>
@@ -8,8 +8,8 @@
             <div slot="body">
               <div class="va-row">
                 <div class="flex md6">
-                  <div class="collapse-page__content">
-                    <h4 class="collapse-page__content__title">February 2018</h4>
+                  <div class="pa-4">
+                    <h4 class="display-3 text--bold">February 2018</h4>
                     <div>
                       The unique stripes of zebras make them one of the animals
                       most familiar to people. They occur in a variety of
@@ -20,8 +20,8 @@
                   </div>
                 </div>
                 <div class="flex md6">
-                  <div class="collapse-page__content">
-                    <h4 class="collapse-page__content__title">March 2018</h4>
+                  <div>
+                    <h4 class="display-3 text--bold">March 2018</h4>
                     <div>
                       They occur in a variety of habitats,
                       such as grasslands, savannas, woodlands, thorny
@@ -37,8 +37,8 @@
             <div slot="body">
               <div class="va-row">
                 <div class="flex md6">
-                  <div class="collapse-page__content">
-                    <h4 class="collapse-page__content__title">April 2018</h4>
+                  <div class="pa-4">
+                    <h4 class="display-3 text--bold">April 2018</h4>
                     <div>
                       The unique stripes of zebras make them one of the animals
                       most familiar to people. They occur in a variety of
@@ -49,8 +49,8 @@
                   </div>
                 </div>
                 <div class="flex md6">
-                  <div class="collapse-page__content">
-                    <h4 class="collapse-page__content__title">May 2018</h4>
+                  <div>
+                    <h4 class="display-3 text--bold">May 2018</h4>
                     <div>
                       They occur in a variety of habitats,
                       such as grasslands, savannas, woodlands, thorny
@@ -66,8 +66,8 @@
             <div slot="body">
               <div class="va-row">
                 <div class="flex md6">
-                  <div class="collapse-page__content">
-                    <h4 class="collapse-page__content__title">June 2018</h4>
+                  <div>
+                    <h4 class="display-3 text--bold">June 2018</h4>
                     <div>
                       The unique stripes of zebras make them one of the animals
                       most familiar to people. They occur in a variety of
@@ -78,8 +78,8 @@
                   </div>
                 </div>
                 <div class="flex md6">
-                  <div class="collapse-page__content">
-                    <h4 class="collapse-page__content__title">July 2018</h4>
+                  <div>
+                    <h4 class="display-3 text--bold">July 2018</h4>
                     <div>
                       They occur in a variety of habitats,
                       such as grasslands, savannas, woodlands, thorny
@@ -108,8 +108,8 @@
               <div slot="body">
                 <div class="va-row">
                   <div class="flex md6">
-                    <div class="collapse-page__content">
-                      <h4 class="collapse-page__content__title">February
+                    <div>
+                      <h4 class="display-3 text--bold">February
                         2018</h4>
                       <div>
                         The unique stripes of zebras make them one of the
@@ -122,8 +122,8 @@
                     </div>
                   </div>
                   <div class="flex md6">
-                    <div class="collapse-page__content">
-                      <h4 class="collapse-page__content__title">March 2018</h4>
+                    <div>
+                      <h4 class="display-3 text--bold">March 2018</h4>
                       <div>
                         They occur in a variety of habitats,
                         such as grasslands, savannas, woodlands, thorny
@@ -146,18 +146,3 @@ export default {
   name: 'collapse'
 }
 </script>
-
-<style lang="scss">
-.collapse-page {
-  &__content {
-    padding: 2rem;
-    &__title {
-      font-size: 1.375rem;
-      font-weight: bold;
-    }
-    &__description {
-
-    }
-  }
-}
-</style>

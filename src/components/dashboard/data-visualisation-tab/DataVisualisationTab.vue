@@ -1,8 +1,8 @@
 <template>
-  <div class="data-visualisation-tab dashboard-tab">
+  <div class="data-visualisation-tab">
     <div class="va-row">
       <div class="flex md6 xs12">
-        <div class="chart-container">
+        <div class="px-4" style="height: 24rem;">
           <vuestic-chart v-bind:data="donutChartData"
                          type="donut"></vuestic-chart>
         </div>
@@ -55,11 +55,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.chart-container {
-  padding: 0 2rem;
-  height: 24rem;
-}
-
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="message-dropdown flex-center">
+  <div class="grow message-dropdown flex-center">
     <va-icon icon="i-nav-messages"/>
     <vuestic-dropdown v-model="isOpen" position="bottom">
       <a v-for="(option, id) in options"

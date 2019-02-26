@@ -1,5 +1,5 @@
 <template>
-  <div class="tags-page">
+  <div class="tags">
     <div class="flex md12">
       <vuestic-widget :headerText="$t('tags.default')">
         <vuestic-tag-group v-model="tags"/>

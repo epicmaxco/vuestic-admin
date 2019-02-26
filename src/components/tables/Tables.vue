@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tables">
     <div class="va-row">
       <div class="flex xs12 md12">
         <vuestic-widget :headerText="$t('tables.basic')">

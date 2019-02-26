@@ -9,7 +9,7 @@
 }
 
 .medium-editor-toolbar {
-  max-width: 80%;
+  max-width: 90%;
   box-shadow: none;
   .medium-editor-toolbar-actions {
     overflow: hidden;
@@ -18,7 +18,7 @@
   .medium-editor-action {
     margin: 0;
     border: $btn-border;
-    padding: $btn-padding-y-nrm $btn-padding-x-nrm;
+    padding: $btn-padding-y-nrm 1rem;
     height: $medium-editor-button-size;
     background-image: linear-gradient(to right, #63e5b3, #23e066);
     box-shadow: none;

@@ -103,11 +103,6 @@
   flex-shrink: 1 !important;
 }
 
-@mixin va-shrink {
-  flex-grow: 0 !important;
-  flex-shrink: 1 !important;
-}
-
 @mixin va-no-wrap {
   white-space: nowrap;
 }

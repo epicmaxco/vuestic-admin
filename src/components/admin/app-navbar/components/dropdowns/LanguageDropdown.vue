@@ -1,5 +1,5 @@
 <template>
-  <div class="language-dropdown flex-center">
+  <div class="language-dropdown flex-center grow">
     <va-icon :icon="['flag-icon flag-icon-large', flagIconClass(currentLanguage())]"/>
     <vuestic-dropdown
       class="language-dropdown__container"
