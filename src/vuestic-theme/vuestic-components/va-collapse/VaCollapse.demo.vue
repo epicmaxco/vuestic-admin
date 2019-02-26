@@ -1,49 +1,63 @@
 <template>
   <VbDemo>
-    <VbContainer style="width: 900px;" title="Default collapse">
-      <va-collapse>
-        <span slot="header">Toggle collapse </span>
+    <VbContainer title="Default">
+      <va-collapse style="width: 400px;">
+        <span slot="header">{{collapseHeader}}</span>
         <div slot="body">
-          Expand content
+          {{collapseContent}}
         </div>
       </va-collapse>
     </VbContainer>
-    <VbContainer style="width: 900px;" title="Collapse with custom header">
-      <va-collapse customHeader>
+    <VbContainer title="Custom header">
+      <va-collapse style="width: 400px;" customHeader>
         <va-button slot="header" style="width: 100%">
-          Toggle collapse
+          {{collapseHeader}}
         </va-button>
         <div slot="body">
-          Expand content
+          {{collapseContent}}
         </div>
       </va-collapse>
     </VbContainer>
-    <VbContainer title="Collapse with background color" style="width: 900px;">
-      <va-collapse withBackground>
-        <span slot="header"> Expand This Block </span>
+    <VbContainer title="With background">
+      <va-collapse style="width: 400px;" withBackground>
+        <span slot="header">{{collapseHeader}}</span>
         <div slot="body">
-          Expand content
+          {{collapseContent}}
         </div>
       </va-collapse>
     </VbContainer>
-    <VbContainer title="Collapse with defaultValue = true" style="width: 900px;">
-      <va-collapse :defaultValue="true">
-        <span slot="header"> Expand This Block </span>
+    <VbContainer title="Is open default">
+      <va-collapse style="width: 400px;" isOpenDefault>
+        <span slot="header">{{collapseHeader}}</span>
         <div slot="body">
-          Expand content
+          {{collapseContent}}
         </div>
       </va-collapse>
-
+    </VbContainer>
+    <VbContainer title="looooong texts">
+      <va-collapse style="width: 400px;" defaultValue>
+        <span slot="header">{{collapseHeader}} {{collapseHeader}} {{collapseHeader}} {{collapseHeader}} {{collapseHeader}} {{collapseHeader}} {{collapseHeader}} {{collapseHeader}} {{collapseHeader}} {{collapseHeader}}</span>
+        <div slot="body">
+          {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}}
+          {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}} {{collapseContent}}
+        </div>
+      </va-collapse>
     </VbContainer>
   </VbDemo>
 </template>
 
 <script>
+import VaCollapse from './VaCollapse.vue'
 
-import VaCollapse from './VaCollapse'
 export default {
   components: {
-    VaCollapse
-  }
+    VaCollapse,
+  },
+  data () {
+    return {
+      collapseHeader: `Expand This Block`,
+      collapseContent: `Collapse content`,
+    }
+  },
 }
 </script>

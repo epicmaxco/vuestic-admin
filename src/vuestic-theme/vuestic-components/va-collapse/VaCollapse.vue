@@ -44,7 +44,7 @@ export default {
   name: 'va-collapse',
   components: { VaIcon },
   props: {
-    defaultValue: {
+    isOpenDefault: {
       type: Boolean
     },
     withBackground: Boolean,
@@ -60,18 +60,16 @@ export default {
   },
   data () {
     return {
-      show: this.defaultValue,
+      show: this.isOpenDefault,
     }
   },
   computed: {
     stylesComputed () {
-      if (this.show) {
-        if (this.$slots.body[0]) {
-          return {
-            height: this.getHeight(),
-            paddingTop: 1 + 'rem',
-            paddingBottom: 1 + 'rem'
-          }
+      if (this.show && this.$slots.body[0]) {
+        return {
+          height: this.getHeight(),
+          paddingTop: 1 + 'rem',
+          paddingBottom: 1 + 'rem'
         }
       }
       return {
