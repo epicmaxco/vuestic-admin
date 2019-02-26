@@ -27,6 +27,8 @@ import VaButtonGroup
   from './vuestic-components/va-button-group/VaButtonGroup.vue'
 import VaButtonToggle
   from './vuestic-components/va-button-toggle/VaButtonToggle.vue'
+import VaPagination
+  from './vuestic-components/va-pagination/VaPagination.vue'
 import RadioButton
   from './vuestic-components/vuestic-radio-button/VuesticRadioButton'
 import Scrollbar
@@ -103,6 +105,7 @@ const VuesticPlugin = {
       VaButton,
       VaButtonGroup,
       VaButtonToggle,
+      VaPagination,
       RadioButton,
       Scrollbar,
       SimpleSelect,

@@ -21,6 +21,7 @@
     "button": "BUTTON",
     "buttonGroups": "Button Groups",
     "buttonToggles": "Button Toggles",
+    "pagination": "Pagination",
     "a-link": "A-LINK",
     "router-link": "ROUTER-LINK",
     "colors": "Button Colors",
