@@ -135,9 +135,8 @@ export default {
       padding-left: 1rem;
     }
     &__icon {
-      @include flex-center;
+      @include flex-center();
       min-width: 1.5rem;
-      min-height: 1.5rem;
       margin-left: 0.5rem;
       margin-right: 0.5rem;
       color: $gray;
