@@ -17,12 +17,10 @@
         <slot name="header"/>
         <va-icon
           v-if="show"
-          fixedWidth
           class="fa fa-angle-up va-collapse__header__icon"
         />
         <va-icon
           v-else
-          fixedWidth
           class="fa fa-angle-down va-collapse__header__icon"
         />
       </div>
@@ -137,6 +135,9 @@ export default {
       padding-left: 1rem;
     }
     &__icon {
+      @include flex-center;
+      width: 1.5rem;
+      height: 1.5rem;
       margin-left: 0.5rem;
       margin-right: 0.5rem;
       color: $gray;
