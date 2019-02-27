@@ -40,8 +40,11 @@
 </template>
 
 <script>
+import VaIcon from '../va-icon/VaIcon'
+
 export default {
   name: 'vuestic-checkbox',
+  components: { VaIcon },
   props: {
     label: String,
     value: {
