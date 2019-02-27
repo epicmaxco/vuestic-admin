@@ -195,3 +195,13 @@
     </VbContainer>
   </VbDemo>
 </template>
+
+<script>
+
+import VaButtonGroup from './VaButtonGroup'
+export default {
+  components: {
+    VaButtonGroup
+  }
+}
+</script>

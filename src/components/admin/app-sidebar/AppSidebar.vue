@@ -75,9 +75,9 @@
           </span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'collapse' }">
+          :to="{ name: 'collapses' }">
           <span slot="title">
-            <span>{{ $t('menu.collapse') }}</span>
+            <span>{{ $t('menu.collapses') }}</span>
           </span>
         </sidebar-link>
         <sidebar-link

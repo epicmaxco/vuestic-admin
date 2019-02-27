@@ -52,8 +52,9 @@
     "bubbleChart": "Bubble Chart"
   },
   "collapse": {
-    "accordion": "Accordion",
-    "buttons": "Buttons"
+    "basic": "Basic Collapse",
+    "collapseWithBackground": "Collapse with background",
+    "collapseWithCustomHeader": "Collapse with custom header"
   },
   "dashboard": {
     "dataVisualization": "Data Visualization",
@@ -199,7 +200,7 @@
     "charts": "Charts",
     "colorPickers": "Color Pickers",
     "filters": "Filters",
-    "collapse": "Collapse",
+    "collapses": "Collapses",
     "timelines": "Timelines",
     "dashboard": "Dashboard",
     "extra": "Extra",

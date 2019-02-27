@@ -278,8 +278,11 @@ export default new Router({
               },
             },
             {
-              name: 'collapse',
-              path: 'collapse',
+              name: 'collapses',
+              path: 'collapses',
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Collapse',
+              },
               component: lazyLoading('ui/collapse/Collapses')
             },
             {
