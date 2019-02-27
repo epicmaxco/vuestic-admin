@@ -175,7 +175,10 @@ export default new Router({
             {
               name: 'rating',
               path: 'rating',
-              component: lazyLoading('ui/rating/Rating')
+              component: lazyLoading('ui/rating/Rating'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Rating',
+              },
             },
             {
               name: 'color-pickers',
