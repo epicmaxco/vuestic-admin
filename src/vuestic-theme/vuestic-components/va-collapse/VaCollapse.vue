@@ -136,8 +136,8 @@ export default {
     }
     &__icon {
       @include flex-center;
-      width: 1.5rem;
-      height: 1.5rem;
+      min-width: 1.5rem;
+      min-height: 1.5rem;
       margin-left: 0.5rem;
       margin-right: 0.5rem;
       color: $gray;
