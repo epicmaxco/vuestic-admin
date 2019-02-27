@@ -8,20 +8,8 @@ Vue.use(Router)
 
 const demoRoutes = []
 if (process.env.NODE_ENV === 'development' || process.env.VUE_APP_INCLUDE_DEMOS === true) {
-  const VueBook = require('vue-book')
-
-  demoRoutes.push(
-    VueBook.createRoute({
-      requireContext: require.context('./..', true, /.demo.vue$/),
-      path: '/demo',
-    }),
-    VueBook.createRoute({
-      requireContext: require.context('./../components', true, /.vue$/),
-      path: '/presentation',
-    }),
-  )
-
-  Vue.use(VueBook.VueBookComponents)
+  const vueBookRoutes = require('./vueBookRoutes').default
+  vueBookRoutes.forEach(route => demoRoutes.push(route))
 }
 
 const EmptyParentComponent = {
