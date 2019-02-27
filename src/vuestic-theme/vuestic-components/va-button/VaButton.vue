@@ -387,6 +387,13 @@ export default {
           .va-button__content, i {
             color: $brand-secondary;
           }
+
+          &.va-button--no-effects {
+
+            .va-button__content, i {
+              color: $brand-secondary !important;
+            }
+          }
         }
       }
     }
