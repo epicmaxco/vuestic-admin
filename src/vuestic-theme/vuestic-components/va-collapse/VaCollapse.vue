@@ -135,11 +135,11 @@ export default {
       padding-left: 1rem;
     }
     &__icon {
-      cursor: pointer;
+      @include flex-center;
+      width: 1.5rem;
+      height: 1.5rem;
       margin-left: 0.5rem;
-      padding: 0.25rem 0.4375rem;
       margin-right: 0.5rem;
-      justify-content: center;
       color: $gray;
     }
   }
