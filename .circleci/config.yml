@@ -90,16 +90,16 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
-      - test
+      - tests
       - deploy-staging:
           requires:
-            - test
+            - tests
           filters:
             branches:
               only: develop
       - deploy-production:
           requires:
-            - test
+            - tests
           context: vuestic-production
           filters:
             branches:
