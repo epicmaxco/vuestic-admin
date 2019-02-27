@@ -90,7 +90,12 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
-      - tests
+      - tests:
+          filters:
+            branches:
+              only:
+                - master
+                - develop
       - deploy-staging:
           # TODO Gonna figure what to do with button tests.
           #  requires:
