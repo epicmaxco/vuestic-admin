@@ -32,12 +32,17 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      - run:
+          name: Add variables for Yandex Metrics and Drift live chat
+          command:
+            echo "VUE_APP_INCLUDE_DEMOS=true" >> .env.production.local
       - restore_cache: *restore_cache
       - run: *install_dependencies
       - save_cache: *save_cache
       - run: *build
       - run:
           name: Deploy to hosting
+          # DEPLOY_PATH here is for staging only
           command: |
             tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
             sudo apt install sshpass
@@ -64,16 +69,14 @@ jobs:
       - run: *build
       - run:
           name: Deploy to hosting
-          environment:
-            DEPLOY_PATH: /var/www/html/vuestic-admin
           command: |
             tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
             ssh-keyscan -t rsa $SERVER_IP >> ~/.ssh/known_hosts
             scp ~/repo/dist.tar.gz $SERVER_USER_NAME@$SERVER_IP:~/
             ssh $SERVER_USER_NAME@$SERVER_IP << EOF
               mkdir -p tmp
-              rm -rf $DEPLOY_PATH/*
-              tar -xzf ~/dist.tar.gz -C $DEPLOY_PATH
+              rm -rf $PRODUCTION_DEPLOY_PATH/*
+              tar -xzf ~/dist.tar.gz -C $PRODUCTION_DEPLOY_PATH
               rm -rf ~/dist.tar.gz ~/tmp
             EOF
 

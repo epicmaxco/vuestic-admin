@@ -7,7 +7,7 @@ import lazyLoading from './lazyLoading'
 Vue.use(Router)
 
 const demoRoutes = []
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development' || process.env.VUE_APP_INCLUDE_DEMOS === true) {
   const VueBook = require('vue-book')
 
   demoRoutes.push(

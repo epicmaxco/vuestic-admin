@@ -1,0 +1,34 @@
+# Pre-production
+
+## SEO
+
+We have a boierplate prepared with some analytics ingrained. This includes:
+
+* [Yandex Metrica](https://metrica.yandex.com/about)
+* [Drift](https://www.drift.com/mobile-app/)
+
+To get these running - just provide keys to respective apis. You're advised to copy `.env.example` with rename to `.env` then modify it.
+
+## Deploy
+
+We use [circleci](https://circleci.com) to deploy vuestic version you're able to see on demo.
+
+If you want to save some time and use our config, do notice that circleci will need the following keys, that you have to set in **Build Settings -> Environment Variables**.
+
+* `DEPLOY_PASSWORD` ssh password.
+* `DEPLOY_PATH_PRODUCTION` production build will be loaded to this folder.
+* `DEPLOY_PATH_STAGING` staging build will be loaded to this folder.
+* `DEPLOY_URL` ssh url.
+* `DEPLOY_USER` ssh password.
+
+You can modify [config](../.circleci/config.yml) if our solution doesn't suit your needs exactly.
+
+NOTE: in `.env` file keys should look like this `VUE_APP_DRIFT_KEY`. Which will correspond to circleci key `DRIFT_KEY`. You essentially have two ways to pass config into build process.
+
+## Demos
+
+You can enable demos in build by:
+```
+VUE_APP_INCLUDE_DEMOS=true
+```
+Demos are included in staging build by default. They're not present in production to minify overload.
