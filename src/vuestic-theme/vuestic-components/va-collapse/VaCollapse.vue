@@ -130,7 +130,7 @@ export default {
       box-shadow: 0 2px 3px 0 rgba(98, 106, 119, 0.25);
       border-radius: 0.375rem;
       align-items: center;
-      padding-top: 0.5rem;
+      padding-top: 0.75rem;
       padding-bottom: 0.75rem;
       padding-left: 1rem;
     }
