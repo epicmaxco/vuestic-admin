@@ -130,13 +130,14 @@ export default {
       box-shadow: 0 2px 3px 0 rgba(98, 106, 119, 0.25);
       border-radius: 0.375rem;
       align-items: center;
-      padding-top: 11px;
-      padding-bottom: 13px;
+      padding-top: 0.5rem;
+      padding-bottom: 0.75rem;
       padding-left: 1rem;
     }
     &__icon {
       cursor: pointer;
-      margin: 0.5rem;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
       color: $gray;
     }
   }
