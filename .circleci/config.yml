@@ -14,9 +14,6 @@ aliases:
     paths:
       - ~/.cache/yarn
 
-  - &build |
-    yarn build
-
 docker: &docker
   docker:
     - image: circleci/node:10.12.0
@@ -28,6 +25,15 @@ defaults: &defaults
 
 version: 2
 jobs:
+  tests:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache: *restore_cache
+      - run: *install_dependencies
+      - save_cache: *save_cache
+      - run: yarn test:unit
+
   deploy-staging:
     <<: *defaults
     steps:
@@ -39,7 +45,7 @@ jobs:
       - restore_cache: *restore_cache
       - run: *install_dependencies
       - save_cache: *save_cache
-      - run: *build
+      - run: yarn build
       - run:
           name: Deploy to hosting
           # DEPLOY_PATH here is for staging only
@@ -66,7 +72,7 @@ jobs:
       - restore_cache: *restore_cache
       - run: *install_dependencies
       - save_cache: *save_cache
-      - run: *build
+      - run: yarn build
       - run:
           name: Deploy to hosting
           command: |
@@ -84,11 +90,16 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
+      - test
       - deploy-staging:
+          requires:
+            - test
           filters:
             branches:
               only: develop
       - deploy-production:
+          requires:
+            - test
           context: vuestic-production
           filters:
             branches:
