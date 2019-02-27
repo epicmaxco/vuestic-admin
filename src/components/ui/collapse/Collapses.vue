@@ -3,7 +3,7 @@
     <vuestic-widget :headerText="$t('collapse.basic')">
       <va-accordion>
         <va-collapse>
-          <span slot="header"> Expandable Area </span>
+          <span slot="header"> Expand This Block </span>
           <div slot="body">
             <p class="display-3">Great Things</p>
             <div>
@@ -14,7 +14,7 @@
           </div>
         </va-collapse>
         <va-collapse>
-          <span slot="header"> Expandable Area </span>
+          <span slot="header"> Another Block </span>
           <div slot="body">
             <p class="display-3">Great Things</p>
             <div>
@@ -57,24 +57,30 @@
         <va-collapse customHeader>
           <span slot="header">
             <va-button style="width: 100%">
-              Expand this block
+              Expand This Block
             </va-button>
           </span>
           <div slot="body">
+            <p class="display-3">Great Things</p>
             <div>
-              Expand three content
+              There is something about parenthood that gives us a sense of
+              history and a deeply rooted desire to send on into the next
+              generation the great things we have discovered about life.
             </div>
           </div>
         </va-collapse>
         <va-collapse customHeader>
           <span slot="header">
             <va-button style="width: 100%">
-              Collapse content
+              Another Block
             </va-button>
           </span>
           <div slot="body">
+            <p class="display-3">Great Things</p>
             <div>
-              Collapse content
+              There is something about parenthood that gives us a sense of
+              history and a deeply rooted desire to send on into the next
+              generation the great things we have discovered about life.
             </div>
           </div>
         </va-collapse>
@@ -85,6 +91,6 @@
 
 <script>
 export default {
-  name: 'collapses',
+  name: 'collapses'
 }
 </script>
