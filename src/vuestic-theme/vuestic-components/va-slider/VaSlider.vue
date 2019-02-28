@@ -245,8 +245,7 @@ export default {
     }
   },
   watch: {
-    value(val) {
-      console.log(val)
+    value (val) {
       this.setValue(val)
     },
   },
@@ -325,7 +324,6 @@ export default {
     },
     getValueByIndex (index) {
       let tempValue = ((this.step * this.multiple) * index + (this.min * this.multiple)) / this.multiple
-      console.log(index)
       return tempValue
     },
     setCurrentValue (val) {
@@ -342,7 +340,6 @@ export default {
           }
         }
       } else {
-        console.log(val)
         if (val < this.min || val > this.max) return false
         if (this.isDiff(this.currentValue, val)) {
           this.currentValue = val
@@ -414,11 +411,10 @@ export default {
       }
 
       if (this.isRange) {
-        console.log(this.currentSlider)
-        if (val[0] >= val[1] && this.currentSlider === 0){
+        if (val[0] >= val[1] && this.currentSlider === 0) {
           return [val[1], val[1]]
         }
-        if (val[0] >= val[1] && this.currentSlider === 1){
+        if (val[0] >= val[1] && this.currentSlider === 1) {
           return [val[0], val[0]]
         }
         return val.map((v) => inRange(v))
