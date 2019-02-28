@@ -3,6 +3,7 @@
     v-if="isComponentExists"
     class="va-slider d-flex align--center"
     :class="sliderClass"
+    @click="wrapClick"
   >
     <span
       v-if="label && !invertLabel"
@@ -42,7 +43,10 @@
           :style="dotStyles[0]"
           @mousedown="moveStart($event, 0)"
         >
-          <div v-if="valueVisible" class="va-slider__container__handler-value d-inline-flex title">
+          <div
+            v-if="valueVisible"
+            class="va-slider__container__handler-value title"
+          >
             {{ val[0] }}
           </div>
         </div>
@@ -54,7 +58,7 @@
         >
           <div
             v-if="valueVisible"
-            class="va-slider__container__handler-value d-inline-flex title">
+            class="va-slider__container__handler-value title">
             {{ val[1] }}
           </div>
         </div>
@@ -73,7 +77,7 @@
         >
           <div
             v-if="valueVisible"
-            class="va-slider__container__handler-value d-inline-flex title">
+            class="va-slider__container__handler-value title">
             {{ labelValue ? labelValue : val }}
           </div>
         </div>
@@ -131,7 +135,7 @@ export default {
       type: Boolean,
     },
     disabled: {
-      type: Boolean
+      type: [Boolean, Array]
     },
     pins: {
       type: Boolean
@@ -212,16 +216,23 @@ export default {
       }
     },
     total () {
-      return this.max - this.min
+      return (this.max - this.min) / this.step
     },
     gap () {
       return this.size / this.total
+    },
+    multiple () {
+      let decimals = `${this.step}`.split('.')[1]
+      return decimals ? Math.pow(10, decimals.length) : 1
     },
     interval () {
       return this.value[1] - this.value[0]
     },
     pinsCol () {
       return (this.max / this.step) - 1
+    },
+    position () {
+      return this.isRange ? [(this.currentValue[0] - this.min) / this.step * this.gap, (this.currentValue[1] - this.min) / this.step * this.gap] : ((this.currentValue - this.min) / this.step * this.gap)
     },
     limit () {
       return [0, this.size]
@@ -232,6 +243,12 @@ export default {
     isRange () {
       return Array.isArray(this.value)
     }
+  },
+  watch: {
+    value(val) {
+      console.log(val)
+      this.setValue(val)
+    },
   },
   methods: {
     bindEvents () {
@@ -244,7 +261,7 @@ export default {
       document.removeEventListener('mouseup', this.moveEnd)
       document.removeEventListener('mouseleave', this.moveEnd)
     },
-    moveStart (e, index = 0) {
+    moveStart (e, index) {
       if (this.isRange) {
         this.currentSlider = index
       }
@@ -253,35 +270,49 @@ export default {
       this.$emit('drag-start', this)
     },
     moving (e) {
-      if (!this.flag) return false
-      e.preventDefault()
+      if (!this.disabled) {
+        if (!this.flag) return false
+        e.preventDefault()
 
-      this.setValueOnPos(this.getPos(e))
+        this.setValueOnPos(this.getPos(e))
+      }
     },
     moveEnd (e) {
-      if (this.flag) {
-        this.$emit('drag-end', this)
-      } else {
-        return false
-      }
-      this.flag = false
-      if (this.pins) {
-        if (this.isRange) {
-          if (this.currentValue[0] % this.step !== 0) {
-            this.currentValue[0] = this.normalizeValue(this.currentValue[0])
-            this.val = [this.currentValue[0], this.val[1]]
-          }
-          if (this.currentValue[1] % this.step !== 0) {
-            this.currentValue[1] = this.normalizeValue(this.currentValue[1])
-            this.val = [this.val[0], this.currentValue[1]]
-          }
+      if (!this.disabled) {
+        if (this.flag) {
+          this.$emit('drag-end', this)
         } else {
-          this.currentValue = this.normalizeValue(this.currentValue)
-          this.val = this.currentValue
+          return false
+        }
+        this.flag = false
+        this.setValueOnPos(this.getPos(e))
+      }
+    },
+    wrapClick (e) {
+      if (!this.disabled) {
+        let pos = this.getPos(e)
+        if (this.isRange) {
+          this.currentSlider = pos > ((this.position[1] - this.position[0]) / 2 + this.position[0]) ? 1 : 0
+        }
+        this.setValueOnPos(pos)
+        if (this.pins) {
+          if (this.isRange) {
+            if (this.currentValue[0] % this.step !== 0) {
+              this.currentValue[0] = this.normalizeValue(this.currentValue[0])
+              this.val = [this.currentValue[0], this.val[1]]
+            }
+            if (this.currentValue[1] % this.step !== 0) {
+              this.currentValue[1] = this.normalizeValue(this.currentValue[1])
+              this.val = [this.val[0], this.currentValue[1]]
+            }
+          } else {
+            this.currentValue = this.normalizeValue(this.currentValue)
+            this.val = this.currentValue
+          }
         }
       }
-      this.setTransform()
     },
+
     getPos (e) {
       this.getStaticData()
       return e.clientX - this.offset
@@ -293,7 +324,8 @@ export default {
       }
     },
     getValueByIndex (index) {
-      let tempValue = (this.step * index + this.min) / this.step
+      let tempValue = ((this.step * this.multiple) * index + (this.min * this.multiple)) / this.multiple
+      console.log(index)
       return tempValue
     },
     setCurrentValue (val) {
@@ -303,11 +335,14 @@ export default {
           this.currentValue.splice(slider, 1, val)
           if (slider === 0) {
             this.val = [this.currentValue.splice(slider, 1, val)[0], this.currentValue[1]]
+            this.currentValue = [this.currentValue.splice(slider, 1, val)[0], this.currentValue[1]]
           } else {
             this.val = [this.currentValue[0], this.currentValue.splice(slider, 1, val)[0]]
+            this.currentValue = [this.currentValue[0], this.currentValue.splice(slider, 1, val)[0]]
           }
         }
       } else {
+        console.log(val)
         if (val < this.min || val > this.max) return false
         if (this.isDiff(this.currentValue, val)) {
           this.currentValue = val
@@ -319,25 +354,32 @@ export default {
       let range = this.limit,
         valueRange = this.valueLimit
       if (pos >= range[0] && pos <= range[1]) {
-        this.setTransform(pos)
+        this.setTransform()
         let v = this.getValueByIndex(Math.round(pos / this.gap))
         this.setCurrentValue(v, isDrag)
       } else if (pos < range[0]) {
-        this.setTransform(range[0])
+        this.setTransform()
         this.setCurrentValue(valueRange[0])
       } else {
-        this.setTransform(range[1])
+        this.setTransform()
         this.setCurrentValue(valueRange[1])
       }
     },
-    setTransform (val) {
-      const slider = this.currentSlider,
-        val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100,
-        val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100,
-        processSize = `${val1 - val0}%`,
-        processPos = `${val0}%`
+    setValue (val) {
+      val = this.limitValue(val)
 
+      if (this.isDiff(this.val, val)) {
+        this.val = val
+      }
+    },
+    setTransform () {
       if (this.isRange) {
+        const slider = this.currentSlider,
+          val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100,
+          val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100,
+          processSize = `${val1 - val0}%`,
+          processPos = `${val0}%`
+
         this.$refs.process.style.width = processSize
         this.$refs.process.style['left'] = processPos
         if (slider === 0) {
@@ -346,8 +388,10 @@ export default {
           this.$refs.dot1.style['left'] = `calc('${processPos} - 8px)`
         }
       } else {
-        this.$refs.process.style.width = `${val}px`
-        this.$refs.dot.style['left'] = `${val - 8}px`
+        const val = ((this.value - this.min) / (this.max - this.min)) * 100
+
+        this.$refs.process.style.width = `${val}%`
+        this.$refs.dot.style['left'] = `calc('${val} - 8px)`
       }
     },
     normalizeValue (value) {
@@ -358,6 +402,29 @@ export default {
         value = value - currentRest
       }
       return value
+    },
+    limitValue (val) {
+      const inRange = (v) => {
+        if (v < this.min) {
+          return this.min
+        } else if (v > this.max) {
+          return this.max
+        }
+        return v
+      }
+
+      if (this.isRange) {
+        console.log(this.currentSlider)
+        if (val[0] >= val[1] && this.currentSlider === 0){
+          return [val[1], val[1]]
+        }
+        if (val[0] >= val[1] && this.currentSlider === 1){
+          return [val[0], val[0]]
+        }
+        return val.map((v) => inRange(v))
+      } else {
+        return inRange(val)
+      }
     },
     isDiff (a, b) {
       if (Object.prototype.toString.call(a) !== Object.prototype.toString.call(b)) {
@@ -457,7 +524,7 @@ export default {
       }
 
       .va-slider__container__handler {
-        border: 0.25rem solid $active-track;
+        border: 0.375rem solid $active-track;
       }
     }
   }
@@ -509,7 +576,9 @@ export default {
 
         &-value {
           position: absolute;
-          bottom: 0.75rem;
+          top: -5px;
+          left: 50%;
+          transform: translate(-50%,-100%);
         }
       }
     }

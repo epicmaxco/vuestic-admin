@@ -16,6 +16,7 @@
         value-visible
         v-model="value3"
         :label-value="`${value3}px`"
+        :step="5"
         :min="1000"
         :max="2000"
       />
@@ -83,7 +84,7 @@
             <div class="input-group">
               <input id="simple-input" v-model="value" required/>
               <label class="control-label" for="simple-input">
-                Slider Label
+                Value
               </label>
               <va-icon icon="bar"/>
             </div>
@@ -177,9 +178,9 @@
         <div class="flex xs1 lg1">
           <div class="form-group">
             <div class="input-group">
-              <input id="simple-input2" v-model="value2[0]" required/>
+              <input id="simple-input2" v-model.number="value5[0]" required/>
               <label class="control-label" for="simple-input2">
-                Slider Label
+                Min
               </label>
               <va-icon icon="bar"/>
             </div>
@@ -188,15 +189,15 @@
         <div class="flex xs8 lg8 offset--xs1 offset--lg1">
           <va-slider
             range
-            v-model="value2"
+            v-model="value5"
           />
         </div>
         <div class="flex xs1 lg1 offset--xs1 offset--lg1">
           <div class="form-group">
             <div class="input-group">
-              <input id="simple-input3" v-model="value2[1]" required/>
+              <input id="simple-input3" v-model.number="value5[1]" required/>
               <label class="control-label" for="simple-input3">
-                Slider Label
+                Max
               </label>
               <va-icon icon="bar"/>
             </div>
@@ -219,7 +220,8 @@ export default {
       value: 90,
       value2: [20, 60],
       value3: 1500,
-      value4: [1100, 1320]
+      value4: [1100, 1320],
+      value5: [10, 70],
     }
   },
 }
