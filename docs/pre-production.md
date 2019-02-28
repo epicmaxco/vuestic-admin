@@ -23,7 +23,9 @@ If you want to save some time and use our config, do notice that circleci will n
 
 You can modify [config](../.circleci/config.yml) if our solution doesn't suit your needs exactly.
 
-NOTE: in `.env` file keys should look like this `VUE_APP_DRIFT_KEY`. Which will correspond to circleci key `DRIFT_KEY`. You essentially have two ways to pass config into build process.
+Couple of things to note:
+* in `.env` file keys should look like this `VUE_APP_DRIFT_KEY`. Which will correspond to circleci key `DRIFT_KEY`. You essentially have two ways to pass config into build process.
+* Circleci will run tests before both staging and production.
 
 ## Demos
 
