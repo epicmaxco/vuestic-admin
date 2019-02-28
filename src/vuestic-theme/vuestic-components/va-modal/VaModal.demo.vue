@@ -75,25 +75,6 @@
       />
     </p>
   </VbContainer>
-  <VbContainer title="closeButton - is close icon show on the top right">
-    <p>
-      <button @click="showModalWithCloseButton = !showModalWithCloseButton">Show modal with close button (default)</button>
-      <va-modal
-        title="Title"
-        :message="message"
-        v-model="showModalWithCloseButton"
-      />
-    </p>
-    <p>
-      <button @click="showModalWithoutCloseButton = !showModalWithoutCloseButton">Show modal without close button</button>
-      <va-modal
-        title="Title"
-        :message="message"
-        v-model="showModalWithoutCloseButton"
-        :close-button="false"
-      />
-    </p>
-  </VbContainer>
   <VbContainer title="fullscreen, slots use, custom action">
     <button @click="showFullScreenModal = !showFullScreenModal">Show modal</button>
     <va-modal

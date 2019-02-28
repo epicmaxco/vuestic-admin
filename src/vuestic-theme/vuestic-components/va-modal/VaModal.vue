@@ -14,22 +14,22 @@
         :style="{maxWidth, maxHeight}"
       >
         <i
-          v-if="closeButton || fullscreen"
+          v-if="fullscreen"
           @click="cancel"
           class="ion ion-md-close va-modal__close"
-          :style="{'right': `calc(1rem + ${scrollWidth}`}"
+          :style="{right: '1rem'}"
         />
 
         <div class="va-modal__inner" :style="{maxHeight, maxWidth}">
-          <div v-if="title" class="title">{{title}}</div>
+          <div v-if="title" class="mb-4">{{title}}</div>
           <div v-if="hasHeaderSlot" class="va-modal__header">
             <slot name="header"/>
           </div>
-          <div v-if="message" class="va-modal__message">{{message}}</div>
-          <div v-if="hasContentSlot" class="va-modal__content">
+          <div v-if="message" class="mb-4">{{message}}</div>
+          <div v-if="hasContentSlot" class="mb-4">
             <slot/>
           </div>
-          <div v-if="cancelText || okText" class="va-modal__actions">
+          <div v-if="cancelText || okText" class="va-modal__actions mb-3">
             <va-button v-if="cancelText" color="gray" flat @click="cancel">
               {{cancelText}}
             </va-button>
@@ -77,10 +77,6 @@ export default {
     cancelText: {
       type: String,
       default: 'Cancel',
-    },
-    closeButton: {
-      type: Boolean,
-      default: true,
     },
     fullscreen: Boolean,
     mobileFullscreen: {
@@ -135,9 +131,6 @@ export default {
     },
     hasActionsSlot () {
       return this.$slots.actions
-    },
-    scrollWidth () {
-      return document.body.offsetWidth - document.body.offsetWidth
     }
   },
   watch: {
@@ -362,29 +355,12 @@ export default {
     color: $brand-secondary;
   }
 
-  .title {
-    margin-bottom: 1.5rem;
-  }
-
-  &__message {
-    margin-bottom: 1.5rem;
-  }
-
-  &__content {
-    margin-bottom: 1.5rem;
-  }
-
   &__actions {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: auto;
     min-height: fit-content;
-    margin-bottom: 1rem;
-
-    &:last-of-type {
-      margin-bottom: 0;
-    }
   }
 }
 </style>
