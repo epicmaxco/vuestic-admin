@@ -33,4 +33,4 @@ You can enable demos in build by:
 ```
 VUE_APP_INCLUDE_DEMOS=true
 ```
-Demos are included in staging build by default. They're not present in production to minify overload.
+Demos are included in staging build by default. They're not present in production because of significant impact on bundle size.
