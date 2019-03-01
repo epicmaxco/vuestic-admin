@@ -78,7 +78,7 @@ describe('VaButton', () => {
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  /* 4. Button tags */
+  /* 4. Button chips */
 
   it('default button', () => {
     const wrapper = shallowMount(VaButton)

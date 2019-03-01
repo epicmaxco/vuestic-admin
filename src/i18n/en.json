@@ -220,7 +220,7 @@
     "signUp": "Sign up",
     "statistics": "Statistics",
     "tables": "Tables",
-    "tags": "Tags",
+    "chips": "Chips",
     "typography": "Typography",
     "uiElements": "UI Elements",
     "treeView": "Tree view",
@@ -273,10 +273,10 @@
     "modalTitle": "File validation",
     "modalText": "File type is incorrect!"
   },
-  "tags": {
-    "default": "Default",
-    "removable": "Removable",
-    "colored": "Colored"
+  "chips": {
+    "chips": "Chips",
+    "badges": "Badges",
+    "tags": "Tags"
   },
   "navbar": {
     "messageUs": "Web development help needed? Contact us at"

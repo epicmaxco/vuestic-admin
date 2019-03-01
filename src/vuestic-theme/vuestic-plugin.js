@@ -21,6 +21,12 @@ import PreLoader
   from './vuestic-components/vuestic-preloader/VuesticPreLoader.vue'
 import ProfileCard
   from './vuestic-components/vuestic-profile-card/VuesticProfileCard.vue'
+import VaBadge
+  from './vuestic-components/va-chip/VaBadge.vue'
+import VaChip
+  from './vuestic-components/va-chip/VaChip.vue'
+import VaTag
+  from './vuestic-components/va-chip/VaTag.vue'
 import VaButton
   from './vuestic-components/va-button/VaButton.vue'
 import VaButtonGroup
@@ -102,6 +108,9 @@ const VuesticPlugin = {
       PreLoader,
       ProfileCard,
       VaProgressBar,
+      VaBadge,
+      VaChip,
+      VaTag,
       VaButton,
       VaButtonGroup,
       VaButtonToggle,

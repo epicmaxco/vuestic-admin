@@ -143,9 +143,9 @@
           </span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'tags' }">
+          :to="{ name: 'chips' }">
           <span slot="title">
-            <span>{{ $t('menu.tags') }}</span>
+            <span>{{ $t('menu.chips') }}</span>
           </span>
         </sidebar-link>
         <sidebar-link
