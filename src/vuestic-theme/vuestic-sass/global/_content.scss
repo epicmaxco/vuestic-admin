@@ -1,0 +1,34 @@
+@import "typography";
+
+.content {
+  h1 {
+    @include va-display(1)
+  }
+  h2 {
+    @include va-display(2)
+  }
+  h3 {
+    @include  va-display(3)
+  }
+  h4 {
+    @include va-display(4)
+  }
+  h5 {
+    @include va-display(5)
+  }
+  h6 {
+    @include va-display(6)
+  }
+  pre {
+    @extend .code-snippet
+  }
+  ol {
+    @extend .va-ordered
+  }
+  ul {
+    @extend .va-unordered
+  }
+  blockquote  {
+    @extend .va-blockquote
+  }
+}
