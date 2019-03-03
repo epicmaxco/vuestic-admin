@@ -1,24 +1,31 @@
 <template>
-  <transition :name="noFade ? '' : 'dropdown'" mode="out-in">
-    <div
-      v-show="isVisible"
-      :style="dropdownStyles"
-      class="vuestic-dropdown"
-      @click="handleClick"
-      @mouseover="handleMouseover"
-      @mouseleave="handleMouseleave"
-    >
-      <div v-if="showTitle" class="vuestic-dropdown__title">
-        <slot name="title">{{ title }}</slot>
+  <div>
+    <slot name="actuator">
+      <div>Actuator</div>
+    </slot>
+    <transition :name="noFade ? '' : 'dropdown'" mode="out-in">
+      <div
+        v-show="isVisible"
+        ref="dropdown"
+        :style="dropdownStyles"
+        class="vuestic-dropdown-new"
+        @click="handleClick"
+        @mouseover="handleMouseover"
+        @mouseleave="handleMouseleave"
+      >
+        <div v-if="showTitle" class="vuestic-dropdown-new__title">
+          <slot name="title">{{ title }}</slot>
+        </div>
+        <div v-if="showMessage" class="vuestic-dropdown-new__content">
+          <slot>{{ message }}</slot>
+        </div>
       </div>
-      <div v-if="showMessage" class="vuestic-dropdown__content">
-        <slot>{{ message }}</slot>
-      </div>
-    </div>
-  </transition>
+    </transition>
+  </div>
 </template>
 
 <script>
+import _ from 'lodash'
 const availablePositions = ['T', 'TR', 'R', 'BR', 'B', 'BL', 'L', 'TL']
 
 export default {
@@ -50,9 +57,6 @@ export default {
     absolute: {
       type: Boolean,
       default: false
-    },
-    target: {
-      type: String
     },
     noFade: Boolean,
     title: String,
@@ -110,10 +114,23 @@ export default {
     }
   },
   mounted () {
-    this.targetElement = document.getElementById(this.target)
-    this.$el.parentNode.removeChild(this.$el)
-    document.body.appendChild(this.$el)
+    if (!this.$slots.actuator) {
+      return
+    }
+
+    this.parentElement = this.$el.parentNode
+    this.targetElement = this.$slots.actuator[0].elm
+    this.parentElement.insertBefore(this.targetElement, this.$el)
+    this.$el.removeChild(this.$refs.dropdown)
+    document.body.appendChild(this.$refs.dropdown)
+    this.parentElement.removeChild(this.$el)
+
+    this.throttleCalcPositon = _.throttle(() => {
+      this.calculatePosition()
+    }, 200)
+
     this.calculatePosition()
+    window.addEventListener('resize', this.throttleCalcPositon)
     if (this.isOnClick) {
       this.targetElement.addEventListener('click', this.toggle)
     }
@@ -127,6 +144,10 @@ export default {
     }
   },
   beforeDestroy () {
+    this.$el.appendChild(this.targetElement)
+    this.$el.appendChild(this.$refs.dropdown)
+
+    window.removeEventListener('resize', this.throttleCalcPositon)
     if (this.isOnClick) {
       this.targetElement.removeEventListener('click', this.toggle)
     }
@@ -150,12 +171,15 @@ export default {
       this.$emit('onMouseLeave', event)
     },
     calculatePosition () {
+      if (!this.isVisible) {
+        return
+      }
       const tRect = this.targetElement.getBoundingClientRect()
       const tHeight = tRect.height
       const tWidth = tRect.width
       const tTop = tRect.top
       const tLeft = tRect.left
-      const dRect = this.$el.getBoundingClientRect()
+      const dRect = this.$refs.dropdown.getBoundingClientRect()
       const dWidth = dRect.width
       const dHeight = dRect.height
       switch (this.position) {
@@ -197,41 +221,71 @@ export default {
           break
       }
     },
-    toggle () {
-      this.visible = !this.visible
-      this.$nextTick(() => {
-        this.calculatePosition()
-      })
+    toggle (event) {
+      // event.stopPropagation();
+      if (this.isVisible) {
+        this.hide()
+      } else {
+        this.show()
+      }
     },
     show () {
       this.visible = true
       this.$nextTick(() => {
         this.calculatePosition()
+        this.registerOutsideClick()
       })
     },
     hide () {
       this.visible = false
-      this.$nextTick(() => {
-        this.calculatePosition()
-      })
+      this.killOutSideClick()
+      // this.$nextTick(() => {
+      //   this.calculatePosition();
+      // });
+    },
+    close (event) {
+      if (!this.targetIsInsideElement(event)) {
+        this.hide()
+      }
+    },
+    targetIsInsideElement (e) {
+      let target = e.target
+      if (target) {
+        do {
+          if (target === this.$refs.dropdown || target === this.targetElement) {
+            return true
+          }
+        } while ((target = target.parentNode))
+      }
+      return false
+    },
+    registerOutsideClick () {
+      this.outsideClickListener = event => {
+        this.close(event)
+      }
+      document.addEventListener('click', this.outsideClickListener)
+    },
+    killOutSideClick () {
+      document.removeEventListener('click', this.outsideClickListener)
     }
   }
 }
 </script>
 
 <style lang="scss">
-.vuestic-dropdown {
+.vuestic-dropdown-new {
   position: fixed;
   padding: 0 0.4rem;
   max-width: 400px;
   font-family: Source Sans Pro, sans-serif;
-  overflow: auto;
   box-shadow: 0 4px 9.6px 0.4px rgba(74, 227, 135, 0.5);
   border-radius: 3px;
-  background: $darkest-gray;
-  color: #fff;
-  z-index: 10000;
-  border-radius: 0.5rem;
+  background: #fff;
+  z-index: 8000;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-width: 100vw;
+  outline: 0;
   word-wrap: break-word;
 
   &--absolute {
@@ -244,12 +298,11 @@ export default {
 
 .dropdown-enter-active,
 .dropdown-leave-active {
-  transition: opacity 0.2s;
+  transition: opacity 0.15s;
 }
 
 .dropdown-enter,
-.dropdown-leave-to
- {
+.dropdown-leave-to {
   opacity: 0;
 }
 </style>
