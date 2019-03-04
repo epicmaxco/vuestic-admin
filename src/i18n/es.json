@@ -144,7 +144,8 @@
   "language": {
     "brazilian_portuguese": "Português",
     "english": "English",
-    "spanish": "Spanish"
+    "spanish": "Spanish",
+    "simplified_chinese": "Versión abreviada"
   },
   "menu": {
     "auth": "Autenticación",

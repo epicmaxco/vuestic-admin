@@ -155,7 +155,8 @@
   "language": {
     "brazilian_portuguese": "Português",
     "english": "English",
-    "spanish": "Spanish"
+    "spanish": "Spanish",
+    "simplified_chinese": "Chinês simplificado"
   },
   "menu": {
     "auth": "Autorização",
