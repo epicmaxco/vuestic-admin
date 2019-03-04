@@ -1,147 +1,96 @@
 <template>
   <VbDemo>
-    <VbContainer>
-      <vuestic-dropdown-new position="B">
-        <span>Bottom</span>
-        <va-button slot="actuator">
-            Dropdown bottom
-        </va-button>
-      </vuestic-dropdown-new>
-    </VbContainer>
-
-    <VbContainer>
-      <vuestic-dropdown-new position="T">
-        <span>Top</span>
-        <va-button slot="actuator">Dropdown top</va-button>
-      </vuestic-dropdown-new>
-    </VbContainer>
-
-    <VbContainer>
-      <vuestic-dropdown-new position="L">
-        <span>Left</span>
-        <va-button slot="actuator">Dropdown left</va-button>
-      </vuestic-dropdown-new>
-    </VbContainer>
-
-    <VbContainer>
-      <vuestic-dropdown-new position="R">
-        <span>Right</span>
-        <va-button slot="actuator">Dropdown right</va-button>
-      </vuestic-dropdown-new>
-    </VbContainer>
-
-    <VbContainer>
-      <vuestic-dropdown-new position="TR">
-        <span>Top-Right</span>
-        <va-button slot="actuator">Dropdown top-right</va-button>
-      </vuestic-dropdown-new>
-    </VbContainer>
-
-    <VbContainer>
-      <vuestic-dropdown-new position="TL">
-        <span>Top-Left</span>
-        <va-button slot="actuator">Dropdown top-left</va-button>
-      </vuestic-dropdown-new>
-    </VbContainer>
-
-    <VbContainer>
-      <vuestic-dropdown-new position="BR">
-        <span>Bottom-Right</span>
-        <va-button slot="actuator">Dropdown bottom-right</va-button>
-      </vuestic-dropdown-new>
-    </VbContainer>
-
-    <VbContainer>
-      <vuestic-dropdown-new position="BL">
-        <span>Bottom-Left</span>
-        <va-button slot="actuator">Dropdown bottom-left</va-button>
-      </vuestic-dropdown-new>
-    </VbContainer>
-
-    <VbContainer>
-      <vuestic-dropdown-new position="BL" :no-fade="true">
-        <span>No Fade</span>
-        <va-button slot="actuator">Dropdown noFade</va-button>
-      </vuestic-dropdown-new>
-    </VbContainer>
-
-    <VbContainer>
-      <vuestic-dropdown-new title="Title" message="Content">
-        <va-button slot="actuator">Dropdown with Title</va-button>
-      </vuestic-dropdown-new>
-    </VbContainer>
-
-    <VbContainer>
-      <vuestic-dropdown-new absolute>
-        <span>Absolute</span>
-        <va-button slot="actuator">Absolute Dropdown</va-button>
-      </vuestic-dropdown-new>
-    </VbContainer>
-
-    <VbContainer>
-      <vuestic-dropdown-new max-width="150px">
-        <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum officia cumque nam assumenda debitis minima</span>
-        <va-button slot="actuator">Max Width Dropdown</va-button>
-      </vuestic-dropdown-new>
-    </VbContainer>
-
-    <VbContainer>
-      <vuestic-dropdown-new disabled>
-        <span>Disabled</span>
-        <va-button slot="actuator">Disabled Dropdown</va-button>
-      </vuestic-dropdown-new>
-    </VbContainer>
-
-    <VbContainer>
+    <VbContainer title="Direction">
       <vuestic-dropdown-new
-        v-model="newDropdownVal"
+        v-for="(value, key) in dropdownDirections"
+        :position="key"
+        :key="key"
       >
-        <span>With model</span>
-        <va-button @click="toggleNewDropdown" slot="actuator">Dropdown with model</va-button>
+        {{ dropdownText }}
+        <button slot="actuator">
+          {{value}}
+        </button>
       </vuestic-dropdown-new>
     </VbContainer>
 
-    <VbContainer>
+    <VbContainer title="Title">
+      <vuestic-dropdown-new title="Title" :message="dropdownText">
+        <button slot="actuator">Dropdown with Title</button>
+      </vuestic-dropdown-new>
+    </VbContainer>
+
+    <VbContainer title="Absolute">
+      <vuestic-dropdown-new absolute>
+        {{ dropdownText }}
+        <button slot="actuator">Open</button>
+      </vuestic-dropdown-new>
+    </VbContainer>
+
+    <VbContainer title="Max Width">
+      <vuestic-dropdown-new max-width="150px">
+        {{ dropdownText }}
+        <button slot="actuator">Open</button>
+      </vuestic-dropdown-new>
+    </VbContainer>
+
+    <VbContainer title="Disabled">
+      <vuestic-dropdown-new disabled>
+        {{ dropdownText }}
+        <button slot="actuator">Open</button>
+      </vuestic-dropdown-new>
+    </VbContainer>
+
+    <VbContainer title="Dropdown activation">
+      <button>Just button</button>
+      <button @click="toggleNewDropdown()">External actuator</button>
+      <vuestic-dropdown-new
+        v-model="valueProxy"
+      >
+        With model
+        <button slot="actuator">Actuator</button>
+      </vuestic-dropdown-new>
+    </VbContainer>
+
+    <VbContainer title="Nested Dropdown">
       <vuestic-dropdown-new>
-        <va-button slot="actuator">Nested Dropdown</va-button>
-        <vuestic-dropdown-new>
-          <div style="padding: 10px;" slot="actuator">
-            <button>Click Me!</button>
-          </div>
-          <span>Hi! I am nested inside</span>
-        </vuestic-dropdown-new>
+        <button slot="actuator">Open</button>
+        <div>
+          {{ dropdownText }}
+          <vuestic-dropdown-new>
+            {{ dropdownText }}
+            <button slot="actuator">Open child</button>
+          </vuestic-dropdown-new>
+        </div>
       </vuestic-dropdown-new>
     </VbContainer>
 
-    <VbContainer>
+    <VbContainer title="Actuator events">
       <vuestic-dropdown-new trigger-mode="hover">
         <span>Hover</span>
-        <va-button slot="actuator">Hover Dropdown</va-button>
+        <button slot="actuator">Hover</button>
       </vuestic-dropdown-new>
-    </VbContainer>
-
-    <VbContainer>
       <vuestic-dropdown-new trigger-mode="focus">
         <span>Focus</span>
-        <va-button slot="actuator">Focus Dropdown</va-button>
+        <button slot="actuator">Focus</button>
       </vuestic-dropdown-new>
     </VbContainer>
 
-    <VbContainer>
-      <vuestic-dropdown-new
-        @onClick="handleClick"
-        @onMouseEnter="handleMouseOver"
-        @onMouseLeave="handleMouseLeave">
-        <span>Event Listeners</span>
-        <va-button slot="actuator">Events Dropdown</va-button>
+    <VbContainer title="Content events">
+      <vuestic-dropdown-new>
+        <span
+          @click="handleClick"
+          @mouseenter="handleMouseOver"
+          @mouseleave="handleMouseLeave"
+        >Event Listeners</span>
+        <button slot="actuator">Open</button>
       </vuestic-dropdown-new>
     </VbContainer>
 
     <!-- <div class="demo-container__item">
       <div class="demo-container__item-title">Dropdown with model</div>
-      <va-button id="open-dropdown" @click="toggleNewDropdown" ref="btn">Dropdown</va-button>
+      <button id="open-dropdown" @click="toggleNewDropdown" ref="btn">Dropdown</button>
       <vuestic-dropdown-new
-        v-model="newDropdownVal"
+        v-model="showDropdown"
         position="B"
         :absolute="true"
         max-width="200px"
@@ -166,22 +115,45 @@ export default {
   },
   data () {
     return {
-      newDropdownVal: false
+      dropdownDirections: {
+        T: 'Top',
+        TR: 'Top Right',
+        R: 'Right',
+        BR: 'Bottom Right',
+        B: 'Bottom',
+        BL: 'Bottom Left',
+        L: 'Left',
+        TL: 'Top Left',
+      },
+      showDropdown: false,
+      dropdownText: 'Dropdown text. Dropdown text. Dropdown text. Dropdown text. Dropdown text. Dropdown text. Dropdown text. Dropdown text. Dropdown text. Dropdown text. Dropdown text. ',
     }
   },
   methods: {
     toggleNewDropdown () {
-      this.newDropdownVal = !this.newDropdownVal
-      console.log('val ', this.newDropdownVal, this.$refs)
+      this.showDropdown = !this.showDropdown
     },
     handleClick (e) {
+      // eslint-disable-next-line no-console
       console.log('click ', e)
     },
     handleMouseOver (e) {
+      // eslint-disable-next-line no-console
       console.log('mouseover ', e)
     },
     handleMouseLeave (e) {
+      // eslint-disable-next-line no-console
       console.log('mouseleave ', e)
+    }
+  },
+  computed: {
+    valueProxy: {
+      get () {
+        return this.showDropdown
+      },
+      set (value) {
+        // this.showDropdown = value
+      },
     }
   }
 }
