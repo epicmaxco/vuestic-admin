@@ -321,7 +321,7 @@ export default {
         }
       }
     },
-    checkActivePin (pin){
+    checkActivePin (pin) {
       if (this.isRange) {
         return pin * this.step > this.val[0] && pin * this.step < this.val[1]
       } else {
