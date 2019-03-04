@@ -27,16 +27,10 @@ export default {
     halfIcon: {
       type: String
     },
-    size: {
-      type: String
-    },
     isHalf: {
       type: Boolean
     },
     iconClasses: {
-      type: String
-    },
-    color: {
       type: String
     },
     emptyIcon: {
@@ -49,7 +43,7 @@ export default {
   },
   data () {
     return {
-      extraClasses: '',
+      onHoverClasses: '',
       hoverValue: ''
     }
   },
@@ -61,21 +55,21 @@ export default {
       if (!this.isRatingHover && this.value) {
         return this.icon
       }
-      if (this.isRatingHover && !this.hover) {
+      if (this.isRatingHover && !this.hover && this.halfIcon) {
         return this.emptyIcon
       }
       if (this.isRatingHover && this.hover && this.hoverValue !== 0.5) {
         return this.iconClasses + this.icon
       }
       if (!this.halfIcon) {
-        return this.iconClasses + this.extraClasses
+        return this.iconClasses + this.onHoverClasses
       }
       return this.halfIcon
     }
   },
   methods: {
     onClick () {
-      if (this.extraClasses === this.halfIcon) {
+      if (this.onHoverClasses === this.halfIcon) {
         this.$emit('click', 0.5)
       } else {
         this.$emit('click', 1)
@@ -83,30 +77,32 @@ export default {
     },
     onHover (item) {
       if (this.halfIcon) {
-        const size = Number(this.size.replace(/[^-0-9]/gim, ''))
+        const size = this.$el.clientHeight
         if (size / item.offsetX >= 2) {
           this.hoverValue = 0.5
           this.$emit('hover', 0.5)
-          this.extraClasses = this.halfIcon
+          this.onHoverClasses = this.halfIcon
         } else {
           this.hoverValue = 1
           this.$emit('hover', 1)
-          this.extraClasses = this.icon
+          this.onHoverClasses = this.icon
         }
       }
     },
     removeHover () {
       if (this.halfIcon) {
-        this.extraClasses = ''
+        this.onHoverClasses = ''
         this.hoverValue = 0
-        if (this.value) {
-          this.iconClasses = this.icon
-          return
-        }
-        if (this.emptyIcon) {
-          this.iconClasses = this.emptyIcon
-          return
-        }
+      }
+      if (this.halfIcon && this.value) {
+        this.iconClasses = this.icon
+        return
+      }
+      if (this.halfIcon && this.emptyIcon) {
+        this.iconClasses = this.emptyIcon
+        return
+      }
+      if (this.halfIcon && !this.value && !this.emptyIcon) {
         this.iconClasses = this.icon + 'text--secondary'
       }
     }
@@ -116,7 +112,6 @@ export default {
 
 <style lang="scss">
 .va-rating-item {
-  margin: 0.1rem;
   &__icon {}
 }
 </style>

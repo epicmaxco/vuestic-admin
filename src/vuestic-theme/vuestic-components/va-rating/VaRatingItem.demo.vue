@@ -32,15 +32,6 @@
           </td>
         </tr>
         <tr>
-          <td>Half Icon</td>
-          <td>
-            <va-rating-item
-              isHalf
-              halfIcon="fa fa-star-half-full"
-            />
-          </td>
-        </tr>
-        <tr>
           <td>Empty Icon</td>
           <td>
             <va-rating-item/>
@@ -49,6 +40,23 @@
               emptyIcon="fa fa-battery-0"
             />
             custom
+          </td>
+        </tr>
+        <tr>
+          <td>half Icon && isHalf</td>
+          <td>
+            <va-rating-item
+              isHalf
+              halfIcon="fa fa-star-half-full"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>hover</td>
+          <td>
+            <va-rating-item
+              :hover="true"
+            />
           </td>
         </tr>
       </table>
