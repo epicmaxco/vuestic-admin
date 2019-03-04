@@ -3,7 +3,6 @@
     v-if="isComponentExists"
     class="va-slider d-flex align--center"
     :class="sliderClass"
-    @click="wrapClick"
   >
     <span
       v-if="label && !invertLabel"
@@ -17,6 +16,7 @@
     </span>
     <div
       class="va-slider__container d-flex align--center"
+      @click="wrapClick"
       ref="elem"
     >
       <div
@@ -27,7 +27,7 @@
           v-for="(pin, key) in pinsCol"
           :key="key"
           class="va-slider__container__mark"
-          :class="{ 'va-slider__container__mark--active': isRange ? pin * step > val[0] && pin * step < val[1] : pin * step < val}"
+          :class="{ 'va-slider__container__mark--active': checkActivePin(pin) }"
           :style="{ left: pin * step + '%' }"
         />
       </template>
@@ -78,7 +78,7 @@
           <div
             v-if="valueVisible"
             class="va-slider__container__handler-value title">
-            {{ labelValue ? labelValue : val }}
+            {{ labelValue || val }}
           </div>
         </div>
       </template>
@@ -244,11 +244,15 @@ export default {
       return Array.isArray(this.value)
     }
   },
-  watch: {
+  /* watch: {
     value (val) {
-      this.setValue(val)
+      val = this.limitValue(val)
+
+      if (this.isDiff(this.val, val)) {
+        this.val = val
+      }
     },
-  },
+  }, */
   methods: {
     bindEvents () {
       document.addEventListener('mousemove', this.moving)
@@ -284,13 +288,19 @@ export default {
           return false
         }
         this.flag = false
-        this.setValueOnPos(this.getPos(e))
+        // this.setValueOnPos(this.getPos(e))
       }
     },
     wrapClick (e) {
       if (!this.disabled) {
         let pos = this.getPos(e)
         if (this.isRange) {
+          console.log(pos)
+          console.log(this.currentValue[0])
+          console.log(this.currentValue[1])
+          console.log(this.position[0])
+          console.log(this.position[1])
+          console.log(((this.position[1] - this.position[0]) / 2 + this.position[0]))
           this.currentSlider = pos > ((this.position[1] - this.position[0]) / 2 + this.position[0]) ? 1 : 0
         }
         this.setValueOnPos(pos)
@@ -311,7 +321,13 @@ export default {
         }
       }
     },
-
+    checkActivePin (pin){
+      if (this.isRange) {
+        return pin * this.step > this.val[0] && pin * this.step < this.val[1]
+      } else {
+        return pin * this.step < this.val
+      }
+    },
     getPos (e) {
       this.getStaticData()
       return e.clientX - this.offset
@@ -360,13 +376,6 @@ export default {
       } else {
         this.setTransform()
         this.setCurrentValue(valueRange[1])
-      }
-    },
-    setValue (val) {
-      val = this.limitValue(val)
-
-      if (this.isDiff(this.val, val)) {
-        this.val = val
       }
     },
     setTransform () {
@@ -434,12 +443,12 @@ export default {
       let isRightBorders = true
 
       if (this.max < this.min) {
-        console.error('The maximum value can not be less than the minimum value.')
+        throw new Error('The maximum value can not be less than the minimum value.')
         isRightBorders = false
       }
 
       if (this.min > this.max) {
-        console.error('The minimum value can not be greater than the maximum value.')
+        throw new Error('The minimum value can not be greater than the maximum value.')
         isRightBorders = false
       }
 
@@ -450,10 +459,10 @@ export default {
 
       const inRange = (v) => {
         if (v < this.min) {
-          console.error(`The value of the slider is ${v}, the minimum value is ${this.min}, the value of this slider can not be less than the minimum value`)
+          throw new Error(`The value of the slider is ${v}, the minimum value is ${this.min}, the value of this slider can not be less than the minimum value`)
           isRightValue = false
         } else if (v > this.max) {
-          console.error(`The value of the slider is ${v}, the maximum value is ${this.max}, the value of this slider can not be greater than the maximum value`)
+          throw new Error(`The value of the slider is ${v}, the maximum value is ${this.max}, the value of this slider can not be greater than the maximum value`)
           isRightValue = false
         }
       }
@@ -468,7 +477,7 @@ export default {
     },
     validatePins () {
       if ((this.max - this.min) % this.step !== 0) {
-        console.error('Step is illegal. Slider is nondivisible.')
+        throw new Error('Step is illegal. Slider is nondivisible.')
         return false
       }
 
@@ -533,28 +542,27 @@ export default {
 
     &__label {
       margin-right: 1rem;
+      user-select: none;
     }
 
     &__invert-label {
       margin-left: 1rem;
+      user-select: none;
     }
 
     &__container {
       position: relative;
       width: 100%;
-      height: 0.5rem;
+      height: 1.5rem;
 
-      &__track {
+      &__track, &__track--active {
         position: absolute;
-        width: 100%;
         height: 0.5rem;
         border-radius: 0.25rem;
+      }
 
-        &--active {
-          position: absolute;
-          height: 0.5rem;
-          border-radius: 0.25rem;
-        }
+      &__track {
+        width: 100%;
       }
 
       &__mark {
@@ -570,11 +578,16 @@ export default {
         background: $white;
         border-radius: 50%;
 
+        &:hover {
+          cursor: pointer;
+        }
+
         &-value {
           position: absolute;
           top: -5px;
           left: 50%;
           transform: translate(-50%,-100%);
+          user-select: none;
         }
       }
     }

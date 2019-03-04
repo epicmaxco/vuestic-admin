@@ -30,7 +30,7 @@
     <VbContainer width="500px" title="Slider With Inverse Label">
       <va-slider
         label="Label"
-        :invert-label="true"
+        invert-label
         v-model="value"
       />
     </VbContainer>
