@@ -5,7 +5,7 @@
     :class="sliderClass"
   >
     <span
-      v-if="label && !invertLabel"
+      v-if="label && !inverseLabel"
       class="va-slider__label title">
       {{ label }}
     </span>
@@ -28,19 +28,19 @@
           :key="key"
           class="va-slider__container__mark"
           :class="{ 'va-slider__container__mark--active': checkActivePin(pin) }"
-          :style="{ left: pin * step + '%' }"
+          :style="{ left: `${pin * step}%` }"
         />
       </template>
       <template v-if="isRange">
         <div
           ref="process"
           class="va-slider__container__track va-slider__container__track--active"
-          :style="processStyles"
+          :style="processedStyles"
           @mousedown="moveStart($event, 0)"/>
         <div
           ref="dot0"
           class="va-slider__container__handler"
-          :style="dotStyles[0]"
+          :style="dottedStyles[0]"
           @mousedown="moveStart($event, 0)"
         >
           <div
@@ -53,7 +53,7 @@
         <div
           ref="dot1"
           class="va-slider__container__handler"
-          :style="dotStyles[1]"
+          :style="dottedStyles[1]"
           @mousedown="moveStart($event, 1)"
         >
           <div
@@ -67,12 +67,12 @@
         <div
           ref="process"
           class="va-slider__container__track va-slider__container__track--active"
-          :style="processStyles"
+          :style="processedStyles"
           @mousedown="moveStart($event, 0)"/>
         <div
           ref="dot"
           class="va-slider__container__handler"
-          :style="dotStyles"
+          :style="dottedStyles"
           @mousedown="moveStart"
         >
           <div
@@ -85,12 +85,12 @@
     </div>
     <span
       v-if="iconRight"
-      class="va-slider__invert-label title">
+      class="va-slider__inverse-label title">
       <va-icon :icon="iconRight" :color="color" :size="16"/>
     </span>
     <span
-      v-if="invertLabel"
-      class="va-slider__invert-label title">
+      v-if="inverseLabel"
+      class="va-slider__inverse-label title">
       {{ label }}
     </span>
   </div>
@@ -133,7 +133,7 @@ export default {
     label: {
       type: String,
     },
-    invertLabel: {
+    inverseLabel: {
       type: Boolean,
     },
     disabled: {
@@ -168,7 +168,7 @@ export default {
         'va-slider--disabled': this.disabled
       }
     },
-    processStyles () {
+    processedStyles () {
       const validatedValue = this.limitValue(this.value)
 
       if (this.range) {
@@ -176,21 +176,20 @@ export default {
           val1 = ((validatedValue[1] - this.min) / (this.max - this.min)) * 100
 
         return {
-          left: val0 + '%',
-          width: (val1 - val0) + '%',
+          left: `${val0}%`,
+          width: `${val1 - val0}%`,
           backgroundColor: this.color
         }
       } else {
         const val = ((validatedValue - this.min) / (this.max - this.min)) * 100
-        console.log(val)
 
         return {
-          width: val + '%',
+          width: `${val}%`,
           backgroundColor: this.color
         }
       }
     },
-    dotStyles () {
+    dottedStyles () {
       const validatedValue = this.limitValue(this.value)
 
       if (this.range) {
@@ -199,11 +198,11 @@ export default {
 
         return [
           {
-            left: 'calc(' + val0 + '% - 8px)',
+            left: `calc(${val0}% - 8px)`,
             backgroundColor: this.color
           },
           {
-            left: 'calc(' + val1 + '% - 8px)',
+            left: `calc(${val1}% - 8px)`,
             backgroundColor: this.color
           }
         ]
@@ -211,7 +210,7 @@ export default {
         const val = ((validatedValue - this.min) / (this.max - this.min)) * 100
 
         return {
-          left: 'calc(' + val + '% - 8px)',
+          left: `calc(${val}% - 8px)`,
           backgroundColor: this.color
         }
       }
@@ -221,7 +220,6 @@ export default {
         return this.value
       },
       set (val) {
-        console.log(val)
         val = this.limitValue(val)
         this.$emit('input', val)
       }
@@ -296,7 +294,6 @@ export default {
       if (!this.disabled) {
         let pos = this.getPos(e)
         if (this.isRange) {
-          console.log(this.currentValue)
           this.currentSlider = pos > ((this.position[1] - this.position[0]) / 2 + this.position[0]) ? 1 : 0
         }
         this.setValueOnPos(pos)
@@ -468,7 +465,7 @@ export default {
 
     .va-slider--#{$name} {
 
-      .va-slider__label, .va-slider__invert-label, .va-slider__container__handler-value {
+      .va-slider__label, .va-slider__inverse-label, .va-slider__container__handler-value {
         color: $active-track;
       }
 
@@ -497,7 +494,7 @@ export default {
       user-select: none;
     }
 
-    &__invert-label {
+    &__inverse-label {
       margin-left: 1rem;
       user-select: none;
     }
