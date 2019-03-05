@@ -51,11 +51,12 @@
       @vuetable:loaded="onLoaded"
     />
     <div class="flex-center">
-      <vuetable-pagination
+      <va-pagination
         ref="pagination"
-        :css="css.pagination"
-        :onEachSide="onEachSide"
-        @vuetable-pagination:change-page="onChangePage"
+        :visible-pages="3"
+        :pages="total"
+        :value="currentPage"
+        @input="onChangePage"
       />
     </div>
   </div>
@@ -63,7 +64,6 @@
 
 <script>
 import Vuetable from 'vuetable-2/src/components/Vuetable'
-import VuetablePagination from 'vuetable-2/src/components/VuetablePagination'
 import FilterBar from './datatable-components/FilterBar.vue'
 import ItemsPerPage from './datatable-components/ItemsPerPage.vue'
 import DefaultPerPageDefinition from './data/items-per-page-definition'
@@ -71,14 +71,15 @@ import QueryParams from './data/query-params'
 import Vue from 'vue'
 import DataTableStyles from '../vuestic-datatable/data/data-table-styles'
 import SpringSpinner from 'epic-spinners/src/components/lib/SpringSpinner'
+import VaPagination from '../va-pagination/VaPagination'
 
 export default {
   name: 'vuestic-data-table',
   components: {
+    VaPagination,
     SpringSpinner,
     FilterBar,
     Vuetable,
-    VuetablePagination,
     ItemsPerPage,
   },
   props: {
@@ -175,6 +176,8 @@ export default {
   data () {
     return {
       perPage: 0,
+      total: 0,
+      currentPage: 0,
       colorClasses: {},
       filterText: '',
       dataCount: 0,
@@ -237,7 +240,6 @@ export default {
       } else if (this.$options.propsData.itemsPerPage) {
         defaultPerPage = this.$options.propsData.itemsPerPage[0].value
       }
-
       return defaultPerPage
     },
     paginationPathComputed () {
@@ -263,7 +265,8 @@ export default {
       Vue.nextTick(() => this.$refs.vuetable.refresh())
     },
     onPaginationData (paginationData) {
-      this.$refs.pagination.setPaginationData(paginationData)
+      this.currentPage = paginationData.current_page
+      this.total = paginationData.last_page
     },
     onChangePage (page) {
       this.$refs.vuetable.changePage(page)

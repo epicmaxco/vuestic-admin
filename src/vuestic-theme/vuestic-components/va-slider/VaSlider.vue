@@ -169,11 +169,11 @@ export default {
       }
     },
     processStyles () {
-      if (this.range) {
-        this.currentValue = this.limitValue(this.value)
+      const validatedValue = this.limitValue(this.value)
 
-        const val0 = ((this.currentValue[0] - this.min) / (this.max - this.min)) * 100,
-          val1 = ((this.currentValue[1] - this.min) / (this.max - this.min)) * 100
+      if (this.range) {
+        const val0 = ((validatedValue[0] - this.min) / (this.max - this.min)) * 100,
+          val1 = ((validatedValue[1] - this.min) / (this.max - this.min)) * 100
 
         return {
           left: val0 + '%',
@@ -181,9 +181,8 @@ export default {
           backgroundColor: this.color
         }
       } else {
-        this.currentValue = this.limitValue(this.value)
-
-        const val = ((this.currentValue - this.min) / (this.max - this.min)) * 100
+        const val = ((validatedValue - this.min) / (this.max - this.min)) * 100
+        console.log(val)
 
         return {
           width: val + '%',
@@ -192,9 +191,11 @@ export default {
       }
     },
     dotStyles () {
+      const validatedValue = this.limitValue(this.value)
+
       if (this.range) {
-        const val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100,
-          val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100
+        const val0 = ((validatedValue[0] - this.min) / (this.max - this.min)) * 100,
+          val1 = ((validatedValue[1] - this.min) / (this.max - this.min)) * 100
 
         return [
           {
@@ -207,7 +208,7 @@ export default {
           }
         ]
       } else {
-        let val = ((this.value - this.min) / (this.max - this.min)) * 100
+        const val = ((validatedValue - this.min) / (this.max - this.min)) * 100
 
         return {
           left: 'calc(' + val + '% - 8px)',
@@ -254,15 +255,6 @@ export default {
       return Array.isArray(this.value)
     }
   },
-  /* watch: {
-    value (val) {
-      val = this.limitValue(val)
-
-      if (this.isDiff(this.val, val)) {
-        this.val = val
-      }
-    },
-  }, */
   methods: {
     bindEvents () {
       document.addEventListener('mousemove', this.moving)
@@ -298,13 +290,13 @@ export default {
           return false
         }
         this.flag = false
-        // this.setValueOnPos(this.getPos(e))
       }
     },
     wrapClick (e) {
       if (!this.disabled) {
         let pos = this.getPos(e)
         if (this.isRange) {
+          console.log(this.currentValue)
           this.currentSlider = pos > ((this.position[1] - this.position[0]) / 2 + this.position[0]) ? 1 : 0
         }
         this.setValueOnPos(pos)
@@ -415,7 +407,6 @@ export default {
     },
     limitValue (val) {
       const inRange = (v) => {
-        console.log(v)
         if (v < this.min) {
           return this.min
         } else if (v > this.max) {
@@ -443,51 +434,7 @@ export default {
         return a.some((v, i) => v !== b[i])
       }
       return a !== b
-    },
-    /* validateBorders () {
-      let isRightBorders = true
-
-      if (this.max < this.min) {
-        throw new Error('The maximum value can not be less than the minimum value.')
-        isRightBorders = false
-      }
-
-      if (this.min > this.max) {
-        throw new Error('The minimum value can not be greater than the maximum value.')
-        isRightBorders = false
-      }
-
-      return isRightBorders
-    },
-    validateValue (val) {
-      let isRightValue = true
-
-      const inRange = (v) => {
-        if (v < this.min) {
-          throw new Error(`The value of the slider is ${v}, the minimum value is ${this.min}, the value of this slider can not be less than the minimum value`)
-          isRightValue = false
-        } else if (v > this.max) {
-          throw new Error(`The value of the slider is ${v}, the maximum value is ${this.max}, the value of this slider can not be greater than the maximum value`)
-          isRightValue = false
-        }
-      }
-
-      if (this.isRange) {
-        val.map((v) => inRange(v))
-      } else {
-        inRange(val)
-      }
-
-      return isRightValue
-    },
-    validatePins () {
-      if ((this.max - this.min) % this.step !== 0) {
-        throw new Error('Step is illegal. Slider is nondivisible.')
-        return false
-      }
-
-      return true
-    }, */
+    }
   },
   mounted () {
     this.$nextTick(() => {
