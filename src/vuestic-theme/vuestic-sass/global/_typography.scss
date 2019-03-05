@@ -37,11 +37,11 @@
   }
 
   &--danger {
-    color: #e34b4a;
+    color: $theme-danger;
   }
 
   &--warning {
-    color: #ffc200;
+    color: $theme-warning;
   }
 }
 
