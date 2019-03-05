@@ -13,18 +13,17 @@
       </vuestic-dropdown-new>
     </VbContainer>
 
-    <VbContainer title="Title">
+    <!-- <VbContainer title="Title">
       <vuestic-dropdown-new title="Title" :message="dropdownText">
         <button slot="actuator">Dropdown with Title</button>
       </vuestic-dropdown-new>
     </VbContainer>
-
     <VbContainer title="Absolute">
       <vuestic-dropdown-new absolute>
         {{ dropdownText }}
         <button slot="actuator">Open</button>
       </vuestic-dropdown-new>
-    </VbContainer>
+    </VbContainer> -->
 
     <VbContainer title="Max Width">
       <vuestic-dropdown-new max-width="150px">
@@ -40,7 +39,7 @@
       </vuestic-dropdown-new>
     </VbContainer>
 
-    <VbContainer title="Dropdown activation">
+    <!-- <VbContainer title="Dropdown activation">
       <button>Just button</button>
       <button @click="toggleNewDropdown()">External actuator</button>
       <vuestic-dropdown-new
@@ -49,7 +48,7 @@
         With model
         <button slot="actuator">Actuator</button>
       </vuestic-dropdown-new>
-    </VbContainer>
+    </VbContainer> -->
 
     <VbContainer title="Nested Dropdown">
       <vuestic-dropdown-new>

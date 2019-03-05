@@ -9,16 +9,8 @@
         ref="dropdown"
         :style="dropdownStyles"
         class="vuestic-dropdown-new"
-        @click="handleClick"
-        @mouseover="handleMouseover"
-        @mouseleave="handleMouseleave"
       >
-        <div v-if="showTitle" class="vuestic-dropdown-new__title">
-          <slot name="title">{{ title }}</slot>
-        </div>
-        <div v-if="showMessage" class="vuestic-dropdown-new__content">
-          <slot>{{ message }}</slot>
-        </div>
+        <slot>{{ message }}</slot>
       </div>
     </transition>
   </div>
@@ -31,10 +23,6 @@ const availablePositions = ['T', 'TR', 'R', 'BR', 'B', 'BL', 'L', 'TL']
 export default {
   name: 'vuestic-dropdown-new',
   props: {
-    value: {
-      type: Boolean,
-      default: false
-    },
     position: {
       type: String,
       default: 'T',
@@ -54,31 +42,23 @@ export default {
     maxHeight: {
       type: [String, Number]
     },
-    absolute: {
-      type: Boolean,
-      default: false
-    },
     noFade: Boolean,
-    title: String,
     message: String
   },
   data () {
     return {
       visible: false,
       top: 0,
-      left: 0
+      left: 0,
+      offset: 5
     }
   },
   computed: {
-    showTitle () {
-      return !!this.title || !!this.$slots.title
-    },
     showMessage () {
       return !!this.message || !!this.$slots.default
     },
     dropdownStyles () {
       const styles = {}
-      styles.position = this.absolute ? 'absolute' : 'fixed'
       if (this.maxWidth) {
         styles.maxWidth = Number.isInteger(this.maxWidth)
           ? `${this.maxWidth}px`
@@ -91,10 +71,11 @@ export default {
       }
       styles.top = this.top
       styles.left = this.left
+      styles.zIndex = 8000 + this.countNesting()
       return styles
     },
     isVisible () {
-      return !this.disabled && (this.value || this.visible)
+      return !this.disabled && this.visible
     },
     isOnClick () {
       return this.triggerMode.indexOf('click') >= 0
@@ -104,13 +85,6 @@ export default {
     },
     isOnHover () {
       return this.triggerMode.indexOf('hover') >= 0
-    }
-  },
-  watch: {
-    value: function (val) {
-      this.$nextTick(() => {
-        this.calculatePosition()
-      })
     }
   },
   mounted () {
@@ -161,17 +135,8 @@ export default {
     }
   },
   methods: {
-    handleClick (event) {
-      this.$emit('onClick', event)
-    },
-    handleMouseover (event) {
-      this.$emit('onMouseEnter', event)
-    },
-    handleMouseleave (event) {
-      this.$emit('onMouseLeave', event)
-    },
-    calculatePosition () {
-      if (!this.isVisible) {
+    calculatePosition (forse = false) {
+      if (!forse && !this.isVisible) {
         return
       }
       const tRect = this.targetElement.getBoundingClientRect()
@@ -182,47 +147,57 @@ export default {
       const dRect = this.$refs.dropdown.getBoundingClientRect()
       const dWidth = dRect.width
       const dHeight = dRect.height
+
+      const previousTop = this.top
+      const previousLeft = this.left
+
+      let left = 0
+      let top = 0
       switch (this.position) {
         case 'T':
-          this.top = `${tTop - dHeight}px`
-          this.left = `${tLeft - (dWidth - tWidth) / 2}px`
+          top = tTop - dHeight - this.offset
+          left = tLeft - (dWidth - tWidth) / 2
           break
         case 'B':
-          this.top = `${tTop + tHeight}px`
-          this.left = `${tLeft - (dWidth - tWidth) / 2}px`
+          top = tTop + tHeight + this.offset
+          left = tLeft - (dWidth - tWidth) / 2
           break
         case 'L':
-          this.top = `${tTop - (dHeight - tHeight) / 2}px`
-          this.left = `${tLeft - dWidth}px`
+          top = tTop - (dHeight - tHeight) / 2
+          left = tLeft - dWidth - this.offset
           break
         case 'R':
-          this.top = `${tTop - (dHeight - tHeight) / 2}px`
-          this.left = `${tLeft + tWidth}px`
+          top = tTop - (dHeight - tHeight) / 2
+          left = tLeft + tWidth + this.offset
           break
         case 'TL':
-          this.top = `${tTop - dHeight}px`
-          this.left = `${tLeft}px`
+          top = tTop - dHeight - this.offset
+          left = tLeft
           break
         case 'TR':
-          this.top = `${tTop - dHeight}px`
-          this.left = `${tLeft - (dWidth - tWidth)}px`
+          top = tTop - dHeight - this.offset
+          left = tLeft - (dWidth - tWidth)
           break
         case 'BR':
-          this.top = `${tTop + tHeight}px`
-          this.left = `${tLeft - (dWidth - tWidth)}px`
+          top = tTop + tHeight + this.offset
+          left = tLeft - (dWidth - tWidth)
           break
         case 'BL':
-          this.top = `${tTop + tHeight}px`
-          this.left = `${tLeft}px`
+          top = tTop + tHeight + this.offset
+          left = tLeft
           break
         default:
-          this.top = `${tTop + tHeight}px`
-          this.left = `${tLeft - (dWidth - tWidth)}px`
+          top = tTop + tHeight - this.offset
+          left = tLeft - (dWidth - tWidth)
           break
+      }
+      this.left = `${Math.max(left, 0)}px`
+      this.top = `${Math.max(top, 0)}px`
+      if (forse && (this.top !== previousTop || this.left !== previousLeft)) {
+        this.$nextTick(this.calculatePosition)
       }
     },
     toggle (event) {
-      // event.stopPropagation();
       if (this.isVisible) {
         this.hide()
       } else {
@@ -232,16 +207,13 @@ export default {
     show () {
       this.visible = true
       this.$nextTick(() => {
-        this.calculatePosition()
+        this.calculatePosition(true)
         this.registerOutsideClick()
       })
     },
     hide () {
       this.visible = false
       this.killOutSideClick()
-      // this.$nextTick(() => {
-      //   this.calculatePosition();
-      // });
     },
     close (event) {
       if (!this.targetIsInsideElement(event)) {
@@ -258,6 +230,17 @@ export default {
         } while ((target = target.parentNode))
       }
       return false
+    },
+    countNesting () {
+      let target = this.targetElement
+      let count = 0
+      while (target) {
+        if (target.classList && target.classList.contains('vuestic-dropdown-new')) {
+          count += 1
+        }
+        target = target.parentNode
+      }
+      return count
     },
     registerOutsideClick () {
       this.outsideClickListener = event => {
@@ -288,12 +271,6 @@ export default {
   outline: 0;
   word-wrap: break-word;
 
-  &--absolute {
-    position: absolute;
-  }
-  &__title {
-    font-weight: bold;
-  }
 }
 
 .dropdown-enter-active,
