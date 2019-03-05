@@ -21,7 +21,7 @@
           v-if="!hideSlider"
           class="va-tabs__bar-content-slider"
           :style="{
-             width: getBarWidth(),
+             width: barWidth,
              marginLeft: this.activeIndex * (100 / $slots.default.length) + '%'
           }"
         >
@@ -35,6 +35,7 @@
 <script>
 
 import VaTab from './VaTab'
+
 export default {
   name: 'va-tabs',
   components: {
@@ -57,23 +58,26 @@ export default {
   computed: {
     valueProxy: {
       set (valueProxy) {
-        this.getBarWidth()
         this.$emit('input', valueProxy)
       },
       get () {
         return this.value
       }
+    },
+    barWidth () {
+      return this.currentWidth + 'px'
     }
   },
   data () {
     return {
-      activeIndex: 0
+      activeIndex: 0,
+      currentWidth: ''
     }
   },
-  methods: {
-    getBarWidth () {
-      return this.$slots.default[this.activeIndex].clientWidth + 'px'
-    }
+  mounted () {
+    this.$slots.default.forEach(vnode => {
+      this.currentWidth = vnode.elm.clientWidth
+    })
   }
 }
 </script>
