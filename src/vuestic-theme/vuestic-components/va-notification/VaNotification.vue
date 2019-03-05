@@ -21,6 +21,7 @@ export default {
   name: 'va-notification',
   computed: {
     notificationClass () {
+      console.log(this.$theme)
       return {
         'va-notification--success': this.color === 'success',
         'va-notification--danger': this.color === 'danger',

@@ -9,6 +9,7 @@ import VeeValidate from 'vee-validate'
 import App from './App'
 import store from './store'
 import router from './router'
+import VuesticColorPlugin from './services/colors'
 import VuesticPlugin from '@/vuestic-theme/vuestic-plugin'
 import './i18n'
 import YmapPlugin from 'vue-yandex-maps'
@@ -17,6 +18,7 @@ import VueClipboard from 'vue-clipboard2'
 Vue.use(VuesticPlugin)
 Vue.use(YmapPlugin)
 Vue.use(VueClipboard)
+Vue.use(VuesticColorPlugin)
 
 // NOTE: workaround for VeeValidate + vuetable-2
 Vue.use(VeeValidate, { fieldsBagName: 'formFields' })
