@@ -150,10 +150,10 @@
           <td>Tags</td>
           <td>
             <va-tag>
-              Plus chip
+              Chip
             </va-tag>
             <va-tag closeable>
-              Plus chip
+              Chip
             </va-tag>
           </td>
         </tr>

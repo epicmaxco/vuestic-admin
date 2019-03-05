@@ -1,25 +1,25 @@
 <template>
   <div
-    class="va-chip"
+    class="va-chip mr-2"
     :class="chipClass"
     tabindex="0"
   >
-    <div class="va-chip__content">
+    <div class="va-chip__content d-flex">
       <va-icon
         v-if="icon"
         fixed-width
-        class="va-chip__content__icon va-chip__content__icon-left"
+        class="va-chip__content__icon va-chip__content__icon-left flex-center"
         :icon="icon"
       />
       <div
         v-if="hasTitleData"
-        class="va-chip__content__title">
+        class="va-chip__content__title flex-center">
         <slot/>
       </div>
       <va-icon
         v-if="iconRight"
         fixed-width
-        class="va-chip__content__icon va-chip__content__icon-right"
+        class="va-chip__content__icon va-chip__content__icon-right flex-center"
         :icon="iconRight"
       />
     </div>
@@ -82,108 +82,105 @@ export default {
 
   .va-chip {
     display: inline-block;
-    margin-right: 0.5rem;
     background-image: none;
     box-shadow: none;
     outline: none !important;
-    border: $btn-border;
+    border: $chip-border;
     font-family: $font-family-sans-serif;
     text-decoration: none !important;
-    text-transform: initial;
     cursor: pointer;
-    transition: $btn-transition;
+    transition: $chip-transition;
 
     &__content {
-      display: flex;
 
       &__title, &__icon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         margin: auto;
       }
     }
 
     &--small {
-      @include chip-size(0.125rem, 0.5rem, 0.625rem, 1.5, 0.5rem);
-      letter-spacing: 0.0625rem;
+      @include chip-size($chip-padding-y-sm, $chip-padding-x-sm, $chip-font-size-sm, $chip-line-height-sm, $chip-border-radius-sm);
+      letter-spacing: $chip-letter-spacing-sm;
       font-weight: bold;
       text-transform: uppercase;
       white-space: nowrap;
       color: $white;
 
       .va-chip__content__icon {
-        width: $btn-icon-width-sm;
+        width: $chip-icon-width-sm;
       }
 
       &.va-chip--with-left-icon {
-        padding-left: $btn-with-icon-wrapper-padding-sm;
-
-        &.va-chip--without-title {
-          padding-right: $btn-with-icon-wrapper-padding-sm;
-        }
+        padding-left: $chip-with-icon-wrapper-padding-sm;
 
         .va-chip__content__title {
-          padding-left: $btn-with-icon-content-padding-sm;
+          padding-left: $chip-with-icon-content-padding-sm;
         }
       }
 
       &.va-chip--with-right-icon {
-        padding-right: $btn-with-icon-wrapper-padding-sm;
+        padding-right: $chip-with-icon-wrapper-padding-sm;
 
         .va-chip__content__title {
-          padding-right: $btn-with-icon-content-padding-sm;
+          padding-right: $chip-with-icon-content-padding-sm;
         }
       }
     }
 
     &--normal {
-      @include chip-size(0.25rem, 0.75rem, 0.875rem, 1.29, 1.125rem);
+      @include chip-size($chip-padding-y-nrm, $chip-padding-x-nrm, $chip-font-size-nrm, $chip-line-height-nrm, $chip-border-radius-nrm);
       letter-spacing: normal;
       color: $white;
 
-      .va-button__content__icon {
-        width: $btn-icon-width-sm;
+      .va-chip__content__icon {
+        width: $chip-icon-width-nrm;
       }
 
-      &.va-button--with-left-icon {
-        padding-left: $btn-with-icon-wrapper-padding-sm;
+      &.va-chip--with-left-icon {
+        padding-left: $chip-with-icon-wrapper-padding-nrm;
 
-        &.va-button--without-title {
-          padding-right: $btn-with-icon-wrapper-padding-sm;
-        }
-
-        .va-button__content__title {
-          padding-left: $btn-with-icon-content-padding-sm;
+        .va-chip__content__title {
+          padding-left: $chip-with-icon-content-padding-nrm;
         }
       }
 
-      &.va-button--with-right-icon {
-        padding-right: $btn-with-icon-wrapper-padding-sm;
+      &.va-chip--with-right-icon {
+        padding-right: $chip-with-icon-wrapper-padding-nrm;
 
-        .va-button__content__title {
-          padding-right: $btn-with-icon-content-padding-sm;
+        .va-chip__content__title {
+          padding-right: $chip-with-icon-content-padding-nrm;
         }
       }
     }
   }
 
   $vuestic-colors: (
-    success: (#23e066, #40e583, #d6ffd3),
-    danger: (#e34b4a, #e34b4a, #ffebeb),
-    warning: (#feb900, #ffc202, #fff3d1),
-    info: (#2c82e0, #2c82e0, #caeeff),
-    gray: (#b4b6b9, #babfc2, #e6e9ec),
-    dark: (#34495e, #34495e, #afb6bb)
+    success: (#23e066, #40e583, #d6ffd3, #77cea4),
+    danger: (#e34b4a, #e34b4a, #ffebeb, #b86e6d),
+    warning: (#feb900, #ffc202, #fff3d1, #cbb06e),
+    info: (#2c82e0, #2c82e0, #caeeff, #6c97ac),
+    gray: (#b4b6b9, #babfc2, #e6e9ec, #a3aab0),
+    dark: (#34495e, #34495e, #afb6bb, #aebcca)
   );
 
   @each $name, $colors in $vuestic-colors {
     $background-color: nth($colors, 1);
     $border-color: nth($colors, 2);
     $focus-color: nth($colors, 3);
+    $box-shadow: nth($colors, 4);
 
     .va-chip--#{$name}.va-chip--default{
       background-color: $background-color;
+
+      .va-icon {
+        color: $white;
+      }
+
+      &.va-chip--normal {
+        &:focus {
+          box-shadow: $chip-box-shadow $box-shadow;
+        }
+      }
 
       &:active, &:focus {
         background-color: $background-color;
@@ -193,25 +190,18 @@ export default {
 
     .va-chip--#{$name}.va-chip--outline{
       background-color: transparent;
-      border: solid $btn-border-outline $border-color;
+      border: solid $chip-border-outline $border-color;
       text-decoration: none;
       color: $border-color !important;
 
+      .va-icon {
+        color: $border-color;
+      }
+
       &:active, &:focus {
         background-color: $focus-color;
+        box-shadow: $chip-box-shadow $box-shadow;
         color: $border-color !important;
-      }
-    }
-
-    .va-chip--#{$name}.va-chip--default {
-      i {
-        color: $white;
-      }
-    }
-
-    .va-chip--#{$name}.va-chip--outline {
-      i {
-        color: $border-color;
       }
     }
   }

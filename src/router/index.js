@@ -266,7 +266,7 @@ export default new Router({
               path: 'chips',
               component: lazyLoading('ui/chips/Chips'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tags',
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Chips',
               },
             },
             {
