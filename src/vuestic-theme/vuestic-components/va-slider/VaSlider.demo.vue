@@ -104,6 +104,7 @@
         value-visible
         v-model="value2"
       />
+      {{ '[' + value2[0] + ',' + value2[1] + ']'}}
     </VbContainer>
     <VbContainer width="500px" title="Range With Visible Value">
       <va-slider
@@ -178,7 +179,7 @@
         <div class="flex xs1 lg1">
           <div class="form-group">
             <div class="input-group">
-              <input id="simple-input2" v-model.number="value5[0]" required/>
+              <input id="simple-input2" v-model.number="value2[0]" required/>
               <label class="control-label" for="simple-input2">
                 Min
               </label>
@@ -189,13 +190,13 @@
         <div class="flex xs8 lg8 offset--xs1 offset--lg1">
           <va-slider
             range
-            v-model="value5"
+            v-model="value2"
           />
         </div>
         <div class="flex xs1 lg1 offset--xs1 offset--lg1">
           <div class="form-group">
             <div class="input-group">
-              <input id="simple-input3" v-model.number="value5[1]" required/>
+              <input id="simple-input3" v-model.number="value2[1]" required/>
               <label class="control-label" for="simple-input3">
                 Max
               </label>
@@ -220,8 +221,7 @@ export default {
       value: 90,
       value2: [20, 60],
       value3: 1500,
-      value4: [1100, 1320],
-      value5: [10, 70],
+      value4: [1100, 1320]
     }
   },
 }

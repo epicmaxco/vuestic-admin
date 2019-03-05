@@ -18,6 +18,8 @@
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.0.0",
     "chart.js": "^2.6.0",
+    "color": "^3.1.0",
+    "color-convert": "^2.0.0",
     "detect-browser": "^3.0.0",
     "element-resize-detector": "^1.1.12",
     "epic-spinners": "^1.0.4",
@@ -32,6 +34,7 @@
     "leaflet-map": "^0.2.1",
     "lodash": "4.17.11",
     "medium-editor": "^5.23.3",
+    "node-sass-utils": "^1.1.2",
     "normalize.css": "8.0.0",
     "v-tooltip": "^2.0.0-rc.30",
     "vee-validate": "2.0.9",
@@ -51,9 +54,9 @@
     "vuex-router-sync": "5.0.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.5",
+    "@vue/cli-plugin-babel": "^3.4.1",
     "@vue/cli-plugin-eslint": "^3.0.5",
-    "@vue/cli-plugin-unit-jest": "^3.3.0",
+    "@vue/cli-plugin-unit-jest": "^3.4.1",
     "@vue/cli-service": "^3.0.5",
     "@vue/eslint-config-standard": "^3.0.5",
     "@vue/test-utils": "^1.0.0-beta.20",

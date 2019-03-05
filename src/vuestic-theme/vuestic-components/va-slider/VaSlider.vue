@@ -97,6 +97,8 @@
 </template>
 
 <script>
+import { validateSlider } from './validateSlider'
+
 export default {
   name: 'va-slider',
   props: {
@@ -168,8 +170,10 @@ export default {
     },
     processStyles () {
       if (this.range) {
-        const val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100
-        const val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100
+        this.currentValue = this.limitValue(this.value)
+
+        const val0 = ((this.currentValue[0] - this.min) / (this.max - this.min)) * 100,
+          val1 = ((this.currentValue[1] - this.min) / (this.max - this.min)) * 100
 
         return {
           left: val0 + '%',
@@ -177,16 +181,20 @@ export default {
           backgroundColor: this.color
         }
       } else {
+        this.currentValue = this.limitValue(this.value)
+
+        const val = ((this.currentValue - this.min) / (this.max - this.min)) * 100
+
         return {
-          width: ((this.value - this.min) / (this.max - this.min)) * 100 + '%',
+          width: val + '%',
           backgroundColor: this.color
         }
       }
     },
     dotStyles () {
       if (this.range) {
-        const val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100
-        const val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100
+        const val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100,
+          val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100
 
         return [
           {
@@ -199,7 +207,7 @@ export default {
           }
         ]
       } else {
-        const val = ((this.value - this.min) / (this.max - this.min)) * 100
+        let val = ((this.value - this.min) / (this.max - this.min)) * 100
 
         return {
           left: 'calc(' + val + '% - 8px)',
@@ -212,6 +220,8 @@ export default {
         return this.value
       },
       set (val) {
+        console.log(val)
+        val = this.limitValue(val)
         this.$emit('input', val)
       }
     },
@@ -295,12 +305,6 @@ export default {
       if (!this.disabled) {
         let pos = this.getPos(e)
         if (this.isRange) {
-          console.log(pos)
-          console.log(this.currentValue[0])
-          console.log(this.currentValue[1])
-          console.log(this.position[0])
-          console.log(this.position[1])
-          console.log(((this.position[1] - this.position[0]) / 2 + this.position[0]))
           this.currentSlider = pos > ((this.position[1] - this.position[0]) / 2 + this.position[0]) ? 1 : 0
         }
         this.setValueOnPos(pos)
@@ -411,6 +415,7 @@ export default {
     },
     limitValue (val) {
       const inRange = (v) => {
+        console.log(v)
         if (v < this.min) {
           return this.min
         } else if (v > this.max) {
@@ -439,7 +444,7 @@ export default {
       }
       return a !== b
     },
-    validateBorders () {
+    /* validateBorders () {
       let isRightBorders = true
 
       if (this.max < this.min) {
@@ -482,11 +487,11 @@ export default {
       }
 
       return true
-    },
+    }, */
   },
   mounted () {
     this.$nextTick(() => {
-      if (this.validateValue(this.value) && this.validateBorders() && this.validatePins()) {
+      if (validateSlider(this.value, this.step, this.min, this.max)) {
         this.isComponentExists = true
         this.getStaticData()
         this.bindEvents()
