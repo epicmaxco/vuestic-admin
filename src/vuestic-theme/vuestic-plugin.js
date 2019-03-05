@@ -69,10 +69,10 @@ import VuesticToasted from './vuestic-mixins/VuesticToasted'
 import Dropdown from './vuestic-directives/Dropdown'
 import StickyScroll from './vuestic-directives/StickyScroll'
 
-import VuesticAccordion
-  from './vuestic-components/vuestic-collapse/VuesticAccordion'
-import VuesticCollapse
-  from './vuestic-components/vuestic-collapse/VuesticCollapse'
+import VaAccordion
+  from './vuestic-components/va-collapse/VaAccordion'
+import VaCollapse
+  from './vuestic-components/va-collapse/VaCollapse'
 
 import VuesticTimeline
   from './vuestic-components/vuestic-timelines/VuesticTimeline'
@@ -137,8 +137,8 @@ const VuesticPlugin = {
       Tag,
       TagGroup,
       VaIcon,
-      VuesticAccordion,
-      VuesticCollapse,
+      VaAccordion,
+      VaCollapse,
       VuesticTimeline,
       VuesticTimelineItem,
       VuesticPopup,

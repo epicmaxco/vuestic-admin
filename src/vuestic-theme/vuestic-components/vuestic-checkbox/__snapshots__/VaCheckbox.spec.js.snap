@@ -2,7 +2,9 @@
 
 exports[`VaCheckbox default 1`] = `
 <div class="vuestic-checkbox">
-  <div class="vuestic-checkbox__square"><input readonly="readonly" class="vuestic-checkbox__input"> <i aria-hidden="true" class="ion ion-md-checkmark vuestic-checkbox__icon-selected"></i></div>
+  <div class="vuestic-checkbox__square"><input readonly="readonly" class="vuestic-checkbox__input">
+    <va-icon-stub icon="ion ion-md-checkmark vuestic-checkbox__icon-selected"></va-icon-stub>
+  </div>
   <div class="vuestic-checkbox__label-text">
 
   </div>
@@ -12,7 +14,9 @@ exports[`VaCheckbox default 1`] = `
 
 exports[`VaCheckbox true value 1`] = `
 <div class="vuestic-checkbox vuestic-checkbox--selected">
-  <div class="vuestic-checkbox__square active"><input readonly="readonly" class="vuestic-checkbox__input"> <i aria-hidden="true" class="ion ion-md-checkmark vuestic-checkbox__icon-selected"></i></div>
+  <div class="vuestic-checkbox__square active"><input readonly="readonly" class="vuestic-checkbox__input">
+    <va-icon-stub icon="ion ion-md-checkmark vuestic-checkbox__icon-selected"></va-icon-stub>
+  </div>
   <div class="vuestic-checkbox__label-text">
 
   </div>

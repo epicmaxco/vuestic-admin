@@ -39,8 +39,11 @@
 </template>
 
 <script>
+import VaIcon from '../va-icon/VaIcon'
+
 export default {
   name: 'va-button',
+  components: { VaIcon },
   props: {
     tag: {
       type: String,
