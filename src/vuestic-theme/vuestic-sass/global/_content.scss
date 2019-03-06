@@ -1,4 +1,3 @@
-@import "typography";
 
 .content {
   h1 {
@@ -20,7 +19,13 @@
     @include va-display(6)
   }
   pre {
-    @extend .code-snippet
+    overflow-x: auto;
+    padding: 1rem;
+    white-space: pre;
+    word-wrap: normal;
+    &.code {
+      @extend .code-snippet
+    }
   }
   ol {
     @extend .va-ordered
@@ -30,5 +35,49 @@
   }
   blockquote  {
     @extend .va-blockquote
+  }
+  figure {
+    border-radius: 0;
+    border: none;
+    box-sizing: border-box;
+    box-shadow: $widget-box-shadow;
+    word-wrap: break-word;
+    &.warning {
+      border-top: $brand-warning solid 0.5rem;
+    }
+    &.danger {
+      border-top: $brand-danger solid 0.5rem;
+    }
+    &.bright {
+      background-color: $brand-success;
+      color: $white;
+    }
+    figcaption {
+      flex: 1 1 auto;
+      padding: 1.25rem;
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    thead tr {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    td {
+      padding: .5rem;
+    }
+    &.striped {
+      tbody tr:nth-of-type(odd) {
+        background-color: $white;
+      }
+      tbody tr:nth-of-type(even) {
+        background-color: $light-gray2;
+      }
+    }
   }
 }

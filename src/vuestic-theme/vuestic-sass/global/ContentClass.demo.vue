@@ -25,13 +25,15 @@
     <VbContainer>
       <div class="content">
         <p>with content class (pre)</p>
-        <pre>code must be here</pre>
+        <pre>pre text must be here</pre>
+        <p>class: code</p>
+        <pre class="code">code must be here</pre>
       </div>
     </VbContainer>
     <VbContainer>
       <div>
         <p>without content class (pre)</p>
-        <pre>code must be here</pre>
+        <pre>pre text must be here</pre>
       </div>
     </VbContainer>
     <VbContainer>
@@ -104,6 +106,125 @@
         <p>author</p>
       </blockquote>
     </VbContainer>
+    <VbContainer>
+      <p>with content (figure)</p>
+      <div class="content">
+        <figure>
+          <img src="https://i.imgur.com/NLrdqsk.png"/>
+          <figcaption>Name of picture</figcaption>
+        </figure>
+        <figure class="warning">
+          <img src="https://i.imgur.com/NLrdqsk.png"/>
+          <figcaption>Name of picture</figcaption>
+        </figure>
+        <figure class="danger">
+          <img src="https://i.imgur.com/NLrdqsk.png"/>
+          <figcaption>Name of picture</figcaption>
+        </figure>
+        <figure class="bright">
+          <img src="https://i.imgur.com/NLrdqsk.png"/>
+          <figcaption>Name of picture</figcaption>
+        </figure>
+        <figure class="bright warning">
+          <img src="https://i.imgur.com/NLrdqsk.png"/>
+          <figcaption>Name of picture</figcaption>
+        </figure>
+      </div>
+    </VbContainer>
+    <VbContainer>
+      <p>without content (figure)</p>
+      <figure>
+        <img src="https://i.imgur.com/NLrdqsk.png"/>
+        <figcaption>Name of picture</figcaption>
+      </figure>
+    </VbContainer>
+    <VbContainer>
+      <p>with content (table)</p>
+      <div class="content">
+        <table>
+          <thead>
+          <tr>
+            <td>head 1</td>
+            <td>head 2</td>
+            <td>head 3</td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>1.1</td>
+            <td>1.2</td>
+            <td>1.3</td>
+          </tr>
+          <tr>
+            <td>2.1</td>
+            <td>2.2</td>
+            <td>2.3</td>
+          </tr>
+          <tr>
+            <td>3.1</td>
+            <td>3.2</td>
+            <td>3.3</td>
+          </tr>
+          </tbody>
+        </table>
+        <p>striped</p>
+        <table class="striped">
+          <thead>
+          <tr>
+            <td>head 1</td>
+            <td>head 2</td>
+            <td>head 3</td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>1.1</td>
+            <td>1.2</td>
+            <td>1.3</td>
+          </tr>
+          <tr>
+            <td>2.1</td>
+            <td>2.2</td>
+            <td>2.3</td>
+          </tr>
+          <tr>
+            <td>3.1</td>
+            <td>3.2</td>
+            <td>3.3</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </VbContainer>
+    <VbContainer>
+      <p>without content (table)</p>
+      <table>
+        <thead>
+        <tr>
+          <td>head 1</td>
+          <td>head 2</td>
+          <td>head 3</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>1.1</td>
+          <td>1.2</td>
+          <td>1.3</td>
+        </tr>
+        <tr>
+          <td>2.1</td>
+          <td>2.2</td>
+          <td>2.3</td>
+        </tr>
+        <tr>
+          <td>3.1</td>
+          <td>3.2</td>
+          <td>3.3</td>
+        </tr>
+        </tbody>
+      </table>
+    </VbContainer>
   </VbDemo>
 </template>
 
@@ -111,3 +232,15 @@
 export default {
 }
 </script>
+
+<style lang="scss" scoped>
+  figure {
+    display: inline-block;
+    margin: 0.5rem;
+  }
+  table {
+    * {
+      border: 1px solid black;
+    }
+  }
+</style>
