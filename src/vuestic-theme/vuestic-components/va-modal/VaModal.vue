@@ -17,7 +17,6 @@
           v-if="fullscreen"
           @click="cancel"
           class="ion ion-md-close va-modal__close"
-          :style="{right: '1rem'}"
         />
 
         <div class="va-modal__inner" :style="{maxHeight, maxWidth}">
@@ -29,7 +28,7 @@
           <div v-if="hasContentSlot" class="mb-4">
             <slot/>
           </div>
-          <div v-if="cancelText || okText" class="va-modal__actions mb-3">
+          <div v-if="(cancelText || okText) && !hideDefaultActions" class="va-modal__actions mb-3">
             <va-button v-if="cancelText" color="gray" flat @click="cancel">
               {{cancelText}}
             </va-button>
@@ -78,6 +77,7 @@ export default {
       type: String,
       default: 'Cancel',
     },
+    hideDefaultActions: Boolean,
     fullscreen: Boolean,
     mobileFullscreen: {
       type: Boolean,
@@ -344,6 +344,9 @@ export default {
     max-height: calc(100vh - 2rem);
     max-width: map_get($grid-breakpoints, md);
     margin: auto;
+    > div:last-of-type {
+      margin-bottom: 0 !important;
+    }
   }
 
   &__close {
@@ -353,6 +356,7 @@ export default {
     cursor: pointer;
     font-size: 1.5rem;
     color: $brand-secondary;
+    z-index: 1;
   }
 
   &__actions {
@@ -361,6 +365,9 @@ export default {
     justify-content: center;
     margin-top: auto;
     min-height: fit-content;
+    &:last-of-type {
+      margin-bottom: 0 !important;
+    }
   }
 }
 </style>

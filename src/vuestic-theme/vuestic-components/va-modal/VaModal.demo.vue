@@ -146,6 +146,16 @@
       <template slot="header"><p>Step 2. Centered Layout</p></template>
     </va-modal>
   </VbContainer>
+  <VbContainer title="hide default actions">
+    <button @click="showWithoutDefaultActions = !showWithoutDefaultActions">Show modal</button>
+    <va-modal
+      v-model="showWithoutDefaultActions"
+      hide-default-actions
+      :message="message + message + message + message + message + message + message + message + message + message + message + message + message + message + message + message"
+    >
+      <template slot="header"><p>Step 2. Centered Layout</p></template>
+    </va-modal>
+  </VbContainer>
   <VbContainer title="onOk, onCancel functions">
     <button @click="showSpecialActionsModal = !showSpecialActionsModal">Show modal</button>
     <va-modal
@@ -201,6 +211,7 @@ export default {
       showFullScreenModal: false,
       showActionsModal: false,
       showFixedLayoutModal: false,
+      showWithoutDefaultActions: false,
       showSpecialActionsModal: false,
       showModalWithCloseButton: false,
       showModalWithoutCloseButton: false,
