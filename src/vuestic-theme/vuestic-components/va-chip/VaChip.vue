@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="value"
     class="va-chip mr-2"
     :class="chipClass"
     tabindex="0"
@@ -17,7 +18,14 @@
         <slot/>
       </div>
       <va-icon
-        v-if="iconRight"
+        @click.native="hideChip()"
+        v-if="iconRight && iconRight === 'ion ion-md-close ion'"
+        fixed-width
+        class="va-chip__content__icon scr va-chip__content__icon-right flex-center"
+        :icon="iconRight"
+      />
+      <va-icon
+        v-if="iconRight && iconRight !== 'ion ion-md-close ion'"
         fixed-width
         class="va-chip__content__icon va-chip__content__icon-right flex-center"
         :icon="iconRight"
@@ -30,6 +38,10 @@
 export default {
   name: 'va-chip',
   props: {
+    value: {
+      type: Boolean,
+      default: true,
+    },
     outline: {
       type: Boolean
     },
@@ -37,7 +49,7 @@ export default {
       type: String,
       default: 'success'
     },
-    small: {
+    isBadge: {
       type: Boolean
     },
     icon: {
@@ -61,13 +73,18 @@ export default {
         'va-chip--without-title': !this.hasTitleData,
         'va-chip--with-left-icon': this.icon,
         'va-chip--with-right-icon': this.iconRight,
-        'va-chip--small': this.small,
-        'va-chip--normal': !this.small
+        'va-chip--small': this.isBadge,
+        'va-chip--normal': !this.isBadge
       }
     },
     hasTitleData () {
       return this.$slots.default
     }
+  },
+  methods: {
+    hideChip () {
+      this.$emit('hide')
+    },
   },
 }
 </script>

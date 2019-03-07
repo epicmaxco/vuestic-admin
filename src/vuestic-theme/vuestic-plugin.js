@@ -58,8 +58,6 @@ import DatePicker
 import Card from './vuestic-components/vuestic-card/VuesticCard'
 import FileUpload
   from './vuestic-components/vuestic-file-upload/VuesticFileUpload'
-import Tag from './vuestic-components/vuestic-tag/VuesticTag'
-import TagGroup from './vuestic-components/vuestic-tag/VuesticTagGroup'
 import VaIcon from './vuestic-components/va-icon/VaIcon'
 import VuesticDropdown
   from './vuestic-components/vuestic-dropdown/VuesticDropdown'
@@ -134,8 +132,6 @@ const VuesticPlugin = {
       VuesticDropdown,
       DatePicker,
       Card,
-      Tag,
-      TagGroup,
       VaIcon,
       VaAccordion,
       VaCollapse,
