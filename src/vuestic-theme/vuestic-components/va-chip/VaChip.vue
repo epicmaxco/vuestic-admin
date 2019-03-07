@@ -19,15 +19,9 @@
       </div>
       <va-icon
         @click.native="hideChip()"
-        v-if="iconRight && iconRight === 'ion ion-md-close ion'"
+        v-if="iconRight"
         fixed-width
         class="va-chip__content__icon scr va-chip__content__icon-right flex-center"
-        :icon="iconRight"
-      />
-      <va-icon
-        v-if="iconRight && iconRight !== 'ion ion-md-close ion'"
-        fixed-width
-        class="va-chip__content__icon va-chip__content__icon-right flex-center"
         :icon="iconRight"
       />
     </div>
@@ -83,7 +77,9 @@ export default {
   },
   methods: {
     hideChip () {
-      this.$emit('hide')
+      if (this.iconRight === 'ion ion-md-close ion') {
+        this.$emit('hide')
+      }
     },
   },
 }
