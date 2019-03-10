@@ -12,41 +12,48 @@
     @mouseout="isHover = false"
     :style="{
       'color':color,
-      'fontSize': getItemsFontSize(),
+      'fontSize': getIconSize(),
     }"
   >
     <div
       v-if="numbers"
-      v-for="item in max"
-      :key="item"
+      v-for="number in max"
+      :key="number"
       :class="{
-        'va-rating__numbers--empty' : !compareWithValue(item)
+        'va-rating__numbers--empty' : !compareWithValue(number)
       }"
       class="va-rating__numbers"
       :style="{
         'background-color' : color
       }"
-      @click="setCurrentValue(item, 1)"
+      @click="setCurrentValue(number, 1)"
+      :tabindex="getTabindex(number)"
+      @mouseleave="tabindex = null"
+      @mouseover="tabindex = number"
+      @keypress="setCurrentValue(number, 1)"
     >
-      {{item}}
+      {{number}}
     </div>
     <va-rating-item
       v-if="!numbers"
-      v-for="item in max"
-      :key="item"
+      v-for="itemNumber in max"
+      :key="itemNumber"
       :icon="icon"
       :emptyIcon="emptyIconComputed"
-      :value="getStarValue(item)"
-      :iconClasses="getIconClasses(item)"
-      :halfIcon="halfIcon"
+      :value="isItemSelected(itemNumber)"
+      :iconClasses="getIconClasses(itemNumber)"
+      :halfIcon="halfIconComputed"
       class="va-rating__icons"
       :style="{'width' : getIconSize()}"
-      @click="setCurrentValue(item, $event)"
-      @hover="onHover(item, $event)"
-      :hover="getItemHover(item)"
-      :isHalf="item - value === 0.5"
+      @click="setCurrentValue(itemNumber, $event)"
+      @hover="onHover(itemNumber, $event)"
+      :hover="getItemHover(itemNumber)"
+      :isHalf="itemNumber - value === 0.5"
+      :tabindex="getTabindex(itemNumber)"
       :isRatingHover="isHover"
       @mouseout.native="onHover(value)"
+      @mouseleave.native="tabindex = null"
+      @mouseover.native="tabindex = itemNumber"
     />
   </div>
 </template>
@@ -97,7 +104,8 @@ export default {
   data () {
     return {
       lastHoverItemNumber: this.value,
-      isHover: false
+      isHover: false,
+      tabindex: 0
     }
   },
   computed: {
@@ -111,17 +119,30 @@ export default {
     },
     emptyIconComputed () {
       return this.emptyIcon || this.icon + ' ' + 'va-rating__icons--empty'
-    }
+    },
+    halfIconComputed () {
+      return this.disabled || this.readonly ? '' : this.halfIcon
+    },
   },
   methods: {
-    getItemsFontSize () {
-      let k = 6
-      if (this.numbers) {
-        k = 4.5
+    getTabindex (value) {
+      if (!this.disabled) {
+        return value !== this.tabindex ? 0 : null
       }
-      const regEx = /[a-z]/gim
-      const measure = this.getIconSize().match(regEx).join('')
-      return this.getIconSize().replace(regEx, '') / 7 * k + measure
+    },
+    getItemsFontSize () {
+      if (!isNaN(this.size.substring(0, 1))) {
+        return this.size
+      }
+      if (this.size === 'medium') {
+        return 1 + 'rem'
+      }
+      if (this.size === 'large') {
+        return 1.5 + 'rem'
+      }
+      if (this.size === 'small') {
+        return 0.75 + 'rem'
+      }
     },
     onHover (item) {
       if (this.halfIcon) {
@@ -129,18 +150,13 @@ export default {
       }
     },
     getIconSize () {
-      if (!isNaN(this.size.trim().substring(0, 1))) {
-        return this.size
+      let k = 7 / 6 // coefficient, which controls connection between size and font-size
+      if (this.numbers) {
+        k = 4.5 / 7
       }
-      if (this.size.trim() === 'medium') {
-        return 1 + 'rem'
-      }
-      if (this.size.trim() === 'large') {
-        return 1.5 + 'rem'
-      }
-      if (this.size.trim() === 'small') {
-        return 0.75 + 'rem'
-      }
+      const regEx = /[a-z]/gim
+      const measure = this.getItemsFontSize().match(regEx).join('')
+      return this.getItemsFontSize().replace(regEx, '') * k + measure
     },
     getIconClasses (item) {
       const iconClass = this.emptyIcon || this.icon + ' ' + 'va-rating__icons--empty'
@@ -152,8 +168,8 @@ export default {
       }
       this.valueProxy = value === 1 ? item : item - 0.5
     },
-    getStarValue (itemNumber) {
-      return this.hover ? false : this.compareWithValue(itemNumber)
+    isItemSelected (itemIndex) {
+      return this.hover ? false : this.compareWithValue(itemIndex)
     },
     compareWithValue (item) {
       return item <= this.value

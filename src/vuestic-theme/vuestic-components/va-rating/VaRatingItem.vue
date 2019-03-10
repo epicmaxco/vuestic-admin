@@ -1,5 +1,8 @@
 <template>
-  <div class="va-rating-item">
+  <div
+    class="va-rating-item"
+    @keypress="onClickTab()"
+  >
     <i
       :class="iconClassesComputed"
       class="va-rating-item__icon"
@@ -44,7 +47,7 @@ export default {
   data () {
     return {
       onHoverClasses: '',
-      hoverValue: ''
+      hoverValue: '',
     }
   },
   computed: {
@@ -65,10 +68,17 @@ export default {
         return this.iconClasses + this.onHoverClasses
       }
       return this.halfIcon
-    }
+    },
   },
   methods: {
     onClick () {
+      if (this.onHoverClasses === this.halfIcon) {
+        this.$emit('click', 0.5)
+      } else {
+        this.$emit('click', 1)
+      }
+    },
+    onClickTab () {
       if (this.onHoverClasses === this.halfIcon) {
         this.$emit('click', 0.5)
       } else {
@@ -112,6 +122,9 @@ export default {
 
 <style lang="scss">
 .va-rating-item {
+  &--actuve {
+    outline: none;
+  }
   &__icon {}
 }
 </style>

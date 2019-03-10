@@ -42,7 +42,12 @@
               size="55px"
               v-model="value"
             />
-            55px(custom)
+            55px
+            <va-rating
+              size="2rem"
+              v-model="value"
+            />
+            2rem
           </td>
         </tr>
         <tr>
@@ -69,6 +74,7 @@
             <va-rating
               v-model="value"
               halfIcon="fa fa-star-half-full"
+              emptyIcon="fa fa-star-o"
               size="30px"
             />
           </td>
@@ -79,6 +85,32 @@
             <va-rating
               icon="fa fa-bug"
               color="blue"
+              v-model="value"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Colors</td>
+          <td>
+            <va-rating
+              color="red"
+              v-model="value"
+            />
+            <va-rating
+              color="green"
+              v-model="value"
+            />
+            <va-rating
+              color="blue"
+              v-model="value"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Max items</td>
+          <td>
+            <va-rating
+              :max="10"
               v-model="value"
             />
           </td>
