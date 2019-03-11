@@ -1,62 +1,60 @@
 <template>
-  <div class="vuestic-simple-select">
-    <div
-      class="form-group with-icon-right dropdown select-form-group"
-      v-dropdown="{ isBlocked: true, onDropdownClose: onDropdownClose }"
-      :class="{'has-error': hasErrors()}"
-    >
-      <div
-        class="input-group dropdown-toggle vuestic-simple-select__dropdown-toggle">
-        <div>
-          <input
-            @focus="showDropdown()"
-            :class="{'has-value': !!value}"
-            v-model="displayValue"
-            :name="name"
-            :options="options"
-          >
-          <label class="control-label">{{label}}</label><va-icon icon="bar"/>
-          <small v-show="hasErrors()" class="help text-danger">
-            {{ showRequiredError() }}
-          </small>
+  <div
+    class="va-select mb-1"
+    :class="{
+      'va-select-active': isOpen,
+      'va-select-disabled': disabled,
+      [`va-select-${size}`]: size
+     }"
+    :style="{'width': width}"
+    :tabindex="1"
+    @focus="open()"
+    @blur="close()"
+    @keyup.esc="close()"
+  >
+    <div class="va-select__input-wrapper">
+      <p v-if="label" class="title va-select__label mb-0">{{label}}</p>
+      <div class="va-select__input">
+        <input
+          v-if="searchable"
+          :placeholder="placeholder"
+          :value="search"
+          @input="updateSearch($event.target.value)"
+          class="va-select__input__search"
+        />
+        <div v-else class="va-select__input__value">
+          <ul class="va-select__tags" v-if="multiple && valueProxy.length <= max">
+            <li v-for="item in valueProxy" :key="item.value">
+              {{item.text}}
+            </li>
+          </ul>
+          <span v-else>{{displayedValue}}</span>
         </div>
-        <va-icon
-          icon="ion ion-ios-arrow-down icon-right input-icon vuestic-simple-select__dropdown-arrow"
-          @click="showDropdown"
-        />
-      </div>
-      <div v-if="isClearable">
-        <va-icon
-          icon="fa fa-close icon-cross icon-right input-icon vuestic-simple-select__unselect"
-          @click="unselectOption"
-        />
-      </div>
-      <div
-        class="dropdown-menu vuestic-simple-select__dropdown-menu"
-        aria-labelledby="dropdownMenuButton">
-        <scrollbar ref="scrollbar">
-          <div
-            class="dropdown-menu-content vuestic-simple-select__dropdown-menu-content">
-            <div
-              class="dropdown-item vuestic-simple-select__dropdown-item"
-              v-for="(option, index) in filteredList"
-              :key="index"
-              :class="{'selected': isOptionSelected(option)}"
-              @click="toggleSelection(option)"
-            >
-            <span
-              class="ellipsis">{{optionKey ? option[optionKey] : option}}</span>
-            </div>
-          </div>
-        </scrollbar>
+        <i v-if="valueProxy && !multiple && !disabled" @click="clear" class="icon va-icon fa fa-times-circle va-select__clear"/>
       </div>
     </div>
+    <ul class="va-select__options-list" v-show="isOpen" @focus="open" tabindex="-1">
+      <li
+        v-for="(option, index) in filteredOptions"
+        :key="index"
+        class="va-select__option"
+        @click.stop="selectValue(option)"
+        :class="{'va-select__option-selected': isOptionSelected(option)}"
+      >
+        <span>{{option.text}}</span>
+        <i v-show="isOptionSelected(option)" class="icon va-icon fa fa-check"/>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
+// TODO: Use badge component for selected item in multiple select
 import Dropdown from 'vuestic-directives/Dropdown'
 import Scrollbar from '../vuestic-scrollbar/VuesticScrollbar.vue'
+
+const positions = ['top', 'top right', 'right', 'right bottom', 'bottom', 'left bottom', 'left', 'left top']
+const sizes = ['sm', 'md', 'lg']
 
 export default {
   name: 'vuestic-simple-select',
@@ -67,159 +65,160 @@ export default {
     dropdown: Dropdown,
   },
   props: {
-    label: String,
     options: Array,
     value: {
-      default: '',
+      default: [],
       required: true,
     },
-    optionKey: String,
-    required: {
-      type: Boolean,
-      default: false,
-    },
-    clearable: {
-      type: Boolean,
-      default: true,
-    },
-    name: {
+    placeholder: String,
+    searchable: Boolean,
+    position: {
       type: String,
-      default: 'simple-select',
+      default: 'bottom',
+      validator: position => positions.indexOf(position) >= 0
     },
+    max: {
+      type: Number,
+      default: 5
+    },
+    multiple: Boolean,
+    disabled: Boolean,
+    label: String,
+    size: {
+      type: String,
+      default: 'md',
+      validator: size => sizes.indexOf(size) >= 0
+    },
+    width: {
+      type: String,
+      default: '400px'
+    }
   },
   data () {
     return {
-      validated: false,
-      displayValue: this.value || '',
-      selectedValue: this.value,
+      isOpen: false,
+      search: ''
     }
   },
   watch: {
-    value: {
-      handler (value) {
-        if (!value || !this.optionKey) {
-          this.displayValue = value || ''
-          this.selectedValue = value || ''
-          return
-        }
-        this.selectedValue = value[this.optionKey]
-        this.displayValue = value[this.optionKey]
-      },
-      immediate: true,
-    },
+    search () {
+      this.$emit('search-change', this.search)
+    }
   },
   computed: {
-    filteredList () {
-      const optionKey = this.optionKey
-      const displayValue = this.displayValue
-      if (displayValue === '') {
-        return this.options
-      } else {
-        // HACK This is done poorly.
-        return this.options.filter(function (item) {
-          if (optionKey && item && item[optionKey]) {
-            // option is object
-            if (displayValue) {
-              return item[optionKey].toLowerCase()
-                .search(displayValue.toLowerCase()) === 0
-            }
-          } else {
-            // option is string
-            return (item + '').toLowerCase()
-              .search(displayValue.toLowerCase()) === 0
-          }
-        })
+    filteredOptions () {
+      return this.options ? this.options.map(option => option.value ? option : { text: option, value: option }) : []
+    },
+    displayedValue () {
+      return this.multiple ? `${this.valueProxy.length} items selected` : (this.valueProxy ? this.valueProxy.text : this.placeholder)
+    },
+    valueProxy: {
+      get () {
+        return this.value
+      },
+      set (value) {
+        return this.$emit('input', value)
       }
-    },
-    isClearable () {
-      return (this.clearable && this.selectedValue !== '' && this.displayValue !== '' && this.selectedValue !== undefined)
-    },
-    placeholder () {
-      if (this.optionKey && this.selectedValue) {
-        return this.selectedValue[this.optionKey]
-      } else {
-        return this.selectedValue
-      }
-    },
+    }
   },
   methods: {
-    onDropdownClose () {
-      if (!this.value) {
-        this.displayValue = ''
-      }
-      if (this.value && this.optionKey) {
-        this.displayValue = this.value[this.optionKey]
+    open () {
+      if (!this.disabled) {
+        this.isOpen = true
       }
     },
-    toggleSelection (option) {
-      this.isOptionSelected(option) ? this.unselectOption() : this.selectOption(option)
+    close () {
+      this.isOpen = false
     },
-    unselectOption () {
-      this.selectedValue = ''
-      this.$emit('input', this.selectedValue)
+    updateSearch (val) {
     },
-    showDropdown () {
-      this.displayValue = ''
+    selectValue (selectedItem) {
+      if (this.multiple) {
+        const index = Array.findIndex(this.valueProxy, item => item.value === selectedItem.value)
+        if (index === -1) {
+          this.valueProxy.push(selectedItem)
+        } else {
+          this.valueProxy.splice(index, 1)
+        }
+      } else {
+        this.valueProxy = selectedItem
+        this.close()
+      }
     },
     isOptionSelected (option) {
-      if (this.optionKey) {
-        return this.selectedValue === option[this.optionKey]
-      } else {
-        return this.selectedValue === option
-      }
+      return this.multiple ? this.value.indexOf(option) !== -1 : this.value.value === option.value
     },
-    selectOption (option) {
-      if (!option) {
-        this.displayValue = ''
-      }
-      if (option && this.optionKey) {
-        this.displayValue = option[this.optionKey]
-      }
-      this.selectedValue = option
-      this.$emit('input', option)
-    },
-    validate () {
-      this.validated = true
-    },
-    isValid () {
-      let isValid = true
-      if (this.required) {
-        isValid = !!this.value
-      }
-      return isValid
-    },
-    hasErrors () {
-      let hasErrors = false
-      if (this.required) {
-        hasErrors = this.validated && !this.value
-      }
-      return hasErrors
-    },
-    showRequiredError () {
-      return `The ${this.name} field is required`
-    },
-  },
+    clear () {
+      this.valueProxy = ''
+    }
+  }
 }
 </script>
 
 <style lang="scss">
-.vuestic-simple-select {
-
-  &__unselect {
-    margin-right: 20px;
-    cursor: pointer;
+.va-select {
+  min-width: 149px;
+  &:focus {
+    outline: none;
   }
-
-  .vuestic-simple-select__dropdown-arrow.vuestic-simple-select__dropdown-arrow {
-    top: 12px;
-    cursor: pointer;
+  &-active {
+    .va-select__input-wrapper {
+      border-bottom: 1px solid $brand-secondary;
+    }
   }
-
-  &__dropdown-menu {
+  &-disabled {
+    .va-select__input-wrapper {
+      cursor: default;
+    }
+  }
+  &__input-wrapper {
+    height: 38px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    background-color: $light-gray3;
+    border-radius: 8px;
+  }
+  &__input {
+    display: flex;
+    vertical-align: middle;
+    input {
+      border: none;
+      background: transparent;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  &__clear {
+    margin-left: auto;
+  }
+  &__tags {
+    list-style: none;
+    display: flex;
+  }
+  &__options-list {
+    list-style: none;
     padding: 0;
-
-    .vuestic-scrollbar {
-      max-height: $dropdown-item-height * 4;
+    max-height: 128px;
+    overflow-y: auto;
+    margin-top: 1px;
+    background: $light-gray3;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 2px 3px 0 rgba(98, 106, 119, 0.25);
+  }
+  &__option {
+    cursor: pointer;
+    display: flex;
+    padding: 6px 8px;
+    &:hover {
+      background-color: $vue-light-green;
+    }
+    &-selected {
+      color: $vue-green;
+    }
+    .icon {
+      margin-left: auto;
     }
   }
 }
