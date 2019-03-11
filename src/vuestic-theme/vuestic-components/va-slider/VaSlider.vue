@@ -6,7 +6,7 @@
     <div
       v-if="range && withInput"
       class="flex xs1 lg1">
-      <div class="form-group">
+      <div class="form-group mb-4">
         <div class="input-group">
           <input id="input1" v-model.number="val[0]" required/>
           <label class="control-label" for="input1">
@@ -109,7 +109,7 @@
     <div
       v-if="withInput"
       class="flex xs1 lg1 offset--xs1 offset--lg1">
-      <div class="form-group">
+      <div class="form-group mb-4">
         <div class="input-group">
           <input id="input2" v-model.number="range ? val[1] : val" required/>
           <label class="control-label" for="input2">
@@ -569,8 +569,8 @@ export default {
 
       &__handler {
         position: absolute;
-        width: 1rem;
-        height: 1rem;
+        width: 1.25rem;
+        height: 1.25rem;
         background: $white;
         border-radius: 50%;
 
@@ -580,7 +580,7 @@ export default {
 
         &-value {
           position: absolute;
-          top: -6px;
+          top: -8px;
           left: 50%;
           transform: translate(-50%,-100%);
           user-select: none;
