@@ -21,8 +21,8 @@
           v-if="!hideSlider"
           class="va-tabs__bar-content-slider"
           :style="{
-             width: barWidth,
-             marginLeft: this.activeIndex * (100 / $slots.default.length) + '%'
+             width: getBarWidth($slots.default),
+             marginLeft: getMarginLeft($slots.default)
           }"
         >
           <div class="va-tabs__bar-content-slider-line"/>
@@ -63,20 +63,52 @@ export default {
       get () {
         return this.value
       }
+    }
+  },
+  methods: {
+    setTabsWidth (slots) {
+      let count = 0
+      slots.forEach(vnode => {
+        if (vnode.elm) {
+          this.tabsWidth[count] = vnode.elm.clientWidth
+          count++
+        }
+      })
     },
-    barWidth () {
-      return this.currentWidth + 'px'
+    getBarWidth (slots) {
+      this.setTabsWidth(slots)
+      return this.grow ? 100 / slots.length + '%' : `calc(` + this.tabsWidth[this.activeIndex] + `px - 1.25rem)`
+    },
+    getMarginLeft (slots) {
+      this.setTabsWidth(slots)
+      if (!this.grow && this.activeIndex === 0) {
+        return 1.25 + 'rem'
+      }
+      if (!this.grow && this.activeIndex !== 0) {
+        let marginLeft = 0
+        for (let count = 0; count < this.activeIndex; count++) {
+          marginLeft += this.tabsWidth[count]
+        }
+        return `calc(` + marginLeft + `px + ` + this.activeIndex + `rem + 1.2rem)`
+      }
+      if (this.grow && this.activeIndex !== 0) {
+        return this.activeIndex * (100 / slots.length) + `%`
+      }
     }
   },
   data () {
     return {
       activeIndex: 0,
-      currentWidth: ''
+      tabsWidth: []
     }
   },
   mounted () {
+    let count = 0
     this.$slots.default.forEach(vnode => {
-      this.currentWidth = vnode.elm.clientWidth
+      if (vnode.elm.clientWidth) {
+        this.tabsWidth[count] = vnode.elm.clientWidth
+        count++
+      }
     })
   }
 }
@@ -113,9 +145,8 @@ export default {
           justify-content: space-around;
         }
         &-line {
-          width: calc(100% - 2.5rem);
+          width: 100%;
           height: 2px;
-          margin-left: 1.25rem;
           background-color: $vue-green;
         }
       }

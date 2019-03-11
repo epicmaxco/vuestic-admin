@@ -8,7 +8,8 @@
         :color="color"
         :hide-slider="hideSlider"
       >
-        <va-tab v-for="n in count" :key="n">{{'item' + n}}</va-tab>
+        <va-tab>{{'item1item1item1item1item1'}}</va-tab>
+        <va-tab v-for="item in count" :key="item">{{'item'+ item}}</va-tab>
       </va-tabs>
       <div v-for="item in count" :key="item">
         <p v-if="'item' + item === value">{{'item' + item}}</p>
@@ -46,8 +47,8 @@ export default {
   },
   data () {
     return {
-      count: 4,
-      value: 'item1',
+      count: 6,
+      value: 'item1item1item1item1item1',
       options: ['default', 'align-right', 'grow'],
       option: 'default',
       color: 'White',

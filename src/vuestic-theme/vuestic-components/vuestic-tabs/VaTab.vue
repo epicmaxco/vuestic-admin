@@ -6,6 +6,7 @@
     'va-tab--active': isActive(),
     'va-tab--disabled': disabled
     }"
+    :style="{width: widthComputed}"
   >
     <slot/>
   </div>
@@ -17,6 +18,13 @@ export default {
   props: {
     disabled: {
       type: Boolean
+    }
+  },
+  computed: {
+    widthComputed () {
+      if (this.$parent.grow) {
+        return 100 / this.$parent.$slots.default.length + '%'
+      }
     }
   },
   methods: {
@@ -46,11 +54,13 @@ export default {
 <style lang="scss">
 .va-tab {
   padding: 0.4375rem 0.75rem;
-  margin-left: 8px;
-  margin-right: 8px;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   opacity: 0.5;
   font-weight: $font-weight-bold;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
   &:hover, &--active {
     opacity: 1;
   }
