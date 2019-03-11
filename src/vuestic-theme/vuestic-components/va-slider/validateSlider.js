@@ -16,10 +16,10 @@ export const validateSlider = (value, step, min, max) => {
 
   const inRange = (v) => {
     if (v < min) {
-      throw new Error(`The value of the slider is ${v}, the minimum value is ${this.min}, the value of this slider can not be less than the minimum value`)
+      throw new Error(`The value of the slider is ${v}, the minimum value is ${min}, the value of this slider can not be less than the minimum value`)
       return false
     } else if (v > max) {
-      throw new Error(`The value of the slider is ${v}, the maximum value is ${this.max}, the value of this slider can not be greater than the maximum value`)
+      throw new Error(`The value of the slider is ${v}, the maximum value is ${max}, the value of this slider can not be greater than the maximum value`)
       return false
     }
   }

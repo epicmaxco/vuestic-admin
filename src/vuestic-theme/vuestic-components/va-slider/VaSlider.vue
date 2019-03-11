@@ -1,9 +1,21 @@
 <template>
   <div
-    v-if="isComponentExists"
     class="va-slider d-flex align--center"
     :class="sliderClass"
   >
+    <div
+      v-if="range && withInput"
+      class="flex xs1 lg1">
+      <div class="form-group">
+        <div class="input-group">
+          <input id="input1" v-model.number="val[0]" required/>
+          <label class="control-label" for="input1">
+            Min
+          </label>
+          <va-icon icon="bar"/>
+        </div>
+      </div>
+    </div>
     <span
       v-if="label && !inverseLabel"
       class="va-slider__label title">
@@ -15,6 +27,7 @@
       <va-icon :icon="icon" :color="color" :size="16"/>
     </span>
     <div
+      :class="{ 'flex offset--xs1 offset--lg1': range && withInput }"
       class="va-slider__container d-flex align--center"
       @click="wrapClick"
       ref="elem"
@@ -93,6 +106,19 @@
       class="va-slider__inverse-label title">
       {{ label }}
     </span>
+    <div
+      v-if="withInput"
+      class="flex xs1 lg1 offset--xs1 offset--lg1">
+      <div class="form-group">
+        <div class="input-group">
+          <input id="input2" v-model.number="range ? val[1] : val" required/>
+          <label class="control-label" for="input2">
+            {{ range ? 'Max' : 'Value' }}
+          </label>
+          <va-icon icon="bar"/>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -106,7 +132,7 @@ export default {
       type: Boolean,
     },
     value: {
-      type: Number | Array,
+      type: [Number, Array]
     },
     labelValue: {
       type: String
@@ -147,6 +173,9 @@ export default {
     },
     iconRight: {
       type: String,
+    },
+    withInput: {
+      type: Boolean
     },
   },
   data () {
@@ -220,7 +249,6 @@ export default {
         return this.value
       },
       set (val) {
-        val = this.limitValue(val)
         this.$emit('input', val)
       }
     },
@@ -241,7 +269,7 @@ export default {
       return (this.max / this.step) - 1
     },
     position () {
-      return this.isRange ? [(this.currentValue[0] - this.min) / this.step * this.gap, (this.currentValue[1] - this.min) / this.step * this.gap] : ((this.currentValue - this.min) / this.step * this.gap)
+      return this.isRange ? [(this.value[0] - this.min) / this.step * this.gap, (this.value[1] - this.min) / this.step * this.gap] : ((this.value - this.min) / this.step * this.gap)
     },
     limit () {
       return [0, this.size]
@@ -251,6 +279,22 @@ export default {
     },
     isRange () {
       return Array.isArray(this.value)
+    }
+  },
+  watch: {
+    value (val) {
+      validateSlider(val, this.step, this.min, this.max)
+      val = this.limitValue(val)
+    },
+    max (val) {
+      if (val < this.min) {
+        validateSlider(this.value, this.step, val, this.max)
+      }
+    },
+    min (val) {
+      if (val > this.max) {
+        validateSlider(this.value, this.step, this.min, val)
+      }
     }
   },
   methods: {
@@ -291,7 +335,7 @@ export default {
       }
     },
     wrapClick (e) {
-      if (!this.disabled) {
+      if (!this.disabled && !this.flag) {
         let pos = this.getPos(e)
         if (this.isRange) {
           this.currentSlider = pos > ((this.position[1] - this.position[0]) / 2 + this.position[0]) ? 1 : 0
@@ -341,11 +385,11 @@ export default {
         if (this.isDiff(this.currentValue[slider], val)) {
           this.currentValue.splice(slider, 1, val)
           if (slider === 0) {
-            this.val = [this.currentValue.splice(slider, 1, val)[0], this.currentValue[1]]
-            this.currentValue = [this.currentValue.splice(slider, 1, val)[0], this.currentValue[1]]
+            this.val = [this.currentValue.splice(slider, 1, val)[0], this.value[1]]
+            this.currentValue = [this.currentValue.splice(slider, 1, val)[0], this.value[1]]
           } else {
-            this.val = [this.currentValue[0], this.currentValue.splice(slider, 1, val)[0]]
-            this.currentValue = [this.currentValue[0], this.currentValue.splice(slider, 1, val)[0]]
+            this.val = [this.value[0], this.currentValue.splice(slider, 1, val)[0]]
+            this.currentValue = [this.value[0], this.currentValue.splice(slider, 1, val)[0]]
           }
         }
       } else {
@@ -436,16 +480,12 @@ export default {
   mounted () {
     this.$nextTick(() => {
       if (validateSlider(this.value, this.step, this.min, this.max)) {
-        this.isComponentExists = true
         this.getStaticData()
         this.bindEvents()
-      } else {
-        this.isComponentExists = false
       }
     })
   },
   beforeDestroy () {
-    this.isComponentExists = false
     this.unbindEvents()
   }
 }
@@ -487,6 +527,13 @@ export default {
 
     &--disabled {
       @include va-disabled;
+
+      .va-slider__container__handler {
+
+        &:hover {
+          cursor: default;
+        }
+      }
     }
 
     &__label {
@@ -533,7 +580,7 @@ export default {
 
         &-value {
           position: absolute;
-          top: -5px;
+          top: -6px;
           left: 50%;
           transform: translate(-50%,-100%);
           user-select: none;

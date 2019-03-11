@@ -69,26 +69,11 @@
             />
           </div>
           <div class="flex xs12 lg6 xl4 mb-2">
-            <div class="va-row d-flex align--start">
-              <div class="flex xs10 lg9 xl9">
-                <div class="title mb-3">Value Input</div>
-                <va-slider
-                  value-visible
-                  v-model="value"
-                />
-              </div>
-              <div class="flex xs1 lg2 xl2 offset--xs1 offset--lg1 offset--xl1">
-                <div class="form-group">
-                  <div class="input-group">
-                    <input id="simple-input" v-model="value" required/>
-                    <label class="control-label" for="simple-input">
-                      Slider Label
-                    </label>
-                    <va-icon icon="bar"/>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <va-slider
+              value-visible
+              v-model="value"
+              with-input
+            />
           </div>
           <div class="flex xs12 lg6 xl4 mb-2">
             <va-slider
@@ -178,35 +163,11 @@
             />
           </div>
           <div class="flex xs12 lg6 xl4 mb-2">
-            <div class="va-row d-flex align--center">
-              <div class="flex xs1 lg2 xl2">
-                <div class="form-group">
-                  <div class="input-group">
-                    <input id="simple-input2" v-model="value2[0]" required/>
-                    <label class="control-label" for="simple-input2">
-                      Range Label1
-                    </label>
-                    <va-icon icon="bar"/>
-                  </div>
-                </div>
-              </div>
-              <div class="flex xs8 xl6 lg6 offset--xs1 offset--lg1 offset--xl1">
-                <va-slider
-                  v-model="value2"
-                />
-              </div>
-              <div class="flex xs1 lg2 xl2 offset--xs1 offset--lg1 offset--xl1">
-                <div class="form-group">
-                  <div class="input-group">
-                    <input id="simple-input3" v-model="value2[1]" required/>
-                    <label class="control-label" for="simple-input3">
-                      Range Label2
-                    </label>
-                    <va-icon icon="bar"/>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <va-slider
+              range
+              v-model="value2"
+              with-input
+            />
           </div>
           <div class="flex xs12 lg6 xl4 mb-2">
             <va-slider
