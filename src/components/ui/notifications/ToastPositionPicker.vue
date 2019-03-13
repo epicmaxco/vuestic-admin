@@ -1,6 +1,6 @@
 <template>
-  <div class="toast-position-picker">
-    <div class="position-boxes-row">
+  <div class="toast-position-picker mr-4">
+    <div class="position-boxes-row d-flex">
       <div class="position-box"
            @click="updatePosition('top-left')"
            :class="{'selected': isBoxSelected('top-left')}">
@@ -14,7 +14,7 @@
            :class="{'selected': isBoxSelected('top-right')}">
       </div>
     </div>
-    <div class="position-boxes-row">
+    <div class="position-boxes-row d-flex">
       <div class="position-box"
            @click="updatePosition('bottom-left')"
            :class="{'selected': isBoxSelected('bottom-left')}">
@@ -58,11 +58,9 @@ export default {
 .toast-position-picker {
   width: 112px;
   height: 76px;
-  margin-right: 2rem;
 }
 
 .position-boxes-row {
-  display: flex;
   flex-direction: row;
 
   &:first-child {

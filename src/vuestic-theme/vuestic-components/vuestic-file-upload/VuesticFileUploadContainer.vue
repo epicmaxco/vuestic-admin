@@ -10,9 +10,9 @@
       >
         {{ $t('fileUpload.dragNdropFiles') }}
       </div>
-      <button type="button" class="btn btn-primary btn-micro">
+      <va-button>
         {{ $t('fileUpload.uploadFile') }}
-      </button>
+      </va-button>
       <input
         type="file"
         class="vuestic-file-upload-container__field__input"

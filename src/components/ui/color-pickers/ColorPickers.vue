@@ -1,41 +1,47 @@
 <template>
-  <div class="vuestic-color-picker-page">
+  <div class="color-pickers vuestic-color-picker-page">
     <div class="va-row">
       <div class="flex md12 xs12">
         <vuestic-widget :headerText="$t('menu.colorPickers')">
           <div class="va-row">
             <div class="flex md2">
-              <span class="text-uppercase vuestic-color-picker-page__text">simple</span>
+              <span class="title">simple</span>
             </div>
             <div class="flex md2">
-              <span class="text-uppercase vuestic-color-picker-page__text">slider</span>
+              <span class="title">slider</span>
             </div>
-            <div class="flex md2 vuestic-color-picker-page__text-advanced">
-              <span class="text-uppercase vuestic-color-picker-page__text">advanced</span>
+            <div class="flex md2">
+              <span class="title">advanced</span>
             </div>
           </div>
           <div class="va-row">
             <div class="flex md2">
               <div class="vuestic-color-picker-page__top-square">
-                <vuestic-color-picker-input mode="palette"
-                                            v-model="topSimpleSquareColor"
-                                            :palette="palette">
+                <vuestic-color-picker-input
+                  mode="palette"
+                  v-model="topSimpleSquareColor"
+                  :palette="palette"
+                >
                   <vuestic-color-square :value="topSimpleSquareColor"/>
                 </vuestic-color-picker-input>
               </div>
             </div>
             <div class="flex md2">
               <div class="vuestic-color-picker-page__top-square">
-                <vuestic-color-picker-input mode="slider"
-                                            v-model="topSliderSquareColor">
+                <vuestic-color-picker-input
+                  mode="slider"
+                  v-model="topSliderSquareColor"
+                >
                   <vuestic-color-square :value="topSliderSquareColor"/>
                 </vuestic-color-picker-input>
               </div>
             </div>
             <div class="flex md2">
               <div class="vuestic-color-picker-page__top-square">
-                <vuestic-color-picker-input mode="advanced"
-                                            v-model="topAdvancedSquareColor">
+                <vuestic-color-picker-input
+                  mode="advanced"
+                  v-model="topAdvancedSquareColor"
+                >
                   <vuestic-color-square :value="topAdvancedSquareColor"/>
                 </vuestic-color-picker-input>
               </div>
@@ -132,19 +138,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.vuestic-color-picker-page {
-  &__top-square {
-    max-width: 48px;
-  }
-
-  &__text {
-    color: $vue-green;
-  }
-
-  &__text-advanced {
-    padding-left: 5px;
-  }
-}
-</style>

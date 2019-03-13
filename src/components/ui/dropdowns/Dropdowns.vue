@@ -1,5 +1,5 @@
 <template>
-  <div class="dropdowns-page">
+  <div class="dropdowns">
     <div class="va-row">
       <div class="flex md12">
         <vuestic-widget :headerText="$t('dropdown.default')">
@@ -9,13 +9,9 @@
               v-for="(dropdown, index) in dropdowns"
               :key="index"
             >
-              <button
-                type="button"
-                class="btn btn-primary dropdown-toggle theme-toggle"
-                slot="actuator"
-              >
-                {{ dropdown.text }}
-                <i class="ion-ios-arrow-down arrow-down"></i>
+              <va-button
+                type="button" class="theme-toggle"
+                slot="actuator" icon-right="ion-ios-arrow-down arrow-down">
                 <vuestic-dropdown
                   v-model="dropdown.value"
                   :position="dropdown.position"
@@ -30,7 +26,7 @@
                     <div class="flex lg6"></div>
                   </div>
                 </vuestic-dropdown>
-              </button>
+              </va-button>
             </div>
           </div>
         </vuestic-widget>

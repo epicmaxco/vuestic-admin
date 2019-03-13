@@ -33,7 +33,7 @@ import UsersMembersTab from './users-and-members-tab/UsersMembersTab.vue'
 import SetupProfileTab from './setup-profile-tab/SetupProfileTab.vue'
 import FeaturesTab from './features-tab/FeaturesTab.vue'
 import DataVisualisationTab
-  from './data-visualisation-tab/DataVisualisation.vue'
+  from './data-visualisation-tab/DataVisualisationTab.vue'
 import DashboardBottomWidgets from './DashboardBottomWidgets.vue'
 
 export default {
@@ -64,5 +64,3 @@ export default {
 }
 
 </script>
-<style lang="scss" scoped>
-</style>

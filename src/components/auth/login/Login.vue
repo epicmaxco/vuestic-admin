@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <h2>{{ $t('auth.welcome') }}</h2>
+    <div class="display-2 text--center my-4">{{ $t('auth.welcome') }}</div>
     <form method="post" action="/auth/login" name="login">
       <div class="form-group">
         <div class="input-group">
@@ -8,7 +8,7 @@
           <label class="control-label" for="email">
             {{ $t('auth.email') }}
           </label>
-          <i class="bar"/>
+          <va-icon icon="bar"/>
         </div>
       </div>
       <div class="form-group">
@@ -17,16 +17,17 @@
           <label class="control-label" for="password">
             {{ $t('auth.password') }}
           </label>
-          <i class="bar"/>
+          <va-icon icon="bar"/>
         </div>
       </div>
-      <div class="d-flex align--center justify--space-between">
-        <button class="btn btn-primary" type="submit">
+      <div
+        class="d-flex align--center justify--space-between">
+        <va-button type="submit">
           {{ $t('auth.login') }}
-        </button>
-        <router-link class='link flex-center pl-2 text-center' :to="{name: 'signup'}">
+        </va-button>
+        <va-button flat :to="{ name: 'signup' }">
           {{ $t('auth.createAccount') }}
-        </router-link>
+        </va-button>
       </div>
     </form>
   </div>
@@ -34,29 +35,17 @@
 
 <script>
 export default {
-  name: 'login',
+  name: 'login'
 }
 </script>
 
 <style lang="scss">
 .login {
-
   @include media-breakpoint-down(md) {
     width: 100%;
-    padding-right: 2rem;
-    padding-left: 2rem;
-    .down-container {
-      display: none;
-    }
+    padding: 0 2rem;
   }
 
-  h2 {
-    text-align: center;
-  }
   width: 21.375rem;
-
-  .down-container {
-    margin-top: 3.125rem;
-  }
 }
 </style>

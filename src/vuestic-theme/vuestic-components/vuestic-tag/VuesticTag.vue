@@ -5,7 +5,7 @@
           v-if="removable"
           @click="remove"
     >
-      <i class="ion-md-close ion"></i>
+      <va-icon icon="ion-md-close ion"/>
     </span>
   </span>
 </template>

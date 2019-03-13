@@ -8,11 +8,11 @@
     </div>
     <div class="va-row vuestic-navbar__content">
       <div
-        class="header-elem-wrapper menu-icon-container justify--start col">
+        class="header-elem-wrapper menu-icon-container d-flex justify--start col">
         <slot name="selector"></slot>
       </div>
       <div
-        class="header-elem-wrapper navbar-text flex offset--md3 md5 d-none d-lg-flex">
+        class="header-elem-wrapper navbar-text flex offset--md3 md5">
         <slot name="center"></slot>
       </div>
       <slot></slot>
@@ -28,6 +28,15 @@ export default {
 </script>
 
 <style lang="scss">
+$nav-mobile-padding-h: .875rem;
+$nav-mobile-pt: 1.75rem;
+$nav-mobile-pb: 0.5rem;
+$nav-mobile-brand-width: 4rem;
+$nav-mobile-brand-top: .875rem;
+$nav-mobile-brand-left: calc(50% - #{$nav-mobile-brand-width});
+$dropdown-mobile-show-b: 2rem;
+$navbar-dd-item-height: 48px;
+
 .vuestic-navbar {
   .layout-fixed & {
     position: fixed;
@@ -45,6 +54,16 @@ export default {
     width: 100%;
     height: 100%;
     margin: 0;
+  }
+
+  .navbar-text {
+    display: flex;
+  }
+
+  @include media-breakpoint-down(xs) {
+    .navbar-text {
+      display: none;
+    }
   }
 
   height: $top-nav-height;
@@ -135,6 +154,7 @@ export default {
       height: $navbar-dd-item-height;
       cursor: pointer;
       font-size: $font-size-base;
+      color: $white;
 
       &:hover, &:active, &:focus, &.active {
         outline: none;

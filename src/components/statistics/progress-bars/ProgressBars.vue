@@ -1,12 +1,17 @@
 <template>
   <div class="progress-bars">
     <div class="va-row">
-      <div class="flex md12">
-        <standard-bars/>
+      <div class="flex md12 xs12">
+        <horizontal-bars/>
       </div>
     </div>
     <div class="va-row">
-      <div class="flex md12">
+      <div class="flex md12 xs12">
+        <circle-bars/>
+      </div>
+    </div>
+    <div class="va-row">
+      <div class="flex md12 xs12">
         <colorful-bars/>
       </div>
     </div>
@@ -14,11 +19,12 @@
 </template>
 
 <script>
+import HorizontalBars from './Widgets/HorizontalBars'
+import CircleBars from './Widgets/CircleBars'
 import ColorfulBars from './Widgets/ColorfulBars'
-import StandardBars from './Widgets/StandardBars'
 
 export default {
   name: 'progress-bars',
-  components: { StandardBars, ColorfulBars },
+  components: { HorizontalBars, CircleBars, ColorfulBars }
 }
 </script>

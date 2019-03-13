@@ -1,12 +1,12 @@
 <template>
-  <div class="auth-layout">
-    <div class="nav d-lg-none">
+  <div class="auth-layout ma-0">
+    <div class="nav flex-center">
       <router-link :to="{path: '/'}">
-        <vuestic-icon-vuestic/>
+        <va-icon-vuestic/>
       </router-link>
     </div>
-    <div class="main va-row">
-      <div class="auth-content flex lg6 xs12 fill-height">
+    <div class="main va-row ma-0">
+      <div class="auth-content flex-center pa-0 flex lg6 xs12 fill-height">
         <div class="flex-center">
           <router-view/>
         </div>
@@ -15,7 +15,7 @@
         <div class="flex-center">
           <div class="auth-layout__auth-wallpaper__cross-line"/>
           <router-link class="auth-layout__auth-wallpaper__logo" :to="{path: '/'}">
-            <vuestic-icon-vuestic/>
+            <va-icon-vuestic/>
           </router-link>
         </div>
       </div>
@@ -25,19 +25,18 @@
 
 <script>
 // d-none and d-lg-flex were deleted, bug will be fixed in the nearest update
-import VuesticIconVuestic
-  from '../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconVuestic'
+import VaIconVuestic
+  from '../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconVuestic'
 
 export default {
   name: 'AuthLayout',
-  components: { VuesticIconVuestic },
+  components: { VaIconVuestic },
 }
 </script>
 
 <style lang="scss">
 .auth-layout {
   height: 100vh;
-  margin: 0;
 
   &__auth-wallpaper {
     position: relative;
@@ -50,7 +49,7 @@ export default {
       height: $auth-wallpaper-ivuestic-h;
       width: 100%;
     }
-    .vuestic-icon-vuestic {
+    .va-icon-vuestic {
       height: $auth-wallpaper-ivuestic-h;
       width: 100%;
     }
@@ -67,34 +66,31 @@ export default {
   }
 
   .nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: none;
     height: $top-mobile-nav-height;
     background-color: $top-nav-bg;
-    .vuestic-icon-vuestic {
+    .va-icon-vuestic {
       height: $auth-mobile-nav-ivuestic-h;
       width: 100%;
     }
   }
   .main {
-    margin: 0;
     height: 100vh;
+
     .auth-content {
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: white;
+      background-color: $white;
     }
   }
 
   @include media-breakpoint-down(md) {
+    .nav {
+      display: flex;
+    }
+
     .main {
       height: $auth-mobile-main-h;
       .auth-content {
         align-items: flex-start;
-        padding-top: $auth-content-padding-t;
       }
       .auth-wallpaper {
         display: none;

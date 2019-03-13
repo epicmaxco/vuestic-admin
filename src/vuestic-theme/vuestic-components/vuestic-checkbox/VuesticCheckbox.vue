@@ -19,7 +19,7 @@
         @keypress="toggleSelection()"
         :disabled="disabled"
       />
-      <i class="ion ion-md-checkmark vuestic-checkbox__icon-selected" aria-hidden="true"/>
+      <va-icon icon="ion ion-md-checkmark vuestic-checkbox__icon-selected"/>
     </div>
     <div
       class="vuestic-checkbox__label-text" @click="toggleSelection">
@@ -40,8 +40,11 @@
 </template>
 
 <script>
+import VaIcon from '../va-icon/VaIcon'
+
 export default {
   name: 'vuestic-checkbox',
+  components: { VaIcon },
   props: {
     label: String,
     value: {
@@ -161,8 +164,7 @@ export default {
         background-color: $vue-green;
         border: 0;
       }
-      .vuestic-checkbox--readonly#{&} {
-      }
+      .vuestic-checkbox--readonly#{&} {}
       .vuestic-checkbox--disabled#{&} {
         border-color: $lighter-gray;
         cursor: initial;
@@ -172,7 +174,6 @@ export default {
           }
         }
       }
-
       .vuestic-checkbox--error#{&} {
         border-color: $theme-red;
       }

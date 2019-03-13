@@ -1,45 +1,44 @@
 <template>
-  <div class="overview-tab dashboard-tab">
-    <div
-      class="d-flex overview-row justify--space-around justify--start">
+  <div class="features-tab">
+    <div class="va-row d-flex justify--space-around">
 
-      <div class="overview-col">
-        <div class="overview-item">
-          <div class="overview-icon-container">
-            <vuestic-icon-vue/>
+      <div class="xs12">
+        <div class="features-tab__item d-flex align--center mb-5 pr-3 text--bold">
+          <div class="features-tab__item__icon-container flex-center fill-height">
+            <va-icon-vue/>
           </div>
           Built with Vue.js framework
         </div>
-        <div class="overview-item">
-          <div class="overview-icon-container">
-            <vuestic-icon-free/>
+        <div class="features-tab__item d-flex align--center mb-5 pr-3 text--bold">
+          <div class="features-tab__item__icon-container flex-center fill-height">
+            <va-icon-free/>
           </div>
           Absolutely free for everyone
         </div>
-        <div class="overview-item">
-          <div class="overview-icon-container">
-            <vuestic-icon-fresh/>
+        <div class="features-tab__item d-flex align--center mb-5 pr-3 text--bold">
+          <div class="features-tab__item__icon-container flex-center fill-height">
+            <va-icon-fresh/>
           </div>
           Fresh and crisp design
         </div>
       </div>
 
-      <div class="overview-col">
-        <div class="overview-item">
-          <div class="overview-icon-container">
-            <vuestic-icon-responsive/>
+      <div class="xs12">
+        <div class="features-tab__item d-flex align--center mb-5 pr-3 text--bold">
+          <div class="features-tab__item__icon-container flex-center fill-height">
+            <va-icon-responsive/>
           </div>
           Responsive and optimized for mobile
         </div>
-        <div class="overview-item">
-          <div class="overview-icon-container">
-            <vuestic-icon-rich/>
+        <div class="features-tab__item d-flex align--center mb-5 pr-3 text--bold">
+          <div class="features-tab__item__icon-container flex-center fill-height">
+            <va-icon-rich/>
           </div>
           Tons of useful components
         </div>
-        <div class="overview-item">
-          <div class="overview-icon-container">
-            <vuestic-icon-clean-code/>
+        <div class="features-tab__item d-flex align--center mb-5 pr-3 text--bold">
+          <div class="features-tab__item__icon-container flex-center fill-height">
+            <va-icon-clean-code/>
           </div>
           Completely jQuery free
         </div>
@@ -49,68 +48,42 @@
 </template>
 
 <script>
-import VuesticIconVue
-  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconVue'
-import VuesticIconFree
-  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconFree'
-import VuesticIconFresh
-  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconFresh'
-import VuesticIconResponsive
-  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconResponsive'
-import VuesticIconRich
-  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconRich'
-import VuesticIconCleanCode
-  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconCleanCode'
+import VaIconVue
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconVue'
+import VaIconFree
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconFree'
+import VaIconFresh
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconFresh'
+import VaIconResponsive
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconResponsive'
+import VaIconRich
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconRich'
+import VaIconCleanCode
+  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconCleanCode'
 
 export default {
   name: 'features-tab',
   components: {
-    VuesticIconVue,
-    VuesticIconFree,
-    VuesticIconFresh,
-    VuesticIconResponsive,
-    VuesticIconRich,
-    VuesticIconCleanCode,
+    VaIconVue,
+    VaIconFree,
+    VaIconFresh,
+    VaIconResponsive,
+    VaIconRich,
+    VaIconCleanCode,
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.overview-item {
-  display: flex;
-  align-items: center;
-  height: 55px;
-  margin-bottom: 3rem;
-  padding-right: 1rem;
-  font-size: 1.25rem;
-  font-weight: bold;
+.features-tab {
+  &__item {
+    height: 55px;
+    font-size: 1.25rem;
 
-  .overview-icon-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    min-width: 85px;
-    max-width: 85px;
-    height: 100%;
+    &__icon-container {
+      min-width: 85px;
+      max-width: 85px;
+    }
   }
-}
-
-.overview-row {
-  @include media-breakpoint-down(xs) {
-    flex-wrap: wrap;
-  }
-}
-
-.overview-col:first-child {
-  margin-left: 2rem;
-  @include media-breakpoint-down(md) {
-    margin-left: 0;
-  }
-}
-
-.explore-btn {
-  margin-top: 6rem;
-  margin-bottom: 1rem;
 }
 </style>
