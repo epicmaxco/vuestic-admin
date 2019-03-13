@@ -29,7 +29,8 @@
               {{item.text}}
             </li>
           </ul>
-          <span v-else>{{displayedValue}}</span>
+          <span v-else-if="displayedValue !== ''">{{displayedValue}}</span>
+          <span v-else class="va-select__placeholder">{{placeholder}}</span>
         </div>
       </div>
       <div class="va-select__icons" :class="{'va-select__icons-two': showClearIcon}">
@@ -61,7 +62,6 @@
 
 <script>
 // TODO: Use badge component for selected item in multiple select
-// TODO: move placeholder to separate html el and style
 import Dropdown from 'vuestic-directives/Dropdown'
 import Scrollbar from '../vuestic-scrollbar/VuesticScrollbar.vue'
 
@@ -129,7 +129,7 @@ export default {
       return this.searchable ? filteredOptions : formatedOptions
     },
     displayedValue () {
-      return this.multiple ? `${this.valueProxy.length} items selected` : (this.valueProxy ? this.valueProxy.text : this.placeholder)
+      return this.multiple ? `${this.valueProxy.length} items selected` : (this.valueProxy ? this.valueProxy.text : '')
     },
     showClearIcon () {
       return this.valueProxy && !this.multiple && !this.disabled
@@ -231,6 +231,9 @@ export default {
         outline: none;
       }
     }
+  }
+  &__placeholder {
+    opacity: .5;
   }
   &__icons {
     position: absolute;
