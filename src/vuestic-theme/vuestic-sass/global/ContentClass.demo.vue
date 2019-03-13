@@ -1,8 +1,7 @@
 <template>
   <VbDemo>
-    <VbContainer>
+    <VbContainer title="with content class (h1-h6)">
       <div class="content">
-        <p>with content class (h1-6)</p>
         <h1>h1 title</h1>
         <h2>h2 title</h2>
         <h3>h3 title</h3>
@@ -11,9 +10,8 @@
         <h6>h6 title</h6>
       </div>
     </VbContainer>
-    <VbContainer>
+    <VbContainer title="without content class (h1-6)">
       <div>
-        <p>without content class (h1-6)</p>
         <h1>h1 title</h1>
         <h2>h2 title</h2>
         <h3>h3 title</h3>
@@ -22,23 +20,20 @@
         <h6>h6 title</h6>
       </div>
     </VbContainer>
-    <VbContainer>
+    <VbContainer title="with content class (pre)">
       <div class="content">
-        <p>with content class (pre)</p>
         <pre>pre text must be here</pre>
         <p>class: code</p>
         <pre class="code">code must be here</pre>
       </div>
     </VbContainer>
-    <VbContainer>
+    <VbContainer title="without content class (pre)">
       <div>
-        <p>without content class (pre)</p>
         <pre>pre text must be here</pre>
       </div>
     </VbContainer>
-    <VbContainer>
+    <VbContainer title="with content class (lists)">
       <div class="content">
-        <p>with content class (lists)</p>
         <ol>
           <li>item 1</li>
           <li>item 2
@@ -63,35 +58,31 @@
         </ul>
       </div>
     </VbContainer>
-    <VbContainer>
-      <div>
-        <p>without content class (lists)</p>
-        <ol>
-          <li>item 1</li>
-          <li>item 2
-            <ol>
-              <li>item 2.1</li>
-              <li>item 2.2</li>
-            </ol>
-          </li>
-          <li>item 3</li>
-          <li>item 4</li>
-        </ol>
-        <ul>
-          <li>item 1</li>
-          <li>item 2
-            <ul>
-              <li>item 2.1</li>
-              <li>item 2.2</li>
-            </ul>
-          </li>
-          <li>item 3</li>
-          <li>item 4</li>
-        </ul>
-      </div>
+    <VbContainer title="without content class (lists)">
+      <ol>
+        <li>item 1</li>
+        <li>item 2
+          <ol>
+            <li>item 2.1</li>
+            <li>item 2.2</li>
+          </ol>
+        </li>
+        <li>item 3</li>
+        <li>item 4</li>
+      </ol>
+      <ul>
+        <li>item 1</li>
+        <li>item 2
+          <ul>
+            <li>item 2.1</li>
+            <li>item 2.2</li>
+          </ul>
+        </li>
+        <li>item 3</li>
+        <li>item 4</li>
+      </ul>
     </VbContainer>
-    <VbContainer>
-      <p>with content (blockquote)</p>
+    <VbContainer title="with content (blockquote)">
       <div class="content">
         <blockquote>
           <p>this is great blockquote</p>
@@ -99,71 +90,37 @@
         </blockquote>
       </div>
     </VbContainer>
-    <VbContainer>
-      <p>without content (blockquote)</p>
+    <VbContainer title="without content (blockquote)">
       <blockquote>
         <p>this is great blockquote</p>
         <p>author</p>
       </blockquote>
     </VbContainer>
-    <VbContainer>
-      <p>with content (figure)</p>
+    <VbContainer title="with content (figure)">
       <div class="content">
         <figure>
           <img src="https://i.imgur.com/NLrdqsk.png"/>
           <figcaption>Name of picture</figcaption>
         </figure>
-        <figure class="warning">
-          <img src="https://i.imgur.com/NLrdqsk.png"/>
-          <figcaption>Name of picture</figcaption>
-        </figure>
-        <figure class="danger">
-          <img src="https://i.imgur.com/NLrdqsk.png"/>
-          <figcaption>Name of picture</figcaption>
-        </figure>
-        <figure class="bright">
-          <img src="https://i.imgur.com/NLrdqsk.png"/>
-          <figcaption>Name of picture</figcaption>
-        </figure>
-        <figure class="bright warning">
-          <img src="https://i.imgur.com/NLrdqsk.png"/>
-          <figcaption>Name of picture</figcaption>
-        </figure>
       </div>
     </VbContainer>
-    <VbContainer>
-      <p>without content (figure)</p>
+    <VbContainer title="without content (figure)">
       <figure>
         <img src="https://i.imgur.com/NLrdqsk.png"/>
         <figcaption>Name of picture</figcaption>
       </figure>
     </VbContainer>
-    <VbContainer>
-      <p>with content (table)</p>
+    <VbContainer title="with content (table)">
       <div class="content">
         <table>
           <thead>
           <tr>
-            <td>head 1</td>
-            <td>head 2</td>
-            <td>head 3</td>
+            <td v-for="(data, index) in tableData[0]" :key="index">{{data}}</td>
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>1.1</td>
-            <td>1.2</td>
-            <td>1.3</td>
-          </tr>
-          <tr>
-            <td>2.1</td>
-            <td>2.2</td>
-            <td>2.3</td>
-          </tr>
-          <tr>
-            <td>3.1</td>
-            <td>3.2</td>
-            <td>3.3</td>
+          <tr v-for="(data, index) in tableData" :key="index" v-if="index !== 0">
+            <td v-for="(i, indexi) in data" :key="indexi">{{i}}</td>
           </tr>
           </tbody>
         </table>
@@ -171,56 +128,27 @@
         <table class="striped">
           <thead>
           <tr>
-            <td>head 1</td>
-            <td>head 2</td>
-            <td>head 3</td>
+            <td v-for="(data, index) in tableData[0]" :key="index">{{data}}</td>
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>1.1</td>
-            <td>1.2</td>
-            <td>1.3</td>
-          </tr>
-          <tr>
-            <td>2.1</td>
-            <td>2.2</td>
-            <td>2.3</td>
-          </tr>
-          <tr>
-            <td>3.1</td>
-            <td>3.2</td>
-            <td>3.3</td>
+          <tr v-for="(data, index) in tableData" :key="index" v-if="index !== 0">
+            <td v-for="(i, indexi) in data" :key="indexi">{{i}}</td>
           </tr>
           </tbody>
         </table>
       </div>
     </VbContainer>
-    <VbContainer>
-      <p>without content (table)</p>
+    <VbContainer title="without content (table)">
       <table>
         <thead>
         <tr>
-          <td>head 1</td>
-          <td>head 2</td>
-          <td>head 3</td>
+          <td v-for="(data, index) in tableData[0]" :key="index">{{data}}</td>
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>1.1</td>
-          <td>1.2</td>
-          <td>1.3</td>
-        </tr>
-        <tr>
-          <td>2.1</td>
-          <td>2.2</td>
-          <td>2.3</td>
-        </tr>
-        <tr>
-          <td>3.1</td>
-          <td>3.2</td>
-          <td>3.3</td>
+        <tr v-for="(data, index) in tableData" :key="index" v-if="index !== 0">
+          <td v-for="(i, indexi) in data" :key="indexi">{{i}}</td>
         </tr>
         </tbody>
       </table>
@@ -230,17 +158,18 @@
 
 <script>
 export default {
-}
-</script>
-
-<style lang="scss" scoped>
-  figure {
-    display: inline-block;
-    margin: 0.5rem;
-  }
-  table {
-    * {
-      border: 1px solid black;
+  data () {
+    return {
+      tableData: [
+        ['Head1', 'Head2', 'Head3'],
+        ['content1', 'content2', 'content3'],
+        ['content1', 'content2', 'content3'],
+        ['content1', 'content2', 'content3'],
+        [1, 2, 3],
+        [1, 2, 3],
+        [1, 2, 3]
+      ]
     }
   }
-</style>
+}
+</script>

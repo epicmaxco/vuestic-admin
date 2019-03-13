@@ -1,26 +1,32 @@
 
 .content {
   h1 {
-    @include va-display(1)
+    @include va-display(1);
+    @extend .mt-0;
   }
   h2 {
-    @include va-display(2)
+    @include va-display(2);
+    @extend .mt-0;
   }
   h3 {
-    @include  va-display(3)
+    @include  va-display(3);
+    @extend .mt-0;
   }
   h4 {
-    @include va-display(4)
+    @include va-display(4);
+    @extend .mt-0;
   }
   h5 {
-    @include va-display(5)
+    @include va-display(5);
+    @extend .mt-0;
   }
   h6 {
-    @include va-display(6)
+    @include va-display(6);
+    @extend .mt-0;
   }
   pre {
     overflow-x: auto;
-    padding: 1rem;
+    @extend .pa-3;
     white-space: pre;
     word-wrap: normal;
     &.code {
@@ -42,16 +48,6 @@
     box-sizing: border-box;
     box-shadow: $widget-box-shadow;
     word-wrap: break-word;
-    &.warning {
-      border-top: $brand-warning solid 0.5rem;
-    }
-    &.danger {
-      border-top: $brand-danger solid 0.5rem;
-    }
-    &.bright {
-      background-color: $brand-success;
-      color: $white;
-    }
     figcaption {
       flex: 1 1 auto;
       padding: 1.25rem;
@@ -63,20 +59,26 @@
   table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 1rem;
+    @extend .mb-3;
     thead tr {
-      font-weight: bold;
-      text-transform: uppercase;
+      border-bottom: 2px solid $vue-darkest-blue;
+      td {
+        @extend .title;
+        color: $vue-darkest-blue;
+      }
     }
     td {
-      padding: .5rem;
+      padding: .625rem;
+      font-size: .875rem;
+      line-height: 1.43;
+      color: $vue-darkest-blue;
     }
     &.striped {
       tbody tr:nth-of-type(odd) {
         background-color: $white;
       }
       tbody tr:nth-of-type(even) {
-        background-color: $light-gray2;
+        background-color: $light-gray3;
       }
     }
   }
