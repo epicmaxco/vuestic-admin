@@ -2,7 +2,7 @@
 
 Hi! We are really excited that you are interested in contributing to Vuestic. Before submitting your contribution though, please make sure to take a moment and read through the following guidelines.
 
-* [Code of Conduct](./../CODE_OF_CONDUCT.md)
+* [Code of Conduct](https://github.com/epicmaxco/vuestic-admin/master/CODE_OF_CONDUCT.md)
 
 ## Pull Request Guidelines
 
@@ -20,8 +20,9 @@ Commit messages should follow the [commit message convention](./COMMIT_CONVENTIO
 ### Branches
 
 * Public branches (**epicmax/vuestic-admin**):
-  * `master` - stable snapshot from `develop`. Releases and hotfixes only. Do not submit PR's to `master`! (that's not entirely true as hotfixes are still possible to be in master, but not in develop).
-  * `develop` - main development branch. Houses `2.0` at the moment.
+  * `master` - stable snapshot from `develop`. Releases and hotfixes only. Do not submit PR's to `master`!
+  * `develop` - main development branch. Houses `1.9` at the moment.
+  * `2.0-release` - secondary development branch. Sits on top of `develop` (feel free to merge if something is missing).
 
 * Local branches
   * For local branches naming stick to [commit message convention](./COMMIT_CONVENTION.md). So for feature branch that adds tabs name would be `feat/tabs`.
