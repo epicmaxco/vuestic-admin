@@ -1,23 +1,12 @@
 <template>
-  <div class="vuestic-accordion">
+  <div class="va-accordion">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'vuestic-accordion',
-  props: {
-    expand: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  data () {
-    return {
-      lastClickedTab: {},
-    }
-  },
+  name: 'va-accordion',
   provide () {
     return {
       accordion: {
@@ -27,11 +16,6 @@ export default {
   },
   methods: {
     onChildChange (child, state) {
-      // Expand means opening one collapse won't close others.
-      if (this.expand) {
-        return
-      }
-
       // No reaction when user closes collapse.
       if (state === false) {
         return
@@ -48,9 +32,7 @@ export default {
 }
 </script>
 
-// HACK Accordion for presentation page
 <style lang="scss">
-.vuestic-accordion {
-
+.va-accordion {
 }
 </style>

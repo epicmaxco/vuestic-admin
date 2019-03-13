@@ -21,6 +21,7 @@
     "button": "BUTTON",
     "buttonGroups": "Button Groups",
     "buttonToggles": "Button Toggles",
+    "pagination": "Pagination",
     "a-link": "A-LINK",
     "router-link": "ROUTER-LINK",
     "colors": "Button Colors",
@@ -51,8 +52,9 @@
     "bubbleChart": "Bubble Chart"
   },
   "collapse": {
-    "accordion": "Accordion",
-    "buttons": "Buttons"
+    "basic": "Basic Collapse",
+    "collapseWithBackground": "Collapse with background",
+    "collapseWithCustomHeader": "Collapse with custom header"
   },
   "dashboard": {
     "dataVisualization": "Data Visualization",
@@ -190,7 +192,8 @@
   "language": {
     "brazilian_portuguese": "Português",
     "english": "English",
-    "spanish": "Spanish"
+    "spanish": "Spanish",
+    "simplified_chinese": "Simplified Chinese"
   },
   "menu": {
     "auth": "Auth",
@@ -198,7 +201,7 @@
     "charts": "Charts",
     "colorPickers": "Color Pickers",
     "filters": "Filters",
-    "collapse": "Collapse",
+    "collapses": "Collapses",
     "timelines": "Timelines",
     "dashboard": "Dashboard",
     "extra": "Extra",

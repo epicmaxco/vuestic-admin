@@ -69,7 +69,12 @@
 </template>
 
 <script>
+
+import VaIcon from './VaIcon'
 export default {
+  components: {
+    VaIcon
+  },
   data () {
     return {
       icon: 'iconicstroke iconicstroke-info',

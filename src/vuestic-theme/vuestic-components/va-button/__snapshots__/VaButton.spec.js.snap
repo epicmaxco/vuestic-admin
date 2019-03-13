@@ -13,9 +13,9 @@ exports[`VaButton a button with defined href and target 1`] = `
 exports[`VaButton button with both icons 1`] = `
 <button tabindex="0" class="va-button va-button--success va-button--default va-button--without-title va-button--with-left-icon va-button--with-right-icon va-button--normal">
   <div class="va-button__content">
-    <va-icon fixed-width="" icon="brandico brandico-facebook" class="va-button__content__icon va-button__content__icon-left"></va-icon>
+    <va-icon-stub icon="brandico brandico-facebook" fixedwidth="true" class="va-button__content__icon va-button__content__icon-left"></va-icon-stub>
     <!---->
-    <va-icon fixed-width="" icon="iconicstroke iconicstroke-info" class="va-button__content__icon va-button__content__icon-right"></va-icon>
+    <va-icon-stub icon="iconicstroke iconicstroke-info" fixedwidth="true" class="va-button__content__icon va-button__content__icon-right"></va-icon-stub>
   </div>
 </button>
 `;
@@ -81,13 +81,23 @@ exports[`VaButton outline button 1`] = `
 `;
 
 exports[`VaButton router-link button with defined to and active class properties 1`] = `
-<router-link to="[object Object]" active-class="va-button--active" tabindex="0" class="va-button va-button--success va-button--default va-button--without-title va-button--normal">
+<a tabindex="0" class="va-button va-button--success va-button--default va-button--without-title va-button--normal">
   <div class="va-button__content">
     <!---->
     <!---->
     <!---->
   </div>
-</router-link>
+</a>
+`;
+
+exports[`VaButton router-link button with defined to property 1`] = `
+<a tabindex="0" class="va-button va-button--success va-button--default va-button--without-title va-button--normal">
+  <div class="va-button__content">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</a>
 `;
 
 exports[`VaButton small button 1`] = `
