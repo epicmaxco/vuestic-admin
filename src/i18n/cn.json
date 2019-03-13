@@ -39,14 +39,10 @@
     "buttons": "按钮"
   },
   "dashboard": {
-    "dataVisualization": "数据可视化",
     "success": "成功",
     "successMessage": "您已成功阅读此重要通知。",
     "elements": "元素",
-    "features": "特征",
-    "setupProfile": "设置配置文件",
     "teamMembers": "团队成员",
-    "usersAndMembers": "用户和会员",
     "versions": "版本"
   },
   "notificationsPage": {
