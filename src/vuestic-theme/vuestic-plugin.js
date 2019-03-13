@@ -23,6 +23,10 @@ import PreLoader
   from './vuestic-components/vuestic-preloader/VuesticPreLoader.vue'
 import ProfileCard
   from './vuestic-components/vuestic-profile-card/VuesticProfileCard.vue'
+import VaBadge
+  from './vuestic-components/va-chip/VaBadge.vue'
+import VaChip
+  from './vuestic-components/va-chip/VaChip.vue'
 import VaButton
   from './vuestic-components/va-button/VaButton.vue'
 import VaButtonGroup
@@ -54,8 +58,6 @@ import DatePicker
 import Card from './vuestic-components/vuestic-card/VuesticCard'
 import FileUpload
   from './vuestic-components/vuestic-file-upload/VuesticFileUpload'
-import Tag from './vuestic-components/vuestic-tag/VuesticTag'
-import TagGroup from './vuestic-components/vuestic-tag/VuesticTagGroup'
 import VaIcon from './vuestic-components/va-icon/VaIcon'
 import VuesticDropdown
   from './vuestic-components/vuestic-dropdown/VuesticDropdown'
@@ -104,6 +106,8 @@ const VuesticPlugin = {
       PreLoader,
       ProfileCard,
       VaProgressBar,
+      VaBadge,
+      VaChip,
       VaSlider,
       VaButton,
       VaButtonGroup,
@@ -128,8 +132,6 @@ const VuesticPlugin = {
       VuesticDropdown,
       DatePicker,
       Card,
-      Tag,
-      TagGroup,
       VaIcon,
       VaAccordion,
       VaCollapse,

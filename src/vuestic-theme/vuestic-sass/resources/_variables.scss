@@ -229,6 +229,31 @@ $btn-icon-width-nrm: 1.5rem;
 $btn-with-icon-wrapper-padding-nrm: 0.5rem;
 $btn-with-icon-content-padding-nrm: 0.5rem;
 
+//Chips
+$chip-border: 0;
+$chip-border-outline: 0.125rem;
+$chip-box-shadow: 0 0.125rem 0.19rem 0;
+$chip-transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+
+$chip-padding-y-sm: 0.125rem;
+$chip-padding-x-sm: 0.5rem;
+$chip-font-size-sm: 0.625rem;
+$chip-line-height-sm: 1.5;
+$chip-border-radius-sm: 0.5rem;
+$chip-letter-spacing-sm: 0.0625rem;
+$chip-icon-width-sm: 1rem;
+$chip-with-icon-wrapper-padding-sm: 0.25rem;
+$chip-with-icon-content-padding-sm: 0.25rem;
+
+$chip-padding-y-nrm: 0.25rem;
+$chip-padding-x-nrm: 0.75rem;
+$chip-font-size-nrm: 0.875rem;
+$chip-line-height-nrm: 1.29;
+$chip-border-radius-nrm: 1.125rem;
+$chip-icon-width-nrm: 0.75rem;
+$chip-with-icon-wrapper-padding-nrm: 0.5rem;
+$chip-with-icon-content-padding-nrm: 0.5rem;
+
 //Dropdowns
 $dropdown-box-shadow: $greeny-box-shadow;
 $dropdown-background: $darkest-gray;

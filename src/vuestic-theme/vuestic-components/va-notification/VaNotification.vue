@@ -81,19 +81,6 @@ export default {
     border: $va-notification-border solid transparent;
     border-radius: $va-notification-border-radius;
 
-    &__badge {
-      padding: $va-badge-padding-y $va-badge-padding-x;
-      font-family: $font-family-sans-serif;
-      font-weight: bold;
-      text-transform: uppercase;
-      white-space: nowrap;
-      font-size: $va-badge-font-size;
-      color: $white;
-      letter-spacing: $va-badge-letter-spacing;
-      margin-right: $va-badge-margin-right;
-      border-radius: $va-badge-border-radius;
-    }
-
     &__close-icon {
       padding: $va-close-icon-padding-y $va-close-icon-padding-x;
       font-size: $va-close-icon-font-size;

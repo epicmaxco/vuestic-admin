@@ -110,8 +110,8 @@ export const breadcrumbs = {
           displayName: 'menu.fileUpload',
         },
         {
-          name: 'tags',
-          displayName: 'menu.tags',
+          name: 'chips',
+          displayName: 'menu.chips',
         },
         {
           name: 'cards',
