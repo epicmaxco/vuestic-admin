@@ -4,8 +4,8 @@
     outline
     v-model="value"
     :color="color"
-    :icon-right="closeable ? 'ion ion-md-close ion' : ''"
-    @hide="$emit('input', false)"
+    :icon-right="removable ? 'ion ion-md-close ion' : ''"
+    @close="$emit('input', false)"
   >
     <slot/>
   </va-chip>
@@ -26,9 +26,9 @@ export default {
       type: String,
       default: 'success'
     },
-    closeable: {
+    removable: {
       type: Boolean
     }
-  }
+  },
 }
 </script>

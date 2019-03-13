@@ -4,7 +4,7 @@
       <va-tag>
         Tag
       </va-tag>
-      <va-tag v-model="isCloseableTagVisible" closeable>
+      <va-tag v-model="isCloseableTagVisible" removable>
         Closeable Tag
       </va-tag>
     </VbContainer>

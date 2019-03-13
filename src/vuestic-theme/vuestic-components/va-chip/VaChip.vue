@@ -43,9 +43,6 @@ export default {
       type: String,
       default: 'success'
     },
-    isBadge: {
-      type: Boolean
-    },
     icon: {
       type: String
     },
@@ -67,8 +64,6 @@ export default {
         'va-chip--without-title': !this.hasTitleData,
         'va-chip--with-left-icon': this.icon,
         'va-chip--with-right-icon': this.iconRight,
-        'va-chip--small': this.isBadge,
-        'va-chip--normal': !this.isBadge
       }
     },
     hasTitleData () {
@@ -78,7 +73,7 @@ export default {
   methods: {
     hideChip () {
       if (this.iconRight === 'ion ion-md-close ion') {
-        this.$emit('hide')
+        this.$emit('close')
       }
     },
   },
@@ -86,20 +81,19 @@ export default {
 </script>
 
 <style lang='scss'>
-  @mixin chip-size($padding-y, $padding-x, $font-size, $line-height, $border-radius) {
-    padding: $padding-y $padding-x;
-    font-size: $font-size;
-    line-height: $line-height;
-    border-radius: $border-radius;
-  }
-
   .va-chip {
     display: inline-block;
+    padding: $chip-padding-y-nrm $chip-padding-x-nrm;
+    color: $white;
+    border: $chip-border;
+    border-radius: $chip-border-radius-nrm;
+    font-size: $chip-font-size-nrm;
+    font-family: $font-family-sans-serif;
     background-image: none;
     box-shadow: none;
     outline: none !important;
-    border: $chip-border;
-    font-family: $font-family-sans-serif;
+    line-height: $chip-line-height-nrm;
+    letter-spacing: normal;
     text-decoration: none !important;
     cursor: pointer;
     transition: $chip-transition;
@@ -109,60 +103,25 @@ export default {
       &__title, &__icon {
         margin: auto;
       }
-    }
 
-    &--small {
-      @include chip-size($chip-padding-y-sm, $chip-padding-x-sm, $chip-font-size-sm, $chip-line-height-sm, $chip-border-radius-sm);
-      letter-spacing: $chip-letter-spacing-sm;
-      font-weight: bold;
-      text-transform: uppercase;
-      white-space: nowrap;
-      color: $white;
-
-      .va-chip__content__icon {
-        width: $chip-icon-width-sm;
-      }
-
-      &.va-chip--with-left-icon {
-        padding-left: $chip-with-icon-wrapper-padding-sm;
-
-        .va-chip__content__title {
-          padding-left: $chip-with-icon-content-padding-sm;
-        }
-      }
-
-      &.va-chip--with-right-icon {
-        padding-right: $chip-with-icon-wrapper-padding-sm;
-
-        .va-chip__content__title {
-          padding-right: $chip-with-icon-content-padding-sm;
-        }
-      }
-    }
-
-    &--normal {
-      @include chip-size($chip-padding-y-nrm, $chip-padding-x-nrm, $chip-font-size-nrm, $chip-line-height-nrm, $chip-border-radius-nrm);
-      letter-spacing: normal;
-      color: $white;
-
-      .va-chip__content__icon {
+      &__icon {
         width: $chip-icon-width-nrm;
       }
+    }
 
-      &.va-chip--with-left-icon {
-        padding-left: $chip-with-icon-wrapper-padding-nrm;
+    &.va-chip--with-left-icon {
+      padding-left: $chip-with-icon-wrapper-padding-nrm;
 
-        .va-chip__content__title {
-          padding-left: $chip-with-icon-content-padding-nrm;
-        }
+      .va-chip__content__title {
+        padding-left: $chip-with-icon-content-padding-nrm;
       }
+    }
 
-      &.va-chip--with-right-icon {
-        padding-right: $chip-with-icon-wrapper-padding-nrm;
+    &.va-chip--with-right-icon {
+      padding-right: $chip-with-icon-wrapper-padding-nrm;
 
-        .va-chip__content__title {
-          padding-right: $chip-with-icon-content-padding-nrm;
-        }
+      .va-chip__content__title {
+        padding-right: $chip-with-icon-content-padding-nrm;
       }
     }
   }
@@ -189,10 +148,8 @@ export default {
         color: $white;
       }
 
-      &.va-chip--normal {
-        &:focus {
-          box-shadow: $chip-box-shadow $box-shadow;
-        }
+      &:focus {
+        box-shadow: $chip-box-shadow $box-shadow;
       }
 
       &:active, &:focus {
