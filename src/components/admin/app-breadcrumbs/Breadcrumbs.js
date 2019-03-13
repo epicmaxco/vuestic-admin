@@ -1,7 +1,7 @@
 export const breadcrumbs = {
   root: {
     name: '/',
-    displayName: 'Home',
+    displayName: 'breadcrumbs.home',
   },
   routes: [
     {

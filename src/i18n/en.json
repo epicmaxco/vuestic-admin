@@ -192,7 +192,8 @@
   "language": {
     "brazilian_portuguese": "Português",
     "english": "English",
-    "spanish": "Spanish"
+    "spanish": "Spanish",
+    "simplified_chinese": "Simplified Chinese"
   },
   "menu": {
     "auth": "Auth",
