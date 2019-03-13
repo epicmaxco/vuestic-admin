@@ -8,7 +8,12 @@
       class="flex xs1 lg1">
       <div class="form-group mb-4">
         <div class="input-group">
-          <input id="input1" v-model.number="val[0]" required/>
+          <input
+            id="input1"
+            v-model.number="val[0]"
+            required
+            @input="$emit('input', limitValue(val))"
+          />
           <label class="control-label" for="input1">
             Min
           </label>
@@ -111,8 +116,18 @@
       class="flex xs1 lg1 offset--xs1 offset--lg1">
       <div class="form-group mb-4">
         <div class="input-group">
-          <input id="input2" v-model.number="range ? val[1] : val" required/>
-          <label class="control-label" for="input2">
+          <input
+            v-if="range"
+            v-model.number="val[1]"
+            required
+            @input="$emit('input', limitValue(val))"
+          />
+          <input
+            v-else
+            v-model.number="val"
+            required
+          />
+          <label class="control-label">
             {{ range ? 'Max' : 'Value' }}
           </label>
           <va-icon icon="bar"/>
@@ -249,6 +264,9 @@ export default {
         return this.value
       },
       set (val) {
+        if (!this.range){
+          val = this.limitValue(val)
+        }
         this.$emit('input', val)
       }
     },
@@ -282,9 +300,8 @@ export default {
     }
   },
   watch: {
-    value (val) {
+    val (val) {
       validateSlider(val, this.step, this.min, this.max)
-      val = this.limitValue(val)
     },
     max (val) {
       if (val < this.min) {
