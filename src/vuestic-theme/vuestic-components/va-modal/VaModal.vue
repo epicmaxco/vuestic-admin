@@ -1,12 +1,12 @@
 <template>
-  <transition name="va-modal__overlay__transition" appear>
+  <transition name="va-modal__overlay__transition" appear :duration="withoutTransitions ? 0 : 200">
     <div
     v-if="overlayValue"
     class="va-modal__overlay"
     :class="computedOverlayClass"
     @click="checkOutside"
   >
-    <transition name="va-modal__transition" appear>
+    <transition name="va-modal__transition" appear :duration="withoutTransitions ? 0 : 500">
       <div
         v-if="value"
         class="va-modal"
@@ -24,8 +24,8 @@
           <div v-if="hasHeaderSlot" class="va-modal__header">
             <slot name="header"/>
           </div>
-          <div v-if="message" class="mb-4">{{message}}</div>
-          <div v-if="hasContentSlot" class="mb-4">
+          <div v-if="message" class="mb-4 va-modal__message">{{message}}</div>
+          <div v-if="hasContentSlot" class="mb-4 va-modal__message">
             <slot/>
           </div>
           <div v-if="(cancelText || okText) && !hideDefaultActions" class="va-modal__actions mb-3">
