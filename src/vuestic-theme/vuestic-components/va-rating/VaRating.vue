@@ -1,15 +1,9 @@
 <template>
   <div
     class="va-rating"
-    :class="{
-      'va-rating--disabled' : disabled,
-      'va-rating--readonly' : readonly,
-      'va-rating--medium' : size === 'medium',
-      'va-rating--small' : size === 'small',
-      'va-rating--large' : size === 'large'
-    }"
-    @mouseover="isHover = true"
-    @mouseout="isHover = false"
+    :class="computedClasses"
+    @mouseover="isHovered = true"
+    @mouseout="isHovered = false"
     :style="{
       'color':color,
       'fontSize': getIconSize(),
@@ -23,9 +17,6 @@
         'va-rating__numbers--empty' : !compareWithValue(number)
       }"
       class="va-rating__numbers"
-      :style="{
-        'background-color' : color
-      }"
       @click="setCurrentValue(number, 1)"
       :tabindex="getTabindex(number)"
       @mouseleave="tabindex = null"
@@ -40,17 +31,16 @@
       :key="itemNumber"
       :icon="icon"
       :emptyIcon="emptyIconComputed"
-      :value="isItemSelected(itemNumber)"
-      :iconClasses="getIconClasses(itemNumber)"
+      :value="getItemValue(itemNumber)"
       :halfIcon="halfIconComputed"
+      :iconClasses="getIconClasses(itemNumber)"
       class="va-rating__icons"
       :style="{'width' : getIconSize()}"
       @click="setCurrentValue(itemNumber, $event)"
       @hover="onHover(itemNumber, $event)"
       :hover="getItemHover(itemNumber)"
-      :isHalf="itemNumber - value === 0.5"
       :tabindex="getTabindex(itemNumber)"
-      :isRatingHover="isHover"
+      :isRatingHover="isHovered"
       @mouseout.native="onHover(value)"
       @mouseleave.native="tabindex = null"
       @mouseover.native="tabindex = itemNumber"
@@ -98,13 +88,13 @@ export default {
     },
     color: {
       type: String,
-      default: '#4ae387'
+      default: 'success'
     }
   },
   data () {
     return {
       lastHoverItemNumber: this.value,
-      isHover: false,
+      isHovered: false,
       tabindex: 0
     }
   },
@@ -122,6 +112,22 @@ export default {
     },
     halfIconComputed () {
       return this.disabled || this.readonly ? '' : this.halfIcon
+    },
+
+    computedClasses () {
+      return {
+        'va-rating--success': this.color === 'success',
+        'va-rating--info': this.color === 'info',
+        'va-rating--danger': this.color === 'danger',
+        'va-rating--warning': this.color === 'warning',
+        'va-rating--gray': this.color === 'gray',
+        'va-rating--dark': this.color === 'dark',
+        'va-rating--disabled': this.disabled,
+        'va-rating--readonly': this.readonly,
+        'va-rating--medium': this.size === 'medium',
+        'va-rating--small': this.size === 'small',
+        'va-rating--large': this.size === 'large',
+      }
     },
   },
   methods: {
@@ -144,10 +150,14 @@ export default {
         return 0.75 + 'rem'
       }
     },
-    onHover (item) {
+    onHover (itemNumber) {
       if (this.halfIcon) {
-        this.lastHoverItemNumber = item
+        this.lastHoverItemNumber = itemNumber
       }
+    },
+    getIconClasses (itemNumber) {
+      const iconClass = this.emptyIcon || this.icon + ' ' + 'va-rating__icons--empty'
+      return this.compareWithValue(itemNumber) ? this.icon : iconClass
     },
     getIconSize () {
       let k = 7 / 6 // coefficient, which controls connection between size and font-size
@@ -155,104 +165,128 @@ export default {
         k = 4.5 / 7
       }
       const regEx = /[a-z]/gim
-      const measure = this.getItemsFontSize().match(regEx).join('')
-      return this.getItemsFontSize().replace(regEx, '') * k + measure
-    },
-    getIconClasses (item) {
-      const iconClass = this.emptyIcon || this.icon + ' ' + 'va-rating__icons--empty'
-      return this.compareWithValue(item) ? this.icon : iconClass
+      const size = this.getItemsFontSize()
+      const unit = size.match(regEx).join('')
+      return size.replace(regEx, '') * k + unit
     },
     setCurrentValue (item, value) {
       if (this.readonly || this.disabled) {
         return
       }
-      this.valueProxy = value === 1 ? item : item - 0.5
+      if (item - this.valueProxy === 0.5) {
+        this.valueProxy += 0.5
+      } else {
+        this.valueProxy = item - 1 + value
+      }
     },
-    isItemSelected (itemIndex) {
-      return this.hover ? false : this.compareWithValue(itemIndex)
+    getItemValue (itemIndex) {
+      return this.hover ? 0 : this.compareWithValue(itemIndex)
     },
-    compareWithValue (item) {
-      return item <= this.value
+    compareWithValue (itemNumber) {
+      if (itemNumber - this.value === 0.5) {
+        return 0.5
+      }
+      if (itemNumber <= this.value) {
+        return 1
+      }
+      return 0
     },
-    getItemHover (item) {
-      return (item <= this.lastHoverItemNumber) && this.isHover && !!this.halfIcon
+    getItemHover (itemNumber) {
+      return (itemNumber <= this.lastHoverItemNumber) && this.isHovered && !!this.halfIcon
     }
   }
 }
 </script>
 
 <style lang="scss">
-.va-rating {
-  display: flex;
-  &__icons {
+
+$vuestic-colors: (
+  success: ($vue-green, #d6ffd3),
+  danger: (#ff7455, #b86e6d),
+  warning: (#ffd72d, #cbb06e),
+  info: (#32b5e4, #6c97ac),
+  gray: (#cdd0d5, #a3aab0),
+  dark: (#576675, #aebcca)
+);
+@each $name, $colors in $vuestic-colors {
+  $color: nth($colors, 1);
+  $color-empty: nth($colors, 2);
+
+  .va-rating {
     display: flex;
-    cursor: pointer;
-    @include flex-center();
-    @at-root {
-      .va-rating--disabled & {
-        @include va-disabled();
-      }
-
-      .va-rating--readonly & {
-        cursor: initial;
-      }
-
-      .va-rating--medium & {
-        width: 1rem;
-        height: 1rem;
-      }
-
-      .va-rating--small & {
-        width: 0.75rem;
-        height: 0.75rem;
-      }
-
-      .va-rating--large & {
-        width: 1.5rem;
-        height: 1.5rem;
-      }
-    }
-    &--empty {
-      opacity: 0.4;
-    }
-  }
-  &__numbers {
-    color: $white;
-    font-size: inherit;
-    margin: 0.1rem;
-    border-radius: 0.125rem;
-    font-weight: $font-weight-bold;
-    @include flex-center();
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-    @at-root {
-      .va-rating--disabled & {
-        cursor: not-allowed;
-      }
-
-      .va-rating--readonly & {
-        cursor: initial;
-      }
-
-      .va-rating--medium & {
-        width: 1rem;
-        height: 1rem;
-      }
-
-      .va-rating--small & {
-        width: 0.75rem;
-        height: 0.75rem;
-      }
-
-      .va-rating--large & {
-        width: 1.5rem;
-        height: 1.5rem;
-      }
-    }
-    &--empty {
-      @include va-disabled();
+    &__numbers {
+      font-size: inherit;
+      margin: 0.1rem;
+      border-radius: 0.125rem;
+      font-weight: $font-weight-bold;
+      @include flex-center();
       cursor: pointer;
+
+      @at-root {
+        .va-rating--#{$name} & {
+          background-color: $color;
+          color: $white;
+          &--empty {
+            background-color: $color-empty;
+            color: $color;
+          }
+        }
+        .va-rating--disabled & {
+          cursor: not-allowed;
+        }
+
+        .va-rating--readonly & {
+          cursor: initial;
+        }
+
+        .va-rating--medium & {
+          width: 1rem;
+          height: 1rem;
+        }
+
+        .va-rating--small & {
+          width: 0.75rem;
+          height: 0.75rem;
+        }
+
+        .va-rating--large & {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+    }
+    &__icons {
+      display: flex;
+      cursor: pointer;
+      @include flex-center();
+
+      @at-root {
+        .va-rating--#{$name} & {
+          color: $color;
+          &--empty {
+            color: $color-empty;
+          }
+        }
+        .va-rating--disabled & {
+          @include va-disabled();
+        }
+
+        .va-rating--readonly & {
+          cursor: initial;
+        }
+
+        .va-rating--medium & {
+          width: 1rem;
+        }
+
+        .va-rating--small & {
+          width: 0.75rem;
+        }
+
+        .va-rating--large & {
+          width: 1.5rem;
+        }
+      }
     }
   }
 }

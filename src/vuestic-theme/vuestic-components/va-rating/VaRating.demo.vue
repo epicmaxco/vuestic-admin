@@ -9,45 +9,45 @@
         <tr>
           <td>Types</td>
           <td>
+            default
             <va-rating
               v-model="value"
             />
-            default
+            numbers
             <va-rating
               numbers
               v-model="value"
             />
-            numbers
           </td>
         </tr>
         <tr>
           <td>Sizes</td>
           <td>
+            medium
             <va-rating
               v-model="value"
               size="medium"
             />
-            medium
+            small
             <va-rating
               size="small"
               v-model="value"
             />
-            small
+            large
             <va-rating
               size="large"
               v-model="value"
             />
-            large
+            55px
             <va-rating
               size="55px"
               v-model="value"
             />
-            55px
+            2rem
             <va-rating
               size="2rem"
               v-model="value"
             />
-            2rem
           </td>
         </tr>
         <tr>
@@ -73,6 +73,22 @@
           <td>
             <va-rating
               v-model="value"
+              halfIcon="fa fa-star-half-full"
+              emptyIcon="fa fa-star-o"
+              size="30px"
+            />
+            readonly
+            <va-rating
+              v-model="value"
+              readonly
+              halfIcon="fa fa-star-half-full"
+              emptyIcon="fa fa-star-o"
+              size="30px"
+            />
+            disabled
+            <va-rating
+              v-model="value"
+              disabled
               halfIcon="fa fa-star-half-full"
               emptyIcon="fa fa-star-o"
               size="30px"
@@ -112,6 +128,7 @@
             <va-rating
               :max="10"
               v-model="value"
+              color="danger"
             />
           </td>
         </tr>

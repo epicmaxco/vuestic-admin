@@ -2,13 +2,13 @@
   <div
     class="va-rating-item"
     @keypress="onClickTab()"
+    @mousemove="onHover"
+    @click="onClick()"
+    @mouseleave="removeHover"
   >
     <i
       :class="iconClassesComputed"
       class="va-rating-item__icon"
-      @mousemove="onHover"
-      @mouseleave="removeHover"
-      @click="onClick()"
     />
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {
   name: 'va-rating-item',
   props: {
     value: {
-      type: Boolean
+      type: Number
     },
     icon: {
       type: String,
@@ -29,9 +29,6 @@ export default {
     },
     halfIcon: {
       type: String
-    },
-    isHalf: {
-      type: Boolean
     },
     iconClasses: {
       type: String
@@ -52,10 +49,13 @@ export default {
   },
   computed: {
     iconClassesComputed () {
-      if (!this.isRatingHover && !this.value && !this.isHalf) {
+      if (!this.isRatingHover && this.value === 0.5 && this.halfIcon) {
+        return this.halfIcon
+      }
+      if (!this.isRatingHover && this.value === 0 && this.value !== 0.5) {
         return this.emptyIcon
       }
-      if (!this.isRatingHover && this.value) {
+      if (!this.isRatingHover && this.value !== 0) {
         return this.icon
       }
       if (this.isRatingHover && !this.hover && this.halfIcon) {
@@ -79,7 +79,7 @@ export default {
       }
     },
     onClickTab () {
-      if (this.onHoverClasses === this.halfIcon) {
+      if (this.halfIcon) {
         this.$emit('click', 0.5)
       } else {
         this.$emit('click', 1)
@@ -88,7 +88,7 @@ export default {
     onHover (item) {
       if (this.halfIcon) {
         const size = this.$el.clientHeight
-        if (size / item.offsetX >= 2) {
+        if (size / item.offsetX >= 2 || item.offsetX <= 0) {
           this.hoverValue = 0.5
           this.$emit('hover', 0.5)
           this.onHoverClasses = this.halfIcon
@@ -104,17 +104,6 @@ export default {
         this.onHoverClasses = ''
         this.hoverValue = 0
       }
-      if (this.halfIcon && this.value) {
-        this.iconClasses = this.icon
-        return
-      }
-      if (this.halfIcon && this.emptyIcon) {
-        this.iconClasses = this.emptyIcon
-        return
-      }
-      if (this.halfIcon && !this.value && !this.emptyIcon) {
-        this.iconClasses = this.icon + 'text--secondary'
-      }
     }
   }
 }
@@ -122,9 +111,6 @@ export default {
 
 <style lang="scss">
 .va-rating-item {
-  &--actuve {
-    outline: none;
-  }
-  &__icon {}
+
 }
 </style>

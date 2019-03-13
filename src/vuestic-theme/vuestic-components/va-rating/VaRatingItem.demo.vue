@@ -43,7 +43,6 @@
           </td>
         </tr>
         <tr>
-          <td>half Icon && isHalf</td>
           <td>
             <va-rating-item
               isHalf
