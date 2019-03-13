@@ -43,18 +43,7 @@
     @extend .va-blockquote
   }
   figure {
-    border-radius: 0;
-    border: none;
-    box-sizing: border-box;
-    box-shadow: $widget-box-shadow;
-    word-wrap: break-word;
-    figcaption {
-      flex: 1 1 auto;
-      padding: 1.25rem;
-    }
-    p:last-child {
-      margin-bottom: 0;
-    }
+    @extend .va-card
   }
   table {
     width: 100%;
