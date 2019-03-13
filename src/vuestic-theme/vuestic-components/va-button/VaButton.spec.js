@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils'
+import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import VaButton from './VaButton'
 
 describe('VaButton', () => {
@@ -118,9 +118,12 @@ describe('VaButton', () => {
     const wrapper = shallowMount(VaButton, {
       propsData: {
         to: { name: 'charts' }
+      },
+      stubs: {
+        RouterLink: RouterLinkStub
       }
     })
-    expect(wrapper.is('router-link')).toBe(true)
+    expect(wrapper.html()).toMatchSnapshot()
   })
 
   it('router-link button with defined to and active class properties', () => {
@@ -128,9 +131,11 @@ describe('VaButton', () => {
       propsData: {
         to: { name: 'charts' },
         activeClass: 'va-button--active'
+      },
+      stubs: {
+        RouterLink: RouterLinkStub
       }
     })
-    expect(wrapper.is('router-link')).toBe(true)
     expect(wrapper.html()).toMatchSnapshot()
   })
 

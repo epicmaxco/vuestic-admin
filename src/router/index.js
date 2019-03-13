@@ -281,6 +281,14 @@ export default new Router({
               name: 'spacing',
               path: 'spacing',
               component: () => import('../components/ui/spacing/Spacing')
+            },
+            {
+              name: 'sliders',
+              path: 'sliders',
+              component: () => import('../components/ui/sliders/Sliders'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Sliders'
+              },
             }
           ]
         },

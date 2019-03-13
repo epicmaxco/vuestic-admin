@@ -2,14 +2,14 @@
   <div class="icon-set">
     <vuestic-widget class="icon-set__header mb-4 py-3">
       <div class="va-row">
-        <div class=" flex md4 xs12 pl-5 icon-set__header__text">
+        <div class="flex md4 xs12 pl-5 icon-set__header__text">
           <h2 class="my-0">{{ set.name }}</h2>
           <router-link :to="{ name: 'icon-sets' }">
             {{ $t('icons.back') }}
           </router-link>
         </div>
 
-        <div class=" flex md4 xs12">
+        <div class="flex md4 xs12">
           <div class="form-group with-icon-left">
             <div class="input-group">
               <input
@@ -27,14 +27,16 @@
           </div>
         </div>
 
-        <div class="d-flex flex align--center md4 xs12 px-4 icon-set__header__range">
+        <div class="d-flex flex align--center md4 xs12 px-4 vuestic-icon-set__header__range">
           <h4 class="ma-2 shrink">A</h4>
-          <vuestic-slider
-            class="grow"
-            :options="slider"
+          <va-slider
+            value-visible
             v-model="iconSize"
+            :label-value="`${iconSize}px`"
+            :min="slider.min"
+            :max="slider.max"
           >
-          </vuestic-slider>
+          </va-slider>
           <h2 class="ma-2 shrink">A</h2>
         </div>
       </div>
