@@ -11,6 +11,8 @@ import DataTable
 import Feed from './vuestic-components/vuestic-feed/VuesticFeed.vue'
 import VaProgressBar
   from './vuestic-components/va-progress-bar/progress-types/VaProgressBar.vue'
+import VaSlider
+  from './vuestic-components/va-slider/VaSlider.vue'
 import MediumEditor
   from './vuestic-components/vuestic-medium-editor/VuesticMediumEditor.vue'
 import Modal from './vuestic-components/vuestic-modal/VuesticModal.vue'
@@ -35,7 +37,7 @@ import Scrollbar
   from './vuestic-components/vuestic-scrollbar/VuesticScrollbar.vue'
 import SimpleSelect
   from './vuestic-components/vuestic-simple-select/VuesticSimpleSelect.vue'
-import Slider from './vuestic-components/vuestic-slider/VuesticSlider.vue'
+import Slider from './vuestic-components/va-slider/VaSlider.vue'
 import SocialNews
   from './vuestic-components/vuestic-social-news/VuesticSocialNews.vue'
 import Switch from './vuestic-components/vuestic-switch/VuesticSwitch.vue'
@@ -102,6 +104,7 @@ const VuesticPlugin = {
       PreLoader,
       ProfileCard,
       VaProgressBar,
+      VaSlider,
       VaButton,
       VaButtonGroup,
       VaButtonToggle,

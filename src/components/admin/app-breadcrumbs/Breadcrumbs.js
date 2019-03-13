@@ -124,6 +124,10 @@ export const breadcrumbs = {
         {
           name: 'spacing',
           displayName: 'menu.spacing'
+        },
+        {
+          name: 'sliders',
+          displayName: 'menu.sliders'
         }
       ],
     },
