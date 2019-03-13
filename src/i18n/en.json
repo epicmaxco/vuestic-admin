@@ -276,8 +276,7 @@
   },
   "chips": {
     "chips": "Chips",
-    "badges": "Badges",
-    "tags": "Tags"
+    "badges": "Badges"
   },
   "navbar": {
     "messageUs": "Web development help needed? Contact us at"

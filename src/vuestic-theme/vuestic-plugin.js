@@ -25,8 +25,6 @@ import VaBadge
   from './vuestic-components/va-chip/VaBadge.vue'
 import VaChip
   from './vuestic-components/va-chip/VaChip.vue'
-import VaTag
-  from './vuestic-components/va-chip/VaTag.vue'
 import VaButton
   from './vuestic-components/va-button/VaButton.vue'
 import VaButtonGroup
@@ -108,7 +106,6 @@ const VuesticPlugin = {
       VaProgressBar,
       VaBadge,
       VaChip,
-      VaTag,
       VaButton,
       VaButtonGroup,
       VaButtonToggle,

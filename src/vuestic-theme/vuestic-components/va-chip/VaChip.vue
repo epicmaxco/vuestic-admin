@@ -19,10 +19,10 @@
       </div>
       <va-icon
         @click.native="hideChip()"
-        v-if="iconRight"
+        v-if="iconRight || removable"
         fixed-width
         class="va-chip__content__icon scr va-chip__content__icon-right flex-center"
-        :icon="iconRight"
+        :icon="removable ? 'ion ion-md-close ion' : iconRight"
       />
     </div>
   </div>
@@ -48,6 +48,9 @@ export default {
     },
     iconRight: {
       type: String
+    },
+    removable: {
+      type: Boolean
     }
   },
   computed: {
@@ -63,7 +66,7 @@ export default {
         'va-chip--outline': this.outline,
         'va-chip--without-title': !this.hasTitleData,
         'va-chip--with-left-icon': this.icon,
-        'va-chip--with-right-icon': this.iconRight,
+        'va-chip--with-right-icon': this.iconRight || this.removable,
       }
     },
     hasTitleData () {
@@ -72,8 +75,8 @@ export default {
   },
   methods: {
     hideChip () {
-      if (this.iconRight === 'ion ion-md-close ion') {
-        this.$emit('close')
+      if (this.removable) {
+        this.$emit('input', false)
       }
     },
   },

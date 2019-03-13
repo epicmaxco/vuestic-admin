@@ -8,6 +8,14 @@
         Outline Chip
       </va-chip>
     </VbContainer>
+    <VbContainer title="Removable Chips">
+      <va-chip removable>
+        Default Chip
+      </va-chip>
+      <va-chip outline v-model="isCloseableTagVisible" removable>
+        Outline Chip
+      </va-chip>
+    </VbContainer>
     <VbContainer title="Chip Colors">
       <va-chip>
         Success chip
@@ -94,6 +102,11 @@
 import VaChip from './VaChip'
 
 export default {
-  components: { VaChip }
+  components: { VaChip },
+  data () {
+    return {
+      isCloseableTagVisible: true,
+    }
+  }
 }
 </script>
