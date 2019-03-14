@@ -25,7 +25,7 @@ defaults: &defaults
 
 version: 2
 jobs:
-  tests:
+  test:
     <<: *defaults
     steps:
       - checkout
@@ -90,22 +90,16 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
-      - tests:
-          filters:
-            branches:
-              only:
-                - master
-                - develop
+      - test
       - deploy-staging:
-          # TODO Gonna figure what to do with button tests.
-          #  requires:
-          #    - tests
+          requires:
+            - test
           filters:
             branches:
               only: develop
       - deploy-production:
           requires:
-            - tests
+            - test
           context: vuestic-production
           filters:
             branches:
