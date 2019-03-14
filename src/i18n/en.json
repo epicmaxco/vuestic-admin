@@ -241,9 +241,9 @@
     "new": "New messages from {name}"
   },
   "modal": {
-    "cancel": "CANCEL",
-    "close": "CLOSE",
-    "confirm": "CONFIRM",
+    "cancel": "Cancel",
+    "close": "Close",
+    "confirm": "Confirm",
     "large": "Large",
     "largeTitle": "Large Modal",
     "medium": "Medium",
@@ -251,9 +251,15 @@
     "small": "Small",
     "smallTitle": "Small Modal",
     "static": "Static",
-    "staticMessage": "This is a static modal, backdrop click will not close it.",
+    "staticMessage": "This is a static modal, backdrop or escape click will not close it.",
     "staticTitle": "Static Modal",
-    "title": "Modals"
+    "title": "Modals",
+    "titlePosition": "Modal Position",
+    "top": "Top",
+    "right": "Right",
+    "bottom": "Bottom",
+    "left": "Left",
+    "message": "There are three species of zebras: the plains zebra, the mountain zebra and the Grévy's zebra. The plains zebra and the mountain zebra belong to the subgenus Hippotigris, but Grévy's\n        zebra is the sole species of subgenus\n        Dolichohippus. The latter resembles an ass, to which it is closely\n        related, while the former two are more\n        horse-like. All three belong to the genus Equus, along with other living\n        equids."
   },
   "dropdown": {
     "default": "Default",

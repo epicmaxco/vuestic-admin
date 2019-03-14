@@ -15,7 +15,7 @@ import VaSlider
   from './vuestic-components/va-slider/VaSlider.vue'
 import MediumEditor
   from './vuestic-components/vuestic-medium-editor/VuesticMediumEditor.vue'
-import Modal from './vuestic-components/vuestic-modal/VuesticModal.vue'
+import Modal from './vuestic-components/va-modal/VaModal.vue'
 import MultiSelect
   from './vuestic-components/vuestic-multi-select/VuesticMultiSelect.vue'
 import Popover from './vuestic-components/vuestic-popover/VuesticPopover.vue'
