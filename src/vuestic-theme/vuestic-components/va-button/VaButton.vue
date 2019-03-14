@@ -3,6 +3,7 @@
     :is="computedTag"
     class="va-button"
     :class="buttonClass"
+    :style="buttonStyle"
     :disabled="disabled"
     :type="type"
     :href="href"
@@ -14,6 +15,10 @@
     :exact="exact"
     :exact-active-class="exactActiveClass"
     v-on="inputListeners"
+    @mouseenter="updateHoverState(true)"
+    @mouseleave="updateHoverState(false)"
+    @focus="updateFocusState(true)"
+    @blur="updateFocusState(false)"
     tabindex="0"
   >
     <div class="va-button__content">
@@ -39,6 +44,8 @@
 </template>
 
 <script>
+import { getGradientColor, getHoverColor, getFocusColor, getBoxShadowColor } from '../../../services/colors'
+
 export default {
   name: 'va-button',
   props: {
@@ -101,6 +108,12 @@ export default {
       type: String
     }
   },
+  data () {
+    return {
+      hoverState: false,
+      focusState: false,
+    }
+  },
   computed: {
     buttonClass () {
       return {
@@ -120,6 +133,36 @@ export default {
         'va-button--large': this.large,
         'va-button--small': this.small,
         'va-button--normal': !this.large && !this.small
+      }
+    },
+    buttonStyle () {
+      if (this.focusState) {
+        return {
+          color: this.flat || this.outline ? this.$theme[this.color] : '#ffffff',
+          borderColor: this.outline ? this.$theme[this.color] : '',
+          background: this.flat || this.outline ? getFocusColor(this.color) : '',
+          backgroundImage:
+            !this.flat && !this.outline ? 'linear-gradient(to right,' + getGradientColor(this.color)[0] +
+              ',' + getGradientColor(this.color)[1] + ')' : '',
+        }
+      } else if (this.hoverState) {
+        return {
+          color: this.flat || this.outline ? this.$theme[this.color] : '#ffffff',
+          borderColor: this.outline ? this.$theme[this.color] : '',
+          background: this.flat || this.outline ? getHoverColor(this.color) : '',
+          backgroundImage:
+            !this.flat && !this.outline ? 'linear-gradient(to right,' + getGradientColor(this.color)[0] +
+              ',' + getGradientColor(this.color)[1] + ')' : '',
+        }
+      } else {
+        return {
+          color: this.flat || this.outline ? this.$theme[this.color] : '#ffffff',
+          borderColor: this.outline ? this.$theme[this.color] : '',
+          backgroundImage:
+            !this.flat && !this.outline ? 'linear-gradient(to right,' + getGradientColor(this.color)[0] +
+              ',' + getGradientColor(this.color)[1] + ')' : '',
+          boxShadow: !this.flat && !this.outline ? '0 0.125rem 0.19rem 0' + getBoxShadowColor(this.color) : ''
+        }
       }
     },
     hasTitleData () {
@@ -142,11 +185,19 @@ export default {
         {
           click: function (event) {
             vm.$emit('click', event)
-          }
+          },
         }
       )
     }
   },
+  methods: {
+    updateHoverState (isHover) {
+      this.hoverState = isHover
+    },
+    updateFocusState (isHover) {
+      this.focusState = isHover
+    },
+  }
 }
 </script>
 
@@ -182,10 +233,40 @@ export default {
       }
     }
 
+    &--default {
+      &:hover {
+        filter: brightness(115%);
+      }
+
+      &:focus, &:active {
+        filter: brightness(85%);
+      }
+
+      i {
+        color: $white;
+      }
+    }
+
+    &--outline {
+      background-color: transparent;
+      border: solid $btn-border-outline;
+      text-decoration: none;
+    }
+
+    &--flat {
+      background: transparent;
+      border: $btn-border solid transparent;
+      text-decoration: none;
+    }
+
+    &.va-button--disabled {
+      @include va-disabled;
+    }
+
     &--large {
       @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
       letter-spacing: $btn-letter-spacing-lg;
-      color: $white;
+      // color: $white;
 
       .va-button__content__icon {
         width: $btn-icon-width-lg;
@@ -215,7 +296,7 @@ export default {
     &--small {
       @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
       letter-spacing: $btn-letter-spacing-sm;
-      color: $white;
+      // color: $white;
 
       .va-button__content__icon {
         width: $btn-icon-width-sm;
@@ -245,7 +326,7 @@ export default {
     &--normal {
       @include button-size($btn-padding-y-nrm, $btn-padding-x-nrm, $btn-font-size-nrm, $btn-line-height-nrm, $btn-border-radius-nrm);
       letter-spacing: $btn-letter-spacing-nrm;
-      color: $white;
+      // color: $white;
 
       .va-button__content__icon {
         width: $btn-icon-width-nrm;
@@ -290,31 +371,7 @@ export default {
     $hover-color: nth($colors, 5);
     $focus-color: nth($colors, 6);
 
-    .va-button--#{$name}.va-button--default{
-      background-image: linear-gradient(to right, $gradient-color1, $gradient-color2);
-      box-shadow: $btn-box-shadow $box-shadow;
-
-      &:hover {
-        background-image: linear-gradient(to right, lighten($gradient-color1, 15%), lighten($gradient-color2, 15%));
-        color: $white !important;
-      }
-
-      &:active, &:focus, &.va-button--active {
-        background-image: linear-gradient(to right, darken($gradient-color1, 15%), darken($gradient-color2, 15%));
-        color: $white !important;
-      }
-
-      &.va-button--disabled {
-        background-image: linear-gradient(to right, $gradient-color1, $gradient-color2);
-        @include va-disabled;
-      }
-    }
-
     .va-button--#{$name}.va-button--outline{
-      background-color: transparent;
-      border: solid $btn-border-outline $border-color;
-      text-decoration: none;
-      color: $border-color !important;
 
       .va-pagination & {
 
@@ -350,14 +407,7 @@ export default {
         }
       }
 
-      &:hover {
-        background-color: $hover-color;
-        color: $border-color !important;
-      }
-
       &:active, &:focus, &.va-button--active {
-        background-color: $focus-color;
-        color: $border-color !important;
 
         .va-button-toggle & {
           background-color: $border-color;
@@ -395,41 +445,6 @@ export default {
             }
           }
         }
-      }
-    }
-
-    .va-button--#{$name}.va-button--flat{
-      background: transparent;
-      border: $btn-border solid transparent;
-      text-decoration: none;
-      color: $border-color !important;
-
-      &:hover {
-        background-color: $hover-color;
-        color: $border-color !important;
-      }
-
-      &:active, &:focus, &.va-button--active {
-        background-color: $focus-color !important;
-        color: $border-color !important;
-        border: none;
-      }
-
-      &.va-button--disabled {
-        background: transparent;
-        @include va-disabled;
-      }
-    }
-
-    .va-button--#{$name}.va-button--default{
-      i {
-        color: $white;
-      }
-    }
-
-    .va-button--#{$name}.va-button--outline, .va-button--#{$name}.va-button--flat {
-      i {
-        color: $border-color;
       }
     }
   }

@@ -52,19 +52,106 @@ const black = Object.freeze({
   focusColor: '#afb6bb',
 })
 
+const themes = {
+  success: green.borderColor,
+  info: blue.borderColor,
+  danger: red.borderColor,
+  warning: yellow.borderColor,
+  gray: gray.borderColor,
+  dark: black.borderColor
+}
+
 export default {
   install (Vue, options) {
-    Vue.prototype.$theme =
-      {
-        theme:
-          {
-            success: green.borderColor,
-            info: blue.borderColor,
-            danger: red.borderColor,
-            warning: yellow.borderColor,
-            gray: gray.borderColor,
-            dark: black.borderColor
-          }
-      }
+    Vue.prototype.$theme = themes
+
+    let sheet = document.createElement('style')
+    sheet.type = 'text/css'
+    sheet.innerHTML = '.va-component--success { color: #F00; }'
+    document.body.appendChild(sheet)
+  }
+}
+
+export const getBoxShadowColor = (theme) => {
+  if (theme === 'success') {
+    return green.boxShadow
+  }
+  if (theme === 'info') {
+    return blue.boxShadow
+  }
+  if (theme === 'danger') {
+    return red.boxShadow
+  }
+  if (theme === 'warning') {
+    return yellow.boxShadow
+  }
+  if (theme === 'gray') {
+    return gray.boxShadow
+  }
+  if (theme === 'dark') {
+    return black.boxShadow
+  }
+}
+
+export const getHoverColor = (theme) => {
+  if (theme === 'success') {
+    return green.hoverColor
+  }
+  if (theme === 'info') {
+    return blue.hoverColor
+  }
+  if (theme === 'danger') {
+    return red.hoverColor
+  }
+  if (theme === 'warning') {
+    return yellow.hoverColor
+  }
+  if (theme === 'gray') {
+    return gray.hoverColor
+  }
+  if (theme === 'dark') {
+    return black.hoverColor
+  }
+}
+
+export const getFocusColor = (theme) => {
+  if (theme === 'success') {
+    return green.focusColor
+  }
+  if (theme === 'info') {
+    return blue.focusColor
+  }
+  if (theme === 'danger') {
+    return red.focusColor
+  }
+  if (theme === 'warning') {
+    return yellow.focusColor
+  }
+  if (theme === 'gray') {
+    return gray.focusColor
+  }
+  if (theme === 'dark') {
+    return black.focusColor
+  }
+}
+
+export const getGradientColor = (theme) => {
+  if (theme === 'success') {
+    return [ green.gradientLeftBorder, green.gradientRightBorder ]
+  }
+  if (theme === 'info') {
+    return [ blue.gradientLeftBorder, blue.gradientRightBorder ]
+  }
+  if (theme === 'danger') {
+    return [ red.gradientLeftBorder, red.gradientRightBorder ]
+  }
+  if (theme === 'warning') {
+    return [ yellow.gradientLeftBorder, yellow.gradientRightBorder ]
+  }
+  if (theme === 'gray') {
+    return [ gray.gradientLeftBorder, gray.gradientRightBorder ]
+  }
+  if (theme === 'dark') {
+    return [ black.gradientLeftBorder, black.gradientRightBorder ]
   }
 }
