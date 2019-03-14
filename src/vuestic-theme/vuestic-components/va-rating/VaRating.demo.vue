@@ -1,7 +1,7 @@
 <template>
   <VbDemo>
-    <VbContainer>
-      <table class="table table-bordered">
+    <VbContainer width="1200px">
+      <table class="table table-bordered" style="width: 100%">
         <tr>
           <th>Description</th>
           <th>Vuestic Rating</th>
@@ -99,32 +99,68 @@
         </tr>
         <tr>
           <td>Sizes</td>
+          <div class="va-row">
+            <div class="va-row column">
+              medium
+              <va-rating
+                v-model="value"
+                size="medium"
+              />
+              small
+              <va-rating
+                size="small"
+                v-model="value"
+              />
+              large
+              <va-rating
+                size="large"
+                v-model="value"
+              />
+              55px
+              <va-rating
+                size="55px"
+                v-model="value"
+              />
+              2rem
+              <va-rating
+                size="2rem"
+                v-model="value"
+              />
+            </div>
+            <div class="va-row column">
+              medium
+              <va-rating
+                v-model="value"
+                numbers
+                size="medium"
+              />
+              small
+              <va-rating
+                size="small"
+                numbers
+                v-model="value"
+              />
+              large
+              <va-rating
+                size="large"
+                numbers
+                v-model="value"
+              />
+              55px
+              <va-rating
+                size="55px"
+                numbers
+                v-model="value"
+              />
+              2rem
+              <va-rating
+                size="2rem"
+                numbers
+                v-model="value"
+              />
+            </div>
+          </div>
           <td>
-            medium
-            <va-rating
-              v-model="value"
-              size="medium"
-            />
-            small
-            <va-rating
-              size="small"
-              v-model="value"
-            />
-            large
-            <va-rating
-              size="large"
-              v-model="value"
-            />
-            55px
-            <va-rating
-              size="55px"
-              v-model="value"
-            />
-            2rem
-            <va-rating
-              size="2rem"
-              v-model="value"
-            />
           </td>
         </tr>
         <tr>
@@ -196,6 +232,12 @@
           <td>
             <va-rating
               :max="10"
+              v-model="value"
+              color="danger"
+            />
+            <va-rating
+              :max="10"
+              numbers
               v-model="value"
               color="danger"
             />

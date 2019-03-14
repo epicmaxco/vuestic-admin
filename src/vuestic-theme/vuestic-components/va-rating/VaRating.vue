@@ -16,6 +16,11 @@
       :class="{
         'va-rating__numbers--empty' : !compareWithValue(number)
       }"
+      :style="{
+        'width': getItemsFontSize(),
+        'height': getItemsFontSize(),
+        'fontSize': getIconSize()
+      }"
       class="va-rating__numbers"
       @click="setCurrentValue(number, 1)"
       :tabindex="getTabindex(number)"
@@ -231,6 +236,7 @@ $vuestic-colors: (
             color: $color;
           }
         }
+
         .va-rating--disabled & {
           @include va-disabled();
 
@@ -268,6 +274,7 @@ $vuestic-colors: (
             color: $color-empty;
           }
         }
+
         .va-rating--disabled & {
           @include va-disabled();
         }
