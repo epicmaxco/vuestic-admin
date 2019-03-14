@@ -22,6 +22,12 @@
           :value="search"
           @input="updateSearch($event.target.value)"
           class="va-select__input__search"
+          ref="search"
+          @focus="open()"
+          @blur="close()"
+          @keydown.down.prevent="pointerForward()"
+          @keydown.up.prevent="pointerBackward()"
+          @keydown.enter.prevent="selectValue(filteredOptions[pointer])"
         />
         <div v-else class="va-select__input__value">
           <ul class="va-select__tags" v-if="multiple && valueProxy.length <= max">
@@ -50,10 +56,14 @@
         :key="index"
         class="va-select__option"
         @click.stop="selectValue(option)"
-        :class="{'va-select__option-selected': isOptionSelected(option)}"
+        :class="{
+          'va-select__option-selected': isOptionSelected(option, index),
+          'va-select__option-highlighted': isOptionHightlighted(option, index)
+        }"
       >
         <i class="icon va-icon fa va-select__option__icon mr-1" :class="option.icon"/>
         <span>{{option.text}}</span>
+        <span v-show="isOptionHightlighted(option, index)" class="va-select__option__hightlight-text">Press enter to select</span>
         <i v-show="isOptionSelected(option)" class="icon va-icon fa fa-check va-select__option__selected-icon"/>
       </li>
     </ul>
@@ -62,20 +72,12 @@
 
 <script>
 // TODO: Use badge component for selected item in multiple select
-import Dropdown from 'vuestic-directives/Dropdown'
-import Scrollbar from '../vuestic-scrollbar/VuesticScrollbar.vue'
 
 const positions = ['top', 'bottom']
 const sizes = ['sm', 'md', 'lg']
 
 export default {
   name: 'vuestic-simple-select',
-  components: {
-    Scrollbar,
-  },
-  directives: {
-    dropdown: Dropdown,
-  },
   props: {
     options: Array,
     value: {
@@ -114,18 +116,14 @@ export default {
   data () {
     return {
       isOpen: false,
-      search: ''
-    }
-  },
-  watch: {
-    search () {
-      this.$emit('search-change', this.search)
+      search: '',
+      pointer: 0
     }
   },
   computed: {
     filteredOptions () {
       const formatedOptions = this.options ? this.options.map(option => option.value ? { ...option } : { text: option, value: option }) : []
-      const filteredOptions = formatedOptions.filter(option => (`${option.value}`.indexOf(this.search) !== -1 || option.text.indexOf(this.search) !== -1))
+      const filteredOptions = formatedOptions.filter(option => (`${option.text.toLowerCase()}`.indexOf(this.search.toLowerCase()) !== -1 || option.text.indexOf(this.search) !== -1))
       return this.searchable ? filteredOptions : formatedOptions
     },
     displayedValue () {
@@ -139,7 +137,7 @@ export default {
         return this.value
       },
       set (value) {
-        return this.$emit('input', value)
+        this.$emit('input', value)
       }
     }
   },
@@ -153,25 +151,40 @@ export default {
       this.isOpen = false
     },
     updateSearch (val) {
+      this.search = val
     },
     selectValue (selectedItem) {
       if (this.multiple) {
         const index = Array.findIndex(this.valueProxy, item => item.value === selectedItem.value)
         if (index === -1) {
           this.valueProxy.push(selectedItem)
+          this.search = selectedItem.text()
+          this.$refs.search.$el.blur()
         } else {
           this.valueProxy.splice(index, 1)
         }
       } else {
         this.valueProxy = selectedItem
+        this.search = selectedItem.text
+        this.$refs.search.blur()
         this.close()
       }
     },
     isOptionSelected (option) {
       return this.multiple ? this.value.indexOf(option) !== -1 : this.value.value === option.value
     },
+    isOptionHightlighted (option, index) {
+      return this.pointer === index
+    },
     clear () {
       this.valueProxy = ''
+      this.search = ''
+    },
+    pointerForward () {
+      this.pointer++
+    },
+    pointerBackward () {
+      this.pointer--
     }
   }
 }
@@ -224,6 +237,10 @@ export default {
     display: flex;
     align-items: center;
     height: 100%;
+    &__search {
+      width: 100%;
+      height: 100%;
+    }
     input {
       border: none;
       background: transparent;
@@ -280,6 +297,14 @@ export default {
     }
     &__selected-icon {
       margin-left: auto;
+    }
+    &-highlighted {
+      background-color: $vue-light-green;
+      font-size: .725rem;
+    }
+    &__hightlight-text {
+      margin-left: auto;
+      color: $vue-green;
     }
   }
 }
