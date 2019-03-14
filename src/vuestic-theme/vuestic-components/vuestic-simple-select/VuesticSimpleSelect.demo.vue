@@ -24,6 +24,14 @@
         searchable
       />
     </VbContainer>
+    <VbContainer title="searchable + multiple">
+      <vuestic-simple-select
+        v-model="multipleValue"
+        :options="CountriesList"
+        searchable
+        multiple
+      />
+    </VbContainer>
     <VbContainer title="positions">
       <div v-for="position in positions" :key="position">
         <p>{{position}}</p>

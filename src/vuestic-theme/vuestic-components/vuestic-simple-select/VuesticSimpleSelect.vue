@@ -12,6 +12,9 @@
     @focus="open()"
     @blur="close()"
     @keyup.esc="close()"
+    @keydown.self.down.prevent="pointerForward()"
+    @keydown.self.up.prevent="pointerBackward()"
+    @keypress.enter.tab.stop.self="selectValue(filteredOptions[pointer])"
   >
     <div class="va-select__input-wrapper">
       <p v-if="label" class="title va-select__label mb-0">{{label}}</p>
@@ -28,6 +31,7 @@
           @keydown.down.prevent="pointerForward()"
           @keydown.up.prevent="pointerBackward()"
           @keydown.enter.prevent="selectValue(filteredOptions[pointer])"
+          @keyup.esc="close()"
         />
         <div v-else class="va-select__input__value">
           <ul class="va-select__tags" v-if="multiple && valueProxy.length <= max">
@@ -49,6 +53,7 @@
       @focus="open"
       tabindex="-1"
       :style="{'max-height': maxHeight}"
+      ref="options"
       v-show="isOpen"
     >
       <li
@@ -63,8 +68,9 @@
       >
         <i class="icon va-icon fa va-select__option__icon mr-1" :class="option.icon"/>
         <span>{{option.text}}</span>
-        <span v-show="isOptionHightlighted(option, index)" class="va-select__option__hightlight-text">Press enter to select</span>
-        <i v-show="isOptionSelected(option)" class="icon va-icon fa fa-check va-select__option__selected-icon"/>
+        <span v-show="isOptionHightlighted(option, index) && !isOptionSelected(option)" class="va-select__option__hightlight-text">Press enter to select</span>
+        <span v-show="isOptionSelected(option) && isOptionHightlighted(option, index)" class="va-select__option__selected-text">Selected</span>
+        <i v-show="isOptionSelected(option) && !isOptionHightlighted(option, index)" class="icon va-icon fa fa-check va-select__option__selected-icon"/>
       </li>
     </ul>
   </div>
@@ -158,15 +164,17 @@ export default {
         const index = Array.findIndex(this.valueProxy, item => item.value === selectedItem.value)
         if (index === -1) {
           this.valueProxy.push(selectedItem)
-          this.search = selectedItem.text()
-          this.$refs.search.$el.blur()
+          this.search = ''
+          this.searchable && this.$refs.search.$el.blur()
+          this.setScrollPosition()
         } else {
           this.valueProxy.splice(index, 1)
         }
       } else {
         this.valueProxy = selectedItem
-        this.search = selectedItem.text
-        this.$refs.search.blur()
+        this.search = ''
+        this.searchable && this.$refs.search.blur()
+        this.setScrollPosition()
         this.close()
       }
     },
@@ -181,10 +189,22 @@ export default {
       this.search = ''
     },
     pointerForward () {
-      this.pointer++
+      if (this.pointer < this.filteredOptions.length - 1) {
+        this.pointer++
+        this.setScrollPosition()
+      }
     },
     pointerBackward () {
-      this.pointer--
+      if (this.pointer > 0) {
+        this.pointer--
+        this.setScrollPosition()
+      }
+    },
+    setScrollPosition () {
+      const optionEl = this.$refs.options.childNodes[this.pointer]
+      const parentEl = optionEl.parentNode
+
+      parentEl.scrollTop = optionEl.offsetTop
     }
   }
 }
@@ -298,13 +318,18 @@ export default {
     &__selected-icon {
       margin-left: auto;
     }
+    &__selected-text {
+      color: $brand-secondary;
+      margin-left: auto;
+      font-size: .725rem;
+    }
     &-highlighted {
       background-color: $vue-light-green;
-      font-size: .725rem;
     }
     &__hightlight-text {
       margin-left: auto;
       color: $vue-green;
+      font-size: .725rem;
     }
   }
 }
