@@ -160,8 +160,8 @@
     <button @click="showSpecialActionsModal = !showSpecialActionsModal">Show modal</button>
     <va-modal
       v-model="showSpecialActionsModal"
-      v-on:ok="onOk"
-      v-on:cancel="onCancel"
+      @ok="onOk"
+      @cancel="onCancel"
       :message="message + message + message + message + message + message + message + message + message + message + message + message + message + message + message + message"
     >
       <template slot="header"><p>Step 2. Centered Layout</p></template>
