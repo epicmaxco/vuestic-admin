@@ -10,22 +10,29 @@
           <td>Value</td>
           <td>
             <va-rating-item
-              value
+              :value="1"
             />
-            true
-            <va-rating-item/>
-            false
+            1
+            <va-rating-item
+              :value="0"
+            />
+            0
+            <va-rating-item
+              :value="0.5"
+              halfIcon="fa fa-star-half-full"
+            />
+            0.5
           </td>
         </tr>
         <tr>
           <td>Icon</td>
           <td>
             <va-rating-item
-              value
+              :value="1"
             />
             default
             <va-rating-item
-              value
+              :value="1"
               icon="fa fa-bug"
             />
             custom
@@ -40,14 +47,6 @@
               emptyIcon="fa fa-battery-0"
             />
             custom
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <va-rating-item
-              isHalf
-              halfIcon="fa fa-star-half-full"
-            />
           </td>
         </tr>
         <tr>

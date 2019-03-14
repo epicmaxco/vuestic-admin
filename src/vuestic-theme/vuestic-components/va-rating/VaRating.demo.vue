@@ -21,6 +21,83 @@
           </td>
         </tr>
         <tr>
+          <td>Themes</td>
+          <td>
+            <div class="va-row">
+              <div class="va-row column">
+                success
+                <va-rating
+                  color="success"
+                  numbers
+                  v-model="value"
+                />
+                info
+                <va-rating
+                  color="info"
+                  numbers
+                  v-model="value"
+                />
+                danger
+                <va-rating
+                  color="danger"
+                  numbers
+                  v-model="value"
+                />
+                warning
+                <va-rating
+                  color="warning"
+                  numbers
+                  v-model="value"
+                />
+                gray
+                <va-rating
+                  color="gray"
+                  numbers
+                  v-model="value"
+                />
+                dark
+                <va-rating
+                  color="dark"
+                  numbers
+                  v-model="value"
+                />
+              </div>
+              <div class="va-row column">
+                success
+                <va-rating
+                  color="success"
+                  v-model="value"
+                />
+                info
+                <va-rating
+                  color="info"
+                  v-model="value"
+                />
+                danger
+                <va-rating
+                  color="danger"
+                  v-model="value"
+                />
+                warning
+                <va-rating
+                  color="warning"
+                  v-model="value"
+                />
+                gray
+                <va-rating
+                  color="gray"
+                  v-model="value"
+                />
+                dark
+                <va-rating
+                  color="dark"
+                  v-model="value"
+                />
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
           <td>Sizes</td>
           <td>
             medium
@@ -57,6 +134,11 @@
               v-model="value"
               disabled
             />
+            <va-rating
+              disabled
+              numbers
+              v-model="value"
+            />
           </td>
         </tr>
         <tr>
@@ -65,6 +147,10 @@
             <va-rating
               v-model="value"
               readonly
+            />
+            <va-rating
+              v-model="value"
+              numbers
             />
           </td>
         </tr>
@@ -100,24 +186,7 @@
           <td>
             <va-rating
               icon="fa fa-bug"
-              color="blue"
-              v-model="value"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>Colors</td>
-          <td>
-            <va-rating
-              color="red"
-              v-model="value"
-            />
-            <va-rating
-              color="green"
-              v-model="value"
-            />
-            <va-rating
-              color="blue"
+              color="warning"
               v-model="value"
             />
           </td>

@@ -202,10 +202,10 @@ export default {
 
 $vuestic-colors: (
   success: ($vue-green, #d6ffd3),
-  danger: (#ff7455, #b86e6d),
-  warning: (#ffd72d, #cbb06e),
-  info: (#32b5e4, #6c97ac),
-  gray: (#cdd0d5, #a3aab0),
+  danger: (#e34b4a, #ffebeb),
+  warning: (#ffd72d, #FFF17A),
+  info: (#2c82e0, #caeeff),
+  gray: (#a3aab0, #cdd0d5),
   dark: (#576675, #aebcca)
 );
 @each $name, $colors in $vuestic-colors {
@@ -232,7 +232,8 @@ $vuestic-colors: (
           }
         }
         .va-rating--disabled & {
-          cursor: not-allowed;
+          @include va-disabled();
+
         }
 
         .va-rating--readonly & {
