@@ -52,6 +52,25 @@
             custom
           </td>
         </tr>
+        <tr>
+          <td>Events tests</td>
+          <td>
+            <va-rating-item
+              :value="0.5"
+              style="width: 14px; height: 14px"
+              halfIcon="fa fa-star-half-full"
+              @click="showEvent($event, 'click')"
+            />
+            click event = {{clickEvent}}
+            <va-rating-item
+              :value="0.5"
+              style="width: 14px; height: 14px"
+              halfIcon="fa fa-star-half-full"
+              @hover="showEvent($event, 'hover')"
+            />
+            hover event = {{hoverEvent}}
+          </td>
+        </tr>
       </table>
     </VbContainer>
   </VbDemo>
@@ -60,12 +79,25 @@
 <script>
 
 import VaRatingItem from './VaRatingItem'
+
 export default {
   components: {
     VaRatingItem
   },
   data () {
-    return {}
+    return {
+      clickEvent: '',
+      hoverEvent: '',
+    }
+  },
+  methods: {
+    showEvent (eventValue, event) {
+      if (event === 'click') {
+        this.clickEvent = eventValue
+      } else {
+        this.hoverEvent = eventValue
+      }
+    }
   }
 }
 </script>

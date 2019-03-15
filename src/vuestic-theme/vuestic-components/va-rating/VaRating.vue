@@ -10,7 +10,7 @@
     }"
   >
     <div
-      class="va-rating__numbers"
+      class="va-rating__number-item"
       v-if="numbers"
       v-for="number in max"
       :key="number"
@@ -231,9 +231,9 @@ $vuestic-colors: (
 
   .va-rating {
     display: flex;
-    &__numbers {
+    &__number-item {
       font-size: inherit;
-      margin: 0.1rem;
+      margin: 0.1em;
       border-radius: 0.125rem;
       font-weight: $font-weight-bold;
       @include flex-center();
