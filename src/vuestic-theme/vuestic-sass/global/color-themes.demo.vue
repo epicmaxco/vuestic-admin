@@ -28,15 +28,15 @@ import VaNotification from './../../vuestic-components/va-notification/VaNotific
 // import { colorArray } from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticTheme'
 
 export default {
- components: {
-   VaIcon, VaButton, VaNotification
- },
- data () {
-   return {
-     icon: 'iconicstroke iconicstroke-info',
-     color: 'info',
-     // paletteArray: colorArray
-   }
- },
+  components: {
+    VaIcon, VaButton, VaNotification
+  },
+  data () {
+    return {
+      icon: 'iconicstroke iconicstroke-info',
+      color: 'info',
+      // paletteArray: colorArray
+    }
+  },
 }
 </script>
