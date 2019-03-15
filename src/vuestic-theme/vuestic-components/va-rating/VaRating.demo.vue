@@ -186,6 +186,7 @@
             />
             <va-rating
               v-model="value"
+              readonly
               numbers
             />
           </td>

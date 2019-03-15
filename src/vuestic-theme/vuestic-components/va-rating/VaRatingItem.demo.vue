@@ -41,20 +41,15 @@
         <tr>
           <td>Empty Icon</td>
           <td>
-            <va-rating-item/>
+            <va-rating-item
+              :value="0"
+            />
             default
             <va-rating-item
               emptyIcon="fa fa-battery-0"
+              :value="0"
             />
             custom
-          </td>
-        </tr>
-        <tr>
-          <td>hover</td>
-          <td>
-            <va-rating-item
-              :hover="true"
-            />
           </td>
         </tr>
       </table>

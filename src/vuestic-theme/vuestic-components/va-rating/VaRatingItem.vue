@@ -36,9 +36,6 @@ export default {
     emptyIcon: {
       type: String,
       default: 'fa fa-star-o'
-    },
-    hover: {
-      type: Boolean
     }
   },
   data () {
@@ -58,10 +55,10 @@ export default {
       if (!this.isRatingHover && this.value !== 0) {
         return this.icon
       }
-      if (this.isRatingHover && !this.hover && this.halfIcon) {
+      if (this.isRatingHover && this.value === 0 && this.halfIcon) {
         return this.emptyIcon
       }
-      if (this.isRatingHover && this.hover && this.hoverValue !== 0.5) {
+      if (this.isRatingHover && this.value !== 0 && this.hoverValue !== 0.5) {
         return this.iconClasses + this.icon
       }
       if (!this.halfIcon) {

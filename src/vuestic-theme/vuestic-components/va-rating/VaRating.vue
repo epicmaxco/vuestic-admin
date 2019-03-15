@@ -10,6 +10,7 @@
     }"
   >
     <div
+      class="va-rating__numbers"
       v-if="numbers"
       v-for="number in max"
       :key="number"
@@ -21,7 +22,6 @@
         'height': getItemsFontSize(),
         'fontSize': getIconSize()
       }"
-      class="va-rating__numbers"
       @click="setCurrentValue(number, 1)"
       :tabindex="getTabindex(number)"
       @mouseleave="tabindex = null"
@@ -31,21 +31,20 @@
       {{number}}
     </div>
     <va-rating-item
+      class="va-rating__icon-item"
       v-if="!numbers"
       v-for="itemNumber in max"
       :key="itemNumber"
       :icon="icon"
       :emptyIcon="emptyIconComputed"
-      :value="getItemValue(itemNumber)"
       :halfIcon="halfIconComputed"
       :iconClasses="getIconClasses(itemNumber)"
-      class="va-rating__icons"
       :style="{'width' : getIconSize()}"
       @click="setCurrentValue(itemNumber, $event)"
       @hover="onHover(itemNumber, $event)"
-      :hover="getItemHover(itemNumber)"
+      :value="getItemValue(itemNumber)"
       :tabindex="getTabindex(itemNumber)"
-      :isRatingHover="isHovered"
+      :isRatingHover="isHoveredComputed"
       @mouseout.native="onHover(value)"
       @mouseleave.native="tabindex = null"
       @mouseover.native="tabindex = itemNumber"
@@ -113,12 +112,11 @@ export default {
       }
     },
     emptyIconComputed () {
-      return this.emptyIcon || this.icon + ' ' + 'va-rating__icons--empty'
+      return this.emptyIcon || this.icon + ' ' + 'va-rating__icon-item--empty'
     },
     halfIconComputed () {
-      return this.disabled || this.readonly ? '' : this.halfIcon
+      return this.halfIcon
     },
-
     computedClasses () {
       return {
         'va-rating--success': this.color === 'success',
@@ -134,6 +132,9 @@ export default {
         'va-rating--large': this.size === 'large',
       }
     },
+    isHoveredComputed () {
+      return this.disabled || this.readonly ? false : this.isHovered
+    }
   },
   methods: {
     getTabindex (value) {
@@ -161,7 +162,7 @@ export default {
       }
     },
     getIconClasses (itemNumber) {
-      const iconClass = this.emptyIcon || this.icon + ' ' + 'va-rating__icons--empty'
+      const iconClass = this.emptyIcon || this.icon + ' ' + 'va-rating__icon-item--empty'
       return this.compareWithValue(itemNumber) ? this.icon : iconClass
     },
     getIconSize () {
@@ -174,18 +175,32 @@ export default {
       const unit = size.match(regEx).join('')
       return size.replace(regEx, '') * k + unit
     },
-    setCurrentValue (item, value) {
+    setCurrentValue (itemNumber, value) {
       if (this.readonly || this.disabled) {
         return
       }
-      if (item - this.valueProxy === 0.5) {
+      if (itemNumber - this.value === 0.5) {
         this.valueProxy += 0.5
       } else {
-        this.valueProxy = item - 1 + value
+        this.valueProxy = itemNumber - 1 + value
       }
     },
-    getItemValue (itemIndex) {
-      return this.hover ? 0 : this.compareWithValue(itemIndex)
+    getItemValue (itemNumber) {
+      if (this.isHover()) {
+        if ((itemNumber <= this.lastHoverItemNumber)) {
+          if (itemNumber === this.lastHoverItemNumber && itemNumber - this.value === 0.5) {
+            return 0.5
+          }
+          return 1
+        }
+        if ((itemNumber > this.lastHoverItemNumber) && this.isHover()) {
+          return 0
+        }
+      }
+      return this.compareWithValue(itemNumber)
+    },
+    isHover () {
+      return this.isHovered && !!this.halfIcon && !this.disabled && !this.readonly
     },
     compareWithValue (itemNumber) {
       if (itemNumber - this.value === 0.5) {
@@ -195,9 +210,6 @@ export default {
         return 1
       }
       return 0
-    },
-    getItemHover (itemNumber) {
-      return (itemNumber <= this.lastHoverItemNumber) && this.isHovered && !!this.halfIcon
     }
   }
 }
@@ -262,7 +274,7 @@ $vuestic-colors: (
         }
       }
     }
-    &__icons {
+    &__icon-item {
       display: flex;
       cursor: pointer;
       @include flex-center();
