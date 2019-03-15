@@ -3,7 +3,7 @@ const red = Object.freeze({
   gradientRightBorder: '#ffebee',
   boxShadow: '#b86e6d',
   borderColor: '#e34b4a',
-  hoverColor: '#e57373',
+  hoverColor: '#ffebeb',
   focusColor: '#ef5350',
 })
 
@@ -69,6 +69,27 @@ export default {
     sheet.type = 'text/css'
     sheet.innerHTML = '.va-component--success { color: #F00; }'
     document.body.appendChild(sheet)
+  }
+}
+
+export const getBackgroundColor = (theme) => {
+  if (theme === 'success') {
+    return green.backgroundColor
+  }
+  if (theme === 'info') {
+    return blue.backgroundColor
+  }
+  if (theme === 'danger') {
+    return red.backgroundColor
+  }
+  if (theme === 'warning') {
+    return yellow.backgroundColor
+  }
+  if (theme === 'gray') {
+    return gray.backgroundColor
+  }
+  if (theme === 'dark') {
+    return black.backgroundColor
   }
 }
 

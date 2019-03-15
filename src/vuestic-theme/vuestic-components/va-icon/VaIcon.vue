@@ -50,7 +50,8 @@ export default {
     iconStyle () {
       return {
         transform: 'rotate(' + this.rotation + 'deg)',
-        fontSize: typeof this.size === 'number' ? this.size + 'px' : this.size
+        fontSize: typeof this.size === 'number' ? this.size + 'px' : this.size,
+        color: this.$theme[this.color]
       }
     }
   }

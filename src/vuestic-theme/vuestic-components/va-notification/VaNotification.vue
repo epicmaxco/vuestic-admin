@@ -2,6 +2,7 @@
   <transition v-if="value" name="fade">
     <div class="va-notification d-flex justify--space-between align--start"
          :class="notificationClass"
+         :style="notificationStyle"
     >
       <div class="va-notification__content d-inline-flex align--center">
         <slot/>
@@ -17,11 +18,12 @@
 </template>
 
 <script>
+import { getBoxShadowColor, getHoverColor } from '../../../services/colors'
+
 export default {
   name: 'va-notification',
   computed: {
     notificationClass () {
-      console.log(this.$theme)
       return {
         'va-notification--success': this.color === 'success',
         'va-notification--danger': this.color === 'danger',
@@ -29,6 +31,12 @@ export default {
         'va-notification--info': this.color === 'info',
         'va-notification--gray': this.color === 'gray',
         'va-notification--dark': this.color === 'dark',
+      }
+    },
+    notificationStyle () {
+      return {
+        background: getHoverColor(this.color),
+        boxShadow: '0 0.125rem 0.125rem 0' + getBoxShadowColor(this.color)
       }
     },
   },
@@ -117,8 +125,8 @@ export default {
     $box-shadow-color: nth($colors, 3);
 
     .va-notification--#{$name}{
-      background: $background-color;
-      box-shadow: 0 $va-notification-box-shadow $va-notification-box-shadow 0 $box-shadow-color;
+      // background: $background-color;
+      // box-shadow: 0 $va-notification-box-shadow $va-notification-box-shadow 0 $box-shadow-color;
 
       .va-notification__badge--#{$name}{
         background-color: $close-icon-color;

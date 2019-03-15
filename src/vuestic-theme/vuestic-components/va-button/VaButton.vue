@@ -251,6 +251,35 @@ export default {
       background-color: transparent;
       border: solid $btn-border-outline;
       text-decoration: none;
+
+      &.va-button--disabled {
+        background: transparent;
+        @include va-disabled;
+
+        &.va-button--active {
+          background-color: $brand-secondary !important;
+
+          .va-button__content, i {
+            color: $white !important;
+          }
+        }
+
+        .va-pagination & {
+          border-color: $brand-secondary;
+          opacity: 1;
+
+          .va-button__content, i {
+            color: $brand-secondary;
+          }
+
+          &.va-button--no-effects {
+
+            .va-button__content, i {
+              color: $brand-secondary !important;
+            }
+          }
+        }
+      }
     }
 
     &--flat {
@@ -266,7 +295,6 @@ export default {
     &--large {
       @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
       letter-spacing: $btn-letter-spacing-lg;
-      // color: $white;
 
       .va-button__content__icon {
         width: $btn-icon-width-lg;
@@ -296,7 +324,6 @@ export default {
     &--small {
       @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
       letter-spacing: $btn-letter-spacing-sm;
-      // color: $white;
 
       .va-button__content__icon {
         width: $btn-icon-width-sm;
@@ -326,7 +353,6 @@ export default {
     &--normal {
       @include button-size($btn-padding-y-nrm, $btn-padding-x-nrm, $btn-font-size-nrm, $btn-line-height-nrm, $btn-border-radius-nrm);
       letter-spacing: $btn-letter-spacing-nrm;
-      // color: $white;
 
       .va-button__content__icon {
         width: $btn-icon-width-nrm;
@@ -414,35 +440,6 @@ export default {
 
           .va-button__content, i {
             color: $white;
-          }
-        }
-      }
-
-      &.va-button--disabled {
-        background: transparent;
-        @include va-disabled;
-
-        &.va-button--active {
-          background-color: $brand-secondary !important;
-
-          .va-button__content, i {
-            color: $white !important;
-          }
-        }
-
-        .va-pagination & {
-          border-color: $brand-secondary;
-          opacity: 1;
-
-          .va-button__content, i {
-            color: $brand-secondary;
-          }
-
-          &.va-button--no-effects {
-
-            .va-button__content, i {
-              color: $brand-secondary !important;
-            }
           }
         }
       }
