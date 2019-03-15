@@ -1,7 +1,7 @@
 <template>
   <VbDemo>
     <VbContainer title="Direction">
-      <vuestic-dropdown-new
+      <va-dropdown
         v-for="(value, key) in dropdownDirections"
         :position="key"
         :key="key"
@@ -10,63 +10,63 @@
         <button slot="actuator">
           {{value}}
         </button>
-      </vuestic-dropdown-new>
+      </va-dropdown>
     </VbContainer>
 
     <VbContainer title="Max Width">
-      <vuestic-dropdown-new max-width="150px">
+      <va-dropdown max-width="150px">
         {{ dropdownText }}
         <button slot="actuator">Open</button>
-      </vuestic-dropdown-new>
+      </va-dropdown>
     </VbContainer>
 
     <VbContainer title="Disabled">
-      <vuestic-dropdown-new disabled>
+      <va-dropdown disabled>
         {{ dropdownText }}
         <button slot="actuator">Open</button>
-      </vuestic-dropdown-new>
+      </va-dropdown>
     </VbContainer>
 
     <VbContainer title="Nested Dropdown">
-      <vuestic-dropdown-new>
+      <va-dropdown>
         <button slot="actuator">Open</button>
         <div>
           {{ dropdownText }}
-          <vuestic-dropdown-new>
+          <va-dropdown>
             {{ dropdownText }}
             <button slot="actuator">Open child</button>
-          </vuestic-dropdown-new>
-          <vuestic-dropdown-new>
+          </va-dropdown>
+          <va-dropdown>
             <button slot="actuator">Open child</button>
             {{ dropdownText }}
-            <vuestic-dropdown-new>
+            <va-dropdown>
               {{ dropdownText }}
               <button slot="actuator">Open child</button>
-            </vuestic-dropdown-new>
-          </vuestic-dropdown-new>
+            </va-dropdown>
+          </va-dropdown>
         </div>
-      </vuestic-dropdown-new>
+      </va-dropdown>
     </VbContainer>
 
     <VbContainer title="Actuator events">
-      <vuestic-dropdown-new trigger-mode="hover">
+      <va-dropdown trigger-mode="hover">
         <span>Hover</span>
         <button slot="actuator">Hover</button>
-      </vuestic-dropdown-new>
-      <vuestic-dropdown-new trigger-mode="focus">
+      </va-dropdown>
+      <va-dropdown trigger-mode="focus">
         <span>Focus</span>
         <button slot="actuator">Focus</button>
-      </vuestic-dropdown-new>
+      </va-dropdown>
     </VbContainer>
   </VbDemo>
 </template>
 
 <script>
-import VuesticDropdownNew from './VuesticDropdownNew.vue'
+import VaDropdown from './VaDropdown.vue'
 
 export default {
   components: {
-    VuesticDropdownNew
+    VaDropdown
   },
   data () {
     return {

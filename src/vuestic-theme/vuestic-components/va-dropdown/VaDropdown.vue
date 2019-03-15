@@ -3,12 +3,12 @@
     <slot name="actuator">
       <div>Actuator</div>
     </slot>
-    <transition :name="noFade ? '' : 'dropdown'" mode="out-in">
+    <transition :name="noFade ? '' : 'va-dropdown__transition'" mode="out-in">
       <div
         v-show="isVisible"
         ref="dropdown"
         :style="dropdownStyles"
-        class="vuestic-dropdown-new"
+        class="va-dropdown"
       >
         <slot>{{ message }}</slot>
       </div>
@@ -235,7 +235,7 @@ export default {
       let target = this.targetElement
       let count = 0
       while (target) {
-        if (target.classList && target.classList.contains('vuestic-dropdown-new')) {
+        if (target.classList && target.classList.contains('va-dropdown-new')) {
           count += 1
         }
         target = target.parentNode
@@ -256,30 +256,29 @@ export default {
 </script>
 
 <style lang="scss">
-.vuestic-dropdown-new {
+.va-dropdown {
   position: fixed;
   padding: 0 0.4rem;
   max-width: 400px;
   font-family: Source Sans Pro, sans-serif;
   box-shadow: 0 4px 9.6px 0.4px rgba(74, 227, 135, 0.5);
   border-radius: 3px;
-  background: #fff;
+  background: $white;
   z-index: 8000;
   overflow-y: auto;
   overflow-x: hidden;
   max-width: 100vw;
   outline: 0;
   word-wrap: break-word;
-
-}
-
-.dropdown-enter-active,
-.dropdown-leave-active {
-  transition: opacity 0.15s;
-}
-
-.dropdown-enter,
-.dropdown-leave-to {
-  opacity: 0;
+  &__transition {
+    &-enter-active,
+    &-leave-active {
+      transition: opacity 0.15s;
+    }
+    &-enter,
+    &-leave-to {
+      opacity: 0;
+    }
+  }
 }
 </style>

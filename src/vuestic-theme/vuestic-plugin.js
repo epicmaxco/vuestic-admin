@@ -57,8 +57,8 @@ import TagGroup from './vuestic-components/vuestic-tag/VuesticTagGroup'
 import VaIcon from './vuestic-components/va-icon/VaIcon'
 import VuesticDropdown
   from './vuestic-components/vuestic-dropdown/VuesticDropdown'
-import VuesticDropdownNew
-  from './vuestic-components/vuestic-dropdown-new/VuesticDropdownNew'
+import VaDropdown
+  from './vuestic-components/va-dropdown/VaDropdown'
 
 import VuesticToasted from './vuestic-mixins/VuesticToasted'
 
@@ -125,7 +125,7 @@ const VuesticPlugin = {
       TreeNode,
       FileUpload,
       VuesticDropdown,
-      VuesticDropdownNew,
+      VaDropdown,
       DatePicker,
       Card,
       Tag,
