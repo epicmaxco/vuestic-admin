@@ -15,7 +15,7 @@
       v-for="number in max"
       :key="number"
       :class="{
-        'va-rating__numbers--empty' : !compareWithValue(number)
+        'va-rating__number-item--empty' : !compareWithValue(number)
       }"
       :style="{
         'width': getItemsFontSize(),
