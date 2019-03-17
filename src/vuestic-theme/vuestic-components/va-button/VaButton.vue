@@ -154,6 +154,8 @@ export default {
 </script>
 
 <style lang='scss'>
+@import "../../vuestic-sass/resources/resources";
+
   @mixin button-size($padding-y, $padding-x, $font-size, $line-height, $border-radius) {
     padding: $padding-y $padding-x;
     font-size: $font-size;

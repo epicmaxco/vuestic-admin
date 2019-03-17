@@ -31,6 +31,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+
 .vuestic-tree-node {
   .form-group {
     margin-bottom: 0px;

@@ -84,6 +84,8 @@ export default {
 </script>
 
 <style lang='scss'>
+@import "../../vuestic-sass/resources/resources";
+
   .va-chip {
     display: inline-block;
     padding: $chip-padding-y-nrm $chip-padding-x-nrm;
