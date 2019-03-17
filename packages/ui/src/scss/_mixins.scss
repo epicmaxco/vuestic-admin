@@ -1,0 +1,55 @@
+@import "../components/va-grid/grid-mixins";
+
+@mixin flex-center () {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin va-display ($element) {
+  color: $vue-darkest-blue;
+  font-size: map-get($display-font-sizes, $element);
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+@mixin va-disabled() {
+  cursor: default;
+  opacity: 0.4;
+}
+
+@mixin theme-button-variant($color, $background, $border, $shadow) {
+  $hover-bg: lighten($background, 10%);
+  $disabled-bg: darken($background, 15%);
+  $active-bg: darken($background, 15%);
+  $disabled-color: darken($background, 30%);
+
+  background-color: $background;
+  color: $color;
+  box-shadow: $shadow;
+  border: $border;
+
+  &:hover {
+    color: $color;
+    background-color: $hover-bg;
+  }
+
+  &.active,
+  &:active,
+  &:not([disabled]):not(.disabled):active,
+  &:not([disabled]):not(.disabled).active {
+    background-color: $active-bg;
+    box-shadow: $shadow;
+    color: $color;
+
+    &:focus {
+      box-shadow: $shadow;
+    }
+  }
+
+  &[disabled], &[disabled]:hover {
+    background-color: $disabled-bg;
+    color: $disabled-color;
+    opacity: 0.5;
+  }
+}
