@@ -227,7 +227,7 @@
             </va-button>
             <va-button
               flat large
-              icon="brandico brandico-facebook"
+              icon=""brandico brandico-facebook""
               icon-right="iconicstroke iconicstroke-info"
             >
               Mixed button
