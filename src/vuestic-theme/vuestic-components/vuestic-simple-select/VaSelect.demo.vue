@@ -13,6 +13,21 @@
         placeholder="select coutry"
       />
     </VbContainer>
+    <VbContainer title="with label">
+      <va-select
+        label="country label"
+        v-model="value"
+        :options="CountriesList"
+      />
+    </VbContainer>
+    <VbContainer title="with label and placeholder">
+      <va-select
+        label="country label"
+        placeholder="select country"
+        v-model="value"
+        :options="CountriesList"
+      />
+    </VbContainer>
     <VbContainer title="positions">
       <div v-for="position in positions" :key="position">
         <p>{{position}}</p>
@@ -27,13 +42,6 @@
       <va-select
         v-model="multipleValue"
         multiple
-        :options="CountriesList"
-      />
-    </VbContainer>
-    <VbContainer title="with label" class="not-work">
-      <va-select
-        label="country label"
-        v-model="value"
         :options="CountriesList"
       />
     </VbContainer>
@@ -76,11 +84,11 @@
         multiple
       />
     </VbContainer>
-    <VbContainer title="custom width (320px)">
+    <VbContainer title="custom width (320px)" :style="{'width': '100%'}">
       <va-select
         v-model="value"
         :options="CountriesList"
-        width="320px"
+        width="30%"
       />
     </VbContainer>
     <VbContainer title="custom max-height (320px)" class="not-work">

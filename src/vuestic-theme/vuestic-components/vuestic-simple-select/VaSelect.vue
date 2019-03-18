@@ -46,32 +46,33 @@
       @keydown.enter.prevent="selectValue(filteredOptions[pointer], pointer)"
       @keyup.esc.prevent="$refs.actuator.blur()"
     >
-      <p v-if="label" class="title">{{label}}</p>
-      <input
-        v-if="searchable && isFocused"
-        :value="search"
-        class="va-select__input"
-        @input="updateSearch($event.target.value)"
-      />
-      <div
-        v-else
-        class="va-select__input"
-      >
-        <ul
-          class="va-select__tags"
-          v-if="multiple && valueProxy.length <= max"
+      <p v-if="label" class="title va-select__label">{{label}}</p>
+      <div class="va-select__input-wrapper">
+        <input
+          v-if="searchable"
+          :placeholder="placeholder"
+          :value="search"
+          class="va-select__input"
+          @input="updateSearch($event.target.value)"
+        />
+        <div
+          v-else
+          class="va-select__input"
         >
-          <li v-for="item in valueProxy" :key="item.value">
-            {{item.text}}
-          </li>
-        </ul>
-        <span v-else-if="displayedValue !== ''">{{displayedValue}}</span>
-        <span v-else class="va-select__placeholder">{{placeholder}}</span>
+          <ul
+            class="va-select__tags"
+            v-if="multiple && valueProxy.length <= max"
+          >
+            <li v-for="item in valueProxy" :key="item.value">
+              {{item.text}}
+            </li>
+          </ul>
+          <span v-else-if="displayedValue !== ''">{{displayedValue}}</span>
+          <span v-else class="va-select__placeholder">{{placeholder}}</span>
+        </div>
+        <i v-if="showClearIcon" @click.prevent.stop="clear" class="icon va-icon fa fa-times-circle mr-1 va-select__clear-icon"/>
       </div>
-      <div class="va-select__icons" :class="{'va-select__icons-two': showClearIcon}">
-        <i v-if="showClearIcon" @click.prevent.stop="clear" class="icon va-icon fa fa-times-circle mr-1"/>
-        <i class="icon va-icon fa" :class="{'fa-chevron-down': !isOpen, 'fa-chevron-up': isOpen}"/>
-      </div>
+      <i class="icon va-icon fa va-select__open-icon" :class="{'fa-chevron-down': !isFocused, 'fa-chevron-up': isFocused}"/>
     </div>
   </va-dropdown>
 </template>
@@ -120,7 +121,9 @@ export default {
     maxHeight: {
       type: String,
       default: '128px'
-    }
+    },
+    loading: Boolean,
+    noOptionsText: 'Items not found'
   },
   data () {
     return {
@@ -215,12 +218,11 @@ export default {
     height: 38px;
     cursor: pointer;
     background-color: $light-gray3;
-    display: flex;
-    align-items: center;
     width: 100%;
     border-bottom: 1px solid $brand-secondary;
     border-radius: 0 .5rem 0 0;
-    padding: 0 .5rem;
+    padding: 0 1.5rem 0 .5rem;
+    position: relative;
     &:focus {
       outline: none;
     }
@@ -229,10 +231,19 @@ export default {
       border-top: 1px solid $brand-secondary;
       border-radius: 0 0 .5rem 0;
     }
+    &__label {
+      position: absolute;
+      margin: 0;
+    }
+    &__input-wrapper {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      justify-content: stretch;
+    }
     &__input {
       border: none;
       background: transparent;
-      width: calc(100% - 34px);
       &:focus {
         outline: none;
       }
@@ -240,8 +251,18 @@ export default {
     &__placeholder {
       opacity: .5;
     }
-    &__icons {
+    &__clear-icon {
+      color: $va-link-color-secondary;
       margin-left: auto;
+      width: 16px;
+    }
+    &__open-icon {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      right: .5rem;
+      height: 1rem;
       color: $va-link-color-secondary;
     }
     &__dropdown {
