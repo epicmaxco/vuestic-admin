@@ -210,127 +210,127 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.va-select {
-  min-width: 149px;
-  position: relative;
-  &:focus {
-    outline: none;
-  }
-  &-active {
-    .va-select__input-wrapper {
-      border-bottom: 1px solid $brand-secondary;
-    }
-  }
-  &-disabled {
-    .va-select__input-wrapper {
-      cursor: default;
-    }
-  }
-  &-position{
-    &-top {
-      &.va-select-active {
-        .va-select__input-wrapper {
-          border-top: 1px solid $brand-secondary;
-          border-bottom: none;
-        }
-      }
-      .va-select__options-list {
-        bottom: 100%;
-        margin-bottom: 1px;
-        box-shadow: 0 -2px 3px 0 rgba(98, 106, 119, 0.25);
-        border-radius: .5rem .5rem 0 0;
-      }
-    }
-  }
-  &__input-wrapper {
-    height: 38px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    background-color: $light-gray3;
-    border-radius: .5rem;
-    padding: 0 2rem 0 .5rem;
-    position: relative;
-  }
-  &__input {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    &__search {
-      width: 100%;
-      height: 100%;
-    }
-    input {
-      border: none;
-      background: transparent;
-      &:focus {
-        outline: none;
-      }
-    }
-  }
-  &__placeholder {
-    opacity: .5;
-  }
-  &__icons {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 1.5rem;
-    height: 1.5rem;
-    right: 8px;
-    margin: auto;
-    font-size: 1rem;
-    text-align: center;
-    line-height: 1.5rem;
-    color: $va-link-color-secondary;
-    &-two {
-      width: 3.25rem;
-    }
-  }
-  &__tags {
-    list-style: none;
-    display: flex;
-  }
-  &__options-list {
-    list-style: none;
-    padding: 0;
-    overflow-y: auto;
-    margin-top: 1px;
-    background: $light-gray3;
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 2px 3px 0 rgba(98, 106, 119, 0.25);
-    position: absolute;
-    width: 100%;
-    z-index: 1;
-  }
-  &__option {
-    cursor: pointer;
-    display: flex;
-    padding: 6px 8px;
-    align-items: center;
-    &:hover {
-      background-color: $vue-light-green;
-    }
-    &-selected {
-      color: $vue-green;
-    }
-    &__selected-icon {
-      margin-left: auto;
-    }
-    &__selected-text {
-      color: $brand-secondary;
-      margin-left: auto;
-      font-size: .725rem;
-    }
-    &-highlighted {
-      background-color: $vue-light-green;
-    }
-    &__hightlight-text {
-      margin-left: auto;
-      color: $vue-green;
-      font-size: .725rem;
-    }
-  }
-}
-</style>
+<!--<style lang="scss">-->
+<!--.va-select {-->
+  <!--min-width: 149px;-->
+  <!--position: relative;-->
+  <!--&:focus {-->
+    <!--outline: none;-->
+  <!--}-->
+  <!--&-active {-->
+    <!--.va-select__input-wrapper {-->
+      <!--border-bottom: 1px solid $brand-secondary;-->
+    <!--}-->
+  <!--}-->
+  <!--&-disabled {-->
+    <!--.va-select__input-wrapper {-->
+      <!--cursor: default;-->
+    <!--}-->
+  <!--}-->
+  <!--&-position{-->
+    <!--&-top {-->
+      <!--&.va-select-active {-->
+        <!--.va-select__input-wrapper {-->
+          <!--border-top: 1px solid $brand-secondary;-->
+          <!--border-bottom: none;-->
+        <!--}-->
+      <!--}-->
+      <!--.va-select__options-list {-->
+        <!--bottom: 100%;-->
+        <!--margin-bottom: 1px;-->
+        <!--box-shadow: 0 -2px 3px 0 rgba(98, 106, 119, 0.25);-->
+        <!--border-radius: .5rem .5rem 0 0;-->
+      <!--}-->
+    <!--}-->
+  <!--}-->
+  <!--&__input-wrapper {-->
+    <!--height: 38px;-->
+    <!--cursor: pointer;-->
+    <!--display: flex;-->
+    <!--flex-direction: column;-->
+    <!--background-color: $light-gray3;-->
+    <!--border-radius: .5rem;-->
+    <!--padding: 0 2rem 0 .5rem;-->
+    <!--position: relative;-->
+  <!--}-->
+  <!--&__input {-->
+    <!--display: flex;-->
+    <!--align-items: center;-->
+    <!--height: 100%;-->
+    <!--&__search {-->
+      <!--width: 100%;-->
+      <!--height: 100%;-->
+    <!--}-->
+    <!--input {-->
+      <!--border: none;-->
+      <!--background: transparent;-->
+      <!--&:focus {-->
+        <!--outline: none;-->
+      <!--}-->
+    <!--}-->
+  <!--}-->
+  <!--&__placeholder {-->
+    <!--opacity: .5;-->
+  <!--}-->
+  <!--&__icons {-->
+    <!--position: absolute;-->
+    <!--top: 0;-->
+    <!--bottom: 0;-->
+    <!--width: 1.5rem;-->
+    <!--height: 1.5rem;-->
+    <!--right: 8px;-->
+    <!--margin: auto;-->
+    <!--font-size: 1rem;-->
+    <!--text-align: center;-->
+    <!--line-height: 1.5rem;-->
+    <!--color: $va-link-color-secondary;-->
+    <!--&-two {-->
+      <!--width: 3.25rem;-->
+    <!--}-->
+  <!--}-->
+  <!--&__tags {-->
+    <!--list-style: none;-->
+    <!--display: flex;-->
+  <!--}-->
+  <!--&__options-list {-->
+    <!--list-style: none;-->
+    <!--padding: 0;-->
+    <!--overflow-y: auto;-->
+    <!--margin-top: 1px;-->
+    <!--background: $light-gray3;-->
+    <!--border-radius: 0 0 8px 8px;-->
+    <!--box-shadow: 0 2px 3px 0 rgba(98, 106, 119, 0.25);-->
+    <!--/*position: absolute;*/-->
+    <!--width: 100%;-->
+    <!--z-index: 1;-->
+  <!--}-->
+  <!--&__option {-->
+    <!--cursor: pointer;-->
+    <!--display: flex;-->
+    <!--padding: 6px 8px;-->
+    <!--align-items: center;-->
+    <!--&:hover {-->
+      <!--background-color: $vue-light-green;-->
+    <!--}-->
+    <!--&-selected {-->
+      <!--color: $vue-green;-->
+    <!--}-->
+    <!--&__selected-icon {-->
+      <!--margin-left: auto;-->
+    <!--}-->
+    <!--&__selected-text {-->
+      <!--color: $brand-secondary;-->
+      <!--margin-left: auto;-->
+      <!--font-size: .725rem;-->
+    <!--}-->
+    <!--&-highlighted {-->
+      <!--background-color: $vue-light-green;-->
+    <!--}-->
+    <!--&__hightlight-text {-->
+      <!--margin-left: auto;-->
+      <!--color: $vue-green;-->
+      <!--font-size: .725rem;-->
+    <!--}-->
+  <!--}-->
+<!--}-->
+<!--</style>-->

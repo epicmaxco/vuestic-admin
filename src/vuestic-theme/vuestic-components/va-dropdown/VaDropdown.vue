@@ -9,6 +9,7 @@
         ref="dropdown"
         :style="dropdownStyles"
         class="va-dropdown"
+        :class="className"
       >
         <slot>{{ message }}</slot>
       </div>
@@ -43,7 +44,8 @@ export default {
       type: [String, Number]
     },
     noFade: Boolean,
-    message: String
+    message: String,
+    className: String
   },
   data () {
     return {
@@ -54,9 +56,6 @@ export default {
     }
   },
   computed: {
-    showMessage () {
-      return !!this.message || !!this.$slots.default
-    },
     dropdownStyles () {
       const styles = {}
       if (this.maxWidth) {
@@ -197,7 +196,7 @@ export default {
         this.$nextTick(this.calculatePosition)
       }
     },
-    toggle (event) {
+    toggle () {
       if (this.isVisible) {
         this.hide()
       } else {
@@ -235,7 +234,7 @@ export default {
       let target = this.targetElement
       let count = 0
       while (target) {
-        if (target.classList && target.classList.contains('va-dropdown-new')) {
+        if (target.classList && target.classList.contains('va-dropdown')) {
           count += 1
         }
         target = target.parentNode
@@ -257,14 +256,13 @@ export default {
 
 <style lang="scss">
 .va-dropdown {
-  position: fixed;
+  position: absolute;
   padding: 0 0.4rem;
-  max-width: 400px;
   font-family: Source Sans Pro, sans-serif;
   box-shadow: 0 4px 9.6px 0.4px rgba(74, 227, 135, 0.5);
   border-radius: 3px;
   background: $white;
-  z-index: 8000;
+  z-index: 2000;
   overflow-y: auto;
   overflow-x: hidden;
   max-width: 100vw;

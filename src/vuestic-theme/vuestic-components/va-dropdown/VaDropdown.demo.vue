@@ -80,7 +80,6 @@ export default {
         L: 'Left',
         TL: 'Top Left',
       },
-      showDropdown: false,
       dropdownText: 'Dropdown text. Dropdown text. Dropdown text. Dropdown text. Dropdown text. Dropdown text. Dropdown text. Dropdown text. Dropdown text. Dropdown text. Dropdown text. ',
     }
   },
