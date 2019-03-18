@@ -43,7 +43,8 @@ export default {
     }
   },
   beforeDestroy () {
-    if (this.$parent.activeIndex > 0) {
+    if (this.$parent.$children.indexOf(this) === this.$parent.activeIndex &&
+      this.$parent.activeIndex > 0) {
       this.$parent.activeIndex--
     }
     this.$parent.valueProxy = this.$parent.$children[this.$parent.activeIndex].$slots.default[0].text.trim()

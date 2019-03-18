@@ -125,6 +125,7 @@ export default {
       justify-content: space-around;
     }
     &-content {
+      margin-bottom: 2.5rem;
       &--grow {
         width: 100%;
       }
@@ -136,7 +137,6 @@ export default {
       }
       &-slider {
         display: flex;
-        margin-bottom: 2.5rem;
         transition: margin-left 0.3s;
         &.align-right {
           justify-content: flex-end;
