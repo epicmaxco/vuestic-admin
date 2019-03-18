@@ -139,13 +139,13 @@ export default {
     },
     buttonStyle () {
       if (this.focusState) {
-        if (this.flat){
+        if (this.flat) {
           return {
             color: this.themes[this.color],
             background: getFocusColor(this.color)
           }
         }
-        if (this.outline){
+        if (this.outline) {
           return {
             color: this.themes[this.color],
             borderColor: this.themes[this.color],
@@ -159,13 +159,13 @@ export default {
           }
         }
       } else if (this.hoverState) {
-        if (this.flat){
+        if (this.flat) {
           return {
             color: this.themes[this.color],
             background: getHoverColor(this.color)
           }
         }
-        if (this.outline){
+        if (this.outline) {
           return {
             color: this.themes[this.color],
             borderColor: this.themes[this.color],

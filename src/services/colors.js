@@ -94,7 +94,6 @@ function hex2rgb (hex, opacity) {
 
 export default {
   install (Vue, options) {
-
     Vue.mixin({
       data () {
         return {
@@ -103,7 +102,7 @@ export default {
       },
       watch: {
         themes: {
-          handler: function(val, oldVal) {
+          handler: function (val, oldVal) {
           },
           deep: true
         }

@@ -282,7 +282,7 @@ export default {
         return this.value
       },
       set (val) {
-        if (!this.range){
+        if (!this.range) {
           val = this.limitValue(val)
         }
         this.$emit('input', val)
