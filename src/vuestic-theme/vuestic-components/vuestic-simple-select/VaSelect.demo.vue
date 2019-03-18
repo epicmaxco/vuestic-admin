@@ -6,14 +6,14 @@
         v-model="value"
       />
     </VbContainer>
-    <VbContainer title="with placeholder" class="not-work">
+    <VbContainer title="with placeholder">
       <va-select
         v-model="value"
         :options="CountriesList"
         placeholder="select coutry"
       />
     </VbContainer>
-    <VbContainer title="positions" class="not-work">
+    <VbContainer title="positions">
       <div v-for="position in positions" :key="position">
         <p>{{position}}</p>
         <va-select
@@ -37,14 +37,14 @@
         :options="CountriesList"
       />
     </VbContainer>
-    <VbContainer title="disabled" class="not-work">
+    <VbContainer title="disabled">
       <va-select
         v-model="value"
         :options="CountriesList"
         disabled
       />
     </VbContainer>
-    <VbContainer title="options with icons" class="not-work">
+    <VbContainer title="options with icons">
       <va-select
         v-model="value"
         :options="optionsWithIcons"
@@ -76,7 +76,7 @@
         multiple
       />
     </VbContainer>
-    <VbContainer title="custom width (320px)" class="not-work">
+    <VbContainer title="custom width (320px)">
       <va-select
         v-model="value"
         :options="CountriesList"
@@ -94,96 +94,6 @@
       <p>{{value}}</p>
       <p>{{multipleValue}}</p>
     </VbContainer>
-    <VbContainer title="basic">
-      <vuestic-simple-select
-        v-model="value"
-        :options="CountriesList"
-      />
-    </VbContainer>
-    <VbContainer title="with placeholder">
-      <vuestic-simple-select
-        v-model="value"
-        :options="CountriesList"
-        placeholder="select coutry"
-      />
-    </VbContainer>
-    <VbContainer title="searchable">
-      <vuestic-simple-select
-        v-model="value"
-        :options="CountriesList"
-        searchable
-      />
-    </VbContainer>
-    <VbContainer title="searchable + multiple">
-      <vuestic-simple-select
-        v-model="multipleValue"
-        :options="CountriesList"
-        searchable
-        multiple
-      />
-    </VbContainer>
-    <VbContainer title="positions">
-      <div v-for="position in positions" :key="position">
-        <p>{{position}}</p>
-        <vuestic-simple-select
-          :position="position"
-          v-model="value"
-          :options="CountriesList"
-        />
-      </div>
-    </VbContainer>
-    <VbContainer title="multiple">
-      <vuestic-simple-select
-        v-model="multipleValue"
-        multiple
-        :options="CountriesList"
-      />
-    </VbContainer>
-    <VbContainer title="sizes">
-      <div v-for="size in sizes" :key="size">
-        <p>{{size}}</p>
-        <vuestic-simple-select
-          :size="size"
-          v-model="value"
-          :options="CountriesList"
-        />
-      </div>
-    </VbContainer>
-    <VbContainer title="with label">
-      <vuestic-simple-select
-        label="country label"
-        v-model="value"
-        :options="CountriesList"
-        />
-    </VbContainer>
-    <VbContainer title="disabled">
-      <vuestic-simple-select
-        v-model="value"
-        :options="CountriesList"
-        disabled
-      />
-    </VbContainer>
-    <VbContainer title="custom width (320px)">
-      <vuestic-simple-select
-        v-model="value"
-        :options="CountriesList"
-        width="320px"
-      />
-    </VbContainer>
-    <VbContainer title="custom max-height (320px)">
-      <vuestic-simple-select
-        v-model="value"
-        :options="CountriesList"
-        max-height="320px"
-      />
-    </VbContainer>
-    <VbContainer title="options with icons">
-      <vuestic-simple-select
-        v-model="value"
-        :options="optionsWithIcons"
-        width="320px"
-      />
-    </VbContainer>
   </VbDemo>
 </template>
 
@@ -191,14 +101,12 @@
 
 import CountriesList from '../../../data/CountriesList'
 import VaSelect from './VaSelect'
-import VuesticSimpleSelect from './VuesticSimpleSelect'
 const positions = ['top', 'bottom']
 const sizes = ['sm', 'md', 'lg']
 
 export default {
   components: {
     VaSelect,
-    VuesticSimpleSelect,
   },
   data () {
     return {

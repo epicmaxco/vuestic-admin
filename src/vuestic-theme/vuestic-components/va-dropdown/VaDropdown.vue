@@ -20,9 +20,10 @@
 <script>
 import _ from 'lodash'
 const availablePositions = ['T', 'TR', 'R', 'BR', 'B', 'BL', 'L', 'TL']
+const availableTriggerModes = ['hover', 'click', 'focus']
 
 export default {
-  name: 'vuestic-dropdown-new',
+  name: 'va-dropdown',
   props: {
     position: {
       type: String,
@@ -31,7 +32,8 @@ export default {
     },
     triggerMode: {
       type: String,
-      default: 'click'
+      default: 'click',
+      validator: triggerMode => availableTriggerModes.indexOf(triggerMode) >= 0
     },
     disabled: {
       type: Boolean,

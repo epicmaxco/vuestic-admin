@@ -1,9 +1,9 @@
 <template>
   <va-dropdown
     :position="computedPosition"
-    trigger-mode="focus"
+    :trigger-mode="searchable ? 'click' : 'focus'"
     :disabled="disabled"
-    className="va-select__dropdown"
+    :className="`va-select__dropdown va-select__dropdown-position-${position}`"
     :max-width="width"
     :max-height="maxHeight"
   >
@@ -27,7 +27,7 @@
       >
         <i class="icon va-icon fa va-select__option__icon mr-1" :class="option.icon"/>
         <span>{{option.text}}</span>
-        <span v-show="isOptionHightlighted(option, index) && !isOptionSelected(option)" class="va-select__option__hightlight-text">Press enter to select</span>
+        <span v-show="isOptionHightlighted(option, index)" class="va-select__option__hightlight-text">Press enter to select</span>
         <i v-show="isOptionSelected(option) && !isOptionHightlighted(option, index)" class="icon va-icon fa fa-check va-select__option__selected-icon"/>
       </li>
     </ul>
@@ -35,16 +35,23 @@
       slot="actuator"
       :tabindex="1"
       class="va-select"
+      :class="{
+        [`va-select-position-${position}`]: position,
+        [`va-select-${size}`]: size
+      }"
       :style="{'width': width}"
+      ref="actuator"
       @keydown.down.prevent="pointerForward()"
       @keydown.up.prevent="pointerBackward()"
       @keydown.enter.prevent="selectValue(filteredOptions[pointer], pointer)"
+      @keyup.esc.prevent="$refs.actuator.blur()"
     >
       <p v-if="label" class="title">{{label}}</p>
       <input
-        v-if="searchable"
+        v-if="searchable && isFocused"
         :value="search"
         class="va-select__input"
+        @input="updateSearch($event.target.value)"
       />
       <div
         v-else
@@ -62,7 +69,7 @@
         <span v-else class="va-select__placeholder">{{placeholder}}</span>
       </div>
       <div class="va-select__icons" :class="{'va-select__icons-two': showClearIcon}">
-        <i v-if="showClearIcon" @click.stop="clear" class="icon va-icon fa fa-times-circle mr-1"/>
+        <i v-if="showClearIcon" @click.prevent.stop="clear" class="icon va-icon fa fa-times-circle mr-1"/>
         <i class="icon va-icon fa" :class="{'fa-chevron-down': !isOpen, 'fa-chevron-up': isOpen}"/>
       </div>
     </div>
@@ -164,7 +171,7 @@ export default {
         this.pointer = index
         this.valueProxy = selectedItem
         this.search = ''
-        this.searchable && this.$refs.search.blur()
+        this.$refs.actuator.blur()
         this.setScrollPosition()
       }
     },
@@ -173,6 +180,9 @@ export default {
     },
     isOptionHightlighted (option, index) {
       return this.pointer === index
+    },
+    isFocused () {
+      return document.activeElement === this.$refs.actuator
     },
     clear () {
       this.valueProxy = ''
@@ -214,12 +224,21 @@ export default {
     &:focus {
       outline: none;
     }
+    &-position-top {
+      border-bottom: none;
+      border-top: 1px solid $brand-secondary;
+      border-radius: 0 0 .5rem 0;
+    }
     &__input {
       border: none;
       background: transparent;
+      width: calc(100% - 34px);
       &:focus {
         outline: none;
       }
+    }
+    &__placeholder {
+      opacity: .5;
     }
     &__icons {
       margin-left: auto;
@@ -227,6 +246,9 @@ export default {
     }
     &__dropdown {
       outline: none;
+      &.va-select__dropdown-position-top {
+        box-shadow: 0 -2px 3px 0 rgba(98, 106, 119, 0.25);
+      }
     }
     &__options-list {
       list-style: none;
@@ -235,16 +257,23 @@ export default {
     }
     &__option {
       cursor: pointer;
+      display: flex;
+      padding: .375rem 1.5rem .375rem .5rem;
       &:hover {
         background-color: $vue-light-green;
+      }
+      &-selected, &-highlighted {
+        color: $vue-green
+      }
+      &__hightlight-text, &__selected-icon {
+        margin-left: auto;
       }
     }
     &__dropdown {
       margin: 0;
       padding: 0;
-      box-shadow: none;
       background: $light-gray3;
-      border-radius: 0 0 8px 8px;
+      border-radius: .5rem;
       box-shadow: 0 2px 3px 0 rgba(98, 106, 119, 0.25);
     }
   }

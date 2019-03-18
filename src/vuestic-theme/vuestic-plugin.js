@@ -33,8 +33,8 @@ import RadioButton
   from './vuestic-components/vuestic-radio-button/VuesticRadioButton'
 import Scrollbar
   from './vuestic-components/vuestic-scrollbar/VuesticScrollbar.vue'
-import SimpleSelect
-  from './vuestic-components/vuestic-simple-select/VuesticSimpleSelect.vue'
+import VaSelect
+  from './vuestic-components/vuestic-simple-select/VaSelect.vue'
 import Slider from './vuestic-components/vuestic-slider/VuesticSlider.vue'
 import SocialNews
   from './vuestic-components/vuestic-social-news/VuesticSocialNews.vue'
@@ -110,7 +110,7 @@ const VuesticPlugin = {
       VaPagination,
       RadioButton,
       Scrollbar,
-      SimpleSelect,
+      VaSelect,
       Slider,
       SocialNews,
       Switch,
