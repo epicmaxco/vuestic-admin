@@ -45,9 +45,11 @@
 
 <script>
 import { getGradientColor, getHoverColor, getFocusColor, getBoxShadowColor } from '../../../services/colors'
+import VaIcon from '../va-icon/VaIcon'
 
 export default {
   name: 'va-button',
+  components: { VaIcon },
   props: {
     tag: {
       type: String,
@@ -137,31 +139,53 @@ export default {
     },
     buttonStyle () {
       if (this.focusState) {
-        return {
-          color: this.flat || this.outline ? this.$theme[this.color] : '#ffffff',
-          borderColor: this.outline ? this.$theme[this.color] : '',
-          background: this.flat || this.outline ? getFocusColor(this.color) : '',
-          backgroundImage:
-            !this.flat && !this.outline ? 'linear-gradient(to right,' + getGradientColor(this.color)[0] +
+        if (this.flat){
+          return {
+            color: this.themes[this.color],
+            background: getFocusColor(this.color)
+          }
+        }
+        if (this.outline){
+          return {
+            color: this.themes[this.color],
+            borderColor: this.themes[this.color],
+            background: getFocusColor(this.color)
+          }
+        } else {
+          return {
+            backgroundImage: !this.flat && !this.outline
+              ? 'linear-gradient(to right,' + getGradientColor(this.color)[0] +
               ',' + getGradientColor(this.color)[1] + ')' : '',
+          }
         }
       } else if (this.hoverState) {
-        return {
-          color: this.flat || this.outline ? this.$theme[this.color] : '#ffffff',
-          borderColor: this.outline ? this.$theme[this.color] : '',
-          background: this.flat || this.outline ? getHoverColor(this.color) : '',
-          backgroundImage:
-            !this.flat && !this.outline ? 'linear-gradient(to right,' + getGradientColor(this.color)[0] +
+        if (this.flat){
+          return {
+            color: this.themes[this.color],
+            background: getHoverColor(this.color)
+          }
+        }
+        if (this.outline){
+          return {
+            color: this.themes[this.color],
+            borderColor: this.themes[this.color],
+            background: getHoverColor(this.color)
+          }
+        } else {
+          return {
+            backgroundImage: !this.flat && !this.outline
+              ? 'linear-gradient(to right,' + getGradientColor(this.color)[0] +
               ',' + getGradientColor(this.color)[1] + ')' : '',
+          }
         }
       } else {
         return {
-          color: this.flat || this.outline ? this.$theme[this.color] : '#ffffff',
-          borderColor: this.outline ? this.$theme[this.color] : '',
-          backgroundImage:
-            !this.flat && !this.outline ? 'linear-gradient(to right,' + getGradientColor(this.color)[0] +
+          color: this.flat || this.outline ? this.themes[this.color] : '#ffffff',
+          borderColor: this.outline ? this.themes[this.color] : '',
+          backgroundImage: !this.flat && !this.outline
+            ? 'linear-gradient(to right,' + getGradientColor(this.color)[0] +
               ',' + getGradientColor(this.color)[1] + ')' : '',
-          boxShadow: !this.flat && !this.outline ? '0 0.125rem 0.19rem 0' + getBoxShadowColor(this.color) : ''
+          boxShadow: !this.flat && !this.outline ? '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.color) : ''
         }
       }
     },
@@ -234,6 +258,8 @@ export default {
     }
 
     &--default {
+      color: $white;
+
       &:hover {
         filter: brightness(115%);
       }

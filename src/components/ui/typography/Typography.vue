@@ -55,8 +55,8 @@
       <div class="mb-4">
         <pre class="code-snippet">&lt;p class=“code-snippet”>
   This is a wonderful example.
-  &lt;a&gt href=“#” onClick=“”>Read more&lt;/a&gt
-&lt;/p&gt</pre>
+  &lt;a href=“#” onClick=“”>Read more&lt;/a>
+&lt;/p></pre>
         <p>
           Of all of the celestial bodies that capture our attention and fascination
           as astronomers,

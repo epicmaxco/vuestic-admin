@@ -21,8 +21,7 @@ Commit messages should follow the [commit message convention](./COMMIT_CONVENTIO
 
 * Public branches (**epicmax/vuestic-admin**):
   * `master` - stable snapshot from `develop`. Releases and hotfixes only. Do not submit PR's to `master`!
-  * `develop` - main development branch. Houses `1.9` at the moment.
-  * `2.0-release` - secondary development branch. Sits on top of `develop` (feel free to merge if something is missing).
+  * `develop` - main development branch. Houses `2.0` at the moment.
 
 * Local branches
   * For local branches naming stick to [commit message convention](./COMMIT_CONVENTION.md). So for feature branch that adds tabs name would be `feat/tabs`.

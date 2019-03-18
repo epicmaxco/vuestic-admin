@@ -34,9 +34,10 @@ export default {
       }
     },
     notificationStyle () {
+      console.log('0 0.125rem 0.125rem 0 ' + getBoxShadowColor(this.color))
       return {
         background: getHoverColor(this.color),
-        boxShadow: '0 0.125rem 0.125rem 0' + getBoxShadowColor(this.color)
+        boxShadow: '0 0.125rem 0.125rem 0 ' + getBoxShadowColor(this.color)
       }
     },
   },
@@ -89,19 +90,6 @@ export default {
     margin: $va-notification-margin-y auto;
     border: $va-notification-border solid transparent;
     border-radius: $va-notification-border-radius;
-
-    &__badge {
-      padding: $va-badge-padding-y $va-badge-padding-x;
-      font-family: $font-family-sans-serif;
-      font-weight: bold;
-      text-transform: uppercase;
-      white-space: nowrap;
-      font-size: $va-badge-font-size;
-      color: $white;
-      letter-spacing: $va-badge-letter-spacing;
-      margin-right: $va-badge-margin-right;
-      border-radius: $va-badge-border-radius;
-    }
 
     &__close-icon {
       padding: $va-close-icon-padding-y $va-close-icon-padding-x;
