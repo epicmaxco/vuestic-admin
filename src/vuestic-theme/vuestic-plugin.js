@@ -11,8 +11,6 @@ import DataTable
 import Feed from './vuestic-components/vuestic-feed/VuesticFeed.vue'
 import VaProgressBar
   from './vuestic-components/va-progress-bar/progress-types/VaProgressBar.vue'
-import VaSlider
-  from './vuestic-components/va-slider/VaSlider.vue'
 import MediumEditor
   from './vuestic-components/vuestic-medium-editor/VuesticMediumEditor.vue'
 import Modal from './vuestic-components/va-modal/VaModal.vue'
@@ -41,7 +39,7 @@ import Scrollbar
   from './vuestic-components/vuestic-scrollbar/VuesticScrollbar.vue'
 import SimpleSelect
   from './vuestic-components/vuestic-simple-select/VuesticSimpleSelect.vue'
-import Slider from './vuestic-components/va-slider/VaSlider.vue'
+import VaSlider from './vuestic-components/va-slider/VaSlider.vue'
 import SocialNews
   from './vuestic-components/vuestic-social-news/VuesticSocialNews.vue'
 import Switch from './vuestic-components/vuestic-switch/VuesticSwitch.vue'
@@ -53,8 +51,8 @@ import TreeRoot from './vuestic-components/vuestic-tree-view/VuesticTreeRoot'
 import TreeCategory
   from './vuestic-components/vuestic-tree-view/VuesticTreeCategory'
 import TreeNode from './vuestic-components/vuestic-tree-view/VuesticTreeNode'
-import DatePicker
-  from './vuestic-components/vuestic-date-picker/VuesticDatePicker'
+import VaDatePicker
+  from './vuestic-components/va-date-picker/VaDatePicker'
 import Card from './vuestic-components/vuestic-card/VuesticCard'
 import FileUpload
   from './vuestic-components/vuestic-file-upload/VuesticFileUpload'
@@ -116,7 +114,6 @@ const VuesticPlugin = {
       RadioButton,
       Scrollbar,
       SimpleSelect,
-      Slider,
       SocialNews,
       Switch,
       Tabs,
@@ -130,7 +127,7 @@ const VuesticPlugin = {
       TreeNode,
       FileUpload,
       VuesticDropdown,
-      DatePicker,
+      VaDatePicker,
       Card,
       VaIcon,
       VaAccordion,

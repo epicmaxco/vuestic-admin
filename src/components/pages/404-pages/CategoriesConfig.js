@@ -96,6 +96,10 @@ export default [
       {
         itemName: 'Spacing',
         itemLink: '/admin/ui/spacing'
+      },
+      {
+        itemName: 'Datepickers',
+        itemLink: '/admin/ui/datepickers'
       }
     ],
   },

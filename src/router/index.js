@@ -289,6 +289,14 @@ export default new Router({
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Sliders'
               },
+            },
+            {
+              name: 'datepickers',
+              path: 'datepickers',
+              component: () => import('../components/ui/datepickers/Datepickers'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Sliders'
+              },
             }
           ]
         },

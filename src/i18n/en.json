@@ -60,6 +60,13 @@
     "slider": "Sliders",
     "range": "Ranges"
   },
+  "datepickers": {
+    "dateOfBirth": "Date of birth",
+    "daysOfTheWeek": "Days of the week",
+    "setupMeeting": "Setup meeting",
+    "upcomingVacation": "Upcoming vacation",
+    "multipleAndDisabledDates": "Multiple & disabled dates"
+  },
   "dashboard": {
     "dataVisualization": "Data Visualization",
     "success": "SUCCESS",
@@ -234,7 +241,8 @@
     "fileUpload": "File Upload",
     "dropdowns": "Dropdowns",
     "spacing": "Spacing",
-    "sliders": "Sliders"
+    "sliders": "Sliders",
+    "datepickers": "Datepickers"
   },
   "messages": {
     "all": "See all messages",
