@@ -1,7 +1,7 @@
 export const breadcrumbs = {
   root: {
     name: '/',
-    displayName: 'Home',
+    displayName: 'breadcrumbs.home',
   },
   routes: [
     {
@@ -110,8 +110,8 @@ export const breadcrumbs = {
           displayName: 'menu.fileUpload',
         },
         {
-          name: 'tags',
-          displayName: 'menu.tags',
+          name: 'chips',
+          displayName: 'menu.chips',
         },
         {
           name: 'cards',
@@ -124,6 +124,10 @@ export const breadcrumbs = {
         {
           name: 'spacing',
           displayName: 'menu.spacing'
+        },
+        {
+          name: 'sliders',
+          displayName: 'menu.sliders'
         }
       ],
     },

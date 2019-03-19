@@ -31,6 +31,18 @@
  line-height: 1.2;
  font-weight: bold;
  text-transform: uppercase;
+
+  &--info {
+    color: $theme-blue-dark;
+  }
+
+  &--danger {
+    color: $theme-danger;
+  }
+
+  &--warning {
+    color: $theme-warning;
+  }
 }
 
 .text {

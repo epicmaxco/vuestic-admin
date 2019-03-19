@@ -249,11 +249,11 @@ export default new Router({
               },
             },
             {
-              name: 'tags',
-              path: 'tags',
-              component: () => import('../components/ui/tags/Tags'),
+              name: 'chips',
+              path: 'chips',
+              component: () => import('../components/ui/chips/Chips'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tags',
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Chips',
               },
             },
             {
@@ -281,6 +281,14 @@ export default new Router({
               name: 'spacing',
               path: 'spacing',
               component: () => import('../components/ui/spacing/Spacing')
+            },
+            {
+              name: 'sliders',
+              path: 'sliders',
+              component: () => import('../components/ui/sliders/Sliders'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Sliders'
+              },
             }
           ]
         },
