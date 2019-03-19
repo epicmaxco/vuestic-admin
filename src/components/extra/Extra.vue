@@ -54,10 +54,11 @@
 </template>
 
 <script>
-import OverviewTab from 'components/dashboard/features-tab/FeaturesTab.vue'
+import OverviewTab
+  from '@/components/dashboard/dashboard-old/features-tab/FeaturesTab.vue'
 import SetupProfileTab
-  from 'components/dashboard/setup-profile-tab/SetupProfileTab.vue'
-import LeafletMap from 'components/maps/leaflet-maps/LeafletMap.vue'
+  from '@/components/dashboard/dashboard-old/setup-profile-tab/SetupProfileTab.vue'
+import LeafletMap from '@/components/maps/leaflet-maps/LeafletMap.vue'
 
 export default {
   name: 'extra',

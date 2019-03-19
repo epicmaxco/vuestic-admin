@@ -1,50 +1,26 @@
 <template>
   <div class="dashboard">
+    <div class="va-row">
+      <div class="flex md6">
+        <dashboard-line-chart />
+      </div>
+      <div class="flex md3">
 
-    <dashboard-info-widgets></dashboard-info-widgets>
+      </div>
+      <div class="flex md3">
 
-    <vuestic-widget class="no-padding no-v-padding">
-      <vuestic-tabs
-        :names="[$t('dashboard.dataVisualization'), $t('dashboard.usersAndMembers'), $t('dashboard.setupProfile'), $t('dashboard.features')]"
-        ref="tabs">
-        <div :slot="$t('dashboard.dataVisualization')">
-          <data-visualisation-tab></data-visualisation-tab>
-        </div>
-        <div :slot="$t('dashboard.usersAndMembers')">
-          <users-members-tab></users-members-tab>
-        </div>
-        <div :slot="$t('dashboard.setupProfile')">
-          <setup-profile-tab></setup-profile-tab>
-        </div>
-        <div :slot="$t('dashboard.features')">
-          <features-tab></features-tab>
-        </div>
-      </vuestic-tabs>
-    </vuestic-widget>
-
-    <dashboard-bottom-widgets></dashboard-bottom-widgets>
-
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import DashboardInfoWidgets from './DashboardInfoWidgets'
-import UsersMembersTab from './users-and-members-tab/UsersMembersTab.vue'
-import SetupProfileTab from './setup-profile-tab/SetupProfileTab.vue'
-import FeaturesTab from './features-tab/FeaturesTab.vue'
-import DataVisualisationTab
-  from './data-visualisation-tab/DataVisualisationTab.vue'
-import DashboardBottomWidgets from './DashboardBottomWidgets.vue'
+import DashboardLineChart from './DashboardLineChart'
 
 export default {
   name: 'dashboard',
   components: {
-    DataVisualisationTab,
-    DashboardInfoWidgets,
-    UsersMembersTab,
-    SetupProfileTab,
-    FeaturesTab,
-    DashboardBottomWidgets,
+    DashboardLineChart
   },
 
   methods: {
