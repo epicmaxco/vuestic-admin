@@ -1,5 +1,5 @@
 <template>
-  <div class="language-dropdown flex-center">
+  <div class="language-dropdown flex-center grow">
     <va-icon :icon="['flag-icon flag-icon-large', flagIconClass(currentLanguage())]"/>
     <vuestic-dropdown
       class="language-dropdown__container"
@@ -46,6 +46,10 @@ export default {
         {
           code: 'br',
           name: 'brazilian_portuguese',
+        },
+        {
+          code: 'cn',
+          name: 'simplified_chinese',
         },
       ],
     },

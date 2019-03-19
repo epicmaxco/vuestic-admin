@@ -276,3 +276,13 @@
     </VbContainer>
   </VbDemo>
 </template>
+
+<script>
+
+import VaButton from './VaButton'
+export default {
+  components: {
+    VaButton
+  }
+}
+</script>

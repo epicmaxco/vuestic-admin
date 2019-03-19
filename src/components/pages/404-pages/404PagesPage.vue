@@ -3,7 +3,7 @@
     <div class="flex md12">
       <div class="va-row">
         <vuestic-card
-          class="not-found-pages__cards"
+          class="not-found-pages__cards text--center"
           :image="item.imageUrl"
           v-for="item in items"
           :key="item.$index"
@@ -56,13 +56,10 @@ export default {
 <style lang="scss">
 .not-found-pages {
   $cardGutter: #{(19/16)}rem;
+
   .va-card.not-found-pages__cards {
     min-width: 220px;
-    text-align: center;
     margin: 0 $cardGutter calc(#{$cardGutter} * 2) $cardGutter;
-  }
-  &__button-container {
-    text-align: center;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="notifications-page">
+  <div class="notifications">
     <div class="va-row">
       <div class="flex md12">
         <vuestic-widget
@@ -73,49 +73,49 @@
           :headerText="'notificationsPage.notifications.title' | translate">
           <div class="mb-3">
             <va-notification closeable>
-              <span class="va-notification__badge va-notification__badge--success">
+              <va-badge>
                 {{ $t('notificationsPage.notifications.success') }}
-              </span>
+              </va-badge>
               {{ $t('notificationsPage.notifications.successMessage') }}
             </va-notification>
           </div>
           <div class="mb-3">
             <va-notification color="info" closeable>
-              <span class="va-notification__badge va-notification__badge--info">
+              <va-badge color="info">
                 {{ $t('notificationsPage.notifications.info') }}
-              </span>
+              </va-badge>
               {{ $t('notificationsPage.notifications.infoMessage') }}
             </va-notification>
           </div>
           <div class="mb-3">
             <va-notification color="warning" closeable>
-              <span class="va-notification__badge va-notification__badge--warning">
+              <va-badge color="warning">
                 {{ $t('notificationsPage.notifications.warning') }}
-              </span>
+              </va-badge>
               {{ $t('notificationsPage.notifications.warningMessage') }}
             </va-notification>
           </div>
           <div class="mb-3">
             <va-notification color="danger" closeable>
-              <span class="va-notification__badge va-notification__badge--danger">
+              <va-badge color="danger">
                 {{ $t('notificationsPage.notifications.danger') }}
-              </span>
+              </va-badge>
               {{ $t('notificationsPage.notifications.dangerMessage') }}
             </va-notification>
           </div>
           <div class="mb-3">
             <va-notification color="gray" closeable>
-              <span class="va-notification__badge va-notification__badge--gray">
+              <va-badge color="gray">
                 {{ $t('notificationsPage.notifications.gray') }}
-              </span>
+              </va-badge>
               {{ $t('notificationsPage.notifications.warningMessage') }}
             </va-notification>
           </div>
           <div class="mb-3">
             <va-notification color="dark" closeable>
-              <span class="va-notification__badge va-notification__badge--dark">
+              <va-badge color="dark">
                 {{ $t('notificationsPage.notifications.dark') }}
-              </span>
+              </va-badge>
               {{ $t('notificationsPage.notifications.dangerMessage') }}
             </va-notification>
           </div>
@@ -161,7 +161,7 @@
                   </div>
                 </div>
                 <!-- TODO Redo with global classes -->
-                <div class="form-group va-row" style="margin-bottom: 2rem">
+                <div class="form-group va-row mb-4">
                   <toast-position-picker v-model="toastPosition"/>
                   <vuestic-checkbox
                     :label="'notificationsPage.toasts.fullWidthLabel' | translate"
@@ -253,15 +253,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.toasted-container.sample-toasted-container {
-  position: static;
-  transform: translateX(0);
-
-  .toasted {
-    position: static;
-    transform: translateY(0);
-  }
-}
-</style>

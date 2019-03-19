@@ -1,23 +1,19 @@
 <template>
   <div class="vuestic-page-not-found-search">
     <div class="vuestic-page-not-found-search__content">
-      <div class="vuestic-page-not-found-search__wallpaper">
-        <router-link class="i-vuestic vuestic-page-not-found-search__i-vuestic"
-                     :to="{path: '/'}"/>
-      </div>
-      <div class="vuestic-page-not-found-search__wallpaper">
-        <h3 class="vuestic-page-not-found-search__text">The page's gone
+      <div class="vuestic-page-not-found-search__wallpaper d-flex justify--center">
+        <h3 class="vuestic-page-not-found-search__text pt-5">The page's gone
           fishing.</h3>
       </div>
       <div class="vuestic-page-not-found-search__wallpaper flex md12">
-        <div class="va-row vuestic-page-not-found-search__message">
-          <h4 class="vuestic-page-not-found-search__text-small">
+        <div class="va-row justify--center vuestic-page-not-found-search__message">
+          <span class="vuestic-page-not-found-search__text-small mt-4">
             If you feel that it's not right, please send us a message at &nbsp;
-          </h4>
-          <a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
+          </span>
+          <a class="mt-4" href="mailto:hello@epicmax.co">hello@epicmax.co</a>
         </div>
       </div>
-      <div class="vuestic-page-not-found-search__wallpaper">
+      <div class="vuestic-page-not-found-search__wallpaper d-flex justify--center">
         <div class="form-group">
           <div class="input-group vuestic-page-not-found-search__input">
             <input
@@ -29,11 +25,11 @@
           </div>
         </div>
       </div>
-      <div
-        class="vuestic-page-not-found-search__wallpaper vuestic-page-not-found-search__not-found-wallpaper-list">
-        <div class="vuestic-page-not-found-search__wrapper">
+      <div class="vuestic-page-not-found-search__wallpaper d-flex justify--center
+        vuestic-page-not-found-search__not-found-wallpaper__list">
+        <div class="va-row vuestic-page-not-found-search__wrapper">
           <ul
-            class="vuestic-page-not-found-search__list"
+            class="flex md2 xs4 vuestic-page-not-found-search__list"
             v-for="(category, index) in filterItems"
             :key="index"
           >
@@ -44,7 +40,7 @@
               :key="index"
             >
               <router-link :to="{ path: item.itemLink }">
-                {{ item.itemName}}
+                {{ item.itemName }}
               </router-link>
             </li>
           </ul>
@@ -100,70 +96,34 @@ export default {
   padding-bottom: 84px;
   background-color: $top-nav-bg;
 
-  &__text {
-    padding-top: 50px;
-    color: white;
-  }
-  &__text-small {
-    font-size: $font-size-root;
-    line-height: 1.5;
-    text-align: center;
-    color: white;
-    font-weight: normal;
-  }
-  &__i-vuestic {
-    margin-top: 100px;
-  }
-  &__list {
-    color: white;
-  }
   &__input {
     width: 310px;
   }
+
   &__wallpaper {
     max-height: 40%;
-    display: flex;
-    justify-content: center;
+    color: $white;
+  }
 
-    a {
-      margin-top: 2rem;
-    }
+  &__wrapper {
+    margin: 0 30%;
   }
-  &__i-vuestic {
-    z-index: 2;
-    height: $auth-wallpaper-ivuestic-h;
-    width: 100%;
-  }
-  &__message {
-    justify-content: center;
-  }
+
   @include media-breakpoint-down(xs) {
     .vuestic-page-not-found-search {
-      height: $auth-mobile-main-h;
 
-      &__message {
-        justify-content: center;
-      }
       &__list-element {
         font-size: 13px;
       }
-      &__not-found-wallpaper-list {
-        padding: 0;
-      }
-      &__i-vuestic {
-        margin-top: 5%;
-      }
+
       &__text-small {
         font-size: 15px;
       }
+
       &__wrapper {
-        grid-template-columns: repeat(3, 1fr);
+        margin: 0;
       }
     }
-  }
-  &__wrapper {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
   }
 }
 </style>

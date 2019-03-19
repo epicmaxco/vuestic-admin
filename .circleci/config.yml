@@ -14,9 +14,6 @@ aliases:
     paths:
       - ~/.cache/yarn
 
-  - &build |
-    yarn build
-
 docker: &docker
   docker:
     - image: circleci/node:10.12.0
@@ -28,16 +25,30 @@ defaults: &defaults
 
 version: 2
 jobs:
-  deploy-staging:
+  test:
     <<: *defaults
     steps:
       - checkout
       - restore_cache: *restore_cache
       - run: *install_dependencies
       - save_cache: *save_cache
-      - run: *build
+      - run: yarn test:unit
+
+  deploy-staging:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Add variables for Yandex Metrics and Drift live chat
+          command:
+            echo "VUE_APP_INCLUDE_DEMOS=true" >> .env.production.local
+      - restore_cache: *restore_cache
+      - run: *install_dependencies
+      - save_cache: *save_cache
+      - run: yarn build
       - run:
           name: Deploy to hosting
+          # DEPLOY_PATH here is for staging only
           command: |
             tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
             sudo apt install sshpass
@@ -61,19 +72,17 @@ jobs:
       - restore_cache: *restore_cache
       - run: *install_dependencies
       - save_cache: *save_cache
-      - run: *build
+      - run: yarn build
       - run:
           name: Deploy to hosting
-          environment:
-            DEPLOY_PATH: /var/www/html/vuestic-admin
           command: |
             tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
             ssh-keyscan -t rsa $SERVER_IP >> ~/.ssh/known_hosts
             scp ~/repo/dist.tar.gz $SERVER_USER_NAME@$SERVER_IP:~/
             ssh $SERVER_USER_NAME@$SERVER_IP << EOF
               mkdir -p tmp
-              rm -rf $DEPLOY_PATH/*
-              tar -xzf ~/dist.tar.gz -C $DEPLOY_PATH
+              rm -rf $PRODUCTION_DEPLOY_PATH/*
+              tar -xzf ~/dist.tar.gz -C $PRODUCTION_DEPLOY_PATH
               rm -rf ~/dist.tar.gz ~/tmp
             EOF
 
@@ -81,11 +90,16 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
+      - test
       - deploy-staging:
+          requires:
+            - test
           filters:
             branches:
               only: develop
       - deploy-production:
+          requires:
+            - test
           context: vuestic-production
           filters:
             branches:

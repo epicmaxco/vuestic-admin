@@ -39,8 +39,11 @@
 </template>
 
 <script>
+import VaIcon from '../va-icon/VaIcon'
+
 export default {
   name: 'va-button',
+  components: { VaIcon },
   props: {
     tag: {
       type: String,
@@ -311,10 +314,44 @@ export default {
     }
 
     .va-button--#{$name}.va-button--outline{
-      background: transparent;
+      background-color: transparent;
       border: solid $btn-border-outline $border-color;
       text-decoration: none;
       color: $border-color !important;
+
+      .va-pagination & {
+
+        &:focus {
+          background-color: transparent;
+
+          .va-button__content, i {
+            color: $border-color;
+          }
+        }
+
+        &.va-button--active {
+          background-color: $border-color;
+
+          .va-button__content, i {
+            color: $white;
+          }
+        }
+
+        .va-button__content {
+          min-width: 20px;
+        }
+
+        &.va-button--no-effects {
+
+          &:hover, &:active, &:focus {
+            background-color: transparent;
+
+            .va-button__content, i {
+              color: $border-color;
+            }
+          }
+        }
+      }
 
       &:hover {
         background-color: $hover-color;
@@ -328,11 +365,7 @@ export default {
         .va-button-toggle & {
           background-color: $border-color;
 
-          .va-button__content {
-            color: $white;
-          }
-
-          i {
+          .va-button__content, i {
             color: $white;
           }
         }
@@ -341,6 +374,30 @@ export default {
       &.va-button--disabled {
         background: transparent;
         @include va-disabled;
+
+        &.va-button--active {
+          background-color: $brand-secondary !important;
+
+          .va-button__content, i {
+            color: $white !important;
+          }
+        }
+
+        .va-pagination & {
+          border-color: $brand-secondary;
+          opacity: 1;
+
+          .va-button__content, i {
+            color: $brand-secondary;
+          }
+
+          &.va-button--no-effects {
+
+            .va-button__content, i {
+              color: $brand-secondary !important;
+            }
+          }
+        }
       }
     }
 

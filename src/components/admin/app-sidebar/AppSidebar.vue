@@ -75,9 +75,9 @@
           </span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'collapse' }">
+          :to="{ name: 'collapses' }">
           <span slot="title">
-            <span>{{ $t('menu.collapse') }}</span>
+            <span>{{ $t('menu.collapses') }}</span>
           </span>
         </sidebar-link>
         <sidebar-link
@@ -143,9 +143,9 @@
           </span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'tags' }">
+          :to="{ name: 'chips' }">
           <span slot="title">
-            <span>{{ $t('menu.tags') }}</span>
+            <span>{{ $t('menu.chips') }}</span>
           </span>
         </sidebar-link>
         <sidebar-link
@@ -164,6 +164,12 @@
           :to="{ name: 'spacing'}">
           <span slot="title">
             <span>{{ $t('menu.spacing') }}</span>
+          </span>
+        </sidebar-link>
+        <sidebar-link
+          :to="{ name: 'sliders'}">
+          <span slot="title">
+            <span>{{ $t('menu.sliders') }}</span>
           </span>
         </sidebar-link>
       </sidebar-link-group>

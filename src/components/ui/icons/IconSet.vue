@@ -1,15 +1,15 @@
 <template>
-  <div class="vuestic-icon-set">
-    <vuestic-widget class="vuestic-icon-set__header">
+  <div class="icon-set">
+    <vuestic-widget class="icon-set__header mb-4 py-3">
       <div class="va-row">
-        <div class=" flex md4 xs12 vuestic-icon-set__header__text">
-          <h2>{{ set.name }}</h2>
+        <div class="flex md4 xs12 pl-5 icon-set__header__text">
+          <h2 class="my-0">{{ set.name }}</h2>
           <router-link :to="{ name: 'icon-sets' }">
             {{ $t('icons.back') }}
           </router-link>
         </div>
 
-        <div class=" flex md4 xs12">
+        <div class="flex md4 xs12">
           <div class="form-group with-icon-left">
             <div class="input-group">
               <input
@@ -27,14 +27,17 @@
           </div>
         </div>
 
-        <div class=" flex md4 xs12 vuestic-icon-set__header__range">
-          <h4>A</h4>
-          <vuestic-slider
-            :options="slider"
+        <div class="d-flex flex align--center md4 xs12 px-4 vuestic-icon-set__header__range">
+          <h4 class="ma-2 shrink">A</h4>
+          <va-slider
+            value-visible
             v-model="iconSize"
+            :label-value="`${iconSize}px`"
+            :min="slider.min"
+            :max="slider.max"
           >
-          </vuestic-slider>
-          <h2>A</h2>
+          </va-slider>
+          <h2 class="ma-2 shrink">A</h2>
         </div>
       </div>
     </vuestic-widget>
@@ -50,12 +53,12 @@
       </span>
       <div class="va-row">
         <div
-          class="flex xs3 md1 icon-grid-container"
+          class="va-row column flex-center flex xs3 md1 mb-2 icon-grid-container"
           v-for="icon in list.icons"
           :key="icon"
         >
-          <div class="vuestic-icon">
-            <va-icon :icon="iconClass(icon)" size="iconSize"/>
+          <div class="vuestic-icon mb-3 pt-3">
+            <va-icon :icon="iconClass(icon)" :size="iconSize"/>
           </div>
           <div class="icon-text">
             {{ icon }}
@@ -68,7 +71,7 @@
 
 <script>
 export default {
-  name: 'vuestic-icon-set',
+  name: 'icon-set',
   props: {
     name: {
       type: String,
@@ -131,67 +134,18 @@ export default {
 </script>
 
 <style lang="scss">
-.vuestic-icon-set {
-  &__header {
-    padding: 1.75rem 0 1.125rem;
-    background-color: white;
-
-    &__text {
-      padding-left: 2.5rem;
-      text-align: left;
-
-      h2 {
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-    }
-
-    &__range {
-      display: flex;
-      align-items: center;
-      padding-right: 2rem;
-      padding-left: 2rem;
-
-      h2, h4 {
-        flex-grow: 0;
-        margin: .5rem;
-      }
-
-      .vuestic-slider {
-        flex-grow: 1;
-      }
-    }
-
-    margin-bottom: 2rem;
-  }
+.icon-set {
 
   .icon-grid-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
-    position: relative;
-    float: left;
-    height: 6rem;
-    min-height: 1px;
-    margin: 0 0 .5rem;
-    text-align: center;
 
     &:hover {
-      color: white;
+      color: $white;
       background-color: $brand-primary;
       cursor: pointer;
     }
 
-    .vuestic-icon {
-      margin: 0 0 1rem;
-      padding: 1rem 0 0;
-    }
-
     .icon-text {
       font-size: .6rem;
-      text-align: center;
     }
   }
 }

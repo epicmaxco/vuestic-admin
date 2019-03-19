@@ -1,5 +1,5 @@
 <template>
-  <div class="charts-page">
+  <div class="charts">
     <div class="va-row">
       <div class="flex md6 xs12">
         <vuestic-widget
@@ -93,8 +93,8 @@ export default {
 </script>
 
 <style lang="scss">
-.widget.chart-widget {
-  .widget-body {
+.chart-widget {
+  .vuestic-widget-body {
     height: 550px;
   }
 }

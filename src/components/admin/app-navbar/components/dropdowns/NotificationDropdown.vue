@@ -1,5 +1,5 @@
 <template>
-  <div class="notification-dropdown flex-center">
+  <div class="grow notification-dropdown flex-center">
     <va-icon icon="i-nav-notification"/>
     <vuestic-dropdown
       v-model="isShown"
