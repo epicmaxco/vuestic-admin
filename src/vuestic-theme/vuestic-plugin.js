@@ -47,7 +47,6 @@ import SocialNews
 import Switch from './vuestic-components/vuestic-switch/VuesticSwitch.vue'
 import Tabs from './vuestic-components/vuestic-tabs/VuesticTabs.vue'
 import Tooltip from './vuestic-components/vuestic-tooltip/VuesticTooltip.vue'
-import Widget from './vuestic-components/vuestic-widget/VuesticWidget.vue'
 import Wizard from './vuestic-components/vuestic-wizard/VuesticWizard.vue'
 import TreeRoot from './vuestic-components/vuestic-tree-view/VuesticTreeRoot'
 import TreeCategory
@@ -120,7 +119,6 @@ const VuesticPlugin = {
       SocialNews,
       Switch,
       Tabs,
-      Widget,
       Wizard,
       MediumEditor,
       Tooltip,

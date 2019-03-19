@@ -1,25 +1,35 @@
 <template>
   <div
     class="va-card"
-    :class="computedClass"
+    :class="computedCardClass"
   >
-    <template v-if="image">
-      <img v-if="!titleOnImage" class="va-card__image" :src="image" :alt="imageAlt">
-      <div class="va-card__image-container" v-if="titleOnImage">
-        <img class="va-card__image" :src="image" :alt="imageAlt">
-        <div class="va-card__image-container__overlay" v-if="overlay"/>
-        <h5 class="va-card__title">
-          <slot name="title"/>
-        </h5>
+    <div class="va-card__image" v-if="image">
+      <img :src="image" :alt="imageAlt">
+      <div class="va-card__image-overlay" v-if="overlay"></div>
+    </div>
+
+    <div
+      class="va-card__header"
+      :class="{'va-card__header--over': image && titleOnImage}"
+      v-if="showHeader"
+    >
+      <div class="va-card__header-inner">
+        <slot name="header">
+          <div class="va-card__header-title">
+            {{ title }}
+          </div>
+          <div class="va-card__header-actions">
+            <slot name="actions" />
+          </div>
+        </slot>
       </div>
-    </template>
-    <div class="va-card__body">
-      <h5 class="va-card__title" v-if="$slots.title && !(image && titleOnImage)">
-        <slot name="title"/>
-      </h5>
-      <p class="va-card__text">
-        <slot/>
-      </p>
+    </div>
+
+    <div
+      class="va-card__body"
+      :class="computedCardBodyClass"
+    >
+      <slot/>
     </div>
   </div>
 </template>
@@ -28,15 +38,36 @@
 export default {
   name: 'va-card',
   props: {
+    stripe: {
+      type: String,
+      default: '',
+    },
+    title: {
+      type: String,
+      default: '',
+    },
+    theme: {
+      type: String,
+      validator: (val) => ['base', 'bright', 'dark'].includes(val),
+      default: 'base',
+    },
+    noPaddingV: {
+      type: Boolean,
+      default: false,
+    },
+    noPadding: {
+      type: Boolean,
+      default: false,
+    },
     image: {
       type: String,
       default: '',
     },
-    imageAlt: {
-      type: String,
-      default: '',
+    overlay: {
+      type: Boolean,
+      default: false,
     },
-    stripe: {
+    imageAlt: {
       type: String,
       default: '',
     },
@@ -44,30 +75,27 @@ export default {
       type: Boolean,
       default: false,
     },
-    overlay: {
-      type: Boolean,
-      default: false,
-    },
-    theme: {
-      type: String,
-      validator: (val) => ['base', 'bright', 'dark'].includes(val),
-      default: 'base',
-    },
   },
   computed: {
-    computedClass () {
-      const computedClass = []
-      if (this.stripe) {
-        computedClass.push(`va-card--stripe-${this.stripe}`)
-      }
-      if (this.theme === 'bright') {
-        computedClass.push(`va-card--theme-bright`)
-      }
-      if (this.theme === 'dark') {
-        computedClass.push(`va-card--theme-dark`)
-      }
-      return computedClass
+    showHeader () {
+      return this.title || this.$slots.header || this.$slots.actions
     },
+    computedCardClass () {
+      return {
+        'va-card--theme-dark': this.theme === 'dark',
+        'va-card--theme-bright': this.theme === 'bright',
+        [`va-card--stripe-${this.stripe}`]: this.stripe
+      }
+    },
+    computedCardBodyClass () {
+      return {
+        'pt-0': this.noPaddingV,
+        'pb-0': this.noPaddingV,
+        'p-0': this.noPadding,
+        'pt': (!this.showHeader && !this.noPaddingV && !this.noPadding)
+                || this.titleOnImage
+      }
+    }
   },
 }
 </script>
@@ -77,70 +105,99 @@ export default {
 
 $card-font-size: 1.375rem;
 
-.card-separator {
-  margin: 1rem -#{(20/16)}rem;
-  height: #{(1/16)}rem;
-  width: calc(100% + #{(2* 20/16)}rem);
-  background-color: $light-gray;
-}
-
-.card-link-secondary {
-  color: #aaa;
-}
-
 .va-card {
   border-radius: $card-border-radius;
   border: none;
   box-sizing: border-box;
-  box-shadow: $widget-box-shadow;
+  box-shadow: $card-box-shadow;
   word-wrap: break-word;
   background-color: $white;
-  &__title {
-    font-weight: $font-weight-bold;
-    font-size: $card-font-size;
-    margin-bottom: 0.75rem;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+
+  &__header {
+    &-inner {
+      display: flex;
+      padding: 0.5rem 1.25rem;
+      min-height: 3.5rem;
+      align-items: center;
+    }
+
+    &-title {
+      font-weight: $font-weight-bold;
+      font-size: $card-title-font-size;
+      letter-spacing: $card-title-letter-spacing;
+      text-transform: uppercase;
+      color: $card-title-color;
+    }
+
+    &-actions {
+      margin-left: auto;
+    }
+
+    &--over {
+      position: absolute;
+      padding-top: 56%;
+      width: 100%;
+      top: 0;
+      left: 0;
+
+      & > div {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+
+        & * {
+          color: $white;
+        }
+      }
+    }
   }
 
   &__body {
     padding: 1.25rem;
     flex: 1 1 auto;
-  }
 
-  &__text {
-    margin-top: 0;
-    margin-bottom: 0;
+    &:not(.pt) {
+       padding-top: 0;
+    }
   }
 
   &__image {
-    border-top-left-radius: $card-border-radius;
-    border-top-right-radius: $card-border-radius;
-    width: 100%;
-  }
-
-  &__image-container {
+    padding-bottom: 56%;
     position: relative;
-    border-radius: $card-border-radius;
-    .va-card__title {
+
+    img {
       position: absolute;
-      bottom: 0px;
-      color: $white;
-      padding: 1rem;
-      margin-bottom: 0;
-    }
-    &__overlay {
-      position: absolute;
-      pointer-events: none;
-      border-radius: $card-border-radius;
-      background-color: rgba(0, 0, 0, 0.3);
-      width: 100%;
-      height: 100%;
       top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    &-overlay {
+      position: absolute;
+      top: 0;
+      left:0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0,0,0,.3);
+      pointer-events: none;
     }
   }
 
   &--theme-bright {
     background-color: $brand-primary;
     color: $white;
+
+    .va-card__header-title {
+      color: $white;
+    }
+
     a {
       color: $vue-darkest-blue;
       &:hover {
@@ -152,6 +209,10 @@ $card-font-size: 1.375rem;
   &--theme-dark {
     background-color: $darkest-gray;
     color: $white;
+
+    .va-card__header-title {
+      color: $white;
+    }
   }
 
   $colors: (
@@ -163,8 +224,16 @@ $card-font-size: 1.375rem;
   );
 
   @each $key, $color in $colors {
-    &--stripe-#{$key} {
-      border-top: $color solid 0.5rem;
+    &--stripe-#{$key}:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0.5rem;
+      background-color: $color;
+      z-index: 1;
+
     }
   }
 }

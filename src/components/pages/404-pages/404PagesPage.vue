@@ -2,7 +2,7 @@
   <div class="not-found-pages va-row">
     <div class="flex md12">
       <div class="va-row">
-        <vuestic-card
+        <va-card
           class="not-found-pages__cards text--center"
           :image="item.imageUrl"
           v-for="item in items"
@@ -15,7 +15,7 @@
               {{ 'View Example' }}
             </va-button>
           </div>
-        </vuestic-card>
+        </va-card>
       </div>
     </div>
   </div>

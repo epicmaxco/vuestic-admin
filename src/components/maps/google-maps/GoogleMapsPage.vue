@@ -2,12 +2,12 @@
   <div class="google-maps-page">
     <div class="va-row">
       <div class="flex md12 xs12">
-        <vuestic-widget
+        <va-card
           class="google-maps-page__widget"
-          headerText="Google Maps"
+          title="Google Maps"
         >
           <google-map/>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
   </div>
@@ -27,7 +27,7 @@ export default {
 <style lang="scss">
  .google-maps-page{
    &__widget {
-     .vuestic-widget-body {
+     .va-card__body {
        height: 65vh;
      }
    }

@@ -2,61 +2,61 @@
   <div class="charts">
     <div class="va-row">
       <div class="flex md6 xs12">
-        <vuestic-widget
+        <va-card
           class="chart-widget"
-          :headerText="$t('charts.verticalBarChart')"
+          :title="$t('charts.verticalBarChart')"
         >
           <vuestic-chart :data="verticalBarChartData" type="vertical-bar"/>
-        </vuestic-widget>
+        </va-card>
       </div>
       <div class="flex md6 xs12">
-        <vuestic-widget
+        <va-card
           class="chart-widget"
-          :headerText="$t('charts.horizontalBarChart')"
+          :title="$t('charts.horizontalBarChart')"
         >
           <vuestic-chart :data="horizontalBarChartData" type="horizontal-bar"/>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row">
       <div class="flex md12 xs12">
-        <vuestic-widget
+        <va-card
           class="chart-widget"
-          :headerText="$t('charts.lineChart')"
+          :title="$t('charts.lineChart')"
         >
           <vuestic-chart :data="lineChartData" type="line"/>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row">
       <div class="flex md6 xs12">
-        <vuestic-widget
+        <va-card
           class="chart-widget"
-          :headerText="$t('charts.pieChart')"
+          :title="$t('charts.pieChart')"
         >
           <vuestic-chart :data="pieChartData" type="pie"/>
-        </vuestic-widget>
+        </va-card>
       </div>
       <div class="flex md6 xs12">
-        <vuestic-widget
+        <va-card
           class="chart-widget"
-          :headerText="$t('charts.donutChart')"
+          :title="$t('charts.donutChart')"
         >
           <vuestic-chart :data="donutChartData" type="donut"/>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row">
       <div class="flex md12 xs12">
-        <vuestic-widget
+        <va-card
           class="chart-widget"
-          :headerText="$t('charts.bubbleChart')"
+          :title="$t('charts.bubbleChart')"
         >
           <vuestic-chart :data="bubbleChartData" type="bubble"/>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
   </div>
@@ -94,7 +94,7 @@ export default {
 
 <style lang="scss">
 .chart-widget {
-  .vuestic-widget-body {
+  .va-card__body {
     height: 550px;
   }
 }

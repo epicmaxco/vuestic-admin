@@ -2,8 +2,8 @@
   <div class="notifications">
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget
-          :headerText="'notificationsPage.popovers.title' | translate">
+        <va-card
+          :title="'notificationsPage.popovers.title' | translate">
           <div class="va-row">
             <div class="flex md6">
               <fieldset>
@@ -63,14 +63,13 @@
               </p>
             </div>
           </div>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget
-          :headerText="'notificationsPage.notifications.title' | translate">
+        <va-card :title="$t('notificationsPage.notifications.title')">
           <div class="mb-3">
             <va-notification closeable>
               <va-badge>
@@ -119,13 +118,13 @@
               {{ $t('notificationsPage.notifications.dangerMessage') }}
             </va-notification>
           </div>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row">
       <div class="flex xs12">
-        <vuestic-widget :headerText="$t('notificationsPage.toasts.title')">
+        <va-card :title="$t('notificationsPage.toasts.title')">
           <div class="va-row">
             <div class="flex xs12 md6">
               <fieldset>
@@ -189,7 +188,7 @@
               </div>
             </div>
           </div>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
   </div>
