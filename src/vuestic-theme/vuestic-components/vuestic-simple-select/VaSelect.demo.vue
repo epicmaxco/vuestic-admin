@@ -98,6 +98,13 @@
         max-height="320px"
       />
     </VbContainer>
+    <VbContainer title="loading" class="not-work">
+      <va-select
+        v-model="value"
+        :options="CountriesList"
+        loading
+      />
+    </VbContainer>
     <VbContainer :style="{ 'width': '100%' }">
       <p>{{value}}</p>
       <p>{{multipleValue}}</p>

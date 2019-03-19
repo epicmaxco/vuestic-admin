@@ -37,7 +37,8 @@
       class="va-select"
       :class="{
         [`va-select-position-${position}`]: position,
-        [`va-select-${size}`]: size
+        [`va-select-${size}`]: size,
+        'va-select-loading': loading
       }"
       :style="{'width': width}"
       ref="actuator"
@@ -71,6 +72,7 @@
           <span v-else class="va-select__placeholder">{{placeholder}}</span>
         </div>
         <i v-if="showClearIcon" @click.prevent.stop="clear" class="icon va-icon fa fa-times-circle mr-1 va-select__clear-icon"/>
+        <spring-spinner v-if="loading" :size="24" class="va-select__loading"/>
       </div>
       <i class="icon va-icon fa va-select__open-icon" :class="{'fa-chevron-down': !isFocused, 'fa-chevron-up': isFocused}"/>
     </div>
@@ -79,6 +81,7 @@
 
 <script>
 import VaDropdown from '../va-dropdown/VaDropdown'
+import SpringSpinner from 'epic-spinners/src/components/lib/SpringSpinner'
 
 const positions = {
   'top': 'T',
@@ -87,7 +90,7 @@ const positions = {
 const sizes = ['sm', 'md', 'lg']
 export default {
   name: 'va-select',
-  components: { VaDropdown },
+  components: { SpringSpinner, VaDropdown },
   props: {
     options: Array,
     value: {
@@ -231,6 +234,12 @@ export default {
       border-top: 1px solid $brand-secondary;
       border-radius: 0 0 .5rem 0;
     }
+    &-loading {
+      .va-select__clear-icon,
+      .va-select__open-icon {
+        opacity: .2;
+      }
+    }
     &__label {
       position: absolute;
       margin: 0;
@@ -265,8 +274,24 @@ export default {
       height: 1rem;
       color: $va-link-color-secondary;
     }
+    &__loading {
+      position: absolute;
+      right: .5rem;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      .spring-spinner-rotator {
+        border-right-color: $vue-green !important;
+        border-top-color: $vue-green !important;
+      }
+    }
     &__dropdown {
       outline: none;
+      margin: 0;
+      padding: 0;
+      background: $light-gray3;
+      border-radius: .5rem;
+      box-shadow: 0 2px 3px 0 rgba(98, 106, 119, 0.25);
       &.va-select__dropdown-position-top {
         box-shadow: 0 -2px 3px 0 rgba(98, 106, 119, 0.25);
       }
@@ -289,13 +314,6 @@ export default {
       &__hightlight-text, &__selected-icon {
         margin-left: auto;
       }
-    }
-    &__dropdown {
-      margin: 0;
-      padding: 0;
-      background: $light-gray3;
-      border-radius: .5rem;
-      box-shadow: 0 2px 3px 0 rgba(98, 106, 119, 0.25);
     }
   }
 </style>
