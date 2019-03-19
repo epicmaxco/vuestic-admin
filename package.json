@@ -49,7 +49,8 @@
     "vuetable-2": "1.7.5",
     "vuex": "^3.0.1",
     "vuex-i18n": "^1.7.0",
-    "vuex-router-sync": "5.0.0"
+    "vuex-router-sync": "5.0.0",
+    "vue-flatpickr-component": "^8.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.5",
@@ -81,7 +82,6 @@
     "semver": "5.5.1",
     "shelljs": "0.8.2",
     "vue-book": "0.1.0-alpha.13",
-    "vue-flatpickr-component": "^8.0.0",
     "vue-template-compiler": "^2.5.17"
   },
   "engines": {
@@ -93,11 +93,7 @@
   },
   "license": "MIT",
   "lint-staged": {
-    "*.js": [
-      "vue-cli-service lint",
-      "git add"
-    ],
-    "*.vue": [
+    "*.{js,vue}": [
       "vue-cli-service lint",
       "git add"
     ]
