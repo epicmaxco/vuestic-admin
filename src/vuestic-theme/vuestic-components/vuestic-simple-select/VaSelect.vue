@@ -1,7 +1,7 @@
 <template>
   <va-dropdown
     :position="computedPosition"
-    :trigger-mode="searchable ? 'click' : 'focus'"
+    :trigger-mode="searchable || multiple ? 'click' : 'focus'"
     :disabled="disabled"
     :className="`va-select__dropdown va-select__dropdown-position-${position}`"
     :max-width="width"
@@ -60,14 +60,17 @@
           v-else
           class="va-select__input"
         >
-          <ul
+          <span
             class="va-select__tags"
             v-if="multiple && valueProxy.length <= max"
           >
-            <li v-for="item in valueProxy" :key="item.value">
+            <va-chip
+              v-for="(item, index) in valueProxy"
+              :key="index"
+            >
               {{item.text}}
-            </li>
-          </ul>
+            </va-chip>
+          </span>
           <span v-else-if="displayedValue !== ''">{{displayedValue}}</span>
           <span v-else class="va-select__placeholder">{{placeholder}}</span>
         </div>
@@ -81,6 +84,7 @@
 
 <script>
 import VaDropdown from '../va-dropdown/VaDropdown'
+import VaChip from '../va-chip/VaChip'
 import SpringSpinner from 'epic-spinners/src/components/lib/SpringSpinner'
 
 const positions = {
@@ -90,7 +94,7 @@ const positions = {
 const sizes = ['sm', 'md', 'lg']
 export default {
   name: 'va-select',
-  components: { SpringSpinner, VaDropdown },
+  components: { SpringSpinner, VaDropdown, VaChip },
   props: {
     options: Array,
     value: {
@@ -145,7 +149,7 @@ export default {
       return this.multiple ? `${this.valueProxy.length} items selected` : (this.valueProxy ? this.valueProxy.text : '')
     },
     showClearIcon () {
-      return this.valueProxy && !this.multiple && !this.disabled
+      return (this.multiple ? this.valueProxy.length : this.valueProxy) && !this.disabled
     },
     computedPosition () {
       return positions[this.position]
@@ -191,7 +195,7 @@ export default {
       return document.activeElement === this.$refs.actuator
     },
     clear () {
-      this.valueProxy = ''
+      this.valueProxy = this.multiple ? [] : ''
       this.search = ''
     },
     pointerForward () {
@@ -218,13 +222,13 @@ export default {
 
 <style lang="scss">
   .va-select {
-    height: 38px;
+    min-height: 38px;
     cursor: pointer;
     background-color: $light-gray3;
     width: 100%;
     border-bottom: 1px solid $brand-secondary;
     border-radius: 0 .5rem 0 0;
-    padding: 0 1.5rem 0 .5rem;
+    padding: .5rem 1.5rem .5rem .5rem;
     position: relative;
     &:focus {
       outline: none;
@@ -273,6 +277,11 @@ export default {
       right: .5rem;
       height: 1rem;
       color: $va-link-color-secondary;
+    }
+    &__tags {
+      & > .va-chip {
+        margin-bottom: .125rem;
+      }
     }
     &__loading {
       position: absolute;

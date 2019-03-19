@@ -38,7 +38,7 @@
         />
       </div>
     </VbContainer>
-    <VbContainer title="multiple" class="not-work">
+    <VbContainer title="multiple">
       <va-select
         v-model="multipleValue"
         multiple
@@ -84,6 +84,13 @@
         multiple
       />
     </VbContainer>
+    <VbContainer title="custom max-height (320px)">
+      <va-select
+        v-model="value"
+        :options="CountriesList"
+        max-height="320px"
+      />
+    </VbContainer>
     <VbContainer title="custom width (320px)" :style="{'width': '100%'}">
       <va-select
         v-model="value"
@@ -91,14 +98,7 @@
         width="30%"
       />
     </VbContainer>
-    <VbContainer title="custom max-height (320px)" class="not-work">
-      <va-select
-        v-model="value"
-        :options="CountriesList"
-        max-height="320px"
-      />
-    </VbContainer>
-    <VbContainer title="loading" class="not-work">
+    <VbContainer title="loading">
       <va-select
         v-model="value"
         :options="CountriesList"
