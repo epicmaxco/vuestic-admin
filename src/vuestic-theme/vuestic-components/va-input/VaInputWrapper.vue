@@ -5,13 +5,17 @@
       <div
         :style="slotStyles"
         class="va-input-wrapper__slot">
-        <div class="va-input-wrapper__prepend-inner">
+        <div
+          v-if="hasPrependData"
+          class="va-input-wrapper__prepend-inner ml-2">
           <slot name="prepend"/>
         </div>
-        <div class="va-input-wrapper__slot">
+        <div>
           <slot/>
         </div>
-        <div class="va-input-wrapper__append-inner">
+        <div
+          v-if="hasAppendData"
+          class="va-input-wrapper__append-inner mr-2">
           <slot name="append"/>
         </div>
       </div>
@@ -57,13 +61,20 @@ export default {
   computed: {
     slotStyles () {
       return {
-        backgroundColor: this.error ? '#ffebeb' : '#f5f8f9'
+        backgroundColor: this.error ? '#ffebeb' : '#f5f8f9',
+        borderColor: this.error ? '#e34b4a' : '#babfc2'
       }
     },
     messageStyles () {
       return {
         color: this.error ? '#e34b4a' : '#babfc2'
       }
+    },
+    hasPrependData () {
+      return this.$slots.prepend
+    },
+    hasAppendData () {
+      return this.$slots.append
     },
   },
 }
@@ -83,6 +94,8 @@ export default {
     &__slot {
       position: relative;
       display: flex;
+      border-style: solid;
+      border-width: 0 0 thin 0;
     }
 
     &__details {

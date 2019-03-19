@@ -13,7 +13,7 @@
     </VbContainer>
     <VbContainer title="Input With Label">
       <va-input
-        v-model="empty"
+        v-model="text"
         label="Name"
       />
     </VbContainer>
@@ -22,13 +22,33 @@
         v-model="text"
         :messages="messages"/>
     </VbContainer>
+    <VbContainer title="Disabled Input">
+      <va-input
+        v-model="text"
+        disabled
+      />
+    </VbContainer>
+    <VbContainer title="Readonly Input">
+      <va-input
+        v-model="text"
+        readonly
+      />
+    </VbContainer>
     <VbContainer title="Input With Icon">
       <va-input
         v-model="text"
         label="Name"
-        error
         :messages="messages"
-        :error-messages="messages">
+        prepend-icon="fa fa-anchor"
+        append-icon="fa fa-anchor"
+      >
+      </va-input>
+    </VbContainer>
+    <VbContainer title="Removable Icon">
+      <va-input
+        v-model="text"
+        removable
+      >
       </va-input>
     </VbContainer>
     <VbContainer title="Input With Error">

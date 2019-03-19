@@ -5,9 +5,14 @@
     :messages="messages"
     :error-messages="errorMessages"
   >
-    <va-icon slot="prepend" icon="fa fa-anchor"/>
+    <va-icon
+      v-if="prependIcon"
+      slot="prepend"
+      :color="error ? 'danger': ''"
+      :style="{ color: '#babfc2'}"
+      :icon="prependIcon"
+    />
     <div
-      :style="slotStyles"
       class="va-input__slot">
       <label
         :style="labelStyles"
@@ -16,13 +21,22 @@
       >
         {{ label }}
       </label>
-      <input :type="type"
-             :placeholder="placeholder"
-             :disabled="disabled"
-             :readonly="readonly"
+      <input
+        :type="type"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        :readonly="readonly"
+        :value="value"
       >
     </div>
-    <va-icon slot="append" icon="fa fa-anchor"/>
+    <va-icon
+      @click.native="clearContent()"
+      v-if="appendIcon || removable"
+      slot="append"
+      :color="error ? 'danger': ''"
+      :style="{ color: '#babfc2'}"
+      :icon="removable ? 'ion ion-md-close ion' : appendIcon"
+    />
   </va-input-wrapper>
 </template>
 
@@ -72,16 +86,18 @@ export default {
     },
   },
   computed: {
-    slotStyles () {
-      return {
-        borderColor: this.error ? '#e34b4a' : '#babfc2'
-      }
-    },
     labelStyles () {
       return {
         color: this.error ? '#e34b4a' : ''
       }
     }
+  },
+  methods: {
+    clearContent () {
+      if (this.removable) {
+        this.$emit('input', '')
+      }
+    },
   },
 }
 </script>
@@ -91,8 +107,8 @@ export default {
 
     &__slot {
       position: relative;
-      border-style: solid;
-      border-width: 0 0 thin 0;
+      // border-style: solid;
+      // border-width: 0 0 thin 0;
 
       &__label {
         position: absolute;
@@ -101,9 +117,10 @@ export default {
       }
 
       input {
+        height: 1.5rem;
         background-color: transparent;
         border-style: none;
-        padding: 0.375rem 0.5rem 0.5rem;
+        padding: 0.25rem 0.5rem 0.25rem;
         font-family: $font-family-sans-serif;
 
         &::placeholder {
