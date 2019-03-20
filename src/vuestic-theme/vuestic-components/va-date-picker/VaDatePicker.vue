@@ -82,7 +82,6 @@ export default {
       if (this.disable) {
         config = Object.assign({}, { disable: this.disable }, config)
       }
-      this.$emit('onOpen')
       return Object.assign({}, config, this.config)
     },
     defaultConfig () {
@@ -135,7 +134,6 @@ $dayMargin: 0.6rem;
   &__flatpickr {
     border: 0;
     border-bottom: 1px solid $brand-secondary;
-    cursor: pointer;
     width: $daySize * 7 + ($dayPadding + $dayMargin * 2) * 6 + $borderPadding * 2 - 2rem !important;
     background-color: $datepickerBackground;
     height: 2.375rem;
@@ -365,15 +363,6 @@ $dayMargin: 0.6rem;
     .flatpickr-am-pm {
       color: $datepickerText;
     }
-  }
-}
-
-.form-group {
-  .flatpickr-input {
-    width: 100%;
-    background: none;
-    outline: none;
-    box-shadow: none;
   }
 }
 </style>

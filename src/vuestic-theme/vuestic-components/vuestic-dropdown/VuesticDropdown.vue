@@ -46,6 +46,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+
 .vuestic-dropdown {
   background: $darkest-gray;
 }

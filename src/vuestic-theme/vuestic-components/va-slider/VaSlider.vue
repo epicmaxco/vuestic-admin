@@ -216,8 +216,8 @@ export default {
       const validatedValue = this.limitValue(this.value)
 
       if (this.range) {
-        const val0 = ((validatedValue[0] - this.min) / (this.max - this.min)) * 100,
-          val1 = ((validatedValue[1] - this.min) / (this.max - this.min)) * 100
+        const val0 = ((validatedValue[0] - this.min) / (this.max - this.min)) * 100
+        const val1 = ((validatedValue[1] - this.min) / (this.max - this.min)) * 100
 
         return {
           left: `${val0}%`,
@@ -237,8 +237,8 @@ export default {
       const validatedValue = this.limitValue(this.value)
 
       if (this.range) {
-        const val0 = ((validatedValue[0] - this.min) / (this.max - this.min)) * 100,
-          val1 = ((validatedValue[1] - this.min) / (this.max - this.min)) * 100
+        const val0 = ((validatedValue[0] - this.min) / (this.max - this.min)) * 100
+        const val1 = ((validatedValue[1] - this.min) / (this.max - this.min)) * 100
 
         return [
           {
@@ -264,7 +264,7 @@ export default {
         return this.value
       },
       set (val) {
-        if (!this.range){
+        if (!this.range) {
           val = this.limitValue(val)
         }
         this.$emit('input', val)
@@ -418,8 +418,8 @@ export default {
       }
     },
     setValueOnPos (pos, isDrag) {
-      let range = this.limit,
-        valueRange = this.valueLimit
+      let range = this.limit
+      let valueRange = this.valueLimit
       if (pos >= range[0] && pos <= range[1]) {
         this.setTransform()
         let v = this.getValueByIndex(Math.round(pos / this.gap))
@@ -434,11 +434,11 @@ export default {
     },
     setTransform () {
       if (this.isRange) {
-        const slider = this.currentSlider,
-          val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100,
-          val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100,
-          processSize = `${val1 - val0}%`,
-          processPos = `${val0}%`
+        const slider = this.currentSlider
+        const val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100
+        const val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100
+        const processSize = `${val1 - val0}%`
+        const processPos = `${val0}%`
 
         this.$refs.process.style.width = processSize
         this.$refs.process.style['left'] = processPos
@@ -509,6 +509,8 @@ export default {
 </script>
 
 <style lang='scss'>
+@import "../../vuestic-sass/resources/resources";
+
   $slider-colors: (
     success: (#40e583, #d6ffd3),
     danger: (#e34b4a, #ffebeb),

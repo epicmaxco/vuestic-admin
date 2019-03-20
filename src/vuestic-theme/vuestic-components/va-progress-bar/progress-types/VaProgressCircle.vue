@@ -48,6 +48,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../../vuestic-sass/resources/resources";
+
 .va-progress-circle {
   position: relative;
   width: $progress-circle-diameter;

@@ -43,6 +43,8 @@ export default {
 </script>
 
 <style lang='scss'>
+@import "../../vuestic-sass/resources/resources";
+
   .va-badge {
     display: inline-block;
     padding: $chip-padding-y-sm $chip-padding-x-sm;

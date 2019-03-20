@@ -20,28 +20,28 @@ $vuestic-colors: (
   display: inline-block;
   height: 32px;
   width: 22px;
-  background: url('assets/icons/nav-notification.png') no-repeat center center;
+  background: url('./../assets/icons/nav-notification.png') no-repeat center center;
 }
 
 .i-nav-messages {
   display: inline-block;
   height: 21px;
   width: 26px;
-  background: url('assets/icons/nav-messages.png') no-repeat center center;
+  background: url('./../assets/icons/nav-messages.png') no-repeat center center;
 }
 
 .i-menu-expanded {
   display: inline-block;
   width: 24px;
   height: 20px;
-  background: url('assets/icons/menu-expanded.svg') no-repeat center center;
+  background: url('./../assets/icons/menu-expanded.svg') no-repeat center center;
 }
 
 .i-menu-collapsed {
   display: inline-block;
   width: 24px;
   height: 20px;
-  background: url('assets/icons/menu-collapsed.svg') no-repeat center center;
+  background: url('./../assets/icons/menu-collapsed.svg') no-repeat center center;
 }
 
 // Catchall baseclass

@@ -53,6 +53,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../../vuestic-sass/resources/resources";
+
 .va-progress-bar {
   width: 100%;
   position: relative;

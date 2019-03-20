@@ -58,6 +58,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+
 .va-icon {
   display: inline-block;
   letter-spacing: normal;
