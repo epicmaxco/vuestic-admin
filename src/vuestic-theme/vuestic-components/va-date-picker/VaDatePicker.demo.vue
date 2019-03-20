@@ -4,28 +4,28 @@
       <vuestic-date-picker
         v-model="simple"
       />
-      {{ simple }}
+      simple
     </div>
     <div class="demo-container__item">
       <vuestic-date-picker
         v-model="range"
         mode="range"
       />
-      {{ range }}
+      range
     </div>
     <div class="demo-container__item">
       <vuestic-date-picker
         v-model="dayTime"
         enableTime
       />
-      {{ dayTime }}
+      time
     </div>
     <div class="demo-container__item">
       <vuestic-date-picker
-        v-model="readableDayTime"
+        v-model="multiple"
         mode="multiple"
       />
-      {{ readableDayTime }}
+      multiple dates
     </div>
   </div>
 </template>
@@ -41,15 +41,8 @@ export default {
       simple: null,
       range: null,
       dayTime: null,
-      four: null,
-      readableDayTime: null,
+      multiple: null,
     }
-  },
-  methods: {
-    doSomethingOnChange (input) {
-      // eslint-disable-next-line no-console
-      // console.log('onChange', input)
-    },
-  },
+  }
 }
 </script>

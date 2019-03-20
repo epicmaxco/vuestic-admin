@@ -1,12 +1,20 @@
 <template>
-  <div class="va-date-picker va-row">
+  <div
+    class="va-date-picker va-row"
+    :class="{
+      'isClosed': !isOpen,
+      'noWeekDays': !weekDays
+    }"
+    @click="onChange()"
+  >
     <vue-flatpickr-component
       class="va-date-picker__flatpickr"
       v-model="valueProxy"
       :config="fullConfig"
+      @on-close="onChange()"
     />
     <div class="va-date-picker__icon" data-toggle>
-      <va-icon icon="fa fa-calendar" size="20px"/>
+      <va-icon icon="fa fa-calendar" size="18px"/>
     </div>
   </div>
 </template>
@@ -56,7 +64,8 @@ export default {
   },
   data () {
     return {
-      inline: false
+      inline: true,
+      isOpen: false
     }
   },
   computed: {
@@ -78,7 +87,7 @@ export default {
     },
     defaultConfig () {
       return {
-        wrap: true,
+        inline: this.inline,
         altFormat: this.altFormat,
         altInput: this.altInput,
         enableTime: this.enableTime,
@@ -87,6 +96,16 @@ export default {
         prevArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-back"/>'
       }
     }
+  },
+  methods: {
+    onChange () {
+      this.isOpen = !this.isOpen
+    }
+  },
+  mounted () {
+    let el = this.$el.getElementsByClassName('flatpickr-calendar')[0]
+    this.$el.removeChild(el)
+    this.$el.appendChild(el)
   }
 }
 </script>
@@ -112,6 +131,7 @@ $daySize: 2rem;
 $dayMargin: 0.6rem;
 
 .va-date-picker {
+  max-width: $daySize * 7 + ($dayPadding + $dayMargin * 2) * 6 + $borderPadding * 2;
   &__flatpickr {
     border: 0;
     border-bottom: 1px solid $brand-secondary;
@@ -136,7 +156,12 @@ $dayMargin: 0.6rem;
   }
 }
 
-.flatpickr-calendar {
+.flatpickr-calendar.flatpickr-calendar {
+  @at-root {
+    .va-date-picker.isClosed &{
+      display: none;
+    }
+  }
   border-radius: 0.5rem;
   width: $daySize * 7 + ($dayPadding + $dayMargin * 2) * 6 + $borderPadding * 2 !important;
   background-color: $datepickerBackground;
@@ -274,7 +299,11 @@ $dayMargin: 0.6rem;
   }
 
   .flatpickr-weekdays {
-
+    @at-root {
+      .va-date-picker.noWeekDays &{
+        display: none;
+      }
+    }
     .flatpickr-weekdaycontainer {
       .flatpickr-weekday {
         color: $datepickerWeekday;

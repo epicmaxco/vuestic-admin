@@ -13,7 +13,8 @@
       <div class="small-set flex lg6 xs12">
         <vuestic-widget :headerText="$t('datepickers.daysOfTheWeek')">
           <va-date-picker
-            v-model="simple"
+            v-model="weekDays"
+            weekDays
           />
         </vuestic-widget>
       </div>
@@ -59,6 +60,7 @@ export default {
   data () {
     return {
       simple: '2019-03-07',
+      weekDays: '2019-03-07',
       range: '2019-03-07 to 2019-03-20',
       disable: ['2019-03-12', '2019-03-16', '2019-03-23', '2019-03-18', '2019-03-04'],
       dayTime: '2019-03-07',
