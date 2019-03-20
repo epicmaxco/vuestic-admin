@@ -12,6 +12,8 @@
       v-model="valueProxy"
       :config="fullConfig"
       @on-close="onChange()"
+      @on-year-change="onPeriodChange = true"
+      @on-month-change="onPeriodChange = true"
     />
     <div class="va-date-picker__icon" data-toggle>
       <va-icon icon="fa fa-calendar" size="18px"/>
@@ -31,11 +33,6 @@ export default {
     value: {
       required: true,
     },
-    config: {
-      default: () => {
-        return {}
-      },
-    },
     weekDays: {
       type: Boolean
     },
@@ -45,13 +42,6 @@ export default {
     },
     enableTime: {
       type: Boolean
-    },
-    altInput: {
-      type: Boolean
-    },
-    altFormat: {
-      type: String,
-      default: 'F j, Y'
     },
     dateFormat: {
       type: String,
@@ -65,7 +55,8 @@ export default {
   data () {
     return {
       inline: true,
-      isOpen: false
+      isOpen: false,
+      onPeriodChange: false
     }
   },
   computed: {
@@ -87,8 +78,6 @@ export default {
     defaultConfig () {
       return {
         inline: this.inline,
-        altFormat: this.altFormat,
-        altInput: this.altInput,
         enableTime: this.enableTime,
         mode: this.mode,
         nextArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-forward"/>',
@@ -98,8 +87,11 @@ export default {
   },
   methods: {
     onChange () {
-      this.isOpen = !this.isOpen
-    }
+      if (!this.onPeriodChange) {
+        this.isOpen = !this.isOpen
+      }
+      this.onPeriodChange = false
+    },
   },
   mounted () {
     let el = this.$el.getElementsByClassName('flatpickr-calendar')[0]

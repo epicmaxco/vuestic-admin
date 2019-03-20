@@ -52,11 +52,8 @@
 </template>
 
 <script>
-import VaDatePicker
-  from '../../../vuestic-theme/vuestic-components/va-date-picker/VaDatePicker'
 export default {
   name: 'datepickers',
-  components: { VaDatePicker },
   data () {
     return {
       simple: '2019-03-07',
