@@ -1,5 +1,5 @@
 <template>
-  <vuestic-dropdown
+  <va-dropdown
     class="form-group"
     placement="bottom"
   >
@@ -17,7 +17,7 @@
         {{option.value}} per page
       </a>
     </template>
-  </vuestic-dropdown>
+  </va-dropdown>
 </template>
 
 <script>

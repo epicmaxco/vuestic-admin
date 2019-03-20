@@ -1,11 +1,10 @@
 <template>
   <div class="grow notification-dropdown flex-center">
-    <va-icon icon="i-nav-notification"/>
-    <vuestic-dropdown
-      v-model="isShown"
-      position="bottom"
+    <va-dropdown
+      position="B"
       class="notification-dropdown__list"
     >
+      <va-icon icon="i-nav-notification" slot="actuator"/>
       <a v-for="(option, id) in options" :key="id" class="dropdown-item"
          href="#">
         <span class="ellipsis">{{$t(`notifications.${option.name}`,
@@ -15,18 +14,13 @@
       <div class="dropdown-item plain-link-item">
         <a class="plain-link" href="#">{{ $t('notifications.all') }}</a>
       </div>
-    </vuestic-dropdown>
+    </va-dropdown>
   </div>
 </template>
 
 <script>
 export default {
   name: 'notification-dropdown',
-  data () {
-    return {
-      isShown: false,
-    }
-  },
   props: {
     options: {
       type: Array,

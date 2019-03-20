@@ -1,7 +1,7 @@
 <template>
   <div class="demo-container">
     <div class="demo-container__item">
-      <vuestic-simple-select
+      <va-select
         :options="chartTypes"
         v-model="chartType"
       />
@@ -16,7 +16,7 @@
 
 <script>
 import VuesticChart from './VuesticChart.vue'
-import VuesticSimpleSelect from '../vuestic-simple-select/VuesticSimpleSelect'
+import VaSelect from '../va-select/VaSelect'
 import { chartTypes } from './VuesticChartConfigs'
 import { getLineChartData } from '../../../data/charts/LineChartData'
 
@@ -28,7 +28,7 @@ export default {
     }
   },
   components: {
-    VuesticSimpleSelect,
+    VaSelect,
     VuesticChart,
   },
   computed: {

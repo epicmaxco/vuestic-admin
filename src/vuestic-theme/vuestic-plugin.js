@@ -16,8 +16,6 @@ import VaSlider
 import MediumEditor
   from './vuestic-components/vuestic-medium-editor/VuesticMediumEditor.vue'
 import Modal from './vuestic-components/va-modal/VaModal.vue'
-import MultiSelect
-  from './vuestic-components/vuestic-multi-select/VuesticMultiSelect.vue'
 import Popover from './vuestic-components/vuestic-popover/VuesticPopover.vue'
 import PreLoader
   from './vuestic-components/vuestic-preloader/VuesticPreLoader.vue'
@@ -40,7 +38,7 @@ import RadioButton
 import Scrollbar
   from './vuestic-components/vuestic-scrollbar/VuesticScrollbar.vue'
 import Select
-  from './vuestic-components/vuestic-simple-select/VaSelect.vue'
+  from './vuestic-components/va-select/VaSelect.vue'
 import SocialNews
   from './vuestic-components/vuestic-social-news/VuesticSocialNews.vue'
 import Switch from './vuestic-components/vuestic-switch/VuesticSwitch.vue'
@@ -58,11 +56,8 @@ import Card from './vuestic-components/vuestic-card/VuesticCard'
 import FileUpload
   from './vuestic-components/vuestic-file-upload/VuesticFileUpload'
 import VaIcon from './vuestic-components/va-icon/VaIcon'
-import VuesticDropdown
-  from './vuestic-components/vuestic-dropdown/VuesticDropdown'
 import VaDropdown
   from './vuestic-components/va-dropdown/VaDropdown'
-
 import VuesticToasted from './vuestic-mixins/VuesticToasted'
 
 import Dropdown from './vuestic-directives/Dropdown'
@@ -103,7 +98,6 @@ const VuesticPlugin = {
       Feed,
       VaProgressCircle,
       Modal,
-      MultiSelect,
       PreLoader,
       ProfileCard,
       VaProgressBar,
@@ -129,7 +123,6 @@ const VuesticPlugin = {
       TreeCategory,
       TreeNode,
       FileUpload,
-      VuesticDropdown,
       VaDropdown,
       DatePicker,
       Card,

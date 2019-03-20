@@ -1,12 +1,14 @@
 <template>
   <div class="grow profile-dropdown flex-center">
-    <span class="profile-dropdown__avatar-container">
-      <slot/>
-    </span>
-    <vuestic-dropdown
-      v-model="isShown"
-      position="bottom"
+    <va-dropdown
+      position="B"
     >
+      <span
+        class="profile-dropdown__avatar-container"
+        slot="actuator"
+      >
+        <slot/>
+      </span>
       <div
         v-for="option in options"
         :key="option.name"
@@ -17,18 +19,13 @@
           {{ $t(`user.${option.name}`) }}
         </router-link>
       </div>
-    </vuestic-dropdown>
+    </va-dropdown>
   </div>
 </template>
 
 <script>
 export default {
   name: 'profile-section',
-  data () {
-    return {
-      isShown: false,
-    }
-  },
   props: {
     options: {
       type: Array,

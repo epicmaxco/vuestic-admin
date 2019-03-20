@@ -1,11 +1,13 @@
 <template>
   <div class="language-dropdown flex-center grow">
-    <va-icon :icon="['flag-icon flag-icon-large', flagIconClass(currentLanguage())]"/>
-    <vuestic-dropdown
+    <va-dropdown
       class="language-dropdown__container"
-      v-model="isShown"
-      position="bottom"
+      position="B"
     >
+      <va-icon
+        :icon="['flag-icon flag-icon-large', flagIconClass(currentLanguage())]"
+        slot="actuator"
+      />
       <a class="dropdown-item"
          v-for="(option, id) in options"
          :key="id"
@@ -17,7 +19,7 @@
           {{ `language.${option.name}` | translate }}
         </span>
       </a>
-    </vuestic-dropdown>
+    </va-dropdown>
   </div>
 </template>
 
@@ -26,11 +28,6 @@ import Vue from 'vue'
 
 export default {
   name: 'language-dropdown',
-  data () {
-    return {
-      isShown: false,
-    }
-  },
   props: {
     options: {
       type: Array,

@@ -9,13 +9,14 @@
               v-for="(dropdown, index) in dropdowns"
               :key="index"
             >
-              <va-button
-                type="button" class="theme-toggle"
-                slot="actuator" icon-right="ion-ios-arrow-down arrow-down">
-                <vuestic-dropdown
-                  v-model="dropdown.value"
+                <va-dropdown
                   :position="dropdown.position"
                 >
+                  <va-button
+                    type="button" class="theme-toggle"
+                    slot="actuator" icon-right="ion-ios-arrow-down arrow-down">
+                    {{$t(`dropdown.${dropdown.text}`)}}
+                  </va-button>
                   <div class="q-popover__container">
                     <a
                       class="dropdown-item"
@@ -25,8 +26,7 @@
                     >{{ link }}</a>
                     <div class="flex lg6"></div>
                   </div>
-                </vuestic-dropdown>
-              </va-button>
+                </va-dropdown>
             </div>
           </div>
         </vuestic-widget>
@@ -40,12 +40,6 @@ export default {
   name: 'dropdowns',
   data () {
     return {
-      placements: [
-        'top',
-        'right',
-        'bottom',
-        'left',
-      ],
       links: [
         'Action',
         'Another action',
@@ -54,23 +48,19 @@ export default {
       dropdowns: [
         {
           text: 'top',
-          value: false,
-          position: 'top',
+          position: 'T',
         },
         {
           text: 'right',
-          value: false,
-          position: 'right',
+          position: 'R',
         },
         {
           text: 'bottom',
-          value: false,
-          position: 'bottom',
+          position: 'B',
         },
         {
           text: 'left',
-          value: false,
-          position: 'left',
+          position: 'L',
         },
       ],
     }

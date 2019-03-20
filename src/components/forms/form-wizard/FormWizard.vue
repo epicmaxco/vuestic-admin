@@ -43,14 +43,14 @@
                   their teeth all send a signal. For example, ears flat back
                   means trouble, or "you better follow orders!"</p>
               </div>
-              <vuestic-simple-select
+              <va-select
                 label="Select country"
                 v-model="hsCountry"
                 name="country"
                 :required="true"
                 ref="hsCountrySelect"
                 v-bind:options="countriesList">
-              </vuestic-simple-select>
+              </va-select>
             </div>
             <div slot="page3" class="form-wizard-tab-content">
               <h4>{{'forms.wizard.confirmSelection' | translate}}</h4>
@@ -123,14 +123,14 @@
                   their teeth all send a signal. For example, ears flat back
                   means trouble, or "you better follow orders!"</p>
               </div>
-              <vuestic-simple-select
+              <va-select
                 label="Select country"
                 v-model="hrCountry"
                 name="country"
                 :required="true"
                 ref="hrCountrySelect"
                 v-bind:options="countriesList">
-              </vuestic-simple-select>
+              </va-select>
             </div>
             <div slot="page3" class="form-wizard-tab-content">
               <h4>{{'forms.wizard.confirmSelection' | translate}}</h4>
@@ -203,14 +203,14 @@
                   their teeth all send a signal. For example, ears flat back
                   means trouble, or "you better follow orders!"</p>
               </div>
-              <vuestic-simple-select
+              <va-select
                 label="Select country"
                 v-model="vrCountry"
                 name="country"
                 :required="true"
                 ref="vrCountrySelect"
                 v-bind:options="countriesList">
-              </vuestic-simple-select>
+              </va-select>
             </div>
             <div slot="page3" class="form-wizard-tab-content">
               <h4>{{'forms.wizard.confirmSelection' | translate}}</h4>
@@ -284,14 +284,14 @@
                   their teeth all send a signal. For example, ears flat back
                   means trouble, or "you better follow orders!"</p>
               </div>
-              <vuestic-simple-select
+              <va-select
                 label="Select country"
                 v-model="vsCountry"
                 name="country"
                 :required="true"
                 ref="vsCountrySelect"
                 v-bind:options="countriesList">
-              </vuestic-simple-select>
+              </va-select>
             </div>
             <div slot="page3" class="form-wizard-tab-content">
               <h4>{{'forms.wizard.confirmSelection' | translate}}</h4>

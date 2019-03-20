@@ -16,10 +16,10 @@
         <div :class="underscoreClass"></div>
       </div>
     </div>
-    <vuestic-simple-select
+    <va-select
       class="simple-select"
       v-show="false"
-      v-bind:options="names" v-model="currentActive"></vuestic-simple-select>
+      v-bind:options="names" v-model="currentActive"></va-select>
     <div class="tab-content">
       <div
         class="tab-pane"
