@@ -3,8 +3,9 @@
     class="va-input-wrapper d-flex align--start">
     <div class="va-input-wrapper__control">
       <div
+        tabindex="0"
         :style="slotStyles"
-        class="va-input-wrapper__slot">
+        class="va-input-wrapper__slot pt-2">
         <div
           v-if="hasPrependData"
           class="va-input-wrapper__prepend-inner ml-2">
@@ -94,8 +95,18 @@ export default {
     &__slot {
       position: relative;
       display: flex;
+      min-height: 1.5rem;
       border-style: solid;
       border-width: 0 0 thin 0;
+      outline: none;
+
+      /* &:focus {
+        border-bottom: 1px solid #555555 !important;
+      } */
+    }
+
+    .va-input-wrapper__slot:focus{
+      border-bottom: 1px solid #555555 !important;
     }
 
     &__details {

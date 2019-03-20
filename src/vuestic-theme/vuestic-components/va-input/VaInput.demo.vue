@@ -42,6 +42,9 @@
         prepend-icon="fa fa-anchor"
         append-icon="fa fa-anchor"
       >
+        <va-icon
+          icon="fa fa-anchor"
+        />
       </va-input>
     </VbContainer>
     <VbContainer title="Removable Icon">

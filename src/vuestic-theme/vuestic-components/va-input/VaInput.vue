@@ -5,13 +5,6 @@
     :messages="messages"
     :error-messages="errorMessages"
   >
-    <va-icon
-      v-if="prependIcon"
-      slot="prepend"
-      :color="error ? 'danger': ''"
-      :style="{ color: '#babfc2'}"
-      :icon="prependIcon"
-    />
     <div
       class="va-input__slot">
       <label
@@ -26,17 +19,18 @@
         :placeholder="placeholder"
         :disabled="disabled"
         :readonly="readonly"
-        :value="value"
+        v-model="value"
       >
     </div>
     <va-icon
       @click.native="clearContent()"
-      v-if="appendIcon || removable"
+      v-if="removable"
       slot="append"
       :color="error ? 'danger': ''"
       :style="{ color: '#babfc2'}"
-      :icon="removable ? 'ion ion-md-close ion' : appendIcon"
+      icon="ion ion-md-close ion"
     />
+    <slot slot="append"/>
   </va-input-wrapper>
 </template>
 
@@ -107,12 +101,10 @@ export default {
 
     &__slot {
       position: relative;
-      // border-style: solid;
-      // border-width: 0 0 thin 0;
 
       &__label {
         position: absolute;
-        top: 0.125rem;
+        bottom: 0.625rem;
         left: 0.5rem;
       }
 
@@ -122,6 +114,7 @@ export default {
         border-style: none;
         padding: 0.25rem 0.5rem 0.25rem;
         font-family: $font-family-sans-serif;
+        outline: none;
 
         &::placeholder {
           font-family: $font-family-sans-serif;
@@ -129,7 +122,7 @@ export default {
         }
 
         &:focus {
-          outline: none;
+          border-bottom: 1px solid #555555 !important;
         }
       }
     }
