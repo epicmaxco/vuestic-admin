@@ -1,6 +1,5 @@
 <template>
   <div class="cards">
-    <div class="flex md12">
       <div class="cards-container va-row d-flex wrap align--start">
         <!-- eslint-disable vue/valid-v-for -->
         <template v-for="loop in listLoops">
@@ -212,9 +211,7 @@
           </div>
         </template>
       </div>
-    </div>
 
-    <div class="flex md12">
       <div class="pre-loader-container flex-center my-5">
         <vuestic-pre-loader
           v-show="isShown"
@@ -225,7 +222,6 @@
           </va-button>
         </div>
       </div>
-    </div>
   </div>
 </template>
 

@@ -28,6 +28,7 @@
     <div
       class="va-card__body"
       :class="computedCardBodyClass"
+      v-if="$slots.default"
     >
       <slot/>
     </div>
@@ -89,11 +90,11 @@ export default {
     },
     computedCardBodyClass () {
       return {
-        'pt-0': this.noPaddingV,
-        'pb-0': this.noPaddingV,
-        'p-0': this.noPadding,
-        'pt': (!this.showHeader && !this.noPaddingV && !this.noPadding)
-                || this.titleOnImage
+        'va-card__body--no-padding-v': this.noPaddingV,
+        'va-card__body--no-padding': this.noPadding,
+        'va-card__body--padding-top':
+          (!this.showHeader && !this.noPaddingV && !this.noPadding) ||
+          this.titleOnImage
       }
     }
   },
@@ -102,8 +103,6 @@ export default {
 
 <style lang="scss">
 @import "../../vuestic-sass/resources/resources";
-
-$card-font-size: 1.375rem;
 
 .va-card {
   border-radius: $card-border-radius;
@@ -134,6 +133,7 @@ $card-font-size: 1.375rem;
 
     &-actions {
       margin-left: auto;
+      flex: 0 0 auto;
     }
 
     &--over {
@@ -157,11 +157,19 @@ $card-font-size: 1.375rem;
   }
 
   &__body {
-    padding: 1.25rem;
+    padding: 0 1.25rem 1.25rem;
     flex: 1 1 auto;
 
-    &:not(.pt) {
-       padding-top: 0;
+    &--no-padding-v {
+      padding: 0 1.25rem;
+    }
+
+    &--no-padding {
+      padding: 0;
+    }
+
+    &--padding-top {
+      padding-top: 1.25rem;
     }
   }
 
