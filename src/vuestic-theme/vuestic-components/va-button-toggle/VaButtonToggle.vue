@@ -59,8 +59,8 @@ export default {
       return buttonValue === this.value && this.toggleColor ? this.toggleColor : this.color
     },
     buttonStyle (buttonValue) {
-      if (buttonValue === this.value){
-        if (this.outline || this.flat){
+      if (buttonValue === this.value) {
+        if (this.outline || this.flat) {
           return {
             backgroundColor: this.themes[this.toggleColor ? this.toggleColor : this.color],
             color: '#ffffff'

@@ -153,7 +153,7 @@ export default {
       this.$emit('input', pageNum)
     },
     activeButtonStyle (buttonValue) {
-      if (buttonValue === this.value){
+      if (buttonValue === this.value) {
         return {
           backgroundColor: this.disabled ? '#babfc2' : this.themes[this.toggleColor ? this.toggleColor : this.color],
           borderColor: this.disabled ? '#babfc2' : this.themes[this.color],
