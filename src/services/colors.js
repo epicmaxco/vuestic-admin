@@ -1,64 +1,10 @@
-const red = {
-  gradientLeftBorder: '#ff7455',
-  gradientRightBorder: '#f44336',
-  boxShadow: '#b86e6d',
-  borderColor: '#e34b4a',
-  hoverColor: '#ffebeb',
-  focusColor: '#fbd2d2',
-}
-
-const blue = {
-  gradientLeftBorder: '#32b5e4',
-  gradientRightBorder: '#2c82e0',
-  boxShadow: '#6c97ac',
-  borderColor: '#2c82e0',
-  hoverColor: '#caeeff',
-  focusColor: '#b2defb',
-}
-
-const green = {
-  gradientLeftBorder: '#63e5b3',
-  gradientRightBorder: '#23e066',
-  boxShadow: '#77cea4',
-  borderColor: '#40e583',
-  hoverColor: '#d6ffd3',
-  focusColor: '#c0fbc7',
-}
-
-const yellow = {
-  gradientLeftBorder: '#ffd72d',
-  gradientRightBorder: '#feb900',
-  boxShadow: '#cbb06e',
-  borderColor: '#ffc202',
-  hoverColor: '#fff3d1',
-  focusColor: '#ffebb1',
-}
-
-const gray = {
-  gradientLeftBorder: '#cdd0d5',
-  gradientRightBorder: '#b4b6b9',
-  boxShadow: '#a3aab0',
-  borderColor: '#babfc2',
-  hoverColor: '#e6e9ec',
-  focusColor: '#dfe3e5',
-}
-
-const black = {
-  gradientLeftBorder: '#576675',
-  gradientRightBorder: '#34495e',
-  boxShadow: '#aebcca',
-  borderColor: '#34495e',
-  hoverColor: '#afb6bb',
-  focusColor: '#afb6bb',
-}
-
 const themes = {
-  success: green.borderColor,
-  info: blue.borderColor,
-  danger: red.borderColor,
-  warning: yellow.borderColor,
-  gray: gray.borderColor,
-  dark: black.borderColor
+  success: '#40e583',
+  info: '#2c82e0',
+  danger: '#e34b4a',
+  warning: '#ffc202',
+  gray: '#babfc2',
+  dark: '#34495e'
 }
 
 function hex2rgb (hex, opacity) {
@@ -94,19 +40,18 @@ function hex2rgb (hex, opacity) {
 
 export default {
   install (Vue, options) {
+    if (options && options.theme) {
+      Vue.prototype.$themes = options.theme
+    } else {
+      Vue.prototype.$themes = themes
+    }
+
     Vue.mixin({
       data () {
         return {
-          themes: themes
+          themes: Vue.prototype.$themes
         }
       },
-      watch: {
-        themes: {
-          handler: function (val, oldVal) {
-          },
-          deep: true
-        }
-      }
     })
   }
 }

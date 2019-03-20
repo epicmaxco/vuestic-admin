@@ -57,7 +57,6 @@ export default {
     line-height: $chip-line-height-sm;
     letter-spacing: $chip-letter-spacing-sm;
     white-space: nowrap;
-    transition: $chip-transition;
 
     &__content {
 

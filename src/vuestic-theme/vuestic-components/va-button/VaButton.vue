@@ -119,12 +119,6 @@ export default {
   computed: {
     buttonClass () {
       return {
-        'va-button--success': this.color === 'success',
-        'va-button--info': this.color === 'info',
-        'va-button--danger': this.color === 'danger',
-        'va-button--warning': this.color === 'warning',
-        'va-button--gray': this.color === 'gray',
-        'va-button--dark': this.color === 'dark',
         'va-button--default': !this.flat && !this.outline,
         'va-button--flat': this.flat,
         'va-button--outline': this.outline,
@@ -139,16 +133,10 @@ export default {
     },
     buttonStyle () {
       if (this.focusState) {
-        if (this.flat) {
+        if (this.outline || this.flat) {
           return {
             color: this.themes[this.color],
-            background: getFocusColor(this.color)
-          }
-        }
-        if (this.outline) {
-          return {
-            color: this.themes[this.color],
-            borderColor: this.themes[this.color],
+            borderColor: this.outline ? this.themes[this.color] : '',
             background: getFocusColor(this.color)
           }
         } else {
@@ -159,17 +147,11 @@ export default {
           }
         }
       } else if (this.hoverState) {
-        if (this.flat) {
+        if (this.outline || this.flat) {
           return {
             color: this.themes[this.color],
-            background: getHoverColor(this.color)
-          }
-        }
-        if (this.outline) {
-          return {
-            color: this.themes[this.color],
-            borderColor: this.themes[this.color],
-            background: getHoverColor(this.color)
+            borderColor: this.outline ? this.themes[this.color] : '',
+            background: getHoverColor(this.color),
           }
         } else {
           return {
@@ -186,6 +168,7 @@ export default {
             ? 'linear-gradient(to right,' + getGradientColor(this.color)[0] +
               ',' + getGradientColor(this.color)[1] + ')' : '',
           boxShadow: !this.flat && !this.outline ? '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.color) : ''
+
         }
       }
     },
@@ -283,26 +266,9 @@ export default {
         @include va-disabled;
 
         &.va-button--active {
-          background-color: $brand-secondary !important;
 
           .va-button__content, i {
             color: $white !important;
-          }
-        }
-
-        .va-pagination & {
-          border-color: $brand-secondary;
-          opacity: 1;
-
-          .va-button__content, i {
-            color: $brand-secondary;
-          }
-
-          &.va-button--no-effects {
-
-            .va-button__content, i {
-              color: $brand-secondary !important;
-            }
           }
         }
       }
@@ -401,72 +367,6 @@ export default {
 
         .va-button__content__title {
           padding-right: $btn-with-icon-content-padding-nrm;
-        }
-      }
-    }
-  }
-
-  $vuestic-colors: (
-    success: (#63e5b3, #23e066, #77cea4, #40e583, #d6ffd3, #c0fbc7),
-    danger: (#ff7455, #e34b4a, #b86e6d, #e34b4a, #ffebeb, #fbd2d2),
-    warning: (#ffd72d, #feb900, #cbb06e, #ffc202, #fff3d1, #ffebb1),
-    info: (#32b5e4, #2c82e0, #6c97ac, #2c82e0, #caeeff, #b2defb),
-    gray: (#cdd0d5, #b4b6b9, #a3aab0, #babfc2, #e6e9ec, #dfe3e5),
-    dark: (#576675, #34495e, #aebcca, #34495e, #afb6bb, #afb6bb)
-  );
-
-  @each $name, $colors in $vuestic-colors {
-    $gradient-color1: nth($colors, 1);
-    $gradient-color2: nth($colors, 2);
-    $box-shadow: nth($colors, 3);
-    $border-color: nth($colors, 4);
-    $hover-color: nth($colors, 5);
-    $focus-color: nth($colors, 6);
-
-    .va-button--#{$name}.va-button--outline{
-
-      .va-pagination & {
-
-        &:focus {
-          background-color: transparent;
-
-          .va-button__content, i {
-            color: $border-color;
-          }
-        }
-
-        &.va-button--active {
-          background-color: $border-color;
-
-          .va-button__content, i {
-            color: $white;
-          }
-        }
-
-        .va-button__content {
-          min-width: 20px;
-        }
-
-        &.va-button--no-effects {
-
-          &:hover, &:active, &:focus {
-            background-color: transparent;
-
-            .va-button__content, i {
-              color: $border-color;
-            }
-          }
-        }
-      }
-
-      &:active, &:focus, &.va-button--active {
-
-        .va-button-toggle & {
-          background-color: $border-color;
-
-          .va-button__content, i {
-            color: $white;
-          }
         }
       }
     }

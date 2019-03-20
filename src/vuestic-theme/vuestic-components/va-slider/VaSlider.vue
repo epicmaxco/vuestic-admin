@@ -210,10 +210,6 @@ export default {
   computed: {
     sliderClass () {
       return {
-        'va-slider--success': this.color === 'success',
-        'va-slider--info': this.color === 'info',
-        'va-slider--danger': this.color === 'danger',
-        'va-slider--warning': this.color === 'warning',
         'va-slider--disabled': this.disabled
       }
     },
@@ -527,13 +523,6 @@ export default {
 </script>
 
 <style lang='scss'>
-  $slider-colors: (
-    success: (#40e583, #d6ffd3),
-    danger: (#e34b4a, #ffebeb),
-    info: (#2c82e0, #caeeff),
-    warning: (#ffc200, #fff3d1)
-  );
-
   .va-slider {
 
     &--disabled {
