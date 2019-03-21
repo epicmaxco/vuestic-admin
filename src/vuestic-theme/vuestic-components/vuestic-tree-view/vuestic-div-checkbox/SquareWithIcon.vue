@@ -17,6 +17,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../../vuestic-sass/resources/resources";
+
 .square-with-icon {
   display: flex;
   justify-content: center;

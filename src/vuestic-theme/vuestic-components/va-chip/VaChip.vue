@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { getGradientColor, getHoverColor, getFocusColor, getBoxShadowColor } from '../../../services/colors'
+import { getHoverColor, getFocusColor, getBoxShadowColor } from '../../../services/colors'
 
 export default {
   name: 'va-chip',
@@ -81,21 +81,21 @@ export default {
     chipStyle () {
       if (this.focusState) {
         return {
-          color: this.outline ? this.themes[this.color] : '#ffffff',
+          color: this.outline ? this.$themes[this.color] : '#ffffff',
           boxShadow: '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.color),
-          backgroundColor: this.outline ? getFocusColor(this.color) : this.themes[this.color]
+          backgroundColor: this.outline ? getFocusColor(this.color) : this.$themes[this.color]
         }
       } else if (this.hoverState) {
         return {
-          color: this.outline ? this.themes[this.color] : '#ffffff',
-          borderColor: this.outline ? this.themes[this.color] : '',
-          backgroundColor: this.outline ? getHoverColor(this.color) : this.themes[this.color]
+          color: this.outline ? this.$themes[this.color] : '#ffffff',
+          borderColor: this.outline ? this.$themes[this.color] : '',
+          backgroundColor: this.outline ? getHoverColor(this.color) : this.$themes[this.color]
         }
       } else {
         return {
-          color: this.outline ? this.themes[this.color] : '#ffffff',
-          borderColor: this.outline ? this.themes[this.color] : '',
-          backgroundColor: this.outline ? '' : this.themes[this.color]
+          color: this.outline ? this.$themes[this.color] : '#ffffff',
+          borderColor: this.outline ? this.$themes[this.color] : '',
+          backgroundColor: this.outline ? '' : this.$themes[this.color]
         }
       }
     },
@@ -120,6 +120,8 @@ export default {
 </script>
 
 <style lang='scss'>
+@import "../../vuestic-sass/resources/resources";
+
   .va-chip {
     display: inline-block;
     padding: $chip-padding-y-nrm $chip-padding-x-nrm;

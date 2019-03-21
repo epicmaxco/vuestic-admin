@@ -2,11 +2,11 @@
   font-family: 'fontelico';
   font-style: normal;
   font-weight: normal;
-  src: url('vuestic-theme/vuestic-sass/icons/icon-fonts/fontelico/fontelico.eot');
-  src: url('vuestic-theme/vuestic-sass/icons/icon-fonts/fontelico/fontelico.eot?#iefix') format('eot'),
-  url('vuestic-theme/vuestic-sass/icons/icon-fonts/fontelico/fontelico.woff') format('woff'),
-  url('vuestic-theme/vuestic-sass/icons/icon-fonts/fontelico/fontelico.ttf') format('truetype'),
-  url('vuestic-theme/vuestic-sass/icons/icon-fonts/fontelico/fontelico.svg#fontelico') format('svg');
+  src: url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/fontelico/fontelico.eot');
+  src: url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/fontelico/fontelico.eot?#iefix') format('eot'),
+  url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/fontelico/fontelico.woff') format('woff'),
+  url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/fontelico/fontelico.ttf') format('truetype'),
+  url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/fontelico/fontelico.svg#fontelico') format('svg');
 }
 
 [class*="fontelico-"]:before {

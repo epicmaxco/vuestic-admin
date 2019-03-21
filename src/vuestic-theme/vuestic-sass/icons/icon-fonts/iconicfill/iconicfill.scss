@@ -2,11 +2,11 @@
   font-family: 'IconicFill';
   font-style: normal;
   font-weight: normal;
-  src: url('vuestic-theme/vuestic-sass/icons/icon-fonts/iconicfill/iconicfill.eot');
-  src: url('vuestic-theme/vuestic-sass/icons/icon-fonts/iconicfill/iconicfill.eot?#iefix') format('eot'),
-  url('vuestic-theme/vuestic-sass/icons/icon-fonts/iconicfill/iconicfill.woff') format('woff'),
-  url('vuestic-theme/vuestic-sass/icons/icon-fonts/iconicfill/iconicfill.ttf') format('truetype'),
-  url('vuestic-theme/vuestic-sass/icons/icon-fonts/iconicfill/iconicfill.svg#IconicFill') format('svg');
+  src: url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/iconicfill/iconicfill.eot');
+  src: url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/iconicfill/iconicfill.eot?#iefix') format('eot'),
+  url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/iconicfill/iconicfill.woff') format('woff'),
+  url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/iconicfill/iconicfill.ttf') format('truetype'),
+  url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/iconicfill/iconicfill.svg#IconicFill') format('svg');
 }
 
 [class*="iconicfill-"]:before {

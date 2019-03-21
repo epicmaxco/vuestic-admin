@@ -135,8 +135,8 @@ export default {
       if (this.focusState) {
         if (this.outline || this.flat) {
           return {
-            color: this.themes[this.color],
-            borderColor: this.outline ? this.themes[this.color] : '',
+            color: this.$themes[this.color],
+            borderColor: this.outline ? this.$themes[this.color] : '',
             background: getFocusColor(this.color)
           }
         } else {
@@ -149,8 +149,8 @@ export default {
       } else if (this.hoverState) {
         if (this.outline || this.flat) {
           return {
-            color: this.themes[this.color],
-            borderColor: this.outline ? this.themes[this.color] : '',
+            color: this.$themes[this.color],
+            borderColor: this.outline ? this.$themes[this.color] : '',
             background: getHoverColor(this.color),
           }
         } else {
@@ -162,8 +162,8 @@ export default {
         }
       } else {
         return {
-          color: this.flat || this.outline ? this.themes[this.color] : '#ffffff',
-          borderColor: this.outline ? this.themes[this.color] : '',
+          color: this.flat || this.outline ? this.$themes[this.color] : '#ffffff',
+          borderColor: this.outline ? this.$themes[this.color] : '',
           backgroundImage: !this.flat && !this.outline
             ? 'linear-gradient(to right,' + getGradientColor(this.color)[0] +
               ',' + getGradientColor(this.color)[1] + ')' : '',
@@ -209,6 +209,8 @@ export default {
 </script>
 
 <style lang='scss'>
+@import "../../vuestic-sass/resources/resources";
+
   @mixin button-size($padding-y, $padding-x, $font-size, $line-height, $border-radius) {
     padding: $padding-y $padding-x;
     font-size: $font-size;

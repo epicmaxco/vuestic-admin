@@ -43,7 +43,7 @@ export default {
       return {
         transform: 'rotate(' + this.rotation + 'deg)',
         fontSize: typeof this.size === 'number' ? this.size + 'px' : this.size,
-        color: this.themes[this.color]
+        color: this.$themes[this.color]
       }
     }
   }
@@ -51,6 +51,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+
 .va-icon {
   display: inline-block;
   letter-spacing: normal;

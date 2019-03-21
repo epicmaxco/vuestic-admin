@@ -59,18 +59,20 @@ export default {
       return buttonValue === this.value && this.toggleColor ? this.toggleColor : this.color
     },
     buttonStyle (buttonValue) {
-      if (buttonValue === this.value) {
-        if (this.outline || this.flat) {
-          return {
-            backgroundColor: this.themes[this.toggleColor ? this.toggleColor : this.color],
-            color: '#ffffff'
-          }
-        } else {
-          return {
-            backgroundColor: 'linear-gradient(to right,' + getGradientColor(this.color)[0] +
-              ',' + getGradientColor(this.color)[1] + ')',
-            filter: 'brightness(85%)'
-          }
+      if (buttonValue !== this.value) {
+        return {}
+      }
+
+      if (this.outline || this.flat) {
+        return {
+          backgroundColor: this.$themes[this.toggleColor ? this.toggleColor : this.color],
+          color: '#ffffff'
+        }
+      } else {
+        return {
+          backgroundColor: 'linear-gradient(to right,' + getGradientColor(this.color)[0] +
+            ',' + getGradientColor(this.color)[1] + ')',
+          filter: 'brightness(85%)'
         }
       }
     },

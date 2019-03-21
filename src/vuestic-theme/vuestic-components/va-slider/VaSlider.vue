@@ -215,7 +215,7 @@ export default {
     },
     labelStyles () {
       return {
-        color: this.themes[this.color]
+        color: this.$themes[this.color]
       }
     },
     trackStyles () {
@@ -227,20 +227,20 @@ export default {
       const validatedValue = this.limitValue(this.value)
 
       if (this.range) {
-        const val0 = ((validatedValue[0] - this.min) / (this.max - this.min)) * 100,
-          val1 = ((validatedValue[1] - this.min) / (this.max - this.min)) * 100
+        const val0 = ((validatedValue[0] - this.min) / (this.max - this.min)) * 100
+        const val1 = ((validatedValue[1] - this.min) / (this.max - this.min)) * 100
 
         return {
           left: `${val0}%`,
           width: `${val1 - val0}%`,
-          backgroundColor: this.themes[this.color]
+          backgroundColor: this.$themes[this.color]
         }
       } else {
         const val = ((validatedValue - this.min) / (this.max - this.min)) * 100
 
         return {
           width: `${val}%`,
-          backgroundColor: this.themes[this.color]
+          backgroundColor: this.$themes[this.color]
         }
       }
     },
@@ -248,19 +248,19 @@ export default {
       const validatedValue = this.limitValue(this.value)
 
       if (this.range) {
-        const val0 = ((validatedValue[0] - this.min) / (this.max - this.min)) * 100,
-          val1 = ((validatedValue[1] - this.min) / (this.max - this.min)) * 100
+        const val0 = ((validatedValue[0] - this.min) / (this.max - this.min)) * 100
+        const val1 = ((validatedValue[1] - this.min) / (this.max - this.min)) * 100
 
         return [
           {
             left: `calc(${val0}% - 8px)`,
             backgroundColor: this.color,
-            borderColor: this.themes[this.color]
+            borderColor: this.$themes[this.color]
           },
           {
             left: `calc(${val1}% - 8px)`,
             backgroundColor: this.color,
-            borderColor: this.themes[this.color]
+            borderColor: this.$themes[this.color]
           }
         ]
       } else {
@@ -269,7 +269,7 @@ export default {
         return {
           left: `calc(${val}% - 8px)`,
           backgroundColor: this.color,
-          borderColor: this.themes[this.color]
+          borderColor: this.$themes[this.color]
         }
       }
     },
@@ -432,8 +432,8 @@ export default {
       }
     },
     setValueOnPos (pos, isDrag) {
-      let range = this.limit,
-        valueRange = this.valueLimit
+      let range = this.limit
+      let valueRange = this.valueLimit
       if (pos >= range[0] && pos <= range[1]) {
         this.setTransform()
         let v = this.getValueByIndex(Math.round(pos / this.gap))
@@ -448,11 +448,11 @@ export default {
     },
     setTransform () {
       if (this.isRange) {
-        const slider = this.currentSlider,
-          val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100,
-          val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100,
-          processSize = `${val1 - val0}%`,
-          processPos = `${val0}%`
+        const slider = this.currentSlider
+        const val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100
+        const val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100
+        const processSize = `${val1 - val0}%`
+        const processPos = `${val0}%`
 
         this.$refs.process.style.width = processSize
         this.$refs.process.style['left'] = processPos

@@ -155,17 +155,17 @@ export default {
     activeButtonStyle (buttonValue) {
       if (buttonValue === this.value) {
         return {
-          backgroundColor: this.disabled ? '#babfc2' : this.themes[this.toggleColor ? this.toggleColor : this.color],
-          borderColor: this.disabled ? '#babfc2' : this.themes[this.color],
+          backgroundColor: this.disabled ? '#babfc2' : this.$themes[this.toggleColor ? this.toggleColor : this.color],
+          borderColor: this.disabled ? '#babfc2' : this.$themes[this.color],
           opacity: 1,
           color: this.disabled ? '#babfc2' : '#ffffff'
         }
       } else {
         return {
           backgroundColor: 'transparent',
-          borderColor: this.disabled ? '#babfc2' : this.themes[this.color],
+          borderColor: this.disabled ? '#babfc2' : this.$themes[this.color],
           opacity: 1,
-          color: this.disabled ? '#babfc2' : this.themes[this.color]
+          color: this.disabled ? '#babfc2' : this.$themes[this.color]
         }
       }
     },

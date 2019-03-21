@@ -102,6 +102,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+
 .va-collapse {
   & + & {
     margin-top: 1.5rem;

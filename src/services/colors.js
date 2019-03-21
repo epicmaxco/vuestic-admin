@@ -1,4 +1,5 @@
 const themes = {
+  primary: '#40e583',
   success: '#40e583',
   info: '#2c82e0',
   danger: '#e34b4a',
@@ -41,18 +42,12 @@ function hex2rgb (hex, opacity) {
 export default {
   install (Vue, options) {
     if (options && options.theme) {
-      Vue.prototype.$themes = options.theme
+      Object.assign(Vue.prototype.$themes, options.theme)
     } else {
       Vue.prototype.$themes = themes
     }
 
-    Vue.mixin({
-      data () {
-        return {
-          themes: Vue.prototype.$themes
-        }
-      },
-    })
+    new Vue({ data: { themes: Vue.prototype.$themes } })
   }
 }
 

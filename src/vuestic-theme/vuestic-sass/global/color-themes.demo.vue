@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     changeTheme () {
-      this.themes.info = this.color
+      this.$themes.info = this.color
     },
   },
 }

@@ -34,9 +34,9 @@ export default {
     },
     badgeStyle () {
       return {
-        color: this.outline ? this.themes[this.color] : '#ffffff',
-        borderColor: this.outline ? this.themes[this.color] : '',
-        backgroundColor: !this.outline ? this.themes[this.color] : '',
+        color: this.outline ? this.$themes[this.color] : '#ffffff',
+        borderColor: this.outline ? this.$themes[this.color] : '',
+        backgroundColor: !this.outline ? this.$themes[this.color] : '',
       }
     }
   },
@@ -44,6 +44,8 @@ export default {
 </script>
 
 <style lang='scss'>
+@import "../../vuestic-sass/resources/resources";
+
   .va-badge {
     display: inline-block;
     padding: $chip-padding-y-sm $chip-padding-x-sm;

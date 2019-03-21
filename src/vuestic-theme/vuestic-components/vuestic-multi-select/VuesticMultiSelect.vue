@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import Dropdown from 'vuestic-directives/Dropdown'
+import Dropdown from '../../vuestic-directives/Dropdown'
 import Scrollbar from '../vuestic-scrollbar/VuesticScrollbar.vue'
 
 export default {
@@ -145,6 +145,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../vuestic-sass/resources/resources";
+
 .multiselect-form-group {
   &__unselect {
     margin-right: 20px;

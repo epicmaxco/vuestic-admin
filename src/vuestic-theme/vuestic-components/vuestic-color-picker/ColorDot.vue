@@ -27,6 +27,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+
 .color-dot {
   width: 1.5rem;
   height: 1.5rem;
