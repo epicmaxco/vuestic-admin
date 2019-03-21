@@ -141,7 +141,7 @@
                 <fieldset>
                   <div class="form-group">
                     <div class="input-group">
-                      <vuestic-date-picker
+                      <va-date-picker
                         id="date-picker-basic"
                         v-model="datepicker.simple"
                       />
@@ -152,9 +152,9 @@
                   </div>
                   <div class="form-group">
                     <div class="input-group">
-                      <vuestic-date-picker
+                      <va-date-picker
                         id="date-picker-time"
-                        :config="{enableTime: true}"
+                        enableTime
                         v-model="datepicker.time"
                       />
                       <label class="control-label" for="date-picker-time">
@@ -165,9 +165,8 @@
                   </div>
                   <div class="form-group">
                     <div class="input-group">
-                      <vuestic-date-picker
+                      <va-date-picker
                         id="date-picker-custom-first-day"
-                        :config="{locale: {firstDayOfWeek: 1}}"
                         v-model="datepicker.customFirstDay"
                       />
                       <label class="control-label" for="date-picker-custom-first-day">
@@ -182,9 +181,9 @@
                 <fieldset>
                   <div class="form-group">
                     <div class="input-group">
-                      <vuestic-date-picker
+                      <va-date-picker
                         id="date-picker-disabled"
-                        :config="{disable: datePickerDisabled}"
+                        :disable="datePickerDisabled"
                         v-model="datepicker.disabled"
                       />
                       <label class="control-label" for="date-picker-disabled">
@@ -195,9 +194,9 @@
                   </div>
                   <div class="form-group">
                     <div class="input-group">
-                      <vuestic-date-picker
+                      <va-date-picker
                         id="date-picker-multiple"
-                        :config="{mode: 'multiple'}"
+                        multiple
                         v-model="datepicker.multiple"
                       />
                       <label class="control-label" for="date-picker-multiple">
@@ -208,9 +207,9 @@
                   </div>
                   <div class="form-group">
                     <div class="input-group">
-                      <vuestic-date-picker
+                      <va-date-picker
                         id="date-picker-custom-date-format"
-                        :config="{altInput: true, altFormat: 'F j, Y'}"
+                        altInput
                         v-model="datepicker.customDate"
                       />
                       <label class="control-label" for="date-picker-custom-date-format">
@@ -225,9 +224,10 @@
                 <fieldset>
                   <div class="form-group">
                     <div class="input-group">
-                      <vuestic-date-picker
+                      <va-date-picker
                         id="date-picker-range"
-                        :config="{mode: 'range', inline: true}"
+                        inline
+                        mode="range"
                         v-model="datepicker.range"
                       />
                       <label class="control-label" for="date-picker-range">

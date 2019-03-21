@@ -1,22 +1,13 @@
 <template>
-  <div
-    class="va-date-picker va-row"
-    :class="{
-      'isClosed': !isOpen,
-      'noWeekDays': !weekDays
-    }"
-    @click="onChange()"
-  >
+  <div class="va-date-picker va-row">
     <vue-flatpickr-component
       class="va-date-picker__flatpickr"
       v-model="valueProxy"
       :config="fullConfig"
-      @on-close="onChange()"
-      @on-year-change="onPeriodChange = true"
-      @on-month-change="onPeriodChange = true"
+      @on-open="onOpen"
     />
     <div class="va-date-picker__icon" data-toggle>
-      <va-icon icon="fa fa-calendar" size="18px"/>
+      <va-icon icon="fa fa-calendar" size="20px"/>
     </div>
   </div>
 </template>
@@ -33,6 +24,11 @@ export default {
     value: {
       required: true,
     },
+    config: {
+      default: () => {
+        return {}
+      },
+    },
     weekDays: {
       type: Boolean
     },
@@ -43,6 +39,13 @@ export default {
     enableTime: {
       type: Boolean
     },
+    altInput: {
+      type: Boolean
+    },
+    altFormat: {
+      type: String,
+      default: 'F j, Y'
+    },
     dateFormat: {
       type: String,
       default: 'Y-m-d'
@@ -50,13 +53,14 @@ export default {
     disable: {
       type: Array,
       default: null
+    },
+    inline: {
+      type: Boolean
     }
   },
   data () {
     return {
-      inline: true,
-      isOpen: false,
-      onPeriodChange: false
+      isOpen: false
     }
   },
   computed: {
@@ -78,6 +82,9 @@ export default {
     defaultConfig () {
       return {
         inline: this.inline,
+        wrap: true,
+        altFormat: this.altFormat,
+        altInput: this.altInput,
         enableTime: this.enableTime,
         mode: this.mode,
         nextArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-forward"/>',
@@ -86,17 +93,12 @@ export default {
     }
   },
   methods: {
-    onChange () {
-      if (!this.onPeriodChange) {
-        this.isOpen = !this.isOpen
+    onOpen (selectedDates, dateStr, instance) {
+      if (!this.weekDays) {
+        let el = instance.calendarContainer.getElementsByClassName('flatpickr-weekdays')[0]
+        el.classList.add('flatpickr-weekdays--hidden')
       }
-      this.onPeriodChange = false
     },
-  },
-  mounted () {
-    let el = this.$el.getElementsByClassName('flatpickr-calendar')[0]
-    this.$el.removeChild(el)
-    this.$el.appendChild(el)
   }
 }
 </script>
@@ -122,10 +124,10 @@ $daySize: 2rem;
 $dayMargin: 0.6rem;
 
 .va-date-picker {
-  max-width: $daySize * 7 + ($dayPadding + $dayMargin * 2) * 6 + $borderPadding * 2;
   &__flatpickr {
     border: 0;
     border-bottom: 1px solid $brand-secondary;
+    cursor: pointer;
     width: $daySize * 7 + ($dayPadding + $dayMargin * 2) * 6 + $borderPadding * 2 - 2rem !important;
     background-color: $datepickerBackground;
     height: 2.375rem;
@@ -146,12 +148,7 @@ $dayMargin: 0.6rem;
   }
 }
 
-.flatpickr-calendar.flatpickr-calendar {
-  @at-root {
-    .va-date-picker.isClosed &{
-      display: none;
-    }
-  }
+.flatpickr-calendar {
   border-radius: 0.5rem;
   width: $daySize * 7 + ($dayPadding + $dayMargin * 2) * 6 + $borderPadding * 2 !important;
   background-color: $datepickerBackground;
@@ -261,12 +258,14 @@ $dayMargin: 0.6rem;
             }
           }
           .arrowUp {
+            border: 0;
             background-color: $datepickerBackground;
             &::after {
               border-bottom-color: $datepickerActiveColor;
             }
           }
           .arrowDown {
+            border: 0;
             background-color: $datepickerBackground;
             &::after {
               border-top-color: $datepickerActiveColor;
@@ -289,10 +288,8 @@ $dayMargin: 0.6rem;
   }
 
   .flatpickr-weekdays {
-    @at-root {
-      .va-date-picker.noWeekDays &{
-        display: none;
-      }
+    &--hidden {
+      display: none;
     }
     .flatpickr-weekdaycontainer {
       .flatpickr-weekday {
@@ -329,9 +326,27 @@ $dayMargin: 0.6rem;
 
   &.showTimeInput.hasTime .flatpickr-time {
     border-top: solid 0.0625rem $datepickerSeparatorColor;
+    height: 3rem;
+    max-height: 3rem;
     .numInputWrapper {
+      &:hover {
+        background-color: $datepickerBackground
+      }
       .flatpickr-hour {
+        margin-left: 1rem;
+        width: 6rem;
+        padding-left: 0.5rem;
+        text-align: left;
         background-color: $datepickerBackground;
+        border-bottom: 1px solid $brand-secondary;
+      }
+      .flatpickr-minute {
+        margin-left: 1rem;
+        width: 6rem;
+        padding-left: 0.5rem;
+        text-align: left;
+        background-color: $datepickerBackground;
+        border-bottom: 1px solid $brand-secondary;
       }
       .numInput {
         &:hover, &:focus {
@@ -339,11 +354,21 @@ $dayMargin: 0.6rem;
         }
       }
       .arrowUp {
+        opacity: 1;
+        border: 0;
+        &:hover {
+          background-color: inherit;
+        }
         &::after {
           border-bottom-color: $datepickerActiveColor;
         }
       }
       .arrowDown {
+        opacity: 1;
+        border: 0;
+        &:hover {
+          background-color: inherit;
+        }
         &::after {
           border-top-color: $datepickerActiveColor;
         }
@@ -351,10 +376,29 @@ $dayMargin: 0.6rem;
     }
     .flatpickr-time-separator {
       color: $datepickerText;
+      display: none;
     }
     .flatpickr-am-pm {
       color: $datepickerText;
+      padding-top: 0.5rem;
+      padding-left: 0.5rem;
+      margin-left: 1rem;
+      margin-bottom: 1rem;
+      margin-right: 1.5rem;
+      width: 6rem;
+      text-align: left;
+      background-color: $datepickerBackground;
+      border-bottom: 1px solid $brand-secondary;
     }
+  }
+}
+
+.form-group {
+  .flatpickr-input {
+    width: 100%;
+    background: none;
+    outline: none;
+    box-shadow: none;
   }
 }
 </style>

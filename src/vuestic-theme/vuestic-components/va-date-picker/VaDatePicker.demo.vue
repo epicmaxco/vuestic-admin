@@ -1,47 +1,69 @@
 <template>
-  <div class="demo-container">
-    <div class="demo-container__item">
+  <VbDemo>
+    <VbContainer title="Simple datepicker">
       <vuestic-date-picker
         v-model="simple"
       />
-      simple
-    </div>
-    <div class="demo-container__item">
+      {{simple}}
+    </VbContainer>
+    <VbContainer title="Datepicker with date range">
       <vuestic-date-picker
         v-model="range"
         mode="range"
       />
-      range
-    </div>
-    <div class="demo-container__item">
+      {{range}}
+    </VbContainer>
+    <VbContainer title="Datepicker with time">
       <vuestic-date-picker
         v-model="dayTime"
         enableTime
       />
-      time
-    </div>
-    <div class="demo-container__item">
+      {{dayTime}}
+    </VbContainer>
+    <VbContainer title="Multiple datepicker">
       <vuestic-date-picker
         v-model="multiple"
         mode="multiple"
       />
-      multiple dates
-    </div>
-  </div>
+      {{multiple}}
+    </VbContainer>
+    <VbContainer title="Datepicker with days of week">
+      <vuestic-date-picker
+        v-model="weekDays"
+        mode="multiple"
+        weekDays
+      />
+      {{weekDays}}
+    </VbContainer>
+    <VbContainer title="Datepicker with days of week">
+      <div class="form-elements">
+        <form-elements>
+          <vuestic-date-picker
+            v-model="weekDays"
+            mode="multiple"
+            weekDays
+          />
+        </form-elements>
+      </div>
+      {{weekDays}}
+    </VbContainer>
+  </VbDemo>
 </template>
 
 <script>
 import VuesticDatePicker from './VaDatePicker.vue'
 import VueFlatpickrComponent from 'vue-flatpickr-component'
+import FormElements from '../../../components/forms/form-elements/FormElements'
 
 export default {
-  components: { VuesticDatePicker, VueFlatpickrComponent },
+  components: { FormElements, VuesticDatePicker, VueFlatpickrComponent },
   data () {
     return {
-      simple: null,
-      range: null,
-      dayTime: null,
-      multiple: null,
+      simple: '2019-03-07',
+      range: '2019-03-07 to 2019-03-20',
+      dayTime: '2019-03-07',
+      multiple: '2019-03-07, 2019-03-20',
+      weekDays: '2019-03-07'
     }
   }
 }
