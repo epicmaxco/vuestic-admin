@@ -35,18 +35,6 @@
       />
       {{weekDays}}
     </VbContainer>
-    <VbContainer title="Datepicker with days of week">
-      <div class="form-elements">
-        <form-elements>
-          <vuestic-date-picker
-            v-model="weekDays"
-            mode="multiple"
-            weekDays
-          />
-        </form-elements>
-      </div>
-      {{weekDays}}
-    </VbContainer>
   </VbDemo>
 </template>
 
