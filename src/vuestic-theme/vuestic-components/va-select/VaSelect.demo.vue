@@ -105,6 +105,15 @@
         loading
       />
     </VbContainer>
+    <VbContainer title="with ajax">
+      <va-select
+        searchable
+        v-model="value"
+        :options="CountriesList"
+        :loading="isLoading"
+        @update-search="updateSearch"
+      />
+    </VbContainer>
     <VbContainer :style="{ 'width': '100%' }">
       <p>{{value}}</p>
       <p>{{multipleValue}}</p>
@@ -141,9 +150,19 @@ export default {
         }
       ],
       positions,
-      sizes
+      sizes,
+      isLoading: false
     }
   },
+  methods: {
+    updateSearch (val) {
+      this.isLoading = true
+      setTimeout(() => {
+        this.isLoading = false
+        this.CountriesList = []
+      }, 2000)
+    }
+  }
 }
 </script>
 

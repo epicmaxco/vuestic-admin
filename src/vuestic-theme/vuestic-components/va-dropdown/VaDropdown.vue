@@ -57,6 +57,11 @@ export default {
       offset: 5
     }
   },
+  watch: {
+    visible (val) {
+      this.$emit('triggerVisibility', val)
+    }
+  },
   computed: {
     dropdownStyles () {
       const styles = {}
@@ -106,6 +111,15 @@ export default {
 
     this.calculatePosition()
     window.addEventListener('resize', this.throttleCalcPositon)
+    let a = this.targetElement
+    let parentNodes = []
+    while (a) {
+      parentNodes.push(a)
+      a = a.parentNode
+    }
+    parentNodes.forEach(node => {
+      node.addEventListener('scroll', this.calculatePosition)
+    })
     if (this.isOnClick) {
       this.targetElement.addEventListener('click', this.toggle)
     }

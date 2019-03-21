@@ -6,6 +6,7 @@
     :className="`va-select__dropdown va-select__dropdown-position-${position}`"
     :max-width="width"
     :max-height="maxHeight"
+    @triggerVisibility="triggerVisibility"
   >
     <ul
       class="va-select__options-list"
@@ -31,6 +32,7 @@
         <i v-show="isOptionSelected(option) && !isOptionHightlighted(option, index)" class="icon va-icon fa fa-check va-select__option__selected-icon"/>
       </li>
     </ul>
+    <div class="va-select__options-list no-options" v-if="!filteredOptions.length">{{noOptionsText}}</div>
     <div
       slot="actuator"
       :tabindex="1"
@@ -55,10 +57,12 @@
           :value="search"
           class="va-select__input"
           @input="updateSearch($event.target.value)"
+          ref="search"
+          :style="inputStyles"
         />
         <div
-          v-else
           class="va-select__input"
+          v-if="!visible"
         >
           <span
             class="va-select__tags"
@@ -77,7 +81,7 @@
         <i v-if="showClearIcon" @click.prevent.stop="clear" class="icon va-icon fa fa-times-circle mr-1 va-select__clear-icon"/>
         <spring-spinner v-if="loading" :size="24" class="va-select__loading"/>
       </div>
-      <i class="icon va-icon fa va-select__open-icon" :class="{'fa-chevron-down': !isFocused, 'fa-chevron-up': isFocused}"/>
+      <i class="icon va-icon fa va-select__open-icon" :class="{'fa-chevron-down': !visible, 'fa-chevron-up': visible}"/>
     </div>
   </va-dropdown>
 </template>
@@ -130,13 +134,22 @@ export default {
       default: '128px'
     },
     loading: Boolean,
-    noOptionsText: 'Items not found'
+    noOptionsText: {
+      type: String,
+      default: 'Items not found'
+    },
   },
   data () {
     return {
       isOpen: false,
       search: '',
-      pointer: 0
+      pointer: 0,
+      visible: false
+    }
+  },
+  watch: {
+    search (val) {
+      this.$emit('update-search', val)
     }
   },
   computed: {
@@ -153,6 +166,14 @@ export default {
     },
     computedPosition () {
       return positions[this.position]
+    },
+    inputStyles () {
+      return this.visible && (
+        this.searchable ||
+        (this.multiple && this.value && this.value.length)
+      )
+        ? { width: '100%' }
+        : { width: '0', position: 'absolute', padding: '0' }
     },
     valueProxy: {
       get () {
@@ -191,9 +212,6 @@ export default {
     isOptionHightlighted (option, index) {
       return this.pointer === index
     },
-    isFocused () {
-      return document.activeElement === this.$refs.actuator
-    },
     clear () {
       this.valueProxy = this.multiple ? [] : ''
       this.search = ''
@@ -215,6 +233,12 @@ export default {
       const parentEl = optionEl.parentNode.parentNode
 
       parentEl.scrollTop = optionEl.offsetTop
+    },
+    triggerVisibility (val) {
+      this.visible = val
+      if (val && this.searchable) {
+        this.$refs.search.focus()
+      }
     }
   }
 }
@@ -309,6 +333,9 @@ export default {
       list-style: none;
       margin: 0;
       padding: 0;
+      &.no-options {
+        padding: .5rem;
+      }
     }
     &__option {
       cursor: pointer;
