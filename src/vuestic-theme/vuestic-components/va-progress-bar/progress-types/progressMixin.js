@@ -1,8 +1,4 @@
 import utils from '../../../../services/utils'
-import {
-  colorConfig,
-  VuesticTheme
-} from './../../vuestic-color-picker/VuesticTheme'
 
 export const progressMixin = {
   props: {
@@ -10,9 +6,9 @@ export const progressMixin = {
       type: Number,
       default: 0
     },
-    theme: {
+    color: {
       type: String,
-      default: 'Primary'
+      default: 'success'
     },
     // If 'indeterminate' is 'true' 'value' prop will be ignored.
     indeterminate: {
@@ -23,9 +19,6 @@ export const progressMixin = {
   computed: {
     normalizedValue () {
       return utils.normalizeValue(this.value)
-    },
-    color () {
-      return colorConfig[VuesticTheme[this.theme]]
     },
   }
 }

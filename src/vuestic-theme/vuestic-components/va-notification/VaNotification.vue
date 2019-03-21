@@ -1,14 +1,16 @@
 <template>
   <transition v-if="value" name="fade">
     <div class="va-notification d-flex justify--space-between align--start"
-         :class="notificationClass"
+         :style="notificationStyle"
     >
       <div class="va-notification__content d-inline-flex align--center">
         <slot/>
       </div>
       <div class="va-notification__close-icon d-flex justify--end align--start">
-        <i v-if="closeable"
-           class="ion-md-close ion"
+        <va-icon
+           v-if="closeable"
+           :color="color"
+           icon="ion-md-close ion"
            @click="hideNotification()"
         />
       </div>
@@ -17,17 +19,15 @@
 </template>
 
 <script>
+import { getBoxShadowColor, getHoverColor } from '../../../services/colors'
+
 export default {
   name: 'va-notification',
   computed: {
-    notificationClass () {
+    notificationStyle () {
       return {
-        'va-notification--success': this.color === 'success',
-        'va-notification--danger': this.color === 'danger',
-        'va-notification--warning': this.color === 'warning',
-        'va-notification--info': this.color === 'info',
-        'va-notification--gray': this.color === 'gray',
-        'va-notification--dark': this.color === 'dark',
+        background: getHoverColor(this.color),
+        boxShadow: '0 0.125rem 0.125rem 0 ' + getBoxShadowColor(this.color)
       }
     },
   },
@@ -85,34 +85,6 @@ export default {
       padding: $va-close-icon-padding-y $va-close-icon-padding-x;
       font-size: $va-close-icon-font-size;
       cursor: pointer;
-    }
-  }
-
-  $vuestic-colors: (
-    success: (#40e583, #d6ffd3, #acebcc),
-    danger: (#e34b4a, #ffebeb, #ffcaca),
-    warning: (#ffc202, #fff3d1, #ece1c6),
-    info: (#2c82e0, #caeeff, #b5dcec),
-    gray: (#babfc2, #e6e9ec, #d1d1d1),
-    dark: (#34495e, #afb6bb, #8b9194)
-  );
-
-  @each $name, $colors in $vuestic-colors {
-    $close-icon-color: nth($colors, 1);
-    $background-color: nth($colors, 2);
-    $box-shadow-color: nth($colors, 3);
-
-    .va-notification--#{$name}{
-      background: $background-color;
-      box-shadow: 0 $va-notification-box-shadow $va-notification-box-shadow 0 $box-shadow-color;
-
-      .va-notification__badge--#{$name}{
-        background-color: $close-icon-color;
-      }
-
-      .va-notification__close-icon {
-        color: $close-icon-color;
-      }
     }
   }
 </style>

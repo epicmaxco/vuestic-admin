@@ -80,7 +80,7 @@ import { mapGetters } from 'vuex'
 import VuesticPalletCustom
   from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticPalletCustom'
 import { colorArray } from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticTheme'
-import VuesticSlider
+import VaSlider
   from '../../../vuestic-theme/vuestic-components/va-slider/VaSlider'
 import VaIconFaster
   from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconFaster'
@@ -91,7 +91,7 @@ export default {
   components: {
     ...spinners,
     VuesticPalletCustom,
-    VuesticSlider,
+    VaSlider,
     VaIconFaster,
     VaIconSlower,
   },

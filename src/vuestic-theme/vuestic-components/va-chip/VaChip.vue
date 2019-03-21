@@ -3,6 +3,11 @@
     v-if="value"
     class="va-chip mr-2"
     :class="chipClass"
+    :style="chipStyle"
+    @mouseenter="updateHoverState(true)"
+    @mouseleave="updateHoverState(false)"
+    @focus="updateFocusState(true)"
+    @blur="updateFocusState(false)"
     tabindex="0"
   >
     <div class="va-chip__content d-flex">
@@ -10,6 +15,7 @@
         v-if="icon"
         fixed-width
         class="va-chip__content__icon va-chip__content__icon-left flex-center"
+        :color="outline ? color : ''"
         :icon="icon"
       />
       <div
@@ -22,6 +28,7 @@
         v-if="iconRight || removable"
         fixed-width
         class="va-chip__content__icon scr va-chip__content__icon-right flex-center"
+        :color="outline ? color : ''"
         :icon="removable ? 'ion ion-md-close ion' : iconRight"
       />
     </div>
@@ -29,6 +36,8 @@
 </template>
 
 <script>
+import { getHoverColor, getFocusColor, getBoxShadowColor } from '../../../services/colors'
+
 export default {
   name: 'va-chip',
   props: {
@@ -53,20 +62,41 @@ export default {
       type: Boolean
     }
   },
+  data () {
+    return {
+      hoverState: false,
+      focusState: false,
+    }
+  },
   computed: {
     chipClass () {
       return {
-        'va-chip--success': this.color === 'success',
-        'va-chip--info': this.color === 'info',
-        'va-chip--danger': this.color === 'danger',
-        'va-chip--warning': this.color === 'warning',
-        'va-chip--gray': this.color === 'gray',
-        'va-chip--dark': this.color === 'dark',
         'va-chip--default': !this.outline,
         'va-chip--outline': this.outline,
         'va-chip--without-title': !this.hasTitleData,
         'va-chip--with-left-icon': this.icon,
         'va-chip--with-right-icon': this.iconRight || this.removable,
+      }
+    },
+    chipStyle () {
+      if (this.focusState) {
+        return {
+          color: this.outline ? this.$themes[this.color] : '#ffffff',
+          boxShadow: '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.color),
+          backgroundColor: this.outline ? getFocusColor(this.color) : this.$themes[this.color]
+        }
+      } else if (this.hoverState) {
+        return {
+          color: this.outline ? this.$themes[this.color] : '#ffffff',
+          borderColor: this.outline ? this.$themes[this.color] : '',
+          backgroundColor: this.outline ? getHoverColor(this.color) : this.$themes[this.color]
+        }
+      } else {
+        return {
+          color: this.outline ? this.$themes[this.color] : '#ffffff',
+          borderColor: this.outline ? this.$themes[this.color] : '',
+          backgroundColor: this.outline ? '' : this.$themes[this.color]
+        }
       }
     },
     hasTitleData () {
@@ -78,6 +108,12 @@ export default {
       if (this.removable) {
         this.$emit('input', false)
       }
+    },
+    updateHoverState (isHover) {
+      this.hoverState = isHover
+    },
+    updateFocusState (isHover) {
+      this.focusState = isHover
     },
   },
 }
@@ -101,7 +137,12 @@ export default {
     letter-spacing: normal;
     text-decoration: none !important;
     cursor: pointer;
-    transition: $chip-transition;
+
+    &--outline {
+      background-color: transparent;
+      border: solid $chip-border-outline;
+      text-decoration: none;
+    }
 
     &__content {
 
@@ -111,6 +152,10 @@ export default {
 
       &__icon {
         width: $chip-icon-width-nrm;
+      }
+
+      .va-icon {
+        color: $white;
       }
     }
 
@@ -127,56 +172,6 @@ export default {
 
       .va-chip__content__title {
         padding-right: $chip-with-icon-content-padding-nrm;
-      }
-    }
-  }
-
-  $vuestic-colors: (
-    success: (#23e066, #40e583, #d6ffd3, #77cea4),
-    danger: (#e34b4a, #e34b4a, #ffebeb, #b86e6d),
-    warning: (#feb900, #ffc202, #fff3d1, #cbb06e),
-    info: (#2c82e0, #2c82e0, #caeeff, #6c97ac),
-    gray: (#b4b6b9, #babfc2, #e6e9ec, #a3aab0),
-    dark: (#34495e, #34495e, #afb6bb, #aebcca)
-  );
-
-  @each $name, $colors in $vuestic-colors {
-    $background-color: nth($colors, 1);
-    $border-color: nth($colors, 2);
-    $focus-color: nth($colors, 3);
-    $box-shadow: nth($colors, 4);
-
-    .va-chip--#{$name}.va-chip--default{
-      background-color: $background-color;
-
-      .va-icon {
-        color: $white;
-      }
-
-      &:focus {
-        box-shadow: $chip-box-shadow $box-shadow;
-      }
-
-      &:active, &:focus {
-        background-color: $background-color;
-        color: $white !important;
-      }
-    }
-
-    .va-chip--#{$name}.va-chip--outline{
-      background-color: transparent;
-      border: solid $chip-border-outline $border-color;
-      text-decoration: none;
-      color: $border-color !important;
-
-      .va-icon {
-        color: $border-color;
-      }
-
-      &:active, &:focus {
-        background-color: $focus-color;
-        box-shadow: $chip-box-shadow $box-shadow;
-        color: $border-color !important;
       }
     }
   }
