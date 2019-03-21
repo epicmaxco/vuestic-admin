@@ -2,27 +2,27 @@
   <VbDemo>
     <VbContainer refresh width="400px">
       <span>No value</span>
-      <VaProgressBar/>
+      <va-progress-bar/>
       <span>Default</span>
-      <VaProgressBar :value="value"/>
+      <va-progress-bar :value="value"/>
       <span>Danger</span>
-      <VaProgressBar :value="value" theme="Danger"/>
+      <va-progress-bar :value="value" color="danger"/>
       <span>Static slot</span>
-      <VaProgressBar :value="value">Slot</VaProgressBar>
+      <va-progress-bar :value="value">Slot</va-progress-bar>
       <span>Dynamic slot</span>
-      <VaProgressBar :value="value">{{ value + '%' }}</VaProgressBar>
+      <va-progress-bar :value="value">{{ value + '%' }}</va-progress-bar>
       <span>Slot Success</span>
-      <VaProgressBar :value="value" theme="Success">{{ value + '%' }}</VaProgressBar>
+      <va-progress-bar :value="value" color="warning">{{ value + '%' }}</va-progress-bar>
       <span>Buffer</span>
-      <VaProgressBar :value="value" :buffer="bufferValue"/>
+      <va-progress-bar :value="value" :buffer="bufferValue"/>
       <span>Indeterminate</span>
-      <VaProgressBar indeterminate/>
+      <va-progress-bar indeterminate/>
       <span>Indeterminate Info</span>
-      <VaProgressBar indeterminate theme="Info"/>
+      <va-progress-bar indeterminate color="info"/>
       <span>Indeterminate Slot</span>
-      <VaProgressBar indeterminate>Slot</VaProgressBar>
+      <va-progress-bar indeterminate>Slot</va-progress-bar>
       <span>Indeterminate with :value and :buffer should behave the same</span>
-      <VaProgressBar :value="value" :buffer="bufferValue" indeterminate/>
+      <va-progress-bar :value="value" :buffer="bufferValue" indeterminate/>
     </VbContainer>
     <VbContainer title="Value">
       <button @click="value -= 100">-100</button>
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import VaProgressBar from './VaProgressBar.vue'
+import VaProgressBar from './VaProgressBar'
 
 export default {
   components: {

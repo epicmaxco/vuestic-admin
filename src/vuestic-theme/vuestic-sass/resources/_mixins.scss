@@ -11,6 +11,7 @@
   font-size: map-get($display-font-sizes, $element);
   font-weight: bold;
   margin-bottom: 0.5em;
+  line-height: 1;
 }
 
 @mixin va-disabled() {

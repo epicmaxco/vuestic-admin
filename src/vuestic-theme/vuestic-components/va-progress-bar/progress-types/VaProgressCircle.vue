@@ -15,13 +15,13 @@
         cy="42.5"
         :r="radius"
         fill="none"
-        :stroke="color"
+        :stroke="$themes[color]"
         stroke-width="2.5"
         :stroke-dasharray="dasharray"
         :stroke-dashoffset="dashoffset"
       />
     </svg>
-    <div :style="{color: color}" class="va-progress-circle__info">
+    <div :style="{ color: $themes[color] }" class="va-progress-circle__info">
       <slot/>
     </div>
   </div>
@@ -48,6 +48,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../../vuestic-sass/resources/resources";
+
 .va-progress-circle {
   position: relative;
   width: $progress-circle-diameter;

@@ -14,6 +14,8 @@ export default {
 </script>
 
 <style lang='scss'>
+@import "../../vuestic-sass/resources/resources";
+
 .vuestic-color-square {
   height: 48px;
   width: 48px;
