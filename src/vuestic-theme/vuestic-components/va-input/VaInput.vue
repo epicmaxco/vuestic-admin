@@ -1,12 +1,16 @@
 <template>
   <va-input-wrapper
     class="va-input"
+    :class="{ 'va-input-wrapper--focused': focusState }"
+    :disabled="disabled"
     :error="error"
+    :success="success"
     :messages="messages"
     :error-messages="errorMessages"
   >
+    <slot name="prepend" slot="prepend"/>
     <div
-      class="va-input__slot">
+      class="va-input__slot d-flex">
       <label
         :style="labelStyles"
         aria-hidden="true"
@@ -15,17 +19,22 @@
         {{ label }}
       </label>
       <input
+        class="py-1 px-2"
         :type="type"
         :placeholder="placeholder"
         :disabled="disabled"
         :readonly="readonly"
-        v-model="value"
+        v-model="currentValue"
+        @input="$emit('input', currentValue)"
+        @focus="updateFocusState(true)"
+        @blur="updateFocusState(false)"
       >
     </div>
     <va-icon
       @click.native="clearContent()"
       v-if="removable"
       slot="append"
+      class="pointer"
       :color="error ? 'danger': ''"
       :style="{ color: '#babfc2'}"
       icon="ion ion-md-close ion"
@@ -50,12 +59,6 @@ export default {
     placeholder: {
       type: String,
     },
-    prependIcon: {
-      type: String,
-    },
-    appendIcon: {
-      type: String,
-    },
     type: {
       type: String,
       default: 'text'
@@ -72,12 +75,24 @@ export default {
     error: {
       type: Boolean
     },
+    success: {
+      type: Boolean
+    },
     messages: {
       type: Array
     },
     errorMessages: {
       type: Array
     },
+    prefix: {
+      type: String,
+    },
+  },
+  data () {
+    return {
+      currentValue: this.value,
+      focusState: false
+    }
   },
   computed: {
     labelStyles () {
@@ -91,6 +106,9 @@ export default {
       if (this.removable) {
         this.$emit('input', '')
       }
+    },
+    updateFocusState (isFocused) {
+      this.focusState = isFocused
     },
   },
 }
@@ -108,21 +126,18 @@ export default {
         left: 0.5rem;
       }
 
+      &__prefix {
+        color: $brand-secondary;
+      }
+
       input {
         height: 1.5rem;
         background-color: transparent;
         border-style: none;
-        padding: 0.25rem 0.5rem 0.25rem;
-        font-family: $font-family-sans-serif;
         outline: none;
 
         &::placeholder {
-          font-family: $font-family-sans-serif;
-          color: #babfc2;
-        }
-
-        &:focus {
-          border-bottom: 1px solid #555555 !important;
+          color: $brand-secondary;
         }
       }
     }

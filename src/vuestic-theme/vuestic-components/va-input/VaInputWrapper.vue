@@ -1,14 +1,16 @@
 <template>
   <div
-    class="va-input-wrapper d-flex align--start">
+    class="va-input-wrapper d-flex align--end text--left"
+    :class="{ 'va-input-wrapper--disabled' : disabled }"
+  >
     <div class="va-input-wrapper__control">
       <div
         tabindex="0"
         :style="slotStyles"
-        class="va-input-wrapper__slot pt-2">
+        class="va-input-wrapper__slot d-flex align--end pt-2">
         <div
           v-if="hasPrependData"
-          class="va-input-wrapper__prepend-inner ml-2">
+          class="va-input-wrapper__prepend-inner d-inline-flex align--center ml-2">
           <slot name="prepend"/>
         </div>
         <div>
@@ -16,11 +18,11 @@
         </div>
         <div
           v-if="hasAppendData"
-          class="va-input-wrapper__append-inner mr-2">
+          class="va-input-wrapper__append-inner d-inline-flex align--center mr-2">
           <slot name="append"/>
         </div>
       </div>
-      <div class="va-input-wrapper__details">
+      <div class="va-input-wrapper__details py-0 px-2">
         <div class="va-input-wrapper__messages">
           <div
             v-if="error"
@@ -49,7 +51,13 @@
 export default {
   name: 'va-input-wrapper',
   props: {
+    disabled: {
+      type: Boolean
+    },
     error: {
+      type: Boolean
+    },
+    success: {
       type: Boolean
     },
     messages: {
@@ -62,8 +70,8 @@ export default {
   computed: {
     slotStyles () {
       return {
-        backgroundColor: this.error ? '#ffebeb' : '#f5f8f9',
-        borderColor: this.error ? '#e34b4a' : '#babfc2'
+        backgroundColor: this.error ? '#ffebeb' : this.success ? '#dcfbda' : '#f5f8f9',
+        borderColor: this.error ? '#e34b4a' : this.success ? '#40e583' : '#babfc2'
       }
     },
     messageStyles () {
@@ -85,36 +93,27 @@ export default {
   .va-input-wrapper {
     flex: 1 1 auto;
     font-size: 1rem;
-    text-align: left;
 
-    &__prepend-inner, &__append-inner {
-      display: inline-flex;
-      align-items: center;
+    &--focused {
+
+      .va-input-wrapper__slot {
+        border-color: $charcoal !important;
+      }
+    }
+
+    &--disabled {
+
+      .va-input-wrapper__slot {
+        border-color: $brand-secondary !important;
+      }
     }
 
     &__slot {
       position: relative;
-      display: flex;
       min-height: 1.5rem;
       border-style: solid;
       border-width: 0 0 thin 0;
       outline: none;
-
-      /* &:focus {
-        border-bottom: 1px solid #555555 !important;
-      } */
-    }
-
-    .va-input-wrapper__slot:focus{
-      border-bottom: 1px solid #555555 !important;
-    }
-
-    &__details {
-      padding: 0 0.5rem;
-
-      .va-input-wrapper__messages__wrapper {
-        font-family: $font-family-sans-serif;
-      }
     }
   }
 </style>

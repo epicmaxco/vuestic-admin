@@ -13,6 +13,11 @@
         error
       />
     </VbContainer>
+    <VbContainer title="Success Input Wrapper">
+      <va-input-wrapper
+        success
+      />
+    </VbContainer>
     <VbContainer title="Error Input Wrapper With Messages">
       <va-input-wrapper
         error
@@ -24,17 +29,10 @@
         <va-button>Button</va-button>
       </va-input-wrapper>
     </VbContainer>
-    <VbContainer title="Input Wrapper With Prepend Slot">
+    <VbContainer title="Input Wrapper With Slot">
       <va-input-wrapper>
         <va-icon
-          slot="prepend"
-          icon="fa fa-anchor"
-        />
-      </va-input-wrapper>
-    </VbContainer>
-    <VbContainer title="Input Wrapper With Append Slot">
-      <va-input-wrapper>
-        <va-icon
+          class="pb-1"
           slot="prepend"
           icon="fa fa-anchor"
         />
@@ -45,10 +43,14 @@
 
 <script>
 import VaInputWrapper from './VaInputWrapper'
+import VaButton from './../va-button/VaButton'
+import VaIcon from './../va-icon/VaIcon'
 
 export default {
   components: {
-    VaInputWrapper
+    VaInputWrapper,
+    VaButton,
+    VaIcon
   },
   data () {
     return {
