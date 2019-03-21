@@ -14,11 +14,9 @@ export default {
     },
     small: {
       type: Boolean,
-      default: false
     },
     large: {
       type: Boolean,
-      default: false
     },
     size: {
       type: [String, Number],
@@ -38,19 +36,14 @@ export default {
       return {
         'va-icon--large': this.large,
         'va-icon--small': this.small,
-        'va-icon--fixed': this.fixedWidth,
-        'va-icon--success': this.color === 'success',
-        'va-icon--info': this.color === 'info',
-        'va-icon--danger': this.color === 'danger',
-        'va-icon--warning': this.color === 'warning',
-        'va-icon--gray': this.color === 'gray',
-        'va-icon--dark': this.color === 'dark',
+        'va-icon--fixed': this.fixedWidth
       }
     },
     iconStyle () {
       return {
         transform: 'rotate(' + this.rotation + 'deg)',
-        fontSize: typeof this.size === 'number' ? this.size + 'px' : this.size
+        fontSize: typeof this.size === 'number' ? this.size + 'px' : this.size,
+        color: this.$themes[this.color]
       }
     }
   }
@@ -58,6 +51,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+
 .va-icon {
   display: inline-block;
   letter-spacing: normal;

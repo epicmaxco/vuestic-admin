@@ -141,6 +141,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+
 .vuestic-checkbox {
   margin-bottom: $checkbox-between-items-margin;
   display: flex;

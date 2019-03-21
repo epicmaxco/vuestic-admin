@@ -91,6 +91,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+
 .vuestic-tree-category {
   &__header {
     cursor: pointer;

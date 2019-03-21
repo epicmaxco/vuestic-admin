@@ -1,5 +1,6 @@
 // Reset
-@import "global/reset";
+@import "global/reset.scss";
+@import "global/normalize.scss"; // We probably don't need normalize.
 @import "icons/icons";
 // Mixins, functions and variables
 @import "resources/resources";
@@ -11,3 +12,4 @@
 @import "global/utility-global";
 // Grid stuff
 @import "../vuestic-components/vuestic-grid/grid-global-styles";
+@import "global/content";

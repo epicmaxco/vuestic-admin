@@ -5,21 +5,21 @@
     </div>
     <div class="va-progress-bar__progress-bar">
       <div
-        :style="{width: normalizedBuffer + '%', backgroundColor: color}"
+        :style="{width: normalizedBuffer + '%', backgroundColor: $themes[color]}"
         class="va-progress-bar__buffer"
       />
       <div
         v-if="!indeterminate"
-        :style="{width: normalizedValue + '%', backgroundColor: color}"
+        :style="{width: normalizedValue + '%', backgroundColor: $themes[color]}"
         class="va-progress-bar__overlay"
       />
       <template v-else>
         <div
-          :style="{backgroundColor: color}"
+          :style="{backgroundColor: $themes[color]}"
           class="va-progress-bar__overlay__indeterminate-start"
         />
         <div
-          :style="{backgroundColor: color}"
+          :style="{backgroundColor: $themes[color]}"
           class="va-progress-bar__overlay__indeterminate-end"
         />
       </template>
@@ -53,6 +53,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../../vuestic-sass/resources/resources";
+
 .va-progress-bar {
   width: 100%;
   position: relative;

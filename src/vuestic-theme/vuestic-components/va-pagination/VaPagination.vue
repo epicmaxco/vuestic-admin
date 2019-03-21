@@ -2,7 +2,7 @@
   <va-button-group class="va-pagination">
     <va-button
       v-if="this.pages !== visiblePages && boundaryLinks"
-      class="va-button--no-effects"
+      :style="directionButtonStyle"
       outline
       :color="color"
       :small="small"
@@ -13,7 +13,7 @@
     />
     <va-button
       v-if="this.pages !== visiblePages && directionLinks"
-      class="va-button--no-effects"
+      :style="directionButtonStyle"
       outline
       :color="color"
       :small="small"
@@ -23,6 +23,7 @@
       @click="changePage(value - 1)"
     />
     <va-button
+      :style="activeButtonStyle(n)"
       outline
       :color="color"
       :small="small"
@@ -37,7 +38,7 @@
     </va-button>
     <va-button
       v-if="this.pages !== visiblePages && directionLinks"
-      class="va-button--no-effects"
+      :style="directionButtonStyle"
       outline
       :color="color"
       :small="small"
@@ -48,7 +49,7 @@
     />
     <va-button
       v-if="this.pages !== visiblePages && boundaryLinks"
-      class="va-button--no-effects"
+      :style="directionButtonStyle"
       outline
       :color="color"
       :small="small"
@@ -111,14 +112,6 @@ export default {
       },
     },
   },
-  methods: {
-    changePage (pageNum) {
-      if (pageNum < 1 || pageNum > this.pages) {
-        return
-      }
-      this.$emit('input', pageNum)
-    }
-  },
   data () {
     return {
       defaultIconClass: {
@@ -132,6 +125,13 @@ export default {
     }
   },
   computed: {
+    directionButtonStyle () {
+      return {
+        backgroundColor: 'transparent',
+        borderColor: this.disabled ? '#babfc2' : '',
+        opacity: 1
+      }
+    },
     iconClass () {
       return Object.assign({}, this.defaultIconClass, this.icon)
     },
@@ -144,6 +144,45 @@ export default {
     paginationRange () {
       return setPaginationRange(this.value, this.visiblePages, this.pages)
     }
+  },
+  methods: {
+    changePage (pageNum) {
+      if (pageNum < 1 || pageNum > this.pages) {
+        return
+      }
+      this.$emit('input', pageNum)
+    },
+    activeButtonStyle (buttonValue) {
+      if (buttonValue === this.value) {
+        return {
+          backgroundColor: this.disabled ? '#babfc2' : this.$themes[this.toggleColor ? this.toggleColor : this.color],
+          borderColor: this.disabled ? '#babfc2' : this.$themes[this.color],
+          opacity: 1,
+          color: this.disabled ? '#babfc2' : '#ffffff'
+        }
+      } else {
+        return {
+          backgroundColor: 'transparent',
+          borderColor: this.disabled ? '#babfc2' : this.$themes[this.color],
+          opacity: 1,
+          color: this.disabled ? '#babfc2' : this.$themes[this.color]
+        }
+      }
+    },
   }
 }
 </script>
+
+<style lang='scss'>
+  .va-pagination {
+    .va-button--disabled {
+      i {
+        color: $brand-secondary;
+      }
+    }
+
+    .va-button__content {
+      min-width: 1.25rem;
+    }
+  }
+</style>
