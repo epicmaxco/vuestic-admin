@@ -47,6 +47,8 @@ export default {
       Vue.prototype.$themes = themes
     }
 
+    /* eslint-disable no-new */
+
     new Vue({ data: { themes: Vue.prototype.$themes } })
   }
 }
