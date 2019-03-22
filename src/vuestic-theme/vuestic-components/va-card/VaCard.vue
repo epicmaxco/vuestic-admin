@@ -2,6 +2,7 @@
   <div
     class="va-card"
     :class="computedCardClass"
+    :style="computedCardStyle"
   >
     <div class="va-card__image" v-if="image">
       <img :src="image" :alt="imageAlt">
@@ -36,6 +37,8 @@
 </template>
 
 <script>
+import { getGradientColor } from '../../../services/colors'
+
 export default {
   name: 'va-card',
   props: {
@@ -76,6 +79,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    color: {
+      type: String,
+      default: ''
+    }
   },
   computed: {
     showHeader () {
@@ -95,6 +102,15 @@ export default {
         'va-card__body--padding-top':
           (!this.showHeader && !this.noPaddingV && !this.noPadding) ||
           this.titleOnImage
+      }
+    },
+    computedCardStyle () {
+      if (this.color) {
+        return {
+          color: '#fff',
+          background: 'linear-gradient(to right,' + getGradientColor(this.color)[0] +
+          ',' + getGradientColor(this.color)[1] + ')'
+        }
       }
     }
   },
@@ -195,31 +211,6 @@ export default {
       width: 100%;
       background-color: rgba(0,0,0,.3);
       pointer-events: none;
-    }
-  }
-
-  &--theme-bright {
-    background-color: $brand-primary;
-    color: $white;
-
-    .va-card__header-title {
-      color: $white;
-    }
-
-    a {
-      color: $vue-darkest-blue;
-      &:hover {
-        color: lighten($vue-darkest-blue, 15);
-      }
-    }
-  }
-
-  &--theme-dark {
-    background-color: $darkest-gray;
-    color: $white;
-
-    .va-card__header-title {
-      color: $white;
     }
   }
 

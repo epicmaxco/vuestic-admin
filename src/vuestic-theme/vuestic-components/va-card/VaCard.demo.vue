@@ -39,7 +39,7 @@
           <td>
             <VbContainer>
               <va-card
-                title="Default Card with controls"
+                title="Custom header"
               >
                 <template slot="header">
                   <va-icon icon="fa fa-cogs mr-3" color="success" />
@@ -132,6 +132,34 @@
                     Read More
                   </va-button>
                 </template>
+              </va-card>
+            </VbContainer>
+          </td>
+        </tr>
+        <tr>
+          <td>Background</td>
+          <td>
+            <VbContainer>
+              <va-card color="danger">
+                The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands, mountains, and coastal hills.
+              </va-card>
+
+              <va-card color="success">
+                The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands, mountains, and coastal hills.
+              </va-card>
+            </VbContainer>
+          </td>
+        </tr>
+        <tr>
+          <td>Stripes</td>
+          <td>
+            <VbContainer>
+              <va-card stripe="danger">
+                The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands, mountains, and coastal hills.
+              </va-card>
+
+              <va-card stripe="success">
+                The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands, mountains, and coastal hills.
               </va-card>
             </VbContainer>
           </td>
