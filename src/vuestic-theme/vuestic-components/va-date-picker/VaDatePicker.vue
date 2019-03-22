@@ -150,6 +150,8 @@ $dayMargin: 0.6rem;
       background-color: $datepickerBackground;
       border-radius: 0;
       &:focus {
+        border: 0;
+        box-shadow: none;
         border-bottom: 1px solid $brand-secondary;
       }
     }
