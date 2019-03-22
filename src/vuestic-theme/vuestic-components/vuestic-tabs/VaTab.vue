@@ -29,17 +29,10 @@ export default {
   },
   methods: {
     selectTab () {
-      if (!this.disabled) {
-        this.$parent.$children.forEach(item => {
-          if (item === this) {
-            this.$parent.activeIndex = this.$parent.$children.indexOf(item)
-          }
-        })
-        this.$parent.valueProxy = this.$slots.default[0].text.trim()
-      }
+      this.$parent.selectTab(this)
     },
     isActive () {
-      return this.$parent.valueProxy === this.$slots.default[0].text.trim()
+      return this.$parent.tabSelected(this)
     }
   },
   beforeDestroy () {

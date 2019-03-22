@@ -9,11 +9,14 @@
         :hide-slider="hideSlider"
       >
         <va-tab>{{'item1item1item1item1item1'}}</va-tab>
-        <va-tab v-for="item in count" :key="item">{{'item'+ item}}</va-tab>
+        <va-tab
+          v-for="item in count"
+          :key="item"
+        >
+          {{'item'+ item}}
+        </va-tab>
       </va-tabs>
-      <div v-for="item in count" :key="item">
-        <p v-if="'item' + item === value">{{'item' + item}}</p>
-      </div>
+      {{value}}
     </VbContainer>
     <VbContainer>
       <button @click="count++">add item</button>
@@ -48,12 +51,12 @@ export default {
   data () {
     return {
       count: 6,
-      value: 'item1item1item1item1item1',
+      value: 4,
       options: ['default', 'align-right', 'grow'],
       option: 'default',
       color: 'White',
-      hideSlider: false
+      hideSlider: false,
     }
-  }
+  },
 }
 </script>

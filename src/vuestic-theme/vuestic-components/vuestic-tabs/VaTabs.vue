@@ -77,28 +77,41 @@ export default {
     },
     getBarWidth (slots) {
       this.setTabsWidth(slots)
-      return this.grow ? 100 / slots.length + '%' : `calc(` + this.tabsWidth[this.activeIndex] + `px - 1.25rem)`
+      return this.grow ? 100 / slots.length + '%' : `calc(` + this.tabsWidth[this.value] + `px - 1.25rem)`
     },
     getMarginLeft (slots) {
       this.setTabsWidth(slots)
-      if (!this.grow && this.activeIndex === 0) {
+      if (!this.grow && this.value === 0) {
         return 1.25 + 'rem'
       }
-      if (!this.grow && this.activeIndex !== 0) {
+      if (!this.grow && this.value !== 0) {
         let marginLeft = 0
-        for (let count = 0; count < this.activeIndex; count++) {
+        for (let count = 0; count < this.value; count++) {
           marginLeft += this.tabsWidth[count]
         }
-        return `calc(` + marginLeft + `px + ` + this.activeIndex + `rem + 1.2rem)`
+        return `calc(` + marginLeft + `px + ` + this.value + `rem + 1.2rem)`
       }
-      if (this.grow && this.activeIndex !== 0) {
-        return this.activeIndex * (100 / slots.length) + `%`
+      if (this.grow && this.value !== 0) {
+        return this.value * (100 / slots.length) + `%`
       }
+    },
+    selectTab (tabToSelect) {
+      this.$slots.default.forEach((tabSlot, index) => {
+        if (tabSlot.componentInstance === tabToSelect) {
+          this.valueProxy = index
+        }
+      })
+    },
+    tabSelected (tabToCompare) {
+      return this.$slots.default.some((tabSlot, index) => {
+        if (tabSlot.componentInstance === tabToCompare) {
+          return index === this.value
+        }
+      })
     }
   },
   data () {
     return {
-      activeIndex: 0,
       tabsWidth: []
     }
   },
