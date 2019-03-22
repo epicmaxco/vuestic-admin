@@ -35,6 +35,13 @@
       />
       {{weekDays}}
     </VbContainer>
+    <VbContainer title="Inline datepicker">
+      <vuestic-date-picker
+        v-model="inline"
+        inline
+      />
+      {{inline}}
+    </VbContainer>
   </VbDemo>
 </template>
 
@@ -51,7 +58,8 @@ export default {
       range: '2019-03-07 to 2019-03-20',
       dayTime: '2019-03-07',
       multiple: '2019-03-07, 2019-03-20',
-      weekDays: '2019-03-07'
+      weekDays: '2019-03-07',
+      inline: '2019-03-07'
     }
   }
 }

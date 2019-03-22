@@ -65,7 +65,8 @@
     "daysOfTheWeek": "Days of the week",
     "setupMeeting": "Setup meeting",
     "upcomingVacation": "Upcoming vacation",
-    "multipleAndDisabledDates": "Multiple & disabled dates"
+    "multipleAndDisabledDates": "Multiple & disabled dates",
+    "inline": "Inline"
   },
   "dashboard": {
     "dataVisualization": "Data Visualization",

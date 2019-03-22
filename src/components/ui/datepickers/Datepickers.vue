@@ -39,14 +39,26 @@
         </vuestic-widget>
       </div>
     </div>
-    <div class="small-set flex lg6 xs12">
-      <vuestic-widget :headerText="$t('datepickers.multipleAndDisabledDates')">
-        <va-date-picker
-          mode="multiple"
-          :disable="disable"
-          v-model="multipleDates"
-        />
-      </vuestic-widget>
+    <div class="va-row">
+      <div class="small-set flex lg6 xs12">
+        <vuestic-widget :headerText="$t('datepickers.multipleAndDisabledDates')">
+          <va-date-picker
+            mode="multiple"
+            :disable="disable"
+            v-model="multipleDates"
+          />
+        </vuestic-widget>
+      </div>
+      <div class="small-set flex lg6 xs12">
+        <vuestic-widget :headerText="$t('datepickers.inline')">
+          <va-date-picker
+            mode="multiple"
+            :disable="disable"
+            inline
+            v-model="inline"
+          />
+        </vuestic-widget>
+      </div>
     </div>
   </div>
 </template>
@@ -62,6 +74,7 @@ export default {
       disable: ['2019-03-12', '2019-03-16', '2019-03-23', '2019-03-18', '2019-03-04'],
       dayTime: '2019-03-07',
       multipleDates: '2019-03-07, 2019-03-20',
+      inline: '2019-03-07, 2019-03-20'
     }
   },
 }

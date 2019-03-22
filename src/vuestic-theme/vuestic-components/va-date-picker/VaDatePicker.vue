@@ -82,7 +82,7 @@ export default {
     defaultConfig () {
       return {
         inline: this.inline,
-        wrap: true,
+        wrap: !this.inline,
         altFormat: this.altFormat,
         altInput: this.altInput,
         enableTime: this.enableTime,
@@ -99,6 +99,13 @@ export default {
         el.classList.add('flatpickr-weekdays--hidden')
       }
     },
+  },
+  mounted () {
+    if (this.inline) {
+      let el = this.$el.getElementsByClassName('flatpickr-calendar')[0]
+      this.$el.removeChild(el)
+      this.$el.appendChild(el)
+    }
   }
 }
 </script>
@@ -124,16 +131,28 @@ $daySize: 2rem;
 $dayMargin: 0.6rem;
 
 .va-date-picker {
+  max-width: $daySize * 7 + ($dayPadding + $dayMargin * 2) * 6 + $borderPadding * 2;
   &__flatpickr {
     border: 0;
     border-bottom: 1px solid $brand-secondary;
     cursor: pointer;
     width: $daySize * 7 + ($dayPadding + $dayMargin * 2) * 6 + $borderPadding * 2 - 2rem !important;
     background-color: $datepickerBackground;
+    min-height: 2.375rem;
     height: 2.375rem;
     outline: none;
     padding: 0.5rem;
     color: $vue-darkest-blue;
+    &.active {
+      box-shadow: none;
+    }
+    &.form-control {
+      background-color: $datepickerBackground;
+      border-radius: 0;
+      &:focus {
+        border-bottom: 1px solid $brand-secondary;
+      }
+    }
   }
   &__icon {
     border-radius: 0 0.5rem 0 0;
@@ -390,15 +409,6 @@ $dayMargin: 0.6rem;
       background-color: $datepickerBackground;
       border-bottom: 1px solid $brand-secondary;
     }
-  }
-}
-
-.form-group {
-  .flatpickr-input {
-    width: 100%;
-    background: none;
-    outline: none;
-    box-shadow: none;
   }
 }
 </style>

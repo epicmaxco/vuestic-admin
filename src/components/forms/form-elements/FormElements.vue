@@ -12,7 +12,8 @@
                     <div class="input-group">
                       <input id="simple-input" required/>
                       <label class="control-label" for="simple-input">{{'forms.inputs.textInput'
-                        | translate}}</label><va-icon icon="bar"/>
+                        | translate}}</label>
+                      <va-icon icon="bar"/>
                     </div>
                   </div>
                   <div class="form-group with-icon-right"
@@ -27,7 +28,8 @@
                       <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
                       <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
                       <label class="control-label" for="successfulEmail">{{'forms.inputs.emailValidatedSuccess'
-                        | translate}} </label><va-icon icon="bar"/>
+                        | translate}} </label>
+                      <va-icon icon="bar"/>
                       <small v-show="errors.has('successfulEmail')"
                              class="help text-danger">
                         {{ errors.first('successfulEmail') }}
@@ -47,7 +49,8 @@
                         v-show="errors.has('wrongEmail')"
                         icon="fa fa-exclamation-triangle icon-right input-icon"/>
                       <label class="control-label" for="wrongEmail">{{'forms.inputs.emailValidated'
-                        | translate}}</label><va-icon icon="bar"/>
+                        | translate}}</label>
+                      <va-icon icon="bar"/>
                       <small v-show="errors.has('wrongEmail')"
                              class="help text-danger">{{
                         errors.first('wrongEmail')
@@ -60,7 +63,8 @@
                       <textarea type="text" id="simple-textarea"
                                 required></textarea>
                       <label class="control-label" for="simple-textarea">{{'forms.inputs.textArea'
-                        | translate}}</label><va-icon icon="bar"/>
+                        | translate}}</label>
+                      <va-icon icon="bar"/>
                     </div>
                   </div>
                 </fieldset>
@@ -74,7 +78,8 @@
                              required/>
                       <va-icon icon="fa fa-envelope-o icon-left input-icon"/>
                       <label class="control-label" for="input-icon-left">{{'forms.inputs.inputWithIcon'
-                        | translate}}</label><va-icon icon="bar"/>
+                        | translate}}</label>
+                      <va-icon icon="bar"/>
                     </div>
                   </div>
                   <div class="form-group with-icon-right">
@@ -86,14 +91,16 @@
                         @click.native="clear('clearableText')"/>
                       <label class="control-label" for="clear-input"
                              role="button">{{'forms.inputs.inputWithClearButton'
-                        | translate}}</label><va-icon icon="bar"/>
+                        | translate}}</label>
+                      <va-icon icon="bar"/>
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="input-group">
                       <input id="inputWithDescription" required title=""/>
                       <label class="control-label" for="simple-input">{{'forms.inputs.textInputWithDescription'
-                        | translate}}</label><va-icon icon="bar"/>
+                        | translate}}</label>
+                      <va-icon icon="bar"/>
                       <small class="help text-secondary">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed
@@ -111,15 +118,17 @@
                     <div class="input-group">
                       <input id="input-w-btn" required/>
                       <label class="control-label" for="input-w-btn">{{'forms.inputs.inputWithButton'
-                        | translate}}</label><va-icon icon="bar"/>
+                        | translate}}</label>
+                      <va-icon icon="bar"/>
                     </div>
-                    <va-button> {{ $t('forms.inputs.upload') }} </va-button>
+                    <va-button> {{ $t('forms.inputs.upload') }}</va-button>
                   </div>
                   <div class="form-group form-group-w-btn">
                     <div class="input-group">
                       <input id="input-w-btn-round" required/>
                       <label class="control-label" for="input-w-btn-round">{{'forms.inputs.inputWithRoundButton'
-                        | translate }}</label><va-icon icon="bar"/>
+                        | translate }}</label>
+                      <va-icon icon="bar"/>
                     </div>
                     <va-button icon="ion-md-cloud-outline ion"/>
                   </div>
@@ -139,102 +148,62 @@
             <div class="va-row">
               <div class="flex md4">
                 <fieldset>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <va-date-picker
-                        id="date-picker-basic"
-                        v-model="datepicker.simple"
-                      />
-                      <label class="control-label" for="date-picker-basic">
-                        {{ $t('forms.dateTimePicker.basic') }}
-                      </label><va-icon icon="bar"/>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <va-date-picker
-                        id="date-picker-time"
-                        enableTime
-                        v-model="datepicker.time"
-                      />
-                      <label class="control-label" for="date-picker-time">
-                        {{ $t('forms.dateTimePicker.time') }}
-                      </label>
-                      <va-icon icon="bar"/>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <va-date-picker
-                        id="date-picker-custom-first-day"
-                        v-model="datepicker.customFirstDay"
-                      />
-                      <label class="control-label" for="date-picker-custom-first-day">
-                        {{ $t('forms.dateTimePicker.customFirstDay') }}
-                      </label>
-                      <va-icon icon="bar"/>
-                    </div>
-                  </div>
+                  <label class="form-elements__label">
+                    {{ $t('forms.dateTimePicker.basic') }}
+                  </label>
+                  <va-date-picker
+                    v-model="datepicker.simple"
+                  />
+                  <label class="form-elements__label">
+                    {{ $t('forms.dateTimePicker.time') }}
+                  </label>
+                  <va-date-picker
+                    enableTime
+                    v-model="datepicker.time"
+                  />
+                  <label class="form-elements__label">
+                    {{ $t('forms.dateTimePicker.customFirstDay') }}
+                  </label>
+                  <va-date-picker
+                    v-model="datepicker.customFirstDay"
+                  />
                 </fieldset>
               </div>
               <div class="flex md4">
                 <fieldset>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <va-date-picker
-                        id="date-picker-disabled"
-                        :disable="datePickerDisabled"
-                        v-model="datepicker.disabled"
-                      />
-                      <label class="control-label" for="date-picker-disabled">
-                        {{ $t('forms.dateTimePicker.disabled') }}
-                      </label>
-                      <va-icon icon="bar"/>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <va-date-picker
-                        id="date-picker-multiple"
-                        multiple
-                        v-model="datepicker.multiple"
-                      />
-                      <label class="control-label" for="date-picker-multiple">
-                        {{ $t('forms.dateTimePicker.multiple') }}
-                      </label>
-                      <va-icon icon="bar"/>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <va-date-picker
-                        id="date-picker-custom-date-format"
-                        altInput
-                        v-model="datepicker.customDate"
-                      />
-                      <label class="control-label" for="date-picker-custom-date-format">
-                        {{ $t('forms.dateTimePicker.customDateFormat') }}
-                      </label>
-                      <va-icon icon="bar"/>
-                    </div>
-                  </div>
+                  <label class="form-elements__label">
+                    {{ $t('forms.dateTimePicker.disabled') }}
+                  </label>
+                  <va-date-picker
+                    :disable="datePickerDisabled"
+                    v-model="datepicker.disabled"
+                  />
+                  <label class="form-elements__label">
+                    {{ $t('forms.dateTimePicker.multiple') }}
+                  </label>
+                  <va-date-picker
+                    multiple
+                    v-model="datepicker.multiple"
+                  />
+                  <label class="form-elements__label">
+                    {{ $t('forms.dateTimePicker.customDateFormat') }}
+                  </label>
+                  <va-date-picker
+                    altInput
+                    v-model="datepicker.customDate"
+                  />
                 </fieldset>
               </div>
               <div class="flex md4">
                 <fieldset>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <va-date-picker
-                        id="date-picker-range"
-                        inline
-                        mode="range"
-                        v-model="datepicker.range"
-                      />
-                      <label class="control-label" for="date-picker-range">
-                        {{ $t('forms.dateTimePicker.range') }}
-                      </label>
-                    </div>
-                  </div>
+                  <label class="form-elements__label">
+                    {{ $t('forms.dateTimePicker.range') }}
+                  </label>
+                  <va-date-picker
+                    inline
+                    mode="range"
+                    v-model="datepicker.range"
+                  />
                 </fieldset>
               </div>
             </div>
@@ -441,3 +410,14 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.form-elements {
+  &__label {
+    font-size: 0.6rem;
+    color: $vue-green;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}
+</style>
