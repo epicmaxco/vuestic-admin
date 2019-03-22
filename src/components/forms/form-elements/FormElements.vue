@@ -182,7 +182,7 @@
                     {{ $t('forms.dateTimePicker.multiple') }}
                   </label>
                   <va-date-picker
-                    multiple
+                    mode="multiple"
                     v-model="datepicker.multiple"
                   />
                   <label class="form-elements__label">

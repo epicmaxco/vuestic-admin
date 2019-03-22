@@ -229,6 +229,12 @@ $dayMargin: 0.6rem;
         }
         &.nextMonthDay, &.prevMonthDay {
           color: $brand-secondary;
+          &.startRange {
+            background-color: $datepickerDayHover;
+          }
+          &.endRange {
+            background-color: $datepickerDayHover;
+          }
         }
         &.disabled {
           color: $brand-secondary;
@@ -355,6 +361,7 @@ $dayMargin: 0.6rem;
         margin-left: 1rem;
         width: 6rem;
         padding-left: 0.5rem;
+        font-weight: inherit;
         text-align: left;
         background-color: $datepickerBackground;
         border-bottom: 1px solid $brand-secondary;
