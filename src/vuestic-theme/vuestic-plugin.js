@@ -41,7 +41,6 @@ import Scrollbar
   from './vuestic-components/vuestic-scrollbar/VuesticScrollbar.vue'
 import SimpleSelect
   from './vuestic-components/vuestic-simple-select/VuesticSimpleSelect.vue'
-import Slider from './vuestic-components/va-slider/VaSlider.vue'
 import SocialNews
   from './vuestic-components/vuestic-social-news/VuesticSocialNews.vue'
 import Switch from './vuestic-components/vuestic-switch/VuesticSwitch.vue'
@@ -116,7 +115,6 @@ const VuesticPlugin = {
       RadioButton,
       Scrollbar,
       SimpleSelect,
-      Slider,
       SocialNews,
       Switch,
       Tabs,
