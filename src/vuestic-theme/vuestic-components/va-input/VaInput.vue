@@ -34,7 +34,7 @@
       @click.native="clearContent()"
       v-if="removable"
       slot="append"
-      class="pointer"
+      class="pointer pb-1"
       :color="error ? 'danger': ''"
       :style="{ color: '#babfc2'}"
       icon="ion ion-md-close ion"
@@ -97,7 +97,7 @@ export default {
   computed: {
     labelStyles () {
       return {
-        color: this.error ? '#e34b4a' : ''
+        color: this.error ? this.$themes.danger : ''
       }
     }
   },

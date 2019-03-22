@@ -48,6 +48,8 @@
 </template>
 
 <script>
+import { getHoverColor } from '../../../services/colors'
+
 export default {
   name: 'va-input-wrapper',
   props: {
@@ -70,13 +72,13 @@ export default {
   computed: {
     slotStyles () {
       return {
-        backgroundColor: this.error ? '#ffebeb' : this.success ? '#dcfbda' : '#f5f8f9',
-        borderColor: this.error ? '#e34b4a' : this.success ? '#40e583' : '#babfc2'
+        backgroundColor: this.error ? getHoverColor('danger') : this.success ? getHoverColor('success') : '#f5f8f9',
+        borderColor: this.error ? this.$themes.danger : this.success ? this.$themes.success : '#babfc2'
       }
     },
     messageStyles () {
       return {
-        color: this.error ? '#e34b4a' : '#babfc2'
+        color: this.error ? this.$themes.danger : '#babfc2'
       }
     },
     hasPrependData () {
