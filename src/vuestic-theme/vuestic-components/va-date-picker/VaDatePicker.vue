@@ -24,11 +24,6 @@ export default {
     value: {
       required: true,
     },
-    config: {
-      default: () => {
-        return {}
-      },
-    },
     weekDays: {
       type: Boolean
     },
@@ -77,7 +72,7 @@ export default {
       if (this.disable) {
         config = Object.assign({}, { disable: this.disable }, config)
       }
-      return Object.assign({}, config, this.config)
+      return config
     },
     defaultConfig () {
       return {
@@ -288,11 +283,13 @@ $dayMargin: 0.6rem;
             border: 0;
             background-color: $datepickerBackground;
             &::after {
+              margin-top: 0.5rem;
               border-bottom-color: $datepickerActiveColor;
             }
           }
           .arrowDown {
             border: 0;
+            top: 0.75rem;
             background-color: $datepickerBackground;
             &::after {
               border-top-color: $datepickerActiveColor;
