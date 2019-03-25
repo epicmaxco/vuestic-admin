@@ -267,17 +267,20 @@ $dayMargin: 0.6rem;
         .cur-month {
           font-size: 1rem;
           font-weight: inherit;
+          &:hover {
+            background-color: $datepickerBackground;
+          }
         }
         .cur-year {
           font-size: 1rem;
         }
         .numInputWrapper {
           border: 0;
+          &:hover {
+            background-color: $datepickerBackground;
+          }
           .numInput.cur-year {
             color: $vue-darkest-blue;
-            &:hover {
-              background-color: $datepickerBackground;
-            }
           }
           .arrowUp {
             border: 0;
