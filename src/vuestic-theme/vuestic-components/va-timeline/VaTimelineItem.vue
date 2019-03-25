@@ -1,11 +1,12 @@
 <script>
-import VuesticTimelineSeparator from './VuesticTimelineSeparator.vue'
+import VuesticTimelineSeparator from './VaTimelineSeparator.vue'
 
-export const $root = 'vuestic-timeline-item'
+export const $root = 'va-timeline-item'
 
 export default {
   name: $root,
   props: {
+    color: String,
     vertical: Boolean,
     active: Boolean,
     activePrevious: Boolean,
@@ -16,6 +17,7 @@ export default {
   },
   render (createElement) {
     const props = {
+      color: this.color,
       vertical: this.vertical,
       active: this.active,
       activePrevious: this.activePrevious,
@@ -78,22 +80,22 @@ export default {
 <style lang="scss">
 @import '../../vuestic-sass/resources/resources';
 
-.vuestic-timeline-item {
+.va-timeline-item {
   display: flex;
   flex-direction: column;
   &__before, &__after {
     flex: 1;
   }
   &--vertical {
-    .vuestic-timeline-item__before,
-    .vuestic-timeline-item__after {
+    .va-timeline-item__before,
+    .va-timeline-item__after {
       padding-top: 1rem;
       padding-bottom: 1rem;
     }
-    .vuestic-timeline-item__before {
+    .va-timeline-item__before {
       padding-right: 1rem;
     }
-    .vuestic-timeline-item__after {
+    .va-timeline-item__after {
       padding-left: 1rem;
     }
   }
@@ -101,15 +103,15 @@ export default {
     float: right;
   }
   &:not(&--vertical) {
-    .vuestic-timeline-item__before,
-    .vuestic-timeline-item__after {
+    .va-timeline-item__before,
+    .va-timeline-item__after {
       padding-right: 1rem;
       padding-left: 1rem;
     }
-    .vuestic-timeline-item__before {
+    .va-timeline-item__before {
       padding-bottom: 1rem;
     }
-    .vuestic-timeline-item__after {
+    .va-timeline-item__after {
       padding-top: 1rem;
     }
   }

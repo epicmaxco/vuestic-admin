@@ -64,7 +64,7 @@ const processSlots = (context) => {
   return slots
 }
 
-const $root = 'vuestic-timeline'
+const $root = 'va-timeline'
 
 export default {
   name: $root,
@@ -97,7 +97,7 @@ export default {
 <style lang="scss">
 $timeline-outer-spacing: 2rem;
 
-.vuestic-timeline {
+.va-timeline {
   display: flex;
   flex-wrap: nowrap;
   &--vertical {
@@ -105,47 +105,34 @@ $timeline-outer-spacing: 2rem;
     padding-left: $timeline-outer-spacing;
     padding-right: $timeline-outer-spacing;
   }
-  &:not(.vuestic-timeline--vertical) {
+  &:not(.va-timeline--vertical) {
     padding-top: $timeline-outer-spacing;
     padding-bottom: $timeline-outer-spacing;
   }
-  .vuestic-timeline-item {
+  .a-timeline-item {
     flex: 1;
   }
-  .vuestic-timeline-item--vertical {
-    .vuestic-timeline-separator--vertical .vuestic-timeline-separator__line {
+  .va-timeline-item--vertical {
+    .va-timeline-separator--vertical .va-timeline-separator__line {
       &:first-child {
         flex: 0 0 1rem;
       }
     }
 
-    &.vuestic-timeline-item--is-first {
-      .vuestic-timeline-separator--vertical .vuestic-timeline-separator__line {
+    &.va-timeline-item--is-first {
+      .va-timeline-separator--vertical .va-timeline-separator__line {
         &:first-child {
           flex-basis: 2rem;
         }
       }
 
-      .vuestic-timeline-item__after, .vuestic-timeline-item__before {
+      .va-timeline-item__after, .va-timeline-item__before {
         padding-top: $timeline-outer-spacing;
       }
     }
-    &.vuestic-timeline-item--vertical.vuestic-timeline-item--is-last {
-      .vuestic-timeline-item__after, .vuestic-timeline-item__before {
+    &.va-timeline-item--vertical.va-timeline-item--is-last {
+      .va-timeline-item__after, .va-timeline-item__before {
         padding-bottom: $timeline-outer-spacing;
-      }
-    }
-  }
-
-  :not(.vuestic-timeline-item--vertical) {
-    &.vuestic-timeline-item--is-first {
-      .vuestic-timeline-item__after, .vuestic-timeline-item__before {
-        padding-left: $timeline-outer-spacing;
-      }
-    }
-    &.vuestic-timeline-item--is-last {
-      .vuestic-timeline-item__after, .vuestic-timeline-item__before {
-        padding-right: $timeline-outer-spacing;
       }
     }
   }
