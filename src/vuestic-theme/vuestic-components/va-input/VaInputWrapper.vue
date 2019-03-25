@@ -13,7 +13,7 @@
           class="va-input-wrapper__prepend-inner d-inline-flex align--center ml-2">
           <slot name="prepend"/>
         </div>
-        <div>
+        <div class="va-input-wrapper__content">
           <slot/>
         </div>
         <div
@@ -108,6 +108,10 @@ export default {
       .va-input-wrapper__slot {
         border-color: $brand-secondary !important;
       }
+    }
+
+    &__control, &__content {
+      width: 100%;
     }
 
     &__slot {

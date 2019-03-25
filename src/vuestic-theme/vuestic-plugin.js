@@ -41,7 +41,6 @@ import Scrollbar
   from './vuestic-components/vuestic-scrollbar/VuesticScrollbar.vue'
 import SimpleSelect
   from './vuestic-components/vuestic-simple-select/VuesticSimpleSelect.vue'
-import Slider from './vuestic-components/va-slider/VaSlider.vue'
 import SocialNews
   from './vuestic-components/vuestic-social-news/VuesticSocialNews.vue'
 import Switch from './vuestic-components/vuestic-switch/VuesticSwitch.vue'
@@ -59,6 +58,7 @@ import Card from './vuestic-components/vuestic-card/VuesticCard'
 import FileUpload
   from './vuestic-components/vuestic-file-upload/VuesticFileUpload'
 import VaIcon from './vuestic-components/va-icon/VaIcon'
+import VaInput from './vuestic-components/va-input/VaInput'
 import VuesticDropdown
   from './vuestic-components/vuestic-dropdown/VuesticDropdown'
 
@@ -116,7 +116,6 @@ const VuesticPlugin = {
       RadioButton,
       Scrollbar,
       SimpleSelect,
-      Slider,
       SocialNews,
       Switch,
       Tabs,
@@ -133,6 +132,7 @@ const VuesticPlugin = {
       DatePicker,
       Card,
       VaIcon,
+      VaInput,
       VaAccordion,
       VaCollapse,
       VuesticTimeline,

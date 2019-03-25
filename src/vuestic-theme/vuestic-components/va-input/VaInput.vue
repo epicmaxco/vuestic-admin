@@ -1,7 +1,7 @@
 <template>
   <va-input-wrapper
     class="va-input"
-    :class="{ 'va-input-wrapper--focused': focusState }"
+    :class="{ 'va-input-wrapper--focused': isFocused }"
     :disabled="disabled"
     :error="error"
     :success="success"
@@ -79,19 +79,18 @@ export default {
       type: Boolean
     },
     messages: {
-      type: Array
+      type: Array,
+      default: () => []
     },
     errorMessages: {
-      type: Array
-    },
-    prefix: {
-      type: String,
-    },
+      type: Array,
+      default: () => []
+    }
   },
   data () {
     return {
       currentValue: this.value,
-      focusState: false
+      isFocused: false
     }
   },
   computed: {
@@ -108,7 +107,7 @@ export default {
       }
     },
     updateFocusState (isFocused) {
-      this.focusState = isFocused
+      this.isFocused = isFocused
     },
   },
 }
@@ -135,6 +134,7 @@ export default {
         background-color: transparent;
         border-style: none;
         outline: none;
+        width: 100%;
 
         &::placeholder {
           color: $brand-secondary;

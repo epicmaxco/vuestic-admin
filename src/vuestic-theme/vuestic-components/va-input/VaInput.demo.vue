@@ -57,7 +57,7 @@
         label="Name"
       >
         <va-button small>
-          Upload File
+          Upload
         </va-button>
       </va-input>
     </VbContainer>
