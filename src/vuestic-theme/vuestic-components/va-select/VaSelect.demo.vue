@@ -38,11 +38,11 @@
         />
       </div>
     </VbContainer>
-    <VbContainer title="multiple">
+    <VbContainer title="options with icons">
       <va-select
-        v-model="multipleValue"
-        multiple
-        :options="CountriesList"
+        v-model="value"
+        :options="optionsWithIcons"
+        width="320px"
       />
     </VbContainer>
     <VbContainer title="disabled">
@@ -52,31 +52,29 @@
         disabled
       />
     </VbContainer>
-    <VbContainer title="options with icons">
+    <VbContainer title="disabled + searchable">
       <va-select
         v-model="value"
-        :options="optionsWithIcons"
-        width="320px"
+        :options="CountriesList"
+        disabled
+        searchable
       />
     </VbContainer>
-    <VbContainer title="sizes" class="not-work">
-      <div v-for="size in sizes" :key="size">
-        <p>{{size}}</p>
-        <va-select
-          :size="size"
-          v-model="value"
-          :options="CountriesList"
-        />
-      </div>
+    <VbContainer title="multiple">
+      <va-select
+        v-model="multipleValue"
+        multiple
+        :options="CountriesList"
+      />
     </VbContainer>
-    <VbContainer title="searchable" class="not-work">
+    <VbContainer title="searchable">
       <va-select
         v-model="value"
         :options="CountriesList"
         searchable
       />
     </VbContainer>
-    <VbContainer title="searchable + multiple" class="not-work">
+    <VbContainer title="searchable + multiple">
       <va-select
         v-model="multipleValue"
         :options="CountriesList"
@@ -91,7 +89,7 @@
         max-height="320px"
       />
     </VbContainer>
-    <VbContainer title="custom width (320px)" :style="{'width': '100%'}">
+    <VbContainer title="custom width (320px)" :style="{'width': '100%'}"  class="not-work">
       <va-select
         v-model="value"
         :options="CountriesList"

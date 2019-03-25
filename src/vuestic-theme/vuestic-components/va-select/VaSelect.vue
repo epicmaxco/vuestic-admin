@@ -3,17 +3,15 @@
     :position="computedPosition"
     :trigger-mode="searchable || multiple ? 'click' : 'focus'"
     :disabled="disabled"
-    :className="`va-select__dropdown va-select__dropdown-position-${position}`"
+    className="va-select__dropdown"
     :max-width="width"
     :max-height="maxHeight"
     @triggerVisibility="triggerVisibility"
+    :visible.sync="visible"
   >
     <ul
       class="va-select__options-list"
-      :style="{
-        'width': this.width,
-        'max-height': this.maxHeight
-      }"
+      :style="{'max-height': this.maxHeight}"
       ref="options"
     >
       <li
@@ -50,19 +48,10 @@
       @keyup.esc.prevent="$refs.actuator.blur()"
     >
       <p v-if="label" class="title va-select__label">{{label}}</p>
-      <div class="va-select__input-wrapper">
-        <input
-          v-if="searchable"
-          :placeholder="placeholder"
-          :value="search"
-          class="va-select__input"
-          @input="updateSearch($event.target.value)"
-          ref="search"
-          :style="inputStyles"
-        />
+      <div class="va-select__input-wrapper" :class="{'va-select__input-wrapper-block': multiple && visible && searchable}">
         <div
           class="va-select__input"
-          v-if="!visible"
+          v-if="!visible || !searchable || (multiple && visible) || disabled"
         >
           <span
             class="va-select__tags"
@@ -78,10 +67,19 @@
           <span v-else-if="displayedValue !== ''">{{displayedValue}}</span>
           <span v-else class="va-select__placeholder">{{placeholder}}</span>
         </div>
+        <input
+          v-if="searchable"
+          :placeholder="placeholder"
+          :value="search"
+          class="va-select__input"
+          @input="updateSearch($event.target.value)"
+          ref="search"
+          :style="inputStyles"
+        />
         <i v-if="showClearIcon" @click.prevent.stop="clear" class="icon va-icon fa fa-times-circle mr-1 va-select__clear-icon"/>
         <spring-spinner v-if="loading" :size="24" class="va-select__loading"/>
       </div>
-      <i class="icon va-icon fa va-select__open-icon" :class="{'fa-chevron-down': !visible, 'fa-chevron-up': visible}"/>
+      <i class="icon va-icon fa va-select__open-icon" :class="{'fa-chevron-down': !visible || (visible && disabled), 'fa-chevron-up': visible && !disabled}"/>
     </div>
   </va-dropdown>
 </template>
@@ -141,7 +139,6 @@ export default {
   },
   data () {
     return {
-      isOpen: false,
       search: '',
       pointer: 0,
       visible: false
@@ -168,10 +165,7 @@ export default {
       return positions[this.position]
     },
     inputStyles () {
-      return this.visible && (
-        this.searchable ||
-        (this.multiple && this.value && this.value.length)
-      )
+      return this.visible && this.searchable && !this.disabled
         ? { width: '100%' }
         : { width: '0', position: 'absolute', padding: '0' }
     },
@@ -202,7 +196,11 @@ export default {
         this.pointer = index
         this.valueProxy = selectedItem
         this.search = ''
-        this.$refs.actuator.blur()
+        if (this.searchable) {
+          this.$children[0].hide()
+        } else {
+          this.$refs.actuator.blur()
+        }
         this.setScrollPosition()
       }
     },
@@ -236,7 +234,8 @@ export default {
     },
     triggerVisibility (val) {
       this.visible = val
-      if (val && this.searchable) {
+      // focus on search input if dropdown is open
+      if (val && this.searchable && !this.disabled) {
         this.$refs.search.focus()
       }
     }
@@ -257,11 +256,6 @@ export default {
     &:focus {
       outline: none;
     }
-    &-position-top {
-      border-bottom: none;
-      border-top: 1px solid $brand-secondary;
-      border-radius: 0 0 .5rem 0;
-    }
     &-loading {
       .va-select__clear-icon,
       .va-select__open-icon {
@@ -277,6 +271,20 @@ export default {
       align-items: center;
       height: 100%;
       justify-content: stretch;
+      &-block {
+        display: block;
+        .va-select__input {
+          padding-right: 1.5rem;
+        }
+        .va-select__clear-icon {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 1.5rem;
+          margin: auto;
+          height: 16px;
+        }
+      }
     }
     &__input {
       border: none;
@@ -303,8 +311,8 @@ export default {
       color: $va-link-color-secondary;
     }
     &__tags {
-      & > .va-chip {
-        margin-bottom: .125rem;
+      & > .va-chip:last-of-type {
+        margin-top: .125rem;
       }
     }
     &__loading {
