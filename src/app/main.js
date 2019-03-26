@@ -7,10 +7,10 @@ import 'babel-polyfill'
 import Vue from 'vue'
 import VeeValidate from 'vee-validate'
 import App from './App'
-import colorPlugin from './../services/colors'
+import { ColorPlugin } from './../services/colors'
 import store from '../store/index'
 import router from '../router/index'
-import VuesticPlugin from '@/vuestic-theme/vuestic-plugin'
+import VuesticPlugin from '../vuestic-theme/vuestic-plugin'
 import '../i18n/index'
 import YmapPlugin from 'vue-yandex-maps'
 import VueClipboard from 'vue-clipboard2'
@@ -18,7 +18,7 @@ import VueClipboard from 'vue-clipboard2'
 Vue.use(VuesticPlugin)
 Vue.use(YmapPlugin)
 Vue.use(VueClipboard)
-Vue.use(colorPlugin)
+Vue.use(ColorPlugin)
 
 // NOTE: workaround for VeeValidate + vuetable-2
 Vue.use(VeeValidate, { fieldsBagName: 'formFields' })
