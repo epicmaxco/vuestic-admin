@@ -19,6 +19,16 @@
           </td>
         </tr>
         <tr>
+          <td>Title only</td>
+          <td>
+            <VbContainer>
+              <va-card
+                title="Title Only Card"
+              />
+            </VbContainer>
+          </td>
+        </tr>
+        <tr>
           <td>Default with controls</td>
           <td>
             <VbContainer>
@@ -170,8 +180,12 @@
 </template>
 
 <script>
+import VaCard from './VaCard'
 
 export default {
+  components: {
+    VaCard,
+  }
 }
 </script>
 
