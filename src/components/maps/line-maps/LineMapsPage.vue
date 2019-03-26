@@ -2,12 +2,12 @@
   <div class="line-maps-page">
     <div class="va-row">
       <div class="flex md12 xs12">
-        <vuestic-widget
+        <va-card
           class="line-maps-page__widget"
-          headerText="Line Maps"
+          title="Line Maps"
         >
           <line-map v-bind:map-data="lineMapData"/>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
   </div>
@@ -33,7 +33,7 @@ export default {
 <style lang="scss">
 .line-maps-page {
   &__widget {
-    .vuestic-widget-body {
+    .va-card__body {
       height: 65vh;
     }
   }

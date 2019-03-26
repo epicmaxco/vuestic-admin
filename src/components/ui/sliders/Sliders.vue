@@ -1,7 +1,7 @@
 <template>
   <div class="sliders">
     <div class="flex md12">
-      <vuestic-widget :headerText="$t('sliders.slider')">
+      <va-card :title="$t('sliders.slider')">
         <div class="va-row">
           <div class="flex xs12 lg6 xl4 mb-2">
             <div class="title mb-3">Simple</div>
@@ -84,10 +84,10 @@
             />
           </div>
         </div>
-      </vuestic-widget>
+      </va-card>
     </div>
     <div class="flex md12">
-      <vuestic-widget :headerText="$t('sliders.range')">
+      <va-card :title="$t('sliders.range')">
         <div class="va-row">
           <div class="flex xs12 lg6 xl4 mb-2">
             <div class="title mb-3">Simple</div>
@@ -179,7 +179,7 @@
             />
           </div>
         </div>
-      </vuestic-widget>
+      </va-card>
     </div>
   </div>
 </template>

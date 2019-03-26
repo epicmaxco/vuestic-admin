@@ -6,14 +6,31 @@ export const $root = 'va-timeline-item'
 export default {
   name: $root,
   props: {
-    color: String,
-    vertical: Boolean,
-    active: Boolean,
-    activePrevious: Boolean,
-    activeNext: Boolean,
-    isFirst: Boolean,
-    isLast: Boolean,
-    inverted: Boolean,
+    color: {
+      type: String,
+      default: 'success'
+    },
+    vertical: {
+      type: Boolean
+    },
+    active: {
+      type: Boolean
+    },
+    activePrevious: {
+      type: Boolean
+    },
+    activeNext: {
+      type: Boolean
+    },
+    isFirst: {
+      type: Boolean
+    },
+    isLast: {
+      type: Boolean
+    },
+    inverted: {
+      type: Boolean
+    },
   },
   render (createElement) {
     const props = {
@@ -34,6 +51,7 @@ export default {
     ]
 
     const before = this.inverted ? this.$slots.after : this.$slots.before
+
     if (before) {
       children.unshift(
         createElement(
@@ -99,8 +117,16 @@ export default {
       padding-left: 1rem;
     }
   }
-  #{&}__before #{&}__text {
-    float: right;
+  &__before {
+    .va-timeline-item__text {
+      float: right;
+    }
+  }
+
+  &__after {
+    .va-timeline-item__text {
+      float: left;
+    }
   }
   &:not(&--vertical) {
     .va-timeline-item__before,

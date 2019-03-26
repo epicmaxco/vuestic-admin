@@ -24,6 +24,6 @@ import VaTimelineSeparator from './VaTimelineSeparator.vue'
 export default {
   components: {
     VaTimelineSeparator
-  },
+  }
 }
 </script>

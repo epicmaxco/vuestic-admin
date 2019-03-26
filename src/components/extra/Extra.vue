@@ -1,7 +1,6 @@
 <template>
   <div class="extra">
-    <vuestic-widget :headerText="'extra.tabs.title' | translate"
-                    class="no-v-padding">
+    <va-card :title="$t('extra.tabs.title')">
       <vuestic-tabs class="tabs mt-2"
                     :names="[$t('extra.tabs.maps'), $t('extra.tabs.setupProfile'), $t('extra.tabs.overview')]">
         <div :slot="'extra.tabs.overview' | translate"
@@ -16,38 +15,40 @@
           <setup-profile-tab wizardType="simple"></setup-profile-tab>
         </div>
       </vuestic-tabs>
-    </vuestic-widget>
+    </va-card>
 
     <div class="va-row">
       <div class="flex md4">
-        <vuestic-widget :headerText="$t('extra.profileCard')"
-                        class="profile-card-widget">
+        <va-card :title="$t('extra.profileCard')"
+                 class="profile-card-widget">
           <vuestic-profile-card :name="'Veronique Lee'"
                                 :location="'Malaga, Spain'"
                                 photoSource="https://i.imgur.com/NLrdqsk.png"
                                 :social="{twitter: 'twitter.com', facebook: 'facebook.com',
                                   instagram: 'instagram.com'}">
           </vuestic-profile-card>
-        </vuestic-widget>
+        </va-card>
       </div>
       <div class="flex md8">
-        <vuestic-widget :headerText="$t('extra.chat')" class="chat-widget">
+        <va-card :title="$t('extra.chat')" class="chat-widget">
           <vuestic-chat v-model="chatMessages"></vuestic-chat>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row bottom-widgets">
       <div class="flex md6">
-        <vuestic-widget class="no-h-padding no-v-padding">
-          <vuestic-feed :initialPosts="posts"></vuestic-feed>
-        </vuestic-widget>
+        <va-card no-padding>
+          <vuestic-feed :initialPosts="posts" />
+        </va-card>
       </div>
       <div class="flex md6">
-        <vuestic-widget class="business-posts">
-          <vuestic-social-news :news="news"
-                               :url="'https://instagram.com/smartapant'"></vuestic-social-news>
-        </vuestic-widget>
+        <va-card class="business-posts">
+          <vuestic-social-news
+            :news="news"
+            :url="'https://instagram.com/smartapant'"
+          />
+        </va-card>
       </div>
     </div>
   </div>

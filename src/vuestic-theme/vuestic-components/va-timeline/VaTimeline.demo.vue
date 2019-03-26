@@ -7,21 +7,41 @@
           :key="index"
           :active="item"
         >
-          <span slot="before">Before text</span>
-          <span slot="after">After text</span>
+          <span
+            :class="{ 'title': item, 'title title--gray': !item }"
+            slot="before"
+          >
+            Before text
+          </span>
+          <span
+            :class="{ 'title': item, 'title title--gray': !item }"
+            slot="after"
+          >
+            After text
+          </span>
         </va-timeline-item>
       </va-timeline>
     </VbContainer>
-    <VbContainer title="Vertical Timeline">
+    <VbContainer title="Vertical Timeline" width="300px">
       <va-timeline vertical>
         <va-timeline-item
           v-for="(item, index) in items"
           :key="index"
           :active="item"
         >
-          <span slot="before">Before text</span>
-          <span slot="after">
-            <div>After text</div>
+          <span
+            class="va-timeline-item__text"
+            :class="{ 'title': item, 'title title--gray': !item }"
+            slot="before"
+          >
+            Before text
+          </span>
+          <span
+            class="va-timeline-item__text"
+            :class="{ 'title': item, 'title title--gray': !item }"
+            slot="after"
+          >
+            After text
           </span>
         </va-timeline-item>
       </va-timeline>
@@ -34,8 +54,20 @@
           color="info"
           :active="item"
         >
-          <span slot="before">Before text</span>
-          <span slot="after">After text</span>
+          <span
+            class="va-timeline-item__text"
+            :class="{ 'title title--info': item, 'title title--gray': !item }"
+            slot="before"
+          >
+            Before text
+          </span>
+          <span
+            class="va-timeline-item__text"
+            :class="{ 'title title--info': item, 'title title--gray': !item }"
+            slot="after"
+          >
+            After text
+          </span>
         </va-timeline-item>
       </va-timeline>
       <va-timeline vertical>
@@ -45,9 +77,19 @@
           color="danger"
           :active="item"
         >
-          <span slot="before">Before text</span>
-          <span slot="after">
-            <div>After text</div>
+          <span
+            class="va-timeline-item__text"
+            :class="{ 'title title--danger': item, 'title title--gray': !item }"
+            slot="before"
+          >
+            Before text
+          </span>
+          <span
+            class="va-timeline-item__text"
+            :class="{ 'title title--danger': item, 'title title--gray': !item }"
+            slot="after"
+          >
+            After text
           </span>
         </va-timeline-item>
       </va-timeline>
@@ -62,11 +104,13 @@
 </template>
 
 <script>
+import VaButton from './../va-button/VaButton.vue'
 import VaTimeline from './VaTimeline.vue'
 import VaTimelineItem from './VaTimelineItem.vue'
 
 export default {
   components: {
+    VaButton,
     VaTimeline,
     VaTimelineItem,
   },

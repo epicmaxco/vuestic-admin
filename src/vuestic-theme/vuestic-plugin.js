@@ -46,7 +46,6 @@ import SocialNews
 import Switch from './vuestic-components/vuestic-switch/VuesticSwitch.vue'
 import Tabs from './vuestic-components/vuestic-tabs/VuesticTabs.vue'
 import Tooltip from './vuestic-components/vuestic-tooltip/VuesticTooltip.vue'
-import Widget from './vuestic-components/vuestic-widget/VuesticWidget.vue'
 import Wizard from './vuestic-components/vuestic-wizard/VuesticWizard.vue'
 import TreeRoot from './vuestic-components/vuestic-tree-view/VuesticTreeRoot'
 import TreeCategory
@@ -54,7 +53,6 @@ import TreeCategory
 import TreeNode from './vuestic-components/vuestic-tree-view/VuesticTreeNode'
 import DatePicker
   from './vuestic-components/vuestic-date-picker/VuesticDatePicker'
-import Card from './vuestic-components/vuestic-card/VuesticCard'
 import FileUpload
   from './vuestic-components/vuestic-file-upload/VuesticFileUpload'
 import VaIcon from './vuestic-components/va-icon/VaIcon'
@@ -81,7 +79,7 @@ import VuesticPopup
 import VuesticContainer from './vuestic-components/vuestic-grid/VGrid/Container'
 import VuestVaLayout from './vuestic-components/vuestic-grid/VGrid/Layout'
 import VuesticFlex from './vuestic-components/vuestic-grid/VGrid/Flex'
-
+import Card from './vuestic-components/va-card/VaCard'
 import { installQuasarPlatform } from './vuestic-components/vuestic-popup/quasar/install'
 
 // At the moment we use quasar platform install to make its components work.
@@ -93,6 +91,7 @@ const VuesticPlugin = {
     [
       VaNotification,
       Breadcrumbs,
+      Card,
       Chart,
       Chat,
       Checkbox,
@@ -118,7 +117,6 @@ const VuesticPlugin = {
       SocialNews,
       Switch,
       Tabs,
-      Widget,
       Wizard,
       MediumEditor,
       Tooltip,
