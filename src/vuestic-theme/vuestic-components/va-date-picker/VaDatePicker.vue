@@ -163,7 +163,7 @@ $dayMargin: 0.6rem;
   background-color: $datepickerBackground;
   box-shadow: $datepicker-box-shadow;
 
-  :not(.flatpickr-calendar--show-days) {
+  &:not(.flatpickr-calendar--show-days) {
     .flatpickr-weekdays {
       display: none;
     }
