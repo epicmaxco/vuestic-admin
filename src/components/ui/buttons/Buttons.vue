@@ -2,8 +2,10 @@
   <div class="buttons">
     <div class="va-row">
       <div class="flex md12 xl12">
-        <vuestic-widget class="larger-padding"
-                        :headerText="$t('buttons.types')">
+        <va-card
+          class="larger-padding"
+          :title="$t('buttons.types')"
+        >
           <div class="va-row">
             <div class="flex">
               <va-button> {{ $t('buttons.default') }} </va-button>
@@ -14,12 +16,14 @@
               <va-button flat disabled> {{ $t('buttons.disabled') }} </va-button>
             </div>
           </div>
-        </vuestic-widget>
+        </va-card>
       </div>
 
       <div class="flex md12">
-        <vuestic-widget class="larger-padding"
-                        :headerText="$t('buttons.size')">
+        <va-card
+          class="larger-padding"
+          :title="$t('buttons.size')"
+        >
           <div class="va-row">
             <div class="flex">
               <va-button small> {{ $t('buttons.small') }} </va-button>
@@ -27,11 +31,13 @@
               <va-button large> {{ $t('buttons.large') }} </va-button>
             </div>
           </div>
-        </vuestic-widget>
+        </va-card>
       </div>
       <div class="flex md12">
-        <vuestic-widget class="larger-padding"
-                        :headerText="$t('buttons.tags')">
+        <va-card
+          class="larger-padding"
+          :title="$t('buttons.tags')"
+        >
           <div class="va-row">
             <div class="flex">
               <va-button> {{ $t('buttons.button') }} </va-button>
@@ -47,11 +53,13 @@
               </va-button>
             </div>
           </div>
-        </vuestic-widget>
+        </va-card>
       </div>
       <div class="flex md12">
-        <vuestic-widget class="larger-padding"
-                        :headerText="$t('buttons.advanced')">
+        <va-card
+          class="larger-padding"
+          :title="$t('buttons.advanced')"
+        >
           <div class="va-row">
             <div class="flex">
               <va-button icon="ion-md-close ion"> {{ $t('buttons.button') }} </va-button>
@@ -64,12 +72,14 @@
               <va-button icon="ion-md-close ion"/>
             </div>
           </div>
-        </vuestic-widget>
+        </va-card>
       </div>
 
       <div class="flex md12">
-        <vuestic-widget class="larger-padding"
-                        :headerText="$t('buttons.colors')">
+        <va-card
+          class="larger-padding"
+          :title="$t('buttons.colors')"
+        >
           <div class="va-row">
             <div class="flex">
               <va-button color="danger"> {{ $t('buttons.danger') }} </va-button>
@@ -100,12 +110,14 @@
               <va-button flat color="gray"> {{ $t('buttons.gray') }} </va-button>
             </div>
           </div>
-        </vuestic-widget>
+        </va-card>
       </div>
 
       <div class="flex md12 xl12">
-        <vuestic-widget class="larger-padding"
-                        :headerText="$t('buttons.buttonGroups')">
+        <va-card
+          class="larger-padding"
+          :title="$t('buttons.buttonGroups')"
+        >
           <div class="va-row">
             <div class="flex xs12 lg12 xl6">
               <va-button-group>
@@ -153,12 +165,14 @@
               </va-button-group>
             </div>
           </div>
-        </vuestic-widget>
+        </va-card>
       </div>
 
       <div class="flex md12 xl12">
-        <vuestic-widget class="larger-padding"
-                        :headerText="$t('buttons.buttonToggles')">
+        <va-card
+          class="larger-padding"
+          :title="$t('buttons.buttonToggles')"
+        >
           <div class="va-row">
             <div class="flex xs12 md6 lg6">
               <va-button-toggle
@@ -197,12 +211,14 @@
               />
             </div>
           </div>
-        </vuestic-widget>
+        </va-card>
       </div>
 
       <div class="flex md12 xl12">
-        <vuestic-widget class="larger-padding"
-                        :headerText="$t('buttons.pagination')">
+        <va-card
+          class="larger-padding"
+          :title="$t('buttons.pagination')"
+        >
           <div class="va-row">
             <div class="flex xs12 lg12 xl6">
               <va-pagination
@@ -235,7 +251,7 @@
                 color="success"/>
             </div>
           </div>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
   </div>

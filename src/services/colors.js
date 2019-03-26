@@ -68,3 +68,8 @@ export const getFocusColor = (theme) => {
 export const getGradientColor = (theme) => {
   return [ hex2rgb(themes[theme], 0.6).css, hex2rgb(themes[theme], 0.95).css ]
 }
+
+export const getGradientBackground = (theme) => {
+  return 'linear-gradient(to right,' + getGradientColor(theme)[0] +
+  ',' + getGradientColor(theme)[1] + ')'
+}

@@ -1,5 +1,8 @@
 <template>
-  <vuestic-widget class="colorful-bars progress-bar-widget" :headerText="$t('progressBars.colors')">
+  <va-card
+    class="colorful-bars progress-bar-widget"
+    :title="$t('progressBars.colors')"
+  >
     <div class="va-row">
       <div v-for="n in 3" :key="n" class="flex md3 xs12">
         <va-progress-bar
@@ -11,7 +14,7 @@
         <va-progress-bar indeterminate theme="Black">Black</va-progress-bar>
       </div>
     </div>
-  </vuestic-widget>
+  </va-card>
 </template>
 
 <script>
