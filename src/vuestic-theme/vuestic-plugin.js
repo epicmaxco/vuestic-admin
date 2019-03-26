@@ -11,6 +11,8 @@ import DataTable
 import Feed from './vuestic-components/vuestic-feed/VuesticFeed.vue'
 import VaProgressBar
   from './vuestic-components/va-progress-bar/progress-types/VaProgressBar.vue'
+import VaSlider
+  from './vuestic-components/va-slider/VaSlider.vue'
 import MediumEditor
   from './vuestic-components/vuestic-medium-editor/VuesticMediumEditor.vue'
 import Modal from './vuestic-components/va-modal/VaModal.vue'
@@ -33,19 +35,18 @@ import VaButtonToggle
   from './vuestic-components/va-button-toggle/VaButtonToggle.vue'
 import VaPagination
   from './vuestic-components/va-pagination/VaPagination.vue'
+import VaCard from './vuestic-components/va-card/VaCard'
 import RadioButton
   from './vuestic-components/vuestic-radio-button/VuesticRadioButton'
 import Scrollbar
   from './vuestic-components/vuestic-scrollbar/VuesticScrollbar.vue'
 import SimpleSelect
   from './vuestic-components/vuestic-simple-select/VuesticSimpleSelect.vue'
-import VaSlider from './vuestic-components/va-slider/VaSlider.vue'
 import SocialNews
   from './vuestic-components/vuestic-social-news/VuesticSocialNews.vue'
 import Switch from './vuestic-components/vuestic-switch/VuesticSwitch.vue'
 import Tabs from './vuestic-components/vuestic-tabs/VuesticTabs.vue'
 import Tooltip from './vuestic-components/vuestic-tooltip/VuesticTooltip.vue'
-import Widget from './vuestic-components/vuestic-widget/VuesticWidget.vue'
 import Wizard from './vuestic-components/vuestic-wizard/VuesticWizard.vue'
 import TreeRoot from './vuestic-components/vuestic-tree-view/VuesticTreeRoot'
 import TreeCategory
@@ -53,7 +54,6 @@ import TreeCategory
 import TreeNode from './vuestic-components/vuestic-tree-view/VuesticTreeNode'
 import VaDatePicker
   from './vuestic-components/va-date-picker/VaDatePicker'
-import Card from './vuestic-components/vuestic-card/VuesticCard'
 import FileUpload
   from './vuestic-components/vuestic-file-upload/VuesticFileUpload'
 import VaIcon from './vuestic-components/va-icon/VaIcon'
@@ -80,7 +80,6 @@ import VuesticPopup
 import VuesticContainer from './vuestic-components/vuestic-grid/VGrid/Container'
 import VuestVaLayout from './vuestic-components/vuestic-grid/VGrid/Layout'
 import VuesticFlex from './vuestic-components/vuestic-grid/VGrid/Flex'
-
 import { installQuasarPlatform } from './vuestic-components/vuestic-popup/quasar/install'
 
 // At the moment we use quasar platform install to make its components work.
@@ -117,7 +116,6 @@ const VuesticPlugin = {
       SocialNews,
       Switch,
       Tabs,
-      Widget,
       Wizard,
       MediumEditor,
       Tooltip,
@@ -128,10 +126,10 @@ const VuesticPlugin = {
       FileUpload,
       VuesticDropdown,
       VaDatePicker,
-      Card,
       VaIcon,
       VaAccordion,
       VaCollapse,
+      VaCard,
       VuesticTimeline,
       VuesticTimelineItem,
       VuesticPopup,

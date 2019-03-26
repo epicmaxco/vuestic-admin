@@ -23,6 +23,7 @@
     </div>
     <span
       v-if="label && !inverseLabel"
+      :style="labelStyles"
       class="va-slider__label title">
       {{ label }}
     </span>
@@ -39,7 +40,7 @@
     >
       <div
         class="va-slider__container__track"
-        :style="{ backgroundColor: color }"/>
+        :style="trackStyles"/>
       <template v-if="pins">
         <div
           v-for="(pin, key) in pinsCol"
@@ -63,6 +64,7 @@
         >
           <div
             v-if="valueVisible"
+            :style="labelStyles"
             class="va-slider__container__handler-value title"
           >
             {{ val[0] }}
@@ -76,6 +78,7 @@
         >
           <div
             v-if="valueVisible"
+            :style="labelStyles"
             class="va-slider__container__handler-value title">
             {{ val[1] }}
           </div>
@@ -95,6 +98,7 @@
         >
           <div
             v-if="valueVisible"
+            :style="labelStyles"
             class="va-slider__container__handler-value title">
             {{ labelValue || val }}
           </div>
@@ -139,6 +143,7 @@
 
 <script>
 import { validateSlider } from './validateSlider'
+import { getHoverColor } from '../../../services/colors'
 
 export default {
   name: 'va-slider',
@@ -205,11 +210,17 @@ export default {
   computed: {
     sliderClass () {
       return {
-        'va-slider--success': this.color === 'success',
-        'va-slider--info': this.color === 'info',
-        'va-slider--danger': this.color === 'danger',
-        'va-slider--warning': this.color === 'warning',
         'va-slider--disabled': this.disabled
+      }
+    },
+    labelStyles () {
+      return {
+        color: this.$themes[this.color]
+      }
+    },
+    trackStyles () {
+      return {
+        backgroundColor: getHoverColor(this.color)
       }
     },
     processedStyles () {
@@ -222,14 +233,14 @@ export default {
         return {
           left: `${val0}%`,
           width: `${val1 - val0}%`,
-          backgroundColor: this.color
+          backgroundColor: this.$themes[this.color]
         }
       } else {
         const val = ((validatedValue - this.min) / (this.max - this.min)) * 100
 
         return {
           width: `${val}%`,
-          backgroundColor: this.color
+          backgroundColor: this.$themes[this.color]
         }
       }
     },
@@ -243,11 +254,13 @@ export default {
         return [
           {
             left: `calc(${val0}% - 8px)`,
-            backgroundColor: this.color
+            backgroundColor: this.color,
+            borderColor: this.$themes[this.color]
           },
           {
             left: `calc(${val1}% - 8px)`,
-            backgroundColor: this.color
+            backgroundColor: this.color,
+            borderColor: this.$themes[this.color]
           }
         ]
       } else {
@@ -255,7 +268,8 @@ export default {
 
         return {
           left: `calc(${val}% - 8px)`,
-          backgroundColor: this.color
+          backgroundColor: this.color,
+          borderColor: this.$themes[this.color]
         }
       }
     },
@@ -511,37 +525,6 @@ export default {
 <style lang='scss'>
 @import "../../vuestic-sass/resources/resources";
 
-  $slider-colors: (
-    success: (#40e583, #d6ffd3),
-    danger: (#e34b4a, #ffebeb),
-    info: (#2c82e0, #caeeff),
-    warning: (#ffc200, #fff3d1)
-  );
-
-  @each $name, $colors in $slider-colors {
-    $active-track: nth($colors, 1);
-    $track: nth($colors, 2);
-
-    .va-slider--#{$name} {
-
-      .va-slider__label, .va-slider__inverse-label, .va-slider__container__handler-value {
-        color: $active-track;
-      }
-
-      .va-slider__container__track--active, .va-slider__container__mark--active {
-        background: $active-track !important;
-      }
-
-      .va-slider__container__track, .va-slider__container__mark {
-        background: $track;
-      }
-
-      .va-slider__container__handler {
-        border: 0.375rem solid $active-track;
-      }
-    }
-  }
-
   .va-slider {
 
     &--disabled {
@@ -591,6 +574,7 @@ export default {
         width: 1.25rem;
         height: 1.25rem;
         background: $white;
+        border: 0.375rem solid;
         border-radius: 50%;
 
         &:hover {

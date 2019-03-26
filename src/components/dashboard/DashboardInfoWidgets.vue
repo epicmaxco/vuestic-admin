@@ -1,7 +1,7 @@
 <template>
   <div class="va-row dashboard-info-widgets">
     <div class="flex md6 xl3 xs12">
-      <vuestic-widget class="info-widget">
+      <va-card class="info-widget" stripe="success">
         <div class="info-widget-inner flex-center">
           <div class="stats fill-height flex-center">
             <div class="stats-number mb-2 flex-center">
@@ -11,10 +11,10 @@
             <div class="stats-title">{{'dashboard.elements' | translate}}</div>
           </div>
         </div>
-      </vuestic-widget>
+      </va-card>
     </div>
     <div class="flex md6 xl3 xs12">
-      <vuestic-widget class="info-widget">
+      <va-card class="info-widget" stripe="success">
         <div class="info-widget-inner flex-center">
           <div class="stats fill-height flex-center">
             <div class="stats-number mb-2 flex-center">
@@ -24,10 +24,10 @@
             <div class="stats-title">{{'dashboard.versions' | translate}}</div>
           </div>
         </div>
-      </vuestic-widget>
+      </va-card>
     </div>
     <div class="flex md6 xl3 xs12">
-      <vuestic-widget class="info-widget brand-danger">
+      <va-card class="info-widget brand-danger">
         <div class="info-widget-inner d-flex justify--space-between align--center">
           <div class="stats fill-height d-flex align--center">
             <div class="stats-number mb-2 flex-center">
@@ -41,10 +41,10 @@
             </va-progress-circle>
           </div>
         </div>
-      </vuestic-widget>
+      </va-card>
     </div>
     <div class="flex md6 xl3 xs12">
-      <vuestic-widget class="info-widget brand-info">
+      <va-card class="info-widget brand-info">
         <div class="info-widget-inner flex-center">
           <div class="stats fill-height flex-center">
             <div class="stats-number mb-2 flex-center">
@@ -55,7 +55,7 @@
             </div>
           </div>
         </div>
-      </vuestic-widget>
+      </va-card>
     </div>
   </div>
 </template>

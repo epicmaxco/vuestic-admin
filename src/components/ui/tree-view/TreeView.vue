@@ -4,35 +4,35 @@
       <div class="va-row">
 
         <div class="small-set flex lg6 xs12">
-          <vuestic-widget :headerText="$t('treeView.basic')">
+          <va-card :title="$t('treeView.basic')">
             <tree-view-basic-preview/>
-          </vuestic-widget>
+          </va-card>
         </div>
 
         <div class="small-set flex lg6 xs12">
-          <vuestic-widget :headerText="$t('treeView.icons')">
+          <va-card :title="$t('treeView.icons')">
             <tree-view-icons-preview/>
-          </vuestic-widget>
+          </va-card>
         </div>
       </div>
 
       <div class="va-row">
         <div class="small-set flex lg6 xs12">
-          <vuestic-widget :headerText="$t('treeView.advanced')">
+          <va-card :title="$t('treeView.advanced')">
             <tree-view-advanced-preview/>
-          </vuestic-widget>
+          </va-card>
         </div>
 
         <div class="small-set flex lg6 xs12">
-          <vuestic-widget :headerText="$t('treeView.editable')">
+          <va-card :title="$t('treeView.editable')">
             <tree-view-editable-preview/>
-          </vuestic-widget>
+          </va-card>
         </div>
       </div>
       <div class="small-set flex lg6 xs12">
-        <vuestic-widget :headerText="$t('treeView.selectable')">
+        <va-card :title="$t('treeView.selectable')">
           <tree-view-selectable-preview/>
-        </vuestic-widget>
+        </va-card>
       </div>
 
     </div>
@@ -40,8 +40,7 @@
 </template>
 
 <script>
-import VuesticWidget
-  from '../../../vuestic-theme/vuestic-components/vuestic-widget/VuesticWidget.vue'
+import VaCard from '../../../vuestic-theme/vuestic-components/va-card/VaCard'
 import TreeViewBasicPreview from './TreeViewBasicPreview'
 import TreeViewIconsPreview from './TreeViewIconsPreview'
 import TreeViewSelectablePreview from './TreeViewSelectablePreview'
@@ -56,7 +55,7 @@ export default {
     TreeViewSelectablePreview,
     TreeViewIconsPreview,
     TreeViewBasicPreview,
-    VuesticWidget,
+    VaCard,
   },
   data () {
     return {

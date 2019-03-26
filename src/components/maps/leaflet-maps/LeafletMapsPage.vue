@@ -2,12 +2,12 @@
   <div class="leaflet-maps-page">
     <div class="va-row">
       <div class="flex md12 xs12">
-        <vuestic-widget
+        <va-card
           class="leaflet-maps-page__widget"
-          headerText="Leaflet Maps"
+          title="Leaflet Maps"
         >
           <leaflet-map/>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
   </div>
@@ -27,7 +27,7 @@ export default {
 <style lang="scss">
 .leaflet-maps-page {
   &__widget {
-    .vuestic-widget-body {
+    .va-card__body {
       height: 65vh;
     }
   }

@@ -4,6 +4,7 @@
       <va-button
         v-for="option in options"
         :key="option.value"
+        :style="buttonStyle(option.value)"
         :outline="outline"
         :flat="flat"
         :disabled="disabled"
@@ -19,6 +20,8 @@
 </template>
 
 <script>
+import { getGradientColor } from '../../../services/colors'
+
 export default {
   name: 'va-button-toggle',
   props: {
@@ -44,7 +47,8 @@ export default {
       type: Boolean
     },
     color: {
-      type: String
+      type: String,
+      default: 'success'
     },
     toggleColor: {
       type: String
@@ -53,6 +57,24 @@ export default {
   methods: {
     buttonColor (buttonValue) {
       return buttonValue === this.value && this.toggleColor ? this.toggleColor : this.color
+    },
+    buttonStyle (buttonValue) {
+      if (buttonValue !== this.value) {
+        return {}
+      }
+
+      if (this.outline || this.flat) {
+        return {
+          backgroundColor: this.$themes[this.toggleColor ? this.toggleColor : this.color],
+          color: '#ffffff'
+        }
+      } else {
+        return {
+          backgroundColor: 'linear-gradient(to right,' + getGradientColor(this.color)[0] +
+            ',' + getGradientColor(this.color)[1] + ')',
+          filter: 'brightness(85%)'
+        }
+      }
     },
     buttonClass (buttonValue) {
       return {

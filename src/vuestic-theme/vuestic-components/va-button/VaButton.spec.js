@@ -1,29 +1,14 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import VaButton from './VaButton'
+import colorPlugin from './../../../services/colors'
 
 describe('VaButton', () => {
-  /* 1. Button types */
+  /* 1. Default button */
 
   it('button without defined props', () => {
     const wrapper = shallowMount(VaButton)
 
     expect(wrapper.find(VaButton).classes()).toContain('va-button--default')
-  })
-
-  it('outline button', () => {
-    const wrapper = shallowMount(VaButton, {
-      propsData: { outline: true }
-    })
-    expect(wrapper.find(VaButton).classes()).toContain('va-button--outline')
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-
-  it('flat button', () => {
-    const wrapper = shallowMount(VaButton, {
-      propsData: { flat: true }
-    })
-    expect(wrapper.find(VaButton).classes()).toContain('va-button--flat')
-    expect(wrapper.html()).toMatchSnapshot()
   })
 
   /* 2. Button sizes */
@@ -50,38 +35,10 @@ describe('VaButton', () => {
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  /* 3. Button colors */
-
-  it('info button', () => {
-    const wrapper = shallowMount(VaButton, {
-      propsData: { color: 'info' }
-    })
-    expect(wrapper.find(VaButton).classes()).toContain('va-button--info')
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-
-  it('danger button', () => {
-    const wrapper = shallowMount(VaButton, {
-      propsData: { color: 'danger' }
-    })
-
-    expect(wrapper.find(VaButton).classes()).toContain('va-button--danger')
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-
-  it('warning button', () => {
-    const wrapper = shallowMount(VaButton, {
-      propsData: { color: 'warning' }
-    })
-
-    expect(wrapper.find(VaButton).classes()).toContain('va-button--warning')
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-
-  /* 4. Button chips */
+  /* 3. Button types */
 
   it('default button', () => {
-    const wrapper = shallowMount(VaButton)
+    const wrapper = shallowMount(VaButton, colorPlugin)
 
     expect(wrapper.is('button')).toBe(true)
   })
@@ -139,7 +96,7 @@ describe('VaButton', () => {
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  /* 5. Disabled buttons */
+  /* 4. Disabled buttons */
 
   it('disabled button', () => {
     const wrapper = shallowMount(VaButton, {
@@ -150,7 +107,7 @@ describe('VaButton', () => {
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  /* 6. Buttons with icons */
+  /* 5. Buttons with icons */
 
   it('button with left icon', () => {
     const wrapper = shallowMount(VaButton, {

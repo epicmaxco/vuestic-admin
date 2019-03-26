@@ -1,6 +1,6 @@
 <template>
   <div class="icon-set">
-    <vuestic-widget class="icon-set__header mb-4 py-3">
+    <va-card class="icon-set__header mb-4 py-3">
       <div class="va-row">
         <div class="flex md4 xs12 pl-5 icon-set__header__text">
           <h2 class="my-0">{{ set.name }}</h2>
@@ -40,12 +40,12 @@
           <h2 class="ma-2 shrink">A</h2>
         </div>
       </div>
-    </vuestic-widget>
+    </va-card>
 
-    <vuestic-widget
+    <va-card
       v-for="(list, index) in filteredLists"
       :key="index"
-      :headerText="list.name"
+      :title="list.name"
       class="flex md12"
     >
       <span v-if="list.icons.length === 0">
@@ -65,7 +65,7 @@
           </div>
         </div>
       </div>
-    </vuestic-widget>
+    </va-card>
   </div>
 </template>
 
