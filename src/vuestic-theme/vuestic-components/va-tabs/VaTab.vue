@@ -36,11 +36,10 @@ export default {
     }
   },
   beforeDestroy () {
-    if (this.$parent.$children.indexOf(this) === this.$parent.activeIndex &&
-      this.$parent.activeIndex > 0) {
-      this.$parent.activeIndex--
+    if (this.$parent.$children.indexOf(this) === this.$parent.value &&
+      this.$parent.value > 0) {
+      this.$parent.selectTab(this.$parent.$children[this.$parent.value - 1])
     }
-    this.$parent.valueProxy = this.$parent.$children[this.$parent.activeIndex].$slots.default[0].text.trim()
   }
 }
 </script>
