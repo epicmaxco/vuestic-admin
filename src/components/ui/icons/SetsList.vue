@@ -1,5 +1,5 @@
 <template>
-  <vuestic-widget class="sets-list" :headerText="$t('icons.title')">
+  <va-card class="sets-list" :title="$t('icons.title')">
     <div class="va-row">
       <div
         class="flex lg6 xs12 mb-4 sets-list__set fill-height"
@@ -50,7 +50,7 @@
         </div>
       </div>
     </div>
-  </vuestic-widget>
+  </va-card>
 </template>
 
 <script>
