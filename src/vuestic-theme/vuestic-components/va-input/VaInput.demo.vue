@@ -78,6 +78,11 @@
         v-model="text"
         removable
       >
+        <va-icon
+          class="pb-1"
+          slot="append"
+          icon="fa fa-anchor"
+        />
       </va-input>
     </VbContainer>
     <VbContainer title="Input With Error">

@@ -24,10 +24,10 @@
         :placeholder="placeholder"
         :disabled="disabled"
         :readonly="readonly"
-        v-model="currentValue"
-        @input="$emit('input', currentValue)"
-        @focus="updateFocusState(true)"
-        @blur="updateFocusState(false)"
+        :value="value"
+        @input="$emit('input', $event.target.value)"
+        @focus="isFocused = true"
+        @blur="isFocused = false"
       >
     </div>
     <va-icon
@@ -48,6 +48,7 @@ import VaInputWrapper from '../va-input/VaInputWrapper'
 
 export default {
   name: 'va-input',
+  extends: VaInputWrapper,
   components: { VaInputWrapper },
   props: {
     value: {
@@ -71,25 +72,10 @@ export default {
     },
     removable: {
       type: Boolean
-    },
-    error: {
-      type: Boolean
-    },
-    success: {
-      type: Boolean
-    },
-    messages: {
-      type: Array,
-      default: () => []
-    },
-    errorMessages: {
-      type: Array,
-      default: () => []
     }
   },
   data () {
     return {
-      currentValue: this.value,
       isFocused: false
     }
   },
@@ -102,13 +88,8 @@ export default {
   },
   methods: {
     clearContent () {
-      if (this.removable) {
-        this.$emit('input', '')
-      }
-    },
-    updateFocusState (isFocused) {
-      this.isFocused = isFocused
-    },
+      this.$emit('input', '')
+    }
   },
 }
 </script>

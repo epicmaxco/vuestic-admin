@@ -29,8 +29,8 @@
             :style="messageStyles"
             class="va-input-wrapper__messages__wrapper">
             <template
-              v-for="message in errorMessages">
-              {{ message }}
+              v-for="errorMessage in errorMessages">
+              {{ errorMessage }}
             </template>
           </div>
           <div
@@ -63,10 +63,12 @@ export default {
       type: Boolean
     },
     messages: {
-      type: Array
+      type: Array,
+      default: () => []
     },
     errorMessages: {
-      type: Array
+      type: Array,
+      default: () => []
     },
   },
   computed: {
