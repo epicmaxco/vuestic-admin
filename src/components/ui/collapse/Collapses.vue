@@ -1,6 +1,6 @@
 <template>
   <div class="collapse-page">
-    <vuestic-widget :headerText="$t('collapse.basic')">
+    <va-card :title="$t('collapse.basic')">
       <va-accordion>
         <va-collapse>
           <span slot="header"> Expand This Block </span>
@@ -25,8 +25,8 @@
           </div>
         </va-collapse>
       </va-accordion>
-    </vuestic-widget>
-    <vuestic-widget :headerText="$t('collapse.collapseWithBackground')">
+    </va-card>
+    <va-card :title="$t('collapse.collapseWithBackground')">
       <va-accordion>
         <va-collapse withBackground>
           <span slot="header"> Expand This Block </span>
@@ -51,8 +51,8 @@
           </div>
         </va-collapse>
       </va-accordion>
-    </vuestic-widget>
-    <vuestic-widget :headerText="$t('collapse.collapseWithCustomHeader')">
+    </va-card>
+    <va-card :title="$t('collapse.collapseWithCustomHeader')">
       <va-accordion>
         <va-collapse customHeader>
           <span slot="header">
@@ -85,7 +85,7 @@
           </div>
         </va-collapse>
       </va-accordion>
-    </vuestic-widget>
+    </va-card>
   </div>
 </template>
 

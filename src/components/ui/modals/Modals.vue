@@ -2,9 +2,9 @@
   <div class="modals">
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget
+        <va-card
           class="modals-list larger-padding"
-          :header-text="$t('modal.title')"
+          :title="$t('modal.title')"
         >
           <va-button color="danger" @click="showSmallModal = true">
             {{ $t('modal.small') }}
@@ -18,14 +18,14 @@
           <va-button color="success" @click="showStaticModal = true">
             {{ $t('modal.static') }}
           </va-button>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget
+        <va-card
           class="modals-list larger-padding"
-          :header-text="$t('modal.titlePosition')"
+          :title="$t('modal.titlePosition')"
         >
           <va-button color="danger" @click="showTopModal = true">
             {{ $t('modal.top') }}
@@ -39,7 +39,7 @@
           <va-button color="success" @click="showLeftModal = true">
             {{ $t('modal.left') }}
           </va-button>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 

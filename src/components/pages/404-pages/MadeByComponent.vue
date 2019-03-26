@@ -1,7 +1,7 @@
 <template>
   <div class="made-by-component text--center pb-3">
     <span>
-        ©2018. Made by
+        ©2019. Made by
         <a href="https://epicmax.co">Epicmax</a>
     </span>
   </div>

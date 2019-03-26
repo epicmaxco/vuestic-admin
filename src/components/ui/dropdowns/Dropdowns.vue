@@ -2,7 +2,7 @@
   <div class="dropdowns">
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget :headerText="$t('dropdown.default')">
+        <va-card :title="$t('dropdown.default')">
           <div class="va-row btn-margin-row">
             <div
               class="flex sm6 lg6 xl3 mb4 justify--center"
@@ -29,7 +29,7 @@
               </va-button>
             </div>
           </div>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
   </div>

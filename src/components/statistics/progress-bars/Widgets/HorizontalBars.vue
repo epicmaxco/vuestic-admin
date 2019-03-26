@@ -1,5 +1,8 @@
 <template>
-  <vuestic-widget class="horizontal-bars progress-bar-widget" :headerText="$t('progressBars.horizontal')">
+  <va-card
+    class="horizontal-bars progress-bar-widget"
+    :title="$t('progressBars.horizontal')"
+  >
     <div class="va-row">
       <div class="flex md4 xs12">
         <va-progress-bar :value="value / 3"/>
@@ -26,7 +29,7 @@
         <va-progress-bar indeterminate theme="Info">Loading...</va-progress-bar>
       </div>
     </div>
-  </vuestic-widget>
+  </va-card>
 </template>
 
 <script>

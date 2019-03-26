@@ -44,7 +44,13 @@
 </template>
 
 <script>
-import { getGradientColor, getHoverColor, getFocusColor, getBoxShadowColor } from '../../../services/colors'
+import {
+  getHoverColor,
+  getFocusColor,
+  getBoxShadowColor,
+  getGradientBackground
+} from '../../../services/colors'
+
 import VaIcon from '../va-icon/VaIcon'
 
 export default {
@@ -142,8 +148,7 @@ export default {
         } else {
           return {
             backgroundImage: !this.flat && !this.outline
-              ? 'linear-gradient(to right,' + getGradientColor(this.color)[0] +
-              ',' + getGradientColor(this.color)[1] + ')' : '',
+              ? getGradientBackground(this.color) : '',
           }
         }
       } else if (this.hoverState) {
@@ -156,8 +161,7 @@ export default {
         } else {
           return {
             backgroundImage: !this.flat && !this.outline
-              ? 'linear-gradient(to right,' + getGradientColor(this.color)[0] +
-              ',' + getGradientColor(this.color)[1] + ')' : '',
+              ? getGradientBackground(this.color) : '',
           }
         }
       } else {
@@ -165,8 +169,7 @@ export default {
           color: this.flat || this.outline ? this.$themes[this.color] : '#ffffff',
           borderColor: this.outline ? this.$themes[this.color] : '',
           backgroundImage: !this.flat && !this.outline
-            ? 'linear-gradient(to right,' + getGradientColor(this.color)[0] +
-              ',' + getGradientColor(this.color)[1] + ')' : '',
+            ? getGradientBackground(this.color) : '',
           boxShadow: !this.flat && !this.outline ? '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.color) : ''
 
         }

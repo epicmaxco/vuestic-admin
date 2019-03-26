@@ -2,9 +2,9 @@
   <div class="yandex-maps-page">
     <div class="va-row">
       <div class="flex md12 xs12">
-        <vuestic-widget
+        <va-card
           class="yandex-maps-page__widget"
-          headerText="Yandex Maps"
+          title="Yandex Maps"
         >
           <yandex-map
             :use-object-manager:="true"
@@ -16,7 +16,7 @@
             :placemarks="placemarks"
             map-type="hybrid">
           </yandex-map>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
   </div>
@@ -54,7 +54,7 @@ export default {
 <style lang="scss">
 .yandex-maps-page {
   &__widget {
-    .vuestic-widget-body {
+    .va-card__body {
       height: 65vh;
     }
   }
