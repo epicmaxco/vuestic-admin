@@ -95,7 +95,9 @@ export default {
 </script>
 
 <style lang='scss'>
-  .va-input {
+@import '../../vuestic-sass/resources/resources';
+
+.va-input {
 
     &__slot {
       position: relative;
