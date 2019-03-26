@@ -25,7 +25,8 @@ export default {
       required: true,
     },
     weekDays: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     mode: {
       type: String,
@@ -88,19 +89,11 @@ export default {
     }
   },
   methods: {
-    onOpen (selectedDates, dateStr, instance) {
-      if (!this.weekDays) {
-        let el = instance.calendarContainer.getElementsByClassName('flatpickr-weekdays')[0]
-        el.classList.add('flatpickr-weekdays--hidden')
+    onOpen (selectedDates, dateStr, pcrObject) {
+      if (this.weekDays) {
+        pcrObject.calendarContainer.classList.add('flatpickr-calendar--show-days')
       }
     },
-  },
-  mounted () {
-    if (this.inline) {
-      let el = this.$el.getElementsByClassName('flatpickr-calendar')[0]
-      this.$el.removeChild(el)
-      this.$el.appendChild(el)
-    }
   }
 }
 </script>
@@ -169,6 +162,12 @@ $dayMargin: 0.6rem;
   width: $daySize * 7 + ($dayPadding + $dayMargin * 2) * 6 + $borderPadding * 2 !important;
   background-color: $datepickerBackground;
   box-shadow: $datepicker-box-shadow;
+
+  :not(.flatpickr-calendar--show-days) {
+    .flatpickr-weekdays {
+      display: none;
+    }
+  }
 
   &.arrowTop {
     &:before {

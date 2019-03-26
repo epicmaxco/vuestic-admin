@@ -3,61 +3,61 @@
     <div class="va-row">
 
       <div class="small-set flex lg6 xs12">
-        <vuestic-widget :headerText="$t('datepickers.dateOfBirth')">
+        <va-card :title="$t('datepickers.dateOfBirth')">
           <va-date-picker
             v-model="simple"
           />
-        </vuestic-widget>
+        </va-card>
       </div>
 
       <div class="small-set flex lg6 xs12">
-        <vuestic-widget :headerText="$t('datepickers.daysOfTheWeek')">
+        <va-card :title="$t('datepickers.daysOfTheWeek')">
           <va-date-picker
             v-model="weekDays"
             weekDays
           />
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
     <div class="va-row">
 
       <div class="small-set flex lg6 xs12">
-        <vuestic-widget :headerText="$t('datepickers.setupMeeting')">
+        <va-card :title="$t('datepickers.setupMeeting')">
           <va-date-picker
             enableTime
             v-model="dayTime"
           />
-        </vuestic-widget>
+        </va-card>
       </div>
 
       <div class="small-set flex lg6 xs12">
-        <vuestic-widget :headerText="$t('datepickers.upcomingVacation')">
+        <va-card :title="$t('datepickers.upcomingVacation')">
           <va-date-picker
             mode="range"
             v-model="range"
           />
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
     <div class="va-row">
       <div class="small-set flex lg6 xs12">
-        <vuestic-widget :headerText="$t('datepickers.multipleAndDisabledDates')">
+        <va-card :title="$t('datepickers.multipleAndDisabledDates')">
           <va-date-picker
             mode="multiple"
             :disable="disable"
             v-model="multipleDates"
           />
-        </vuestic-widget>
+        </va-card>
       </div>
       <div class="small-set flex lg6 xs12">
-        <vuestic-widget :headerText="$t('datepickers.inline')">
+        <va-card :title="$t('datepickers.inline')">
           <va-date-picker
             mode="multiple"
             :disable="disable"
             inline
             v-model="inline"
           />
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
   </div>
