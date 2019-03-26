@@ -1,13 +1,15 @@
 <template>
-  <div class="va-date-picker va-row">
-    <vue-flatpickr-component
-      class="va-date-picker__flatpickr"
-      v-model="valueProxy"
-      :config="fullConfig"
-      @on-open="onOpen"
-    />
-    <div class="va-date-picker__icon" data-toggle>
-      <va-icon icon="fa fa-calendar" size="20px"/>
+  <div class="va-date-picker">
+    <div class="va-date-picker__container">
+      <vue-flatpickr-component
+        class="va-date-picker__flatpickr"
+        v-model="valueProxy"
+        :config="fullConfig"
+        @on-open="onOpen"
+      />
+      <div class="va-date-picker__icon" data-toggle>
+        <va-icon icon="fa fa-calendar" size="20px"/>
+      </div>
     </div>
   </div>
 </template>
@@ -22,36 +24,16 @@ export default {
   },
   props: {
     value: {
-      required: true,
+      required: true
     },
     weekDays: {
       type: Boolean,
       default: false
     },
-    mode: {
-      type: String,
-      default: 'single'
-    },
-    enableTime: {
-      type: Boolean
-    },
-    altInput: {
-      type: Boolean
-    },
-    altFormat: {
-      type: String,
-      default: 'F j, Y'
-    },
-    dateFormat: {
-      type: String,
-      default: 'Y-m-d'
-    },
-    disable: {
-      type: Array,
-      default: null
-    },
-    inline: {
-      type: Boolean
+    config: {
+      default: () => {
+        return {}
+      }
     }
   },
   data () {
@@ -70,19 +52,15 @@ export default {
     },
     fullConfig () {
       let config = this.defaultConfig
-      if (this.disable) {
-        config = Object.assign({}, { disable: this.disable }, config)
+      if (this.config.disable) {
+        config = Object.assign({}, { disable: this.config.disable }, config)
       }
-      return config
+      return Object.assign({}, config, this.config)
     },
     defaultConfig () {
       return {
-        inline: this.inline,
-        wrap: !this.inline,
-        altFormat: this.altFormat,
-        altInput: this.altInput,
-        enableTime: this.enableTime,
-        mode: this.mode,
+        inline: this.config.inline,
+        wrap: !this.config.inline,
         nextArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-forward"/>',
         prevArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-back"/>'
       }
@@ -94,6 +72,13 @@ export default {
         pcrObject.calendarContainer.classList.add('flatpickr-calendar--show-days')
       }
     },
+  },
+  mounted () {
+    if (this.config.inline) {
+      let el = this.$el.getElementsByClassName('flatpickr-calendar')[0]
+      this.$el.getElementsByClassName('va-date-picker__container')[0].removeChild(el)
+      this.$el.appendChild(el)
+    }
   }
 }
 </script>
@@ -120,6 +105,9 @@ $dayMargin: 0.6rem;
 
 .va-date-picker {
   max-width: $daySize * 7 + ($dayPadding + $dayMargin * 2) * 6 + $borderPadding * 2;
+  &__container {
+    display: flex;
+  }
   &__flatpickr {
     border: 0;
     border-bottom: 1px solid $brand-secondary;
@@ -150,6 +138,7 @@ $dayMargin: 0.6rem;
     color: $brand-secondary;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    padding-right: 0.5rem;
     height: 2.375rem;
     cursor: pointer;
     background-color: $datepickerBackground;
@@ -283,16 +272,24 @@ $dayMargin: 0.6rem;
           }
           .arrowUp {
             border: 0;
+            height: 0;
+            margin-top: 0.2rem;
             background-color: $datepickerBackground;
             &::after {
-              border-bottom-color: $datepickerActiveColor;
+              border-left: 2.5px solid transparent;
+              border-bottom: 2.5px solid $datepickerActiveColor;
+              border-right: 2.5px solid transparent;
             }
           }
           .arrowDown {
             border: 0;
+            margin-top: 0.3125rem;
+            height: 0;
             background-color: $datepickerBackground;
             &::after {
-              border-top-color: $datepickerActiveColor;
+              border-top: 2.5px solid $datepickerActiveColor;
+              border-left: 2.5px solid transparent;
+              border-right: 2.5px solid transparent;
             }
           }
         }
@@ -384,18 +381,28 @@ $dayMargin: 0.6rem;
         &:hover {
           background-color: inherit;
         }
+        width: 1.5rem;
+        height: 0;
+        margin-top: 1rem;
         &::after {
-          border-bottom-color: $datepickerActiveColor;
+          border-bottom: 2.5px solid $datepickerActiveColor;
+          border-left: 2.5px solid transparent;
+          border-right: 2.5px solid transparent;
         }
       }
       .arrowDown {
         opacity: 1;
+        height: 0;
+        width: 1.5rem;
         border: 0;
+        margin-top: 0.5rem;
         &:hover {
           background-color: inherit;
         }
         &::after {
-          border-top-color: $datepickerActiveColor;
+          border-top: 2.5px solid $datepickerActiveColor;
+          border-left: 2.5px solid transparent;
+          border-right: 2.5px solid transparent;
         }
       }
     }

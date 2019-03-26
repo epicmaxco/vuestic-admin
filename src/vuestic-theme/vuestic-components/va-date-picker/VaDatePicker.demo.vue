@@ -9,13 +9,14 @@
     <VbContainer title="Datepicker with date range">
       <vuestic-date-picker
         v-model="range"
-        mode="range"
+        :config="{mode: 'range'}"
       />
       {{range}}
     </VbContainer>
     <VbContainer title="Datepicker with time">
       <vuestic-date-picker
         v-model="dayTime"
+        :config="{enableTime: true}"
         enableTime
       />
       {{dayTime}}
@@ -23,14 +24,14 @@
     <VbContainer title="Multiple datepicker">
       <vuestic-date-picker
         v-model="multiple"
-        mode="multiple"
+        :config="{mode: 'multiple'}"
       />
       {{multiple}}
     </VbContainer>
     <VbContainer title="Datepicker with days of week">
       <vuestic-date-picker
         v-model="weekDays"
-        mode="multiple"
+        :config="{mode: 'multiple'}"
         weekDays
       />
       {{weekDays}}
@@ -38,7 +39,7 @@
     <VbContainer title="Inline datepicker">
       <vuestic-date-picker
         v-model="inline"
-        inline
+        :config="{inline: true}"
       />
       {{inline}}
     </VbContainer>

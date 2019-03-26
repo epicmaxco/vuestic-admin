@@ -159,6 +159,7 @@
                   </label>
                   <va-date-picker
                     enableTime
+                    :config="{enableTime: true}"
                     v-model="datepicker.time"
                   />
                   <label class="form-elements__label">
@@ -175,21 +176,21 @@
                     {{ $t('forms.dateTimePicker.disabled') }}
                   </label>
                   <va-date-picker
-                    :disable="datePickerDisabled"
+                    :config="{disable: datePickerDisabled}"
                     v-model="datepicker.disabled"
                   />
                   <label class="form-elements__label">
                     {{ $t('forms.dateTimePicker.multiple') }}
                   </label>
                   <va-date-picker
-                    mode="multiple"
+                    :config="{mode: 'multiple'}"
                     v-model="datepicker.multiple"
                   />
                   <label class="form-elements__label">
                     {{ $t('forms.dateTimePicker.customDateFormat') }}
                   </label>
                   <va-date-picker
-                    altInput
+                    :config="{altInput: true}"
                     v-model="datepicker.customDate"
                   />
                 </fieldset>
@@ -200,8 +201,7 @@
                     {{ $t('forms.dateTimePicker.range') }}
                   </label>
                   <va-date-picker
-                    inline
-                    mode="range"
+                    :config="{inline: true, mode: 'range'}"
                     v-model="datepicker.range"
                   />
                 </fieldset>
