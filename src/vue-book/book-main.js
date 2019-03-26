@@ -4,7 +4,7 @@ import BookApp from './BookApp'
 import VueClipboard from 'vue-clipboard2'
 import Router from 'vue-router'
 import { VueBookComponents, createRoute } from 'vue-book'
-import ColorPlugin from '../services/colors'
+import { ColorPlugin } from '../services/colors'
 
 Vue.use(Router)
 Vue.use(VueBookComponents)
