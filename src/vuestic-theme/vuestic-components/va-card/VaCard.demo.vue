@@ -164,6 +164,16 @@
             </VbContainer>
           </td>
         </tr>
+        <tr>
+          <td>Without margin</td>
+          <td>
+            <VbContainer>
+              <va-card class="mb-0" stripe="info" color="success">
+                The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands, mountains, and coastal hills.
+              </va-card>
+            </VbContainer>
+          </td>
+        </tr>
       </table>
     </VbContainer>
   </VbDemo>

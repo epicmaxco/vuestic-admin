@@ -1,18 +1,22 @@
 <template>
   <div
     class="va-card"
-    :class="computedCardClass"
     :style="computedCardStyle"
   >
-    <div class="va-card__image" v-if="image">
+    <div
+      v-if="stripe"
+      class="va-card__stripe"
+      :style="computedStripeStyle"
+    ></div>
+    <div v-if="image" class="va-card__image">
       <img :src="image" :alt="imageAlt">
       <div class="va-card__image-overlay" v-if="overlay"></div>
     </div>
 
     <div
+      v-if="showHeader"
       class="va-card__header"
       :class="{'va-card__header--over': image && titleOnImage}"
-      v-if="showHeader"
     >
       <div class="va-card__header-inner">
         <slot name="header">
@@ -27,9 +31,9 @@
     </div>
 
     <div
+      v-if="$slots.default"
       class="va-card__body"
       :class="computedCardBodyClass"
-      v-if="$slots.default"
     >
       <slot/>
     </div>
@@ -37,7 +41,7 @@
 </template>
 
 <script>
-import { getGradientColor } from '../../../services/colors'
+import { getGradientBackground } from '../../../services/colors'
 
 export default {
   name: 'va-card',
@@ -49,11 +53,6 @@ export default {
     title: {
       type: String,
       default: '',
-    },
-    theme: {
-      type: String,
-      validator: (val) => ['base', 'bright', 'dark'].includes(val),
-      default: 'base',
     },
     noPaddingV: {
       type: Boolean,
@@ -88,13 +87,6 @@ export default {
     showHeader () {
       return this.title || this.$slots.header || this.$slots.actions
     },
-    computedCardClass () {
-      return {
-        'va-card--theme-dark': this.theme === 'dark',
-        'va-card--theme-bright': this.theme === 'bright',
-        [`va-card--stripe-${this.stripe}`]: this.stripe
-      }
-    },
     computedCardBodyClass () {
       return {
         'va-card__body--no-padding-v': this.noPaddingV,
@@ -104,12 +96,16 @@ export default {
           this.titleOnImage
       }
     },
+    computedStripeStyle () {
+      return {
+        background: this.$themes[this.stripe]
+      }
+    },
     computedCardStyle () {
       if (this.color) {
         return {
           color: '#fff',
-          background: 'linear-gradient(to right,' + getGradientColor(this.color)[0] +
-          ',' + getGradientColor(this.color)[1] + ')'
+          background: getGradientBackground(this.color)
         }
       }
     }
@@ -214,26 +210,14 @@ export default {
     }
   }
 
-  $colors: (
-    primary: $brand-primary,
-    danger: $brand-danger,
-    warning: $brand-warning,
-    info: $brand-info,
-    success: $brand-success,
-  );
-
-  @each $key, $color in $colors {
-    &--stripe-#{$key}:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 0.5rem;
-      background-color: $color;
-      z-index: 1;
-
-    }
+  &__stripe {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.5rem;
+    z-index: 1;
   }
 }
 </style>
