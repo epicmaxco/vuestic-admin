@@ -1,5 +1,5 @@
 <template>
-  <span class="circle" :class="classObject"></span>
+  <span class="badge-column circle" :class="classObject"></span>
 </template>
 
 <script>

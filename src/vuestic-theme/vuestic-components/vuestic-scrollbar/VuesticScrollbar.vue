@@ -158,6 +158,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+
 .vuestic-scrollbar {
   background: transparent;
   transition: all .3s linear;

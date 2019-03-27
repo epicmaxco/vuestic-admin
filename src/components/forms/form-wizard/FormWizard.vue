@@ -1,9 +1,11 @@
 <template>
-  <div class="form-wizard-page">
+  <div class="form-wizard">
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget class="no-h-padding"
-                        :headerText="$t('forms.wizard.simple')">
+        <va-card
+          :title="$t('forms.wizard.simple')"
+          no-padding
+        >
           <vuestic-wizard
             :steps="hsSteps">
             <div slot="page1" class="form-wizard-tab-content">
@@ -75,14 +77,16 @@
               </p>
             </div>
           </vuestic-wizard>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget class="no-h-padding"
-                        :headerText="$t('forms.wizard.rich')">
+        <va-card
+          class="no-h-padding"
+          :title="$t('forms.wizard.rich')"
+        >
           <vuestic-wizard
             :steps="hrSteps"
             wizard-type="rich">
@@ -155,13 +159,13 @@
               </p>
             </div>
           </vuestic-wizard>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget :headerText="$t('forms.wizard.verticalRich')">
+        <va-card :title="$t('forms.wizard.verticalRich')">
           <vuestic-wizard
             :steps="vrSteps"
             wizard-layout="vertical"
@@ -235,14 +239,16 @@
               </p>
             </div>
           </vuestic-wizard>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget class="simple-vertical-wizard-widget"
-                        :headerText="$t('forms.wizard.verticalSimple')">
+        <va-card
+          class="simple-vertical-wizard-widget"
+          :title="$t('forms.wizard.verticalSimple')"
+        >
           <vuestic-wizard
             :steps="vsSteps"
             wizard-layout="vertical"
@@ -316,7 +322,7 @@
               </div>
             </div>
           </vuestic-wizard>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
   </div>
@@ -470,14 +476,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.widget.simple-vertical-wizard-widget {
-  .widget-body {
-    padding: 0 $widget-padding;
-    @include media-breakpoint-down(sm) {
-      padding: $widget-padding 0;
-    }
-  }
-}
-</style>

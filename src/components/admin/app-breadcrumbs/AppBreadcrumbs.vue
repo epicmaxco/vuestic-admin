@@ -1,12 +1,12 @@
 <template>
   <div class="va-row">
     <div class="flex md12 xs12">
-      <vuestic-widget class="no-padding no-v-padding">
+      <va-card no-padding-v>
         <vuestic-breadcrumbs
           :breadcrumbs="breadcrumbs"
           :currentRouteName="currentRouteName"
         />
-      </vuestic-widget>
+      </va-card>
     </div>
   </div>
 </template>

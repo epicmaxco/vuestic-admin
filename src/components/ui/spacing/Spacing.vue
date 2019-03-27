@@ -1,8 +1,8 @@
 <template>
-  <div class="flex xs12 md12">
-      <vuestic-widget headerText="Spacing">
+  <div class="spacing flex xs12 md12">
+      <va-card title="Spacing">
         <spacing-playgroud :title="''"/>
-      </vuestic-widget>
+      </va-card>
   </div>
 </template>
 
@@ -13,6 +13,3 @@ export default {
   components: { SpacingPlaygroud },
 }
 </script>
-
-<style lang="scss">
-</style>

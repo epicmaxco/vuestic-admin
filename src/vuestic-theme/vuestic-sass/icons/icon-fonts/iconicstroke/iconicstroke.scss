@@ -2,11 +2,11 @@
   font-family: 'IconicStroke';
   font-style: normal;
   font-weight: normal;
-  src: url('vuestic-theme/vuestic-sass/icons/icon-fonts/iconicstroke/iconicstroke.eot');
-  src: url('vuestic-theme/vuestic-sass/icons/icon-fonts/iconicstroke/iconicstroke.eot?#iefix') format('eot'),
-  url('vuestic-theme/vuestic-sass/icons/icon-fonts/iconicstroke/iconicstroke.woff') format('woff'),
-  url('vuestic-theme/vuestic-sass/icons/icon-fonts/iconicstroke/iconicstroke.ttf') format('truetype'),
-  url('vuestic-theme/vuestic-sass/icons/icon-fonts/iconicstroke/iconicstroke.svg#IconicStroke') format('svg');
+  src: url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/iconicstroke/iconicstroke.eot');
+  src: url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/iconicstroke/iconicstroke.eot?#iefix') format('eot'),
+  url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/iconicstroke/iconicstroke.woff') format('woff'),
+  url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/iconicstroke/iconicstroke.ttf') format('truetype'),
+  url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/iconicstroke/iconicstroke.svg#IconicStroke') format('svg');
 }
 
 [class*="iconicstroke-"]:before {

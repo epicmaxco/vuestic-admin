@@ -51,6 +51,7 @@ export default {
 
 <style lang="scss">
 @import "~flatpickr/dist/flatpickr.css";
+@import "../../vuestic-sass/resources/resources";
 
 $datepickerActive: $vue-green;
 $datepickerBackground: #333333;

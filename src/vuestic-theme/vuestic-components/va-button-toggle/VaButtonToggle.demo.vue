@@ -88,7 +88,12 @@
 </template>
 
 <script>
+
+import VaButtonToggle from './VaButtonToggle'
 export default {
+  components: {
+    VaButtonToggle
+  },
   data () {
     return {
       options: [

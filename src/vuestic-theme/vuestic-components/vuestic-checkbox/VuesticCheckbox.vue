@@ -40,8 +40,11 @@
 </template>
 
 <script>
+import VaIcon from '../va-icon/VaIcon'
+
 export default {
   name: 'vuestic-checkbox',
+  components: { VaIcon },
   props: {
     label: String,
     value: {
@@ -138,6 +141,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+
 .vuestic-checkbox {
   margin-bottom: $checkbox-between-items-margin;
   display: flex;
@@ -161,8 +166,7 @@ export default {
         background-color: $vue-green;
         border: 0;
       }
-      .vuestic-checkbox--readonly#{&} {
-      }
+      .vuestic-checkbox--readonly#{&} {}
       .vuestic-checkbox--disabled#{&} {
         border-color: $lighter-gray;
         cursor: initial;
@@ -172,7 +176,6 @@ export default {
           }
         }
       }
-
       .vuestic-checkbox--error#{&} {
         border-color: $theme-red;
       }

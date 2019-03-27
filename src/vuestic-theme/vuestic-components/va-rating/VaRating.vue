@@ -216,6 +216,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
 
 $vuestic-colors: (
   success: ($vue-green, #d6ffd3),

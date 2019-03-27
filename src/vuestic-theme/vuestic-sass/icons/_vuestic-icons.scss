@@ -1,47 +1,32 @@
 // Removed because does not support https.
 @import "icon-fonts/icon-fonts";
 
-$vuestic-colors: (
-  success: #40e583,
-  danger: #e34b4a,
-  warning: #ffc202,
-  info: #2c82e0,
-  gray: #babfc2,
-  dark: #34495e
-);
-
-@each $name, $color in $vuestic-colors {
-  .va-icon--#{$name}{
-    color: $color;
-  }
-}
-
 .i-nav-notification {
   display: inline-block;
   height: 32px;
   width: 22px;
-  background: url('assets/icons/nav-notification.png') no-repeat center center;
+  background: url('./../assets/icons/nav-notification.png') no-repeat center center;
 }
 
 .i-nav-messages {
   display: inline-block;
   height: 21px;
   width: 26px;
-  background: url('assets/icons/nav-messages.png') no-repeat center center;
+  background: url('./../assets/icons/nav-messages.png') no-repeat center center;
 }
 
 .i-menu-expanded {
   display: inline-block;
   width: 24px;
   height: 20px;
-  background: url('assets/icons/menu-expanded.svg') no-repeat center center;
+  background: url('./../assets/icons/menu-expanded.svg') no-repeat center center;
 }
 
 .i-menu-collapsed {
   display: inline-block;
   width: 24px;
   height: 20px;
-  background: url('assets/icons/menu-collapsed.svg') no-repeat center center;
+  background: url('./../assets/icons/menu-collapsed.svg') no-repeat center center;
 }
 
 // Catchall baseclass
