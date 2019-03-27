@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import VuesticTooltip from '../vuestic-tooltip/VuesticTooltip'
+import VuesticTooltip from '../va-tooltip/VaTooltip'
 
 export default {
   name: 'vuestic-color-presentation',
