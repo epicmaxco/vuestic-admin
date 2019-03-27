@@ -155,6 +155,7 @@ export default {
       if (this.size === 'small') {
         return 0.75 + 'rem'
       }
+      throw new Error(`Size "${this.size}" is not supported.`)
     },
     onHover (itemNumber) {
       if (this.halfIcon) {
@@ -186,7 +187,7 @@ export default {
       }
     },
     getItemValue (itemNumber) {
-      if (this.isHover()) {
+      if (!this.isHover()) {
         if ((itemNumber <= this.lastHoverItemNumber)) {
           if (itemNumber === this.lastHoverItemNumber && itemNumber - this.value === 0.5) {
             return 0.5
