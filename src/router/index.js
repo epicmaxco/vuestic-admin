@@ -289,6 +289,11 @@ export default new Router({
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Sliders'
               },
+            },
+            {
+              name: 'tooltips',
+              path: 'tooltips',
+              component: () => import('../components/ui/tooltips/Tooltips')
             }
           ]
         },

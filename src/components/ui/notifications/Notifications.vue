@@ -46,19 +46,19 @@
             <div class="flex md6">
               <p>
                 Any text can be used for
-                <vuestic-tooltip :options="topTooltipOptions"><a href="#">{{'notificationsPage.popovers.topTooltip'
-                  | translate}}</a></vuestic-tooltip>
+                <va-tooltip :options="topTooltipOptions"><a href="#">{{'notificationsPage.popovers.topTooltip'
+                  | translate}}</a></va-tooltip>
                 showcase. Just anything you can possibly imagine to test
-                <vuestic-tooltip :options="rightTooltipOptions"><a href="#">{{'notificationsPage.popovers.rightTooltip'
-                  | translate}}</a></vuestic-tooltip>
+                <va-tooltip :options="rightTooltipOptions"><a href="#">{{'notificationsPage.popovers.rightTooltip'
+                  | translate}}</a></va-tooltip>
                 .
                 But it can appear on the
-                <vuestic-tooltip :options="leftTooltipOptions"><a href="#">{{'notificationsPage.popovers.leftTooltip'
-                  | translate}}</a></vuestic-tooltip>
+                <va-tooltip :options="leftTooltipOptions"><a href="#">{{'notificationsPage.popovers.leftTooltip'
+                  | translate}}</a></va-tooltip>
                 .
                 Or just
-                <vuestic-tooltip :options="bottomTooltipOptions"><a href="#">{{'notificationsPage.popovers.bottomTooltip'
-                  | translate}}</a></vuestic-tooltip>
+                <va-tooltip :options="bottomTooltipOptions"><a href="#">{{'notificationsPage.popovers.bottomTooltip'
+                  | translate}}</a></va-tooltip>
                 the item.
               </p>
             </div>

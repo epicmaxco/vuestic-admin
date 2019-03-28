@@ -10,7 +10,7 @@
 import { VTooltip } from 'v-tooltip'
 
 export default {
-  name: 'vuestic-tooltip',
+  name: 'va-tooltip',
   directives: { tooltip: VTooltip },
   props: {
     options: {
@@ -40,13 +40,10 @@ export default {
   },
   computed: {
     tooltipOptions () {
-      this.getTemplate()
-      VTooltip.options.defaultTemplate
+      this.templateComputed
       return Object.assign({}, this.defaultOptions, this.options)
-    }
-  },
-  methods: {
-    getTemplate () {
+    },
+    templateComputed () {
       let title = this.title ? '<div class="tooltip-inner--title">' + this.title + '</div>' : ''
       let icon = this.icon ? '<i class="' + this.icon + ' tooltip__icon" size="40px" style="color:' + this.iconColor + '"></i>' : ''
       VTooltip.options.defaultTemplate = '' +
@@ -57,6 +54,7 @@ export default {
         '<div class="tooltip-inner"></div>' +
         '</div>' +
         '</div>'
+      VTooltip.options.defaultTemplate
     }
   }
 }
@@ -85,7 +83,8 @@ export default {
     line-height: 1.5;
     color: #34495e;
     &--title {
-      font-weight: 600;
+      font-size: 1rem;
+      font-weight: bold;
     }
   }
   .tooltip-arrow {}

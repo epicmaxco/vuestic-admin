@@ -234,7 +234,8 @@
     "fileUpload": "File Upload",
     "dropdowns": "Dropdowns",
     "spacing": "Spacing",
-    "sliders": "Sliders"
+    "sliders": "Sliders",
+    "tooltips": "Tooltips"
   },
   "messages": {
     "all": "See all messages",
