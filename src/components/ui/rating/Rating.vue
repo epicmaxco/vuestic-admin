@@ -2,47 +2,47 @@
   <div class="rating">
     <div class="va-row">
       <div class="flex md6 xs12">
-        <vuestic-widget :headerText="$t('rating.singleIcon')">
+        <va-card :title="$t('rating.singleIcon')">
           <va-rating
             color="danger"
             v-model="value"
             icon="fa fa-bug"
           />
-        </vuestic-widget>
+        </va-card>
       </div>
       <div class="flex md6 xs12">
-        <vuestic-widget :headerText="$t('rating.twoIcons')">
+        <va-card :title="$t('rating.twoIcons')">
           <va-rating
             v-model="value"
             icon="fa fa-bell-slash"
             emptyIcon="fa fa-bell"
           />
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
     <div class="va-row">
       <div class="flex md6 xs12">
-        <vuestic-widget :headerText="$t('rating.size')">
+        <va-card :title="$t('rating.size')">
           <va-rating
             v-model="value"
             size="large"
             color="info"
           />
-        </vuestic-widget>
+        </va-card>
       </div>
       <div class="flex md6 xs12">
-        <vuestic-widget :headerText="$t('rating.numbers')">
+        <va-card :title="$t('rating.numbers')">
           <va-rating
             numbers
             size="large"
             v-model="value"
           />
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
     <div class="va-row">
       <div class="flex md6 xs12">
-        <vuestic-widget :headerText="$t('rating.halves')">
+        <va-card :title="$t('rating.halves')">
           <va-rating
             size="large"
             color="warning"
@@ -50,16 +50,16 @@
             halfIcon="fa fa-star-half-full"
             v-model="value"
           />
-        </vuestic-widget>
+        </va-card>
       </div>
       <div class="flex md6 xs12">
-        <vuestic-widget :headerText="$t('rating.mini')">
+        <va-card :title="$t('rating.mini')">
           <va-rating
             size="small"
             color="warning"
             v-model="value"
           />
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
   </div>

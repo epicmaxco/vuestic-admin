@@ -1,7 +1,6 @@
 <template>
   <div
     class="va-rating"
-    :class="computedClasses"
     @mouseover="isHovered = true"
     @mouseout="isHovered = false"
     :style="{
@@ -17,11 +16,7 @@
       :class="{
         'va-rating__number-item--empty' : !compareWithValue(number)
       }"
-      :style="{
-        'width': getItemsFontSize(),
-        'height': getItemsFontSize(),
-        'fontSize': getIconSize()
-      }"
+      :style="getItemStyles(number)"
       @click="setCurrentValue(number, 1)"
       :tabindex="getTabindex(number)"
       @mouseleave="tabindex = null"
@@ -39,7 +34,7 @@
       :emptyIcon="emptyIconComputed"
       :halfIcon="halfIconComputed"
       :iconClasses="getIconClasses(itemNumber)"
-      :style="{'width' : getIconSize()}"
+      :style="getItemStyles(itemNumber)"
       @click="setCurrentValue(itemNumber, $event)"
       @hover="onHover(itemNumber, $event)"
       :value="getItemValue(itemNumber)"
@@ -54,6 +49,7 @@
 
 <script>
 import VaRatingItem from './VaRatingItem'
+import { getFocusColor } from '../../../services/colors'
 
 export default {
   name: 'va-rating',
@@ -117,26 +113,35 @@ export default {
     halfIconComputed () {
       return this.halfIcon
     },
-    computedClasses () {
-      return {
-        'va-rating--success': this.color === 'success',
-        'va-rating--info': this.color === 'info',
-        'va-rating--danger': this.color === 'danger',
-        'va-rating--warning': this.color === 'warning',
-        'va-rating--gray': this.color === 'gray',
-        'va-rating--dark': this.color === 'dark',
-        'va-rating--disabled': this.disabled,
-        'va-rating--readonly': this.readonly,
-        'va-rating--medium': this.size === 'medium',
-        'va-rating--small': this.size === 'small',
-        'va-rating--large': this.size === 'large',
-      }
-    },
     isHoveredComputed () {
       return this.disabled || this.readonly ? false : this.isHovered
     }
   },
   methods: {
+    getItemStyles (itemNumber) {
+      if (!this.numbers) {
+        if (this.compareWithValue(itemNumber) !== 0) {
+          return {
+            color: this.$themes[this.color],
+            width: this.getIconSize()
+          }
+        }
+        return {
+          color: this.emptyIcon ? this.$themes[this.color] : getFocusColor(this.color),
+          borderColor: this.$themes[this.color],
+          width: this.getIconSize()
+        }
+      } else {
+        return {
+          backgroundColor: this.compareWithValue(itemNumber) !== 0
+            ? this.$themes[this.color] : getFocusColor(this.color),
+          color: this.compareWithValue(itemNumber) !== 0 ? '#fff' : this.$themes[this.color],
+          width: this.getItemsFontSize(),
+          height: this.getItemsFontSize(),
+          fontSize: this.getIconSize()
+        }
+      }
+    },
     getTabindex (value) {
       if (!this.disabled) {
         return value !== this.tabindex ? 0 : null
@@ -187,14 +192,14 @@ export default {
       }
     },
     getItemValue (itemNumber) {
-      if (!this.isHover()) {
+      if (this.isHover()) {
         if ((itemNumber <= this.lastHoverItemNumber)) {
           if (itemNumber === this.lastHoverItemNumber && itemNumber - this.value === 0.5) {
             return 0.5
           }
           return 1
         }
-        if ((itemNumber > this.lastHoverItemNumber) && this.isHover()) {
+        if ((itemNumber > this.lastHoverItemNumber)) {
           return 0
         }
       }
@@ -219,96 +224,64 @@ export default {
 <style lang="scss">
 @import "../../vuestic-sass/resources/resources";
 
-$vuestic-colors: (
-  success: ($vue-green, #d6ffd3),
-  danger: (#e34b4a, #ffebeb),
-  warning: (#ffd72d, #FFF17A),
-  info: (#2c82e0, #caeeff),
-  gray: (#a3aab0, #cdd0d5),
-  dark: (#576675, #aebcca)
-);
-@each $name, $colors in $vuestic-colors {
-  $color: nth($colors, 1);
-  $color-empty: nth($colors, 2);
+.va-rating {
+  display: flex;
+  &__number-item {
+    font-size: inherit;
+    margin: 0.1em;
+    border-radius: 0.125rem;
+    font-weight: $font-weight-bold;
+    @include flex-center();
+    cursor: pointer;
 
-  .va-rating {
-    display: flex;
-    &__number-item {
-      font-size: inherit;
-      margin: 0.1em;
-      border-radius: 0.125rem;
-      font-weight: $font-weight-bold;
-      @include flex-center();
-      cursor: pointer;
+    @at-root {
+      .va-rating--disabled & {
+        @include va-disabled();
+      }
 
-      @at-root {
-        .va-rating--#{$name} & {
-          background-color: $color;
-          color: $white;
-          &--empty {
-            background-color: $color-empty;
-            color: $color;
-          }
-        }
+      .va-rating--readonly & {
+        cursor: initial;
+      }
 
-        .va-rating--disabled & {
-          @include va-disabled();
+      .va-rating--medium & {
+        width: 1rem;
+        height: 1rem;
+      }
 
-        }
+      .va-rating--small & {
+        width: 0.75rem;
+        height: 0.75rem;
+      }
 
-        .va-rating--readonly & {
-          cursor: initial;
-        }
-
-        .va-rating--medium & {
-          width: 1rem;
-          height: 1rem;
-        }
-
-        .va-rating--small & {
-          width: 0.75rem;
-          height: 0.75rem;
-        }
-
-        .va-rating--large & {
-          width: 1.5rem;
-          height: 1.5rem;
-        }
+      .va-rating--large & {
+        width: 1.5rem;
+        height: 1.5rem;
       }
     }
-    &__icon-item {
-      display: flex;
-      cursor: pointer;
-      @include flex-center();
+  }
+  &__icon-item {
+    display: flex;
+    cursor: pointer;
+    @include flex-center();
 
-      @at-root {
-        .va-rating--#{$name} & {
-          color: $color;
-          &--empty {
-            color: $color-empty;
-          }
-        }
+    .va-rating--disabled & {
+      @include va-disabled();
+    }
 
-        .va-rating--disabled & {
-          @include va-disabled();
-        }
+    .va-rating--readonly & {
+      cursor: initial;
+    }
 
-        .va-rating--readonly & {
-          cursor: initial;
-        }
+    .va-rating--medium & {
+      width: 1rem;
+    }
 
-        .va-rating--medium & {
-          width: 1rem;
-        }
+    .va-rating--small & {
+      width: 0.75rem;
+    }
 
-        .va-rating--small & {
-          width: 0.75rem;
-        }
-
-        .va-rating--large & {
-          width: 1.5rem;
-        }
-      }
+    .va-rating--large & {
+      width: 1.5rem;
     }
   }
 }
