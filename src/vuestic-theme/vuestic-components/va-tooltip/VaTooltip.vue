@@ -8,6 +8,11 @@
 
 <script>
 import { VTooltip } from 'v-tooltip'
+import {
+  getFocusColor, getGradientBackground,
+  getGradientColor,
+  getHoverColor,
+} from '../../../services/colors'
 
 export default {
   name: 'va-tooltip',
@@ -19,16 +24,16 @@ export default {
     },
     color: {
       type: String,
-      default: '#4ae387'
+      default: 'success'
     },
     icon: {
       type: String
     },
-    iconColor: {
-      type: String
-    },
     title: {
       type: String,
+    },
+    message: {
+      type: String
     }
   },
   data () {
@@ -41,13 +46,14 @@ export default {
   computed: {
     tooltipOptions () {
       this.templateComputed
+      this.options.content = this.message
       return Object.assign({}, this.defaultOptions, this.options)
     },
     templateComputed () {
       let title = this.title ? '<div class="tooltip-inner--title">' + this.title + '</div>' : ''
-      let icon = this.icon ? '<i class="' + this.icon + ' tooltip__icon" size="40px" style="color:' + this.iconColor + '"></i>' : ''
+      let icon = this.icon ? '<i class="' + this.icon + ' tooltip__icon" size="40px" style="color:' + this.$themes[this.color] + '"></i>' : ''
       VTooltip.options.defaultTemplate = '' +
-        '<div class="tooltip" role="tooltip" style="background-color: ' + this.color + '">' +
+        '<div class="tooltip" role="tooltip" style="background-color: ' + getHoverColor(this.color) + '">' +
         icon +
         '<div class="tooltip__content">' +
         title +

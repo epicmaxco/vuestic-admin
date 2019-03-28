@@ -4,9 +4,9 @@
       <va-tooltip
         :options="topTooltipOptions"
         icon="glyphicon glyphicon-print"
-        color="#fff3d1"
-        iconColor="#ffc200"
+        color="warning"
         title="Hey folks!"
+        message="This tooltip is amazing :D"
       >
         <va-button>
           Show Tooltip
@@ -16,7 +16,8 @@
     <VbContainer style="width: 100%" title="Default tooltip">
       <va-tooltip
         :options="topTooltipOptions1"
-        color="#ffebeb"
+        color="danger"
+        message="This tooltip is so minimal :D"
       >
         <va-button>
           Show Tooltip
@@ -26,9 +27,9 @@
     <VbContainer style="width: 100%" title="Tooltip with icon">
       <va-tooltip
         icon="glyphicon glyphicon-print"
-        color="#caeeff"
-        iconColor="#2c82e0"
+        color="info"
         :options="topTooltipOptions2"
+        message="This tooltip is so informative!"
       >
         <va-button>
           Show Tooltip
@@ -48,19 +49,16 @@ export default {
   data () {
     return {
       topTooltipOptions: {
-        content: 'This tooltip is amazing :D',
         placement: 'right',
         show: true,
         autoHide: false
       },
       topTooltipOptions1: {
-        content: 'This tooltip is so minimal :D',
         placement: 'right',
         show: true,
         autoHide: false
       },
       topTooltipOptions2: {
-        content: 'This tooltip is so informative!',
         placement: 'right',
         show: true,
         autoHide: false
