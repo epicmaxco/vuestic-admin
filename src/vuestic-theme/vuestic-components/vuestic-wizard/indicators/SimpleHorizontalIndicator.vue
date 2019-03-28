@@ -79,6 +79,7 @@ $wizard-label-padding: 0 0.6rem;
   text-align: center;
   position: relative;
   width: 100%;
+
   .wizard-step-line {
     position: absolute;
     width: 100%;
@@ -87,15 +88,18 @@ $wizard-label-padding: 0 0.6rem;
     height: 2px;
     background-color: $lighter-gray;
     transition: background-color 300ms linear;
+
     &.completed-line {
       &.makeActive {
         background-color: $vue-green;
       }
+
       display: none;
       width: 50%;
       left: 50%
     }
   }
+
   .wizard-step-indicator {
     box-sizing: content-box;
     display: block;
@@ -110,6 +114,7 @@ $wizard-label-padding: 0 0.6rem;
     z-index: 1;
     transition: background-color 300ms linear;
   }
+
   .wizard-step-label {
     display: inline-block;
     width: $wizard-label-width;
@@ -125,11 +130,14 @@ $wizard-label-padding: 0 0.6rem;
       font-size: $font-size-base;
     }
   }
+
   &:first-child {
     overflow: hidden;
+
     .wizard-step-line {
     }
   }
+
   &:last-child {
     .wizard-step-line {
       &.completed-line {
@@ -137,16 +145,20 @@ $wizard-label-padding: 0 0.6rem;
       }
     }
   }
+
   &.active {
     .wizard-step-indicator {
       background-color: $brand-primary;
     }
+
     .wizard-step-line:not(.completed-line), .completed & .wizard-step-line {
       background-color: $brand-primary;
     }
+
     .wizard-step-label, .completed &.current .wizard-step-label {
       color: $brand-primary;
     }
+
     &.current .wizard-step-label {
       color: $vue-darkest-blue;
     }

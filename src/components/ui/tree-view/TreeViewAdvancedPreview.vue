@@ -39,6 +39,6 @@
 
 <script>
 export default {
-  name: 'tree-view-advanced-preview'
+  name: 'tree-view-advanced-preview',
 }
 </script>

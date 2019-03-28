@@ -67,6 +67,7 @@ $vuestic-profile-card-photo-diameter: 9.375rem;
 
       &:hover {
         cursor: pointer;
+
         .icon {
           color: red;
         }

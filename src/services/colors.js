@@ -5,7 +5,7 @@ const themes = {
   danger: '#e34b4a',
   warning: '#ffc202',
   gray: '#babfc2',
-  dark: '#34495e'
+  dark: '#34495e',
 }
 
 export const ColorPlugin = {
@@ -19,5 +19,5 @@ export const ColorPlugin = {
     /* eslint-disable no-new */
 
     new Vue({ data: { themes: Vue.prototype.$themes } })
-  }
+  },
 }

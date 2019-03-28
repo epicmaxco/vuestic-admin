@@ -8,10 +8,10 @@
       </div>
       <div class="va-notification__close-icon d-flex justify--end align--start">
         <va-icon
-           v-if="closeable"
-           :color="color"
-           icon="ion-md-close ion"
-           @click="hideNotification()"
+          v-if="closeable"
+          :color="color"
+          icon="ion-md-close ion"
+          @click="hideNotification()"
         />
       </div>
     </div>
@@ -19,7 +19,10 @@
 </template>
 
 <script>
-import { getHoverColor, getBoxShadowColor } from '../../../services/color-functions'
+import {
+  getHoverColor,
+  getBoxShadowColor,
+} from '../../../services/color-functions'
 
 export default {
   name: 'va-notification',
@@ -27,7 +30,7 @@ export default {
     notificationStyle () {
       return {
         background: getHoverColor(this.$themes[this.color]),
-        boxShadow: '0 0.125rem 0.125rem 0 ' + getBoxShadowColor(this.$themes[this.color])
+        boxShadow: '0 0.125rem 0.125rem 0 ' + getBoxShadowColor(this.$themes[this.color]),
       }
     },
   },
@@ -54,37 +57,37 @@ export default {
 </script>
 
 <style lang='scss'>
-  // Notifications
-  $va-notification-margin-y: 0.25rem;
-  $va-notification-padding-x: 0.5rem;
-  $va-notification-padding-y: 0.75rem;
-  $va-notification-border: 0;
-  $va-notification-border-radius: 0.5rem;
-  $va-notification-box-shadow: 0.125rem;
+// Notifications
+$va-notification-margin-y: 0.25rem;
+$va-notification-padding-x: 0.5rem;
+$va-notification-padding-y: 0.75rem;
+$va-notification-border: 0;
+$va-notification-border-radius: 0.5rem;
+$va-notification-box-shadow: 0.125rem;
 
-  // Badge
-  $va-badge-margin-right: 0.5rem;
-  $va-badge-padding-x: 0.5rem;
-  $va-badge-padding-y: 0.125rem;
-  $va-badge-border-radius: 0.5rem;
-  $va-badge-font-size: 0.625rem;
-  $va-badge-letter-spacing: 0.0625rem;
+// Badge
+$va-badge-margin-right: 0.5rem;
+$va-badge-padding-x: 0.5rem;
+$va-badge-padding-y: 0.125rem;
+$va-badge-border-radius: 0.5rem;
+$va-badge-font-size: 0.625rem;
+$va-badge-letter-spacing: 0.0625rem;
 
-  // Close Icon
-  $va-close-icon-padding-x: 0.5rem;
-  $va-close-icon-padding-y: 0.0625rem;
-  $va-close-icon-font-size: 1.5rem;
+// Close Icon
+$va-close-icon-padding-x: 0.5rem;
+$va-close-icon-padding-y: 0.0625rem;
+$va-close-icon-font-size: 1.5rem;
 
-  .va-notification {
-    padding: $va-notification-padding-y $va-notification-padding-x;
-    margin: $va-notification-margin-y auto;
-    border: $va-notification-border solid transparent;
-    border-radius: $va-notification-border-radius;
+.va-notification {
+  padding: $va-notification-padding-y $va-notification-padding-x;
+  margin: $va-notification-margin-y auto;
+  border: $va-notification-border solid transparent;
+  border-radius: $va-notification-border-radius;
 
-    &__close-icon {
-      padding: $va-close-icon-padding-y $va-close-icon-padding-x;
-      font-size: $va-close-icon-font-size;
-      cursor: pointer;
-    }
+  &__close-icon {
+    padding: $va-close-icon-padding-y $va-close-icon-padding-x;
+    font-size: $va-close-icon-font-size;
+    cursor: pointer;
   }
+}
 </style>

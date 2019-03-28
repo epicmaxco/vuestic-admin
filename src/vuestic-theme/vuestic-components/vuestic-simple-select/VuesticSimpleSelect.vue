@@ -15,7 +15,8 @@
             :name="name"
             :options="options"
           >
-          <label class="control-label">{{label}}</label><va-icon icon="bar"/>
+          <label class="control-label">{{label}}</label>
+          <va-icon icon="bar"/>
           <small v-show="hasErrors()" class="help text-danger">
             {{ showRequiredError() }}
           </small>

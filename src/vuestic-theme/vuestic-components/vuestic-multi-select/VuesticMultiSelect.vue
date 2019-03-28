@@ -9,7 +9,8 @@
         :class="{'has-value': !!displayValue}"
         v-bind:value="displayValue"
         required/>
-      <label class="control-label">{{label}}</label><va-icon icon="bar"/>
+      <label class="control-label">{{label}}</label>
+      <va-icon icon="bar"/>
       <small v-show="hasErrors()" class="help text-danger">{{
         showRequiredError() }}
       </small>
@@ -160,6 +161,7 @@ export default {
 
   .dropdown-menu {
     padding: 0;
+
     .vuestic-scrollbar {
       max-height: $dropdown-item-height * 4;
     }

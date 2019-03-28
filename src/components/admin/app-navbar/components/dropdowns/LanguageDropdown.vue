@@ -76,6 +76,7 @@ export default {
 
 .language-dropdown {
   cursor: pointer;
+
   .flag-icon-large {
     display: block;
     width: 31px;

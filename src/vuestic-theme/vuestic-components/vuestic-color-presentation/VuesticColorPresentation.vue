@@ -20,62 +20,66 @@ export default {
   props: {
     color: {
       type: String,
-      default: ''
+      default: '',
     },
     width: {
       type: Number,
-      default: 40
+      default: 40,
     },
     name: {
       type: String,
-      default: ''
+      default: '',
     },
     description: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   data () {
     return {
       tooltipOptions: {
         content: 'Click to copy color to clipboard',
-        placement: 'right'
-      }
+        placement: 'right',
+      },
     }
   },
   computed: {
     computedStyle () {
       return {
         background: this.color,
-        width: `${this.width}px`
+        width: `${this.width}px`,
       }
-    }
+    },
   },
   methods: {
     colorCopy () {
       this.$copyText(this.color)
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss">
-  @import "../../vuestic-sass/resources/resources";
+@import "../../vuestic-sass/resources/resources";
 
-  .vuestic-color-presentation {
-    display: flex;
-    margin-bottom: 16px;
-    &__color {
-      height: 40px;
-    }
-    &__description {
-      margin-left: 8px;
-    }
-    &__name {
-      color: $vue-darkest-blue;
-    }
-    &__text {
-      color: $brand-secondary;
-    }
+.vuestic-color-presentation {
+  display: flex;
+  margin-bottom: 16px;
+
+  &__color {
+    height: 40px;
   }
+
+  &__description {
+    margin-left: 8px;
+  }
+
+  &__name {
+    color: $vue-darkest-blue;
+  }
+
+  &__text {
+    color: $brand-secondary;
+  }
+}
 </style>

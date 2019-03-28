@@ -107,6 +107,6 @@ export default {
     return {
       isCloseableTagVisible: true,
     }
-  }
+  },
 }
 </script>

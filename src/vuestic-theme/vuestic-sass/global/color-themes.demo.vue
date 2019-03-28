@@ -5,7 +5,7 @@
         Default Button
       </va-button>
       <va-notification class="mb-5" color="info">
-        <va-badge color="info"> Info </va-badge>
+        <va-badge color="info"> Info</va-badge>
         You successfully read this important alert message.
       </va-notification>
       <va-progress-bar class="mb-5" indeterminate color="info"/>
@@ -31,14 +31,17 @@
 <script>
 import VaIcon from './../../vuestic-components/va-icon/VaIcon'
 import VaButton from './../../vuestic-components/va-button/VaButton'
-import VaNotification from './../../vuestic-components/va-notification/VaNotification'
-import VaProgressBar from './../../vuestic-components/va-progress-bar/progress-types/VaProgressBar'
-import VuesticPalletCustom from './../../vuestic-components/vuestic-color-picker/VuesticPalletCustom'
+import VaNotification
+  from './../../vuestic-components/va-notification/VaNotification'
+import VaProgressBar
+  from './../../vuestic-components/va-progress-bar/progress-types/VaProgressBar'
+import VuesticPalletCustom
+  from './../../vuestic-components/vuestic-color-picker/VuesticPalletCustom'
 import { colorArray } from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticTheme'
 
 export default {
   components: {
-    VaIcon, VaButton, VaNotification, VaProgressBar, VuesticPalletCustom
+    VaIcon, VaButton, VaNotification, VaProgressBar, VuesticPalletCustom,
   },
   data () {
     return {
@@ -46,7 +49,7 @@ export default {
       icon: 'iconicstroke iconicstroke-info',
       color: '#4AE387',
       theme: 'info',
-      paletteArray: colorArray
+      paletteArray: colorArray,
     }
   },
   methods: {

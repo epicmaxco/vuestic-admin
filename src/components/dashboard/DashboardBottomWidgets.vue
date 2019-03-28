@@ -2,7 +2,7 @@
   <div class="va-row dashboard-bottom-widgets">
     <div class="flex md6 xs12">
       <va-card no-padding>
-        <vuestic-feed :initialPosts="posts" />
+        <vuestic-feed :initialPosts="posts"/>
       </va-card>
     </div>
     <div class="flex md6 xs12">

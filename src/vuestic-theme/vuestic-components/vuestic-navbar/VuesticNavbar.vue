@@ -88,6 +88,7 @@ $navbar-dd-item-height: 48px;
         top: $nav-mobile-brand-top;
         left: $nav-mobile-brand-left;
         height: auto;
+
         .navbar-brand {
           height: $font-size-smaller;
           padding: 0;
@@ -130,6 +131,7 @@ $navbar-dd-item-height: 48px;
           right: 0;
         }
       }
+
       &:after {
         position: absolute;
         bottom: -$dropdown-show-b;
@@ -182,6 +184,7 @@ $navbar-dd-item-height: 48px;
       top: $nav-mobile-brand-top;
       left: $nav-mobile-brand-left;
       height: auto;
+
       .navbar-brand {
         height: $font-size-smaller;
         padding: 0;
@@ -192,13 +195,16 @@ $navbar-dd-item-height: 48px;
     .dropdown.navbar-dropdown {
       &.show {
         display: flex;
+
         &:after {
           bottom: -$dropdown-mobile-show-b;
           z-index: 2;
         }
+
         .dropdown-menu {
           margin-top: $dropdown-mobile-show-b;
           left: auto;
+
           &.last {
             right: 0;
           }

@@ -50,24 +50,31 @@ export default {
 .vuestic-timeline-separator {
   display: flex;
   align-items: center;
+
   &--vertical {
     flex-direction: column;
   }
+
   &__line {
     transition: background-color ease .5s;
     background-color: $lighter-gray;
+
     &--active {
       background-color: $vue-green;
     }
+
     width: .125rem;
     height: .125rem;
     flex: 1;
   }
+
   &__center {
     background-color: $lighter-gray;
+
     &--active {
       background-color: $vue-green;
     }
+
     flex: 0 0 1rem;
     width: 1rem;
     height: 1rem;

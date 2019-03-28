@@ -55,12 +55,12 @@ import VaProgressCircle from './VaProgressCircle'
 
 export default {
   components: {
-    VaProgressCircle
+    VaProgressCircle,
   },
   data () {
     return {
-      value: 35
+      value: 35,
     }
-  }
+  },
 }
 </script>

@@ -112,7 +112,9 @@
 </template>
 
 <script>
-import VaButton from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
+import VaButton
+  from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
+
 export default {
   name: 'modals',
   components: { VaButton },
@@ -126,8 +128,8 @@ export default {
       showRightModal: false,
       showBottomModal: false,
       showLeftModal: false,
-      showStaticModal: false
+      showStaticModal: false,
     }
-  }
+  },
 }
 </script>

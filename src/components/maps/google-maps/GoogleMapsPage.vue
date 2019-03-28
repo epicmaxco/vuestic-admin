@@ -25,11 +25,11 @@ export default {
 </script>
 
 <style lang="scss">
- .google-maps-page{
-   &__widget {
-     .va-card__body {
-       height: 65vh;
-     }
-   }
- }
+.google-maps-page {
+  &__widget {
+    .va-card__body {
+      height: 65vh;
+    }
+  }
+}
 </style>

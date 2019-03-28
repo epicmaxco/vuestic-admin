@@ -170,9 +170,9 @@ export default {
         ['content1', 'content2', 'content3'],
         [1, 2, 3],
         [1, 2, 3],
-        [1, 2, 3]
-      ]
+        [1, 2, 3],
+      ],
     }
-  }
+  },
 }
 </script>

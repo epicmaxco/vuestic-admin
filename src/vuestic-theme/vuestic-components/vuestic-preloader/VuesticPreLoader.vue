@@ -11,8 +11,7 @@ export default {
   name: 'vuestic-pre-loader',
   methods: {
     getPrevious (index) {
-      if (index === 0) return this.points.length - 1
-      else return index - 1
+      if (index === 0) { return this.points.length - 1 } else { return index - 1 }
     },
     getNext (index) {
       if (index + 1 === this.points.length) {
@@ -68,7 +67,7 @@ export default {
     this.points = this.points.map(point => {
       return {
         lighten: 8,
-        ...point
+        ...point,
       }
     })
     for (let i = 1; i <= 7; i++) {

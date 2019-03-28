@@ -37,8 +37,8 @@ export default {
   props: {
     buffer: {
       type: Number,
-      default: 100
-    }
+      default: 100,
+    },
   },
   computed: {
     normalizedBuffer () {
@@ -47,8 +47,8 @@ export default {
       }
 
       return normalizeValue(this.buffer)
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -92,14 +92,15 @@ export default {
     height: inherit;
     border-radius: inherit;
     transition: width ease 2s;
+
     &__indeterminate-start {
       animation: va-progress-bar__overlay__indeterminate-start 2s ease-in infinite;
       position: absolute;
       height: inherit;
     }
+
     &__indeterminate-end {
-      animation: va-progress-bar__overlay__indeterminate-end 2s ease-out 1s
-      infinite;
+      animation: va-progress-bar__overlay__indeterminate-end 2s ease-out 1s infinite;
       position: absolute;
       height: inherit;
     }

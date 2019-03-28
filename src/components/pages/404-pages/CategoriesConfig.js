@@ -95,8 +95,8 @@ export default [
       },
       {
         itemName: 'Spacing',
-        itemLink: '/admin/ui/spacing'
-      }
+        itemLink: '/admin/ui/spacing',
+      },
     ],
   },
   {

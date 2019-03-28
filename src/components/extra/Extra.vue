@@ -39,7 +39,7 @@
     <div class="va-row bottom-widgets">
       <div class="flex md6">
         <va-card no-padding>
-          <vuestic-feed :initialPosts="posts" />
+          <vuestic-feed :initialPosts="posts"/>
         </va-card>
       </div>
       <div class="flex md6">

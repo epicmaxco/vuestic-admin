@@ -153,29 +153,29 @@ export default {
       type: Boolean,
     },
     value: {
-      type: [Number, Array]
+      type: [Number, Array],
     },
     labelValue: {
-      type: String
+      type: String,
     },
     valueVisible: {
       type: Boolean,
     },
     min: {
       type: Number,
-      default: 0
+      default: 0,
     },
     max: {
       type: Number,
-      default: 100
+      default: 100,
     },
     step: {
       type: Number,
-      default: 1
+      default: 1,
     },
     color: {
       type: String,
-      default: 'success'
+      default: 'success',
     },
     label: {
       type: String,
@@ -184,10 +184,10 @@ export default {
       type: Boolean,
     },
     disabled: {
-      type: [Boolean, Array]
+      type: [Boolean, Array],
     },
     pins: {
-      type: Boolean
+      type: Boolean,
     },
     icon: {
       type: String,
@@ -196,7 +196,7 @@ export default {
       type: String,
     },
     withInput: {
-      type: Boolean
+      type: Boolean,
     },
   },
   data () {
@@ -205,23 +205,23 @@ export default {
       size: 0,
       currentValue: this.value,
       currentSlider: 0,
-      isComponentExists: false
+      isComponentExists: false,
     }
   },
   computed: {
     sliderClass () {
       return {
-        'va-slider--disabled': this.disabled
+        'va-slider--disabled': this.disabled,
       }
     },
     labelStyles () {
       return {
-        color: this.$themes[this.color]
+        color: this.$themes[this.color],
       }
     },
     trackStyles () {
       return {
-        backgroundColor: getHoverColor(this.$themes[this.color])
+        backgroundColor: getHoverColor(this.$themes[this.color]),
       }
     },
     processedStyles () {
@@ -234,14 +234,14 @@ export default {
         return {
           left: `${val0}%`,
           width: `${val1 - val0}%`,
-          backgroundColor: this.$themes[this.color]
+          backgroundColor: this.$themes[this.color],
         }
       } else {
         const val = ((validatedValue - this.min) / (this.max - this.min)) * 100
 
         return {
           width: `${val}%`,
-          backgroundColor: this.$themes[this.color]
+          backgroundColor: this.$themes[this.color],
         }
       }
     },
@@ -256,13 +256,13 @@ export default {
           {
             left: `calc(${val0}% - 8px)`,
             backgroundColor: this.color,
-            borderColor: this.$themes[this.color]
+            borderColor: this.$themes[this.color],
           },
           {
             left: `calc(${val1}% - 8px)`,
             backgroundColor: this.color,
-            borderColor: this.$themes[this.color]
-          }
+            borderColor: this.$themes[this.color],
+          },
         ]
       } else {
         const val = ((validatedValue - this.min) / (this.max - this.min)) * 100
@@ -270,7 +270,7 @@ export default {
         return {
           left: `calc(${val}% - 8px)`,
           backgroundColor: this.color,
-          borderColor: this.$themes[this.color]
+          borderColor: this.$themes[this.color],
         }
       }
     },
@@ -283,7 +283,7 @@ export default {
           val = this.limitValue(val)
         }
         this.$emit('input', val)
-      }
+      },
     },
     total () {
       return (this.max - this.min) / this.step
@@ -312,7 +312,7 @@ export default {
     },
     isRange () {
       return Array.isArray(this.value)
-    }
+    },
   },
   watch: {
     val (val) {
@@ -327,7 +327,7 @@ export default {
       if (val > this.max) {
         validateSlider(this.value, this.step, this.min, val)
       }
-    }
+    },
   },
   methods: {
     bindEvents () {
@@ -350,7 +350,7 @@ export default {
     },
     moving (e) {
       if (!this.disabled) {
-        if (!this.flag) return false
+        if (!this.flag) { return false }
         e.preventDefault()
 
         this.setValueOnPos(this.getPos(e))
@@ -509,7 +509,7 @@ export default {
         return a.some((v, i) => v !== b[i])
       }
       return a !== b
-    }
+    },
   },
   mounted () {
     this.$nextTick(() => {
@@ -521,77 +521,77 @@ export default {
   },
   beforeDestroy () {
     this.unbindEvents()
-  }
+  },
 }
 </script>
 
 <style lang='scss'>
 @import "../../vuestic-sass/resources/resources";
 
-  .va-slider {
+.va-slider {
 
-    &--disabled {
-      @include va-disabled;
+  &--disabled {
+    @include va-disabled;
 
-      .va-slider__container__handler {
+    .va-slider__container__handler {
 
-        &:hover {
-          cursor: default;
-        }
-      }
-    }
-
-    &__label {
-      margin-right: 1rem;
-      user-select: none;
-    }
-
-    &__inverse-label {
-      margin-left: 1rem;
-      user-select: none;
-    }
-
-    &__container {
-      position: relative;
-      width: 100%;
-      height: 1.5rem;
-
-      &__track, &__track--active {
-        position: absolute;
-        height: 0.5rem;
-        border-radius: 0.25rem;
-      }
-
-      &__track {
-        width: 100%;
-      }
-
-      &__mark {
-        position: absolute;
-        width: 0.125rem;
-        height: 0.75rem;
-      }
-
-      &__handler {
-        position: absolute;
-        width: 1.25rem;
-        height: 1.25rem;
-        background: $white;
-        border: 0.375rem solid;
-        border-radius: 50%;
-
-        &:hover {
-          cursor: pointer;
-        }
-
-        &-value {
-          position: absolute;
-          top: -8px;
-          left: 50%;
-          transform: translate(-50%,-100%);
-          user-select: none;
-        }
+      &:hover {
+        cursor: default;
       }
     }
   }
+
+  &__label {
+    margin-right: 1rem;
+    user-select: none;
+  }
+
+  &__inverse-label {
+    margin-left: 1rem;
+    user-select: none;
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    height: 1.5rem;
+
+    &__track, &__track--active {
+      position: absolute;
+      height: 0.5rem;
+      border-radius: 0.25rem;
+    }
+
+    &__track {
+      width: 100%;
+    }
+
+    &__mark {
+      position: absolute;
+      width: 0.125rem;
+      height: 0.75rem;
+    }
+
+    &__handler {
+      position: absolute;
+      width: 1.25rem;
+      height: 1.25rem;
+      background: $white;
+      border: 0.375rem solid;
+      border-radius: 50%;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &-value {
+        position: absolute;
+        top: -8px;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        user-select: none;
+      }
+    }
+  }
+}
 </style>

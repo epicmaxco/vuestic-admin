@@ -29,7 +29,8 @@
                   <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
                   <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
                   <label class="control-label">{{'forms.wizard.name' |
-                    translate}}</label><va-icon icon="bar"/>
+                    translate}}</label>
+                  <va-icon icon="bar"/>
                   <small v-show="errors.has('hsName')" class="help text-danger">
                     {{ errors.first('hsName') }}
                   </small>
@@ -111,7 +112,8 @@
                   <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
                   <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
                   <label class="control-label">{{'forms.wizard.name' |
-                    translate}}</label><va-icon icon="bar"/>
+                    translate}}</label>
+                  <va-icon icon="bar"/>
                   <small v-show="errors.has('hrName')" class="help text-danger">
                     {{ errors.first('hrName') }}
                   </small>
@@ -191,7 +193,8 @@
                   <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
                   <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
                   <label class="control-label">{{'forms.wizard.name' |
-                    translate}}</label><va-icon icon="bar"/>
+                    translate}}</label>
+                  <va-icon icon="bar"/>
                   <small v-show="errors.has('vrName')" class="help text-danger">
                     {{ errors.first('vrName') }}
                   </small>
@@ -274,7 +277,8 @@
                   <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
                   <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
                   <label class="control-label">{{'forms.wizard.name' |
-                    translate}}</label><va-icon icon="bar"/>
+                    translate}}</label>
+                  <va-icon icon="bar"/>
                   <small v-show="errors.has('vsName')" class="help text-danger">
                     {{ errors.first('vsName') }}
                   </small>

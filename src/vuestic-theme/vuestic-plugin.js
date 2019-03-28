@@ -1,4 +1,5 @@
-import VaNotification from './vuestic-components/va-notification/VaNotification.vue'
+import VaNotification
+  from './vuestic-components/va-notification/VaNotification.vue'
 import Breadcrumbs
   from './vuestic-components/vuestic-breadcrumbs/VuesticBreadcrumbs.vue'
 import Chart from './vuestic-components/vuestic-chart/VuesticChart.vue'
@@ -11,8 +12,7 @@ import DataTable
 import Feed from './vuestic-components/vuestic-feed/VuesticFeed.vue'
 import VaProgressBar
   from './vuestic-components/va-progress-bar/progress-types/VaProgressBar.vue'
-import VaSlider
-  from './vuestic-components/va-slider/VaSlider.vue'
+import VaSlider from './vuestic-components/va-slider/VaSlider.vue'
 import MediumEditor
   from './vuestic-components/vuestic-medium-editor/VuesticMediumEditor.vue'
 import Modal from './vuestic-components/va-modal/VaModal.vue'
@@ -23,18 +23,14 @@ import PreLoader
   from './vuestic-components/vuestic-preloader/VuesticPreLoader.vue'
 import ProfileCard
   from './vuestic-components/vuestic-profile-card/VuesticProfileCard.vue'
-import VaBadge
-  from './vuestic-components/va-chip/VaBadge.vue'
-import VaChip
-  from './vuestic-components/va-chip/VaChip.vue'
-import VaButton
-  from './vuestic-components/va-button/VaButton.vue'
+import VaBadge from './vuestic-components/va-chip/VaBadge.vue'
+import VaChip from './vuestic-components/va-chip/VaChip.vue'
+import VaButton from './vuestic-components/va-button/VaButton.vue'
 import VaButtonGroup
   from './vuestic-components/va-button-group/VaButtonGroup.vue'
 import VaButtonToggle
   from './vuestic-components/va-button-toggle/VaButtonToggle.vue'
-import VaPagination
-  from './vuestic-components/va-pagination/VaPagination.vue'
+import VaPagination from './vuestic-components/va-pagination/VaPagination.vue'
 import RadioButton
   from './vuestic-components/vuestic-radio-button/VuesticRadioButton'
 import Scrollbar
@@ -64,10 +60,8 @@ import VuesticToasted from './vuestic-mixins/VuesticToasted'
 import Dropdown from './vuestic-directives/Dropdown'
 import StickyScroll from './vuestic-directives/StickyScroll'
 
-import VaAccordion
-  from './vuestic-components/va-collapse/VaAccordion'
-import VaCollapse
-  from './vuestic-components/va-collapse/VaCollapse'
+import VaAccordion from './vuestic-components/va-collapse/VaAccordion'
+import VaCollapse from './vuestic-components/va-collapse/VaCollapse'
 
 import VuesticTimeline
   from './vuestic-components/vuestic-timelines/VuesticTimeline'

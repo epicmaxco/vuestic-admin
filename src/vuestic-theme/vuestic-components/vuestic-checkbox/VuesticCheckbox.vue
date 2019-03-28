@@ -49,10 +49,10 @@ export default {
     label: String,
     value: {
       type: Boolean,
-      required: true
+      required: true,
     },
     id: {
-      type: String
+      type: String,
     },
     disabled: {
       type: Boolean,
@@ -64,21 +64,21 @@ export default {
     },
     errorMessages: {
       type: [String, Array],
-      default: () => []
+      default: () => [],
     },
     errorCount: {
       type: Number,
-      default: 1
+      default: 1,
     },
     name: String,
     error: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data () {
     return {
-      isFocused: false
+      isFocused: false,
     }
   },
   computed: {
@@ -88,7 +88,7 @@ export default {
         'vuestic-checkbox--readonly': this.readonly,
         'vuestic-checkbox--disabled': this.disabled,
         'vuestic-checkbox--error': this.showError,
-        'vuestic-checkbox--onfocus': this.focused
+        'vuestic-checkbox--onfocus': this.focused,
       }
     },
     computedErrorMessages () {
@@ -108,7 +108,7 @@ export default {
       },
       get () {
         return this.isFocused
-      }
+      },
     },
     valueProxy: {
       set (valueProxy) {
@@ -118,7 +118,7 @@ export default {
       },
       get () {
         return this.value
-      }
+      },
     },
     showError () {
       // We make error active, if the error-message is not empty and checkbox is not disabled
@@ -147,6 +147,7 @@ export default {
   margin-bottom: $checkbox-between-items-margin;
   display: flex;
   flex-direction: column;
+
   #{&}__input {
     cursor: pointer;
     height: 1.375rem;
@@ -166,7 +167,10 @@ export default {
         background-color: $vue-green;
         border: 0;
       }
-      .vuestic-checkbox--readonly#{&} {}
+
+      .vuestic-checkbox--readonly#{&} {
+      }
+
       .vuestic-checkbox--disabled#{&} {
         border-color: $lighter-gray;
         cursor: initial;
@@ -176,11 +180,13 @@ export default {
           }
         }
       }
+
       .vuestic-checkbox--error#{&} {
         border-color: $theme-red;
       }
     }
   }
+
   #{&}__label-text {
     display: inline-block;
     position: relative;
@@ -193,24 +199,29 @@ export default {
       }
     }
   }
+
   &__error-message {
-    display:inline-block;
-    vertical-align:middle;
+    display: inline-block;
+    vertical-align: middle;
     color: $theme-red;
     font-size: $font-size-mini;
   }
+
   &__icon-selected {
     position: absolute;
     color: $white;
   }
+
   &__error-message-container {
     margin-left: 0.3rem; // we need to move container because of square container, which we use because of onFocus
     display: flex;
     flex-direction: column;
   }
+
   &__label-container {
     margin-left: 2rem;
   }
+
   #{&}__square {
     display: flex;
     align-items: center;
@@ -223,16 +234,19 @@ export default {
       .vuestic-checkbox--disabled#{&} {
         cursor: initial;
       }
+
       .vuestic-checkbox--onfocus#{&} {
         background-color: $light-gray;
         transition: all, 0.6s, ease-in;
         border-radius: 5rem;
+
         &.active {
           background-color: $lighter-green;
         }
       }
     }
   }
+
   &__content {
     flex-direction: row;
   }

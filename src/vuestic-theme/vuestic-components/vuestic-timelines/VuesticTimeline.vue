@@ -100,18 +100,22 @@ $timeline-outer-spacing: 2rem;
 .vuestic-timeline {
   display: flex;
   flex-wrap: nowrap;
+
   &--vertical {
     flex-direction: column;
     padding-left: $timeline-outer-spacing;
     padding-right: $timeline-outer-spacing;
   }
+
   &:not(.vuestic-timeline--vertical) {
     padding-top: $timeline-outer-spacing;
     padding-bottom: $timeline-outer-spacing;
   }
+
   .vuestic-timeline-item {
     flex: 1;
   }
+
   .vuestic-timeline-item--vertical {
     .vuestic-timeline-separator--vertical .vuestic-timeline-separator__line {
       &:first-child {
@@ -130,6 +134,7 @@ $timeline-outer-spacing: 2rem;
         padding-top: $timeline-outer-spacing;
       }
     }
+
     &.vuestic-timeline-item--vertical.vuestic-timeline-item--is-last {
       .vuestic-timeline-item__after, .vuestic-timeline-item__before {
         padding-bottom: $timeline-outer-spacing;
@@ -143,6 +148,7 @@ $timeline-outer-spacing: 2rem;
         padding-left: $timeline-outer-spacing;
       }
     }
+
     &.vuestic-timeline-item--is-last {
       .vuestic-timeline-item__after, .vuestic-timeline-item__before {
         padding-right: $timeline-outer-spacing;

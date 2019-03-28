@@ -4,7 +4,8 @@
       <input id="input-icon-left" name="input-icon-left"
              v-model="valueProxy" required/>
       <va-icon icon="glyphicon glyphicon-search icon-left input-icon search-icon"/>
-      <label class="control-label" for="input-icon-left">{{label}}</label><va-icon icon="bar"/>
+      <label class="control-label" for="input-icon-left">{{label}}</label>
+      <va-icon icon="bar"/>
     </div>
   </div>
 </template>
@@ -16,7 +17,7 @@ export default {
     label: {
       type: String,
     },
-    value: ''
+    value: '',
   },
   data () {
     return {}
@@ -30,8 +31,8 @@ export default {
       set (value) {
         this.$emit('input', value)
       },
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -39,9 +40,11 @@ export default {
 .search-icon {
   transform: rotate(90deg);
 }
+
 .form-group {
   min-width: 7rem;
 }
+
 @media (max-width: 768px) {
   .form-group {
     width: 80%;

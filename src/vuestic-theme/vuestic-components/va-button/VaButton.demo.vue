@@ -280,9 +280,10 @@
 <script>
 
 import VaButton from './VaButton'
+
 export default {
   components: {
-    VaButton
-  }
+    VaButton,
+  },
 }
 </script>

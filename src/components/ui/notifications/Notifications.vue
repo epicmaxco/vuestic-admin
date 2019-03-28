@@ -12,7 +12,8 @@
                     <input id="popover-title" v-model="popoverTitle"
                            @input="checkPopoverContents" required/>
                     <label class="control-label" for="popover-title">{{'notificationsPage.popovers.popoverTitleLabel'
-                      | translate}}</label><va-icon icon="bar"/>
+                      | translate}}</label>
+                    <va-icon icon="bar"/>
                   </div>
                 </div>
                 <div class="form-group">
@@ -20,7 +21,8 @@
                     <input id="popover-text" v-model="popoverText"
                            @input="checkPopoverContents" required/>
                     <label class="control-label" for="popover-text">{{'notificationsPage.popovers.popoverTextLabel'
-                      | translate}}</label><va-icon icon="bar"/>
+                      | translate}}</label>
+                    <va-icon icon="bar"/>
                   </div>
                 </div>
                 <div class="form-group">
@@ -28,7 +30,8 @@
                     <input id="popover-icon" v-model="popoverIcon"
                            @input="checkPopoverContents" required/>
                     <label class="control-label" for="popover-icon">{{'notificationsPage.popovers.popoverIconLabel'
-                      | translate}}</label><va-icon icon="bar"/>
+                      | translate}}</label>
+                    <va-icon icon="bar"/>
                   </div>
                 </div>
                 <vuestic-popover popover-class="vuestic-tooltip"

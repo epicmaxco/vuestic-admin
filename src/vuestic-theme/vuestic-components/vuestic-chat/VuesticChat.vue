@@ -17,7 +17,8 @@
           <div class="input-group">
             <input @keypress="keyHandler($event)" v-model="inputMessage"
                    required title=""/>
-            <label class="control-label">Your message</label><va-icon icon="bar"/>
+            <label class="control-label">Your message</label>
+            <va-icon icon="bar"/>
           </div>
           <va-button @click="sendMessage()">
             Send
