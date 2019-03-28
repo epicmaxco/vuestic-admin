@@ -5,6 +5,7 @@
     class="va-modal__overlay"
     :class="computedOverlayClass"
     @click="checkOutside"
+    :style="computedOverlayStyles"
   >
     <transition name="va-modal__transition" appear :duration="withoutTransitions ? 0 : 500">
       <div
@@ -20,7 +21,7 @@
         />
 
         <div class="va-modal__inner" :style="{maxHeight, maxWidth}">
-          <div v-if="title" class="mb-4">{{title}}</div>
+          <div v-if="title" class="mb-4 title">{{title}}</div>
           <div v-if="hasHeaderSlot" class="va-modal__header">
             <slot name="header"/>
           </div>
@@ -123,6 +124,9 @@ export default {
         'transition-off': this.withoutTransitions
       }
     },
+    computedOverlayStyles () {
+      return !document.querySelectorAll('.va-modal__overlay').length ? { 'background-color': 'rgba(0, 0, 0, 0.6)' } : {}
+    },
     hasContentSlot () {
       return this.$slots.default
     },
@@ -194,7 +198,7 @@ export default {
 .va-modal {
   &__overlay {
     z-index: 1000;
-    position: absolute !important;
+    position: fixed !important;
     top: 0;
     bottom: 0;
     left: 0;
@@ -202,10 +206,6 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    &:last-of-type {
-      background-color: rgba(0, 0, 0, 0.6);
-    }
     &.transition-off {
       opacity: 1;
     }
