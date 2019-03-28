@@ -7,123 +7,77 @@
 
             <div class="va-row">
               <div class="flex md4">
-                <fieldset>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <input id="simple-input" required/>
-                      <label class="control-label" for="simple-input">{{'forms.inputs.textInput'
-                        | translate}}</label><va-icon icon="bar"/>
-                    </div>
-                  </div>
-                  <div class="form-group with-icon-right"
-                       :class="{'has-error': errors.has('successfulEmail'), 'valid': isSuccessfulEmailValid}">
-                    <div class="input-group">
-                      <input
-                        id="successfulEmail"
-                        name="successfulEmail"
-                        v-model="successfulEmail"
-                        v-validate="'required|email'"
-                        required/>
-                      <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
-                      <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
-                      <label class="control-label" for="successfulEmail">{{'forms.inputs.emailValidatedSuccess'
-                        | translate}} </label><va-icon icon="bar"/>
-                      <small v-show="errors.has('successfulEmail')"
-                             class="help text-danger">
-                        {{ errors.first('successfulEmail') }}
-                      </small>
-                    </div>
-                  </div>
-                  <div class="form-group with-icon-right"
-                       :class="{'has-error': errors.has('wrongEmail')}">
-                    <div class="input-group">
-                      <input
-                        id="wrongEmail"
-                        name="wrongEmail"
-                        v-model="wrongEmail"
-                        v-validate="'required|email'"
-                        required/>
-                      <va-icon
-                        v-show="errors.has('wrongEmail')"
-                        icon="fa fa-exclamation-triangle icon-right input-icon"/>
-                      <label class="control-label" for="wrongEmail">{{'forms.inputs.emailValidated'
-                        | translate}}</label><va-icon icon="bar"/>
-                      <small v-show="errors.has('wrongEmail')"
-                             class="help text-danger">{{
-                        errors.first('wrongEmail')
-                        }}
-                      </small>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <textarea type="text" id="simple-textarea"
-                                required></textarea>
-                      <label class="control-label" for="simple-textarea">{{'forms.inputs.textArea'
-                        | translate}}</label><va-icon icon="bar"/>
-                    </div>
-                  </div>
-                </fieldset>
+                <va-input
+                  v-model="clearableText"
+                  placeholder="Text Input"
+                />
               </div>
-
               <div class="flex md4">
-                <fieldset>
-                  <div class="form-group with-icon-left">
-                    <div class="input-group">
-                      <input id="input-icon-left" name="input-icon-left"
-                             required/>
-                      <va-icon icon="fa fa-envelope-o icon-left input-icon"/>
-                      <label class="control-label" for="input-icon-left">{{'forms.inputs.inputWithIcon'
-                        | translate}}</label><va-icon icon="bar"/>
-                    </div>
-                  </div>
-                  <div class="form-group with-icon-right">
-                    <div class="input-group">
-                      <input v-model="clearableText" id="clear-input"
-                             name="clear-input" required/>
-                      <va-icon
-                        class="fa fa-times icon-right input-icon pointer"
-                        @click.native="clear('clearableText')"/>
-                      <label class="control-label" for="clear-input"
-                             role="button">{{'forms.inputs.inputWithClearButton'
-                        | translate}}</label><va-icon icon="bar"/>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <input id="inputWithDescription" required title=""/>
-                      <label class="control-label" for="simple-input">{{'forms.inputs.textInputWithDescription'
-                        | translate}}</label><va-icon icon="bar"/>
-                      <small class="help text-secondary">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed
-                        do eiusmod tempor incididunt ut labore et dolore magna
-                        aliqua.
-                      </small>
-                    </div>
-                  </div>
-                </fieldset>
+                <va-input
+                  v-model="clearableText"
+                  placeholder="Input With Icon"
+                >
+                  <va-icon
+                    class="pb-1"
+                    slot="prepend"
+                    icon="fa fa-envelope-o"
+                  />
+                </va-input>
               </div>
-
               <div class="flex md4">
-                <fieldset>
-                  <div class="form-group form-group-w-btn">
-                    <div class="input-group">
-                      <input id="input-w-btn" required/>
-                      <label class="control-label" for="input-w-btn">{{'forms.inputs.inputWithButton'
-                        | translate}}</label><va-icon icon="bar"/>
-                    </div>
-                    <va-button> {{ $t('forms.inputs.upload') }} </va-button>
-                  </div>
-                  <div class="form-group form-group-w-btn">
-                    <div class="input-group">
-                      <input id="input-w-btn-round" required/>
-                      <label class="control-label" for="input-w-btn-round">{{'forms.inputs.inputWithRoundButton'
-                        | translate }}</label><va-icon icon="bar"/>
-                    </div>
-                    <va-button icon="ion-md-cloud-outline ion"/>
-                  </div>
-                </fieldset>
+                <va-input
+                  v-model="clearableText"
+                  placeholder="Input With Button"
+                >
+                  <va-button small>
+                    UPLOAD
+                  </va-button>
+                </va-input>
+              </div>
+            </div>
+            <div class="va-row">
+              <div class="flex md4">
+                <va-input
+                  v-model="successfulEmail"
+                  type="email"
+                  label="Email (Validated with success)"
+                  success>
+                  <va-icon
+                    class="pb-1"
+                    icon="fa fa-check"
+                    color="success"
+                  />
+                </va-input>
+              </div>
+              <div class="flex md4">
+                <va-input
+                  v-model="clearableText"
+                  placeholder="Input With Clear Button"
+                  removable
+                />
+              </div>
+              <div class="flex md4">
+                <va-input
+                  v-model="successfulEmail"
+                  type="email"
+                  label="Email (Validated)"
+                  error
+                  :error-messages="errorMessages">
+                  <va-icon
+                    class="pb-1"
+                    icon="fa fa-exclamation-triangle"
+                    color="danger"
+                  />
+                </va-input>
+              </div>
+            </div>
+            <div class="va-row">
+              <div class="flex md4">
+                <va-input
+                  v-model="clearableText"
+                  placeholder="Text Input (with description)"
+                  :messages="messages"
+                />
               </div>
             </div>
 
@@ -390,6 +344,9 @@ export default {
       clearableText: '',
       successfulEmail: 'andrei@dreamsupport.io',
       wrongEmail: 'andrei@dreamsupport',
+      messages: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ' +
+        'incididunt ut labore et dolore magna aliqua.'],
+      errorMessages: ['Field should contain a valid email'],
       simpleOptions: [
         {
           id: 1,
@@ -417,7 +374,6 @@ export default {
         error: false,
         errorMessages: true
       },
-      errorMessages: ['error message 1', 'error message 2'],
       datepicker: {
         simple: '2018-05-09',
         time: '2018-05-08 14:10',

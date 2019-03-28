@@ -39,7 +39,7 @@ function hex2rgb (hex, opacity) {
   return rgb
 }
 
-export default {
+export const ColorPlugin = {
   install (Vue, options) {
     if (options && options.theme) {
       Object.assign(Vue.prototype.$themes, options.theme)
