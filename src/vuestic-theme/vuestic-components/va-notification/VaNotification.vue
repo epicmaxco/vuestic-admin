@@ -19,15 +19,15 @@
 </template>
 
 <script>
-import { getBoxShadowColor, getHoverColor } from '../../../services/colors'
+import { getHoverColor, getBoxShadowColor } from '../../../services/color-functions'
 
 export default {
   name: 'va-notification',
   computed: {
     notificationStyle () {
       return {
-        background: getHoverColor(this.color),
-        boxShadow: '0 0.125rem 0.125rem 0 ' + getBoxShadowColor(this.color)
+        background: getHoverColor(this.$themes[this.color]),
+        boxShadow: '0 0.125rem 0.125rem 0 ' + getBoxShadowColor(this.$themes[this.color])
       }
     },
   },

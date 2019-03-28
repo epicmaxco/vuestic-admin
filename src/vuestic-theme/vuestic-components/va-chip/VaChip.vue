@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { getHoverColor, getFocusColor, getBoxShadowColor } from '../../../services/colors'
+import { getFocusColor, getHoverColor, getBoxShadowColor } from '../../../services/color-functions'
 
 export default {
   name: 'va-chip',
@@ -82,14 +82,14 @@ export default {
       if (this.focusState) {
         return {
           color: this.outline ? this.$themes[this.color] : '#ffffff',
-          boxShadow: '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.color),
-          backgroundColor: this.outline ? getFocusColor(this.color) : this.$themes[this.color]
+          boxShadow: '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.$themes[this.color]),
+          backgroundColor: this.outline ? getFocusColor(this.$themes[this.color]) : this.$themes[this.color]
         }
       } else if (this.hoverState) {
         return {
           color: this.outline ? this.$themes[this.color] : '#ffffff',
           borderColor: this.outline ? this.$themes[this.color] : '',
-          backgroundColor: this.outline ? getHoverColor(this.color) : this.$themes[this.color]
+          backgroundColor: this.outline ? getHoverColor(this.$themes[this.color]) : this.$themes[this.color]
         }
       } else {
         return {

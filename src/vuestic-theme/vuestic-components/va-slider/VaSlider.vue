@@ -99,7 +99,8 @@
           <div
             v-if="valueVisible"
             :style="labelStyles"
-            class="va-slider__container__handler-value title">
+            class="va-slider__container__handler-value title"
+          >
             {{ labelValue || val }}
           </div>
         </div>
@@ -143,7 +144,7 @@
 
 <script>
 import { validateSlider } from './validateSlider'
-import { getHoverColor } from '../../../services/colors'
+import { getHoverColor } from '../../../services/color-functions'
 
 export default {
   name: 'va-slider',
@@ -220,7 +221,7 @@ export default {
     },
     trackStyles () {
       return {
-        backgroundColor: getHoverColor(this.color)
+        backgroundColor: getHoverColor(this.$themes[this.color])
       }
     },
     processedStyles () {
@@ -424,7 +425,9 @@ export default {
           }
         }
       } else {
-        if (val < this.min || val > this.max) return false
+        if (val < this.min || val > this.max) {
+          return false
+        }
         if (this.isDiff(this.currentValue, val)) {
           this.currentValue = val
           this.val = val
@@ -432,17 +435,17 @@ export default {
       }
     },
     setValueOnPos (pos, isDrag) {
-      let range = this.limit
-      let valueRange = this.valueLimit
+      const range = this.limit
+      const valueRange = this.valueLimit
+
+      this.setTransform()
+
       if (pos >= range[0] && pos <= range[1]) {
-        this.setTransform()
         let v = this.getValueByIndex(Math.round(pos / this.gap))
         this.setCurrentValue(v, isDrag)
       } else if (pos < range[0]) {
-        this.setTransform()
         this.setCurrentValue(valueRange[0])
       } else {
-        this.setTransform()
         this.setCurrentValue(valueRange[1])
       }
     },
@@ -469,7 +472,7 @@ export default {
       }
     },
     normalizeValue (value) {
-      let currentRest = value % this.step
+      const currentRest = value % this.step
       if ((currentRest / this.step) >= 0.5) {
         value = value + (this.step - currentRest)
       } else {

@@ -1,4 +1,4 @@
-import utils from '../../../../services/utils'
+import { normalizeValue } from '../../../../services/utils'
 
 export const progressMixin = {
   props: {
@@ -18,7 +18,7 @@ export const progressMixin = {
   },
   computed: {
     normalizedValue () {
-      return utils.normalizeValue(this.value)
+      return normalizeValue(this.value)
     },
   }
 }

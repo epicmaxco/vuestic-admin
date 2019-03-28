@@ -20,7 +20,9 @@
 </template>
 
 <script>
-import { getGradientColor } from '../../../services/colors'
+import {
+  getGradientBackground,
+} from '../../../services/color-functions'
 
 export default {
   name: 'va-button-toggle',
@@ -70,8 +72,7 @@ export default {
         }
       } else {
         return {
-          backgroundColor: 'linear-gradient(to right,' + getGradientColor(this.color)[0] +
-            ',' + getGradientColor(this.color)[1] + ')',
+          backgroundColor: getGradientBackground(this.$themes[this.color]),
           filter: 'brightness(85%)'
         }
       }

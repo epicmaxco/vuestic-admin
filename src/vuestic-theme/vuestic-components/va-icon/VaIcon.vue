@@ -43,7 +43,7 @@ export default {
       return {
         transform: 'rotate(' + this.rotation + 'deg)',
         fontSize: typeof this.size === 'number' ? this.size + 'px' : this.size,
-        color: this.$themes[this.color]
+        color: this.$themes[this.color] || this.color
       }
     }
   }

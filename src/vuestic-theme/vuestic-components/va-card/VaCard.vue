@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import { getGradientBackground } from '../../../services/colors'
+import { getGradientBackground } from '../../../services/color-functions'
 
 export default {
   name: 'va-card',
@@ -105,7 +105,7 @@ export default {
       if (this.color) {
         return {
           color: '#fff',
-          background: getGradientBackground(this.color)
+          background: getGradientBackground(this.$themes[this.color])
         }
       }
     }

@@ -44,14 +44,13 @@
 </template>
 
 <script>
-import {
-  getHoverColor,
-  getFocusColor,
-  getBoxShadowColor,
-  getGradientBackground
-} from '../../../services/colors'
-
 import VaIcon from '../va-icon/VaIcon'
+import {
+  getGradientBackground,
+  getFocusColor,
+  getHoverColor,
+  getBoxShadowColor,
+} from '../../../services/color-functions'
 
 export default {
   name: 'va-button',
@@ -59,62 +58,62 @@ export default {
   props: {
     tag: {
       type: String,
-      default: 'button'
+      default: 'button',
     },
     outline: {
-      type: Boolean
+      type: Boolean,
     },
     flat: {
-      type: Boolean
+      type: Boolean,
     },
     color: {
       type: String,
-      default: 'success'
+      default: 'success',
     },
     small: {
-      type: Boolean
+      type: Boolean,
     },
     large: {
-      type: Boolean
+      type: Boolean,
     },
     icon: {
-      type: String
+      type: String,
     },
     iconRight: {
-      type: String
+      type: String,
     },
     type: {
-      type: String
+      type: String,
     },
     disabled: {
-      type: Boolean
+      type: Boolean,
     },
     /* Link props */
     href: {
-      type: String
+      type: String,
     },
     target: {
       type: String,
     },
     /* Router link props */
     to: {
-      type: [String, Object]
+      type: [String, Object],
     },
     replace: {
-      type: Boolean
+      type: Boolean,
     },
     append: {
-      type: Boolean
+      type: Boolean,
     },
     activeClass: {
-      type: String
+      type: String,
     },
     exact: {
-      type: Boolean
+      type: Boolean,
     },
     exactActiveClass: {
-      type: String
-    }
+      type: String,
+    },
   },
   data () {
     return {
@@ -134,7 +133,7 @@ export default {
         'va-button--with-right-icon': this.iconRight,
         'va-button--large': this.large,
         'va-button--small': this.small,
-        'va-button--normal': !this.large && !this.small
+        'va-button--normal': !this.large && !this.small,
       }
     },
     buttonStyle () {
@@ -143,12 +142,12 @@ export default {
           return {
             color: this.$themes[this.color],
             borderColor: this.outline ? this.$themes[this.color] : '',
-            background: getFocusColor(this.color)
+            background: getFocusColor(this.$themes[this.color]),
           }
         } else {
           return {
             backgroundImage: !this.flat && !this.outline
-              ? getGradientBackground(this.color) : '',
+              ? getGradientBackground(this.$themes[this.color]) : '',
           }
         }
       } else if (this.hoverState) {
@@ -156,12 +155,12 @@ export default {
           return {
             color: this.$themes[this.color],
             borderColor: this.outline ? this.$themes[this.color] : '',
-            background: getHoverColor(this.color),
+            background: getHoverColor(this.$themes[this.color]),
           }
         } else {
           return {
             backgroundImage: !this.flat && !this.outline
-              ? getGradientBackground(this.color) : '',
+              ? getGradientBackground(this.$themes[this.color]) : '',
           }
         }
       } else {
@@ -169,8 +168,8 @@ export default {
           color: this.flat || this.outline ? this.$themes[this.color] : '#ffffff',
           borderColor: this.outline ? this.$themes[this.color] : '',
           backgroundImage: !this.flat && !this.outline
-            ? getGradientBackground(this.color) : '',
-          boxShadow: !this.flat && !this.outline ? '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.color) : ''
+            ? getGradientBackground(this.$themes[this.color]) : '',
+          boxShadow: !this.flat && !this.outline ? '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.$themes[this.color]) : '',
 
         }
       }
@@ -196,9 +195,9 @@ export default {
           click: function (event) {
             vm.$emit('click', event)
           },
-        }
+        },
       )
-    }
+    },
   },
   methods: {
     updateHoverState (isHover) {
@@ -207,173 +206,173 @@ export default {
     updateFocusState (isHover) {
       this.focusState = isHover
     },
-  }
+  },
 }
 </script>
 
 <style lang='scss'>
 @import "../../vuestic-sass/resources/resources";
 
-  @mixin button-size($padding-y, $padding-x, $font-size, $line-height, $border-radius) {
-    padding: $padding-y $padding-x;
-    font-size: $font-size;
-    line-height: $line-height;
-    border-radius: $border-radius;
+@mixin button-size($padding-y, $padding-x, $font-size, $line-height, $border-radius) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  line-height: $line-height;
+  border-radius: $border-radius;
+}
+
+.va-button {
+  display: inline-block;
+  margin: $btn-margin;
+  background-image: none;
+  box-shadow: none;
+  outline: none !important;
+  border: $btn-border;
+  font-family: $font-family-sans-serif;
+  text-decoration: none !important;
+  text-transform: initial;
+  cursor: pointer;
+  transition: $btn-transition;
+
+  &__content {
+    display: flex;
+
+    &__title, &__icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+    }
   }
 
-  .va-button {
-    display: inline-block;
-    margin: $btn-margin;
-    background-image: none;
-    box-shadow: none;
-    outline: none !important;
-    border: $btn-border;
-    font-family: $font-family-sans-serif;
-    text-decoration: none !important;
-    text-transform: initial;
-    cursor: pointer;
-    transition: $btn-transition;
+  &--default {
+    color: $white;
 
-    &__content {
-      display: flex;
-
-      &__title, &__icon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-      }
+    &:hover {
+      filter: brightness(115%);
     }
 
-    &--default {
+    &:focus, &:active {
+      filter: brightness(85%);
+    }
+
+    i {
       color: $white;
-
-      &:hover {
-        filter: brightness(115%);
-      }
-
-      &:focus, &:active {
-        filter: brightness(85%);
-      }
-
-      i {
-        color: $white;
-      }
     }
+  }
 
-    &--outline {
-      background-color: transparent;
-      border: solid $btn-border-outline;
-      text-decoration: none;
-
-      &.va-button--disabled {
-        background: transparent;
-        @include va-disabled;
-
-        &.va-button--active {
-
-          .va-button__content, i {
-            color: $white !important;
-          }
-        }
-      }
-    }
-
-    &--flat {
-      background: transparent;
-      border: $btn-border solid transparent;
-      text-decoration: none;
-    }
+  &--outline {
+    background-color: transparent;
+    border: solid $btn-border-outline;
+    text-decoration: none;
 
     &.va-button--disabled {
+      background: transparent;
       @include va-disabled;
-    }
 
-    &--large {
-      @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
-      letter-spacing: $btn-letter-spacing-lg;
+      &.va-button--active {
 
-      .va-button__content__icon {
-        width: $btn-icon-width-lg;
-      }
-
-      &.va-button--with-left-icon {
-        padding-left: $btn-with-icon-wrapper-padding-lg;
-
-        &.va-button--without-title {
-          padding-right: $btn-with-icon-wrapper-padding-lg;
-        }
-
-        .va-button__content__title {
-          padding-left: $btn-with-icon-content-padding-lg;
-        }
-      }
-
-      &.va-button--with-right-icon {
-        padding-right: $btn-with-icon-wrapper-padding-lg;
-
-        .va-button__content__title {
-          padding-right: $btn-with-icon-content-padding-lg;
-        }
-      }
-    }
-
-    &--small {
-      @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
-      letter-spacing: $btn-letter-spacing-sm;
-
-      .va-button__content__icon {
-        width: $btn-icon-width-sm;
-      }
-
-      &.va-button--with-left-icon {
-        padding-left: $btn-with-icon-wrapper-padding-sm;
-
-        &.va-button--without-title {
-          padding-right: $btn-with-icon-wrapper-padding-sm;
-        }
-
-        .va-button__content__title {
-          padding-left: $btn-with-icon-content-padding-sm;
-        }
-      }
-
-      &.va-button--with-right-icon {
-        padding-right: $btn-with-icon-wrapper-padding-sm;
-
-        .va-button__content__title {
-          padding-right: $btn-with-icon-content-padding-sm;
-        }
-      }
-    }
-
-    &--normal {
-      @include button-size($btn-padding-y-nrm, $btn-padding-x-nrm, $btn-font-size-nrm, $btn-line-height-nrm, $btn-border-radius-nrm);
-      letter-spacing: $btn-letter-spacing-nrm;
-
-      .va-button__content__icon {
-        width: $btn-icon-width-nrm;
-      }
-
-      &.va-button--with-left-icon {
-        padding-left: $btn-with-icon-wrapper-padding-nrm;
-
-        &.va-button--without-title {
-          padding-right: $btn-with-icon-wrapper-padding-nrm;
-        }
-
-        .va-button__content__title {
-          padding-left: $btn-with-icon-content-padding-nrm;
-        }
-      }
-
-      &.va-button--with-right-icon {
-        padding-right: $btn-with-icon-wrapper-padding-nrm;
-
-        .va-button__content__title {
-          padding-right: $btn-with-icon-content-padding-nrm;
+        .va-button__content, i {
+          color: $white !important;
         }
       }
     }
   }
+
+  &--flat {
+    background: transparent;
+    border: $btn-border solid transparent;
+    text-decoration: none;
+  }
+
+  &.va-button--disabled {
+    @include va-disabled;
+  }
+
+  &--large {
+    @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
+    letter-spacing: $btn-letter-spacing-lg;
+
+    .va-button__content__icon {
+      width: $btn-icon-width-lg;
+    }
+
+    &.va-button--with-left-icon {
+      padding-left: $btn-with-icon-wrapper-padding-lg;
+
+      &.va-button--without-title {
+        padding-right: $btn-with-icon-wrapper-padding-lg;
+      }
+
+      .va-button__content__title {
+        padding-left: $btn-with-icon-content-padding-lg;
+      }
+    }
+
+    &.va-button--with-right-icon {
+      padding-right: $btn-with-icon-wrapper-padding-lg;
+
+      .va-button__content__title {
+        padding-right: $btn-with-icon-content-padding-lg;
+      }
+    }
+  }
+
+  &--small {
+    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
+    letter-spacing: $btn-letter-spacing-sm;
+
+    .va-button__content__icon {
+      width: $btn-icon-width-sm;
+    }
+
+    &.va-button--with-left-icon {
+      padding-left: $btn-with-icon-wrapper-padding-sm;
+
+      &.va-button--without-title {
+        padding-right: $btn-with-icon-wrapper-padding-sm;
+      }
+
+      .va-button__content__title {
+        padding-left: $btn-with-icon-content-padding-sm;
+      }
+    }
+
+    &.va-button--with-right-icon {
+      padding-right: $btn-with-icon-wrapper-padding-sm;
+
+      .va-button__content__title {
+        padding-right: $btn-with-icon-content-padding-sm;
+      }
+    }
+  }
+
+  &--normal {
+    @include button-size($btn-padding-y-nrm, $btn-padding-x-nrm, $btn-font-size-nrm, $btn-line-height-nrm, $btn-border-radius-nrm);
+    letter-spacing: $btn-letter-spacing-nrm;
+
+    .va-button__content__icon {
+      width: $btn-icon-width-nrm;
+    }
+
+    &.va-button--with-left-icon {
+      padding-left: $btn-with-icon-wrapper-padding-nrm;
+
+      &.va-button--without-title {
+        padding-right: $btn-with-icon-wrapper-padding-nrm;
+      }
+
+      .va-button__content__title {
+        padding-left: $btn-with-icon-content-padding-nrm;
+      }
+    }
+
+    &.va-button--with-right-icon {
+      padding-right: $btn-with-icon-wrapper-padding-nrm;
+
+      .va-button__content__title {
+        padding-right: $btn-with-icon-content-padding-nrm;
+      }
+    }
+  }
+}
 </style>

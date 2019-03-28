@@ -29,7 +29,7 @@
 
 <script>
 import { progressMixin } from './progressMixin'
-import utils from '../../../../services/utils'
+import { normalizeValue } from '../../../../services/utils'
 
 export default {
   name: 'va-progress-bar',
@@ -46,7 +46,7 @@ export default {
         return 100
       }
 
-      return utils.normalizeValue(this.buffer)
+      return normalizeValue(this.buffer)
     }
   }
 }
