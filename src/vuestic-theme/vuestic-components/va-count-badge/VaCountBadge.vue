@@ -1,28 +1,28 @@
 <template>
-  <span class="number-icon">
+  <span class="va-count-badge">
     <slot></slot>
-    <span class="number-icon__round" v-if="displayNumber !== '0'">{{displayNumber}}</span>
+    <span class="va-count-badge__round" v-if="displayNumber !== '0'">{{displayNumber}}</span>
   </span>
 </template>
 
 <script>
-import { nFormatter } from '../../../services/utils'
+import approx from 'approximate-number'
 
 export default {
-  name: 'number-icon',
+  name: 'va-count-badge',
   props: {
     number: Number
   },
   computed: {
     displayNumber () {
-      return nFormatter(this.number, 1)
+      return approx(this.number)
     }
   }
 }
 </script>
 
 <style lang="scss">
-  .number-icon {
+  .va-count-badge {
     position: relative;
     &__round {
       position: absolute;
