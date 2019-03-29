@@ -192,7 +192,7 @@ $dayMargin: 0.6rem;
         line-height: 1.7;
         font-size: 1rem;
         flex: 0 0 $daySize;
-        margin: calc((100% - 2rem * 7) / 14);
+        margin: 0.25rem calc((100% - 2rem * 7) / 14);
         border: none;
         color: $datepickerText;
         &.today {
@@ -280,17 +280,20 @@ $dayMargin: 0.6rem;
             height: 0;
             margin-top: 0.2rem;
             background-color: $datepickerBackground;
+
             &::after {
               border-left: 2.5px solid transparent;
               border-bottom: 2.5px solid $datepickerActiveColor;
               border-right: 2.5px solid transparent;
             }
           }
+
           .arrowDown {
             border: 0;
             margin-top: 0.3125rem;
             height: 0;
             background-color: $datepickerBackground;
+
             &::after {
               border-top: 2.5px solid $datepickerActiveColor;
               border-left: 2.5px solid transparent;
