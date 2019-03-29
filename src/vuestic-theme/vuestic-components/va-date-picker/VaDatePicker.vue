@@ -6,6 +6,7 @@
         v-model="valueProxy"
         :config="fullConfig"
         @on-open="onOpen"
+        data-input
       />
       <div class="va-date-picker__icon" data-toggle>
         <va-icon icon="fa fa-calendar" size="20px"/>
@@ -56,6 +57,7 @@ export default {
     },
     defaultConfig () {
       return {
+        wrap: !this.config.inline,
         nextArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-forward"/>',
         prevArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-back"/>'
       }
