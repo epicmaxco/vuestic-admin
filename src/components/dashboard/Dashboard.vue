@@ -5,7 +5,7 @@
         <dashboard-line-chart />
       </div>
       <div class="flex md3">
-
+        <dashboard-donut-chart />
       </div>
       <div class="flex md3">
 
@@ -16,11 +16,15 @@
 
 <script>
 import DashboardLineChart from './DashboardLineChart'
+import DashboardDonutChart from './DashboardDonutChart'
+import DashboardProgressBars from './DashboardProgressBars'
 
 export default {
   name: 'dashboard',
   components: {
-    DashboardLineChart
+    DashboardLineChart,
+    DashboardDonutChart,
+    DashboardProgressBars
   },
 
   methods: {

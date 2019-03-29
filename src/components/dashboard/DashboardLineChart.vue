@@ -1,10 +1,17 @@
 <template>
-  <vuestic-card>
+  <va-card title="Trendy Trends">
+    <va-button
+      small
+      slot="actions"
+      color="danger"
+    >
+      Delete Section
+    </va-button>
     <vuestic-chart
       :data="lineChartData"
       type="line"
     />
-  </vuestic-card>
+  </va-card>
 </template>
 
 <script>
