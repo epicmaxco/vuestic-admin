@@ -29,15 +29,18 @@ export default {
   &__text-with-button {
     padding-bottom: 1.5rem;
     overflow: hidden;
+
     .text {
       font-size: $font-size-base;
       @include va-ellipsis();
     }
+
     .btn {
       margin-left: 1rem;
       line-height: 1; //TODO: review btn styles
     }
   }
+
   &__photo-list {
     // This hides photos that won't fit.
     height: 80px;

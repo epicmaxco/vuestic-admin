@@ -1,205 +1,141 @@
 <template>
   <div class="cards">
-    <div class="flex md12">
-      <div class="cards-container va-row d-flex wrap align--start">
-        <!-- eslint-disable vue/valid-v-for -->
-        <template v-for="loop in listLoops">
-          <vuestic-card
-            :key="loop"
-            title-on-image
-            overlay
-            image="https://picsum.photos/300/200/?image=1043">
-            <template slot="title">
-              {{ $t('cards.title.overlayAndTextOnImage') }}
-            </template>
-            {{ $t('cards.contentText') }}
-            <p class="pt-3 mb-0">
-              <va-button flat color="gray" href="#">
-                {{ $t('cards.link.secondaryAction') }}
-              </va-button>
-            </p>
-          </vuestic-card>
-
-          <vuestic-card
-            image="https://picsum.photos/300/200/?image=898"
+    <div class="cards-container va-row d-flex wrap align--start">
+      <!-- eslint-disable vue/valid-v-for -->
+      <template v-for="loop in listLoops">
+        <div class="flex xs12 sm6" :key="loop">
+          <va-card
+            :title="$t('cards.title.default')"
           >
-            <template slot="title">
-              {{ $t('cards.title.normal') }}
-            </template>
-            {{ $t('cards.contentText') }}
-            <p class="pt-3 mb-0">
-              <va-button flat href="#">
-                {{ $t('cards.link.readFull') }}
-              </va-button>
-            </p>
-          </vuestic-card>
-
-          <vuestic-card
-            image="https://picsum.photos/300/200/?image=1052"
-            title-on-image
-            overlay
-          >
-            <template slot="title">
-              {{ $t('cards.title.titleOnImageNoOverlay') }}
-            </template>
-            {{ $t('cards.contentText') }}
-          </vuestic-card>
-
-          <vuestic-card
-            image="https://picsum.photos/300/200/?image=1067"
-          >
-            Short one
-            <p class="mb-0 mt-2">
-              <va-button flat href="#">
-                {{ $t('cards.link.action1') }}
-              </va-button>
-              <va-button color="gray" flat href="#">
-                {{ $t('cards.link.action2') }}
-              </va-button>
-            </p>
-          </vuestic-card>
-
-          <vuestic-card
-            stripe="warning"
-            image="https://picsum.photos/300/200/?image=1058"
-          >
-            <p class="mb-0">
-              <va-button flat href="#">
-                {{ $t('cards.link.edit') }}
-              </va-button>
-              <va-button flat href="#">
-                {{ $t('cards.link.setAsDefault') }}
-              </va-button>
-              <va-button flat href="#">
-                {{ $t('cards.link.delete') }}
-              </va-button>
-            </p>
-          </vuestic-card>
-
-          <vuestic-card
-            theme="bright"
-          >
-            <template slot="title">
-              {{ $t('cards.title.bright') }}
-            </template>
-            {{ $t('cards.contentText') }}
-            <p class="pt-3 mb-0">
-              <va-button color="dark" flat href="#">
-                {{ $t('cards.link.edit') }}
-              </va-button>
-              <va-button color="dark" flat href="#">
-                {{ $t('cards.link.setAsDefault') }}
-              </va-button>
-              <va-button color="dark" flat href="#">
-                {{ $t('cards.link.delete') }}
-              </va-button>
-            </p>
-          </vuestic-card>
-
-          <vuestic-card
-            image="https://picsum.photos/300/200/?image=997"
-          >
-            {{ $t('cards.contentText') }}
-            <p class="pt-3 mb-0">
-              <va-button>
-                {{ $t('cards.button.main') }}
-              </va-button>
-              <va-button flat href="#">
-                {{ $t('cards.button.cancel') }}
-              </va-button>
-            </p>
-          </vuestic-card>
-
-          <vuestic-card
-            stripe="success"
-          >
-            <p slot="title">{{ $t('cards.title.stripeNoImage') }}</p>
-            {{ $t('cards.contentText') }}
-          </vuestic-card>
-
-          <vuestic-card
-            image="https://picsum.photos/300/200/?image=1013"
-            theme="dark"
-          >
-            <p slot="title">{{ $t('cards.title.dark') }}</p>
-            {{ $t('cards.contentText') }}
-            <p class="pt-3 mb-0">
-              <va-button flat href="#">
-                {{ $t('cards.link.edit') }}
-              </va-button>
-              <va-button flat href="#">
-                {{ $t('cards.link.setAsDefault') }}
-              </va-button>
-              <va-button flat href="#">
-                {{ $t('cards.link.delete') }}
-              </va-button>
-            </p>
-          </vuestic-card>
-
-          <vuestic-card
-            image="https://picsum.photos/300/200/?image=885"
-          >
-            <div class="flex">
-              <p>{{ $t('cards.contentText') }}</p>
-              <va-button icon="ion-md-cloud-outline ion"/>
-            </div>
-          </vuestic-card>
-
-          <vuestic-card
-            image="https://picsum.photos/300/200/?image=1003"
-          >
-            <p>{{ $t('cards.contentText') }}</p>
-            <div class="card-separator"/>
-            <p class="mb-0">
-              <va-button flat href="#">
-                {{ $t('cards.link.traveling') }}
-              </va-button>
-              /
-              <va-button flat href="#">
-                {{ $t('cards.link.france') }}
-              </va-button>
-            </p>
-          </vuestic-card>
-
-          <vuestic-card theme="dark">
-            <p slot="title">{{ $t('cards.title.dark') }}</p>
-            {{ $t('cards.contentText') }}
-            <p class="pt-3 mb-0">
-              <va-button flat href="#">
-                {{ $t('cards.link.review') }}
-              </va-button>
-              <va-button flat href="#">
-                {{ $t('cards.link.feedback') }}
-              </va-button>
-            </p>
-          </vuestic-card>
-        </template>
-      </div>
-    </div>
-    <div class="flex md12">
-      <div class="pre-loader-container flex-center my-5">
-        <vuestic-pre-loader
-          v-show="isShown"
-          class="pre-loader"/>
-        <div v-if="!isShown">
-          <va-button @click="addCards()">
-            Show More
-          </va-button>
+            {{ $t('cards.contentTextLong') }}
+          </va-card>
         </div>
+
+        <div class="flex xs12 sm6" :key="loop">
+          <va-card
+            :title="$t('cards.title.withControls')"
+          >
+            <template slot="actions">
+              <va-button icon="fa fa-refresh"/>
+              <va-button icon="fa fa-gear"/>
+            </template>
+            {{ $t('cards.contentTextLong') }}
+          </va-card>
+        </div>
+
+        <div class="flex xs12 sm6" :key="loop">
+          <va-card>
+            <template slot="header">
+              <va-icon icon="fa fa-cogs mr-3" color="success"/>
+              <h5 class="mt-0 mb-0">{{ $t('cards.title.customHeader') }}</h5>
+            </template>
+            {{ $t('cards.contentTextLong') }}
+          </va-card>
+        </div>
+
+        <div class="flex xs12 sm6" :key="loop">
+          <va-card>
+            <p>{{ $t('cards.title.withoutHeader') }}</p>
+            {{ $t('cards.contentTextLong') }}
+          </va-card>
+        </div>
+
+        <div class="flex xs12 sm6 lg4 xl3" :key="loop">
+          <va-card
+            image="https://picsum.photos/300/200/?image=1043"
+            :title="$t('cards.title.withImage')"
+          >
+            {{ $t('cards.contentText') }}
+          </va-card>
+        </div>
+
+        <div class="flex xs12 sm6 lg4 xl3" :key="loop">
+          <va-card
+            overlay
+            titleOnImage
+            image="https://picsum.photos/300/200/?image=898"
+            :title="$t('cards.title.withTitleOnImage')"
+          >
+            {{ $t('cards.contentText') }}
+          </va-card>
+        </div>
+
+        <div class="flex xs12 sm6 lg4 xl3" :key="loop">
+          <va-card
+            overlay
+            titleOnImage
+            image="https://picsum.photos/300/200/?image=898"
+            :title="$t('cards.title.withCustomTitleOnImage')"
+          >
+            <va-button slot="header">
+              Read More
+            </va-button>
+          </va-card>
+        </div>
+
+        <div class="flex xs12 sm6 lg4 xl3" :key="loop">
+          <va-card
+            stripe="danger"
+            :title="$t('cards.title.withStripe')"
+          >
+            {{ $t('cards.contentTextLong') }}
+          </va-card>
+        </div>
+
+        <div class="flex xs12 sm6 lg4 xl3" :key="loop">
+          <va-card
+            color="success"
+          >
+            {{ $t('cards.contentTextLong') }}
+          </va-card>
+        </div>
+
+        <div class="flex xs12 sm6 lg4 xl3" :key="loop">
+          <va-card
+            color="danger"
+          >
+            {{ $t('cards.contentTextLong') }}
+          </va-card>
+        </div>
+
+        <div class="flex xs12 sm6 lg4 xl3" :key="loop">
+          <va-card
+            stripe="info"
+            :title="$t('cards.title.withStripe')"
+          >
+            {{ $t('cards.contentTextLong') }}
+          </va-card>
+        </div>
+
+        <div class="flex xs12 sm6 lg4 xl3" :key="loop">
+          <va-card
+            overlay
+            titleOnImage
+            image="https://picsum.photos/300/200/?image=1067"
+            :title="$t('cards.title.withTitleOnImage')"
+          >
+            {{ $t('cards.contentText') }}
+          </va-card>
+        </div>
+      </template>
+    </div>
+
+    <div class="pre-loader-container flex-center my-5">
+      <vuestic-pre-loader
+        v-show="isShown"
+        class="pre-loader"/>
+      <div v-if="!isShown">
+        <va-button @click="addCards()">
+          Show More
+        </va-button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import VuesticCard
-  from '../../../vuestic-theme/vuestic-components/vuestic-card/VuesticCard'
-
 export default {
   name: 'cards',
-  components: {
-    VuesticCard,
-  },
   data () {
     return {
       listLoops: 1,
@@ -219,30 +155,9 @@ export default {
 </script>
 
 <style lang="scss">
-$singleGutter: #{(19/16)}rem;
-
 .cards-container {
-  margin: -$singleGutter;
-  .vuestic-card {
-    margin: $singleGutter;
-
-    width: calc(33% - #{$singleGutter} * 2);
-
-    @include media-breakpoint-only(xl) {
-      width: calc(25% - #{$singleGutter} * 2);
-    }
-
-    @include media-breakpoint-only(lg) {
-      width: calc(33.3% - #{$singleGutter} * 2);
-    }
-
-    @include media-breakpoint-only(sm) {
-      width: calc(50% - #{$singleGutter} * 2);
-    }
-
-    @include media-breakpoint-only(xs) {
-      width: calc(100% - #{$singleGutter} * 2);
-    }
+  .va-card {
+    margin: 0;
   }
 }
 </style>

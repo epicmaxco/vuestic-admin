@@ -1,7 +1,7 @@
 <template>
   <div class="tags">
     <div class="flex md12">
-      <vuestic-widget :headerText="$t('chips.chips')">
+      <va-card :title="$t('chips.chips')">
         <div class="va-row mb-3">
           <va-chip>
             Success chip
@@ -42,11 +42,11 @@
             Dark chip
           </va-chip>
         </div>
-      </vuestic-widget>
+      </va-card>
     </div>
 
     <div class="flex md12">
-      <vuestic-widget :headerText="$t('chips.badges')">
+      <va-card :title="$t('chips.badges')">
         <div class="va-row mb-3">
           <va-badge>
             Paid
@@ -87,13 +87,13 @@
             New Label
           </va-badge>
         </div>
-      </vuestic-widget>
+      </va-card>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'tags'
+  name: 'tags',
 }
 </script>

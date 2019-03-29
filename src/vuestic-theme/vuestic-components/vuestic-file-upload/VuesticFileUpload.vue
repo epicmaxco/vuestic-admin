@@ -14,12 +14,12 @@
         @remove="removeFile"
         @remove-single="removeSingleFile"
       />
-      <vuestic-modal ref="mediumModal" :no-buttons="true">
+      <va-modal ref="mediumModal" :no-buttons="true">
         <div slot="title">{{ $t('fileUpload.modalTitle') }}</div>
         <div>
           {{ $t('fileUpload.modalText') }}
         </div>
-      </vuestic-modal>
+      </va-modal>
     </vuestic-file-upload-container>
   </div>
 </template>

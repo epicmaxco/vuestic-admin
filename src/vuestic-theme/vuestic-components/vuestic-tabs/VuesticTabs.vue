@@ -59,27 +59,34 @@ export default {
 <style lang="scss">
 .vuestic-tabs {
   background-color: white;
+
   .simple-select {
     padding-top: 1.5rem;
   }
+
   .nav {
     margin: 0;
     padding-top: 2.25rem;
+
     .nav-item {
       flex-grow: 1;
       text-align: center;
       padding: 0;
+
       .nav-link {
         padding: 0;
         color: $gray;
         transition: all .3s ease;
       }
+
       &:hover {
         cursor: pointer;
+
         .nav-link {
           color: $vue-darkest-blue;
         }
       }
+
       &.active {
         .nav-link {
           color: $vue-darkest-blue;
@@ -87,16 +94,19 @@ export default {
       }
     }
   }
+
   .track {
     overflow: hidden;
     width: 100%;
     height: .125rem;
     position: relative;
+
     div[class^='underscore-'] {
       background-color: $brand-primary;
       height: .125rem;
       position: absolute;
     }
+
     $koeff: 0.8;
     @for $all from 1 through 10 {
       $width: 1/$all;
@@ -111,9 +121,11 @@ export default {
       }
     }
   }
+
   .tab-content {
     padding-bottom: $tab-content-pb;
     padding-top: $tab-content-pt;
+
     > .tab-pane {
       width: 100%
     }

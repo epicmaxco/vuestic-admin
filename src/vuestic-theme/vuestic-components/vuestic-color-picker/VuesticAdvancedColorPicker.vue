@@ -33,9 +33,11 @@ export default {
   .vc-chrome-alpha-wrap {
     display: none;
   }
+
   .vc-chrome-hue-wrap {
     margin-top: 10px;
   }
+
   .vc-chrome-toggle-btn {
     display: none;
   }

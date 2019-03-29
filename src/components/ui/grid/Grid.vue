@@ -1,7 +1,7 @@
 <template>
   <div class="grid va-row">
     <div class="flex xs12 md12">
-      <vuestic-widget headerText="Fixed Grid">
+      <va-card title="Fixed Grid">
         <div>
           <div class="va-row">
             <div class="flex xs12">
@@ -21,10 +21,10 @@
             </div>
           </div>
         </div>
-      </vuestic-widget>
+      </va-card>
     </div>
     <div class="flex md12 xs12">
-      <vuestic-widget headerText="Desktop Grid">
+      <va-card title="Desktop Grid">
         <div class="va-row">
           <div class="flex xs4" v-for="i in 3" :key="`4${i}`">
             <div class="grid__container flex-center">
@@ -42,11 +42,11 @@
             <div class="grid__container flex-center">xs1</div>
           </div>
         </div>
-      </vuestic-widget>
+      </va-card>
     </div>
 
     <div class="flex md12 xs12">
-      <vuestic-widget headerText="Mobile and Desktop Grid">
+      <va-card title="Mobile and Desktop Grid">
         <div class="va-row">
           <div class="flex xs12 md4">
             <div class="grid__container flex-center">xs12 md4</div>
@@ -71,11 +71,11 @@
             <div class="grid__container flex-center">xs2 md4</div>
           </div>
         </div>
-      </vuestic-widget>
+      </va-card>
     </div>
 
     <div class="flex md12 xs12">
-      <vuestic-widget headerText="Offsets">
+      <va-card title="Offsets">
         <div class="va-row">
           <div class="flex xs6 md6 offset--md6">
             <div class="grid__container flex-center">xs6 md6 offset--md6</div>
@@ -92,7 +92,7 @@
             <div class="grid__container flex-center">md4 offset--md4</div>
           </div>
         </div>
-      </vuestic-widget>
+      </va-card>
     </div>
   </div>
 </template>

@@ -51,6 +51,7 @@ export default {
 
 <style lang="scss">
 @import "~flatpickr/dist/flatpickr.css";
+@import "../../vuestic-sass/resources/resources";
 
 $datepickerActive: $vue-green;
 $datepickerBackground: #333333;
@@ -78,6 +79,7 @@ $daySize: 1.75rem;
       content: none;
       border-bottom-color: $datepickerBackground;
     }
+
     &:after {
       content: none;
       border-bottom-color: $datepickerBackground;
@@ -89,6 +91,7 @@ $daySize: 1.75rem;
       content: none;
       border-top-color: $datepickerBackground;
     }
+
     &:after {
       content: none;
       border-top-color: $datepickerBackground;
@@ -99,11 +102,13 @@ $daySize: 1.75rem;
     width: $daySize * 7 + $dayPadding * 6 + $borderPadding * 2 !important;
     padding: 0 $borderPadding $borderPadding;
     display: block;
+
     .dayContainer {
       width: ($daySize + $dayPadding) * 7;
       max-width: ($daySize + $dayPadding) * 7;
       min-width: ($daySize + $dayPadding) * 7;
       margin: -$dayPadding / 2;
+
       .flatpickr-day {
         height: $daySize;
         line-height: 1.7;
@@ -112,34 +117,44 @@ $daySize: 1.75rem;
         margin: $dayPadding / 2;
         border: none;
         color: $datepickerText;
+
         &.today {
           color: $datepickerActive;
+
           &.selected {
             color: $datepickerText;
           }
         }
+
         &:hover {
           background-color: $datepickerDayHover;
         }
+
         &.selected {
           background-color: $datepickerActive;
         }
+
         &.nextMonthDay, &.prevMonthDay {
           color: $datepickerOtherMonth;
         }
+
         &.disabled {
           color: $datepickerOtherMonth;
+
           &:hover {
             background-color: inherit;
           }
         }
+
         &.startRange, &.endRange, &.inRange {
           border-radius: 2rem;
           box-shadow: none;
         }
+
         &.startRange, &.endRange {
           background-color: $datepickerActive;
         }
+
         &.inRange {
           background-color: $datepickerDayRange;
         }
@@ -150,18 +165,23 @@ $daySize: 1.75rem;
   .flatpickr-months {
     height: 2.625rem;
     border-bottom: solid 0.125rem $datepickerSeparatorColor;
+
     .flatpickr-month {
       height: 100%;
+
       .flatpickr-current-month {
         padding-top: 0.625rem;
         color: $datepickerText;
+
         .cur-month {
           font-size: 1rem;
           font-weight: inherit;
         }
+
         .cur-year {
           font-size: 1rem;
         }
+
         .numInputWrapper {
           .numInput.cur-year {
             color: $white;
@@ -173,16 +193,19 @@ $daySize: 1.75rem;
                 border-bottom-color: $datepickerActive;
               }
             }
+
             &::after {
               border-bottom-color: $datepickerText;
             }
           }
+
           .arrowDown {
             &:hover {
               &::after {
                 border-top-color: $datepickerActive;
               }
             }
+
             &::after {
               border-top-color: $datepickerText;
             }
@@ -197,6 +220,7 @@ $daySize: 1.75rem;
       @include va-flex-center();
       padding: 0;
       color: $datepickerText;
+
       &:hover {
         color: $datepickerActive;
       }
@@ -205,8 +229,10 @@ $daySize: 1.75rem;
 
   .flatpickr-weekdays {
     padding: 0 $borderPadding;
+
     .flatpickr-weekdaycontainer {
       justify-content: space-between;
+
       .flatpickr-weekday {
         letter-spacing: 0.0625rem;
         flex: 0 0 $daySize;
@@ -226,10 +252,12 @@ $daySize: 1.75rem;
       font-weight: bold;
       font-size: 0.6875rem;
     }
+
     .flatpickr-weeks {
       box-shadow: 2px 0 0 $datepickerSeparatorColor;
       padding-bottom: $borderPadding;
       margin-top: -$dayPadding;
+
       .flatpickr-day {
         height: $daySize;
         line-height: 1.7;
@@ -248,34 +276,43 @@ $daySize: 1.75rem;
       &:hover {
         background-color: $datepickerDayHover;
       }
+
       .numInput {
         color: $datepickerText;
+
         &:hover, &:focus {
           background: $datepickerDayHover;
         }
       }
+
       .arrowUp {
         &::after {
           border-bottom-color: $datepickerText;
         }
+
         &:hover::after {
           border-bottom-color: $datepickerActive;
         }
       }
+
       .arrowDown {
         &::after {
           border-top-color: $datepickerText;
         }
+
         &:hover::after {
           border-top-color: $datepickerActive;
         }
       }
     }
+
     .flatpickr-time-separator {
       color: $datepickerText;
     }
+
     .flatpickr-am-pm {
       color: $datepickerText;
+
       &:hover {
         background-color: $datepickerDayHover;
       }

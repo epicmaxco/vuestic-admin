@@ -1,12 +1,8 @@
-import store from 'vuex-store'
-
-let palette = store.getters.palette
-
 export const defaultConfig = {
   legend: {
     position: 'bottom',
     labels: {
-      fontColor: palette.fontColor,
+      fontColor: '#34495e',
       fontFamily: 'sans-serif',
       fontSize: 14,
       padding: 20,

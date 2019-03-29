@@ -1,29 +1,14 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import VaButton from './VaButton'
+import colorPlugin from './../../../services/colors'
 
 describe('VaButton', () => {
-  /* 1. Button types */
+  /* 1. Default button */
 
   it('button without defined props', () => {
     const wrapper = shallowMount(VaButton)
 
     expect(wrapper.find(VaButton).classes()).toContain('va-button--default')
-  })
-
-  it('outline button', () => {
-    const wrapper = shallowMount(VaButton, {
-      propsData: { outline: true }
-    })
-    expect(wrapper.find(VaButton).classes()).toContain('va-button--outline')
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-
-  it('flat button', () => {
-    const wrapper = shallowMount(VaButton, {
-      propsData: { flat: true }
-    })
-    expect(wrapper.find(VaButton).classes()).toContain('va-button--flat')
-    expect(wrapper.html()).toMatchSnapshot()
   })
 
   /* 2. Button sizes */
@@ -36,7 +21,7 @@ describe('VaButton', () => {
 
   it('large button', () => {
     const wrapper = shallowMount(VaButton, {
-      propsData: { large: true }
+      propsData: { large: true },
     })
     expect(wrapper.find(VaButton).classes()).toContain('va-button--large')
     expect(wrapper.html()).toMatchSnapshot()
@@ -44,44 +29,16 @@ describe('VaButton', () => {
 
   it('small button', () => {
     const wrapper = shallowMount(VaButton, {
-      propsData: { small: true }
+      propsData: { small: true },
     })
     expect(wrapper.find(VaButton).classes()).toContain('va-button--small')
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  /* 3. Button colors */
-
-  it('info button', () => {
-    const wrapper = shallowMount(VaButton, {
-      propsData: { color: 'info' }
-    })
-    expect(wrapper.find(VaButton).classes()).toContain('va-button--info')
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-
-  it('danger button', () => {
-    const wrapper = shallowMount(VaButton, {
-      propsData: { color: 'danger' }
-    })
-
-    expect(wrapper.find(VaButton).classes()).toContain('va-button--danger')
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-
-  it('warning button', () => {
-    const wrapper = shallowMount(VaButton, {
-      propsData: { color: 'warning' }
-    })
-
-    expect(wrapper.find(VaButton).classes()).toContain('va-button--warning')
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-
-  /* 4. Button chips */
+  /* 3. Button types */
 
   it('default button', () => {
-    const wrapper = shallowMount(VaButton)
+    const wrapper = shallowMount(VaButton, colorPlugin)
 
     expect(wrapper.is('button')).toBe(true)
   })
@@ -89,8 +46,8 @@ describe('VaButton', () => {
   it('a button with defined href', () => {
     const wrapper = shallowMount(VaButton, {
       propsData: {
-        href: 'http://epic-spinners.epicmax.co/'
-      }
+        href: 'http://epic-spinners.epicmax.co/',
+      },
     })
     expect(wrapper.is('a')).toBe(true)
   })
@@ -98,8 +55,8 @@ describe('VaButton', () => {
   it('a button with defined target', () => {
     const wrapper = shallowMount(VaButton, {
       propsData: {
-        target: '_blank'
-      }
+        target: '_blank',
+      },
     })
     expect(wrapper.is('a')).toBe(true)
   })
@@ -108,8 +65,8 @@ describe('VaButton', () => {
     const wrapper = shallowMount(VaButton, {
       propsData: {
         href: 'http://epic-spinners.epicmax.co/',
-        target: '_blank'
-      }
+        target: '_blank',
+      },
     })
     expect(wrapper.html()).toMatchSnapshot()
   })
@@ -117,11 +74,11 @@ describe('VaButton', () => {
   it('router-link button with defined to property', () => {
     const wrapper = shallowMount(VaButton, {
       propsData: {
-        to: { name: 'charts' }
+        to: { name: 'charts' },
       },
       stubs: {
-        RouterLink: RouterLinkStub
-      }
+        RouterLink: RouterLinkStub,
+      },
     })
     expect(wrapper.html()).toMatchSnapshot()
   })
@@ -130,52 +87,54 @@ describe('VaButton', () => {
     const wrapper = shallowMount(VaButton, {
       propsData: {
         to: { name: 'charts' },
-        activeClass: 'va-button--active'
+        activeClass: 'va-button--active',
       },
       stubs: {
-        RouterLink: RouterLinkStub
-      }
+        RouterLink: RouterLinkStub,
+      },
     })
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  /* 5. Disabled buttons */
+  /* 4. Disabled buttons */
 
   it('disabled button', () => {
     const wrapper = shallowMount(VaButton, {
-      propsData: { disabled: true }
+      propsData: { disabled: true },
     })
 
     expect(wrapper.find(VaButton).classes()).toContain('va-button--disabled')
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  /* 6. Buttons with icons */
+  /* 5. Buttons with icons */
 
   it('button with left icon', () => {
     const wrapper = shallowMount(VaButton, {
       propsData: {
-        icon: 'brandico brandico-facebook'
-      }
+        icon: 'brandico brandico-facebook',
+      },
     })
-    expect(wrapper.find(VaButton).classes()).toContain('va-button--with-left-icon')
+    expect(wrapper.find(VaButton).classes())
+      .toContain('va-button--with-left-icon')
   })
 
   it('button with right icon', () => {
     const wrapper = shallowMount(VaButton, {
       propsData: {
-        iconRight: 'iconicstroke iconicstroke-info'
-      }
+        iconRight: 'iconicstroke iconicstroke-info',
+      },
     })
-    expect(wrapper.find(VaButton).classes()).toContain('va-button--with-right-icon')
+    expect(wrapper.find(VaButton).classes())
+      .toContain('va-button--with-right-icon')
   })
 
   it('button with both icons', () => {
     const wrapper = shallowMount(VaButton, {
       propsData: {
         icon: 'brandico brandico-facebook',
-        iconRight: 'iconicstroke iconicstroke-info'
-      }
+        iconRight: 'iconicstroke iconicstroke-info',
+      },
     })
     expect(wrapper.html()).toMatchSnapshot()
   })

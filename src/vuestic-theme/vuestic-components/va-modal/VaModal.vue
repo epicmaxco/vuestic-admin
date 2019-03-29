@@ -1,46 +1,47 @@
 <template>
   <transition name="va-modal__overlay__transition" appear :duration="withoutTransitions ? 0 : 200">
     <div
-    v-if="overlayValue"
-    class="va-modal__overlay"
-    :class="computedOverlayClass"
-    @click="checkOutside"
-  >
-    <transition name="va-modal__transition" appear :duration="withoutTransitions ? 0 : 500">
-      <div
-        v-if="value"
-        class="va-modal"
-        :class="computedClass"
-        :style="{maxWidth, maxHeight}"
-      >
-        <i
-          v-if="fullscreen"
-          @click="cancel"
-          class="ion ion-md-close va-modal__close"
-        />
+      v-if="overlayValue"
+      class="va-modal__overlay"
+      :class="computedOverlayClass"
+      @click="checkOutside"
+      :style="computedOverlayStyles"
+    >
+      <transition name="va-modal__transition" appear :duration="withoutTransitions ? 0 : 500">
+        <div
+          v-if="value"
+          class="va-modal"
+          :class="computedClass"
+          :style="{maxWidth, maxHeight}"
+        >
+          <i
+            v-if="fullscreen"
+            @click="cancel"
+            class="ion ion-md-close va-modal__close"
+          />
 
-        <div class="va-modal__inner" :style="{maxHeight, maxWidth}">
-          <div v-if="title" class="mb-4">{{title}}</div>
-          <div v-if="hasHeaderSlot" class="va-modal__header">
-            <slot name="header"/>
-          </div>
-          <div v-if="message" class="mb-4 va-modal__message">{{message}}</div>
-          <div v-if="hasContentSlot" class="mb-4 va-modal__message">
-            <slot/>
-          </div>
-          <div v-if="(cancelText || okText) && !hideDefaultActions" class="va-modal__actions mb-3">
-            <va-button v-if="cancelText" color="gray" flat @click="cancel">
-              {{cancelText}}
-            </va-button>
-            <va-button @click="ok">{{okText}}</va-button>
-          </div>
-          <div v-if="hasActionsSlot" class="va-modal__actions">
-            <slot name="actions"/>
+          <div class="va-modal__inner" :style="{maxHeight, maxWidth}">
+            <div v-if="title" class="mb-4 title">{{title}}</div>
+            <div v-if="hasHeaderSlot" class="va-modal__header">
+              <slot name="header"/>
+            </div>
+            <div v-if="message" class="mb-4 va-modal__message">{{message}}</div>
+            <div v-if="hasContentSlot" class="mb-4 va-modal__message">
+              <slot/>
+            </div>
+            <div v-if="(cancelText || okText) && !hideDefaultActions" class="va-modal__actions mb-3">
+              <va-button v-if="cancelText" color="gray" flat @click="cancel">
+                {{cancelText}}
+              </va-button>
+              <va-button @click="ok">{{okText}}</va-button>
+            </div>
+            <div v-if="hasActionsSlot" class="va-modal__actions">
+              <slot name="actions"/>
+            </div>
           </div>
         </div>
-      </div>
-    </transition>
-  </div>
+      </transition>
+    </div>
   </transition>
 </template>
 
@@ -53,7 +54,7 @@ export default {
   data () {
     return {
       // for leave animation
-      overlayValue: false
+      overlayValue: false,
     }
   },
   props: {
@@ -97,7 +98,7 @@ export default {
     fixedLayout: Boolean,
     onOk: Function,
     onCancel: Function,
-    withoutTransitions: Boolean
+    withoutTransitions: Boolean,
   },
   computed: {
     valueProxy: {
@@ -114,14 +115,22 @@ export default {
         'va-modal--mobile-fullscreen': this.mobileFullscreen,
         'va-modal--fixed-layout': this.fixedLayout,
         [`va-modal--size-${this.size}`]: this.size !== 'medium',
-        'transition-off': this.withoutTransitions
+        'transition-off': this.withoutTransitions,
       }
     },
     computedOverlayClass () {
       return {
         [`va-modal--position-${this.position}`]: this.position,
-        'transition-off': this.withoutTransitions
+        'transition-off': this.withoutTransitions,
       }
+    },
+    computedOverlayStyles () {
+      // NOTE Not sure exactly what that does.
+      // Supposedly solves some case when background wasn't shown.
+      // As a side effect removes background from nested modals.
+
+      const moreThanOneModalIsOpen = !!document.querySelectorAll('.va-modal__overlay').length
+      return moreThanOneModalIsOpen ? {} : { 'background-color': 'rgba(0, 0, 0, 0.6)' }
     },
     hasContentSlot () {
       return this.$slots.default
@@ -131,7 +140,7 @@ export default {
     },
     hasActionsSlot () {
       return this.$slots.actions
-    }
+    },
   },
   watch: {
     value (value) {
@@ -142,7 +151,9 @@ export default {
         if (this.withoutTransitions) {
           this.overlayValue = false
         } else {
-          setTimeout(() => { this.overlayValue = false }, 300)
+          setTimeout(() => {
+            this.overlayValue = false
+          }, 300)
         }
         window.removeEventListener('keyup', this.listenKeyUp)
       }
@@ -189,10 +200,12 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+
 .va-modal {
   &__overlay {
     z-index: 1000;
-    position: absolute !important;
+    position: fixed !important;
     top: 0;
     bottom: 0;
     left: 0;
@@ -201,17 +214,16 @@ export default {
     align-items: center;
     justify-content: center;
 
-    &:last-of-type {
-      background-color: rgba(0, 0, 0, 0.6);
-    }
     &.transition-off {
       opacity: 1;
     }
+
     &__transition {
       &-enter,
       &-leave-to {
         opacity: 0;
-        &:nth-of-type(n+3){
+
+        &:nth-of-type(n+3) {
           opacity: 1;
         }
       }
@@ -236,11 +248,13 @@ export default {
   max-height: calc(100vh - 2rem);
   position: relative;
   transition: all .5s ease-out;
+
   &__transition {
     &-enter,
     &-leave-to {
       opacity: 0;
       transform: translateY(-30%);
+
       &.transition-off {
         opacity: 1;
         transform: none;
@@ -249,6 +263,7 @@ export default {
 
     &-enter-active {
       transition: all .3s ease;
+
       &.transition-off {
         transition: none;
       }
@@ -256,6 +271,7 @@ export default {
 
     &-leave-active {
       transition: all .15s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+
       &.transition-off {
         transition: none;
       }
@@ -325,9 +341,11 @@ export default {
     .va-modal__inner {
       overflow: hidden;
       padding: 1.25rem 0 1.5rem 0;
+
       .va-modal__header, .va-modal__actions {
         padding: 0 1.875rem 0 1.5rem;
       }
+
       .va-modal__message {
         overflow: auto;
         padding: 0 1.875rem 0 1.5rem;
@@ -344,6 +362,7 @@ export default {
     max-height: calc(100vh - 2rem);
     max-width: map_get($grid-breakpoints, md);
     margin: auto;
+
     > div:last-of-type {
       margin-bottom: 0 !important;
     }
@@ -365,6 +384,7 @@ export default {
     justify-content: center;
     margin-top: auto;
     min-height: fit-content;
+
     &:last-of-type {
       margin-bottom: 0 !important;
     }

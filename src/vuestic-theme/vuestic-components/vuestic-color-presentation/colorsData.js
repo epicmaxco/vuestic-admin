@@ -1,28 +1,100 @@
 export const mainThemeColors = [
-  { color: '#40e583', name: 'Primary & success', description: 'Buttons, labels, graphs.' },
+  {
+    color: '#40e583',
+    name: 'Primary & success',
+    description: 'Buttons, labels, graphs.',
+  },
   { color: '#2c82e0', name: 'Info', description: 'Buttons, labels, graphs.' },
   { color: '#e34b4a', name: 'Error', description: 'Buttons, labels, graphs.' },
-  { color: '#ffc200', name: 'Warning', description: 'Buttons, labels, graphs.' },
-  { color: '#34495e', name: 'Black', description: 'Text, buttons, labels, graphs.' },
-  { color: '#babfc2', name: 'Secondary', description: 'Light text, buttons, labels, graphs.' },
+  {
+    color: '#ffc200',
+    name: 'Warning',
+    description: 'Buttons, labels, graphs.',
+  },
+  {
+    color: '#34495e',
+    name: 'Black',
+    description: 'Text, buttons, labels, graphs.',
+  },
+  {
+    color: '#babfc2',
+    name: 'Secondary',
+    description: 'Light text, buttons, labels, graphs.',
+  },
   { color: '#f5f8f9', name: 'Pale', description: 'Default table bg.' },
-  { color: '#d6ffd3', name: 'Light Primary & Success', description: 'Table bg, notifications, text buttons.' },
-  { color: '#caeeff', name: 'Light Info', description: 'Table bg, notifications, text buttons.' },
-  { color: '#ffebeb', name: 'Light Error', description: 'Table bg, notifications, text buttons.' },
-  { color: '#fff3d1', name: 'Light Warning', description: 'Table bg, notifications, text buttons.' },
-  { color: '#afb6bb', name: 'Light Black', description: 'Table bg, notifications, text buttons.' },
-  { color: '#e6e9ec', name: 'Light Secondary', description: 'Table bg, notifications, text buttons, dividers.' }
+  {
+    color: '#d6ffd3',
+    name: 'Light Primary & Success',
+    description: 'Table bg, notifications, text buttons.',
+  },
+  {
+    color: '#caeeff',
+    name: 'Light Info',
+    description: 'Table bg, notifications, text buttons.',
+  },
+  {
+    color: '#ffebeb',
+    name: 'Light Error',
+    description: 'Table bg, notifications, text buttons.',
+  },
+  {
+    color: '#fff3d1',
+    name: 'Light Warning',
+    description: 'Table bg, notifications, text buttons.',
+  },
+  {
+    color: '#afb6bb',
+    name: 'Light Black',
+    description: 'Table bg, notifications, text buttons.',
+  },
+  {
+    color: '#e6e9ec',
+    name: 'Light Secondary',
+    description: 'Table bg, notifications, text buttons, dividers.',
+  },
 ]
 
 export const extraColors = [
-  { color: '#36e9f6', name: 'Teal', description: 'Graphs, tables, labels, etc.' },
-  { color: '#ed34b8', name: 'Violet', description: 'Graphs, tables, labels, etc.' },
-  { color: '#8f4ed6', name: 'Purple', description: 'Graphs, tables, labels, etc.' },
-  { color: '#d40d52', name: 'Ruby', description: 'Graphs, tables, labels, etc.' },
-  { color: '#ff842b', name: 'Orrange', description: 'Graphs, tables, labels, etc.' },
-  { color: '#1b9a7c', name: 'Dark Green', description: 'Graphs, tables, labels, etc.' },
-  { color: '#d3ff00', name: 'Toxic', description: 'Graphs, tables, labels, etc.' },
-  { color: '#81513e', name: 'Brown', description: 'Graphs, tables, labels, etc.' },
+  {
+    color: '#36e9f6',
+    name: 'Teal',
+    description: 'Graphs, tables, labels, etc.',
+  },
+  {
+    color: '#ed34b8',
+    name: 'Violet',
+    description: 'Graphs, tables, labels, etc.',
+  },
+  {
+    color: '#8f4ed6',
+    name: 'Purple',
+    description: 'Graphs, tables, labels, etc.',
+  },
+  {
+    color: '#d40d52',
+    name: 'Ruby',
+    description: 'Graphs, tables, labels, etc.',
+  },
+  {
+    color: '#ff842b',
+    name: 'Orrange',
+    description: 'Graphs, tables, labels, etc.',
+  },
+  {
+    color: '#1b9a7c',
+    name: 'Dark Green',
+    description: 'Graphs, tables, labels, etc.',
+  },
+  {
+    color: '#d3ff00',
+    name: 'Toxic',
+    description: 'Graphs, tables, labels, etc.',
+  },
+  {
+    color: '#81513e',
+    name: 'Brown',
+    description: 'Graphs, tables, labels, etc.',
+  },
 ]
 
 export const buttonGradients = [

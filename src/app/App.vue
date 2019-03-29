@@ -6,15 +6,16 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
 }
 </script>
 
 <style lang="scss">
-@import "sass/main";
+@import "../sass/main";
 
 body {
   height: 100%;
+
   #app {
     height: 100%;
   }

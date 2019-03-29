@@ -23,22 +23,22 @@
   }
   .#{$abbrev}t-auto,
   .#{$abbrev}y-auto,
-  .#{$abbrev}a-auto{
+  .#{$abbrev}a-auto {
     #{$prop}-top: auto !important;
   }
   .#{$abbrev}r-auto,
   .#{$abbrev}x-auto,
-  .#{$abbrev}a-auto{
+  .#{$abbrev}a-auto {
     #{$prop}-right: auto !important;
   }
   .#{$abbrev}b-auto,
   .#{$abbrev}y-auto,
-  .#{$abbrev}a-auto{
+  .#{$abbrev}a-auto {
     #{$prop}-bottom: auto !important;
   }
   .#{$abbrev}l-auto,
   .#{$abbrev}x-auto,
-  .#{$abbrev}a-auto{
+  .#{$abbrev}a-auto {
     #{$prop}-left: auto !important;
   }
 }

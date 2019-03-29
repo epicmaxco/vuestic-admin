@@ -88,11 +88,11 @@ export default {
     },
     paginationOn: {
       type: Boolean,
-      default: true
+      default: true,
     },
     onFilterCustom: {
       type: String,
-      default: null
+      default: null,
     },
     httpFetch: {
       type: Function,
@@ -189,7 +189,7 @@ export default {
   watch: {
     onFilterCustom: function (val) {
       this.onFilterSet(val)
-    }
+    },
   },
   computed: {
     controlsAlignmentClass () {

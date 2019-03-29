@@ -65,6 +65,7 @@ export default {
 <style lang="scss" scoped>
 .vuestic-color-input {
   display: flex;
+
   .form-group {
     margin-bottom: 0;
   }
@@ -76,6 +77,7 @@ export default {
 
   &__input {
     width: 9ch;
+
     &__pointer {
       cursor: pointer;
     }

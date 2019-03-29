@@ -2,8 +2,10 @@
   <div class="form-wizard">
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget class="no-h-padding"
-                        :headerText="$t('forms.wizard.simple')">
+        <va-card
+          :title="$t('forms.wizard.simple')"
+          no-padding
+        >
           <vuestic-wizard
             :steps="hsSteps">
             <div slot="page1" class="form-wizard-tab-content">
@@ -27,7 +29,8 @@
                   <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
                   <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
                   <label class="control-label">{{'forms.wizard.name' |
-                    translate}}</label><va-icon icon="bar"/>
+                    translate}}</label>
+                  <va-icon icon="bar"/>
                   <small v-show="errors.has('hsName')" class="help text-danger">
                     {{ errors.first('hsName') }}
                   </small>
@@ -75,14 +78,16 @@
               </p>
             </div>
           </vuestic-wizard>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget class="no-h-padding"
-                        :headerText="$t('forms.wizard.rich')">
+        <va-card
+          class="no-h-padding"
+          :title="$t('forms.wizard.rich')"
+        >
           <vuestic-wizard
             :steps="hrSteps"
             wizard-type="rich">
@@ -107,7 +112,8 @@
                   <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
                   <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
                   <label class="control-label">{{'forms.wizard.name' |
-                    translate}}</label><va-icon icon="bar"/>
+                    translate}}</label>
+                  <va-icon icon="bar"/>
                   <small v-show="errors.has('hrName')" class="help text-danger">
                     {{ errors.first('hrName') }}
                   </small>
@@ -155,13 +161,13 @@
               </p>
             </div>
           </vuestic-wizard>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget :headerText="$t('forms.wizard.verticalRich')">
+        <va-card :title="$t('forms.wizard.verticalRich')">
           <vuestic-wizard
             :steps="vrSteps"
             wizard-layout="vertical"
@@ -187,7 +193,8 @@
                   <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
                   <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
                   <label class="control-label">{{'forms.wizard.name' |
-                    translate}}</label><va-icon icon="bar"/>
+                    translate}}</label>
+                  <va-icon icon="bar"/>
                   <small v-show="errors.has('vrName')" class="help text-danger">
                     {{ errors.first('vrName') }}
                   </small>
@@ -235,14 +242,16 @@
               </p>
             </div>
           </vuestic-wizard>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget class="simple-vertical-wizard-widget"
-                        :headerText="$t('forms.wizard.verticalSimple')">
+        <va-card
+          class="simple-vertical-wizard-widget"
+          :title="$t('forms.wizard.verticalSimple')"
+        >
           <vuestic-wizard
             :steps="vsSteps"
             wizard-layout="vertical"
@@ -268,7 +277,8 @@
                   <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
                   <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
                   <label class="control-label">{{'forms.wizard.name' |
-                    translate}}</label><va-icon icon="bar"/>
+                    translate}}</label>
+                  <va-icon icon="bar"/>
                   <small v-show="errors.has('vsName')" class="help text-danger">
                     {{ errors.first('vsName') }}
                   </small>
@@ -316,7 +326,7 @@
               </div>
             </div>
           </vuestic-wizard>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
   </div>

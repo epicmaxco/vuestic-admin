@@ -79,6 +79,7 @@ $wizard-label-width: 100%;
   flex-direction: row;
   align-items: center;
   position: relative;
+
   .wizard-step-line {
     position: absolute;
     height: 100%;
@@ -86,10 +87,12 @@ $wizard-label-width: 100%;
     left: 0;
     background-color: $lighter-gray;
     transition: background-color 300ms linear;
+
     &.completed-line {
       display: none;
     }
   }
+
   .wizard-step-indicator {
     box-sizing: content-box;
     display: block;
@@ -105,6 +108,7 @@ $wizard-label-width: 100%;
     z-index: 1;
     transition: background-color 300ms linear;
   }
+
   .wizard-step-label {
     color: $lighter-gray;
     display: inline-block;
@@ -114,34 +118,42 @@ $wizard-label-width: 100%;
     margin-left: $wizard-step-label-m-l;
     transition: color 300ms linear;
   }
+
   &:first-child {
     .wizard-step-line {
       height: calc(50% + #{$wizard-steps-p-v});
     }
   }
+
   &:last-child {
     .wizard-step-line {
       height: 100%;
       top: -50%;
+
       &.completed-line {
         display: block;
         top: 50%;
       }
     }
   }
+
   &.active {
     .wizard-step-indicator {
       background-color: $brand-primary;
     }
+
     .wizard-step-line:not(.completed-line), .completed & .wizard-step-line {
       background-color: $brand-primary;
     }
+
     .wizard-step-label {
       color: $brand-primary;
     }
+
     .wizard-step-label, .completed &.current .wizard-step-label {
       color: $brand-primary;
     }
+
     &.current .wizard-step-label {
       color: $vue-darkest-blue;
     }

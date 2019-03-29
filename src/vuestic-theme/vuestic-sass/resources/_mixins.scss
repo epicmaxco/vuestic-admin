@@ -1,16 +1,17 @@
 @import "../../vuestic-components/vuestic-grid/grid-mixins";
 
-@mixin flex-center () {
+@mixin flex-center() {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-@mixin va-display ($element) {
+@mixin va-display($element) {
   color: $vue-darkest-blue;
   font-size: map-get($display-font-sizes, $element);
   font-weight: bold;
   margin-bottom: 0.5em;
+  line-height: 1;
 }
 
 @mixin va-disabled() {

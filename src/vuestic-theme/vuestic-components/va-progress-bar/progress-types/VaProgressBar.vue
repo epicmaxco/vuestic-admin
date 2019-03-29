@@ -5,21 +5,21 @@
     </div>
     <div class="va-progress-bar__progress-bar">
       <div
-        :style="{width: normalizedBuffer + '%', backgroundColor: color}"
+        :style="{width: normalizedBuffer + '%', backgroundColor: $themes[color]}"
         class="va-progress-bar__buffer"
       />
       <div
         v-if="!indeterminate"
-        :style="{width: normalizedValue + '%', backgroundColor: color}"
+        :style="{width: normalizedValue + '%', backgroundColor: $themes[color]}"
         class="va-progress-bar__overlay"
       />
       <template v-else>
         <div
-          :style="{backgroundColor: color}"
+          :style="{backgroundColor: $themes[color]}"
           class="va-progress-bar__overlay__indeterminate-start"
         />
         <div
-          :style="{backgroundColor: color}"
+          :style="{backgroundColor: $themes[color]}"
           class="va-progress-bar__overlay__indeterminate-end"
         />
       </template>
@@ -29,7 +29,7 @@
 
 <script>
 import { progressMixin } from './progressMixin'
-import utils from '../../../../services/utils'
+import { normalizeValue } from '../../../../services/utils'
 
 export default {
   name: 'va-progress-bar',
@@ -37,8 +37,8 @@ export default {
   props: {
     buffer: {
       type: Number,
-      default: 100
-    }
+      default: 100,
+    },
   },
   computed: {
     normalizedBuffer () {
@@ -46,13 +46,15 @@ export default {
         return 100
       }
 
-      return utils.normalizeValue(this.buffer)
-    }
-  }
+      return normalizeValue(this.buffer)
+    },
+  },
 }
 </script>
 
 <style lang="scss">
+@import "../../../vuestic-sass/resources/resources";
+
 .va-progress-bar {
   width: 100%;
   position: relative;
@@ -90,14 +92,15 @@ export default {
     height: inherit;
     border-radius: inherit;
     transition: width ease 2s;
+
     &__indeterminate-start {
       animation: va-progress-bar__overlay__indeterminate-start 2s ease-in infinite;
       position: absolute;
       height: inherit;
     }
+
     &__indeterminate-end {
-      animation: va-progress-bar__overlay__indeterminate-end 2s ease-out 1s
-      infinite;
+      animation: va-progress-bar__overlay__indeterminate-end 2s ease-out 1s infinite;
       position: absolute;
       height: inherit;
     }

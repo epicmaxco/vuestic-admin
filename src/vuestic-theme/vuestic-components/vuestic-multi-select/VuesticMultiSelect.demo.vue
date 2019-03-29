@@ -19,7 +19,7 @@
 
 <script>
 
-import CountriesList from 'data/CountriesList'
+import CountriesList from '../../../data/CountriesList'
 import VuesticMultiSelect from './VuesticMultiSelect'
 
 export default {

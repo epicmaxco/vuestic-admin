@@ -71,9 +71,10 @@
 <script>
 
 import VaIcon from './VaIcon'
+
 export default {
   components: {
-    VaIcon
+    VaIcon,
   },
   data () {
     return {

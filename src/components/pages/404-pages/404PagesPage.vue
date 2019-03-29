@@ -2,7 +2,7 @@
   <div class="not-found-pages va-row">
     <div class="flex md12">
       <div class="va-row">
-        <vuestic-card
+        <va-card
           class="not-found-pages__cards text--center"
           :image="item.imageUrl"
           v-for="item in items"
@@ -15,7 +15,7 @@
               {{ 'View Example' }}
             </va-button>
           </div>
-        </vuestic-card>
+        </va-card>
       </div>
     </div>
   </div>
@@ -57,7 +57,7 @@ export default {
 .not-found-pages {
   $cardGutter: #{(19/16)}rem;
 
-  .vuestic-card.not-found-pages__cards {
+  .va-card.not-found-pages__cards {
     min-width: 220px;
     margin: 0 $cardGutter calc(#{$cardGutter} * 2) $cardGutter;
   }

@@ -23,6 +23,7 @@
     </div>
     <span
       v-if="label && !inverseLabel"
+      :style="labelStyles"
       class="va-slider__label title">
       {{ label }}
     </span>
@@ -39,7 +40,7 @@
     >
       <div
         class="va-slider__container__track"
-        :style="{ backgroundColor: color }"/>
+        :style="trackStyles"/>
       <template v-if="pins">
         <div
           v-for="(pin, key) in pinsCol"
@@ -63,6 +64,7 @@
         >
           <div
             v-if="valueVisible"
+            :style="labelStyles"
             class="va-slider__container__handler-value title"
           >
             {{ val[0] }}
@@ -76,6 +78,7 @@
         >
           <div
             v-if="valueVisible"
+            :style="labelStyles"
             class="va-slider__container__handler-value title">
             {{ val[1] }}
           </div>
@@ -95,7 +98,9 @@
         >
           <div
             v-if="valueVisible"
-            class="va-slider__container__handler-value title">
+            :style="labelStyles"
+            class="va-slider__container__handler-value title"
+          >
             {{ labelValue || val }}
           </div>
         </div>
@@ -139,6 +144,7 @@
 
 <script>
 import { validateSlider } from './validateSlider'
+import { getHoverColor } from '../../../services/color-functions'
 
 export default {
   name: 'va-slider',
@@ -147,29 +153,29 @@ export default {
       type: Boolean,
     },
     value: {
-      type: [Number, Array]
+      type: [Number, Array],
     },
     labelValue: {
-      type: String
+      type: String,
     },
     valueVisible: {
       type: Boolean,
     },
     min: {
       type: Number,
-      default: 0
+      default: 0,
     },
     max: {
       type: Number,
-      default: 100
+      default: 100,
     },
     step: {
       type: Number,
-      default: 1
+      default: 1,
     },
     color: {
       type: String,
-      default: 'success'
+      default: 'success',
     },
     label: {
       type: String,
@@ -178,10 +184,10 @@ export default {
       type: Boolean,
     },
     disabled: {
-      type: [Boolean, Array]
+      type: [Boolean, Array],
     },
     pins: {
-      type: Boolean
+      type: Boolean,
     },
     icon: {
       type: String,
@@ -190,7 +196,7 @@ export default {
       type: String,
     },
     withInput: {
-      type: Boolean
+      type: Boolean,
     },
   },
   data () {
@@ -199,37 +205,43 @@ export default {
       size: 0,
       currentValue: this.value,
       currentSlider: 0,
-      isComponentExists: false
+      isComponentExists: false,
     }
   },
   computed: {
     sliderClass () {
       return {
-        'va-slider--success': this.color === 'success',
-        'va-slider--info': this.color === 'info',
-        'va-slider--danger': this.color === 'danger',
-        'va-slider--warning': this.color === 'warning',
-        'va-slider--disabled': this.disabled
+        'va-slider--disabled': this.disabled,
+      }
+    },
+    labelStyles () {
+      return {
+        color: this.$themes[this.color],
+      }
+    },
+    trackStyles () {
+      return {
+        backgroundColor: getHoverColor(this.$themes[this.color]),
       }
     },
     processedStyles () {
       const validatedValue = this.limitValue(this.value)
 
       if (this.range) {
-        const val0 = ((validatedValue[0] - this.min) / (this.max - this.min)) * 100,
-          val1 = ((validatedValue[1] - this.min) / (this.max - this.min)) * 100
+        const val0 = ((validatedValue[0] - this.min) / (this.max - this.min)) * 100
+        const val1 = ((validatedValue[1] - this.min) / (this.max - this.min)) * 100
 
         return {
           left: `${val0}%`,
           width: `${val1 - val0}%`,
-          backgroundColor: this.color
+          backgroundColor: this.$themes[this.color],
         }
       } else {
         const val = ((validatedValue - this.min) / (this.max - this.min)) * 100
 
         return {
           width: `${val}%`,
-          backgroundColor: this.color
+          backgroundColor: this.$themes[this.color],
         }
       }
     },
@@ -237,25 +249,28 @@ export default {
       const validatedValue = this.limitValue(this.value)
 
       if (this.range) {
-        const val0 = ((validatedValue[0] - this.min) / (this.max - this.min)) * 100,
-          val1 = ((validatedValue[1] - this.min) / (this.max - this.min)) * 100
+        const val0 = ((validatedValue[0] - this.min) / (this.max - this.min)) * 100
+        const val1 = ((validatedValue[1] - this.min) / (this.max - this.min)) * 100
 
         return [
           {
             left: `calc(${val0}% - 8px)`,
-            backgroundColor: this.color
+            backgroundColor: this.color,
+            borderColor: this.$themes[this.color],
           },
           {
             left: `calc(${val1}% - 8px)`,
-            backgroundColor: this.color
-          }
+            backgroundColor: this.color,
+            borderColor: this.$themes[this.color],
+          },
         ]
       } else {
         const val = ((validatedValue - this.min) / (this.max - this.min)) * 100
 
         return {
           left: `calc(${val}% - 8px)`,
-          backgroundColor: this.color
+          backgroundColor: this.color,
+          borderColor: this.$themes[this.color],
         }
       }
     },
@@ -264,11 +279,11 @@ export default {
         return this.value
       },
       set (val) {
-        if (!this.range){
+        if (!this.range) {
           val = this.limitValue(val)
         }
         this.$emit('input', val)
-      }
+      },
     },
     total () {
       return (this.max - this.min) / this.step
@@ -297,7 +312,7 @@ export default {
     },
     isRange () {
       return Array.isArray(this.value)
-    }
+    },
   },
   watch: {
     val (val) {
@@ -312,7 +327,7 @@ export default {
       if (val > this.max) {
         validateSlider(this.value, this.step, this.min, val)
       }
-    }
+    },
   },
   methods: {
     bindEvents () {
@@ -335,7 +350,7 @@ export default {
     },
     moving (e) {
       if (!this.disabled) {
-        if (!this.flag) return false
+        if (!this.flag) { return false }
         e.preventDefault()
 
         this.setValueOnPos(this.getPos(e))
@@ -410,7 +425,9 @@ export default {
           }
         }
       } else {
-        if (val < this.min || val > this.max) return false
+        if (val < this.min || val > this.max) {
+          return false
+        }
         if (this.isDiff(this.currentValue, val)) {
           this.currentValue = val
           this.val = val
@@ -418,27 +435,27 @@ export default {
       }
     },
     setValueOnPos (pos, isDrag) {
-      let range = this.limit,
-        valueRange = this.valueLimit
+      const range = this.limit
+      const valueRange = this.valueLimit
+
+      this.setTransform()
+
       if (pos >= range[0] && pos <= range[1]) {
-        this.setTransform()
         let v = this.getValueByIndex(Math.round(pos / this.gap))
         this.setCurrentValue(v, isDrag)
       } else if (pos < range[0]) {
-        this.setTransform()
         this.setCurrentValue(valueRange[0])
       } else {
-        this.setTransform()
         this.setCurrentValue(valueRange[1])
       }
     },
     setTransform () {
       if (this.isRange) {
-        const slider = this.currentSlider,
-          val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100,
-          val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100,
-          processSize = `${val1 - val0}%`,
-          processPos = `${val0}%`
+        const slider = this.currentSlider
+        const val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100
+        const val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100
+        const processSize = `${val1 - val0}%`
+        const processPos = `${val0}%`
 
         this.$refs.process.style.width = processSize
         this.$refs.process.style['left'] = processPos
@@ -455,7 +472,7 @@ export default {
       }
     },
     normalizeValue (value) {
-      let currentRest = value % this.step
+      const currentRest = value % this.step
       if ((currentRest / this.step) >= 0.5) {
         value = value + (this.step - currentRest)
       } else {
@@ -492,7 +509,7 @@ export default {
         return a.some((v, i) => v !== b[i])
       }
       return a !== b
-    }
+    },
   },
   mounted () {
     this.$nextTick(() => {
@@ -504,105 +521,77 @@ export default {
   },
   beforeDestroy () {
     this.unbindEvents()
-  }
+  },
 }
 </script>
 
 <style lang='scss'>
-  $slider-colors: (
-    success: (#40e583, #d6ffd3),
-    danger: (#e34b4a, #ffebeb),
-    info: (#2c82e0, #caeeff),
-    warning: (#ffc200, #fff3d1)
-  );
+@import "../../vuestic-sass/resources/resources";
 
-  @each $name, $colors in $slider-colors {
-    $active-track: nth($colors, 1);
-    $track: nth($colors, 2);
+.va-slider {
 
-    .va-slider--#{$name} {
+  &--disabled {
+    @include va-disabled;
 
-      .va-slider__label, .va-slider__inverse-label, .va-slider__container__handler-value {
-        color: $active-track;
-      }
+    .va-slider__container__handler {
 
-      .va-slider__container__track--active, .va-slider__container__mark--active {
-        background: $active-track !important;
-      }
-
-      .va-slider__container__track, .va-slider__container__mark {
-        background: $track;
-      }
-
-      .va-slider__container__handler {
-        border: 0.375rem solid $active-track;
+      &:hover {
+        cursor: default;
       }
     }
   }
 
-  .va-slider {
+  &__label {
+    margin-right: 1rem;
+    user-select: none;
+  }
 
-    &--disabled {
-      @include va-disabled;
+  &__inverse-label {
+    margin-left: 1rem;
+    user-select: none;
+  }
 
-      .va-slider__container__handler {
+  &__container {
+    position: relative;
+    width: 100%;
+    height: 1.5rem;
 
-        &:hover {
-          cursor: default;
-        }
-      }
+    &__track, &__track--active {
+      position: absolute;
+      height: 0.5rem;
+      border-radius: 0.25rem;
     }
 
-    &__label {
-      margin-right: 1rem;
-      user-select: none;
-    }
-
-    &__inverse-label {
-      margin-left: 1rem;
-      user-select: none;
-    }
-
-    &__container {
-      position: relative;
+    &__track {
       width: 100%;
-      height: 1.5rem;
+    }
 
-      &__track, &__track--active {
-        position: absolute;
-        height: 0.5rem;
-        border-radius: 0.25rem;
+    &__mark {
+      position: absolute;
+      width: 0.125rem;
+      height: 0.75rem;
+    }
+
+    &__handler {
+      position: absolute;
+      width: 1.25rem;
+      height: 1.25rem;
+      background: $white;
+      border: 0.375rem solid;
+      border-radius: 50%;
+
+      &:hover {
+        cursor: pointer;
       }
 
-      &__track {
-        width: 100%;
-      }
-
-      &__mark {
+      &-value {
         position: absolute;
-        width: 0.125rem;
-        height: 0.75rem;
-      }
-
-      &__handler {
-        position: absolute;
-        width: 1.25rem;
-        height: 1.25rem;
-        background: $white;
-        border-radius: 50%;
-
-        &:hover {
-          cursor: pointer;
-        }
-
-        &-value {
-          position: absolute;
-          top: -8px;
-          left: 50%;
-          transform: translate(-50%,-100%);
-          user-select: none;
-        }
+        top: -8px;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        user-select: none;
       }
     }
   }
+}
 </style>

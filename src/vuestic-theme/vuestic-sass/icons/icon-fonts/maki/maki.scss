@@ -2,11 +2,11 @@
   font-family: 'maki';
   font-style: normal;
   font-weight: normal;
-  src: url('vuestic-theme/vuestic-sass/icons/icon-fonts/maki/maki.eot');
-  src: url('vuestic-theme/vuestic-sass/icons/icon-fonts/maki/maki.eot?#iefix') format('eot'),
-  url('vuestic-theme/vuestic-sass/icons/icon-fonts/maki/maki.woff') format('woff'),
-  url('vuestic-theme/vuestic-sass/icons/icon-fonts/maki/maki.ttf') format('truetype'),
-  url('vuestic-theme/vuestic-sass/icons/icon-fonts/maki/maki.svg#maki') format('svg');
+  src: url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/maki/maki.eot');
+  src: url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/maki/maki.eot?#iefix') format('eot'),
+  url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/maki/maki.woff') format('woff'),
+  url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/maki/maki.ttf') format('truetype'),
+  url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/maki/maki.svg#maki') format('svg');
 }
 
 [class*="maki-"]:before {

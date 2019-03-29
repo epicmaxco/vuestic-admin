@@ -1,6 +1,6 @@
 <template>
   <div class="typography">
-    <vuestic-widget>
+    <va-card>
       <div class="mb-4">
         <p class="display-1">Display 1 Heading</p>
         <p>Of all of the celestial bodies that capture our
@@ -153,12 +153,12 @@
               the moon. When you think about it.</span>
         </div>
       </div>
-    </vuestic-widget>
+    </va-card>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'typography'
+  name: 'typography',
 }
 </script>

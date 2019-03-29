@@ -1,17 +1,17 @@
 <template>
   <div class="va-row dashboard-bottom-widgets">
     <div class="flex md6 xs12">
-      <vuestic-widget class="no-h-padding no-v-padding">
-        <vuestic-feed :initialPosts="posts"></vuestic-feed>
-      </vuestic-widget>
+      <va-card no-padding>
+        <vuestic-feed :initialPosts="posts"/>
+      </va-card>
     </div>
     <div class="flex md6 xs12">
-      <vuestic-widget class="business-posts">
+      <va-card class="business-posts">
         <vuestic-social-news
           class="vuestic-social-news" :news="news"
           :url="'http://instagram.com/smartapant'"
         />
-      </vuestic-widget>
+      </va-card>
     </div>
   </div>
 </template>

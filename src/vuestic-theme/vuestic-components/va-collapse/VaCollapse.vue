@@ -36,15 +36,16 @@
 
 <script>
 import VaIcon from '../va-icon/VaIcon'
+
 export default {
   name: 'va-collapse',
   components: { VaIcon },
   props: {
     isOpenDefault: {
-      type: Boolean
+      type: Boolean,
     },
     withBackground: Boolean,
-    customHeader: Boolean
+    customHeader: Boolean,
   },
   inject: {
     accordion: {
@@ -65,15 +66,15 @@ export default {
         return {
           height: this.getHeight(),
           paddingTop: 1 + 'rem',
-          paddingBottom: 1 + 'rem'
+          paddingBottom: 1 + 'rem',
         }
       }
       return {
         height: 0,
         paddingTop: 0,
-        paddingBottom: 0
+        paddingBottom: 0,
       }
-    }
+    },
   },
   methods: {
     onHeaderClick () {
@@ -96,16 +97,19 @@ export default {
     getHeight () {
       return this.$slots.body[0].elm ? `calc(` + this.$slots.body[0].elm.clientHeight +
         `px + 2rem)` : `100%`
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+
 .va-collapse {
   & + & {
     margin-top: 1.5rem;
   }
+
   &__body {
     height: 0;
     transition: ease-in 0.3s;
@@ -121,6 +125,7 @@ export default {
       }
     }
   }
+
   &__header {
     &__content {
       display: flex;
@@ -134,6 +139,7 @@ export default {
       padding-bottom: 0.75rem;
       padding-left: 1rem;
     }
+
     &__icon {
       @include flex-center();
       min-width: 1.5rem;
