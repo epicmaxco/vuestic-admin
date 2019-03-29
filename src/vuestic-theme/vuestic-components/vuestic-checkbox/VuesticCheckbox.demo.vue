@@ -12,6 +12,7 @@
       <vuestic-checkbox v-model="value" errorMessages="errorMessages" label="Error-message"/>
       <vuestic-checkbox v-model="value" :errorMessages="errorMessages" :errorCount="2" label="Error-message"/>
       <vuestic-checkbox v-model="value" error disabled label="Error + disabled"/>
+      <vuestic-checkbox v-model="value"/><span>without label</span>
     </div>
   </div>
 </template>

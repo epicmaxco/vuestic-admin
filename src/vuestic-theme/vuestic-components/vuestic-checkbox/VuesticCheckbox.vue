@@ -147,6 +147,7 @@ export default {
   margin-bottom: $checkbox-between-items-margin;
   display: flex;
   flex-direction: column;
+  min-height: 2rem;
 
   #{&}__input {
     cursor: pointer;
@@ -156,6 +157,9 @@ export default {
     width: 1.375rem;
     color: $white;
     border: solid 0.125rem $gray-light;
+    &:focus {
+      outline: none;
+    }
     @at-root {
       .vuestic-checkbox--selected#{&} {
         display: flex;
