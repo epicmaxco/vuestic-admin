@@ -31,6 +31,7 @@ export default {
       default: false
     },
     config: {
+      type: Object,
       default: () => {
         return {}
       }
@@ -51,16 +52,10 @@ export default {
       }
     },
     fullConfig () {
-      let config = this.defaultConfig
-      if (this.config.disable) {
-        config = Object.assign({}, { disable: this.config.disable }, config)
-      }
-      return Object.assign({}, config, this.config)
+      return Object.assign({}, this.defaultConfig, this.config)
     },
     defaultConfig () {
       return {
-        inline: this.config.inline,
-        wrap: !this.config.inline,
         nextArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-forward"/>',
         prevArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-back"/>'
       }
@@ -68,16 +63,10 @@ export default {
   },
   methods: {
     onOpen (selectedDates, dateStr, pcrObject) {
+      const calendar = pcrObject.calendarContainer
       if (this.weekDays) {
-        pcrObject.calendarContainer.classList.add('flatpickr-calendar--show-days')
+        calendar.classList.add('flatpickr-calendar--show-days')
       }
-    },
-  },
-  mounted () {
-    if (this.config.inline) {
-      let el = this.$el.getElementsByClassName('flatpickr-calendar')[0]
-      this.$el.getElementsByClassName('va-date-picker__container')[0].removeChild(el)
-      this.$el.appendChild(el)
     }
   }
 }
@@ -107,18 +96,21 @@ $dayMargin: 0.6rem;
   max-width: $daySize * 7 + ($dayPadding + $dayMargin * 2) * 6 + $borderPadding * 2;
   &__container {
     display: flex;
+    position: relative;
+    flex-wrap: wrap;
   }
   &__flatpickr {
     border: 0;
     border-bottom: 1px solid $brand-secondary;
     cursor: pointer;
-    width: $daySize * 7 + ($dayPadding + $dayMargin * 2) * 6 + $borderPadding * 2 - 2rem !important;
+    width: calc(100% - 2rem);
     background-color: $datepickerBackground;
     min-height: 2.375rem;
     height: 2.375rem;
     outline: none;
     padding: 0.5rem;
     color: $vue-darkest-blue;
+    margin-right: 2rem;
     &.active {
       box-shadow: none;
     }
@@ -133,24 +125,33 @@ $dayMargin: 0.6rem;
     }
   }
   &__icon {
+    position: absolute;
+    right: 0;
+    top: 0;
     border-radius: 0 0.5rem 0 0;
     border-bottom: 1px solid $brand-secondary;
     color: $brand-secondary;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-right: 0.5rem;
+    padding: 0.5rem;
     height: 2.375rem;
     cursor: pointer;
     background-color: $datepickerBackground;
-    width: 2rem;
+    width: 2.2rem;
   }
 }
 
 .flatpickr-calendar {
   border-radius: 0.5rem;
-  width: $daySize * 7 + ($dayPadding + $dayMargin * 2) * 6 + $borderPadding * 2 !important;
+  max-width: $daySize * 7 + ($dayPadding + $dayMargin * 2) * 6 + $borderPadding * 2;
+  width: 100%;
+  min-width: 200px;
   background-color: $datepickerBackground;
   box-shadow: $datepicker-box-shadow;
+
+  &:not(.inline) {
+    @include media-breakpoint-only(xs) {
+      max-width: 18rem;
+    }
+  }
 
   &:not(.flatpickr-calendar--show-days) {
     .flatpickr-weekdays {
@@ -159,40 +160,37 @@ $dayMargin: 0.6rem;
   }
 
   &.arrowTop {
-    &:before {
-      content: none;
-      border-bottom-color: $datepickerBackground;
-    }
-    &:after {
+    &:before,
+    &:after{
       content: none;
       border-bottom-color: $datepickerBackground;
     }
   }
 
   &.arrowBottom {
+    &:after,
     &:before {
-      content: none;
-      border-top-color: $datepickerBackground;
-    }
-    &:after {
       content: none;
       border-top-color: $datepickerBackground;
     }
   }
 
   .flatpickr-days {
-    width: $daySize * 7 + ($dayPadding + $dayMargin * 2) * 6 + $borderPadding * 2 !important;
+    width: 100%;
     display: block;
+
     .dayContainer {
-      max-width: $daySize * 7 + ($dayPadding + $dayMargin * 2) * 6 + $borderPadding * 2 !important;
-      width: $daySize * 7 + ($dayPadding + $dayMargin * 2) * 6 + $borderPadding * 2 !important;
+       width: 100%;
+       max-width: 100%;
+       min-width: 280px;
+
       .flatpickr-day {
         @include va-flex-center();
         height: $daySize;
         line-height: 1.7;
         font-size: 1rem;
         flex: 0 0 $daySize;
-        margin: $dayMargin;
+        margin: calc((100% - 2rem * 7) / 14);
         border: none;
         color: $datepickerText;
         &.today {
@@ -246,12 +244,15 @@ $dayMargin: 0.6rem;
   .flatpickr-months {
     height: 2.625rem;
     border-bottom: solid 0.0625rem $datepickerSeparatorColor;
+
     .flatpickr-month {
       height: 100%;
+
       .flatpickr-current-month {
         padding-top: 0.625rem;
         color: $datepickerText;
         background-color: $datepickerBackground;
+
         .cur-month {
           font-size: 1rem;
           font-weight: inherit;
@@ -259,9 +260,11 @@ $dayMargin: 0.6rem;
             background-color: $datepickerBackground;
           }
         }
+
         .cur-year {
           font-size: 1rem;
         }
+
         .numInputWrapper {
           border: 0;
           &:hover {
@@ -302,10 +305,15 @@ $dayMargin: 0.6rem;
       @include va-flex-center();
       padding: 0;
       color: $brand-secondary;
+
       &:hover {
         color: $datepickerActiveBackground;
       }
     }
+  }
+
+  .flatpickr-innerContainer {
+    overflow-x: auto;
   }
 
   .flatpickr-weekdays {
@@ -349,10 +357,12 @@ $dayMargin: 0.6rem;
     border-top: solid 0.0625rem $datepickerSeparatorColor;
     height: 3rem;
     max-height: 3rem;
+
     .numInputWrapper {
       &:hover {
         background-color: $datepickerBackground
       }
+
       .flatpickr-hour {
         margin-left: 1rem;
         width: 6rem;
@@ -362,6 +372,7 @@ $dayMargin: 0.6rem;
         background-color: $datepickerBackground;
         border-bottom: 1px solid $brand-secondary;
       }
+
       .flatpickr-minute {
         margin-left: 1rem;
         width: 6rem;
@@ -370,46 +381,53 @@ $dayMargin: 0.6rem;
         background-color: $datepickerBackground;
         border-bottom: 1px solid $brand-secondary;
       }
+
       .numInput {
         &:hover, &:focus {
           background: $datepickerBackground;
         }
       }
+
       .arrowUp {
         opacity: 1;
         border: 0;
-        &:hover {
-          background-color: inherit;
-        }
         width: 1.5rem;
         height: 0;
         margin-top: 1rem;
+
+        &:hover {
+          background-color: inherit;
+        }
+
         &::after {
-          border-bottom: 2.5px solid $datepickerActiveColor;
-          border-left: 2.5px solid transparent;
-          border-right: 2.5px solid transparent;
+          border-width: 0 2.5px 2.5px 2.5px;
+          border-color: transparent transparent $datepickerActiveColor transparent;
         }
       }
+
       .arrowDown {
         opacity: 1;
         height: 0;
         width: 1.5rem;
         border: 0;
         margin-top: 0.5rem;
+
         &:hover {
           background-color: inherit;
         }
+
         &::after {
-          border-top: 2.5px solid $datepickerActiveColor;
-          border-left: 2.5px solid transparent;
-          border-right: 2.5px solid transparent;
+           border-width: 2.5px 2.5px 0 2.5px;
+           border-color: $datepickerActiveColor transparent transparent transparent;
         }
       }
     }
+
     .flatpickr-time-separator {
       color: $datepickerText;
       display: none;
     }
+
     .flatpickr-am-pm {
       color: $datepickerText;
       padding-top: 0.5rem;
