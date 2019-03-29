@@ -1,6 +1,6 @@
 <template>
   <div class="va-progress-bar">
-    <div :style="{color}" class="va-progress-bar__info">
+    <div :style="{color: $themes[color]}" class="va-progress-bar__info">
       <slot/>
     </div>
     <div class="va-progress-bar__progress-bar">

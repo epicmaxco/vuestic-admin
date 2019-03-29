@@ -1,16 +1,18 @@
 <template>
   <div class="dashboard">
     <div class="va-row">
-      <div class="flex md6">
+      <div class="flex xs12 lg6">
         <dashboard-line-chart />
       </div>
-      <div class="flex md3">
+      <div class="flex xs12 md6 lg3">
         <dashboard-donut-chart />
       </div>
-      <div class="flex md3">
-
+      <div class="flex xs12 md6 lg3">
+        <dashboard-progress-bars />
       </div>
     </div>
+
+    <dashboard-info-block />
   </div>
 </template>
 
@@ -18,13 +20,15 @@
 import DashboardLineChart from './DashboardLineChart'
 import DashboardDonutChart from './DashboardDonutChart'
 import DashboardProgressBars from './DashboardProgressBars'
+import DashboardInfoBlock from './DashboardInfoBlock'
 
 export default {
   name: 'dashboard',
   components: {
     DashboardLineChart,
     DashboardDonutChart,
-    DashboardProgressBars
+    DashboardProgressBars,
+    DashboardInfoBlock
   },
 
   methods: {

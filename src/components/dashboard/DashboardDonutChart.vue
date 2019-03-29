@@ -1,6 +1,10 @@
 <template>
   <va-card title="Loading speed">
-    <va-button icon="fa fa-print"/>
+    <va-button
+      icon="fa fa-print"
+      flat
+      slot="actions"
+    />
     <vuestic-chart
       :data="donutChartData"
       type="donut"

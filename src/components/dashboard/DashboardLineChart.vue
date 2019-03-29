@@ -10,6 +10,7 @@
     <vuestic-chart
       :data="lineChartData"
       type="line"
+      class="chart"
     />
   </va-card>
 </template>
@@ -24,3 +25,9 @@ export default {
   }),
 }
 </script>
+
+<style scoped>
+  .chart {
+    max-height: 400px;
+  }
+</style>
