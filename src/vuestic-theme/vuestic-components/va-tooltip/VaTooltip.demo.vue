@@ -1,40 +1,45 @@
 <template>
   <VbDemo>
     <VbContainer style="width: 100%" title="Tooltip with title and icon">
-      <va-tooltip
-        :options="topTooltipOptions"
-        icon="glyphicon glyphicon-print"
-        color="warning"
-        title="Hey folks!"
-        message="This tooltip is amazing :D"
-      >
-        <va-button>
-          Show Tooltip
-        </va-button>
-      </va-tooltip>
-    </VbContainer>
-    <VbContainer style="width: 100%" title="Default tooltip">
-      <va-tooltip
-        :options="topTooltipOptions1"
-        color="danger"
-        message="This tooltip is so minimal :D"
-      >
-        <va-button>
-          Show Tooltip
-        </va-button>
-      </va-tooltip>
-    </VbContainer>
-    <VbContainer style="width: 100%" title="Tooltip with icon">
-      <va-tooltip
-        icon="glyphicon glyphicon-print"
-        color="info"
-        :options="topTooltipOptions2"
-        message="This tooltip is so informative!"
-      >
-        <va-button>
-          Show Tooltip
-        </va-button>
-      </va-tooltip>
+      <va-input
+        v-model="tooltip1.title"
+        label="Title"
+      />
+      <va-input
+        class="pt-4"
+        v-model="tooltip1.message"
+        label="Message"
+      />
+      <vuestic-simple-select
+        class="mt-4"
+        style="background-color:rgb(245, 248, 249)"
+        label="icon (font-awesome)"
+        v-model="tooltip1.icon"
+        :options="icons"
+      />
+      <vuestic-simple-select
+        class="mt-4"
+        style="background-color:rgb(245, 248, 249)"
+        label="color scheme"
+        v-model="tooltip1.color"
+        :options="colors"
+      />
+      <div class="va-row pt-2">
+        <div class="flex">
+          <va-button @click="options.show = !options.show">
+            Show Tooltip
+          </va-button>
+        </div>
+        <va-tooltip
+          :options="options"
+          :icon="tooltip1.icon"
+          style="margin-top: 2rem;"
+          :color="tooltip1.color"
+          iconColor="#ffc200"
+          :title="tooltip1.title"
+          :message="tooltip1.message"
+        />
+      </div>
     </VbContainer>
   </VbDemo>
 </template>
@@ -48,26 +53,24 @@ export default {
   },
   data () {
     return {
-      topTooltipOptions: {
+      options: {
         placement: 'right',
         show: true,
         autoHide: false
       },
-      topTooltipOptions1: {
-        placement: 'right',
-        show: true,
-        autoHide: false
-      },
-      topTooltipOptions2: {
-        placement: 'right',
-        show: true,
-        autoHide: false
-      },
+      icons: [
+        'fa fa-print', 'fa fa-star'
+      ],
+      colors: [
+        'success', 'info', 'danger', 'warning', 'gray', 'dark'
+      ],
+      tooltip1: {
+        title: 'Hey folks!',
+        message: 'This tooltip is amazing:D',
+        icon: 'fa fa-print',
+        color: 'warning',
+      }
     }
   }
 }
 </script>
-
-<style scoped>
-
-</style>

@@ -60,6 +60,11 @@
     "slider": "Sliders",
     "range": "Ranges"
   },
+  "tooltips": {
+    "tooltip": "Tooltip",
+    "minimalTooltip": "Minimal Tooltip",
+    "anotherOneTooltip": "Another One Tooltip"
+  },
   "dashboard": {
     "dataVisualization": "Data Visualization",
     "success": "SUCCESS",

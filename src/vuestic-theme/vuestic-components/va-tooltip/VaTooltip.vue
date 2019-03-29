@@ -45,22 +45,23 @@ export default {
   },
   computed: {
     tooltipOptions () {
-      this.templateComputed
+      VTooltip.options.defaultTemplate = this.getTemplate()
+      VTooltip.options.defaultTemplate
       this.options.content = this.message
       return Object.assign({}, this.defaultOptions, this.options)
-    },
-    templateComputed () {
+    }
+  },
+  methods: {
+    getTemplate () {
       let title = this.title ? '<div class="tooltip-inner--title">' + this.title + '</div>' : ''
       let icon = this.icon ? '<i class="' + this.icon + ' tooltip__icon" size="40px" style="color:' + this.$themes[this.color] + '"></i>' : ''
-      VTooltip.options.defaultTemplate = '' +
-        '<div class="tooltip" role="tooltip" style="background-color: ' + getHoverColor(this.color) + '">' +
+      return '' + '<div class="tooltip" role="tooltip" style="background-color: ' + getHoverColor(this.color) + '">' +
         icon +
         '<div class="tooltip__content">' +
         title +
         '<div class="tooltip-inner"></div>' +
         '</div>' +
         '</div>'
-      VTooltip.options.defaultTemplate
     }
   }
 }
