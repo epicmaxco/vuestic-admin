@@ -74,6 +74,7 @@ import VuesticContainer from './vuestic-components/vuestic-grid/VGrid/Container'
 import VuestVaLayout from './vuestic-components/vuestic-grid/VGrid/Layout'
 import VuesticFlex from './vuestic-components/vuestic-grid/VGrid/Flex'
 import Card from './vuestic-components/va-card/VaCard'
+import NumberIcon from './vuestic-components/va-number-icon/VaNumberIcon'
 import { installQuasarPlatform } from './vuestic-components/vuestic-popup/quasar/install'
 
 // At the moment we use quasar platform install to make its components work.
@@ -131,6 +132,7 @@ const VuesticPlugin = {
       VuesticContainer,
       VuestVaLayout,
       VuesticFlex,
+      NumberIcon
     ].forEach(component => {
       Vue.component(component.name, component)
     })
