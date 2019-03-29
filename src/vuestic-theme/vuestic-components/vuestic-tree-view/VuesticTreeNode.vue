@@ -31,14 +31,19 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+
 .vuestic-tree-node {
   .form-group {
     margin-bottom: 0px;
   }
+
   display: flex;
+
   &-checkbox {
     margin-right: 0.75rem;
   }
+
   &-icon {
     display: flex;
     justify-content: center;
@@ -46,6 +51,7 @@ export default {
 
     margin-right: 0.375rem;
   }
+
   &-icon-right {
     display: flex;
     justify-content: center;
@@ -53,11 +59,13 @@ export default {
 
     margin-right: 0.375rem;
   }
+
   &-label {
     flex-grow: 1;
     word-wrap: break-word;
     overflow: hidden;
   }
+
   &-selected #{&}-label {
     background-color: $vue-light-green;
   }

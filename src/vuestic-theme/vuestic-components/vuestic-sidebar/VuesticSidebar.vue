@@ -45,6 +45,7 @@ export default {
       margin-bottom: 0;
       list-style: none;
       padding-left: 0;
+
       li {
         display: block;
         padding-left: 0;
@@ -72,6 +73,7 @@ export default {
     opacity: 0;
     z-index: $min-z-index;
   }
+
   &.sidebar-hidden + .content-wrap {
     @include media-breakpoint-down(md) {
       margin-left: 0;

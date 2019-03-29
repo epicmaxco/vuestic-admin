@@ -76,6 +76,7 @@ $vuestic-preloader-top: calc(50% - 104px / 2);
       }
     }
   }
+
   .made-by-footer {
     display: flex;
     justify-content: center;

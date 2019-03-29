@@ -5,13 +5,15 @@
       <div class="form-group">
         <div class="input-group">
           <input type="text" id="email" required="required"/>
-          <label class="control-label" for="email">{{ $t('auth.email') }}</label><va-icon icon="bar"/>
+          <label class="control-label" for="email">{{ $t('auth.email') }}</label>
+          <va-icon icon="bar"/>
         </div>
       </div>
       <div class="form-group">
         <div class="input-group">
           <input type="password" id="password" required="required"/>
-          <label class="control-label" for="password">{{ $t('auth.password') }}</label><va-icon icon="bar"/>
+          <label class="control-label" for="password">{{ $t('auth.password') }}</label>
+          <va-icon icon="bar"/>
         </div>
       </div>
       <vuestic-checkbox name="agree-to-terms" v-model="agreedToTerms">

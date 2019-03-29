@@ -13,5 +13,5 @@ export default {
     Container,
     Flex,
     Layout,
-  }
+  },
 }

@@ -2,8 +2,8 @@
   <div class="notifications">
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget
-          :headerText="'notificationsPage.popovers.title' | translate">
+        <va-card
+          :title="'notificationsPage.popovers.title' | translate">
           <div class="va-row">
             <div class="flex md6">
               <fieldset>
@@ -12,7 +12,8 @@
                     <input id="popover-title" v-model="popoverTitle"
                            @input="checkPopoverContents" required/>
                     <label class="control-label" for="popover-title">{{'notificationsPage.popovers.popoverTitleLabel'
-                      | translate}}</label><va-icon icon="bar"/>
+                      | translate}}</label>
+                    <va-icon icon="bar"/>
                   </div>
                 </div>
                 <div class="form-group">
@@ -20,7 +21,8 @@
                     <input id="popover-text" v-model="popoverText"
                            @input="checkPopoverContents" required/>
                     <label class="control-label" for="popover-text">{{'notificationsPage.popovers.popoverTextLabel'
-                      | translate}}</label><va-icon icon="bar"/>
+                      | translate}}</label>
+                    <va-icon icon="bar"/>
                   </div>
                 </div>
                 <div class="form-group">
@@ -28,7 +30,8 @@
                     <input id="popover-icon" v-model="popoverIcon"
                            @input="checkPopoverContents" required/>
                     <label class="control-label" for="popover-icon">{{'notificationsPage.popovers.popoverIconLabel'
-                      | translate}}</label><va-icon icon="bar"/>
+                      | translate}}</label>
+                    <va-icon icon="bar"/>
                   </div>
                 </div>
                 <vuestic-popover popover-class="vuestic-tooltip"
@@ -63,69 +66,68 @@
               </p>
             </div>
           </div>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget
-          :headerText="'notificationsPage.notifications.title' | translate">
+        <va-card :title="$t('notificationsPage.notifications.title')">
           <div class="mb-3">
             <va-notification closeable>
-              <span class="va-notification__badge va-notification__badge--success">
+              <va-badge>
                 {{ $t('notificationsPage.notifications.success') }}
-              </span>
+              </va-badge>
               {{ $t('notificationsPage.notifications.successMessage') }}
             </va-notification>
           </div>
           <div class="mb-3">
             <va-notification color="info" closeable>
-              <span class="va-notification__badge va-notification__badge--info">
+              <va-badge color="info">
                 {{ $t('notificationsPage.notifications.info') }}
-              </span>
+              </va-badge>
               {{ $t('notificationsPage.notifications.infoMessage') }}
             </va-notification>
           </div>
           <div class="mb-3">
             <va-notification color="warning" closeable>
-              <span class="va-notification__badge va-notification__badge--warning">
+              <va-badge color="warning">
                 {{ $t('notificationsPage.notifications.warning') }}
-              </span>
+              </va-badge>
               {{ $t('notificationsPage.notifications.warningMessage') }}
             </va-notification>
           </div>
           <div class="mb-3">
             <va-notification color="danger" closeable>
-              <span class="va-notification__badge va-notification__badge--danger">
+              <va-badge color="danger">
                 {{ $t('notificationsPage.notifications.danger') }}
-              </span>
+              </va-badge>
               {{ $t('notificationsPage.notifications.dangerMessage') }}
             </va-notification>
           </div>
           <div class="mb-3">
             <va-notification color="gray" closeable>
-              <span class="va-notification__badge va-notification__badge--gray">
+              <va-badge color="gray">
                 {{ $t('notificationsPage.notifications.gray') }}
-              </span>
+              </va-badge>
               {{ $t('notificationsPage.notifications.warningMessage') }}
             </va-notification>
           </div>
           <div class="mb-3">
             <va-notification color="dark" closeable>
-              <span class="va-notification__badge va-notification__badge--dark">
+              <va-badge color="dark">
                 {{ $t('notificationsPage.notifications.dark') }}
-              </span>
+              </va-badge>
               {{ $t('notificationsPage.notifications.dangerMessage') }}
             </va-notification>
           </div>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row">
       <div class="flex xs12">
-        <vuestic-widget :headerText="$t('notificationsPage.toasts.title')">
+        <va-card :title="$t('notificationsPage.toasts.title')">
           <div class="va-row">
             <div class="flex xs12 md6">
               <fieldset>
@@ -189,7 +191,7 @@
               </div>
             </div>
           </div>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
   </div>

@@ -1,9 +1,7 @@
 // Also see material design material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints
-
 @import "grid-variables";
 // Mixins are reserved for "smart stuffs", flex one-liners are kept intact
 @import "grid-mixins";
-
 @import "grid-spacing";
 
 .va-layout {
@@ -56,6 +54,7 @@
 
 .va-row {
   @include va-layout();
+
   &.row {
     flex-direction: row;
 

@@ -3,7 +3,7 @@
     <div class="demo-container__item">
       <vuestic-checkbox v-model="value">
         <div slot="label">
-         Selected
+          Selected
         </div>
       </vuestic-checkbox>
       <vuestic-checkbox v-model="value" label="Readonly" readonly/>
@@ -21,13 +21,13 @@ import VuesticCheckbox from './VuesticCheckbox'
 
 export default {
   components: {
-    VuesticCheckbox
+    VuesticCheckbox,
   },
   data () {
     return {
       value: true,
-      errorMessages: ['error message 1', 'error message 2']
+      errorMessages: ['error message 1', 'error message 2'],
     }
-  }
+  },
 }
 </script>

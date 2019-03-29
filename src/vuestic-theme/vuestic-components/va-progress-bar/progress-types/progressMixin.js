@@ -1,31 +1,24 @@
-import utils from '../../../../services/utils'
-import {
-  colorConfig,
-  VuesticTheme
-} from './../../vuestic-color-picker/VuesticTheme'
+import { normalizeValue } from '../../../../services/utils'
 
 export const progressMixin = {
   props: {
     value: {
       type: Number,
-      default: 0
+      default: 0,
     },
-    theme: {
+    color: {
       type: String,
-      default: 'Primary'
+      default: 'success',
     },
     // If 'indeterminate' is 'true' 'value' prop will be ignored.
     indeterminate: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     normalizedValue () {
-      return utils.normalizeValue(this.value)
+      return normalizeValue(this.value)
     },
-    color () {
-      return colorConfig[VuesticTheme[this.theme]]
-    },
-  }
+  },
 }

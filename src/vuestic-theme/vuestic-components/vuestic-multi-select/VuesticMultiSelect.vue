@@ -9,7 +9,8 @@
         :class="{'has-value': !!displayValue}"
         v-bind:value="displayValue"
         required/>
-      <label class="control-label">{{label}}</label><va-icon icon="bar"/>
+      <label class="control-label">{{label}}</label>
+      <va-icon icon="bar"/>
       <small v-show="hasErrors()" class="help text-danger">{{
         showRequiredError() }}
       </small>
@@ -41,7 +42,7 @@
 </template>
 
 <script>
-import Dropdown from 'vuestic-directives/Dropdown'
+import Dropdown from '../../vuestic-directives/Dropdown'
 import Scrollbar from '../vuestic-scrollbar/VuesticScrollbar.vue'
 
 export default {
@@ -145,6 +146,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../vuestic-sass/resources/resources";
+
 .multiselect-form-group {
   &__unselect {
     margin-right: 20px;
@@ -158,6 +161,7 @@ export default {
 
   .dropdown-menu {
     padding: 0;
+
     .vuestic-scrollbar {
       max-height: $dropdown-item-height * 4;
     }

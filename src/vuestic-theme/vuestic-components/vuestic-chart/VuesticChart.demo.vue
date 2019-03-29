@@ -17,13 +17,15 @@
 <script>
 import VuesticChart from './VuesticChart.vue'
 import VuesticSimpleSelect from '../vuestic-simple-select/VuesticSimpleSelect'
-import { chartTypes } from './VuesticChartConfigs'
-import { getLineChartData } from '../../../data/charts/LineChartData'
+// TODO Demo is non operational
+// HACK Data is bound to vuex
+// import { chartTypes } from './VuesticChartConfigs'
+// import { getLineChartData } from '../../../data/charts/LineChartData'
 
 export default {
   data () {
     return {
-      chartData: getLineChartData(),
+      // chartData: getLineChartData(),
       chartType: 'pie',
     }
   },
@@ -32,11 +34,11 @@ export default {
     VuesticChart,
   },
   computed: {
-    chartTypes: () => chartTypes,
+    // chartTypes: () => chartTypes,
   },
   methods: {
     refreshData () {
-      this.chartData = getLineChartData()
+      // this.chartData = getLineChartData()
     },
   },
 }

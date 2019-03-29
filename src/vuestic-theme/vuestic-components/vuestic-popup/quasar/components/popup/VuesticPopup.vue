@@ -239,6 +239,7 @@ export default {
   overflow-x: hidden;
   max-width: 100vw;
   outline: 0;
+
   > .q-list:only-child {
     border: none;
   }

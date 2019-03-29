@@ -91,29 +91,37 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+
 .vuestic-tree-category {
   &__header {
     cursor: pointer;
     display: flex;
   }
+
   &__header-checkbox {
     margin-right: 0.75rem;
   }
+
   &__header-icon {
     margin-right: 0.375rem;
   }
+
   &__header-label {
     word-wrap: break-word;
     overflow: hidden;
   }
+
   &__list-container {
     margin-top: 0.625rem;
     padding-left: 0.6875rem;
   }
+
   &__list-internal-container {
     border-left: dashed 0.0625rem $lighter-gray;
     padding-left: 1.5rem;
   }
+
   // List items require padding. Somewhat hacky, but the only remaining option is using render functions.
   .vuestic-tree-category + .vuestic-tree-category, .vuestic-tree-node + .vuestic-tree-node, .vuestic-tree-category + .vuestic-tree-node, .vuestic-tree-node + .vuestic-tree-category {
     margin-top: 0.625rem;

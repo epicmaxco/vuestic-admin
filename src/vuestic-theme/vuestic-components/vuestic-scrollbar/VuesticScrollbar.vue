@@ -158,33 +158,40 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+
 .vuestic-scrollbar {
   background: transparent;
   transition: all .3s linear;
   position: relative;
+
   .scrollbar-wrapper {
     box-shadow: $sidebar-box-shadow;
     position: relative;
     overflow: hidden;
     max-height: 100%;
+
     .track {
       width: 5px;
       position: absolute;
       right: 0;
       top: 0;
       height: 100%;
+
       .thumb {
         transition: height .3s linear, opacity .6s linear;
         position: absolute;
         width: 100%;
         background-color: $vue-green;
         opacity: 0;
+
         &.active {
           opacity: .3;
         }
       }
     }
   }
+
   &:hover {
     .thumb.active {
       opacity: 1 !important;

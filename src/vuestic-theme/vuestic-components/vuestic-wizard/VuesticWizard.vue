@@ -50,15 +50,15 @@
 
       <div class="wizard-body-actions" v-if="!wizardCompleted">
         <div class="btn-container" v-if="backEnabled">
-          <va-button outline @click="goBack()"> Back </va-button>
+          <va-button outline @click="goBack()"> Back</va-button>
         </div>
 
         <div class="btn-container" v-if="!isLastStep()">
-          <va-button @click="goNext()"> Next </va-button>
+          <va-button @click="goNext()"> Next</va-button>
         </div>
 
         <div class="btn-container" v-if="currentStep == steps.length - 1">
-          <va-button @click="completeWizard()"> {{ lastStepLabel }} </va-button>
+          <va-button @click="completeWizard()"> {{ lastStepLabel }}</va-button>
         </div>
       </div>
     </div>
@@ -79,7 +79,7 @@ export default {
     SimpleHorizontalIndicator,
     RichHorizontalIndicator,
     RichVerticalIndicator,
-    SimpleVerticalIndicator
+    SimpleVerticalIndicator,
   },
   props: {
     steps: {},
@@ -214,6 +214,7 @@ $wizard-body-step-item-margin-bottom: $wizard-body-step-v-padding;
     > *:last-child {
       margin-bottom: 0;
     }
+
     .form-group {
       min-width: 200px;
       max-width: 360px;

@@ -25,7 +25,7 @@ export default {
   name: 'sidebar-link-group',
   components: {
     SidebarLink,
-    Expanding
+    Expanding,
   },
   data () {
     return {
@@ -69,6 +69,7 @@ export default {
       font-weight: bold;
       transition: transform 0.3s ease;
     }
+
     &.expanded {
       .expand-icon {
         transform: rotate(180deg);
@@ -79,10 +80,12 @@ export default {
   .sidebar-submenu {
     list-style: none;
     padding-left: 0;
+
     li {
       display: block;
       padding-left: 0;
     }
+
     .sidebar-link__router-link {
       height: $sidebar-submenu-link-height;
       padding-left: $sidebar-submenu-link-pl;

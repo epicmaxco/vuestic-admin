@@ -5,16 +5,20 @@
     </div>
     <div class="va-row">
       <div class="flex xs3">
-        <span>m</span><vuestic-simple-select :options="directionList" v-model="selectedMarginDirection"/>
+        <span>m</span>
+        <vuestic-simple-select :options="directionList" v-model="selectedMarginDirection"/>
       </div>
       <div class="flex xs2">
-        <span>-</span><vuestic-simple-select :options="sizesList" v-model="selectedMarginSize"/>
+        <span>-</span>
+        <vuestic-simple-select :options="sizesList" v-model="selectedMarginSize"/>
       </div>
       <div class="flex xs3 offset-2">
-        <span>p</span><vuestic-simple-select :options="directionList" v-model="selectedPaddingDirection"/>
+        <span>p</span>
+        <vuestic-simple-select :options="directionList" v-model="selectedPaddingDirection"/>
       </div>
       <div class="flex xs2">
-        <span>-</span><vuestic-simple-select :options="sizesList" v-model="selectedPaddingSize"/>
+        <span>-</span>
+        <vuestic-simple-select :options="sizesList" v-model="selectedPaddingSize"/>
       </div>
     </div>
     <div class="va-row">
@@ -43,7 +47,8 @@
 
 <script>
 import VuesticSimpleSelect from '../vuestic-simple-select/VuesticSimpleSelect'
-import VuesticColorPresentation from '../vuestic-color-presentation/VuesticColorPresentation'
+import VuesticColorPresentation
+  from '../vuestic-color-presentation/VuesticColorPresentation'
 
 export default {
   name: 'spacing-playgroud',
@@ -68,8 +73,8 @@ export default {
       return (this.selectedPaddingDirection && this.selectedPaddingSize)
         ? `p${this.selectedPaddingDirection}-${this.selectedPaddingSize}`
         : ''
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -77,9 +82,11 @@ export default {
 .spacing-playground {
   .playground-component {
     background-color: #ffd093;
+
     &__padding {
       background-color: #c9f7db;
     }
+
     &__inner {
       background-color: white;
       border: 1px solid rgba(0, 0, 0, 0.2);

@@ -50,17 +50,21 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
   .empty {
     text-align: center;
   }
+
   .post {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     .photo-container {
       margin-right: 1rem;
       border-radius: 50%;
       border: 2px solid $lighter-gray;
+
       .photo {
         background-size: cover !important;
         width: 3rem;
@@ -68,6 +72,7 @@ export default {
         border-radius: 50%;
       }
     }
+
     .underscored {
       width: 100%;
       display: flex;
@@ -77,21 +82,26 @@ export default {
       overflow: hidden;
       padding-right: 0.7rem;
       height: 3.5rem;
+
       .text {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+
         .name {
           font-weight: $font-weight-bold;
         }
       }
+
       .close-btn {
         margin-left: 1rem;
+
         i {
           left: 10.5px;
         }
       }
     }
+
     &.last {
       .underscored {
         border-bottom: none;

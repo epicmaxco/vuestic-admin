@@ -47,6 +47,10 @@ export default {
           code: 'br',
           name: 'brazilian_portuguese',
         },
+        {
+          code: 'cn',
+          name: 'simplified_chinese',
+        },
       ],
     },
   },
@@ -72,6 +76,7 @@ export default {
 
 .language-dropdown {
   cursor: pointer;
+
   .flag-icon-large {
     display: block;
     width: 31px;

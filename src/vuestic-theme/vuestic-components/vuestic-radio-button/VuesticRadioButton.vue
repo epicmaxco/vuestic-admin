@@ -44,7 +44,7 @@ export default {
   },
   data () {
     return {
-      isFocused: false
+      isFocused: false,
     }
   },
   computed: {
@@ -52,7 +52,7 @@ export default {
       return {
         'vuestic-radio-button--active': this.isActive,
         'vuestic-radio-button--disabled': this.disabled,
-        'vuestic-radio-button--on-focus': this.focused
+        'vuestic-radio-button--on-focus': this.focused,
       }
     },
     focused: {
@@ -63,7 +63,7 @@ export default {
       },
       get () {
         return this.isFocused
-      }
+      },
     },
     computedLabel () {
       if (!this.label) {
@@ -73,7 +73,7 @@ export default {
     },
     isActive () {
       return this.value === this.option
-    }
+    },
   },
   methods: {
     onClick () {
@@ -86,12 +86,14 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
 
 .vuestic-radio-button {
   cursor: pointer;
   display: flex;
   flex-direction: row;
   margin-bottom: $checkbox-between-items-margin;
+
   &__icon {
     width: 1.4rem;
     height: 1.4rem;
@@ -107,6 +109,7 @@ export default {
       }
     }
   }
+
   &__icon-circle {
     @at-root {
       .vuestic-radio-button.vuestic-radio-button--active & {
@@ -119,6 +122,7 @@ export default {
       }
     }
   }
+
   &__input {
     width: 1.375rem;
     height: 1.375rem;
@@ -126,6 +130,7 @@ export default {
     cursor: pointer;
     opacity: 0;
   }
+
   #{&}__content {
     width: 32px;
     height: 32px;
@@ -137,12 +142,14 @@ export default {
         background-color: $light-gray;
         transition: all, 0.6s, ease-in;
         border-radius: 3rem;
+
         &.active {
           background-color: $lighter-green;
         }
       }
     }
   }
+
   &__slot-container {
     padding-top: $checkbox-label-margin-top;
   }

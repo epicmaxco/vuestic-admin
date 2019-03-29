@@ -81,43 +81,53 @@ export default {
 .vuestic-timeline-item {
   display: flex;
   flex-direction: column;
+
   &__before, &__after {
     flex: 1;
   }
+
   &--vertical {
     .vuestic-timeline-item__before,
     .vuestic-timeline-item__after {
       padding-top: 1rem;
       padding-bottom: 1rem;
     }
+
     .vuestic-timeline-item__before {
       padding-right: 1rem;
     }
+
     .vuestic-timeline-item__after {
       padding-left: 1rem;
     }
   }
+
   #{&}__before #{&}__text {
     float: right;
   }
+
   &:not(&--vertical) {
     .vuestic-timeline-item__before,
     .vuestic-timeline-item__after {
       padding-right: 1rem;
       padding-left: 1rem;
     }
+
     .vuestic-timeline-item__before {
       padding-bottom: 1rem;
     }
+
     .vuestic-timeline-item__after {
       padding-top: 1rem;
     }
   }
+
   &--vertical {
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: stretch;
   }
+
   &__title {
     text-align: center;
     color: $vue-green;
@@ -125,9 +135,11 @@ export default {
     font-size: $font-size-mini;
     text-transform: uppercase;
   }
+
   &__description {
     text-align: center;
   }
+
   &__text {
     line-height: 1;
   }

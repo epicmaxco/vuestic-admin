@@ -43,12 +43,14 @@ export default {
     background-color: $top-nav-bg;
     overflow: hidden;
     @include va-flex-center();
+
     &__logo {
       z-index: 2;
       position: absolute;
       height: $auth-wallpaper-ivuestic-h;
       width: 100%;
     }
+
     .va-icon-vuestic {
       height: $auth-wallpaper-ivuestic-h;
       width: 100%;
@@ -69,11 +71,13 @@ export default {
     display: none;
     height: $top-mobile-nav-height;
     background-color: $top-nav-bg;
+
     .va-icon-vuestic {
       height: $auth-mobile-nav-ivuestic-h;
       width: 100%;
     }
   }
+
   .main {
     height: 100vh;
 
@@ -89,9 +93,11 @@ export default {
 
     .main {
       height: $auth-mobile-main-h;
+
       .auth-content {
         align-items: flex-start;
       }
+
       .auth-wallpaper {
         display: none;
       }

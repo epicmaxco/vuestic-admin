@@ -2,12 +2,12 @@
   <div class="bubble-maps-page">
     <div class="va-row">
       <div class="flex md12 xs12">
-        <vuestic-widget
+        <va-card
           class="bubble-maps-page__widget"
-          headerText="Bubble Maps"
+          title="Bubble Maps"
         >
           <bubble-map v-bind:map-data="bubbleMapData"/>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
   </div>
@@ -33,7 +33,7 @@ export default {
 <style lang="scss">
 .bubble-maps-page {
   &__widget {
-    .vuestic-widget-body {
+    .va-card__body {
       height: 65vh;
     }
   }

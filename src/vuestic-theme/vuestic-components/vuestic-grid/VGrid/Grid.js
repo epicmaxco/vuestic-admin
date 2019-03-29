@@ -7,8 +7,8 @@ export default function Grid (name) {
       id: String,
       tag: {
         type: String,
-        default: 'div'
-      }
+        default: 'div',
+      },
     },
     render: (h, { props, data, children }) => {
       data.staticClass = (`${name} ${data.staticClass || ''}`).trim()
@@ -17,13 +17,13 @@ export default function Grid (name) {
         const classes = Object.keys(data.attrs).filter(key => {
           // TODO: Remove once resolved
           // https://github.com/vuejs/vue/issues/7841
-          if (key === 'slot') return false
+          if (key === 'slot') { return false }
 
           const value = data.attrs[key]
           return value || typeof value === 'string'
         })
 
-        if (classes.length) data.staticClass += ` ${classes.join(' ')}`
+        if (classes.length) { data.staticClass += ` ${classes.join(' ')}` }
         delete data.attrs
       }
 
@@ -33,6 +33,6 @@ export default function Grid (name) {
       }
 
       return h(props.tag, data, children)
-    }
+    },
   }
 }

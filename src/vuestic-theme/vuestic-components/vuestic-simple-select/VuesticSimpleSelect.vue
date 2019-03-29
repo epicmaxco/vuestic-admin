@@ -15,7 +15,8 @@
             :name="name"
             :options="options"
           >
-          <label class="control-label">{{label}}</label><va-icon icon="bar"/>
+          <label class="control-label">{{label}}</label>
+          <va-icon icon="bar"/>
           <small v-show="hasErrors()" class="help text-danger">
             {{ showRequiredError() }}
           </small>
@@ -55,7 +56,7 @@
 </template>
 
 <script>
-import Dropdown from 'vuestic-directives/Dropdown'
+import Dropdown from '../../vuestic-directives/Dropdown'
 import Scrollbar from '../vuestic-scrollbar/VuesticScrollbar.vue'
 
 export default {
@@ -203,6 +204,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+
 .vuestic-simple-select {
 
   &__unselect {

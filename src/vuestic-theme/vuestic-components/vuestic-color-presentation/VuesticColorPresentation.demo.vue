@@ -109,7 +109,15 @@
 
 <script>
 import VuesticColorsPresentation from './VuesticColorPresentation.vue'
-import { mainThemeColors, extraColors, buttonGradients, pressedButtonGradients, hoveredButtonGradients, textButtonHoveredItems, textButtonPessedItems } from './colorsData'
+import {
+  mainThemeColors,
+  extraColors,
+  buttonGradients,
+  pressedButtonGradients,
+  hoveredButtonGradients,
+  textButtonHoveredItems,
+  textButtonPessedItems,
+} from './colorsData'
 
 export default {
   components: { VuesticColorsPresentation },
@@ -121,8 +129,8 @@ export default {
       pressedButtonGradients: pressedButtonGradients,
       hoveredButtonGradients: hoveredButtonGradients,
       textButtonHoveredItems: textButtonHoveredItems,
-      textButtonPessedItems: textButtonPessedItems
+      textButtonPessedItems: textButtonPessedItems,
     }
-  }
+  },
 }
 </script>

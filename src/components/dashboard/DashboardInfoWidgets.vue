@@ -1,7 +1,7 @@
 <template>
   <div class="va-row dashboard-info-widgets">
     <div class="flex md6 xl3 xs12">
-      <vuestic-widget class="info-widget">
+      <va-card class="info-widget" stripe="success">
         <div class="info-widget-inner flex-center">
           <div class="stats fill-height flex-center">
             <div class="stats-number mb-2 flex-center">
@@ -11,10 +11,10 @@
             <div class="stats-title">{{'dashboard.elements' | translate}}</div>
           </div>
         </div>
-      </vuestic-widget>
+      </va-card>
     </div>
     <div class="flex md6 xl3 xs12">
-      <vuestic-widget class="info-widget">
+      <va-card class="info-widget" stripe="success">
         <div class="info-widget-inner flex-center">
           <div class="stats fill-height flex-center">
             <div class="stats-number mb-2 flex-center">
@@ -24,10 +24,10 @@
             <div class="stats-title">{{'dashboard.versions' | translate}}</div>
           </div>
         </div>
-      </vuestic-widget>
+      </va-card>
     </div>
     <div class="flex md6 xl3 xs12">
-      <vuestic-widget class="info-widget brand-danger">
+      <va-card class="info-widget brand-danger">
         <div class="info-widget-inner d-flex justify--space-between align--center">
           <div class="stats fill-height d-flex align--center">
             <div class="stats-number mb-2 flex-center">
@@ -41,10 +41,10 @@
             </va-progress-circle>
           </div>
         </div>
-      </vuestic-widget>
+      </va-card>
     </div>
     <div class="flex md6 xl3 xs12">
-      <vuestic-widget class="info-widget brand-info">
+      <va-card class="info-widget brand-info">
         <div class="info-widget-inner flex-center">
           <div class="stats fill-height flex-center">
             <div class="stats-number mb-2 flex-center">
@@ -55,46 +55,46 @@
             </div>
           </div>
         </div>
-      </vuestic-widget>
+      </va-card>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'dashboard-info-widgets'
+  name: 'dashboard-info-widgets',
 }
 </script>
 
 <style lang="scss" scoped>
-  .stats-number, .stats-title {
-    line-height: 1;
+.stats-number, .stats-title {
+  line-height: 1;
+}
+
+.info-widget-inner {
+  position: relative;
+  width: 100%;
+
+  .stats {
+    flex-direction: column;
   }
+}
 
-  .info-widget-inner {
-    position: relative;
-    width: 100%;
+.stats-number {
+  position: relative;
+  flex-direction: row;
+  font-size: 2.625rem;
 
-    .stats {
-      flex-direction: column;
+  .stats-icon {
+    font-size: 1.5625rem;
+    position: absolute;
+    top: 0.625rem;
+    left: -1.25rem;
+
+    &.icon-wide {
+      left: -1.875rem;
     }
   }
-
-  .stats-number {
-    position: relative;
-    flex-direction: row;
-    font-size: 2.625rem;
-
-    .stats-icon {
-      font-size: 1.5625rem;
-      position: absolute;
-      top: 0.625rem;
-      left: -1.25rem;
-
-      &.icon-wide {
-        left: -1.875rem;
-      }
-    }
-  }
+}
 
 </style>

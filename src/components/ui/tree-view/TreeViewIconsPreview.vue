@@ -74,6 +74,6 @@
 
 <script>
 export default {
-  name: 'tree-view-icons-preview'
+  name: 'tree-view-icons-preview',
 }
 </script>

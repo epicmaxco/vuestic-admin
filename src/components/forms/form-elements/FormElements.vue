@@ -2,7 +2,7 @@
   <div class="form-elements">
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget :headerText="'forms.inputs.title' | translate">
+        <va-card :title="'forms.inputs.title' | translate">
           <form>
 
             <div class="va-row">
@@ -12,7 +12,8 @@
                     <div class="input-group">
                       <input id="simple-input" required/>
                       <label class="control-label" for="simple-input">{{'forms.inputs.textInput'
-                        | translate}}</label><va-icon icon="bar"/>
+                        | translate}}</label>
+                      <va-icon icon="bar"/>
                     </div>
                   </div>
                   <div class="form-group with-icon-right"
@@ -27,7 +28,8 @@
                       <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
                       <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
                       <label class="control-label" for="successfulEmail">{{'forms.inputs.emailValidatedSuccess'
-                        | translate}} </label><va-icon icon="bar"/>
+                        | translate}} </label>
+                      <va-icon icon="bar"/>
                       <small v-show="errors.has('successfulEmail')"
                              class="help text-danger">
                         {{ errors.first('successfulEmail') }}
@@ -47,7 +49,8 @@
                         v-show="errors.has('wrongEmail')"
                         icon="fa fa-exclamation-triangle icon-right input-icon"/>
                       <label class="control-label" for="wrongEmail">{{'forms.inputs.emailValidated'
-                        | translate}}</label><va-icon icon="bar"/>
+                        | translate}}</label>
+                      <va-icon icon="bar"/>
                       <small v-show="errors.has('wrongEmail')"
                              class="help text-danger">{{
                         errors.first('wrongEmail')
@@ -60,7 +63,8 @@
                       <textarea type="text" id="simple-textarea"
                                 required></textarea>
                       <label class="control-label" for="simple-textarea">{{'forms.inputs.textArea'
-                        | translate}}</label><va-icon icon="bar"/>
+                        | translate}}</label>
+                      <va-icon icon="bar"/>
                     </div>
                   </div>
                 </fieldset>
@@ -74,7 +78,8 @@
                              required/>
                       <va-icon icon="fa fa-envelope-o icon-left input-icon"/>
                       <label class="control-label" for="input-icon-left">{{'forms.inputs.inputWithIcon'
-                        | translate}}</label><va-icon icon="bar"/>
+                        | translate}}</label>
+                      <va-icon icon="bar"/>
                     </div>
                   </div>
                   <div class="form-group with-icon-right">
@@ -86,14 +91,16 @@
                         @click.native="clear('clearableText')"/>
                       <label class="control-label" for="clear-input"
                              role="button">{{'forms.inputs.inputWithClearButton'
-                        | translate}}</label><va-icon icon="bar"/>
+                        | translate}}</label>
+                      <va-icon icon="bar"/>
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="input-group">
                       <input id="inputWithDescription" required title=""/>
                       <label class="control-label" for="simple-input">{{'forms.inputs.textInputWithDescription'
-                        | translate}}</label><va-icon icon="bar"/>
+                        | translate}}</label>
+                      <va-icon icon="bar"/>
                       <small class="help text-secondary">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed
@@ -111,15 +118,17 @@
                     <div class="input-group">
                       <input id="input-w-btn" required/>
                       <label class="control-label" for="input-w-btn">{{'forms.inputs.inputWithButton'
-                        | translate}}</label><va-icon icon="bar"/>
+                        | translate}}</label>
+                      <va-icon icon="bar"/>
                     </div>
-                    <va-button> {{ $t('forms.inputs.upload') }} </va-button>
+                    <va-button> {{ $t('forms.inputs.upload') }}</va-button>
                   </div>
                   <div class="form-group form-group-w-btn">
                     <div class="input-group">
                       <input id="input-w-btn-round" required/>
                       <label class="control-label" for="input-w-btn-round">{{'forms.inputs.inputWithRoundButton'
-                        | translate }}</label><va-icon icon="bar"/>
+                        | translate }}</label>
+                      <va-icon icon="bar"/>
                     </div>
                     <va-button icon="ion-md-cloud-outline ion"/>
                   </div>
@@ -128,13 +137,13 @@
             </div>
 
           </form>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget :headerText="$t('forms.dateTimePicker.title')">
+        <va-card :title="$t('forms.dateTimePicker.title')">
           <form>
             <div class="va-row">
               <div class="flex md4">
@@ -147,7 +156,8 @@
                       />
                       <label class="control-label" for="date-picker-basic">
                         {{ $t('forms.dateTimePicker.basic') }}
-                      </label><va-icon icon="bar"/>
+                      </label>
+                      <va-icon icon="bar"/>
                     </div>
                   </div>
                   <div class="form-group">
@@ -239,13 +249,13 @@
               </div>
             </div>
           </form>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget :headerText="'forms.selects.title' | translate">
+        <va-card :title="$t('forms.selects.title')">
           <form>
             <div class="va-row">
               <div class="flex md4">
@@ -280,13 +290,13 @@
               </div>
             </div>
           </form>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget :headerText="'forms.controls.title' | translate">
+        <va-card :title="$t('forms.controls.title')">
           <form>
             <div class="va-row">
               <div class="flex md3">
@@ -361,7 +371,7 @@
               </div>
             </div>
           </form>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
   </div>
@@ -415,7 +425,7 @@ export default {
         readonly: true,
         disabled: true,
         error: false,
-        errorMessages: true
+        errorMessages: true,
       },
       errorMessages: ['error message 1', 'error message 2'],
       datepicker: {

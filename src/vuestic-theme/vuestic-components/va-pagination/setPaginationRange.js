@@ -1,9 +1,7 @@
 export const setPaginationRange = (value, visiblePages, pages) => {
-  let start = 0,
-    range = []
+  let start = 0
 
   const paginationMiddlePage = visiblePages / 2
-
   if (value - paginationMiddlePage <= 0 || value > pages) {
     start = 1
   } else {
@@ -12,9 +10,9 @@ export const setPaginationRange = (value, visiblePages, pages) => {
       : Math.ceil(value - paginationMiddlePage)
   }
 
+  const range = []
   for (let i = 0; i < visiblePages; i++) {
     range.push(start + i)
   }
-
   return range
 }
