@@ -26,11 +26,11 @@
 
 <script>
 import SquareWithIcon from './vuestic-div-checkbox/SquareWithIcon.vue'
-import VuesticCheckbox from '../vuestic-checkbox/VuesticCheckbox'
+import VaCheckbox from '../va-checkbox/VaCheckbox'
 
 export default {
   name: 'vuestic-tree-category',
-  components: { SquareWithIcon, VuesticCheckbox },
+  components: { SquareWithIcon, VaCheckbox },
   data () {
     return {
       isOpenCached: false,

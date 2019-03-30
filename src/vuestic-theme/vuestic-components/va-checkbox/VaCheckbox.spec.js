@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import VaCheckbox from './VuesticCheckbox'
+import VaCheckbox from './VaCheckbox'
 
 describe('VaCheckbox', () => {
   it('default', () => {

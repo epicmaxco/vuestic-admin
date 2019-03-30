@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VaCheckbox default 1`] = `
+<div class="va-checkbox">
+  <div class="va-checkbox__square"><input readonly="readonly" class="va-checkbox__input">
+    <va-icon-stub icon="ion ion-md-checkmark va-checkbox__icon-selected"></va-icon-stub>
+  </div>
+  <div class="va-checkbox__label-text">
+
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`VaCheckbox true value 1`] = `
+<div class="va-checkbox va-checkbox--selected">
+  <div class="va-checkbox__square active"><input readonly="readonly" class="va-checkbox__input">
+    <va-icon-stub icon="ion ion-md-checkmark va-checkbox__icon-selected"></va-icon-stub>
+  </div>
+  <div class="va-checkbox__label-text">
+
+  </div>
+  <!---->
+</div>
+`;

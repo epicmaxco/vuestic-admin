@@ -313,30 +313,30 @@
             <div class="va-row">
               <div class="flex md3">
                 <fieldset>
-                  <vuestic-checkbox
+                  <va-checkbox
                     :label="$t('forms.controls.unselected')"
                     v-model="checkbox.unselected"
                   />
-                  <vuestic-checkbox
+                  <va-checkbox
                     :label="$t('forms.controls.selected')"
                     v-model="checkbox.selected"
                   />
-                  <vuestic-checkbox
+                  <va-checkbox
                     :label="$t('forms.controls.readonly')"
                     v-model="checkbox.readonly"
                     :readonly="true"
                   />
-                  <vuestic-checkbox
+                  <va-checkbox
                     :label="$t('forms.controls.disabled')"
                     :disabled="true"
                     v-model="checkbox.disabled"
                   />
-                  <vuestic-checkbox
+                  <va-checkbox
                     :label="$t('forms.controls.error')"
                     error
                     v-model="checkbox.error"
                   />
-                  <vuestic-checkbox
+                  <va-checkbox
                     :label="$t('forms.controls.errorMessage')"
                     :error-messages="errorMessages"
                     :errorCount="2"

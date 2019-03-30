@@ -183,7 +183,7 @@
                 <!-- TODO Redo with global classes -->
                 <div class="form-group va-row mb-4">
                   <toast-position-picker v-model="toastPosition"/>
-                  <vuestic-checkbox
+                  <va-checkbox
                     :label="$t('notificationsPage.toasts.fullWidthLabel')"
                     :id="'toast-fullwidth'"
                     v-model="isToastFullWidth"

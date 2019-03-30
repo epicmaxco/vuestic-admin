@@ -71,7 +71,7 @@ export default {
   }
 
   // HACK Checkbox for presentation page
-  .vuestic-checkbox {
+  .va-checkbox {
     margin-bottom: 0;
     margin-top: -0.125rem;
     margin-right: -0.625rem;
