@@ -14,9 +14,12 @@
       <va-checkbox v-model="value" label="Readonly" readonly/>
     </VbContainer>
     <VbContainer title="Disabled">
+      <va-checkbox v-model="value" label="Disabled" disabled/>
+    </VbContainer>
+    <VbContainer title="Disabled to normal comparison">
       <va-checkbox :value="false" label="Disabled and false" disabled/>
       <va-checkbox :value="false" label="false"/>
-      <va-checkbox v-model="value" label="Disabled and true" disabled/>
+      <va-checkbox :value="true" label="Disabled and true" disabled/>
       <va-checkbox :value="true" label="true"/>
     </VbContainer>
 

@@ -88,7 +88,7 @@ export default {
   computed: {
     computedClass () {
       return {
-        'va-checkbox--selected': this.valueProxy,
+        'va-checkbox--selected': this.value,
         'va-checkbox--readonly': this.readonly,
         'va-checkbox--disabled': this.disabled,
         'va-checkbox--error': this.showError,
@@ -101,10 +101,8 @@ export default {
       return errorMessages.slice(0, this.errorCount)
     },
     valueProxy: {
-      set (valueProxy) {
-        if (!this.readonly && !this.disabled) {
-          this.$emit('input', valueProxy)
-        }
+      set (value) {
+        this.$emit('input', value)
       },
       get () {
         return this.value
@@ -162,6 +160,10 @@ export default {
     cursor: pointer;
 
     @at-root {
+      .va-checkbox--disabled  & {
+        @include va-disabled();
+      }
+
       .va-checkbox--readonly & {
         cursor: initial;
       }
@@ -180,13 +182,9 @@ export default {
     flex: 0 0 2rem;
     @at-root {
       .va-checkbox--on-keyboard-focus#{&} {
-        background-color: $gray-light;
+        background-color: $light-gray;
         transition: all, 0.6s, ease-in;
         border-radius: 5rem;
-
-        &.active {
-          background-color: $lighter-green;
-        }
       }
     }
   }
@@ -195,14 +193,14 @@ export default {
     height: 1.375rem;
     width: 1.375rem;
     cursor: inherit;
+    color: $white;
+    background-color: $white;
+    border: solid 0.125rem $gray-light;
+    border-radius: 0.25rem;
 
     &:focus {
       outline: none;
     }
-
-    border-radius: 0.25rem;
-    color: $white;
-    border: solid 0.125rem $gray-light;
 
     @at-root {
       .va-checkbox--selected#{&} {
@@ -214,15 +212,6 @@ export default {
         color: $white;
         background-color: $vue-green;
         border: 0;
-      }
-
-      .va-checkbox--disabled#{&} {
-        border-color: $lighter-gray;
-        @at-root {
-          .va-checkbox--selected#{&} {
-            opacity: 0.4;
-          }
-        }
       }
 
       .va-checkbox--error#{&} {
