@@ -7,10 +7,10 @@
             <table class="table table-striped first-td-padding">
               <thead>
               <tr>
-                <td>{{'tables.headings.name' | translate}}</td>
-                <td>{{'tables.headings.email' | translate}}</td>
-                <td>{{'tables.headings.city' | translate}}</td>
-                <td align="right">{{'tables.headings.score' | translate}}</td>
+                <td>{{ $t('tables.headings.name') }}</td>
+                <td>{{ $t('tables.headings.email') }}</td>
+                <td>{{ $t('tables.headings.city') }}</td>
+                <td align="right">{{ $t('tables.headings.score') }}</td>
                 <td></td>
               </tr>
               </thead>
@@ -86,10 +86,10 @@
               <thead>
               <tr>
                 <td></td>
-                <td>{{'tables.headings.name' | translate}}</td>
-                <td>{{'tables.headings.email' | translate}}</td>
-                <td>{{'tables.headings.city' | translate}}</td>
-                <td align="right">{{'tables.headings.score' | translate}}</td>
+                <td>{{ $t('tables.headings.name') }}</td>
+                <td>{{ $t('tables.headings.email') }}</td>
+                <td>{{ $t('tables.headings.city') }}</td>
+                <td align="right">{{ $t('tables.headings.score') }}</td>
                 <td align="middle"></td>
               </tr>
               </thead>

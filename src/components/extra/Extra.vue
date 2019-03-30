@@ -3,14 +3,14 @@
     <va-card :title="$t('extra.tabs.title')">
       <vuestic-tabs class="tabs mt-2"
                     :names="[$t('extra.tabs.maps'), $t('extra.tabs.setupProfile'), $t('extra.tabs.overview')]">
-        <div :slot="'extra.tabs.overview' | translate"
+        <div :slot="$t('extra.tabs.overview')"
              class="flex justify--center">
           <overview-tab></overview-tab>
         </div>
-        <div :slot="'extra.tabs.maps' | translate" class="maps-tab">
+        <div :slot="$t('extra.tabs.maps')" class="maps-tab">
           <leaflet-map></leaflet-map>
         </div>
-        <div :slot="'extra.tabs.setupProfile' | translate"
+        <div :slot="$t('extra.tabs.setupProfile')"
              class="flex justify--center">
           <setup-profile-tab wizardType="simple"></setup-profile-tab>
         </div>
