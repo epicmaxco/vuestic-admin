@@ -7,7 +7,7 @@ export default {
     }
 
     let prevMatchlg = checkIsDesktop()
-    let sidebar = el.querySelector('.vuestic-sidebar')
+    let sidebar = el.querySelector('.va-sidebar')
 
     el.addEventListener('transitionend', function () {
       store.dispatch('isToggleWithoutAnimation', false)

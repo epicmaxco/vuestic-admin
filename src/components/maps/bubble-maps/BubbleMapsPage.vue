@@ -22,7 +22,7 @@ export default {
   components: {
     BubbleMap,
   },
-  data: function () {
+  data () {
     return {
       bubbleMapData: BubbleMapData,
     }

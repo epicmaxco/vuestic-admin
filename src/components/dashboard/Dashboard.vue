@@ -4,7 +4,7 @@
     <dashboard-info-widgets/>
 
     <va-card no-padding>
-      <vuestic-tabs
+      <va-tabs
         :names="[$t('dashboard.dataVisualization'), $t('dashboard.usersAndMembers'), $t('dashboard.setupProfile'), $t('dashboard.features')]"
         ref="tabs">
         <div :slot="$t('dashboard.dataVisualization')">
@@ -19,7 +19,7 @@
         <div :slot="$t('dashboard.features')">
           <features-tab/>
         </div>
-      </vuestic-tabs>
+      </va-tabs>
     </va-card>
 
     <dashboard-bottom-widgets/>

@@ -1,7 +1,7 @@
 <template>
   <div class="extra">
     <va-card :title="$t('extra.tabs.title')">
-      <vuestic-tabs class="tabs mt-2"
+      <va-tabs class="tabs mt-2"
                     :names="[$t('extra.tabs.maps'), $t('extra.tabs.setupProfile'), $t('extra.tabs.overview')]">
         <div :slot="$t('extra.tabs.overview')"
              class="flex justify--center">
@@ -14,24 +14,24 @@
              class="flex justify--center">
           <setup-profile-tab wizardType="simple"></setup-profile-tab>
         </div>
-      </vuestic-tabs>
+      </va-tabs>
     </va-card>
 
     <div class="va-row">
       <div class="flex md4">
         <va-card :title="$t('extra.profileCard')"
                  class="profile-card-widget">
-          <vuestic-profile-card :name="'Veronique Lee'"
+          <va-profile-card :name="'Veronique Lee'"
                                 :location="'Malaga, Spain'"
                                 photoSource="https://i.imgur.com/NLrdqsk.png"
                                 :social="{twitter: 'twitter.com', facebook: 'facebook.com',
                                   instagram: 'instagram.com'}">
-          </vuestic-profile-card>
+          </va-profile-card>
         </va-card>
       </div>
       <div class="flex md8">
         <va-card :title="$t('extra.chat')" class="chat-widget">
-          <vuestic-chat v-model="chatMessages"></vuestic-chat>
+          <va-chat v-model="chatMessages"></va-chat>
         </va-card>
       </div>
     </div>
@@ -39,12 +39,12 @@
     <div class="va-row bottom-widgets">
       <div class="flex md6">
         <va-card no-padding>
-          <vuestic-feed :initialPosts="posts"/>
+          <va-feed :initialPosts="posts"/>
         </va-card>
       </div>
       <div class="flex md6">
         <va-card class="business-posts">
-          <vuestic-social-news
+          <va-social-news
             :news="news"
             :url="'https://instagram.com/smartapant'"
           />

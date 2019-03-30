@@ -45,8 +45,8 @@
                     <va-icon icon="bar"/>
                   </div>
                 </div>
-                <vuestic-popover
-                  popover-class="vuestic-tooltip"
+                <va-popover
+                  popover-class="va-tooltip"
                   placement="right"
                   :disabled="isPopoverDisabled"
                 >
@@ -56,30 +56,30 @@
                   <va-icon slot="icon" :icon="[ 'fa', popoverIcon ]"/>
                   <span slot="header">{{popoverTitle}}</span>
                   <span slot="body">{{popoverText}}</span>
-                </vuestic-popover>
+                </va-popover>
               </fieldset>
             </div>
             <div class="flex md6">
               <p>
                 Any text can be used for
-                <vuestic-tooltip :options="topTooltipOptions">
+                <va-tooltip :options="topTooltipOptions">
                   <a href="#">
                     {{'notificationsPage.popovers.topTooltip'}}
                   </a>
-                </vuestic-tooltip>
+                </va-tooltip>
                 showcase. Just anything you can possibly imagine to test
-                <vuestic-tooltip :options="rightTooltipOptions"><a href="#">
+                <va-tooltip :options="rightTooltipOptions"><a href="#">
                   {{ $t('notificationsPage.popovers.rightTooltip') }}
-                </a></vuestic-tooltip>
+                </a></va-tooltip>
                 .
                 But it can appear on the
-                <vuestic-tooltip :options="leftTooltipOptions"><a href="#">
-                  {{$t('notificationsPage.popovers.leftTooltip')}}</a></vuestic-tooltip>
+                <va-tooltip :options="leftTooltipOptions"><a href="#">
+                  {{$t('notificationsPage.popovers.leftTooltip')}}</a></va-tooltip>
                 .
                 Or just
-                <vuestic-tooltip :options="bottomTooltipOptions"><a href="#">
+                <va-tooltip :options="bottomTooltipOptions"><a href="#">
                   {{ $t('notificationsPage.popovers.bottomTooltip') }}
-                </a></vuestic-tooltip>
+                </a></va-tooltip>
                 the item.
               </p>
             </div>
