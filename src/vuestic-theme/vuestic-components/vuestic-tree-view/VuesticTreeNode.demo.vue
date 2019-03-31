@@ -3,7 +3,7 @@
     style="left: 420px; top: 180px; background-color: white; position: absolute"
   >
     <vuestic-tree-node>
-      <vuestic-checkbox
+      <va-checkbox
         slot="checkbox"
         v-model="checkboxValue"
       />
@@ -20,12 +20,12 @@
 <script>
 import VuesticTreeNode from './VuesticTreeNode.vue'
 
-import VuesticCheckbox from '../vuestic-checkbox/VuesticCheckbox'
+import VaCheckbox from '../va-checkbox/VaCheckbox'
 
 export default {
   components: {
     VuesticTreeNode,
-    VuesticCheckbox,
+    VaCheckbox,
   },
   data () {
     return {

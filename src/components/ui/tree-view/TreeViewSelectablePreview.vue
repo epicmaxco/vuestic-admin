@@ -2,7 +2,7 @@
   <vuestic-tree-root>
     <vuestic-tree-category label="Products">
       <vuestic-tree-node v-for="product in products" :key="product.id">
-        <vuestic-checkbox
+        <va-checkbox
           slot="checkbox"
           v-model="product.selected"
         />
@@ -11,7 +11,7 @@
     </vuestic-tree-category>
     <vuestic-tree-category isOpen label="Electronics">
       <vuestic-tree-node v-for="electronic in electronics" :key="electronic.id">
-        <vuestic-checkbox
+        <va-checkbox
           slot="checkbox"
           v-model="electronic.selected"
         />

@@ -40,8 +40,11 @@
               </div>
             </div>
             <div class="flex md6 lg4 xs4 spinners__color">
-              <vuestic-pallet-custom :palette="paletteArray" v-model="color"
-                                     class="spinners__color-picker"/>
+              <vuestic-pallet-custom
+                :palette="paletteArray"
+                v-model="color"
+                class="spinners__color-picker"
+              />
             </div>
           </div>
           <div class="va-row">
@@ -60,15 +63,16 @@
                 >
                 </component>
               </div>
-              <div>{{item | displayName}}</div>
+              <div>{{ $t(item) }}</div>
             </div>
           </div>
         </div>
         <div class="va-row justify--center align-center">
           <div class="text-center">
-            {{'spinners.poweredBy' | translate}}
+            {{ $t('spinners.poweredBy') }}
             <a :href="'http://epic-spinners.epicmax.co/'" target="_blank">Epic
-              Spinners</a>
+              Spinners
+            </a>
           </div>
         </div>
       </va-card>

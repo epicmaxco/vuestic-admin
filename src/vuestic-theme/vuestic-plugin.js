@@ -4,7 +4,7 @@ import Breadcrumbs
   from './vuestic-components/vuestic-breadcrumbs/VuesticBreadcrumbs.vue'
 import Chart from './vuestic-components/vuestic-chart/VuesticChart.vue'
 import Chat from './vuestic-components/vuestic-chat/VuesticChat.vue'
-import Checkbox from './vuestic-components/vuestic-checkbox/VuesticCheckbox.vue'
+import VaCheckbox from './vuestic-components/va-checkbox/VaCheckbox.vue'
 import VaProgressCircle
   from './vuestic-components/va-progress-bar/progress-types/VaProgressCircle.vue'
 import DataTable
@@ -88,7 +88,7 @@ const VuesticPlugin = {
       Card,
       Chart,
       Chat,
-      Checkbox,
+      VaCheckbox,
       VaProgressBar,
       DataTable,
       Feed,

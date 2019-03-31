@@ -56,7 +56,7 @@
               </vuestic-simple-select>
             </div>
             <div slot="page3" class="form-wizard-tab-content">
-              <h4>{{'forms.wizard.confirmSelection' | translate}}</h4>
+              <h4>{{ $t('forms.wizard.confirmSelection') }}</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make
                 loud braying or barking sounds and
@@ -67,7 +67,7 @@
               </p>
             </div>
             <div slot="wizardCompleted" class="form-wizard-tab-content">
-              <h4>{{'forms.wizard.completed' | translate}}</h4>
+              <h4>{{ $t('forms.wizard.completed') }}</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make
                 loud braying or barking sounds and
@@ -139,7 +139,7 @@
               </vuestic-simple-select>
             </div>
             <div slot="page3" class="form-wizard-tab-content">
-              <h4>{{'forms.wizard.confirmSelection' | translate}}</h4>
+              <h4>{{ $t('forms.wizard.confirmSelection') }}</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make
                 loud braying or barking sounds and
@@ -150,7 +150,7 @@
               </p>
             </div>
             <div slot="wizardCompleted" class="form-wizard-tab-content">
-              <h4>{{'forms.wizard.completed' | translate}}</h4>
+              <h4>{{ $t('forms.wizard.completed') }}</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make
                 loud braying or barking sounds and
@@ -220,7 +220,7 @@
               </vuestic-simple-select>
             </div>
             <div slot="page3" class="form-wizard-tab-content">
-              <h4>{{'forms.wizard.confirmSelection' | translate}}</h4>
+              <h4>{{ $t('forms.wizard.confirmSelection') }}</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make
                 loud braying or barking sounds and
@@ -231,7 +231,7 @@
               </p>
             </div>
             <div slot="wizardCompleted" class="form-wizard-tab-content">
-              <h4>{{'forms.wizard.completed' | translate}}</h4>
+              <h4>{{ $t('forms.wizard.completed') }}</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make
                 loud braying or barking sounds and
@@ -304,7 +304,7 @@
               </vuestic-simple-select>
             </div>
             <div slot="page3" class="form-wizard-tab-content">
-              <h4>{{'forms.wizard.confirmSelection' | translate}}</h4>
+              <h4>{{ $t('forms.wizard.confirmSelection') }}</h4>
               <div class="form-wizard-tab-content-text">
                 <p>Zebras communicate with facial expressions and sounds. They
                   make loud braying or barking sounds and
@@ -315,7 +315,7 @@
               </div>
             </div>
             <div slot="wizardCompleted" class="form-wizard-tab-content">
-              <h4>{{'forms.wizard.completed' | translate}}</h4>
+              <h4>{{ $t('forms.wizard.completed') }}</h4>
               <div class="form-wizard-tab-content-text">
                 <p>Zebras communicate with facial expressions and sounds. They
                   make loud braying or barking sounds and
