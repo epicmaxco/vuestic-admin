@@ -66,6 +66,7 @@
         <td>
           <va-tooltip
             color="success"
+            class="mb-3"
             :options="{
                 placement: 'right',
                 show: true
@@ -78,6 +79,7 @@
           </va-tooltip>
           <va-tooltip
             color="info"
+            class="mb-3"
             :options="{
                 placement: 'right',
                 show: true
@@ -90,6 +92,7 @@
           </va-tooltip>
           <va-tooltip
             color="danger"
+            class="mb-3"
             :options="{
                 placement: 'right',
                 show: true
@@ -102,6 +105,7 @@
           </va-tooltip>
           <va-tooltip
             color="warning"
+            class="mb-3"
             :options="{
                 placement: 'right',
                 show: true
@@ -114,6 +118,7 @@
           </va-tooltip>
           <va-tooltip
             color="gray"
+            class="mb-3"
             :options="{
                 placement: 'right',
                 show: true
@@ -126,6 +131,7 @@
           </va-tooltip>
           <va-tooltip
             color="dark"
+            class="mb-3"
             :options="{
                 placement: 'right',
                 show: true
