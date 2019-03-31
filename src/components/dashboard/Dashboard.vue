@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard">
-    <div class="va-row">
+    <div class="va-row row-equal">
       <div class="flex xs12 lg6">
         <dashboard-line-chart />
       </div>
@@ -13,6 +13,17 @@
     </div>
 
     <dashboard-info-block />
+
+    <dashboard-table />
+
+    <div class="va-row">
+      <div class="flex xs12 lg6">
+        <dashboard-tabs />
+      </div>
+      <div class="flex xs12 lg6">
+        <dashboard-map />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -21,6 +32,9 @@ import DashboardLineChart from './DashboardLineChart'
 import DashboardDonutChart from './DashboardDonutChart'
 import DashboardProgressBars from './DashboardProgressBars'
 import DashboardInfoBlock from './DashboardInfoBlock'
+import DashboardTable from './DashboardTable'
+import DashboardTabs from './DashboardTabs'
+import DashboardMap from './DashboardMap'
 
 export default {
   name: 'dashboard',
@@ -28,7 +42,10 @@ export default {
     DashboardLineChart,
     DashboardDonutChart,
     DashboardProgressBars,
-    DashboardInfoBlock
+    DashboardInfoBlock,
+    DashboardTable,
+    DashboardTabs,
+    DashboardMap
   },
 
   methods: {
@@ -48,3 +65,11 @@ export default {
 }
 
 </script>
+
+<style lang="scss">
+  .row-equal .flex{
+    .va-card {
+      height: calc(100% - 2.5rem);
+    }
+  }
+</style>

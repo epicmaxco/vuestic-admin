@@ -1,6 +1,6 @@
 <template>
   <va-card title="Top 5 contributors">
-    <va-button flat slot="actions">Show All</va-button>
+    <va-button flat small slot="actions">Show All</va-button>
 
     <div
       class="mb-3"

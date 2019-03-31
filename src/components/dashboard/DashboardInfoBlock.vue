@@ -1,7 +1,45 @@
 <template>
   <div class="va-row">
     <div class="flex md6">
+      <div class="va-row">
+        <div
+          class="flex md4"
+          v-for="(info, idx) in infoTiles"
+          :key="idx"
+        >
+          <va-card class="mb-4" :color="info.color">
+            <p>{{ info.value }}</p>
+            <p>{{ info.text }}</p>
+          </va-card>
+        </div>
+      </div>
 
+      <div class="va-row">
+        <div class="flex md6">
+          <va-card>
+            <p>291</p>
+            <p>completed pull requests</p>
+          </va-card>
+        </div>
+        <div class="flex md6">
+          <va-card>
+            <div class="va-row">
+              <div class="flex xs4">
+                <p>3</p>
+                <p>groups</p>
+              </div>
+              <div class="flex xs4">
+                <p>24</p>
+                <p>branches</p>
+              </div>
+              <div class="flex xs4">
+                <p>192</p>
+                <p>units</p>
+              </div>
+            </div>
+          </va-card>
+        </div>
+      </div>
     </div>
 
     <div class="flex md3">
