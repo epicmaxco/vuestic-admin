@@ -12,6 +12,7 @@ import {
   getFocusColor, getGradientBackground,
   getGradientColor,
   getHoverColor,
+  getBoxShadowColor,
 } from '../../../services/colors'
 
 export default {
@@ -55,7 +56,7 @@ export default {
     getTemplate () {
       let title = this.title ? '<div class="tooltip-inner--title">' + this.title + '</div>' : ''
       let icon = this.icon ? '<i class="' + this.icon + ' tooltip__icon" size="40px" style="color:' + this.$themes[this.color] + '"></i>' : ''
-      return '' + '<div class="tooltip" role="tooltip" style="background-color: ' + getHoverColor(this.color) + '">' +
+      return '' + '<div class="tooltip" role="tooltip" style="box-shadow: ' + getBoxShadowColor(this.color) + ' ; background-color: ' + getHoverColor(this.color) + '">' +
         icon +
         '<div class="tooltip__content">' +
         title +
