@@ -19,10 +19,10 @@
           {{$t('dashboard.features')}}
         </va-tab>
       </va-tabs>
-      <data-visualisation-tab v-if="value === 'Data Visualization'"/>
-      <users-members-tab v-if="value === $t('dashboard.usersAndMembers')"/>
-      <setup-profile-tab v-if="value === 'Setup Profile'"/>
-      <features-tab v-if="value === 'Features'"/>
+      <data-visualisation-tab v-if="value === 0"/>
+      <users-members-tab v-if="value === 1"/>
+      <setup-profile-tab v-if="value === 2"/>
+      <features-tab v-if="value === 3"/>
     </vuestic-widget>
     <dashboard-bottom-widgets></dashboard-bottom-widgets>
   </div>
@@ -63,7 +63,7 @@ export default {
   },
   data () {
     return {
-      value: 'Data Visualization'
+      value: 2
     }
   }
 }

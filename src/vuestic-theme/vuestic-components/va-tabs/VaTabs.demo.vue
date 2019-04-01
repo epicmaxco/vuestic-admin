@@ -8,7 +8,8 @@
         :color="color"
         :hide-slider="hideSlider"
       >
-        <va-tab>{{'item1item1item1item1item1'}}</va-tab>
+        <va-tab>{{'item0'}}</va-tab>
+        <va-tab>{{'item1item1item1item111111111111111item1'}}</va-tab>
         <va-tab
           v-for="item in count"
           :key="item"

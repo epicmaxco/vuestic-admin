@@ -54,6 +54,15 @@ export default {
     }
   },
   methods: {
+    getSlotsLength () {
+      let count = 0
+      this.$slots.default.forEach(vnode => {
+        if (vnode.elm) {
+          this.tabsWidth[count] = vnode.elm.clientWidth
+          count++
+        }
+      })
+    },
     setTabsWidth (slots) {
       let count = 0
       slots.forEach(vnode => {
@@ -65,6 +74,15 @@ export default {
     },
     getBarWidth (slots) {
       this.setTabsWidth(slots)
+      if (this.grow) {
+        let sum = 0
+        this.tabsWidth.forEach((item) => {
+          sum+=item
+        })
+        if (this.tabsWidth[this.value] / sum * 100 > (100 / slots.length)) {
+          return this.tabsWidth[this.value] + 'px'
+        }
+      }
       return this.grow ? 100 / slots.length + '%' : `calc(` + this.tabsWidth[this.value] + `px - 1.25rem)`
     },
     getMarginLeft (slots) {
@@ -80,7 +98,10 @@ export default {
         return `calc(` + marginLeft + `px + ` + this.value + `rem + 1.2rem)`
       }
       if (this.grow && this.value !== 0) {
-        return this.value * (100 / slots.length) + `%`
+        return `calc(` + this.value * (100 / slots.length) + `% + 0.5rem)`
+      }
+      if (this.tabsWidth !== this.$slots.default && this.tabsWidth.length > 0) {
+        this.getSlotsLength()
       }
     },
     selectTab (tabToSelect) {
@@ -91,6 +112,9 @@ export default {
       })
     },
     tabSelected (tabToCompare) {
+      if (this.tabsWidth !== this.$slots.default && this.tabsWidth.length > 0) {
+        this.getSlotsLength()
+      }
       return this.$slots.default.some((tabSlot, index) => {
         if (tabSlot.componentInstance === tabToCompare) {
           return index === this.value
@@ -104,13 +128,7 @@ export default {
     }
   },
   mounted () {
-    let count = 0
-    this.$slots.default.forEach(vnode => {
-      if (vnode.elm.clientWidth) {
-        this.tabsWidth[count] = vnode.elm.clientWidth
-        count++
-      }
-    })
+    this.getSlotsLength()
   }
 }
 </script>
