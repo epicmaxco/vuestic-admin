@@ -62,6 +62,7 @@
   },
   "tooltips": {
     "tooltip": "Tooltip",
+    "tooltipStyle": "Tooltip Style",
     "minimalTooltip": "Minimal Tooltip",
     "anotherOneTooltip": "Another One Tooltip"
   },

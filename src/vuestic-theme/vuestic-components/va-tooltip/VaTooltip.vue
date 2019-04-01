@@ -1,28 +1,51 @@
 <template>
-  <div class="va-tooltip" v-tooltip="tooltipOptions">
-    <span class="va-tooltip-target">
-      <slot></slot>
-    </span>
-  </div>
+  <v-popover
+    :trigger="trigger"
+    :open="open"
+    :disabled="disabled"
+    :placement="placement"
+    :autoHide="autoHide"
+    popoverClass="va-popover"
+    popoverInnerClass="va-popover__inner"
+    popoverWrapperClass="va-popover__wrap"
+  >
+    <slot />
+    <div
+      slot="popover"
+      class="va-popover__content"
+      :style="computedPopoverStyle"
+    >
+      <div v-if="icon" class="va-popover__icon">
+        <i
+          :class="icon"
+          :style="computedIconStyle"
+        ></i>
+      </div>
+      <div v-if="title || message">
+        <div v-if="title" class="va-popover__title">
+          {{ title }}
+        </div>
+        <div class="va-popover__text">
+          {{ message }}
+        </div>
+      </div>
+    </div>
+  </v-popover>
 </template>
 
 <script>
-import { VTooltip } from 'v-tooltip'
+import { VPopover } from 'v-tooltip'
 import {
-  getFocusColor, getGradientBackground,
-  getGradientColor,
   getHoverColor,
   getBoxShadowColor,
 } from '../../../services/colors'
 
 export default {
   name: 'va-tooltip',
-  directives: { tooltip: VTooltip },
+  components: {
+    VPopover
+  },
   props: {
-    options: {
-      type: Object,
-      default: () => [],
-    },
     color: {
       type: String,
       default: 'success'
@@ -35,74 +58,70 @@ export default {
     },
     message: {
       type: String
-    }
-  },
-  data () {
-    return {
-      defaultOptions: {
-        classes: 'va-tooltip',
-      },
+    },
+    trigger: {
+      type: String,
+      default: 'hover',
+    },
+    open: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    placement: {
+      type: String,
+      default: 'bottom',
+    },
+    autoHide: {
+      type: Boolean,
+      default: true,
     }
   },
   computed: {
-    tooltipOptions () {
-      VTooltip.options.defaultTemplate = this.getTemplate()
-      VTooltip.options.defaultTemplate
-      this.options.content = this.message
-      return Object.assign({}, this.defaultOptions, this.options)
-    }
-  },
-  methods: {
-    getTemplate () {
-      console.log(getHoverColor(this.color))
-      let title = this.title ? '<div class="tooltip-inner--title">' + this.title + '</div>' : ''
-      let icon = this.icon ? '<i class="' + this.icon + ' tooltip__icon" size="40px" ' +
-        'style="color:' + this.$themes[this.color] + '; background-color: ' + getHoverColor(this.color) + '"></i>' : ''
-      return '' +
-        '<div class="tooltip" role="tooltip" style="box-shadow: ' + '0px 2px 3px 0 ' + getBoxShadowColor(this.color) + ' ; background-color: ' + getHoverColor(this.color) + '">' +
-        '<div class="va-row" style="background-color: #fff">' +
-        icon +
-        '<div class="tooltip__content" style="background-color: ' + getHoverColor(this.color) + '">' +
-        title +
-        '<div class="tooltip-inner"></div>' +
-        '</div>' +
-        '</div>' +
-        '</div>'
+    computedIconStyle () {
+      return {
+        fontSize: '1.5rem',
+        color: this.$themes[this.color]
+      }
+    },
+    computedPopoverStyle () {
+      return {
+        boxShadow: '0px 2px 3px 0 ' + getBoxShadowColor(this.color),
+        backgroundColor: getHoverColor(this.color)
+      }
     }
   }
 }
 </script>
 
 <style lang="scss">
+  .va-popover {
+    opacity: 1;
+    border: none;
+    border-radius: 0.5rem;
 
-.va-tooltip {
-}
+    &__content {
+       display: flex;
+       align-items: center;
+       padding: 0.65rem 1rem;
+       border-radius: 0.5rem;
+       font-size: 1rem;
+    }
 
-.tooltip.va-tooltip {
-  display: flex;
-  border-radius: 0.5rem;
-  .tooltip__content {
-    padding: 0.75rem 1rem 0.75rem 0.75rem;
-  }
-  .tooltip__icon {
-    display: flex;
-    padding-left: 1rem;
-    align-items: center;
-    vertical-align: bottom;
-  }
-  .tooltip-inner {
-    box-shadow: none;
-    background-color: initial;
-    font-size: 1rem;
-    padding: 0;
-    line-height: 1.5;
-    color: $vue-darkest-blue;
-    &--title {
-      font-size: 1rem;
+    &__icon + div{
+       margin-left: 0.75rem;
+    }
+
+    &__title {
       font-weight: bold;
+      margin-bottom: 0.125rem;
+    }
+
+    &__text {
+      line-height: 1.5;
     }
   }
-  .tooltip-arrow {
-  }
-}
 </style>
