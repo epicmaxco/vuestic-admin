@@ -31,9 +31,11 @@ export default {
   display: inline-block;
   width: 56px;
   height: 50px;
+
   .cls-1 {
     fill: #4ae387;
   }
+
   .cls-2 {
     fill: #34495e;
   }

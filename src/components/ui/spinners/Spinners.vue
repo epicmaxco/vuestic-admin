@@ -1,8 +1,10 @@
 <template>
   <div class="va-row spinners">
     <div class="flex md12 xs12">
-      <vuestic-widget :headerText="$t('spinners.title')"
-                      class="spinners__widget">
+      <va-card
+        :title="$t('spinners.title')"
+        class="spinners__widget"
+      >
         <div class="spinners__customization">
           <div class="va-row">
             <div class="flex xs12 md3 lg4">
@@ -38,8 +40,11 @@
               </div>
             </div>
             <div class="flex md6 lg4 xs4 spinners__color">
-              <vuestic-pallet-custom :palette="paletteArray" v-model="color"
-                                     class="spinners__color-picker"/>
+              <va-pallet-custom
+                :palette="paletteArray"
+                v-model="color"
+                class="spinners__color-picker"
+              />
             </div>
           </div>
           <div class="va-row">
@@ -58,18 +63,19 @@
                 >
                 </component>
               </div>
-              <div>{{item | displayName}}</div>
+              <div>{{ $t(item) }}</div>
             </div>
           </div>
         </div>
         <div class="va-row justify--center align-center">
           <div class="text-center">
-            {{'spinners.poweredBy' | translate}}
+            {{ $t('spinners.poweredBy') }}
             <a :href="'http://epic-spinners.epicmax.co/'" target="_blank">Epic
-              Spinners</a>
+              Spinners
+            </a>
           </div>
         </div>
-      </vuestic-widget>
+      </va-card>
     </div>
   </div>
 </template>
@@ -77,10 +83,10 @@
 <script>
 import * as spinners from 'epic-spinners'
 import { mapGetters } from 'vuex'
-import VuesticPalletCustom
-  from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticPalletCustom'
-import { colorArray } from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticTheme'
-import VuesticSlider
+import VaPalletCustom
+  from '../../../vuestic-theme/vuestic-components/va-color-picker/VaPalletCustom'
+import { colorArray } from '../../../vuestic-theme/vuestic-components/va-color-picker/VuesticTheme'
+import VaSlider
   from '../../../vuestic-theme/vuestic-components/va-slider/VaSlider'
 import VaIconFaster
   from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconFaster'
@@ -90,8 +96,8 @@ import VaIconSlower
 export default {
   components: {
     ...spinners,
-    VuesticPalletCustom,
-    VuesticSlider,
+    VaPalletCustom,
+    VaSlider,
     VaIconFaster,
     VaIconSlower,
   },
@@ -153,7 +159,7 @@ export default {
   @include media-breakpoint-down(xs) {
 
     &__color-picker {
-      .vuestic-color-dropdown__content {
+      .va-color-dropdown__content {
         right: 40px;
       }
     }

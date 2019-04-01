@@ -1,85 +1,75 @@
-import VaNotification from './vuestic-components/va-notification/VaNotification.vue'
-import Breadcrumbs
-  from './vuestic-components/vuestic-breadcrumbs/VuesticBreadcrumbs.vue'
-import Chart from './vuestic-components/vuestic-chart/VuesticChart.vue'
-import Chat from './vuestic-components/vuestic-chat/VuesticChat.vue'
-import Checkbox from './vuestic-components/vuestic-checkbox/VuesticCheckbox.vue'
+import VaNotification
+  from './vuestic-components/va-notification/VaNotification.vue'
+import VaBreadcrumbs
+  from './vuestic-components/va-breadcrumbs/VaBreadcrumbs.vue'
+import VaChart from './vuestic-components/va-chart/VaChart.vue'
+import VaChat from './vuestic-components/va-chat/VaChat.vue'
+import VaCheckbox from './vuestic-components/va-checkbox/VaCheckbox.vue'
 import VaProgressCircle
   from './vuestic-components/va-progress-bar/progress-types/VaProgressCircle.vue'
-import DataTable
-  from './vuestic-components/vuestic-datatable/VuesticDataTable.vue'
-import Feed from './vuestic-components/vuestic-feed/VuesticFeed.vue'
+import VaDataTable
+  from './vuestic-components/va-datatable/VaDataTable.vue'
+import VaFeed from './vuestic-components/va-feed/VaFeed.vue'
 import VaProgressBar
   from './vuestic-components/va-progress-bar/progress-types/VaProgressBar.vue'
-import VaSlider
-  from './vuestic-components/va-slider/VaSlider.vue'
-import MediumEditor
-  from './vuestic-components/vuestic-medium-editor/VuesticMediumEditor.vue'
-import Modal from './vuestic-components/va-modal/VaModal.vue'
-import Popover from './vuestic-components/vuestic-popover/VuesticPopover.vue'
-import PreLoader
-  from './vuestic-components/vuestic-preloader/VuesticPreLoader.vue'
-import ProfileCard
-  from './vuestic-components/vuestic-profile-card/VuesticProfileCard.vue'
-import VaBadge
-  from './vuestic-components/va-chip/VaBadge.vue'
-import VaChip
-  from './vuestic-components/va-chip/VaChip.vue'
-import VaButton
-  from './vuestic-components/va-button/VaButton.vue'
+import VaSlider from './vuestic-components/va-slider/VaSlider.vue'
+import VaMediumEditor
+  from './vuestic-components/va-medium-editor/VaMediumEditor.vue'
+import VaModal from './vuestic-components/va-modal/VaModal.vue'
+import VaPopover from './vuestic-components/va-popover/VaPopover.vue'
+import VaPreLoader
+  from './vuestic-components/va-pre-loader/VaPreLoader.vue'
+import VaProfileCard
+  from './vuestic-components/va-profile-card/VaProfileCard.vue'
+import VaBadge from './vuestic-components/va-chip/VaBadge.vue'
+import VaChip from './vuestic-components/va-chip/VaChip.vue'
+import VaButton from './vuestic-components/va-button/VaButton.vue'
 import VaButtonGroup
   from './vuestic-components/va-button-group/VaButtonGroup.vue'
 import VaButtonToggle
   from './vuestic-components/va-button-toggle/VaButtonToggle.vue'
-import VaPagination
-  from './vuestic-components/va-pagination/VaPagination.vue'
-import RadioButton
-  from './vuestic-components/vuestic-radio-button/VuesticRadioButton'
-import Scrollbar
-  from './vuestic-components/vuestic-scrollbar/VuesticScrollbar.vue'
-import Select
+import VaPagination from './vuestic-components/va-pagination/VaPagination.vue'
+import VaRadioButton
+  from './vuestic-components/va-radio-button/VaRadioButton'
+import VaScrollbar
+  from './vuestic-components/va-scrollbar/VaScrollbar.vue'
+import VaSelect
   from './vuestic-components/va-select/VaSelect.vue'
-import SocialNews
-  from './vuestic-components/vuestic-social-news/VuesticSocialNews.vue'
-import Switch from './vuestic-components/vuestic-switch/VuesticSwitch.vue'
-import Tabs from './vuestic-components/vuestic-tabs/VuesticTabs.vue'
-import Tooltip from './vuestic-components/vuestic-tooltip/VuesticTooltip.vue'
-import Widget from './vuestic-components/vuestic-widget/VuesticWidget.vue'
-import Wizard from './vuestic-components/vuestic-wizard/VuesticWizard.vue'
-import TreeRoot from './vuestic-components/vuestic-tree-view/VuesticTreeRoot'
-import TreeCategory
-  from './vuestic-components/vuestic-tree-view/VuesticTreeCategory'
-import TreeNode from './vuestic-components/vuestic-tree-view/VuesticTreeNode'
-import DatePicker
-  from './vuestic-components/vuestic-date-picker/VuesticDatePicker'
-import Card from './vuestic-components/vuestic-card/VuesticCard'
-import FileUpload
-  from './vuestic-components/vuestic-file-upload/VuesticFileUpload'
-import VaIcon from './vuestic-components/va-icon/VaIcon'
+import VaSocialNews
+  from './vuestic-components/va-social-news/VaSocialNews.vue'
+import VaSwitch from './vuestic-components/va-switch/VaSwitch.vue'
+import VaTabs from './vuestic-components/va-tabs/VaTabs.vue'
+import VaTooltip from './vuestic-components/va-tooltip/VaTooltip.vue'
+import VaWizard from './vuestic-components/va-wizard/VaWizard.vue'
+import VaTreeRoot from './vuestic-components/va-tree-view/VaTreeRoot'
+import VaTreeCategory
+  from './vuestic-components/va-tree-view/VaTreeCategory'
+import VaTreeNode from './vuestic-components/va-tree-view/VaTreeNode'
+import VaDatePicker
+  from './vuestic-components/va-date-picker/VaDatePicker'
+import VaFileUpload
+  from './vuestic-components/va-file-upload/VaFileUpload'
+import VaVaIcon from './vuestic-components/va-icon/VaIcon'
 import VaDropdown
   from './vuestic-components/va-dropdown/VaDropdown'
-import VuesticToasted from './vuestic-mixins/VuesticToasted'
+
+import Toasted from './vuestic-mixins/VuesticToasted'
 
 import Dropdown from './vuestic-directives/Dropdown'
 import StickyScroll from './vuestic-directives/StickyScroll'
 
-import VaAccordion
-  from './vuestic-components/va-collapse/VaAccordion'
-import VaCollapse
-  from './vuestic-components/va-collapse/VaCollapse'
+import VaAccordion from './vuestic-components/va-collapse/VaAccordion'
+import VaCollapse from './vuestic-components/va-collapse/VaCollapse'
 
-import VuesticTimeline
-  from './vuestic-components/vuestic-timelines/VuesticTimeline'
-import VuesticTimelineItem
-  from './vuestic-components/vuestic-timelines/VuesticTimelineItem'
-import VuesticPopup
-  from './vuestic-components/vuestic-popup/quasar/components/popup/VuesticPopup.vue'
+import VaTimeline
+  from './vuestic-components/va-timeline/VaTimeline'
+import VaTimelineItem
+  from './vuestic-components/va-timeline/VaTimelineItem'
+import VaPopup
+  from './vuestic-components/va-popup/quasar/components/popup/VaPopup.vue'
 
-import VuesticContainer from './vuestic-components/vuestic-grid/VGrid/Container'
-import VuestVaLayout from './vuestic-components/vuestic-grid/VGrid/Layout'
-import VuesticFlex from './vuestic-components/vuestic-grid/VGrid/Flex'
-
-import { installQuasarPlatform } from './vuestic-components/vuestic-popup/quasar/install'
+import VaCard from './vuestic-components/va-card/VaCard'
+import { installQuasarPlatform } from './vuestic-components/va-popup/quasar/install'
 
 // At the moment we use quasar platform install to make its components work.
 // Ideally we want to create similar vuestic platform object that holds needed values.
@@ -89,17 +79,17 @@ const VuesticPlugin = {
   install (Vue, options) {
     [
       VaNotification,
-      Breadcrumbs,
-      Chart,
-      Chat,
-      Checkbox,
+      VaBreadcrumbs,
+      VaChart,
+      VaChat,
+      VaCheckbox,
       VaProgressBar,
-      DataTable,
-      Feed,
+      VaDataTable,
+      VaFeed,
       VaProgressCircle,
-      Modal,
-      PreLoader,
-      ProfileCard,
+      VaModal,
+      VaPreLoader,
+      VaProfileCard,
       VaProgressBar,
       VaBadge,
       VaChip,
@@ -108,38 +98,34 @@ const VuesticPlugin = {
       VaButtonGroup,
       VaButtonToggle,
       VaPagination,
-      RadioButton,
-      Scrollbar,
-      Select,
-      SocialNews,
-      Switch,
-      Tabs,
-      Widget,
-      Wizard,
-      MediumEditor,
-      Tooltip,
-      Popover,
-      TreeRoot,
-      TreeCategory,
-      TreeNode,
-      FileUpload,
+      VaRadioButton,
+      VaScrollbar,
+      VaSelect,
+      VaSocialNews,
+      VaSwitch,
+      VaTabs,
+      VaWizard,
+      VaMediumEditor,
+      VaTooltip,
+      VaPopover,
+      VaTreeRoot,
+      VaTreeCategory,
+      VaTreeNode,
+      VaFileUpload,
       VaDropdown,
-      DatePicker,
-      Card,
-      VaIcon,
+      VaDatePicker,
+      VaVaIcon,
       VaAccordion,
       VaCollapse,
-      VuesticTimeline,
-      VuesticTimelineItem,
-      VuesticPopup,
-      VuesticContainer,
-      VuestVaLayout,
-      VuesticFlex,
+      VaTimeline,
+      VaTimelineItem,
+      VaPopup,
+      VaCard,
     ].forEach(component => {
       Vue.component(component.name, component)
     })
 
-    Vue.mixin(VuesticToasted)
+    Vue.mixin(Toasted)
 
     Vue.directive('dropdown', Dropdown)
     Vue.directive('sticky-scroll', StickyScroll)

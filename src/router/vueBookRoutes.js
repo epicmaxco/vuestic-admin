@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import { createRoute, VueBookComponents } from 'vue-book'
+
 Vue.use(VueBookComponents)
 
 export default [

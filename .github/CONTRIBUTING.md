@@ -45,10 +45,13 @@ Commit messages should follow the [commit message convention](./COMMIT_CONVENTIO
 
 ``` bash
 # run dev server
-$ npm run serve
+$ yarn serve
+
+# run dev server
+$ yarn serve:book
 
 # build vuestic project into bundle
-$ npm run build
+$ yarn build
 ```
 
 ## Credits

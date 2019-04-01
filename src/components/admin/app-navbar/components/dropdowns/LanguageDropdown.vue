@@ -16,7 +16,7 @@
       >
         <va-icon :icon="['flag-icon flag-icon-small', flagIconClass(option.code)]"/>
         <span class="dropdown-item__text ellipsis">
-          {{ `language.${option.name}` | translate }}
+          {{ $t(`language.${option.name}`) }}
         </span>
       </a>
     </va-dropdown>
@@ -73,6 +73,7 @@ export default {
 
 .language-dropdown {
   cursor: pointer;
+
   .flag-icon-large {
     display: block;
     width: 31px;

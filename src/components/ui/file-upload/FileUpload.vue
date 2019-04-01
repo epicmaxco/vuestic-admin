@@ -1,50 +1,50 @@
 <template>
   <div class="file-upload">
     <div class="flex md12">
-      <vuestic-widget :headerText="$t('fileUpload.advancedMediaGallery')">
-        <vuestic-file-upload
+      <va-card :title="$t('fileUpload.advancedMediaGallery')">
+        <va-file-upload
           type="gallery"
           :file-types="'.png, .jpg, .jpeg, .gif'"
           dropzone
           v-model="advancedGallery"
         />
-      </vuestic-widget>
+      </va-card>
     </div>
 
     <div class="flex md12">
-      <vuestic-widget :headerText="$t('fileUpload.advancedUploadList')">
-        <vuestic-file-upload
+      <va-card :title="$t('fileUpload.advancedUploadList')">
+        <va-file-upload
           dropzone
           v-model="advancedList"
         />
-      </vuestic-widget>
+      </va-card>
     </div>
 
     <div class="flex md12">
-      <vuestic-widget :headerText="$t('fileUpload.single')">
-        <vuestic-file-upload
+      <va-card :title="$t('fileUpload.single')">
+        <va-file-upload
           type="single"
           v-model="single"
         />
-      </vuestic-widget>
+      </va-card>
     </div>
 
     <div class="flex md12">
-      <vuestic-widget :headerText="$t('fileUpload.mediaGallery')">
-        <vuestic-file-upload
+      <va-card :title="$t('fileUpload.mediaGallery')">
+        <va-file-upload
           type="gallery"
           :file-types="'.png, .jpg, .jpeg, .gif'"
           v-model="gallery"
         />
-      </vuestic-widget>
+      </va-card>
     </div>
 
     <div class="flex md12">
-      <vuestic-widget :headerText="$t('fileUpload.uploadList')">
-        <vuestic-file-upload
+      <va-card :title="$t('fileUpload.uploadList')">
+        <va-file-upload
           v-model="list"
         />
-      </vuestic-widget>
+      </va-card>
     </div>
   </div>
 </template>

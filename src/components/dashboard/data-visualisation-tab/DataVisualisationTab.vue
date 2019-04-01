@@ -3,12 +3,12 @@
     <div class="va-row">
       <div class="flex md6 xs12">
         <div class="px-4" style="height: 24rem;">
-          <vuestic-chart v-bind:data="donutChartData"
-                         type="donut"></vuestic-chart>
+          <va-chart v-bind:data="donutChartData"
+                         type="donut"></va-chart>
         </div>
       </div>
       <div class="flex md6">
-        <vuestic-data-table
+        <va-data-table
           :apiMode="apiMode"
           :tableData="tableData"
           :tableFields="tableFields"

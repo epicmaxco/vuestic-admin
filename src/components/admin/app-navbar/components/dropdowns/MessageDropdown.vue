@@ -14,7 +14,7 @@
         <span class="ellipsis">{{ $t(`messages.${option.name}`, { name: option.details.name})}}</span>
       </a>
       <div class="dropdown-item plain-link-item">
-        <a class="plain-link" href="#">{{'messages.all' | translate}}</a>
+        <a class="plain-link" href="#">{{ $t('messages.all') }}</a>
       </div>
     </va-dropdown>
   </div>

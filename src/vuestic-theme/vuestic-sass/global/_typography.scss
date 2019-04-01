@@ -13,24 +13,27 @@
 
 .link, .link-secondary {
   cursor: pointer;
+
   &:hover {
     color: $va-link-color-hover;
   }
+
   &:active {
     color: $va-link-color-active;
   }
+
   &:visited {
     color: $va-link-color-visited;
   }
 }
 
 .title {
- color: $vue-green;
- font-size: 10px;
- letter-spacing: 0.6px;
- line-height: 1.2;
- font-weight: bold;
- text-transform: uppercase;
+  color: $vue-green;
+  font-size: 10px;
+  letter-spacing: 0.6px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-transform: uppercase;
 
   &--info {
     color: $theme-blue-dark;
@@ -49,41 +52,52 @@
   &--bold {
     font-weight: bold;
   }
+
   &--highlighted {
     background-color: $text-highlighted;
   }
+
   &--left {
     text-align: left !important;
   }
+
   &--right {
     text-align: right !important;
   }
+
   &--center {
     text-align: center !important;
   }
+
   &--uppercase {
     text-transform: uppercase !important;
   }
+
   &--lowercase {
     text-transform: lowercase !important;
   }
+
   &--capitalize {
     text-transform: capitalize !important;
   }
+
   &--no-wrap {
     white-space: nowrap !important;
   }
+
   &--truncate {
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
   }
+
   &--code {
     color: $white;
     font-family: "Source Code Pro";
     background-color: $vue-darkest-blue;
     padding: 0.1rem 0.2rem;
   }
+
   &--secondary {
     opacity: 0.4;
   }
@@ -97,6 +111,7 @@
 
   p {
     margin-bottom: 0.5rem;
+
     &:last-child {
       margin-bottom: 0;
     }

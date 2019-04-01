@@ -1,6 +1,6 @@
 <template>
   <div class="filters">
-    <vuestic-widget headerText="Show filters">
+    <va-card title="Show filters">
       <div class="va-row">
         <div class="flex md3">
           <filter-bar
@@ -48,8 +48,8 @@
           </va-button>
         </div>
       </div>
-    </vuestic-widget>
-    <vuestic-widget>
+    </va-card>
+    <va-card>
       <div class="table-responsive">
         <table class="table table-striped first-td-padding">
           <thead>
@@ -72,23 +72,23 @@
           </tbody>
         </table>
       </div>
-    </vuestic-widget>
+    </va-card>
   </div>
 </template>
 
 <script>
-import VuesticWidget
-  from '../../../vuestic-theme/vuestic-components/vuestic-widget/VuesticWidget'
+import VaCard from '../../../vuestic-theme/vuestic-components/va-card/VaCard'
 import FilterBar
-  from '../../../vuestic-theme/vuestic-components/vuestic-datatable/datatable-components/FilterBar.vue'
+  from '../../../vuestic-theme/vuestic-components/va-datatable/datatable-components/FilterBar.vue'
 import VaSelect
-  from '../../../vuestic-theme/vuestic-components/va-select/VaSelect'
+  from '../../../vuestic-theme/vuestic-components/va-simple-select/VaSelect'
 import { SpringSpinner } from 'epic-spinners'
 import { cityList, itemList } from './filtersData'
+
 export default {
   name: 'filters',
   components: {
-    VuesticWidget, FilterBar, SpringSpinner, VaSelect
+    VaCard, FilterBar, SpringSpinner, VaSelect,
   },
   data () {
     return {
@@ -104,7 +104,7 @@ export default {
       this.name = ''
       this.email = ''
       this.city = ''
-    }
+    },
   },
   computed: {
     filteredItems () {
@@ -122,7 +122,7 @@ export default {
           .search(this.city.value.toUpperCase()) !== -1)
       }
       return filteredItems
-    }
-  }
+    },
+  },
 }
 </script>

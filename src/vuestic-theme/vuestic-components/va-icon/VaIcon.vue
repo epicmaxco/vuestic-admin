@@ -1,7 +1,7 @@
 <template>
   <i class="va-icon"
-    :class="[icon, iconClass]"
-    :style="iconStyle"
+     :class="[icon, iconClass]"
+     :style="iconStyle"
   />
 </template>
 
@@ -10,27 +10,25 @@ export default {
   name: 'va-icon',
   props: {
     icon: {
-      type: [String, Array]
+      type: [String, Array],
     },
     small: {
       type: Boolean,
-      default: false
     },
     large: {
       type: Boolean,
-      default: false
     },
     size: {
       type: [String, Number],
     },
     fixedWidth: {
-      type: Boolean
+      type: Boolean,
     },
     rotation: {
-      type: [String, Number]
+      type: [String, Number],
     },
     color: {
-      type: String
+      type: String,
     },
   },
   computed: {
@@ -39,25 +37,22 @@ export default {
         'va-icon--large': this.large,
         'va-icon--small': this.small,
         'va-icon--fixed': this.fixedWidth,
-        'va-icon--success': this.color === 'success',
-        'va-icon--info': this.color === 'info',
-        'va-icon--danger': this.color === 'danger',
-        'va-icon--warning': this.color === 'warning',
-        'va-icon--gray': this.color === 'gray',
-        'va-icon--dark': this.color === 'dark',
       }
     },
     iconStyle () {
       return {
         transform: 'rotate(' + this.rotation + 'deg)',
-        fontSize: typeof this.size === 'number' ? this.size + 'px' : this.size
+        fontSize: typeof this.size === 'number' ? this.size + 'px' : this.size,
+        color: this.$themes[this.color] || this.color,
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+
 .va-icon {
   display: inline-block;
   letter-spacing: normal;
