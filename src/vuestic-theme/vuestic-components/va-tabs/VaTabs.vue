@@ -1,32 +1,21 @@
 <template>
-  <div class="va-tabs">
-    <div
-      class="va-tabs__bar va-row"
-      :class="{
-       'va-tabs__bar--align-right': right,
-       'va-tabs__bar--grow': grow
-      }"
-    >
+  <div
+    class="va-tabs"
+    :class="{'va-tabs--align-right': right}"
+  >
+    <div class="va-tabs__bar-content">
+      <div class="va-tabs__bar-content-items">
+        <slot/>
+      </div>
       <div
-        class="va-tabs__bar-content"
-        :class="{'va-tabs__bar-content--grow': grow}"
-      >
-        <div
-          class="va-tabs__bar-content-items"
-          :class="{'grow': grow}"
-        >
-          <slot/>
-        </div>
-        <div
-          v-if="!hideSlider"
-          class="va-tabs__bar-content-slider"
-          :style="{
+        v-if="!hideSlider"
+        class="va-tabs__bar-content-slider"
+        :style="{
              width: getBarWidth($slots.default),
              marginLeft: getMarginLeft($slots.default)
           }"
-        >
-          <div class="va-tabs__bar-content-slider-line"/>
-        </div>
+      >
+        <div class="va-tabs__bar-content-slider-line"/>
       </div>
     </div>
   </div>
@@ -35,7 +24,6 @@
 <script>
 
 import VaTab from './VaTab'
-
 export default {
   name: 'va-tabs',
   components: {
@@ -129,19 +117,14 @@ export default {
 
 <style lang="scss">
 .va-tabs {
+  &--align-right {
+    display: flex;
+    justify-content: flex-end;
+  }
   &__bar {
     padding-top: 1rem;
-    &--align-right {
-      justify-content: flex-end;
-    }
-    &--grow {
-      justify-content: space-around;
-    }
     &-content {
       margin-bottom: 2.5rem;
-      &--grow {
-        width: 100%;
-      }
       &-items {
         display: flex;
         &.grow {
