@@ -81,7 +81,7 @@ import VaCard from '../../../vuestic-theme/vuestic-components/va-card/VaCard'
 import FilterBar
   from '../../../vuestic-theme/vuestic-components/va-datatable/datatable-components/FilterBar.vue'
 import VaSelect
-  from '../../../vuestic-theme/vuestic-components/va-simple-select/VaSelect'
+  from '../../../vuestic-theme/vuestic-components/va-select/VaSelect'
 import { SpringSpinner } from 'epic-spinners'
 import { cityList, itemList } from './filtersData'
 

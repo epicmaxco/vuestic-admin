@@ -1,7 +1,7 @@
 <template>
   <div class="demo-container">
     <div class="demo-container__item">
-      <VaSimpleSelect
+      <va-select
         :options="chartTypes"
         v-model="chartType"
       />
@@ -17,7 +17,7 @@
 <script>
 import VaButton from '../va-button/VaButton'
 import VaChart from './VaChart.vue'
-import VaSimpleSelect from '../va-simple-select/VaSimpleSelect'
+import VaSelect from '../va-select/VaSelect'
 // TODO Demo is non operational
 // HACK Data is bound to vuex
 // import { chartTypes } from './VaChartConfigs'
@@ -32,7 +32,7 @@ export default {
   },
   components: {
     VaButton,
-    VaSimpleSelect,
+    VaSelect,
     VaChart,
   },
   computed: {
