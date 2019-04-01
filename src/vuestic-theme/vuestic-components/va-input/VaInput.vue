@@ -119,14 +119,16 @@ export default {
 </script>
 
 <style lang='scss'>
-  .va-input {
+@import '../../vuestic-sass/resources/resources';
+
+.va-input {
 
     &__slot {
       position: relative;
 
       &__label {
         position: absolute;
-        bottom: 0.875rem;
+        bottom: 0.75rem;
         left: 0.5rem;
         color: $vue-green;
         font-size: 0.625rem;

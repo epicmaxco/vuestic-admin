@@ -94,6 +94,8 @@ export default {
 </script>
 
 <style lang='scss'>
+@import '../../vuestic-sass/resources/resources';
+
   .va-input-wrapper {
     flex: 1 1 auto;
     font-size: 1rem;
@@ -127,7 +129,7 @@ export default {
     }
 
     &__messages__wrapper {
-      font-size: 0.75rem;
+      font-size: 0.875rem;
     }
   }
 </style>

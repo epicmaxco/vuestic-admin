@@ -2,7 +2,7 @@
   <div class="medium-editor">
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget :headerText="'forms.mediumEditor.title' | translate">
+        <va-card :title="$t('forms.mediumEditor.title')">
           <vuestic-medium-editor @initialized="handleEditorInitialization"
                                  :editor-options="editorOptions">
             <h1>Girl, no you don’t</h1>
@@ -85,7 +85,7 @@
               href="https://medium.com/@dorn.anna/girl-no-you-dont-2e21e826c62c">Medium</a>
             </p>
           </vuestic-medium-editor>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
   </div>

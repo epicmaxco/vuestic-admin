@@ -1,8 +1,10 @@
 <template>
   <div class="va-row spinners">
     <div class="flex md12 xs12">
-      <vuestic-widget :headerText="$t('spinners.title')"
-                      class="spinners__widget">
+      <va-card
+        :title="$t('spinners.title')"
+        class="spinners__widget"
+      >
         <div class="spinners__customization">
           <div class="va-row">
             <div class="flex xs12 md3 lg4">
@@ -69,7 +71,7 @@
               Spinners</a>
           </div>
         </div>
-      </vuestic-widget>
+      </va-card>
     </div>
   </div>
 </template>

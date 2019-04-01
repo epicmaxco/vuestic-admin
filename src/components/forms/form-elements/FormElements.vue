@@ -2,7 +2,7 @@
   <div class="form-elements">
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget :headerText="'forms.inputs.title' | translate">
+        <va-card :title="'forms.inputs.title' | translate">
           <form>
 
             <div class="va-row">
@@ -82,13 +82,13 @@
             </div>
 
           </form>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget :headerText="$t('forms.dateTimePicker.title')">
+        <va-card :title="$t('forms.dateTimePicker.title')">
           <form>
             <div class="va-row">
               <div class="flex md4">
@@ -193,13 +193,13 @@
               </div>
             </div>
           </form>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget :headerText="'forms.selects.title' | translate">
+        <va-card :title="$t('forms.selects.title')">
           <form>
             <div class="va-row">
               <div class="flex md4">
@@ -234,13 +234,13 @@
               </div>
             </div>
           </form>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget :headerText="'forms.controls.title' | translate">
+        <va-card :title="$t('forms.controls.title')">
           <form>
             <div class="va-row">
               <div class="flex md3">
@@ -315,7 +315,7 @@
               </div>
             </div>
           </form>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
   </div>

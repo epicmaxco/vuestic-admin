@@ -174,6 +174,8 @@ export default {
 </script>
 
 <style lang='scss'>
+@import "../../vuestic-sass/resources/resources";
+
   .va-pagination {
     .va-button--disabled {
       i {
