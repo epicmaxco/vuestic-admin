@@ -10,24 +10,20 @@
   >
     <slot name="prepend" slot="prepend"/>
     <div
-      class="va-input__slot d-flex">
+      class="va-input__slot">
       <label
         :style="labelStyles"
         aria-hidden="true"
-        class="va-input__slot__label title"
+        class="va-input__slot__label"
       >
         {{ label }}
       </label>
       <input
-        class="py-1 px-2"
         :type="type"
         :placeholder="placeholder"
         :disabled="disabled"
         :readonly="readonly"
         :value="value"
-        @input="$emit('input', $event.target.value)"
-        @focus="isFocused = true"
-        @blur="isFocused = false"
         v-on="inputListeners"
       >
     </div>
@@ -35,7 +31,7 @@
       @click.native="clearContent()"
       v-if="removable"
       slot="append"
-      class="pointer pb-1"
+      class="va-input__close-icon"
       :color="error ? 'danger': ''"
       :style="{ color: '#babfc2'}"
       icon="ion ion-md-close ion"
@@ -46,11 +42,12 @@
 
 <script>
 import VaInputWrapper from '../va-input/VaInputWrapper'
+import VaIcon from '../va-icon/VaIcon'
 
 export default {
   name: 'va-input',
   extends: VaInputWrapper,
-  components: { VaInputWrapper },
+  components: { VaInputWrapper, VaIcon },
   props: {
     value: {
       type: String,
@@ -91,13 +88,18 @@ export default {
       return Object.assign({},
         this.$listeners,
         {
+          input: function (event) {
+            vm.$emit('input', event.target.value)
+          },
           click: function (event) {
             vm.$emit('click', event)
           },
           focus: function (event) {
+            vm.isFocused = true
             vm.$emit('focus', event)
           },
           blur: function (event) {
+            vm.isFocused = false
             vm.$emit('blur', event)
           },
           keyup: function (event) {
@@ -105,7 +107,7 @@ export default {
           },
           keydown: function (event) {
             vm.$emit('keydown', event)
-          },
+          }
         }
       )
     }
@@ -123,36 +125,51 @@ export default {
 
 .va-input {
 
-    &__slot {
-      position: relative;
+  &__slot {
+    display: flex;
+    position: relative;
 
-      &__label {
-        position: absolute;
-        bottom: 0.75rem;
-        left: 0.5rem;
-        color: $vue-green;
-        font-size: 0.625rem;
-        letter-spacing: 0.0375rem;
-        line-height: 1.2;
-        font-weight: bold;
-        text-transform: uppercase;
-      }
+    &__label {
+      position: absolute;
+      bottom: 0.875rem;
+      left: 0.5rem;
+      margin-bottom: 0.5rem;
+      color: $vue-green;
+      font-size: 0.625rem;
+      letter-spacing: 0.0375rem;
+      line-height: 1.2;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
 
-      &__prefix {
+    input {
+      width: 100%;
+      height: 1.5rem;
+      padding: 0.25rem 0.5rem;
+      color: #34495e;
+      background-color: transparent;
+      border-style: none;
+      outline: none;
+      font-size: 1rem;
+      font-family: $font-family-sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+
+      &::placeholder {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5rem;
         color: $brand-secondary;
-      }
-
-      input {
-        height: 1.5rem;
-        background-color: transparent;
-        border-style: none;
-        outline: none;
-        width: 100%;
-
-        &::placeholder {
-          color: $brand-secondary;
-        }
       }
     }
   }
+
+  &__close-icon {
+    padding-bottom: 0.25rem;
+    cursor: pointer;
+  }
+}
 </style>

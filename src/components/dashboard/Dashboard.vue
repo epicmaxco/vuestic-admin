@@ -1,28 +1,28 @@
 <template>
   <div class="dashboard">
 
-    <dashboard-info-widgets />
+    <dashboard-info-widgets/>
 
     <va-card no-padding>
-      <vuestic-tabs
+      <va-tabs
         :names="[$t('dashboard.dataVisualization'), $t('dashboard.usersAndMembers'), $t('dashboard.setupProfile'), $t('dashboard.features')]"
         ref="tabs">
         <div :slot="$t('dashboard.dataVisualization')">
-          <data-visualisation-tab />
+          <data-visualisation-tab/>
         </div>
         <div :slot="$t('dashboard.usersAndMembers')">
-          <users-members-tab />
+          <users-members-tab/>
         </div>
         <div :slot="$t('dashboard.setupProfile')">
-          <setup-profile-tab />
+          <setup-profile-tab/>
         </div>
         <div :slot="$t('dashboard.features')">
-          <features-tab />
+          <features-tab/>
         </div>
-      </vuestic-tabs>
+      </va-tabs>
     </va-card>
 
-    <dashboard-bottom-widgets />
+    <dashboard-bottom-widgets/>
 
   </div>
 </template>

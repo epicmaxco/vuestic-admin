@@ -88,20 +88,20 @@
 </template>
 
 <script>
-
 import VaButtonToggle from './VaButtonToggle'
+
 export default {
   components: {
-    VaButtonToggle
+    VaButtonToggle,
   },
   data () {
     return {
       options: [
         { label: 'One', value: 'one' },
         { label: 'Two', value: 'two' },
-        { label: 'Three', value: 'three' }
+        { label: 'Three', value: 'three' },
       ],
-      model: 'two'
+      model: 'two',
     }
   },
 }

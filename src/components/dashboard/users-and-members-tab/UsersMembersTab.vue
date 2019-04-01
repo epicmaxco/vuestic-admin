@@ -2,7 +2,7 @@
   <div class="users-members-tab dashboard-tab">
     <div class="va-row justify--center">
       <div class="flex md3 flex justify--center align--center">
-        <vuestic-profile-card
+        <va-profile-card
           name="Veronique Lee"
           location="Malaga, Spain"
           photoSource="https://i.imgur.com/NLrdqsk.png"
@@ -10,7 +10,7 @@
         />
       </div>
       <div class="flex md9">
-        <vuestic-chat v-model="chatMessages"/>
+        <va-chat v-model="chatMessages"/>
       </div>
     </div>
   </div>

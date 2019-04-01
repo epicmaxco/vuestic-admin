@@ -13,6 +13,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@types/jest": "^24.0.11",
     "amcharts3": "^3.21.13",
     "ammap3": "^3.21.13",
     "awesome-bootstrap-checkbox": "1.0.0-alpha.5",
@@ -41,6 +42,7 @@
     "vue-chartjs": "^3.4.0",
     "vue-clipboard2": "^0.2.1",
     "vue-color": "^2.7.0",
+    "vue-flatpickr-component": "^8.0.0",
     "vue-router": "^3.0.1",
     "vue-slider-component": "2.7.8",
     "vue-toasted": "^1.1.25",
@@ -49,8 +51,7 @@
     "vuetable-2": "1.7.5",
     "vuex": "^3.0.1",
     "vuex-i18n": "^1.7.0",
-    "vuex-router-sync": "5.0.0",
-    "vue-flatpickr-component": "^8.0.0"
+    "vuex-router-sync": "5.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.5",

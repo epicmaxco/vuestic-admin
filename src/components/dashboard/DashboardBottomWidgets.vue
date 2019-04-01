@@ -2,13 +2,13 @@
   <div class="va-row dashboard-bottom-widgets">
     <div class="flex md6 xs12">
       <va-card no-padding>
-        <vuestic-feed :initialPosts="posts" />
+        <va-feed :initialPosts="posts"/>
       </va-card>
     </div>
     <div class="flex md6 xs12">
       <va-card class="business-posts">
-        <vuestic-social-news
-          class="vuestic-social-news" :news="news"
+        <va-social-news
+          class="va-social-news" :news="news"
           :url="'http://instagram.com/smartapant'"
         />
       </va-card>
