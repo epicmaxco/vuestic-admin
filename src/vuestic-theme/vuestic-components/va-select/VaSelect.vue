@@ -151,9 +151,9 @@ export default {
   },
   computed: {
     filteredOptions () {
-      const formatedOptions = this.options ? this.options.map(option => option.value ? { ...option } : { text: option, value: option }) : []
-      const filteredOptions = formatedOptions.filter(option => (`${option.text.toLowerCase()}`.indexOf(this.search.toLowerCase()) !== -1 || option.text.indexOf(this.search) !== -1))
-      return this.searchable ? filteredOptions : formatedOptions
+      const formattedOptions = this.options ? this.options.map(option => option.value ? { ...option } : { text: option, value: option }) : []
+      const filteredOptions = formattedOptions.filter(option => (`${option.text.toLowerCase()}`.indexOf(this.search.toLowerCase()) !== -1 || option.text.indexOf(this.search) !== -1))
+      return this.searchable ? filteredOptions : formattedOptions
     },
     displayedValue () {
       return this.multiple ? `${this.valueProxy.length} items selected` : (this.valueProxy ? this.valueProxy.text : '')
@@ -205,7 +205,7 @@ export default {
       }
     },
     isOptionSelected (option) {
-      return this.multiple ? this.value.indexOf(option) !== -1 : this.value.value === option.value
+      return this.multiple ? this.value.includes(option) : this.value.value === option.value
     },
     isOptionHightlighted (option, index) {
       return this.pointer === index

@@ -11,7 +11,7 @@
         class="va-dropdown"
         :class="className"
       >
-        <slot>{{ message }}</slot>
+        <slot/>
       </div>
     </transition>
   </div>
@@ -28,12 +28,12 @@ export default {
     position: {
       type: String,
       default: 'T',
-      validator: position => availablePositions.indexOf(position) >= 0
+      validator: position => availablePositions.includes(position)
     },
     triggerMode: {
       type: String,
       default: 'click',
-      validator: triggerMode => availableTriggerModes.indexOf(triggerMode) >= 0
+      validator: triggerMode => availableTriggerModes.includes(triggerMode)
     },
     disabled: {
       type: Boolean,
@@ -46,7 +46,6 @@ export default {
       type: [String, Number]
     },
     noFade: Boolean,
-    message: String,
     className: String
   },
   data () {
@@ -133,10 +132,20 @@ export default {
     }
   },
   beforeDestroy () {
+    this.hide()
     this.$el.appendChild(this.targetElement)
     this.$el.appendChild(this.$refs.dropdown)
 
     window.removeEventListener('resize', this.throttleCalcPositon)
+    let a = this.targetElement
+    let parentNodes = []
+    while (a) {
+      parentNodes.push(a)
+      a = a.parentNode
+    }
+    parentNodes.forEach(node => {
+      node.removeEventListener('scroll', this.calculatePosition)
+    })
     if (this.isOnClick) {
       this.targetElement.removeEventListener('click', this.toggle)
     }
@@ -150,8 +159,8 @@ export default {
     }
   },
   methods: {
-    calculatePosition (forse = false) {
-      if (!forse && !this.isVisible) {
+    calculatePosition (force = false) {
+      if (!force && !this.isVisible) {
         return
       }
       const tRect = this.targetElement.getBoundingClientRect()
@@ -208,7 +217,7 @@ export default {
       }
       this.left = `${Math.max(left, 0)}px`
       this.top = `${Math.max(top, 0)}px`
-      if (forse && (this.top !== previousTop || this.left !== previousLeft)) {
+      if (force && (this.top !== previousTop || this.left !== previousLeft)) {
         this.$nextTick(this.calculatePosition)
       }
     },
