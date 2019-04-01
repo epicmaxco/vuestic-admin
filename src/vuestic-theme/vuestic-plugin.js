@@ -54,7 +54,7 @@ import VaFileUpload
 import VaVaIcon from './vuestic-components/va-icon/VaIcon'
 import VaDropdown
   from './vuestic-components/va-dropdown/VaDropdown'
-import Tab from './vuestic-components/va-tabs/VaTab.vue'
+import VaTab from './vuestic-components/va-tabs/VaTab.vue'
 
 import Toasted from './vuestic-mixins/VuesticToasted'
 
@@ -125,6 +125,7 @@ const VuesticPlugin = {
       VaTimelineItem,
       VaPopup,
       VaCard,
+      VaTab
     ].forEach(component => {
       Vue.component(component.name, component)
     })
