@@ -33,19 +33,19 @@ export default {
     }, {
       color: 'info',
       value: '271',
-      text: 'Nathaniel Andrews'
+      text: 'Gora Gilbert'
     }, {
       color: 'warning',
       value: '69',
-      text: 'Nathaniel Andrews'
+      text: 'Landon Hudson'
     }, {
       color: 'danger',
       value: '31',
-      text: 'Nathaniel Andrews'
+      text: 'Aiden Berry'
     }, {
       color: 'gray',
       value: '28',
-      text: 'Nathaniel Andrews'
+      text: 'Winnie Holloway'
     }]
   }),
   methods: {

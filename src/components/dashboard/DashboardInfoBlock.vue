@@ -8,32 +8,32 @@
           :key="idx"
         >
           <va-card class="mb-4" :color="info.color">
-            <p>{{ info.value }}</p>
+            <p class="display-2">{{ info.value }}</p>
             <p>{{ info.text }}</p>
           </va-card>
         </div>
       </div>
 
       <div class="va-row">
-        <div class="flex md6">
+        <div class="flex xs12 md6">
           <va-card>
-            <p>291</p>
+            <p class="display-2">291</p>
             <p>completed pull requests</p>
           </va-card>
         </div>
-        <div class="flex md6">
+        <div class="flex xs12 md6">
           <va-card>
-            <div class="va-row">
+            <div class="va-row row-separated">
               <div class="flex xs4">
-                <p>3</p>
+                <p class="display-2">3</p>
                 <p>groups</p>
               </div>
               <div class="flex xs4">
-                <p>24</p>
+                <p class="display-2">24</p>
                 <p>branches</p>
               </div>
               <div class="flex xs4">
-                <p>192</p>
+                <p class="display-2">192</p>
                 <p>units</p>
               </div>
             </div>
@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <div class="flex md3">
+    <div class="flex xs12 md3">
       <va-card
         stripe="info"
         title="Component reach theme"
@@ -65,7 +65,8 @@
         </div>
       </va-card>
     </div>
-    <div class="flex md3">
+
+    <div class="flex xs12 md3">
       <va-card
         image="https://i.imgur.com/qSykGko.jpg"
         square
@@ -110,3 +111,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  .row-separated .flex + .flex{
+    border-left: 1px solid #e3eaeb;
+  }
+</style>

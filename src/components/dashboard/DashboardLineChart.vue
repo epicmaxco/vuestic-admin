@@ -7,7 +7,7 @@
     >
       Delete Section
     </va-button>
-    <vuestic-chart
+    <va-chart
       :data="lineChartData"
       type="line"
       class="chart"

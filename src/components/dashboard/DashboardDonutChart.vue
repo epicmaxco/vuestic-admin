@@ -5,7 +5,7 @@
       flat
       slot="actions"
     />
-    <vuestic-chart
+    <va-chart
       :data="donutChartData"
       type="donut"
     />
