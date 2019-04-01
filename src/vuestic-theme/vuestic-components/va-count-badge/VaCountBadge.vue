@@ -1,7 +1,7 @@
 <template>
   <span class="va-count-badge">
     <slot></slot>
-    <span class="va-count-badge__round" v-if="displayNumber !== '0'">{{displayNumber}}</span>
+    <span class="va-count-badge__round" v-if="displayNumber !== '0'" :style="computedStyle">{{displayNumber}}</span>
   </span>
 </template>
 
@@ -16,6 +16,28 @@ export default {
   computed: {
     displayNumber () {
       return approx(this.number)
+    },
+    computedStyle () {
+      const length = this.displayNumber.length
+      let styles = {}
+      switch (length) {
+        case (1): {
+          styles['font-size'] = `${length}rem`
+          break
+        }
+        case (2): {
+          styles['font-size'] = `${length * 0.375}rem`
+          break
+        }
+        case (3): {
+          styles['font-size'] = `${length * 0.233}rem`
+          break
+        }
+        default: {
+          styles['font-size'] = `${length * 0.15}rem`
+        }
+      }
+      return styles
     }
   }
 }
