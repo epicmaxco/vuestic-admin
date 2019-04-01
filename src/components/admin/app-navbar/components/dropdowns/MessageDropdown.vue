@@ -1,7 +1,7 @@
 <template>
   <div class="grow message-dropdown flex-center">
     <va-icon icon="i-nav-messages"/>
-    <vuestic-dropdown v-model="isOpen" position="bottom">
+    <va-dropdown v-model="isOpen" position="bottom">
       <a v-for="(option, id) in options"
          :key="id"
          class="dropdown-item"
@@ -10,9 +10,9 @@
         <span class="ellipsis">{{ $t(`messages.${option.name}`, { name: option.details.name})}}</span>
       </a>
       <div class="dropdown-item plain-link-item">
-        <a class="plain-link" href="#">{{'messages.all' | translate}}</a>
+        <a class="plain-link" href="#">{{ $t('messages.all') }}</a>
       </div>
-    </vuestic-dropdown>
+    </va-dropdown>
   </div>
 </template>
 

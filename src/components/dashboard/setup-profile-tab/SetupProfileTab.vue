@@ -1,6 +1,6 @@
 <template>
   <div class="setup-profile-tab">
-    <vuestic-wizard
+    <va-wizard
       :steps="steps"
       wizard-layout="vertical"
       :wizard-type="wizardType">
@@ -23,7 +23,8 @@
               required="required"/>
             <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
             <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
-            <label class="control-label">Name</label><va-icon icon="bar"/>
+            <label class="control-label">Name</label>
+            <va-icon icon="bar"/>
             <small v-show="errors.has('name')" class="help text-danger">{{
               errors.first('name') }}
             </small>
@@ -39,14 +40,14 @@
           their teeth all send a signal. For example, ears flat back means
           trouble, or "you better follow orders!"</p>
 
-        <vuestic-simple-select
+        <va-simple-select
           label="Select country"
           v-model="selectedCountry"
           name="country"
           :required="true"
           ref="selectedCountrySelect"
           :options="countriesList">
-        </vuestic-simple-select>
+        </va-simple-select>
       </div>
       <div slot="page3">
         <h4>Confirm selection</h4>
@@ -70,7 +71,7 @@
           trouble, or "you better follow orders!"
         </p>
       </div>
-    </vuestic-wizard>
+    </va-wizard>
   </div>
 </template>
 

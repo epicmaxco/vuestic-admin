@@ -25,6 +25,6 @@ import ColorfulBars from './Widgets/ColorfulBars'
 
 export default {
   name: 'progress-bars',
-  components: { HorizontalBars, CircleBars, ColorfulBars }
+  components: { HorizontalBars, CircleBars, ColorfulBars },
 }
 </script>

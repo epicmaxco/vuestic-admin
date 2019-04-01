@@ -37,10 +37,10 @@
 </template>
 
 <script>
-import VuesticCheckbox from '../vuestic-checkbox/VuesticCheckbox'
-import VuesticRadioButton from '../vuestic-radio-button/VuesticRadioButton'
+import VuesticCheckbox from '../va-checkbox/VaCheckbox'
+import VuesticRadioButton from '../va-radio-button/VaRadioButton'
 import VuesticAdvancedColorPicker
-  from '../vuestic-color-picker/VuesticAdvancedColorPicker'
+  from '../va-color-picker/VaAdvancedColorPicker'
 
 export default {
   components: {

@@ -13,7 +13,7 @@
     </VbContainer>
 
     <VbContainer title="Danger">
-      <VaProgressCircle :value="value" theme="Danger"/>
+      <VaProgressCircle :value="value" color="danger"/>
     </VbContainer>
 
     <VbContainer title="Static Slot">
@@ -25,7 +25,7 @@
     </VbContainer>
 
     <VbContainer title="Slot Success">
-      <VaProgressCircle :value="value" theme="Success">{{ value + '%' }}</VaProgressCircle>
+      <VaProgressCircle :value="value" color="success">{{ value + '%' }}</VaProgressCircle>
     </VbContainer>
 
     <VbContainer refresh title="Indeterminate">
@@ -33,7 +33,7 @@
     </VbContainer>
 
     <VbContainer title="Indeterminate Info">
-      <VaProgressCircle indeterminate theme="Info"/>
+      <VaProgressCircle indeterminate color="info"/>
     </VbContainer>
 
     <VbContainer title="Indeterminate Slot">
@@ -55,12 +55,12 @@ import VaProgressCircle from './VaProgressCircle'
 
 export default {
   components: {
-    VaProgressCircle
+    VaProgressCircle,
   },
   data () {
     return {
-      value: 35
+      value: 35,
     }
-  }
+  },
 }
 </script>

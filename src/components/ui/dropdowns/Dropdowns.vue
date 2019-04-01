@@ -2,7 +2,7 @@
   <div class="dropdowns">
     <div class="va-row">
       <div class="flex md12">
-        <vuestic-widget :headerText="$t('dropdown.default')">
+        <va-card :title="$t('dropdown.default')">
           <div class="va-row btn-margin-row">
             <div
               class="flex sm6 lg6 xl3 mb4 justify--center"
@@ -12,7 +12,7 @@
               <va-button
                 type="button" class="theme-toggle"
                 slot="actuator" icon-right="ion-ios-arrow-down arrow-down">
-                <vuestic-dropdown
+                <va-dropdown
                   v-model="dropdown.value"
                   :position="dropdown.position"
                 >
@@ -25,11 +25,11 @@
                     >{{ link }}</a>
                     <div class="flex lg6"></div>
                   </div>
-                </vuestic-dropdown>
+                </va-dropdown>
               </va-button>
             </div>
           </div>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
   </div>

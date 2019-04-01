@@ -1,7 +1,7 @@
 export const breadcrumbs = {
   root: {
     name: '/',
-    displayName: 'Home',
+    displayName: 'breadcrumbs.home',
   },
   routes: [
     {
@@ -65,7 +65,7 @@ export const breadcrumbs = {
         },
         {
           name: 'filters',
-          displayName: 'menu.filters'
+          displayName: 'menu.filters',
         },
         {
           name: 'color-pickers',
@@ -110,8 +110,8 @@ export const breadcrumbs = {
           displayName: 'menu.fileUpload',
         },
         {
-          name: 'tags',
-          displayName: 'menu.tags',
+          name: 'chips',
+          displayName: 'menu.chips',
         },
         {
           name: 'cards',
@@ -123,8 +123,12 @@ export const breadcrumbs = {
         },
         {
           name: 'spacing',
-          displayName: 'menu.spacing'
-        }
+          displayName: 'menu.spacing',
+        },
+        {
+          name: 'sliders',
+          displayName: 'menu.sliders',
+        },
       ],
     },
     {

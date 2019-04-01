@@ -1,6 +1,6 @@
 <template>
   <div class="typography">
-    <vuestic-widget>
+    <va-card>
       <div class="mb-4">
         <p class="display-1">Display 1 Heading</p>
         <p>Of all of the celestial bodies that capture our
@@ -55,8 +55,8 @@
       <div class="mb-4">
         <pre class="code-snippet">&lt;p class=“code-snippet”>
   This is a wonderful example.
-  &lt;a&gt href=“#” onClick=“”>Read more&lt;/a&gt
-&lt;/p&gt</pre>
+  &lt;a href=“#” onClick=“”>Read more&lt;/a>
+&lt;/p></pre>
         <p>
           Of all of the celestial bodies that capture our attention and fascination
           as astronomers,
@@ -153,12 +153,12 @@
               the moon. When you think about it.</span>
         </div>
       </div>
-    </vuestic-widget>
+    </va-card>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'typography'
+  name: 'typography',
 }
 </script>

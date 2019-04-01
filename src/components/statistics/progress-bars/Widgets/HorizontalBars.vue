@@ -1,5 +1,8 @@
 <template>
-  <vuestic-widget class="horizontal-bars progress-bar-widget" :headerText="$t('progressBars.horizontal')">
+  <va-card
+    class="horizontal-bars progress-bar-widget"
+    :title="$t('progressBars.horizontal')"
+  >
     <div class="va-row">
       <div class="flex md4 xs12">
         <va-progress-bar :value="value / 3"/>
@@ -20,13 +23,14 @@
           :value="bufferValues.value"
           :buffer="bufferValues.buffer"
           theme="Info"
-        >Buffering</va-progress-bar>
+        >Buffering
+        </va-progress-bar>
       </div>
       <div class="flex md4 xs12">
         <va-progress-bar indeterminate theme="Info">Loading...</va-progress-bar>
       </div>
     </div>
-  </vuestic-widget>
+  </va-card>
 </template>
 
 <script>
@@ -36,8 +40,8 @@ export default {
       value: 0,
       bufferValues: {
         value: 0,
-        buffer: 0
-      }
+        buffer: 0,
+      },
     }
   },
   mounted () {
@@ -59,7 +63,7 @@ export default {
           clearInterval(interval)
         }
       }, 400)
-    }
-  }
+    },
+  },
 }
 </script>
