@@ -12,7 +12,7 @@
   }
 
   // NOTE Not exactly sure on this one. Here's what manual says:
-  // > Make sure that col element height is fille d with parent and child. Important for Safari/Firefox if children is column element.
+  // > Make sure that col element height is filled with parent and child. Important for Safari/Firefox if children is column element.
   &.fill-height {
     @include va-container--fill-height();
 

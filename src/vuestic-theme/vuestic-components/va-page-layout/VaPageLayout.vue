@@ -1,5 +1,5 @@
 <template>
-  <div class="va-layout"
+  <div class="va-page-layout"
        v-resize
        :class="classObject"
   >
@@ -20,7 +20,7 @@
 import Resize from '../../../directives/ResizeHandler'
 
 export default {
-  name: 'va-layout',
+  name: 'va-page-layout',
   props: {
     fixed: {
       type: Boolean,
@@ -44,7 +44,7 @@ export default {
 $vuestic-preloader-left: calc(50% - 140px / 2);
 $vuestic-preloader-top: calc(50% - 104px / 2);
 
-.va-layout {
+.va-page-layout {
   &-fixed {
     .content-wrap {
       padding-right: $layout-padding-right;

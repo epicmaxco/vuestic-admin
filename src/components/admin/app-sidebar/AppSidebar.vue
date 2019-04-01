@@ -255,7 +255,7 @@
 
 <script>
 
-import VuesticSidebar
+import VaSidebar
   from '../../../vuestic-theme/vuestic-components/va-sidebar/VaSidebar'
 import SidebarLink from './components/SidebarLink'
 import SidebarLinkGroup from './components/SidebarLinkGroup'
@@ -263,7 +263,7 @@ import SidebarLinkGroup from './components/SidebarLinkGroup'
 export default {
   name: 'app-sidebar',
   components: {
-    VuesticSidebar,
+    VaSidebar,
     SidebarLink,
     SidebarLinkGroup,
   },
