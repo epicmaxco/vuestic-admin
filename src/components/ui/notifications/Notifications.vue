@@ -31,7 +31,7 @@
                       | translate}}</label><va-icon icon="bar"/>
                   </div>
                 </div>
-                <vuestic-popover popover-class="vuestic-tooltip"
+                <vuestic-popover popover-class="va-tooltip"
                                  placement="right"
                                  :disabled="isPopoverDisabled">
                   <va-button slot="trigger">

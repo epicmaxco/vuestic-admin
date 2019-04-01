@@ -1,6 +1,6 @@
 <template>
-  <div class="va-tooltip">
-    <span class="vuestic-tooltip-target" v-tooltip="tooltipOptions">
+  <div class="va-tooltip" v-tooltip="tooltipOptions">
+    <span class="va-tooltip-target">
       <slot></slot>
     </span>
   </div>
@@ -40,7 +40,7 @@ export default {
   data () {
     return {
       defaultOptions: {
-        classes: 'vuestic-tooltip',
+        classes: 'va-tooltip',
       },
     }
   },
@@ -54,13 +54,18 @@ export default {
   },
   methods: {
     getTemplate () {
+      console.log(getHoverColor(this.color))
       let title = this.title ? '<div class="tooltip-inner--title">' + this.title + '</div>' : ''
-      let icon = this.icon ? '<i class="' + this.icon + ' tooltip__icon" size="40px" style="color:' + this.$themes[this.color] + '"></i>' : ''
-      return '' + '<div class="tooltip" role="tooltip" style="box-shadow: ' + '0px 2px 3px 0 ' + getBoxShadowColor(this.color) + ' ; background-color: ' + getHoverColor(this.color) + '">' +
+      let icon = this.icon ? '<i class="' + this.icon + ' tooltip__icon" size="40px" ' +
+        'style="color:' + this.$themes[this.color] + '; background-color: ' + getHoverColor(this.color) + '"></i>' : ''
+      return '' +
+        '<div class="tooltip" role="tooltip" style="box-shadow: ' + '0px 2px 3px 0 ' + getBoxShadowColor(this.color) + ' ; background-color: ' + getHoverColor(this.color) + '">' +
+        '<div class="va-row" style="background-color: #fff">' +
         icon +
-        '<div class="tooltip__content">' +
+        '<div class="tooltip__content" style="background-color: ' + getHoverColor(this.color) + '">' +
         title +
         '<div class="tooltip-inner"></div>' +
+        '</div>' +
         '</div>' +
         '</div>'
     }
@@ -70,8 +75,10 @@ export default {
 
 <style lang="scss">
 
-.va-tooltip {}
-.tooltip.vuestic-tooltip {
+.va-tooltip {
+}
+
+.tooltip.va-tooltip {
   display: flex;
   border-radius: 0.5rem;
   .tooltip__content {
@@ -85,16 +92,17 @@ export default {
   }
   .tooltip-inner {
     box-shadow: none;
-    background-color: inherit;
+    background-color: initial;
     font-size: 1rem;
     padding: 0;
     line-height: 1.5;
-    color: #34495e;
+    color: $vue-darkest-blue;
     &--title {
       font-size: 1rem;
       font-weight: bold;
     }
   }
-  .tooltip-arrow {}
+  .tooltip-arrow {
+  }
 }
 </style>

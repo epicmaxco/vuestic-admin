@@ -26,16 +26,11 @@
             v-model="tooltip1.color"
             :options="colors"
           />
-          <div class="va-row pt-2">
-            <div class="flex md4">
-              <va-button @click="options.show = !options.show">
-                Show Tooltip
-              </va-button>
-            </div>
+          <div class="va-row pt-2" style="justify-content: center">
             <va-tooltip
               :options="options"
               :icon="tooltip1.icon"
-              style="margin-top: 2rem;"
+              style="margin-top: 2rem; margin-right: 10rem"
               :color="tooltip1.color"
               iconColor="#ffc200"
               :title="tooltip1.title"
@@ -81,7 +76,7 @@ export default {
         title: 'Hey folks!',
         message: 'This tooltip is amazing:D',
         icon: 'fa fa-print',
-        color: 'warning',
+        color: 'info',
       },
       tooltip2: {
         title: '',

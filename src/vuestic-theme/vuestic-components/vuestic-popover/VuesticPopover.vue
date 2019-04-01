@@ -46,7 +46,7 @@ export default {
     },
     popoverClass: {
       type: [String, Array],
-      default: 'vuestic-tooltip',
+      default: 'va-tooltip',
     },
     autoHide: {
       type: Boolean,

@@ -1,8 +1,8 @@
 <template>
   <div class="vuestic-color-presentation">
-    <vuestic-tooltip :options="tooltipOptions">
+    <va-tooltip :options="tooltipOptions">
       <div class="vuestic-color-presentation__color" :style="computedStyle" @click="colorCopy"></div>
-    </vuestic-tooltip>
+    </va-tooltip>
     <div class="vuestic-color-presentation__description" v-if="name || description">
       <div class="vuestic-color-presentation__name">{{name}}</div>
       <div class="vuestic-color-presentation__text">{{description}}</div>
@@ -12,11 +12,11 @@
 </template>
 
 <script>
-import VuesticTooltip from '../va-tooltip/VaTooltip'
+import VaTooltip from '../va-tooltip/VaTooltip'
 
 export default {
   name: 'vuestic-color-presentation',
-  components: { VuesticTooltip },
+  components: { VaTooltip },
   props: {
     color: {
       type: String,

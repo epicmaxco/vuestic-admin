@@ -108,7 +108,7 @@
 
 //v-tooltip
 
-.tooltip.vuestic-tooltip {
+.tooltip.va-tooltip {
   @extend .tooltip.show;
   display: block;
   .tooltip-inner {
@@ -132,7 +132,7 @@
   &[x-placement^="right"] {
     @extend .bs-tooltip-right;
     padding-right: 0;
-    padding-left: 0.25rem;
+    padding-left: 0;
   }
 
   &[x-placement^="left"] {
