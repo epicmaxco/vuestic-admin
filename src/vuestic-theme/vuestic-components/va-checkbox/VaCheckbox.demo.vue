@@ -57,6 +57,9 @@
         label="Error + disabled"
       />
     </VbContainer>
+    <VbContainer title="No label">
+      <va-checkbox v-model="value"/>
+    </VbContainer>
   </VbDemo>
 </template>
 
