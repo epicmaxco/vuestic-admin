@@ -1,65 +1,82 @@
 <template>
   <span class="va-count-badge">
     <slot></slot>
-    <span class="va-count-badge__round" v-if="displayNumber !== '0'" :style="computedStyle">{{displayNumber}}</span>
+    <span
+      class="va-count-badge__round"
+      v-if="displayNumber !== '0'"
+      :style="computedStyle"
+    >
+      {{ displayNumber }}
+    </span>
   </span>
 </template>
 
 <script>
-import approx from 'approximate-number'
+import approximateNumber from 'approximate-number'
 
 export default {
   name: 'va-count-badge',
   props: {
-    number: Number
+    number: Number,
+    color: {
+      type: String,
+      default: 'danger',
+    },
   },
   computed: {
-    displayNumber () {
-      return approx(this.number)
-    },
     computedStyle () {
+      return {
+        backgroundColor: this.backgroundColor,
+        fontSize: this.fontSize,
+      }
+    },
+    backgroundColor () {
+      if (!this.color) {
+        return
+      }
+      return this.$themes[this.color] ? this.$themes[this.color] : this.color
+    },
+    fontSize () {
+      // We change font size depending on length of text
+      // so that it fits in circle perfectly.
       const length = this.displayNumber.length
-      let styles = {}
       switch (length) {
         case (1): {
-          styles['font-size'] = `${length}rem`
-          break
+          return `${length}rem`
         }
         case (2): {
-          styles['font-size'] = `${length * 0.375}rem`
-          break
+          return `${length * 0.375}rem`
         }
         case (3): {
-          styles['font-size'] = `${length * 0.233}rem`
-          break
+          return `${length * 0.233}rem`
         }
         default: {
-          styles['font-size'] = `${length * 0.15}rem`
+          return `${length * 0.15}rem`
         }
       }
-      return styles
-    }
-  }
+    },
+    displayNumber () {
+      return approximateNumber(this.number)
+    },
+  },
 }
 </script>
 
 <style lang="scss">
-  .va-count-badge {
-    position: relative;
-    &__round {
-      position: absolute;
-      background: $theme-danger;
-      color: $white;
-      font-size: .5rem;
-      padding: .25rem;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 1.5rem;
-      height: 1.5rem;
-      top: -1rem;
-      right: -1rem;
-    }
+@import "../../vuestic-sass/resources/resources";
+
+.va-count-badge {
+  position: relative;
+
+  &__round {
+    position: absolute;
+    @include flex-center();
+    color: $white;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: -1rem;
+    right: -1rem;
   }
+}
 </style>

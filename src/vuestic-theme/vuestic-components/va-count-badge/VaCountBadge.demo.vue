@@ -33,6 +33,12 @@
     <VbContainer title="14 sign">
       <va-count-badge :number="12345678912345">Statuses</va-count-badge>
     </VbContainer>
+    <VbContainer title="Colored with theme">
+      <va-count-badge :number="5" color="info">Statuses</va-count-badge>
+    </VbContainer>
+    <VbContainer title="Colored with color">
+      <va-count-badge :number="5" color="#25A626">Statuses</va-count-badge>
+    </VbContainer>
   </VbDemo>
 </template>
 
