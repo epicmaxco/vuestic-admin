@@ -28,6 +28,7 @@
         @input="$emit('input', $event.target.value)"
         @focus="isFocused = true"
         @blur="isFocused = false"
+        v-on="inputListeners"
       >
     </div>
     <va-icon
@@ -84,6 +85,29 @@ export default {
       return {
         color: this.error ? this.$themes.danger : ''
       }
+    },
+    inputListeners () {
+      const vm = this
+      return Object.assign({},
+        this.$listeners,
+        {
+          click: function (event) {
+            vm.$emit('click', event)
+          },
+          focus: function (event) {
+            vm.$emit('focus', event)
+          },
+          blur: function (event) {
+            vm.$emit('blur', event)
+          },
+          keyup: function (event) {
+            vm.$emit('keyup', event)
+          },
+          keydown: function (event) {
+            vm.$emit('keydown', event)
+          },
+        }
+      )
     }
   },
   methods: {
@@ -102,8 +126,14 @@ export default {
 
       &__label {
         position: absolute;
-        bottom: 0.625rem;
+        bottom: 0.875rem;
         left: 0.5rem;
+        color: $vue-green;
+        font-size: 0.625rem;
+        letter-spacing: 0.0375rem;
+        line-height: 1.2;
+        font-weight: bold;
+        text-transform: uppercase;
       }
 
       &__prefix {

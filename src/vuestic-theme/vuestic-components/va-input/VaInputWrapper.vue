@@ -7,7 +7,7 @@
       <div
         tabindex="0"
         :style="slotStyles"
-        class="va-input-wrapper__slot d-flex align--end pt-2">
+        class="va-input-wrapper__slot d-flex align--center pt-2">
         <div
           v-if="hasPrependData"
           class="va-input-wrapper__prepend-inner d-inline-flex align--center ml-2">
@@ -118,10 +118,16 @@ export default {
 
     &__slot {
       position: relative;
-      min-height: 1.5rem;
+      min-height: 2.375rem;
       border-style: solid;
       border-width: 0 0 thin 0;
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
       outline: none;
+    }
+
+    &__messages__wrapper {
+      font-size: 0.75rem;
     }
   }
 </style>
