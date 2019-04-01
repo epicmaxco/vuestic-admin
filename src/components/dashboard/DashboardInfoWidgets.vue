@@ -8,7 +8,7 @@
               <va-icon icon="ion ion-md-arrow-up text-primary stats-icon"/>
               59
             </div>
-            <div class="stats-title">{{'dashboard.elements' | translate}}</div>
+            <div class="stats-title">{{ $t('dashboard.elements') }}</div>
           </div>
         </div>
       </va-card>
@@ -21,7 +21,7 @@
               <va-icon icon="ion ion-md-arrow-down text-danger stats-icon"/>
               12
             </div>
-            <div class="stats-title">{{'dashboard.versions' | translate}}</div>
+            <div class="stats-title">{{ $t('dashboard.versions') }}</div>
           </div>
         </div>
       </va-card>
@@ -51,7 +51,7 @@
               <va-icon icon="ion ion-md-people stats-icon icon-wide"/>
               5
             </div>
-            <div class="stats-title">{{'dashboard.teamMembers' | translate}}
+            <div class="stats-title">{{ $t('dashboard.teamMembers') }}
             </div>
           </div>
         </div>

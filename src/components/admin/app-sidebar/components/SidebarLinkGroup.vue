@@ -49,7 +49,7 @@ export default {
     },
   },
   computed: {
-    classObject: function () {
+    classObject () {
       return {
         'expanded': this.expanded,
       }

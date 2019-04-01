@@ -1,6 +1,9 @@
+import Vue from 'vue'
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import VaButton from './VaButton'
-import colorPlugin from './../../../services/colors'
+
+import { ColorPlugin } from './../../../services/colors'
+Vue.use(ColorPlugin)
 
 describe('VaButton', () => {
   /* 1. Default button */
@@ -38,7 +41,7 @@ describe('VaButton', () => {
   /* 3. Button types */
 
   it('default button', () => {
-    const wrapper = shallowMount(VaButton, colorPlugin)
+    const wrapper = shallowMount(VaButton)
 
     expect(wrapper.is('button')).toBe(true)
   })

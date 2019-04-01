@@ -6,7 +6,7 @@
           :title="$t('forms.wizard.simple')"
           no-padding
         >
-          <vuestic-wizard
+          <va-wizard
             :steps="hsSteps">
             <div slot="page1" class="form-wizard-tab-content">
               <div class="form-wizard-tab-content-text">
@@ -46,17 +46,17 @@
                   their teeth all send a signal. For example, ears flat back
                   means trouble, or "you better follow orders!"</p>
               </div>
-              <vuestic-simple-select
+              <va-simple-select
                 label="Select country"
                 v-model="hsCountry"
                 name="country"
                 :required="true"
                 ref="hsCountrySelect"
                 v-bind:options="countriesList">
-              </vuestic-simple-select>
+              </va-simple-select>
             </div>
             <div slot="page3" class="form-wizard-tab-content">
-              <h4>{{'forms.wizard.confirmSelection' | translate}}</h4>
+              <h4>{{ $t('forms.wizard.confirmSelection') }}</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make
                 loud braying or barking sounds and
@@ -67,7 +67,7 @@
               </p>
             </div>
             <div slot="wizardCompleted" class="form-wizard-tab-content">
-              <h4>{{'forms.wizard.completed' | translate}}</h4>
+              <h4>{{ $t('forms.wizard.completed') }}</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make
                 loud braying or barking sounds and
@@ -77,7 +77,7 @@
                 trouble, or "you better follow orders!"
               </p>
             </div>
-          </vuestic-wizard>
+          </va-wizard>
         </va-card>
       </div>
     </div>
@@ -88,7 +88,7 @@
           class="no-h-padding"
           :title="$t('forms.wizard.rich')"
         >
-          <vuestic-wizard
+          <va-wizard
             :steps="hrSteps"
             wizard-type="rich">
             <div slot="page1" class="form-wizard-tab-content">
@@ -129,17 +129,17 @@
                   their teeth all send a signal. For example, ears flat back
                   means trouble, or "you better follow orders!"</p>
               </div>
-              <vuestic-simple-select
+              <va-simple-select
                 label="Select country"
                 v-model="hrCountry"
                 name="country"
                 :required="true"
                 ref="hrCountrySelect"
                 v-bind:options="countriesList">
-              </vuestic-simple-select>
+              </va-simple-select>
             </div>
             <div slot="page3" class="form-wizard-tab-content">
-              <h4>{{'forms.wizard.confirmSelection' | translate}}</h4>
+              <h4>{{ $t('forms.wizard.confirmSelection') }}</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make
                 loud braying or barking sounds and
@@ -150,7 +150,7 @@
               </p>
             </div>
             <div slot="wizardCompleted" class="form-wizard-tab-content">
-              <h4>{{'forms.wizard.completed' | translate}}</h4>
+              <h4>{{ $t('forms.wizard.completed') }}</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make
                 loud braying or barking sounds and
@@ -160,7 +160,7 @@
                 trouble, or "you better follow orders!"
               </p>
             </div>
-          </vuestic-wizard>
+          </va-wizard>
         </va-card>
       </div>
     </div>
@@ -168,7 +168,7 @@
     <div class="va-row">
       <div class="flex md12">
         <va-card :title="$t('forms.wizard.verticalRich')">
-          <vuestic-wizard
+          <va-wizard
             :steps="vrSteps"
             wizard-layout="vertical"
             wizard-type="rich">
@@ -210,17 +210,17 @@
                   their teeth all send a signal. For example, ears flat back
                   means trouble, or "you better follow orders!"</p>
               </div>
-              <vuestic-simple-select
+              <va-simple-select
                 label="Select country"
                 v-model="vrCountry"
                 name="country"
                 :required="true"
                 ref="vrCountrySelect"
                 v-bind:options="countriesList">
-              </vuestic-simple-select>
+              </va-simple-select>
             </div>
             <div slot="page3" class="form-wizard-tab-content">
-              <h4>{{'forms.wizard.confirmSelection' | translate}}</h4>
+              <h4>{{ $t('forms.wizard.confirmSelection') }}</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make
                 loud braying or barking sounds and
@@ -231,7 +231,7 @@
               </p>
             </div>
             <div slot="wizardCompleted" class="form-wizard-tab-content">
-              <h4>{{'forms.wizard.completed' | translate}}</h4>
+              <h4>{{ $t('forms.wizard.completed') }}</h4>
               <p>
                 Zebras communicate with facial expressions and sounds. They make
                 loud braying or barking sounds and
@@ -241,7 +241,7 @@
                 trouble, or "you better follow orders!"
               </p>
             </div>
-          </vuestic-wizard>
+          </va-wizard>
         </va-card>
       </div>
     </div>
@@ -252,7 +252,7 @@
           class="simple-vertical-wizard-widget"
           :title="$t('forms.wizard.verticalSimple')"
         >
-          <vuestic-wizard
+          <va-wizard
             :steps="vsSteps"
             wizard-layout="vertical"
             wizard-type="simple">
@@ -294,17 +294,17 @@
                   their teeth all send a signal. For example, ears flat back
                   means trouble, or "you better follow orders!"</p>
               </div>
-              <vuestic-simple-select
+              <va-simple-select
                 label="Select country"
                 v-model="vsCountry"
                 name="country"
                 :required="true"
                 ref="vsCountrySelect"
                 v-bind:options="countriesList">
-              </vuestic-simple-select>
+              </va-simple-select>
             </div>
             <div slot="page3" class="form-wizard-tab-content">
-              <h4>{{'forms.wizard.confirmSelection' | translate}}</h4>
+              <h4>{{ $t('forms.wizard.confirmSelection') }}</h4>
               <div class="form-wizard-tab-content-text">
                 <p>Zebras communicate with facial expressions and sounds. They
                   make loud braying or barking sounds and
@@ -315,7 +315,7 @@
               </div>
             </div>
             <div slot="wizardCompleted" class="form-wizard-tab-content">
-              <h4>{{'forms.wizard.completed' | translate}}</h4>
+              <h4>{{ $t('forms.wizard.completed') }}</h4>
               <div class="form-wizard-tab-content-text">
                 <p>Zebras communicate with facial expressions and sounds. They
                   make loud braying or barking sounds and
@@ -325,7 +325,7 @@
                   means trouble, or "you better follow orders!"</p>
               </div>
             </div>
-          </vuestic-wizard>
+          </va-wizard>
         </va-card>
       </div>
     </div>

@@ -27,7 +27,7 @@
       </va-notification>
     </VbContainer>
     <VbContainer title="Closeable Notification">
-      <vuestic-checkbox
+      <va-checkbox
         label="Toggle visibility"
         v-model="isCloseableNotificationVisible"
       />
@@ -46,11 +46,11 @@
 </template>
 
 <script>
-import VuesticCheckbox from '../vuestic-checkbox/VuesticCheckbox'
+import VaCheckbox from '../va-checkbox/VaCheckbox'
 import VaNotification from './VaNotification'
 
 export default {
-  components: { VuesticCheckbox, VaNotification },
+  components: { VaCheckbox, VaNotification },
   data () {
     return {
       isCloseableNotificationVisible: true,

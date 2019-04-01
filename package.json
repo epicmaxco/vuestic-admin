@@ -13,6 +13,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@types/jest": "^24.0.11",
     "amcharts3": "^3.21.13",
     "ammap3": "^3.21.13",
     "approximate-number": "^2.0.0",

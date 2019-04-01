@@ -18,7 +18,7 @@
       />
     </VbContainer>
     <VbContainer>
-      <vuestic-pallet-custom
+      <va-pallet-custom
         :palette="paletteArray"
         v-model="color"
         @input="changeTheme()"
@@ -35,13 +35,13 @@ import VaNotification
   from './../../vuestic-components/va-notification/VaNotification'
 import VaProgressBar
   from './../../vuestic-components/va-progress-bar/progress-types/VaProgressBar'
-import VuesticPalletCustom
-  from './../../vuestic-components/vuestic-color-picker/VuesticPalletCustom'
-import { colorArray } from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticTheme'
+import VaPalletCustom
+  from '../../vuestic-components/va-color-picker/VaPalletCustom'
+import { colorArray } from '../../vuestic-components/va-color-picker/VuesticTheme'
 
 export default {
   components: {
-    VaIcon, VaButton, VaNotification, VaProgressBar, VuesticPalletCustom,
+    VaIcon, VaButton, VaNotification, VaProgressBar, VaPalletCustom,
   },
   data () {
     return {

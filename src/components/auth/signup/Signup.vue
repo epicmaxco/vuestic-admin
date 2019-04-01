@@ -16,12 +16,12 @@
           <va-icon icon="bar"/>
         </div>
       </div>
-      <vuestic-checkbox name="agree-to-terms" v-model="agreedToTerms">
+      <va-checkbox name="agree-to-terms" v-model="agreedToTerms">
         <template slot="label">
           {{ $t('auth.agree') }}
           <a class="link" href="#">{{ $t('auth.termsOfUse') }}</a>
         </template>
-      </vuestic-checkbox>
+      </va-checkbox>
       <div
         class="down-container mt-5 d-flex align-items-center justify-content-between">
         <va-button type="submit">

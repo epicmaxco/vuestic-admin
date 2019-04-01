@@ -1,6 +1,6 @@
 <template>
   <div class="setup-profile-tab">
-    <vuestic-wizard
+    <va-wizard
       :steps="steps"
       wizard-layout="vertical"
       :wizard-type="wizardType">
@@ -40,14 +40,14 @@
           their teeth all send a signal. For example, ears flat back means
           trouble, or "you better follow orders!"</p>
 
-        <vuestic-simple-select
+        <va-simple-select
           label="Select country"
           v-model="selectedCountry"
           name="country"
           :required="true"
           ref="selectedCountrySelect"
           :options="countriesList">
-        </vuestic-simple-select>
+        </va-simple-select>
       </div>
       <div slot="page3">
         <h4>Confirm selection</h4>
@@ -71,7 +71,7 @@
           trouble, or "you better follow orders!"
         </p>
       </div>
-    </vuestic-wizard>
+    </va-wizard>
   </div>
 </template>
 

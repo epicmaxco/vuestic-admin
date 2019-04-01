@@ -192,7 +192,7 @@ export default {
       return Object.assign({},
         this.$listeners,
         {
-          click: function (event) {
+          click (event) {
             vm.$emit('click', event)
           },
         },
