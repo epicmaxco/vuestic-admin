@@ -121,7 +121,7 @@
     </div>
 
     <div class="pre-loader-container flex-center my-5">
-      <vuestic-pre-loader
+      <va-pre-loader
         v-show="isShown"
         class="pre-loader"/>
       <div v-if="!isShown">

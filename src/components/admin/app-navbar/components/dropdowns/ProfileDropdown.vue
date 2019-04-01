@@ -3,7 +3,7 @@
     <span class="profile-dropdown__avatar-container">
       <slot/>
     </span>
-    <vuestic-dropdown
+    <va-dropdown
       v-model="isShown"
       position="bottom"
     >
@@ -17,7 +17,7 @@
           {{ $t(`user.${option.name}`) }}
         </router-link>
       </div>
-    </vuestic-dropdown>
+    </va-dropdown>
   </div>
 </template>
 

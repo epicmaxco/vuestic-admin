@@ -1,19 +1,19 @@
 <template>
-  <vuestic-tree-root>
+  <va-tree-root>
 
-    <vuestic-tree-category label="Electronics">
-      <vuestic-tree-node v-for="electronic in electronics" :key="electronic.id">
+    <va-tree-category label="Electronics">
+      <va-tree-node v-for="electronic in electronics" :key="electronic.id">
         <div class="form-group">
           <div class="input-group">
             <input v-model="electronic.name">
             <va-icon icon="bar"/>
           </div>
         </div>
-      </vuestic-tree-node>
-    </vuestic-tree-category>
+      </va-tree-node>
+    </va-tree-category>
 
-    <vuestic-tree-category isOpen label="Products">
-      <vuestic-tree-node v-for="product in products" :key="product.id">
+    <va-tree-category isOpen label="Products">
+      <va-tree-node v-for="product in products" :key="product.id">
         <div class="form-group">
           <div class="input-group">
             <input v-model="product.name">
@@ -23,15 +23,15 @@
         <div slot="iconRight" class="icon" @click="removeProduct(product)">
           <span aria-hidden="true" class="ion ion-md-close"/>
         </div>
-      </vuestic-tree-node>
-      <vuestic-tree-node>
+      </va-tree-node>
+      <va-tree-node>
         <va-button class="mb-2" @click="addProduct()">
           Add new product
         </va-button>
-      </vuestic-tree-node>
-    </vuestic-tree-category>
+      </va-tree-node>
+    </va-tree-category>
 
-  </vuestic-tree-root>
+  </va-tree-root>
 </template>
 
 <script>

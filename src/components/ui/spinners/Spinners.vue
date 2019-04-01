@@ -40,7 +40,7 @@
               </div>
             </div>
             <div class="flex md6 lg4 xs4 spinners__color">
-              <vuestic-pallet-custom
+              <va-pallet-custom
                 :palette="paletteArray"
                 v-model="color"
                 class="spinners__color-picker"
@@ -83,9 +83,9 @@
 <script>
 import * as spinners from 'epic-spinners'
 import { mapGetters } from 'vuex'
-import VuesticPalletCustom
-  from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticPalletCustom'
-import { colorArray } from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticTheme'
+import VaPalletCustom
+  from '../../../vuestic-theme/vuestic-components/va-color-picker/VaPalletCustom'
+import { colorArray } from '../../../vuestic-theme/vuestic-components/va-color-picker/VuesticTheme'
 import VaSlider
   from '../../../vuestic-theme/vuestic-components/va-slider/VaSlider'
 import VaIconFaster
@@ -96,7 +96,7 @@ import VaIconSlower
 export default {
   components: {
     ...spinners,
-    VuesticPalletCustom,
+    VaPalletCustom,
     VaSlider,
     VaIconFaster,
     VaIconSlower,
@@ -159,7 +159,7 @@ export default {
   @include media-breakpoint-down(xs) {
 
     &__color-picker {
-      .vuestic-color-dropdown__content {
+      .va-color-dropdown__content {
         right: 40px;
       }
     }

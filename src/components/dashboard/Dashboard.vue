@@ -16,7 +16,7 @@
 
     <dashboard-table />
 
-    <div class="va-row">
+    <div class="va-row row-equal">
       <div class="flex xs12 lg6">
         <dashboard-tabs />
       </div>

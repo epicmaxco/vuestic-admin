@@ -15,7 +15,7 @@
           />
         </div>
         <div class="flex md3 offset--md1">
-          <vuestic-simple-select
+          <va-simple-select
             label="City"
             v-model="city"
             :options="cityList"
@@ -79,16 +79,16 @@
 <script>
 import VaCard from '../../../vuestic-theme/vuestic-components/va-card/VaCard'
 import FilterBar
-  from '../../../vuestic-theme/vuestic-components/vuestic-datatable/datatable-components/FilterBar.vue'
-import VuesticSimpleSelect
-  from '../../../vuestic-theme/vuestic-components/vuestic-simple-select/VuesticSimpleSelect'
+  from '../../../vuestic-theme/vuestic-components/va-datatable/datatable-components/FilterBar.vue'
+import VaSimpleSelect
+  from '../../../vuestic-theme/vuestic-components/va-simple-select/VaSimpleSelect'
 import { SpringSpinner } from 'epic-spinners'
 import { cityList, itemList } from './filtersData'
 
 export default {
   name: 'filters',
   components: {
-    VaCard, FilterBar, SpringSpinner, VuesticSimpleSelect,
+    VaCard, FilterBar, SpringSpinner, VaSimpleSelect,
   },
   data () {
     return {

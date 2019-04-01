@@ -160,7 +160,7 @@
                 <fieldset>
                   <div class="form-group">
                     <div class="input-group">
-                      <vuestic-date-picker
+                      <va-date-picker
                         id="date-picker-basic"
                         v-model="datepicker.simple"
                       />
@@ -172,7 +172,7 @@
                   </div>
                   <div class="form-group">
                     <div class="input-group">
-                      <vuestic-date-picker
+                      <va-date-picker
                         id="date-picker-time"
                         :config="{enableTime: true}"
                         v-model="datepicker.time"
@@ -185,7 +185,7 @@
                   </div>
                   <div class="form-group">
                     <div class="input-group">
-                      <vuestic-date-picker
+                      <va-date-picker
                         id="date-picker-custom-first-day"
                         :config="{locale: {firstDayOfWeek: 1}}"
                         v-model="datepicker.customFirstDay"
@@ -203,7 +203,7 @@
                 <fieldset>
                   <div class="form-group">
                     <div class="input-group">
-                      <vuestic-date-picker
+                      <va-date-picker
                         id="date-picker-disabled"
                         :config="{disable: datePickerDisabled}"
                         v-model="datepicker.disabled"
@@ -216,7 +216,7 @@
                   </div>
                   <div class="form-group">
                     <div class="input-group">
-                      <vuestic-date-picker
+                      <va-date-picker
                         id="date-picker-multiple"
                         :config="{mode: 'multiple'}"
                         v-model="datepicker.multiple"
@@ -229,7 +229,7 @@
                   </div>
                   <div class="form-group">
                     <div class="input-group">
-                      <vuestic-date-picker
+                      <va-date-picker
                         id="date-picker-custom-date-format"
                         :config="{altInput: true, altFormat: 'F j, Y'}"
                         v-model="datepicker.customDate"
@@ -247,7 +247,7 @@
                 <fieldset>
                   <div class="form-group">
                     <div class="input-group">
-                      <vuestic-date-picker
+                      <va-date-picker
                         id="date-picker-range"
                         :config="{mode: 'range', inline: true}"
                         v-model="datepicker.range"
@@ -272,13 +272,13 @@
             <div class="va-row">
               <div class="flex md4">
                 <fieldset>
-                  <vuestic-simple-select
+                  <va-simple-select
                     :label="$t('forms.selects.simple')"
                     v-model="simpleSelectModel"
                     option-key="description"
                     v-bind:options="simpleOptions"
                   />
-                  <vuestic-simple-select
+                  <va-simple-select
                     :label="$t('forms.selects.country')"
                     v-model="chosenCountry"
                     v-bind:options="countriesList"
@@ -287,13 +287,13 @@
               </div>
               <div class="flex md4">
                 <fieldset>
-                  <vuestic-multi-select
+                  <va-multi-select
                     :label="$t('forms.selects.multi')"
                     v-model="multiSelectModel"
                     option-key="description"
                     v-bind:options="simpleOptions"
                   />
-                  <vuestic-multi-select
+                  <va-multi-select
                     :label="$t('forms.selects.countryMulti')"
                     v-model="multiSelectCountriesModel"
                     v-bind:options="countriesList"
@@ -346,25 +346,25 @@
               </div>
               <div class="flex md3">
                 <fieldset>
-                  <vuestic-radio-button
+                  <va-radio-button
                     option="option1"
                     v-model="radioSelectedOption"
                     label="Radio"
                   />
-                  <vuestic-radio-button
+                  <va-radio-button
                     option="option2"
                     v-model="radioSelectedOption"
                     label="Radio"
                   />
                 </fieldset>
                 <fieldset>
-                  <vuestic-radio-button
+                  <va-radio-button
                     option="option1"
                     disabled
                     v-model="radioSelectedDisableOption"
                     label="Disabled Radio"
                   />
-                  <vuestic-radio-button
+                  <va-radio-button
                     option="option2"
                     disabled
                     v-model="radioSelectedDisableOption"
@@ -374,11 +374,11 @@
               </div>
               <div class="flex md3">
                 <fieldset>
-                  <vuestic-switch v-model="isMale">
+                  <va-switch v-model="isMale">
                     <span
                       slot="trueTitle">{{ $t('forms.controls.male') }}</span>
                     <span slot="falseTitle">{{ $t('forms.controls.female') }}</span>
-                  </vuestic-switch>
+                  </va-switch>
                 </fieldset>
               </div>
             </div>
