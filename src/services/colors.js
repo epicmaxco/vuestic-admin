@@ -70,6 +70,7 @@ export const getGradientColor = (theme) => {
 }
 
 export const getGradientBackground = (theme) => {
+  console.log(theme)
   return 'linear-gradient(to right,' + getGradientColor(theme)[0] +
   ',' + getGradientColor(theme)[1] + ')'
 }

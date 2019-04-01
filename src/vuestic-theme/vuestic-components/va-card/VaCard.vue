@@ -41,7 +41,9 @@
 </template>
 
 <script>
-import { getGradientBackground } from '../../../services/colors'
+import {
+  getGradientBackground
+} from '../../../services/colors'
 
 export default {
   name: 'va-card',
@@ -97,6 +99,7 @@ export default {
       }
     },
     computedStripeStyle () {
+      console.log(this.$themes)
       return {
         background: this.$themes[this.stripe]
       }

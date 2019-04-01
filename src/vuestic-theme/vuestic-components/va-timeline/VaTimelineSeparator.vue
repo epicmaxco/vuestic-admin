@@ -23,6 +23,8 @@ export default {
     },
   },
   render (createElement, context) {
+    console.log(context.parent)
+    console.log(context.props.color)
     return createElement(
       'div',
       {
