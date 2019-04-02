@@ -1,5 +1,5 @@
 <script>
-import VuesticTimelineSeparator from './VaTimelineSeparator.vue'
+import VaTimelineSeparator from './VaTimelineSeparator.vue'
 
 export const $root = 'va-timeline-item'
 
@@ -43,7 +43,7 @@ export default {
 
     const children = [
       createElement(
-        VuesticTimelineSeparator,
+        VaTimelineSeparator,
         {
           props,
         },
@@ -101,22 +101,27 @@ export default {
 .va-timeline-item {
   display: flex;
   flex-direction: column;
+
   &__before, &__after {
     flex: 1;
   }
+
   &--vertical {
     .va-timeline-item__before,
     .va-timeline-item__after {
       padding-top: 1rem;
       padding-bottom: 1rem;
     }
+
     .va-timeline-item__before {
       padding-right: 1rem;
     }
+
     .va-timeline-item__after {
       padding-left: 1rem;
     }
   }
+
   &__before {
     .va-timeline-item__text {
       float: right;
@@ -128,24 +133,29 @@ export default {
       float: left;
     }
   }
+
   &:not(&--vertical) {
     .va-timeline-item__before,
     .va-timeline-item__after {
       padding-right: 1rem;
       padding-left: 1rem;
     }
+
     .va-timeline-item__before {
       padding-bottom: 1rem;
     }
+
     .va-timeline-item__after {
       padding-top: 1rem;
     }
   }
+
   &--vertical {
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: stretch;
   }
+
   &__title {
     text-align: center;
     color: $vue-green;
@@ -153,9 +163,11 @@ export default {
     font-size: $font-size-mini;
     text-transform: uppercase;
   }
+
   &__description {
     text-align: center;
   }
+
   &__text {
     line-height: 1;
   }

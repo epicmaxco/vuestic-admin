@@ -1,6 +1,7 @@
 <template>
   <div class="timelines">
     <va-card
+      style="overflow-x: scroll;"
       :title="$t('timelines.horizontalSimple')"
     >
       <va-timeline>
@@ -37,9 +38,9 @@
       </va-timeline>
     </va-card>
 
-    <va-card class="timelines__horizontal-long"
+    <va-card style="overflow-x: scroll;" class="timelines__horizontal-long"
              :title="$t('timelines.horizontalCards')">
-      <va-timeline class="timelines__horizontal-long__timeline">
+      <va-timeline style="min-width: 600px;" class="timelines__horizontal-long__timeline">
         <va-timeline-item active>
           <template slot="before">
             <div class="title text--center">

@@ -2,7 +2,7 @@
   <div class="file-upload">
     <div class="flex md12">
       <va-card :title="$t('fileUpload.advancedMediaGallery')">
-        <vuestic-file-upload
+        <va-file-upload
           type="gallery"
           :file-types="'.png, .jpg, .jpeg, .gif'"
           dropzone
@@ -13,7 +13,7 @@
 
     <div class="flex md12">
       <va-card :title="$t('fileUpload.advancedUploadList')">
-        <vuestic-file-upload
+        <va-file-upload
           dropzone
           v-model="advancedList"
         />
@@ -22,7 +22,7 @@
 
     <div class="flex md12">
       <va-card :title="$t('fileUpload.single')">
-        <vuestic-file-upload
+        <va-file-upload
           type="single"
           v-model="single"
         />
@@ -31,7 +31,7 @@
 
     <div class="flex md12">
       <va-card :title="$t('fileUpload.mediaGallery')">
-        <vuestic-file-upload
+        <va-file-upload
           type="gallery"
           :file-types="'.png, .jpg, .jpeg, .gif'"
           v-model="gallery"
@@ -41,7 +41,7 @@
 
     <div class="flex md12">
       <va-card :title="$t('fileUpload.uploadList')">
-        <vuestic-file-upload
+        <va-file-upload
           v-model="list"
         />
       </va-card>

@@ -51,22 +51,27 @@ export default {
     align-items: center;
     cursor: pointer;
     text-decoration: none;
+
     &.router-link-active,
     &:hover {
       color: $white;
       background-color: $sidebar-link-active-bg;
+
       .sidebar-menu-item-icon,
       .expand-icon {
         color: $white;
       }
     }
+
     &:hover {
       background-color: $hover-black;
     }
+
     .sidebar-menu-item-icon {
       font-size: $sidebar-menu-item-icon-size;
       color: $vue-green;
       margin-right: 14px;
+
       &.fa-dashboard {
         /* Temp fix */
         position: relative;

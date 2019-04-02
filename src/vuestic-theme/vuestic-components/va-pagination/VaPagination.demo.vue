@@ -106,12 +106,12 @@ import VaPagination from './VaPagination'
 
 export default {
   components: {
-    VaPagination
+    VaPagination,
   },
   data () {
     return {
-      activePage: 4
+      activePage: 4,
     }
-  }
+  },
 }
 </script>

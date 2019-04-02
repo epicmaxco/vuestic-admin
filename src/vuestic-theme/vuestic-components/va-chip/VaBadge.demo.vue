@@ -55,6 +55,6 @@
 import VaBadge from './VaBadge'
 
 export default {
-  components: { VaBadge }
+  components: { VaBadge },
 }
 </script>

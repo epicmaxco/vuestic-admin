@@ -1,7 +1,7 @@
 <template>
   <i class="va-icon"
-    :class="[icon, iconClass]"
-    :style="iconStyle"
+     :class="[icon, iconClass]"
+     :style="iconStyle"
   />
 </template>
 
@@ -10,7 +10,7 @@ export default {
   name: 'va-icon',
   props: {
     icon: {
-      type: [String, Array]
+      type: [String, Array],
     },
     small: {
       type: Boolean,
@@ -22,13 +22,13 @@ export default {
       type: [String, Number],
     },
     fixedWidth: {
-      type: Boolean
+      type: Boolean,
     },
     rotation: {
-      type: [String, Number]
+      type: [String, Number],
     },
     color: {
-      type: String
+      type: String,
     },
   },
   computed: {
@@ -36,17 +36,17 @@ export default {
       return {
         'va-icon--large': this.large,
         'va-icon--small': this.small,
-        'va-icon--fixed': this.fixedWidth
+        'va-icon--fixed': this.fixedWidth,
       }
     },
     iconStyle () {
       return {
         transform: 'rotate(' + this.rotation + 'deg)',
         fontSize: typeof this.size === 'number' ? this.size + 'px' : this.size,
-        color: this.$themes[this.color]
+        color: this.$themes[this.color] || this.color,
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

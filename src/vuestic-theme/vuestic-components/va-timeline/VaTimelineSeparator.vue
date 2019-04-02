@@ -23,8 +23,6 @@ export default {
     },
   },
   render (createElement, context) {
-    console.log(context.parent)
-    console.log(context.props.color)
     return createElement(
       'div',
       {
@@ -73,16 +71,20 @@ export default {
 .va-timeline-separator {
   display: flex;
   align-items: center;
+
   &--vertical {
     flex-direction: column;
   }
+
   &__line {
     transition: background-color ease .5s;
     width: .125rem;
     height: .125rem;
     flex: 1;
   }
+
   &__center {
+    transition: background-color ease .5s;
     width: 0.5rem;
     height: 0.5rem;
     border-radius: .5rem;

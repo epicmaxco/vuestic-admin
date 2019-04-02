@@ -1,5 +1,5 @@
 <template>
-  <vuestic-sidebar :hidden="isOpen">
+  <va-sidebar :hidden="isOpen">
     <template slot="menu">
       <sidebar-link
         :to="{ name: 'dashboard' }">
@@ -88,11 +88,11 @@
         </sidebar-link>
         <!-- NOTE Dropdowns are not presentation ready yet. See https://github.com/epicmaxco/vuestic-admin/issues/438 -->
         <!--<sidebar-link-->
-          <!--:to="{ name: 'dropdowns' }"-->
+        <!--:to="{ name: 'dropdowns' }"-->
         <!--&gt;-->
-          <!--<span slot="title">-->
-            <!--<span>{{ $t('menu.dropdowns') }}</span>-->
-          <!--</span>-->
+        <!--<span slot="title">-->
+        <!--<span>{{ $t('menu.dropdowns') }}</span>-->
+        <!--</span>-->
         <!--</sidebar-link>-->
         <sidebar-link
           :to="{ name: 'filters' }">
@@ -250,13 +250,13 @@
         </sidebar-link>
       </sidebar-link-group>
     </template>
-  </vuestic-sidebar>
+  </va-sidebar>
 </template>
 
 <script>
 
 import VuesticSidebar
-  from '../../../vuestic-theme/vuestic-components/vuestic-sidebar/VuesticSidebar'
+  from '../../../vuestic-theme/vuestic-components/va-sidebar/VaSidebar'
 import SidebarLink from './components/SidebarLink'
 import SidebarLinkGroup from './components/SidebarLinkGroup'
 

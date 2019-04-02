@@ -100,18 +100,22 @@ $timeline-outer-spacing: 2rem;
 .va-timeline {
   display: flex;
   flex-wrap: nowrap;
+
   &--vertical {
     flex-direction: column;
     padding-left: $timeline-outer-spacing;
     padding-right: $timeline-outer-spacing;
   }
+
   &:not(.va-timeline--vertical) {
     padding-top: $timeline-outer-spacing;
     padding-bottom: $timeline-outer-spacing;
   }
-  .a-timeline-item {
+
+  .va-timeline-item {
     flex: 1;
   }
+
   .va-timeline-item--vertical {
     .va-timeline-separator--vertical .va-timeline-separator__line {
       &:first-child {
@@ -130,11 +134,13 @@ $timeline-outer-spacing: 2rem;
         padding-top: $timeline-outer-spacing;
       }
     }
+
     &.va-timeline-item--vertical.va-timeline-item--is-last {
       .va-timeline-item__after, .va-timeline-item__before {
         padding-bottom: $timeline-outer-spacing;
       }
     }
   }
+
 }
 </style>
