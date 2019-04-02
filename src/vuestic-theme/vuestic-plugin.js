@@ -126,7 +126,7 @@ const VuesticPlugin = {
       VaTimelineItem,
       VaPopup,
       VaCard,
-      VaTab
+      VaTab,
       VaCountBadge,
     ].forEach(component => {
       Vue.component(component.name, component)
