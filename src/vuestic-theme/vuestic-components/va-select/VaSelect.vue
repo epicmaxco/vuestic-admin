@@ -7,7 +7,7 @@
     :max-width="width"
     :max-height="maxHeight"
     @triggerVisibility="triggerVisibility"
-    :visible.sync="visible"
+    :visible="visible"
   >
     <ul
       class="va-select__options-list"
@@ -16,12 +16,12 @@
     >
       <li
         v-for="(option, index) in filteredOptions"
-        :key="index"
+        :key="getKey(option)"
         class="va-select__option"
-        @click.stop="selectValue(option, index)"
+        @click.stop="selectOption(option)"
         :class="{
-          'va-select__option-selected': isOptionSelected(option, index),
-          'va-select__option-highlighted': isOptionHightlighted(option, index)
+          'va-select__option--selected': isSelected(option),
+          'va-select__option--highlighted': isOptionHightlighted(option, index)
         }"
       >
         <i class="icon va-icon fa va-select__option__icon mr-1" :class="option.icon"/>
@@ -38,7 +38,7 @@
       :class="{
         [`va-select-position-${position}`]: position,
         [`va-select-${size}`]: size,
-        'va-select-loading': loading
+        'va-select--loading': loading
       }"
       :style="{'width': width}"
       ref="actuator"
@@ -58,13 +58,13 @@
             v-if="multiple && valueProxy.length <= max"
           >
             <va-chip
-              v-for="(item, index) in valueProxy"
-              :key="index"
+              v-for="(selectedOption) in selectedOptionList"
+              :key="getKey(selectedOption)"
             >
-              {{item.text}}
+              {{getText(selectedOption)}}
             </va-chip>
           </span>
-          <span v-else-if="displayedValue !== ''">{{displayedValue}}</span>
+          <span v-else-if="displayedText">{{displayedText}}</span>
           <span v-else class="va-select__placeholder">{{placeholder}}</span>
         </div>
         <input
@@ -76,8 +76,18 @@
           ref="search"
           :style="inputStyles"
         />
-        <i v-if="showClearIcon" @click.prevent.stop="clear" class="icon va-icon fa fa-times-circle mr-1 va-select__clear-icon"/>
-        <spring-spinner v-if="loading" :size="24" class="va-select__loading"/>
+        <va-icon
+          v-if="showClearIcon"
+          class="va-select__clear-icon mr-1"
+          icon="fa fa-times-circle"
+          @click.prevent.stop="clear"
+        />
+        <spring-spinner
+          :color="$themes.success"
+          v-if="loading"
+          :size="24"
+          class="va-select__loading"
+        />
       </div>
       <i class="icon va-icon fa va-select__open-icon" :class="{'fa-chevron-down': !visible || (visible && disabled), 'fa-chevron-up': visible && !disabled}"/>
     </div>
@@ -87,79 +97,126 @@
 <script>
 import VaDropdown from '../va-dropdown/VaDropdown'
 import VaChip from '../va-chip/VaChip'
-import SpringSpinner from 'epic-spinners/src/components/lib/SpringSpinner'
+import { SpringSpinner } from 'epic-spinners'
+import VaIcon from '../va-icon/VaIcon'
 
 const positions = {
   'top': 'T',
-  'bottom': 'B'
+  'bottom': 'B',
 }
 const sizes = ['sm', 'md', 'lg']
 export default {
   name: 'va-select',
-  components: { SpringSpinner, VaDropdown, VaChip },
+  components: { VaIcon, SpringSpinner, VaDropdown, VaChip },
   props: {
-    options: Array,
-    value: {
-      default: [],
-      required: true,
-    },
+    label: String,
     placeholder: String,
-    searchable: Boolean,
+    options: {
+      type: Array,
+      default: () => [],
+    },
+    value: {},
     position: {
       type: String,
       default: 'bottom',
-      validator: position => Object.keys(positions).indexOf(position) >= 0
+      validator: position => Object.keys(positions).indexOf(position) >= 0,
     },
     max: {
       type: Number,
-      default: 5
+      default: 5,
     },
+    searchable: Boolean,
     multiple: Boolean,
     disabled: Boolean,
     readonly: Boolean,
-    label: String,
+    loading: Boolean,
     size: {
       type: String,
       default: 'md',
-      validator: size => sizes.indexOf(size) >= 0
+      validator: size => sizes.indexOf(size) >= 0,
     },
     width: {
       type: String,
-      default: '400px'
+      default: '400px',
     },
     maxHeight: {
       type: String,
-      default: '128px'
+      default: '128px',
     },
-    loading: Boolean,
+    keyBy: {
+      type: String,
+      default: 'id',
+    },
+    textBy: {
+      type: String,
+      default: 'text',
+    },
     noOptionsText: {
       type: String,
-      default: 'Items not found'
+      default: 'Items not found',
     },
   },
   data () {
     return {
       search: '',
       pointer: 0,
-      visible: false
+      visible: false,
     }
   },
   watch: {
     search (val) {
       this.$emit('update-search', val)
-    }
+    },
   },
   computed: {
-    filteredOptions () {
-      const formattedOptions = this.options ? this.options.map(option => option.value ? { ...option } : { text: option, value: option }) : []
-      const filteredOptions = formattedOptions.filter(option => (`${option.text.toLowerCase()}`.indexOf(this.search.toLowerCase()) !== -1 || option.text.indexOf(this.search) !== -1))
-      return this.searchable ? filteredOptions : formattedOptions
+    displayedText () {
+      if (!this.value) {
+        return ''
+      }
+
+      if (this.multiple) {
+        if (!this.value.length) {
+          return ''
+        }
+        return `${this.valueProxy.length} items selected`
+      }
+
+      // We try to find a match from options, if we don't find any - we take value.
+      // This way select can display value even when options are not loaded yet.
+      const selectedOption = this.selectedOption || this.value
+      const isString = typeof selectedOption === 'string'
+      return isString ? selectedOption : selectedOption[this.textBy]
     },
-    displayedValue () {
-      return this.multiple ? `${this.valueProxy.length} items selected` : (this.valueProxy ? this.valueProxy.text : '')
+    selectedOptionList () {
+      if (!this.value || !this.multiple) {
+        return []
+      }
+
+      // TODO Probably worth optimizing with index.
+      return this.options.filter(option => {
+        this.value.find(
+          selectedOption => this.compareOptions(option, selectedOption),
+        )
+      })
+    },
+    selectedOption () {
+      if (!this.value || this.multiple) {
+        return null
+      }
+
+      return this.options.find(option => this.compareOptions(option, this.value)) || null
+    },
+    filteredOptions () {
+      return this.options.filter(option => {
+        const optionText = this.getText(option).toUpperCase()
+        return this.search.toUpperCase().includes(optionText)
+      })
     },
     showClearIcon () {
-      return (this.multiple ? this.valueProxy.length : this.valueProxy) && !this.disabled
+      if (this.disabled) {
+        return false
+      }
+      return this.multiple ? this.value.length : this.value
     },
     computedPosition () {
       return positions[this.position]
@@ -175,32 +232,68 @@ export default {
       },
       set (value) {
         this.$emit('input', value)
-      }
-    }
+      },
+    },
   },
   methods: {
+    getText (option) {
+      if (typeof option === 'string') {
+        return option
+      }
+      return option[this.textBy]
+    },
+    getKey (option) {
+      if (typeof option === 'string') {
+        return option
+      }
+      return option[this.idBy]
+    },
     updateSearch (val) {
       this.search = val
     },
-    selectValue (selectedItem, index) {
+    compareOptions (one, two) {
+      // identity check works nice for strings and exact matches.
+      if (one === two) {
+        return true
+      }
+      if (typeof this.value === 'string') {
+        return false
+      }
+      return one[this.keyBy] === two[this.keyBy]
+    },
+    isSelected (option) {
       if (this.multiple) {
-        const index = Array.findIndex(this.valueProxy, item => item.value === selectedItem.value)
-        if (index === -1) {
-          this.valueProxy.push(selectedItem)
-          this.search = ''
+        return this.selectedOptionList.includes(option)
+      } else {
+        return this.selectedOption === option
+      }
+    },
+    selectOption (option) {
+      this.search = ''
+      const isSelected = this.isSelected(option)
+
+      if (this.multiple) {
+        if (isSelected) {
+          this.valueProxy = [...this.value, option]
           this.setScrollPosition()
         } else {
-          this.valueProxy.splice(index, 1)
+          // TODO Probabaly worth optimizing a bit.
+          this.valueProxy = this.value.filter(optionSelected => option !== optionSelected)
         }
       } else {
-        this.pointer = index
-        this.valueProxy = selectedItem
+        // I not getting what that was for.
+        // this.pointer = index
+
+        this.valueProxy = option
         this.search = ''
+
+        // This looks cryptic.
         if (this.searchable) {
           this.$children[0].hide()
         } else {
           this.$refs.actuator.blur()
         }
+
         this.setScrollPosition()
       }
     },
@@ -238,126 +331,150 @@ export default {
       if (val && this.searchable && !this.disabled) {
         this.$refs.search.focus()
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss">
-  .va-select {
-    min-height: 38px;
-    cursor: pointer;
-    background-color: $light-gray3;
-    width: 100%;
-    border-bottom: 1px solid $brand-secondary;
-    border-radius: 0 .5rem 0 0;
-    padding: .5rem 1.5rem .5rem .5rem;
-    position: relative;
-    &:focus {
-      outline: none;
+@import "../../vuestic-sass/resources/resources";
+
+.va-select {
+  min-height: 38px;
+  cursor: pointer;
+  background-color: $light-gray3;
+  width: 100%;
+  border-bottom: 1px solid $brand-secondary;
+  border-radius: 0 .5rem 0 0;
+  padding: .5rem 1.5rem .5rem .5rem;
+  position: relative;
+
+  &--disabled {
+
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &--loading {
+    .va-select__clear-icon,
+    .va-select__open-icon {
+      opacity: .2;
     }
-    &-loading {
-      .va-select__clear-icon,
-      .va-select__open-icon {
-        opacity: .2;
+  }
+
+  &__label {
+    position: absolute;
+    margin: 0;
+  }
+
+  &__input-wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: stretch;
+
+    &-block {
+      display: block;
+
+      .va-select__input {
+        padding-right: 1.5rem;
       }
-    }
-    &__label {
-      position: absolute;
-      margin: 0;
-    }
-    &__input-wrapper {
-      display: flex;
-      align-items: center;
-      height: 100%;
-      justify-content: stretch;
-      &-block {
-        display: block;
-        .va-select__input {
-          padding-right: 1.5rem;
-        }
-        .va-select__clear-icon {
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          right: 1.5rem;
-          margin: auto;
-          height: 16px;
-        }
-      }
-    }
-    &__input {
-      border: none;
-      background: transparent;
-      &:focus {
-        outline: none;
-      }
-    }
-    &__placeholder {
-      opacity: .5;
-    }
-    &__clear-icon {
-      color: $va-link-color-secondary;
-      margin-left: auto;
-      width: 16px;
-    }
-    &__open-icon {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      right: .5rem;
-      height: 1rem;
-      color: $va-link-color-secondary;
-    }
-    &__tags {
-      & > .va-chip:last-of-type {
-        margin-top: .125rem;
-      }
-    }
-    &__loading {
-      position: absolute;
-      right: .5rem;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      .spring-spinner-rotator {
-        border-right-color: $vue-green !important;
-        border-top-color: $vue-green !important;
-      }
-    }
-    &__dropdown {
-      outline: none;
-      margin: 0;
-      padding: 0;
-      background: $light-gray3;
-      border-radius: .5rem;
-      box-shadow: 0 2px 3px 0 rgba(98, 106, 119, 0.25);
-      &.va-select__dropdown-position-top {
-        box-shadow: 0 -2px 3px 0 rgba(98, 106, 119, 0.25);
-      }
-    }
-    &__options-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      &.no-options {
-        padding: .5rem;
-      }
-    }
-    &__option {
-      cursor: pointer;
-      display: flex;
-      padding: .375rem 1.5rem .375rem .5rem;
-      &:hover {
-        background-color: $vue-light-green;
-      }
-      &-selected, &-highlighted {
-        color: $vue-green
-      }
-      &__hightlight-text, &__selected-icon {
-        margin-left: auto;
+
+      .va-select__clear-icon {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 1.5rem;
+        margin: auto;
+        height: 16px;
       }
     }
   }
+
+  &__input {
+    border: none;
+    background: transparent;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__placeholder {
+    opacity: .5;
+  }
+
+  &__clear-icon {
+    color: $va-link-color-secondary;
+    margin-left: auto;
+    width: 16px;
+  }
+
+  &__open-icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: .5rem;
+    height: 1rem;
+    color: $va-link-color-secondary;
+  }
+
+  &__tags {
+    & > .va-chip:last-of-type {
+      margin-top: .125rem;
+    }
+  }
+
+  &__loading {
+    position: absolute;
+    right: .5rem;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  &__dropdown {
+    outline: none;
+    margin: 0;
+    padding: 0;
+    background: $light-gray3;
+    border-radius: .5rem;
+    box-shadow: 0 2px 3px 0 rgba(98, 106, 119, 0.25);
+
+    &.va-select__dropdown-position-top {
+      box-shadow: 0 -2px 3px 0 rgba(98, 106, 119, 0.25);
+    }
+  }
+
+  &__options-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &.no-options {
+      padding: .5rem;
+    }
+  }
+
+  &__option {
+    cursor: pointer;
+    display: flex;
+    padding: .375rem 1.5rem .375rem .5rem;
+
+    &:hover {
+      background-color: $vue-light-green;
+    }
+
+    &--selected, &--highlighted {
+      color: $vue-green
+    }
+
+    &__hightlight-text, &__selected-icon {
+      margin-left: auto;
+    }
+  }
+}
 </style>
