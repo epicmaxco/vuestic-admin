@@ -36,6 +36,18 @@
       :style="{ color: '#babfc2'}"
       icon="ion ion-md-close ion"
     />
+    <va-icon
+      v-if="success"
+      slot="append"
+      icon="fa fa-check"
+      color="success"
+    />
+    <va-icon
+      v-if="error"
+      slot="append"
+      icon="fa fa-exclamation-triangle"
+      color="danger"
+    />
     <slot slot="append"/>
   </va-input-wrapper>
 </template>
@@ -60,27 +72,27 @@ export default {
     },
     type: {
       type: String,
-      default: 'text'
+      default: 'text',
     },
     disabled: {
-      type: Boolean
+      type: Boolean,
     },
     readonly: {
-      type: Boolean
+      type: Boolean,
     },
     removable: {
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
   data () {
     return {
-      isFocused: false
+      isFocused: false,
     }
   },
   computed: {
     labelStyles () {
       return {
-        color: this.error ? this.$themes.danger : ''
+        color: this.error ? this.$themes.danger : '',
       }
     },
     inputListeners () {
@@ -107,15 +119,15 @@ export default {
           },
           keydown: function (event) {
             vm.$emit('keydown', event)
-          }
+          },
         }
       )
-    }
+    },
   },
   methods: {
     clearContent () {
       this.$emit('input', '')
-    }
+    },
   },
 }
 </script>
@@ -128,11 +140,13 @@ export default {
   &__slot {
     display: flex;
     position: relative;
+    width: 100%;
 
     &__label {
       position: absolute;
       bottom: 0.875rem;
       left: 0.5rem;
+      width: 100%;
       margin-bottom: 0.5rem;
       color: $vue-green;
       font-size: 0.625rem;

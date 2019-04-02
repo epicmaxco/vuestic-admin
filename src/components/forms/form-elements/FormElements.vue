@@ -29,7 +29,7 @@
                   v-model="clearableText"
                   placeholder="Input With Button"
                 >
-                  <va-button small>
+                  <va-button style="margin-right: 0;" small>
                     UPLOAD
                   </va-button>
                 </va-input>
@@ -42,11 +42,6 @@
                   type="email"
                   label="Email (Validated with success)"
                   success>
-                  <va-icon
-                    class="pb-1"
-                    icon="fa fa-check"
-                    color="success"
-                  />
                 </va-input>
               </div>
               <div class="flex md4">
@@ -63,11 +58,6 @@
                   label="Email (Validated)"
                   error
                   :error-messages="errorMessages">
-                  <va-icon
-                    class="pb-1"
-                    icon="fa fa-exclamation-triangle"
-                    color="danger"
-                  />
                 </va-input>
               </div>
             </div>
@@ -326,9 +316,13 @@
 
 <script>
 import CountriesList from 'data/CountriesList'
+import VaInput from './../../../../src/vuestic-theme/vuestic-components/va-input/VaInput'
 
 export default {
   name: 'form-elements',
+  components: {
+    VaInput,
+  },
   computed: {
     datePickerDisabled: () => [date => !(date.getDate() % 5)],
     isSuccessfulEmailValid () {
