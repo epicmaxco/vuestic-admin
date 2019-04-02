@@ -44,8 +44,9 @@
 
 <script>
 import VaCountBadge from './VaCountBadge'
+
 export default {
-  components: { VaCountBadge }
+  components: { VaCountBadge },
 }
 </script>
 

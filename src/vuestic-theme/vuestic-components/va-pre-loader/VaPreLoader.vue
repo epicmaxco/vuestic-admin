@@ -11,7 +11,11 @@ export default {
   name: 'va-pre-loader',
   methods: {
     getPrevious (index) {
-      if (index === 0) { return this.points.length - 1 } else { return index - 1 }
+      if (index === 0) {
+        return this.points.length - 1
+      } else {
+        return index - 1
+      }
     },
     getNext (index) {
       if (index + 1 === this.points.length) {

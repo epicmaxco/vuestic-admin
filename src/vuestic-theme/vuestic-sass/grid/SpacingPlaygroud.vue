@@ -5,16 +5,20 @@
     </div>
     <div class="va-row">
       <div class="flex xs3">
-        <span>m</span><va-select :options="directionList" v-model="selectedMarginDirection"/>
+        <span>m</span>
+        <va-select :options="directionList" v-model="selectedMarginDirection"/>
       </div>
       <div class="flex xs2">
-        <span>-</span><va-select :options="sizesList" v-model="selectedMarginSize"/>
+        <span>-</span>
+        <va-select :options="sizesList" v-model="selectedMarginSize"/>
       </div>
       <div class="flex xs3 offset-2">
-        <span>p</span><va-select :options="directionList" v-model="selectedPaddingDirection"/>
+        <span>p</span>
+        <va-select :options="directionList" v-model="selectedPaddingDirection"/>
       </div>
       <div class="flex xs2">
-        <span>-</span><va-select :options="sizesList" v-model="selectedPaddingSize"/>
+        <span>-</span>
+        <va-select :options="sizesList" v-model="selectedPaddingSize"/>
       </div>
     </div>
     <div class="va-row">

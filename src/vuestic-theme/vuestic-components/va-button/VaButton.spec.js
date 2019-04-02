@@ -3,6 +3,7 @@ import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import VaButton from './VaButton'
 
 import { ColorPlugin } from './../../../services/colors'
+
 Vue.use(ColorPlugin)
 
 describe('VaButton', () => {

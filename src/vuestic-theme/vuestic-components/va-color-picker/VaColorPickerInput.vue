@@ -5,7 +5,7 @@
         <div slot="toggle" class="va-color-picker-input__slot">
           <slot>
             <va-color-input v-model="valueProxy" mode="palette"
-                                 :disabled="disableInput" :selected="selected"/>
+                            :disabled="disableInput" :selected="selected"/>
           </slot>
         </div>
         <div class="va-color-picker-input__dropdown">
@@ -14,7 +14,7 @@
           </div>
           <div v-if="this.mode==='palette'">
             <va-simple-palette-picker v-model="valueProxy"
-                                           :palette="palette"/>
+                                      :palette="palette"/>
           </div>
           <div v-if="this.mode==='slider'">
             <va-slider-color-picker v-model="valueProxy"/>
@@ -25,7 +25,7 @@
     <div v-else>
       <slot>
         <va-color-input v-model="valueProxy" mode="palette"
-                             :disabled="disableInput"/>
+                        :disabled="disableInput"/>
       </slot>
     </div>
   </div>

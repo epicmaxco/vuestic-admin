@@ -160,7 +160,7 @@ export default {
     cursor: pointer;
 
     @at-root {
-      .va-checkbox--disabled  & {
+      .va-checkbox--disabled & {
         @include va-disabled();
       }
 

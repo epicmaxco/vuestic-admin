@@ -19,6 +19,7 @@
 
 <script>
 import _ from 'lodash'
+
 const availablePositions = ['T', 'TR', 'R', 'BR', 'B', 'BL', 'L', 'TL']
 const availableTriggerModes = ['hover', 'click', 'focus']
 
@@ -28,38 +29,38 @@ export default {
     position: {
       type: String,
       default: 'T',
-      validator: position => availablePositions.includes(position)
+      validator: position => availablePositions.includes(position),
     },
     triggerMode: {
       type: String,
       default: 'click',
-      validator: triggerMode => availableTriggerModes.includes(triggerMode)
+      validator: triggerMode => availableTriggerModes.includes(triggerMode),
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     maxWidth: {
-      type: [String, Number]
+      type: [String, Number],
     },
     maxHeight: {
-      type: [String, Number]
+      type: [String, Number],
     },
     noFade: Boolean,
-    className: String
+    className: String,
   },
   data () {
     return {
       visible: false,
       top: 0,
       left: 0,
-      offset: 5
+      offset: 5,
     }
   },
   watch: {
     visible (val) {
       this.$emit('triggerVisibility', val)
-    }
+    },
   },
   computed: {
     dropdownStyles () {
@@ -90,7 +91,7 @@ export default {
     },
     isOnHover () {
       return this.triggerMode.indexOf('hover') >= 0
-    }
+    },
   },
   mounted () {
     if (!this.$slots.actuator) {
@@ -274,34 +275,38 @@ export default {
     },
     killOutSideClick () {
       document.removeEventListener('click', this.outsideClickListener)
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss">
-  .va-dropdown {
-    position: absolute;
-    padding: 0 0.4rem;
-    font-family: Source Sans Pro, sans-serif;
-    box-shadow: 0 4px 9.6px 0.4px rgba(74, 227, 135, 0.5);
-    border-radius: 3px;
-    background: $white;
-    z-index: 2000;
-    overflow-y: auto;
-    overflow-x: hidden;
-    max-width: 100vw;
-    outline: 0;
-    word-wrap: break-word;
-    &__transition {
-      &-enter-active,
-      &-leave-active {
-        transition: opacity 0.15s;
-      }
-      &-enter,
-      &-leave-to {
-        opacity: 0;
-      }
+@import "../../vuestic-sass/resources/resources";
+
+.va-dropdown {
+  position: absolute;
+  padding: 0 0.4rem;
+  font-family: Source Sans Pro, sans-serif;
+  box-shadow: 0 4px 9.6px 0.4px rgba(74, 227, 135, 0.5);
+  border-radius: 3px;
+  background: $white;
+  z-index: 2000;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-width: 100vw;
+  outline: 0;
+  word-wrap: break-word;
+
+  &__transition {
+    &-enter-active,
+    &-leave-active {
+      transition: opacity 0.15s;
+    }
+
+    &-enter,
+    &-leave-to {
+      opacity: 0;
     }
   }
+}
 </style>
