@@ -1334,6 +1334,11 @@ append-transform@^0.4.0:
   dependencies:
     default-require-extensions "^1.0.0"
 
+approximate-number@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/approximate-number/-/approximate-number-2.0.0.tgz#43c7fbfbbb0070a412131d65581f868b24d1eb29"
+  integrity sha1-Q8f7+7sAcKQSEx1lWB+GiyTR6yk=
+
 aproba@^1.0.3, aproba@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/aproba/-/aproba-1.2.0.tgz#6802e6264efd18c790a1b0d517f0f2627bf2c94a"

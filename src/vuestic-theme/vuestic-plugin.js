@@ -71,6 +71,7 @@ import VaTimelineItem
 import VaPopup
   from './vuestic-components/va-popup/quasar/components/popup/VaPopup.vue'
 
+import VaCountBadge from './vuestic-components/va-count-badge/VaCountBadge'
 import VaCard from './vuestic-components/va-card/VaCard'
 import { installQuasarPlatform } from './vuestic-components/va-popup/quasar/install'
 
@@ -126,6 +127,7 @@ const VuesticPlugin = {
       VaPopup,
       VaCard,
       VaTab
+      VaCountBadge,
     ].forEach(component => {
       Vue.component(component.name, component)
     })
