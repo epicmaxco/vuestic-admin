@@ -246,7 +246,7 @@ export default {
       if (typeof option === 'string') {
         return option
       }
-      return option[this.idBy]
+      return option[this.keyBy]
     },
     updateSearch (val) {
       this.search = val
