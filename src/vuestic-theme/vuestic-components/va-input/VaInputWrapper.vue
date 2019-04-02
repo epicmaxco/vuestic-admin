@@ -144,7 +144,6 @@ export default {
   &__slot {
     display: flex;
     position: relative;
-    padding-top: 0.5rem;
     min-height: 2.375rem;
     border-style: solid;
     border-width: 0 0 thin 0;

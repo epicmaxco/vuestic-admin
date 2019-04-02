@@ -40,7 +40,6 @@
         label="Name"
       >
         <va-icon
-          class="pb-1"
           icon="fa fa-anchor"
         />
       </va-input>
@@ -50,7 +49,7 @@
         v-model="text"
         label="Name"
       >
-        <va-button small>
+        <va-button style="margin-right: 0;" small>
           Upload
         </va-button>
       </va-input>
@@ -61,7 +60,6 @@
         label="Name"
       >
         <va-icon
-          class="pb-1"
           slot="prepend"
           icon="fa fa-anchor"
         />
@@ -70,12 +68,8 @@
     <VbContainer title="Removable Icon">
       <va-input
         removable
+        v-model="text"
       >
-        <va-icon
-          class="pb-1"
-          slot="append"
-          icon="fa fa-anchor"
-        />
       </va-input>
     </VbContainer>
     <VbContainer title="Input With Error">

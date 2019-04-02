@@ -28,8 +28,8 @@
       >
     </div>
     <va-icon
+      v-if="removable && value.length"
       @click.native="clearContent()"
-      v-if="removable"
       slot="append"
       class="va-input__close-icon"
       :color="error ? 'danger': ''"
@@ -145,6 +145,7 @@ export default {
     input {
       width: 100%;
       height: 1.5rem;
+      margin-bottom: 0.125rem;
       padding: 0.25rem 0.5rem;
       color: #34495e;
       background-color: transparent;
@@ -159,16 +160,16 @@ export default {
       letter-spacing: normal;
 
       &::placeholder {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0.5rem;
         color: $brand-secondary;
+      }
+
+      &:placeholder-shown {
+        padding-bottom: 0.875rem;
       }
     }
   }
 
   &__close-icon {
-    padding-bottom: 0.25rem;
     cursor: pointer;
   }
 }
