@@ -34,7 +34,6 @@ export const getBoxShadowColor = (color) => {
 }
 
 export const getHoverColor = (color) => {
-  console.log(color)
   return hex2rgb(color, 0.2).css
 }
 

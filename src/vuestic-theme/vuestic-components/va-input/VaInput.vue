@@ -107,11 +107,11 @@ export default {
             this.$emit('click', event)
           },
           focus: event => {
-            this.isFocused = true;
+            this.isFocused = true
             this.$emit('focus', event)
           },
           blur: event => {
-            this.isFocused = false;
+            this.isFocused = false
             this.$emit('blur', event)
           },
           keyup: event => {
