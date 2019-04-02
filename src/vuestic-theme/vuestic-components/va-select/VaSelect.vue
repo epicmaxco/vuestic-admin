@@ -15,39 +15,44 @@
       ref="options"
     >
       <li
-        v-for="(option, index) in filteredOptions"
+        v-for="option in filteredOptions"
         :key="getKey(option)"
         class="va-select__option"
         @click.stop="selectOption(option)"
         :class="{
           'va-select__option--selected': isSelected(option),
-          'va-select__option--highlighted': isOptionHightlighted(option, index)
         }"
       >
-        <i class="icon va-icon fa va-select__option__icon mr-1" :class="option.icon"/>
-        <span>{{option.text}}</span>
-        <span v-show="isOptionHightlighted(option, index)" class="va-select__option__hightlight-text">Press enter to select</span>
-        <i v-show="isOptionSelected(option) && !isOptionHightlighted(option, index)" class="icon va-icon fa fa-check va-select__option__selected-icon"/>
+        <!--'va-select__option&#45;&#45;highlighted': isOptionHightlighted(option)-->
+        <!--<i class="icon va-icon fa va-select__option__icon mr-1" :class="option.icon"/>-->
+        <span>{{getText(option)}}</span>
+        <!--<span v-show="isOptionHightlighted(option, index)" class="va-select__option__hightlight-text">Press enter to select</span>-->
+        <i v-show="isSelected(option)" class="icon va-icon fa fa-check va-select__option__selected-icon"/>
       </li>
     </ul>
-    <div class="va-select__options-list no-options" v-if="!filteredOptions.length">{{noOptionsText}}</div>
+    <div
+      class="va-select__options-list no-options"
+      v-if="!filteredOptions.length"
+    >
+      {{noOptionsText}}
+    </div>
+
     <div
       slot="actuator"
       :tabindex="1"
       class="va-select"
       :class="{
-        [`va-select-position-${position}`]: position,
-        [`va-select-${size}`]: size,
         'va-select--loading': loading
       }"
       :style="{'width': width}"
       ref="actuator"
       @keydown.down.prevent="pointerForward()"
       @keydown.up.prevent="pointerBackward()"
-      @keydown.enter.prevent="selectValue(filteredOptions[pointer], pointer)"
       @keyup.esc.prevent="$refs.actuator.blur()"
     >
-      <p v-if="label" class="title va-select__label">{{label}}</p>
+      <!--@keydown.enter.prevent="selectValue(filteredOptions[pointer], pointer)"-->
+
+      <label v-if="label" class="va-select__label">{{label}}</label>
       <div class="va-select__input-wrapper" :class="{'va-select__input-wrapper-block': multiple && visible && searchable}">
         <div
           class="va-select__input"
@@ -80,7 +85,7 @@
           v-if="showClearIcon"
           class="va-select__clear-icon mr-1"
           icon="fa fa-times-circle"
-          @click.prevent.stop="clear"
+          @click.prevent.stop="clear()"
         />
         <spring-spinner
           :color="$themes.success"
@@ -108,6 +113,13 @@ const sizes = ['sm', 'md', 'lg']
 export default {
   name: 'va-select',
   components: { VaIcon, SpringSpinner, VaDropdown, VaChip },
+  data () {
+    return {
+      search: '',
+      pointer: 0,
+      visible: false,
+    }
+  },
   props: {
     label: String,
     placeholder: String,
@@ -151,17 +163,13 @@ export default {
       type: String,
       default: 'text',
     },
+    clearValue: {
+      default: null,
+    },
     noOptionsText: {
       type: String,
       default: 'Items not found',
     },
-  },
-  data () {
-    return {
-      search: '',
-      pointer: 0,
-      visible: false,
-    }
   },
   watch: {
     search (val) {
@@ -207,9 +215,14 @@ export default {
       return this.options.find(option => this.compareOptions(option, this.value)) || null
     },
     filteredOptions () {
+      if (!this.search) {
+        return this.options
+      }
+
       return this.options.filter(option => {
         const optionText = this.getText(option).toUpperCase()
-        return this.search.toUpperCase().includes(optionText)
+        const search = this.search.toUpperCase()
+        return optionText.includes(search)
       })
     },
     showClearIcon () {
@@ -271,14 +284,15 @@ export default {
     selectOption (option) {
       this.search = ''
       const isSelected = this.isSelected(option)
+      const value = this.value || []
 
       if (this.multiple) {
         if (isSelected) {
-          this.valueProxy = [...this.value, option]
-          this.setScrollPosition()
+          // TODO Probably worth optimizing a bit.
+          this.valueProxy = value.filter(optionSelected => option !== optionSelected)
         } else {
-          // TODO Probabaly worth optimizing a bit.
-          this.valueProxy = this.value.filter(optionSelected => option !== optionSelected)
+          this.valueProxy = [...value, option]
+          this.setScrollPosition()
         }
       } else {
         // I not getting what that was for.
@@ -297,14 +311,11 @@ export default {
         this.setScrollPosition()
       }
     },
-    isOptionSelected (option) {
-      return this.multiple ? this.value.includes(option) : this.value.value === option.value
-    },
     isOptionHightlighted (option, index) {
       return this.pointer === index
     },
     clear () {
-      this.valueProxy = this.multiple ? [] : ''
+      this.valueProxy = this.multiple ? [] : this.clearValue
       this.search = ''
     },
     pointerForward () {
@@ -365,6 +376,7 @@ export default {
   }
 
   &__label {
+    @include va-title();
     position: absolute;
     margin: 0;
   }
