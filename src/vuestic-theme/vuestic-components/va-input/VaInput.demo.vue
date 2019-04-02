@@ -79,10 +79,18 @@
         error
       />
     </VbContainer>
-    <VbContainer title="Input With Error">
+    <VbContainer title="Input With Success">
       <va-input
         v-model="text"
         label="Name"
+        success
+      />
+    </VbContainer>
+    <VbContainer title="Success and Removable">
+      <va-input
+        v-model="text"
+        label="Name"
+        removable
         success
       />
     </VbContainer>

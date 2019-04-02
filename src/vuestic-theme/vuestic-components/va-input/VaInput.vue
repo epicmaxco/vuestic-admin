@@ -19,6 +19,8 @@
         {{ label }}
       </label>
       <input
+        :style="{ paddingBottom: label ? '0.125rem' : '0.875rem'}"
+        :aria-label="label"
         :type="type"
         :placeholder="placeholder"
         :disabled="disabled"
@@ -27,15 +29,6 @@
         v-on="inputListeners"
       >
     </div>
-    <va-icon
-      v-if="removable && value.length"
-      @click.native="clearContent()"
-      slot="append"
-      class="va-input__close-icon"
-      :color="error ? 'danger': ''"
-      :style="{ color: '#babfc2'}"
-      icon="ion ion-md-close ion"
-    />
     <va-icon
       v-if="success"
       slot="append"
@@ -49,6 +42,14 @@
       color="danger"
     />
     <slot slot="append"/>
+    <va-icon
+      v-if="removable && value.length"
+      @click.native="clearContent()"
+      slot="append"
+      class="va-input__close-icon"
+      :color="error ? 'danger': 'gray'"
+      icon="ion ion-md-close ion"
+    />
   </va-input-wrapper>
 </template>
 
@@ -96,29 +97,28 @@ export default {
       }
     },
     inputListeners () {
-      const vm = this
       return Object.assign({},
         this.$listeners,
         {
-          input: function (event) {
-            vm.$emit('input', event.target.value)
+          input: event => {
+            this.$emit('input', event.target.value)
           },
-          click: function (event) {
-            vm.$emit('click', event)
+          click: event => {
+            this.$emit('click', event)
           },
-          focus: function (event) {
-            vm.isFocused = true
-            vm.$emit('focus', event)
+          focus: event => {
+            this.isFocused = true;
+            this.$emit('focus', event)
           },
-          blur: function (event) {
-            vm.isFocused = false
-            vm.$emit('blur', event)
+          blur: event => {
+            this.isFocused = false;
+            this.$emit('blur', event)
           },
-          keyup: function (event) {
-            vm.$emit('keyup', event)
+          keyup: event => {
+            this.$emit('keyup', event)
           },
-          keydown: function (event) {
-            vm.$emit('keydown', event)
+          keydown: event => {
+            this.$emit('keydown', event)
           },
         }
       )
@@ -185,6 +185,7 @@ export default {
 
   &__close-icon {
     cursor: pointer;
+    margin-left: 0.25rem;
   }
 }
 </style>

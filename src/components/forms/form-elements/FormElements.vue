@@ -6,27 +6,27 @@
           <form>
 
             <div class="va-row">
-              <div class="flex md4">
+              <div class="flex md4 sm6 xs12">
                 <va-input
-                  v-model="clearableText"
+                  v-model="empty"
                   placeholder="Text Input"
                 />
               </div>
-              <div class="flex md4">
+              <div class="flex md4 sm6 xs12">
                 <va-input
-                  v-model="clearableText"
+                  v-model="empty"
                   placeholder="Input With Icon"
                 >
                   <va-icon
-                    class="pb-1"
                     slot="prepend"
+                    color="gray"
                     icon="fa fa-envelope-o"
                   />
                 </va-input>
               </div>
-              <div class="flex md4">
+              <div class="flex md4 sm6 xs12">
                 <va-input
-                  v-model="clearableText"
+                  v-model="empty"
                   placeholder="Input With Button"
                 >
                   <va-button style="margin-right: 0;" small>
@@ -34,9 +34,7 @@
                   </va-button>
                 </va-input>
               </div>
-            </div>
-            <div class="va-row">
-              <div class="flex md4">
+              <div class="flex md4 sm6 xs12">
                 <va-input
                   v-model="successfulEmail"
                   type="email"
@@ -44,33 +42,30 @@
                   success>
                 </va-input>
               </div>
-              <div class="flex md4">
+              <div class="flex md4 sm6 xs12">
                 <va-input
                   v-model="clearableText"
                   placeholder="Input With Clear Button"
                   removable
                 />
               </div>
-              <div class="flex md4">
+              <div class="flex md4 sm6 xs12">
                 <va-input
-                  v-model="successfulEmail"
+                  v-model="wrongEmail"
                   type="email"
                   label="Email (Validated)"
                   error
                   :error-messages="errorMessages">
                 </va-input>
               </div>
-            </div>
-            <div class="va-row">
-              <div class="flex md4">
+              <div class="flex md4 sm6 xs12">
                 <va-input
-                  v-model="clearableText"
+                  v-model="empty"
                   placeholder="Text Input (with description)"
                   :messages="messages"
                 />
               </div>
             </div>
-
           </form>
         </va-card>
       </div>
@@ -337,8 +332,9 @@ export default {
     return {
       isMale: true,
       countriesList: CountriesList,
-      chosenCountry: '',
-      clearableText: '',
+      chosenCountry: 'name',
+      empty: '',
+      clearableText: 'Vasili Savitski',
       successfulEmail: 'andrei@dreamsupport.io',
       wrongEmail: 'andrei@dreamsupport',
       messages: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ' +

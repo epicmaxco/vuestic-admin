@@ -49,40 +49,40 @@
 
 <script>
 import {
-  getHoverColor
+  getHoverColor,
 } from './../../../services/color-functions'
 
 export default {
   name: 'va-input-wrapper',
   props: {
     disabled: {
-      type: Boolean
+      type: Boolean,
     },
     error: {
-      type: Boolean
+      type: Boolean,
     },
     success: {
-      type: Boolean
+      type: Boolean,
     },
     messages: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     errorMessages: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
   },
   computed: {
     slotStyles () {
       return {
         backgroundColor: this.error ? getHoverColor(this.$themes['danger']) : this.success ? getHoverColor(this.$themes['success']) : '#f5f8f9',
-        borderColor: this.error ? this.$themes.danger : this.success ? this.$themes.success : '#babfc2'
+        borderColor: this.error ? this.$themes.danger : this.success ? this.$themes.success : this.$themes.gray,
       }
     },
     messageStyles () {
       return {
-        color: this.error ? this.$themes.danger : '#babfc2'
+        color: this.error ? this.$themes.danger : '#babfc2',
       }
     },
     hasPrependData () {
