@@ -51,7 +51,7 @@ import VaDatePicker
   from './vuestic-components/va-date-picker/VaDatePicker'
 import VaFileUpload
   from './vuestic-components/va-file-upload/VaFileUpload'
-import VaVaIcon from './vuestic-components/va-icon/VaIcon'
+import VaIcon from './vuestic-components/va-icon/VaIcon'
 import VaDropdown
   from './vuestic-components/va-dropdown/VaDropdown'
 
@@ -118,7 +118,7 @@ const VuesticPlugin = {
       VaFileUpload,
       VaDropdown,
       VaDatePicker,
-      VaVaIcon,
+      VaIcon,
       VaAccordion,
       VaCollapse,
       VaTimeline,
