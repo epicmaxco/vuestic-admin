@@ -67,8 +67,8 @@
     </VbContainer>
     <VbContainer title="Removable Icon">
       <va-input
-        removable
         v-model="text"
+        removable
       >
       </va-input>
     </VbContainer>
@@ -105,7 +105,7 @@ export default {
   components: {
     VaInput,
     VaButton,
-    VaIcon
+    VaIcon,
   },
   data () {
     return {
@@ -113,8 +113,8 @@ export default {
       text: 'Vuestic',
       phone: '33 310-86-24',
       messages: ['Required field'],
-      errorMessages: ['Detailed error message']
+      errorMessages: ['Detailed error message'],
     }
-  }
+  },
 }
 </script>
