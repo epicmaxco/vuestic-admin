@@ -24,6 +24,7 @@
 <script>
 
 import VaTab from './VaTab'
+
 export default {
   name: 'va-tabs',
   components: {
@@ -54,39 +55,23 @@ export default {
     }
   },
   methods: {
-    getSlotsLength () {
-      let count = 0
-      this.$slots.default.forEach(vnode => {
-        if (vnode.elm) {
-          this.tabsWidth[count] = vnode.elm.clientWidth
-          count++
-        }
-      })
-    },
     setTabsWidth (slots) {
-      let count = 0
-      slots.forEach(vnode => {
+      slots.forEach((vnode, index) => {
         if (vnode.elm) {
-          this.tabsWidth[count] = vnode.elm.clientWidth
-          count++
+          this.tabsWidth[index] = vnode.elm.clientWidth
         }
       })
     },
     getBarWidth (slots) {
       this.setTabsWidth(slots)
-      if (this.grow) {
-        let sum = 0
-        this.tabsWidth.forEach((item) => {
-          sum+=item
-        })
-        if (this.tabsWidth[this.value] / sum * 100 > (100 / slots.length)) {
-          return this.tabsWidth[this.value] + 'px'
-        }
+      if (this.grow && this.tabsWidth[this.value]) {
+        return this.tabsWidth[this.value] + `px`
       }
       return this.grow ? 100 / slots.length + '%' : `calc(` + this.tabsWidth[this.value] + `px - 1.25rem)`
     },
     getMarginLeft (slots) {
       this.setTabsWidth(slots)
+      let sum = 0
       if (!this.grow && this.value === 0) {
         return 1.25 + 'rem'
       }
@@ -97,11 +82,16 @@ export default {
         }
         return `calc(` + marginLeft + `px + ` + this.value + `rem + 1.2rem)`
       }
-      if (this.grow && this.value !== 0) {
-        return `calc(` + this.value * (100 / slots.length) + `% + 0.5rem)`
+      if (this.grow) {
+        this.tabsWidth.forEach((item, index) => {
+          if (index < this.value) {
+            sum += item
+          }
+        })
+        return `calc(` + sum + `px + ` + (0.5 + this.value) + `rem)`
       }
       if (this.tabsWidth !== this.$slots.default && this.tabsWidth.length > 0) {
-        this.getSlotsLength()
+        this.setTabsWidth(this.$slots.default)
       }
     },
     selectTab (tabToSelect) {
@@ -113,7 +103,7 @@ export default {
     },
     tabSelected (tabToCompare) {
       if (this.tabsWidth !== this.$slots.default && this.tabsWidth.length > 0) {
-        this.getSlotsLength()
+        this.setTabsWidth(this.$slots.default)
       }
       return this.$slots.default.some((tabSlot, index) => {
         if (tabSlot.componentInstance === tabToCompare) {
@@ -128,7 +118,13 @@ export default {
     }
   },
   mounted () {
-    this.getSlotsLength()
+    let count = 0
+    this.$slots.default.forEach(vnode => {
+      if (vnode.elm) {
+        this.tabsWidth[count] = vnode.elm.clientWidth
+        count++
+      }
+    })
   }
 }
 </script>
@@ -142,6 +138,8 @@ export default {
   &__bar {
     padding-top: 1rem;
     &-content {
+      height: 4rem;
+      overflow: auto;
       margin-bottom: 2.5rem;
       &-items {
         display: flex;
@@ -160,7 +158,7 @@ export default {
         }
         &-line {
           width: 100%;
-          height: 2px;
+          height: 0.125rem;
           background-color: $vue-green;
         }
       }

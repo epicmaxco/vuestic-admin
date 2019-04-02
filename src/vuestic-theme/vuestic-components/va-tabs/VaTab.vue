@@ -3,8 +3,8 @@
     @click="selectTab"
     class="va-tab"
     :class="{
-    'va-tab--active': isActive(),
-    'va-tab--disabled': disabled
+      'va-tab--active': isActive(),
+      'va-tab--disabled': disabled
     }"
     :style="{width: widthComputed}"
   >
@@ -20,9 +20,23 @@ export default {
       type: Boolean
     }
   },
+  data () {
+    return {
+      width: ''
+    }
+  },
   computed: {
     widthComputed () {
       if (this.$parent.grow) {
+        let sum = 0
+        this.$parent.tabsWidth.forEach((item) => {
+          sum += item
+        })
+        if (this.width) {
+          if (this.width / sum * 100 > 100 / this.$parent.$slots.default.length) {
+            return this.width + 'px'
+          }
+        }
         return 100 / this.$parent.$slots.default.length + '%'
       }
     }
@@ -33,6 +47,11 @@ export default {
     },
     isActive () {
       return this.$parent.tabSelected(this)
+    }
+  },
+  mounted () {
+    if (this.$vnode.elm) {
+      this.width = this.$vnode.elm.clientWidth
     }
   },
   beforeDestroy () {
@@ -52,8 +71,7 @@ export default {
   opacity: 0.5;
   font-weight: $font-weight-bold;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
+  @include va-flex-center();
   &:hover, &--active {
     opacity: 1;
   }

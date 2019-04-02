@@ -9,7 +9,7 @@
         :hide-slider="hideSlider"
       >
         <va-tab>{{'item0'}}</va-tab>
-        <va-tab>{{'item1item1item1item111111111111111item1'}}</va-tab>
+        <va-tab>{{'item1item1itemitem1temitem1temitem1temitem1'}}</va-tab>
         <va-tab
           v-for="item in count"
           :key="item"
@@ -24,7 +24,7 @@
       <button @click="count--">remove item</button>
     </VbContainer>
     <VbContainer>
-      <vuestic-radio-button
+      <va-radio-button
         v-for="value in options"
         :key="value"
         v-model="option"
@@ -32,22 +32,22 @@
       />
     </VbContainer>
     <VbContainer>
-      <vuestic-checkbox v-model="hideSlider" label="hide-slider"/>
+      <va-checkbox v-model="hideSlider" label="hide-slider"/>
     </VbContainer>
   </VbDemo>
 </template>
 
 <script>
-import VuesticCheckbox from '../va-checkbox/VaCheckbox'
-import VuesticRadioButton from '../va-radio-button/VaRadioButton'
-import VuesticAdvancedColorPicker
+import VaCheckbox from '../va-checkbox/VaCheckbox'
+import VaRadioButton from '../va-radio-button/VaRadioButton'
+import VaAdvancedColorPicker
   from '../va-color-picker/VaAdvancedColorPicker'
 
 export default {
   components: {
-    VuesticAdvancedColorPicker,
-    VuesticRadioButton,
-    VuesticCheckbox,
+    VaAdvancedColorPicker,
+    VaRadioButton,
+    VaCheckbox,
   },
   data () {
     return {
