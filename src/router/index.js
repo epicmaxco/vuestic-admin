@@ -209,7 +209,7 @@ export default new Router({
                   component: () => import('../components/ui/icons/SetsList'),
                   meta: {
                     wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Icons',
-                  }
+                  },
                 },
                 {
                   name: 'icon-set',
@@ -218,7 +218,7 @@ export default new Router({
                   props: true,
                   meta: {
                     wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Icons',
-                  }
+                  },
                 },
               ],
             },
@@ -278,27 +278,27 @@ export default new Router({
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Collapse',
               },
-              component: () => import('../components/ui/collapse/Collapses')
+              component: () => import('../components/ui/collapse/Collapses'),
             },
             {
               name: 'filters',
               path: 'filters',
-              component: () => import('../components/ui/filters/Filters')
+              component: () => import('../components/ui/filters/Filters'),
             },
             {
               name: 'spacing',
               path: 'spacing',
-              component: () => import('../components/ui/spacing/Spacing')
+              component: () => import('../components/ui/spacing/Spacing'),
             },
             {
               name: 'sliders',
               path: 'sliders',
               component: () => import('../components/ui/sliders/Sliders'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Sliders'
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Sliders',
               },
-            }
-          ]
+            },
+          ],
         },
         {
           name: 'extra',

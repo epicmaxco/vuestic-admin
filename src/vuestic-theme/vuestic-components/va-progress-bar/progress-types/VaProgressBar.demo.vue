@@ -46,13 +46,13 @@ import VaProgressBar from './VaProgressBar'
 
 export default {
   components: {
-    VaProgressBar
+    VaProgressBar,
   },
   data () {
     return {
       bufferValue: 45,
       value: 35,
     }
-  }
+  },
 }
 </script>

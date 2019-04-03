@@ -1,24 +1,24 @@
-import utils from '../../../../services/utils'
+import { normalizeValue } from '../../../../services/utils'
 
 export const progressMixin = {
   props: {
     value: {
       type: Number,
-      default: 0
+      default: 0,
     },
     color: {
       type: String,
-      default: 'success'
+      default: 'success',
     },
     // If 'indeterminate' is 'true' 'value' prop will be ignored.
     indeterminate: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     normalizedValue () {
-      return utils.normalizeValue(this.value)
+      return normalizeValue(this.value)
     },
-  }
+  },
 }

@@ -6,7 +6,7 @@
           class="chart-widget"
           :title="$t('charts.verticalBarChart')"
         >
-          <vuestic-chart :data="verticalBarChartData" type="vertical-bar"/>
+          <va-chart :data="verticalBarChartData" type="vertical-bar"/>
         </va-card>
       </div>
       <div class="flex md6 xs12">
@@ -14,7 +14,7 @@
           class="chart-widget"
           :title="$t('charts.horizontalBarChart')"
         >
-          <vuestic-chart :data="horizontalBarChartData" type="horizontal-bar"/>
+          <va-chart :data="horizontalBarChartData" type="horizontal-bar"/>
         </va-card>
       </div>
     </div>
@@ -25,7 +25,7 @@
           class="chart-widget"
           :title="$t('charts.lineChart')"
         >
-          <vuestic-chart :data="lineChartData" type="line"/>
+          <va-chart :data="lineChartData" type="line"/>
         </va-card>
       </div>
     </div>
@@ -36,7 +36,7 @@
           class="chart-widget"
           :title="$t('charts.pieChart')"
         >
-          <vuestic-chart :data="pieChartData" type="pie"/>
+          <va-chart :data="pieChartData" type="pie"/>
         </va-card>
       </div>
       <div class="flex md6 xs12">
@@ -44,7 +44,7 @@
           class="chart-widget"
           :title="$t('charts.donutChart')"
         >
-          <vuestic-chart :data="donutChartData" type="donut"/>
+          <va-chart :data="donutChartData" type="donut"/>
         </va-card>
       </div>
     </div>
@@ -55,7 +55,7 @@
           class="chart-widget"
           :title="$t('charts.bubbleChart')"
         >
-          <vuestic-chart :data="bubbleChartData" type="bubble"/>
+          <va-chart :data="bubbleChartData" type="bubble"/>
         </va-card>
       </div>
     </div>

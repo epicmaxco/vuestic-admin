@@ -68,22 +68,22 @@ export default {
 <style lang="scss">
 .sets-list {
   &__icon {
-   height: 1.5rem;
-   max-width: 1.5rem;
- }
+    height: 1.5rem;
+    max-width: 1.5rem;
+  }
 
- &__set {
-   position: relative;
+  &__set {
+    position: relative;
 
-   &__content {
-     background-color: $light-gray;
+    &__content {
+      background-color: $light-gray;
 
-     &__overlay {
-       width: 100%;
-       position: absolute;
-       z-index: 2;
-     }
-   }
- }
+      &__overlay {
+        width: 100%;
+        position: absolute;
+        z-index: 2;
+      }
+    }
+  }
 }
 </style>

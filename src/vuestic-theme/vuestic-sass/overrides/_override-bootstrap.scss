@@ -62,6 +62,7 @@ h5, .h5 {
   padding: $dropdown-menu-padding-y $dropdown-menu-padding-x;
   background: transparent;
   border: none;
+
   .dropdown-menu-content {
     background-color: $dropdown-background;
     box-shadow: $dropdown-box-shadow;
@@ -92,6 +93,7 @@ h5, .h5 {
   tbody tr:nth-of-type(odd) {
     background-color: $striped-row-odd;
   }
+
   tbody tr:nth-of-type(even) {
     background-color: $striped-row;
   }

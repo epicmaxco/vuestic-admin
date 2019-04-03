@@ -1,6 +1,9 @@
+import Vue from 'vue'
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import VaButton from './VaButton'
-import colorPlugin from './../../../services/colors'
+
+import { ColorPlugin } from './../../../services/colors'
+Vue.use(ColorPlugin)
 
 describe('VaButton', () => {
   /* 1. Default button */
@@ -21,7 +24,7 @@ describe('VaButton', () => {
 
   it('large button', () => {
     const wrapper = shallowMount(VaButton, {
-      propsData: { large: true }
+      propsData: { large: true },
     })
     expect(wrapper.find(VaButton).classes()).toContain('va-button--large')
     expect(wrapper.html()).toMatchSnapshot()
@@ -29,7 +32,7 @@ describe('VaButton', () => {
 
   it('small button', () => {
     const wrapper = shallowMount(VaButton, {
-      propsData: { small: true }
+      propsData: { small: true },
     })
     expect(wrapper.find(VaButton).classes()).toContain('va-button--small')
     expect(wrapper.html()).toMatchSnapshot()
@@ -38,7 +41,7 @@ describe('VaButton', () => {
   /* 3. Button types */
 
   it('default button', () => {
-    const wrapper = shallowMount(VaButton, colorPlugin)
+    const wrapper = shallowMount(VaButton)
 
     expect(wrapper.is('button')).toBe(true)
   })
@@ -46,8 +49,8 @@ describe('VaButton', () => {
   it('a button with defined href', () => {
     const wrapper = shallowMount(VaButton, {
       propsData: {
-        href: 'http://epic-spinners.epicmax.co/'
-      }
+        href: 'http://epic-spinners.epicmax.co/',
+      },
     })
     expect(wrapper.is('a')).toBe(true)
   })
@@ -55,8 +58,8 @@ describe('VaButton', () => {
   it('a button with defined target', () => {
     const wrapper = shallowMount(VaButton, {
       propsData: {
-        target: '_blank'
-      }
+        target: '_blank',
+      },
     })
     expect(wrapper.is('a')).toBe(true)
   })
@@ -65,8 +68,8 @@ describe('VaButton', () => {
     const wrapper = shallowMount(VaButton, {
       propsData: {
         href: 'http://epic-spinners.epicmax.co/',
-        target: '_blank'
-      }
+        target: '_blank',
+      },
     })
     expect(wrapper.html()).toMatchSnapshot()
   })
@@ -74,11 +77,11 @@ describe('VaButton', () => {
   it('router-link button with defined to property', () => {
     const wrapper = shallowMount(VaButton, {
       propsData: {
-        to: { name: 'charts' }
+        to: { name: 'charts' },
       },
       stubs: {
-        RouterLink: RouterLinkStub
-      }
+        RouterLink: RouterLinkStub,
+      },
     })
     expect(wrapper.html()).toMatchSnapshot()
   })
@@ -87,11 +90,11 @@ describe('VaButton', () => {
     const wrapper = shallowMount(VaButton, {
       propsData: {
         to: { name: 'charts' },
-        activeClass: 'va-button--active'
+        activeClass: 'va-button--active',
       },
       stubs: {
-        RouterLink: RouterLinkStub
-      }
+        RouterLink: RouterLinkStub,
+      },
     })
     expect(wrapper.html()).toMatchSnapshot()
   })
@@ -100,7 +103,7 @@ describe('VaButton', () => {
 
   it('disabled button', () => {
     const wrapper = shallowMount(VaButton, {
-      propsData: { disabled: true }
+      propsData: { disabled: true },
     })
 
     expect(wrapper.find(VaButton).classes()).toContain('va-button--disabled')
@@ -112,27 +115,29 @@ describe('VaButton', () => {
   it('button with left icon', () => {
     const wrapper = shallowMount(VaButton, {
       propsData: {
-        icon: 'brandico brandico-facebook'
-      }
+        icon: 'brandico brandico-facebook',
+      },
     })
-    expect(wrapper.find(VaButton).classes()).toContain('va-button--with-left-icon')
+    expect(wrapper.find(VaButton).classes())
+      .toContain('va-button--with-left-icon')
   })
 
   it('button with right icon', () => {
     const wrapper = shallowMount(VaButton, {
       propsData: {
-        iconRight: 'iconicstroke iconicstroke-info'
-      }
+        iconRight: 'iconicstroke iconicstroke-info',
+      },
     })
-    expect(wrapper.find(VaButton).classes()).toContain('va-button--with-right-icon')
+    expect(wrapper.find(VaButton).classes())
+      .toContain('va-button--with-right-icon')
   })
 
   it('button with both icons', () => {
     const wrapper = shallowMount(VaButton, {
       propsData: {
         icon: 'brandico brandico-facebook',
-        iconRight: 'iconicstroke iconicstroke-info'
-      }
+        iconRight: 'iconicstroke iconicstroke-info',
+      },
     })
     expect(wrapper.html()).toMatchSnapshot()
   })

@@ -1,5 +1,5 @@
-import utils from 'services/utils'
 import store from 'vuex-store'
+import { hex2rgb } from '../../services/color-functions'
 
 let palette = store.getters.palette
 
@@ -31,13 +31,13 @@ export const getLineChartData = () => {
     datasets: [
       {
         label: yLabels[0],
-        backgroundColor: utils.hex2rgb(palette.primary, 0.6).css,
+        backgroundColor: hex2rgb(palette.primary, 0.6).css,
         borderColor: palette.transparent,
         data: generateArray(size),
       },
       {
         label: yLabels[1],
-        backgroundColor: utils.hex2rgb(palette.info, 0.6).css,
+        backgroundColor: hex2rgb(palette.info, 0.6).css,
         borderColor: palette.transparent,
         data: generateArray(size),
       },

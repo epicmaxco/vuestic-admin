@@ -8,7 +8,8 @@
         <va-progress-bar
           :value="value * n / 4"
           :theme="themes[n - 1]"
-        >{{ themes[n - 1] }}</va-progress-bar>
+        >{{ themes[n - 1] }}
+        </va-progress-bar>
       </div>
       <div class="flex md3 xs12">
         <va-progress-bar indeterminate theme="Black">Black</va-progress-bar>
@@ -22,7 +23,7 @@ export default {
   data () {
     return {
       value: 0,
-      themes: ['Danger', 'Success', 'Warning']
+      themes: ['Danger', 'Success', 'Warning'],
     }
   },
   mounted () {
@@ -31,7 +32,7 @@ export default {
   methods: {
     animateValue () {
       setTimeout(() => (this.value = 100))
-    }
-  }
+    },
+  },
 }
 </script>

@@ -206,7 +206,7 @@ export default {
       value3: 1500,
       value4: [1100, 1320],
       min: 1000,
-      max: 2000
+      max: 2000,
     }
   },
 }
