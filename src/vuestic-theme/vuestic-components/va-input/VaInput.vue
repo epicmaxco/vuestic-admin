@@ -107,10 +107,12 @@ export default {
             this.$emit('click', event)
           },
           focus: event => {
+            // eslint-disable-next-line vue/no-side-effects-in-computed-properties
             this.isFocused = true
             this.$emit('focus', event)
           },
           blur: event => {
+            // eslint-disable-next-line vue/no-side-effects-in-computed-properties
             this.isFocused = false
             this.$emit('blur', event)
           },
