@@ -1,6 +1,7 @@
 <template>
   <div
     class="va-rating"
+    :class="computedClasses"
     @mouseover="isHovered = true"
     @mouseout="isHovered = false"
     :style="{
@@ -116,6 +117,12 @@ export default {
     isHoveredComputed () {
       return this.disabled || this.readonly ? false : this.isHovered
     },
+    computedClasses () {
+      return {
+        'va-rating--disabled': this.disabled,
+        'va-rating--readonly': this.readonly,
+      }
+    },
   },
   methods: {
     getItemStyles (itemNumber) {
@@ -172,7 +179,7 @@ export default {
       return this.compareWithValue(itemNumber) ? this.icon : iconClass
     },
     getIconSize () {
-      let k = 7 / 6 // coefficient, which controls connection between size and font-size
+      let k = 7 / 6 // correlation between width and font-size
       if (this.numbers) {
         k = 4.5 / 7
       }
@@ -192,18 +199,19 @@ export default {
       }
     },
     getItemValue (itemNumber) {
-      if (this.isHover()) {
-        if ((itemNumber <= this.lastHoverItemNumber)) {
-          if (itemNumber === this.lastHoverItemNumber && itemNumber - this.value === 0.5) {
-            return 0.5
-          }
-          return 1
-        }
-        if ((itemNumber > this.lastHoverItemNumber)) {
-          return 0
-        }
+      if (!this.isHover()) {
+        return this.compareWithValue(itemNumber)
       }
-      return this.compareWithValue(itemNumber)
+
+      if ((itemNumber <= this.lastHoverItemNumber)) {
+        if (itemNumber === this.lastHoverItemNumber && itemNumber - this.value === 0.5) {
+          return 0.5
+        }
+        return 1
+      }
+      if ((itemNumber > this.lastHoverItemNumber)) {
+        return 0
+      }
     },
     isHover () {
       return this.isHovered && !!this.halfIcon && !this.disabled && !this.readonly
@@ -226,6 +234,7 @@ export default {
 
 .va-rating {
   display: flex;
+
   &__number-item {
     font-size: inherit;
     margin: 0.1em;
@@ -242,23 +251,9 @@ export default {
       .va-rating--readonly & {
         cursor: initial;
       }
-
-      .va-rating--medium & {
-        width: 1rem;
-        height: 1rem;
-      }
-
-      .va-rating--small & {
-        width: 0.75rem;
-        height: 0.75rem;
-      }
-
-      .va-rating--large & {
-        width: 1.5rem;
-        height: 1.5rem;
-      }
     }
   }
+
   &__icon-item {
     display: flex;
     cursor: pointer;
@@ -270,18 +265,6 @@ export default {
 
     .va-rating--readonly & {
       cursor: initial;
-    }
-
-    .va-rating--medium & {
-      width: 1rem;
-    }
-
-    .va-rating--small & {
-      width: 0.75rem;
-    }
-
-    .va-rating--large & {
-      width: 1.5rem;
     }
   }
 }
