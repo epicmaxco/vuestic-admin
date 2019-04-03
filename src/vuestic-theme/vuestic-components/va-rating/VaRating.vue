@@ -49,7 +49,7 @@
 
 <script>
 import VaRatingItem from './VaRatingItem'
-import { getFocusColor } from '../../../services/colors'
+import { getFocusColor } from '../../../services/color-functions'
 
 export default {
   name: 'va-rating',
@@ -57,45 +57,45 @@ export default {
   props: {
     icon: {
       type: String,
-      default: 'fa fa-star'
+      default: 'fa fa-star',
     },
     halfIcon: {
-      type: String
+      type: String,
     },
     emptyIcon: {
-      type: String
+      type: String,
     },
     value: {
       type: Number,
-      default: 1
+      default: 1,
     },
     readonly: {
-      type: Boolean
+      type: Boolean,
     },
     disabled: {
-      type: Boolean
+      type: Boolean,
     },
     numbers: {
-      type: Boolean
+      type: Boolean,
     },
     max: {
       type: Number,
-      default: 5
+      default: 5,
     },
     size: {
       type: String,
-      default: 'medium'
+      default: 'medium',
     },
     color: {
       type: String,
-      default: 'success'
-    }
+      default: 'success',
+    },
   },
   data () {
     return {
       lastHoverItemNumber: this.value,
       isHovered: false,
-      tabindex: 0
+      tabindex: 0,
     }
   },
   computed: {
@@ -105,7 +105,7 @@ export default {
       },
       get () {
         return this.value
-      }
+      },
     },
     emptyIconComputed () {
       return this.emptyIcon || this.icon + ' ' + 'va-rating__icon-item--empty'
@@ -115,7 +115,7 @@ export default {
     },
     isHoveredComputed () {
       return this.disabled || this.readonly ? false : this.isHovered
-    }
+    },
   },
   methods: {
     getItemStyles (itemNumber) {
@@ -123,22 +123,22 @@ export default {
         if (this.compareWithValue(itemNumber) !== 0) {
           return {
             color: this.$themes[this.color],
-            width: this.getIconSize()
+            width: this.getIconSize(),
           }
         }
         return {
-          color: this.emptyIcon ? this.$themes[this.color] : getFocusColor(this.color),
+          color: this.emptyIcon ? this.$themes[this.color] : getFocusColor(this.$themes[this.color]),
           borderColor: this.$themes[this.color],
-          width: this.getIconSize()
+          width: this.getIconSize(),
         }
       } else {
         return {
           backgroundColor: this.compareWithValue(itemNumber) !== 0
-            ? this.$themes[this.color] : getFocusColor(this.color),
+            ? this.$themes[this.color] : getFocusColor(this.$themes[this.color]),
           color: this.compareWithValue(itemNumber) !== 0 ? '#fff' : this.$themes[this.color],
           width: this.getItemsFontSize(),
           height: this.getItemsFontSize(),
-          fontSize: this.getIconSize()
+          fontSize: this.getIconSize(),
         }
       }
     },
@@ -216,8 +216,8 @@ export default {
         return 1
       }
       return 0
-    }
-  }
+    },
+  },
 }
 </script>
 

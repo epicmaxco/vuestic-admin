@@ -1,5 +1,13 @@
 <template>
   <VbDemo>
+    <VbContainer title="No value">
+      <va-rating @input="$vb.log"/>
+      <va-rating
+        @input="$vb.log"
+        halfIcon="fa fa-star-half-full"
+        emptyIcon="fa fa-star-o"
+      />
+    </VbContainer>
     <VbContainer width="1200px">
       <table class="table table-bordered" style="width: 100%">
         <tr>
@@ -246,8 +254,8 @@
         </tr>
       </table>
     </VbContainer>
-    <VbContainer>
-      value = {{value}}
+    <VbContainer title="value">
+      <input type="text" v-model.number="value">
     </VbContainer>
   </VbDemo>
 </template>
@@ -257,12 +265,12 @@ import VaRating from './VaRating'
 
 export default {
   components: {
-    VaRating
+    VaRating,
   },
   data () {
     return {
-      value: 2.5
+      value: 2.5,
     }
-  }
+  },
 }
 </script>
