@@ -43,6 +43,8 @@ export default {
     .sidebar-menu {
       max-height: 100%;
       margin-bottom: 0;
+      padding-top: 0.5rem;
+      padding-bottom: 2.5rem;
       list-style: none;
       padding-left: 0;
 
@@ -57,7 +59,7 @@ export default {
     }
 
     .scrollbar-content {
-      background: $sidebar-bg;
+      background: #002c85;
     }
 
   }

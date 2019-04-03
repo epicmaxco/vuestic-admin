@@ -4,7 +4,9 @@
       class="sidebar-link__router-link"
       :to="to"
       :target="target">
-      <slot name="title"></slot>
+      <div class="flex align--center">
+        <slot name="title"></slot>
+      </div>
     </router-link>
   </li>
 </template>
@@ -44,8 +46,8 @@ export default {
 .sidebar-link {
   .sidebar-link__router-link {
     position: relative;
-    height: $sidebar-link-height;
-    padding-left: $sidebar-link-pl;
+    height: 3rem;
+    padding-left: 1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -54,23 +56,24 @@ export default {
 
     &.router-link-active,
     &:hover {
-      color: $white;
-      background-color: $sidebar-link-active-bg;
+      color: #4fe382;
+      border-left: 4px solid #4fe382;
+      background-color: #0e4ac4;
 
       .sidebar-menu-item-icon,
       .expand-icon {
-        color: $white;
+        color: #4fe382;
       }
     }
 
     &:hover {
-      background-color: $hover-black;
+      background-color: #0e4ac4;
     }
 
     .sidebar-menu-item-icon {
       font-size: $sidebar-menu-item-icon-size;
-      color: $vue-green;
-      margin-right: 14px;
+      color: $white;
+      margin-right: 10px;
 
       &.fa-dashboard {
         /* Temp fix */
@@ -81,7 +84,7 @@ export default {
   }
 
   a {
-    color: $white;
+    color: #8c9fc7;
     text-decoration: none;
   }
 }

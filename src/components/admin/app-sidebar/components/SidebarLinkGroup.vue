@@ -6,7 +6,6 @@
        class="sidebar-link__router-link"
        :class="classObject">
       <slot name="title"></slot>
-      <va-icon icon="expand-icon fa fa-angle-down"/>
     </a>
     <expanding>
       <ul class="sidebar-submenu in" v-show="this.expanded"
@@ -86,11 +85,15 @@ export default {
       padding-left: 0;
     }
 
-    .sidebar-link__router-link {
-      height: $sidebar-submenu-link-height;
-      padding-left: $sidebar-submenu-link-pl;
-      font-size: $font-size-smaller;
+    .router-link-active {
+      padding-left: 54px !important;
     }
+
+    .sidebar-link__router-link {
+       height: $sidebar-submenu-link-height;
+       padding-left: 58px;
+       font-size: $font-size-smaller;
+     }
   }
 }
 
