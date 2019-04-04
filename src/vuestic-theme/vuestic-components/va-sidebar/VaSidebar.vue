@@ -57,11 +57,6 @@ export default {
     .scrollbar-wrapper {
       box-shadow: $sidebar-box-shadow;
     }
-
-    .scrollbar-content {
-      background: #002c85;
-    }
-
   }
 
   &.sidebar-hidden {

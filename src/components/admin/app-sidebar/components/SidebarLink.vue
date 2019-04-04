@@ -2,18 +2,35 @@
   <li class="sidebar-link">
     <router-link
       class="sidebar-link__router-link"
+      @mouseenter.native="updateHoverState(true)"
+      @mouseleave.native="updateHoverState(false)"
+      :style="sidebarLinkStyles"
       :to="to"
       :target="target">
-      <div class="flex align--center">
-        <slot name="title"></slot>
+      <div class="sidebar-link__content">
+        <va-icon
+          v-if="icon"
+          class="sidebar-link__content__icon"
+          :style="iconStyles"
+          :icon="icon"
+        />
+        <slot name="title"/>
       </div>
     </router-link>
   </li>
 </template>
 
 <script>
+import VaIcon from './../../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
+import {
+  getHoverColor,
+} from './../../../../services/color-functions'
+
 export default {
   name: 'sidebar-link',
+  components: {
+    VaIcon,
+  },
   props: {
     to: {
       type: Object,
@@ -23,6 +40,14 @@ export default {
       type: String,
       default: '_self',
     },
+    icon: {
+      type: [String, Array],
+    },
+  },
+  data () {
+    return {
+      isHovered: false,
+    }
   },
   watch: {
     $route (route) {
@@ -39,12 +64,39 @@ export default {
       })
     },
   },
+  computed: {
+    sidebarLinkStyles () {
+      if (this.isHovered) {
+        return {
+          color: this.$themes['success'],
+          backgroundColor: getHoverColor(this.$themes['info']),
+          borderLeft: '0.25rem solid ' + this.$themes['success'],
+        }
+      }
+    },
+    iconStyles () {
+      if (this.isHovered) {
+        return {
+          color: this.$themes['success'],
+        }
+      } else {
+        return {
+          color: 'white',
+        }
+      }
+    },
+  },
+  methods: {
+    updateHoverState (isHovered) {
+      this.isHovered = isHovered
+    },
+  },
 }
 </script>
 
 <style lang="scss">
 .sidebar-link {
-  .sidebar-link__router-link {
+  &__router-link {
     position: relative;
     height: 3rem;
     padding-left: 1rem;
@@ -54,26 +106,11 @@ export default {
     cursor: pointer;
     text-decoration: none;
 
-    &.router-link-active,
     &:hover {
-      color: #4fe382;
-      border-left: 4px solid #4fe382;
-      background-color: #0e4ac4;
-
-      .sidebar-menu-item-icon,
-      .expand-icon {
-        color: #4fe382;
-      }
-    }
-
-    &:hover {
-      background-color: #0e4ac4;
+      padding-left: 0.75rem;
     }
 
     .sidebar-menu-item-icon {
-      font-size: $sidebar-menu-item-icon-size;
-      color: $white;
-      margin-right: 10px;
 
       &.fa-dashboard {
         /* Temp fix */
@@ -83,9 +120,18 @@ export default {
     }
   }
 
-  a {
+  &__content {
+    display: flex;
+    align-items: center;
     color: #8c9fc7;
     text-decoration: none;
+
+    &__icon {
+      width: 24px;
+      text-align: center;
+      font-size: $sidebar-menu-item-icon-size;
+      margin-right: 0.5rem;
+    }
   }
 }
 
