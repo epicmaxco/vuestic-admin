@@ -173,9 +173,9 @@
           </span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'tooltips'}">
+          :to="{ name: 'popovers'}">
           <span slot="title">
-            <span>{{ $t('menu.tooltips') }}</span>
+            <span>{{ $t('menu.popovers') }}</span>
           </span>
         </sidebar-link>
       </sidebar-link-group>

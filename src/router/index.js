@@ -291,9 +291,9 @@ export default new Router({
               },
             },
             {
-              name: 'tooltips',
-              path: 'tooltips',
-              component: () => import('../components/ui/tooltips/Tooltips')
+              name: 'popovers',
+              path: 'popovers',
+              component: () => import('../components/ui/popovers/Popovers')
             }
           ]
         },

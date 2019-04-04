@@ -41,7 +41,7 @@ import {
 } from '../../../services/colors'
 
 export default {
-  name: 'va-tooltip',
+  name: 'va-popover',
   components: {
     VPopover
   },

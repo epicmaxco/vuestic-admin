@@ -60,9 +60,9 @@
     "slider": "Sliders",
     "range": "Ranges"
   },
-  "tooltips": {
-    "tooltip": "Tooltip",
-    "tooltipStyle": "Tooltip Style",
+  "popovers": {
+    "popover": "Popover",
+    "popoverStyle": "Popover Style",
     "minimalTooltip": "Minimal Tooltip",
     "anotherOneTooltip": "Another One Tooltip"
   },
@@ -241,7 +241,7 @@
     "dropdowns": "Dropdowns",
     "spacing": "Spacing",
     "sliders": "Sliders",
-    "tooltips": "Tooltips"
+    "popovers": "Popovers"
   },
   "messages": {
     "all": "See all messages",

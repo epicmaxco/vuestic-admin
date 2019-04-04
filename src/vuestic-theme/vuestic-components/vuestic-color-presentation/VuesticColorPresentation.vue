@@ -1,22 +1,28 @@
 <template>
   <div class="vuestic-color-presentation">
-    <va-tooltip :options="tooltipOptions">
-      <div class="vuestic-color-presentation__color" :style="computedStyle" @click="colorCopy"></div>
-    </va-tooltip>
+    <va-popover
+      message="Click to copy color to clipboard"
+      placement="right"
+    >
+      <div
+        class="vuestic-color-presentation__color"
+        :style="computedStyle"
+        @click="colorCopy"
+      ></div>
+    </va-popover>
     <div class="vuestic-color-presentation__description" v-if="name || description">
       <div class="vuestic-color-presentation__name">{{name}}</div>
       <div class="vuestic-color-presentation__text">{{description}}</div>
     </div>
   </div>
-
 </template>
 
 <script>
-import VaTooltip from '../va-tooltip/VaTooltip'
+import VaPopover from '../va-popover/VaPopover'
 
 export default {
   name: 'vuestic-color-presentation',
-  components: { VaTooltip },
+  components: { VaPopover },
   props: {
     color: {
       type: String,
@@ -36,12 +42,7 @@ export default {
     }
   },
   data () {
-    return {
-      tooltipOptions: {
-        content: 'Click to copy color to clipboard',
-        placement: 'right'
-      }
-    }
+    return {}
   },
   computed: {
     computedStyle () {

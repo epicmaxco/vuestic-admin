@@ -1,43 +1,43 @@
 <template>
   <div class="tooltips">
-    <va-card :title="$t('tooltips.tooltipStyle')">
+    <va-card :title="$t('popovers.popoverStyle')">
       <div class="tooltips__content">
         <div class="flex md5">
           <vuestic-simple-select
             class="mt-4"
             style="background-color:rgb(245, 248, 249)"
             label="color scheme"
-            v-model="tooltip.color"
+            v-model="popover.color"
             :options="colors"
           />
           <vuestic-simple-select
             class="mt-4"
             style="background-color:rgb(245, 248, 249)"
             label="icon (font-awesome)"
-            v-model="tooltip.icon"
+            v-model="popover.icon"
             :options="icons"
           />
           <va-input
-            v-model="tooltip.title"
+            v-model="popover.title"
             label="Title"
           />
           <va-input
             class="pt-4"
-            v-model="tooltip.message"
+            v-model="popover.message"
             label="Message"
           />
           <div class="va-row popover-example mt-5" style="justify-content: center">
-            <va-tooltip
-              :icon="tooltip.icon"
-              :color="tooltip.color"
-              :title="tooltip.title"
-              :message="tooltip.message"
+            <va-popover
+              :icon="popover.icon"
+              :color="popover.color"
+              :title="popover.title"
+              :message="popover.message"
               placement="bottom"
               open
               :autoHide="false"
             >
               <span></span>
-            </va-tooltip>
+            </va-popover>
           </div>
         </div>
       </div>
@@ -58,7 +58,7 @@ export default {
       colors: [
         'success', 'info', 'danger', 'warning', 'gray', 'dark'
       ],
-      tooltip: {
+      popover: {
         title: 'Hey folks!',
         message: 'This tooltip is amazing:D',
         icon: 'fa fa-print',
