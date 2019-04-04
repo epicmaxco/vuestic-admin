@@ -4,7 +4,7 @@
       <va-rating @input="$vb.log"/>
       <va-rating
         @input="$vb.log"
-        half-increment
+        halves
         halfIcon="fa fa-star-half-full"
         emptyIcon="fa fa-star-o"
       />
@@ -205,7 +205,7 @@
           <td>
             <va-rating
               v-model="value"
-              half-increment
+              halves
               emptyIcon="fa fa-star-o"
               size="30px"
             />
@@ -213,7 +213,7 @@
             <va-rating
               v-model="value"
               readonly
-              half-increment
+              halves
               emptyIcon="fa fa-star-o"
               size="30px"
             />
@@ -221,7 +221,7 @@
             <va-rating
               v-model="value"
               disabled
-              half-increment
+              halves
               emptyIcon="fa fa-star-o"
               size="30px"
             />

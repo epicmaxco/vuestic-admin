@@ -64,7 +64,7 @@ export default {
       type: String,
       default: 'fa fa-star-half-full'
     },
-    halfIncrement: {
+    halves: {
       type: Boolean
     },
     emptyIcon: {
@@ -116,7 +116,7 @@ export default {
       return this.emptyIcon || this.icon + ' ' + 'va-rating__icon-item--empty'
     },
     halfIconComputed () {
-      return this.halfIncrement ? this.halfIcon : ''
+      return this.halves ? this.halfIcon : ''
     },
     isHoveredComputed () {
       return this.disabled || this.readonly ? false : this.isHovered
@@ -174,7 +174,7 @@ export default {
       throw new Error(`Size "${this.size}" is not supported.`)
     },
     onHover (itemNumber) {
-      if (this.halfIncrement) {
+      if (this.halves) {
         this.lastHoverItemNumber = itemNumber
       }
     },
@@ -218,7 +218,7 @@ export default {
       }
     },
     isHover () {
-      return this.isHovered && !!this.halfIncrement && !this.disabled && !this.readonly
+      return this.isHovered && !!this.halves && !this.disabled && !this.readonly
     },
     compareWithValue (itemNumber) {
       if (itemNumber - this.value === 0.5) {
