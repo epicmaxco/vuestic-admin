@@ -47,7 +47,7 @@
             size="large"
             color="warning"
             emptyIcon="fa fa-star-o"
-            halfIcon="fa fa-star-half-full"
+            half-increment
             v-model="value"
           />
         </va-card>
