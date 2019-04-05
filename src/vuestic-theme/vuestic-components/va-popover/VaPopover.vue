@@ -38,26 +38,26 @@ import { VPopover } from 'v-tooltip'
 import {
   getHoverColor,
   getBoxShadowColor,
-} from '../../../services/colors'
+} from '../../../services/color-functions'
 
 export default {
   name: 'va-popover',
   components: {
-    VPopover
+    VPopover,
   },
   props: {
     color: {
       type: String,
-      default: 'success'
+      default: 'success',
     },
     icon: {
-      type: String
+      type: String,
     },
     title: {
       type: String,
     },
     message: {
-      type: String
+      type: String,
     },
     trigger: {
       type: String,
@@ -78,26 +78,29 @@ export default {
     autoHide: {
       type: Boolean,
       default: true,
-    }
+    },
   },
   computed: {
     computedIconStyle () {
       return {
         fontSize: '1.5rem',
-        color: this.$themes[this.color]
+        color: this.$themes[this.color],
       }
     },
     computedPopoverStyle () {
       return {
-        boxShadow: '0px 2px 3px 0 ' + getBoxShadowColor(this.color),
-        backgroundColor: getHoverColor(this.color)
+        boxShadow: '0px 2px 3px 0 ' + getBoxShadowColor(this.$themes[this.color]),
+        backgroundColor: getHoverColor(this.$themes[this.color]),
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss">
+  .v-popover {
+    display: inline;
+  }
   .va-popover {
     opacity: 1;
     border: none;

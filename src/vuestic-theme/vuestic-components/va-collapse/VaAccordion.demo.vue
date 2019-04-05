@@ -35,10 +35,11 @@
 
 import VaAccordion from './VaAccordion'
 import VaCollapse from './VaCollapse'
+
 export default {
   components: {
     VaAccordion,
-    VaCollapse
+    VaCollapse,
   },
 }
 </script>

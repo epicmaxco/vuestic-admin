@@ -10,46 +10,57 @@
   >
     <slot name="prepend" slot="prepend"/>
     <div
-      class="va-input__slot d-flex">
+      class="va-input__slot">
       <label
         :style="labelStyles"
         aria-hidden="true"
-        class="va-input__slot__label title"
+        class="va-input__slot__label"
       >
         {{ label }}
       </label>
       <input
-        class="py-1 px-2"
+        :style="{ paddingBottom: label ? '0.125rem' : '0.875rem'}"
+        :aria-label="label"
         :type="type"
         :placeholder="placeholder"
         :disabled="disabled"
         :readonly="readonly"
         :value="value"
-        @input="$emit('input', $event.target.value)"
-        @focus="isFocused = true"
-        @blur="isFocused = false"
+        v-on="inputListeners"
       >
     </div>
     <va-icon
-      @click.native="clearContent()"
-      v-if="removable"
+      v-if="success"
       slot="append"
-      class="pointer pb-1"
-      :color="error ? 'danger': ''"
-      :style="{ color: '#babfc2'}"
-      icon="ion ion-md-close ion"
+      icon="fa fa-check"
+      color="success"
+    />
+    <va-icon
+      v-if="error"
+      slot="append"
+      icon="fa fa-exclamation-triangle"
+      color="danger"
     />
     <slot slot="append"/>
+    <va-icon
+      v-if="removable && value.length"
+      @click.native="clearContent()"
+      slot="append"
+      class="va-input__close-icon"
+      :color="error ? 'danger': 'gray'"
+      icon="ion ion-md-close ion"
+    />
   </va-input-wrapper>
 </template>
 
 <script>
 import VaInputWrapper from '../va-input/VaInputWrapper'
+import VaIcon from '../va-icon/VaIcon'
 
 export default {
   name: 'va-input',
   extends: VaInputWrapper,
-  components: { VaInputWrapper },
+  components: { VaInputWrapper, VaIcon },
   props: {
     value: {
       type: String,
@@ -62,34 +73,63 @@ export default {
     },
     type: {
       type: String,
-      default: 'text'
+      default: 'text',
     },
     disabled: {
-      type: Boolean
+      type: Boolean,
     },
     readonly: {
-      type: Boolean
+      type: Boolean,
     },
     removable: {
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
   data () {
     return {
-      isFocused: false
+      isFocused: false,
     }
   },
   computed: {
     labelStyles () {
       return {
-        color: this.error ? this.$themes.danger : ''
+        color: this.error ? this.$themes.danger : '',
       }
-    }
+    },
+    inputListeners () {
+      return Object.assign({},
+        this.$listeners,
+        {
+          input: event => {
+            this.$emit('input', event.target.value)
+          },
+          click: event => {
+            this.$emit('click', event)
+          },
+          focus: event => {
+            // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+            this.isFocused = true
+            this.$emit('focus', event)
+          },
+          blur: event => {
+            // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+            this.isFocused = false
+            this.$emit('blur', event)
+          },
+          keyup: event => {
+            this.$emit('keyup', event)
+          },
+          keydown: event => {
+            this.$emit('keydown', event)
+          },
+        }
+      )
+    },
   },
   methods: {
     clearContent () {
       this.$emit('input', '')
-    }
+    },
   },
 }
 </script>
@@ -99,30 +139,55 @@ export default {
 
 .va-input {
 
-    &__slot {
-      position: relative;
+  &__slot {
+    display: flex;
+    position: relative;
+    width: 100%;
 
-      &__label {
-        position: absolute;
-        bottom: 0.625rem;
-        left: 0.5rem;
-      }
+    &__label {
+      position: absolute;
+      bottom: 0.875rem;
+      left: 0.5rem;
+      width: 100%;
+      margin-bottom: 0.5rem;
+      color: $vue-green;
+      font-size: 0.625rem;
+      letter-spacing: 0.0375rem;
+      line-height: 1.2;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
 
-      &__prefix {
+    input {
+      width: 100%;
+      height: 1.5rem;
+      margin-bottom: 0.125rem;
+      padding: 0.25rem 0.5rem;
+      color: #34495e;
+      background-color: transparent;
+      border-style: none;
+      outline: none;
+      font-size: 1rem;
+      font-family: $font-family-sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+
+      &::placeholder {
         color: $brand-secondary;
       }
 
-      input {
-        height: 1.5rem;
-        background-color: transparent;
-        border-style: none;
-        outline: none;
-        width: 100%;
-
-        &::placeholder {
-          color: $brand-secondary;
-        }
+      &:placeholder-shown {
+        padding-bottom: 0.875rem;
       }
     }
   }
+
+  &__close-icon {
+    cursor: pointer;
+    margin-left: 0.25rem;
+  }
+}
 </style>

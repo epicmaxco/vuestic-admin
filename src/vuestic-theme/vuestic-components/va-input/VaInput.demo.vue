@@ -40,7 +40,6 @@
         label="Name"
       >
         <va-icon
-          class="pb-1"
           icon="fa fa-anchor"
         />
       </va-input>
@@ -50,7 +49,7 @@
         v-model="text"
         label="Name"
       >
-        <va-button small>
+        <va-button style="margin-right: 0;" small>
           Upload
         </va-button>
       </va-input>
@@ -61,7 +60,6 @@
         label="Name"
       >
         <va-icon
-          class="pb-1"
           slot="prepend"
           icon="fa fa-anchor"
         />
@@ -69,13 +67,9 @@
     </VbContainer>
     <VbContainer title="Removable Icon">
       <va-input
+        v-model="text"
         removable
       >
-        <va-icon
-          class="pb-1"
-          slot="append"
-          icon="fa fa-anchor"
-        />
       </va-input>
     </VbContainer>
     <VbContainer title="Input With Error">
@@ -85,10 +79,18 @@
         error
       />
     </VbContainer>
-    <VbContainer title="Input With Error">
+    <VbContainer title="Input With Success">
       <va-input
         v-model="text"
         label="Name"
+        success
+      />
+    </VbContainer>
+    <VbContainer title="Success and Removable">
+      <va-input
+        v-model="text"
+        label="Name"
+        removable
         success
       />
     </VbContainer>
@@ -111,7 +113,7 @@ export default {
   components: {
     VaInput,
     VaButton,
-    VaIcon
+    VaIcon,
   },
   data () {
     return {
@@ -119,8 +121,8 @@ export default {
       text: 'Vuestic',
       phone: '33 310-86-24',
       messages: ['Required field'],
-      errorMessages: ['Detailed error message']
+      errorMessages: ['Detailed error message'],
     }
-  }
+  },
 }
 </script>

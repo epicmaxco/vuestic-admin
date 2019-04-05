@@ -3,62 +3,105 @@
     <div class="va-row">
       <div class="flex md12">
         <va-card
-          :title="'notificationsPage.popovers.title' | translate">
+          :title=" $t('notificationsPage.popovers.title') ">
           <div class="va-row">
             <div class="flex md6">
               <fieldset>
                 <div class="form-group">
                   <div class="input-group">
-                    <input id="popover-title" v-model="popoverTitle"
-                           @input="checkPopoverContents" required/>
-                    <label class="control-label" for="popover-title">{{'notificationsPage.popovers.popoverTitleLabel'
-                      | translate}}</label><va-icon icon="bar"/>
+                    <input
+                      id="popover-title"
+                      v-model="popoverTitle"
+                      @input="checkPopoverContents"
+                      required
+                    />
+                    <label class="control-label" for="popover-title">
+                      {{ $t('notificationsPage.popovers.popoverTitleLabel')
+                      }}</label>
+                    <va-icon icon="bar"/>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input id="popover-text" v-model="popoverText"
-                           @input="checkPopoverContents" required/>
-                    <label class="control-label" for="popover-text">{{'notificationsPage.popovers.popoverTextLabel'
-                      | translate}}</label><va-icon icon="bar"/>
+                    <input
+                      id="popover-text"
+                      v-model="popoverText"
+                      @input="checkPopoverContents" required
+                    />
+                    <label class="control-label" for="popover-text">
+                      {{ $t('notificationsPage.popovers.popoverTextLabel') }}
+                    </label>
+                    <va-icon icon="bar"/>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input id="popover-icon" v-model="popoverIcon"
-                           @input="checkPopoverContents" required/>
-                    <label class="control-label" for="popover-icon">{{'notificationsPage.popovers.popoverIconLabel'
-                      | translate}}</label><va-icon icon="bar"/>
+                    <input
+                      id="popover-icon"
+                      v-model="popoverIcon"
+                      @input="checkPopoverContents"
+                      required
+                    />
+                    <label class="control-label" for="popover-icon">
+                      {{ $t('notificationsPage.popovers.popoverIconLabel') }}
+                    </label>
+                    <va-icon icon="bar"/>
                   </div>
                 </div>
-                <vuestic-popover popover-class="va-tooltip"
-                                 placement="right"
-                                 :disabled="isPopoverDisabled">
-                  <va-button slot="trigger">
+                <va-popover
+                  placement="right"
+                  :disabled="isPopoverDisabled"
+                  :icon="'fa ' + popoverIcon"
+                  :title="popoverTitle"
+                  :message="popoverText"
+                  open
+                >
+                  <va-button>
                     {{ $t('notificationsPage.popovers.showPopover') }}
                   </va-button>
-                  <va-icon slot="icon" :icon="[ 'fa', popoverIcon ]"/>
-                  <span slot="header">{{popoverTitle}}</span>
-                  <span slot="body">{{popoverText}}</span>
-                </vuestic-popover>
+                </va-popover>
               </fieldset>
             </div>
             <div class="flex md6">
               <p>
                 Any text can be used for
-                <va-tooltip :options="topTooltipOptions" message="Top tooltip text"><a href="#">{{'notificationsPage.popovers.topTooltip'
-                  | translate}}</a></va-tooltip>
+                <va-popover
+                  :placement="topTooltipOptions.placement"
+                  :message="topTooltipOptions.content"
+                >
+                  <a href="#">
+                    {{ $t('notificationsPage.popovers.topTooltip') }}
+                  </a>
+                </va-popover>
                 showcase. Just anything you can possibly imagine to test
-                <va-tooltip :options="rightTooltipOptions" message="Right tooltip text"><a href="#">{{'notificationsPage.popovers.rightTooltip'
-                  | translate}}</a></va-tooltip>
+                <va-popover
+                  :placement="rightTooltipOptions.placement"
+                  :message="rightTooltipOptions.content"
+                >
+                  <a href="#">
+                    {{ $t('notificationsPage.popovers.rightTooltip') }}
+                  </a>
+                </va-popover>
                 .
                 But it can appear on the
-                <va-tooltip :options="leftTooltipOptions" message="Left tooltip text"><a href="#">{{'notificationsPage.popovers.leftTooltip'
-                  | translate}}</a></va-tooltip>
+                <va-popover
+                  :placement="leftTooltipOptions.placement"
+                  :message="leftTooltipOptions.content"
+                >
+                  <a href="#">
+                    {{$t('notificationsPage.popovers.leftTooltip')}}
+                  </a>
+                </va-popover>
                 .
                 Or just
-                <va-tooltip :options="bottomTooltipOptions" message="Bottom tooltip text"><a href="#">{{'notificationsPage.popovers.bottomTooltip'
-                  | translate}}</a></va-tooltip>
+                <va-popover
+                  :placement="bottomTooltipOptions.placement"
+                  :message="bottomTooltipOptions.content"
+                >
+                  <a href="#">
+                  {{ $t('notificationsPage.popovers.bottomTooltip') }}
+                  </a>
+                </va-popover>
                 the item.
               </p>
             </div>
@@ -162,8 +205,8 @@
                 <!-- TODO Redo with global classes -->
                 <div class="form-group va-row mb-4">
                   <toast-position-picker v-model="toastPosition"/>
-                  <vuestic-checkbox
-                    :label="'notificationsPage.toasts.fullWidthLabel' | translate"
+                  <va-checkbox
+                    :label="$t('notificationsPage.toasts.fullWidthLabel')"
                     :id="'toast-fullwidth'"
                     v-model="isToastFullWidth"
                   />

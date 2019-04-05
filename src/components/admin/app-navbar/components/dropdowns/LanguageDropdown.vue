@@ -1,7 +1,7 @@
 <template>
   <div class="language-dropdown flex-center grow">
     <va-icon :icon="['flag-icon flag-icon-large', flagIconClass(currentLanguage())]"/>
-    <vuestic-dropdown
+    <va-dropdown
       class="language-dropdown__container"
       v-model="isShown"
       position="bottom"
@@ -14,10 +14,10 @@
       >
         <va-icon :icon="['flag-icon flag-icon-small', flagIconClass(option.code)]"/>
         <span class="dropdown-item__text ellipsis">
-          {{ `language.${option.name}` | translate }}
+          {{ $t(`language.${option.name}`) }}
         </span>
       </a>
-    </vuestic-dropdown>
+    </va-dropdown>
   </div>
 </template>
 
@@ -76,6 +76,7 @@ export default {
 
 .language-dropdown {
   cursor: pointer;
+
   .flag-icon-large {
     display: block;
     width: 31px;

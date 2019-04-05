@@ -1,16 +1,16 @@
 <template>
   <div
-    class="va-input-wrapper d-flex align--end text--left"
+    class="va-input-wrapper"
     :class="{ 'va-input-wrapper--disabled' : disabled }"
   >
     <div class="va-input-wrapper__control">
       <div
         tabindex="0"
         :style="slotStyles"
-        class="va-input-wrapper__slot d-flex align--end pt-2">
+        class="va-input-wrapper__slot">
         <div
           v-if="hasPrependData"
-          class="va-input-wrapper__prepend-inner d-inline-flex align--center ml-2">
+          class="va-input-wrapper__prepend-inner">
           <slot name="prepend"/>
         </div>
         <div class="va-input-wrapper__content">
@@ -18,7 +18,7 @@
         </div>
         <div
           v-if="hasAppendData"
-          class="va-input-wrapper__append-inner d-inline-flex align--center mr-2">
+          class="va-input-wrapper__append-inner">
           <slot name="append"/>
         </div>
       </div>
@@ -48,39 +48,41 @@
 </template>
 
 <script>
-import { getHoverColor } from '../../../services/colors'
+import {
+  getHoverColor,
+} from './../../../services/color-functions'
 
 export default {
   name: 'va-input-wrapper',
   props: {
     disabled: {
-      type: Boolean
+      type: Boolean,
     },
     error: {
-      type: Boolean
+      type: Boolean,
     },
     success: {
-      type: Boolean
+      type: Boolean,
     },
     messages: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     errorMessages: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
   },
   computed: {
     slotStyles () {
       return {
-        backgroundColor: this.error ? getHoverColor('danger') : this.success ? getHoverColor('success') : '#f5f8f9',
-        borderColor: this.error ? this.$themes.danger : this.success ? this.$themes.success : '#babfc2'
+        backgroundColor: this.error ? getHoverColor(this.$themes['danger']) : this.success ? getHoverColor(this.$themes['success']) : '#f5f8f9',
+        borderColor: this.error ? this.$themes.danger : this.success ? this.$themes.success : this.$themes.gray,
       }
     },
     messageStyles () {
       return {
-        color: this.error ? this.$themes.danger : '#babfc2'
+        color: this.error ? this.$themes.danger : '#babfc2',
       }
     },
     hasPrependData () {
@@ -96,34 +98,66 @@ export default {
 <style lang='scss'>
 @import '../../vuestic-sass/resources/resources';
 
-  .va-input-wrapper {
-    flex: 1 1 auto;
-    font-size: 1rem;
+.va-input-wrapper {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: flex-end;
+  font-size: 1rem;
+  text-align: left;
 
-    &--focused {
+  &--focused {
 
-      .va-input-wrapper__slot {
-        border-color: $charcoal !important;
-      }
-    }
-
-    &--disabled {
-
-      .va-input-wrapper__slot {
-        border-color: $brand-secondary !important;
-      }
-    }
-
-    &__control, &__content {
-      width: 100%;
-    }
-
-    &__slot {
-      position: relative;
-      min-height: 1.5rem;
-      border-style: solid;
-      border-width: 0 0 thin 0;
-      outline: none;
+    .va-input-wrapper__slot {
+      border-color: $charcoal !important;
     }
   }
+
+  &--disabled {
+
+    .va-input-wrapper__slot {
+      border-color: $brand-secondary !important;
+    }
+  }
+
+  &__control, &__content {
+    width: 100%;
+  }
+
+  &__content {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__prepend-inner, &__append-inner {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &__prepend-inner {
+    margin-left: 0.5rem;
+  }
+
+  &__append-inner {
+    margin-right: 0.5rem;
+  }
+
+  &__slot {
+    display: flex;
+    position: relative;
+    min-height: 2.375rem;
+    border-style: solid;
+    border-width: 0 0 thin 0;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    outline: none;
+  }
+
+  &__details {
+    padding: 0 0.5rem;
+  }
+
+  &__messages__wrapper {
+    font-size: 0.875rem;
+  }
+}
 </style>

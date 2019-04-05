@@ -20,38 +20,38 @@
 </template>
 
 <script>
-import { getGradientColor } from '../../../services/colors'
+import { getGradientBackground } from '../../../services/color-functions'
 
 export default {
   name: 'va-button-toggle',
   props: {
     options: {
-      type: Array
+      type: Array,
     },
     value: {
-      type: String
+      type: String,
     },
     outline: {
-      type: Boolean
+      type: Boolean,
     },
     flat: {
-      type: Boolean
+      type: Boolean,
     },
     disabled: {
-      type: Boolean
+      type: Boolean,
     },
     small: {
-      type: Boolean
+      type: Boolean,
     },
     large: {
-      type: Boolean
+      type: Boolean,
     },
     color: {
       type: String,
-      default: 'success'
+      default: 'success',
     },
     toggleColor: {
-      type: String
+      type: String,
     },
   },
   methods: {
@@ -66,24 +66,23 @@ export default {
       if (this.outline || this.flat) {
         return {
           backgroundColor: this.$themes[this.toggleColor ? this.toggleColor : this.color],
-          color: '#ffffff'
+          color: '#ffffff',
         }
       } else {
         return {
-          backgroundColor: 'linear-gradient(to right,' + getGradientColor(this.color)[0] +
-            ',' + getGradientColor(this.color)[1] + ')',
-          filter: 'brightness(85%)'
+          backgroundColor: getGradientBackground(this.$themes[this.color]),
+          filter: 'brightness(85%)',
         }
       }
     },
     buttonClass (buttonValue) {
       return {
-        'va-button--active': buttonValue === this.value
+        'va-button--active': buttonValue === this.value,
       }
     },
     changeValue (value) {
       this.$emit('input', value)
-    }
+    },
   },
 }
 </script>

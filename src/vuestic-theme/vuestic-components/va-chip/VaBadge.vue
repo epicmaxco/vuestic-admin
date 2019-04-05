@@ -19,11 +19,11 @@ export default {
   name: 'va-badge',
   props: {
     outline: {
-      type: Boolean
+      type: Boolean,
     },
     color: {
       type: String,
-      default: 'success'
+      default: 'success',
     },
   },
   computed: {
@@ -38,7 +38,7 @@ export default {
         borderColor: this.outline ? this.$themes[this.color] : '',
         backgroundColor: !this.outline ? this.$themes[this.color] : '',
       }
-    }
+    },
   },
 }
 </script>
@@ -46,30 +46,30 @@ export default {
 <style lang='scss'>
 @import "../../vuestic-sass/resources/resources";
 
-  .va-badge {
-    display: inline-block;
-    padding: $chip-padding-y-sm $chip-padding-x-sm;
-    color: $white;
-    border: $chip-border;
-    border-radius: $chip-border-radius-sm;
-    font-size: $chip-font-size-sm;
-    font-weight: bold;
-    font-family: $font-family-sans-serif;
-    text-transform: uppercase;
-    line-height: $chip-line-height-sm;
-    letter-spacing: $chip-letter-spacing-sm;
-    white-space: nowrap;
+.va-badge {
+  display: inline-block;
+  padding: $chip-padding-y-sm $chip-padding-x-sm;
+  color: $white;
+  border: $chip-border;
+  border-radius: $chip-border-radius-sm;
+  font-size: $chip-font-size-sm;
+  font-weight: bold;
+  font-family: $font-family-sans-serif;
+  text-transform: uppercase;
+  line-height: $chip-line-height-sm;
+  letter-spacing: $chip-letter-spacing-sm;
+  white-space: nowrap;
 
-    &__content {
+  &__content {
 
-      &__title {
-        margin: auto;
-      }
-    }
-
-    &--outline{
-      background-color: transparent;
-      border: solid $chip-border-outline;
+    &__title {
+      margin: auto;
     }
   }
+
+  &--outline {
+    background-color: transparent;
+    border: solid $chip-border-outline;
+  }
+}
 </style>

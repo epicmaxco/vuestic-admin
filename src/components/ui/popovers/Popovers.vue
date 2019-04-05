@@ -3,16 +3,14 @@
     <va-card :title="$t('popovers.popoverStyle')">
       <div class="tooltips__content">
         <div class="flex md5">
-          <vuestic-simple-select
+          <va-simple-select
             class="mt-4"
-            style="background-color:rgb(245, 248, 249)"
             label="color scheme"
             v-model="popover.color"
             :options="colors"
           />
-          <vuestic-simple-select
+          <va-simple-select
             class="mt-4"
-            style="background-color:rgb(245, 248, 249)"
             label="icon (font-awesome)"
             v-model="popover.icon"
             :options="icons"
@@ -53,19 +51,19 @@ export default {
   data () {
     return {
       icons: [
-        'fa fa-print', 'fa fa-star'
+        'fa fa-print', 'fa fa-star',
       ],
       colors: [
-        'success', 'info', 'danger', 'warning', 'gray', 'dark'
+        'success', 'info', 'danger', 'warning', 'gray', 'dark',
       ],
       popover: {
         title: 'Hey folks!',
         message: 'This tooltip is amazing:D',
         icon: 'fa fa-print',
-        color: 'warning'
-      }
+        color: 'warning',
+      },
     }
-  }
+  },
 }
 </script>
 
