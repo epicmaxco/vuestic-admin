@@ -1,5 +1,23 @@
 <template>
   <VbDemo>
+    <VbContainer title="Full gradient">
+      <va-button-group :color="value">
+        <va-button>One</va-button>
+        <va-button>Two</va-button>
+        <va-button>Three</va-button>
+      </va-button-group>
+      <va-button-group color="danger">
+        <va-button>One</va-button>
+        <va-button>Two</va-button>
+        <va-button>Three</va-button>
+      </va-button-group>
+      <va-button-group color="warning">
+        <va-button>One</va-button>
+        <va-button>Two</va-button>
+        <va-button>Three</va-button>
+      </va-button-group>
+    </VbContainer>
+
     <VbContainer>
       <table class="table table-bordered">
         <tr>
@@ -17,6 +35,7 @@
               </va-button-group>
             </VbContainer>
             <VbContainer title="Outline Button Group">
+              <va-button outline> Button 1</va-button>
               <va-button-group>
                 <va-button outline> Button 1</va-button>
                 <va-button outline> Button 2</va-button>
@@ -115,7 +134,7 @@
                 <va-button large icon="maki maki-art-gallery"/>
                 <va-button large icon="glyphicon glyphicon-pencil"/>
               </va-button-group>
-              <va-button-group>
+              <va-button-group color="success">
                 <va-button small icon="glyphicon glyphicon-pencil"/>
                 <va-button small icon="maki maki-art-gallery"/>
                 <va-button small icon="maki maki-art-gallery"/>
@@ -199,9 +218,16 @@
 <script>
 
 import VaButtonGroup from './VaButtonGroup'
+import VaButton from '../va-button/VaButton'
 
 export default {
+  data () {
+    return {
+      value: 'danger',
+    }
+  },
   components: {
+    VaButton,
     VaButtonGroup,
   },
 }
