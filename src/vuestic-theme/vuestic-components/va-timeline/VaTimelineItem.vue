@@ -142,7 +142,7 @@ export default {
     }
 
     .va-timeline-item__before {
-      padding-bottom: 1rem;
+      padding-bottom: 0.5rem;
     }
 
     .va-timeline-item__after {
@@ -165,6 +165,7 @@ export default {
   }
 
   &__description {
+    margin-top: 0.25rem;
     text-align: center;
   }
 

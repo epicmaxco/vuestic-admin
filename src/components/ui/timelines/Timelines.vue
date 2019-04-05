@@ -1,7 +1,8 @@
 <template>
   <div class="timelines">
     <va-card
-      style="overflow-x: scroll;"
+      no-padding-h
+      style="overflow-x: auto;"
       :title="$t('timelines.horizontalSimple')"
     >
       <va-timeline>
@@ -38,8 +39,12 @@
       </va-timeline>
     </va-card>
 
-    <va-card style="overflow-x: scroll;" class="timelines__horizontal-long"
-             :title="$t('timelines.horizontalCards')">
+    <va-card
+      no-padding-h
+      style="overflow-x: auto"
+      class="timelines__horizontal-long"
+      :title="$t('timelines.horizontalCards')"
+    >
       <va-timeline style="min-width: 600px;" class="timelines__horizontal-long__timeline">
         <va-timeline-item active>
           <template slot="before">
@@ -48,6 +53,7 @@
             </div>
           </template>
           <va-card
+            no-margin
             slot="after"
             stripe="warning"
           >
@@ -62,6 +68,7 @@
             </div>
           </template>
           <va-card
+            no-margin
             slot="after"
             stripe="info"
           >
@@ -76,6 +83,7 @@
             </div>
           </template>
           <va-card
+            no-margin
             slot="after"
             stripe="info"
           >
@@ -86,13 +94,14 @@
       </va-timeline>
     </va-card>
 
-    <va-card :title="$t('timelines.verticalLabel')">
+    <va-card no-padding-v :title="$t('timelines.verticalLabel')">
       <va-timeline vertical>
         <va-timeline-item active>
           <span class="title va-timeline-item__text" slot="before">
             February 2018
           </span>
           <va-card
+            no-margin
             slot="after"
             stripe="success"
           >
@@ -105,6 +114,7 @@
             April 2018
           </span>
           <va-card
+            no-margin
             slot="after"
             stripe="success"
           >
@@ -117,6 +127,7 @@
             June 2018
           </span>
           <va-card
+            no-margin
             slot="after"
             stripe="success"
           >
@@ -127,13 +138,14 @@
       </va-timeline>
     </va-card>
 
-    <va-card :title="$t('timelines.verticalCentered')">
+    <va-card no-padding-v :title="$t('timelines.verticalCentered')">
       <va-timeline vertical centered>
         <va-timeline-item color="danger" active>
           <span class="title title--danger va-timeline-item__text" slot="before">
             February 2018
           </span>
           <va-card
+            no-margin
             slot="after"
             stripe="danger"
           >
@@ -146,6 +158,7 @@
             April 2018
           </span>
           <va-card
+            no-margin
             slot="after"
             stripe="danger"
           >
@@ -158,6 +171,7 @@
             June 2018
           </span>
           <va-card
+            no-margin
             slot="after"
             stripe="danger"
           >

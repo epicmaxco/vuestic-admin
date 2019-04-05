@@ -51,7 +51,7 @@ import VaDatePicker
   from './vuestic-components/va-date-picker/VaDatePicker'
 import VaFileUpload
   from './vuestic-components/va-file-upload/VaFileUpload'
-import VaVaIcon from './vuestic-components/va-icon/VaIcon'
+import VaIcon from './vuestic-components/va-icon/VaIcon'
 import VaDropdown
   from './vuestic-components/va-dropdown/VaDropdown'
 
@@ -69,6 +69,7 @@ import VaTimelineItem
 import VaPopup
   from './vuestic-components/va-popup/quasar/components/popup/VaPopup.vue'
 
+import VaCountBadge from './vuestic-components/va-count-badge/VaCountBadge'
 import VaCard from './vuestic-components/va-card/VaCard'
 import { installQuasarPlatform } from './vuestic-components/va-popup/quasar/install'
 
@@ -116,13 +117,14 @@ const VuesticPlugin = {
       VaFileUpload,
       VaDropdown,
       VaDatePicker,
-      VaVaIcon,
+      VaIcon,
       VaAccordion,
       VaCollapse,
       VaTimeline,
       VaTimelineItem,
       VaPopup,
       VaCard,
+      VaCountBadge,
     ].forEach(component => {
       Vue.component(component.name, component)
     })

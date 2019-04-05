@@ -103,13 +103,8 @@ $timeline-outer-spacing: 2rem;
 
   &--vertical {
     flex-direction: column;
-    padding-left: $timeline-outer-spacing;
-    padding-right: $timeline-outer-spacing;
-  }
-
-  &:not(.va-timeline--vertical) {
-    padding-top: $timeline-outer-spacing;
-    padding-bottom: $timeline-outer-spacing;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
   }
 
   .va-timeline-item {
