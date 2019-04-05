@@ -8,28 +8,28 @@ export default {
   props: {
     color: {
       type: String,
-      default: 'success'
+      default: 'success',
     },
     vertical: {
-      type: Boolean
+      type: Boolean,
     },
     active: {
-      type: Boolean
+      type: Boolean,
     },
     activePrevious: {
-      type: Boolean
+      type: Boolean,
     },
     activeNext: {
-      type: Boolean
+      type: Boolean,
     },
     isFirst: {
-      type: Boolean
+      type: Boolean,
     },
     isLast: {
-      type: Boolean
+      type: Boolean,
     },
     inverted: {
-      type: Boolean
+      type: Boolean,
     },
   },
   render (createElement) {

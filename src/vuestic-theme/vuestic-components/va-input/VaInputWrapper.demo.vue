@@ -50,15 +50,15 @@ export default {
   components: {
     VaInputWrapper,
     VaButton,
-    VaIcon
+    VaIcon,
   },
   data () {
     return {
       empty: '',
       text: 'Vuestic',
       messages: ['Required field'],
-      errorMessages: ['Detailed error message']
+      errorMessages: ['Detailed error message'],
     }
-  }
+  },
 }
 </script>

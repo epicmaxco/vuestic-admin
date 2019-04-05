@@ -116,11 +116,11 @@ export default {
         return {
           color: '#fff',
           background: getGradientBackground(this.$themes[this.color]),
-          marginBottom: this.noMargin ? 0 : '2.5rem'
+          marginBottom: this.noMargin ? 0 : '2.5rem',
         }
       } else {
         return {
-          marginBottom: this.noMargin ? 0 : '2.5rem'
+          marginBottom: this.noMargin ? 0 : '2.5rem',
         }
       }
     },
