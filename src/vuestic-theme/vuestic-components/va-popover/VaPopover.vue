@@ -112,7 +112,8 @@ export default {
     }
 
     &__icon + div{
-       margin-left: 0.75rem;
+       padding-left: 0.75rem;
+       max-width: calc(100% - 1.5rem)
     }
 
     &__title {
@@ -122,6 +123,7 @@ export default {
 
     &__text {
       line-height: 1.5;
+
     }
   }
 </style>
