@@ -96,7 +96,7 @@
 }
 
 .medium-editor-toolbar-anchor-preview {
-  @include button-size($btn-padding-y-nrm, $btn-padding-x-nrm, $btn-font-size-nrm, $btn-line-height-nrm, $btn-border-radius-nrm);
+  @include va-button($btn-padding-y-nrm, $btn-padding-x-nrm, $btn-font-size-nrm, $btn-line-height-nrm, $btn-border-radius-nrm);
 
   .medium-editor-toolbar-anchor-preview {
     margin: 0;
