@@ -1,6 +1,6 @@
 <template>
   <VbDemo>
-    <VbContainer title="Full gradient">
+    <VbCard title="Full gradient">
       <va-button-group :color="value">
         <va-button>One</va-button>
         <va-button>Two</va-button>
@@ -16,9 +16,9 @@
         <va-button>Two</va-button>
         <va-button>Three</va-button>
       </va-button-group>
-    </VbContainer>
+    </VbCard>
 
-    <VbContainer>
+    <VbCard>
       <table class="table table-bordered">
         <tr>
           <th>Description</th>
@@ -27,34 +27,34 @@
         <tr>
           <td>Default Button Group Types</td>
           <td>
-            <VbContainer title="Default Button Group">
+            <VbCard title="Default Button Group">
               <va-button-group>
                 <va-button> Button 1</va-button>
                 <va-button> Button 2</va-button>
                 <va-button> Button 3</va-button>
               </va-button-group>
-            </VbContainer>
-            <VbContainer title="Outline Button Group">
+            </VbCard>
+            <VbCard title="Outline Button Group">
               <va-button outline> Button 1</va-button>
               <va-button-group>
                 <va-button outline> Button 1</va-button>
                 <va-button outline> Button 2</va-button>
                 <va-button outline> Button 3</va-button>
               </va-button-group>
-            </VbContainer>
-            <VbContainer title="Flat Button Group">
+            </VbCard>
+            <VbCard title="Flat Button Group">
               <va-button-group>
                 <va-button flat> Button 1</va-button>
                 <va-button flat> Button 2</va-button>
                 <va-button flat> Button 3</va-button>
               </va-button-group>
-            </VbContainer>
+            </VbCard>
           </td>
         </tr>
         <tr>
           <td>Default Button Group Sizes</td>
           <td>
-            <VbContainer title="Default Button Group">
+            <VbCard title="Default Button Group">
               <va-button-group>
                 <va-button large> Button 1</va-button>
                 <va-button large> Button 2</va-button>
@@ -67,8 +67,8 @@
                 <va-button small> Button 3</va-button>
                 <va-button small> Button 4</va-button>
               </va-button-group>
-            </VbContainer>
-            <VbContainer title="Outline Button Group">
+            </VbCard>
+            <VbCard title="Outline Button Group">
               <va-button-group>
                 <va-button large outline> Button 1</va-button>
                 <va-button large outline> Button 2</va-button>
@@ -81,8 +81,8 @@
                 <va-button small outline> Button 3</va-button>
                 <va-button small outline> Button 4</va-button>
               </va-button-group>
-            </VbContainer>
-            <VbContainer title="Flat Button Group">
+            </VbCard>
+            <VbCard title="Flat Button Group">
               <va-button-group>
                 <va-button large flat> Button 1</va-button>
                 <va-button large flat> Button 2</va-button>
@@ -95,39 +95,39 @@
                 <va-button small flat> Button 3</va-button>
                 <va-button small flat> Button 4</va-button>
               </va-button-group>
-            </VbContainer>
+            </VbCard>
           </td>
         </tr>
         <tr>
           <td>Icon Button Group</td>
           <td>
-            <VbContainer title="Default Button Group">
+            <VbCard title="Default Button Group">
               <va-button-group>
                 <va-button icon="glyphicon glyphicon-pencil"/>
                 <va-button icon="maki maki-art-gallery"/>
                 <va-button icon="glyphicon glyphicon-pencil"/>
               </va-button-group>
-            </VbContainer>
-            <VbContainer title="Outline Button Group">
+            </VbCard>
+            <VbCard title="Outline Button Group">
               <va-button-group>
                 <va-button outline icon="glyphicon glyphicon-pencil"/>
                 <va-button outline icon="maki maki-art-gallery"/>
                 <va-button outline icon="glyphicon glyphicon-pencil"/>
               </va-button-group>
-            </VbContainer>
-            <VbContainer title="Flat Button Group">
+            </VbCard>
+            <VbCard title="Flat Button Group">
               <va-button-group>
                 <va-button flat icon="glyphicon glyphicon-pencil"/>
                 <va-button flat icon="maki maki-art-gallery"/>
                 <va-button flat icon="glyphicon glyphicon-pencil"/>
               </va-button-group>
-            </VbContainer>
+            </VbCard>
           </td>
         </tr>
         <tr>
           <td>Icon Button Group Sizes</td>
           <td>
-            <VbContainer title="Default Button Group">
+            <VbCard title="Default Button Group">
               <va-button-group>
                 <va-button large icon="glyphicon glyphicon-pencil"/>
                 <va-button large icon="maki maki-art-gallery"/>
@@ -140,8 +140,8 @@
                 <va-button small icon="maki maki-art-gallery"/>
                 <va-button small icon="glyphicon glyphicon-pencil"/>
               </va-button-group>
-            </VbContainer>
-            <VbContainer title="Outline Button Group">
+            </VbCard>
+            <VbCard title="Outline Button Group">
               <va-button-group>
                 <va-button large outline icon="glyphicon glyphicon-pencil"/>
                 <va-button large outline icon="maki maki-art-gallery"/>
@@ -154,8 +154,8 @@
                 <va-button small outline icon="maki maki-art-gallery"/>
                 <va-button small outline icon="glyphicon glyphicon-pencil"/>
               </va-button-group>
-            </VbContainer>
-            <VbContainer title="Flat Button Group">
+            </VbCard>
+            <VbCard title="Flat Button Group">
               <va-button-group>
                 <va-button large flat icon="glyphicon glyphicon-pencil"/>
                 <va-button large flat icon="maki maki-art-gallery"/>
@@ -168,13 +168,13 @@
                 <va-button small flat icon="maki maki-art-gallery"/>
                 <va-button small flat icon="glyphicon glyphicon-pencil"/>
               </va-button-group>
-            </VbContainer>
+            </VbCard>
           </td>
         </tr>
         <tr>
           <td>Mixed Button Groups</td>
           <td>
-            <VbContainer>
+            <VbCard>
               <va-button-group>
                 <va-button flat small color="gray" icon="glyphicon glyphicon-envelope">
                   First
@@ -207,11 +207,11 @@
                 <va-button outline large color="info" icon-right="glyphicon glyphicon-pencil"> Second</va-button>
                 <va-button outline large color="info"> Third</va-button>
               </va-button-group>
-            </VbContainer>
+            </VbCard>
           </td>
         </tr>
       </table>
-    </VbContainer>
+    </VbCard>
   </VbDemo>
 </template>
 

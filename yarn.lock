@@ -10260,10 +10260,10 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
-vue-book@0.1.0-alpha.13:
-  version "0.1.0-alpha.13"
-  resolved "https://registry.yarnpkg.com/vue-book/-/vue-book-0.1.0-alpha.13.tgz#5f061c1b3ba2b394dda1ca64181f53d89bb2276d"
-  integrity sha512-NeOKASJag+y3CocWUY+eQwKyLuE4B6WL928H+Cb320FqbTVFGriYc7bJqbqSDfvlRxbFHqnzjW7s7TvrUeOUhA==
+vue-book@0.1.0-alpha.15:
+  version "0.1.0-alpha.15"
+  resolved "https://registry.yarnpkg.com/vue-book/-/vue-book-0.1.0-alpha.15.tgz#36dd18b646211b121615f1541e3b7f2fc255293d"
+  integrity sha512-O8dyzufFzF6lL3fx5LSfRy0b5+ags1y88wxjcmTE5hz+JCy1CuJYf+ruBzKm79dBk1vT554b+5uOD5tKlMjlbg==
 
 vue-bulma-expanding@0.0.1:
   version "0.0.1"
