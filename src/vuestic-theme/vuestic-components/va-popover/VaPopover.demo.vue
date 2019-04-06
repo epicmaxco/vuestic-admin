@@ -1,6 +1,6 @@
 <template>
   <VbDemo>
-    <VbContainer style="max-width: 800px; width: 100%;">
+    <VbCard style="max-width: 800px; width: 100%;">
       <table class="table table-bordered">
         <tr>
           <th>Description</th>
@@ -20,7 +20,7 @@
               placement="right"
               message="Placement Right"
             >
-              <va-button>Top</va-button>
+              <va-button>Right</va-button>
             </va-popover>
 
             <va-popover
@@ -150,7 +150,7 @@
           </td>
         </tr>
       </table>
-    </VbContainer>
+    </VbCard>
   </VbDemo>
 </template>
 
@@ -159,10 +159,10 @@ import VaPopover from './VaPopover'
 
 export default {
   components: {
-    VaPopover
+    VaPopover,
   },
   data () {
 
-  }
+  },
 }
 </script>

@@ -19,7 +19,7 @@
         <i
           :class="icon"
           :style="computedIconStyle"
-        ></i>
+        />
       </div>
       <div v-if="title || message">
         <div v-if="title" class="va-popover__title">
