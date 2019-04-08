@@ -41,7 +41,6 @@ import VaSocialNews
   from './vuestic-components/va-social-news/VaSocialNews.vue'
 import VaSwitch from './vuestic-components/va-switch/VaSwitch.vue'
 import VaTabs from './vuestic-components/va-tabs/VaTabs.vue'
-import VaTooltip from './vuestic-components/va-tooltip/VaTooltip.vue'
 import VaWizard from './vuestic-components/va-wizard/VaWizard.vue'
 import VaTreeRoot from './vuestic-components/va-tree-view/VaTreeRoot'
 import VaTreeCategory
@@ -111,7 +110,6 @@ const VuesticPlugin = {
       VaTabs,
       VaWizard,
       VaMediumEditor,
-      VaTooltip,
       VaPopover,
       VaTreeRoot,
       VaTreeCategory,

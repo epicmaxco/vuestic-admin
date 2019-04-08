@@ -60,6 +60,13 @@
     "slider": "Sliders",
     "range": "Ranges"
   },
+  "popovers": {
+    "popover": "Popover",
+    "popoverStyle": "Popover Style",
+    "popoverPlacement": "Popover Placement",
+    "minimalTooltip": "Minimal Tooltip",
+    "anotherOneTooltip": "Another One Tooltip"
+  },
   "dashboard": {
     "dataVisualization": "Data Visualization",
     "success": "SUCCESS",
@@ -234,7 +241,8 @@
     "fileUpload": "File Upload",
     "dropdowns": "Dropdowns",
     "spacing": "Spacing",
-    "sliders": "Sliders"
+    "sliders": "Sliders",
+    "popovers": "Popovers"
   },
   "messages": {
     "all": "See all messages",

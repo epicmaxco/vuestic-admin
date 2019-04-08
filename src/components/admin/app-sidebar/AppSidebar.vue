@@ -172,6 +172,12 @@
             <span>{{ $t('menu.sliders') }}</span>
           </span>
         </sidebar-link>
+        <sidebar-link
+          :to="{ name: 'popovers'}">
+          <span slot="title">
+            <span>{{ $t('menu.popovers') }}</span>
+          </span>
+        </sidebar-link>
       </sidebar-link-group>
       <sidebar-link
         :to="{ name: 'extra' }">
