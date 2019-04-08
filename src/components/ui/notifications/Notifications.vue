@@ -2,116 +2,6 @@
   <div class="notifications">
     <div class="va-row">
       <div class="flex md12">
-        <va-card
-          :title=" $t('notificationsPage.popovers.title') ">
-          <div class="va-row">
-            <div class="flex md6">
-              <fieldset>
-                <div class="form-group">
-                  <div class="input-group">
-                    <input
-                      id="popover-title"
-                      v-model="popoverTitle"
-                      @input="checkPopoverContents"
-                      required
-                    />
-                    <label class="control-label" for="popover-title">
-                      {{ $t('notificationsPage.popovers.popoverTitleLabel')
-                      }}</label>
-                    <va-icon icon="bar"/>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group">
-                    <input
-                      id="popover-text"
-                      v-model="popoverText"
-                      @input="checkPopoverContents" required
-                    />
-                    <label class="control-label" for="popover-text">
-                      {{ $t('notificationsPage.popovers.popoverTextLabel') }}
-                    </label>
-                    <va-icon icon="bar"/>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group">
-                    <input
-                      id="popover-icon"
-                      v-model="popoverIcon"
-                      @input="checkPopoverContents"
-                      required
-                    />
-                    <label class="control-label" for="popover-icon">
-                      {{ $t('notificationsPage.popovers.popoverIconLabel') }}
-                    </label>
-                    <va-icon icon="bar"/>
-                  </div>
-                </div>
-                <va-popover
-                  placement="right"
-                  :disabled="isPopoverDisabled"
-                  :icon="'fa ' + popoverIcon"
-                  :title="popoverTitle"
-                  :message="popoverText"
-                  open
-                >
-                  <va-button>
-                    {{ $t('notificationsPage.popovers.showPopover') }}
-                  </va-button>
-                </va-popover>
-              </fieldset>
-            </div>
-            <div class="flex md6">
-              <p>
-                Any text can be used for
-                <va-popover
-                  :placement="topTooltipOptions.placement"
-                  :message="topTooltipOptions.content"
-                >
-                  <a href="#">
-                    {{ $t('notificationsPage.popovers.topTooltip') }}
-                  </a>
-                </va-popover>
-                showcase. Just anything you can possibly imagine to test
-                <va-popover
-                  :placement="rightTooltipOptions.placement"
-                  :message="rightTooltipOptions.content"
-                >
-                  <a href="#">
-                    {{ $t('notificationsPage.popovers.rightTooltip') }}
-                  </a>
-                </va-popover>
-                .
-                But it can appear on the
-                <va-popover
-                  :placement="leftTooltipOptions.placement"
-                  :message="leftTooltipOptions.content"
-                >
-                  <a href="#">
-                    {{$t('notificationsPage.popovers.leftTooltip')}}
-                  </a>
-                </va-popover>
-                .
-                Or just
-                <va-popover
-                  :placement="bottomTooltipOptions.placement"
-                  :message="bottomTooltipOptions.content"
-                >
-                  <a href="#">
-                  {{ $t('notificationsPage.popovers.bottomTooltip') }}
-                  </a>
-                </va-popover>
-                the item.
-              </p>
-            </div>
-          </div>
-        </va-card>
-      </div>
-    </div>
-
-    <div class="va-row">
-      <div class="flex md12">
         <va-card :title="$t('notificationsPage.notifications.title')">
           <div class="mb-3">
             <va-notification closeable>
@@ -245,26 +135,6 @@ export default {
   components: { ToastPositionPicker },
   data () {
     return {
-      popoverTitle: 'Hey!',
-      popoverText: 'This popover is amazing',
-      popoverIcon: 'fa-image',
-      isPopoverDisabled: false,
-      topTooltipOptions: {
-        content: 'Top tooltip text',
-        placement: 'top',
-      },
-      leftTooltipOptions: {
-        content: 'Left tooltip text',
-        placement: 'left',
-      },
-      rightTooltipOptions: {
-        content: 'Right tooltip text',
-        placement: 'right',
-      },
-      bottomTooltipOptions: {
-        content: 'Bottom tooltip text',
-        placement: 'bottom',
-      },
       toastText: 'This toast is awesome!',
       toastDuration: 2500,
       toastIcon: 'fa-star-o',
@@ -278,9 +148,6 @@ export default {
     },
   },
   methods: {
-    checkPopoverContents () {
-      this.isPopoverDisabled = !(this.popoverTitle || this.popoverText || this.popoverIcon)
-    },
     launchToast () {
       this.showToast(
         this.toastText,

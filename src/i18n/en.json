@@ -63,6 +63,7 @@
   "popovers": {
     "popover": "Popover",
     "popoverStyle": "Popover Style",
+    "popoverPlacement": "Popover Placement",
     "minimalTooltip": "Minimal Tooltip",
     "anotherOneTooltip": "Another One Tooltip"
   },
