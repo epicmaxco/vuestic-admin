@@ -13,6 +13,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@types/jest": "^24.0.11",
     "ag-grid-community": "^20.2.0",
     "ag-grid-vue": "^20.2.0",
     "amcharts3": "^3.21.13",
@@ -45,6 +46,7 @@
     "vue-clipboard2": "^0.2.1",
     "vue-color": "^2.7.0",
     "vue-flatpickr-component": "^8.0.0",
+    "vue-property-decorator": "^8.1.0",
     "vue-router": "^3.0.1",
     "vue-slider-component": "2.7.8",
     "vue-toasted": "^1.1.25",
