@@ -26,7 +26,7 @@
 export default {
   data () {
     return {
-      value: 0
+      value: 0,
     }
   },
   mounted () {
@@ -37,7 +37,7 @@ export default {
       setTimeout(() => {
         this.value = 100
       })
-    }
-  }
+    },
+  },
 }
 </script>

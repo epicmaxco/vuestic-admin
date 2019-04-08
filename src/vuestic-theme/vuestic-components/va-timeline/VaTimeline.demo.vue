@@ -1,0 +1,71 @@
+<template>
+  <div class="demo-container">
+    <div class="demo-container__item">
+      <va-timeline>
+        <va-timeline-item
+          v-for="(item, index) in items"
+          :key="index"
+          :active="item"
+        >
+          <span slot="before">Before text</span>
+          <span slot="after">After text</span>
+        </va-timeline-item>
+      </va-timeline>
+    </div>
+
+    <div class="demo-container__item">
+      <va-timeline vertical>
+        <va-timeline-item
+          v-for="(item, index) in items"
+          :key="index"
+          :active="item"
+        >
+          <span slot="before">Before text</span>
+          <span slot="after">
+            <div>After text</div>
+            <div>After text</div>
+            <div>After text</div>
+          </span>
+        </va-timeline-item>
+      </va-timeline>
+    </div>
+
+    <div class="demo-container__item">
+      {{ items }}
+      <va-button @click="reroll()">
+        Reroll
+      </va-button>
+    </div>
+  </div>
+</template>
+
+<script>
+import VaTimeline from './VaTimeline.vue'
+import VaTimelineItem from './VaTimelineItem.vue'
+
+export default {
+  components: {
+    VaTimeline,
+    VaTimelineItem,
+  },
+  data () {
+    return {
+      items: [
+        true,
+        true,
+        false,
+      ],
+    }
+  },
+  methods: {
+    reroll () {
+      const getItem = () => !!Math.floor(Math.random() * 2)
+      this.items = [
+        getItem(),
+        getItem(),
+        getItem(),
+      ]
+    },
+  },
+}
+</script>

@@ -4,47 +4,59 @@
     @include va-display(1);
     @extend .mt-0;
   }
+
   h2 {
     @include va-display(2);
     @extend .mt-0;
   }
+
   h3 {
-    @include  va-display(3);
+    @include va-display(3);
     @extend .mt-0;
   }
+
   h4 {
     @include va-display(4);
     @extend .mt-0;
   }
+
   h5 {
     @include va-display(5);
     @extend .mt-0;
   }
+
   h6 {
     @include va-display(6);
     @extend .mt-0;
   }
+
   pre {
     overflow-x: auto;
     @extend .pa-3;
     white-space: pre;
     word-wrap: normal;
+
     &.code {
       @extend .code-snippet
     }
   }
+
   ol {
     @extend .va-ordered
   }
+
   ul {
     @extend .va-unordered
   }
-  blockquote  {
+
+  blockquote {
     @extend .va-blockquote
   }
+
   figure {
     @extend .va-card
   }
+
   table {
     @extend .va-table
   }

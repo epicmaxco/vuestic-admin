@@ -1,6 +1,6 @@
 export default {
 
-  bind: function (el, binding) {
+  bind (el, binding) {
     // HACK Probably could be done much better.
     // Gonna explain what's going on here.
 

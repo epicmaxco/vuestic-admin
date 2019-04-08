@@ -12,7 +12,7 @@
               <va-button
                 type="button" class="theme-toggle"
                 slot="actuator" icon-right="ion-ios-arrow-down arrow-down">
-                <vuestic-dropdown
+                <va-dropdown
                   v-model="dropdown.value"
                   :position="dropdown.position"
                 >
@@ -25,7 +25,7 @@
                     >{{ link }}</a>
                     <div class="flex lg6"></div>
                   </div>
-                </vuestic-dropdown>
+                </va-dropdown>
               </va-button>
             </div>
           </div>

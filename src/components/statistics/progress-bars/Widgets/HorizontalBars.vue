@@ -23,7 +23,8 @@
           :value="bufferValues.value"
           :buffer="bufferValues.buffer"
           theme="Info"
-        >Buffering</va-progress-bar>
+        >Buffering
+        </va-progress-bar>
       </div>
       <div class="flex md4 xs12">
         <va-progress-bar indeterminate theme="Info">Loading...</va-progress-bar>
@@ -39,8 +40,8 @@ export default {
       value: 0,
       bufferValues: {
         value: 0,
-        buffer: 0
-      }
+        buffer: 0,
+      },
     }
   },
   mounted () {
@@ -62,7 +63,7 @@ export default {
           clearInterval(interval)
         }
       }, 400)
-    }
-  }
+    },
+  },
 }
 </script>

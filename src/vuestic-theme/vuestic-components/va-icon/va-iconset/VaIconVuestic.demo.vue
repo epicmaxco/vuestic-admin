@@ -11,7 +11,7 @@ import VaIconVuestic from './VaIconVuestic.vue'
 
 export default {
   components: {
-    VaIconVuestic
+    VaIconVuestic,
   },
 }
 </script>

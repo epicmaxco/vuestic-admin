@@ -190,7 +190,7 @@ export default {
   data () {
     return {
       value: 90,
-      value2: [20, 60]
+      value2: [20, 60],
     }
   },
 }

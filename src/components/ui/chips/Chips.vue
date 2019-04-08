@@ -94,6 +94,6 @@
 
 <script>
 export default {
-  name: 'tags'
+  name: 'tags',
 }
 </script>

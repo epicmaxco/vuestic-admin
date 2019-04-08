@@ -1,5 +1,5 @@
 <template>
-  <vuestic-navbar>
+  <va-navbar>
     <header-selector slot="selector" :isOpen.sync="valueProxy"/>
     <span slot="logo">
       <va-icon-vuestic/>
@@ -14,15 +14,15 @@
     <profile-dropdown class="nav-item">
       <img src="https://i.imgur.com/nfa5itq.png"/>
     </profile-dropdown>
-  </vuestic-navbar>
+  </va-navbar>
 
 </template>
 
 <script>
 import VaIconVuestic
   from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconVuestic'
-import VuesticNavbar
-  from '../../../vuestic-theme/vuestic-components/vuestic-navbar/VuesticNavbar'
+import VaNavbar
+  from '../../../vuestic-theme/vuestic-components/va-navbar/VaNavbar'
 import HeaderSelector from './components/HeaderSelector'
 
 import LanguageDropdown from './components/dropdowns/LanguageDropdown'
@@ -35,7 +35,7 @@ export default {
 
   components: {
     VaIconVuestic,
-    VuesticNavbar,
+    VaNavbar,
     HeaderSelector,
     MessageDropdown,
     NotificationDropdown,

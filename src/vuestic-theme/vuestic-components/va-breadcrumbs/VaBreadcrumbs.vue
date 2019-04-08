@@ -1,0 +1,131 @@
+<template>
+  <div class="va-breadcrumbs">
+    <div class="va-breadcrumbs__nav-section">
+      <router-link
+        class="va-breadcrumbs__nav-section-item"
+        :to="{ path: breadcrumbs.root.name }"
+      >
+        {{ $t(breadcrumbs.root.displayName) }}
+      </router-link>
+      <router-link
+        v-for="(item, index) in displayedCrumbs"
+        :to="{ name: item.name }"
+        :key="index"
+        class="va-breadcrumbs__nav-section-item"
+        :class="{ disabled: item.disabled }"
+      >
+        {{ $t(item.displayName) }}
+      </router-link>
+    </div>
+    <div class="va-breadcrumbs__help-section">
+      <va-button
+        color="info"
+        target="_blank"
+        :href="currentRoute"
+        icon="vuestic-iconset vuestic-iconset-files"
+      >
+      </va-button>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'va-breadcrumbs',
+  props: {
+    breadcrumbs: {
+      type: Object,
+      default: () => ({}),
+    },
+    currentRouteName: {
+      type: String,
+      default: '',
+    },
+  },
+  computed: {
+    displayedCrumbs () {
+      // Breadcrumbs object has root and routes. Root is required for us to display home page.
+      const routeBreadcrumbList = this.breadcrumbs.routes
+
+      const foundBreadcrumbs = this.findInNestedByName(routeBreadcrumbList, this.currentRouteName)
+
+      if (!foundBreadcrumbs.length) {
+        // eslint-disable-next-line no-console
+        console.warn(`No breadcrumbs registered for route with name "${this.currentRouteName}"`)
+      }
+
+      return foundBreadcrumbs
+    },
+    currentRoute () {
+      return this.$route.meta.wikiLink || 'https://github.com/epicmaxco/vuestic-admin/wiki'
+    },
+  },
+  methods: {
+    findInNestedByName (routeBreadcrumbList, name) {
+      for (const routeBreadcrumb of routeBreadcrumbList) {
+        // We found breadcrumbs for route
+        if (routeBreadcrumb.name === name) {
+          return [routeBreadcrumb]
+        }
+        // We didn't find any breadcrumbs for route - means we have to go deeper!
+        // Which works only if route breadcrumb has children declared.
+        if (!routeBreadcrumb.children) {
+          continue
+        }
+        let result = this.findInNestedByName(routeBreadcrumb.children, name)
+        if (result.length) {
+          return [routeBreadcrumb, ...result]
+        }
+      }
+      return []
+    },
+  },
+}
+</script>
+
+<style lang='scss'>
+$breadcrumbs-height: 54px;
+$breadcrumbs-arrow-font: 0.7rem;
+$breadcrumbs-arrow-content: "\f054";
+
+.va-breadcrumbs {
+  min-height: $breadcrumbs-height;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .va-breadcrumbs__nav-section-item {
+    color: $text-gray;
+
+    &:hover {
+      color: $brand-primary;
+    }
+
+    text-transform: capitalize;
+
+    &.disabled {
+      pointer-events: none;
+    }
+
+    &:last-child::after {
+      display: none;
+    }
+
+    &::after {
+      padding: 0 5px;
+      display: inline-block;
+      content: $breadcrumbs-arrow-content;
+      vertical-align: middle;
+      color: $brand-primary;
+      font-size: $breadcrumbs-arrow-font;
+      font-family: FontAwesome;
+    }
+  }
+
+  .va-breadcrumbs__help-section {
+    .vuestic-icon {
+      font-size: 20px;
+    }
+  }
+}
+</style>

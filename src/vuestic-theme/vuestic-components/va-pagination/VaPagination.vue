@@ -72,32 +72,32 @@ export default {
     },
     visiblePages: {
       type: Number,
-      default: 5
+      default: 5,
     },
     pages: {
       type: Number,
-      required: true
+      required: true,
     },
     color: {
       type: String,
-      default: 'info'
+      default: 'info',
     },
     disabled: {
-      type: Boolean
+      type: Boolean,
     },
     small: {
-      type: Boolean
+      type: Boolean,
     },
     large: {
-      type: Boolean
+      type: Boolean,
     },
     boundaryLinks: {
       type: Boolean,
-      default: true
+      default: true,
     },
     directionLinks: {
       type: Boolean,
-      default: true
+      default: true,
     },
     icon: {
       type: Object,
@@ -129,7 +129,7 @@ export default {
       return {
         backgroundColor: 'transparent',
         borderColor: this.disabled ? '#babfc2' : '',
-        opacity: 1
+        opacity: 1,
       }
     },
     iconClass () {
@@ -143,7 +143,7 @@ export default {
     },
     paginationRange () {
       return setPaginationRange(this.value, this.visiblePages, this.pages)
-    }
+    },
   },
   methods: {
     changePage (pageNum) {
@@ -158,33 +158,33 @@ export default {
           backgroundColor: this.disabled ? '#babfc2' : this.$themes[this.toggleColor ? this.toggleColor : this.color],
           borderColor: this.disabled ? '#babfc2' : this.$themes[this.color],
           opacity: 1,
-          color: this.disabled ? '#babfc2' : '#ffffff'
+          color: this.disabled ? '#babfc2' : '#ffffff',
         }
       } else {
         return {
           backgroundColor: 'transparent',
           borderColor: this.disabled ? '#babfc2' : this.$themes[this.color],
           opacity: 1,
-          color: this.disabled ? '#babfc2' : this.$themes[this.color]
+          color: this.disabled ? '#babfc2' : this.$themes[this.color],
         }
       }
     },
-  }
+  },
 }
 </script>
 
 <style lang='scss'>
 @import "../../vuestic-sass/resources/resources";
 
-  .va-pagination {
-    .va-button--disabled {
-      i {
-        color: $brand-secondary;
-      }
-    }
-
-    .va-button__content {
-      min-width: 1.25rem;
+.va-pagination {
+  .va-button--disabled {
+    i {
+      color: $brand-secondary;
     }
   }
+
+  .va-button__content {
+    min-width: 1.25rem;
+  }
+}
 </style>

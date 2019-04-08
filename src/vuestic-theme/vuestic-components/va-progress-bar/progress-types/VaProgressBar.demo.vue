@@ -1,6 +1,6 @@
 <template>
   <VbDemo>
-    <VbContainer refresh width="400px">
+    <VbCard refresh width="400px">
       <span>No value</span>
       <va-progress-bar/>
       <span>Default</span>
@@ -23,21 +23,21 @@
       <va-progress-bar indeterminate>Slot</va-progress-bar>
       <span>Indeterminate with :value and :buffer should behave the same</span>
       <va-progress-bar :value="value" :buffer="bufferValue" indeterminate/>
-    </VbContainer>
-    <VbContainer title="Value">
+    </VbCard>
+    <VbCard title="Value">
       <button @click="value -= 100">-100</button>
       <button @click="value -= 10">-10</button>
       {{ value }}
       <button @click="value += 10">+10</button>
       <button @click="value += 100">+100</button>
-    </VbContainer>
-    <VbContainer title="Buffer value">
+    </VbCard>
+    <VbCard title="Buffer value">
       <button @click="bufferValue -= 100">-100</button>
       <button @click="bufferValue -= 10">-10</button>
       {{ bufferValue }}
       <button @click="bufferValue += 10">+10</button>
       <button @click="bufferValue += 100">+100</button>
-    </VbContainer>
+    </VbCard>
   </VbDemo>
 </template>
 
@@ -46,13 +46,13 @@ import VaProgressBar from './VaProgressBar'
 
 export default {
   components: {
-    VaProgressBar
+    VaProgressBar,
   },
   data () {
     return {
       bufferValue: 45,
       value: 35,
     }
-  }
+  },
 }
 </script>

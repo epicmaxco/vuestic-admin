@@ -17,6 +17,7 @@
     "ag-grid-vue": "^20.2.0",
     "amcharts3": "^3.21.13",
     "ammap3": "^3.21.13",
+    "approximate-number": "^2.0.0",
     "awesome-bootstrap-checkbox": "1.0.0-alpha.5",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "4.3.1",
@@ -44,7 +45,6 @@
     "vue-clipboard2": "^0.2.1",
     "vue-color": "^2.7.0",
     "vue-flatpickr-component": "^8.0.0",
-    "vue-property-decorator": "^8.1.0",
     "vue-router": "^3.0.1",
     "vue-slider-component": "2.7.8",
     "vue-toasted": "^1.1.25",
@@ -84,7 +84,7 @@
     "sass-resources-loader": "^1.3.3",
     "semver": "5.5.1",
     "shelljs": "0.8.2",
-    "vue-book": "0.1.0-alpha.13",
+    "vue-book": "0.1.0-alpha.15",
     "vue-template-compiler": "^2.5.17"
   },
   "engines": {

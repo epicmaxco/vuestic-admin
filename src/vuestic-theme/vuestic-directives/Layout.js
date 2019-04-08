@@ -1,8 +1,8 @@
 export default {
 
-  bind: function (el, binding) {
-    let navbar = el.querySelector('.vuestic-navbar')
-    let sidebar = el.querySelector('.vuestic-sidebar')
+  bind (el, binding) {
+    let navbar = el.querySelector('.va-navbar')
+    let sidebar = el.querySelector('.va-sidebar')
 
     const mobileWidth = 415
 
