@@ -1,330 +1,279 @@
 <template>
   <div class="form-elements">
-    <va-card :title="'forms.inputs.title' | translate">
-      <form>
-        <div class="va-row">
-          <div class="flex xs12 md4">
-            <fieldset>
-              <div class="form-group">
-                <div class="input-group">
-                  <input id="simple-input" required/>
-                  <label class="control-label" for="simple-input">{{'forms.inputs.textInput'
-                    | translate}}</label>
-                  <va-icon icon="bar"/>
-                </div>
+    <div class="va-row">
+      <div class="flex md12">
+        <va-card :title="$t('forms.inputs.title')">
+          <form>
+            <div class="va-row">
+              <div class="flex md4 sm6 xs12">
+                <va-input
+                  v-model="empty"
+                  placeholder="Text Input"
+                />
               </div>
-              <div class="form-group with-icon-right"
-                   :class="{'has-error': errors.has('successfulEmail'), 'valid': isSuccessfulEmailValid}">
-                <div class="input-group">
-                  <input
-                    id="successfulEmail"
-                    name="successfulEmail"
-                    v-model="successfulEmail"
-                    v-validate="'required|email'"
-                    required/>
-                  <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
-                  <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
-                  <label class="control-label" for="successfulEmail">{{'forms.inputs.emailValidatedSuccess'
-                    | translate}} </label>
-                  <va-icon icon="bar"/>
-                  <small v-show="errors.has('successfulEmail')"
-                         class="help text-danger">
-                    {{ errors.first('successfulEmail') }}
-                  </small>
-                </div>
-              </div>
-              <div class="form-group with-icon-right"
-                   :class="{'has-error': errors.has('wrongEmail')}">
-                <div class="input-group">
-                  <input
-                    id="wrongEmail"
-                    name="wrongEmail"
-                    v-model="wrongEmail"
-                    v-validate="'required|email'"
-                    required/>
+              <div class="flex md4 sm6 xs12">
+                <va-input
+                  v-model="empty"
+                  placeholder="Input With Icon"
+                >
                   <va-icon
-                    v-show="errors.has('wrongEmail')"
-                    icon="fa fa-exclamation-triangle icon-right input-icon"/>
-                  <label class="control-label" for="wrongEmail">{{'forms.inputs.emailValidated'
-                    | translate}}</label>
-                  <va-icon icon="bar"/>
-                  <small v-show="errors.has('wrongEmail')"
-                         class="help text-danger">{{
-                    errors.first('wrongEmail')
-                    }}
-                  </small>
-                </div>
+                    slot="prepend"
+                    color="gray"
+                    icon="fa fa-envelope-o"
+                  />
+                </va-input>
               </div>
-              <div class="form-group">
-                <div class="input-group">
-                  <textarea type="text" id="simple-textarea"
-                            required></textarea>
-                  <label class="control-label" for="simple-textarea">{{'forms.inputs.textArea'
-                    | translate}}</label>
-                  <va-icon icon="bar"/>
-                </div>
+              <div class="flex md4 sm6 xs12">
+                <va-input
+                  v-model="empty"
+                  placeholder="Input With Button"
+                >
+                  <va-button style="margin-right: 0;" small>
+                    UPLOAD
+                  </va-button>
+                </va-input>
               </div>
-            </fieldset>
-          </div>
+              <div class="flex md4 sm6 xs12">
+                <va-input
+                  v-model="successfulEmail"
+                  type="email"
+                  label="Email (Validated with success)"
+                  success>
+                </va-input>
+              </div>
+              <div class="flex md4 sm6 xs12">
+                <va-input
+                  v-model="clearableText"
+                  placeholder="Input With Clear Button"
+                  removable
+                />
+              </div>
+              <div class="flex md4 sm6 xs12">
+                <va-input
+                  v-model="wrongEmail"
+                  type="email"
+                  label="Email (Validated)"
+                  error
+                  :error-messages="errorMessages">
+                </va-input>
+              </div>
+              <div class="flex md4 sm6 xs12">
+                <va-input
+                  v-model="empty"
+                  placeholder="Text Input (with description)"
+                  :messages="messages"
+                />
+              </div>
+            </div>
+          </form>
+        </va-card>
+      </div>
+    </div>
 
-          <div class="flex xs12 md4">
-            <fieldset>
-              <div class="form-group with-icon-left">
-                <div class="input-group">
-                  <input id="input-icon-left" name="input-icon-left"
-                         required/>
-                  <va-icon icon="fa fa-envelope-o icon-left input-icon"/>
-                  <label class="control-label" for="input-icon-left">{{'forms.inputs.inputWithIcon'
-                    | translate}}</label>
-                  <va-icon icon="bar"/>
+    <div class="va-row">
+      <div class="flex md12">
+        <va-card :title="$t('forms.dateTimePicker.title')">
+          <form>
+            <div class="va-row">
+              <div class="flex md8">
+                <div class="va-row row-inside">
+                  <div class="flex md6">
+                    <va-date-picker
+                      id="date-picker-basic"
+                      v-model="datepicker.simple"
+                      :label="$t('forms.dateTimePicker.basic')"
+                    />
+                  </div>
+                  <div class="flex md6">
+                    <va-date-picker
+                      id="date-picker-time"
+                      :config="{enableTime: true}"
+                      v-model="datepicker.time"
+                      :label="$t('forms.dateTimePicker.time')"
+                    />
+                  </div>
+                  <div class="flex md6">
+                    <va-date-picker
+                      id="date-picker-custom-first-day"
+                      :config="{locale: {firstDayOfWeek: 1}}"
+                      v-model="datepicker.customFirstDay"
+                      :label="$t('forms.dateTimePicker.customFirstDay')"
+                    />
+                  </div>
+                  <div class="flex md6">
+                    <va-date-picker
+                      id="date-picker-disabled"
+                      :config="{disable: datePickerDisabled}"
+                      v-model="datepicker.disabled"
+                      :label="$t('forms.dateTimePicker.disabled')"
+                    />
+                  </div>
+                  <div class="flex md6">
+                    <va-date-picker
+                      id="date-picker-multiple"
+                      :config="{mode: 'multiple'}"
+                      v-model="datepicker.multiple"
+                      :label="$t('forms.dateTimePicker.multiple')"
+                    />
+                  </div>
+                  <div class="flex md6">
+                    <va-date-picker
+                      id="date-picker-custom-date-format"
+                      :config="{altInput: true, altFormat: 'F j, Y'}"
+                      v-model="datepicker.customDate"
+                      :label="$t('forms.dateTimePicker.customDateFormat')"
+                    />
+                  </div>
                 </div>
               </div>
-              <div class="form-group with-icon-right">
-                <div class="input-group">
-                  <input v-model="clearableText" id="clear-input"
-                         name="clear-input" required/>
-                  <va-icon
-                    class="fa fa-times icon-right input-icon pointer"
-                    @click.native="clear('clearableText')"/>
-                  <label class="control-label" for="clear-input"
-                         role="button">{{'forms.inputs.inputWithClearButton'
-                    | translate}}</label>
-                  <va-icon icon="bar"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group">
-                  <input id="inputWithDescription" required title=""/>
-                  <label class="control-label" for="simple-input">{{'forms.inputs.textInputWithDescription'
-                    | translate}}</label>
-                  <va-icon icon="bar"/>
-                  <small class="help text-secondary">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </small>
-                </div>
-              </div>
-            </fieldset>
-          </div>
 
-          <div class="flex xs12 md4">
-            <fieldset>
-              <div class="form-group form-group-w-btn">
-                <div class="input-group">
-                  <input id="input-w-btn" required/>
-                  <label class="control-label" for="input-w-btn">{{'forms.inputs.inputWithButton'
-                    | translate}}</label>
-                  <va-icon icon="bar"/>
-                </div>
-                <va-button> {{ $t('forms.inputs.upload') }}</va-button>
+              <div class="flex md4">
+                <va-date-picker
+                  id="date-picker-range"
+                  :config="{mode: 'range', inline: true}"
+                  v-model="datepicker.range"
+                  :label="$t('forms.dateTimePicker.range')"
+                />
               </div>
-              <div class="form-group form-group-w-btn">
-                <div class="input-group">
-                  <input id="input-w-btn-round" required/>
-                  <label class="control-label" for="input-w-btn-round">{{'forms.inputs.inputWithRoundButton'
-                    | translate }}</label>
-                  <va-icon icon="bar"/>
-                </div>
-                <va-button icon="ion-md-cloud-outline ion"/>
+            </div>
+          </form>
+        </va-card>
+      </div>
+    </div>
+
+    <div class="va-row">
+      <div class="flex md12">
+        <va-card :title="$t('forms.selects.title')">
+          <form>
+            <div class="va-row">
+              <div class="flex md4">
+                <fieldset>
+                  <va-simple-select
+                    :label="$t('forms.selects.simple')"
+                    v-model="simpleSelectModel"
+                    option-key="description"
+                    v-bind:options="simpleOptions"
+                  />
+                  <va-simple-select
+                    :label="$t('forms.selects.country')"
+                    v-model="chosenCountry"
+                    v-bind:options="countriesList"
+                  />
+                </fieldset>
               </div>
-            </fieldset>
-          </div>
-        </div>
-      </form>
-    </va-card>
+              <div class="flex md4">
+                <fieldset>
+                  <va-multi-select
+                    :label="$t('forms.selects.multi')"
+                    v-model="multiSelectModel"
+                    option-key="description"
+                    v-bind:options="simpleOptions"
+                  />
+                  <va-multi-select
+                    :label="$t('forms.selects.countryMulti')"
+                    v-model="multiSelectCountriesModel"
+                    v-bind:options="countriesList"
+                  />
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </va-card>
+      </div>
+    </div>
 
-    <va-card :title="$t('forms.dateTimePicker.title')">
-      <form>
-        <div class="va-row">
-          <div class="flex xs12 md4">
-            <fieldset>
-              <label class="form-elements__label">
-                {{ $t('forms.dateTimePicker.basic') }}
-              </label>
-              <va-date-picker
-                v-model="datepicker.simple"
-              />
-              <label class="form-elements__label">
-                {{ $t('forms.dateTimePicker.time') }}
-              </label>
-              <va-date-picker
-                enableTime
-                :config="{enableTime: true}"
-                v-model="datepicker.time"
-              />
-              <label class="form-elements__label">
-                {{ $t('forms.dateTimePicker.customFirstDay') }}
-              </label>
-              <va-date-picker
-                v-model="datepicker.customFirstDay"
-              />
-            </fieldset>
-          </div>
-          <div class="flex xs12 md4">
-            <fieldset>
-              <label class="form-elements__label">
-                {{ $t('forms.dateTimePicker.disabled') }}
-              </label>
-              <va-date-picker
-                :config="{disable: datePickerDisabled}"
-                v-model="datepicker.disabled"
-              />
-              <label class="form-elements__label">
-                {{ $t('forms.dateTimePicker.multiple') }}
-              </label>
-              <va-date-picker
-                :config="{mode: 'multiple'}"
-                v-model="datepicker.multiple"
-              />
-              <label class="form-elements__label">
-                {{ $t('forms.dateTimePicker.customDateFormat') }}
-              </label>
-              <va-date-picker
-                :config="{altInput: true}"
-                v-model="datepicker.customDate"
-              />
-            </fieldset>
-          </div>
-        </div>
-        <div class="va-row">
-          <div class="flex xs12 md4">
-            <fieldset>
-              <label class="form-elements__label">
-                {{ $t('forms.dateTimePicker.range') }}
-              </label>
-              <va-date-picker
-                :config="{inline: true, mode: 'range'}"
-                v-model="datepicker.range"
-              />
-            </fieldset>
-          </div>
-        </div>
-      </form>
-    </va-card>
-
-    <va-card :title="$t('forms.selects.title')">
-      <form>
-        <div class="va-row">
-          <div class="flex md4">
-            <fieldset>
-              <vuestic-simple-select
-                :label="'forms.selects.simple' | translate"
-                v-model="simpleSelectModel"
-                option-key="description"
-                v-bind:options="simpleOptions"
-              />
-              <vuestic-simple-select
-                :label="'forms.selects.country' | translate"
-                v-model="chosenCountry"
-                v-bind:options="countriesList"
-              />
-            </fieldset>
-          </div>
-          <div class="flex md4">
-            <fieldset>
-              <vuestic-multi-select
-                :label="'forms.selects.multi' | translate"
-                v-model="multiSelectModel"
-                option-key="description"
-                v-bind:options="simpleOptions"
-              />
-              <vuestic-multi-select
-                :label="'forms.selects.countryMulti' | translate"
-                v-model="multiSelectCountriesModel"
-                v-bind:options="countriesList"
-              />
-            </fieldset>
-          </div>
-        </div>
-      </form>
-    </va-card>
-
-    <va-card :title="$t('forms.controls.title')">
-      <form>
-        <div class="va-row">
-          <div class="flex md3">
-            <fieldset>
-              <vuestic-checkbox
-                :label="$t('forms.controls.unselected')"
-                v-model="checkbox.unselected"
-              />
-              <vuestic-checkbox
-                :label="$t('forms.controls.selected')"
-                v-model="checkbox.selected"
-              />
-              <vuestic-checkbox
-                :label="$t('forms.controls.readonly')"
-                v-model="checkbox.readonly"
-                :readonly="true"
-              />
-              <vuestic-checkbox
-                :label="$t('forms.controls.disabled')"
-                :disabled="true"
-                v-model="checkbox.disabled"
-              />
-              <vuestic-checkbox
-                :label="$t('forms.controls.error')"
-                error
-                v-model="checkbox.error"
-              />
-              <vuestic-checkbox
-                :label="$t('forms.controls.errorMessage')"
-                :error-messages="errorMessages"
-                :errorCount="2"
-                v-model="checkbox.errorMessages"
-              />
-            </fieldset>
-          </div>
-          <div class="flex md3">
-            <fieldset>
-              <vuestic-radio-button
-                option="option1"
-                v-model="radioSelectedOption"
-                label="Radio"
-              />
-              <vuestic-radio-button
-                option="option2"
-                v-model="radioSelectedOption"
-                label="Radio"
-              />
-            </fieldset>
-            <fieldset>
-              <vuestic-radio-button
-                option="option1"
-                disabled
-                v-model="radioSelectedDisableOption"
-                label="Disabled Radio"
-              />
-              <vuestic-radio-button
-                option="option2"
-                disabled
-                v-model="radioSelectedDisableOption"
-                label="Disabled Radio"
-              />
-            </fieldset>
-          </div>
-          <div class="flex md3">
-            <fieldset>
-              <vuestic-switch v-model="isMale">
-                <span
-                  slot="trueTitle">{{'forms.controls.male' | translate}}</span>
-                <span slot="falseTitle">{{'forms.controls.female' | translate}}</span>
-              </vuestic-switch>
-            </fieldset>
-          </div>
-        </div>
-      </form>
-    </va-card>
+    <div class="va-row">
+      <div class="flex md12">
+        <va-card :title="$t('forms.controls.title')">
+          <form>
+            <div class="va-row">
+              <div class="flex md3">
+                <fieldset>
+                  <va-checkbox
+                    :label="$t('forms.controls.unselected')"
+                    v-model="checkbox.unselected"
+                  />
+                  <va-checkbox
+                    :label="$t('forms.controls.selected')"
+                    v-model="checkbox.selected"
+                  />
+                  <va-checkbox
+                    :label="$t('forms.controls.readonly')"
+                    v-model="checkbox.readonly"
+                    :readonly="true"
+                  />
+                  <va-checkbox
+                    :label="$t('forms.controls.disabled')"
+                    :disabled="true"
+                    v-model="checkbox.disabled"
+                  />
+                  <va-checkbox
+                    :label="$t('forms.controls.error')"
+                    error
+                    v-model="checkbox.error"
+                  />
+                  <va-checkbox
+                    :label="$t('forms.controls.errorMessage')"
+                    :error-messages="errorMessages"
+                    :errorCount="2"
+                    v-model="checkbox.errorMessages"
+                  />
+                </fieldset>
+              </div>
+              <div class="flex md3">
+                <fieldset>
+                  <va-radio-button
+                    option="option1"
+                    v-model="radioSelectedOption"
+                    label="Radio"
+                  />
+                  <va-radio-button
+                    option="option2"
+                    v-model="radioSelectedOption"
+                    label="Radio"
+                  />
+                </fieldset>
+                <fieldset>
+                  <va-radio-button
+                    option="option1"
+                    disabled
+                    v-model="radioSelectedDisableOption"
+                    label="Disabled Radio"
+                  />
+                  <va-radio-button
+                    option="option2"
+                    disabled
+                    v-model="radioSelectedDisableOption"
+                    label="Disabled Radio"
+                  />
+                </fieldset>
+              </div>
+              <div class="flex md3">
+                <fieldset>
+                  <va-switch v-model="isMale">
+                    <span
+                      slot="trueTitle">{{ $t('forms.controls.male') }}</span>
+                    <span slot="falseTitle">{{ $t('forms.controls.female') }}</span>
+                  </va-switch>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </va-card>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import CountriesList from 'data/CountriesList'
+import VaInput from './../../../../src/vuestic-theme/vuestic-components/va-input/VaInput'
 
 export default {
   name: 'form-elements',
+  components: {
+    VaInput,
+  },
   computed: {
     datePickerDisabled: () => [date => !(date.getDate() % 5)],
     isSuccessfulEmailValid () {
@@ -339,10 +288,14 @@ export default {
     return {
       isMale: true,
       countriesList: CountriesList,
-      chosenCountry: '',
-      clearableText: '',
+      chosenCountry: 'name',
+      empty: '',
+      clearableText: 'Vasili Savitski',
       successfulEmail: 'andrei@dreamsupport.io',
       wrongEmail: 'andrei@dreamsupport',
+      messages: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ' +
+        'incididunt ut labore et dolore magna aliqua.'],
+      errorMessages: ['Field should contain a valid email'],
       simpleOptions: [
         {
           id: 1,
@@ -368,9 +321,8 @@ export default {
         readonly: true,
         disabled: true,
         error: false,
-        errorMessages: true
+        errorMessages: true,
       },
-      errorMessages: ['error message 1', 'error message 2'],
       datepicker: {
         simple: '2018-05-09',
         time: '2018-05-08 14:10',
@@ -395,13 +347,8 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.form-elements {
-  &__label {
-    font-size: 0.6rem;
-    color: $vue-green;
-    font-weight: 600;
-    text-transform: uppercase;
+<style>
+  .va-row.row-inside {
+    max-width: none;
   }
-}
 </style>

@@ -1,17 +1,21 @@
 <template>
   <div class="va-date-picker">
-    <div class="va-date-picker__container">
-      <vue-flatpickr-component
-        class="va-date-picker__flatpickr"
-        v-model="valueProxy"
-        :config="fullConfig"
-        @on-open="onOpen"
-        data-input
-      />
-      <div class="va-date-picker__icon" data-toggle>
-        <va-icon icon="fa fa-calendar" size="20px"/>
-      </div>
-    </div>
+    <va-input
+      v-model="valueProxy"
+      readonly
+      data-toggle
+      :placeholder="placeholder"
+      :label="label"
+    >
+      <va-icon icon="fa fa-calendar" />
+    </va-input>
+    <vue-flatpickr-component
+      class="va-date-picker__flatpickr"
+      v-model="valueProxy"
+      :config="fullConfig"
+      @on-open="onOpen"
+      data-input
+    />
   </div>
 </template>
 
@@ -24,23 +28,29 @@ export default {
     VueFlatpickrComponent,
   },
   props: {
+    placeholder: {
+      type: String,
+      defualt: '',
+    },
+    label: {
+      type: String,
+      defualt: '',
+    },
     value: {
-      required: true
+      required: true,
     },
     weekDays: {
       type: Boolean,
-      default: false
+      default: false,
     },
     config: {
       type: Object,
-      default: () => {
-        return {}
-      }
-    }
+      default: () => {},
+    },
   },
   data () {
     return {
-      isOpen: false
+      isOpen: false,
     }
   },
   computed: {
@@ -50,18 +60,18 @@ export default {
       },
       set (value) {
         this.$emit('input', value)
-      }
+      },
     },
     fullConfig () {
       return Object.assign({}, this.defaultConfig, this.config)
     },
     defaultConfig () {
       return {
-        wrap: !this.config.inline,
+        wrap: true,
         nextArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-forward"/>',
-        prevArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-back"/>'
+        prevArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-back"/>',
       }
-    }
+    },
   },
   methods: {
     onOpen (selectedDates, dateStr, pcrObject) {
@@ -69,8 +79,8 @@ export default {
       if (this.weekDays) {
         calendar.classList.add('flatpickr-calendar--show-days')
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -96,35 +106,19 @@ $dayMargin: 0.6rem;
 
 .va-date-picker {
   max-width: $daySize * 7 + ($dayPadding + $dayMargin * 2) * 6 + $borderPadding * 2;
+  position: relative;
+
   &__container {
     display: flex;
     position: relative;
     flex-wrap: wrap;
   }
   &__flatpickr {
-    border: 0;
-    border-bottom: 1px solid $brand-secondary;
-    cursor: pointer;
-    width: calc(100% - 2rem);
-    background-color: $datepickerBackground;
-    min-height: 2.375rem;
-    height: 2.375rem;
-    outline: none;
-    padding: 0.5rem;
-    color: $vue-darkest-blue;
-    margin-right: 2rem;
-    &.active {
-      box-shadow: none;
-    }
-    &.form-control {
-      background-color: $datepickerBackground;
-      border-radius: 0;
-      &:focus {
-        border: 0;
-        box-shadow: none;
-        border-bottom: 1px solid $brand-secondary;
-      }
-    }
+    position: absolute;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    height: 100%;
   }
   &__icon {
     position: absolute;

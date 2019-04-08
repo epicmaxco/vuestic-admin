@@ -1,6 +1,6 @@
 <template>
   <VbDemo>
-    <VbContainer>
+    <VbCard>
       <va-accordion style="width: 400px;">
         <va-collapse>
           <span slot="header">One collapse</span>
@@ -27,7 +27,7 @@
           </div>
         </va-collapse>
       </va-accordion>
-    </VbContainer>
+    </VbCard>
   </VbDemo>
 </template>
 
@@ -35,10 +35,11 @@
 
 import VaAccordion from './VaAccordion'
 import VaCollapse from './VaCollapse'
+
 export default {
   components: {
     VaAccordion,
-    VaCollapse
+    VaCollapse,
   },
 }
 </script>

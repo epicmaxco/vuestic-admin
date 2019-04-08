@@ -3,44 +3,44 @@
     <va-card
       :title="$t('timelines.horizontalSimple')"
     >
-      <vuestic-timeline>
-        <vuestic-timeline-item active>
+      <va-timeline>
+        <va-timeline-item active>
           <template slot="before">
-            <div class="vuestic-timeline-item__title">
+            <div class="va-timeline-item__title">
               February 2018
             </div>
-            <div class="vuestic-timeline-item__description">
+            <div class="va-timeline-item__description">
               Pre-sail rate: 50%
             </div>
           </template>
-        </vuestic-timeline-item>
-        <vuestic-timeline-item active>
+        </va-timeline-item>
+        <va-timeline-item active>
           <template slot="before">
-            <div class="vuestic-timeline-item__title">
+            <div class="va-timeline-item__title">
               March 2018
             </div>
-            <div class="vuestic-timeline-item__description">
+            <div class="va-timeline-item__description">
               Pre-sail rate: 40%
             </div>
           </template>
-        </vuestic-timeline-item>
-        <vuestic-timeline-item>
+        </va-timeline-item>
+        <va-timeline-item>
           <template slot="before">
-            <div class="vuestic-timeline-item__title">
+            <div class="va-timeline-item__title">
               April 2018
             </div>
-            <div class="vuestic-timeline-item__description">
+            <div class="va-timeline-item__description">
               Pre-sail rate: 20%
             </div>
           </template>
-        </vuestic-timeline-item>
-      </vuestic-timeline>
+        </va-timeline-item>
+      </va-timeline>
     </va-card>
 
     <va-card class="timelines__horizontal-long"
              :title="$t('timelines.horizontalCards')">
-      <vuestic-timeline class="timelines__horizontal-long__timeline">
-        <vuestic-timeline-item active>
+      <va-timeline class="timelines__horizontal-long__timeline">
+        <va-timeline-item active>
           <va-card
             slot="after"
             stripe="success"
@@ -48,8 +48,8 @@
             <template slot="title">{{ dateFirst }}</template>
             {{ contentFirst }}
           </va-card>
-        </vuestic-timeline-item>
-        <vuestic-timeline-item active>
+        </va-timeline-item>
+        <va-timeline-item active>
           <va-card
             slot="after"
             stripe="success"
@@ -57,8 +57,8 @@
             <template slot="title">{{ dateSecond }}</template>
             {{ contentFirst }}
           </va-card>
-        </vuestic-timeline-item>
-        <vuestic-timeline-item>
+        </va-timeline-item>
+        <va-timeline-item>
           <va-card
             slot="after"
             stripe="success"
@@ -66,35 +66,35 @@
             <template slot="title">{{ dateThird }}</template>
             {{ contentThird }}
           </va-card>
-        </vuestic-timeline-item>
-      </vuestic-timeline>
+        </va-timeline-item>
+      </va-timeline>
     </va-card>
 
     <va-card :title="$t('timelines.verticalSimple')">
       <div class="va-row">
         <div class="xs12 md6 flex">
-          <vuestic-timeline vertical>
-            <vuestic-timeline-item active>
+          <va-timeline vertical>
+            <va-timeline-item active>
               <va-card
                 slot="after"
               >
                 <template slot="title">{{ dateFirst }}</template>
                 {{ contentFirst }}
               </va-card>
-            </vuestic-timeline-item>
-            <vuestic-timeline-item>
+            </va-timeline-item>
+            <va-timeline-item>
               <va-card
                 slot="after"
               >
                 <template slot="title">{{ dateSecond }}</template>
                 {{ contentFirst }}
               </va-card>
-            </vuestic-timeline-item>
-          </vuestic-timeline>
+            </va-timeline-item>
+          </va-timeline>
         </div>
         <div class="xs12 md6 flex">
-          <vuestic-timeline vertical>
-            <vuestic-timeline-item active>
+          <va-timeline vertical>
+            <va-timeline-item active>
               <va-card
                 theme="dark"
                 slot="after"
@@ -102,8 +102,8 @@
                 <template slot="title">{{ dateFirst }}</template>
                 {{ contentFirst }}
               </va-card>
-            </vuestic-timeline-item>
-            <vuestic-timeline-item>
+            </va-timeline-item>
+            <va-timeline-item>
               <va-card
                 theme="dark"
                 slot="after"
@@ -111,16 +111,16 @@
                 <template slot="title">{{ dateSecond }}</template>
                 {{ contentFirst }}
               </va-card>
-            </vuestic-timeline-item>
-          </vuestic-timeline>
+            </va-timeline-item>
+          </va-timeline>
         </div>
       </div>
     </va-card>
 
     <va-card :title="$t('timelines.verticalLabel')">
-      <vuestic-timeline vertical>
-        <vuestic-timeline-item active>
-          <span class="vuestic-timeline-item__text" slot="before">{{ dateFirst }}</span>
+      <va-timeline vertical>
+        <va-timeline-item active>
+          <span class="va-timeline-item__text" slot="before">{{ dateFirst }}</span>
           <va-card
             slot="after"
             stripe="success"
@@ -128,9 +128,9 @@
             <template slot="title">{{ titleFirst }}</template>
             {{ contentFirst }}
           </va-card>
-        </vuestic-timeline-item>
-        <vuestic-timeline-item>
-          <span class="vuestic-timeline-item__text" slot="before">{{ dateSecond }}</span>
+        </va-timeline-item>
+        <va-timeline-item>
+          <span class="va-timeline-item__text" slot="before">{{ dateSecond }}</span>
           <va-card
             slot="after"
             stripe="success"
@@ -138,14 +138,14 @@
             <template slot="title">{{ titleSecond }}</template>
             {{ contentFirst }}
           </va-card>
-        </vuestic-timeline-item>
-      </vuestic-timeline>
+        </va-timeline-item>
+      </va-timeline>
     </va-card>
 
     <va-card :title="$t('timelines.verticalCentered')">
-      <vuestic-timeline vertical centered>
-        <vuestic-timeline-item active>
-          <span class="vuestic-timeline-item__text" slot="before">{{ dateFirst }}</span>
+      <va-timeline vertical centered>
+        <va-timeline-item active>
+          <span class="va-timeline-item__text" slot="before">{{ dateFirst }}</span>
           <va-card
             slot="after"
             theme="dark"
@@ -153,9 +153,9 @@
             <template slot="title">{{ titleFirst }}</template>
             {{ contentFirst }}
           </va-card>
-        </vuestic-timeline-item>
-        <vuestic-timeline-item>
-          <span class="vuestic-timeline-item__text" slot="before">{{ dateSecond }}</span>
+        </va-timeline-item>
+        <va-timeline-item>
+          <span class="va-timeline-item__text" slot="before">{{ dateSecond }}</span>
           <va-card
             slot="after"
             theme="dark"
@@ -163,9 +163,9 @@
             <template slot="title">{{ titleSecond }}</template>
             {{ contentFirst }}
           </va-card>
-        </vuestic-timeline-item>
-        <vuestic-timeline-item>
-          <span class="vuestic-timeline-item__text" slot="before">{{ dateSecond }}</span>
+        </va-timeline-item>
+        <va-timeline-item>
+          <span class="va-timeline-item__text" slot="before">{{ dateSecond }}</span>
           <va-card
             slot="after"
             theme="dark"
@@ -173,8 +173,8 @@
             <template slot="title">{{ titleSecond }}</template>
             {{ contentFirst }}
           </va-card>
-        </vuestic-timeline-item>
-      </vuestic-timeline>
+        </va-timeline-item>
+      </va-timeline>
     </va-card>
 
   </div>

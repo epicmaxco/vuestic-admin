@@ -91,6 +91,6 @@
 
 <script>
 export default {
-  name: 'collapses'
+  name: 'collapses',
 }
 </script>

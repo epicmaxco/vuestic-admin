@@ -159,6 +159,6 @@
 
 <script>
 export default {
-  name: 'typography'
+  name: 'typography',
 }
 </script>

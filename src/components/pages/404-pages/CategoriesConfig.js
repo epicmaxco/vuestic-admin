@@ -95,12 +95,16 @@ export default [
       },
       {
         itemName: 'Spacing',
-        itemLink: '/admin/ui/spacing'
+        itemLink: '/admin/ui/spacing',
+      },
+      {
+        itemName: 'Popovers',
+        itemLink: '/admin/ui/popovers',
       },
       {
         itemName: 'Datepickers',
-        itemLink: '/admin/ui/datepickers'
-      }
+        itemLink: '/admin/ui/datepickers',
+      },
     ],
   },
   {

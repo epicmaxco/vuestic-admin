@@ -36,7 +36,11 @@
 </template>
 
 <script>
-import { getHoverColor, getFocusColor, getBoxShadowColor } from '../../../services/colors'
+import {
+  getFocusColor,
+  getHoverColor,
+  getBoxShadowColor,
+} from '../../../services/color-functions'
 
 export default {
   name: 'va-chip',
@@ -46,21 +50,21 @@ export default {
       default: true,
     },
     outline: {
-      type: Boolean
+      type: Boolean,
     },
     color: {
       type: String,
-      default: 'success'
+      default: 'success',
     },
     icon: {
-      type: String
+      type: String,
     },
     iconRight: {
-      type: String
+      type: String,
     },
     removable: {
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
   data () {
     return {
@@ -82,26 +86,26 @@ export default {
       if (this.focusState) {
         return {
           color: this.outline ? this.$themes[this.color] : '#ffffff',
-          boxShadow: '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.color),
-          backgroundColor: this.outline ? getFocusColor(this.color) : this.$themes[this.color]
+          boxShadow: '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.$themes[this.color]),
+          backgroundColor: this.outline ? getFocusColor(this.$themes[this.color]) : this.$themes[this.color],
         }
       } else if (this.hoverState) {
         return {
           color: this.outline ? this.$themes[this.color] : '#ffffff',
           borderColor: this.outline ? this.$themes[this.color] : '',
-          backgroundColor: this.outline ? getHoverColor(this.color) : this.$themes[this.color]
+          backgroundColor: this.outline ? getHoverColor(this.$themes[this.color]) : this.$themes[this.color],
         }
       } else {
         return {
           color: this.outline ? this.$themes[this.color] : '#ffffff',
           borderColor: this.outline ? this.$themes[this.color] : '',
-          backgroundColor: this.outline ? '' : this.$themes[this.color]
+          backgroundColor: this.outline ? '' : this.$themes[this.color],
         }
       }
     },
     hasTitleData () {
       return this.$slots.default
-    }
+    },
   },
   methods: {
     hideChip () {
@@ -122,57 +126,57 @@ export default {
 <style lang='scss'>
 @import "../../vuestic-sass/resources/resources";
 
-  .va-chip {
-    display: inline-block;
-    padding: $chip-padding-y-nrm $chip-padding-x-nrm;
-    color: $white;
-    border: $chip-border;
-    border-radius: $chip-border-radius-nrm;
-    font-size: $chip-font-size-nrm;
-    font-family: $font-family-sans-serif;
-    background-image: none;
-    box-shadow: none;
-    outline: none !important;
-    line-height: $chip-line-height-nrm;
-    letter-spacing: normal;
-    text-decoration: none !important;
-    cursor: pointer;
+.va-chip {
+  display: inline-block;
+  padding: $chip-padding-y-nrm $chip-padding-x-nrm;
+  color: $white;
+  border: $chip-border;
+  border-radius: $chip-border-radius-nrm;
+  font-size: $chip-font-size-nrm;
+  font-family: $font-family-sans-serif;
+  background-image: none;
+  box-shadow: none;
+  outline: none !important;
+  line-height: $chip-line-height-nrm;
+  letter-spacing: normal;
+  text-decoration: none !important;
+  cursor: pointer;
 
-    &--outline {
-      background-color: transparent;
-      border: solid $chip-border-outline;
-      text-decoration: none;
+  &--outline {
+    background-color: transparent;
+    border: solid $chip-border-outline;
+    text-decoration: none;
+  }
+
+  &__content {
+
+    &__title, &__icon {
+      margin: auto;
     }
 
-    &__content {
-
-      &__title, &__icon {
-        margin: auto;
-      }
-
-      &__icon {
-        width: $chip-icon-width-nrm;
-      }
-
-      .va-icon {
-        color: $white;
-      }
+    &__icon {
+      width: $chip-icon-width-nrm;
     }
 
-    &.va-chip--with-left-icon {
-      padding-left: $chip-with-icon-wrapper-padding-nrm;
-
-      .va-chip__content__title {
-        padding-left: $chip-with-icon-content-padding-nrm;
-      }
-    }
-
-    &.va-chip--with-right-icon {
-      padding-right: $chip-with-icon-wrapper-padding-nrm;
-
-      .va-chip__content__title {
-        padding-right: $chip-with-icon-content-padding-nrm;
-      }
+    .va-icon {
+      color: $white;
     }
   }
+
+  &.va-chip--with-left-icon {
+    padding-left: $chip-with-icon-wrapper-padding-nrm;
+
+    .va-chip__content__title {
+      padding-left: $chip-with-icon-content-padding-nrm;
+    }
+  }
+
+  &.va-chip--with-right-icon {
+    padding-right: $chip-with-icon-wrapper-padding-nrm;
+
+    .va-chip__content__title {
+      padding-right: $chip-with-icon-content-padding-nrm;
+    }
+  }
+}
 </style>

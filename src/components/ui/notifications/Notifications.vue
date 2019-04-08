@@ -2,73 +2,6 @@
   <div class="notifications">
     <div class="va-row">
       <div class="flex md12">
-        <va-card
-          :title="'notificationsPage.popovers.title' | translate">
-          <div class="va-row">
-            <div class="flex md6">
-              <fieldset>
-                <div class="form-group">
-                  <div class="input-group">
-                    <input id="popover-title" v-model="popoverTitle"
-                           @input="checkPopoverContents" required/>
-                    <label class="control-label" for="popover-title">{{'notificationsPage.popovers.popoverTitleLabel'
-                      | translate}}</label><va-icon icon="bar"/>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group">
-                    <input id="popover-text" v-model="popoverText"
-                           @input="checkPopoverContents" required/>
-                    <label class="control-label" for="popover-text">{{'notificationsPage.popovers.popoverTextLabel'
-                      | translate}}</label><va-icon icon="bar"/>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group">
-                    <input id="popover-icon" v-model="popoverIcon"
-                           @input="checkPopoverContents" required/>
-                    <label class="control-label" for="popover-icon">{{'notificationsPage.popovers.popoverIconLabel'
-                      | translate}}</label><va-icon icon="bar"/>
-                  </div>
-                </div>
-                <vuestic-popover popover-class="vuestic-tooltip"
-                                 placement="right"
-                                 :disabled="isPopoverDisabled">
-                  <va-button slot="trigger">
-                    {{ $t('notificationsPage.popovers.showPopover') }}
-                  </va-button>
-                  <va-icon slot="icon" :icon="[ 'fa', popoverIcon ]"/>
-                  <span slot="header">{{popoverTitle}}</span>
-                  <span slot="body">{{popoverText}}</span>
-                </vuestic-popover>
-              </fieldset>
-            </div>
-            <div class="flex md6">
-              <p>
-                Any text can be used for
-                <vuestic-tooltip :options="topTooltipOptions"><a href="#">{{'notificationsPage.popovers.topTooltip'
-                  | translate}}</a></vuestic-tooltip>
-                showcase. Just anything you can possibly imagine to test
-                <vuestic-tooltip :options="rightTooltipOptions"><a href="#">{{'notificationsPage.popovers.rightTooltip'
-                  | translate}}</a></vuestic-tooltip>
-                .
-                But it can appear on the
-                <vuestic-tooltip :options="leftTooltipOptions"><a href="#">{{'notificationsPage.popovers.leftTooltip'
-                  | translate}}</a></vuestic-tooltip>
-                .
-                Or just
-                <vuestic-tooltip :options="bottomTooltipOptions"><a href="#">{{'notificationsPage.popovers.bottomTooltip'
-                  | translate}}</a></vuestic-tooltip>
-                the item.
-              </p>
-            </div>
-          </div>
-        </va-card>
-      </div>
-    </div>
-
-    <div class="va-row">
-      <div class="flex md12">
         <va-card :title="$t('notificationsPage.notifications.title')">
           <div class="mb-3">
             <va-notification closeable>
@@ -162,8 +95,8 @@
                 <!-- TODO Redo with global classes -->
                 <div class="form-group va-row mb-4">
                   <toast-position-picker v-model="toastPosition"/>
-                  <vuestic-checkbox
-                    :label="'notificationsPage.toasts.fullWidthLabel' | translate"
+                  <va-checkbox
+                    :label="$t('notificationsPage.toasts.fullWidthLabel')"
                     :id="'toast-fullwidth'"
                     v-model="isToastFullWidth"
                   />
@@ -202,26 +135,6 @@ export default {
   components: { ToastPositionPicker },
   data () {
     return {
-      popoverTitle: 'Hey!',
-      popoverText: 'This popover is amazing',
-      popoverIcon: 'fa-image',
-      isPopoverDisabled: false,
-      topTooltipOptions: {
-        content: 'Top tooltip text',
-        placement: 'top',
-      },
-      leftTooltipOptions: {
-        content: 'Left tooltip text',
-        placement: 'left',
-      },
-      rightTooltipOptions: {
-        content: 'Right tooltip text',
-        placement: 'right',
-      },
-      bottomTooltipOptions: {
-        content: 'Bottom tooltip text',
-        placement: 'bottom',
-      },
       toastText: 'This toast is awesome!',
       toastDuration: 2500,
       toastIcon: 'fa-star-o',
@@ -235,9 +148,6 @@ export default {
     },
   },
   methods: {
-    checkPopoverContents () {
-      this.isPopoverDisabled = !(this.popoverTitle || this.popoverText || this.popoverIcon)
-    },
     launchToast () {
       this.showToast(
         this.toastText,

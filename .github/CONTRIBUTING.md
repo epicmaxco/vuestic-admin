@@ -36,7 +36,25 @@ Commit messages should follow the [commit message convention](./COMMIT_CONVENTIO
 * Check your code: https://github.com/epicmaxco/vuestic-admin/issues/378.
 * We use [yarn](https://yarnpkg.com/lang/en/) for package management.
 * Be proactive. If you think something is wrong - create an issue or discuss.
-* Recommended tools: [GitKraken](https://www.gitkraken.com/), [WebStorm](https://www.jetbrains.com/webstorm/)
+* Recommended tools: [GitKraken](https://www.gitkraken.com/), [WebStorm](https://www.jetbrains.com/webstorm/), [ShareX](https://getsharex.com/)
+
+#### Component folder structure
+
+Here's the component folder structure example for `va-checkbox` component.
+
+```
+va-checkbox // component directory
+  |- VaCheckbox.vue // component itself
+  |- VaCheckbox.demo.vue // component demo
+  |- VaCheckbox.spec.js // component tests
+  |- va-checkbox-docs.md // component documentation
+```
+
+This will allow us to easier version documentation as well as simplify transition docs to mature version (generation from markdown).
+
+Here's couple of points about these files:
+* Only tests are optional, documentation and demos are not. Docs and demos should also cover all supported cases.
+* Documentation for now should be duplicated to both wiki and `.md`, but you can copy it to wiki only before PR merge while keeping `*-docs.md` updated all the time.
 
 #### Before release workflow
 * Update package versions to newest ones. Update lock files (for both `npm` and `yarn`)

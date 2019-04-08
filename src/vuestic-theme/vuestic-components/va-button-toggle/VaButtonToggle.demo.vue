@@ -1,6 +1,6 @@
 <template>
   <VbDemo>
-    <VbContainer>
+    <VbCard>
       <table class="table table-bordered">
         <tr>
           <th>Description</th>
@@ -83,25 +83,25 @@
           </td>
         </tr>
       </table>
-    </VbContainer>
+    </VbCard>
   </VbDemo>
 </template>
 
 <script>
-
 import VaButtonToggle from './VaButtonToggle'
+
 export default {
   components: {
-    VaButtonToggle
+    VaButtonToggle,
   },
   data () {
     return {
       options: [
         { label: 'One', value: 'one' },
         { label: 'Two', value: 'two' },
-        { label: 'Three', value: 'three' }
+        { label: 'Three', value: 'three' },
       ],
-      model: 'two'
+      model: 'two',
     }
   },
 }

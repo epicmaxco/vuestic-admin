@@ -1,15 +1,15 @@
 <template>
-  <vuestic-layout v-layout>
+  <va-page-layout v-layout>
     <app-navbar :isOpen="opened" @toggle-menu="toggleSidebar"/>
     <app-sidebar :isOpen="opened" @toggle-menu="toggleSidebar"/>
     <main
       slot="content"
       id="content"
-      class="content va-layout gutter--lg fluid"
+      class="va-layout gutter--lg fluid"
       role="main"
     >
       <app-breadcrumbs/>
-      <vuestic-pre-loader
+      <va-pre-loader
         v-show="isLoading"
         class="pre-loader"
       />
@@ -18,12 +18,12 @@
     <span slot="footer">
       ©2019. Made by&nbsp;<a href="https://epicmax.co" target="_blank"> Epicmax</a>
     </span>
-  </vuestic-layout>
+  </va-page-layout>
 </template>
 
 <script>
-import VuesticLayout
-  from '../../vuestic-theme/vuestic-components/vuestic-layout/VuesticLayout'
+import VaPageLayout
+  from '../../vuestic-theme/vuestic-components/va-page-layout/VaPageLayout'
 import AppNavbar from './app-navbar/AppNavbar'
 import AppSidebar from './app-sidebar/AppSidebar'
 import AppBreadcrumbs from './app-breadcrumbs/AppBreadcrumbs'
@@ -33,7 +33,7 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'app-layout',
   components: {
-    VuesticLayout,
+    VaPageLayout,
     AppNavbar,
     AppSidebar,
     AppBreadcrumbs,

@@ -2,7 +2,7 @@
   <div class="va-row">
     <div class="flex md12 xs12">
       <va-card no-padding-v>
-        <vuestic-breadcrumbs
+        <va-breadcrumbs
           :breadcrumbs="breadcrumbs"
           :currentRouteName="currentRouteName"
         />

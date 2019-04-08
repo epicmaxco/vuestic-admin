@@ -42,8 +42,8 @@ export default {
     },
     dashoffset () {
       return this.dasharray * (1 - this.normalizedValue / 100)
-    }
-  }
+    },
+  },
 }
 </script>
 

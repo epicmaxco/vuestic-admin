@@ -24,7 +24,7 @@
             {{ title }}
           </div>
           <div class="va-card__header-actions">
-            <slot name="actions" />
+            <slot name="actions"/>
           </div>
         </slot>
       </div>
@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import { getGradientBackground } from '../../../services/colors'
+import { getGradientBackground } from '../../../services/color-functions'
 
 export default {
   name: 'va-card',
@@ -80,8 +80,8 @@ export default {
     },
     color: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
     showHeader () {
@@ -93,22 +93,22 @@ export default {
         'va-card__body--no-padding': this.noPadding,
         'va-card__body--padding-top':
           (!this.showHeader && !this.noPaddingV && !this.noPadding) ||
-          this.titleOnImage
+          this.titleOnImage,
       }
     },
     computedStripeStyle () {
       return {
-        background: this.$themes[this.stripe]
+        background: this.$themes[this.stripe],
       }
     },
     computedCardStyle () {
       if (this.color) {
         return {
           color: '#fff',
-          background: getGradientBackground(this.color)
+          background: getGradientBackground(this.$themes[this.color]),
         }
       }
-    }
+    },
   },
 }
 </script>
@@ -202,10 +202,10 @@ export default {
     &-overlay {
       position: absolute;
       top: 0;
-      left:0;
+      left: 0;
       height: 100%;
       width: 100%;
-      background-color: rgba(0,0,0,.3);
+      background-color: rgba(0, 0, 0, .3);
       pointer-events: none;
     }
   }

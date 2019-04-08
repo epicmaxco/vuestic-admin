@@ -1,5 +1,5 @@
 <template>
-  <vuestic-sidebar :hidden="isOpen">
+  <va-sidebar :hidden="isOpen">
     <template slot="menu">
       <sidebar-link
         :to="{ name: 'dashboard' }">
@@ -178,6 +178,12 @@
             <span>{{ $t('menu.datepickers') }}</span>
           </span>
         </sidebar-link>
+        <sidebar-link
+          :to="{ name: 'popovers'}">
+          <span slot="title">
+            <span>{{ $t('menu.popovers') }}</span>
+          </span>
+        </sidebar-link>
       </sidebar-link-group>
       <sidebar-link
         :to="{ name: 'extra' }">
@@ -256,20 +262,20 @@
         </sidebar-link>
       </sidebar-link-group>
     </template>
-  </vuestic-sidebar>
+  </va-sidebar>
 </template>
 
 <script>
 
-import VuesticSidebar
-  from '../../../vuestic-theme/vuestic-components/vuestic-sidebar/VuesticSidebar'
+import VaSidebar
+  from '../../../vuestic-theme/vuestic-components/va-sidebar/VaSidebar'
 import SidebarLink from './components/SidebarLink'
 import SidebarLinkGroup from './components/SidebarLinkGroup'
 
 export default {
   name: 'app-sidebar',
   components: {
-    VuesticSidebar,
+    VaSidebar,
     SidebarLink,
     SidebarLinkGroup,
   },

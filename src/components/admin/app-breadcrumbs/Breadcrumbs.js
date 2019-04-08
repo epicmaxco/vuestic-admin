@@ -65,7 +65,7 @@ export const breadcrumbs = {
         },
         {
           name: 'filters',
-          displayName: 'menu.filters'
+          displayName: 'menu.filters',
         },
         {
           name: 'color-pickers',
@@ -123,16 +123,20 @@ export const breadcrumbs = {
         },
         {
           name: 'spacing',
-          displayName: 'menu.spacing'
+          displayName: 'menu.spacing',
         },
         {
           name: 'sliders',
-          displayName: 'menu.sliders'
+          displayName: 'menu.sliders',
         },
         {
           name: 'datepickers',
-          displayName: 'menu.datepickers'
-        }
+          displayName: 'menu.datepickers',
+        },
+        {
+          name: 'popovers',
+          displayName: 'menu.popovers',
+        },
       ],
     },
     {

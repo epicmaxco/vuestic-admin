@@ -60,6 +60,13 @@
     "slider": "Sliders",
     "range": "Ranges"
   },
+  "popovers": {
+    "popover": "Popover",
+    "popoverStyle": "Popover Style",
+    "popoverPlacement": "Popover Placement",
+    "minimalTooltip": "Minimal Tooltip",
+    "anotherOneTooltip": "Another One Tooltip"
+  },
   "datepickers": {
     "dateOfBirth": "Date of birth",
     "daysOfTheWeek": "Days of the week",
@@ -243,7 +250,8 @@
     "dropdowns": "Dropdowns",
     "spacing": "Spacing",
     "sliders": "Sliders",
-    "datepickers": "Datepickers"
+    "datepickers": "Datepickers",
+    "popovers": "Popovers"
   },
   "messages": {
     "all": "See all messages",
