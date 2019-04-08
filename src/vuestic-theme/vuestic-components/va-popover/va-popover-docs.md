@@ -24,7 +24,6 @@
   message="Popover text"
   placement="bottom"
   trigger="click"
-  
 >
  <span>Click Me</span>
 </va-popover>
@@ -39,6 +38,6 @@
 * `placement` - String (default: 'bottom') - place, where tooltip text is situated.
 * `trigger` - String (default: 'hover') - typeof event triggering the popover. (Possible triggers: 'hover', 'click', 'focus', 'manual').
 * `color` - String (default: 'success') - use this property to set the color of the popover. We can choose one color from a set of theme colors (primary, secondary, info, error, warning)
-* `autoHide` - Boolean (default: 'true') - automatically close the tooltip on mouseover.
+* `autoHide` - Boolean (default: true) - automatically close the tooltip on mouseover.
 
 More information - [v-tooltip docs](https://github.com/Akryum/v-tooltip)!
