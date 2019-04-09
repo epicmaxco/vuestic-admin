@@ -134,20 +134,20 @@ export default {
 </script>
 
 <style lang="scss">
-  .icon-set {
+.icon-set {
 
-    .icon-grid-container {
-      display: flex;
-      flex-direction: column;
-      &:hover {
-        color: $white;
-        background-color: $brand-primary;
-        cursor: pointer;
-      }
+  .icon-grid-container {
+    display: flex;
+    flex-direction: column;
+    &:hover {
+      color: $white;
+      background-color: $brand-primary;
+      cursor: pointer;
+    }
 
-      .icon-text {
-        font-size: .6rem;
-      }
+    .icon-text {
+      font-size: .6rem;
     }
   }
+}
 </style>
