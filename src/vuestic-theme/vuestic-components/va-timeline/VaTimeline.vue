@@ -72,11 +72,13 @@ export default {
   props: {
     vertical: Boolean,
     centered: Boolean,
+    alignTop: Boolean,
   },
   render (createElement, context) {
     const classes = {
       [$root]: true,
       [`${$root}--vertical`]: context.props.vertical,
+      [`${$root}--align-top`]: context.props.alignTop,
     }
     if (context.data.staticClass) {
       classes[context.data.staticClass] = true
@@ -105,6 +107,14 @@ $timeline-outer-spacing: 2rem;
     flex-direction: column;
     padding-left: 0.25rem;
     padding-right: 0.25rem;
+  }
+
+  &--align-top {
+
+    .va-timeline-item__before,
+    .va-timeline-item__after {
+      flex: 0;
+    }
   }
 
   .va-timeline-item {

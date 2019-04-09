@@ -102,6 +102,10 @@ export default {
   display: flex;
   flex-direction: column;
 
+  &__before, &__after {
+    flex: 1;
+  }
+
   &--vertical {
     .va-timeline-item__before,
     .va-timeline-item__after {

@@ -45,7 +45,7 @@
       class="timelines__horizontal-long"
       :title="$t('timelines.horizontalCards')"
     >
-      <va-timeline style="min-width: 600px;" class="timelines__horizontal-long__timeline">
+      <va-timeline align-top style="min-width: 600px;" class="timelines__horizontal-long__timeline">
         <va-timeline-item active>
           <template slot="before">
             <div class="title text--center">
