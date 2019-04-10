@@ -1,52 +1,52 @@
 <template>
   <VbDemo>
-    <VbContainer title="No Value">
+    <VbCard title="No Value">
       <VaProgressCircle/>
-    </VbContainer>
+    </VbCard>
 
-    <VbContainer dashed no-padding>
+    <VbCard dashed no-padding>
       <VaProgressCircle :value="value"/>
-    </VbContainer>
+    </VbCard>
 
-    <VbContainer refresh title="Default">
+    <VbCard refresh title="Default">
       <VaProgressCircle :value="value"/>
-    </VbContainer>
+    </VbCard>
 
-    <VbContainer title="Danger">
-      <VaProgressCircle :value="value" theme="Danger"/>
-    </VbContainer>
+    <VbCard title="Danger">
+      <VaProgressCircle :value="value" color="danger"/>
+    </VbCard>
 
-    <VbContainer title="Static Slot">
+    <VbCard title="Static Slot">
       <VaProgressCircle :value="value">Static</VaProgressCircle>
-    </VbContainer>
+    </VbCard>
 
-    <VbContainer title="Dynamic Slot">
+    <VbCard title="Dynamic Slot">
       <VaProgressCircle :value="value">{{ value + '%' }}</VaProgressCircle>
-    </VbContainer>
+    </VbCard>
 
-    <VbContainer title="Slot Success">
-      <VaProgressCircle :value="value" theme="Success">{{ value + '%' }}</VaProgressCircle>
-    </VbContainer>
+    <VbCard title="Slot Success">
+      <VaProgressCircle :value="value" color="success">{{ value + '%' }}</VaProgressCircle>
+    </VbCard>
 
-    <VbContainer refresh title="Indeterminate">
+    <VbCard refresh title="Indeterminate">
       <VaProgressCircle indeterminate/>
-    </VbContainer>
+    </VbCard>
 
-    <VbContainer title="Indeterminate Info">
-      <VaProgressCircle indeterminate theme="Info"/>
-    </VbContainer>
+    <VbCard title="Indeterminate Info">
+      <VaProgressCircle indeterminate color="info"/>
+    </VbCard>
 
-    <VbContainer title="Indeterminate Slot">
+    <VbCard title="Indeterminate Slot">
       <VaProgressCircle indeterminate>Slot</VaProgressCircle>
-    </VbContainer>
+    </VbCard>
 
-    <VbContainer>
+    <VbCard>
       <button @click="value -= 100">-100</button>
       <button @click="value -= 10">-10</button>
       {{ value }}
       <button @click="value += 10">+10</button>
       <button @click="value += 100">+100</button>
-    </VbContainer>
+    </VbCard>
   </VbDemo>
 </template>
 
@@ -55,12 +55,12 @@ import VaProgressCircle from './VaProgressCircle'
 
 export default {
   components: {
-    VaProgressCircle
+    VaProgressCircle,
   },
   data () {
     return {
-      value: 35
+      value: 35,
     }
-  }
+  },
 }
 </script>

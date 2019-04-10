@@ -1,53 +1,54 @@
 <template>
   <div class="extra">
-    <vuestic-widget :headerText="'extra.tabs.title' | translate"
-                    class="no-v-padding">
-      <vuestic-tabs class="tabs mt-2"
+    <va-card :title="$t('extra.tabs.title')">
+      <va-tabs class="tabs mt-2"
                     :names="[$t('extra.tabs.maps'), $t('extra.tabs.setupProfile'), $t('extra.tabs.overview')]">
-        <div :slot="'extra.tabs.overview' | translate"
+        <div :slot="$t('extra.tabs.overview')"
              class="flex justify--center">
           <overview-tab></overview-tab>
         </div>
-        <div :slot="'extra.tabs.maps' | translate" class="maps-tab">
+        <div :slot="$t('extra.tabs.maps')" class="maps-tab">
           <leaflet-map></leaflet-map>
         </div>
-        <div :slot="'extra.tabs.setupProfile' | translate"
+        <div :slot="$t('extra.tabs.setupProfile')"
              class="flex justify--center">
           <setup-profile-tab wizardType="simple"></setup-profile-tab>
         </div>
-      </vuestic-tabs>
-    </vuestic-widget>
+      </va-tabs>
+    </va-card>
 
     <div class="va-row">
       <div class="flex md4">
-        <vuestic-widget :headerText="$t('extra.profileCard')"
-                        class="profile-card-widget">
-          <vuestic-profile-card :name="'Veronique Lee'"
+        <va-card :title="$t('extra.profileCard')"
+                 class="profile-card-widget">
+          <va-profile-card :name="'Veronique Lee'"
                                 :location="'Malaga, Spain'"
                                 photoSource="https://i.imgur.com/NLrdqsk.png"
                                 :social="{twitter: 'twitter.com', facebook: 'facebook.com',
                                   instagram: 'instagram.com'}">
-          </vuestic-profile-card>
-        </vuestic-widget>
+          </va-profile-card>
+        </va-card>
       </div>
       <div class="flex md8">
-        <vuestic-widget :headerText="$t('extra.chat')" class="chat-widget">
-          <vuestic-chat v-model="chatMessages"></vuestic-chat>
-        </vuestic-widget>
+        <va-card :title="$t('extra.chat')" class="chat-widget">
+          <va-chat v-model="chatMessages"></va-chat>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row bottom-widgets">
       <div class="flex md6">
-        <vuestic-widget class="no-h-padding no-v-padding">
-          <vuestic-feed :initialPosts="posts"></vuestic-feed>
-        </vuestic-widget>
+        <va-card no-padding>
+          <va-feed :initialPosts="posts"/>
+        </va-card>
       </div>
       <div class="flex md6">
-        <vuestic-widget class="business-posts">
-          <vuestic-social-news :news="news"
-                               :url="'https://instagram.com/smartapant'"></vuestic-social-news>
-        </vuestic-widget>
+        <va-card class="business-posts">
+          <va-social-news
+            :news="news"
+            :url="'https://instagram.com/smartapant'"
+          />
+        </va-card>
       </div>
     </div>
   </div>

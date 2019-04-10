@@ -18,7 +18,7 @@ export default {
   },
 
   computed: {
-    classObject: function () {
+    classObject () {
       return {
         'badge-warning': this.rowIndex % 6 === 0,
         'badge-primary': this.rowIndex % 6 === 1,

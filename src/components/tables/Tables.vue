@@ -2,15 +2,15 @@
   <div class="tables">
     <div class="va-row">
       <div class="flex xs12 md12">
-        <vuestic-widget :headerText="$t('tables.basic')">
+        <va-card :title="$t('tables.basic')">
           <div class="table-responsive">
             <table class="table table-striped first-td-padding">
               <thead>
               <tr>
-                <td>{{'tables.headings.name' | translate}}</td>
-                <td>{{'tables.headings.email' | translate}}</td>
-                <td>{{'tables.headings.city' | translate}}</td>
-                <td align="right">{{'tables.headings.score' | translate}}</td>
+                <td>{{ $t('tables.headings.name') }}</td>
+                <td>{{ $t('tables.headings.email') }}</td>
+                <td>{{ $t('tables.headings.city') }}</td>
+                <td align="right">{{ $t('tables.headings.score') }}</td>
                 <td></td>
               </tr>
               </thead>
@@ -74,22 +74,22 @@
               </tbody>
             </table>
           </div>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row">
       <div class="flex md12 xs12">
-        <vuestic-widget :headerText="$t('tables.styled')">
+        <va-card :title="$t('tables.styled')">
           <div class="table-responsive">
             <table class="table table-striped table-sm color-icon-label-table">
               <thead>
               <tr>
                 <td></td>
-                <td>{{'tables.headings.name' | translate}}</td>
-                <td>{{'tables.headings.email' | translate}}</td>
-                <td>{{'tables.headings.city' | translate}}</td>
-                <td align="right">{{'tables.headings.score' | translate}}</td>
+                <td>{{ $t('tables.headings.name') }}</td>
+                <td>{{ $t('tables.headings.email') }}</td>
+                <td>{{ $t('tables.headings.city') }}</td>
+                <td align="right">{{ $t('tables.headings.score') }}</td>
                 <td align="middle"></td>
               </tr>
               </thead>
@@ -173,14 +173,14 @@
               </tbody>
             </table>
           </div>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
 
     <div class="va-row">
       <div class="flex md12 xs12">
-        <vuestic-widget :headerText="$t('tables.advanced')">
-          <vuestic-data-table
+        <va-card :title="$t('tables.advanced')">
+          <va-data-table
             :apiUrl="apiUrl"
             :tableFields="tableFields"
             :itemsPerPage="itemsPerPage"
@@ -196,8 +196,8 @@
               :size="70"
               color="#4ae387"
             />
-          </vuestic-data-table>
-        </vuestic-widget>
+          </va-data-table>
+        </va-card>
       </div>
     </div>
 
@@ -208,10 +208,11 @@
 import Vue from 'vue'
 import BadgeColumn from './BadgeColumn.vue'
 import FieldsDef
-  from '../../vuestic-theme/vuestic-components/vuestic-datatable/data/fields-definition'
+  from '../../vuestic-theme/vuestic-components/va-datatable/data/fields-definition'
 import ItemsPerPageDef
-  from '../../vuestic-theme/vuestic-components/vuestic-datatable/data/items-per-page-definition'
-import QueryParams from '../../vuestic-theme/vuestic-components/vuestic-datatable/data/query-params'
+  from '../../vuestic-theme/vuestic-components/va-datatable/data/items-per-page-definition'
+import QueryParams
+  from '../../vuestic-theme/vuestic-components/va-datatable/data/query-params'
 import { SpringSpinner } from 'epic-spinners'
 
 Vue.component('badge-column', BadgeColumn)
@@ -219,7 +220,7 @@ Vue.component('badge-column', BadgeColumn)
 export default {
   name: 'Table',
   components: {
-    SpringSpinner
+    SpringSpinner,
   },
   data () {
     return {

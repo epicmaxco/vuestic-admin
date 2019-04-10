@@ -2,11 +2,11 @@
   font-family: 'OpenWeb Icons';
   font-style: normal;
   font-weight: normal;
-  src: url('vuestic-theme/vuestic-sass/icons/icon-fonts/openwebicons/openwebicons.eot');
-  src: url('vuestic-theme/vuestic-sass/icons/icon-fonts/openwebicons/openwebicons.eot?#iefix') format('eot'),
-  url('vuestic-theme/vuestic-sass/icons/icon-fonts/openwebicons/openwebicons.woff') format('woff'),
-  url('vuestic-theme/vuestic-sass/icons/icon-fonts/openwebicons/openwebicons.ttf') format('truetype'),
-  url('vuestic-theme/vuestic-sass/icons/icon-fonts/openwebicons/openwebicons.svg#openweb_iconsregular') format('svg');
+  src: url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/openwebicons/openwebicons.eot');
+  src: url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/openwebicons/openwebicons.eot?#iefix') format('eot'),
+  url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/openwebicons/openwebicons.woff') format('woff'),
+  url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/openwebicons/openwebicons.ttf') format('truetype'),
+  url('./../vuestic-theme/vuestic-sass/icons/icon-fonts/openwebicons/openwebicons.svg#openweb_iconsregular') format('svg');
 }
 
 [class*="openwebicons-"]:before {

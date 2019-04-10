@@ -1,34 +1,87 @@
 <template>
-  <div class="va-button-group">
-    <slot></slot>
+  <div
+    class="va-button-group"
+    :class="computedClass"
+    :style="computedStyle"
+  >
+    <slot/>
   </div>
 </template>
 
 <script>
+import { getGradientBackground } from '../../../services/color-functions'
+import Vue from 'vue'
+
 export default {
-  name: 'va-button-group'
+  name: 'va-button-group',
+  props: {
+    color: {
+      type: String,
+    },
+  },
+  provide () {
+    const parent = this
+    return {
+      va: new Vue({
+        computed: {
+          color () {
+            return parent.color
+          },
+        },
+      }),
+    }
+  },
+  computed: {
+    computedClass () {
+      return {
+        'va-button-group--large': this.large,
+        'va-button-group--small': this.small,
+        'va-button-group--normal': !this.large && !this.small,
+      }
+    },
+    computedStyle () {
+      return {
+        backgroundImage: getGradientBackground(this.$themes[this.color]),
+      }
+    },
+  },
 }
 </script>
 
 <style lang='scss'>
- .va-button-group {
-   display: flex;
-   margin: 0.375rem 0.5rem;
+@import '../../vuestic-sass/resources/resources';
 
-   .va-button {
-     margin: 0;
-   }
+.va-button-group {
+  display: flex;
+  justify-content: stretch;
+  margin: 0.375rem 0.5rem;
 
-   & > .va-button:not(:last-child) {
-     border-top-right-radius: 0;
-     border-bottom-right-radius: 0;
-     border-right: 0;
-   }
+  &--small {
+    border-radius: $btn-border-radius-sm;
+  }
 
-   & > .va-button + .va-button {
-     border-top-left-radius: 0;
-     border-bottom-left-radius: 0;
-     border-left: 0;
-   }
- }
+  &--large {
+    border-radius: $btn-border-radius-lg;
+  }
+
+  &--normal {
+    border-radius: $btn-border-radius-nrm;
+  }
+
+  .va-button {
+    margin: 0;
+  }
+
+  & > .va-button:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+  }
+
+  & > .va-button + .va-button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 0;
+  }
+}
 </style>
