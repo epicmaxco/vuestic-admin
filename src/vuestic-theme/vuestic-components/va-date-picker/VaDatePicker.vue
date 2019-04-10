@@ -6,13 +6,19 @@
       data-toggle
       :placeholder="placeholder"
       :label="label"
+      :disabled="disabled"
+      :error="error"
+      :success="success"
+      :messages="messages"
+      :error-messages="errorMessages"
     >
-      <va-icon icon="fa fa-calendar" />
+      <va-icon color="gray" icon="fa fa-calendar" />
     </va-input>
     <vue-flatpickr-component
       class="va-date-picker__flatpickr"
       v-model="valueProxy"
       :config="fullConfig"
+      :disabled="disabled"
       @on-open="onOpen"
       data-input
     />
@@ -28,6 +34,13 @@ export default {
     VueFlatpickrComponent,
   },
   props: {
+    value: {
+      required: true,
+    },
+    weekDays: {
+      type: Boolean,
+      default: false,
+    },
     placeholder: {
       type: String,
       defualt: '',
@@ -36,12 +49,22 @@ export default {
       type: String,
       defualt: '',
     },
-    value: {
-      required: true,
-    },
-    weekDays: {
+    disabled: {
       type: Boolean,
-      default: false,
+    },
+    error: {
+      type: Boolean,
+    },
+    success: {
+      type: Boolean,
+    },
+    messages: {
+      type: Array,
+      default: () => [],
+    },
+    errorMessages: {
+      type: Array,
+      default: () => [],
     },
     config: {
       type: Object,
@@ -105,7 +128,6 @@ $daySize: 2rem;
 $dayMargin: 0.6rem;
 
 .va-date-picker {
-  max-width: $daySize * 7 + ($dayPadding + $dayMargin * 2) * 6 + $borderPadding * 2;
   position: relative;
 
   &__container {
@@ -132,6 +154,10 @@ $dayMargin: 0.6rem;
     cursor: pointer;
     background-color: $datepickerBackground;
     width: 2.2rem;
+  }
+
+  i + i {
+    margin-left: 0.5rem;
   }
 }
 
@@ -178,7 +204,7 @@ $dayMargin: 0.6rem;
     .dayContainer {
        width: 100%;
        max-width: 100%;
-       min-width: 280px;
+       min-width: 240px;
 
       .flatpickr-day {
         @include va-flex-center();
