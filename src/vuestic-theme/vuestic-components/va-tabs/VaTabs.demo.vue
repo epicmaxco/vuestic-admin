@@ -1,6 +1,6 @@
 <template>
   <VbDemo>
-    <VbContainer style="width: 100%">
+    <VbCard style="width: 100%">
       <va-tabs
         v-model="value"
         :right="option === 'align-right'"
@@ -18,22 +18,22 @@
         </va-tab>
       </va-tabs>
       {{value}}
-    </VbContainer>
-    <VbContainer>
+    </VbCard>
+    <VbCard>
       <button @click="count++">add item</button>
       <button @click="count--">remove item</button>
-    </VbContainer>
-    <VbContainer>
+    </VbCard>
+    <VbCard>
       <va-radio-button
         v-for="value in options"
         :key="value"
         v-model="option"
         :option="value"
       />
-    </VbContainer>
-    <VbContainer>
+    </VbCard>
+    <VbCard>
       <va-checkbox v-model="hideSlider" label="hide-slider"/>
-    </VbContainer>
+    </VbCard>
   </VbDemo>
 </template>
 

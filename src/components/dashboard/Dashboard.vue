@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard">
     <dashboard-info-widgets/>
-    <vuestic-widget class="no-padding no-v-padding">
+    <va-card class="no-padding no-v-padding">
       <va-tabs
         v-model="value"
         grow
@@ -23,7 +23,7 @@
       <users-members-tab v-if="value === 1"/>
       <setup-profile-tab v-if="value === 2"/>
       <features-tab v-if="value === 3"/>
-    </vuestic-widget>
+    </va-card>
     <dashboard-bottom-widgets></dashboard-bottom-widgets>
   </div>
 </template>
@@ -63,9 +63,9 @@ export default {
   },
   data () {
     return {
-      value: 0
+      value: 0,
     }
-  }
+  },
 }
 
 </script>
