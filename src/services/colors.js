@@ -19,5 +19,5 @@ export const ColorPlugin = {
     /* eslint-disable no-new */
 
     new Vue({ data: { themes: Vue.prototype.$themes } })
-  },
+  }
 }
