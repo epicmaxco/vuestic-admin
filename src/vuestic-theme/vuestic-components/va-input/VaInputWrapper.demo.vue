@@ -1,35 +1,35 @@
 <template>
   <VbDemo>
-    <VbContainer title="Simple Input Wrapper">
+    <VbCard title="Simple Input Wrapper">
       <va-input-wrapper/>
-    </VbContainer>
-    <VbContainer title="Input Wrapper With Messages">
+    </VbCard>
+    <VbCard title="Input Wrapper With Messages">
       <va-input-wrapper
         :messages="messages"
       />
-    </VbContainer>
-    <VbContainer title="Error Input Wrapper">
+    </VbCard>
+    <VbCard title="Error Input Wrapper">
       <va-input-wrapper
         error
       />
-    </VbContainer>
-    <VbContainer title="Success Input Wrapper">
+    </VbCard>
+    <VbCard title="Success Input Wrapper">
       <va-input-wrapper
         success
       />
-    </VbContainer>
-    <VbContainer title="Error Input Wrapper With Messages">
+    </VbCard>
+    <VbCard title="Error Input Wrapper With Messages">
       <va-input-wrapper
         error
         :error-messages="errorMessages"
       />
-    </VbContainer>
-    <VbContainer title="Input Wrapper With Default Slot">
+    </VbCard>
+    <VbCard title="Input Wrapper With Default Slot">
       <va-input-wrapper>
         <va-button>Button</va-button>
       </va-input-wrapper>
-    </VbContainer>
-    <VbContainer title="Input Wrapper With Slot">
+    </VbCard>
+    <VbCard title="Input Wrapper With Slot">
       <va-input-wrapper>
         <va-icon
           class="pb-1"
@@ -37,7 +37,7 @@
           icon="fa fa-anchor"
         />
       </va-input-wrapper>
-    </VbContainer>
+    </VbCard>
   </VbDemo>
 </template>
 
