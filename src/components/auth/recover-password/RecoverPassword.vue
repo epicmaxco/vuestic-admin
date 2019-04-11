@@ -1,0 +1,41 @@
+<template>
+  <form @submit="onsubmit" class="login">
+    <div class="va-row mb-4">
+      <va-input
+        v-model="email"
+        type="email"
+        :label="$t('auth.email')"
+        :error="!!emailErrors.length"
+        :error-messages="emailErrors"
+      />
+    </div>
+    <div class="va-row justify--center">
+      <va-button type="submit" class="my-0">{{ $t('auth.reset_password') }}</va-button>
+    </div>
+  </form>
+</template>
+
+<script>
+export default {
+  name: 'recover-password',
+  components: {},
+  data () {
+    return {
+      email: '',
+      emailErrors: [],
+    }
+  },
+  methods: {
+    onsubmit () {
+      if (!this.email) {
+        this.emailErrors = ['Email is required']
+      } else {
+        this.$router.push('/')
+      }
+    },
+  },
+}
+</script>
+
+<style lang="scss">
+</style>

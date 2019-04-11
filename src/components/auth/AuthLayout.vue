@@ -1,24 +1,8 @@
 <template>
-  <div class="auth-layout ma-0">
-    <div class="nav flex-center">
-      <router-link :to="{path: '/'}">
-        <va-icon-vuestic/>
-      </router-link>
-    </div>
-    <div class="main va-row ma-0">
-      <div class="auth-content flex-center pa-0 flex lg6 xs12 fill-height">
-        <div class="flex-center">
-          <router-view/>
-        </div>
-      </div>
-      <div class="auth-layout__auth-wallpaper flex md6">
-        <div class="flex-center">
-          <div class="auth-layout__auth-wallpaper__cross-line"/>
-          <router-link class="auth-layout__auth-wallpaper__logo" :to="{path: '/'}">
-            <va-icon-vuestic/>
-          </router-link>
-        </div>
-      </div>
+  <div class="auth-layout ma-0 justify--center">
+    <div class="flex-center flex-column auth-layout__inner">
+      <va-icon-vuestic/>
+      <router-view/>
     </div>
   </div>
 </template>
@@ -36,72 +20,16 @@ export default {
 
 <style lang="scss">
 .auth-layout {
-  height: 100vh;
-
-  &__auth-wallpaper {
-    position: relative;
-    background-color: $top-nav-bg;
-    overflow: hidden;
-    @include va-flex-center();
-
-    &__logo {
-      z-index: 2;
-      position: absolute;
-      height: $auth-wallpaper-ivuestic-h;
-      width: 100%;
-    }
-
-    .va-icon-vuestic {
-      height: $auth-wallpaper-ivuestic-h;
-      width: 100%;
-    }
-
-    &__cross-line {
-      z-index: 1;
-      position: absolute;
-      background-color: $auth-wallpaper-oblique-line;
-      left: calc(50% - 27% / 2);
-      transform: rotate(15deg);
-      width: 27%;
-      height: 115%;
-    }
+  min-height: 100vh;
+  background-image: linear-gradient(to right, #0e4ac4, #002c85);
+  padding-top: 12%;
+  @include media-breakpoint-down(sm) {
+    padding-top: 8%;
   }
-
-  .nav {
-    display: none;
-    height: $top-mobile-nav-height;
-    background-color: $top-nav-bg;
-
-    .va-icon-vuestic {
-      height: $auth-mobile-nav-ivuestic-h;
-      width: 100%;
-    }
-  }
-
-  .main {
-    height: 100vh;
-
-    .auth-content {
-      background-color: $white;
-    }
-  }
-
-  @include media-breakpoint-down(md) {
-    .nav {
-      display: flex;
-    }
-
-    .main {
-      height: $auth-mobile-main-h;
-
-      .auth-content {
-        align-items: flex-start;
-      }
-
-      .auth-wallpaper {
-        display: none;
-      }
-    }
+  .va-icon-vuestic {
+    height: $auth-wallpaper-ivuestic-h;
+    width: 100%;
+    margin-bottom: 5.625rem;
   }
 }
 </style>

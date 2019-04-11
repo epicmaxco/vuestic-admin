@@ -37,6 +37,11 @@ export default new Router({
           component: () => import('../components/auth/signup/Signup.vue'),
         },
         {
+          name: 'recover-password',
+          path: 'recover-password',
+          component: () => import('../components/auth/recover-password/RecoverPassword.vue'),
+        },
+        {
           path: '',
           redirect: { name: 'login' },
         },
