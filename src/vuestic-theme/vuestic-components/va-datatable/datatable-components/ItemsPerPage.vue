@@ -4,7 +4,7 @@
     placement="bottom"
   >
     <va-button
-      type="button" icon-right="ion-ios-arrow-down arrow-down" slot="actuator">
+      type="button" icon-right="ion-ios-arrow-down arrow-down" slot="activator">
       {{selected}} {{label}}
     </va-button>
     <template>

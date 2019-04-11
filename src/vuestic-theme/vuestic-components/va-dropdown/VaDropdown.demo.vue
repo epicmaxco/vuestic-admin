@@ -7,7 +7,7 @@
     >
       <va-button
         type="button" class="theme-toggle"
-        slot="actuator" icon-right="ion-ios-arrow-down arrow-down">
+        slot="activator" icon-right="ion-ios-arrow-down arrow-down">
         {{ dropdown.text }}
         <va-dropdown
           v-model="dropdown.value"

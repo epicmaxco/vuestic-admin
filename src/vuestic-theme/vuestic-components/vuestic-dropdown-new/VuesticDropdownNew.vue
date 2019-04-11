@@ -1,7 +1,7 @@
 <template>
   <div>
-    <slot name="actuator">
-      <div>Actuator</div>
+    <slot name="activator">
+      <div>Activator</div>
     </slot>
     <transition :name="noFade ? '' : 'dropdown'" mode="out-in">
       <div
@@ -26,31 +26,31 @@ export default {
     position: {
       type: String,
       default: 'T',
-      validator: position => availablePositions.indexOf(position) >= 0
+      validator: position => availablePositions.indexOf(position) >= 0,
     },
     triggerMode: {
       type: String,
-      default: 'click'
+      default: 'click',
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     maxWidth: {
-      type: [String, Number]
+      type: [String, Number],
     },
     maxHeight: {
-      type: [String, Number]
+      type: [String, Number],
     },
     noFade: Boolean,
-    message: String
+    message: String,
   },
   data () {
     return {
       visible: false,
       top: 0,
       left: 0,
-      offset: 5
+      offset: 5,
     }
   },
   computed: {
@@ -85,15 +85,15 @@ export default {
     },
     isOnHover () {
       return this.triggerMode.indexOf('hover') >= 0
-    }
+    },
   },
   mounted () {
-    if (!this.$slots.actuator) {
+    if (!this.$slots.activator) {
       return
     }
 
     this.parentElement = this.$el.parentNode
-    this.targetElement = this.$slots.actuator[0].elm
+    this.targetElement = this.$slots.activator[0].elm
     this.parentElement.insertBefore(this.targetElement, this.$el)
     this.$el.removeChild(this.$refs.dropdown)
     document.body.appendChild(this.$refs.dropdown)
@@ -250,8 +250,8 @@ export default {
     },
     killOutSideClick () {
       document.removeEventListener('click', this.outsideClickListener)
-    }
-  }
+    },
+  },
 }
 </script>
 

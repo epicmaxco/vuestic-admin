@@ -1,63 +1,63 @@
 <template>
   <VbDemo>
-    <VbContainer title="Direction">
+    <VbCard title="Direction">
       <vuestic-dropdown-new
         v-for="(value, key) in dropdownDirections"
         :position="key"
         :key="key"
       >
         {{ dropdownText }}
-        <button slot="actuator">
+        <button slot="activator">
           {{value}}
         </button>
       </vuestic-dropdown-new>
-    </VbContainer>
+    </VbCard>
 
-    <VbContainer title="Max Width">
+    <VbCard title="Max Width">
       <vuestic-dropdown-new max-width="150px">
         {{ dropdownText }}
-        <button slot="actuator">Open</button>
+        <button slot="activator">Open</button>
       </vuestic-dropdown-new>
-    </VbContainer>
+    </VbCard>
 
-    <VbContainer title="Disabled">
+    <VbCard title="Disabled">
       <vuestic-dropdown-new disabled>
         {{ dropdownText }}
-        <button slot="actuator">Open</button>
+        <button slot="activator">Open</button>
       </vuestic-dropdown-new>
-    </VbContainer>
+    </VbCard>
 
-    <VbContainer title="Nested Dropdown">
+    <VbCard title="Nested Dropdown">
       <vuestic-dropdown-new>
-        <button slot="actuator">Open</button>
+        <button slot="activator">Open</button>
         <div>
           {{ dropdownText }}
           <vuestic-dropdown-new>
             {{ dropdownText }}
-            <button slot="actuator">Open child</button>
+            <button slot="activator">Open child</button>
           </vuestic-dropdown-new>
           <vuestic-dropdown-new>
-            <button slot="actuator">Open child</button>
+            <button slot="activator">Open child</button>
             {{ dropdownText }}
             <vuestic-dropdown-new>
               {{ dropdownText }}
-              <button slot="actuator">Open child</button>
+              <button slot="activator">Open child</button>
             </vuestic-dropdown-new>
           </vuestic-dropdown-new>
         </div>
       </vuestic-dropdown-new>
-    </VbContainer>
+    </VbCard>
 
-    <VbContainer title="Actuator events">
+    <VbCard title="Activator events">
       <vuestic-dropdown-new trigger-mode="hover">
         <span>Hover</span>
-        <button slot="actuator">Hover</button>
+        <button slot="activator">Hover</button>
       </vuestic-dropdown-new>
       <vuestic-dropdown-new trigger-mode="focus">
         <span>Focus</span>
-        <button slot="actuator">Focus</button>
+        <button slot="activator">Focus</button>
       </vuestic-dropdown-new>
-    </VbContainer>
+    </VbCard>
   </VbDemo>
 </template>
 
@@ -66,7 +66,7 @@ import VuesticDropdownNew from './VuesticDropdownNew.vue'
 
 export default {
   components: {
-    VuesticDropdownNew
+    VuesticDropdownNew,
   },
   data () {
     return {
