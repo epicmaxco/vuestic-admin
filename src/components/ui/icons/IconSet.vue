@@ -53,7 +53,8 @@
       </span>
       <div class="va-row">
         <div
-          class="icon-grid-container flex md flex-center text--center mb-2 position-relative"
+          class="flex flex-center xs3 md1 mb-2 icon-grid-container"
+          style="flex-direction: column"
           v-for="icon in list.icons"
           :key="icon"
         >
@@ -135,10 +136,7 @@ export default {
 
 <style lang="scss">
 .icon-set {
-
   .icon-grid-container {
-    display: flex;
-    flex-direction: column;
     &:hover {
       color: $white;
       background-color: $brand-primary;

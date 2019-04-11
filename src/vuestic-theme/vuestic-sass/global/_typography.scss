@@ -46,6 +46,10 @@
   &--warning {
     color: $theme-warning;
   }
+
+  &--gray {
+    color: $brand-secondary;
+  }
 }
 
 .text {

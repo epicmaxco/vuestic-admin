@@ -1,11 +1,15 @@
 <template>
-  <div class="demo-container">
-    <div class="demo-container__item">
-      <va-timeline-item :isFirst="true" :isLast="true">
+  <VbDemo>
+    <VbCard title="Timeline Item with Label">
+      <va-timeline-item is-first is-last>
         <div slot="before">22 February, 2018</div>
+      </va-timeline-item>
+    </VbCard>
+    <VbCard title="Timeline Item with Card">
+      <va-timeline-item is-first is-last>
         <va-card
           slot="after"
-          stripe="warning"
+          stripe="success"
           title-on-image
           overlay
           image="https://picsum.photos/300/200/?random"
@@ -17,17 +21,17 @@
           around the outside.
         </va-card>
       </va-timeline-item>
-    </div>
-  </div>
+    </VbCard>
+  </VbDemo>
 </template>
 
 <script>
 import VaTimelineItem from './VaTimelineItem.vue'
-import VuesticCard from '../va-card/VaCard'
+import VaCard from '../va-card/VaCard'
 
 export default {
   components: {
-    VuesticCard,
+    VaCard,
     VaTimelineItem,
   },
 }
