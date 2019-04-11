@@ -1,6 +1,6 @@
 <template>
   <VbDemo>
-    <VbContainer title="Simple Timeline">
+    <VbCard title="Simple Timeline">
       <va-timeline>
         <va-timeline-item
           v-for="(item, index) in items"
@@ -21,8 +21,8 @@
           </span>
         </va-timeline-item>
       </va-timeline>
-    </VbContainer>
-    <VbContainer title="Vertical Timeline" width="300px">
+    </VbCard>
+    <VbCard title="Vertical Timeline" width="300px">
       <va-timeline vertical>
         <va-timeline-item
           v-for="(item, index) in items"
@@ -45,8 +45,8 @@
           </span>
         </va-timeline-item>
       </va-timeline>
-    </VbContainer>
-    <VbContainer title="Colorful Timeline">
+    </VbCard>
+    <VbCard title="Colorful Timeline">
       <va-timeline>
         <va-timeline-item
           v-for="(item, index) in items"
@@ -93,13 +93,13 @@
           </span>
         </va-timeline-item>
       </va-timeline>
-    </VbContainer>
-    <VbContainer>
+    </VbCard>
+    <VbCard>
       {{ items }}
       <va-button @click="reroll()">
         Reroll
       </va-button>
-    </VbContainer>
+    </VbCard>
   </VbDemo>
 </template>
 

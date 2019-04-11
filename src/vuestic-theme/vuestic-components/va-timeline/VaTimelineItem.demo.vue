@@ -1,11 +1,11 @@
 <template>
   <VbDemo>
-    <VbContainer title="Timeline Item with Label">
+    <VbCard title="Timeline Item with Label">
       <va-timeline-item is-first is-last>
-        <div class="title title--gray text--center" slot="before">22 February, 2018</div>
+        <div slot="before">22 February, 2018</div>
       </va-timeline-item>
-    </VbContainer>
-    <VbContainer title="Timeline Item with Card">
+    </VbCard>
+    <VbCard title="Timeline Item with Card">
       <va-timeline-item is-first is-last>
         <va-card
           slot="after"
@@ -21,7 +21,7 @@
           around the outside.
         </va-card>
       </va-timeline-item>
-    </VbContainer>
+    </VbCard>
   </VbDemo>
 </template>
 
@@ -32,7 +32,7 @@ import VaCard from '../va-card/VaCard'
 export default {
   components: {
     VaCard,
-    VaTimelineItem
-  }
+    VaTimelineItem,
+  },
 }
 </script>
