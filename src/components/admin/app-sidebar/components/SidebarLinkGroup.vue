@@ -78,6 +78,7 @@ export default {
     classObject () {
       return {
         'expanded': this.expanded,
+
       }
     },
     sidebarLinkStyles () {
@@ -85,7 +86,10 @@ export default {
         return {
           color: this.$themes['success'],
           backgroundColor: getHoverColor(this.$themes['info']),
-          borderLeft: '0.25rem solid ' + this.$themes['success'],
+        }
+      } else {
+        return {
+          color: this.$themes['info'],
         }
       }
     },

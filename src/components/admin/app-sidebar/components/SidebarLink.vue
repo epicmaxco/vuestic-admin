@@ -4,10 +4,12 @@
       class="sidebar-link__router-link"
       @mouseenter.native="updateHoverState(true)"
       @mouseleave.native="updateHoverState(false)"
+      @click.native="isActive = !isActive"
       :style="sidebarLinkStyles"
       :to="to"
       :target="target">
-      <div class="sidebar-link__content">
+      <div
+        class="sidebar-link__content">
         <va-icon
           v-if="icon"
           class="sidebar-link__content__icon"
@@ -47,13 +49,14 @@ export default {
   data () {
     return {
       isHovered: false,
+      isActive: false,
     }
   },
   watch: {
     $route (route) {
       this.$nextTick(() => {
-        const isActive = this.$children[0].$el.classList.contains('router-link-active')
-        if (!isActive) {
+        this.isActive = this.$children[0].$el.classList.contains('router-link-active')
+        if (!this.isActive) {
           return
         }
         const linkGroup = this.$parent && this.$parent.$parent
@@ -70,12 +73,21 @@ export default {
         return {
           color: this.$themes['success'],
           backgroundColor: getHoverColor(this.$themes['info']),
+        }
+      } else if (this.isActive) {
+        return {
+          color: this.$themes['success'],
+          backgroundColor: getHoverColor(this.$themes['info']),
           borderLeft: '0.25rem solid ' + this.$themes['success'],
+        }
+      } else {
+        return {
+          color: this.$themes['info'],
         }
       }
     },
     iconStyles () {
-      if (this.isHovered) {
+      if (this.isHovered || this.isActive) {
         return {
           color: this.$themes['success'],
         }
@@ -123,7 +135,7 @@ export default {
   &__content {
     display: flex;
     align-items: center;
-    color: #8c9fc7;
+    // color: #8c9fc7;
     text-decoration: none;
 
     &__icon {
