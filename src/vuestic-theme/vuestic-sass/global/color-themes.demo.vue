@@ -1,6 +1,6 @@
 <template>
   <VbDemo>
-    <VbContainer>
+    <VbCard>
       <va-button class="mb-5" color="info">
         Default Button
       </va-button>
@@ -16,15 +16,15 @@
         color="info"
         icon-right="fa fa-volume-up"
       />
-    </VbContainer>
-    <VbContainer>
+    </VbCard>
+    <VbCard>
       <va-pallet-custom
         :palette="paletteArray"
         v-model="color"
         @input="changeTheme()"
         class="spinners__color-picker"
       />
-    </VbContainer>
+    </VbCard>
   </VbDemo>
 </template>
 

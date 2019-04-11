@@ -41,7 +41,6 @@ import VaSocialNews
   from './vuestic-components/va-social-news/VaSocialNews.vue'
 import VaSwitch from './vuestic-components/va-switch/VaSwitch.vue'
 import VaTabs from './vuestic-components/va-tabs/VaTabs.vue'
-import VaTooltip from './vuestic-components/va-tooltip/VaTooltip.vue'
 import VaWizard from './vuestic-components/va-wizard/VaWizard.vue'
 import VaTreeRoot from './vuestic-components/va-tree-view/VaTreeRoot'
 import VaTreeCategory
@@ -51,7 +50,7 @@ import VaDatePicker
   from './vuestic-components/va-date-picker/VaDatePicker'
 import VaFileUpload
   from './vuestic-components/va-file-upload/VaFileUpload'
-import VaVaIcon from './vuestic-components/va-icon/VaIcon'
+import VaIcon from './vuestic-components/va-icon/VaIcon'
 import VaDropdown
   from './vuestic-components/va-dropdown/VaDropdown'
 import VaTab from './vuestic-components/va-tabs/VaTab.vue'
@@ -70,6 +69,7 @@ import VaTimelineItem
   from './vuestic-components/va-timeline/VaTimelineItem'
 import VaPopup
   from './vuestic-components/va-popup/quasar/components/popup/VaPopup.vue'
+import VaInput from './vuestic-components/va-input/VaInput'
 
 import VaCountBadge from './vuestic-components/va-count-badge/VaCountBadge'
 import VaCard from './vuestic-components/va-card/VaCard'
@@ -111,7 +111,6 @@ const VuesticPlugin = {
       VaTabs,
       VaWizard,
       VaMediumEditor,
-      VaTooltip,
       VaPopover,
       VaTreeRoot,
       VaTreeCategory,
@@ -119,7 +118,7 @@ const VuesticPlugin = {
       VaFileUpload,
       VaDropdown,
       VaDatePicker,
-      VaVaIcon,
+      VaIcon,
       VaAccordion,
       VaCollapse,
       VaTimeline,
@@ -128,6 +127,7 @@ const VuesticPlugin = {
       VaCard,
       VaTab,
       VaCountBadge,
+      VaInput,
     ].forEach(component => {
       Vue.component(component.name, component)
     })
