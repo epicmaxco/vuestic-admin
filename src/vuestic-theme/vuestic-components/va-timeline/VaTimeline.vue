@@ -72,11 +72,13 @@ export default {
   props: {
     vertical: Boolean,
     centered: Boolean,
+    alignTop: Boolean,
   },
   render (createElement, context) {
     const classes = {
       [$root]: true,
       [`${$root}--vertical`]: context.props.vertical,
+      [`${$root}--align-top`]: context.props.alignTop,
     }
     if (context.data.staticClass) {
       classes[context.data.staticClass] = true
@@ -103,13 +105,16 @@ $timeline-outer-spacing: 2rem;
 
   &--vertical {
     flex-direction: column;
-    padding-left: $timeline-outer-spacing;
-    padding-right: $timeline-outer-spacing;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
   }
 
-  &:not(.va-timeline--vertical) {
-    padding-top: $timeline-outer-spacing;
-    padding-bottom: $timeline-outer-spacing;
+  &--align-top {
+
+    .va-timeline-item__before,
+    .va-timeline-item__after {
+      flex: 0;
+    }
   }
 
   .va-timeline-item {
@@ -142,18 +147,5 @@ $timeline-outer-spacing: 2rem;
     }
   }
 
-  :not(.va-timeline-item--vertical) {
-    &.va-timeline-item--is-first {
-      .va-timeline-item__after, .va-timeline-item__before {
-        padding-left: $timeline-outer-spacing;
-      }
-    }
-
-    &.va-timeline-item--is-last {
-      .va-timeline-item__after, .va-timeline-item__before {
-        padding-right: $timeline-outer-spacing;
-      }
-    }
-  }
 }
 </style>

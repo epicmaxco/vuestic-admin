@@ -61,7 +61,6 @@ import StickyScroll from './vuestic-directives/StickyScroll'
 
 import VaAccordion from './vuestic-components/va-collapse/VaAccordion'
 import VaCollapse from './vuestic-components/va-collapse/VaCollapse'
-
 import VaTimeline
   from './vuestic-components/va-timeline/VaTimeline'
 import VaTimelineItem
