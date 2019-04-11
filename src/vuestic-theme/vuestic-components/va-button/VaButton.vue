@@ -248,7 +248,7 @@ export default {
   text-transform: initial;
   cursor: pointer;
   transition: $btn-transition;
-  background-color: transparent;
+  background-color: $white;
 
   &__content {
     display: flex;
