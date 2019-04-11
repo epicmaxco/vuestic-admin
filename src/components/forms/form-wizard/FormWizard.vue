@@ -1,10 +1,10 @@
 <template>
   <div class="form-wizard">
     <div class="va-row">
-      <div class="flex md12">
+      <div class="flex md12 xs12">
         <va-card
+          no-padding-h
           :title="$t('forms.wizard.simple')"
-          no-padding
         >
           <va-wizard
             :steps="hsSteps">
@@ -83,8 +83,9 @@
     </div>
 
     <div class="va-row">
-      <div class="flex md12">
+      <div class="flex md12 xs12">
         <va-card
+          no-padding-h
           class="no-h-padding"
           :title="$t('forms.wizard.rich')"
         >
@@ -166,8 +167,11 @@
     </div>
 
     <div class="va-row">
-      <div class="flex md12">
-        <va-card :title="$t('forms.wizard.verticalRich')">
+      <div class="flex md12 xs12">
+        <va-card
+          no-padding-h
+          :title="$t('forms.wizard.verticalRich')"
+        >
           <va-wizard
             :steps="vrSteps"
             wizard-layout="vertical"
@@ -247,8 +251,9 @@
     </div>
 
     <div class="va-row">
-      <div class="flex md12">
+      <div class="flex md12 xs12">
         <va-card
+          no-padding-h
           class="simple-vertical-wizard-widget"
           :title="$t('forms.wizard.verticalSimple')"
         >
