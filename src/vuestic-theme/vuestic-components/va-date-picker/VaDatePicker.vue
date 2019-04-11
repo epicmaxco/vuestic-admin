@@ -27,10 +27,12 @@
 
 <script>
 import VueFlatpickrComponent from 'vue-flatpickr-component'
+import VaInput from '../va-input/VaInput'
 
 export default {
   name: 'va-date-picker',
   components: {
+    VaInput,
     VueFlatpickrComponent,
   },
   props: {
@@ -108,7 +110,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~flatpickr/dist/flatpickr.css";
+@import '../../vuestic-sass/resources/resources';
+@import '~flatpickr/dist/flatpickr.css';
 
 $datepickerActiveBackground: $vue-darkest-blue;
 $datepickerActiveColor: $vue-green;
