@@ -46,6 +46,6 @@ export const getGradientColor = (color) => {
 }
 
 export const getGradientBackground = (color) => {
-  return 'linear-gradient(to right,' + getGradientColor(color)[0] +
-    ',' + getGradientColor(color)[1] + ')'
+  const [left, right] = getGradientColor(color)
+  return `linear-gradient(to right, ${left}, ${right})`
 }

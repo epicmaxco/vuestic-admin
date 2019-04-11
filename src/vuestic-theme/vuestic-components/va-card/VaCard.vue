@@ -58,7 +58,15 @@ export default {
       type: Boolean,
       default: false,
     },
+    noPaddingH: {
+      type: Boolean,
+      default: false,
+    },
     noPadding: {
+      type: Boolean,
+      default: false,
+    },
+    noMargin: {
       type: Boolean,
       default: false,
     },
@@ -90,6 +98,7 @@ export default {
     computedCardBodyClass () {
       return {
         'va-card__body--no-padding-v': this.noPaddingV,
+        'va-card__body--no-padding-h': this.noPaddingH,
         'va-card__body--no-padding': this.noPadding,
         'va-card__body--padding-top':
           (!this.showHeader && !this.noPaddingV && !this.noPadding) ||
@@ -97,6 +106,7 @@ export default {
       }
     },
     computedStripeStyle () {
+      console.log(this.$themes)
       return {
         background: this.$themes[this.stripe],
       }
@@ -106,6 +116,11 @@ export default {
         return {
           color: '#fff',
           background: getGradientBackground(this.$themes[this.color]),
+          marginBottom: this.noMargin ? 0 : '2.5rem',
+        }
+      } else {
+        return {
+          marginBottom: this.noMargin ? 0 : '2.5rem',
         }
       }
     },
@@ -125,7 +140,6 @@ export default {
   background-color: $white;
   position: relative;
   overflow: hidden;
-  margin-bottom: 2.5rem;
 
   &__header {
     &-inner {
@@ -174,6 +188,10 @@ export default {
 
     &--no-padding-v {
       padding: 0 1.25rem;
+    }
+
+    &--no-padding-h {
+      padding: 1.25rem 0;
     }
 
     &--no-padding {

@@ -1,6 +1,6 @@
 <template>
   <VbDemo>
-    <VbContainer>
+    <VbCard>
       <va-button class="mb-5" color="info">
         Default Button
       </va-button>
@@ -46,8 +46,8 @@
           </template>
         </template>
       </va-sidebar>
-    </VbContainer>
-    <VbContainer title="Themes">
+    </VbCard>
+    <VbCard title="Themes">
       <div>Info Theme</div>
       <va-pallet-custom
         :palette="paletteArray"
@@ -69,7 +69,7 @@
         @input="changeSecondaryTheme()"
         class="spinners__color-picker"
       />
-    </VbContainer>
+    </VbCard>
   </VbDemo>
 </template>
 

@@ -1,21 +1,21 @@
 <template>
-  <div class="demo-container">
-    <div class="demo-container__item" style="width: 100px; height: 100px">
+  <VbDemo>
+    <VbCard title="Timeline Separator" width="100px">
       <va-timeline-separator/>
-    </div>
-    <div class="demo-container__item" style="width: 100px; height: 100px">
+    </VbCard>
+    <VbCard title="Vertical Timeline Separator" height="50px">
       <va-timeline-separator vertical/>
-    </div>
-    <div class="demo-container__item" style="width: 100px; height: 100px">
+    </VbCard>
+    <VbCard title="Active Timeline Center" width="100px">
       <va-timeline-separator active/>
-    </div>
-    <div class="demo-container__item" style="width: 100px; height: 100px">
+    </VbCard>
+    <VbCard title="Active Timeline Previous Line" width="100px">
       <va-timeline-separator activePrevious/>
-    </div>
-    <div class="demo-container__item" style="width: 100px; height: 100px">
+    </VbCard>
+    <VbCard title="Active Timeline Next Line" width="100px">
       <va-timeline-separator activeNext/>
-    </div>
-  </div>
+    </VbCard>
+  </VbDemo>
 </template>
 
 <script>
