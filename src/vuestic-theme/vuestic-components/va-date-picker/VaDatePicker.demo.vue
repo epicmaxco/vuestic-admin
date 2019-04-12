@@ -26,6 +26,16 @@
           </td>
         </tr>
         <tr>
+          <td>Disabled days</td>
+          <td>
+            <va-date-picker
+              label="Today disabled"
+              :config="disabledDayConfig"
+              v-model="disabledDay"
+            />
+          </td>
+        </tr>
+        <tr>
           <td>Date rage</td>
           <td>
             <va-date-picker
@@ -42,16 +52,6 @@
               label="Day time"
               v-model="dayTime"
               :config="{enableTime: true}"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>Multiple</td>
-          <td>
-            <va-date-picker
-              label="Multiple"
-              v-model="multiple"
-              :config="{mode: 'multiple'}"
             />
           </td>
         </tr>
@@ -130,11 +130,15 @@ export default {
       simple3: '2019-03-09',
       simple4: '2019-03-09',
       placeholder: '',
+      disabledDay: '',
       range: '2019-03-07 to 2019-03-20',
       dayTime: '2018-05-08 14:10',
       multiple: '2019-03-07, 2019-03-20',
       weekDays: '2019-03-07',
       inline: '2019-03-07',
+      disabledDayConfig: {
+        disable: [new Date()],
+      },
     }
   },
 }
