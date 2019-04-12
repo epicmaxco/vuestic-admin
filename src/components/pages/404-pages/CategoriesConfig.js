@@ -101,10 +101,6 @@ export default [
         itemName: 'Popovers',
         itemLink: '/admin/ui/popovers',
       },
-      {
-        itemName: 'Datepickers',
-        itemLink: '/admin/ui/datepickers',
-      },
     ],
   },
   {

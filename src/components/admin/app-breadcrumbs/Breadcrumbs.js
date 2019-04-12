@@ -130,10 +130,6 @@ export const breadcrumbs = {
           displayName: 'menu.sliders',
         },
         {
-          name: 'datepickers',
-          displayName: 'menu.datepickers',
-        },
-        {
           name: 'popovers',
           displayName: 'menu.popovers',
         },

@@ -173,12 +173,6 @@
           </span>
         </sidebar-link>
         <sidebar-link
-          :to="{ name: 'datepickers'}">
-          <span slot="title">
-            <span>{{ $t('menu.datepickers') }}</span>
-          </span>
-        </sidebar-link>
-        <sidebar-link
           :to="{ name: 'popovers'}">
           <span slot="title">
             <span>{{ $t('menu.popovers') }}</span>
