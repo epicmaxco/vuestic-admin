@@ -1,5 +1,5 @@
 <template>
-  <div class="grow message-dropdown flex-center">
+  <div class="message-dropdown flex-center">
     <va-icon icon="i-nav-messages"/>
     <va-dropdown v-model="isOpen" position="bottom">
       <a v-for="(option, id) in options"
@@ -51,15 +51,17 @@ export default {
   .i-nav-messages {
     position: relative;
 
-    &::after {
+    &::before {
       content: '';
       position: absolute;
-      right: -6px;
-      top: -6px;
-      background-color: $brand-primary;
-      height: 12px;
-      width: 12px;
-      border-radius: 50%;
+      right: 0;
+      left: 0;
+      top: -.5rem;
+      background-color: $brand-danger;
+      height: .375rem;
+      width: .375rem;
+      margin: 0 auto;
+      border-radius: .187rem;
     }
   }
 }

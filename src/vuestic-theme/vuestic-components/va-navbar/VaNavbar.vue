@@ -1,27 +1,29 @@
 <template>
-  <nav class="va-navbar navbar navbar-toggleable-md">
+  <nav class="va-navbar va-row align--center ma-0 pl-3 pr-4 position-relative">
     <div
-      class="va-navbar__logo navbar-brand-container align--center justify--start">
-      <router-link class="navbar-brand" to="/dashboard">
+      class="va-navbar__logo va-row align--center position-absolute mr-3">
+      <router-link class="" to="/">
         <slot name="logo"/>
       </router-link>
     </div>
-    <div class="va-row va-navbar__content">
+    <div class="va-navbar__content va-row align--center">
       <div
-        class="header-elem-wrapper menu-icon-container d-flex justify--start col">
+        class="va-navbar__icon-container mr-3">
         <slot name="selector"></slot>
       </div>
       <div
-        class="header-elem-wrapper navbar-text flex offset--md3 md5">
+        class="flex offset--md3 va-row flex-center">
         <slot name="center"></slot>
       </div>
-      <slot></slot>
+      <div class="va-navbar__actions align--center justify--end va-row">
+        <slot></slot>
+      </div>
     </div>
+    <div class="va-navbar__shape"/>
   </nav>
 </template>
 
 <script>
-// TODO: delete d-none and d-lg-flex and use smth instead of this
 export default {
   name: 'va-navbar',
 }
@@ -38,144 +40,61 @@ $dropdown-mobile-show-b: 2rem;
 $navbar-dd-item-height: 48px;
 
 .va-navbar {
-  .layout-fixed & {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-  }
-
-  .header-elem-wrapper {
-    display: flex;
-    align-items: center;
-  }
-
-  .va-navbar__content {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-  }
-
-  .navbar-text {
-    display: flex;
-  }
-
-  @include media-breakpoint-down(xs) {
-    .navbar-text {
-      display: none;
-    }
-  }
-
   height: $top-nav-height;
   padding-left: $nav-padding-left;
   padding-right: $nav-padding-right;
   background-color: $top-nav-bg;
+  &__content {
+    z-index: 1;
+  }
+  &__text {
+    color: $lighter-gray;
+  }
+  &__button {
 
-  .va-navbar__logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    z-index: 3;
-    height: 100%;
-    left: $navbar-brand-container-left;
+  }
+  &__actions {
+    margin-left: auto;
+  }
+
+  @include media-breakpoint-down(xs) {
+    display: none;
+  }
+
+  &__logo {
     top: 0;
+    bottom: 0;
+    left: 3.5rem;
 
     @include media-breakpoint-down(md) {
-
-      .va-navbar__logo {
-        width: $nav-mobile-brand-width;
-        top: $nav-mobile-brand-top;
-        left: $nav-mobile-brand-left;
-        height: auto;
-
-        .navbar-brand {
-          height: $font-size-smaller;
-          padding: 0;
-          font-size: $font-size-smaller;
-        }
-      }
+      width: $nav-mobile-brand-width;
+      top: $nav-mobile-brand-top;
+      left: $nav-mobile-brand-left;
+      height: auto;
     }
   }
 
-  .menu-icon-container {
-    padding: 0;
+  &__icon-container {
     font-size: $font-size-base;
   }
 
-  .nav-item {
+  &__shape {
+    width: 33%;
+    max-width: 467px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-top: 74px solid #0a43af;
+    border-left: 51px solid transparent;
+    border-right: 51px solid transparent;
+    height: 0;
+  }
+
+  &__item {
     padding: 0;
     height: 100%;
   }
-
-  .dropdown.navbar-dropdown {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .dropdown-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-
-      &:after {
-        display: none;
-      }
-    }
-
-    &.show {
-      @include media-breakpoint-up(lg) {
-        .dropdown-menu {
-          left: auto;
-          right: 0;
-        }
-      }
-
-      &:after {
-        position: absolute;
-        bottom: -$dropdown-show-b;
-        right: calc(50% - 10px);
-        width: 0;
-        height: 0;
-        display: block;
-        content: '';
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-bottom: 10px solid $darkest-gray;
-      }
-    }
-
-    .dropdown-menu {
-      margin-top: $dropdown-show-b;
-      padding-top: 0;
-      width: 100%;
-    }
-
-    .dropdown-item {
-      height: $navbar-dd-item-height;
-      cursor: pointer;
-      font-size: $font-size-base;
-      color: $white;
-
-      &:hover, &:active, &:focus, &.active {
-        outline: none;
-      }
-
-      &.plain-link-item {
-        color: $brand-primary;
-
-        &:hover, &:active, &:focus {
-          background: $dropdown-background;
-        }
-
-        .plain-link {
-          text-decoration: none;
-        }
-      }
-    }
-  }
-
   @include media-breakpoint-down(md) {
     height: $top-mobile-nav-height;
     padding: $nav-mobile-pt $nav-mobile-padding-h $nav-mobile-pb $nav-mobile-padding-h;
@@ -189,26 +108,6 @@ $navbar-dd-item-height: 48px;
         height: $font-size-smaller;
         padding: 0;
         font-size: $font-size-smaller;
-      }
-    }
-
-    .dropdown.navbar-dropdown {
-      &.show {
-        display: flex;
-
-        &:after {
-          bottom: -$dropdown-mobile-show-b;
-          z-index: 2;
-        }
-
-        .dropdown-menu {
-          margin-top: $dropdown-mobile-show-b;
-          left: auto;
-
-          &.last {
-            right: 0;
-          }
-        }
       }
     }
   }

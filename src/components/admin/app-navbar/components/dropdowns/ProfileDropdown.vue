@@ -1,22 +1,21 @@
 <template>
-  <div class="grow profile-dropdown flex-center">
-    <span class="profile-dropdown__avatar-container">
+  <div class="profile-dropdown flex-center">
+    <span class="profile-dropdown__actuator">
       <slot/>
+      <va-icon class="pa-1" :icon="`fa ${isShown ? 'fa-chevron-up' :'fa-chevron-down'}`"></va-icon>
     </span>
     <va-dropdown
       v-model="isShown"
       position="bottom"
     >
-      <div
+      <router-link
         v-for="option in options"
         :key="option.name"
-        class="dropdown-item plain-link-item"
+        :to="{name: option.redirectTo}"
+        class="va-dropdown__item"
       >
-        <router-link :to="{name: option.redirectTo}" class="plain-link"
-                     href="#">
-          {{ $t(`user.${option.name}`) }}
-        </router-link>
-      </div>
+        {{ $t(`user.${option.name}`) }}
+      </router-link>
     </va-dropdown>
   </div>
 </template>
@@ -48,24 +47,10 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../../../../vuestic-theme/vuestic-sass/resources/resources';
-
 .profile-dropdown {
   cursor: pointer;
-
-  &__avatar-container {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    background-color: white;
-    border-radius: 50%;
-    border: 2px solid $lighter-gray;
-    overflow: hidden;
-
-    img {
-      height: 100%;
-      width: 100%;
-    }
+  &__actuator {
+    color: $vue-green;
   }
 }
 </style>

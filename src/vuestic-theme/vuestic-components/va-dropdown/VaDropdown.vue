@@ -49,6 +49,15 @@ export default {
 @import "../../vuestic-sass/resources/resources";
 
 .va-dropdown {
-  background: $darkest-gray;
+  background: $dropdown-background;
+  border-radius: .5rem;
+  box-shadow: $dropdown-box-shadow;
+  &__item {
+    display: block;
+    color: $text-gray;
+    &:hover {
+      color: $vue-green;
+    }
+  }
 }
 </style>

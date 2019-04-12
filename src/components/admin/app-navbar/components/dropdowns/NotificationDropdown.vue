@@ -1,19 +1,24 @@
 <template>
-  <div class="grow notification-dropdown flex-center">
+  <div class="notification-dropdown flex-center">
     <va-icon icon="i-nav-notification"/>
     <va-dropdown
       v-model="isShown"
       position="bottom"
       class="notification-dropdown__list"
     >
-      <a v-for="(option, id) in options" :key="id" class="dropdown-item"
-         href="#">
+      <div
+        v-for="(option, id) in options"
+        :key="id"
+        class="va-dropdown-item"
+        href="#"
+       >
         <span class="ellipsis">{{$t(`notifications.${option.name}`,
           { name: option.details.name, type: option.details.type })}}
         </span>
-      </a>
-      <div class="dropdown-item plain-link-item">
-        <a class="plain-link" href="#">{{ $t('notifications.all') }}</a>
+      </div>
+      <div class="va-row justify--space-between">
+        <va-button href="#">{{ $t('notifications.all') }}</va-button>
+        <va-button flat href="#">{{ $t('notifications.all') }}</va-button>
       </div>
     </va-dropdown>
   </div>
@@ -64,15 +69,17 @@ export default {
   .i-nav-notification {
     position: relative;
 
-    &::after {
+    &::before {
       content: '';
       position: absolute;
-      right: -4px;
-      top: 0;
-      background-color: $brand-primary;
-      height: 12px;
-      width: 12px;
-      border-radius: 50%;
+      right: 0;
+      left: 0;
+      top: -.5rem;
+      background-color: $brand-danger;
+      height: .375rem;
+      width: .375rem;
+      margin: 0 auto;
+      border-radius: .187rem;
     }
   }
 }

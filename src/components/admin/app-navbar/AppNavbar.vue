@@ -4,18 +4,20 @@
     <span slot="logo">
       <va-icon-vuestic/>
     </span>
-    <span slot="center">
-      {{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
-    </span>
-
-    <message-dropdown class="nav-item"/>
-    <notification-dropdown class="nav-item"/>
-    <language-dropdown class="nav-item"/>
-    <profile-dropdown class="nav-item">
-      <img src="https://i.imgur.com/nfa5itq.png"/>
-    </profile-dropdown>
+    <template slot="center">
+      <span class="va-navbar__text">{{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a></span>
+      <va-button class="va-navbar__button" max-width="" icon="fa fa-github" color="dark">TY for support</va-button>
+    </template>
+    <div class="va-row flex-center justify--space-between" :style="{ maxWidth: '355px', width: '100%' }">
+      <va-icon icon="i-nav-search"/>
+      <message-dropdown class="va-navbar__item"/>
+      <notification-dropdown class="va-navbar__item"/>
+      <language-dropdown class="va-navbar__item"/>
+      <profile-dropdown class="va-navbar__item">
+        <span>Vasili S</span>
+      </profile-dropdown>
+    </div>
   </va-navbar>
-
 </template>
 
 <script>
@@ -24,7 +26,6 @@ import VaIconVuestic
 import VaNavbar
   from '../../../vuestic-theme/vuestic-components/va-navbar/VaNavbar'
 import HeaderSelector from './components/HeaderSelector'
-
 import LanguageDropdown from './components/dropdowns/LanguageDropdown'
 import ProfileDropdown from './components/dropdowns/ProfileDropdown'
 import NotificationDropdown from './components/dropdowns/NotificationDropdown'
