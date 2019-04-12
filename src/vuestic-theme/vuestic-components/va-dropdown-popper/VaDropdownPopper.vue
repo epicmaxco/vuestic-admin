@@ -3,14 +3,14 @@
     class="va-dropdown-popper"
   >
     <div @click="isClicked = false">Click outside</div>
-    <div
+    <span
       class="va-dropdown-popper__activator"
       @mouseover="isMouseHovered = true"
       @mouseout="isMouseHovered = false"
       @click="isClicked = !isClicked"
     >
       <slot name="activator"/>
-    </div>
+    </span>
     <div
       v-if="showComputed"
       class="va-dropdown-popper__content"
@@ -33,7 +33,11 @@ export default {
       isClicked: false,
     }
   },
+  created () {
+    this.registerClickOutsideListener()
+  },
   beforeDestroy () {
+    this.unregisterClickOutsideListener()
     this.removePopper()
   },
   watch: {
@@ -51,9 +55,7 @@ export default {
     },
   },
   props: {
-    contentHoverable: {
-
-    },
+    contentHoverable: {},
     position: String,
     trigger: {
       default: 'click',
@@ -61,6 +63,38 @@ export default {
     },
   },
   methods: {
+    registerClickOutsideListener () {
+      document.addEventListener('click', event => this.handleDocumentClick(event), false)
+    },
+    unregisterClickOutsideListener () {
+      document.removeEventListener('click', event => this.handleDocumentClick(event), false)
+    },
+    handleDocumentClick (event) {
+      let vm = event.target
+      const clickedDropdowns = [] // Array because dropdowns can be nested.
+      while (vm) {
+        if (!vm.$options) {
+          break
+        }
+        if (vm.$options.name === 'va-dropdown-popper') {
+          clickedDropdowns.push(vm)
+        }
+        vm = vm.parent
+      }
+
+      // console.log('clickedDropdowns', clickedDropdowns)
+      if (!clickedDropdowns.includes(this)) {
+        this.onClickOutside()
+      }
+    },
+    // onClickOutside () {
+    //   console.log('onClickOutside', onClickOutside)
+    // },
+    hide () {
+      if (this.trigger === 'click') {
+        this.isClicked = false
+      }
+    },
     initPopper () {
       this.popperInstance = new Popper(
         this.$el,
@@ -93,7 +127,12 @@ export default {
 </script>
 
 <style lang="scss">
-.va-dropdown-popper {
+@import '../../vuestic-sass/resources/resources';
 
+.va-dropdown-popper {
+  &__content {
+    // TODO Not needed.
+    background-color: $white;
+  }
 }
 </style>

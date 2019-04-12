@@ -28,3 +28,7 @@ For `click` dropdown is shown on click and we handle click outside.
 For `none` no external handling is done. Instead we provide a prop `show` and a bunch of events: `mouseover`, `mouseout`, `click`, `clickOutside`.
 
 *  `contentHoverable`: Boolean
+
+### Additional things
+
+We need a way to close modal from it's children components. This is achieved by global method `$closeDropdown`. 

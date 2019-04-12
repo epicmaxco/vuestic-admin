@@ -255,8 +255,8 @@
           ref="eventTest"
           v-model="eventTest"
           persistent
-          @show="event => log('show event', event)"
-          @hide="event => log('hide event', event)"
+          @show="event => $va.log('show event', event)"
+          @hide="event => $va.log('hide event', event)"
         >
           keep on screen
         </va-popup>
@@ -278,11 +278,9 @@
 
 <script>
 import VaPopup from './VaPopup.vue'
-import { logMixin } from '../../mixins/logMixin'
 import { closeOverlay } from '../../directives/closeOverlay'
 
 export default {
-  mixins: [logMixin],
   directives: {
     'close-overlay': closeOverlay,
   },
