@@ -7,19 +7,19 @@ export default {
   props: {
     color: {
       type: String,
-      default: 'success'
+      default: 'success',
     },
     vertical: {
-      type: Boolean
+      type: Boolean,
     },
     active: {
-      type: Boolean
+      type: Boolean,
     },
     activePrevious: {
-      type: Boolean
+      type: Boolean,
     },
     activeNext: {
-      type: Boolean
+      type: Boolean,
     },
   },
   render (createElement, context) {
@@ -29,7 +29,7 @@ export default {
         class: {
           [$root]: true,
           [`${$root}--vertical`]: context.props.vertical,
-        }
+        },
       },
       [
         createElement('div', {
@@ -38,17 +38,17 @@ export default {
             [`${$root}__line--active`]: context.props.activePrevious,
           },
           style: {
-            backgroundColor: context.props.activePrevious ? context.parent.$themes[context.props.color] : '#dddddd'
-          }
+            backgroundColor: context.props.activePrevious ? context.parent.$themes[context.props.color] : '#dddddd',
+          },
         }),
         createElement('div', {
           class: {
             [`${$root}__center`]: true,
-            [`${$root}__center--active`]: context.props.active
+            [`${$root}__center--active`]: context.props.active,
           },
           style: {
-            backgroundColor: context.props.active ? context.parent.$themes[context.props.color] : '#dddddd'
-          }
+            backgroundColor: context.props.active ? context.parent.$themes[context.props.color] : '#dddddd',
+          },
         }),
         createElement('div', {
           class: {
@@ -56,8 +56,8 @@ export default {
             [`${$root}__line--active`]: context.props.activeNext,
           },
           style: {
-            backgroundColor: context.props.activeNext ? context.parent.$themes[context.props.color] : '#dddddd'
-          }
+            backgroundColor: context.props.activeNext ? context.parent.$themes[context.props.color] : '#dddddd',
+          },
         }),
       ],
     )

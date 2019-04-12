@@ -295,6 +295,14 @@ export default new Router({
               path: 'popovers',
               component: () => import('../components/ui/popovers/Popovers'),
             },
+            {
+              name: 'datepickers',
+              path: 'datepickers',
+              component: () => import('../components/ui/datepickers/Datepickers'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Datepickers',
+              },
+            },
           ],
         },
         {

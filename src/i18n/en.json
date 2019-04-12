@@ -67,6 +67,14 @@
     "minimalTooltip": "Minimal Tooltip",
     "anotherOneTooltip": "Another One Tooltip"
   },
+  "datepickers": {
+    "dateOfBirth": "Date of birth",
+    "daysOfTheWeek": "Days of the week",
+    "setupMeeting": "Setup meeting",
+    "upcomingVacation": "Upcoming vacation",
+    "multipleAndDisabledDates": "Multiple & disabled dates",
+    "inline": "Inline"
+  },
   "dashboard": {
     "dataVisualization": "Data Visualization",
     "success": "SUCCESS",
@@ -242,6 +250,7 @@
     "dropdowns": "Dropdowns",
     "spacing": "Spacing",
     "sliders": "Sliders",
+    "datepickers": "Datepickers",
     "popovers": "Popovers"
   },
   "messages": {
