@@ -25,3 +25,27 @@ export const ColorThemePlugin = {
     new Vue({ data: { themes: Vue.prototype.$themes } })
   },
 }
+
+export const ColorThemeMixin = {
+  props: {
+    color: {
+      type: String,
+    },
+  },
+  computed: {
+    // This allows a multitude of defaults.
+    // theme color => color => theme default => hard default
+    colorComputed () {
+      if (this.$themes && this.$themes[this.color]) {
+        return this.$themes[this.color]
+      }
+      if (this.color) {
+        return this.color
+      }
+      if (this.$themes && this.$themes.primary) {
+        return this.$themes.primary
+      }
+      return `#000000`
+    },
+  },
+}

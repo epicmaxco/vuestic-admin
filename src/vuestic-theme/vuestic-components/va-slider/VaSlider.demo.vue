@@ -76,10 +76,10 @@
         v-model="value"
       />
     </VbCard>
-    <VbCard width="500px" title="Colorful Slider">
+    <VbCard width="500px" title="Colored slider">
       <va-slider
         value-visible
-        color="info"
+        color="#f333f2"
         v-model="value"
       />
     </VbCard>
