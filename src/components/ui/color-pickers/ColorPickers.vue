@@ -58,7 +58,7 @@
               <va-color-square :value="simpleColor"/>
             </div>
             <div class="flex md2">
-              <va-pallet-custom :palette="palette" v-model="simpleColor"/>
+              <va-palette-custom :palette="palette" v-model="simpleColor"/>
             </div>
           </div>
         </va-card>
@@ -111,8 +111,8 @@ import VaColorInput
 import VaColorPickerInput
   from '../../../vuestic-theme/vuestic-components/va-color-picker/VaColorPickerInput'
 import { colorArray } from '../../../vuestic-theme/vuestic-components/va-color-picker/VuesticTheme'
-import VaPalletCustom
-  from '../../../vuestic-theme/vuestic-components/va-color-picker/VaPalletCustom'
+import VaPaletteCustom
+  from '../../../vuestic-theme/vuestic-components/va-color-picker/VaPaletteCustom'
 
 export default {
   name: 'color-pickers',
@@ -123,7 +123,7 @@ export default {
     VaColorSquare,
     VaSimplePalettePicker,
     VaColorPickerInput,
-    VaPalletCustom,
+    VaPaletteCustom,
   },
   data () {
     return {

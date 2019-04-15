@@ -2,8 +2,8 @@ import Vue from 'vue'
 import { shallowMount } from '@vue/test-utils'
 import VaCheckbox from './VaCheckbox'
 
-import { ColorPlugin } from './../../../services/colors'
-Vue.use(ColorPlugin)
+import { ColorThemePlugin } from '../../../services/ColorThemePlugin'
+Vue.use(ColorThemePlugin)
 
 describe('VaCheckbox', () => {
   it('default', () => {

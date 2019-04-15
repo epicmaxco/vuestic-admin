@@ -1,6 +1,6 @@
 <template>
   <VbDemo>
-    <VbCard>
+    <VbCard title="All of these share `info` theme">
       <va-button class="mb-5" color="info">
         Default Button
       </va-button>
@@ -49,28 +49,10 @@
         </template>
       </va-sidebar>
     </VbCard>
-    <VbCard title="Themes">
-      <div>Info Theme</div>
-      <va-pallet-custom
-        :palette="paletteArray"
-        v-model="color"
-        @input="changeInfoTheme()"
-        class="spinners__color-picker"
-      />
-      <div>Success Theme</div>
-      <va-pallet-custom
-        :palette="paletteArray"
-        v-model="color2"
-        @input="changeSuccessTheme()"
-        class="spinners__color-picker"
-      />
-      <div>Secondary Theme</div>
-      <va-pallet-custom
-        :palette="paletteArray"
-        v-model="color3"
-        @input="changeSecondaryTheme()"
-        class="spinners__color-picker"
-      />
+    <VbCard title="Change color">
+      <va-color-picker-input v-model="$themes.info" mode="advanced"/>
+      <va-color-picker-input v-model="$themes.success" mode="advanced"/>
+      <va-color-picker-input v-model="$themes.secondary" mode="advanced"/>
     </VbCard>
   </VbDemo>
 </template>
@@ -82,15 +64,16 @@ import VaNotification
   from './../../vuestic-components/va-notification/VaNotification'
 import VaProgressBar
   from './../../vuestic-components/va-progress-bar/progress-types/VaProgressBar'
-import VaPalletCustom
-  from '../../vuestic-components/va-color-picker/VaPalletCustom'
+import VaPaletteCustom
+  from '../../vuestic-components/va-color-picker/VaPaletteCustom'
+import VaColorPickerInput
+  from '../../vuestic-components/va-color-picker/VaColorPickerInput'
 import VaSidebar
   from '../../vuestic-components/va-sidebar/VaSidebar'
 import SidebarLinkGroup
   from './../../../components/admin/app-sidebar/components/SidebarLinkGroup'
 import SidebarLink
   from './../../../components/admin/app-sidebar/components/SidebarLink'
-import { colorArray } from '../../vuestic-components/va-color-picker/VuesticTheme'
 import { breadcrumbs } from './../../../components/admin/app-breadcrumbs/Breadcrumbs'
 
 export default {
@@ -99,7 +82,8 @@ export default {
     VaButton,
     VaNotification,
     VaProgressBar,
-    VaPalletCustom,
+    VaPaletteCustom,
+    VaColorPickerInput,
     VaSidebar,
     SidebarLinkGroup,
     SidebarLink,
@@ -108,25 +92,8 @@ export default {
     return {
       value: 60,
       icon: 'iconicstroke iconicstroke-info',
-      color: '#4ab2e3',
-      color2: '#4ae387',
-      color3: '#db76df',
-      theme: 'info',
-      paletteArray: colorArray,
       items: breadcrumbs.routes,
-      hoverState: false,
     }
-  },
-  methods: {
-    changeInfoTheme () {
-      this.$themes.info = this.color
-    },
-    changeSuccessTheme () {
-      this.$themes.success = this.color2
-    },
-    changeSecondaryTheme () {
-      this.$themes.secondary = this.color3
-    },
   },
 }
 </script>

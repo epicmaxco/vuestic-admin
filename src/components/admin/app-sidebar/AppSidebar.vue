@@ -1,6 +1,7 @@
 <template>
   <va-sidebar :hidden="isOpen">
     <template slot="menu">
+
       <template v-for="(item, key) in items">
 
         <sidebar-link-group
