@@ -2,19 +2,22 @@
   <div
     class="va-dropdown-popper"
   >
-    <div @click="isClicked = false">Click outside</div>
     <span
-      class="va-dropdown-popper__activator"
-      @mouseover="isMouseHovered = true"
-      @mouseout="isMouseHovered = false"
-      @click="isClicked = !isClicked"
+      class="va-dropdown-popper__anchor"
+      @mouseover="onMouseOver()"
+      @mouseout="onMouseOut()"
+      @click="onAnchorClick()"
+      ref="anchor"
     >
-      <slot name="activator"/>
+      <slot name="anchor"/>
     </span>
     <div
-      v-if="showComputed"
       class="va-dropdown-popper__content"
+      v-if="showContent"
+      @mouseover="isContentHoverable && onMouseOver()"
+      @mouseout="onMouseOut()"
       ref="content"
+      :style="contentStyle"
     >
       <slot/>
     </div>
@@ -23,14 +26,22 @@
 
 <script>
 import Popper from 'popper.js'
+import { DebounceLoader } from 'asva-executors'
 
 export default {
   name: 'va-dropdown-popper',
   data () {
     return {
       popperInstance: null,
-      isMouseHovered: false,
       isClicked: false,
+
+      isMouseHovered: false,
+      hoverDebounceLoader: new DebounceLoader(
+        async () => {
+          this.isMouseHovered = false
+        },
+        this.hoverTimeout,
+      ),
     }
   },
   created () {
@@ -41,10 +52,10 @@ export default {
     this.removePopper()
   },
   watch: {
-    showComputed: {
+    showContent: {
       immediate: true,
-      handler (showComputed) {
-        if (showComputed && !this.popperInstance) {
+      handler (showContent) {
+        if (showContent && !this.popperInstance) {
           this.$nextTick(() => {
             this.initPopper()
           })
@@ -55,14 +66,56 @@ export default {
     },
   },
   props: {
-    contentHoverable: {},
+    debugId: String,
     position: String,
+    value: Boolean,
+    offset: [String, Number],
+    disabled: Boolean,
+    closeOnClickOutside: {
+      type: Boolean,
+      default: true,
+    },
+    closeOnAnchorClick: {
+      type: Boolean,
+      default: true,
+    },
+    isContentHoverable: {
+      type: Boolean,
+      default: true,
+    },
     trigger: {
       default: 'click',
-      validator: trigger => ['click', 'hover'].includes(trigger),
+      validator: trigger => ['click', 'hover', 'none'].includes(trigger),
+    },
+    hoverTimeout: {
+      type: Number,
+      default: 200,
     },
   },
   methods: {
+    onAnchorClick () {
+      this.$emit('anchorClick')
+      if (this.disabled) {
+        return
+      }
+      if (this.isClicked && !this.closeOnAnchorClick) {
+        return
+      }
+      this.isClicked = !this.isClicked
+    },
+    onMouseOver () {
+      if (this.disabled) {
+        return
+      }
+      this.isMouseHovered = true
+      this.hoverDebounceLoader.reset()
+    },
+    onMouseOut () {
+      if (!this.isContentHoverable) {
+        this.isMouseHovered = false
+      }
+      this.hoverDebounceLoader.run()
+    },
     registerClickOutsideListener () {
       document.addEventListener('click', event => this.handleDocumentClick(event), false)
     },
@@ -70,38 +123,53 @@ export default {
       document.removeEventListener('click', event => this.handleDocumentClick(event), false)
     },
     handleDocumentClick (event) {
-      let vm = event.target
-      const clickedDropdowns = [] // Array because dropdowns can be nested.
-      while (vm) {
-        if (!vm.$options) {
-          break
-        }
-        if (vm.$options.name === 'va-dropdown-popper') {
-          clickedDropdowns.push(vm)
-        }
-        vm = vm.parent
+      let el = event.target
+      const clickedElements = [] // Array because dropdowns can be nested.
+      // TODO Make DOM walk-over global, so that each dropdown doesn't have to do it.
+      while (el) {
+        clickedElements.push(el)
+        el = el.parentNode
       }
-
-      // console.log('clickedDropdowns', clickedDropdowns)
-      if (!clickedDropdowns.includes(this)) {
-        this.onClickOutside()
+      const isCurrentDropdownClicked = clickedElements.includes(this.$refs.anchor) || clickedElements.includes(this.$refs.content)
+      if (isCurrentDropdownClicked) {
+        return
       }
+      this.onClickOutside()
     },
-    // onClickOutside () {
-    //   console.log('onClickOutside', onClickOutside)
-    // },
+    onClickOutside () {
+      this.$emit('clickOutside')
+      if (!this.closeOnClickOutside) {
+        return
+      }
+      this.hide()
+    },
     hide () {
       if (this.trigger === 'click') {
         this.isClicked = false
       }
     },
     initPopper () {
-      this.popperInstance = new Popper(
-        this.$el,
-        this.$refs.content,
-        {
-          placement: this.placement || 'bottom',
+      const options = {
+        placement: this.position || 'bottom',
+        modifiers: {},
+        arrow: {
+          enabled: false,
         },
+      }
+
+      if (this.offset) {
+        options.modifiers.offset = {
+          enabled: true,
+          offset: this.offset,
+        }
+        options.modifiers.keepTogether = { enabled: false }
+        options.modifiers.arrow = { enabled: false }
+      }
+
+      this.popperInstance = new Popper(
+        this.$refs.anchor,
+        this.$refs.content,
+        options,
       )
     },
     removePopper () {
@@ -113,14 +181,21 @@ export default {
     },
   },
   computed: {
-    showComputed () {
+    contentStyle () {
+      return {
+        padding: this.offset,
+      }
+    },
+    showContent () {
       if (this.trigger === 'hover') {
         return this.isMouseHovered
       }
       if (this.trigger === 'click') {
         return this.isClicked
       }
-      // TODO Implement external trigger
+      if (this.trigger === 'none') {
+        return this.value
+      }
     },
   },
 }
