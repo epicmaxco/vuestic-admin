@@ -19,15 +19,16 @@
       />
       <va-sidebar style="position: static; height: auto;" :hidden="true">
         <template slot="menu">
-          <template v-for="item in items">
+          <template v-for="(item, key) in items">
             <sidebar-link-group
-              :key="item"
+              :key="key"
               :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
               v-if="item.children">
               <span slot="title">{{ $t(item.displayName) }}</span>
               <sidebar-link
-                v-for="subMenuItem in item.children"
-                :key="subMenuItem"
+                v-for="(subMenuItem, key) in item.children"
+                :key="key"
+                :active="subMenuItem.meta ? subMenuItem.meta.isActiveByDefault : false"
                 :to="{ name: subMenuItem.name }"
               >
                 <div slot="title">
@@ -38,7 +39,8 @@
 
             <sidebar-link
               v-else
-              :key="item"
+              :key="key"
+              :active="item.meta ? item.meta.isActiveByDefault : false"
               :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
               :to="{ name: item.name }">
               <span slot="title">{{ $t(item.displayName) }}</span>

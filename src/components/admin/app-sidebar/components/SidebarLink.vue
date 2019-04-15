@@ -45,11 +45,15 @@ export default {
     icon: {
       type: [String, Array],
     },
+    active: {
+      type: Boolean,
+      default: false,
+    },
   },
   data () {
     return {
       isHovered: false,
-      isActive: false,
+      isActive: this.active,
     }
   },
   watch: {
@@ -118,10 +122,6 @@ export default {
     cursor: pointer;
     text-decoration: none;
 
-    &:hover {
-      padding-left: 0.75rem;
-    }
-
     .sidebar-menu-item-icon {
 
       &.fa-dashboard {
@@ -135,7 +135,6 @@ export default {
   &__content {
     display: flex;
     align-items: center;
-    // color: #8c9fc7;
     text-decoration: none;
 
     &__icon {

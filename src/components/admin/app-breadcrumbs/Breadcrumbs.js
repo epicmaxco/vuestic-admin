@@ -9,6 +9,7 @@ export const breadcrumbs = {
       displayName: 'menu.dashboard',
       meta: {
         iconClass: 'vuestic-iconset-dashboard',
+        isActiveByDefault: true,
       },
     },
     {

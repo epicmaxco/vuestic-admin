@@ -11,6 +11,7 @@
           <sidebar-link
             v-for="(subMenuItem, key) in item.children"
             :key="key"
+            :active="subMenuItem.meta ? subMenuItem.meta.isActiveByDefault : false"
             :to="{ name: subMenuItem.name }"
           >
             <div slot="title">
@@ -22,6 +23,7 @@
         <sidebar-link
           v-else
           :key="key"
+          :active="item.meta ? item.meta.isActiveByDefault : false"
           :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
           :to="{ name: item.name }">
           <span slot="title">{{ $t(item.displayName) }}</span>
