@@ -52,12 +52,5 @@ export default {
   background: $dropdown-background;
   border-radius: .5rem;
   box-shadow: $dropdown-box-shadow;
-  &__item {
-    display: block;
-    color: $text-gray;
-    &:hover {
-      color: $vue-green;
-    }
-  }
 }
 </style>

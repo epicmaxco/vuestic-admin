@@ -106,7 +106,6 @@ export default {
       }
     },
     computedStripeStyle () {
-      console.log(this.$themes)
       return {
         background: this.$themes[this.stripe],
       }

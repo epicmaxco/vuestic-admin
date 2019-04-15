@@ -1,5 +1,5 @@
 <template>
-  <div class="profile-dropdown flex-center">
+  <div class="profile-dropdown">
     <span class="profile-dropdown__actuator">
       <slot/>
       <va-icon class="pa-1" :icon="`fa ${isShown ? 'fa-chevron-up' :'fa-chevron-down'}`"></va-icon>
@@ -7,12 +7,13 @@
     <va-dropdown
       v-model="isShown"
       position="bottom"
+      class="pa-3"
     >
       <router-link
         v-for="option in options"
         :key="option.name"
         :to="{name: option.redirectTo}"
-        class="va-dropdown__item"
+        class="profile-dropdown__item pb-2"
       >
         {{ $t(`user.${option.name}`) }}
       </router-link>
@@ -51,6 +52,14 @@ export default {
   cursor: pointer;
   &__actuator {
     color: $vue-green;
+  }
+  &__item {
+    display: block;
+    color: $text-gray;
+
+    &:hover, &:active {
+      color: $vue-green;
+    }
   }
 }
 </style>

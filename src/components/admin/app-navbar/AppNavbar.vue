@@ -5,16 +5,20 @@
       <va-icon-vuestic/>
     </span>
     <template slot="center">
-      <span class="va-navbar__text">{{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a></span>
-      <va-button class="va-navbar__button" max-width="" icon="fa fa-github" color="dark">TY for support</va-button>
+      <div class="va-row flex-nowrap align--center justify--space-between">
+        <span class="va-navbar__text">{{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a></span>
+        <div>
+          <va-button class="va-navbar__button" icon="fa fa-github">TY for support</va-button>
+        </div>
+      </div>
     </template>
-    <div class="va-row flex-center justify--space-between" :style="{ maxWidth: '355px', width: '100%' }">
-      <va-icon icon="i-nav-search"/>
+    <div class="va-row flex-center justify--space-between">
+      <va-icon icon="i-nav-search" class="pointer"/>
       <message-dropdown class="va-navbar__item"/>
       <notification-dropdown class="va-navbar__item"/>
       <language-dropdown class="va-navbar__item"/>
       <profile-dropdown class="va-navbar__item">
-        <span>Vasili S</span>
+        <span>{{userName}}</span>
       </profile-dropdown>
     </div>
   </va-navbar>
@@ -48,6 +52,11 @@ export default {
       type: Boolean,
       required: true,
     },
+  },
+  data () {
+    return {
+      userName: 'Vasili S',
+    }
   },
   computed: {
     valueProxy: {

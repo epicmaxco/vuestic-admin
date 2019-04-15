@@ -8,14 +8,14 @@
     </div>
     <div class="va-navbar__content va-row align--center">
       <div
-        class="va-navbar__icon-container mr-3">
+        class="va-navbar__icon-container mr-3 md1">
         <slot name="selector"></slot>
       </div>
       <div
-        class="flex offset--md3 va-row flex-center">
+        class="va-navbar__center flex offset--lg2 flex md6 va-row flex-center">
         <slot name="center"></slot>
       </div>
-      <div class="va-navbar__actions align--center justify--end va-row">
+      <div class="flex md5 lg3 va-navbar__actions align--center justify--end va-row">
         <slot></slot>
       </div>
     </div>
@@ -36,42 +36,39 @@ $nav-mobile-pb: 0.5rem;
 $nav-mobile-brand-width: 4rem;
 $nav-mobile-brand-top: .875rem;
 $nav-mobile-brand-left: calc(50% - #{$nav-mobile-brand-width});
-$dropdown-mobile-show-b: 2rem;
-$navbar-dd-item-height: 48px;
+$nav-shape-bg: #0a43af;
+$nav-border-side-width: 3.1875rem;
 
 .va-navbar {
   height: $top-nav-height;
   padding-left: $nav-padding-left;
   padding-right: $nav-padding-right;
   background-color: $top-nav-bg;
+
   &__content {
     z-index: 1;
   }
+
   &__text {
     color: $lighter-gray;
   }
-  &__button {
 
+  &__button {
+    background: $nav-button-bg !important;
+    width: 10.8125rem;
+    .va-button__content__icon-left.fa-github {
+      font-size: 1.5rem;
+    }
   }
+
   &__actions {
     margin-left: auto;
-  }
-
-  @include media-breakpoint-down(xs) {
-    display: none;
   }
 
   &__logo {
     top: 0;
     bottom: 0;
     left: 3.5rem;
-
-    @include media-breakpoint-down(md) {
-      width: $nav-mobile-brand-width;
-      top: $nav-mobile-brand-top;
-      left: $nav-mobile-brand-left;
-      height: auto;
-    }
   }
 
   &__icon-container {
@@ -84,17 +81,20 @@ $navbar-dd-item-height: 48px;
     position: absolute;
     left: 0;
     right: 0;
+    top: 0;
     margin: auto;
-    border-top: 74px solid #0a43af;
-    border-left: 51px solid transparent;
-    border-right: 51px solid transparent;
+    border-top: $top-nav-height solid $nav-shape-bg;
+    border-left: $nav-border-side-width solid transparent;
+    border-right: $nav-border-side-width solid transparent;
     height: 0;
   }
 
   &__item {
     padding: 0;
     height: 100%;
+    margin-right: 1rem
   }
+
   @include media-breakpoint-down(md) {
     height: $top-mobile-nav-height;
     padding: $nav-mobile-pt $nav-mobile-padding-h $nav-mobile-pb $nav-mobile-padding-h;
@@ -103,12 +103,27 @@ $navbar-dd-item-height: 48px;
       top: $nav-mobile-brand-top;
       left: $nav-mobile-brand-left;
       height: auto;
+      bottom: auto;
+      z-index: 1;
+      margin-right: 0 !important;
+    }
 
-      .navbar-brand {
-        height: $font-size-smaller;
-        padding: 0;
-        font-size: $font-size-smaller;
-      }
+    &__button {
+      display: none !important;
+    }
+
+    &__item {
+      margin-right: .25rem
+    }
+
+    &__shape {
+      border-top: $top-mobile-nav-height solid #0a43af;
+    }
+  }
+
+  @include media-breakpoint-down(xs) {
+    &__center {
+      display: none;
     }
   }
 }

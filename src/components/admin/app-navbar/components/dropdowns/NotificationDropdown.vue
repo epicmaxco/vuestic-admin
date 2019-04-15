@@ -1,24 +1,29 @@
 <template>
   <div class="notification-dropdown flex-center">
-    <va-icon icon="i-nav-notification"/>
+    <va-icon
+      icon="i-nav-notification"
+      :class="{'unread': !allRead}"
+    />
     <va-dropdown
       v-model="isShown"
       position="bottom"
-      class="notification-dropdown__list"
+      class="notification-dropdown__container py-3 px-2"
     >
       <div
-        v-for="(option, id) in options"
-        :key="id"
-        class="va-dropdown-item"
-        href="#"
+        v-for="option in computedOptions"
+        :key="option.id"
+        class="notification-dropdown__item position-relative pr-3 flex-nowrap va-row"
+        :class="{'unread': option.unread}"
+        @click="markAsRead(option.id)"
        >
+        <img v-if="option.details.avatar" class="mr-1 notification-dropdown__item__avatar" :src="option.details.avatar"/>
         <span class="ellipsis">{{$t(`notifications.${option.name}`,
           { name: option.details.name, type: option.details.type })}}
         </span>
       </div>
       <div class="va-row justify--space-between">
-        <va-button href="#">{{ $t('notifications.all') }}</va-button>
-        <va-button flat href="#">{{ $t('notifications.all') }}</va-button>
+        <va-button>{{ $t('notifications.all') }}</va-button>
+        <va-button outline @click="markAllAsRead" :disabled="allRead">{{ $t('notifications.mark_as_read') }}</va-button>
       </div>
     </va-dropdown>
   </div>
@@ -30,6 +35,7 @@ export default {
   data () {
     return {
       isShown: false,
+      computedOptions: this.options.map(item => ({ ...item, unread: true })),
     }
   },
   props: {
@@ -38,17 +44,35 @@ export default {
       default: () => [
         {
           name: 'sentMessage',
-          details: { name: 'Vasily S' },
+          details: { name: 'Vasily S', avatar: 'https://picsum.photos/100' },
+          id: 1,
         },
         {
           name: 'uploadedZip',
-          details: { name: 'Oleg M', type: 'typography component' },
+          details: { name: 'Oleg M', avatar: 'https://picsum.photos/100', type: 'typography component' },
+          id: 2,
         },
         {
           name: 'startedTopic',
-          details: { name: 'Andrei H' },
+          details: { name: 'Andrei H', avatar: 'https://picsum.photos/24' },
+          id: 3,
         },
       ],
+    },
+  },
+  computed: {
+    allRead () {
+      return !this.computedOptions.filter(item => item.unread).length
+    },
+  },
+  methods: {
+    markAsRead (id) {
+      this.computedOptions = this.computedOptions.map(item => item.id === id
+        ? { ...item, unread: false }
+        : { ...item })
+    },
+    markAllAsRead () {
+      this.computedOptions = this.computedOptions.map(item => ({ ...item, unread: false }))
     },
   },
 }
@@ -60,16 +84,10 @@ export default {
 .notification-dropdown {
   cursor: pointer;
 
-  @at-root {
-    .notification-dropdown__list {
-      width: 250px;
-    }
-  }
-
   .i-nav-notification {
     position: relative;
 
-    &::before {
+    &.unread::before {
       content: '';
       position: absolute;
       right: 0;
@@ -80,6 +98,38 @@ export default {
       width: .375rem;
       margin: 0 auto;
       border-radius: .187rem;
+    }
+  }
+  &__container {
+    max-width: 25rem;
+    margin-left: -2rem;
+  }
+  &__item {
+    cursor: pointer;
+    margin-bottom: .75rem;
+    color: $brand-secondary;
+    &.unread {
+      color: $vue-darkest-blue;
+      &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        height: .375rem;
+        width: .375rem;
+        background-color: $brand-danger;
+        margin: auto;
+        border-radius: .187rem;
+      }
+    }
+    &:hover {
+      color: $vue-green;
+    }
+    &__avatar {
+      border-radius: 50%;
+      width: 1.5rem;
+      height: 1.5rem;
     }
   }
 }
