@@ -2,8 +2,6 @@
   <div
     class="va-rating"
     :class="computedClasses"
-    @mouseover="isHovered = true"
-    @mouseout="isHovered = false"
     :style="{
       'color':color,
       'fontSize': getIconSize(),
@@ -41,9 +39,9 @@
       :value="getItemValue(itemNumber)"
       :tabindex="getTabindex(itemNumber)"
       :isRatingHover="isHoveredComputed"
-      @mouseout.native="onHover(value)"
+      @mouseout.native="onMouseOut(value)"
       @mouseleave.native="tabindex = null"
-      @mouseover.native="tabindex = itemNumber"
+      @mouseover.native="onMouseOver(itemNumber)"
     />
   </div>
 </template>
@@ -62,10 +60,10 @@ export default {
     },
     halfIcon: {
       type: String,
-      default: 'fa fa-star-half-full'
+      default: 'fa fa-star-half-full',
     },
     halves: {
-      type: Boolean
+      type: Boolean,
     },
     emptyIcon: {
       type: String,
@@ -178,6 +176,12 @@ export default {
         this.lastHoverItemNumber = itemNumber
       }
     },
+    onMouseOut (itemNumber) {
+      this.isHovered = false
+      if (this.halves) {
+        this.lastHoverItemNumber = itemNumber
+      }
+    },
     getIconClasses (itemNumber) {
       const iconClass = this.emptyIcon || this.icon + ' ' + 'va-rating__icon-item--empty'
       return this.compareWithValue(itemNumber) ? this.icon : iconClass
@@ -208,7 +212,7 @@ export default {
       }
 
       if ((itemNumber <= this.lastHoverItemNumber)) {
-        if (itemNumber === this.lastHoverItemNumber && itemNumber - this.value === 0.5) {
+        if (itemNumber === this.lastHoverItemNumber && itemNumber - this.value === 0.5 && this.halves) {
           return 0.5
         }
         return 1
@@ -221,13 +225,17 @@ export default {
       return this.isHovered && !!this.halves && !this.disabled && !this.readonly
     },
     compareWithValue (itemNumber) {
-      if (itemNumber - this.value === 0.5) {
+      if (itemNumber - this.value === 0.5 && this.halves) {
         return 0.5
       }
       if (itemNumber <= this.value) {
         return 1
       }
       return 0
+    },
+    onMouseOver (itemNumber) {
+      this.tabindex = itemNumber
+      this.isHovered = true
     },
   },
 }

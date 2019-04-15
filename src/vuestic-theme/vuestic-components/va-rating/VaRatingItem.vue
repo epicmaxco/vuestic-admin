@@ -18,25 +18,25 @@ export default {
   name: 'va-rating-item',
   props: {
     value: {
-      type: Number
+      type: Number,
     },
     icon: {
       type: String,
-      default: 'fa fa-star'
+      default: 'fa fa-star',
     },
     isRatingHover: {
-      type: Boolean
+      type: Boolean,
     },
     halfIcon: {
-      type: String
+      type: String,
     },
     iconClasses: {
-      type: String
+      type: String,
     },
     emptyIcon: {
       type: String,
-      default: 'fa fa-star-o'
-    }
+      default: 'fa fa-star-o',
+    },
   },
   data () {
     return {
@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     onClick () {
-      if (this.onHoverClasses === this.halfIcon) {
+      if (this.onHoverClasses === this.halfIcon && this.halfIcon) {
         this.$emit('click', 0.5)
       } else {
         this.$emit('click', 1)
@@ -101,8 +101,8 @@ export default {
         this.onHoverClasses = ''
         this.hoverValue = 0
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
