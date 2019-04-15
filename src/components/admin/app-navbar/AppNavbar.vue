@@ -8,7 +8,7 @@
       <div class="va-row flex-nowrap align--center justify--space-between">
         <span class="va-navbar__text">{{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a></span>
         <div>
-          <va-button class="va-navbar__button" icon="fa fa-github">TY for support</va-button>
+          <va-button class="va-navbar__button" icon="fa fa-github">{{$t('navbar.support')}}</va-button>
         </div>
       </div>
     </template>

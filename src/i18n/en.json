@@ -300,7 +300,8 @@
     "badges": "Badges"
   },
   "navbar": {
-    "messageUs": "Development inquiries:"
+    "messageUs": "Development inquiries:",
+    "support": "TY for support"
   },
   "notifications": {
     "all": "See all notifications",
