@@ -15,9 +15,7 @@
             :active="subMenuItem.meta ? subMenuItem.meta.isActiveByDefault : false"
             :to="{ name: subMenuItem.name }"
           >
-            <div slot="title">
-              <span>{{ $t(subMenuItem.displayName) }}</span>
-            </div>
+            <span slot="title">{{ $t(subMenuItem.displayName) }}</span>
           </sidebar-link>
         </sidebar-link-group>
 

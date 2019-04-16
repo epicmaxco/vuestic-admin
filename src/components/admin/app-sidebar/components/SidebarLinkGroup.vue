@@ -121,17 +121,9 @@ export default {
       padding-left: 0;
     }
 
-    .router-link-active {
-      padding-left: 2.75rem !important;
-    }
-
     .sidebar-link__router-link {
       padding-left: 3rem;
-      font-size: $font-size-smaller;
-
-      &:hover {
-        padding-left: 2.75rem !important;
-      }
+      font-size: .875rem;
     }
   }
 }

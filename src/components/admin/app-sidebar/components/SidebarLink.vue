@@ -8,14 +8,13 @@
       :style="sidebarLinkStyles"
       :to="to"
       :target="target">
-      <div
-        class="sidebar-link__content">
-        <va-icon
-          v-if="icon"
-          class="sidebar-link__content__icon"
-          :style="iconStyles"
-          :icon="icon"
-        />
+      <va-icon
+        v-if="icon"
+        class="sidebar-link__content__icon"
+        :style="iconStyles"
+        :icon="icon"
+      />
+      <div class="sidebar-link__content__title">
         <slot name="title"/>
       </div>
     </router-link>
@@ -82,7 +81,7 @@ export default {
         return {
           color: this.$themes['success'],
           backgroundColor: getHoverColor(this.$themes['info']),
-          borderLeft: '0.25rem solid ' + this.$themes['success'],
+          borderLeftColor: this.$themes['success'],
         }
       } else {
         return {
@@ -116,11 +115,14 @@ export default {
     position: relative;
     height: 3rem;
     padding-left: 1rem;
+    padding-top: .725rem;
+    padding-bottom: .725rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     cursor: pointer;
     text-decoration: none;
+    border-left: 0.25rem solid transparent;
 
     .sidebar-menu-item-icon {
 
@@ -133,15 +135,16 @@ export default {
   }
 
   &__content {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
 
     &__icon {
       width: 24px;
       text-align: center;
       font-size: $sidebar-menu-item-icon-size;
       margin-right: 0.5rem;
+    }
+
+    &__title {
+      line-height: 1.71em;
     }
   }
 }
