@@ -11,7 +11,7 @@
           <va-button
             href="https://github.com/epicmaxco/vuestic-admin"
             color="#000000"
-            class="va-navbar__button text--bold"
+            class="app-navbar__button text--bold"
             icon="fa fa-github"
           >
             {{$t('navbar.support')}}
@@ -77,3 +77,18 @@ export default {
   },
 }
 </script>
+<style lang="scss">
+.app-navbar {
+  &__button {
+    width: 10.8125rem;
+    .va-button__content__icon-left.fa-github {
+      font-size: 1.5rem;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    &__button {
+      display: none !important;
+    }
+  }
+}
+</style>

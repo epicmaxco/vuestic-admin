@@ -53,12 +53,6 @@ $nav-border-side-width: 3.1875rem;
     color: $lighter-gray;
   }
 
-  &__button {
-    .va-button__content__icon-left.fa-github {
-      font-size: 1.5rem;
-    }
-  }
-
   &__actions {
     margin-left: auto;
   }

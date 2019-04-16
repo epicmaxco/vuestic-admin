@@ -2,7 +2,8 @@
   <div class="notification-dropdown flex-center">
     <va-icon
       icon="i-nav-notification"
-      :class="{'unread': !allRead}"
+      class="notification-dropdown__icon"
+      :class="{'notification-dropdown__icon--unread': !allRead}"
     />
     <va-dropdown
       v-model="isShown"
@@ -12,9 +13,9 @@
       <div
         v-for="option in computedOptions"
         :key="option.id"
-        class="notification-dropdown__item position-relative pr-3 flex-nowrap va-row"
-        :class="{'unread': option.unread}"
-        @click="markAsRead(option.id)"
+        class="notification-dropdown__item pr-3 va-row"
+        :class="{'notification-dropdown__item--unread': option.unread}"
+        @click="option.unread = false"
        >
         <img v-if="option.details.avatar" class="mr-1 notification-dropdown__item__avatar" :src="option.details.avatar"/>
         <span class="ellipsis">
@@ -35,7 +36,7 @@ export default {
   data () {
     return {
       isShown: false,
-      computedOptions: this.options.map(item => ({ ...item, unread: true })),
+      computedOptions: [...this.options],
     }
   },
   props: {
@@ -45,16 +46,19 @@ export default {
         {
           name: 'sentMessage',
           details: { name: 'Vasily S', avatar: 'https://picsum.photos/100' },
+          unread: true,
           id: 1,
         },
         {
           name: 'uploadedZip',
           details: { name: 'Oleg M', avatar: 'https://picsum.photos/100', type: 'typography component' },
+          unread: true,
           id: 2,
         },
         {
           name: 'startedTopic',
           details: { name: 'Andrei H', avatar: 'https://picsum.photos/24' },
+          unread: true,
           id: 3,
         },
       ],
@@ -66,11 +70,6 @@ export default {
     },
   },
   methods: {
-    markAsRead (id) {
-      this.computedOptions = this.computedOptions.map(item => item.id === id
-        ? { ...item, unread: false }
-        : { ...item })
-    },
     markAllAsRead () {
       this.computedOptions = this.computedOptions.map(item => ({ ...item, unread: false }))
     },
@@ -84,10 +83,10 @@ export default {
 .notification-dropdown {
   cursor: pointer;
 
-  .i-nav-notification {
+  &__icon {
     position: relative;
 
-    &.unread::before {
+    &--unread::before {
       content: '';
       position: absolute;
       right: 0;
@@ -108,7 +107,9 @@ export default {
     cursor: pointer;
     margin-bottom: .75rem;
     color: $brand-secondary;
-    &.unread {
+    flex-wrap: nowrap;
+    position: relative;
+    &--unread {
       color: $vue-darkest-blue;
       &:after {
         content: '';

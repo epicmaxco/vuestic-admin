@@ -55,7 +55,7 @@ export default {
   }
   &__item {
     display: block;
-    color: $text-gray;
+    color: $vue-darkest-blue;
 
     &:hover, &:active {
       color: $vue-green;
