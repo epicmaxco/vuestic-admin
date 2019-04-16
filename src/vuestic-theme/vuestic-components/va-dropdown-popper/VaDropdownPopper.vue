@@ -94,7 +94,7 @@ export default {
     },
     hoverOverTimeout: {
       type: Number,
-      default: 100,
+      default: 30,
     },
     hoverOutTimeout: {
       type: Number,
