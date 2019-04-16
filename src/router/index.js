@@ -290,6 +290,11 @@ export default new Router({
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Sliders',
               },
             },
+            {
+              name: 'popovers',
+              path: 'popovers',
+              component: () => import('../components/ui/popovers/Popovers'),
+            },
           ],
         },
         {

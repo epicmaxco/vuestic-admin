@@ -1,14 +1,14 @@
 <template>
   <VbDemo>
-    <VbContainer title="Badge Types">
+    <VbCard title="Badge Types">
       <va-badge>
         Paid
       </va-badge>
       <va-badge outline>
         Paid
       </va-badge>
-    </VbContainer>
-    <VbContainer title="Badges Colors">
+    </VbCard>
+    <VbCard title="Badges Colors">
       <va-badge>
         Paid
       </va-badge>
@@ -27,8 +27,8 @@
       <va-badge color="dark">
         New Label
       </va-badge>
-    </VbContainer>
-    <VbContainer title="Outline Badges Colors">
+    </VbCard>
+    <VbCard title="Outline Badges Colors">
       <va-badge outline>
         Paid
       </va-badge>
@@ -47,7 +47,7 @@
       <va-badge outline color="dark">
         New Label
       </va-badge>
-    </VbContainer>
+    </VbCard>
   </VbDemo>
 </template>
 

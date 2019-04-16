@@ -1,12 +1,12 @@
 <template>
-  <div class="va-pallet-custom">
+  <div class="va-palette-custom">
     <va-simple-palette-picker
-      class="va-pallet-custom__palette mr-2"
+      class="va-palette-custom__palette mr-2"
       :palette="palette"
       v-model="valueProxy"
     />
     <va-color-picker-input
-      class="va-pallet-custom__input"
+      class="va-palette-custom__input"
       mode="advanced"
       v-model="valueProxy"
     >
@@ -25,7 +25,7 @@ import VaSimplePalettePicker from './VaSimplePalettePicker'
 import VaColorInput from './VaColorInput'
 
 export default {
-  name: 'va-pallet-custom',
+  name: 'va-palette-custom',
   components: {
     VaColorInput,
     VaColorPickerInput,
@@ -50,20 +50,14 @@ export default {
       },
     },
     dotIsSelected () {
-      if (this.value !== '') {
-        if (this.palette.includes(this.value)) {
-          return false
-        } else {
-          return true
-        }
-      }
+      return this.palette.includes(this.value)
     },
   },
 }
 </script>
 
 <style lang="scss">
-.va-pallet-custom {
+.va-palette-custom {
   display: flex;
 
   &__input {

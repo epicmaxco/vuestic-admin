@@ -4,8 +4,12 @@
       <va-color-dropdown>
         <div slot="toggle" class="va-color-picker-input__slot">
           <slot>
-            <va-color-input v-model="valueProxy" mode="palette"
-                                 :disabled="disableInput" :selected="selected"/>
+            <va-color-input
+              v-model="valueProxy"
+              mode="palette"
+              :disabled="isInputDisabled"
+              :selected="selected"
+            />
           </slot>
         </div>
         <div class="va-color-picker-input__dropdown">
@@ -13,8 +17,10 @@
             <va-advanced-color-picker v-model="valueProxy"/>
           </div>
           <div v-if="this.mode==='palette'">
-            <va-simple-palette-picker v-model="valueProxy"
-                                           :palette="palette"/>
+            <va-simple-palette-picker
+              v-model="valueProxy"
+              :palette="palette"
+            />
           </div>
           <div v-if="this.mode==='slider'">
             <va-slider-color-picker v-model="valueProxy"/>
@@ -24,8 +30,11 @@
     </div>
     <div v-else>
       <slot>
-        <va-color-input v-model="valueProxy" mode="palette"
-                             :disabled="disableInput"/>
+        <va-color-input
+          v-model="valueProxy"
+          mode="palette"
+          :disabled="isInputDisabled"
+        />
       </slot>
     </div>
   </div>
@@ -74,22 +83,13 @@ export default {
         this.$emit('input', value)
       },
     },
-    disableInput () {
-      if (this.mode === 'palette') {
-        if (this.palette) {
-          return true
-        }
-      }
-      return false
+    isInputDisabled () {
+      return !!(this.mode === 'palette' && this.palette)
     },
   },
   methods: {
     validator (value) {
-      if (typeof (value) !== 'undefined') {
-        return ['palette', 'slider', 'advanced'].includes(value)
-      } else {
-        return false
-      }
+      return ['palette', 'slider', 'advanced'].includes(value)
     },
   },
 }

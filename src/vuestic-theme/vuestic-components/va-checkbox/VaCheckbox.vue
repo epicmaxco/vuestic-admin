@@ -150,7 +150,6 @@ export default {
 @import "../../vuestic-sass/resources/resources";
 
 .va-checkbox {
-  margin-bottom: $checkbox-between-items-margin;
   display: flex;
   flex-direction: column;
 

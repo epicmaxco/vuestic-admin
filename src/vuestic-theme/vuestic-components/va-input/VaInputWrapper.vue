@@ -6,7 +6,6 @@
     <div class="va-input-wrapper__control">
       <div
         tabindex="0"
-        :style="slotStyles"
         class="va-input-wrapper__slot">
         <div
           v-if="hasPrependData"
@@ -15,6 +14,27 @@
         </div>
         <div class="va-input-wrapper__content">
           <slot/>
+          <div class="va-input-wrapper__details py-0 px-2">
+            <div class="va-input-wrapper__messages">
+              <div
+                v-if="error"
+                :style="messageStyles"
+                class="va-input-wrapper__messages__wrapper">
+                <template
+                  v-for="errorMessage in errorMessages">
+                  {{ errorMessage }}
+                </template>
+              </div>
+              <div
+                v-else
+                :style="messageStyles"
+                class="va-input-wrapper__messages__wrapper">
+                <template v-for="message in messages">
+                  {{ message }}
+                </template>
+              </div>
+            </div>
+          </div>
         </div>
         <div
           v-if="hasAppendData"
@@ -22,36 +42,11 @@
           <slot name="append"/>
         </div>
       </div>
-      <div class="va-input-wrapper__details py-0 px-2">
-        <div class="va-input-wrapper__messages">
-          <div
-            v-if="error"
-            :style="messageStyles"
-            class="va-input-wrapper__messages__wrapper">
-            <template
-              v-for="errorMessage in errorMessages">
-              {{ errorMessage }}
-            </template>
-          </div>
-          <div
-            v-else
-            :style="messageStyles"
-            class="va-input-wrapper__messages__wrapper">
-            <template v-for="message in messages">
-              {{ message }}
-            </template>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
-import {
-  getHoverColor,
-} from './../../../services/color-functions'
-
 export default {
   name: 'va-input-wrapper',
   props: {
@@ -74,15 +69,11 @@ export default {
     },
   },
   computed: {
-    slotStyles () {
-      return {
-        backgroundColor: this.error ? getHoverColor(this.$themes['danger']) : this.success ? getHoverColor(this.$themes['success']) : '#f5f8f9',
-        borderColor: this.error ? this.$themes.danger : this.success ? this.$themes.success : this.$themes.gray,
-      }
-    },
     messageStyles () {
       return {
-        color: this.error ? this.$themes.danger : '#babfc2',
+        color:
+          this.error ? this.$themes.danger
+            : this.success ? this.$themes.success : this.$themes.gray,
       }
     },
     hasPrependData () {
@@ -104,20 +95,7 @@ export default {
   align-items: flex-end;
   font-size: 1rem;
   text-align: left;
-
-  &--focused {
-
-    .va-input-wrapper__slot {
-      border-color: $charcoal !important;
-    }
-  }
-
-  &--disabled {
-
-    .va-input-wrapper__slot {
-      border-color: $brand-secondary !important;
-    }
-  }
+  margin-bottom: 1rem;
 
   &__control, &__content {
     width: 100%;
@@ -125,7 +103,7 @@ export default {
 
   &__content {
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
   }
 
   &__prepend-inner, &__append-inner {
@@ -134,26 +112,22 @@ export default {
   }
 
   &__prepend-inner {
-    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
 
   &__append-inner {
-    margin-right: 0.5rem;
+    margin-left: 0.5rem;
   }
 
   &__slot {
     display: flex;
     position: relative;
-    min-height: 2.375rem;
-    border-style: solid;
-    border-width: 0 0 thin 0;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
     outline: none;
   }
 
   &__details {
     padding: 0 0.5rem;
+    width: 100%;
   }
 
   &__messages__wrapper {
