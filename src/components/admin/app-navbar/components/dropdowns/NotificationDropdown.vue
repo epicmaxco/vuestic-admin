@@ -17,13 +17,13 @@
         @click="markAsRead(option.id)"
        >
         <img v-if="option.details.avatar" class="mr-1 notification-dropdown__item__avatar" :src="option.details.avatar"/>
-        <span class="ellipsis">{{$t(`notifications.${option.name}`,
-          { name: option.details.name, type: option.details.type })}}
+        <span class="ellipsis">
+          {{$t(`notifications.${option.name}`, { name: option.details.name, type: option.details.type })}}
         </span>
       </div>
       <div class="va-row justify--space-between">
-        <va-button>{{ $t('notifications.all') }}</va-button>
-        <va-button outline @click="markAllAsRead" :disabled="allRead">{{ $t('notifications.mark_as_read') }}</va-button>
+        <va-button class="m-0 mr-1" small>{{ $t('notifications.all') }}</va-button>
+        <va-button class="m-0" small outline @click="markAllAsRead" :disabled="allRead">{{ $t('notifications.mark_as_read') }}</va-button>
       </div>
     </va-dropdown>
   </div>

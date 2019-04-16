@@ -54,8 +54,6 @@ $nav-border-side-width: 3.1875rem;
   }
 
   &__button {
-    background: $nav-button-bg !important;
-    width: 10.8125rem;
     .va-button__content__icon-left.fa-github {
       font-size: 1.5rem;
     }
