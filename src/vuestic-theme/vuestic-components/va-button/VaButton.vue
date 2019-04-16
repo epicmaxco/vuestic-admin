@@ -149,7 +149,7 @@ export default {
       if (this.flat || this.outline) {
         return
       }
-      if (this.va.color) { // Color is provided from button group
+      if (this.va.color) { // Gradient is provided from button group
         return
       }
       return getGradientBackground(this.$themes[this.colorComputed])

@@ -1,31 +1,43 @@
 <template>
-  <div class="demo-container">
-    <div class="demo-container__item">
-      <va-color-picker-input v-model="value" mode="palette"
-                             :palette="palette">
-        <color-dot :color="value"/>
-      </va-color-picker-input>
-      {{ value }}
-    </div>
-    <div class="demo-container__item">
-      <va-color-picker-input v-model="value" mode="slider">
+  <VbDemo>
+    <VbCard title="slider mode">
+      <va-color-picker-input
+        v-model="value"
+        mode="slider"
+      >
         <va-color-square :value="value"/>
       </va-color-picker-input>
       {{ value }}
-    </div>
-    <div class="demo-container__item">
-      <va-color-picker-input v-model="value" mode="advanced">
+    </VbCard>
+
+    <VbCard title="advanced mode">
+      <va-color-picker-input
+        v-model="value"
+        mode="advanced"
+      >
         <va-color-input v-model="value"/>
       </va-color-picker-input>
-    </div>
-    <div class="demo-container__item">
+    </VbCard>
+
+    <VbCard title="palette mode">
       <va-color-picker-input
         v-model="value"
         mode="palette"
         :palette="palette"
       />
-    </div>
-  </div>
+    </VbCard>
+
+    <VbCard title="palette mode with slot">
+      <va-color-picker-input
+        v-model="value"
+        mode="palette"
+        :palette="palette"
+      >
+        <color-dot :color="value"/>
+      </va-color-picker-input>
+      {{ value }}
+    </VbCard>
+  </VbDemo>
 </template>
 
 <script>

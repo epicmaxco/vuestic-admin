@@ -1,30 +1,82 @@
 <template>
-  <vue-flatpickr-component
-    class="va-date-picker"
-    :class="{'has-value': valueProxy && valueProxy.length}"
-    v-model="valueProxy"
-    v-on="$listeners"
-    :config="fullConfig"
-  />
+  <div class="va-date-picker">
+    <va-input
+      v-model="valueProxy"
+      readonly
+      data-toggle
+      :placeholder="placeholder"
+      :label="label"
+      :disabled="disabled"
+      :error="error"
+      :success="success"
+      :messages="messages"
+      :error-messages="errorMessages"
+    >
+      <va-icon color="gray" icon="fa fa-calendar" />
+    </va-input>
+    <vue-flatpickr-component
+      class="va-date-picker__flatpickr"
+      v-model="valueProxy"
+      :config="fullConfig"
+      :disabled="disabled"
+      @on-open="onOpen"
+      data-input
+    />
+  </div>
 </template>
 
 <script>
 import VueFlatpickrComponent from 'vue-flatpickr-component'
+import VaInput from '../va-input/VaInput'
 
 export default {
   name: 'va-date-picker',
   components: {
+    VaInput,
     VueFlatpickrComponent,
   },
   props: {
     value: {
       required: true,
     },
-    config: {
-      default: () => {
-        return {}
-      },
+    weekDays: {
+      type: Boolean,
+      default: false,
     },
+    placeholder: {
+      type: String,
+      defualt: '',
+    },
+    label: {
+      type: String,
+      defualt: '',
+    },
+    disabled: {
+      type: Boolean,
+    },
+    error: {
+      type: Boolean,
+    },
+    success: {
+      type: Boolean,
+    },
+    messages: {
+      type: Array,
+      default: () => [],
+    },
+    errorMessages: {
+      type: Array,
+      default: () => [],
+    },
+    config: {
+      type: Object,
+      default: () => {},
+    },
+  },
+  data () {
+    return {
+      isOpen: false,
+    }
   },
   computed: {
     valueProxy: {
@@ -40,9 +92,17 @@ export default {
     },
     defaultConfig () {
       return {
-        // allowInput: true, // false triggers `readonly` on input, which disables label animation.
-        nextArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-forward"></span>',
-        prevArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-back"></span>',
+        wrap: true,
+        nextArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-forward"/>',
+        prevArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-back"/>',
+      }
+    },
+  },
+  methods: {
+    onOpen (selectedDates, dateStr, pcrObject) {
+      const calendar = pcrObject.calendarContainer
+      if (this.weekDays) {
+        calendar.classList.add('flatpickr-calendar--show-days')
       }
     },
   },
@@ -50,121 +110,175 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~flatpickr/dist/flatpickr.css";
-@import "../../vuestic-sass/resources/resources";
+@import '../../vuestic-sass/resources/resources';
+@import '~flatpickr/dist/flatpickr.css';
 
-$datepickerActive: $vue-green;
-$datepickerBackground: #333333;
-$datepickerText: $white;
+$datepickerActiveBackground: $vue-darkest-blue;
+$datepickerActiveColor: $vue-green;
+$datepickerBackground: $light-gray3;
+$datepickerText: $vue-darkest-blue;
 
 $datepickerToday: lighten($datepickerBackground, 5);
 $datepickerOtherMonth: darken($datepickerText, 40);
-$datepickerWeekday: darken($datepickerText, 50);
-$datepickerDayHover: darken($datepickerText, 70);
-$datepickerDayRange: $almost-black;
-$datepickerSeparatorColor: $almost-black;
+$datepickerWeekday: $brand-secondary;
+$datepickerDayHover: $vue-darkest-blue;
+$datepickerDayRange: $vue-green;
+$datepickerSeparatorColor: #e6e9ec;
 
 $borderPadding: 0.5rem;
 $dayPadding: 0.375rem;
-$daySize: 1.75rem;
+$daySize: 2rem;
+$dayMargin: 0.6rem;
+
+.va-date-picker {
+  position: relative;
+
+  &__container {
+     display: flex;
+     position: relative;
+     flex-wrap: wrap;
+  }
+  &__flatpickr {
+    position: absolute;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+  &__icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 0 0.5rem 0 0;
+    border-bottom: 1px solid $brand-secondary;
+    color: $brand-secondary;
+    padding: 0.5rem;
+    height: 2.375rem;
+    cursor: pointer;
+    background-color: $datepickerBackground;
+    width: 2.2rem;
+  }
+
+  i + i {
+    margin-left: 0.5rem;
+  }
+}
 
 .flatpickr-calendar {
-  width: $daySize * 7 + $dayPadding * 6 + $borderPadding * 2 !important;
+  border-radius: 0.5rem;
+  max-width: $daySize * 7 + ($dayPadding + $dayMargin * 2) * 6 + $borderPadding * 2;
+  width: 100%;
+  min-width: 200px;
   background-color: $datepickerBackground;
-  border-radius: 0;
-  box-shadow: none;
+  box-shadow: $datepicker-box-shadow;
 
-  &.arrowTop {
-    &:before {
-      content: none;
-      border-bottom-color: $datepickerBackground;
-    }
-
-    &:after {
-      content: none;
-      border-bottom-color: $datepickerBackground;
+  &:not(.inline) {
+    @include media-breakpoint-only(xs) {
+      max-width: 18rem;
     }
   }
 
-  &.arrowBottom {
-    &:before {
-      content: none;
-      border-top-color: $datepickerBackground;
+  &:not(.flatpickr-calendar--show-days) {
+    .flatpickr-weekdays {
+      display: none;
     }
+  }
 
-    &:after {
-      content: none;
-      border-top-color: $datepickerBackground;
-    }
+  .flatpickr-rContainer {
+    padding: 0.25rem 0;
   }
 
   .flatpickr-days {
-    width: $daySize * 7 + $dayPadding * 6 + $borderPadding * 2 !important;
-    padding: 0 $borderPadding $borderPadding;
+    width: 100%;
     display: block;
 
     .dayContainer {
-      width: ($daySize + $dayPadding) * 7;
-      max-width: ($daySize + $dayPadding) * 7;
-      min-width: ($daySize + $dayPadding) * 7;
-      margin: -$dayPadding / 2;
+      width: 100%;
+      max-width: 100%;
+      min-width: 240px;
 
       .flatpickr-day {
+        @include va-flex-center();
         height: $daySize;
         line-height: 1.7;
         font-size: 1rem;
         flex: 0 0 $daySize;
-        margin: $dayPadding / 2;
+        margin: 0.25rem calc((100% - 2rem * 7) / 14);
         border: none;
         color: $datepickerText;
-
         &.today {
-          color: $datepickerActive;
-
+          color: $datepickerActiveBackground;
           &.selected {
-            color: $datepickerText;
+            color: $datepickerActiveColor;
           }
         }
-
         &:hover {
           background-color: $datepickerDayHover;
+          color: $vue-green;
         }
-
         &.selected {
-          background-color: $datepickerActive;
+          background-color: $datepickerActiveBackground;
+          color: $datepickerActiveColor;
+          &:hover {
+            color: $datepickerActiveColor;
+          }
         }
-
         &.nextMonthDay, &.prevMonthDay {
-          color: $datepickerOtherMonth;
+          color: $brand-secondary;
+          &.startRange {
+            background-color: $datepickerDayHover;
+          }
+          &.endRange {
+            background-color: $datepickerDayHover;
+          }
         }
-
         &.disabled {
-          color: $datepickerOtherMonth;
-
+          color: $brand-secondary;
           &:hover {
             background-color: inherit;
           }
         }
-
         &.startRange, &.endRange, &.inRange {
           border-radius: 2rem;
           box-shadow: none;
         }
-
         &.startRange, &.endRange {
-          background-color: $datepickerActive;
+          background-color: $datepickerActiveBackground;
+          color: $datepickerActiveColor;
         }
-
         &.inRange {
-          background-color: $datepickerDayRange;
+          color: $datepickerDayRange;
+          background-color: $light-gray3;
         }
       }
     }
   }
 
+  .numInputWrapper span {
+    border: none;
+
+    &.arrowUp,
+    &.arrowDown {
+      &:hover {
+        background: none;
+      }
+    }
+
+    &.arrowUp::after {
+      border-style: solid;
+      border-width: 0 0.25rem 0.25rem 0.25rem;
+      border-color: transparent transparent $datepickerActiveColor transparent;
+    }
+    &.arrowDown::after {
+      border-style: solid;
+      border-width: 0.25rem 0.25rem 0 0.25rem;
+      border-color: $datepickerActiveColor transparent transparent transparent;
+    }
+  }
+
   .flatpickr-months {
     height: 2.625rem;
-    border-bottom: solid 0.125rem $datepickerSeparatorColor;
+    border-bottom: solid 0.0625rem $datepickerSeparatorColor;
 
     .flatpickr-month {
       height: 100%;
@@ -172,10 +286,15 @@ $daySize: 1.75rem;
       .flatpickr-current-month {
         padding-top: 0.625rem;
         color: $datepickerText;
+        background-color: $datepickerBackground;
 
         .cur-month {
           font-size: 1rem;
           font-weight: inherit;
+
+          &:hover {
+            background-color: $datepickerBackground;
+          }
         }
 
         .cur-year {
@@ -183,32 +302,12 @@ $daySize: 1.75rem;
         }
 
         .numInputWrapper {
+          border: 0;
+          &:hover {
+            background-color: $datepickerBackground;
+          }
           .numInput.cur-year {
-            color: $white;
-          }
-
-          .arrowUp {
-            &:hover {
-              &::after {
-                border-bottom-color: $datepickerActive;
-              }
-            }
-
-            &::after {
-              border-bottom-color: $datepickerText;
-            }
-          }
-
-          .arrowDown {
-            &:hover {
-              &::after {
-                border-top-color: $datepickerActive;
-              }
-            }
-
-            &::after {
-              border-top-color: $datepickerText;
-            }
+            color: $vue-darkest-blue;
           }
         }
       }
@@ -219,27 +318,28 @@ $daySize: 1.75rem;
       width: 1.625rem;
       @include va-flex-center();
       padding: 0;
-      color: $datepickerText;
+      color: $brand-secondary;
 
       &:hover {
-        color: $datepickerActive;
+        color: $datepickerActiveBackground;
       }
     }
   }
 
+  .flatpickr-innerContainer {
+    overflow-x: auto;
+  }
+
   .flatpickr-weekdays {
-    padding: 0 $borderPadding;
-
+    &--hidden {
+      display: none;
+    }
     .flatpickr-weekdaycontainer {
-      justify-content: space-between;
-
       .flatpickr-weekday {
-        letter-spacing: 0.0625rem;
-        flex: 0 0 $daySize;
         color: $datepickerWeekday;
         text-transform: uppercase;
         font-weight: bold;
-        font-size: 0.6875rem;
+        font-size: 0.625rem;
       }
     }
   }
@@ -252,7 +352,6 @@ $daySize: 1.75rem;
       font-weight: bold;
       font-size: 0.6875rem;
     }
-
     .flatpickr-weeks {
       box-shadow: 2px 0 0 $datepickerSeparatorColor;
       padding-bottom: $borderPadding;
@@ -270,62 +369,67 @@ $daySize: 1.75rem;
   }
 
   &.showTimeInput.hasTime .flatpickr-time {
-    border-top: solid 0.125rem $datepickerSeparatorColor;
+    border-top: solid 0.0625rem $datepickerSeparatorColor;
+    height: 3rem;
+    max-height: 3rem;
 
     .numInputWrapper {
       &:hover {
-        background-color: $datepickerDayHover;
+        background-color: $datepickerBackground
+      }
+
+      .flatpickr-hour {
+        margin-left: 1rem;
+        width: 6rem;
+        padding-left: 0.5rem;
+        font-weight: inherit;
+        text-align: left;
+        background-color: $datepickerBackground;
+        border-bottom: 1px solid $brand-secondary;
+      }
+
+      .flatpickr-minute {
+        margin-left: 1rem;
+        width: 6rem;
+        padding-left: 0.5rem;
+        text-align: left;
+        background-color: $datepickerBackground;
+        border-bottom: 1px solid $brand-secondary;
       }
 
       .numInput {
-        color: $datepickerText;
-
         &:hover, &:focus {
-          background: $datepickerDayHover;
+          background: $datepickerBackground;
         }
       }
 
-      .arrowUp {
-        &::after {
-          border-bottom-color: $datepickerText;
-        }
+      span {
+        margin-right: 0.5rem;
+        height: calc(50% - 10px);
 
-        &:hover::after {
-          border-bottom-color: $datepickerActive;
-        }
-      }
-
-      .arrowDown {
-        &::after {
-          border-top-color: $datepickerText;
-        }
-
-        &:hover::after {
-          border-top-color: $datepickerActive;
+        &.arrowUp {
+          margin-top: 10px;
         }
       }
     }
 
     .flatpickr-time-separator {
       color: $datepickerText;
+      display: none;
     }
 
     .flatpickr-am-pm {
       color: $datepickerText;
-
-      &:hover {
-        background-color: $datepickerDayHover;
-      }
+      padding-top: 0.5rem;
+      padding-left: 0.5rem;
+      margin-left: 1rem;
+      margin-bottom: 1rem;
+      margin-right: 1.5rem;
+      width: 6rem;
+      text-align: left;
+      background-color: $datepickerBackground;
+      border-bottom: 1px solid $brand-secondary;
     }
-  }
-}
-
-.form-group {
-  .flatpickr-input {
-    width: 100%;
-    background: none;
-    outline: none;
-    box-shadow: none;
   }
 }
 </style>

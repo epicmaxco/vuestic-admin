@@ -17,12 +17,12 @@
 <script>
 import VaSimplePalettePicker from './VaSimplePalettePicker'
 import { colorArray } from './VuesticTheme'
-import VaPalletCustom from './VaPalletCustom'
+import VaPaletteCustom from './VaPaletteCustom'
 
 export default {
   components: {
     VaSimplePalettePicker,
-    VaPalletCustom,
+    VaPaletteCustom,
   },
   data () {
     return {
