@@ -17,8 +17,12 @@ const generatePosition = position => {
   return { ...positionMap[position], offset: [12, 12] }
 }
 
+/**
+ * @deprecated
+ * Use
+ */
 export default {
-  name: 'va-dropdown',
+  name: 'va-dropdown-old',
   extend: VaPopup,
   props: {
     position: {

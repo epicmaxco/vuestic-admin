@@ -5,10 +5,12 @@ import VueClipboard from 'vue-clipboard2'
 import Router from 'vue-router'
 import { VueBookComponents, createRoute } from 'vue-book'
 import { ColorThemePlugin } from '../services/ColorThemePlugin'
+import { DropdownPopperPlugin } from '../vuestic-theme/vuestic-components/va-dropdown-popper/dropdown-popover-subplugin'
 
 Vue.use(Router)
 Vue.use(VueBookComponents)
 Vue.use(ColorThemePlugin)
+Vue.use(DropdownPopperPlugin)
 
 const router = new Router({
   routes: [

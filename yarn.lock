@@ -1486,6 +1486,13 @@ astral-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/astral-regex/-/astral-regex-1.0.0.tgz#6c8c3fb827dd43ee3918f27b82782ab7658a6fd9"
   integrity sha512-+Ryf6g3BKoRc7jfp7ad8tM4TtMiaWvbF/1/sQcZPkkS7ag3D5nMBCe2UfOTONtAkaG0tO0ij3C5Lwmf1EiyjHg==
 
+asva-executors@^0.1.22:
+  version "0.1.22"
+  resolved "https://registry.yarnpkg.com/asva-executors/-/asva-executors-0.1.22.tgz#731370b7f5e34e7dbd412ed1a14e0d69772e6431"
+  integrity sha512-ZoYVO9EfS6OyTV4MNi+QsLIEApimxqeTboVfGyt2TXDwSszv8BBOq/eDQhLIt7RQQFZShFfzEy6Y5X3mP8qTdA==
+  dependencies:
+    tslib "^1.9.3"
+
 async-each@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/async-each/-/async-each-1.0.2.tgz#8b8a7ca2a658f927e9f307d6d1a42f4199f0f735"
@@ -6921,6 +6928,11 @@ nan@^2.10.0, nan@^2.9.2:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.13.1.tgz#a15bee3790bde247e8f38f1d446edcdaeb05f2dd"
   integrity sha512-I6YB/YEuDeUZMmhscXKxGgZlFnhsn5y0hgOZBadkzfTRrZBtJDZeg6eQf7PYMIEclwmorTKK8GztsyOUSVBREA==
 
+nanoid@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-2.0.1.tgz#deb55cac196e3f138071911dabbc3726eb048864"
+  integrity sha512-k1u2uemjIGsn25zmujKnotgniC/gxQ9sdegdezeDiKdkDW56THUMqlz3urndKCXJxA6yPzSZbXx/QCMe/pxqsA==
+
 nanomatch@^1.2.9:
   version "1.2.13"
   resolved "https://registry.yarnpkg.com/nanomatch/-/nanomatch-1.2.13.tgz#b87a8aa4fc0de8fe6be88895b38983ff265bd119"
@@ -7756,6 +7768,11 @@ pn@^1.1.0:
 popper.js@^1.12.9:
   version "1.14.4"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.4.tgz#8eec1d8ff02a5a3a152dd43414a15c7b79fd69b6"
+
+popper.js@^1.15.0:
+  version "1.15.0"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.15.0.tgz#5560b99bbad7647e9faa475c6b8056621f5a4ff2"
+  integrity sha512-w010cY1oCUmI+9KwwlWki+r5jxKfTFDVoadl7MSrIujHU5MJ5OR6HTDj6Xo8aoR/QsA56x8jKjA59qGH4ELtrA==
 
 portfinder@1.0.17:
   version "1.0.17"
@@ -9990,7 +10007,7 @@ tsconfig@^7.0.0:
     strip-bom "^3.0.0"
     strip-json-comments "^2.0.0"
 
-tslib@^1.9.0:
+tslib@^1.9.0, tslib@^1.9.3:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
   integrity sha512-4krF8scpejhaOgqzBEcGM7yDIEfi0/8+8zDRZhNZZ2kjmHJ4hv3zCbQWxoJGz1iw5U0Jl0nma13xzHXcncMavQ==

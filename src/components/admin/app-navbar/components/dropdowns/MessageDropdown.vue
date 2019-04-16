@@ -1,7 +1,7 @@
-<template>
+<templates>
   <div class="grow message-dropdown flex-center">
     <va-icon icon="i-nav-messages"/>
-    <va-dropdown v-model="isOpen" position="bottom">
+    <va-dropdown-old v-model="isOpen" position="bottom">
       <a v-for="(option, id) in options"
          :key="id"
          class="dropdown-item"
@@ -12,9 +12,9 @@
       <div class="dropdown-item plain-link-item">
         <a class="plain-link" href="#">{{ $t('messages.all') }}</a>
       </div>
-    </va-dropdown>
+    </va-dropdown-old>
   </div>
-</template>
+</templates>
 
 <script>
 export default {

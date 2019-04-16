@@ -7,9 +7,9 @@
     >
       <va-button
         type="button" class="theme-toggle"
-        slot="actuator" icon-right="ion-ios-arrow-down arrow-down">
+        slot="activator" icon-right="ion-ios-arrow-down arrow-down">
         {{ dropdown.text }}
-        <va-dropdown
+        <va-dropdown-old
           v-model="dropdown.value"
           :position="dropdown.position"
         >
@@ -22,14 +22,14 @@
             >{{ link }}</a>
             <div class="flex lg6"></div>
           </div>
-        </va-dropdown>
+        </va-dropdown-old>
       </va-button>
     </div>
   </div>
 </template>
 
 <script>
-import VaDropdown from './VaDropdown.vue'
+import VaDropdown from './VaDropdownOld.vue'
 
 export default {
   components: {

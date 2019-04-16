@@ -1,8 +1,8 @@
 <template>
   <div class="va-color-picker-input">
     <div v-if="validator(this.mode)">
-      <va-color-dropdown>
-        <div slot="toggle" class="va-color-picker-input__slot">
+      <va-dropdown-popper fixed>
+        <div slot="anchor" class="va-color-picker-input__slot">
           <slot>
             <va-color-input
               v-model="valueProxy"
@@ -13,20 +13,21 @@
           </slot>
         </div>
         <div class="va-color-picker-input__dropdown">
-          <div v-if="this.mode==='advanced'">
-            <va-advanced-color-picker v-model="valueProxy"/>
-          </div>
-          <div v-if="this.mode==='palette'">
-            <va-simple-palette-picker
-              v-model="valueProxy"
-              :palette="palette"
-            />
-          </div>
-          <div v-if="this.mode==='slider'">
-            <va-slider-color-picker v-model="valueProxy"/>
-          </div>
+          <va-advanced-color-picker
+            v-if="this.mode === 'advanced'"
+            v-model="valueProxy"
+          />
+          <va-simple-palette-picker
+            v-if="this.mode === 'palette'"
+            v-model="valueProxy"
+            :palette="palette"
+          />
+          <va-slider-color-picker
+            v-if="this.mode === 'slider'"
+            v-model="valueProxy"
+          />
         </div>
-      </va-color-dropdown>
+      </va-dropdown-popper>
     </div>
     <div v-else>
       <slot>
@@ -38,7 +39,6 @@
       </slot>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -47,12 +47,12 @@ import VaSimplePalettePicker from './VaSimplePalettePicker'
 import VaSliderColorPicker from './VaSliderColorPicker'
 import VaColorSquare from './VaColorSquare'
 import VaColorInput from './VaColorInput'
-import VaColorDropdown from './VaColorDropdown'
+import VaDropdownPopper from '../va-dropdown-popper/VaDropdown'
 
 export default {
   name: 'va-color-picker-input',
   components: {
-    VaColorDropdown,
+    VaDropdownPopper,
     VaColorSquare,
     VaSimplePalettePicker,
     VaAdvancedColorPicker,
