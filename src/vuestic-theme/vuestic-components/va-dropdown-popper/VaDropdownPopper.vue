@@ -1,8 +1,6 @@
 <template>
-  <div
-    class="va-dropdown-popper"
-  >
-    <span
+  <div class="va-dropdown-popper">
+    <div
       class="va-dropdown-popper__anchor"
       @mouseover="onMouseOver()"
       @mouseout="onMouseOut()"
@@ -10,7 +8,7 @@
       ref="anchor"
     >
       <slot name="anchor"/>
-    </span>
+    </div>
     <div
       class="va-dropdown-popper__content"
       v-if="showContent"
@@ -36,11 +34,17 @@ export default {
       isClicked: false,
 
       isMouseHovered: false,
-      hoverDebounceLoader: new DebounceLoader(
+      hoverOverDebounceLoader: new DebounceLoader(
+        async () => {
+          this.isMouseHovered = true
+        },
+        this.hoverOverTimeout,
+      ),
+      hoverOutDebounceLoader: new DebounceLoader(
         async () => {
           this.isMouseHovered = false
         },
-        this.hoverTimeout,
+        this.hoverOutTimeout,
       ),
     }
   },
@@ -71,6 +75,7 @@ export default {
     value: Boolean,
     offset: [String, Number],
     disabled: Boolean,
+    fixed: Boolean,
     closeOnClickOutside: {
       type: Boolean,
       default: true,
@@ -87,7 +92,11 @@ export default {
       default: 'click',
       validator: trigger => ['click', 'hover', 'none'].includes(trigger),
     },
-    hoverTimeout: {
+    hoverOverTimeout: {
+      type: Number,
+      default: 100,
+    },
+    hoverOutTimeout: {
       type: Number,
       default: 200,
     },
@@ -103,18 +112,26 @@ export default {
       }
       this.isClicked = !this.isClicked
     },
+    // Kinda complex logic here.
+    // We want to achieve 2 things:
+    // * Fast mouse-over shouldn't trigger dropdown.
+    // * Dropdown shouldn't close when you move mouse from anchor to content (even with offset).
     onMouseOver () {
       if (this.disabled) {
         return
       }
-      this.isMouseHovered = true
-      this.hoverDebounceLoader.reset()
+      if (!this.isMouseHovered) {
+        this.hoverOverDebounceLoader.run()
+      }
+
+      this.hoverOutDebounceLoader.reset()
     },
     onMouseOut () {
       if (!this.isContentHoverable) {
         this.isMouseHovered = false
       }
-      this.hoverDebounceLoader.run()
+      this.hoverOutDebounceLoader.run()
+      this.hoverOverDebounceLoader.reset()
     },
     registerClickOutsideListener () {
       document.addEventListener('click', event => this.handleDocumentClick(event), false)
@@ -143,6 +160,7 @@ export default {
       }
       this.hide()
     },
+    // @public
     hide () {
       if (this.trigger === 'click') {
         this.isClicked = false
@@ -152,6 +170,7 @@ export default {
       const options = {
         placement: this.position || 'bottom',
         modifiers: {},
+        positionFixed: this.fixed,
         arrow: {
           enabled: false,
         },
@@ -206,8 +225,7 @@ export default {
 
 .va-dropdown-popper {
   &__content {
-    // TODO Not needed.
-    background-color: $white;
+    z-index: 1;
   }
 }
 </style>

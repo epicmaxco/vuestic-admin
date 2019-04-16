@@ -52,6 +52,23 @@
       </va-dropdown-popper>
     </VbCard>
 
+    <VbCard title="Doesn't redraw on content change">
+      <va-dropdown-popper>
+        <button slot="anchor">
+          Click
+        </button>
+        <button @click="redrawContentSize = redrawContentSize - 20">-</button>
+        <button @click="redrawContentSize = redrawContentSize + 20">+</button>
+        <div
+          :style="{
+            width: redrawContentSize + 'px',
+            height: redrawContentSize + 'px',
+            backgroundColor: '#14bb14',
+          }"
+        />
+      </va-dropdown-popper>
+    </VbCard>
+
     <VbCard title="No trigger">
       <label>
         <input type="checkbox" v-model="noTriggerValue"> Show: {{noTriggerValue}}
@@ -63,7 +80,7 @@
         :value="noTriggerValue"
       >
         <button slot="anchor">
-          Hover
+          None
         </button>
         Dropdown text
       </va-dropdown-popper>
@@ -86,7 +103,7 @@
           @anchorClick="$vb.log('Events: anchorClick')"
         >
           <button slot="anchor">
-            Hover
+            Click
           </button>
           Dropdown text
         </va-dropdown-popper>
@@ -108,13 +125,24 @@
       </va-dropdown-popper>
     </VbCard>
 
-    <VbCard title="Shows no respect to hidden overflow">
+    <VbCard title="Ignores to hidden overflow">
       <div style="width: 50px; height: 50px; overflow: hidden; border: 1px gray solid">
         <va-dropdown-popper>
           <button slot="anchor">
             Click
           </button>
-          <div style="width: 150px; height: 150px; background: #4ae387"/>
+          <div style="width: 150px; height: 150px; background: #4ae387">text</div>
+        </va-dropdown-popper>
+      </div>
+    </VbCard>
+
+    <VbCard title="Fixed flag makes possible to ignore even `position: relative`">
+      <div style="width: 50px; height: 50px; overflow: hidden; position: relative; border: 1px gray solid">
+        <va-dropdown-popper fixed>
+          <button slot="anchor">
+            Click
+          </button>
+          <div style="width: 150px; height: 150px; background: #4ae387">text</div>
         </va-dropdown-popper>
       </div>
     </VbCard>
@@ -185,7 +213,7 @@
 
 <script>
 import VaDropdownPopper from './VaDropdownPopper.vue'
-import DropdownCloseButton from './__demo__/DropdownCloseButton.'
+import DropdownCloseButton from './__demo__/DropdownCloseButton'
 
 export default {
   components: { DropdownCloseButton, VaDropdownPopper },
@@ -205,6 +233,7 @@ export default {
       noTriggerValue: false,
       eventsValue: false,
       logEvents: false,
+      redrawContentSize: 100,
     }
   },
 }

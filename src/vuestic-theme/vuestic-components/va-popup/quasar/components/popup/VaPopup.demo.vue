@@ -190,6 +190,24 @@
         </va-popup>
       </div>
     </div>
+
+    <div class="demo-container__item">
+      Redraws on content change
+      <div class="anchor">
+        <va-popup>
+          <button @click="redrawContentSize = redrawContentSize - 20">-</button>
+          <button @click="redrawContentSize = redrawContentSize + 20">+</button>
+          <div
+            :style="{
+              width: redrawContentSize + 'px',
+              height: redrawContentSize + 'px',
+              backgroundColor: '#14bb14',
+            }"
+          />
+          <span v-for="number in redrawContentSize / 10" :key="number">{{number}}</span>
+        </va-popup>
+      </div>
+    </div>
     <div class="demo-container__item">
       offset
       <div class="anchor">
@@ -318,6 +336,8 @@ export default {
       keepOnScreen: false,
       closeOverlay: false,
       eventTest: false,
+
+      redrawContentSize: 50,
     }
   },
 }

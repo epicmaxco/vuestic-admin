@@ -1,8 +1,11 @@
 <template>
   <div class="demo-container">
     <div class="demo-container__item">
-      <va-color-picker-input v-model="value" mode="palette"
-                             :palette="palette">
+      <va-color-picker-input
+        v-model="value"
+        mode="palette"
+        :palette="palette"
+      >
         <color-dot :color="value"/>
       </va-color-picker-input>
       {{ value }}
