@@ -1,5 +1,5 @@
 <template>
-  <va-dropdown
+  <va-dropdown-old
     class="form-group"
     placement="bottom"
   >
@@ -17,7 +17,7 @@
         {{option.value}} per page
       </a>
     </template>
-  </va-dropdown>
+  </va-dropdown-old>
 </template>
 
 <script>

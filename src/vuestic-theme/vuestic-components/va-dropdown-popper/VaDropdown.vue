@@ -27,7 +27,7 @@ import Popper from 'popper.js'
 import { DebounceLoader } from 'asva-executors'
 
 export default {
-  name: 'va-dropdown-popper',
+  name: 'va-dropdown',
   data () {
     return {
       popperInstance: null,
@@ -225,7 +225,7 @@ export default {
 
 .va-dropdown-popper {
   &__content {
-    z-index: 1;
+    z-index: 100;
   }
 }
 </style>
