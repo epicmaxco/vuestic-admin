@@ -2,15 +2,16 @@
   <div class="message-dropdown flex-center">
     <va-icon
       icon="i-nav-messages"
-      :class="{'unread': !allRead}"
+      class="message-dropdown__icon"
+      :class="{'message-dropdown__icon--unread': !allRead}"
     />
     <va-dropdown v-model="isOpen" position="bottom" class="message-dropdown__container py-3 px-2">
       <div
         v-for="option in computedOptions"
         :key="option.id"
-        class="message-dropdown__item position-relative pr-3 flex-nowrap va-row"
-        :class="{'unread': option.unread}"
-        @click="markAsRead(option.id)"
+        class="message-dropdown__item pr-3 va-row"
+        :class="{'message-dropdown__item--unread': option.unread}"
+        @click="option.unread = false"
       >
         <img :src="option.details.avatar" class="message-dropdown__item__avatar mr-1"/>
         <span class="ellipsis">{{ $t(`messages.${option.name}`, { name: option.details.name})}}</span>
@@ -29,7 +30,7 @@ export default {
   data () {
     return {
       isOpen: false,
-      computedOptions: this.options.map(item => ({ ...item, unread: true })),
+      computedOptions: [...this.options],
     }
   },
   props: {
@@ -39,11 +40,13 @@ export default {
         {
           name: 'new',
           details: { name: 'Oleg M', avatar: 'https://picsum.photos/24?image=1083' },
+          unread: true,
           id: 1,
         },
         {
           name: 'new',
           details: { name: 'Andrei H', avatar: 'https://picsum.photos/24?image=1025' },
+          unread: true,
           id: 2,
         },
       ],
@@ -55,11 +58,6 @@ export default {
     },
   },
   methods: {
-    markAsRead (id) {
-      this.computedOptions = this.computedOptions.map(item => item.id === id
-        ? { ...item, unread: false }
-        : { ...item })
-    },
     markAllAsRead () {
       this.computedOptions = this.computedOptions.map(item => ({ ...item, unread: false }))
     },
@@ -73,10 +71,10 @@ export default {
 .message-dropdown {
   cursor: pointer;
 
-  .i-nav-messages {
+  &__icon {
     position: relative;
 
-    &.unread::before {
+    &--unread::before {
       content: '';
       position: absolute;
       right: 0;
@@ -97,7 +95,9 @@ export default {
     cursor: pointer;
     margin-bottom: .75rem;
     color: $brand-secondary;
-    &.unread {
+    position: relative;
+    flex-wrap: nowrap;
+    &--unread {
       color: $vue-darkest-blue;
       &:after {
         content: '';

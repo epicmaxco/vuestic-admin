@@ -6,7 +6,7 @@
       v-model="isShown"
       position="bottom"
     >
-      <div class="language-dropdown__item va-row align--center flex-nowrap"
+      <div class="language-dropdown__item va-row align--center"
          v-for="(option, id) in options"
          :key="id"
          :class="{ active: option.code === currentLanguage() }"
@@ -79,6 +79,7 @@ export default {
   &__item {
     padding-bottom: 0.625rem;
     cursor: pointer;
+    flex-wrap: nowrap;
     &:last-of-type {
       padding-bottom: 0 !important;
     }

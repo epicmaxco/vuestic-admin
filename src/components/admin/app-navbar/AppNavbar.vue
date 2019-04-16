@@ -8,7 +8,7 @@
       <div class="va-row flex-nowrap align--center justify--space-between">
         <span class="va-navbar__text">{{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a></span>
         <div>
-          <va-button class="va-navbar__button" icon="fa fa-github">{{$t('navbar.support')}}</va-button>
+          <va-button class="app-navbar__button" icon="fa fa-github">{{$t('navbar.support')}}</va-button>
         </div>
       </div>
     </template>
@@ -70,3 +70,19 @@ export default {
   },
 }
 </script>
+<style lang="scss">
+.app-navbar {
+  &__button {
+    background: $nav-button-bg !important;
+    width: 10.8125rem;
+    .va-button__content__icon-left.fa-github {
+      font-size: 1.5rem;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    &__button {
+      display: none !important;
+    }
+  }
+}
+</style>
