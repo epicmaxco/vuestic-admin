@@ -7,7 +7,7 @@
             <va-color-input
               v-model="valueProxy"
               mode="palette"
-              :disabled="disableInput"
+              :disabled="isInputDisabled"
               :selected="selected"
             />
           </slot>
@@ -34,7 +34,7 @@
         <va-color-input
           v-model="valueProxy"
           mode="palette"
-          :disabled="disableInput"
+          :disabled="isInputDisabled"
         />
       </slot>
     </div>
@@ -83,22 +83,13 @@ export default {
         this.$emit('input', value)
       },
     },
-    disableInput () {
-      if (this.mode === 'palette') {
-        if (this.palette) {
-          return true
-        }
-      }
-      return false
+    isInputDisabled () {
+      return !!(this.mode === 'palette' && this.palette)
     },
   },
   methods: {
     validator (value) {
-      if (typeof (value) !== 'undefined') {
-        return ['palette', 'slider', 'advanced'].includes(value)
-      } else {
-        return false
-      }
+      return ['palette', 'slider', 'advanced'].includes(value)
     },
   },
 }

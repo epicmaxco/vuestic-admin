@@ -1,22 +1,22 @@
 <template>
   <div class="demo-container">
     <div class="demo-container__item">
-      <va-pallet-custom :palette="palette" v-model="color"/>
+      <va-palette-custom :palette="palette" v-model="color"/>
     </div>
     <div class="demo-container__item">
-      <va-pallet-custom :palette="palette" v-model="color"/>
+      <va-palette-custom :palette="palette" v-model="color"/>
     </div>
   </div>
 </template>
 
 <script>
-import { colorArray } from './/VuesticTheme'
+import { colorArray } from './VuesticTheme'
 
-import VaPalletCustom from './VaPalletCustom'
+import VaPaletteCustom from './VaPaletteCustom'
 
 export default {
   components: {
-    VaPalletCustom,
+    VaPaletteCustom,
   },
   data () {
     return {
