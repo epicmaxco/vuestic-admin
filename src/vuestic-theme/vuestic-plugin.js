@@ -61,9 +61,9 @@ import VaInput from './vuestic-components/va-input/VaInput'
 import VaCountBadge from './vuestic-components/va-count-badge/VaCountBadge'
 import VaCard from './vuestic-components/va-card/VaCard'
 import { installQuasarPlatform } from './vuestic-components/va-popup/quasar/install'
-import { DropdownPopperPlugin } from './vuestic-components/va-dropdown-popper/dropdown-popover-subplugin'
+import { DropdownPopperPlugin } from './vuestic-components/va-dropdown/dropdown-popover-subplugin'
 import VaDropdown
-  from './vuestic-components/va-dropdown-popper/VaDropdown'
+  from './vuestic-components/va-dropdown/VaDropdown'
 
 // At the moment we use quasar platform install to make its components work.
 // Ideally we want to create similar vuestic platform object that holds needed values.
