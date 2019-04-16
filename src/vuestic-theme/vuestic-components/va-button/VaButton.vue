@@ -51,10 +51,12 @@ import {
   getHoverColor,
   getBoxShadowColor,
 } from '../../../services/color-functions'
+import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
 
 export default {
   name: 'va-button',
   components: { VaIcon },
+  mixins: [ColorThemeMixin],
   inject: {
     va: {
       default: () => ({}),
@@ -70,9 +72,6 @@ export default {
     },
     flat: {
       type: Boolean,
-    },
-    color: {
-      type: String,
     },
     small: {
       type: Boolean,
@@ -126,9 +125,6 @@ export default {
     }
   },
   computed: {
-    colorComputed () {
-      return this.color ? this.color : 'success'
-    },
     computedClass () {
       return {
         'va-button--default': !this.flat && !this.outline,
@@ -152,16 +148,16 @@ export default {
       if (this.va.color) { // Gradient is provided from button group
         return
       }
-      return getGradientBackground(this.$themes[this.colorComputed])
+      return getGradientBackground(this.colorComputed)
     },
     shadowStyle () {
       if (this.flat || this.outline) {
         return
       }
-      if (this.va.color) {
+      if (this.va.color && this.$themes && this.$themes[this.va.color]) {
         return '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.$themes[this.va.color])
       }
-      return '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.$themes[this.colorComputed])
+      return '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.colorComputed)
     },
     computedStyle () {
       const computedStyle = {
@@ -174,23 +170,23 @@ export default {
 
       if (this.focusState) {
         if (this.outline || this.flat) {
-          computedStyle.color = this.$themes[this.colorComputed]
-          computedStyle.borderColor = this.outline ? this.$themes[this.colorComputed] : ''
-          computedStyle.background = getFocusColor(this.$themes[this.colorComputed])
+          computedStyle.color = this.colorComputed
+          computedStyle.borderColor = this.outline ? this.colorComputed : ''
+          computedStyle.background = getFocusColor(this.colorComputed)
         } else {
           computedStyle.backgroundImage = this.gradientStyle
         }
       } else if (this.hoverState) {
         if (this.outline || this.flat) {
-          computedStyle.color = this.$themes[this.colorComputed]
-          computedStyle.borderColor = this.outline ? this.$themes[this.colorComputed] : ''
-          computedStyle.background = getHoverColor(this.$themes[this.colorComputed])
+          computedStyle.color = this.colorComputed
+          computedStyle.borderColor = this.outline ? this.colorComputed : ''
+          computedStyle.background = getHoverColor(this.colorComputed)
         } else {
           computedStyle.backgroundImage = this.gradientStyle
         }
       } else {
-        computedStyle.color = this.flat || this.outline ? this.$themes[this.colorComputed] : '#ffffff'
-        computedStyle.borderColor = this.outline ? this.$themes[this.colorComputed] : ''
+        computedStyle.color = this.flat || this.outline ? this.colorComputed : '#ffffff'
+        computedStyle.borderColor = this.outline ? this.colorComputed : ''
         computedStyle.backgroundImage = this.gradientStyle
         computedStyle.boxShadow = this.shadowStyle
       }
