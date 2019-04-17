@@ -7,7 +7,9 @@
       @click.native="isActive = !isActive"
       :style="sidebarLinkStyles"
       :to="to"
-      :target="target">
+      :target="target"
+      active-class="sidebar-link__router-link--active"
+    >
       <va-icon
         v-if="icon"
         class="sidebar-link__content__icon"
@@ -56,18 +58,13 @@ export default {
     }
   },
   watch: {
-    $route (route) {
-      this.$nextTick(() => {
-        this.isActive = this.$children[0].$el.classList.contains('router-link-active')
-        if (!this.isActive) {
-          return
-        }
-        const linkGroup = this.$parent && this.$parent.$parent
-        if (linkGroup.$options.name !== 'sidebar-link-group') {
-          return
-        }
-        linkGroup.expanded = true
-      })
+    $route: {
+      immediate: true,
+      handler () {
+        this.$nextTick(() => {
+          this.setActiveStatus()
+        })
+      },
     },
   },
   computed: {
@@ -105,6 +102,20 @@ export default {
     updateHoverState (isHovered) {
       this.isHovered = isHovered
     },
+    setActiveStatus () {
+      this.isActive = this.$children[0].$el.classList.contains('sidebar-link__router-link--active')
+      if (!this.isActive) {
+        return
+      }
+      const linkGroup = this.$parent && this.$parent.$parent
+      if (linkGroup.$options.name !== 'sidebar-link-group') {
+        return
+      }
+      linkGroup.expanded = true
+    },
+  },
+  beforeRouteUpdate () {
+    this.setActiveStatus()
   },
 }
 </script>
@@ -123,7 +134,6 @@ export default {
     cursor: pointer;
     text-decoration: none;
     border-left: 0.25rem solid transparent;
-
     .sidebar-menu-item-icon {
 
       &.fa-dashboard {
