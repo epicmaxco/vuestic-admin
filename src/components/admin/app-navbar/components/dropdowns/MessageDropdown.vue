@@ -1,4 +1,4 @@
-<templates>
+<template>
   <div class="grow message-dropdown flex-center">
     <va-icon icon="i-nav-messages"/>
     <va-dropdown-old v-model="isOpen" position="bottom">
@@ -14,7 +14,7 @@
       </div>
     </va-dropdown-old>
   </div>
-</templates>
+</template>
 
 <script>
 export default {
