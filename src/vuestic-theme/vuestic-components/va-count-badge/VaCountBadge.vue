@@ -1,13 +1,10 @@
 <template>
-  <span class="va-count-badge">
-    <slot></slot>
-    <span
-      class="va-count-badge__round"
-      v-if="displayNumber !== '0'"
-      :style="computedStyle"
-    >
-      {{ displayNumber }}
-    </span>
+  <span
+    class="va-count-badge"
+    v-if="displayNumber !== '0'"
+    :style="computedStyle"
+  >
+    {{ displayNumber }}
   </span>
 </template>
 
@@ -59,17 +56,11 @@ export default {
 @import "../../vuestic-sass/resources/resources";
 
 .va-count-badge {
-  position: relative;
-
-  &__round {
-    position: absolute;
-    @include flex-center();
-    color: $white;
-    border-radius: 50%;
-    width: 1.5rem;
-    height: 1.5rem;
-    top: -1rem;
-    right: -1rem;
-  }
+  @include flex-center();
+  display: inline-flex;
+  color: $white;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 </style>
