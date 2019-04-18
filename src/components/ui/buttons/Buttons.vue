@@ -78,7 +78,7 @@
       <div class="flex md12">
         <va-card
           class="larger-padding"
-          :title="$t('buttons.colors')"
+          :title="$t('buttons.ColorThemePlugin.js')"
         >
           <div class="va-row">
             <div class="flex">

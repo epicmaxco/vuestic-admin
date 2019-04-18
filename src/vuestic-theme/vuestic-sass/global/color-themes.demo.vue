@@ -1,6 +1,6 @@
 <template>
   <VbDemo>
-    <VbCard>
+    <VbCard title="All of these share `info` theme">
       <va-button class="mb-5" color="info">
         Default Button
       </va-button>
@@ -10,52 +10,41 @@
       </va-notification>
       <va-progress-bar class="mb-5" indeterminate color="info"/>
       <va-slider
-        v-model="value"
+        :value="60"
         value-visible
         label="Label"
         color="info"
         icon-right="fa fa-volume-up"
       />
+      {{$themes.blurple}}
+      <va-button class="mb-5" color="blurple">
+        Default Button
+      </va-button>
     </VbCard>
-    <VbCard>
-      <va-pallet-custom
-        :palette="paletteArray"
-        v-model="color"
-        @input="changeTheme()"
-        class="spinners__color-picker"
-      />
+    <VbCard title="Change `info` color">
+      <va-color-picker-input v-model="$themes.info" mode="advanced"/>
     </VbCard>
   </VbDemo>
 </template>
 
 <script>
-import VaIcon from './../../vuestic-components/va-icon/VaIcon'
 import VaButton from './../../vuestic-components/va-button/VaButton'
 import VaNotification
   from './../../vuestic-components/va-notification/VaNotification'
 import VaProgressBar
   from './../../vuestic-components/va-progress-bar/progress-types/VaProgressBar'
-import VaPalletCustom
-  from '../../vuestic-components/va-color-picker/VaPalletCustom'
-import { colorArray } from '../../vuestic-components/va-color-picker/VuesticTheme'
+import VaPaletteCustom
+  from '../../vuestic-components/va-color-picker/VaPaletteCustom'
+import VaColorPickerInput
+  from '../../vuestic-components/va-color-picker/VaColorPickerInput'
 
 export default {
   components: {
-    VaIcon, VaButton, VaNotification, VaProgressBar, VaPalletCustom,
-  },
-  data () {
-    return {
-      value: 60,
-      icon: 'iconicstroke iconicstroke-info',
-      color: '#4AE387',
-      theme: 'info',
-      paletteArray: colorArray,
-    }
-  },
-  methods: {
-    changeTheme () {
-      this.$themes.info = this.color
-    },
+    VaColorPickerInput,
+    VaButton,
+    VaNotification,
+    VaProgressBar,
+    VaPaletteCustom,
   },
 }
 </script>

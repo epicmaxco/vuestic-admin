@@ -3,7 +3,7 @@
     <span class="profile-dropdown__avatar-container">
       <slot/>
     </span>
-    <va-dropdown
+    <va-dropdown-old
       v-model="isShown"
       position="bottom"
     >
@@ -17,7 +17,7 @@
           {{ $t(`user.${option.name}`) }}
         </router-link>
       </div>
-    </va-dropdown>
+    </va-dropdown-old>
   </div>
 </template>
 
