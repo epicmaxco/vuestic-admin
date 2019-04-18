@@ -50,15 +50,15 @@ $colors-map: (
 );
 
 $theme-colors: (
-  "primary": $brand-primary,
-  "secondary": $white,
-  "success": $light-green,
-  "info": $brand-info,
-  "warning": $brand-warning,
-  "danger": $brand-danger,
-  "light": $light-gray2,
-  "dark": $almost-black,
-  "pale": $theme-pale
+  'primary': $brand-primary,
+  'secondary': $white,
+  'success': $light-green,
+  'info': $brand-info,
+  'warning': $brand-warning,
+  'danger': $brand-danger,
+  'light': $light-gray2,
+  'dark': $almost-black,
+  'pale': $theme-pale
 );
 
 // Layout //
@@ -84,7 +84,7 @@ $content-wrap-ml: calc(#{$sidebar-left} + #{$sidebar-width} + 35px);
 $content-wrap-pb: $layout-padding;
 $made-by-footer-pb: 27px;
 
-$greeny-box-shadow: 0 4px 9.6px 0.4px rgba($vue-green, .5);
+$greeny-box-shadow: 0 4px 9.6px 0.4px rgba($vue-green, 0.5);
 
 //Auth
 $auth-wallpaper-ivuestic-h: 2.625rem;
@@ -99,8 +99,8 @@ $checkbox-label-margin-top: 0.2rem;
 $top-mobile-nav-height: 6.5rem;
 $layout-mobile-padding: 0.1875rem;
 
-$sidebar-mobile-width: calc(100% - .375rem);
-$sidebar-mobile-top: $top-mobile-nav-height+$layout-mobile-padding;
+$sidebar-mobile-width: calc(100% - 0.375rem);
+$sidebar-mobile-top: $top-mobile-nav-height + $layout-mobile-padding;
 $sidebar-mobile-left: $layout-mobile-padding;
 $sidebar-mobile-z-index: 1000;
 
@@ -108,7 +108,8 @@ $content-mobile-wrap-pl: 1rem;
 $content-mobile-wrap-pr: 1rem;
 $content-mobile-wrap-pb: $layout-padding;
 $content-mobile-wrap: 2rem $content-mobile-wrap-pr $content-mobile-wrap-pb $content-mobile-wrap-pl;
-$content-mobile-wrap-fixed-layout: 7rem $content-mobile-wrap-pr $content-mobile-wrap-pb $content-mobile-wrap-pl;
+$content-mobile-wrap-fixed-layout: 7rem $content-mobile-wrap-pr $content-mobile-wrap-pb
+  $content-mobile-wrap-pl;
 $content-mobile-wrap-sb-top: calc(#{$top-nav-height} + #{$layout-padding+20}) - 20 px;
 
 //Auth mobile
@@ -167,7 +168,9 @@ $sidebar-submenu-link-pl: 74px;
 $sidebar-link-active-bg: $almost-black;
 $sidebar-arrow-right: 16px;
 $sidebar-menu-item-icon-size: 19px;
-$sidebar-viewport-height: calc(100vh - #{$top-nav-height} - #{$layout-padding} - #{$content-wrap-pb});
+$sidebar-viewport-height: calc(
+  100vh - #{$top-nav-height} - #{$layout-padding} - #{$content-wrap-pb}
+);
 
 $sidebar-hidden-top: -150px;
 $sidebar-hidden-top-mobile: $sidebar-mobile-top;
@@ -265,13 +268,13 @@ $dropdown-show-b: 1.125rem;
 //Progress Bars
 $progress-value-font-size: 0.625rem;
 $progress-circle-diameter: 2.5rem;
-$progress-bar-width-basic: .5rem;
+$progress-bar-width-basic: 0.5rem;
 
 //Tables
 $table-border-color: #eceeef;
 $striped-row-odd: $white;
 $striped-row: $light-gray2;
-$table-hover-bg: rgba($vue-green, .5);
+$table-hover-bg: rgba($vue-green, 0.5);
 
 //Badges
 $badge-min-width: 5rem;
@@ -280,7 +283,7 @@ $badge-success-bg: $brand-success;
 //Alerts
 $with-close-pr: 3.125rem;
 $alert-padding-x: 1.25rem !default;
-$alert-padding-y: .75rem !default;
+$alert-padding-y: 0.75rem !default;
 
 $alert-success-bg: $light-green;
 $alert-success-text: $body-color;
@@ -360,3 +363,8 @@ $card-title-color: #104fca;
 // Datepickers
 
 $datepicker-box-shadow: 0 2px 3px 0 rgba(98, 106, 119, 0.25);
+
+// Lists
+
+$list-width: 448px;
+$list-border-radius: 0.375rem;
