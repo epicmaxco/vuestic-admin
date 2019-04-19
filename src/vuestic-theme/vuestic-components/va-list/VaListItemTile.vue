@@ -1,5 +1,5 @@
 <template>
-  <div :class="getTileClasses()">
+  <div :class="tileClasses">
     <slot/>
   </div>
 </template>
@@ -17,41 +17,46 @@ export default {
       default: false,
     },
   },
-  methods: {
-    getTileClasses () {
-      const cut = this.cut ? 'va-list-cut' : ''
-      const right = this.right ? 'va-list-right' : ''
-      return `va-list-item-tile ${cut} ${right}`
+  computed: {
+    tileClasses () {
+      return {
+        'va-list-item-tile--cut': this.cut,
+        'va-list-item-tile--right': this.right,
+        'va-list-item-tile': !this.cut && !this.right,
+      }
     },
   },
 }
 </script>
 
-<style>
-img {
+<style lang='scss'>
+.va-list-item-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 64px;
+  padding: 8px 0 8px 8px;
+
+  &--right {
+    @extend .va-list-item-tile;
+    margin-left: auto;
+    align-items: end;
+    margin-right: 16px;
+  }
+
+  &--cut {
+    @extend .va-list-item-tile;
+    height: 64px;
+    overflow: hidden;
+    justify-content: start;
+  }
+}
+
+.va-list-item-tile img {
   object-fit: cover;
   border-radius: 50%;
   height: 48px;
   width: 48px;
 }
 
-.va-list-right {
-  margin-left: auto;
-  align-items: end;
-  margin-right: 8px;
-}
-
-.va-list-item-tile {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-width: 64px;
-  padding: 8px;
-  height: 64px;
-}
-
-.va-list-cut {
-  overflow: hidden;
-  justify-content: start;
-}
 </style>

@@ -1,15 +1,20 @@
 <template>
   <div>
-    <div class="va-list-item" @click="$emit('item-click', item)">
+    <va-list-header v-if="item.header">{{item.header}}</va-list-header>
+    <div v-else :class="itemClass" @click="$emit('item-click', item)">
       <slot/>
-      <!-- <div class="va-list-item-fade"/> -->
     </div>
-    <hr v-if="isDivider()">
+    <div v-if="dividers && !isLast">
+      <div class="va-list-internal-divider-spacer"/>
+      <div class="va-list-internal-divider"/>
+    </div>
   </div>
 </template>
 
 <script>
 import VaIcon from '../va-icon/VaIcon'
+import VaListDivider from './VaListDivider'
+import VaListHeader from './VaListHeader'
 
 export default {
   name: 'va-list-item',
@@ -19,15 +24,27 @@ export default {
       type: Boolean,
       default: false,
     },
-    index: Number,
     items: Array,
+    index: Number,
   },
   components: {
     VaIcon,
+    VaListDivider,
+    VaListHeader,
   },
-  methods: {
-    isDivider () {
-      return this.index !== this.items.length - 1 && this.dividers
+  computed: {
+    isLast () {
+      return this.items.length === this.index + 1
+    },
+    isFirst () {
+      return this.index === 0
+    },
+    itemClass () {
+      return {
+        'va-list-item--last': this.isLast,
+        'va-list-item--first': this.isFirst,
+        'va-list-item': !this.isLast,
+      }
     },
   },
 }
@@ -41,34 +58,31 @@ export default {
   justify-content: start;
   padding-left: 16px;
   cursor: pointer;
-  position: relative;
+  width: $list-width;
+  background-color: $list-background-color;
 
-  &-header {
-    color: $theme-blue-dark;
-    display: flex;
-    flex-direction: column;
-    font-size: $font-size-smaller;
-    font-weight: $font-weight-bold;
-    justify-content: center;
-    letter-spacing: 0.6px;
-    min-height: 48px;
-    padding-left: 24px;
-    padding-right: 8px;
-    text-transform: uppercase;
+  &--first {
+    @extend .va-list-item;
+    // border-radius: $list-border-radius $list-border-radius 0 0;
   }
-
-  &-fade {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    margin: 0;
-    padding: 4px 0;
-    background-image: linear-gradient(to bottom, transparent, $white);
+  &--last {
+    @extend .va-list-item;
+    border-radius: 0 0 $list-border-radius $list-border-radius;
   }
 }
+.va-list-internal-divider {
+  height: 1px;
+  width: 100%;
+  background-color: $list-divider-color;
+}
+.va-list-internal-divider-spacer {
+  height: 1px;
+  width: 24px;
+  float: left;
+  background-color: $list-background-color;
+}
 
-div.va-list-item:hover {
-  background-color: $gray-light;
+.va-list-item:hover {
+  background-color: $list-hover-color;
 }
 </style>

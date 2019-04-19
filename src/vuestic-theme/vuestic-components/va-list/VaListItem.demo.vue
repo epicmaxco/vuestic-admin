@@ -1,12 +1,36 @@
 <template>
   <VbDemo>
-    <div class="va-list-demo">
-      <VaList :items="items" :dividers="true" @item-click="onClick"/>
+    <div style="margin: 20px">
+      <va-list-header>This is a distinct header</va-list-header>
+      <va-list-divider/>
+      <va-list-item
+        v-for="(item, index) of items"
+        dividers
+        :item="item"
+        :key="'listItem' + index"
+        @item-click="onClick"
+        :items="items"
+        :index="index"
+      >
+        <va-list-item-tile>
+          <img :src="item.image" v-if="item.image">
+        </va-list-item-tile>
+        <va-list-item-tile cut>
+          <div>{{item.firstLine}}</div>
+          <div class="text--secondary " style="font-size: 0.875rem">{{item.secondLine}}</div>
+        </va-list-item-tile>
+        <va-list-item-tile right>
+          <va-icon :icon="item.icon" :color="'lightgrey'"/>
+        </va-list-item-tile>
+      </va-list-item>
     </div>
   </VbDemo>
 </template>
 <script>
-import VaList from './VaList'
+import VaListItem from './VaListItem'
+import VaListItemTile from './VaListItemTile'
+import VaListHeader from './VaListHeader'
+import VaListDivider from './VaListDivider'
 
 export default {
   data () {
@@ -36,6 +60,9 @@ export default {
           icon: 'fa fa-star',
         },
         {
+          header: 'Header from data here',
+        },
+        {
           firstLine: 'Why Listeners in HTML?',
           secondLine:
             'You might be concerned that this whole event listening approach violates the good old rules about “separation of concerns”. Rest assured - since all Vue handler functions and expressions are strictly bound to the ViewModel that’s handling the current view, it won’t cause any maintenance difficulty. In fact, there are several benefits in using v-on',
@@ -59,15 +86,15 @@ export default {
     }
   },
   components: {
-    VaList,
+    VaListItem,
+    VaListItemTile,
+    VaListHeader,
+    VaListDivider,
   },
   methods: {
-    onClick (clickedItem) {},
+    onClick (clickedItem) {
+      console.debug(clickedItem)
+    },
   },
 }
 </script>
-<style>
-.va-list-demo {
-  padding: 1.4rem 2rem;
-}
-</style>
