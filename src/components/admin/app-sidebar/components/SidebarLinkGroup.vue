@@ -86,6 +86,7 @@ export default {
         return {
           color: this.$themes['success'],
           backgroundColor: getHoverColor(this.$themes['info']),
+          borderLeftColor: this.$themes['success'],
         }
       } else {
         return {
