@@ -16,7 +16,9 @@
           :style="iconStyles"
           :icon="icon"
         />
-        <slot name="title"/>
+        <span class="sidebar-link__content__title">
+          <slot name="title"/>
+        </span>
       </div>
     </a>
     <expanding>
@@ -35,9 +37,7 @@
 import VaIcon from './../../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
 import SidebarLink from './SidebarLink'
 import Expanding from 'vue-bulma-expanding/src/Expanding'
-import {
-  getHoverColor,
-} from './../../../../services/color-functions'
+import { getHoverColor } from './../../../../services/color-functions'
 
 export default {
   name: 'sidebar-link-group',

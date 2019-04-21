@@ -1,5 +1,5 @@
 <template>
-  <aside class="va-sidebar">
+  <aside class="va-sidebar" :style="{ backgroundColor: $themes[color] }">
     <va-scrollbar>
       <ul class="sidebar-menu">
         <slot name="menu"></slot>
@@ -16,6 +16,10 @@ export default {
       type: Boolean,
       required: true,
     },
+    color: {
+      type: String,
+      default: 'secondary',
+    },
   },
 }
 </script>
@@ -24,18 +28,17 @@ export default {
 .va-sidebar {
   @include media-breakpoint-down(md) {
     top: $sidebar-mobile-top;
-    left: $sidebar-mobile-left;
     width: $sidebar-mobile-width;
     z-index: $sidebar-mobile-z-index;
   }
 
-  height: $sidebar-viewport-height;
+  min-height: $sidebar-viewport-height;
+  height: 100%;
   position: absolute;
   width: $sidebar-width;
   top: $sidebar-top;
-  left: $sidebar-left;
+  left: 0;
   transition: all 0.2s ease;
-  opacity: 1;
 
   .va-scrollbar {
     height: 100%;
@@ -56,26 +59,28 @@ export default {
 
     .scrollbar-wrapper {
       box-shadow: $sidebar-box-shadow;
+      border-radius: 0;
     }
   }
 
   &.sidebar-hidden {
     @include media-breakpoint-down(md) {
-      top: $sidebar-hidden-top-mobile;
-      opacity: 0;
       z-index: $sidebar-mobile-z-index;
       height: $sidebar-hidden-height-mobile;
     }
-    top: $sidebar-hidden-top;
-    opacity: 0;
-    z-index: $min-z-index;
+    left: 0;
+    width: 56px;
+    .sidebar-link__content__title,
+    .sidebar-link__content__title {
+      display: none;
+    }
   }
 
   &.sidebar-hidden + .content-wrap {
     @include media-breakpoint-down(md) {
       margin-left: 0;
     }
-    margin-left: $sidebar-left;
+    margin-left: $sidebar-left--hidden;
   }
 }
 </style>

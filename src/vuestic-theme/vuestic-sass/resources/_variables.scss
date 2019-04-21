@@ -76,7 +76,9 @@ $navbar-brand-container-left: 75px;
 
 $sidebar-bg: $darkest-gray;
 $sidebar-width: 225px;
-$sidebar-top: calc(#{$top-nav-height} + #{$layout-padding});
+$sidebar-width--hidden: 56px;
+$sidebar-top: $top-nav-height;
+$sidebar-left--hidden: calc(#{$layout-padding} + #{$sidebar-width--hidden});
 $sidebar-left: $layout-padding;
 $min-z-index: -1000;
 
@@ -167,12 +169,12 @@ $sidebar-submenu-link-pl: 74px;
 $sidebar-link-active-bg: $almost-black;
 $sidebar-arrow-right: 16px;
 $sidebar-menu-item-icon-size: 19px;
-$sidebar-viewport-height: calc(100vh - #{$top-nav-height} - #{$layout-padding} - #{$content-wrap-pb});
+$sidebar-viewport-height: calc(100vh - #{$top-nav-height});
 
 $sidebar-hidden-top: -150px;
 $sidebar-hidden-top-mobile: $sidebar-mobile-top;
 $sidebar-hidden-height-mobile: 0;
-$sidebar-box-shadow: 0px 8px 14.72px 1.28px rgba(#65a977, 0.3);
+$sidebar-box-shadow: 0 2px 3px 0 rgba(52, 56, 85, 0.25);
 
 //Widgets
 $widget-bg: $white;

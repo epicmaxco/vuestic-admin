@@ -2,7 +2,6 @@
   <div class="va-scrollbar" ref="vuesticScrollbar">
     <div class="scrollbar-wrapper" ref="scrollbarWrapper">
       <div class="scrollbar-content" ref="scrollbarContent"
-           :style="{ backgroundColor: $themes[color] }"
            @wheel="scroll"
            @touchstart="startDrag"
            @touchmove="onDrag"
@@ -27,10 +26,6 @@ export default {
   props: {
     speed: {
       default: 20,
-    },
-    color: {
-      type: String,
-      default: 'secondary',
     },
   },
   methods: {
@@ -91,7 +86,7 @@ export default {
         this.prevTouch = touch
       }
     },
-    stopDrag (e) {
+    stopDrag () {
       this.isDragging = false
     },
     scroll (e) {
