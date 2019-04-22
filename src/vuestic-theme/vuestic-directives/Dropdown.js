@@ -1,6 +1,10 @@
 export default {
 
   bind: function (el, binding) {
+    const value = binding.value || {}
+    if (value.readonly) {
+      return
+    }
     // HACK Probably could be done much better.
     // Gonna explain what's going on here.
 
@@ -20,7 +24,6 @@ export default {
     // These are directive modifiers. Which we can exploit to modify dropdown behaviour.
     const closeOnMenuClick = binding.modifiers.closeOnMenuClick
 
-    const value = binding.value || {}
     const isBlocked = value.isBlocked || false
 
     const onDropdownClose = value.onDropdownClose || (() => {

@@ -2,18 +2,19 @@
   <div class="vuestic-simple-select">
     <div
       class="form-group with-icon-right dropdown select-form-group"
-      v-dropdown="{ isBlocked: true, onDropdownClose: onDropdownClose }"
+      v-dropdown="{ isBlocked: true, onDropdownClose: onDropdownClose, readonly: readonly }"
       :class="{'has-error': hasErrors()}"
     >
       <div
         class="input-group dropdown-toggle vuestic-simple-select__dropdown-toggle">
         <div>
           <input
-            @focus="showDropdown()"
+            @focus="readonly ? false : showDropdown()"
             :class="{'has-value': !!value}"
             v-model="displayValue"
             :name="name"
             :options="options"
+            :readonly="readonly"
           >
           <label class="control-label">{{label}}</label><i class="bar"/>
           <small v-show="hasErrors()" class="help text-danger">
@@ -23,12 +24,14 @@
         <i
           class="ion ion-ios-arrow-down icon-right input-icon vuestic-simple-select__dropdown-arrow"
           @click="showDropdown"
+          v-if="!readonly"
         />
       </div>
       <div v-if="isClearable">
         <i
           class="fa fa-close icon-cross icon-right input-icon vuestic-simple-select__unselect"
           @click="unselectOption"
+          v-if="!readonly"
         />
       </div>
       <div
@@ -77,6 +80,10 @@ export default {
     required: {
       type: Boolean,
       default: false,
+    },
+    readonly: {
+      type: Boolean,
+      default: false
     },
     clearable: {
       type: Boolean,
