@@ -35,7 +35,7 @@ export default {
     badgeStyle () {
       return {
         color: this.outline ? this.$themes[this.color] : '#ffffff',
-        borderColor: this.outline ? this.$themes[this.color] : '',
+        boxShadowColor: this.outline ? this.$themes[this.color] : '',
         backgroundColor: !this.outline ? this.$themes[this.color] : '',
       }
     },
@@ -50,7 +50,7 @@ export default {
   display: inline-block;
   padding: $chip-padding-y-sm $chip-padding-x-sm;
   color: $white;
-  border: $chip-border;
+  border: solid $chip-border;
   border-radius: $chip-border-radius-sm;
   font-size: $chip-font-size-sm;
   font-weight: bold;
@@ -69,7 +69,7 @@ export default {
 
   &--outline {
     background-color: transparent;
-    border: solid $chip-border-outline;
+    box-shadow: inset 0px 0px 0px $chip-border-outline;
   }
 }
 </style>
