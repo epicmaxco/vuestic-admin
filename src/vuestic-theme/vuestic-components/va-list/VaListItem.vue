@@ -1,50 +1,35 @@
 <template>
-  <div>
-    <va-list-header v-if="item.header">{{item.header}}</va-list-header>
-    <div v-else :class="itemClass" @click="$emit('item-click', item)">
+    <va-list-header v-if="item.header" :style="this.style">
+      {{item.header}}
+    </va-list-header>
+
+    <div v-else class="va-list-item" :style="this.style" @click="$emit('item-click', item)">
       <slot/>
     </div>
-    <div v-if="dividers && !isLast">
-      <div class="va-list-internal-divider-spacer"/>
-      <div class="va-list-internal-divider"/>
-    </div>
-  </div>
 </template>
 
 <script>
 import VaIcon from '../va-icon/VaIcon'
-import VaListDivider from './VaListDivider'
 import VaListHeader from './VaListHeader'
 
 export default {
   name: 'va-list-item',
   props: {
-    item: Object,
-    dividers: {
-      type: Boolean,
-      default: false,
+    item: {
+      type: Object,
+      required: true,
     },
-    items: Array,
-    index: Number,
+    itemHeight: {
+      type: Number,
+    },
   },
   components: {
     VaIcon,
-    VaListDivider,
     VaListHeader,
   },
   computed: {
-    isLast () {
-      return this.items.length === this.index + 1
-    },
-    isFirst () {
-      return this.index === 0
-    },
-    itemClass () {
-      return {
-        'va-list-item--last': this.isLast,
-        'va-list-item--first': this.isFirst,
-        'va-list-item': !this.isLast,
-      }
+    style () {
+      return `height: ${this.itemHeight}rem`
     },
   },
 }
@@ -56,33 +41,28 @@ export default {
 .va-list-item {
   display: flex;
   justify-content: start;
-  padding-left: 16px;
+  padding-left: 1rem;
   cursor: pointer;
   width: $list-width;
   background-color: $list-background-color;
 
-  &--first {
-    @extend .va-list-item;
-    // border-radius: $list-border-radius $list-border-radius 0 0;
+  div:last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 4rem;
+    padding: 0.5rem 0 0.5rem 0.5rem;
+    margin-left: auto;
+    align-items: flex-end;
+    margin-right: 1rem;
   }
-  &--last {
-    @extend .va-list-item;
-    border-radius: 0 0 $list-border-radius $list-border-radius;
-  }
-}
-.va-list-internal-divider {
-  height: 1px;
-  width: 100%;
-  background-color: $list-divider-color;
-}
-.va-list-internal-divider-spacer {
-  height: 1px;
-  width: 24px;
-  float: left;
-  background-color: $list-background-color;
 }
 
 .va-list-item:hover {
   background-color: $list-hover-color;
+}
+
+.va-list-item:hover .va-list-item-tile-fade {
+  background: linear-gradient(transparent, $list-hover-color 90%);
 }
 </style>

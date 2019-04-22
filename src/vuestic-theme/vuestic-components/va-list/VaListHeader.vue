@@ -16,10 +16,11 @@ export default {
 @import "../../vuestic-sass/resources/resources";
 
 .va-list-header {
+  width: $list-width;
   background-color: $list-background-color;
-  padding-left: 24px;
-  padding-top: 24px;
-  padding-bottom: 20px;
-  height: 64px;
+  padding-left: 1.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.25rem;
+  height: 4rem;
 }
 </style>

@@ -1,62 +1,42 @@
 <template>
-  <div :class="tileClasses">
-    <slot/>
-  </div>
+    <div class="va-list-item-tile">
+      <slot/>
+      <div class="va-list-item-tile-fade"/>
+    </div>
 </template>
 
 <script>
 export default {
   name: 'va-list-item-tile',
-  props: {
-    cut: {
-      type: Boolean,
-      default: false,
-    },
-    right: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  computed: {
-    tileClasses () {
-      return {
-        'va-list-item-tile--cut': this.cut,
-        'va-list-item-tile--right': this.right,
-        'va-list-item-tile': !this.cut && !this.right,
-      }
-    },
-  },
 }
 </script>
 
 <style lang='scss'>
+@import "../../vuestic-sass/resources/resources";
+
 .va-list-item-tile {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  min-width: 64px;
-  padding: 8px 0 8px 8px;
+  min-width: 4rem;
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  height: 100%;
+  overflow: hidden;
+  justify-content: start;
+  position: relative;
 
-  &--right {
-    @extend .va-list-item-tile;
-    margin-left: auto;
-    align-items: end;
-    margin-right: 16px;
-  }
-
-  &--cut {
-    @extend .va-list-item-tile;
-    height: 64px;
-    overflow: hidden;
-    justify-content: start;
+  &-fade {
+    position: absolute;
+    bottom: 0;
+    height: 1rem;
+    width: 100%;
+    background: linear-gradient(transparent, $list-background-color);
   }
 }
 
 .va-list-item-tile img {
   object-fit: cover;
   border-radius: 50%;
-  height: 48px;
-  width: 48px;
+  height: 3rem;
+  width: 3rem;
 }
-
 </style>
