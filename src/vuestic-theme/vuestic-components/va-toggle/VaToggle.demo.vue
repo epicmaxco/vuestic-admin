@@ -21,6 +21,24 @@
       <va-toggle v-model="value" label="default"/>
       <va-toggle v-model="value" large label="large"/>
     </VbCard>
+    <VbCard title="Custom trueValue, falseValue">
+      <va-toggle
+        v-model="customTrueFalse"
+        true-value="agree"
+        false-value="disagree"
+        :label="`${customTrueFalse}`"
+      />
+    </VbCard>
+    <VbCard title="Array as model">
+      {{selection}}
+      <va-toggle v-model="selection" val='one' label="one"/>
+      <va-toggle v-model="selection" val='two' label="two"/>
+      <va-toggle v-model="selection" val='three' label="three"/>
+      <va-toggle v-model="selection" val='four' label="four"/>
+    </VbCard>
+    <VbCard title="Disabled">
+      <va-toggle v-model="value" disabled/>
+    </VbCard>
   </VbDemo>
 </template>
 
@@ -34,6 +52,8 @@ export default {
   data () {
     return {
       value: true,
+      customTrueFalse: 'disagree',
+      selection: [],
     }
   },
 }
