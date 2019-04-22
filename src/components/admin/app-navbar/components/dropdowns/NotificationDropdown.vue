@@ -5,7 +5,7 @@
       class="notification-dropdown__icon"
       :class="{'notification-dropdown__icon--unread': !allRead}"
     />
-    <va-dropdown
+    <va-dropdown-old
       v-model="isShown"
       position="bottom"
       class="notification-dropdown__container py-3 px-2"
@@ -26,7 +26,7 @@
         <va-button class="m-0 mr-1" small>{{ $t('notifications.all') }}</va-button>
         <va-button class="m-0" small outline @click="markAllAsRead" :disabled="allRead">{{ $t('notifications.mark_as_read') }}</va-button>
       </div>
-    </va-dropdown>
+    </va-dropdown-old>
   </div>
 </template>
 

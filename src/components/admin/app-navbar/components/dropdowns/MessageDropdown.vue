@@ -5,7 +5,7 @@
       class="message-dropdown__icon"
       :class="{'message-dropdown__icon--unread': !allRead}"
     />
-    <va-dropdown v-model="isOpen" position="bottom" class="message-dropdown__container py-3 px-2">
+    <va-dropdown-old v-model="isOpen" position="bottom" class="message-dropdown__container py-3 px-2">
       <div
         v-for="option in computedOptions"
         :key="option.id"
@@ -20,7 +20,7 @@
         <va-button class="m-0 mr-1" small>{{ $t('messages.all') }}</va-button>
         <va-button class="m-0" small outline @click="markAllAsRead" :disabled="allRead">{{ $t('messages.mark_as_read') }}</va-button>
       </div>
-    </va-dropdown>
+    </va-dropdown-old>
   </div>
 </template>
 

@@ -4,7 +4,7 @@
       <slot/>
       <va-icon class="pa-1" :icon="`fa ${isShown ? 'fa-chevron-up' :'fa-chevron-down'}`"></va-icon>
     </span>
-    <va-dropdown
+    <va-dropdown-old
       v-model="isShown"
       position="bottom"
       class="pa-3"
@@ -17,7 +17,7 @@
       >
         {{ $t(`user.${option.name}`) }}
       </router-link>
-    </va-dropdown>
+    </va-dropdown-old>
   </div>
 </template>
 

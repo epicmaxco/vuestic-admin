@@ -40,20 +40,13 @@ export default {
       // We change font size depending on length of text
       // so that it fits in circle perfectly.
       const length = this.displayNumber.length
-      switch (length) {
-        case (1): {
-          return `${length}rem`
-        }
-        case (2): {
-          return `${length * 0.375}rem`
-        }
-        case (3): {
-          return `${length * 0.233}rem`
-        }
-        default: {
-          return `${length * 0.15}rem`
-        }
+      if (length <= 2) {
+        return '0.75rem'
       }
+      if (length <= 3) {
+        return '0.7rem'
+      }
+      return `${length * 0.15}rem`
     },
     displayNumber () {
       return approximateNumber(this.number)
