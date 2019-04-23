@@ -1,4 +1,4 @@
-In vuestic we exposed a number of events so that you can subscribe to them without complex boilerplate. It works like this:
+In vuestic we expose a number of events so that you can subscribe to them without complex boilerplate. It works like this:
 
 ```html
 <script>

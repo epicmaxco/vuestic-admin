@@ -1,11 +1,11 @@
 <template>
   <div class="extra">
-    <vuestic-widget
+    <va-card
       :headerText="$t('extra.tabs.title')"
       class="no-v-padding"
     >
       <va-tabs grow v-model="value">
-        <va-tab >
+        <va-tab>
           {{$t('extra.tabs.setupProfile')}}
         </va-tab>
         <va-tab>
@@ -15,44 +15,45 @@
           {{$t('extra.tabs.overview')}}
         </va-tab>
       </va-tabs>
-      <setup-profile-tab wizardType="simple" v-if="value === $t('extra.tabs.setupProfile')"/>
-      <leaflet-map v-if="value === $t('extra.tabs.maps')"/>
-      <overview-tab v-if="value === $t('extra.tabs.overview')"/>
-    </vuestic-widget>
+      <va-separator/>
+      <setup-profile-tab wizardType="simple" v-if="value === 0"/>
+      <leaflet-map v-if="value === 1"/>
+      <overview-tab v-if="value === 2"/>
+    </va-card>
     <div class="va-row">
       <div class="flex md4">
-        <vuestic-widget
+        <va-card
           :headerText="$t('extra.profileCard')"
           class="profile-card-widget"
         >
-          <vuestic-profile-card
+          <va-profile-card
             :name="'Veronique Lee'"
             :location="'Malaga, Spain'"
             photoSource="https://i.imgur.com/NLrdqsk.png"
             :social="{twitter: 'twitter.com', facebook: 'facebook.com',
             instagram: 'instagram.com'}"
           />
-        </vuestic-widget>
+        </va-card>
       </div>
       <div class="flex md8">
-        <vuestic-widget :headerText="$t('extra.chat')" class="chat-widget">
-          <vuestic-chat v-model="chatMessages"/>
-        </vuestic-widget>
+        <va-card :headerText="$t('extra.chat')" class="chat-widget">
+          <va-chat v-model="chatMessages"/>
+        </va-card>
       </div>
     </div>
     <div class="va-row bottom-widgets">
       <div class="flex md6">
-        <vuestic-widget class="no-h-padding no-v-padding">
-          <vuestic-feed :initialPosts="posts"/>
-        </vuestic-widget>
+        <va-card class="no-h-padding no-v-padding">
+          <va-feed :initialPosts="posts"/>
+        </va-card>
       </div>
       <div class="flex md6">
-        <vuestic-widget class="business-posts">
-          <vuestic-social-news
+        <va-card class="business-posts">
+          <va-social-news
             :news="news"
-            :url="'https://instagram.com/smartapant'"
+            url="https://instagram.com/smartapant"
           />
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
   </div>
@@ -63,17 +64,20 @@ import OverviewTab from 'components/dashboard/features-tab/FeaturesTab.vue'
 import SetupProfileTab
   from 'components/dashboard/setup-profile-tab/SetupProfileTab.vue'
 import LeafletMap from 'components/maps/leaflet-maps/LeafletMap.vue'
+import VaProfileCard
+  from '../../vuestic-theme/vuestic-components/va-profile-card/VaProfileCard'
 
 export default {
   name: 'extra',
   components: {
+    VaProfileCard,
     LeafletMap,
     SetupProfileTab,
     OverviewTab,
   },
   data () {
     return {
-      value: 'Setup Profile',
+      value: 0,
       chatMessages: [
         {
           text: 'Hello! So glad you liked my work. Do you want me to shoot you?',

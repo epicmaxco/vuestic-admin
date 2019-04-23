@@ -19,8 +19,6 @@ import VaMultiSelect
   from './vuestic-components/va-multi-select/VaMultiSelect.vue'
 import VaPopover from './vuestic-components/va-popover/VaPopover.vue'
 import VaPreLoader from './vuestic-components/va-pre-loader/VaPreLoader.vue'
-import VaProfileCard
-  from './vuestic-components/va-profile-card/VaProfileCard.vue'
 import VaBadge from './vuestic-components/va-chip/VaBadge.vue'
 import VaChip from './vuestic-components/va-chip/VaChip.vue'
 import VaButton from './vuestic-components/va-button/VaButton.vue'
@@ -88,7 +86,6 @@ const VuesticPlugin = {
       VaModal,
       VaMultiSelect,
       VaPreLoader,
-      VaProfileCard,
       VaProgressBar,
       VaBadge,
       VaChip,
