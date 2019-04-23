@@ -1,5 +1,5 @@
 <template>
-  <nav class="va-navbar va-row align--center ma-0 pl-3 pr-4 position-relative">
+  <nav class="va-navbar ml-3 mr-4 position-relative">
     <div
       class="va-navbar__logo va-row align--center position-absolute mr-3">
       <router-link class="" to="/">
@@ -8,11 +8,11 @@
     </div>
     <div class="va-navbar__content va-row align--center">
       <div
-        class="va-navbar__icon-container mr-3 md1">
+        class="va-navbar__icon-container mr-3 md1 lg1">
         <slot name="selector"></slot>
       </div>
       <div
-        class="va-navbar__center flex offset--lg2 flex md6 va-row flex-center">
+        class="va-navbar__center flex offset--lg2 lg6 flex md6 va-row flex-center">
         <slot name="center"></slot>
       </div>
       <div class="flex md5 lg3 va-navbar__actions align--center justify--end va-row">
@@ -44,6 +44,7 @@ $nav-border-side-width: 3.1875rem;
   padding-left: $nav-padding-left;
   padding-right: $nav-padding-right;
   background-color: $top-nav-bg;
+  display: flex;
 
   &__content {
     z-index: 1;

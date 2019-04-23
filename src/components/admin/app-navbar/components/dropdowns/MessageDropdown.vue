@@ -1,11 +1,16 @@
 <template>
-  <div class="message-dropdown flex-center">
+  <va-dropdown
+    v-model="isOpen"
+    position="bottom"
+    class="message-dropdown"
+  >
     <va-icon
       icon="i-nav-messages"
+      slot="anchor"
       class="message-dropdown__icon"
       :class="{'message-dropdown__icon--unread': !allRead}"
     />
-    <va-dropdown-old v-model="isOpen" position="bottom" class="message-dropdown__container py-3 px-2">
+    <div class="message-dropdown__content py-3 px-2">
       <div
         v-for="option in computedOptions"
         :key="option.id"
@@ -20,8 +25,8 @@
         <va-button class="m-0 mr-1" small>{{ $t('messages.all') }}</va-button>
         <va-button class="m-0" small outline @click="markAllAsRead" :disabled="allRead">{{ $t('messages.mark_as_read') }}</va-button>
       </div>
-    </va-dropdown-old>
-  </div>
+    </div>
+  </va-dropdown>
 </template>
 
 <script>
@@ -71,8 +76,10 @@ export default {
 .message-dropdown {
   cursor: pointer;
 
-  &__icon {
+  .message-dropdown__icon {
     position: relative;
+    display: flex;
+    align-items: center;
 
     &--unread::before {
       content: '';
@@ -87,9 +94,10 @@ export default {
       border-radius: .187rem;
     }
   }
-  &__container {
-    max-width: 25rem;
-    margin-left: -2rem;
+  &__content {
+    background-color: $dropdown-background;
+    box-shadow: $gray-box-shadow;
+    border-radius: .5rem;
   }
   &__item {
     cursor: pointer;

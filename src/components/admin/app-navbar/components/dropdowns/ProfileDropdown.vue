@@ -1,14 +1,14 @@
 <template>
-  <div class="profile-dropdown">
-    <span class="profile-dropdown__actuator">
+  <va-dropdown
+    v-model="isShown"
+    position="bottom"
+    class="profile-dropdown"
+  >
+    <span class="profile-dropdown__actuator" slot="anchor">
       <slot/>
       <va-icon class="pa-1" :icon="`fa ${isShown ? 'fa-chevron-up' :'fa-chevron-down'}`"></va-icon>
     </span>
-    <va-dropdown-old
-      v-model="isShown"
-      position="bottom"
-      class="pa-3"
-    >
+    <div class="profile-dropdown__content py-3 px-2">
       <router-link
         v-for="option in options"
         :key="option.name"
@@ -17,8 +17,8 @@
       >
         {{ $t(`user.${option.name}`) }}
       </router-link>
-    </va-dropdown-old>
-  </div>
+    </div>
+  </va-dropdown>
 </template>
 
 <script>
@@ -52,6 +52,11 @@ export default {
   cursor: pointer;
   &__actuator {
     color: $vue-green;
+  }
+  &__content {
+    background-color: $dropdown-background;
+    box-shadow: $gray-box-shadow;
+    border-radius: .5rem;
   }
   &__item {
     display: block;

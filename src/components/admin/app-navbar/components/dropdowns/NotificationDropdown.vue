@@ -1,33 +1,34 @@
 <template>
-  <div class="notification-dropdown flex-center">
-    <va-icon
-      icon="i-nav-notification"
-      class="notification-dropdown__icon"
-      :class="{'notification-dropdown__icon--unread': !allRead}"
-    />
-    <va-dropdown-old
+    <va-dropdown
       v-model="isShown"
       position="bottom"
-      class="notification-dropdown__container py-3 px-2"
+      class="notification-dropdown"
     >
-      <div
-        v-for="option in computedOptions"
-        :key="option.id"
-        class="notification-dropdown__item pr-3 va-row"
-        :class="{'notification-dropdown__item--unread': option.unread}"
-        @click="option.unread = false"
-       >
-        <img v-if="option.details.avatar" class="mr-1 notification-dropdown__item__avatar" :src="option.details.avatar"/>
-        <span class="ellipsis">
-          {{$t(`notifications.${option.name}`, { name: option.details.name, type: option.details.type })}}
-        </span>
+      <va-icon
+        slot="anchor"
+        icon="i-nav-notification"
+        class="notification-dropdown__icon"
+        :class="{'notification-dropdown__icon--unread': !allRead}"
+      />
+      <div class="notification-dropdown__content py-3 px-2">
+        <div
+          v-for="option in computedOptions"
+          :key="option.id"
+          class="notification-dropdown__item pr-3 va-row"
+          :class="{'notification-dropdown__item--unread': option.unread}"
+          @click="option.unread = false"
+         >
+          <img v-if="option.details.avatar" class="mr-1 notification-dropdown__item__avatar" :src="option.details.avatar"/>
+          <span class="ellipsis">
+            {{$t(`notifications.${option.name}`, { name: option.details.name, type: option.details.type })}}
+          </span>
+        </div>
+        <div class="va-row justify--space-between">
+          <va-button class="m-0 mr-1" small>{{ $t('notifications.all') }}</va-button>
+          <va-button class="m-0" small outline @click="markAllAsRead" :disabled="allRead">{{ $t('notifications.mark_as_read') }}</va-button>
+        </div>
       </div>
-      <div class="va-row justify--space-between">
-        <va-button class="m-0 mr-1" small>{{ $t('notifications.all') }}</va-button>
-        <va-button class="m-0" small outline @click="markAllAsRead" :disabled="allRead">{{ $t('notifications.mark_as_read') }}</va-button>
-      </div>
-    </va-dropdown-old>
-  </div>
+    </va-dropdown>
 </template>
 
 <script>
@@ -82,9 +83,10 @@ export default {
 
 .notification-dropdown {
   cursor: pointer;
-
-  &__icon {
+  .notification-dropdown__icon {
     position: relative;
+    display: flex;
+    align-items: center;
 
     &--unread::before {
       content: '';
@@ -99,9 +101,11 @@ export default {
       border-radius: .187rem;
     }
   }
-  &__container {
+  &__content {
+    background-color: $dropdown-background;
+    box-shadow: $gray-box-shadow;
+    border-radius: .5rem;
     max-width: 25rem;
-    margin-left: -2rem;
   }
   &__item {
     cursor: pointer;

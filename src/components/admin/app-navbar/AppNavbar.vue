@@ -19,8 +19,10 @@
         </div>
       </div>
     </template>
-    <div class="va-row flex-center justify--space-between">
-      <va-icon icon="i-nav-search" class="pointer"/>
+    <div class="va-row align--center justify--space-between">
+      <div>
+        <va-icon icon="i-nav-search" class="pointer"/>
+      </div>
       <message-dropdown class="va-navbar__item"/>
       <notification-dropdown class="va-navbar__item"/>
       <language-dropdown class="va-navbar__item"/>

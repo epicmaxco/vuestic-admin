@@ -1,24 +1,24 @@
 <template>
-  <div class="language-dropdown">
-    <va-icon :icon="['flag-icon flag-icon-large', flagIconClass(currentLanguage())]"/>
-    <va-dropdown-old
-      class="language-dropdown__container py-3 px-2"
-      v-model="isShown"
-      position="bottom"
-    >
+  <va-dropdown
+    class="language-dropdown"
+    v-model="isShown"
+    position="bottom"
+  >
+    <va-icon slot="anchor" :icon="['flag-icon flag-icon-large', flagIconClass(currentLanguage())]"/>
+    <div class="language-dropdown__content py-3 px-2">
       <div class="language-dropdown__item va-row align--center"
-         v-for="(option, id) in options"
-         :key="id"
-         :class="{ active: option.code === currentLanguage() }"
-         @click="setLanguage(option.code)"
+           v-for="(option, id) in options"
+           :key="id"
+           :class="{ active: option.code === currentLanguage() }"
+           @click="setLanguage(option.code)"
       >
         <va-icon :icon="['flag-icon flag-icon-small', flagIconClass(option.code)]"/>
         <span class="dropdown-item__text">
-          {{ $t(`language.${option.name}`) }}
-        </span>
+        {{ $t(`language.${option.name}`) }}
+      </span>
       </div>
-    </va-dropdown-old>
-  </div>
+    </div>
+  </va-dropdown>
 </template>
 
 <script>
@@ -76,6 +76,17 @@ export default {
 
 .language-dropdown {
   cursor: pointer;
+  &__content {
+    background-color: $dropdown-background;
+    box-shadow: $gray-box-shadow;
+    border-radius: .5rem;
+    max-width: 9rem !important;
+    .flag-icon-small {
+      min-width: 1.5rem;
+      min-height: 1.5rem;
+      margin-right: .5rem;
+    }
+  }
   &__item {
     padding-bottom: 0.625rem;
     cursor: pointer;
@@ -85,14 +96,6 @@ export default {
     }
     &:hover, &.active {
       color: $vue-green;
-    }
-  }
-  &__container {
-    max-width: 9rem !important;
-    .flag-icon-small {
-      min-width: 1.5rem;
-      min-height: 1.5rem;
-      margin-right: .5rem;
     }
   }
   .flag-icon-large {
