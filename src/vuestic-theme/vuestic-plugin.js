@@ -19,8 +19,6 @@ import VaMultiSelect
   from './vuestic-components/va-multi-select/VaMultiSelect.vue'
 import VaPopover from './vuestic-components/va-popover/VaPopover.vue'
 import VaPreLoader from './vuestic-components/va-pre-loader/VaPreLoader.vue'
-import VaProfileCard
-  from './vuestic-components/va-profile-card/VaProfileCard.vue'
 import VaBadge from './vuestic-components/va-chip/VaBadge.vue'
 import VaChip from './vuestic-components/va-chip/VaChip.vue'
 import VaButton from './vuestic-components/va-button/VaButton.vue'
@@ -44,6 +42,7 @@ import VaDatePicker from './vuestic-components/va-date-picker/VaDatePicker'
 import VaFileUpload from './vuestic-components/va-file-upload/VaFileUpload'
 import VaIcon from './vuestic-components/va-icon/VaIcon'
 import VaDropdownOld from './vuestic-components/va-dropdown/VaDropdownOld'
+import VaTab from './vuestic-components/va-tabs/VaTab.vue'
 
 import Toasted from './vuestic-mixins/VuesticToasted'
 
@@ -62,8 +61,11 @@ import VaCountBadge from './vuestic-components/va-count-badge/VaCountBadge'
 import VaCard from './vuestic-components/va-card/VaCard'
 import { installQuasarPlatform } from './vuestic-components/va-popup/quasar/install'
 import { DropdownPopperPlugin } from './vuestic-components/va-dropdown/dropdown-popover-subplugin'
-import VaDropdown
-  from './vuestic-components/va-dropdown/VaDropdown'
+import VaDropdown from './vuestic-components/va-dropdown/VaDropdown'
+import VaSeparator from './vuestic-components/va-card/VaSeparator'
+
+import { BusPlugin } from 'vue-epic-bus'
+import { DebounceLoader } from 'asva-executors'
 
 // At the moment we use quasar platform install to make its components work.
 // Ideally we want to create similar vuestic platform object that holds needed values.
@@ -84,7 +86,6 @@ const VuesticPlugin = {
       VaModal,
       VaMultiSelect,
       VaPreLoader,
-      VaProfileCard,
       VaProgressBar,
       VaBadge,
       VaChip,
@@ -115,12 +116,34 @@ const VuesticPlugin = {
       VaTimelineItem,
       VaPopup,
       VaCard,
+      VaTab,
       VaCountBadge,
       VaInput,
       VaDropdown,
+      VaSeparator,
     ].forEach(component => {
       Vue.component(component.name, component)
     })
+
+    const $va = Vue.prototype.$va = new Vue({
+      data () {
+        return {}
+      },
+    })
+
+    const resizeDebounceLoader = new DebounceLoader(
+      async resizeEvent => {
+        $va.$cast('resizeEnd', resizeEvent)
+      },
+      150,
+    )
+
+    window.addEventListener('resize', resizeEvent => {
+      $va.$cast('resize', resizeEvent)
+      resizeDebounceLoader.run(resizeEvent)
+    })
+
+    Vue.use(BusPlugin)
 
     Vue.use(DropdownPopperPlugin)
 
