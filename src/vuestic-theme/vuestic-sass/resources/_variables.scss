@@ -38,6 +38,9 @@ $gray: #adb3b9;
 $dark-blue: #0045b6;
 $text-gray: #b4b4b4;
 
+$transition-primary: 0.3s cubic-bezier(.25,.8,.50,1); // swing
+$transition-secondary: 0.2s cubic-bezier(0.4, 0.0, 0.6, 1); // ease-in-out
+
 $colors-map: (
   brand-danger: $brand-danger,
   brand-primary: $brand-primary,

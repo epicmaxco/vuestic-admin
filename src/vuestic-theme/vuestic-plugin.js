@@ -63,8 +63,10 @@ import VaCountBadge from './vuestic-components/va-count-badge/VaCountBadge'
 import VaCard from './vuestic-components/va-card/VaCard'
 import { installQuasarPlatform } from './vuestic-components/va-popup/quasar/install'
 import { DropdownPopperPlugin } from './vuestic-components/va-dropdown/dropdown-popover-subplugin'
-import VaDropdown
-  from './vuestic-components/va-dropdown/VaDropdown'
+import VaDropdown from './vuestic-components/va-dropdown/VaDropdown'
+
+import { BusPlugin } from 'vue-epic-bus'
+import { DebounceLoader } from 'asva-executors'
 
 // At the moment we use quasar platform install to make its components work.
 // Ideally we want to create similar vuestic platform object that holds needed values.
@@ -123,6 +125,26 @@ const VuesticPlugin = {
     ].forEach(component => {
       Vue.component(component.name, component)
     })
+
+    const $va = Vue.prototype.$va = new Vue({
+      data () {
+        return {}
+      },
+    })
+
+    const resizeDebounceLoader = new DebounceLoader(
+      async resizeEvent => {
+        $va.$cast('resizeEnd', resizeEvent)
+      },
+      150,
+    )
+
+    window.addEventListener('resize', resizeEvent => {
+      $va.$cast('resize', resizeEvent)
+      resizeDebounceLoader.run(resizeEvent)
+    })
+
+    Vue.use(BusPlugin)
 
     Vue.use(DropdownPopperPlugin)
 

@@ -1,14 +1,15 @@
 <template>
   <div
-    @click="selectTab"
     class="va-tab"
     :class="{
-      'va-tab--active': isActive(),
+      'va-tab--active': isActive,
       'va-tab--disabled': disabled
     }"
-    :style="{width: widthComputed}"
+    @click="$emit('tabClick', !isActive)"
   >
-    <slot/>
+    <div class="va-tab__content" ref="content">
+      <slot/>
+    </div>
   </div>
 </template>
 
@@ -17,66 +18,71 @@ export default {
   name: 'va-tab',
   props: {
     disabled: {
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
   data () {
     return {
-      width: ''
+      isActive: false,
     }
   },
-  computed: {
-    widthComputed () {
-      if (this.$parent.grow) {
-        let sum = 0
-        this.$parent.tabsWidth.forEach((item) => {
-          sum += item
-        })
-        if (this.width) {
-          if (this.width / sum * 100 > 100 / this.$parent.$slots.default.length) {
-            return this.width + 'px'
-          }
-        }
-        return 100 / this.$parent.$slots.default.length + '%'
-      }
-    }
-  },
-  methods: {
-    selectTab () {
-      this.$parent.selectTab(this)
+  inject: {
+    tabGroup: {
+      default: null,
     },
-    isActive () {
-      return this.$parent.tabSelected(this)
-    }
   },
-  mounted () {
-    if (this.$vnode.elm) {
-      this.width = this.$vnode.elm.clientWidth
-    }
+  created () {
+    this.tabGroup && this.tabGroup.register(this)
   },
   beforeDestroy () {
-    if (this.$parent.$children.indexOf(this) === this.$parent.value &&
-      this.$parent.value > 0) {
-      this.$parent.selectTab(this.$parent.$children[this.$parent.value - 1])
-    }
-  }
+    this.tabGroup && this.tabGroup.unregister(this)
+  },
 }
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+
 .va-tab {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 1 auto;
+  font-weight: $font-weight-bold;
+  line-height: normal;
+  height: inherit;
+  max-width: 264px;
+  text-align: center;
+  vertical-align: middle;
+
   padding: 0.4375rem 0.75rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  opacity: 0.5;
   font-weight: $font-weight-bold;
   cursor: pointer;
-  @include va-flex-center();
-  &:hover, &--active {
-    opacity: 1;
+
+  &:not(.va-tab--active) {
+    opacity: .5;
   }
-  &--disabled {
-    cursor: default;
+
+  &__content {
+    align-items: center;
+    color: inherit;
+    display: flex;
+    flex: 1 1 auto;
+    height: 100%;
+    justify-content: center;
+    max-width: inherit;
+    text-decoration: none;
+    transition: $transition-primary;
+    user-select: none;
+    white-space: normal;
+  }
+
+  .va-tab--disabled {
+    .va-tab__container {
+      @include va-disabled();
+    }
+
+    pointer-events: none;
+    cursor: inherit;
   }
 }
 </style>

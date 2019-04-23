@@ -1,38 +1,96 @@
 <template>
   <VbDemo>
-    <VbCard style="width: 100%">
-      <va-tabs
-        v-model="value"
-        :right="option === 'align-right'"
-        :grow="option == 'grow'"
-        :color="color"
-        :hide-slider="hideSlider"
-      >
-        <va-tab>{{'item0'}}</va-tab>
-        <va-tab>{{'item1item1itemitem1temitem1temitem1temitem1'}}</va-tab>
+    <VbCard refresh title="Tabs usage example">
+      <TabsExample/>
+    </VbCard>
+    <VbCard title="Default">
+      <va-tabs v-model="tabValue">
         <va-tab
-          v-for="item in count"
-          :key="item"
+          v-for="title in tabTitles"
+          :key="title"
         >
-          {{'item'+ item}}
+          {{title}}
         </va-tab>
       </va-tabs>
-      {{value}}
     </VbCard>
-    <VbCard>
-      <button @click="count++">add item</button>
-      <button @click="count--">remove item</button>
+    <VbCard title="Align right" width="400px">
+      <va-tabs right v-model="tabValue">
+        <va-tab
+          v-for="title in tabTitles"
+          :key="title"
+        >
+          {{title}}
+        </va-tab>
+      </va-tabs>
     </VbCard>
-    <VbCard>
-      <va-radio-button
-        v-for="value in options"
-        :key="value"
-        v-model="option"
-        :option="value"
-      />
+    <VbCard title="Centered" width="400px">
+      <va-tabs center v-model="tabValue">
+        <va-tab
+          v-for="title in tabTitles"
+          :key="title"
+        >
+          {{title}}
+        </va-tab>
+      </va-tabs>
     </VbCard>
-    <VbCard>
-      <va-checkbox v-model="hideSlider" label="hide-slider"/>
+    <VbCard title="Grow" width="400px">
+      <va-tabs grow v-model="tabValue">
+        <va-tab
+          v-for="title in tabTitles"
+          :key="title"
+        >
+          {{title}}
+        </va-tab>
+      </va-tabs>
+    </VbCard>
+    <VbCard title="Overflow">
+      <va-tabs
+        style="width: 120px"
+        v-model="tabValue"
+      >
+        <va-tab
+          v-for="title in tabTitles"
+          :key="title"
+        >
+          {{title}}
+        </va-tab>
+      </va-tabs>
+    </VbCard>
+    <VbCard title="Overflow text">
+      <va-tabs v-model="tabValue">
+        <va-tab
+          v-for="title in tabTitles"
+          :key="title"
+        >
+          {{title}}
+        </va-tab>
+        <va-tab>
+          Somewhat long long long long long long long long text
+        </va-tab>
+      </va-tabs>
+    </VbCard>
+    <VbCard title="Overflow text + grow">
+      <va-tabs grow v-model="tabValue">
+        <va-tab
+          v-for="title in tabTitles"
+          :key="title"
+        >
+          {{title}}
+        </va-tab>
+        <va-tab>
+          Somewhat long long long long long long long long long text
+        </va-tab>
+      </va-tabs>
+    </VbCard>
+    <VbCard title="Hide slider">
+      <va-tabs hideSlider v-model="tabValue">
+        <va-tab
+          v-for="title in tabTitles"
+          :key="title"
+        >
+          {{title}}
+        </va-tab>
+      </va-tabs>
     </VbCard>
   </VbDemo>
 </template>
@@ -40,23 +98,24 @@
 <script>
 import VaCheckbox from '../va-checkbox/VaCheckbox'
 import VaRadioButton from '../va-radio-button/VaRadioButton'
-import VaAdvancedColorPicker
-  from '../va-color-picker/VaAdvancedColorPicker'
+import VaAdvancedColorPicker from '../va-color-picker/VaAdvancedColorPicker'
+import VaTabs from './VaTabs'
+import VaTab from './VaTab'
+import TabsExample from './__demo__/TabsExample'
 
 export default {
   components: {
+    TabsExample,
     VaAdvancedColorPicker,
     VaRadioButton,
     VaCheckbox,
+    VaTabs,
+    VaTab,
   },
   data () {
     return {
-      count: 6,
-      value: 4,
-      options: ['default', 'align-right', 'grow'],
-      option: 'default',
-      color: 'White',
-      hideSlider: false,
+      tabTitles: ['One', 'Two', 'Three'],
+      tabValue: 1,
     }
   },
 }

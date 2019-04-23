@@ -1,21 +1,14 @@
 <template>
-  <div
-    class="va-tabs"
-    :class="{'va-tabs--align-right': right}"
-  >
-    <div class="va-tabs__bar-content">
-      <div class="va-tabs__bar-content-items">
-        <slot/>
-      </div>
+  <div class="va-tabs">
+    <div class="va-tabs__wrapper">
       <div
-        v-if="!hideSlider"
-        class="va-tabs__bar-content-slider"
-        :style="{
-             width: getBarWidth($slots.default),
-             marginLeft: getMarginLeft($slots.default)
-          }"
+        class="va-tabs__container"
+        :class="containerClass"
       >
-        <div class="va-tabs__bar-content-slider-line"/>
+        <div class="va-tabs__slider-wrapper" :style="sliderStyles">
+          <div class="va-tabs__slider"/>
+        </div>
+        <slot/>
       </div>
     </div>
   </div>
@@ -28,21 +21,44 @@ import VaTab from './VaTab'
 export default {
   name: 'va-tabs',
   components: {
-    VaTab
+    VaTab,
+  },
+  provide () {
+    return {
+      tabGroup: {
+        register: this.register,
+        unregister: this.unregister,
+      },
+    }
+  },
+  data () {
+    return {
+      tabs: [],
+      tabsWidth: [],
+      sliderLeft: 0,
+      sliderWidth: 0,
+    }
+  },
+  subs: {
+    resizeEnd () {
+      this.updateSlider()
+    },
   },
   props: {
-    value: {
-      required: true
-    },
-    right: {
-      type: Boolean
-    },
-    grow: {
-      type: Boolean
-    },
-    hideSlider: {
-      type: Boolean
-    }
+    value: { type: Number },
+    right: Boolean,
+    center: Boolean,
+    grow: Boolean,
+    hideSlider: Boolean,
+  },
+  mounted () {
+    this.updateSlider()
+  },
+  watch: {
+    value: 'syncStateWithValue',
+    right: 'updateSlider',
+    grow: 'updateSlider',
+    hideSlider: 'updateSlider',
   },
   computed: {
     valueProxy: {
@@ -51,117 +67,129 @@ export default {
       },
       get () {
         return this.value
+      },
+    },
+    containerClass () {
+      return {
+        'va-tabs__container--grow': this.grow,
+        'va-tabs__container--right': this.right,
+        'va-tabs__container--center': this.center,
       }
-    }
+    },
+    sliderStyles () {
+      return {
+        left: `${this.sliderLeft}px`,
+        width: `${this.sliderWidth}px`,
+      }
+    },
+    selectedTab () {
+      return this.tabs[this.value] || null
+    },
   },
   methods: {
-    setTabsWidth (slots) {
-      slots.forEach((vnode, index) => {
-        if (vnode.elm) {
-          this.tabsWidth[index] = vnode.elm.clientWidth
-        }
+    syncStateWithValue () {
+      this.tabs.forEach((tab, index) => {
+        tab.isActive = index === this.value
       })
+      this.updateSlider()
     },
-    getBarWidth (slots) {
-      this.setTabsWidth(slots)
-      if (this.grow && this.tabsWidth[this.value]) {
-        return this.tabsWidth[this.value] + `px`
-      }
-      return this.grow ? 100 / slots.length + '%' : `calc(` + this.tabsWidth[this.value] + `px - 1.25rem)`
-    },
-    getMarginLeft (slots) {
-      this.setTabsWidth(slots)
-      let sum = 0
-      if (!this.grow && this.value === 0) {
-        return 1.25 + 'rem'
-      }
-      if (!this.grow && this.value !== 0) {
-        let marginLeft = 0
-        for (let count = 0; count < this.value; count++) {
-          marginLeft += this.tabsWidth[count]
-        }
-        return `calc(` + marginLeft + `px + ` + this.value + `rem + 1.2rem)`
-      }
-      if (this.grow) {
-        this.tabsWidth.forEach((item, index) => {
-          if (index < this.value) {
-            sum += item
-          }
-        })
-        return `calc(` + sum + `px + ` + (0.5 + this.value) + `rem)`
-      }
-      if (this.tabsWidth !== this.$slots.default && this.tabsWidth.length > 0) {
-        this.setTabsWidth(this.$slots.default)
+    register (tab) {
+      const index = this.tabs.push(tab) - 1
+      tab.$on('tabClick', () => this.onTabClick(tab))
+
+      if (index === this.value) {
+        tab.isActive = true
       }
     },
-    selectTab (tabToSelect) {
-      this.$slots.default.forEach((tabSlot, index) => {
-        if (tabSlot.componentInstance === tabToSelect) {
-          this.valueProxy = index
-        }
-      })
+    unregister (tab) {
+      if (this._isDestroyed) return
+
+      this.tabs.splice(this.tabs.indexOf(tab), 1)
+
+      this.syncStateWithValue()
     },
-    tabSelected (tabToCompare) {
-      if (this.tabsWidth !== this.$slots.default && this.tabsWidth.length > 0) {
-        this.setTabsWidth(this.$slots.default)
+    onTabClick (tab) {
+      const index = this.tabs.indexOf(tab)
+      this.valueProxy = index
+    },
+    async updateSlider () {
+      await this.$nextTick()
+
+      if (this.hideSlider) {
+        return
       }
-      return this.$slots.default.some((tabSlot, index) => {
-        if (tabSlot.componentInstance === tabToCompare) {
-          return index === this.value
-        }
-      })
-    }
+      const selectedTab = this.selectedTab
+      if (!selectedTab || !selectedTab.$refs.content) {
+        return
+      }
+      const content = selectedTab.$refs.content
+      this.sliderWidth = content.scrollWidth + 4
+      this.sliderLeft = content.offsetLeft - 2
+    },
   },
-  data () {
-    return {
-      tabsWidth: []
-    }
-  },
-  mounted () {
-    let count = 0
-    this.$slots.default.forEach(vnode => {
-      if (vnode.elm) {
-        this.tabsWidth[count] = vnode.elm.clientWidth
-        count++
-      }
-    })
-  }
 }
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+
 .va-tabs {
-  &--align-right {
+  position: relative;
+
+  &--right {
     display: flex;
     justify-content: flex-end;
   }
-  &__bar {
-    padding-top: 1rem;
-    &-content {
-      height: 4rem;
-      overflow: auto;
-      margin-bottom: 2.5rem;
-      &-items {
-        display: flex;
-        &.grow {
-          justify-content: space-around;
-        }
+
+  .va-tabs__wrapper {
+    overflow: auto;
+    contain: content;
+    display: flex;
+  }
+
+  .va-tabs__container {
+    flex: 1 0 auto;
+    display: flex;
+    height: 2.5rem;
+    list-style-type: none;
+    transition: transform 0.6s cubic-bezier(0.86, 0, 0.07, 1);
+    white-space: nowrap;
+    position: relative;
+
+    &--grow {
+      .va-tab {
+        flex: 1 0 auto;
+        max-width: none;
       }
-      &-slider {
-        display: flex;
-        transition: margin-left 0.3s;
-        &.align-right {
-          justify-content: flex-end;
-        }
-        &.grow {
-          justify-content: space-around;
-        }
-        &-line {
-          width: 100%;
-          height: 0.125rem;
-          background-color: $vue-green;
-        }
+    }
+
+    &--center, &--right {
+      > .va-tab:first-child {
+        margin-left: auto
       }
+
+      .va-tabs__slider-wrapper + .va-tab {
+        margin-left: auto;
+      }
+    }
+
+    &--center {
+      > .va-tab:last-child {
+        margin-right: auto;
+      }
+    }
+  }
+
+  .va-tabs__slider-wrapper {
+    bottom: 0;
+    margin: 0 !important;
+    position: absolute;
+    transition: $transition-primary;
+
+    .va-tabs__slider {
+      width: 100%;
+      height: 0.125rem;
+      background-color: $brand-primary;
     }
   }
 }
