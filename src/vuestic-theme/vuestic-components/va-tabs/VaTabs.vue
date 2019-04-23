@@ -184,6 +184,7 @@ export default {
     bottom: 0;
     margin: 0 !important;
     position: absolute;
+    z-index: 4000;
     transition: $transition-primary;
 
     .va-tabs__slider {

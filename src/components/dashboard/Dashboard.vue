@@ -19,6 +19,7 @@
           {{$t('dashboard.features')}}
         </va-tab>
       </va-tabs>
+      <va-separator/>
       <data-visualisation-tab v-if="value === 0"/>
       <users-members-tab v-if="value === 1"/>
       <setup-profile-tab v-if="value === 2"/>
@@ -36,6 +37,7 @@ import FeaturesTab from './features-tab/FeaturesTab.vue'
 import DataVisualisationTab
   from './data-visualisation-tab/DataVisualisationTab.vue'
 import DashboardBottomWidgets from './DashboardBottomWidgets.vue'
+
 export default {
   name: 'dashboard',
   components: {

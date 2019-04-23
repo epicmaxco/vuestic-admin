@@ -64,6 +64,7 @@ import VaCard from './vuestic-components/va-card/VaCard'
 import { installQuasarPlatform } from './vuestic-components/va-popup/quasar/install'
 import { DropdownPopperPlugin } from './vuestic-components/va-dropdown/dropdown-popover-subplugin'
 import VaDropdown from './vuestic-components/va-dropdown/VaDropdown'
+import VaSeparator from './vuestic-components/va-card/VaSeparator'
 
 import { BusPlugin } from 'vue-epic-bus'
 import { DebounceLoader } from 'asva-executors'
@@ -122,6 +123,7 @@ const VuesticPlugin = {
       VaCountBadge,
       VaInput,
       VaDropdown,
+      VaSeparator,
     ].forEach(component => {
       Vue.component(component.name, component)
     })
