@@ -1,7 +1,7 @@
 <template>
   <aside class="va-sidebar" :style="{ backgroundColor: $themes[color] }">
-    <va-scrollbar>
-      <ul class="sidebar-menu">
+    <va-scrollbar class="va-sidebar__scrollbar">
+      <ul class="va-sidebar__menu">
         <slot name="menu"></slot>
       </ul>
     </va-scrollbar>
@@ -40,22 +40,21 @@ export default {
   left: 0;
   transition: all 0.2s ease;
 
-  .va-scrollbar {
-    height: 100%;
+  &__menu {
+    max-height: 100%;
+    margin-bottom: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 2.5rem;
+    list-style: none;
+    padding-left: 0;
 
-    .sidebar-menu {
-      max-height: 100%;
-      margin-bottom: 0;
-      padding-top: 0.5rem;
-      padding-bottom: 2.5rem;
-      list-style: none;
+    li {
+      display: block;
       padding-left: 0;
-
-      li {
-        display: block;
-        padding-left: 0;
-      }
     }
+  }
+  &__scrollbar {
+    height: 100%;
 
     .scrollbar-wrapper {
       box-shadow: $sidebar-box-shadow;
@@ -63,7 +62,7 @@ export default {
     }
   }
 
-  &.sidebar-hidden {
+  &.va-sidebar--hidden {
     @include media-breakpoint-down(md) {
       z-index: $sidebar-mobile-z-index;
       height: $sidebar-hidden-height-mobile;
@@ -76,7 +75,7 @@ export default {
     }
   }
 
-  &.sidebar-hidden + .content-wrap {
+  &.va-sidebar--hidden + .content-wrap {
     @include media-breakpoint-down(md) {
       margin-left: 0;
     }

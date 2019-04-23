@@ -15,10 +15,10 @@ export default {
 
     window.addEventListener('resize', function () {
       if (checkIsDesktop() && !prevMatchlg) {
-        sidebar.classList.remove('sidebar-hidden')
+        sidebar.classList.remove('va-sidebar--hidden')
       } else if (!checkIsDesktop() && prevMatchlg) {
         store.dispatch('isToggleWithoutAnimation', true)
-        sidebar.classList.add('sidebar-hidden')
+        sidebar.classList.add('va-sidebar--hidden')
       }
       prevMatchlg = checkIsDesktop()
     })
