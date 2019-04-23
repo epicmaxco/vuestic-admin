@@ -97,6 +97,10 @@ export default [
         itemName: 'Spacing',
         itemLink: '/admin/ui/spacing',
       },
+      {
+        itemName: 'Popovers',
+        itemLink: '/admin/ui/popovers',
+      },
     ],
   },
   {

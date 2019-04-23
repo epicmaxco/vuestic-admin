@@ -1,7 +1,9 @@
 <template>
   <div class="grow notification-dropdown flex-center">
-    <va-dropdown
-      position="B"
+    <va-icon icon="i-nav-notification"/>
+    <va-dropdown-old
+      v-model="isShown"
+      position="bottom"
       class="notification-dropdown__list"
     >
       <va-icon icon="i-nav-notification" slot="actuator"/>
@@ -14,7 +16,7 @@
       <div class="dropdown-item plain-link-item">
         <a class="plain-link" href="#">{{ $t('notifications.all') }}</a>
       </div>
-    </va-dropdown>
+    </va-dropdown-old>
   </div>
 </template>
 

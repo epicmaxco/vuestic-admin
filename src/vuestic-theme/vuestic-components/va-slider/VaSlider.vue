@@ -30,7 +30,7 @@
     <span
       v-if="icon"
       class="va-slider__label title">
-      <va-icon :icon="icon" :color="color" :size="16"/>
+      <va-icon :icon="icon" :color="colorComputed" :size="16"/>
     </span>
     <div
       :class="{ 'flex offset--xs1 offset--lg1': range && withInput }"
@@ -145,9 +145,15 @@
 <script>
 import { validateSlider } from './validateSlider'
 import { getHoverColor } from '../../../services/color-functions'
+import VaIcon from '../va-icon/VaIcon'
+import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
 
 export default {
   name: 'va-slider',
+  components: {
+    VaIcon,
+  },
+  mixins: [ColorThemeMixin],
   props: {
     range: {
       type: Boolean,
@@ -172,10 +178,6 @@ export default {
     step: {
       type: Number,
       default: 1,
-    },
-    color: {
-      type: String,
-      default: 'success',
     },
     label: {
       type: String,
@@ -216,12 +218,12 @@ export default {
     },
     labelStyles () {
       return {
-        color: this.$themes[this.color],
+        color: this.colorComputed,
       }
     },
     trackStyles () {
       return {
-        backgroundColor: getHoverColor(this.$themes[this.color]),
+        backgroundColor: getHoverColor(this.colorComputed),
       }
     },
     processedStyles () {
@@ -234,14 +236,14 @@ export default {
         return {
           left: `${val0}%`,
           width: `${val1 - val0}%`,
-          backgroundColor: this.$themes[this.color],
+          backgroundColor: this.colorComputed,
         }
       } else {
         const val = ((validatedValue - this.min) / (this.max - this.min)) * 100
 
         return {
           width: `${val}%`,
-          backgroundColor: this.$themes[this.color],
+          backgroundColor: this.colorComputed,
         }
       }
     },
@@ -255,13 +257,13 @@ export default {
         return [
           {
             left: `calc(${val0}% - 8px)`,
-            backgroundColor: this.color,
-            borderColor: this.$themes[this.color],
+            backgroundColor: '#ffffff',
+            borderColor: this.colorComputed,
           },
           {
             left: `calc(${val1}% - 8px)`,
-            backgroundColor: this.color,
-            borderColor: this.$themes[this.color],
+            backgroundColor: '#ffffff',
+            borderColor: this.colorComputed,
           },
         ]
       } else {
@@ -269,8 +271,8 @@ export default {
 
         return {
           left: `calc(${val}% - 8px)`,
-          backgroundColor: this.color,
-          borderColor: this.$themes[this.color],
+          backgroundColor: '#ffffff',
+          borderColor: this.colorComputed,
         }
       }
     },

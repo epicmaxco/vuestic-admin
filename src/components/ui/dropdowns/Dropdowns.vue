@@ -9,7 +9,11 @@
               v-for="(dropdown, index) in dropdowns"
               :key="index"
             >
-                <va-dropdown
+              <va-button
+                type="button" class="theme-toggle"
+                slot="activator" icon-right="ion-ios-arrow-down arrow-down">
+                <va-dropdown-old
+                  v-model="dropdown.value"
                   :position="dropdown.position"
                 >
                   <va-button
@@ -26,7 +30,8 @@
                     >{{ link }}</a>
                     <div class="flex lg6"></div>
                   </div>
-                </va-dropdown>
+                </va-dropdown-old>
+              </va-button>
             </div>
           </div>
         </va-card>

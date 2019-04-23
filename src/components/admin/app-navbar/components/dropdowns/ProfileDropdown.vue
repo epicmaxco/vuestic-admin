@@ -1,7 +1,11 @@
 <template>
   <div class="grow profile-dropdown flex-center">
-    <va-dropdown
-      position="B"
+    <span class="profile-dropdown__avatar-container">
+      <slot/>
+    </span>
+    <va-dropdown-old
+      v-model="isShown"
+      position="bottom"
     >
       <span
         class="profile-dropdown__avatar-container"
@@ -19,7 +23,7 @@
           {{ $t(`user.${option.name}`) }}
         </router-link>
       </div>
-    </va-dropdown>
+    </va-dropdown-old>
   </div>
 </template>
 

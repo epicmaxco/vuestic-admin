@@ -17,8 +17,6 @@ import VaMediumEditor
 import VaModal from './vuestic-components/va-modal/VaModal.vue'
 import VaPopover from './vuestic-components/va-popover/VaPopover.vue'
 import VaPreLoader from './vuestic-components/va-pre-loader/VaPreLoader.vue'
-import VaProfileCard
-  from './vuestic-components/va-profile-card/VaProfileCard.vue'
 import VaBadge from './vuestic-components/va-chip/VaBadge.vue'
 import VaChip from './vuestic-components/va-chip/VaChip.vue'
 import VaButton from './vuestic-components/va-button/VaButton.vue'
@@ -33,15 +31,15 @@ import VaSelect from './vuestic-components/va-select/VaSelect.vue'
 import VaSocialNews from './vuestic-components/va-social-news/VaSocialNews.vue'
 import VaSwitch from './vuestic-components/va-switch/VaSwitch.vue'
 import VaTabs from './vuestic-components/va-tabs/VaTabs.vue'
-import VaTooltip from './vuestic-components/va-tooltip/VaTooltip.vue'
 import VaWizard from './vuestic-components/va-wizard/VaWizard.vue'
 import VaTreeRoot from './vuestic-components/va-tree-view/VaTreeRoot'
 import VaTreeCategory from './vuestic-components/va-tree-view/VaTreeCategory'
 import VaTreeNode from './vuestic-components/va-tree-view/VaTreeNode'
 import VaDatePicker from './vuestic-components/va-date-picker/VaDatePicker'
 import VaFileUpload from './vuestic-components/va-file-upload/VaFileUpload'
-import VaVaIcon from './vuestic-components/va-icon/VaIcon'
-import VaDropdown from './vuestic-components/va-dropdown/VaDropdown'
+import VaIcon from './vuestic-components/va-icon/VaIcon'
+import VaDropdownOld from './vuestic-components/va-dropdown/VaDropdownOld'
+import VaTab from './vuestic-components/va-tabs/VaTab.vue'
 
 import Toasted from './vuestic-mixins/VuesticToasted'
 
@@ -50,15 +48,21 @@ import StickyScroll from './vuestic-directives/StickyScroll'
 
 import VaAccordion from './vuestic-components/va-collapse/VaAccordion'
 import VaCollapse from './vuestic-components/va-collapse/VaCollapse'
-
 import VaTimeline from './vuestic-components/va-timeline/VaTimeline'
 import VaTimelineItem from './vuestic-components/va-timeline/VaTimelineItem'
 import VaPopup
   from './vuestic-components/va-popup/quasar/components/popup/VaPopup.vue'
+import VaInput from './vuestic-components/va-input/VaInput'
 
 import VaCountBadge from './vuestic-components/va-count-badge/VaCountBadge'
 import VaCard from './vuestic-components/va-card/VaCard'
 import { installQuasarPlatform } from './vuestic-components/va-popup/quasar/install'
+import { DropdownPopperPlugin } from './vuestic-components/va-dropdown/dropdown-popover-subplugin'
+import VaDropdown from './vuestic-components/va-dropdown/VaDropdown'
+import VaSeparator from './vuestic-components/va-card/VaSeparator'
+
+import { BusPlugin } from 'vue-epic-bus'
+import { DebounceLoader } from 'asva-executors'
 
 // At the moment we use quasar platform install to make its components work.
 // Ideally we want to create similar vuestic platform object that holds needed values.
@@ -78,7 +82,6 @@ const VuesticPlugin = {
       VaProgressCircle,
       VaModal,
       VaPreLoader,
-      VaProfileCard,
       VaProgressBar,
       VaBadge,
       VaChip,
@@ -95,25 +98,50 @@ const VuesticPlugin = {
       VaTabs,
       VaWizard,
       VaMediumEditor,
-      VaTooltip,
       VaPopover,
       VaTreeRoot,
       VaTreeCategory,
       VaTreeNode,
       VaFileUpload,
-      VaDropdown,
+      VaDropdownOld,
       VaDatePicker,
-      VaVaIcon,
+      VaIcon,
       VaAccordion,
       VaCollapse,
       VaTimeline,
       VaTimelineItem,
       VaPopup,
       VaCard,
+      VaTab,
       VaCountBadge,
+      VaInput,
+      VaDropdown,
+      VaSeparator,
     ].forEach(component => {
       Vue.component(component.name, component)
     })
+
+    const $va = Vue.prototype.$va = new Vue({
+      data () {
+        return {}
+      },
+    })
+
+    const resizeDebounceLoader = new DebounceLoader(
+      async resizeEvent => {
+        $va.$cast('resizeEnd', resizeEvent)
+      },
+      150,
+    )
+
+    window.addEventListener('resize', resizeEvent => {
+      $va.$cast('resize', resizeEvent)
+      resizeDebounceLoader.run(resizeEvent)
+    })
+
+    Vue.use(BusPlugin)
+
+    Vue.use(DropdownPopperPlugin)
 
     Vue.mixin(Toasted)
 

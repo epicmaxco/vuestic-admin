@@ -1,6 +1,7 @@
 <template>
   <div class="language-dropdown flex-center grow">
-    <va-dropdown
+    <va-icon :icon="['flag-icon flag-icon-large', flagIconClass(currentLanguage())]"/>
+    <va-dropdown-old
       class="language-dropdown__container"
       position="B"
     >
@@ -19,7 +20,7 @@
           {{ $t(`language.${option.name}`) }}
         </span>
       </a>
-    </va-dropdown>
+    </va-dropdown-old>
   </div>
 </template>
 

@@ -36,7 +36,7 @@ Commit messages should follow the [commit message convention](./COMMIT_CONVENTIO
 * Check your code: https://github.com/epicmaxco/vuestic-admin/issues/378.
 * We use [yarn](https://yarnpkg.com/lang/en/) for package management.
 * Be proactive. If you think something is wrong - create an issue or discuss.
-* Recommended tools: [GitKraken](https://www.gitkraken.com/), [WebStorm](https://www.jetbrains.com/webstorm/)
+* Recommended tools: [GitKraken](https://www.gitkraken.com/), [WebStorm](https://www.jetbrains.com/webstorm/), [ShareX](https://getsharex.com/)
 
 #### Component folder structure
 
