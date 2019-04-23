@@ -37,7 +37,7 @@
       <va-toggle v-model="selection" val='four' label="four"/>
     </VbCard>
     <VbCard title="Disabled">
-      <va-toggle v-model="value" disabled/>
+      <va-toggle v-model="value" disable/>
     </VbCard>
   </VbDemo>
 </template>

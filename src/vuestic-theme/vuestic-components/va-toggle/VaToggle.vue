@@ -72,7 +72,7 @@ export default {
       return {
         'va-toggle--small': this.small,
         'va-toggle--large': this.large,
-        'va-toggle--disable': this.disable,
+        'va-toggle--disabled': this.disable,
       }
     },
     trackStyles () {
@@ -187,8 +187,8 @@ export default {
     }
   }
 
-  &--disable {
-    @include va-disable;
+  &--disabled {
+    @include va-disabled;
   }
 
   &__label {
