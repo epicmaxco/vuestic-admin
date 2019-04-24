@@ -1,18 +1,18 @@
 <template>
   <VbDemo>
-    <VbContainer title="String options">
+    <VbCard title="String options">
       <va-select
         :options="defaultSelect.options"
         v-model="defaultSelect.value"
       />
       {{defaultSelect.value}}
-    </VbContainer>
-    <VbContainer title="No options">
+    </VbCard>
+    <VbCard title="No options">
       <div :style="{color: $themes.danger}">Doesn't trigger chevron turn</div>
       <va-select :value="defaultSelect"/>
       <va-select :value="{id: 1, text: 'two'}"/>
-    </VbContainer>
-    <VbContainer title="Object options">
+    </VbCard>
+    <VbCard title="Object options">
       <va-select
         label="Clone value"
         :options="objectSelect.options"
@@ -28,36 +28,36 @@
         :options="objectSelect.options"
         :value="objectSelect.exactValue"
       />
-    </VbContainer>
-    <VbContainer title="Countires list">
+    </VbCard>
+    <VbCard title="Countires list">
       <va-select
         :options="CountriesList"
         v-model="value"
       />
-    </VbContainer>
-    <VbContainer title="placeholder">
+    </VbCard>
+    <VbCard title="placeholder">
       <va-select
         v-model="value"
         :options="CountriesList"
         placeholder="select coutry"
       />
-    </VbContainer>
-    <VbContainer title="label">
+    </VbCard>
+    <VbCard title="label">
       <va-select
         label="country label"
         v-model="value"
         :options="CountriesList"
       />
-    </VbContainer>
-    <VbContainer title="label and placeholder">
+    </VbCard>
+    <VbCard title="label and placeholder">
       <va-select
         label="country label"
         placeholder="select country"
         v-model="value"
         :options="CountriesList"
       />
-    </VbContainer>
-    <VbContainer title="positions">
+    </VbCard>
+    <VbCard title="positions">
       <div v-for="position in positions" :key="position">
         <p>{{position}}</p>
         <va-select
@@ -66,67 +66,67 @@
           :options="CountriesList"
         />
       </div>
-    </VbContainer>
-    <VbContainer title="options with icons">
+    </VbCard>
+    <VbCard title="options with icons">
       <va-select
         v-model="value"
         :options="optionsWithIcons"
         width="320px"
       />
-    </VbContainer>
-    <VbContainer title="disabled">
+    </VbCard>
+    <VbCard title="disabled">
       <div :style="{color: $themes.danger}">Doesn't work</div>
       <va-select
         v-model="value"
         :options="CountriesList"
         disabled
       />
-    </VbContainer>
-    <VbContainer title="multiple">
+    </VbCard>
+    <VbCard title="multiple">
       <va-select
         v-model="multipleValue"
         multiple
         :options="CountriesList"
       />
       {{multipleValue}}
-    </VbContainer>
-    <VbContainer title="searchable">
+    </VbCard>
+    <VbCard title="searchable">
       <va-select
         v-model="value"
         :options="CountriesList"
         searchable
       />
-    </VbContainer>
-    <VbContainer title="searchable + multiple">
+    </VbCard>
+    <VbCard title="searchable + multiple">
       <va-select
         v-model="multipleValue"
         :options="CountriesList"
         searchable
         multiple
       />
-    </VbContainer>
-    <VbContainer title="custom max-height (320px)">
+    </VbCard>
+    <VbCard title="custom max-height (320px)">
       <va-select
         v-model="value"
         :options="CountriesList"
         max-height="320px"
       />
-    </VbContainer>
-    <VbContainer title="custom width (320px)" :style="{'width': '100%'}" class="not-work">
+    </VbCard>
+    <VbCard title="custom width (320px)" :style="{'width': '100%'}" class="not-work">
       <va-select
         v-model="value"
         :options="CountriesList"
         width="30%"
       />
-    </VbContainer>
-    <VbContainer title="loading">
+    </VbCard>
+    <VbCard title="loading">
       <va-select
         v-model="value"
         :options="CountriesList"
         loading
       />
-    </VbContainer>
-    <VbContainer title="with ajax">
+    </VbCard>
+    <VbCard title="with ajax">
       <va-select
         searchable
         v-model="value"
@@ -134,11 +134,11 @@
         :loading="isLoading"
         @update-search="updateSearch"
       />
-    </VbContainer>
-    <VbContainer :style="{ 'width': '100%' }">
+    </VbCard>
+    <VbCard :style="{ 'width': '100%' }">
       <p>{{value}}</p>
       <p>{{multipleValue}}</p>
-    </VbContainer>
+    </VbCard>
   </VbDemo>
 </template>
 

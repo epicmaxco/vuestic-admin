@@ -8,6 +8,7 @@
     :max-height="maxHeight"
     @triggerVisibility="triggerVisibility"
     :visible="visible"
+    keepAnchorWidth
   >
     <ul
       class="va-select__options-list"
@@ -38,7 +39,7 @@
     </div>
 
     <div
-      slot="actuator"
+      slot="anchor"
       :tabindex="1"
       class="va-select"
       :class="{
@@ -462,6 +463,8 @@ export default {
   }
 
   &__options-list {
+    width: 100%;
+    background-color: $white;
     list-style: none;
     margin: 0;
     padding: 0;

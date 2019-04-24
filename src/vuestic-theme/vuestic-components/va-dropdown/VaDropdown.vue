@@ -1,7 +1,7 @@
 <template>
-  <div class="va-dropdown-popper">
+  <div class="va-dropdown">
     <div
-      class="va-dropdown-popper__anchor"
+      class="va-dropdown__anchor"
       @mouseover="onMouseOver()"
       @mouseout="onMouseOut()"
       @click="onAnchorClick()"
@@ -10,14 +10,21 @@
       <slot name="anchor"/>
     </div>
     <div
-      class="va-dropdown-popper__content"
+      class="va-dropdown__content"
       v-if="showContent"
       @mouseover="isContentHoverable && onMouseOver()"
       @mouseout="onMouseOut()"
       ref="content"
-      :style="contentStyle"
     >
-      <slot/>
+      <div
+        v-if="keepAnchorWidth"
+        ref="anchorWidthContainer"
+        class="va-dropdown__anchor-width-container"
+        :style="anchorWidthContainerStyles"
+      >
+        <slot/>
+      </div>
+      <slot v-else/>
     </div>
   </div>
 </template>
@@ -32,6 +39,7 @@ export default {
     return {
       popperInstance: null,
       isClicked: false,
+      anchorWidth: undefined,
 
       isMouseHovered: false,
       hoverOverDebounceLoader: new DebounceLoader(
@@ -55,17 +63,14 @@ export default {
     this.unregisterClickOutsideListener()
     this.removePopper()
   },
+  mounted () {
+    this.handlePopperInstance()
+  },
   watch: {
     showContent: {
       immediate: true,
       handler (showContent) {
-        if (showContent && !this.popperInstance) {
-          this.$nextTick(() => {
-            this.initPopper()
-          })
-          return
-        }
-        this.removePopper()
+        this.handlePopperInstance()
       },
     },
   },
@@ -76,6 +81,7 @@ export default {
     offset: [String, Number],
     disabled: Boolean,
     fixed: Boolean,
+    keepAnchorWidth: Boolean, // Means dropdown width should be the same as anchor's width.
     closeOnClickOutside: {
       type: Boolean,
       default: true,
@@ -102,6 +108,22 @@ export default {
     },
   },
   methods: {
+    handlePopperInstance () {
+      if (this.popperInstance) {
+        this.removePopper()
+      }
+
+      if (!this.showContent) {
+        return
+      }
+
+      this.updateAnchorWidth()
+
+      // I'm not entirely sure why $nextTick is needed here.
+      this.$nextTick(() => {
+        this.initPopper()
+      })
+    },
     onAnchorClick () {
       this.$emit('anchorClick')
       if (this.disabled) {
@@ -160,6 +182,11 @@ export default {
       }
       this.hide()
     },
+    updateAnchorWidth () {
+      if (this.keepAnchorWidth) {
+        this.anchorWidth = this.$refs.anchor.offsetWidth
+      }
+    },
     // @public
     hide () {
       if (this.trigger === 'click') {
@@ -173,6 +200,9 @@ export default {
         positionFixed: this.fixed,
         arrow: {
           enabled: false,
+        },
+        onUpdate: (data) => {
+          this.updateAnchorWidth()
         },
       }
 
@@ -200,9 +230,10 @@ export default {
     },
   },
   computed: {
-    contentStyle () {
+    anchorWidthContainerStyles () {
       return {
-        padding: this.offset,
+        width: this.anchorWidth + 'px',
+        maxWidth: this.anchorWidth + 'px',
       }
     },
     showContent () {
@@ -223,7 +254,7 @@ export default {
 <style lang="scss">
 @import '../../vuestic-sass/resources/resources';
 
-.va-dropdown-popper {
+.va-dropdown {
   &__content {
     z-index: 100;
   }
