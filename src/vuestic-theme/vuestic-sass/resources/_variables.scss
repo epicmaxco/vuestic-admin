@@ -38,6 +38,11 @@ $gray: #adb3b9;
 $dark-blue: #0045b6;
 $text-gray: #b4b4b4;
 
+$separator-color: #e6e9ec;
+
+$transition-primary: 0.3s cubic-bezier(.25,.8,.50,1); // swing
+$transition-secondary: 0.2s cubic-bezier(0.4, 0.0, 0.6, 1); // ease-in-out
+
 $colors-map: (
   brand-danger: $brand-danger,
   brand-primary: $brand-primary,
@@ -356,6 +361,7 @@ $card-box-shadow: 0 2px 3px 0 rgba(52, 56, 85, 0.25);
 $card-title-font-size: 0.625rem;
 $card-title-letter-spacing: 0.0375rem;
 $card-title-color: #104fca;
+$card-padding: 1.25rem;
 
 // Datepickers
 

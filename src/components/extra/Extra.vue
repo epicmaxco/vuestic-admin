@@ -1,44 +1,49 @@
 <template>
   <div class="extra">
-    <va-card :title="$t('extra.tabs.title')">
-      <va-tabs class="tabs mt-2"
-                    :names="[$t('extra.tabs.maps'), $t('extra.tabs.setupProfile'), $t('extra.tabs.overview')]">
-        <div :slot="$t('extra.tabs.overview')"
-             class="flex justify--center">
-          <overview-tab></overview-tab>
-        </div>
-        <div :slot="$t('extra.tabs.maps')" class="maps-tab">
-          <leaflet-map></leaflet-map>
-        </div>
-        <div :slot="$t('extra.tabs.setupProfile')"
-             class="flex justify--center">
-          <setup-profile-tab wizardType="simple"></setup-profile-tab>
-        </div>
+    <va-card
+      :headerText="$t('extra.tabs.title')"
+      class="no-v-padding"
+    >
+      <va-tabs grow v-model="value">
+        <va-tab>
+          {{$t('extra.tabs.setupProfile')}}
+        </va-tab>
+        <va-tab>
+          {{$t('extra.tabs.maps')}}
+        </va-tab>
+        <va-tab>
+          {{$t('extra.tabs.overview')}}
+        </va-tab>
       </va-tabs>
+      <va-separator/>
+      <setup-profile-tab wizardType="simple" v-if="value === 0"/>
+      <leaflet-map v-if="value === 1"/>
+      <overview-tab v-if="value === 2"/>
     </va-card>
-
     <div class="va-row">
       <div class="flex md4">
-        <va-card :title="$t('extra.profileCard')"
-                 class="profile-card-widget">
-          <va-profile-card :name="'Veronique Lee'"
-                                :location="'Malaga, Spain'"
-                                photoSource="https://i.imgur.com/NLrdqsk.png"
-                                :social="{twitter: 'twitter.com', facebook: 'facebook.com',
-                                  instagram: 'instagram.com'}">
-          </va-profile-card>
+        <va-card
+          :headerText="$t('extra.profileCard')"
+          class="profile-card-widget"
+        >
+          <va-profile-card
+            :name="'Veronique Lee'"
+            :location="'Malaga, Spain'"
+            photoSource="https://i.imgur.com/NLrdqsk.png"
+            :social="{twitter: 'twitter.com', facebook: 'facebook.com',
+            instagram: 'instagram.com'}"
+          />
         </va-card>
       </div>
       <div class="flex md8">
-        <va-card :title="$t('extra.chat')" class="chat-widget">
-          <va-chat v-model="chatMessages"></va-chat>
+        <va-card :headerText="$t('extra.chat')" class="chat-widget">
+          <va-chat v-model="chatMessages"/>
         </va-card>
       </div>
     </div>
-
     <div class="va-row bottom-widgets">
       <div class="flex md6">
-        <va-card no-padding>
+        <va-card class="no-h-padding no-v-padding">
           <va-feed :initialPosts="posts"/>
         </va-card>
       </div>
@@ -46,7 +51,7 @@
         <va-card class="business-posts">
           <va-social-news
             :news="news"
-            :url="'https://instagram.com/smartapant'"
+            url="https://instagram.com/smartapant"
           />
         </va-card>
       </div>
@@ -59,16 +64,20 @@ import OverviewTab from 'components/dashboard/features-tab/FeaturesTab.vue'
 import SetupProfileTab
   from 'components/dashboard/setup-profile-tab/SetupProfileTab.vue'
 import LeafletMap from 'components/maps/leaflet-maps/LeafletMap.vue'
+import VaProfileCard
+  from '../../vuestic-theme/vuestic-components/va-profile-card/VaProfileCard'
 
 export default {
   name: 'extra',
   components: {
+    VaProfileCard,
     LeafletMap,
     SetupProfileTab,
     OverviewTab,
   },
   data () {
     return {
+      value: 0,
       chatMessages: [
         {
           text: 'Hello! So glad you liked my work. Do you want me to shoot you?',
