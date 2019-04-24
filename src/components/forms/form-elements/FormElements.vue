@@ -65,7 +65,6 @@
         </div>
       </form>
     </va-card>
-
     <va-card :title="$t('forms.dateTimePicker.title')">
       <form>
         <div class="va-row">
