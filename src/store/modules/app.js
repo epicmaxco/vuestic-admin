@@ -7,7 +7,7 @@ const state = {
     googleMaps: {
       apiKey: 'AIzaSyBNAqPrTQoz9P4NBlDDyfxrnKiafkaL8iQ',
     },
-    windowMatchSizeLg: '(min-width: 992px)',
+    windowMatchSizeLg: '(min-width: 600px)',
     palette: {
       primary: '#4ae387',
       danger: '#e34a4a',

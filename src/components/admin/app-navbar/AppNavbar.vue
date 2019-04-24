@@ -1,6 +1,6 @@
 <template>
   <va-navbar>
-    <header-selector slot="selector" :isOpen.sync="valueProxy"/>
+    <header-selector slot="selector" :minimized.sync="valueProxy"/>
     <span slot="logo">
       <va-icon-vuestic/>
     </span>
@@ -24,7 +24,6 @@ import VaIconVuestic
 import VaNavbar
   from '../../../vuestic-theme/vuestic-components/va-navbar/VaNavbar'
 import HeaderSelector from './components/HeaderSelector'
-
 import LanguageDropdown from './components/dropdowns/LanguageDropdown'
 import ProfileDropdown from './components/dropdowns/ProfileDropdown'
 import NotificationDropdown from './components/dropdowns/NotificationDropdown'
@@ -43,7 +42,7 @@ export default {
     ProfileDropdown,
   },
   props: {
-    isOpen: {
+    minimized: {
       type: Boolean,
       required: true,
     },
@@ -51,7 +50,7 @@ export default {
   computed: {
     valueProxy: {
       get () {
-        return this.isOpen
+        return this.minimized
       },
       set (opened) {
         this.$emit('toggle-menu', opened)

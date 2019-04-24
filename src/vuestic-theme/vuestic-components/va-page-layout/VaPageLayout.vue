@@ -52,7 +52,6 @@ $vuestic-preloader-top: calc(50% - 104px / 2);
 
       @include media-breakpoint-down(md) {
         padding: $content-mobile-wrap-fixed-layout;
-        margin-left: 0;
 
       }
     }
@@ -71,7 +70,6 @@ $vuestic-preloader-top: calc(50% - 104px / 2);
 
     @include media-breakpoint-down(md) {
       padding: $content-mobile-wrap;
-      margin-left: 0;
       .va-sidebar-hidden & {
         margin-left: 0;
         padding-top: $content-mobile-wrap-sb-top;

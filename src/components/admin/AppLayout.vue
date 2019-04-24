@@ -1,7 +1,7 @@
 <template>
   <va-page-layout v-layout>
-    <app-navbar :isOpen="opened" @toggle-menu="toggleSidebar"/>
-    <app-sidebar :isOpen="opened" @toggle-menu="toggleSidebar"/>
+    <app-navbar :minimized="minimized" @toggle-menu="toggleSidebar"/>
+    <app-sidebar :minimized="minimized" @toggle-menu="toggleSidebar"/>
     <main
       slot="content"
       id="content"
@@ -27,7 +27,7 @@ import VaPageLayout
 import AppNavbar from './app-navbar/AppNavbar'
 import AppSidebar from './app-sidebar/AppSidebar'
 import AppBreadcrumbs from './app-breadcrumbs/AppBreadcrumbs'
-import Layout from '../../vuestic-theme/vuestic-directives/Layout'
+import LayoutMixin from '../../vuestic-theme/vuestic-mixins/Layout'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -38,17 +38,16 @@ export default {
     AppSidebar,
     AppBreadcrumbs,
   },
-  directives: {
-    layout: Layout,
-  },
+  mixins: [LayoutMixin],
   data () {
     return {
-      opened: true,
+      minimized: false,
+      mobileWidth: 767,
     }
   },
   methods: {
-    toggleSidebar (opened) {
-      this.opened = opened
+    toggleSidebar (minimized) {
+      this.minimized = minimized
     },
   },
   computed: {

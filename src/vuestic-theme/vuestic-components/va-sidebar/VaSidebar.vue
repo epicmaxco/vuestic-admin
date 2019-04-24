@@ -1,5 +1,8 @@
 <template>
-  <aside class="va-sidebar" :style="{ backgroundColor: $themes[color] }">
+  <aside
+    :class="computedClass"
+    :style="{ backgroundColor: $themes[color] }"
+  >
     <va-scrollbar class="va-sidebar__scrollbar">
       <ul class="va-sidebar__menu">
         <slot name="menu"></slot>
@@ -12,7 +15,7 @@
 export default {
   name: 'va-sidebar',
   props: {
-    hidden: {
+    minimized: {
       type: Boolean,
       required: true,
     },
@@ -21,16 +24,19 @@ export default {
       default: 'secondary',
     },
   },
+  computed: {
+    computedClass () {
+      return {
+        'va-sidebar': true,
+        'va-sidebar--minimized': this.minimized,
+      }
+    },
+  },
 }
 </script>
 
 <style lang="scss">
 .va-sidebar {
-  @include media-breakpoint-down(md) {
-    top: $sidebar-mobile-top;
-    width: $sidebar-mobile-width;
-    z-index: $sidebar-mobile-z-index;
-  }
 
   min-height: $sidebar-viewport-height;
   height: 100%;
@@ -47,12 +53,8 @@ export default {
     padding-bottom: 2.5rem;
     list-style: none;
     padding-left: 0;
-
-    li {
-      display: block;
-      padding-left: 0;
-    }
   }
+
   &__scrollbar {
     height: 100%;
 
@@ -61,25 +63,21 @@ export default {
       border-radius: 0;
     }
   }
-
-  &.va-sidebar--hidden {
-    @include media-breakpoint-down(md) {
-      z-index: $sidebar-mobile-z-index;
-      height: $sidebar-hidden-height-mobile;
-    }
-    left: 0;
-    width: 56px;
-    .sidebar-link__content__title,
-    .sidebar-link__content__title {
-      display: none;
-    }
+  @include media-breakpoint-down(md) {
+    top: $sidebar-mobile-top;
   }
 
-  &.va-sidebar--hidden + .content-wrap {
-    @include media-breakpoint-down(md) {
-      margin-left: 0;
+  &--minimized {
+    left: 0;
+    width: 56px;
+
+    .va-sidebar-link__content__title {
+      display: none;
     }
-    margin-left: $sidebar-left--hidden;
+
+    & + .content-wrap {
+      margin-left: $sidebar-left--hidden;
+    }
   }
 }
 </style>

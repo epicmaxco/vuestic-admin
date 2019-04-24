@@ -1,27 +1,29 @@
 <template>
-  <va-sidebar :hidden="isOpen">
+  <va-sidebar :minimized="minimized">
     <template slot="menu">
 
       <template v-for="(item, key) in items">
 
         <sidebar-link-group
           :key="key"
+          :minimized="minimized"
           :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
-          v-if="item.children">
-          <span slot="title">{{ $t(item.displayName) }}</span>
+          v-if="item.children"
+          :title="$t(item.displayName)"
+        >
           <sidebar-link
             v-for="(subMenuItem, key) in item.children"
             :key="key"
             :active="subMenuItem.meta ? subMenuItem.meta.isActiveByDefault : false"
             :to="{ name: subMenuItem.name }"
-          >
-            <span slot="title">{{ $t(subMenuItem.displayName) }}</span>
-          </sidebar-link>
+            :title="$t(subMenuItem.displayName)"
+          />
         </sidebar-link-group>
 
         <sidebar-link
           v-else
           :key="key"
+          :minimized="minimized"
           :active="item.meta ? item.meta.isActiveByDefault : false"
           :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
           :to="{ name: item.name }">
@@ -47,7 +49,7 @@ export default {
     SidebarLinkGroup,
   },
   props: {
-    isOpen: {
+    minimized: {
       type: Boolean,
       required: true,
     },
