@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="va-input-wrapper"
-    :class="{ 'va-input-wrapper--disabled' : disabled }"
-  >
+  <div class="va-input-wrapper">
     <div class="va-input-wrapper__control">
       <div
         tabindex="0"
@@ -15,25 +12,11 @@
         <div class="va-input-wrapper__content">
           <slot/>
           <div class="va-input-wrapper__details py-0 px-2">
-            <div class="va-input-wrapper__messages">
-              <div
-                v-if="error"
-                :style="messageStyles"
-                class="va-input-wrapper__messages__wrapper">
-                <template
-                  v-for="errorMessage in errorMessages">
-                  {{ errorMessage }}
-                </template>
-              </div>
-              <div
-                v-else
-                :style="messageStyles"
-                class="va-input-wrapper__messages__wrapper">
-                <template v-for="message in messages">
-                  {{ message }}
-                </template>
-              </div>
-            </div>
+            <va-message-list
+              :color="(error && 'danger') || (success && 'success')"
+              :value="error ? errorMessages : messages"
+              :limit="error ? errorCount : 99"
+            />
           </div>
         </div>
         <div
@@ -47,18 +30,14 @@
 </template>
 
 <script>
+import VaMessageList from './VaMessageList'
 export default {
   name: 'va-input-wrapper',
+  components: { VaMessageList },
   props: {
-    disabled: {
-      type: Boolean,
-    },
-    error: {
-      type: Boolean,
-    },
-    success: {
-      type: Boolean,
-    },
+    disabled: Boolean,
+    error: Boolean,
+    success: Boolean,
     messages: {
       type: Array,
       default: () => [],
@@ -67,8 +46,17 @@ export default {
       type: Array,
       default: () => [],
     },
+    errorCount: {
+      type: Number,
+      default: 1,
+    },
   },
   computed: {
+    computedErrorMessages () {
+      const isArray = Array.isArray(this.errorMessages)
+      const errorMessages = isArray ? this.errorMessages : [this.errorMessages]
+      return errorMessages.slice(0, this.errorCount)
+    },
     messageStyles () {
       return {
         color:

@@ -1,7 +1,29 @@
 <template>
   <VbDemo>
-    <VbCard title="Simple Input Wrapper">
+    <VbCard title="Slots scheme">
       <va-input-wrapper :messages="messages">
+        <div slot="prepend" style="width: 30px; height: 30px; border: 1px dotted black;">
+          <va-icon icon="fa fa-volume-off"/>
+        </div>
+        <div style="width: 200px; height: 30px; border: 1px dotted black;">Default Slot</div>
+        <div slot="append" style="width: 30px; height: 30px; border: 1px dotted black;">
+          <va-icon icon="fa fa-volume-up"/>
+        </div>
+      </va-input-wrapper>
+    </VbCard>
+
+    <VbCard title="Default">
+      <va-input-wrapper :messages="messages">
+        Input
+      </va-input-wrapper>
+    </VbCard>
+
+    <VbCard title="Error">
+      <va-input-wrapper
+        :messages="messages"
+        error
+        :error-messages="errorMessages"
+      >
         <div slot="prepend" style="width: 30px; height: 30px; border: 1px dotted black;">
           <va-icon icon="fa fa-volume-off"/>
         </div>
@@ -17,7 +39,7 @@
         <va-checkbox name="agree-to-terms" v-model="agreedToTerms">
           <template slot="label">
             {{ $t('auth.agree') }}
-            <a class="link" href="#">{{ $t('auth.termsOfUse') }}</a>
+            <a class="link" href="javascript:void(0);">{{ $t('auth.termsOfUse') }}</a>
           </template>
         </va-checkbox>
       </va-input-wrapper>
@@ -29,7 +51,6 @@
           label="Radio"
         />
       </va-input-wrapper>
-
     </VbCard>
   </VbDemo>
 </template>
@@ -50,11 +71,11 @@ export default {
   data () {
     return {
       empty: '',
-      agreedToItems: false,
+      agreedToTerms: false,
       radioSelectedOption: false,
       text: 'Vuestic',
       messages: ['Required field'],
-      errorMessages: ['Detailed error message'],
+      errorMessages: ['Detailed error message', 'Detailed error message', 'Detailed error message'],
     }
   },
 }

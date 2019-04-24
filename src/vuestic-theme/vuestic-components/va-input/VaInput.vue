@@ -1,12 +1,12 @@
 <template>
   <va-input-wrapper
     class="va-input"
-    :class="{ 'va-input-wrapper--focused': isFocused }"
     :disabled="disabled"
-    :error="error"
     :success="success"
     :messages="messages"
+    :error="error"
     :error-messages="errorMessages"
+    :errorCount="errorCount"
   >
     <slot name="prepend" slot="prepend"/>
     <div
