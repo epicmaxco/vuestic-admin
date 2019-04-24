@@ -1,5 +1,5 @@
 <template>
-  <li class="sidebar-link-group sidebar-link">
+  <li :class="computedClass">
     <a
       href="#"
       target="_self"
@@ -7,29 +7,69 @@
       @mouseleave="updateHoverState(false)"
       @click.stop.prevent="toggleMenuItem()"
       :style="sidebarLinkStyles"
-      class="sidebar-link__router-link"
+      class="va-sidebar-link"
+      v-if="!minimized"
       :class="classObject">
-      <div class="sidebar-link__content">
+      <div class="va-sidebar-link__content">
         <va-icon
           v-if="icon"
-          class="sidebar-link__content__icon"
+          class="va-sidebar-link__content__icon"
           :style="iconStyles"
           :icon="icon"
         />
-        <span class="sidebar-link__content__title">
-          <slot name="title"/>
+        <span class="va-sidebar-link__content__title">
+          <slot name="title">
+            {{title}}
+          </slot>
         </span>
       </div>
     </a>
-    <expanding>
+    <expanding v-if="!minimized">
       <ul
-        class="sidebar-submenu in"
+        class="va-sidebar-link-group__submenu in"
         v-show="this.expanded"
         ref="linkGroupWrapper"
       >
         <slot/>
       </ul>
     </expanding>
+    <va-dropdown
+    v-if="minimized"
+    position="right"
+    fixed
+    >
+      <a
+        href="#"
+        slot="anchor"
+        target="_self"
+        @mouseenter="updateHoverState(true)"
+        @mouseleave="updateHoverState(false)"
+        :style="sidebarLinkStyles"
+        class="va-sidebar-link"
+        :class="classObject"
+      >
+        <div class="va-sidebar-link__content">
+          <va-icon
+            v-if="icon"
+            class="va-sidebar-link__content__icon"
+            :style="iconStyles"
+            :icon="icon"
+          />
+          <span class="va-sidebar-link__content__title">
+          <slot name="title">
+            {{title}}
+          </slot>
+        </span>
+        </div>
+      </a>
+      <ul
+        class="va-sidebar-link-group__submenu in"
+        ref="linkGroupWrapper"
+        :style="{backgroundColor: $themes[color]}"
+      >
+        <slot/>
+      </ul>
+    </va-dropdown>
   </li>
 </template>
 
@@ -38,13 +78,21 @@ import VaIcon from './../../../../vuestic-theme/vuestic-components/va-icon/VaIco
 import SidebarLink from './SidebarLink'
 import Expanding from 'vue-bulma-expanding/src/Expanding'
 import { getHoverColor } from './../../../../services/color-functions'
+import VaDropdown from '../../../../vuestic-theme/vuestic-components/va-dropdown/VaDropdown'
 
 export default {
   name: 'sidebar-link-group',
   props: {
     icon: [String, Array],
+    title: String,
+    minimized: Boolean,
+    color: {
+      type: String,
+      default: 'secondary',
+    },
   },
   components: {
+    VaDropdown,
     VaIcon,
     SidebarLink,
     Expanding,
@@ -78,14 +126,19 @@ export default {
     classObject () {
       return {
         'expanded': this.expanded,
-
+      }
+    },
+    computedClass () {
+      return {
+        'va-sidebar-link-group': true,
+        'va-sidebar-link-group--minimized': this.minimized,
       }
     },
     sidebarLinkStyles () {
       if (this.isHovered) {
         return {
           color: this.$themes['success'],
-          backgroundColor: getHoverColor(this.$themes['info']),
+          backgroundColor: getHoverColor(this.$themes[this.color]),
           borderLeftColor: this.$themes['success'],
         }
       } else {
@@ -111,20 +164,35 @@ export default {
 </script>
 
 <style lang="scss">
-.sidebar-link-group {
-
-  .sidebar-submenu {
+.va-sidebar-link-group {
+  height: fit-content;
+  flex-direction: column;
+  .va-sidebar-link__router-link {
+    width: 100%;
+  }
+  &__submenu {
     list-style: none;
     padding-left: 0;
+    width: 100%;
 
     li {
       display: block;
-      padding-left: 0;
-    }
-
-    .sidebar-link__router-link {
       padding-left: 3rem;
-      font-size: .875rem;
+    }
+  }
+  &--minimized {
+    .va-sidebar-link-group__submenu {
+      background: $sidebar_bg;
+      width: 10rem;
+      border-radius: .375rem;
+      margin-left: 1px;
+      .va-sidebar-link__content__title {
+        display: block;
+      }
+    }
+    .va-sidebar-link-group__submenu li {
+      padding: .75rem 1rem;
+      border-left: none;
     }
   }
 }

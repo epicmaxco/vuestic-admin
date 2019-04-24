@@ -38,8 +38,8 @@ export default {
 <style lang="scss">
 .va-sidebar {
 
-  min-height: $sidebar-viewport-height;
-  height: 100%;
+  min-height: $sidebar-viewport-min-height;
+  height: $sidebar-viewport-height;
   position: absolute;
   width: $sidebar-width;
   top: $sidebar-top;

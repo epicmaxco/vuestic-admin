@@ -162,18 +162,10 @@ $va-link-color-visited: $va-link-color;
 $link-hover-decoration: none;
 
 //Sidebar
-$sidebar-link-height: 64px;
-$sidebar-submenu-link-height: 48px;
-$sidebar-link-pl: 25px;
-$sidebar-submenu-link-pl: 74px;
-$sidebar-link-active-bg: $almost-black;
-$sidebar-arrow-right: 16px;
 $sidebar-menu-item-icon-size: 19px;
-$sidebar-viewport-height: calc(100vh - #{$top-nav-height});
-
+$sidebar-viewport-min-height: calc(100vh - #{$top-nav-height});
+$sidebar-viewport-height: calc(100% - #{$top-nav-height});
 $sidebar-hidden-top: -150px;
-$sidebar-hidden-top-mobile: $sidebar-mobile-top;
-$sidebar-hidden-height-mobile: 0;
 $sidebar-box-shadow: 0 2px 3px 0 rgba(52, 56, 85, 0.25);
 
 //Widgets

@@ -27,7 +27,7 @@ import VaPageLayout
 import AppNavbar from './app-navbar/AppNavbar'
 import AppSidebar from './app-sidebar/AppSidebar'
 import AppBreadcrumbs from './app-breadcrumbs/AppBreadcrumbs'
-import LayoutMixin from '../../vuestic-theme/vuestic-mixins/Layout'
+import Layout from '../../vuestic-theme/vuestic-mixins/Layout'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -38,7 +38,7 @@ export default {
     AppSidebar,
     AppBreadcrumbs,
   },
-  mixins: [LayoutMixin],
+  mixins: [ Layout ],
   data () {
     return {
       minimized: false,

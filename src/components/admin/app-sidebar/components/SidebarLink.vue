@@ -1,39 +1,35 @@
 <template>
-  <li class="sidebar-link">
-    <router-link
-      class="sidebar-link__router-link"
-      @mouseenter.native="updateHoverState(true)"
-      @mouseleave.native="updateHoverState(false)"
-      @click.native="isActive = !isActive"
-      :style="sidebarLinkStyles"
-      :to="to"
-      :target="target">
-      <va-icon
-        v-if="icon"
-        class="sidebar-link__content__icon"
-        :style="iconStyles"
-        :icon="icon"
-      />
-      <div class="sidebar-link__content__title">
-        <slot name="title"/>
-      </div>
-    </router-link>
-  </li>
+  <router-link
+    tag="li"
+    :class="computedLinkClass"
+    @mouseenter.native="updateHoverState(true)"
+    @mouseleave.native="updateHoverState(false)"
+    @click.native="isActive = !isActive"
+    :style="computedLinkStyles"
+    :to="to"
+    :target="target">
+    <va-icon
+      v-if="icon"
+      class="va-sidebar-link__content__icon"
+      :style="computedIconStyles"
+      :icon="icon"
+    />
+    <div class="va-sidebar-link__content__title">
+      <slot name="title"/>
+      {{title}}
+    </div>
+  </router-link>
 </template>
 
 <script>
-import VaIcon from './../../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
 import { getHoverColor } from './../../../../services/color-functions'
 
 export default {
   name: 'sidebar-link',
-  components: {
-    VaIcon,
-  },
   props: {
     to: {
-      type: Object,
-      required: true,
+      type: [Object, String],
+      default: '',
     },
     target: {
       type: String,
@@ -42,9 +38,14 @@ export default {
     icon: {
       type: [String, Array],
     },
+    title: {
+      type: String,
+    },
     active: {
       type: Boolean,
-      default: false,
+    },
+    minimized: {
+      type: Boolean,
     },
   },
   data () {
@@ -69,7 +70,13 @@ export default {
     },
   },
   computed: {
-    sidebarLinkStyles () {
+    computedLinkClass () {
+      return {
+        'va-sidebar-link': true,
+        'va-sidebar-link--minimized': this.minimized,
+      }
+    },
+    computedLinkStyles () {
       return (this.isHovered || this.isActive)
         ? {
           color: this.$themes['success'],
@@ -80,7 +87,7 @@ export default {
           color: this.$themes['info'],
         }
     },
-    iconStyles () {
+    computedIconStyles () {
       return (this.isHovered || this.isActive)
         ? {
           color: this.$themes['success'],
@@ -99,29 +106,18 @@ export default {
 </script>
 
 <style lang="scss">
-.sidebar-link {
-  &__router-link {
-    position: relative;
-    height: 3rem;
-    padding-left: 1rem;
-    padding-top: .725rem;
-    padding-bottom: .725rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    cursor: pointer;
-    text-decoration: none;
-    border-left: 0.25rem solid transparent;
-
-    .sidebar-menu-item-icon {
-
-      &.fa-dashboard {
-        /* Temp fix */
-        position: relative;
-        top: -2px;
-      }
-    }
-  }
+.va-sidebar-link {
+  position: relative;
+  height: 3rem;
+  padding-left: 1rem;
+  padding-top: .725rem;
+  padding-bottom: .725rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  border-left: 0.25rem solid transparent;
 
   &__content {
 
@@ -130,10 +126,20 @@ export default {
       text-align: center;
       font-size: $sidebar-menu-item-icon-size;
       margin-right: 0.5rem;
+      &.fa-dashboard {
+        /* Temp fix */
+        position: relative;
+        top: -2px;
+      }
     }
 
     &__title {
       line-height: 1.71em;
+    }
+  }
+  &--minimized {
+    .va-sidebar-link__content__title {
+      display: none;
     }
   }
 }
