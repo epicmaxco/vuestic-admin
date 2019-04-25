@@ -31,10 +31,10 @@
     </VbCard>
     <VbCard title="Array as model">
       {{selection}}
-      <va-toggle v-model="selection" val='one' label="one"/>
-      <va-toggle v-model="selection" val='two' label="two"/>
-      <va-toggle v-model="selection" val='three' label="three"/>
-      <va-toggle v-model="selection" val='four' label="four"/>
+      <va-toggle v-model="selection" array-value='one' label="one"/>
+      <va-toggle v-model="selection" array-value='two' label="two"/>
+      <va-toggle v-model="selection" array-value='three' label="three"/>
+      <va-toggle v-model="selection" array-value='four' label="four"/>
     </VbCard>
     <VbCard title="Disabled">
       <va-toggle v-model="value" disable/>

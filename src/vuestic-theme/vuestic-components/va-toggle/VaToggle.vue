@@ -48,7 +48,7 @@ export default {
     large: {
       type: Boolean,
     },
-    val: {
+    arrayValue: {
       type: String | Boolean | Number,
       default: true,
     },
@@ -91,10 +91,10 @@ export default {
       return this.disable ? -1 : this.tabindex || 0
     },
     isTrue () {
-      return this.modelIsArray ? this.value.includes(this.val) : this.value === this.trueValue
+      return this.modelIsArray ? this.value.includes(this.arrayValue) : this.value === this.trueValue
     },
     isFalse () {
-      return this.modelIsArray ? !this.value.includes(this.val) : this.value === this.falseValue
+      return this.modelIsArray ? !this.value.includes(this.arrayValue) : this.value === this.falseValue
     },
     modelIsArray () {
       return Array.isArray(this.value)
@@ -109,7 +109,7 @@ export default {
         if (this.isTrue) {
           this.$emit('input', this.value.filter(el => el !== this.val))
         } else if (this.isFalse) {
-          this.$emit('input', this.value.concat(this.val))
+          this.$emit('input', this.value.concat(this.arrayValue))
         }
       } else {
         if (this.isTrue) {
