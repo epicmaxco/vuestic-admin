@@ -1,29 +1,31 @@
 <template>
   <div class="dashboard">
-
     <dashboard-info-widgets/>
-
-    <va-card no-padding>
+    <va-card class="no-padding no-v-padding">
       <va-tabs
-        :names="[$t('dashboard.dataVisualization'), $t('dashboard.usersAndMembers'), $t('dashboard.setupProfile'), $t('dashboard.features')]"
-        ref="tabs">
-        <div :slot="$t('dashboard.dataVisualization')">
-          <data-visualisation-tab/>
-        </div>
-        <div :slot="$t('dashboard.usersAndMembers')">
-          <users-members-tab/>
-        </div>
-        <div :slot="$t('dashboard.setupProfile')">
-          <setup-profile-tab/>
-        </div>
-        <div :slot="$t('dashboard.features')">
-          <features-tab/>
-        </div>
+        v-model="value"
+        grow
+      >
+        <va-tab>
+          {{$t('dashboard.dataVisualization')}}
+        </va-tab>
+        <va-tab>
+          {{$t('dashboard.usersAndMembers')}}
+        </va-tab>
+        <va-tab>
+          {{$t('dashboard.setupProfile')}}
+        </va-tab>
+        <va-tab>
+          {{$t('dashboard.features')}}
+        </va-tab>
       </va-tabs>
+      <va-separator/>
+      <data-visualisation-tab v-if="value === 0"/>
+      <users-members-tab v-if="value === 1"/>
+      <setup-profile-tab v-if="value === 2"/>
+      <features-tab v-if="value === 3"/>
     </va-card>
-
-    <dashboard-bottom-widgets/>
-
+    <dashboard-bottom-widgets></dashboard-bottom-widgets>
   </div>
 </template>
 
@@ -60,6 +62,11 @@ export default {
         },
       })
     },
+  },
+  data () {
+    return {
+      value: 0,
+    }
   },
 }
 

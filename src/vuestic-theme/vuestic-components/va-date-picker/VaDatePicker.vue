@@ -123,7 +123,7 @@ $datepickerOtherMonth: darken($datepickerText, 40);
 $datepickerWeekday: $brand-secondary;
 $datepickerDayHover: $vue-darkest-blue;
 $datepickerDayRange: $vue-green;
-$datepickerSeparatorColor: #e6e9ec;
+$datepickerSeparatorColor: $separator-color;
 
 $borderPadding: 0.5rem;
 $dayPadding: 0.375rem;

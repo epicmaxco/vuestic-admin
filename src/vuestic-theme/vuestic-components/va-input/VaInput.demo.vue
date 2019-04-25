@@ -92,6 +92,7 @@
         label="Name"
         removable
         success
+        :messages="successMessage"
       />
     </VbCard>
     <VbCard title="Input With Error Message">
@@ -99,7 +100,17 @@
         v-model="text"
         label="Name"
         error
-        :error-messages="errorMessages"/>
+        :error-messages="errorMessage"
+      />
+    </VbCard>
+    <VbCard title="Error count 2">
+      <va-input
+        v-model="text"
+        label="Name"
+        error
+        errorCount="2"
+        :error-messages="['one', 'two']"
+      />
     </VbCard>
   </VbDemo>
 </template>
@@ -121,7 +132,8 @@ export default {
       text: 'Vuestic',
       phone: '33 310-86-24',
       messages: ['Required field'],
-      errorMessages: ['Detailed error message'],
+      errorMessage: 'Detailed error message',
+      successMessage: 'Success message',
     }
   },
 }
