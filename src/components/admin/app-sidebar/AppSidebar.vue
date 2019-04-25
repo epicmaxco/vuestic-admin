@@ -19,7 +19,6 @@
             :title="$t(subMenuItem.displayName)"
           />
         </sidebar-link-group>
-
         <sidebar-link
           v-else
           :key="key"

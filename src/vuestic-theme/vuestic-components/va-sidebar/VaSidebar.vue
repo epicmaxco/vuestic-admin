@@ -3,11 +3,9 @@
     :class="computedClass"
     :style="{ backgroundColor: $themes[color] }"
   >
-    <va-scrollbar class="va-sidebar__scrollbar">
-      <ul class="va-sidebar__menu">
-        <slot name="menu"></slot>
-      </ul>
-    </va-scrollbar>
+    <ul class="va-sidebar__menu">
+      <slot name="menu"></slot>
+    </ul>
   </aside>
 </template>
 
@@ -44,7 +42,8 @@ export default {
   width: $sidebar-width;
   top: $sidebar-top;
   left: 0;
-  transition: all 0.2s ease;
+  transition: all .2s ease;
+  overflow-y: auto;
 
   &__menu {
     max-height: 100%;
@@ -55,24 +54,26 @@ export default {
     padding-left: 0;
   }
 
-  &__scrollbar {
-    height: 100%;
-
-    .scrollbar-wrapper {
-      box-shadow: $sidebar-box-shadow;
-      border-radius: 0;
-    }
+  .va-sidebar-link__content__title {
+    transition: all 0.2s ease;
+    display: inline-block;
+    opacity: 1;
   }
+
   @include media-breakpoint-down(md) {
     top: $sidebar-mobile-top;
+    width: 100%;
+    z-index: $sidebar-minimized-z-index;
   }
 
   &--minimized {
     left: 0;
     width: 56px;
+    z-index: $sidebar-minimized-z-index;
 
     .va-sidebar-link__content__title {
       display: none;
+      opacity: 0;
     }
 
     & + .content-wrap {

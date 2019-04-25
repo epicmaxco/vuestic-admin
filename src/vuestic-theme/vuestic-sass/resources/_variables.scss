@@ -104,7 +104,6 @@ $layout-mobile-padding: 0.1875rem;
 $sidebar-mobile-width: calc(100% - .375rem);
 $sidebar-mobile-top: $top-mobile-nav-height+$layout-mobile-padding;
 $sidebar-mobile-left: $layout-mobile-padding;
-$sidebar-mobile-z-index: 1000;
 
 $content-mobile-wrap-pl: 1rem;
 $content-mobile-wrap-pr: 1rem;
@@ -167,6 +166,8 @@ $sidebar-viewport-min-height: calc(100vh - #{$top-nav-height});
 $sidebar-viewport-height: calc(100% - #{$top-nav-height});
 $sidebar-hidden-top: -150px;
 $sidebar-box-shadow: 0 2px 3px 0 rgba(52, 56, 85, 0.25);
+$sidebar-minimized-width: 3.5rem;
+$sidebar-minimized-z-index: 1000;
 
 //Widgets
 $widget-bg: $white;

@@ -1,5 +1,5 @@
 <template>
-  <va-page-layout v-layout>
+  <va-page-layout>
     <app-navbar :minimized="minimized" @toggle-menu="toggleSidebar"/>
     <app-sidebar :minimized="minimized" @toggle-menu="toggleSidebar"/>
     <main
