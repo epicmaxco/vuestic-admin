@@ -30,24 +30,22 @@
         </slot>
       </div>
     </div>
-    <div class="va-checkbox__error-message-container" v-if="showError">
-      <div
-        class="va-checkbox__error-message"
-        v-for="(error, index) in computedErrorMessages"
-        :key="index"
-      >
-        {{ error }}
-      </div>
-    </div>
+    <va-message-list
+      class="va-checkbox__error-message-container"
+      :value="errorMessages"
+      color="danger"
+      :limit="errorCount"
+    />
   </div>
 </template>
 
 <script>
 import VaIcon from '../va-icon/VaIcon'
+import VaMessageList from '../va-input/VaMessageList'
 
 export default {
   name: 'va-checkbox',
-  components: { VaIcon },
+  components: { VaMessageList, VaIcon },
   props: {
     label: String,
     value: {
@@ -94,11 +92,6 @@ export default {
         'va-checkbox--error': this.showError,
         'va-checkbox--on-keyboard-focus': this.isKeyboardFocused,
       }
-    },
-    computedErrorMessages () {
-      const isArray = Array.isArray(this.errorMessages)
-      const errorMessages = isArray ? this.errorMessages : [this.errorMessages]
-      return errorMessages.slice(0, this.errorCount)
     },
     valueProxy: {
       set (value) {
@@ -150,7 +143,6 @@ export default {
 @import "../../vuestic-sass/resources/resources";
 
 .va-checkbox {
-  margin-bottom: $checkbox-between-items-margin;
   display: flex;
   flex-direction: column;
 

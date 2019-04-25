@@ -106,7 +106,6 @@ export default {
       }
     },
     computedStripeStyle () {
-      console.log(this.$themes)
       return {
         background: this.$themes[this.stripe],
       }
@@ -144,7 +143,7 @@ export default {
   &__header {
     &-inner {
       display: flex;
-      padding: 0.5rem 1.25rem;
+      padding: 0.5rem $card-padding;
       min-height: 3.5rem;
       align-items: center;
     }
@@ -183,15 +182,15 @@ export default {
   }
 
   &__body {
-    padding: 0 1.25rem 1.25rem;
+    padding: 0 $card-padding $card-padding;
     flex: 1 1 auto;
 
     &--no-padding-v {
-      padding: 0 1.25rem;
+      padding: 0 $card-padding;
     }
 
     &--no-padding-h {
-      padding: 1.25rem 0;
+      padding: $card-padding 0;
     }
 
     &--no-padding {
@@ -199,7 +198,7 @@ export default {
     }
 
     &--padding-top {
-      padding-top: 1.25rem;
+      padding-top: $card-padding;
     }
   }
 

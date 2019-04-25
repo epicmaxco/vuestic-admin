@@ -1,133 +1,196 @@
 <template>
   <div class="va-tabs">
-    <div>
-      <nav class="nav nav-pills va-row">
-        <div
-          class="nav-item col"
-          @click="setActive(name)"
-          :class="{active: name === currentActive}"
-          v-for="name in names"
-          :key="name"
-        >
-          <span class="nav-link"><h5>{{name}}</h5></span>
-        </div>
-      </nav>
-      <div class="track">
-        <div :class="underscoreClass"></div>
-      </div>
-    </div>
-    <va-simple-select
-      class="simple-select"
-      v-show="false"
-      v-bind:options="names" v-model="currentActive"></va-simple-select>
-    <div class="tab-content">
+    <div class="va-tabs__wrapper">
       <div
-        class="tab-pane"
-        :class="{active: name === currentActive}"
-        v-for="name in names"
-        :key="name"
+        class="va-tabs__container"
+        :class="containerClass"
       >
-        <slot :name="name"></slot>
+        <div class="va-tabs__slider-wrapper" :style="sliderStyles">
+          <div class="va-tabs__slider"/>
+        </div>
+        <slot/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-// d-none and d-lg-flex were deleted, bug will be fixed in the nearest update
+
+import VaTab from './VaTab'
+
 export default {
   name: 'va-tabs',
-  props: ['names'],
-  computed: {
-    underscoreClass () {
-      return 'underscore-' + this.names.length + '-' + this.names.indexOf(this.currentActive)
-    },
+  components: {
+    VaTab,
   },
-  methods: {
-    setActive (name) {
-      this.currentActive = name
-    },
+  provide () {
+    return {
+      tabGroup: {
+        register: this.register,
+        unregister: this.unregister,
+      },
+    }
   },
   data () {
     return {
-      currentActive: this.names[0],
+      tabs: [],
+      tabsWidth: [],
+      sliderLeft: 0,
+      sliderWidth: 0,
     }
+  },
+  subs: {
+    resizeEnd () {
+      this.updateSlider()
+    },
+  },
+  props: {
+    value: { type: Number },
+    right: Boolean,
+    center: Boolean,
+    grow: Boolean,
+    hideSlider: Boolean,
+  },
+  mounted () {
+    this.updateSlider()
+  },
+  watch: {
+    value: 'syncStateWithValue',
+    right: 'updateSlider',
+    grow: 'updateSlider',
+    hideSlider: 'updateSlider',
+  },
+  computed: {
+    valueProxy: {
+      set (valueProxy) {
+        this.$emit('input', valueProxy)
+      },
+      get () {
+        return this.value
+      },
+    },
+    containerClass () {
+      return {
+        'va-tabs__container--grow': this.grow,
+        'va-tabs__container--right': this.right,
+        'va-tabs__container--center': this.center,
+      }
+    },
+    sliderStyles () {
+      return {
+        left: `${this.sliderLeft}px`,
+        width: `${this.sliderWidth}px`,
+      }
+    },
+    selectedTab () {
+      return this.tabs[this.value] || null
+    },
+  },
+  methods: {
+    syncStateWithValue () {
+      this.tabs.forEach((tab, index) => {
+        tab.isActive = index === this.value
+      })
+      this.updateSlider()
+    },
+    register (tab) {
+      const index = this.tabs.push(tab) - 1
+      tab.$on('tabClick', () => this.onTabClick(tab))
+
+      if (index === this.value) {
+        tab.isActive = true
+      }
+    },
+    unregister (tab) {
+      if (this._isDestroyed) return
+
+      this.tabs.splice(this.tabs.indexOf(tab), 1)
+
+      this.syncStateWithValue()
+    },
+    onTabClick (tab) {
+      const index = this.tabs.indexOf(tab)
+      this.valueProxy = index
+    },
+    async updateSlider () {
+      await this.$nextTick()
+
+      if (this.hideSlider) {
+        return
+      }
+      const selectedTab = this.selectedTab
+      if (!selectedTab || !selectedTab.$refs.content) {
+        return
+      }
+      const content = selectedTab.$refs.content
+      this.sliderWidth = content.scrollWidth + 4
+      this.sliderLeft = content.offsetLeft - 2
+    },
   },
 }
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+
 .va-tabs {
-  background-color: white;
+  position: relative;
 
-  .simple-select {
-    padding-top: 1.5rem;
+  &--right {
+    display: flex;
+    justify-content: flex-end;
   }
 
-  .nav {
-    margin: 0;
-    padding-top: 2.25rem;
-
-    .nav-item {
-      flex-grow: 1;
-      text-align: center;
-      padding: 0;
-
-      .nav-link {
-        padding: 0;
-        color: $gray;
-        transition: all .3s ease;
-      }
-
-      &:hover {
-        cursor: pointer;
-
-        .nav-link {
-          color: $vue-darkest-blue;
-        }
-      }
-
-      &.active {
-        .nav-link {
-          color: $vue-darkest-blue;
-        }
-      }
-    }
+  .va-tabs__wrapper {
+    overflow: auto;
+    contain: content;
+    display: flex;
   }
 
-  .track {
-    overflow: hidden;
-    width: 100%;
-    height: .125rem;
+  .va-tabs__container {
+    flex: 1 0 auto;
+    display: flex;
+    height: 2.5rem;
+    list-style-type: none;
+    transition: transform 0.6s cubic-bezier(0.86, 0, 0.07, 1);
+    white-space: nowrap;
     position: relative;
 
-    div[class^='underscore-'] {
-      background-color: $brand-primary;
-      height: .125rem;
-      position: absolute;
+    &--grow {
+      .va-tab {
+        flex: 1 0 auto;
+        max-width: none;
+      }
     }
 
-    $koeff: 0.8;
-    @for $all from 1 through 10 {
-      $width: 1/$all;
-      div[class^='underscore-#{$all}'] {
-        width: $width * $koeff * 100%;
-        transition: left .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    &--center, &--right {
+      > .va-tab:first-child {
+        margin-left: auto
       }
-      @for $place from 0 through $all {
-        .underscore-#{$all}-#{$place} {
-          left: ($place + (1 - $koeff)/2) * $width * 100%;
-        }
+
+      .va-tabs__slider-wrapper + .va-tab {
+        margin-left: auto;
+      }
+    }
+
+    &--center {
+      > .va-tab:last-child {
+        margin-right: auto;
       }
     }
   }
 
-  .tab-content {
-    padding-bottom: $tab-content-pb;
-    padding-top: $tab-content-pt;
+  .va-tabs__slider-wrapper {
+    bottom: 0;
+    margin: 0 !important;
+    position: absolute;
+    z-index: 4000;
+    transition: $transition-primary;
 
-    > .tab-pane {
-      width: 100%
+    .va-tabs__slider {
+      width: 100%;
+      height: 0.125rem;
+      background-color: $brand-primary;
     }
   }
 }

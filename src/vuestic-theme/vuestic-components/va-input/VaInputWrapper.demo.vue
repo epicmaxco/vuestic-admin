@@ -1,40 +1,54 @@
 <template>
   <VbDemo>
-    <VbCard title="Simple Input Wrapper">
-      <va-input-wrapper/>
-    </VbCard>
-    <VbCard title="Input Wrapper With Messages">
-      <va-input-wrapper
-        :messages="messages"
-      />
-    </VbCard>
-    <VbCard title="Error Input Wrapper">
-      <va-input-wrapper
-        error
-      />
-    </VbCard>
-    <VbCard title="Success Input Wrapper">
-      <va-input-wrapper
-        success
-      />
-    </VbCard>
-    <VbCard title="Error Input Wrapper With Messages">
-      <va-input-wrapper
-        error
-        :error-messages="errorMessages"
-      />
-    </VbCard>
-    <VbCard title="Input Wrapper With Default Slot">
-      <va-input-wrapper>
-        <va-button>Button</va-button>
+    <VbCard title="Slots scheme">
+      <va-input-wrapper :messages="messages">
+        <div slot="prepend" style="width: 30px; height: 30px; border: 1px dotted black;">
+          <va-icon icon="fa fa-volume-off"/>
+        </div>
+        <div style="width: 200px; height: 30px; border: 1px dotted black;">Default Slot</div>
+        <div slot="append" style="width: 30px; height: 30px; border: 1px dotted black;">
+          <va-icon icon="fa fa-volume-up"/>
+        </div>
       </va-input-wrapper>
     </VbCard>
-    <VbCard title="Input Wrapper With Slot">
-      <va-input-wrapper>
-        <va-icon
-          class="pb-1"
-          slot="prepend"
-          icon="fa fa-anchor"
+
+    <VbCard title="Default">
+      <va-input-wrapper :messages="messages">
+        Input
+      </va-input-wrapper>
+    </VbCard>
+
+    <VbCard title="Error">
+      <va-input-wrapper
+        :messages="messages"
+        error
+        :error-messages="errorMessages"
+      >
+        <div slot="prepend" style="width: 30px; height: 30px; border: 1px dotted black;">
+          <va-icon icon="fa fa-volume-off"/>
+        </div>
+        <div style="width: 200px; height: 30px; border: 1px dotted black;">Default Slot</div>
+        <div slot="append" style="width: 30px; height: 30px; border: 1px dotted black;">
+          <va-icon icon="fa fa-volume-up"/>
+        </div>
+      </va-input-wrapper>
+    </VbCard>
+
+    <VbCard title="Input Wrapper For Checkbox and Radio Button">
+      <va-input-wrapper :messages="messages">
+        <va-checkbox name="agree-to-terms" v-model="agreedToTerms">
+          <template slot="label">
+            {{ $t('auth.agree') }}
+            <a class="link" href="javascript:void(0);">{{ $t('auth.termsOfUse') }}</a>
+          </template>
+        </va-checkbox>
+      </va-input-wrapper>
+
+      <va-input-wrapper :messages="messages">
+        <va-radio-button
+          option="option1"
+          v-model="radioSelectedOption"
+          label="Radio"
         />
       </va-input-wrapper>
     </VbCard>
@@ -45,9 +59,11 @@
 import VaInputWrapper from './VaInputWrapper'
 import VaButton from './../va-button/VaButton'
 import VaIcon from './../va-icon/VaIcon'
+import VaCheckbox from '../va-checkbox/VaCheckbox'
 
 export default {
   components: {
+    VaCheckbox,
     VaInputWrapper,
     VaButton,
     VaIcon,
@@ -55,9 +71,11 @@ export default {
   data () {
     return {
       empty: '',
+      agreedToTerms: false,
+      radioSelectedOption: false,
       text: 'Vuestic',
       messages: ['Required field'],
-      errorMessages: ['Detailed error message'],
+      errorMessages: ['Detailed error message', 'Detailed error message', 'Detailed error message'],
     }
   },
 }
