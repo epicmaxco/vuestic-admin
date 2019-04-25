@@ -22,7 +22,7 @@ export default {
   mixins: [ColorThemeMixin],
   data () {
     return {
-      colorThemeDefault: 'black', // mixin override
+      colorThemeDefault: 'gray', // mixin override
     }
   },
   props: {
