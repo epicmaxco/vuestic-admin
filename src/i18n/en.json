@@ -135,7 +135,7 @@
     "controls": {
       "female": "Female",
       "male": "Male",
-      "title": "Checkboxes, Radios, Switches",
+      "title": "Checkboxes, Radios, Switches, Toggles",
       "radioDisabled": "Disabled Radio",
       "radio": "Radio",
       "subscribe": "Subscribe to newsletter",

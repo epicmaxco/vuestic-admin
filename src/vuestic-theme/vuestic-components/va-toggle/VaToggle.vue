@@ -4,6 +4,8 @@
     :class="computedClass"
     @click="toggle"
     @keydown.enter="toggle"
+    @mousedown="hasMouseDown = true"
+    @mouseup="hasMouseDown = false"
     :tabindex="computedTabindex"
     @focus="updateFocusState(true)"
     @blur="updateFocusState(false)"
@@ -65,6 +67,7 @@ export default {
   data () {
     return {
       focused: false,
+      hasMouseDown: false,
     }
   },
   computed: {
@@ -119,7 +122,9 @@ export default {
       }
     },
     updateFocusState (isFocus) {
-      this.focused = isFocus
+      if (!this.hasMouseDown) {
+        this.focused = isFocus
+      }
     },
   },
 }
@@ -130,6 +135,7 @@ export default {
   cursor: pointer;
   display: flex;
   align-items: center;
+  margin-bottom: $checkbox-between-items-margin;
 
   &:focus {
     outline: none;

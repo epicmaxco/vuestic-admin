@@ -35,6 +35,7 @@ import VaSimpleSelect
   from './vuestic-components/va-simple-select/VaSimpleSelect.vue'
 import VaSocialNews from './vuestic-components/va-social-news/VaSocialNews.vue'
 import VaSwitch from './vuestic-components/va-switch/VaSwitch.vue'
+import VaToggle from './vuestic-components/va-toggle/VaToggle.vue'
 import VaTabs from './vuestic-components/va-tabs/VaTabs.vue'
 import VaWizard from './vuestic-components/va-wizard/VaWizard.vue'
 import VaTreeRoot from './vuestic-components/va-tree-view/VaTreeRoot'
@@ -98,6 +99,7 @@ const VuesticPlugin = {
       VaSimpleSelect,
       VaSocialNews,
       VaSwitch,
+      VaToggle,
       VaTabs,
       VaWizard,
       VaMediumEditor,
