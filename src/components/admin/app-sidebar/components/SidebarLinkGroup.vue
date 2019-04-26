@@ -8,7 +8,7 @@
       @click.stop.prevent="toggleMenuItem()"
       :style="sidebarLinkStyles"
       class="va-sidebar-link"
-      v-if="!minimized"
+      v-if="!minimized && !navbarView"
       :class="classObject">
       <div class="va-sidebar-link__content">
         <va-icon
@@ -24,7 +24,7 @@
         </span>
       </div>
     </a>
-    <expanding v-if="!minimized">
+    <expanding v-if="!minimized && !navbarView">
       <ul
         class="va-sidebar-link-group__submenu in"
         v-show="this.expanded"
@@ -34,8 +34,8 @@
       </ul>
     </expanding>
     <va-dropdown
-    v-if="minimized"
-    position="right"
+    v-if="minimized || navbarView"
+    :position="navbarView ? 'bottom' : 'right'"
     fixed
     >
       <a
@@ -86,6 +86,7 @@ export default {
     icon: [String, Array],
     title: String,
     minimized: Boolean,
+    navbarView: Boolean,
     color: {
       type: String,
       default: 'secondary',
@@ -105,7 +106,7 @@ export default {
   },
   mounted () {
     let linkGroup = this.$refs.linkGroupWrapper
-    if (linkGroup.querySelector('.router-link-active') !== null) {
+    if (linkGroup && linkGroup.querySelector('.router-link-active') !== null) {
       this.expanded = true
     }
   },
@@ -126,12 +127,14 @@ export default {
     classObject () {
       return {
         'expanded': this.expanded,
+        'va-sidebar-link--navbar-view': this.navbarView,
       }
     },
     computedClass () {
       return {
         'va-sidebar-link-group': true,
         'va-sidebar-link-group--minimized': this.minimized,
+        'va-sidebar-link-group--navbar-view': this.navbarView,
       }
     },
     sidebarLinkStyles () {
@@ -139,7 +142,7 @@ export default {
         return {
           color: this.$themes['success'],
           backgroundColor: getHoverColor(this.$themes[this.color]),
-          borderLeftColor: this.$themes['success'],
+          borderColor: this.$themes['success'],
         }
       } else {
         return {

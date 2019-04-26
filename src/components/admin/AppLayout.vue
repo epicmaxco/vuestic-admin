@@ -1,7 +1,7 @@
 <template>
   <va-page-layout>
-    <app-navbar :minimized="minimized" @toggle-menu="toggleSidebar"/>
-    <app-sidebar :minimized="minimized" @toggle-menu="toggleSidebar"/>
+    <app-navbar :minimized="minimized" :navbar-view.sync="navbarView" @toggle-menu="toggleSidebar"/>
+    <app-sidebar :minimized="minimized" :navbar-view="navbarView" @toggle-menu="toggleSidebar"/>
     <main
       slot="content"
       id="content"
@@ -42,6 +42,7 @@ export default {
   data () {
     return {
       minimized: false,
+      navbarView: true,
       mobileWidth: 767,
     }
   },

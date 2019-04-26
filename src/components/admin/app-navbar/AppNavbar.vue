@@ -7,7 +7,7 @@
     <span slot="center">
       {{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
     </span>
-
+    <span @click="$emit('update:navbarView', !navbarView)" class="pointer">Toggle sidebar view</span>
     <message-dropdown class="nav-item"/>
     <notification-dropdown class="nav-item"/>
     <language-dropdown class="nav-item"/>
@@ -43,6 +43,10 @@ export default {
   },
   props: {
     minimized: {
+      type: Boolean,
+      required: true,
+    },
+    navbarView: {
       type: Boolean,
       required: true,
     },

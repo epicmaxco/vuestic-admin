@@ -47,6 +47,9 @@ export default {
     minimized: {
       type: Boolean,
     },
+    navbarView: {
+      type: Boolean,
+    },
   },
   data () {
     return {
@@ -74,14 +77,15 @@ export default {
       return {
         'va-sidebar-link': true,
         'va-sidebar-link--minimized': this.minimized,
+        'va-sidebar-link--navbar-view': this.navbarView,
       }
     },
     computedLinkStyles () {
       return (this.isHovered || this.isActive)
         ? {
           color: this.$themes['success'],
-          backgroundColor: getHoverColor(this.$themes['info']),
-          borderLeftColor: this.$themes['success'],
+          backgroundColor: this.navbarView ? 'transparent' : getHoverColor(this.$themes['info']),
+          borderColor: this.$themes['success'],
         }
         : {
           color: this.$themes['info'],
@@ -117,7 +121,7 @@ export default {
   align-items: center;
   cursor: pointer;
   text-decoration: none;
-  border-left: 0.25rem solid transparent;
+  border-left: .25rem solid transparent;
 
   &__content {
 
@@ -141,6 +145,12 @@ export default {
     .va-sidebar-link__content__title {
       display: none;
     }
+  }
+  &--navbar-view {
+    border-left: none;
+    border-bottom: .25rem solid transparent;
+    padding-left: 0;
+    margin: 0 .25rem;
   }
 }
 

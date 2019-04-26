@@ -17,6 +17,10 @@ export default {
       type: Boolean,
       required: true,
     },
+    navbarView: {
+      type: Boolean,
+      required: true,
+    },
     color: {
       type: String,
       default: 'secondary',
@@ -27,6 +31,7 @@ export default {
       return {
         'va-sidebar': true,
         'va-sidebar--minimized': this.minimized,
+        'va-sidebar__navbar-view': this.navbarView,
       }
     },
   },
@@ -78,6 +83,22 @@ export default {
 
     & + .content-wrap {
       margin-left: $sidebar-left--hidden;
+    }
+  }
+  &__navbar-view {
+    width: 100%;
+    position: relative;
+    top: auto;
+    height: 4rem;
+    min-height: 4rem;
+    .va-sidebar {
+      &__menu {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        padding: 0;
+        height: 100%;
+      }
     }
   }
 }
