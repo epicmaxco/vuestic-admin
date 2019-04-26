@@ -77,10 +77,12 @@ export default {
       }
     },
     sliderStyles () {
-      return {
-        left: `${this.sliderLeft}px`,
-        width: `${this.sliderWidth}px`,
-      }
+      return this.selectedTab
+        ? {
+          left: `${this.sliderLeft}px`,
+          width: `${this.sliderWidth}px`,
+        }
+        : {}
     },
     selectedTab () {
       return this.tabs[this.value] || null
