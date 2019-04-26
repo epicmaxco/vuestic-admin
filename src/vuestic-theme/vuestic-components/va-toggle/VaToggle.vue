@@ -7,17 +7,17 @@
     @mousedown="hasMouseDown = true"
     @mouseup="hasMouseDown = false"
     :tabindex="computedTabindex"
-    @focus="updateFocusState(true)"
-    @blur="updateFocusState(false)"
+    @focus="onFocus"
+    @blur="isKeyboardFocused = false"
   >
     <div class="va-toggle__inner">
       <span
         class="va-toggle__track"
-        :style="trackStyles"
+        :style="trackStyle"
       />
       <span
         class="va-toggle__input"
-        :style="indicatorStyles"
+        :style="indicatorStyle"
       />
     </div>
     <div class="va-toggle__label">
@@ -31,44 +31,26 @@
 <script>
 import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
 import { getFocusColor } from '../../../services/color-functions'
+import { KeyboardOnlyFocusMixin } from '../va-checkbox/KeyboardOnlyFocusMixin'
 
 export default {
   name: 'va-toggle',
-  mixins: [ColorThemeMixin],
+  mixins: [ColorThemeMixin, KeyboardOnlyFocusMixin],
   props: {
-    value: {
-      type: Boolean | String | Number,
-    },
-    label: {
-      type: String,
-    },
-    small: {
-      type: Boolean,
-    },
-    large: {
-      type: Boolean,
-    },
+    value: {},
+    label: String,
+    small: Boolean,
+    large: Boolean,
+    disable: Boolean,
     arrayValue: {
-      type: String | Boolean | Number,
-      default: true,
+      default: null,
     },
     trueValue: {
-      type: String | Boolean | Number,
       default: true,
     },
     falseValue: {
-      type: String | Boolean | Number,
       default: false,
     },
-    disable: {
-      type: Boolean,
-    },
-  },
-  data () {
-    return {
-      focused: false,
-      hasMouseDown: false,
-    }
   },
   computed: {
     computedClass () {
@@ -78,17 +60,17 @@ export default {
         'va-toggle--disabled': this.disable,
       }
     },
-    trackStyles () {
+    trackStyle () {
       const color = this.isTrue ? this.colorComputed : this.$themes.gray
-      const backgroundColor = this.focused ? getFocusColor(color) : color
+      const backgroundColor = this.isKeyboardFocused ? getFocusColor(color) : color
       return { backgroundColor }
     },
-    indicatorStyles () {
+    indicatorStyle () {
       const moveStartPoint = this.small ? 1.5 : this.large ? 2.5 : 2
       return { transform: this.isTrue ? `translateX(${moveStartPoint}rem)` : 'translateX(0rem)' }
     },
     computedTabindex () {
-      return this.disable ? -1 : this.tabindex || 0
+      return this.disable ? -1 : 0
     },
     isTrue () {
       return this.modelIsArray ? this.value.includes(this.arrayValue) : this.value === this.trueValue
@@ -105,25 +87,22 @@ export default {
       if (this.disable) {
         return
       }
+
       if (this.modelIsArray) {
-        if (this.isTrue) {
-          this.$emit('input', this.value.filter(el => el !== this.val))
-        } else if (this.isFalse) {
+        if (this.value.includes(this.arrayValue)) {
+          this.$emit('input', this.value.filter(option => option !== this.arrayValue))
+        } else {
           this.$emit('input', this.value.concat(this.arrayValue))
         }
-      } else {
-        if (this.isTrue) {
-          this.$emit('input', this.falseValue)
-        } else if (this.isFalse) {
-          this.$emit('input', this.trueValue)
-        } else {
-          this.$emit('input', false)
-        }
+        return
       }
-    },
-    updateFocusState (isFocus) {
-      if (!this.hasMouseDown) {
-        this.focused = isFocus
+
+      if (this.isTrue) {
+        this.$emit('input', this.falseValue)
+      } else if (this.isFalse) {
+        this.$emit('input', this.trueValue)
+      } else {
+        this.$emit('input', false)
       }
     },
   },
@@ -149,9 +128,10 @@ export default {
     min-width: 4rem;
     border-radius: 1rem;
     margin: $btn-margin;
+
     &:focus {
       outline: 0;
-      box-shadow: 0 0 0 4px rgba(52,144,220,.5);
+      box-shadow: 0 0 0 4px rgba(52, 144, 220, .5);
     }
   }
 
@@ -162,12 +142,14 @@ export default {
         width: 3rem;
         min-width: 3rem;
       }
+
       &__input {
         top: .128rem;
         left: .1275rem;
         height: 1.2rem;
         width: 1.2rem;
       }
+
       &__track {
         border-radius: .75rem;
       }
@@ -181,12 +163,14 @@ export default {
         width: 5rem;
         min-width: 5rem;
       }
+
       &__input {
         top: .375rem;
         left: .375rem;
         height: 1.8rem;
         width: 1.8rem;
       }
+
       &__track {
         border-radius: 1.25rem;
       }
@@ -207,7 +191,7 @@ export default {
     height: 100%;
     width: 100%;
     background: $white;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: background-color .2s ease;
   }
 
@@ -219,7 +203,7 @@ export default {
     width: 1.5rem;
     background-color: $white;
     border-radius: 50%;
-    box-shadow:  0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform .2s ease;
   }
 }

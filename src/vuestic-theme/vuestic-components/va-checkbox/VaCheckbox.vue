@@ -6,8 +6,8 @@
     <div
       class="va-checkbox__input-container"
       @click="toggleSelection()"
-      @mousedown="onMouseDown"
-      @mouseup="onMouseUp"
+      @mousedown="hasMouseDown = true"
+      @mouseup="hasMouseDown = false"
     >
       <div
         class="va-checkbox__square"
@@ -77,12 +77,6 @@ export default {
       default: false,
     },
   },
-  data () {
-    return {
-      isKeyboardFocused: false,
-      hasMouseDown: false,
-    }
-  },
   computed: {
     computedClass () {
       return {
@@ -92,14 +86,6 @@ export default {
         'va-checkbox--error': this.showError,
         'va-checkbox--on-keyboard-focus': this.isKeyboardFocused,
       }
-    },
-    valueProxy: {
-      set (value) {
-        this.$emit('input', value)
-      },
-      get () {
-        return this.value
-      },
     },
     showError () {
       // We make error active, if the error-message is not empty and checkbox is not disabled
@@ -112,20 +98,6 @@ export default {
     },
   },
   methods: {
-    onFocus (e) {
-      if (this.hasMouseDown) {
-        return
-      }
-      this.isKeyboardFocused = true
-    },
-    onMouseDown (e) {
-      this.hasMouseDown = true
-      this.$emit('mousedown', e)
-    },
-    onMouseUp (e) {
-      this.hasMouseDown = false
-      this.$emit('mouseup', e)
-    },
     toggleSelection () {
       if (this.readonly) {
         return
@@ -133,7 +105,7 @@ export default {
       if (this.disabled) {
         return
       }
-      this.valueProxy = !this.valueProxy
+      this.$emit('input', !this.value)
     },
   },
 }
