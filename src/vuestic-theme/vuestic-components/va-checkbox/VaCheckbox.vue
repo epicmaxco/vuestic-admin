@@ -42,27 +42,25 @@
 <script>
 import VaIcon from '../va-icon/VaIcon'
 import VaMessageList from '../va-input/VaMessageList'
+import { KeyboardOnlyFocusMixin } from './KeyboardOnlyFocusMixin'
 
 export default {
   name: 'va-checkbox',
   components: { VaMessageList, VaIcon },
+  mixins: [KeyboardOnlyFocusMixin],
   props: {
+    id: String,
     label: String,
+    name: String,
     value: {
       type: Boolean,
       required: true,
     },
-    id: {
-      type: String,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    readonly: {
-      type: Boolean,
-      default: false,
-    },
+
+    disabled: Boolean,
+    readonly: Boolean,
+
+    error: Boolean,
     errorMessages: {
       type: [String, Array],
       default: () => [],
@@ -70,11 +68,6 @@ export default {
     errorCount: {
       type: Number,
       default: 1,
-    },
-    name: String,
-    error: {
-      type: Boolean,
-      default: false,
     },
   },
   computed: {
@@ -124,7 +117,7 @@ export default {
     cursor: pointer;
 
     @at-root {
-      .va-checkbox--disabled  & {
+      .va-checkbox--disabled & {
         @include va-disabled();
       }
 

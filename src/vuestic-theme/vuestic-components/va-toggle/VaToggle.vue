@@ -21,7 +21,7 @@
       />
     </div>
     <div class="va-toggle__label">
-      <slot name="label">
+      <slot>
         {{ label }}
       </slot>
     </div>

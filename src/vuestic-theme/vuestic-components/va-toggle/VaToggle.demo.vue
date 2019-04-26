@@ -15,7 +15,7 @@
     <VbCard title="With label">
       <va-toggle v-model="value" label="turn"/>
       <va-toggle v-model="value">
-        <div style="background: mediumpurple" slot="label">Slot label</div>
+        <div style="background: mediumpurple">Slot label</div>
       </va-toggle>
     </VbCard>
     <VbCard title="Sizes">
