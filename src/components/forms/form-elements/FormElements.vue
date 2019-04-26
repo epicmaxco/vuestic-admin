@@ -227,13 +227,38 @@
               />
             </fieldset>
           </div>
-          <div class="flex md3">
+          <div class="flex mb3">
             <fieldset>
               <va-switch v-model="isMale">
                 <span
                   slot="trueTitle">{{ $t('forms.controls.male') }}</span>
                 <span slot="falseTitle">{{ $t('forms.controls.female') }}</span>
               </va-switch>
+            </fieldset>
+            <fieldset>
+              <va-toggle
+                v-model="toggles.selected"
+                label="Selected toggle"
+              />
+              <va-toggle
+                v-model="toggles.unselected"
+                label="Unselected toggle"
+              />
+              <va-toggle
+                v-model="toggles.disabled"
+                disable
+                label="Disabled toggle"
+              />
+              <va-toggle
+                v-model="toggles.disabled"
+                small
+                label="Small toggle"
+              />
+              <va-toggle
+                v-model="toggles.disabled"
+                large
+                label="Large toggle"
+              />
             </fieldset>
           </div>
         </div>
@@ -244,13 +269,10 @@
 
 <script>
 import CountriesList from 'data/CountriesList'
-import VaInput from './../../../../src/vuestic-theme/vuestic-components/va-input/VaInput'
 
 export default {
   name: 'form-elements',
-  components: {
-    VaInput,
-  },
+  components: {},
   computed: {
     datePickerDisabled: () => [date => !(date.getDate() % 5)],
     isSuccessfulEmailValid () {
@@ -299,6 +321,13 @@ export default {
         disabled: true,
         error: false,
         errorMessages: true,
+      },
+      toggles: {
+        unselected: false,
+        selected: true,
+        disabled: true,
+        small: false,
+        large: false,
       },
       datepicker: {
         simple: '2018-05-09',
