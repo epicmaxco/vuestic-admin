@@ -1,6 +1,6 @@
 <template>
-  <form @submit="onsubmit" class="login">
-    <div class="va-row mb-4">
+  <form @submit.prevent="onsubmit" class="login">
+    <div class="va-row mb-2">
       <va-input
         v-model="email"
         type="email"
@@ -9,7 +9,7 @@
         :error-messages="emailErrors"
       />
     </div>
-    <div class="va-row mb-4">
+    <div class="va-row mb-2">
       <va-input
         v-model="password"
         type="password"
@@ -18,14 +18,16 @@
         :error-messages="passwordErrors"
       />
     </div>
-    <div class="va-row align--center justify--space-between login__actions">
-      <va-checkbox v-model="agreedToTerms" class="mb-0" :error="!!agreedToTermsErrors.length">
-        <template slot="label">
-          {{ $t('auth.agree') }}
-          <a class="link" href="#">{{ $t('auth.termsOfUse') }}</a>
-        </template>
-      </va-checkbox>
-      <router-link :to="{name: 'recover-password'}">{{$t('auth.recover_password')}}</router-link>
+    <div class="va-row align--start justify--space-between mb-3">
+      <va-input-wrapper :error="!!agreedToTermsErrors.length" :errorMessages="agreedToTermsErrors">
+        <va-checkbox v-model="agreedToTerms" class="mb-0" :error="!!agreedToTermsErrors.length">
+          <template slot="label">
+            {{ $t('auth.agree') }}
+            <span class="link" @click.stop="$router.push('#')">{{ $t('auth.termsOfUse') }}</span>
+          </template>
+        </va-checkbox>
+      </va-input-wrapper>
+      <router-link :to="{name: 'recover-password'}" style="line-height: 2rem;">{{$t('auth.recover_password')}}</router-link>
     </div>
     <div class="va-row justify--center">
       <va-button type="submit" class="my-0">{{ $t('auth.sign_up') }}</va-button>
@@ -34,10 +36,8 @@
 </template>
 
 <script>
-import VaInputWrapper from '../../../vuestic-theme/vuestic-components/va-input/VaInputWrapper'
 export default {
   name: 'signup',
-  components: { VaInputWrapper },
   data () {
     return {
       email: '',
@@ -47,6 +47,9 @@ export default {
       passwordErrors: [],
       agreedToTermsErrors: [],
     }
+  },
+  formReady () {
+    return !this.emailErrors.length && !this.passwordErrors.length && !this.agreedToTermsErrors.length
   },
   methods: {
     onsubmit () {
@@ -61,17 +64,15 @@ export default {
         this.passwordErrors = []
       }
       if (!this.agreedToTerms) {
-        this.agreedToTermsErrors = ['Agree']
+        this.agreedToTermsErrors = ['Agree the terms of use']
       } else {
         this.agreedToTermsErrors = []
       }
-      if (!this.emailErrors.length && !this.passwordErrors.length) {
-        this.$router.push({ name: 'dashboard' })
+      if (!this.formReady) {
+        return
       }
+      this.$router.push({ name: 'dashboard' })
     },
   },
 }
 </script>
-
-<style lang="scss">
-</style>

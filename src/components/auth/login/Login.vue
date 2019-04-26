@@ -1,6 +1,6 @@
 <template>
-  <form class="login" @submit="onsubmit">
-    <div class="va-row mb-4">
+  <form class="login" @submit.prevent="onsubmit">
+    <div class="va-row mb-2">
       <va-input
         v-model="email"
         type="email"
@@ -9,7 +9,7 @@
         :error-messages="emailErrors"
       />
     </div>
-    <div class="va-row mb-4">
+    <div class="va-row mb-2">
       <va-input
         v-model="password"
         type="password"
@@ -31,7 +31,6 @@
 <script>
 export default {
   name: 'login',
-  components: {},
   data () {
     return {
       email: '',
@@ -40,6 +39,11 @@ export default {
       emailErrors: [],
       passwordErrors: [],
     }
+  },
+  computed: {
+    formReady () {
+      return !this.emailErrors.length && !this.passwordErrors.length
+    },
   },
   methods: {
     onsubmit () {
@@ -53,9 +57,10 @@ export default {
       } else {
         this.passwordErrors = []
       }
-      if (!this.emailErrors.length && !this.passwordErrors.length) {
-        this.$router.push({ name: 'dashboard' })
+      if (!this.formReady) {
+        return
       }
+      this.$router.push({ name: 'dashboard' })
     },
   },
 }
@@ -63,11 +68,9 @@ export default {
 
 <style lang="scss">
 .login {
-  background: $white;
-  width: 32.5rem;
-  padding: 2.875rem 5rem 1.875rem;
-  @include media-breakpoint-down(md) {
-    width: 100%;
+  padding: 2.875rem 3.75rem .625rem;
+  @include media-breakpoint-down(sm){
+    padding: .875rem 0 0;
   }
   &__actions {
     margin-bottom: 2rem;

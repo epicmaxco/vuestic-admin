@@ -1,6 +1,6 @@
 <template>
   <form @submit="onsubmit" class="login">
-    <div class="va-row mb-4">
+    <div class="va-row mb-2">
       <va-input
         v-model="email"
         type="email"
@@ -18,7 +18,6 @@
 <script>
 export default {
   name: 'recover-password',
-  components: {},
   data () {
     return {
       email: '',
