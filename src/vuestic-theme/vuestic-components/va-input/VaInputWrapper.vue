@@ -13,7 +13,7 @@
           <slot/>
           <div class="va-input-wrapper__details py-0 px-2">
             <va-message-list
-              :color="(error && 'danger') || (success && 'success')"
+              :color="(error && 'danger') || (success && 'success') || ''"
               :value="error ? errorMessages : messages"
               :limit="error ? errorCount : 99"
             />
