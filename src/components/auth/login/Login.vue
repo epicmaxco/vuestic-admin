@@ -18,11 +18,11 @@
         :error-messages="passwordErrors"
       />
     </div>
-    <div class="va-row align--center justify--space-between login__actions">
+    <div class="d-flex align--center justify--space-between mb-4">
       <va-checkbox v-model="keepLoggedIn" class="mb-0" :label="$t('auth.keep_logged_in')"/>
-      <router-link :to="{name: 'recover-password'}">{{$t('auth.recover_password')}}</router-link>
+      <router-link class="ml-1" :to="{name: 'recover-password'}">{{$t('auth.recover_password')}}</router-link>
     </div>
-    <div class="va-row justify--center">
+    <div class="flex-center">
       <va-button type="submit" class="my-0">{{ $t('auth.login') }}</va-button>
     </div>
   </form>
@@ -47,11 +47,8 @@ export default {
   },
   methods: {
     onsubmit () {
-      if (!this.email) {
-        this.emailErrors = ['Email is required']
-      } else {
-        this.emailErrors = []
-      }
+      this.emailErrors = this.email ? [] : ['Email is required']
+      this.passwordErrors = this.password ? [] : ['Password is required']
       if (!this.password) {
         this.passwordErrors = ['Password is required']
       } else {
@@ -68,12 +65,6 @@ export default {
 
 <style lang="scss">
 .login {
-  padding: 2.875rem 3.75rem .625rem;
-  @include media-breakpoint-down(sm){
-    padding: .875rem 0 0;
-  }
-  &__actions {
-    margin-bottom: 2rem;
-  }
+
 }
 </style>

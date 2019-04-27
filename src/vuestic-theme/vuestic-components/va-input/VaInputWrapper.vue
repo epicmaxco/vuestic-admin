@@ -5,7 +5,7 @@
         tabindex="0"
         class="va-input-wrapper__slot">
         <div
-          v-if="hasPrependData"
+          v-if="$slots.prepend"
           class="va-input-wrapper__prepend-inner">
           <slot name="prepend"/>
         </div>
@@ -13,14 +13,14 @@
           <slot/>
           <div class="va-input-wrapper__details py-0 px-2">
             <va-message-list
-              :color="(error && 'danger') || (success && 'success') || ''"
-              :value="error ? errorMessages : messages"
+              :color="messagesColor"
+              :value="messagesComputed"
               :limit="error ? errorCount : 99"
             />
           </div>
         </div>
         <div
-          v-if="hasAppendData"
+          v-if="$slots.append"
           class="va-input-wrapper__append-inner">
           <slot name="append"/>
         </div>
@@ -31,6 +31,7 @@
 
 <script>
 import VaMessageList from './VaMessageList'
+
 export default {
   name: 'va-input-wrapper',
   components: { VaMessageList },
@@ -52,23 +53,11 @@ export default {
     },
   },
   computed: {
-    computedErrorMessages () {
-      const isArray = Array.isArray(this.errorMessages)
-      const errorMessages = isArray ? this.errorMessages : [this.errorMessages]
-      return errorMessages.slice(0, this.errorCount)
+    messagesComputed () {
+      return this.error ? this.errorMessages : this.messages
     },
-    messageStyles () {
-      return {
-        color:
-          this.error ? this.$themes.danger
-            : this.success ? this.$themes.success : this.$themes.gray,
-      }
-    },
-    hasPrependData () {
-      return this.$slots.prepend
-    },
-    hasAppendData () {
-      return this.$slots.append
+    messagesColor () {
+      return (this.error && 'danger') || (this.success && 'success') || ''
     },
   },
 }

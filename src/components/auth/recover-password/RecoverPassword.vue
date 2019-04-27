@@ -1,5 +1,5 @@
 <template>
-  <form @submit="onsubmit" class="login">
+  <form @submit.prevent="onsubmit" class="login">
     <div class="va-row mb-2">
       <va-input
         v-model="email"
