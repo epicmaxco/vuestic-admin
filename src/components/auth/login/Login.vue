@@ -1,16 +1,16 @@
 <template>
   <form class="login" @submit.prevent="onsubmit">
-    <div class="va-row mb-2">
       <va-input
+        class="mb-2"
         v-model="email"
         type="email"
         :label="$t('auth.email')"
         :error="!!emailErrors.length"
         :error-messages="emailErrors"
       />
-    </div>
-    <div class="va-row mb-2">
+    <div>
       <va-input
+        class="mb-2"
         v-model="password"
         type="password"
         :label="$t('auth.password')"
@@ -49,11 +49,6 @@ export default {
     onsubmit () {
       this.emailErrors = this.email ? [] : ['Email is required']
       this.passwordErrors = this.password ? [] : ['Password is required']
-      if (!this.password) {
-        this.passwordErrors = ['Password is required']
-      } else {
-        this.passwordErrors = []
-      }
       if (!this.formReady) {
         return
       }

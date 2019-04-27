@@ -28,7 +28,6 @@
 </template>
 
 <script>
-// d-none and d-lg-flex were deleted, bug will be fixed in the nearest update
 import VaIconVuestic
   from '../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconVuestic'
 import VaSeparator
