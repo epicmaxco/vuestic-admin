@@ -1,15 +1,21 @@
 {
   "auth": {
     "agree": "I agree to",
-    "alreadyJoined": "Already joined?",
     "createAccount": "Create account",
-    "createNewAccount": "Create account",
+    "createNewAccount": "Create New Account",
     "email": "Email",
     "login": "Login",
     "password": "Password",
-    "signUp": "Sign Up",
+    "recover_password": "Recover password",
+    "sign_up": "Sign Up",
+    "keep_logged_in": "Keep me logged in",
     "termsOfUse": "Terms of Use.",
-    "welcome": "Welcome!"
+    "reset_password": "Reset password"
+  },
+  "404": {
+    "title": "This page’s gone fishing.",
+    "text": "If you feel that it’s not right, please send us a message at ",
+    "back_button": "Back to dashboard"
   },
   "breadcrumbs": {
     "home": "Home"

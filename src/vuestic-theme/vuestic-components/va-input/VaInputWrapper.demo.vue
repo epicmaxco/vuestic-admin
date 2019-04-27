@@ -1,36 +1,36 @@
 <template>
   <VbDemo>
-    <VbCard title="Slots scheme">
-      <va-input-wrapper :messages="messages">
-        <div slot="prepend" style="width: 30px; height: 30px; border: 1px dotted black;">
-          <va-icon icon="fa fa-volume-off"/>
-        </div>
-        <div style="width: 200px; height: 30px; border: 1px dotted black;">Default Slot</div>
-        <div slot="append" style="width: 30px; height: 30px; border: 1px dotted black;">
-          <va-icon icon="fa fa-volume-up"/>
-        </div>
-      </va-input-wrapper>
-    </VbCard>
-
     <VbCard title="Default">
       <va-input-wrapper :messages="messages">
         Input
       </va-input-wrapper>
     </VbCard>
 
-    <VbCard title="Error">
-      <va-input-wrapper
-        :messages="messages"
-        error
-        :error-messages="errorMessages"
-      >
-        <div slot="prepend" style="width: 30px; height: 30px; border: 1px dotted black;">
+    <VbCard title="Slots scheme">
+      <va-input-wrapper :messages="messages">
+        <div slot="prepend" style="width: 30px; height: 30px; border: 1px dotted black;" class="flex-center">
           <va-icon icon="fa fa-volume-off"/>
         </div>
         <div style="width: 200px; height: 30px; border: 1px dotted black;">Default Slot</div>
-        <div slot="append" style="width: 30px; height: 30px; border: 1px dotted black;">
+        <div slot="append" style="width: 30px; height: 30px; border: 1px dotted black;" class="flex-center">
           <va-icon icon="fa fa-volume-up"/>
         </div>
+      </va-input-wrapper>
+    </VbCard>
+
+    <VbCard title="Error">
+      <va-input-wrapper
+        :errorMessages="errorMessages"
+      >
+        <div>Default Slot</div>
+      </va-input-wrapper>
+    </VbCard>
+
+    <VbCard title="Error">
+      <va-input-wrapper
+        :errorMessages="errorMessages"
+      >
+        <div>Default Slot</div>
       </va-input-wrapper>
     </VbCard>
 

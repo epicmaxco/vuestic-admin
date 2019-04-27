@@ -10,14 +10,14 @@
   >
     <slot name="prepend" slot="prepend"/>
     <div
-      class="va-input__slot"
-      :style="slotStyles"
+      class="va-input__container"
+      :style="containerStyles"
     >
-      <div class="va-input__slot__content-wrapper">
+      <div class="va-input__container__content-wrapper">
         <label
           :style="labelStyles"
           aria-hidden="true"
-          class="va-input__slot__label"
+          class="va-input__container__label"
         >
           {{ label }}
         </label>
@@ -32,17 +32,16 @@
           v-on="inputListeners"
         >
       </div>
-      <div
-        class="va-input__slot__icon-wrapper">
+      <div v-if="success || error || $slots.append || (removable && value.length)" class="va-input__container__icon-wrapper">
         <va-icon
           v-if="success"
-          class="va-input__slot__icon"
+          class="va-input__container__icon"
           icon="fa fa-check"
           color="success"
         />
         <va-icon
           v-if="error"
-          class="va-input__slot__icon"
+          class="va-input__container__icon"
           icon="fa fa-exclamation-triangle"
           color="danger"
         />
@@ -50,7 +49,7 @@
         <va-icon
           v-if="removable && value.length"
           @click.native="clearContent()"
-          class="va-input__slot__close-icon"
+          class="va-input__container__close-icon"
           :color="error ? 'danger': 'gray'"
           icon="ion ion-md-close ion"
         />
@@ -105,7 +104,7 @@ export default {
         color: this.error ? this.$themes.danger : '',
       }
     },
-    slotStyles () {
+    containerStyles () {
       return {
         backgroundColor:
           this.error ? getHoverColor(this.$themes['danger'])
@@ -158,8 +157,7 @@ export default {
 @import '../../vuestic-sass/resources/resources';
 
 .va-input {
-
-  &__slot {
+  &__container {
     display: flex;
     position: relative;
     width: 100%;
@@ -173,6 +171,7 @@ export default {
       display: flex;
       align-items: flex-end;
       width: 100%;
+      /*min-width: 100%;*/
     }
 
     &__icon-wrapper {
@@ -190,14 +189,16 @@ export default {
       position: absolute;
       bottom: 0.875rem;
       left: 0.5rem;
-      width: 100%;
       margin-bottom: 0.5rem;
+      max-width: calc(100% - 0.25rem);
       color: $vue-green;
       font-size: 0.625rem;
       letter-spacing: 0.0375rem;
       line-height: 1.2;
       font-weight: bold;
       text-transform: uppercase;
+      @include va-ellipsis();
+      transform-origin: top left;
     }
 
     input {
