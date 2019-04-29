@@ -1,0 +1,36 @@
+<template>
+  <va-page-not-found va-page-not-found-custom>
+    <img
+      slot="image"
+      src="https://i.imgur.com/wodIng5.png"
+      class="va-page-not-found-custom__image mb-3"
+    />
+  </va-page-not-found>
+</template>
+
+<script>
+import MadeByComponent from './MadeByComponent'
+import VaPageNotFound from './VaPageNotFound'
+
+export default {
+  name: 'va-page-not-found-custom',
+  components: {
+    VaPageNotFound,
+    MadeByComponent,
+  },
+}
+</script>
+
+<style lang="scss">
+.va-page-not-found-custom {
+  &__image {
+    width: 150%;
+    margin: 0 -25%;
+    min-width: 21.8rem;
+    @include media-breakpoint-down(sm) {
+      margin: 0;
+      width: 100%;
+    }
+  }
+}
+</style>
