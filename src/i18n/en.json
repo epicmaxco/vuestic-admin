@@ -1,15 +1,21 @@
 {
   "auth": {
     "agree": "I agree to",
-    "alreadyJoined": "Already joined?",
     "createAccount": "Create account",
-    "createNewAccount": "Create account",
+    "createNewAccount": "Create New Account",
     "email": "Email",
     "login": "Login",
     "password": "Password",
-    "signUp": "Sign Up",
+    "recover_password": "Recover password",
+    "sign_up": "Sign Up",
+    "keep_logged_in": "Keep me logged in",
     "termsOfUse": "Terms of Use.",
-    "welcome": "Welcome!"
+    "reset_password": "Reset password"
+  },
+  "404": {
+    "title": "This page’s gone fishing.",
+    "text": "If you feel that it’s not right, please send us a message at ",
+    "back_button": "Back to dashboard"
   },
   "breadcrumbs": {
     "home": "Home"
@@ -17,10 +23,10 @@
   "rating": {
     "singleIcon": "Single Icon",
     "twoIcons": "Two Icons",
-    "size": "Large",
+    "large": "Large",
     "numbers": "Numbers",
     "halves": "Halves",
-    "mini": "Mini"
+    "small": "Small"
   },
   "buttons": {
     "advanced": "Buttons With Icons",
@@ -67,6 +73,21 @@
   "sliders": {
     "slider": "Sliders",
     "range": "Ranges"
+  },
+  "popovers": {
+    "popover": "Popover",
+    "popoverStyle": "Popover Style",
+    "popoverPlacement": "Popover Placement",
+    "minimalTooltip": "Minimal Tooltip",
+    "anotherOneTooltip": "Another One Tooltip"
+  },
+  "datepickers": {
+    "dateOfBirth": "Date of birth",
+    "daysOfTheWeek": "Days of the week",
+    "setupMeeting": "Setup meeting",
+    "upcomingVacation": "Upcoming vacation",
+    "multipleAndDisabledDates": "Multiple & disabled dates",
+    "inline": "Inline"
   },
   "dashboard": {
     "dataVisualization": "Data Visualization",
@@ -128,7 +149,7 @@
     "controls": {
       "female": "Female",
       "male": "Male",
-      "title": "Checkboxes, Radios, Switches",
+      "title": "Checkboxes, Radios, Switches, Toggles",
       "radioDisabled": "Disabled Radio",
       "radio": "Radio",
       "subscribe": "Subscribe to newsletter",
@@ -243,7 +264,8 @@
     "fileUpload": "File Upload",
     "dropdowns": "Dropdowns",
     "spacing": "Spacing",
-    "sliders": "Sliders"
+    "sliders": "Sliders",
+    "popovers": "Popovers"
   },
   "messages": {
     "all": "See all messages",

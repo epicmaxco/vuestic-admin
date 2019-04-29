@@ -1,6 +1,6 @@
 <template>
   <VbDemo>
-    <VbContainer>
+    <VbCard>
       <table class="table table-bordered">
         <tr>
           <th>Description</th>
@@ -273,7 +273,7 @@
           </td>
         </tr>
       </table>
-    </VbContainer>
+    </VbCard>
   </VbDemo>
 </template>
 

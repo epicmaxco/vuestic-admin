@@ -1,7 +1,14 @@
 <template>
   <div class="va-color-presentation">
-    <va-tooltip :options="tooltipOptions">
-      <div class="va-color-presentation__color" :style="computedStyle" @click="colorCopy"></div>
+    <va-tooltip
+      :placement="tooltipOptions.placement"
+      :message="tooltipOptions.content"
+    >
+      <div
+        class="va-color-presentation__color"
+        :style="computedStyle"
+        @click="colorCopy">
+      </div>
     </va-tooltip>
     <div class="va-color-presentation__description" v-if="name || description">
       <div class="va-color-presentation__name">{{name}}</div>

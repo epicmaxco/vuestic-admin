@@ -1,50 +1,55 @@
 <template>
   <VbDemo>
-    <VbContainer title="Design">
+    <VbCard title="Design">
       <div style="height: 200px; overflow-y: scroll">
         <img src="http://i68.tinypic.com/ne84fs.png" alt="">
       </div>
-    </VbContainer>
-    <VbContainer title="Input With Placeholder">
+    </VbCard>
+    <VbCard title="Placeholder">
       <va-input
         v-model="empty"
         placeholder="Name"
       />
-    </VbContainer>
-    <VbContainer title="Input With Label">
+    </VbCard>
+    <VbCard title="Label">
       <va-input
         v-model="text"
         label="Name"
       />
-    </VbContainer>
-    <VbContainer title="Input With Message">
+    </VbCard>
+    <VbCard title="Label long">
       <va-input
         v-model="text"
-        :messages="messages"/>
-    </VbContainer>
-    <VbContainer title="Disabled Input">
+        label="Name long long long long long long long long long long long long"
+      />
+    </VbCard>
+    <VbCard title="Message">
+      <va-input
+        v-model="text"
+        :messages="messages"
+      />
+    </VbCard>
+    <VbCard title="Disabled">
       <va-input
         v-model="text"
         disabled
       />
-    </VbContainer>
-    <VbContainer title="Readonly Input">
+    </VbCard>
+    <VbCard title="Readonly Input">
       <va-input
         v-model="text"
         readonly
       />
-    </VbContainer>
-    <VbContainer title="Input With Icon">
+    </VbCard>
+    <VbCard title="Icon">
       <va-input
         v-model="text"
         label="Name"
       >
-        <va-icon
-          icon="fa fa-anchor"
-        />
+        <va-icon icon="fa fa-anchor"/>
       </va-input>
-    </VbContainer>
-    <VbContainer title="Input With Button">
+    </VbCard>
+    <VbCard title="Button">
       <va-input
         v-model="text"
         label="Name"
@@ -53,8 +58,8 @@
           Upload
         </va-button>
       </va-input>
-    </VbContainer>
-    <VbContainer title="Input With Prepend Slot">
+    </VbCard>
+    <VbCard title="Prepend Slot">
       <va-input
         v-model="text"
         label="Name"
@@ -64,43 +69,54 @@
           icon="fa fa-anchor"
         />
       </va-input>
-    </VbContainer>
-    <VbContainer title="Removable Icon">
+    </VbCard>
+    <VbCard title="Removable Icon">
       <va-input
         v-model="text"
         removable
       >
       </va-input>
-    </VbContainer>
-    <VbContainer title="Input With Error">
+    </VbCard>
+    <VbCard title="Error">
       <va-input
         v-model="text"
         label="Name"
         error
       />
-    </VbContainer>
-    <VbContainer title="Input With Success">
+    </VbCard>
+    <VbCard title="Success">
       <va-input
         v-model="text"
         label="Name"
         success
       />
-    </VbContainer>
-    <VbContainer title="Success and Removable">
+    </VbCard>
+    <VbCard title="Success and Removable">
       <va-input
         v-model="text"
         label="Name"
         removable
         success
+        :messages="successMessage"
       />
-    </VbContainer>
-    <VbContainer title="Input With Error Message">
+    </VbCard>
+    <VbCard title="Error Message">
       <va-input
         v-model="text"
         label="Name"
         error
-        :error-messages="errorMessages"/>
-    </VbContainer>
+        :error-messages="errorMessage"
+      />
+    </VbCard>
+    <VbCard title="Error count 2">
+      <va-input
+        v-model="text"
+        label="Name"
+        error
+        errorCount="2"
+        :error-messages="['one', 'two']"
+      />
+    </VbCard>
   </VbDemo>
 </template>
 
@@ -121,7 +137,8 @@ export default {
       text: 'Vuestic',
       phone: '33 310-86-24',
       messages: ['Required field'],
-      errorMessages: ['Detailed error message'],
+      errorMessage: 'Detailed error message',
+      successMessage: 'Success message',
     }
   },
 }

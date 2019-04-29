@@ -17,9 +17,12 @@
 </template>
 
 <script>
+import VaProfileCard
+  from '../../../vuestic-theme/vuestic-components/va-profile-card/VaProfileCard'
+
 export default {
   name: 'users-members-tab',
-
+  components: { VaProfileCard },
   data () {
     return {
       chatMessages: [

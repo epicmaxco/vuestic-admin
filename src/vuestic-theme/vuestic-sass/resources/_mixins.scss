@@ -54,3 +54,10 @@
     opacity: 0.5;
   }
 }
+
+@mixin va-button($padding-y, $padding-x, $font-size, $line-height, $border-radius) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  line-height: $line-height;
+  border-radius: $border-radius;
+}

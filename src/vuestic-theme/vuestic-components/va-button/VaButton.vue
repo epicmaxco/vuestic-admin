@@ -2,8 +2,8 @@
   <component
     :is="computedTag"
     class="va-button"
-    :class="buttonClass"
-    :style="buttonStyle"
+    :class="computedClass"
+    :style="computedStyle"
     :disabled="disabled"
     :type="type"
     :href="href"
@@ -51,10 +51,17 @@ import {
   getHoverColor,
   getBoxShadowColor,
 } from '../../../services/color-functions'
+import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
 
 export default {
   name: 'va-button',
   components: { VaIcon },
+  mixins: [ColorThemeMixin],
+  inject: {
+    va: {
+      default: () => ({}),
+    },
+  },
   props: {
     tag: {
       type: String,
@@ -65,10 +72,6 @@ export default {
     },
     flat: {
       type: Boolean,
-    },
-    color: {
-      type: String,
-      default: 'success',
     },
     small: {
       type: Boolean,
@@ -122,12 +125,14 @@ export default {
     }
   },
   computed: {
-    buttonClass () {
+    computedClass () {
       return {
         'va-button--default': !this.flat && !this.outline,
         'va-button--flat': this.flat,
         'va-button--outline': this.outline,
         'va-button--disabled': this.disabled,
+        'va-button--hover': this.hoverState,
+        'va-button--focus': this.focusState,
         'va-button--without-title': !this.hasTitleData,
         'va-button--with-left-icon': this.icon,
         'va-button--with-right-icon': this.iconRight,
@@ -136,43 +141,57 @@ export default {
         'va-button--normal': !this.large && !this.small,
       }
     },
-    buttonStyle () {
+    gradientStyle () {
+      if (this.flat || this.outline) {
+        return
+      }
+      if (this.va.color) { // Gradient is provided from button group
+        return
+      }
+      return getGradientBackground(this.colorComputed)
+    },
+    shadowStyle () {
+      if (this.flat || this.outline) {
+        return
+      }
+      if (this.va.color && this.$themes && this.$themes[this.va.color]) {
+        return '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.$themes[this.va.color])
+      }
+      return '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.colorComputed)
+    },
+    computedStyle () {
+      const computedStyle = {
+        color: '',
+        borderColor: '',
+        background: '',
+        backgroundImage: '',
+        boxShadow: '',
+      }
+
       if (this.focusState) {
         if (this.outline || this.flat) {
-          return {
-            color: this.$themes[this.color],
-            borderColor: this.outline ? this.$themes[this.color] : '',
-            background: getFocusColor(this.$themes[this.color]),
-          }
+          computedStyle.color = this.colorComputed
+          computedStyle.borderColor = this.outline ? this.colorComputed : ''
+          computedStyle.background = getFocusColor(this.colorComputed)
         } else {
-          return {
-            backgroundImage: !this.flat && !this.outline
-              ? getGradientBackground(this.$themes[this.color]) : '',
-          }
+          computedStyle.backgroundImage = this.gradientStyle
         }
       } else if (this.hoverState) {
         if (this.outline || this.flat) {
-          return {
-            color: this.$themes[this.color],
-            borderColor: this.outline ? this.$themes[this.color] : '',
-            background: getHoverColor(this.$themes[this.color]),
-          }
+          computedStyle.color = this.colorComputed
+          computedStyle.borderColor = this.outline ? this.colorComputed : ''
+          computedStyle.background = getHoverColor(this.colorComputed)
         } else {
-          return {
-            backgroundImage: !this.flat && !this.outline
-              ? getGradientBackground(this.$themes[this.color]) : '',
-          }
+          computedStyle.backgroundImage = this.gradientStyle
         }
       } else {
-        return {
-          color: this.flat || this.outline ? this.$themes[this.color] : '#ffffff',
-          borderColor: this.outline ? this.$themes[this.color] : '',
-          backgroundImage: !this.flat && !this.outline
-            ? getGradientBackground(this.$themes[this.color]) : '',
-          boxShadow: !this.flat && !this.outline ? '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.$themes[this.color]) : '',
-
-        }
+        computedStyle.color = this.flat || this.outline ? this.colorComputed : '#ffffff'
+        computedStyle.borderColor = this.outline ? this.colorComputed : ''
+        computedStyle.backgroundImage = this.gradientStyle
+        computedStyle.boxShadow = this.shadowStyle
       }
+
+      return computedStyle
     },
     hasTitleData () {
       return this.$slots.default
@@ -213,13 +232,6 @@ export default {
 <style lang='scss'>
 @import "../../vuestic-sass/resources/resources";
 
-@mixin button-size($padding-y, $padding-x, $font-size, $line-height, $border-radius) {
-  padding: $padding-y $padding-x;
-  font-size: $font-size;
-  line-height: $line-height;
-  border-radius: $border-radius;
-}
-
 .va-button {
   display: inline-block;
   margin: $btn-margin;
@@ -232,6 +244,7 @@ export default {
   text-transform: initial;
   cursor: pointer;
   transition: $btn-transition;
+  background-color: $white;
 
   &__content {
     display: flex;
@@ -289,7 +302,7 @@ export default {
   }
 
   &--large {
-    @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
+    @include va-button($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
     letter-spacing: $btn-letter-spacing-lg;
 
     .va-button__content__icon {
@@ -318,7 +331,7 @@ export default {
   }
 
   &--small {
-    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
+    @include va-button($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
     letter-spacing: $btn-letter-spacing-sm;
 
     .va-button__content__icon {
@@ -347,7 +360,7 @@ export default {
   }
 
   &--normal {
-    @include button-size($btn-padding-y-nrm, $btn-padding-x-nrm, $btn-font-size-nrm, $btn-line-height-nrm, $btn-border-radius-nrm);
+    @include va-button($btn-padding-y-nrm, $btn-padding-x-nrm, $btn-font-size-nrm, $btn-line-height-nrm, $btn-border-radius-nrm);
     letter-spacing: $btn-letter-spacing-nrm;
 
     .va-button__content__icon {
