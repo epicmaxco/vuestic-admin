@@ -116,7 +116,8 @@ export default {
       }
     },
     inputListeners () {
-      return Object.assign({},
+      return Object.assign(
+        {},
         this.$listeners,
         {
           input: event => {

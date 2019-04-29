@@ -165,6 +165,14 @@ export default new Router({
               },
             },
             {
+              name: 'rating',
+              path: 'rating',
+              component: () => import('../components/ui/rating/Rating'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Rating',
+              },
+            },
+            {
               name: 'color-pickers',
               path: 'color-pickers',
               component: () => import('../components/ui/color-pickers/ColorPickers'),

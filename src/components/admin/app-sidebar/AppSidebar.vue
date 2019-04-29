@@ -167,6 +167,12 @@
           </span>
         </sidebar-link>
         <sidebar-link
+          :to="{ name: 'rating'}">
+          <span slot="title">
+            <span>{{ $t('menu.rating') }}</span>
+          </span>
+        </sidebar-link>
+        <sidebar-link
           :to="{ name: 'sliders'}">
           <span slot="title">
             <span>{{ $t('menu.sliders') }}</span>
