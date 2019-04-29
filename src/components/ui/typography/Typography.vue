@@ -153,6 +153,20 @@
               the moon. When you think about it.</span>
         </div>
       </div>
+      <div class="mb-4">
+        <table class="va-table">
+          <thead>
+          <tr>
+            <td v-for="(data, index) in tableData[0]" :key="index">{{data}}</td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr v-for="(data, index) in tableData" :key="index" v-if="index !== 0">
+            <td v-for="(i, index) in data" :key="index">{{i}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
     </va-card>
   </div>
 </template>
@@ -160,5 +174,15 @@
 <script>
 export default {
   name: 'typography',
+  data () {
+    return {
+      tableData: [
+        ['Id', 'FooBar type', 'Actions'],
+        ['1', 'Zebra', 'Delete'],
+        ['2', 'Not Zebra', 'Remove'],
+        ['3', 'Very Zebra', 'Eradicate'],
+      ],
+    }
+  },
 }
 </script>

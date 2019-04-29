@@ -1,15 +1,13 @@
 {
   "auth": {
     "agree": "我同意",
-    "alreadyJoined": "我已经注册",
     "createAccount": "创建账号",
     "createNewAccount": "创建新账号",
     "email": "电子邮箱",
     "login": "登录",
     "password": "密码",
     "signUp": "注册",
-    "termsOfUse": "使用条款",
-    "welcome": "欢迎！"
+    "termsOfUse": "使用条款"
   },
   "breadcrumbs": {
     "home": "首页"

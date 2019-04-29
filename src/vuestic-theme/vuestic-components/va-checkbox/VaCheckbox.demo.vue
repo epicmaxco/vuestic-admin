@@ -60,6 +60,18 @@
     <VbCard title="No label">
       <va-checkbox v-model="value"/>
     </VbCard>
+    <VbCard title="Accepts id">
+      <va-checkbox
+        :value="true"
+        id="checkbox-id"
+      />
+    </VbCard>
+    <VbCard title="Accepts name">
+      <va-checkbox
+        :value="true"
+        name="checkbox-name"
+      />
+    </VbCard>
   </VbDemo>
 </template>
 

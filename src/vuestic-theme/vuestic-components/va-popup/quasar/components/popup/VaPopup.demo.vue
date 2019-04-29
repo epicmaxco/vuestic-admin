@@ -190,6 +190,24 @@
         </va-popup>
       </div>
     </div>
+
+    <div class="demo-container__item">
+      Redraws on content change
+      <div class="anchor">
+        <va-popup>
+          <button @click="redrawContentSize = redrawContentSize - 20">-</button>
+          <button @click="redrawContentSize = redrawContentSize + 20">+</button>
+          <div
+            :style="{
+              width: redrawContentSize + 'px',
+              height: redrawContentSize + 'px',
+              backgroundColor: '#14bb14',
+            }"
+          />
+          <span v-for="number in redrawContentSize / 10" :key="number">{{number}}</span>
+        </va-popup>
+      </div>
+    </div>
     <div class="demo-container__item">
       offset
       <div class="anchor">
@@ -255,8 +273,8 @@
           ref="eventTest"
           v-model="eventTest"
           persistent
-          @show="event => log('show event', event)"
-          @hide="event => log('hide event', event)"
+          @show="event => $va.log('show event', event)"
+          @hide="event => $va.log('hide event', event)"
         >
           keep on screen
         </va-popup>
@@ -278,11 +296,9 @@
 
 <script>
 import VaPopup from './VaPopup.vue'
-import { logMixin } from '../../mixins/logMixin'
 import { closeOverlay } from '../../directives/closeOverlay'
 
 export default {
-  mixins: [logMixin],
   directives: {
     'close-overlay': closeOverlay,
   },
@@ -320,6 +336,8 @@ export default {
       keepOnScreen: false,
       closeOverlay: false,
       eventTest: false,
+
+      redrawContentSize: 50,
     }
   },
 }

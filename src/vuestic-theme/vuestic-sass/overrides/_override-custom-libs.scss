@@ -96,7 +96,7 @@
 }
 
 .medium-editor-toolbar-anchor-preview {
-  @include button-size($btn-padding-y-nrm, $btn-padding-x-nrm, $btn-font-size-nrm, $btn-line-height-nrm, $btn-border-radius-nrm);
+  @include va-button($btn-padding-y-nrm, $btn-padding-x-nrm, $btn-font-size-nrm, $btn-line-height-nrm, $btn-border-radius-nrm);
 
   .medium-editor-toolbar-anchor-preview {
     margin: 0;
@@ -116,12 +116,11 @@
 
 .tooltip.va-tooltip {
   @extend .tooltip.show;
-
+  display: block;
   .tooltip-inner {
     box-shadow: $tooltip-box-shadow;
     line-height: $tooltip-line-height;
     font-weight: $tooltip-font-weight;
-    border-radius: 0;
   }
 
   .tooltip-arrow {
@@ -138,12 +137,12 @@
 
   &[x-placement^="right"] {
     @extend .bs-tooltip-right;
-    margin-left: .15rem;
+    padding-right: 0;
+    padding-left: 0;
   }
 
   &[x-placement^="left"] {
     @extend .bs-tooltip-left;
-    margin-right: .15rem;
   }
 
   &.popover {

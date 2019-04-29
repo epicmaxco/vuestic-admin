@@ -123,7 +123,7 @@
           </thead>
           <tbody>
           <tr v-for="(data, index) in tableData" :key="index" v-if="index !== 0">
-            <td v-for="(i, indexi) in data" :key="indexi">{{i}}</td>
+            <td v-for="(i, index) in data" :key="index">{{i}}</td>
           </tr>
           </tbody>
         </table>
@@ -136,7 +136,7 @@
           </thead>
           <tbody>
           <tr v-for="(data, index) in tableData" :key="index" v-if="index !== 0">
-            <td v-for="(i, indexi) in data" :key="indexi">{{i}}</td>
+            <td v-for="(i, index) in data" :key="index">{{i}}</td>
           </tr>
           </tbody>
         </table>
@@ -151,7 +151,7 @@
         </thead>
         <tbody>
         <tr v-for="(data, index) in tableData" :key="index" v-if="index !== 0">
-          <td v-for="(i, indexi) in data" :key="indexi">{{i}}</td>
+          <td v-for="(i, index) in data" :key="index">{{i}}</td>
         </tr>
         </tbody>
       </table>
@@ -164,13 +164,10 @@ export default {
   data () {
     return {
       tableData: [
-        ['Head1', 'Head2', 'Head3'],
-        ['content1', 'content2', 'content3'],
-        ['content1', 'content2', 'content3'],
-        ['content1', 'content2', 'content3'],
-        [1, 2, 3],
-        [1, 2, 3],
-        [1, 2, 3],
+        ['Id', 'FooBar type', 'Actions'],
+        ['1', 'Zebra', 'Delete'],
+        ['2', 'Not Zebra', 'Remove'],
+        ['3', 'Very Zebra', 'Eradicate'],
       ],
     }
   },
