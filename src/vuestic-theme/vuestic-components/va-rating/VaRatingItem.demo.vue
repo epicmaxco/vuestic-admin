@@ -1,6 +1,6 @@
 <template>
   <VbDemo>
-    <VbContainer title="default">
+    <VbCard title="default">
       <table class="table table-bordered">
         <tr>
           <th>Description</th>
@@ -72,7 +72,7 @@
           </td>
         </tr>
       </table>
-    </VbContainer>
+    </VbCard>
   </VbDemo>
 </template>
 
@@ -82,7 +82,7 @@ import VaRatingItem from './VaRatingItem'
 
 export default {
   components: {
-    VaRatingItem
+    VaRatingItem,
   },
   data () {
     return {
@@ -97,7 +97,7 @@ export default {
       } else {
         this.hoverEvent = eventValue
       }
-    }
-  }
+    },
+  },
 }
 </script>

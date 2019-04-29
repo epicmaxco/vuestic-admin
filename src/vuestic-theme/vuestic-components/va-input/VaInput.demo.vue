@@ -1,40 +1,40 @@
 <template>
   <VbDemo>
-    <VbContainer title="Design">
+    <VbCard title="Design">
       <div style="height: 200px; overflow-y: scroll">
         <img src="http://i68.tinypic.com/ne84fs.png" alt="">
       </div>
-    </VbContainer>
-    <VbContainer title="Input With Placeholder">
+    </VbCard>
+    <VbCard title="Input With Placeholder">
       <va-input
         v-model="empty"
         placeholder="Name"
       />
-    </VbContainer>
-    <VbContainer title="Input With Label">
+    </VbCard>
+    <VbCard title="Input With Label">
       <va-input
         v-model="text"
         label="Name"
       />
-    </VbContainer>
-    <VbContainer title="Input With Message">
+    </VbCard>
+    <VbCard title="Input With Message">
       <va-input
         v-model="text"
         :messages="messages"/>
-    </VbContainer>
-    <VbContainer title="Disabled Input">
+    </VbCard>
+    <VbCard title="Disabled Input">
       <va-input
         v-model="text"
         disabled
       />
-    </VbContainer>
-    <VbContainer title="Readonly Input">
+    </VbCard>
+    <VbCard title="Readonly Input">
       <va-input
         v-model="text"
         readonly
       />
-    </VbContainer>
-    <VbContainer title="Input With Icon">
+    </VbCard>
+    <VbCard title="Input With Icon">
       <va-input
         v-model="text"
         label="Name"
@@ -43,8 +43,8 @@
           icon="fa fa-anchor"
         />
       </va-input>
-    </VbContainer>
-    <VbContainer title="Input With Button">
+    </VbCard>
+    <VbCard title="Input With Button">
       <va-input
         v-model="text"
         label="Name"
@@ -53,8 +53,8 @@
           Upload
         </va-button>
       </va-input>
-    </VbContainer>
-    <VbContainer title="Input With Prepend Slot">
+    </VbCard>
+    <VbCard title="Input With Prepend Slot">
       <va-input
         v-model="text"
         label="Name"
@@ -64,43 +64,43 @@
           icon="fa fa-anchor"
         />
       </va-input>
-    </VbContainer>
-    <VbContainer title="Removable Icon">
+    </VbCard>
+    <VbCard title="Removable Icon">
       <va-input
         v-model="text"
         removable
       >
       </va-input>
-    </VbContainer>
-    <VbContainer title="Input With Error">
+    </VbCard>
+    <VbCard title="Input With Error">
       <va-input
         v-model="text"
         label="Name"
         error
       />
-    </VbContainer>
-    <VbContainer title="Input With Success">
+    </VbCard>
+    <VbCard title="Input With Success">
       <va-input
         v-model="text"
         label="Name"
         success
       />
-    </VbContainer>
-    <VbContainer title="Success and Removable">
+    </VbCard>
+    <VbCard title="Success and Removable">
       <va-input
         v-model="text"
         label="Name"
         removable
         success
       />
-    </VbContainer>
-    <VbContainer title="Input With Error Message">
+    </VbCard>
+    <VbCard title="Input With Error Message">
       <va-input
         v-model="text"
         label="Name"
         error
         :error-messages="errorMessages"/>
-    </VbContainer>
+    </VbCard>
   </VbDemo>
 </template>
 

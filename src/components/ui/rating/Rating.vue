@@ -19,10 +19,17 @@
           />
         </va-card>
       </div>
-    </div>
-    <div class="va-row">
       <div class="flex md6 xs12">
-        <va-card :title="$t('rating.size')">
+        <va-card :title="$t('rating.small')">
+          <va-rating
+            size="small"
+            color="warning"
+            v-model="value"
+          />
+        </va-card>
+      </div>
+      <div class="flex md6 xs12">
+        <va-card :title="$t('rating.large')">
           <va-rating
             v-model="value"
             size="large"
@@ -34,29 +41,16 @@
         <va-card :title="$t('rating.numbers')">
           <va-rating
             numbers
-            size="large"
             v-model="value"
           />
         </va-card>
       </div>
-    </div>
-    <div class="va-row">
       <div class="flex md6 xs12">
         <va-card :title="$t('rating.halves')">
           <va-rating
-            size="large"
             color="warning"
             emptyIcon="fa fa-star-o"
             halves
-            v-model="value"
-          />
-        </va-card>
-      </div>
-      <div class="flex md6 xs12">
-        <va-card :title="$t('rating.mini')">
-          <va-rating
-            size="small"
-            color="warning"
             v-model="value"
           />
         </va-card>
@@ -70,8 +64,8 @@ export default {
   name: 'rating',
   data () {
     return {
-      value: 2
+      value: 2,
     }
-  }
+  },
 }
 </script>

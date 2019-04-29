@@ -17,10 +17,10 @@
   "rating": {
     "singleIcon": "Single Icon",
     "twoIcons": "Two Icons",
-    "size": "Size",
+    "large": "Large",
     "numbers": "Numbers",
     "halves": "Halves",
-    "mini": "Mini"
+    "small": "Small"
   },
   "buttons": {
     "advanced": "Buttons With Icons",

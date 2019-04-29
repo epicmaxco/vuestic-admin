@@ -18,11 +18,11 @@
         'va-rating__number-item--empty' : !compareWithValue(number)
       }"
       :style="getItemStyles(number)"
-      @click="setCurrentValue(number, 1)"
+      @click="onRatingItemSelected(number, 1)"
       :tabindex="getTabindex(number)"
       @mouseleave="tabindex = null"
       @mouseover="tabindex = number"
-      @keypress="setCurrentValue(number, 1)"
+      @keypress="onRatingItemSelected(number, 1)"
     >
       {{number}}
     </div>
@@ -36,7 +36,7 @@
       :halfIcon="halfIconComputed"
       :iconClasses="getIconClasses(itemNumber)"
       :style="getItemStyles(itemNumber)"
-      @click="setCurrentValue(itemNumber, $event)"
+      @click="onRatingItemSelected(itemNumber, $event)"
       @hover="onHover(itemNumber, $event)"
       :value="getItemValue(itemNumber)"
       :tabindex="getTabindex(itemNumber)"
@@ -56,33 +56,27 @@ export default {
   name: 'va-rating',
   components: { VaRatingItem },
   props: {
+    value: {
+      type: Number,
+      default: 0,
+    },
+
     icon: {
       type: String,
       default: 'fa fa-star',
     },
     halfIcon: {
       type: String,
-      default: 'fa fa-star-half-full'
+      default: 'fa fa-star-half-full',
     },
-    halves: {
-      type: Boolean
-    },
-    emptyIcon: {
-      type: String,
-    },
-    value: {
-      type: Number,
-      default: 0,
-    },
-    readonly: {
-      type: Boolean,
-    },
-    disabled: {
-      type: Boolean,
-    },
-    numbers: {
-      type: Boolean,
-    },
+    emptyIcon: String,
+
+    readonly: Boolean,
+    disabled: Boolean,
+
+    numbers: Boolean,
+    halves: Boolean,
+
     max: {
       type: Number,
       default: 5,
@@ -126,6 +120,9 @@ export default {
         'va-rating--disabled': this.disabled,
         'va-rating--readonly': this.readonly,
       }
+    },
+    isHover () {
+      return this.isHovered && !!this.halves && !this.disabled && !this.readonly
     },
   },
   methods: {
@@ -192,18 +189,22 @@ export default {
       const unit = size.match(regEx).join('')
       return size.replace(regEx, '') * k + unit
     },
-    setCurrentValue (itemNumber, value) {
+    onRatingItemSelected (itemNumber, value) {
       if (this.readonly || this.disabled) {
         return
       }
-      if (itemNumber - this.value === 0.5) {
-        this.valueProxy += 0.5
+      if (!this.halves) {
+        this.$emit('input', itemNumber)
+        return
+      }
+      if (value === 0.5) {
+        this.$emit('input', itemNumber - 0.5)
       } else {
-        this.valueProxy = itemNumber - 1 + value
+        this.$emit('input', itemNumber)
       }
     },
     getItemValue (itemNumber) {
-      if (!this.isHover()) {
+      if (!this.isHover) {
         return this.compareWithValue(itemNumber)
       }
 
@@ -216,9 +217,6 @@ export default {
       if ((itemNumber > this.lastHoverItemNumber)) {
         return 0
       }
-    },
-    isHover () {
-      return this.isHovered && !!this.halves && !this.disabled && !this.readonly
     },
     compareWithValue (itemNumber) {
       if (itemNumber - this.value === 0.5) {

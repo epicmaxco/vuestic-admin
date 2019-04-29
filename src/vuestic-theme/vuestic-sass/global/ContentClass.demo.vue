@@ -1,6 +1,6 @@
 <template>
   <VbDemo>
-    <VbContainer title="with content class (h1-h6)">
+    <VbCard title="with content class (h1-h6)">
       <div class="content">
         <h1>h1 title</h1>
         <h2>h2 title</h2>
@@ -9,8 +9,8 @@
         <h5>h5 title</h5>
         <h6>h6 title</h6>
       </div>
-    </VbContainer>
-    <VbContainer title="without content class (h1-6)">
+    </VbCard>
+    <VbCard title="without content class (h1-6)">
       <div style="color: red">Is formatted because of bootstrap. Should look like ordinary text.</div>
       <div>
         <h1>h1 title</h1>
@@ -20,21 +20,21 @@
         <h5>h5 title</h5>
         <h6>h6 title</h6>
       </div>
-    </VbContainer>
-    <VbContainer title="with content class (pre)">
+    </VbCard>
+    <VbCard title="with content class (pre)">
       <div class="content">
         <pre>pre text must be here</pre>
         <p>class: code</p>
         <pre class="code">code must be here</pre>
       </div>
-    </VbContainer>
-    <VbContainer title="without content class (pre)">
+    </VbCard>
+    <VbCard title="without content class (pre)">
       <div>
         <div style="color: red">Is formatted because of bootstrap. Should look like ordinary text.</div>
         <pre>pre text must be here</pre>
       </div>
-    </VbContainer>
-    <VbContainer title="with content class (lists)">
+    </VbCard>
+    <VbCard title="with content class (lists)">
       <div class="content">
         <ol>
           <li>item 1</li>
@@ -59,8 +59,8 @@
           <li>item 4</li>
         </ul>
       </div>
-    </VbContainer>
-    <VbContainer title="without content class (lists)">
+    </VbCard>
+    <VbCard title="without content class (lists)">
       <div style="color: red">Is formatted because of bootstrap. Should look like ordinary text.</div>
       <ol>
         <li>item 1</li>
@@ -84,36 +84,36 @@
         <li>item 3</li>
         <li>item 4</li>
       </ul>
-    </VbContainer>
-    <VbContainer title="with content (blockquote)">
+    </VbCard>
+    <VbCard title="with content (blockquote)">
       <div class="content">
         <blockquote>
           <p>this is great blockquote</p>
           <p>author</p>
         </blockquote>
       </div>
-    </VbContainer>
-    <VbContainer title="without content (blockquote)">
+    </VbCard>
+    <VbCard title="without content (blockquote)">
       <blockquote>
         <p>this is great blockquote</p>
         <p>author</p>
       </blockquote>
-    </VbContainer>
-    <VbContainer title="with content (figure)">
+    </VbCard>
+    <VbCard title="with content (figure)">
       <div class="content">
         <figure>
           <img src="https://i.imgur.com/NLrdqsk.png"/>
           <figcaption>Name of picture</figcaption>
         </figure>
       </div>
-    </VbContainer>
-    <VbContainer title="without content (figure)">
+    </VbCard>
+    <VbCard title="without content (figure)">
       <figure>
         <img src="https://i.imgur.com/NLrdqsk.png"/>
         <figcaption>Name of picture</figcaption>
       </figure>
-    </VbContainer>
-    <VbContainer title="with content (table)">
+    </VbCard>
+    <VbCard title="with content (table)">
       <div class="content">
         <table>
           <thead>
@@ -141,8 +141,8 @@
           </tbody>
         </table>
       </div>
-    </VbContainer>
-    <VbContainer title="without content (table)">
+    </VbCard>
+    <VbCard title="without content (table)">
       <table>
         <thead>
         <tr>
@@ -155,7 +155,7 @@
         </tr>
         </tbody>
       </table>
-    </VbContainer>
+    </VbCard>
   </VbDemo>
 </template>
 

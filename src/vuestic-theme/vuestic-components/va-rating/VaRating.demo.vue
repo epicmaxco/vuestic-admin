@@ -1,6 +1,6 @@
 <template>
   <VbDemo>
-    <VbContainer title="No value">
+    <VbCard title="No value">
       <va-rating @input="$vb.log"/>
       <va-rating
         @input="$vb.log"
@@ -8,8 +8,8 @@
         halfIcon="fa fa-star-half-full"
         emptyIcon="fa fa-star-o"
       />
-    </VbContainer>
-    <VbContainer width="1200px">
+    </VbCard>
+    <VbCard width="1200px">
       <table class="table table-bordered" style="width: 100%">
         <tr>
           <th>Description</th>
@@ -254,10 +254,10 @@
           </td>
         </tr>
       </table>
-    </VbContainer>
-    <VbContainer title="value">
+    </VbCard>
+    <VbCard title="value">
       <input type="text" v-model.number="value">
-    </VbContainer>
+    </VbCard>
   </VbDemo>
 </template>
 
