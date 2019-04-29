@@ -76,6 +76,10 @@ export default {
     offset: [String, Number],
     disabled: Boolean,
     fixed: Boolean,
+    preventOverflow: {// If set to false - dropdown won't dodge outside container.
+      type: Boolean,
+      default: true,
+    },
     closeOnClickOutside: {
       type: Boolean,
       default: true,
@@ -169,7 +173,11 @@ export default {
     initPopper () {
       const options = {
         placement: this.position || 'bottom',
-        modifiers: {},
+        modifiers: {
+          preventOverflow: {
+            enabled: this.preventOverflow,
+          },
+        },
         positionFixed: this.fixed,
         arrow: {
           enabled: false,

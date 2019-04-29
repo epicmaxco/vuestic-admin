@@ -37,6 +37,7 @@
     v-if="minimized || navbarView"
     :position="navbarView ? 'bottom' : 'right'"
     fixed
+    :preventOverflow="false"
     >
       <a
         href="#"
