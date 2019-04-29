@@ -258,6 +258,9 @@
     <VbCard title="value">
       <input type="text" v-model.number="value">
     </VbCard>
+    <VbCard title="Custom color">
+      <va-rating color="#2219bb" :value="2"/>
+    </VbCard>
   </VbDemo>
 </template>
 

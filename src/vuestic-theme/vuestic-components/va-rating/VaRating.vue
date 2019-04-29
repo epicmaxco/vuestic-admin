@@ -5,7 +5,7 @@
     @mouseover="isHovered = true"
     @mouseout="isHovered = false"
     :style="{
-      'color':color,
+      'color':colorComputed,
       'fontSize': getIconSize(),
     }"
   >
@@ -51,10 +51,12 @@
 <script>
 import VaRatingItem from './VaRatingItem'
 import { getFocusColor } from '../../../services/color-functions'
+import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
 
 export default {
   name: 'va-rating',
   components: { VaRatingItem },
+  mixins: [ColorThemeMixin],
   props: {
     value: {
       type: Number,
@@ -84,10 +86,6 @@ export default {
     size: {
       type: String,
       default: 'medium',
-    },
-    color: {
-      type: String,
-      default: 'success',
     },
   },
   data () {
@@ -130,20 +128,20 @@ export default {
       if (!this.numbers) {
         if (this.compareWithValue(itemNumber) !== 0) {
           return {
-            color: this.$themes[this.color],
+            color: this.colorComputed,
             width: this.getIconSize(),
           }
         }
         return {
-          color: this.emptyIcon ? this.$themes[this.color] : getFocusColor(this.$themes[this.color]),
-          borderColor: this.$themes[this.color],
+          color: this.emptyIcon ? this.colorComputed : getFocusColor(this.colorComputed),
+          borderColor: this.colorComputed,
           width: this.getIconSize(),
         }
       } else {
         return {
           backgroundColor: this.compareWithValue(itemNumber) !== 0
-            ? this.$themes[this.color] : getFocusColor(this.$themes[this.color]),
-          color: this.compareWithValue(itemNumber) !== 0 ? '#fff' : this.$themes[this.color],
+            ? this.colorComputed : getFocusColor(this.colorComputed),
+          color: this.compareWithValue(itemNumber) !== 0 ? '#fff' : this.colorComputed,
           width: this.getItemsFontSize(),
           height: this.getItemsFontSize(),
           fontSize: this.getIconSize(),
