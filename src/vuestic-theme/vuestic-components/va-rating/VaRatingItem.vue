@@ -1,7 +1,7 @@
 <template>
   <div
     class="va-rating-item"
-    @keypress="onClickTab()"
+    @keyup.enter="onEnter()"
     @mousemove="onHover"
     @click="onClick()"
     @mouseleave="removeHover"
@@ -75,11 +75,11 @@ export default {
         this.$emit('click', 1)
       }
     },
-    onClickTab () {
-      if (this.halfIcon) {
-        this.$emit('click', 0.5)
-      } else {
+    onEnter () {
+      if (this.value === 0.5) {
         this.$emit('click', 1)
+      } else {
+        this.$emit('click', 0.5)
       }
     },
     onHover (item) {
