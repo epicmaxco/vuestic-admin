@@ -1,7 +1,16 @@
 <template>
   <va-page-layout>
-    <app-navbar :minimized="minimized" :navbar-view.sync="navbarView" @toggle-menu="toggleSidebar"/>
-    <app-sidebar :minimized="minimized" :navbar-view="navbarView" @toggle-menu="toggleSidebar"/>
+    <app-navbar
+      :minimized="minimized"
+      :navbar-view.sync="navbarView"
+      @toggle-navbar-view="toggleNavbarView"
+      @toggle-menu="toggleSidebar"
+    />
+    <app-sidebar
+      :minimized="minimized"
+      :navbar-view="navbarView"
+      @toggle-menu="toggleSidebar"
+    />
     <main
       slot="content"
       id="content"
@@ -49,6 +58,9 @@ export default {
   methods: {
     toggleSidebar (minimized) {
       this.minimized = minimized
+    },
+    toggleNavbarView (navbarView) {
+      this.navbarView = navbarView
     },
   },
   computed: {

@@ -64,7 +64,6 @@
       </a>
       <ul
         class="va-sidebar-link-group__submenu in"
-        ref="linkGroupWrapper"
         :style="{backgroundColor: $themes[color]}"
       >
         <slot/>
@@ -196,6 +195,24 @@ export default {
     .va-sidebar-link-group__submenu li {
       padding: .75rem 1rem;
       border-left: none;
+    }
+  }
+  &--navbar-view {
+    .va-sidebar-link-group__submenu {
+      background: $light-gray3 !important;
+      display: flex;
+      flex-wrap: wrap;
+      li {
+        width: 50%;
+        border: none;
+        margin: 0;
+      }
+    }
+    .va-dropdown-popper__content {
+      max-height: 14.25rem;
+      max-width: 30.9275rem;
+      width: 100%;
+      overflow-y: auto;
     }
   }
 }

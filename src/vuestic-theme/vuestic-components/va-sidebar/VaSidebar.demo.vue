@@ -1,7 +1,12 @@
 <template>
   <VbDemo>
     <VbCard title="Sidebar">
-      <va-sidebar style="position: static; height: auto;" :hidden="true">
+      <va-toggle v-model="minimized" label="Minimized"/>
+      <va-toggle v-model="navbarView" label="Navbar view"/>
+      <va-sidebar
+        style="position: static; height: auto;"
+        :minimized="minimized"
+        :navbar-view="navbarView">
         <template slot="menu">
           <template v-for="(item, index) in items">
             <sidebar-link-group
@@ -44,9 +49,11 @@ import SidebarLinkGroup
 import SidebarLink
   from './../../../components/admin/app-sidebar/components/SidebarLink'
 import { breadcrumbs } from './../../../components/admin/app-breadcrumbs/Breadcrumbs'
+import VaToggle from '../va-toggle/VaToggle'
 
 export default {
   components: {
+    VaToggle,
     VaSidebar,
     SidebarLinkGroup,
     SidebarLink,
@@ -58,6 +65,8 @@ export default {
       theme: 'info',
       items: breadcrumbs.routes,
       hoverState: false,
+      minimized: false,
+      navbarView: true,
     }
   },
 }
