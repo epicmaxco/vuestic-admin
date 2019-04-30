@@ -214,6 +214,8 @@ export default {
       max-width: 30.9275rem;
       width: 100%;
       overflow-y: auto;
+      box-shadow: $datepicker-box-shadow;
+      border-radius: .5rem;
     }
   }
 }

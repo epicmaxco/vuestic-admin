@@ -6,12 +6,15 @@
     <ul class="va-sidebar__menu">
       <slot name="menu"></slot>
     </ul>
+    <app-search v-if="navbarView"/>
   </aside>
 </template>
 
 <script>
+import AppSearch from '../../../components/admin/app-search/AppSearch'
 export default {
   name: 'va-sidebar',
+  components: { AppSearch },
   props: {
     minimized: {
       type: Boolean,
@@ -91,6 +94,12 @@ export default {
     top: auto;
     height: 4rem;
     min-height: 4rem;
+    display: flex;
+    & + .content-wrap {
+      margin-left: 0;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
     .va-sidebar {
       &__menu {
         display: flex;
