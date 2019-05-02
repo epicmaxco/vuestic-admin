@@ -7,9 +7,8 @@
       @mouseleave="updateHoverState(false)"
       @click.stop.prevent="toggleMenuItem()"
       :style="sidebarLinkStyles"
-      class="va-sidebar-link"
       v-if="!minimized && !navbarView"
-      :class="classObject">
+      :class="computedLinkClass">
       <div class="va-sidebar-link__content">
         <va-icon
           v-if="icon"
@@ -22,32 +21,37 @@
             {{title}}
           </slot>
         </span>
+        <va-icon
+          class="va-sidebar-link-group__dropdown-icon"
+          :style="iconStyles"
+          :icon="`fa fa-angle-${expanded ? 'up' : 'down'}`"/>
       </div>
     </a>
     <expanding v-if="!minimized && !navbarView">
       <ul
         class="va-sidebar-link-group__submenu in"
-        v-show="this.expanded"
+        v-show="expanded"
         ref="linkGroupWrapper"
       >
         <slot/>
       </ul>
     </expanding>
     <va-dropdown
-    v-if="minimized || navbarView"
-    :position="navbarView ? 'bottom' : 'right'"
-    fixed
-    :preventOverflow="false"
+      v-if="minimized || navbarView"
+      :position="navbarView ? 'bottom' : 'right'"
+      fixed
+      :preventOverflow="false"
+      @trigger="toggleDropdownState"
     >
       <a
         href="#"
         slot="anchor"
         target="_self"
-        @mouseenter="updateHoverState(true)"
-        @mouseleave="updateHoverState(false)"
+        @mouseenter="updateHoverState"
+        @mouseleave="updateHoverState"
         :style="sidebarLinkStyles"
         class="va-sidebar-link"
-        :class="classObject"
+        :class="computedLinkClass"
       >
         <div class="va-sidebar-link__content">
           <va-icon
@@ -60,6 +64,10 @@
           <slot name="title">
             {{title}}
           </slot>
+          <va-icon
+            class="va-sidebar-link-group__expanded-icon"
+            :style="iconStyles"
+            :icon="`fa fa-angle-${dropdownOpened ? 'up' : 'down'}`"/>
         </span>
         </div>
       </a>
@@ -74,11 +82,9 @@
 </template>
 
 <script>
-import VaIcon from './../../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
 import SidebarLink from './SidebarLink'
 import Expanding from 'vue-bulma-expanding/src/Expanding'
 import { getHoverColor } from './../../../../services/color-functions'
-import VaDropdown from '../../../../vuestic-theme/vuestic-components/va-dropdown/VaDropdown'
 
 export default {
   name: 'sidebar-link-group',
@@ -93,15 +99,15 @@ export default {
     },
   },
   components: {
-    VaDropdown,
-    VaIcon,
     SidebarLink,
     Expanding,
   },
   data () {
     return {
+      isActive: false,
       isHovered: false,
       expanded: this.expanded,
+      dropdownOpened: false,
     }
   },
   mounted () {
@@ -109,25 +115,51 @@ export default {
     if (linkGroup && linkGroup.querySelector('.router-link-active') !== null) {
       this.expanded = true
     }
+    this.setActiveState()
   },
   watch: {
-    $route (route) {
+    $route () {
       this.expanded = false
+      this.setActiveState()
+    },
+    navbarView (value) {
+      if (!value && !this.minimized) {
+        this.isActive = false
+      } else {
+        this.setActiveState()
+      }
+    },
+    minimized (value) {
+      if (!value && !this.navbarView) {
+        this.isActive = false
+      } else {
+        this.setActiveState()
+      }
     },
   },
   methods: {
     toggleMenuItem () {
       this.expanded = !this.expanded
     },
-    updateHoverState (isHovered) {
-      this.isHovered = isHovered
+    toggleDropdownState (value) {
+      this.dropdownOpened = value
+    },
+    updateHoverState () {
+      this.isHovered = !this.isHovered
+    },
+    setActiveState () {
+      this.$nextTick(() => {
+        this.isActive = (this.navbarView || this.minimized) && !!this.$children[0].$children.filter(item => item.isActive).length
+      })
     },
   },
   computed: {
-    classObject () {
+    computedLinkClass () {
       return {
-        'expanded': this.expanded,
+        'va-sidebar-link': true,
+        'va-sidebar-link--expanded': this.expanded,
         'va-sidebar-link--navbar-view': this.navbarView,
+        'va-sidebar-link--active': this.isActive,
       }
     },
     computedClass () {
@@ -138,28 +170,20 @@ export default {
       }
     },
     sidebarLinkStyles () {
-      if (this.isHovered) {
-        return {
+      return (this.isHovered || this.isActive)
+        ? {
           color: this.$themes['success'],
           backgroundColor: getHoverColor(this.$themes[this.color]),
           borderColor: this.$themes['success'],
         }
-      } else {
-        return {
+        : {
           color: this.$themes['info'],
         }
-      }
     },
     iconStyles () {
-      if (this.isHovered) {
-        return {
-          color: this.$themes['success'],
-        }
-      } else {
-        return {
-          color: 'white',
-        }
-      }
+      return (this.isHovered || this.isActive)
+        ? { color: this.$themes['success'] }
+        : { color: 'white' }
     },
   },
 }
@@ -168,11 +192,8 @@ export default {
 
 <style lang="scss">
 .va-sidebar-link-group {
-  height: fit-content;
   flex-direction: column;
-  .va-sidebar-link__router-link {
-    width: 100%;
-  }
+
   &__submenu {
     list-style: none;
     padding-left: 0;
@@ -183,6 +204,23 @@ export default {
       padding-left: 3rem;
     }
   }
+
+  .va-sidebar-link__content {
+    width: 100%;
+    position: relative;
+    padding-right: 2rem;
+  }
+
+  &__dropdown-icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: .5rem;
+    font-weight: $font-weight-bold;
+    line-height: 1.5rem;
+  }
+
   &--minimized {
     .va-sidebar-link-group__submenu {
       background: $sidebar_bg;
@@ -198,24 +236,30 @@ export default {
       border-left: none;
     }
   }
+
   &--navbar-view {
     .va-sidebar-link-group__submenu {
       background: $light-gray3 !important;
       display: flex;
       flex-wrap: wrap;
+      width: 100% !important;
       li {
         width: 50%;
         border: none;
         margin: 0;
+        padding-left: 3rem;
       }
     }
     .va-dropdown-popper__content {
       max-height: 14.25rem;
       max-width: 30.9275rem;
-      width: 100%;
+      width: 100% !important;
       overflow-y: auto;
       box-shadow: $datepicker-box-shadow;
       border-radius: .5rem;
+    }
+    .va-sidebar-link__content__title {
+      opacity: 1 !important;
     }
   }
 }

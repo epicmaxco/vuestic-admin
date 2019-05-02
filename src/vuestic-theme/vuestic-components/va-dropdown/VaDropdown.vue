@@ -198,6 +198,7 @@ export default {
         this.$refs.content,
         options,
       )
+      this.$emit('trigger', true)
     },
     removePopper () {
       if (!this.popperInstance) {
@@ -205,6 +206,7 @@ export default {
       }
       this.popperInstance.destroy()
       this.popperInstance = null
+      this.$emit('trigger', false)
     },
   },
   computed: {

@@ -7,7 +7,12 @@
     <span slot="center">
       {{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
     </span>
-    <span @click="$emit('update:navbarView', !navbarView)" class="pointer">Toggle sidebar view</span>
+    <va-icon
+      @click.native="$emit('update:navbarView', !navbarView)"
+      icon="vuestic-iconset vuestic-iconset-settings"
+      color="white"
+      style="font-size: 1.4rem; display: flex;"
+      class="grow flex-center nav-item pointer"/>
     <message-dropdown class="nav-item"/>
     <notification-dropdown class="nav-item"/>
     <language-dropdown class="nav-item"/>

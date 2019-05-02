@@ -4,10 +4,11 @@
     :class="computedLinkClass"
     @mouseenter.native="updateHoverState(true)"
     @mouseleave.native="updateHoverState(false)"
-    @click.native="isActive = !isActive"
     :style="computedLinkStyles"
+    active-class="va-sidebar-link--active"
     :to="to"
-    :target="target">
+    :target="target"
+  >
     <va-icon
       v-if="icon"
       class="va-sidebar-link__content__icon"
@@ -23,9 +24,11 @@
 
 <script>
 import { getHoverColor } from './../../../../services/color-functions'
+import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 
 export default {
   name: 'sidebar-link',
+  mixins: [ColorThemeMixin],
   props: {
     to: {
       type: [Object, String],
@@ -59,17 +62,7 @@ export default {
   },
   watch: {
     $route (route) {
-      this.$nextTick(() => {
-        this.isActive = this.$children[0].$el.classList.contains('router-link-active')
-        if (!this.isActive) {
-          return
-        }
-        const linkGroup = this.$parent && this.$parent.$parent
-        if (linkGroup.$options.name !== 'sidebar-link-group') {
-          return
-        }
-        linkGroup.expanded = true
-      })
+      this.setActiveState()
     },
   },
   computed: {
@@ -105,6 +98,21 @@ export default {
     updateHoverState (isHovered) {
       this.isHovered = isHovered
     },
+    setActiveState () {
+      this.$nextTick(() => {
+        this.isActive = this.$el.classList.contains('va-sidebar-link--active')
+        if (!this.isActive) {
+          return
+        }
+        const linkGroup = this.$parent && this.$parent.$parent
+        if (linkGroup.$options.name === 'sidebar-link-group') {
+          linkGroup.expanded = true
+        }
+      })
+    },
+  },
+  mounted () {
+    this.setActiveState()
   },
 }
 </script>
@@ -113,39 +121,35 @@ export default {
 .va-sidebar-link {
   position: relative;
   height: 3rem;
+  cursor: pointer;
   padding-left: 1rem;
   padding-top: .725rem;
   padding-bottom: .725rem;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  cursor: pointer;
   text-decoration: none;
   border-left: .25rem solid transparent;
 
   &__content {
 
     &__icon {
-      width: 24px;
+      width: 1.5rem;
       text-align: center;
       font-size: $sidebar-menu-item-icon-size;
       margin-right: 0.5rem;
-      &.fa-dashboard {
-        /* Temp fix */
-        position: relative;
-        top: -2px;
-      }
     }
 
     &__title {
       line-height: 1.71em;
     }
   }
+
   &--minimized {
     .va-sidebar-link__content__title {
       display: none;
     }
   }
+
   &--navbar-view {
     border-left: none;
     border-bottom: .25rem solid transparent;
