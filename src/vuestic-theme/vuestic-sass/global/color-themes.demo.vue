@@ -11,7 +11,7 @@
       <va-progress-bar class="mb-5" indeterminate color="info"/>
       <va-slider
         class="mb-5"
-        v-model="value"
+        :value="60"
         value-visible
         label="Label"
         color="info"
@@ -48,6 +48,9 @@
           </template>
         </template>
       </va-sidebar>
+      <va-rating class="mb-5" color="info" :value="3">
+        Default Button
+      </va-rating>
     </VbCard>
     <VbCard title="Change color">
       <va-color-picker-input v-model="$themes.info" mode="advanced"/>
@@ -75,15 +78,17 @@ import SidebarLinkGroup
 import SidebarLink
   from './../../../components/admin/app-sidebar/components/SidebarLink'
 import { breadcrumbs } from './../../../components/admin/app-breadcrumbs/Breadcrumbs'
+import VaRating from '../../vuestic-components/va-rating/VaRating'
 
 export default {
   components: {
+    VaRating,
+    VaColorPickerInput,
     VaIcon,
     VaButton,
     VaNotification,
     VaProgressBar,
     VaPaletteCustom,
-    VaColorPickerInput,
     VaSidebar,
     SidebarLinkGroup,
     SidebarLink,

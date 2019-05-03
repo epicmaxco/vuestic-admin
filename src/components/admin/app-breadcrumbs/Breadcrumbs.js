@@ -149,6 +149,10 @@ export const breadcrumbs = {
           name: 'popovers',
           displayName: 'menu.popovers',
         },
+        {
+          name: 'rating',
+          displayName: 'menu.rating',
+        },
       ],
     },
     {

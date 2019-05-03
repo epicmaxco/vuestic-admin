@@ -60,6 +60,7 @@ import VaInput from './vuestic-components/va-input/VaInput'
 
 import VaCountBadge from './vuestic-components/va-count-badge/VaCountBadge'
 import VaCard from './vuestic-components/va-card/VaCard'
+import VaRating from './vuestic-components/va-rating/VaRating'
 import { installQuasarPlatform } from './vuestic-components/va-popup/quasar/install'
 import { DropdownPopperPlugin } from './vuestic-components/va-dropdown/dropdown-popover-subplugin'
 import VaDropdown from './vuestic-components/va-dropdown/VaDropdown'
@@ -111,6 +112,7 @@ const VuesticPlugin = {
       VaFileUpload,
       VaDropdownOld,
       VaDatePicker,
+      VaRating,
       VaIcon,
       VaAccordion,
       VaCollapse,

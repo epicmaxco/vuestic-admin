@@ -20,6 +20,14 @@
   "breadcrumbs": {
     "home": "Home"
   },
+  "rating": {
+    "singleIcon": "Single Icon",
+    "twoIcons": "Two Icons",
+    "large": "Large",
+    "numbers": "Numbers",
+    "halves": "Halves",
+    "small": "Small"
+  },
   "buttons": {
     "advanced": "Buttons With Icons",
     "size": "Button Sizes",
@@ -222,6 +230,7 @@
   },
   "menu": {
     "auth": "Auth",
+    "rating": "Rating",
     "buttons": "Buttons",
     "charts": "Charts",
     "colorPickers": "Color Pickers",
