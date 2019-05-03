@@ -6,7 +6,7 @@
       <va-sidebar
         style="position: static; height: auto;"
         :minimized="minimized"
-        :navbar-view="navbarView">
+        :navbarView="navbarView">
         <template slot="menu">
           <template v-for="(item, index) in items">
             <sidebar-link-group

@@ -93,6 +93,7 @@ export default {
     title: String,
     minimized: Boolean,
     navbarView: Boolean,
+    activeByDefault: Boolean,
     color: {
       type: String,
       default: 'secondary',
@@ -104,7 +105,7 @@ export default {
   },
   data () {
     return {
-      isActive: false,
+      isActive: this.activeByDefault,
       isHovered: false,
       expanded: this.expanded,
       dropdownOpened: false,
@@ -125,15 +126,11 @@ export default {
     navbarView (value) {
       if (!value && !this.minimized) {
         this.isActive = false
-      } else {
-        this.setActiveState()
       }
     },
     minimized (value) {
       if (!value && !this.navbarView) {
         this.isActive = false
-      } else {
-        this.setActiveState()
       }
     },
   },
@@ -148,9 +145,11 @@ export default {
       this.isHovered = !this.isHovered
     },
     setActiveState () {
-      this.$nextTick(() => {
-        this.isActive = (this.navbarView || this.minimized) && !!this.$children[0].$children.filter(item => item.isActive).length
-      })
+      if (!this.activeByDefault) {
+        this.$nextTick(() => {
+          this.isActive = (this.navbarView || this.minimized) && !!this.$children[0].$children.filter(item => item.isActive).length
+        })
+      }
     },
   },
   computed: {
@@ -227,10 +226,14 @@ export default {
       width: 10rem;
       border-radius: .375rem;
       margin-left: 1px;
+      max-height: 80vh;
+
       .va-sidebar-link__content__title {
         display: block;
+        opacity: 1;
       }
     }
+
     .va-sidebar-link-group__submenu li {
       padding: .75rem 1rem;
       border-left: none;
@@ -238,6 +241,7 @@ export default {
   }
 
   &--navbar-view {
+
     .va-sidebar-link-group__submenu {
       background: $light-gray3 !important;
       display: flex;
@@ -250,6 +254,7 @@ export default {
         padding-left: 3rem;
       }
     }
+
     .va-dropdown-popper__content {
       max-height: 14.25rem;
       max-width: 30.9275rem;
@@ -258,8 +263,12 @@ export default {
       box-shadow: $datepicker-box-shadow;
       border-radius: .5rem;
     }
-    .va-sidebar-link__content__title {
-      opacity: 1 !important;
+
+    .va-sidebar-link__content {
+      padding-right: 0;
+      &__title {
+        opacity: 1 !important;
+      }
     }
   }
 }

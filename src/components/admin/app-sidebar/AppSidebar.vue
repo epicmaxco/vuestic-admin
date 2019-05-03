@@ -14,12 +14,13 @@
           :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
           v-if="item.children"
           :title="$t(item.displayName)"
+          :activeByDefault="isActiveByDefault(item)"
         >
           <sidebar-link
             v-for="(subMenuItem, key) in item.children"
             :key="key"
             :navbarView="navbarView"
-            :active="subMenuItem.meta ? subMenuItem.meta.isActiveByDefault : false"
+            :activeByDefault="subMenuItem.name === $route.name ? true : subMenuItem.meta ? subMenuItem.meta.isActiveByDefault : false"
             :to="{ name: subMenuItem.name }"
             :title="$t(subMenuItem.displayName)"
           />
@@ -29,7 +30,7 @@
           :key="key"
           :minimized="minimized"
           :navbarView="navbarView"
-          :active="item.meta ? item.meta.isActiveByDefault : false"
+          :activeByDefault="subMenuItem.name === $route.name ? true : subMenuItem.meta ? subMenuItem.meta.isActiveByDefault : false"
           :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
           :to="{ name: item.name }">
           <span slot="title">{{ $t(item.displayName) }}</span>
@@ -67,6 +68,11 @@ export default {
     return {
       items: breadcrumbs.routes,
     }
+  },
+  methods: {
+    isActiveByDefault (item) {
+      return (this.minimized || this.navbarView) && !!item.children.filter(child => child.name === this.$route.name).length
+    },
   },
 }
 

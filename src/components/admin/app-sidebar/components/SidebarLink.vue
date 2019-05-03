@@ -44,7 +44,7 @@ export default {
     title: {
       type: String,
     },
-    active: {
+    activeByDefault: {
       type: Boolean,
     },
     minimized: {
@@ -57,7 +57,7 @@ export default {
   data () {
     return {
       isHovered: false,
-      isActive: this.active,
+      isActive: this.activeByDefault,
     }
   },
   watch: {
@@ -107,6 +107,11 @@ export default {
         const linkGroup = this.$parent && this.$parent.$parent
         if (linkGroup.$options.name === 'sidebar-link-group') {
           linkGroup.expanded = true
+          if (this.navbarView || this.minimized) {
+            linkGroup.isActive = true
+          } else {
+            linkGroup.isActive = false
+          }
         }
       })
     },
