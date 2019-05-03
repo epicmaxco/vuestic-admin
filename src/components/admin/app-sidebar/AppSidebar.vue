@@ -29,7 +29,7 @@
           :key="key"
           :minimized="minimized"
           :navbarView="navbarView"
-          :activeByDefault="subMenuItem.name === $route.name ? true : subMenuItem.meta ? subMenuItem.meta.isActiveByDefault : false"
+          :activeByDefault="item.name === $route.name ? true : item.meta ? item.meta.isActiveByDefault : false"
           :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
           :to="{ name: item.name }">
           <span slot="title">{{ $t(item.displayName) }}</span>
