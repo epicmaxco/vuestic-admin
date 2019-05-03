@@ -6,7 +6,6 @@
     <template slot="menu">
 
       <template v-for="(item, key) in items">
-
         <sidebar-link-group
           :key="key"
           :minimized="minimized"

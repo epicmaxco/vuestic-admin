@@ -17,7 +17,9 @@
         color="info"
         icon-right="fa fa-volume-up"
       />
-      <va-sidebar style="position: static; height: auto;" :hidden="true">
+    </VbCard>
+    <VbCard style="position: relative">
+      <va-sidebar minimized :navbar-view="false">
         <template slot="menu">
           <template v-for="(item, key) in items">
             <sidebar-link-group
