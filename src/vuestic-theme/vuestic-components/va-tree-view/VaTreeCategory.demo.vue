@@ -1,41 +1,29 @@
 <template>
-  <div
-    style="left: 420px; top: 180px; width: 400px; background-color: white; position: absolute">
-    <va-tree-category label="Category with icon">
-      <div slot="icon" class="icon">
-        <span aria-hidden="true" class="ion ion-md-nutrition"/>
-      </div>
-      <va-tree-node>
-        One
-      </va-tree-node>
-      <va-tree-node>
-        Two
-      </va-tree-node>
-      <va-tree-node>
-        Three
-      </va-tree-node>
-    </va-tree-category>
-
-    <va-tree-category label="Category open" isOpen>
-      <va-tree-node>
-        One
-      </va-tree-node>
-      <va-tree-node>
-        Two
-      </va-tree-node>
-      <va-tree-node>
-        Three
-      </va-tree-node>
-    </va-tree-category>
-  </div>
+  <VbDemo>
+    <VbCard title="Default">
+      <va-tree-category label="Category with icon">
+        <va-icon slot="icon" icon="ion ion-md-nutrition"/>
+        <va-tree-node>
+          One
+        </va-tree-node>
+        <va-tree-node>
+          Two
+        </va-tree-node>
+        <va-tree-node>
+          Three
+        </va-tree-node>
+      </va-tree-category>
+    </VbCard>
+  </VbDemo>
 </template>
 
 <script>
 
 import VaTreeCategory from './VaTreeCategory'
 import VaTreeNode from './VaTreeNode'
+import VaIcon from '../va-icon/VaIcon'
 
 export default {
-  components: { VaTreeNode, VaTreeCategory },
+  components: { VaIcon, VaTreeNode, VaTreeCategory },
 }
 </script>
