@@ -45,6 +45,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
 .va-sidebar {
   min-height: $sidebar-viewport-min-height;
   height: $sidebar-viewport-height;

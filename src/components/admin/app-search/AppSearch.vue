@@ -80,6 +80,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../../vuestic-theme/vuestic-sass/resources/resources";
 .app-search {
   position: relative;
   height: 2.375rem;

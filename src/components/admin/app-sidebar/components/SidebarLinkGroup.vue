@@ -190,6 +190,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../../../vuestic-theme/vuestic-sass/resources/resources";
 .va-sidebar-link-group {
   flex-direction: column;
 
