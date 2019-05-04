@@ -1,7 +1,7 @@
 <template>
   <div
     class="va-tree-node"
-    :class="{'va-tree-node--selected': selected}"
+    :class="{'va-tree-node--highlighted': highlighted}"
   >
     <div class="va-tree-node__checkbox" v-if="$slots.checkbox">
       <slot name="checkbox"/>
@@ -24,7 +24,7 @@ export default {
   name: 'va-tree-node',
   components: { VaIcon },
   props: {
-    selected: {
+    highlighted: {
       type: Boolean,
     },
     icon: {
@@ -66,7 +66,7 @@ export default {
     overflow: hidden;
   }
 
-  &--selected #{&}__label {
+  &--highlighted #{&}__label {
     background-color: $vue-light-green;
   }
 }

@@ -15,6 +15,11 @@
         Some text
       </va-tree-node>
     </VbCard>
+    <VbCard title="highlighted">
+      <va-tree-node highlighted>
+        Some text
+      </va-tree-node>
+    </VbCard>
     <VbCard title="with checkbox">
       <va-tree-node>
         <va-checkbox
