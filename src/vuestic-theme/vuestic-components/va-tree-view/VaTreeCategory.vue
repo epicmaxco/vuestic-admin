@@ -1,22 +1,31 @@
 <template>
   <div class="va-tree-category">
-    <va-tree-node
-      @click.native="isOpenCached = !isOpenCached"
-      class="va-tree-category__header"
-      >
-      <div slot="checkbox">
+    <div
+     class="va-tree-category__header"
+     @click="toggle"
+    >
+      <div class="va-tree-category__header-switcher">
         <square-with-icon
-        :iconClass="`ion ion-md-${isOpenCached ? 'remove' : 'add'}`"
-        :color="va.color || colorComputed"
+          :iconClass="`ion ion-md-${isOpenCached ? 'remove' : 'add'}`"
+          :color="va.color || colorComputed"
         />
       </div>
-      <template slot="icon">
-        <slot name="icon"/>
-      </template>
+      <div
+        class="va-tree-category__header-checkbox"
+        v-if="$slots.checkbox"
+      >
+        <slot name="checkbox"/>
+      </div>
+      <div
+        class="va-tree-category__header-icon"
+         v-if="icon"
+      >
+        <va-icon :icon="icon" :color="$themes['info']"/>
+      </div>
       <div class="va-tree-category__header-label">
         {{ label }}
       </div>
-    </va-tree-node>
+    </div>
 
     <div class="va-tree-category__list-container" v-if="isOpenCached">
       <div class="va-tree-category__list-internal-container">
@@ -32,11 +41,12 @@ import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
 import SquareWithIcon from './SquareWithIcon/SquareWithIcon.vue'
 import VaCheckbox from '../va-checkbox/VaCheckbox'
 import VaTreeNode from './VaTreeNode'
+import VaIcon from '../va-icon/VaIcon'
 
 export default {
   name: 'va-tree-category',
   mixins: [ ColorThemeMixin ],
-  components: { VaTreeNode, SquareWithIcon, VaCheckbox },
+  components: { VaIcon, VaTreeNode, SquareWithIcon, VaCheckbox },
   inject: {
     va: {
       default: () => ({}),
@@ -62,7 +72,9 @@ export default {
     },
     isOpen: {
       type: Boolean,
-      default: false,
+    },
+    icon: {
+      type: String,
     },
   },
   methods: {
@@ -92,6 +104,11 @@ export default {
         })
       })
     },
+    toggle (e) {
+      if (!e.target.classList.contains('va-checkbox__input')) {
+        this.isOpenCached = !this.isOpenCached
+      }
+    },
   },
 }
 </script>
@@ -103,10 +120,30 @@ export default {
   &__header {
     cursor: pointer;
     display: flex;
+    align-items: center;
+  }
+
+  &__header-switcher {
+    margin-right: .5rem;
+  }
+
+  &__header-checkbox {
+    margin-right: .5rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .va-checkbox__square {
+      width: 1.5rem;
+      height: 1.5rem;
+      flex: 0 0 1.5rem;
+    }
   }
 
   &__header-icon {
-    margin-right: .375rem;
+    color: $theme-blue-dark;
+    margin-right: .5rem;
   }
 
   &__header-label {

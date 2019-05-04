@@ -54,6 +54,6 @@ export default {
 
 <style lang="scss">
 .va-tree-root {
-  padding: 0.3125rem;
+  padding: .3125rem;
 }
 </style>

@@ -6,14 +6,12 @@
       </va-tree-node>
     </VbCard>
     <VbCard title="with icon">
-      <va-tree-node>
-        <va-icon slot="icon" icon="ion ion-md-nutrition"/>
+      <va-tree-node icon="ion ion-md-nutrition">
         Some text
       </va-tree-node>
     </VbCard>
     <VbCard title="with right icon">
-      <va-tree-node>
-        <va-icon slot="iconRight" icon="ion ion-md-nutrition"/>
+      <va-tree-node icon-right="ion ion-md-nutrition">
         Some text
       </va-tree-node>
     </VbCard>
