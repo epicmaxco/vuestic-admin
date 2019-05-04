@@ -1,17 +1,18 @@
 <template>
-  <div class="va-tree-node"
-       :class="{'va-tree-node-selected': selected}"
+  <div
+    class="va-tree-node"
+    :class="{'va-tree-node--selected': selected}"
   >
-    <div class="va-tree-node-checkbox" v-if="$slots.checkbox">
+    <div class="va-tree-node__checkbox" v-if="$slots.checkbox">
       <slot name="checkbox"/>
     </div>
-    <div class="va-tree-node-icon" v-if="$slots.icon">
+    <div class="va-tree-node__icon" v-if="$slots.icon">
       <slot name="icon"/>
     </div>
-    <div class="va-tree-node-label">
+    <div class="va-tree-node__label">
       <slot/>
     </div>
-    <div class="va-tree-node-icon-right" v-if="$slots.iconRight">
+    <div class="va-tree-node__icon-right" v-if="$slots.iconRight">
       <slot name="iconRight"/>
     </div>
   </div>
@@ -23,9 +24,7 @@ export default {
   props: {
     selected: {
       type: Boolean,
-      default: false,
     },
-
   },
 }
 </script>
@@ -34,39 +33,34 @@ export default {
 @import "../../vuestic-sass/resources/resources";
 
 .va-tree-node {
+  display: flex;
+  align-items: center;
+
   .form-group {
     margin-bottom: 0px;
   }
 
-  display: flex;
-
-  &-checkbox {
-    margin-right: 0.75rem;
+  &__checkbox {
+    margin-right: 0.5rem;
   }
 
-  &-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+  &__icon {
     margin-right: 0.375rem;
+    color: $theme-blue-dark;
   }
 
-  &-icon-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin-right: 0.375rem;
+  &__icon-right {
+    margin-left: 0.375rem;
+    color: $theme-blue-dark;
   }
 
-  &-label {
+  &__label {
     flex-grow: 1;
     word-wrap: break-word;
     overflow: hidden;
   }
 
-  &-selected #{&}-label {
+  &--selected #{&}__label {
     background-color: $vue-light-green;
   }
 

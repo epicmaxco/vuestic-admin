@@ -5,8 +5,24 @@
 </template>
 
 <script>
+import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
+import Vue from 'vue'
+
 export default {
   name: 'va-tree-root',
+  mixins: [ ColorThemeMixin ],
+  provide () {
+    const parent = this
+    return {
+      va: new Vue({
+        computed: {
+          color () {
+            return parent.color
+          },
+        },
+      }),
+    }
+  },
   methods: {
     /**
      * @public
@@ -39,9 +55,5 @@ export default {
 <style lang="scss">
 .va-tree-root {
   padding: 0.3125rem;
-  // List items require padding. Somewhat hacky, but the only remaining option is using render functions.
-  .va-tree-category + .va-tree-category, .va-tree-node + .va-tree-node, .va-tree-category + .va-tree-node, .va-tree-node + .va-tree-category {
-    margin-top: 0.625rem;
-  }
 }
 </style>

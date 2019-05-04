@@ -1,23 +1,26 @@
 <template>
   <div class="va-tree-category">
-    <div class="va-tree-category__header"
-         @click="isOpenCached = ! isOpenCached">
-      <div class="va-tree-category__header-checkbox">
-        <square-with-icon :iconClass="checkboxIconClass"/>
-      </div>
-      <div class="va-tree-category__header-icon"
-           v-if="$slots.icon"
+    <va-tree-node
+      @click.native="isOpenCached = !isOpenCached"
+      class="va-tree-category__header"
       >
-        <slot name="icon"/>
+      <div slot="checkbox">
+        <square-with-icon
+        :iconClass="`ion ion-md-${isOpenCached ? 'remove' : 'add'}`"
+        :color="va.color || colorComputed"
+        />
       </div>
+      <template slot="icon">
+        <slot name="icon"/>
+      </template>
       <div class="va-tree-category__header-label">
         {{ label }}
       </div>
-    </div>
+    </va-tree-node>
 
     <div class="va-tree-category__list-container" v-if="isOpenCached">
       <div class="va-tree-category__list-internal-container">
-        <slot></slot>
+        <slot/>
       </div>
     </div>
 
@@ -25,12 +28,20 @@
 </template>
 
 <script>
+import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
 import SquareWithIcon from './SquareWithIcon/SquareWithIcon.vue'
 import VaCheckbox from '../va-checkbox/VaCheckbox'
+import VaTreeNode from './VaTreeNode'
 
 export default {
   name: 'va-tree-category',
-  components: { SquareWithIcon, VaCheckbox },
+  mixins: [ ColorThemeMixin ],
+  components: { VaTreeNode, SquareWithIcon, VaCheckbox },
+  inject: {
+    va: {
+      default: () => ({}),
+    },
+  },
   data () {
     return {
       isOpenCached: false,
@@ -52,11 +63,6 @@ export default {
     isOpen: {
       type: Boolean,
       default: false,
-    },
-  },
-  computed: {
-    checkboxIconClass () {
-      return this.isOpenCached ? 'ion ion-md-remove' : 'ion ion-md-add'
     },
   },
   methods: {
@@ -99,12 +105,8 @@ export default {
     display: flex;
   }
 
-  &__header-checkbox {
-    margin-right: 0.75rem;
-  }
-
   &__header-icon {
-    margin-right: 0.375rem;
+    margin-right: .375rem;
   }
 
   &__header-label {
@@ -113,18 +115,23 @@ export default {
   }
 
   &__list-container {
-    margin-top: 0.625rem;
-    padding-left: 0.6875rem;
+    margin-top: .625rem;
+    padding-left: .6875rem;
   }
 
   &__list-internal-container {
-    border-left: dashed 0.0625rem $lighter-gray;
-    padding-left: 1.5rem;
+    background-image: linear-gradient($gray 33%, rgba(255,255,255,0) 0%);
+    background-position: left;
+    background-size: 1px 3px;
+    background-repeat: repeat-y;
+    padding-left: 1.1875rem;
   }
 
-  // List items require padding. Somewhat hacky, but the only remaining option is using render functions.
-  .va-tree-category + .va-tree-category, .va-tree-node + .va-tree-node, .va-tree-category + .va-tree-node, .va-tree-node + .va-tree-category {
-    margin-top: 0.625rem;
+  & + .va-tree-category,
+  .va-tree-node + .va-tree-node,
+  .va-tree-category + .va-tree-node,
+  .va-tree-node + .va-tree-category {
+    margin-top: .75rem;
   }
 }
 </style>

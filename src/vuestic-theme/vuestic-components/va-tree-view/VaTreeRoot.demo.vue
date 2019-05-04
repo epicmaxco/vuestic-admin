@@ -24,6 +24,81 @@
         </va-tree-category>
       </va-tree-root>
     </VbCard>
+    <VbCard>
+      <va-button @click="$refs.treeView.expand()">
+        EXPAND ALL
+      </va-button>
+      <va-button @click="$refs.treeView.collapse()">
+        COLLAPSE ALL
+      </va-button>
+
+      <va-tree-root
+        ref="treeView"
+        color="info"
+      >
+        <va-tree-category
+          label="Category text"
+          isOpen
+        >
+          <va-tree-node>
+            Node text
+          </va-tree-node>
+          <va-tree-node>
+            Node text
+          </va-tree-node>
+        </va-tree-category>
+      </va-tree-root>
+    </VbCard>
+    <VbCard>
+      <va-button @click="$refs.treeView.expand()">
+        EXPAND ALL
+      </va-button>
+      <va-button @click="$refs.treeView.collapse()">
+        COLLAPSE ALL
+      </va-button>
+
+      <va-tree-root
+        ref="treeView"
+        color="danger"
+      >
+        <va-tree-category
+          label="Category text"
+          isOpen
+        >
+          <va-tree-node>
+            Node text
+          </va-tree-node>
+          <va-tree-node>
+            Node text
+          </va-tree-node>
+        </va-tree-category>
+      </va-tree-root>
+    </VbCard>
+    <VbCard>
+      <va-button @click="$refs.treeView.expand()">
+        EXPAND ALL
+      </va-button>
+      <va-button @click="$refs.treeView.collapse()">
+        COLLAPSE ALL
+      </va-button>
+
+      <va-tree-root
+        ref="treeView"
+        color="warning"
+      >
+        <va-tree-category
+          label="Category text"
+          isOpen
+        >
+          <va-tree-node>
+            Node text
+          </va-tree-node>
+          <va-tree-node>
+            Node text
+          </va-tree-node>
+        </va-tree-category>
+      </va-tree-root>
+    </VbCard>
   </VbDemo>
 </template>
 

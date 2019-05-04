@@ -1,12 +1,28 @@
 <template>
   <VbDemo>
-    <VbCard>
+    <VbCard title="default">
+      <va-tree-node>
+        Some text
+      </va-tree-node>
+    </VbCard>
+    <VbCard title="with icon">
+      <va-tree-node>
+        <va-icon slot="icon" icon="ion ion-md-nutrition"/>
+        Some text
+      </va-tree-node>
+    </VbCard>
+    <VbCard title="with right icon">
+      <va-tree-node>
+        <va-icon slot="iconRight" icon="ion ion-md-nutrition"/>
+        Some text
+      </va-tree-node>
+    </VbCard>
+    <VbCard title="with checkbox">
       <va-tree-node>
         <va-checkbox
           slot="checkbox"
           v-model="checkboxValue"
         />
-        <va-icon slot="icon" icon="ion ion-md-nutrition"/>
         Some text
       </va-tree-node>
     </VbCard>
