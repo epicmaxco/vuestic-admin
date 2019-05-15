@@ -7,12 +7,12 @@
       <div v-for="n in 3" :key="n" class="flex md3 xs12">
         <va-progress-bar
           :value="value * n / 4"
-          :theme="themes[n - 1]"
-        >{{ themes[n - 1] }}
+          :color="colors[n - 1]"
+        >{{ colors[n - 1] }}
         </va-progress-bar>
       </div>
       <div class="flex md3 xs12">
-        <va-progress-bar indeterminate theme="Black">Black</va-progress-bar>
+        <va-progress-bar indeterminate color="black">Black</va-progress-bar>
       </div>
     </div>
   </va-card>
@@ -23,7 +23,7 @@ export default {
   data () {
     return {
       value: 0,
-      themes: ['Danger', 'Success', 'Warning'],
+      colors: ['danger', 'success', 'warning'],
     }
   },
   mounted () {
