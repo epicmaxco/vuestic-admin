@@ -66,8 +66,6 @@ export default {
   }
 
   .va-sidebar-link__content__title {
-    transition: all 0.2s ease;
-    display: inline-block;
     opacity: 1;
   }
 
@@ -81,6 +79,11 @@ export default {
     left: 0;
     width: $sidebar-minimized-width;
     z-index: $sidebar-minimized-z-index;
+    .va-sidebar-link-group {
+      .va-sidebar-link__content {
+        padding-right: 0;
+      }
+    }
 
     .va-sidebar-link__content__title {
       display: none;

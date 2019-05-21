@@ -209,6 +209,13 @@ export default {
     width: 100%;
     position: relative;
     padding-right: 2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__expanded-icon {
+    width: 1.5rem;
+    text-align: center;
   }
 
   &__dropdown-icon {
@@ -228,11 +235,6 @@ export default {
       border-radius: .375rem;
       margin-left: 1px;
       max-height: 80vh;
-
-      .va-sidebar-link__content__title {
-        display: block;
-        opacity: 1;
-      }
     }
 
     .va-sidebar-link-group__submenu li {
