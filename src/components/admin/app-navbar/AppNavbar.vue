@@ -20,11 +20,10 @@
       </div>
     </template>
     <div class="va-row align--center justify--space-between">
-      <div>
-        <va-icon icon="i-nav-search" class="pointer"/>
-      </div>
+      <app-search class="va-navbar__item"/>
       <message-dropdown class="va-navbar__item"/>
       <notification-dropdown class="va-navbar__item"/>
+      <settings-dropdown class="va-navbar__item" :navbar-view.sync="navbarView"/>
       <language-dropdown class="va-navbar__item"/>
       <profile-dropdown class="va-navbar__item">
         <span>{{userName}}</span>
@@ -43,11 +42,15 @@ import LanguageDropdown from './components/dropdowns/LanguageDropdown'
 import ProfileDropdown from './components/dropdowns/ProfileDropdown'
 import NotificationDropdown from './components/dropdowns/NotificationDropdown'
 import MessageDropdown from './components/dropdowns/MessageDropdown'
+import SettingsDropdown from './components/dropdowns/SettingsDropdown'
+import AppSearch from '../app-search/AppSearch'
 
 export default {
   name: 'app-navbar',
 
   components: {
+    AppSearch,
+    SettingsDropdown,
     VaIconVuestic,
     VaNavbar,
     HeaderSelector,
@@ -65,6 +68,7 @@ export default {
   data () {
     return {
       userName: 'Vasili S',
+      navbarView: true,
     }
   },
   computed: {

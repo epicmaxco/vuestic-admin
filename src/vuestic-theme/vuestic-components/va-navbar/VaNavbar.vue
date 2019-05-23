@@ -1,5 +1,5 @@
 <template>
-  <nav class="va-navbar ml-3 mr-4 position-relative">
+  <nav class="va-navbar position-relative">
     <div
       class="va-navbar__logo va-row align--center position-absolute mr-3">
       <router-link class="" to="/">
