@@ -1,5 +1,5 @@
 <template>
-  <va-navbar>
+  <va-navbar class="app-navbar">
     <header-selector slot="selector" :isOpen.sync="valueProxy"/>
     <span slot="logo">
       <va-icon-vuestic/>
@@ -19,16 +19,14 @@
         </div>
       </div>
     </template>
-    <div class="va-row align--center justify--space-between">
-      <app-search class="va-navbar__item"/>
-      <message-dropdown class="va-navbar__item"/>
-      <notification-dropdown class="va-navbar__item"/>
-      <settings-dropdown class="va-navbar__item" :navbar-view.sync="navbarView"/>
-      <language-dropdown class="va-navbar__item"/>
-      <profile-dropdown class="va-navbar__item">
-        <span>{{userName}}</span>
-      </profile-dropdown>
-    </div>
+    <app-search class="va-navbar__item"/>
+    <message-dropdown class="va-navbar__item"/>
+    <notification-dropdown class="va-navbar__item"/>
+    <settings-dropdown class="va-navbar__item" :navbar-view.sync="navbarView"/>
+    <language-dropdown class="va-navbar__item"/>
+    <profile-dropdown class="va-navbar__item">
+      <span>{{userName}}</span>
+    </profile-dropdown>
   </va-navbar>
 </template>
 
@@ -94,6 +92,17 @@ export default {
   @include media-breakpoint-down(md) {
     &__button {
       display: none !important;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    &__button {
+      display: none !important;
+    }
+    .profile-dropdown {
+      position: absolute;
+      right: 1.5rem;
+      top: 1.5rem;
+      height: fit-content;
     }
   }
 }

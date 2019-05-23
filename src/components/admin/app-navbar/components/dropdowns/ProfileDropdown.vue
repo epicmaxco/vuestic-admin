@@ -53,6 +53,10 @@ export default {
   &__actuator {
     color: $vue-green;
   }
+  .va-dropdown-popper__anchor {
+    display: flex;
+    justify-content: flex-end;
+  }
   &__content {
     background-color: $dropdown-background;
     box-shadow: $gray-box-shadow;

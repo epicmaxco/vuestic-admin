@@ -1,21 +1,21 @@
 <template>
   <nav class="va-navbar position-relative">
     <div
+      class="va-navbar__icon-container">
+      <slot name="selector"></slot>
+    </div>
+    <div
       class="va-navbar__logo va-row align--center position-absolute mr-3">
       <router-link class="" to="/">
         <slot name="logo"/>
       </router-link>
     </div>
-    <div class="va-navbar__content va-row align--center">
+    <div class="va-navbar__content va-row">
       <div
-        class="va-navbar__icon-container mr-3 md1 lg1">
-        <slot name="selector"></slot>
-      </div>
-      <div
-        class="va-navbar__center flex offset--lg2 lg6 flex md6 va-row flex-center">
+        class="va-navbar__center flex offset--lg2 offset--md3 lg6 flex md4 va-row flex-center">
         <slot name="center"></slot>
       </div>
-      <div class="flex md5 lg3 va-navbar__actions align--center justify--end va-row">
+      <div class="flex md5 lg4 va-navbar__actions align--center justify--end va-row">
         <slot></slot>
       </div>
     </div>
@@ -30,9 +30,8 @@ export default {
 </script>
 
 <style lang="scss">
-$nav-mobile-padding-h: .875rem;
-$nav-mobile-pt: 1.75rem;
-$nav-mobile-pb: 0.5rem;
+$nav-mobile-px: .875rem;
+$nav-mobile-py: 1rem;
 $nav-mobile-brand-width: 4rem;
 $nav-mobile-brand-top: .875rem;
 $nav-mobile-brand-left: calc(50% - #{$nav-mobile-brand-width});
@@ -48,6 +47,7 @@ $nav-border-side-width: 3.1875rem;
 
   &__content {
     z-index: 1;
+    align-items: center;
   }
 
   &__text {
@@ -66,6 +66,8 @@ $nav-border-side-width: 3.1875rem;
 
   &__icon-container {
     font-size: $font-size-base;
+    display: flex;
+    align-items: center;
   }
 
   &__shape {
@@ -85,13 +87,34 @@ $nav-border-side-width: 3.1875rem;
   &__item {
     padding: 0;
     height: 100%;
-    margin-right: 1rem
+    .va-dropdown-popper__anchor {
+      display: flex;
+      justify-content: center;
+    }
   }
 
   @include media-breakpoint-down(md) {
-    height: $top-mobile-nav-height;
-    padding: $nav-mobile-pt $nav-mobile-padding-h $nav-mobile-pb $nav-mobile-padding-h;
+    &__button {
+      display: none !important;
+    }
+    &__item {
+      margin-right: .25rem
+    }
+  }
 
+  @include  media-breakpoint-down(sm) {
+    height: $top-mobile-nav-height;
+    padding: $nav-mobile-py $nav-mobile-px;
+    &__icon-container {
+      align-items: flex-start;
+      position: absolute;
+    }
+    &__center {
+      display: none;
+    }
+    &__content {
+      align-items: flex-end;
+    }
     .va-navbar__logo {
       top: $nav-mobile-brand-top;
       left: $nav-mobile-brand-left;
@@ -100,20 +123,13 @@ $nav-border-side-width: 3.1875rem;
       z-index: 1;
       margin-right: 0 !important;
     }
-
-    &__button {
-      display: none !important;
+    &__actions {
+      margin-left: 0;
     }
-
-    &__item {
-      margin-right: .25rem
-    }
-
     &__shape {
       border-top: $top-mobile-nav-height solid #0a43af;
     }
   }
-
   @include media-breakpoint-down(xs) {
     &__center {
       display: none;

@@ -2,12 +2,14 @@
   <div
     class="app-search"
     :class="{'app-search--opened': opened}"
-    :style="computedStyle">
+  >
+    {{search}}
     <va-input
       ref="input"
       class="app-search__input"
       v-model="valueProxy"
       v-show="opened"
+      :style="computedStyle"
       @blur="inputBlur"/>
     <va-icon
       class="app-search__icon"
@@ -22,7 +24,7 @@
 export default {
   name: 'app-search',
   props: {
-    value: {
+    search: {
       type: String,
       default: '',
     },
@@ -57,22 +59,22 @@ export default {
   computed: {
     valueProxy: {
       get () {
-        return this.value
+        return this.search
       },
       set (value) {
-        this.$emit('input', value)
+        this.$emit('update:search', value)
       },
     },
     computedStyle () {
       return {
-        width: this.opened ? this.width : '1.5rem',
+        width: this.opened ? this.width : 0,
       }
     },
   },
   methods: {
     inputBlur () {
-      if (!this.valueProxy) {
-        // this.opened = false
+      if (!this.search) {
+        this.opened = false
       }
     },
   },
@@ -88,13 +90,15 @@ export default {
   @import "../../../vuestic-theme/vuestic-sass/resources/resources";
   .app-search {
     position: relative;
+    min-height: 2.375rem;
     &__icon {
-      transition: all .5s ease;
       display: flex !important;
       align-items: center;
       cursor: pointer;
+      line-height: 2.375rem;
     }
     &__input {
+      transition: all .5s ease;
       margin-bottom: 0;
       .va-input__container {
         padding-left: 2rem;
