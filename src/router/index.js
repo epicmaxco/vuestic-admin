@@ -37,6 +37,11 @@ export default new Router({
           component: () => import('../components/auth/signup/Signup.vue'),
         },
         {
+          name: 'recover-password',
+          path: 'recover-password',
+          component: () => import('../components/auth/recover-password/RecoverPassword.vue'),
+        },
+        {
           path: '',
           redirect: { name: 'login' },
         },
@@ -49,22 +54,22 @@ export default new Router({
         {
           name: 'not-found-advanced',
           path: 'not-found-advanced',
-          component: () => import('../components/pages/404-pages/VuesticPageNotFoundSearch.vue'),
+          component: () => import('../components/pages/404-pages/VaPageNotFoundSearch.vue'),
         },
         {
           name: 'not-found-simple',
           path: 'not-found-simple',
-          component: () => import('../components/pages/404-pages/VuesticPageNotFoundSimple.vue'),
+          component: () => import('../components/pages/404-pages/VaPageNotFoundSimple.vue'),
         },
         {
           name: 'not-found-custom',
           path: 'not-found-custom',
-          component: () => import('../components/pages/404-pages/VuesticPageNotFoundCustom.vue'),
+          component: () => import('../components/pages/404-pages/VaPageNotFoundCustom.vue'),
         },
         {
           name: 'not-found-large-text',
           path: '/pages/not-found-large-text',
-          component: () => import('../components/pages/404-pages/VuesticPageNotFoundLargeText.vue'),
+          component: () => import('../components/pages/404-pages/VaPageNotFoundLargeText.vue'),
         },
       ],
     },
@@ -157,6 +162,14 @@ export default new Router({
               component: () => import('../components/ui/buttons/Buttons'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Buttons',
+              },
+            },
+            {
+              name: 'rating',
+              path: 'rating',
+              component: () => import('../components/ui/rating/Rating'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Rating',
               },
             },
             {
@@ -289,6 +302,11 @@ export default new Router({
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Sliders',
               },
+            },
+            {
+              name: 'popovers',
+              path: 'popovers',
+              component: () => import('../components/ui/popovers/Popovers'),
             },
           ],
         },

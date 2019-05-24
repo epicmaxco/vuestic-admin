@@ -10,7 +10,7 @@ exports[`VaCheckbox default 1`] = `
 
     </div>
   </div>
-  <!---->
+  <va-message-list-stub color="danger" value="" limit="1" class="va-checkbox__error-message-container"></va-message-list-stub>
 </div>
 `;
 
@@ -24,6 +24,6 @@ exports[`VaCheckbox true value 1`] = `
 
     </div>
   </div>
-  <!---->
+  <va-message-list-stub color="danger" value="" limit="1" class="va-checkbox__error-message-container"></va-message-list-stub>
 </div>
 `;

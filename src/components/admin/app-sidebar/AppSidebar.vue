@@ -88,11 +88,11 @@
         </sidebar-link>
         <!-- NOTE Dropdowns are not presentation ready yet. See https://github.com/epicmaxco/vuestic-admin/issues/438 -->
         <!--<sidebar-link-->
-        <!--:to="{ name: 'dropdowns' }"-->
+          <!--:to="{ name: 'dropdowns' }"-->
         <!--&gt;-->
-        <!--<span slot="title">-->
-        <!--<span>{{ $t('menu.dropdowns') }}</span>-->
-        <!--</span>-->
+          <!--<span slot="title">-->
+            <!--<span>{{ $t('menu.dropdowns') }}</span>-->
+          <!--</span>-->
         <!--</sidebar-link>-->
         <sidebar-link
           :to="{ name: 'filters' }">
@@ -167,9 +167,21 @@
           </span>
         </sidebar-link>
         <sidebar-link
+          :to="{ name: 'rating'}">
+          <span slot="title">
+            <span>{{ $t('menu.rating') }}</span>
+          </span>
+        </sidebar-link>
+        <sidebar-link
           :to="{ name: 'sliders'}">
           <span slot="title">
             <span>{{ $t('menu.sliders') }}</span>
+          </span>
+        </sidebar-link>
+        <sidebar-link
+          :to="{ name: 'popovers'}">
+          <span slot="title">
+            <span>{{ $t('menu.popovers') }}</span>
           </span>
         </sidebar-link>
       </sidebar-link-group>

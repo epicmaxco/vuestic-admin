@@ -1,25 +1,25 @@
 <template>
   <div class="va-progress-bar">
-    <div :style="{color: $themes[color]}" class="va-progress-bar__info">
+    <div :style="{colorComputed}" class="va-progress-bar__info">
       <slot/>
     </div>
     <div class="va-progress-bar__progress-bar">
       <div
-        :style="{width: normalizedBuffer + '%', backgroundColor: $themes[color]}"
+        :style="{width: normalizedBuffer + '%', backgroundColor: colorComputed}"
         class="va-progress-bar__buffer"
       />
       <div
         v-if="!indeterminate"
-        :style="{width: normalizedValue + '%', backgroundColor: $themes[color]}"
+        :style="{width: normalizedValue + '%', backgroundColor: colorComputed}"
         class="va-progress-bar__overlay"
       />
       <template v-else>
         <div
-          :style="{backgroundColor: $themes[color]}"
+          :style="{backgroundColor: colorComputed}"
           class="va-progress-bar__overlay__indeterminate-start"
         />
         <div
-          :style="{backgroundColor: $themes[color]}"
+          :style="{backgroundColor: colorComputed}"
           class="va-progress-bar__overlay__indeterminate-end"
         />
       </template>
@@ -30,10 +30,11 @@
 <script>
 import { progressMixin } from './progressMixin'
 import { normalizeValue } from '../../../../services/utils'
+import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 
 export default {
   name: 'va-progress-bar',
-  mixins: [progressMixin],
+  mixins: [progressMixin, ColorThemeMixin],
   props: {
     buffer: {
       type: Number,

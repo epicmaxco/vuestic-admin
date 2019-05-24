@@ -1,8 +1,7 @@
 <template>
   <div class="features-tab">
-    <div class="va-row d-flex justify--space-around">
-
-      <div class="xs12">
+    <div class="va-row">
+      <div class="flex xs12 md6">
         <div class="features-tab__item d-flex align--center mb-5 pr-3 text--bold">
           <div class="features-tab__item__icon-container flex-center fill-height">
             <va-icon-vue/>
@@ -23,7 +22,7 @@
         </div>
       </div>
 
-      <div class="xs12">
+      <div class="flex xs12 md6">
         <div class="features-tab__item d-flex align--center mb-5 pr-3 text--bold">
           <div class="features-tab__item__icon-container flex-center fill-height">
             <va-icon-responsive/>

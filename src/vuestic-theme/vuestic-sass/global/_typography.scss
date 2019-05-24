@@ -46,6 +46,10 @@
   &--warning {
     color: $theme-warning;
   }
+
+  &--gray {
+    color: $brand-secondary;
+  }
 }
 
 .text {
@@ -179,6 +183,38 @@ ol.va-ordered {
       position: relative;
       right: 1rem;
       margin-right: -0.75em;
+    }
+  }
+}
+
+.va-table {
+  width: 100%;
+  border-collapse: collapse;
+  @extend .mb-3;
+
+  thead tr {
+    border-bottom: 2px solid $vue-darkest-blue;
+
+    td {
+      @extend .title;
+      color: $vue-darkest-blue;
+    }
+  }
+
+  td {
+    padding: .625rem;
+    font-size: .875rem;
+    line-height: 1.43;
+    color: $vue-darkest-blue;
+  }
+
+  &.striped {
+    tbody tr:nth-of-type(odd) {
+      background-color: $white;
+    }
+
+    tbody tr:nth-of-type(even) {
+      background-color: $light-gray3;
     }
   }
 }

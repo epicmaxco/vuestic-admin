@@ -58,7 +58,15 @@ export default {
       type: Boolean,
       default: false,
     },
+    noPaddingH: {
+      type: Boolean,
+      default: false,
+    },
     noPadding: {
+      type: Boolean,
+      default: false,
+    },
+    noMargin: {
       type: Boolean,
       default: false,
     },
@@ -90,6 +98,7 @@ export default {
     computedCardBodyClass () {
       return {
         'va-card__body--no-padding-v': this.noPaddingV,
+        'va-card__body--no-padding-h': this.noPaddingH,
         'va-card__body--no-padding': this.noPadding,
         'va-card__body--padding-top':
           (!this.showHeader && !this.noPaddingV && !this.noPadding) ||
@@ -106,6 +115,11 @@ export default {
         return {
           color: '#fff',
           background: getGradientBackground(this.$themes[this.color]),
+          marginBottom: this.noMargin ? 0 : '2.5rem',
+        }
+      } else {
+        return {
+          marginBottom: this.noMargin ? 0 : '2.5rem',
         }
       }
     },
@@ -125,12 +139,11 @@ export default {
   background-color: $white;
   position: relative;
   overflow: hidden;
-  margin-bottom: 2.5rem;
 
   &__header {
     &-inner {
       display: flex;
-      padding: 0.5rem 1.25rem;
+      padding: 0.5rem $card-padding;
       min-height: 3.5rem;
       align-items: center;
     }
@@ -165,11 +178,15 @@ export default {
   }
 
   &__body {
-    padding: 0 1.25rem 1.25rem;
+    padding: 0 $card-padding $card-padding;
     flex: 1 1 auto;
 
     &--no-padding-v {
-      padding: 0 1.25rem;
+      padding: 0 $card-padding;
+    }
+
+    &--no-padding-h {
+      padding: $card-padding 0;
     }
 
     &--no-padding {
@@ -177,7 +194,7 @@ export default {
     }
 
     &--padding-top {
-      padding-top: 1.25rem;
+      padding-top: $card-padding;
     }
   }
 

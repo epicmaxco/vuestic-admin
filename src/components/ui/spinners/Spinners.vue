@@ -40,7 +40,7 @@
               </div>
             </div>
             <div class="flex md6 lg4 xs4 spinners__color">
-              <va-pallet-custom
+              <va-palette-custom
                 :palette="paletteArray"
                 v-model="color"
                 class="spinners__color-picker"
@@ -83,8 +83,8 @@
 <script>
 import * as spinners from 'epic-spinners'
 import { mapGetters } from 'vuex'
-import VaPalletCustom
-  from '../../../vuestic-theme/vuestic-components/va-color-picker/VaPalletCustom'
+import VaPaletteCustom
+  from '../../../vuestic-theme/vuestic-components/va-color-picker/VaPaletteCustom'
 import { colorArray } from '../../../vuestic-theme/vuestic-components/va-color-picker/VuesticTheme'
 import VaSlider
   from '../../../vuestic-theme/vuestic-components/va-slider/VaSlider'
@@ -96,7 +96,7 @@ import VaIconSlower
 export default {
   components: {
     ...spinners,
-    VaPalletCustom,
+    VaPaletteCustom,
     VaSlider,
     VaIconFaster,
     VaIconSlower,

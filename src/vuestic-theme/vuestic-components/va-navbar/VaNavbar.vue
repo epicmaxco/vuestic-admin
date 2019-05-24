@@ -21,7 +21,6 @@
 </template>
 
 <script>
-// TODO: delete d-none and d-lg-flex and use smth instead of this
 export default {
   name: 'va-navbar',
 }
