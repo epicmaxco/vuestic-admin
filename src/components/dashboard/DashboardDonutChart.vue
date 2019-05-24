@@ -1,9 +1,10 @@
 <template>
-  <va-card title="Loading speed">
+  <va-card title="Loading speed" noMargin>
     <va-button
       icon="fa fa-print"
       flat
       slot="actions"
+      class="mr-0"
     />
     <va-chart
       :data="donutChartData"
@@ -18,7 +19,7 @@ import DonutChartData from '@/data/charts/DonutChartData'
 export default {
   name: 'DashboardDonutChart',
   data: () => ({
-    donutChartData: DonutChartData
+    donutChartData: DonutChartData,
   }),
 }
 </script>

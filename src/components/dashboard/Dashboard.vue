@@ -1,29 +1,29 @@
 <template>
   <div class="dashboard">
     <div class="va-row row-equal">
-      <div class="flex xs12 lg6">
+      <div class="flex xs12 xl6">
         <dashboard-line-chart />
       </div>
-      <div class="flex xs12 md6 lg3">
+      <div class="flex xs12 md6 xl3">
         <dashboard-donut-chart />
       </div>
-      <div class="flex xs12 md6 lg3">
+      <div class="flex xs12 md6 xl3">
         <dashboard-progress-bars />
       </div>
     </div>
 
-    <dashboard-info-block />
+    <!--<dashboard-info-block />-->
 
-    <dashboard-table />
+    <!--<dashboard-table />-->
 
-    <div class="va-row row-equal">
-      <div class="flex xs12 lg6">
-        <dashboard-tabs />
-      </div>
-      <div class="flex xs12 lg6">
-        <dashboard-map />
-      </div>
-    </div>
+    <!--<div class="va-row row-equal">-->
+      <!--<div class="flex xs12 lg6">-->
+        <!--<dashboard-tabs />-->
+      <!--</div>-->
+      <!--<div class="flex xs12 lg6">-->
+        <!--<dashboard-map />-->
+      <!--</div>-->
+    <!--</div>-->
   </div>
 </template>
 
@@ -45,7 +45,7 @@ export default {
     DashboardInfoBlock,
     DashboardTable,
     DashboardTabs,
-    DashboardMap
+    DashboardMap,
   },
 
   methods: {
@@ -70,6 +70,11 @@ export default {
   .row-equal .flex{
     .va-card {
       height: calc(100% - 2.5rem);
+    }
+  }
+  .dashboard {
+    .va-card {
+      margin-bottom: 0 !important;
     }
   }
 </style>

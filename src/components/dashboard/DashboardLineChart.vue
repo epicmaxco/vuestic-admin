@@ -1,9 +1,10 @@
 <template>
-  <va-card title="Trendy Trends">
+  <va-card title="Trendy Trends" noMargin>
     <va-button
       small
       slot="actions"
       color="danger"
+      class="mr-0"
     >
       Delete Section
     </va-button>
@@ -21,7 +22,7 @@ import { getLineChartData } from '@/data/charts/LineChartData'
 export default {
   name: 'DashboardLineChart',
   data: () => ({
-    lineChartData: getLineChartData()
+    lineChartData: getLineChartData(),
   }),
 }
 </script>

@@ -1,25 +1,30 @@
 <template>
   <div class="extra">
-    <va-card
-      :headerText="$t('extra.tabs.title')"
-      class="no-v-padding"
-    >
-      <va-tabs grow v-model="value">
-        <va-tab>
-          {{$t('extra.tabs.setupProfile')}}
-        </va-tab>
-        <va-tab>
-          {{$t('extra.tabs.maps')}}
-        </va-tab>
-        <va-tab>
-          {{$t('extra.tabs.overview')}}
-        </va-tab>
-      </va-tabs>
-      <va-separator/>
-      <setup-profile-tab wizardType="simple" v-if="value === 0"/>
-      <leaflet-map v-if="value === 1"/>
-      <overview-tab v-if="value === 2"/>
-    </va-card>
+    <div class="va-row">
+      <div class="flex xs12">
+        <va-card
+          :headerText="$t('extra.tabs.title')"
+          class="no-v-padding"
+        >
+          <va-tabs grow v-model="value">
+            <va-tab>
+              {{$t('extra.tabs.setupProfile')}}
+            </va-tab>
+            <va-tab>
+              {{$t('extra.tabs.maps')}}
+            </va-tab>
+            <va-tab>
+              {{$t('extra.tabs.overview')}}
+            </va-tab>
+          </va-tabs>
+          <va-separator/>
+          <setup-profile-tab wizardType="simple" v-if="value === 0"/>
+          <leaflet-map v-if="value === 1"/>
+          <overview-tab v-if="value === 2"/>
+        </va-card>
+      </div>
+    </div>
+
     <div class="va-row">
       <div class="flex md4">
         <va-card
@@ -60,9 +65,8 @@
 </template>
 
 <script>
-import OverviewTab from 'components/dashboard/features-tab/FeaturesTab.vue'
-import SetupProfileTab
-  from 'components/dashboard/setup-profile-tab/SetupProfileTab.vue'
+import OverviewTab from 'components/dashboard/dashboard-old/features-tab/FeaturesTab.vue'
+import SetupProfileTab from 'components/dashboard/dashboard-old/setup-profile-tab/SetupProfileTab.vue'
 import LeafletMap from 'components/maps/leaflet-maps/LeafletMap.vue'
 import VaProfileCard
   from '../../vuestic-theme/vuestic-components/va-profile-card/VaProfileCard'

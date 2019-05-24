@@ -61,7 +61,7 @@ $vuestic-preloader-top: calc(50% - 104px / 2);
   .content-wrap {
     margin-left: $content-wrap-ml;
     transition: margin-left 0.3s ease;
-    padding: $layout-padding $layout-padding-right $content-wrap-pb 0;
+    padding: 0;
 
     .pre-loader {
       position: absolute;
