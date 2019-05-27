@@ -23,9 +23,8 @@
 * `id` - String
 * `name` - String
 * `label` - String - label to the right of checkbox
-* `value` - Boolean - main value
-* `array` - Array<String>
-* `arrayValue` - String - if arrayValue is included in value array - checkbox should be selected
+* `value` - Boolean | Array - main value
+* `arrayValue` - Any
 * `disabled` - Boolean
 * `readonly` - Boolean
 * `errorMessages` - Number - list of error messages for current input field
