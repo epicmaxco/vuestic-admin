@@ -1,42 +1,47 @@
 <template>
   <div class="va-chat">
-    <div class="chat-body" :style="{'height': height}"
-         v-sticky-scroll="{animate: true, duration: 500}">
+    <div
+      class="va-chat__body"
+      :style="{'height': height}"
+      v-sticky-scroll="{
+        animate: true,
+        duration: 500
+      }"
+    >
       <div
-        class="chat-message"
+        class="va-chat__message"
         v-for="(message, index) in value"
         :key="index"
-        :class="{'yours': message.yours, 'alien': !message.yours}"
+        :class="{'va-chat__message--yours': message.yours}"
       >
         {{message.text}}
       </div>
     </div>
-    <div class="chat-controls">
-      <fieldset>
-        <div class="form-group form-group-w-btn">
-          <div class="input-group">
-            <input @keypress="keyHandler($event)" v-model="inputMessage"
-                   required title=""/>
-            <label class="control-label">Your message</label>
-            <va-icon icon="bar"/>
-          </div>
-          <va-button @click="sendMessage()">
-            Send
-          </va-button>
-        </div>
-      </fieldset>
+    <div class="va-chat__controls">
+      <va-input
+        v-model="inputMessage"
+        @keypress.enter="sendMessage"
+        :label="inputLabel"
+        class="va-chat__input"
+      />
+      <va-button
+        @click="sendMessage()"
+        slot="append"
+      >
+        {{buttonLabel}}
+      </va-button>
     </div>
   </div>
 </template>
 
 <script>
 import StickyScroll from '../../vuestic-directives/StickyScroll'
-
 // NOTE Doesn't seem like reusable component.
 // Might make more sense to make part of presentation.
 
 export default {
   name: 'va-chat',
+  components: {},
   directives: { StickyScroll },
   props: {
     value: {
@@ -45,6 +50,15 @@ export default {
     },
     height: {
       default: '20rem',
+      type: String,
+    },
+    inputLabel: {
+      default: 'Your message',
+      type: String,
+    },
+    buttonLabel: {
+      default: 'Send',
+      type: String,
     },
   },
 
@@ -55,12 +69,6 @@ export default {
   },
 
   methods: {
-    keyHandler (event) {
-      if (event.keyCode === 13) {
-        this.sendMessage()
-      }
-    },
-
     sendMessage () {
       if (this.inputMessage) {
         this.$emit('input', this.value.concat({
@@ -79,51 +87,49 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-$chat-body-min-height: 18.75rem;
-$chat-body-mb: 1.5rem;
-$chat-message-mb: 0.625rem;
-$chat-message-py: 0.657rem;
-$chat-message-px: 1.375rem;
-$chat-message-br: 0.875rem;
+$chat-message-br: .875rem;
 
 .va-chat {
   width: 100%;
-}
 
-.chat-body {
-  min-height: $chat-body-min-height;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: $chat-body-mb;
-  overflow: auto;
-}
+  &__body {
+    min-height: 18.75rem;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    overflow-y: auto;
+  }
 
-.chat-message {
-  padding: $chat-message-py $chat-message-px;
-  margin-bottom: $chat-message-mb;
-  border-radius: $chat-message-br;
-  max-width: 70%;
-  overflow-wrap: break-word;
+  &__message {
+    padding: .657rem 1.375rem;
+    margin-bottom: .625rem;
+    max-width: 70%;
+    overflow-wrap: break-word;
+    border-radius: $chat-message-br;
+    border-top-right-radius: 0;
 
-  &:last-child {
+    align-self: flex-start;
+    background-color: $light-gray2;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--yours {
+      align-self: flex-end;
+      border-top-right-radius: 0;
+      border-top-left-radius: $chat-message-br;
+      background-color: $brand-primary;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+  }
+
+  &__input {
     margin-bottom: 0;
   }
-
-  &.alien {
-    align-self: flex-start;
-    border-top-left-radius: 0;
-    background-color: $light-gray2;
-  }
-
-  &.yours {
-    align-self: flex-end;
-    border-top-right-radius: 0;
-    background-color: $brand-primary;
-  }
-
-  .chat-message-input {
-    resize: vertical !important;
-  }
 }
-
 </style>
