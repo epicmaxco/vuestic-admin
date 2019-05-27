@@ -1,6 +1,6 @@
 <template>
-  <div class="vuestic-medium-editor">
-    <slot></slot>
+  <div class="va-medium-editor">
+    <slot/>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 import MediumEditor from 'medium-editor'
 
 export default {
-  name: 'vuestic-medium-editor',
+  name: 'va-medium-editor',
 
   props: {
     editorOptions: {
@@ -63,9 +63,7 @@ export default {
 <style lang="scss">
 @import "~medium-editor/src/sass/medium-editor";
 
-.vuestic-medium-editor {
-  &:focus {
-    outline: none;
-  }
+.va-medium-editor:focus {
+  outline: none;
 }
 </style>
