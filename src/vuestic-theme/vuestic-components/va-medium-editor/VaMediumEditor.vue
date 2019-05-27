@@ -63,7 +63,10 @@ export default {
 <style lang="scss">
 @import "~medium-editor/src/sass/medium-editor";
 
-.va-medium-editor:focus {
-  outline: none;
+.va-medium-editor{
+  min-width: 6rem;
+  &:focus {
+    outline: none;
+  }
 }
 </style>
