@@ -21,11 +21,11 @@
       <va-input
         v-model="inputMessage"
         @keypress.enter="sendMessage"
-        :label="inputLabel"
+        label="Your message"
         class="va-chat__input"
       />
       <va-button @click="sendMessage()">
-        {{buttonLabel}}
+        Send
       </va-button>
     </div>
   </div>
@@ -36,8 +36,12 @@ import StickyScroll from '../../vuestic-theme/vuestic-directives/StickyScroll'
 
 export default {
   name: 'chat',
-  components: {},
   directives: { StickyScroll },
+  data () {
+    return {
+      inputMessage: '',
+    }
+  },
   props: {
     value: {
       type: Array,
@@ -47,36 +51,18 @@ export default {
       default: '20rem',
       type: String,
     },
-    inputLabel: {
-      default: 'Your message',
-      type: String,
-    },
-    buttonLabel: {
-      default: 'Send',
-      type: String,
-    },
   },
-
-  data () {
-    return {
-      inputMessage: '',
-    }
-  },
-
   methods: {
     sendMessage () {
-      if (this.inputMessage) {
-        this.$emit('input', this.value.concat({
-          text: this.inputMessage,
-          yours: true,
-        }))
-        this.inputMessage = ''
+      if (!this.inputMessage) {
+        return
       }
+      this.$emit('input', this.value.concat({
+        text: this.inputMessage,
+        yours: true,
+      }))
+      this.inputMessage = ''
     },
-  },
-
-  mounted () {
-    this.$emit('input', this.value)
   },
 }
 </script>
