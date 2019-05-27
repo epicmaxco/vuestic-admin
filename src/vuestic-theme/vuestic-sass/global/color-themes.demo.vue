@@ -10,16 +10,16 @@
       </va-notification>
       <va-progress-bar class="mb-5" indeterminate color="info"/>
       <va-slider
+        class="mb-5"
         :value="60"
         value-visible
         label="Label"
         color="info"
         icon-right="fa fa-volume-up"
       />
-      {{$themes.blurple}}
-      <va-button class="mb-5" color="blurple">
+      <va-rating class="mb-5" color="info" :value="3">
         Default Button
-      </va-button>
+      </va-rating>
     </VbCard>
     <VbCard title="Change `info` color">
       <va-color-picker-input v-model="$themes.info" mode="advanced"/>
@@ -37,9 +37,11 @@ import VaPaletteCustom
   from '../../vuestic-components/va-color-picker/VaPaletteCustom'
 import VaColorPickerInput
   from '../../vuestic-components/va-color-picker/VaColorPickerInput'
+import VaRating from '../../vuestic-components/va-rating/VaRating'
 
 export default {
   components: {
+    VaRating,
     VaColorPickerInput,
     VaButton,
     VaNotification,

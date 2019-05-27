@@ -15,13 +15,13 @@
         cy="42.5"
         :r="radius"
         fill="none"
-        :stroke="$themes[color]"
+        :stroke="colorComputed"
         stroke-width="2.5"
         :stroke-dasharray="dasharray"
         :stroke-dashoffset="dashoffset"
       />
     </svg>
-    <div :style="{ color: $themes[color] }" class="va-progress-circle__info">
+    <div :style="{ color: colorComputed }" class="va-progress-circle__info">
       <slot/>
     </div>
   </div>
@@ -29,10 +29,11 @@
 
 <script>
 import { progressMixin } from './progressMixin'
+import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 
 export default {
   name: 'va-progress-circle',
-  mixins: [progressMixin],
+  mixins: [progressMixin, ColorThemeMixin],
   computed: {
     radius () {
       return 20
