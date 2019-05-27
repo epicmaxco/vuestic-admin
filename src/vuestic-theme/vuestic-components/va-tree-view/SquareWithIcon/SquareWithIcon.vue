@@ -34,6 +34,12 @@ export default {
   color: $white;
   background-color: $vue-green;
   border-radius: .25rem;
-  font-size: .875rem;
+
+  .va-icon {
+    width: .875rem;
+    height: .875rem;
+    text-align: center;
+  }
+
 }
 </style>

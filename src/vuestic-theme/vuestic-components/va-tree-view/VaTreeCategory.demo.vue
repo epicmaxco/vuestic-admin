@@ -56,43 +56,7 @@
       </va-tree-category>
     </VbCard>
     <VbCard title="Colors">
-      <va-tree-category label="Category with icon">
-        <va-icon slot="icon" icon="ion ion-md-nutrition"/>
-        <va-tree-node>
-          One
-        </va-tree-node>
-        <va-tree-node>
-          Two
-        </va-tree-node>
-        <va-tree-node>
-          Three
-        </va-tree-node>
-      </va-tree-category>
       <va-tree-category label="Category with icon" color="info">
-        <va-icon slot="icon" icon="ion ion-md-nutrition"/>
-        <va-tree-node>
-          One
-        </va-tree-node>
-        <va-tree-node>
-          Two
-        </va-tree-node>
-        <va-tree-node>
-          Three
-        </va-tree-node>
-      </va-tree-category>
-      <va-tree-category label="Category with icon" color="danger">
-        <va-icon slot="icon" icon="ion ion-md-nutrition"/>
-        <va-tree-node>
-          One
-        </va-tree-node>
-        <va-tree-node>
-          Two
-        </va-tree-node>
-        <va-tree-node>
-          Three
-        </va-tree-node>
-      </va-tree-category>
-      <va-tree-category label="Category with icon" color="warning">
         <va-icon slot="icon" icon="ion ion-md-nutrition"/>
         <va-tree-node>
           One
