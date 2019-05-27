@@ -3,7 +3,6 @@ import VaNotification
 import VaBreadcrumbs
   from './vuestic-components/va-breadcrumbs/VaBreadcrumbs.vue'
 import VaChart from './vuestic-components/va-chart/VaChart.vue'
-import VaChat from './vuestic-components/va-chat/VaChat.vue'
 import VaCheckbox from './vuestic-components/va-checkbox/VaCheckbox.vue'
 import VaProgressCircle
   from './vuestic-components/va-progress-bar/progress-types/VaProgressCircle.vue'
@@ -79,7 +78,6 @@ const VuesticPlugin = {
       VaNotification,
       VaBreadcrumbs,
       VaChart,
-      VaChat,
       VaCheckbox,
       VaProgressBar,
       VaDataTable,

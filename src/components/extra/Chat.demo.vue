@@ -1,16 +1,16 @@
 <template>
     <VbDemo>
       <VbCard>
-        <va-chat v-model="chatMessages"/>
+        <chat v-model="chatMessages"/>
       </VbCard>
     </VbDemo>
 </template>
 
 <script>
-import VaChat from './VaChat'
+import Chat from './Chat'
 
 export default {
-  components: { VaChat },
+  components: { Chat },
   data () {
     return {
       chatMessages: [

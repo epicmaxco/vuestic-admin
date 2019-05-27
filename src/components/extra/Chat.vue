@@ -24,10 +24,7 @@
         :label="inputLabel"
         class="va-chat__input"
       />
-      <va-button
-        @click="sendMessage()"
-        slot="append"
-      >
+      <va-button @click="sendMessage()">
         {{buttonLabel}}
       </va-button>
     </div>
@@ -35,12 +32,10 @@
 </template>
 
 <script>
-import StickyScroll from '../../vuestic-directives/StickyScroll'
-// NOTE Doesn't seem like reusable component.
-// Might make more sense to make part of presentation.
+import StickyScroll from '../../vuestic-theme/vuestic-directives/StickyScroll'
 
 export default {
-  name: 'va-chat',
+  name: 'chat',
   components: {},
   directives: { StickyScroll },
   props: {
