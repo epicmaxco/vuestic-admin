@@ -87,7 +87,7 @@ $chat-message-br: .875rem;
     max-width: 70%;
     overflow-wrap: break-word;
     border-radius: $chat-message-br;
-    border-top-right-radius: 0;
+    border-top-left-radius: 0;
 
     align-self: flex-start;
     background-color: $light-gray2;
