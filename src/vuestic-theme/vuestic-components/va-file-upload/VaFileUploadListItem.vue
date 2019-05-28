@@ -25,7 +25,7 @@
         <span>{{ $t('fileUpload.uploadedOn')}} {{ file.date }}</span>
       </div>
       <div class="file-upload-list-item__button-container flex xs12 lg2">
-        <va-button outline @click="removeFile">
+        <va-button outline @click="removeFile" color="danger" small>
           {{ $t('fileUpload.delete') }}
         </va-button>
       </div>

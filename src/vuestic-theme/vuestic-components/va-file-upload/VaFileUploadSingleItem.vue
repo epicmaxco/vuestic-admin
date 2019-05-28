@@ -3,7 +3,7 @@
     <div class="file-upload-single-item-name">
       {{ file.name }}
     </div>
-    <va-button flat @click="$emit('remove')">
+    <va-button flat @click="$emit('remove')" color="danger">
       {{ $t('fileUpload.delete') }}
     </va-button>
   </div>

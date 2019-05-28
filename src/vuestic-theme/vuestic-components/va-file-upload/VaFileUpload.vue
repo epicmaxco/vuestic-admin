@@ -1,12 +1,31 @@
 <template>
-  <div class="va-file-upload"
-       :class="{'va-file-upload--dropzone': dropzone}">
-    <va-file-upload-container
-      :type="type"
-      :fileTypes="fileTypes"
-      :dropzone="dropzone"
-      @upload="uploadFile"
+  <div
+    class="va-file-upload"
+    :class="{'va-file-upload--dropzone': dropzone}"
+  >
+    <div
+      class="va-file-upload__field"
+      :class="{'va-file-upload-container__field--dropzone': dropzone}"
     >
+      <div
+        class="va-file-upload__field__text"
+        v-if="dropzone"
+      >
+        {{ $t('fileUpload.dragNdropFiles') }}
+      </div>
+      <va-button class="va-file-upload__field__button">
+        {{ $t('fileUpload.uploadFile') }}
+      </va-button>
+      <input
+        type="file"
+        class="va-file-upload__field__input"
+        ref="fieldInput"
+        :accept="fileTypes"
+        :multiple="type !== 'single'"
+        @change="changeFieldValue"
+      >
+    </div>
+    <div class="va-file-upload__main">
       <va-file-upload-list
         v-if="files.length"
         :type="type"
@@ -14,32 +33,30 @@
         @remove="removeFile"
         @remove-single="removeSingleFile"
       />
-      <va-modal ref="mediumModal" :no-buttons="true">
-        <div slot="title">{{ $t('fileUpload.modalTitle') }}</div>
-        <div>
-          {{ $t('fileUpload.modalText') }}
-        </div>
-      </va-modal>
-    </va-file-upload-container>
+      <va-modal
+        v-model="modal"
+        hideDefaultActions
+        :title="$t('fileUpload.modalTitle')"
+        :message="$t('fileUpload.modalText')"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import VaFileUploadList from './VaFileUploadList'
-import VaFileUploadContainer from './VaFileUploadContainer'
 
 export default {
   name: 'va-file-upload',
   components: {
     VaFileUploadList,
-    VaFileUploadContainer,
   },
   props: {
     type: {
       type: String,
       default: 'list',
       validator (value) {
-        return ['list', 'gallery', 'single'].indexOf(value) !== -1
+        return ['list', 'gallery', 'single'].includes(value)
       },
     },
     fileTypes: {
@@ -48,13 +65,22 @@ export default {
     },
     dropzone: {
       type: Boolean,
-      default: false,
     },
     value: {
       default: () => [],
+      required: true,
     },
   },
+  data () {
+    return {
+      modal: false,
+    }
+  },
   methods: {
+    changeFieldValue (e) {
+      this.uploadFile(e)
+      this.$refs.fieldInput.value = ''
+    },
     uploadFile (e) {
       let files = e.target.files || e.dataTransfer.files
 
@@ -75,10 +101,10 @@ export default {
         const fileName = file.name
         const extn = fileName.substring(fileName.lastIndexOf('.') + 1)
           .toLowerCase()
-        if (this.fileTypes.indexOf(extn) === -1) {
-          this.$refs.mediumModal.open()
+        if (!this.fileTypes.includes(extn)) {
+          this.modal = true
         }
-        return this.fileTypes.indexOf(extn) !== -1
+        return this.fileTypes.includes(extn)
       })
     },
   },
@@ -96,11 +122,63 @@ export default {
 </script>
 
 <style lang='scss'>
+@import '../../vuestic-sass/resources/resources';
+
 .va-file-upload {
+  position: relative;
+
   &--dropzone {
     background-color: $lighter-green;
-    padding: 0 2rem;
+    padding: 1.5rem 2rem;
     overflow: hidden;
+    border-radius: .375rem;
+  }
+
+  &__field {
+    padding-bottom: 1rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    @media (max-width: 576px) {
+      &--dropzone {
+        flex-direction: column;
+        padding: 0;
+      }
+    }
+
+    &__button {
+      margin: 0;
+    }
+
+    &--dropzone {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 10rem;
+      padding: 0 2rem;
+      transition: height .2s;
+      overflow: visible;
+    }
+
+    &__text {
+      padding-right: 10px;
+    }
+
+    &__input {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: block;
+      min-height: 10rem;
+      min-width: 100%;
+      color: transparent;
+      opacity: 0;
+      filter: alpha(opacity=0);
+      cursor: pointer;
+    }
   }
 }
 
