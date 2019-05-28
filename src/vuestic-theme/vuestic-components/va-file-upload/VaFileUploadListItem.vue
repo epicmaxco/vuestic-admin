@@ -8,9 +8,7 @@
       v-if="removed"
     >
       <div class="flex md12">
-        <va-file-upload-undo
-          @recover="recoverFile"
-        />
+        <va-file-upload-undo @recover="recoverFile"/>
       </div>
     </div>
 
@@ -22,11 +20,11 @@
         {{ file.size }}
       </div>
       <div class="file-upload-list-item__date flex xs12 lg4">
-        <span>{{ $t('fileUpload.uploadedOn')}} {{ file.date }}</span>
+        <span>Uploaded on {{ file.date }}</span>
       </div>
       <div class="file-upload-list-item__button-container flex xs12 lg2">
         <va-button outline @click="removeFile" color="danger" small>
-          {{ $t('fileUpload.delete') }}
+          Delete
         </va-button>
       </div>
     </div>
@@ -35,10 +33,12 @@
 
 <script>
 import VaFileUploadUndo from './VaFileUploadUndo'
+import VaButton from '../va-button/VaButton'
 
 export default {
   name: 'va-file-upload-list-item',
   components: {
+    VaButton,
     VaFileUploadUndo,
   },
   props: {
@@ -69,6 +69,8 @@ export default {
 </script>
 
 <style lang='scss'>
+@import '../../vuestic-sass/resources/resources';
+
 .file-upload-list-item {
   & + & {
     margin-top: 0.5rem;

@@ -3,7 +3,7 @@
       <VbCard title="basic">
         <va-file-upload v-model="basic" type="single"/>
       </VbCard>
-      <VbCard :title="$t('fileUpload.advancedMediaGallery')">
+      <VbCard title="advanced gallery">
         <va-file-upload
           type="gallery"
           :file-types="'.png, .jpg, .jpeg, .gif'"
@@ -11,26 +11,20 @@
           v-model="advancedGallery"
         />
       </VbCard>
-      <VbCard :title="$t('fileUpload.advancedUploadList')">
+      <VbCard title="advanced list">
         <va-file-upload
           dropzone
           v-model="advancedList"
         />
       </VbCard>
-      <VbCard :title="$t('fileUpload.single')">
-        <va-file-upload
-          type="single"
-          v-model="single"
-        />
-      </VbCard>
-      <VbCard :title="$t('fileUpload.mediaGallery')">
+      <VbCard title="gallery">
         <va-file-upload
           type="gallery"
           :file-types="'.png, .jpg, .jpeg, .gif'"
           v-model="gallery"
         />
       </VbCard>
-      <VbCard :title="$t('fileUpload.uploadList')">
+      <VbCard title="list">
         <va-file-upload
           v-model="list"
         />
@@ -47,7 +41,6 @@ export default {
       basic: [],
       advancedGallery: [],
       advancedList: [],
-      single: [],
       gallery: [],
       list: [],
     }

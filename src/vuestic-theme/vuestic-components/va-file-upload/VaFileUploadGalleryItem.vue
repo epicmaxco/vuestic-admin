@@ -15,8 +15,8 @@
       <div class="file-upload-gallery-item-size">
         {{ file.size }}
       </div>
-      <va-button flat color="dark" class="file-upload-gallery-item-button" @click.native="removeImage">
-        {{ $t('fileUpload.deleteFile') }}
+      <va-button flat color="dark" class="file-upload-gallery-item-button" @click="removeImage">
+        Delete file
       </va-button>
     </div>
   </div>
@@ -24,10 +24,12 @@
 
 <script>
 import VaFileUploadUndo from './VaFileUploadUndo'
+import VaButton from '../va-button/VaButton'
 
 export default {
   name: 'file-upload-gallery-item',
   components: {
+    VaButton,
     VaFileUploadUndo,
   },
   data () {
@@ -86,6 +88,7 @@ export default {
 </script>
 
 <style lang='scss'>
+@import '../../vuestic-sass/resources/resources';
 .file-upload-gallery-item {
   position: relative;
   width: 100%;

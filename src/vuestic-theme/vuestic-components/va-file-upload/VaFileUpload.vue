@@ -3,18 +3,14 @@
     class="va-file-upload"
     :class="{'va-file-upload--dropzone': dropzone}"
   >
-    <div
-      class="va-file-upload__field"
-      :class="{'va-file-upload-container__field--dropzone': dropzone}"
-    >
+    <div class="va-file-upload__field">
       <div
         class="va-file-upload__field__text"
         v-if="dropzone"
-      >
-        {{ $t('fileUpload.dragNdropFiles') }}
+      >Drag’n’drop files or
       </div>
       <va-button class="va-file-upload__field__button">
-        {{ $t('fileUpload.uploadFile') }}
+        Upload file
       </va-button>
       <input
         type="file"
@@ -25,30 +21,32 @@
         @change="changeFieldValue"
       >
     </div>
-    <div class="va-file-upload__main">
-      <va-file-upload-list
-        v-if="files.length"
-        :type="type"
-        :files="files"
-        @remove="removeFile"
-        @remove-single="removeSingleFile"
-      />
-      <va-modal
-        v-model="modal"
-        hideDefaultActions
-        :title="$t('fileUpload.modalTitle')"
-        :message="$t('fileUpload.modalText')"
-      />
-    </div>
+    <va-file-upload-list
+      v-if="files.length"
+      :type="type"
+      :files="files"
+      @remove="removeFile"
+      @remove-single="removeSingleFile"
+    />
+    <va-modal
+      v-model="modal"
+      hideDefaultActions
+      title="File validation"
+      message="File type is incorrect!"
+    />
   </div>
 </template>
 
 <script>
 import VaFileUploadList from './VaFileUploadList'
+import VaButton from '../va-button/VaButton'
+import VaModal from '../va-modal/VaModal'
 
 export default {
   name: 'va-file-upload',
   components: {
+    VaModal,
+    VaButton,
     VaFileUploadList,
   },
   props: {
@@ -132,6 +130,21 @@ export default {
     padding: 1.5rem 2rem;
     overflow: hidden;
     border-radius: .375rem;
+    cursor: pointer;
+
+    .va-file-upload__field {
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      height: 10rem;
+      padding: 0 2rem;
+      transition: height .2s;
+      overflow: visible;
+      @media (max-width: 576px) {
+        flex-direction: column;
+        padding: 0;
+      }
+    }
   }
 
   &__field {
@@ -139,28 +152,10 @@ export default {
     overflow: hidden;
     display: flex;
     align-items: center;
-    justify-content: center;
     position: relative;
-
-    @media (max-width: 576px) {
-      &--dropzone {
-        flex-direction: column;
-        padding: 0;
-      }
-    }
 
     &__button {
       margin: 0;
-    }
-
-    &--dropzone {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 10rem;
-      padding: 0 2rem;
-      transition: height .2s;
-      overflow: visible;
     }
 
     &__text {
@@ -171,39 +166,15 @@ export default {
       position: absolute;
       top: 0;
       right: 0;
-      display: block;
-      min-height: 10rem;
-      min-width: 100%;
+      height: 100%;
+      width: 100%;
       color: transparent;
       opacity: 0;
-      filter: alpha(opacity=0);
       cursor: pointer;
+      &::-webkit-file-upload-button {
+        cursor: pointer;
+      }
     }
-  }
-}
-
-// Maybe we should create new component for text button
-.btn-text {
-  border: none;
-  background: none;
-  outline: none;
-  cursor: pointer;
-  padding: 0;
-
-  & + & {
-    margin-left: 1.5rem;
-  }
-
-  &--primary {
-    color: $vue-green;
-
-    &:hover {
-      opacity: 0.6;
-    }
-  }
-
-  &--secondary {
-    color: $white;
   }
 }
 

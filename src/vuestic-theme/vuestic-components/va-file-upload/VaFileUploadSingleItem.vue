@@ -3,15 +3,18 @@
     <div class="file-upload-single-item-name">
       {{ file.name }}
     </div>
-    <va-button flat @click="$emit('remove')" color="danger">
-      {{ $t('fileUpload.delete') }}
+    <va-button flat @click="$emit('remove')" color="danger" small>
+      Delete
     </va-button>
   </div>
 </template>
 
 <script>
+import VaButton from '../va-button/VaButton'
+
 export default {
   name: 'va-file-upload-single-item',
+  components: { VaButton },
   props: {
     file: {
       type: Object,

@@ -4,7 +4,7 @@
       <va-card :title="$t('fileUpload.advancedMediaGallery')">
         <va-file-upload
           type="gallery"
-          :file-types="'.png, .jpg, .jpeg, .gif'"
+          file-types=".png, .jpg, .jpeg, .gif"
           dropzone
           v-model="advancedGallery"
         />
@@ -33,7 +33,7 @@
       <va-card :title="$t('fileUpload.mediaGallery')">
         <va-file-upload
           type="gallery"
-          :file-types="'.png, .jpg, .jpeg, .gif'"
+          file-types=".png, .jpg, .jpeg, .gif"
           v-model="gallery"
         />
       </va-card>
