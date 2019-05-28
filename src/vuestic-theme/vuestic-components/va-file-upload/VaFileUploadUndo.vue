@@ -1,7 +1,7 @@
 <template>
   <div class="va-file-upload-undo">
-    File was successfully deleted
-    <va-button @click="$emit('recover')">Undo</va-button>
+    <span>File was successfully deleted</span>
+    <va-button @click="$emit('recover')" outline small>Undo</va-button>
   </div>
 </template>
 

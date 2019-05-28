@@ -12,18 +12,12 @@
       />
     </template>
     <template v-if="type === 'gallery'">
-      <div class="row">
-        <div
-          class="flex xl2 lg3 sm4"
-          v-for="(file, index) in filesList"
-          :key="file.name"
-        >
-          <va-file-upload-gallery-item
-            :file="file"
-            @remove="$emit('remove', index)"
-          />
-        </div>
-      </div>
+      <va-file-upload-gallery-item
+        v-for="(file, index) in filesList"
+        :file="file"
+        :key="file.name"
+        @remove="$emit('remove', index)"
+      />
     </template>
     <va-file-upload-single-item
       v-if="type === 'single' && filesList.length"
@@ -90,6 +84,8 @@ export default {
 
 <style lang='scss'>
 .va-file-upload-list {
+  display: flex;
+  flex-wrap: wrap;
   &--list {
     padding-bottom: 2rem;
   }

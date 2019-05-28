@@ -1,23 +1,31 @@
 <template>
-  <div v-if="removed" class="file-upload-gallery-item">
+  <div
+    v-if="removed"
+    class="file-upload-gallery-item"
+    :class="{'file-upload-gallery-item--undo': removed}"
+  >
     <va-file-upload-undo
-      class="file-upload-gallery-item-undo"
+      class="file-upload-gallery-item--undo"
       @recover="recoverImage"
     />
   </div>
 
-  <div v-else class="file-upload-gallery-item" :class="notGalleryItemClass">
-    <img :src="previewImage" alt="" class="file-upload-gallery-item-image">
-    <div class="file-upload-gallery-item-overlay">
-      <div class="file-upload-gallery-item-name" :title="file.name">
+  <div
+    v-else
+    class="file-upload-gallery-item"
+    :class="{'file-upload-gallery-item_not-image': !this.previewImage}"
+  >
+    <img :src="previewImage" alt="" class="file-upload-gallery-item__image">
+    <div class="file-upload-gallery-item__overlay">
+      <div class="file-upload-gallery-item__name" :title="file.name">
         {{ file.name }}
       </div>
-      <div class="file-upload-gallery-item-size">
-        {{ file.size }}
-      </div>
-      <va-button flat color="dark" class="file-upload-gallery-item-button" @click="removeImage">
-        Delete file
-      </va-button>
+      <va-icon
+        icon="ion ion-md-trash"
+        color="danger"
+        class="file-upload-gallery-item__delete"
+        @click.native="removeImage"
+      />
     </div>
   </div>
 </template>
@@ -25,10 +33,12 @@
 <script>
 import VaFileUploadUndo from './VaFileUploadUndo'
 import VaButton from '../va-button/VaButton'
+import VaIcon from '../va-icon/VaIcon'
 
 export default {
   name: 'file-upload-gallery-item',
   components: {
+    VaIcon,
     VaButton,
     VaFileUploadUndo,
   },
@@ -74,13 +84,6 @@ export default {
       }
     },
   },
-  computed: {
-    notGalleryItemClass () {
-      return {
-        'file-upload-gallery-item_not-image': !this.previewImage,
-      }
-    },
-  },
   mounted () {
     this.convertToImg()
   },
@@ -89,66 +92,83 @@ export default {
 
 <style lang='scss'>
 @import '../../vuestic-sass/resources/resources';
+
+$max-image-size: 8.5714rem;
 .file-upload-gallery-item {
   position: relative;
-  width: 100%;
-  padding-top: 100%;
   margin-bottom: 1rem;
+  margin-left: .5rem;
+  width: $max-image-size;
+  height: $max-image-size;
+  box-shadow: $card-box-shadow;
+  border-radius: .375rem;
+  overflow: hidden;
 
+  &:first-of-type {
+    margin-left: 0;
+  }
   &:hover {
-    .file-upload-gallery-item-overlay {
+    .file-upload-gallery-item__overlay {
       display: flex;
     }
   }
 
-  &-overlay {
+  &__overlay {
     display: none;
     position: absolute;
     height: 100%;
     width: 100%;
     top: 0;
     left: 0;
+    max-width: $max-image-size;
+    max-height: $max-image-size;
     flex-direction: column;
     padding: 0.5rem;
     background: rgba($vue-green, 0.8);
     z-index: 1;
   }
 
-  &-image {
+  &__image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: scale-down;
+    max-width: $max-image-size;
+    max-height: $max-image-size;
+    object-fit: cover;
   }
 
-  &-name {
+  &__name {
     color: $vue-darkest-blue;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: .875rem;
   }
 
-  &-size {
-    color: $vue-darkest-blue;
-  }
-
-  &-button {
+  &__delete {
+    cursor: pointer;
+    font-size: 1.5rem;
     margin-top: auto;
-    text-align: left;
   }
 
-  &-undo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0.7rem 0 0;
+  &--undo {
+    box-shadow: none;
+    .file-upload-gallery-item--undo {
+      padding: .5rem;
+      span {
+        margin-right: .5rem;
+      }
+      .va-button {
+        margin: 0;
+      }
+    }
   }
 }
 
 .file-upload-gallery-item_not-image {
-  .file-upload-gallery-item-overlay {
+  .file-upload-gallery-item__overlay {
     display: flex;
   }
 }
