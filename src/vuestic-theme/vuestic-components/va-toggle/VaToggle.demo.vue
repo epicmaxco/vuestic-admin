@@ -33,10 +33,20 @@
     </VbCard>
     <VbCard title="Array as model">
       {{selection}}
-      <va-toggle v-model="selection" array-value='one' label="one"/>
-      <va-toggle v-model="selection" array-value='two' label="two"/>
-      <va-toggle v-model="selection" array-value='three' label="three"/>
-      <va-toggle v-model="selection" array-value='four' label="four"/>
+      <va-toggle v-model="selection" array-value="one" label="one"/>
+      <va-toggle v-model="selection" array-value="two" label="two"/>
+      <va-toggle v-model="selection" array-value="three" label="three"/>
+      <va-toggle v-model="selection" array-value="four" label="four"/>
+    </VbCard>
+    <VbCard focus title="Object values">
+      {{selection}}
+      <va-toggle
+        v-for="objectOption in objectOptions"
+        :key="objectOption.id"
+        v-model="selection"
+        :array-value="objectOption"
+        :label="objectOption.name"
+      />
     </VbCard>
     <VbCard title="Disabled">
       <va-toggle v-model="value" disable/>
@@ -56,6 +66,11 @@ export default {
       value: true,
       customTrueFalse: 'disagree',
       selection: [],
+      objectOptions: [
+        { id: 1, name: 'one' },
+        { id: 2, name: 'two' },
+        { id: 3, name: 'three' },
+      ],
     }
   },
 }

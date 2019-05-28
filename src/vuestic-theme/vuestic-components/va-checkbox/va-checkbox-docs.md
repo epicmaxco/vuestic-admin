@@ -3,8 +3,8 @@
 Сheckbox supports `disabled` and `checked` attributes
 
 ```html
-<va-checkbox 
-  v-model="value" 
+<va-checkbox
+  v-model="value"
   label="Selected"
 />
 <va-checkbox
@@ -13,13 +13,18 @@
   :errorCount="3"
   label="With errors"
 />
-```  
+<va-checkbox
+  v-model="array"
+  array-value="one"
+/>
+```
 
 **Props**
 * `id` - String
 * `name` - String
 * `label` - String - label to the right of checkbox
-* `value` - Boolean - main value
+* `value` - Boolean | Array - main value
+* `arrayValue` - Any
 * `disabled` - Boolean
 * `readonly` - Boolean
 * `errorMessages` - Number - list of error messages for current input field

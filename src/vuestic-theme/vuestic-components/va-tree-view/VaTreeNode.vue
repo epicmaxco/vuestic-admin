@@ -1,31 +1,38 @@
 <template>
-  <div class="va-tree-node"
-       :class="{'va-tree-node-selected': selected}"
+  <div
+    class="va-tree-node"
+    :class="{'va-tree-node--highlighted': highlighted}"
   >
-    <div class="va-tree-node-checkbox" v-if="$slots.checkbox">
+    <div class="va-tree-node__checkbox" v-if="$slots.checkbox">
       <slot name="checkbox"/>
     </div>
-    <div class="va-tree-node-icon" v-if="$slots.icon">
-      <slot name="icon"/>
+    <div class="va-tree-node__icon" v-if="icon">
+      <va-icon :icon="icon" :color="$themes['info']"/>
     </div>
-    <div class="va-tree-node-label">
+    <div class="va-tree-node__label">
       <slot/>
     </div>
-    <div class="va-tree-node-icon-right" v-if="$slots.iconRight">
-      <slot name="iconRight"/>
+    <div class="va-tree-node__icon-right" v-if="iconRight">
+      <va-icon :icon="iconRight" :color="$themes['info']"/>
     </div>
   </div>
 </template>
 
 <script>
+import VaIcon from '../va-icon/VaIcon'
 export default {
   name: 'va-tree-node',
+  components: { VaIcon },
   props: {
-    selected: {
+    highlighted: {
       type: Boolean,
-      default: false,
     },
-
+    icon: {
+      type: String,
+    },
+    iconRight: {
+      type: String,
+    },
   },
 }
 </script>
@@ -34,47 +41,33 @@ export default {
 @import "../../vuestic-sass/resources/resources";
 
 .va-tree-node {
-  .form-group {
-    margin-bottom: 0px;
-  }
-
   display: flex;
+  align-items: center;
 
-  &-checkbox {
-    margin-right: 0.75rem;
+  .form-group {
+    margin-bottom: 0;
   }
 
-  &-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin-right: 0.375rem;
+  &__checkbox {
+    margin-right: .5rem;
   }
 
-  &-icon-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin-right: 0.375rem;
+  &__icon {
+    margin-right: .375rem;
   }
 
-  &-label {
+  &__icon-right {
+    margin-left: .375rem;
+  }
+
+  &__label {
     flex-grow: 1;
     word-wrap: break-word;
     overflow: hidden;
   }
 
-  &-selected #{&}-label {
+  &--highlighted #{&}__label {
     background-color: $vue-light-green;
-  }
-
-  // HACK Checkbox for presentation page
-  .va-checkbox {
-    margin-bottom: 0;
-    margin-top: -0.125rem;
-    margin-right: -0.625rem;
   }
 }
 </style>

@@ -11,7 +11,7 @@
     >
       <div
         class="va-checkbox__square"
-        :class="{'active': value}"
+        :class="{'active': isChecked}"
       >
         <input
           :id="id"
@@ -53,9 +53,10 @@ export default {
     label: String,
     name: String,
     value: {
-      type: Boolean,
+      type: [Boolean, Array],
       required: true,
     },
+    arrayValue: String,
 
     disabled: Boolean,
     readonly: Boolean,
@@ -73,12 +74,18 @@ export default {
   computed: {
     computedClass () {
       return {
-        'va-checkbox--selected': this.value,
+        'va-checkbox--selected': this.isChecked,
         'va-checkbox--readonly': this.readonly,
         'va-checkbox--disabled': this.disabled,
         'va-checkbox--error': this.showError,
         'va-checkbox--on-keyboard-focus': this.isKeyboardFocused,
       }
+    },
+    isChecked () {
+      return this.modelIsArray ? this.value.includes(this.arrayValue) : this.value
+    },
+    modelIsArray () {
+      return Array.isArray(this.value)
     },
     showError () {
       // We make error active, if the error-message is not empty and checkbox is not disabled
@@ -98,6 +105,15 @@ export default {
       if (this.disabled) {
         return
       }
+      if (this.modelIsArray) {
+        if (this.value.includes(this.arrayValue)) {
+          this.$emit('input', this.value.filter(option => option !== this.arrayValue))
+        } else {
+          this.$emit('input', this.value.concat(this.arrayValue))
+        }
+        return
+      }
+
       this.$emit('input', !this.value)
     },
   },

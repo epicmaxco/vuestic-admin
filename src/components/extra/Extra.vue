@@ -37,7 +37,7 @@
       </div>
       <div class="flex md8">
         <va-card :headerText="$t('extra.chat')" class="chat-widget">
-          <va-chat v-model="chatMessages"/>
+          <chat v-model="chatMessages"/>
         </va-card>
       </div>
     </div>
@@ -66,10 +66,12 @@ import SetupProfileTab
 import LeafletMap from 'components/maps/leaflet-maps/LeafletMap.vue'
 import VaProfileCard
   from '../../vuestic-theme/vuestic-components/va-profile-card/VaProfileCard'
+import Chat from './Chat'
 
 export default {
   name: 'extra',
   components: {
+    Chat,
     VaProfileCard,
     LeafletMap,
     SetupProfileTab,
