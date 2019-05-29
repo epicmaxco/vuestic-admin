@@ -1,7 +1,7 @@
 <template>
   <div
     class="va-file-upload-list"
-    :class="`va-file-upload--${type}`"
+    :class="`va-file-upload-list--${type}`"
   >
     <template v-if="type === 'list'">
       <va-file-upload-list-item
@@ -86,9 +86,7 @@ export default {
 .va-file-upload-list {
   display: flex;
   flex-wrap: wrap;
-  &--list {
-    padding-bottom: 2rem;
-  }
+  padding-bottom: 2rem;
 
   &--gallery {
     padding: 0 0 1rem;
