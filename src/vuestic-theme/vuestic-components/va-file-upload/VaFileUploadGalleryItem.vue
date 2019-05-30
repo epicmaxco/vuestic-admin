@@ -16,7 +16,10 @@
     :class="{'file-upload-gallery-item_not-image': !this.previewImage}"
   >
     <img :src="previewImage" alt="" class="file-upload-gallery-item__image">
-    <div class="file-upload-gallery-item__overlay">
+    <div
+      class="file-upload-gallery-item__overlay"
+      :style="overlayStyles"
+    >
       <div class="file-upload-gallery-item__name" :title="file.name">
         {{ file.name }}
       </div>
@@ -34,6 +37,7 @@
 import VaFileUploadUndo from './VaFileUploadUndo'
 import VaButton from '../va-button/VaButton'
 import VaIcon from '../va-icon/VaIcon'
+import { getHoverColor } from '../../../services/color-functions'
 
 export default {
   name: 'file-upload-gallery-item',
@@ -56,6 +60,13 @@ export default {
   watch: {
     file () {
       this.convertToImg()
+    },
+  },
+  computed: {
+    overlayStyles () {
+      return {
+        backgroundColor: getHoverColor(this.$themes['success']),
+      }
     },
   },
   methods: {
@@ -124,7 +135,7 @@ $max-image-size: 8.5714rem;
     max-height: $max-image-size;
     flex-direction: column;
     padding: 0.5rem;
-    background: rgba($vue-green, 0.8);
+    background: rgba($lighter-green, 0.8);
     z-index: 1;
   }
 

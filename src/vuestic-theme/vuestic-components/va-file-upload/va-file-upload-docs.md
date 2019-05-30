@@ -1,3 +1,11 @@
+```html
+<va-file-upload
+  v-model="gallery"
+  type="gallery"
+  dropzone
+/>
+```
+
 **Props**
 
 * `value` - Array - array of uploaded files. Required prop

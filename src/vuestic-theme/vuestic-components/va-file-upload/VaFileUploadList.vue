@@ -86,10 +86,10 @@ export default {
 .va-file-upload-list {
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: 2rem;
+  padding: 1.5rem 0;
 
   &--gallery {
-    padding: 0 0 1rem;
+    padding-bottom: 0;
   }
 }
 </style>

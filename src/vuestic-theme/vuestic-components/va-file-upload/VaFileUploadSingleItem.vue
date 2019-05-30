@@ -1,6 +1,6 @@
 <template>
   <div class="file-upload-single-item">
-    <div class="file-upload-single-item-name">
+    <div class="file-upload-single-item__name">
       {{ file.name }}
     </div>
     <va-button flat @click="$emit('remove')" color="danger" small>
@@ -27,9 +27,14 @@ export default {
 .file-upload-single-item {
   display: flex;
   align-items: center;
+  max-width: 100%;
 
-  &-name {
+  &__name {
     margin-right: 1rem;
+    max-width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 </style>

@@ -2,6 +2,7 @@
   <div
     class="va-file-upload"
     :class="{'va-file-upload--dropzone': dropzone}"
+    :style="computedStyle"
   >
     <div class="va-file-upload__field">
       <div
@@ -41,6 +42,7 @@
 import VaFileUploadList from './VaFileUploadList'
 import VaButton from '../va-button/VaButton'
 import VaModal from '../va-modal/VaModal'
+import { getFocusColor } from '../../../services/color-functions'
 
 export default {
   name: 'va-file-upload',
@@ -107,6 +109,11 @@ export default {
     },
   },
   computed: {
+    computedStyle () {
+      return {
+        backgroundColor: this.dropzone ? getFocusColor(this.$themes['success']) : 'transparent',
+      }
+    },
     files: {
       get () {
         return this.value
@@ -136,13 +143,16 @@ export default {
       justify-content: center;
       display: flex;
       align-items: center;
-      height: 10rem;
       padding: 0 2rem;
       transition: height .2s;
       overflow: visible;
-      @media (max-width: 576px) {
+      flex-wrap: wrap;
+      @include media-breakpoint-down(xs){
         flex-direction: column;
         padding: 0;
+        &__text {
+          text-align: center;
+        }
       }
     }
   }
@@ -177,11 +187,10 @@ export default {
     }
   }
 }
-
-@media (max-width: 576px) {
+@include media-breakpoint-down(xs) {
   .va-file-upload {
     &--dropzone {
-      padding: 0 1rem;
+      padding: 1.5rem 1rem;
     }
   }
 }

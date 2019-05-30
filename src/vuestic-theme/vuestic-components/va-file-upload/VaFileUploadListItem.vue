@@ -3,7 +3,7 @@
     class="va-file-upload-list-item"
     :stripe="removed ? '' : 'success'"
     no-margin
-    no-padding=""
+    no-padding
     :class="{'file-upload-list-item--undo': removed}"
   >
     <va-file-upload-undo @recover="recoverFile" v-if="removed"/>
