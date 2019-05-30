@@ -63,7 +63,12 @@
     </VbCard>
     <VbCard title="Font Awesome">
       <va-icon icon="fa fa-anchor"/>
+      <va-icon icon="fa">anchor</va-icon>
       <va-icon icon="fa fa-area-chart"/>
+    </VbCard>
+    <VbCard title="Material design icons">
+      <va-icon icon="mdi">face</va-icon>
+      <va-icon icon="mdi" color="danger">face</va-icon>
     </VbCard>
   </VbDemo>
 </template>
@@ -71,9 +76,11 @@
 <script>
 
 import VaIcon from './VaIcon'
+import VaButton from '../va-button/VaButton'
 
 export default {
   components: {
+    VaButton,
     VaIcon,
   },
   data () {
