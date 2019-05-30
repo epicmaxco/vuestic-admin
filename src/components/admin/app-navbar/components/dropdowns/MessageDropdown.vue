@@ -125,7 +125,7 @@ export default {
     }
     &__avatar {
       border-radius: 50%;
-      width: 1.5rem;
+      min-width: 1.5rem;
       height: 1.5rem;
     }
   }

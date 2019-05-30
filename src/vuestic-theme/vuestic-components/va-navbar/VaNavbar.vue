@@ -12,10 +12,10 @@
     </div>
     <div class="va-navbar__content va-row">
       <div
-        class="va-navbar__center flex offset--lg2 offset--md3 lg6 flex md4 va-row flex-center">
+        class="va-navbar__center flex offset--lg2 offset--md3 lg5 flex md4 va-row flex-center">
         <slot name="center"></slot>
       </div>
-      <div class="flex md5 lg4 va-navbar__actions align--center justify--end va-row">
+      <div class="flex md5 lg4 va-navbar__actions align--center va-row">
         <slot></slot>
       </div>
     </div>
@@ -32,9 +32,7 @@ export default {
 <style lang="scss">
 $nav-mobile-px: .875rem;
 $nav-mobile-py: 1rem;
-$nav-mobile-brand-width: 4rem;
 $nav-mobile-brand-top: .875rem;
-$nav-mobile-brand-left: calc(50% - #{$nav-mobile-brand-width});
 $nav-shape-bg: #0a43af;
 $nav-border-side-width: 3.1875rem;
 
@@ -108,6 +106,7 @@ $nav-border-side-width: 3.1875rem;
     &__icon-container {
       align-items: flex-start;
       position: absolute;
+      z-index: 10;
     }
     &__center {
       display: none;
@@ -117,7 +116,7 @@ $nav-border-side-width: 3.1875rem;
     }
     .va-navbar__logo {
       top: $nav-mobile-brand-top;
-      left: $nav-mobile-brand-left;
+      left: 3.5rem;
       height: auto;
       bottom: auto;
       z-index: 1;
@@ -128,11 +127,6 @@ $nav-border-side-width: 3.1875rem;
     }
     &__shape {
       border-top: $top-mobile-nav-height solid #0a43af;
-    }
-  }
-  @include media-breakpoint-down(xs) {
-    &__center {
-      display: none;
     }
   }
 }

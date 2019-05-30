@@ -6,7 +6,7 @@
     </span>
     <template slot="center">
       <div class="va-row flex-nowrap align--center justify--space-between">
-        <span class="va-navbar__text">{{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co">hello@epicmax.co</a></span>
+        <span class="va-navbar__text">{{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co" target="_blank">hello@epicmax.co</a></span>
         <div>
           <va-button
             href="https://github.com/epicmaxco/vuestic-admin"
@@ -19,14 +19,15 @@
         </div>
       </div>
     </template>
-    <app-search class="va-navbar__item"/>
-    <message-dropdown class="va-navbar__item"/>
-    <notification-dropdown class="va-navbar__item"/>
-    <settings-dropdown class="va-navbar__item" :navbar-view.sync="navbarView"/>
-    <language-dropdown class="va-navbar__item"/>
-    <profile-dropdown class="va-navbar__item">
-      <span>{{userName}}</span>
-    </profile-dropdown>
+    <div class="app-navbar__actions va-row flex-nowrap align--center">
+      <message-dropdown class="va-navbar__item"/>
+      <notification-dropdown class="va-navbar__item"/>
+      <settings-dropdown class="va-navbar__item" :navbar-view.sync="navbarView"/>
+      <language-dropdown class="va-navbar__item"/>
+      <profile-dropdown class="va-navbar__item">
+        <span>{{userName}}</span>
+      </profile-dropdown>
+    </div>
   </va-navbar>
 </template>
 
@@ -41,13 +42,11 @@ import ProfileDropdown from './components/dropdowns/ProfileDropdown'
 import NotificationDropdown from './components/dropdowns/NotificationDropdown'
 import MessageDropdown from './components/dropdowns/MessageDropdown'
 import SettingsDropdown from './components/dropdowns/SettingsDropdown'
-import AppSearch from '../app-search/AppSearch'
 
 export default {
   name: 'app-navbar',
 
   components: {
-    AppSearch,
     SettingsDropdown,
     VaIconVuestic,
     VaNavbar,
@@ -72,6 +71,7 @@ export default {
   computed: {
     valueProxy: {
       get () {
+        console.log(this.isOpen)
         return this.isOpen
       },
       set (opened) {
@@ -89,20 +89,37 @@ export default {
       font-size: 1.5rem;
     }
   }
+  &__actions {
+    justify-content: flex-end;
+    .va-navbar__item {
+      margin: auto .75rem;
+    }
+  }
   @include media-breakpoint-down(md) {
     &__button {
       display: none !important;
+    }
+    .profile-dropdown {
+      margin: auto 0 auto .75rem;
     }
   }
   @include media-breakpoint-down(sm) {
     &__button {
       display: none !important;
     }
+    &__actions {
+      justify-content: space-between;
+      padding: 0 .125rem;
+    }
+    .va-navbar__item:first-of-type {
+      margin-left: 0;
+    }
     .profile-dropdown {
       position: absolute;
       right: 1.5rem;
-      top: 1.5rem;
+      top: 1.25rem;
       height: fit-content;
+      margin: auto;
     }
   }
 }
