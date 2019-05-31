@@ -410,8 +410,7 @@ export default {
       }
     },
     getValueByIndex (index) {
-      let tempValue = ((this.step * this.multiple) * index + (this.min * this.multiple)) / this.multiple
-      return tempValue
+      return ((this.step * this.multiple) * index + (this.min * this.multiple)) / this.multiple
     },
     setCurrentValue (val) {
       let slider = this.currentSlider
@@ -443,8 +442,19 @@ export default {
       this.setTransform()
 
       if (pos >= range[0] && pos <= range[1]) {
-        let v = this.getValueByIndex(Math.round(pos / this.gap))
-        this.setCurrentValue(v, isDrag)
+        if (this.currentSlider) {
+          if (pos <= this.position[0]) {
+            this.currentSlider = 0
+          }
+          let v = this.getValueByIndex(Math.round(pos / this.gap))
+          this.setCurrentValue(v, isDrag)
+        } else {
+          if (pos >= this.position[1]) {
+            this.currentSlider = 1
+          }
+          let v = this.getValueByIndex(Math.round(pos / this.gap))
+          this.setCurrentValue(v, isDrag)
+        }
       } else if (pos < range[0]) {
         this.setCurrentValue(valueRange[0])
       } else {
@@ -454,8 +464,9 @@ export default {
     setTransform () {
       if (this.isRange) {
         const slider = this.currentSlider
-        const val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100
-        const val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100
+        const difference = 100 / (this.max - this.min)
+        const val0 = (this.value[0] - this.min) * difference
+        const val1 = (this.value[1] - this.min) * difference
         const processSize = `${val1 - val0}%`
         const processPos = `${val0}%`
 
