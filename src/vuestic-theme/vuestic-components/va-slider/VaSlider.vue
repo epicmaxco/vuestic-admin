@@ -1,40 +1,38 @@
 <template>
   <div
-    class="va-slider d-flex align--center"
+    class="va-slider"
     :class="sliderClass"
   >
     <div
       v-if="range && withInput"
-      class="flex xs1 lg1">
-      <div class="form-group mb-4">
-        <div class="input-group">
-          <input
-            id="input1"
-            v-model.number="val[0]"
-            required
-            @input="$emit('input', limitValue(val))"
-          />
-          <label class="control-label" for="input1">
-            Min
-          </label>
-          <va-icon icon="bar"/>
-        </div>
+      class="va-slider__input-wrapper">
+      <div class="input-group">
+        <input
+          id="input1"
+          v-model.number="val[0]"
+          required
+          @input="$emit('input', limitValue(val))"
+        />
+        <label class="control-label" for="input1">
+          Min
+        </label>
+        <va-icon icon="bar"/>
       </div>
     </div>
     <span
       v-if="label && !inverseLabel"
       :style="labelStyles"
-      class="va-slider__label title">
+      class="va-slider__label">
       {{ label }}
     </span>
     <span
       v-if="icon"
-      class="va-slider__label title">
+      class="va-slider__label">
       <va-icon :icon="icon" :color="colorComputed" :size="16"/>
     </span>
     <div
-      :class="{ 'flex offset--xs1 offset--lg1': range && withInput }"
-      class="va-slider__container d-flex align--center"
+      :class="{ 'va-slider__container--with-input': range && withInput }"
+      class="va-slider__container"
       @click="wrapClick"
       ref="elem"
     >
@@ -65,7 +63,7 @@
           <div
             v-if="valueVisible"
             :style="labelStyles"
-            class="va-slider__container__handler-value title"
+            class="va-slider__container__handler-value"
           >
             {{ val[0] }}
           </div>
@@ -79,7 +77,7 @@
           <div
             v-if="valueVisible"
             :style="labelStyles"
-            class="va-slider__container__handler-value title">
+            class="va-slider__container__handler-value">
             {{ val[1] }}
           </div>
         </div>
@@ -99,7 +97,7 @@
           <div
             v-if="valueVisible"
             :style="labelStyles"
-            class="va-slider__container__handler-value title"
+            class="va-slider__container__handler-value"
           >
             {{ labelValue || val }}
           </div>
@@ -108,35 +106,34 @@
     </div>
     <span
       v-if="iconRight"
-      class="va-slider__inverse-label title">
+      class="va-slider__label va-slider__inverse-label">
       <va-icon :icon="iconRight" :color="color" :size="16"/>
     </span>
     <span
       v-if="inverseLabel"
-      class="va-slider__inverse-label title">
+      :style="labelStyles"
+      class="va-slider__label va-slider__inverse-label">
       {{ label }}
     </span>
     <div
       v-if="withInput"
-      class="flex xs1 lg1 offset--xs1 offset--lg1">
-      <div class="form-group mb-4">
-        <div class="input-group">
-          <input
-            v-if="range"
-            v-model.number="val[1]"
-            required
-            @input="$emit('input', limitValue(val))"
-          />
-          <input
-            v-else
-            v-model.number="val"
-            required
-          />
-          <label class="control-label">
-            {{ range ? 'Max' : 'Value' }}
-          </label>
-          <va-icon icon="bar"/>
-        </div>
+      class="va-slider__input-wrapper va-slider__input-wrapper--after">
+      <div class="input-group">
+        <input
+          v-if="range"
+          v-model.number="val[1]"
+          required
+          @input="$emit('input', limitValue(val))"
+        />
+        <input
+          v-else
+          v-model.number="val"
+          required
+        />
+        <label class="control-label">
+          {{ range ? 'Max' : 'Value' }}
+        </label>
+        <va-icon icon="bar"/>
       </div>
     </div>
   </div>
@@ -542,6 +539,8 @@ export default {
 @import "../../vuestic-sass/resources/resources";
 
 .va-slider {
+  display: flex;
+  align-items: center;
 
   &--disabled {
     @include va-disabled;
@@ -554,20 +553,95 @@ export default {
     }
   }
 
+  &__input-wrapper {
+    flex-basis: 8.33333%;
+    flex-grow: 0;
+    max-width: 8.33333%;
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    min-height: 2.25rem;
+    margin-top: 0.2rem;
+    margin-bottom: 1.5rem;
+
+    &--after {
+      margin-left: 8.33333%;
+    }
+
+    .input-group {
+      align-self: flex-end;
+
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      width: 100%;
+    }
+    input {
+      display: block;
+      background: none;
+      padding: 0.125rem 0.125rem 0.0625rem;
+      font-size: 1rem;
+      border-width: 0;
+      border-color: transparent;
+      line-height: 1.9;
+      width: 100%;
+      transition: all 0.28s ease;
+      box-shadow: none;
+      height: 1.9rem;
+      font-family: inherit;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .control-label {
+      font-size: .625rem;
+      color: #4ae387;
+      font-weight: 600;
+      text-transform: uppercase;
+      top: -0.6rem;
+      left: 0;
+      position: absolute;
+      max-width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      pointer-events: none;
+      padding-left: 0.125rem;
+      z-index: 1;
+      transition: all 0.28s ease;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+  }
+
   &__label {
     margin-right: 1rem;
     user-select: none;
+    font-size: .625rem;
+    letter-spacing: 0.6px;
+    line-height: 1.2;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 
   &__inverse-label {
     margin-left: 1rem;
-    user-select: none;
+    margin-right: initial;
   }
 
   &__container {
     position: relative;
     width: 100%;
     height: 1.5rem;
+    display: flex;
+    align-items: center;
+
+    &--with-input {
+      margin-left: 8.33333%;
+    }
 
     &__track, &__track--active {
       position: absolute;
@@ -603,6 +677,11 @@ export default {
         left: 50%;
         transform: translate(-50%, -100%);
         user-select: none;
+        font-size: .625rem;
+        letter-spacing: 0.6px;
+        line-height: 1.2;
+        font-weight: bold;
+        text-transform: uppercase;
       }
     }
   }
