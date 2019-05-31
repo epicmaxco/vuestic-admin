@@ -308,15 +308,15 @@ export default new Router({
               path: 'popovers',
               component: () => import('../components/ui/popovers/Popovers'),
             },
+            {
+              name: 'chat',
+              path: 'chat',
+              component: () => import('../components/ui/chat/Chat'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Chat',
+              },
+            },
           ],
-        },
-        {
-          name: 'extra',
-          path: 'extra',
-          component: () => import('../components/extra/Extra'),
-          meta: {
-            wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tabs',
-          },
         },
         {
           name: 'maps',

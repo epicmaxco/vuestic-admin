@@ -73,16 +73,6 @@
       "launchToast": "Launch toast"
     }
   },
-  "extra": {
-    "tabs": {
-      "title": "Guias",
-      "maps": "Mapas",
-      "overview": "Visão geral",
-      "setupProfile": "Perfil de instalação"
-    },
-    "chat": "Gráficos",
-    "profileCard": "Cartão de perfil"
-  },
   "forms": {
     "controls": {
       "female": "Feminino",
@@ -164,7 +154,6 @@
     "charts": "Gráficos",
     "colorPickers": "Colhedores de Cor",
     "dashboard": "Painel principal",
-    "extra": "Extra",
     "formElements": "Elementos de Formulários",
     "forms": "Formulários",
     "formWizards": "Formulários Wizards",
@@ -184,7 +173,8 @@
     "typography": "Tipografia",
     "uiElements": "Elementos UI",
     "treeView": "Árvore de visualização",
-    "dateTimePickers": "Selecionar Data e Hora"
+    "dateTimePickers": "Selecionar Data e Hora",
+    "chat": "Gráficos"
   },
   "messages": {
     "all": "Ver todas as menssagens",
@@ -244,5 +234,8 @@
     "selectable": "Selecionável",
     "editable": "Editável",
     "advanced": "Advançado"
+  },
+  "chat": {
+    "title": "Gráficos"
   }
 }
