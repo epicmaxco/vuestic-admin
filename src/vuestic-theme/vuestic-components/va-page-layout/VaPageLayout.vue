@@ -7,9 +7,6 @@
     <div class="content-wrap" id="content-wrap">
       <slot name="content"></slot>
     </div>
-    <div class="made-by-footer">
-      <slot name="footer"></slot>
-    </div>
   </div>
 </template>
 

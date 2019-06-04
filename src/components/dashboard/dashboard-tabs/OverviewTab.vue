@@ -7,7 +7,7 @@
             <va-icon-vue/>
           </div>
           <div class="text--bold">
-            Built with Vue.js framework
+            {{$t('dashboard.tabs.overview.built')}}
           </div>
         </div>
         <div class="features-tab__item d-flex align--center mb-5">
@@ -15,7 +15,7 @@
             <va-icon-free/>
           </div>
           <div class="text--bold">
-            Absolutely free for everyone
+            {{$t('dashboard.tabs.overview.free')}}
           </div>
         </div>
         <div class="features-tab__item d-flex align--center mb-5">
@@ -23,7 +23,7 @@
             <va-icon-fresh/>
           </div>
           <div class="text--bold">
-            Fresh and crisp design
+            {{$t('dashboard.tabs.overview.fresh')}}
           </div>
         </div>
       </div>
@@ -34,7 +34,7 @@
             <va-icon-responsive/>
           </div>
           <div class="text--bold">
-            Responsive and optimized for mobile
+            {{$t('dashboard.tabs.overview.mobile')}}
           </div>
         </div>
         <div class="features-tab__item d-flex align--center mb-5">
@@ -42,7 +42,7 @@
             <va-icon-rich/>
           </div>
           <div class="text--bold">
-            Tons of useful components
+            {{$t('dashboard.tabs.overview.components')}}
           </div>
         </div>
         <div class="features-tab__item d-flex align--center mb-5">
@@ -50,7 +50,7 @@
             <va-icon-clean-code/>
           </div>
           <div class="text--bold">
-            Completely jQuery free
+            {{$t('dashboard.tabs.overview.nojQuery')}}
           </div>
         </div>
       </div>
