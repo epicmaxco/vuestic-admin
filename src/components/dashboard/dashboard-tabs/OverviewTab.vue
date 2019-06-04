@@ -1,5 +1,5 @@
 <template>
-  <div class="overview-tab pt-4">
+  <div class="overview-tab pt-2">
     <div class="va-row">
       <div class="flex xs12 md6">
         <div class="features-tab__item d-flex align--center mb-5">
@@ -92,8 +92,8 @@ export default {
       font-size: 1.25rem;
 
       &-icon {
-        min-width: 85px;
-        max-width: 85px;
+        min-width: 65px;
+        max-width: 65px;
       }
     }
   }

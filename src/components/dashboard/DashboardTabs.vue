@@ -18,17 +18,25 @@
 
 <script>
 import OverviewTab from 'components/dashboard/dashboard-tabs/OverviewTab.vue'
+import BillingAddressTab
+  from 'components/dashboard/dashboard-tabs/BillingAddressTab.vue'
+import BankDetailsTab
+  from 'components/dashboard/dashboard-tabs/BankDetailsTab.vue'
 
 export default {
   name: 'DashboardTabs',
   components: {
     OverviewTab,
+    BillingAddressTab,
+    BankDetailsTab,
   },
   data () {
     return {
       tabsState: 0,
       tabs: [
         'OverviewTab',
+        'BillingAddressTab',
+        'BankDetailsTab',
       ],
     }
   },
