@@ -12,18 +12,18 @@
       </div>
     </div>
 
-    <!--<dashboard-info-block />-->
+    <dashboard-info-block />
 
     <!--<dashboard-table />-->
 
-    <!--<div class="va-row row-equal">-->
-      <!--<div class="flex xs12 lg6">-->
-        <!--<dashboard-tabs />-->
-      <!--</div>-->
-      <!--<div class="flex xs12 lg6">-->
-        <!--<dashboard-map />-->
-      <!--</div>-->
-    <!--</div>-->
+    <div class="va-row row-equal">
+      <div class="flex xs12 lg6">
+        <dashboard-tabs />
+      </div>
+      <div class="flex xs12 lg6">
+        <dashboard-map />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -67,9 +67,9 @@ export default {
 </script>
 
 <style lang="scss">
-  .row-equal .flex{
+  .row-equal .flex {
     .va-card {
-      height: calc(100% - 2.5rem);
+      height: 100%;
     }
   }
   .dashboard {
