@@ -3,21 +3,8 @@
     class="va-slider"
     :class="sliderClass"
   >
-    <div
-      v-if="range && withInput"
-      class="va-slider__input-wrapper">
-      <div class="input-group">
-        <input
-          id="input1"
-          v-model.number="val[0]"
-          required
-          @input="$emit('input', limitValue(val))"
-        />
-        <label class="control-label" for="input1">
-          Min
-        </label>
-        <va-icon icon="bar"/>
-      </div>
+    <div class="va-slider__input-wrapper" v-if="$slots.beforeInput">
+      <slot name="beforeInput"/>
     </div>
     <span
       v-if="label && !inverseLabel"
@@ -31,7 +18,6 @@
       <va-icon :icon="icon" :color="colorComputed" :size="16"/>
     </span>
     <div
-      :class="{ 'va-slider__container--with-input': range && withInput }"
       class="va-slider__container"
       @click="wrapClick"
       ref="elem"
@@ -107,7 +93,7 @@
     <span
       v-if="iconRight"
       class="va-slider__label va-slider__inverse-label">
-      <va-icon :icon="iconRight" :color="color" :size="16"/>
+      <va-icon :icon="iconRight" :color="colorComputed" :size="16"/>
     </span>
     <span
       v-if="inverseLabel"
@@ -115,26 +101,8 @@
       class="va-slider__label va-slider__inverse-label">
       {{ label }}
     </span>
-    <div
-      v-if="withInput"
-      class="va-slider__input-wrapper va-slider__input-wrapper--after">
-      <div class="input-group">
-        <input
-          v-if="range"
-          v-model.number="val[1]"
-          required
-          @input="$emit('input', limitValue(val))"
-        />
-        <input
-          v-else
-          v-model.number="val"
-          required
-        />
-        <label class="control-label">
-          {{ range ? 'Max' : 'Value' }}
-        </label>
-        <va-icon icon="bar"/>
-      </div>
+    <div class="va-slider__input-wrapper" v-if="$slots.afterInput">
+      <slot name="afterInput"/>
     </div>
   </div>
 </template>
@@ -193,9 +161,6 @@ export default {
     },
     iconRight: {
       type: String,
-    },
-    withInput: {
-      type: Boolean,
     },
   },
   data () {
@@ -432,27 +397,27 @@ export default {
         }
       }
     },
-    setValueOnPos (pos, isDrag) {
+    setValueOnPos (pixelPosition, isDrag) {
       const range = this.limit
       const valueRange = this.valueLimit
 
       this.setTransform()
 
-      if (pos >= range[0] && pos <= range[1]) {
+      if (pixelPosition >= range[0] && pixelPosition <= range[1]) {
         if (this.currentSlider) {
-          if (pos <= this.position[0]) {
+          if (pixelPosition <= this.position[0]) {
             this.currentSlider = 0
           }
-          let v = this.getValueByIndex(Math.round(pos / this.gap))
+          let v = this.getValueByIndex(Math.round(pixelPosition / this.gap))
           this.setCurrentValue(v, isDrag)
         } else {
-          if (pos >= this.position[1]) {
+          if (pixelPosition >= this.position[1]) {
             this.currentSlider = 1
           }
-          let v = this.getValueByIndex(Math.round(pos / this.gap))
+          let v = this.getValueByIndex(Math.round(pixelPosition / this.gap))
           this.setCurrentValue(v, isDrag)
         }
-      } else if (pos < range[0]) {
+      } else if (pixelPosition < range[0]) {
         this.setCurrentValue(valueRange[0])
       } else {
         this.setCurrentValue(valueRange[1])
@@ -465,14 +430,14 @@ export default {
         const val0 = (this.value[0] - this.min) * difference
         const val1 = (this.value[1] - this.min) * difference
         const processSize = `${val1 - val0}%`
-        const processPos = `${val0}%`
+        const processPosition = `${val0}%`
 
         this.$refs.process.style.width = processSize
-        this.$refs.process.style['left'] = processPos
+        this.$refs.process.style['left'] = processPosition
         if (slider === 0) {
-          this.$refs.dot0.style['left'] = `calc('${processPos} - 8px)`
+          this.$refs.dot0.style['left'] = `calc('${processPosition} - 8px)`
         } else {
-          this.$refs.dot1.style['left'] = `calc('${processPos} - 8px)`
+          this.$refs.dot1.style['left'] = `calc('${processPosition} - 8px)`
         }
       } else {
         const val = ((this.value - this.min) / (this.max - this.min)) * 100
@@ -557,63 +522,14 @@ export default {
     flex-basis: 8.33333%;
     flex-grow: 0;
     max-width: 8.33333%;
+    margin-right: 1rem;
+    min-width: 2.5rem;
 
     position: relative;
     display: flex;
-    flex-direction: row;
-    min-height: 2.25rem;
-    margin-top: 0.2rem;
-    margin-bottom: 1.5rem;
 
-    &--after {
-      margin-left: 8.33333%;
-    }
-
-    .input-group {
-      align-self: flex-end;
-
-      position: relative;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: stretch;
-      width: 100%;
-    }
-    input {
-      display: block;
-      background: none;
-      padding: 0.125rem 0.125rem 0.0625rem;
-      font-size: 1rem;
-      border-width: 0;
-      border-color: transparent;
-      line-height: 1.9;
-      width: 100%;
-      transition: all 0.28s ease;
-      box-shadow: none;
-      height: 1.9rem;
-      font-family: inherit;
-      &:focus {
-        outline: none;
-      }
-    }
-
-    .control-label {
-      font-size: .625rem;
-      color: #4ae387;
-      font-weight: 600;
-      text-transform: uppercase;
-      top: -0.6rem;
-      left: 0;
-      position: absolute;
-      max-width: 100%;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      pointer-events: none;
-      padding-left: 0.125rem;
-      z-index: 1;
-      transition: all 0.28s ease;
-      display: inline-block;
-      margin-bottom: 0.5rem;
+    &:last-of-type {
+      margin-left: 1rem;
     }
   }
 
@@ -638,10 +554,6 @@ export default {
     height: 1.5rem;
     display: flex;
     align-items: center;
-
-    &--with-input {
-      margin-left: 8.33333%;
-    }
 
     &__track, &__track--active {
       position: absolute;

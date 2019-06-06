@@ -83,13 +83,6 @@
         v-model="value"
       />
     </VbCard>
-    <VbCard width="500px" title="Slider With Input">
-      <va-slider
-        value-visible
-        v-model="value"
-        with-input
-      />
-    </VbCard>
     <VbCard width="500px" title="Range">
       <va-slider
         value-visible
@@ -181,22 +174,36 @@
         v-model="value2"
       />
     </VbCard>
-    <VbCard width="500px" title="Range With Inputs">
+    <VbCard width="500px" title="Slider With Input">
+      <va-slider
+        value-visible
+        v-model="value"
+      >
+        <va-input v-model="value" slot="beforeInput"/>
+      </va-slider>
+    </VbCard>
+    <VbCard width="500px" title="Range With Inputs (demo for presentation)">
       <va-slider
         value-visible
         range
         v-model="value2"
-        with-input
-      />
+      >
+        <va-input
+          v-model.number="value2[0]"
+          slot="beforeInput"/>
+        <va-input v-model="value2[1]" slot="afterInput"/>
+      </va-slider>
     </VbCard>
   </VbDemo>
 </template>
 
 <script>
 import VaSlider from './VaSlider.vue'
+import VaInput from '../va-input/VaInput'
 
 export default {
   components: {
+    VaInput,
     VaSlider,
   },
   data () {

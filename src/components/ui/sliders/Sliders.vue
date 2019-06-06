@@ -178,6 +178,15 @@
               v-model="value2"
             />
           </div>
+          <div class="flex xs12 lg6 xl4 mb-2">
+            <va-slider
+              range
+              v-model="value2"
+            >
+              <va-input slot="beforeInput" v-model="value2[0]"/>
+              <va-input slot="afterInput" v-model="value2[1]"/>
+            </va-slider>
+          </div>
         </div>
       </va-card>
     </div>
@@ -187,6 +196,7 @@
 <script>
 export default {
   name: 'sliders',
+  components: { },
   data () {
     return {
       value: 90,
