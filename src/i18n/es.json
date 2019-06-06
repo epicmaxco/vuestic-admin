@@ -1,15 +1,13 @@
 {
   "auth": {
     "agree": "Acepto",
-    "alreadyJoined": "Ya tienes una cuenta?",
     "createAccount": "Create cuenta",
     "createNewAccount": "Crear cuenta",
     "email": "Email",
     "login": "Iniciar sesión",
     "password": "Contraseña",
     "signUp": "Registrar",
-    "termsOfUse": "Los terminos de uso",
-    "welcome": "Bienvenido!"
+    "termsOfUse": "Los terminos de uso"
   },
   "buttons": {
     "advanced": "Iconos, Grupos, Dropdowns",

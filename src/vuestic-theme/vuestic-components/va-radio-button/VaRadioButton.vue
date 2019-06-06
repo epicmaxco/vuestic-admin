@@ -92,7 +92,6 @@ export default {
   cursor: pointer;
   display: flex;
   flex-direction: row;
-  margin-bottom: $checkbox-between-items-margin;
 
   &__icon {
     width: 1.4rem;

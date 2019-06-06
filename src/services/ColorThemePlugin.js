@@ -27,6 +27,12 @@ export const ColorThemePlugin = {
 }
 
 export const ColorThemeMixin = {
+  data () {
+    return {
+      colorThemeDefault: 'primary',
+      colorDefault: '#000000',
+    }
+  },
   props: {
     color: {
       type: String,
@@ -42,10 +48,10 @@ export const ColorThemeMixin = {
       if (this.color) {
         return this.color
       }
-      if (this.$themes && this.$themes.primary) {
-        return this.$themes.primary
+      if (this.$themes && this.$themes[this.colorThemeDefault]) {
+        return this.$themes[this.colorThemeDefault]
       }
-      return `#000000`
+      return this.colorDefault
     },
   },
 }

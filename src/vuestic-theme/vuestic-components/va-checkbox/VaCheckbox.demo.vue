@@ -60,6 +60,25 @@
     <VbCard title="No label">
       <va-checkbox v-model="value"/>
     </VbCard>
+    <VbCard title="Accepts id">
+      <va-checkbox
+        :value="true"
+        id="checkbox-id"
+      />
+    </VbCard>
+    <VbCard title="Accepts name">
+      <va-checkbox
+        :value="true"
+        name="checkbox-name"
+      />
+    </VbCard>
+    <VbCard title="Array as model">
+      {{selection}}
+      <va-checkbox v-model="selection" array-value='one' label="one"/>
+      <va-checkbox v-model="selection" array-value='two' label="two"/>
+      <va-checkbox v-model="selection" array-value='three' label="three"/>
+      <va-checkbox v-model="selection" array-value='four' label="four"/>
+    </VbCard>
   </VbDemo>
 </template>
 
@@ -73,6 +92,7 @@ export default {
   data () {
     return {
       value: true,
+      selection: [],
       stringErrorMessage: 'String error message',
       errorMessages: ['Error message', 'Another error message', 'Long long long long long long long long long long long long long long error message'],
     }

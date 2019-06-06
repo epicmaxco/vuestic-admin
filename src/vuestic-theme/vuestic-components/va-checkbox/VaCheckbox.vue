@@ -6,12 +6,12 @@
     <div
       class="va-checkbox__input-container"
       @click="toggleSelection()"
-      @mousedown="onMouseDown"
-      @mouseup="onMouseUp"
+      @mousedown="hasMouseDown = true"
+      @mouseup="hasMouseDown = false"
     >
       <div
         class="va-checkbox__square"
-        :class="{'active': value}"
+        :class="{'active': isChecked}"
       >
         <input
           :id="id"
@@ -30,41 +30,38 @@
         </slot>
       </div>
     </div>
-    <div class="va-checkbox__error-message-container" v-if="showError">
-      <div
-        class="va-checkbox__error-message"
-        v-for="(error, index) in computedErrorMessages"
-        :key="index"
-      >
-        {{ error }}
-      </div>
-    </div>
+    <va-message-list
+      class="va-checkbox__error-message-container"
+      :value="errorMessages"
+      color="danger"
+      :limit="errorCount"
+    />
   </div>
 </template>
 
 <script>
 import VaIcon from '../va-icon/VaIcon'
+import VaMessageList from '../va-input/VaMessageList'
+import { KeyboardOnlyFocusMixin } from './KeyboardOnlyFocusMixin'
 
 export default {
   name: 'va-checkbox',
-  components: { VaIcon },
+  components: { VaMessageList, VaIcon },
+  mixins: [KeyboardOnlyFocusMixin],
   props: {
+    id: String,
     label: String,
+    name: String,
     value: {
-      type: Boolean,
+      type: [Boolean, Array],
       required: true,
     },
-    id: {
-      type: String,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    readonly: {
-      type: Boolean,
-      default: false,
-    },
+    arrayValue: String,
+
+    disabled: Boolean,
+    readonly: Boolean,
+
+    error: Boolean,
     errorMessages: {
       type: [String, Array],
       default: () => [],
@@ -73,40 +70,22 @@ export default {
       type: Number,
       default: 1,
     },
-    name: String,
-    error: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  data () {
-    return {
-      isKeyboardFocused: false,
-      hasMouseDown: false,
-    }
   },
   computed: {
     computedClass () {
       return {
-        'va-checkbox--selected': this.value,
+        'va-checkbox--selected': this.isChecked,
         'va-checkbox--readonly': this.readonly,
         'va-checkbox--disabled': this.disabled,
         'va-checkbox--error': this.showError,
         'va-checkbox--on-keyboard-focus': this.isKeyboardFocused,
       }
     },
-    computedErrorMessages () {
-      const isArray = Array.isArray(this.errorMessages)
-      const errorMessages = isArray ? this.errorMessages : [this.errorMessages]
-      return errorMessages.slice(0, this.errorCount)
+    isChecked () {
+      return this.modelIsArray ? this.value.includes(this.arrayValue) : this.value
     },
-    valueProxy: {
-      set (value) {
-        this.$emit('input', value)
-      },
-      get () {
-        return this.value
-      },
+    modelIsArray () {
+      return Array.isArray(this.value)
     },
     showError () {
       // We make error active, if the error-message is not empty and checkbox is not disabled
@@ -119,20 +98,6 @@ export default {
     },
   },
   methods: {
-    onFocus (e) {
-      if (this.hasMouseDown) {
-        return
-      }
-      this.isKeyboardFocused = true
-    },
-    onMouseDown (e) {
-      this.hasMouseDown = true
-      this.$emit('mousedown', e)
-    },
-    onMouseUp (e) {
-      this.hasMouseDown = false
-      this.$emit('mouseup', e)
-    },
     toggleSelection () {
       if (this.readonly) {
         return
@@ -140,7 +105,16 @@ export default {
       if (this.disabled) {
         return
       }
-      this.valueProxy = !this.valueProxy
+      if (this.modelIsArray) {
+        if (this.value.includes(this.arrayValue)) {
+          this.$emit('input', this.value.filter(option => option !== this.arrayValue))
+        } else {
+          this.$emit('input', this.value.concat(this.arrayValue))
+        }
+        return
+      }
+
+      this.$emit('input', !this.value)
     },
   },
 }
@@ -150,7 +124,6 @@ export default {
 @import "../../vuestic-sass/resources/resources";
 
 .va-checkbox {
-  margin-bottom: $checkbox-between-items-margin;
   display: flex;
   flex-direction: column;
 
