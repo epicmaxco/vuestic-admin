@@ -20,7 +20,7 @@
     <div
       class="va-slider__container"
       @click="wrapClick"
-      ref="elem"
+      ref="sliderContainer"
     >
       <div
         class="va-slider__container__track"
@@ -92,7 +92,7 @@
     </div>
     <span
       v-if="iconRight"
-      class="va-slider__label va-slider__inverse-label">
+      class="va-slider__inverse-label">
       <va-icon :icon="iconRight" :color="colorComputed" :size="16"/>
     </span>
     <span
@@ -366,9 +366,9 @@ export default {
       return e.clientX - this.offset
     },
     getStaticData () {
-      if (this.$refs.elem) {
-        this.size = this.$refs.elem.offsetWidth
-        this.offset = this.$refs.elem.getBoundingClientRect().left
+      if (this.$refs.sliderContainer) {
+        this.size = this.$refs.sliderContainer.offsetWidth
+        this.offset = this.$refs.sliderContainer.getBoundingClientRect().left
       }
     },
     getValueByIndex (index) {
@@ -544,8 +544,13 @@ export default {
   }
 
   &__inverse-label {
+    user-select: none;
+    font-size: .625rem;
+    letter-spacing: 0.6px;
+    line-height: 1.2;
+    font-weight: bold;
+    text-transform: uppercase;
     margin-left: 1rem;
-    margin-right: initial;
   }
 
   &__container {
