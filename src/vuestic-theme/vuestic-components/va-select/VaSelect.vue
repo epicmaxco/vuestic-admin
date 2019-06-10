@@ -1,13 +1,12 @@
 <template>
   <va-dropdown
     :position="computedPosition"
-    :trigger-mode="searchable || multiple ? 'click' : 'focus'"
     :disabled="disabled"
     className="va-select__dropdown"
     :max-width="width"
     :max-height="maxHeight"
+    v-model="visible"
     @triggerVisibility="triggerVisibility"
-    :visible="visible"
     keepAnchorWidth
   >
     <ul
@@ -132,7 +131,7 @@ export default {
     position: {
       type: String,
       default: 'bottom',
-      validator: position => Object.keys(positions).indexOf(position) >= 0,
+      validator: position => Object.keys(positions).includes(position),
     },
     max: {
       type: Number,
@@ -146,7 +145,7 @@ export default {
     size: {
       type: String,
       default: 'md',
-      validator: size => sizes.indexOf(size) >= 0,
+      validator: size => sizes.includes(size),
     },
     width: {
       type: String,
@@ -283,6 +282,7 @@ export default {
       }
     },
     selectOption (option) {
+      console.log('select', option)
       this.search = ''
       const isSelected = this.isSelected(option)
       const value = this.value || []
@@ -306,7 +306,8 @@ export default {
         if (this.searchable) {
           this.$children[0].hide()
         } else {
-          this.$refs.actuator.blur()
+          this.visible = false
+          // this.$refs.actuator.blur()
         }
 
         this.setScrollPosition()
@@ -316,6 +317,7 @@ export default {
       return this.pointer === index
     },
     clear () {
+      console.log('clear')
       this.valueProxy = this.multiple ? [] : this.clearValue
       this.search = ''
     },
@@ -464,10 +466,13 @@ export default {
 
   &__options-list {
     width: 100%;
-    background-color: $white;
+    background-color: $light-gray3;
     list-style: none;
     margin: 0;
     padding: 0;
+    overflow-y: auto;
+    box-shadow: $datepicker-box-shadow;
+    border-radius: .5rem;
 
     &.no-options {
       padding: .5rem;

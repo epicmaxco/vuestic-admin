@@ -1,6 +1,6 @@
 <template>
   <VbDemo>
-    <VbCard title="String options">
+    <VbCard title="String options +">
       <va-select
         :options="defaultSelect.options"
         v-model="defaultSelect.value"
@@ -12,7 +12,7 @@
       <va-select :value="defaultSelect"/>
       <va-select :value="{id: 1, text: 'two'}"/>
     </VbCard>
-    <VbCard title="Object options">
+    <VbCard title="Object options -">
       <va-select
         label="Clone value"
         :options="objectSelect.options"
