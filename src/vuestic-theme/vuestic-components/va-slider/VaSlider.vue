@@ -31,7 +31,7 @@
           :key="key"
           class="va-slider__container__mark"
           :class="{ 'va-slider__container__mark--active': checkActivePin(pin) }"
-          :style="{ left: `${pin * step}%` }"
+          :style="getPinStyles(pin)"
         />
       </template>
       <template v-if="isRange">
@@ -359,6 +359,12 @@ export default {
         return pin * this.step > this.val[0] && pin * this.step < this.val[1]
       } else {
         return pin * this.step < this.val
+      }
+    },
+    getPinStyles (pin) {
+      return {
+        backgroundColor: this.checkActivePin(pin) ? this.colorComputed : getHoverColor(this.colorComputed),
+        left: `${pin * this.step}%`,
       }
     },
     getPos (e) {

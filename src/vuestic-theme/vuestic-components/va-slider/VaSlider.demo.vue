@@ -2,7 +2,6 @@
   <VbDemo>
     <VbCard width="500px" title="Simple Slider">
       <va-slider
-        value-visible
         v-model="value"
       />
     </VbCard>
@@ -26,14 +25,12 @@
     </VbCard>
     <VbCard width="500px" title="Slider With Label">
       <va-slider
-        value-visible
         label="Label"
         v-model="value"
       />
     </VbCard>
     <VbCard width="500px" title="Slider With Inverse Label">
       <va-slider
-        value-visible
         label="Label"
         inverse-label
         v-model="value"
@@ -41,21 +38,18 @@
     </VbCard>
     <VbCard width="500px" title="Slider With Left Icon">
       <va-slider
-        value-visible
         icon="fa fa-volume-off"
         v-model="value"
       />
     </VbCard>
     <VbCard width="500px" title="Slider With Right Icon">
       <va-slider
-        value-visible
         icon-right="fa fa-volume-up"
         v-model="value"
       />
     </VbCard>
     <VbCard width="500px" title="Slider With Both Icons">
       <va-slider
-        value-visible
         icon="fa fa-volume-off"
         icon-right="fa fa-volume-up"
         v-model="value"
@@ -63,14 +57,12 @@
     </VbCard>
     <VbCard width="500px" title="Disabled Slider">
       <va-slider
-        value-visible
         disabled
         v-model="value"
       />
     </VbCard>
     <VbCard width="500px" title="Slider With Pins">
       <va-slider
-        value-visible
         pins
         :step="10"
         v-model="value"
@@ -78,14 +70,12 @@
     </VbCard>
     <VbCard width="500px" title="Colored slider">
       <va-slider
-        value-visible
         color="#f333f2"
         v-model="value"
       />
     </VbCard>
     <VbCard width="500px" title="Range">
       <va-slider
-        value-visible
         range
         v-model="value2"
       />
@@ -98,18 +88,8 @@
       />
       {{ '[' + value2[0] + ',' + value2[1] + ']'}}
     </VbCard>
-    <VbCard width="500px" title="Range With Visible Value">
-      <va-slider
-        range
-        value-visible
-        v-model="value4"
-        :min="1000"
-        :max="2000"
-      />
-    </VbCard>
     <VbCard width="500px" title="Range With Label">
       <va-slider
-        value-visible
         range
         label="Label"
         v-model="value2"
@@ -117,7 +97,6 @@
     </VbCard>
     <VbCard width="500px" title="Range With Inverse Label">
       <va-slider
-        value-visible
         range
         label="Label"
         inverse-label
@@ -126,7 +105,6 @@
     </VbCard>
     <VbCard width="500px" title="Range With Left Icon">
       <va-slider
-        value-visible
         range
         icon="fa fa-volume-off"
         v-model="value2"
@@ -134,7 +112,6 @@
     </VbCard>
     <VbCard width="500px" title="Range With Right Icon">
       <va-slider
-        value-visible
         range
         icon-right="fa fa-volume-up"
         v-model="value2"
@@ -142,7 +119,6 @@
     </VbCard>
     <VbCard width="500px" title="Range With Both Icons">
       <va-slider
-        value-visible
         range
         icon="fa fa-volume-off"
         icon-right="fa fa-volume-up"
@@ -151,7 +127,6 @@
     </VbCard>
     <VbCard width="500px" title="Disabled Range">
       <va-slider
-        value-visible
         range
         disabled
         v-model="value2"
@@ -159,7 +134,6 @@
     </VbCard>
     <VbCard width="500px" title="Range With Pins">
       <va-slider
-        value-visible
         range
         pins
         :step="10"
@@ -168,7 +142,6 @@
     </VbCard>
     <VbCard width="500px" title="Colorful Range">
       <va-slider
-        value-visible
         range
         color="info"
         v-model="value2"
@@ -176,7 +149,6 @@
     </VbCard>
     <VbCard width="500px" title="Slider With Input">
       <va-slider
-        value-visible
         v-model="value"
       >
         <va-input v-model="value" slot="beforeInput"/>
@@ -184,7 +156,6 @@
     </VbCard>
     <VbCard width="500px" title="Range With Inputs (demo for presentation)">
       <va-slider
-        value-visible
         range
         v-model="value2"
       >
