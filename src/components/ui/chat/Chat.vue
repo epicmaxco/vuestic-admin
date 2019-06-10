@@ -1,40 +1,32 @@
 <template>
-  <div class="chat">
-    <div class="va-row">
-      <div class="flex xs12 md12">
-        <va-card :title="$t('chat.title')">
-          <div class="va-chat">
-            <div
-              class="va-chat__body"
-              :style="{'height': height}"
-              v-sticky-scroll="{
-                animate: true,
-                duration: 500
-              }"
-            >
-              <div
-                class="va-chat__message"
-                v-for="(message, index) in value"
-                :key="index"
-                :class="{'va-chat__message--yours': message.yours}"
-              >
-                {{message.text}}
-              </div>
-            </div>
-            <div class="va-chat__controls">
-              <va-input
-                v-model="inputMessage"
-                @keypress.enter="sendMessage"
-                label="Your message"
-                class="va-chat__input"
-              />
-              <va-button @click="sendMessage()">
-                Send
-              </va-button>
-            </div>
-          </div>
-        </va-card>
+  <div class="va-chat">
+    <div
+      class="va-chat__body"
+      :style="{'height': height}"
+      v-sticky-scroll="{
+        animate: true,
+        duration: 500
+      }"
+    >
+      <div
+        class="va-chat__message"
+        v-for="(message, index) in value"
+        :key="index"
+        :class="{'va-chat__message--yours': message.yours}"
+      >
+        {{message.text}}
       </div>
+    </div>
+    <div class="va-chat__controls">
+      <va-input
+        v-model="inputMessage"
+        @keypress.enter="sendMessage"
+        label="Your message"
+        class="va-chat__input"
+      />
+      <va-button @click="sendMessage()">
+        Send
+      </va-button>
     </div>
   </div>
 </template>

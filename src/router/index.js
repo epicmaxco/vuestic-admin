@@ -310,8 +310,8 @@ export default new Router({
             },
             {
               name: 'chat',
-              path: 'chat',
-              component: () => import('../components/ui/chat/Chat'),
+              path: 'chatPage',
+              component: () => import('../components/ui/chat/ChatPage'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Chat',
               },
