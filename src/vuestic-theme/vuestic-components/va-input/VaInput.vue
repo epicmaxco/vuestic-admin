@@ -34,8 +34,8 @@
           :disabled="disabled"
           :readonly="readonly"
           :value="value"
-          :rows="rows"
           v-on="inputListeners"
+          v-bind="$attrs"
         ></textarea>
         <input
           v-else
@@ -48,6 +48,7 @@
           :readonly="readonly"
           :value="value"
           v-on="inputListeners"
+          v-bind="$attrs"
         />
       </div>
       <div
@@ -111,7 +112,6 @@ export default {
     removable: {
       type: Boolean,
     },
-    rows: {},
   },
   data () {
     return {
