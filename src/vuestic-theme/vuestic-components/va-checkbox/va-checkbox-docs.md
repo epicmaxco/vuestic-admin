@@ -25,7 +25,7 @@
 * `label` - String - label to the right of checkbox
 * `value` - Boolean | Array - main value
 * `arrayValue` - Any
-* `indeterminate` - Boolean - shows a different icon
+* `indeterminate` - Boolean - indeterminate state. Note that `value` should be `true` for indeterminate icon to be displayed.
 * `disabled` - Boolean
 * `readonly` - Boolean
 * `checkedIcon` - String | Array (default: 'ion ion-md-checkmark')

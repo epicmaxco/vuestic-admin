@@ -23,7 +23,7 @@
           :disabled="disabled"
           :indeterminate="indeterminate"
         />
-        <va-icon :icon="computedIcon" />
+        <va-icon :icon="computedIcon"/>
       </div>
       <div class="va-checkbox__label-text">
         <slot name="label">
@@ -96,7 +96,7 @@ export default {
     computedIcon () {
       return [
         'va-checkbox__icon-selected',
-        this.indeterminate ? this.checkedIcon : this.indeterminateIcon,
+        this.indeterminate ? this.indeterminateIcon : this.checkedIcon,
       ]
     },
     isChecked () {
