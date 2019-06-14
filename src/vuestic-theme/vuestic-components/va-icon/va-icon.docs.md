@@ -1,17 +1,16 @@
 ```html
-  <va-icon :icon="iconicstroke iconicstroke-info"/>
+  <va-icon :name="iconicstroke iconicstroke-info"/>
 
   <va-icon
-    :icon="fa"
+    :name="fa fa-anchor"
     color="info"
     rotation="45"
     size="60"
-    >anchor
-  </va-icon>
+  />
 ```
 
 ***Props***
-* icon - `String, Array` - The name of icon set and icon. We support Vuestic, Iconic, Glyphicon, Maki, Entypo, Brandico, Font Awesome, Material design icons. 
+* name - `String, Array` - The name of icon set and icon (will be used as class). We support Vuestic, Iconic, Glyphicon, Maki, Entypo, Brandico, Font Awesome, Material design icons. 
 * small - `Boolean` - If `small` prop is `true`, icon size will be 1rem (16px by default)
 * large - `Boolean` - If `large` prop is `true`, icon size will be 2.25rem
 * size - `String, Number` - Sets the custom size of icon in pixels

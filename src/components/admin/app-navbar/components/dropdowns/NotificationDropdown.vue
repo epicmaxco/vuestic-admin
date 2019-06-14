@@ -1,6 +1,6 @@
 <template>
   <div class="grow notification-dropdown flex-center">
-    <va-icon icon="i-nav-notification"/>
+    <va-icon name="i-nav-notification"/>
     <va-dropdown-old
       v-model="isShown"
       position="bottom"

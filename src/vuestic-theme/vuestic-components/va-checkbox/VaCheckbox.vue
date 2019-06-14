@@ -22,7 +22,7 @@
           @keypress.prevent="toggleSelection()"
           :disabled="disabled"
         />
-        <va-icon icon="ion ion-md-checkmark va-checkbox__icon-selected"/>
+        <va-icon name="ion ion-md-checkmark va-checkbox__icon-selected"/>
       </div>
       <div class="va-checkbox__label-text">
         <slot name="label">

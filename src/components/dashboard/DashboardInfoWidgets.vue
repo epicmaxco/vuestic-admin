@@ -5,7 +5,7 @@
         <div class="info-widget-inner flex-center">
           <div class="stats fill-height flex-center">
             <div class="stats-number mb-2 flex-center">
-              <va-icon icon="ion ion-md-arrow-up text-primary stats-icon"/>
+              <va-icon name="ion ion-md-arrow-up text-primary stats-icon"/>
               59
             </div>
             <div class="stats-title">{{ $t('dashboard.elements') }}</div>
@@ -18,7 +18,7 @@
         <div class="info-widget-inner flex-center">
           <div class="stats fill-height flex-center">
             <div class="stats-number mb-2 flex-center">
-              <va-icon icon="ion ion-md-arrow-down text-danger stats-icon"/>
+              <va-icon name="ion ion-md-arrow-down text-danger stats-icon"/>
               12
             </div>
             <div class="stats-title">{{ $t('dashboard.versions') }}</div>
@@ -48,7 +48,7 @@
         <div class="info-widget-inner flex-center">
           <div class="stats fill-height flex-center">
             <div class="stats-number mb-2 flex-center">
-              <va-icon icon="ion ion-md-people stats-icon icon-wide"/>
+              <va-icon name="ion ion-md-people stats-icon icon-wide"/>
               5
             </div>
             <div class="stats-title">{{ $t('dashboard.teamMembers') }}

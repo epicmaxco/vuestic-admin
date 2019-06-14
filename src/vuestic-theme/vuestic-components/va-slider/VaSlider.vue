@@ -17,7 +17,7 @@
           <label class="control-label" for="input1">
             Min
           </label>
-          <va-icon icon="bar"/>
+          <va-icon name="bar"/>
         </div>
       </div>
     </div>
@@ -30,7 +30,7 @@
     <span
       v-if="icon"
       class="va-slider__label title">
-      <va-icon :icon="icon" :color="colorComputed" :size="16"/>
+      <va-icon :name="icon" :color="colorComputed" :size="16"/>
     </span>
     <div
       :class="{ 'flex offset--xs1 offset--lg1': range && withInput }"
@@ -109,7 +109,7 @@
     <span
       v-if="iconRight"
       class="va-slider__inverse-label title">
-      <va-icon :icon="iconRight" :color="color" :size="16"/>
+      <va-icon :name="iconRight" :color="color" :size="16"/>
     </span>
     <span
       v-if="inverseLabel"
@@ -135,7 +135,7 @@
           <label class="control-label">
             {{ range ? 'Max' : 'Value' }}
           </label>
-          <va-icon icon="bar"/>
+          <va-icon name="bar"/>
         </div>
       </div>
     </div>

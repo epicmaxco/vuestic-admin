@@ -1,6 +1,6 @@
 <template>
   <div class="grow message-dropdown flex-center">
-    <va-icon icon="i-nav-messages"/>
+    <va-icon name="i-nav-messages"/>
     <va-dropdown-old v-model="isOpen" position="bottom">
       <a v-for="(option, id) in options"
          :key="id"

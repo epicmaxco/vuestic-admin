@@ -1,6 +1,6 @@
 <template>
   <div class="language-dropdown flex-center grow">
-    <va-icon :icon="['flag-icon flag-icon-large', flagIconClass(currentLanguage())]"/>
+    <va-icon :name="['flag-icon flag-icon-large', flagIconClass(currentLanguage())]"/>
     <va-dropdown-old
       class="language-dropdown__container"
       v-model="isShown"
@@ -12,7 +12,7 @@
          :class="{ active: option.code === currentLanguage() }"
          @click="setLanguage(option.code)"
       >
-        <va-icon :icon="['flag-icon flag-icon-small', flagIconClass(option.code)]"/>
+        <va-icon :name="['flag-icon flag-icon-small', flagIconClass(option.code)]"/>
         <span class="dropdown-item__text ellipsis">
           {{ $t(`language.${option.name}`) }}
         </span>

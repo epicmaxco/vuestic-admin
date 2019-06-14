@@ -9,7 +9,7 @@
 export default {
   name: 'va-icon',
   props: {
-    icon: {
+    name: {
       type: [String, Array],
     },
     small: {
@@ -47,7 +47,7 @@ export default {
       }
     },
     iconName () {
-      return this.$slots.default && this.icon.includes('mdi') ? 'material-icons' : this.icon
+      return this.$slots.default && this.name.includes('material-icons') ? 'material-icons' : this.name
     },
   },
 }

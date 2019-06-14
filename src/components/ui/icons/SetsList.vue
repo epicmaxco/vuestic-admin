@@ -25,7 +25,7 @@
                 :key="index"
               >
                 <div class="sets-list__icon pa-3 flex-center vuestic-icon">
-                  <va-icon :icon="iconClass(set, icon)"/>
+                  <va-icon :name="iconClass(set, icon)"/>
                 </div>
               </div>
             </div>
@@ -36,13 +36,13 @@
             >
               <div class="flex xs2 flex-center">
                 <div class="sets-list__icon pa-3 flex-center vuestic-icon">
-                  <va-icon :icon="iconClass(set, filteredList[0])"/>
+                  <va-icon :name="iconClass(set, filteredList[0])"/>
                 </div>
               </div>
               <div class="flex xs8"/>
               <div class="flex xs2 flex-center">
                 <div class="sets-list__icon pa-3 flex-center vuestic-icon">
-                  <va-icon :icon="iconClass(set, filteredList[1])"/>
+                  <va-icon :name="iconClass(set, filteredList[1])"/>
                 </div>
               </div>
             </div>

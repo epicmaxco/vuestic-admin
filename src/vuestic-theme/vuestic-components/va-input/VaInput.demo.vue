@@ -46,7 +46,7 @@
         v-model="text"
         label="Name"
       >
-        <va-icon icon="fa fa-anchor"/>
+        <va-name icon="fa fa-anchor"/>
       </va-input>
     </VbCard>
     <VbCard title="Button">
