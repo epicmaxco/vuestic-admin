@@ -31,11 +31,6 @@ export default {
       type: String,
     },
   },
-  data () {
-    return {
-      iconName: null,
-    }
-  },
   computed: {
     iconClass () {
       return {
@@ -51,19 +46,9 @@ export default {
         color: this.$themes[this.color] || this.color,
       }
     },
-  },
-  mounted () {
-    if (this.$slots.default) {
-      if (this.icon.includes('mdi')) {
-        this.iconName = 'material-icons'
-      } else {
-        this.iconName = `${this.icon} ${this.icon}-${this.$slots.default[0].text.trim()}`
-        this.$el.innerHTML = ''
-        this.$el.innerText = ''
-      }
-    } else {
-      this.iconName = this.icon
-    }
+    iconName () {
+      return this.$slots.default && this.icon.includes('mdi') ? 'material-icons' : this.icon
+    },
   },
 }
 </script>
