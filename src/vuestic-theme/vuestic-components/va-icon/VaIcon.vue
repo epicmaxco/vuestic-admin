@@ -1,6 +1,6 @@
 <template>
   <i class="va-icon"
-     :class="[iconName, iconClass]"
+     :class="[name, iconClass]"
      :style="iconStyle"
   ><slot/></i>
 </template>
@@ -45,9 +45,6 @@ export default {
         fontSize: typeof this.size === 'number' ? this.size + 'px' : this.size,
         color: this.$themes[this.color] || this.color,
       }
-    },
-    iconName () {
-      return this.$slots.default && this.name.includes('material-icons') ? 'material-icons' : this.name
     },
   },
 }
