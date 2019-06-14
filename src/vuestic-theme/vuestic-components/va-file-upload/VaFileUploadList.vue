@@ -8,6 +8,7 @@
         v-for="(file, index) in filesList"
         :key="file.name"
         :file="file"
+        :color="color"
         @remove="$emit('remove', index)"
       />
     </template>
@@ -16,6 +17,7 @@
         v-for="(file, index) in filesList"
         :file="file"
         :key="file.name"
+        :color="color"
         @remove="$emit('remove', index)"
       />
     </template>
@@ -45,6 +47,10 @@ export default {
     },
     files: {
       default: null,
+    },
+    color: {
+      type: String,
+      default: 'success',
     },
   },
   computed: {
@@ -86,10 +92,10 @@ export default {
 .va-file-upload-list {
   display: flex;
   flex-wrap: wrap;
-  padding: 1.5rem 0;
+  padding: 0 0 1.5rem;
 
   &--gallery {
-    padding-bottom: 0;
+    padding-bottom: .5rem;
   }
 }
 </style>

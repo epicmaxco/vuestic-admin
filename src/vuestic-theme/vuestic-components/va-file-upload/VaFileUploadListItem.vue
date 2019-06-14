@@ -1,7 +1,7 @@
 <template>
   <va-card
     class="va-file-upload-list-item"
-    :stripe="removed ? '' : 'success'"
+    :stripe="removed ? '' : color"
     no-margin
     no-padding
     :class="{'file-upload-list-item--undo': removed}"
@@ -41,6 +41,10 @@ export default {
   props: {
     file: {
       type: Object,
+    },
+    color: {
+      type: String,
+      default: 'success',
     },
   },
   data () {
@@ -86,7 +90,7 @@ export default {
   &__name {
     white-space: nowrap;
     text-overflow: ellipsis;
-    max-width: 60%;
+    flex-basis: 60%;
     overflow: hidden;
   }
 

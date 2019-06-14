@@ -107,7 +107,7 @@ export default {
     },
     computedStripeStyle () {
       return {
-        background: this.$themes[this.stripe],
+        background: this.stripe,
       }
     },
     computedCardStyle () {

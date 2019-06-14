@@ -41,6 +41,7 @@
           <va-tree-node>Skirts</va-tree-node>
         </va-tree-category>
       </va-tree-root>
+      <va-file-upload v-model="files" color="info"/>
     </VbCard>
     <VbCard title="Change `info` color">
       <va-color-picker-input v-model="$themes.info" mode="advanced"/>
@@ -63,9 +64,11 @@ import SquareWithIcon from '../../vuestic-components/va-tree-view/SquareWithIcon
 import VaTreeRoot from '../../vuestic-components/va-tree-view/VaTreeRoot'
 import VaTreeCategory from '../../vuestic-components/va-tree-view/VaTreeCategory'
 import VaTreeNode from '../../vuestic-components/va-tree-view/VaTreeNode'
+import VaFileUpload from '../../vuestic-components/va-file-upload/VaFileUpload'
 
 export default {
   components: {
+    VaFileUpload,
     VaTreeNode,
     VaTreeCategory,
     VaTreeRoot,
@@ -76,6 +79,11 @@ export default {
     VaNotification,
     VaProgressBar,
     VaPaletteCustom,
+  },
+  data () {
+    return {
+      files: [],
+    }
   },
 }
 </script>

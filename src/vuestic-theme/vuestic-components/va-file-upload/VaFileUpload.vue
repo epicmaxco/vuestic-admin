@@ -10,7 +10,11 @@
         v-if="dropzone"
       >Drag’n’drop files or
       </div>
-      <va-button class="va-file-upload__field__button">
+      <va-button
+        class="va-file-upload__field__button"
+        :disabled="disabled"
+        :color="colorComputed"
+      >
         Upload file
       </va-button>
       <input
@@ -19,6 +23,7 @@
         ref="fieldInput"
         :accept="fileTypes"
         :multiple="type !== 'single'"
+        :disabled="disabled"
         @change="changeFieldValue"
       >
     </div>
@@ -26,6 +31,7 @@
       v-if="files.length"
       :type="type"
       :files="files"
+      :color="colorComputed"
       @remove="removeFile"
       @remove-single="removeSingleFile"
     />
@@ -43,6 +49,7 @@ import VaFileUploadList from './VaFileUploadList'
 import VaButton from '../va-button/VaButton'
 import VaModal from '../va-modal/VaModal'
 import { getFocusColor } from '../../../services/color-functions'
+import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
 
 export default {
   name: 'va-file-upload',
@@ -51,6 +58,7 @@ export default {
     VaButton,
     VaFileUploadList,
   },
+  mixins: [ColorThemeMixin],
   props: {
     type: {
       type: String,
@@ -69,6 +77,9 @@ export default {
     value: {
       default: () => [],
       required: true,
+    },
+    disabled: {
+      type: Boolean,
     },
   },
   data () {
@@ -111,7 +122,7 @@ export default {
   computed: {
     computedStyle () {
       return {
-        backgroundColor: this.dropzone ? getFocusColor(this.$themes['success']) : 'transparent',
+        backgroundColor: this.dropzone ? getFocusColor(this.colorComputed) : 'transparent',
       }
     },
     files: {
@@ -134,7 +145,7 @@ export default {
 
   &--dropzone {
     background-color: $lighter-green;
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 2rem .5rem;
     overflow: hidden;
     border-radius: .375rem;
     cursor: pointer;
@@ -143,7 +154,7 @@ export default {
       justify-content: center;
       display: flex;
       align-items: center;
-      padding: 0 2rem;
+      padding: 0 2rem 1rem;
       transition: height .2s;
       overflow: visible;
       flex-wrap: wrap;
@@ -154,6 +165,9 @@ export default {
           text-align: center;
         }
       }
+    }
+    .va-file-upload-list {
+      padding-bottom: 1rem;
     }
   }
 

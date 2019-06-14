@@ -1,32 +1,32 @@
 <template>
   <div
     v-if="removed"
-    class="file-upload-gallery-item"
-    :class="{'file-upload-gallery-item--undo': removed}"
+    class="va-file-upload-gallery-item"
+    :class="{'va-file-upload-gallery-item--undo': removed}"
   >
     <va-file-upload-undo
-      class="file-upload-gallery-item--undo"
+      class="va-file-upload-gallery-item--undo"
       @recover="recoverImage"
     />
   </div>
 
   <div
     v-else
-    class="file-upload-gallery-item"
+    class="va-file-upload-gallery-item"
     :class="{'file-upload-gallery-item_not-image': !this.previewImage}"
   >
-    <img :src="previewImage" alt="" class="file-upload-gallery-item__image">
+    <img :src="previewImage" alt="" class="va-file-upload-gallery-item__image">
     <div
-      class="file-upload-gallery-item__overlay"
+      class="va-file-upload-gallery-item__overlay"
       :style="overlayStyles"
     >
-      <div class="file-upload-gallery-item__name" :title="file.name">
+      <div class="va-file-upload-gallery-item__name" :title="file.name">
         {{ file.name }}
       </div>
       <va-icon
         icon="ion ion-md-trash"
         color="danger"
-        class="file-upload-gallery-item__delete"
+        class="va-file-upload-gallery-item__delete"
         @click.native="removeImage"
       />
     </div>
@@ -37,10 +37,10 @@
 import VaFileUploadUndo from './VaFileUploadUndo'
 import VaButton from '../va-button/VaButton'
 import VaIcon from '../va-icon/VaIcon'
-import { getHoverColor } from '../../../services/color-functions'
+import { hex2rgb } from '../../../services/color-functions'
 
 export default {
-  name: 'file-upload-gallery-item',
+  name: 'va-file-upload-gallery-item',
   components: {
     VaIcon,
     VaButton,
@@ -56,6 +56,10 @@ export default {
     file: {
       default: {},
     },
+    color: {
+      type: String,
+      default: 'success',
+    },
   },
   watch: {
     file () {
@@ -65,7 +69,7 @@ export default {
   computed: {
     overlayStyles () {
       return {
-        backgroundColor: getHoverColor(this.$themes['success']),
+        backgroundColor: hex2rgb(this.color, 0.7).css,
       }
     },
   },
@@ -77,7 +81,7 @@ export default {
           this.$emit('remove')
           this.removed = false
         }
-      }, 2000)
+      }, 200000)
     },
     recoverImage () {
       this.removed = false
@@ -105,21 +109,21 @@ export default {
 @import '../../vuestic-sass/resources/resources';
 
 $max-image-size: 8.5714rem;
-.file-upload-gallery-item {
+.va-file-upload-gallery-item {
   position: relative;
   margin-bottom: 1rem;
-  margin-left: .5rem;
+  margin-right: .5rem;
   width: $max-image-size;
   height: $max-image-size;
   box-shadow: $card-box-shadow;
   border-radius: .375rem;
   overflow: hidden;
 
-  &:first-of-type {
-    margin-left: 0;
+  &:last-of-type {
+    margin-right: 0;
   }
   &:hover {
-    .file-upload-gallery-item__overlay {
+    .va-file-upload-gallery-item__overlay {
       display: flex;
     }
   }
@@ -166,8 +170,14 @@ $max-image-size: 8.5714rem;
 
   &--undo {
     box-shadow: none;
-    .file-upload-gallery-item--undo {
+    .va-file-upload-gallery-item--undo {
       padding: .5rem;
+      display: flex;
+      flex-direction: column;
+      font-size: .875rem;
+      height: 100%;
+      justify-content: space-between;
+      align-items: flex-start;
       span {
         margin-right: .5rem;
       }
