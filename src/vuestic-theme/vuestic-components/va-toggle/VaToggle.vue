@@ -110,6 +110,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../vuestic-sass/resources/resources';
+
 .va-toggle {
   cursor: pointer;
   display: flex;

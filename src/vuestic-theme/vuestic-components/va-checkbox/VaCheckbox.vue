@@ -11,7 +11,7 @@
     >
       <div
         class="va-checkbox__square"
-        :class="{'active': value}"
+        :class="{'active': isChecked}"
       >
         <input
           :id="id"
@@ -21,8 +21,9 @@
           class="va-checkbox__input"
           @keypress.prevent="toggleSelection()"
           :disabled="disabled"
+          :indeterminate="indeterminate"
         />
-        <va-icon icon="ion ion-md-checkmark va-checkbox__icon-selected"/>
+        <va-icon :icon="computedIcon"/>
       </div>
       <div class="va-checkbox__label-text">
         <slot name="label">
@@ -53,12 +54,23 @@ export default {
     label: String,
     name: String,
     value: {
-      type: Boolean,
+      type: [Boolean, Array],
       required: true,
     },
+    arrayValue: String,
+    indeterminate: Boolean,
 
     disabled: Boolean,
     readonly: Boolean,
+
+    checkedIcon: {
+      type: [String, Array],
+      default: 'ion ion-md-checkmark',
+    },
+    indeterminateIcon: {
+      type: [String, Array],
+      default: 'ion ion-md-remove',
+    },
 
     error: Boolean,
     errorMessages: {
@@ -73,12 +85,25 @@ export default {
   computed: {
     computedClass () {
       return {
-        'va-checkbox--selected': this.value,
+        'va-checkbox--selected': this.isChecked,
         'va-checkbox--readonly': this.readonly,
         'va-checkbox--disabled': this.disabled,
+        'va-checkbox--indeterminate': this.indeterminate,
         'va-checkbox--error': this.showError,
         'va-checkbox--on-keyboard-focus': this.isKeyboardFocused,
       }
+    },
+    computedIcon () {
+      return [
+        'va-checkbox__icon-selected',
+        this.indeterminate ? this.indeterminateIcon : this.checkedIcon,
+      ]
+    },
+    isChecked () {
+      return this.modelIsArray ? this.value.includes(this.arrayValue) : this.value
+    },
+    modelIsArray () {
+      return Array.isArray(this.value)
     },
     showError () {
       // We make error active, if the error-message is not empty and checkbox is not disabled
@@ -98,6 +123,15 @@ export default {
       if (this.disabled) {
         return
       }
+      if (this.modelIsArray) {
+        if (this.value.includes(this.arrayValue)) {
+          this.$emit('input', this.value.filter(option => option !== this.arrayValue))
+        } else {
+          this.$emit('input', this.value.concat(this.arrayValue))
+        }
+        return
+      }
+
       this.$emit('input', !this.value)
     },
   },
@@ -110,6 +144,7 @@ export default {
 .va-checkbox {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
   &__input-container {
     align-items: center;
