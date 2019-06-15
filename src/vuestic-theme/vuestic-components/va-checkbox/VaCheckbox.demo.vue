@@ -22,6 +22,9 @@
       <va-checkbox :value="true" label="Disabled and true" disabled/>
       <va-checkbox :value="true" label="true"/>
     </VbCard>
+    <VbCard title="Indeterminate">
+      <va-checkbox v-model="value" label="Indeterminate" indeterminate/>
+    </VbCard>
 
     <VbCard title="Error">
       <va-checkbox v-model="value" label="Error" error/>
