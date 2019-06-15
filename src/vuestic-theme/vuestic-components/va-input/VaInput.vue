@@ -11,7 +11,7 @@
     <slot name="prepend" slot="prepend"/>
     <div
       class="va-input__container"
-      :class="isTextarea ? 'textarea' : 'input'"
+      :class="{'va-input__container--textarea': isTextarea}"
       :style="containerStyles"
     >
       <div
@@ -36,7 +36,7 @@
           :value="value"
           v-on="inputListeners"
           v-bind="$attrs"
-        ></textarea>
+        />
         <input
           v-else
           class="va-input__container__input"
@@ -145,6 +145,7 @@ export default {
       }
     },
     inputListeners () {
+      // TODO Probably not the best idea to stick this in computed.
       return Object.assign(
         {},
         this.$listeners,
@@ -237,7 +238,7 @@ export default {
       transform-origin: top left;
     }
 
-    &.textarea &__label {
+    &.va-input__container--textarea &__label {
       bottom: auto;
       top: 0.125rem;
     }
@@ -268,7 +269,7 @@ export default {
       }
     }
 
-    &.textarea &__input {
+    &.va-input__container--textarea &__input {
       height: inherit;
     }
   }
