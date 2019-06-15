@@ -14,7 +14,11 @@
 
     <dashboard-info-block />
 
-    <!--<dashboard-table />-->
+    <div class="va-row">
+      <div class="flex xs12">
+        <dashboard-table />
+      </div>
+    </div>
 
     <div class="va-row row-equal">
       <div class="flex xs12 lg6">

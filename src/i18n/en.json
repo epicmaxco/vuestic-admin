@@ -390,7 +390,10 @@
       "city": "City",
       "email": "Email",
       "name": "Name",
-      "score": "Score"
+      "score": "Score",
+      "submits": "Submits",
+      "status": "Status",
+      "country": "Country"
     },
     "dataTable": {
       "noDataAvailable": "No Data Available"

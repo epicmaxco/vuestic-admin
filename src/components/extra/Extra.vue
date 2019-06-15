@@ -66,7 +66,7 @@
 
 <script>
 import OverviewTab from 'components/dashboard/dashboard-tabs/OverviewTab.vue'
-import SetupProfileTab from 'components/dashboard/dashboard-old/setup-profile-tab/SetupProfileTab.vue'
+import SetupProfileTab from './SetupProfileTab.vue'
 import LeafletMap from 'components/maps/leaflet-maps/LeafletMap.vue'
 import VaProfileCard
   from '../../vuestic-theme/vuestic-components/va-profile-card/VaProfileCard'
