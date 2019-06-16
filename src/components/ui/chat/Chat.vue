@@ -32,10 +32,12 @@
 </template>
 
 <script>
-import StickyScroll from '../../vuestic-theme/vuestic-directives/StickyScroll'
+import StickyScroll from '../../../vuestic-theme/vuestic-directives/StickyScroll'
+import VaCard from '../../../vuestic-theme/vuestic-components/va-card/VaCard'
 
 export default {
   name: 'chat',
+  components: { VaCard },
   directives: { StickyScroll },
   data () {
     return {
@@ -45,7 +47,32 @@ export default {
   props: {
     value: {
       type: Array,
-      default: () => [],
+      default: () => [
+        {
+          text: 'Hello! So glad you liked my work. Do you want me to shoot you?',
+          yours: false,
+        },
+        {
+          text: 'Yeah, that would be cool. Maybe this Sunday at 3 pm?',
+          yours: true,
+        },
+        {
+          text: 'Sounds great! See you later!',
+          yours: false,
+        },
+        {
+          text: 'Should I bring a lightbox with me?',
+          yours: true,
+        },
+        {
+          text: 'No, thanks. There is no need. Can we set up a meeting earlier?',
+          yours: false,
+        },
+        {
+          text: 'I\'m working on Vuestic, so let\'s meet at 3pm. Thanks!',
+          yours: true,
+        },
+      ],
     },
     height: {
       default: '20rem',
@@ -67,8 +94,14 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
-@import "../../vuestic-theme/vuestic-sass/resources/resources";
+<style lang='scss'>
+@import "../../../vuestic-theme/vuestic-sass/resources/resources";
+
+.chat {
+  &__content {
+    @include va-flex-center();
+  }
+}
 
 $chat-message-br: .875rem;
 
@@ -88,8 +121,7 @@ $chat-message-br: .875rem;
     margin-bottom: .625rem;
     max-width: 70%;
     overflow-wrap: break-word;
-    border-radius: $chat-message-br;
-    border-top-left-radius: 0;
+    border-radius: 0 $chat-message-br $chat-message-br $chat-message-br;
 
     align-self: flex-start;
     background-color: $light-gray2;

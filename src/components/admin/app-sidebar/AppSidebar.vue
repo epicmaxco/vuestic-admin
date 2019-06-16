@@ -184,14 +184,13 @@
             <span>{{ $t('menu.popovers') }}</span>
           </span>
         </sidebar-link>
+        <sidebar-link
+          :to="{ name: 'chat'}">
+          <span slot="title">
+            <span>{{ $t('menu.chat') }}</span>
+          </span>
+        </sidebar-link>
       </sidebar-link-group>
-      <sidebar-link
-        :to="{ name: 'extra' }">
-        <span slot="title">
-          <va-icon icon="sidebar-menu-item-icon vuestic-iconset vuestic-iconset-extras"/>
-          <span>{{ $t('menu.extra') }}</span>
-        </span>
-      </sidebar-link>
       <sidebar-link-group>
         <span slot="title">
           <va-icon icon="sidebar-menu-item-icon vuestic-iconset vuestic-iconset-auth"/>

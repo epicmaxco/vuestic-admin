@@ -134,14 +134,14 @@ export const breadcrumbs = {
           displayName: 'menu.popovers',
         },
         {
+          name: 'chat',
+          displayName: 'menu.chat',
+        },
+        {
           name: 'rating',
           displayName: 'menu.rating',
         },
       ],
-    },
-    {
-      name: 'extra',
-      displayName: 'menu.extra',
     },
     {
       name: 'maps',
