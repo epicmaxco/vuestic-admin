@@ -1,7 +1,7 @@
 <template>
   <va-card title="Awesome table">
     <div class="va-row justify--space-between align--center mb-2">
-      <div class="flex sm4 xs12">
+      <div class="flex sm4 md6 xs12">
         <va-input
           class="mb-0"
           v-model="search"
@@ -14,7 +14,7 @@
           />
         </va-input>
       </div>
-      <div class="flex sm8">
+      <div class="flex sm8 table-buttons">
         <div class="va-row justify--end align--center">
           <va-checkbox
             label="Verified users"
@@ -25,7 +25,7 @@
             <va-button color="success">Brief</va-button>
             <va-button outline color="success">Detailed</va-button>
           </va-button-group>
-          <va-button>Export PDF</va-button>
+          <va-button>Export</va-button>
           <va-button
             color="gray"
             icon-right="ion-ios-arrow-down arrow-down"
@@ -75,7 +75,7 @@
     <div class="va-row justify--center pb-2">
       <va-pagination
         v-model="activePage"
-        :visible-pages="3"
+        :visible-pages="2"
         :pages="20"
         color="gray"
       />
@@ -143,3 +143,11 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+  .table-buttons {
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+  }
+</style>

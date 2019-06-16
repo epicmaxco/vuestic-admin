@@ -163,6 +163,10 @@ export default {
       top: 0;
       left: 0;
 
+      &:last-child {
+        height: 100%;
+      }
+
       & > div {
         position: absolute;
         width: 100%;
@@ -194,8 +198,10 @@ export default {
   }
 
   &__image {
-    padding-bottom: 56%;
-    position: relative;
+     padding-bottom: 56%;
+     position: relative;
+     height: auto;
+     min-height: 100%;
 
     img {
       position: absolute;
