@@ -25,5 +25,3 @@ export const chartTypesMap = {
   'horizontal-bar': 'horizontal-bar-chart',
   'vertical-bar': 'vertical-bar-chart',
 }
-
-export const chartTypes = Object.keys(chartTypesMap)
