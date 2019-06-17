@@ -1,39 +1,33 @@
 <template>
   <VbDemo>
-    <VbCard title="String options +">
+    <VbCard title="String options (default)">
+      {{defaultSelect.value}}
       <va-select
         :options="defaultSelect.options"
         v-model="defaultSelect.value"
       />
-      {{defaultSelect.value}}
     </VbCard>
+    <!--<VbCard title="Object options -">-->
+      <!--{{objectSelect.cloneValue}}-->
+      <!--<va-select-->
+        <!--label="Clone value"-->
+        <!--@input="input"-->
+        <!--:options="objectSelect.options"-->
+        <!--:value="objectSelect.cloneValue"-->
+      <!--/>-->
+      <!--<va-select-->
+        <!--label="Object with only id"-->
+        <!--:options="objectSelect.options"-->
+        <!--:value="objectSelect.idOnly"-->
+      <!--/>-->
+      <!--<va-select-->
+        <!--label="Exact value"-->
+        <!--:options="objectSelect.options"-->
+        <!--:value="objectSelect.exactValue"-->
+      <!--/>-->
+    <!--</VbCard>-->
     <VbCard title="No options">
-      <div :style="{color: $themes.danger}">Doesn't trigger chevron turn</div>
-      <va-select :value="defaultSelect"/>
-      <va-select :value="{id: 1, text: 'two'}"/>
-    </VbCard>
-    <VbCard title="Object options -">
-      <va-select
-        label="Clone value"
-        :options="objectSelect.options"
-        :value="objectSelect.cloneValue"
-      />
-      <va-select
-        label="Object with only id"
-        :options="objectSelect.options"
-        :value="objectSelect.idOnly"
-      />
-      <va-select
-        label="Exact value"
-        :options="objectSelect.options"
-        :value="objectSelect.exactValue"
-      />
-    </VbCard>
-    <VbCard title="Countires list">
-      <va-select
-        :options="CountriesList"
-        v-model="value"
-      />
+      <va-select :value="value"/>
     </VbCard>
     <VbCard title="placeholder">
       <va-select
@@ -41,6 +35,16 @@
         :options="CountriesList"
         placeholder="select coutry"
       />
+    </VbCard>
+    <VbCard title="positions">
+      <div v-for="position in positions" :key="position">
+        <p>{{position}}</p>
+        <va-select
+          :position="position"
+          v-model="value"
+          :options="CountriesList"
+        />
+      </div>
     </VbCard>
     <VbCard title="label">
       <va-select
@@ -57,25 +61,14 @@
         :options="CountriesList"
       />
     </VbCard>
-    <VbCard title="positions">
-      <div v-for="position in positions" :key="position">
-        <p>{{position}}</p>
-        <va-select
-          :position="position"
-          v-model="value"
-          :options="CountriesList"
-        />
-      </div>
-    </VbCard>
-    <VbCard title="options with icons">
-      <va-select
-        v-model="value"
-        :options="optionsWithIcons"
-        width="320px"
-      />
-    </VbCard>
+    <!--<VbCard title="options with icons">-->
+      <!--<va-select-->
+        <!--v-model="value"-->
+        <!--:options="optionsWithIcons"-->
+        <!--width="320px"-->
+      <!--/>-->
+    <!--</VbCard>-->
     <VbCard title="disabled">
-      <div :style="{color: $themes.danger}">Doesn't work</div>
       <va-select
         v-model="value"
         :options="CountriesList"
@@ -97,48 +90,48 @@
         searchable
       />
     </VbCard>
-    <VbCard title="searchable + multiple">
-      <va-select
-        v-model="multipleValue"
-        :options="CountriesList"
-        searchable
-        multiple
-      />
-    </VbCard>
-    <VbCard title="custom max-height (320px)">
-      <va-select
-        v-model="value"
-        :options="CountriesList"
-        max-height="320px"
-      />
-    </VbCard>
-    <VbCard title="custom width (320px)" :style="{'width': '100%'}" class="not-work">
-      <va-select
-        v-model="value"
-        :options="CountriesList"
-        width="30%"
-      />
-    </VbCard>
-    <VbCard title="loading">
-      <va-select
-        v-model="value"
-        :options="CountriesList"
-        loading
-      />
-    </VbCard>
-    <VbCard title="with ajax">
-      <va-select
-        searchable
-        v-model="value"
-        :options="CountriesList"
-        :loading="isLoading"
-        @update-search="updateSearch"
-      />
-    </VbCard>
-    <VbCard :style="{ 'width': '100%' }">
-      <p>{{value}}</p>
-      <p>{{multipleValue}}</p>
-    </VbCard>
+    <!--<VbCard title="searchable + multiple">-->
+      <!--<va-select-->
+        <!--v-model="multipleValue"-->
+        <!--:options="CountriesList"-->
+        <!--searchable-->
+        <!--multiple-->
+      <!--/>-->
+    <!--</VbCard>-->
+    <!--<VbCard title="custom max-height (320px)">-->
+      <!--<va-select-->
+        <!--v-model="value"-->
+        <!--:options="CountriesList"-->
+        <!--max-height="320px"-->
+      <!--/>-->
+    <!--</VbCard>-->
+    <!--<VbCard title="custom width (320px)" :style="{'width': '100%'}" class="not-work">-->
+      <!--<va-select-->
+        <!--v-model="value"-->
+        <!--:options="CountriesList"-->
+        <!--width="30%"-->
+      <!--/>-->
+    <!--</VbCard>-->
+    <!--<VbCard title="loading">-->
+      <!--<va-select-->
+        <!--v-model="value"-->
+        <!--:options="CountriesList"-->
+        <!--loading-->
+      <!--/>-->
+    <!--</VbCard>-->
+    <!--<VbCard title="with ajax">-->
+      <!--<va-select-->
+        <!--searchable-->
+        <!--v-model="value"-->
+        <!--:options="CountriesList"-->
+        <!--:loading="isLoading"-->
+        <!--@update-search="updateSearch"-->
+      <!--/>-->
+    <!--</VbCard>-->
+    <!--<VbCard :style="{ 'width': '100%' }">-->
+      <!--<p>{{value}}</p>-->
+      <!--<p>{{multipleValue}}</p>-->
+    <!--</VbCard>-->
   </VbDemo>
 </template>
 
@@ -163,7 +156,7 @@ export default {
         value: 'one',
       },
       objectSelect: {
-        cloneValue: { id: 1, text: 'one' },
+        cloneValue: '',
         idOnly: objectSelectOptions[0],
         exactValue: objectSelectOptions[0],
         options: objectSelectOptions,
@@ -195,6 +188,9 @@ export default {
         this.isLoading = false
         this.CountriesList = []
       }, 2000)
+    },
+    input (val) {
+      console.log(val)
     },
   },
 }

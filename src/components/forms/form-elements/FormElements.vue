@@ -171,13 +171,13 @@
         <div class="va-row">
           <div class="flex md4">
             <fieldset>
-              <va-simple-select
+              <va-select
                 :label="$t('forms.selects.simple')"
                 v-model="simpleSelectModel"
                 option-key="description"
                 v-bind:options="simpleOptions"
               />
-              <va-simple-select
+              <va-select
                 :label="$t('forms.selects.country')"
                 v-model="chosenCountry"
                 v-bind:options="countriesList"

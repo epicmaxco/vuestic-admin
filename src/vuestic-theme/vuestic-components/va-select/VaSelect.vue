@@ -1,6 +1,6 @@
 <template>
   <va-dropdown
-    :position="computedPosition"
+    :position="position"
     :disabled="disabled"
     className="va-select__dropdown"
     :max-width="width"
@@ -23,10 +23,7 @@
           'va-select__option--selected': isSelected(option),
         }"
       >
-        <!--'va-select__option&#45;&#45;highlighted': isOptionHightlighted(option)-->
-        <!--<i class="icon va-icon fa va-select__option__icon mr-1" :class="option.icon"/>-->
         <span>{{getText(option)}}</span>
-        <!--<span v-show="isOptionHightlighted(option, index)" class="va-select__option__hightlight-text">Press enter to select</span>-->
         <i v-show="isSelected(option)" class="icon va-icon fa fa-check va-select__option__selected-icon"/>
       </li>
     </ul>
@@ -50,9 +47,7 @@
       @keydown.up.prevent="pointerBackward()"
       @keyup.esc.prevent="$refs.actuator.blur()"
     >
-      <!--@keydown.enter.prevent="selectValue(filteredOptions[pointer], pointer)"-->
-
-      <label v-if="label" class="va-select__label">{{label}}</label>
+      <label class="va-select__label">{{label}}</label>
       <div class="va-select__input-wrapper" :class="{'va-select__input-wrapper-block': multiple && visible && searchable}">
         <div
           class="va-select__input"
@@ -63,10 +58,10 @@
             v-if="multiple && valueProxy.length <= max"
           >
             <va-chip
-              v-for="(selectedOption) in selectedOptionList"
-              :key="getKey(selectedOption)"
+              v-for="option in valueProxy"
+              :key="getKey(option)"
             >
-              {{getText(selectedOption)}}
+              {{getText(option)}}
             </va-chip>
           </span>
           <span v-else-if="displayedText">{{displayedText}}</span>
@@ -85,7 +80,7 @@
           v-if="showClearIcon"
           class="va-select__clear-icon mr-1"
           icon="fa fa-times-circle"
-          @click.prevent.stop="clear()"
+          @click.native.stop="clear()"
         />
         <spring-spinner
           :color="$themes.success"
@@ -94,7 +89,10 @@
           class="va-select__loading"
         />
       </div>
-      <i class="icon va-icon fa va-select__open-icon" :class="{'fa-chevron-down': !visible || (visible && disabled), 'fa-chevron-up': visible && !disabled}"/>
+      <i
+        class="icon va-icon fa va-select__open-icon"
+        :class="{'fa-chevron-down': !visible || (visible && disabled), 'fa-chevron-up': visible && !disabled}"
+      />
     </div>
   </va-dropdown>
 </template>
@@ -183,10 +181,7 @@ export default {
       }
 
       if (this.multiple) {
-        if (!this.value.length) {
-          return ''
-        }
-        return `${this.valueProxy.length} items selected`
+        return this.valueProxy.length ? `${this.valueProxy.length} items selected` : ''
       }
 
       // We try to find a match from options, if we don't find any - we take value.
@@ -195,24 +190,8 @@ export default {
       const isString = typeof selectedOption === 'string'
       return isString ? selectedOption : selectedOption[this.textBy]
     },
-    selectedOptionList () {
-      if (!this.value || !this.multiple) {
-        return []
-      }
-
-      // TODO Probably worth optimizing with index.
-      return this.options.filter(option => {
-        this.value.find(
-          selectedOption => this.compareOptions(option, selectedOption),
-        )
-      })
-    },
     selectedOption () {
-      if (!this.value || this.multiple) {
-        return null
-      }
-
-      return this.options.find(option => this.compareOptions(option, this.value)) || null
+      return (!this.value || this.multiple) ? null : this.options.find(option => this.compareOptions(option, this.value)) || null
     },
     filteredOptions () {
       if (!this.search) {
@@ -230,9 +209,6 @@ export default {
         return false
       }
       return this.multiple ? this.value.length : this.value
-    },
-    computedPosition () {
-      return positions[this.position]
     },
     inputStyles () {
       return this.visible && this.searchable && !this.disabled
@@ -276,13 +252,12 @@ export default {
     },
     isSelected (option) {
       if (this.multiple) {
-        return this.selectedOptionList.includes(option)
+        return this.valueProxy.includes(option)
       } else {
-        return this.selectedOption === option
+        return this.valueProxy === option
       }
     },
     selectOption (option) {
-      console.log('select', option)
       this.search = ''
       const isSelected = this.isSelected(option)
       const value = this.value || []
@@ -293,31 +268,22 @@ export default {
           this.valueProxy = value.filter(optionSelected => option !== optionSelected)
         } else {
           this.valueProxy = [...value, option]
-          this.setScrollPosition()
         }
       } else {
-        // I not getting what that was for.
-        // this.pointer = index
-
-        this.valueProxy = option
+        this.valueProxy = typeof option === 'string' ? option : { ...option }
         this.search = ''
 
         // This looks cryptic.
-        if (this.searchable) {
-          this.$children[0].hide()
-        } else {
-          this.visible = false
-          // this.$refs.actuator.blur()
-        }
-
-        this.setScrollPosition()
+        // if (this.searchable) {
+        //   this.$children[0].hide()
+        // } else {
+        //   this.visible = false
+        //   // this.$refs.actuator.blur()
+        // }
       }
-    },
-    isOptionHightlighted (option, index) {
-      return this.pointer === index
+      this.setScrollPosition()
     },
     clear () {
-      console.log('clear')
       this.valueProxy = this.multiple ? [] : this.clearValue
       this.search = ''
     },
@@ -360,7 +326,7 @@ export default {
   width: 100%;
   border-bottom: 1px solid $brand-secondary;
   border-radius: 0 .5rem 0 0;
-  padding: .5rem 1.5rem .5rem .5rem;
+  padding: .6875rem 1.5rem .125rem .5rem;
   position: relative;
 
   &--disabled {
