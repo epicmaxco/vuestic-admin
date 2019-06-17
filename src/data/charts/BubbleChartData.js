@@ -1,14 +1,11 @@
-import store from 'vuex-store'
 import { hex2rgb } from '../../services/color-functions'
 
-let palette = store.getters.palette
-
-export default {
+export const getBubbleChartData = (themes) => ({
   datasets: [
     {
       label: 'USA',
-      backgroundColor: hex2rgb(palette.danger, 0.9).css,
-      borderColor: palette.transparent,
+      backgroundColor: hex2rgb(themes['danger'], 0.9).css,
+      borderColor: 'transparent',
       data: [
         {
           x: 23,
@@ -54,8 +51,8 @@ export default {
     },
     {
       label: 'Russia',
-      backgroundColor: hex2rgb(palette.primary, 0.9).css,
-      borderColor: palette.transparent,
+      backgroundColor: hex2rgb(themes['primary'], 0.9).css,
+      borderColor: 'transparent',
       data: [
         {
           x: 0,
@@ -101,8 +98,8 @@ export default {
     },
     {
       label: 'Canada',
-      backgroundColor: hex2rgb(palette.warning, 0.9).css,
-      borderColor: palette.transparent,
+      backgroundColor: hex2rgb(themes['warning'], 0.9).css,
+      borderColor: 'transparent',
       data: [
         {
           x: 10,
@@ -143,8 +140,8 @@ export default {
     },
     {
       label: 'Belarus',
-      backgroundColor: hex2rgb(palette.info, 0.9).css,
-      borderColor: palette.transparent,
+      backgroundColor: hex2rgb(themes['info'], 0.9).css,
+      borderColor: 'transparent',
       data: [
         {
           x: 35,
@@ -190,8 +187,8 @@ export default {
     },
     {
       label: 'Ukraine',
-      backgroundColor: hex2rgb(palette.success, 0.9).css,
-      borderColor: palette.transparent,
+      backgroundColor: hex2rgb(themes['success'], 0.9).css,
+      borderColor: 'transparent',
       data: [
         {
           x: 25,
@@ -236,4 +233,4 @@ export default {
       ],
     },
   ],
-}
+})

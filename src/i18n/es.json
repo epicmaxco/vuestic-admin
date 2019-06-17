@@ -72,16 +72,6 @@
       "launchToast": "Lanzar tostadas"
     }
   },
-  "extra": {
-    "tabs": {
-      "title": "Tabs",
-      "maps": "Mapas",
-      "overview": "Visión de conjunto",
-      "setupProfile": "Perfil de Configuración"
-    },
-    "chat": "Chat",
-    "profileCard": "Tarjeta de Perfil"
-  },
   "forms": {
     "controls": {
       "female": "Mujer",
@@ -152,7 +142,6 @@
     "collapse": "Colapso",
     "colorPickers": "Selector de color",
     "dashboard": "Dashboard",
-    "extra": "Extra",
     "formElements": "Elementos de un Formulario",
     "forms": "Formularios",
     "formWizards": "Asistente para Formularios",
@@ -169,7 +158,8 @@
     "statistics": "Estadisticas",
     "tables": "Tablas",
     "typography": "Tipografía",
-    "uiElements": "Elementos UI"
+    "uiElements": "Elementos UI",
+    "chat": "Chat"
   },
   "messages": {
     "all": "Ver todos los mensajes",
@@ -236,6 +226,9 @@
     "dataTable": {
       "noDataAvailable": "No Data Available"
     }
+  },
+  "chat": {
+    "title": "Chat"
   },
   "user": {
     "language": "Cambiar Idioma",
