@@ -3,11 +3,10 @@
     :position="position"
     :disabled="disabled"
     className="va-select__dropdown"
-    :max-width="width"
+    :style="{width}"
     :max-height="maxHeight"
-    v-model="visible"
-    @triggerVisibility="triggerVisibility"
     keepAnchorWidth
+    ref="dropdown"
   >
     <ul
       class="va-select__options-list"
@@ -41,11 +40,6 @@
       :class="{
         'va-select--loading': loading
       }"
-      :style="{'width': width}"
-      ref="actuator"
-      @keydown.down.prevent="pointerForward()"
-      @keydown.up.prevent="pointerBackward()"
-      @keyup.esc.prevent="$refs.actuator.blur()"
     >
       <label class="va-select__label">{{label}}</label>
       <div class="va-select__input-wrapper" :class="{'va-select__input-wrapper-block': multiple && visible && searchable}">
@@ -114,8 +108,7 @@ export default {
   data () {
     return {
       search: '',
-      pointer: 0,
-      visible: false,
+      mounted: false,
     }
   },
   props: {
@@ -173,8 +166,16 @@ export default {
     search (val) {
       this.$emit('update-search', val)
     },
+    visible (val) {
+      if (val && this.searchable) {
+        this.$refs.search.focus()
+      }
+    },
   },
   computed: {
+    visible () {
+      return this.mounted ? this.$refs.dropdown.isClicked : false
+    },
     displayedText () {
       if (!this.value) {
         return ''
@@ -272,46 +273,15 @@ export default {
       } else {
         this.valueProxy = typeof option === 'string' ? option : { ...option }
         this.search = ''
-
-        // This looks cryptic.
-        // if (this.searchable) {
-        //   this.$children[0].hide()
-        // } else {
-        //   this.visible = false
-        //   // this.$refs.actuator.blur()
-        // }
       }
-      this.setScrollPosition()
     },
     clear () {
       this.valueProxy = this.multiple ? [] : this.clearValue
       this.search = ''
     },
-    pointerForward () {
-      if (this.pointer < this.filteredOptions.length - 1) {
-        this.pointer++
-        this.setScrollPosition()
-      }
-    },
-    pointerBackward () {
-      if (this.pointer > 0) {
-        this.pointer--
-        this.setScrollPosition()
-      }
-    },
-    setScrollPosition () {
-      const optionEl = this.$refs.options.childNodes[this.pointer]
-      const parentEl = optionEl.parentNode.parentNode
-
-      parentEl.scrollTop = optionEl.offsetTop
-    },
-    triggerVisibility (val) {
-      this.visible = val
-      // focus on search input if dropdown is open
-      if (val && this.searchable && !this.disabled) {
-        this.$refs.search.focus()
-      }
-    },
+  },
+  mounted () {
+    this.mounted = true
   },
 }
 </script>

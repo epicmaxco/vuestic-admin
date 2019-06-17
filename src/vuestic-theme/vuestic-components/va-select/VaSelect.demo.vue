@@ -90,48 +90,48 @@
         searchable
       />
     </VbCard>
-    <!--<VbCard title="searchable + multiple">-->
-      <!--<va-select-->
-        <!--v-model="multipleValue"-->
-        <!--:options="CountriesList"-->
-        <!--searchable-->
-        <!--multiple-->
-      <!--/>-->
-    <!--</VbCard>-->
-    <!--<VbCard title="custom max-height (320px)">-->
-      <!--<va-select-->
-        <!--v-model="value"-->
-        <!--:options="CountriesList"-->
-        <!--max-height="320px"-->
-      <!--/>-->
-    <!--</VbCard>-->
-    <!--<VbCard title="custom width (320px)" :style="{'width': '100%'}" class="not-work">-->
-      <!--<va-select-->
-        <!--v-model="value"-->
-        <!--:options="CountriesList"-->
-        <!--width="30%"-->
-      <!--/>-->
-    <!--</VbCard>-->
-    <!--<VbCard title="loading">-->
-      <!--<va-select-->
-        <!--v-model="value"-->
-        <!--:options="CountriesList"-->
-        <!--loading-->
-      <!--/>-->
-    <!--</VbCard>-->
-    <!--<VbCard title="with ajax">-->
-      <!--<va-select-->
-        <!--searchable-->
-        <!--v-model="value"-->
-        <!--:options="CountriesList"-->
-        <!--:loading="isLoading"-->
-        <!--@update-search="updateSearch"-->
-      <!--/>-->
-    <!--</VbCard>-->
-    <!--<VbCard :style="{ 'width': '100%' }">-->
-      <!--<p>{{value}}</p>-->
-      <!--<p>{{multipleValue}}</p>-->
-    <!--</VbCard>-->
+    <VbCard title="searchable + multiple">
+      <va-select
+        v-model="multipleValue"
+        :options="CountriesList"
+        searchable
+        multiple
+      />
+    </VbCard>
+    <VbCard title="custom max-height (320px)">
+      <va-select
+        v-model="value"
+        :options="CountriesList"
+        max-height="320px"
+      />
+    </VbCard>
+    <VbCard title="custom width (320px)" :style="{'width': '100%'}">
+      <va-select
+        v-model="value"
+        :options="CountriesList"
+        width="30%"
+      />
+    </VbCard>
+    <VbCard title="loading">
+      <va-select
+        v-model="value"
+        :options="CountriesList"
+        loading
+      />
+    </VbCard>
+    <VbCard title="with ajax">
+      <va-select
+        searchable
+        v-model="value"
+        :options="CountriesList"
+        :loading="isLoading"
+        @update-search="updateSearch"
+      />
+    </VbCard>
+    <VbCard :style="{ 'width': '100%' }">
+      <p>{{value}}</p>
+      <p>{{multipleValue}}</p>
+    </VbCard>
   </VbDemo>
 </template>
 
