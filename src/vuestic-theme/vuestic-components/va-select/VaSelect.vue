@@ -11,7 +11,6 @@
     <ul
       class="va-select__options-list"
       :style="{'max-height': this.maxHeight}"
-      ref="options"
     >
       <li
         v-for="option in filteredOptions"
@@ -22,6 +21,7 @@
           'va-select__option--selected': isSelected(option),
         }"
       >
+        <va-icon v-show="option.icon" :icon="option.icon" class="mr-1"/>
         <span>{{getText(option)}}</span>
         <i v-show="isSelected(option)" class="icon va-icon fa fa-check va-select__option__selected-icon"/>
       </li>
@@ -41,10 +41,13 @@
         'va-select--loading': loading
       }"
     >
-      <label class="va-select__label">{{label}}</label>
-      <div class="va-select__input-wrapper" :class="{'va-select__input-wrapper-block': multiple && visible && searchable}">
-        <div
+      <label
+        class="va-select__label"
+        aria-hidden="true"
+      >{{label}}</label>
+      <div
           class="va-select__input"
+          :style="inputWrapperStyles"
           v-if="!visible || !searchable || (multiple && visible) || disabled"
         >
           <span
@@ -82,7 +85,6 @@
           :size="24"
           class="va-select__loading"
         />
-      </div>
       <i
         class="icon va-icon fa va-select__open-icon"
         :class="{'fa-chevron-down': !visible || (visible && disabled), 'fa-chevron-up': visible && !disabled}"
@@ -101,7 +103,6 @@ const positions = {
   'top': 'T',
   'bottom': 'B',
 }
-const sizes = ['sm', 'md', 'lg']
 export default {
   name: 'va-select',
   components: { VaIcon, SpringSpinner, VaDropdown, VaChip },
@@ -133,11 +134,6 @@ export default {
     disabled: Boolean,
     readonly: Boolean,
     loading: Boolean,
-    size: {
-      type: String,
-      default: 'md',
-      validator: size => sizes.includes(size),
-    },
     width: {
       type: String,
       default: '400px',
@@ -177,17 +173,15 @@ export default {
       return this.mounted ? this.$refs.dropdown.isClicked : false
     },
     displayedText () {
-      if (!this.value) {
+      if (!this.valueProxy) {
         return ''
       }
-
       if (this.multiple) {
         return this.valueProxy.length ? `${this.valueProxy.length} items selected` : ''
       }
-
       // We try to find a match from options, if we don't find any - we take value.
       // This way select can display value even when options are not loaded yet.
-      const selectedOption = this.selectedOption || this.value
+      const selectedOption = this.valueProxy || this.selectedOption
       const isString = typeof selectedOption === 'string'
       return isString ? selectedOption : selectedOption[this.textBy]
     },
@@ -211,6 +205,13 @@ export default {
       }
       return this.multiple ? this.value.length : this.value
     },
+    inputWrapperStyles () {
+      let paddingRight = 1.5
+      if (this.showClearIcon) {
+        paddingRight += 2
+      }
+      return { paddingRight: `${paddingRight}rem` }
+    },
     inputStyles () {
       return this.visible && this.searchable && !this.disabled
         ? { width: '100%' }
@@ -227,16 +228,10 @@ export default {
   },
   methods: {
     getText (option) {
-      if (typeof option === 'string') {
-        return option
-      }
-      return option[this.textBy]
+      return typeof option === 'string' ? option : option[this.textBy]
     },
     getKey (option) {
-      if (typeof option === 'string') {
-        return option
-      }
-      return option[this.keyBy]
+      return typeof option === 'string' ? option : option[this.keyBy]
     },
     updateSearch (val) {
       this.search = val
@@ -252,11 +247,7 @@ export default {
       return one[this.keyBy] === two[this.keyBy]
     },
     isSelected (option) {
-      if (this.multiple) {
-        return this.valueProxy.includes(option)
-      } else {
-        return this.valueProxy === option
-      }
+      return this.multiple ? this.valueProxy.includes(option) : this.valueProxy === option
     },
     selectOption (option) {
       this.search = ''
@@ -264,16 +255,14 @@ export default {
       const value = this.value || []
 
       if (this.multiple) {
-        if (isSelected) {
-          // TODO Probably worth optimizing a bit.
-          this.valueProxy = value.filter(optionSelected => option !== optionSelected)
-        } else {
-          this.valueProxy = [...value, option]
-        }
+        this.valueProxy = isSelected
+          ? value.filter(optionSelected => option !== optionSelected)
+          : [...value, option]
       } else {
         this.valueProxy = typeof option === 'string' ? option : { ...option }
         this.search = ''
       }
+      this.$refs.dropdown.updatePopper()
     },
     clear () {
       this.valueProxy = this.multiple ? [] : this.clearValue
@@ -290,14 +279,18 @@ export default {
 @import "../../vuestic-sass/resources/resources";
 
 .va-select {
-  min-height: 38px;
   cursor: pointer;
   background-color: $light-gray3;
-  width: 100%;
-  border-bottom: 1px solid $brand-secondary;
-  border-radius: 0 .5rem 0 0;
-  padding: .6875rem 1.5rem .125rem .5rem;
+  display: flex;
+  align-items: flex-end;
   position: relative;
+  width: 100%;
+  min-height: 2.375rem;
+  border-color: $brand-secondary;
+  border-style: solid;
+  border-width: 0 0 thin 0;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
 
   &--disabled {
 
@@ -317,13 +310,19 @@ export default {
   &__label {
     @include va-title();
     position: absolute;
-    margin: 0;
+    bottom: 0.875rem;
+    left: 0.5rem;
+    margin-bottom: 0.5rem;
+    max-width: calc(100% - 0.25rem);
+    @include va-ellipsis();
+    transform-origin: top left;
   }
 
   &__input-wrapper {
     display: flex;
     align-items: center;
     height: 100%;
+    width: 100%;
     justify-content: stretch;
 
     &-block {
@@ -332,21 +331,13 @@ export default {
       .va-select__input {
         padding-right: 1.5rem;
       }
-
-      .va-select__clear-icon {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 1.5rem;
-        margin: auto;
-        height: 16px;
-      }
     }
   }
 
   &__input {
     border: none;
     background: transparent;
+    padding: 0.25rem 0.5rem;
 
     &:focus {
       outline: none;
@@ -359,18 +350,18 @@ export default {
 
   &__clear-icon {
     color: $va-link-color-secondary;
-    margin-left: auto;
-    width: 16px;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: .25rem;
+    position: absolute;
+    top: .4375rem;
+    right: 1.5rem;
+    margin: auto;
   }
 
   &__open-icon {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto;
+    @extend .va-select__clear-icon;
     right: .5rem;
-    height: 1rem;
-    color: $va-link-color-secondary;
   }
 
   &__tags {
@@ -418,7 +409,8 @@ export default {
   &__option {
     cursor: pointer;
     display: flex;
-    padding: .375rem 1.5rem .375rem .5rem;
+    align-items: center;
+    padding: .375rem .5rem .375rem .5rem;
 
     &:hover {
       background-color: $vue-light-green;

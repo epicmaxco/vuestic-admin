@@ -228,6 +228,13 @@ export default {
       this.popperInstance.destroy()
       this.popperInstance = null
     },
+    updatePopper () {
+      // used by select
+      if (!this.popperInstance) {
+        return
+      }
+      this.popperInstance.update()
+    },
   },
   computed: {
     anchorWidthContainerStyles () {
