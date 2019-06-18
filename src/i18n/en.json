@@ -72,7 +72,13 @@
   },
   "sliders": {
     "slider": "Sliders",
-    "range": "Ranges"
+    "range": "Ranges",
+    "simple": "simple",
+    "value": "Value",
+    "label": "Label",
+    "labelPlusIcon": "label + icon",
+    "pins": "Pins",
+    "pinsAndValue": "pins & value"
   },
   "popovers": {
     "popover": "Popover",
