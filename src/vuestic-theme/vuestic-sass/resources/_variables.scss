@@ -35,7 +35,7 @@ $brand-secondary: #babfc2;
 $light-gray2: #eff4f5;
 $dark-gray: #282828;
 $gray: #adb3b9;
-$dark-blue: #0045b6;
+$dark-blue: #0e4ac4;
 $text-gray: #b4b4b4;
 
 $separator-color: #e6e9ec;
@@ -68,14 +68,14 @@ $theme-colors: (
 
 // Layout //
 $body-bg: $light-gray;
-$top-nav-bg: $darkest-gray;
+$top-nav-bg: $dark-blue;
 $body-color: $vue-darkest-blue !default;
 $layout-padding: 24px;
-$layout-padding-right: 44px;
+$layout-padding-right: 2rem;
 
-$top-nav-height: 72px;
+$top-nav-height: 4.0625rem;
 
-$nav-padding-left: $layout-padding;
+$nav-padding-left: 1rem;
 $nav-padding-right: $layout-padding-right;
 $navbar-brand-container-left: 75px;
 
@@ -90,6 +90,7 @@ $content-wrap-pb: $layout-padding;
 $made-by-footer-pb: 27px;
 
 $greeny-box-shadow: 0 4px 9.6px 0.4px rgba($vue-green, .5);
+$gray-box-shadow: 0 2px 3px 0 rgba(98, 106, 119, 0.25);
 
 //Auth
 $auth-logo-height: 2.625rem;
@@ -259,8 +260,8 @@ $chip-with-icon-wrapper-padding-nrm: 0.5rem;
 $chip-with-icon-content-padding-nrm: 0.5rem;
 
 //Dropdowns
-$dropdown-box-shadow: $greeny-box-shadow;
-$dropdown-background: $darkest-gray;
+$dropdown-box-shadow: $gray-box-shadow;
+$dropdown-background: $light-gray3;
 $dropdown-item-height: 40px;
 $dropdown-menu-padding-y: 10px;
 $dropdown-menu-padding-x: 0;

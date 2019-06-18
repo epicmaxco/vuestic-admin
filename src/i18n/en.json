@@ -158,7 +158,10 @@
         "notes": "Notes",
         "sendDetails": "Send Details"
       }
-    }
+    },
+    "navigationLayout": "navigation layout",
+    "topBarButton": "Top Bar",
+    "sideBarButton": "Side Bar"
   },
   "notificationsPage": {
     "notifications": {
@@ -318,7 +321,8 @@
   },
   "messages": {
     "all": "See all messages",
-    "new": "New messages from {name}"
+    "new": "New messages from {name}",
+    "mark_as_read": "Mark As Read"
   },
   "modal": {
     "cancel": "Cancel",
@@ -371,10 +375,12 @@
     "badges": "Badges"
   },
   "navbar": {
-    "messageUs": "Web development help needed? Contact us at"
+    "messageUs": "Development inquiries:",
+    "support": "TY for support"
   },
   "notifications": {
     "all": "See all notifications",
+    "mark_as_read": "Mark As Read",
     "sentMessage": "{name} sent you a message",
     "uploadedZip": "{name} uploaded a new Zip file with {type}",
     "startedTopic": "{name} started a new topic"
