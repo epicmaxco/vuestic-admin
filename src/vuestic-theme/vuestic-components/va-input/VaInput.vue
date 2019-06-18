@@ -92,7 +92,9 @@ export default {
   extends: VaInputWrapper,
   components: { VaInputWrapper, VaIcon },
   props: {
-    value: {},
+    value: {
+      type: [String, Number],
+    },
     label: {
       type: String,
     },
