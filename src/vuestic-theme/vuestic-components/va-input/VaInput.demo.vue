@@ -117,6 +117,14 @@
         :error-messages="['one', 'two']"
       />
     </VbCard>
+    <VbCard title="Textarea">
+      <va-input
+        v-model="text"
+        label="Name"
+        type="textarea"
+        rows="5"
+      />
+    </VbCard>
   </VbDemo>
 </template>
 

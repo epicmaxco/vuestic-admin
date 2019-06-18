@@ -1,12 +1,14 @@
 <template>
-  <div class="not-found-pages va-row">
-    <div class="flex md12">
-      <div class="va-row">
+  <div class="not-found-pages">
+    <div class="va-row">
+      <div
+        class="flex xs12 sm6 lg4 xl3"
+        v-for="item in items"
+        :key="item.$index"
+      >
         <va-card
           class="not-found-pages__cards text--center"
           :image="item.imageUrl"
-          v-for="item in items"
-          :key="item.$index"
         >
           {{ item.label }}
           <div class="not-found-pages__button-container pt-3 mb-0">
@@ -52,14 +54,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.not-found-pages {
-  $cardGutter: #{(19/16)}rem;
-
-  .va-card.not-found-pages__cards {
-    min-width: 220px;
-    margin: 0 $cardGutter calc(#{$cardGutter} * 2) $cardGutter;
-  }
-}
-</style>
