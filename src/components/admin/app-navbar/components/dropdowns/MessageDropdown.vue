@@ -1,7 +1,5 @@
 <template>
   <va-dropdown
-    v-model="isOpen"
-    position="bottom"
     class="message-dropdown"
   >
     <va-icon
@@ -34,7 +32,6 @@ export default {
   name: 'message-dropdown',
   data () {
     return {
-      isOpen: false,
       computedOptions: [...this.options],
     }
   },

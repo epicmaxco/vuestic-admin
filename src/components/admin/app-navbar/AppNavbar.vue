@@ -1,9 +1,9 @@
 <template>
   <va-navbar class="app-navbar">
     <header-selector slot="selector" :isOpen.sync="valueProxy"/>
-    <span slot="logo">
+    <template slot="logo">
       <va-icon-vuestic/>
-    </span>
+    </template>
     <template slot="center">
       <div class="va-row flex-nowrap align--center justify--space-between">
         <span class="va-navbar__text">{{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co" target="_blank">hello@epicmax.co</a></span>
@@ -71,7 +71,6 @@ export default {
   computed: {
     valueProxy: {
       get () {
-        console.log(this.isOpen)
         return this.isOpen
       },
       set (opened) {
@@ -91,9 +90,6 @@ export default {
   }
   &__actions {
     justify-content: flex-end;
-    .va-navbar__item {
-      margin: auto .75rem;
-    }
   }
   @include media-breakpoint-down(md) {
     &__button {
@@ -111,12 +107,9 @@ export default {
       justify-content: space-between;
       padding: 0 .125rem;
     }
-    .va-navbar__item:first-of-type {
-      margin-left: 0;
-    }
     .profile-dropdown {
       position: absolute;
-      right: 1.5rem;
+      right: .75rem;
       top: 1.25rem;
       height: fit-content;
       margin: auto;

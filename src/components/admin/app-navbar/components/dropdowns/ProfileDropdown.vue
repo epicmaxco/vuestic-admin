@@ -1,8 +1,8 @@
 <template>
   <va-dropdown
-    v-model="isShown"
-    position="bottom"
     class="profile-dropdown"
+    @show="toggleVisibility(true)"
+    @hide="toggleVisibility(false)"
   >
     <span class="profile-dropdown__actuator" slot="anchor">
       <slot/>
@@ -42,6 +42,11 @@ export default {
           redirectTo: 'login',
         },
       ],
+    },
+  },
+  methods: {
+    toggleVisibility (val) {
+      this.isShown = val
     },
   },
 }

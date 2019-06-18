@@ -1,7 +1,5 @@
 <template>
     <va-dropdown
-      v-model="isShown"
-      position="bottom"
       class="notification-dropdown"
     >
       <va-icon
@@ -36,7 +34,6 @@ export default {
   name: 'notification-dropdown',
   data () {
     return {
-      isShown: false,
       computedOptions: [...this.options],
     }
   },
