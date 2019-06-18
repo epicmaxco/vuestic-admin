@@ -176,7 +176,7 @@ export default {
       )
     },
     hasContent () {
-      return [null, undefined, ''].includes(this.value)
+      return ![null, undefined, ''].includes(this.value)
     },
     isTextarea () {
       return this.type === 'textarea'
