@@ -17,12 +17,12 @@
             v-if="currentStep >= index"
             large
             color="success"
-            icon="ion ion-md-checkmark step-icon icon-check"
+            name="ion ion-md-checkmark step-icon icon-check"
           />
           <va-icon
             v-else
             large
-            icon="ion ion-md-close step-icon icon-cross"/>
+            name="ion ion-md-close step-icon icon-cross"/>
         </div>
         <div>{{ step.label }}</div>
       </div>
