@@ -85,7 +85,7 @@ $sidebar-top: calc(#{$top-nav-height} + #{$layout-padding});
 $sidebar-left: $layout-padding;
 $min-z-index: -1000;
 
-$content-wrap-ml: calc(#{$sidebar-left} + #{$sidebar-width} + 35px);
+$content-wrap-ml: calc(#{$sidebar-left} + #{$sidebar-width});
 $content-wrap-pb: $layout-padding;
 $made-by-footer-pb: 27px;
 

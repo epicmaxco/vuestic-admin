@@ -33,6 +33,7 @@
           </div>
         </va-card>
       </div>
+
       <div class="flex md12">
         <va-card
           class="larger-padding"
@@ -55,6 +56,7 @@
           </div>
         </va-card>
       </div>
+
       <div class="flex md12">
         <va-card
           class="larger-padding"
@@ -232,7 +234,8 @@
                 v-model="activePage"
                 :visible-pages="4"
                 :pages="15"
-                color="danger"/>
+                color="danger"
+              />
             </div>
             <div class="flex xs12 lg12 xl6">
               <va-pagination
