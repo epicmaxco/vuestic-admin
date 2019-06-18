@@ -67,7 +67,7 @@
           icon="fa fa-exclamation-triangle"
           color="danger"
         />
-        <slot slot="append"/>
+        <slot name="append"/>
         <va-icon
           v-if="removable && hasContent"
           @click.native="clearContent()"
