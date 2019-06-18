@@ -75,17 +75,6 @@
       "launchToast": "加载提示框"
     }
   },
-  "extra": {
-    "tabs": {
-      "title": "标签",
-      "maps": "地图",
-      "pages": "页面",
-      "overview": "纵览",
-      "setupProfile": "设置配置文件"
-    },
-    "chat": "聊天",
-    "profileCard": "个人资料卡"
-  },
   "forms": {
     "controls": {
       "female": "女",
@@ -178,7 +167,6 @@
     "collapse": "折叠器",
     "timelines": "时间线",
     "dashboard": "仪表板",
-    "extra": "附加组件",
     "formElements": "表单元素",
     "forms": "表单",
     "formWizards": "表单向导",
@@ -202,7 +190,8 @@
     "treeView": "树视图",
     "dateTimePickers": "日期时间选择器",
     "fileUpload": "文件上传",
-    "dropdowns": "下拉菜单"
+    "dropdowns": "下拉菜单",
+    "chat": "聊天"
   },
   "messages": {
     "all": "查看全部消息",
@@ -311,6 +300,9 @@
     "selectable": "可选择",
     "editable": "可编辑",
     "advanced": "高级"
+  },
+  "chat": {
+    "title": "聊天"
   },
   "cards": {
     "cards": "卡片",

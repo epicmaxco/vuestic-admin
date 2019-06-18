@@ -41,6 +41,8 @@
           <va-tree-node>Skirts</va-tree-node>
         </va-tree-category>
       </va-tree-root>
+      <va-chart type="line" :data="chartData"/>
+      <va-button color="info" @click="refreshData">RefreshChartColors</va-button>
     </VbCard>
     <VbCard title="Change `info` color">
       <va-color-picker-input v-model="$themes.info" mode="advanced"/>
@@ -63,9 +65,12 @@ import SquareWithIcon from '../../vuestic-components/va-tree-view/SquareWithIcon
 import VaTreeRoot from '../../vuestic-components/va-tree-view/VaTreeRoot'
 import VaTreeCategory from '../../vuestic-components/va-tree-view/VaTreeCategory'
 import VaTreeNode from '../../vuestic-components/va-tree-view/VaTreeNode'
+import VaChart from '../../vuestic-components/va-chart/VaChart'
+import { getLineChartData } from '../../../data/charts/LineChartData'
 
 export default {
   components: {
+    VaChart,
     VaTreeNode,
     VaTreeCategory,
     VaTreeRoot,
@@ -76,6 +81,16 @@ export default {
     VaNotification,
     VaProgressBar,
     VaPaletteCustom,
+  },
+  data () {
+    return {
+      chartData: getLineChartData(this.$themes),
+    }
+  },
+  methods: {
+    refreshData () {
+      this.chartData = getLineChartData(this.$themes)
+    },
   },
 }
 </script>

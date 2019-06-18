@@ -167,17 +167,6 @@
       "launchToast": "Launch toast"
     }
   },
-  "extra": {
-    "tabs": {
-      "title": "Tabs",
-      "maps": "Maps",
-      "pages": "Pages",
-      "overview": "Overview",
-      "setupProfile": "Setup Profile"
-    },
-    "chat": "Chat",
-    "profileCard": "Profile Card"
-  },
   "forms": {
     "controls": {
       "female": "Female",
@@ -271,7 +260,6 @@
     "collapses": "Collapses",
     "timelines": "Timelines",
     "dashboard": "Dashboard",
-    "extra": "Extra",
     "formElements": "Form Elements",
     "forms": "Forms",
     "formWizards": "Form Wizards",
@@ -298,7 +286,8 @@
     "dropdowns": "Dropdowns",
     "spacing": "Spacing",
     "sliders": "Sliders",
-    "popovers": "Popovers"
+    "popovers": "Popovers",
+    "chat": "Chat"
   },
   "messages": {
     "all": "See all messages",
@@ -410,6 +399,9 @@
     "selectable": "Selectable",
     "editable": "Editable",
     "advanced": "Advanced"
+  },
+  "chat": {
+    "title": "Chat"
   },
   "cards": {
     "cards": "Cards",

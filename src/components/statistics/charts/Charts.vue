@@ -48,7 +48,6 @@
         </va-card>
       </div>
     </div>
-
     <div class="va-row">
       <div class="flex md12 xs12">
         <va-card
@@ -64,11 +63,11 @@
 
 <script>
 import { getLineChartData } from '../../../data/charts/LineChartData'
-import BubbleChartData from '../../../data/charts/BubbleChartData'
-import PieChartData from '../../../data/charts/PieChartData'
-import DonutChartData from '../../../data/charts/DonutChartData'
-import VerticalBarChartData from '../../../data/charts/VerticalBarChartData'
-import HorizontalBarChartData from '../../../data/charts/HorizontalBarChartData'
+import { getBubbleChartData } from '../../../data/charts/BubbleChartData'
+import { getPieChartData } from '../../../data/charts/PieChartData'
+import { getDonutChartData } from '../../../data/charts/DonutChartData'
+import { getVerticalBarChartData } from '../../../data/charts/VerticalBarChartData'
+import { getHorizontalBarChartData } from '../../../data/charts/HorizontalBarChartData'
 import SidebarLink from '../../admin/app-sidebar/components/SidebarLink'
 
 export default {
@@ -76,17 +75,19 @@ export default {
   components: {
     SidebarLink,
   },
-  data: () => ({
-    bubbleChartData: BubbleChartData,
-    lineChartData: getLineChartData(),
-    pieChartData: PieChartData,
-    donutChartData: DonutChartData,
-    verticalBarChartData: VerticalBarChartData,
-    horizontalBarChartData: HorizontalBarChartData,
-  }),
+  data () {
+    return {
+      bubbleChartData: getBubbleChartData(this.$themes),
+      lineChartData: getLineChartData(this.$themes),
+      pieChartData: getPieChartData(this.$themes),
+      donutChartData: getDonutChartData(this.$themes),
+      verticalBarChartData: getVerticalBarChartData(this.$themes),
+      horizontalBarChartData: getHorizontalBarChartData(this.$themes),
+    }
+  },
   methods: {
     refreshData () {
-      this.lineChartData = getLineChartData()
+      this.lineChartData = getLineChartData(this.$themes)
     },
   },
 }
