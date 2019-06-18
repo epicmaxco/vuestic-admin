@@ -1,52 +1,38 @@
 <template>
   <div class="dashboard">
-    <dashboard-info-widgets/>
-    <va-card class="no-padding no-v-padding">
-      <va-tabs
-        v-model="value"
-        grow
-      >
-        <va-tab>
-          {{$t('dashboard.dataVisualization')}}
-        </va-tab>
-        <va-tab>
-          {{$t('dashboard.usersAndMembers')}}
-        </va-tab>
-        <va-tab>
-          {{$t('dashboard.setupProfile')}}
-        </va-tab>
-        <va-tab>
-          {{$t('dashboard.features')}}
-        </va-tab>
-      </va-tabs>
-      <va-separator/>
-      <data-visualisation-tab v-if="value === 0"/>
-      <users-members-tab v-if="value === 1"/>
-      <setup-profile-tab v-if="value === 2"/>
-      <features-tab v-if="value === 3"/>
-    </va-card>
-    <dashboard-bottom-widgets></dashboard-bottom-widgets>
+    <dashboard-charts />
+    <dashboard-info-block />
+    <div class="va-row">
+      <div class="flex xs12">
+        <dashboard-table />
+      </div>
+    </div>
+    <div class="va-row row-equal">
+      <div class="flex xs12 lg6">
+        <dashboard-tabs />
+      </div>
+      <div class="flex xs12 lg6">
+        <dashboard-map />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import DashboardInfoWidgets from './DashboardInfoWidgets'
-import UsersMembersTab from './users-and-members-tab/UsersMembersTab.vue'
-import SetupProfileTab from './setup-profile-tab/SetupProfileTab.vue'
-import FeaturesTab from './features-tab/FeaturesTab.vue'
-import DataVisualisationTab
-  from './data-visualisation-tab/DataVisualisationTab.vue'
-import DashboardBottomWidgets from './DashboardBottomWidgets.vue'
+import DashboardCharts from './DashboardCharts'
+import DashboardInfoBlock from './DashboardInfoBlock'
+import DashboardTable from './DashboardTable'
+import DashboardTabs from './DashboardTabs'
+import DashboardMap from './DashboardMap'
 
 export default {
   name: 'dashboard',
   components: {
-    DataVisualisationTab,
-    DashboardInfoWidgets,
-    UsersMembersTab,
-    SetupProfileTab,
-    FeaturesTab,
-    DashboardBottomWidgets,
+    DashboardCharts,
+    DashboardInfoBlock,
+    DashboardTable,
+    DashboardTabs,
+    DashboardMap,
   },
 
   methods: {
@@ -63,11 +49,18 @@ export default {
       })
     },
   },
-  data () {
-    return {
-      value: 0,
-    }
-  },
 }
-
 </script>
+
+<style lang="scss">
+  .row-equal .flex {
+    .va-card {
+      height: 100%;
+    }
+  }
+  .dashboard {
+    .va-card {
+      margin-bottom: 0 !important;
+    }
+  }
+</style>

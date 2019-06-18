@@ -7,9 +7,6 @@
     <div class="content-wrap" id="content-wrap">
       <slot name="content"></slot>
     </div>
-    <div class="made-by-footer">
-      <slot name="footer"></slot>
-    </div>
   </div>
 </template>
 
@@ -52,7 +49,6 @@ $vuestic-preloader-top: calc(50% - 104px / 2);
 
       @include media-breakpoint-down(md) {
         padding: $content-mobile-wrap-fixed-layout;
-
       }
     }
   }
@@ -60,7 +56,7 @@ $vuestic-preloader-top: calc(50% - 104px / 2);
   .content-wrap {
     margin-left: $content-wrap-ml;
     transition: margin-left 0.3s ease;
-    padding: $layout-padding $layout-padding-right $content-wrap-pb 0;
+    padding: 0;
 
     .pre-loader {
       position: absolute;
@@ -69,7 +65,6 @@ $vuestic-preloader-top: calc(50% - 104px / 2);
     }
 
     @include media-breakpoint-down(md) {
-      padding: $content-mobile-wrap;
       .va-sidebar-hidden & {
         margin-left: 0;
         padding-top: $content-mobile-wrap-sb-top;

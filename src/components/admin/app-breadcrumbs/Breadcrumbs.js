@@ -150,33 +150,12 @@ export const breadcrumbs = {
           displayName: 'menu.popovers',
         },
         {
+          name: 'chat',
+          displayName: 'menu.chat',
+        },
+        {
           name: 'rating',
           displayName: 'menu.rating',
-        },
-      ],
-    },
-    {
-      name: 'extra',
-      displayName: 'menu.extra',
-      meta: {
-        iconClass: 'vuestic-iconset-extras',
-      },
-    },
-    {
-      name: 'auth',
-      displayName: 'menu.auth',
-      meta: {
-        iconClass: 'vuestic-iconset-auth',
-      },
-      disabled: true,
-      children: [
-        {
-          name: 'login',
-          displayName: 'menu.login',
-        },
-        {
-          name: 'signup',
-          displayName: 'menu.signUp',
         },
       ],
     },

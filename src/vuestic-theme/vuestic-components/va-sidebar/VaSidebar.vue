@@ -69,7 +69,7 @@ export default {
     opacity: 1;
   }
 
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(sm) {
     top: $sidebar-mobile-top;
     width: 100%;
     z-index: $sidebar-minimized-z-index;

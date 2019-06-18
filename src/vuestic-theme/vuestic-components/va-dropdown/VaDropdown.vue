@@ -63,8 +63,10 @@ export default {
           this.$nextTick(() => {
             this.initPopper()
           })
+          this.$emit('show')
           return
         }
+        this.$emit('hide')
         this.removePopper()
       },
     },
