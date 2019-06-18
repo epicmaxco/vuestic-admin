@@ -1,5 +1,5 @@
 <template>
-  <va-card title="Current visitors">
+  <va-card :title="$t('dashboard.currentVisitors')">
     <line-map
       class="dashboard-map"
       :map-data="lineMapData"
@@ -14,13 +14,13 @@ import LineMapData from '@/data/maps/LineMapData'
 export default {
   name: 'dashboard-map',
   components: {
-    LineMap
+    LineMap,
   },
   data () {
     return {
       lineMapData: LineMapData,
     }
-  }
+  },
 }
 </script>
 

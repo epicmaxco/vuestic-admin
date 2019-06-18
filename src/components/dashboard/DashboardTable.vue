@@ -1,11 +1,11 @@
 <template>
   <va-card title="Awesome table">
     <div class="va-row justify--space-between align--center mb-2">
-      <div class="flex sm4 md6 xs12">
+      <div class="flex sm4 xs12">
         <va-input
           class="mb-0"
           v-model="search"
-          placeholder="Search by name, email"
+          :placeholder="$t('dashboard.table.search')"
         >
           <va-icon
             slot="prepend"
@@ -17,20 +17,24 @@
       <div class="flex sm8 table-buttons">
         <div class="va-row justify--end align--center">
           <va-checkbox
-            label="Verified users"
+            :label="$t('dashboard.table.verified')"
             v-model="checkbox"
             class="mr-3"
           />
           <va-button-group>
-            <va-button color="success">Brief</va-button>
-            <va-button outline color="success">Detailed</va-button>
+            <va-button color="success">
+              {{ $t('dashboard.table.brief') }}
+            </va-button>
+            <va-button outline color="success">
+              {{ $t('dashboard.table.detailed') }}
+            </va-button>
           </va-button-group>
-          <va-button>Export</va-button>
+          <va-button>{{ $t('dashboard.table.export') }}</va-button>
           <va-button
             color="gray"
             icon-right="ion-ios-arrow-down arrow-down"
           >
-            6 Per Page
+            6 {{ $t('dashboard.table.perPage') }}
           </va-button>
         </div>
       </div>

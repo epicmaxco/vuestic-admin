@@ -133,7 +133,6 @@
                 June 2018
               </span>
               <va-card
-                no-margin
                 slot="after"
                 stripe="success"
               >
@@ -166,7 +165,6 @@
                 April 2018
               </span>
               <va-card
-                no-margin
                 slot="after"
                 stripe="danger"
               >

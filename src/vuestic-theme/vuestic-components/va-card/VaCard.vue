@@ -66,10 +66,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    noMargin: {
-      type: Boolean,
-      default: false,
-    },
     image: {
       type: String,
       default: '',

@@ -1,25 +1,12 @@
 <template>
   <div class="dashboard">
-    <div class="va-row row-equal">
-      <div class="flex xs12 xl6">
-        <dashboard-line-chart />
-      </div>
-      <div class="flex xs12 md6 xl3">
-        <dashboard-donut-chart />
-      </div>
-      <div class="flex xs12 md6 xl3">
-        <dashboard-progress-bars />
-      </div>
-    </div>
-
+    <dashboard-charts />
     <dashboard-info-block />
-
     <div class="va-row">
       <div class="flex xs12">
         <dashboard-table />
       </div>
     </div>
-
     <div class="va-row row-equal">
       <div class="flex xs12 lg6">
         <dashboard-tabs />
@@ -32,9 +19,7 @@
 </template>
 
 <script>
-import DashboardLineChart from './DashboardLineChart'
-import DashboardDonutChart from './DashboardDonutChart'
-import DashboardProgressBars from './DashboardProgressBars'
+import DashboardCharts from './DashboardCharts'
 import DashboardInfoBlock from './DashboardInfoBlock'
 import DashboardTable from './DashboardTable'
 import DashboardTabs from './DashboardTabs'
@@ -43,9 +28,7 @@ import DashboardMap from './DashboardMap'
 export default {
   name: 'dashboard',
   components: {
-    DashboardLineChart,
-    DashboardDonutChart,
-    DashboardProgressBars,
+    DashboardCharts,
     DashboardInfoBlock,
     DashboardTable,
     DashboardTabs,
@@ -67,7 +50,6 @@ export default {
     },
   },
 }
-
 </script>
 
 <style lang="scss">

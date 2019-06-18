@@ -1,5 +1,5 @@
 <template>
-  <va-card title="Setup remote connections">
+  <va-card :title="$t('dashboard.setupRemoteConnections')">
     <va-tabs grow v-model="tabsState">
       <va-tab>
         {{$t('dashboard.tabs.overview.title')}}

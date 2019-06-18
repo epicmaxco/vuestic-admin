@@ -90,15 +90,36 @@
     "inline": "Inline"
   },
   "dashboard": {
-    "dataVisualization": "Data Visualization",
-    "success": "SUCCESS",
-    "successMessage": "You successfully read this important alert message.",
-    "elements": "Elements",
-    "features": "Features",
-    "setupProfile": "Setup Profile",
-    "teamMembers": "Team Members",
-    "usersAndMembers": "Users & Members",
     "versions": "Versions",
+    "setupRemoteConnections": "Setup Remote Connections",
+    "currentVisitors": "Current Visitors",
+    "charts": {
+      "trendyTrends": "Trendy Trends",
+      "deleteSection": "Delete Section",
+      "loadingSpeed": "Loading speed",
+      "topContributors": "Top contributors",
+      "showAll": "Show All",
+      "commits": "Commits"
+    },
+    "info": {
+      "completedPullRequests": "completed pull requests",
+      "users": "users",
+      "points": "points",
+      "units": "units",
+      "exploreGallery": "Explore gallery",
+      "viewLibrary": "View Library",
+      "commits": "commits",
+      "components": "components",
+      "teamMembers": "team members"
+    },
+    "table": {
+      "search": "Search by name, email",
+      "brief": "Brief",
+      "detailed": "Detailed",
+      "export": "Export",
+      "perPage": "Per Page",
+      "verified": "Verified"
+    },
     "tabs": {
       "overview": {
         "title": "Overview",

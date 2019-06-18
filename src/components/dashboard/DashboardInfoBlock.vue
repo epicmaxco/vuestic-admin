@@ -9,7 +9,7 @@
         >
           <va-card class="mb-4" :color="info.color">
             <p class="display-2 text-white mb-0">{{ info.value }}</p>
-            <p>{{ info.text }}</p>
+            <p>{{$t('dashboard.info.' + info.text)}}</p>
           </va-card>
         </div>
       </div>
@@ -18,7 +18,7 @@
         <div class="flex xs12 md6">
           <va-card>
             <p class="display-2 text-primary mb-0">291</p>
-            <p>completed pull requests</p>
+            <p>{{$t('dashboard.info.completedPullRequests')}}</p>
           </va-card>
         </div>
         <div class="flex xs12 md6">
@@ -26,15 +26,15 @@
             <div class="va-row row-separated">
               <div class="flex xs4">
                 <p class="display-2 text-primary mb-0">3</p>
-                <p>users</p>
+                <p>{{$t('dashboard.info.users')}}</p>
               </div>
               <div class="flex xs4">
                 <p class="display-2 text-info mb-0">24</p>
-                <p>points</p>
+                <p>{{$t('dashboard.info.points')}}</p>
               </div>
               <div class="flex xs4">
                 <p class="display-2 text-warning mb-0">91</p>
-                <p>units</p>
+                <p>{{$t('dashboard.info.units')}}</p>
               </div>
             </div>
           </va-card>
@@ -52,7 +52,7 @@
 
         <div class="va-row mt-3">
           <va-button color="success">
-            View Library
+            {{$t('dashboard.info.viewLibrary')}}
           </va-button>
         </div>
       </va-card>
@@ -70,7 +70,7 @@
             icon-right="ion ion-ios-arrow-forward"
             color="success"
           >
-            Explore gallery
+            {{$t('dashboard.info.exploreGallery')}}
           </va-button>
         </template>
       </va-card>
@@ -96,7 +96,7 @@ export default {
       }, {
         color: 'info',
         value: '5',
-        text: 'team members',
+        text: 'teamMembers',
         icon: '',
       }],
     }
