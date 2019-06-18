@@ -137,16 +137,18 @@
               </div>
               <div class="flex md4">
                 <fieldset>
-                  <va-multi-select
+                  <va-select
                     :label="$t('forms.selects.multi')"
                     v-model="multiSelectModel"
                     option-key="description"
-                    v-bind:options="simpleOptions"
+                    :options="simpleOptions"
+                    multiple
                   />
-                  <va-multi-select
+                  <va-select
                     :label="$t('forms.selects.countryMulti')"
                     v-model="multiSelectCountriesModel"
-                    v-bind:options="countriesList"
+                    :options="countriesList"
+                    multiple
                   />
                 </fieldset>
               </div>
@@ -186,16 +188,18 @@
           </div>
           <div class="flex md4">
             <fieldset>
-              <va-multi-select
+              <va-select
                 :label="$t('forms.selects.multi')"
+                multiple
                 v-model="multiSelectModel"
                 option-key="description"
-                v-bind:options="simpleOptions"
+                :options="simpleOptions"
               />
-              <va-multi-select
+              <va-select
                 :label="$t('forms.selects.countryMulti')"
                 v-model="multiSelectCountriesModel"
                 v-bind:options="countriesList"
+                multiple
               />
             </fieldset>
           </div>
@@ -313,16 +317,6 @@ import CountriesList from 'data/CountriesList'
 export default {
   name: 'form-elements',
   components: {},
-  computed: {
-    datePickerDisabled: () => [date => !(date.getDate() % 5)],
-    isSuccessfulEmailValid () {
-      let isValid = false
-      if (this.formFields.successfulEmail) {
-        isValid = this.formFields.successfulEmail.validated && this.formFields.successfulEmail.valid
-      }
-      return isValid
-    },
-  },
   data () {
     return {
       isMale: true,

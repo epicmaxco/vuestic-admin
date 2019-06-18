@@ -6,32 +6,51 @@
         v-model="defaultSelect.value"
       />
     </VbCard>
-    <VbCard title="Object options -">
+    <VbCard title="Object options">
       <va-select
-        label="Clone value"
-        @input="input"
+        label="Object value"
+        v-model="objectSelect.value"
         :options="objectSelect.options"
-        :value="objectSelect.value"
       />
+    </VbCard>
+    <VbCard title="Options with icons">
       <va-select
-        label="Object with only id"
-        :options="objectSelect.options"
-        :value="objectSelect.idOnly"
-      />
-      <va-select
-        label="Exact value"
-        :options="objectSelect.options"
-        :value="objectSelect.exactValue"
+        v-model="iconsSelect.value"
+        :options="iconsSelect.options"
       />
     </VbCard>
     <VbCard title="No options">
-      <va-select :value="value" :options="[]"/>
-    </VbCard>
-    <VbCard title="placeholder">
       <va-select
-        v-model="value"
+        :value="defaultSelect.value"
+        :options="[]"
+      />
+      <va-select
+        label="custom no options text"
+        :value="defaultSelect.value"
+        :options="[]"
+        no-options-text="Sorry..."
+      />
+    </VbCard>
+    <VbCard title="Placeholder">
+      <va-select
+        v-model="defaultSelect.value"
         :options="CountriesList"
-        placeholder="select coutry"
+        placeholder="select country"
+      />
+    </VbCard>
+    <VbCard title="Label">
+      <va-select
+        label="country label"
+        v-model="defaultSelect.value"
+        :options="CountriesList"
+      />
+    </VbCard>
+    <VbCard title="Label and placeholder">
+      <va-select
+        label="country label"
+        placeholder="select country"
+        v-model="defaultSelect.value"
+        :options="CountriesList"
       />
     </VbCard>
     <VbCard title="positions">
@@ -39,35 +58,14 @@
         <p>{{position}}</p>
         <va-select
           :position="position"
-          v-model="value"
+          v-model="defaultSelect.value"
           :options="CountriesList"
         />
       </div>
     </VbCard>
-    <VbCard title="label">
-      <va-select
-        label="country label"
-        v-model="value"
-        :options="CountriesList"
-      />
-    </VbCard>
-    <VbCard title="label and placeholder">
-      <va-select
-        label="country label"
-        placeholder="select country"
-        v-model="value"
-        :options="CountriesList"
-      />
-    </VbCard>
-    <VbCard title="options with icons">
-      <va-select
-        v-model="iconValue"
-        :options="optionsWithIcons"
-      />
-    </VbCard>
     <VbCard title="disabled">
       <va-select
-        v-model="value"
+        v-model="defaultSelect.value"
         :options="CountriesList"
         disabled
       />
@@ -78,11 +76,17 @@
         multiple
         :options="CountriesList"
       />
-      {{multipleValue}}
+      <va-select
+        label="with custom max"
+        v-model="multipleValue"
+        multiple
+        :max="2"
+        :options="CountriesList"
+      />
     </VbCard>
     <VbCard title="searchable">
       <va-select
-        v-model="value"
+        v-model="defaultSelect.value"
         :options="CountriesList"
         searchable
       />
@@ -97,21 +101,21 @@
     </VbCard>
     <VbCard title="custom max-height (320px)">
       <va-select
-        v-model="value"
+        v-model="defaultSelect.value"
         :options="CountriesList"
         max-height="320px"
       />
     </VbCard>
-    <VbCard title="custom width (320px)" :style="{'width': '100%'}">
+    <VbCard title="custom width (30%)" :style="{'width': '100%'}">
       <va-select
-        v-model="value"
+        v-model="defaultSelect.value"
         :options="CountriesList"
         width="30%"
       />
     </VbCard>
     <VbCard title="loading">
       <va-select
-        v-model="value"
+        v-model="defaultSelect.value"
         :options="CountriesList"
         loading
       />
@@ -119,14 +123,15 @@
     <VbCard title="with ajax">
       <va-select
         searchable
-        v-model="value"
+        v-model="defaultSelect.value"
         :options="CountriesList"
         :loading="isLoading"
         @update-search="updateSearch"
       />
     </VbCard>
     <VbCard :style="{ 'width': '100%' }">
-      <p>{{value}}</p>
+      <p>{{defaultSelect.value}}</p>
+      <p>{{objectSelect.value}}</p>
       <p>{{multipleValue}}</p>
     </VbCard>
   </VbDemo>
@@ -140,12 +145,35 @@ import VaSelect from './VaSelect'
 const positions = ['top', 'bottom']
 
 export default {
-  components: {
-    VaSelect,
-  },
+  components: { VaSelect },
   data () {
     const objectSelectOptions = [{ id: 1, text: 'one' }, { id: 2, text: 'two' }, { id: 3, text: 'three' }]
-
+    const iconsSelectOptions = [
+      {
+        text: 'item1',
+        value: 0,
+        icon: 'fa fa-address-book',
+      },
+      {
+        text: 'item2',
+        value: 1,
+        icon: 'fa fa-android',
+      },
+      {
+        text: 'item2',
+        value: 2,
+        icon: 'fa fa-android',
+      },
+      {
+        text: 'item2',
+        value: 3,
+      },
+      {
+        text: 'item2',
+        value: 4,
+        icon: 'fa fa-android',
+      },
+    ]
     return {
       defaultSelect: {
         options: ['one', 'two', 'three'],
@@ -155,36 +183,12 @@ export default {
         value: '',
         options: objectSelectOptions,
       },
-      value: '',
+      iconsSelect: {
+        value: '',
+        options: iconsSelectOptions,
+      },
       multipleValue: [],
-      iconValue: {},
       CountriesList,
-      optionsWithIcons: [
-        {
-          text: 'item1',
-          value: 0,
-          icon: 'fa fa-address-book',
-        },
-        {
-          text: 'item2',
-          value: 1,
-          icon: 'fa fa-android',
-        },
-        {
-          text: 'item2',
-          value: 2,
-          icon: 'fa fa-android',
-        },
-        {
-          text: 'item2',
-          value: 3,
-        },
-        {
-          text: 'item2',
-          value: 4,
-          icon: 'fa fa-android',
-        },
-      ],
       positions,
       isLoading: false,
     }
@@ -196,9 +200,6 @@ export default {
         this.isLoading = false
         this.CountriesList = []
       }, 2000)
-    },
-    input (val) {
-      console.log(val)
     },
   },
 }

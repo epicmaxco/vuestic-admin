@@ -113,13 +113,13 @@ export default {
     }
   },
   props: {
+    value: {},
     label: String,
     placeholder: String,
     options: {
       type: Array,
       default: () => [],
     },
-    value: {},
     position: {
       type: String,
       default: 'bottom',
