@@ -66,10 +66,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    noMargin: {
-      type: Boolean,
-      default: false,
-    },
     image: {
       type: String,
       default: '',
@@ -115,11 +111,6 @@ export default {
         return {
           color: '#fff',
           background: getGradientBackground(this.$themes[this.color]),
-          marginBottom: this.noMargin ? 0 : '2.5rem',
-        }
-      } else {
-        return {
-          marginBottom: this.noMargin ? 0 : '2.5rem',
         }
       }
     },
@@ -168,15 +159,15 @@ export default {
       top: 0;
       left: 0;
 
+      &:last-child {
+        height: 100%;
+      }
+
       & > div {
         position: absolute;
         width: 100%;
         bottom: 0;
         left: 0;
-
-        & * {
-          color: $white;
-        }
       }
     }
   }
@@ -203,8 +194,10 @@ export default {
   }
 
   &__image {
-    padding-bottom: 56%;
-    position: relative;
+     padding-bottom: 56%;
+     position: relative;
+     height: auto;
+     min-height: 100%;
 
     img {
       position: absolute;
