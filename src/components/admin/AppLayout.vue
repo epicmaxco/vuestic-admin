@@ -3,7 +3,6 @@
     <app-navbar
       :minimized="minimized"
       :navbar-view.sync="navbarView"
-      @toggle-navbar-view="toggleNavbarView"
       @toggle-menu="toggleSidebar"
     />
     <app-sidebar
@@ -27,8 +26,7 @@
 </template>
 
 <script>
-import VaPageLayout
-  from '../../vuestic-theme/vuestic-components/va-page-layout/VaPageLayout'
+import VaPageLayout from '../../vuestic-theme/vuestic-components/va-page-layout/VaPageLayout'
 import AppNavbar from './app-navbar/AppNavbar'
 import AppSidebar from './app-sidebar/AppSidebar'
 import Layout from '../../vuestic-theme/vuestic-mixins/Layout'
@@ -52,9 +50,6 @@ export default {
   methods: {
     toggleSidebar (minimized) {
       this.minimized = minimized
-    },
-    toggleNavbarView (navbarView) {
-      this.navbarView = navbarView
     },
   },
   computed: {

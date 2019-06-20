@@ -201,7 +201,7 @@ export default {
 
     li {
       display: block;
-      padding-left: 3rem;
+      padding-left: 2.75rem;
     }
   }
 
@@ -223,7 +223,9 @@ export default {
     top: 0;
     bottom: 0;
     margin: auto;
-    right: .5rem;
+    right: .1rem;
+    width: 1.5rem;
+    height: 1.5rem;
     font-weight: $font-weight-bold;
     line-height: 1.5rem;
   }
@@ -237,9 +239,19 @@ export default {
       max-height: 80vh;
     }
 
-    .va-sidebar-link-group__submenu li {
-      padding: .75rem 1rem;
-      border-left: none;
+    .va-sidebar-link-group__submenu {
+      padding: .375rem 0;
+      overflow: hidden auto;
+      .va-sidebar-link__content {
+        &__title {
+          display: inline-block;
+          opacity: 1;
+        }
+      }
+      li {
+        padding: .75rem 1rem;
+        border-left: none;
+      }
     }
   }
 
@@ -271,6 +283,14 @@ export default {
       padding-right: 0;
       &__title {
         opacity: 1 !important;
+      }
+    }
+    &.va-sidebar-link-group--minimized {
+      .va-sidebar-link__content__icon {
+        margin-right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
   }

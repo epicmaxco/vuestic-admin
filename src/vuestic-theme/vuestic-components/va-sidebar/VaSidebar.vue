@@ -6,17 +6,15 @@
     <ul class="va-sidebar__menu">
       <slot name="menu"></slot>
     </ul>
-    <app-search class="va-sidebar__search" v-if="navbarView"/>
   </aside>
 </template>
 
 <script>
-import AppSearch from '../../../components/admin/app-search/AppSearch'
 import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
 
 export default {
   name: 'va-sidebar',
-  components: { AppSearch },
+  components: {},
   mixins: [ColorThemeMixin],
   props: {
     minimized: {
@@ -59,7 +57,7 @@ export default {
   &__menu {
     max-height: 100%;
     margin-bottom: 0;
-    padding-top: 0.5rem;
+    padding-top: 2.5625rem;
     padding-bottom: 2.5rem;
     list-style: none;
     padding-left: 0;
@@ -72,13 +70,11 @@ export default {
   @include media-breakpoint-down(sm) {
     top: $sidebar-mobile-top;
     width: 100%;
-    z-index: $sidebar-minimized-z-index;
   }
 
   &--minimized {
     left: 0;
     width: $sidebar-minimized-width;
-    z-index: $sidebar-minimized-z-index;
     .va-sidebar-link-group {
       .va-sidebar-link__content {
         padding-right: 0;
@@ -100,16 +96,6 @@ export default {
     position: relative;
     top: auto;
     min-height: 4rem;
-    justify-content: flex-start;
-    display: flex;
-    align-items: flex-end;
-    .va-sidebar__search {
-      position: absolute;
-      right: 2rem;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-    }
     & + .content-wrap {
       margin-left: 0;
       padding-left: 2.5rem;
@@ -124,8 +110,13 @@ export default {
       width: 100%;
       padding: 0;
       height: 100%;
-      @include media-breakpoint-down(lg) {
-        justify-content: flex-start;
+      min-height: 4rem;
+      margin: 0 auto;
+    }
+    @include media-breakpoint-down(sm) {
+      .va-sidebar__menu {
+        max-width: 100%;
+        padding: 0 1rem;
       }
     }
   }

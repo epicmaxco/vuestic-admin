@@ -22,7 +22,10 @@
     <div class="app-navbar__actions va-row flex-nowrap align--center">
       <message-dropdown class="va-navbar__item"/>
       <notification-dropdown class="va-navbar__item"/>
-      <settings-dropdown class="va-navbar__item" :navbar-view.sync="navbarView"/>
+      <settings-dropdown
+        class="va-navbar__item"
+        :navbar-view.sync="navbarViewProxy"
+      />
       <language-dropdown class="va-navbar__item"/>
       <profile-dropdown class="va-navbar__item">
         <span>{{userName}}</span>
@@ -78,6 +81,14 @@ export default {
       },
       set (opened) {
         this.$emit('toggle-menu', opened)
+      },
+    },
+    navbarViewProxy: {
+      set (navbarView) {
+        this.$emit('update:navbarView', navbarView)
+      },
+      get () {
+        return this.navbarView
       },
     },
   },

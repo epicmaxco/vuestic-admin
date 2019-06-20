@@ -80,7 +80,7 @@ $nav-padding-right: $layout-padding-right;
 $navbar-brand-container-left: 75px;
 
 $sidebar-bg: $darkest-gray;
-$sidebar-width: 225px;
+$sidebar-width: 18.75rem;
 $sidebar-width--hidden: 56px;
 $sidebar-top: $top-nav-height;
 $sidebar-left--hidden: $sidebar-width--hidden;
@@ -172,7 +172,6 @@ $sidebar-viewport-height: calc(100% - #{$top-nav-height});
 $sidebar-hidden-top: -150px;
 $sidebar-box-shadow: 0 2px 3px 0 rgba(52, 56, 85, 0.25);
 $sidebar-minimized-width: 3.5rem;
-$sidebar-minimized-z-index: 1000;
 
 //Widgets
 $widget-bg: $white;

@@ -128,9 +128,9 @@ export default {
   position: relative;
   height: 3rem;
   cursor: pointer;
-  padding-left: 1rem;
-  padding-top: .725rem;
-  padding-bottom: .725rem;
+  padding-left: .75rem;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -146,21 +146,32 @@ export default {
     }
 
     &__title {
-      line-height: 1.71em;
+      line-height: 1.5em;
     }
   }
 
   &--minimized {
-    .va-sidebar-link__content__title {
-      display: none;
+    .va-sidebar-link__content {
+      &__title {
+        display: none;
+      }
     }
   }
 
   &--navbar-view {
     border-left: none;
     border-bottom: .25rem solid transparent;
-    padding-left: 0;
     margin: 0 .25rem;
+    height: 4rem;
+    padding: 1.25rem 0 1rem;
+    &.va-sidebar-link--minimized {
+      .va-sidebar-link__content__icon {
+        margin-right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
   }
 }
 
