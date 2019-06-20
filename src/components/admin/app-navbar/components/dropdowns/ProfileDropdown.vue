@@ -1,24 +1,24 @@
 <template>
-  <div class="grow profile-dropdown flex-center">
-    <span class="profile-dropdown__avatar-container">
+  <va-dropdown
+    class="profile-dropdown"
+    @show="toggleVisibility(true)"
+    @hide="toggleVisibility(false)"
+  >
+    <span class="profile-dropdown__actuator" slot="anchor">
       <slot/>
+      <va-icon class="pa-1" :icon="`fa ${isShown ? 'fa-chevron-up' :'fa-chevron-down'}`"></va-icon>
     </span>
-    <va-dropdown-old
-      v-model="isShown"
-      position="bottom"
-    >
-      <div
+    <div class="profile-dropdown__content py-3 px-2">
+      <router-link
         v-for="option in options"
         :key="option.name"
-        class="dropdown-item plain-link-item"
+        :to="{name: option.redirectTo}"
+        class="profile-dropdown__item pb-2"
       >
-        <router-link :to="{name: option.redirectTo}" class="plain-link"
-                     href="#">
-          {{ $t(`user.${option.name}`) }}
-        </router-link>
-      </div>
-    </va-dropdown-old>
-  </div>
+        {{ $t(`user.${option.name}`) }}
+      </router-link>
+    </div>
+  </va-dropdown>
 </template>
 
 <script>
@@ -44,27 +44,35 @@ export default {
       ],
     },
   },
+  methods: {
+    toggleVisibility (val) {
+      this.isShown = val
+    },
+  },
 }
 </script>
 
 <style lang="scss">
-@import '../../../../../vuestic-theme/vuestic-sass/resources/resources';
-
 .profile-dropdown {
   cursor: pointer;
+  &__actuator {
+    color: $vue-green;
+  }
+  .va-dropdown-popper__anchor {
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__content {
+    background-color: $dropdown-background;
+    box-shadow: $gray-box-shadow;
+    border-radius: .5rem;
+  }
+  &__item {
+    display: block;
+    color: $vue-darkest-blue;
 
-  &__avatar-container {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    background-color: white;
-    border-radius: 50%;
-    border: 2px solid $lighter-gray;
-    overflow: hidden;
-
-    img {
-      height: 100%;
-      width: 100%;
+    &:hover, &:active {
+      color: $vue-green;
     }
   }
 }

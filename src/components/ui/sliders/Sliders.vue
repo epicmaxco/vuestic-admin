@@ -5,13 +5,13 @@
         <va-card :title="$t('sliders.slider')">
           <div class="va-row">
             <div class="flex xs12 lg6 xl4 mb-2">
-              <div class="title mb-3">Simple</div>
+              <div class="title mb-3">{{$t('sliders.simple')}}</div>
               <va-slider
                 v-model="value"
               />
             </div>
             <div class="flex xs12 lg6 xl4 mb-2">
-              <div class="title title--danger mb-3">Value</div>
+              <div class="title title--danger mb-3">{{$t('sliders.value')}}</div>
               <va-slider
                 color="danger"
                 value-visible
@@ -20,7 +20,7 @@
             </div>
             <div class="flex d-flex align--end xs12 lg6 xl4 mb-2">
               <va-slider
-                label="Label"
+                :label="$t('sliders.label')"
                 color="info"
                 value-visible
                 v-model="value"
@@ -28,7 +28,7 @@
             </div>
             <div class="flex d-flex align--end xs12 lg6 xl4 mb-2">
               <va-slider
-                label="Label"
+                :label="$t('sliders.label')"
                 :invert-label="true"
                 color="warning"
                 value-visible
@@ -36,14 +36,14 @@
               />
             </div>
             <div class="flex xs12 lg6 xl4 mb-2">
-              <div class="title mb-3">Label + Icon</div>
+              <div class="title mb-3">{{$t('sliders.labelPlusIcon')}}</div>
               <va-slider
                 icon="fa fa-music"
                 v-model="value"
               />
             </div>
             <div class="flex xs12 lg6 xl4 mb-2">
-              <div class="title title--danger mb-3">Label + Icon</div>
+              <div class="title title--danger mb-3">{{$t('sliders.labelPlusIcon')}}</div>
               <va-slider
                 color="danger"
                 icon-right="fa fa-check-circle"
@@ -52,7 +52,7 @@
               />
             </div>
             <div class="flex xs12 lg6 xl4 mb-2">
-              <div class="title mb-3">Pins</div>
+              <div class="title mb-3">{{$t('sliders.pins')}}</div>
               <va-slider
                 pins
                 :step="20"
@@ -60,7 +60,7 @@
               />
             </div>
             <div class="flex xs12 lg6 xl4 mb-2">
-              <div class="title title--warning mb-3">Pins & Value</div>
+              <div class="title title--warning mb-3">{{$t('sliders.pinsAndValue')}}</div>
               <va-slider
                 pins
                 :step="10"
@@ -91,14 +91,14 @@
         <va-card :title="$t('sliders.range')">
           <div class="va-row">
             <div class="flex xs12 lg6 xl4 mb-2">
-              <div class="title mb-3">Simple</div>
+              <div class="title mb-3">{{$t('sliders.simple')}}</div>
               <va-slider
                 range
                 v-model="value2"
               />
             </div>
             <div class="flex xs12 lg6 xl4 mb-2">
-              <div class="title title--danger mb-3">Value</div>
+              <div class="title title--danger mb-3">{{$t('sliders.value')}}</div>
               <va-slider
                 range
                 color="danger"
@@ -109,7 +109,7 @@
             <div class="flex d-flex align--end xs12 lg6 xl4 mb-2">
               <va-slider
                 range
-                label="Label"
+                :label="$t('sliders.label')"
                 color="info"
                 value-visible
                 v-model="value2"
@@ -118,7 +118,7 @@
             <div class="flex d-flex align--end xs12 lg6 xl4 mb-2">
               <va-slider
                 range
-                label="Label"
+                :label="$t('sliders.label')"
                 :invert-label="true"
                 color="warning"
                 value-visible
@@ -126,7 +126,7 @@
               />
             </div>
             <div class="flex xs12 lg6 xl4 mb-2">
-              <div class="title mb-3">Label + Icon</div>
+              <div class="title mb-3">{{$t('sliders.labelPlusIcon')}}</div>
               <va-slider
                 range
                 icon="fa fa-music"
@@ -134,7 +134,7 @@
               />
             </div>
             <div class="flex xs12 lg6 xl4 mb-2">
-              <div class="title title--danger mb-3">Label + Icon</div>
+              <div class="title title--danger mb-3">{{$t('sliders.labelPlusIcon')}}</div>
               <va-slider
                 range
                 color="danger"
@@ -144,7 +144,7 @@
               />
             </div>
             <div class="flex xs12 lg6 xl4 mb-2">
-              <div class="title mb-3">Pins</div>
+              <div class="title mb-3">{{$t('sliders.pins')}}</div>
               <va-slider
                 range
                 pins
@@ -153,7 +153,7 @@
               />
             </div>
             <div class="flex xs12 lg6 xl4 mb-2">
-              <div class="title title--warning mb-3">Pins & Value</div>
+              <div class="title title--warning mb-3">{{$t('sliders.pinsAndValue')}}</div>
               <va-slider
                 range
                 pins

@@ -70,6 +70,17 @@
         />
       </va-input>
     </VbCard>
+    <VbCard title="Append Slot">
+      <va-input
+        v-model="text"
+        label="Name"
+      >
+        <va-icon
+          slot="append"
+          icon="fa fa-anchor"
+        />
+      </va-input>
+    </VbCard>
     <VbCard title="Removable Icon">
       <va-input
         v-model="text"
@@ -97,7 +108,7 @@
         label="Name"
         removable
         success
-        :messages="successMessage"
+        :messages="successMessages"
       />
     </VbCard>
     <VbCard title="Error Message">
@@ -105,7 +116,7 @@
         v-model="text"
         label="Name"
         error
-        :error-messages="errorMessage"
+        :error-messages="errorMessages"
       />
     </VbCard>
     <VbCard title="Error count 2">
@@ -113,7 +124,7 @@
         v-model="text"
         label="Name"
         error
-        errorCount="2"
+        :errorCount="2"
         :error-messages="['one', 'two']"
       />
     </VbCard>
@@ -145,8 +156,8 @@ export default {
       text: 'Vuestic',
       phone: '33 310-86-24',
       messages: ['Required field'],
-      errorMessage: 'Detailed error message',
-      successMessage: 'Success message',
+      errorMessages: ['Detailed error message'],
+      successMessages: ['Success message'],
     }
   },
 }

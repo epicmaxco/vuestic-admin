@@ -67,7 +67,7 @@
           name="fa fa-exclamation-triangle"
           color="danger"
         />
-        <slot slot="append"/>
+        <slot name="append"/>
         <va-icon
           v-if="removable && hasContent"
           @click.native="clearContent()"
@@ -92,7 +92,9 @@ export default {
   extends: VaInputWrapper,
   components: { VaInputWrapper, VaIcon },
   props: {
-    value: {},
+    value: {
+      type: [String, Number],
+    },
     label: {
       type: String,
     },
@@ -176,7 +178,7 @@ export default {
       )
     },
     hasContent () {
-      return [null, undefined, ''].includes(this.value)
+      return ![null, undefined, ''].includes(this.value)
     },
     isTextarea () {
       return this.type === 'textarea'

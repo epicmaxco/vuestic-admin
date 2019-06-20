@@ -1,6 +1,7 @@
 <template>
-  <span class="flex-center header-selector i-menu-expanded"
-        @click="$emit('update:isOpen', !isOpen)"
+  <span
+    class="flex-center header-selector i-menu-expanded"
+    @click="$emit('update:isOpen', !isOpen)"
   />
 </template>
 
