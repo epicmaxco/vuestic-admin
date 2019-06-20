@@ -59,7 +59,7 @@
           :key="icon"
         >
           <div class="vuestic-icon mb-3 pt-3">
-            <va-icon :name="iconClass(icon)" :size="iconSize"/>
+            <va-icon :name="iconClass(icon)" :size="iconSize">{{iconData(icon)}}</va-icon>
           </div>
           <div class="icon-text">
             {{ icon }}
@@ -128,7 +128,10 @@ export default {
   },
   methods: {
     iconClass (icon) {
-      return `${this.set.prefix} ${this.set.prefix}-${icon}`
+      return this.set.prefix === 'material-icons' ? this.set.prefix : `${this.set.prefix} ${this.set.prefix}-${icon}`
+    },
+    iconData (icon) {
+      return this.set.prefix === 'material-icons' ? icon : ''
     },
   },
 }

@@ -16,6 +16,7 @@ const iconTypes = [
   'ionicons',
   'maki',
   'openweb',
+  'material-icons',
 ]
 
 export default {
