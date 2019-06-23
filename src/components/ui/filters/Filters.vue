@@ -19,6 +19,7 @@
             label="City"
             v-model="city"
             :options="cityList"
+            fixed
           />
         </div>
         <div class="filters-page__tags d-flex align--center">

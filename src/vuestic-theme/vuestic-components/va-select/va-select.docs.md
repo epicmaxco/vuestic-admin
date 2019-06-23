@@ -23,10 +23,13 @@
 * `placeholder` - String - placeholder of select
 * `options` - Array (default: []) - list of select options. You can use strings or objects as an option. If you use object, field text will be use as a label. 
 option : {
-text: String,
-icon: String,
-value: String | Number
+  text: String,
+  icon: String,
+  value: String | Number,
+  id: String | Number
 }
+* `keyBy` - String (default: id)
+* `textBy` - String (default: text)
 * `position`: String (default: 'bottom') - direction of select open (one of these values: 'bottom', 'top'),
 * `multiple` - Boolean (default: false) - changes select to multiple
 * `max` - Number (default: 5) - the max number of chips, when the number of selected items is bigger then max, there is only text '6 items selected'
@@ -36,3 +39,5 @@ value: String | Number
 * `width` - String (default: 400px) - the width of the select
 * `maxHeight` - String (default: 128px) - the maximum height of the select
 * `noOptionsText` - String (default: 'Items not found') - set the custom text, if there are no options in select     
+* `fixed` - Boolean (default: true) - Fixed dropdown works fine even if container is `position: relative; overflow: hidden`
+* `error` - Boolean (default: false) - Sets error state

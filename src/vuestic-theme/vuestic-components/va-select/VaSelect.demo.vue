@@ -1,10 +1,40 @@
 <template>
   <VbDemo>
     <VbCard title="String options (default)">
+      <p>stypes on multiple, searchable, colors</p>
       <va-select
         :options="defaultSelect.options"
         v-model="defaultSelect.value"
       />
+    </VbCard>
+    <VbCard title="Colors">
+      <va-select
+        :options="defaultSelect.options"
+        v-model="defaultSelect.value"
+        color="info"
+      />
+    </VbCard>
+    <VbCard title="error">
+      <va-select
+        :options="defaultSelect.options"
+        v-model="defaultSelect.value"
+        error
+      />
+      <va-select
+        :options="defaultSelect.options"
+        v-model="defaultSelect.value"
+        success
+      />
+      <va-input-wrapper
+        error
+        :errorMessages="['error message']"
+      >
+        <va-select
+          :options="defaultSelect.options"
+          v-model="defaultSelect.value"
+          error
+        />
+      </va-input-wrapper>
     </VbCard>
     <VbCard title="Object options">
       <va-select
@@ -18,17 +48,35 @@
         v-model="iconsSelect.value"
         :options="iconsSelect.options"
       />
+      <p>keyBy='value'</p>
+      <va-select
+        v-model="iconsSelect.value"
+        :options="iconsSelect.options"
+        key-by="value"
+      />
+      <p>textBy='icon'</p>
+      <va-select
+        text-by="icon"
+        v-model="iconsSelect.value"
+        :options="iconsSelect.options"
+      />
     </VbCard>
     <VbCard title="No options">
       <va-select
-        :value="defaultSelect.value"
+        v-model="defaultSelect.value"
         :options="[]"
       />
       <va-select
         label="custom no options text"
-        :value="defaultSelect.value"
+        v-model="defaultSelect.value"
         :options="[]"
         no-options-text="Sorry..."
+      />
+    </VbCard>
+    <VbCard>
+      <va-select
+        v-model="defaultSelect.value"
+        clear-value="1"
       />
     </VbCard>
     <VbCard title="Placeholder">
@@ -112,6 +160,11 @@
         :options="CountriesList"
         width="30%"
       />
+      <va-select
+        v-model="defaultSelect.value"
+        :options="CountriesList"
+        width="120px"
+      />
     </VbCard>
     <VbCard title="loading">
       <va-select
@@ -129,9 +182,17 @@
         @update-search="updateSearch"
       />
     </VbCard>
+    <VbCard title="!fixed" style="overflow: hidden">
+      <va-select
+        v-model="defaultSelect.value"
+        :options="defaultSelect.options"
+        :fixed="false"
+      />
+    </VbCard>
     <VbCard :style="{ 'width': '100%' }">
       <p>{{defaultSelect.value}}</p>
       <p>{{objectSelect.value}}</p>
+      <p>{{iconsSelect.value}}</p>
       <p>{{multipleValue}}</p>
     </VbCard>
   </VbDemo>
@@ -141,35 +202,41 @@
 
 import CountriesList from '../../../data/CountriesList'
 import VaSelect from './VaSelect'
+import VaInputWrapper from '../va-input/VaInputWrapper'
 
 const positions = ['top', 'bottom']
 
 export default {
-  components: { VaSelect },
+  components: { VaInputWrapper, VaSelect },
   data () {
     const objectSelectOptions = [{ id: 1, text: 'one' }, { id: 2, text: 'two' }, { id: 3, text: 'three' }]
     const iconsSelectOptions = [
       {
         text: 'item1',
+        id: 0,
         value: 0,
         icon: 'fa fa-address-book',
       },
       {
         text: 'item2',
+        id: 1,
         value: 1,
         icon: 'fa fa-android',
       },
       {
         text: 'item2',
+        id: 2,
         value: 2,
         icon: 'fa fa-android',
       },
       {
         text: 'item2',
+        id: 3,
         value: 3,
       },
       {
         text: 'item2',
+        id: 4,
         value: 4,
         icon: 'fa fa-android',
       },

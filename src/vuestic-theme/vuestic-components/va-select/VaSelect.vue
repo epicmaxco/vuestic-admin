@@ -2,32 +2,32 @@
   <va-dropdown
     :position="position"
     :disabled="disabled"
-    className="va-select__dropdown"
-    :style="{width}"
+    class="va-select__dropdown"
     :max-height="maxHeight"
     keepAnchorWidth
     ref="dropdown"
+    :fixed="fixed"
+    :style="{width}"
   >
     <ul
-      class="va-select__options-list"
-      :style="{'max-height': this.maxHeight}"
+      class="va-select__option-list"
+      :style="optionsListStyle"
     >
       <li
         v-for="option in filteredOptions"
         :key="getKey(option)"
-        class="va-select__option"
+        :class="getOptionClass(option)"
+        :style="getOptionStyle(option)"
         @click.stop="selectOption(option)"
-        :class="{
-          'va-select__option--selected': isSelected(option),
-        }"
       >
-        <va-icon v-show="option.icon" :icon="option.icon" class="mr-1"/>
+        <va-icon v-show="option.icon" :icon="option.icon" class="va-select__option__icon"/>
         <span>{{getText(option)}}</span>
         <i v-show="isSelected(option)" class="icon va-icon fa fa-check va-select__option__selected-icon"/>
       </li>
     </ul>
     <div
       class="va-select__options-list no-options"
+      :style="optionsListStyle"
       v-if="!filteredOptions.length"
     >
       {{noOptionsText}}
@@ -35,18 +35,16 @@
 
     <div
       slot="anchor"
-      :tabindex="1"
-      class="va-select"
-      :class="{
-        'va-select--loading': loading
-      }"
+      tabindex="1"
+      :class="selectClass"
+      :style="selectStyle"
     >
       <label
         class="va-select__label"
         aria-hidden="true"
       >{{label}}</label>
       <div
-          class="va-select__input"
+          class="va-select__input-wrapper"
           :style="inputWrapperStyles"
           v-if="!visible || !searchable || (multiple && visible) || disabled"
         >
@@ -57,11 +55,12 @@
             <va-chip
               v-for="option in valueProxy"
               :key="getKey(option)"
+              small
             >
               {{getText(option)}}
             </va-chip>
           </span>
-          <span v-else-if="displayedText">{{displayedText}}</span>
+          <span v-else-if="displayedText" class="va-select__displayed-text">{{displayedText}}</span>
           <span v-else class="va-select__placeholder">{{placeholder}}</span>
         </div>
         <input
@@ -98,6 +97,7 @@ import VaDropdown from '../va-dropdown/VaDropdown'
 import VaChip from '../va-chip/VaChip'
 import { SpringSpinner } from 'epic-spinners'
 import VaIcon from '../va-icon/VaIcon'
+import { getHoverColor } from '../../../services/color-functions'
 
 const positions = {
   'top': 'T',
@@ -157,6 +157,12 @@ export default {
       type: String,
       default: 'Items not found',
     },
+    fixed: {
+      type: Boolean,
+      default: true,
+    },
+    error: Boolean,
+    success: Boolean,
   },
   watch: {
     search (val) {
@@ -171,6 +177,33 @@ export default {
   computed: {
     visible () {
       return this.mounted ? this.$refs.dropdown.isClicked : false
+    },
+    selectClass () {
+      return {
+        'va-select': true,
+        'va-select--multiple': this.multiple,
+        'va-select--visible': this.visible,
+        'va-select--searchable': this.searchable,
+        'va-select--disabled': this.disabled,
+        'va-select--loading': this.loading,
+      }
+    },
+    selectStyle () {
+      return {
+        backgroundColor:
+          this.error ? getHoverColor(this.$themes['danger'])
+            : this.success ? getHoverColor(this.$themes['success']) : '#f5f8f9',
+        borderColor:
+          this.error ? this.$themes.danger
+            : this.success ? this.$themes.success
+              : this.isFocused ? this.$themes.dark : this.$themes.gray,
+      }
+    },
+    optionsListStyle () {
+      return {
+        backgroundColor: this.success ? getHoverColor(this.$themes['success']) : '#f5f8f9',
+        maxHeight: this.maxHeight,
+      }
     },
     displayedText () {
       if (!this.valueProxy) {
@@ -227,6 +260,17 @@ export default {
     },
   },
   methods: {
+    getOptionClass (option) {
+      return {
+        'va-select__option': true,
+        'va-select__option--selected': this.isSelected(option),
+      }
+    },
+    getOptionStyle (option) {
+      return {
+        color: this.isSelected(option) ? this.$themes['success'] : 'inherit',
+      }
+    },
     getText (option) {
       return typeof option === 'string' ? option : option[this.textBy]
     },
@@ -247,7 +291,15 @@ export default {
       return one[this.keyBy] === two[this.keyBy]
     },
     isSelected (option) {
-      return this.multiple ? this.valueProxy.includes(option) : this.valueProxy === option
+      if (typeof option === 'string') {
+        return this.multiple
+          ? this.valueProxy.includes(option)
+          : this.valueProxy === option
+      } else {
+        return this.multiple
+          ? this.valueProxy.filter(item => item[this.keyBy] === option[this.keyBy]).length
+          : this.valueProxy[this.keyBy] === option[this.keyBy]
+      }
     },
     selectOption (option) {
       this.search = ''
@@ -280,30 +332,32 @@ export default {
 
 .va-select {
   cursor: pointer;
-  background-color: $light-gray3;
   display: flex;
   align-items: flex-end;
   position: relative;
   width: 100%;
   min-height: 2.375rem;
-  border-color: $brand-secondary;
   border-style: solid;
   border-width: 0 0 thin 0;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
-
-  &--disabled {
-
-  }
-
   &:focus {
     outline: none;
+  }
+  &--multiple {
+
+  }
+  &--searchable {
+
+  }
+  &--disabled {
+    @include va-disabled()
   }
 
   &--loading {
     .va-select__clear-icon,
     .va-select__open-icon {
-      opacity: .2;
+      visibility: hidden;
     }
   }
 
@@ -324,7 +378,7 @@ export default {
     height: 100%;
     width: 100%;
     justify-content: stretch;
-
+    padding-left: .5rem;
     &-block {
       display: block;
 
@@ -344,6 +398,11 @@ export default {
     }
   }
 
+  &__displayed-text {
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+  }
   &__placeholder {
     opacity: .5;
   }
@@ -389,18 +448,19 @@ export default {
     &.va-select__dropdown-position-top {
       box-shadow: 0 -2px 3px 0 rgba(98, 106, 119, 0.25);
     }
+    .va-dropdown__content {
+      background-color: $light-gray3;
+      margin: 0;
+      padding: 0;
+      overflow-y: auto;
+      box-shadow: $datepicker-box-shadow;
+      border-radius: .5rem;
+    }
   }
 
-  &__options-list {
+  &__option-list {
     width: 100%;
-    background-color: $light-gray3;
     list-style: none;
-    margin: 0;
-    padding: 0;
-    overflow-y: auto;
-    box-shadow: $datepicker-box-shadow;
-    border-radius: .5rem;
-
     &.no-options {
       padding: .5rem;
     }
@@ -416,12 +476,12 @@ export default {
       background-color: $vue-light-green;
     }
 
-    &--selected, &--highlighted {
-      color: $vue-green
-    }
-
     &__hightlight-text, &__selected-icon {
       margin-left: auto;
+    }
+
+    &__icon {
+      margin-right: .5rem;
     }
   }
 }
