@@ -6,7 +6,7 @@
        class="sidebar-link__router-link"
        :class="classObject">
       <slot name="title"></slot>
-      <va-icon icon="expand-icon fa fa-angle-down"/>
+      <va-icon name="expand-icon fa fa-angle-down"/>
     </a>
     <expanding>
       <ul class="sidebar-submenu in" v-show="this.expanded"

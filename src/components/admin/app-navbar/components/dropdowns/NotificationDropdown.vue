@@ -4,7 +4,7 @@
     >
       <va-icon
         slot="anchor"
-        icon="i-nav-notification"
+        name="i-nav-notification"
         class="notification-dropdown__icon"
         :class="{'notification-dropdown__icon--unread': !allRead}"
       />

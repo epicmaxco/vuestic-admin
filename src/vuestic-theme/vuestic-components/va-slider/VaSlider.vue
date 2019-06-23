@@ -15,7 +15,7 @@
     <span
       v-if="icon"
       class="va-slider__label">
-      <va-icon :icon="icon" :color="colorComputed" :size="16"/>
+      <va-icon :name="icon" :color="colorComputed" :size="16"/>
     </span>
     <div
       class="va-slider__container"
@@ -93,7 +93,7 @@
     <span
       v-if="iconRight"
       class="va-slider__inverse-label">
-      <va-icon :icon="iconRight" :color="colorComputed" :size="16"/>
+      <va-icon :name="iconRight" :color="colorComputed" :size="16"/>
     </span>
     <span
       v-if="inverseLabel"

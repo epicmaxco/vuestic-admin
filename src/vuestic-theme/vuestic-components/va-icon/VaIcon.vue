@@ -1,15 +1,15 @@
 <template>
   <i class="va-icon"
-     :class="[icon, iconClass]"
+     :class="[name, iconClass]"
      :style="iconStyle"
-  />
+  ><slot/></i>
 </template>
 
 <script>
 export default {
   name: 'va-icon',
   props: {
-    icon: {
+    name: {
       type: [String, Array],
     },
     small: {

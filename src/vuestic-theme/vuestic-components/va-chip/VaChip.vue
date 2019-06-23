@@ -16,7 +16,7 @@
         fixed-width
         class="va-chip__content__icon va-chip__content__icon-left flex-center"
         :color="outline ? color : ''"
-        :icon="icon"
+        :name="icon"
       />
       <div
         v-if="hasTitleData"
@@ -29,7 +29,7 @@
         fixed-width
         class="va-chip__content__icon scr va-chip__content__icon-right flex-center"
         :color="outline ? color : ''"
-        :icon="removable ? 'ion ion-md-close ion' : iconRight"
+        :name="removable ? 'ion ion-md-close ion' : iconRight"
       />
     </div>
   </div>

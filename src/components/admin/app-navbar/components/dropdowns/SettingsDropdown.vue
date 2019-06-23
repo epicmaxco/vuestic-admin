@@ -1,7 +1,7 @@
 <template>
   <va-dropdown class="settings-dropdown">
     <va-icon
-      icon="vuestic-iconset vuestic-iconset-settings"
+      name="vuestic-iconset vuestic-iconset-settings"
       color="white"
       style="font-size: 1.4rem; display: flex;"
       class="settings-dropdown__icon"

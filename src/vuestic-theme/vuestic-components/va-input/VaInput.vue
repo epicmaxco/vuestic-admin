@@ -58,13 +58,13 @@
         <va-icon
           v-if="success"
           class="va-input__container__icon"
-          icon="fa fa-check"
+          name="fa fa-check"
           color="success"
         />
         <va-icon
           v-if="error"
           class="va-input__container__icon"
-          icon="fa fa-exclamation-triangle"
+          name="fa fa-exclamation-triangle"
           color="danger"
         />
         <slot name="append"/>
@@ -73,7 +73,7 @@
           @click.native="clearContent()"
           class="va-input__container__close-icon"
           :color="error ? 'danger': 'gray'"
-          icon="ion ion-md-close ion"
+          name="ion ion-md-close ion"
         />
       </div>
     </div>

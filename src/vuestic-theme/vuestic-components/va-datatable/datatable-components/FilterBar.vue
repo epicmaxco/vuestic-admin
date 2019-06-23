@@ -3,9 +3,9 @@
     <div class="input-group">
       <input id="input-icon-left" name="input-icon-left"
              v-model="valueProxy" required/>
-      <va-icon icon="glyphicon glyphicon-search icon-left input-icon search-icon"/>
+      <va-icon name="glyphicon glyphicon-search icon-left input-icon search-icon"/>
       <label class="control-label" for="input-icon-left">{{label}}</label>
-      <va-icon icon="bar"/>
+      <va-icon name="bar"/>
     </div>
   </div>
 </template>

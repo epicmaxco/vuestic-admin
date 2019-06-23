@@ -7,13 +7,13 @@
       <slot name="checkbox"/>
     </div>
     <div class="va-tree-node__icon" v-if="icon">
-      <va-icon :icon="icon" :color="$themes['info']"/>
+      <va-icon :name="icon" :color="$themes['info']"/>
     </div>
     <div class="va-tree-node__label">
       <slot/>
     </div>
     <div class="va-tree-node__icon-right" v-if="iconRight">
-      <va-icon :icon="iconRight" :color="$themes['info']"/>
+      <va-icon :name="iconRight" :color="$themes['info']"/>
     </div>
   </div>
 </template>
