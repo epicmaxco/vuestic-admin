@@ -26,7 +26,7 @@
         <div class="flex xs12 sm6" :key="loop">
           <va-card>
             <template slot="header">
-              <va-icon icon="fa fa-cogs mr-3" color="success"/>
+              <va-icon name="fa fa-cogs mr-3" color="success"/>
               <h5 class="mt-0 mb-0">{{ $t('cards.title.customHeader') }}</h5>
             </template>
             {{ $t('cards.contentTextLong') }}

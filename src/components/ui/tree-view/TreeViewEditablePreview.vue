@@ -6,7 +6,7 @@
         <div class="form-group">
           <div class="input-group">
             <input v-model="electronic.name">
-            <va-icon icon="bar"/>
+            <va-icon name="bar"/>
           </div>
         </div>
       </va-tree-node>
@@ -17,7 +17,7 @@
         <div class="form-group">
           <div class="input-group">
             <input v-model="product.name">
-            <va-icon icon="bar"/>
+            <va-icon name="bar"/>
           </div>
         </div>
         <div slot="iconRight" class="icon" @click="removeProduct(product)">

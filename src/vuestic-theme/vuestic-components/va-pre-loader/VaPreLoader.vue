@@ -1,6 +1,6 @@
 <template>
   <div class="va-pre-loader">
-    <canvas ref="canvas"></canvas>
+    <canvas ref="canvas" width="140" height="104"></canvas>
   </div>
 </template>
 
