@@ -24,14 +24,7 @@ export default {
     options: {},
     type: {
       validator (type) {
-        const valid = type in chartTypesMap
-
-        if (!valid) {
-          // eslint-disable-next-line no-console
-          console.warn(`There is no chart of ${type} type`)
-        }
-
-        return valid
+        return type in chartTypesMap
       },
     },
   },

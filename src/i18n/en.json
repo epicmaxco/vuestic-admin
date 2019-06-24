@@ -72,7 +72,13 @@
   },
   "sliders": {
     "slider": "Sliders",
-    "range": "Ranges"
+    "range": "Ranges",
+    "simple": "simple",
+    "value": "Value",
+    "label": "Label",
+    "labelPlusIcon": "label + icon",
+    "pins": "Pins",
+    "pinsAndValue": "pins & value"
   },
   "popovers": {
     "popover": "Popover",
@@ -90,15 +96,72 @@
     "inline": "Inline"
   },
   "dashboard": {
-    "dataVisualization": "Data Visualization",
-    "success": "SUCCESS",
-    "successMessage": "You successfully read this important alert message.",
-    "elements": "Elements",
-    "features": "Features",
-    "setupProfile": "Setup Profile",
-    "teamMembers": "Team Members",
-    "usersAndMembers": "Users & Members",
-    "versions": "Versions"
+    "versions": "Versions",
+    "setupRemoteConnections": "Setup Remote Connections",
+    "currentVisitors": "Current Visitors",
+    "charts": {
+      "trendyTrends": "Trendy Trends",
+      "deleteSection": "Delete Section",
+      "loadingSpeed": "Loading speed",
+      "topContributors": "Top contributors",
+      "showAll": "Show All",
+      "commits": "Commits"
+    },
+    "info": {
+      "completedPullRequests": "completed pull requests",
+      "users": "users",
+      "points": "points",
+      "units": "units",
+      "exploreGallery": "Explore gallery",
+      "viewLibrary": "View Library",
+      "commits": "commits",
+      "components": "components",
+      "teamMembers": "team members"
+    },
+    "table": {
+      "search": "Search by name, email",
+      "brief": "Brief",
+      "detailed": "Detailed",
+      "export": "Export",
+      "perPage": "Per Page",
+      "verified": "Verified"
+    },
+    "tabs": {
+      "overview": {
+        "title": "Overview",
+        "built": "Built with Vue.js framework",
+        "free": "Absolutely free for everyone",
+        "fresh": "Fresh and crisp design",
+        "mobile": "Responsive and optimized for mobile",
+        "components": "Tons of useful components",
+        "nojQuery": "Completely jQuery free"
+      },
+      "billingAddress": {
+        "title": "Billing Address",
+        "personalInfo": "Personal Info",
+        "firstName": "First name & Last Name",
+        "email": "Email",
+        "address": "Address",
+        "companyInfo": "Company Info",
+        "city": "City",
+        "country": "Country",
+        "infiniteConnections": "Infinite connections",
+        "addConnection": "Add Connection"
+      },
+      "bankDetails": {
+        "title": "Bank Details",
+        "detailsFields": "Details Fields",
+        "bankName": "Bank Name",
+        "accountName": "Account Name",
+        "sortCode": "Sort Code",
+        "accountNumber": "Account Number",
+        "notes": "Notes",
+        "sendDetails": "Send Details"
+      }
+    },
+    "navigationLayout": "navigation layout",
+    "topBarButton": "Top Bar",
+    "sideBarButton": "Side Bar"
   },
   "notificationsPage": {
     "notifications": {
@@ -133,17 +196,6 @@
       "fullWidthLabel": "Fullwidth",
       "launchToast": "Launch toast"
     }
-  },
-  "extra": {
-    "tabs": {
-      "title": "Tabs",
-      "maps": "Maps",
-      "pages": "Pages",
-      "overview": "Overview",
-      "setupProfile": "Setup Profile"
-    },
-    "chat": "Chat",
-    "profileCard": "Profile Card"
   },
   "forms": {
     "controls": {
@@ -238,7 +290,6 @@
     "collapses": "Collapses",
     "timelines": "Timelines",
     "dashboard": "Dashboard",
-    "extra": "Extra",
     "formElements": "Form Elements",
     "forms": "Forms",
     "formWizards": "Form Wizards",
@@ -265,11 +316,13 @@
     "dropdowns": "Dropdowns",
     "spacing": "Spacing",
     "sliders": "Sliders",
-    "popovers": "Popovers"
+    "popovers": "Popovers",
+    "chat": "Chat"
   },
   "messages": {
     "all": "See all messages",
-    "new": "New messages from {name}"
+    "new": "New messages from {name}",
+    "mark_as_read": "Mark As Read"
   },
   "modal": {
     "cancel": "Cancel",
@@ -322,10 +375,12 @@
     "badges": "Badges"
   },
   "navbar": {
-    "messageUs": "Web development help needed? Contact us at"
+    "messageUs": "Development inquiries:",
+    "support": "TY for support"
   },
   "notifications": {
     "all": "See all notifications",
+    "mark_as_read": "Mark As Read",
     "sentMessage": "{name} sent you a message",
     "uploadedZip": "{name} uploaded a new Zip file with {type}",
     "startedTopic": "{name} started a new topic"
@@ -357,7 +412,10 @@
       "city": "City",
       "email": "Email",
       "name": "Name",
-      "score": "Score"
+      "score": "Score",
+      "submits": "Submits",
+      "status": "Status",
+      "country": "Country"
     },
     "dataTable": {
       "noDataAvailable": "No Data Available"
@@ -374,6 +432,9 @@
     "selectable": "Selectable",
     "editable": "Editable",
     "advanced": "Advanced"
+  },
+  "chat": {
+    "title": "Chat"
   },
   "cards": {
     "cards": "Cards",

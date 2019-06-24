@@ -3,8 +3,9 @@
     <div class="va-row">
       <div class="flex md12">
         <va-card :title="$t('forms.mediumEditor.title')">
-          <vuestic-medium-editor @initialized="handleEditorInitialization"
-                                 :editor-options="editorOptions">
+          <va-medium-editor
+            @initialized="handleEditorInitialization"
+          >
             <h1>Girl, no you don’t</h1>
 
             <p>
@@ -70,7 +71,7 @@
             </p>
 
             <p>
-              A family member to tell you that your your “alarming lifestyle”
+              A family member to tell you that your “alarming lifestyle”
               has required them to seek therapy. Your mom will tell you that she
               “supports you no matter what” but that it would be “much easier
               for everyone if you dated a man.” Your love life will become a
@@ -81,10 +82,12 @@
             </p>
 
             <p>
-              Read full article on <a
-              href="https://medium.com/@dorn.anna/girl-no-you-dont-2e21e826c62c">Medium</a>
+              Read the full article on <a
+              href="https://medium.com/@dorn.anna/girl-no-you-dont-2e21e826c62c">
+              Medium
+            </a>
             </p>
-          </vuestic-medium-editor>
+          </va-medium-editor>
         </va-card>
       </div>
     </div>
@@ -94,27 +97,6 @@
 <script>
 export default {
   name: 'medium-editor',
-
-  data () {
-    return {
-      editor: {},
-      editorOptions: {
-        buttonLabels: 'fontawesome',
-        autoLink: true,
-        toolbar: {
-          buttons: [
-            'bold',
-            'italic',
-            'underline',
-            'anchor',
-            'h1',
-            'h2',
-            'h3',
-          ],
-        },
-      },
-    }
-  },
 
   methods: {
     handleEditorInitialization (editor) {

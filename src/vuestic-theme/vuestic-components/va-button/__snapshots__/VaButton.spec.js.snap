@@ -13,9 +13,9 @@ exports[`VaButton a button with defined href and target 1`] = `
 exports[`VaButton button with both icons 1`] = `
 <button tabindex="0" class="va-button va-button--default va-button--without-title va-button--with-left-icon va-button--with-right-icon va-button--normal" style="color: rgb(255, 255, 255); box-shadow: 0 0.125rem 0.19rem 0 rgba(64,229,131,0.4);">
   <div class="va-button__content">
-    <va-icon-stub icon="brandico brandico-facebook" fixedwidth="true" class="va-button__content__icon va-button__content__icon-left"></va-icon-stub>
+    <va-icon-stub name="brandico brandico-facebook" fixedwidth="true" class="va-button__content__icon va-button__content__icon-left"></va-icon-stub>
     <!---->
-    <va-icon-stub icon="iconicstroke iconicstroke-info" fixedwidth="true" class="va-button__content__icon va-button__content__icon-right"></va-icon-stub>
+    <va-icon-stub name="iconicstroke iconicstroke-info" fixedwidth="true" class="va-button__content__icon va-button__content__icon-right"></va-icon-stub>
   </div>
 </button>
 `;

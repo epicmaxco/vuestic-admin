@@ -11,9 +11,13 @@
     <slot name="prepend" slot="prepend"/>
     <div
       class="va-input__container"
+      :class="{'va-input__container--textarea': isTextarea}"
       :style="containerStyles"
     >
-      <div class="va-input__container__content-wrapper">
+      <div
+        class="va-input__container__content-wrapper"
+        :style="{ paddingTop: label ? '' : '0'}"
+      >
         <label
           :style="labelStyles"
           aria-hidden="true"
@@ -21,8 +25,22 @@
         >
           {{ label }}
         </label>
+        <textarea
+          v-if="isTextarea"
+          class="va-input__container__input"
+          :style="textareaStyles"
+          :aria-label="label"
+          :placeholder="placeholder"
+          :disabled="disabled"
+          :readonly="readonly"
+          :value="value"
+          v-on="inputListeners"
+          v-bind="$attrs"
+        />
         <input
-          :style="{ paddingBottom: label ? '0.125rem' : '0.875rem'}"
+          v-else
+          class="va-input__container__input"
+          :style="{ paddingBottom: label ? '0.125rem' : '0.875rem' }"
           :aria-label="label"
           :type="type"
           :placeholder="placeholder"
@@ -30,28 +48,32 @@
           :readonly="readonly"
           :value="value"
           v-on="inputListeners"
-        >
+          v-bind="$attrs"
+        />
       </div>
-      <div v-if="success || error || $slots.append || (removable && value.length)" class="va-input__container__icon-wrapper">
+      <div
+        v-if="success || error || $slots.append || (removable && hasContent)"
+        class="va-input__container__icon-wrapper"
+      >
         <va-icon
           v-if="success"
           class="va-input__container__icon"
-          icon="fa fa-check"
+          name="fa fa-check"
           color="success"
         />
         <va-icon
           v-if="error"
           class="va-input__container__icon"
-          icon="fa fa-exclamation-triangle"
+          name="fa fa-exclamation-triangle"
           color="danger"
         />
-        <slot slot="append"/>
+        <slot name="append"/>
         <va-icon
-          v-if="removable && value.length"
+          v-if="removable && hasContent"
           @click.native="clearContent()"
           class="va-input__container__close-icon"
           :color="error ? 'danger': 'gray'"
-          icon="ion ion-md-close ion"
+          name="ion ion-md-close ion"
         />
       </div>
     </div>
@@ -71,7 +93,7 @@ export default {
   components: { VaInputWrapper, VaIcon },
   props: {
     value: {
-      type: String,
+      type: [String, Number],
     },
     label: {
       type: String,
@@ -115,7 +137,17 @@ export default {
               : this.isFocused ? this.$themes.dark : this.$themes.gray,
       }
     },
+    textareaStyles () {
+      return {
+        paddingBottom: this.label ? '0.125rem' : '',
+        marginTop: this.label ? '0.875rem' : '',
+        paddingTop: this.label ? 0 : '',
+        minHeight: this.label ? '1.5rem' : '2.25rem',
+        marginBottom: 0,
+      }
+    },
     inputListeners () {
+      // TODO Probably not the best idea to stick this in computed.
       return Object.assign(
         {},
         this.$listeners,
@@ -144,6 +176,12 @@ export default {
           },
         }
       )
+    },
+    hasContent () {
+      return ![null, undefined, ''].includes(this.value)
+    },
+    isTextarea () {
+      return this.type === 'textarea'
     },
   },
   methods: {
@@ -202,7 +240,12 @@ export default {
       transform-origin: top left;
     }
 
-    input {
+    &.va-input__container--textarea &__label {
+      bottom: auto;
+      top: 0.125rem;
+    }
+
+    &__input {
       width: 100%;
       height: 1.5rem;
       margin-bottom: 0.125rem;
@@ -226,6 +269,10 @@ export default {
       &:placeholder-shown {
         padding-bottom: 0.875rem;
       }
+    }
+
+    &.va-input__container--textarea &__input {
+      height: inherit;
     }
   }
 }

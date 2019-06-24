@@ -20,7 +20,7 @@
         class="va-tree-category__header-icon"
          v-if="icon"
       >
-        <va-icon :icon="icon" :color="$themes['info']"/>
+        <va-icon :name="icon" :color="$themes['info']"/>
       </div>
       <div class="va-tree-category__header-label">
         {{ label }}

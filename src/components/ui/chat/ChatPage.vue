@@ -1,28 +1,21 @@
 <template>
-  <div class="users-members-tab dashboard-tab">
-    <div class="va-row justify--center">
-      <div class="flex md3 flex justify--center align--center">
-        <va-profile-card
-          name="Veronique Lee"
-          location="Malaga, Spain"
-          photoSource="https://i.imgur.com/NLrdqsk.png"
-          :social="{twitter: 'twitter.com', facebook: 'facebook.com', instagram: 'instagram.com'}"
-        />
-      </div>
-      <div class="flex md9">
-        <va-chat v-model="chatMessages"/>
+  <div class="chat">
+    <div class="va-row">
+      <div class="flex xs12 md12">
+        <va-card :title="$t('chat.title')">
+          <chat v-model="chatMessages"/>
+        </va-card>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import VaProfileCard
-  from '../../../vuestic-theme/vuestic-components/va-profile-card/VaProfileCard'
+import Chat from './Chat'
 
 export default {
-  name: 'users-members-tab',
-  components: { VaProfileCard },
+  name: 'chat-page',
+  components: { Chat },
   data () {
     return {
       chatMessages: [
@@ -55,3 +48,6 @@ export default {
   },
 }
 </script>
+
+<style lang='scss'>
+</style>

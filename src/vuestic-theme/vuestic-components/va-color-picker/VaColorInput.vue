@@ -15,7 +15,7 @@
           :class="{'va-color-input__input__pointer': disabled}"
           placeholder="input color"
         >
-        <va-icon icon="bar" :style="'width: ' + 9 + 'ch'"/>
+        <va-icon name="bar" :style="'width: ' + 9 + 'ch'"/>
       </div>
     </div>
   </div>

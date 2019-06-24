@@ -23,7 +23,7 @@
           :disabled="disabled"
           :indeterminate="indeterminate"
         />
-        <va-icon :icon="computedIcon"/>
+        <va-icon :name="computedIcon"/>
       </div>
       <div class="va-checkbox__label-text">
         <slot name="label">

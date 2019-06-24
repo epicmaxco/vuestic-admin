@@ -41,6 +41,8 @@
           <va-tree-node>Skirts</va-tree-node>
         </va-tree-category>
       </va-tree-root>
+      <va-chart type="line" :data="chartData"/>
+      <va-button color="info" @click="refreshData">RefreshChartColors</va-button>
       <va-file-upload v-model="files" color="info"/>
     </VbCard>
     <VbCard title="Change `info` color">
@@ -64,10 +66,13 @@ import SquareWithIcon from '../../vuestic-components/va-tree-view/SquareWithIcon
 import VaTreeRoot from '../../vuestic-components/va-tree-view/VaTreeRoot'
 import VaTreeCategory from '../../vuestic-components/va-tree-view/VaTreeCategory'
 import VaTreeNode from '../../vuestic-components/va-tree-view/VaTreeNode'
+import VaChart from '../../vuestic-components/va-chart/VaChart'
+import { getLineChartData } from '../../../data/charts/LineChartData'
 import VaFileUpload from '../../vuestic-components/va-file-upload/VaFileUpload'
 
 export default {
   components: {
+    VaChart,
     VaFileUpload,
     VaTreeNode,
     VaTreeCategory,
@@ -82,8 +87,14 @@ export default {
   },
   data () {
     return {
+      chartData: getLineChartData(this.$themes),
       files: [],
     }
+  },
+  methods: {
+    refreshData () {
+      this.chartData = getLineChartData(this.$themes)
+    },
   },
 }
 </script>
