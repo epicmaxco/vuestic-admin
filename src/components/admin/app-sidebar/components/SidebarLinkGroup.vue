@@ -14,7 +14,7 @@
           v-if="icon"
           class="va-sidebar-link__content__icon"
           :style="iconStyles"
-          :icon="icon"
+          :name="icon"
         />
         <span class="va-sidebar-link__content__title">
           <slot name="title">
@@ -24,7 +24,7 @@
         <va-icon
           class="va-sidebar-link-group__dropdown-icon"
           :style="iconStyles"
-          :icon="`fa fa-angle-${expanded ? 'up' : 'down'}`"/>
+          :name="`fa fa-angle-${expanded ? 'up' : 'down'}`"/>
       </div>
     </a>
     <expanding v-if="!minimized && !navbarView">

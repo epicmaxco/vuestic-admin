@@ -3,7 +3,7 @@
     class="message-dropdown"
   >
     <va-icon
-      icon="i-nav-messages"
+      name="i-nav-messages"
       slot="anchor"
       class="message-dropdown__icon"
       :class="{'message-dropdown__icon--unread': !allRead}"

@@ -1,6 +1,6 @@
 <template>
   <div class="square-with-icon" :style="{ backgroundColor: colorComputed }">
-    <va-icon :icon="iconClass"/>
+    <va-icon :name="iconClass"/>
   </div>
 </template>
 

@@ -10,11 +10,11 @@
         v-bind:value="displayValue"
         required/>
       <label class="control-label">{{label}}</label>
-      <va-icon icon="bar"/>
+      <va-icon name="bar"/>
       <small v-show="hasErrors()" class="help text-danger">{{
         showRequiredError() }}
       </small>
-      <va-icon icon="ion ion-ios-arrow-down icon-right input-icon dropdown-ion"/>
+      <va-icon name="ion ion-ios-arrow-down icon-right input-icon dropdown-ion"/>
     </div>
     <div v-if="isClearable">
       <va-icon
@@ -33,7 +33,7 @@
           >
             <span
               class="ellipsis">{{optionKey ? option[optionKey] : option}}</span>
-            <va-icon icon="fa fa-check selected-icon"/>
+            <va-icon name="fa fa-check selected-icon"/>
           </div>
         </div>
       </scrollbar>

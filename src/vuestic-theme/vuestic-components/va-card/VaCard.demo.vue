@@ -52,7 +52,7 @@
                 title="Custom header"
               >
                 <template slot="header">
-                  <va-icon icon="fa fa-cogs mr-3" color="success"/>
+                  <va-icon name="fa fa-cogs mr-3" color="success"/>
                   <h5 class="mt-0 mb-0">Custom Header</h5>
                 </template>
                 The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands, mountains, and coastal hills. Various anthropogenic factors have had a severe impact on zebra populations, in particular hunting for skins and habitat destruction. Grévy's zebra and the mountain zebra are endangered. While plains zebras are much more plentiful, one subspecies, the quagga, became extinct in the late 19th century – though there is currently a plan, called the Quagga Project

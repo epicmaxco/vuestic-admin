@@ -12,7 +12,7 @@
       :messages="messages"
       :error-messages="errorMessages"
     >
-      <va-icon color="gray" icon="fa fa-calendar" />
+      <va-icon color="gray" name="fa fa-calendar" />
     </va-input>
     <vue-flatpickr-component
       class="va-date-picker__flatpickr"
@@ -28,12 +28,14 @@
 <script>
 import VueFlatpickrComponent from 'vue-flatpickr-component'
 import VaInput from '../va-input/VaInput'
+import VaIcon from '../va-icon/VaIcon'
 
 export default {
   name: 'va-date-picker',
   components: {
     VaInput,
     VueFlatpickrComponent,
+    VaIcon,
   },
   props: {
     value: {
