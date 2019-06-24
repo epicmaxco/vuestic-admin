@@ -81,7 +81,7 @@ export default {
           this.$emit('remove')
           this.removed = false
         }
-      }, 200000)
+      }, 2000)
     },
     recoverImage () {
       this.removed = false
@@ -113,12 +113,23 @@ $max-image-size: 8.5714rem;
   position: relative;
   margin-bottom: 1rem;
   margin-right: .5rem;
-  width: $max-image-size;
-  height: $max-image-size;
-  box-shadow: $card-box-shadow;
+  flex-basis: calc(14.2857% - .5rem);
+  max-width: calc(14.2857% - .5rem);
   border-radius: .375rem;
   overflow: hidden;
-
+  width: 100%;
+  @include media-breakpoint-down(md) {
+    flex-basis: calc(16.667% - .5rem);
+    max-width: calc(16.667% - .5rem);
+  }
+  @include media-breakpoint-down(sm) {
+    flex-basis: calc(20% - .5rem);
+    max-width: calc(20% - .5rem);
+  }
+  @include media-breakpoint-down(xs) {
+    flex-basis: calc(50% - .5rem);
+    max-width: calc(50% - .5rem);
+  }
   &:last-of-type {
     margin-right: 0;
   }
@@ -135,8 +146,6 @@ $max-image-size: 8.5714rem;
     width: 100%;
     top: 0;
     left: 0;
-    max-width: $max-image-size;
-    max-height: $max-image-size;
     flex-direction: column;
     padding: 0.5rem;
     background: rgba($lighter-green, 0.8);
@@ -144,14 +153,9 @@ $max-image-size: 8.5714rem;
   }
 
   &__image {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    max-width: $max-image-size;
-    max-height: $max-image-size;
-    object-fit: cover;
+    box-shadow: $card-box-shadow;
+    object-fit: scale-down;
   }
 
   &__name {
