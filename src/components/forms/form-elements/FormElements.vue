@@ -136,37 +136,56 @@
         <va-card :title="$t('forms.selects.title')">
           <form>
             <div class="va-row">
-              <div class="flex md4">
-                <fieldset>
-                  <va-select
-                    :label="$t('forms.selects.simple')"
-                    v-model="simpleSelectModel"
-                    keyBy="description"
-                    :options="simpleOptions"
-                  />
-                  <va-select
-                    :label="$t('forms.selects.country')"
-                    v-model="chosenCountry"
-                    :options="countriesList"
-                  />
-                </fieldset>
+              <div class="flex md6 xs12">
+                <va-select
+                  :label="$t('forms.selects.simple')"
+                  v-model="simpleSelectModel"
+                  textBy="description"
+                  :options="simpleOptions"
+                />
               </div>
-              <div class="flex md4">
-                <fieldset>
-                  <va-select
-                    :label="$t('forms.selects.multi')"
-                    v-model="multiSelectModel"
-                    keyBy="description"
-                    multiple
-                    v-bind:options="simpleOptions"
-                  />
-                  <va-select
-                    :label="$t('forms.selects.countryMulti')"
-                    v-model="multiSelectCountriesModel"
-                    multiple
-                    :options="countriesList"
-                  />
-                </fieldset>
+              <div class="flex md6 xs12">
+                <va-select
+                  :label="$t('forms.selects.multi')"
+                  v-model="multiSelectModel"
+                  textBy="description"
+                  multiple
+                  :options="simpleOptions"
+                />
+              </div>
+              <div class="flex md6 xs12">
+                <va-select
+                  :label="$t('forms.selects.country')"
+                  v-model="chosenCountry"
+                  :options="countriesList"
+                />
+              </div>
+              <div class="flex md6 xs12">
+                <va-select
+                  :label="$t('forms.selects.countryMulti')"
+                  v-model="multiSelectCountriesModel"
+                  multiple
+                  :options="countriesList"
+                />
+              </div>
+              <div class="flex md6 xs12">
+                <va-select
+                  :label="$t('forms.selects.searchable')"
+                  v-model="searchableSelectModel"
+                  searchable
+                  textBy="description"
+                  :options="simpleOptions"
+                />
+              </div>
+              <div class="flex md6 xs12">
+                <va-select
+                  :label="$t('forms.selects.searchableMulti')"
+                  v-model="multiSearchableSelectModel"
+                  textBy="description"
+                  searchable
+                  multiple
+                  :options="countriesList"
+                />
               </div>
             </div>
           </form>
@@ -290,7 +309,7 @@ export default {
     return {
       isMale: true,
       countriesList: CountriesList,
-      chosenCountry: 'name',
+      chosenCountry: '',
       empty: '',
       clearableText: 'Vasili Savitski',
       successfulEmail: 'andrei@dreamsupport.io',
@@ -315,6 +334,8 @@ export default {
       simpleSelectModel: '',
       multiSelectModel: [],
       multiSelectCountriesModel: [],
+      searchableSelectModel: '',
+      multiSearchableSelectModel: [],
       radioSelectedOption: 'option1',
       radioSelectedDisableOption: 'option1',
       checkbox: {

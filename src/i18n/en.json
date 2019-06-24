@@ -243,6 +243,8 @@
       "countryMulti": "Country Multi Select",
       "multi": "Multi Select",
       "simple": "Simple Select",
+      "searchable": "Select with search",
+      "searchableMulti": "Multi Select with search",
       "title": "Selects"
     },
     "wizard": {
