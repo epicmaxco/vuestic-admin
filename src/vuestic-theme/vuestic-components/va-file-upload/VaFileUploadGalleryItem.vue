@@ -24,11 +24,11 @@
         {{ file.name }}
       </div>
       <va-icon
-        icon="ion ion-md-trash"
+        name="material-icons"
         color="danger"
         class="va-file-upload-gallery-item__delete"
         @click.native="removeImage"
-      />
+      >delete_outline</va-icon>
     </div>
   </div>
 </template>

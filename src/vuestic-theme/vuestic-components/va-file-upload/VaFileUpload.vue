@@ -160,7 +160,7 @@ export default {
       flex-wrap: wrap;
       @include media-breakpoint-down(xs){
         flex-direction: column;
-        padding: 0;
+        padding: 0 0 1rem;
         &__text {
           text-align: center;
         }

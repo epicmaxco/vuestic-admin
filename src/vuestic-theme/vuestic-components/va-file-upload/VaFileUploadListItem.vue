@@ -16,10 +16,10 @@
       </div>
       <va-icon
         color="danger"
-        icon="ion ion-md-trash"
+        name="material-icons"
         @click.native="removeFile"
         class="va-file-upload-list-item__delete"
-      />
+      >delete_outline</va-icon>
     </div>
   </va-card>
 </template>
