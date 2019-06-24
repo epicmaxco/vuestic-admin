@@ -66,12 +66,12 @@ export default {
   computed: {
     selectedMarginClass () {
       return (this.selectedMarginDirection && this.selectedMarginSize)
-        ? `m${this.selectedMarginDirection.value}-${this.selectedMarginSize.value}`
+        ? `m${this.selectedMarginDirection}-${this.selectedMarginSize}`
         : ''
     },
     selectedPaddingClass () {
       return (this.selectedPaddingDirection && this.selectedPaddingSize)
-        ? `p${this.selectedPaddingDirection.value}-${this.selectedPaddingSize.value}`
+        ? `p${this.selectedPaddingDirection}-${this.selectedPaddingSize}`
         : ''
     },
   },
@@ -81,8 +81,12 @@ export default {
 <style lang="scss">
 .spacing-playground {
   .playground-component {
+    display: flex;
     background-color: #ffd093;
 
+    &__margin {
+      width: 100%;
+    }
     &__padding {
       background-color: #c9f7db;
     }
