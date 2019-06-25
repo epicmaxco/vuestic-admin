@@ -2,12 +2,10 @@
   <va-page-layout>
     <app-navbar
       :minimized="minimized"
-      :navbar-view.sync="navbarView"
       @toggle-menu="toggleSidebar"
     />
     <app-sidebar
       :minimized="minimized"
-      :navbar-view="navbarView"
       @toggle-menu="toggleSidebar"
     />
     <main
@@ -31,10 +29,12 @@ import AppNavbar from './app-navbar/AppNavbar'
 import AppSidebar from './app-sidebar/AppSidebar'
 import Layout from '../../vuestic-theme/vuestic-mixins/Layout'
 import { mapGetters } from 'vuex'
+import AppTopbar from './app-topbar/AppTopbar'
 
 export default {
   name: 'app-layout',
   components: {
+    AppTopbar,
     VaPageLayout,
     AppNavbar,
     AppSidebar,
@@ -43,7 +43,6 @@ export default {
   data () {
     return {
       minimized: false,
-      navbarView: false,
       mobileWidth: 767,
     }
   },

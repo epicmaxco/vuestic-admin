@@ -5,17 +5,17 @@
     @mouseenter.native="updateHoverState(true)"
     @mouseleave.native="updateHoverState(false)"
     :style="computedLinkStyles"
-    active-class="va-sidebar-link--active"
+    active-class="va-topbar-link--active"
     :to="to"
     :target="target"
   >
     <va-icon
       v-if="icon"
-      class="va-sidebar-link__content__icon"
+      class="va-topbar-link__content__icon"
       :style="computedIconStyles"
       :name="icon"
     />
-    <div class="va-sidebar-link__content__title">
+    <div class="va-topbar-link__content__title">
       <slot name="title"/>
       {{title}}
     </div>
@@ -27,7 +27,7 @@ import { getHoverColor } from './../../../../services/color-functions'
 import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
 
 export default {
-  name: 'sidebar-link',
+  name: 'topbar-link',
   mixins: [ColorThemeMixin],
   props: {
     to: {
@@ -65,8 +65,8 @@ export default {
   computed: {
     computedLinkClass () {
       return {
-        'va-sidebar-link': true,
-        'va-sidebar-link--minimized': this.minimized,
+        'va-topbar-link': true,
+        'va-topbar-link--minimized': this.minimized,
       }
     },
     computedLinkStyles () {
@@ -82,8 +82,12 @@ export default {
     },
     computedIconStyles () {
       return (this.isHovered || this.isActive)
-        ? { color: this.$themes['success'] }
-        : { color: 'white' }
+        ? {
+          color: this.$themes['success'],
+        }
+        : {
+          color: 'white',
+        }
     },
   },
   methods: {
@@ -92,16 +96,14 @@ export default {
     },
     setActiveState () {
       this.$nextTick(() => {
-        this.isActive = this.$el.classList.contains('va-sidebar-link--active')
+        this.isActive = this.$el.classList.contains('va-topbar-link--active')
         if (!this.isActive) {
           return
         }
         const linkGroup = this.$parent && this.$parent.$parent
-        if (linkGroup.$options.name === 'sidebar-link-group') {
+        if (linkGroup.$options.name === 'topbar-link-group') {
           linkGroup.expanded = true
-          if (this.minimized) {
-            linkGroup.isActive = true
-          }
+          linkGroup.isActive = this.minimized
         }
       })
     },
@@ -114,17 +116,18 @@ export default {
 
 <style lang="scss">
 @import "../../../../vuestic-theme/vuestic-sass/resources/resources";
-.va-sidebar-link {
+.va-topbar-link {
   position: relative;
-  height: 3rem;
   cursor: pointer;
-  padding-left: .75rem;
-  padding-top: .75rem;
-  padding-bottom: .75rem;
   display: flex;
   align-items: center;
   text-decoration: none;
-  border-left: .25rem solid transparent;
+
+  border-left: none;
+  border-bottom: .25rem solid transparent;
+  margin: 0 .25rem;
+  height: 4rem;
+  padding: 1.25rem 0 1rem;
 
   &__content {
 
@@ -141,9 +144,15 @@ export default {
   }
 
   &--minimized {
-    .va-sidebar-link__content {
+    .va-topbar-link__content {
       &__title {
         display: none;
+      }
+      &__icon {
+        margin-right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
   }

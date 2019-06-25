@@ -1,9 +1,11 @@
 <template>
-  <va-sidebar :minimized="minimized">
+  <va-topbar
+    :minimized="minimized"
+  >
     <template slot="menu">
 
       <template v-for="(item, key) in items">
-        <sidebar-link-group
+        <topbar-link-group
           :key="key"
           :minimized="minimized"
           :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
@@ -11,15 +13,15 @@
           :title="$t(item.displayName)"
           :activeByDefault="isActiveByDefault(item)"
         >
-          <sidebar-link
+          <topbar-link
             v-for="(subMenuItem, key) in item.children"
             :key="key"
             :activeByDefault="subMenuItem.name === $route.name ? true : subMenuItem.meta ? subMenuItem.meta.isActiveByDefault : false"
             :to="{ name: subMenuItem.name }"
             :title="$t(subMenuItem.displayName)"
           />
-        </sidebar-link-group>
-        <sidebar-link
+        </topbar-link-group>
+        <topbar-link
           v-else
           :key="key"
           :minimized="minimized"
@@ -27,25 +29,24 @@
           :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
           :to="{ name: item.name }">
           <span slot="title">{{ $t(item.displayName) }}</span>
-        </sidebar-link>
+        </topbar-link>
       </template>
     </template>
-  </va-sidebar>
+  </va-topbar>
 </template>
 
 <script>
-import VaSidebar
-  from '../../../vuestic-theme/vuestic-components/va-sidebar/VaSidebar'
-import SidebarLink from './components/SidebarLink'
-import SidebarLinkGroup from './components/SidebarLinkGroup'
+import TopbarLink from './components/TopbarLink'
+import TopbarLinkGroup from './components/TopbarLinkGroup'
 import { breadcrumbs } from './../app-breadcrumbs/Breadcrumbs'
+import VaTopbar from '../../../vuestic-theme/vuestic-components/va-topbar/VaTopbar'
 
 export default {
-  name: 'app-sidebar',
+  name: 'app-topbar',
   components: {
-    VaSidebar,
-    SidebarLink,
-    SidebarLinkGroup,
+    VaTopbar,
+    TopbarLink,
+    TopbarLinkGroup,
   },
   props: {
     minimized: {

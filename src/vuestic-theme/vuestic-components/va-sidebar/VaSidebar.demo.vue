@@ -1,12 +1,9 @@
 <template>
   <VbDemo>
     <VbCard title="Sidebar">
-      <va-toggle v-model="minimized" label="Minimized"/>
-      <va-toggle v-model="navbarView" label="Navbar view"/>
       <va-sidebar
         style="position: static; height: auto;"
-        :minimized="minimized"
-        :navbarView="navbarView">
+        :minimized="minimized">
         <template slot="menu">
           <template v-for="(item, index) in items">
             <sidebar-link-group
@@ -66,7 +63,6 @@ export default {
       items: breadcrumbs.routes,
       hoverState: false,
       minimized: false,
-      navbarView: true,
     }
   },
 }

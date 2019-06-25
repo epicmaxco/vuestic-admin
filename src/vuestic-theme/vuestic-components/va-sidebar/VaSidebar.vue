@@ -21,10 +21,6 @@ export default {
       type: Boolean,
       required: true,
     },
-    navbarView: {
-      type: Boolean,
-      required: true,
-    },
     color: {
       type: String,
       default: 'secondary',
@@ -35,7 +31,6 @@ export default {
       return {
         'va-sidebar': true,
         'va-sidebar--minimized': this.minimized,
-        'va-sidebar--navbar-view': this.navbarView,
       }
     },
   },
@@ -87,36 +82,6 @@ export default {
 
     & + .content-wrap {
       margin-left: $sidebar-left--hidden;
-    }
-  }
-
-  &--navbar-view {
-    width: 100%;
-    position: relative;
-    top: auto;
-    min-height: 4rem;
-    & + .content-wrap {
-      margin-left: 0;
-      padding-left: 2.5rem;
-      padding-right: 2.5rem;
-    }
-    .va-sidebar__menu {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      max-width: 90%;
-      width: 100%;
-      padding: 0;
-      height: 100%;
-      min-height: 4rem;
-      margin: 0 auto;
-    }
-    @include media-breakpoint-down(sm) {
-      .va-sidebar__menu {
-        max-width: 100%;
-        padding: 0 1rem;
-      }
     }
   }
 }
