@@ -236,6 +236,7 @@ export default {
 @import '../../vuestic-sass/resources/resources';
 
 .va-dropdown-popper {
+  max-width: fit-content;
   &__content {
     z-index: 100;
   }

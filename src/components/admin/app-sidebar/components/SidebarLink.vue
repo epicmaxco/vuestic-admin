@@ -13,7 +13,7 @@
       v-if="icon"
       class="va-sidebar-link__content__icon"
       :style="computedIconStyles"
-      :icon="icon"
+      :name="icon"
     />
     <div class="va-sidebar-link__content__title">
       <slot name="title"/>

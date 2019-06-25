@@ -6,7 +6,10 @@
   >
     <span class="profile-dropdown__actuator" slot="anchor">
       <slot/>
-      <va-icon class="pa-1" :icon="`fa ${isShown ? 'fa-chevron-up' :'fa-chevron-down'}`"></va-icon>
+      <va-icon
+        class="pa-1"
+        :name="`fa ${isShown ? 'fa-chevron-up' :'fa-chevron-down'}`"
+      />
     </span>
     <div class="profile-dropdown__content py-3 px-2">
       <router-link

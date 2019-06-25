@@ -58,7 +58,7 @@
             v-if="icon"
             class="va-sidebar-link__content__icon"
             :style="iconStyles"
-            :icon="icon"
+            :name="icon"
           />
           <span class="va-sidebar-link__content__title">
           <slot name="title">
@@ -232,7 +232,6 @@ export default {
 
   &--minimized {
     .va-sidebar-link-group__submenu {
-      background: $sidebar_bg;
       width: 10rem;
       border-radius: .375rem;
       margin-left: 1px;
@@ -241,7 +240,8 @@ export default {
 
     .va-sidebar-link-group__submenu {
       padding: .375rem 0;
-      overflow: hidden auto;
+      overflow-y: auto;
+      overflow-x: hidden;
       .va-sidebar-link__content {
         &__title {
           display: inline-block;
