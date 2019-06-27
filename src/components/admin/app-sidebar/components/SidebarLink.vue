@@ -130,6 +130,7 @@ export default {
 
     &__icon {
       width: 1.5rem;
+      min-width: 1.5rem;
       text-align: center;
       font-size: $sidebar-menu-item-icon-size;
       margin-right: 0.5rem;
