@@ -1,12 +1,10 @@
 <template>
   <va-page-layout>
     <app-navbar
-      :minimized="minimized"
-      @toggle-menu="toggleSidebar"
+      :minimized.sync="minimized"
     />
     <app-sidebar
       :minimized="minimized"
-      @toggle-menu="toggleSidebar"
     />
     <main
       slot="content"
@@ -45,11 +43,6 @@ export default {
       minimized: false,
       mobileWidth: 767,
     }
-  },
-  methods: {
-    toggleSidebar (minimized) {
-      this.minimized = minimized
-    },
   },
   computed: {
     ...mapGetters([

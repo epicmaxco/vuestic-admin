@@ -90,6 +90,7 @@ export default {
     title: String,
     minimized: Boolean,
     activeByDefault: Boolean,
+    children: Array,
     color: {
       type: String,
       default: 'secondary',
@@ -108,24 +109,19 @@ export default {
     }
   },
   mounted () {
-    let linkGroup = this.$refs.linkGroupWrapper
-    if (linkGroup && linkGroup.querySelector('.router-link-active') !== null) {
-      this.expanded = true
-    }
-    this.setActiveState()
+    this.updateActiveState()
   },
   watch: {
     $route () {
-      this.expanded = false
       this.$nextTick(() => {
-        this.setActiveState()
+        this.updateActiveState()
       })
     },
     minimized (value) {
       if (!value) {
         this.isActive = false
       } else {
-        this.setActiveState()
+        this.updateActiveState()
       }
     },
   },
@@ -136,8 +132,11 @@ export default {
     updateHoverState () {
       this.isHovered = !this.isHovered
     },
-    setActiveState () {
-      this.isActive = this.minimized && (!!this.$children[0].$children.filter(item => item.isActive).length || this.activeByDefault)
+    updateActiveState () {
+      const active = this.children.some(item => item.name === this.$route.name)
+
+      this.isActive = this.minimized ? active : false
+      this.expanded = active
     },
   },
   computed: {

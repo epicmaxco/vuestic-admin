@@ -172,6 +172,9 @@ export default {
         this.isClicked = false
       }
     },
+    updatePopper () {
+      this.popperInstance ? this.popperInstance.scheduleUpdate() : this.initPopper()
+    },
     initPopper () {
       const options = {
         placement: this.position || 'bottom',
@@ -200,7 +203,8 @@ export default {
         this.$refs.content,
         options,
       )
-      this.$emit('trigger', true)
+      // temporary solution
+      this.updatePopper()
     },
     removePopper () {
       if (!this.popperInstance) {
@@ -208,7 +212,6 @@ export default {
       }
       this.popperInstance.destroy()
       this.popperInstance = null
-      this.$emit('trigger', false)
     },
   },
   computed: {
@@ -236,7 +239,6 @@ export default {
 @import '../../vuestic-sass/resources/resources';
 
 .va-dropdown-popper {
-  max-width: fit-content;
   &__content {
     z-index: 100;
   }

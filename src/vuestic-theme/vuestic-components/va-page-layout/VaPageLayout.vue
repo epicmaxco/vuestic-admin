@@ -1,7 +1,7 @@
 <template>
-  <div class="va-page-layout"
-       v-resize
-       :class="classObject"
+  <div
+    class="va-page-layout"
+    v-resize
   >
     <slot></slot>
     <div class="content-wrap" id="content-wrap">
@@ -18,21 +18,8 @@ import Resize from '../../../directives/ResizeHandler'
 
 export default {
   name: 'va-page-layout',
-  props: {
-    fixed: {
-      type: Boolean,
-      default: false,
-    },
-  },
   directives: {
     resize: Resize,
-  },
-  computed: {
-    classObject () {
-      return {
-        'layout-fixed': this.fixed,
-      }
-    },
   },
 }
 </script>
@@ -42,17 +29,6 @@ $vuestic-preloader-left: calc(50% - 140px / 2);
 $vuestic-preloader-top: calc(50% - 104px / 2);
 
 .va-page-layout {
-  &-fixed {
-    .content-wrap {
-      padding-right: $layout-padding-right;
-      padding-top: $sidebar-top;
-
-      @include media-breakpoint-down(md) {
-        padding: $content-mobile-wrap-fixed-layout;
-      }
-    }
-  }
-
   .content-wrap {
     margin-left: $content-wrap-ml;
     transition: margin-left 0.3s ease;
@@ -65,7 +41,7 @@ $vuestic-preloader-top: calc(50% - 104px / 2);
     }
 
     @include media-breakpoint-down(md) {
-      .va-sidebar-hidden & {
+      .va-sidebar--minimized {
         margin-left: 0;
         padding-top: $content-mobile-wrap-sb-top;
       }

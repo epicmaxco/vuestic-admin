@@ -1,6 +1,6 @@
 <template>
   <va-navbar class="app-navbar">
-    <header-selector slot="selector" :minimized.sync="valueProxy"/>
+    <header-selector slot="selector" :minimized.sync="minimizedProxy"/>
     <template slot="logo">
       <va-icon-vuestic/>
     </template>
@@ -72,12 +72,12 @@ export default {
     }
   },
   computed: {
-    valueProxy: {
+    minimizedProxy: {
       get () {
         return this.minimized
       },
-      set (opened) {
-        this.$emit('toggle-menu', opened)
+      set (minimized) {
+        this.$emit('update:minimized', minimized)
       },
     },
   },

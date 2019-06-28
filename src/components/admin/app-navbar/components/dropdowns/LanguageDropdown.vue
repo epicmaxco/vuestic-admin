@@ -1,7 +1,8 @@
 <template>
   <va-dropdown
     class="language-dropdown"
-    offset="15px, 0"
+    offset="0, 15"
+    fixed
   >
     <va-icon slot="anchor" :name="['flag-icon flag-icon-large', flagIconClass(currentLanguage())]"/>
     <div class="language-dropdown__content py-3 px-2">

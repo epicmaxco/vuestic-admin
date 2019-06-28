@@ -59,7 +59,7 @@ export default {
   },
   watch: {
     $route (route) {
-      this.setActiveState()
+      this.updateActiveState()
     },
   },
   computed: {
@@ -90,24 +90,14 @@ export default {
     updateHoverState (isHovered) {
       this.isHovered = isHovered
     },
-    setActiveState () {
+    updateActiveState () {
       this.$nextTick(() => {
-        this.isActive = this.$el.classList.contains('va-sidebar-link--active')
-        if (!this.isActive) {
-          return
-        }
-        const linkGroup = this.$parent && this.$parent.$parent
-        if (linkGroup.$options.name === 'sidebar-link-group') {
-          linkGroup.expanded = true
-          if (this.minimized) {
-            linkGroup.isActive = true
-          }
-        }
+        this.isActive = this.$route.name === this.to.name
       })
     },
   },
   mounted () {
-    this.setActiveState()
+    this.updateActiveState()
   },
 }
 </script>
