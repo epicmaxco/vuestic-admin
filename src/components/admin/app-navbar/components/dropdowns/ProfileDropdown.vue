@@ -3,7 +3,7 @@
     class="profile-dropdown"
     @show="toggleVisibility(true)"
     @hide="toggleVisibility(false)"
-    offset="15px 0"
+    offset="15px, 0"
   >
     <span class="profile-dropdown__actuator" slot="anchor">
       <slot/>

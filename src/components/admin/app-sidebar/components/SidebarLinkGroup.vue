@@ -59,16 +59,14 @@
             :style="iconStyles"
             :name="icon"
           />
-          <span class="va-sidebar-link__content__title">
-          <slot name="title">
-            {{title}}
-          </slot>
-          <va-icon
-            class="va-sidebar-link-group__expanded-icon"
-            :style="iconStyles"
-            :icon="`fa fa-angle-${dropdownOpened ? 'up' : 'down'}`"/>
-        </span>
         </div>
+        <va-icon
+          name="material-icons"
+          class="va-sidebar-link__after"
+          :style="iconStyles"
+        >
+          more_horiz
+        </va-icon>
       </a>
       <ul
         class="va-sidebar-link-group__submenu in"
@@ -161,7 +159,7 @@ export default {
         ? {
           color: this.$themes['success'],
           backgroundColor: getHoverColor(this.$themes[this.color]),
-          borderColor: this.$themes['success'],
+          borderColor: this.isActive ? this.$themes['success'] : 'transparent',
         }
         : {
           color: this.$themes['info'],
@@ -228,24 +226,27 @@ export default {
       border-radius: .375rem;
       margin-left: 1px;
       max-height: 80vh;
-    }
-
-    .va-sidebar-link-group__submenu {
       padding: .375rem 0;
       overflow-y: auto;
       overflow-x: hidden;
-      .va-sidebar-link__content {
-        &__title {
-          display: inline-block;
-          opacity: 1;
-        }
-      }
+
       li {
         padding: .75rem 1rem;
         border-left: none;
         height: auto;
         min-height: 3rem;
       }
+    }
+    .va-sidebar-link__after {
+      position: absolute;
+      bottom: .4375rem;
+      left: 0;
+      right: 0;
+      height: .1835rem;
+      width: 1.8rem;
+      display: block;
+      margin: 0 auto;
+      line-height: .1835rem;
     }
   }
 }

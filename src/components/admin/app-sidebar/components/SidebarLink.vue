@@ -74,7 +74,7 @@ export default {
         ? {
           color: this.$themes['success'],
           backgroundColor: getHoverColor(this.$themes['info']),
-          borderColor: this.$themes['success'],
+          borderColor: this.isActive ? this.$themes['success'] : 'transparent',
         }
         : {
           color: this.$themes['info'],
@@ -116,7 +116,7 @@ export default {
 @import "../../../../vuestic-theme/vuestic-sass/resources/resources";
 .va-sidebar-link {
   position: relative;
-  height: 3rem;
+  min-height: 3rem;
   cursor: pointer;
   padding-left: .75rem;
   padding-top: .75rem;

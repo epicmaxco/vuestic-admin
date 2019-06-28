@@ -58,12 +58,10 @@ export default {
     padding-left: 0;
   }
 
-  .va-sidebar-link__content__title {
-    opacity: 1;
-  }
-
   @include media-breakpoint-down(sm) {
     top: $sidebar-mobile-top;
+    width: 100%;
+    z-index: 10000;
   }
 
   &--minimized {
@@ -73,11 +71,6 @@ export default {
       .va-sidebar-link__content {
         padding-right: 0;
       }
-    }
-
-    .va-sidebar-link__content__title {
-      display: none;
-      opacity: 0;
     }
 
     & + .content-wrap {

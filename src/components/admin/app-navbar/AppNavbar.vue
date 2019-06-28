@@ -13,6 +13,7 @@
             color="#000000"
             class="app-navbar__button text--bold"
             icon="fa fa-github"
+            target="_blank"
           >
             {{$t('navbar.support')}}
           </va-button>
@@ -107,7 +108,7 @@ export default {
     }
     &__actions {
       justify-content: space-between;
-      padding: 0 .125rem;
+      padding: 0 .5rem;
     }
     .profile-dropdown {
       position: absolute;

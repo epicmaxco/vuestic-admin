@@ -12,6 +12,7 @@
 <script>
 import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
 
+// Note: topbar is not finished and not included to the layout.
 export default {
   name: 'va-topbar',
   components: {},

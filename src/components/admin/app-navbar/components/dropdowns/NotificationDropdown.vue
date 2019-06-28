@@ -1,7 +1,7 @@
 <template>
     <va-dropdown
       class="notification-dropdown"
-      offset="15px 0"
+      offset="15px, 0"
     >
       <va-icon
         slot="anchor"
