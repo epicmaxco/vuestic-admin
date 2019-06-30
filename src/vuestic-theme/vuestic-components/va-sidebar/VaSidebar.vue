@@ -44,7 +44,7 @@ export default {
   height: $sidebar-viewport-height;
   position: absolute;
   width: $sidebar-width;
-  top: $sidebar-top;
+  top: $top-nav-height;
   left: 0;
   transition: all .3s ease;
   overflow-y: auto;
@@ -76,7 +76,7 @@ export default {
     }
 
     & + .content-wrap {
-      margin-left: $sidebar-left--hidden;
+      margin-left: $sidebar-width--hidden;
     }
   }
 }

@@ -49,12 +49,13 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
 $vuestic-preloader-left: calc(50% - 140px / 2);
 $vuestic-preloader-top: calc(50% - 104px / 2);
 
 .va-page-layout {
   .content-wrap {
-    margin-left: $content-wrap-ml;
+    margin-left: $sidebar-width;
     transition: margin-left 0.3s ease;
     padding: 0;
 
@@ -67,7 +68,7 @@ $vuestic-preloader-top: calc(50% - 104px / 2);
     @include media-breakpoint-down(md) {
       .va-sidebar--minimized {
         margin-left: 0;
-        padding-top: $content-mobile-wrap-sb-top;
+        padding-top: calc(#{$top-nav-height} + #{$layout-padding+20}) - 20px;
       }
     }
   }
@@ -77,7 +78,7 @@ $vuestic-preloader-top: calc(50% - 104px / 2);
     justify-content: center;
     align-items: center;
     padding-top: 25px;
-    padding-bottom: $made-by-footer-pb;
+    padding-bottom: 1.6875rem;
     position: absolute;
     bottom: 0;
     height: calc(#{$layout-padding} + #{$widget-mb});

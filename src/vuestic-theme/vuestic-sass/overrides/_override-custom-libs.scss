@@ -206,11 +206,11 @@
 .toasted-container {
   &.full-width {
     @include media-breakpoint-down(md) {
-      width: calc(100% - #{$content-mobile-wrap-pl} - #{$content-mobile-wrap-pr});
+      width: calc(100% - #{$content-mobile-wrap-px} - #{$content-mobile-wrap-px});
       left: 0;
 
       .toasted.vuestic-toast {
-        left: $content-mobile-wrap-pl;
+        left: $content-mobile-wrap-px;
       }
     }
   }
