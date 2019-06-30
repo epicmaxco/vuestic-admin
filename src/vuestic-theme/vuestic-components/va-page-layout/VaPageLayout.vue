@@ -1,7 +1,6 @@
 <template>
   <div
     class="va-page-layout"
-    v-resize
   >
     <slot></slot>
     <div class="content-wrap" id="content-wrap">
@@ -11,15 +10,40 @@
 </template>
 
 <script>
-// NOTE Very limited reuse. Probably worth either splitting to presentation
-// or augmenting features.
-
-import Resize from '../../../directives/ResizeHandler'
-
 export default {
   name: 'va-page-layout',
-  directives: {
-    resize: Resize,
+  data () {
+    return {
+      prevMatchLg: true,
+      sidebar: null,
+    }
+  },
+  props: {
+    mobileWidth: {
+      type: Number,
+      default: 767,
+    },
+  },
+  mounted () {
+    this.sidebar = this.$el.querySelector('.va-sidebar')
+
+    window.addEventListener('resize', function () {
+      this.updateSidebarState()
+    }.bind(this))
+    this.updateSidebarState()
+  },
+  methods: {
+    checkIsDesktop () {
+      return window.matchMedia(`(min-width: ${this.mobileWidth}px)`).matches
+    },
+    updateSidebarState () {
+      if (this.checkIsDesktop() && !this.prevMatchLg) {
+        this.$emit('toggleSidebar', false)
+      } else if (!this.checkIsDesktop() && this.prevMatchLg) {
+        this.$emit('toggleSidebar', true)
+      }
+      this.prevMatchLg = this.checkIsDesktop()
+    },
   },
 }
 </script>

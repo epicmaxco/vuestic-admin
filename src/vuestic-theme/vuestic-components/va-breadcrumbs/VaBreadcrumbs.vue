@@ -5,7 +5,7 @@
         class="va-breadcrumbs__nav-section-item"
         :to="{ path: breadcrumbs.root.name }"
       >
-        {{ $t(breadcrumbs.root.displayName) }}
+        {{ $t(navigationRoutes.root.displayName) }}
       </router-link>
       <router-link
         v-for="(item, index) in displayedCrumbs"
@@ -51,7 +51,7 @@ export default {
 
       if (!foundBreadcrumbs.length) {
         // eslint-disable-next-line no-console
-        console.warn(`No breadcrumbs registered for route with name "${this.currentRouteName}"`)
+        console.warn(`No navigationRoutes registered for route with name "${this.currentRouteName}"`)
       }
 
       return foundBreadcrumbs
@@ -63,11 +63,11 @@ export default {
   methods: {
     findInNestedByName (routeBreadcrumbList, name) {
       for (const routeBreadcrumb of routeBreadcrumbList) {
-        // We found breadcrumbs for route
+        // We found navigationRoutes for route
         if (routeBreadcrumb.name === name) {
           return [routeBreadcrumb]
         }
-        // We didn't find any breadcrumbs for route - means we have to go deeper!
+        // We didn't find any navigationRoutes for route - means we have to go deeper!
         // Which works only if route breadcrumb has children declared.
         if (!routeBreadcrumb.children) {
           continue

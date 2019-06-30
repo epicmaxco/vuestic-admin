@@ -37,7 +37,7 @@ import VaSidebar
   from '../../../vuestic-theme/vuestic-components/va-sidebar/VaSidebar'
 import SidebarLink from './components/SidebarLink'
 import SidebarLinkGroup from './components/SidebarLinkGroup'
-import { breadcrumbs } from './../app-breadcrumbs/Breadcrumbs'
+import { navigationRoutes } from '../app-breadcrumbs/NavigationRoutes'
 
 export default {
   name: 'app-sidebar',
@@ -54,7 +54,7 @@ export default {
   },
   data () {
     return {
-      items: breadcrumbs.routes,
+      items: navigationRoutes.routes,
     }
   },
 }

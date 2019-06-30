@@ -1,7 +1,7 @@
-export const breadcrumbs = {
+export const navigationRoutes = {
   root: {
     name: '/',
-    displayName: 'breadcrumbs.home',
+    displayName: 'navigationRoutes.home',
   },
   routes: [
     {
@@ -9,7 +9,6 @@ export const breadcrumbs = {
       displayName: 'menu.dashboard',
       meta: {
         iconClass: 'vuestic-iconset-dashboard',
-        isActiveByDefault: true,
       },
     },
     {

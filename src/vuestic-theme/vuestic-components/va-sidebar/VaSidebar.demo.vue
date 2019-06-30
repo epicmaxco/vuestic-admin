@@ -43,7 +43,7 @@ import SidebarLinkGroup
   from './../../../components/admin/app-sidebar/components/SidebarLinkGroup'
 import SidebarLink
   from './../../../components/admin/app-sidebar/components/SidebarLink'
-import { breadcrumbs } from './../../../components/admin/app-breadcrumbs/Breadcrumbs'
+import { navigationRoutes } from '../../../components/admin/app-breadcrumbs/NavigationRoutes'
 import VaToggle from '../va-toggle/VaToggle'
 
 export default {
@@ -58,7 +58,7 @@ export default {
       value: 60,
       icon: 'iconicstroke iconicstroke-info',
       theme: 'info',
-      items: breadcrumbs.routes,
+      items: navigationRoutes.routes,
       hoverState: false,
       minimized: false,
     }

@@ -30,7 +30,6 @@
               <sidebar-link
                 v-for="(subMenuItem, key) in item.children"
                 :key="key"
-                :active="subMenuItem.meta ? subMenuItem.meta.isActiveByDefault : false"
                 :to="{ name: subMenuItem.name }"
               >
                 <div slot="title">
@@ -42,7 +41,6 @@
             <sidebar-link
               v-else
               :key="key"
-              :active="item.meta ? item.meta.isActiveByDefault : false"
               :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
               :to="{ name: item.name }">
               <span slot="title">{{ $t(item.displayName) }}</span>
@@ -102,7 +100,7 @@ import SidebarLinkGroup
   from './../../../components/admin/app-sidebar/components/SidebarLinkGroup'
 import SidebarLink
   from './../../../components/admin/app-sidebar/components/SidebarLink'
-import { breadcrumbs } from './../../../components/admin/app-breadcrumbs/Breadcrumbs'
+import { navigationRoutes } from '../../../components/admin/app-breadcrumbs/NavigationRoutes'
 import VaRating from '../../vuestic-components/va-rating/VaRating'
 import SquareWithIcon from '../../vuestic-components/va-tree-view/SquareWithIcon/SquareWithIcon'
 import VaTreeRoot from '../../vuestic-components/va-tree-view/VaTreeRoot'
@@ -133,7 +131,7 @@ export default {
     return {
       value: 60,
       icon: 'iconicstroke iconicstroke-info',
-      items: breadcrumbs.routes,
+      items: navigationRoutes.routes,
       chartData: getLineChartData(this.$themes),
     }
   },

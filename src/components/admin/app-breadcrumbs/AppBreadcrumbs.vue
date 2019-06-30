@@ -12,13 +12,13 @@
 </template>
 
 <script>
-import { breadcrumbs } from './Breadcrumbs'
+import { navigationRoutes } from './NavigationRoutes'
 
 export default {
   name: 'app-breadcrumbs',
   data () {
     return {
-      breadcrumbs: breadcrumbs,
+      breadcrumbs: navigationRoutes,
     }
   },
   computed: {
