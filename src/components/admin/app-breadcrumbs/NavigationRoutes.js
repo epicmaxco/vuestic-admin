@@ -1,16 +1,22 @@
-export const breadcrumbs = {
+export const navigationRoutes = {
   root: {
     name: '/',
-    displayName: 'breadcrumbs.home',
+    displayName: 'navigationRoutes.home',
   },
   routes: [
     {
       name: 'dashboard',
       displayName: 'menu.dashboard',
+      meta: {
+        iconClass: 'vuestic-iconset-dashboard',
+      },
     },
     {
       name: 'statistics',
       displayName: 'menu.statistics',
+      meta: {
+        iconClass: 'vuestic-iconset-statistics',
+      },
       disabled: true,
       children: [
         {
@@ -26,6 +32,9 @@ export const breadcrumbs = {
     {
       name: 'forms',
       displayName: 'menu.forms',
+      meta: {
+        iconClass: 'vuestic-iconset-forms',
+      },
       disabled: true,
       children: [
         {
@@ -45,10 +54,16 @@ export const breadcrumbs = {
     {
       name: 'tables',
       displayName: 'menu.tables',
+      meta: {
+        iconClass: 'vuestic-iconset-tables',
+      },
     },
     {
       name: 'ui',
       displayName: 'menu.uiElements',
+      meta: {
+        iconClass: 'vuestic-iconset-ui-elements',
+      },
       disabled: true,
       children: [
         {
@@ -60,8 +75,8 @@ export const breadcrumbs = {
           displayName: 'menu.buttons',
         },
         {
-          name: 'collapse',
-          displayName: 'menu.collapse',
+          name: 'collapses',
+          displayName: 'menu.collapses',
         },
         {
           name: 'filters',
@@ -146,6 +161,9 @@ export const breadcrumbs = {
     {
       name: 'maps',
       displayName: 'menu.maps',
+      meta: {
+        iconClass: 'vuestic-iconset-maps',
+      },
       disabled: true,
       children: [
         {
@@ -173,6 +191,9 @@ export const breadcrumbs = {
     {
       name: 'pages',
       displayName: 'menu.pages',
+      meta: {
+        iconClass: 'vuestic-iconset-files',
+      },
       disabled: true,
       children: [
         {

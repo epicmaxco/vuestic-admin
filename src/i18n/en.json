@@ -381,9 +381,9 @@
   "notifications": {
     "all": "See all notifications",
     "mark_as_read": "Mark As Read",
-    "sentMessage": "{name} sent you a message",
-    "uploadedZip": "{name} uploaded a new Zip file with {type}",
-    "startedTopic": "{name} started a new topic"
+    "sentMessage": "sent you a message",
+    "uploadedZip": "uploaded a new Zip file with {type}",
+    "startedTopic": "started a new topic"
   },
   "timelines": {
     "horizontalSimple": "Horizontal Simple",
