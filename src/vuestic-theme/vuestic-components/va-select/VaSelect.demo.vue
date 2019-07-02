@@ -85,6 +85,11 @@
         :options="CountriesList"
         placeholder="select country"
       />
+      <va-select
+        v-model="defaultSelect.value"
+        :options="CountriesList"
+        placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
+      />
     </VbCard>
     <VbCard title="Label" style="width: 400px;">
       <va-select
@@ -128,7 +133,7 @@
         label="with custom max"
         v-model="multipleValue"
         multiple
-        :max="8"
+        :tagMax="8"
         :options="CountriesList"
       />
     </VbCard>
@@ -180,6 +185,15 @@
         :options="CountriesList"
         :loading="isLoading"
         @update-search="updateSearch"
+      />
+    </VbCard>
+    <VbCard title="long textes" style="width: 400px">
+      <va-select
+        searchable
+        placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
+        label="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
+        v-model="longSelect.value"
+        :options="longSelect.options"
       />
     </VbCard>
     <VbCard :style="{ 'width': '100%' }">
@@ -246,6 +260,13 @@ export default {
       iconsSelect: {
         value: '',
         options: iconsSelectOptions,
+      },
+      longSelect: {
+        value: '1st long long long long option sit amet, consectetur adipiscing elit,',
+        options: [
+          '1st long long long long option sit amet, consectetur adipiscing elit,',
+          '2nd long  sit amet, consectetur adipiscing elit, long long long long long option',
+        ],
       },
       multipleValue: [],
       CountriesList,

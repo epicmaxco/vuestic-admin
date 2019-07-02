@@ -24,7 +24,7 @@
 * `options` - Array (default: []) - list of select options. You can use strings or objects as an option. See the object option structure below. 
 * `position`: String (default: 'bottom') - direction of select open (one of these values: 'bottom', 'top'),
 * `multiple` - Boolean (default: false) - changes select to multiple
-* `max` - Number (default: 5) - the max number of chips, when the number of selected items is bigger then max, there is only text '6 items selected'
+* `tagMax` - Number (default: 5) - the max number of chips, when the number of selected items is bigger then max, there is only text '6 items selected'
 * `searchable` - Boolean (default: false) - if set true, input can be edited and options are filter automatically by inputted text
 * `disabled` - Boolean (default: false) - disable the select
 * `readonly` - Boolean (default: false) - puts input in readonly state 

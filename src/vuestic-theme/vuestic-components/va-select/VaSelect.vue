@@ -8,6 +8,7 @@
     ref="dropdown"
     :fixed="fixed"
     :style="{width}"
+    :closeOnAnchorClick="false"
   >
     <ul
       class="va-select__option-list"
@@ -19,6 +20,8 @@
         :class="getOptionClass(option)"
         :style="getOptionStyle(option)"
         @click.stop="selectOption(option)"
+        @mouseleave="updateHoveredOption(null)"
+        @mouseover="updateHoveredOption(option)"
       >
         <va-icon v-show="option.icon" :name="option.icon" class="va-select__option__icon"/>
         <span>{{getText(option)}}</span>
@@ -53,7 +56,7 @@
       >
         <span
           class="va-select__tags"
-          v-if="multiple && valueProxy.length <= max"
+          v-if="multiple && valueProxy.length <= tagMax"
         >
           <va-chip
             v-for="option in valueProxy"
@@ -89,7 +92,7 @@
       />
       <va-icon
         class="va-select__open-icon"
-        :name="!visible || (visible && disabled) ? 'fa fa-chevron-down' : 'fa fa-chevron-up'"
+        :name="visible ? 'fa fa-chevron-up' : 'fa fa-chevron-down'"
       />
     </div>
   </va-dropdown>
@@ -113,6 +116,7 @@ export default {
     return {
       search: '',
       mounted: false,
+      hoveredOption: null,
     }
   },
   props: {
@@ -128,7 +132,7 @@ export default {
       default: 'bottom',
       validator: position => Object.keys(positions).includes(position),
     },
-    max: {
+    tagMax: {
       type: Number,
       default: 5,
     },
@@ -154,7 +158,7 @@ export default {
       default: 'text',
     },
     clearValue: {
-      default: null,
+      default: '',
     },
     noOptionsText: {
       type: String,
@@ -246,6 +250,7 @@ export default {
       return {
         paddingRight: `${paddingRight}rem`,
         paddingTop: this.label ? '.84rem' : 'inherit',
+        paddingBottom: this.label ? 0 : '.4375rem',
       }
     },
     inputStyles () {
@@ -272,6 +277,7 @@ export default {
     getOptionStyle (option) {
       return {
         color: this.isSelected(option) ? this.$themes['success'] : 'inherit',
+        backgroundColor: this.isHovered(option) ? getHoverColor(this.$themes['success']) : 'transparent',
       }
     },
     getText (option) {
@@ -304,6 +310,11 @@ export default {
           : this.valueProxy[this.keyBy] === option[this.keyBy]
       }
     },
+    isHovered (option) {
+      return this.hoveredOption
+        ? typeof option === 'string' ? option === this.hoveredOption : this.hoveredOption[this.keyBy] === option[this.keyBy]
+        : false
+    },
     selectOption (option) {
       this.search = ''
       const isSelected = this.isSelected(option)
@@ -313,11 +324,12 @@ export default {
         this.valueProxy = isSelected
           ? value.filter(optionSelected => option !== optionSelected)
           : [...value, option]
+        this.$refs.dropdown.updatePopper()
       } else {
         this.valueProxy = typeof option === 'string' ? option : { ...option }
         this.search = ''
+        this.$refs.dropdown.hide()
       }
-      this.$refs.dropdown.updatePopper()
       if (this.searchable) {
         this.$refs.search.focus()
       }
@@ -325,6 +337,13 @@ export default {
     clear () {
       this.valueProxy = this.multiple ? [] : this.clearValue
       this.search = ''
+    },
+    updateHoveredOption (option) {
+      if (option) {
+        this.hoveredOption = typeof option === 'string' ? option : { ...option }
+      } else {
+        this.hoveredOption = null
+      }
     },
   },
   mounted () {
@@ -396,6 +415,9 @@ export default {
     font-stretch: normal;
     line-height: 1.5;
     letter-spacing: normal;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
     &:focus {
       outline: none;
     }
@@ -409,6 +431,10 @@ export default {
   }
   &__placeholder {
     opacity: .5;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
   }
 
   &__clear-icon {
@@ -417,7 +443,8 @@ export default {
     height: 1.5rem;
     padding: .25rem;
     position: absolute;
-    top: .4375rem;
+    top: 0;
+    bottom: 0;
     right: 1.5rem;
     margin: auto;
   }
@@ -451,7 +478,6 @@ export default {
     padding: 0;
     background: $light-gray3;
     border-radius: .5rem;
-    box-shadow: 0 2px 3px 0 rgba(98, 106, 119, 0.25);
 
     &.va-select__dropdown-position-top {
       box-shadow: 0 -2px 3px 0 rgba(98, 106, 119, 0.25);
@@ -479,10 +505,6 @@ export default {
     display: flex;
     align-items: center;
     padding: .375rem .5rem .375rem .5rem;
-
-    &:hover {
-      background-color: $vue-light-green;
-    }
 
     &__selected-icon {
       margin-left: auto;
