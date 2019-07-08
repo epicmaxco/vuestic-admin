@@ -10,6 +10,14 @@
     :style="{width}"
     :closeOnAnchorClick="false"
   >
+    <va-input
+      v-if="searchable"
+      :placeholder="placeholder"
+      v-model="search"
+      class="va-select__input"
+      ref="search"
+      removable
+    />
     <ul
       class="va-select__option-list"
       :style="optionsListStyle"
@@ -68,19 +76,10 @@
         </span>
         <span v-else-if="displayedText" class="va-select__displayed-text">{{displayedText}}</span>
         <span v-else class="va-select__placeholder">{{placeholder}}</span>
-        <input
-          v-if="searchable"
-          :placeholder="placeholder"
-          :value="search"
-          class="va-select__input"
-          @input="updateSearch($event.target.value)"
-          ref="search"
-          :style="inputStyles"
-        />
       </div>
       <va-icon
         v-if="showClearIcon"
-        class="va-select__clear-icon mr-1"
+        class="va-select__clear-icon"
         name="fa fa-times-circle"
         @click.native.stop="clear()"
       />
@@ -103,6 +102,7 @@ import VaDropdown from '../va-dropdown/VaDropdown'
 import VaChip from '../va-chip/VaChip'
 import { SpringSpinner } from 'epic-spinners'
 import VaIcon from '../va-icon/VaIcon'
+import VaInput from '../va-input/VaInput'
 import { getHoverColor } from '../../../services/color-functions'
 
 const positions = {
@@ -111,7 +111,7 @@ const positions = {
 }
 export default {
   name: 'va-select',
-  components: { VaIcon, SpringSpinner, VaDropdown, VaChip },
+  components: { VaIcon, SpringSpinner, VaDropdown, VaChip, VaInput },
   data () {
     return {
       search: '',
@@ -177,7 +177,9 @@ export default {
     },
     visible (val) {
       if (val && this.searchable) {
-        this.$refs.search.focus()
+        this.$nextTick(() => {
+          this.$refs.search.$refs.input.focus()
+        })
       }
     },
   },
@@ -243,7 +245,7 @@ export default {
       return this.multiple ? this.valueProxy.length : this.valueProxy
     },
     inputWrapperStyles () {
-      let paddingRight = 1.5
+      let paddingRight = 2
       if (this.showClearIcon) {
         paddingRight += 2
       }
@@ -252,11 +254,6 @@ export default {
         paddingTop: this.label ? '.84rem' : 'inherit',
         paddingBottom: this.label ? 0 : '.4375rem',
       }
-    },
-    inputStyles () {
-      return this.visible && !this.disabled
-        ? { width: '100%' }
-        : { width: '0', position: 'absolute', padding: '0' }
     },
     valueProxy: {
       get () {
@@ -331,7 +328,7 @@ export default {
         this.$refs.dropdown.hide()
       }
       if (this.searchable) {
-        this.$refs.search.focus()
+        this.$refs.search.$refs.input.focus()
       }
     },
     clear () {
@@ -367,10 +364,6 @@ export default {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   margin-bottom: 1rem;
-
-  &:focus {
-    outline: none;
-  }
 
   &--disabled {
     @include va-disabled()
@@ -418,6 +411,7 @@ export default {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    margin: 0 .5rem;
     &:focus {
       outline: none;
     }
@@ -445,7 +439,7 @@ export default {
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 1.5rem;
+    right: 2rem;
     margin: auto;
   }
 

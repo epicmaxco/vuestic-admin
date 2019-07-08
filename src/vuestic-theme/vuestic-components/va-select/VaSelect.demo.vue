@@ -130,7 +130,7 @@
         :options="CountriesList"
       />
       <va-select
-        label="with custom max"
+        label="with custom tag-max"
         v-model="multipleValue"
         multiple
         :tagMax="8"
@@ -201,6 +201,7 @@
       <p>{{objectSelect.value}}</p>
       <p>{{iconsSelect.value}}</p>
       <p>{{multipleValue}}</p>
+      <p>{{longSelect.value}}</p>
     </VbCard>
   </VbDemo>
 </template>
@@ -210,44 +211,13 @@
 import CountriesList from '../../../data/CountriesList'
 import VaSelect from './VaSelect'
 import VaInputWrapper from '../va-input/VaInputWrapper'
+import { objectOptionsList, iconOptionsList } from './getDemoData'
 
 const positions = ['top', 'bottom']
 
 export default {
   components: { VaInputWrapper, VaSelect },
   data () {
-    const objectSelectOptions = [{ id: 1, text: 'one' }, { id: 2, text: 'two' }, { id: 3, text: 'three' }]
-    const iconsSelectOptions = [
-      {
-        text: 'item1',
-        id: 0,
-        value: 0,
-        icon: 'fa fa-address-book',
-      },
-      {
-        text: 'item2',
-        id: 1,
-        value: 1,
-        icon: 'fa fa-android',
-      },
-      {
-        text: 'item2',
-        id: 2,
-        value: 2,
-        icon: 'fa fa-android',
-      },
-      {
-        text: 'item2',
-        id: 3,
-        value: 3,
-      },
-      {
-        text: 'item2',
-        id: 4,
-        value: 4,
-        icon: 'fa fa-android',
-      },
-    ]
     return {
       defaultSelect: {
         options: ['one', 'two', 'three'],
@@ -255,11 +225,11 @@ export default {
       },
       objectSelect: {
         value: '',
-        options: objectSelectOptions,
+        options: objectOptionsList,
       },
       iconsSelect: {
         value: '',
-        options: iconsSelectOptions,
+        options: iconOptionsList,
       },
       longSelect: {
         value: '1st long long long long option sit amet, consectetur adipiscing elit,',
@@ -279,7 +249,7 @@ export default {
       this.isLoading = true
       setTimeout(() => {
         this.isLoading = false
-        this.CountriesList = this.CountriesList.slice(0, Math.round(this.CountriesList.length / 2))
+        console.log(val)
       }, 2000)
     },
   },
