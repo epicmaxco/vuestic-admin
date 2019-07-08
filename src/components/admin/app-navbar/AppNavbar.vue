@@ -1,6 +1,6 @@
 <template>
   <va-navbar class="app-navbar">
-    <header-selector slot="selector" :isOpen.sync="valueProxy"/>
+    <header-selector slot="selector" :minimized.sync="minimizedProxy"/>
     <template slot="logo">
       <va-icon-vuestic/>
     </template>
@@ -13,6 +13,7 @@
             color="#000000"
             class="app-navbar__button text--bold"
             icon="fa fa-github"
+            target="_blank"
           >
             {{$t('navbar.support')}}
           </va-button>
@@ -22,7 +23,10 @@
     <div class="app-navbar__actions va-row flex-nowrap align--center">
       <message-dropdown class="va-navbar__item"/>
       <notification-dropdown class="va-navbar__item"/>
-      <settings-dropdown class="va-navbar__item" :navbar-view.sync="navbarView"/>
+      <!--<settings-dropdown-->
+        <!--class="va-navbar__item"-->
+        <!--:navbar-view.sync="navbarViewProxy"-->
+      <!--/>-->
       <language-dropdown class="va-navbar__item"/>
       <profile-dropdown class="va-navbar__item">
         <span>{{userName}}</span>
@@ -57,7 +61,7 @@ export default {
     ProfileDropdown,
   },
   props: {
-    isOpen: {
+    minimized: {
       type: Boolean,
       required: true,
     },
@@ -65,16 +69,15 @@ export default {
   data () {
     return {
       userName: 'Vasili S',
-      navbarView: true,
     }
   },
   computed: {
-    valueProxy: {
+    minimizedProxy: {
       get () {
-        return this.isOpen
+        return this.minimized
       },
-      set (opened) {
-        this.$emit('toggle-menu', opened)
+      set (minimized) {
+        this.$emit('update:minimized', minimized)
       },
     },
   },
@@ -105,7 +108,7 @@ export default {
     }
     &__actions {
       justify-content: space-between;
-      padding: 0 .125rem;
+      padding: 0 .5rem;
     }
     .profile-dropdown {
       position: absolute;

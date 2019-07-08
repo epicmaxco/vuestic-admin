@@ -86,7 +86,7 @@ export default {
         this.prevTouch = touch
       }
     },
-    stopDrag (e) {
+    stopDrag () {
       this.isDragging = false
     },
     scroll (e) {
@@ -166,6 +166,7 @@ export default {
   position: relative;
 
   .scrollbar-wrapper {
+    border-radius: 0.375rem;
     box-shadow: $sidebar-box-shadow;
     position: relative;
     overflow: hidden;

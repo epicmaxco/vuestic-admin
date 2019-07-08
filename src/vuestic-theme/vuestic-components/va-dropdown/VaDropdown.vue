@@ -82,6 +82,10 @@ export default {
     disabled: Boolean,
     fixed: Boolean,
     keepAnchorWidth: Boolean, // Means dropdown width should be the same as anchor's width.
+    preventOverflow: {// If set to false - dropdown won't dodge outside container.
+      type: Boolean,
+      default: true,
+    },
     closeOnClickOutside: {
       type: Boolean,
       default: true,
@@ -196,7 +200,11 @@ export default {
     initPopper () {
       const options = {
         placement: this.position || 'bottom',
-        modifiers: {},
+        modifiers: {
+          preventOverflow: {
+            enabled: this.preventOverflow,
+          },
+        },
         positionFixed: this.fixed,
         arrow: {
           enabled: false,
@@ -220,6 +228,8 @@ export default {
         this.$refs.content,
         options,
       )
+      // temporary solution
+      this.updatePopper()
     },
     removePopper () {
       if (!this.popperInstance) {

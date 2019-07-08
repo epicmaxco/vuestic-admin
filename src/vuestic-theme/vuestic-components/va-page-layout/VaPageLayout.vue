@@ -1,7 +1,6 @@
 <template>
-  <div class="va-page-layout"
-       v-resize
-       :class="classObject"
+  <div
+    class="va-page-layout"
   >
     <slot></slot>
     <div class="content-wrap" id="content-wrap">
@@ -11,50 +10,52 @@
 </template>
 
 <script>
-// NOTE Very limited reuse. Probably worth either splitting to presentation
-// or augmenting features.
-
-import Resize from '../../../directives/ResizeHandler'
-
 export default {
   name: 'va-page-layout',
+  data () {
+    return {
+      prevMatchLg: true,
+      sidebar: null,
+    }
+  },
   props: {
-    fixed: {
-      type: Boolean,
-      default: false,
+    mobileWidth: {
+      type: Number,
+      default: 767,
     },
   },
-  directives: {
-    resize: Resize,
+  mounted () {
+    this.sidebar = this.$el.querySelector('.va-sidebar')
+
+    window.addEventListener('resize', function () {
+      this.updateSidebarState()
+    }.bind(this))
+    this.updateSidebarState()
   },
-  computed: {
-    classObject () {
-      return {
-        'layout-fixed': this.fixed,
+  methods: {
+    checkIsDesktop () {
+      return window.matchMedia(`(min-width: ${this.mobileWidth}px)`).matches
+    },
+    updateSidebarState () {
+      if (this.checkIsDesktop() && !this.prevMatchLg) {
+        this.$emit('toggleSidebar', false)
+      } else if (!this.checkIsDesktop() && this.prevMatchLg) {
+        this.$emit('toggleSidebar', true)
       }
+      this.prevMatchLg = this.checkIsDesktop()
     },
   },
 }
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
 $vuestic-preloader-left: calc(50% - 140px / 2);
 $vuestic-preloader-top: calc(50% - 104px / 2);
 
 .va-page-layout {
-  &-fixed {
-    .content-wrap {
-      padding-right: $layout-padding-right;
-      padding-top: $sidebar-top;
-
-      @include media-breakpoint-down(md) {
-        margin-left: 0;
-      }
-    }
-  }
-
   .content-wrap {
-    margin-left: $content-wrap-ml;
+    margin-left: $sidebar-width;
     transition: margin-left 0.3s ease;
     padding: 0;
 
@@ -65,10 +66,9 @@ $vuestic-preloader-top: calc(50% - 104px / 2);
     }
 
     @include media-breakpoint-down(md) {
-      margin-left: 0;
-      .sidebar-hidden & {
+      .va-sidebar--minimized {
         margin-left: 0;
-        padding-top: $content-mobile-wrap-sb-top;
+        padding-top: calc(#{$top-nav-height} + #{$layout-padding+20}) - 20px;
       }
     }
   }
@@ -78,7 +78,7 @@ $vuestic-preloader-top: calc(50% - 104px / 2);
     justify-content: center;
     align-items: center;
     padding-top: 25px;
-    padding-bottom: $made-by-footer-pb;
+    padding-bottom: 1.6875rem;
     position: absolute;
     bottom: 0;
     height: calc(#{$layout-padding} + #{$widget-mb});

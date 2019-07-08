@@ -1,46 +1,10 @@
 <template>
   <li :class="computedClass">
-    <a
-      href="#"
-      target="_self"
-      @mouseenter="updateHoverState(true)"
-      @mouseleave="updateHoverState(false)"
-      @click.stop.prevent="toggleMenuItem()"
-      :style="sidebarLinkStyles"
-      v-if="!minimized"
-      :class="computedLinkClass">
-      <div class="va-sidebar-link__content">
-        <va-icon
-          v-if="icon"
-          class="va-sidebar-link__content__icon"
-          :style="iconStyles"
-          :name="icon"
-        />
-        <span class="va-sidebar-link__content__title">
-          <slot name="title">
-            {{title}}
-          </slot>
-        </span>
-        <va-icon
-          class="va-sidebar-link-group__dropdown-icon"
-          :style="iconStyles"
-          :name="`fa fa-angle-${expanded ? 'up' : 'down'}`"/>
-      </div>
-    </a>
-    <expanding v-if="!minimized">
-      <ul
-        class="va-sidebar-link-group__submenu in"
-        v-show="expanded"
-        ref="linkGroupWrapper"
-      >
-        <slot/>
-      </ul>
-    </expanding>
     <va-dropdown
-      v-if="minimized"
-      position="right"
+      position="bottom"
       fixed
       :preventOverflow="false"
+      @trigger="toggleDropdownState"
     >
       <a
         href="#"
@@ -49,27 +13,29 @@
         @mouseenter="updateHoverState"
         @mouseleave="updateHoverState"
         :style="sidebarLinkStyles"
-        class="va-sidebar-link"
+        class="va-topbar-link"
         :class="computedLinkClass"
       >
-        <div class="va-sidebar-link__content">
+        <div class="va-topbar-link__content">
           <va-icon
             v-if="icon"
-            class="va-sidebar-link__content__icon"
+            class="va-topbar-link__content__icon"
             :style="iconStyles"
             :name="icon"
           />
+          <span class="va-topbar-link__content__title">
+          <slot name="title">
+            {{title}}
+          </slot>
+          <va-icon
+            class="va-topbar-link-group__expanded-icon"
+            :style="iconStyles"
+            :icon="`fa fa-angle-${dropdownOpened ? 'up' : 'down'}`"/>
+        </span>
         </div>
-        <va-icon
-          name="material-icons"
-          class="va-sidebar-link__after"
-          :style="iconStyles"
-        >
-          more_horiz
-        </va-icon>
       </a>
       <ul
-        class="va-sidebar-link-group__submenu in"
+        class="va-topbar-link-group__submenu in"
         :style="{backgroundColor: $themes[color]}"
       >
         <slot/>
@@ -79,18 +45,17 @@
 </template>
 
 <script>
-import SidebarLink from './SidebarLink'
+import SidebarLink from './TopbarLink'
 import Expanding from 'vue-bulma-expanding/src/Expanding'
 import { getHoverColor } from './../../../../services/color-functions'
 
 export default {
-  name: 'sidebar-link-group',
+  name: 'topbar-link-group',
   props: {
     icon: [String, Array],
     title: String,
     minimized: Boolean,
     activeByDefault: Boolean,
-    children: Array,
     color: {
       type: String,
       default: 'secondary',
@@ -109,19 +74,20 @@ export default {
     }
   },
   mounted () {
-    this.updateActiveState()
+    let linkGroup = this.$refs.linkGroupWrapper
+    if (linkGroup && linkGroup.querySelector('.router-link-active') !== null) {
+      this.expanded = true
+    }
+    this.setActiveState()
   },
   watch: {
     $route () {
-      this.$nextTick(() => {
-        this.updateActiveState()
-      })
+      this.expanded = false
+      this.setActiveState()
     },
     minimized (value) {
       if (!value) {
         this.isActive = false
-      } else {
-        this.updateActiveState()
       }
     },
   },
@@ -129,28 +95,32 @@ export default {
     toggleMenuItem () {
       this.expanded = !this.expanded
     },
+    toggleDropdownState (value) {
+      this.dropdownOpened = value
+    },
     updateHoverState () {
       this.isHovered = !this.isHovered
     },
-    updateActiveState () {
-      const active = this.children.some(item => item.name === this.$route.name)
-
-      this.isActive = this.minimized ? active : false
-      this.expanded = active
+    setActiveState () {
+      if (!this.activeByDefault) {
+        this.$nextTick(() => {
+          this.isActive = !!this.$children[0].$children.filter(item => item.isActive).length
+        })
+      }
     },
   },
   computed: {
     computedLinkClass () {
       return {
-        'va-sidebar-link': true,
-        'va-sidebar-link--expanded': this.expanded,
-        'va-sidebar-link--active': this.isActive,
+        'va-topbar-link': true,
+        'va-topbar-link--expanded': this.expanded,
+        'va-topbar-link--active': this.isActive,
       }
     },
     computedClass () {
       return {
-        'va-sidebar-link-group': true,
-        'va-sidebar-link-group--minimized': this.minimized,
+        'va-topbar-link-group': true,
+        'va-topbar-link-group--minimized': this.minimized,
       }
     },
     sidebarLinkStyles () {
@@ -158,7 +128,7 @@ export default {
         ? {
           color: this.$themes['success'],
           backgroundColor: getHoverColor(this.$themes[this.color]),
-          borderColor: this.isActive ? this.$themes['success'] : 'transparent',
+          borderColor: this.$themes['success'],
         }
         : {
           color: this.$themes['info'],
@@ -176,21 +146,27 @@ export default {
 
 <style lang="scss">
 @import "../../../../vuestic-theme/vuestic-sass/resources/resources";
-.va-sidebar-link-group {
+.va-topbar-link-group {
   flex-direction: column;
 
   &__submenu {
     list-style: none;
     padding-left: 0;
-    width: 100%;
 
+    background: $light-gray3 !important;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100% !important;
     li {
       display: block;
-      padding-left: 2.75rem;
+      width: 50%;
+      border: none;
+      margin: 0;
+      padding-left: 3rem;
     }
   }
 
-  .va-sidebar-link__content {
+  .va-topbar-link__content {
     width: 100%;
     position: relative;
     padding-right: 2rem;
@@ -215,37 +191,51 @@ export default {
     line-height: 1.5rem;
   }
 
-  &--minimized {
-    .va-dropdown-popper {
-      width: 100%;
-      max-width: 100%;
+  .va-dropdown-popper__content {
+    max-height: 14.25rem;
+    max-width: 30.9275rem;
+    width: 100% !important;
+    overflow-y: auto;
+    box-shadow: $datepicker-box-shadow;
+    border-radius: .5rem;
+  }
+
+  .va-topbar-link__content {
+    padding-right: 0;
+    &__title {
+      opacity: 1 !important;
     }
-    .va-sidebar-link-group__submenu {
+  }
+  &.va-topbar-link-group--minimized {
+    .va-topbar-link__content__icon {
+      margin-right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &--minimized {
+
+    .va-topbar-link-group__submenu {
       width: 10rem;
       border-radius: .375rem;
       margin-left: 1px;
       max-height: 80vh;
+
       padding: .375rem 0;
       overflow-y: auto;
       overflow-x: hidden;
-
+      .va-sidebar-link__content {
+        &__title {
+          display: inline-block;
+          opacity: 1;
+        }
+      }
       li {
         padding: .75rem 1rem;
         border-left: none;
-        height: auto;
-        min-height: 3rem;
       }
-    }
-    .va-sidebar-link__after {
-      position: absolute;
-      bottom: .4375rem;
-      left: 0;
-      right: 0;
-      height: .1835rem;
-      width: 1.8rem;
-      display: block;
-      margin: 0 auto;
-      line-height: .1835rem;
     }
   }
 }

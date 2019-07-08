@@ -1,84 +1,83 @@
 <template>
-  <aside class="va-sidebar">
-    <va-scrollbar>
-      <ul class="sidebar-menu">
-        <slot name="menu"></slot>
-      </ul>
-    </va-scrollbar>
+  <aside
+    :class="computedClass"
+    :style="{ backgroundColor: colorComputed }"
+  >
+    <ul class="va-sidebar__menu">
+      <slot name="menu"></slot>
+    </ul>
   </aside>
 </template>
 
 <script>
+import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
+
 export default {
   name: 'va-sidebar',
+  components: {},
+  mixins: [ColorThemeMixin],
   props: {
-    hidden: {
+    minimized: {
       type: Boolean,
       required: true,
+    },
+    color: {
+      type: String,
+      default: 'secondary',
+    },
+  },
+  computed: {
+    computedClass () {
+      return {
+        'va-sidebar': true,
+        'va-sidebar--minimized': this.minimized,
+      }
     },
   },
 }
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
 .va-sidebar {
-  @include media-breakpoint-down(md) {
-    top: $sidebar-mobile-top;
-    left: $sidebar-mobile-left;
-    width: $sidebar-mobile-width;
-    z-index: $sidebar-mobile-z-index;
-  }
-
+  min-height: $sidebar-viewport-min-height;
   height: $sidebar-viewport-height;
   position: absolute;
   width: $sidebar-width;
-  top: $sidebar-top;
-  left: $sidebar-left;
-  transition: all 0.2s ease;
-  opacity: 1;
+  top: $top-nav-height;
+  left: 0;
+  transition: all .3s ease;
+  overflow-y: auto;
 
-  .va-scrollbar {
-    height: 100%;
+  &__menu {
+    max-height: 100%;
+    margin-bottom: 0;
+    padding-top: 2.5625rem;
+    padding-bottom: 2.5rem;
+    list-style: none;
+    padding-left: 0;
+  }
 
-    .sidebar-menu {
-      max-height: 100%;
-      margin-bottom: 0;
-      list-style: none;
-      padding-left: 0;
+  @include media-breakpoint-down(sm) {
+    top: $sidebar-mobile-top;
+    width: 100%;
+    &:not(.va-sidebar--minimized) + .content-wrap {
+      display: none;
+    }
+  }
 
-      li {
-        display: block;
-        padding-left: 0;
+  &--minimized {
+    left: 0;
+    width: $sidebar-minimized-width;
+    .va-sidebar-link-group {
+      .va-sidebar-link__content {
+        padding-right: 0;
       }
     }
 
-    .scrollbar-wrapper {
-      box-shadow: $sidebar-box-shadow;
+    & + .content-wrap {
+      margin-left: $sidebar-width--hidden;
     }
-
-    .scrollbar-content {
-      background: $sidebar-bg;
-    }
-
-  }
-
-  &.sidebar-hidden {
-    @include media-breakpoint-down(md) {
-      top: $sidebar-hidden-top-mobile;
-      opacity: 0;
-      z-index: $sidebar-mobile-z-index;
-      height: $sidebar-hidden-height-mobile;
-    }
-    top: $sidebar-hidden-top;
-    opacity: 0;
-    z-index: $min-z-index;
-  }
-
-  &.sidebar-hidden + .content-wrap {
-    @include media-breakpoint-down(md) {
-      margin-left: 0;
-    }
-    margin-left: $sidebar-left;
   }
 }
 </style>
