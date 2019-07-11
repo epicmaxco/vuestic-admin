@@ -3,7 +3,6 @@
     class="va-badge mr-2"
     :class="badgeClass"
     :style="badgeStyle"
-    :color="color"
     :outline="outline"
   >
     <div class="va-badge__content d-flex">
@@ -15,8 +14,11 @@
 </template>
 
 <script>
+import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
+
 export default {
   name: 'va-badge',
+  mixins: [ColorThemeMixin],
   props: {
     outline: {
       type: Boolean,
@@ -33,11 +35,21 @@ export default {
       }
     },
     badgeStyle () {
-      return {
-        color: this.outline ? this.$themes[this.color] : '#ffffff',
-        borderColor: this.outline ? this.$themes[this.color] : '',
-        backgroundColor: !this.outline ? this.$themes[this.color] : '',
+      const computedStyles = {
+        borderColor: '',
+        backgroundColor: '',
+        color: '',
       }
+
+      if (this.outline) {
+        computedStyles.color = this.colorComputed
+        computedStyles.borderColor = this.colorComputed
+      } else {
+        computedStyles.backgroundColor = this.colorComputed
+      }
+
+      console.log(computedStyles)
+      return computedStyles
     },
   },
 }
