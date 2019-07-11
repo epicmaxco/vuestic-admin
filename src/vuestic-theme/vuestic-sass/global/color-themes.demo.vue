@@ -80,7 +80,10 @@
       <va-color-picker-input v-model="$themes.success" mode="advanced"/>
       <va-color-picker-input v-model="$themes.secondary" mode="advanced"/>
     </VbCard>
+    <VaBadge>Test badge</VaBadge>
+    <VaBadge outline>Outlined test badge</VaBadge>
   </VbDemo>
+
 </template>
 
 <script>
@@ -108,9 +111,11 @@ import VaTreeCategory from '../../vuestic-components/va-tree-view/VaTreeCategory
 import VaTreeNode from '../../vuestic-components/va-tree-view/VaTreeNode'
 import VaChart from '../../vuestic-components/va-chart/VaChart'
 import { getLineChartData } from '../../../data/charts/LineChartData'
+import VaBadge from '../../vuestic-components/va-chip/VaBadge'
 
 export default {
   components: {
+    VaBadge,
     VaChart,
     VaTreeNode,
     VaTreeCategory,
