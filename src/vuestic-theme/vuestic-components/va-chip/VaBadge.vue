@@ -3,7 +3,6 @@
     class="va-badge mr-2"
     :class="badgeClass"
     :style="badgeStyle"
-    :outline="outline"
   >
     <div class="va-badge__content d-flex">
       <div class="va-badge__content__title flex-center">
@@ -48,7 +47,6 @@ export default {
         computedStyles.backgroundColor = this.colorComputed
       }
 
-      console.log(computedStyles)
       return computedStyles
     },
   },
