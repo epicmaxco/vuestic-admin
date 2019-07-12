@@ -4,11 +4,13 @@ import BookApp from './BookApp'
 import VueClipboard from 'vue-clipboard2'
 import Router from 'vue-router'
 import { VueBookComponents, createRoute } from 'vue-book'
-import { ColorPlugin } from '../services/colors'
+import { ColorThemePlugin } from '../services/ColorThemePlugin'
+import { DropdownPopperPlugin } from '../vuestic-theme/vuestic-components/va-dropdown/dropdown-popover-subplugin'
 
 Vue.use(Router)
 Vue.use(VueBookComponents)
-Vue.use(ColorPlugin)
+Vue.use(ColorThemePlugin)
+Vue.use(DropdownPopperPlugin)
 
 const router = new Router({
   routes: [

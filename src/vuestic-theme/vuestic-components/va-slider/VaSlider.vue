@@ -1,42 +1,26 @@
 <template>
   <div
-    class="va-slider d-flex align--center"
+    class="va-slider"
     :class="sliderClass"
   >
-    <div
-      v-if="range && withInput"
-      class="flex xs1 lg1">
-      <div class="form-group mb-4">
-        <div class="input-group">
-          <input
-            id="input1"
-            v-model.number="val[0]"
-            required
-            @input="$emit('input', limitValue(val))"
-          />
-          <label class="control-label" for="input1">
-            Min
-          </label>
-          <va-icon icon="bar"/>
-        </div>
-      </div>
+    <div class="va-slider__input-wrapper" v-if="$slots.beforeInput">
+      <slot name="beforeInput"/>
     </div>
     <span
       v-if="label && !inverseLabel"
       :style="labelStyles"
-      class="va-slider__label title">
+      class="va-slider__label">
       {{ label }}
     </span>
     <span
       v-if="icon"
-      class="va-slider__label title">
-      <va-icon :icon="icon" :color="color" :size="16"/>
+      class="va-slider__label">
+      <va-icon :name="icon" :color="colorComputed" :size="16"/>
     </span>
     <div
-      :class="{ 'flex offset--xs1 offset--lg1': range && withInput }"
-      class="va-slider__container d-flex align--center"
+      class="va-slider__container"
       @click="wrapClick"
-      ref="elem"
+      ref="sliderContainer"
     >
       <div
         class="va-slider__container__track"
@@ -47,7 +31,7 @@
           :key="key"
           class="va-slider__container__mark"
           :class="{ 'va-slider__container__mark--active': checkActivePin(pin) }"
-          :style="{ left: `${pin * step}%` }"
+          :style="getPinStyles(pin)"
         />
       </template>
       <template v-if="isRange">
@@ -65,7 +49,7 @@
           <div
             v-if="valueVisible"
             :style="labelStyles"
-            class="va-slider__container__handler-value title"
+            class="va-slider__container__handler-value"
           >
             {{ val[0] }}
           </div>
@@ -79,7 +63,7 @@
           <div
             v-if="valueVisible"
             :style="labelStyles"
-            class="va-slider__container__handler-value title">
+            class="va-slider__container__handler-value">
             {{ val[1] }}
           </div>
         </div>
@@ -99,7 +83,7 @@
           <div
             v-if="valueVisible"
             :style="labelStyles"
-            class="va-slider__container__handler-value title"
+            class="va-slider__container__handler-value"
           >
             {{ labelValue || val }}
           </div>
@@ -108,36 +92,17 @@
     </div>
     <span
       v-if="iconRight"
-      class="va-slider__inverse-label title">
-      <va-icon :icon="iconRight" :color="color" :size="16"/>
+      class="va-slider__inverse-label">
+      <va-icon :name="iconRight" :color="colorComputed" :size="16"/>
     </span>
     <span
       v-if="inverseLabel"
-      class="va-slider__inverse-label title">
+      :style="labelStyles"
+      class="va-slider__label va-slider__inverse-label">
       {{ label }}
     </span>
-    <div
-      v-if="withInput"
-      class="flex xs1 lg1 offset--xs1 offset--lg1">
-      <div class="form-group mb-4">
-        <div class="input-group">
-          <input
-            v-if="range"
-            v-model.number="val[1]"
-            required
-            @input="$emit('input', limitValue(val))"
-          />
-          <input
-            v-else
-            v-model.number="val"
-            required
-          />
-          <label class="control-label">
-            {{ range ? 'Max' : 'Value' }}
-          </label>
-          <va-icon icon="bar"/>
-        </div>
-      </div>
+    <div class="va-slider__input-wrapper" v-if="$slots.afterInput">
+      <slot name="afterInput"/>
     </div>
   </div>
 </template>
@@ -145,9 +110,15 @@
 <script>
 import { validateSlider } from './validateSlider'
 import { getHoverColor } from '../../../services/color-functions'
+import VaIcon from '../va-icon/VaIcon'
+import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
 
 export default {
   name: 'va-slider',
+  components: {
+    VaIcon,
+  },
+  mixins: [ColorThemeMixin],
   props: {
     range: {
       type: Boolean,
@@ -173,10 +144,6 @@ export default {
       type: Number,
       default: 1,
     },
-    color: {
-      type: String,
-      default: 'success',
-    },
     label: {
       type: String,
     },
@@ -194,9 +161,6 @@ export default {
     },
     iconRight: {
       type: String,
-    },
-    withInput: {
-      type: Boolean,
     },
   },
   data () {
@@ -216,12 +180,12 @@ export default {
     },
     labelStyles () {
       return {
-        color: this.$themes[this.color],
+        color: this.colorComputed,
       }
     },
     trackStyles () {
       return {
-        backgroundColor: getHoverColor(this.$themes[this.color]),
+        backgroundColor: getHoverColor(this.colorComputed),
       }
     },
     processedStyles () {
@@ -234,14 +198,14 @@ export default {
         return {
           left: `${val0}%`,
           width: `${val1 - val0}%`,
-          backgroundColor: this.$themes[this.color],
+          backgroundColor: this.colorComputed,
         }
       } else {
         const val = ((validatedValue - this.min) / (this.max - this.min)) * 100
 
         return {
           width: `${val}%`,
-          backgroundColor: this.$themes[this.color],
+          backgroundColor: this.colorComputed,
         }
       }
     },
@@ -255,13 +219,13 @@ export default {
         return [
           {
             left: `calc(${val0}% - 8px)`,
-            backgroundColor: this.color,
-            borderColor: this.$themes[this.color],
+            backgroundColor: '#ffffff',
+            borderColor: this.colorComputed,
           },
           {
             left: `calc(${val1}% - 8px)`,
-            backgroundColor: this.color,
-            borderColor: this.$themes[this.color],
+            backgroundColor: '#ffffff',
+            borderColor: this.colorComputed,
           },
         ]
       } else {
@@ -269,8 +233,8 @@ export default {
 
         return {
           left: `calc(${val}% - 8px)`,
-          backgroundColor: this.color,
-          borderColor: this.$themes[this.color],
+          backgroundColor: '#ffffff',
+          borderColor: this.colorComputed,
         }
       }
     },
@@ -397,19 +361,24 @@ export default {
         return pin * this.step < this.val
       }
     },
+    getPinStyles (pin) {
+      return {
+        backgroundColor: this.checkActivePin(pin) ? this.colorComputed : getHoverColor(this.colorComputed),
+        left: `${pin * this.step}%`,
+      }
+    },
     getPos (e) {
       this.getStaticData()
       return e.clientX - this.offset
     },
     getStaticData () {
-      if (this.$refs.elem) {
-        this.size = this.$refs.elem.offsetWidth
-        this.offset = this.$refs.elem.getBoundingClientRect().left
+      if (this.$refs.sliderContainer) {
+        this.size = this.$refs.sliderContainer.offsetWidth
+        this.offset = this.$refs.sliderContainer.getBoundingClientRect().left
       }
     },
     getValueByIndex (index) {
-      let tempValue = ((this.step * this.multiple) * index + (this.min * this.multiple)) / this.multiple
-      return tempValue
+      return ((this.step * this.multiple) * index + (this.min * this.multiple)) / this.multiple
     },
     setCurrentValue (val) {
       let slider = this.currentSlider
@@ -434,16 +403,27 @@ export default {
         }
       }
     },
-    setValueOnPos (pos, isDrag) {
+    setValueOnPos (pixelPosition, isDrag) {
       const range = this.limit
       const valueRange = this.valueLimit
 
       this.setTransform()
 
-      if (pos >= range[0] && pos <= range[1]) {
-        let v = this.getValueByIndex(Math.round(pos / this.gap))
-        this.setCurrentValue(v, isDrag)
-      } else if (pos < range[0]) {
+      if (pixelPosition >= range[0] && pixelPosition <= range[1]) {
+        if (this.currentSlider) {
+          if (pixelPosition <= this.position[0]) {
+            this.currentSlider = 0
+          }
+          let v = this.getValueByIndex(Math.round(pixelPosition / this.gap))
+          this.setCurrentValue(v, isDrag)
+        } else {
+          if (pixelPosition >= this.position[1]) {
+            this.currentSlider = 1
+          }
+          let v = this.getValueByIndex(Math.round(pixelPosition / this.gap))
+          this.setCurrentValue(v, isDrag)
+        }
+      } else if (pixelPosition < range[0]) {
         this.setCurrentValue(valueRange[0])
       } else {
         this.setCurrentValue(valueRange[1])
@@ -452,17 +432,18 @@ export default {
     setTransform () {
       if (this.isRange) {
         const slider = this.currentSlider
-        const val0 = ((this.value[0] - this.min) / (this.max - this.min)) * 100
-        const val1 = ((this.value[1] - this.min) / (this.max - this.min)) * 100
+        const difference = 100 / (this.max - this.min)
+        const val0 = (this.value[0] - this.min) * difference
+        const val1 = (this.value[1] - this.min) * difference
         const processSize = `${val1 - val0}%`
-        const processPos = `${val0}%`
+        const processPosition = `${val0}%`
 
         this.$refs.process.style.width = processSize
-        this.$refs.process.style['left'] = processPos
+        this.$refs.process.style['left'] = processPosition
         if (slider === 0) {
-          this.$refs.dot0.style['left'] = `calc('${processPos} - 8px)`
+          this.$refs.dot0.style['left'] = `calc('${processPosition} - 8px)`
         } else {
-          this.$refs.dot1.style['left'] = `calc('${processPos} - 8px)`
+          this.$refs.dot1.style['left'] = `calc('${processPosition} - 8px)`
         }
       } else {
         const val = ((this.value - this.min) / (this.max - this.min)) * 100
@@ -529,6 +510,8 @@ export default {
 @import "../../vuestic-sass/resources/resources";
 
 .va-slider {
+  display: flex;
+  align-items: center;
 
   &--disabled {
     @include va-disabled;
@@ -541,20 +524,47 @@ export default {
     }
   }
 
+  &__input-wrapper {
+    flex-basis: 8.33333%;
+    flex-grow: 0;
+    max-width: 8.33333%;
+    margin-right: 1rem;
+    min-width: 2.5rem;
+
+    position: relative;
+    display: flex;
+
+    &:last-of-type {
+      margin-left: 1rem;
+    }
+  }
+
   &__label {
     margin-right: 1rem;
     user-select: none;
+    font-size: .625rem;
+    letter-spacing: 0.6px;
+    line-height: 1.2;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 
   &__inverse-label {
-    margin-left: 1rem;
     user-select: none;
+    font-size: .625rem;
+    letter-spacing: 0.6px;
+    line-height: 1.2;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 1rem;
   }
 
   &__container {
     position: relative;
     width: 100%;
     height: 1.5rem;
+    display: flex;
+    align-items: center;
 
     &__track, &__track--active {
       position: absolute;
@@ -590,6 +600,11 @@ export default {
         left: 50%;
         transform: translate(-50%, -100%);
         user-select: none;
+        font-size: .625rem;
+        letter-spacing: 0.6px;
+        line-height: 1.2;
+        font-weight: bold;
+        text-transform: uppercase;
       }
     }
   }

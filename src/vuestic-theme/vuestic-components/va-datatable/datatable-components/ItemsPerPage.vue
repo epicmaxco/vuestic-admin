@@ -1,10 +1,10 @@
 <template>
-  <va-dropdown
+  <va-dropdown-old
     class="form-group"
     placement="bottom"
   >
     <va-button
-      type="button" icon-right="ion-ios-arrow-down arrow-down" slot="actuator">
+      type="button" icon-right="ion-ios-arrow-down arrow-down" slot="activator">
       {{selected}} {{label}}
     </va-button>
     <template>
@@ -17,7 +17,7 @@
         {{option.value}} per page
       </a>
     </template>
-  </va-dropdown>
+  </va-dropdown-old>
 </template>
 
 <script>

@@ -67,7 +67,7 @@
                     <label class="control-label" for="toast-text">
                       {{ $t('notificationsPage.toasts.textLabel') }}
                     </label>
-                    <va-icon icon="bar"/>
+                    <va-icon name="bar"/>
                   </div>
                 </div>
                 <div class="form-group">
@@ -80,7 +80,7 @@
                     <label class="control-label" for="toast-duration">
                       {{ $t('notificationsPage.toasts.durationLabel') }}
                     </label>
-                    <va-icon icon="bar"/>
+                    <va-icon name="bar"/>
                   </div>
                 </div>
                 <div class="form-group">
@@ -89,7 +89,7 @@
                     <label class="control-label" for="toast-icon">
                       {{ $t('notificationsPage.toasts.iconLabel') }}
                     </label>
-                    <va-icon icon="bar"/>
+                    <va-icon name="bar"/>
                   </div>
                 </div>
                 <!-- TODO Redo with global classes -->

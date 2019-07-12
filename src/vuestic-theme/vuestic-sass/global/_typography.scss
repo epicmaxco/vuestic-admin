@@ -1,6 +1,7 @@
 
 ::selection {
   background-color: $text-selected;
+  color: $white;
 }
 
 .link {
@@ -45,6 +46,10 @@
 
   &--warning {
     color: $theme-warning;
+  }
+
+  &--gray {
+    color: $brand-secondary;
   }
 }
 

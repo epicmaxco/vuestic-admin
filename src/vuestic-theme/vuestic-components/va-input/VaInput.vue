@@ -1,61 +1,91 @@
 <template>
   <va-input-wrapper
     class="va-input"
-    :class="{ 'va-input-wrapper--focused': isFocused }"
     :disabled="disabled"
-    :error="error"
     :success="success"
     :messages="messages"
+    :error="error"
     :error-messages="errorMessages"
+    :errorCount="errorCount"
   >
     <slot name="prepend" slot="prepend"/>
     <div
-      class="va-input__slot">
-      <label
-        :style="labelStyles"
-        aria-hidden="true"
-        class="va-input__slot__label"
+      class="va-input__container"
+      :class="{'va-input__container--textarea': isTextarea}"
+      :style="containerStyles"
+    >
+      <div
+        class="va-input__container__content-wrapper"
+        :style="{ paddingTop: label ? '' : '0'}"
       >
-        {{ label }}
-      </label>
-      <input
-        :style="{ paddingBottom: label ? '0.125rem' : '0.875rem'}"
-        :aria-label="label"
-        :type="type"
-        :placeholder="placeholder"
-        :disabled="disabled"
-        :readonly="readonly"
-        :value="value"
-        v-on="inputListeners"
+        <label
+          :style="labelStyles"
+          aria-hidden="true"
+          class="va-input__container__label"
+        >
+          {{ label }}
+        </label>
+        <textarea
+          v-if="isTextarea"
+          class="va-input__container__input"
+          :style="textareaStyles"
+          :aria-label="label"
+          :placeholder="placeholder"
+          :disabled="disabled"
+          :readonly="readonly"
+          :value="value"
+          v-on="inputListeners"
+          v-bind="$attrs"
+        />
+        <input
+          v-else
+          class="va-input__container__input"
+          :style="{ paddingBottom: label ? '0.125rem' : '0.875rem' }"
+          :aria-label="label"
+          :type="type"
+          :placeholder="placeholder"
+          :disabled="disabled"
+          :readonly="readonly"
+          :value="value"
+          v-on="inputListeners"
+          v-bind="$attrs"
+        />
+      </div>
+      <div
+        v-if="success || error || $slots.append || (removable && hasContent)"
+        class="va-input__container__icon-wrapper"
       >
+        <va-icon
+          v-if="success"
+          class="va-input__container__icon"
+          name="fa fa-check"
+          color="success"
+        />
+        <va-icon
+          v-if="error"
+          class="va-input__container__icon"
+          name="fa fa-exclamation-triangle"
+          color="danger"
+        />
+        <slot name="append"/>
+        <va-icon
+          v-if="removable && hasContent"
+          @click.native="clearContent()"
+          class="va-input__container__close-icon"
+          :color="error ? 'danger': 'gray'"
+          name="ion ion-md-close ion"
+        />
+      </div>
     </div>
-    <va-icon
-      v-if="success"
-      slot="append"
-      icon="fa fa-check"
-      color="success"
-    />
-    <va-icon
-      v-if="error"
-      slot="append"
-      icon="fa fa-exclamation-triangle"
-      color="danger"
-    />
-    <slot slot="append"/>
-    <va-icon
-      v-if="removable && value.length"
-      @click.native="clearContent()"
-      slot="append"
-      class="va-input__close-icon"
-      :color="error ? 'danger': 'gray'"
-      icon="ion ion-md-close ion"
-    />
   </va-input-wrapper>
 </template>
 
 <script>
 import VaInputWrapper from '../va-input/VaInputWrapper'
 import VaIcon from '../va-icon/VaIcon'
+import {
+  getHoverColor,
+} from './../../../services/color-functions'
 
 export default {
   name: 'va-input',
@@ -63,7 +93,7 @@ export default {
   components: { VaInputWrapper, VaIcon },
   props: {
     value: {
-      type: String,
+      type: [String, Number],
     },
     label: {
       type: String,
@@ -96,8 +126,30 @@ export default {
         color: this.error ? this.$themes.danger : '',
       }
     },
+    containerStyles () {
+      return {
+        backgroundColor:
+          this.error ? getHoverColor(this.$themes['danger'])
+            : this.success ? getHoverColor(this.$themes['success']) : '#f5f8f9',
+        borderColor:
+          this.error ? this.$themes.danger
+            : this.success ? this.$themes.success
+              : this.isFocused ? this.$themes.dark : this.$themes.gray,
+      }
+    },
+    textareaStyles () {
+      return {
+        paddingBottom: this.label ? '0.125rem' : '',
+        marginTop: this.label ? '0.875rem' : '',
+        paddingTop: this.label ? 0 : '',
+        minHeight: this.label ? '1.5rem' : '2.25rem',
+        marginBottom: 0,
+      }
+    },
     inputListeners () {
-      return Object.assign({},
+      // TODO Probably not the best idea to stick this in computed.
+      return Object.assign(
+        {},
         this.$listeners,
         {
           input: event => {
@@ -125,6 +177,12 @@ export default {
         }
       )
     },
+    hasContent () {
+      return ![null, undefined, ''].includes(this.value)
+    },
+    isTextarea () {
+      return this.type === 'textarea'
+    },
   },
   methods: {
     clearContent () {
@@ -138,27 +196,56 @@ export default {
 @import '../../vuestic-sass/resources/resources';
 
 .va-input {
-
-  &__slot {
+  &__container {
     display: flex;
     position: relative;
     width: 100%;
+    min-height: 2.375rem;
+    border-style: solid;
+    border-width: 0 0 thin 0;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+
+    &__content-wrapper {
+      display: flex;
+      align-items: flex-end;
+      width: 100%;
+      /*min-width: 100%;*/
+    }
+
+    &__icon-wrapper {
+      display: flex;
+      align-items: center;
+      margin-right: 0.5rem;
+    }
+
+    &__close-icon {
+      cursor: pointer;
+      margin-left: 0.25rem;
+    }
 
     &__label {
       position: absolute;
       bottom: 0.875rem;
       left: 0.5rem;
-      width: 100%;
       margin-bottom: 0.5rem;
+      max-width: calc(100% - 0.25rem);
       color: $vue-green;
       font-size: 0.625rem;
       letter-spacing: 0.0375rem;
       line-height: 1.2;
       font-weight: bold;
       text-transform: uppercase;
+      @include va-ellipsis();
+      transform-origin: top left;
     }
 
-    input {
+    &.va-input__container--textarea &__label {
+      bottom: auto;
+      top: 0.125rem;
+    }
+
+    &__input {
       width: 100%;
       height: 1.5rem;
       margin-bottom: 0.125rem;
@@ -183,11 +270,10 @@ export default {
         padding-bottom: 0.875rem;
       }
     }
-  }
 
-  &__close-icon {
-    cursor: pointer;
-    margin-left: 0.25rem;
+    &.va-input__container--textarea &__input {
+      height: inherit;
+    }
   }
 }
 </style>

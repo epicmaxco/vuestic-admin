@@ -1,7 +1,4 @@
-import store from 'vuex-store'
 import { hex2rgb } from '../../services/color-functions'
-
-let palette = store.getters.palette
 
 const generateValue = () => {
   return Math.floor(Math.random() * 100)
@@ -21,7 +18,7 @@ const getSize = () => {
   return minSize + Math.floor(Math.random() * 3)
 }
 
-export const getLineChartData = () => {
+export const getLineChartData = (themes) => {
   const size = getSize()
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
   const yLabels = generateYLabels()
@@ -31,14 +28,14 @@ export const getLineChartData = () => {
     datasets: [
       {
         label: yLabels[0],
-        backgroundColor: hex2rgb(palette.primary, 0.6).css,
-        borderColor: palette.transparent,
+        backgroundColor: hex2rgb(themes['primary'], 0.6).css,
+        borderColor: 'transparent',
         data: generateArray(size),
       },
       {
         label: yLabels[1],
-        backgroundColor: hex2rgb(palette.info, 0.6).css,
-        borderColor: palette.transparent,
+        backgroundColor: hex2rgb(themes['info'], 0.6).css,
+        borderColor: 'transparent',
         data: generateArray(size),
       },
     ],

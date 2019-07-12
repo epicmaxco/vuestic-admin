@@ -1,12 +1,8 @@
-import store from 'vuex-store'
-
-let palette = store.getters.palette
-
-export default {
+export const getPieChartData = (themes) => ({
   labels: ['Africa', 'Asia', 'Europe'],
   datasets: [{
     label: 'Population (millions)',
-    backgroundColor: [palette.primary, palette.warning, palette.danger],
+    backgroundColor: [themes['primary'], themes['warning'], themes['danger']],
     data: [2478, 5267, 734],
   }],
-}
+})

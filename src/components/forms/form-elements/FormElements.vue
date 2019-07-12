@@ -1,10 +1,9 @@
 <template>
   <div class="form-elements">
     <div class="va-row">
-      <div class="flex md12">
+      <div class="flex xs12">
         <va-card :title="$t('forms.inputs.title')">
           <form>
-
             <div class="va-row">
               <div class="flex md4 sm6 xs12">
                 <va-input
@@ -69,124 +68,71 @@
           </form>
         </va-card>
       </div>
-    </div>
 
-    <div class="va-row">
-      <div class="flex md12">
+      <div class="flex xs12">
         <va-card :title="$t('forms.dateTimePicker.title')">
           <form>
             <div class="va-row">
-              <div class="flex md4">
-                <fieldset>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <va-date-picker
-                        id="date-picker-basic"
-                        v-model="datepicker.simple"
-                      />
-                      <label class="control-label" for="date-picker-basic">
-                        {{ $t('forms.dateTimePicker.basic') }}
-                      </label>
-                      <va-icon icon="bar"/>
-                    </div>
+              <div class="flex md8">
+                <div class="va-row row-inside">
+                  <div class="flex xs12 sm6">
+                    <va-date-picker
+                      :label="$t('forms.dateTimePicker.basic')"
+                      v-model="datepicker.simple"
+                    />
                   </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <va-date-picker
-                        id="date-picker-time"
-                        :config="{enableTime: true}"
-                        v-model="datepicker.time"
-                      />
-                      <label class="control-label" for="date-picker-time">
-                        {{ $t('forms.dateTimePicker.time') }}
-                      </label>
-                      <va-icon icon="bar"/>
-                    </div>
+                  <div class="flex xs12 sm6">
+                    <va-date-picker
+                      :label="$t('forms.dateTimePicker.time')"
+                      :config="{enableTime: true}"
+                      v-model="datepicker.time"
+                    />
                   </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <va-date-picker
-                        id="date-picker-custom-first-day"
-                        :config="{locale: {firstDayOfWeek: 1}}"
-                        v-model="datepicker.customFirstDay"
-                      />
-                      <label class="control-label"
-                             for="date-picker-custom-first-day">
-                        {{ $t('forms.dateTimePicker.customFirstDay') }}
-                      </label>
-                      <va-icon icon="bar"/>
-                    </div>
+                  <div class="flex xs12 sm6">
+                    <va-date-picker
+                      :label="$t('forms.dateTimePicker.customFirstDay')"
+                      :config="{locale: {firstDayOfWeek: 1}}"
+                      v-model="datepicker.customFirstDay"
+                      weekDays
+                    />
                   </div>
-                </fieldset>
+                  <div class="flex xs12 sm6">
+                    <va-date-picker
+                      :label="$t('forms.dateTimePicker.disabled')"
+                      disabled
+                      v-model="datepicker.disabled"
+                    />
+                  </div>
+                  <div class="flex xs12 sm6">
+                    <va-date-picker
+                      :label="$t('forms.dateTimePicker.multiple')"
+                      :config="{mode: 'multiple'}"
+                      v-model="datepicker.multiple"
+                    />
+                  </div>
+                  <div class="flex xs12 sm6">
+                    <va-date-picker
+                      :label="$t('forms.dateTimePicker.customDateFormat')"
+                      :config="{altInput: true, dateFormat: 'Y-M-d'}"
+                      v-model="datepicker.customDate"
+                    />
+                  </div>
+                </div>
               </div>
-              <div class="flex md4">
-                <fieldset>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <va-date-picker
-                        id="date-picker-disabled"
-                        :config="{disable: datePickerDisabled}"
-                        v-model="datepicker.disabled"
-                      />
-                      <label class="control-label" for="date-picker-disabled">
-                        {{ $t('forms.dateTimePicker.disabled') }}
-                      </label>
-                      <va-icon icon="bar"/>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <va-date-picker
-                        id="date-picker-multiple"
-                        :config="{mode: 'multiple'}"
-                        v-model="datepicker.multiple"
-                      />
-                      <label class="control-label" for="date-picker-multiple">
-                        {{ $t('forms.dateTimePicker.multiple') }}
-                      </label>
-                      <va-icon icon="bar"/>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <va-date-picker
-                        id="date-picker-custom-date-format"
-                        :config="{altInput: true, altFormat: 'F j, Y'}"
-                        v-model="datepicker.customDate"
-                      />
-                      <label class="control-label"
-                             for="date-picker-custom-date-format">
-                        {{ $t('forms.dateTimePicker.customDateFormat') }}
-                      </label>
-                      <va-icon icon="bar"/>
-                    </div>
-                  </div>
-                </fieldset>
-              </div>
-              <div class="flex md4">
-                <fieldset>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <va-date-picker
-                        id="date-picker-range"
-                        :config="{mode: 'range', inline: true}"
-                        v-model="datepicker.range"
-                      />
-                      <label class="control-label" for="date-picker-range">
-                        {{ $t('forms.dateTimePicker.range') }}
-                      </label>
-                    </div>
-                  </div>
-                </fieldset>
+
+              <div class="flex xs12 md4">
+                <va-date-picker
+                  :label="$t('forms.dateTimePicker.range')"
+                  :config="{mode: 'range', inline: true}"
+                  v-model="datepicker.range"
+                />
               </div>
             </div>
           </form>
         </va-card>
       </div>
-    </div>
 
-    <div class="va-row">
-      <div class="flex md12">
+      <div class="flex xs12">
         <va-card :title="$t('forms.selects.title')">
           <form>
             <div class="va-row">
@@ -224,10 +170,8 @@
           </form>
         </va-card>
       </div>
-    </div>
 
-    <div class="va-row">
-      <div class="flex md12">
+      <div class="flex xs12">
         <va-card :title="$t('forms.controls.title')">
           <form>
             <div class="va-row">
@@ -292,13 +236,38 @@
                   />
                 </fieldset>
               </div>
-              <div class="flex md3">
+              <div class="flex mb3">
                 <fieldset>
                   <va-switch v-model="isMale">
                     <span
                       slot="trueTitle">{{ $t('forms.controls.male') }}</span>
                     <span slot="falseTitle">{{ $t('forms.controls.female') }}</span>
                   </va-switch>
+                </fieldset>
+                <fieldset>
+                  <va-toggle
+                    v-model="toggles.selected"
+                    label="Selected toggle"
+                  />
+                  <va-toggle
+                    v-model="toggles.unselected"
+                    label="Unselected toggle"
+                  />
+                  <va-toggle
+                    v-model="toggles.disabled"
+                    disable
+                    label="Disabled toggle"
+                  />
+                  <va-toggle
+                    v-model="toggles.disabled"
+                    small
+                    label="Small toggle"
+                  />
+                  <va-toggle
+                    v-model="toggles.disabled"
+                    large
+                    label="Large toggle"
+                  />
                 </fieldset>
               </div>
             </div>
@@ -311,13 +280,10 @@
 
 <script>
 import CountriesList from 'data/CountriesList'
-import VaInput from './../../../../src/vuestic-theme/vuestic-components/va-input/VaInput'
 
 export default {
   name: 'form-elements',
-  components: {
-    VaInput,
-  },
+  components: {},
   computed: {
     datePickerDisabled: () => [date => !(date.getDate() % 5)],
     isSuccessfulEmailValid () {
@@ -367,6 +333,13 @@ export default {
         error: false,
         errorMessages: true,
       },
+      toggles: {
+        unselected: false,
+        selected: true,
+        disabled: true,
+        small: false,
+        large: false,
+      },
       datepicker: {
         simple: '2018-05-09',
         time: '2018-05-08 14:10',
@@ -374,7 +347,7 @@ export default {
         disabled: '2018-05-09',
         multiple: '2018-04-25, 2018-04-27',
         customFirstDay: '2018-05-09',
-        customDate: '2018-05-09',
+        customDate: '2017-Dec-06',
       },
     }
   },
@@ -390,3 +363,9 @@ export default {
   },
 }
 </script>
+
+<style>
+  .va-row.row-inside {
+    max-width: none;
+  }
+</style>

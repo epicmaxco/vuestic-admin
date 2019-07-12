@@ -1,10 +1,10 @@
 <template>
   <div class="form-wizard">
     <div class="va-row">
-      <div class="flex md12">
+      <div class="flex md12 xs12">
         <va-card
+          no-padding-h
           :title="$t('forms.wizard.simple')"
-          no-padding
         >
           <va-wizard
             :steps="hsSteps">
@@ -26,11 +26,11 @@
                     v-model="hsName"
                     v-validate="'required'"
                     required title=""/>
-                  <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
-                  <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
+                  <va-icon name="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
+                  <va-icon name="fa fa-check valid-icon icon-right input-icon"/>
                   <label class="control-label">{{'forms.wizard.name' |
                     translate}}</label>
-                  <va-icon icon="bar"/>
+                  <va-icon name="bar"/>
                   <small v-show="errors.has('hsName')" class="help text-danger">
                     {{ errors.first('hsName') }}
                   </small>
@@ -83,8 +83,9 @@
     </div>
 
     <div class="va-row">
-      <div class="flex md12">
+      <div class="flex md12 xs12">
         <va-card
+          no-padding-h
           class="no-h-padding"
           :title="$t('forms.wizard.rich')"
         >
@@ -109,11 +110,11 @@
                     v-model="hrName"
                     v-validate="'required'"
                     required title=""/>
-                  <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
-                  <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
+                  <va-icon name="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
+                  <va-icon name="fa fa-check valid-icon icon-right input-icon"/>
                   <label class="control-label">{{'forms.wizard.name' |
                     translate}}</label>
-                  <va-icon icon="bar"/>
+                  <va-icon name="bar"/>
                   <small v-show="errors.has('hrName')" class="help text-danger">
                     {{ errors.first('hrName') }}
                   </small>
@@ -166,8 +167,11 @@
     </div>
 
     <div class="va-row">
-      <div class="flex md12">
-        <va-card :title="$t('forms.wizard.verticalRich')">
+      <div class="flex md12 xs12">
+        <va-card
+          no-padding-h
+          :title="$t('forms.wizard.verticalRich')"
+        >
           <va-wizard
             :steps="vrSteps"
             wizard-layout="vertical"
@@ -190,11 +194,11 @@
                     v-model="vrName"
                     v-validate="'required'"
                     required title=""/>
-                  <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
-                  <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
+                  <va-icon name="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
+                  <va-icon name="fa fa-check valid-icon icon-right input-icon"/>
                   <label class="control-label">{{'forms.wizard.name' |
                     translate}}</label>
-                  <va-icon icon="bar"/>
+                  <va-icon name="bar"/>
                   <small v-show="errors.has('vrName')" class="help text-danger">
                     {{ errors.first('vrName') }}
                   </small>
@@ -247,8 +251,9 @@
     </div>
 
     <div class="va-row">
-      <div class="flex md12">
+      <div class="flex md12 xs12">
         <va-card
+          no-padding-h
           class="simple-vertical-wizard-widget"
           :title="$t('forms.wizard.verticalSimple')"
         >
@@ -274,11 +279,11 @@
                     v-model="vsName"
                     v-validate="'required'"
                     required title=""/>
-                  <va-icon icon="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
-                  <va-icon icon="fa fa-check valid-icon icon-right input-icon"/>
+                  <va-icon name="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
+                  <va-icon name="fa fa-check valid-icon icon-right input-icon"/>
                   <label class="control-label">{{'forms.wizard.name' |
                     translate}}</label>
-                  <va-icon icon="bar"/>
+                  <va-icon name="bar"/>
                   <small v-show="errors.has('vsName')" class="help text-danger">
                     {{ errors.first('vsName') }}
                   </small>

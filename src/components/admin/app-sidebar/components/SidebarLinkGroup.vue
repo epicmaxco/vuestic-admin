@@ -1,58 +1,173 @@
 <template>
-  <li class="sidebar-link-group sidebar-link">
-    <a href="#"
-       target="_self"
-       @click.stop.prevent="toggleMenuItem()"
-       class="sidebar-link__router-link"
-       :class="classObject">
-      <slot name="title"></slot>
-      <va-icon icon="expand-icon fa fa-angle-down"/>
+  <li :class="computedClass">
+    <a
+      href="#"
+      target="_self"
+      @mouseenter="updateHoverState(true)"
+      @mouseleave="updateHoverState(false)"
+      @click.stop.prevent="toggleMenuItem()"
+      :style="sidebarLinkStyles"
+      v-if="!minimized"
+      :class="computedLinkClass">
+      <div class="va-sidebar-link__content">
+        <va-icon
+          v-if="icon"
+          class="va-sidebar-link__content__icon"
+          :style="iconStyles"
+          :name="icon"
+        />
+        <span class="va-sidebar-link__content__title">
+          <slot name="title">
+            {{title}}
+          </slot>
+        </span>
+        <va-icon
+          class="va-sidebar-link-group__dropdown-icon"
+          :style="iconStyles"
+          :name="`fa fa-angle-${expanded ? 'up' : 'down'}`"/>
+      </div>
     </a>
-    <expanding>
-      <ul class="sidebar-submenu in" v-show="this.expanded"
-          ref="linkGroupWrapper">
-        <slot></slot>
+    <expanding v-if="!minimized">
+      <ul
+        class="va-sidebar-link-group__submenu in"
+        v-show="expanded"
+        ref="linkGroupWrapper"
+      >
+        <slot/>
       </ul>
     </expanding>
+    <va-dropdown
+      v-if="minimized"
+      position="right"
+      fixed
+      :preventOverflow="false"
+    >
+      <a
+        href="#"
+        slot="anchor"
+        target="_self"
+        @mouseenter="updateHoverState"
+        @mouseleave="updateHoverState"
+        :style="sidebarLinkStyles"
+        class="va-sidebar-link"
+        :class="computedLinkClass"
+      >
+        <div class="va-sidebar-link__content">
+          <va-icon
+            v-if="icon"
+            class="va-sidebar-link__content__icon"
+            :style="iconStyles"
+            :name="icon"
+          />
+        </div>
+        <va-icon
+          name="material-icons"
+          class="va-sidebar-link__after"
+          :style="iconStyles"
+        >
+          more_horiz
+        </va-icon>
+      </a>
+      <ul
+        class="va-sidebar-link-group__submenu in"
+        :style="{backgroundColor: $themes[color]}"
+      >
+        <slot/>
+      </ul>
+    </va-dropdown>
   </li>
 </template>
 
 <script>
 import SidebarLink from './SidebarLink'
 import Expanding from 'vue-bulma-expanding/src/Expanding'
+import { getHoverColor } from './../../../../services/color-functions'
 
 export default {
   name: 'sidebar-link-group',
+  props: {
+    icon: [String, Array],
+    title: String,
+    minimized: Boolean,
+    activeByDefault: Boolean,
+    children: Array,
+    color: {
+      type: String,
+      default: 'secondary',
+    },
+  },
   components: {
     SidebarLink,
     Expanding,
   },
   data () {
     return {
+      isActive: this.activeByDefault,
+      isHovered: false,
       expanded: this.expanded,
+      dropdownOpened: false,
     }
   },
   mounted () {
-    let linkGroup = this.$refs.linkGroupWrapper
-    if (linkGroup.querySelector('.router-link-active') !== null) {
-      this.expanded = true
-    }
+    this.updateActiveState()
   },
   watch: {
-    $route (route) {
-      this.expanded = false
+    $route () {
+      this.$nextTick(() => {
+        this.updateActiveState()
+      })
+    },
+    minimized (value) {
+      if (!value) {
+        this.isActive = false
+      } else {
+        this.updateActiveState()
+      }
     },
   },
   methods: {
     toggleMenuItem () {
       this.expanded = !this.expanded
     },
+    updateHoverState () {
+      this.isHovered = !this.isHovered
+    },
+    updateActiveState () {
+      const active = this.children.some(item => item.name === this.$route.name)
+
+      this.isActive = this.minimized ? active : false
+      this.expanded = active
+    },
   },
   computed: {
-    classObject () {
+    computedLinkClass () {
       return {
-        'expanded': this.expanded,
+        'va-sidebar-link': true,
+        'va-sidebar-link--expanded': this.expanded,
+        'va-sidebar-link--active': this.isActive,
       }
+    },
+    computedClass () {
+      return {
+        'va-sidebar-link-group': true,
+        'va-sidebar-link-group--minimized': this.minimized,
+      }
+    },
+    sidebarLinkStyles () {
+      return (this.isHovered || this.isActive)
+        ? {
+          color: this.$themes['success'],
+          backgroundColor: getHoverColor(this.$themes[this.color]),
+          borderColor: this.isActive ? this.$themes['success'] : 'transparent',
+        }
+        : {
+          color: this.$themes['info'],
+        }
+    },
+    iconStyles () {
+      return (this.isHovered || this.isActive)
+        ? { color: this.$themes['success'] }
+        : { color: 'white' }
     },
   },
 }
@@ -60,42 +175,78 @@ export default {
 </script>
 
 <style lang="scss">
-.sidebar-link-group {
-  .sidebar-link__router-link {
-    .expand-icon {
-      position: absolute;
-      right: $sidebar-arrow-right;
-      top: calc(50% - #{$font-size-root} / 2);
-      font-weight: bold;
-      transition: transform 0.3s ease;
-    }
+@import "../../../../vuestic-theme/vuestic-sass/resources/resources";
+.va-sidebar-link-group {
+  flex-direction: column;
 
-    &.expanded {
-      .expand-icon {
-        transform: rotate(180deg);
-      }
-    }
-  }
-
-  .sidebar-submenu {
+  &__submenu {
     list-style: none;
     padding-left: 0;
+    width: 100%;
 
     li {
       display: block;
-      padding-left: 0;
+      padding-left: 2.75rem;
     }
+  }
 
-    .sidebar-link__router-link {
-      height: $sidebar-submenu-link-height;
-      padding-left: $sidebar-submenu-link-pl;
-      font-size: $font-size-smaller;
+  .va-sidebar-link__content {
+    width: 100%;
+    position: relative;
+    padding-right: 2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__expanded-icon {
+    width: 1.5rem;
+    text-align: center;
+  }
+
+  &__dropdown-icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: .1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-weight: $font-weight-bold;
+    line-height: 1.5rem;
+  }
+
+  &--minimized {
+    .va-dropdown-popper {
+      width: 100%;
+      max-width: 100%;
+    }
+    .va-sidebar-link-group__submenu {
+      width: 10rem;
+      border-radius: .375rem;
+      margin-left: 1px;
+      max-height: 80vh;
+      padding: .375rem 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      li {
+        padding: .75rem 1rem;
+        border-left: none;
+        height: auto;
+        min-height: 3rem;
+      }
+    }
+    .va-sidebar-link__after {
+      position: absolute;
+      bottom: .4375rem;
+      left: 0;
+      right: 0;
+      height: .1835rem;
+      width: 1.8rem;
+      display: block;
+      margin: 0 auto;
+      line-height: .1835rem;
     }
   }
 }
-
-.expand-icon {
-  color: $vue-green;
-}
-
 </style>

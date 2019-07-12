@@ -1,15 +1,13 @@
 {
   "auth": {
     "agree": "我同意",
-    "alreadyJoined": "我已经注册",
     "createAccount": "创建账号",
     "createNewAccount": "创建新账号",
     "email": "电子邮箱",
     "login": "登录",
     "password": "密码",
     "signUp": "注册",
-    "termsOfUse": "使用条款",
-    "welcome": "欢迎！"
+    "termsOfUse": "使用条款"
   },
   "breadcrumbs": {
     "home": "首页"
@@ -76,17 +74,6 @@
       "fullWidthLabel": "全宽",
       "launchToast": "加载提示框"
     }
-  },
-  "extra": {
-    "tabs": {
-      "title": "标签",
-      "maps": "地图",
-      "pages": "页面",
-      "overview": "纵览",
-      "setupProfile": "设置配置文件"
-    },
-    "chat": "聊天",
-    "profileCard": "个人资料卡"
   },
   "forms": {
     "controls": {
@@ -180,7 +167,6 @@
     "collapse": "折叠器",
     "timelines": "时间线",
     "dashboard": "仪表板",
-    "extra": "附加组件",
     "formElements": "表单元素",
     "forms": "表单",
     "formWizards": "表单向导",
@@ -204,7 +190,8 @@
     "treeView": "树视图",
     "dateTimePickers": "日期时间选择器",
     "fileUpload": "文件上传",
-    "dropdowns": "下拉菜单"
+    "dropdowns": "下拉菜单",
+    "chat": "聊天"
   },
   "messages": {
     "all": "查看全部消息",
@@ -313,6 +300,9 @@
     "selectable": "可选择",
     "editable": "可编辑",
     "advanced": "高级"
+  },
+  "chat": {
+    "title": "聊天"
   },
   "cards": {
     "cards": "卡片",

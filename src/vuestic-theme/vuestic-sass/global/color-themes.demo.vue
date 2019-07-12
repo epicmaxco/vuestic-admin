@@ -1,6 +1,6 @@
 <template>
   <VbDemo>
-    <VbCard>
+    <VbCard title="All of these share `info` theme">
       <va-button class="mb-5" color="info">
         Default Button
       </va-button>
@@ -10,20 +10,75 @@
       </va-notification>
       <va-progress-bar class="mb-5" indeterminate color="info"/>
       <va-slider
-        v-model="value"
+        class="mb-5"
+        :value="60"
         value-visible
         label="Label"
         color="info"
         icon-right="fa fa-volume-up"
       />
     </VbCard>
-    <VbCard>
-      <va-pallet-custom
-        :palette="paletteArray"
-        v-model="color"
-        @input="changeTheme()"
-        class="spinners__color-picker"
-      />
+    <VbCard style="position: relative">
+      <va-sidebar minimized :navbar-view="false">
+        <template slot="menu">
+          <template v-for="(item, key) in items">
+            <sidebar-link-group
+              :key="key"
+              :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
+              v-if="item.children">
+              <span slot="title">{{ $t(item.displayName) }}</span>
+              <sidebar-link
+                v-for="(subMenuItem, key) in item.children"
+                :key="key"
+                :to="{ name: subMenuItem.name }"
+              >
+                <div slot="title">
+                  <span>{{ $t(subMenuItem.displayName) }}</span>
+                </div>
+              </sidebar-link>
+            </sidebar-link-group>
+
+            <sidebar-link
+              v-else
+              :key="key"
+              :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
+              :to="{ name: item.name }">
+              <span slot="title">{{ $t(item.displayName) }}</span>
+            </sidebar-link>
+          </template>
+        </template>
+      </va-sidebar>
+      <va-rating class="mb-5" color="info" :value="3">
+        Default Button
+      </va-rating>
+      <va-tree-root color="info">
+        <va-tree-category label="Electronics">
+          <va-tree-node>Cellphones</va-tree-node>
+          <va-tree-node>Camera Body Kits</va-tree-node>
+          <va-tree-node>External HDDs</va-tree-node>
+        </va-tree-category>
+        <va-tree-category isOpen label="Products">
+          <va-tree-category label="Cables">
+            <va-tree-node>Audio</va-tree-node>
+            <va-tree-node>Video</va-tree-node>
+            <va-tree-node>Optical</va-tree-node>
+          </va-tree-category>
+          <va-tree-node>Monitors</va-tree-node>
+          <va-tree-node>Keyboards</va-tree-node>
+        </va-tree-category>
+        <va-tree-category label="Apparel">
+          <va-tree-node>Jackets</va-tree-node>
+          <va-tree-node>Pants</va-tree-node>
+          <va-tree-node>Skirts</va-tree-node>
+        </va-tree-category>
+      </va-tree-root>
+      <va-chart type="line" :data="chartData"/>
+      <va-button color="info" @click="refreshData">RefreshChartColors</va-button>
+    </VbCard>
+    <VbCard title="Change color">
+      <va-color-picker-input v-model="$themes.info" mode="advanced"/>
+      <va-color-picker-input v-model="$themes.success" mode="advanced"/>
+      <va-color-picker-input v-model="$themes.secondary" mode="advanced"/>
     </VbCard>
   </VbDemo>
 </template>
@@ -35,26 +90,54 @@ import VaNotification
   from './../../vuestic-components/va-notification/VaNotification'
 import VaProgressBar
   from './../../vuestic-components/va-progress-bar/progress-types/VaProgressBar'
-import VaPalletCustom
-  from '../../vuestic-components/va-color-picker/VaPalletCustom'
-import { colorArray } from '../../vuestic-components/va-color-picker/VuesticTheme'
+import VaPaletteCustom
+  from '../../vuestic-components/va-color-picker/VaPaletteCustom'
+import VaColorPickerInput
+  from '../../vuestic-components/va-color-picker/VaColorPickerInput'
+import VaSidebar
+  from '../../vuestic-components/va-sidebar/VaSidebar'
+import SidebarLinkGroup
+  from './../../../components/admin/app-sidebar/components/SidebarLinkGroup'
+import SidebarLink
+  from './../../../components/admin/app-sidebar/components/SidebarLink'
+import { navigationRoutes } from '../../../components/admin/app-breadcrumbs/NavigationRoutes'
+import VaRating from '../../vuestic-components/va-rating/VaRating'
+import SquareWithIcon from '../../vuestic-components/va-tree-view/SquareWithIcon/SquareWithIcon'
+import VaTreeRoot from '../../vuestic-components/va-tree-view/VaTreeRoot'
+import VaTreeCategory from '../../vuestic-components/va-tree-view/VaTreeCategory'
+import VaTreeNode from '../../vuestic-components/va-tree-view/VaTreeNode'
+import VaChart from '../../vuestic-components/va-chart/VaChart'
+import { getLineChartData } from '../../../data/charts/LineChartData'
 
 export default {
   components: {
-    VaIcon, VaButton, VaNotification, VaProgressBar, VaPalletCustom,
+    VaChart,
+    VaTreeNode,
+    VaTreeCategory,
+    VaTreeRoot,
+    SquareWithIcon,
+    VaRating,
+    VaColorPickerInput,
+    VaIcon,
+    VaButton,
+    VaNotification,
+    VaProgressBar,
+    VaPaletteCustom,
+    VaSidebar,
+    SidebarLinkGroup,
+    SidebarLink,
   },
   data () {
     return {
       value: 60,
       icon: 'iconicstroke iconicstroke-info',
-      color: '#4AE387',
-      theme: 'info',
-      paletteArray: colorArray,
+      items: navigationRoutes.routes,
+      chartData: getLineChartData(this.$themes),
     }
   },
   methods: {
-    changeTheme () {
-      this.$themes.info = this.color
+    refreshData () {
+      this.chartData = getLineChartData(this.$themes)
     },
   },
 }

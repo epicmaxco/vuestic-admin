@@ -2,8 +2,8 @@ import Vue from 'vue'
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import VaButton from './VaButton'
 
-import { ColorPlugin } from './../../../services/colors'
-Vue.use(ColorPlugin)
+import { ColorThemePlugin } from '../../../services/ColorThemePlugin'
+Vue.use(ColorThemePlugin)
 
 describe('VaButton', () => {
   /* 1. Default button */

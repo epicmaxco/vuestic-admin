@@ -1,88 +1,142 @@
 <template>
-  <li class="sidebar-link">
-    <router-link
-      class="sidebar-link__router-link"
-      :to="to"
-      :target="target">
-      <slot name="title"></slot>
-    </router-link>
-  </li>
+  <router-link
+    tag="li"
+    :class="computedLinkClass"
+    @mouseenter.native="updateHoverState(true)"
+    @mouseleave.native="updateHoverState(false)"
+    :style="computedLinkStyles"
+    active-class="va-sidebar-link--active"
+    :to="to"
+    :target="target"
+  >
+    <va-icon
+      v-if="icon"
+      class="va-sidebar-link__content__icon"
+      :style="computedIconStyles"
+      :name="icon"
+    />
+    <div class="va-sidebar-link__content__title">
+      <slot name="title"/>
+      {{title}}
+    </div>
+  </router-link>
 </template>
 
 <script>
+import { getHoverColor } from './../../../../services/color-functions'
+import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
+
 export default {
   name: 'sidebar-link',
+  mixins: [ColorThemeMixin],
   props: {
     to: {
-      type: Object,
-      required: true,
+      type: [Object, String],
+      default: '',
     },
     target: {
       type: String,
       default: '_self',
     },
+    icon: {
+      type: [String, Array],
+    },
+    title: {
+      type: String,
+    },
+    activeByDefault: {
+      type: Boolean,
+    },
+    minimized: {
+      type: Boolean,
+    },
+  },
+  data () {
+    return {
+      isHovered: false,
+      isActive: this.activeByDefault,
+    }
   },
   watch: {
     $route (route) {
+      this.updateActiveState()
+    },
+  },
+  computed: {
+    computedLinkClass () {
+      return {
+        'va-sidebar-link': true,
+        'va-sidebar-link--minimized': this.minimized,
+      }
+    },
+    computedLinkStyles () {
+      return (this.isHovered || this.isActive)
+        ? {
+          color: this.$themes['success'],
+          backgroundColor: getHoverColor(this.$themes['info']),
+          borderColor: this.isActive ? this.$themes['success'] : 'transparent',
+        }
+        : {
+          color: this.$themes['info'],
+        }
+    },
+    computedIconStyles () {
+      return (this.isHovered || this.isActive)
+        ? { color: this.$themes['success'] }
+        : { color: 'white' }
+    },
+  },
+  methods: {
+    updateHoverState (isHovered) {
+      this.isHovered = isHovered
+    },
+    updateActiveState () {
       this.$nextTick(() => {
-        const isActive = this.$children[0].$el.classList.contains('router-link-active')
-        if (!isActive) {
-          return
-        }
-        const linkGroup = this.$parent && this.$parent.$parent
-        if (linkGroup.$options.name !== 'sidebar-link-group') {
-          return
-        }
-        linkGroup.expanded = true
+        this.isActive = this.$route.name === this.to.name
       })
     },
+  },
+  mounted () {
+    this.updateActiveState()
   },
 }
 </script>
 
 <style lang="scss">
-.sidebar-link {
-  .sidebar-link__router-link {
-    position: relative;
-    height: $sidebar-link-height;
-    padding-left: $sidebar-link-pl;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    cursor: pointer;
-    text-decoration: none;
+@import "../../../../vuestic-theme/vuestic-sass/resources/resources";
+.va-sidebar-link {
+  position: relative;
+  min-height: 3rem;
+  cursor: pointer;
+  padding-left: .75rem;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-left: .25rem solid transparent;
 
-    &.router-link-active,
-    &:hover {
-      color: $white;
-      background-color: $sidebar-link-active-bg;
+  &__content {
 
-      .sidebar-menu-item-icon,
-      .expand-icon {
-        color: $white;
-      }
-    }
-
-    &:hover {
-      background-color: $hover-black;
-    }
-
-    .sidebar-menu-item-icon {
+    &__icon {
+      width: 1.5rem;
+      min-width: 1.5rem;
+      text-align: center;
       font-size: $sidebar-menu-item-icon-size;
-      color: $vue-green;
-      margin-right: 14px;
+      margin-right: 0.5rem;
+    }
 
-      &.fa-dashboard {
-        /* Temp fix */
-        position: relative;
-        top: -2px;
-      }
+    &__title {
+      line-height: 1.5em;
     }
   }
 
-  a {
-    color: $white;
-    text-decoration: none;
+  &--minimized {
+    .va-sidebar-link__content {
+      &__title {
+        display: none;
+      }
+    }
   }
 }
 

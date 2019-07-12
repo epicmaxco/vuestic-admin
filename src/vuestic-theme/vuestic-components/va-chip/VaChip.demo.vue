@@ -36,6 +36,26 @@
         Dark chip
       </va-chip>
     </VbCard>
+    <VbCard title="Chip Sizes">
+      <va-chip small>
+        Small chip
+      </va-chip>
+      <va-chip small icon="iconicstroke iconicstroke-info">
+        Small chip
+      </va-chip>
+      <va-chip>
+        Default chip
+      </va-chip>
+      <va-chip icon="iconicstroke iconicstroke-info">
+        Default chip
+      </va-chip>
+      <va-chip large>
+        Large chip
+      </va-chip>
+      <va-chip large icon="iconicstroke iconicstroke-info">
+        Large chip
+      </va-chip>
+    </VbCard>
     <VbCard title="Outline Chip Colors">
       <va-chip outline>
         Success chip

@@ -18,11 +18,11 @@
                 name="input-icon-left"
                 required
               />
-              <va-icon icon="fa fa-search icon-left input-icon"/>
+              <va-icon name="fa fa-search icon-left input-icon"/>
               <label class="control-label" for="input-icon-left">
                 {{ $t('icons.search') }}
               </label>
-              <va-icon icon="bar"/>
+              <va-icon name="bar"/>
             </div>
           </div>
         </div>
@@ -53,12 +53,13 @@
       </span>
       <div class="va-row">
         <div
-          class="va-row column flex-center flex xs3 md1 mb-2 icon-grid-container"
+          class="flex flex-center xs3 md1 mb-2 icon-grid-container"
+          style="flex-direction: column"
           v-for="icon in list.icons"
           :key="icon"
         >
           <div class="vuestic-icon mb-3 pt-3">
-            <va-icon :icon="iconClass(icon)" :size="iconSize"/>
+            <va-icon :name="iconClass(icon)" :size="iconSize">{{iconData(icon)}}</va-icon>
           </div>
           <div class="icon-text">
             {{ icon }}
@@ -127,7 +128,10 @@ export default {
   },
   methods: {
     iconClass (icon) {
-      return `${this.set.prefix} ${this.set.prefix}-${icon}`
+      return this.set.prefix === 'material-icons' ? this.set.prefix : `${this.set.prefix} ${this.set.prefix}-${icon}`
+    },
+    iconData (icon) {
+      return this.set.prefix === 'material-icons' ? icon : ''
     },
   },
 }
@@ -135,9 +139,7 @@ export default {
 
 <style lang="scss">
 .icon-set {
-
   .icon-grid-container {
-
     &:hover {
       color: $white;
       background-color: $brand-primary;

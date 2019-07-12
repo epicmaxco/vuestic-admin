@@ -16,7 +16,7 @@
         fixed-width
         class="va-chip__content__icon va-chip__content__icon-left flex-center"
         :color="outline ? color : ''"
-        :icon="icon"
+        :name="icon"
       />
       <div
         v-if="hasTitleData"
@@ -29,7 +29,7 @@
         fixed-width
         class="va-chip__content__icon scr va-chip__content__icon-right flex-center"
         :color="outline ? color : ''"
-        :icon="removable ? 'ion ion-md-close ion' : iconRight"
+        :name="removable ? 'ion ion-md-close ion' : iconRight"
       />
     </div>
   </div>
@@ -56,6 +56,12 @@ export default {
       type: String,
       default: 'success',
     },
+    small: {
+      type: Boolean,
+    },
+    large: {
+      type: Boolean,
+    },
     icon: {
       type: String,
     },
@@ -80,6 +86,9 @@ export default {
         'va-chip--without-title': !this.hasTitleData,
         'va-chip--with-left-icon': this.icon,
         'va-chip--with-right-icon': this.iconRight || this.removable,
+        'va-chip--large': this.large,
+        'va-chip--small': this.small,
+        'va-chip--normal': !this.large && !this.small,
       }
     },
     chipStyle () {
@@ -128,16 +137,12 @@ export default {
 
 .va-chip {
   display: inline-block;
-  padding: $chip-padding-y-nrm $chip-padding-x-nrm;
   color: $white;
   border: $chip-border;
-  border-radius: $chip-border-radius-nrm;
-  font-size: $chip-font-size-nrm;
   font-family: $font-family-sans-serif;
   background-image: none;
   box-shadow: none;
   outline: none !important;
-  line-height: $chip-line-height-nrm;
   letter-spacing: normal;
   text-decoration: none !important;
   cursor: pointer;
@@ -176,6 +181,89 @@ export default {
 
     .va-chip__content__title {
       padding-right: $chip-with-icon-content-padding-nrm;
+    }
+  }
+  &--large {
+    @include va-button($chip-padding-y-lg, $chip-padding-x-lg, $chip-font-size-lg, $chip-line-height-lg, $chip-border-radius-lg);
+    .va-chip__content__icon {
+      width: $chip-icon-width-lg;
+    }
+
+    &.va-chip--with-left-icon {
+      padding-left: $chip-with-icon-wrapper-padding-lg;
+
+      &.va-chip--without-title {
+        padding-right: $chip-with-icon-wrapper-padding-lg;
+      }
+
+      .va-chip__content__title {
+        padding-left: $chip-with-icon-content-padding-lg;
+      }
+    }
+
+    &.va-chip--with-right-icon {
+      padding-right: $chip-with-icon-wrapper-padding-lg;
+
+      .va-chip__content__title {
+        padding-right: $chip-with-icon-content-padding-lg;
+      }
+    }
+  }
+
+  &--normal {
+    @include va-button($chip-padding-y-nrm, $chip-padding-x-nrm, $chip-font-size-nrm, $chip-line-height-nrm, $chip-border-radius-nrm);
+
+    .va-chip__content__icon {
+      width: $chip-icon-width-nrm;
+    }
+
+    &.va-chip--with-left-icon {
+      padding-left: $chip-with-icon-wrapper-padding-nrm;
+
+      &.va-chip--without-title {
+        padding-right: $chip-with-icon-wrapper-padding-nrm;
+      }
+
+      .va-chip__content__title {
+        padding-left: $chip-with-icon-content-padding-nrm;
+      }
+    }
+
+    &.va-chip--with-right-icon {
+      padding-right: $chip-with-icon-wrapper-padding-nrm;
+
+      .va-chip__content__title {
+        padding-right: $chip-with-icon-content-padding-nrm;
+      }
+    }
+  }
+
+  &--small {
+    @include va-button($chip-padding-y-sm, $chip-padding-x-sm, $chip-font-size-sm, $chip-line-height-sm, $chip-border-radius-sm);
+    letter-spacing: $chip-letter-spacing-sm;
+
+    .va-chip__content__icon {
+      width: $chip-icon-width-sm;
+    }
+
+    &.va-chip--with-left-icon {
+      padding-left: $chip-with-icon-wrapper-padding-sm;
+
+      &.va-chip--without-title {
+        padding-right: $chip-with-icon-wrapper-padding-sm;
+      }
+
+      .va-chip__content__title {
+        padding-left: $chip-with-icon-content-padding-sm;
+      }
+    }
+
+    &.va-chip--with-right-icon {
+      padding-right: $chip-with-icon-wrapper-padding-sm;
+
+      .va-chip__content__title {
+        padding-right: $chip-with-icon-content-padding-sm;
+      }
     }
   }
 }

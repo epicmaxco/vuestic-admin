@@ -5,24 +5,31 @@
         <img src="http://i68.tinypic.com/ne84fs.png" alt="">
       </div>
     </VbCard>
-    <VbCard title="Input With Placeholder">
+    <VbCard title="Placeholder">
       <va-input
         v-model="empty"
         placeholder="Name"
       />
     </VbCard>
-    <VbCard title="Input With Label">
+    <VbCard title="Label">
       <va-input
         v-model="text"
         label="Name"
       />
     </VbCard>
-    <VbCard title="Input With Message">
+    <VbCard title="Label long">
       <va-input
         v-model="text"
-        :messages="messages"/>
+        label="Name long long long long long long long long long long long long"
+      />
     </VbCard>
-    <VbCard title="Disabled Input">
+    <VbCard title="Message">
+      <va-input
+        v-model="text"
+        :messages="messages"
+      />
+    </VbCard>
+    <VbCard title="Disabled">
       <va-input
         v-model="text"
         disabled
@@ -34,17 +41,15 @@
         readonly
       />
     </VbCard>
-    <VbCard title="Input With Icon">
+    <VbCard title="Icon">
       <va-input
         v-model="text"
         label="Name"
       >
-        <va-icon
-          icon="fa fa-anchor"
-        />
+        <va-icon name="fa fa-anchor"/>
       </va-input>
     </VbCard>
-    <VbCard title="Input With Button">
+    <VbCard title="Button">
       <va-input
         v-model="text"
         label="Name"
@@ -54,13 +59,24 @@
         </va-button>
       </va-input>
     </VbCard>
-    <VbCard title="Input With Prepend Slot">
+    <VbCard title="Prepend Slot">
       <va-input
         v-model="text"
         label="Name"
       >
         <va-icon
           slot="prepend"
+          name="fa fa-anchor"
+        />
+      </va-input>
+    </VbCard>
+    <VbCard title="Append Slot">
+      <va-input
+        v-model="text"
+        label="Name"
+      >
+        <va-icon
+          slot="append"
           icon="fa fa-anchor"
         />
       </va-input>
@@ -72,14 +88,14 @@
       >
       </va-input>
     </VbCard>
-    <VbCard title="Input With Error">
+    <VbCard title="Error">
       <va-input
         v-model="text"
         label="Name"
         error
       />
     </VbCard>
-    <VbCard title="Input With Success">
+    <VbCard title="Success">
       <va-input
         v-model="text"
         label="Name"
@@ -92,14 +108,33 @@
         label="Name"
         removable
         success
+        :messages="successMessages"
       />
     </VbCard>
-    <VbCard title="Input With Error Message">
+    <VbCard title="Error Message">
       <va-input
         v-model="text"
         label="Name"
         error
-        :error-messages="errorMessages"/>
+        :error-messages="errorMessages"
+      />
+    </VbCard>
+    <VbCard title="Error count 2">
+      <va-input
+        v-model="text"
+        label="Name"
+        error
+        :errorCount="2"
+        :error-messages="['one', 'two']"
+      />
+    </VbCard>
+    <VbCard title="Textarea">
+      <va-input
+        v-model="text"
+        label="Name"
+        type="textarea"
+        rows="5"
+      />
     </VbCard>
   </VbDemo>
 </template>
@@ -122,6 +157,7 @@ export default {
       phone: '33 310-86-24',
       messages: ['Required field'],
       errorMessages: ['Detailed error message'],
+      successMessages: ['Success message'],
     }
   },
 }
