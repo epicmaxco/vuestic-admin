@@ -21,6 +21,7 @@
       </div>
     </template>
     <div class="app-navbar__actions va-row flex-nowrap align--center">
+      <color-dropdown class="va-navbar__item"/>
       <message-dropdown class="va-navbar__item"/>
       <notification-dropdown class="va-navbar__item"/>
       <!--<settings-dropdown-->
@@ -46,12 +47,14 @@ import ProfileDropdown from './components/dropdowns/ProfileDropdown'
 import NotificationDropdown from './components/dropdowns/NotificationDropdown'
 import MessageDropdown from './components/dropdowns/MessageDropdown'
 import SettingsDropdown from './components/dropdowns/SettingsDropdown'
+import ColorDropdown from './components/dropdowns/ColorDropdown'
 
 export default {
   name: 'app-navbar',
 
   components: {
     SettingsDropdown,
+    ColorDropdown,
     VaIconVuestic,
     VaNavbar,
     HeaderSelector,

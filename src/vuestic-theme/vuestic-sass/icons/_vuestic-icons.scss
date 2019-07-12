@@ -11,6 +11,11 @@
   background: url('./../assets/icons/nav-notifications.svg') no-repeat center;
 }
 
+.i-nav-color {
+  @extend .i-nav;
+  background: url('./../assets/icons/nav-color.svg') no-repeat center;
+}
+
 .i-nav-messages {
   @extend .i-nav;
   background: url('./../assets/icons/nav-messages.svg') no-repeat center;
