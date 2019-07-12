@@ -1,5 +1,8 @@
 <template>
-  <nav class="va-navbar position-relative">
+  <nav
+    class="va-navbar position-relative"
+    :style="navbarStyle"
+  >
     <div
       class="va-navbar__icon-container">
       <slot name="selector"></slot>
@@ -19,13 +22,57 @@
         <slot></slot>
       </div>
     </div>
-    <div class="va-navbar__shape"/>
+    <div
+      class="va-navbar__shape"
+      :style="shapeStyle"
+    />
   </nav>
 </template>
 
 <script>
+import { hex2hsl } from '../../../services/color-functions'
+
 export default {
   name: 'va-navbar',
+  computed: {
+    navbarStyle () {
+      let secondaryRealColorHSL = hex2hsl(this.$themes.secondary)
+
+      // saturation and lightness color components differ from the secondary color for the navbar
+      let newSaturation = secondaryRealColorHSL.s - 13
+      newSaturation = newSaturation < 0 ? 0 : newSaturation
+      secondaryRealColorHSL.s = newSaturation
+
+      let newLightness = secondaryRealColorHSL.l + 15
+      newLightness = newLightness > 100 ? 100 : newLightness
+      secondaryRealColorHSL.l = newLightness
+
+      return {
+        backgroundColor: secondaryRealColorHSL.css,
+      }
+    },
+
+    shapeStyle () {
+      let secondaryRealColorHSL = hex2hsl(this.$themes.secondary)
+
+      // all the 3 color components differ for the shape from the secondary color
+      let newHue = secondaryRealColorHSL.h - 1
+      newHue = newHue < 0 ? 0 : newHue
+      secondaryRealColorHSL.h = newHue
+
+      let newSaturation = secondaryRealColorHSL.s - 11
+      newSaturation = newSaturation < 0 ? 0 : newSaturation
+      secondaryRealColorHSL.s = newSaturation
+
+      let newLightness = secondaryRealColorHSL.l + 10
+      newLightness = newLightness > 100 ? 100 : newLightness
+      secondaryRealColorHSL.l = newLightness
+
+      return {
+        borderTopColor: secondaryRealColorHSL.css,
+      }
+    },
+  },
 }
 </script>
 
@@ -42,6 +89,7 @@ $nav-shape-bg: #0a43af;
 $nav-border-side-width: 3.1875rem;
 
 .va-navbar {
+  transition: background-color .3s ease; /* sidebar's bg color transitions as well -> consistency */
   height: $top-nav-height;
   padding-left: $nav-padding-left;
   padding-right: $nav-padding-right;
@@ -84,6 +132,7 @@ $nav-border-side-width: 3.1875rem;
   }
 
   &__shape {
+    transition: border-top-color .3s ease; /* sidebar's bg color transitions as well -> consistency */
     width: 33%;
     max-width: 467px;
     position: absolute;
