@@ -70,19 +70,17 @@ export default {
       }
     },
     computedLinkStyles () {
-      return (this.isHovered || this.isActive)
-        ? {
-          color: this.$themes['success'],
-          backgroundColor: getHoverColor(this.$themes['info']),
-          borderColor: this.isActive ? this.$themes['success'] : 'transparent',
+      if (this.isHovered || this.isActive) {
+        return {
+          color: this.$themes['primary'],
+          backgroundColor: getHoverColor(this.$themes['primary']),
+          borderColor: this.isActive ? this.$themes['primary'] : 'transparent',
         }
-        : {
-          color: this.$themes['info'],
-        }
+      } // else <- controlled by CSS (color in rgba)
     },
     computedIconStyles () {
       return (this.isHovered || this.isActive)
-        ? { color: this.$themes['success'] }
+        ? { color: this.$themes['primary'] }
         : { color: 'white' }
     },
   },
@@ -115,6 +113,7 @@ export default {
   align-items: center;
   text-decoration: none;
   border-left: .25rem solid transparent;
+  color: rgba(255, 255, 255, 0.65);
 
   &__content {
 

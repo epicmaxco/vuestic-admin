@@ -154,19 +154,17 @@ export default {
       }
     },
     sidebarLinkStyles () {
-      return (this.isHovered || this.isActive)
-        ? {
-          color: this.$themes['success'],
-          backgroundColor: getHoverColor(this.$themes[this.color]),
-          borderColor: this.isActive ? this.$themes['success'] : 'transparent',
+      if (this.isHovered || this.isActive) {
+        return {
+          color: this.$themes['primary'],
+          backgroundColor: getHoverColor(this.$themes['primary']),
+          borderColor: this.isActive ? this.$themes['primary'] : 'transparent',
         }
-        : {
-          color: this.$themes['info'],
-        }
+      }
     },
     iconStyles () {
       return (this.isHovered || this.isActive)
-        ? { color: this.$themes['success'] }
+        ? { color: this.$themes['primary'] }
         : { color: 'white' }
     },
   },
