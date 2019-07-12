@@ -101,7 +101,7 @@
                     v-model="isToastFullWidth"
                   />
                 </div>
-                <va-button slot="trigger" @click="launchToast">
+                <va-button color="primary" slot="trigger" @click="launchToast">
                   {{ $t('notificationsPage.toasts.launchToast') }}
                 </va-button>
               </fieldset>
