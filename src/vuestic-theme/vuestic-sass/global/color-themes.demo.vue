@@ -80,8 +80,10 @@
       <va-color-picker-input v-model="$themes.success" mode="advanced"/>
       <va-color-picker-input v-model="$themes.secondary" mode="advanced"/>
     </VbCard>
-    <VaBadge>Test badge</VaBadge>
-    <VaBadge outline>Outlined test badge</VaBadge>
+    <VbCard title="These 2 badges share `info` theme">
+      <VaBadge color="info">Info badge</VaBadge>
+      <VaBadge outline color="info">Outlined info badge</VaBadge>
+    </VbCard>
   </VbDemo>
 
 </template>
