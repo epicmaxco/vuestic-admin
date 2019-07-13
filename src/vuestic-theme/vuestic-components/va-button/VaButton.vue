@@ -330,7 +330,7 @@ export default {
     }
 
     &.va-button--outline {
-      line-height: $btn-line-height-lg-outline;
+      line-height: $btn-line-height-lg - 2 * $btn-border-outline;
     }
   }
 
@@ -363,7 +363,7 @@ export default {
     }
 
     &.va-button--outline {
-      line-height: $btn-line-height-sm-outline;
+      line-height: $btn-line-height-sm - 2 * $btn-border-outline;
     }
   }
 
@@ -396,7 +396,7 @@ export default {
     }
 
     &.va-button--outline {
-      line-height: $btn-line-height-nrm-outline;
+      line-height: $btn-line-height-nrm - 2 * $btn-border-outline;
     }
   }
 }
