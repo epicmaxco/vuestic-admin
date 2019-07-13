@@ -328,6 +328,10 @@ export default {
         padding-right: $btn-with-icon-content-padding-lg;
       }
     }
+
+    &.va-button--outline {
+      line-height: $btn-line-height-lg-outline;
+    }
   }
 
   &--small {
@@ -357,6 +361,10 @@ export default {
         padding-right: $btn-with-icon-content-padding-sm;
       }
     }
+
+    &.va-button--outline {
+      line-height: $btn-line-height-sm-outline;
+    }
   }
 
   &--normal {
@@ -385,6 +393,10 @@ export default {
       .va-button__content__title {
         padding-right: $btn-with-icon-content-padding-nrm;
       }
+    }
+
+    &.va-button--outline {
+      line-height: $btn-line-height-nrm-outline;
     }
   }
 }
