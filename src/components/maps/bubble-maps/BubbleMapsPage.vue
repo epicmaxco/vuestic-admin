@@ -6,7 +6,10 @@
           class="bubble-maps-page__widget"
           title="Bubble Maps"
         >
-          <bubble-map v-bind:map-data="bubbleMapData"/>
+          <bubble-map
+            :map-data="bubbleMapData"
+            style="height: 65vh;"
+          />
         </va-card>
       </div>
     </div>
@@ -29,13 +32,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.bubble-maps-page {
-  &__widget {
-    .va-card__body {
-      height: 65vh;
-    }
-  }
-}
-</style>

@@ -6,7 +6,7 @@
           class="google-maps-page__widget"
           title="Google Maps"
         >
-          <google-map/>
+          <google-map style="height: 65vh;" />
         </va-card>
       </div>
     </div>
@@ -23,13 +23,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.google-maps-page {
-  &__widget {
-    .va-card__body {
-      height: 65vh;
-    }
-  }
-}
-</style>
