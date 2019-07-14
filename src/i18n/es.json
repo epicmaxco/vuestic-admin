@@ -103,18 +103,6 @@
       "multi": "Multi Select",
       "simple": "Select Simple",
       "title": "Selects"
-    },
-    "wizard": {
-      "completed": "Asistente Completado!",
-      "confirmSelection": "Confirmar selección",
-      "name": "Nombre",
-      "rich": "Asistente Rico",
-      "simple": "Asistente Simple",
-      "stepOne": "Step 1. Nombre",
-      "stepTwo": "Step 2. País",
-      "stepThree": "Step 3. Confirmar",
-      "verticalRich": "Asistente Rico Vertical",
-      "verticalSimple": "Asistente Simple Vertical"
     }
   },
   "grid": {
@@ -144,7 +132,6 @@
     "dashboard": "Dashboard",
     "formElements": "Elementos de un Formulario",
     "forms": "Formularios",
-    "formWizards": "Asistente para Formularios",
     "mediumEditor": "Medium Editor",
     "grid": "Grid",
     "icons": "Iconos",

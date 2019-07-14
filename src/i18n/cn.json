@@ -122,18 +122,6 @@
       "multi": "多选框",
       "simple": "单选框",
       "title": "选择框"
-    },
-    "wizard": {
-      "name": "向导",
-      "completed": "向导已完成！",
-      "confirmSelection": "确认选择",
-      "rich": "详细向导",
-      "simple": "简单向导",
-      "stepOne": "第一步：姓名",
-      "stepTwo": "第二步：国家",
-      "stepThree": "第三步：确认",
-      "verticalRich": "垂直详细向导",
-      "verticalSimple": "垂直简单向导"
     }
   },
   "grid": {
@@ -169,7 +157,6 @@
     "dashboard": "仪表板",
     "formElements": "表单元素",
     "forms": "表单",
-    "formWizards": "表单向导",
     "mediumEditor": "Medium Editor",
     "grid": "网格",
     "icons": "图标",
