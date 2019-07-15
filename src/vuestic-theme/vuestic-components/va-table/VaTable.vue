@@ -24,7 +24,7 @@
     </vuetable>
 
     <div
-      v-if="!noPagination"
+      v-if="!noPagination && totalPages > 1"
       class="flex-center"
     >
       <va-pagination
