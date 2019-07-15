@@ -244,18 +244,6 @@
       "multi": "Multi Select",
       "simple": "Simple Select",
       "title": "Selects"
-    },
-    "wizard": {
-      "name": "Name",
-      "completed": "Wizard completed!",
-      "confirmSelection": "Confirm selection",
-      "rich": "Rich Wizard",
-      "simple": "Simple Wizard",
-      "stepOne": "Step 1. Name",
-      "stepTwo": "Step 2. Country",
-      "stepThree": "Step 3. Confirm",
-      "verticalRich": "Vertical Rich Wizard",
-      "verticalSimple": "Vertical Simple Wizard"
     }
   },
   "grid": {
@@ -292,7 +280,6 @@
     "dashboard": "Dashboard",
     "formElements": "Form Elements",
     "forms": "Forms",
-    "formWizards": "Form Wizards",
     "mediumEditor": "Medium Editor",
     "grid": "Grid",
     "icons": "Icons",
