@@ -2,14 +2,12 @@
   <div
     class="va-button-group"
     :class="computedClass"
-    :style="computedStyle"
   >
     <slot/>
   </div>
 </template>
 
 <script>
-import { getGradientBackground } from '../../../services/color-functions'
 import Vue from 'vue'
 
 export default {
@@ -17,6 +15,7 @@ export default {
   props: {
     color: {
       type: String,
+      default: 'primary',
     },
   },
   provide () {
@@ -37,11 +36,6 @@ export default {
         'va-button-group--large': this.large,
         'va-button-group--small': this.small,
         'va-button-group--normal': !this.large && !this.small,
-      }
-    },
-    computedStyle () {
-      return {
-        backgroundImage: getGradientBackground(this.$themes[this.color]),
       }
     },
   },

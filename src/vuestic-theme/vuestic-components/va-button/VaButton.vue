@@ -145,7 +145,7 @@ export default {
       if (this.flat || this.outline) {
         return
       }
-      if (this.va.color) { // Gradient is provided from button group
+      if (this.va.color) {
         return
       }
       return getGradientBackground(this.colorComputed)
@@ -155,7 +155,7 @@ export default {
         return
       }
       if (this.va.color && this.$themes && this.$themes[this.va.color]) {
-        return '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.$themes[this.va.color])
+        return '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.color ? this.colorComputed : this.$themes[this.va.color])
       }
       return '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.colorComputed)
     },
@@ -189,6 +189,11 @@ export default {
         computedStyle.borderColor = this.outline ? this.colorComputed : ''
         computedStyle.backgroundImage = this.gradientStyle
         computedStyle.boxShadow = this.shadowStyle
+      }
+
+      if (this.va.color && !this.outline && !this.flat && !this.disabled) {
+        computedStyle.background = this.color ? this.colorComputed : this.$themes[this.va.color]
+        computedStyle.backgroundImage = ''
       }
 
       return computedStyle
