@@ -3,7 +3,7 @@
     <vuetable
       :api-mode="false"
       :fields="fields"
-      :data="data"
+      :data-manager="dataManager"
       :css="styles"
     >
       <!-- https://stackoverflow.com/questions/50891858/vue-how-to-pass-down-slots-inside-wrapper-component   -->
@@ -42,9 +42,38 @@ export default {
     return {
       styles: {
         tableClass: 'va-table',
-        // detailRowClass: 'va-table-row'
+        ascendingIcon: 'fa fa-caret-up',
+        descendingIcon: 'fa fa-caret-down',
+        renderIcon: classes => {
+          return '<span class="' + classes.join(' ') + '"></span>'
+        },
       },
     }
+  },
+  methods: {
+    dataManager (sortOrder) {
+      if (!sortOrder.length) {
+        return { data: this.data }
+      }
+
+      const { sortField, direction } = sortOrder[0]
+
+      let sorted = direction === 'asc' ? this.sortAsc(this.data, sortField) : this.sortDesc(this.data, sortField)
+
+      return {
+        data: sorted,
+      }
+    },
+    sortAsc (items, field) {
+      return items.sort((a, b) => {
+        return a[field].localeCompare(b[field])
+      })
+    },
+    sortDesc (items, field) {
+      return items.sort((a, b) => {
+        return b[field].localeCompare(a[field])
+      })
+    },
   },
 }
 </script>
@@ -67,6 +96,10 @@ export default {
       line-height: $chip-line-height-sm;
       letter-spacing: $chip-letter-spacing-sm;
       border-bottom: 2px solid #34495e;
+
+      &.sortable {
+        color: $brand-primary;
+      }
     }
   }
 </style>
