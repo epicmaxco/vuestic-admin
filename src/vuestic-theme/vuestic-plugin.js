@@ -7,6 +7,7 @@ import VaCheckbox from './vuestic-components/va-checkbox/VaCheckbox.vue'
 import VaProgressCircle
   from './vuestic-components/va-progress-bar/progress-types/VaProgressCircle.vue'
 import VaDataTable from './vuestic-components/va-datatable/VaDataTable.vue'
+import VaTable from './vuestic-components/va-table/VaTable.vue'
 import VaFeed from './vuestic-components/va-feed/VaFeed.vue'
 import VaProgressBar
   from './vuestic-components/va-progress-bar/progress-types/VaProgressBar.vue'
@@ -81,6 +82,7 @@ const VuesticPlugin = {
       VaCheckbox,
       VaProgressBar,
       VaDataTable,
+      VaTable,
       VaFeed,
       VaProgressCircle,
       VaModal,

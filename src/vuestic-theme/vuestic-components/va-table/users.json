@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "jdoe@gmail.com",
+    "country": "Israel",
+    "color": "blue"
+  },
+  {
+    "id": 2,
+    "firstName": "Jane",
+    "lastName": "Dean",
+    "email": "jdean@gmail.com",
+    "country": "Spain",
+    "color": "green"
+  }
+]
