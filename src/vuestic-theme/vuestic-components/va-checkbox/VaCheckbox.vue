@@ -25,7 +25,10 @@
         />
         <va-icon :name="computedIcon"/>
       </div>
-      <div class="va-checkbox__label-text">
+      <div
+        class="va-checkbox__label-text"
+        :style="computedStyle"
+      >
         <slot name="label">
           {{ label }}
         </slot>
@@ -92,6 +95,9 @@ export default {
         'va-checkbox--error': this.showError,
         'va-checkbox--on-keyboard-focus': this.isKeyboardFocused,
       }
+    },
+    computedStyle () {
+      if (this.showError) return { color: this.$themes.danger }
     },
     computedIcon () {
       return [
