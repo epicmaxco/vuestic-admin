@@ -21,7 +21,7 @@
     "hasReport": false,
     "status": "info",
     "trend": "none",
-    "color": "warning"
+    "color": "primary"
   },
   {
     "id": "5d2c865e38800c5ce28f2f6b",
@@ -57,7 +57,7 @@
     "hasReport": true,
     "status": "warning",
     "trend": "down",
-    "color": "info"
+    "color": "primary"
   },
   {
     "id": "5d2c865e1ed74d83f6b26934",
@@ -105,7 +105,7 @@
     "hasReport": true,
     "status": "info",
     "trend": "none",
-    "color": "warning"
+    "color": "primary"
   },
   {
     "id": "5d2c865e1017c3229017fc68",
@@ -141,7 +141,7 @@
     "hasReport": true,
     "status": "info",
     "trend": "up",
-    "color": "warning"
+    "color": "primary"
   },
   {
     "id": "5d2c865ef2b732c74dc3d6a2",
@@ -189,7 +189,7 @@
     "hasReport": true,
     "status": "warning",
     "trend": "down",
-    "color": "info"
+    "color": "primary"
   },
   {
     "id": "5d2c865e2a8be26f6ac4369c",
@@ -225,7 +225,7 @@
     "hasReport": true,
     "status": "info",
     "trend": "down",
-    "color": "info"
+    "color": "primary"
   },
   {
     "id": "5d2c865e80a72eeda016b169",

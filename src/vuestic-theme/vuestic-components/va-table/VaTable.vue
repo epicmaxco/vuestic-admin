@@ -30,8 +30,7 @@
       <va-pagination
         v-model="currentPage"
         :pages="totalPages"
-        :visible-pages="4"
-        color="gray"
+        :visible-pages="totalPages > 3 ? 3 : totalPages"
         @input="inputPage"
       />
     </div>
@@ -66,7 +65,6 @@ export default {
   data () {
     return {
       currentPage: 1,
-      totalPages: 0,
       styles: {
         tableClass: 'va-table',
         ascendingIcon: 'fa fa-caret-up',
@@ -76,6 +74,11 @@ export default {
         },
       },
     }
+  },
+  computed: {
+    totalPages () {
+      return Math.ceil(this.data.length / this.perPage)
+    },
   },
   watch: {
     perPage () {
@@ -97,7 +100,6 @@ export default {
       }
 
       pagination = this.buildPagination(sorted.length, this.perPage)
-      this.totalPages = pagination.last_page
       const { from } = pagination
       const sliceFrom = from - 1
 
