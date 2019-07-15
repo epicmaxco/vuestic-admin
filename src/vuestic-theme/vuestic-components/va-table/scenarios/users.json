@@ -5,7 +5,8 @@
     "lastName": "Doe",
     "email": "jdoe@gmail.com",
     "country": "Israel",
-    "color": "blue"
+    "color": "blue",
+    "starred": false
   },
   {
     "id": 2,
@@ -13,6 +14,7 @@
     "lastName": "Dean",
     "email": "jdean@gmail.com",
     "country": "Spain",
-    "color": "green"
+    "color": "green",
+    "starred": true
   }
 ]

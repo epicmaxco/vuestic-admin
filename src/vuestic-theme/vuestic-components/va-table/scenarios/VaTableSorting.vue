@@ -6,8 +6,14 @@
         :data="data"
       >
         <template slot="actions" slot-scope="props">
-          <va-popover :message="`Star ${props.rowData.fullName}`" placement="top">
-            <va-button flat small color="gray" icon="fa fa-star" class="no-margin" />
+          <va-popover :message="getStarMessage(props.rowData)" placement="top">
+            <va-button
+              flat small
+              :color="getStarColor(props.rowData)"
+              icon="fa fa-star"
+              class="no-margin"
+              @click="star(props.rowData)"
+            />
           </va-popover>
 
           <va-popover :message="`Edit ${props.rowData.fullName}`" placement="top">
@@ -40,6 +46,7 @@ export default {
   },
   data () {
     return {
+      users: users,
       fields: [{
         name: 'fullName',
         title: 'Name',
@@ -57,10 +64,23 @@ export default {
   },
   computed: {
     data () {
-      return users.map(user => {
+      return this.users.map(user => {
         user.fullName = user.firstName + ' ' + user.lastName
         return user
       })
+    },
+  },
+  methods: {
+    getStarMessage (user) {
+      const actionName = user.starred ? 'Unstar' : 'Star'
+      return `${actionName} ${user.fullName}`
+    },
+    getStarColor (user) {
+      return user.starred ? 'primary' : 'gray'
+    },
+    star ({ id }) {
+      const i = this.users.findIndex(user => user.id === id)
+      this.users[i].starred = !this.users[i].starred
     },
   },
 }
@@ -69,9 +89,5 @@ export default {
 <style lang="scss" scoped>
   .no-margin {
     margin: 0;
-  }
-
-  .va-card {
-    margin-bottom: 8px;
   }
 </style>
