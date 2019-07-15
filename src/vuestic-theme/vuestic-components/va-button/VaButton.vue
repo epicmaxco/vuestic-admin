@@ -232,10 +232,6 @@ export default {
 <style lang='scss'>
 @import "../../vuestic-sass/resources/resources";
 
-a.va-button:hover {
-  color: white !important;
-}
-
 .va-button {
   display: inline-block;
   margin: $btn-margin;
