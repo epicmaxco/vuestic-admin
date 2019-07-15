@@ -101,8 +101,12 @@ export default {
       if (this.showError) return { color: this.$themes.danger }
     },
     inputStyle () {
-      if (this.isChecked && this.showError) return { background: this.$themes.danger }
-      if (this.isChecked) return { background: this.$themes.success }
+      if (this.showError) {
+        if (this.isChecked) return { background: this.$themes.danger }
+        else return { borderColor: this.$themes.danger }
+      } else {
+        if (this.isChecked) return { background: this.$themes.success }
+      }
     },
     computedIcon () {
       return [
