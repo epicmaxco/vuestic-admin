@@ -4,6 +4,7 @@
       <va-table
         :fields="fields"
         :data="data"
+        no-pagination
       >
         <template slot="marker" slot-scope="props">
           <va-icon name="fa fa-circle" :color="props.rowData.color" size="8px" />
@@ -62,7 +63,7 @@ export default {
       return users.map(user => {
         user.fullName = user.firstName + ' ' + user.lastName
         return user
-      })
+      }).slice(0, 6)
     },
   },
   methods: {

@@ -1,9 +1,10 @@
 <template>
   <div>
-    <va-card title="Sorting, Actions as Icons">
+    <va-card title="Sorting, Pagination, Actions as Icons">
       <va-table
         :fields="fields"
         :data="data"
+        :per-page="4"
       >
         <template slot="actions" slot-scope="props">
           <va-popover :message="getStarMessage(props.rowData)" placement="top">

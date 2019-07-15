@@ -1,9 +1,11 @@
 <template>
   <div>
     <vuetable
+      ref="vuetable"
       :api-mode="false"
       :fields="fields"
       :data-manager="dataManager"
+      pagination-path="pagination"
       :css="styles"
     >
       <!-- https://stackoverflow.com/questions/50891858/vue-how-to-pass-down-slots-inside-wrapper-component   -->
@@ -18,15 +20,31 @@
         />
       </template>
     </vuetable>
+
+    <div
+      v-if="!noPagination"
+      class="flex-center"
+    >
+      <va-pagination
+        v-model="currentPage"
+        :pages="totalPages"
+        :visible-pages="4"
+        color="gray"
+        @input="inputPage"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import Vuetable from 'vuetable-2/src/components/Vuetable'
+import VaPagination from '../va-pagination/VaPagination.vue'
 
 export default {
+  name: 'va-table',
   components: {
     Vuetable,
+    VaPagination,
   },
   props: {
     fields: {
@@ -37,9 +55,16 @@ export default {
       type: Array,
       required: true,
     },
+    perPage: {
+      type: Number,
+      default: 6,
+    },
+    noPagination: Boolean,
   },
   data () {
     return {
+      currentPage: 1,
+      totalPages: 0,
       styles: {
         tableClass: 'va-table',
         ascendingIcon: 'fa fa-caret-up',
@@ -51,17 +76,24 @@ export default {
     }
   },
   methods: {
-    dataManager (sortOrder) {
+    dataManager (sortOrder, pagination) {
+      let sorted = []
+
       if (!sortOrder.length) {
-        return { data: this.data }
+        sorted = this.data
+      } else {
+        const { sortField, direction } = sortOrder[0]
+        sorted = direction === 'asc' ? this.sortAsc(this.data, sortField) : this.sortDesc(this.data, sortField)
       }
 
-      const { sortField, direction } = sortOrder[0]
-
-      let sorted = direction === 'asc' ? this.sortAsc(this.data, sortField) : this.sortDesc(this.data, sortField)
+      pagination = this.buildPagination(sorted.length, this.perPage)
+      this.totalPages = pagination.last_page
+      const { from } = pagination
+      const sliceFrom = from - 1
 
       return {
-        data: sorted,
+        pagination,
+        data: sorted.slice(sliceFrom, sliceFrom + this.perPage),
       }
     },
     sortAsc (items, field) {
@@ -74,6 +106,12 @@ export default {
         return b[field].localeCompare(a[field])
       })
     },
+    buildPagination (l, perPage) {
+      return this.$refs.vuetable.makePagination(l, perPage)
+    },
+    inputPage (page) {
+      return this.$refs.vuetable.changePage(page)
+    },
   },
 }
 </script>
@@ -85,7 +123,7 @@ export default {
     width: 100%;
 
     th, td {
-      padding: 10px 4px;
+      padding: 10px;
     }
 
     th {
