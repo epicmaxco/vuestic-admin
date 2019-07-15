@@ -1,5 +1,7 @@
 <template>
   <div>
+    <slot name="header" />
+
     <vuetable
       ref="vuetable"
       :api-mode="false"
@@ -75,6 +77,14 @@ export default {
       },
     }
   },
+  watch: {
+    perPage () {
+      this.refresh()
+    },
+    data () {
+      this.refresh()
+    },
+  },
   methods: {
     dataManager (sortOrder, pagination) {
       let sorted = []
@@ -112,6 +122,9 @@ export default {
     inputPage (page) {
       return this.$refs.vuetable.changePage(page)
     },
+    refresh () {
+      return this.$refs.vuetable.refresh()
+    },
   },
 }
 </script>
@@ -137,6 +150,14 @@ export default {
 
       &.sortable {
         color: $brand-primary;
+      }
+    }
+
+    tr {
+      &:nth-child(even) {
+        td {
+          background-color: #f5f8f9;
+        }
       }
     }
   }

@@ -1,0 +1,148 @@
+<template>
+  <div>
+    <va-card title="Search, Trends, Chips">
+      <va-table
+        :fields="fields"
+        :data="filteredData"
+        :per-page="perPage"
+      >
+        <div slot="header" class="va-row">
+          <div class="flex">
+            <va-input
+              :value="term"
+              placeholder="Search by name"
+              style="minWidth: 260px"
+              @input="search"
+            >
+              <va-icon name="fa fa-search" slot="prepend" />
+            </va-input>
+          </div>
+
+          <div class="flex spacer" />
+
+          <div class="flex">
+            <span style="marginRight: 4px">Per Page:</span>
+
+            <select v-model.number="perPage">
+              <option v-for="option in perPageOptions" :key="option">
+                {{ option }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <template slot="trend" slot-scope="props">
+          <va-icon :name="getTrendIcon(props.rowData)" :color="getTrendColor(props.rowData)" />
+        </template>
+
+        <template slot="status" slot-scope="props">
+          <va-badge :color="props.rowData.color">
+            {{ props.rowData.status }}
+          </va-badge>
+        </template>
+
+        <template slot="actions" slot-scope="props">
+          <va-button v-if="props.rowData.hasReport" small color="danger" class="no-margin">
+            Report
+          </va-button>
+        </template>
+      </va-table>
+    </va-card>
+  </div>
+</template>
+
+<script>
+import { debounce } from 'lodash'
+import VaBadge from '../../va-chip/VaBadge.vue'
+import VaButton from '../../va-button/VaButton.vue'
+import VaCard from '../../va-card/VaCard.vue'
+import VaIcon from '../../va-icon/VaIcon.vue'
+import VaInput from '../../va-input/VaInput.vue'
+import VaTable from '../VaTable.vue'
+
+import users from './users.json'
+
+export default {
+  components: {
+    VaBadge,
+    VaButton,
+    VaCard,
+    VaIcon,
+    VaInput,
+    VaTable,
+  },
+  data () {
+    return {
+      term: null,
+      perPage: 6,
+      perPageOptions: [4, 6, 10, 20],
+      users: users,
+      fields: [{
+        name: '__slot:trend',
+        width: '30px',
+      }, {
+        name: 'fullName',
+        title: 'Name',
+      }, {
+        name: '__slot:status',
+        title: 'Status',
+      }, {
+        name: 'email',
+        title: 'Email',
+      }, {
+        name: '__slot:actions',
+      }],
+    }
+  },
+  computed: {
+    data () {
+      return this.users.map(user => {
+        user.fullName = user.firstName + ' ' + user.lastName
+        return user
+      })
+    },
+    filteredData () {
+      if (!this.term || this.term.length < 1) {
+        return this.data
+      }
+
+      return this.data.filter(item => {
+        return item.fullName.toLowerCase().startsWith(this.term.toLowerCase())
+      })
+    },
+  },
+  methods: {
+    getTrendIcon (user) {
+      if (user.trend === 'up') {
+        return 'fa fa-caret-up'
+      }
+
+      if (user.trend === 'down') {
+        return 'fa fa-caret-down'
+      }
+
+      return 'fa fa-minus'
+    },
+    getTrendColor (user) {
+      if (user.trend === 'up') {
+        return 'primary'
+      }
+
+      if (user.trend === 'down') {
+        return 'danger'
+      }
+
+      return 'grey'
+    },
+    search: debounce(function (term) {
+      this.term = term
+    }, 400),
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+  .no-margin {
+    margin: 0;
+  }
+</style>
