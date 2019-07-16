@@ -1,56 +1,43 @@
 export const mainThemeColors = [
   {
-    color: '#40e583',
-    name: 'Primary & success',
+    color: 'primary',
+    name: 'Primary',
     description: 'Buttons, labels, graphs.',
   },
-  { color: '#2c82e0', name: 'Info', description: 'Buttons, labels, graphs.' },
-  { color: '#e34b4a', name: 'Error', description: 'Buttons, labels, graphs.' },
   {
-    color: '#ffc200',
+    color: 'secondary',
+    name: 'Secondary',
+    description: 'Light text, buttons, labels, graphs.',
+  },
+  {
+    color: 'success',
+    name: 'Success',
+    description: 'Buttons, labels, graphs.',
+  },
+  {
+    color: 'info',
+    name: 'Info',
+    description: 'Buttons, labels, graphs.',
+  },
+  {
+    color: 'danger',
+    name: 'Danger',
+    description: 'Buttons, labels, graphs.',
+  },
+  {
+    color: 'warning',
     name: 'Warning',
     description: 'Buttons, labels, graphs.',
   },
   {
-    color: '#34495e',
-    name: 'Black',
-    description: 'Text, buttons, labels, graphs.',
+    color: 'gray',
+    name: 'Gray',
+    description: 'Buttons, labels, graphs.',
   },
   {
-    color: '#babfc2',
-    name: 'Secondary',
-    description: 'Light text, buttons, labels, graphs.',
-  },
-  { color: '#f5f8f9', name: 'Pale', description: 'Default table bg.' },
-  {
-    color: '#d6ffd3',
-    name: 'Light Primary & Success',
-    description: 'Table bg, notifications, text buttons.',
-  },
-  {
-    color: '#caeeff',
-    name: 'Light Info',
-    description: 'Table bg, notifications, text buttons.',
-  },
-  {
-    color: '#ffebeb',
-    name: 'Light Error',
-    description: 'Table bg, notifications, text buttons.',
-  },
-  {
-    color: '#fff3d1',
-    name: 'Light Warning',
-    description: 'Table bg, notifications, text buttons.',
-  },
-  {
-    color: '#afb6bb',
-    name: 'Light Black',
-    description: 'Table bg, notifications, text buttons.',
-  },
-  {
-    color: '#e6e9ec',
-    name: 'Light Secondary',
-    description: 'Table bg, notifications, text buttons, dividers.',
+    color: 'dark',
+    name: 'Dark',
+    description: 'Buttons, labels, graphs.',
   },
 ]
 
