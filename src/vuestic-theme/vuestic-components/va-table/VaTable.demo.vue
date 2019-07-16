@@ -4,7 +4,7 @@
       :key="name"
       no-padding
       width="100%"
-      style="maxWidth: 1200px"
+      style="maxWidth: 1200px; background-color: transparent"
     >
       <component :is="name" />
     </vb-card>
