@@ -1,6 +1,6 @@
 // Reset
 @import "global/reset.scss";
-// We probably don't need normalize. <- we probably don't need it indeed, however the file itself contains some crucial for the app things (besides ~normalize import)
+// We probably don't need normalize
 @import "global/normalize.scss";
 @import "icons/icons";
 // Mixins, functions and variables
