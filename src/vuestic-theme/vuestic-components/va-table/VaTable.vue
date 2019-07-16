@@ -2,52 +2,64 @@
   <div>
     <slot name="header" />
 
-    <vuetable
-      ref="vuetable"
-      :api-mode="false"
-      :fields="fields"
-      :data="apiMode ? data : undefined"
-      :data-manager="apiMode ? undefined : dataManager"
-      :pagination-path="apiMode ? '' : 'pagination'"
-      :no-data-template="noDataLabel"
-      :css="styles"
-      :row-class="rowClass"
-      @vuetable:row-clicked="rowClicked"
-    >
-      <!-- https://stackoverflow.com/questions/50891858/vue-how-to-pass-down-slots-inside-wrapper-component   -->
-      <template
-        v-for="slot in Object.keys($scopedSlots)"
-        :slot="slot"
-        slot-scope="scope"
-      >
-        <slot
-          :name="slot"
-          v-bind="scope"
+    <div class="loading-container">
+      <div v-if="loading" class="loading-overlay flex-center">
+        <spring-spinner
+          :animation-duration="2000"
+          :size="48"
+          color="#4ae387"
         />
-      </template>
-    </vuetable>
+      </div>
 
-    <div
-      v-if="!noPagination && totalPages > 1"
-      class="flex-center"
-    >
-      <va-pagination
-        v-model="currentPage"
-        :pages="totalPages"
-        :visible-pages="totalPages > 4 ? 4 : totalPages"
-        @input="inputPage"
-      />
+      <vuetable
+        ref="vuetable"
+        :api-mode="false"
+        :fields="fields"
+        :data="apiMode ? data : undefined"
+        :data-manager="apiMode ? undefined : dataManager"
+        :pagination-path="apiMode ? '' : 'pagination'"
+        :no-data-template="noDataLabel"
+        :css="styles"
+        :row-class="rowClass"
+        @vuetable:row-clicked="rowClicked"
+      >
+        <!-- https://stackoverflow.com/questions/50891858/vue-how-to-pass-down-slots-inside-wrapper-component   -->
+        <template
+          v-for="slot in Object.keys($scopedSlots)"
+          :slot="slot"
+          slot-scope="scope"
+        >
+          <slot
+            :name="slot"
+            v-bind="scope"
+          />
+        </template>
+      </vuetable>
+
+      <div
+        v-if="!noPagination && totalPages > 1"
+        class="flex-center"
+      >
+        <va-pagination
+          v-model="currentPage"
+          :pages="totalPages"
+          :visible-pages="totalPages > 4 ? 4 : totalPages"
+          @input="inputPage"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { SpringSpinner } from 'epic-spinners'
 import Vuetable from 'vuetable-2/src/components/Vuetable'
 import VaPagination from '../va-pagination/VaPagination.vue'
 
 export default {
   name: 'va-table',
   components: {
+    SpringSpinner,
     Vuetable,
     VaPagination,
   },
@@ -75,6 +87,11 @@ export default {
       type: Function,
       default: undefined,
     },
+    totalPages: {
+      type: Number,
+      default: 0,
+    },
+    loading: Boolean,
   },
   data () {
     return {
@@ -92,9 +109,9 @@ export default {
         },
       }
     },
-    totalPages () {
-      return Math.ceil(this.data.length / this.perPage)
-    },
+    // totalPages () {
+    //   return Math.ceil(this.data.length / this.perPage)
+    // },
   },
   watch: {
     perPage () {
@@ -138,10 +155,15 @@ export default {
       return this.$refs.vuetable.makePagination(l, perPage)
     },
     inputPage (page) {
-      return this.$refs.vuetable.changePage(page)
+      if (this.apiMode) {
+        this.$emit('page-selected', page)
+        return
+      }
+
+      this.$refs.vuetable.changePage(page)
     },
     refresh () {
-      return this.$refs.vuetable.refresh()
+      this.$refs.vuetable.refresh()
     },
     rowClicked (row) {
       this.$emit('row-clicked', row)
@@ -152,6 +174,18 @@ export default {
 
 <style lang="scss">
   @import "../../vuestic-sass/resources/resources";
+
+  .loading-container {
+    position: relative;
+  }
+
+  .loading-overlay {
+    position: absolute;
+    background: rgba(255,255,255,0.3);
+    top: 0;
+    bottom: 0;
+    width: 100%;
+  }
 
   .va-table {
     width: 100%;
