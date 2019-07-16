@@ -37,13 +37,13 @@
       </vuetable>
 
       <div
-        v-if="!noPagination && totalPages > 1"
+        v-if="!noPagination && paginationTotal > 1"
         class="flex-center"
       >
         <va-pagination
           v-model="currentPage"
-          :pages="totalPages"
-          :visible-pages="totalPages > 4 ? 4 : totalPages"
+          :pages="paginationTotal"
+          :visible-pages="paginationVisible"
           @input="inputPage"
         />
       </div>
@@ -109,9 +109,16 @@ export default {
         },
       }
     },
-    // totalPages () {
-    //   return Math.ceil(this.data.length / this.perPage)
-    // },
+    paginationTotal () {
+      return this.apiMode ? this.totalPages : Math.ceil(this.data.length / this.perPage)
+    },
+    paginationVisible () {
+      if (this.paginationTotal > 4) {
+        return 4
+      }
+
+      return this.paginationTotal
+    },
   },
   watch: {
     perPage () {
