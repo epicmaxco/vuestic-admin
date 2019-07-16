@@ -1,13 +1,14 @@
 <template>
-  <div>
-    <va-table-actions class="demo-item" />
-    <va-table-sorting-pagination class="demo-item" />
-    <va-table-filter class="demo-item" />
-    <va-table-inf-scroll class="demo-item" />
-    <va-table-select class="demo-item" />
-    <va-table-server-pagination class="demo-item" />
-    <va-table-empty class="demo-item" />
-  </div>
+  <vb-demo>
+    <vb-card v-for="name in componentNames"
+      :key="name"
+      no-padding
+      width="100%"
+      style="maxWidth: 1200px"
+    >
+      <component :is="name" />
+    </vb-card>
+  </vb-demo>
 </template>
 
 <script>
@@ -29,11 +30,21 @@ export default {
     VaTableServerPagination,
     VaTableEmpty,
   },
+  data () {
+    return {
+      componentNames: [
+        'va-table-actions',
+        'va-table-sorting-pagination',
+        'va-table-filter',
+        'va-table-inf-scroll',
+        'va-table-select',
+        'va-table-server-pagination',
+        'va-table-empty',
+      ],
+    }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-  .demo-item {
-    margin-bottom: 16px;
-  }
 </style>
