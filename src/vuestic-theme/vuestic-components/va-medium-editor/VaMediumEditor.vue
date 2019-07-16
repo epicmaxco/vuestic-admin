@@ -69,4 +69,117 @@ export default {
     outline: none;
   }
 }
+
+.medium-editor-toolbar,
+.medium-editor-toolbar-form,
+.medium-editor-toolbar-actions,
+.medium-editor-toolbar-anchor-preview {
+  box-shadow: $btn-box-shadow 0 #77cea4;
+  background-color: $brand-primary;
+  border-radius: $btn-border-radius-nrm;
+}
+
+.medium-editor-toolbar {
+  max-width: 90%;
+  box-shadow: none;
+
+  .medium-editor-toolbar-actions {
+    overflow: hidden;
+  }
+
+  .medium-editor-action {
+    margin: 0;
+    border: $btn-border;
+    padding: $btn-padding-y-nrm 1rem;
+    height: $medium-editor-button-size;
+    background-image: linear-gradient(to right, #63e5b3, #23e066);
+    box-shadow: none;
+    border-radius: 0;
+
+    i {
+      color: $white;
+    }
+
+    &.medium-editor-button-active {
+      background-color: darken($brand-primary, 15%);
+    }
+  }
+
+  & > .medium-editor-action:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+  }
+
+  & > .medium-editor-action + .medium-editor-action {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 0;
+  }
+}
+
+.medium-editor-toolbar-form {
+  color: $white;
+  overflow: hidden;
+
+  .medium-editor-toolbar-input {
+    height: $medium-editor-button-size;
+    background: $brand-primary;
+    box-sizing: border-box;
+    color: $white;
+    padding-left: 1rem;
+    width: 220px;
+
+    &::-webkit-input-placeholder {
+      color: rgba($white, .8);
+    }
+
+    &:-moz-placeholder { /* Firefox 18- */
+      color: rgba($white, .8);
+    }
+
+    &::-moz-placeholder { /* Firefox 19+ */
+      color: rgba($white, .8);
+    }
+
+    &:-ms-input-placeholder {
+      color: rgba($white, .8);
+    }
+  }
+
+  a {
+    color: $white;
+    transform: translateY(2px);
+  }
+
+  .medium-editor-toolbar-close {
+    margin-right: 1rem;
+  }
+}
+
+.medium-toolbar-arrow-under:after {
+  border-color: $brand-primary transparent transparent transparent;
+  top: $medium-editor-button-size;
+}
+
+.medium-toolbar-arrow-over:before {
+  border-color: transparent transparent $brand-primary transparent;
+}
+
+.medium-editor-toolbar-anchor-preview {
+  @include va-button($btn-padding-y-nrm, $btn-padding-x-nrm, $btn-font-size-nrm, $btn-line-height-nrm, $btn-border-radius-nrm);
+
+  .medium-editor-toolbar-anchor-preview {
+    margin: 0;
+  }
+}
+
+.medium-editor-anchor-preview {
+  max-width: 50%;
+
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+}
 </style>
