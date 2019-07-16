@@ -57,6 +57,7 @@ export default {
         title: 'Country',
       }, {
         name: '__slot:actions',
+        dataClass: 'text-right',
       }],
     }
   },

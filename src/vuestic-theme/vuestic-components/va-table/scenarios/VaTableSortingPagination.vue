@@ -63,6 +63,7 @@ export default {
         width: '30%',
       }, {
         name: '__slot:actions',
+        dataClass: 'text-right',
       }],
     }
   },

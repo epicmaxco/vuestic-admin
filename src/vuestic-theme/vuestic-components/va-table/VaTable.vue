@@ -8,6 +8,7 @@
       :fields="fields"
       :data-manager="dataManager"
       pagination-path="pagination"
+      :no-data-template="noDataLabel"
       :css="styles"
     >
       <!-- https://stackoverflow.com/questions/50891858/vue-how-to-pass-down-slots-inside-wrapper-component   -->
@@ -61,6 +62,10 @@ export default {
       default: 6,
     },
     noPagination: Boolean,
+    noDataLabel: {
+      type: String,
+      default: undefined,
+    },
   },
   data () {
     return {
@@ -165,6 +170,13 @@ export default {
           background-color: #f5f8f9;
         }
       }
+    }
+
+    .vuetable-empty-result {
+      padding-top: 70px;
+      padding-bottom: 70px;
+      font-size: 16px;
+      color: $gray;
     }
   }
 </style>
