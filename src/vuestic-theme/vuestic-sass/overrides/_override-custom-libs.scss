@@ -115,7 +115,7 @@
 //v-tooltip
 
 .tooltip.va-tooltip {
-  @extend .tooltip.show;
+  @extend .tooltip.show !optional;
   display: block;
   .tooltip-inner {
     box-shadow: $tooltip-box-shadow;
@@ -124,25 +124,25 @@
   }
 
   .tooltip-arrow {
-    @extend .arrow;
+    @extend .arrow !optional;
   }
 
   &[x-placement^="top"] {
-    @extend .bs-tooltip-top;
+    @extend .bs-tooltip-top !optional;
   }
 
   &[x-placement^="bottom"] {
-    @extend .bs-tooltip-bottom;
+    @extend .bs-tooltip-bottom !optional;
   }
 
   &[x-placement^="right"] {
-    @extend .bs-tooltip-right;
+    @extend .bs-tooltip-right !optional;
     padding-right: 0;
     padding-left: 0;
   }
 
   &[x-placement^="left"] {
-    @extend .bs-tooltip-left;
+    @extend .bs-tooltip-left !optional;
   }
 
   &.popover {
@@ -184,19 +184,19 @@
     }
 
     &[x-placement^="top"] {
-      @extend .bs-popover-top;
+      @extend .bs-popover-top !optional;
     }
 
     &[x-placement^="bottom"] {
-      @extend .bs-popover-bottom;
+      @extend .bs-popover-bottom !optional;
     }
 
     &[x-placement^="right"] {
-      @extend .bs-popover-right;
+      @extend .bs-popover-right !optional;
     }
 
     &[x-placement^="left"] {
-      @extend .bs-popover-left;
+      @extend .bs-popover-left !optional;
     }
   }
 }

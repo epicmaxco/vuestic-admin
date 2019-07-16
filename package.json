@@ -19,7 +19,6 @@
     "approximate-number": "^2.0.0",
     "asva-executors": "^0.1.22",
     "babel-polyfill": "^6.26.0",
-    "bootstrap": "4.3.1",
     "chart.js": "^2.6.0",
     "detect-browser": "^3.0.0",
     "element-resize-detector": "^1.1.12",
