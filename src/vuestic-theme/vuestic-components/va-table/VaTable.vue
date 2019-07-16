@@ -188,7 +188,7 @@ export default {
 
   .loading-overlay {
     position: absolute;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.5);
     top: 0;
     bottom: 0;
     width: 100%;

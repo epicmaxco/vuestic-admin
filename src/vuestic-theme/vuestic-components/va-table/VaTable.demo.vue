@@ -19,6 +19,7 @@ import VaTableInfScroll from './scenarios/VaTableInfScroll.vue'
 import VaTableSelect from './scenarios/VaTableSelect.vue'
 import VaTableServerPagination from './scenarios/VaTableServerPagination.vue'
 import VaTableEmpty from './scenarios/VaTableEmpty.vue'
+import VaTableLoading from './scenarios/VaTableLoading.vue'
 
 export default {
   components: {
@@ -29,6 +30,7 @@ export default {
     VaTableSelect,
     VaTableServerPagination,
     VaTableEmpty,
+    VaTableLoading,
   },
   data () {
     return {
@@ -40,6 +42,7 @@ export default {
         'va-table-select',
         'va-table-server-pagination',
         'va-table-empty',
+        'va-table-loading',
       ],
     }
   },
