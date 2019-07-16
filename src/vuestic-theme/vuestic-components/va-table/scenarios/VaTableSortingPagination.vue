@@ -51,13 +51,16 @@ export default {
       fields: [{
         name: 'fullName',
         title: 'Name',
+        width: '30%',
       }, {
         name: 'email',
         title: 'Email',
         sortField: 'email',
+        width: '30%',
       }, {
         name: 'country',
         title: 'Country',
+        width: '30%',
       }, {
         name: '__slot:actions',
       }],

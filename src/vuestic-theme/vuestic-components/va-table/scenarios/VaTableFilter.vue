@@ -80,15 +80,20 @@ export default {
       fields: [{
         name: '__slot:trend',
         width: '30px',
+        height: '45px',
+        dataClass: 'text-center',
       }, {
         name: 'fullName',
         title: 'Name',
+        width: '30%',
       }, {
         name: '__slot:status',
         title: 'Status',
+        width: '20%',
       }, {
         name: 'email',
         title: 'Email',
+        width: '30%',
       }, {
         name: '__slot:actions',
       }],

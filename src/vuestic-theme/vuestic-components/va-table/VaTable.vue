@@ -30,7 +30,7 @@
       <va-pagination
         v-model="currentPage"
         :pages="totalPages"
-        :visible-pages="totalPages > 3 ? 3 : totalPages"
+        :visible-pages="totalPages > 4 ? 4 : totalPages"
         @input="inputPage"
       />
     </div>
@@ -152,6 +152,10 @@ export default {
 
       &.sortable {
         color: $brand-primary;
+      }
+
+      .sort-icon {
+        font-size: 10px;
       }
     }
 

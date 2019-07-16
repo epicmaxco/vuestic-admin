@@ -41,9 +41,11 @@ export default {
   },
   data () {
     return {
+      users: users.slice(0, 6),
       fields: [{
         name: '__slot:marker',
         width: '30px',
+        dataClass: 'text-center',
       }, {
         name: 'fullName',
         title: 'Name',
@@ -60,10 +62,10 @@ export default {
   },
   computed: {
     data () {
-      return users.map(user => {
+      return this.users.map(user => {
         user.fullName = user.firstName + ' ' + user.lastName
         return user
-      }).slice(0, 6)
+      })
     },
   },
   methods: {
@@ -71,7 +73,8 @@ export default {
       alert('Edit User: ' + JSON.stringify(user))
     },
     remove (user) {
-      alert('Remove User: ' + JSON.stringify(user))
+      const idx = this.users.findIndex(u => u.id === user.id)
+      this.users.splice(idx, 1)
     },
   },
 }
