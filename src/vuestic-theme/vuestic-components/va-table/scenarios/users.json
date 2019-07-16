@@ -10,7 +10,9 @@
     "status": "warning",
     "checked": false,
     "trend": "down",
-    "color": "warning"
+    "color": "warning",
+    "graph": "M 5 20 C 10 5, 15 5, 30 30 S 20 20, 70 20",
+    "graphColor": "#4ae387"
   },
   {
     "id": "5d2c865ec73341e16e5f2251",
@@ -23,7 +25,9 @@
     "status": "info",
     "checked": false,
     "trend": "none",
-    "color": "primary"
+    "color": "primary",
+    "graph": "M 5 30 C 10 5, 30 10, 40 30 S 30 30, 90 40",
+    "graphColor": "#e34a4a"
   },
   {
     "id": "5d2c865e38800c5ce28f2f6b",
@@ -36,7 +40,9 @@
     "status": "warning",
     "checked": false,
     "trend": "none",
-    "color": "warning"
+    "color": "warning",
+    "graph": "M 5 20 C 10 5, 15 5, 30 30 S 20 20, 70 20",
+    "graphColor": "#4ae387"
   },
   {
     "id": "5d2c865e957cd150b82e17a6",
@@ -49,7 +55,9 @@
     "status": "info",
     "checked": false,
     "trend": "down",
-    "color": "warning"
+    "color": "warning",
+    "graph": "M 5 30 C 10 5, 30 10, 40 30 S 30 30, 90 40",
+    "graphColor": "#e34a4a"
   },
   {
     "id": "5d2c865e9194dbe2faf99227",
@@ -62,7 +70,9 @@
     "status": "warning",
     "checked": false,
     "trend": "down",
-    "color": "primary"
+    "color": "primary",
+    "graph": "M 5 20 C 10 5, 15 5, 30 30 S 20 20, 70 20",
+    "graphColor": "#4ae387"
   },
   {
     "id": "5d2c865e1ed74d83f6b26934",
@@ -75,7 +85,9 @@
     "status": "info",
     "checked": false,
     "trend": "none",
-    "color": "info"
+    "color": "info",
+    "graph": "M 5 30 C 10 5, 30 10, 40 30 S 30 30, 90 40",
+    "graphColor": "#e34a4a"
   },
   {
     "id": "5d2c865e0ef31380880c3de5",
@@ -88,7 +100,9 @@
     "status": "info",
     "checked": false,
     "trend": "up",
-    "color": "warning"
+    "color": "warning",
+    "graph": "M 5 20 C 10 5, 15 5, 30 30 S 20 20, 70 20",
+    "graphColor": "#4ae387"
   },
   {
     "id": "5d2c865e4b5ab4727e5c8b69",
@@ -101,7 +115,9 @@
     "status": "info",
     "checked": false,
     "trend": "none",
-    "color": "info"
+    "color": "info",
+    "graph": "M 5 30 C 10 5, 30 10, 40 30 S 30 30, 90 40",
+    "graphColor": "#e34a4a"
   },
   {
     "id": "5d2c865e4c4d675787cfe1c0",
@@ -114,7 +130,9 @@
     "status": "info",
     "checked": false,
     "trend": "none",
-    "color": "primary"
+    "color": "primary",
+    "graph": "M 5 30 C 10 5, 30 10, 40 30 S 30 30, 90 40",
+    "graphColor": "#e34a4a"
   },
   {
     "id": "5d2c865e1017c3229017fc68",
@@ -127,7 +145,9 @@
     "status": "warning",
     "checked": false,
     "trend": "down",
-    "color": "info"
+    "color": "info",
+    "graph": "M 5 20 C 10 5, 15 5, 30 30 S 20 20, 70 20",
+    "graphColor": "#4ae387"
   },
   {
     "id": "5d2c865ee66676fd7464f8b9",
@@ -140,7 +160,9 @@
     "status": "info",
     "checked": false,
     "trend": "up",
-    "color": "info"
+    "color": "info",
+    "graph": "M 5 30 C 10 5, 30 10, 40 30 S 30 30, 90 40",
+    "graphColor": "#e34a4a"
   },
   {
     "id": "5d2c865e644d8acbed1e0e97",
@@ -153,7 +175,9 @@
     "status": "info",
     "checked": false,
     "trend": "up",
-    "color": "primary"
+    "color": "primary",
+    "graph": "M 5 20 C 10 5, 15 5, 30 30 S 20 20, 70 20",
+    "graphColor": "#4ae387"
   },
   {
     "id": "5d2c865ef2b732c74dc3d6a2",
@@ -166,7 +190,9 @@
     "status": "warning",
     "checked": false,
     "trend": "down",
-    "color": "info"
+    "color": "info",
+    "graph": "M 5 30 C 10 5, 30 10, 40 30 S 30 30, 90 40",
+    "graphColor": "#e34a4a"
   },
   {
     "id": "5d2c865e4ee4f09e92ead2e7",
@@ -179,7 +205,9 @@
     "status": "info",
     "checked": false,
     "trend": "up",
-    "color": "info"
+    "color": "info",
+    "graph": "M 5 20 C 10 5, 15 5, 30 30 S 20 20, 70 20",
+    "graphColor": "#4ae387"
   },
   {
     "id": "5d2c865e88d46a9e9049a549",
@@ -192,7 +220,9 @@
     "status": "warning",
     "checked": false,
     "trend": "up",
-    "color": "info"
+    "color": "info",
+    "graph": "M 5 30 C 10 5, 30 10, 40 30 S 30 30, 90 40",
+    "graphColor": "#e34a4a"
   },
   {
     "id": "5d2c865e44bf14ea96d6e752",
@@ -205,7 +235,9 @@
     "status": "warning",
     "checked": false,
     "trend": "down",
-    "color": "primary"
+    "color": "primary",
+    "graph": "M 5 20 C 10 5, 15 5, 30 30 S 20 20, 70 20",
+    "graphColor": "#4ae387"
   },
   {
     "id": "5d2c865e2a8be26f6ac4369c",
@@ -218,7 +250,9 @@
     "status": "warning",
     "checked": false,
     "trend": "down",
-    "color": "info"
+    "color": "info",
+    "graph": "M 5 30 C 10 5, 30 10, 40 30 S 30 30, 90 40",
+    "graphColor": "#e34a4a"
   },
   {
     "id": "5d2c865e5e0aea40111c37f8",
@@ -231,7 +265,9 @@
     "status": "warning",
     "checked": false,
     "trend": "down",
-    "color": "warning"
+    "color": "warning",
+    "graph": "M 5 20 C 10 5, 15 5, 30 30 S 20 20, 70 20",
+    "graphColor": "#4ae387"
   },
   {
     "id": "5d2c865e7e0c05ecc2d0c186",
@@ -244,7 +280,9 @@
     "status": "info",
     "checked": false,
     "trend": "down",
-    "color": "primary"
+    "color": "primary",
+    "graph": "M 5 30 C 10 5, 30 10, 40 30 S 30 30, 90 40",
+    "graphColor": "#e34a4a"
   },
   {
     "id": "5d2c865e80a72eeda016b169",
@@ -257,7 +295,9 @@
     "status": "warning",
     "checked": false,
     "trend": "down",
-    "color": "info"
+    "color": "info",
+    "graph": "M 5 20 C 10 5, 15 5, 30 30 S 20 20, 70 20",
+    "graphColor": "#4ae387"
   },
   {
     "id": "5d2c865eafacadd378add679",
@@ -270,7 +310,9 @@
     "status": "info",
     "checked": false,
     "trend": "up",
-    "color": "info"
+    "color": "info",
+    "graph": "M 5 30 C 10 5, 30 10, 40 30 S 30 30, 90 40",
+    "graphColor": "#e34a4a"
   },
   {
     "id": "5d2c865e772b1a75bb0a07b5",
@@ -283,7 +325,9 @@
     "status": "warning",
     "checked": false,
     "trend": "up",
-    "color": "warning"
+    "color": "warning",
+    "graph": "M 5 20 C 10 5, 15 5, 30 30 S 20 20, 70 20",
+    "graphColor": "#4ae387"
   },
   {
     "id": "5d2c865e137c19a76b56210c",
@@ -296,7 +340,9 @@
     "status": "info",
     "checked": false,
     "trend": "up",
-    "color": "warning"
+    "color": "warning",
+    "graph": "M 5 30 C 10 5, 30 10, 40 30 S 30 30, 90 40",
+    "graphColor": "#e34a4a"
   },
   {
     "id": "5d2c865eb0ba37a27aa9afe0",
@@ -309,6 +355,8 @@
     "status": "info",
     "checked": false,
     "trend": "up",
-    "color": "info"
+    "color": "info",
+    "graph": "M 5 30 C 10 5, 30 10, 40 30 S 30 30, 90 40",
+    "graphColor": "#e34a4a"
   }
 ]

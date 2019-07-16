@@ -4,20 +4,22 @@
       <va-table
         :fields="fields"
         :data="data"
-        :per-page="4"
+        :per-page="8"
       >
         <template slot="select" slot-scope="props">
           <va-checkbox :value="props.rowData.checked" @input="select(props.rowData)" />
         </template>
 
         <template slot="graph" slot-scope="props">
-          TODO fancy graph
+          <svg width="100" height="40" xmlns="http://www.w3.org/2000/svg">
+            <path :d="props.rowData.graph" :stroke="props.rowData.graphColor" fill="transparent"/>
+          </svg>
         </template>
       </va-table>
     </va-card>
 
     <small>
-      {{ selected }}
+      Selected: {{ selected }}
     </small>
   </div>
 </template>

@@ -12,17 +12,16 @@
               flat small
               :color="getStarColor(props.rowData)"
               icon="fa fa-star"
-              class="no-margin"
               @click="star(props.rowData)"
             />
           </va-popover>
 
           <va-popover :message="`Edit ${props.rowData.fullName}`" placement="top">
-            <va-button flat small color="gray" icon="fa fa-edit" class="no-margin" />
+            <va-button flat small color="gray" icon="fa fa-pencil" />
           </va-popover>
 
           <va-popover :message="`Remove ${props.rowData.fullName}`" placement="top">
-            <va-button flat small color="gray" icon="fa fa-trash" class="no-margin" />
+            <va-button flat small color="gray" icon="fa fa-trash" />
           </va-popover>
         </template>
       </va-table>
@@ -51,7 +50,7 @@ export default {
       fields: [{
         name: 'fullName',
         title: 'Name',
-        width: '30%',
+        width: '25%',
       }, {
         name: 'email',
         title: 'Email',
@@ -60,7 +59,7 @@ export default {
       }, {
         name: 'country',
         title: 'Country',
-        width: '30%',
+        width: '25%',
       }, {
         name: '__slot:actions',
         dataClass: 'text-right',
@@ -92,7 +91,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .no-margin {
-    margin: 0;
+  .va-button {
+    margin: 0 2px;
   }
 </style>
