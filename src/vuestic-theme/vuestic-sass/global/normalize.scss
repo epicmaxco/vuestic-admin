@@ -1,4 +1,4 @@
-@import "~normalize.css/normalize.css";
+//@import "~normalize.css/normalize.css"; <- looks like we don't need it indeed since we have reset.css
 
 html {
   min-height: 100vh;

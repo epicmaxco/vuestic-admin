@@ -112,7 +112,7 @@
   }
 }
 
-//v-tooltip
+//v-tooltip - check this one please, looks like it does nothing, though not entirely sure
 
 .tooltip.va-tooltip {
   @extend .tooltip.show !optional;
@@ -201,7 +201,7 @@
   }
 }
 
-//vue-toasted
+// vue-toasted
 
 .toasted-container {
   &.full-width {
