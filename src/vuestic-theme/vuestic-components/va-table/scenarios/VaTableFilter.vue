@@ -5,6 +5,8 @@
         :fields="fields"
         :data="filteredData"
         :per-page="perPage"
+        @row-clicked="showUser"
+        clickable
       >
         <div slot="header" class="va-row">
           <div class="flex">
@@ -139,6 +141,9 @@ export default {
       }
 
       return 'grey'
+    },
+    showUser (user) {
+      alert(JSON.stringify(user))
     },
     search: debounce(function (term) {
       this.term = term

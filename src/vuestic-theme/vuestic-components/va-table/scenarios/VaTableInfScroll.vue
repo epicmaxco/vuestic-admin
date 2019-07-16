@@ -1,0 +1,115 @@
+<template>
+  <div>
+    <va-card title="Colored Backgrounds, Infinite Scroll">
+      <div class="scrollable" ref="scrollable" @scroll="onScroll">
+        <va-table
+          :fields="fields"
+          :data="data"
+          api-mode
+          no-pagination
+        >
+          <template slot="marker" slot-scope="props">
+            <va-icon name="fa fa-circle" :color="props.rowData.color" size="8px" />
+          </template>
+        </va-table>
+
+        <div class="flex-center">
+          <spring-spinner
+            v-if="loading"
+            :animation-duration="2000"
+            :size="60"
+            color="#4ae387"
+          />
+        </div>
+      </div>
+    </va-card>
+  </div>
+</template>
+
+<script>
+import { SpringSpinner } from 'epic-spinners'
+import VaButton from '../../va-button/VaButton.vue'
+import VaCard from '../../va-card/VaCard.vue'
+import VaIcon from '../../va-icon/VaIcon.vue'
+import VaTable from '../VaTable.vue'
+
+import users from './users.json'
+
+export default {
+  components: {
+    SpringSpinner,
+    VaButton,
+    VaCard,
+    VaIcon,
+    VaTable,
+  },
+  data () {
+    return {
+      users: [],
+      loading: false,
+      offset: 0,
+      fields: [{
+        name: '__slot:marker',
+        width: '30px',
+        dataClass: 'text-center',
+      }, {
+        name: 'fullName',
+        title: 'Name',
+      }, {
+        name: 'email',
+        title: 'Email',
+      }, {
+        name: 'country',
+        title: 'Country',
+      }],
+    }
+  },
+  computed: {
+    data () {
+      return this.users.map(user => {
+        user.fullName = user.firstName + ' ' + user.lastName
+        return user
+      })
+    },
+  },
+  created () {
+    this.loadMore()
+  },
+  methods: {
+    loadMore () {
+      this.loading = true
+
+      this.readUsers()
+        .then(users => {
+          this.users = this.users.concat(users)
+          this.loading = false
+        })
+    },
+    readUsers (page, perPage) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(users.slice(0, 10))
+        }, 600)
+      })
+    },
+    onScroll (e) {
+      if (this.loading) {
+        return
+      }
+
+      const { target } = e
+
+      if (target.offsetHeight + target.scrollTop === target.scrollHeight) {
+        this.loadMore()
+      }
+    },
+  },
+}
+</script>
+
+<style lang="scss">
+  .scrollable {
+    height: 300px;
+    overflow-y: auto;
+  }
+</style>

@@ -6,10 +6,13 @@
       ref="vuetable"
       :api-mode="false"
       :fields="fields"
-      :data-manager="dataManager"
-      pagination-path="pagination"
+      :data="apiMode ? data : undefined"
+      :data-manager="apiMode ? undefined : dataManager"
+      :pagination-path="apiMode ? '' : 'pagination'"
       :no-data-template="noDataLabel"
       :css="styles"
+      :row-class="rowClass"
+      @vuetable:row-clicked="rowClicked"
     >
       <!-- https://stackoverflow.com/questions/50891858/vue-how-to-pass-down-slots-inside-wrapper-component   -->
       <template
@@ -61,26 +64,34 @@ export default {
       type: Number,
       default: 6,
     },
+    apiMode: Boolean,
+    clickable: Boolean,
     noPagination: Boolean,
     noDataLabel: {
       type: String,
+      default: undefined,
+    },
+    rowClass: {
+      type: Function,
       default: undefined,
     },
   },
   data () {
     return {
       currentPage: 1,
-      styles: {
-        tableClass: 'va-table',
+    }
+  },
+  computed: {
+    styles () {
+      return {
+        tableClass: 'va-table' + (this.clickable ? ' clickable' : ''),
         ascendingIcon: 'fa fa-caret-up',
         descendingIcon: 'fa fa-caret-down',
         renderIcon: classes => {
           return '<span class="' + classes.join(' ') + '"></span>'
         },
-      },
-    }
-  },
-  computed: {
+      }
+    },
     totalPages () {
       return Math.ceil(this.data.length / this.perPage)
     },
@@ -132,6 +143,9 @@ export default {
     refresh () {
       return this.$refs.vuetable.refresh()
     },
+    rowClicked (row) {
+      this.$emit('row-clicked', row)
+    },
   },
 }
 </script>
@@ -168,6 +182,20 @@ export default {
       &:nth-child(even) {
         td {
           background-color: #f5f8f9;
+        }
+      }
+    }
+
+    &.clickable {
+      td {
+        cursor: pointer;
+      }
+
+      tr {
+        &:hover {
+          td {
+            background-color: $light-gray;
+          }
         }
       }
     }
