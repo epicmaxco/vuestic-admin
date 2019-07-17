@@ -1,16 +1,8 @@
 <template>
-  <div>
+  <div class="va-table">
     <slot name="header" />
 
-    <div class="loading-container">
-      <div v-if="loading" class="loading-overlay flex-center">
-        <spring-spinner
-          :animation-duration="2000"
-          :size="48"
-          color="#4ae387"
-        />
-      </div>
-
+    <va-inner-loading :loading="loading">
       <vuetable
         ref="vuetable"
         :api-mode="false"
@@ -47,7 +39,7 @@
           @input="inputPage"
         />
       </div>
-    </div>
+    </va-inner-loading>
   </div>
 </template>
 
@@ -101,7 +93,7 @@ export default {
   computed: {
     styles () {
       return {
-        tableClass: 'va-table' + (this.clickable ? ' clickable' : ''),
+        tableClass: 'va-table__vuetable' + (this.clickable ? ' clickable' : ''),
         ascendingIcon: 'fa fa-caret-up',
         descendingIcon: 'fa fa-caret-down',
         renderIcon: classes => {
@@ -180,25 +172,11 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "../../vuestic-sass/resources/resources";
-
-  .loading-container {
-    position: relative;
-  }
-
-  .loading-overlay {
-    position: absolute;
-    background: rgba(255,255,255,0.5);
-    top: 0;
-    bottom: 0;
-    width: 100%;
-  }
-
-  .va-table {
+  .va-table__vuetable {
     width: 100%;
 
     th, td {
-      padding: 10px;
+      padding: 0.625rem;
     }
 
     th {
@@ -208,14 +186,14 @@ export default {
       text-transform: uppercase;
       line-height: $chip-line-height-sm;
       letter-spacing: $chip-letter-spacing-sm;
-      border-bottom: 2px solid #34495e;
+      border-bottom: 2px solid $vue-darkest-blue;
 
       &.sortable {
         color: $brand-primary;
       }
 
       .sort-icon {
-        font-size: 10px;
+        font-size: 0.625rem;
       }
     }
 
@@ -242,9 +220,8 @@ export default {
     }
 
     .vuetable-empty-result {
-      padding-top: 70px;
-      padding-bottom: 70px;
-      font-size: 16px;
+      padding: 4.5rem 1rem;
+      font-size: 1rem;
       color: $gray;
     }
   }
