@@ -58,3 +58,41 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.toasted-container {
+  &.full-width {
+    @include media-breakpoint-down(md) {
+      width: calc(100% - #{$content-mobile-wrap-px} - #{$content-mobile-wrap-px});
+      left: 0;
+
+      .toasted.vuestic-toast {
+        left: $content-mobile-wrap-px;
+      }
+    }
+  }
+}
+
+.toasted.vuestic-toast {
+  min-height: $toast-min-height;
+  padding: $toast-padding-y $toast-padding-x;
+  font-size: $toast-font-size;
+  font-weight: $toast-font-weight;
+  line-height: $toast-line-height;
+  background: rgba($toast-bg, 0.9);
+  box-shadow: $toast-box-shadow;
+  color: $toast-color;
+  border-radius: $toast-border-radius;
+
+  i, i.fa {
+    font-size: $toast-icon-size;
+    color: $toast-icon-color;
+    margin-left: $toast-icon-ml;
+    margin-right: $toast-icon-mr;
+  }
+
+  a.action:hover {
+    text-decoration: none;
+  }
+}
+</style>
