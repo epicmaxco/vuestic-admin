@@ -1,3 +1,6 @@
+.mt-0 {
+  margin-top: 0;
+}
 
 .content {
   h1 {
@@ -32,7 +35,6 @@
 
   pre {
     overflow-x: auto;
-    @extend .pa-3;
     white-space: pre;
     word-wrap: normal;
 
