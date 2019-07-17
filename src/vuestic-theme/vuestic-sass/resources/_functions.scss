@@ -48,39 +48,6 @@
   @return $string;
 }
 
-// Color contrast
-@function color-yiq($color, $dark: $yiq-text-dark, $light: $yiq-text-light) {
-  $r: red($color);
-  $g: green($color);
-  $b: blue($color);
-
-  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
-
-  @if ($yiq >= $yiq-contrasted-threshold) {
-    @return $dark;
-  } @else {
-    @return $light;
-  }
-}
-
-// Retrieve color Sass maps
-@function color($key: "blue") {
-  @return map-get($colors, $key);
-}
-
 @function theme-color($key: "primary") {
   @return map-get($theme-colors, $key);
-}
-
-@function gray($key: "100") {
-  @return map-get($grays, $key);
-}
-
-// Request a theme color level
-@function theme-color-level($color-name: "primary", $level: 0) {
-  $color: theme-color($color-name);
-  $color-base: if($level > 0, $black, $white);
-  $level: abs($level);
-
-  @return mix($color-base, $color, $level * $theme-color-interval);
 }
