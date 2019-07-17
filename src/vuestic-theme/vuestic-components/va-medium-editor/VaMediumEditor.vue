@@ -70,6 +70,7 @@ export default {
   }
 }
 
+// isn't a part of the .va-medium-editor, so can't be places inside it
 .medium-editor-toolbar,
 .medium-editor-toolbar-form,
 .medium-editor-toolbar-actions,
