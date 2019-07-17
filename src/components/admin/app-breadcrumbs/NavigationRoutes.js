@@ -53,6 +53,16 @@ export const navigationRoutes = {
       meta: {
         iconClass: 'vuestic-iconset-tables',
       },
+      children: [
+        {
+          name: 'markup',
+          displayName: 'menu.markupTables',
+        },
+        {
+          name: 'data',
+          displayName: 'menu.dataTables',
+        },
+      ],
     },
     {
       name: 'ui',
