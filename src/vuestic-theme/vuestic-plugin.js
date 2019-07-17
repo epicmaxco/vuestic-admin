@@ -10,7 +10,6 @@ import VaCheckbox from './vuestic-components/va-checkbox/VaCheckbox.vue'
 import VaChip from './vuestic-components/va-chip/VaChip.vue'
 import VaCollapse from './vuestic-components/va-collapse/VaCollapse'
 import VaCountBadge from './vuestic-components/va-count-badge/VaCountBadge'
-import VaDataTable from './vuestic-components/va-datatable/VaDataTable.vue'
 import VaDatePicker from './vuestic-components/va-date-picker/VaDatePicker'
 import VaDropdown from './vuestic-components/va-dropdown/VaDropdown'
 import VaDropdownOld from './vuestic-components/va-dropdown/VaDropdownOld'
@@ -77,7 +76,6 @@ const VuesticPlugin = {
       VaChip,
       VaCollapse,
       VaCountBadge,
-      VaDataTable,
       VaDatePicker,
       VaDropdown,
       VaDropdownOld,
