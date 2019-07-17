@@ -105,7 +105,7 @@ export default {
   opacity: 1;
   border: none;
   border-radius: 0.5rem;
-  z-index: 1000000;
+  background-color: white;
 
   &__content {
      display: flex;
