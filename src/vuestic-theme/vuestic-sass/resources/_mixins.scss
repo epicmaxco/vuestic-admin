@@ -6,12 +6,15 @@
   align-items: center;
 }
 
-@mixin va-display($element) {
+@mixin va-headers-margins($element) {
   margin-top: map_get($display-font-margins, $element);
   margin-bottom: map_get($display-font-margins, $element) / 2;
+}
+
+@mixin va-display($element) {
   color: $vue-darkest-blue;
   font-size: map-get($display-font-sizes, $element);
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1;
 }
 

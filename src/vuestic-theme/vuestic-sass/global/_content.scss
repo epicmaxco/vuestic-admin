@@ -1,26 +1,32 @@
 .content {
   h1 {
     @include va-display(1);
+    @include va-headers-margins(1);
   }
 
   h2 {
     @include va-display(2);
+    @include va-headers-margins(1);
   }
 
   h3 {
     @include va-display(3);
+    @include va-headers-margins(1);
   }
 
   h4 {
     @include va-display(4);
+    @include va-headers-margins(1);
   }
 
   h5 {
     @include va-display(5);
+    @include va-headers-margins(1);
   }
 
   h6 {
     @include va-display(6);
+    @include va-headers-margins(1);
   }
 
   p {
