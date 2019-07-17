@@ -1,5 +1,5 @@
 <template>
-  <div class="va-medium-editor">
+  <div class="va-medium-editor content">
     <slot/>
   </div>
 </template>
