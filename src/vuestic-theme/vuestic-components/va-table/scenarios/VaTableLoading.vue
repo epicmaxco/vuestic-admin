@@ -11,16 +11,9 @@
 </template>
 
 <script>
-import VaCard from '../../va-card/VaCard.vue'
-import VaTable from '../VaTable.vue'
-
 import users from './users.json'
 
 export default {
-  components: {
-    VaCard,
-    VaTable,
-  },
   data () {
     return {
       users: users,

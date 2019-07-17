@@ -44,7 +44,7 @@
         </template>
 
         <template slot="actions" slot-scope="props">
-          <va-button v-if="props.rowData.hasReport" small color="danger" class="no-margin">
+          <va-button v-if="props.rowData.hasReport" small color="danger" class="ma-0">
             Report
           </va-button>
         </template>
@@ -55,24 +55,9 @@
 
 <script>
 import { debounce } from 'lodash'
-import VaBadge from '../../va-chip/VaBadge.vue'
-import VaButton from '../../va-button/VaButton.vue'
-import VaCard from '../../va-card/VaCard.vue'
-import VaIcon from '../../va-icon/VaIcon.vue'
-import VaInput from '../../va-input/VaInput.vue'
-import VaTable from '../VaTable.vue'
-
 import users from './users.json'
 
 export default {
-  components: {
-    VaBadge,
-    VaButton,
-    VaCard,
-    VaIcon,
-    VaInput,
-    VaTable,
-  },
   data () {
     return {
       term: null,
@@ -153,7 +138,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .no-margin {
-    margin: 0;
-  }
 </style>

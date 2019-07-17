@@ -30,20 +30,9 @@
 </template>
 
 <script>
-import VaTable from '../VaTable.vue'
-import VaButton from '../../va-button/VaButton.vue'
-import VaCard from '../../va-card/VaCard.vue'
-import VaPopover from '../../va-popover/VaPopover.vue'
-
 import users from './users.json'
 
 export default {
-  components: {
-    VaTable,
-    VaButton,
-    VaCard,
-    VaPopover,
-  },
   data () {
     return {
       users: users,

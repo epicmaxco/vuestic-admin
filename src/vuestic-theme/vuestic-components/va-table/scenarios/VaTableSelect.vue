@@ -25,18 +25,9 @@
 </template>
 
 <script>
-import VaTable from '../VaTable.vue'
-import VaCard from '../../va-card/VaCard.vue'
-import VaCheckbox from '../../va-checkbox/VaCheckbox.vue'
-
 import users from './users.json'
 
 export default {
-  components: {
-    VaTable,
-    VaCard,
-    VaCheckbox,
-  },
   data () {
     return {
       users: users,
@@ -82,7 +73,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .no-margin {
-    margin: 0;
-  }
 </style>

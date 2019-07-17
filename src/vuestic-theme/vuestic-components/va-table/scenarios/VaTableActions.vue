@@ -11,11 +11,11 @@
         </template>
 
         <template slot="actions" slot-scope="props">
-          <va-button flat small color="gray" @click="edit(props.rowData)" class="no-margin">
+          <va-button flat small color="gray" @click="edit(props.rowData)" class="ma-0">
             Edit
           </va-button>
 
-          <va-button flat small color="danger" @click="remove(props.rowData)" class="no-margin">
+          <va-button flat small color="danger" @click="remove(props.rowData)" class="ma-0">
             Delete
           </va-button>
         </template>
@@ -25,20 +25,9 @@
 </template>
 
 <script>
-import VaButton from '../../va-button/VaButton.vue'
-import VaCard from '../../va-card/VaCard.vue'
-import VaIcon from '../../va-icon/VaIcon.vue'
-import VaTable from '../VaTable.vue'
-
 import users from './users.json'
 
 export default {
-  components: {
-    VaButton,
-    VaCard,
-    VaIcon,
-    VaTable,
-  },
   data () {
     return {
       users: users.slice(0, 6),
@@ -82,7 +71,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .no-margin {
-    margin: 0;
-  }
 </style>

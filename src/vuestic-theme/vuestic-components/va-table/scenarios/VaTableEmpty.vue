@@ -13,8 +13,6 @@
 
 <script>
 export default {
-  components: {
-  },
   data () {
     return {
       data: [],
@@ -40,7 +38,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .no-margin {
-    margin: 0;
-  }
 </style>

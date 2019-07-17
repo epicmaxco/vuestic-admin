@@ -28,20 +28,11 @@
 
 <script>
 import { SpringSpinner } from 'epic-spinners'
-import VaButton from '../../va-button/VaButton.vue'
-import VaCard from '../../va-card/VaCard.vue'
-import VaIcon from '../../va-icon/VaIcon.vue'
-import VaTable from '../VaTable.vue'
-
 import users from './users.json'
 
 export default {
   components: {
     SpringSpinner,
-    VaButton,
-    VaCard,
-    VaIcon,
-    VaTable,
   },
   data () {
     return {
@@ -85,7 +76,7 @@ export default {
           this.loading = false
         })
     },
-    readUsers (page, perPage) {
+    readUsers () {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve(users.slice(0, 10))
@@ -107,7 +98,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .scrollable {
     height: 300px;
     overflow-y: auto;

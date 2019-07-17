@@ -19,14 +19,8 @@
 
 <script>
 import axios from 'axios'
-import VaCard from '../../va-card/VaCard.vue'
-import VaTable from '../VaTable.vue'
 
 export default {
-  components: {
-    VaCard,
-    VaTable,
-  },
   data () {
     return {
       perPage: 3,
