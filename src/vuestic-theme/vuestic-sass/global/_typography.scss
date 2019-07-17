@@ -189,33 +189,33 @@ ol.va-ordered {
 }
 
 .va-table {
-  width: 100%;
-  border-collapse: collapse;
-  @extend .mb-3;
-
-  thead tr {
-    border-bottom: 2px solid $vue-darkest-blue;
-
-    td {
-      @extend .title;
-      color: $vue-darkest-blue;
-    }
+  th, td {
+    padding: 0.625rem;
   }
 
-  td {
-    padding: .625rem;
-    font-size: .875rem;
-    line-height: 1.43;
+  th {
+    @extend .title;
     color: $vue-darkest-blue;
+    border-bottom: 2px solid $vue-darkest-blue;
   }
 
   &.striped {
-    tbody tr:nth-of-type(odd) {
-      background-color: $white;
+    tr {
+      &:nth-child(even) {
+        td {
+          background-color: $light-gray3;
+        }
+      }
     }
+  }
 
-    tbody tr:nth-of-type(even) {
-      background-color: $light-gray3;
+  &.hoverable {
+    tr {
+      &:hover {
+        td {
+          background-color: $light-gray2;
+        }
+      }
     }
   }
 }

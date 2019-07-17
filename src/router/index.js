@@ -138,8 +138,8 @@ export default new Router({
             {
               name: 'markup',
               path: 'markup',
-              component: () => import('../components/tables/Tables.vue'),
-              wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tables',
+              component: () => import('../components/markup-tables/MarkupTables.vue'),
+              wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tables', // TODO Update docs
             },
             {
               name: 'data',

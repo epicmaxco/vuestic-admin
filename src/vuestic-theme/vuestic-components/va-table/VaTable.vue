@@ -1,5 +1,5 @@
 <template>
-  <div class="va-table">
+  <div class="va-table" :class="{'hoverable': clickable}">
     <slot name="header" />
 
     <va-inner-loading :loading="loading">
@@ -30,7 +30,7 @@
 
       <div
         v-if="!noPagination && paginationTotal > 1"
-        class="flex-center"
+        class="flex-center mt-3"
       >
         <va-pagination
           v-model="currentPage"
@@ -93,7 +93,7 @@ export default {
   computed: {
     styles () {
       return {
-        tableClass: 'va-table__vuetable' + (this.clickable ? ' clickable' : ''),
+        tableClass: 'va-table__vuetable',
         ascendingIcon: 'fa fa-caret-up',
         descendingIcon: 'fa fa-caret-down',
         renderIcon: classes => {
@@ -172,50 +172,24 @@ export default {
 </script>
 
 <style lang="scss">
+  .va-table {
+    &.hoverable {
+      td {
+        cursor: pointer;
+      }
+    }
+  }
+
   .va-table__vuetable {
     width: 100%;
 
-    th, td {
-      padding: 0.625rem;
-    }
-
     th {
-      font-size: $chip-font-size-sm;
-      font-weight: bold;
-      font-family: $font-family-sans-serif;
-      text-transform: uppercase;
-      line-height: $chip-line-height-sm;
-      letter-spacing: $chip-letter-spacing-sm;
-      border-bottom: 2px solid $vue-darkest-blue;
-
       &.sortable {
         color: $brand-primary;
       }
 
       .sort-icon {
         font-size: 0.625rem;
-      }
-    }
-
-    tr {
-      &:nth-child(even) {
-        td {
-          background-color: #f5f8f9;
-        }
-      }
-    }
-
-    &.clickable {
-      td {
-        cursor: pointer;
-      }
-
-      tr {
-        &:hover {
-          td {
-            background-color: $light-gray;
-          }
-        }
       }
     }
 

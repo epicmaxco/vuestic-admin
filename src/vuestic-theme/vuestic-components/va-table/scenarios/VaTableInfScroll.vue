@@ -13,7 +13,7 @@
           </template>
         </va-table>
 
-        <div class="flex-center">
+        <div class="flex-center ma-3">
           <spring-spinner
             v-if="loading"
             :animation-duration="2000"
