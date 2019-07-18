@@ -135,6 +135,12 @@ export default {
         sorted = direction === 'asc' ? this.sortAsc(this.data, sortField) : this.sortDesc(this.data, sortField)
       }
 
+      if (this.noPagination) {
+        return {
+          data: sorted,
+        }
+      }
+
       pagination = this.buildPagination(sorted.length, this.perPage)
       const { from } = pagination
       const sliceFrom = from - 1
