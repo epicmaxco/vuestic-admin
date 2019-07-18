@@ -156,8 +156,13 @@ $display-font-margins: (
 }
 
 ul.va-unordered {
+  margin-bottom: 1rem;
   padding: 0;
   list-style-type: none;
+
+  ul.va-unordered, ol.va-ordered {
+    margin-bottom: 0;
+  }
 
   & > li {
     padding-left: 1rem;
@@ -178,8 +183,13 @@ ul.va-unordered {
 }
 
 ol.va-ordered {
+  margin-bottom: 1rem;
   padding: 0;
   counter-reset: olCounter;
+
+  ul.va-unordered, ol.va-ordered {
+    margin-bottom: 0;
+  }
 
   & > li {
     list-style: none;
