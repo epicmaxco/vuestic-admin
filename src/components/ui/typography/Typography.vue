@@ -1,5 +1,5 @@
 <template>
-  <div class="typography">
+  <div class="typography content">
     <va-card>
       <div class="mb-4">
         <p class="display-1">Display 1 Heading</p>
