@@ -1,5 +1,5 @@
 <template>
-  <div class="va-table" :class="{'hoverable': clickable}">
+  <div class="va-table striped" :class="{'hoverable': clickable}">
     <slot name="header" />
 
     <va-inner-loading :loading="loading">
@@ -93,7 +93,7 @@ export default {
   computed: {
     styles () {
       return {
-        tableClass: 'va-table__vuetable',
+        tableClass: 'va-table__vuetable' + (this.clickable ? ' clickable' : ''),
         ascendingIcon: 'fa fa-caret-up',
         descendingIcon: 'fa fa-caret-down',
         renderIcon: classes => {
@@ -172,16 +172,14 @@ export default {
 </script>
 
 <style lang="scss">
-  .va-table {
-    &.hoverable {
+  .va-table__vuetable {
+    width: 100%;
+
+    &.clickable {
       td {
         cursor: pointer;
       }
     }
-  }
-
-  .va-table__vuetable {
-    width: 100%;
 
     th {
       &.sortable {
