@@ -41,7 +41,7 @@ jobs:
       - run:
           name: Add variables
           command:
-            echo "VUE_APP_INCLUDE_DEMOS=true" >> .env.production.local
+            echo "VUE_APP_INCLUDE_DEMOS=true" >> .env.production.local &&
             echo "VUE_APP_GOOGLE_MAPS_API_KEY=$GOOGLE_MAPS_API_KEY" >> .env.production.local
       - restore_cache: *restore_cache
       - run: *install_dependencies
@@ -69,7 +69,7 @@ jobs:
           name: Add variables
           command:
             echo "VUE_APP_YANDEX_METRICS_KEY=$YANDEX_METRICS_KEY" >> .env.production.local &&
-            echo "VUE_APP_DRIFT_KEY=$DRIFT_KEY" >> .env.production.local
+            echo "VUE_APP_DRIFT_KEY=$DRIFT_KEY" >> .env.production.local &&
             echo "VUE_APP_GOOGLE_MAPS_API_KEY=$GOOGLE_MAPS_API_KEY" >> .env.production.local
       - restore_cache: *restore_cache
       - run: *install_dependencies
