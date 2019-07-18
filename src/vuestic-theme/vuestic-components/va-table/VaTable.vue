@@ -1,5 +1,5 @@
 <template>
-  <div class="va-table striped" :class="{'hoverable': clickable}">
+  <div class="va-table striped" :class="{'hoverable': clickable || hoverable}">
     <slot name="header" />
 
     <va-inner-loading :loading="loading">
@@ -70,6 +70,7 @@ export default {
     },
     apiMode: Boolean,
     clickable: Boolean,
+    hoverable: Boolean,
     noPagination: Boolean,
     noDataLabel: {
       type: String,
