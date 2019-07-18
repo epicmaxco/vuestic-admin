@@ -6,7 +6,7 @@
         class="spinners__widget"
       >
         <div class="spinners__customization">
-          <div class="va-row">
+          <div class="va-row align--center">
             <div class="flex xs12 md3 lg4">
               <div class="va-row spinners__size">
                 <h5 class="mt-2 ml-4 mr-3">A</h5>
@@ -163,6 +163,11 @@ export default {
         right: 40px;
       }
     }
+  }
+
+  &__size, &__duration {
+    // not sure, maybe it's better to include this into @no-wrap mixin?
+    flex-wrap: nowrap;
   }
 
   &__size-picker {
