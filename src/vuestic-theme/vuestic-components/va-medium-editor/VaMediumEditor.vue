@@ -123,31 +123,6 @@ export default {
   color: $white;
   overflow: hidden;
 
-  .medium-editor-toolbar-input {
-    height: $medium-editor-button-size;
-    background: $brand-primary;
-    box-sizing: border-box;
-    color: $white;
-    padding-left: 1rem;
-    width: 220px;
-
-    &::-webkit-input-placeholder {
-      color: rgba($white, .8);
-    }
-
-    &:-moz-placeholder { /* Firefox 18- */
-      color: rgba($white, .8);
-    }
-
-    &::-moz-placeholder { /* Firefox 19+ */
-      color: rgba($white, .8);
-    }
-
-    &:-ms-input-placeholder {
-      color: rgba($white, .8);
-    }
-  }
-
   a {
     color: $white;
     transform: translateY(2px);
