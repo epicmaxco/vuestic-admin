@@ -145,7 +145,7 @@ export default {
       if (this.flat || this.outline) {
         return
       }
-      if (this.va.color) { // Gradient is provided from button group
+      if (this.va.color) {
         return
       }
       return getGradientBackground(this.colorComputed)
@@ -155,7 +155,7 @@ export default {
         return
       }
       if (this.va.color && this.$themes && this.$themes[this.va.color]) {
-        return '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.$themes[this.va.color])
+        return '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.color ? this.colorComputed : this.$themes[this.va.color])
       }
       return '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.colorComputed)
     },
@@ -189,6 +189,11 @@ export default {
         computedStyle.borderColor = this.outline ? this.colorComputed : ''
         computedStyle.backgroundImage = this.gradientStyle
         computedStyle.boxShadow = this.shadowStyle
+      }
+
+      if (this.va.color && !this.outline && !this.flat && !this.disabled) {
+        computedStyle.background = this.color ? this.colorComputed : this.$themes[this.va.color]
+        computedStyle.backgroundImage = ''
       }
 
       return computedStyle
@@ -328,6 +333,10 @@ export default {
         padding-right: $btn-with-icon-content-padding-lg;
       }
     }
+
+    &.va-button--outline {
+      line-height: $btn-line-height-lg - 2 * $btn-border-outline;
+    }
   }
 
   &--small {
@@ -357,6 +366,10 @@ export default {
         padding-right: $btn-with-icon-content-padding-sm;
       }
     }
+
+    &.va-button--outline {
+      line-height: $btn-line-height-sm - 2 * $btn-border-outline;
+    }
   }
 
   &--normal {
@@ -385,6 +398,10 @@ export default {
       .va-button__content__title {
         padding-right: $btn-with-icon-content-padding-nrm;
       }
+    }
+
+    &.va-button--outline {
+      line-height: $btn-line-height-nrm - 2 * $btn-border-outline;
     }
   }
 }

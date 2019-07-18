@@ -30,7 +30,12 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../vuestic-sass/resources/resources";
+$top-nav-height: 4.0625rem;
+$top-nav-bg: $dark-blue;
 $nav-mobile-px: 1rem;
+$nav-padding-left: 1rem;
+$nav-padding-right: 2rem;
 $nav-mobile-py: 1.1875rem;
 $nav-mobile-brand-top: 1.5rem;
 $nav-shape-bg: #0a43af;

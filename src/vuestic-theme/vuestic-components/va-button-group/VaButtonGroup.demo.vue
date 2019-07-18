@@ -8,7 +8,7 @@
       </va-button-group>
       <va-button-group color="danger">
         <va-button>One</va-button>
-        <va-button>Two</va-button>
+        <va-button color="dark">Two</va-button>
         <va-button>Three</va-button>
       </va-button-group>
       <va-button-group color="warning">
@@ -55,13 +55,13 @@
           <td>Default Button Group Sizes</td>
           <td>
             <VbCard title="Default Button Group">
-              <va-button-group>
+              <va-button-group color="primary">
                 <va-button large> Button 1</va-button>
                 <va-button large> Button 2</va-button>
                 <va-button large> Button 3</va-button>
                 <va-button large> Button 4</va-button>
               </va-button-group>
-              <va-button-group>
+              <va-button-group color="primary">
                 <va-button small> Button 1</va-button>
                 <va-button small> Button 2</va-button>
                 <va-button small> Button 3</va-button>
@@ -102,7 +102,7 @@
           <td>Icon Button Group</td>
           <td>
             <VbCard title="Default Button Group">
-              <va-button-group>
+              <va-button-group color="primary">
                 <va-button icon="glyphicon glyphicon-pencil"/>
                 <va-button icon="maki maki-art-gallery"/>
                 <va-button icon="glyphicon glyphicon-pencil"/>
@@ -128,7 +128,7 @@
           <td>Icon Button Group Sizes</td>
           <td>
             <VbCard title="Default Button Group">
-              <va-button-group>
+              <va-button-group color="primary">
                 <va-button large icon="glyphicon glyphicon-pencil"/>
                 <va-button large icon="maki maki-art-gallery"/>
                 <va-button large icon="maki maki-art-gallery"/>
@@ -195,7 +195,7 @@
                 <va-button flat color="warning" icon-right="ion ion-ios-alarm"> Update</va-button>
               </va-button-group>
 
-              <va-button-group>
+              <va-button-group color="dark">
                 <va-button color="dark"> One</va-button>
                 <va-button color="dark"> Two</va-button>
                 <va-button color="dark"> Three</va-button>
@@ -223,7 +223,7 @@ import VaButton from '../va-button/VaButton'
 export default {
   data () {
     return {
-      value: 'danger',
+      value: 'success',
     }
   },
   components: {

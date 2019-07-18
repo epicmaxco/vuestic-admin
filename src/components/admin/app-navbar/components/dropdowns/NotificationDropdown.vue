@@ -1,6 +1,7 @@
 <template>
     <va-dropdown
       class="notification-dropdown"
+      offset="15px, 0"
     >
       <va-icon
         slot="anchor"
@@ -18,7 +19,7 @@
          >
           <img v-if="option.details.avatar" class="mr-1 notification-dropdown__item__avatar" :src="option.details.avatar"/>
           <span class="ellipsis">
-            {{$t(`notifications.${option.name}`, { name: option.details.name, type: option.details.type })}}
+            <span class="text--bold" v-if="option.details.name">{{option.details.name}}</span> {{$t(`notifications.${option.name}`, { type: option.details.type })}}
           </span>
         </div>
         <div class="va-row justify--space-between">
@@ -43,7 +44,7 @@ export default {
       default: () => [
         {
           name: 'sentMessage',
-          details: { name: 'Vasily S', avatar: 'https://picsum.photos/100' },
+          details: { name: 'Vasily S', avatar: 'https://picsum.photos/123' },
           unread: true,
           id: 1,
         },
@@ -132,6 +133,7 @@ export default {
       border-radius: 50%;
       width: 1.5rem;
       height: 1.5rem;
+      min-width: 1.5rem;
     }
   }
 }

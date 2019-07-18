@@ -1,6 +1,5 @@
 <template>
-  <div class="google-map fill-height">
-  </div>
+  <div class="google-map fill-height" />
 </template>
 
 <script>

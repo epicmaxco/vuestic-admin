@@ -96,18 +96,19 @@ export default {
         return {
           color: this.outline ? this.$themes[this.color] : '#ffffff',
           boxShadow: '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.$themes[this.color]),
+          borderColor: this.$themes[this.color],
           backgroundColor: this.outline ? getFocusColor(this.$themes[this.color]) : this.$themes[this.color],
         }
       } else if (this.hoverState) {
         return {
           color: this.outline ? this.$themes[this.color] : '#ffffff',
-          borderColor: this.outline ? this.$themes[this.color] : '',
+          borderColor: this.$themes[this.color],
           backgroundColor: this.outline ? getHoverColor(this.$themes[this.color]) : this.$themes[this.color],
         }
       } else {
         return {
           color: this.outline ? this.$themes[this.color] : '#ffffff',
-          borderColor: this.outline ? this.$themes[this.color] : '',
+          borderColor: this.$themes[this.color],
           backgroundColor: this.outline ? '' : this.$themes[this.color],
         }
       }
@@ -138,7 +139,7 @@ export default {
 .va-chip {
   display: inline-block;
   color: $white;
-  border: $chip-border;
+  border: solid $chip-border-outline;
   font-family: $font-family-sans-serif;
   background-image: none;
   box-shadow: none;
@@ -149,7 +150,6 @@ export default {
 
   &--outline {
     background-color: transparent;
-    border: solid $chip-border-outline;
     text-decoration: none;
   }
 

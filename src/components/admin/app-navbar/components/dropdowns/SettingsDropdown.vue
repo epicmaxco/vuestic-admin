@@ -1,5 +1,7 @@
 <template>
-  <va-dropdown class="settings-dropdown">
+  <va-dropdown
+    class="settings-dropdown"
+    offset="15px, 0">
     <va-icon
       name="vuestic-iconset vuestic-iconset-settings"
       color="white"
@@ -8,7 +10,9 @@
       slot="anchor"
     />
     <div class="settings-dropdown__content py-4 px-4">
-      <div class="title settings-dropdown__content-label">{{$t('dashboard.navigationLayout')}}</div>
+      <div class="title settings-dropdown__content-label">
+        {{$t('dashboard.navigationLayout')}}
+      </div>
       <va-button-toggle
         outline
         v-model="navbarViewProxy"

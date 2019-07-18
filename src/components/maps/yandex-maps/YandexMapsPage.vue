@@ -10,7 +10,7 @@
             :use-object-manager:="true"
             :coords="[55.2, 38.8]"
             :zoom="8"
-            style="width: 100%; height: 100%"
+            style="width: 100%; height: 65vh;"
             :behaviors="['default']"
             :controls="['trafficControl','zoomControl', 'geolocationControl','fullscreenControl', 'searchControl']"
             :placemarks="placemarks"
@@ -51,12 +51,3 @@ export default {
   },
 }
 </script>
-<style lang="scss">
-.yandex-maps-page {
-  &__widget {
-    .va-card__body {
-      height: 65vh;
-    }
-  }
-}
-</style>

@@ -67,27 +67,27 @@ $theme-colors: (
 );
 
 // Layout //
-$body-bg: $light-gray;
-$top-nav-bg: $dark-blue;
 $body-color: $vue-darkest-blue !default;
 $layout-padding: 24px;
-$layout-padding-right: 2rem;
+$top-mobile-nav-height: 6.5rem;
 
 $top-nav-height: 4.0625rem;
+$sidebar-width: 18.75rem;
+$sidebar-width--hidden: 3.5rem;
+$sidebar-menu-item-icon-size: 19px;
+$sidebar-viewport-min-height: calc(100vh - #{$top-nav-height});
+$sidebar-viewport-height: calc(100% - #{$top-nav-height});
+$sidebar-box-shadow: 0 2px 3px 0 rgba(52, 56, 85, 0.25);
+$sidebar-minimized-width: 3.5rem;
+$sidebar-mobile-top: $top-mobile-nav-height;
 
-$nav-padding-left: 1rem;
-$nav-padding-right: $layout-padding-right;
-$navbar-brand-container-left: 75px;
 
-$sidebar-bg: $darkest-gray;
-$sidebar-width: 225px;
-$sidebar-top: calc(#{$top-nav-height} + #{$layout-padding});
-$sidebar-left: $layout-padding;
-$min-z-index: -1000;
+//Mobile Layout
 
-$content-wrap-ml: calc(#{$sidebar-left} + #{$sidebar-width});
-$content-wrap-pb: $layout-padding;
-$made-by-footer-pb: 27px;
+
+$content-mobile-wrap-px: 1rem;
+$content-mobile-wrap: 2rem $content-mobile-wrap-px $layout-padding $content-mobile-wrap-px;
+
 
 $greeny-box-shadow: 0 4px 9.6px 0.4px rgba($vue-green, .5);
 $gray-box-shadow: 0 2px 3px 0 rgba(98, 106, 119, 0.25);
@@ -99,22 +99,6 @@ $auth-logo-height: 2.625rem;
 $checkbox-between-items-margin: 1rem;
 $checkbox-between-label-margin: 2.35rem;
 $checkbox-label-margin-top: 0.2rem;
-
-//Mobile Layout
-$top-mobile-nav-height: 6.5rem;
-$layout-mobile-padding: 0.1875rem;
-
-$sidebar-mobile-width: calc(100% - .375rem);
-$sidebar-mobile-top: $top-mobile-nav-height+$layout-mobile-padding;
-$sidebar-mobile-left: $layout-mobile-padding;
-$sidebar-mobile-z-index: 1000;
-
-$content-mobile-wrap-pl: 1rem;
-$content-mobile-wrap-pr: 1rem;
-$content-mobile-wrap-pb: $layout-padding;
-$content-mobile-wrap: 2rem $content-mobile-wrap-pr $content-mobile-wrap-pb $content-mobile-wrap-pl;
-$content-mobile-wrap-fixed-layout: 7rem $content-mobile-wrap-pr $content-mobile-wrap-pb $content-mobile-wrap-pl;
-$content-mobile-wrap-sb-top: calc(#{$top-nav-height} + #{$layout-padding+20}) - 20 px;
 
 //Auth mobile
 $auth-mobile-nav-ivuestic-h: 1.5rem;
@@ -163,21 +147,6 @@ $va-link-color-hover: #79eca8;
 $va-link-color-active: #48c279;
 $va-link-color-visited: $va-link-color;
 $link-hover-decoration: none;
-
-//Sidebar
-$sidebar-link-height: 64px;
-$sidebar-submenu-link-height: 48px;
-$sidebar-link-pl: 25px;
-$sidebar-submenu-link-pl: 74px;
-$sidebar-link-active-bg: $almost-black;
-$sidebar-arrow-right: 16px;
-$sidebar-menu-item-icon-size: 19px;
-$sidebar-viewport-height: calc(100vh - #{$top-nav-height} - #{$layout-padding} - #{$content-wrap-pb});
-
-$sidebar-hidden-top: -150px;
-$sidebar-hidden-top-mobile: $sidebar-mobile-top;
-$sidebar-hidden-height-mobile: 0;
-$sidebar-box-shadow: 0px 8px 14.72px 1.28px rgba(#65a977, 0.3);
 
 //Widgets
 $widget-bg: $white;

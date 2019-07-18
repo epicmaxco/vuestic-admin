@@ -1,6 +1,7 @@
 <template>
   <va-dropdown
     class="message-dropdown"
+    offset="15px, 0"
   >
     <va-icon
       name="i-nav-messages"
