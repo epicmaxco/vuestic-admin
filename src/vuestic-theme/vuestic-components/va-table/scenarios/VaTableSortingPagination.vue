@@ -4,7 +4,7 @@
       <va-table
         :fields="fields"
         :data="data"
-        :per-page="4"
+        :per-page="5"
       >
         <template slot="actions" slot-scope="props">
           <va-popover :message="getStarMessage(props.rowData)" placement="top">
@@ -39,15 +39,16 @@ export default {
       fields: [{
         name: 'fullName',
         title: 'Name',
+        sortField: 'fullName',
         width: '25%',
       }, {
         name: 'email',
         title: 'Email',
-        sortField: 'email',
         width: '30%',
       }, {
         name: 'country',
         title: 'Country',
+        sortField: 'country',
         width: '25%',
       }, {
         name: '__slot:actions',

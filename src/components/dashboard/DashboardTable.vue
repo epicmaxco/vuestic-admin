@@ -64,7 +64,7 @@ import data from '../markup-tables/data.json'
 export default {
   data () {
     return {
-      users: data,
+      users: data.slice(),
       loading: false,
       term: null,
       mode: 0,

@@ -4,7 +4,7 @@
       <va-table
         :fields="fields"
         :data="data"
-        :per-page="8"
+        :per-page="5"
       >
         <template slot="select" slot-scope="props">
           <va-checkbox :value="props.rowData.checked" @input="select(props.rowData)" />
@@ -36,7 +36,7 @@ export default {
       }, {
         name: 'fullName',
         title: 'Name',
-        width: '30%',
+        width: '20%',
       }, {
         name: 'email',
         title: 'Email',
@@ -45,7 +45,7 @@ export default {
       }, {
         name: 'country',
         title: 'Country',
-        width: '20%',
+        width: '30%',
       }, {
         name: '__slot:graph',
         dataClass: 'text-right',
