@@ -17,7 +17,11 @@ export default {
   data () {
     return {
       users: users,
-      fields: [{
+    }
+  },
+  computed: {
+    fields () {
+      return [{
         name: 'fullName',
         title: this.$t('tables.headings.name'),
       }, {
@@ -26,10 +30,8 @@ export default {
       }, {
         name: 'country',
         title: this.$t('tables.headings.country'),
-      }],
-    }
-  },
-  computed: {
+      }]
+    },
     data () {
       return this.users.map(user => {
         user.fullName = user.firstName + ' ' + user.lastName

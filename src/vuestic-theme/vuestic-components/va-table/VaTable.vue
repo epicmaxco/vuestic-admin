@@ -120,6 +120,9 @@ export default {
     data () {
       this.refresh()
     },
+    fields () {
+      this.refreshFields() // support dynamic translations
+    },
   },
   methods: {
     dataManager (sortOrder, pagination) {
@@ -164,6 +167,11 @@ export default {
     },
     refresh () {
       this.$refs.vuetable.refresh()
+    },
+    refreshFields () {
+      this.$nextTick(() => {
+        this.$refs.vuetable.normalizeFields()
+      })
     },
     rowClicked (row) {
       this.$emit('row-clicked', row)

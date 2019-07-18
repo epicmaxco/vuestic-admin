@@ -31,7 +31,11 @@ export default {
   data () {
     return {
       users: users.slice(0, 6),
-      fields: [{
+    }
+  },
+  computed: {
+    fields () {
+      return [{
         name: '__slot:marker',
         width: '30px',
         dataClass: 'text-center',
@@ -47,10 +51,8 @@ export default {
       }, {
         name: '__slot:actions',
         dataClass: 'text-right',
-      }],
-    }
-  },
-  computed: {
+      }]
+    },
     data () {
       return this.users.map(user => {
         user.fullName = user.firstName + ' ' + user.lastName

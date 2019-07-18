@@ -27,7 +27,11 @@ export default {
       totalPages: 0,
       items: [],
       loading: false,
-      fields: [{
+    }
+  },
+  computed: {
+    fields () {
+      return [{
         name: '__slot:avatar',
         width: '60px',
       }, {
@@ -41,8 +45,8 @@ export default {
       }, {
         name: 'email',
         title: this.$t('tables.headings.email'),
-      }],
-    }
+      }]
+    },
   },
   created () {
     this.readItems()

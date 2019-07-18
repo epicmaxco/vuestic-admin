@@ -39,7 +39,11 @@ export default {
       users: [],
       loading: false,
       offset: 0,
-      fields: [{
+    }
+  },
+  computed: {
+    fields () {
+      return [{
         name: '__slot:marker',
         width: '30px',
         dataClass: 'text-center',
@@ -52,10 +56,8 @@ export default {
       }, {
         name: 'country',
         title: this.$t('tables.headings.country'),
-      }],
-    }
-  },
-  computed: {
+      }]
+    },
     data () {
       return this.users.map(user => {
         user.fullName = user.firstName + ' ' + user.lastName

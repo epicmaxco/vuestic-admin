@@ -68,14 +68,11 @@ export default {
       loading: false,
       term: null,
       mode: 0,
-      modeOptions: [{
-        value: 0,
-        label: this.$t('dashboard.table.brief'),
-      }, {
-        value: 1,
-        label: this.$t('dashboard.table.detailed'),
-      }],
-      fields: [{
+    }
+  },
+  computed: {
+    fields () {
+      return [{
         name: '__slot:icon',
         width: '30px',
         dataClass: 'text-center',
@@ -95,10 +92,17 @@ export default {
       }, {
         name: '__slot:actions',
         dataClass: 'text-right',
-      }],
-    }
-  },
-  computed: {
+      }]
+    },
+    modeOptions () {
+      return [{
+        value: 0,
+        label: this.$t('dashboard.table.brief'),
+      }, {
+        value: 1,
+        label: this.$t('dashboard.table.detailed'),
+      }]
+    },
     filteredData () {
       if (!this.term || this.term.length < 1) {
         return this.users
@@ -129,7 +133,7 @@ export default {
         this.users.splice(idx, 1)
         this.loading = false
 
-        this.showToast('Resolved', {
+        this.showToast(this.$t('dashboard.table.resolved'), {
           icon: 'fa-check',
           position: 'bottom-right',
           duration: 1500,

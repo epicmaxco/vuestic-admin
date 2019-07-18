@@ -122,7 +122,8 @@
       "title": "Awesome table",
       "brief": "Brief",
       "detailed": "Detailed",
-      "resolve": "Resolve"
+      "resolve": "Resolve",
+      "resolved": "Resolved"
     },
     "tabs": {
       "overview": {

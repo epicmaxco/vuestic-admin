@@ -16,7 +16,11 @@ export default {
   data () {
     return {
       data: [],
-      fields: [{
+    }
+  },
+  computed: {
+    fields () {
+      return [{
         name: 'fullName',
         title: this.$t('tables.headings.name'),
       }, {
@@ -25,8 +29,8 @@ export default {
       }, {
         name: 'country',
         title: this.$t('tables.headings.country'),
-      }],
-    }
+      }]
+    },
   },
 }
 </script>

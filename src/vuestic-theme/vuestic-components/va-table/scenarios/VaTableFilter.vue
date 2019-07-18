@@ -66,7 +66,11 @@ export default {
       perPage: 6,
       perPageOptions: [4, 6, 10, 20],
       users: users,
-      fields: [{
+    }
+  },
+  computed: {
+    fields () {
+      return [{
         name: '__slot:trend',
         width: '30px',
         height: '45px',
@@ -86,10 +90,8 @@ export default {
       }, {
         name: '__slot:actions',
         dataClass: 'text-right',
-      }],
-    }
-  },
-  computed: {
+      }]
+    },
     data () {
       return this.users.map(user => {
         user.fullName = user.firstName + ' ' + user.lastName

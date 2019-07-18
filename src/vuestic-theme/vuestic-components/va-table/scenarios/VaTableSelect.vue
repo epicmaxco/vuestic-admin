@@ -31,7 +31,11 @@ export default {
   data () {
     return {
       users: users,
-      fields: [{
+    }
+  },
+  computed: {
+    fields () {
+      return [{
         name: '__slot:select',
       }, {
         name: 'fullName',
@@ -48,10 +52,8 @@ export default {
       }, {
         name: '__slot:graph',
         dataClass: 'text-right',
-      }],
-    }
-  },
-  computed: {
+      }]
+    },
     data () {
       return this.users.map(user => {
         user.fullName = user.firstName + ' ' + user.lastName
