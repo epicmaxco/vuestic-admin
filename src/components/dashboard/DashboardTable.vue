@@ -4,6 +4,7 @@
       <va-table
         :fields="fields"
         :data="filteredData"
+        :loading="loading"
         hoverable
       >
         <div slot="header" class="va-row">
@@ -64,6 +65,7 @@ export default {
   data () {
     return {
       users: data,
+      loading: false,
       term: null,
       mode: 0,
       modeOptions: [{
@@ -120,8 +122,19 @@ export default {
       return 'danger'
     },
     resolveUser (user) {
-      const idx = this.users.findIndex(u => u.id === user.id)
-      this.users.splice(idx, 1)
+      this.loading = true
+
+      setTimeout(() => {
+        const idx = this.users.findIndex(u => u.id === user.id)
+        this.users.splice(idx, 1)
+        this.loading = false
+
+        this.showToast('Resolved', {
+          icon: 'fa-check',
+          position: 'bottom-right',
+          duration: 1500,
+        })
+      }, 500)
     },
     search: debounce(function (term) {
       this.term = term
