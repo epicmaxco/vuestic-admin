@@ -10,7 +10,7 @@
           <div class="flex pb-0">
             <va-input
               :value="term"
-              placeholder="Search by name, email"
+              placeholder="Search by name"
               style="minWidth: 260px"
               @input="search"
             >
@@ -103,8 +103,7 @@ export default {
       }
 
       return this.users.filter(item => {
-        return item.name.toLowerCase().startsWith(this.term.toLowerCase()) ||
-          item.email.toLowerCase().includes(this.term.toLowerCase())
+        return item.name.toLowerCase().startsWith(this.term.toLowerCase())
       })
     },
   },
