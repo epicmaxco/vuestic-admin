@@ -1,10 +1,10 @@
 <template>
   <div>
-    <va-card title="Empty Table">
+    <va-card :title="$t('tables.emptyTable')">
       <va-table
         :fields="fields"
         :data="data"
-        no-data-label="There is no data to display. Report will be available on November 3, 2018."
+        :no-data-label="$t('tables.noReport')"
         no-pagination
       />
     </va-card>
@@ -17,20 +17,14 @@ export default {
     return {
       data: [],
       fields: [{
-        name: '__slot:marker',
-        width: '30px',
-        dataClass: 'text-center',
-      }, {
         name: 'fullName',
-        title: 'Name',
+        title: this.$t('tables.headings.name'),
       }, {
         name: 'email',
-        title: 'Email',
+        title: this.$t('tables.headings.email'),
       }, {
         name: 'country',
-        title: 'Country',
-      }, {
-        name: '__slot:actions',
+        title: this.$t('tables.headings.country'),
       }],
     }
   },

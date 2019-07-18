@@ -1,6 +1,6 @@
 <template>
   <div>
-    <va-card title="Search, Trends, Chips">
+    <va-card :title="$t('tables.searchTrendsBadges')">
       <va-table
         :fields="fields"
         :data="filteredData"
@@ -12,7 +12,7 @@
           <div class="flex">
             <va-input
               :value="term"
-              placeholder="Search by name"
+              :placeholder="$t('tables.searchByName')"
               style="minWidth: 260px"
               @input="search"
             >
@@ -23,7 +23,9 @@
           <div class="flex spacer" />
 
           <div class="flex">
-            <span style="marginRight: 4px">Per Page:</span>
+            <span style="marginRight: 4px">
+              {{ $t('tables.perPage') }}
+            </span>
 
             <select v-model.number="perPage">
               <option v-for="option in perPageOptions" :key="option">
@@ -45,7 +47,7 @@
 
         <template slot="actions" slot-scope="props">
           <va-button v-if="props.rowData.hasReport" small color="danger" class="ma-0">
-            Report
+            {{ $t('tables.report') }}
           </va-button>
         </template>
       </va-table>
@@ -71,15 +73,15 @@ export default {
         dataClass: 'text-center',
       }, {
         name: 'fullName',
-        title: 'Name',
+        title: this.$t('tables.headings.name'),
         width: '30%',
       }, {
         name: '__slot:status',
-        title: 'Status',
+        title: this.$t('tables.headings.status'),
         width: '20%',
       }, {
         name: 'email',
-        title: 'Email',
+        title: this.$t('tables.headings.email'),
         width: '30%',
       }, {
         name: '__slot:actions',

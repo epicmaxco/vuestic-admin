@@ -1,6 +1,6 @@
 <template>
   <div>
-    <va-card title="Server Side Pagination">
+    <va-card :title="$t('tables.serverSidePagination')">
       <va-table
         :fields="fields"
         :data="items"
@@ -32,15 +32,15 @@ export default {
         width: '60px',
       }, {
         name: 'first_name',
-        title: 'First Name',
+        title: this.$t('tables.headings.firstName'),
         width: '20%',
       }, {
         name: 'last_name',
-        title: 'Last Name',
+        title: this.$t('tables.headings.lastName'),
         width: '20%',
       }, {
         name: 'email',
-        title: 'Email',
+        title: this.$t('tables.headings.email'),
       }],
     }
   },

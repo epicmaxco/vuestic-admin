@@ -1,6 +1,6 @@
 <template>
   <div>
-    <va-card title="Selectable">
+    <va-card :title="$t('tables.selectable')">
       <va-table
         :fields="fields"
         :data="data"
@@ -19,7 +19,7 @@
     </va-card>
 
     <small>
-      Selected: {{ selected }}
+      {{ $t('tables.selected') }}: {{ selected }}
     </small>
   </div>
 </template>
@@ -35,16 +35,15 @@ export default {
         name: '__slot:select',
       }, {
         name: 'fullName',
-        title: 'Name',
+        title: this.$t('tables.headings.name'),
         width: '20%',
       }, {
         name: 'email',
-        title: 'Email',
-        sortField: 'email',
+        title: this.$t('tables.headings.email'),
         width: '30%',
       }, {
         name: 'country',
-        title: 'Country',
+        title: this.$t('tables.headings.country'),
         width: '30%',
       }, {
         name: '__slot:graph',

@@ -1,13 +1,13 @@
 <template>
   <div>
-    <va-card title="Basic Markup Table" class="mb-2">
+    <va-card :title="$t('tables.basic')" class="mb-2">
       <table class="va-table">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Country</th>
-            <th>Status</th>
+            <th>{{ $t('tables.headings.name') }}</th>
+            <th>{{ $t('tables.headings.email') }}</th>
+            <th>{{ $t('tables.headings.country') }}</th>
+            <th>{{ $t('tables.headings.status') }}</th>
           </tr>
         </thead>
 
@@ -26,7 +26,7 @@
       </table>
     </va-card>
 
-    <va-card title="Striped, Hoverable">
+    <va-card :title="$t('tables.stripedHoverable')">
       <table class="va-table striped hoverable">
         <thead>
           <tr>

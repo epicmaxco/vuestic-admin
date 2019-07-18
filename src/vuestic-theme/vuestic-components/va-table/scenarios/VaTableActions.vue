@@ -1,6 +1,6 @@
 <template>
   <div>
-    <va-card title="Labels, Actions as Text">
+    <va-card :title="$t('tables.labelsActions')">
       <va-table
         :fields="fields"
         :data="data"
@@ -12,11 +12,11 @@
 
         <template slot="actions" slot-scope="props">
           <va-button flat small color="gray" @click="edit(props.rowData)" class="ma-0">
-            Edit
+            {{ $t('tables.edit') }}
           </va-button>
 
           <va-button flat small color="danger" @click="remove(props.rowData)" class="ma-0">
-            Delete
+            {{ $t('tables.delete') }}
           </va-button>
         </template>
       </va-table>
@@ -37,13 +37,13 @@ export default {
         dataClass: 'text-center',
       }, {
         name: 'fullName',
-        title: 'Name',
+        title: this.$t('tables.headings.name'),
       }, {
         name: 'email',
-        title: 'Email',
+        title: this.$t('tables.headings.email'),
       }, {
         name: 'country',
-        title: 'Country',
+        title: this.$t('tables.headings.country'),
       }, {
         name: '__slot:actions',
         dataClass: 'text-right',

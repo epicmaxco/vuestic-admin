@@ -119,12 +119,10 @@
       "teamMembers": "team members"
     },
     "table": {
-      "search": "Search by name, email",
+      "title": "Awesome table",
       "brief": "Brief",
       "detailed": "Detailed",
-      "export": "Export",
-      "perPage": "Per Page",
-      "verified": "Verified"
+      "resolve": "Resolve"
     },
     "tabs": {
       "overview": {
@@ -395,19 +393,32 @@
   },
   "tables": {
     "basic": "Basic Table",
-    "styled": "Colors, Icons, Labels",
-    "advanced": "Search & Pagination",
+    "stripedHoverable": "Striped, Hoverable",
+    "labelsActions": "Labels, Actions as Buttons",
+    "sortingPaginationActionsAsIcons": "Sorting, Pagination, Actions as Icons",
+    "star": "Star",
+    "unstar": "Unstar",
+    "edit": "Edit",
+    "delete": "Delete",
+    "searchByName": "Search by name",
+    "searchTrendsBadges": "Search, Trends, Badges",
+    "perPage": "Per Page",
+    "report": "Report",
+    "infiniteScroll": "Infinite Scroll",
+    "selectable": "Selectable",
+    "selected": "Selected",
+    "serverSidePagination": "Server-Side Pagination",
+    "emptyTable": "Empty Table",
+    "noDataAvailable": "No Data Available.",
+    "noReport": "There is no data to display. Report will be available on November 3, 2018.",
+    "loading": "Loading",
     "headings": {
-      "city": "City",
       "email": "Email",
       "name": "Name",
-      "score": "Score",
-      "submits": "Submits",
+      "firstName": "First Name",
+      "lastName": "Last Name",
       "status": "Status",
       "country": "Country"
-    },
-    "dataTable": {
-      "noDataAvailable": "No Data Available"
     }
   },
   "user": {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <va-card title="Colored Backgrounds, Infinite Scroll">
+    <va-card :title="$t('tables.infiniteScroll')">
       <div class="scrollable" ref="scrollable" @scroll="onScroll">
         <va-table
           :fields="fields"
@@ -45,13 +45,13 @@ export default {
         dataClass: 'text-center',
       }, {
         name: 'fullName',
-        title: 'Name',
+        title: this.$t('tables.headings.name'),
       }, {
         name: 'email',
-        title: 'Email',
+        title: this.$t('tables.headings.email'),
       }, {
         name: 'country',
-        title: 'Country',
+        title: this.$t('tables.headings.country'),
       }],
     }
   },

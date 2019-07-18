@@ -1,6 +1,6 @@
 <template>
   <div>
-    <va-card title="Loading">
+    <va-card :title="$t('tables.loading')">
       <va-table
         :fields="fields"
         :data="data"
@@ -19,13 +19,13 @@ export default {
       users: users,
       fields: [{
         name: 'fullName',
-        title: 'Name',
+        title: this.$t('tables.headings.name'),
       }, {
         name: 'email',
-        title: 'Email',
+        title: this.$t('tables.headings.email'),
       }, {
         name: 'country',
-        title: 'Country',
+        title: this.$t('tables.headings.country'),
       }],
     }
   },

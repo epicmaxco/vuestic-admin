@@ -1,6 +1,6 @@
 <template>
   <div>
-    <va-card title="Sorting, Pagination, Actions as Icons">
+    <va-card :title="$t('tables.sortingPaginationActionsAsIcons')">
       <va-table
         :fields="fields"
         :data="data"
@@ -16,11 +16,11 @@
             />
           </va-popover>
 
-          <va-popover :message="`Edit ${props.rowData.fullName}`" placement="top">
+          <va-popover :message="`${$t('tables.edit')} ${props.rowData.fullName}`" placement="top">
             <va-button flat small color="gray" icon="fa fa-pencil" />
           </va-popover>
 
-          <va-popover :message="`Remove ${props.rowData.fullName}`" placement="top">
+          <va-popover :message="`${$t('tables.delete')} ${props.rowData.fullName}`" placement="top">
             <va-button flat small color="gray" icon="fa fa-trash" />
           </va-popover>
         </template>
@@ -38,16 +38,16 @@ export default {
       users: users,
       fields: [{
         name: 'fullName',
-        title: 'Name',
+        title: this.$t('tables.headings.name'),
         sortField: 'fullName',
         width: '25%',
       }, {
         name: 'email',
-        title: 'Email',
+        title: this.$t('tables.headings.email'),
         width: '30%',
       }, {
         name: 'country',
-        title: 'Country',
+        title: this.$t('tables.headings.country'),
         sortField: 'country',
         width: '25%',
       }, {
@@ -66,7 +66,7 @@ export default {
   },
   methods: {
     getStarMessage (user) {
-      const actionName = user.starred ? 'Unstar' : 'Star'
+      const actionName = user.starred ? this.$t('tables.unstar') : this.$t('tables.star')
       return `${actionName} ${user.fullName}`
     },
     getStarColor (user) {

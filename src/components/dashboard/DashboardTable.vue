@@ -1,6 +1,6 @@
 <template>
   <div>
-    <va-card title="Awesome Table">
+    <va-card :title="$t('dashboard.table.title')">
       <va-table
         :fields="fields"
         :data="filteredData"
@@ -11,7 +11,7 @@
           <div class="flex pb-0">
             <va-input
               :value="term"
-              placeholder="Search by name"
+              :placeholder="$t('tables.searchByName')"
               style="minWidth: 260px"
               @input="search"
             >
@@ -49,7 +49,7 @@
             class="ma-0"
             @click="resolveUser(props.rowData)"
           >
-            Resolve
+            {{ $t('dashboard.table.resolve') }}
           </va-button>
         </template>
       </va-table>
@@ -70,10 +70,10 @@ export default {
       mode: 0,
       modeOptions: [{
         value: 0,
-        label: 'Brief',
+        label: this.$t('dashboard.table.brief'),
       }, {
         value: 1,
-        label: 'Detailed',
+        label: this.$t('dashboard.table.detailed'),
       }],
       fields: [{
         name: '__slot:icon',
@@ -81,15 +81,15 @@ export default {
         dataClass: 'text-center',
       }, {
         name: 'name',
-        title: 'Name',
+        title: this.$t('tables.headings.name'),
         width: '30%',
       }, {
         name: 'email',
-        title: 'Email',
+        title: this.$t('tables.headings.email'),
         width: '30%',
       }, {
         name: '__slot:status',
-        title: 'Status',
+        title: this.$t('tables.headings.status'),
         width: '20%',
         sortField: 'status',
       }, {

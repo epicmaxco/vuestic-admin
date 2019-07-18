@@ -10,7 +10,7 @@
         :data="apiMode ? data : undefined"
         :data-manager="apiMode ? undefined : dataManager"
         :pagination-path="apiMode ? '' : 'pagination'"
-        :no-data-template="noDataLabel"
+        :no-data-template="noDataLabel || $t('tables.noDataAvailable')"
         :css="styles"
         :row-class="rowClass"
         @vuetable:row-clicked="rowClicked"
@@ -123,16 +123,13 @@ export default {
   },
   methods: {
     dataManager (sortOrder, pagination) {
-      let sorted = JSON.parse(JSON.stringify(this.data))
+      let sorted = []
 
-      if (sortOrder.length) {
+      if (!sortOrder.length) {
+        sorted = this.data
+      } else {
         const { sortField, direction } = sortOrder[0]
-
-        if (direction === 'asc') {
-          this.sortAsc(sorted, sortField)
-        } else {
-          this.sortDesc(sorted, sortField)
-        }
+        sorted = direction === 'asc' ? this.sortAsc(this.data, sortField) : this.sortDesc(this.data, sortField)
       }
 
       pagination = this.buildPagination(sorted.length, this.perPage)
@@ -145,12 +142,12 @@ export default {
       }
     },
     sortAsc (items, field) {
-      items.sort((a, b) => {
+      return items.slice().sort((a, b) => {
         return a[field].localeCompare(b[field])
       })
     },
     sortDesc (items, field) {
-      items.sort((a, b) => {
+      return items.slice().sort((a, b) => {
         return b[field].localeCompare(a[field])
       })
     },
