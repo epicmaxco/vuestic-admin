@@ -45,6 +45,7 @@
           class="va-slider__container__handler"
           :style="dottedStyles[0]"
           @mousedown="moveStart($event, 0)"
+          tabindex="0"
         >
           <div
             v-if="valueVisible"
@@ -59,6 +60,7 @@
           class="va-slider__container__handler"
           :style="dottedStyles[1]"
           @mousedown="moveStart($event, 1)"
+          tabindex="0"
         >
           <div
             v-if="valueVisible"
@@ -79,6 +81,7 @@
           class="va-slider__container__handler"
           :style="dottedStyles"
           @mousedown="moveStart"
+          tabindex="0"
         >
           <div
             v-if="valueVisible"
@@ -298,11 +301,13 @@ export default {
       document.addEventListener('mousemove', this.moving)
       document.addEventListener('mouseup', this.moveEnd)
       document.addEventListener('mouseleave', this.moveEnd)
+      document.addEventListener('keydown', this.moveWithKeys)
     },
     unbindEvents () {
       document.removeEventListener('mousemove', this.moving)
       document.removeEventListener('mouseup', this.moveEnd)
       document.removeEventListener('mouseleave', this.moveEnd)
+      document.removeEventListener('keydown', this.moveWithKeys)
     },
     moveStart (e, index) {
       if (this.isRange) {
@@ -328,6 +333,24 @@ export default {
           return false
         }
         this.flag = false
+      }
+    },
+    moveWithKeys (event) {
+      // don't do anything if a dot isn't focused of if the slider's disabled
+      if (![this.$refs.dot0, this.$refs.dot1, this.$refs.dot].includes(document.activeElement)) return
+      if (this.disabled) return
+
+      if (this.range) {
+        if (this.$refs.dot0 === document.activeElement) { // left dot
+          if (event.keyCode === 37) this.val.splice(0, 1, this.val[0] - this.step)
+          if (event.keyCode === 39) this.val.splice(0, 1, this.val[0] + this.step)
+        } else if (this.$refs.dot1 === document.activeElement) { // right dot
+          if (event.keyCode === 37) this.val.splice(1, 1, this.val[1] - this.step)
+          if (event.keyCode === 39) this.val.splice(1, 1, this.val[1] + this.step)
+        }
+      } else {
+        if (event.keyCode === 37) this.val -= this.step
+        if (event.keyCode === 39) this.val += this.step
       }
     },
     wrapClick (e) {
