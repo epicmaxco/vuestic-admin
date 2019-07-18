@@ -1,11 +1,11 @@
 <template>
-  <nav class="va-navbar position-relative">
+  <nav class="va-navbar">
     <div
       class="va-navbar__icon-container">
       <slot name="selector"></slot>
     </div>
     <div
-      class="va-navbar__logo va-row align--center position-absolute mr-3">
+      class="va-navbar__logo va-row align--center mr-3">
       <router-link class="" to="/">
         <slot name="logo"/>
       </router-link>
@@ -42,6 +42,7 @@ $nav-shape-bg: #0a43af;
 $nav-border-side-width: 3.1875rem;
 
 .va-navbar {
+  position: relative;
   height: $top-nav-height;
   padding-left: $nav-padding-left;
   padding-right: $nav-padding-right;
@@ -62,6 +63,7 @@ $nav-border-side-width: 3.1875rem;
   }
 
   &__logo {
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 3.5rem;

@@ -6,7 +6,7 @@
     </template>
     <template slot="center">
       <div class="va-row flex-nowrap align--center justify--space-between">
-        <span class="va-navbar__text">{{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co" target="_blank">hello@epicmax.co</a></span>
+        <span class="va-navbar__text">{{$t('navbar.messageUs')}}&nbsp;<a class="link" href="mailto:hello@epicmax.co" target="_blank">hello@epicmax.co</a></span>
         <div>
           <va-button
             href="https://github.com/epicmaxco/vuestic-admin"
