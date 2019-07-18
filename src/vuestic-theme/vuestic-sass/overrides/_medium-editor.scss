@@ -1,0 +1,10 @@
+.medium-editor-element {
+  h1, h2, h3 {
+    margin: 2rem 0 !important;
+    font-weight: 500 !important;
+  }
+
+  a {
+    @extend .link;
+  }
+}
