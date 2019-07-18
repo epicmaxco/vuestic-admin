@@ -336,7 +336,7 @@ export default {
       }
     },
     moveWithKeys (event) {
-      // don't do anything if a dot isn't focused of if the slider's disabled
+      // don't do anything if a dot isn't focused or if the slider's disabled
       if (![this.$refs.dot0, this.$refs.dot1, this.$refs.dot].includes(document.activeElement)) return
       if (this.disabled) return
 
