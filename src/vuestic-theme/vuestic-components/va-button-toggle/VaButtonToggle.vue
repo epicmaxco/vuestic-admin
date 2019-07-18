@@ -29,7 +29,7 @@ export default {
       type: Array,
     },
     value: {
-      type: String,
+      type: [String, Number],
     },
     outline: {
       type: Boolean,

@@ -122,13 +122,16 @@ export default {
   },
   methods: {
     dataManager (sortOrder, pagination) {
-      let sorted = []
+      let sorted = JSON.parse(JSON.stringify(this.data))
 
-      if (!sortOrder.length) {
-        sorted = this.data
-      } else {
+      if (sortOrder.length) {
         const { sortField, direction } = sortOrder[0]
-        sorted = direction === 'asc' ? this.sortAsc(this.data, sortField) : this.sortDesc(this.data, sortField)
+
+        if (direction === 'asc') {
+          this.sortAsc(sorted, sortField)
+        } else {
+          this.sortDesc(sorted, sortField)
+        }
       }
 
       pagination = this.buildPagination(sorted.length, this.perPage)
@@ -141,12 +144,12 @@ export default {
       }
     },
     sortAsc (items, field) {
-      return items.sort((a, b) => {
+      items.sort((a, b) => {
         return a[field].localeCompare(b[field])
       })
     },
     sortDesc (items, field) {
-      return items.sort((a, b) => {
+      items.sort((a, b) => {
         return b[field].localeCompare(a[field])
       })
     },

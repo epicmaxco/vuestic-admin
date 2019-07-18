@@ -60,7 +60,7 @@ import data from './data.json'
 export default {
   data () {
     return {
-      users: data,
+      users: data.slice(0, 8),
     }
   },
   methods: {
