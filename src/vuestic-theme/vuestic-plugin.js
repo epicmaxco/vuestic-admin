@@ -1,6 +1,5 @@
 import VaAccordion from './vuestic-components/va-collapse/VaAccordion'
 import VaBadge from './vuestic-components/va-chip/VaBadge.vue'
-import VaBreadcrumbs from './vuestic-components/va-breadcrumbs/VaBreadcrumbs.vue'
 import VaButton from './vuestic-components/va-button/VaButton.vue'
 import VaButtonGroup from './vuestic-components/va-button-group/VaButtonGroup.vue'
 import VaButtonToggle from './vuestic-components/va-button-toggle/VaButtonToggle.vue'
@@ -65,7 +64,6 @@ const VuesticPlugin = {
     [
       VaAccordion,
       VaBadge,
-      VaBreadcrumbs,
       VaButton,
       VaButtonGroup,
       VaButtonToggle,
