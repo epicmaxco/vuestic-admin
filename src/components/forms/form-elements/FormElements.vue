@@ -238,13 +238,6 @@
               </div>
               <div class="flex mb3">
                 <fieldset>
-                  <va-switch v-model="isMale">
-                    <span
-                      slot="trueTitle">{{ $t('forms.controls.male') }}</span>
-                    <span slot="falseTitle">{{ $t('forms.controls.female') }}</span>
-                  </va-switch>
-                </fieldset>
-                <fieldset>
                   <va-toggle
                     v-model="toggles.selected"
                     label="Selected toggle"
