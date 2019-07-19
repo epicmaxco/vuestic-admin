@@ -3,8 +3,7 @@
     no-padding
     class="va-list"
     :class="{
-      'va-list--fit': fit,
-      'va-list--clickable': clickable
+      'va-list--fit': fit
     }"
   >
     <slot />
@@ -16,7 +15,6 @@ export default {
   name: 'va-list',
   props: {
     fit: Boolean,
-    clickable: Boolean,
   },
 }
 </script>
@@ -28,14 +26,5 @@ export default {
 
   .va-list--fit {
     width: 100%;
-  }
-
-  .va-list--clickable {
-    /deep/ .va-item {
-      &:hover {
-        background-color: $light-gray3;
-        cursor: pointer;
-      }
-    }
   }
 </style>

@@ -6,7 +6,7 @@
       </va-list-label>
 
       <template v-for="(customer, i) in customers">
-        <va-item :key="'item' + customer.id">
+        <va-item :key="'item' + customer.id" :to="`customers/${customer.id}`">
           <va-item-section avatar>
             <va-avatar>
               <img :src="customer.picture" :alt="customer.name">
@@ -32,7 +32,7 @@
       </template>
     </va-list>
 
-    <va-list fit style="maxWidth: 400px" clickable class="mb-2">
+    <va-list fit style="maxWidth: 400px" class="mb-2">
       <va-list-label>
         Recent Messages
       </va-list-label>
@@ -95,12 +95,12 @@
       </template>
     </va-list>
 
-    <va-list fit style="maxWidth: 400px" clickable class="mb-2">
+    <va-list fit style="maxWidth: 400px" class="mb-2">
       <va-list-label>
         Starter kit
       </va-list-label>
 
-      <va-item>
+      <va-item clickable>
         <va-item-section>
           <va-item-label>
             Add profile images
@@ -112,7 +112,7 @@
         </va-item-section>
       </va-item>
 
-      <va-item>
+      <va-item clickable>
         <va-item-section>
           <va-item-label>
             Invite friends

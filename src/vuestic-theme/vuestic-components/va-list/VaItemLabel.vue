@@ -18,6 +18,8 @@ export default {
 
 <style lang="scss" scoped>
   .va-item-label {
+    color: $vue-darkest-blue;
+
     &--caption {
       font-size: $font-size-smaller;
       color: $brand-secondary;

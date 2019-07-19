@@ -2,15 +2,12 @@
 Easy-to-use List component with support for icons, avatars, item selection.
 
 ```html
-<va-list
-  fit
-  clickable
->
+<va-list fit>
   <va-list-label color="primary">
     Customers
   </va-list-label>
 
-  <va-item>
+  <va-item clickable to="/foo/1">
     <va-item-section side>
       <va-icon name="fa fa-star" />
     </va-item-section>
@@ -36,7 +33,10 @@ Easy-to-use List component with support for icons, avatars, item selection.
 
 **VaList Props**
 * `fit` - Boolean - full width
+
+**VaItem Props**
 * `clickable` - Boolean - make list items clickable
+* `to` - String - use item as router-link
 
 **VaListLabel Props**
 * `color`- String (default: info) - theme or color
