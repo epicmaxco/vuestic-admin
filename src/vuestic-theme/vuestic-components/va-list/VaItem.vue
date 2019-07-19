@@ -2,8 +2,9 @@
   <component
     :is="to ? 'router-link' : 'div'"
     :to="to"
-    class="va-item va-row align--center no-wrap"
+    class="va-item align--center no-wrap"
     :class="{'va-item--clickable': clickable || to}"
+    @click="$emit('click')"
   >
     <slot />
   </component>
@@ -22,6 +23,7 @@ export default {
 
 <style lang="scss" scoped>
   .va-item {
+    display: flex;
     padding: $list-item-padding;
   }
 

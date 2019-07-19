@@ -1,175 +1,193 @@
 <template>
   <vb-demo>
-    <va-list fit style="maxWidth: 400px" class="mb-2">
+    <va-list fit style="maxWidth: 400px" class="ma-2">
       <va-list-label>
-        Customers
+        Basic
       </va-list-label>
 
-      <template v-for="(customer, i) in customers">
-        <va-item :key="'item' + customer.id" :to="`customers/${customer.id}`">
-          <va-item-section avatar>
-            <va-avatar>
-              <img :src="customer.picture" :alt="customer.name">
-            </va-avatar>
-          </va-item-section>
+      <va-item>
+        <va-item-section avatar>
+          <va-avatar>
+            <img src="https://randomuser.me/api/portraits/women/5.jpg">
+          </va-avatar>
+        </va-item-section>
 
-          <va-item-section>
-            <va-item-label>
-              {{ customer.name }}
-            </va-item-label>
+        <va-item-section>
+          <va-item-label>
+            Audrey Clay
+          </va-item-label>
 
-            <va-item-label caption>
-              {{ customer.address }}
-            </va-item-label>
-          </va-item-section>
+          <va-item-label caption>
+            644 Vermont Court, Freelandville, Kentucky, 2619
+          </va-item-label>
+        </va-item-section>
 
-          <va-item-section side>
-            <va-icon name="fa fa-eye" color="gray" />
-          </va-item-section>
-        </va-item>
+        <va-item-section side>
+          <va-icon name="fa fa-eye" color="gray" />
+        </va-item-section>
+      </va-item>
 
-        <va-list-separator v-if="i < customers.length - 1" :key="'separator' + customer.id" />
-      </template>
+      <va-list-separator></va-list-separator>
+
+      <va-item>
+        <va-item-section avatar>
+          <va-avatar>
+            <img src="https://randomuser.me/api/portraits/men/3.jpg">
+          </va-avatar>
+        </va-item-section>
+
+        <va-item-section>
+          <va-item-label>
+            Aguirre Klein
+          </va-item-label>
+
+          <va-item-label caption>
+            626 Carroll Street, Roulette, Ohio, 1477
+          </va-item-label>
+        </va-item-section>
+
+        <va-item-section side>
+          <va-icon name="fa fa-eye" color="gray" />
+        </va-item-section>
+      </va-item>
     </va-list>
 
-    <va-list fit style="maxWidth: 400px" class="mb-2">
+    <va-list fit style="maxWidth: 400px" class="ma-2">
       <va-list-label>
-        Recent Messages
-      </va-list-label>
-
-      <template v-for="(customer, i) in customers">
-        <va-item :key="'item' + customer.id">
-          <va-item-section side>
-            <va-icon v-if="customer.starred" name="fa fa-star" color="warning" />
-          </va-item-section>
-
-          <va-item-section avatar>
-            <va-avatar>
-              <img :src="customer.picture" :alt="customer.name">
-            </va-avatar>
-          </va-item-section>
-
-          <va-item-section>
-            <va-item-label>
-              {{ customer.name }}
-            </va-item-label>
-          </va-item-section>
-
-          <va-item-section side>
-            <va-icon
-              :name="getGenderIcon(customer.gender)"
-              :color="getGenderColor(customer.gender)"
-            />
-          </va-item-section>
-        </va-item>
-
-        <va-list-separator v-if="i < customers.length - 1" :key="'separator' + customer.id" />
-      </template>
-
-      <va-list-separator fit spaced />
-
-      <va-list-label color="gray">
-        Archived
-      </va-list-label>
-
-      <template v-for="(customer, i) in archived">
-        <va-item :key="'item' + customer.id">
-          <va-item-section side>
-            <va-icon v-if="customer.starred" name="fa fa-star" color="warning" />
-          </va-item-section>
-
-          <va-item-section avatar>
-            <va-avatar>
-              <img :src="customer.picture" :alt="customer.name">
-            </va-avatar>
-          </va-item-section>
-
-          <va-item-section>
-            <va-item-label>
-              {{ customer.name }}
-            </va-item-label>
-          </va-item-section>
-        </va-item>
-
-        <va-list-separator v-if="i < archived.length - 1" :key="'separator' + customer.id" />
-      </template>
-    </va-list>
-
-    <va-list fit style="maxWidth: 400px" class="mb-2">
-      <va-list-label>
-        Starter kit
+        Aligned, Clickable
       </va-list-label>
 
       <va-item clickable>
+        <va-item-section side>
+          <va-icon name="fa fa-star" color="warning" />
+        </va-item-section>
+
+        <va-item-section avatar>
+          <va-avatar>
+            <img src="https://randomuser.me/api/portraits/women/5.jpg">
+          </va-avatar>
+        </va-item-section>
+
         <va-item-section>
           <va-item-label>
-            Add profile images
+            Audrey Clay
           </va-item-label>
 
           <va-item-label caption>
-            You can use PNG or JPG files.
+            644 Vermont Court, Freelandville, Kentucky, 2619
           </va-item-label>
         </va-item-section>
+
+        <va-item-section side>
+          <va-icon name="fa fa-eye" color="gray" />
+        </va-item-section>
       </va-item>
+
+      <va-list-separator></va-list-separator>
 
       <va-item clickable>
+        <va-item-section side>
+        </va-item-section>
+
+        <va-item-section avatar>
+          <va-avatar>
+            <img src="https://randomuser.me/api/portraits/men/3.jpg">
+          </va-avatar>
+        </va-item-section>
+
         <va-item-section>
           <va-item-label>
-            Invite friends
+            Aguirre Klein
           </va-item-label>
 
           <va-item-label caption>
-            You can send invitations via email or any messenger.
+            626 Carroll Street, Roulette, Ohio, 1477
           </va-item-label>
+        </va-item-section>
+
+        <va-item-section side>
+          <va-icon name="fa fa-eye" color="gray" />
+        </va-item-section>
+      </va-item>
+    </va-list>
+
+    <va-list fit style="maxWidth: 400px" class="ma-2">
+      <va-list-label>
+        Router Support
+      </va-list-label>
+
+      <va-item to="/foo">
+        <va-item-section avatar>
+          <va-avatar>
+            <img src="https://randomuser.me/api/portraits/women/5.jpg">
+          </va-avatar>
+        </va-item-section>
+
+        <va-item-section>
+          <va-item-label>
+            Audrey Clay
+          </va-item-label>
+
+          <va-item-label caption>
+            644 Vermont Court, Freelandville, Kentucky, 2619
+          </va-item-label>
+        </va-item-section>
+
+        <va-item-section side>
+          <va-icon name="fa fa-eye" color="gray" />
         </va-item-section>
       </va-item>
 
-      <va-list-separator fit spaced />
+      <va-list-separator></va-list-separator>
 
+      <va-item to="/bar">
+        <va-item-section avatar>
+          <va-avatar>
+            <img src="https://randomuser.me/api/portraits/men/3.jpg">
+          </va-avatar>
+        </va-item-section>
+
+        <va-item-section>
+          <va-item-label>
+            Aguirre Klein
+          </va-item-label>
+
+          <va-item-label caption>
+            626 Carroll Street, Roulette, Ohio, 1477
+          </va-item-label>
+        </va-item-section>
+
+        <va-item-section side>
+          <va-icon name="fa fa-eye" color="gray" />
+        </va-item-section>
+      </va-item>
+    </va-list>
+
+    <va-list fit style="maxWidth: 400px" class="ma-2">
       <va-list-label>
-        Notifications
+        Selectable
       </va-list-label>
 
       <va-item>
         <va-item-section side>
-          <va-checkbox v-model="appBanners" />
+          <va-checkbox v-model="check1" />
         </va-item-section>
 
         <va-item-section>
           <va-item-label>
-            Application Banners
-          </va-item-label>
-
-          <va-item-label caption>
-            You can send invitations via email or any messenger.
+            Audrey Clay
           </va-item-label>
         </va-item-section>
       </va-item>
 
       <va-item>
         <va-item-section side>
-          <va-checkbox v-model="banners" />
+          <va-checkbox v-model="check2" />
         </va-item-section>
 
         <va-item-section>
           <va-item-label>
-            Banners
-          </va-item-label>
-
-          <va-item-label caption>
-            You can send invitations via email or any messenger.
-          </va-item-label>
-        </va-item-section>
-      </va-item>
-
-      <va-item>
-        <va-item-section side>
-          <va-checkbox v-model="notifications" />
-        </va-item-section>
-
-        <va-item-section>
-          <va-item-label>
-            Midnight Notifications
+            Aguirre Klein
           </va-item-label>
         </va-item-section>
       </va-item>
@@ -178,25 +196,14 @@
 </template>
 
 <script>
-import data from './data.json'
-
 export default {
   data () {
     return {
-      customers: data.slice(0, 5),
-      archived: data.slice(5, 8),
       appBanners: false,
       banners: false,
-      notifications: true,
+      check1: true,
+      check2: false,
     }
-  },
-  methods: {
-    getGenderIcon (gender) {
-      return gender === 'male' ? 'fa fa-mars' : 'fa fa-venus'
-    },
-    getGenderColor (gender) {
-      return gender === 'male' ? 'blue' : 'pink'
-    },
   },
 }
 </script>

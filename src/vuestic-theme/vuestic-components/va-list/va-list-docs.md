@@ -7,7 +7,7 @@ Easy-to-use List component with support for icons, avatars, item selection.
     Customers
   </va-list-label>
 
-  <va-item clickable to="/foo/1">
+  <va-item clickable to="/foo/1" @click="notify">
     <va-item-section side>
       <va-icon name="fa fa-star" />
     </va-item-section>

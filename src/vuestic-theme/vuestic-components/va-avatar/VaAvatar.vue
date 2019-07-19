@@ -1,5 +1,5 @@
 <template>
-  <div class="va-avatar va-row column justify--center align--center">
+  <div class="va-avatar">
     <slot />
   </div>
 </template>
@@ -12,6 +12,7 @@ export default {
 
 <style lang="scss" scoped>
   .va-avatar {
+    display: flex;
     width: 48px;
     height: 48px;
     border-radius: 50%;
