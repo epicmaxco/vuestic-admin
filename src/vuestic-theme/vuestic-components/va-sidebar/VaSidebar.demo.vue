@@ -43,7 +43,7 @@ import SidebarLinkGroup
   from './../../../components/admin/app-sidebar/components/SidebarLinkGroup'
 import SidebarLink
   from './../../../components/admin/app-sidebar/components/SidebarLink'
-import { navigationRoutes } from '../../../components/admin/app-breadcrumbs/NavigationRoutes'
+import { navigationRoutes } from '../../../components/admin/app-sidebar/NavigationRoutes'
 import VaToggle from '../va-toggle/VaToggle'
 
 export default {

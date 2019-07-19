@@ -1,6 +1,5 @@
 import VaAccordion from './vuestic-components/va-collapse/VaAccordion'
 import VaBadge from './vuestic-components/va-chip/VaBadge.vue'
-import VaBreadcrumbs from './vuestic-components/va-breadcrumbs/VaBreadcrumbs.vue'
 import VaButton from './vuestic-components/va-button/VaButton.vue'
 import VaButtonGroup from './vuestic-components/va-button-group/VaButtonGroup.vue'
 import VaButtonToggle from './vuestic-components/va-button-toggle/VaButtonToggle.vue'
@@ -36,7 +35,6 @@ import VaSeparator from './vuestic-components/va-card/VaSeparator'
 import VaSimpleSelect from './vuestic-components/va-simple-select/VaSimpleSelect.vue'
 import VaSlider from './vuestic-components/va-slider/VaSlider.vue'
 import VaSocialNews from './vuestic-components/va-social-news/VaSocialNews.vue'
-import VaSwitch from './vuestic-components/va-switch/VaSwitch.vue'
 import VaTab from './vuestic-components/va-tabs/VaTab.vue'
 import VaTabs from './vuestic-components/va-tabs/VaTabs.vue'
 import VaTimeline from './vuestic-components/va-timeline/VaTimeline'
@@ -65,7 +63,6 @@ const VuesticPlugin = {
     [
       VaAccordion,
       VaBadge,
-      VaBreadcrumbs,
       VaButton,
       VaButtonGroup,
       VaButtonToggle,
@@ -102,7 +99,6 @@ const VuesticPlugin = {
       VaSimpleSelect,
       VaSlider,
       VaSocialNews,
-      VaSwitch,
       VaTab,
       VaTabs,
       VaTimeline,

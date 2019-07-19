@@ -101,7 +101,7 @@ import SidebarLinkGroup
   from './../../../components/admin/app-sidebar/components/SidebarLinkGroup'
 import SidebarLink
   from './../../../components/admin/app-sidebar/components/SidebarLink'
-import { navigationRoutes } from '../../../components/admin/app-breadcrumbs/NavigationRoutes'
+import { navigationRoutes } from '../../../components/admin/app-sidebar/NavigationRoutes'
 import VaRating from '../../vuestic-components/va-rating/VaRating'
 import SquareWithIcon from '../../vuestic-components/va-tree-view/SquareWithIcon/SquareWithIcon'
 import VaTreeRoot from '../../vuestic-components/va-tree-view/VaTreeRoot'
