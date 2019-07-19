@@ -17,9 +17,6 @@
     "text": "If you feel that it’s not right, please send us a message at ",
     "back_button": "Back to dashboard"
   },
-  "breadcrumbs": {
-    "home": "Home"
-  },
   "rating": {
     "singleIcon": "Single Icon",
     "twoIcons": "Two Icons",
@@ -199,8 +196,6 @@
   },
   "forms": {
     "controls": {
-      "female": "Female",
-      "male": "Male",
       "title": "Checkboxes, Radios, Switches, Toggles",
       "radioDisabled": "Disabled Radio",
       "radio": "Radio",

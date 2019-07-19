@@ -11,9 +11,6 @@
     "termsOfUse": "Termos de uso.",
     "welcome": "Bem vindo!"
   },
-  "breadcrumbs": {
-    "home": "Início"
-  },
   "buttons": {
     "advanced": "Icones, Grupos, Dropdowns",
     "button": "BOTÃO",
@@ -75,8 +72,6 @@
   },
   "forms": {
     "controls": {
-      "female": "Feminino",
-      "male": "Masculino",
       "title": "Checkboxes, Radios, Switches",
       "radioDisabled": "Radio Desabilitado",
       "radio": "Radio",
