@@ -63,6 +63,13 @@ import { installQuasarPlatform } from './vuestic-components/va-popup/quasar/inst
 import { DropdownPopperPlugin } from './vuestic-components/va-dropdown/dropdown-popover-subplugin'
 import VaDropdown from './vuestic-components/va-dropdown/VaDropdown'
 import VaSeparator from './vuestic-components/va-card/VaSeparator'
+import VaAvatar from './vuestic-components/va-avatar/VaAvatar'
+import VaList from './vuestic-components/va-list/VaList'
+import VaListLabel from './vuestic-components/va-list/VaListLabel'
+import VaListSeparator from './vuestic-components/va-list/VaListSeparator'
+import VaItem from './vuestic-components/va-list/VaItem'
+import VaItemLabel from './vuestic-components/va-list/VaItemLabel'
+import VaItemSection from './vuestic-components/va-list/VaItemSection'
 
 import { BusPlugin } from 'vue-epic-bus'
 import { DebounceLoader } from 'asva-executors'
@@ -121,6 +128,13 @@ const VuesticPlugin = {
       VaInput,
       VaDropdown,
       VaSeparator,
+      VaAvatar,
+      VaList,
+      VaListLabel,
+      VaItem,
+      VaListSeparator,
+      VaItemLabel,
+      VaItemSection,
     ].forEach(component => {
       Vue.component(component.name, component)
     })
