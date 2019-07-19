@@ -94,6 +94,86 @@
         <va-list-separator v-if="i < archived.length - 1" :key="'separator' + customer.id" />
       </template>
     </va-list>
+
+    <va-list fit style="maxWidth: 400px" clickable class="mb-2">
+      <va-list-label>
+        Starter kit
+      </va-list-label>
+
+      <va-item>
+        <va-item-section>
+          <va-item-label>
+            Add profile images
+          </va-item-label>
+
+          <va-item-label caption>
+            You can use PNG or JPG files.
+          </va-item-label>
+        </va-item-section>
+      </va-item>
+
+      <va-item>
+        <va-item-section>
+          <va-item-label>
+            Invite friends
+          </va-item-label>
+
+          <va-item-label caption>
+            You can send invitations via email or any messenger.
+          </va-item-label>
+        </va-item-section>
+      </va-item>
+
+      <va-list-separator fit spaced />
+
+      <va-list-label>
+        Notifications
+      </va-list-label>
+
+      <va-item>
+        <va-item-section side>
+          <va-checkbox v-model="appBanners" />
+        </va-item-section>
+
+        <va-item-section>
+          <va-item-label>
+            Application Banners
+          </va-item-label>
+
+          <va-item-label caption>
+            You can send invitations via email or any messenger.
+          </va-item-label>
+        </va-item-section>
+      </va-item>
+
+      <va-item>
+        <va-item-section side>
+          <va-checkbox v-model="banners" />
+        </va-item-section>
+
+        <va-item-section>
+          <va-item-label>
+            Banners
+          </va-item-label>
+
+          <va-item-label caption>
+            You can send invitations via email or any messenger.
+          </va-item-label>
+        </va-item-section>
+      </va-item>
+
+      <va-item>
+        <va-item-section side>
+          <va-checkbox v-model="notifications" />
+        </va-item-section>
+
+        <va-item-section>
+          <va-item-label>
+            Midnight Notifications
+          </va-item-label>
+        </va-item-section>
+      </va-item>
+    </va-list>
   </vb-demo>
 </template>
 
@@ -105,6 +185,9 @@ export default {
     return {
       customers: data.slice(0, 5),
       archived: data.slice(5, 8),
+      appBanners: false,
+      banners: false,
+      notifications: true,
     }
   },
   methods: {
