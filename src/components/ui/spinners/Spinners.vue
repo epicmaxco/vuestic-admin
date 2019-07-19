@@ -7,8 +7,8 @@
       >
         <div class="spinners__customization">
           <div class="va-row">
-            <div class="flex xs12 md3 lg4">
-              <div class="va-row spinners__size">
+            <div class="flex xs12 md6">
+              <div class="va-row spinners__size justify--center ma-0">
                 <h5 class="mt-2 ml-4 mr-3">A</h5>
                 <div class="spinners__size-picker pt-3">
                   <va-slider
@@ -21,8 +21,8 @@
                 <h3 class="mt-1 ml-3">A</h3>
               </div>
             </div>
-            <div class="flex xs12 md3 lg4">
-              <div class="va-row spinners__duration ma-0">
+            <div class="flex xs12 md6">
+              <div class="va-row spinners__duration justify--center ma-0">
                 <div class="spinners__icon-duration-slower mt-1 mr-3">
                   <va-icon-slower/>
                 </div>
@@ -38,13 +38,6 @@
                   <va-icon-faster/>
                 </div>
               </div>
-            </div>
-            <div class="flex md6 lg4 xs4 spinners__color">
-              <va-palette-custom
-                :palette="paletteArray"
-                v-model="color"
-                class="spinners__color-picker"
-              />
             </div>
           </div>
           <div class="va-row">
@@ -110,7 +103,6 @@ export default {
       },
       currentDuration: 1500,
       paletteArray: colorArray,
-      color: '#4AE387',
       sliderSize: {
         formatter: v => `${v}px`,
         min: 40,
@@ -131,6 +123,10 @@ export default {
 
     groups () {
       return this.groupItems(Object.keys(spinners), this.config.group)
+    },
+
+    color () {
+      return this.$themes.secondary
     },
   },
 
