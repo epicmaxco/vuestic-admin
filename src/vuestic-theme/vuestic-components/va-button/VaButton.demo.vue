@@ -32,6 +32,24 @@
             <va-button small>
               Small Button
             </va-button>
+            <va-button outline>
+              Default Button
+            </va-button>
+            <va-button large outline>
+              Large Button
+            </va-button>
+            <va-button small outline>
+              Small Button
+            </va-button>
+            <va-button flat>
+              Default Button
+            </va-button>
+            <va-button flat large>
+              Large Button
+            </va-button>
+            <va-button flat small>
+              Small Button
+            </va-button>
           </td>
         </tr>
         <tr>

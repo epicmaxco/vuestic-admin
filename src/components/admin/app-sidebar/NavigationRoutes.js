@@ -42,10 +42,6 @@ export const navigationRoutes = {
           displayName: 'menu.formElements',
         },
         {
-          name: 'form-wizards',
-          displayName: 'menu.formWizards',
-        },
-        {
           name: 'medium-editor',
           displayName: 'menu.mediumEditor',
         },

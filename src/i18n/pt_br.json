@@ -11,9 +11,6 @@
     "termsOfUse": "Termos de uso.",
     "welcome": "Bem vindo!"
   },
-  "breadcrumbs": {
-    "home": "Início"
-  },
   "buttons": {
     "advanced": "Icones, Grupos, Dropdowns",
     "button": "BOTÃO",
@@ -112,18 +109,6 @@
       "multi": "Selecionar Múltiplos",
       "simple": "Selecionador Simples",
       "title": "Selecionadores"
-    },
-    "wizard": {
-      "name": "Nome",
-      "completed": "Wizard completo!",
-      "confirmSelection": "Confirmar seleção",
-      "rich": "Preencher Wizard",
-      "simple": "Wizard Simples",
-      "stepOne": "Etapa 1. Nome",
-      "stepTwo": "Etapa 2. Região",
-      "stepThree": "Etapa 3. Confirme",
-      "verticalRich": "Preencher Wizard Vertical",
-      "verticalSimple": "Wizard Vertical Simples"
     }
   },
   "grid": {
@@ -156,7 +141,6 @@
     "dashboard": "Painel principal",
     "formElements": "Elementos de Formulários",
     "forms": "Formulários",
-    "formWizards": "Formulários Wizards",
     "mediumEditor": "Editor Medium",
     "grid": "Grid",
     "icons": "Icones",

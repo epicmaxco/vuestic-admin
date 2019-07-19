@@ -37,7 +37,7 @@
 <script>
 import TopbarLink from './components/TopbarLink'
 import TopbarLinkGroup from './components/TopbarLinkGroup'
-import { navigationRoutes } from '../app-breadcrumbs/NavigationRoutes'
+import { navigationRoutes } from '../app-sidebar/NavigationRoutes'
 import VaTopbar from '../../../vuestic-theme/vuestic-components/va-topbar/VaTopbar'
 
 export default {
