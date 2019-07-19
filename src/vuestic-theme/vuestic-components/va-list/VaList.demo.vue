@@ -1,6 +1,6 @@
 <template>
   <vb-demo>
-    <va-list fit style="maxWidth: 400px" clickable class="mb-2">
+    <va-list fit style="maxWidth: 400px" class="mb-2">
       <va-list-label>
         Customers
       </va-list-label>

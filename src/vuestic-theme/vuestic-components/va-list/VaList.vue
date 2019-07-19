@@ -15,9 +15,6 @@
 export default {
   name: 'va-list',
   props: {
-    title: {
-      type: String,
-    },
     fit: Boolean,
     clickable: Boolean,
   },
