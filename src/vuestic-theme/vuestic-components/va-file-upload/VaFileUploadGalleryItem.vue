@@ -8,7 +8,10 @@
 
   <div v-else class="file-upload-gallery-item" :class="notGalleryItemClass">
     <img :src="previewImage" alt="" class="file-upload-gallery-item-image">
-    <div class="file-upload-gallery-item-overlay">
+    <div
+      class="file-upload-gallery-item-overlay"
+      :style="overlayStyle"
+    >
       <div class="file-upload-gallery-item-name" :title="file.name">
         {{ file.name }}
       </div>
@@ -24,6 +27,7 @@
 
 <script>
 import VaFileUploadUndo from './VaFileUploadUndo'
+import { hex2rgb } from '../../../services/color-functions'
 
 export default {
   name: 'file-upload-gallery-item',
@@ -78,6 +82,11 @@ export default {
         'file-upload-gallery-item_not-image': !this.previewImage,
       }
     },
+    overlayStyle () {
+      return {
+        backgroundColor: hex2rgb(this.$themes.primary, 0.8).css,
+      }
+    },
   },
   mounted () {
     this.convertToImg()
@@ -107,7 +116,6 @@ export default {
     left: 0;
     flex-direction: column;
     padding: 0.5rem;
-    background: rgba($vue-green, 0.8);
     z-index: 1;
   }
 
