@@ -143,6 +143,7 @@
     "progressBars": "Barras de Progreso",
     "signUp": "Registrar",
     "statistics": "Estadisticas",
+    "lists": "Listas",
     "tables": "Tablas",
     "typography": "Tipografía",
     "uiElements": "Elementos UI",
@@ -199,6 +200,13 @@
     "circle": "Circulo",
     "horizontal": "Horizontal",
     "colors": "Colores"
+  },
+  "lists": {
+    "customers": "Clientes",
+    "recentMessages": "Mensajes recientes",
+    "archieved": "Archivado",
+    "starterKit": "Kit de inicio",
+    "notifications": "Notificaciones"
   },
   "tables": {
     "basic": "Tabla basica",

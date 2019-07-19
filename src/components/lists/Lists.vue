@@ -2,7 +2,7 @@
   <div>
     <va-list fit style="maxWidth: 400px" class="mb-2">
       <va-list-label>
-        Customers
+        {{ $t('lists.customers') }}
       </va-list-label>
 
       <template v-for="(customer, i) in customers">
@@ -34,7 +34,7 @@
 
     <va-list fit style="maxWidth: 400px" class="mb-2">
       <va-list-label>
-        Recent Messages
+        {{ $t('lists.recentMessages') }}
       </va-list-label>
 
       <template v-for="(customer, i) in customers">
@@ -69,7 +69,7 @@
       <va-list-separator fit spaced />
 
       <va-list-label color="gray">
-        Archived
+        {{ $t('lists.archieved') }}
       </va-list-label>
 
       <template v-for="(customer, i) in archived">
@@ -97,7 +97,7 @@
 
     <va-list fit style="maxWidth: 400px">
       <va-list-label>
-        Starter kit
+        {{ $t('lists.starterKit') }}
       </va-list-label>
 
       <va-item clickable>
@@ -127,7 +127,7 @@
       <va-list-separator fit spaced />
 
       <va-list-label>
-        Notifications
+        {{ $t('lists.notifications') }}
       </va-list-label>
 
       <va-item>
