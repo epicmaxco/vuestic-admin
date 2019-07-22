@@ -3,6 +3,7 @@
     <div
       class="va-file-upload-container__field"
       :class="{'va-file-upload-container__field--dropzone': dropzone}"
+      :style="dropzoneStyle"
     >
       <div
         class="va-file-upload-container__field__text"
@@ -29,6 +30,8 @@
 </template>
 
 <script>
+import { getHoverColor } from '../../../services/color-functions'
+
 export default {
   name: 'va-file-upload-container',
   props: {
@@ -41,6 +44,15 @@ export default {
     },
     type: {
       type: String,
+    },
+  },
+  computed: {
+    dropzoneStyle () {
+      if (!this.dropzone) return
+
+      return {
+        backgroundColor: getHoverColor(this.$themes.primary),
+      }
     },
   },
   methods: {

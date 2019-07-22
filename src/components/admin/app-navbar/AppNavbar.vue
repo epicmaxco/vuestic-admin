@@ -6,7 +6,17 @@
     </template>
     <template slot="center">
       <div class="va-row flex-nowrap align--center justify--space-between">
-        <span class="va-navbar__text">{{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co" target="_blank">hello@epicmax.co</a></span>
+        <span class="va-navbar__text">
+          {{$t('navbar.messageUs')}}&nbsp;
+          <a
+            href="mailto:hello@epicmax.co"
+            target="_blank"
+            class="app-navbar__mailto-link"
+            :style="{color: this.$themes.primary}"
+          >
+            hello@epicmax.co
+          </a>
+        </span>
         <div>
           <va-button
             href="https://github.com/epicmaxco/vuestic-admin"
@@ -21,6 +31,7 @@
       </div>
     </template>
     <div class="app-navbar__actions va-row flex-nowrap align--center">
+      <color-dropdown class="va-navbar__item"/>
       <message-dropdown class="va-navbar__item"/>
       <notification-dropdown class="va-navbar__item"/>
       <!--<settings-dropdown-->
@@ -46,12 +57,14 @@ import ProfileDropdown from './components/dropdowns/ProfileDropdown'
 import NotificationDropdown from './components/dropdowns/NotificationDropdown'
 import MessageDropdown from './components/dropdowns/MessageDropdown'
 import SettingsDropdown from './components/dropdowns/SettingsDropdown'
+import ColorDropdown from './components/dropdowns/ColorDropdown'
 
 export default {
   name: 'app-navbar',
 
   components: {
     SettingsDropdown,
+    ColorDropdown,
     VaIconVuestic,
     VaNavbar,
     HeaderSelector,
@@ -93,6 +106,9 @@ export default {
   }
   &__actions {
     justify-content: flex-end;
+  }
+  &__mailto-link:hover {
+    filter: brightness(85%);
   }
   @include media-breakpoint-down(md) {
     &__button {

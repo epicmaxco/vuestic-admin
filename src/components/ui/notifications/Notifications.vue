@@ -63,8 +63,13 @@
               <fieldset>
                 <div class="form-group">
                   <div class="input-group">
-                    <input id="toast-text" v-model="toastText" required/>
-                    <label class="control-label" for="toast-text">
+                    <input
+                      id="toast-text"
+                      class="control-input"
+                      v-model="toastText"
+                      required
+                    />
+                    <label class="control-label" for="toast-text" :style="{color: this.$themes.primary}">
                       {{ $t('notificationsPage.toasts.textLabel') }}
                     </label>
                     <va-icon name="bar"/>
@@ -74,10 +79,11 @@
                   <div class="input-group">
                     <input
                       id="toast-duration"
+                      class="control-input"
                       type="number"
                       v-model="toastDuration" required
                     />
-                    <label class="control-label" for="toast-duration">
+                    <label class="control-label" for="toast-duration" :style="{color: this.$themes.primary}">
                       {{ $t('notificationsPage.toasts.durationLabel') }}
                     </label>
                     <va-icon name="bar"/>
@@ -85,8 +91,13 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input id="toast-icon" v-model="toastIcon" required/>
-                    <label class="control-label" for="toast-icon">
+                    <input
+                      id="toast-icon"
+                      class="control-input"
+                      v-model="toastIcon"
+                      required
+                    />
+                    <label class="control-label" for="toast-icon" :style="{color: this.$themes.primary}">
                       {{ $t('notificationsPage.toasts.iconLabel') }}
                     </label>
                     <va-icon name="bar"/>
@@ -101,7 +112,7 @@
                     v-model="isToastFullWidth"
                   />
                 </div>
-                <va-button slot="trigger" @click="launchToast">
+                <va-button color="primary" slot="trigger" @click="launchToast">
                   {{ $t('notificationsPage.toasts.launchToast') }}
                 </va-button>
               </fieldset>
@@ -162,3 +173,9 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.control-input:invalid:not(:focus) + .control-label {
+  color: #b3b3b3 !important;
+}
+</style>
