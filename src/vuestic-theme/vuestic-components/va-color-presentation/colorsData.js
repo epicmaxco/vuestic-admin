@@ -1,4 +1,4 @@
-export const mainThemeColors = [
+export const themeColors = [
   {
     color: 'primary',
     name: 'Primary',

@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import VuesticTooltip from '../va-tooltip/VaTooltip'
+import VaTooltip from '../va-popover/VaPopover'
 import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
 
 // NOTE This component is a tad weird.
@@ -28,7 +28,7 @@ import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
 
 export default {
   name: 'va-color-presentation',
-  components: { VuesticTooltip },
+  components: { VaTooltip },
   mixins: [ ColorThemeMixin ],
   props: {
     color: {

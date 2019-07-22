@@ -133,6 +133,10 @@ export const navigationRoutes = {
           displayName: 'menu.treeView',
         },
         {
+          name: 'colors',
+          displayName: 'menu.colors',
+        },
+        {
           name: 'spacing',
           displayName: 'menu.spacing',
         },
