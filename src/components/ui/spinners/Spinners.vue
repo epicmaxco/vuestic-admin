@@ -7,7 +7,7 @@
       >
         <div class="spinners__customization">
           <div class="va-row">
-            <div class="flex xs12 md6">
+            <div class="flex xs12 md4">
               <div class="va-row spinners__size justify--center ma-0">
                 <h5 class="mt-2 ml-4 mr-3">A</h5>
                 <div class="spinners__size-picker pt-3">
@@ -21,7 +21,7 @@
                 <h3 class="mt-1 ml-3">A</h3>
               </div>
             </div>
-            <div class="flex xs12 md6">
+            <div class="flex xs12 md4">
               <div class="va-row spinners__duration justify--center ma-0">
                 <div class="spinners__icon-duration-slower mt-1 mr-3">
                   <va-icon-slower/>
@@ -39,6 +39,13 @@
                 </div>
               </div>
             </div>
+            <div class="flex xs12 md4 spinners__color">
+              <va-palette-custom
+                :palette="paletteArray"
+                v-model="spinnersColor"
+                class="spinners__color-picker"
+              />
+            </div>
           </div>
           <div class="va-row">
             <div class="spinners__divider-copy"/>
@@ -51,7 +58,7 @@
                 <component
                   :animation-duration="speed"
                   :is="item"
-                  :color="color"
+                  :color="spinnersColor"
                   :size="config.size"
                 >
                 </component>
@@ -78,7 +85,6 @@ import * as spinners from 'epic-spinners'
 import { mapGetters } from 'vuex'
 import VaPaletteCustom
   from '../../../vuestic-theme/vuestic-components/va-color-picker/VaPaletteCustom'
-import { colorArray } from '../../../vuestic-theme/vuestic-components/va-color-picker/VuesticTheme'
 import VaSlider
   from '../../../vuestic-theme/vuestic-components/va-slider/VaSlider'
 import VaIconFaster
@@ -101,8 +107,8 @@ export default {
         group: 4,
         duration: 1500,
       },
+      spinnersColor: this.$themes.primary,
       currentDuration: 1500,
-      paletteArray: colorArray,
       sliderSize: {
         formatter: v => `${v}px`,
         min: 40,
@@ -125,8 +131,8 @@ export default {
       return this.groupItems(Object.keys(spinners), this.config.group)
     },
 
-    color () {
-      return this.$themes.secondary
+    paletteArray () {
+      return Object.values(this.$themes)
     },
   },
 
