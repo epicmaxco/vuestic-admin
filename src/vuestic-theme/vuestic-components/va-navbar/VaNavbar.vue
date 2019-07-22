@@ -90,6 +90,7 @@ $nav-border-side-width: 3.1875rem;
 
 .va-navbar {
   transition: background-color .3s ease; /* sidebar's bg color transitions as well -> consistency */
+  position: relative;
   height: $top-nav-height;
   padding-left: $nav-padding-left;
   padding-right: $nav-padding-right;
