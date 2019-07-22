@@ -17,7 +17,7 @@ exports[`VaCheckbox default 1`] = `
 exports[`VaCheckbox true value 1`] = `
 <div class="va-checkbox va-checkbox--selected">
   <div class="va-checkbox__input-container">
-    <div class="va-checkbox__square active"><input readonly="readonly" class="va-checkbox__input">
+    <div class="va-checkbox__square active"><input readonly="readonly" class="va-checkbox__input" style="background: rgb(64, 229, 131);">
       <va-icon-stub name="va-checkbox__icon-selected,ion ion-md-checkmark"></va-icon-stub>
     </div>
     <div class="va-checkbox__label-text">
