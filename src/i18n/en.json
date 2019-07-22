@@ -17,9 +17,6 @@
     "text": "If you feel that it’s not right, please send us a message at ",
     "back_button": "Back to dashboard"
   },
-  "breadcrumbs": {
-    "home": "Home"
-  },
   "rating": {
     "singleIcon": "Single Icon",
     "twoIcons": "Two Icons",
@@ -199,8 +196,6 @@
   },
   "forms": {
     "controls": {
-      "female": "Female",
-      "male": "Male",
       "title": "Checkboxes, Radios, Switches, Toggles",
       "radioDisabled": "Disabled Radio",
       "radio": "Radio",
@@ -244,18 +239,6 @@
       "multi": "Multi Select",
       "simple": "Simple Select",
       "title": "Selects"
-    },
-    "wizard": {
-      "name": "Name",
-      "completed": "Wizard completed!",
-      "confirmSelection": "Confirm selection",
-      "rich": "Rich Wizard",
-      "simple": "Simple Wizard",
-      "stepOne": "Step 1. Name",
-      "stepTwo": "Step 2. Country",
-      "stepThree": "Step 3. Confirm",
-      "verticalRich": "Vertical Rich Wizard",
-      "verticalSimple": "Vertical Simple Wizard"
     }
   },
   "grid": {
@@ -292,7 +275,6 @@
     "dashboard": "Dashboard",
     "formElements": "Form Elements",
     "forms": "Forms",
-    "formWizards": "Form Wizards",
     "mediumEditor": "Medium Editor",
     "grid": "Grid",
     "icons": "Icons",

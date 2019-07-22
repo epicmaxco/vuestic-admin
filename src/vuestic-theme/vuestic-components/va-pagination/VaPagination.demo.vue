@@ -1,8 +1,7 @@
 <template>
   <VbDemo>
     <VbCard>
-      <input v-model.number="activePage"/>
-      {{typeof activePage}}
+      <va-input type="number" v-model.number="activePage" label="Current Page" />
     </VbCard>
     <VbCard>
       <table class="table table-bordered">

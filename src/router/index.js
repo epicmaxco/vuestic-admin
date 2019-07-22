@@ -121,14 +121,6 @@ export default new Router({
               },
             },
             {
-              name: 'form-wizards',
-              path: 'form-wizards',
-              component: () => import('../components/forms/form-wizard/FormWizard.vue'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Wizards',
-              },
-            },
-            {
               name: 'medium-editor',
               path: 'medium-editor',
               component: () => import('../components/forms/medium-editor/MediumEditor.vue'),

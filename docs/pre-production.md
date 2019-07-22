@@ -9,6 +9,8 @@ We have a boierplate prepared with some analytics ingrained. This includes:
 
 To get these running - just provide keys to respective apis. You're advised to copy `.env.example` with rename to `.env` then modify it.
 
+Notice, that if you are about to use Google Maps then you also have to provide it with your personal API key. The key must be defined under the `VUE_APP_GOOGLE_MAPS_API_KEY` environment-variable (more on them below) and can be obtained [here](https://developers.google.com/maps/documentation/javascript/get-api-key).
+
 ## Deploy
 
 We use [circleci](https://circleci.com) to deploy vuestic version you're able to see on demo.
