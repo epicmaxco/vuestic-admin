@@ -1,6 +1,6 @@
 <template>
   <div class="tree-view-advanced-preview">
-    <div class="va-row mb-4">
+    <div class="row mb-4">
       <div class="small-set flex sm6 justify--center">
         <va-button @click="$refs.treeView.expand()">
           EXPAND ALL

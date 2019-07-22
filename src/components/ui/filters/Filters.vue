@@ -1,9 +1,9 @@
 <template>
   <div class="filters">
-    <div class="va-row">
+    <div class="row">
       <div class="flex xs12">
         <va-card title="Show filters">
-          <div class="va-row">
+          <div class="row">
             <div class="flex md3">
               <filter-bar
                 v-model="name"

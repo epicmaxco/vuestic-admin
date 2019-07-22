@@ -2,12 +2,12 @@
   <div class="dashboard">
     <dashboard-charts />
     <dashboard-info-block />
-    <div class="va-row">
+    <div class="row">
       <div class="flex xs12">
         <dashboard-table />
       </div>
     </div>
-    <div class="va-row row-equal">
+    <div class="row row-equal">
       <div class="flex xs12 lg6">
         <dashboard-tabs />
       </div>

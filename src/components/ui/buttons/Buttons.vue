@@ -1,12 +1,12 @@
 <template>
   <div class="buttons">
-    <div class="va-row">
+    <div class="row">
       <div class="flex md12 xl12">
         <va-card
           class="larger-padding"
           :title="$t('buttons.types')"
         >
-          <div class="va-row">
+          <div class="row">
             <div class="flex">
               <va-button> {{ $t('buttons.default') }}</va-button>
               <va-button disabled> {{ $t('buttons.disabled') }}</va-button>
@@ -24,7 +24,7 @@
           class="larger-padding"
           :title="$t('buttons.size')"
         >
-          <div class="va-row">
+          <div class="row">
             <div class="flex">
               <va-button small> {{ $t('buttons.small') }}</va-button>
               <va-button> {{ $t('buttons.normal') }}</va-button>
@@ -39,7 +39,7 @@
           class="larger-padding"
           :title="$t('buttons.tags')"
         >
-          <div class="va-row">
+          <div class="row">
             <div class="flex">
               <va-button> {{ $t('buttons.button') }}</va-button>
               <va-button
@@ -62,7 +62,7 @@
           class="larger-padding"
           :title="$t('buttons.advanced')"
         >
-          <div class="va-row">
+          <div class="row">
             <div class="flex">
               <va-button icon="ion-md-close ion"> {{ $t('buttons.button') }}</va-button>
               <va-button icon-right="ion-ios-arrow-down arrow-down"> {{ $t('buttons.button') }}</va-button>
@@ -82,7 +82,7 @@
           class="larger-padding"
           :title="$t('buttons.ColorThemePlugin.js')"
         >
-          <div class="va-row">
+          <div class="row">
             <div class="flex">
               <va-button color="danger"> {{ $t('buttons.danger') }}</va-button>
               <va-button color="info"> {{ $t('buttons.info') }}</va-button>
@@ -92,7 +92,7 @@
               <va-button color="gray"> {{ $t('buttons.gray') }}</va-button>
             </div>
           </div>
-          <div class="va-row">
+          <div class="row">
             <div class="flex">
               <va-button outline color="danger"> {{ $t('buttons.danger') }}</va-button>
               <va-button outline color="info"> {{ $t('buttons.info') }}</va-button>
@@ -102,7 +102,7 @@
               <va-button outline color="gray"> {{ $t('buttons.gray') }}</va-button>
             </div>
           </div>
-          <div class="va-row">
+          <div class="row">
             <div class="flex">
               <va-button flat color="danger"> {{ $t('buttons.danger') }}</va-button>
               <va-button flat color="info"> {{ $t('buttons.info') }}</va-button>
@@ -120,7 +120,7 @@
           class="larger-padding"
           :title="$t('buttons.buttonGroups')"
         >
-          <div class="va-row">
+          <div class="row">
             <div class="flex xs12 lg12 xl6">
               <va-button-group>
                 <va-button large> One</va-button>
@@ -175,7 +175,7 @@
           class="larger-padding"
           :title="$t('buttons.buttonToggles')"
         >
-          <div class="va-row">
+          <div class="row">
             <div class="flex xs12 md6 lg6">
               <va-button-toggle
                 v-model="model" :options="options"
@@ -221,7 +221,7 @@
           class="larger-padding"
           :title="$t('buttons.pagination')"
         >
-          <div class="va-row">
+          <div class="row">
             <div class="flex xs12 lg12 xl6">
               <va-pagination
                 v-model="activePage"

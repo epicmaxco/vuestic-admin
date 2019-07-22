@@ -13,14 +13,14 @@
       <div
         v-for="option in computedOptions"
         :key="option.id"
-        class="message-dropdown__item pr-3 va-row"
+        class="message-dropdown__item pr-3 row"
         :class="{'message-dropdown__item--unread': option.unread}"
         @click="option.unread = false"
       >
         <img :src="option.details.avatar" class="message-dropdown__item__avatar mr-1"/>
         <span class="ellipsis">{{ $t(`messages.${option.name}`, { name: option.details.name})}}</span>
       </div>
-      <div class="va-row justify--space-between">
+      <div class="row justify--space-between">
         <va-button class="m-0 mr-1" small>{{ $t('messages.all') }}</va-button>
         <va-button class="m-0" small outline @click="markAllAsRead" :disabled="allRead">{{ $t('messages.mark_as_read') }}</va-button>
       </div>

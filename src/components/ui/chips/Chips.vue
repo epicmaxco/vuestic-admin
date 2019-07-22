@@ -1,9 +1,9 @@
 <template>
   <div class="tags">
-    <div class="va-row">
+    <div class="row">
       <div class="flex xs12">
         <va-card :title="$t('chips.chips')">
-          <div class="va-row mb-3">
+          <div class="row mb-3">
             <va-chip>
               Success chip
             </va-chip>
@@ -23,7 +23,7 @@
               Dark chip
             </va-chip>
           </div>
-          <div class="va-row">
+          <div class="row">
             <va-chip outline>
               Success chip
             </va-chip>
@@ -48,7 +48,7 @@
 
       <div class="flex xs12">
         <va-card :title="$t('chips.badges')">
-          <div class="va-row mb-3">
+          <div class="row mb-3">
             <va-badge>
               Paid
             </va-badge>
@@ -68,7 +68,7 @@
               New Label
             </va-badge>
           </div>
-          <div class="va-row">
+          <div class="row">
             <va-badge outline>
               Paid
             </va-badge>

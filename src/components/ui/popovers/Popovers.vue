@@ -1,6 +1,6 @@
 <template>
   <div class="tooltips">
-    <div class="va-row">
+    <div class="row">
       <div class="flex xs12 md6">
         <va-card :title="$t('popovers.popoverStyle')">
           <va-simple-select
@@ -24,7 +24,7 @@
             v-model="popover.message"
             label="Message"
           />
-          <div class="va-row popover-example mt-5">
+          <div class="row popover-example mt-5">
             <va-popover
               :icon="popover.icon"
               :color="popover.color"

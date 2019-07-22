@@ -13,7 +13,7 @@
         <div
           v-for="option in computedOptions"
           :key="option.id"
-          class="notification-dropdown__item pr-3 va-row"
+          class="notification-dropdown__item pr-3 row"
           :class="{'notification-dropdown__item--unread': option.unread}"
           @click="option.unread = false"
          >
@@ -22,7 +22,7 @@
             <span class="text--bold" v-if="option.details.name">{{option.details.name}}</span> {{$t(`notifications.${option.name}`, { type: option.details.type })}}
           </span>
         </div>
-        <div class="va-row justify--space-between">
+        <div class="row justify--space-between">
           <va-button class="m-0 mr-1" small>{{ $t('notifications.all') }}</va-button>
           <va-button class="m-0" small outline @click="markAllAsRead" :disabled="allRead">{{ $t('notifications.mark_as_read') }}</va-button>
         </div>

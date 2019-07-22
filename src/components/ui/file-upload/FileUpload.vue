@@ -1,6 +1,6 @@
 <template>
   <div class="file-upload">
-    <div class="va-row">
+    <div class="row">
       <div class="flex xs12">
         <va-card :title="$t('fileUpload.advancedMediaGallery')">
           <va-file-upload

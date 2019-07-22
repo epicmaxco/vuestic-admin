@@ -1,9 +1,9 @@
 <template>
   <div class="dropdowns">
-    <div class="va-row">
+    <div class="row">
       <div class="flex md12">
         <va-card :title="$t('dropdown.default')">
-          <div class="va-row btn-margin-row">
+          <div class="row btn-margin-row">
             <div
               class="flex sm6 lg6 xl3 mb4 justify--center"
               v-for="(dropdown, index) in dropdowns"

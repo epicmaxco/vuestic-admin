@@ -1,6 +1,6 @@
 <template>
   <va-card title="Awesome table">
-    <div class="va-row justify--space-between align--center mb-2">
+    <div class="row justify--space-between align--center mb-2">
       <div class="flex sm4 xs12">
         <va-input
           class="mb-0"
@@ -15,7 +15,7 @@
         </va-input>
       </div>
       <div class="flex sm8 table-buttons">
-        <div class="va-row justify--end align--center">
+        <div class="row justify--end align--center">
           <va-checkbox
             :label="$t('dashboard.table.verified')"
             v-model="checkbox"
@@ -76,7 +76,7 @@
       </table>
     </div>
 
-    <div class="va-row justify--center pb-2">
+    <div class="row justify--center pb-2">
       <va-pagination
         v-model="activePage"
         :visible-pages="2"

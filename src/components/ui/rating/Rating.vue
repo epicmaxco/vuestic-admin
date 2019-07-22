@@ -1,6 +1,6 @@
 <template>
   <div class="rating">
-    <div class="va-row">
+    <div class="row">
       <div class="flex md6 xs12">
         <va-card :title="$t('rating.singleIcon')">
           <va-rating

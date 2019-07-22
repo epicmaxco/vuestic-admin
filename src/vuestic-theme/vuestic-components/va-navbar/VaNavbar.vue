@@ -8,17 +8,17 @@
       <slot name="selector"></slot>
     </div>
     <div
-      class="va-navbar__logo va-row align--center mr-3">
+      class="va-navbar__logo row align--center mr-3">
       <router-link class="" to="/">
         <slot name="logo"/>
       </router-link>
     </div>
-    <div class="va-navbar__content va-row">
+    <div class="va-navbar__content row">
       <div
-        class="va-navbar__center flex offset--lg3 offset--md3 lg5 flex md4 va-row flex-center">
+        class="va-navbar__center flex offset--lg3 offset--md3 lg5 flex md4 row flex-center">
         <slot name="center"></slot>
       </div>
-      <div class="flex md5 lg4 va-navbar__actions align--center va-row">
+      <div class="flex md5 lg4 va-navbar__actions align--center row">
         <slot></slot>
       </div>
     </div>

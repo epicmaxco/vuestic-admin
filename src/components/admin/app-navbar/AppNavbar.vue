@@ -5,7 +5,7 @@
       <va-icon-vuestic/>
     </template>
     <template slot="center">
-      <div class="va-row flex-nowrap align--center justify--space-between">
+      <div class="row flex-nowrap align--center justify--space-between">
         <span class="va-navbar__text">
           {{$t('navbar.messageUs')}}&nbsp;
           <a
@@ -30,7 +30,7 @@
         </div>
       </div>
     </template>
-    <div class="app-navbar__actions va-row flex-nowrap align--center">
+    <div class="app-navbar__actions row flex-nowrap align--center">
       <color-dropdown class="va-navbar__item"/>
       <message-dropdown class="va-navbar__item"/>
       <notification-dropdown class="va-navbar__item"/>

@@ -1,10 +1,10 @@
 <template>
   <div class="form-elements">
-    <div class="va-row">
+    <div class="row">
       <div class="flex xs12">
         <va-card :title="$t('forms.inputs.title')">
           <form>
-            <div class="va-row">
+            <div class="row">
               <div class="flex md4 sm6 xs12">
                 <va-input
                   v-model="empty"
@@ -72,9 +72,9 @@
       <div class="flex xs12">
         <va-card :title="$t('forms.dateTimePicker.title')">
           <form>
-            <div class="va-row">
+            <div class="row">
               <div class="flex md8">
-                <div class="va-row row-inside">
+                <div class="row row-inside">
                   <div class="flex xs12 sm6">
                     <va-date-picker
                       :label="$t('forms.dateTimePicker.basic')"
@@ -135,7 +135,7 @@
       <div class="flex xs12">
         <va-card :title="$t('forms.selects.title')">
           <form>
-            <div class="va-row">
+            <div class="row">
               <div class="flex md4">
                 <fieldset>
                   <va-simple-select
@@ -174,7 +174,7 @@
       <div class="flex xs12">
         <va-card :title="$t('forms.controls.title')">
           <form>
-            <div class="va-row">
+            <div class="row">
               <div class="flex md3">
                 <fieldset>
                   <va-checkbox
@@ -358,7 +358,7 @@ export default {
 </script>
 
 <style>
-  .va-row.row-inside {
+  .row.row-inside {
     max-width: none;
   }
 </style>
