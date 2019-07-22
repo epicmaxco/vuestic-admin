@@ -167,6 +167,11 @@ export default {
     }
   }
 
+  &__size, &__duration {
+    // not sure, maybe it's better to include this into @no-wrap mixin?
+    flex-wrap: nowrap;
+  }
+
   &__size-picker {
     object-fit: contain;
     width: 136px;

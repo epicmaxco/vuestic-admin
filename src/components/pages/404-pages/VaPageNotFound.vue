@@ -7,7 +7,7 @@
         <span>
           {{$t('404.text')}}
         </span>
-        <a href="mailto:hello@epicmax.co">hello@epicmax.co</a>
+        <a href="mailto:hello@epicmax.co" class="link">hello@epicmax.co</a>
       </div>
       <slot/>
       <va-button v-if="!withoutButton" :to="{ name: 'dashboard' }">{{$t('404.back_button')}}</va-button>

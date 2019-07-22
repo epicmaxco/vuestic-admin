@@ -98,35 +98,36 @@ export default {
 </script>
 
 <style lang="scss">
-  .v-popover {
-    display: inline;
+.v-popover {
+  display: inline;
+}
+.va-popover {
+  opacity: 1;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: white;
+
+  &__content {
+     display: flex;
+     align-items: center;
+     padding: 0.65rem 1rem;
+     border-radius: 0.5rem;
+     font-size: 1rem;
   }
-  .va-popover {
-    opacity: 1;
-    border: none;
-    border-radius: 0.5rem;
 
-    &__content {
-       display: flex;
-       align-items: center;
-       padding: 0.65rem 1rem;
-       border-radius: 0.5rem;
-       font-size: 1rem;
-    }
-
-    &__icon + div{
-       padding-left: 0.75rem;
-       width: 100%;
-       overflow: hidden;
-    }
-
-    &__title {
-      font-weight: bold;
-      margin-bottom: 0.125rem;
-    }
-
-    &__text {
-      line-height: 1.5;
-    }
+  &__icon + div{
+     padding-left: 0.75rem;
+     width: 100%;
+     overflow: hidden;
   }
+
+  &__title {
+    font-weight: bold;
+    margin-bottom: 0.125rem;
+  }
+
+  &__text {
+    line-height: 1.5;
+  }
+}
 </style>

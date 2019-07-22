@@ -123,7 +123,7 @@ export default {
       display: none !important;
     }
     &__actions {
-      justify-content: space-between;
+      justify-content: space-around;
       padding: 0 .5rem;
     }
     .profile-dropdown {

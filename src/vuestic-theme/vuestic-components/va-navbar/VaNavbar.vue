@@ -8,7 +8,7 @@
       <slot name="selector"></slot>
     </div>
     <div
-      class="va-navbar__logo va-row align--center position-absolute mr-3">
+      class="va-navbar__logo va-row align--center mr-3">
       <router-link class="" to="/">
         <slot name="logo"/>
       </router-link>
@@ -110,6 +110,7 @@ $nav-border-side-width: 3.1875rem;
   }
 
   &__logo {
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 3.5rem;

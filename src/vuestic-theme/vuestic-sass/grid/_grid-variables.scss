@@ -46,29 +46,17 @@ $spacer: 1rem !default;
 $spacer-x: $spacer !default;
 $spacer-y: $spacer !default;
 
-$spacers: (
-  zero: (
-    x: 0,
-    y: 0,
-  ),
-  one: (
-    x: $spacer-x * 0.25,
-    y: $spacer-y * 0.25,
-  ),
-  two: (
-    x: $spacer-x * 0.5,
-    y: $spacer-y * 0.5,
-  ),
-  three: (
-    x: $spacer-x,
-    y: $spacer-y,
-  ),
-  four: (
-    x: $spacer-x * 1.5,
-    y: $spacer-y * 1.5,
-  ),
-  five: (
-    x: $spacer-x * 3,
-    y: $spacer-y * 3,
-  )
-) !default;
+$spacer: 1rem !default;
+$spacers: () !default;
+
+$spacers: map-merge(
+    (
+      0: 0,
+      1: ($spacer * .25),
+      2: ($spacer * .5),
+      3: $spacer,
+      4: ($spacer * 1.5),
+      5: ($spacer * 3)
+    ),
+    $spacers
+);
