@@ -98,8 +98,6 @@ export default {
 <style lang='scss'>
 .va-file-upload {
   &--dropzone {
-    background-color: $lighter-green;
-    padding: 0 2rem;
     overflow: hidden;
   }
 }

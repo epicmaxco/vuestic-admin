@@ -20,7 +20,10 @@
     >
       <div class="va-card__header-inner">
         <slot name="header">
-          <div class="va-card__header-title">
+          <div
+            class="va-card__header-title"
+            :style="{color: this.$themes.info}"
+          >
             {{ title }}
           </div>
           <div class="va-card__header-actions">
