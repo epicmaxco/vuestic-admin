@@ -24,6 +24,7 @@
 }
 
 @mixin va-container--fluid {
+  box-sizing: border-box;
   max-width: 100%;
 }
 

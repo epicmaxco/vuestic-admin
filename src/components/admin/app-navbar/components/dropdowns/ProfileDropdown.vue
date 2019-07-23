@@ -5,7 +5,10 @@
     @hide="toggleVisibility(false)"
     offset="15px, 0"
   >
-    <span class="profile-dropdown__actuator" slot="anchor">
+    <span
+      class="profile-dropdown__actuator" slot="anchor"
+      :style="{color: this.$themes.primary}"
+    >
       <slot/>
       <va-icon
         class="pa-1"

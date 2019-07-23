@@ -124,9 +124,9 @@ export default {
   },
   computed: {
     labelStyles () {
-      return {
-        color: this.error ? this.$themes.danger : '',
-      }
+      if (this.error) return { color: this.$themes.danger }
+      if (this.success) return { color: this.$themes.success }
+      return { color: this.$themes.primary }
     },
     containerStyles () {
       return {

@@ -1,38 +1,42 @@
-
 .content {
   h1 {
     @include va-display(1);
-    @extend .mt-0;
+    @include va-header-margin(1);
   }
 
   h2 {
     @include va-display(2);
-    @extend .mt-0;
+    @include va-header-margin(2);
   }
 
   h3 {
     @include va-display(3);
-    @extend .mt-0;
+    @include va-header-margin(3);
   }
 
   h4 {
     @include va-display(4);
-    @extend .mt-0;
+    @include va-header-margin(4);
   }
 
   h5 {
     @include va-display(5);
-    @extend .mt-0;
+    @include va-header-margin(5);
   }
 
   h6 {
     @include va-display(6);
-    @extend .mt-0;
+    @include va-header-margin(6);
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
   }
 
   pre {
+    margin-bottom: 1rem;
     overflow-x: auto;
-    @extend .pa-3;
     white-space: pre;
     word-wrap: normal;
 

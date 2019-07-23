@@ -34,7 +34,6 @@ import VaSeparator from './vuestic-components/va-card/VaSeparator'
 import VaSelect from './vuestic-components/va-select/VaSelect.vue'
 import VaSlider from './vuestic-components/va-slider/VaSlider.vue'
 import VaSocialNews from './vuestic-components/va-social-news/VaSocialNews.vue'
-import VaSwitch from './vuestic-components/va-switch/VaSwitch.vue'
 import VaTab from './vuestic-components/va-tabs/VaTab.vue'
 import VaTabs from './vuestic-components/va-tabs/VaTabs.vue'
 import VaTimeline from './vuestic-components/va-timeline/VaTimeline'
@@ -98,7 +97,6 @@ const VuesticPlugin = {
       VaSelect,
       VaSlider,
       VaSocialNews,
-      VaSwitch,
       VaTab,
       VaTabs,
       VaTimeline,

@@ -17,8 +17,14 @@
         :checked="isActive" type="radio" class="va-radio-button__input"
         :disabled="disabled"
       />
-      <div class="va-radio-button__icon">
-        <div class="va-radio-button__icon-circle"/>
+      <div
+        class="va-radio-button__icon"
+        :style="computedStyle"
+      >
+        <div
+          class="va-radio-button__icon-circle"
+          :style="computedStyle"
+        />
       </div>
     </div>
     <div class="va-radio-button__slot-container">
@@ -54,6 +60,9 @@ export default {
         'va-radio-button--disabled': this.disabled,
         'va-radio-button--on-focus': this.focused,
       }
+    },
+    computedStyle () {
+      if (this.isActive) return { borderColor: this.$themes.primary + '!important' }
     },
     focused: {
       set (isFocused) {
@@ -99,10 +108,6 @@ export default {
     border-radius: 1.8rem;
     border: $gray solid 0.15rem;
     @at-root {
-      .va-radio-button.va-radio-button--active & {
-        border: $vue-green solid 0.15rem;
-      }
-
       .va-radio-button.va-radio-button--disabled & {
         opacity: 0.4;
       }
@@ -115,7 +120,7 @@ export default {
         width: 0.625rem;
         height: 0.625rem;
         border-radius: 1rem;
-        border: $vue-green solid 0.35rem;
+        border: solid 0.35rem;
         margin-top: 0.1875rem;
         margin-left: 0.1875rem;
       }

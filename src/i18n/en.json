@@ -196,8 +196,6 @@
   },
   "forms": {
     "controls": {
-      "female": "Female",
-      "male": "Male",
       "title": "Checkboxes, Radios, Switches, Toggles",
       "radioDisabled": "Disabled Radio",
       "radio": "Radio",
