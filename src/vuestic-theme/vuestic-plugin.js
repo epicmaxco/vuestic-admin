@@ -20,7 +20,6 @@ import VaInnerLoading from './vuestic-components/va-inner-loading/VaInnerLoading
 import VaInput from './vuestic-components/va-input/VaInput'
 import VaMediumEditor from './vuestic-components/va-medium-editor/VaMediumEditor.vue'
 import VaModal from './vuestic-components/va-modal/VaModal.vue'
-import VaMultiSelect from './vuestic-components/va-multi-select/VaMultiSelect.vue'
 import VaNotification from './vuestic-components/va-notification/VaNotification.vue'
 import VaPagination from './vuestic-components/va-pagination/VaPagination.vue'
 import VaPopover from './vuestic-components/va-popover/VaPopover.vue'
@@ -32,7 +31,7 @@ import VaRadioButton from './vuestic-components/va-radio-button/VaRadioButton'
 import VaRating from './vuestic-components/va-rating/VaRating'
 import VaScrollbar from './vuestic-components/va-scrollbar/VaScrollbar.vue'
 import VaSeparator from './vuestic-components/va-card/VaSeparator'
-import VaSimpleSelect from './vuestic-components/va-simple-select/VaSimpleSelect.vue'
+import VaSelect from './vuestic-components/va-select/VaSelect.vue'
 import VaSlider from './vuestic-components/va-slider/VaSlider.vue'
 import VaSocialNews from './vuestic-components/va-social-news/VaSocialNews.vue'
 import VaTab from './vuestic-components/va-tabs/VaTab.vue'
@@ -83,7 +82,6 @@ const VuesticPlugin = {
       VaInput,
       VaMediumEditor,
       VaModal,
-      VaMultiSelect,
       VaNotification,
       VaPagination,
       VaPopover,
@@ -96,7 +94,7 @@ const VuesticPlugin = {
       VaRating,
       VaScrollbar,
       VaSeparator,
-      VaSimpleSelect,
+      VaSelect,
       VaSlider,
       VaSocialNews,
       VaTab,

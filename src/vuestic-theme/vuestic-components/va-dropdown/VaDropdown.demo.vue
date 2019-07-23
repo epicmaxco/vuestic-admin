@@ -110,6 +110,15 @@
       </template>
     </VbCard>
 
+    <VbCard title="Anchor width">
+      <va-dropdown keepAnchorWidth>
+        <button slot="anchor">
+          ------- Anchor ------
+        </button>
+        Same width as anchor
+      </va-dropdown>
+    </VbCard>
+
     <VbCard title="Disabled">
       <va-dropdown disabled>
         <button slot="anchor">

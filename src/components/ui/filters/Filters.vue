@@ -17,10 +17,11 @@
               />
             </div>
             <div class="flex md3 offset--md1">
-              <va-simple-select
+              <va-select
                 label="City"
                 v-model="city"
                 :options="cityList"
+                fixed
               />
             </div>
             <div class="filters-page__tags d-flex align--center">
@@ -87,15 +88,15 @@
 import VaCard from '../../../vuestic-theme/vuestic-components/va-card/VaCard'
 import FilterBar
   from '../../../vuestic-theme/vuestic-components/va-datatable/datatable-components/FilterBar.vue'
-import VaSimpleSelect
-  from '../../../vuestic-theme/vuestic-components/va-simple-select/VaSimpleSelect'
+import VaSelect
+  from '../../../vuestic-theme/vuestic-components/va-select/VaSelect'
 import { SpringSpinner } from 'epic-spinners'
 import { cityList, itemList } from './filtersData'
 
 export default {
   name: 'filters',
   components: {
-    VaCard, FilterBar, SpringSpinner, VaSimpleSelect,
+    VaCard, FilterBar, SpringSpinner, VaSelect,
   },
   data () {
     return {
@@ -126,7 +127,7 @@ export default {
       }
       if (this.city) {
         filteredItems = filteredItems.filter(item => item.city.toUpperCase()
-          .search(this.city.toUpperCase()) !== -1)
+          .search(this.city.value.toUpperCase()) !== -1)
       }
       return filteredItems
     },

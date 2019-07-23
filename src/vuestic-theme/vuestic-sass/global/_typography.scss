@@ -29,12 +29,7 @@
 }
 
 .title {
-  color: $vue-green;
-  font-size: 10px;
-  letter-spacing: 0.6px;
-  line-height: 1.2;
-  font-weight: bold;
-  text-transform: uppercase;
+  @include va-title();
 
   &--info {
     color: $theme-blue-dark;

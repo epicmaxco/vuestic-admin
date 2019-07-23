@@ -1,5 +1,14 @@
 @import "../grid/grid-mixins";
 
+@mixin va-title() {
+  color: $vue-green;
+  font-size: .625rem;
+  letter-spacing: 0.6px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 @mixin flex-center() {
   display: flex;
   justify-content: center;

@@ -238,6 +238,8 @@
       "countryMulti": "Country Multi Select",
       "multi": "Multi Select",
       "simple": "Simple Select",
+      "searchable": "Select with search",
+      "searchableMulti": "Multi Select with search",
       "title": "Selects"
     }
   },
@@ -331,7 +333,11 @@
     "default": "Default",
     "withArrow": "With arrow",
     "note": "Note",
-    "noteText": "Dropdown will open in the specified direction if there is enough space on the screen, otherwise the direction will automatically change"
+    "noteText": "Dropdown will open in the specified direction if there is enough space on the screen, otherwise the direction will automatically change",
+    "top": "TOP",
+    "right": "RIGHT",
+    "bottom": "BOTTOM",
+    "left": "LEFT"
   },
   "fileUpload": {
     "advancedMediaGallery": "Advanced, Media Gallery",

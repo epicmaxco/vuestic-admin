@@ -52,7 +52,7 @@ export default {
 <style lang="scss">
 @import "../../vuestic-sass/resources/resources";
 
-.va-dropdown {
+.va-dropdown-old {
   background: $darkest-gray;
 }
 </style>

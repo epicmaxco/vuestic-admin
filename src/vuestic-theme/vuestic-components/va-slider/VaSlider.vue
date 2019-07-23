@@ -314,7 +314,9 @@ export default {
     },
     moving (e) {
       if (!this.disabled) {
-        if (!this.flag) { return false }
+        if (!this.flag) {
+          return false
+        }
         e.preventDefault()
 
         this.setValueOnPos(this.getPos(e))
