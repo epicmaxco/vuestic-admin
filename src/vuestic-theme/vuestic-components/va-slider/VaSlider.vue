@@ -342,11 +342,25 @@ export default {
 
       if (this.range) {
         if (this.$refs.dot0 === document.activeElement) { // left dot
-          if (event.keyCode === 37) this.val.splice(0, 1, this.val[0] - this.step)
-          if (event.keyCode === 39) this.val.splice(0, 1, this.val[0] + this.step)
+          if (
+            event.keyCode === 37 && // left arrow pressed
+            !((this.val[0] - this.step) < this.min) // and won't become less than `min`
+          ) this.val.splice(0, 1, this.val[0] - this.step)
+
+          if (
+            event.keyCode === 39 && // right arrow pressed
+              !((this.val[0] + this.step) > this.val[1]) // and won't become more than the second dot is
+          ) this.val.splice(0, 1, this.val[0] + this.step)
         } else if (this.$refs.dot1 === document.activeElement) { // right dot
-          if (event.keyCode === 37) this.val.splice(1, 1, this.val[1] - this.step)
-          if (event.keyCode === 39) this.val.splice(1, 1, this.val[1] + this.step)
+          if (
+            event.keyCode === 37 && // left arrow pressed
+              !((this.val[1] - this.step) < this.val[0]) // and won't become less then the first dot is
+          ) this.val.splice(1, 1, this.val[1] - this.step)
+
+          if (
+            event.keyCode === 39 &&
+              !((this.val[1] + this.step) > this.max) // and won't become more than `max`
+          ) this.val.splice(1, 1, this.val[1] + this.step)
         }
       } else {
         if (event.keyCode === 37) this.val -= this.step
