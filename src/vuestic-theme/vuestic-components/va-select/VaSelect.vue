@@ -242,7 +242,7 @@ export default {
       if (this.disabled) {
         return false
       }
-      return this.multiple ? this.valueProxy.length : this.valueProxy
+      return this.multiple ? this.valueProxy.length : this.valueProxy !== this.clearValue
     },
     inputWrapperStyles () {
       let paddingRight = 2
@@ -252,7 +252,7 @@ export default {
       return {
         paddingRight: `${paddingRight}rem`,
         paddingTop: this.label ? '.84rem' : 'inherit',
-        paddingBottom: this.label ? 0 : '.4375rem',
+        paddingBottom: this.label ? 0 : this.multiple ? '.3125rem' : '.4375rem',
       }
     },
     valueProxy: {
@@ -332,7 +332,9 @@ export default {
       }
     },
     clear () {
-      this.valueProxy = this.multiple ? [] : this.clearValue
+      this.valueProxy = this.multiple
+        ? (Array.isArray(this.clearValue) ? this.clearValue : [])
+        : this.clearValue
       this.search = ''
     },
     updateHoveredOption (option) {
@@ -499,6 +501,7 @@ export default {
     display: flex;
     align-items: center;
     padding: .375rem .5rem .375rem .5rem;
+    min-height: 2.25rem;
 
     &__selected-icon {
       margin-left: auto;

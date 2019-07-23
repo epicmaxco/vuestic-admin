@@ -188,7 +188,14 @@ export default {
     },
     updateAnchorWidth () {
       if (this.keepAnchorWidth) {
-        this.anchorWidth = this.$refs.anchor.offsetWidth
+        let anchorWidth = this.$refs.anchor.offsetWidth
+        if (this.$refs.anchorWidthContainer && this.$refs.anchorWidthContainer.scrollHeight > this.$refs.anchorWidthContainer.clientHeight) {
+          anchorWidth = this.$refs.anchor.offsetWidth - this.scrollWidth
+        }
+        this.anchorWidth = anchorWidth
+      }
+      if (this.popperInstance) {
+        this.popperInstance.scheduleUpdate()
       }
     },
     // @public
@@ -208,9 +215,6 @@ export default {
         positionFixed: this.fixed,
         arrow: {
           enabled: false,
-        },
-        onUpdate: (data) => {
-          this.updateAnchorWidth()
         },
       }
 
@@ -243,7 +247,7 @@ export default {
       if (!this.popperInstance) {
         return
       }
-      this.popperInstance.update()
+      this.updateAnchorWidth()
     },
   },
   computed: {
@@ -263,6 +267,19 @@ export default {
       if (this.trigger === 'none') {
         return this.value
       }
+    },
+    scrollWidth () {
+      const div = document.createElement('div')
+
+      div.style.overflowY = 'scroll'
+      div.style.width = '50px'
+      div.style.height = '50px'
+      div.style.visibility = 'hidden'
+
+      document.body.appendChild(div)
+      const scrollWidth = div.offsetWidth - div.clientWidth
+      document.body.removeChild(div)
+      return scrollWidth
     },
   },
 }

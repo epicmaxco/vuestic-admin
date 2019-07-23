@@ -20,7 +20,6 @@ import VaInnerLoading from './vuestic-components/va-inner-loading/VaInnerLoading
 import VaInput from './vuestic-components/va-input/VaInput'
 import VaMediumEditor from './vuestic-components/va-medium-editor/VaMediumEditor.vue'
 import VaModal from './vuestic-components/va-modal/VaModal.vue'
-import VaMultiSelect from './vuestic-components/va-multi-select/VaMultiSelect.vue'
 import VaNotification from './vuestic-components/va-notification/VaNotification.vue'
 import VaPagination from './vuestic-components/va-pagination/VaPagination.vue'
 import VaPopover from './vuestic-components/va-popover/VaPopover.vue'
@@ -84,7 +83,6 @@ const VuesticPlugin = {
       VaInput,
       VaMediumEditor,
       VaModal,
-      VaMultiSelect,
       VaNotification,
       VaPagination,
       VaPopover,
