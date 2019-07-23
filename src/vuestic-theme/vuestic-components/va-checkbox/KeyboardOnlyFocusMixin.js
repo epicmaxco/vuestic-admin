@@ -6,11 +6,11 @@ export const KeyboardOnlyFocusMixin = {
     }
   },
   methods: {
-    onFocus (e) {
+    onFocus (e, index) {
       if (this.hasMouseDown) {
         return
       }
-      this.isKeyboardFocused = true
+      this.isKeyboardFocused = index || true
     },
   },
 }

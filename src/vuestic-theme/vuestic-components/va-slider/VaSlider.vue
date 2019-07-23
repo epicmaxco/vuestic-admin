@@ -43,8 +43,11 @@
         <div
           ref="dot0"
           class="va-slider__container__handler"
+          :class="{'va-slider__container__handler--on-keyboard-focus': isKeyboardFocused === 1}"
           :style="dottedStyles[0]"
-          @mousedown="moveStart($event, 0)"
+          @mousedown="(mouseFocus($event, 1), moveStart($event, 1))"
+          @focus="onFocus($event, 1)"
+          @blur="isKeyboardFocused = false"
           tabindex="0"
         >
           <div
@@ -58,8 +61,11 @@
         <div
           ref="dot1"
           class="va-slider__container__handler"
+          :class="{'va-slider__container__handler--on-keyboard-focus': isKeyboardFocused === 2}"
           :style="dottedStyles[1]"
-          @mousedown="moveStart($event, 1)"
+          @mousedown="(mouseFocus($event, 2), moveStart($event, 2))"
+          @focus="onFocus($event, 2)"
+          @blur="isKeyboardFocused = false"
           tabindex="0"
         >
           <div
@@ -79,8 +85,11 @@
         <div
           ref="dot"
           class="va-slider__container__handler"
+          :class="{'va-slider__container__handler--on-keyboard-focus': isKeyboardFocused}"
           :style="dottedStyles"
-          @mousedown="moveStart"
+          @mousedown="(mouseFocus(), moveStart())"
+          @focus="onFocus"
+          @blur="isKeyboardFocused = false"
           tabindex="0"
         >
           <div
@@ -115,13 +124,17 @@ import { validateSlider } from './validateSlider'
 import { getHoverColor } from '../../../services/color-functions'
 import VaIcon from '../va-icon/VaIcon'
 import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
+import { KeyboardOnlyFocusMixin } from '../va-checkbox/KeyboardOnlyFocusMixin'
 
 export default {
   name: 'va-slider',
   components: {
     VaIcon,
   },
-  mixins: [ColorThemeMixin],
+  mixins: [
+    ColorThemeMixin,
+    KeyboardOnlyFocusMixin,
+  ],
   props: {
     range: {
       type: Boolean,
@@ -309,6 +322,9 @@ export default {
       document.removeEventListener('mouseleave', this.moveEnd)
       document.removeEventListener('keydown', this.moveWithKeys)
     },
+    mouseFocus (e, index) {
+      this.hasMouseDown = index
+    },
     moveStart (e, index) {
       if (this.isRange) {
         this.currentSlider = index
@@ -333,6 +349,7 @@ export default {
           return false
         }
         this.flag = false
+        this.hasMouseDown = false
       }
     },
     moveWithKeys (event) {
@@ -626,9 +643,25 @@ export default {
       background: $white;
       border: 0.375rem solid;
       border-radius: 50%;
+      outline: none !important;
 
       &:hover {
         cursor: pointer;
+      }
+
+      &--on-keyboard-focus {
+        @at-root .va-slider__container__handler#{&}:after {
+          content: '';
+          transform: translate(-0.625rem, -0.625rem);
+          background-color: black !important;
+          display: block;
+          width: 1.75rem;
+          height: 1.75rem;
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.1;
+          pointer-events: none;
+        }
       }
 
       &-value {
