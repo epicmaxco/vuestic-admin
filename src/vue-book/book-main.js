@@ -15,8 +15,12 @@ Vue.use(DropdownPopperPlugin)
 const router = new Router({
   routes: [
     createRoute({
-      requireContext: require.context('./..', true, /.demo.vue$/),
+      requireContext: require.context('./../vuestic-theme/vuestic-components', true, /.demo.vue$/),
       path: '/demo',
+    }),
+    createRoute({
+      requireContext: require.context('./../components', true, /.demo.vue$/),
+      path: '/presentation',
     }),
     {
       path: '*',
