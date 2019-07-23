@@ -56,6 +56,7 @@
     >
       <label
         class="va-select__label"
+        :style="{ color: $themes.success }"
         aria-hidden="true"
       >{{label}}</label>
       <div
