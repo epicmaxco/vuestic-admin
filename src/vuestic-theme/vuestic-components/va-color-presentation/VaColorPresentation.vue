@@ -1,15 +1,16 @@
 <template>
   <div class="va-color-presentation">
-    <va-tooltip
-      :placement="tooltipOptions.placement"
-      :message="tooltipOptions.content"
+    <va-popover
+      color="info"
+      :placement="popoverOptions.placement"
+      :message="popoverOptions.content"
     >
       <div
         class="va-color-presentation__color"
         :style="computedStyle"
         @click="colorCopy">
       </div>
-    </va-tooltip>
+    </va-popover>
     <div class="va-color-presentation__description" v-if="name || description">
       <div class="va-color-presentation__name">{{name}}</div>
       <div class="va-color-presentation__text">{{description}}</div>
@@ -19,8 +20,9 @@
 </template>
 
 <script>
-import VaTooltip from '../va-popover/VaPopover'
+import VaPopover from '../va-popover/VaPopover'
 import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
+import { getGradientBackground } from '../../../services/color-functions'
 
 // NOTE This component is a tad weird.
 // It's not part of presentation nor is it UI component.
@@ -28,12 +30,16 @@ import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
 
 export default {
   name: 'va-color-presentation',
-  components: { VaTooltip },
+  components: { VaPopover },
   mixins: [ ColorThemeMixin ],
   props: {
     color: {
       type: String,
       default: '',
+    },
+    variant: {
+      type: Array,
+      default: () => [],
     },
     width: {
       type: Number,
@@ -50,7 +56,7 @@ export default {
   },
   data () {
     return {
-      tooltipOptions: {
+      popoverOptions: {
         content: 'Click to copy color to clipboard',
         placement: 'right',
       },
@@ -58,15 +64,34 @@ export default {
   },
   computed: {
     computedStyle () {
+      const calcBackground = () => {
+        if (this.variant.includes('gradient')) {
+          return getGradientBackground(this.colorComputed)
+        }
+
+        return this.colorComputed
+      }
+
+      const calcFilter = () => {
+        if (this.variant.includes('hovered')) return 'brightness(115%)'
+        if (this.variant.includes('pressed')) return 'brightness(85%)'
+      }
+
       return {
-        background: this.colorComputed,
+        background: calcBackground(),
+        filter: calcFilter(),
         width: `${this.width}px`,
       }
     },
   },
   methods: {
     colorCopy () {
-      this.$copyText(this.color)
+      if (this.variant.includes('gradient')) {
+        this.$copyText(getGradientBackground(this.colorComputed))
+        return
+      }
+
+      this.$copyText(this.colorComputed)
     },
   },
 }
@@ -81,6 +106,7 @@ export default {
 
   &__color {
     height: 40px;
+    margin-right: 0.5rem;
   }
 
   &__description {

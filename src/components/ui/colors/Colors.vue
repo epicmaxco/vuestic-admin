@@ -1,7 +1,7 @@
 <template>
 <div class="va-layout gutter--md">
   <div class="va-row">
-    <div class="flex md4">
+    <div class="flex md6">
       <va-card title="Theme Colors">
         <div
           v-for="(themeColor, index) in themeColors"
@@ -16,7 +16,7 @@
       </va-card>
     </div>
 
-    <div class="flex md4">
+    <div class="flex md6">
       <va-card title="Extra Colors">
         <div
           v-for="(extraColor, index) in extraColors"
@@ -39,6 +39,7 @@
         >
           <va-color-presentation
             :color="buttonGradient.color"
+            :variant="['gradient']"
             :name="buttonGradient.name"
             :description="buttonGradient.description"
             :width="200"
@@ -47,34 +48,40 @@
       </va-card>
     </div>
 
-    <div class="flex md6">
+    <div class="flex md4">
       <va-card title="Hovered Button Gradients">
+        <p class="mt-0 mb-2">
+          Lighten 15% applied to an original style (gradient or flat color) for hover state.
+        </p>
         <div
-          v-for="(hoveredButtonGradient, index) in hoveredButtonGradients"
+          v-for="(buttonGradient, index) in buttonGradients"
           :key="index"
         >
-          Lighten 15% applied to an original style (gradient or flat color) for hover state.
           <va-color-presentation
-            :color="hoveredButtonGradient.color"
-            :name="hoveredButtonGradient.name"
-            :description="hoveredButtonGradient.description"
+            :color="buttonGradient.color"
+            :variant="['gradient', 'hovered']"
+            :name="buttonGradient.name"
+            :description="buttonGradient.description"
             :width="200"
           />
         </div>
       </va-card>
     </div>
 
-    <div class="flex md6">
+    <div class="flex md4">
       <va-card title="Pressed Button Gradients">
+        <p class="mt-0 mb-2">
+          Darken 15% applied to an original style (gradient or flat color) for pressed state.
+        </p>
         <div
-          v-for="(pressedButtonGradient, index) in pressedButtonGradients"
+          v-for="(buttonGradient, index) in buttonGradients"
           :key="index"
         >
-          Darken 15% applied to an original style (gradient or flat color) for pressed state.
           <va-color-presentation
-            :color="pressedButtonGradient.color"
-            :name="pressedButtonGradient.name"
-            :description="pressedButtonGradient.description"
+            :color="buttonGradient.color"
+            :variant="['gradient', 'pressed']"
+            :name="buttonGradient.name"
+            :description="buttonGradient.description"
             :width="200"
           />
         </div>
