@@ -1,6 +1,6 @@
 # Vue.js Admin Template
 
-Responsive admin dashboard template built with [Vue.js](https://vuejs.org) and [Bootstrap 4](https://v4-alpha.getbootstrap.com). Developed by [Epicmax](https://epicmax.co/). Designed by [Vasili Savitski](https://xxsavitski.myportfolio.com/)
+Responsive admin dashboard template built with [Vue.js](https://vuejs.org) and [Bootstrap 4](https://v4-alpha.getbootstrap.com). Developed by [Epicmax](https://epicmax.co/). Designed by [Vasili Savitski](https://xxsavitski.com)
 
 Subscribe to our [newsletter](https://epicmax.co/newsletter) to get Vuestic updates, our team's stories and Vue.js materials hand-picked by Epicmax.
 
