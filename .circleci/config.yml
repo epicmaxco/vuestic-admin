@@ -53,9 +53,9 @@ jobs:
           command: |
             tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
             sudo apt install sshpass
-            ssh-keyscan -t rsa $DEPLOY_URL >> ~/.ssh/known_hosts
-            sshpass -p $DEPLOY_PASSWORD scp ~/repo/dist.tar.gz $DEPLOY_USER@$DEPLOY_URL:~/tmp
-            sshpass -p $DEPLOY_PASSWORD ssh $DEPLOY_USER@$DEPLOY_URL /bin/bash << EOF
+            ssh-keyscan -t rsa $SERVER_IP >> ~/.ssh/known_hosts
+            sshpass -p $SERVER_PASSWORD scp ~/repo/dist.tar.gz $SERVER_USERNAME@$SERVER_IP:~/tmp
+            sshpass -p $SERVER_PASSWORD ssh $SERVER_USERNAME@$SERVER_IP /bin/bash << EOF
               rm -rf $DEPLOY_PATH/*
               tar -xzf ~/tmp/dist.tar.gz -C $DEPLOY_PATH
               rm -f ~/tmp/dist.tar.gz
@@ -80,8 +80,8 @@ jobs:
           command: |
             tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
             ssh-keyscan -t rsa $SERVER_IP >> ~/.ssh/known_hosts
-            scp ~/repo/dist.tar.gz $SERVER_USER_NAME@$SERVER_IP:~/
-            ssh $SERVER_USER_NAME@$SERVER_IP << EOF
+            scp ~/repo/dist.tar.gz $SERVER_USERNAME@$SERVER_IP:~/
+            ssh $SERVER_USERNAME@$SERVER_IP << EOF
               mkdir -p tmp
               rm -rf $PRODUCTION_DEPLOY_PATH/*
               tar -xzf ~/dist.tar.gz -C $PRODUCTION_DEPLOY_PATH
@@ -96,6 +96,7 @@ workflows:
       - deploy-staging:
           requires:
             - test
+          context: vuestic-staging
           filters:
             branches:
               only: develop
