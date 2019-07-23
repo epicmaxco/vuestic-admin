@@ -60,6 +60,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/vuestic-theme/vuestic-sass/resources/resources.scss";
+
 .toasted-container {
   &.full-width {
     @include media-breakpoint-down(md) {
