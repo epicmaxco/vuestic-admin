@@ -252,7 +252,7 @@ export default {
       }
       return {
         paddingRight: `${paddingRight}rem`,
-        paddingTop: this.label ? '.84rem' : 'inherit',
+        paddingTop: this.label ? this.multiple ? '.59rem' : '.84rem' : 'inherit',
         paddingBottom: this.label ? 0 : this.multiple ? '.3125rem' : '.4375rem',
       }
     },
