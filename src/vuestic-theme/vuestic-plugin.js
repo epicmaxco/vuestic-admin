@@ -12,7 +12,6 @@ import VaCountBadge from './vuestic-components/va-count-badge/VaCountBadge'
 import VaDataTable from './vuestic-components/va-datatable/VaDataTable.vue'
 import VaDatePicker from './vuestic-components/va-date-picker/VaDatePicker'
 import VaDropdown from './vuestic-components/va-dropdown/VaDropdown'
-import VaDropdownOld from './vuestic-components/va-dropdown/VaDropdownOld'
 import VaFeed from './vuestic-components/va-feed/VaFeed.vue'
 import VaFileUpload from './vuestic-components/va-file-upload/VaFileUpload'
 import VaIcon from './vuestic-components/va-icon/VaIcon'
@@ -74,7 +73,6 @@ const VuesticPlugin = {
       VaDataTable,
       VaDatePicker,
       VaDropdown,
-      VaDropdownOld,
       VaFeed,
       VaFileUpload,
       VaIcon,

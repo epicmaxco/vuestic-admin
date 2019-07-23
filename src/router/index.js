@@ -181,14 +181,6 @@ export default new Router({
               },
             },
             {
-              name: 'dropdowns',
-              path: 'dropdowns',
-              component: () => import('../components/ui/dropdowns/Dropdowns'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Dropdowns',
-              },
-            },
-            {
               name: 'notifications',
               path: 'notifications',
               component: () => import('../components/ui/notifications/Notifications'),

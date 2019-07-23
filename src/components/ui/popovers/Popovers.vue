@@ -91,10 +91,8 @@
 </template>
 
 <script>
-import VaInput from '../../../vuestic-theme/vuestic-components/va-input/VaInput'
-
 export default {
-  components: { VaInput },
+  components: {},
   data () {
     return {
       icons: [
