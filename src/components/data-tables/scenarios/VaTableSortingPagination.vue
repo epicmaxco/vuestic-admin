@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import users from './users.json'
+import users from '../../../fixtures/users.json'
 
 export default {
   data () {
