@@ -49,7 +49,7 @@
               placement="top"
               message="Top tooltip text"
             >
-              <a href="#">
+              <a href="#" class="link">
                 {{ $t('notificationsPage.popovers.topTooltip') }}
               </a>
             </va-popover>
@@ -58,7 +58,7 @@
               placement="right"
               message="Right tooltip text"
             >
-              <a href="#">
+              <a href="#" class="link">
                 {{ $t('notificationsPage.popovers.rightTooltip') }}
               </a>
             </va-popover>
@@ -68,7 +68,7 @@
               placement="left"
               message="Left tooltip text"
             >
-              <a href="#">
+              <a href="#" class="link">
                 {{$t('notificationsPage.popovers.leftTooltip')}}
               </a>
             </va-popover>
@@ -78,7 +78,7 @@
               placement="bottom"
               message="Bottom tooltip text"
             >
-              <a href="#">
+              <a href="#" class="link">
                 {{ $t('notificationsPage.popovers.bottomTooltip') }}
               </a>
             </va-popover>
