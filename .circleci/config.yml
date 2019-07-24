@@ -53,7 +53,7 @@ jobs:
           command: |
             tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
             sudo apt install sshpass
-            ssh-keyscan -t rsa $SERVER_IP >> ~/.ssh/known_hosts
+            ssh-keyscan -t rsa -p $SERVER_PORT $SERVER_IP >> ~/.ssh/known_hosts
             sshpass -p $SERVER_PASSWORD scp -P $SERVER_PORT ~/repo/dist.tar.gz $SERVER_USERNAME@$SERVER_IP:~/tmp
             sshpass -p $SERVER_PASSWORD ssh -p $SERVER_PORT $SERVER_USERNAME@$SERVER_IP /bin/bash << EOF
               rm -rf $DEPLOY_PATH/*
