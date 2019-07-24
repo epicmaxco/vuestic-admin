@@ -104,7 +104,7 @@ import VaColorSquare
   from '../../../vuestic-theme/vuestic-components/va-color-picker/VaColorSquare'
 import VaSliderColorPicker
   from '../../../vuestic-theme/vuestic-components/va-color-picker/VaSliderColorPicker'
-import VuesticAdvancedColorPicker
+import VaAdvancedColorPicker
   from '../../../vuestic-theme/vuestic-components/va-color-picker/VaAdvancedColorPicker'
 import VaColorInput
   from '../../../vuestic-theme/vuestic-components/va-color-picker/VaColorInput'
@@ -118,7 +118,7 @@ export default {
   name: 'color-pickers',
   components: {
     VaColorInput,
-    VuesticAdvancedColorPicker,
+    VaAdvancedColorPicker,
     VaSliderColorPicker,
     VaColorSquare,
     VaSimplePalettePicker,
