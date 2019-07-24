@@ -214,6 +214,10 @@ ol.va-ordered {
     border-bottom: 2px solid $vue-darkest-blue;
   }
 
+  td {
+    vertical-align: middle;
+  }
+
   &.striped {
     tr {
       &:nth-child(even) {
