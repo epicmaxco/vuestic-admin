@@ -1,6 +1,6 @@
 <template>
   <div class="not-found-pages">
-    <div class="va-row">
+    <div class="row">
       <div
         class="flex xs12 sm6 lg4 xl3"
         v-for="item in items"

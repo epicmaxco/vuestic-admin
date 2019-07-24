@@ -4,7 +4,7 @@
 @import "grid-mixins";
 @import "grid-spacing";
 
-.va-layout {
+.layout {
   @include va-container();
 
   &.fluid {
@@ -16,7 +16,7 @@
   &.fill-height {
     @include va-container--fill-height();
 
-    > .va-row {
+    > .row {
       flex: 1 1 auto;
       height: 100%;
     }
@@ -27,32 +27,32 @@
     &.gutter--#{$size} {
       padding: $gutter;
 
-      .va-row:only-child {
+      .row:only-child {
         margin: -($gutter / 2);
       }
 
-      .va-row:not(:only-child) {
+      .row:not(:only-child) {
         margin: auto (-($gutter / 2));
       }
 
       *:not(:only-child) {
-        .va-row:first-child {
+        .row:first-child {
           margin-top: -($gutter / 2);
         }
 
-        .va-row:last-child {
+        .row:last-child {
           margin-bottom: -($gutter / 2);
         }
       }
 
-      .va-row .flex {
+      .row .flex {
         padding: $gutter / 2;
       }
     }
   }
 }
 
-.va-row {
+.row {
   @include va-layout();
 
   &.row {

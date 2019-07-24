@@ -1,6 +1,6 @@
 <template>
   <div class="timelines">
-    <div class="va-row">
+    <div class="row">
       <div class="flex xs12">
         <va-card
           no-padding-h

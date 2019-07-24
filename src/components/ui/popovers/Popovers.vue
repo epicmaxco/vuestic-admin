@@ -1,6 +1,6 @@
 <template>
   <div class="tooltips">
-    <div class="va-row">
+    <div class="row">
       <div class="flex xs12 md6">
         <va-card :title="$t('popovers.popoverStyle')">
           <va-select
@@ -26,18 +26,20 @@
             v-model="popover.message"
             label="Message"
           />
-          <va-popover
-            :icon="popover.icon.icon"
-            :color="popover.color"
-            :title="popover.title"
-            :message="popover.message"
-            placement="right"
-            open
-          >
-            <va-button>
-              {{ $t('notificationsPage.popovers.showPopover') }}
-            </va-button>
-          </va-popover>
+          <div class="row popover-example mt-5">
+            <va-popover
+              :icon="popover.icon"
+              :color="popover.color"
+              :title="popover.title"
+              :message="popover.message"
+              placement="right"
+              open
+            >
+              <va-button>
+                {{ $t('notificationsPage.popovers.showPopover') }}
+              </va-button>
+            </va-popover>
+          </div>
         </va-card>
       </div>
 

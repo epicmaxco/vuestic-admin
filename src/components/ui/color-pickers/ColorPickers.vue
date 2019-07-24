@@ -1,9 +1,9 @@
 <template>
   <div class="color-pickers vuestic-color-picker-page">
-    <div class="va-row">
+    <div class="row">
       <div class="flex md12 xs12">
         <va-card :title="$t('menu.colorPickers')">
-          <div class="va-row">
+          <div class="row">
             <div class="flex md2">
               <span class="title">simple</span>
             </div>
@@ -14,7 +14,7 @@
               <span class="title">advanced</span>
             </div>
           </div>
-          <div class="va-row">
+          <div class="row">
             <div class="flex md2">
               <div class="vuestic-color-picker-page__top-square">
                 <va-color-picker-input
@@ -50,10 +50,10 @@
         </va-card>
       </div>
     </div>
-    <div class="va-row">
+    <div class="row">
       <div class="flex md12 xs12">
         <va-card title="Simple Inline">
-          <div class="va-row">
+          <div class="row">
             <div class="flex md1">
               <va-color-square :value="simpleColor"/>
             </div>
@@ -64,10 +64,10 @@
         </va-card>
       </div>
     </div>
-    <div class="va-row">
+    <div class="row">
       <div class="flex md12 xs12">
         <va-card title="Slider">
-          <div class="va-row">
+          <div class="row">
             <div class="flex md1">
               <va-color-square :value="sliderColor"/>
             </div>
@@ -78,10 +78,10 @@
         </va-card>
       </div>
     </div>
-    <div class="va-row">
+    <div class="row">
       <div class="flex md12 xs12">
         <va-card title="Advanced">
-          <div class="va-row">
+          <div class="row">
             <div class="flex md1">
               <va-color-square :value="advancedColor"/>
             </div>

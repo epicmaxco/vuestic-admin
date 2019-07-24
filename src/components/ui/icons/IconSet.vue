@@ -1,7 +1,7 @@
 <template>
   <div class="icon-set">
     <va-card class="icon-set__header mb-4 py-3">
-      <div class="va-row">
+      <div class="row">
         <div class="flex md4 xs12 pl-5 icon-set__header__text">
           <h2 class="my-0">{{ set.name }}</h2>
           <router-link :to="{ name: 'icon-sets' }">
@@ -51,7 +51,7 @@
       <span v-if="list.icons.length === 0">
         {{ $t('icons.none') }}
       </span>
-      <div class="va-row">
+      <div class="row">
         <div
           class="flex flex-center xs3 md1 mb-2 icon-grid-container"
           style="flex-direction: column"

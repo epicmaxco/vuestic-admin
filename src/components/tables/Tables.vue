@@ -1,6 +1,6 @@
 <template>
   <div class="tables">
-    <div class="va-row">
+    <div class="row">
       <div class="flex xs12 md12">
         <va-card :title="$t('tables.basic')">
           <div class="table-responsive">
@@ -78,7 +78,7 @@
       </div>
     </div>
 
-    <div class="va-row">
+    <div class="row">
       <div class="flex md12 xs12">
         <va-card :title="$t('tables.styled')">
           <div class="table-responsive">
@@ -177,7 +177,7 @@
       </div>
     </div>
 
-    <div class="va-row">
+    <div class="row">
       <div class="flex md12 xs12">
         <va-card :title="$t('tables.advanced')">
           <va-data-table

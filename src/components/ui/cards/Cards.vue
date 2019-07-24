@@ -1,6 +1,6 @@
 <template>
   <div class="cards">
-    <div class="cards-container va-row d-flex wrap align--start">
+    <div class="cards-container row d-flex wrap align--start">
       <!-- eslint-disable vue/valid-v-for -->
       <template v-for="loop in listLoops">
         <div class="flex xs12 sm6" :key="loop">
