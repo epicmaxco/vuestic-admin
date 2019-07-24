@@ -289,11 +289,6 @@ export default new Router({
               component: () => import('../components/ui/collapse/Collapses'),
             },
             {
-              name: 'filters',
-              path: 'filters',
-              component: () => import('../components/ui/filters/Filters'),
-            },
-            {
               name: 'spacing',
               path: 'spacing',
               component: () => import('../components/ui/spacing/Spacing'),

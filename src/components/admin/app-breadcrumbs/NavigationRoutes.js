@@ -85,10 +85,6 @@ export const navigationRoutes = {
           displayName: 'menu.collapses',
         },
         {
-          name: 'filters',
-          displayName: 'menu.filters',
-        },
-        {
           name: 'color-pickers',
           displayName: 'menu.colorPickers',
         },
