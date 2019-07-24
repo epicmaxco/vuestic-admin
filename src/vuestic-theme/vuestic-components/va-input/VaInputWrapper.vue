@@ -110,5 +110,8 @@ export default {
   &__messages__wrapper {
     font-size: 0.875rem;
   }
+  .va-select {
+    margin-bottom: 0;
+  }
 }
 </style>

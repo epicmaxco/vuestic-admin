@@ -60,10 +60,6 @@ export default {
 
   @include media-breakpoint-down(sm) {
     top: $sidebar-mobile-top;
-    width: 100%;
-    &:not(.va-sidebar--minimized) + .content-wrap {
-      display: none;
-    }
   }
 
   &--minimized {

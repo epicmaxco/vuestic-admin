@@ -11,7 +11,6 @@
       </div>
     </VbCard>
     <VbCard title="without content class (h1-6)">
-      <div style="color: red">Is formatted because of bootstrap. Should look like ordinary text.</div>
       <div>
         <h1>h1 title</h1>
         <h2>h2 title</h2>
@@ -30,7 +29,6 @@
     </VbCard>
     <VbCard title="without content class (pre)">
       <div>
-        <div style="color: red">Is formatted because of bootstrap. Should look like ordinary text.</div>
         <pre>pre text must be here</pre>
       </div>
     </VbCard>
@@ -61,7 +59,6 @@
       </div>
     </VbCard>
     <VbCard title="without content class (lists)">
-      <div style="color: red">Is formatted because of bootstrap. Should look like ordinary text.</div>
       <ol>
         <li>item 1</li>
         <li>item 2

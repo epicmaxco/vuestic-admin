@@ -81,6 +81,7 @@ export default {
         ? {
           left: `${this.sliderLeft}px`,
           width: `${this.sliderWidth}px`,
+          backgroundColor: this.$themes.primary,
         }
         : {}
     },
@@ -192,7 +193,6 @@ export default {
     .va-tabs__slider {
       width: 100%;
       height: 0.125rem;
-      background-color: $brand-primary;
     }
   }
 }

@@ -39,9 +39,10 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Add variables for Yandex Metrics and Drift live chat
+          name: Add variables
           command:
-            echo "VUE_APP_INCLUDE_DEMOS=true" >> .env.production.local
+            echo "VUE_APP_INCLUDE_DEMOS=true" >> .env.production.local &&
+            echo "VUE_APP_GOOGLE_MAPS_API_KEY=$GOOGLE_MAPS_API_KEY" >> .env.production.local
       - restore_cache: *restore_cache
       - run: *install_dependencies
       - save_cache: *save_cache
@@ -49,12 +50,12 @@ jobs:
       - run:
           name: Deploy to hosting
           # DEPLOY_PATH here is for staging only
+          # This doesn't really work. Has to be done manually for now. ssh-keyscan -t rsa  -H -F "[$SERVER_IP]:$SERVER_PORT"
           command: |
             tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
             sudo apt install sshpass
-            ssh-keyscan -t rsa $DEPLOY_URL >> ~/.ssh/known_hosts
-            sshpass -p $DEPLOY_PASSWORD scp ~/repo/dist.tar.gz $DEPLOY_USER@$DEPLOY_URL:~/tmp
-            sshpass -p $DEPLOY_PASSWORD ssh $DEPLOY_USER@$DEPLOY_URL /bin/bash << EOF
+            sshpass -p $SERVER_PASSWORD scp -P $SERVER_PORT ~/repo/dist.tar.gz $SERVER_USERNAME@$SERVER_IP:~/tmp
+            sshpass -p $SERVER_PASSWORD ssh -p $SERVER_PORT $SERVER_USERNAME@$SERVER_IP /bin/bash << EOF
               rm -rf $DEPLOY_PATH/*
               tar -xzf ~/tmp/dist.tar.gz -C $DEPLOY_PATH
               rm -f ~/tmp/dist.tar.gz
@@ -65,10 +66,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Add variables for Yandex Metrics and Drift live chat
+          name: Add variables
           command:
             echo "VUE_APP_YANDEX_METRICS_KEY=$YANDEX_METRICS_KEY" >> .env.production.local &&
-            echo "VUE_APP_DRIFT_KEY=$DRIFT_KEY" >> .env.production.local
+            echo "VUE_APP_DRIFT_KEY=$DRIFT_KEY" >> .env.production.local &&
+            echo "VUE_APP_GOOGLE_MAPS_API_KEY=$GOOGLE_MAPS_API_KEY" >> .env.production.local
       - restore_cache: *restore_cache
       - run: *install_dependencies
       - save_cache: *save_cache
@@ -78,8 +80,8 @@ jobs:
           command: |
             tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
             ssh-keyscan -t rsa $SERVER_IP >> ~/.ssh/known_hosts
-            scp ~/repo/dist.tar.gz $SERVER_USER_NAME@$SERVER_IP:~/
-            ssh $SERVER_USER_NAME@$SERVER_IP << EOF
+            scp ~/repo/dist.tar.gz $SERVER_USERNAME@$SERVER_IP:~/
+            ssh $SERVER_USERNAME@$SERVER_IP << EOF
               mkdir -p tmp
               rm -rf $PRODUCTION_DEPLOY_PATH/*
               tar -xzf ~/dist.tar.gz -C $PRODUCTION_DEPLOY_PATH
@@ -94,6 +96,7 @@ workflows:
       - deploy-staging:
           requires:
             - test
+          context: vuestic-staging
           filters:
             branches:
               only: develop

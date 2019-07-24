@@ -3,9 +3,6 @@ const state = {
     opened: false,
   },
   config: {
-    googleMaps: {
-      apiKey: 'AIzaSyBNAqPrTQoz9P4NBlDDyfxrnKiafkaL8iQ',
-    },
     palette: {
       primary: '#4ae387',
       danger: '#e34a4a',

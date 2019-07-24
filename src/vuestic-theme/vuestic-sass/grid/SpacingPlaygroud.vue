@@ -6,19 +6,19 @@
     <div class="va-row">
       <div class="flex xs3">
         <span>m</span>
-        <va-simple-select :options="directionList" v-model="selectedMarginDirection"/>
+        <va-select :options="directionList" v-model="selectedMarginDirection"/>
       </div>
       <div class="flex xs2">
         <span>-</span>
-        <va-simple-select :options="sizesList" v-model="selectedMarginSize"/>
+        <va-select :options="sizesList" v-model="selectedMarginSize"/>
       </div>
       <div class="flex xs3 offset-2">
         <span>p</span>
-        <va-simple-select :options="directionList" v-model="selectedPaddingDirection"/>
+        <va-select :options="directionList" v-model="selectedPaddingDirection"/>
       </div>
       <div class="flex xs2">
         <span>-</span>
-        <va-simple-select :options="sizesList" v-model="selectedPaddingSize"/>
+        <va-select :options="sizesList" v-model="selectedPaddingSize"/>
       </div>
     </div>
     <div class="va-row">
@@ -46,13 +46,13 @@
 </template>
 
 <script>
-import VaSimpleSelect from '../../vuestic-components/va-simple-select/VaSimpleSelect'
+import VaSelect from '../../vuestic-components/va-select/VaSelect'
 import VaColorPresentation
   from '../../vuestic-components/va-color-presentation/VaColorPresentation'
 
 export default {
   name: 'spacing-playgroud',
-  components: { VaColorPresentation, VaSimpleSelect },
+  components: { VaColorPresentation, VaSelect },
   data () {
     return {
       directionList: ['a', 'y', 'x', 't', 'r', 'b', 'l'],
@@ -81,8 +81,12 @@ export default {
 <style lang="scss">
 .spacing-playground {
   .playground-component {
+    display: flex;
     background-color: #ffd093;
 
+    &__margin {
+      width: 100%;
+    }
     &__padding {
       background-color: #c9f7db;
     }

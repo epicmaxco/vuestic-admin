@@ -9,9 +9,6 @@
     "signUp": "注册",
     "termsOfUse": "使用条款"
   },
-  "breadcrumbs": {
-    "home": "首页"
-  },
   "buttons": {
     "advanced": "图标、组、下拉菜单",
     "button": "按钮",
@@ -176,7 +173,6 @@
     "treeView": "树视图",
     "dateTimePickers": "日期时间选择器",
     "fileUpload": "文件上传",
-    "dropdowns": "下拉菜单",
     "chat": "聊天"
   },
   "messages": {

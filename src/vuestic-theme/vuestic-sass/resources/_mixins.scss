@@ -1,16 +1,29 @@
 @import "../grid/grid-mixins";
 
+@mixin va-title() {
+  color: $vue-green;
+  font-size: .625rem;
+  letter-spacing: 0.6px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 @mixin flex-center() {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+@mixin va-header-margin($element) {
+  margin-top: map_get($display-margins, $element);
+  margin-bottom: map_get($display-margins, $element) / 2;
+}
+
 @mixin va-display($element) {
   color: $vue-darkest-blue;
   font-size: map-get($display-font-sizes, $element);
-  font-weight: bold;
-  margin-bottom: 0.5em;
+  font-weight: 700;
   line-height: 1;
 }
 

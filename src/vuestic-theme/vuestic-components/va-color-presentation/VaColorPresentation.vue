@@ -20,6 +20,7 @@
 
 <script>
 import VuesticTooltip from '../va-tooltip/VaTooltip'
+import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
 
 // NOTE This component is a tad weird.
 // It's not part of presentation nor is it UI component.
@@ -28,6 +29,7 @@ import VuesticTooltip from '../va-tooltip/VaTooltip'
 export default {
   name: 'va-color-presentation',
   components: { VuesticTooltip },
+  mixins: [ ColorThemeMixin ],
   props: {
     color: {
       type: String,
@@ -57,7 +59,7 @@ export default {
   computed: {
     computedStyle () {
       return {
-        background: this.color,
+        background: this.colorComputed,
         width: `${this.width}px`,
       }
     },

@@ -97,10 +97,6 @@ export const navigationRoutes = {
           displayName: 'menu.notifications',
         },
         {
-          name: 'dropdowns',
-          displayName: 'menu.dropdowns',
-        },
-        {
           name: 'icon-sets',
           displayName: 'menu.icons',
           children: [
