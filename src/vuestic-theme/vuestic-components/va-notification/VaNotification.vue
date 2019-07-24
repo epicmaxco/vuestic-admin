@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import VaIcon from '../va-icon/VaIcon'
 import {
   getHoverColor,
   getBoxShadowColor,
@@ -26,6 +27,9 @@ import {
 
 export default {
   name: 'va-notification',
+  components: {
+    VaIcon,
+  },
   computed: {
     notificationStyle () {
       return {

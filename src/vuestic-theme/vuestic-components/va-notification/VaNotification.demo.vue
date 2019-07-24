@@ -48,9 +48,14 @@
 <script>
 import VaCheckbox from '../va-checkbox/VaCheckbox'
 import VaNotification from './VaNotification'
+import VaBadge from '../va-chip/VaBadge'
 
 export default {
-  components: { VaCheckbox, VaNotification },
+  components: {
+    VaCheckbox,
+    VaNotification,
+    VaBadge,
+  },
   data () {
     return {
       isCloseableNotificationVisible: true,

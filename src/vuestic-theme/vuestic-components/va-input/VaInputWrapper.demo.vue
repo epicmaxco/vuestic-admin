@@ -38,8 +38,8 @@
       <va-input-wrapper :messages="messages">
         <va-checkbox name="agree-to-terms" v-model="agreedToTerms">
           <template slot="label">
-            {{ $t('auth.agree') }}
-            <a class="link" href="javascript:void(0);">{{ $t('auth.termsOfUse') }}</a>
+            I agree to
+            <a class="link" href="javascript:void(0);">Terms of use.</a>
           </template>
         </va-checkbox>
       </va-input-wrapper>
@@ -60,6 +60,7 @@ import VaInputWrapper from './VaInputWrapper'
 import VaButton from './../va-button/VaButton'
 import VaIcon from './../va-icon/VaIcon'
 import VaCheckbox from '../va-checkbox/VaCheckbox'
+import VaRadioButton from '../va-radio-button/VaRadioButton'
 
 export default {
   components: {
@@ -67,6 +68,7 @@ export default {
     VaInputWrapper,
     VaButton,
     VaIcon,
+    VaRadioButton,
   },
   data () {
     return {

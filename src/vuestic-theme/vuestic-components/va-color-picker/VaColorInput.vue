@@ -24,12 +24,14 @@
 <script>
 import VaAdvancedColorPicker from './VaAdvancedColorPicker'
 import ColorDot from './ColorDot'
+import VaIcon from '../va-icon/VaIcon'
 
 export default {
   name: 'va-color-input',
   components: {
     ColorDot,
     VaAdvancedColorPicker,
+    VaIcon,
   },
   props: {
     value: {
