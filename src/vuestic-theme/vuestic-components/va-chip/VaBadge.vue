@@ -34,7 +34,7 @@ export default {
       }
     },
     badgeStyle () {
-      return {
+      const computedStyles = {
         color: this.outline ? this.$themes[this.color] : '#ffffff',
         borderColor: this.$themes[this.color],
         backgroundColor: !this.outline ? this.$themes[this.color] : '',
