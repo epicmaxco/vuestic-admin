@@ -136,20 +136,13 @@
         <va-card :title="$t('forms.selects.title')">
           <form>
             <div class="row">
-              <div class="flex md4">
-                <fieldset>
-                  <va-simple-select
-                    :label="$t('forms.selects.simple')"
-                    v-model="simpleSelectModel"
-                    option-key="description"
-                    v-bind:options="simpleOptions"
-                  />
-                  <va-simple-select
-                    :label="$t('forms.selects.country')"
-                    v-model="chosenCountry"
-                    v-bind:options="countriesList"
-                  />
-                </fieldset>
+              <div class="flex md6 xs12">
+                <va-select
+                  :label="$t('forms.selects.simple')"
+                  v-model="simpleSelectModel"
+                  textBy="description"
+                  :options="simpleOptions"
+                />
               </div>
               <div class="flex md6 xs12">
                 <va-select

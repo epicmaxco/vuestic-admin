@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="va-navbar position-relative"
+    class="va-navbar"
     :style="navbarStyle"
   >
     <div
@@ -161,7 +161,7 @@ $nav-border-side-width: 3.1875rem;
     }
   }
 
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(lg) {
     &__button {
       display: none !important;
     }

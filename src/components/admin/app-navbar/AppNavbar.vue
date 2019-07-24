@@ -110,7 +110,7 @@ export default {
   &__mailto-link:hover {
     filter: brightness(85%);
   }
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(lg) {
     &__button {
       display: none !important;
     }
