@@ -15,10 +15,10 @@
     </div>
     <div class="va-navbar__content row">
       <div
-        class="va-navbar__center flex offset--lg3 offset--md3 lg5 flex md4 row flex-center">
+        class="va-navbar__center flex offset--lg3 offset--md3 lg5 md4 flex-center">
         <slot name="center"></slot>
       </div>
-      <div class="flex md5 lg4 va-navbar__actions align--center row">
+      <div class="md5 lg4 va-navbar__actions align--center row">
         <slot></slot>
       </div>
     </div>
