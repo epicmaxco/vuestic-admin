@@ -97,8 +97,6 @@ import {
   themeColors,
   extraColors,
   buttonGradients,
-  hoveredButtonGradients,
-  pressedButtonGradients,
 } from '../../../vuestic-theme/vuestic-components/va-color-presentation/colorsData'
 
 export default {
@@ -111,8 +109,6 @@ export default {
       themeColors,
       extraColors,
       buttonGradients,
-      hoveredButtonGradients,
-      pressedButtonGradients,
     }
   },
 }
