@@ -118,6 +118,11 @@ export default {
       margin: auto 0 auto .75rem;
     }
   }
+  @include media-breakpoint-down(md) {
+    @at-root .va-navbar__text {
+      display: none !important;
+    }
+  }
   @include media-breakpoint-down(sm) {
     &__button {
       display: none !important;
