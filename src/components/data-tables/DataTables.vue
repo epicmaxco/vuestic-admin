@@ -1,6 +1,13 @@
 <template>
   <div>
-    <component v-for="name in componentNames" :key="name" :is="name" class="mb-2" style="maxWidth: 1200px" />
+    <va-table-actions class="mb-2" style="maxWidth: 1200px" />
+    <va-table-sorting-pagination class="mb-2" style="maxWidth: 1200px" />
+    <va-table-filter class="mb-2" style="maxWidth: 1200px" />
+    <va-table-infinite-scroll class="mb-2" style="maxWidth: 1200px" />
+    <va-table-select class="mb-2" style="maxWidth: 1200px" />
+    <va-table-server-pagination class="mb-2" style="maxWidth: 1200px" />
+    <va-table-empty class="mb-2" style="maxWidth: 1200px" />
+    <va-table-loading class="mb-2" style="maxWidth: 1200px" />
   </div>
 </template>
 
@@ -8,7 +15,7 @@
 import VaTableActions from './scenarios/VaTableActions.vue'
 import VaTableSortingPagination from './scenarios/VaTableSortingPagination.vue'
 import VaTableFilter from './scenarios/VaTableFilter.vue'
-import VaTableInfScroll from './scenarios/VaTableInfScroll.vue'
+import VaTableInfiniteScroll from './scenarios/VaTableInfiniteScroll.vue'
 import VaTableSelect from './scenarios/VaTableSelect.vue'
 import VaTableServerPagination from './scenarios/VaTableServerPagination.vue'
 import VaTableEmpty from './scenarios/VaTableEmpty.vue'
@@ -19,25 +26,11 @@ export default {
     VaTableActions,
     VaTableSortingPagination,
     VaTableFilter,
-    VaTableInfScroll,
+    VaTableInfiniteScroll,
     VaTableSelect,
     VaTableServerPagination,
     VaTableEmpty,
     VaTableLoading,
-  },
-  data () {
-    return {
-      componentNames: [
-        'va-table-actions',
-        'va-table-sorting-pagination',
-        'va-table-filter',
-        'va-table-inf-scroll',
-        'va-table-select',
-        'va-table-server-pagination',
-        'va-table-empty',
-        'va-table-loading',
-      ],
-    }
   },
 }
 </script>
