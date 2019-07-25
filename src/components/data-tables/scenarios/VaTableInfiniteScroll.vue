@@ -17,7 +17,7 @@
           v-if="loading"
           :animation-duration="2000"
           :size="60"
-          color="#4ae387"
+          :color="$themes.primary"
         />
       </div>
     </div>
