@@ -32,13 +32,12 @@
       <va-pagination
         v-model="currentPage"
         :pages="paginationTotal"
-        :visible-pages="paginationVisible"
+        :visible-pages="visiblePages"
+        :boundary-links="paginationTotal > visiblePages"
         @input="inputPage"
       />
     </div>
   </va-inner-loading>
-  <!-- <div class="va-table striped" :class="{'hoverable': clickable || hoverable}">
-  </div> -->
 </template>
 
 <script>
@@ -65,6 +64,10 @@ export default {
     perPage: {
       type: Number,
       default: 6,
+    },
+    visiblePages: {
+      type: Number,
+      default: 4,
     },
     apiMode: Boolean,
     clickable: Boolean,
@@ -102,13 +105,6 @@ export default {
     },
     paginationTotal () {
       return this.apiMode ? this.totalPages : Math.ceil(this.data.length / this.perPage)
-    },
-    paginationVisible () {
-      if (this.paginationTotal > 4) {
-        return 4
-      }
-
-      return this.paginationTotal
     },
   },
   watch: {
