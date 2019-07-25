@@ -27,7 +27,7 @@
     </va-card>
 
     <va-card :title="$t('tables.stripedHoverable')">
-      <table class="va-table striped hoverable">
+      <table class="va-table va-table--striped va-table--hoverable">
         <thead>
           <tr>
             <th>Name</th>

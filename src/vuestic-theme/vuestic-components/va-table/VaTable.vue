@@ -1,44 +1,44 @@
 <template>
-  <div class="va-table striped" :class="{'hoverable': clickable || hoverable}">
-    <va-inner-loading :loading="loading">
-      <vuetable
-        ref="vuetable"
-        :api-mode="false"
-        :fields="fields"
-        :data="apiMode ? data : undefined"
-        :data-manager="apiMode ? undefined : dataManager"
-        :pagination-path="apiMode ? '' : 'pagination'"
-        :no-data-template="noDataLabel || $t('tables.noDataAvailable')"
-        :css="styles"
-        :row-class="rowClass"
-        @vuetable:row-clicked="rowClicked"
+  <va-inner-loading :loading="loading">
+    <vuetable
+      ref="vuetable"
+      :api-mode="false"
+      :fields="fields"
+      :data="apiMode ? data : undefined"
+      :data-manager="apiMode ? undefined : dataManager"
+      :pagination-path="apiMode ? '' : 'pagination'"
+      :no-data-template="noDataLabel || $t('tables.noDataAvailable')"
+      :css="styles"
+      :row-class="rowClass"
+      @vuetable:row-clicked="rowClicked"
+    >
+      <!-- https://stackoverflow.com/questions/50891858/vue-how-to-pass-down-slots-inside-wrapper-component   -->
+      <template
+        v-for="slot in Object.keys($scopedSlots)"
+        :slot="slot"
+        slot-scope="scope"
       >
-        <!-- https://stackoverflow.com/questions/50891858/vue-how-to-pass-down-slots-inside-wrapper-component   -->
-        <template
-          v-for="slot in Object.keys($scopedSlots)"
-          :slot="slot"
-          slot-scope="scope"
-        >
-          <slot
-            :name="slot"
-            v-bind="scope"
-          />
-        </template>
-      </vuetable>
-
-      <div
-        v-if="!noPagination && paginationTotal > 1"
-        class="flex-center mt-3"
-      >
-        <va-pagination
-          v-model="currentPage"
-          :pages="paginationTotal"
-          :visible-pages="paginationVisible"
-          @input="inputPage"
+        <slot
+          :name="slot"
+          v-bind="scope"
         />
-      </div>
-    </va-inner-loading>
-  </div>
+      </template>
+    </vuetable>
+
+    <div
+      v-if="!noPagination && paginationTotal > 1"
+      class="flex-center mt-3"
+    >
+      <va-pagination
+        v-model="currentPage"
+        :pages="paginationTotal"
+        :visible-pages="paginationVisible"
+        @input="inputPage"
+      />
+    </div>
+  </va-inner-loading>
+  <!-- <div class="va-table striped" :class="{'hoverable': clickable || hoverable}">
+  </div> -->
 </template>
 
 <script>
@@ -92,7 +92,7 @@ export default {
   computed: {
     styles () {
       return {
-        tableClass: 'va-table__vuetable' + (this.clickable ? ' clickable' : ''),
+        tableClass: this.buildTableClass(),
         ascendingIcon: 'fa fa-caret-up',
         descendingIcon: 'fa fa-caret-down',
         renderIcon: classes => {
@@ -123,6 +123,19 @@ export default {
     },
   },
   methods: {
+    buildTableClass () {
+      let name = 'va-table__vuetable va-table va-table--striped'
+
+      if (this.clickable) {
+        name += ' va-table--clickable'
+      }
+
+      if (this.hoverable) {
+        name += ' va-table--hoverable'
+      }
+
+      return name
+    },
     dataManager (sortOrder, pagination) {
       let sorted = []
 
@@ -187,12 +200,6 @@ export default {
 <style lang="scss">
   .va-table__vuetable {
     width: 100%;
-
-    &.clickable {
-      td {
-        cursor: pointer;
-      }
-    }
 
     th {
       &.sortable {

@@ -204,39 +204,7 @@ ol.va-ordered {
 }
 
 .va-table {
-  th, td {
-    padding: 0.625rem;
-  }
-
-  th {
-    @extend .title;
-    color: $vue-darkest-blue;
-    border-bottom: 2px solid $vue-darkest-blue;
-  }
-
-  td {
-    vertical-align: middle;
-  }
-
-  &.striped {
-    tr {
-      &:nth-child(even) {
-        td {
-          background-color: $light-gray3;
-        }
-      }
-    }
-  }
-
-  &.hoverable {
-    tr {
-      &:hover {
-        td {
-          background-color: $light-gray2;
-        }
-      }
-    }
-  }
+  @include va-table();
 }
 
 .vue-misc {
