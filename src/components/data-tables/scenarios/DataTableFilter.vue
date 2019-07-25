@@ -1,6 +1,6 @@
 <template>
   <va-card :title="$t('tables.searchTrendsBadges')">
-    <div class="va-row">
+    <div class="row align--center">
       <div class="flex">
         <va-input
           :value="term"
@@ -12,7 +12,7 @@
         </va-input>
       </div>
 
-      <div class="flex spacer" />
+      <div class="spacer" />
 
       <div class="flex">
         <span style="marginRight: 4px">
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <va-table
+    <va-data-table
       :fields="fields"
       :data="filteredData"
       :per-page="perPage"
@@ -49,7 +49,7 @@
           {{ $t('tables.report') }}
         </va-button>
       </template>
-    </va-table>
+    </va-data-table>
   </va-card>
 </template>
 
@@ -90,18 +90,12 @@ export default {
         dataClass: 'text-right',
       }]
     },
-    data () {
-      return this.users.map(user => {
-        user.fullName = user.firstName + ' ' + user.lastName
-        return user
-      })
-    },
     filteredData () {
       if (!this.term || this.term.length < 1) {
-        return this.data
+        return this.users
       }
 
-      return this.data.filter(item => {
+      return this.users.filter(item => {
         return item.fullName.toLowerCase().startsWith(this.term.toLowerCase())
       })
     },

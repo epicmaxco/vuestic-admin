@@ -1,8 +1,8 @@
 <template>
   <va-card :title="$t('tables.labelsActions')">
-    <va-table
+    <va-data-table
       :fields="fields"
-      :data="data"
+      :data="users"
       no-pagination
     >
       <template slot="marker" slot-scope="props">
@@ -18,7 +18,7 @@
           {{ $t('tables.delete') }}
         </va-button>
       </template>
-    </va-table>
+    </va-data-table>
   </va-card>
 </template>
 
@@ -50,12 +50,6 @@ export default {
         name: '__slot:actions',
         dataClass: 'text-right',
       }]
-    },
-    data () {
-      return this.users.map(user => {
-        user.fullName = user.firstName + ' ' + user.lastName
-        return user
-      })
     },
   },
   methods: {

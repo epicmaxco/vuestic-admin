@@ -1,8 +1,8 @@
 <template>
   <va-card :title="$t('tables.sortingPaginationActionsAsIcons')">
-    <va-table
+    <va-data-table
       :fields="fields"
-      :data="data"
+      :data="users"
       :per-page="5"
     >
       <template slot="actions" slot-scope="props">
@@ -23,7 +23,7 @@
           <va-button flat small color="gray" icon="fa fa-trash" />
         </va-popover>
       </template>
-    </va-table>
+    </va-data-table>
   </va-card>
 </template>
 
@@ -33,7 +33,7 @@ import users from '../../../fixtures/users.json'
 export default {
   data () {
     return {
-      users: users,
+      users: users.slice(),
     }
   },
   computed: {
@@ -56,12 +56,6 @@ export default {
         name: '__slot:actions',
         dataClass: 'text-right',
       }]
-    },
-    data () {
-      return this.users.map(user => {
-        user.fullName = user.firstName + ' ' + user.lastName
-        return user
-      })
     },
   },
   methods: {

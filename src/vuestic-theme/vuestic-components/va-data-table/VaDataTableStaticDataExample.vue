@@ -1,6 +1,6 @@
 <template>
   <div>
-    <va-table
+    <va-data-table
       :fields="fields"
       :data="filteredUsers"
       :per-page="perPage"
@@ -25,7 +25,7 @@
           View User JSON
         </va-button>
       </template>
-    </va-table>
+    </va-data-table>
     Selected: {{ selected }}
   </div>
 </template>

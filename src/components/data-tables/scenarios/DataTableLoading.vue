@@ -1,8 +1,8 @@
 <template>
   <va-card :title="$t('tables.loading')">
-    <va-table
+    <va-data-table
       :fields="fields"
-      :data="data"
+      :data="users"
       loading
     />
   </va-card>
@@ -29,12 +29,6 @@ export default {
         name: 'country',
         title: this.$t('tables.headings.country'),
       }]
-    },
-    data () {
-      return this.users.map(user => {
-        user.fullName = user.firstName + ' ' + user.lastName
-        return user
-      })
     },
   },
 }

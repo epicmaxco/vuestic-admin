@@ -46,7 +46,7 @@ import Vuetable from 'vuetable-2/src/components/Vuetable'
 import VaPagination from '../va-pagination/VaPagination.vue'
 
 export default {
-  name: 'va-table',
+  name: 'va-data-table',
   components: {
     SpringSpinner,
     Vuetable,
@@ -120,7 +120,7 @@ export default {
   },
   methods: {
     buildTableClass () {
-      let name = 'va-table__vuetable va-table va-table--striped'
+      let name = 'va-data-table__vuetable va-table va-table--striped'
 
       if (this.clickable) {
         name += ' va-table--clickable'
@@ -194,7 +194,7 @@ export default {
 </script>
 
 <style lang="scss">
-  .va-table__vuetable {
+  .va-data-table__vuetable {
     width: 100%;
 
     th {

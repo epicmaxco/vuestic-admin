@@ -1,16 +1,16 @@
 <template>
   <va-card :title="$t('tables.infiniteScroll')">
-    <div class="va-table-infinite-scroll--container" ref="scrollable" @scroll="onScroll">
-      <va-table
+    <div class="data-table-infinite-scroll--container" ref="scrollable" @scroll="onScroll">
+      <va-data-table
         :fields="fields"
-        :data="data"
+        :data="users"
         api-mode
         no-pagination
       >
         <template slot="marker" slot-scope="props">
           <va-icon name="fa fa-circle" :color="props.rowData.color" size="8px" />
         </template>
-      </va-table>
+      </va-data-table>
 
       <div class="flex-center ma-3">
         <spring-spinner
@@ -56,12 +56,6 @@ export default {
         title: this.$t('tables.headings.country'),
       }]
     },
-    data () {
-      return this.users.map(user => {
-        user.fullName = user.firstName + ' ' + user.lastName
-        return user
-      })
-    },
   },
   created () {
     this.loadMore()
@@ -99,7 +93,7 @@ export default {
 </script>
 
 <style lang="scss">
-  .va-table-infinite-scroll--container {
+  .data-table-infinite-scroll--container {
     height: 300px;
     overflow-y: auto;
   }

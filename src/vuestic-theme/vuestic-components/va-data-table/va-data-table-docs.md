@@ -1,9 +1,9 @@
-# VaTable
+# VaDataTable
 Powerful data-table with support for scoped-slots, sorting and pagination.
 Works with the static data as well as in the api mode (server-side pagination).
 
 ```html
-<va-table
+<va-data-table
   :fields="fields"
   :data="data"
   :per-page="5"
@@ -19,7 +19,7 @@ Works with the static data as well as in the api mode (server-side pagination).
   <template slot="actions" slot-scope="props">
     {{ props.rowData }}
   </template>
-</va-table>
+</va-data-table>
 ```
 
 **Props**
