@@ -3,7 +3,7 @@
     <div class="title text-dark mb-1">
       {{$t('dashboard.tabs.bankDetails.detailsFields')}}
     </div>
-    <div class="va-row">
+    <div class="row">
       <div class="flex xs12 md6">
         <va-input
           :label="$t('dashboard.tabs.bankDetails.bankName')"
@@ -29,7 +29,7 @@
         />
       </div>
     </div>
-    <div class="va-row justify--center">
+    <div class="row justify--center">
       <va-button>
         {{ $t('dashboard.tabs.bankDetails.sendDetails') }}
       </va-button>

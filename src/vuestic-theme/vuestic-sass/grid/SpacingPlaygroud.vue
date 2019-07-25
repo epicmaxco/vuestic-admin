@@ -1,9 +1,9 @@
 <template>
-  <div class="spacing-playground va-layout gutter--md">
-    <div class="va-row">
+  <div class="spacing-playground layout gutter--md">
+    <div class="row">
       <h3>Spacing playground</h3>
     </div>
-    <div class="va-row">
+    <div class="row">
       <div class="flex xs3">
         <span>m</span>
         <va-select :options="directionList" v-model="selectedMarginDirection"/>
@@ -21,11 +21,11 @@
         <va-select :options="sizesList" v-model="selectedPaddingSize"/>
       </div>
     </div>
-    <div class="va-row">
+    <div class="row">
       <div class="flex xs6">{{selectedMarginClass}}</div>
       <div class="flex xs6">{{selectedPaddingClass}}</div>
     </div>
-    <div class="va-row">
+    <div class="row">
       <div class="flex xs12">
         <div class="playground-component">
           <div class="playground-component__margin" :class="selectedMarginClass">
@@ -36,7 +36,7 @@
         </div>
       </div>
     </div>
-    <div class="va-row">
+    <div class="row">
       <div class="flex xs12">
         <va-color-presentation color="#c9f7db" name="padding"/>
         <va-color-presentation color="#ffd093" name="margin"/>

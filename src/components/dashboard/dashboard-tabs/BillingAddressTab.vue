@@ -1,6 +1,6 @@
 <template>
   <div class="pt-2">
-    <div class="va-row">
+    <div class="row">
       <div class="flex xs12 md6">
         <div class="title text-dark mb-3">
           {{$t('dashboard.tabs.billingAddress.personalInfo')}}
@@ -36,7 +36,7 @@
         />
       </div>
     </div>
-    <div class="va-row justify--center">
+    <div class="row justify--center">
       <va-button>
         Add Connection
       </va-button>

@@ -1,7 +1,7 @@
 <template>
-  <div class="va-row row-equal">
+  <div class="row row-equal">
     <div class="flex xl6 xs12">
-      <div class="va-row">
+      <div class="row">
         <div
           class="flex xs4"
           v-for="(info, idx) in infoTiles"
@@ -14,7 +14,7 @@
         </div>
       </div>
 
-      <div class="va-row">
+      <div class="row">
         <div class="flex xs12 md6">
           <va-card>
             <p class="display-2 mb-0" :style="{color: this.$themes.primary}">291</p>
@@ -23,7 +23,7 @@
         </div>
         <div class="flex xs12 md6">
           <va-card>
-            <div class="va-row row-separated">
+            <div class="row row-separated">
               <div class="flex xs4">
                 <p class="display-2 mb-0" :style="{color: this.$themes.primary}">3</p>
                 <p>{{$t('dashboard.info.users')}}</p>
@@ -50,7 +50,7 @@
         Buying the right telescope to take your love of astronomy to the
         next level is a big next step.
 
-        <div class="va-row mt-3">
+        <div class="row mt-3">
           <va-button color="success">
             {{$t('dashboard.info.viewLibrary')}}
           </va-button>

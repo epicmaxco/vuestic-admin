@@ -1,7 +1,7 @@
 <template>
-  <div class="tree-view sets-list va-row">
+  <div class="tree-view sets-list row">
     <div class="flex md12 xs12">
-      <div class="va-row">
+      <div class="row">
         <div class="small-set flex lg6 xs12">
           <va-card :title="$t('treeView.basic')">
             <tree-view-basic-preview/>
@@ -15,7 +15,7 @@
         </div>
       </div>
 
-      <div class="va-row">
+      <div class="row">
         <div class="small-set flex lg6 xs12">
           <va-card :title="$t('treeView.advanced')">
             <tree-view-advanced-preview/>
@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <div class="va-row">
+      <div class="row">
         <div class="small-set flex lg6 xs12">
           <va-card :title="$t('treeView.selectable')">
             <tree-view-selectable-preview/>

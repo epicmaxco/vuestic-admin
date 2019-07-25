@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="onsubmit" class="login">
-    <div class="va-row mb-2">
+    <div class="row mb-2">
       <va-input
         v-model="email"
         type="email"
@@ -9,7 +9,7 @@
         :error-messages="emailErrors"
       />
     </div>
-    <div class="va-row justify--center">
+    <div class="row justify--center">
       <va-button type="submit" class="my-0">{{ $t('auth.reset_password') }}</va-button>
     </div>
   </form>

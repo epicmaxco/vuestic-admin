@@ -1,6 +1,6 @@
 <template>
   <div class="charts">
-    <div class="va-row">
+    <div class="row">
       <div class="flex md6 xs12">
         <va-card
           class="chart-widget"
@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <div class="va-row">
+    <div class="row">
       <div class="flex md12 xs12">
         <va-card
           class="chart-widget"
@@ -30,7 +30,7 @@
       </div>
     </div>
 
-    <div class="va-row">
+    <div class="row">
       <div class="flex md6 xs12">
         <va-card
           class="chart-widget"
@@ -48,7 +48,7 @@
         </va-card>
       </div>
     </div>
-    <div class="va-row">
+    <div class="row">
       <div class="flex md12 xs12">
         <va-card
           class="chart-widget"

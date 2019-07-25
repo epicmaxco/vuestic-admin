@@ -5,8 +5,8 @@
       <va-icon-vuestic/>
     </template>
     <template slot="center">
-      <div class="va-row flex-nowrap align--center justify--space-between">
-        <span class="va-navbar__text">
+      <div class="row flex-nowrap align--center justify--space-between">
+        <span class="va-navbar__text no-wrap">
           {{$t('navbar.messageUs')}}&nbsp;
           <a
             href="mailto:hello@epicmax.co"
@@ -30,7 +30,7 @@
         </div>
       </div>
     </template>
-    <div class="app-navbar__actions va-row flex-nowrap align--center">
+    <div class="app-navbar__actions row flex-nowrap align--center">
       <color-dropdown class="va-navbar__item"/>
       <message-dropdown class="va-navbar__item"/>
       <notification-dropdown class="va-navbar__item"/>
@@ -110,12 +110,17 @@ export default {
   &__mailto-link:hover {
     filter: brightness(85%);
   }
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(lg) {
     &__button {
       display: none !important;
     }
     .profile-dropdown {
       margin: auto 0 auto .75rem;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    @at-root .va-navbar__text {
+      display: none !important;
     }
   }
   @include media-breakpoint-down(sm) {

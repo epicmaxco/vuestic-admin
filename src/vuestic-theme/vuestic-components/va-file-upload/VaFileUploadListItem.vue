@@ -4,7 +4,7 @@
     :class="{'file-upload-list-item--undo': removed}"
   >
     <div
-      class="va-row"
+      class="row"
       v-if="removed"
     >
       <div class="flex md12">
@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <div class="va-row align--center" v-else>
+    <div class="row align--center" v-else>
       <div class="file-upload-list-item__name flex xs12 lg3 ellipsis">
         {{ file.name }}
       </div>
