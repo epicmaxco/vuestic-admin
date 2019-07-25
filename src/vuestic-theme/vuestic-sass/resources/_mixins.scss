@@ -1,5 +1,14 @@
 @import "../grid/grid-mixins";
 
+@mixin va-title() {
+  color: $vue-green;
+  font-size: .625rem;
+  letter-spacing: 0.6px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 @mixin flex-center() {
   display: flex;
   justify-content: center;
@@ -64,4 +73,46 @@
   font-size: $font-size;
   line-height: $line-height;
   border-radius: $border-radius;
+}
+
+@mixin va-table {
+  th, td {
+    padding: 0.625rem;
+  }
+
+  th {
+    @include va-title();
+    color: $vue-darkest-blue;
+    border-bottom: 2px solid $vue-darkest-blue;
+  }
+
+  td {
+    vertical-align: middle;
+  }
+
+  &--striped {
+    tr {
+      &:nth-child(even) {
+        td {
+          background-color: $light-gray3;
+        }
+      }
+    }
+  }
+
+  &--hoverable {
+    tr {
+      &:hover {
+        td {
+          background-color: $light-gray2;
+        }
+      }
+    }
+  }
+
+  &--clickable {
+    td {
+      cursor: pointer;
+    }
+  }
 }

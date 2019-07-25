@@ -1,6 +1,6 @@
 <template>
   <div class="overview-tab pt-2">
-    <div class="va-row">
+    <div class="row">
       <div class="flex xs12 md6">
         <div class="features-tab__item d-flex align--center mb-5">
           <div class="features-tab__item-icon flex-center fill-height mr-2">

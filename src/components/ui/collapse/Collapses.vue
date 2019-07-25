@@ -1,6 +1,6 @@
 <template>
   <div class="collapse-page">
-    <div class="va-row">
+    <div class="row">
       <div class="flex xs12">
         <va-card :title="$t('collapse.basic')">
           <va-accordion>

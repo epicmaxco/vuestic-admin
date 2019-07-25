@@ -12,7 +12,7 @@
     <main
       slot="content"
       id="content"
-      class="va-layout gutter--xl fluid"
+      class="layout gutter--xl fluid"
       role="main"
     >
       <va-pre-loader

@@ -182,9 +182,5 @@ export default {
       color: $brand-secondary;
     }
   }
-
-  .va-button__content {
-    min-width: 1.25rem;
-  }
 }
 </style>

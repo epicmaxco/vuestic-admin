@@ -148,7 +148,6 @@
     "buttons": "按钮",
     "charts": "图表",
     "colorPickers": "颜色选择器",
-    "filters": "过滤器",
     "collapse": "折叠器",
     "timelines": "时间线",
     "dashboard": "仪表板",
@@ -174,7 +173,6 @@
     "treeView": "树视图",
     "dateTimePickers": "日期时间选择器",
     "fileUpload": "文件上传",
-    "dropdowns": "下拉菜单",
     "chat": "聊天"
   },
   "messages": {

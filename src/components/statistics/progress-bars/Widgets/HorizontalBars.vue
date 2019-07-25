@@ -3,7 +3,7 @@
     class="horizontal-bars progress-bar-widget"
     :title="$t('progressBars.horizontal')"
   >
-    <div class="va-row">
+    <div class="row">
       <div class="flex md4 xs12">
         <va-progress-bar :value="value / 3"/>
       </div>
@@ -14,7 +14,7 @@
         <va-progress-bar indeterminate/>
       </div>
     </div>
-    <div class="va-row">
+    <div class="row">
       <div class="flex md4 xs12">
         <va-progress-bar :value="value * 2 / 3">66%</va-progress-bar>
       </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="notifications">
-    <div class="va-row">
+    <div class="row">
       <div class="flex md12">
         <va-card :title="$t('notificationsPage.notifications.title')">
           <div class="mb-3">
@@ -55,10 +55,10 @@
       </div>
     </div>
 
-    <div class="va-row">
+    <div class="row">
       <div class="flex xs12">
         <va-card :title="$t('notificationsPage.toasts.title')">
-          <div class="va-row">
+          <div class="row">
             <div class="flex xs12 md6">
               <fieldset>
                 <div class="form-group">
@@ -104,7 +104,7 @@
                   </div>
                 </div>
                 <!-- TODO Redo with global classes -->
-                <div class="form-group va-row mb-4">
+                <div class="form-group row mb-4">
                   <toast-position-picker v-model="toastPosition"/>
                   <va-checkbox
                     :label="$t('notificationsPage.toasts.fullWidthLabel')"

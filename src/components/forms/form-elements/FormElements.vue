@@ -1,10 +1,10 @@
 <template>
   <div class="form-elements">
-    <div class="va-row">
+    <div class="row">
       <div class="flex xs12">
         <va-card :title="$t('forms.inputs.title')">
           <form>
-            <div class="va-row">
+            <div class="row">
               <div class="flex md4 sm6 xs12">
                 <va-input
                   v-model="empty"
@@ -72,9 +72,9 @@
       <div class="flex xs12">
         <va-card :title="$t('forms.dateTimePicker.title')">
           <form>
-            <div class="va-row">
+            <div class="row">
               <div class="flex md8">
-                <div class="va-row row-inside">
+                <div class="row row-inside">
                   <div class="flex xs12 sm6">
                     <va-date-picker
                       :label="$t('forms.dateTimePicker.basic')"
@@ -135,36 +135,57 @@
       <div class="flex xs12">
         <va-card :title="$t('forms.selects.title')">
           <form>
-            <div class="va-row">
-              <div class="flex md4">
-                <fieldset>
-                  <va-simple-select
-                    :label="$t('forms.selects.simple')"
-                    v-model="simpleSelectModel"
-                    option-key="description"
-                    v-bind:options="simpleOptions"
-                  />
-                  <va-simple-select
-                    :label="$t('forms.selects.country')"
-                    v-model="chosenCountry"
-                    v-bind:options="countriesList"
-                  />
-                </fieldset>
+            <div class="row">
+              <div class="flex md6 xs12">
+                <va-select
+                  :label="$t('forms.selects.simple')"
+                  v-model="simpleSelectModel"
+                  textBy="description"
+                  :options="simpleOptions"
+                />
               </div>
-              <div class="flex md4">
-                <fieldset>
-                  <va-multi-select
-                    :label="$t('forms.selects.multi')"
-                    v-model="multiSelectModel"
-                    option-key="description"
-                    v-bind:options="simpleOptions"
-                  />
-                  <va-multi-select
-                    :label="$t('forms.selects.countryMulti')"
-                    v-model="multiSelectCountriesModel"
-                    v-bind:options="countriesList"
-                  />
-                </fieldset>
+              <div class="flex md6 xs12">
+                <va-select
+                  :label="$t('forms.selects.multi')"
+                  v-model="multiSelectModel"
+                  textBy="description"
+                  multiple
+                  :options="simpleOptions"
+                />
+              </div>
+              <div class="flex md6 xs12">
+                <va-select
+                  :label="$t('forms.selects.country')"
+                  v-model="chosenCountry"
+                  :options="countriesList"
+                />
+              </div>
+              <div class="flex md6 xs12">
+                <va-select
+                  :label="$t('forms.selects.countryMulti')"
+                  v-model="multiSelectCountriesModel"
+                  multiple
+                  :options="countriesList"
+                />
+              </div>
+              <div class="flex md6 xs12">
+                <va-select
+                  :label="$t('forms.selects.searchable')"
+                  v-model="searchableSelectModel"
+                  searchable
+                  textBy="description"
+                  :options="simpleOptions"
+                />
+              </div>
+              <div class="flex md6 xs12">
+                <va-select
+                  :label="$t('forms.selects.searchableMulti')"
+                  v-model="multiSearchableSelectModel"
+                  textBy="description"
+                  searchable
+                  multiple
+                  :options="countriesList"
+                />
               </div>
             </div>
           </form>
@@ -174,7 +195,7 @@
       <div class="flex xs12">
         <va-card :title="$t('forms.controls.title')">
           <form>
-            <div class="va-row">
+            <div class="row">
               <div class="flex md3">
                 <fieldset>
                   <va-checkbox
@@ -277,21 +298,11 @@ import CountriesList from 'data/CountriesList'
 export default {
   name: 'form-elements',
   components: {},
-  computed: {
-    datePickerDisabled: () => [date => !(date.getDate() % 5)],
-    isSuccessfulEmailValid () {
-      let isValid = false
-      if (this.formFields.successfulEmail) {
-        isValid = this.formFields.successfulEmail.validated && this.formFields.successfulEmail.valid
-      }
-      return isValid
-    },
-  },
   data () {
     return {
       isMale: true,
       countriesList: CountriesList,
-      chosenCountry: 'name',
+      chosenCountry: '',
       empty: '',
       clearableText: 'Vasili Savitski',
       successfulEmail: 'andrei@dreamsupport.io',
@@ -316,6 +327,8 @@ export default {
       simpleSelectModel: '',
       multiSelectModel: [],
       multiSelectCountriesModel: [],
+      searchableSelectModel: '',
+      multiSearchableSelectModel: [],
       radioSelectedOption: 'option1',
       radioSelectedDisableOption: 'option1',
       checkbox: {
@@ -358,7 +371,7 @@ export default {
 </script>
 
 <style>
-  .va-row.row-inside {
+  .row.row-inside {
     max-width: none;
   }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="medium-editor">
-    <div class="va-row">
+    <div class="row">
       <div class="flex md12">
         <va-card :title="$t('forms.mediumEditor.title')">
           <va-medium-editor
