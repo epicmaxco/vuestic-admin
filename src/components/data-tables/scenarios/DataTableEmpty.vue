@@ -1,6 +1,6 @@
 <template>
   <va-card :title="$t('tables.emptyTable')">
-    <va-table
+    <va-data-table
       :fields="fields"
       :data="data"
       :no-data-label="$t('tables.noReport')"

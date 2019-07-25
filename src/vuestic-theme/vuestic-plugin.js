@@ -9,6 +9,7 @@ import VaCheckbox from './vuestic-components/va-checkbox/VaCheckbox.vue'
 import VaChip from './vuestic-components/va-chip/VaChip.vue'
 import VaCollapse from './vuestic-components/va-collapse/VaCollapse'
 import VaCountBadge from './vuestic-components/va-count-badge/VaCountBadge'
+import VaDataTable from './vuestic-components/va-data-table/VaDataTable.vue'
 import VaDatePicker from './vuestic-components/va-date-picker/VaDatePicker'
 import VaDropdown from './vuestic-components/va-dropdown/VaDropdown'
 import VaFeed from './vuestic-components/va-feed/VaFeed.vue'
@@ -28,12 +29,11 @@ import VaProgressCircle from './vuestic-components/va-progress-bar/progress-type
 import VaRadioButton from './vuestic-components/va-radio-button/VaRadioButton'
 import VaRating from './vuestic-components/va-rating/VaRating'
 import VaScrollbar from './vuestic-components/va-scrollbar/VaScrollbar.vue'
-import VaSeparator from './vuestic-components/va-card/VaSeparator'
 import VaSelect from './vuestic-components/va-select/VaSelect.vue'
+import VaSeparator from './vuestic-components/va-card/VaSeparator'
 import VaSlider from './vuestic-components/va-slider/VaSlider.vue'
 import VaSocialNews from './vuestic-components/va-social-news/VaSocialNews.vue'
 import VaTab from './vuestic-components/va-tabs/VaTab.vue'
-import VaTable from './vuestic-components/va-table/VaTable.vue'
 import VaTabs from './vuestic-components/va-tabs/VaTabs.vue'
 import VaTimeline from './vuestic-components/va-timeline/VaTimeline'
 import VaTimelineItem from './vuestic-components/va-timeline/VaTimelineItem'
@@ -71,6 +71,7 @@ const VuesticPlugin = {
       VaChip,
       VaCollapse,
       VaCountBadge,
+      VaDataTable,
       VaDatePicker,
       VaDropdown,
       VaFeed,
@@ -91,12 +92,11 @@ const VuesticPlugin = {
       VaRadioButton,
       VaRating,
       VaScrollbar,
-      VaSeparator,
       VaSelect,
+      VaSeparator,
       VaSlider,
       VaSocialNews,
       VaTab,
-      VaTable,
       VaTabs,
       VaTimeline,
       VaTimelineItem,

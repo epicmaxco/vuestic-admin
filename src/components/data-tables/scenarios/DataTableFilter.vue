@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <va-table
+    <va-data-table
       :fields="fields"
       :data="filteredData"
       :per-page="perPage"
@@ -49,7 +49,7 @@
           {{ $t('tables.report') }}
         </va-button>
       </template>
-    </va-table>
+    </va-data-table>
   </va-card>
 </template>
 

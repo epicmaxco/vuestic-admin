@@ -1,6 +1,6 @@
 <template>
   <va-card :title="$t('tables.selectable')">
-    <va-table
+    <va-data-table
       :fields="fields"
       :data="data"
       :per-page="5"
@@ -14,7 +14,7 @@
           <path :d="props.rowData.graph" :stroke="props.rowData.graphColor" fill="transparent"/>
         </svg>
       </template>
-    </va-table>
+    </va-data-table>
 
     <small>
       {{ $t('tables.selected') }}: {{ selected }}

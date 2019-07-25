@@ -1,7 +1,7 @@
 <template>
   <va-card :title="$t('tables.infiniteScroll')">
     <div class="va-table-infinite-scroll--container" ref="scrollable" @scroll="onScroll">
-      <va-table
+      <va-data-table
         :fields="fields"
         :data="data"
         api-mode
@@ -10,7 +10,7 @@
         <template slot="marker" slot-scope="props">
           <va-icon name="fa fa-circle" :color="props.rowData.color" size="8px" />
         </template>
-      </va-table>
+      </va-data-table>
 
       <div class="flex-center ma-3">
         <spring-spinner

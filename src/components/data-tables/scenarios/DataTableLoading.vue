@@ -1,6 +1,6 @@
 <template>
   <va-card :title="$t('tables.loading')">
-    <va-table
+    <va-data-table
       :fields="fields"
       :data="data"
       loading

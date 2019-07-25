@@ -1,6 +1,6 @@
 <template>
   <va-card :title="$t('tables.serverSidePagination')">
-    <va-table
+    <va-data-table
       :fields="fields"
       :data="items"
       :loading="loading"
@@ -11,7 +11,7 @@
       <template slot="avatar" slot-scope="props">
         <img :src="props.rowData.avatar" class="va-table-server-pagination---avatar">
       </template>
-    </va-table>
+    </va-data-table>
   </va-card>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <va-card :title="$t('tables.sortingPaginationActionsAsIcons')">
-    <va-table
+    <va-data-table
       :fields="fields"
       :data="data"
       :per-page="5"
@@ -23,7 +23,7 @@
           <va-button flat small color="gray" icon="fa fa-trash" />
         </va-popover>
       </template>
-    </va-table>
+    </va-data-table>
   </va-card>
 </template>
 

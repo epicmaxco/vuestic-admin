@@ -1,6 +1,6 @@
 <template>
   <va-card :title="$t('tables.labelsActions')">
-    <va-table
+    <va-data-table
       :fields="fields"
       :data="data"
       no-pagination
@@ -18,7 +18,7 @@
           {{ $t('tables.delete') }}
         </va-button>
       </template>
-    </va-table>
+    </va-data-table>
   </va-card>
 </template>
 

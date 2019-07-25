@@ -46,7 +46,7 @@ import Vuetable from 'vuetable-2/src/components/Vuetable'
 import VaPagination from '../va-pagination/VaPagination.vue'
 
 export default {
-  name: 'va-table',
+  name: 'va-data-table',
   components: {
     SpringSpinner,
     Vuetable,
