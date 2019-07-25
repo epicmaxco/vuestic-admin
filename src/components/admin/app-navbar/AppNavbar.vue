@@ -6,7 +6,7 @@
     </template>
     <template slot="center">
       <div class="row flex-nowrap align--center justify--space-between">
-        <span class="va-navbar__text">
+        <span class="va-navbar__text no-wrap">
           {{$t('navbar.messageUs')}}&nbsp;
           <a
             href="mailto:hello@epicmax.co"

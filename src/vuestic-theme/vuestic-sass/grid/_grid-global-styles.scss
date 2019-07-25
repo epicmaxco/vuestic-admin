@@ -105,6 +105,10 @@
       }
     }
   }
+
+  &-nowrap {
+    flex-wrap: nowrap;
+  }
 }
 
 .align {
