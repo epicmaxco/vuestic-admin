@@ -3,7 +3,7 @@
     <div class="va-table-infinite-scroll--container" ref="scrollable" @scroll="onScroll">
       <va-data-table
         :fields="fields"
-        :data="data"
+        :data="users"
         api-mode
         no-pagination
       >
@@ -55,12 +55,6 @@ export default {
         name: 'country',
         title: this.$t('tables.headings.country'),
       }]
-    },
-    data () {
-      return this.users.map(user => {
-        user.fullName = user.firstName + ' ' + user.lastName
-        return user
-      })
     },
   },
   created () {

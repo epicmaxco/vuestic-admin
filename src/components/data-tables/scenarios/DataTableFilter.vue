@@ -90,18 +90,12 @@ export default {
         dataClass: 'text-right',
       }]
     },
-    data () {
-      return this.users.map(user => {
-        user.fullName = user.firstName + ' ' + user.lastName
-        return user
-      })
-    },
     filteredData () {
       if (!this.term || this.term.length < 1) {
-        return this.data
+        return this.users
       }
 
-      return this.data.filter(item => {
+      return this.users.filter(item => {
         return item.fullName.toLowerCase().startsWith(this.term.toLowerCase())
       })
     },

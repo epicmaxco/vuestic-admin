@@ -2,7 +2,7 @@
   <va-card :title="$t('tables.labelsActions')">
     <va-data-table
       :fields="fields"
-      :data="data"
+      :data="users"
       no-pagination
     >
       <template slot="marker" slot-scope="props">
@@ -50,12 +50,6 @@ export default {
         name: '__slot:actions',
         dataClass: 'text-right',
       }]
-    },
-    data () {
-      return this.users.map(user => {
-        user.fullName = user.firstName + ' ' + user.lastName
-        return user
-      })
     },
   },
   methods: {

@@ -2,7 +2,7 @@
   <va-card :title="$t('tables.selectable')">
     <va-data-table
       :fields="fields"
-      :data="data"
+      :data="users"
       :per-page="5"
     >
       <template slot="select" slot-scope="props">
@@ -28,7 +28,7 @@ import users from '../../../fixtures/users.json'
 export default {
   data () {
     return {
-      users: users,
+      users: users.slice(),
     }
   },
   computed: {
@@ -51,12 +51,6 @@ export default {
         name: '__slot:graph',
         dataClass: 'text-right',
       }]
-    },
-    data () {
-      return this.users.map(user => {
-        user.fullName = user.firstName + ' ' + user.lastName
-        return user
-      })
     },
     selected () {
       return this.users.filter(user => user.checked)

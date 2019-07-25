@@ -1,5 +1,5 @@
 <template>
-  <va-table
+  <va-data-table
     :fields="fields"
     :data="users"
     :loading="loading"
