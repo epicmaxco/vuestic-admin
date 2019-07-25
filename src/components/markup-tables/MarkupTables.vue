@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="markup-tables">
     <va-card :title="$t('tables.basic')" class="mb-2">
       <table class="va-table">
         <thead>
@@ -79,12 +79,14 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-  .va-card {
-    max-width: 1200px;
-  }
+<style lang="scss">
+  .markup-tables {
+    .va-table {
+      width: 100%;
+    }
 
-  .va-table {
-    width: 100%;
+    .va-card {
+      max-width: 1200px;
+    }
   }
 </style>

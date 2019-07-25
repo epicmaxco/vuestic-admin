@@ -1,6 +1,6 @@
 <template>
   <va-card :title="$t('tables.infiniteScroll')">
-    <div class="scrollable" ref="scrollable" @scroll="onScroll">
+    <div class="va-table-infinite-scroll--container" ref="scrollable" @scroll="onScroll">
       <va-table
         :fields="fields"
         :data="data"
@@ -98,8 +98,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-  .scrollable {
+<style lang="scss">
+  .va-table-infinite-scroll--container {
     height: 300px;
     overflow-y: auto;
   }

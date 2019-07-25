@@ -80,8 +80,5 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-  .va-button {
-    margin: 0 2px;
-  }
+<style lang="scss">
 </style>
