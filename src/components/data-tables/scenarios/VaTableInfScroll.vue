@@ -1,29 +1,27 @@
 <template>
-  <div>
-    <va-card :title="$t('tables.infiniteScroll')">
-      <div class="scrollable" ref="scrollable" @scroll="onScroll">
-        <va-table
-          :fields="fields"
-          :data="data"
-          api-mode
-          no-pagination
-        >
-          <template slot="marker" slot-scope="props">
-            <va-icon name="fa fa-circle" :color="props.rowData.color" size="8px" />
-          </template>
-        </va-table>
+  <va-card :title="$t('tables.infiniteScroll')">
+    <div class="scrollable" ref="scrollable" @scroll="onScroll">
+      <va-table
+        :fields="fields"
+        :data="data"
+        api-mode
+        no-pagination
+      >
+        <template slot="marker" slot-scope="props">
+          <va-icon name="fa fa-circle" :color="props.rowData.color" size="8px" />
+        </template>
+      </va-table>
 
-        <div class="flex-center ma-3">
-          <spring-spinner
-            v-if="loading"
-            :animation-duration="2000"
-            :size="60"
-            color="#4ae387"
-          />
-        </div>
+      <div class="flex-center ma-3">
+        <spring-spinner
+          v-if="loading"
+          :animation-duration="2000"
+          :size="60"
+          color="#4ae387"
+        />
       </div>
-    </va-card>
-  </div>
+    </div>
+  </va-card>
 </template>
 
 <script>

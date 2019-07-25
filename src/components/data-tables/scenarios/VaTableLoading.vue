@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <va-card :title="$t('tables.loading')">
-      <va-table
-        :fields="fields"
-        :data="data"
-        loading
-      />
-    </va-card>
-  </div>
+  <va-card :title="$t('tables.loading')">
+    <va-table
+      :fields="fields"
+      :data="data"
+      loading
+    />
+  </va-card>
 </template>
 
 <script>

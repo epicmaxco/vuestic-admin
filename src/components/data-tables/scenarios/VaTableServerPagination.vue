@@ -1,20 +1,18 @@
 <template>
-  <div>
-    <va-card :title="$t('tables.serverSidePagination')">
-      <va-table
-        :fields="fields"
-        :data="items"
-        :loading="loading"
-        :totalPages="totalPages"
-        @page-selected="readItems"
-        api-mode
-      >
-        <template slot="avatar" slot-scope="props">
-          <img :src="props.rowData.avatar" class="item-avatar">
-        </template>
-      </va-table>
-    </va-card>
-  </div>
+  <va-card :title="$t('tables.serverSidePagination')">
+    <va-table
+      :fields="fields"
+      :data="items"
+      :loading="loading"
+      :totalPages="totalPages"
+      @page-selected="readItems"
+      api-mode
+    >
+      <template slot="avatar" slot-scope="props">
+        <img :src="props.rowData.avatar" class="item-avatar">
+      </template>
+    </va-table>
+  </va-card>
 </template>
 
 <script>

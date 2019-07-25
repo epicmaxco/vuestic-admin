@@ -1,14 +1,12 @@
 <template>
-  <div>
-    <va-table
-      :fields="fields"
-      :data="users"
-      :loading="loading"
-      :totalPages="totalPages"
-      api-mode
-      @page-selected="readPage"
-    />
-  </div>
+  <va-table
+    :fields="fields"
+    :data="users"
+    :loading="loading"
+    :totalPages="totalPages"
+    api-mode
+    @page-selected="readPage"
+  />
 </template>
 
 <script>
