@@ -1,7 +1,5 @@
 <template>
   <div class="va-table striped" :class="{'hoverable': clickable || hoverable}">
-    <slot name="header" />
-
     <va-inner-loading :loading="loading">
       <vuetable
         ref="vuetable"
