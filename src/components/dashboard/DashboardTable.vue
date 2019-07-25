@@ -1,157 +1,151 @@
 <template>
-  <va-card title="Awesome table">
-    <div class="row justify--space-between align--center mb-2">
-      <div class="flex sm4 xs12">
-        <va-input
-          class="mb-0"
-          v-model="search"
-          :placeholder="$t('dashboard.table.search')"
-        >
-          <va-icon
-            slot="prepend"
-            color="gray"
-            icon="fa fa-search"
-          />
-        </va-input>
-      </div>
-      <div class="flex sm8 table-buttons">
-        <div class="row justify--end align--center">
-          <va-checkbox
-            :label="$t('dashboard.table.verified')"
-            v-model="checkbox"
-            class="mr-3"
-          />
-          <va-button-group>
-            <va-button color="success">
-              {{ $t('dashboard.table.brief') }}
-            </va-button>
-            <va-button outline color="success">
-              {{ $t('dashboard.table.detailed') }}
-            </va-button>
-          </va-button-group>
-          <va-button>{{ $t('dashboard.table.export') }}</va-button>
-          <va-button
-            color="gray"
-            icon-right="ion-ios-arrow-down arrow-down"
-          >
-            6 {{ $t('dashboard.table.perPage') }}
-          </va-button>
+  <div>
+    <va-card :title="$t('dashboard.table.title')">
+      <va-table
+        :fields="fields"
+        :data="filteredData"
+        :loading="loading"
+        hoverable
+      >
+        <div slot="header" class="va-row">
+          <div class="flex pb-0">
+            <va-input
+              :value="term"
+              :placeholder="$t('tables.searchByName')"
+              style="minWidth: 260px"
+              @input="search"
+            >
+              <va-icon name="fa fa-search" slot="prepend" />
+            </va-input>
+          </div>
+
+          <div class="spacer" />
+
+          <div class="flex">
+            <va-button-toggle
+              outline
+              v-model="mode"
+              :options="modeOptions"
+            />
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="table-responsive">
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <td>{{ $t('tables.headings.name') }}</td>
-          <td>{{ $t('tables.headings.email') }}</td>
-          <td>{{ $t('tables.headings.submits') }}</td>
-          <td>{{ $t('tables.headings.status') }}</td>
-          <td>{{ $t('tables.headings.country') }}</td>
-          <td></td>
-        </tr>
-        </thead>
-        <tbody>
-          <tr
-            v-for="(user, idx) in tableData"
-            :key="idx"
-            :class="user.color ? `table-${user.color}` : ''"
+        <template slot="icon" slot-scope="props">
+          <va-icon name="fa fa-user" color="secondary" />
+        </template>
+
+        <template slot="status" slot-scope="props">
+          <va-badge :color="getStatusColor(props.rowData.status)">
+            {{ props.rowData.status }}
+          </va-badge>
+        </template>
+
+        <template slot="actions" slot-scope="props">
+          <va-button
+            small
+            outline
+            color="success"
+            icon="fa fa-check"
+            class="ma-0"
+            @click="resolveUser(props.rowData)"
           >
-            <td>{{ user.name }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.submits }}</td>
-            <td>
-              <span
-                class="badge badge-pill text-white"
-                :class="badgeColor[user.status]"
-              >
-                {{ user.status }}
-              </span>
-            </td>
-            <td>{{ user.country }}</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="row justify--center pb-2">
-      <va-pagination
-        v-model="activePage"
-        :visible-pages="2"
-        :pages="20"
-        color="gray"
-      />
-    </div>
-  </va-card>
+            {{ $t('dashboard.table.resolve') }}
+          </va-button>
+        </template>
+      </va-table>
+    </va-card>
+  </div>
 </template>
 
 <script>
+import { debounce } from 'lodash'
+import data from '../markup-tables/data.json'
+
 export default {
-  name: 'DashboardTable',
   data () {
     return {
-      search: '',
-      activePage: 1,
-      checkbox: true,
-      badgeColor: {
-        read: 'badge-info',
-        paid: 'badge-primary',
-        processing: 'badge-warning',
-      },
-      tableData: [{
-        color: '',
-        name: 'Jonathan Patterson',
-        email: 'janet.purdy@yahoo.co',
-        submits: '5',
-        status: 'read',
-        country: 'Peru',
-      }, {
-        color: 'success',
-        name: 'Anthony Soto',
-        email: 'abshire_jarrod@yahoo',
-        submits: '189',
-        status: 'paid',
-        country: 'Somalia',
-      }, {
-        color: '',
-        name: 'Ruth Wheeler',
-        email: 'abdiel.cartwright@sc',
-        submits: '5',
-        status: 'read',
-        country: 'Liechtenstein',
-      }, {
-        color: '',
-        name: 'Derrick Castro',
-        email: 'myrtle_bernhard@mann',
-        submits: '18',
-        status: 'processing',
-        country: 'Mexico',
-      }, {
-        color: 'danger',
-        name: 'Ivan Cooper',
-        email: 'reina.kilback@hotmai',
-        submits: '0',
-        status: 'processing',
-        country: 'Morocco',
-      }, {
-        color: '',
-        name: 'Harvey Curry',
-        email: 'hermiston_boyd@durga',
-        submits: '25',
-        status: 'paid',
-        country: 'Cambodia',
-      }],
+      users: data.slice(),
+      loading: false,
+      term: null,
+      mode: 0,
     }
+  },
+  computed: {
+    fields () {
+      return [{
+        name: '__slot:icon',
+        width: '30px',
+        dataClass: 'text-center',
+      }, {
+        name: 'name',
+        title: this.$t('tables.headings.name'),
+        width: '30%',
+      }, {
+        name: 'email',
+        title: this.$t('tables.headings.email'),
+        width: '30%',
+      }, {
+        name: '__slot:status',
+        title: this.$t('tables.headings.status'),
+        width: '20%',
+        sortField: 'status',
+      }, {
+        name: '__slot:actions',
+        dataClass: 'text-right',
+      }]
+    },
+    modeOptions () {
+      return [{
+        value: 0,
+        label: this.$t('dashboard.table.brief'),
+      }, {
+        value: 1,
+        label: this.$t('dashboard.table.detailed'),
+      }]
+    },
+    filteredData () {
+      if (!this.term || this.term.length < 1) {
+        return this.users
+      }
+
+      return this.users.filter(item => {
+        return item.name.toLowerCase().startsWith(this.term.toLowerCase())
+      })
+    },
+  },
+  methods: {
+    getStatusColor (status) {
+      if (status === 'paid') {
+        return 'success'
+      }
+
+      if (status === 'processing') {
+        return 'info'
+      }
+
+      return 'danger'
+    },
+    resolveUser (user) {
+      this.loading = true
+
+      setTimeout(() => {
+        const idx = this.users.findIndex(u => u.id === user.id)
+        this.users.splice(idx, 1)
+        this.loading = false
+
+        this.showToast(this.$t('dashboard.table.resolved'), {
+          icon: 'fa-check',
+          position: 'bottom-right',
+          duration: 1500,
+        })
+      }, 500)
+    },
+    search: debounce(function (term) {
+      this.term = term
+    }, 400),
   },
 }
 </script>
 
-<style lang="scss" scoped>
-  .table-buttons {
-    @include media-breakpoint-down(lg) {
-      display: none;
-    }
-  }
+<style lang="scss">
 </style>

@@ -115,7 +115,7 @@
         <table>
           <thead>
           <tr>
-            <td v-for="(data, index) in tableData[0]" :key="index">{{data}}</td>
+            <th v-for="(data, index) in tableData[0]" :key="index">{{data}}</th>
           </tr>
           </thead>
           <tbody>
@@ -128,7 +128,7 @@
         <table class="striped">
           <thead>
           <tr>
-            <td v-for="(data, index) in tableData[0]" :key="index">{{data}}</td>
+            <th v-for="(data, index) in tableData[0]" :key="index">{{data}}</th>
           </tr>
           </thead>
           <tbody>
@@ -143,7 +143,7 @@
       <table>
         <thead>
         <tr>
-          <td v-for="(data, index) in tableData[0]" :key="index">{{data}}</td>
+          <th v-for="(data, index) in tableData[0]" :key="index">{{data}}</th>
         </tr>
         </thead>
         <tbody>

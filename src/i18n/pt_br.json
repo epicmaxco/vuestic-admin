@@ -36,7 +36,14 @@
     "successMessage": "Você leu com sucesso esta mensagem importante de alerta.",
     "elements": "Elementos",
     "teamMembers": "Membros da Equipe",
-    "versions": "Versões"
+    "versions": "Versões",
+    "table": {
+      "title": "Mesa impressionante",
+      "brief": "Breve",
+      "detailed": "Detalhado",
+      "resolve": "Resolver",
+      "resolved": "Resolvido"
+    }
   },
   "notificationsPage": {
     "alerts": {
@@ -152,6 +159,8 @@
     "signUp": "Cadastrar-se",
     "statistics": "Estatística",
     "tables": "Tabelas",
+    "markupTables": "Tabelas de Marcação",
+    "dataTables": "Tabelas de Dados",
     "typography": "Tipografia",
     "uiElements": "Elementos UI",
     "treeView": "Árvore de visualização",
@@ -192,17 +201,33 @@
     "colors": "Cores"
   },
   "tables": {
-    "basic": "Tabela Básico",
-    "styled": "Cores, Icones, Rótulos",
-    "advanced": "Pesquisar & Paginação",
+    "basic": "Mesa Básica",
+    "stripedHoverable": "Listrado, flutuante",
+    "labelsActions": "Etiquetas, ações como botões",
+    "sortingPaginationActionsAsIcons": "Ordenação, Paginação, Ações como Ícones",
+    "star": "Star",
+    "unstar": "Unstar",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "searchByName": "Procura por nome",
+    "searchTrendsBadges": "Pesquisa, Tendências, Emblemas",
+    "perPage": "Por página",
+    "report": "Relatório",
+    "infiniteScroll": "Rolagem infinita",
+    "selectable": "Selecionável",
+    "selected": "Selecionado",
+    "serverSidePagination": "Server-Side Paginação",
+    "emptyTable": "Mesa Vazia",
+    "noDataAvailable": "Nenhum dado disponível.",
+    "noReport": "Não há dados para exibir. O relatório estará disponível em 3 de novembro de 2018.",
+    "loading": "Carregando",
     "headings": {
-      "city": "Cidade",
       "email": "Email",
       "name": "Nome",
-      "score": "Contagem"
-    },
-    "dataTable": {
-      "noDataAvailable": "No Data Available"
+      "firstName": "Primeiro nome",
+      "lastName": "Último nome",
+      "status": "Status",
+      "country": "País"
     }
   },
   "user": {

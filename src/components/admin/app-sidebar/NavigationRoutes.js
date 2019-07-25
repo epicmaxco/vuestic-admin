@@ -53,6 +53,16 @@ export const navigationRoutes = {
       meta: {
         iconClass: 'vuestic-iconset-tables',
       },
+      children: [
+        {
+          name: 'markup',
+          displayName: 'menu.markupTables',
+        },
+        {
+          name: 'data',
+          displayName: 'menu.dataTables',
+        },
+      ],
     },
     {
       name: 'ui',
@@ -73,10 +83,6 @@ export const navigationRoutes = {
         {
           name: 'collapses',
           displayName: 'menu.collapses',
-        },
-        {
-          name: 'filters',
-          displayName: 'menu.filters',
         },
         {
           name: 'color-pickers',

@@ -204,35 +204,7 @@ ol.va-ordered {
 }
 
 .va-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1.125rem;
-
-  thead tr {
-    border-bottom: 2px solid $vue-darkest-blue;
-
-    td {
-      @extend .title;
-      color: $vue-darkest-blue;
-    }
-  }
-
-  td {
-    padding: .625rem;
-    font-size: .875rem;
-    line-height: 1.43;
-    color: $vue-darkest-blue;
-  }
-
-  &.striped {
-    tbody tr:nth-of-type(odd) {
-      background-color: $white;
-    }
-
-    tbody tr:nth-of-type(even) {
-      background-color: $light-gray3;
-    }
-  }
+  @include va-table();
 }
 
 .vue-misc {
