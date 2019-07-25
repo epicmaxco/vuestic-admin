@@ -45,8 +45,8 @@
           class="va-slider__container__handler"
           :class="{'va-slider__container__handler--on-keyboard-focus': isKeyboardFocused === 1}"
           :style="dottedStyles[0]"
-          @mousedown="moveStart($event, 1)"
-          @focus="onFocus($event, 1)"
+          @mousedown="moveStart($event, 0)"
+          @focus="onFocus($event, 0)"
           @blur="isKeyboardFocused = false"
           :tabindex="!this.disabled && 0"
         >
@@ -63,8 +63,8 @@
           class="va-slider__container__handler"
           :class="{'va-slider__container__handler--on-keyboard-focus': isKeyboardFocused === 2}"
           :style="dottedStyles[1]"
-          @mousedown="moveStart($event, 2)"
-          @focus="onFocus($event, 2)"
+          @mousedown="moveStart($event, 1)"
+          @focus="onFocus($event, 1)"
           @blur="isKeyboardFocused = false"
           :tabindex="!this.disabled && 0"
         >
@@ -328,7 +328,7 @@ export default {
       }
 
       this.flag = true
-      this.hasMouseDown = index || true
+      this.hasMouseDown = index ? index + 1 : true
       this.$emit('drag-start', this)
     },
     moving (e) {
@@ -648,7 +648,7 @@ export default {
       }
 
       &--on-keyboard-focus {
-        @at-root .va-slider__container__handler#{&}:after {
+        @at-root .va-slider__container__handler#{&}:before {
           content: '';
           transform: translate(-0.625rem, -0.625rem);
           background-color: black !important;
