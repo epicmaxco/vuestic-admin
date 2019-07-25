@@ -88,6 +88,7 @@ import VaIcon from '../va-icon/VaIcon'
 import {
   getHoverColor,
 } from './../../../services/color-functions'
+import calculateNodeHeight from './calculateNodeHeight'
 
 export default {
   name: 'va-input',
@@ -115,6 +116,28 @@ export default {
     },
     removable: {
       type: Boolean,
+    },
+
+    // textarea-specific
+    autosize: {
+      type: Boolean,
+      default: false,
+    },
+    minRows: {
+      type: Number,
+      validator: (val) => val > 0 && (val | 0) === val,
+    },
+    maxRows: {
+      type: Number,
+      validator: (val) => val > 0 && (val | 0) === val,
+    },
+  },
+  mounted () {
+    this.adjustHeight()
+  },
+  watch: {
+    value () {
+      this.adjustHeight()
     },
   },
   data () {
@@ -187,6 +210,17 @@ export default {
     },
   },
   methods: {
+    adjustHeight () {
+      const { autosize } = this.$props
+      if (!autosize || !this.isTextarea) return
+
+      const minRows = this.minRows || 1
+      const maxRows = this.maxRows || Number.MAX_SAFE_INTEGER
+      const textareaStyles = calculateNodeHeight(this.$refs.input, false, minRows, maxRows)
+
+      Object.assign(this.$refs.input.style, textareaStyles)
+    },
+
     clearContent () {
       this.$emit('input', '')
     },

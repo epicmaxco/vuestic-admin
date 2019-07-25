@@ -128,12 +128,40 @@
         :error-messages="['one', 'two']"
       />
     </VbCard>
-    <VbCard title="Textarea">
+    <VbCard title="Textarea (autosize: false)">
       <va-input
         v-model="text"
         label="Name"
         type="textarea"
-        rows="5"
+        :autosize="false"
+      />
+    </VbCard>
+    <VbCard title="Textarea (autosize: false, minRows: 3, maxRows: 8)">
+      <va-input
+        v-model="text"
+        label="Name"
+        type="textarea"
+        :autosize="false"
+        :minRows="3"
+        :maxRows="8"
+      />
+    </VbCard>
+    <VbCard title="Textarea (autosize: true)">
+      <va-input
+        v-model="text"
+        label="Name"
+        type="textarea"
+        :autosize="true"
+      />
+    </VbCard>
+    <VbCard title="Textarea (autosize: true, minRows: 3, maxRows: 8)">
+      <va-input
+        v-model="text"
+        label="Name"
+        type="textarea"
+        :autosize="true"
+        :minRows="3"
+        :maxRows="8"
       />
     </VbCard>
   </VbDemo>
@@ -153,7 +181,7 @@ export default {
   data () {
     return {
       empty: '',
-      text: 'Vuestic',
+      text: 'Vuestic\nLine 2\nLine 3\nLine 4\nLine 5',
       phone: '33 310-86-24',
       messages: ['Required field'],
       errorMessages: ['Detailed error message'],
