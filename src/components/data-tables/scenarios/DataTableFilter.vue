@@ -1,6 +1,6 @@
 <template>
   <va-card :title="$t('tables.searchTrendsBadges')">
-    <div class="va-row">
+    <div class="row align--center">
       <div class="flex">
         <va-input
           :value="term"
@@ -12,7 +12,7 @@
         </va-input>
       </div>
 
-      <div class="flex spacer" />
+      <div class="spacer" />
 
       <div class="flex">
         <span style="marginRight: 4px">

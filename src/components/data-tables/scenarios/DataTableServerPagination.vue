@@ -9,7 +9,7 @@
       api-mode
     >
       <template slot="avatar" slot-scope="props">
-        <img :src="props.rowData.avatar" class="va-table-server-pagination---avatar">
+        <img :src="props.rowData.avatar" class="data-table-server-pagination---avatar">
       </template>
     </va-data-table>
   </va-card>
@@ -70,7 +70,7 @@ export default {
 </script>
 
 <style lang="scss">
-  .va-table-server-pagination---avatar {
+  .data-table-server-pagination---avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;

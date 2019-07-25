@@ -1,60 +1,58 @@
 <template>
-  <div>
-    <va-card :title="$t('dashboard.table.title')">
-      <va-table
-        :fields="fields"
-        :data="filteredData"
-        :loading="loading"
-        hoverable
-      >
-        <div slot="header" class="va-row">
-          <div class="flex pb-0">
-            <va-input
-              :value="term"
-              :placeholder="$t('tables.searchByName')"
-              style="minWidth: 260px"
-              @input="search"
-            >
-              <va-icon name="fa fa-search" slot="prepend" />
-            </va-input>
-          </div>
+  <va-card :title="$t('dashboard.table.title')">
+    <div class="row">
+      <div class="flex pb-0">
+        <va-input
+          :value="term"
+          :placeholder="$t('tables.searchByName')"
+          style="minWidth: 260px"
+          @input="search"
+        >
+          <va-icon name="fa fa-search" slot="prepend" />
+        </va-input>
+      </div>
 
-          <div class="spacer" />
+      <div class="spacer" />
 
-          <div class="flex">
-            <va-button-toggle
-              outline
-              v-model="mode"
-              :options="modeOptions"
-            />
-          </div>
-        </div>
+      <div class="flex">
+        <va-button-toggle
+          outline
+          v-model="mode"
+          :options="modeOptions"
+        />
+      </div>
+    </div>
 
-        <template slot="icon" slot-scope="props">
-          <va-icon name="fa fa-user" color="secondary" />
-        </template>
+    <va-data-table
+      :fields="fields"
+      :data="filteredData"
+      :loading="loading"
+      hoverable
+    >
+      <template slot="icon" slot-scope="props">
+        <va-icon name="fa fa-user" color="secondary" />
+      </template>
 
-        <template slot="status" slot-scope="props">
-          <va-badge :color="getStatusColor(props.rowData.status)">
-            {{ props.rowData.status }}
-          </va-badge>
-        </template>
+      <template slot="status" slot-scope="props">
+        <va-badge :color="getStatusColor(props.rowData.status)">
+          {{ props.rowData.status }}
+        </va-badge>
+      </template>
 
-        <template slot="actions" slot-scope="props">
-          <va-button
-            small
-            outline
-            color="success"
-            icon="fa fa-check"
-            class="ma-0"
-            @click="resolveUser(props.rowData)"
-          >
-            {{ $t('dashboard.table.resolve') }}
-          </va-button>
-        </template>
-      </va-table>
-    </va-card>
-  </div>
+      <template slot="actions" slot-scope="props">
+        <va-button
+          small
+          outline
+          color="success"
+          icon="fa fa-check"
+          class="ma-0"
+          @click="resolveUser(props.rowData)"
+        >
+          {{ $t('dashboard.table.resolve') }}
+        </va-button>
+      </template>
+    </va-data-table>
+  </va-card>
 </template>
 
 <script>
