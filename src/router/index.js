@@ -281,6 +281,11 @@ export default new Router({
               component: () => import('../components/ui/collapse/Collapses'),
             },
             {
+              name: 'colors',
+              path: 'colors',
+              component: () => import('../components/ui/colors/Colors'),
+            },
+            {
               name: 'spacing',
               path: 'spacing',
               component: () => import('../components/ui/spacing/Spacing'),

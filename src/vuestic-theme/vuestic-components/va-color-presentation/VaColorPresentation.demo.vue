@@ -1,135 +1,114 @@
 <template>
-  <div class="demo-container">
-    <div class="demo-container__item">
-      <div class="row">
-        <div class="col-md-12">
-          <h4>Colors</h4>
-        </div>
+  <div class="layout gutter--md">
+    <div class="row">
+      <div class="flex md6">
+        <va-card title="Theme Colors">
+          <div
+            v-for="(themeColor, index) in themeColors"
+            :key="index"
+          >
+            <va-color-presentation
+              :color="themeColor.color"
+              :name="themeColor.name"
+              :description="themeColor.description"
+            />
+          </div>
+        </va-card>
       </div>
-      <div class="row">
-        <div class="col-md-6" v-for="(mainThemeColor, index) in mainThemeColors" :key="index">
-          <vuestic-colors-presentation
-            :color="mainThemeColor.color"
-            :name="mainThemeColor.name"
-            :description="mainThemeColor.description"/>
-        </div>
+
+      <div class="flex md6">
+        <va-card title="Extra Colors">
+          <div
+            v-for="(extraColor, index) in extraColors"
+            :key="index"
+          >
+            <va-color-presentation
+              :color="extraColor.color"
+              :name="extraColor.name"
+              :description="extraColor.description"
+            />
+          </div>
+        </va-card>
       </div>
-    </div>
-    <div class="demo-container__item">
-      <div class="row">
-        <div class="col-md-12">
-          <h4>Extra colors</h4>
-        </div>
+
+      <div class="flex md4">
+        <va-card title="Button Gradients">
+          <div
+            v-for="(buttonGradient, index) in buttonGradients"
+            :key="index"
+          >
+            <va-color-presentation
+              :color="buttonGradient.color"
+              :variant="['gradient']"
+              :name="buttonGradient.name"
+              :description="buttonGradient.description"
+              :width="200"
+            />
+          </div>
+        </va-card>
       </div>
-      <div class="row">
-        <div class="col-md-6" v-for="(extraColor, index) in extraColors" :key="index">
-          <vuestic-colors-presentation
-            :color="extraColor.color"
-            :name="extraColor.name"
-            :description="extraColor.description"/>
-        </div>
+
+      <div class="flex md4">
+        <va-card title="Hovered Button Gradients">
+          <p class="mt-0 mb-2">
+            Lighten 15% applied to an original style (gradient or flat color) for hover state.
+          </p>
+          <div
+            v-for="(buttonGradient, index) in buttonGradients"
+            :key="index"
+          >
+            <va-color-presentation
+              :color="buttonGradient.color"
+              :variant="['gradient', 'hovered']"
+              :name="buttonGradient.name"
+              :description="buttonGradient.description"
+              :width="200"
+            />
+          </div>
+        </va-card>
       </div>
-    </div>
-    <div class="demo-container__item">
-      <div class="row">
-        <div class="col-md-12">
-          <h4>Button gradients</h4>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6" v-for="(buttonGradient, index) in buttonGradients" :key="index">
-          <vuestic-colors-presentation
-            :color="buttonGradient.color"
-            :width="205"/>
-        </div>
-      </div>
-    </div>
-    <div class="demo-container__item">
-      <div class="row">
-        <div class="col-md-12">
-          <h4>Buttons & Links, pressed</h4>
-          <p>Darken 15% applied to an original style (gradient or flat color) for pressed state.</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6" v-for="(pressedButtonGradient, index) in pressedButtonGradients" :key="index">
-          <vuestic-colors-presentation
-            :color="pressedButtonGradient.color"
-            :width="205"/>
-        </div>
-      </div>
-    </div>
-    <div class="demo-container__item">
-      <div class="row">
-        <div class="col-md-12">
-          <h4>Buttons & Links, hover</h4>
-          <p>Lighten 15% applied to an original style (gradient or flat color) for hover state.</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6" v-for="(hoveredButtonGradient, index) in hoveredButtonGradients" :key="index">
-          <vuestic-colors-presentation
-            :color="hoveredButtonGradient.color"
-            :width="205"/>
-        </div>
-      </div>
-    </div>
-    <div class="demo-container__item">
-      <div class="row">
-        <div class="col-md-12">
-          <h4>Text Buttons, pressed</h4>
-          <p>Pressed button background will add extra 15% of the original color to its current background color value (e.g. 15% opacity Green overlay to a Light Green background for a Green text button).</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6" v-for="(textButtonPessedItem, index) in textButtonPessedItems" :key="index">
-          <vuestic-colors-presentation
-            :color="textButtonPessedItem.color"
-            :width="205"/>
-        </div>
-      </div>
-    </div>
-    <div class="demo-container__item">
-      <div class="row">
-        <div class="col-md-12">
-          <h4>Text Buttons, Hover</h4>
-          <p>On hover a colored background appear. Color are the same that are used for notifications, table rows, inputs.</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6" v-for="(textButtonHoveredItem, index) in textButtonHoveredItems" :key="index">
-          <vuestic-colors-presentation
-            :color="textButtonHoveredItem.color"
-            :width="205"/>
-        </div>
+
+      <div class="flex md4">
+        <va-card title="Pressed Button Gradients">
+          <p class="mt-0 mb-2">
+            Darken 15% applied to an original style (gradient or flat color) for pressed state.
+          </p>
+          <div
+            v-for="(buttonGradient, index) in buttonGradients"
+            :key="index"
+          >
+            <va-color-presentation
+              :color="buttonGradient.color"
+              :variant="['gradient', 'pressed']"
+              :name="buttonGradient.name"
+              :description="buttonGradient.description"
+              :width="200"
+            />
+          </div>
+        </va-card>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import VuesticColorsPresentation from './VaColorPresentation.vue'
+import VaColorPresentation from '../../../vuestic-theme/vuestic-components/va-color-presentation/VaColorPresentation'
 import {
-  mainThemeColors,
+  themeColors,
   extraColors,
   buttonGradients,
-  pressedButtonGradients,
-  hoveredButtonGradients,
-  textButtonHoveredItems,
-  textButtonPessedItems,
-} from './colorsData'
+} from '../../../vuestic-theme/vuestic-components/va-color-presentation/colorsData'
 
 export default {
-  components: { VuesticColorsPresentation },
+  components: {
+    VaColorPresentation,
+  },
+
   data () {
     return {
-      mainThemeColors: mainThemeColors,
-      extraColors: extraColors,
-      buttonGradients: buttonGradients,
-      pressedButtonGradients: pressedButtonGradients,
-      hoveredButtonGradients: hoveredButtonGradients,
-      textButtonHoveredItems: textButtonHoveredItems,
-      textButtonPessedItems: textButtonPessedItems,
+      themeColors,
+      extraColors,
+      buttonGradients,
     }
   },
 }
