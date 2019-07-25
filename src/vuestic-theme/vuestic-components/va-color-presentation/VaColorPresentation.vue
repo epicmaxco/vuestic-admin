@@ -8,7 +8,7 @@
       <div
         class="va-color-presentation__color"
         :style="computedStyle"
-        @click="colorCopy">
+        @click="colorCopy(), notify()">
       </div>
     </va-popover>
     <div class="va-color-presentation__description" v-if="name || description">
@@ -16,7 +16,6 @@
       <div class="va-color-presentation__text">{{description}}</div>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -93,6 +92,12 @@ export default {
 
       this.$copyText(this.colorComputed)
     },
+
+    notify () {
+      this.showToast("The color's copied to your clipboard", {
+        position: 'bottom-right',
+      })
+    },
   },
 }
 </script>
@@ -104,9 +109,15 @@ export default {
   display: flex;
   margin-bottom: 16px;
 
+  // can't reach it anyhow else because it's controlled by a plugin
+  span {
+    outline: none !important;
+  }
+
   &__color {
     height: 40px;
     margin-right: 0.5rem;
+    cursor: pointer;
   }
 
   &__description {

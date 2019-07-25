@@ -1,6 +1,6 @@
 <template>
-<div class="va-layout gutter--md">
-  <div class="va-row">
+<div class="layout gutter--md">
+  <div class="row">
     <div class="flex md6">
       <va-card title="Theme Colors">
         <div
