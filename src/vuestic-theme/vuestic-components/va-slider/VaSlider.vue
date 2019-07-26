@@ -45,8 +45,8 @@
           class="va-slider__container__handler"
           :class="{'va-slider__container__handler--on-keyboard-focus': isKeyboardFocused === 1}"
           :style="dottedStyles[0]"
-          @mousedown="moveStart($event, 0)"
-          @focus="onFocus($event, 0)"
+          @mousedown="(moveStart($event, 0), setMouseDown($event, 1))"
+          @focus="onFocus($event, 1)"
           @blur="isKeyboardFocused = false"
           :tabindex="!this.disabled && 0"
         >
@@ -63,8 +63,8 @@
           class="va-slider__container__handler"
           :class="{'va-slider__container__handler--on-keyboard-focus': isKeyboardFocused === 2}"
           :style="dottedStyles[1]"
-          @mousedown="moveStart($event, 1)"
-          @focus="onFocus($event, 1)"
+          @mousedown="(moveStart($event, 1), setMouseDown($event, 2))"
+          @focus="onFocus($event, 2)"
           @blur="isKeyboardFocused = false"
           :tabindex="!this.disabled && 0"
         >
@@ -87,7 +87,7 @@
           class="va-slider__container__handler"
           :class="{'va-slider__container__handler--on-keyboard-focus': isKeyboardFocused}"
           :style="dottedStyles"
-          @mousedown="moveStart"
+          @mousedown="(moveStart(), setMouseDown())"
           @focus="onFocus"
           @blur="isKeyboardFocused = false"
           :tabindex="!this.disabled && 0"
@@ -322,13 +322,15 @@ export default {
       document.removeEventListener('mouseleave', this.moveEnd)
       document.removeEventListener('keydown', this.moveWithKeys)
     },
+    setMouseDown (e, index) {
+      this.hasMouseDown = index || true
+    },
     moveStart (e, index) {
       if (this.isRange) {
         this.currentSlider = index
       }
 
       this.flag = true
-      this.hasMouseDown = index ? index + 1 : true
       this.$emit('drag-start', this)
     },
     moving (e) {
