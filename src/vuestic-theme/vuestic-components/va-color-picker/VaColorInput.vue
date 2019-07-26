@@ -1,7 +1,7 @@
 <template>
   <div class="va-color-input">
     <color-dot
-      class="va-color-input__dot flex-center"
+      class="va-color-input__dot"
       :selected="selected"
       :color="value"
       @click="onClick"
@@ -65,14 +65,14 @@ export default {
 <style lang="scss" scoped>
 .va-color-input {
   display: flex;
+  align-items: baseline;
 
   .form-group {
     margin-bottom: 0;
   }
 
   &__dot {
-    margin-top: 7px;
-    margin-right: 8px;
+    margin-right: 0.5rem;
   }
 
   &__input {
