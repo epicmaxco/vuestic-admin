@@ -59,7 +59,7 @@ export default {
 <style lang="scss" scoped>
 .va-color-input {
   display: flex;
-  align-items: baseline;
+  align-items: center !important;
 
   .form-group {
     margin-bottom: 0;

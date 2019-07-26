@@ -1,80 +1,71 @@
 <template>
-<div class="spinners row">
- <div class="flex xs12">
-   <va-card :title="$t('spinners.title')">
-     <div class="spinners__customization row">
+<va-card :title="$t('spinners.title')">
+  <div class="row align--center">
+    <div class="d-flex flex sm12 md3 lg3 xl4">
+      <span class="shrink pr-2">A</span>
+      <va-slider
+        value-visible
+        v-model="config.size"
+        :label-value="`${config.size}px`"
+        :min="sliderSize.min"
+        :max="sliderSize.max"
+      />
+      <span class="shrink pl-2">A</span>
+    </div>
 
-       <div class="spinners__size flex xs12 md6 lg4">
-         <span class="spinners__size-smaller">A</span>
-         <div class="spinners__size-picker">
-           <va-slider
-             value-visible
-             v-model="config.size"
-             :label-value="`${config.size}px`"
-             :min="sliderSize.min"
-             :max="sliderSize.max"
-           />
-         </div>
-         <span class="spinners__size-bigger">A</span>
-       </div>
+    <div class="d-flex flex sm12 md3 lg3 xl4">
+      <div class="spinners__icon-duration-slower">
+        <va-icon-slower/>
+      </div>
+      <div class="spinners__duration-picker">
+        <va-slider
+          value-visible
+          v-model="currentDuration"
+          :min="sliderDuration.min"
+          :max="sliderDuration.max"
+        />
+      </div>
+      <div class="spinners__icon-duration-faster">
+        <va-icon-faster/>
+      </div>
+    </div>
 
-       <div class="spinners__duration flex xs12 md6 lg4">
-         <div class="spinners__icon-duration-slower">
-           <va-icon-slower/>
-         </div>
-         <div class="spinners__duration-picker">
-           <va-slider
-             value-visible
-             v-model="currentDuration"
-             :min="sliderDuration.min"
-             :max="sliderDuration.max"
-           />
-         </div>
-         <div class="spinners__icon-duration-faster">
-           <va-icon-faster/>
-         </div>
-       </div>
+    <div class="d-flex flex sm12 md6 lg6 xl4">
+      <va-palette-custom
+        :palette="paletteArray"
+        v-model="spinnersColor"
+        class="spinners__color-picker"
+      />
+    </div>
+  </div>
 
-       <div class="spinners__color flex xs12 md6 lg4">
-         <div class="spinners__color-picker">
-           <va-palette-custom
-             :palette="paletteArray"
-             v-model="spinnersColor"
-             class="spinners__color-picker"
-           />
-         </div>
-       </div>
-     </div>
+  <hr>
 
-     <hr>
-
-     <div
-       v-for="(group, i) in groups"
-       :key="i"
-       class="row"
-     >
-       <div
-         v-for="item in group"
-         :key="item"
-         class="flex xs6 md3"
-       >
-         <div class="spinner-box-container text--center pb-5">
-           <div class="spinner-box flex-center">
-             <component
-               :animation-duration="speed"
-               :is="item"
-               :color="spinnersColor"
-               :size="config.size"
-             >
-             </component>
-           </div>
-           <div>{{ $t(item) }}</div>
-         </div>
-       </div>
-     </div>
-   </va-card>
- </div>
-</div>
+  <div
+    v-for="(group, i) in groups"
+    :key="i"
+    class="row"
+  >
+    <div
+      v-for="item in group"
+      :key="item"
+      class="flex xs6 md3"
+    >
+      <div class="spinner-box-container text--center pb-5">
+        <div class="spinner-box flex-center">
+          <component
+            :animation-duration="speed"
+            :is="item"
+            :color="spinnersColor"
+            :size="config.size"
+          >
+          </component>
+        </div>
+        <div>{{ $t(item) }}</div>
+      </div>
+    </div>
+  </div>
+</va-card>
 </template>
 
 <script>
@@ -151,53 +142,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.spinners {
-  &__size {
-    display: flex;
-
-    &-picker {
-      margin: auto 1rem;
-      width: 100%;
-    }
-
-    &-smaller, &-bigger {
-      margin: auto 0;
-      font-weight: 600;
-    }
-
-    &-smaller {
-      font-size: 0.9em;
-      line-height: 0.9em;
-    }
-
-    &-bigger {
-      font-size: 1.1em;
-      line-height: 1.1em;
-    }
-  }
-
-  &__duration {
-    display: flex;
-
-    &-picker {
-      margin: auto 1rem;
-      width: 100%;
-    }
-
-    &-slower, &-faster {
-      margin: auto 0;
-    }
-  }
-
-  &__color {
-    display: flex;
-
-    &-picker {
-      justify-content: center;
-      align-items: flex-start;
-    }
-  }
-}
-</style>
