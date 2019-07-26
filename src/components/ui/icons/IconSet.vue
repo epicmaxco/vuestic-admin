@@ -1,34 +1,30 @@
 <template>
   <div class="icon-set">
-    <va-card class="icon-set__header mb-4 py-3">
+    <va-card class="icon-set__header mb-4 py-3 ma-0">
       <div class="row">
-        <div class="flex md4 xs12 pl-5 icon-set__header__text">
+        <div class="flex md3 xs12 pl-5">
           <h2 class="my-0">{{ set.name }}</h2>
-          <router-link :to="{ name: 'icon-sets' }">
+          <router-link :to="{ name: 'icon-sets' }" class="link">
             {{ $t('icons.back') }}
           </router-link>
         </div>
 
-        <div class="flex md4 xs12">
-          <div class="form-group with-icon-left">
-            <div class="input-group">
-              <input
-                v-model="search"
-                id="input-icon-left"
-                name="input-icon-left"
-                required
-              />
-              <va-icon name="fa fa-search icon-left input-icon"/>
-              <label class="control-label" for="input-icon-left">
-                {{ $t('icons.search') }}
-              </label>
-              <va-icon name="bar"/>
-            </div>
-          </div>
+        <div class="flex row md5 xs12 ma-0 align--center">
+            <va-icon
+              name="fa fa-search icon-left input-icon"
+              class="shrink pr-2"
+            />
+            <va-input
+              v-model="search"
+              :label="$t('icons.search')"
+              class="mb-0"
+              removable
+              required
+            />
         </div>
 
-        <div class="d-flex flex align--center md4 xs12 px-4 vuestic-icon-set__header__range">
-          <h4 class="ma-2 shrink">A</h4>
+        <div class="flex row md4 xs12 ma-0 pr-5 align--center content icon-set__header__size">
+          <span class="ma-2 pr-1 shrink icon-set__header__size--smaller">A</span>
           <va-slider
             value-visible
             v-model="iconSize"
@@ -37,7 +33,7 @@
             :max="slider.max"
           >
           </va-slider>
-          <h2 class="ma-2 shrink">A</h2>
+          <span class="ma-2 pl-1 shrink icon-set__header__size--bigger">A</span>
         </div>
       </div>
     </va-card>
@@ -148,6 +144,24 @@ export default {
 
     .icon-text {
       font-size: .6rem;
+    }
+  }
+
+  &__header {
+    &__size {
+      &--smaller, &--bigger {
+        font-weight: 600;
+      }
+
+      &--smaller {
+        line-height: 1em;
+        font-size: 1em;
+      }
+
+      &--bigger {
+        line-height: 1.3em;
+        font-size: 1.3em;
+      }
     }
   }
 }

@@ -6,18 +6,12 @@
       :color="value"
       @click="onClick"
     />
-    <div class="form-group">
-      <div class="input-group">
-        <input
-          class="va-color-input__input"
-          :disabled="disabled"
-          v-model="valueProxy"
-          :class="{'va-color-input__input__pointer': disabled}"
-          placeholder="input color"
-        >
-        <va-icon name="bar" :style="'width: ' + 9 + 'ch'"/>
-      </div>
-    </div>
+    <va-input
+      class="va-color-input__input"
+      v-model="valueProxy"
+      :disabled="disabled"
+      placeholder="input color"
+    />
   </div>
 </template>
 
@@ -76,6 +70,7 @@ export default {
   }
 
   &__input {
+    margin-bottom: 0;
     width: 9ch;
 
     &__pointer {
