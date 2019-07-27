@@ -1,71 +1,67 @@
 <template>
-<va-card :title="$t('spinners.title')">
-  <div class="row align--center">
-    <div class="d-flex flex sm12 md3 lg3 xl4">
-      <span class="shrink pr-2">A</span>
-      <va-slider
-        value-visible
-        v-model="config.size"
-        :label-value="`${config.size}px`"
-        :min="sliderSize.min"
-        :max="sliderSize.max"
-      />
-      <span class="shrink pl-2">A</span>
-    </div>
-
-    <div class="d-flex flex sm12 md3 lg3 xl4">
-      <div class="spinners__icon-duration-slower">
-        <va-icon-slower/>
+<div class="spinners">
+  <va-card :title="$t('spinners.title')">
+    <div class="row">
+      <div class="d-flex flex xs12 sm12 md6 lg3 align--center">
+        <span class="shrink pr-3 spinners__size-smaller">A</span>
+        <va-slider
+          value-visible
+          v-model="config.size"
+          :label-value="`${config.size}px`"
+          :min="sliderSize.min"
+          :max="sliderSize.max"
+        />
+        <span class="shrink pl-3 spinners__size-bigger">A</span>
       </div>
-      <div class="spinners__duration-picker">
+
+      <div class="d-flex flex xs12 sm12 md6 lg3 align--center">
+        <va-icon-slower class="shrink pr-3 spinners__duration-slower"/>
         <va-slider
           value-visible
           v-model="currentDuration"
           :min="sliderDuration.min"
           :max="sliderDuration.max"
         />
+        <va-icon-faster class="shrink pl-3 spinners__duration-faster"/>
       </div>
-      <div class="spinners__icon-duration-faster">
-        <va-icon-faster/>
+
+      <div class="d-flex flex justify--center xs12 sm12 md12 lg6">
+        <va-palette-custom
+          :palette="paletteArray"
+          v-model="spinnersColor"
+          class="justify--center"
+        />
       </div>
     </div>
 
-    <div class="d-flex flex sm12 md6 lg6 xl4">
-      <va-palette-custom
-        :palette="paletteArray"
-        v-model="spinnersColor"
-        class="spinners__color-picker"
-      />
-    </div>
-  </div>
+    <hr>
 
-  <hr>
-
-  <div
-    v-for="(group, i) in groups"
-    :key="i"
-    class="row"
-  >
     <div
-      v-for="item in group"
-      :key="item"
-      class="flex xs6 md3"
+      v-for="(group, i) in groups"
+      :key="i"
+      class="row"
     >
-      <div class="spinner-box-container text--center pb-5">
-        <div class="spinner-box flex-center">
-          <component
-            :animation-duration="speed"
-            :is="item"
-            :color="spinnersColor"
-            :size="config.size"
-          >
-          </component>
+      <div
+        v-for="item in group"
+        :key="item"
+        class="flex sm6 lg3"
+      >
+        <div class="text--center pb-4">
+          <div class="flex-center spinner-box">
+            <component
+              :animation-duration="speed"
+              :is="item"
+              :color="spinnersColor"
+              :size="config.size"
+            >
+            </component>
+          </div>
+          <div>{{ $t(item) }}</div>
         </div>
-        <div>{{ $t(item) }}</div>
       </div>
     </div>
-  </div>
-</va-card>
+  </va-card>
+</div>
 </template>
 
 <script>
@@ -142,3 +138,33 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.spinners {
+  &__size {
+    &-smaller, &-bigger {
+      width: 40px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    &-smaller {
+      font-size: 1rem;
+    }
+
+    &-bigger {
+      font-size: 1.3rem;
+    }
+  }
+
+  &__duration {
+    &-slower, &-faster {
+      transform: translateY(-1px);
+    }
+  }
+
+  .spinner-box {
+    height: 140px
+  }
+}
+</style>
