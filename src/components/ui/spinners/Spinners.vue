@@ -34,7 +34,9 @@
       </div>
     </div>
 
-    <hr>
+    <div class="content">
+      <hr class="separator">
+    </div>
 
     <div
       v-for="(group, i) in groups"
