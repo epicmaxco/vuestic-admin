@@ -437,6 +437,10 @@
   "chat": {
     "title": "Chat"
   },
+  "spacingPlayground": {
+    "margin": "Margin",
+    "padding": "Padding"
+  },
   "cards": {
     "cards": "Cards",
     "fixed": "Fixed",
