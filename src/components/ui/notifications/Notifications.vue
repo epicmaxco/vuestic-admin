@@ -126,7 +126,7 @@
                 class="toasted-container sample-toasted-container shrink"
               >
                 <div class="toasted vuestic-toast none default">
-                  <va-icon v-if="toastIcon" :icon="['fa', toastIcon]"/>
+                  <va-icon v-if="toastIcon" :name="['fa', toastIcon]"/>
                   {{toastText}}
                 </div>
               </div>
