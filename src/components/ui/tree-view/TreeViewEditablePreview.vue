@@ -17,7 +17,7 @@
           <va-icon
             name="ion ion-md-close"
             color="info"
-            class="ml-2 shrink"
+            class="ml-2 pa-1 shrink"
             style="cursor: pointer;"
             @click.native="removeProduct(product)"
           />

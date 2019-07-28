@@ -12,7 +12,9 @@
       :messages="messages"
       :error-messages="errorMessages"
     >
-      <va-icon color="gray" name="fa fa-calendar" />
+      <template slot="append">
+        <va-icon color="gray" name="fa fa-calendar"/>
+      </template>
     </va-input>
     <vue-flatpickr-component
       class="va-date-picker__flatpickr"
