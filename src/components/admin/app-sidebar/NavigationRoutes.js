@@ -199,6 +199,10 @@ export const navigationRoutes = {
       disabled: true,
       children: [
         {
+          name: 'login',
+          displayName: 'Login/Signup',
+        },
+        {
           name: '404-pages',
           displayName: '404 Pages',
         },
