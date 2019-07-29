@@ -3,7 +3,7 @@
     class="profile-dropdown"
     @show="toggleVisibility(true)"
     @hide="toggleVisibility(false)"
-    offset="15px, 0"
+    boundary-body
   >
     <span
       class="profile-dropdown__actuator" slot="anchor"
@@ -73,6 +73,7 @@ export default {
     background-color: $dropdown-background;
     box-shadow: $gray-box-shadow;
     border-radius: .5rem;
+    width: 6rem;
   }
   &__item {
     display: block;

@@ -1,33 +1,34 @@
 <template>
-    <va-dropdown
-      class="notification-dropdown"
-      offset="15px, 0"
-    >
-      <va-icon
-        slot="anchor"
-        name="i-nav-notification"
-        class="notification-dropdown__icon"
-        :class="{'notification-dropdown__icon--unread': !allRead}"
-      />
-      <div class="notification-dropdown__content py-3 px-2">
-        <div
-          v-for="option in computedOptions"
-          :key="option.id"
-          class="notification-dropdown__item pr-3 row"
-          :class="{'notification-dropdown__item--unread': option.unread}"
-          @click="option.unread = false"
-         >
-          <img v-if="option.details.avatar" class="mr-1 notification-dropdown__item__avatar" :src="option.details.avatar"/>
-          <span class="ellipsis">
-            <span class="text--bold" v-if="option.details.name">{{option.details.name}}</span> {{$t(`notifications.${option.name}`, { type: option.details.type })}}
-          </span>
-        </div>
-        <div class="row justify--space-between">
-          <va-button class="m-0 mr-1" small>{{ $t('notifications.all') }}</va-button>
-          <va-button class="m-0" small outline @click="markAllAsRead" :disabled="allRead">{{ $t('notifications.mark_as_read') }}</va-button>
-        </div>
+  <va-dropdown
+    class="notification-dropdown"
+    offset="15px, 0"
+    boundary-body
+  >
+    <va-icon
+      slot="anchor"
+      name="i-nav-notification"
+      class="notification-dropdown__icon"
+      :class="{'notification-dropdown__icon--unread': !allRead}"
+    />
+    <div class="notification-dropdown__content py-3 px-2">
+      <div
+        v-for="option in computedOptions"
+        :key="option.id"
+        class="notification-dropdown__item pr-3 row"
+        :class="{'notification-dropdown__item--unread': option.unread}"
+        @click="option.unread = false"
+      >
+        <img v-if="option.details.avatar" class="mr-1 notification-dropdown__item__avatar" :src="option.details.avatar"/>
+        <span class="ellipsis">
+          <span class="text--bold" v-if="option.details.name">{{option.details.name}}</span> {{$t(`notifications.${option.name}`, { type: option.details.type })}}
+        </span>
       </div>
-    </va-dropdown>
+      <div class="row justify--space-between">
+        <va-button class="m-0 mr-1" small>{{ $t('notifications.all') }}</va-button>
+        <va-button class="m-0" small outline @click="markAllAsRead" :disabled="allRead">{{ $t('notifications.mark_as_read') }}</va-button>
+      </div>
+    </div>
+  </va-dropdown>
 </template>
 
 <script>
@@ -50,7 +51,11 @@ export default {
         },
         {
           name: 'uploadedZip',
-          details: { name: 'Oleg M', avatar: 'https://picsum.photos/100', type: 'typography component' },
+          details: {
+            name: 'Oleg M',
+            avatar: 'https://picsum.photos/100',
+            type: 'typography component',
+          },
           unread: true,
           id: 2,
         },
@@ -70,7 +75,10 @@ export default {
   },
   methods: {
     markAllAsRead () {
-      this.computedOptions = this.computedOptions.map(item => ({ ...item, unread: false }))
+      this.computedOptions = this.computedOptions.map(item => ({
+        ...item,
+        unread: false,
+      }))
     },
   },
 }
@@ -81,6 +89,7 @@ export default {
 
 .notification-dropdown {
   cursor: pointer;
+
   .notification-dropdown__icon {
     position: relative;
     display: flex;
@@ -99,20 +108,24 @@ export default {
       border-radius: .187rem;
     }
   }
+
   &__content {
     background-color: $dropdown-background;
     box-shadow: $gray-box-shadow;
     border-radius: .5rem;
-    max-width: 25rem;
+    max-width: 19rem;
   }
+
   &__item {
     cursor: pointer;
     margin-bottom: .75rem;
     color: $brand-secondary;
     flex-wrap: nowrap;
     position: relative;
+
     &--unread {
       color: $vue-darkest-blue;
+
       &:after {
         content: '';
         position: absolute;
@@ -126,9 +139,11 @@ export default {
         border-radius: .187rem;
       }
     }
+
     &:hover {
       color: $vue-green;
     }
+
     &__avatar {
       border-radius: 50%;
       width: 1.5rem;

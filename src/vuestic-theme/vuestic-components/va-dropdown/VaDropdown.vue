@@ -77,6 +77,7 @@ export default {
   props: {
     debugId: String,
     position: String,
+    boundaryBody: Boolean,
     value: Boolean,
     offset: [String, Number],
     disabled: Boolean,
@@ -216,6 +217,10 @@ export default {
         arrow: {
           enabled: false,
         },
+      }
+
+      if (this.boundaryBody) {
+        options.modifiers.preventOverflow.boundariesElement = document.body
       }
 
       if (this.offset) {
