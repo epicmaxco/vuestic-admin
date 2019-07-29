@@ -1,7 +1,6 @@
 <template>
-<div class="layout gutter--md">
   <div class="row">
-    <div class="flex md6">
+    <div class="flex xs12 sm6">
       <va-card title="Theme Colors">
         <div
           v-for="(themeColor, index) in themeColors"
@@ -16,7 +15,7 @@
       </va-card>
     </div>
 
-    <div class="flex md6">
+    <div class="flex xs12 sm6">
       <va-card title="Extra Colors">
         <div
           v-for="(extraColor, index) in extraColors"
@@ -31,7 +30,7 @@
       </va-card>
     </div>
 
-    <div class="flex md4">
+    <div class="flex xs12 sm6 lg4">
       <va-card title="Button Gradients">
         <div
           v-for="(buttonGradient, index) in buttonGradients"
@@ -42,13 +41,13 @@
             :variant="['gradient']"
             :name="buttonGradient.name"
             :description="buttonGradient.description"
-            :width="200"
+            :width="150"
           />
         </div>
       </va-card>
     </div>
 
-    <div class="flex md4">
+    <div class="flex xs12 sm6 lg4">
       <va-card title="Hovered Button Gradients">
         <p class="mt-0 mb-2">
           Lighten 15% applied to an original style (gradient or flat color) for hover state.
@@ -62,13 +61,13 @@
             :variant="['gradient', 'hovered']"
             :name="buttonGradient.name"
             :description="buttonGradient.description"
-            :width="200"
+            :width="150"
           />
         </div>
       </va-card>
     </div>
 
-    <div class="flex md4">
+    <div class="flex xs12 sm6 lg4">
       <va-card title="Pressed Button Gradients">
         <p class="mt-0 mb-2">
           Darken 15% applied to an original style (gradient or flat color) for pressed state.
@@ -82,17 +81,17 @@
             :variant="['gradient', 'pressed']"
             :name="buttonGradient.name"
             :description="buttonGradient.description"
-            :width="200"
+            :width="150"
           />
         </div>
       </va-card>
     </div>
   </div>
-</div>
 </template>
 
 <script>
-import VaColorPresentation from '../../../vuestic-theme/vuestic-components/va-color-presentation/VaColorPresentation'
+import VaColorPresentation
+  from '../../../vuestic-theme/vuestic-components/va-color-presentation/VaColorPresentation'
 import {
   themeColors,
   extraColors,
