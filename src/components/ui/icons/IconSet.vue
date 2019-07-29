@@ -2,7 +2,7 @@
   <div class="icon-set">
     <va-card class="icon-set__header mb-4 py-3 ma-0">
       <div class="row">
-        <div class="flex md3 xs12 pl-5">
+        <div class="flex md3 xs12">
           <h2
             class="my-0"
             :style="{ color: this.$themes.dark }"
@@ -14,25 +14,22 @@
           </router-link>
         </div>
 
-        <div class="flex row md5 xs12 ma-0 align--center">
-            <va-input
-              v-model="search"
-              :label="$t('icons.search')"
-              class="mb-0"
-              removable
-              required
-            >
-              <template slot="prepend">
-                <va-icon
-                  name="fa fa-search icon-left input-icon"
-                  class="shrink pr-2"
-                  color="dark"
-                />
-              </template>
-            </va-input>
+        <div class="flex md5 xs12 flex-center">
+          <va-input
+            v-model="search"
+            :label="$t('icons.search')"
+            class="mb-0"
+            style="max-width: 300px"
+            removable
+            required
+          >
+            <template slot="prepend">
+              <va-icon name="fa fa-search icon-left input-icon"/>
+            </template>
+          </va-input>
         </div>
 
-        <div class="flex row md4 xs12 ma-0 pr-5 align--center content icon-set__header__size">
+        <div class="flex md4 xs12 ma-0 flex-center content icon-set__header__size">
           <span
             class="ma-2 pr-1 shrink icon-set__header__size--smaller"
             :style="{ color: this.$themes.dark }"
@@ -42,6 +39,7 @@
           <va-slider
             value-visible
             v-model="iconSize"
+            style="max-width: 300px"
             :label-value="`${iconSize}px`"
             :min="slider.min"
             :max="slider.max"
