@@ -1,7 +1,7 @@
 <template>
   <div class="notifications">
     <div class="row">
-      <div class="flex md12">
+      <div class="flex xs12">
         <va-card :title="$t('notificationsPage.notifications.title')">
           <div class="mb-3">
             <va-notification closeable>
@@ -76,35 +76,28 @@
               <va-input
                 v-model="toastIcon"
                 :label="$t('notificationsPage.toasts.iconLabel')"
-                class="control-input"
+                class="control-input mb-0"
                 required
               />
             </div>
             <div class="flex xs12 md6">
-              <div class="d-flex mt-2">
-                <toast-position-picker v-model="toastPosition"/>
-                <va-checkbox
-                  :label="$t('notificationsPage.toasts.fullWidthLabel')"
-                  :id="'toast-fullwidth'"
-                  v-model="isToastFullWidth"
-                />
-              </div>
-              <div class="d-flex">
-                <va-button class="ma-0 mt-4" color="primary" slot="trigger" @click="launchToast">
-                  {{ $t('notificationsPage.toasts.launchToast') }}
-                </va-button>
-              </div>
-            </div>
-            <div class="flex xs12 md6 flex-center">
-              <div
-                v-if="isToastContentPresent"
-                class="toasted-container sample-toasted-container shrink"
-              >
-                <div class="toasted vuestic-toast none default">
-                  <va-icon v-if="toastIcon" :name="['fa', toastIcon]"/>
-                  {{toastText}}
+              <div class="row">
+                <div class="flex xs12">
+                  <toast-position-picker v-model="toastPosition"/>
+                </div>
+                <div class="flex xs12">
+                  <va-checkbox
+                    :label="$t('notificationsPage.toasts.fullWidthLabel')"
+                    :id="'toast-fullwidth'"
+                    v-model="isToastFullWidth"
+                  />
                 </div>
               </div>
+            </div>
+            <div class="flex xs12">
+              <va-button class="ma-0" color="primary" slot="trigger" @click="launchToast">
+                {{ $t('notificationsPage.toasts.launchToast') }}
+              </va-button>
             </div>
           </div>
         </va-card>
