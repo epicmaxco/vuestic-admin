@@ -1,32 +1,40 @@
 <template>
   <div class="spacing-playground">
     <div class="row">
-      <div class="flex xs6 md4">
+      <div class="flex xs12 sm6 md4">
         <va-select
           :options="directionList"
           v-model="selectedMarginDirection"
           :label="$t('spacingPlayground.margin')"
+          :max-height="null"
+          no-clear
         />
       </div>
-      <div class="flex xs6 md2">
+      <div class="flex xs12 sm6 md2">
         <va-select
           :options="sizesList"
           v-model="selectedMarginSize"
-          label="—"
+          :label="$t('spacingPlayground.value')"
+          :max-height="null"
+          no-clear
         />
       </div>
-      <div class="flex xs6 md4">
+      <div class="flex xs12 sm6 md4">
         <va-select
           :options="directionList"
           v-model="selectedPaddingDirection"
           :label="$t('spacingPlayground.padding')"
+          :max-height="null"
+          no-clear
         />
       </div>
-      <div class="flex xs6 md2">
+      <div class="flex xs12 sm6 md2">
         <va-select
           :options="sizesList"
           v-model="selectedPaddingSize"
-          label="—"
+          :label="$t('spacingPlayground.value')"
+          :max-height="null"
+          no-clear
         />
       </div>
     </div>
@@ -52,8 +60,10 @@
     </div>
 
     <div class="row">
-      <div class="flex xs12">
+      <div class="flex xs12 sm6">
         <va-color-presentation color="#ffd093" :name="$t('spacingPlayground.margin')"/>
+      </div>
+      <div class="flex xs12 sm6">
         <va-color-presentation color="#c9f7db" :name="$t('spacingPlayground.padding')"/>
       </div>
     </div>
@@ -71,11 +81,11 @@ export default {
   data () {
     return {
       directionList: ['a', 'y', 'x', 't', 'r', 'b', 'l'],
-      selectedMarginDirection: '',
-      selectedPaddingDirection: '',
       sizesList: ['1', '2', '3', '4', '5', 'auto'],
-      selectedMarginSize: '',
-      selectedPaddingSize: '',
+      selectedMarginDirection: 'y',
+      selectedPaddingDirection: 'x',
+      selectedMarginSize: '3',
+      selectedPaddingSize: '3',
     }
   },
   computed: {
