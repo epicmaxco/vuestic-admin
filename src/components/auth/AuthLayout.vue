@@ -1,11 +1,9 @@
 <template>
 <div class="auth-layout row align-content--center">
-  <div class="flex xs12 lg6 pa-3">
-    <div class="d-flex fill-height justify--center align--center">
-      <router-link class="pa-5" to="/">
-        <va-icon-vuestic/>
-      </router-link>
-    </div>
+  <div class="flex xs12 lg6 pa-3 flex-center">
+    <router-link class="py-5 flex-center" to="/">
+      <va-icon-vuestic />
+    </router-link>
   </div>
 
   <div class="flex xs12 lg6 pa-3">
