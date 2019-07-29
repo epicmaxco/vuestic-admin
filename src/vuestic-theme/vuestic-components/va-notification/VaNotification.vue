@@ -101,7 +101,7 @@ $va-close-icon-font-size: 1.5rem;
     cursor: pointer;
   }
 
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(xs) {
     @at-root {
       .va-notification {
         &__content {
