@@ -1,15 +1,13 @@
 <template>
-  <div>
-    <div class="inner-loading-container">
-      <slot />
+  <div class="inner-loading">
+    <slot />
 
-      <div v-if="loading" class="inner-loading-overlay">
-        <spring-spinner
-          :animation-duration="2000"
-          :size="48"
-          :color="$themes.primary"
-        />
-      </div>
+    <div v-if="loading" class="inner-loading__overlay">
+      <spring-spinner
+        :animation-duration="2000"
+        :size="48"
+        :color="$themes.primary"
+      />
     </div>
   </div>
 </template>
@@ -29,18 +27,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .inner-loading-container {
+  .inner-loading {
     position: relative;
-  }
+    min-width: 100%;
 
-  .inner-loading-overlay {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.5);
+    &__overlay {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.5);
+    }
   }
 </style>

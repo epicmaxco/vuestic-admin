@@ -16,9 +16,9 @@
       </template>
     </va-data-table>
 
-    <small>
-      {{ $t('tables.selected') }}: {{ selected }}
-    </small>
+    <p v-if="selected.length">
+      {{ $t('tables.selected') }}: {{ selected.map(user => user.fullName).join(", ") }}.
+    </p>
   </va-card>
 </template>
 
