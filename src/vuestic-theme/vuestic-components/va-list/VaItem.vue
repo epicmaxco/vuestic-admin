@@ -14,7 +14,7 @@
 export default {
   name: 'va-item',
   props: {
-    to: String,
+    to: [String, Object],
     clickable: Boolean,
   },
 
