@@ -128,38 +128,36 @@
         :error-messages="['one', 'two']"
       />
     </VbCard>
-    <VbCard title="Textarea (autosize: false)">
+    <VbCard title="Textarea">
       <va-input
         v-model="text"
         label="Name"
         type="textarea"
-        :autosize="false"
       />
     </VbCard>
-    <VbCard title="Textarea (autosize: false, minRows: 3, maxRows: 8)">
+    <VbCard title="Textarea limits">
       <va-input
         v-model="text"
         label="Name"
         type="textarea"
-        :autosize="false"
         :minRows="3"
         :maxRows="8"
       />
     </VbCard>
-    <VbCard title="Textarea (autosize: true)">
+    <VbCard title="Textarea autosize">
       <va-input
         v-model="text"
         label="Name"
         type="textarea"
-        :autosize="true"
+        autosize
       />
     </VbCard>
-    <VbCard title="Textarea (autosize: true, minRows: 3, maxRows: 8)">
+    <VbCard title="Textarea autosize limits">
       <va-input
         v-model="text"
         label="Name"
         type="textarea"
-        :autosize="true"
+        autosize
         :minRows="3"
         :maxRows="8"
       />

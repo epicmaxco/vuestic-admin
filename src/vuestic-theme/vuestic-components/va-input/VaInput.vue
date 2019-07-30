@@ -125,11 +125,19 @@ export default {
     },
     minRows: {
       type: Number,
-      validator: (val) => val > 0 && (val | 0) === val,
+      validator: (val) => {
+        if (!(val > 0 && (val | 0) === val)) {
+          throw new Error(`\`minRows\` must be a positive integer grater than 0, but ${val} is provided`)
+        } return true
+      },
     },
     maxRows: {
       type: Number,
-      validator: (val) => val > 0 && (val | 0) === val,
+      validator: (val) => {
+        if (!(val > 0 && (val | 0) === val)) {
+          throw new Error(`\`maxRows\` must be a positive integer grater than 0, but ${val} is provided`)
+        } return true
+      },
     },
   },
   mounted () {
@@ -211,13 +219,15 @@ export default {
   },
   methods: {
     adjustHeight () {
-      const { autosize } = this.$props
-      if (!autosize || !this.isTextarea) return
+      if (!this.autosize || !this.isTextarea) return
 
       const minRows = this.minRows || 1
       const maxRows = this.maxRows || Number.MAX_SAFE_INTEGER
       const textareaStyles = calculateNodeHeight(this.$refs.input, false, minRows, maxRows)
 
+      // We modify DOM directly instead of using reactivity because the whole adjustHeight method takes place
+      // each time the value of textarea is modified, so there's no real need in an additional layer of reactivity.
+      // The operation is basically reactive though implicitly.
       Object.assign(this.$refs.input.style, textareaStyles)
     },
 
@@ -308,6 +318,7 @@ export default {
     }
 
     &.va-input__container--textarea &__input {
+      resize: vertical;
       height: inherit;
     }
   }
