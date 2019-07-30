@@ -1,12 +1,10 @@
 // Reset
 @import "global/reset.scss";
-// We probably don't need normalize.
+// We probably don't need normalize
 @import "global/normalize.scss";
 @import "icons/icons";
 // Mixins, functions and variables
 @import "resources/resources";
-// NOTE We want to dispose of bootstrap styling at some point.
-@import "~bootstrap/scss/bootstrap";
 // NOTE We should use our own styles for checkbox
 @import "overrides/overrides";
 // NOTE We want to dispose of these.

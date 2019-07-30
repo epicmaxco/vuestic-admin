@@ -57,7 +57,7 @@ if (!process.env.VUE_APP_BOOK) {
         // pass options to sass-loader
         sass: {
           // @/ is an alias to src/
-          data: `@import "@/sass/shared.scss";`,
+          data: `@import "@/vuestic-theme/vuestic-sass/resources/resources.scss";`,
         },
       },
     },

@@ -138,10 +138,21 @@ export default new Router({
         {
           name: 'tables',
           path: 'tables',
-          component: () => import('../components/tables/Tables.vue'),
-          meta: {
-            wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tables',
-          },
+          component: EmptyParentComponent,
+          children: [
+            {
+              name: 'markup',
+              path: 'markup',
+              component: () => import('../components/markup-tables/MarkupTables.vue'),
+              wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tables', // TODO Update docs
+            },
+            {
+              name: 'data',
+              path: 'data',
+              component: () => import('../components/data-tables/DataTables.vue'),
+              wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tables', // TODO Add docs
+            },
+          ],
         },
         {
           name: 'ui',
@@ -183,14 +194,6 @@ export default new Router({
               component: () => import('../components/ui/timelines/Timelines'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Timelines',
-              },
-            },
-            {
-              name: 'dropdowns',
-              path: 'dropdowns',
-              component: () => import('../components/ui/dropdowns/Dropdowns'),
-              meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Dropdowns',
               },
             },
             {
@@ -283,9 +286,9 @@ export default new Router({
               component: () => import('../components/ui/collapse/Collapses'),
             },
             {
-              name: 'filters',
-              path: 'filters',
-              component: () => import('../components/ui/filters/Filters'),
+              name: 'colors',
+              path: 'colors',
+              component: () => import('../components/ui/colors/Colors'),
             },
             {
               name: 'spacing',

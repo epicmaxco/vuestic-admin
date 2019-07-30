@@ -5,8 +5,18 @@
       <va-icon-vuestic/>
     </template>
     <template slot="center">
-      <div class="va-row flex-nowrap align--center justify--space-between">
-        <span class="va-navbar__text">{{$t('navbar.messageUs')}}&nbsp;<a href="mailto:hello@epicmax.co" target="_blank">hello@epicmax.co</a></span>
+      <div class="row flex-nowrap align--center justify--space-between">
+        <span class="va-navbar__text no-wrap">
+          {{$t('navbar.messageUs')}}&nbsp;
+          <a
+            href="mailto:hello@epicmax.co"
+            target="_blank"
+            class="app-navbar__mailto-link"
+            :style="{color: this.$themes.primary}"
+          >
+            hello@epicmax.co
+          </a>
+        </span>
         <div>
           <va-button
             href="https://github.com/epicmaxco/vuestic-admin"
@@ -20,7 +30,8 @@
         </div>
       </div>
     </template>
-    <div class="app-navbar__actions va-row flex-nowrap align--center">
+    <div class="app-navbar__actions row flex-nowrap align--center">
+      <color-dropdown class="va-navbar__item"/>
       <message-dropdown class="va-navbar__item"/>
       <notification-dropdown class="va-navbar__item"/>
       <!--<settings-dropdown-->
@@ -46,12 +57,14 @@ import ProfileDropdown from './components/dropdowns/ProfileDropdown'
 import NotificationDropdown from './components/dropdowns/NotificationDropdown'
 import MessageDropdown from './components/dropdowns/MessageDropdown'
 import SettingsDropdown from './components/dropdowns/SettingsDropdown'
+import ColorDropdown from './components/dropdowns/ColorDropdown'
 
 export default {
   name: 'app-navbar',
 
   components: {
     SettingsDropdown,
+    ColorDropdown,
     VaIconVuestic,
     VaNavbar,
     HeaderSelector,
@@ -94,7 +107,10 @@ export default {
   &__actions {
     justify-content: flex-end;
   }
-  @include media-breakpoint-down(md) {
+  &__mailto-link:hover {
+    filter: brightness(85%);
+  }
+  @include media-breakpoint-down(lg) {
     &__button {
       display: none !important;
     }
@@ -102,12 +118,17 @@ export default {
       margin: auto 0 auto .75rem;
     }
   }
+  @include media-breakpoint-down(md) {
+    @at-root .va-navbar__text {
+      display: none !important;
+    }
+  }
   @include media-breakpoint-down(sm) {
     &__button {
       display: none !important;
     }
     &__actions {
-      justify-content: space-between;
+      justify-content: space-around;
       padding: 0 .5rem;
     }
     .profile-dropdown {

@@ -32,8 +32,8 @@
         <tr>
           <td>Themes</td>
           <td>
-            <div class="va-row">
-              <div class="va-row column">
+            <div class="row">
+              <div class="flex">
                 success
                 <va-rating
                   color="success"
@@ -71,7 +71,7 @@
                   v-model="value"
                 />
               </div>
-              <div class="va-row column">
+              <div class="flex">
                 success
                 <va-rating
                   color="success"
@@ -108,8 +108,8 @@
         </tr>
         <tr>
           <td>Sizes</td>
-          <div class="va-row">
-            <div class="va-row column">
+          <div class="row">
+            <div class="flex">
               medium
               <va-rating
                 v-model="value"
@@ -136,7 +136,7 @@
                 v-model="value"
               />
             </div>
-            <div class="va-row column">
+            <div class="flex">
               medium
               <va-rating
                 v-model="value"

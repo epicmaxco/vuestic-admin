@@ -76,11 +76,40 @@
       <va-button color="info" @click="refreshData">RefreshChartColors</va-button>
     </VbCard>
     <VbCard title="Change color">
-      <va-color-picker-input v-model="$themes.info" mode="advanced"/>
-      <va-color-picker-input v-model="$themes.success" mode="advanced"/>
-      <va-color-picker-input v-model="$themes.secondary" mode="advanced"/>
+      <div>
+        primary
+        <va-color-picker-input v-model="$themes.primary" mode="advanced"/>
+      </div>
+      <div>
+        secondary
+        <va-color-picker-input v-model="$themes.secondary" mode="advanced"/>
+      </div>
+      <div>
+        success
+        <va-color-picker-input v-model="$themes.success" mode="advanced"/>
+      </div>
+      <div>
+        info
+        <va-color-picker-input v-model="$themes.info" mode="advanced"/>
+      </div>
+      <div>
+        warning
+        <va-color-picker-input v-model="$themes.warning" mode="advanced"/>
+      </div>
+      <div>
+        danger
+        <va-color-picker-input v-model="$themes.danger" mode="advanced"/>
+      </div>
+    </VbCard>
+    <VbCard title="These 2 badges share `info` theme">
+      <VaBadge color="info">Info badge</VaBadge>
+      <VaBadge outline color="info">Outlined info badge</VaBadge>
+    </VbCard>
+    <VbCard title="Darken theme a bit">
+      <button @click="darkenTheme()">Darken</button>
     </VbCard>
   </VbDemo>
+
 </template>
 
 <script>
@@ -102,15 +131,19 @@ import SidebarLink
   from './../../../components/admin/app-sidebar/components/SidebarLink'
 import { navigationRoutes } from '../../../components/admin/app-sidebar/NavigationRoutes'
 import VaRating from '../../vuestic-components/va-rating/VaRating'
-import SquareWithIcon from '../../vuestic-components/va-tree-view/SquareWithIcon/SquareWithIcon'
+import SquareWithIcon
+  from '../../vuestic-components/va-tree-view/SquareWithIcon/SquareWithIcon'
 import VaTreeRoot from '../../vuestic-components/va-tree-view/VaTreeRoot'
-import VaTreeCategory from '../../vuestic-components/va-tree-view/VaTreeCategory'
+import VaTreeCategory
+  from '../../vuestic-components/va-tree-view/VaTreeCategory'
 import VaTreeNode from '../../vuestic-components/va-tree-view/VaTreeNode'
 import VaChart from '../../vuestic-components/va-chart/VaChart'
 import { getLineChartData } from '../../../data/charts/LineChartData'
+import VaBadge from '../../vuestic-components/va-chip/VaBadge'
 
 export default {
   components: {
+    VaBadge,
     VaChart,
     VaTreeNode,
     VaTreeCategory,
@@ -138,6 +171,23 @@ export default {
   methods: {
     refreshData () {
       this.chartData = getLineChartData(this.$themes)
+    },
+    darkenTheme () {
+      // NOTE For testing. So that we can observe theme changed
+      const newTheme = {
+        'primary': '#9A0931',
+        'secondary': '#C50B0B',
+        'success': '#06421E',
+        'info': '#021C38',
+        'danger': '#440606',
+        'warning': '#3C2D03',
+        'gray': '#babfc2',
+        'dark': '#34495e',
+      }
+
+      for (const index in newTheme) {
+        this.$set(this.$themes, index, newTheme[index])
+      }
     },
   },
 }

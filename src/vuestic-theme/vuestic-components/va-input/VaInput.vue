@@ -36,6 +36,7 @@
           :value="value"
           v-on="inputListeners"
           v-bind="$attrs"
+          ref="input"
         />
         <input
           v-else
@@ -49,6 +50,7 @@
           :value="value"
           v-on="inputListeners"
           v-bind="$attrs"
+          ref="input"
         />
       </div>
       <div
@@ -73,7 +75,7 @@
           @click.native="clearContent()"
           class="va-input__container__close-icon"
           :color="error ? 'danger': 'gray'"
-          name="ion ion-md-close ion"
+          name="fa fa-times-circle"
         />
       </div>
     </div>
@@ -122,9 +124,9 @@ export default {
   },
   computed: {
     labelStyles () {
-      return {
-        color: this.error ? this.$themes.danger : '',
-      }
+      if (this.error) return { color: this.$themes.danger }
+      if (this.success) return { color: this.$themes.success }
+      return { color: this.$themes.primary }
     },
     containerStyles () {
       return {

@@ -6,7 +6,7 @@
   >
     <va-icon slot="anchor" :name="['flag-icon flag-icon-large', flagIconClass(currentLanguage())]"/>
     <div class="language-dropdown__content py-3 px-2">
-      <div class="language-dropdown__item va-row align--center"
+      <div class="language-dropdown__item row align--center"
          v-for="(option, id) in options"
          :key="id"
          :class="{ active: option.code === currentLanguage() }"

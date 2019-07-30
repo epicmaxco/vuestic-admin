@@ -1,6 +1,6 @@
 <template>
   <va-card class="sets-list" :title="$t('icons.title')">
-    <div class="va-row">
+    <div class="row">
       <div
         class="flex lg6 xs12 mb-4 sets-list__set fill-height"
         v-for="(set, index) in sets"
@@ -15,7 +15,7 @@
 
           <template v-for="(filteredList, index) in set.filteredLists">
             <div
-              class="va-row pa-3"
+              class="row pa-3"
               :key="index"
               v-if="filteredList.length !== 2"
             >
@@ -30,7 +30,7 @@
               </div>
             </div>
             <div
-              class="va-row pa-3"
+              class="row pa-3"
               :key="index"
               v-if="filteredList.length === 2"
             >

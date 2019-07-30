@@ -1,5 +1,5 @@
 <template>
-  <div class="typography">
+  <div class="typography content">
     <va-card>
       <div class="mb-4">
         <p class="display-1">Display 1 Heading</p>
@@ -157,7 +157,7 @@
         <table class="va-table">
           <thead>
           <tr>
-            <td v-for="(data, index) in tableData[0]" :key="index">{{data}}</td>
+            <th v-for="(data, index) in tableData[0]" :key="index">{{data}}</th>
           </tr>
           </thead>
           <tbody>

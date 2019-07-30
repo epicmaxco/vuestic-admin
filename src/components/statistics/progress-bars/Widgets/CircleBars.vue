@@ -3,7 +3,7 @@
     class="circle-bars progress-bar-widget"
     :title="$t('progressBars.circle')"
   >
-    <div class="va-row">
+    <div class="row">
       <div v-for="n in 10" :key="n" class="flex xs2 md1">
         <va-progress-circle :value="value * n / 10"/>
       </div>
@@ -11,7 +11,7 @@
         <va-progress-circle indeterminate/>
       </div>
     </div>
-    <div class="va-row">
+    <div class="row">
       <div v-for="n in 10" :key="n" class="flex xs2 md1">
         <va-progress-circle :value="value * n / 10">{{ value * n / 10 }}%</va-progress-circle>
       </div>

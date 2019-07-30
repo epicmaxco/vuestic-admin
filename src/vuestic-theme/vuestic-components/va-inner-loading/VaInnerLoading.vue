@@ -7,7 +7,7 @@
         <spring-spinner
           :animation-duration="2000"
           :size="48"
-          color="#4ae387"
+          :color="$themes.primary"
         />
       </div>
     </div>

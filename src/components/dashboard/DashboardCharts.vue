@@ -1,5 +1,5 @@
 <template>
-  <div class="va-row row-equal">
+  <div class="row row-equal">
     <div class="flex xs12 xl6">
       <va-card :title="$t('dashboard.charts.trendyTrends')">
         <va-button

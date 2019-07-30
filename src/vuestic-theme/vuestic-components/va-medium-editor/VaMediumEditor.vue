@@ -1,5 +1,5 @@
 <template>
-  <div class="va-medium-editor">
+  <div class="va-medium-editor content">
     <slot/>
   </div>
 </template>
@@ -67,6 +67,95 @@ export default {
   min-width: 6rem;
   &:focus {
     outline: none;
+  }
+}
+
+// isn't a part of the .va-medium-editor, so can't be places inside it
+.medium-editor-toolbar,
+.medium-editor-toolbar-form,
+.medium-editor-toolbar-actions,
+.medium-editor-toolbar-anchor-preview {
+  box-shadow: $btn-box-shadow 0 #77cea4;
+  background-color: $brand-primary;
+  border-radius: $btn-border-radius-nrm;
+}
+
+.medium-editor-toolbar {
+  max-width: 90%;
+  box-shadow: none;
+
+  .medium-editor-toolbar-actions {
+    overflow: hidden;
+  }
+
+  .medium-editor-action {
+    margin: 0;
+    border: $btn-border;
+    padding: $btn-padding-y-nrm 1rem;
+    height: $medium-editor-button-size;
+    background-image: linear-gradient(to right, #63e5b3, #23e066);
+    box-shadow: none;
+    border-radius: 0;
+
+    i {
+      color: $white;
+    }
+
+    &.medium-editor-button-active {
+      background-color: darken($brand-primary, 15%);
+    }
+  }
+
+  & > .medium-editor-action:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+  }
+
+  & > .medium-editor-action + .medium-editor-action {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 0;
+  }
+}
+
+.medium-editor-toolbar-form {
+  color: $white;
+  overflow: hidden;
+
+  a {
+    color: $white;
+    transform: translateY(2px);
+  }
+
+  .medium-editor-toolbar-close {
+    margin-right: 1rem;
+  }
+}
+
+.medium-toolbar-arrow-under:after {
+  border-color: $brand-primary transparent transparent transparent;
+  top: $medium-editor-button-size;
+}
+
+.medium-toolbar-arrow-over:before {
+  border-color: transparent transparent $brand-primary transparent;
+}
+
+.medium-editor-toolbar-anchor-preview {
+  @include va-button($btn-padding-y-nrm, $btn-padding-x-nrm, $btn-font-size-nrm, $btn-line-height-nrm, $btn-border-radius-nrm);
+
+  .medium-editor-toolbar-anchor-preview {
+    margin: 0;
+  }
+}
+
+.medium-editor-anchor-preview {
+  max-width: 50%;
+
+  a {
+    color: $white;
+    text-decoration: none;
   }
 }
 </style>

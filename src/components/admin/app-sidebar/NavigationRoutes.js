@@ -60,6 +60,16 @@ export const navigationRoutes = {
       meta: {
         iconClass: 'vuestic-iconset-tables',
       },
+      children: [
+        {
+          name: 'markup',
+          displayName: 'menu.markupTables',
+        },
+        {
+          name: 'data',
+          displayName: 'menu.dataTables',
+        },
+      ],
     },
     {
       name: 'ui',
@@ -82,10 +92,6 @@ export const navigationRoutes = {
           displayName: 'menu.collapses',
         },
         {
-          name: 'filters',
-          displayName: 'menu.filters',
-        },
-        {
           name: 'color-pickers',
           displayName: 'menu.colorPickers',
         },
@@ -96,10 +102,6 @@ export const navigationRoutes = {
         {
           name: 'notifications',
           displayName: 'menu.notifications',
-        },
-        {
-          name: 'dropdowns',
-          displayName: 'menu.dropdowns',
         },
         {
           name: 'icon-sets',
@@ -138,6 +140,10 @@ export const navigationRoutes = {
         {
           name: 'tree-view',
           displayName: 'menu.treeView',
+        },
+        {
+          name: 'colors',
+          displayName: 'menu.colors',
         },
         {
           name: 'spacing',

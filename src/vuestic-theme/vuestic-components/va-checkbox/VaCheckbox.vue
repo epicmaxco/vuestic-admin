@@ -22,10 +22,14 @@
           @keypress.prevent="toggleSelection()"
           :disabled="disabled"
           :indeterminate="indeterminate"
+          :style="inputStyle"
         />
         <va-icon :name="computedIcon"/>
       </div>
-      <div class="va-checkbox__label-text">
+      <div
+        class="va-checkbox__label-text"
+        :style="labelStyle"
+      >
         <slot name="label">
           {{ label }}
         </slot>
@@ -91,6 +95,17 @@ export default {
         'va-checkbox--indeterminate': this.indeterminate,
         'va-checkbox--error': this.showError,
         'va-checkbox--on-keyboard-focus': this.isKeyboardFocused,
+      }
+    },
+    labelStyle () {
+      if (this.showError) return { color: this.$themes.danger }
+    },
+    inputStyle () {
+      if (this.showError) {
+        if (this.isChecked) return { background: this.$themes.danger }
+        else return { borderColor: this.$themes.danger }
+      } else {
+        if (this.isChecked) return { background: this.$themes.success }
       }
     },
     computedIcon () {

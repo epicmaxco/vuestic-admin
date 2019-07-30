@@ -29,6 +29,51 @@ export const hex2rgb = (hex, opacity) => {
   return rgb
 }
 
+export const hex2hsl = (H) => {
+  /*
+   * the source text is taken from here (with minor modifications):
+   * https://css-tricks.com/converting-color-spaces-in-javascript/
+   */
+
+  // Convert hex to RGB first. Ignore opacity
+  let { r, g, b } = hex2rgb(H, 1)
+
+  // Then to HSL
+  r /= 255
+  g /= 255
+  b /= 255
+
+  let cmin = Math.min(r, g, b)
+  let cmax = Math.max(r, g, b)
+  let delta = cmax - cmin
+  let h = 0
+  let s = 0
+  let l = 0
+
+  if (delta === 0) { h = 0 } else if (cmax === r) { h = ((g - b) / delta) % 6 } else if (cmax === g) { h = (b - r) / delta + 2 } else { h = (r - g) / delta + 4 }
+
+  h = Math.round(h * 60)
+
+  if (h < 0) { h += 360 }
+
+  l = (cmax + cmin) / 2
+  s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1))
+  s = +(s * 100).toFixed(1)
+  l = +(l * 100).toFixed(1)
+
+  const HSL = {
+    h,
+    s,
+    l,
+
+    get css () {
+      return 'hsl(' + HSL.h + ',' + HSL.s + '%,' + HSL.l + '%)'
+    },
+  }
+
+  return HSL
+}
+
 export const getBoxShadowColor = (color) => {
   return hex2rgb(color, 0.4).css
 }

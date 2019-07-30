@@ -11,7 +11,6 @@
       </div>
     </VbCard>
     <VbCard title="without content class (h1-6)">
-      <div style="color: red">Is formatted because of bootstrap. Should look like ordinary text.</div>
       <div>
         <h1>h1 title</h1>
         <h2>h2 title</h2>
@@ -30,7 +29,6 @@
     </VbCard>
     <VbCard title="without content class (pre)">
       <div>
-        <div style="color: red">Is formatted because of bootstrap. Should look like ordinary text.</div>
         <pre>pre text must be here</pre>
       </div>
     </VbCard>
@@ -61,7 +59,6 @@
       </div>
     </VbCard>
     <VbCard title="without content class (lists)">
-      <div style="color: red">Is formatted because of bootstrap. Should look like ordinary text.</div>
       <ol>
         <li>item 1</li>
         <li>item 2
@@ -118,7 +115,7 @@
         <table>
           <thead>
           <tr>
-            <td v-for="(data, index) in tableData[0]" :key="index">{{data}}</td>
+            <th v-for="(data, index) in tableData[0]" :key="index">{{data}}</th>
           </tr>
           </thead>
           <tbody>
@@ -131,7 +128,7 @@
         <table class="striped">
           <thead>
           <tr>
-            <td v-for="(data, index) in tableData[0]" :key="index">{{data}}</td>
+            <th v-for="(data, index) in tableData[0]" :key="index">{{data}}</th>
           </tr>
           </thead>
           <tbody>
@@ -146,7 +143,7 @@
       <table>
         <thead>
         <tr>
-          <td v-for="(data, index) in tableData[0]" :key="index">{{data}}</td>
+          <th v-for="(data, index) in tableData[0]" :key="index">{{data}}</th>
         </tr>
         </thead>
         <tbody>

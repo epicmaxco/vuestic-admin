@@ -21,7 +21,13 @@
           />
 
           <div class="va-modal__inner" :style="{maxHeight, maxWidth}">
-            <div v-if="title" class="mb-4 title">{{title}}</div>
+            <div
+              v-if="title"
+              class="mb-4 title"
+              :style="{color: this.$themes.primary}"
+            >
+              {{title}}
+            </div>
             <div v-if="hasHeaderSlot" class="va-modal__header">
               <slot name="header"/>
             </div>

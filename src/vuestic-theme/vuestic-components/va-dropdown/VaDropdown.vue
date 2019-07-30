@@ -1,7 +1,7 @@
 <template>
-  <div class="va-dropdown-popper">
+  <div class="va-dropdown">
     <div
-      class="va-dropdown-popper__anchor"
+      class="va-dropdown__anchor"
       @mouseover="onMouseOver()"
       @mouseout="onMouseOut()"
       @click="onAnchorClick()"
@@ -10,14 +10,21 @@
       <slot name="anchor"/>
     </div>
     <div
-      class="va-dropdown-popper__content"
+      class="va-dropdown__content"
       v-if="showContent"
       @mouseover="isContentHoverable && onMouseOver()"
       @mouseout="onMouseOut()"
       ref="content"
-      :style="contentStyle"
     >
-      <slot/>
+      <div
+        v-if="keepAnchorWidth"
+        ref="anchorWidthContainer"
+        class="va-dropdown__anchor-width-container"
+        :style="anchorWidthContainerStyles"
+      >
+        <slot/>
+      </div>
+      <slot v-else/>
     </div>
   </div>
 </template>
@@ -32,6 +39,7 @@ export default {
     return {
       popperInstance: null,
       isClicked: false,
+      anchorWidth: undefined,
 
       isMouseHovered: false,
       hoverOverDebounceLoader: new DebounceLoader(
@@ -55,19 +63,14 @@ export default {
     this.unregisterClickOutsideListener()
     this.removePopper()
   },
+  mounted () {
+    this.handlePopperInstance()
+  },
   watch: {
     showContent: {
       immediate: true,
       handler (showContent) {
-        if (showContent && !this.popperInstance) {
-          this.$nextTick(() => {
-            this.initPopper()
-          })
-          this.$emit('show')
-          return
-        }
-        this.$emit('hide')
-        this.removePopper()
+        this.handlePopperInstance()
       },
     },
   },
@@ -78,6 +81,7 @@ export default {
     offset: [String, Number],
     disabled: Boolean,
     fixed: Boolean,
+    keepAnchorWidth: Boolean, // Means dropdown width should be the same as anchor's width.
     preventOverflow: {// If set to false - dropdown won't dodge outside container.
       type: Boolean,
       default: true,
@@ -108,6 +112,22 @@ export default {
     },
   },
   methods: {
+    handlePopperInstance () {
+      if (this.popperInstance) {
+        this.removePopper()
+      }
+
+      if (!this.showContent) {
+        return
+      }
+
+      this.updateAnchorWidth()
+
+      // I'm not entirely sure why $nextTick is needed here.
+      this.$nextTick(() => {
+        this.initPopper()
+      })
+    },
     onAnchorClick () {
       this.$emit('anchorClick')
       if (this.disabled) {
@@ -166,14 +186,23 @@ export default {
       }
       this.hide()
     },
+    updateAnchorWidth () {
+      if (this.keepAnchorWidth) {
+        let anchorWidth = this.$refs.anchor.offsetWidth
+        if (this.$refs.anchorWidthContainer && this.$refs.anchorWidthContainer.scrollHeight > this.$refs.anchorWidthContainer.clientHeight) {
+          anchorWidth = this.$refs.anchor.offsetWidth - this.scrollWidth
+        }
+        this.anchorWidth = anchorWidth
+      }
+      if (this.popperInstance) {
+        this.popperInstance.scheduleUpdate()
+      }
+    },
     // @public
     hide () {
       if (this.trigger === 'click') {
         this.isClicked = false
       }
-    },
-    updatePopper () {
-      this.popperInstance ? this.popperInstance.scheduleUpdate() : this.initPopper()
     },
     initPopper () {
       const options = {
@@ -213,11 +242,19 @@ export default {
       this.popperInstance.destroy()
       this.popperInstance = null
     },
+    updatePopper () {
+      // used by select
+      if (!this.popperInstance) {
+        return
+      }
+      this.updateAnchorWidth()
+    },
   },
   computed: {
-    contentStyle () {
+    anchorWidthContainerStyles () {
       return {
-        padding: this.offset,
+        width: this.anchorWidth + 'px',
+        maxWidth: this.anchorWidth + 'px',
       }
     },
     showContent () {
@@ -231,6 +268,19 @@ export default {
         return this.value
       }
     },
+    scrollWidth () {
+      const div = document.createElement('div')
+
+      div.style.overflowY = 'scroll'
+      div.style.width = '50px'
+      div.style.height = '50px'
+      div.style.visibility = 'hidden'
+
+      document.body.appendChild(div)
+      const scrollWidth = div.offsetWidth - div.clientWidth
+      document.body.removeChild(div)
+      return scrollWidth
+    },
   },
 }
 </script>
@@ -238,7 +288,7 @@ export default {
 <style lang="scss">
 @import '../../vuestic-sass/resources/resources';
 
-.va-dropdown-popper {
+.va-dropdown {
   &__content {
     z-index: 100;
   }

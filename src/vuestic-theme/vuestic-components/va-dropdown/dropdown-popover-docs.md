@@ -27,19 +27,20 @@ For `hover` dropdown is shown only on hover, click does nothing.
 For `click` dropdown is shown on click and we handle click outside.
 For `none` no external handling is done. Instead we provide a prop `value` and a some events: `click`, `clickOutside`.
 
-* `isContentHoverable`: Boolean - default: `true`. Setting to false is useful for tooltips, where hanging dropdown become an obstacle.
-* `position`: String - default: 'bottom'. Appropriate values are 'top', 'bottom', 'left', 'right', 'auto', 'top-start', 'top-end' (and same for each direction). See [popper.js docs](https://popper.js.org/popper-documentation.html#Popper.placements) for details.
-* `fixed`: Boolean - default: `false`. Fixed dropdown works fine even if container is `position: relative; overflow: hidden`.
-* `disabled`: Boolean - default: `false`. Clicks and hovers won't do a thing.
-* `offset`: String - See [popper.js docs](https://popper.js.org/popper-documentation.html#modifiers..offset) for details.
-* value: Boolean - Used for passing down open/close state when trigger is 'none'.
+* `isContentHoverable` - Boolean - default: `true`. Setting to false is useful for tooltips, where hanging dropdown become an obstacle.
+* `position` - String - default: 'bottom'. Appropriate values are 'top', 'bottom', 'left', 'right', 'auto', 'top-start', 'top-end' (and same for each direction). See [popper.js docs](https://popper.js.org/popper-documentation.html#Popper.placements) for details.
+* `fixed` - Boolean - default: `false`. Fixed dropdown works fine even if container is `position: relative; overflow: hidden`.
+* `disabled` - Boolean - default: `false`. Clicks and hovers won't do a thing.
+* `offset` - String - See [popper.js docs](https://popper.js.org/popper-documentation.html#modifiers..offset) for details.
+* `value` - Boolean - default: `false`. Used for passing down open/close state when trigger is 'none'.
 
 #### Props (advanced)
 
-* `closeOnClickOutside`: Boolean - default: `true`. If set to `false`, click outside of dropdown won't close it. Useful for complex forms.
-* `closeOnAnchorClick`: Boolean - default: `true`. If set to `false`, click dropdown won't close on anchor click.
-* `hoverOverTimeout`: Number - default: 30. Hover dropdown will open after hovering for at least that value. Useful when you have a list with dropdowns and do not want to open every each of them on hover.
-* `hoverOutTimeout`: Number - default: 200. Hover dropdown will close after that timing. Allows to move cursor to content even with gaps in-between.
+* `closeOnClickOutside` - Boolean - default: `true`. If set to `false`, click outside of dropdown won't close it. Useful for complex forms.
+* `closeOnAnchorClick` - Boolean - default: `true`. If set to `false`, click dropdown won't close on anchor click.
+* `hoverOverTimeout` - Number - default: 30. Hover dropdown will open after hovering for at least that value. Useful when you have a list with dropdowns and do not want to open every each of them on hover.
+* `hoverOutTimeout` - Number - default: 200. Hover dropdown will close after that timing. Allows to move cursor to content even with gaps in-between.
+* `keepAnchorWidth` - Boolean - default: `false`. Dropdown should have the same width as anchor. Useful for selects.
 
 ### Additional things
 

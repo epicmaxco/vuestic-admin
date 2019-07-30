@@ -2,10 +2,10 @@
 // Everything else is in rem.
 $grid-breakpoints: (
   xs: 0,
-  sm: 600px,
-  md: 960px,
-  lg: 1280px,
-  xl: 1920px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
 ) !default;
 
 $grid-gutter-default: 0.5rem !default;
@@ -46,29 +46,17 @@ $spacer: 1rem !default;
 $spacer-x: $spacer !default;
 $spacer-y: $spacer !default;
 
-$spacers: (
-  zero: (
-    x: 0,
-    y: 0,
-  ),
-  one: (
-    x: $spacer-x * 0.25,
-    y: $spacer-y * 0.25,
-  ),
-  two: (
-    x: $spacer-x * 0.5,
-    y: $spacer-y * 0.5,
-  ),
-  three: (
-    x: $spacer-x,
-    y: $spacer-y,
-  ),
-  four: (
-    x: $spacer-x * 1.5,
-    y: $spacer-y * 1.5,
-  ),
-  five: (
-    x: $spacer-x * 3,
-    y: $spacer-y * 3,
-  )
-) !default;
+$spacer: 1rem !default;
+$spacers: () !default;
+
+$spacers: map-merge(
+    (
+      0: 0,
+      1: ($spacer * .25),
+      2: ($spacer * .5),
+      3: $spacer,
+      4: ($spacer * 1.5),
+      5: ($spacer * 3)
+    ),
+    $spacers
+);
