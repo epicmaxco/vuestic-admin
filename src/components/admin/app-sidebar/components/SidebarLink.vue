@@ -1,6 +1,5 @@
 <template>
   <router-link
-    tag="li"
     :class="computedLinkClass"
     @mouseenter.native="updateHoverState(true)"
     @mouseleave.native="updateHoverState(false)"
