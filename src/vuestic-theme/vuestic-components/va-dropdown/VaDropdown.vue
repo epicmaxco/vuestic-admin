@@ -294,6 +294,9 @@ export default {
 @import '../../vuestic-sass/resources/resources';
 
 .va-dropdown {
+  &__anchor {
+    display: inline-block;
+  }
   &__content {
     z-index: 100;
   }

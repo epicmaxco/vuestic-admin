@@ -214,9 +214,10 @@ export default {
   }
 
   &--minimized {
-    .va-dropdown-popper {
-      width: 100%;
-      max-width: 100%;
+    .va-dropdown{
+      &__anchor {
+        width: 100%;
+      }
     }
     .va-sidebar-link-group__submenu {
       width: 10rem;
