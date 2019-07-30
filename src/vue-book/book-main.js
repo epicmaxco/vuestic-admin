@@ -6,6 +6,11 @@ import Router from 'vue-router'
 import { VueBookComponents, createRoute } from 'vue-book'
 import { ColorThemePlugin } from '../services/ColorThemePlugin'
 import { DropdownPopperPlugin } from '../vuestic-theme/vuestic-components/va-dropdown/dropdown-popover-subplugin'
+import { BusPlugin } from 'vue-epic-bus'
+import { registerVuesticObject } from '../vuestic-theme/resize-events'
+import { installPlatform } from '../vuestic-theme/vuestic-components/va-popup/install'
+
+installPlatform()
 
 Vue.use(Router)
 Vue.use(VueBookComponents)
@@ -29,7 +34,11 @@ const router = new Router({
   ],
 })
 
+registerVuesticObject(Vue)
+
+Vue.use(BusPlugin)
 Vue.use(VueClipboard)
+Vue.use(DropdownPopperPlugin)
 
 // NOTE: workaround for VeeValidate + vuetable-2
 Vue.use(VeeValidate, { fieldsBagName: 'formFields' })

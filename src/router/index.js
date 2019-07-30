@@ -9,8 +9,15 @@ const EmptyParentComponent = {
   template: '<router-view></router-view>',
 }
 
+const demoRoutes = []
+if (process.env.NODE_ENV === 'development' || process.env.VUE_APP_INCLUDE_DEMOS) {
+  const vueBookRoutes = require('./vueBookRoutes').default
+  vueBookRoutes.forEach(route => demoRoutes.push(route))
+}
+
 export default new Router({
   routes: [
+    ...demoRoutes,
     {
       path: '*',
       redirect: { name: 'dashboard' },

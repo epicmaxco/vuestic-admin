@@ -64,6 +64,8 @@ export default {
 </script>
 
 <style lang='scss'>
+@import "../../vuestic-sass/resources/resources";
+
 // Notifications
 $va-notification-margin-y: 0.25rem;
 $va-notification-padding-x: 0.5rem;

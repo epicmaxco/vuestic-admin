@@ -296,8 +296,8 @@
 
 <script>
 import VaPopup from './VaPopup.vue'
-import VaButton from '../../../../va-button/VaButton'
-import { closeOverlay } from '../../directives/closeOverlay'
+import VaButton from '../../va-button/VaButton'
+import { closeOverlay } from '../directives/closeOverlay'
 
 export default {
   directives: {

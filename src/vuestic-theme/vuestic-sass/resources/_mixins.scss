@@ -75,6 +75,14 @@
   border-radius: $border-radius;
 }
 
+@mixin va-code-snippet {
+  font-size: 14px;
+  color: $white;
+  padding: 1rem;
+  font-family: "Source Code Pro";
+  background-color: $vue-darkest-blue;
+}
+
 @mixin va-table {
   th, td {
     padding: 0.625rem;

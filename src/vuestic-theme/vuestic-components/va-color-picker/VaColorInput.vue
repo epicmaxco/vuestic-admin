@@ -16,16 +16,14 @@
 </template>
 
 <script>
-import VaAdvancedColorPicker from './VaAdvancedColorPicker'
 import ColorDot from './ColorDot'
-import VaIcon from '../va-icon/VaIcon'
+import VaInput from '../va-input/VaInput'
 
 export default {
   name: 'va-color-input',
   components: {
+    VaInput,
     ColorDot,
-    VaAdvancedColorPicker,
-    VaIcon,
   },
   props: {
     value: {
