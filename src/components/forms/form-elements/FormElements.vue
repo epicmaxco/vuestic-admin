@@ -19,7 +19,7 @@
                   <va-icon
                     slot="prepend"
                     color="gray"
-                    icon="fa fa-envelope-o"
+                    name="fa fa-envelope-o"
                   />
                 </va-input>
               </div>
@@ -28,7 +28,7 @@
                   v-model="empty"
                   placeholder="Input With Button"
                 >
-                  <va-button style="margin-right: 0;" small>
+                  <va-button slot="append" style="margin-right: 0;" small>
                     UPLOAD
                   </va-button>
                 </va-input>

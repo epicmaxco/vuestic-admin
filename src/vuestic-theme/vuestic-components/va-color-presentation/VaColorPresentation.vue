@@ -1,21 +1,22 @@
 <template>
-  <div class="va-color-presentation">
-    <va-popover
-      color="info"
-      :placement="popoverOptions.placement"
-      :message="popoverOptions.content"
-    >
-      <div
-        class="va-color-presentation__color"
-        :style="computedStyle"
-        @click="colorCopy(), notify()">
-      </div>
-    </va-popover>
-    <div class="va-color-presentation__description" v-if="name || description">
-      <div class="va-color-presentation__name">{{name}}</div>
-      <div class="va-color-presentation__text">{{description}}</div>
+<div class="va-color-presentation">
+  <va-popover
+    color="info"
+    :placement="popoverOptions.placement"
+    :message="popoverOptions.content"
+  >
+    <div
+      class="va-color-presentation__color"
+      :style="computedStyle"
+      @click="colorCopy(), notify()">
     </div>
+  </va-popover>
+
+  <div class="va-color-presentation__description" v-if="name || description">
+    <div class="va-color-presentation__name">{{name}}</div>
+    <div class="va-color-presentation__text">{{description}}</div>
   </div>
+</div>
 </template>
 
 <script>
@@ -42,7 +43,6 @@ export default {
     },
     width: {
       type: Number,
-      default: 40,
     },
     name: {
       type: String,
@@ -56,7 +56,7 @@ export default {
   data () {
     return {
       popoverOptions: {
-        content: 'Click to copy color to clipboard',
+        content: 'Click to copy the color to clipboard',
         placement: 'right',
       },
     }
@@ -79,7 +79,7 @@ export default {
       return {
         background: calcBackground(),
         filter: calcFilter(),
-        width: `${this.width}px`,
+        width: this.width ? `${this.width}px` : '',
       }
     },
   },
@@ -107,21 +107,27 @@ export default {
 
 .va-color-presentation {
   display: flex;
-  margin-bottom: 16px;
+  align-items: center;
+  margin-bottom: 1.125rem;
 
-  // can't reach it anyhow else because it's controlled by a plugin
-  span {
-    outline: none !important;
+  .v-popover {
+    width: 40px;
+    height: 40px;
+
+    span {
+      outline: none !important;
+    }
   }
 
   &__color {
     height: 40px;
-    margin-right: 0.5rem;
+    width: 40px;
+    margin-right: 1rem;
     cursor: pointer;
   }
 
   &__description {
-    margin-left: 8px;
+    margin-left: 1rem;
   }
 
   &__name {

@@ -1,30 +1,31 @@
 <template>
-  <div class="auth-layout flex-center flex-column">
-    <router-link class="auth-layout__container" to="/">
-      <va-icon-vuestic class="auth-layout__logo"/>
+<div class="auth-layout row align-content--center">
+  <div class="flex xs12 lg6 pa-3 flex-center">
+    <router-link class="py-5 flex-center" to="/">
+      <va-icon-vuestic />
     </router-link>
+  </div>
 
-    <div class="auth-layout__card">
-      <va-card>
+  <div class="flex xs12 lg6 pa-3">
+    <div class="d-flex justify--center">
+      <va-card class="auth-layout__card">
         <va-tabs
           v-model="tabIndex"
           center
         >
-          <va-tab>
-            {{$t('auth.login')}}
-          </va-tab>
-          <va-tab>
-            {{$t('auth.createNewAccount')}}
-          </va-tab>
+          <va-tab>{{ $t('auth.login') }}</va-tab>
+          <va-tab>{{ $t('auth.createNewAccount') }}</va-tab>
         </va-tabs>
+
         <va-separator/>
 
-        <div class="auth-layout__form">
+        <div class="pa-3">
           <router-view/>
         </div>
       </va-card>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -66,37 +67,10 @@ export default {
 .auth-layout {
   min-height: 100vh;
   background-image: linear-gradient(to right, #0e4ac4, #002c85);
-  padding: 1rem;
 
   &__card {
-    height: 30rem;
-    @include media-breakpoint-down(xs) {
-      width: 100%;
-    }
-  }
-
-  &__form {
-    padding: .875rem 0 0;
-    @include media-breakpoint-up(sm) {
-      padding: 2.875rem 3.75rem .625rem;
-      width: 30rem;
-    }
-  }
-
-  &__container {
-    height: $auth-logo-height;
     width: 100%;
-    margin-bottom: 5.625rem;
-  }
-
-  &__logo {
-    height: 100%;
-    width: 100%;
-    margin-bottom: 5.625rem;
-  }
-
-  @include media-breakpoint-down(sm) {
-    padding-top: 6%;
+    max-width: 600px;
   }
 }
 </style>

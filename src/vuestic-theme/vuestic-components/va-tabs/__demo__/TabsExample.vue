@@ -7,7 +7,7 @@
       >
         {{ tabObject.title }}
         <va-icon
-          icon="fa fa-times"
+          name="fa fa-times"
           class="ml-2"
           @click.stop.native="removeTab(tabObject)"
         />

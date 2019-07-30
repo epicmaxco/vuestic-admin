@@ -29,6 +29,12 @@
     @include va-header-margin(6);
   }
 
+  hr.separator {
+    height: 2px;
+    background-color: #eee;
+    border: none;
+  }
+
   p {
     margin-top: 0;
     margin-bottom: 1rem;

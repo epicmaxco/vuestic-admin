@@ -1,14 +1,17 @@
 <template>
   <transition v-if="value" name="fade">
-    <div class="va-notification d-flex justify--space-between align--start"
-         :style="notificationStyle"
+    <div class="va-notification"
+      :style="notificationStyle"
     >
-      <div class="va-notification__content d-inline-flex align--center">
+      <div class="va-notification__content">
         <slot/>
       </div>
-      <div class="va-notification__close-icon d-flex justify--end align--start">
+
+      <div
+        v-if="closeable"
+        class="va-notification__close-icon"
+      >
         <va-icon
-          v-if="closeable"
           :color="color"
           name="ion-md-close ion"
           @click="hideNotification()"
@@ -81,13 +84,41 @@ $va-close-icon-font-size: 1.5rem;
 .va-notification {
   padding: $va-notification-padding-y $va-notification-padding-x;
   margin: $va-notification-margin-y auto;
+  display: flex;
+  align-items: center;
   border: $va-notification-border solid transparent;
   border-radius: $va-notification-border-radius;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
 
   &__close-icon {
     padding: $va-close-icon-padding-y $va-close-icon-padding-x;
     font-size: $va-close-icon-font-size;
     cursor: pointer;
+  }
+
+  @include media-breakpoint-down(xs) {
+    @at-root {
+      .va-notification {
+        &__content {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        &__close-icon {
+          align-self: flex-start;
+          display: flex;
+          align-items: flex-start;
+          padding: 0;
+          padding-right: $va-close-icon-padding-x;
+          margin: 0;
+        }
+      }
+    }
   }
 }
 </style>

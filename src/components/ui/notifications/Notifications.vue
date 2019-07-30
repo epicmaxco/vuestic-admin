@@ -1,7 +1,7 @@
 <template>
   <div class="notifications">
     <div class="row">
-      <div class="flex md12">
+      <div class="flex xs12">
         <va-card :title="$t('notificationsPage.notifications.title')">
           <div class="mb-3">
             <va-notification closeable>
@@ -60,76 +60,44 @@
         <va-card :title="$t('notificationsPage.toasts.title')">
           <div class="row">
             <div class="flex xs12 md6">
-              <fieldset>
-                <div class="form-group">
-                  <div class="input-group">
-                    <input
-                      id="toast-text"
-                      class="control-input"
-                      v-model="toastText"
-                      required
-                    />
-                    <label class="control-label" for="toast-text" :style="{color: this.$themes.primary}">
-                      {{ $t('notificationsPage.toasts.textLabel') }}
-                    </label>
-                    <va-icon name="bar"/>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group">
-                    <input
-                      id="toast-duration"
-                      class="control-input"
-                      type="number"
-                      v-model="toastDuration" required
-                    />
-                    <label class="control-label" for="toast-duration" :style="{color: this.$themes.primary}">
-                      {{ $t('notificationsPage.toasts.durationLabel') }}
-                    </label>
-                    <va-icon name="bar"/>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group">
-                    <input
-                      id="toast-icon"
-                      class="control-input"
-                      v-model="toastIcon"
-                      required
-                    />
-                    <label class="control-label" for="toast-icon" :style="{color: this.$themes.primary}">
-                      {{ $t('notificationsPage.toasts.iconLabel') }}
-                    </label>
-                    <va-icon name="bar"/>
-                  </div>
-                </div>
-                <!-- TODO Redo with global classes -->
-                <div class="form-group row mb-4">
+              <va-input
+                v-model="toastText"
+                :label="$t('notificationsPage.toasts.textLabel')"
+                class="control-input"
+                required
+              />
+              <va-input
+                v-model="toastDuration"
+                type="number"
+                :label="$t('notificationsPage.toasts.durationLabel')"
+                class="control-input"
+                required
+              />
+              <va-input
+                v-model="toastIcon"
+                :label="$t('notificationsPage.toasts.iconLabel')"
+                class="control-input mb-0"
+                required
+              />
+            </div>
+            <div class="flex xs12 md6">
+              <div class="row">
+                <div class="flex xs12">
                   <toast-position-picker v-model="toastPosition"/>
+                </div>
+                <div class="flex xs12">
                   <va-checkbox
                     :label="$t('notificationsPage.toasts.fullWidthLabel')"
                     :id="'toast-fullwidth'"
                     v-model="isToastFullWidth"
                   />
                 </div>
-                <va-button color="primary" slot="trigger" @click="launchToast">
-                  {{ $t('notificationsPage.toasts.launchToast') }}
-                </va-button>
-              </fieldset>
-              <br>
-              <br>
-              <br>
-            </div>
-            <div class="flex xs12 md6 flex-center">
-              <div
-                v-if="isToastContentPresent"
-                class="toasted-container sample-toasted-container shrink"
-              >
-                <div class="toasted vuestic-toast none default">
-                  <va-icon v-if="toastIcon" :icon="['fa', toastIcon]"/>
-                  {{toastText}}
-                </div>
               </div>
+            </div>
+            <div class="flex xs12">
+              <va-button class="ma-0" color="primary" slot="trigger" @click="launchToast">
+                {{ $t('notificationsPage.toasts.launchToast') }}
+              </va-button>
             </div>
           </div>
         </va-card>
@@ -173,9 +141,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.control-input:invalid:not(:focus) + .control-label {
-  color: #b3b3b3 !important;
-}
-</style>

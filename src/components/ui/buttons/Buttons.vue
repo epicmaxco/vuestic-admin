@@ -1,7 +1,7 @@
 <template>
   <div class="buttons">
     <div class="row">
-      <div class="flex md12 xl12">
+      <div class="flex xs12">
         <va-card
           class="larger-padding"
           :title="$t('buttons.types')"
@@ -19,7 +19,7 @@
         </va-card>
       </div>
 
-      <div class="flex md12">
+      <div class="flex xs12">
         <va-card
           class="larger-padding"
           :title="$t('buttons.size')"
@@ -34,7 +34,7 @@
         </va-card>
       </div>
 
-      <div class="flex md12">
+      <div class="flex xs12">
         <va-card
           class="larger-padding"
           :title="$t('buttons.tags')"
@@ -57,7 +57,7 @@
         </va-card>
       </div>
 
-      <div class="flex md12">
+      <div class="flex xs12">
         <va-card
           class="larger-padding"
           :title="$t('buttons.advanced')"
@@ -77,7 +77,7 @@
         </va-card>
       </div>
 
-      <div class="flex md12">
+      <div class="flex xs12">
         <va-card
           class="larger-padding"
           :title="$t('buttons.ColorThemePlugin.js')"
@@ -115,27 +115,27 @@
         </va-card>
       </div>
 
-      <div class="flex md12 xl12">
+      <div class="flex xs12">
         <va-card
           class="larger-padding"
           :title="$t('buttons.buttonGroups')"
         >
           <div class="row">
-            <div class="flex xs12 lg12 xl6">
+            <div class="flex xs12 xl6">
               <va-button-group>
                 <va-button large> One</va-button>
                 <va-button large> Two</va-button>
                 <va-button large> Three</va-button>
               </va-button-group>
             </div>
-            <div class="flex xs12 lg12 xl6">
+            <div class="flex xs12 xl6">
               <va-button-group>
                 <va-button outline small color="danger" icon="maki maki-art-gallery"> First</va-button>
                 <va-button outline small color="danger"> Second</va-button>
                 <va-button outline small color="danger"> Third</va-button>
               </va-button-group>
             </div>
-            <div class="flex xs12 lg12 xl6">
+            <div class="flex xs12 xl6">
               <va-button-group>
                 <va-button flat color="gray" icon="glyphicon glyphicon-envelope">
                   First
@@ -144,7 +144,7 @@
                 <va-button flat color="gray" icon="ion ion-ios-alarm"> Third</va-button>
               </va-button-group>
             </div>
-            <div class="flex xs12 lg12 xl6">
+            <div class="flex xs12 xl6">
               <va-button-group>
                 <va-button color="dark"> One</va-button>
                 <va-button color="dark"> Two</va-button>
@@ -152,14 +152,14 @@
                 <va-button color="dark" icon="ion-ios-arrow-down arrow-down"/>
               </va-button-group>
             </div>
-            <div class="flex xs12 lg12 xl6">
+            <div class="flex xs12 xl6">
               <va-button-group>
                 <va-button outline large color="info"> First</va-button>
                 <va-button outline large color="info" icon-right="glyphicon glyphicon-pencil"> Second</va-button>
                 <va-button outline large color="info"> Third</va-button>
               </va-button-group>
             </div>
-            <div class="flex xs12 lg12 xl6">
+            <div class="flex xs12 xl6">
               <va-button-group>
                 <va-button flat small color="warning" icon="glyphicon glyphicon-envelope"/>
                 <va-button flat small color="warning" icon="entypo entypo-user"/>
@@ -170,43 +170,43 @@
         </va-card>
       </div>
 
-      <div class="flex md12 xl12">
+      <div class="flex xs12">
         <va-card
           class="larger-padding"
           :title="$t('buttons.buttonToggles')"
         >
           <div class="row">
-            <div class="flex xs12 md6 lg6">
+            <div class="flex xs12 lg6">
               <va-button-toggle
                 v-model="model" :options="options"
                 toggle-color="warning"
               />
             </div>
-            <div class="flex xs12 md6 lg6">
+            <div class="flex xs12 lg6">
               <va-button-toggle
                 outline v-model="model" :options="options"
                 color="danger" toggle-color="info"
               />
             </div>
-            <div class="flex xs12 md6 lg6">
+            <div class="flex xs12 lg6">
               <va-button-toggle
                 flat v-model="model" :options="options"
                 color="gray" toggle-color="success"
               />
             </div>
-            <div class="flex xs12 md6 lg6">
+            <div class="flex xs12 lg6">
               <va-button-toggle
                 v-model="model" :options="options"
                 color="dark" toggle-color="danger"
               />
             </div>
-            <div class="flex xs12 md6 lg6">
+            <div class="flex xs12 lg6">
               <va-button-toggle
                 outline v-model="model" :options="options"
                 color="info" toggle-color="gray"
               />
             </div>
-            <div class="flex xs12 md6 lg6">
+            <div class="flex xs12 lg6">
               <va-button-toggle
                 flat v-model="model" :options="options"
                 color="warning" toggle-color="dark"
@@ -216,20 +216,20 @@
         </va-card>
       </div>
 
-      <div class="flex md12 xl12">
+      <div class="flex xs12">
         <va-card
           class="larger-padding"
           :title="$t('buttons.pagination')"
         >
           <div class="row">
-            <div class="flex xs12 lg12 xl6">
+            <div class="flex xs12 xl6">
               <va-pagination
                 v-model="activePage"
                 :visible-pages="3"
                 :pages="20"
               />
             </div>
-            <div class="flex xs12 lg12 xl6">
+            <div class="flex xs12 xl6">
               <va-pagination
                 v-model="activePage"
                 :visible-pages="4"
@@ -237,14 +237,14 @@
                 color="danger"
               />
             </div>
-            <div class="flex xs12 lg12 xl6">
+            <div class="flex xs12 xl6">
               <va-pagination
                 v-model="activePage"
                 :pages="5"
                 disabled
               />
             </div>
-            <div class="flex xs12 lg12 xl6">
+            <div class="flex xs12 xl6">
               <va-pagination
                 v-model="activePage"
                 :pages="10"

@@ -59,9 +59,6 @@ export default {
 <style lang="scss">
 .va-palette-custom {
   display: flex;
-
-  &__input {
-    float: right;
-  }
+  align-items: baseline !important;
 }
 </style>
