@@ -1,9 +1,7 @@
 <template>
   <div class="va-input-wrapper">
     <div class="va-input-wrapper__control">
-      <div
-        tabindex="0"
-        class="va-input-wrapper__slot">
+      <div class="va-input-wrapper__slot">
         <div
           v-if="$slots.prepend"
           class="va-input-wrapper__prepend-inner">
@@ -99,7 +97,6 @@ export default {
   &__slot {
     display: flex;
     position: relative;
-    outline: none;
   }
 
   &__details {
