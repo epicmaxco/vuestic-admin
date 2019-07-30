@@ -1,29 +1,25 @@
 <template>
   <div
-    class="va-file-upload"
-    :class="`va-file-upload-${type}`"
+    class="va-file-upload-list"
+    :class="`va-file-upload-list--${type}`"
   >
     <template v-if="type === 'list'">
       <va-file-upload-list-item
         v-for="(file, index) in filesList"
         :key="file.name"
         :file="file"
+        :color="color"
         @remove="$emit('remove', index)"
       />
     </template>
     <template v-if="type === 'gallery'">
-      <div class="row">
-        <div
-          class="flex xl2 lg3 sm4"
-          v-for="(file, index) in filesList"
-          :key="file.name"
-        >
-          <va-file-upload-gallery-item
-            :file="file"
-            @remove="$emit('remove', index)"
-          />
-        </div>
-      </div>
+      <va-file-upload-gallery-item
+        v-for="(file, index) in filesList"
+        :file="file"
+        :key="file.name"
+        :color="color"
+        @remove="$emit('remove', index)"
+      />
     </template>
     <va-file-upload-single-item
       v-if="type === 'single' && filesList.length"
@@ -51,6 +47,10 @@ export default {
     },
     files: {
       default: null,
+    },
+    color: {
+      type: String,
+      default: 'success',
     },
   },
   computed: {
@@ -89,13 +89,13 @@ export default {
 </script>
 
 <style lang='scss'>
-.va-file-upload {
-  &-list {
-    padding-bottom: 2rem;
-  }
+.va-file-upload-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 0 1.5rem;
 
-  &-gallery {
-    padding: 0 0 1rem;
+  &--gallery {
+    padding-bottom: .5rem;
   }
 }
 </style>
