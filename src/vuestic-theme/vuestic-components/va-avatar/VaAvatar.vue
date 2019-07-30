@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .va-avatar {
     display: flex;
     width: 48px;
