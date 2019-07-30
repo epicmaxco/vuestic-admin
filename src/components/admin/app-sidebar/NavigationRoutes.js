@@ -48,6 +48,13 @@ export const navigationRoutes = {
       ],
     },
     {
+      name: 'lists',
+      displayName: 'menu.lists',
+      meta: {
+        iconClass: 'vuestic-iconset-files', // TODO use vuestic list icon when ready
+      },
+    },
+    {
       name: 'tables',
       displayName: 'menu.tables',
       meta: {

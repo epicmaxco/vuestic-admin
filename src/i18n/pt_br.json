@@ -158,6 +158,7 @@
     "progressBars": "Barra de progresso",
     "signUp": "Cadastrar-se",
     "statistics": "Estatística",
+    "lists": "Listas",
     "tables": "Tabelas",
     "markupTables": "Tabelas de Marcação",
     "dataTables": "Tabelas de Dados",
@@ -199,6 +200,13 @@
     "circle": "Círculo",
     "horizontal": "Horizontal",
     "colors": "Cores"
+  },
+  "lists": {
+    "customers": "Clientes",
+    "recentMessages": "Mensagens Recentes",
+    "archieved": "Arquivado",
+    "starterKit": "Kit iniciante",
+    "notifications": "Notificações"
   },
   "tables": {
     "basic": "Mesa Básica",

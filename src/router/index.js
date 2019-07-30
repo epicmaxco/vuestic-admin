@@ -131,6 +131,11 @@ export default new Router({
           ],
         },
         {
+          name: 'lists',
+          path: 'lists',
+          component: () => import('../components/lists/Lists.vue'),
+        },
+        {
           name: 'tables',
           path: 'tables',
           component: EmptyParentComponent,

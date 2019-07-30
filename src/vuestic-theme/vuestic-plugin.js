@@ -1,4 +1,5 @@
 import VaAccordion from './vuestic-components/va-collapse/VaAccordion'
+import VaAvatar from './vuestic-components/va-avatar/VaAvatar'
 import VaBadge from './vuestic-components/va-chip/VaBadge.vue'
 import VaButton from './vuestic-components/va-button/VaButton.vue'
 import VaButtonGroup from './vuestic-components/va-button-group/VaButtonGroup.vue'
@@ -17,6 +18,12 @@ import VaFileUpload from './vuestic-components/va-file-upload/VaFileUpload'
 import VaIcon from './vuestic-components/va-icon/VaIcon'
 import VaInnerLoading from './vuestic-components/va-inner-loading/VaInnerLoading'
 import VaInput from './vuestic-components/va-input/VaInput'
+import VaItem from './vuestic-components/va-list/VaItem'
+import VaItemLabel from './vuestic-components/va-list/VaItemLabel'
+import VaItemSection from './vuestic-components/va-list/VaItemSection'
+import VaList from './vuestic-components/va-list/VaList'
+import VaListLabel from './vuestic-components/va-list/VaListLabel'
+import VaListSeparator from './vuestic-components/va-list/VaListSeparator'
 import VaMediumEditor from './vuestic-components/va-medium-editor/VaMediumEditor.vue'
 import VaModal from './vuestic-components/va-modal/VaModal.vue'
 import VaNotification from './vuestic-components/va-notification/VaNotification.vue'
@@ -61,6 +68,7 @@ const VuesticPlugin = {
   install (Vue, options) {
     [
       VaAccordion,
+      VaAvatar,
       VaBadge,
       VaButton,
       VaButtonGroup,
@@ -79,6 +87,12 @@ const VuesticPlugin = {
       VaIcon,
       VaInnerLoading,
       VaInput,
+      VaItem,
+      VaItemLabel,
+      VaItemSection,
+      VaList,
+      VaListLabel,
+      VaListSeparator,
       VaMediumEditor,
       VaModal,
       VaNotification,

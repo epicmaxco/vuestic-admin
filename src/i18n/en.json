@@ -288,6 +288,7 @@
     "progressBars": "Progress Bars",
     "signUp": "Sign up",
     "statistics": "Statistics",
+    "lists": "Lists",
     "tables": "Tables",
     "markupTables": "Markup Tables",
     "dataTables": "Data Tables",
@@ -391,6 +392,14 @@
     "circle": "Circle",
     "horizontal": "Horizontal",
     "colors": "Colors"
+  },
+  "lists": {
+    "customers": "Customers",
+    "recentMessages": "Recent Messages",
+    "archieved": "Archieved",
+    "starterKit": "Starter Kit",
+    "notifications": "Notifications",
+    "routerSupport": "Router Support"
   },
   "tables": {
     "basic": "Basic Table",
