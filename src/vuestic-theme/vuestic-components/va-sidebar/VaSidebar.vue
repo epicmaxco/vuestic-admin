@@ -3,9 +3,9 @@
     :class="computedClass"
     :style="{ backgroundColor: colorComputed }"
   >
-    <ul class="va-sidebar__menu">
+    <div class="va-sidebar__menu">
       <slot name="menu"></slot>
-    </ul>
+    </div>
   </aside>
 </template>
 
