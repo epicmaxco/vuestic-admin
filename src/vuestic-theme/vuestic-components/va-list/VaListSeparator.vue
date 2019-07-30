@@ -20,7 +20,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "../../vuestic-sass/resources/resources";
 
   .va-list-separator {

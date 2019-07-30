@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="lists">
     <div class="row">
-      <div class="flex md5">
+      <div class="flex">
         <va-list fit class="mb-2">
           <va-list-label>
             {{ $t('lists.customers') }}
@@ -98,7 +98,7 @@
         </va-list>
       </div>
 
-      <div class="flex md5">
+      <div class="flex">
         <va-list fit class="mb-2">
           <va-list-label>
             {{ $t('lists.starterKit') }}
@@ -251,6 +251,10 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="scss">
+  .lists {
+    .va-list {
+      max-width: 400px;
+    }
+  }
 </style>

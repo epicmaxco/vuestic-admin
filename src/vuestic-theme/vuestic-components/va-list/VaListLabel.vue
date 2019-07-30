@@ -18,7 +18,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .va-list-label {
     padding: $list-item-padding;
     padding-top: 0;

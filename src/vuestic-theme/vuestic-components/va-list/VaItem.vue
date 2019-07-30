@@ -21,7 +21,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .va-item {
     display: flex;
     padding: $list-item-padding;
