@@ -50,6 +50,34 @@
           <va-icon name="fa fa-eye" color="gray" />
         </va-item-section>
       </va-item>
+
+      <va-list-separator spaced></va-list-separator>
+
+      <va-list-label color="warning">
+        Warning
+      </va-list-label>
+
+      <va-item>
+        <va-item-section avatar>
+          <va-avatar>
+            <img src="https://randomuser.me/api/portraits/men/1.jpg">
+          </va-avatar>
+        </va-item-section>
+
+        <va-item-section>
+          <va-item-label>
+            Tucker Kaufman
+          </va-item-label>
+
+          <va-item-label caption>
+            887 Winthrop Street, Tryon, Florida, 3912
+          </va-item-label>
+        </va-item-section>
+
+        <va-item-section side>
+          <va-icon name="fa fa-eye" color="gray" />
+        </va-item-section>
+      </va-item>
     </va-list>
 
     <va-list fit style="maxWidth: 400px" class="ma-2">

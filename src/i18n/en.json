@@ -398,7 +398,8 @@
     "recentMessages": "Recent Messages",
     "archieved": "Archieved",
     "starterKit": "Starter Kit",
-    "notifications": "Notifications"
+    "notifications": "Notifications",
+    "routerSupport": "Router Support"
   },
   "tables": {
     "basic": "Basic Table",
