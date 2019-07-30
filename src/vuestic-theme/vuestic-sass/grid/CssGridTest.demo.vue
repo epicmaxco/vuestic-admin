@@ -1,12 +1,12 @@
 <template>
   <div class="demo-container">
-    <div class="va-layout gutter--md">
-      <div class="va-row">
+    <div class="layout gutter--md">
+      <div class="row">
         <div class="flex">
           Grid sizes
         </div>
       </div>
-      <div class="va-row">
+      <div class="row">
         <div class="flex xs12">
           <div class="_blue-rectangle">
             12
@@ -40,13 +40,13 @@
       </div>
     </div>
 
-    <div class="va-layout">
-      <div class="va-row">
+    <div class="layout">
+      <div class="row">
         <div class="flex">
           Orders
         </div>
       </div>
-      <div class="va-row">
+      <div class="row">
         <div class="flex xs1 order--md3 order--lg2">
           <div class="_blue-rectangle">
             First
@@ -65,13 +65,13 @@
       </div>
     </div>
 
-    <div class="va-layout">
-      <div class="va-row">
+    <div class="layout">
+      <div class="row">
         <div class="flex">
           Offsets
         </div>
       </div>
-      <div class="va-row">
+      <div class="row">
         <div class="flex xs1 offset--md3 offset--lg2">
           <div class="_blue-rectangle">
             First
@@ -90,13 +90,13 @@
       </div>
     </div>
 
-    <div class="va-layout">
-      <div class="va-row">
+    <div class="layout">
+      <div class="row">
         <div class="flex">
           No gutter container
         </div>
       </div>
-      <div class="va-row">
+      <div class="row">
         <div class="flex xs2" v-for="i in 6" :key="`2${i}`">
           <div class="_blue-rectangle">
             2
@@ -105,13 +105,13 @@
       </div>
     </div>
 
-    <div class="va-layout gutter--xs">
-      <div class="va-row">
+    <div class="layout gutter--xs">
+      <div class="row">
         <div class="flex">
           xs gutter
         </div>
       </div>
-      <div class="va-row">
+      <div class="row">
         <div class="flex xs2" v-for="i in 6" :key="`2${i}`">
           <div class="_blue-rectangle">
             2
@@ -120,13 +120,13 @@
       </div>
     </div>
 
-    <div class="va-layout gutter--sm">
-      <div class="va-row">
+    <div class="layout gutter--sm">
+      <div class="row">
         <div class="flex">
           sm gutter
         </div>
       </div>
-      <div class="va-row">
+      <div class="row">
         <div class="flex xs2" v-for="i in 6" :key="`2${i}`">
           <div class="_blue-rectangle">
             2
@@ -135,13 +135,13 @@
       </div>
     </div>
 
-    <div class="va-layout gutter--sm">
-      <div class="va-row">
+    <div class="layout gutter--sm">
+      <div class="row">
         <div class="flex">
           sm gutter
         </div>
       </div>
-      <div class="va-row">
+      <div class="row">
         <div class="flex xs2" v-for="i in 6" :key="`2${i}`">
           <div class="_blue-rectangle">
             2
@@ -150,13 +150,13 @@
       </div>
     </div>
 
-    <div class="va-layout gutter--md">
-      <div class="va-row">
+    <div class="layout gutter--md">
+      <div class="row">
         <div class="flex">
           md gutter
         </div>
       </div>
-      <div class="va-row">
+      <div class="row">
         <div class="flex xs2" v-for="i in 6" :key="`2${i}`">
           <div class="_blue-rectangle">
             2
@@ -165,13 +165,13 @@
       </div>
     </div>
 
-    <div class="va-layout gutter--lg">
-      <div class="va-row">
+    <div class="layout gutter--lg">
+      <div class="row">
         <div class="flex">
           lg gutter
         </div>
       </div>
-      <div class="va-row">
+      <div class="row">
         <div class="flex xs2" v-for="i in 6" :key="`2${i}`">
           <div class="_blue-rectangle">
             2
@@ -180,13 +180,13 @@
       </div>
     </div>
 
-    <div class="va-layout gutter--xl">
-      <div class="va-row">
+    <div class="layout gutter--xl">
+      <div class="row">
         <div class="flex">
           xl gutter
         </div>
       </div>
-      <div class="va-row">
+      <div class="row">
         <div class="flex xs2" v-for="i in 6" :key="`2${i}`">
           <div class="_blue-rectangle">
             2

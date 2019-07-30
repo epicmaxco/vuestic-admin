@@ -1,6 +1,6 @@
 <template>
   <div class="yandex-maps-page">
-    <div class="va-row">
+    <div class="row">
       <div class="flex md12 xs12">
         <va-card
           class="yandex-maps-page__widget"

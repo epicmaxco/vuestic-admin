@@ -1,6 +1,6 @@
 <template>
   <div class="tooltips">
-    <div class="va-row">
+    <div class="row">
       <div class="flex xs12 md6">
         <va-card :title="$t('popovers.popoverStyle')">
           <va-select
@@ -26,18 +26,20 @@
             v-model="popover.message"
             label="Message"
           />
-          <va-popover
-            :icon="popover.icon.icon"
-            :color="popover.color"
-            :title="popover.title"
-            :message="popover.message"
-            placement="right"
-            open
-          >
-            <va-button>
-              {{ $t('notificationsPage.popovers.showPopover') }}
-            </va-button>
-          </va-popover>
+          <div class="row popover-example mt-5">
+            <va-popover
+              :icon="popover.icon"
+              :color="popover.color"
+              :title="popover.title"
+              :message="popover.message"
+              placement="right"
+              open
+            >
+              <va-button>
+                {{ $t('notificationsPage.popovers.showPopover') }}
+              </va-button>
+            </va-popover>
+          </div>
         </va-card>
       </div>
 
@@ -49,7 +51,7 @@
               placement="top"
               message="Top tooltip text"
             >
-              <a href="#">
+              <a href="#" class="link">
                 {{ $t('notificationsPage.popovers.topTooltip') }}
               </a>
             </va-popover>
@@ -58,7 +60,7 @@
               placement="right"
               message="Right tooltip text"
             >
-              <a href="#">
+              <a href="#" class="link">
                 {{ $t('notificationsPage.popovers.rightTooltip') }}
               </a>
             </va-popover>
@@ -68,7 +70,7 @@
               placement="left"
               message="Left tooltip text"
             >
-              <a href="#">
+              <a href="#" class="link">
                 {{$t('notificationsPage.popovers.leftTooltip')}}
               </a>
             </va-popover>
@@ -78,7 +80,7 @@
               placement="bottom"
               message="Bottom tooltip text"
             >
-              <a href="#">
+              <a href="#" class="link">
                 {{ $t('notificationsPage.popovers.bottomTooltip') }}
               </a>
             </va-popover>

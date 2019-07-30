@@ -46,7 +46,7 @@
         v-model="text"
         label="Name"
       >
-        <va-icon name="fa fa-anchor"/>
+        <va-icon slot="append" name="fa fa-anchor"/>
       </va-input>
     </VbCard>
     <VbCard title="Button">
@@ -54,7 +54,7 @@
         v-model="text"
         label="Name"
       >
-        <va-button style="margin-right: 0;" small>
+        <va-button slot="append" style="margin-right: 0;" small>
           Upload
         </va-button>
       </va-input>
@@ -77,7 +77,7 @@
       >
         <va-icon
           slot="append"
-          icon="fa fa-anchor"
+          name="fa fa-anchor"
         />
       </va-input>
     </VbCard>
@@ -133,7 +133,33 @@
         v-model="text"
         label="Name"
         type="textarea"
-        rows="5"
+      />
+    </VbCard>
+    <VbCard title="Textarea limits">
+      <va-input
+        v-model="text"
+        label="Name"
+        type="textarea"
+        :minRows="3"
+        :maxRows="8"
+      />
+    </VbCard>
+    <VbCard title="Textarea autosize">
+      <va-input
+        v-model="text"
+        label="Name"
+        type="textarea"
+        autosize
+      />
+    </VbCard>
+    <VbCard title="Textarea autosize limits">
+      <va-input
+        v-model="text"
+        label="Name"
+        type="textarea"
+        autosize
+        :minRows="3"
+        :maxRows="8"
       />
     </VbCard>
   </VbDemo>
@@ -153,7 +179,7 @@ export default {
   data () {
     return {
       empty: '',
-      text: 'Vuestic',
+      text: 'Vuestic\nLine 2\nLine 3\nLine 4\nLine 5',
       phone: '33 310-86-24',
       messages: ['Required field'],
       errorMessages: ['Detailed error message'],

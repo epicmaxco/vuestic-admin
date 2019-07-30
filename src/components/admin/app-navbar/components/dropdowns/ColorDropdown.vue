@@ -101,6 +101,9 @@ export default {
     border-radius: .5rem;
 
     .color-picker-dropdown {
+      display: flex;
+      justify-content: center;
+
       &__badge {
         /* Badges have 0.5rem to the right by default */
         margin-left: 0.5rem;

@@ -48,11 +48,28 @@ export const navigationRoutes = {
       ],
     },
     {
+      name: 'lists',
+      displayName: 'menu.lists',
+      meta: {
+        iconClass: 'vuestic-iconset-files', // TODO use vuestic list icon when ready
+      },
+    },
+    {
       name: 'tables',
       displayName: 'menu.tables',
       meta: {
         iconClass: 'vuestic-iconset-tables',
       },
+      children: [
+        {
+          name: 'markup',
+          displayName: 'menu.markupTables',
+        },
+        {
+          name: 'data',
+          displayName: 'menu.dataTables',
+        },
+      ],
     },
     {
       name: 'ui',
@@ -73,10 +90,6 @@ export const navigationRoutes = {
         {
           name: 'collapses',
           displayName: 'menu.collapses',
-        },
-        {
-          name: 'filters',
-          displayName: 'menu.filters',
         },
         {
           name: 'color-pickers',
@@ -127,6 +140,10 @@ export const navigationRoutes = {
         {
           name: 'tree-view',
           displayName: 'menu.treeView',
+        },
+        {
+          name: 'colors',
+          displayName: 'menu.colors',
         },
         {
           name: 'spacing',
@@ -188,6 +205,10 @@ export const navigationRoutes = {
       },
       disabled: true,
       children: [
+        {
+          name: 'login',
+          displayName: 'Login/Signup',
+        },
         {
           name: '404-pages',
           displayName: '404 Pages',

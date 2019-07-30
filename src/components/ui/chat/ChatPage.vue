@@ -1,6 +1,6 @@
 <template>
   <div class="chat">
-    <div class="va-row">
+    <div class="row">
       <div class="flex xs12 md12">
         <va-card :title="$t('chat.title')">
           <chat v-model="chatMessages"/>

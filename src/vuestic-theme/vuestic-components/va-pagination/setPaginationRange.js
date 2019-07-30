@@ -18,5 +18,6 @@ export const setPaginationRange = (value, visiblePages, pages) => {
   for (let i = 0; i < visiblePages; i++) {
     range.push(start + i)
   }
+
   return range
 }

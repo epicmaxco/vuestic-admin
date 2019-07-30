@@ -1,9 +1,9 @@
 <template>
   <div class="sliders">
-    <div class="va-row">
+    <div class="row">
       <div class="flex md12">
         <va-card :title="$t('sliders.slider')">
-          <div class="va-row">
+          <div class="row">
             <div class="flex xs12 lg6 xl4 mb-2">
               <div
                 class="title mb-3"
@@ -107,7 +107,7 @@
       </div>
       <div class="flex md12">
         <va-card :title="$t('sliders.range')">
-          <div class="va-row">
+          <div class="row">
             <div class="flex xs12 lg6 xl4 mb-2">
               <div
                 class="title mb-3"

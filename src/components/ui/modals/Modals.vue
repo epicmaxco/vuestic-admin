@@ -1,6 +1,6 @@
 <template>
   <div class="modals">
-    <div class="va-row">
+    <div class="row">
       <div class="flex md12">
         <va-card
           class="modals-list larger-padding"
@@ -21,7 +21,7 @@
         </va-card>
       </div>
     </div>
-    <div class="va-row">
+    <div class="row">
       <div class="flex md12">
         <va-card
           class="modals-list larger-padding"

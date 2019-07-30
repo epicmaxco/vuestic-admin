@@ -79,6 +79,13 @@
         :options="defaultSelect.options"
       />
     </VbCard>
+    <VbCard title="No clear" style="width: 400px;">
+      <va-select
+        v-model="defaultSelect.value"
+        :options="defaultSelect.options"
+        no-clear
+      />
+    </VbCard>
     <VbCard title="Placeholder" style="width: 400px;">
       <va-select
         v-model="defaultSelect.value"
@@ -249,6 +256,7 @@ export default {
       this.isLoading = true
       setTimeout(() => {
         this.isLoading = false
+        // eslint-disable-next-line no-console
         console.log(val)
       }, 2000)
     },

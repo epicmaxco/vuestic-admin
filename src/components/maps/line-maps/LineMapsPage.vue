@@ -1,6 +1,6 @@
 <template>
   <div class="line-maps-page">
-    <div class="va-row">
+    <div class="row">
       <div class="flex md12 xs12">
         <va-card
           class="line-maps-page__widget"

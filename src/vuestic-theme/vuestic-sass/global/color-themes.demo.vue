@@ -74,6 +74,7 @@
       </va-tree-root>
       <va-chart type="line" :data="chartData"/>
       <va-button color="info" @click="refreshData">RefreshChartColors</va-button>
+      <va-file-upload v-model="files" color="info"/>
     </VbCard>
     <VbCard title="Change color">
       <div>
@@ -140,11 +141,13 @@ import VaTreeNode from '../../vuestic-components/va-tree-view/VaTreeNode'
 import VaChart from '../../vuestic-components/va-chart/VaChart'
 import { getLineChartData } from '../../../data/charts/LineChartData'
 import VaBadge from '../../vuestic-components/va-chip/VaBadge'
+import VaFileUpload from '../../vuestic-components/va-file-upload/VaFileUpload'
 
 export default {
   components: {
     VaBadge,
     VaChart,
+    VaFileUpload,
     VaTreeNode,
     VaTreeCategory,
     VaTreeRoot,
@@ -166,6 +169,7 @@ export default {
       icon: 'iconicstroke iconicstroke-info',
       items: navigationRoutes.routes,
       chartData: getLineChartData(this.$themes),
+      files: [],
     }
   },
   methods: {

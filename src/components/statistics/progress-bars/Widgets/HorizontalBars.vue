@@ -1,9 +1,9 @@
 <template>
   <va-card
-    class="horizontal-bars progress-bar-widget"
+    class="horizontal-bars"
     :title="$t('progressBars.horizontal')"
   >
-    <div class="va-row">
+    <div class="row">
       <div class="flex md4 xs12">
         <va-progress-bar :value="value / 3"/>
       </div>
@@ -14,7 +14,7 @@
         <va-progress-bar indeterminate/>
       </div>
     </div>
-    <div class="va-row">
+    <div class="row">
       <div class="flex md4 xs12">
         <va-progress-bar :value="value * 2 / 3">66%</va-progress-bar>
       </div>
@@ -34,6 +34,7 @@
 
 <script>
 export default {
+  name: 'horizontal-bars',
   data () {
     return {
       value: 0,

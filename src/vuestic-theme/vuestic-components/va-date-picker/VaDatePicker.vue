@@ -12,7 +12,9 @@
       :messages="messages"
       :error-messages="errorMessages"
     >
-      <va-icon color="gray" name="fa fa-calendar" />
+      <template slot="append">
+        <va-icon color="gray" name="fa fa-calendar"/>
+      </template>
     </va-input>
     <vue-flatpickr-component
       class="va-date-picker__flatpickr"
@@ -72,7 +74,8 @@ export default {
     },
     config: {
       type: Object,
-      default: () => {},
+      default: () => {
+      },
     },
   },
   data () {
@@ -136,10 +139,11 @@ $dayMargin: 0.6rem;
   position: relative;
 
   &__container {
-     display: flex;
-     position: relative;
-     flex-wrap: wrap;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
   }
+
   &__flatpickr {
     position: absolute;
     visibility: hidden;
@@ -147,6 +151,7 @@ $dayMargin: 0.6rem;
     left: 0;
     height: 100%;
   }
+
   &__icon {
     position: absolute;
     right: 0;
@@ -208,46 +213,59 @@ $dayMargin: 0.6rem;
         margin: 0.25rem calc((100% - 2rem * 7) / 14);
         border: none;
         color: $datepickerText;
+
         &.today {
           color: $datepickerActiveBackground;
+
           &.selected {
             color: $datepickerActiveColor;
           }
         }
+
         &:hover {
           background-color: $datepickerDayHover;
           color: $vue-green;
         }
+
         &.selected {
           background-color: $datepickerActiveBackground;
           color: $datepickerActiveColor;
+
           &:hover {
             color: $datepickerActiveColor;
           }
         }
+
         &.nextMonthDay, &.prevMonthDay {
           color: $brand-secondary;
+
           &.startRange {
             background-color: $datepickerDayHover;
           }
+
           &.endRange {
             background-color: $datepickerDayHover;
           }
         }
+
         &.disabled {
           color: $brand-secondary;
+
           &:hover {
             background-color: inherit;
           }
         }
+
         &.startRange, &.endRange, &.inRange {
           border-radius: 2rem;
           box-shadow: none;
         }
+
         &.startRange, &.endRange {
           background-color: $datepickerActiveBackground;
           color: $datepickerActiveColor;
         }
+
         &.inRange {
           color: $datepickerDayRange;
           background-color: $light-gray3;
@@ -271,6 +289,7 @@ $dayMargin: 0.6rem;
       border-width: 0 0.25rem 0.25rem 0.25rem;
       border-color: transparent transparent $datepickerActiveColor transparent;
     }
+
     &.arrowDown::after {
       border-style: solid;
       border-width: 0.25rem 0.25rem 0 0.25rem;
@@ -305,9 +324,11 @@ $dayMargin: 0.6rem;
 
         .numInputWrapper {
           border: 0;
+
           &:hover {
             background-color: $datepickerBackground;
           }
+
           .numInput.cur-year {
             color: $vue-darkest-blue;
           }
@@ -336,6 +357,7 @@ $dayMargin: 0.6rem;
     &--hidden {
       display: none;
     }
+
     .flatpickr-weekdaycontainer {
       .flatpickr-weekday {
         color: $datepickerWeekday;
@@ -354,6 +376,7 @@ $dayMargin: 0.6rem;
       font-weight: bold;
       font-size: 0.6875rem;
     }
+
     .flatpickr-weeks {
       box-shadow: 2px 0 0 $datepickerSeparatorColor;
       padding-bottom: $borderPadding;

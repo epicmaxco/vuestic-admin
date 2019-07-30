@@ -38,7 +38,14 @@
     "success": "ÉXITO",
     "successMessage": "Ha leído correctamente este mensaje de alerta importante.",
     "teamMembers": "Miembros del Equipo",
-    "versions": "Versiones"
+    "versions": "Versiones",
+    "table": {
+      "title": "Mesa impresionante",
+      "brief": "Breve",
+      "detailed": "Detallado",
+      "resolve": "Resolver",
+      "resolved": "Resuelto"
+    }
   },
   "notificationsPage": {
     "alerts": {
@@ -141,9 +148,13 @@
     "progressBars": "Barras de Progreso",
     "signUp": "Registrar",
     "statistics": "Estadisticas",
+    "lists": "Listas",
     "tables": "Tablas",
+    "markupTables": "Tablas de Marcado",
+    "dataTables": "Tablas de Datos",
     "typography": "Tipografía",
     "uiElements": "Elementos UI",
+    "colors": "Colores",
     "chat": "Chat"
   },
   "messages": {
@@ -198,18 +209,41 @@
     "horizontal": "Horizontal",
     "colors": "Colores"
   },
+  "lists": {
+    "customers": "Clientes",
+    "recentMessages": "Mensajes recientes",
+    "archieved": "Archivado",
+    "starterKit": "Kit de inicio",
+    "notifications": "Notificaciones"
+  },
   "tables": {
     "basic": "Tabla basica",
-    "styled": "Colores, Iconos, Etiquetas",
-    "advanced": "Búsqueda y Paginación",
+    "stripedHoverable": "Rayado, Hoverable",
+    "labelsActions": "Etiquetas, Acciones como Botones",
+    "sortingPaginationActionsAsIcons": "Clasificación, Paginación, Acciones como Iconos",
+    "star": "Star",
+    "unstar": "Unstar",
+    "edit": "Editar",
+    "delete": "Borrar",
+    "searchByName": "Buscar por nombre",
+    "searchTrendsBadges": "Búsqueda, Tendencias, Insignias",
+    "perPage": "Por página",
+    "report": "Informe",
+    "infiniteScroll": "Scroll infinito",
+    "selectable": "Seleccionable",
+    "selected": "Seleccionado",
+    "serverSidePagination": "Server-Side Paginación",
+    "emptyTable": "Mesa vacía",
+    "noDataAvailable": "Datos no disponibles.",
+    "noReport": "No hay datos para mostrar. El informe estará disponible el 3 de noviembre de 2018.",
+    "loading": "Cargando",
     "headings": {
-      "city": "Ciudad",
       "email": "Email",
       "name": "Nombre",
-      "score": "Puntuación"
-    },
-    "dataTable": {
-      "noDataAvailable": "No Data Available"
+      "firstName": "Nombre de pila",
+      "lastName": "Apellido",
+      "status": "Estado",
+      "country": "País"
     }
   },
   "chat": {

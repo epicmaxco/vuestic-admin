@@ -1,26 +1,28 @@
 <template>
-  <div class="va-color-presentation">
-    <va-tooltip
-      :placement="tooltipOptions.placement"
-      :message="tooltipOptions.content"
-    >
-      <div
-        class="va-color-presentation__color"
-        :style="computedStyle"
-        @click="colorCopy">
-      </div>
-    </va-tooltip>
-    <div class="va-color-presentation__description" v-if="name || description">
-      <div class="va-color-presentation__name">{{name}}</div>
-      <div class="va-color-presentation__text">{{description}}</div>
+<div class="va-color-presentation">
+  <va-popover
+    color="info"
+    :placement="popoverOptions.placement"
+    :message="popoverOptions.content"
+  >
+    <div
+      class="va-color-presentation__color"
+      :style="computedStyle"
+      @click="colorCopy(), notify()">
     </div>
-  </div>
+  </va-popover>
 
+  <div class="va-color-presentation__description" v-if="name || description">
+    <div class="va-color-presentation__name">{{name}}</div>
+    <div class="va-color-presentation__text">{{description}}</div>
+  </div>
+</div>
 </template>
 
 <script>
-import VuesticTooltip from '../va-tooltip/VaTooltip'
+import VaPopover from '../va-popover/VaPopover'
 import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
+import { getGradientBackground } from '../../../services/color-functions'
 
 // NOTE This component is a tad weird.
 // It's not part of presentation nor is it UI component.
@@ -28,16 +30,19 @@ import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
 
 export default {
   name: 'va-color-presentation',
-  components: { VuesticTooltip },
+  components: { VaPopover },
   mixins: [ ColorThemeMixin ],
   props: {
     color: {
       type: String,
       default: '',
     },
+    variant: {
+      type: Array,
+      default: () => [],
+    },
     width: {
       type: Number,
-      default: 40,
     },
     name: {
       type: String,
@@ -50,23 +55,48 @@ export default {
   },
   data () {
     return {
-      tooltipOptions: {
-        content: 'Click to copy color to clipboard',
+      popoverOptions: {
+        content: 'Click to copy the color to clipboard',
         placement: 'right',
       },
     }
   },
   computed: {
     computedStyle () {
+      const calcBackground = () => {
+        if (this.variant.includes('gradient')) {
+          return getGradientBackground(this.colorComputed)
+        }
+
+        return this.colorComputed
+      }
+
+      const calcFilter = () => {
+        if (this.variant.includes('hovered')) return 'brightness(115%)'
+        if (this.variant.includes('pressed')) return 'brightness(85%)'
+      }
+
       return {
-        background: this.colorComputed,
-        width: `${this.width}px`,
+        background: calcBackground(),
+        filter: calcFilter(),
+        width: this.width ? `${this.width}px` : '',
       }
     },
   },
   methods: {
     colorCopy () {
-      this.$copyText(this.color)
+      if (this.variant.includes('gradient')) {
+        this.$copyText(getGradientBackground(this.colorComputed))
+        return
+      }
+
+      this.$copyText(this.colorComputed)
+    },
+
+    notify () {
+      this.showToast("The color's copied to your clipboard", {
+        position: 'bottom-right',
+      })
     },
   },
 }
@@ -77,14 +107,27 @@ export default {
 
 .va-color-presentation {
   display: flex;
-  margin-bottom: 16px;
+  align-items: center;
+  margin-bottom: 1.125rem;
+
+  .v-popover {
+    width: 40px;
+    height: 40px;
+
+    span {
+      outline: none !important;
+    }
+  }
 
   &__color {
     height: 40px;
+    width: 40px;
+    margin-right: 1rem;
+    cursor: pointer;
   }
 
   &__description {
-    margin-left: 8px;
+    margin-left: 1rem;
   }
 
   &__name {

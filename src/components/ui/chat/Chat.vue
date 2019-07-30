@@ -10,6 +10,7 @@
     >
       <div
         class="va-chat__message"
+        :style="{backgroundColor: message.yours ? $themes.primary : undefined}"
         v-for="(message, index) in value"
         :key="index"
         :class="{'va-chat__message--yours': message.yours}"
@@ -95,7 +96,7 @@ export default {
 </script>
 
 <style lang='scss'>
-@import "../../../vuestic-theme/vuestic-sass/resources/resources";
+@import '../../../vuestic-theme/vuestic-sass/resources/resources';
 
 .chat {
   &__content {
@@ -131,10 +132,10 @@ $chat-message-br: .875rem;
     }
 
     &--yours {
+      color: white;
       align-self: flex-end;
       border-top-right-radius: 0;
       border-top-left-radius: $chat-message-br;
-      background-color: $brand-primary;
     }
   }
 
