@@ -31,6 +31,7 @@
             </div>
             <div
               class="row pa-3"
+              :class="index === 1 ? 'sets-list__set__content--middle' : ''"
               :key="index"
               v-if="filteredList.length === 2"
             >
@@ -79,9 +80,20 @@ export default {
     position: relative;
 
     &__content {
+      position: relative;
       background-color: $light-gray;
 
+      &--middle {
+        @include media-breakpoint-down(sm) {
+          > * {
+            visibility: hidden;
+          }
+        }
+      }
+
       &__overlay {
+        padding: 0;
+        margin: 0;
         width: 100%;
         position: absolute;
         z-index: 2;

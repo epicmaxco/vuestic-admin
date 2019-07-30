@@ -178,6 +178,7 @@ export default {
   &__body {
     padding: 0 $card-padding $card-padding;
     flex: 1 1 auto;
+    overflow-x: auto;
 
     &--no-padding-v {
       padding: 0 $card-padding;
