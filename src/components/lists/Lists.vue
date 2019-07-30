@@ -38,7 +38,7 @@
       </va-list-label>
 
       <template v-for="(customer, i) in customers">
-        <va-item :key="'item' + customer.id" clickable>
+        <va-item :key="'item' + customer.id" clickable @click="toggleStar(customer)">
           <va-item-section side>
             <va-icon v-if="customer.starred" name="fa fa-star" color="warning" />
           </va-item-section>
@@ -201,6 +201,9 @@ export default {
       this.showToast(`Clicked ${name}`, {
         position: 'bottom-right',
       })
+    },
+    toggleStar (customer) {
+      customer.starred = !customer.starred
     },
   },
 }
