@@ -28,7 +28,7 @@ export default {
     background-color: $separator-color;
 
     &--offset {
-      margin-left: $card-padding;
+      margin-left: 1.5rem;
     }
 
     &--spaced {

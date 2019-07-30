@@ -1,5 +1,5 @@
 <template>
-  <div class="va-list-label title title--info" :style="{'color': color}">
+  <div class="va-list-label title" :style="{'color': colorComputed}">
     <slot />
   </div>
 </template>
@@ -10,6 +10,11 @@ import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
 export default {
   name: 'va-list-label',
   mixins: [ColorThemeMixin],
+  data () {
+    return {
+      colorThemeDefault: 'info',
+    }
+  },
 }
 </script>
 
