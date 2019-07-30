@@ -77,6 +77,7 @@ export default {
   props: {
     debugId: String,
     position: String,
+    boundaryBody: Boolean,
     value: Boolean,
     offset: [String, Number],
     disabled: Boolean,
@@ -218,6 +219,10 @@ export default {
         },
       }
 
+      if (this.boundaryBody) {
+        options.modifiers.preventOverflow.boundariesElement = document.body
+      }
+
       if (this.offset) {
         options.modifiers.offset = {
           enabled: true,
@@ -289,6 +294,9 @@ export default {
 @import '../../vuestic-sass/resources/resources';
 
 .va-dropdown {
+  &__anchor {
+    display: inline-block;
+  }
   &__content {
     z-index: 100;
   }

@@ -46,7 +46,7 @@
         v-model="text"
         label="Name"
       >
-        <va-icon name="fa fa-anchor"/>
+        <va-icon slot="append" name="fa fa-anchor"/>
       </va-input>
     </VbCard>
     <VbCard title="Button">
@@ -54,7 +54,7 @@
         v-model="text"
         label="Name"
       >
-        <va-button style="margin-right: 0;" small>
+        <va-button slot="append" style="margin-right: 0;" small>
           Upload
         </va-button>
       </va-input>
@@ -77,7 +77,7 @@
       >
         <va-icon
           slot="append"
-          icon="fa fa-anchor"
+          name="fa fa-anchor"
         />
       </va-input>
     </VbCard>

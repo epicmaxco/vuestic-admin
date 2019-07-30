@@ -1,31 +1,30 @@
 <template>
-  <form class="login" @submit.prevent="onsubmit">
-      <va-input
-        class="mb-2"
-        v-model="email"
-        type="email"
-        :label="$t('auth.email')"
-        :error="!!emailErrors.length"
-        :error-messages="emailErrors"
-      />
-    <div>
-      <va-input
-        class="mb-2"
-        v-model="password"
-        type="password"
-        :label="$t('auth.password')"
-        :error="!!passwordErrors.length"
-        :error-messages="passwordErrors"
-      />
-    </div>
-    <div class="d-flex align--center justify--space-between mb-4">
-      <va-checkbox v-model="keepLoggedIn" class="mb-0" :label="$t('auth.keep_logged_in')"/>
-      <router-link class="ml-1" :to="{name: 'recover-password'}">{{$t('auth.recover_password')}}</router-link>
-    </div>
-    <div class="flex-center">
-      <va-button type="submit" class="my-0">{{ $t('auth.login') }}</va-button>
-    </div>
-  </form>
+<form @submit.prevent="onsubmit">
+  <va-input
+    v-model="email"
+    type="email"
+    :label="$t('auth.email')"
+    :error="!!emailErrors.length"
+    :error-messages="emailErrors"
+  />
+
+  <va-input
+    v-model="password"
+    type="password"
+    :label="$t('auth.password')"
+    :error="!!passwordErrors.length"
+    :error-messages="passwordErrors"
+  />
+
+  <div class="d-flex align--center justify--space-between">
+    <va-checkbox v-model="keepLoggedIn" class="mb-0" :label="$t('auth.keep_logged_in')"/>
+    <router-link class="ml-1 link" :to="{name: 'recover-password'}">{{$t('auth.recover_password')}}</router-link>
+  </div>
+
+  <div class="d-flex justify--center mt-3">
+    <va-button type="submit" class="my-0">{{ $t('auth.login') }}</va-button>
+  </div>
+</form>
 </template>
 
 <script>
@@ -59,7 +58,5 @@ export default {
 </script>
 
 <style lang="scss">
-.login {
-
-}
+@import '../../../vuestic-theme/vuestic-sass/resources/resources';
 </style>

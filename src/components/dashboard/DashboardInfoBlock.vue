@@ -3,7 +3,7 @@
     <div class="flex xl6 xs12">
       <div class="row">
         <div
-          class="flex xs4"
+          class="flex xs12 sm4"
           v-for="(info, idx) in infoTiles"
           :key="idx"
         >

@@ -1,6 +1,6 @@
 <template>
   <va-card
-    class="horizontal-bars progress-bar-widget"
+    class="horizontal-bars"
     :title="$t('progressBars.horizontal')"
   >
     <div class="row">
@@ -34,6 +34,7 @@
 
 <script>
 export default {
+  name: 'horizontal-bars',
   data () {
     return {
       value: 0,

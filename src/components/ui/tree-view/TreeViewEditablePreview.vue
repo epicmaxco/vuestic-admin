@@ -3,25 +3,24 @@
 
     <va-tree-category label="Electronics">
       <va-tree-node v-for="electronic in electronics" :key="electronic.id">
-        <div class="form-group">
-          <div class="input-group">
-            <input v-model="electronic.name">
-            <va-icon name="bar"/>
-          </div>
-        </div>
+        <va-input v-model="electronic.name" class="mb-0"/>
       </va-tree-node>
     </va-tree-category>
 
     <va-tree-category isOpen label="Products">
-      <va-tree-node v-for="product in products" :key="product.id">
-        <div class="form-group">
-          <div class="input-group">
-            <input v-model="product.name">
-            <va-icon name="bar"/>
-          </div>
-        </div>
-        <div slot="iconRight" class="icon" @click="removeProduct(product)">
-          <span aria-hidden="true" class="ion ion-md-close"/>
+      <va-tree-node
+        v-for="product in products"
+        :key="product.id"
+      >
+        <div class="flex row align--center">
+          <va-input v-model="product.name" class="mb-0"/>
+          <va-icon
+            name="ion ion-md-close"
+            color="info"
+            class="ml-2 pa-1 shrink"
+            style="cursor: pointer;"
+            @click.native="removeProduct(product)"
+          />
         </div>
       </va-tree-node>
       <va-tree-node>

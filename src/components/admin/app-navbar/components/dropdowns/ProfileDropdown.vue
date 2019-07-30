@@ -1,13 +1,16 @@
 <template>
   <va-dropdown
     class="profile-dropdown"
-    @show="toggleVisibility(true)"
-    @hide="toggleVisibility(false)"
-    offset="15px, 0"
+    trigger="none"
+    v-model="isShown"
+    boundary-body
   >
     <span
-      class="profile-dropdown__actuator" slot="anchor"
+      class="profile-dropdown__anchor" slot="anchor"
       :style="{color: this.$themes.primary}"
+      @focus="toggleVisibility"
+      @blur="toggleVisibility"
+      tabindex="1"
     >
       <slot/>
       <va-icon
@@ -52,8 +55,8 @@ export default {
     },
   },
   methods: {
-    toggleVisibility (val) {
-      this.isShown = val
+    toggleVisibility () {
+      this.isShown = !this.isShown
     },
   },
 }
@@ -62,8 +65,10 @@ export default {
 <style lang="scss">
 .profile-dropdown {
   cursor: pointer;
-  &__actuator {
-    color: $vue-green;
+  &__anchor {
+    &:focus {
+      outline: none;
+    }
   }
   .va-dropdown-popper__anchor {
     display: flex;
@@ -73,6 +78,7 @@ export default {
     background-color: $dropdown-background;
     box-shadow: $gray-box-shadow;
     border-radius: .5rem;
+    width: 6rem;
   }
   &__item {
     display: block;

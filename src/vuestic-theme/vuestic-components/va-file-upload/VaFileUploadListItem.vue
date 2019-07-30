@@ -1,49 +1,50 @@
 <template>
-  <div
-    class="file-upload-list-item d-flex"
+  <va-card
+    class="va-file-upload-list-item"
+    :stripe="removed ? '' : color"
+    no-margin
+    no-padding
     :class="{'file-upload-list-item--undo': removed}"
   >
-    <div
-      class="row"
-      v-if="removed"
-    >
-      <div class="flex md12">
-        <va-file-upload-undo
-          @recover="recoverFile"
-        />
-      </div>
-    </div>
-
-    <div class="row align--center" v-else>
-      <div class="file-upload-list-item__name flex xs12 lg3 ellipsis">
+    <va-file-upload-undo @recover="recoverFile" v-if="removed"/>
+    <div class="va-file-upload-list-item__content" v-else>
+      <div class="va-file-upload-list-item__name">
         {{ file.name }}
       </div>
-      <div class="file-upload-list-item__size flex xs12 lg3">
+      <div class="va-file-upload-list-item__size">
         {{ file.size }}
       </div>
-      <div class="file-upload-list-item__date flex xs12 lg4">
-        <span>{{ $t('fileUpload.uploadedOn')}} {{ file.date }}</span>
-      </div>
-      <div class="file-upload-list-item__button-container flex xs12 lg2">
-        <va-button outline @click="removeFile">
-          {{ $t('fileUpload.delete') }}
-        </va-button>
-      </div>
+      <va-icon
+        color="danger"
+        name="material-icons"
+        @click.native="removeFile"
+        class="va-file-upload-list-item__delete"
+      >delete_outline</va-icon>
     </div>
-  </div>
+  </va-card>
 </template>
 
 <script>
 import VaFileUploadUndo from './VaFileUploadUndo'
+import VaButton from '../va-button/VaButton'
+import VaCard from '../va-card/VaCard'
+import VaIcon from '../va-icon/VaIcon'
 
 export default {
   name: 'va-file-upload-list-item',
   components: {
+    VaIcon,
+    VaCard,
+    VaButton,
     VaFileUploadUndo,
   },
   props: {
     file: {
       type: Object,
+    },
+    color: {
+      type: String,
+      default: 'success',
     },
   },
   data () {
@@ -69,34 +70,42 @@ export default {
 </script>
 
 <style lang='scss'>
-.file-upload-list-item {
+@import '../../vuestic-sass/resources/resources';
+
+.va-file-upload-list-item {
   & + & {
     margin-top: 0.5rem;
   }
 
-  background-color: $white;
-  box-shadow: $sidebar-box-shadow;
-  padding: 0.6rem 1rem;
+  width: 100%;
+  max-width: 100%;
+  padding: 1.125rem .5rem 1rem 1rem;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__name {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    flex-basis: 60%;
+    overflow: hidden;
+  }
 
   &__size {
-    margin: auto;
     color: $gray-light;
   }
 
-  &__date {
-    margin: auto;
-    color: $gray-light;
+  &__delete {
+    font-size: 1.5rem;
+    cursor: pointer;
   }
 
   &--undo {
     background: none;
     box-shadow: none;
-  }
-
-  @include media-breakpoint-up(lg) {
-    &__button-container {
-      text-align: right;
-    }
   }
 }
 </style>

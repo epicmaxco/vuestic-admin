@@ -169,6 +169,7 @@ export default {
       type: Boolean,
       default: true,
     },
+    noClear: Boolean,
     error: Boolean,
     success: Boolean,
   },
@@ -240,6 +241,9 @@ export default {
       })
     },
     showClearIcon () {
+      if (this.noClear) {
+        return false
+      }
       if (this.disabled) {
         return false
       }

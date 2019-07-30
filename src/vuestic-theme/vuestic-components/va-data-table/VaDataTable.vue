@@ -1,43 +1,45 @@
 <template>
-  <va-inner-loading :loading="loading">
-    <vuetable
-      ref="vuetable"
-      :api-mode="false"
-      :fields="fields"
-      :data="apiMode ? data : undefined"
-      :data-manager="apiMode ? undefined : dataManager"
-      :pagination-path="apiMode ? '' : 'pagination'"
-      :no-data-template="noDataLabel || $t('tables.noDataAvailable')"
-      :css="styles"
-      :row-class="rowClass"
-      @vuetable:row-clicked="rowClicked"
-    >
-      <!-- https://stackoverflow.com/questions/50891858/vue-how-to-pass-down-slots-inside-wrapper-component   -->
-      <template
-        v-for="slot in Object.keys($scopedSlots)"
-        :slot="slot"
-        slot-scope="scope"
+  <div class="va-data-table">
+    <va-inner-loading :loading="loading">
+      <vuetable
+        ref="vuetable"
+        :api-mode="false"
+        :fields="fields"
+        :data="apiMode ? data : undefined"
+        :data-manager="apiMode ? undefined : dataManager"
+        :pagination-path="apiMode ? '' : 'pagination'"
+        :no-data-template="noDataLabel || $t('tables.noDataAvailable')"
+        :css="styles"
+        :row-class="rowClass"
+        @vuetable:row-clicked="rowClicked"
       >
-        <slot
-          :name="slot"
-          v-bind="scope"
-        />
-      </template>
-    </vuetable>
+        <!-- https://stackoverflow.com/questions/50891858/vue-how-to-pass-down-slots-inside-wrapper-component   -->
+        <template
+          v-for="slot in Object.keys($scopedSlots)"
+          :slot="slot"
+          slot-scope="scope"
+        >
+          <slot
+            :name="slot"
+            v-bind="scope"
+          />
+        </template>
+      </vuetable>
 
-    <div
-      v-if="!noPagination && paginationTotal > 1"
-      class="flex-center mt-3"
-    >
-      <va-pagination
-        v-model="currentPage"
-        :pages="paginationTotal"
-        :visible-pages="visiblePages"
-        :boundary-links="paginationTotal > visiblePages"
-        @input="inputPage"
-      />
-    </div>
-  </va-inner-loading>
+      <div
+        v-if="!noPagination && paginationTotal > 1"
+        class="va-data-table__pagination"
+      >
+        <va-pagination
+          v-model="currentPage"
+          :pages="paginationTotal"
+          :visible-pages="visiblePages"
+          :boundary-links="paginationTotal > visiblePages"
+          @input="inputPage"
+        />
+      </div>
+    </va-inner-loading>
+  </div>
 </template>
 
 <script>
@@ -194,23 +196,36 @@ export default {
 </script>
 
 <style lang="scss">
-  .va-data-table__vuetable {
-    width: 100%;
+  .va-data-table {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-x: auto;
 
-    th {
-      &.sortable {
-        color: $brand-primary;
+    &__vuetable {
+      width: 100%;
+
+      th {
+        &.sortable {
+          color: $brand-primary;
+        }
+
+        .sort-icon {
+          font-size: 0.625rem;
+        }
       }
 
-      .sort-icon {
-        font-size: 0.625rem;
+      .vuetable-empty-result {
+        padding: 4.5rem 1rem;
+        font-size: 1rem;
+        color: $gray;
       }
     }
 
-    .vuetable-empty-result {
-      padding: 4.5rem 1rem;
-      font-size: 1rem;
-      color: $gray;
+    &__pagination {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
     }
   }
 </style>
