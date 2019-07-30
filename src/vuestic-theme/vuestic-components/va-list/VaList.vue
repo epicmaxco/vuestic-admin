@@ -22,9 +22,9 @@ export default {
 <style lang="scss">
   .va-list {
     padding: $list-padding;
-  }
 
-  .va-list--fit {
-    width: 100%;
+    &--fit {
+      width: 100%;
+    }
   }
 </style>

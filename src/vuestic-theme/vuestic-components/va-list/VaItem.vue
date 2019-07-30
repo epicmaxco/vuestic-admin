@@ -25,12 +25,12 @@ export default {
   .va-item {
     display: flex;
     padding: $list-item-padding;
-  }
 
-  .va-item--clickable {
-    &:hover {
-      background-color: $light-gray3;
-      cursor: pointer;
+    &--clickable {
+      &:hover {
+        background-color: $light-gray3;
+        cursor: pointer;
+      }
     }
   }
 </style>

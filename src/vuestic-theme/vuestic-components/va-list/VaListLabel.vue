@@ -1,5 +1,5 @@
 <template>
-  <div class="va-list-label title" :style="{'color': colorComputed}">
+  <div class="va-list-label" :style="{'color': colorComputed}">
     <slot />
   </div>
 </template>
@@ -20,6 +20,7 @@ export default {
 
 <style lang="scss">
   .va-list-label {
+    @include va-title();
     padding: $list-item-padding;
     padding-top: 0;
     padding-bottom: 0.75rem;
