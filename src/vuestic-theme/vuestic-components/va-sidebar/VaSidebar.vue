@@ -62,6 +62,10 @@ export default {
     top: $sidebar-mobile-top;
   }
 
+  @include media-breakpoint-down(xs) {
+    width: 100%;
+  }
+
   &--minimized {
     left: 0;
     width: $sidebar-minimized-width;

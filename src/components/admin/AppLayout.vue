@@ -13,6 +13,7 @@
       slot="content"
       id="content"
       class="layout gutter--xl fluid"
+      :class="{'app-layout__main--full-width-sidebar': !minimized}"
       role="main"
     >
       <va-pre-loader
@@ -57,3 +58,15 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+  .app-layout {
+    &__main {
+      &--full-width-sidebar {
+        @include media-breakpoint-down(xs) {
+          display: none;
+        }
+      }
+    }
+  }
+</style>
