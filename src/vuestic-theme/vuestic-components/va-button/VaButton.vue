@@ -191,7 +191,7 @@ export default {
         computedStyle.boxShadow = this.shadowStyle
       }
 
-      if (this.va.color && !this.outline && !this.flat && !this.disabled) {
+      if (this.va.color && !this.outline && !this.flat) {
         computedStyle.background = this.color ? this.colorComputed : this.$themes[this.va.color]
         computedStyle.backgroundImage = ''
       }

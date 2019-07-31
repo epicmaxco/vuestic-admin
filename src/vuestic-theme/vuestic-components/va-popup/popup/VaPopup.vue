@@ -4,13 +4,13 @@ import {
   parsePosition,
   positionValidator,
   setPosition,
-} from '../../utils/popup.js'
-import frameDebounce from '../../utils/frame-debounce.js'
-import { getScrollTarget } from '../../utils/scroll.js'
-import EscapeKey from '../../utils/escape-key.js'
-import ModelToggleMixin from '../../mixins/model-toggle.js'
-import { listenOpts, position as eventPosition } from '../../utils/event.js'
-import CanRenderMixinMixin from '../../mixins/can-render.js'
+} from '../utils/popup.js'
+import frameDebounce from '../utils/frame-debounce.js'
+import { getScrollTarget } from '../utils/scroll.js'
+import EscapeKey from '../utils/escape-key.js'
+import ModelToggleMixin from '../mixins/model-toggle.js'
+import { listenOpts, position as eventPosition } from '../utils/event.js'
+import CanRenderMixinMixin from '../mixins/can-render.js'
 
 // HACK Should not be in vuestic 2.0.
 
@@ -230,7 +230,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../../../../vuestic-sass/resources/resources";
+@import "../../../vuestic-sass/resources/resources";
 
 .q-popover {
   position: fixed;

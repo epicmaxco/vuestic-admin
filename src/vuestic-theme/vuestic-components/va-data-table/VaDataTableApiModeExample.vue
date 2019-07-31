@@ -11,8 +11,10 @@
 
 <script>
 import users from '../../../fixtures/users.json'
+import VaDataTable from './VaDataTable'
 
 export default {
+  components: { VaDataTable },
   data () {
     return {
       loading: false,

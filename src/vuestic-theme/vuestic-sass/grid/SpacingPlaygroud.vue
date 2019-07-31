@@ -104,6 +104,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/vuestic-theme/vuestic-sass/resources/resources.scss";
+
 .spacing-playground {
   .playground-component {
     display: flex;

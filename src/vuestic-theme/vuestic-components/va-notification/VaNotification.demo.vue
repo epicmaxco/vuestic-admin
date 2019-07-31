@@ -48,9 +48,14 @@
 <script>
 import VaCheckbox from '../va-checkbox/VaCheckbox'
 import VaNotification from './VaNotification'
+import VaBadge from '../va-chip/VaBadge'
 
 export default {
-  components: { VaCheckbox, VaNotification },
+  components: {
+    VaCheckbox,
+    VaNotification,
+    VaBadge,
+  },
   data () {
     return {
       isCloseableNotificationVisible: true,
@@ -60,6 +65,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/vuestic-theme/vuestic-sass/resources/resources.scss";
+
 .toasted-container {
   &.full-width {
     @include media-breakpoint-down(md) {

@@ -197,7 +197,10 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../resources/resources';
+@import 'grid-global-styles';
+
 ._blue-rectangle {
   background-color: #b6ecff;
   border: 1px solid #738dff;

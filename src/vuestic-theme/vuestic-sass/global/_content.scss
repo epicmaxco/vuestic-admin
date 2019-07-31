@@ -47,10 +47,12 @@
     word-wrap: normal;
 
     &.code {
-      @extend .code-snippet
+      @include va-code-snippet();
     }
   }
 
+
+  // NOTE Ideally we want this to work with mixins too, but no idea how to achieve that :/.
   ol {
     @extend .va-ordered
   }

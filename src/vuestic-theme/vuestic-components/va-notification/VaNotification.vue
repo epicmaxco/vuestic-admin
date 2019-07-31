@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import VaIcon from '../va-icon/VaIcon'
 import {
   getHoverColor,
   getBoxShadowColor,
@@ -29,6 +30,9 @@ import {
 
 export default {
   name: 'va-notification',
+  components: {
+    VaIcon,
+  },
   computed: {
     notificationStyle () {
       return {
@@ -60,6 +64,8 @@ export default {
 </script>
 
 <style lang='scss'>
+@import "../../vuestic-sass/resources/resources";
+
 // Notifications
 $va-notification-margin-y: 0.25rem;
 $va-notification-padding-x: 0.5rem;

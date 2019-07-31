@@ -26,14 +26,14 @@
               :key="key"
               :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
               v-if="item.children">
-              <span slot="title">{{ $t(item.displayName) }}</span>
+              <span slot="title">{{ item.displayName }}</span>
               <sidebar-link
                 v-for="(subMenuItem, key) in item.children"
                 :key="key"
                 :to="{ name: subMenuItem.name }"
               >
                 <div slot="title">
-                  <span>{{ $t(subMenuItem.displayName) }}</span>
+                  <span>{{ subMenuItem.displayName }}</span>
                 </div>
               </sidebar-link>
             </sidebar-link-group>
@@ -43,7 +43,7 @@
               :key="key"
               :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
               :to="{ name: item.name }">
-              <span slot="title">{{ $t(item.displayName) }}</span>
+              <span slot="title">{{ item.displayName }}</span>
             </sidebar-link>
           </template>
         </template>
