@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import VaIcon from '../va-icon/VaIcon'
 import {
   getFocusColor,
   getHoverColor,
@@ -44,6 +45,9 @@ import {
 
 export default {
   name: 'va-chip',
+  components: {
+    VaIcon,
+  },
   props: {
     value: {
       type: Boolean,

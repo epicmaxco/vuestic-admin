@@ -47,11 +47,13 @@
 </template>
 
 <script>
+import VaButton from '../va-button/VaButton'
 import VaCollapse from './VaCollapse.vue'
 
 export default {
   components: {
     VaCollapse,
+    VaButton,
   },
   data () {
     return {

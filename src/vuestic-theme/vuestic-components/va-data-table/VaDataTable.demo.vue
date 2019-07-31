@@ -1,13 +1,13 @@
 <template>
-  <vb-demo>
-    <vb-card title="Static Data" width="100%">
+  <VbDemo>
+    <VbCard title="Static Data" width="100%">
       <va-data-table-static-data-example />
-    </vb-card>
+    </VbCard>
 
-    <vb-card title="Server-side Pagination" width="100%">
+    <VbCard title="Server-side Pagination" width="100%">
       <va-data-table-api-mode-example />
-    </vb-card>
-  </vb-demo>
+    </VbCard>
+  </VbDemo>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <vb-demo>
+  <VbDemo>
     <va-list fit style="maxWidth: 400px" class="ma-2">
       <va-list-label>
         Basic
@@ -220,11 +220,22 @@
         </va-item-section>
       </va-item>
     </va-list>
-  </vb-demo>
+  </VbDemo>
 </template>
 
 <script>
+import VaList from './VaList'
+import VaListLabel from './VaListLabel'
+import VaItem from './VaItem'
+import VaItemSection from './VaItemSection'
+import VaListSeparator from './VaListSeparator'
+import VaCheckbox from '../va-checkbox/VaCheckbox'
+import VaItemLabel from './VaItemLabel'
+import VaAvatar from '../va-avatar/VaAvatar'
+import VaIcon from '../va-icon/VaIcon'
+
 export default {
+  components: { VaIcon, VaAvatar, VaItemLabel, VaCheckbox, VaListSeparator, VaItemSection, VaItem, VaListLabel, VaList },
   data () {
     return {
       appBanners: false,

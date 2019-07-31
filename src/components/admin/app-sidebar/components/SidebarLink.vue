@@ -24,9 +24,11 @@
 <script>
 import { getHoverColor } from './../../../../services/color-functions'
 import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
+import VaIcon from '../../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
 
 export default {
   name: 'sidebar-link',
+  components: { VaIcon },
   mixins: [ColorThemeMixin],
   props: {
     to: {

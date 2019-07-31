@@ -102,10 +102,12 @@
 
 <script>
 import VaPagination from './VaPagination'
+import VaInput from '../va-input/VaInput'
 
 export default {
   components: {
     VaPagination,
+    VaInput,
   },
   data () {
     return {

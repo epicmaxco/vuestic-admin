@@ -1,6 +1,6 @@
 <template>
   <div class="va-list-label" :style="{'color': colorComputed}">
-    <slot />
+    <slot/>
   </div>
 </template>
 
@@ -19,10 +19,12 @@ export default {
 </script>
 
 <style lang="scss">
-  .va-list-label {
-    @include va-title();
-    padding: $list-item-padding;
-    padding-top: 0;
-    padding-bottom: 0.75rem;
-  }
+@import "../../vuestic-sass/resources/resources";
+
+.va-list-label {
+  @include va-title();
+  padding: $list-item-padding;
+  padding-top: 0;
+  padding-bottom: 0.75rem;
+}
 </style>

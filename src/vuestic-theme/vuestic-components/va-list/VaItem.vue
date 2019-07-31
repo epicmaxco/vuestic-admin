@@ -6,7 +6,7 @@
     :class="{'va-item--clickable': clickable || to}"
     @click="$emit('click')"
   >
-    <slot />
+    <slot/>
   </component>
 </template>
 
@@ -22,15 +22,17 @@ export default {
 </script>
 
 <style lang="scss">
-  .va-item {
-    display: flex;
-    padding: $list-item-padding;
+@import "../../vuestic-sass/resources/resources";
 
-    &--clickable {
-      &:hover {
-        background-color: $light-gray3;
-        cursor: pointer;
-      }
+.va-item {
+  display: flex;
+  padding: $list-item-padding;
+
+  &--clickable {
+    &:hover {
+      background-color: $light-gray3;
+      cursor: pointer;
     }
   }
+}
 </style>

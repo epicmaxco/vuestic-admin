@@ -32,8 +32,12 @@
 
 <script>
 import users from '../../../fixtures/users.json'
+import VaDataTable from './VaDataTable'
+import VaCheckbox from '../va-checkbox/VaCheckbox'
+import VaButton from '../va-button/VaButton'
 
 export default {
+  components: { VaButton, VaCheckbox, VaDataTable },
   data () {
     return {
       term: '',

@@ -61,6 +61,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/vuestic-theme/vuestic-sass/resources/resources.scss";
 @import "~medium-editor/src/sass/medium-editor";
 
 .va-medium-editor{

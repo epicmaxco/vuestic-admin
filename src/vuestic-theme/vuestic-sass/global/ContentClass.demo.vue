@@ -170,3 +170,10 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="scss">
+@import '../resources/resources';
+@import 'typography';
+@import 'utility-global';
+@import "content";
+</style>

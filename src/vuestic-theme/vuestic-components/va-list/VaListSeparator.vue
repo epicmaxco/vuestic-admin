@@ -21,16 +21,18 @@ export default {
 </script>
 
 <style lang="scss">
-  .va-list-separator {
-    height: 1px;
-    background-color: $separator-color;
+@import "../../vuestic-sass/resources/resources";
 
-    &--offset {
-      margin-left: 1.5rem;
-    }
+.va-list-separator {
+  height: 1px;
+  background-color: $separator-color;
 
-    &--spaced {
-      margin: 1.5rem 0;
-    }
+  &--offset {
+    margin-left: 1.5rem;
   }
+
+  &--spaced {
+    margin: 1.5rem 0;
+  }
+}
 </style>

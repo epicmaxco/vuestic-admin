@@ -7,7 +7,7 @@
       'va-item-section--avatar': avatar
     }"
   >
-    <slot />
+    <slot/>
   </div>
 </template>
 
@@ -22,35 +22,37 @@ export default {
 </script>
 
 <style lang="scss">
-  .va-item-section {
-    display: flex;
+@import "../../vuestic-sass/resources/resources";
 
-    &--main {
-      min-width: 0; // for ellipsis to work correctly
-      flex-direction: column;
-      flex: 1 0;
-    }
+.va-item-section {
+  display: flex;
 
-    &--side {
-      min-width: 1.5rem;
+  &--main {
+    min-width: 0; // for ellipsis to work correctly
+    flex-direction: column;
+    flex: 1 0;
+  }
 
-      .va-icon {
-        font-size: 1.25rem;
-      }
-    }
+  &--side {
+    min-width: 1.5rem;
 
-    &--avatar {
-      min-width: 3rem;
+    .va-icon {
+      font-size: 1.25rem;
     }
   }
 
-  .va-item-section + .va-item-section {
-    margin-left: 0.5rem;
+  &--avatar {
+    min-width: 3rem;
+  }
+}
 
-    &--side {
-      &:last-child {
-        margin-left: 1rem;
-      }
+.va-item-section + .va-item-section {
+  margin-left: 0.5rem;
+
+  &--side {
+    &:last-child {
+      margin-left: 1rem;
     }
   }
+}
 </style>

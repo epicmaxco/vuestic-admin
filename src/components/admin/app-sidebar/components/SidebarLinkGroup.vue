@@ -82,6 +82,7 @@
 import SidebarLink from './SidebarLink'
 import Expanding from 'vue-bulma-expanding/src/Expanding'
 import { getHoverColor } from './../../../../services/color-functions'
+import VaIcon from '../../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
 
 export default {
   name: 'sidebar-link-group',
@@ -97,6 +98,7 @@ export default {
     },
   },
   components: {
+    VaIcon,
     SidebarLink,
     Expanding,
   },

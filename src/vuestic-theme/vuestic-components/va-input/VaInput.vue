@@ -88,6 +88,7 @@ import VaIcon from '../va-icon/VaIcon'
 import {
   getHoverColor,
 } from './../../../services/color-functions'
+import calculateNodeHeight from './calculateNodeHeight'
 
 export default {
   name: 'va-input',
@@ -115,6 +116,36 @@ export default {
     },
     removable: {
       type: Boolean,
+    },
+
+    // textarea-specific
+    autosize: {
+      type: Boolean,
+      default: false,
+    },
+    minRows: {
+      type: Number,
+      validator: (val) => {
+        if (!(val > 0 && (val | 0) === val)) {
+          throw new Error(`\`minRows\` must be a positive integer grater than 0, but ${val} is provided`)
+        } return true
+      },
+    },
+    maxRows: {
+      type: Number,
+      validator: (val) => {
+        if (!(val > 0 && (val | 0) === val)) {
+          throw new Error(`\`maxRows\` must be a positive integer grater than 0, but ${val} is provided`)
+        } return true
+      },
+    },
+  },
+  mounted () {
+    this.adjustHeight()
+  },
+  watch: {
+    value () {
+      this.adjustHeight()
     },
   },
   data () {
@@ -187,6 +218,19 @@ export default {
     },
   },
   methods: {
+    adjustHeight () {
+      if (!this.autosize || !this.isTextarea) return
+
+      const minRows = this.minRows || 1
+      const maxRows = this.maxRows || Number.MAX_SAFE_INTEGER
+      const textareaStyles = calculateNodeHeight(this.$refs.input, false, minRows, maxRows)
+
+      // We modify DOM directly instead of using reactivity because the whole adjustHeight method takes place
+      // each time the value of textarea is modified, so there's no real need in an additional layer of reactivity.
+      // The operation is basically reactive though implicitly.
+      Object.assign(this.$refs.input.style, textareaStyles)
+    },
+
     clearContent () {
       this.$emit('input', '')
     },
@@ -274,6 +318,7 @@ export default {
     }
 
     &.va-input__container--textarea &__input {
+      resize: vertical;
       height: inherit;
     }
   }
