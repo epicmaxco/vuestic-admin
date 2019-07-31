@@ -298,6 +298,8 @@ export default {
     display: inline-block;
   }
   &__content {
+    max-width: 80%;
+    /*overflow: hidden;*/
     z-index: 100;
   }
 }

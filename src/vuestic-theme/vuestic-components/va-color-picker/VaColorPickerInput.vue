@@ -105,7 +105,7 @@ export default {
   }
 
   &__slot {
-    cursor: pointer
+    cursor: pointer;
   }
 }
 </style>
