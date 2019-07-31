@@ -7,7 +7,7 @@
           style="overflow-x: auto;"
           :title="$t('timelines.horizontalSimple')"
         >
-          <va-timeline>
+          <va-timeline style="min-width: 400px;">
             <va-timeline-item active>
               <template slot="before">
                 <div class="title text--center">
@@ -104,7 +104,7 @@
           <va-timeline vertical>
             <va-timeline-item active>
               <span class="title va-timeline-item__text" slot="before">
-                February 2018
+                Feb 2018
               </span>
               <va-card
                 slot="after"
@@ -117,7 +117,7 @@
             </va-timeline-item>
             <va-timeline-item active>
               <span class="title va-timeline-item__text" slot="before">
-                April 2018
+                Apr 2018
               </span>
               <va-card
                 slot="after"
@@ -130,7 +130,7 @@
             </va-timeline-item>
             <va-timeline-item>
               <span class="title title--gray va-timeline-item__text" slot="before">
-                June 2018
+                Jun 2018
               </span>
               <va-card
                 slot="after"
@@ -146,7 +146,7 @@
 
       <div class="flex xs12">
         <va-card no-padding-v :title="$t('timelines.verticalCentered')">
-          <va-timeline vertical centered>
+          <va-timeline vertical centered style="min-width: 300px;">
             <va-timeline-item color="danger" active>
               <span class="title title--danger va-timeline-item__text" slot="before">
                 February 2018
