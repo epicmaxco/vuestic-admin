@@ -316,6 +316,14 @@ export default new Router({
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Chat',
               },
             },
+            {
+              name: 'tabs',
+              path: 'tabs',
+              component: () => import('../components/ui/tabs/Tabs'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tabs',
+              },
+            },
           ],
         },
         {
