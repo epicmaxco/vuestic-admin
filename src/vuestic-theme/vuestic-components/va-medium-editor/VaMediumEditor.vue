@@ -94,7 +94,7 @@ export default {
     border: $btn-border;
     padding: $btn-padding-y-nrm 1rem;
     height: $medium-editor-button-size;
-    background-image: linear-gradient(to right, #63e5b3, #23e066);
+    background-color: #40e583;
     box-shadow: none;
     border-radius: 0;
 

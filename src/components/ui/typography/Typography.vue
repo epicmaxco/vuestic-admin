@@ -133,7 +133,7 @@
         </p>
       </div>
       <div class="mb-4">
-        <blockquote class="va-blockquote">
+        <blockquote class="va-blockquote" :style="{borderColor: $themes.primary}">
           <p>
             BQ: Let’s talk about meat fondue recipes and what you need to know
             first. Meat fondue also known as oil fondue is a method of cooking
