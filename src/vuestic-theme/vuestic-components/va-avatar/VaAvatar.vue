@@ -1,6 +1,6 @@
 <template>
   <div class="va-avatar">
-    <slot />
+    <slot/>
   </div>
 </template>
 
@@ -11,16 +11,16 @@ export default {
 </script>
 
 <style lang="scss">
-  .va-avatar {
-    display: flex;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    overflow: hidden;
+.va-avatar {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
 
-    img {
-      display: block;
-      width: 100%;
-    }
+  img {
+    display: block;
+    width: 100%;
   }
+}
 </style>

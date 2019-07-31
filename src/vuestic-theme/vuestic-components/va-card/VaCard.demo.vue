@@ -191,10 +191,14 @@
 
 <script>
 import VaCard from './VaCard'
+import VaButton from '../va-button/VaButton'
+import VaIcon from '../va-icon/VaIcon'
 
 export default {
   components: {
     VaCard,
+    VaButton,
+    VaIcon,
   },
 }
 </script>

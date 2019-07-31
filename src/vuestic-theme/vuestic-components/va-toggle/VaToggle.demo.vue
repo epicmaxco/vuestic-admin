@@ -38,7 +38,7 @@
       <va-toggle v-model="selection" array-value="three" label="three"/>
       <va-toggle v-model="selection" array-value="four" label="four"/>
     </VbCard>
-    <VbCard focus title="Object values">
+    <VbCard title="Object values">
       {{selection}}
       <va-toggle
         v-for="objectOption in objectOptions"

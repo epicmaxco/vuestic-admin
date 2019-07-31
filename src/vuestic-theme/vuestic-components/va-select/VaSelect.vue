@@ -483,6 +483,11 @@ export default {
     &.va-select__dropdown-position-top {
       box-shadow: 0 -2px 3px 0 rgba(98, 106, 119, 0.25);
     }
+
+    .va-dropdown__anchor {
+      display: block;
+    }
+
     .va-dropdown__content {
       background-color: $light-gray3;
       margin: 0;

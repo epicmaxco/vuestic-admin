@@ -80,7 +80,7 @@
       <div class="flex xs12">
         <va-card
           class="larger-padding"
-          :title="$t('buttons.ColorThemePlugin.js')"
+          :title="$t('buttons.colors')"
         >
           <div class="row">
             <div class="flex">
@@ -178,38 +178,47 @@
           <div class="row">
             <div class="flex xs12 lg6">
               <va-button-toggle
-                v-model="model" :options="options"
-                toggle-color="warning"
+                v-model="model"
+                :options="options"
               />
             </div>
             <div class="flex xs12 lg6">
               <va-button-toggle
-                outline v-model="model" :options="options"
-                color="danger" toggle-color="info"
+                outline
+                v-model="model"
+                :options="options"
+                color="danger"
               />
             </div>
             <div class="flex xs12 lg6">
               <va-button-toggle
-                flat v-model="model" :options="options"
-                color="gray" toggle-color="success"
+                flat
+                v-model="model"
+                :options="options"
+                color="gray"
               />
             </div>
             <div class="flex xs12 lg6">
               <va-button-toggle
-                v-model="model" :options="options"
-                color="dark" toggle-color="danger"
+                v-model="model"
+                :options="options"
+                color="dark"
               />
             </div>
             <div class="flex xs12 lg6">
               <va-button-toggle
-                outline v-model="model" :options="options"
-                color="info" toggle-color="gray"
+                outline
+                v-model="model"
+                :options="options"
+                color="info"
               />
             </div>
             <div class="flex xs12 lg6">
               <va-button-toggle
-                flat v-model="model" :options="options"
-                color="warning" toggle-color="dark"
+                flat
+                v-model="model"
+                :options="options"
+                color="warning"
               />
             </div>
           </div>

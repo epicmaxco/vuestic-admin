@@ -62,10 +62,16 @@
 </template>
 
 <script>
+import VaButtonGroup from '../va-button-group/VaButtonGroup'
+import VaButton from '../va-button/VaButton'
 import { setPaginationRange } from './setPaginationRange'
 
 export default {
   name: 'va-pagination',
+  components: {
+    VaButtonGroup,
+    VaButton,
+  },
   props: {
     value: {
       type: Number,

@@ -26,14 +26,14 @@
               :key="key"
               :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
               v-if="item.children">
-              <span slot="title">{{ $t(item.displayName) }}</span>
+              <span slot="title">{{ item.displayName }}</span>
               <sidebar-link
                 v-for="(subMenuItem, key) in item.children"
                 :key="key"
                 :to="{ name: subMenuItem.name }"
               >
                 <div slot="title">
-                  <span>{{ $t(subMenuItem.displayName) }}</span>
+                  <span>{{ subMenuItem.displayName }}</span>
                 </div>
               </sidebar-link>
             </sidebar-link-group>
@@ -43,7 +43,7 @@
               :key="key"
               :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
               :to="{ name: item.name }">
-              <span slot="title">{{ $t(item.displayName) }}</span>
+              <span slot="title">{{ item.displayName }}</span>
             </sidebar-link>
           </template>
         </template>
@@ -74,6 +74,7 @@
       </va-tree-root>
       <va-chart type="line" :data="chartData"/>
       <va-button color="info" @click="refreshData">RefreshChartColors</va-button>
+      <va-file-upload v-model="files" color="info"/>
     </VbCard>
     <VbCard title="Change color">
       <div>
@@ -140,11 +141,13 @@ import VaTreeNode from '../../vuestic-components/va-tree-view/VaTreeNode'
 import VaChart from '../../vuestic-components/va-chart/VaChart'
 import { getLineChartData } from '../../../data/charts/LineChartData'
 import VaBadge from '../../vuestic-components/va-chip/VaBadge'
+import VaFileUpload from '../../vuestic-components/va-file-upload/VaFileUpload'
 
 export default {
   components: {
     VaBadge,
     VaChart,
+    VaFileUpload,
     VaTreeNode,
     VaTreeCategory,
     VaTreeRoot,
@@ -166,6 +169,7 @@ export default {
       icon: 'iconicstroke iconicstroke-info',
       items: navigationRoutes.routes,
       chartData: getLineChartData(this.$themes),
+      files: [],
     }
   },
   methods: {

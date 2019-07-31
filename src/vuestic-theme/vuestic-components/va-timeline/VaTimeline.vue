@@ -107,6 +107,8 @@ $timeline-outer-spacing: 2rem;
     flex-direction: column;
     padding-left: 0.25rem;
     padding-right: 0.25rem;
+
+    /*min-width: 300px;*/
   }
 
   &--align-top {

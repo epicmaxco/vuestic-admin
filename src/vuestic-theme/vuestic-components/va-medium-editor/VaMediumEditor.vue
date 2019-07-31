@@ -61,6 +61,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/vuestic-theme/vuestic-sass/resources/resources.scss";
 @import "~medium-editor/src/sass/medium-editor";
 
 .va-medium-editor{
@@ -93,7 +94,7 @@ export default {
     border: $btn-border;
     padding: $btn-padding-y-nrm 1rem;
     height: $medium-editor-button-size;
-    background-image: linear-gradient(to right, #63e5b3, #23e066);
+    background-color: #40e583;
     box-shadow: none;
     border-radius: 0;
 

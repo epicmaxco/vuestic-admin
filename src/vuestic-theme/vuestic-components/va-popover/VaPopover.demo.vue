@@ -156,13 +156,17 @@
 
 <script>
 import VaPopover from './VaPopover'
+import VaButton from '../va-button/VaButton'
 
 export default {
   components: {
     VaPopover,
+    VaButton,
   },
   data () {
+    return {
 
+    }
   },
 }
 </script>

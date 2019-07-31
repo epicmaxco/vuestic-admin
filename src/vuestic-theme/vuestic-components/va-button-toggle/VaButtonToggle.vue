@@ -20,10 +20,16 @@
 </template>
 
 <script>
+import VaButtonGroup from '../va-button-group/VaButtonGroup'
 import { getGradientBackground } from '../../../services/color-functions'
+import VaButton from '../va-button/VaButton'
 
 export default {
   name: 'va-button-toggle',
+  components: {
+    VaButtonGroup,
+    VaButton,
+  },
   props: {
     options: {
       type: Array,

@@ -5,7 +5,6 @@
         <va-input
           :value="term"
           :placeholder="$t('tables.searchByName')"
-          style="minWidth: 260px"
           @input="search"
         >
           <va-icon name="fa fa-search" slot="prepend" />
@@ -13,7 +12,6 @@
       </div>
 
       <div class="flex xs12 md3 offset--md3">
-
         <va-select
           v-model="perPage"
           :label="$t('tables.perPage')"

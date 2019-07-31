@@ -96,7 +96,7 @@ export default {
 </script>
 
 <style lang='scss'>
-@import "../../../vuestic-theme/vuestic-sass/resources/resources";
+@import '../../../vuestic-theme/vuestic-sass/resources/resources';
 
 .chat {
   &__content {

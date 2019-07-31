@@ -8,7 +8,7 @@
         :data="apiMode ? data : undefined"
         :data-manager="apiMode ? undefined : dataManager"
         :pagination-path="apiMode ? '' : 'pagination'"
-        :no-data-template="noDataLabel || $t('tables.noDataAvailable')"
+        :no-data-template="noDataLabel"
         :css="styles"
         :row-class="rowClass"
         @vuetable:row-clicked="rowClicked"
@@ -46,10 +46,12 @@
 import { SpringSpinner } from 'epic-spinners'
 import Vuetable from 'vuetable-2/src/components/Vuetable'
 import VaPagination from '../va-pagination/VaPagination.vue'
+import VaInnerLoading from '../va-inner-loading/VaInnerLoading'
 
 export default {
   name: 'va-data-table',
   components: {
+    VaInnerLoading,
     SpringSpinner,
     Vuetable,
     VaPagination,
@@ -196,36 +198,38 @@ export default {
 </script>
 
 <style lang="scss">
-  .va-data-table {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    overflow-x: auto;
+@import "../../vuestic-sass/resources/resources";
 
-    &__vuetable {
-      width: 100%;
+.va-data-table {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow-x: auto;
 
-      th {
-        &.sortable {
-          color: $brand-primary;
-        }
+  &__vuetable {
+    width: 100%;
 
-        .sort-icon {
-          font-size: 0.625rem;
-        }
+    th {
+      &.sortable {
+        color: $brand-primary;
       }
 
-      .vuetable-empty-result {
-        padding: 4.5rem 1rem;
-        font-size: 1rem;
-        color: $gray;
+      .sort-icon {
+        font-size: 0.625rem;
       }
     }
 
-    &__pagination {
-      margin-top: 1rem;
-      display: flex;
-      justify-content: center;
+    .vuetable-empty-result {
+      padding: 4.5rem 1rem;
+      font-size: 1rem;
+      color: $gray;
     }
   }
+
+  &__pagination {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+}
 </style>

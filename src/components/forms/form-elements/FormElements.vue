@@ -72,7 +72,7 @@
       <div class="flex xs12">
         <va-card :title="$t('forms.dateTimePicker.title')">
           <form>
-            <div class="row">
+            <div class="row overflow--hidden">
               <div class="flex md8">
                 <div class="row row-inside">
                   <div class="flex xs12 sm6">

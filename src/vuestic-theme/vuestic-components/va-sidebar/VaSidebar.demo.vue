@@ -3,21 +3,22 @@
     <VbCard title="Sidebar">
       <va-sidebar
         style="position: static; height: auto;"
-        :minimized="minimized">
+        :minimized="minimized"
+      >
         <template slot="menu">
           <template v-for="(item, index) in items">
             <sidebar-link-group
               :key="index"
               :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
               v-if="item.children">
-              <span slot="title">{{ $t(item.displayName) }}</span>
+              <span slot="title">{{ item.displayName }}</span>
               <sidebar-link
                 v-for="(subMenuItem, index) in item.children"
                 :key="index"
                 :to="{ name: subMenuItem.name }"
               >
                 <div slot="title">
-                  <span>{{ $t(subMenuItem.displayName) }}</span>
+                  <span>{{ subMenuItem.displayName }}</span>
                 </div>
               </sidebar-link>
             </sidebar-link-group>
@@ -27,7 +28,7 @@
               :key="index"
               :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
               :to="{ name: item.name }">
-              <span slot="title">{{ $t(item.displayName) }}</span>
+              <span slot="title">{{ item.displayName }}</span>
             </sidebar-link>
           </template>
         </template>
@@ -43,7 +44,7 @@ import SidebarLinkGroup
   from './../../../components/admin/app-sidebar/components/SidebarLinkGroup'
 import SidebarLink
   from './../../../components/admin/app-sidebar/components/SidebarLink'
-import { navigationRoutes } from '../../../components/admin/app-sidebar/NavigationRoutes'
+import { navigationRoutes } from './navigation-router-example'
 import VaToggle from '../va-toggle/VaToggle'
 
 export default {

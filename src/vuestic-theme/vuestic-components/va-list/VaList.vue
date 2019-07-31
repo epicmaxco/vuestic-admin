@@ -6,13 +6,16 @@
       'va-list--fit': fit
     }"
   >
-    <slot />
+    <slot/>
   </va-card>
 </template>
 
 <script>
+import VaCard from '../va-card/VaCard'
+
 export default {
   name: 'va-list',
+  components: { VaCard },
   props: {
     fit: Boolean,
   },
@@ -20,11 +23,13 @@ export default {
 </script>
 
 <style lang="scss">
-  .va-list {
-    padding: $list-padding;
+@import "../../vuestic-sass/resources/resources";
 
-    &--fit {
-      width: 100%;
-    }
+.va-list {
+  padding: $list-padding;
+
+  &--fit {
+    width: 100%;
   }
+}
 </style>
