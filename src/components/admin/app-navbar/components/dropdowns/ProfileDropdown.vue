@@ -2,8 +2,8 @@
   <va-dropdown
     class="profile-dropdown"
     trigger="none"
+    fixed
     v-model="isShown"
-    boundary-body
   >
     <span
       class="profile-dropdown__anchor" slot="anchor"
