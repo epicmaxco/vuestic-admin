@@ -65,6 +65,7 @@ export default {
 @import "~medium-editor/src/sass/medium-editor";
 
 .va-medium-editor{
+  margin-bottom: 2.25rem;
   min-width: 6rem;
   max-width: 600px;
 
