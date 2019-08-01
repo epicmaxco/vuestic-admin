@@ -28,7 +28,7 @@
           />
           <div class="row popover-example mt-5">
             <va-popover
-              :icon="popover.icon"
+              :icon="popover.icon.icon"
               :color="popover.color"
               :title="popover.title"
               :message="popover.message"
@@ -111,7 +111,10 @@ export default {
       popover: {
         title: 'Hey folks!',
         message: 'This tooltip is amazing:D',
-        icon: 'fa fa-print',
+        icon: {
+          icon: 'fa fa-print',
+          text: 'print',
+        },
         color: 'warning',
       },
     }

@@ -9,17 +9,17 @@
 
 <script>
 import LineMap from '@/components/maps/line-maps/LineMap'
-import LineMapData from '@/data/maps/LineMapData'
+import { getLineMapData } from '../../data/maps/LineMapData'
 
 export default {
   name: 'dashboard-map',
   components: {
     LineMap,
   },
-  data () {
-    return {
-      lineMapData: LineMapData,
-    }
+  computed: {
+    lineMapData () {
+      return getLineMapData(this.$themes)
+    },
   },
 }
 </script>
