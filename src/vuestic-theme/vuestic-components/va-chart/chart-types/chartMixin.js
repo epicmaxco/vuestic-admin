@@ -7,6 +7,22 @@ export const chartMixin = {
   mounted () {
     this.refresh()
   },
+  watch: {
+    '$themes.primary' () {
+      this.options.animation = false
+      this.refresh()
+    },
+
+    '$themes.info' () {
+      this.options.animation = false
+      this.refresh()
+    },
+
+    '$themes.danger' () {
+      this.options.animation = false
+      this.refresh()
+    },
+  },
   methods: {
     refresh () {
       this.renderChart(this.chartData, this.options)
