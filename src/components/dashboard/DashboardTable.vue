@@ -1,25 +1,26 @@
 <template>
   <va-card :title="$t('dashboard.table.title')">
-    <div class="row">
-      <div class="flex pb-0">
-        <va-input
-          :value="term"
-          :placeholder="$t('tables.searchByName')"
-          style="minWidth: 260px"
-          @input="search"
-        >
-          <va-icon name="fa fa-search" slot="prepend" />
-        </va-input>
+    <div class="row align--center mb-1">
+      <div class="flex xs12 sm6">
+          <va-input
+            class="ma-0"
+            :value="term"
+            :placeholder="$t('tables.searchByName')"
+            @input="search"
+          >
+            <va-icon name="fa fa-search" slot="prepend" />
+          </va-input>
       </div>
 
-      <div class="spacer" />
-
-      <div class="flex">
-        <va-button-toggle
-          outline
-          v-model="mode"
-          :options="modeOptions"
-        />
+      <div class="flex xs12 sm6">
+        <div class="d-flex justify--end">
+          <va-button-toggle
+            outline
+            v-model="mode"
+            :options="modeOptions"
+            style="max-width: 100%"
+          />
+        </div>
       </div>
     </div>
 
