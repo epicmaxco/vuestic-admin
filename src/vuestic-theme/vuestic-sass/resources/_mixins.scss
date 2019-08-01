@@ -18,6 +18,10 @@
 @mixin va-header-margin($element) {
   margin-top: map_get($display-margins, $element);
   margin-bottom: map_get($display-margins, $element) / 2;
+
+  [class*="medium-editor"] &:first-child {
+    margin-top: map_get($display-margins, $element) / 2;
+  }
 }
 
 @mixin va-display($element) {

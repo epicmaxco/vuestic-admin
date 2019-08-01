@@ -66,6 +66,8 @@ export default {
 
 .va-medium-editor{
   min-width: 6rem;
+  max-width: 600px;
+
   &:focus {
     outline: none;
   }
