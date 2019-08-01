@@ -45,43 +45,43 @@
 
       <div class="flex xs12 md6">
         <va-card :title="$t('popovers.popoverPlacement')">
-          <p>
+          <p class="my-2 mx-2">
             Any text can be used for
             <va-popover
-              placement="top"
-              message="Top tooltip text"
+              placement="bottom"
+              message="Bottom tooltip"
             >
-              <a href="#" class="link">
-                {{ $t('notificationsPage.popovers.topTooltip') }}
+              <a class="link">
+                {{ $t('notificationsPage.popovers.bottomTooltip') }}
               </a>
             </va-popover>
-            showcase. Just anything you can possibly imagine to test
+            tooltip showcase. Just anything you can possibly imagine to test
             <va-popover
               placement="right"
-              message="Right tooltip text"
+              message="Right tooltip"
             >
-              <a href="#" class="link">
+              <a class="link">
                 {{ $t('notificationsPage.popovers.rightTooltip') }}
               </a>
             </va-popover>
-            .
+            tooltip.
             But it can appear on the
             <va-popover
               placement="left"
-              message="Left tooltip text"
+              message="Left tooltip"
             >
-              <a href="#" class="link">
+              <a class="link">
                 {{$t('notificationsPage.popovers.leftTooltip')}}
               </a>
             </va-popover>
             .
             Or just
             <va-popover
-              placement="bottom"
-              message="Bottom tooltip text"
+              placement="top"
+              message="Top tooltip"
             >
-              <a href="#" class="link">
-                {{ $t('notificationsPage.popovers.bottomTooltip') }}
+              <a class="link">
+                {{ $t('notificationsPage.popovers.topTooltip') }}
               </a>
             </va-popover>
             the item.

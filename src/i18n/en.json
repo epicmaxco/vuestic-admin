@@ -179,8 +179,8 @@
       "popoverTextLabel": "Popover Text",
       "popoverIconLabel": "Popover Icon (fontawesome)",
       "showPopover": "Show Popover",
-      "topTooltip": "top tooltip",
-      "rightTooltip": "rightside tooltip",
+      "topTooltip": "top",
+      "rightTooltip": "rightside",
       "leftTooltip": "left",
       "bottomTooltip": "below"
     },
