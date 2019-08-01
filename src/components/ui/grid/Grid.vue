@@ -35,7 +35,7 @@
     <div class="flex md12 xs12">
       <va-card title="Desktop Grid">
         <div class="row">
-          <div class="flex xs4" v-for="i in 3" :key="`4${i}`">
+          <div class="flex xs6 lg4" v-for="i in 3" :key="`4${i}`">
             <div
               class="grid__container flex-center"
               :style="computedStyle"
@@ -45,7 +45,7 @@
           </div>
         </div>
         <div class="row">
-          <div v-for="i in 6" :key="i" class="flex xs2">
+          <div v-for="i in 6" :key="i" class="flex xs4 lg2">
             <div
               class="grid__container flex-center"
               :style="computedStyle"
@@ -53,7 +53,7 @@
           </div>
         </div>
         <div class="row">
-          <div v-for="i in 12" :key="i" class="flex xs1">
+          <div v-for="i in 12" :key="i" class="flex xs3 lg1">
             <div
               class="grid__container flex-center"
               :style="computedStyle"
@@ -88,23 +88,23 @@
           </div>
         </div>
         <div class="row">
-          <div class="flex xs2 md4">
+          <div class="flex xs3 md4">
             <div
               class="grid__container flex-center"
               :style="computedStyle"
-            >xs2 md4</div>
+            >xs3 md4</div>
           </div>
-          <div class="flex xs8 md4">
+          <div class="flex xs6 md4">
             <div
               class="grid__container flex-center"
               :style="computedStyle"
-            >xs8 md4</div>
+            >xs6 md4</div>
           </div>
-          <div class="flex xs2 md4">
+          <div class="flex xs3 md4">
             <div
               class="grid__container flex-center"
               :style="computedStyle"
-            >xs2 md4</div>
+            >xs3 md4</div>
           </div>
         </div>
       </va-card>
@@ -165,6 +165,12 @@ export default {
     min-height: 3rem;
     color: $white;
     border-radius: 0.5rem;
+
+    @include media-breakpoint-down(xs) {
+      padding: 0.5rem;
+      text-align: center;
+      font-size: 0.75rem;
+    }
   }
 }
 

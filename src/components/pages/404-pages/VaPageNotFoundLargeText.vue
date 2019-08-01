@@ -22,7 +22,7 @@ export default {
     color: $white;
     font-weight: 600;
     @include media-breakpoint-down(xs) {
-      font-size: 16rem;
+      font-size: 12rem;
     }
   }
 }

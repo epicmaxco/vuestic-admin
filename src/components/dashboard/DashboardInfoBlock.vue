@@ -25,16 +25,16 @@
           <va-card>
             <div class="row row-separated">
               <div class="flex xs4">
-                <p class="display-2 mb-0" :style="{color: this.$themes.primary}">3</p>
-                <p>{{$t('dashboard.info.users')}}</p>
+                <p class="display-2 mb-0 text--center" :style="{color: this.$themes.primary}">3</p>
+                <p class="text--center">{{$t('dashboard.info.users')}}</p>
               </div>
               <div class="flex xs4">
-                <p class="display-2 mb-0" :style="{color: this.$themes.info}">24</p>
-                <p>{{$t('dashboard.info.points')}}</p>
+                <p class="display-2 mb-0 text--center" :style="{color: this.$themes.info}">24</p>
+                <p class="text--center">{{$t('dashboard.info.points')}}</p>
               </div>
               <div class="flex xs4">
-                <p class="display-2 mb-0" :style="{color: this.$themes.warning}">91</p>
-                <p>{{$t('dashboard.info.units')}}</p>
+                <p class="display-2 mb-0 text--center" :style="{color: this.$themes.warning}">91</p>
+                <p class="text--center">{{$t('dashboard.info.units')}}</p>
               </div>
             </div>
           </va-card>
@@ -105,7 +105,15 @@ export default {
 </script>
 
 <style lang="scss">
-  .row-separated .flex + .flex{
-    border-left: 1px solid #e3eaeb;
+  .row-separated {
+    .flex + .flex {
+      border-left: 1px solid #e3eaeb;
+    }
+
+    @include media-breakpoint-down(xs) {
+      p:not(.display-2){
+        font-size: 0.875rem;
+      }
+    }
   }
 </style>
