@@ -129,7 +129,13 @@ export default {
 
   a {
     color: $white;
-    transform: translateY(2px);
+    transform: translateY(1px);
+  }
+
+  input {
+    margin-left: 4px !important;
+    transform: translateY(-2px);
+    border-radius: 13px;
   }
 
   .medium-editor-toolbar-close {
