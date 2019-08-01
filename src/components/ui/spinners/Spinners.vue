@@ -1,7 +1,7 @@
 <template>
 <div class="spinners">
   <va-card :title="$t('spinners.title')">
-    <div class="row">
+    <div class="row mt-0">
       <div class="d-flex flex xs12 lg4 align--center">
         <span class="shrink pr-3 spinners__size-smaller">A</span>
         <va-slider
