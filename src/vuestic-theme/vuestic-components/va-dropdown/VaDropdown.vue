@@ -219,6 +219,10 @@ export default {
         },
       }
 
+      if (!this.preventOverflow) {
+        options.modifiers.hide = { enabled: false }
+      }
+
       if (this.boundaryBody) {
         options.modifiers.preventOverflow.boundariesElement = document.body
       }
