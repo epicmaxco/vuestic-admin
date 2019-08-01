@@ -10,7 +10,8 @@
               <h1>Select Text To Open Editor</h1>
 
               <p>
-                You enter into your favorite local bar looking <b>good</b> as hell, but you know the only
+                You enter into your favorite local bar looking
+                <span class="default-selection"><b>good</b></span> as hell, but you know the only
                 heads you want to turn—spicy & stylish alpha bitches — are heavily
                 fixated on the D. The hot girl talks to you, but she only wants to
                 be your best friend. Her nonthreatening and attentive best friend.
