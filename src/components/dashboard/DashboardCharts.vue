@@ -28,7 +28,7 @@
 
     <div class="flex xs12 md6 xl3">
       <va-card :title="$t('dashboard.charts.topContributors')">
-        <va-button flat small slot="actions">
+        <va-button flat small slot="actions" class="mr-0">
           {{ $t('dashboard.charts.showAll') }}
         </va-button>
 

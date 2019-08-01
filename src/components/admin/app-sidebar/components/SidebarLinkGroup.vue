@@ -183,6 +183,7 @@ export default {
     list-style: none;
     padding-left: 0;
     width: 100%;
+    overflow: hidden;
 
     a {
       display: block;
