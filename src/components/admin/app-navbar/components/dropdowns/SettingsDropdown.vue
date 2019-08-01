@@ -1,7 +1,8 @@
 <template>
   <va-dropdown
     class="settings-dropdown"
-    offset="15px, 0">
+    offset="0, 16px"
+  >
     <va-icon
       name="vuestic-iconset vuestic-iconset-settings"
       color="white"
@@ -74,6 +75,10 @@ export default {
     .va-button-group {
       margin: 0;
     }
+  }
+
+  .va-dropdown__anchor {
+    display: inline-block;
   }
 }
 </style>

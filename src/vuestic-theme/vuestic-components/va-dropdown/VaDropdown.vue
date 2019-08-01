@@ -217,6 +217,9 @@ export default {
         arrow: {
           enabled: false,
         },
+        onCreate: () => {
+          this.$emit('input', true)
+        },
       }
 
       if (!this.preventOverflow) {
@@ -241,10 +244,13 @@ export default {
         this.$refs.content,
         options,
       )
+
       // temporary solution
       this.updatePopper()
     },
     removePopper () {
+      this.$emit('input', false)
+
       if (!this.popperInstance) {
         return
       }

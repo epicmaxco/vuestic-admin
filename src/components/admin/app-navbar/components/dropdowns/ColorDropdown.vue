@@ -1,5 +1,8 @@
 <template>
-  <va-dropdown class="color-dropdown">
+  <va-dropdown
+    class="color-dropdown"
+    offset="0, 13px"
+  >
     <va-icon
       name="i-nav-color"
       slot="anchor"
@@ -88,6 +91,7 @@ export default {
 
 .color-dropdown {
   cursor: pointer;
+  margin-top: 0.3rem;
 
   &__icon {
     position: relative;
@@ -109,6 +113,10 @@ export default {
         margin-left: 0.5rem;
       }
     }
+  }
+
+  .va-dropdown__anchor {
+    display: inline-block;
   }
 }
 </style>

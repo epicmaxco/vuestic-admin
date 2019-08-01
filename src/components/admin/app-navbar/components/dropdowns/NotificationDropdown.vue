@@ -1,7 +1,7 @@
 <template>
   <va-dropdown
     class="notification-dropdown"
-    offset="15px, 0"
+    offset="0, 16px"
     boundary-body
   >
     <va-icon
@@ -89,6 +89,7 @@ export default {
 
 .notification-dropdown {
   cursor: pointer;
+  margin-top: 0.3rem;
 
   .notification-dropdown__icon {
     position: relative;
@@ -150,6 +151,10 @@ export default {
       height: 1.5rem;
       min-width: 1.5rem;
     }
+  }
+
+  .va-dropdown__anchor {
+    display: inline-block;
   }
 }
 </style>
