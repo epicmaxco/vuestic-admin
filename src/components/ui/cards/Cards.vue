@@ -3,7 +3,7 @@
     <div class="cards-container row d-flex wrap align--start">
       <!-- eslint-disable vue/valid-v-for -->
       <template v-for="loop in listLoops">
-        <div class="flex xs12 sm6" :key="loop">
+        <div class="flex xs12 sm6" :key="loop + '-1'">
           <va-card
             :title="$t('cards.title.default')"
           >
@@ -11,7 +11,7 @@
           </va-card>
         </div>
 
-        <div class="flex xs12 sm6" :key="loop">
+        <div class="flex xs12 sm6" :key="loop + '-2'">
           <va-card
             :title="$t('cards.title.withControls')"
           >
@@ -23,7 +23,7 @@
           </va-card>
         </div>
 
-        <div class="flex xs12 sm6" :key="loop">
+        <div class="flex xs12 sm6" :key="loop + '-3'">
           <va-card>
             <template slot="header">
               <va-icon name="fa fa-cogs mr-3" color="success"/>
@@ -33,14 +33,14 @@
           </va-card>
         </div>
 
-        <div class="flex xs12 sm6" :key="loop">
+        <div class="flex xs12 sm6" :key="loop + '-4'">
           <va-card>
             <p>{{ $t('cards.title.withoutHeader') }}</p>
             {{ $t('cards.contentTextLong') }}
           </va-card>
         </div>
 
-        <div class="flex xs12 sm6 lg4 xl3" :key="loop">
+        <div class="flex xs12 sm6 lg4 xl3" :key="loop + '-5'">
           <va-card
             image="https://picsum.photos/300/200/?image=1043"
             :title="$t('cards.title.withImage')"
@@ -49,7 +49,7 @@
           </va-card>
         </div>
 
-        <div class="flex xs12 sm6 lg4 xl3" :key="loop">
+        <div class="flex xs12 sm6 lg4 xl3" :key="loop + '-6'">
           <va-card
             overlay
             titleOnImage
@@ -60,7 +60,7 @@
           </va-card>
         </div>
 
-        <div class="flex xs12 sm6 lg4 xl3" :key="loop">
+        <div class="flex xs12 sm6 lg4 xl3" :key="loop + '-7'">
           <va-card
             overlay
             titleOnImage
@@ -73,7 +73,7 @@
           </va-card>
         </div>
 
-        <div class="flex xs12 sm6 lg4 xl3" :key="loop">
+        <div class="flex xs12 sm6 lg4 xl3" :key="loop + '-8'">
           <va-card
             stripe="danger"
             :title="$t('cards.title.withStripe')"
@@ -82,7 +82,7 @@
           </va-card>
         </div>
 
-        <div class="flex xs12 sm6 lg4 xl3" :key="loop">
+        <div class="flex xs12 sm6 lg4 xl3" :key="loop + '-9'">
           <va-card
             color="success"
           >
@@ -90,7 +90,7 @@
           </va-card>
         </div>
 
-        <div class="flex xs12 sm6 lg4 xl3" :key="loop">
+        <div class="flex xs12 sm6 lg4 xl3" :key="loop + '-10'">
           <va-card
             color="danger"
           >
@@ -98,7 +98,7 @@
           </va-card>
         </div>
 
-        <div class="flex xs12 sm6 lg4 xl3" :key="loop">
+        <div class="flex xs12 sm6 lg4 xl3" :key="loop + '-11'">
           <va-card
             stripe="info"
             :title="$t('cards.title.withStripe')"
@@ -107,7 +107,7 @@
           </va-card>
         </div>
 
-        <div class="flex xs12 sm6 lg4 xl3" :key="loop">
+        <div class="flex xs12 sm6 lg4 xl3" :key="loop + '-12'">
           <va-card
             overlay
             titleOnImage
@@ -120,16 +120,11 @@
       </template>
     </div>
 
-    <div class="pre-loader-container flex-center my-5">
-      <va-pre-loader
-        v-show="isShown"
-        class="pre-loader"/>
-      <div v-if="!isShown">
-        <va-button @click="addCards()">
-          Show More
-        </va-button>
-      </div>
-    </div>
+    <va-inner-loading class="flex-center py-3" :loading="isLoading">
+      <va-button @click="addCards()">
+        Show More
+      </va-button>
+    </va-inner-loading>
   </div>
 </template>
 
@@ -139,14 +134,15 @@ export default {
   data () {
     return {
       listLoops: 1,
-      isShown: false,
+      counter: 1,
+      isLoading: false,
     }
   },
   methods: {
     addCards () {
-      this.isShown = true
+      this.isLoading = true
       setTimeout(() => {
-        this.isShown = false
+        this.isLoading = false
         ++this.listLoops
       }, 1000)
     },

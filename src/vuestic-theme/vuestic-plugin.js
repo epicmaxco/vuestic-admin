@@ -36,7 +36,6 @@ import VaPagination from './vuestic-components/va-pagination/VaPagination.vue'
 import VaPopover from './vuestic-components/va-popover/VaPopover.vue'
 import VaPopup
   from './vuestic-components/va-popup/popup/VaPopup.vue'
-import VaPreLoader from './vuestic-components/va-pre-loader/VaPreLoader.vue'
 import VaProgressBar
   from './vuestic-components/va-progress-bar/progress-types/VaProgressBar.vue'
 import VaProgressCircle
@@ -104,7 +103,6 @@ const VuesticPlugin = {
       VaPagination,
       VaPopover,
       VaPopup,
-      VaPreLoader,
       VaProgressBar,
       VaProgressBar,
       VaProgressCircle,
@@ -123,6 +121,7 @@ const VuesticPlugin = {
       VaTreeCategory,
       VaTreeNode,
       VaTreeRoot,
+      VaInnerLoading,
     ].forEach(component => {
       Vue.component(component.name, component)
     })
