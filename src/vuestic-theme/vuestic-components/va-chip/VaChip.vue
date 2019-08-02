@@ -15,7 +15,7 @@
         v-if="icon"
         fixed-width
         class="va-chip__content__icon va-chip__content__icon-left flex-center"
-        :color="outline ? color : ''"
+        :color="color"
         :name="icon"
       />
       <div
@@ -28,7 +28,7 @@
         v-if="iconRight || removable"
         fixed-width
         class="va-chip__content__icon scr va-chip__content__icon-right flex-center"
-        :color="outline ? color : ''"
+        :color="color"
         :name="removable ? 'ion ion-md-close ion' : iconRight"
       />
     </div>
@@ -38,7 +38,6 @@
 <script>
 import VaIcon from '../va-icon/VaIcon'
 import {
-  getFocusColor,
   getHoverColor,
   getBoxShadowColor,
 } from '../../../services/color-functions'
@@ -52,9 +51,6 @@ export default {
     value: {
       type: Boolean,
       default: true,
-    },
-    outline: {
-      type: Boolean,
     },
     color: {
       type: String,
@@ -85,8 +81,6 @@ export default {
   computed: {
     chipClass () {
       return {
-        'va-chip--default': !this.outline,
-        'va-chip--outline': this.outline,
         'va-chip--without-title': !this.hasTitleData,
         'va-chip--with-left-icon': this.icon,
         'va-chip--with-right-icon': this.iconRight || this.removable,
@@ -98,22 +92,21 @@ export default {
     chipStyle () {
       if (this.focusState) {
         return {
-          color: this.outline ? this.$themes[this.color] : '#ffffff',
+          color: this.$themes[this.color],
           boxShadow: '0 0.125rem 0.19rem 0 ' + getBoxShadowColor(this.$themes[this.color]),
           borderColor: this.$themes[this.color],
-          backgroundColor: this.outline ? getFocusColor(this.$themes[this.color]) : this.$themes[this.color],
+          backgroundColor: getHoverColor(this.$themes[this.color]),
         }
       } else if (this.hoverState) {
         return {
-          color: this.outline ? this.$themes[this.color] : '#ffffff',
+          color: this.$themes[this.color],
           borderColor: this.$themes[this.color],
-          backgroundColor: this.outline ? getHoverColor(this.$themes[this.color]) : this.$themes[this.color],
+          backgroundColor: getHoverColor(this.$themes[this.color]),
         }
       } else {
         return {
-          color: this.outline ? this.$themes[this.color] : '#ffffff',
+          color: this.$themes[this.color],
           borderColor: this.$themes[this.color],
-          backgroundColor: this.outline ? '' : this.$themes[this.color],
         }
       }
     },
@@ -145,17 +138,13 @@ export default {
   color: $white;
   border: solid $chip-border-outline;
   font-family: $font-family-sans-serif;
+  background-color: transparent;
   background-image: none;
   box-shadow: none;
   outline: none !important;
   letter-spacing: normal;
   text-decoration: none !important;
   cursor: pointer;
-
-  &--outline {
-    background-color: transparent;
-    text-decoration: none;
-  }
 
   &__content {
 

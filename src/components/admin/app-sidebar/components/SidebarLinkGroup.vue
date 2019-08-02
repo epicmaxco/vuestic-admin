@@ -186,6 +186,7 @@ export default {
     overflow: hidden;
 
     a {
+      font-size: 0.875rem;
       display: block;
       padding-left: 2.75rem;
     }
