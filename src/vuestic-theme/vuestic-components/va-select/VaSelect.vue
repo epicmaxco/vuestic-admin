@@ -90,7 +90,7 @@
       />
       <va-icon
         class="va-select__open-icon"
-        :name="visible ? 'fa fa-chevron-up' : 'fa fa-chevron-down'"
+        :name="visible ? 'fa fa-angle-up' : 'fa fa-angle-down'"
       />
     </div>
   </va-dropdown>
