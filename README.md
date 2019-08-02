@@ -6,8 +6,8 @@
   
 <p align="center">
   Free and beautiful Vue.js admin template with 44+ custom UI components.</br>
-  Developed by  <a href="https://epicmax.co"> Epicmax </a>. 
-  Designed by <a href="https://www.xxsavitski.com"> Vasili Savitski </a>
+  Developed by  <a href="https://epicmax.co">Epicmax</a>. 
+  Designed by <a href="https://www.xxsavitski.com">Vasili Savitski</a>
 </p>
 
 <p align="center">
@@ -19,11 +19,6 @@
     <img src="https://i.imgur.com/z7GEIWz.jpg" align="center" width="888px"/>
   </a>
 </p>
-
-<p align="left">
-  Stay up to date with the latest Vuestic news! Follow us on <a href="https://twitter.com/epicmaxco"> Twitter </a> or <a href="https://facebook.com/epicmaxco"> Facebook </a>
-</p>
-
 
 ## Installation
 
@@ -122,6 +117,8 @@ Thanks for all your wonderful PRs, issues and ideas. You’re always welcome to 
 Yes! Say hi: [hello@epicmax.co](mailto:hello@epicmax.co) </br>
 We will be happy to work with you! Other [work we’ve done](https://epicmax.co)
 
+## Follow us
+Stay up to date with the latest Vuestic news! Follow us on [Twitter](https://twitter.com/epicmaxco) or [Facebook](https://facebook.com/epicmaxco)
 
 ## License
 [MIT](https://github.com/epicmaxco/vuestic-admin/blob/master/LICENSE) license.
