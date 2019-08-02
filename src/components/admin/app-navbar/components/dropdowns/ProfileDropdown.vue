@@ -12,15 +12,15 @@
       <slot/>
       <va-icon
         class="pa-1"
-        :name="`fa ${isShown ? 'fa-chevron-up' :'fa-chevron-down'}`"
+        :name="`fa ${isShown ? 'fa-angle-up' :'fa-angle-down'}`"
       />
     </span>
-    <div class="profile-dropdown__content py-3 px-2">
+    <div class="profile-dropdown__content pl-4 pr-4 pt-2 pb-2">
       <router-link
         v-for="option in options"
         :key="option.name"
         :to="{name: option.redirectTo}"
-        class="profile-dropdown__item pb-2"
+        class="profile-dropdown__item pt-1 pb-1 mt-2 mb-2"
       >
         {{ $t(`user.${option.name}`) }}
       </router-link>
@@ -69,7 +69,7 @@ export default {
     background-color: $dropdown-background;
     box-shadow: $gray-box-shadow;
     border-radius: .5rem;
-    width: 6rem;
+    width: 8rem;
   }
   &__item {
     display: block;
