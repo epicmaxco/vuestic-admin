@@ -43,8 +43,12 @@
         <div
           ref="dot0"
           class="va-slider__container__handler"
+          :class="{'va-slider__container__handler--on-keyboard-focus': isKeyboardFocused === 1}"
           :style="dottedStyles[0]"
-          @mousedown="moveStart($event, 0)"
+          @mousedown="(moveStart($event, 0), setMouseDown($event, 1))"
+          @focus="onFocus($event, 1)"
+          @blur="isKeyboardFocused = false"
+          :tabindex="!this.disabled && 0"
         >
           <div
             v-if="valueVisible"
@@ -57,8 +61,12 @@
         <div
           ref="dot1"
           class="va-slider__container__handler"
+          :class="{'va-slider__container__handler--on-keyboard-focus': isKeyboardFocused === 2}"
           :style="dottedStyles[1]"
-          @mousedown="moveStart($event, 1)"
+          @mousedown="(moveStart($event, 1), setMouseDown($event, 2))"
+          @focus="onFocus($event, 2)"
+          @blur="isKeyboardFocused = false"
+          :tabindex="!this.disabled && 0"
         >
           <div
             v-if="valueVisible"
@@ -77,8 +85,12 @@
         <div
           ref="dot"
           class="va-slider__container__handler"
+          :class="{'va-slider__container__handler--on-keyboard-focus': isKeyboardFocused}"
           :style="dottedStyles"
-          @mousedown="moveStart"
+          @mousedown="(moveStart(), setMouseDown())"
+          @focus="onFocus"
+          @blur="isKeyboardFocused = false"
+          :tabindex="!this.disabled && 0"
         >
           <div
             v-if="valueVisible"
@@ -112,13 +124,17 @@ import { validateSlider } from './validateSlider'
 import { getHoverColor } from '../../../services/color-functions'
 import VaIcon from '../va-icon/VaIcon'
 import { ColorThemeMixin } from '../../../services/ColorThemePlugin'
+import { KeyboardOnlyFocusMixin } from '../va-checkbox/KeyboardOnlyFocusMixin'
 
 export default {
   name: 'va-slider',
   components: {
     VaIcon,
   },
-  mixins: [ColorThemeMixin],
+  mixins: [
+    ColorThemeMixin,
+    KeyboardOnlyFocusMixin,
+  ],
   props: {
     range: {
       type: Boolean,
@@ -298,11 +314,16 @@ export default {
       document.addEventListener('mousemove', this.moving)
       document.addEventListener('mouseup', this.moveEnd)
       document.addEventListener('mouseleave', this.moveEnd)
+      document.addEventListener('keydown', this.moveWithKeys)
     },
     unbindEvents () {
       document.removeEventListener('mousemove', this.moving)
       document.removeEventListener('mouseup', this.moveEnd)
       document.removeEventListener('mouseleave', this.moveEnd)
+      document.removeEventListener('keydown', this.moveWithKeys)
+    },
+    setMouseDown (e, index) {
+      this.hasMouseDown = index || true
     },
     moveStart (e, index) {
       if (this.isRange) {
@@ -330,6 +351,87 @@ export default {
           return false
         }
         this.flag = false
+        this.hasMouseDown = false
+      }
+    },
+    moveWithKeys (event) {
+      // don't do anything if a dot isn't focused or if the slider's disabled
+      if (![this.$refs.dot0, this.$refs.dot1, this.$refs.dot].includes(document.activeElement)) return
+      if (this.disabled) return
+
+      /*
+        where: where to move
+          0 - to left
+          1 - to right
+
+        which: which dot to move (only makes sence when isRange is true)
+          0 - left dot
+          1 - right dot
+       */
+      const moveDot = (isRange, where, which) => {
+        if (isRange) {
+          if (!this.pins) return this.val.splice(which, 1, this.val[which] + (where ? this.step : -this.step))
+
+          // how many value units one pin occupies
+          let onePinInterval = (this.max - this.min) / (this.pinsCol + 1)
+          // how many full pins are to the left of the dot now
+          let fullPinsNow = this.val[which] / onePinInterval | 0
+          // the value of the nearest pin
+          let nearestPinVal = fullPinsNow * onePinInterval
+
+          if (this.val[which] !== nearestPinVal) { // if the dot's not pinned already
+            nearestPinVal += where ? onePinInterval : 0 // take one more pin if moving right
+            this.val.splice(which, 1, nearestPinVal)
+          } else {
+            this.val.splice(which, 1, this.val[which] + (where ? this.step : -this.step))
+          }
+        } else {
+          if (!this.pins) {
+            this.val += where ? this.step : -this.step
+            return
+          }
+
+          // how many value units one pin occupies
+          let onePinInterval = (this.max - this.min) / (this.pinsCol + 1)
+          // how many full pins are to the left of the dot now
+          let fullPinsNow = this.val / onePinInterval | 0
+          // the value of the nearest pin
+          let nearestPinVal = fullPinsNow * onePinInterval
+
+          if (this.val !== nearestPinVal) { // if the dot's not pinned already
+            nearestPinVal += where ? onePinInterval : 0 // take one more pin if moving right
+            this.val = nearestPinVal
+          } else {
+            this.val += where ? this.step : -this.step
+          }
+        }
+      }
+
+      if (this.range) {
+        if (this.$refs.dot0 === document.activeElement) { // left dot
+          if (
+            event.keyCode === 37 && // left arrow pressed
+            !((this.val[0] - this.step) < this.min) // and won't become less than `min`
+          ) moveDot(true, 0, 0)
+
+          if (
+            event.keyCode === 39 && // right arrow pressed
+            !((this.val[0] + this.step) > this.val[1]) // and won't become more than the second dot is
+          ) moveDot(true, 1, 0)
+        } else if (this.$refs.dot1 === document.activeElement) { // right dot
+          if (
+            event.keyCode === 37 && // left arrow pressed
+            !((this.val[1] - this.step) < this.val[0]) // and won't become less then the first dot is
+          ) moveDot(true, 0, 1)
+
+          if (
+            event.keyCode === 39 && // right arrow pressed
+            !((this.val[1] + this.step) > this.max) // and won't become more than `max`
+          ) moveDot(true, 1, 1)
+        }
+      } else {
+        if (event.keyCode === 37) moveDot(false, 0)
+        if (event.keyCode === 39) moveDot(false, 1)
       }
     },
     wrapClick (e) {
@@ -591,9 +693,25 @@ export default {
       background: $white;
       border: 0.375rem solid;
       border-radius: 50%;
+      outline: none !important;
 
       &:hover {
         cursor: pointer;
+      }
+
+      &--on-keyboard-focus {
+        @at-root .va-slider__container__handler#{&}:before {
+          content: '';
+          transform: translate(-0.625rem, -0.625rem);
+          background-color: black !important;
+          display: block;
+          width: 1.75rem;
+          height: 1.75rem;
+          position: absolute;
+          border-radius: 50%;
+          opacity: 0.1;
+          pointer-events: none;
+        }
       }
 
       &-value {
