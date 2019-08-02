@@ -25,6 +25,10 @@
     "halves": "Halves",
     "small": "Small"
   },
+  "typography": {
+    "primary": "Primary text styles",
+    "secondary": "Secondary text styles"
+  },
   "buttons": {
     "advanced": "Buttons With Icons",
     "size": "Button Sizes",
@@ -33,8 +37,8 @@
     "buttonGroups": "Button Groups",
     "buttonToggles": "Button Toggles",
     "pagination": "Pagination",
-    "a-link": "A-LINK",
-    "router-link": "ROUTER-LINK",
+    "a-link": "Open EpicSpinners",
+    "router-link": "Move to Charts",
     "colors": "Button Colors",
     "disabled": "DISABLED",
     "dropdown": "DROPDOWN",
@@ -249,7 +253,7 @@
     "responsive": "Responsive Grid"
   },
   "icons": {
-    "back": "Back to icons",
+    "back": "Back to all icons",
     "none": "No icons found",
     "search": "Icon search",
     "title": "Icons"

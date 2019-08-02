@@ -7,12 +7,12 @@
       <slot name="checkbox"/>
     </div>
     <div class="va-tree-node__icon" v-if="icon">
-      <va-icon :name="icon" :color="$themes['info']"/>
+      <va-icon :name="icon" :color="$themes['info']" :size="24"/>
     </div>
     <div class="va-tree-node__label">
       <slot/>
     </div>
-    <div class="va-tree-node__icon-right" v-if="iconRight">
+    <div class="va-tree-node__icon-right" v-if="iconRight" :size="24">
       <va-icon :name="iconRight" :color="$themes['info']"/>
     </div>
   </div>
@@ -48,16 +48,12 @@ export default {
     margin-bottom: 0;
   }
 
-  &__checkbox {
+  &__icon {
     margin-right: .5rem;
   }
 
-  &__icon {
-    margin-right: .375rem;
-  }
-
   &__icon-right {
-    margin-left: .375rem;
+    margin-left: .5rem;
   }
 
   &__label {
