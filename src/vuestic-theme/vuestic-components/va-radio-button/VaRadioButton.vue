@@ -103,6 +103,8 @@ export default {
   flex-direction: row;
 
   &__icon {
+    display: flex;
+    align-items: center;
     width: 1.4rem;
     height: 1.4rem;
     border-radius: 1.8rem;
@@ -121,7 +123,6 @@ export default {
         height: 0.625rem;
         border-radius: 1rem;
         border: solid 0.35rem;
-        margin-top: 0.1875rem;
         margin-left: 0.1875rem;
       }
     }
