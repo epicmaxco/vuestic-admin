@@ -95,6 +95,10 @@ export default [
         itemLink: '/admin/ui/icons',
       },
       {
+        itemName: 'Lists',
+        itemLink: '/admin/ui/lists',
+      },
+      {
         itemName: 'Modals',
         itemLink: '/admin/ui/modals',
       },
