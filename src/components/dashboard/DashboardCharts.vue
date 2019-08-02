@@ -84,6 +84,21 @@ export default {
       }],
     }
   },
+  watch: {
+    '$themes.primary' () {
+      this.lineChartData = getLineChartData(this.$themes)
+      this.donutChartData = getDonutChartData(this.$themes)
+    },
+
+    '$themes.info' () {
+      this.lineChartData = getLineChartData(this.$themes)
+      this.donutChartData = getDonutChartData(this.$themes)
+    },
+
+    '$themes.danger' () {
+      this.donutChartData = getDonutChartData(this.$themes)
+    },
+  },
   methods: {
     getPercent (val) {
       return (val / this.progressMax) * 100

@@ -1,7 +1,7 @@
 <template>
   <va-dropdown
     class="language-dropdown"
-    offset="0, 15"
+    offset="0, 16px"
     fixed
   >
     <va-icon slot="anchor" :name="['flag-icon flag-icon-large', flagIconClass(currentLanguage())]"/>
@@ -71,11 +71,13 @@ export default {
 
 .language-dropdown {
   cursor: pointer;
+  margin-top: 0.3rem;
+
   &__content {
     background-color: $dropdown-background;
     box-shadow: $gray-box-shadow;
     border-radius: .5rem;
-    max-width: 9rem !important;
+    width: 12rem;
     .flag-icon-small {
       min-width: 1.5rem;
       min-height: 1.5rem;
@@ -93,11 +95,18 @@ export default {
       color: $vue-green;
     }
   }
+
+  .flag-icon:before {
+    content: "";
+  }
   .flag-icon-large {
     display: block;
     width: 31px;
     height: 23px;
   }
 
+  .va-dropdown__anchor {
+    display: inline-block;
+  }
 }
 </style>

@@ -217,6 +217,13 @@ export default {
         arrow: {
           enabled: false,
         },
+        onCreate: () => {
+          this.$emit('input', true)
+        },
+      }
+
+      if (!this.preventOverflow) {
+        options.modifiers.hide = { enabled: false }
       }
 
       if (this.boundaryBody) {
@@ -237,10 +244,13 @@ export default {
         this.$refs.content,
         options,
       )
+
       // temporary solution
       this.updatePopper()
     },
     removePopper () {
+      this.$emit('input', false)
+
       if (!this.popperInstance) {
         return
       }
@@ -294,11 +304,7 @@ export default {
 @import '../../vuestic-sass/resources/resources';
 
 .va-dropdown {
-  &__anchor {
-    display: inline-block;
-  }
   &__content {
-    max-width: 80%;
     /*overflow: hidden;*/
     z-index: 100;
   }

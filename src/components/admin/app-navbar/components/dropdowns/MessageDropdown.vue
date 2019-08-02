@@ -1,7 +1,7 @@
 <template>
   <va-dropdown
     class="message-dropdown"
-    offset="15px, 0"
+    offset="0, 16px"
   >
     <va-icon
       name="i-nav-messages"
@@ -73,6 +73,7 @@ export default {
 
 .message-dropdown {
   cursor: pointer;
+  margin-top: 0.3rem;
 
   .message-dropdown__icon {
     position: relative;
@@ -126,6 +127,10 @@ export default {
       min-width: 1.5rem;
       height: 1.5rem;
     }
+  }
+
+  .va-dropdown__anchor {
+    display: inline-block;
   }
 }
 </style>

@@ -65,7 +65,10 @@ export default {
 @import "~medium-editor/src/sass/medium-editor";
 
 .va-medium-editor{
+  margin-bottom: 2.25rem;
   min-width: 6rem;
+  max-width: 600px;
+
   &:focus {
     outline: none;
   }
@@ -126,7 +129,13 @@ export default {
 
   a {
     color: $white;
-    transform: translateY(2px);
+    transform: translateY(1px);
+  }
+
+  input {
+    margin-left: 4px !important;
+    transform: translateY(-2px);
+    border-radius: 13px;
   }
 
   .medium-editor-toolbar-close {
