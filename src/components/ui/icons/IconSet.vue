@@ -4,14 +4,14 @@
       <div class="row">
         <div class="flex md3 xs12">
           <h2
-            class="my-0"
+            class="my-0 ml-2"
             :style="{ color: this.$themes.dark }"
           >
             {{ set.name }}
           </h2>
-          <router-link :to="{ name: 'icon-sets' }" class="link">
+          <va-button outline :to="{ name: 'icon-sets' }">
             {{ $t('icons.back') }}
-          </router-link>
+          </va-button>
         </div>
 
         <div class="flex md5 xs12 flex-center">

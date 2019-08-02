@@ -144,6 +144,7 @@ export default {
   &__header-icon {
     color: $theme-blue-dark;
     margin-right: .5rem;
+    font-size: 24px;
   }
 
   &__header-label {
