@@ -29,6 +29,11 @@
     "primary": "Primary text styles",
     "secondary": "Secondary text styles"
   },
+  "colorPickers": {
+    "simple": "Simple",
+    "slider": "Slider",
+    "advanced": "Advanced"
+  },
   "buttons": {
     "advanced": "Buttons With Icons",
     "size": "Button Sizes",
