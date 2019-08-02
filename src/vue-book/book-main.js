@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import VeeValidate from 'vee-validate'
 import BookApp from './BookApp'
 import VueClipboard from 'vue-clipboard2'
 import Router from 'vue-router'
@@ -39,9 +38,6 @@ registerVuesticObject(Vue)
 Vue.use(BusPlugin)
 Vue.use(VueClipboard)
 Vue.use(DropdownPopperPlugin)
-
-// NOTE: workaround for VeeValidate + vuetable-2
-Vue.use(VeeValidate, { fieldsBagName: 'formFields' })
 
 /* eslint-disable no-new */
 new Vue({

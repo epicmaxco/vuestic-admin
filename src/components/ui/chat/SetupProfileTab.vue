@@ -19,7 +19,6 @@
               type="text"
               name="name"
               v-model="name"
-              v-validate="'required'"
               required="required"/>
             <va-icon name="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
             <va-icon name="fa fa-check valid-icon icon-right input-icon"/>

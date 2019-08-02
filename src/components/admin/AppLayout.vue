@@ -16,10 +16,6 @@
       :class="{'app-layout__main--full-width-sidebar': !minimized}"
       role="main"
     >
-      <va-pre-loader
-        v-show="isLoading"
-        class="pre-loader"
-      />
       <router-view/>
     </main>
   </va-page-layout>
