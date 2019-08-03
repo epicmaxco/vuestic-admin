@@ -30,6 +30,7 @@ export default {
 
 <style>
 .vuestic-slider-picker {
+  max-width: 100%;
   padding: 8px;
 }
 </style>

@@ -1,7 +1,6 @@
 <template>
   <div class="inner-loading">
     <slot />
-
     <div v-if="loading" class="inner-loading__overlay">
       <spring-spinner
         :animation-duration="2000"

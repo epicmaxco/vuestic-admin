@@ -7,13 +7,13 @@
             <div class="row">
               <div class="flex md4 sm6 xs12">
                 <va-input
-                  v-model="empty"
+                  v-model="simple"
                   placeholder="Text Input"
                 />
               </div>
               <div class="flex md4 sm6 xs12">
                 <va-input
-                  v-model="empty"
+                  v-model="withIcon"
                   placeholder="Input With Icon"
                 >
                   <va-icon
@@ -25,7 +25,7 @@
               </div>
               <div class="flex md4 sm6 xs12">
                 <va-input
-                  v-model="empty"
+                  v-model="withButton"
                   placeholder="Input With Button"
                 >
                   <va-button slot="append" style="margin-right: 0;" small>
@@ -59,7 +59,7 @@
               </div>
               <div class="flex md4 sm6 xs12">
                 <va-input
-                  v-model="empty"
+                  v-model="withDescription"
                   placeholder="Text Input (with description)"
                   :messages="messages"
                 />
@@ -72,7 +72,7 @@
       <div class="flex xs12">
         <va-card :title="$t('forms.dateTimePicker.title')">
           <form>
-            <div class="row">
+            <div class="row overflow--hidden">
               <div class="flex md8">
                 <div class="row row-inside">
                   <div class="flex xs12 sm6">
@@ -303,7 +303,10 @@ export default {
       isMale: true,
       countriesList: CountriesList,
       chosenCountry: '',
-      empty: '',
+      simple: '',
+      withIcon: '',
+      withButton: '',
+      withDescription: '',
       clearableText: 'Vasili Savitski',
       successfulEmail: 'andrei@dreamsupport.io',
       wrongEmail: 'andrei@dreamsupport',

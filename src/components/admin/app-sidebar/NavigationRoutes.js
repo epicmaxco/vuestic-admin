@@ -48,13 +48,6 @@ export const navigationRoutes = {
       ],
     },
     {
-      name: 'lists',
-      displayName: 'menu.lists',
-      meta: {
-        iconClass: 'vuestic-iconset-files', // TODO use vuestic list icon when ready
-      },
-    },
-    {
       name: 'tables',
       displayName: 'menu.tables',
       meta: {
@@ -80,28 +73,40 @@ export const navigationRoutes = {
       disabled: true,
       children: [
         {
-          name: 'typography',
-          displayName: 'menu.typography',
-        },
-        {
           name: 'buttons',
           displayName: 'menu.buttons',
+        },
+        {
+          name: 'cards',
+          displayName: 'menu.cards',
+        },
+        {
+          name: 'chat',
+          displayName: 'menu.chat',
+        },
+        {
+          name: 'chips',
+          displayName: 'menu.chips',
         },
         {
           name: 'collapses',
           displayName: 'menu.collapses',
         },
         {
+          name: 'colors',
+          displayName: 'menu.colors',
+        },
+        {
           name: 'color-pickers',
           displayName: 'menu.colorPickers',
         },
         {
-          name: 'timelines',
-          displayName: 'menu.timelines',
+          name: 'file-upload',
+          displayName: 'menu.fileUpload',
         },
         {
-          name: 'notifications',
-          displayName: 'menu.notifications',
+          name: 'grid',
+          displayName: 'menu.grid',
         },
         {
           name: 'icon-sets',
@@ -114,56 +119,52 @@ export const navigationRoutes = {
           ],
         },
         {
-          name: 'spinners',
-          displayName: 'menu.spinners',
-        },
-        {
-          name: 'grid',
-          displayName: 'menu.grid',
+          name: 'lists',
+          displayName: 'menu.lists',
         },
         {
           name: 'modals',
           displayName: 'menu.modals',
         },
         {
-          name: 'file-upload',
-          displayName: 'menu.fileUpload',
-        },
-        {
-          name: 'chips',
-          displayName: 'menu.chips',
-        },
-        {
-          name: 'cards',
-          displayName: 'menu.cards',
-        },
-        {
-          name: 'tree-view',
-          displayName: 'menu.treeView',
-        },
-        {
-          name: 'colors',
-          displayName: 'menu.colors',
-        },
-        {
-          name: 'spacing',
-          displayName: 'menu.spacing',
-        },
-        {
-          name: 'sliders',
-          displayName: 'menu.sliders',
+          name: 'notifications',
+          displayName: 'menu.notifications',
         },
         {
           name: 'popovers',
           displayName: 'menu.popovers',
         },
         {
-          name: 'chat',
-          displayName: 'menu.chat',
-        },
-        {
           name: 'rating',
           displayName: 'menu.rating',
+        },
+        {
+          name: 'sliders',
+          displayName: 'menu.sliders',
+        },
+        {
+          name: 'spacing',
+          displayName: 'menu.spacing',
+        },
+        {
+          name: 'spinners',
+          displayName: 'menu.spinners',
+        },
+        {
+          name: 'tabs',
+          displayName: 'menu.tabs',
+        },
+        {
+          name: 'timelines',
+          displayName: 'menu.timelines',
+        },
+        {
+          name: 'tree-view',
+          displayName: 'menu.treeView',
+        },
+        {
+          name: 'typography',
+          displayName: 'menu.typography',
         },
       ],
     },

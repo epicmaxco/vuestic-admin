@@ -131,11 +131,6 @@ export default new Router({
           ],
         },
         {
-          name: 'lists',
-          path: 'lists',
-          component: () => import('../components/lists/Lists.vue'),
-        },
-        {
           name: 'tables',
           path: 'tables',
           component: EmptyParentComponent,
@@ -314,6 +309,22 @@ export default new Router({
               component: () => import('../components/ui/chat/ChatPage'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Chat',
+              },
+            },
+            {
+              name: 'tabs',
+              path: 'tabs',
+              component: () => import('../components/ui/tabs/Tabs'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tabs',
+              },
+            },
+            {
+              name: 'lists',
+              path: 'lists',
+              component: () => import('../components/lists/Lists.vue'),
+              meta: {
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Lists',
               },
             },
           ],

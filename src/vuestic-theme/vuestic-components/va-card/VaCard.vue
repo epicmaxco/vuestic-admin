@@ -157,10 +157,14 @@ export default {
 
     &--over {
       position: absolute;
-      padding-top: 56%;
+      padding-top: 56%; // here
       width: 100%;
       top: 0;
       left: 0;
+
+      @include media-breakpoint-up(md) {
+        padding-top: 0;
+      }
 
       &:last-child {
         height: 100%;
@@ -178,6 +182,7 @@ export default {
   &__body {
     padding: 0 $card-padding $card-padding;
     flex: 1 1 auto;
+    overflow-x: auto;
 
     &--no-padding-v {
       padding: 0 $card-padding;
@@ -197,10 +202,14 @@ export default {
   }
 
   &__image {
-     padding-bottom: 56%;
+     padding-bottom: 56%; // here
      position: relative;
      height: auto;
      min-height: 100%;
+
+    @include media-breakpoint-up(md) {
+      padding-bottom: 0;
+    }
 
     img {
       position: absolute;

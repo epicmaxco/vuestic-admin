@@ -29,6 +29,10 @@
     @include va-header-margin(6);
   }
 
+  i {
+    font-style: italic;
+  }
+
   hr.separator {
     height: 2px;
     background-color: #eee;
@@ -71,5 +75,9 @@
 
   table {
     @extend .va-table
+  }
+
+  a {
+    @extend .link
   }
 }

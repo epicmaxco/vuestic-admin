@@ -3,7 +3,7 @@
     <div class="va-page-not-found__inner align--center">
       <slot name="image"/>
       <div class="va-page-not-found__title text--center mb-4">{{$t('404.title')}}</div>
-      <div class="va-page-not-found__text text--center">
+      <div class="va-page-not-found__text px-4 text--center">
         <span>
           {{$t('404.text')}}
         </span>
@@ -52,6 +52,9 @@ export default {
       font-size: 3rem;
       line-height: 1.25em;
       font-weight: 500;
+      @include media-breakpoint-down(xs) {
+        font-size: 1.5rem;
+      }
     }
     &__text {
       margin-bottom: 2.5rem;
@@ -61,17 +64,13 @@ export default {
       position: absolute;
       bottom: 0;
       left: 1rem;
-      width: 44%;
-      height: 59%;
+      width: 30%;
+      height: 40%;
       background-color: transparent;
       background-image: url("../../../assets/petro.svg");
       background-repeat: no-repeat;
       background-size: contain;
       background-position: bottom center;
-      @include media-breakpoint-up(xl) {
-        width: 30%;
-        height: 40%;
-      }
       @include media-breakpoint-down(xs) {
         display: none;
       }

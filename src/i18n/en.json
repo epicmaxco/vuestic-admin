@@ -25,6 +25,15 @@
     "halves": "Halves",
     "small": "Small"
   },
+  "typography": {
+    "primary": "Primary text styles",
+    "secondary": "Secondary text styles"
+  },
+  "colorPickers": {
+    "simple": "Simple",
+    "slider": "Slider",
+    "advanced": "Advanced"
+  },
   "buttons": {
     "advanced": "Buttons With Icons",
     "size": "Button Sizes",
@@ -33,8 +42,8 @@
     "buttonGroups": "Button Groups",
     "buttonToggles": "Button Toggles",
     "pagination": "Pagination",
-    "a-link": "A-LINK",
-    "router-link": "ROUTER-LINK",
+    "a-link": "Open EpicSpinners",
+    "router-link": "Move to Charts",
     "colors": "Button Colors",
     "disabled": "DISABLED",
     "dropdown": "DROPDOWN",
@@ -179,8 +188,8 @@
       "popoverTextLabel": "Popover Text",
       "popoverIconLabel": "Popover Icon (fontawesome)",
       "showPopover": "Show Popover",
-      "topTooltip": "top tooltip",
-      "rightTooltip": "rightside tooltip",
+      "topTooltip": "top",
+      "rightTooltip": "rightside",
       "leftTooltip": "left",
       "bottomTooltip": "below"
     },
@@ -249,7 +258,7 @@
     "responsive": "Responsive Grid"
   },
   "icons": {
-    "back": "Back to icons",
+    "back": "Back to all icons",
     "none": "No icons found",
     "search": "Icon search",
     "title": "Icons"
@@ -293,6 +302,7 @@
     "markupTables": "Markup Tables",
     "dataTables": "Data Tables",
     "chips": "Chips",
+    "tabs": "Tabs",
     "typography": "Typography",
     "uiElements": "UI Elements",
     "treeView": "Tree view",

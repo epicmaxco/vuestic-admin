@@ -1,8 +1,8 @@
 <template>
 <div class="spinners">
   <va-card :title="$t('spinners.title')">
-    <div class="row">
-      <div class="d-flex flex xs12 sm12 md6 lg3 align--center">
+    <div class="row mt-0">
+      <div class="d-flex flex xs12 lg4 align--center">
         <span class="shrink pr-3 spinners__size-smaller">A</span>
         <va-slider
           value-visible
@@ -14,7 +14,7 @@
         <span class="shrink pl-3 spinners__size-bigger">A</span>
       </div>
 
-      <div class="d-flex flex xs12 sm12 md6 lg3 align--center">
+      <div class="d-flex flex xs12 lg4 align--center">
         <va-icon-slower class="shrink pr-3 spinners__duration-slower"/>
         <va-slider
           value-visible
@@ -25,7 +25,7 @@
         <va-icon-faster class="shrink pl-3 spinners__duration-faster"/>
       </div>
 
-      <div class="d-flex flex justify--center xs12 sm12 md12 lg6">
+      <div class="d-flex flex justify--center xs12 lg4">
         <va-palette-custom
           :palette="paletteArray"
           v-model="spinnersColor"
@@ -118,7 +118,8 @@ export default {
     },
 
     paletteArray () {
-      return Object.values(this.$themes)
+      const t = this.$themes
+      return [t.primary, t.warning, t.danger]
     },
   },
 

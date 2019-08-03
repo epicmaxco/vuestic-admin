@@ -28,7 +28,7 @@
 
     <div class="flex xs12 md6 xl3">
       <va-card :title="$t('dashboard.charts.topContributors')">
-        <va-button flat small slot="actions">
+        <va-button flat small slot="actions" class="mr-0">
           {{ $t('dashboard.charts.showAll') }}
         </va-button>
 
@@ -83,6 +83,21 @@ export default {
         text: 'Winnie Holloway',
       }],
     }
+  },
+  watch: {
+    '$themes.primary' () {
+      this.lineChartData = getLineChartData(this.$themes)
+      this.donutChartData = getDonutChartData(this.$themes)
+    },
+
+    '$themes.info' () {
+      this.lineChartData = getLineChartData(this.$themes)
+      this.donutChartData = getDonutChartData(this.$themes)
+    },
+
+    '$themes.danger' () {
+      this.donutChartData = getDonutChartData(this.$themes)
+    },
   },
   methods: {
     getPercent (val) {

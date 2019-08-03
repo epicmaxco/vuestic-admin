@@ -28,13 +28,13 @@
       </div>
     </a>
     <expanding v-if="!minimized">
-      <ul
+      <div
         class="va-sidebar-link-group__submenu in"
         v-show="expanded"
         ref="linkGroupWrapper"
       >
         <slot/>
-      </ul>
+      </div>
     </expanding>
     <va-dropdown
       v-if="minimized"
@@ -68,12 +68,12 @@
           more_horiz
         </va-icon>
       </a>
-      <ul
+      <div
         class="va-sidebar-link-group__submenu in"
         :style="{backgroundColor: $themes[color]}"
       >
         <slot/>
-      </ul>
+      </div>
     </va-dropdown>
   </li>
 </template>
@@ -183,8 +183,10 @@ export default {
     list-style: none;
     padding-left: 0;
     width: 100%;
+    overflow: hidden;
 
-    li {
+    a {
+      font-size: 0.875rem;
       display: block;
       padding-left: 2.75rem;
     }
@@ -230,7 +232,7 @@ export default {
       overflow-y: auto;
       overflow-x: hidden;
 
-      li {
+      a {
         padding: .75rem 1rem;
         border-left: none;
         height: auto;

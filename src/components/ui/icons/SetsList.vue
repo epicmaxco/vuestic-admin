@@ -6,48 +6,51 @@
         v-for="(set, index) in sets"
         :key="index"
       >
-        <div class="sets-list__set__content">
-          <div class="sets-list__set__content__overlay flex-center pa-3 fill-height">
-            <va-button :to="{path: set.href}" append>
-              {{set.name.toUpperCase()}}
-            </va-button>
-          </div>
+        <router-link :to="{path: set.href}" style="color: inherit">
+          <div class="sets-list__set__content">
+            <div class="sets-list__set__content__overlay flex-center pa-3 fill-height">
+              <va-button :to="{path: set.href}" append>
+                {{set.name.toUpperCase()}}
+              </va-button>
+            </div>
 
-          <template v-for="(filteredList, index) in set.filteredLists">
-            <div
-              class="row pa-3"
-              :key="index"
-              v-if="filteredList.length !== 2"
-            >
+            <template v-for="(filteredList, index) in set.filteredLists">
               <div
-                class="flex xs2 flex-center"
-                v-for="(icon, index) in filteredList"
+                class="row pa-3"
                 :key="index"
+                v-if="filteredList.length !== 2"
               >
-                <div class="sets-list__icon pa-3 flex-center vuestic-icon">
-                  <va-icon :name="iconClass(set, icon)">{{iconData(set, icon)}}</va-icon>
+                <div
+                  class="flex xs2 flex-center"
+                  v-for="(icon, index) in filteredList"
+                  :key="index"
+                >
+                  <div class="sets-list__icon pa-3 flex-center vuestic-icon">
+                    <va-icon :name="iconClass(set, icon)">{{iconData(set, icon)}}</va-icon>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="row pa-3"
-              :key="index"
-              v-if="filteredList.length === 2"
-            >
-              <div class="flex xs2 flex-center">
-                <div class="sets-list__icon pa-3 flex-center vuestic-icon">
-                  <va-icon :name="iconClass(set, filteredList[0])">{{iconData(set, filteredList[0])}}</va-icon>
+              <div
+                class="row pa-3"
+                :class="index === 1 ? 'sets-list__set__content--middle' : ''"
+                :key="index"
+                v-if="filteredList.length === 2"
+              >
+                <div class="flex xs2 flex-center">
+                  <div class="sets-list__icon pa-3 flex-center vuestic-icon">
+                    <va-icon :name="iconClass(set, filteredList[0])">{{iconData(set, filteredList[0])}}</va-icon>
+                  </div>
+                </div>
+                <div class="flex xs8"/>
+                <div class="flex xs2 flex-center">
+                  <div class="sets-list__icon pa-3 flex-center vuestic-icon">
+                    <va-icon :name="iconClass(set, filteredList[1])">{{iconData(set, filteredList[1])}}</va-icon>
+                  </div>
                 </div>
               </div>
-              <div class="flex xs8"/>
-              <div class="flex xs2 flex-center">
-                <div class="sets-list__icon pa-3 flex-center vuestic-icon">
-                  <va-icon :name="iconClass(set, filteredList[1])">{{iconData(set, filteredList[1])}}</va-icon>
-                </div>
-              </div>
-            </div>
-          </template>
-        </div>
+            </template>
+          </div>
+        </router-link>
       </div>
     </div>
   </va-card>
@@ -79,9 +82,20 @@ export default {
     position: relative;
 
     &__content {
+      position: relative;
       background-color: $light-gray;
 
+      &--middle {
+        @include media-breakpoint-down(sm) {
+          > * {
+            visibility: hidden;
+          }
+        }
+      }
+
       &__overlay {
+        padding: 0;
+        margin: 0;
         width: 100%;
         position: absolute;
         z-index: 2;

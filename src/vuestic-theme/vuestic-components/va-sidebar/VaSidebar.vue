@@ -3,9 +3,9 @@
     :class="computedClass"
     :style="{ backgroundColor: colorComputed }"
   >
-    <ul class="va-sidebar__menu">
+    <div class="va-sidebar__menu">
       <slot name="menu"></slot>
-    </ul>
+    </div>
   </aside>
 </template>
 
@@ -60,6 +60,10 @@ export default {
 
   @include media-breakpoint-down(sm) {
     top: $sidebar-mobile-top;
+  }
+
+  @include media-breakpoint-down(xs) {
+    width: 100%;
   }
 
   &--minimized {

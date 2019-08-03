@@ -1,21 +1,22 @@
 <template>
   <div class="va-date-picker">
-    <va-input
-      v-model="valueProxy"
-      readonly
-      data-toggle
-      :placeholder="placeholder"
-      :label="label"
-      :disabled="disabled"
-      :error="error"
-      :success="success"
-      :messages="messages"
-      :error-messages="errorMessages"
-    >
-      <template slot="append">
-        <va-icon color="gray" name="fa fa-calendar"/>
-      </template>
-    </va-input>
+    <div :data-toggle="!disabled">
+      <va-input
+        v-model="valueProxy"
+        readonly
+        :placeholder="placeholder"
+        :label="label"
+        :disabled="disabled"
+        :error="error"
+        :success="success"
+        :messages="messages"
+        :error-messages="errorMessages"
+      >
+        <template slot="append">
+          <va-icon color="gray" name="fa fa-calendar"/>
+        </template>
+      </va-input>
+    </div>
     <vue-flatpickr-component
       class="va-date-picker__flatpickr"
       v-model="valueProxy"
@@ -100,6 +101,7 @@ export default {
         wrap: true,
         nextArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-forward"/>',
         prevArrow: '<span aria-hidden="true" class="ion ion-ios-arrow-back"/>',
+        disableMobile: true, // doesn't work without this one at all
       }
     },
   },
@@ -175,7 +177,6 @@ $dayMargin: 0.6rem;
   border-radius: 0.5rem;
   max-width: $daySize * 7 + ($dayPadding + $dayMargin * 2) * 6 + $borderPadding * 2;
   width: 100%;
-  min-width: 200px;
   background-color: $datepickerBackground;
   box-shadow: $datepicker-box-shadow;
 

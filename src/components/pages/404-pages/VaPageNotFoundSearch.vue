@@ -7,9 +7,9 @@
         v-model="inputValue"
         class="va-page-not-found-search__input mb-4"
       />
-      <div class="va-page-not-found-search__links">
+      <div class="row va-page-not-found-search__links">
         <ul
-          class="va-page-not-found-search__list mx-2"
+          class="va-page-not-found-search__list flex xs3 lg1 mx-2 mb-2"
           v-for="(category, index) in filterItems"
           :key="index"
         >
@@ -22,8 +22,8 @@
             <router-link :to="{ path: item.itemLink }" class="link">
               {{ item.itemName }}
             </router-link>
-        </li>
-      </ul>
+          </li>
+        </ul>
       </div>
     </template>
   </va-page-not-found>

@@ -1,7 +1,7 @@
 <template>
   <va-dropdown
     class="notification-dropdown"
-    offset="15px, 0"
+    offset="0, 16px"
     boundary-body
   >
     <va-icon
@@ -10,22 +10,22 @@
       class="notification-dropdown__icon"
       :class="{'notification-dropdown__icon--unread': !allRead}"
     />
-    <div class="notification-dropdown__content py-3 px-2">
+    <div class="notification-dropdown__content pl-3 pr-3 pt-2 pb-2">
       <div
         v-for="option in computedOptions"
         :key="option.id"
-        class="notification-dropdown__item pr-3 row"
+        class="notification-dropdown__item row pt-1 pb-1 mt-2 mb-2"
         :class="{'notification-dropdown__item--unread': option.unread}"
         @click="option.unread = false"
       >
-        <img v-if="option.details.avatar" class="mr-1 notification-dropdown__item__avatar" :src="option.details.avatar"/>
-        <span class="ellipsis">
+        <img v-if="option.details.avatar" class="mr-2 notification-dropdown__item__avatar" :src="option.details.avatar"/>
+        <span class="ellipsis" style="max-width: 85%;">
           <span class="text--bold" v-if="option.details.name">{{option.details.name}}</span> {{$t(`notifications.${option.name}`, { type: option.details.type })}}
         </span>
       </div>
       <div class="row justify--space-between">
-        <va-button class="m-0 mr-1" small>{{ $t('notifications.all') }}</va-button>
-        <va-button class="m-0" small outline @click="markAllAsRead" :disabled="allRead">{{ $t('notifications.mark_as_read') }}</va-button>
+        <va-button class="ma-0 mb-2 mt-1" small>{{ $t('notifications.all') }}</va-button>
+        <va-button class="ma-0 mb-2 mt-1" small outline @click="markAllAsRead" :disabled="allRead">{{ $t('notifications.mark_as_read') }}</va-button>
       </div>
     </div>
   </va-dropdown>
@@ -89,6 +89,7 @@ export default {
 
 .notification-dropdown {
   cursor: pointer;
+  margin-top: 0.3rem;
 
   .notification-dropdown__icon {
     position: relative;
@@ -150,6 +151,10 @@ export default {
       height: 1.5rem;
       min-width: 1.5rem;
     }
+  }
+
+  .va-dropdown__anchor {
+    display: inline-block;
   }
 }
 </style>

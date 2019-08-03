@@ -15,14 +15,16 @@
         :key="index"
         :class="{'va-chat__message--yours': message.yours}"
       >
-        {{message.text}}
+        <span class="va-chat__message-text">
+          {{message.text}}
+        </span>
       </div>
     </div>
     <div class="va-chat__controls">
       <va-input
         v-model="inputMessage"
         @keypress.enter="sendMessage"
-        label="Your message"
+        placeholder="Type your message..."
         class="va-chat__input"
       />
       <va-button @click="sendMessage()">
@@ -118,14 +120,21 @@ $chat-message-br: .875rem;
   }
 
   &__message {
+    position: relative;
     padding: .657rem 1.375rem;
     margin-bottom: .625rem;
     max-width: 70%;
     overflow-wrap: break-word;
-    border-radius: 0 $chat-message-br $chat-message-br $chat-message-br;
+    border-radius: 0.5rem;
+    border-top-left-radius: 0;
 
     align-self: flex-start;
     background-color: $light-gray2;
+
+    &-text {
+      display: block;
+      transform: translateY(-2px);
+    }
 
     &:last-child {
       margin-bottom: 0;
@@ -135,7 +144,7 @@ $chat-message-br: .875rem;
       color: white;
       align-self: flex-end;
       border-top-right-radius: 0;
-      border-top-left-radius: $chat-message-br;
+      border-top-left-radius: 0.5rem;
     }
   }
 

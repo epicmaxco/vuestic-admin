@@ -17,24 +17,24 @@
       <div class="row">
         <div class="flex xs12 md6">
           <va-card>
-            <p class="display-2 mb-0" :style="{color: this.$themes.primary}">291</p>
-            <p>{{$t('dashboard.info.completedPullRequests')}}</p>
+            <p class="display-2 mb-1" :style="{color: this.$themes.primary}">291</p>
+            <p class="no-wrap">{{$t('dashboard.info.completedPullRequests')}}</p>
           </va-card>
         </div>
         <div class="flex xs12 md6">
           <va-card>
             <div class="row row-separated">
               <div class="flex xs4">
-                <p class="display-2 mb-0" :style="{color: this.$themes.primary}">3</p>
-                <p>{{$t('dashboard.info.users')}}</p>
+                <p class="display-2 mb-1 text--center" :style="{color: this.$themes.primary}">3</p>
+                <p class="text--center mb-1">{{$t('dashboard.info.users')}}</p>
               </div>
               <div class="flex xs4">
-                <p class="display-2 mb-0" :style="{color: this.$themes.info}">24</p>
-                <p>{{$t('dashboard.info.points')}}</p>
+                <p class="display-2 mb-1 text--center" :style="{color: this.$themes.info}">24</p>
+                <p class="text--center no-wrap mb-1">{{$t('dashboard.info.points')}}</p>
               </div>
               <div class="flex xs4">
-                <p class="display-2 mb-0" :style="{color: this.$themes.warning}">91</p>
-                <p>{{$t('dashboard.info.units')}}</p>
+                <p class="display-2 mb-1 text--center" :style="{color: this.$themes.warning}">91</p>
+                <p class="text--center mb-1">{{$t('dashboard.info.units')}}</p>
               </div>
             </div>
           </va-card>
@@ -105,7 +105,15 @@ export default {
 </script>
 
 <style lang="scss">
-  .row-separated .flex + .flex{
-    border-left: 1px solid #e3eaeb;
+  .row-separated {
+    .flex + .flex {
+      border-left: 1px solid #e3eaeb;
+    }
+
+    @include media-breakpoint-down(xs) {
+      p:not(.display-2){
+        font-size: 0.875rem;
+      }
+    }
   }
 </style>

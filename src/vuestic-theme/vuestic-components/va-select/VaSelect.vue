@@ -67,13 +67,11 @@
           class="va-select__tags"
           v-if="multiple && valueProxy.length <= tagMax"
         >
-          <va-chip
-            v-for="option in valueProxy"
-            :key="getKey(option)"
-            small
+          <span
+            class="va-select__tags__tag"
           >
-            {{getText(option)}}
-          </va-chip>
+            {{ valueProxy.join(", ") }}
+          </span>
         </span>
         <span v-else-if="displayedText" class="va-select__displayed-text">{{displayedText}}</span>
         <span v-else class="va-select__placeholder">{{placeholder}}</span>
@@ -92,7 +90,7 @@
       />
       <va-icon
         class="va-select__open-icon"
-        :name="visible ? 'fa fa-chevron-up' : 'fa fa-chevron-down'"
+        :name="visible ? 'fa fa-angle-up' : 'fa fa-angle-down'"
       />
     </div>
   </va-dropdown>
@@ -456,12 +454,8 @@ export default {
   }
 
   &__tags {
-    & > .va-chip{
-      margin-right: .25rem;
-      &:last-of-type {
-        margin-top: .125rem;
-        margin-bottom: .125rem;
-      }
+    &__tag {
+      word-break: break-word;
     }
   }
 
@@ -512,6 +506,7 @@ export default {
     align-items: center;
     padding: .375rem .5rem .375rem .5rem;
     min-height: 2.25rem;
+    word-break: break-word;
 
     &__selected-icon {
       margin-left: auto;
