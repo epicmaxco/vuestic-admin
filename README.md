@@ -20,6 +20,13 @@
   </a>
 </p>
 
+
+<p align="center">
+  <a href="https://circleci.com/gh/epicmaxco/vuestic-admin">
+    <img src="https://img.shields.io/circleci/build/github/epicmaxco/vuestic-admin/master" alt="Circleci">
+  </a>
+</p>
+
 ## Installation
 
 First of all, make sure you have all prerequisites installed:
