@@ -113,7 +113,7 @@
                   <div class="flex xs12 sm6">
                     <va-date-picker
                       :label="$t('forms.dateTimePicker.customDateFormat')"
-                      :config="{altInput: true, dateFormat: 'Y-M-d'}"
+                      :config="{dateFormat: 'Y-M-d'}"
                       v-model="datepicker.customDate"
                     />
                   </div>
