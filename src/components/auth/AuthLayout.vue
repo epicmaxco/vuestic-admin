@@ -1,12 +1,12 @@
 <template>
 <div class="auth-layout row align-content--center">
-  <div class="flex xs12 lg6 pa-3 flex-center">
+  <div class="flex xs12 pa-3 flex-center">
     <router-link class="py-5 flex-center" to="/">
       <va-icon-vuestic />
     </router-link>
   </div>
 
-  <div class="flex xs12 lg6 pa-3">
+  <div class="flex xs12 pa-3">
     <div class="d-flex justify--center">
       <va-card class="auth-layout__card">
         <va-tabs
