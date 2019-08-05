@@ -14,7 +14,9 @@ import YmapPlugin from 'vue-yandex-maps'
 import VueClipboard from 'vue-clipboard2'
 import VeeValidate from 'vee-validate'
 
-Vue.use(VeeValidate)
+// NOTE: workaround for VeeValidate + vuetable-2
+Vue.use(VeeValidate, { fieldsBagName: 'formFields' })
+
 Vue.use(VuesticPlugin)
 Vue.use(YmapPlugin)
 Vue.use(VueClipboard)
