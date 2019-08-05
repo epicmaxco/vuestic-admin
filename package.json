@@ -39,7 +39,6 @@
     "vue-clipboard2": "^0.3.0",
     "vue-color": "^2.7.0",
     "vue-epic-bus": "^0.1.2",
-    "vue-flatpickr-component": "^8.0.0",
     "vue-router": "^3.0.6",
     "vue-toasted": "^1.1.25",
     "vue-yandex-maps": "^0.8.14",
