@@ -4652,6 +4652,11 @@ flat-cache@^1.2.1:
     rimraf "~2.6.2"
     write "^0.2.1"
 
+flatpickr@4.5.1:
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.5.1.tgz#f65eaf54c07538f87d6f68a67b03cf816d7fb82f"
+  integrity sha512-dsLTFmRg6mlqYfJ35A7gLlbq+8fOqRty3cWncl6rwU4pMe//i0WKxKLVyBbSYAZry93Lg+yqsOph9haltcxCqQ==
+
 flatpickr@^4.5.1:
   version "4.6.2"
   resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.6.2.tgz#50e1b4fc84fbf67c5b0919ba3ddc330221f126da"
@@ -10861,16 +10866,17 @@ vue@^2.6.10:
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
   integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==
 
-vuestic-ui@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/vuestic-ui/-/vuestic-ui-0.1.0.tgz#4845175c79a57831d479666efe2ea73b70852be2"
-  integrity sha512-jofpwbGJE8bsr0ViWMlZLnIWcq9nwLQ+h9WEVOaI8pjzjdeC+fOGS3dHAbH4uwboC1d6DLUS1Mv3igEp1iRRvQ==
+vuestic-ui@0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/vuestic-ui/-/vuestic-ui-0.1.5.tgz#5e6b66d1dbc08ab4647dca1a823800dcf033e7e2"
+  integrity sha512-y6O/zP3yRTanq/CKnDvb2rvp2FIxzQ/jUcFUanKTKiZpzMXoLanZhXVKdkIkQczXs7e5Wrwr/5AsvuqjUiPCww==
   dependencies:
     approximate-number "^2.0.0"
     asva-executors "^0.1.22"
     chart.js "^2.6.0"
     core-js "^2.6.5"
     epic-spinners "^1.1.0"
+    flatpickr "4.5.1"
     font-awesome "^4.7.0"
     ionicons "^3.0.0"
     medium-editor "^5.23.3"
