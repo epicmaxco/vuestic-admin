@@ -16,7 +16,7 @@
 
 <p align="center">
   <a href="https://vuestic.epicmax.co" target="_blank">
-    <img src="https://i.imgur.com/bpjUnMq.jpg" align="center" width="888px"/>
+    <img src="https://i.imgur.com/q60P8VR.png" align="center" width="888px"/>
   </a>
 </p>
 
