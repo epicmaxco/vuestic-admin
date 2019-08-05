@@ -70,8 +70,8 @@ jobs:
           command:
             echo "VUE_APP_YANDEX_METRICS_KEY=$YANDEX_METRICS_KEY" >> .env.production.local &&
             echo "VUE_APP_DRIFT_KEY=$DRIFT_KEY" >> .env.production.local &&
-            echo "VUE_APP_GOOGLE_MAPS_API_KEY=$GOOGLE_MAPS_API_KEY" >> .env.production.local
-            echo "VUE_APP_GTM_KEY=$GTM_KEY" >> .env.production.local &&
+            echo "VUE_APP_GOOGLE_MAPS_API_KEY=$GOOGLE_MAPS_API_KEY" >> .env.production.local &&
+            echo "VUE_APP_GTM_KEY=$GTM_KEY" >> .env.production.local
       - restore_cache: *restore_cache
       - run: *install_dependencies
       - save_cache: *save_cache
