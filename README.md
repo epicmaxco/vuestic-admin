@@ -16,7 +16,7 @@
 
 <p align="center">
   <a href="https://vuestic.epicmax.co" target="_blank">
-    <img src="https://i.imgur.com/z7GEIWz.jpg" align="center" width="888px"/>
+    <img src="https://i.imgur.com/7kKOpMc.png" align="center" width="888px"/>
   </a>
 </p>
 
@@ -103,7 +103,7 @@ $ yarn build --report
 [chat](https://vuestic.epicmax.co/#/admin/ui/chatPage) |
 [maps (Google, Yandex, Leaflet, amMap)](https://vuestic.epicmax.co/#/admin/maps/google-maps) |
 [login/signup pages templates](https://vuestic.epicmax.co/#/auth/login) |
-[404 pages templates](https://vuestic.epicmax.co/#/auth/login) |
+[404 pages templates](https://vuestic.epicmax.co/#/admin/pages/404-pages) |
 [i18n](https://vuestic.epicmax.co/#/admin/dashboard)
 
 
