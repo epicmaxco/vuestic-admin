@@ -69,6 +69,7 @@
             flat
             icon-right="ion ion-ios-arrow-forward"
             color="success"
+            class="ma-0"
           >
             {{$t('dashboard.info.exploreGallery')}}
           </va-button>
@@ -113,6 +114,20 @@ export default {
     @include media-breakpoint-down(xs) {
       p:not(.display-2){
         font-size: 0.875rem;
+      }
+    }
+  }
+
+  .dashboard {
+    .va-card__header--over {
+      @include media-breakpoint-up(md) {
+        padding-top: 0 !important;
+      }
+    }
+
+    .va-card__image {
+      @include media-breakpoint-up(md) {
+        padding-bottom: 0 !important;
       }
     }
   }
