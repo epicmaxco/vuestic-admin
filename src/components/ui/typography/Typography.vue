@@ -1,135 +1,179 @@
 <template>
-  <div class="ui-typography">
-    <div class="va-row">
-      <div class="md12 flex">
-        <vuestic-widget>
-          <div class="typo-headers">
-            <h1>Very Important Information H1</h1>
-            <h2>Sections & Modal Names H2</h2>
-            <h3>Articles & Block Headings H3</h3>
-            <h4>Random Tiny Heading H4</h4>
+  <div class="typography content">
+    <div class="row">
+      <div class="flex xs12">
+        <va-card :title="$t('typography.primary')">
+          <div class="mb-4">
+            <p class="display-1">Display 1 Heading</p>
+            <p>Of all of the celestial bodies that capture our
+              attention and fascination as astronomers, none has a greater influence
+              on life on planet Earth than it’s own satellite, the moon. When
+              you think about it.</p>
           </div>
-          <div class="typo-articles">
+          <div class="mb-4">
+            <p class="display-2">Display 2 Heading</p>
+            <p>None has a greater influence on life on planet
+              Earth than it’s own satellite, the moon. When you think about it.</p>
+          </div>
+          <div class="mb-4">
+            <p class="display-3">Display 3 Heading</p>
+            <p>Let’s talk about meat fondue recipes and what you
+              need to know first. Meat fondue also known as oil fondue is a method
+              of cooking all kinds of meats, poultry, and seafood in a pot of
+              heated oil.</p>
+          </div>
+          <div class="mb-4">
+            <p class="display-4">Display 4 Heading</p>
+            <p>There is something about parenthood that gives us
+              a sense of history and a deeply rooted desire to send on into the
+              next generation the great things we have discovered about life.</p>
+          </div>
+          <div class="mb-4">
+            <p class="display-5">Display 5 Heading</p>
             <p>
-              The unique stripes of zebras make them one of the animals most
-              familiar to people. They occur in a variety of habitats, such as
-              grasslands, savannas,
-              <a href="#">woodlands</a>, thorny scrublands, <a href="#">mountains</a>,
-              and coastal hills. However, various anthropogenic factors have had
-              a severe impact on zebra populations, in particular hunting for
-              skins and habitat destruction. Grévy's zebra and the mountain
-              <span
-                class="vue-highlighted-text">highlighted text</span> zebra are
-              endangered.</p>
-            <blockquote class="blockquote">
-              <p>
-                Blockquotes. However, various anthropogenic factors have had a
-                severe impact on zebra populations, in particular hunting for
-                skins. </p>
-              <footer class="blockquote-footer">Jefferey Lebowski</footer>
-            </blockquote>
-            <p>
-              lthough zebra species may have overlapping ranges, they do not
-              interbreed. In captivity, plains zebras have been crossed with
-              mountain zebras. The hybrid foals <span
-              class="vue-selected-text">selected text</span> lacked a dewlap and
-              resembled their
+              There is a moment in the life of any aspiring astronomer that it is
+              time to buy that first telescope. It’s exciting to think about
+              setting up your own viewing station.
             </p>
           </div>
-          <div class="vue-lists">
-            <h2>Lists</h2>
-            <div class="va-row">
-              <div class="flex md6">
-                <h3>Unordered</h3>
-                <ul class="vue-unordered">
-                  <li>
-                    A wide variety of hypotheses have been proposed to account
-                    for the evolution of the striking stripes of zebras.
-                  </li>
-                  <li>The more traditional of these (1 and 2, below) relate to
-                    camouflage.
-                  </li>
-                  <li>The vertical striping may help the zebra hide in the grass
-                    by disrupting its outline.
-                  </li>
-                  <li>
-                    In addition, even at moderate distances, the striking
-                    striping merges to an apparent grey.
-                    <ul class="vue-list-inner">
-                      <li>However, the camouflage has been contested with
-                        arguments that most of a zebra's predator.
-                      </li>
-                      <li>Such as lions and hyenas cannot see well at a
-                        distance.
-                      </li>
-                      <li>More likely to have smelled or heard a zebra.</li>
-                    </ul>
-                  </li>
-                  <li>Before seeing it from a distance, especially at night.
-                  </li>
-                </ul>
-              </div>
-              <div class="flex md6 text-left">
-                <div>
-                  <h3>Ordered</h3>
-                  <ol class="vue-ordered">
-                    <li>
-                      A wide variety of hypotheses have been proposed to account
-                      for the evolution of the striking stripes of zebras.
-                    </li>
-                    <li>The more traditional of these (1 and 2, below) relate to
-                      camouflage.
-                    </li>
-                    <li>The vertical striping may help the zebra hide in the
-                      grass by disrupting its outline.
-                    </li>
-                    <li>
-                      In addition, even at moderate distances, the striking
-                      striping merges to an apparent grey.
-                      <ul class="vue-list-inner">
-                        <li>However, the camouflage has been contested with
-                          arguments that most of a zebra's predator.
-                        </li>
-                        <li>Such as lions and hyenas cannot see well at a
-                          distance.
-                        </li>
-                        <li>More likely to have smelled or heard a zebra.</li>
-                      </ul>
-                    </li>
-                    <li>Before seeing it from a distance, especially at night.
-                    </li>
+          <div class="mb-4">
+            <p class="title">Widget title, form section title, input label,
+              inline label, table heading</p>
+          </div>
+          <div class="mb-4">
+            <p>
+              Of all of the celestial bodies that capture our attention and fascination
+              as astronomers, none has a greater influence on life on planet Earth
+              than it’s own satellite, the moon. When you think about it.
+            </p>
+          </div>
+          <div class="mb-4">
+            <div class="text--secondary">
+              Of all of the celestial bodies that capture our attention and fascination
+              as astronomers, none has a greater influence on life on planet Earth
+              than it’s own satellite, the moon. When you think about it.
+            </div>
+          </div>
+          <div class="mb-4">
+        <pre class="code-snippet">&lt;p class=“code-snippet”>
+  This is a wonderful example.
+  &lt;a href=“#” onClick=“”>Read more&lt;/a>
+&lt;/p></pre>
+            <p>
+              Of all of the celestial bodies that capture our attention and fascination
+              as astronomers,
+              <span class="text--code">currentColor</span> none has a greater influence on life on planet
+              Earth than it’s own satellite, the moon.
+            </p>
+          </div>
+        </va-card>
+      </div>
+      <div class="flex xs12">
+        <va-card :title="$t('typography.secondary')">
+          <p class="display-3">Lists</p>
+          <ol class="va-ordered">
+            <li>Of all of the celestial bodies that capture our attention and fascination as astronomers, none has a greater influence.</li>
+            <li>Earth than it’s own satellite, the moon. When you think about it.</li>
+            <li>Attention and fascination as.</li>
+          </ol>
+          <ol class="va-ordered">
+            <li>Coffee</li>
+            <li>Tea
+              <ol class="va-ordered">
+                <li>Black tea
+                  <ol class="va-ordered">
+                    <li>Brooke Bond</li>
+                    <li>Lipton</li>
                   </ol>
-                </div>
-              </div>
+                </li>
+                <li>Green tea
+                  <ol class="va-ordered">
+                    <li>Greenfield</li>
+                    <li>Tess</li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+            <li>Milk</li>
+          </ol>
+          <ul class="va-unordered">
+            <li>Of all of the celestial bodies that capture our attention and fascination as astronomers, none has a greater influence.</li>
+            <li>Earth than it’s own satellite, the moon. When you think about it.</li>
+            <li>Attention and fascination as .</li>
+          </ul>
+          <ul class="va-unordered">
+            <li>Coffee</li>
+            <li>Tea
+              <ul class="va-unordered">
+                <li>Black tea
+                  <ul class="va-unordered">
+                    <li>Brooke Bond</li>
+                    <li>Lipton</li>
+                  </ul>
+                </li>
+                <li>Green tea
+                  <ul class="va-unordered">
+                    <li>Greenfield</li>
+                    <li>Tess</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>Milk</li>
+          </ul>
+          <p class="display-3">Links</p>
+          <div class="mb-4">
+            <a href="/default" class="link mr-4" @click.prevent>
+              Default Link
+            </a>
+            <a href="/secondary" class="link-secondary" @click.prevent>
+              Secondary Link
+            </a>
+          </div>
+          <div class="mb-4">
+            <p class="display-3">Other Elements</p>
+            <p>None has a greater influence on
+              <span class="text--highlighted">highlighted text</span>
+              life on planet Earth than it’s own satellite, the selected chunk of text.
+              When you think about it.
+            </p>
+          </div>
+          <div class="mb-4">
+            <blockquote class="va-blockquote" :style="{borderColor: $themes.primary}">
+              <p>
+                BQ: Let’s talk about meat fondue recipes and what you need to know
+                first. Meat fondue also known as oil fondue is a method of cooking
+                all kinds.
+              </p>
+              <p>
+                <i>— Mister Lebowski</i>
+              </p>
+            </blockquote>
+          </div>
+          <div class="mb-4">
+            <div class="text-block">
+              <p class="display-3">Display-3 Heading</p>
+              <span>Of all of the celestial bodies that capture our
+              attention and fascination as astronomers, none has a greater
+              influence on life on planet Earth than it’s own satellite,
+              the moon. When you think about it.</span>
             </div>
           </div>
-          <div class="vue-misc">
-            <h2>Misc</h2>
-            <div class="va-row">
-              <div class="flex md6">
-                <h3>Address</h3>
-                <address>
-                  <strong>SJØNNA</strong><br>
-                  Nezalezhnasti Ave, 13 - 28A<br>
-                  Minsk, Belarus, 220141<br>
-                  +375 29 319-53-98<br>
-                  <br>
-                  <b>Vasili Savitski</b><br>
-                  <a href="mailto">hello@sjonja.by</a>
-
-                </address>
-              </div>
-              <div class="flex md6">
-                <h3>Well</h3>
-                <div class="well">
-                  Zebras have excellent eyesight. It is believed that they can
-                  see in color. Like most ungulates, the zebra's eyes are on the
-                  sides of its head, giving it a wide field of view.
-                </div>
-              </div>
-            </div>
+          <div class="mb-4">
+            <table class="va-table">
+              <thead>
+              <tr>
+                <th v-for="(data, index) in tableData[0]" :key="index">{{data}}</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr v-for="(data, index) in tableData" :key="index" v-if="index !== 0">
+                <td v-for="(i, index) in data" :key="index">{{i}}</td>
+              </tr>
+              </tbody>
+            </table>
           </div>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
   </div>
@@ -138,23 +182,15 @@
 <script>
 export default {
   name: 'typography',
+  data () {
+    return {
+      tableData: [
+        ['Id', 'FooBar type', 'Actions'],
+        ['1', 'Zebra', 'Delete'],
+        ['2', 'Not Zebra', 'Remove'],
+        ['3', 'Very Zebra', 'Eradicate'],
+      ],
+    }
+  },
 }
 </script>
-
-<style lang="scss">
-.ui-typography {
-  .typo-articles {
-    margin-bottom: 6.25rem;
-    width: 90%;
-  }
-
-  .widget-body {
-    padding: 3.75rem 4.7rem 0 2.2rem !important;
-  }
-
-  .vue-lists ul, ol {
-    width: 85%;
-  }
-}
-
-</style>

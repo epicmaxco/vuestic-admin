@@ -1,22 +1,34 @@
 <template>
-  <div class="notification-dropdown flex-center">
-    <span class="i-nav-notification"/>
-    <vuestic-dropdown
-      v-model="isShown"
-      position="bottom"
-      class="notification-dropdown__list"
-    >
-      <a v-for="(option, id) in options" :key="id" class="dropdown-item"
-         href="#">
-        <span class="ellipsis">{{$t(`notifications.${option.name}`,
-          { name: option.details.name, type: option.details.type })}}
+  <va-dropdown
+    class="notification-dropdown"
+    offset="0, 16px"
+    boundary-body
+  >
+    <va-icon
+      slot="anchor"
+      name="i-nav-notification"
+      class="notification-dropdown__icon"
+      :class="{'notification-dropdown__icon--unread': !allRead}"
+    />
+    <div class="notification-dropdown__content pl-3 pr-3 pt-2 pb-2">
+      <div
+        v-for="option in computedOptions"
+        :key="option.id"
+        class="notification-dropdown__item row pt-1 pb-1 mt-2 mb-2"
+        :class="{'notification-dropdown__item--unread': option.unread}"
+        @click="option.unread = false"
+      >
+        <img v-if="option.details.avatar" class="mr-2 notification-dropdown__item__avatar" :src="option.details.avatar"/>
+        <span class="ellipsis" style="max-width: 85%;">
+          <span class="text--bold" v-if="option.details.name">{{option.details.name}}</span> {{$t(`notifications.${option.name}`, { type: option.details.type })}}
         </span>
-      </a>
-      <div class="dropdown-item plain-link-item">
-        <a class="plain-link" href="#">{{ $t('notifications.all') }}</a>
       </div>
-    </vuestic-dropdown>
-  </div>
+      <div class="row justify--space-between">
+        <va-button class="ma-0 mb-2 mt-1" small>{{ $t('notifications.all') }}</va-button>
+        <va-button class="ma-0 mb-2 mt-1" small outline @click="markAllAsRead" :disabled="allRead">{{ $t('notifications.mark_as_read') }}</va-button>
+      </div>
+    </div>
+  </va-dropdown>
 </template>
 
 <script>
@@ -24,7 +36,7 @@ export default {
   name: 'notification-dropdown',
   data () {
     return {
-      isShown: false,
+      computedOptions: [...this.options],
     }
   },
   props: {
@@ -33,47 +45,114 @@ export default {
       default: () => [
         {
           name: 'sentMessage',
-          details: { name: 'Vasily S' },
+          details: { name: 'Vasily S', avatar: 'https://picsum.photos/123' },
+          unread: true,
+          id: 1,
         },
         {
           name: 'uploadedZip',
-          details: { name: 'Oleg M', type: 'typography component' },
+          details: {
+            name: 'Oleg M',
+            avatar: 'https://picsum.photos/100',
+            type: 'typography component',
+          },
+          unread: true,
+          id: 2,
         },
         {
           name: 'startedTopic',
-          details: { name: 'Andrei H' },
+          details: { name: 'Andrei H', avatar: 'https://picsum.photos/24' },
+          unread: true,
+          id: 3,
         },
       ],
+    },
+  },
+  computed: {
+    allRead () {
+      return !this.computedOptions.filter(item => item.unread).length
+    },
+  },
+  methods: {
+    markAllAsRead () {
+      this.computedOptions = this.computedOptions.map(item => ({
+        ...item,
+        unread: false,
+      }))
     },
   },
 }
 </script>
 
 <style lang="scss">
-@import '../../../../../vuestic-theme/vuestic-sass/resources/resources';
-
 .notification-dropdown {
   cursor: pointer;
+  margin-top: 0.3rem;
 
-  @at-root {
-    .notification-dropdown__list {
-      width: 250px;
+  .notification-dropdown__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &--unread::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      left: 0;
+      top: -.5rem;
+      background-color: $brand-danger;
+      height: .375rem;
+      width: .375rem;
+      margin: 0 auto;
+      border-radius: .187rem;
     }
   }
 
-  .i-nav-notification {
+  &__content {
+    background-color: $dropdown-background;
+    box-shadow: $gray-box-shadow;
+    border-radius: .5rem;
+    max-width: 19rem;
+  }
+
+  &__item {
+    cursor: pointer;
+    margin-bottom: .75rem;
+    color: $brand-secondary;
+    flex-wrap: nowrap;
     position: relative;
 
-    &::after {
-      content: '';
-      position: absolute;
-      right: -4px;
-      top: 0;
-      background-color: $brand-primary;
-      height: 12px;
-      width: 12px;
-      border-radius: 50%;
+    &--unread {
+      color: $vue-darkest-blue;
+
+      &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        height: .375rem;
+        width: .375rem;
+        background-color: $brand-danger;
+        margin: auto;
+        border-radius: .187rem;
+      }
     }
+
+    &:hover {
+      color: $vue-green;
+    }
+
+    &__avatar {
+      border-radius: 50%;
+      width: 1.5rem;
+      height: 1.5rem;
+      min-width: 1.5rem;
+    }
+  }
+
+  .va-dropdown__anchor {
+    display: inline-block;
   }
 }
 </style>

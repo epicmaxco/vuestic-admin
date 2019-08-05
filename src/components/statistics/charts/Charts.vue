@@ -1,62 +1,61 @@
 <template>
-  <div class="charts-page">
-    <div class="va-row">
+  <div class="charts">
+    <div class="row">
       <div class="flex md6 xs12">
-        <vuestic-widget
+        <va-card
           class="chart-widget"
-          :headerText="$t('charts.verticalBarChart')"
+          :title="$t('charts.verticalBarChart')"
         >
-          <vuestic-chart :data="verticalBarChartData" type="vertical-bar"/>
-        </vuestic-widget>
+          <va-chart :data="verticalBarChartData" type="vertical-bar"/>
+        </va-card>
       </div>
       <div class="flex md6 xs12">
-        <vuestic-widget
+        <va-card
           class="chart-widget"
-          :headerText="$t('charts.horizontalBarChart')"
+          :title="$t('charts.horizontalBarChart')"
         >
-          <vuestic-chart :data="horizontalBarChartData" type="horizontal-bar"/>
-        </vuestic-widget>
+          <va-chart :data="horizontalBarChartData" type="horizontal-bar"/>
+        </va-card>
       </div>
     </div>
 
-    <div class="va-row">
+    <div class="row">
       <div class="flex md12 xs12">
-        <vuestic-widget
+        <va-card
           class="chart-widget"
-          :headerText="$t('charts.lineChart')"
+          :title="$t('charts.lineChart')"
         >
-          <vuestic-chart :data="lineChartData" type="line"/>
-        </vuestic-widget>
+          <va-chart :data="lineChartData" type="line"/>
+        </va-card>
       </div>
     </div>
 
-    <div class="va-row">
+    <div class="row">
       <div class="flex md6 xs12">
-        <vuestic-widget
+        <va-card
           class="chart-widget"
-          :headerText="$t('charts.pieChart')"
+          :title="$t('charts.pieChart')"
         >
-          <vuestic-chart :data="pieChartData" type="pie"/>
-        </vuestic-widget>
+          <va-chart :data="pieChartData" type="pie"/>
+        </va-card>
       </div>
       <div class="flex md6 xs12">
-        <vuestic-widget
+        <va-card
           class="chart-widget"
-          :headerText="$t('charts.donutChart')"
+          :title="$t('charts.donutChart')"
         >
-          <vuestic-chart :data="donutChartData" type="donut"/>
-        </vuestic-widget>
+          <va-chart :data="donutChartData" type="donut"/>
+        </va-card>
       </div>
     </div>
-
-    <div class="va-row">
+    <div class="row">
       <div class="flex md12 xs12">
-        <vuestic-widget
+        <va-card
           class="chart-widget"
-          :headerText="$t('charts.bubbleChart')"
+          :title="$t('charts.bubbleChart')"
         >
-          <vuestic-chart :data="bubbleChartData" type="bubble"/>
-        </vuestic-widget>
+          <va-chart :data="bubbleChartData" type="bubble"/>
+        </va-card>
       </div>
     </div>
   </div>
@@ -64,37 +63,35 @@
 
 <script>
 import { getLineChartData } from '../../../data/charts/LineChartData'
-import BubbleChartData from '../../../data/charts/BubbleChartData'
-import PieChartData from '../../../data/charts/PieChartData'
-import DonutChartData from '../../../data/charts/DonutChartData'
-import VerticalBarChartData from '../../../data/charts/VerticalBarChartData'
-import HorizontalBarChartData from '../../../data/charts/HorizontalBarChartData'
-import SidebarLink from '../../admin/app-sidebar/components/SidebarLink'
+import { getBubbleChartData } from '../../../data/charts/BubbleChartData'
+import { getPieChartData } from '../../../data/charts/PieChartData'
+import { getDonutChartData } from '../../../data/charts/DonutChartData'
+import { getVerticalBarChartData } from '../../../data/charts/VerticalBarChartData'
+import { getHorizontalBarChartData } from '../../../data/charts/HorizontalBarChartData'
 
 export default {
   name: 'charts',
-  components: {
-    SidebarLink,
+  data () {
+    return {
+      bubbleChartData: getBubbleChartData(this.$themes),
+      lineChartData: getLineChartData(this.$themes),
+      pieChartData: getPieChartData(this.$themes),
+      donutChartData: getDonutChartData(this.$themes),
+      verticalBarChartData: getVerticalBarChartData(this.$themes),
+      horizontalBarChartData: getHorizontalBarChartData(this.$themes),
+    }
   },
-  data: () => ({
-    bubbleChartData: BubbleChartData,
-    lineChartData: getLineChartData(),
-    pieChartData: PieChartData,
-    donutChartData: DonutChartData,
-    verticalBarChartData: VerticalBarChartData,
-    horizontalBarChartData: HorizontalBarChartData,
-  }),
   methods: {
     refreshData () {
-      this.lineChartData = getLineChartData()
+      this.lineChartData = getLineChartData(this.$themes)
     },
   },
 }
 </script>
 
 <style lang="scss">
-.widget.chart-widget {
-  .widget-body {
+.chart-widget {
+  .va-card__body {
     height: 550px;
   }
 }

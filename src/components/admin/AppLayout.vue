@@ -1,60 +1,68 @@
 <template>
-  <vuestic-layout v-layout>
-    <app-navbar :isOpen="opened" @toggle-menu="toggleSidebar"/>
-    <app-sidebar :isOpen="opened" @toggle-menu="toggleSidebar"/>
+  <va-page-layout
+    @toggleSidebar="toggleSidebar"
+    :mobileWidth="mobileWidth"
+  >
+    <app-navbar
+      :minimized.sync="minimized"
+    />
+    <app-sidebar
+      :minimized="minimized"
+    />
     <main
       slot="content"
       id="content"
-      class="content va-layout gutter--lg fluid"
+      class="layout gutter--xl fluid"
+      :class="{'app-layout__main--full-width-sidebar': !minimized}"
       role="main"
     >
-      <app-breadcrumbs/>
-      <vuestic-pre-loader
-        v-show="isLoading"
-        class="pre-loader"
-      />
       <router-view/>
     </main>
-    <span slot="footer">
-      ©2018. Made by&nbsp;<a href="https://epicmax.co" target="_blank"> Epicmax</a>
-    </span>
-  </vuestic-layout>
+  </va-page-layout>
 </template>
 
 <script>
-import VuesticLayout
-  from '../../vuestic-theme/vuestic-components/vuestic-layout/VuesticLayout'
+import VaPageLayout from './VaPageLayout'
 import AppNavbar from './app-navbar/AppNavbar'
 import AppSidebar from './app-sidebar/AppSidebar'
-import AppBreadcrumbs from './app-breadcrumbs/AppBreadcrumbs'
-import Layout from '../../vuestic-theme/vuestic-directives/Layout'
 import { mapGetters } from 'vuex'
+import AppTopbar from './app-topbar/AppTopbar'
 
 export default {
   name: 'app-layout',
   components: {
-    VuesticLayout,
+    AppTopbar,
+    VaPageLayout,
     AppNavbar,
     AppSidebar,
-    AppBreadcrumbs,
-  },
-  directives: {
-    layout: Layout,
   },
   data () {
     return {
-      opened: true,
+      minimized: false,
+      mobileWidth: 767,
     }
-  },
-  methods: {
-    toggleSidebar (opened) {
-      this.opened = opened
-    },
   },
   computed: {
     ...mapGetters([
       'isLoading',
     ]),
   },
+  methods: {
+    toggleSidebar (minimized) {
+      this.minimized = minimized
+    },
+  },
 }
 </script>
+
+<style lang="scss">
+  .app-layout {
+    &__main {
+      &--full-width-sidebar {
+        @include media-breakpoint-down(xs) {
+          display: none;
+        }
+      }
+    }
+  }
+</style>

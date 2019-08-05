@@ -1,13 +1,16 @@
 <template>
   <div class="bubble-maps-page">
-    <div class="va-row">
+    <div class="row">
       <div class="flex md12 xs12">
-        <vuestic-widget
+        <va-card
           class="bubble-maps-page__widget"
-          headerText="Bubble Maps"
+          title="Bubble Maps"
         >
-          <bubble-map v-bind:map-data="bubbleMapData"/>
-        </vuestic-widget>
+          <bubble-map
+            :map-data="bubbleMapData"
+            style="height: 65vh;"
+          />
+        </va-card>
       </div>
     </div>
   </div>
@@ -15,28 +18,17 @@
 
 <script>
 import BubbleMap from './BubbleMap'
-import BubbleMapData from 'data/maps/BubbleMapData'
+import BubbleMapData from '../../../data/maps/BubbleMapData'
 
 export default {
   name: 'bubble-maps-page',
   components: {
     BubbleMap,
   },
-  data: function () {
+  data () {
     return {
       bubbleMapData: BubbleMapData,
     }
   },
 }
 </script>
-
-<style lang="scss">
-.bubble-maps-page {
-  &__widget {
-    height: 70vh;
-    .vuestic-widget-body {
-      height: 65vh;
-    }
-  }
-}
-</style>

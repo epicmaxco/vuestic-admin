@@ -1,39 +1,36 @@
 <template>
-  <vuestic-tree-root>
+  <va-tree-root>
 
-    <vuestic-tree-category label="Electronics">
-      <vuestic-tree-node v-for="electronic in electronics" :key="electronic.id">
-        <div class="form-group">
-          <div class="input-group">
-            <input v-model="electronic.name">
-            <i class="bar"></i>
-          </div>
-        </div>
-      </vuestic-tree-node>
-    </vuestic-tree-category>
+    <va-tree-category label="Electronics">
+      <va-tree-node v-for="electronic in electronics" :key="electronic.id">
+        <va-input v-model="electronic.name" class="mb-0"/>
+      </va-tree-node>
+    </va-tree-category>
 
-    <vuestic-tree-category isOpen label="Products">
-      <vuestic-tree-node v-for="product in products" :key="product.id">
-        <div class="form-group">
-          <div class="input-group">
-            <input v-model="product.name">
-            <i class="bar"></i>
-          </div>
+    <va-tree-category isOpen label="Products">
+      <va-tree-node
+        v-for="product in products"
+        :key="product.id"
+      >
+        <div class="flex row align--center">
+          <va-input v-model="product.name" class="mb-0"/>
+          <va-icon
+            name="ion ion-md-close"
+            color="info"
+            class="ml-2 pa-1 shrink"
+            style="cursor: pointer;"
+            @click.native="removeProduct(product)"
+          />
         </div>
-        <div slot="iconRight" class="icon" @click="removeProduct(product)">
-          <span aria-hidden="true" class="ion ion-md-close"/>
-        </div>
-      </vuestic-tree-node>
-      <vuestic-tree-node>
-        <button class="btn btn-primary btn-micro mb-2"
-                @click="addProduct()"
-        >
+      </va-tree-node>
+      <va-tree-node>
+        <va-button class="mb-2" @click="addProduct()">
           Add new product
-        </button>
-      </vuestic-tree-node>
-    </vuestic-tree-category>
+        </va-button>
+      </va-tree-node>
+    </va-tree-category>
 
-  </vuestic-tree-root>
+  </va-tree-root>
 </template>
 
 <script>
@@ -66,7 +63,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="bubble-map"></div>
+  <div class="bubble-map fill-height" />
 </template>
 
 <script>
@@ -61,19 +61,19 @@ export default {
 
       // create circle for each country
       // it's better to use circle square to show difference between values, not a radius
-      var maxSquare = maxBulletSize * maxBulletSize * 2 * Math.PI
-      var minSquare = minBulletSize * minBulletSize * 2 * Math.PI
+      const maxSquare = maxBulletSize * maxBulletSize * 2 * Math.PI
+      const minSquare = minBulletSize * minBulletSize * 2 * Math.PI
 
       // create circle for each country
       this.mapData.data.forEach((dataItem) => {
-        var value = dataItem.value
+        const value = dataItem.value
         // calculate size of a bubble
-        var square = (value - min) / (max - min) * (maxSquare - minSquare) + minSquare
+        let square = (value - min) / (max - min) * (maxSquare - minSquare) + minSquare
         if (square < minSquare) {
           square = minSquare
         }
-        var size = Math.sqrt(square / (Math.PI * 2))
-        var id = dataItem.code
+        const size = Math.sqrt(square / (Math.PI * 2))
+        const id = dataItem.code
         dataProvider.images.push({
           type: 'circle',
           width: size,
@@ -96,11 +96,3 @@ export default {
   },
 }
 </script>
-
-<style lang='scss'>
-@import '~ammap3/ammap/ammap.css';
-
-.bubble-map {
-  height: 100%;
-}
-</style>

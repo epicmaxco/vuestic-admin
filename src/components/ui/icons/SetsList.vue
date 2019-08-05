@@ -1,64 +1,59 @@
 <template>
-  <vuestic-widget class="sets-list" :headerText="$t('icons.title')">
-    <div class="va-row">
+  <va-card class="sets-list" :title="$t('icons.title')">
+    <div class="row">
       <div
-        class="flex lg6 xs12 sets-list__set"
+        class="flex lg6 xs12 mb-4 sets-list__set fill-height"
         v-for="(set, index) in sets"
         :key="index"
       >
-        <div class="sets-list__set__content">
-          <div class="sets-list__set__content__overlay">
-            <router-link :to="{path: set.href}" append>
-              <div class="btn btn-primary btn">{{set.name.toUpperCase()}}
-              </div>
-            </router-link>
-          </div>
+        <router-link :to="{path: set.href}" style="color: inherit">
+          <div class="sets-list__set__content">
+            <div class="sets-list__set__content__overlay flex-center pa-3 fill-height">
+              <va-button :to="{path: set.href}" append>
+                {{set.name.toUpperCase()}}
+              </va-button>
+            </div>
 
-          <template v-for="(filteredList, index) in set.filteredLists">
-            <div
-              class="va-row"
-              :key="index"
-              v-if="filteredList.length !== 2"
-            >
+            <template v-for="(filteredList, index) in set.filteredLists">
               <div
-                class="flex xs2 flex-center"
-                v-for="(icon, index) in filteredList"
+                class="row pa-3"
                 :key="index"
+                v-if="filteredList.length !== 2"
               >
-                <div class="sets-list__icon flex-center vuestic-icon">
-                  <i :class="iconClass(set, icon)" aria-hidden="true"></i>
+                <div
+                  class="flex xs2 flex-center"
+                  v-for="(icon, index) in filteredList"
+                  :key="index"
+                >
+                  <div class="sets-list__icon pa-3 flex-center vuestic-icon">
+                    <va-icon :name="iconClass(set, icon)">{{iconData(set, icon)}}</va-icon>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="va-row"
-              :key="index"
-              v-if="filteredList.length === 2"
-            >
-              <div class="flex xs2 flex-center">
-                <div class="sets-list__icon flex-center vuestic-icon">
-                  <i
-                    :class="iconClass(set, filteredList[0])"
-                    aria-hidden="true"
-                  />
+              <div
+                class="row pa-3"
+                :class="index === 1 ? 'sets-list__set__content--middle' : ''"
+                :key="index"
+                v-if="filteredList.length === 2"
+              >
+                <div class="flex xs2 flex-center">
+                  <div class="sets-list__icon pa-3 flex-center vuestic-icon">
+                    <va-icon :name="iconClass(set, filteredList[0])">{{iconData(set, filteredList[0])}}</va-icon>
+                  </div>
+                </div>
+                <div class="flex xs8"/>
+                <div class="flex xs2 flex-center">
+                  <div class="sets-list__icon pa-3 flex-center vuestic-icon">
+                    <va-icon :name="iconClass(set, filteredList[1])">{{iconData(set, filteredList[1])}}</va-icon>
+                  </div>
                 </div>
               </div>
-              <div class="flex xs8"/>
-              <div class="flex xs2 flex-center">
-                <div class="sets-list__icon flex-center vuestic-icon">
-                  <i
-                    :class="iconClass(set, filteredList[1])"
-                    aria-hidden="true"
-                  />
-                </div>
-              </div>
-            </div>
-          </template>
-
-        </div>
+            </template>
+          </div>
+        </router-link>
       </div>
     </div>
-  </vuestic-widget>
+  </va-card>
 </template>
 
 <script>
@@ -67,7 +62,10 @@ export default {
   props: ['sets'],
   methods: {
     iconClass (set, icon) {
-      return set.prefix + ' ' + set.prefix + '-' + icon
+      return set.prefix === 'material-icons' ? set.prefix : set.prefix + ' ' + set.prefix + '-' + icon
+    },
+    iconData (set, icon) {
+      return set.prefix === 'material-icons' ? icon : ''
     },
   },
 }
@@ -81,39 +79,25 @@ export default {
   }
 
   &__set {
-    margin: 0 0 1.5rem;
-    height: 100%;
     position: relative;
 
-    .btn {
-      width: 13.75rem;
-      padding-left: 0;
-      padding-right: 0;
-      text-align: center;
-    }
-
     &__content {
+      position: relative;
       background-color: $light-gray;
 
-      > div {
-        padding: 1rem;
-
-        div[class^="col"] {
-          padding: 0;
-          margin: 1rem 0;
-
-          .vuestic-icon {
-            font-size: .85rem;
-            text-align: center;
+      &--middle {
+        @include media-breakpoint-down(sm) {
+          > * {
+            visibility: hidden;
           }
         }
       }
 
       &__overlay {
+        padding: 0;
+        margin: 0;
         width: 100%;
-        height: 100%;
         position: absolute;
-        @include va-flex-center();
         z-index: 2;
       }
     }

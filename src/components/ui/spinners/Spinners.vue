@@ -1,90 +1,84 @@
 <template>
-  <div class="va-row spinners">
-    <div class="flex md12 xs12">
-      <vuestic-widget :headerText="$t('spinners.title')"
-                      class="spinners__widget">
-        <div class="spinners__customization">
-          <div class="va-row">
-            <div class="flex md3 lg4">
-              <div class="row spinners__size">
-                <h5 class="spinners__icon-small">A</h5>
-                <div class="spinners__size-picker">
-                  <vuestic-slider v-model="config.size" :options="sliderSize"/>
-                </div>
-                <h3 class="spinners__icon-large">A</h3>
-              </div>
-            </div>
-            <div class="flex md3 lg4">
-              <div class="va-row spinners__duration">
-                <div class="spinners__icon-duration-slower">
-                  <vuestic-icon-slower/>
-                </div>
-                <div class="spinners__duration-picker">
-                  <vuestic-slider v-model="currentDuration"
-                                  :options="sliderDuration"/>
-                </div>
-                <div class="spinners__icon-duration-faster">
-                  <vuestic-icon-faster/>
-                </div>
-              </div>
-            </div>
-            <div class="flex md6 lg4 xs4 spinners__color">
-              <vuestic-pallet-custom :palette="paletteArray" v-model="color"
-                                     class="spinners__color-picker"/>
-            </div>
-          </div>
-          <div class="va-row">
-            <div class="spinners__divider-copy"/>
-          </div>
-        </div>
-        <div v-for="(group, i) in groups" :key="i" class="va-row">
-          <div v-for="item in group" :key="item" class="flex sm12 md3">
-            <div class="spinner-box-container">
-              <div class="spinner-box">
-                <component
-                  :animation-duration="speed"
-                  :is="item"
-                  :color="color"
-                  :size="config.size"
-                >
-                </component>
-              </div>
-              <span>{{item | displayName}}</span>
-            </div>
-          </div>
-        </div>
-        <div class="va-row align-center">
-          <div class="text-center">
-            {{'spinners.poweredBy' | translate}}
-            <a :href="'http://epic-spinners.epicmax.co/'" target="_blank">Epic
-              Spinners</a>
-          </div>
-        </div>
-      </vuestic-widget>
+<div class="spinners">
+  <va-card :title="$t('spinners.title')">
+    <div class="row mt-0">
+      <div class="d-flex flex xs12 lg4 align--center">
+        <span class="shrink pr-3 spinners__size-smaller">A</span>
+        <va-slider
+          value-visible
+          v-model="config.size"
+          :label-value="`${config.size}px`"
+          :min="sliderSize.min"
+          :max="sliderSize.max"
+        />
+        <span class="shrink pl-3 spinners__size-bigger">A</span>
+      </div>
+
+      <div class="d-flex flex xs12 lg4 align--center">
+        <va-icon-slower class="shrink pr-3 spinners__duration-slower"/>
+        <va-slider
+          value-visible
+          v-model="currentDuration"
+          :min="sliderDuration.min"
+          :max="sliderDuration.max"
+        />
+        <va-icon-faster class="shrink pl-3 spinners__duration-faster"/>
+      </div>
+
+      <div class="d-flex flex justify--center xs12 lg4">
+        <va-palette-custom
+          :palette="paletteArray"
+          v-model="spinnersColor"
+          class="justify--center"
+        />
+      </div>
     </div>
-  </div>
+
+    <div class="content">
+      <hr class="separator">
+    </div>
+
+    <div
+      v-for="(group, i) in groups"
+      :key="i"
+      class="row"
+    >
+      <div
+        v-for="item in group"
+        :key="item"
+        class="flex sm6 lg3"
+      >
+        <div class="text--center pb-4">
+          <div class="flex-center spinner-box">
+            <component
+              :animation-duration="speed"
+              :is="item"
+              :color="spinnersColor"
+              :size="config.size"
+            >
+            </component>
+          </div>
+          <div>{{ $t(item) }}</div>
+        </div>
+      </div>
+    </div>
+  </va-card>
+</div>
 </template>
 
 <script>
 import * as spinners from 'epic-spinners'
 import { mapGetters } from 'vuex'
-import VuesticPalletCustom
-  from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticPalletCustom'
-import { colorArray } from '../../../vuestic-theme/vuestic-components/vuestic-color-picker/VuesticTheme'
-import VuesticSlider
-  from '../../../vuestic-theme/vuestic-components/vuestic-slider/VuesticSlider'
-import VuesticIconFaster
-  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconFaster'
-import VuesticIconSlower
-  from '../../../vuestic-theme/vuestic-components/vuestic-icon/VuesticIconSlower'
+import VaIconFaster
+  from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconFaster'
+import VaIconSlower
+  from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconSlower'
 
 export default {
   components: {
     ...spinners,
-    VuesticPalletCustom,
-    VuesticSlider,
-    VuesticIconFaster,
-    VuesticIconSlower,
+    VaIconFaster,
+    VaIconSlower,
   },
   data () {
     return {
@@ -93,9 +87,8 @@ export default {
         group: 4,
         duration: 1500,
       },
+      spinnersColor: this.$themes.primary,
       currentDuration: 1500,
-      paletteArray: colorArray,
-      color: '#4AE387',
       sliderSize: {
         formatter: v => `${v}px`,
         min: 40,
@@ -116,6 +109,11 @@ export default {
 
     groups () {
       return this.groupItems(Object.keys(spinners), this.config.group)
+    },
+
+    paletteArray () {
+      const t = this.$themes
+      return [t.primary, t.warning, t.danger]
     },
   },
 
@@ -139,97 +137,31 @@ export default {
 </script>
 
 <style lang="scss">
-
 .spinners {
-  @include media-breakpoint-down(xs) {
-    &__duration-picker {
-      margin-top: 30px;
+  &__size {
+    &-smaller, &-bigger {
+      width: 40px;
+      text-align: center;
+      font-weight: 600;
     }
 
-    & &__icon-small {
-      margin-left: 0;
+    &-smaller {
+      font-size: 1rem;
     }
 
-    &__duration {
-      margin: 0;
-      justify-content: center;
-    }
-
-    &__size {
-      justify-content: center;
-    }
-
-    & &__icon-duration-faster {
-      margin-top: 33px;
-    }
-
-    & &__icon-duration-slower {
-      margin-top: 33px;
-    }
-
-    &__color {
-      justify-content: center;
-      margin-left: 12px;
-    }
-
-    &__color-picker {
-      margin-top: 50px;
-      padding-left: 15px;
-      .vuestic-dropdown__content {
-        right: 40px;
-      }
+    &-bigger {
+      font-size: 1.3rem;
     }
   }
 
-  &__size-picker {
-    padding-top: 10px;
-    object-fit: contain;
-    width: 136px;
-  }
-
-  &__duration-picker {
-    width: 136px;
-    padding-top: 10px;
-  }
-
-  &__divider-copy {
-    width: 1700px;
-    height: 2px;
-    background-color: #eeeeee;
-  }
-
-  &__icon-small {
-    margin-top: 7px;
-    margin-left: 30px;
-  }
-
-  &__icon-large {
-    margin-top: 2px;
-  }
-
-  &__icon-duration-faster {
-    margin-top: 5px;
-  }
-
-  &__icon-duration-slower {
-    margin-top: 5px;
-  }
-
-  .spinner-box-container {
-    text-align: center;
-    padding-bottom: 40px;
-
-    span {
-      font-size: .8rem;
+  &__duration {
+    &-slower, &-faster {
+      transform: translateY(-1px);
     }
   }
 
   .spinner-box {
-    height: 140px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    height: 140px
   }
 }
 </style>

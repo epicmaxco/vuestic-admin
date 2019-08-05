@@ -1,6 +1,9 @@
 <template>
-  <span class="flex-center header-selector i-menu-expanded"
-        @click="$emit('update:isOpen', !isOpen)"
+  <span
+    class="flex-center header-selector"
+    :class="`i-menu-${minimized ? 'collapsed' : 'expanded'}`"
+    @click="$emit('update:minimized', !minimized)"
+
   />
 </template>
 
@@ -8,7 +11,7 @@
 export default {
   name: 'header-selector',
   props: {
-    isOpen: {
+    minimized: {
       type: Boolean,
       required: true,
     },

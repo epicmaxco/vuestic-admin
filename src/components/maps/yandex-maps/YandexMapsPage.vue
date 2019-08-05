@@ -1,22 +1,22 @@
 <template>
   <div class="yandex-maps-page">
-    <div class="va-row">
+    <div class="row">
       <div class="flex md12 xs12">
-        <vuestic-widget
+        <va-card
           class="yandex-maps-page__widget"
-          headerText="Yandex Maps"
+          title="Yandex Maps"
         >
           <yandex-map
             :use-object-manager:="true"
             :coords="[55.2, 38.8]"
             :zoom="8"
-            style="width: 100%; height: 100%"
+            style="width: 100%; height: 65vh;"
             :behaviors="['default']"
             :controls="['trafficControl','zoomControl', 'geolocationControl','fullscreenControl', 'searchControl']"
             :placemarks="placemarks"
             map-type="hybrid">
           </yandex-map>
-        </vuestic-widget>
+        </va-card>
       </div>
     </div>
   </div>
@@ -42,7 +42,7 @@ export default {
           clusterName: '1',
           balloonTemplate: '<div>"Your custom template"</div>',
           callbacks: {
-            click: function () {
+            click () {
             },
           },
         },
@@ -51,15 +51,3 @@ export default {
   },
 }
 </script>
-<style lang="scss">
-@import "../../../vuestic-theme/vuestic-sass/resources/variables";
-
-.yandex-maps-page {
-  &__widget {
-    height: 70vh;
-    .vuestic-widget-body {
-      height: 65vh;
-    }
-  }
-}
-</style>

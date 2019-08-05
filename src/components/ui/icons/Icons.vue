@@ -1,5 +1,5 @@
 <template>
-  <div class="ui-icons">
+  <div class="icons">
     <router-view :sets="sets"></router-view>
   </div>
 </template>
@@ -16,6 +16,7 @@ const iconTypes = [
   'ionicons',
   'maki',
   'openweb',
+  'material-icons',
 ]
 
 export default {
@@ -49,9 +50,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.ui-icons {
-
-}
-</style>

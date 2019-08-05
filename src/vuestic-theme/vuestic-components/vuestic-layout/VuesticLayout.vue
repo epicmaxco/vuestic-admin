@@ -66,7 +66,7 @@ export default {
       }
     }
   }
-  
+
   .made-by-footer {
     display: flex;
     justify-content: center;

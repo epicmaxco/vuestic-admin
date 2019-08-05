@@ -1,30 +1,67 @@
 {
   "auth": {
     "agree": "I agree to",
-    "alreadyJoined": "Already joined?",
     "createAccount": "Create account",
-    "createNewAccount": "Create account",
+    "createNewAccount": "Create New Account",
     "email": "Email",
     "login": "Login",
     "password": "Password",
-    "signUp": "Sign Up",
+    "recover_password": "Recover password",
+    "sign_up": "Sign Up",
+    "keep_logged_in": "Keep me logged in",
     "termsOfUse": "Terms of Use.",
-    "welcome": "Welcome!"
+    "reset_password": "Reset password"
   },
-  "breadcrumbs": {
-    "home": "Home"
+  "404": {
+    "title": "This page’s gone fishing.",
+    "text": "If you feel that it’s not right, please send us a message at ",
+    "back_button": "Back to dashboard"
+  },
+  "rating": {
+    "singleIcon": "Single Icon",
+    "twoIcons": "Two Icons",
+    "large": "Large",
+    "numbers": "Numbers",
+    "halves": "Halves",
+    "small": "Small"
+  },
+  "typography": {
+    "primary": "Primary text styles",
+    "secondary": "Secondary text styles"
+  },
+  "colorPickers": {
+    "simple": "Simple",
+    "slider": "Slider",
+    "advanced": "Advanced"
   },
   "buttons": {
-    "advanced": "Icons, Groups, Dropdowns",
+    "advanced": "Buttons With Icons",
+    "size": "Button Sizes",
+    "tags": "Button Tags",
     "button": "BUTTON",
-    "colors": "Colors",
+    "buttonGroups": "Button Groups",
+    "buttonToggles": "Button Toggles",
+    "pagination": "Pagination",
+    "a-link": "Open EpicSpinners",
+    "router-link": "Move to Charts",
+    "colors": "Button Colors",
     "disabled": "DISABLED",
     "dropdown": "DROPDOWN",
     "hover": "HOVER",
-    "main": "Primary & Secondary Buttons",
-    "micro": "MICRO",
+    "types": "Button Types",
     "pressed": "PRESSED",
-    "small": "SMALL"
+    "default": "DEFAULT",
+    "outline": "OUTLINE",
+    "flat": "FLAT",
+    "large": "LARGE",
+    "small": "SMALL",
+    "normal": "NORMAL",
+    "success": "SUCCESS",
+    "info": "INFO",
+    "danger": "DANGER",
+    "warning": "WARNING",
+    "gray": "GRAY",
+    "dark": "DARK"
   },
   "charts": {
     "horizontalBarChart": "Horizontal Bar Chart",
@@ -35,30 +72,114 @@
     "bubbleChart": "Bubble Chart"
   },
   "collapse": {
-    "accordion": "Accordion",
-    "buttons": "Buttons"
+    "basic": "Basic Collapse",
+    "collapseWithBackground": "Collapse with background",
+    "collapseWithCustomHeader": "Collapse with custom header"
+  },
+  "sliders": {
+    "slider": "Sliders",
+    "range": "Ranges",
+    "simple": "simple",
+    "value": "Value",
+    "label": "Label",
+    "labelPlusIcon": "label + icon",
+    "pins": "Pins",
+    "pinsAndValue": "pins & value"
+  },
+  "popovers": {
+    "popover": "Popover",
+    "popoverStyle": "Popover Style",
+    "popoverPlacement": "Popover Placement",
+    "minimalTooltip": "Minimal Tooltip",
+    "anotherOneTooltip": "Another One Tooltip"
+  },
+  "datepickers": {
+    "dateOfBirth": "Date of birth",
+    "daysOfTheWeek": "Days of the week",
+    "setupMeeting": "Setup meeting",
+    "upcomingVacation": "Upcoming vacation",
+    "multipleAndDisabledDates": "Multiple & disabled dates",
+    "inline": "Inline"
   },
   "dashboard": {
-    "dataVisualization": "Data Visualization",
-    "success": "SUCCESS",
-    "successMessage": "You successfully read this important alert message.",
-    "elements": "Elements",
-    "features": "Features",
-    "setupProfile": "Setup Profile",
-    "teamMembers": "Team Members",
-    "usersAndMembers": "Users & Members",
-    "versions": "Versions"
+    "versions": "Versions",
+    "setupRemoteConnections": "Setup Remote Connections",
+    "currentVisitors": "Current Visitors",
+    "charts": {
+      "trendyTrends": "Trendy Trends",
+      "deleteSection": "Delete Section",
+      "loadingSpeed": "Loading speed",
+      "topContributors": "Top contributors",
+      "showAll": "Show All",
+      "commits": "Commits"
+    },
+    "info": {
+      "completedPullRequests": "completed pull requests",
+      "users": "users",
+      "points": "points",
+      "units": "units",
+      "exploreGallery": "Explore gallery",
+      "viewLibrary": "View Library",
+      "commits": "commits",
+      "components": "components",
+      "teamMembers": "team members"
+    },
+    "table": {
+      "title": "Awesome table",
+      "brief": "Brief",
+      "detailed": "Detailed",
+      "resolve": "Resolve",
+      "resolved": "Resolved"
+    },
+    "tabs": {
+      "overview": {
+        "title": "Overview",
+        "built": "Built with Vue.js framework",
+        "free": "Absolutely free for everyone",
+        "fresh": "Fresh and crisp design",
+        "mobile": "Responsive and optimized for mobile",
+        "components": "Tons of useful components",
+        "nojQuery": "Completely jQuery free"
+      },
+      "billingAddress": {
+        "title": "Billing Address",
+        "personalInfo": "Personal Info",
+        "firstName": "First name & Last Name",
+        "email": "Email",
+        "address": "Address",
+        "companyInfo": "Company Info",
+        "city": "City",
+        "country": "Country",
+        "infiniteConnections": "Infinite connections",
+        "addConnection": "Add Connection"
+      },
+      "bankDetails": {
+        "title": "Bank Details",
+        "detailsFields": "Details Fields",
+        "bankName": "Bank Name",
+        "accountName": "Account Name",
+        "sortCode": "Sort Code",
+        "accountNumber": "Account Number",
+        "notes": "Notes",
+        "sendDetails": "Send Details"
+      }
+    },
+    "navigationLayout": "navigation layout",
+    "topBarButton": "Top Bar",
+    "sideBarButton": "Side Bar"
   },
   "notificationsPage": {
-    "alerts": {
-      "title": "Alerts",
-      "success": "SUCCESS",
+    "notifications": {
+      "title": "Notifications",
+      "gray": "Processing",
+      "dark": "New Label",
+      "success": "Paid",
       "successMessage": "You successfully read this important alert message.",
-      "info": "INFO",
+      "info": "Info",
       "infoMessage": "This alert needs your attention, but it's not super important.",
-      "warning": "WARNING",
+      "warning": "On Hold",
       "warningMessage": "Better check yourself, you're not looking too good.",
-      "danger": "DANGER",
+      "danger": "Danger",
       "dangerMessage": "Change a few things up and try submitting again."
     },
     "popovers": {
@@ -67,8 +188,8 @@
       "popoverTextLabel": "Popover Text",
       "popoverIconLabel": "Popover Icon (fontawesome)",
       "showPopover": "Show Popover",
-      "topTooltip": "top tooltip",
-      "rightTooltip": "rightside tooltip",
+      "topTooltip": "top",
+      "rightTooltip": "rightside",
       "leftTooltip": "left",
       "bottomTooltip": "below"
     },
@@ -81,22 +202,9 @@
       "launchToast": "Launch toast"
     }
   },
-  "extra": {
-    "tabs": {
-      "title": "Tabs",
-      "maps": "Maps",
-      "pages": "Pages",
-      "overview": "Overview",
-      "setupProfile": "Setup Profile"
-    },
-    "chat": "Chat",
-    "profileCard": "Profile Card"
-  },
   "forms": {
     "controls": {
-      "female": "Female",
-      "male": "Male",
-      "title": "Checkboxes, Radios, Switches",
+      "title": "Checkboxes, Radios, Switches, Toggles",
       "radioDisabled": "Disabled Radio",
       "radio": "Radio",
       "subscribe": "Subscribe to newsletter",
@@ -138,19 +246,9 @@
       "countryMulti": "Country Multi Select",
       "multi": "Multi Select",
       "simple": "Simple Select",
+      "searchable": "Select with search",
+      "searchableMulti": "Multi Select with search",
       "title": "Selects"
-    },
-    "wizard": {
-      "name": "Name",
-      "completed": "Wizard completed!",
-      "confirmSelection": "Confirm selection",
-      "rich": "Rich Wizard",
-      "simple": "Simple Wizard",
-      "stepOne": "Step 1. Name",
-      "stepTwo": "Step 2. Country",
-      "stepThree": "Step 3. Confirm",
-      "verticalRich": "Vertical Rich Wizard",
-      "verticalSimple": "Vertical Simple Wizard"
     }
   },
   "grid": {
@@ -160,7 +258,7 @@
     "responsive": "Responsive Grid"
   },
   "icons": {
-    "back": "Back to icons",
+    "back": "Back to all icons",
     "none": "No icons found",
     "search": "Icon search",
     "title": "Icons"
@@ -172,21 +270,20 @@
   "language": {
     "brazilian_portuguese": "Português",
     "english": "English",
-    "spanish": "Spanish"
+    "spanish": "Spanish",
+    "simplified_chinese": "Simplified Chinese"
   },
   "menu": {
     "auth": "Auth",
+    "rating": "Rating",
     "buttons": "Buttons",
     "charts": "Charts",
     "colorPickers": "Color Pickers",
-    "filters": "Filters",
-    "collapse": "Collapse",
+    "collapses": "Collapses",
     "timelines": "Timelines",
     "dashboard": "Dashboard",
-    "extra": "Extra",
     "formElements": "Form Elements",
     "forms": "Forms",
-    "formWizards": "Form Wizards",
     "mediumEditor": "Medium Editor",
     "grid": "Grid",
     "icons": "Icons",
@@ -200,23 +297,32 @@
     "progressBars": "Progress Bars",
     "signUp": "Sign up",
     "statistics": "Statistics",
+    "lists": "Lists",
     "tables": "Tables",
-    "tags": "Tags",
+    "markupTables": "Markup Tables",
+    "dataTables": "Data Tables",
+    "chips": "Chips",
+    "tabs": "Tabs",
     "typography": "Typography",
     "uiElements": "UI Elements",
     "treeView": "Tree view",
     "dateTimePickers": "Date time pickers",
     "fileUpload": "File Upload",
-    "dropdowns": "Dropdowns"
+    "colors": "Colors",
+    "spacing": "Spacing",
+    "sliders": "Sliders",
+    "popovers": "Popovers",
+    "chat": "Chat"
   },
   "messages": {
     "all": "See all messages",
-    "new": "New messages from {name}"
+    "new": "New messages from {name}",
+    "mark_as_read": "Mark As Read"
   },
   "modal": {
-    "cancel": "CANCEL",
-    "close": "CLOSE",
-    "confirm": "CONFIRM",
+    "cancel": "Cancel",
+    "close": "Close",
+    "confirm": "Confirm",
     "large": "Large",
     "largeTitle": "Large Modal",
     "medium": "Medium",
@@ -224,15 +330,25 @@
     "small": "Small",
     "smallTitle": "Small Modal",
     "static": "Static",
-    "staticMessage": "This is a static modal, backdrop click will not close it.",
+    "staticMessage": "This is a static modal, backdrop or escape click will not close it.",
     "staticTitle": "Static Modal",
-    "title": "Modals"
+    "title": "Modals",
+    "titlePosition": "Modal Position",
+    "top": "Top",
+    "right": "Right",
+    "bottom": "Bottom",
+    "left": "Left",
+    "message": "There are three species of zebras: the plains zebra, the mountain zebra and the Grévy's zebra. The plains zebra and the mountain zebra belong to the subgenus Hippotigris, but Grévy's\n        zebra is the sole species of subgenus\n        Dolichohippus. The latter resembles an ass, to which it is closely\n        related, while the former two are more\n        horse-like. All three belong to the genus Equus, along with other living\n        equids."
   },
   "dropdown": {
     "default": "Default",
     "withArrow": "With arrow",
     "note": "Note",
-    "noteText": "Dropdown will open in the specified direction if there is enough space on the screen, otherwise the direction will automatically change"
+    "noteText": "Dropdown will open in the specified direction if there is enough space on the screen, otherwise the direction will automatically change",
+    "top": "TOP",
+    "right": "RIGHT",
+    "bottom": "BOTTOM",
+    "left": "LEFT"
   },
   "fileUpload": {
     "advancedMediaGallery": "Advanced, Media Gallery",
@@ -253,19 +369,20 @@
     "modalTitle": "File validation",
     "modalText": "File type is incorrect!"
   },
-  "tags": {
-    "default": "Default",
-    "removable": "Removable",
-    "colored": "Colored"
+  "chips": {
+    "chips": "Chips",
+    "badges": "Badges"
   },
   "navbar": {
-    "messageUs": "Web development help needed? Contact us at"
+    "messageUs": "Development inquiries:",
+    "support": "TY for support"
   },
   "notifications": {
     "all": "See all notifications",
-    "sentMessage": "{name} sent you a message",
-    "uploadedZip": "{name} uploaded a new Zip file with {type}",
-    "startedTopic": "{name} started a new topic"
+    "mark_as_read": "Mark As Read",
+    "sentMessage": "sent you a message",
+    "uploadedZip": "uploaded a new Zip file with {type}",
+    "startedTopic": "started a new topic"
   },
   "timelines": {
     "horizontalSimple": "Horizontal Simple",
@@ -282,27 +399,46 @@
     "verticalSimpleCardsSecondInfo": "However, various anthropogenic factors have had a severe impact on zebra populations"
   },
   "progressBars": {
-    "basic": "Basic",
-    "basicVertical": "Basic Vertical",
     "circle": "Circle",
-    "colorFulTitle": "Colorful Bars",
-    "thin": "Thin",
-    "thinVertical": "Thin Vertical",
-    "thick": "Thick",
-    "title": "Progress Bars"
+    "horizontal": "Horizontal",
+    "colors": "Colors"
+  },
+  "lists": {
+    "customers": "Customers",
+    "recentMessages": "Recent Messages",
+    "archieved": "Archieved",
+    "starterKit": "Starter Kit",
+    "notifications": "Notifications",
+    "routerSupport": "Router Support"
   },
   "tables": {
     "basic": "Basic Table",
-    "styled": "Colors, Icons, Labels",
-    "advanced": "Search & Pagination",
+    "stripedHoverable": "Striped, Hoverable",
+    "labelsActions": "Labels, Actions as Buttons",
+    "sortingPaginationActionsAsIcons": "Sorting, Pagination, Actions as Icons",
+    "star": "Star",
+    "unstar": "Unstar",
+    "edit": "Edit",
+    "delete": "Delete",
+    "searchByName": "Search by name",
+    "searchTrendsBadges": "Search, Trends, Badges",
+    "perPage": "Per Page",
+    "report": "Report",
+    "infiniteScroll": "Infinite Scroll",
+    "selectable": "Selectable",
+    "selected": "Selected",
+    "serverSidePagination": "Server-Side Pagination",
+    "emptyTable": "Empty Table",
+    "noDataAvailable": "No Data Available.",
+    "noReport": "There is no data to display. Report will be available on November 3, 2018.",
+    "loading": "Loading",
     "headings": {
-      "city": "City",
       "email": "Email",
       "name": "Name",
-      "score": "Score"
-    },
-    "dataTable": {
-      "noDataAvailable": "No Data Available"
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "status": "Status",
+      "country": "Country"
     }
   },
   "user": {
@@ -317,19 +453,31 @@
     "editable": "Editable",
     "advanced": "Advanced"
   },
+  "chat": {
+    "title": "Chat"
+  },
+  "spacingPlayground": {
+    "value": "Value",
+    "margin": "Margin",
+    "padding": "Padding"
+  },
   "cards": {
     "cards": "Cards",
     "fixed": "Fixed",
     "floating": "Floating",
     "contentText": "The unique stripes of zebras make them one of the animals most familiar to people.",
+    "contentTextLong": "The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands, mountains, and coastal hills. Various anthropogenic factors have had a severe impact on zebra populations, in particular hunting for skins and habitat destruction. Grévy's zebra and the mountain zebra are endangered. While plains zebras are much more plentiful, one subspecies, the quagga.",
     "rowHeight": "Row height",
     "title": {
-      "dark": "Dark background",
-      "bright": "Very bright card",
-      "titleOnImageNoOverlay": "Title on image, but no overlay",
-      "normal": "Perfectly normal card",
-      "overlayAndTextOnImage": "Card with overlay and text on top of image",
-      "stripeNoImage": "Striped card without image"
+      "default": "Default",
+      "withControls": "With controls",
+      "customHeader": "Custom header",
+      "withoutHeader": "Without header",
+      "withImage": "With Image",
+      "withTitleOnImage": "With title on image",
+      "withCustomTitleOnImage": "With custom title on image",
+      "withStripe": "With stripe",
+      "withBackground": "With background"
     },
     "button": {
       "main": "Main",

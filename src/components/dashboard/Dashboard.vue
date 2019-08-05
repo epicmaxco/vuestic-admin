@@ -1,50 +1,38 @@
 <template>
   <div class="dashboard">
-
-    <dashboard-info-widgets></dashboard-info-widgets>
-
-    <vuestic-widget class="no-padding no-v-padding">
-      <vuestic-tabs
-        :names="[$t('dashboard.dataVisualization'), $t('dashboard.usersAndMembers'), $t('dashboard.setupProfile'), $t('dashboard.features')]"
-        ref="tabs">
-        <div :slot="$t('dashboard.dataVisualization')">
-          <data-visualisation-tab></data-visualisation-tab>
-        </div>
-        <div :slot="$t('dashboard.usersAndMembers')">
-          <users-members-tab></users-members-tab>
-        </div>
-        <div :slot="$t('dashboard.setupProfile')">
-          <setup-profile-tab></setup-profile-tab>
-        </div>
-        <div :slot="$t('dashboard.features')">
-          <features-tab></features-tab>
-        </div>
-      </vuestic-tabs>
-    </vuestic-widget>
-
-    <dashboard-bottom-widgets></dashboard-bottom-widgets>
-
+    <dashboard-charts />
+    <dashboard-info-block />
+    <div class="row">
+      <div class="flex xs12">
+        <dashboard-table />
+      </div>
+    </div>
+    <div class="row row-equal">
+      <div class="flex xs12 lg6">
+        <dashboard-tabs />
+      </div>
+      <div class="flex xs12 lg6">
+        <dashboard-map />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import DashboardInfoWidgets from './DashboardInfoWidgets'
-import UsersMembersTab from './users-and-members-tab/UsersMembersTab.vue'
-import SetupProfileTab from './setup-profile-tab/SetupProfileTab.vue'
-import FeaturesTab from './features-tab/FeaturesTab.vue'
-import DataVisualisationTab
-  from './data-visualisation-tab/DataVisualisation.vue'
-import DashboardBottomWidgets from './DashboardBottomWidgets.vue'
+import DashboardCharts from './DashboardCharts'
+import DashboardInfoBlock from './DashboardInfoBlock'
+import DashboardTable from './DashboardTable'
+import DashboardTabs from './DashboardTabs'
+import DashboardMap from './DashboardMap'
 
 export default {
   name: 'dashboard',
   components: {
-    DataVisualisationTab,
-    DashboardInfoWidgets,
-    UsersMembersTab,
-    SetupProfileTab,
-    FeaturesTab,
-    DashboardBottomWidgets,
+    DashboardCharts,
+    DashboardInfoBlock,
+    DashboardTable,
+    DashboardTabs,
+    DashboardMap,
   },
 
   methods: {
@@ -62,7 +50,17 @@ export default {
     },
   },
 }
-
 </script>
-<style lang="scss" scoped>
+
+<style lang="scss">
+  .row-equal .flex {
+    .va-card {
+      height: 100%;
+    }
+  }
+  .dashboard {
+    .va-card {
+      margin-bottom: 0 !important;
+    }
+  }
 </style>

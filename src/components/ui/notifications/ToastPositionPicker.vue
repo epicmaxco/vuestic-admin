@@ -1,31 +1,37 @@
 <template>
-  <div class="toast-position-picker">
-    <div class="position-boxes-row">
+  <div class="toast-position-picker mr-4">
+    <div class="position-boxes-row d-flex">
       <div class="position-box"
            @click="updatePosition('top-left')"
-           :class="{'selected': isBoxSelected('top-left')}">
+           :class="{'selected': isBoxSelected('top-left')}"
+           :style="computedStyle">
       </div>
       <div class="position-box"
            @click="updatePosition('top-center')"
-           :class="{'selected': isBoxSelected('top-center')}">
+           :class="{'selected': isBoxSelected('top-center')}"
+           :style="computedStyle">
       </div>
       <div class="position-box"
            @click="updatePosition('top-right')"
-           :class="{'selected': isBoxSelected('top-right')}">
+           :class="{'selected': isBoxSelected('top-right')}"
+           :style="computedStyle">
       </div>
     </div>
-    <div class="position-boxes-row">
+    <div class="position-boxes-row d-flex">
       <div class="position-box"
            @click="updatePosition('bottom-left')"
-           :class="{'selected': isBoxSelected('bottom-left')}">
+           :class="{'selected': isBoxSelected('bottom-left')}"
+           :style="computedStyle">
       </div>
       <div class="position-box"
            @click="updatePosition('bottom-center')"
-           :class="{'selected': isBoxSelected('bottom-center')}">
+           :class="{'selected': isBoxSelected('bottom-center')}"
+           :style="computedStyle">
       </div>
       <div class="position-box"
            @click="updatePosition('bottom-right')"
-           :class="{'selected': isBoxSelected('bottom-right')}">
+           :class="{'selected': isBoxSelected('bottom-right')}"
+           :style="computedStyle">
       </div>
     </div>
   </div>
@@ -39,6 +45,14 @@ export default {
     value: {
       type: String,
       default: 'bottom-center',
+    },
+  },
+
+  computed: {
+    computedStyle () {
+      return {
+        backgroundColor: this.$themes.primary,
+      }
     },
   },
 
@@ -58,11 +72,9 @@ export default {
 .toast-position-picker {
   width: 112px;
   height: 76px;
-  margin-right: 2rem;
 }
 
 .position-boxes-row {
-  display: flex;
   flex-direction: row;
 
   &:first-child {
@@ -75,7 +87,6 @@ export default {
   width: 36px;
   margin-right: 2px;
   cursor: pointer;
-  background-color: $brand-primary;
   opacity: 0.3;
 
   &:last-child {

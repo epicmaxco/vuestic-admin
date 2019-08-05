@@ -1,21 +1,19 @@
 <template>
-  <div class="google-map">
-  </div>
+  <div class="google-map fill-height" />
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import * as GoogleMapsLoader from 'google-maps'
 
 export default {
   name: 'google-map',
 
-  computed: mapGetters({
-    config: 'config',
-  }),
-
   mounted () {
-    GoogleMapsLoader.KEY = this.config.googleMaps.apiKey
+    if (!process.env.VUE_APP_GOOGLE_MAPS_API_KEY) {
+      throw new Error('Please provide google maps api key from env (VUE_APP_GOOGLE_MAPS_API_KEY)')
+    }
+
+    GoogleMapsLoader.KEY = process.env.VUE_APP_GOOGLE_MAPS_API_KEY
     /* We stick to version updates instead of weekly channel update because
        using weekly updates you need to test them, but we prefer to use stable
        versions. */
@@ -31,9 +29,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.google-map {
-  height: 100%;
-}
-</style>

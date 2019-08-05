@@ -1,8 +1,8 @@
 <template>
-  <div class="made-by-component">
+  <div class="made-by-component text--center pb-3">
     <span>
-        ©2018. Made by
-        <a href="https://epicmax.co">Epicmax</a>
+        ©2019. Made by
+        <a href="https://epicmax.co" class="link">Epicmax</a>
     </span>
   </div>
 </template>
@@ -15,12 +15,9 @@ export default {
 
 <style lang="scss">
 .made-by-component {
-  padding-bottom: 20px;
-  display: flex;
-  color: white;
-  justify-content: center;
+  width: 100%;
   position: absolute;
   bottom: 0;
-  width: 100%;
+  color: $white;
 }
 </style>

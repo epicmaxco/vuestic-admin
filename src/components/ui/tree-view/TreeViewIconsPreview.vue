@@ -1,75 +1,39 @@
 <template>
-  <vuestic-tree-root>
-    <vuestic-tree-category label="Images">
-      <div slot="icon" class="icon">
-        <span aria-hidden="true" class="ion ion-md-images"/>
-      </div>
-      <vuestic-tree-node>
-        <div slot="icon" class="icon">
-          <span aria-hidden="true" class="ion ion-md-image"/>
-        </div>
+  <va-tree-root>
+    <va-tree-category label="Images" icon="ion ion-md-images">
+      <va-tree-node icon="ion ion-md-image">
         sick_catz_cuddling.jpg
-      </vuestic-tree-node>
-      <vuestic-tree-node>
-        <div slot="icon" class="icon">
-          <span aria-hidden="true" class="ion ion-md-image"/>
-        </div>
+      </va-tree-node>
+      <va-tree-node icon="ion ion-md-image">
         pins-and-needles.jpg
-      </vuestic-tree-node>
-      <vuestic-tree-node>
-        <div slot="icon" class="icon">
-          <span aria-hidden="true" class="ion ion-md-image"/>
-        </div>
+      </va-tree-node>
+      <va-tree-node icon="ion ion-md-image">
         avatar_50x50.jpg
-      </vuestic-tree-node>
-    </vuestic-tree-category>
-    <vuestic-tree-category label="Music" isOpen>
-      <div slot="icon" class="icon">
-        <span aria-hidden="true" class="ion ion-md-star-outline"/>
-      </div>
-      <vuestic-tree-node>
-        <div slot="icon" class="icon">
-          <span aria-hidden="true" class="ion ion-md-musical-notes"/>
-        </div>
+      </va-tree-node>
+    </va-tree-category>
+    <va-tree-category label="Music" isOpen icon="ion ion-md-star-outline">
+      <va-tree-node icon="ion ion-md-musical-notes">
         Taylor_swift_hello.mp3
-      </vuestic-tree-node>
-      <vuestic-tree-node>
-        <div slot="icon" class="icon">
-          <span aria-hidden="true" class="ion ion-md-musical-notes"/>
-        </div>
+      </va-tree-node>
+      <va-tree-node icon="ion ion-md-musical-notes">
         straight_to_the_bank.wav
-      </vuestic-tree-node>
-      <vuestic-tree-node>
-        <div slot="icon" class="icon">
-          <span aria-hidden="true" class="ion ion-md-musical-notes"/>
-        </div>
+      </va-tree-node>
+      <va-tree-node icon="ion ion-md-musical-notes">
         imagine_dragons_promo.mp3
-      </vuestic-tree-node>
-    </vuestic-tree-category>
-    <vuestic-tree-category label="Miscellaneous">
-      <div slot="icon" class="icon">
-        <span aria-hidden="true" class="ion ion-md-list"/>
-      </div>
-      <vuestic-tree-node>
-        <div slot="icon" class="icon">
-          <span aria-hidden="true" class="ion ion-md-grid"/>
-        </div>
+      </va-tree-node>
+    </va-tree-category>
+    <va-tree-category label="Miscellaneous" icon="ion ion-md-list">
+      <va-tree-node icon="ion ion-md-grid">
         dump.sql
-      </vuestic-tree-node>
-      <vuestic-tree-node>
-        <div slot="icon" class="icon">
-          <span aria-hidden="true" class="ion ion-md-help"/>
-        </div>
+      </va-tree-node>
+      <va-tree-node icon="ion ion-md-help">
         unknown-file
-      </vuestic-tree-node>
-      <vuestic-tree-node>
-        <div slot="icon" class="icon">
-          <span aria-hidden="true" class="ion ion-md-key"/>
-        </div>
+      </va-tree-node>
+      <va-tree-node icon="ion ion-md-key">
         secure.key
-      </vuestic-tree-node>
-    </vuestic-tree-category>
-  </vuestic-tree-root>
+      </va-tree-node>
+    </va-tree-category>
+  </va-tree-root>
 </template>
 
 <script>

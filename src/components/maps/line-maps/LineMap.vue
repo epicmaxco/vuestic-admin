@@ -1,5 +1,5 @@
 <template>
-  <div class='line-map'>
+  <div class="line-map fill-height">
     Line Map
   </div>
 </template>
@@ -17,7 +17,14 @@ export default {
   name: 'line-map',
 
   props: ['mapData'],
-
+  watch: {
+    mapData: {
+      handler () {
+        this.drawMap()
+      },
+      deep: true,
+    },
+  },
   methods: {
     drawMap () {
       /* global AmCharts */
@@ -35,12 +42,12 @@ export default {
         outlineThickness: 2,
       }
       map.imagesSettings = {
-        color: '#6bbfe4',
-        rollOverColor: '#6bbfe4',
-        selectedColor: '#6be59c',
+        color: this.$themes['info'],
+        rollOverColor: this.$themes['info'],
+        selectedColor: this.$themes['primary'],
       }
       map.linesSettings = {
-        color: '#6bbfe4',
+        color: this.$themes['info'],
         alpha: 0.4,
       }
 
@@ -53,17 +60,8 @@ export default {
       map.write(this.$el)
     },
   },
-
   mounted () {
     this.drawMap()
   },
 }
 </script>
-
-<style lang='scss'>
-@import '~ammap3/ammap/ammap.css';
-
-.line-map {
-  height: 100%;
-}
-</style>

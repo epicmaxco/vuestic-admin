@@ -1,186 +1,226 @@
 <template>
   <div class="timelines">
-    <vuestic-widget
-      class="no-h-padding no-v-padding"
-      :headerText="$t('timelines.horizontalSimple')"
-    >
-      <vuestic-timeline>
-        <vuestic-timeline-item active>
-          <template slot="before">
-            <div class="vuestic-timeline-item__title">
-              February 2018
-            </div>
-            <div class="vuestic-timeline-item__description">
-              Pre-sail rate: 50%
-            </div>
-          </template>
-        </vuestic-timeline-item>
-        <vuestic-timeline-item active>
-          <template slot="before">
-            <div class="vuestic-timeline-item__title">
-              March 2018
-            </div>
-            <div class="vuestic-timeline-item__description">
-              Pre-sail rate: 40%
-            </div>
-          </template>
-        </vuestic-timeline-item>
-        <vuestic-timeline-item>
-          <template slot="before">
-            <div class="vuestic-timeline-item__title">
-              April 2018
-            </div>
-            <div class="vuestic-timeline-item__description">
-              Pre-sail rate: 20%
-            </div>
-          </template>
-        </vuestic-timeline-item>
-      </vuestic-timeline>
-    </vuestic-widget>
-
-    <vuestic-widget class="no-h-padding no-v-padding timelines__horizontal-long"
-                    :headerText="$t('timelines.horizontalCards')">
-      <vuestic-timeline class="timelines__horizontal-long__timeline">
-        <vuestic-timeline-item active>
-          <vuestic-card
-            slot="after"
-            stripe="success"
-          >
-            <template slot="title">{{ dateFirst }}</template>
-            {{ contentFirst }}
-          </vuestic-card>
-        </vuestic-timeline-item>
-        <vuestic-timeline-item active>
-          <vuestic-card
-            slot="after"
-            stripe="success"
-          >
-            <template slot="title">{{ dateSecond }}</template>
-            {{ contentFirst }}
-          </vuestic-card>
-        </vuestic-timeline-item>
-        <vuestic-timeline-item>
-          <vuestic-card
-            slot="after"
-            stripe="success"
-          >
-            <template slot="title">{{ dateThird }}</template>
-            {{ contentThird }}
-          </vuestic-card>
-        </vuestic-timeline-item>
-      </vuestic-timeline>
-    </vuestic-widget>
-
-    <vuestic-widget class="no-h-padding no-v-padding"
-                    :headerText="$t('timelines.verticalSimple')">
-      <div class="va-row">
-        <div class="xs12 md6 flex">
-          <vuestic-timeline vertical>
-            <vuestic-timeline-item active>
-              <vuestic-card
-                slot="after"
-              >
-                <template slot="title">{{ dateFirst }}</template>
-                {{ contentFirst }}
-              </vuestic-card>
-            </vuestic-timeline-item>
-            <vuestic-timeline-item>
-              <vuestic-card
-                slot="after"
-              >
-                <template slot="title">{{ dateSecond }}</template>
-                {{ contentFirst }}
-              </vuestic-card>
-            </vuestic-timeline-item>
-          </vuestic-timeline>
-        </div>
-        <div class="xs12 md6 flex">
-          <vuestic-timeline vertical>
-            <vuestic-timeline-item active>
-              <vuestic-card
-                theme="dark"
-                slot="after"
-              >
-                <template slot="title">{{ dateFirst }}</template>
-                {{ contentFirst }}
-              </vuestic-card>
-            </vuestic-timeline-item>
-            <vuestic-timeline-item>
-              <vuestic-card
-                theme="dark"
-                slot="after"
-              >
-                <template slot="title">{{ dateSecond }}</template>
-                {{ contentFirst }}
-              </vuestic-card>
-            </vuestic-timeline-item>
-          </vuestic-timeline>
-        </div>
+    <div class="row">
+      <div class="flex xs12">
+        <va-card
+          no-padding-h
+          style="overflow-x: auto;"
+          :title="$t('timelines.horizontalSimple')"
+        >
+          <va-timeline style="min-width: 400px;">
+            <va-timeline-item active>
+              <template slot="before">
+                <div
+                  class="title text--center"
+                  :style="{color: $themes.success}"
+                >
+                  February 2018
+                </div>
+                <div class="va-timeline-item__description">
+                  Complete drafts
+                </div>
+              </template>
+            </va-timeline-item>
+            <va-timeline-item active>
+              <template slot="before">
+                <div
+                  class="title text--center"
+                  :style="{color: $themes.success}"
+                >
+                  April 2018
+                </div>
+                <div class="va-timeline-item__description">
+                  Push site live
+                </div>
+              </template>
+            </va-timeline-item>
+            <va-timeline-item>
+              <template slot="before">
+                <div class="title title--gray text--center">
+                  June 2018
+                </div>
+                <div class="va-timeline-item__description">
+                  Start ICO
+                </div>
+              </template>
+            </va-timeline-item>
+          </va-timeline>
+        </va-card>
       </div>
-    </vuestic-widget>
 
-    <vuestic-widget class="no-h-padding no-v-padding"
-                    :headerText="$t('timelines.verticalLabel')">
-      <vuestic-timeline vertical>
-        <vuestic-timeline-item active>
-          <span class="vuestic-timeline-item__text" slot="before">{{ dateFirst }}</span>
-          <vuestic-card
-            slot="after"
-            stripe="success"
-          >
-            <template slot="title">{{ titleFirst }}</template>
-            {{ contentFirst }}
-          </vuestic-card>
-        </vuestic-timeline-item>
-        <vuestic-timeline-item>
-          <span class="vuestic-timeline-item__text" slot="before">{{ dateSecond }}</span>
-          <vuestic-card
-            slot="after"
-            stripe="success"
-          >
-            <template slot="title">{{ titleSecond }}</template>
-            {{ contentFirst }}
-          </vuestic-card>
-        </vuestic-timeline-item>
-      </vuestic-timeline>
-    </vuestic-widget>
+      <div class="flex xs12">
+        <va-card
+          no-padding-h
+          style="overflow-x: auto"
+          class="timelines__horizontal-long"
+          :title="$t('timelines.horizontalCards')"
+        >
+          <va-timeline align-top style="min-width: 600px;" class="timelines__horizontal-long__timeline">
+            <va-timeline-item active>
+              <template slot="before">
+                <div
+                  class="title text--center"
+                  :style="{color: $themes.success}"
+                >
+                  February 2018
+                </div>
+              </template>
+              <va-card
+                slot="after"
+                stripe="warning"
+                class="mb-0"
+              >
+                <template slot="title">{{ dateFirst }}</template>
+                {{ contentFirst }}
+              </va-card>
+            </va-timeline-item>
+            <va-timeline-item active>
+              <template slot="before">
+                <div
+                  class="title text--center"
+                  :style="{color: $themes.success}"
+                >
+                  April 2018
+                </div>
+              </template>
+              <va-card
+                slot="after"
+                stripe="info"
+                class="mb-0"
+              >
+                <template slot="title">{{ dateSecond }}</template>
+                {{ contentFirst }}
+              </va-card>
+            </va-timeline-item>
+            <va-timeline-item>
+              <template slot="before">
+                <div class="title title--gray text--center">
+                  June 2018
+                </div>
+              </template>
+              <va-card
+                slot="after"
+                stripe="info"
+                class="mb-0"
+              >
+                <template slot="title">{{ dateThird }}</template>
+                {{ contentThird }}
+              </va-card>
+            </va-timeline-item>
+          </va-timeline>
+        </va-card>
+      </div>
 
-    <vuestic-widget class="no-h-padding no-v-padding"
-                    :headerText="$t('timelines.verticalCentered')">
-      <vuestic-timeline vertical centered>
-        <vuestic-timeline-item active>
-          <span class="vuestic-timeline-item__text" slot="before">{{ dateFirst }}</span>
-          <vuestic-card
-            slot="after"
-            theme="dark"
-          >
-            <template slot="title">{{ titleFirst }}</template>
-            {{ contentFirst }}
-          </vuestic-card>
-        </vuestic-timeline-item>
-        <vuestic-timeline-item>
-          <span class="vuestic-timeline-item__text" slot="before">{{ dateSecond }}</span>
-          <vuestic-card
-            slot="after"
-            theme="dark"
-          >
-            <template slot="title">{{ titleSecond }}</template>
-            {{ contentFirst }}
-          </vuestic-card>
-        </vuestic-timeline-item>
-        <vuestic-timeline-item>
-          <span class="vuestic-timeline-item__text" slot="before">{{ dateSecond }}</span>
-          <vuestic-card
-            slot="after"
-            theme="dark"
-          >
-            <template slot="title">{{ titleSecond }}</template>
-            {{ contentFirst }}
-          </vuestic-card>
-        </vuestic-timeline-item>
-      </vuestic-timeline>
-    </vuestic-widget>
+      <div class="flex xs12">
+        <va-card no-padding-v :title="$t('timelines.verticalLabel')">
+          <va-timeline vertical>
+            <va-timeline-item active>
+              <span
+                slot="before"
+                class="title va-timeline-item__text"
+                :style="{color: $themes.success}"
+              >
+                Feb 2018
+              </span>
+              <va-card
+                slot="after"
+                stripe="success"
+                class="mb-0"
+              >
+                <template slot="title">{{ titleFirst }}</template>
+                {{ contentFirst }}
+              </va-card>
+            </va-timeline-item>
+            <va-timeline-item active>
+              <span
+                slot="before"
+                class="title va-timeline-item__text"
+                :style="{color: $themes.success}"
+              >
+                Apr 2018
+              </span>
+              <va-card
+                slot="after"
+                stripe="success"
+                class="mb-0"
+              >
+                <template slot="title">{{ titleSecond }}</template>
+                {{ contentFirst }}
+              </va-card>
+            </va-timeline-item>
+            <va-timeline-item>
+              <span class="title title--gray va-timeline-item__text" slot="before">
+                Jun 2018
+              </span>
+              <va-card
+                slot="after"
+                stripe="success"
+              >
+                <template slot="title">{{ titleSecond }}</template>
+                {{ contentFirst }}
+              </va-card>
+            </va-timeline-item>
+          </va-timeline>
+        </va-card>
+      </div>
 
+      <div class="flex xs12">
+        <va-card no-padding-v :title="$t('timelines.verticalCentered')">
+          <va-timeline vertical centered style="min-width: 300px;">
+            <va-timeline-item color="danger" active>
+              <span
+                slot="before"
+                class="title title--danger va-timeline-item__text"
+                :style="{color: $themes.danger}"
+              >
+                February 2018
+              </span>
+              <va-card
+                slot="after"
+                stripe="danger"
+                class="mb-0"
+              >
+                <template slot="title">{{ titleFirst }}</template>
+                {{ contentFirst }}
+              </va-card>
+            </va-timeline-item>
+            <va-timeline-item color="danger" active>
+              <span
+                slot="before"
+                class="title title--danger va-timeline-item__text"
+                :style="{color: $themes.danger}"
+              >
+                April 2018
+              </span>
+              <va-card
+                slot="after"
+                stripe="danger"
+              >
+                <template slot="title">{{ titleSecond }}</template>
+                {{ contentFirst }}
+              </va-card>
+            </va-timeline-item>
+            <va-timeline-item color="danger" active>
+              <span
+                slot="before"
+                class="title title--danger va-timeline-item__text"
+                :style="{color: $themes.danger}"
+              >
+                June 2018
+              </span>
+              <va-card
+                slot="after"
+                stripe="danger"
+                class="mb-0"
+              >
+                <template slot="title">{{ titleSecond }}</template>
+                {{ contentFirst }}
+              </va-card>
+            </va-timeline-item>
+          </va-timeline>
+        </va-card>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -190,7 +230,7 @@ export default {
   name: 'timelines',
   data () {
     return {
-      dateFirst: 'April 10 15:00',
+      dateFirst: '',
       titleFirst: 'Make design',
       titleSecond: 'Develop an app',
       titleThird: 'Submit an app',
@@ -206,17 +246,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.timelines {
-  &__horizontal-long {
-    .widget-body {
-      overflow-x: auto;
-    }
-
-    &__timeline {
-      min-width: 800px;
-    }
-  }
-}
-</style>
