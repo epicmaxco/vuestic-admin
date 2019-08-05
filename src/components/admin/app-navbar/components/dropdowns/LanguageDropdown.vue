@@ -66,7 +66,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../../../../vuestic-theme/vuestic-sass/resources/resources';
 @import "~flag-icon-css/css/flag-icon.css";
 
 .language-dropdown {

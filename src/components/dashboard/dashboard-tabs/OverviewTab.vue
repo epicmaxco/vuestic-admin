@@ -65,17 +65,17 @@
 
 <script>
 import VaIconVue
-  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconVue.vue'
+  from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconVue.vue'
 import VaIconFree
-  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconFree.vue'
+  from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconFree.vue'
 import VaIconFresh
-  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconFresh.vue'
+  from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconFresh.vue'
 import VaIconResponsive
-  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconResponsive.vue'
+  from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconResponsive.vue'
 import VaIconRich
-  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconRich.vue'
+  from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconRich.vue'
 import VaIconCleanCode
-  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconCleanCode.vue'
+  from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconCleanCode.vue'
 
 export default {
   name: 'overview-tab',

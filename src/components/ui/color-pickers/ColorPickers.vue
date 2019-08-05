@@ -100,37 +100,11 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script>
-
-import VaSimplePalettePicker
-  from '../../../vuestic-theme/vuestic-components/va-color-picker/VaSimplePalettePicker'
-import VaColorSquare
-  from '../../../vuestic-theme/vuestic-components/va-color-picker/VaColorSquare'
-import VaSliderColorPicker
-  from '../../../vuestic-theme/vuestic-components/va-color-picker/VaSliderColorPicker'
-import VaAdvancedColorPicker
-  from '../../../vuestic-theme/vuestic-components/va-color-picker/VaAdvancedColorPicker'
-import VaColorInput
-  from '../../../vuestic-theme/vuestic-components/va-color-picker/VaColorInput'
-import VaColorPickerInput
-  from '../../../vuestic-theme/vuestic-components/va-color-picker/VaColorPickerInput'
-import VaPaletteCustom
-  from '../../../vuestic-theme/vuestic-components/va-color-picker/VaPaletteCustom'
-
 export default {
   name: 'color-pickers',
-  components: {
-    VaColorInput,
-    VaAdvancedColorPicker,
-    VaSliderColorPicker,
-    VaColorSquare,
-    VaSimplePalettePicker,
-    VaColorPickerInput,
-    VaPaletteCustom,
-  },
   data () {
     return {
       topSimpleSquareColor: '#f81953',

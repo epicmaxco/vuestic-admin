@@ -35,12 +35,10 @@
 </template>
 
 <script>
-import StickyScroll from '../../../vuestic-theme/vuestic-directives/StickyScroll'
-import VaCard from '../../../vuestic-theme/vuestic-components/va-card/VaCard'
+import StickyScroll from 'vuestic-ui/src/components/vuestic-directives/StickyScroll'
 
 export default {
   name: 'chat',
-  components: { VaCard },
   directives: { StickyScroll },
   data () {
     return {
@@ -98,8 +96,6 @@ export default {
 </script>
 
 <style lang='scss'>
-@import '../../../vuestic-theme/vuestic-sass/resources/resources';
-
 .chat {
   &__content {
     @include va-flex-center();

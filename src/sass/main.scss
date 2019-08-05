@@ -1,1 +1,7 @@
-@import "../vuestic-theme/vuestic-sass/vuestic-styles";
+@import "~vuestic-ui/src/components/vuestic-sass/global/reset.scss";
+@import "~vuestic-ui/src/components/vuestic-sass/global/normalize.scss";
+@import "~vuestic-ui/src/components/vuestic-sass/vuestic-styles";
+@import "icon-fonts/icon-fonts";
+@import './icons/vuestic-icons.scss';
+@import './icons/icons.scss';
+@import './icons/fonts.scss';

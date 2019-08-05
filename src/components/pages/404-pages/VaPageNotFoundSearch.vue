@@ -32,12 +32,10 @@
 <script>
 import CategoriesConfig from './CategoriesConfig'
 import VaPageNotFound from './VaPageNotFound'
-import VaInput from '../../../vuestic-theme/vuestic-components/va-input/VaInput'
 
 export default {
   name: 'va-page-not-found-search',
   components: {
-    VaInput,
     VaPageNotFound,
   },
   data () {

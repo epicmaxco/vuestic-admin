@@ -38,26 +38,14 @@ if (!process.env.VUE_APP_BOOK) {
         alias: {
           'vue$': 'vue/dist/vue.esm.js',
           '@': path.resolve('src'),
-          'src': path.resolve('src'),
-          'assets': path.resolve('src/assets'),
-          'components': path.resolve('src/components'),
-          'services': path.resolve('src/services'),
-          'directives': path.resolve('src/directives'),
-          'vuestic-mixins': path.resolve('src/vuestic-theme/vuestic-mixins'),
-          'vuestic-components': path.resolve('src/vuestic-theme/vuestic-components'),
-          'vuestic-directives': path.resolve('src/vuestic-theme/vuestic-directives'),
-          'vuestic-theme': path.resolve('src/vuestic-theme'),
-          'data': path.resolve('src/data'),
-          'vuex-store': path.resolve('src/store'),
         },
       },
     },
     css: {
       loaderOptions: {
-        // pass options to sass-loader
         sass: {
-          // @/ is an alias to src/
-          data: `@import "@/vuestic-theme/vuestic-sass/resources/resources.scss";`,
+          // Preload vuestic-ui variables and mixins for every component
+          data: `@import "~vuestic-ui/src/components/vuestic-sass/resources/resources.scss";`,
         },
       },
     },

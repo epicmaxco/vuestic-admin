@@ -48,7 +48,7 @@
 
 <script>
 import { debounce } from 'lodash'
-import users from '../../../fixtures/users.json'
+import users from '../../../data/users.json'
 
 export default {
   data () {

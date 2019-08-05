@@ -82,7 +82,7 @@
 import SidebarLink from './SidebarLink'
 import Expanding from 'vue-bulma-expanding/src/Expanding'
 import { getHoverColor } from './../../../../services/color-functions'
-import VaIcon from '../../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
+import VaIcon from 'vuestic-ui/src/components/vuestic-components/va-icon/VaIcon'
 
 export default {
   name: 'sidebar-link-group',
@@ -175,7 +175,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../../../vuestic-theme/vuestic-sass/resources/resources";
 .va-sidebar-link-group {
   flex-direction: column;
 

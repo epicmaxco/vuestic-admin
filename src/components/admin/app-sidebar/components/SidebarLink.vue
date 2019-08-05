@@ -22,13 +22,11 @@
 </template>
 
 <script>
-import { getHoverColor } from './../../../../services/color-functions'
-import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
-import VaIcon from '../../../../vuestic-theme/vuestic-components/va-icon/VaIcon'
+import { getHoverColor } from 'vuestic-ui/src/services/color-functions'
+import { ColorThemeMixin } from 'vuestic-ui/src/services/ColorThemePlugin'
 
 export default {
   name: 'sidebar-link',
-  components: { VaIcon },
   mixins: [ColorThemeMixin],
   props: {
     to: {
@@ -102,7 +100,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../../../vuestic-theme/vuestic-sass/resources/resources";
 .va-sidebar-link {
   position: relative;
   min-height: 3rem;

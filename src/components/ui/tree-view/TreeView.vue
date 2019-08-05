@@ -41,7 +41,6 @@
 </template>
 
 <script>
-import VaCard from '../../../vuestic-theme/vuestic-components/va-card/VaCard'
 import TreeViewBasicPreview from './TreeViewBasicPreview'
 import TreeViewIconsPreview from './TreeViewIconsPreview'
 import TreeViewSelectablePreview from './TreeViewSelectablePreview'
@@ -56,7 +55,6 @@ export default {
     TreeViewSelectablePreview,
     TreeViewIconsPreview,
     TreeViewBasicPreview,
-    VaCard,
   },
   data () {
     return {

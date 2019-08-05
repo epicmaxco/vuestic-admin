@@ -85,8 +85,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../../../../vuestic-theme/vuestic-sass/resources/resources';
-
 .notification-dropdown {
   cursor: pointer;
   margin-top: 0.3rem;

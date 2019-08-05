@@ -112,12 +112,8 @@
 </template>
 
 <script>
-import VaButton
-  from '../../../vuestic-theme/vuestic-components/va-button/VaButton'
-
 export default {
   name: 'modals',
-  components: { VaButton },
   data () {
     return {
       show: true,

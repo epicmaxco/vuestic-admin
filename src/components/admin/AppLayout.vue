@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import VaPageLayout from '../../vuestic-theme/vuestic-components/va-page-layout/VaPageLayout'
+import VaPageLayout from './VaPageLayout'
 import AppNavbar from './app-navbar/AppNavbar'
 import AppSidebar from './app-sidebar/AppSidebar'
 import { mapGetters } from 'vuex'

@@ -70,14 +70,9 @@
 </template>
 
 <script>
-import VaAdvancedColorPicker
-  from '../../../../../vuestic-theme/vuestic-components/va-color-picker/VaAdvancedColorPicker'
-import { colorArray } from '../../../../../vuestic-theme/vuestic-components/va-color-picker/VuesticTheme'
+import { colorArray } from 'vuestic-ui/src/components/vuestic-components/va-color-picker/VuesticTheme'
 
 export default {
-  components: {
-    VaAdvancedColorPicker,
-  },
   data () {
     return {
       palette: colorArray,
@@ -87,7 +82,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../../../../vuestic-theme/vuestic-sass/resources/resources';
+@import '~vuestic-ui/src/components/vuestic-sass/resources/resources';
 
 .color-dropdown {
   cursor: pointer;

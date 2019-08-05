@@ -8,7 +8,7 @@
 
 <script>
 import SpacingPlaygroud
-  from '../../../vuestic-theme/vuestic-sass/grid/SpacingPlaygroud'
+  from 'vuestic-ui/src/components/vuestic-sass/grid/SpacingPlaygroud'
 
 export default {
   name: 'spacing',

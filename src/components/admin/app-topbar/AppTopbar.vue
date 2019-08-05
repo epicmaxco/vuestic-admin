@@ -3,7 +3,6 @@
     :minimized="minimized"
   >
     <template slot="menu">
-
       <template v-for="(item, key) in items">
         <topbar-link-group
           :key="key"
@@ -35,18 +34,11 @@
 </template>
 
 <script>
-import TopbarLink from './components/TopbarLink'
-import TopbarLinkGroup from './components/TopbarLinkGroup'
+// NOTE Component not used in admin page.
 import { navigationRoutes } from '../app-sidebar/NavigationRoutes'
-import VaTopbar from '../../../vuestic-theme/vuestic-components/va-topbar/VaTopbar'
 
 export default {
   name: 'app-topbar',
-  components: {
-    VaTopbar,
-    TopbarLink,
-    TopbarLinkGroup,
-  },
   props: {
     minimized: {
       type: Boolean,

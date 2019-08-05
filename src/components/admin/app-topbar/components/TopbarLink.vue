@@ -115,7 +115,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../../../vuestic-theme/vuestic-sass/resources/resources";
 .va-topbar-link {
   position: relative;
   cursor: pointer;

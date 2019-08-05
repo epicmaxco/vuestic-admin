@@ -48,9 +48,7 @@
 
 <script>
 import VaIconVuestic
-  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconVuestic'
-import VaNavbar
-  from '../../../vuestic-theme/vuestic-components/va-navbar/VaNavbar'
+  from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconVuestic'
 import HeaderSelector from './components/HeaderSelector'
 import LanguageDropdown from './components/dropdowns/LanguageDropdown'
 import ProfileDropdown from './components/dropdowns/ProfileDropdown'
@@ -61,12 +59,10 @@ import ColorDropdown from './components/dropdowns/ColorDropdown'
 
 export default {
   name: 'app-navbar',
-
   components: {
     SettingsDropdown,
     ColorDropdown,
     VaIconVuestic,
-    VaNavbar,
     HeaderSelector,
     MessageDropdown,
     NotificationDropdown,

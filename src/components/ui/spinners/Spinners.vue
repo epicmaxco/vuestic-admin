@@ -69,20 +69,14 @@
 <script>
 import * as spinners from 'epic-spinners'
 import { mapGetters } from 'vuex'
-import VaPaletteCustom
-  from '../../../vuestic-theme/vuestic-components/va-color-picker/VaPaletteCustom'
-import VaSlider
-  from '../../../vuestic-theme/vuestic-components/va-slider/VaSlider'
 import VaIconFaster
-  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconFaster'
+  from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconFaster'
 import VaIconSlower
-  from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconSlower'
+  from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconSlower'
 
 export default {
   components: {
     ...spinners,
-    VaPaletteCustom,
-    VaSlider,
     VaIconFaster,
     VaIconSlower,
   },

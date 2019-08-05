@@ -17,11 +17,9 @@
 </template>
 
 <script>
-import OverviewTab from 'components/dashboard/dashboard-tabs/OverviewTab.vue'
-import BillingAddressTab
-  from 'components/dashboard/dashboard-tabs/BillingAddressTab.vue'
-import BankDetailsTab
-  from 'components/dashboard/dashboard-tabs/BankDetailsTab.vue'
+import OverviewTab from './dashboard-tabs/OverviewTab'
+import BillingAddressTab from './dashboard-tabs/BillingAddressTab'
+import BankDetailsTab from './dashboard-tabs/BankDetailsTab'
 
 export default {
   name: 'DashboardTabs',

@@ -29,10 +29,7 @@
 </template>
 
 <script>
-import VaIconVuestic
-  from '../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconVuestic'
-import VaSeparator
-  from '../../vuestic-theme/vuestic-components/va-card/VaSeparator'
+import VaIconVuestic from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconVuestic'
 
 const tabs = [
   'login',
@@ -41,7 +38,7 @@ const tabs = [
 
 export default {
   name: 'AuthLayout',
-  components: { VaSeparator, VaIconVuestic },
+  components: { VaIconVuestic },
   data () {
     return {
       selectedTabIndex: 0,
@@ -62,8 +59,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../vuestic-theme/vuestic-sass/resources/resources";
-
 .auth-layout {
   min-height: 100vh;
   background-image: linear-gradient(to right, #0e4ac4, #002c85);

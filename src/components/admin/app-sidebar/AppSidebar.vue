@@ -33,8 +33,6 @@
 </template>
 
 <script>
-import VaSidebar
-  from '../../../vuestic-theme/vuestic-components/va-sidebar/VaSidebar'
 import SidebarLink from './components/SidebarLink'
 import SidebarLinkGroup from './components/SidebarLinkGroup'
 import { navigationRoutes } from './NavigationRoutes'
@@ -42,7 +40,6 @@ import { navigationRoutes } from './NavigationRoutes'
 export default {
   name: 'app-sidebar',
   components: {
-    VaSidebar,
     SidebarLink,
     SidebarLinkGroup,
   },

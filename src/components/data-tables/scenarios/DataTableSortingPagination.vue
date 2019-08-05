@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import users from '../../../fixtures/users.json'
+import users from '../../../data/users.json'
 
 export default {
   data () {

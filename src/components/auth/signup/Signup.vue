@@ -40,12 +40,8 @@
 </template>
 
 <script>
-import VaInputWrapper
-  from '../../../vuestic-theme/vuestic-components/va-input/VaInputWrapper'
-
 export default {
   name: 'signup',
-  components: { VaInputWrapper },
   data () {
     return {
       email: '',
@@ -76,5 +72,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../../vuestic-theme/vuestic-sass/resources/resources';
+
 </style>

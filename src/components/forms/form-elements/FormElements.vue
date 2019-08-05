@@ -293,7 +293,7 @@
 </template>
 
 <script>
-import CountriesList from 'data/CountriesList'
+import CountriesList from '../../../data/CountriesList'
 
 export default {
   name: 'form-elements',

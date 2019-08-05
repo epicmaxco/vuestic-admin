@@ -10815,7 +10815,7 @@ vue-resize@^0.4.5:
   resolved "https://registry.yarnpkg.com/vue-resize/-/vue-resize-0.4.5.tgz#4777a23042e3c05620d9cbda01c0b3cc5e32dcea"
   integrity sha512-bhP7MlgJQ8TIkZJXAfDf78uJO+mEI3CaLABLjv0WNzr4CcGRGPIAItyWYnP6LsPA4Oq0WE+suidNs6dgpO4RHg==
 
-vue-router@^3.0.6:
+vue-router@^3.0.3, vue-router@^3.0.6:
   version "3.0.7"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.0.7.tgz#b36ca107b4acb8ff5bc4ff824584059c23fcb87b"
   integrity sha512-utJ+QR3YlIC/6x6xq17UMXeAfxEvXA0VKD3PiSio7hBOZNusA1jXcbxZxVEfJunLp48oonjTepY8ORoIlRx/EQ==
@@ -10855,6 +10855,30 @@ vue@^2.6.10:
   version "2.6.10"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
   integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==
+
+vuestic-ui@epicmaxco/vuestic-ui#master:
+  version "0.1.0"
+  resolved "https://codeload.github.com/epicmaxco/vuestic-ui/tar.gz/ec8c0f6cf3b3f750b4c91020231d58d0a33651ba"
+  dependencies:
+    approximate-number "^2.0.0"
+    asva-executors "^0.1.22"
+    chart.js "^2.6.0"
+    core-js "^2.6.5"
+    epic-spinners "^1.1.0"
+    font-awesome "^4.7.0"
+    ionicons "^3.0.0"
+    medium-editor "^5.23.3"
+    v-tooltip "^2.0.0-rc.30"
+    vue "^2.6.10"
+    vue-chartjs "^3.4.0"
+    vue-clipboard2 "^0.3.0"
+    vue-color "^2.7.0"
+    vue-epic-bus "^0.1.2"
+    vue-flatpickr-component "^8.0.0"
+    vue-router "^3.0.3"
+    vue-toasted "^1.1.25"
+    vue-yandex-maps "^0.8.14"
+    vuetable-2 "1.7.5"
 
 vuetable-2@1.7.5:
   version "1.7.5"

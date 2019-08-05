@@ -91,12 +91,12 @@
 
 <script>
 import VaColorPresentation
-  from '../../../vuestic-theme/vuestic-components/va-color-presentation/VaColorPresentation'
+  from 'vuestic-ui/src/components/vuestic-components/va-color-presentation/VaColorPresentation'
 import {
   themeColors,
   extraColors,
   buttonGradients,
-} from '../../../vuestic-theme/vuestic-components/va-color-presentation/colorsData'
+} from 'vuestic-ui/src/components/vuestic-components/va-color-presentation/colorsData'
 
 export default {
   components: {

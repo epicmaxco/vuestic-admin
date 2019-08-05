@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import VaIconVuestic from '../../../vuestic-theme/vuestic-components/va-icon/va-iconset/VaIconVuestic'
+import VaIconVuestic from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconVuestic'
 import VaPageNotFound from './VaPageNotFound'
 
 export default {
