@@ -68,13 +68,9 @@ import { getPieChartData } from '../../../data/charts/PieChartData'
 import { getDonutChartData } from '../../../data/charts/DonutChartData'
 import { getVerticalBarChartData } from '../../../data/charts/VerticalBarChartData'
 import { getHorizontalBarChartData } from '../../../data/charts/HorizontalBarChartData'
-import SidebarLink from '../../admin/app-sidebar/components/SidebarLink'
 
 export default {
   name: 'charts',
-  components: {
-    SidebarLink,
-  },
   data () {
     return {
       bubbleChartData: getBubbleChartData(this.$themes),
