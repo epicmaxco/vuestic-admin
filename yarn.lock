@@ -5821,6 +5821,11 @@ is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   dependencies:
     isobject "^3.0.1"
 
+is-posix-bracket@^0.1.0:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/is-posix-bracket/-/is-posix-bracket-0.1.1.tgz#3334dc79774368e92f016e6fbc0a88f5cd6e6bc4"
+  integrity sha1-MzTceXdDaOkvAW5vvAqI9c1ua8Q=
+
 is-primitive@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/is-primitive/-/is-primitive-2.0.0.tgz#207bab91638499c07b2adf240a41a87210034575"
@@ -10866,10 +10871,10 @@ vue@^2.6.10:
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
   integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==
 
-vuestic-ui@0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/vuestic-ui/-/vuestic-ui-0.1.5.tgz#5e6b66d1dbc08ab4647dca1a823800dcf033e7e2"
-  integrity sha512-y6O/zP3yRTanq/CKnDvb2rvp2FIxzQ/jUcFUanKTKiZpzMXoLanZhXVKdkIkQczXs7e5Wrwr/5AsvuqjUiPCww==
+vuestic-ui@0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/vuestic-ui/-/vuestic-ui-0.1.6.tgz#5afaf5518342fae4525d1cd610e398d9a7bf0ea7"
+  integrity sha512-P8KJcTsXQaYS5CxX52oWqijzdHIBnDoU0XgCZYyNqbIyceMzXwpa6yUE2NL57CdkSEBby7cRYRBSAZQMwP0zlg==
   dependencies:
     approximate-number "^2.0.0"
     asva-executors "^0.1.22"
