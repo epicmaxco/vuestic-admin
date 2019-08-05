@@ -49,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../../../6-vuestic-ui/src/components/vuestic-sass/resources/resources";
+@import "~vuestic-ui/src/components/vuestic-sass/resources/resources";
 $vuestic-preloader-left: calc(50% - 140px / 2);
 $vuestic-preloader-top: calc(50% - 104px / 2);
 
