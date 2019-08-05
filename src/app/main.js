@@ -12,7 +12,11 @@ import VuesticPlugin from 'vuestic-ui/src/components/vuestic-plugin'
 import '../i18n/index'
 import YmapPlugin from 'vue-yandex-maps'
 import VueClipboard from 'vue-clipboard2'
+import VeeValidate from 'vee-validate'
 
+import '../sass/main.scss'
+
+Vue.use(VeeValidate)
 Vue.use(VuesticPlugin)
 Vue.use(YmapPlugin)
 Vue.use(VueClipboard)
