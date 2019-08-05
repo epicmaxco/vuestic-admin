@@ -1,7 +1,9 @@
 <template>
   <span
-    class="flex-center header-selector i-menu-expanded"
+    class="flex-center header-selector"
+    :class="`i-menu-${minimized ? 'collapsed' : 'expanded'}`"
     @click="$emit('update:minimized', !minimized)"
+
   />
 </template>
 
