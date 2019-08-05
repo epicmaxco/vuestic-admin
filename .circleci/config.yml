@@ -56,7 +56,7 @@ jobs:
       - run:
           name: Add variables for Yandex Metrics and Drift live chat
           command:
-            echo "VUE_APP_YANDEX_METRICS_KEY=$YANDEX_METRICS_KEY" >> .env.production.local &&
+            echo "VUE_APP_GTM_KEY=$GTM_KEY" >> .env.production.local &&
             echo "VUE_APP_DRIFT_KEY=$DRIFT_KEY" >> .env.production.local
       - restore_cache: *restore_cache
       - run: *install_dependencies
