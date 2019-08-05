@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="https://epicmax.co">演示版</a> | <a href="https://github.com/epicmaxco/vuestic-admin/wiki"> 文档 </a>
+  <a href="https://vuestic.epicmax.co">演示版</a> | <a href="https://github.com/epicmaxco/vuestic-admin/wiki"> 文档 </a>
 </p>
 
 <p align="center">

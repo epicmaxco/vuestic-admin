@@ -11,9 +11,8 @@
 </p>
 
 <p align="center">
-  <a href="https://epicmax.co"> Demo </a> | <a href="https://github.com/epicmaxco/vuestic-admin/wiki"> Documentation </a>
+  <a href="https://vuestic.epicmax.co"> Demo </a> | <a href="https://github.com/epicmaxco/vuestic-admin/wiki"> Documentation </a>
 </p>
-
 <p align="center">
   <a href="https://vuestic.epicmax.co" target="_blank">
     <img src="https://i.imgur.com/h37ur0s.png" align="center" width="888px"/>
