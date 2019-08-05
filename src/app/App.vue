@@ -11,6 +11,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../sass/main.scss";
 
 body {
   height: 100%;
