@@ -94,7 +94,7 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
-#      - test
+      - test
       - deploy-staging:
           requires:
             - test
