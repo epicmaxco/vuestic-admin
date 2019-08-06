@@ -7,7 +7,7 @@
             <div class="flex xs4 md2">
               <div class="vuestic-color-picker-page__top-square">
                 <span
-                  class="title"
+                  class="title no-wrap"
                   :style="{color: this.$themes.primary}"
                 >
                   {{ $t('colorPickers.simple') }}
@@ -24,7 +24,7 @@
             <div class="flex xs4 md2">
               <div class="vuestic-color-picker-page__top-square">
                 <span
-                  class="title"
+                  class="title no-wrap"
                   :style="{color: this.$themes.primary}"
                 >
                   {{ $t('colorPickers.slider') }}
@@ -40,7 +40,7 @@
             <div class="flex xs4 md2">
               <div class="vuestic-color-picker-page__top-square">
                 <span
-                  class="title"
+                  class="title no-wrap"
                   :style="{color: this.$themes.primary}"
                 >
                   {{ $t('colorPickers.advanced') }}
