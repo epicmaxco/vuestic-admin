@@ -16,6 +16,7 @@ if (process.env.NODE_ENV === 'development' || process.env.VUE_APP_INCLUDE_DEMOS)
 }
 
 export default new Router({
+  mode: process.env.VUE_APP_ROUTER_MODE_HISTORY === 'true' ? 'history' : 'hash',
   routes: [
     ...demoRoutes,
     {
