@@ -109,6 +109,6 @@ export default {
 
 <style scoped>
   .chart {
-    max-height: 400px;
+    height: 400px;
   }
 </style>
