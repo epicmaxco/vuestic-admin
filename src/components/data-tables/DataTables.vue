@@ -1,13 +1,13 @@
 <template>
   <div>
-    <data-table-actions class="mb-2" style="maxWidth: 1200px" />
-    <data-table-sorting-pagination class="mb-2" style="maxWidth: 1200px" />
-    <data-table-filter class="mb-2" style="maxWidth: 1200px" />
-    <data-table-infinite-scroll class="mb-2" style="maxWidth: 1200px" />
-    <data-table-select class="mb-2" style="maxWidth: 1200px" />
-    <data-table-server-pagination class="mb-2" style="maxWidth: 1200px" />
-    <data-table-empty class="mb-2" style="maxWidth: 1200px" />
-    <data-table-loading class="mb-2" style="maxWidth: 1200px" />
+    <data-table-actions class="mb-4"/>
+    <data-table-sorting-pagination class="mb-4"/>
+    <data-table-filter class="mb-4"/>
+    <data-table-infinite-scroll class="mb-4"/>
+    <data-table-select class="mb-4"/>
+    <data-table-server-pagination class="mb-4"/>
+    <data-table-empty class="mb-4"/>
+    <data-table-loading/>
   </div>
 </template>
 
