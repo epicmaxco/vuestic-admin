@@ -67,5 +67,11 @@ export default {
     width: 100%;
     max-width: 600px;
   }
+
+  &__options {
+    @include media-breakpoint-down(xs) {
+      flex-direction: column;
+    }
+  }
 }
 </style>

@@ -16,7 +16,7 @@
     :error-messages="passwordErrors"
   />
 
-  <div class="d-flex align--center justify--space-between">
+  <div class="auth-layout__options d-flex align--center justify--space-between">
     <va-checkbox
       v-model="agreedToTerms"
       class="mb-0"
@@ -72,5 +72,4 @@ export default {
 </script>
 
 <style lang="scss">
-
 </style>

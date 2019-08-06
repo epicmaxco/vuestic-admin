@@ -16,7 +16,7 @@
     :error-messages="passwordErrors"
   />
 
-  <div class="d-flex align--center justify--space-between">
+  <div class="auth-layout__options d-flex align--center justify--space-between">
     <va-checkbox v-model="keepLoggedIn" class="mb-0" :label="$t('auth.keep_logged_in')"/>
     <router-link class="ml-1 link" :to="{name: 'recover-password'}">{{$t('auth.recover_password')}}</router-link>
   </div>
