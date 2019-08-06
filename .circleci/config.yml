@@ -96,11 +96,15 @@ workflows:
     jobs:
 #      - test
       - deploy-staging:
+          requires:
+            - test
           context: vuestic-staging
           filters:
             branches:
               only: develop
       - deploy-production:
+          requires:
+            - test
           context: vuestic-production
           filters:
             branches:
