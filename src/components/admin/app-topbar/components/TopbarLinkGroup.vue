@@ -46,7 +46,6 @@
 
 <script>
 import SidebarLink from './TopbarLink'
-import Expanding from 'vue-bulma-expanding/src/Expanding'
 import { getHoverColor } from './../../../../services/color-functions'
 
 export default {
@@ -61,10 +60,7 @@ export default {
       default: 'secondary',
     },
   },
-  components: {
-    SidebarLink,
-    Expanding,
-  },
+  components: { SidebarLink },
   data () {
     return {
       isActive: this.activeByDefault,

@@ -35,7 +35,6 @@
     "popper.js": "^1.15.0",
     "v-tooltip": "^2.0.0-rc.30",
     "vue": "^2.6.10",
-    "vue-bulma-expanding": "0.0.1",
     "vue-chartjs": "^3.4.0",
     "vue-clipboard2": "^0.3.0",
     "vue-color": "^2.7.0",

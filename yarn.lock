@@ -4652,12 +4652,7 @@ flat-cache@^1.2.1:
     rimraf "~2.6.2"
     write "^0.2.1"
 
-flatpickr@4.5.1:
-  version "4.5.1"
-  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.5.1.tgz#f65eaf54c07538f87d6f68a67b03cf816d7fb82f"
-  integrity sha512-dsLTFmRg6mlqYfJ35A7gLlbq+8fOqRty3cWncl6rwU4pMe//i0WKxKLVyBbSYAZry93Lg+yqsOph9haltcxCqQ==
-
-flatpickr@^4.5.1:
+flatpickr@4.5.1, flatpickr@^4.5.1:
   version "4.5.1"
   resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.5.1.tgz#f65eaf54c07538f87d6f68a67b03cf816d7fb82f"
   integrity sha512-dsLTFmRg6mlqYfJ35A7gLlbq+8fOqRty3cWncl6rwU4pMe//i0WKxKLVyBbSYAZry93Lg+yqsOph9haltcxCqQ==
@@ -10736,11 +10731,6 @@ vue-book@0.1.0-alpha.17:
   version "0.1.0-alpha.17"
   resolved "https://registry.yarnpkg.com/vue-book/-/vue-book-0.1.0-alpha.17.tgz#4661bfc5a6813ccdfc5ce9ecb35cdcddbd163366"
   integrity sha512-8BpuuImZfM3dZ1zsTdBA0fxpcbZ3VJ9JsPrNVVDqx0Gn9H5qgZXDGKmLnN4kSfXO5CZjDPns0Sj+ZeofdWt+Dg==
-
-vue-bulma-expanding@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/vue-bulma-expanding/-/vue-bulma-expanding-0.0.1.tgz#fcf71c2e8ef09157175bd5187eb71b3ce75a2229"
-  integrity sha1-/PccLo7wkVcXW9UYfrcbPOdaIik=
 
 vue-chartjs@^3.4.0:
   version "3.4.2"
