@@ -94,6 +94,11 @@ export default {
 </script>
 <style lang="scss">
 .app-navbar {
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
   &__button {
     width: 10.8125rem;
     .va-button__content__icon-left.fa-github {
