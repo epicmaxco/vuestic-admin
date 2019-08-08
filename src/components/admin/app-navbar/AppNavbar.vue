@@ -4,40 +4,40 @@
     <template slot="logo">
       <va-icon-vuestic/>
     </template>
-    <template slot="center">
-      <div class="row flex-nowrap align--center justify--space-between">
-        <span class="va-navbar__text no-wrap">
-          {{$t('navbar.messageUs')}}&nbsp;
-          <a
-            href="mailto:hello@epicmax.co"
-            target="_blank"
-            class="app-navbar__mailto-link"
-            :style="{color: this.$themes.primary}"
-          >
-            hello@epicmax.co
-          </a>
-        </span>
-        <div>
-          <va-button
-            href="https://github.com/epicmaxco/vuestic-admin"
-            color="#000000"
-            class="app-navbar__button text--bold"
-            icon="fa fa-github"
-            target="_blank"
-          >
-            {{$t('navbar.support')}}
-          </va-button>
-        </div>
-      </div>
-    </template>
+<!--    <template slot="center">-->
+<!--      <div class="row flex-nowrap align&#45;&#45;center justify&#45;&#45;space-between">-->
+<!--        <span class="va-navbar__text no-wrap">-->
+<!--          {{$t('navbar.messageUs')}}&nbsp;-->
+<!--          <a-->
+<!--            href="mailto:hello@epicmax.co"-->
+<!--            target="_blank"-->
+<!--            class="app-navbar__mailto-link"-->
+<!--            :style="{color: this.$themes.primary}"-->
+<!--          >-->
+<!--            hello@epicmax.co-->
+<!--          </a>-->
+<!--        </span>-->
+<!--        <div>-->
+<!--          <va-button-->
+<!--            href="https://github.com/epicmaxco/vuestic-admin"-->
+<!--            color="#000000"-->
+<!--            class="app-navbar__button text&#45;&#45;bold"-->
+<!--            icon="fa fa-github"-->
+<!--            target="_blank"-->
+<!--          >-->
+<!--            {{$t('navbar.support')}}-->
+<!--          </va-button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </template>-->
     <div class="app-navbar__actions row flex-nowrap align--center">
       <color-dropdown class="va-navbar__item"/>
       <message-dropdown class="va-navbar__item"/>
       <notification-dropdown class="va-navbar__item"/>
-      <!--<settings-dropdown-->
-        <!--class="va-navbar__item"-->
-        <!--:navbar-view.sync="navbarViewProxy"-->
-      <!--/>-->
+      <settings-dropdown
+        class="va-navbar__item"
+        :layout.sync="layoutProxy"
+      />
       <language-dropdown class="va-navbar__item"/>
       <profile-dropdown class="va-navbar__item">
         <span>{{userName}}</span>
@@ -70,6 +70,10 @@ export default {
     ProfileDropdown,
   },
   props: {
+    layout: {
+      type: String,
+      required: true,
+    },
     minimized: {
       type: Boolean,
       required: true,
@@ -81,6 +85,14 @@ export default {
     }
   },
   computed: {
+    layoutProxy: {
+      get () {
+        return this.layout
+      },
+      set (layout) {
+        this.$emit('update:layout', layout)
+      },
+    },
     minimizedProxy: {
       get () {
         return this.minimized

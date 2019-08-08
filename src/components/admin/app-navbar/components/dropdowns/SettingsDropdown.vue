@@ -16,7 +16,7 @@
       </div>
       <va-button-toggle
         outline
-        v-model="navbarViewProxy"
+        v-model="layoutProxy"
         :options="options"
         class="settings-dropdown__control"
       />
@@ -29,23 +29,23 @@ export default {
   name: 'settings-dropdown',
   components: {},
   props: {
-    navbarView: Boolean,
+    layout: String,
   },
   data () {
     return {
       options: [
-        { label: this.$t('dashboard.topBarButton'), value: 'true' },
-        { label: this.$t('dashboard.sideBarButton'), value: 'false' },
+        { label: this.$t('dashboard.sideBarButton'), value: 'sidebar' },
+        { label: this.$t('dashboard.topBarButton'), value: 'topbar' },
       ],
     }
   },
   computed: {
-    navbarViewProxy: {
-      set (navbarView) {
-        this.$emit('update:navbarView', navbarView === 'true')
-      },
+    layoutProxy: {
       get () {
-        return this.navbarView + ''
+        return this.layout
+      },
+      set (layout) {
+        this.$emit('update:layout', layout)
       },
     },
   },

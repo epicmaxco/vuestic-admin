@@ -1,19 +1,24 @@
 <template>
   <va-page-layout
-    @toggleSidebar="toggleSidebar"
-    :mobileWidth="mobileWidth"
+    :layout="layout"
+    :minimized.sync="minimized"
+    :mobile-width="mobileWidth"
   >
     <app-navbar
+      :layout.sync="layout"
       :minimized.sync="minimized"
     />
+    <app-topbar
+      v-if="layout === 'topbar'"
+      :minimized="minimized"
+    />
     <app-sidebar
+      v-else-if="layout === 'sidebar'"
       :minimized="minimized"
     />
     <main
       slot="content"
-      id="content"
-      class="layout gutter--xl fluid"
-      :class="{'app-layout__main--full-width-sidebar': !minimized}"
+      class="layout fluid gutter--xl"
       role="main"
     >
       <router-view/>
@@ -24,20 +29,21 @@
 <script>
 import VaPageLayout from './VaPageLayout'
 import AppNavbar from './app-navbar/AppNavbar'
+import AppTopbar from './app-topbar/AppTopbar'
 import AppSidebar from './app-sidebar/AppSidebar'
 import { mapGetters } from 'vuex'
-import AppTopbar from './app-topbar/AppTopbar'
 
 export default {
   name: 'app-layout',
   components: {
-    AppTopbar,
     VaPageLayout,
     AppNavbar,
+    AppTopbar,
     AppSidebar,
   },
   data () {
     return {
+      layout: 'topbar',
       minimized: false,
       mobileWidth: 767,
     }
@@ -47,22 +53,5 @@ export default {
       'isLoading',
     ]),
   },
-  methods: {
-    toggleSidebar (minimized) {
-      this.minimized = minimized
-    },
-  },
 }
 </script>
-
-<style lang="scss">
-  .app-layout {
-    &__main {
-      &--full-width-sidebar {
-        @include media-breakpoint-down(xs) {
-          display: none;
-        }
-      }
-    }
-  }
-</style>
