@@ -34,10 +34,10 @@
       <color-dropdown class="va-navbar__item"/>
       <message-dropdown class="va-navbar__item"/>
       <notification-dropdown class="va-navbar__item"/>
-      <!--<settings-dropdown-->
-        <!--class="va-navbar__item"-->
-        <!--:navbar-view.sync="navbarViewProxy"-->
-      <!--/>-->
+      <settings-dropdown
+        class="va-navbar__item"
+        :layout.sync="layoutProxy"
+      />
       <language-dropdown class="va-navbar__item"/>
       <profile-dropdown class="va-navbar__item">
         <span>{{userName}}</span>
@@ -70,6 +70,10 @@ export default {
     ProfileDropdown,
   },
   props: {
+    layout: {
+      type: String,
+      required: true,
+    },
     minimized: {
       type: Boolean,
       required: true,
@@ -81,6 +85,14 @@ export default {
     }
   },
   computed: {
+    layoutProxy: {
+      get () {
+        return this.layout
+      },
+      set (layout) {
+        this.$emit('update:layout', layout)
+      },
+    },
     minimizedProxy: {
       get () {
         return this.minimized
@@ -106,6 +118,16 @@ export default {
   &__mailto-link:hover {
     filter: brightness(85%);
   }
+
+  .profile-dropdown__anchor {
+    display: flex;
+    flex-wrap: nowrap;
+
+    span {
+      white-space: nowrap;
+    }
+  }
+
   @include media-breakpoint-down(lg) {
     &__button {
       display: none !important;

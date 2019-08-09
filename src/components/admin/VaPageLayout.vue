@@ -1,10 +1,11 @@
 <template>
   <div
     class="va-page-layout"
+    :class="computedClass"
   >
     <slot></slot>
-    <div class="content-wrap" id="content-wrap">
-      <slot name="content"></slot>
+    <div class="content-wrap">
+      <slot name="content"/>
     </div>
   </div>
 </template>
@@ -12,77 +13,81 @@
 <script>
 export default {
   name: 'va-page-layout',
-  data () {
-    return {
-      prevMatchLg: true,
-      sidebar: null,
-    }
-  },
   props: {
+    layout: {
+      type: String,
+      required: true,
+    },
+    minimized: {
+      type: Boolean,
+      required: true,
+    },
     mobileWidth: {
       type: Number,
       default: 767,
     },
   },
   mounted () {
-    this.sidebar = this.$el.querySelector('.va-sidebar')
-
-    window.addEventListener('resize', function () {
-      this.updateSidebarState()
-    }.bind(this))
-    this.updateSidebarState()
+    window.addEventListener('resize', this.updateActiveBarState)
+    this.updateActiveBarState()
+  },
+  data () {
+    return {
+      wasDesktop: true,
+    }
+  },
+  computed: {
+    minimizedProxy: {
+      get () {
+        return this.minimized
+      },
+      set (minimized) {
+        this.$emit('update:minimized', minimized)
+      },
+    },
+    computedClass () {
+      return {
+        'va-page-layout--topbar': this.layout === 'topbar' && !this.minimizedProxy,
+        'va-page-layout--topbar-minimized': this.layout === 'topbar' && this.minimizedProxy,
+        'va-page-layout--sidebar': this.layout === 'sidebar' && !this.minimizedProxy,
+        'va-page-layout--sidebar-minimized': this.layout === 'sidebar' && this.minimizedProxy,
+      }
+    },
   },
   methods: {
-    checkIsDesktop () {
-      return window.matchMedia(`(min-width: ${this.mobileWidth}px)`).matches
-    },
-    updateSidebarState () {
-      if (this.checkIsDesktop() && !this.prevMatchLg) {
-        this.$emit('toggleSidebar', false)
-      } else if (!this.checkIsDesktop() && this.prevMatchLg) {
-        this.$emit('toggleSidebar', true)
+    updateActiveBarState () {
+      const isDesktop = window.matchMedia(`(min-width: ${this.mobileWidth}px)`).matches
+
+      if (isDesktop && !this.wasDesktop) {
+        this.minimizedProxy = false
+      } else if (!isDesktop && this.wasDesktop) {
+        this.minimizedProxy = true
       }
-      this.prevMatchLg = this.checkIsDesktop()
+
+      this.wasDesktop = isDesktop
     },
   },
 }
 </script>
 
 <style lang="scss">
-@import "~vuestic-ui/src/components/vuestic-sass/resources/resources";
-$vuestic-preloader-left: calc(50% - 140px / 2);
-$vuestic-preloader-top: calc(50% - 104px / 2);
+  @import "~vuestic-ui/src/components/vuestic-sass/resources/resources";
 
-.va-page-layout {
-  .content-wrap {
-    margin-left: $sidebar-width;
-    transition: margin-left 0.3s ease;
-    padding: 0;
-
-    .pre-loader {
-      position: absolute;
-      left: $vuestic-preloader-left;
-      top: $vuestic-preloader-top;
+  .va-page-layout {
+    .content-wrap {
+      transition: margin 0.3s ease;
     }
 
-    @include media-breakpoint-down(md) {
-      .va-sidebar--minimized {
-        margin-left: 0;
-        padding-top: calc(#{$top-nav-height} + #{$layout-padding+20}) - 20px;
+    &--sidebar {
+      .content-wrap {
+        margin-left: $sidebar-width;
+      }
+
+      &-minimized {
+        .content-wrap {
+          margin-left: $sidebar-minimized-width;
+        }
       }
     }
   }
-
-  .made-by-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 25px;
-    padding-bottom: 1.6875rem;
-    position: absolute;
-    bottom: 0;
-    height: calc(#{$layout-padding} + #{$widget-mb});
-    width: 100%;
-  }
-}
 </style>
