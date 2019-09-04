@@ -7,10 +7,12 @@
           slot="actions"
           color="danger"
           class="mr-0"
+          @click="deleteSection"
+          :disabled="lineChartData.labels.length < 2"
         >
-          {{ $t('dashboard.charts.deleteSection') }}
+          {{ $t('dashboard.charts.showInMoreDetail') }}
         </va-button>
-        <va-chart class="chart" :data="lineChartData" type="line"/>
+        <va-chart class="chart" ref='lineChart' :data="lineChartData" type="line"/>
       </va-card>
     </div>
 
@@ -21,8 +23,9 @@
           flat
           slot="actions"
           class="mr-0"
+          @click="printChart"
         />
-        <va-chart class="chart" :data="donutChartData" type="donut"/>
+        <va-chart class="chart chart--donut" :data="donutChartData" type="donut"/>
       </va-card>
     </div>
 
@@ -60,6 +63,7 @@ export default {
     return {
       lineChartData: getLineChartData(this.$themes),
       donutChartData: getDonutChartData(this.$themes),
+      lineChartFiestMonthIndex: 0,
       progressMax: 328,
       progressData: [{
         color: 'success',
@@ -102,6 +106,27 @@ export default {
   methods: {
     getPercent (val) {
       return (val / this.progressMax) * 100
+    },
+    deleteSection () {
+      this.lineChartFiestMonthIndex += 1
+      this.lineChartData = getLineChartData(this.$themes, this.lineChartFiestMonthIndex)
+      this.$refs.lineChart.$refs.chart.refresh()
+    },
+    printChart () {
+      let win = window.open('', 'Print', 'height=600,width=800')
+      win.document.write(`<br><img src='${this.donutChartDataURL}'/>`)
+      // TODO: find better solution how to remove timeout
+      setTimeout(() => {
+        win.document.close()
+        win.focus()
+        win.print()
+        win.close()
+      }, 200)
+    },
+  },
+  computed: {
+    donutChartDataURL () {
+      return document.querySelector('.chart--donut canvas').toDataURL('image/png')
     },
   },
 }
