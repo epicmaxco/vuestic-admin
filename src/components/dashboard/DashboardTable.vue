@@ -25,7 +25,7 @@
     </div>
 
     <va-data-table
-      :fields="fields"
+      :fields="mode ? detailedFields : fields"
       :data="filteredData"
       :loading="loading"
       hoverable
@@ -33,7 +33,13 @@
       <template slot="icon" slot-scope="props">
         <va-icon name="fa fa-user" color="secondary" />
       </template>
-
+      <template slot="starred" slot-scope="props">
+        <va-icon
+          v-if="props.rowData.starred"
+          name="fa fa-star"
+          color="warning"
+        />
+      </template>
       <template slot="status" slot-scope="props">
         <va-badge :color="getStatusColor(props.rowData.status)">
           {{ props.rowData.status }}
@@ -69,6 +75,11 @@ export default {
       mode: 0,
     }
   },
+  watch: {
+    mode (mode) {
+      console.log(mode)
+    },
+  },
   computed: {
     fields () {
       return [{
@@ -89,6 +100,40 @@ export default {
         width: '20%',
         sortField: 'status',
       }, {
+        name: '__slot:actions',
+        dataClass: 'text-right',
+      }]
+    },
+    detailedFields () {
+      return [{
+        name: '__slot:icon',
+        width: '30px',
+        dataClass: 'text-center',
+      }, {
+        name: 'name',
+        title: this.$t('tables.headings.name'),
+        width: '20%',
+      }, {
+        name: 'email',
+        title: this.$t('tables.headings.email'),
+        width: '20%',
+      },
+      {
+        name: 'country',
+        title: this.$t('tables.headings.location'),
+        with: '20%',
+      },
+      {
+        name: '__slot:starred',
+        width: '20px',
+      },
+      {
+        name: '__slot:status',
+        title: this.$t('tables.headings.status'),
+        width: '20%',
+        sortField: 'status',
+      },
+      {
         name: '__slot:actions',
         dataClass: 'text-right',
       }]

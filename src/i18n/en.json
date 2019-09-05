@@ -438,7 +438,8 @@
       "firstName": "First Name",
       "lastName": "Last Name",
       "status": "Status",
-      "country": "Country"
+      "country": "Country",
+      "location": "Location"
     }
   },
   "user": {
