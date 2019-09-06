@@ -23,7 +23,7 @@
           {{$t('dashboard.tabs.billingAddress.companyInfo')}}
         </div>
         <va-select
-          :options="allowedCountriesList"
+          :options="countriesList"
           :label="$t('dashboard.tabs.billingAddress.country')"
           v-model="form.country"
           searchable
@@ -42,7 +42,7 @@
     </div>
     <div class="row justify--center">
       <va-button @click="submit">
-        Add Connection
+        {{$t('dashboard.tabs.billingAddress.addConnection')}}
       </va-button>
     </div>
   </div>
@@ -79,9 +79,7 @@ export default {
     'form.city': {
       deep: true,
       handler ({ country }) {
-        this.allowedCountriesList = country
-          ? this.countriesList.filter(item => item === country)
-          : [...this.countriesList]
+        this.form.country = this.countriesList.find(item => item === country)
       },
     },
   },
@@ -95,12 +93,11 @@ export default {
       return getLineMapData(this.$themes).cities.map(({ title, country }) => ({ text: title, country }))
     },
     countriesList () {
-      return countriesList.filter(item => this.citiesList.findIndex(({ country }) => country === item) !== -1)
+      return countriesList.filter(item => this.citiesList.filter(({ country }) => country === item).length)
     },
   },
   mounted () {
     this.allowedCitiesList = [...this.citiesList]
-    this.allowedCountriesList = [...this.countriesList]
   },
 }
 </script>

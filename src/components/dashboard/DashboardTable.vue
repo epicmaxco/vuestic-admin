@@ -75,11 +75,6 @@ export default {
       mode: 0,
     }
   },
-  watch: {
-    mode (mode) {
-      console.log(mode)
-    },
-  },
   computed: {
     fields () {
       return [{
