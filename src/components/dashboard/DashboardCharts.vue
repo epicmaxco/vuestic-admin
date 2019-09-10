@@ -12,7 +12,7 @@
         >
           {{ $t('dashboard.charts.showInMoreDetail') }}
         </va-button>
-        <va-chart class="chart" ref='lineChart' :data="lineChartData" type="line"/>
+        <va-chart class="chart" ref="lineChart" :data="lineChartData" type="line"/>
       </va-card>
     </div>
 
@@ -47,7 +47,7 @@ export default {
     return {
       lineChartData: getLineChartData(this.$themes),
       donutChartData: getDonutChartData(this.$themes),
-      lineChartFiestMonthIndex: 0,
+      lineChartFirstMonthIndex: 0,
     }
   },
   watch: {
@@ -67,8 +67,8 @@ export default {
   },
   methods: {
     deleteSection () {
-      this.lineChartFiestMonthIndex += 1
-      this.lineChartData = getLineChartData(this.$themes, this.lineChartFiestMonthIndex)
+      this.lineChartFirstMonthIndex += 1
+      this.lineChartData = getLineChartData(this.$themes, this.lineChartFirstMonthIndex)
       this.$refs.lineChart.$refs.chart.refresh()
     },
     printChart () {
