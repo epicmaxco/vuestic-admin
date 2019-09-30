@@ -16,10 +16,24 @@ export default {
   components: {
     LineMap,
   },
-  computed: {
-    lineMapData () {
-      return getLineMapData(this.$themes)
+  data () {
+    return {
+      lineMapData: { cities: [], mainCity: '' },
+    }
+  },
+  methods: {
+    addAddress (address) {
+      this.lineMapData = {
+        ...this.lineMapData,
+        cities: this.lineMapData.cities.map(city => ({
+          ...city,
+          color: city.title === address.city ? this.$themes['success'] : city.color,
+        })),
+      }
     },
+  },
+  mounted () {
+    this.lineMapData = getLineMapData(this.$themes)
   },
 }
 </script>

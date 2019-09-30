@@ -4,6 +4,7 @@
     "name": "Mcguire Prince",
     "email": "mcguireprince@glasstep.com",
     "country": "Swaziland",
+    "starred": false,
     "status": "processing"
   },
   {
@@ -11,6 +12,7 @@
     "name": "Dean Jennings",
     "email": "deanjennings@glasstep.com",
     "country": "Korea (North)",
+    "starred": true,
     "status": "rejected"
   },
   {
@@ -18,6 +20,7 @@
     "name": "Cotton Weber",
     "email": "cottonweber@glasstep.com",
     "country": "Mozambique",
+    "starred": false,
     "status": "rejected"
   },
   {
@@ -25,6 +28,7 @@
     "name": "Osborne Foster",
     "email": "osbornefoster@glasstep.com",
     "country": "US Minor Outlying Islands",
+    "starred": true,
     "status": "paid"
   },
   {
@@ -32,6 +36,7 @@
     "name": "William Dillard",
     "email": "williamdillard@glasstep.com",
     "country": "Cayman Islands",
+    "starred": true,
     "status": "processing"
   },
   {
@@ -39,6 +44,7 @@
     "name": "Anna Meyers",
     "email": "annameyers@glasstep.com",
     "country": "Viet Nam",
+    "starred": false,
     "status": "paid"
   },
   {
@@ -46,6 +52,7 @@
     "name": "Ana Barrett",
     "email": "anabarrett@glasstep.com",
     "country": "Rwanda",
+    "starred": false,
     "status": "processing"
   },
   {
@@ -53,6 +60,7 @@
     "name": "Pam Ward",
     "email": "pamward@glasstep.com",
     "country": "Kuwait",
+    "starred": false,
     "status": "processing"
   },
   {
@@ -60,6 +68,7 @@
     "name": "Hannah Holloway",
     "email": "hannahholloway@glasstep.com",
     "country": "Gibraltar",
+    "starred": false,
     "status": "paid"
   },
   {
@@ -67,6 +76,7 @@
     "name": "Allison Cobb",
     "email": "allisoncobb@glasstep.com",
     "country": "East Timor",
+    "starred": true,
     "status": "processing"
   },
   {
@@ -74,6 +84,7 @@
     "name": "Terrie Hawkins",
     "email": "terriehawkins@glasstep.com",
     "country": "Greenland",
+    "starred": false,
     "status": "processing"
   },
   {
@@ -81,6 +92,7 @@
     "name": "Peck Ryan",
     "email": "peckryan@glasstep.com",
     "country": "Belgium",
+    "starred": false,
     "status": "processing"
   },
   {
@@ -88,6 +100,7 @@
     "name": "Candace Powell",
     "email": "candacepowell@glasstep.com",
     "country": "Yugoslavia",
+    "starred": false,
     "status": "rejected"
   },
   {
@@ -95,6 +108,7 @@
     "name": "Wolfe Pitts",
     "email": "wolfepitts@glasstep.com",
     "country": "Bouvet Island",
+    "starred": true,
     "status": "rejected"
   },
   {
@@ -102,6 +116,7 @@
     "name": "Marietta Robbins",
     "email": "mariettarobbins@glasstep.com",
     "country": "Martinique",
+    "starred": true,
     "status": "paid"
   },
   {
@@ -109,6 +124,7 @@
     "name": "Michelle Wolfe",
     "email": "michellewolfe@glasstep.com",
     "country": "French Guiana",
+    "starred": false,
     "status": "rejected"
   },
   {
@@ -116,6 +132,7 @@
     "name": "Katina Lindsay",
     "email": "katinalindsay@glasstep.com",
     "country": "Guyana",
+    "starred": true,
     "status": "rejected"
   },
   {
@@ -123,6 +140,7 @@
     "name": "Bridgett Lloyd",
     "email": "bridgettlloyd@glasstep.com",
     "country": "Niger",
+    "starred": false,
     "status": "processing"
   },
   {
@@ -130,6 +148,7 @@
     "name": "Letha Hamilton",
     "email": "lethahamilton@glasstep.com",
     "country": "Zimbabwe",
+    "starred": true,
     "status": "processing"
   },
   {
@@ -137,6 +156,7 @@
     "name": "Mcclain Doyle",
     "email": "mcclaindoyle@glasstep.com",
     "country": "Switzerland",
+    "starred": false,
     "status": "rejected"
   },
   {
@@ -144,6 +164,7 @@
     "name": "Giles Lucas",
     "email": "gileslucas@glasstep.com",
     "country": "Bhutan",
+    "starred": true,
     "status": "processing"
   },
   {
@@ -151,6 +172,7 @@
     "name": "Figueroa Lowery",
     "email": "figueroalowery@glasstep.com",
     "country": "Netherlands Antilles",
+    "starred": false,
     "status": "rejected"
   },
   {
@@ -158,6 +180,7 @@
     "name": "Valeria Justice",
     "email": "valeriajustice@glasstep.com",
     "country": "Moldova",
+    "starred": true,
     "status": "processing"
   },
   {
@@ -165,6 +188,7 @@
     "name": "Louise Ayala",
     "email": "louiseayala@glasstep.com",
     "country": "India",
+    "starred": true,
     "status": "rejected"
   },
   {
@@ -172,6 +196,7 @@
     "name": "Kathrine Kirby",
     "email": "kathrinekirby@glasstep.com",
     "country": "Cook Islands",
+    "starred": false,
     "status": "rejected"
   },
   {
@@ -179,6 +204,7 @@
     "name": "Brandi Morris",
     "email": "brandimorris@glasstep.com",
     "country": "Honduras",
+    "starred": false,
     "status": "rejected"
   },
   {
@@ -186,6 +212,7 @@
     "name": "Margaret Mckenzie",
     "email": "margaretmckenzie@glasstep.com",
     "country": "Jordan",
+    "starred": false,
     "status": "processing"
   },
   {
@@ -193,6 +220,7 @@
     "name": "Janie Collier",
     "email": "janiecollier@glasstep.com",
     "country": "Samoa",
+    "starred": true,
     "status": "rejected"
   },
   {
@@ -200,6 +228,7 @@
     "name": "Catherine Vance",
     "email": "catherinevance@glasstep.com",
     "country": "Sierra Leone",
+    "starred": false,
     "status": "paid"
   },
   {
@@ -207,6 +236,7 @@
     "name": "Kate Allen",
     "email": "kateallen@glasstep.com",
     "country": "France",
+    "starred": true,
     "status": "processing"
   },
   {
@@ -214,6 +244,7 @@
     "name": "Jeanne Cross",
     "email": "jeannecross@glasstep.com",
     "country": "Anguilla",
+    "starred": true,
     "status": "processing"
   },
   {
@@ -221,6 +252,7 @@
     "name": "Stewart Hanson",
     "email": "stewarthanson@glasstep.com",
     "country": "Western Sahara",
+    "starred": false,
     "status": "processing"
   },
   {
@@ -228,6 +260,7 @@
     "name": "Beulah Castaneda",
     "email": "beulahcastaneda@glasstep.com",
     "country": "Malaysia",
+    "starred": true,
     "status": "rejected"
   },
   {
@@ -235,6 +268,7 @@
     "name": "Carissa Taylor",
     "email": "carissataylor@glasstep.com",
     "country": "Burkina Faso",
+    "starred": false,
     "status": "paid"
   },
   {
@@ -242,6 +276,7 @@
     "name": "Muriel Butler",
     "email": "murielbutler@glasstep.com",
     "country": "Pitcairn",
+    "starred": false,
     "status": "processing"
   },
   {
@@ -249,6 +284,7 @@
     "name": "Janna Anthony",
     "email": "jannaanthony@glasstep.com",
     "country": "Nigeria",
+    "starred": false,
     "status": "paid"
   },
   {
@@ -256,6 +292,7 @@
     "name": "Cortez Singleton",
     "email": "cortezsingleton@glasstep.com",
     "country": "Morocco",
+    "starred": true,
     "status": "processing"
   },
   {
@@ -263,6 +300,7 @@
     "name": "Acevedo Blevins",
     "email": "acevedoblevins@glasstep.com",
     "country": "Turkmenistan",
+    "starred": false,
     "status": "paid"
   },
   {
@@ -270,6 +308,7 @@
     "name": "Hamilton Lewis",
     "email": "hamiltonlewis@glasstep.com",
     "country": "Marshall Islands",
+    "starred": true,
     "status": "paid"
   },
   {
@@ -277,6 +316,7 @@
     "name": "Marylou Wright",
     "email": "marylouwright@glasstep.com",
     "country": "Iraq",
+    "starred": true,
     "status": "paid"
   },
   {
@@ -284,6 +324,7 @@
     "name": "Lenore Bullock",
     "email": "lenorebullock@glasstep.com",
     "country": "El Salvador",
+    "starred": true,
     "status": "paid"
   },
   {
@@ -291,6 +332,7 @@
     "name": "Enid Stephens",
     "email": "enidstephens@glasstep.com",
     "country": "Greece",
+    "starred": false,
     "status": "rejected"
   },
   {
@@ -298,6 +340,7 @@
     "name": "Oneill Joyner",
     "email": "oneilljoyner@glasstep.com",
     "country": "Micronesia",
+    "starred": false,
     "status": "paid"
   },
   {
@@ -305,6 +348,7 @@
     "name": "Kristine Finley",
     "email": "kristinefinley@glasstep.com",
     "country": "Uganda",
+    "starred": false,
     "status": "paid"
   },
   {
@@ -312,6 +356,7 @@
     "name": "York Carson",
     "email": "yorkcarson@glasstep.com",
     "country": "Cyprus",
+    "starred": true,
     "status": "paid"
   },
   {
@@ -319,6 +364,7 @@
     "name": "Nikki Conway",
     "email": "nikkiconway@glasstep.com",
     "country": "Tuvalu",
+    "starred": true,
     "status": "paid"
   },
   {
@@ -326,6 +372,7 @@
     "name": "Lindsey Burgess",
     "email": "lindseyburgess@glasstep.com",
     "country": "Mali",
+    "starred": false,
     "status": "processing"
   },
   {
@@ -333,6 +380,7 @@
     "name": "Love Christian",
     "email": "lovechristian@glasstep.com",
     "country": "Andorra",
+    "starred": false,
     "status": "rejected"
   },
   {
@@ -340,6 +388,7 @@
     "name": "Julia Sawyer",
     "email": "juliasawyer@glasstep.com",
     "country": "Hungary",
+    "starred": true,
     "status": "processing"
   },
   {
@@ -347,6 +396,7 @@
     "name": "Mayer Warren",
     "email": "mayerwarren@glasstep.com",
     "country": "Latvia",
+    "starred": false,
     "status": "rejected"
   }
 ]
