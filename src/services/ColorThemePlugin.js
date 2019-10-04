@@ -20,7 +20,6 @@ export const ColorThemePlugin = {
     }
 
     Vue.prototype.$themes = defaultOptions.themes
-
     /* eslint-disable no-new */
     // This line is just to make themes reactive
     new Vue({ data: { themes: Vue.prototype.$themes } })

@@ -49,6 +49,7 @@ if (!process.env.VUE_APP_BOOK) {
         },
       },
     },
+    transpileDependencies: ['vuestic-ui', 'vue-epic-bus', 'epic-spinners'],
   }
 }
 
