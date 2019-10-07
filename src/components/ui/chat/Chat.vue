@@ -102,7 +102,7 @@ export default {
   }
 }
 
-$chat-message-br: .875rem;
+$chat-message-br: 0.875rem;
 
 .va-chat {
   width: 100%;
@@ -117,13 +117,12 @@ $chat-message-br: .875rem;
 
   &__message {
     position: relative;
-    padding: .657rem 1.375rem;
-    margin-bottom: .625rem;
+    padding: 0.657rem 1.375rem;
+    margin-bottom: 0.625rem;
     max-width: 70%;
     overflow-wrap: break-word;
     border-radius: 0.5rem;
     border-top-left-radius: 0;
-
     align-self: flex-start;
     background-color: $light-gray2;
 

@@ -1,0 +1,16 @@
+
+src/components/dashboard/Dashboard.vue
+ 63:5  ✖  Expected selector ".dashboard .va-card" to come before selector ".row-equal .flex .va-card"   no-descending-specificity
+
+src/sass/icons/_vuestic-icons.scss
+ 51:16  ✖  Unexpected missing generic font family   font-family-no-missing-generic-family-keyword
+
+src/components/pages/404-pages/VaPageNotFoundSearch.vue
+ 94:31  ✖  Unexpected empty block   block-no-empty
+
+src/sass/icon-fonts/vuestic-icons/vuestic-icons.scss
+ 19:16  ✖  Unexpected missing generic font family   font-family-no-missing-generic-family-keyword
+
+src/components/admin/app-topbar/components/TopbarLinkGroup.vue
+ 202:3  ✖  Unexpected duplicate selector ".va-topbar-link-group .va-topbar-link__content", first used at line 168   no-duplicate-selectors
+

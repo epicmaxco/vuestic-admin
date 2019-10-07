@@ -18,7 +18,7 @@
             outline
             v-model="mode"
             :options="modeOptions"
-            style="max-width: 100%"
+            style="max-width: 100%;"
           />
         </div>
       </div>

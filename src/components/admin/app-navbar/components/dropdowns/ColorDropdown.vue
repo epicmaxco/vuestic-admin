@@ -119,7 +119,7 @@ export default {
   &__content {
     background-color: $dropdown-background;
     box-shadow: $gray-box-shadow;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
 
     .color-picker-dropdown {
       display: flex;

@@ -96,40 +96,49 @@ export default {
 .app-navbar {
   &__button {
     width: 10.8125rem;
+
     .va-button__content__icon-left.fa-github {
       font-size: 1.5rem;
     }
   }
+
   &__actions {
     justify-content: flex-end;
   }
+
   &__mailto-link:hover {
     filter: brightness(85%);
   }
+
   @include media-breakpoint-down(lg) {
     &__button {
       display: none !important;
     }
+
     .profile-dropdown {
-      margin: auto 0 auto .75rem;
+      margin: auto 0 auto 0.75rem;
     }
   }
+
   @include media-breakpoint-down(md) {
     @at-root .va-navbar__text {
       display: none !important;
     }
   }
+
   @include media-breakpoint-down(sm) {
     &__button {
       display: none !important;
     }
+
     &__actions {
       justify-content: space-around;
-      padding: 0 .5rem;
+      padding: 0 0.5rem;
     }
+
     .profile-dropdown {
       position: absolute;
-      right: .75rem;
+      right: 0.75rem;
       top: 1.25rem;
       height: fit-content;
       margin: auto;
