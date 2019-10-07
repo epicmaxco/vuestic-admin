@@ -74,6 +74,7 @@
 
 <script>
 import { colorArray } from 'vuestic-ui/src/components/vuestic-components/va-color-picker/VuesticTheme'
+let themeCache = null
 
 export default {
   data () {
@@ -81,9 +82,20 @@ export default {
       palette: colorArray,
     }
   },
+  watch: {
+    $themes: {
+      deep: true,
+      handler (val, newVal) {
+        if (themeCache) return
+        themeCache = Object.assign({}, val)
+      },
+    },
+  },
   methods: {
     restoreDefaultTheme () {
-      this.$themes.restoreThemes()
+      for (let i in themeCache) {
+        if (themeCache.hasOwnProperty(i) && typeof themeCache[i] === 'string') { this.$themes[i] = themeCache[i] }
+      }
     },
   },
 }
