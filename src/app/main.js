@@ -15,6 +15,7 @@ import VueClipboard from 'vue-clipboard2'
 import VeeValidate from 'vee-validate'
 
 import '../metrics'
+import '../registerServiceWorker'
 
 // NOTE: workaround for VeeValidate + vuetable-2
 Vue.use(VeeValidate, { fieldsBagName: 'formFields' })
