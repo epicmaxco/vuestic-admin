@@ -1,3 +1,10 @@
+We’re working on Vuestic UI component library, which lets you easily customize components to your own design.
+[Sign up](https://vuestic-ui.epicmax.co) to get early access and receive support from the core team! 😎
+
+<br>
+<br>
+
+
 <p align="center"> 
   English | <a href="./README.zh-CN.md"> 简体中文 </a> | <a href="./README.ja-JP.md"> 日本語 </a>
 </p>
@@ -25,6 +32,7 @@
     <img src="https://img.shields.io/circleci/build/github/epicmaxco/vuestic-admin/master" alt="Circleci">
   </a>
 </p>
+
 
 ## Installation
 
