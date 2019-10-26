@@ -1,14 +1,6 @@
 <template>
     <div >
       <va-card :title="$t('dashboard.charts.trendyTrends')">
-        <va-button
-          small
-          slot="actions"
-          color="danger"
-          class="mr-0"
-        >
-          {{ $t('dashboard.charts.deleteSection') }}
-        </va-button>
         <va-chart class="chart" :data="lineChartData" type="line"/>
       </va-card>
     </div>
@@ -73,6 +65,6 @@ export default {
 
 <style scoped>
   .chart {
-    height: 700px;
+    height: 750px;
   }
 </style>
