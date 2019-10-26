@@ -1,6 +1,5 @@
 <template>
-  <div class="row row-equal">
-    <div class="flex xs12 xl6">
+    <div >
       <va-card :title="$t('dashboard.charts.trendyTrends')">
         <va-button
           small
@@ -13,41 +12,6 @@
         <va-chart class="chart" :data="lineChartData" type="line"/>
       </va-card>
     </div>
-
-    <div class="flex xs12 md6 xl3">
-      <va-card :title="$t('dashboard.charts.loadingSpeed')">
-        <va-button
-          icon="fa fa-print"
-          flat
-          slot="actions"
-          class="mr-0"
-        />
-        <va-chart class="chart" :data="donutChartData" type="donut"/>
-      </va-card>
-    </div>
-
-    <div class="flex xs12 md6 xl3">
-      <va-card :title="$t('dashboard.charts.topContributors')">
-        <va-button flat small slot="actions" class="mr-0">
-          {{ $t('dashboard.charts.showAll') }}
-        </va-button>
-
-        <div
-          class="mb-3"
-          v-for="(progress, idx) in progressData"
-          :key="idx"
-        >
-          <va-progress-bar
-            :value="getPercent(progress.value)"
-            :color="progress.color"
-          >
-            {{ progress.value }} {{ $t('dashboard.charts.commits') }}
-          </va-progress-bar>
-          <p class="mt-2">{{ progress.text }}</p>
-        </div>
-      </va-card>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -109,6 +73,6 @@ export default {
 
 <style scoped>
   .chart {
-    height: 400px;
+    height: 700px;
   }
 </style>
