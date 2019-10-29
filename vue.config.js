@@ -53,6 +53,13 @@ if (!process.env.VUE_APP_BOOK) {
         },
       },
     },
+    pwa: {
+      workboxPluginMode: 'InjectManifest',
+      workboxOptions: {
+        swSrc: './src/service-worker.js',
+        importWorkboxFrom: 'local',
+      },
+    },
   }
 }
 
