@@ -16,4 +16,7 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint',
   },
+  globals: {
+    'workbox': 'readonly'
+  }
 }

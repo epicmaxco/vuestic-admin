@@ -33,6 +33,7 @@
     "medium-editor": "^5.23.3",
     "normalize.css": "^8.0.1",
     "popper.js": "^1.15.0",
+    "register-service-worker": "^1.6.2",
     "v-tooltip": "^2.0.0-rc.30",
     "vue": "^2.6.10",
     "vue-bulma-expanding": "0.0.1",
@@ -53,6 +54,7 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.10.0",
     "@vue/cli-plugin-eslint": "^3.10.0",
+    "@vue/cli-plugin-pwa": "^3.11.0",
     "@vue/cli-plugin-unit-jest": "^3.10.0",
     "@vue/cli-service": "^3.10.0",
     "@vue/eslint-config-standard": "^4.0.0",
