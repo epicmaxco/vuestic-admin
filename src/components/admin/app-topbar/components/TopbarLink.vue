@@ -121,15 +121,13 @@ export default {
   display: flex;
   align-items: center;
   text-decoration: none;
-
   border-left: none;
-  border-bottom: .25rem solid transparent;
-  margin: 0 .25rem;
+  border-bottom: 0.25rem solid transparent;
+  margin: 0 0.25rem;
   height: 4rem;
   padding: 1.25rem 0 1rem;
 
   &__content {
-
     &__icon {
       width: 1.5rem;
       text-align: center;
@@ -147,6 +145,7 @@ export default {
       &__title {
         display: none;
       }
+
       &__icon {
         margin-right: 0;
         display: flex;

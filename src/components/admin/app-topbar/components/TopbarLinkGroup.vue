@@ -151,11 +151,11 @@ export default {
   &__submenu {
     list-style: none;
     padding-left: 0;
-
     background: $light-gray3 !important;
     display: flex;
     flex-wrap: wrap;
     width: 100% !important;
+
     li {
       display: block;
       width: 50%;
@@ -168,9 +168,12 @@ export default {
   .va-topbar-link__content {
     width: 100%;
     position: relative;
-    padding-right: 2rem;
     display: flex;
     align-items: center;
+
+    &__title {
+      opacity: 1 !important;
+    }
   }
 
   &__expanded-icon {
@@ -183,7 +186,7 @@ export default {
     top: 0;
     bottom: 0;
     margin: auto;
-    right: .1rem;
+    right: 0.1rem;
     width: 1.5rem;
     height: 1.5rem;
     font-weight: $font-weight-bold;
@@ -196,15 +199,9 @@ export default {
     width: 100% !important;
     overflow-y: auto;
     box-shadow: $datepicker-box-shadow;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
   }
 
-  .va-topbar-link__content {
-    padding-right: 0;
-    &__title {
-      opacity: 1 !important;
-    }
-  }
   &.va-topbar-link-group--minimized {
     .va-topbar-link__content__icon {
       margin-right: 0;
@@ -215,24 +212,24 @@ export default {
   }
 
   &--minimized {
-
     .va-topbar-link-group__submenu {
       width: 10rem;
-      border-radius: .375rem;
+      border-radius: 0.375rem;
       margin-left: 1px;
       max-height: 80vh;
-
-      padding: .375rem 0;
+      padding: 0.375rem 0;
       overflow-y: auto;
       overflow-x: hidden;
+
       .va-sidebar-link__content {
         &__title {
           display: inline-block;
           opacity: 1;
         }
       }
+
       li {
-        padding: .75rem 1rem;
+        padding: 0.75rem 1rem;
         border-left: none;
       }
     }

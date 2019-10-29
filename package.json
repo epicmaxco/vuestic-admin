@@ -8,6 +8,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "lint:style": "stylelint --fix src/**/*.{vue,htm,html,css,sss,less,scss}",
     "inspect": "vue-cli-service inspect > inspect.js",
     "test:unit": "vue-cli-service test:unit"
   },
@@ -35,21 +36,21 @@
     "popper.js": "^1.15.0",
     "register-service-worker": "^1.6.2",
     "v-tooltip": "^2.0.0-rc.30",
+    "vee-validate": "^2.2.13",
     "vue": "^2.6.10",
     "vue-bulma-expanding": "0.0.1",
     "vue-chartjs": "^3.4.0",
     "vue-clipboard2": "^0.3.0",
     "vue-color": "^2.7.0",
     "vue-epic-bus": "^0.1.2",
+    "vue-gtm": "^2.0.0",
     "vue-router": "^3.0.6",
     "vue-yandex-maps": "^0.8.14",
     "vuestic-ui": "0.1.8",
-    "vue-gtm": "^2.0.0",
     "vuetable-2": "1.7.5",
     "vuex": "^3.1.0",
     "vuex-i18n": "^1.13.1",
-    "vuex-router-sync": "5.0.0",
-    "vee-validate": "^2.2.13"
+    "vuex-router-sync": "5.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.10.0",
@@ -70,6 +71,11 @@
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "sass-loader": "^7.0.1",
     "sass-resources-loader": "^2.0.1",
+    "stylelint": "^11.0.0",
+    "stylelint-config-recommended-scss": "^4.0.0",
+    "stylelint-scss": "^3.11.1",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-webpack-plugin": "^1.0.1",
     "vue-book": "0.1.0-alpha.17",
     "vue-template-compiler": "^2.6.10"
   },
@@ -82,8 +88,17 @@
   },
   "license": "MIT",
   "lint-staged": {
-    "*.{js,vue}": [
+    "*.js": [
       "vue-cli-service lint",
+      "git add"
+    ],
+    "*.vue": [
+      "vue-cli-service lint",
+      "stylelint --fix",
+      "git add"
+    ],
+    ".{htm,html,css,sss,less,scss}": [
+      "stylelint --fix",
       "git add"
     ]
   },

@@ -61,14 +61,17 @@ export default {
     display: flex;
     align-items: center;
   }
+
   &__content {
     background-color: $dropdown-background;
     box-shadow: $gray-box-shadow;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
+
     &-label {
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
     }
   }
+
   &__control {
     .va-button-group {
       margin: 0;

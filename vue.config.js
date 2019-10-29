@@ -1,4 +1,5 @@
 const path = require('path')
+const StylelintPlugin = require('stylelint-webpack-plugin')
 
 let config
 
@@ -40,6 +41,9 @@ if (!process.env.VUE_APP_BOOK) {
           '@': path.resolve('src'),
         },
       },
+      plugins: [new StylelintPlugin({
+        files: ['src/**/*.{vue,htm,html,css,sss,less,scss}'],
+      })],
     },
     css: {
       loaderOptions: {
