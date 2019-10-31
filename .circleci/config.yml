@@ -37,9 +37,6 @@ jobs:
   deploy-staging:
     <<: *defaults
     steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "f8:c0:94:79:68:a2:5e:33:9f:78:bc:ad:ed:86:c6:3c"
       - checkout
       - run:
           name: Add variables
@@ -50,6 +47,12 @@ jobs:
       - run: *install_dependencies
       - save_cache: *save_cache
       - run: yarn build
+      - add_ssh_keys:
+          fingerprints:
+            - "f8:c0:94:79:68:a2:5e:33:9f:78:bc:ad:ed:86:c6:3c"
+      - run:
+          name: Add $SERVER_IP to known_hosts
+          command: ssh-keyscan -H $SERVER_IP >> ~/.ssh/known_hosts
       - run:
           name: Deploy to hosting
           command: |
