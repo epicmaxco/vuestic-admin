@@ -4652,12 +4652,7 @@ flat-cache@^1.2.1:
     rimraf "~2.6.2"
     write "^0.2.1"
 
-flatpickr@4.5.1:
-  version "4.5.1"
-  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.5.1.tgz#f65eaf54c07538f87d6f68a67b03cf816d7fb82f"
-  integrity sha512-dsLTFmRg6mlqYfJ35A7gLlbq+8fOqRty3cWncl6rwU4pMe//i0WKxKLVyBbSYAZry93Lg+yqsOph9haltcxCqQ==
-
-flatpickr@^4.5.1:
+flatpickr@4.5.1, flatpickr@^4.5.1:
   version "4.5.1"
   resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.5.1.tgz#f65eaf54c07538f87d6f68a67b03cf816d7fb82f"
   integrity sha512-dsLTFmRg6mlqYfJ35A7gLlbq+8fOqRty3cWncl6rwU4pMe//i0WKxKLVyBbSYAZry93Lg+yqsOph9haltcxCqQ==
@@ -10768,6 +10763,13 @@ vue-epic-bus@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/vue-epic-bus/-/vue-epic-bus-0.1.2.tgz#7f18a2931e75b7d24eaf435222ece9eab659aa73"
   integrity sha512-CPZ68RkkThPtSYxbK9fCtTDnBqVr9C+xiAASskgwvGMaWt9gTmrOB7/IFQ+MKJXRaJThqIkxZLvpdoHU9C0IfQ==
+
+vue-epic-bus@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/vue-epic-bus/-/vue-epic-bus-0.1.5.tgz#d1c8ee5758f233201d11fad267fdf7c34981f035"
+  integrity sha512-CaBY9i6p0c1acEA+hB6DVF5UHi18ZVdVScoQ0tO/cSyBMxeXvGWETneubx3Vj2zmJspCPeGtLRhCtqE7+2FsUw==
+  dependencies:
+    tslib "^1.9.3"
 
 vue-eslint-parser@^2.0.3:
   version "2.0.3"
