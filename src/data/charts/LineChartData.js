@@ -1,4 +1,4 @@
-import { hex2rgb } from '../../services/color-functions'
+import { hex2rgb } from '../../services'
 
 const generateValue = () => {
   return Math.floor(Math.random() * 100)

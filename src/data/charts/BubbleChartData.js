@@ -1,4 +1,4 @@
-import { hex2rgb } from '../../services/color-functions'
+import { hex2rgb } from '../../services'
 
 export const getBubbleChartData = (themes) => ({
   datasets: [

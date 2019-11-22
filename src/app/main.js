@@ -5,7 +5,7 @@ import 'babel-polyfill'
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import { ColorThemePlugin } from 'vuestic-ui/src/services/ColorThemePlugin'
+import { ColorThemePlugin } from '../services'
 import store from '../store/index'
 import router from '../router/index'
 import VuesticPlugin from 'vuestic-ui/src/components/vuestic-plugin'

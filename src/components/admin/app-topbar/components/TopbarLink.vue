@@ -23,8 +23,7 @@
 </template>
 
 <script>
-import { getHoverColor } from './../../../../services/color-functions'
-import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
+import { getHoverColor, ColorThemeMixin } from './../../../../services'
 
 export default {
   name: 'topbar-link',
