@@ -42,7 +42,7 @@
     "vue-chartjs": "^3.4.0",
     "vue-clipboard2": "^0.3.0",
     "vue-color": "^2.7.0",
-    "vue-epic-bus": "^0.1.2",
+    "vue-epic-bus": "^0.1.5",
     "vue-gtm": "^2.0.0",
     "vue-router": "^3.0.6",
     "vue-yandex-maps": "^0.8.14",
@@ -73,8 +73,8 @@
     "sass-resources-loader": "^2.0.1",
     "stylelint": "^11.0.0",
     "stylelint-config-recommended-scss": "^4.0.0",
-    "stylelint-scss": "^3.11.1",
     "stylelint-config-standard": "^19.0.0",
+    "stylelint-scss": "^3.11.1",
     "stylelint-webpack-plugin": "^1.0.1",
     "vue-book": "0.1.0-alpha.17",
     "vue-template-compiler": "^2.6.10"
