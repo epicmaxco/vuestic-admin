@@ -45,7 +45,7 @@
     <div class="flex xs12 md6 xl3">
       <va-card
         stripe="info"
-        title="Component reach theme"
+        :title="$t('dashboard.info.componentRichTheme')"
       >
         Buying the right telescope to take your love of astronomy to the
         next level is a big next step.
