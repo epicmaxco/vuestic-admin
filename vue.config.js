@@ -6,6 +6,7 @@ let config
 if (process.env.VUE_APP_BOOK) {
   config = {
     lintOnSave: false,
+    transpileDependencies: ['vuestic-ui'],
     pages: {
       index: {
         entry: 'src/vue-book/book-main.js',
@@ -18,6 +19,7 @@ if (process.env.VUE_APP_BOOK) {
 if (!process.env.VUE_APP_BOOK) {
   config = {
     lintOnSave: false,
+    transpileDependencies: ['vuestic-ui'],
     pages: {
       index: {
         // entry for the page
