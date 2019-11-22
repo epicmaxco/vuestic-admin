@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import VaIconVuestic from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconVuestic'
+import VaIconVuestic from '../../iconset/VaIconVuestic'
 
 const tabs = [
   'login',
