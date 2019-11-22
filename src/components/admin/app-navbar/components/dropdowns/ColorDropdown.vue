@@ -73,7 +73,7 @@
 </template>
 
 <script>
-import { colorArray } from 'vuestic-ui/src/components/vuestic-components/va-color-picker/VuesticTheme'
+import { colorArray } from '../../../../../services/vuestic-ui/components'
 
 let themeCache = {}
 

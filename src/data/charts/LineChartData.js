@@ -1,4 +1,4 @@
-import { hex2rgb } from '../../services'
+import { hex2rgb } from '../../services/vuestic-ui'
 
 const generateValue = () => {
   return Math.floor(Math.random() * 100)

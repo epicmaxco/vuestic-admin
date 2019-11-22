@@ -1,4 +1,4 @@
-import { hex2rgb } from '../../services'
+import { hex2rgb } from '../../services/vuestic-ui'
 
 export const getBubbleChartData = (themes) => ({
   datasets: [
