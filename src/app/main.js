@@ -1,6 +1,6 @@
 // Polyfills
-import 'es6-promise/auto'
-import 'babel-polyfill'
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
@@ -12,13 +12,9 @@ import { VuesticPlugin } from '../services/vuestic-ui/components'
 import '../i18n/index'
 import YmapPlugin from 'vue-yandex-maps'
 import VueClipboard from 'vue-clipboard2'
-import VeeValidate from 'vee-validate'
 
 import '../metrics'
 import '../registerServiceWorker'
-
-// NOTE: workaround for VeeValidate + vuetable-2
-Vue.use(VeeValidate, { fieldsBagName: 'formFields' })
 
 Vue.use(VuesticPlugin)
 Vue.use(YmapPlugin)
