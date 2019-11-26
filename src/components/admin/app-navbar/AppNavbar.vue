@@ -4,7 +4,11 @@
     :style="navbarStyle"
   >
     <div class="app-navbar__icon-container">
-      <header-selector slot="selector" :minimized.sync="minimizedProxy"/>
+      <span
+        class="app-navbar__menu"
+        :class="`i-menu-${minimized ? 'collapsed' : 'expanded'}`"
+        @click="$emit('update:minimized', !minimized)"
+      ></span>
     </div>
 
     <div class="app-navbar__content row">
@@ -44,13 +48,12 @@
     <div
       class="app-navbar__shape"
       :style="shapeStyle"
-    />
+    ></div>
   </nav>
 </template>
 
 <script>
 import VaIconVuestic from '../../../iconset/VaIconVuestic'
-import HeaderSelector from './components/HeaderSelector'
 import AppNavbarActions from './AppNavbarActions'
 import { hex2hsl } from '../../../services/color-functions'
 
@@ -81,7 +84,6 @@ export default {
   name: 'app-navbar',
   components: {
     VaIconVuestic,
-    HeaderSelector,
     AppNavbarActions,
   },
   props: {
@@ -96,14 +98,6 @@ export default {
     }
   },
   computed: {
-    minimizedProxy: {
-      get () {
-        return this.minimized
-      },
-      set (minimized) {
-        this.$emit('update:minimized', minimized)
-      },
-    },
     navbarStyle () {
       return {
         backgroundColor: updateHslColor(this.$themes.secondary, { s: -13, l: 15 }).css,
@@ -131,6 +125,13 @@ $font-size-base: 1rem !default;
   height: $top-nav-height;
   display: flex;
   padding: 1rem 2rem 1rem 1rem;
+
+  &__menu {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   &__content {
     z-index: 1;

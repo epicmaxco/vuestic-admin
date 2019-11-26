@@ -12,7 +12,6 @@
 
 <script>
 import VaIconVuestic from '../../../iconset/VaIconVuestic'
-import HeaderSelector from './components/HeaderSelector'
 import LanguageDropdown from './components/dropdowns/LanguageDropdown'
 import ProfileDropdown from './components/dropdowns/ProfileDropdown'
 import NotificationDropdown from './components/dropdowns/NotificationDropdown'
@@ -24,7 +23,6 @@ export default {
   components: {
     ColorDropdown,
     VaIconVuestic,
-    HeaderSelector,
     MessageDropdown,
     NotificationDropdown,
     LanguageDropdown,
