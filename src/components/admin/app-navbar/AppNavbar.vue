@@ -1,31 +1,32 @@
 <template>
   <div
-    class="app-navbar va-navbar"
+    class="app-navbar"
     :style="navbarStyle"
   >
-    <div class="va-navbar__icon-container">
+    <div class="app-navbar__icon-container">
       <header-selector slot="selector" :minimized.sync="minimizedProxy"/>
     </div>
-    <router-link
-      class="va-navbar__logo row align--center mr-3"
-      to="/"
-    >
-      <va-icon-vuestic/>
-    </router-link>
-    <div class="va-navbar__content row">
-      <div class="va-navbar__center flex offset--lg3 offset--md3 lg5 md4 flex-center">
+
+    <div class="app-navbar__content row">
+      <router-link
+        class="app-navbar__logo align--center mr-3"
+        to="/"
+      >
+        <va-icon-vuestic/>
+      </router-link>
+      <div class="app-navbar__center flex lg5 md4 flex-center">
         <div class="row flex-nowrap align--center justify--space-between">
-        <span class="va-navbar__text no-wrap">
-          {{$t('navbar.messageUs')}}&nbsp;
-          <a
-            href="mailto:hello@epicmax.co"
-            target="_blank"
-            class="app-navbar__mailto-link"
-            :style="{color: this.$themes.primary}"
-          >
-            hello@epicmax.co
-          </a>
-        </span>
+          <span class="app-navbar__text no-wrap">
+            {{$t('navbar.messageUs')}}&nbsp;
+            <a
+              href="mailto:hello@epicmax.co"
+              target="_blank"
+              class="app-navbar__mailto-link"
+              :style="{color: this.$themes.primary}"
+            >
+              hello@epicmax.co
+            </a>
+          </span>
           <div>
             <va-button
               href="https://github.com/epicmaxco/vuestic-admin"
@@ -124,29 +125,64 @@ export default {
 
 <style lang="scss">
 $top-nav-height: 4.0625rem;
-$top-mobile-nav-height: 6.5rem;
-$nav-mobile-px: 1rem;
-$nav-padding-left: 1rem;
-$nav-padding-right: 2rem;
-$nav-mobile-py: 1.1875rem;
 $nav-mobile-brand-top: 1.5rem;
-
 $nav-border-side-width: 3.1875rem;
 $lighter-gray: #dddddd;
 $font-size-base: 1rem !default;
 
 .app-navbar {
+  transition: background-color 0.3s ease; /* sidebar's bg color transitions as well -> consistency */
+  position: relative;
+  height: $top-nav-height;
+  display: flex;
+  padding: 1rem 2rem 1rem 1rem;
+
+  &__content {
+    z-index: 1;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  &__center {
+    margin-left: 3rem;
+  }
+
+  &__text {
+    color: $lighter-gray;
+  }
+
   &__button {
     width: 10.8125rem;
+    margin: 0 !important;
 
     .va-button__content__icon-left.fa-github {
       font-size: 1.5rem;
     }
   }
 
+  &__icon-container {
+    font-size: $font-size-base;
+    padding: 0.3rem 0;
+    position: absolute;
+  }
+
+  &__logo {
+    width: 9.5rem;
+    margin-left: 2.5rem;
+    height: auto;
+
+    & * {
+      max-height: 100%;
+      max-width: 100%;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+
   &__actions {
     justify-content: flex-end;
-    margin-left: auto;
   }
 
   &__mailto-link:hover {
@@ -175,89 +211,14 @@ $font-size-base: 1rem !default;
   }
 
   @include media-breakpoint-down(md) {
-    @at-root .va-navbar__text {
-      display: none !important;
-    }
-
-    &__actions {
-      margin-left: 0;
-      width: 100%;
-    }
-  }
-
-  @include media-breakpoint-down(sm) {
-    &__button {
-      display: none !important;
-    }
-
-    &__actions {
-      justify-content: space-around;
-      padding: 0 0.5rem;
-    }
-
-    &__shape {
-      display: none;
-    }
-  }
-}
-
-.va-navbar {
-  transition: background-color 0.3s ease; /* sidebar's bg color transitions as well -> consistency */
-  position: relative;
-  height: $top-nav-height;
-  padding-left: $nav-padding-left;
-  padding-right: $nav-padding-right;
-  display: flex;
-
-  &__content {
-    z-index: 1;
-    align-items: center;
-  }
-
-  &__text {
-    color: $lighter-gray;
-  }
-
-  &__logo {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 3.5rem;
-    width: 9.5rem;
-    height: 1rem;
-    margin: auto;
-    z-index: 2;
-
-    & * {
-      max-height: 100%;
-      max-width: 100%;
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-  }
-
-  &__icon-container {
-    font-size: $font-size-base;
-    display: flex;
-    align-items: center;
-  }
-
-  @include media-breakpoint-down(lg) {
-    &__button {
+    &__text {
       display: none !important;
     }
   }
 
   @include media-breakpoint-down(sm) {
     height: $top-mobile-nav-height;
-    padding: $nav-mobile-py $nav-mobile-px 1rem;
-
-    &__icon-container {
-      align-items: flex-start;
-      position: absolute;
-      z-index: 10;
-    }
+    padding: 1rem;
 
     &__center {
       display: none;
@@ -267,12 +228,14 @@ $font-size-base: 1rem !default;
       align-items: flex-end;
     }
 
-    &__logo {
-      top: $nav-mobile-brand-top;
-      left: 3.5rem;
-      bottom: auto;
-      z-index: 1;
-      margin-right: 0 !important;
+    &__actions {
+      justify-content: space-around;
+      padding: 0 0.5rem;
+      width: 100%;
+    }
+
+    &__shape {
+      display: none;
     }
   }
 }

@@ -48,6 +48,7 @@ export default {
   &__item {
     padding: 0;
     margin-left: 1.25rem;
+    margin-right: 1.25rem;
 
     &:last-of-type {
       margin-right: 0;
