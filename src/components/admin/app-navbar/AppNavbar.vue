@@ -58,7 +58,7 @@ import AppNavbarActions from './components/AppNavbarActions'
 import { hex2hsl } from '../../../services/color-functions'
 
 // TODO: need to update for all color-functions
-const updateHslColor = (main, offset = { h: 0, s: 0, l: 0 }) => {
+const colorShiftHsl = (main, offset = { h: 0, s: 0, l: 0 }) => {
   offset = {
     h: offset.h || 0,
     s: offset.s || 0,
@@ -74,7 +74,7 @@ const updateHslColor = (main, offset = { h: 0, s: 0, l: 0 }) => {
         ? params.end
         : value
 
-  color.h = normalizeParam(color.h + offset.h, { end: 250 })
+  color.h = normalizeParam(color.h + offset.h, { end: 360 })
   color.s = normalizeParam(color.s + offset.s)
   color.l = normalizeParam(color.l + offset.l)
 
@@ -100,13 +100,13 @@ export default {
   computed: {
     navbarStyle () {
       return {
-        backgroundColor: updateHslColor(this.$themes.secondary, { s: -13, l: 15 }).css,
+        backgroundColor: colorShiftHsl(this.$themes.secondary, { s: -13, l: 15 }).css,
       }
     },
 
     shapeStyle () {
       return {
-        borderTopColor: updateHslColor(this.$themes.secondary, { h: -1, s: -11, l: 10 }).css,
+        borderTopColor: colorShiftHsl(this.$themes.secondary, { h: -1, s: -11, l: 10 }).css,
       }
     },
   },
