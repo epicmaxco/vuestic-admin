@@ -1,15 +1,15 @@
 <template>
   <VbDemo>
     <VbCard title="Position" width="100%">
-      <VaNavbar />
+      <AppNavbar />
     </VbCard>
   </VbDemo>
 </template>
 
 <script>
-import VaNavbar from './VaNavbar'
+import AppNavbar from './AppNavbar'
 
 export default {
-  components: { VaNavbar },
+  components: { AppNavbar },
 }
 </script>
