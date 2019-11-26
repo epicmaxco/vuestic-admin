@@ -164,6 +164,7 @@ $font-size-base: 1rem !default;
     font-size: $font-size-base;
     padding: 0.3rem 0;
     position: absolute;
+    z-index: 10;
   }
 
   &__logo {
