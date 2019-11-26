@@ -54,7 +54,7 @@
 
 <script>
 import VaIconVuestic from '../../../iconset/VaIconVuestic'
-import AppNavbarActions from './AppNavbarActions'
+import AppNavbarActions from './components/AppNavbarActions'
 import { hex2hsl } from '../../../services/color-functions'
 
 // TODO: need to update for all color-functions

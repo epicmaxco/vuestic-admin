@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import VaIconVuestic from '../../../iconset/VaIconVuestic'
-import LanguageDropdown from './components/dropdowns/LanguageDropdown'
-import ProfileDropdown from './components/dropdowns/ProfileDropdown'
-import NotificationDropdown from './components/dropdowns/NotificationDropdown'
-import MessageDropdown from './components/dropdowns/MessageDropdown'
-import ColorDropdown from './components/dropdowns/ColorDropdown'
+import VaIconVuestic from '../../../../iconset/VaIconVuestic'
+import LanguageDropdown from './dropdowns/LanguageDropdown'
+import ProfileDropdown from './dropdowns/ProfileDropdown'
+import NotificationDropdown from './dropdowns/NotificationDropdown'
+import MessageDropdown from './dropdowns/MessageDropdown'
+import ColorDropdown from './dropdowns/ColorDropdown'
 
 export default {
   name: 'app-navbar-actions',
