@@ -17,13 +17,11 @@ import LanguageDropdown from './components/dropdowns/LanguageDropdown'
 import ProfileDropdown from './components/dropdowns/ProfileDropdown'
 import NotificationDropdown from './components/dropdowns/NotificationDropdown'
 import MessageDropdown from './components/dropdowns/MessageDropdown'
-import SettingsDropdown from './components/dropdowns/SettingsDropdown'
 import ColorDropdown from './components/dropdowns/ColorDropdown'
 
 export default {
   name: 'app-navbar-actions',
   components: {
-    SettingsDropdown,
     ColorDropdown,
     VaIconVuestic,
     HeaderSelector,
