@@ -1,5 +1,5 @@
 <template>
-  <div
+  <nav
     class="app-navbar"
     :style="navbarStyle"
   >
@@ -49,7 +49,7 @@
       class="app-navbar__shape"
       :style="shapeStyle"
     />
-  </div>
+  </nav>
 </template>
 
 <script>
@@ -211,7 +211,7 @@ $font-size-base: 1rem !default;
   }
 
   @include media-breakpoint-down(md) {
-    &__text {
+    &__center {
       display: none !important;
     }
   }
@@ -219,10 +219,6 @@ $font-size-base: 1rem !default;
   @include media-breakpoint-down(sm) {
     height: $top-mobile-nav-height;
     padding: 1rem;
-
-    &__center {
-      display: none;
-    }
 
     &__content {
       align-items: flex-end;
