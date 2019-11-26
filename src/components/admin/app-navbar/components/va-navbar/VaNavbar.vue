@@ -1,5 +1,5 @@
 <template>
-  <nav
+  <div
     class="va-navbar"
     :style="navbarStyle"
   >
@@ -24,50 +24,48 @@
       class="va-navbar__shape"
       :style="shapeStyle"
     />
-  </nav>
+  </div>
 </template>
 
 <script>
 import { hex2hsl } from '../../../../../services/color-functions'
 
+// TODO: need to update for all color-functions
+const updateHslColor = (main, offset = { h: 0, s: 0, l: 0 }) => {
+  offset = {
+    h: offset.h || 0,
+    s: offset.s || 0,
+    l: offset.l || 0,
+  }
+
+  const color = hex2hsl(main)
+
+  const normalizeParam = (value, params = { start: 0, end: 100 }) =>
+    value < params.start
+      ? params.start
+      : value > params.end
+        ? params.end
+        : value
+
+  color.h = normalizeParam(color.h + offset.h, { end: 250 })
+  color.s = normalizeParam(color.s + offset.s)
+  color.l = normalizeParam(color.l + offset.l)
+
+  return color
+}
+
 export default {
   name: 'VaNavbar',
   computed: {
     navbarStyle () {
-      let secondaryRealColorHSL = hex2hsl(this.$themes.secondary)
-
-      // saturation and lightness color components differ from the secondary color for the navbar
-      let newSaturation = secondaryRealColorHSL.s - 13
-      newSaturation = newSaturation < 0 ? 0 : newSaturation
-      secondaryRealColorHSL.s = newSaturation
-
-      let newLightness = secondaryRealColorHSL.l + 15
-      newLightness = newLightness > 100 ? 100 : newLightness
-      secondaryRealColorHSL.l = newLightness
-
       return {
-        backgroundColor: secondaryRealColorHSL.css,
+        backgroundColor: updateHslColor(this.$themes.secondary, { s: -13, l: 15 }).css,
       }
     },
 
     shapeStyle () {
-      let secondaryRealColorHSL = hex2hsl(this.$themes.secondary)
-
-      // all the 3 color components differ for the shape from the secondary color
-      let newHue = secondaryRealColorHSL.h - 1
-      newHue = newHue < 0 ? 0 : newHue
-      secondaryRealColorHSL.h = newHue
-
-      let newSaturation = secondaryRealColorHSL.s - 11
-      newSaturation = newSaturation < 0 ? 0 : newSaturation
-      secondaryRealColorHSL.s = newSaturation
-
-      let newLightness = secondaryRealColorHSL.l + 10
-      newLightness = newLightness > 100 ? 100 : newLightness
-      secondaryRealColorHSL.l = newLightness
-
       return {
-        borderTopColor: secondaryRealColorHSL.css,
+        borderTopColor: updateHslColor(this.$themes.secondary, { h: -1, s: -11, l: 10 }).css,
       }
     },
   },
@@ -76,14 +74,13 @@ export default {
 
 <style lang="scss">
 $top-nav-height: 4.0625rem;
-$top-nav-bg: #0e4ac4;
 $top-mobile-nav-height: 6.5rem;
 $nav-mobile-px: 1rem;
 $nav-padding-left: 1rem;
 $nav-padding-right: 2rem;
 $nav-mobile-py: 1.1875rem;
 $nav-mobile-brand-top: 1.5rem;
-$nav-shape-bg: #0a43af;
+
 $nav-border-side-width: 3.1875rem;
 $lighter-gray: #dddddd;
 $font-size-base: 1rem !default;
@@ -94,7 +91,6 @@ $font-size-base: 1rem !default;
   height: $top-nav-height;
   padding-left: $nav-padding-left;
   padding-right: $nav-padding-right;
-  background-color: $top-nav-bg;
   display: flex;
 
   &__content {
@@ -144,7 +140,7 @@ $font-size-base: 1rem !default;
     right: 0;
     top: 0;
     margin: auto;
-    border-top: $top-nav-height solid $nav-shape-bg;
+    border-top: $top-nav-height solid transparent;
     border-left: $nav-border-side-width solid transparent;
     border-right: $nav-border-side-width solid transparent;
     height: 0;

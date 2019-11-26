@@ -49,6 +49,7 @@
 <script>
 import VaIconVuestic from '../../../iconset/VaIconVuestic'
 import HeaderSelector from './components/HeaderSelector'
+import VaNavbar from './components/va-navbar/VaNavbar'
 import LanguageDropdown from './components/dropdowns/LanguageDropdown'
 import ProfileDropdown from './components/dropdowns/ProfileDropdown'
 import NotificationDropdown from './components/dropdowns/NotificationDropdown'
@@ -67,6 +68,7 @@ export default {
     NotificationDropdown,
     LanguageDropdown,
     ProfileDropdown,
+    VaNavbar,
   },
   props: {
     minimized: {
