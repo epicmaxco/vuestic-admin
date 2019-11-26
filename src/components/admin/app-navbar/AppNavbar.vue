@@ -39,20 +39,13 @@
           </div>
         </div>
       </div>
-      <div class="md5 lg4 va-navbar__actions align--center row">
-        <div class="app-navbar__actions row flex-nowrap align--center">
-          <color-dropdown class="va-navbar__item"/>
-          <message-dropdown class="va-navbar__item"/>
-          <notification-dropdown class="va-navbar__item"/>
-          <language-dropdown class="va-navbar__item"/>
-          <profile-dropdown class="va-navbar__item">
-            <span>{{userName}}</span>
-          </profile-dropdown>
-        </div>
-      </div>
+      <app-navbar-actions
+        class="app-navbar__actions md5 lg4"
+        :user-name="userName"
+      />
     </div>
     <div
-      class="va-navbar__shape"
+      class="app-navbar__shape"
       :style="shapeStyle"
     />
   </div>
@@ -61,12 +54,7 @@
 <script>
 import VaIconVuestic from '../../../iconset/VaIconVuestic'
 import HeaderSelector from './components/HeaderSelector'
-import LanguageDropdown from './components/dropdowns/LanguageDropdown'
-import ProfileDropdown from './components/dropdowns/ProfileDropdown'
-import NotificationDropdown from './components/dropdowns/NotificationDropdown'
-import MessageDropdown from './components/dropdowns/MessageDropdown'
-import SettingsDropdown from './components/dropdowns/SettingsDropdown'
-import ColorDropdown from './components/dropdowns/ColorDropdown'
+import AppNavbarActions from './AppNavbarActions'
 import { hex2hsl } from '../../../services/color-functions'
 
 // TODO: need to update for all color-functions
@@ -95,14 +83,9 @@ const updateHslColor = (main, offset = { h: 0, s: 0, l: 0 }) => {
 export default {
   name: 'app-navbar',
   components: {
-    SettingsDropdown,
-    ColorDropdown,
     VaIconVuestic,
     HeaderSelector,
-    MessageDropdown,
-    NotificationDropdown,
-    LanguageDropdown,
-    ProfileDropdown,
+    AppNavbarActions,
   },
   props: {
     minimized: {
@@ -163,25 +146,42 @@ $font-size-base: 1rem !default;
 
   &__actions {
     justify-content: flex-end;
+    margin-left: auto;
   }
 
   &__mailto-link:hover {
     filter: brightness(85%);
   }
 
+  &__shape {
+    transition: border-top-color 0.3s ease; /* sidebar's bg color transitions as well -> consistency */
+    width: 33%;
+    max-width: 467px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    border-top: $top-nav-height solid transparent;
+    border-left: $nav-border-side-width solid transparent;
+    border-right: $nav-border-side-width solid transparent;
+    height: 0;
+  }
+
   @include media-breakpoint-down(lg) {
     &__button {
       display: none !important;
-    }
-
-    .profile-dropdown {
-      margin: auto 0 auto 0.75rem;
     }
   }
 
   @include media-breakpoint-down(md) {
     @at-root .va-navbar__text {
       display: none !important;
+    }
+
+    &__actions {
+      margin-left: 0;
+      width: 100%;
     }
   }
 
@@ -195,12 +195,8 @@ $font-size-base: 1rem !default;
       padding: 0 0.5rem;
     }
 
-    .profile-dropdown {
-      position: absolute;
-      right: 0.75rem;
-      top: 1.25rem;
-      height: fit-content;
-      margin: auto;
+    &__shape {
+      display: none;
     }
   }
 }
@@ -220,10 +216,6 @@ $font-size-base: 1rem !default;
 
   &__text {
     color: $lighter-gray;
-  }
-
-  &__actions {
-    margin-left: auto;
   }
 
   &__logo {
@@ -251,43 +243,9 @@ $font-size-base: 1rem !default;
     align-items: center;
   }
 
-  &__shape {
-    transition: border-top-color 0.3s ease; /* sidebar's bg color transitions as well -> consistency */
-    width: 33%;
-    max-width: 467px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    margin: auto;
-    border-top: $top-nav-height solid transparent;
-    border-left: $nav-border-side-width solid transparent;
-    border-right: $nav-border-side-width solid transparent;
-    height: 0;
-  }
-
-  &__item {
-    padding: 0;
-    height: 100%;
-    margin: auto 1.25rem;
-
-    &:last-of-type {
-      margin-right: 0;
-    }
-
-    .va-dropdown-popper__anchor {
-      display: flex;
-      justify-content: center;
-    }
-  }
-
   @include media-breakpoint-down(lg) {
     &__button {
       display: none !important;
-    }
-
-    &__item {
-      margin-right: 0.25rem;
     }
   }
 
@@ -315,22 +273,6 @@ $font-size-base: 1rem !default;
       bottom: auto;
       z-index: 1;
       margin-right: 0 !important;
-    }
-
-    &__actions {
-      margin-left: 0;
-    }
-
-    &__shape {
-      display: none;
-    }
-
-    &__item {
-      margin-right: 0;
-
-      &:first-of-type {
-        margin-left: 0;
-      }
     }
   }
 }
