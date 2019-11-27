@@ -40,6 +40,7 @@ module.exports = {
           files: ['src/**/*.{vue,htm,html,css,sss,less,scss}'],
         }),
         new webpack.DefinePlugin({
+          __VUE_APP_BUILD_VERSION__: process.env === 'VUE_APP_BUILD_VERSION',
           __VERSION__: JSON.stringify(version),
           __TIMESTAMP__: JSON.stringify(timeStamp),
           __COMMIT__: JSON.stringify(gitRevisionPlugin.version()),
