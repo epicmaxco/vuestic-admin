@@ -5,6 +5,10 @@
     <slot></slot>
     <div class="content-wrap" id="content-wrap">
       <slot name="content"></slot>
+
+      <div class="va-page-layout__footer" v-if="VUE_APP_BUILD_VERSION">
+        {{`Vuestic-Admin © 2011-${new Date().getFullYear()}, Version: ${VERSION}, ${COMMITHASH}, ${TIMESTAMP}`}}
+      </div>
     </div>
   </div>
 </template>
@@ -83,6 +87,16 @@ $vuestic-preloader-top: calc(50% - 104px / 2);
     bottom: 0;
     height: calc(#{$layout-padding} + #{$widget-mb});
     width: 100%;
+  }
+
+  .va-page-layout__footer {
+    padding: 1rem;
+    line-height: 1.4;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
   }
 }
 </style>

@@ -1,5 +1,8 @@
 const path = require('path')
 const StylelintPlugin = require('stylelint-webpack-plugin')
+const GitRersionPlugin = require('git-revision-webpack-plugin')
+const gitRevisionPlugin = new GitRersionPlugin()
+const timeStamp = new Date().toUTCString()
 
 module.exports = {
   lintOnSave: false,
@@ -29,10 +32,24 @@ module.exports = {
         'vue$': 'vue/dist/vue.esm.js',
         '@': path.resolve('src'),
       },
+      plugins: [
+        new StylelintPlugin({
+          files: ['src/**/*.{vue,htm,html,css,sss,less,scss}'],
+        }),
+      ],
+      chainWebpack: config => {
+        config.plugin('define').tap(definitions => {
+          definitions[0] = Object.assign(definitions[0], {
+            'VERSION': JSON.stringify(gitRevisionPlugin.version()),
+            'COMMITHASH': JSON.stringify(gitRevisionPlugin.commithash()),
+            'TIMESTAMP': timeStamp,
+          })
+
+          console.log('definitions', definitions)
+          return definitions
+        })
+      },
     },
-    plugins: [new StylelintPlugin({
-      files: ['src/**/*.{vue,htm,html,css,sss,less,scss}'],
-    })],
   },
   css: {
     loaderOptions: {
