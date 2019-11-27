@@ -1,7 +1,10 @@
 const path = require('path')
+const webpack = require('webpack')
 const StylelintPlugin = require('stylelint-webpack-plugin')
-const GitRersionPlugin = require('git-revision-webpack-plugin')
-const gitRevisionPlugin = new GitRersionPlugin()
+// const GitRersionPlugin = require('git-revision-webpack-plugin')
+// const gitRevisionPlugin = new GitRersionPlugin()
+
+const version = require('./package.json').version
 const timeStamp = new Date().toUTCString()
 
 module.exports = {
@@ -36,19 +39,11 @@ module.exports = {
         new StylelintPlugin({
           files: ['src/**/*.{vue,htm,html,css,sss,less,scss}'],
         }),
+        new webpack.DefinePlugin({
+          __VERSION__: JSON.stringify(version),
+          __TIMESTAMP__: JSON.stringify(timeStamp),
+        }),
       ],
-      chainWebpack: config => {
-        config.plugin('define').tap(definitions => {
-          definitions[0] = Object.assign(definitions[0], {
-            'VERSION': JSON.stringify(gitRevisionPlugin.version()),
-            'COMMITHASH': JSON.stringify(gitRevisionPlugin.commithash()),
-            'TIMESTAMP': timeStamp,
-          })
-
-          console.log('definitions', definitions)
-          return definitions
-        })
-      },
     },
   },
   css: {

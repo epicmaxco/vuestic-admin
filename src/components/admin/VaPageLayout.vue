@@ -6,14 +6,15 @@
     <div class="content-wrap" id="content-wrap">
       <slot name="content"></slot>
 
-      <div class="va-page-layout__footer" v-if="VUE_APP_BUILD_VERSION">
-        {{`Vuestic-Admin © 2011-${new Date().getFullYear()}, Version: ${VERSION}, ${COMMITHASH}, ${TIMESTAMP}`}}
+      <div class="va-page-layout__footer">
+        {{copyrightText}}
       </div>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'va-page-layout',
   data () {
@@ -47,6 +48,11 @@ export default {
         this.$emit('toggleSidebar', true)
       }
       this.prevMatchLg = this.checkIsDesktop()
+    },
+  },
+  computed: {
+    copyrightText () {
+      return `Vuestic-Admin © 2011-${new Date().getFullYear()}, Version: ${__VERSION__}, ${__TIMESTAMP__},`// eslint-disable-line no-undef
     },
   },
 }
