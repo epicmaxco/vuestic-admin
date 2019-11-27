@@ -1,8 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
 const StylelintPlugin = require('stylelint-webpack-plugin')
-// const GitRersionPlugin = require('git-revision-webpack-plugin')
-// const gitRevisionPlugin = new GitRersionPlugin()
+const GitRersionPlugin = require('git-revision-webpack-plugin')
+const gitRevisionPlugin = new GitRersionPlugin()
 
 const version = require('./package.json').version
 const timeStamp = new Date().toUTCString()
@@ -42,6 +42,7 @@ module.exports = {
         new webpack.DefinePlugin({
           __VERSION__: JSON.stringify(version),
           __TIMESTAMP__: JSON.stringify(timeStamp),
+          __COMMIT__: JSON.stringify(gitRevisionPlugin.version()),
         }),
       ],
     },

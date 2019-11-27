@@ -52,7 +52,7 @@ export default {
   },
   computed: {
     copyrightText () {
-      return `Vuestic-Admin © 2011-${new Date().getFullYear()}, Version: ${__VERSION__}, ${__TIMESTAMP__},`// eslint-disable-line no-undef
+      return `Vuestic-Admin © 2011-${new Date().getFullYear()}, Version: ${__VERSION__}, ${__TIMESTAMP__}, commit: ${__COMMIT__}`// eslint-disable-line no-undef
     },
   },
 }
