@@ -23,8 +23,7 @@
 </template>
 
 <script>
-import { getHoverColor } from './../../../../services/color-functions'
-import { ColorThemeMixin } from '../../../../services/ColorThemePlugin'
+import { getHoverColor, ColorThemeMixin } from './../../../../services/vuestic-ui'
 
 export default {
   name: 'topbar-link',

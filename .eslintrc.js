@@ -3,9 +3,9 @@ module.exports = {
   env: {
     node: true,
   },
-  'extends': [
-    'plugin:vue/essential',
+  extends: [
     '@vue/standard',
+    'plugin:vue/essential',
   ],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -17,6 +17,6 @@ module.exports = {
     parser: 'babel-eslint',
   },
   globals: {
-    'workbox': 'readonly'
-  }
+    'workbox': 'readonly',
+  },
 }

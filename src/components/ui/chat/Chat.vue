@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import StickyScroll from 'vuestic-ui/src/components/vuestic-directives/StickyScroll'
+import { StickyScroll } from '../../../services/vuestic-ui/components'
 
 export default {
   name: 'chat',
