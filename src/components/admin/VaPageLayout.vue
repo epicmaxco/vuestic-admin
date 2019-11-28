@@ -52,7 +52,7 @@ export default {
   },
   computed: {
     copyrightText () {
-      const baseText = `Vuestic-Admin © 2011-${new Date().getFullYear()}`
+      const baseText = `Epicmax © 2011-${new Date().getFullYear()}`
 
       if (__VUE_APP_BUILD_VERSION__) { // eslint-disable-line no-undef
         return `${baseText}, Version: ${__VERSION__}, ${__TIMESTAMP__}, commit: ${__COMMIT__}`// eslint-disable-line no-undef

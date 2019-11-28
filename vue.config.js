@@ -1,11 +1,15 @@
 const path = require('path')
 const webpack = require('webpack')
 const StylelintPlugin = require('stylelint-webpack-plugin')
-const GitRersionPlugin = require('git-revision-webpack-plugin')
-const gitRevisionPlugin = new GitRersionPlugin()
 
 const version = require('./package.json').version
 const timeStamp = new Date().toUTCString()
+
+const getLastCommitHash = () => {
+  const hash = require('child_process').execSync('git rev-parse HEAD').toString()
+
+  return hash.slice(0, 6)
+}
 
 module.exports = {
   lintOnSave: false,
@@ -43,7 +47,7 @@ module.exports = {
           __VUE_APP_BUILD_VERSION__: process.env === 'VUE_APP_BUILD_VERSION',
           __VERSION__: JSON.stringify(version),
           __TIMESTAMP__: JSON.stringify(timeStamp),
-          __COMMIT__: JSON.stringify(gitRevisionPlugin.version()),
+          __COMMIT__: JSON.stringify(getLastCommitHash()),
         }),
       ],
     },
