@@ -55,7 +55,7 @@
 <script>
 import VaIconVuestic from '../../../iconset/VaIconVuestic'
 import AppNavbarActions from './components/AppNavbarActions'
-import { hex2hsl } from '../../../services/color-functions'
+import { hex2hsl } from '../../../services/vuestic-ui'
 
 // TODO: need to update for all color-functions
 const colorShiftHsl = (main, offset = { h: 0, s: 0, l: 0 }) => {
