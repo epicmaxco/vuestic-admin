@@ -36,3 +36,13 @@ You can enable demos in build by:
 VUE_APP_INCLUDE_DEMOS=true
 ```
 Demos are included in staging build by default. They're not present in production because of significant impact on bundle size.
+
+
+## Build Version
+
+You can enable build version, commit hash and timestamp by build in main file:
+```
+VUE_APP_BUILD_VERSION
+```
+Build version are excluded in staging build by default. 
+To include version to build should you most add `VUE_APP_BUILD_VERSION=true` in `.env` file.
