@@ -227,8 +227,7 @@ $font-size-base: 1rem !default;
     }
 
     &__actions {
-      justify-content: space-around;
-      padding: 0 0.5rem;
+      justify-content: space-between;
       width: 100%;
     }
 
