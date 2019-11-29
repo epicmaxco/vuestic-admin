@@ -42,24 +42,29 @@ export default {
     margin-left: $content-wrap-ml;
     transition: margin-left 0.3s ease;
     padding: $layout-padding $layout-padding-right $content-wrap-pb 0;
+
     .pre-loader {
       position: absolute;
       left: $vuestic-preloader-left;
       top: $vuestic-preloader-top;
     }
+
     @include media-breakpoint-down(md) {
       padding: $content-mobile-wrap;
       margin-left: 0;
+
       .sidebar-hidden & {
         margin-left: 0;
         padding-top: $content-mobile-wrap-sb-top;
       }
     }
   }
+
   &-fixed {
     .content-wrap {
       padding-right: $layout-padding-right;
       padding-top: $sidebar-top;
+
       @include media-breakpoint-down(md) {
         padding: $content-mobile-wrap-fixed-layout;
         margin-left: 0;
