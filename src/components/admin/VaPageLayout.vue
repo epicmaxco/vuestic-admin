@@ -5,11 +5,16 @@
     <slot></slot>
     <div class="content-wrap" id="content-wrap">
       <slot name="content"></slot>
+
+      <div class="va-page-layout__footer">
+        {{copyrightText}}
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'va-page-layout',
   data () {
@@ -43,6 +48,17 @@ export default {
         this.$emit('toggleSidebar', true)
       }
       this.prevMatchLg = this.checkIsDesktop()
+    },
+  },
+  computed: {
+    copyrightText () {
+      const baseText = `Epicmax © 2011-${new Date().getFullYear()}`
+
+      if (process.env.VUE_APP_BUILD_VERSION) { // eslint-disable-line no-undef
+        return `${baseText}, Version: ${VERSION}, ${TIMESTAMP}, commit: ${COMMIT}`// eslint-disable-line no-undef
+      }
+
+      return baseText
     },
   },
 }
@@ -83,6 +99,16 @@ $vuestic-preloader-top: calc(50% - 104px / 2);
     bottom: 0;
     height: calc(#{$layout-padding} + #{$widget-mb});
     width: 100%;
+  }
+
+  .va-page-layout__footer {
+    padding: 1rem;
+    line-height: 1.4;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
   }
 }
 </style>

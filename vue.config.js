@@ -1,5 +1,15 @@
 const path = require('path')
+const webpack = require('webpack')
 const StylelintPlugin = require('stylelint-webpack-plugin')
+
+const version = require('./package.json').version
+const timeStamp = new Date().toUTCString()
+
+const getLastCommitHash = () => {
+  const hash = require('child_process').execSync('git rev-parse HEAD').toString()
+
+  return hash.slice(0, 6)
+}
 
 module.exports = {
   lintOnSave: false,
@@ -26,19 +36,26 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        'vue$': 'vue/dist/vue.esm.js',
+        vue$: 'vue/dist/vue.esm.js',
         '@': path.resolve('src'),
       },
     },
-    plugins: [new StylelintPlugin({
-      files: ['src/**/*.{vue,htm,html,css,sss,less,scss}'],
-    })],
+    plugins: [
+      new StylelintPlugin({
+        files: ['src/**/*.{vue,htm,html,css,sss,less,scss}'],
+      }),
+      new webpack.DefinePlugin({
+        VERSION: JSON.stringify(version),
+        TIMESTAMP: JSON.stringify(timeStamp),
+        COMMIT: JSON.stringify(getLastCommitHash()),
+      }),
+    ],
   },
   css: {
     loaderOptions: {
       sass: {
         // Preload vuestic-ui variables and mixins for every component
-        data: `@import "~vuestic-ui/src/components/vuestic-sass/resources/resources.scss";`,
+        data: '@import "~vuestic-ui/src/components/vuestic-sass/resources/resources.scss";',
       },
     },
   },
