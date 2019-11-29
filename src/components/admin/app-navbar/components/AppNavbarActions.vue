@@ -1,17 +1,16 @@
 <template>
   <div class="app-navbar-actions">
-      <color-dropdown class="app-navbar-actions__item"/>
-      <message-dropdown class="app-navbar-actions__item"/>
-      <notification-dropdown class="app-navbar-actions__item"/>
-      <language-dropdown class="app-navbar-actions__item"/>
-      <profile-dropdown class="app-navbar-actions__item app-navbar-actions__item--profile">
-        <span>{{userName}}</span>
-      </profile-dropdown>
+    <color-dropdown class="app-navbar-actions__item"/>
+    <message-dropdown class="app-navbar-actions__item"/>
+    <notification-dropdown class="app-navbar-actions__item"/>
+    <language-dropdown class="app-navbar-actions__item"/>
+    <profile-dropdown class="app-navbar-actions__item app-navbar-actions__item--profile">
+      <span>{{userName}}</span>
+    </profile-dropdown>
   </div>
 </template>
 
 <script>
-import VaIconVuestic from '../../../../iconset/VaIconVuestic'
 import LanguageDropdown from './dropdowns/LanguageDropdown'
 import ProfileDropdown from './dropdowns/ProfileDropdown'
 import NotificationDropdown from './dropdowns/NotificationDropdown'
@@ -22,7 +21,6 @@ export default {
   name: 'app-navbar-actions',
   components: {
     ColorDropdown,
-    VaIconVuestic,
     MessageDropdown,
     NotificationDropdown,
     LanguageDropdown,
