@@ -40,9 +40,9 @@ Demos are included in staging build by default. They're not present in productio
 
 ## Build Version
 
-You can enable build version, commit hash and timestamp by build in main file:
+You can enable build version, hash commit, and timestamp by build to the main page footer:
+
 ```
-VUE_APP_BUILD_VERSION
+VUE_APP_BUILD_VERSION=true
 ```
-Build version are excluded in staging build by default. 
-To include version to build should you most add `VUE_APP_BUILD_VERSION=true` in `.env` file.
+This information are excluded by default. 

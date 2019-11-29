@@ -45,10 +45,9 @@ module.exports = {
         files: ['src/**/*.{vue,htm,html,css,sss,less,scss}'],
       }),
       new webpack.DefinePlugin({
-        __VUE_APP_BUILD_VERSION__: process.env === 'VUE_APP_BUILD_VERSION',
-        __VERSION__: JSON.stringify(version),
-        __TIMESTAMP__: JSON.stringify(timeStamp),
-        __COMMIT__: JSON.stringify(getLastCommitHash()),
+        VERSION: JSON.stringify(version),
+        TIMESTAMP: JSON.stringify(timeStamp),
+        COMMIT: JSON.stringify(getLastCommitHash()),
       }),
     ],
   },

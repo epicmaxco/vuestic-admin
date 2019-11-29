@@ -54,8 +54,8 @@ export default {
     copyrightText () {
       const baseText = `Epicmax © 2011-${new Date().getFullYear()}`
 
-      if (__VUE_APP_BUILD_VERSION__) { // eslint-disable-line no-undef
-        return `${baseText}, Version: ${__VERSION__}, ${__TIMESTAMP__}, commit: ${__COMMIT__}`// eslint-disable-line no-undef
+      if (process.env.VUE_APP_BUILD_VERSION) { // eslint-disable-line no-undef
+        return `${baseText}, Version: ${VERSION}, ${TIMESTAMP}, commit: ${COMMIT}`// eslint-disable-line no-undef
       }
 
       return baseText
