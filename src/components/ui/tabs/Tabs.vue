@@ -1,7 +1,7 @@
 <template>
   <div class="grid row">
     <div class="flex xs12 md6">
-      <va-card title="Tabs Alignment" class="fill-height" style="overflow-x: auto; ">
+      <va-card title="Tabs Alignment" class="fill-height" style="overflow-x: auto;">
         <div>
           <div class="row">
             <div class="flex xs12">
@@ -130,5 +130,4 @@ export default {
     border-radius: 0.5rem;
   }
 }
-
 </style>
