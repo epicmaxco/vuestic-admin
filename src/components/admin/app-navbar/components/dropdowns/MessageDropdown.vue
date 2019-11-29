@@ -83,49 +83,43 @@ export default {
       position: absolute;
       right: 0;
       left: 0;
-      top: -0.5rem;
+      top: -.5rem;
       background-color: $brand-danger;
-      height: 0.375rem;
-      width: 0.375rem;
+      height: .375rem;
+      width: .375rem;
       margin: 0 auto;
-      border-radius: 0.187rem;
+      border-radius: .187rem;
     }
   }
-
   &__content {
     background-color: $dropdown-background;
     box-shadow: $gray-box-shadow;
-    border-radius: 0.5rem;
+    border-radius: .5rem;
   }
-
   &__item {
     cursor: pointer;
-    margin-bottom: 0.75rem;
+    margin-bottom: .75rem;
     color: $brand-secondary;
     position: relative;
     flex-wrap: nowrap;
-
     &--unread {
       color: $vue-darkest-blue;
-
-      &::after {
+      &:after {
         content: '';
         position: absolute;
         right: 0;
         top: 0;
         bottom: 0;
-        height: 0.375rem;
-        width: 0.375rem;
+        height: .375rem;
+        width: .375rem;
         background-color: $brand-danger;
         margin: auto;
-        border-radius: 0.187rem;
+        border-radius: .187rem;
       }
     }
-
     &:hover {
       color: $vue-green;
     }
-
     &__avatar {
       border-radius: 50%;
       min-width: 1.5rem;

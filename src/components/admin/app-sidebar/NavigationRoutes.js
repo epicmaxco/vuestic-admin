@@ -8,14 +8,14 @@ export const navigationRoutes = {
       name: 'dashboard',
       displayName: 'menu.dashboard',
       meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
+        iconClass: 'vuestic-iconset-dashboard',
       },
     },
     {
       name: 'statistics',
       displayName: 'menu.statistics',
       meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-statistics',
+        iconClass: 'vuestic-iconset-statistics',
       },
       disabled: true,
       children: [
@@ -33,7 +33,7 @@ export const navigationRoutes = {
       name: 'forms',
       displayName: 'menu.forms',
       meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-forms',
+        iconClass: 'vuestic-iconset-forms',
       },
       disabled: true,
       children: [
@@ -51,7 +51,7 @@ export const navigationRoutes = {
       name: 'tables',
       displayName: 'menu.tables',
       meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-tables',
+        iconClass: 'vuestic-iconset-tables',
       },
       children: [
         {
@@ -68,7 +68,7 @@ export const navigationRoutes = {
       name: 'ui',
       displayName: 'menu.uiElements',
       meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-ui-elements',
+        iconClass: 'vuestic-iconset-ui-elements',
       },
       disabled: true,
       children: [
@@ -172,7 +172,7 @@ export const navigationRoutes = {
       name: 'maps',
       displayName: 'menu.maps',
       meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-maps',
+        iconClass: 'vuestic-iconset-maps',
       },
       disabled: true,
       children: [
@@ -202,7 +202,7 @@ export const navigationRoutes = {
       name: 'pages',
       displayName: 'menu.pages',
       meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-files',
+        iconClass: 'vuestic-iconset-files',
       },
       disabled: true,
       children: [

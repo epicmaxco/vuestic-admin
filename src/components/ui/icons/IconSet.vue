@@ -19,7 +19,7 @@
             v-model="search"
             :label="$t('icons.search')"
             class="mb-0"
-            style="max-width: 300px;"
+            style="max-width: 300px"
             removable
             required
           >
@@ -39,7 +39,7 @@
           <va-slider
             value-visible
             v-model="iconSize"
-            style="max-width: 300px;"
+            style="max-width: 300px"
             :label-value="`${iconSize}px`"
             :min="slider.min"
             :max="slider.max"
@@ -67,7 +67,7 @@
       <div class="row">
         <div
           class="flex flex-center xs3 md1 mb-2 icon-grid-container"
-          style="flex-direction: column;"
+          style="flex-direction: column"
           v-for="icon in list.icons"
           :key="icon"
         >
@@ -160,14 +160,13 @@ export default {
     }
 
     .icon-text {
-      font-size: 0.6rem;
+      font-size: .6rem;
     }
   }
 
   &__header {
     &__size {
-      &--smaller,
-      &--bigger {
+      &--smaller, &--bigger {
         font-weight: 600;
       }
 

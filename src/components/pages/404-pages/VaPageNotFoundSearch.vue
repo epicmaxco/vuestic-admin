@@ -82,14 +82,12 @@ export default {
   &__list {
     color: $white;
   }
-
   @include media-breakpoint-down(md) {
     .va-page-not-found-search__links {
       margin: 0;
       width: 100%;
     }
   }
-
   @include media-breakpoint-down(xs) {
     .va-page-not-found-search {
     }

@@ -69,8 +69,10 @@
 <script>
 import * as spinners from 'epic-spinners'
 import { mapGetters } from 'vuex'
-import VaIconFaster from '../../../iconset/VaIconFaster'
-import VaIconSlower from '../../../iconset/VaIconSlower'
+import VaIconFaster
+  from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconFaster'
+import VaIconSlower
+  from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconSlower'
 
 export default {
   components: {
@@ -137,8 +139,7 @@ export default {
 <style lang="scss">
 .spinners {
   &__size {
-    &-smaller,
-    &-bigger {
+    &-smaller, &-bigger {
       width: 40px;
       text-align: center;
       font-weight: 600;
@@ -154,14 +155,13 @@ export default {
   }
 
   &__duration {
-    &-slower,
-    &-faster {
+    &-slower, &-faster {
       transform: translateY(-1px);
     }
   }
 
   .spinner-box {
-    height: 140px;
+    height: 140px
   }
 }
 </style>

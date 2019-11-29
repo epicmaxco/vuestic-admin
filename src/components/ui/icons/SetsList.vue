@@ -6,7 +6,7 @@
         v-for="(set, index) in sets"
         :key="index"
       >
-        <router-link :to="{path: set.href}" style="color: inherit;">
+        <router-link :to="{path: set.href}" style="color: inherit">
           <div class="sets-list__set__content">
             <div class="sets-list__set__content__overlay flex-center pa-3 fill-height">
               <va-button :to="{path: set.href}" append>

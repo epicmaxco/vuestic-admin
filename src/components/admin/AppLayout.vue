@@ -26,10 +26,12 @@ import VaPageLayout from './VaPageLayout'
 import AppNavbar from './app-navbar/AppNavbar'
 import AppSidebar from './app-sidebar/AppSidebar'
 import { mapGetters } from 'vuex'
+import AppTopbar from './app-topbar/AppTopbar'
 
 export default {
   name: 'app-layout',
   components: {
+    AppTopbar,
     VaPageLayout,
     AppNavbar,
     AppSidebar,

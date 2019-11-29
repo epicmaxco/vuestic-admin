@@ -64,7 +64,7 @@
           <va-accordion>
             <va-collapse customHeader>
               <span slot="header">
-                <va-button style="width: 100%;">
+                <va-button style="width: 100%">
                   Expand This Block
                 </va-button>
               </span>
@@ -79,7 +79,7 @@
             </va-collapse>
             <va-collapse customHeader>
               <span slot="header">
-                <va-button style="width: 100%;">
+                <va-button style="width: 100%">
                   Another Block
                 </va-button>
               </span>

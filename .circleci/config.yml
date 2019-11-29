@@ -16,7 +16,7 @@ aliases:
 
 docker: &docker
   docker:
-    - image: circleci/node:10.13.0
+    - image: circleci/node:10.12.0
 
 defaults: &defaults
   <<: *docker
@@ -47,18 +47,15 @@ jobs:
       - run: *install_dependencies
       - save_cache: *save_cache
       - run: yarn build
-      - add_ssh_keys:
-          fingerprints:
-            - "f8:c0:94:79:68:a2:5e:33:9f:78:bc:ad:ed:86:c6:3c"
-      - run:
-          name: Add $SERVER_IP to known_hosts
-          command: ssh-keyscan -H $SERVER_IP >> ~/.ssh/known_hosts
       - run:
           name: Deploy to hosting
+          # DEPLOY_PATH here is for staging only
+          # This doesn't really work. Has to be done manually for now. ssh-keyscan -t rsa  -H -F "[$SERVER_IP]:$SERVER_PORT"
           command: |
             tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
-            scp  ~/repo/dist.tar.gz $SERVER_USER@$SERVER_IP:~/tmp
-            ssh $SERVER_USER@$SERVER_IP /bin/bash << EOF
+            sudo apt install sshpass
+            sshpass -p $SERVER_PASSWORD scp -P $SERVER_PORT ~/repo/dist.tar.gz $SERVER_USERNAME@$SERVER_IP:~/tmp
+            sshpass -p $SERVER_PASSWORD ssh -p $SERVER_PORT $SERVER_USERNAME@$SERVER_IP /bin/bash << EOF
               rm -rf $DEPLOY_PATH/*
               tar -xzf ~/tmp/dist.tar.gz -C $DEPLOY_PATH
               rm -f ~/tmp/dist.tar.gz
@@ -101,7 +98,7 @@ workflows:
       - deploy-staging:
           requires:
             - test
-          context: vuestic-admin-staging
+          context: vuestic-staging
           filters:
             branches:
               only: develop
