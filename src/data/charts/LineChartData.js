@@ -26,21 +26,21 @@ export const getLineChartData = (themes) => {
   const yLabels = generateYLabels()
 
   if (generatedData) {
-    generatedData.datasets[0].backgroundColor = hex2rgb(themes['primary'], 0.6).css
-    generatedData.datasets[1].backgroundColor = hex2rgb(themes['info'], 0.6).css
+    generatedData.datasets[0].backgroundColor = hex2rgb(themes.primary, 0.6).css
+    generatedData.datasets[1].backgroundColor = hex2rgb(themes.info, 0.6).css
   } else {
     generatedData = {
       labels: months.splice(0, size),
       datasets: [
         {
           label: yLabels[0],
-          backgroundColor: hex2rgb(themes['primary'], 0.6).css,
+          backgroundColor: hex2rgb(themes.primary, 0.6).css,
           borderColor: 'transparent',
           data: generateArray(size),
         },
         {
           label: yLabels[1],
-          backgroundColor: hex2rgb(themes['info'], 0.6).css,
+          backgroundColor: hex2rgb(themes.info, 0.6).css,
           borderColor: 'transparent',
           data: generateArray(size),
         },
