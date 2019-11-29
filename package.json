@@ -89,6 +89,7 @@
     ],
     "*.vue": [
       "vue-cli-service lint",
+      "eslint --fix",
       "stylelint --fix",
       "git add"
     ],

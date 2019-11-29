@@ -1,5 +1,5 @@
 <template>
-  <div class="va-page-not-found justify--center position-relative pb-5">
+  <div class="va-page-not-found justify--center pb-5">
     <div class="va-page-not-found__inner align--center">
       <slot name="image"/>
       <div class="va-page-not-found__title text--center mb-4">{{$t('404.title')}}</div>
@@ -35,6 +35,7 @@ export default {
     background-image: linear-gradient(to right, #ff2175, #d30505);
     display: flex;
     padding-top: 12%;
+    position: relative;
 
     @include media-breakpoint-down(sm) {
       padding-top: 8%;
