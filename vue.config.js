@@ -36,27 +36,27 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        'vue$': 'vue/dist/vue.esm.js',
+        vue$: 'vue/dist/vue.esm.js',
         '@': path.resolve('src'),
       },
-      plugins: [
-        new StylelintPlugin({
-          files: ['src/**/*.{vue,htm,html,css,sss,less,scss}'],
-        }),
-        new webpack.DefinePlugin({
-          __VUE_APP_BUILD_VERSION__: process.env === 'VUE_APP_BUILD_VERSION',
-          __VERSION__: JSON.stringify(version),
-          __TIMESTAMP__: JSON.stringify(timeStamp),
-          __COMMIT__: JSON.stringify(getLastCommitHash()),
-        }),
-      ],
     },
+    plugins: [
+      new StylelintPlugin({
+        files: ['src/**/*.{vue,htm,html,css,sss,less,scss}'],
+      }),
+      new webpack.DefinePlugin({
+        __VUE_APP_BUILD_VERSION__: process.env === 'VUE_APP_BUILD_VERSION',
+        __VERSION__: JSON.stringify(version),
+        __TIMESTAMP__: JSON.stringify(timeStamp),
+        __COMMIT__: JSON.stringify(getLastCommitHash()),
+      }),
+    ],
   },
   css: {
     loaderOptions: {
       sass: {
         // Preload vuestic-ui variables and mixins for every component
-        data: `@import "~vuestic-ui/src/components/vuestic-sass/resources/resources.scss";`,
+        data: '@import "~vuestic-ui/src/components/vuestic-sass/resources/resources.scss";',
       },
     },
   },
