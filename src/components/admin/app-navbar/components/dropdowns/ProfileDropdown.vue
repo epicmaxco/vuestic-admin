@@ -61,25 +61,21 @@ export default {
   &__anchor {
     color: $vue-green;
   }
-
   .va-dropdown-popper__anchor {
     display: flex;
     justify-content: flex-end;
   }
-
   &__content {
     background-color: $dropdown-background;
     box-shadow: $gray-box-shadow;
-    border-radius: 0.5rem;
+    border-radius: .5rem;
     width: 8rem;
   }
-
   &__item {
     display: block;
     color: $vue-darkest-blue;
 
-    &:hover,
-    &:active {
+    &:hover, &:active {
       color: $vue-green;
     }
   }

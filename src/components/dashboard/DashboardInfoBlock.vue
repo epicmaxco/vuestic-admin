@@ -8,7 +8,7 @@
           :key="idx"
         >
           <va-card class="mb-4" :color="info.color">
-            <p class="display-2 mb-0" style="color: white;">{{ info.value }}</p>
+            <p class="display-2 mb-0" style="color: white">{{ info.value }}</p>
             <p>{{$t('dashboard.info.' + info.text)}}</p>
           </va-card>
         </div>
@@ -112,7 +112,7 @@ export default {
     }
 
     @include media-breakpoint-down(xs) {
-      p:not(.display-2) {
+      p:not(.display-2){
         font-size: 0.875rem;
       }
     }

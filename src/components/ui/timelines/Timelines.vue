@@ -51,7 +51,7 @@
       <div class="flex xs12">
         <va-card
           no-padding-h
-          style="overflow-x: auto;"
+          style="overflow-x: auto"
           class="timelines__horizontal-long"
           :title="$t('timelines.horizontalCards')"
         >

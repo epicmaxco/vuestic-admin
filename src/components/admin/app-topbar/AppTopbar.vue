@@ -1,24 +1,25 @@
 <template>
-  <va-sidebar :minimized="minimized">
+  <va-topbar
+    :minimized="minimized"
+  >
     <template slot="menu">
-
       <template v-for="(item, key) in items">
-        <va-sidebar-link-group
+        <topbar-link-group
           :key="key"
           :minimized="minimized"
           :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
           v-if="item.children"
           :title="$t(item.displayName)"
-          :children="item.children"
         >
-          <va-sidebar-link
+          <topbar-link
             v-for="(subMenuItem, key) in item.children"
             :key="key"
+            :activeByDefault="subMenuItem.name === $route.name"
             :to="{ name: subMenuItem.name }"
             :title="$t(subMenuItem.displayName)"
           />
-        </va-sidebar-link-group>
-        <va-sidebar-link
+        </topbar-link-group>
+        <topbar-link
           v-else
           :key="key"
           :minimized="minimized"
@@ -26,19 +27,18 @@
           :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
           :to="{ name: item.name }">
           <span slot="title">{{ $t(item.displayName) }}</span>
-        </va-sidebar-link>
+        </topbar-link>
       </template>
     </template>
-  </va-sidebar>
+  </va-topbar>
 </template>
 
 <script>
-import { navigationRoutes } from './NavigationRoutes'
+// NOTE Component not used in admin page.
+import { navigationRoutes } from '../app-sidebar/NavigationRoutes'
 
 export default {
-  name: 'app-sidebar',
-  components: {
-  },
+  name: 'app-topbar',
   props: {
     minimized: {
       type: Boolean,

@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { StickyScroll } from '../../../services/vuestic-ui/components'
+import StickyScroll from 'vuestic-ui/src/components/vuestic-directives/StickyScroll'
 
 export default {
   name: 'chat',
@@ -102,7 +102,7 @@ export default {
   }
 }
 
-$chat-message-br: 0.875rem;
+$chat-message-br: .875rem;
 
 .va-chat {
   width: 100%;
@@ -117,12 +117,13 @@ $chat-message-br: 0.875rem;
 
   &__message {
     position: relative;
-    padding: 0.657rem 1.375rem;
-    margin-bottom: 0.625rem;
+    padding: .657rem 1.375rem;
+    margin-bottom: .625rem;
     max-width: 70%;
     overflow-wrap: break-word;
     border-radius: 0.5rem;
     border-top-left-radius: 0;
+
     align-self: flex-start;
     background-color: $light-gray2;
 

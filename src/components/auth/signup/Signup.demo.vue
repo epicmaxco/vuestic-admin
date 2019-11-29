@@ -1,7 +1,7 @@
 <template>
   <VbDemo>
     <VbCard dashed no-padding>
-      <Signup style="width: 500px;"/>
+      <Signup style="width: 500px"/>
     </VbCard>
   </VbDemo>
 </template>

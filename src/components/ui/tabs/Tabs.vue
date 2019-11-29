@@ -1,13 +1,13 @@
 <template>
   <div class="grid row">
-    <div class="flex xs12 md6">
-      <va-card title="Tabs Alignment" class="fill-height" style="overflow-x: auto; ">
+    <div class="flex xs12 md12">
+      <va-card title="Tabs Alignment" style="overflow-x: auto;">
         <div>
           <div class="row">
             <div class="flex xs12">
-              <va-tabs v-model="tabValue" style="width: 100%; min-width: 250px;">
+              <va-tabs v-model="tabValue" style="width: 400px;">
                 <va-tab
-                  v-for="title in tabTitles.slice(0,3)"
+                  v-for="title in tabTitles"
                   :key="title"
                 >
                   {{title}}
@@ -15,9 +15,9 @@
               </va-tabs>
             </div>
             <div class="flex xs12">
-              <va-tabs right v-model="tabValue" style="width: 100%; min-width: 250px;">
+              <va-tabs right v-model="tabValue" style="width: 400px;">
                 <va-tab
-                  v-for="title in tabTitles.slice(0,3)"
+                  v-for="title in tabTitles"
                   :key="title"
                 >
                   {{title}}
@@ -25,9 +25,9 @@
               </va-tabs>
             </div>
             <div class="flex xs12">
-              <va-tabs center v-model="tabValue" style="width: 100%; min-width: 250px;">
+              <va-tabs center v-model="tabValue" style="width: 400px;">
                 <va-tab
-                  v-for="title in tabTitles.slice(0,3)"
+                  v-for="title in tabTitles"
                   :key="title"
                 >
                   {{title}}
@@ -38,58 +38,53 @@
         </div>
       </va-card>
     </div>
-    <div class="flex xs12 md6">
-      <div class="row column">
-        <div class="flex">
-          <va-card title="Tabs Overflow">
-            <div>
-              <div class="row">
-                <div class="flex xs12">
-                  <va-tabs v-model="tabValue">
-                    <va-tab
-                      v-for="title in tabTitles"
-                      :key="title"
-                    >
-                      {{title}}
-                    </va-tab>
-                    <va-tab>
-                      Somewhat long long long long long long long long long text
-                    </va-tab>
-                  </va-tabs>
-                </div>
-              </div>
-            </div>
-          </va-card>
-        </div>
-        <div class="flex">
-          <va-card title="Tabs with Hidden slider">
-            <div>
-              <div class="row">
-                <div class="flex xs12">
-                  <va-tabs hideSlider v-model="tabValue">
-                    <va-tab
-                      v-for="title in tabTitles.slice(0,3)"
-                      :key="title"
-                    >
-                      {{title}}
-                    </va-tab>
-                  </va-tabs>
-                </div>
-              </div>
-            </div>
-          </va-card>
-        </div>
-      </div>
-    </div>
-
-    <div class="flex xs12">
+    <div class="flex xs12 md12">
       <va-card title="Tabs Grow" style="overflow-x: auto;">
         <div>
           <div class="row">
             <div class="flex xs12">
-              <va-tabs grow v-model="tabValue" style="width: 100%;">
+              <va-tabs grow v-model="tabValue" style="width: 400px;">
                 <va-tab
-                  v-for="title in tabTitles.slice(0,3)"
+                  v-for="title in tabTitles"
+                  :key="title"
+                >
+                  {{title}}
+                </va-tab>
+              </va-tabs>
+            </div>
+          </div>
+        </div>
+      </va-card>
+    </div>
+    <div class="flex xs12 md12">
+      <va-card title="Tabs Overflow">
+        <div>
+          <div class="row">
+            <div class="flex xs12">
+              <va-tabs v-model="tabValue">
+                <va-tab
+                  v-for="title in tabTitles"
+                  :key="title"
+                >
+                  {{title}}
+                </va-tab>
+                <va-tab>
+                  Somewhat long long long long long long long long long text
+                </va-tab>
+              </va-tabs>
+            </div>
+          </div>
+        </div>
+      </va-card>
+    </div>
+    <div class="flex xs12 md12">
+      <va-card title="Tabs with Hidden slider">
+        <div>
+          <div class="row">
+            <div class="flex xs12">
+              <va-tabs hideSlider v-model="tabValue">
+                <va-tab
+                  v-for="title in tabTitles"
                   :key="title"
                 >
                   {{title}}
@@ -108,7 +103,7 @@ export default {
   name: 'grid',
   data () {
     return {
-      tabTitles: ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight'],
+      tabTitles: ['One', 'Two', 'Three'],
       tabValue: 1,
     }
   },
