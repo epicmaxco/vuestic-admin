@@ -1,10 +1,10 @@
-import { hex2rgb } from '../../services/color-functions'
+import { hex2rgb } from '../../services/vuestic-ui'
 
 export const getBubbleChartData = (themes) => ({
   datasets: [
     {
       label: 'USA',
-      backgroundColor: hex2rgb(themes['danger'], 0.9).css,
+      backgroundColor: hex2rgb(themes.danger, 0.9).css,
       borderColor: 'transparent',
       data: [
         {
@@ -51,7 +51,7 @@ export const getBubbleChartData = (themes) => ({
     },
     {
       label: 'Russia',
-      backgroundColor: hex2rgb(themes['primary'], 0.9).css,
+      backgroundColor: hex2rgb(themes.primary, 0.9).css,
       borderColor: 'transparent',
       data: [
         {
@@ -98,7 +98,7 @@ export const getBubbleChartData = (themes) => ({
     },
     {
       label: 'Canada',
-      backgroundColor: hex2rgb(themes['warning'], 0.9).css,
+      backgroundColor: hex2rgb(themes.warning, 0.9).css,
       borderColor: 'transparent',
       data: [
         {
@@ -140,7 +140,7 @@ export const getBubbleChartData = (themes) => ({
     },
     {
       label: 'Belarus',
-      backgroundColor: hex2rgb(themes['info'], 0.9).css,
+      backgroundColor: hex2rgb(themes.info, 0.9).css,
       borderColor: 'transparent',
       data: [
         {
@@ -187,7 +187,7 @@ export const getBubbleChartData = (themes) => ({
     },
     {
       label: 'Ukraine',
-      backgroundColor: hex2rgb(themes['success'], 0.9).css,
+      backgroundColor: hex2rgb(themes.success, 0.9).css,
       borderColor: 'transparent',
       data: [
         {

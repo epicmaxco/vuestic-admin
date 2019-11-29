@@ -10,10 +10,6 @@ const EmptyParentComponent = {
 }
 
 const demoRoutes = []
-if (process.env.NODE_ENV === 'development' || process.env.VUE_APP_INCLUDE_DEMOS) {
-  const vueBookRoutes = require('./vueBookRoutes').default
-  vueBookRoutes.forEach(route => demoRoutes.push(route))
-}
 
 export default new Router({
   mode: process.env.VUE_APP_ROUTER_MODE_HISTORY === 'true' ? 'history' : 'hash',
