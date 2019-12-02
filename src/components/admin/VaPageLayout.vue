@@ -71,9 +71,14 @@ $vuestic-preloader-top: calc(50% - 104px / 2);
 
 .va-page-layout {
   .content-wrap {
+    margin-top: 65px;
     margin-left: $sidebar-width;
     transition: margin-left 0.3s ease;
     padding: 0;
+
+    @include media-breakpoint-down(sm) {
+      margin-top: $sidebar-mobile-top;
+    }
 
     .pre-loader {
       position: absolute;

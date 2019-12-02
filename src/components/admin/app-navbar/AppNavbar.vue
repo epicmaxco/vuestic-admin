@@ -98,7 +98,11 @@ $font-size-base: 1rem !default;
 
 .app-navbar {
   transition: background-color 0.3s ease; /* sidebar's bg color transitions as well -> consistency */
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 990;
   height: $top-nav-height;
   display: flex;
   padding: 1rem 2rem 1rem 1rem;

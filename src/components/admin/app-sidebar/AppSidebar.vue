@@ -1,5 +1,5 @@
 <template>
-  <va-sidebar :minimized="minimized">
+  <va-sidebar :minimized="minimized" class="app-sidebar">
     <template slot="menu">
 
       <template v-for="(item, key) in items">
@@ -53,3 +53,10 @@ export default {
 }
 
 </script>
+
+<style lang="scss">
+  .app-sidebar {
+    position: fixed !important;
+    z-index: 990;
+  }
+</style>
