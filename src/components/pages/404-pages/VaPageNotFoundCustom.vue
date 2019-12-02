@@ -9,14 +9,12 @@
 </template>
 
 <script>
-import MadeByComponent from './MadeByComponent'
 import VaPageNotFound from './VaPageNotFound'
 
 export default {
   name: 'va-page-not-found-custom',
   components: {
     VaPageNotFound,
-    MadeByComponent,
   },
 }
 </script>
@@ -27,6 +25,7 @@ export default {
     width: 150%;
     margin: 0 -25%;
     min-width: 20rem;
+
     @include media-breakpoint-down(sm) {
       margin: 0;
       width: 100%;

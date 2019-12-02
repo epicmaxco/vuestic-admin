@@ -64,18 +64,12 @@
 </template>
 
 <script>
-import VaIconVue
-  from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconVue.vue'
-import VaIconFree
-  from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconFree.vue'
-import VaIconFresh
-  from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconFresh.vue'
-import VaIconResponsive
-  from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconResponsive.vue'
-import VaIconRich
-  from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconRich.vue'
-import VaIconCleanCode
-  from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconCleanCode.vue'
+import VaIconVue from '../../../iconset/VaIconVue.vue'
+import VaIconFree from '../../../iconset/VaIconFree.vue'
+import VaIconFresh from '../../../iconset/VaIconFresh.vue'
+import VaIconResponsive from '../../../iconset/VaIconResponsive.vue'
+import VaIconRich from '../../../iconset/VaIconRich.vue'
+import VaIconCleanCode from '../../../iconset/VaIconCleanCode.vue'
 
 export default {
   name: 'overview-tab',

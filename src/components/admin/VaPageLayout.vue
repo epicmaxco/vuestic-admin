@@ -5,12 +5,17 @@
   >
     <slot></slot>
     <div class="content-wrap">
-      <slot name="content"/>
+      <slot name="content"></slot>
+
+      <div class="va-page-layout__footer">
+        {{copyrightText}}
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'va-page-layout',
   props: {
@@ -53,6 +58,15 @@ export default {
         'va-page-layout--sidebar-minimized': this.layout === 'sidebar' && this.minimizedProxy,
       }
     },
+    copyrightText () {
+      const baseText = `Epicmax © 2011-${new Date().getFullYear()}`
+
+      if (process.env.VUE_APP_BUILD_VERSION) { // eslint-disable-line no-undef
+        return `${baseText}, Version: ${VERSION}, ${TIMESTAMP}, commit: ${COMMIT}`// eslint-disable-line no-undef
+      }
+
+      return baseText
+    },
   },
   methods: {
     updateActiveBarState () {
@@ -71,11 +85,17 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "~vuestic-ui/src/components/vuestic-sass/resources/resources";
+@import "~vuestic-ui/src/components/vuestic-sass/resources/resources";
 
-  .va-page-layout {
-    .content-wrap {
-      transition: margin 0.3s ease;
+.va-page-layout {
+  .content-wrap {
+    margin-top: 65px;
+    margin-left: $sidebar-width;
+    transition: margin-left 0.3s ease;
+    padding: 0;
+
+    @include media-breakpoint-down(sm) {
+      margin-top: $sidebar-mobile-top;
     }
 
     &--sidebar {
@@ -90,4 +110,15 @@ export default {
       }
     }
   }
+
+  .va-page-layout__footer {
+    padding: 1rem;
+    line-height: 1.4;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+  }
+}
 </style>

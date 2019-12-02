@@ -67,6 +67,7 @@ export default {
 
 <style lang="scss">
 @import "~flag-icon-css/css/flag-icon.css";
+@import "~vuestic-ui/src/components/vuestic-sass/resources/resources";
 
 .language-dropdown {
   cursor: pointer;
@@ -75,29 +76,35 @@ export default {
   &__content {
     background-color: $dropdown-background;
     box-shadow: $gray-box-shadow;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     width: 12rem;
+
     .flag-icon-small {
       min-width: 1.5rem;
       min-height: 1.5rem;
-      margin-right: .5rem;
+      margin-right: 0.5rem;
     }
   }
+
   &__item {
     padding-bottom: 0.625rem;
     cursor: pointer;
     flex-wrap: nowrap;
+
     &:last-of-type {
       padding-bottom: 0 !important;
     }
-    &:hover, &.active {
+
+    &:hover,
+    &.active {
       color: $vue-green;
     }
   }
 
-  .flag-icon:before {
+  .flag-icon::before {
     content: "";
   }
+
   .flag-icon-large {
     display: block;
     width: 31px;

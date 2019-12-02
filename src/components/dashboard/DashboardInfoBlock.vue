@@ -8,7 +8,7 @@
           :key="idx"
         >
           <va-card class="mb-4" :color="info.color">
-            <p class="display-2 mb-0" style="color: white">{{ info.value }}</p>
+            <p class="display-2 mb-0" style="color: white;">{{ info.value }}</p>
             <p>{{$t('dashboard.info.' + info.text)}}</p>
           </va-card>
         </div>
@@ -45,7 +45,7 @@
     <div class="flex xs12 md6 xl3">
       <va-card
         stripe="info"
-        title="Component reach theme"
+        :title="$t('dashboard.info.componentRichTheme')"
       >
         Buying the right telescope to take your love of astronomy to the
         next level is a big next step.
@@ -112,7 +112,7 @@ export default {
     }
 
     @include media-breakpoint-down(xs) {
-      p:not(.display-2){
+      p:not(.display-2) {
         font-size: 0.875rem;
       }
     }

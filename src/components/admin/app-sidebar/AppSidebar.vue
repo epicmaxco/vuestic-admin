@@ -1,12 +1,12 @@
 <template>
-  <va-sidebar :minimized="minimized">
+  <va-sidebar :minimized="minimized" class="app-sidebar">
     <template slot="menu">
 
       <template v-for="(item, key) in items">
         <va-sidebar-link-group
           :key="key"
           :minimized="minimized"
-          :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
+          :icon="item.meta && item.meta.iconClass"
           v-if="item.children"
           :title="$t(item.displayName)"
           :children="item.children"
@@ -23,7 +23,7 @@
           :key="key"
           :minimized="minimized"
           :activeByDefault="item.name === $route.name"
-          :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
+          :icon="item.meta && item.meta.iconClass"
           :to="{ name: item.name }">
           <span slot="title">{{ $t(item.displayName) }}</span>
         </va-sidebar-link>
@@ -53,3 +53,10 @@ export default {
 }
 
 </script>
+
+<style lang="scss">
+  .app-sidebar {
+    position: fixed !important;
+    z-index: 990;
+  }
+</style>

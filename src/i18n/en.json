@@ -114,6 +114,7 @@
       "commits": "Commits"
     },
     "info": {
+      "componentRichTheme": "component-rich theme",
       "completedPullRequests": "completed pull requests",
       "users": "users",
       "points": "points",
