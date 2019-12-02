@@ -126,7 +126,7 @@ export default {
       return isValid
     },
     validateFormField (fieldName) {
-      this.$validator.validate(fieldName, this[fieldName])
+      this.$validator && this.$validator.validate(fieldName, this[fieldName])
     },
   },
 }
