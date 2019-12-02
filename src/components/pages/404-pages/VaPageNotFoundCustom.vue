@@ -27,6 +27,7 @@ export default {
     width: 150%;
     margin: 0 -25%;
     min-width: 20rem;
+
     @include media-breakpoint-down(sm) {
       margin: 0;
       width: 100%;
