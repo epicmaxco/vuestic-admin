@@ -22,7 +22,7 @@
           :value="getPercent(contributor.contributions)"
           :color="getRandomColor()"
         >
-        {{ contributor.contributions }} {{ $t('dashboard.charts.commits') }}
+          {{ contributor.contributions }} {{ $t('dashboard.charts.commits') }}
         </va-progress-bar>
         <p class="mt-2">{{ contributor.login }}</p>
       </div>
@@ -64,7 +64,7 @@ export default {
     },
     getRandomColor () {
       const keys = Object.keys(this.$themes)
-      return this.$themes[ keys[ keys.length * Math.random() << 0 ] ]
+      return this.$themes[keys[keys.length * Math.random() << 0]]
     },
   },
 }
@@ -73,6 +73,7 @@ export default {
 <style scoped lang="scss">
 .dashboard-contributors-list {
   flex-direction: column;
+
   .inner-loading {
     height: 100%;
   }

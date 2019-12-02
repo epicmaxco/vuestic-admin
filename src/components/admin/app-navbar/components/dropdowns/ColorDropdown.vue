@@ -73,13 +73,13 @@
 </template>
 
 <script>
-import { colorArray } from 'vuestic-ui/src/components/vuestic-components/va-color-picker/VuesticTheme'
+import { colorArray } from '../../../../../services/vuestic-ui/components'
 
-let themeCache = {}
+const themeCache = {}
 
 export default {
   data () {
-    let proxyHandler = {
+    const proxyHandler = {
       set: function (target, property, value) {
         if (!themeCache[property] && typeof target[property] === 'string') themeCache[property] = target[property]
         target[property] = value
@@ -95,7 +95,7 @@ export default {
   },
   methods: {
     restoreDefaultTheme () {
-      for (let i in themeCache) {
+      for (const i in themeCache) {
         this.$themes[i] = themeCache[i]
       }
     },
@@ -119,7 +119,7 @@ export default {
   &__content {
     background-color: $dropdown-background;
     box-shadow: $gray-box-shadow;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
 
     .color-picker-dropdown {
       display: flex;

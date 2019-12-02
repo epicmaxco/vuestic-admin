@@ -1,35 +1,35 @@
 <template>
-<div class="auth-layout row align-content--center">
-  <div class="flex xs12 pa-3 flex-center">
-    <router-link class="py-5 flex-center" to="/">
-      <va-icon-vuestic />
-    </router-link>
-  </div>
+  <div class="auth-layout row align-content--center">
+    <div class="flex xs12 pa-3 flex-center">
+      <router-link class="py-5 flex-center" to="/">
+        <va-icon-vuestic />
+      </router-link>
+    </div>
 
-  <div class="flex xs12 pa-3">
-    <div class="d-flex justify--center">
-      <va-card class="auth-layout__card">
-        <va-tabs
-          v-model="tabIndex"
-          center
-        >
-          <va-tab>{{ $t('auth.login') }}</va-tab>
-          <va-tab>{{ $t('auth.createNewAccount') }}</va-tab>
-        </va-tabs>
+    <div class="flex xs12 pa-3">
+      <div class="d-flex justify--center">
+        <va-card class="auth-layout__card">
+          <va-tabs
+            v-model="tabIndex"
+            center
+          >
+            <va-tab>{{ $t('auth.login') }}</va-tab>
+            <va-tab>{{ $t('auth.createNewAccount') }}</va-tab>
+          </va-tabs>
 
-        <va-separator/>
+          <va-separator/>
 
-        <div class="pa-3">
-          <router-view/>
-        </div>
-      </va-card>
+          <div class="pa-3">
+            <router-view/>
+          </div>
+        </va-card>
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
-import VaIconVuestic from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconVuestic'
+import VaIconVuestic from '../../iconset/VaIconVuestic'
 
 const tabs = [
   'login',

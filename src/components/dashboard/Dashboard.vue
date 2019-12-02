@@ -48,6 +48,7 @@ export default {
       height: 100%;
     }
   }
+
   .dashboard {
     .va-card {
       margin-bottom: 0 !important;
