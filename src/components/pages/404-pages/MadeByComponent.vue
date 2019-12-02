@@ -1,8 +1,8 @@
 <template>
   <div class="made-by-component text--center pb-3">
     <span>
-        ©2019. Made by
-        <a href="https://epicmax.co" class="link">Epicmax</a>
+      ©2019. Made by
+      <a href="https://epicmax.co" class="link">Epicmax</a>
     </span>
   </div>
 </template>

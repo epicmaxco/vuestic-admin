@@ -24,13 +24,12 @@
 
 <script>
 
-import { yandexMap, ymapMarker } from 'vue-yandex-maps'
+import { yandexMap } from 'vue-yandex-maps'
 
 export default {
   name: 'yandex-maps-page',
   components: {
     yandexMap,
-    ymapMarker,
   },
   data () {
     return {

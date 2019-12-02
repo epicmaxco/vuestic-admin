@@ -2,36 +2,36 @@
   <div class="toast-position-picker mr-4">
     <div class="position-boxes-row d-flex">
       <div class="position-box"
-           @click="updatePosition('top-left')"
-           :class="{'selected': isBoxSelected('top-left')}"
-           :style="computedStyle">
+        @click="updatePosition('top-left')"
+        :class="{'selected': isBoxSelected('top-left')}"
+        :style="computedStyle">
       </div>
       <div class="position-box"
-           @click="updatePosition('top-center')"
-           :class="{'selected': isBoxSelected('top-center')}"
-           :style="computedStyle">
+        @click="updatePosition('top-center')"
+        :class="{'selected': isBoxSelected('top-center')}"
+        :style="computedStyle">
       </div>
       <div class="position-box"
-           @click="updatePosition('top-right')"
-           :class="{'selected': isBoxSelected('top-right')}"
-           :style="computedStyle">
+        @click="updatePosition('top-right')"
+        :class="{'selected': isBoxSelected('top-right')}"
+        :style="computedStyle">
       </div>
     </div>
     <div class="position-boxes-row d-flex">
       <div class="position-box"
-           @click="updatePosition('bottom-left')"
-           :class="{'selected': isBoxSelected('bottom-left')}"
-           :style="computedStyle">
+        @click="updatePosition('bottom-left')"
+        :class="{'selected': isBoxSelected('bottom-left')}"
+        :style="computedStyle">
       </div>
       <div class="position-box"
-           @click="updatePosition('bottom-center')"
-           :class="{'selected': isBoxSelected('bottom-center')}"
-           :style="computedStyle">
+        @click="updatePosition('bottom-center')"
+        :class="{'selected': isBoxSelected('bottom-center')}"
+        :style="computedStyle">
       </div>
       <div class="position-box"
-           @click="updatePosition('bottom-right')"
-           :class="{'selected': isBoxSelected('bottom-right')}"
-           :style="computedStyle">
+        @click="updatePosition('bottom-right')"
+        :class="{'selected': isBoxSelected('bottom-right')}"
+        :style="computedStyle">
       </div>
     </div>
   </div>

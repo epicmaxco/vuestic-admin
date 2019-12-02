@@ -37,7 +37,7 @@ export default {
 
   methods: {
     launchEpicmaxToast () {
-      this.showToast(`Let's work together!`, {
+      this.showToast('Let\'s work together!', {
         icon: 'fa-star-o',
         position: 'top-right',
         duration: Infinity,

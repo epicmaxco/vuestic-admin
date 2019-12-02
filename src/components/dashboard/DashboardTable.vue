@@ -2,14 +2,14 @@
   <va-card :title="$t('dashboard.table.title')">
     <div class="row align--center mb-1">
       <div class="flex xs12 sm6">
-          <va-input
-            class="ma-0"
-            :value="term"
-            :placeholder="$t('tables.searchByName')"
-            @input="search"
-          >
-            <va-icon name="fa fa-search" slot="prepend" />
-          </va-input>
+        <va-input
+          class="ma-0"
+          :value="term"
+          :placeholder="$t('tables.searchByName')"
+          @input="search"
+        >
+          <va-icon name="fa fa-search" slot="prepend" />
+        </va-input>
       </div>
 
       <div class="flex xs12 sm6">
@@ -30,17 +30,17 @@
       :loading="loading"
       hoverable
     >
-      <template slot="icon" slot-scope="props">
+      <template slot="icon">
         <va-icon name="fa fa-user" color="secondary" />
       </template>
 
-      <template slot="status" slot-scope="props">
+      <template v-slot:status="props">
         <va-badge :color="getStatusColor(props.rowData.status)">
           {{ props.rowData.status }}
         </va-badge>
       </template>
 
-      <template slot="actions" slot-scope="props">
+      <template v-slot:actions="props">
         <va-button
           small
           outline

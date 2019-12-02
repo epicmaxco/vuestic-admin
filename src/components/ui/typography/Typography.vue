@@ -55,7 +55,7 @@
             </div>
           </div>
           <div class="mb-4">
-        <pre class="code-snippet">&lt;p class=“code-snippet”>
+            <pre class="code-snippet">&lt;p class=“code-snippet”>
   This is a wonderful example.
   &lt;a href=“#” onClick=“”>Read more&lt;/a>
 &lt;/p></pre>
@@ -154,22 +154,22 @@
             <div class="text-block">
               <p class="display-3">Display-3 Heading</p>
               <span>Of all of the celestial bodies that capture our
-              attention and fascination as astronomers, none has a greater
-              influence on life on planet Earth than it’s own satellite,
-              the moon. When you think about it.</span>
+                attention and fascination as astronomers, none has a greater
+                influence on life on planet Earth than it’s own satellite,
+                the moon. When you think about it.</span>
             </div>
           </div>
           <div class="mb-4">
             <table class="va-table">
               <thead>
-              <tr>
-                <th v-for="(data, index) in tableData[0]" :key="index">{{data}}</th>
-              </tr>
+                <tr>
+                  <th v-for="(data, index) in tableData[0]" :key="index">{{data}}</th>
+                </tr>
               </thead>
               <tbody>
-              <tr v-for="(data, index) in tableData" :key="index" v-if="index !== 0">
-                <td v-for="(i, index) in data" :key="index">{{i}}</td>
-              </tr>
+                <tr v-for="(data, index) in tableData.map(i => i !== 0)" :key="index">
+                  <td v-for="(i, index) in data" :key="index">{{i}}</td>
+                </tr>
               </tbody>
             </table>
           </div>

@@ -13,7 +13,7 @@
           their teeth all send a signal. For example, ears flat back means
           trouble, or "you better follow orders!"</p>
         <div class="form-group with-icon-right"
-             :class="{'has-error': errors.has('name'), 'valid': isFormFieldValid('name')}">
+          :class="{'has-error': errors.has('name'), 'valid': isFormFieldValid('name')}">
           <div class="input-group">
             <input
               type="text"

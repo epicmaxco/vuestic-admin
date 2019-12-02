@@ -19,16 +19,15 @@ export default {
   methods: {
     drawMap () {
       /* global AmCharts */
-      let map
-      let minBulletSize = 3
-      let maxBulletSize = 70
+      const minBulletSize = 3
+      const maxBulletSize = 70
       let min = Infinity
       let max = -Infinity
       AmCharts.theme = AmCharts.themes.light
 
       // get min and max values
       this.mapData.data.forEach((dataItem) => {
-        let value = dataItem.value
+        const value = dataItem.value
         if (value < min) {
           min = value
         }
@@ -38,7 +37,7 @@ export default {
       })
 
       // build map
-      map = new AmCharts.AmMap()
+      const map = new AmCharts.AmMap()
 
       map.projection = 'winkel3'
       map.addTitle('Population of the World in 2011', 14, 1, 1, false)
@@ -54,7 +53,7 @@ export default {
         alpha: 0.75,
       }
 
-      let dataProvider = {
+      const dataProvider = {
         mapVar: AmCharts.maps.worldLow,
         images: [],
       }

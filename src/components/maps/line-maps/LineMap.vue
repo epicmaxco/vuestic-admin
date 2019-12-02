@@ -28,11 +28,9 @@ export default {
   methods: {
     drawMap () {
       /* global AmCharts */
-      let map
+      const map = new AmCharts.AmMap()
 
-      map = new AmCharts.AmMap()
-
-      let dataProvider = {
+      const dataProvider = {
         mapVar: AmCharts.maps.worldLow,
       }
       map.areasSettings = {
@@ -42,12 +40,12 @@ export default {
         outlineThickness: 2,
       }
       map.imagesSettings = {
-        color: this.$themes['info'],
-        rollOverColor: this.$themes['info'],
-        selectedColor: this.$themes['primary'],
+        color: this.$themes.info,
+        rollOverColor: this.$themes.info,
+        selectedColor: this.$themes.primary,
       }
       map.linesSettings = {
-        color: this.$themes['info'],
+        color: this.$themes.info,
         alpha: 0.4,
       }
 
