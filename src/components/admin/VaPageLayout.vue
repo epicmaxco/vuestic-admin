@@ -19,8 +19,8 @@
 export default {
   name: 'va-page-layout',
   props: {
-    layout: {
-      type: String,
+    isTopBar: {
+      type: Boolean,
       required: true,
     },
     minimized: {
@@ -50,12 +50,20 @@ export default {
         this.$emit('update:minimized', minimized)
       },
     },
+    isTopBarProxy: {
+      get () {
+        return this.isTopBar
+      },
+      set (isTopBar) {
+        this.$emit('update:isTopBar', isTopBar)
+      },
+    },
     computedClass () {
       return {
-        'va-page-layout--topbar': this.layout === 'topbar' && !this.minimizedProxy,
-        'va-page-layout--topbar-minimized': this.layout === 'topbar' && this.minimizedProxy,
-        'va-page-layout--sidebar': this.layout === 'sidebar' && !this.minimizedProxy,
-        'va-page-layout--sidebar-minimized': this.layout === 'sidebar' && this.minimizedProxy,
+        'va-page-layout--topbar': this.isTopBarProxy && !this.minimizedProxy,
+        'va-page-layout--topbar-minimized': this.isTopBarProxy && this.minimizedProxy,
+        'va-page-layout--sidebar': !this.isTopBarProxy && !this.minimizedProxy,
+        'va-page-layout--sidebar-minimized': !this.isTopBarProxy && this.minimizedProxy,
       }
     },
     copyrightText () {

@@ -43,6 +43,7 @@
       <app-navbar-actions
         class="app-navbar__actions md5 lg4"
         :user-name="userName"
+        :is-top-bar.sync="isTopBarProxy"
       />
     </div>
     <div
@@ -64,8 +65,8 @@ export default {
     AppNavbarActions,
   },
   props: {
-    layout: {
-      type: String,
+    isTopBar: {
+      type: Boolean,
       required: true,
     },
     minimized: {
@@ -79,12 +80,12 @@ export default {
     }
   },
   computed: {
-    layoutProxy: {
+    isTopBarProxy: {
       get () {
-        return this.layout
+        return this.isTopBar
       },
-      set (layout) {
-        this.$emit('update:layout', layout)
+      set (isTopBar) {
+        this.$emit('update:isTopBar', isTopBar)
       },
     },
     minimizedProxy: {

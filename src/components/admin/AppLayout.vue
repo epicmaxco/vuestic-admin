@@ -1,19 +1,19 @@
 <template>
   <va-page-layout
-    :layout="layout"
+    :is-top-bar.sync="isTopBar"
     :minimized.sync="minimized"
     :mobile-width="mobileWidth"
   >
     <app-navbar
-      :layout.sync="layout"
+      :is-top-bar.sync="isTopBar"
       :minimized.sync="minimized"
     />
     <app-topbar
-      v-if="layout === 'topbar'"
+      v-if="isTopBar"
       :minimized="minimized"
     />
     <app-sidebar
-      v-else-if="layout === 'sidebar'"
+      v-else
       :minimized="minimized"
     />
     <main
@@ -43,7 +43,7 @@ export default {
   },
   data () {
     return {
-      layout: 'sidebar',
+      isTopBar: false,
       minimized: false,
       mobileWidth: 767,
     }

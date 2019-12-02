@@ -3,6 +3,10 @@
     <color-dropdown class="app-navbar-actions__item"/>
     <message-dropdown class="app-navbar-actions__item"/>
     <notification-dropdown class="app-navbar-actions__item"/>
+    <settings-dropdown
+      :is-top-bar.sync="isTopBarProxy"
+      class="app-navbar-actions__item"
+    />
     <language-dropdown class="app-navbar-actions__item"/>
     <profile-dropdown class="app-navbar-actions__item app-navbar-actions__item--profile">
       <span>{{userName}}</span>
@@ -16,10 +20,12 @@ import ProfileDropdown from './dropdowns/ProfileDropdown'
 import NotificationDropdown from './dropdowns/NotificationDropdown'
 import MessageDropdown from './dropdowns/MessageDropdown'
 import ColorDropdown from './dropdowns/ColorDropdown'
+import SettingsDropdown from './dropdowns/SettingsDropdown'
 
 export default {
   name: 'app-navbar-actions',
   components: {
+    SettingsDropdown,
     ColorDropdown,
     MessageDropdown,
     NotificationDropdown,
@@ -31,6 +37,20 @@ export default {
       type: String,
       default: '',
     },
+    isTopBar: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    isTopBarProxy: {
+      get () {
+        return this.isTopBar
+      },
+      set (isTopBar) {
+        this.$emit('update:isTopBar', isTopBar)
+      },
+    },
   },
 }
 </script>
@@ -40,6 +60,7 @@ export default {
   display: flex;
 
   &__item {
+    margin-top: 0.3rem;
     padding: 0;
     margin-left: 1.25rem;
     margin-right: 1.25rem;

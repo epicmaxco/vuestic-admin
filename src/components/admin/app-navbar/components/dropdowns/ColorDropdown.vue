@@ -108,7 +108,6 @@ export default {
 
 .color-dropdown {
   cursor: pointer;
-  margin-top: 0.3rem;
 
   &__icon {
     position: relative;
