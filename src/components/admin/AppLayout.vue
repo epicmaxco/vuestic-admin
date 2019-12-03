@@ -5,10 +5,12 @@
     :mobile-width="mobileWidth"
   >
     <app-navbar
+      class="app-layout__navbar"
       :is-top-bar.sync="isTopBar"
       :minimized.sync="minimized"
     />
     <app-topbar
+      class="app-layout__topbar"
       v-if="isTopBar"
       :minimized="minimized"
     />
@@ -17,8 +19,8 @@
       :minimized="minimized"
     />
     <main
+      class="app-layout__main layout fluid gutter--xl"
       slot="content"
-      class="layout fluid gutter--xl"
       role="main"
     >
       <router-view/>
@@ -55,3 +57,18 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+
+.app-layout {
+  &__topbar {
+    position: fixed;
+    top: 4rem;
+    z-index: 1;
+
+    @include media-breakpoint-down(sm) {
+      top: $top-mobile-nav-height;
+    }
+  }
+}
+</style>

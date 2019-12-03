@@ -1,7 +1,6 @@
 <template>
   <va-sidebar :minimized="minimized" class="app-sidebar">
     <template slot="menu">
-
       <template v-for="(item, key) in items">
         <va-sidebar-link-group
           :key="key"

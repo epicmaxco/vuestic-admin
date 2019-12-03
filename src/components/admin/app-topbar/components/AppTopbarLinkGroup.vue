@@ -1,13 +1,15 @@
 <template>
-  <li :class="computedClass">
+  <li
+    class="app-topbar-link-group"
+    :class="computedClass"
+  >
     <va-dropdown
       position="bottom"
       fixed
       :preventOverflow="false"
       @trigger="toggleDropdownState"
     >
-      <a
-        href="#"
+      <app-topbar-link
         slot="anchor"
         target="_self"
         @mouseenter="updateHoverState"
@@ -15,25 +17,10 @@
         :style="sidebarLinkStyles"
         class="app-topbar-link"
         :class="computedLinkClass"
+        :icon="icon"
       >
-        <div class="app-topbar-link__content">
-          <va-icon
-            v-if="icon"
-            class="app-topbar-link__content__icon"
-            :style="iconStyles"
-            :name="icon"
-          />
-          <span class="app-topbar-link__content__title">
-            <slot name="title">
-              {{title}}
-            </slot>
-            <va-icon
-              class="app-topbar-link-group__expanded-icon"
-              :style="iconStyles"
-              :icon="`fa fa-angle-${dropdownOpened ? 'up' : 'down'}`"/>
-          </span>
-        </div>
-      </a>
+        {{title}}
+      </app-topbar-link>
       <ul
         class="app-topbar-link-group__submenu in"
         :style="{backgroundColor: $themes.color}"
@@ -46,9 +33,13 @@
 
 <script>
 import { getHoverColor } from './../../../../services/vuestic-ui'
+import AppTopbarLink from './AppTopbarLink'
 
 export default {
   name: 'topbar-link-group',
+  components: {
+    AppTopbarLink,
+  },
   props: {
     icon: [String, Array],
     title: String,
@@ -106,14 +97,12 @@ export default {
   computed: {
     computedLinkClass () {
       return {
-        'app-topbar-link': true,
         'app-topbar-link--expanded': this.expanded,
         'app-topbar-link--active': this.isActive,
       }
     },
     computedClass () {
       return {
-        'app-topbar-link-group': true,
         'app-topbar-link-group--minimized': this.minimized,
       }
     },
@@ -157,77 +146,6 @@ export default {
       border: none;
       margin: 0;
       padding-left: 3rem;
-    }
-  }
-
-  .app-topbar-link__content {
-    width: 100%;
-    position: relative;
-    padding-right: 2rem;
-    display: flex;
-    align-items: center;
-
-    &__title {
-      opacity: 1 !important;
-    }
-  }
-
-  &__expanded-icon {
-    width: 1.5rem;
-    text-align: center;
-  }
-
-  &__dropdown-icon {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    right: 0.1rem;
-    width: 1.5rem;
-    height: 1.5rem;
-    font-weight: $font-weight-bold;
-    line-height: 1.5rem;
-  }
-
-  .va-dropdown-popper__content {
-    max-height: 14.25rem;
-    max-width: 30.9275rem;
-    width: 100% !important;
-    overflow-y: auto;
-    box-shadow: $datepicker-box-shadow;
-    border-radius: 0.5rem;
-  }
-
-  &.app-topbar-link-group--minimized {
-    .app-topbar-link__content__icon {
-      margin-right: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-
-  &--minimized {
-    .app-topbar-link-group__submenu {
-      width: 10rem;
-      border-radius: 0.375rem;
-      margin-left: 1px;
-      max-height: 80vh;
-      padding: 0.375rem 0;
-      overflow-y: auto;
-      overflow-x: hidden;
-
-      .va-sidebar-link__content {
-        &__title {
-          display: inline-block;
-          opacity: 1;
-        }
-      }
-
-      li {
-        padding: 0.75rem 1rem;
-        border-left: none;
-      }
     }
   }
 }

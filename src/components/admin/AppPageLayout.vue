@@ -106,6 +106,18 @@ export default {
     }
   }
 
+  &--topbar {
+    .content-wrap {
+      margin-top: 4rem * 2;
+    }
+
+    &-minimized {
+      .content-wrap {
+        margin-left: $sidebar-minimized-width;
+      }
+    }
+  }
+
   &--sidebar {
     .content-wrap {
       margin-left: $sidebar-width;

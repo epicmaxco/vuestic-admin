@@ -1,5 +1,6 @@
 <template>
   <router-link
+    class="app-topbar-link"
     tag="li"
     :class="computedLinkClass"
     @mouseenter.native="updateHoverState(true)"
@@ -11,13 +12,14 @@
   >
     <va-icon
       v-if="icon"
-      class="app-topbar-link__content__icon"
+      class="app-topbar-link__icon"
       :style="computedIconStyles"
       :name="icon"
     />
-    <div class="app-topbar-link__content__title">
-      <slot name="title"/>
-      {{title}}
+    <div class="app-topbar-link__title">
+      <slot>
+        {{title}}
+      </slot>
     </div>
   </router-link>
 </template>
@@ -64,29 +66,32 @@ export default {
   computed: {
     computedLinkClass () {
       return {
-        'app-topbar-link': true,
         'app-topbar-link--minimized': this.minimized,
       }
     },
     computedLinkStyles () {
-      return (this.isHovered || this.isActive)
-        ? {
+      if (this.isHovered || this.isActive) {
+        return {
           color: this.$themes.success,
           backgroundColor: getHoverColor(this.$themes.info),
           borderColor: this.$themes.success,
         }
-        : {
-          color: this.$themes.info,
-        }
+      }
+
+      return {
+        color: this.$themes.info,
+      }
     },
     computedIconStyles () {
-      return (this.isHovered || this.isActive)
-        ? {
+      if (this.isHovered || this.isActive) {
+        return {
           color: this.$themes.success,
         }
-        : {
-          color: 'white',
-        }
+      }
+
+      return {
+        color: 'white',
+      }
     },
   },
   methods: {
@@ -128,31 +133,27 @@ export default {
   height: 4rem;
   padding: 1.25rem 0 1rem;
 
-  &__content {
-    &__icon {
-      width: 1.5rem;
-      text-align: center;
-      font-size: $sidebar-menu-item-icon-size;
-      margin-right: 0.5rem;
-    }
+  &__icon {
+    width: 1.5rem;
+    text-align: center;
+    font-size: $sidebar-menu-item-icon-size;
+    margin-right: 0.5rem;
+  }
 
-    &__title {
-      line-height: 1.5em;
-    }
+  &__title {
+    line-height: 1.5em;
   }
 
   &--minimized {
-    .app-topbar-link__content {
-      &__title {
-        display: none;
-      }
+    &__title {
+      display: none;
+    }
 
-      &__icon {
-        margin-right: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+    &__icon {
+      margin-right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
