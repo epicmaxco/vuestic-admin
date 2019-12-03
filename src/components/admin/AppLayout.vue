@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import VaPageLayout from './VaPageLayout'
+import VaPageLayout from './AppPageLayout'
 import AppNavbar from './app-navbar/AppNavbar'
 import AppTopbar from './app-topbar/AppTopbar'
 import AppSidebar from './app-sidebar/AppSidebar'

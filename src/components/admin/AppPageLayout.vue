@@ -1,13 +1,13 @@
 <template>
   <div
-    class="va-page-layout"
+    class="app-page-layout"
     :class="computedClass"
   >
     <slot></slot>
     <div class="content-wrap">
       <slot name="content"></slot>
 
-      <div class="va-page-layout__footer">
+      <div class="app-page-layout__footer">
         {{copyrightText}}
       </div>
     </div>
@@ -17,7 +17,7 @@
 <script>
 
 export default {
-  name: 'va-page-layout',
+  name: 'app-page-layout',
   props: {
     isTopBar: {
       type: Boolean,
@@ -60,10 +60,10 @@ export default {
     },
     computedClass () {
       return {
-        'va-page-layout--topbar': this.isTopBarProxy && !this.minimizedProxy,
-        'va-page-layout--topbar-minimized': this.isTopBarProxy && this.minimizedProxy,
-        'va-page-layout--sidebar': !this.isTopBarProxy && !this.minimizedProxy,
-        'va-page-layout--sidebar-minimized': !this.isTopBarProxy && this.minimizedProxy,
+        'app-page-layout--topbar': this.isTopBarProxy && !this.minimizedProxy,
+        'app-page-layout--topbar-minimized': this.isTopBarProxy && this.minimizedProxy,
+        'app-page-layout--sidebar': !this.isTopBarProxy && !this.minimizedProxy,
+        'app-page-layout--sidebar-minimized': !this.isTopBarProxy && this.minimizedProxy,
       }
     },
     copyrightText () {
@@ -95,31 +95,30 @@ export default {
 <style lang="scss">
 @import "~vuestic-ui/src/components/vuestic-sass/resources/resources";
 
-.va-page-layout {
+.app-page-layout {
   .content-wrap {
     margin-top: 65px;
-    margin-left: $sidebar-width;
     transition: margin-left 0.3s ease;
     padding: 0;
 
     @include media-breakpoint-down(sm) {
       margin-top: $sidebar-mobile-top;
     }
+  }
 
-    &--sidebar {
+  &--sidebar {
+    .content-wrap {
+      margin-left: $sidebar-width;
+    }
+
+    &-minimized {
       .content-wrap {
-        margin-left: $sidebar-width;
-      }
-
-      &-minimized {
-        .content-wrap {
-          margin-left: $sidebar-minimized-width;
-        }
+        margin-left: $sidebar-minimized-width;
       }
     }
   }
 
-  .va-page-layout__footer {
+  &__footer {
     padding: 1rem;
     line-height: 1.4;
     z-index: 100;
