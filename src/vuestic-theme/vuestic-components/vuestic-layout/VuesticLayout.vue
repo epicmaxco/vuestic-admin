@@ -1,7 +1,7 @@
 <template>
   <div class="vuestic-layout"
-       v-resize
-       :class="classObject"
+    v-resize
+    :class="classObject"
   >
     <slot></slot>
     <div class="content-wrap" id="content-wrap">

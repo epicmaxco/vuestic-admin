@@ -9,10 +9,10 @@
     </div>
     <div class="row row-equal">
       <div class="flex xs12 lg6">
-        <dashboard-tabs />
+        <dashboard-tabs @submit="addAddressToMap"/>
       </div>
       <div class="flex xs12 lg6">
-        <dashboard-map />
+        <dashboard-map ref="dashboardMap"/>
       </div>
     </div>
   </div>
@@ -34,19 +34,9 @@ export default {
     DashboardTabs,
     DashboardMap,
   },
-
   methods: {
-    launchEpicmaxToast () {
-      this.showToast(`Let's work together!`, {
-        icon: 'fa-star-o',
-        position: 'top-right',
-        duration: Infinity,
-        action: {
-          text: 'Hire us',
-          href: 'http://epicmax.co/#/contact',
-          class: 'vuestic-toasted-link',
-        },
-      })
+    addAddressToMap ({ city, country }) {
+      this.$refs.dashboardMap.addAddress({ city: city.text, country })
     },
   },
 }

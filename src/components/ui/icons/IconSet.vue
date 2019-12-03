@@ -108,7 +108,7 @@ export default {
   },
   computed: {
     set () {
-      for (let set of this.sets) {
+      for (const set of this.sets) {
         if (set.href === this.name) return set
       }
     },

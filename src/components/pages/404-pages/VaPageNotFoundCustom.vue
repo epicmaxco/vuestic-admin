@@ -9,14 +9,12 @@
 </template>
 
 <script>
-import MadeByComponent from './MadeByComponent'
 import VaPageNotFound from './VaPageNotFound'
 
 export default {
   name: 'va-page-not-found-custom',
   components: {
     VaPageNotFound,
-    MadeByComponent,
   },
 }
 </script>

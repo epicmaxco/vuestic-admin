@@ -2,14 +2,14 @@
   <va-card :title="$t('dashboard.table.title')">
     <div class="row align--center mb-1">
       <div class="flex xs12 sm6">
-          <va-input
-            class="ma-0"
-            :value="term"
-            :placeholder="$t('tables.searchByName')"
-            @input="search"
-          >
-            <va-icon name="fa fa-search" slot="prepend" />
-          </va-input>
+        <va-input
+          class="ma-0"
+          :value="term"
+          :placeholder="$t('tables.searchByName')"
+          @input="search"
+        >
+          <va-icon name="fa fa-search" slot="prepend" />
+        </va-input>
       </div>
 
       <div class="flex xs12 sm6">
@@ -25,22 +25,28 @@
     </div>
 
     <va-data-table
-      :fields="fields"
+      :fields="mode ? detailedFields : fields"
       :data="filteredData"
       :loading="loading"
       hoverable
     >
-      <template slot="icon" slot-scope="props">
+      <template slot="icon">
         <va-icon name="fa fa-user" color="secondary" />
       </template>
-
-      <template slot="status" slot-scope="props">
+      <template v-slot:starred="props">
+        <va-icon
+          v-if="props.rowData.starred"
+          name="fa fa-star"
+          color="warning"
+        />
+      </template>
+      <template v-slot:status="props">
         <va-badge :color="getStatusColor(props.rowData.status)">
           {{ props.rowData.status }}
         </va-badge>
       </template>
 
-      <template slot="actions" slot-scope="props">
+      <template v-slot:actions="props">
         <va-button
           small
           outline
@@ -57,10 +63,11 @@
 </template>
 
 <script>
-import { debounce } from 'lodash'
+import debounce from 'lodash/debounce'
 import data from '../markup-tables/data.json'
 
 export default {
+
   data () {
     return {
       users: data.slice(),
@@ -89,6 +96,40 @@ export default {
         width: '20%',
         sortField: 'status',
       }, {
+        name: '__slot:actions',
+        dataClass: 'text-right',
+      }]
+    },
+    detailedFields () {
+      return [{
+        name: '__slot:icon',
+        width: '30px',
+        dataClass: 'text-center',
+      }, {
+        name: 'name',
+        title: this.$t('tables.headings.name'),
+        width: '20%',
+      }, {
+        name: 'email',
+        title: this.$t('tables.headings.email'),
+        width: '20%',
+      },
+      {
+        name: 'country',
+        title: this.$t('tables.headings.location'),
+        with: '20%',
+      },
+      {
+        name: '__slot:starred',
+        width: '20px',
+      },
+      {
+        name: '__slot:status',
+        title: this.$t('tables.headings.status'),
+        width: '20%',
+        sortField: 'status',
+      },
+      {
         name: '__slot:actions',
         dataClass: 'text-right',
       }]

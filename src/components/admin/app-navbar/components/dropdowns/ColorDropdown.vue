@@ -75,11 +75,11 @@
 <script>
 import { colorArray } from '../../../../../services/vuestic-ui/components'
 
-let themeCache = {}
+const themeCache = {}
 
 export default {
   data () {
-    let proxyHandler = {
+    const proxyHandler = {
       set: function (target, property, value) {
         if (!themeCache[property] && typeof target[property] === 'string') themeCache[property] = target[property]
         target[property] = value
@@ -95,7 +95,7 @@ export default {
   },
   methods: {
     restoreDefaultTheme () {
-      for (let i in themeCache) {
+      for (const i in themeCache) {
         this.$themes[i] = themeCache[i]
       }
     },
