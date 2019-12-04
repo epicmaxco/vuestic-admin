@@ -3,21 +3,26 @@
     class="app-navbar"
     :style="navbarStyle"
   >
-    <div class="app-navbar__icon-container">
-      <span
-        class="app-navbar__menu"
-        :class="`i-menu-${minimized ? 'collapsed' : 'expanded'}`"
-        @click="$emit('update:minimized', !minimized)"
-      ></span>
-    </div>
-
     <div class="app-navbar__content row">
-      <router-link
-        class="app-navbar__logo mr-3"
-        to="/"
-      >
-        <va-icon-vuestic/>
-      </router-link>
+      <div class="row">
+        <div
+          class="app-navbar__icon-container"
+          v-if="!isTopBar"
+        >
+          <span
+            class="app-navbar__menu"
+            :class="`i-menu-${minimized ? 'collapsed' : 'expanded'}`"
+            @click="$emit('update:minimized', !minimized)"
+          ></span>
+        </div>
+
+        <router-link
+          class="app-navbar__logo mr-3"
+          to="/"
+        >
+          <va-icon-vuestic/>
+        </router-link>
+      </div>
       <div class="app-navbar__center lg5 md4">
         <span class="app-navbar__text">
           {{$t('navbar.messageUs')}}&nbsp;
@@ -121,7 +126,7 @@ $font-size-base: 1rem !default;
   transition: background-color 0.3s ease; /* sidebar's bg color transitions as well -> consistency */
   height: $top-nav-height;
   display: flex;
-  padding: 1rem 2rem 1rem 1rem;
+  padding: 1rem 1rem;
 
   &__menu {
     cursor: pointer;
@@ -161,13 +166,11 @@ $font-size-base: 1rem !default;
   &__icon-container {
     font-size: $font-size-base;
     padding: 0.3rem 0;
-    position: absolute;
-    z-index: 10;
+    margin-right: 1.5rem;
   }
 
   &__logo {
     width: 9.5rem;
-    margin-left: 2.5rem;
     height: auto;
     align-items: center;
 

@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="app-page-layout"
-    :class="computedClass"
-  >
+  <div class="app-page-layout">
     <slot></slot>
     <slot name="content" />
   </div>
@@ -13,66 +10,6 @@
 export default {
   name: 'app-page-layout',
   props: {
-    isTopBar: {
-      type: Boolean,
-      required: true,
-    },
-    minimized: {
-      type: Boolean,
-      required: true,
-    },
-    mobileWidth: {
-      type: Number,
-      default: 767,
-    },
-  },
-  mounted () {
-    window.addEventListener('resize', this.updateActiveBarState)
-    this.updateActiveBarState()
-  },
-  data () {
-    return {
-      wasDesktop: true,
-    }
-  },
-  computed: {
-    minimizedProxy: {
-      get () {
-        return this.minimized
-      },
-      set (minimized) {
-        this.$emit('update:minimized', minimized)
-      },
-    },
-    isTopBarProxy: {
-      get () {
-        return this.isTopBar
-      },
-      set (isTopBar) {
-        this.$emit('update:isTopBar', isTopBar)
-      },
-    },
-    computedClass () {
-      return {
-        'app-page-layout--topbar': this.isTopBarProxy && !this.minimizedProxy,
-        'app-page-layout--topbar-minimized': this.isTopBarProxy && this.minimizedProxy,
-        'app-page-layout--sidebar': !this.isTopBarProxy && !this.minimizedProxy,
-        'app-page-layout--sidebar-minimized': !this.isTopBarProxy && this.minimizedProxy,
-      }
-    },
-  },
-  methods: {
-    updateActiveBarState () {
-      const isDesktop = window.matchMedia(`(min-width: ${this.mobileWidth}px)`).matches
-
-      if (isDesktop && !this.wasDesktop) {
-        this.minimizedProxy = false
-      } else if (!isDesktop && this.wasDesktop) {
-        this.minimizedProxy = true
-      }
-
-      this.wasDesktop = isDesktop
-    },
   },
 }
 </script>
