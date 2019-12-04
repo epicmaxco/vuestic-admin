@@ -57,6 +57,8 @@ export default {
   .app-sidebar {
     position: relative;
     display: inline-block;
+    overflow: auto;
     top: 0;
+    max-height: calc(100vh - 5rem); // 5 rem is va-sidebar paddings
   }
 </style>
