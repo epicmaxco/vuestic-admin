@@ -4,13 +4,11 @@
     :class="computedClass"
   >
     <slot></slot>
-    <div class="content-wrap">
-      <slot name="content"></slot>
+    <slot name="content"></slot>
 
-      <div class="app-page-layout__footer">
-        {{copyrightText}}
-      </div>
-    </div>
+    <!--    <div class="app-page-layout__footer">-->
+    <!--      {{copyrightText}}-->
+    <!--    </div>-->
   </div>
 </template>
 
@@ -95,38 +93,17 @@ export default {
 <style lang="scss">
 
 .app-page-layout {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100vh;
+
   .content-wrap {
-    margin-top: 65px;
     transition: margin-left 0.3s ease;
     padding: 0;
-
-    @include media-breakpoint-down(sm) {
-      margin-top: $sidebar-mobile-top;
-    }
-  }
-
-  &--topbar {
-    .content-wrap {
-      margin-top: 4rem * 2;
-    }
-
-    &-minimized {
-      .content-wrap {
-        margin-left: $sidebar-minimized-width;
-      }
-    }
-  }
-
-  &--sidebar {
-    .content-wrap {
-      margin-left: $sidebar-width;
-    }
-
-    &-minimized {
-      .content-wrap {
-        margin-left: $sidebar-minimized-width;
-      }
-    }
+    margin-left: 0 !important;
   }
 
   &__footer {

@@ -1,5 +1,6 @@
 <template>
   <va-page-layout
+    class="app-layout"
     :is-top-bar.sync="isTopBar"
     :minimized.sync="minimized"
     :mobile-width="mobileWidth"
@@ -12,19 +13,26 @@
     <app-topbar
       class="app-layout__topbar"
       v-if="isTopBar"
-      :minimized="minimized"
     />
-    <app-sidebar
-      v-else
-      :minimized="minimized"
-    />
-    <main
-      class="app-layout__main layout fluid gutter--xl"
-      slot="content"
-      role="main"
-    >
-      <router-view/>
-    </main>
+    <div class="app-layout__container">
+      <app-sidebar
+        class="app-layout__sidebar"
+        v-if="!isTopBar"
+        :minimized="minimized"
+      />
+      <div
+        class="app-layout__main"
+        :class="{'app-layout__main--top': isTopBar}"
+      >
+        <main
+          class="layout fluid gutter--xl"
+          slot="content"
+          role="main"
+        >
+          <router-view/>
+        </main>
+      </div>
+    </div>
   </va-page-layout>
 </template>
 
@@ -61,14 +69,40 @@ export default {
 <style lang="scss">
 
 .app-layout {
-  &__topbar {
-    position: fixed;
-    top: 4rem;
-    z-index: 1;
+  &__container {
+    display: flex;
+    flex-wrap: nowrap;
+  }
 
-    @include media-breakpoint-down(sm) {
-      top: $top-mobile-nav-height;
+  &__sidebar {
+  }
+
+  &__main {
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+    max-height: 100%;
+    min-height: 100%;
+    height: calc(100vh - (#{$top-nav-height}));
+
+    &--top {
+      height: calc(100vh - (#{$top-nav-height}) * 2);
     }
+
+    .layout {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      overflow: auto;
+      box-sizing: border-box;
+      min-height: 100%;
+      margin: 0;
+    }
+  }
+
+  &__topbar {
   }
 }
 </style>

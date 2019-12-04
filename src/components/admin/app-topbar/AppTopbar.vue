@@ -1,7 +1,6 @@
 <template>
   <aside
     class="app-topbar"
-    :class="topbarComputedClass"
     :style="computedStyles"
   >
     <ul class="app-topbar__menu">
@@ -9,7 +8,6 @@
         <app-topbar-link-group
           v-if="item.children"
           :key="key"
-          :minimized="minimized"
           :is-active="hasActiveByDefault(item)"
           :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
           :title="$t(item.displayName)"
@@ -26,7 +24,6 @@
         <app-topbar-link
           v-else
           :key="key"
-          :minimized="minimized"
           :is-active="item.name === $route.name"
           :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
           :to="{ name: item.name }"
@@ -52,17 +49,8 @@ export default {
     AppTopbarLinkGroup,
   },
   props: {
-    minimized: {
-      type: Boolean,
-      required: true,
-    },
   },
   computed: {
-    topbarComputedClass () {
-      return {
-        'va-topbar--minimized': this.minimized,
-      }
-    },
     computedStyles () {
       return {
         backgroundColor: this.$themes.secondary,

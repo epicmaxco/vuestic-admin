@@ -55,7 +55,8 @@ export default {
 
 <style lang="scss">
   .app-sidebar {
-    position: fixed;
-    z-index: 1;
+    position: relative;
+    display: inline-block;
+    top: 0;
   }
 </style>
