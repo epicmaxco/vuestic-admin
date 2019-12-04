@@ -99,7 +99,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../../../services/vuestic-ui/styles";
 
 .app-topbar-link-group {
   flex-direction: column;

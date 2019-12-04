@@ -93,7 +93,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~vuestic-ui/src/components/vuestic-sass/resources/resources";
 
 .app-page-layout {
   .content-wrap {

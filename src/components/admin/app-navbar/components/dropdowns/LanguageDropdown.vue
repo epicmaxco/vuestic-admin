@@ -67,7 +67,6 @@ export default {
 
 <style lang="scss">
 @import "~flag-icon-css/css/flag-icon.css";
-@import "~vuestic-ui/src/components/vuestic-sass/resources/resources";
 
 .language-dropdown {
   cursor: pointer;

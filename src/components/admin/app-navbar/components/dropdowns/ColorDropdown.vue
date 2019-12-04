@@ -104,7 +104,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~vuestic-ui/src/components/vuestic-sass/resources/resources';
 
 .color-dropdown {
   cursor: pointer;

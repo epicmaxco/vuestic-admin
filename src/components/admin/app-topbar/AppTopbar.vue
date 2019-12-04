@@ -84,7 +84,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../../services/vuestic-ui/styles";
 
 .app-topbar {
   transition: all 0.3s ease;

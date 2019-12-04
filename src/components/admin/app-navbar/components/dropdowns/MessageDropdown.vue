@@ -69,7 +69,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~vuestic-ui/src/components/vuestic-sass/resources/resources";
 
 .message-dropdown {
   cursor: pointer;
