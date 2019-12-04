@@ -4,11 +4,7 @@
     :class="computedClass"
   >
     <slot></slot>
-    <slot name="content"></slot>
-
-    <!--    <div class="app-page-layout__footer">-->
-    <!--      {{copyrightText}}-->
-    <!--    </div>-->
+    <slot name="content" />
   </div>
 </template>
 
@@ -64,15 +60,6 @@ export default {
         'app-page-layout--sidebar-minimized': !this.isTopBarProxy && this.minimizedProxy,
       }
     },
-    copyrightText () {
-      const baseText = `Epicmax © 2011-${new Date().getFullYear()}`
-
-      if (process.env.VUE_APP_BUILD_VERSION) { // eslint-disable-line no-undef
-        return `${baseText}, Version: ${VERSION}, ${TIMESTAMP}, commit: ${COMMIT}`// eslint-disable-line no-undef
-      }
-
-      return baseText
-    },
   },
   methods: {
     updateActiveBarState () {
@@ -104,16 +91,6 @@ export default {
     transition: margin-left 0.3s ease;
     padding: 0;
     margin-left: 0 !important;
-  }
-
-  &__footer {
-    padding: 1rem;
-    line-height: 1.4;
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
   }
 }
 </style>
