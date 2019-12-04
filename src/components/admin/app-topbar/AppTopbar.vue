@@ -11,15 +11,18 @@
           :is-active="hasActiveByDefault(item)"
           :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
           :title="$t(item.displayName)"
+          :is-multi-row="item.children.length > 10"
         >
-          <app-topbar-link
+          <app-topbar-link-group-item
+            class="app-topbar__menu-item"
+            :class="{'app-topbar__menu-item--multi-row': item.children.length > 10 }"
             v-for="(subMenuItem, key) in item.children"
             :key="key"
-            :is-active="subMenuItem.name === $route.name"
             :to="{ name: subMenuItem.name }"
           >
+            <va-icon class="app-topbar__menu-item-icon" name="fa fa-pencil" :color="$themes.primary" />
             {{$t(subMenuItem.displayName)}}
-          </app-topbar-link>
+          </app-topbar-link-group-item>
         </app-topbar-link-group>
         <app-topbar-link
           v-else
@@ -38,6 +41,7 @@
 <script>
 import AppTopbarLink from './components/AppTopbarLink'
 import AppTopbarLinkGroup from './components/AppTopbarLinkGroup'
+import AppTopbarLinkGroupItem from './components/AppTopbarLinkGroupItem'
 import { navigationRoutes } from '../app-sidebar/NavigationRoutes'
 import { ColorThemeMixin } from '../../../services/vuestic-ui'
 
@@ -47,6 +51,7 @@ export default {
   components: {
     AppTopbarLink,
     AppTopbarLinkGroup,
+    AppTopbarLinkGroupItem,
   },
   props: {
   },
@@ -68,7 +73,6 @@ export default {
     },
   },
 }
-
 </script>
 
 <style lang="scss">
@@ -81,15 +85,30 @@ export default {
 
   &__menu {
     list-style: none;
-    padding-left: 0;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     flex-wrap: wrap;
-    max-width: 90%;
-    width: 100%;
     min-height: 4rem;
     margin: 0 auto;
+    max-width: 90%;
+    width: 100%;
+
+    &-item {
+      display: inline-flex;
+      flex-wrap: wrap;
+      width: 100%;
+      white-space: nowrap;
+      color: inherit;
+
+      &-icon {
+        margin-right: 0.25rem;
+      }
+
+      &--multi-row {
+        width: 33.33%;
+      }
+    }
   }
 
   & + .content-wrap {

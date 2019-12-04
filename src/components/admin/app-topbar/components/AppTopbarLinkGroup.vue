@@ -22,7 +22,8 @@
         {{title}}
       </app-topbar-link>
       <ul
-        class="app-topbar-link-group__submenu in"
+        class="app-topbar-link-group__submenu"
+        :class="computedSubMenuClass"
         :style="{backgroundColor: $themes.color}"
       >
         <slot/>
@@ -52,6 +53,10 @@ export default {
       type: String,
       default: 'secondary',
     },
+    isMultiRow: {
+      type: Boolean,
+      defaul: false,
+    },
   },
   data () {
     return {
@@ -74,6 +79,11 @@ export default {
       return {
         'app-topbar-link--open': this.isOpen,
         'app-topbar-link--active': this.isActive,
+      }
+    },
+    computedSubMenuClass () {
+      return {
+        'app-topbar-link-group__submenu--multi-row': this.isMultiRow,
       }
     },
     computedClass () {
@@ -105,18 +115,15 @@ export default {
 
   &__submenu {
     list-style: none;
-    padding-left: 0;
     background: $light-gray3 !important;
     display: flex;
     flex-wrap: wrap;
-    width: 100% !important;
+    border-radius: 0.8rem;
+    max-width: 200px;
+    padding: 0.3rem 0.5rem;
 
-    li {
-      display: block;
-      width: 50%;
-      border: none;
-      margin: 0;
-      padding-left: 3rem;
+    &--multi-row {
+      max-width: 600px;
     }
   }
 }

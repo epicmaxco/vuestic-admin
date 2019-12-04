@@ -16,7 +16,10 @@
       :style="computedIconStyles"
       :name="icon"
     />
-    <div class="app-topbar-link__title">
+    <div
+      class="app-topbar-link__title"
+      :style="computedTitleStyles"
+    >
       <slot>
         {{title}}
       </slot>
@@ -67,9 +70,9 @@ export default {
     computedStyle () {
       if (this.isHover || this.isActive) {
         return {
-          color: this.$themes.success,
+          color: this.$themes.primary,
           backgroundColor: getHoverColor(this.$themes.info),
-          borderColor: this.$themes.success,
+          borderColor: this.$themes.primary,
         }
       }
 
@@ -80,12 +83,23 @@ export default {
     computedIconStyles () {
       if (this.isHover || this.isActive) {
         return {
-          color: this.$themes.success,
+          color: this.$themes.primary,
         }
       }
 
       return {
         color: 'white',
+      }
+    },
+    computedTitleStyles () {
+      if (this.isHover || this.isActive) {
+        return {
+          color: this.$themes.primary,
+        }
+      }
+
+      return {
+        color: 'inherit',
       }
     },
   },
