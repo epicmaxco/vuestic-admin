@@ -7,7 +7,7 @@
       position="bottom"
       fixed
       :preventOverflow="false"
-      @trigger="toggleDropdownState"
+      ref="dropdown"
     >
       <app-topbar-link
         slot="anchor"
@@ -44,7 +44,10 @@ export default {
     icon: [String, Array],
     title: String,
     minimized: Boolean,
-    activeByDefault: Boolean,
+    isActive: {
+      type: Boolean,
+      default: false,
+    },
     color: {
       type: String,
       default: 'secondary',
@@ -52,52 +55,24 @@ export default {
   },
   data () {
     return {
-      isActive: this.activeByDefault,
       isHovered: false,
-      expanded: this.expanded,
-      dropdownOpened: false,
+      isOpen: false,
     }
-  },
-  mounted () {
-    const linkGroup = this.$refs.linkGroupWrapper
-    if (linkGroup && linkGroup.querySelector('.router-link-active') !== null) {
-      this.expanded = true
-    }
-    this.setActiveState()
   },
   watch: {
     $route () {
-      this.expanded = false
-      this.setActiveState()
-    },
-    minimized (value) {
-      if (!value) {
-        this.isActive = false
-      }
+      this.$refs.dropdown.hide()
     },
   },
   methods: {
-    toggleMenuItem () {
-      this.expanded = !this.expanded
-    },
-    toggleDropdownState (value) {
-      this.dropdownOpened = value
-    },
     updateHoverState () {
       this.isHovered = !this.isHovered
-    },
-    setActiveState () {
-      if (!this.activeByDefault) {
-        this.$nextTick(() => {
-          this.isActive = !!this.$children[0].$children.filter(item => item.isActive).length
-        })
-      }
     },
   },
   computed: {
     computedLinkClass () {
       return {
-        'app-topbar-link--expanded': this.expanded,
+        'app-topbar-link--open': this.isOpen,
         'app-topbar-link--active': this.isActive,
       }
     },
@@ -107,20 +82,17 @@ export default {
       }
     },
     sidebarLinkStyles () {
-      return (this.isHovered || this.isActive)
-        ? {
+      if (this.isHovered || this.isActive) {
+        return {
           color: this.$themes.success,
           backgroundColor: getHoverColor(this.$themes[this.color]),
           borderColor: this.$themes.success,
         }
-        : {
-          color: this.$themes.info,
-        }
-    },
-    iconStyles () {
-      return (this.isHovered || this.isActive)
-        ? { color: this.$themes.success }
-        : { color: 'white' }
+      }
+
+      return {
+        color: this.$themes.info,
+      }
     },
   },
 }

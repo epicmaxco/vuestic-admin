@@ -10,14 +10,14 @@
           v-if="item.children"
           :key="key"
           :minimized="minimized"
-          :activeByDefault="hasActiveByDefault(item)"
+          :is-active="hasActiveByDefault(item)"
           :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
           :title="$t(item.displayName)"
         >
           <app-topbar-link
             v-for="(subMenuItem, key) in item.children"
             :key="key"
-            :activeByDefault="subMenuItem.name === $route.name"
+            :is-active="subMenuItem.name === $route.name"
             :to="{ name: subMenuItem.name }"
           >
             {{$t(subMenuItem.displayName)}}
@@ -27,7 +27,7 @@
           v-else
           :key="key"
           :minimized="minimized"
-          :activeByDefault="item.name === $route.name"
+          :is-active="item.name === $route.name"
           :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
           :to="{ name: item.name }"
         >

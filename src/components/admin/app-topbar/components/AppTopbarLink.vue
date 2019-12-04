@@ -2,10 +2,10 @@
   <router-link
     class="app-topbar-link"
     tag="li"
-    :class="computedLinkClass"
+    :class="computedClass"
     @mouseenter.native="updateHoverState(true)"
     @mouseleave.native="updateHoverState(false)"
-    :style="computedLinkStyles"
+    :style="computedStyle"
     active-class="app-topbar-link--active"
     :to="to"
     :target="target"
@@ -45,8 +45,9 @@ export default {
     title: {
       type: String,
     },
-    activeByDefault: {
+    isActive: {
       type: Boolean,
+      default: false,
     },
     minimized: {
       type: Boolean,
@@ -54,23 +55,17 @@ export default {
   },
   data () {
     return {
-      isHovered: false,
-      isActive: this.activeByDefault,
+      isHover: false,
     }
   },
-  watch: {
-    $route (route) {
-      this.setActiveState()
-    },
-  },
   computed: {
-    computedLinkClass () {
+    computedClass () {
       return {
         'app-topbar-link--minimized': this.minimized,
       }
     },
-    computedLinkStyles () {
-      if (this.isHovered || this.isActive) {
+    computedStyle () {
+      if (this.isHover || this.isActive) {
         return {
           color: this.$themes.success,
           backgroundColor: getHoverColor(this.$themes.info),
@@ -83,7 +78,7 @@ export default {
       }
     },
     computedIconStyles () {
-      if (this.isHovered || this.isActive) {
+      if (this.isHover || this.isActive) {
         return {
           color: this.$themes.success,
         }
@@ -95,25 +90,9 @@ export default {
     },
   },
   methods: {
-    updateHoverState (isHovered) {
-      this.isHovered = isHovered
+    updateHoverState (isHover) {
+      this.isHover = isHover
     },
-    setActiveState () {
-      this.$nextTick(() => {
-        this.isActive = this.$el.classList.contains('app-topbar-link--active')
-        if (!this.isActive) {
-          return
-        }
-        const linkGroup = this.$parent && this.$parent.$parent
-        if (linkGroup.$options.name === 'topbar-link-group') {
-          linkGroup.expanded = true
-          linkGroup.isActive = this.minimized
-        }
-      })
-    },
-  },
-  mounted () {
-    this.setActiveState()
   },
 }
 </script>
