@@ -107,9 +107,8 @@ export default {
   text-decoration: none;
   border-left: none;
   border-bottom: 0.25rem solid transparent;
-  margin: 0 0.25rem;
   height: 4rem;
-  padding: 1.25rem 0 1rem;
+  padding: 1.25rem 0.25rem 1rem;
 
   &__icon {
     width: 1.5rem;
