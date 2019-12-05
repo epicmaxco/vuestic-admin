@@ -12,19 +12,24 @@
       <app-topbar-link
         slot="anchor"
         target="_self"
+        class="app-topbar-link-group__item"
         @mouseenter="updateHoverState"
         @mouseleave="updateHoverState"
         :style="sidebarLinkStyles"
-        class="app-topbar-link"
         :class="computedLinkClass"
         :icon="icon"
+        :is-active="isActive"
       >
         {{title}}
+        <va-icon
+          class="app-topbar-link-group__item-icon"
+          :name="!isOpen ? 'fa fa-angle-down' : 'fa fa-angle-up'"
+          :color="isActive ? $themes.primary : null"
+        />
       </app-topbar-link>
       <ul
         class="app-topbar-link-group__submenu"
         :class="computedSubMenuClass"
-        :style="{backgroundColor: $themes.color}"
       >
         <slot/>
       </ul>
@@ -48,10 +53,6 @@ export default {
     isActive: {
       type: Boolean,
       default: false,
-    },
-    color: {
-      type: String,
-      default: 'secondary',
     },
     isMultiRow: {
       type: Boolean,
@@ -95,7 +96,7 @@ export default {
       if (this.isHovered || this.isActive) {
         return {
           color: this.$themes.success,
-          backgroundColor: getHoverColor(this.$themes[this.color]),
+          backgroundColor: getHoverColor(this.$themes.info),
           borderColor: this.$themes.success,
         }
       }
@@ -112,6 +113,14 @@ export default {
 
 .app-topbar-link-group {
   flex-direction: column;
+
+  &__item {
+
+  }
+
+  &__item-icon {
+    color: white;
+  }
 
   &__submenu {
     list-style: none;

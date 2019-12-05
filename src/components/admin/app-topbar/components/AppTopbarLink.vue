@@ -99,7 +99,7 @@ export default {
       }
 
       return {
-        color: 'inherit',
+        color: this.$themes.info,
       }
     },
   },
