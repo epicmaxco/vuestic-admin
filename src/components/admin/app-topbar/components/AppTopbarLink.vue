@@ -58,7 +58,13 @@ export default {
   },
   computed: {
     computedStyle () {
-      if (this.isHover || this.isActive) {
+      if (this.isHover) {
+        return {
+          color: this.$themes.primary,
+        }
+      }
+
+      if (this.isActive) {
         return {
           color: this.$themes.primary,
           backgroundColor: getHoverColor(this.$themes.info),
@@ -67,7 +73,7 @@ export default {
       }
 
       return {
-        color: this.$themes.info,
+        color: this.isHover ? this.$themes.primary : this.$themes.info,
       }
     },
     computedIconStyles () {
