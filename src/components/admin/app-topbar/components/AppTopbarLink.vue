@@ -2,11 +2,9 @@
   <router-link
     class="app-topbar-link"
     tag="li"
-    :class="computedClass"
     @mouseenter.native="updateHoverState(true)"
     @mouseleave.native="updateHoverState(false)"
     :style="computedStyle"
-    active-class="app-topbar-link--active"
     :to="to"
     :target="target"
   >
@@ -52,9 +50,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    minimized: {
-      type: Boolean,
-    },
   },
   data () {
     return {
@@ -62,11 +57,6 @@ export default {
     }
   },
   computed: {
-    computedClass () {
-      return {
-        'app-topbar-link--minimized': this.minimized,
-      }
-    },
     computedStyle () {
       if (this.isHover || this.isActive) {
         return {
@@ -118,33 +108,29 @@ export default {
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   text-decoration: none;
   border-left: none;
   border-bottom: 0.25rem solid transparent;
   height: 4rem;
   padding: 1.25rem 0.25rem 1rem;
 
+  @include media-breakpoint-down(sm) {
+    flex-grow: 1;
+  }
+
   &__icon {
     width: 1.5rem;
     text-align: center;
     font-size: $sidebar-menu-item-icon-size;
-    margin-right: 0.5rem;
   }
 
   &__title {
     line-height: 1.5em;
-  }
+    margin-left: 0.5rem;
 
-  &--minimized {
-    &__title {
+    @include media-breakpoint-down(sm) {
       display: none;
-    }
-
-    &__icon {
-      margin-right: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
   }
 }

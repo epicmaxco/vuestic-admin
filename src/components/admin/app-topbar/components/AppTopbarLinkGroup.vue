@@ -130,6 +130,7 @@ export default {
     border-radius: 0.8rem;
     max-width: 200px;
     padding: 0.3rem 0.5rem;
+    box-shadow: $gray-box-shadow;
 
     &--multi-row {
       max-width: 600px;

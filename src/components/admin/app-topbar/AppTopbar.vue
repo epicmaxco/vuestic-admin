@@ -6,6 +6,7 @@
     <ul class="app-topbar__menu">
       <template v-for="(item, key) in items">
         <app-topbar-link-group
+          class="app-topbar__menu-group"
           v-if="item.children"
           :key="key"
           :is-active="hasActiveByDefault(item)"
@@ -14,8 +15,8 @@
           :is-multi-row="item.children.length > 10"
         >
           <app-topbar-link-group-item
-            class="app-topbar__menu-item"
-            :class="{'app-topbar__menu-item--multi-row': item.children.length > 10 }"
+            class="app-topbar__menu-group-item"
+            :class="{'app-topbar__menu-group-item--multi-row': item.children.length > 10 }"
             v-for="(subMenuItem, key) in item.children"
             :key="key"
             :to="{ name: subMenuItem.name }"
@@ -24,6 +25,7 @@
           />
         </app-topbar-link-group>
         <app-topbar-link
+          class="app-topbar__link"
           v-else
           :key="key"
           :is-active="item.name === $route.name"
@@ -93,7 +95,13 @@ export default {
     max-width: 90%;
     width: 100%;
 
-    &-item {
+    &-group {
+      @include media-breakpoint-down(sm) {
+        flex-grow: 1;
+      }
+    }
+
+    &-group-item {
       display: inline-flex;
       flex-wrap: wrap;
       width: 100%;

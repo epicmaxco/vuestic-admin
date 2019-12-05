@@ -13,7 +13,9 @@
         :name="icon"
         :style="computedIconStyles"
       />
-      {{title}}
+      <span class="app-topbar-link-group-item__title">
+        {{title}}
+      </span>
     </div>
   </router-link>
 </template>
