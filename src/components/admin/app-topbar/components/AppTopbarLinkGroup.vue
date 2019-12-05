@@ -8,6 +8,8 @@
       fixed
       :preventOverflow="false"
       ref="dropdown"
+      @click.native="handleDropdownClick"
+      @clickOutside="handleOutsideClick"
     >
       <app-topbar-link
         slot="anchor"
@@ -74,6 +76,18 @@ export default {
     updateHoverState () {
       this.isHovered = !this.isHovered
     },
+    handleDropdownClick () {
+      const hasDropdownContent = this.$refs.dropdown.$el.getElementsByClassName('va-dropdown__content').length > 0
+
+      if (hasDropdownContent) {
+        this.isOpen = true
+      } else {
+        this.isOpen = false
+      }
+    },
+    handleOutsideClick () {
+      this.isOpen = false
+    },
   },
   computed: {
     computedLinkClass () {
@@ -101,9 +115,14 @@ export default {
         }
       }
 
-      return {
-        color: this.$themes.info,
+      if (this.isOpen) {
+        return {
+          color: this.$themes.success,
+          borderColor: this.$themes.success,
+        }
       }
+
+      return {}
     },
   },
 }

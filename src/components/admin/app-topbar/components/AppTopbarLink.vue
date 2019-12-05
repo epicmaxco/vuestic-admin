@@ -16,7 +16,6 @@
     />
     <div
       class="app-topbar-link__title"
-      :style="computedTitleStyles"
     >
       <slot>
         {{title}}
@@ -58,12 +57,6 @@ export default {
   },
   computed: {
     computedStyle () {
-      if (this.isHover) {
-        return {
-          color: this.$themes.primary,
-        }
-      }
-
       if (this.isActive) {
         return {
           color: this.$themes.primary,
@@ -72,8 +65,15 @@ export default {
         }
       }
 
+      if (this.isHover) {
+        return {
+          color: this.$themes.primary,
+          backgroundColor: getHoverColor(this.$themes.info),
+        }
+      }
+
       return {
-        color: this.isHover ? this.$themes.primary : this.$themes.info,
+        color: this.$themes.info,
       }
     },
     computedIconStyles () {
@@ -85,17 +85,6 @@ export default {
 
       return {
         color: 'white',
-      }
-    },
-    computedTitleStyles () {
-      if (this.isHover || this.isActive) {
-        return {
-          color: this.$themes.primary,
-        }
-      }
-
-      return {
-        color: this.$themes.info,
       }
     },
   },
