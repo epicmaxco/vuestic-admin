@@ -19,10 +19,9 @@
             v-for="(subMenuItem, key) in item.children"
             :key="key"
             :to="{ name: subMenuItem.name }"
-          >
-            <va-icon class="app-topbar__menu-item-icon" name="fa fa-pencil" :color="$themes.primary" />
-            {{$t(subMenuItem.displayName)}}
-          </app-topbar-link-group-item>
+            :is-active="subMenuItem.name === $route.name"
+            :title="$t(subMenuItem.displayName)"
+          />
         </app-topbar-link-group>
         <app-topbar-link
           v-else
@@ -100,10 +99,6 @@ export default {
       width: 100%;
       white-space: nowrap;
       color: inherit;
-
-      &-icon {
-        margin-right: 0.25rem;
-      }
 
       &--multi-row {
         width: 33.33%;

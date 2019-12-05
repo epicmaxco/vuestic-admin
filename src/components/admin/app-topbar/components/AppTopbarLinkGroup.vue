@@ -23,8 +23,8 @@
         {{title}}
         <va-icon
           class="app-topbar-link-group__item-icon"
-          :name="!isOpen ? 'fa fa-angle-down' : 'fa fa-angle-up'"
-          :color="isActive ? $themes.primary : null"
+          :name="isOpen ? 'fa fa-angle-up' : 'fa fa-angle-down'"
+          :color="isOpen ? $themes.primary : null"
         />
       </app-topbar-link>
       <ul
