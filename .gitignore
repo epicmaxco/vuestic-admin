@@ -21,3 +21,4 @@ inspect.js
 *.njsproj
 *.sln
 *.sw*
+*.orig
