@@ -69,9 +69,14 @@ export default {
 <style lang="scss">
 
 .app-layout {
+  display: flex;
+  flex-direction: column;
+
   &__container {
     display: flex;
     flex-wrap: nowrap;
+    align-items: stretch;
+    height: 100%;
   }
 
   &__sidebar {
@@ -83,10 +88,8 @@ export default {
     position: relative;
     max-height: 100%;
     min-height: 100%;
-    height: calc(100vh - (#{$top-nav-height}));
 
     &--top {
-      height: calc(100vh - (#{$top-nav-height}) * 2);
     }
 
     &-layout {

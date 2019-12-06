@@ -113,14 +113,12 @@ export default {
 </script>
 
 <style lang="scss">
-$top-nav-height: 4.0625rem;
 $nav-border-side-width: 3.1875rem;
 $lighter-gray: #dddddd;
 $font-size-base: 1rem !default;
 
 .app-navbar {
   transition: background-color 0.3s ease; /* sidebar's bg color transitions as well -> consistency */
-  height: $top-nav-height;
   display: flex;
   padding: 1rem 1rem;
 
@@ -146,7 +144,7 @@ $font-size-base: 1rem !default;
   }
 
   &__button {
-    width: 10.8125rem;
+    width: 10rem;
     margin: 0 0 0 1rem !important;
     font-weight: bold;
 
@@ -168,6 +166,7 @@ $font-size-base: 1rem !default;
   &__menu-container {
     display: flex;
     flex-wrap: nowrap;
+    height: 1.5rem;
   }
 
   &__logo {
@@ -201,7 +200,7 @@ $font-size-base: 1rem !default;
     right: 0;
     top: 0;
     margin: auto;
-    border-top: $top-nav-height solid transparent;
+    border-top: 4.215rem solid transparent; // hardcoded size
     border-left: $nav-border-side-width solid transparent;
     border-right: $nav-border-side-width solid transparent;
     height: 0;
@@ -220,9 +219,6 @@ $font-size-base: 1rem !default;
   }
 
   @include media-breakpoint-down(sm) {
-    height: $top-mobile-nav-height;
-    padding: 1rem;
-
     &__content {
       align-items: flex-end;
     }

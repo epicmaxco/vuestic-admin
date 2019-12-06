@@ -80,9 +80,8 @@ export default {
 
 .app-topbar {
   transition: all 0.3s ease;
-  overflow-y: auto;
   width: 100%;
-  min-height: 4rem;
+  display: flex;
 
   &__menu {
     list-style: none;
