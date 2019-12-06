@@ -33,6 +33,9 @@
       <template slot="icon">
         <va-icon name="fa fa-user" color="secondary" />
       </template>
+<<<<<<< HEAD
+
+=======
       <template v-slot:starred="props">
         <va-icon
           v-if="props.rowData.starred"
@@ -40,6 +43,7 @@
           color="warning"
         />
       </template>
+>>>>>>> origin/develop
       <template v-slot:status="props">
         <va-badge :color="getStatusColor(props.rowData.status)">
           {{ props.rowData.status }}

@@ -15,28 +15,36 @@ const generateArray = (length) => {
 
 const getSize = () => {
   const minSize = 4
-  return minSize + Math.floor(Math.random() * 3)
+  return Math.max(minSize, new Date().getMonth())
 }
 
 let generatedData
+let firstMonthIndex = 0
 
-export const getLineChartData = (themes) => {
+export const getLineChartData = (themes, firstMonth) => {
   const size = getSize()
-  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   const yLabels = generateYLabels()
 
   if (generatedData) {
     generatedData.datasets[0].backgroundColor = hex2rgb(themes.primary, 0.6).css
     generatedData.datasets[1].backgroundColor = hex2rgb(themes.info, 0.6).css
+    if (firstMonth && firstMonthIndex !== firstMonth) {
+      generatedData.labels.shift()
+      generatedData.datasets.forEach((dataset) => {
+        dataset.data.shift()
+      })
+      firstMonthIndex = firstMonth
+    }
   } else {
     generatedData = {
-      labels: months.splice(0, size),
+      labels: months.splice(firstMonthIndex, size),
       datasets: [
         {
           label: yLabels[0],
           backgroundColor: hex2rgb(themes.primary, 0.6).css,
           borderColor: 'transparent',
-          data: generateArray(size),
+          data: generateArray(size - firstMonthIndex),
         },
         {
           label: yLabels[1],

@@ -12,7 +12,7 @@
       </va-tab>
     </va-tabs>
     <va-separator/>
-    <component :is="tabs[tabsState]"/>
+    <component :is="tabs[tabsState]" @submit="submit"/>
   </va-card>
 </template>
 
@@ -37,6 +37,11 @@ export default {
         'BankDetailsTab',
       ],
     }
+  },
+  methods: {
+    submit (data) {
+      this.$emit('submit', data)
+    },
   },
 }
 </script>

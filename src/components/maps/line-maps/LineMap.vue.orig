@@ -38,19 +38,38 @@ export default {
   methods: {
     drawMap () {
       /* global AmCharts */
+<<<<<<< HEAD
+      const map = new AmCharts.AmMap()
+
+      const dataProvider = {
+        mapVar: AmCharts.maps.worldLow,
+      }
+      map.areasSettings = {
+=======
       this.map.areasSettings = {
+>>>>>>> origin/develop
         unlistedAreasColor: '#eee',
         unlistedAreasAlpha: 1,
         outlineColor: '#fff',
         outlineThickness: 2,
       }
-      this.map.imagesSettings = {
+<<<<<<< HEAD
+      map.imagesSettings = {
         color: this.$themes.info,
         rollOverColor: this.$themes.info,
         selectedColor: this.$themes.primary,
       }
-      this.map.linesSettings = {
+      map.linesSettings = {
         color: this.$themes.info,
+=======
+      this.map.imagesSettings = {
+        color: this.$themes['info'],
+        rollOverColor: this.$themes['info'],
+        selectedColor: this.$themes['primary'],
+      }
+      this.map.linesSettings = {
+        color: this.$themes['info'],
+>>>>>>> origin/develop
         alpha: 0.4,
       }
       this.addDataToMap()
