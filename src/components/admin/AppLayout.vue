@@ -1,5 +1,5 @@
 <template>
-  <va-page-layout
+  <app-page-layout
     class="app-layout"
     :is-top-bar.sync="isTopBar"
     :minimized.sync="minimized"
@@ -33,11 +33,11 @@
         </main>
       </div>
     </div>
-  </va-page-layout>
+  </app-page-layout>
 </template>
 
 <script>
-import VaPageLayout from './AppPageLayout'
+import AppPageLayout from './AppPageLayout'
 import AppNavbar from './app-navbar/AppNavbar'
 import AppTopbar from './app-topbar/AppTopbar'
 import AppSidebar from './app-sidebar/AppSidebar'
@@ -46,7 +46,7 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'app-layout',
   components: {
-    VaPageLayout,
+    AppPageLayout,
     AppNavbar,
     AppTopbar,
     AppSidebar,

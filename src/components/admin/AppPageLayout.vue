@@ -10,6 +10,30 @@
 export default {
   name: 'app-page-layout',
   props: {
+    mobileWidth: {
+      type: Number,
+      default: 767,
+    },
+  },
+  mounted () {
+    window.addEventListener('resize', () => this.updateSidebarState())
+
+    this.updateSidebarState()
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', () => this.updateSidebarState())
+  },
+  methods: {
+    checkIsDesktop () {
+      return window.matchMedia(`(min-width: ${this.mobileWidth}px)`).matches
+    },
+    updateSidebarState () {
+      if (this.checkIsDesktop()) {
+        this.$emit('update:minimized', false)
+      } else {
+        this.$emit('update:minimized', true)
+      }
+    },
   },
 }
 </script>
