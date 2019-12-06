@@ -25,7 +25,7 @@
         :class="{'app-layout__main--top': isTopBar}"
       >
         <main
-          class="layout fluid gutter--xl"
+          class="app-layout__main-layout layout fluid gutter--xl"
           slot="content"
           role="main"
         >
@@ -89,7 +89,7 @@ export default {
       height: calc(100vh - (#{$top-nav-height}) * 2);
     }
 
-    .layout {
+    &-layout {
       position: absolute;
       top: 0;
       right: 0;
