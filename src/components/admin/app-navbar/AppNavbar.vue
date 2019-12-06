@@ -4,17 +4,13 @@
     :style="navbarStyle"
   >
     <div class="app-navbar__content row">
-      <div class="row">
-        <div
-          class="app-navbar__icon-container"
+      <div class="app-navbar__menu-container">
+        <span
+          class="app-navbar__menu"
           v-if="!isTopBar"
-        >
-          <span
-            class="app-navbar__menu"
-            :class="`i-menu-${minimized ? 'collapsed' : 'expanded'}`"
-            @click="$emit('update:minimized', !minimized)"
-          ></span>
-        </div>
+          :class="`i-menu-${minimized ? 'collapsed' : 'expanded'}`"
+          @click="$emit('update:minimized', !minimized)"
+        ></span>
 
         <router-link
           class="app-navbar__logo mr-3"
@@ -128,18 +124,14 @@ $font-size-base: 1rem !default;
   display: flex;
   padding: 1rem 1rem;
 
-  &__menu {
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
   &__content {
     z-index: 1;
     align-items: center;
     justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
     height: 100%;
+    flex: 1 1 auto;
   }
 
   &__center {
@@ -163,10 +155,19 @@ $font-size-base: 1rem !default;
     }
   }
 
-  &__icon-container {
+  &__menu {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: $font-size-base;
     padding: 0.3rem 0;
     margin-right: 1.5rem;
+  }
+
+  &__menu-container {
+    display: flex;
+    flex-wrap: nowrap;
   }
 
   &__logo {
