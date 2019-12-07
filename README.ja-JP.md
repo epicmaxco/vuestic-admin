@@ -1,29 +1,40 @@
-<p align="center"> 
+<p align="center">
   <a href="./README.md"> English </a> | <a href="./README.zh-CN.md"> 简体中文 </a> | 日本語
 </p>
 
 <h1 align="center"> Vuestic Admin </h1>
-  
+
 <p align="center">
   38+のカスタムUIコンポーネントと美しいデザインのVue.js無料管理画面テンプレート</br>
-  開発者  <a href="https://epicmax.co">Epicmax</a>. 
+  開発者  <a href="https://epicmax.co">Epicmax</a>.
   デザイン <a href="https://www.xxsavitski.com">Vasili Savitski</a>
 </p>
 
 <p align="center">
-  <a href="https://vuestic.epicmax.co"> デモ </a> | <a href="https://github.com/epicmaxco/vuestic-admin/wiki"> 説明書 </a>
+  <a href="https://vuestic.epicmax.co"> デモ </a> | <a href="[THEME_URL]"> 新しい白いテーマのデモ </a> | <a href="https://github.com/epicmaxco/vuestic-admin/wiki"> 説明書 </a>
 </p>
 
 <p align="center">
   <a href="https://vuestic.epicmax.co" target="_blank">
-    <img src="https://i.imgur.com/q60P8VR.png" align="center" width="888px"/>
+    <img src="https://i.imgur.com/RMchKNW.jpg" align="center" width="888px"/>
   </a>
 </p>
-
 
 <p align="center">
   <a href="https://circleci.com/gh/epicmaxco/vuestic-admin">
     <img src="https://img.shields.io/circleci/build/github/epicmaxco/vuestic-admin/master" alt="Circleci">
+  </a>
+</p>
+
+<h2>
+  <a href="[THEME_URL]" target="_blank">
+    新しい白いテーマのデモ
+  </a>
+</h2>
+
+<p align="center">
+  <a href="[THEME_URL]" target="_blank">
+    <img src="https://i.imgur.com/DnFcrjD.png" align="center" width="888px"/>
   </a>
 </p>
 
@@ -52,7 +63,7 @@ $ npm install
 # localhost:8080（デフォルト）でホットリロードを使ってサーブ
 $ npm run serve
 
-# プロダクション用にビルド 
+# プロダクション用にビルド
 $ npm run build
 
 # プロダクション用にビルドして、バンドルアナライザーレポートを閲覧
@@ -116,7 +127,7 @@ $ yarn build --report
 
 
 ## 支援メンバー
-素晴らしいPR、課題、アイデアをご提供いただきいつもありがとうございます。[参加](https://github.com/epicmaxco/vuestic-admin/blob/master/.github/CONTRIBUTING.md)いただける方を常に受け付けています! 
+素晴らしいPR、課題、アイデアをご提供いただきいつもありがとうございます。[参加](https://github.com/epicmaxco/vuestic-admin/blob/master/.github/CONTRIBUTING.md)いただける方を常に受け付けています!
 
 [![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/0)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/0)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/1)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/1)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/2)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/2)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/3)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/3)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/4)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/4)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/5)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/5)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/6)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/6)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/7)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/7)
 
