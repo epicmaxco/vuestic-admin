@@ -37,7 +37,7 @@
           icon="fa fa-github"
           target="_blank"
         >
-          {{$t('navbar.support')}}
+          {{$t('navbar.repository')}}
         </va-button>
       </div>
       <app-navbar-actions
