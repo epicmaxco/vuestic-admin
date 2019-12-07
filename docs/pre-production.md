@@ -5,7 +5,6 @@
 We have a boierplate prepared with some analytics ingrained. This includes:
 
 * [Yandex Metrica](https://metrica.yandex.com/about)
-* [Drift](https://www.drift.com/mobile-app/)
 
 To get these running - just provide keys to respective apis. You're advised to copy `.env.example` with rename to `.env` then modify it.
 
@@ -45,4 +44,4 @@ You can enable build version, hash commit, and timestamp by build to the main pa
 ```
 VUE_APP_BUILD_VERSION=true
 ```
-This information are excluded by default. 
+This information are excluded by default.
