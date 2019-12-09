@@ -45,12 +45,12 @@ export default {
         outlineThickness: 2,
       }
       this.map.imagesSettings = {
-        color: this.$themes['info'],
-        rollOverColor: this.$themes['info'],
-        selectedColor: this.$themes['primary'],
+        color: this.$themes.info,
+        rollOverColor: this.$themes.info,
+        selectedColor: this.$themes.primary,
       }
       this.map.linesSettings = {
-        color: this.$themes['info'],
+        color: this.$themes.info,
         alpha: 0.4,
       }
       this.addDataToMap()

@@ -7,7 +7,7 @@
             class="my-0 ml-2"
             :style="{ color: this.$themes.dark }"
           >
-            {{ set.name }}
+            {{ iconSet.name }}
           </h2>
           <va-button outline :to="{ name: 'icon-sets' }">
             {{ $t('icons.back') }}
@@ -107,19 +107,21 @@ export default {
     }
   },
   computed: {
-    set () {
+    iconSet () {
       for (const set of this.sets) {
         if (set.href === this.name) return set
       }
+
+      return {}
     },
     filteredLists () {
       if (!this.search) {
         // If nothing is searched - we return all sets
-        return this.set.lists
+        return this.iconSet.lists
       }
 
       const foundIcons = []
-      this.set.lists.forEach(list => {
+      this.iconSet.lists.forEach(list => {
         list.icons.forEach(icon => {
           if (!icon.toUpperCase().includes(this.search.toUpperCase())) {
             return
@@ -141,10 +143,10 @@ export default {
   },
   methods: {
     iconClass (icon) {
-      return this.set.prefix === 'material-icons' ? this.set.prefix : `${this.set.prefix} ${this.set.prefix}-${icon}`
+      return this.iconSet.prefix === 'material-icons' ? this.iconSet.prefix : `${this.iconSet.prefix} ${this.iconSet.prefix}-${icon}`
     },
     iconData (icon) {
-      return this.set.prefix === 'material-icons' ? icon : ''
+      return this.iconSet.prefix === 'material-icons' ? icon : ''
     },
   },
 }

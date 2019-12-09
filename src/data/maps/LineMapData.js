@@ -3,7 +3,7 @@ export const getLineMapData = (themes) => {
   const planeSVG = 'M19.671,8.11l-2.777,2.777l-3.837-0.861c0.362-0.505,0.916-1.683,0.464-2.135c-0.518-0.517-1.979,0.278-2.305,0.604l-0.913,0.913L7.614,8.804l-2.021,2.021l2.232,1.061l-0.082,0.082l1.701,1.701l0.688-0.687l3.164,1.504L9.571,18.21H6.413l-1.137,1.138l3.6,0.948l1.83,1.83l0.947,3.598l1.137-1.137V21.43l3.725-3.725l1.504,3.164l-0.687,0.687l1.702,1.701l0.081-0.081l1.062,2.231l2.02-2.02l-0.604-2.689l0.912-0.912c0.326-0.326,1.121-1.789,0.604-2.306c-0.452-0.452-1.63,0.101-2.135,0.464l-0.861-3.838l2.777-2.777c0.947-0.947,3.599-4.862,2.62-5.839C24.533,4.512,20.618,7.163,19.671,8.11z'
   const london = {
     id: 'london',
-    color: themes['primary'],
+    color: themes.primary,
     svgPath: targetSVG,
     title: 'London',
     country: 'United Kingdom',
@@ -69,17 +69,17 @@ export const getLineMapData = (themes) => {
         svgPath: planeSVG,
         left: 100,
         top: 45,
-        color: themes['info'],
-        labelColor: themes['info'],
-        labelRollOverColor: themes['info'],
+        color: themes.info,
+        labelColor: themes.info,
+        labelRollOverColor: themes.info,
         labelFontSize: 20,
       },
       {
         label: 'show flights from Vilnius',
         left: 110,
         top: 70,
-        labelColor: themes['primary'],
-        labelRollOverColor: themes['info'],
+        labelColor: themes.primary,
+        labelRollOverColor: themes.info,
         labelFontSize: 11,
         linkToObject: 'vilnius',
       },
@@ -87,7 +87,7 @@ export const getLineMapData = (themes) => {
   }
   const vilnius = {
     id: 'vilnius',
-    color: themes['primary'],
+    color: themes.primary,
     svgPath: targetSVG,
     title: 'Vilnius',
     country: 'Lithuania',
@@ -149,17 +149,17 @@ export const getLineMapData = (themes) => {
         svgPath: planeSVG,
         left: 100,
         top: 45,
-        color: themes['info'],
-        labelColor: themes['info'],
-        labelRollOverColor: themes['info'],
+        color: themes.info,
+        labelColor: themes.info,
+        labelRollOverColor: themes.info,
         labelFontSize: 20,
       },
       {
         label: 'show flights from London',
         left: 110,
         top: 70,
-        labelColor: themes['primary'],
-        labelRollOverColor: themes['info'],
+        labelColor: themes.primary,
+        labelRollOverColor: themes.info,
         labelFontSize: 11,
         linkToObject: 'london',
       },
@@ -170,7 +170,7 @@ export const getLineMapData = (themes) => {
     vilnius,
     {
       svgPath: targetSVG,
-      color: themes['info'],
+      color: themes.info,
       title: 'Brussels',
       country: 'Belgium',
       latitude: 50.8371,
@@ -178,7 +178,7 @@ export const getLineMapData = (themes) => {
     },
     {
       svgPath: targetSVG,
-      color: themes['info'],
+      color: themes.info,
       title: 'Prague',
       country: 'Czech Republic',
       latitude: 50.0878,
@@ -186,7 +186,7 @@ export const getLineMapData = (themes) => {
     },
     {
       svgPath: targetSVG,
-      color: themes['info'],
+      color: themes.info,
       title: 'Athens',
       country: 'Greece',
       latitude: 37.9792,
@@ -194,7 +194,7 @@ export const getLineMapData = (themes) => {
     },
     {
       svgPath: targetSVG,
-      color: themes['info'],
+      color: themes.info,
       title: 'Reykjavik',
       country: 'Iceland',
       latitude: 64.1353,
@@ -202,7 +202,7 @@ export const getLineMapData = (themes) => {
     },
     {
       svgPath: targetSVG,
-      color: themes['info'],
+      color: themes.info,
       title: 'Dublin',
       country: 'Ireland',
       latitude: 53.3441,
@@ -210,7 +210,7 @@ export const getLineMapData = (themes) => {
     },
     {
       svgPath: targetSVG,
-      color: themes['info'],
+      color: themes.info,
       title: 'Oslo',
       country: 'Norway',
       latitude: 59.9138,
@@ -218,7 +218,7 @@ export const getLineMapData = (themes) => {
     },
     {
       svgPath: targetSVG,
-      color: themes['info'],
+      color: themes.info,
       title: 'Lisbon',
       country: 'Portugal',
       latitude: 38.7072,
@@ -226,7 +226,7 @@ export const getLineMapData = (themes) => {
     },
     {
       svgPath: targetSVG,
-      color: themes['info'],
+      color: themes.info,
       title: 'Moscow',
       country: 'Russia',
       latitude: 55.7558,
@@ -234,7 +234,7 @@ export const getLineMapData = (themes) => {
     },
     {
       svgPath: targetSVG,
-      color: themes['info'],
+      color: themes.info,
       title: 'Belgrade',
       country: '‎Serbia',
       latitude: 44.8048,
@@ -242,7 +242,7 @@ export const getLineMapData = (themes) => {
     },
     {
       svgPath: targetSVG,
-      color: themes['info'],
+      color: themes.info,
       title: 'Bratislava',
       country: 'Slovakia',
       latitude: 48.2116,
@@ -250,7 +250,7 @@ export const getLineMapData = (themes) => {
     },
     {
       svgPath: targetSVG,
-      color: themes['info'],
+      color: themes.info,
       title: 'Ljubljana',
       country: 'Slovenia',
       latitude: 46.0514,
@@ -258,7 +258,7 @@ export const getLineMapData = (themes) => {
     },
     {
       svgPath: targetSVG,
-      color: themes['info'],
+      color: themes.info,
       title: 'Madrid',
       country: 'Spain',
       latitude: 40.4167,
@@ -266,7 +266,7 @@ export const getLineMapData = (themes) => {
     },
     {
       svgPath: targetSVG,
-      color: themes['info'],
+      color: themes.info,
       title: 'Stockholm',
       country: 'Sweden',
       latitude: 59.3328,
@@ -274,7 +274,7 @@ export const getLineMapData = (themes) => {
     },
     {
       svgPath: targetSVG,
-      color: themes['info'],
+      color: themes.info,
       title: 'Bern',
       country: 'Switzerland',
       latitude: 46.9480,
@@ -282,7 +282,7 @@ export const getLineMapData = (themes) => {
     },
     {
       svgPath: targetSVG,
-      color: themes['info'],
+      color: themes.info,
       title: 'Kiev',
       country: 'Ukraine',
       latitude: 50.4422,
@@ -290,7 +290,7 @@ export const getLineMapData = (themes) => {
     },
     {
       svgPath: targetSVG,
-      color: themes['info'],
+      color: themes.info,
       title: 'Paris',
       country: 'France',
       latitude: 48.8567,
@@ -298,7 +298,7 @@ export const getLineMapData = (themes) => {
     },
     {
       svgPath: targetSVG,
-      color: themes['info'],
+      color: themes.info,
       title: 'New York',
       country: 'United States of America',
       latitude: 40.43,

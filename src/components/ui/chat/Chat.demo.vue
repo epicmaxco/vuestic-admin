@@ -1,9 +1,9 @@
 <template>
-    <VbDemo>
-      <VbCard>
-        <chat v-model="chatMessages"/>
-      </VbCard>
-    </VbDemo>
+  <VbDemo>
+    <VbCard>
+      <chat v-model="chatMessages"/>
+    </VbCard>
+  </VbDemo>
 </template>
 
 <script>

@@ -95,8 +95,8 @@ export default {
   },
   methods: {
     restoreDefaultTheme () {
-      for (const i in themeCache) {
-        this.$themes[i] = themeCache[i]
+      for (const theme in themeCache) {
+        this.$themes[theme] = themeCache[theme]
       }
     },
   },
@@ -104,11 +104,9 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~vuestic-ui/src/components/vuestic-sass/resources/resources';
 
 .color-dropdown {
   cursor: pointer;
-  margin-top: 0.3rem;
 
   &__icon {
     position: relative;

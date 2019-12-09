@@ -70,7 +70,6 @@ export default {
 
 .language-dropdown {
   cursor: pointer;
-  margin-top: 0.3rem;
 
   &__content {
     background-color: $dropdown-background;

@@ -85,9 +85,9 @@ export default {
 </script>
 
 <style lang="scss">
+
 .notification-dropdown {
   cursor: pointer;
-  margin-top: 0.3rem;
 
   .notification-dropdown__icon {
     position: relative;

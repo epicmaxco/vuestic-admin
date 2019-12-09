@@ -55,6 +55,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 .profile-dropdown {
   cursor: pointer;
 

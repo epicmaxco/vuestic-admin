@@ -3,21 +3,22 @@
     class="app-navbar"
     :style="navbarStyle"
   >
-    <div class="app-navbar__icon-container">
-      <span
-        class="app-navbar__menu"
-        :class="`i-menu-${minimized ? 'collapsed' : 'expanded'}`"
-        @click="$emit('update:minimized', !minimized)"
-      ></span>
-    </div>
-
     <div class="app-navbar__content row">
-      <router-link
-        class="app-navbar__logo mr-3"
-        to="/"
-      >
-        <va-icon-vuestic/>
-      </router-link>
+      <div class="app-navbar__menu-container">
+        <span
+          class="app-navbar__menu"
+          v-if="!isTopBar"
+          :class="`i-menu-${minimized ? 'collapsed' : 'expanded'}`"
+          @click="$emit('update:minimized', !minimized)"
+        ></span>
+
+        <router-link
+          class="app-navbar__logo mr-3"
+          to="/"
+        >
+          <va-icon-vuestic/>
+        </router-link>
+      </div>
       <div class="app-navbar__center lg5 md4">
         <span class="app-navbar__text">
           {{$t('navbar.messageUs')}}&nbsp;
@@ -43,6 +44,7 @@
       <app-navbar-actions
         class="app-navbar__actions md5 lg4"
         :user-name="userName"
+        :is-top-bar.sync="isTopBarProxy"
       />
     </div>
     <div
@@ -64,6 +66,10 @@ export default {
     AppNavbarActions,
   },
   props: {
+    isTopBar: {
+      type: Boolean,
+      required: true,
+    },
     minimized: {
       type: Boolean,
       required: true,
@@ -75,6 +81,22 @@ export default {
     }
   },
   computed: {
+    isTopBarProxy: {
+      get () {
+        return this.isTopBar
+      },
+      set (isTopBar) {
+        this.$emit('update:isTopBar', isTopBar)
+      },
+    },
+    minimizedProxy: {
+      get () {
+        return this.minimized
+      },
+      set (minimized) {
+        this.$emit('update:minimized', minimized)
+      },
+    },
     navbarStyle () {
       return {
         backgroundColor: colorShiftHsl(this.$themes.secondary, { s: -13, l: 15 }).css,
@@ -91,34 +113,21 @@ export default {
 </script>
 
 <style lang="scss">
-$top-nav-height: 4.0625rem;
 $nav-border-side-width: 3.1875rem;
-$lighter-gray: #dddddd;
-$font-size-base: 1rem !default;
 
 .app-navbar {
   transition: background-color 0.3s ease; /* sidebar's bg color transitions as well -> consistency */
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 990;
-  height: $top-nav-height;
   display: flex;
-  padding: 1rem 2rem 1rem 1rem;
-
-  &__menu {
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  padding: 1rem 1rem;
 
   &__content {
     z-index: 1;
     align-items: center;
     justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
     height: 100%;
+    flex: 1 1 auto;
   }
 
   &__center {
@@ -133,7 +142,7 @@ $font-size-base: 1rem !default;
   }
 
   &__button {
-    width: 10.8125rem;
+    width: 10rem;
     margin: 0 0 0 1rem !important;
     font-weight: bold;
 
@@ -142,16 +151,24 @@ $font-size-base: 1rem !default;
     }
   }
 
-  &__icon-container {
-    font-size: $font-size-base;
+  &__menu {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1 rem;
     padding: 0.3rem 0;
-    position: absolute;
-    z-index: 10;
+    margin-right: 1.5rem;
+  }
+
+  &__menu-container {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 1.5rem;
   }
 
   &__logo {
     width: 9.5rem;
-    margin-left: 2.5rem;
     height: auto;
     align-items: center;
 
@@ -181,7 +198,7 @@ $font-size-base: 1rem !default;
     right: 0;
     top: 0;
     margin: auto;
-    border-top: $top-nav-height solid transparent;
+    border-top: 4.215rem solid transparent; // hardcoded size
     border-left: $nav-border-side-width solid transparent;
     border-right: $nav-border-side-width solid transparent;
     height: 0;
@@ -200,9 +217,6 @@ $font-size-base: 1rem !default;
   }
 
   @include media-breakpoint-down(sm) {
-    height: $top-mobile-nav-height;
-    padding: 1rem;
-
     &__content {
       align-items: flex-end;
     }

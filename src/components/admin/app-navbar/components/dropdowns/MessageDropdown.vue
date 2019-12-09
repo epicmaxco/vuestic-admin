@@ -69,9 +69,9 @@ export default {
 </script>
 
 <style lang="scss">
+
 .message-dropdown {
   cursor: pointer;
-  margin-top: 0.3rem;
 
   .message-dropdown__icon {
     position: relative;

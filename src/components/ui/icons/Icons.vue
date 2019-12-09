@@ -23,9 +23,9 @@ export default {
   name: 'icons',
   computed: {
     sets () {
-      let sets = []
+      const sets = []
       iconTypes.forEach(iconType => {
-        let set = require('./sets/' + iconType + '.json')
+        const set = require('./sets/' + iconType + '.json')
         this.addFilteredListsTo(set)
         sets.push(set)
       })

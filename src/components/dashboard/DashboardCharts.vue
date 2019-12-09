@@ -72,7 +72,7 @@ export default {
       this.$refs.lineChart.$refs.chart.refresh()
     },
     printChart () {
-      let win = window.open('', 'Print', 'height=600,width=800')
+      const win = window.open('', 'Print', 'height=600,width=800')
       win.document.write(`<br><img src='${this.donutChartDataURL}'/>`)
       // TODO: find better solution how to remove timeout
       setTimeout(() => {

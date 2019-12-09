@@ -1,41 +1,59 @@
 <template>
-  <va-page-layout
-    @toggleSidebar="toggleSidebar"
-    :mobileWidth="mobileWidth"
+  <app-page-layout
+    class="app-layout"
+    :is-top-bar.sync="isTopBar"
+    :minimized.sync="minimized"
+    :mobile-width="mobileWidth"
   >
     <app-navbar
+      class="app-layout__navbar"
+      :is-top-bar.sync="isTopBar"
       :minimized.sync="minimized"
     />
-    <app-sidebar
-      :minimized="minimized"
+    <app-topbar
+      class="app-layout__topbar"
+      v-if="isTopBar"
     />
-    <main
-      slot="content"
-      id="content"
-      class="layout gutter--xl fluid"
-      :class="{'app-layout__main--full-width-sidebar': !minimized}"
-      role="main"
-    >
-      <router-view/>
-    </main>
-  </va-page-layout>
+    <div class="app-layout__container">
+      <app-sidebar
+        class="app-layout__sidebar"
+        v-if="!isTopBar"
+        :minimized="minimized"
+      />
+      <div
+        class="app-layout__main"
+        :class="{'app-layout__main--top': isTopBar}"
+      >
+        <main
+          class="app-layout__main-layout layout fluid gutter--xl"
+          slot="content"
+          role="main"
+        >
+          <router-view/>
+        </main>
+      </div>
+    </div>
+  </app-page-layout>
 </template>
 
 <script>
-import VaPageLayout from './VaPageLayout'
+import AppPageLayout from './AppPageLayout'
 import AppNavbar from './app-navbar/AppNavbar'
+import AppTopbar from './app-topbar/AppTopbar'
 import AppSidebar from './app-sidebar/AppSidebar'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'app-layout',
   components: {
-    VaPageLayout,
+    AppPageLayout,
     AppNavbar,
+    AppTopbar,
     AppSidebar,
   },
   data () {
     return {
+      isTopBar: false,
       minimized: false,
       mobileWidth: 767,
     }
@@ -45,22 +63,49 @@ export default {
       'isLoading',
     ]),
   },
-  methods: {
-    toggleSidebar (minimized) {
-      this.minimized = minimized
-    },
-  },
 }
 </script>
 
 <style lang="scss">
-  .app-layout {
-    &__main {
-      &--full-width-sidebar {
-        @include media-breakpoint-down(xs) {
-          display: none;
-        }
-      }
+
+.app-layout {
+  display: flex;
+  flex-direction: column;
+
+  &__container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    height: 100%;
+  }
+
+  &__sidebar {
+  }
+
+  &__main {
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+    max-height: 100%;
+    min-height: 100%;
+
+    &--top {
+    }
+
+    &-layout {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      overflow: auto;
+      box-sizing: border-box;
+      min-height: 100%;
+      margin: 0;
     }
   }
+
+  &__topbar {
+  }
+}
 </style>
