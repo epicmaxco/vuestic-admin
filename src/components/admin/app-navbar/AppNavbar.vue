@@ -114,8 +114,6 @@ export default {
 
 <style lang="scss">
 $nav-border-side-width: 3.1875rem;
-$lighter-gray: #dddddd;
-$font-size-base: 1rem !default;
 
 .app-navbar {
   transition: background-color 0.3s ease; /* sidebar's bg color transitions as well -> consistency */
@@ -158,7 +156,7 @@ $font-size-base: 1rem !default;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: $font-size-base;
+    font-size: 1 rem;
     padding: 0.3rem 0;
     margin-right: 1.5rem;
   }

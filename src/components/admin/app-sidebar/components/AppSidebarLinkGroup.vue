@@ -137,6 +137,7 @@ export default {
 .app-sidebar-link-group {
   flex-direction: column;
   position: relative;
+  display: flex;
 
   &__submenu {
     list-style: none;

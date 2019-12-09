@@ -89,13 +89,7 @@ export default {
 .app-sidebar {
   overflow: auto;
   display: flex;
-  flex: 300px;
   max-height: 100%;
-  transition: background-color 0.3s ease;
-
-  &--minimized {
-    flex: auto;
-  }
 
   &__menu {
     margin-bottom: 0;
