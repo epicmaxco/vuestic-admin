@@ -146,14 +146,19 @@
 
 <script>
 import { colorArray } from '../../../../../services/vuestic-ui/components'
+import { ColorThemeActionsMixin } from '../../../../../services/vuestic-ui'
 
 const themeCache = {}
 
 export default {
+  mixins: [ColorThemeActionsMixin],
   data () {
     const proxyHandler = {
       set: function (target, property, value) {
-        if (!themeCache[property] && typeof target[property] === 'string') themeCache[property] = target[property]
+        if (!themeCache[property] && typeof target[property] === 'string') {
+          themeCache[property] = target[property]
+        }
+
         target[property] = value
 
         return true
@@ -161,7 +166,7 @@ export default {
     }
 
     return {
-      mode: 0,
+      mode: 'default',
       palette: colorArray,
       themeProxy: new Proxy(this.$themes, proxyHandler),
     }
@@ -169,12 +174,17 @@ export default {
   computed: {
     modeOptions () {
       return [{
-        value: 0,
+        value: 'default',
         label: 'Original',
       }, {
-        value: 1,
+        value: 'corporate',
         label: 'Corporate',
       }]
+    },
+  },
+  watch: {
+    mode (themeName) {
+      this.setTheme(themeName)
     },
   },
   methods: {

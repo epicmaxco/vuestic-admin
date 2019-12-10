@@ -28,13 +28,34 @@ Vue.use(YmapPlugin)
 Vue.use(VueClipboard)
 
 Vue.use(ColorThemePlugin,
-  {
+  [{
     // Add or change theme colors here
+    name: 'default',
     themes: {
-      // primary: '#f06595',
-      // blurple: '#7289DA',
+      primary: '#40e583',
+      secondary: '#002c85',
+      success: '#40e583',
+      info: '#2c82e0',
+      danger: '#e34b4a',
+      warning: '#ffc200',
+      gray: '#babfc2',
+      dark: '#34495e',
     },
-  })
+  },
+  {
+    name: 'corporate',
+    themes: {
+      primary: '#6E85E8',
+      secondary: '#8396A5',
+      success: '#8FDB8B',
+      info: '#74BBFF',
+      danger: '#F67170',
+      warning: '#FFD55E',
+      gray: '#babfc2',
+      dark: '#34495E',
+    },
+  }],
+)
 
 router.beforeEach((to, from, next) => {
   store.commit('setLoading', true)
