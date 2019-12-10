@@ -18,62 +18,126 @@
         style="max-width: 100%;"
       />
       <va-dropdown class="color-picker-dropdown mt-1 mb-1">
-        <va-badge class="color-picker-dropdown__badge" color="primary" slot="anchor">
+        <va-badge
+          class="color-picker-dropdown__badge"
+          color="primary"
+          slot="anchor"
+        >
           Primary
         </va-badge>
-        <va-advanced-color-picker class="my-1" v-model="themeProxy.primary" :value="themeProxy.primary"/>
+        <va-advanced-color-picker
+          class="my-1"
+          v-model="themeProxy.primary"
+          :value="themeProxy.primary"
+        />
       </va-dropdown>
 
       <va-dropdown class="color-picker-dropdown mt-1 mb-1">
-        <va-badge class="color-picker-dropdown__badge" color="secondary" slot="anchor">
+        <va-badge
+          class="color-picker-dropdown__badge"
+          color="secondary"
+          slot="anchor"
+        >
           Secondary
         </va-badge>
-        <va-advanced-color-picker class="my-1" v-model="themeProxy.secondary" :value="themeProxy.secondary"/>
+        <va-advanced-color-picker
+          class="my-1"
+          v-model="themeProxy.secondary"
+          :value="themeProxy.secondary"
+        />
       </va-dropdown>
 
       <va-dropdown class="color-picker-dropdown mt-1 mb-1">
-        <va-badge class="color-picker-dropdown__badge" color="success" slot="anchor">
+        <va-badge
+          class="color-picker-dropdown__badge"
+          color="success"
+          slot="anchor"
+        >
           Success
         </va-badge>
-        <va-advanced-color-picker class="my-1" v-model="themeProxy.success" :value="themeProxy.success"/>
+        <va-advanced-color-picker
+          class="my-1"
+          v-model="themeProxy.success"
+          :value="themeProxy.success"
+        />
       </va-dropdown>
 
       <va-dropdown class="color-picker-dropdown mt-1 mb-1">
-        <va-badge class="color-picker-dropdown__badge" color="info" slot="anchor">
+        <va-badge
+          class="color-picker-dropdown__badge"
+          color="info"
+          slot="anchor"
+        >
           Info
         </va-badge>
-        <va-advanced-color-picker class="my-1" v-model="themeProxy.info" :value="themeProxy.info"/>
+        <va-advanced-color-picker
+          class="my-1"
+          v-model="themeProxy.info"
+          :value="themeProxy.info"
+        />
       </va-dropdown>
 
       <va-dropdown class="color-picker-dropdown mt-1 mb-1">
-        <va-badge class="color-picker-dropdown__badge" color="danger" slot="anchor">
+        <va-badge
+          class="color-picker-dropdown__badge"
+          color="danger"
+          slot="anchor"
+        >
           Danger
         </va-badge>
-        <va-advanced-color-picker class="my-1" v-model="themeProxy.danger" :value="themeProxy.danger"/>
+        <va-advanced-color-picker
+          class="my-1"
+          v-model="themeProxy.danger"
+          :value="themeProxy.danger"
+        />
       </va-dropdown>
 
       <va-dropdown class="color-picker-dropdown mt-1 mb-1">
-        <va-badge class="color-picker-dropdown__badge" color="warning" slot="anchor">
+        <va-badge
+          class="color-picker-dropdown__badge"
+          color="warning"
+          slot="anchor"
+        >
           Warning
         </va-badge>
-        <va-advanced-color-picker class="my-1" v-model="themeProxy.warning" :value="themeProxy.warning"/>
+        <va-advanced-color-picker
+          class="my-1"
+          v-model="themeProxy.warning"
+          :value="themeProxy.warning"
+        />
       </va-dropdown>
 
       <va-dropdown class="color-picker-dropdown mt-1 mb-1">
-        <va-badge class="color-picker-dropdown__badge" color="gray" slot="anchor">
+        <va-badge
+          class="color-picker-dropdown__badge"
+          color="gray"
+          slot="anchor"
+        >
           Gray
         </va-badge>
-        <va-advanced-color-picker class="my-1" v-model="themeProxy.gray" :value="themeProxy.gray"/>
+        <va-advanced-color-picker
+          class="my-1"
+          v-model="themeProxy.gray"
+          :value="themeProxy.gray"
+        />
       </va-dropdown>
 
       <va-dropdown class="color-picker-dropdown mt-1 mb-1">
-        <va-badge class="color-picker-dropdown__badge" color="dark" slot="anchor">
+        <va-badge
+          class="color-picker-dropdown__badge"
+          color="dark"
+          slot="anchor"
+        >
           Dark
         </va-badge>
-        <va-advanced-color-picker class="my-1" v-model="themeProxy.dark" :value="themeProxy.dark"/>
+        <va-advanced-color-picker
+          class="my-1"
+          v-model="themeProxy.dark"
+          :value="themeProxy.dark"
+        />
       </va-dropdown>
 
-      <va-button outline small color="gray" icon="entypo entypo-arrows-ccw" @click="restoreDefaultTheme">
+      <va-button class="button-restore" outline small color="gray" icon="entypo entypo-arrows-ccw" @click="restoreDefaultTheme">
         Restore Defaults
       </va-button>
     </div>
@@ -154,5 +218,10 @@ export default {
   .va-dropdown__anchor {
     display: inline-block;
   }
+}
+
+.button-restore {
+  display: flex;
+  margin: 0.375rem auto;
 }
 </style>
