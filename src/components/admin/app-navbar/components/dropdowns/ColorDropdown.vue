@@ -9,10 +9,14 @@
       class="color-dropdown__icon"
     />
     <div class="color-dropdown__content pl-4 pr-4 pt-2 pb-2">
-      <va-button small color="primary" v-on:click="restoreDefaultTheme">
-        Default theme
-      </va-button>
-
+      <va-button-toggle
+        outline
+        small
+        color="gray"
+        v-model="mode"
+        :options="modeOptions"
+        style="max-width: 100%;"
+      />
       <va-dropdown class="color-picker-dropdown mt-1 mb-1">
         <va-badge class="color-picker-dropdown__badge" color="primary" slot="anchor">
           Primary
@@ -68,6 +72,10 @@
         </va-badge>
         <va-advanced-color-picker class="my-1" v-model="themeProxy.dark" :value="themeProxy.dark"/>
       </va-dropdown>
+
+      <va-button outline small color="gray" icon="entypo entypo-arrows-ccw" @click="restoreDefaultTheme">
+        Restore Defaults
+      </va-button>
     </div>
   </va-dropdown>
 </template>
@@ -89,11 +97,24 @@ export default {
     }
 
     return {
+      mode: 0,
       palette: colorArray,
       themeProxy: new Proxy(this.$themes, proxyHandler),
     }
   },
+  computed: {
+    modeOptions () {
+      return [{
+        value: 0,
+        label: 'Original',
+      }, {
+        value: 1,
+        label: 'Corporate',
+      }]
+    },
+  },
   methods: {
+    /* use setTheme() method in future */
     restoreDefaultTheme () {
       for (const theme in themeCache) {
         this.$themes[theme] = themeCache[theme]
