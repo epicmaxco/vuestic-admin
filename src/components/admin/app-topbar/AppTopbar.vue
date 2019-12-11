@@ -58,6 +58,12 @@ export default {
   },
   computed: {
     computedStyles () {
+      if (!this.isDefaultColorTheme) {
+        return {
+          backgroundColor: 'white',
+        }
+      }
+
       return {
         backgroundColor: this.$themes.secondary,
       }
