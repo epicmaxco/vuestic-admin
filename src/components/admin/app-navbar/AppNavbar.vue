@@ -21,7 +21,10 @@
         </router-link>
       </div>
       <div class="app-navbar__center lg5 md4">
-        <span class="app-navbar__text">
+        <span
+          class="app-navbar__text"
+          :style="{color: this.$themes.gray}"
+        >
           {{$t('navbar.messageUs')}}&nbsp;
           <a
             href="mailto:hello@epicmax.co"
