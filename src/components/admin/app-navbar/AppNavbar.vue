@@ -107,6 +107,7 @@ export default {
 
       return {
         backgroundColor: 'white',
+        boxShadow: !this.isTopBar ? '0 2px 3px 0 rgba(52, 56, 85, 0.25)' : null,
       }
     },
 
@@ -132,6 +133,7 @@ $nav-border-side-width: 3.1875rem;
   transition: background-color 0.3s ease; /* sidebar's bg color transitions as well -> consistency */
   display: flex;
   padding: 1rem 1rem;
+  z-index: 1;
 
   &__content {
     z-index: 1;

@@ -61,6 +61,7 @@ export default {
       if (!this.isDefaultColorTheme) {
         return {
           backgroundColor: 'white',
+          boxShadow: '0 2px 3px 0 rgba(52, 56, 85, 0.25)',
         }
       }
 
