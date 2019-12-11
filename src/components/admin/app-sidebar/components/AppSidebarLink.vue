@@ -85,6 +85,20 @@ export default {
       }
     },
     computedLinkStyles () {
+      if (!this.isDefaultColorTheme) {
+        if (this.isHovered || this.isActive) {
+          return {
+            color: 'white',
+            backgroundColor: this.$themes.primary,
+            borderColor: colorShiftHsl(this.$themes.primary, { s: 13, l: -15 }).css,
+          }
+        }
+
+        return {
+          color: this.$themes.gray,
+        }
+      }
+
       if (this.isHovered || this.isActive) {
         return {
           color: this.$themes.primary,
@@ -92,11 +106,30 @@ export default {
           borderColor: this.isActive ? this.$themes.primary : 'transparent',
         }
       }
+
       return null
     },
     computedIconStyles () {
+      if (!this.isDefaultColorTheme) {
+        if (this.isHovered || this.isActive) {
+          return {
+            color: 'white',
+          }
+        }
+
+        return {
+          color: this.$themes.gray,
+        }
+      }
+
+      if (this.isHovered || this.isActive) {
+        return {
+          color: this.$themes.primary,
+        }
+      }
+
       return {
-        color: (this.isHovered || this.isActive) ? this.$themes.primary : 'white',
+        color: 'white',
       }
     },
   },

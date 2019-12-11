@@ -26,7 +26,7 @@
           v-else
           :key="key"
           :minimized="minimized"
-          :activeByDefault="item.name === $route.name"
+          :active-by-default="item.name === $route.name"
           :icon="item.meta && item.meta.iconClass"
           :to="{ name: item.name }"
           :title="$t(item.displayName)"
@@ -71,8 +71,14 @@ export default {
       }
     },
     computedStyle () {
+      if (this.isDefaultColorTheme) {
+        return {
+          backgroundColor: this.colorComputed,
+        }
+      }
+
       return {
-        backgroundColor: this.colorComputed,
+        backgroundColor: 'white',
       }
     },
   },
