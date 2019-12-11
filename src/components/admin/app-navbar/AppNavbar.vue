@@ -16,7 +16,8 @@
           class="app-navbar__logo mr-3"
           to="/"
         >
-          <va-icon-vuestic/>
+          <va-icon-vuestic v-if="isDefaultColorTheme"/>
+          <va-icon-vuestic-toned v-else />
         </router-link>
       </div>
       <div class="app-navbar__center lg5 md4">
@@ -56,6 +57,7 @@
 
 <script>
 import VaIconVuestic from '../../../iconset/VaIconVuestic'
+import VaIconVuesticToned from '../../../iconset/VaIconVuesticToned'
 import AppNavbarActions from './components/AppNavbarActions'
 import { colorShiftHsl, ColorThemeMixin } from '../../../services/vuestic-ui'
 
@@ -64,6 +66,7 @@ export default {
   mixins: [ColorThemeMixin],
   components: {
     VaIconVuestic,
+    VaIconVuesticToned,
     AppNavbarActions,
   },
   props: {
