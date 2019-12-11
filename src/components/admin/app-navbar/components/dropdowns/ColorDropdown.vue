@@ -12,7 +12,7 @@
       <va-button-toggle
         outline
         small
-        color="gray"
+        color="dark"
         v-model="mode"
         :options="modeOptions"
         style="max-width: 100%;"
@@ -137,7 +137,14 @@
         />
       </va-dropdown>
 
-      <va-button class="button-restore" outline small color="gray" icon="entypo entypo-arrows-ccw" @click="restoreDefaultTheme">
+      <va-button
+        class="button-restore"
+        outline
+        small
+        :color="computedColorButtonRestore"
+        icon="entypo entypo-arrows-ccw"
+        @click="restoreDefaultTheme"
+      >
         Restore Defaults
       </va-button>
     </div>
@@ -147,16 +154,18 @@
 <script>
 import { colorArray } from '../../../../../services/vuestic-ui/components'
 import { ColorThemeActionsMixin } from '../../../../../services/vuestic-ui'
-
-const themeCache = {}
+import cloneDeep from 'lodash/cloneDeep'
 
 export default {
   mixins: [ColorThemeActionsMixin],
+  created () {
+    this.themeCache = cloneDeep(this.$themesOptions.themesList)
+  },
   data () {
     const proxyHandler = {
-      set: function (target, property, value) {
-        if (!themeCache[property] && typeof target[property] === 'string') {
-          themeCache[property] = target[property]
+      set: (target, property, value) => {
+        if (!this.isChangeColor) {
+          this.isChangeColor = true
         }
 
         target[property] = value
@@ -168,6 +177,7 @@ export default {
     return {
       mode: 'default',
       palette: colorArray,
+      isChangeColor: false,
       themeProxy: new Proxy(this.$themes, proxyHandler),
     }
   },
@@ -181,6 +191,9 @@ export default {
         label: 'Corporate',
       }]
     },
+    computedColorButtonRestore () {
+      return !this.isChangeColor ? this.$themes.gray : this.$themes.dark
+    },
   },
   watch: {
     mode (themeName) {
@@ -188,11 +201,13 @@ export default {
     },
   },
   methods: {
-    /* use setTheme() method in future */
     restoreDefaultTheme () {
-      for (const theme in themeCache) {
-        this.$themes[theme] = themeCache[theme]
-      }
+      this.isChangeColor = false
+      const themeCacheColors = this.themeCache[this.$themesOptions.activeThemeName]
+
+      Object.keys(themeCacheColors).forEach((color) => {
+        this.$themes[color] = themeCacheColors[color]
+      })
     },
   },
 }

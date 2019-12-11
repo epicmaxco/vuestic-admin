@@ -57,10 +57,11 @@
 <script>
 import VaIconVuestic from '../../../iconset/VaIconVuestic'
 import AppNavbarActions from './components/AppNavbarActions'
-import { colorShiftHsl } from '../../../services/vuestic-ui'
+import { colorShiftHsl, ColorThemeMixin } from '../../../services/vuestic-ui'
 
 export default {
   name: 'app-navbar',
+  mixins: [ColorThemeMixin],
   components: {
     VaIconVuestic,
     AppNavbarActions,
@@ -98,14 +99,26 @@ export default {
       },
     },
     navbarStyle () {
+      if (this.isDefaultColorTheme) {
+        return {
+          backgroundColor: colorShiftHsl(this.$themes.secondary, { s: -13, l: 15 }).css,
+        }
+      }
+
       return {
-        backgroundColor: colorShiftHsl(this.$themes.secondary, { s: -13, l: 15 }).css,
+        backgroundColor: 'white',
       }
     },
 
     shapeStyle () {
+      if (this.isDefaultColorTheme) {
+        return {
+          borderTopColor: colorShiftHsl(this.$themes.secondary, { h: -1, s: -11, l: 10 }).css,
+        }
+      }
+
       return {
-        borderTopColor: colorShiftHsl(this.$themes.secondary, { h: -1, s: -11, l: 10 }).css,
+        borderTopColor: 'transparent',
       }
     },
   },
