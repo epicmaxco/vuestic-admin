@@ -90,19 +90,13 @@
 </template>
 
 <script>
-import VaColorPresentation
-  from 'vuestic-ui/src/components/vuestic-components/va-color-presentation/VaColorPresentation'
 import {
   themeColors,
   extraColors,
   buttonGradients,
-} from 'vuestic-ui/src/components/vuestic-components/va-color-presentation/colorsData'
+} from '../../../services/vuestic-ui/components'
 
 export default {
-  components: {
-    VaColorPresentation,
-  },
-
   data () {
     return {
       themeColors,
