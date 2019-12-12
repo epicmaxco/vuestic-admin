@@ -15,6 +15,7 @@ import VueClipboard from 'vue-clipboard2'
 
 import '../metrics'
 import '../registerServiceWorker'
+import { AvailableColorThemes } from '../services/themes-config'
 
 if (process.env.VUE_APP_BUILD_VERSION) {
   console.info( // eslint-disable-next-line no-undef
@@ -27,35 +28,7 @@ Vue.use(VuesticPlugin)
 Vue.use(YmapPlugin)
 Vue.use(VueClipboard)
 
-Vue.use(ColorThemePlugin,
-  [{
-    // Add or change theme colors here
-    name: 'default',
-    themes: {
-      primary: '#40e583',
-      secondary: '#002c85',
-      success: '#40e583',
-      info: '#2c82e0',
-      danger: '#e34b4a',
-      warning: '#ffc200',
-      gray: '#babfc2',
-      dark: '#34495e',
-    },
-  },
-  {
-    name: 'corporate',
-    themes: {
-      primary: '#6c7fee',
-      secondary: '#6e7ff1',
-      success: '#8ddc88',
-      info: '#71baff',
-      danger: '#f8706d',
-      warning: '#ffd652',
-      gray: '#8396a5',
-      dark: '#34495e',
-    },
-  }],
-)
+Vue.use(ColorThemePlugin, AvailableColorThemes)
 
 router.beforeEach((to, from, next) => {
   store.commit('setLoading', true)

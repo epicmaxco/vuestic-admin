@@ -13,7 +13,7 @@
         outline
         small
         color="dark"
-        v-model="mode"
+        v-model="themeType"
         :options="modeOptions"
         style="max-width: 100%;"
       />
@@ -141,9 +141,10 @@
         class="button-restore"
         outline
         small
-        :color="computedColorButtonRestore"
+        :color="$themes.dark"
         icon="entypo entypo-arrows-ccw"
         @click="restoreDefaultTheme"
+        :disabled="!isChangeTheme"
       >
         Restore Defaults
       </va-button>
@@ -154,18 +155,19 @@
 <script>
 import { colorArray } from '../../../../../services/vuestic-ui/components'
 import { ColorThemeActionsMixin } from '../../../../../services/vuestic-ui'
+import { ColorThemeOptions } from '../../../../../services/themes-config'
 import cloneDeep from 'lodash/cloneDeep'
 
 export default {
   mixins: [ColorThemeActionsMixin],
   created () {
-    this.themeCache = cloneDeep(this.$themesOptions.themesList)
+    this.updateThemeCache()
   },
   data () {
     const proxyHandler = {
       set: (target, property, value) => {
-        if (!this.isChangeColor) {
-          this.isChangeColor = true
+        if (!this.isChangeTheme) {
+          this.isChangeTheme = true
         }
 
         target[property] = value
@@ -174,40 +176,38 @@ export default {
       },
     }
 
+    const defaultThemeName = this.$themesOptions.defaultThemeName
+
     return {
-      mode: 'default',
+      themeType: defaultThemeName,
       palette: colorArray,
-      isChangeColor: false,
+      isChangeTheme: false,
       themeProxy: new Proxy(this.$themes, proxyHandler),
     }
   },
   computed: {
     modeOptions () {
-      return [{
-        value: 'default',
-        label: 'Original',
-      }, {
-        value: 'corporate',
-        label: 'Corporate',
-      }]
-    },
-    computedColorButtonRestore () {
-      return !this.isChangeColor ? this.$themes.gray : this.$themes.dark
+      return ColorThemeOptions
     },
   },
   watch: {
-    mode (themeName) {
+    themeType (themeName) {
       this.setTheme(themeName)
+
+      this.updateThemeCache()
     },
   },
   methods: {
     restoreDefaultTheme () {
-      this.isChangeColor = false
-      const themeCacheColors = this.themeCache[this.$themesOptions.activeThemeName]
-
-      Object.keys(themeCacheColors).forEach((color) => {
-        this.$themes[color] = themeCacheColors[color]
+      Object.keys(this.themeCache).forEach((color) => {
+        this.$themes[color] = this.themeCache[color]
       })
+
+      this.isChangeTheme = false
+    },
+    updateThemeCache () {
+      this.themeCache = cloneDeep(this.$themes)
+      this.isChangeTheme = false
     },
   },
 }
