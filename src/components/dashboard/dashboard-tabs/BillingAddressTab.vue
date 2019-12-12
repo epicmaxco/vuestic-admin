@@ -57,11 +57,9 @@
 <script>
 import countriesList from '@/data/CountriesList'
 import { getLineMapData } from '../../../data/maps/LineMapData'
-import VaSelect from 'vuestic-ui/src/components/vuestic-components/va-select/VaSelect'
 
 export default {
   name: 'billing-address-tab',
-  components: { VaSelect },
   data () {
     return {
       form: {
