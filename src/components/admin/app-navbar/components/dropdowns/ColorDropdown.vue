@@ -3,10 +3,10 @@
     class="color-dropdown"
     offset="0, 13px"
   >
-    <va-icon
-      name="i-nav-color"
+    <va-icon-color
       slot="anchor"
       class="color-dropdown__icon"
+      :color="isDefaultColorTheme ? 'white' : $themes.gray"
     />
     <div class="color-dropdown__content pl-4 pr-4 pt-2 pb-2">
       <va-button-toggle
@@ -154,12 +154,16 @@
 
 <script>
 import { colorArray } from '../../../../../services/vuestic-ui/components'
-import { ColorThemeActionsMixin } from '../../../../../services/vuestic-ui'
+import { ColorThemeActionsMixin, ColorThemeMixin } from '../../../../../services/vuestic-ui'
 import { ColorThemeOptions } from '../../../../../services/themes-config'
+import VaIconColor from '../../../../../iconset/VaIconColor'
 import cloneDeep from 'lodash/cloneDeep'
 
 export default {
-  mixins: [ColorThemeActionsMixin],
+  mixins: [ColorThemeActionsMixin, ColorThemeMixin],
+  components: {
+    VaIconColor,
+  },
   created () {
     this.updateThemeCache()
   },

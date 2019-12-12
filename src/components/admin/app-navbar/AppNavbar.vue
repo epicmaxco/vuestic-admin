@@ -5,12 +5,19 @@
   >
     <div class="app-navbar__content row">
       <div class="app-navbar__menu-container">
-        <span
+        <va-icon-menu
           class="app-navbar__menu"
-          v-if="!isTopBar"
-          :class="`i-menu-${minimized ? 'collapsed' : 'expanded'}`"
-          @click="$emit('update:minimized', !minimized)"
-        ></span>
+          v-if="!minimized && !isTopBar"
+          @click.native="$emit('update:minimized', !minimized)"
+          :color="isDefaultColorTheme ? 'white' : $themes.gray"
+        ></va-icon-menu>
+
+        <va-icon-menu-collapsed
+          class="app-navbar__menu"
+          v-if="minimized && !isTopBar"
+          @click.native="$emit('update:minimized', !minimized)"
+          :color="isDefaultColorTheme ? 'white' : $themes.gray"
+        ></va-icon-menu-collapsed>
 
         <router-link
           class="app-navbar__logo mr-3"
@@ -61,6 +68,8 @@
 <script>
 import VaIconVuestic from '../../../iconset/VaIconVuestic'
 import VaIconVuesticToned from '../../../iconset/VaIconVuesticToned'
+import VaIconMenu from '../../../iconset/VaIconMenu'
+import VaIconMenuCollapsed from '../../../iconset/VaIconMenuCollapsed'
 import AppNavbarActions from './components/AppNavbarActions'
 import { colorShiftHsl, ColorThemeMixin } from '../../../services/vuestic-ui'
 
@@ -70,6 +79,8 @@ export default {
   components: {
     VaIconVuestic,
     VaIconVuesticToned,
+    VaIconMenu,
+    VaIconMenuCollapsed,
     AppNavbarActions,
   },
   props: {
@@ -128,6 +139,17 @@ export default {
         borderTopColor: 'transparent',
       }
     },
+    iconMenuStyleComputed () {
+      if (this.isDefaultColorTheme) {
+        return {
+          color: 'white',
+        }
+      }
+
+      return {
+        color: this.$themes.gray,
+      }
+    },
   },
 }
 </script>
@@ -177,7 +199,7 @@ $nav-border-side-width: 3.1875rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1 rem;
+    font-size: 1rem;
     padding: 0.3rem 0;
     margin-right: 1.5rem;
   }

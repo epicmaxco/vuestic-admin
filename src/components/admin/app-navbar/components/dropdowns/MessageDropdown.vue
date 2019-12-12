@@ -3,11 +3,11 @@
     class="message-dropdown"
     offset="0, 16px"
   >
-    <va-icon
-      name="i-nav-messages"
+    <va-icon-message
       slot="anchor"
       class="message-dropdown__icon"
       :class="{'message-dropdown__icon--unread': !allRead}"
+      :color="isDefaultColorTheme ? 'white' : $themes.gray"
     />
     <div class="message-dropdown__content pl-4 pr-4 pt-2 pb-2">
       <div
@@ -29,8 +29,15 @@
 </template>
 
 <script>
+import VaIconMessage from '../../../../../iconset/VaIconMessage'
+import { ColorThemeMixin } from '../../../../../services/vuestic-ui'
+
 export default {
   name: 'message-dropdown',
+  mixins: [ColorThemeMixin],
+  components: {
+    VaIconMessage,
+  },
   data () {
     return {
       computedOptions: [...this.options],
