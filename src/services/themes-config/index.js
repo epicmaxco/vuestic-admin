@@ -1,5 +1,5 @@
 
-const ColorThemes = {
+export const ColorThemes = {
   DEFAULT: 'DEFAULT',
   CORPORATE: 'CORPORATE',
 }

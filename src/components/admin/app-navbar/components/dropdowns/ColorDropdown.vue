@@ -155,7 +155,7 @@
 <script>
 import { colorArray } from '../../../../../services/vuestic-ui/components'
 import { ColorThemeActionsMixin, ColorThemeMixin } from '../../../../../services/vuestic-ui'
-import { ColorThemeOptions } from '../../../../../services/themes-config'
+import { ColorThemeOptions, ColorThemes } from '../../../../../services/themes-config'
 import VaIconColor from '../../../../../iconset/VaIconColor'
 import cloneDeep from 'lodash/cloneDeep'
 
@@ -166,6 +166,12 @@ export default {
   },
   created () {
     this.updateThemeCache()
+
+    if (this.$route.query && this.$route.query.theme === String(ColorThemes.CORPORATE).toLowerCase()) {
+      this.setTheme(ColorThemes.CORPORATE)
+
+      this.themeType = ColorThemes.CORPORATE
+    }
   },
   data () {
     const proxyHandler = {
