@@ -2,7 +2,10 @@
   <div class="pt-2">
     <div class="row">
       <div class="flex xs12 md6">
-        <div class="title text-dark mb-3">
+        <div
+          class="title mb-3"
+          :style="computedStylesTitle"
+        >
           {{$t('dashboard.tabs.billingAddress.personalInfo')}}
         </div>
         <va-input
@@ -19,7 +22,10 @@
         />
       </div>
       <div class="flex xs12 md6">
-        <div class="title text-dark mb-3">
+        <div
+          class="title mb-3"
+          :style="computedStylesTitle"
+        >
           {{$t('dashboard.tabs.billingAddress.companyInfo')}}
         </div>
         <va-select
@@ -94,6 +100,11 @@ export default {
     },
     countriesList () {
       return countriesList.filter(item => this.citiesList.filter(({ country }) => country === item).length)
+    },
+    computedStylesTitle () {
+      return {
+        color: this.$themes.dark,
+      }
     },
   },
   mounted () {
