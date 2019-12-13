@@ -1,6 +1,6 @@
 <template>
   <div class="pt-2">
-    <div class="title text-dark mb-1">
+    <div class="title text-dark mb-1" :style="{color: $themes.primary}">
       {{$t('dashboard.tabs.bankDetails.detailsFields')}}
     </div>
     <div class="row">
