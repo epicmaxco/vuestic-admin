@@ -12,7 +12,7 @@
     />
 
     <div class="settings-dropdown__content pl-4 pr-4 pt-2 pb-2">
-      <div class="title settings-dropdown__content-label mt-2 mb-3">
+      <div class="settings-dropdown__content-label mt-2 mb-3" :style="{color: this.$themes.primary}">
         {{$t('dashboard.navigationLayout')}}
       </div>
       <va-button-toggle
