@@ -57,6 +57,7 @@ import AppSidebarLink from './AppSidebarLink'
 export default {
   name: 'app-sidebar-link-group',
   mixins: [ColorThemeMixin],
+  inject: ['contextConfig'],
   props: {
     icon: [String, Array],
     title: String,
@@ -133,15 +134,10 @@ export default {
 
       return 'white'
     },
-    computedSubmenuColor () {
-      if (!this.isDefaultColorTheme) {
-        return {
-          backgroundColor: 'white',
-        }
-      }
 
+    computedSubmenuColor () {
       return {
-        backgroundColor: this.$themes[this.color],
+        backgroundColor: this.contextConfig.invertedColor ? 'white' : this.$themes[this.color],
       }
     },
   },

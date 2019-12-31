@@ -15,11 +15,13 @@ import VueClipboard from 'vue-clipboard2'
 
 import '../metrics'
 import '../registerServiceWorker'
-import { AvailableColorThemes } from '../services/themes-config'
 
 if (process.env.VUE_APP_BUILD_VERSION) {
-  console.info( // eslint-disable-next-line no-undef
-    `%c${'Build_information:'}\n %c${'Version'}: %c${VERSION},\n %c${'Timestamp'}: %c${TIMESTAMP},\n %c${'Commit'}: %c${COMMIT}`,
+  // eslint-disable-next-line
+  const message = `%c${'Build_information:'}\n %c${'Version'}: %c${VERSION},\n %c${'Timestamp'}: %c${TIMESTAMP},\n %c${'Commit'}: %c${COMMIT}`
+  // eslint-disable-next-line
+  console.info(
+    message,
     'color: blue;', 'color: red;', 'color: blue;', 'color: red;', 'color: blue;', 'color: red;', 'color: blue;',
   )
 }
@@ -28,7 +30,9 @@ Vue.use(VuesticPlugin)
 Vue.use(YmapPlugin)
 Vue.use(VueClipboard)
 
-Vue.use(ColorThemePlugin, AvailableColorThemes)
+Vue.use(ColorThemePlugin, {
+  // override colors here.
+})
 
 router.beforeEach((to, from, next) => {
   store.commit('setLoading', true)

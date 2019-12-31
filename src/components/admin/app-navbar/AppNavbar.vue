@@ -9,22 +9,22 @@
           class="app-navbar__menu"
           v-if="!minimized && !isTopBar"
           @click.native="$emit('update:minimized', !minimized)"
-          :color="isDefaultColorTheme ? 'white' : $themes.gray"
+          :color="contextConfig.invertedColor ? $themes.gray : 'white'"
         ></va-icon-menu>
 
         <va-icon-menu-collapsed
           class="app-navbar__menu"
           v-if="minimized && !isTopBar"
           @click.native="$emit('update:minimized', !minimized)"
-          :color="isDefaultColorTheme ? 'white' : $themes.gray"
+          :color="contextConfig.invertedColor ? $themes.gray : 'white'"
         ></va-icon-menu-collapsed>
 
         <router-link
           class="app-navbar__logo mr-3"
           to="/"
         >
-          <va-icon-vuestic v-if="isDefaultColorTheme"/>
-          <va-icon-vuestic-toned v-else />
+          <va-icon-vuestic-toned v-if="contextConfig.invertedColor"/>
+          <va-icon-vuestic v-else/>
         </router-link>
       </div>
       <div class="app-navbar__center lg5 md4">
@@ -76,6 +76,7 @@ import { colorShiftHsl, ColorThemeMixin } from '../../../services/vuestic-ui'
 export default {
   name: 'app-navbar',
   mixins: [ColorThemeMixin],
+  inject: ['contextConfig'],
   components: {
     VaIconVuestic,
     VaIconVuesticToned,
@@ -116,38 +117,30 @@ export default {
       },
     },
     navbarStyle () {
-      if (this.isDefaultColorTheme) {
-        return {
-          backgroundColor: colorShiftHsl(this.$themes.secondary, { s: -13, l: 15 }).css,
-        }
+      const style = {
+        backgroundColor: 'white',
       }
 
-      return {
-        backgroundColor: 'white',
-        boxShadow: !this.isTopBar ? '0 2px 3px 0 rgba(52, 56, 85, 0.25)' : null,
+      if (this.contextConfig.gradient) {
+        style.backgroundColor = colorShiftHsl(this.$themes.secondary, {
+          s: -13,
+          l: 15,
+        }).css
       }
+
+      if (this.contextConfig.shadow === 'sm') {
+        style.boxShadow = !this.isTopBar ? '0 2px 3px 0 rgba(52, 56, 85, 0.25)' : null
+      }
+      return style
     },
 
     shapeStyle () {
-      if (this.isDefaultColorTheme) {
-        return {
-          borderTopColor: colorShiftHsl(this.$themes.secondary, { h: -1, s: -11, l: 10 }).css,
-        }
-      }
-
       return {
-        borderTopColor: 'transparent',
-      }
-    },
-    iconMenuStyleComputed () {
-      if (this.isDefaultColorTheme) {
-        return {
-          color: 'white',
-        }
-      }
-
-      return {
-        color: this.$themes.gray,
+        borderTopColor: this.contextConfig.gradient ? colorShiftHsl(this.$themes.secondary, {
+          h: -1,
+          s: -11,
+          l: 10,
+        }).css : 'transparent',
       }
     },
   },
@@ -200,7 +193,6 @@ $nav-border-side-width: 3.1875rem;
     justify-content: center;
     align-items: center;
     font-size: 1rem;
-    padding: 0.3rem 0;
     margin-right: 1.5rem;
   }
 
@@ -265,6 +257,7 @@ $nav-border-side-width: 3.1875rem;
     }
 
     &__actions {
+      margin-top: 1.25rem;
       justify-content: space-between;
       width: 100%;
     }

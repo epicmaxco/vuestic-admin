@@ -28,7 +28,8 @@
         class="app-sidebar-link__item-icon-right"
         :style="computedIconStyles"
         :name="iconRight"
-      >{{iconRightContent}}</va-icon>
+      >{{iconRightContent}}
+      </va-icon>
     </router-link>
   </li>
 </template>
@@ -38,6 +39,7 @@ import { colorShiftHsl, ColorThemeMixin } from '../../../../services/vuestic-ui'
 
 export default {
   name: 'app-sidebar-link',
+  inject: ['contextConfig'],
   mixins: [ColorThemeMixin],
   props: {
     to: {
@@ -85,32 +87,38 @@ export default {
       }
     },
     computedLinkStyles () {
-      if (!this.isDefaultColorTheme) {
-        if (this.isHovered || this.isActive) {
-          return {
-            color: 'white',
-            backgroundColor: this.$themes.primary,
-            borderColor: colorShiftHsl(this.$themes.primary, { s: 13, l: -15 }).css,
-          }
-        }
+      const style = {}
 
-        return {
-          color: this.$themes.gray,
+      if (this.contextConfig.invertedColor) {
+        if (this.isHovered || this.isActive) {
+          style.color = 'white'
+        } else {
+          style.color = this.$themes.gray
         }
+      } else {
+        style.color = this.$themes.primary
       }
 
       if (this.isHovered || this.isActive) {
-        return {
-          color: this.$themes.primary,
-          backgroundColor: colorShiftHsl(this.$themes.secondary, { s: -13, l: 15 }).css,
-          borderColor: this.isActive ? this.$themes.primary : 'transparent',
+        style.backgroundColor = this.contextConfig.gradient ? colorShiftHsl(this.$themes.secondary, {
+          s: -13,
+          l: 15,
+        }).css : this.$themes.primary
+
+        if (this.contextConfig.gradient) {
+          style.borderColor = this.isActive ? this.$themes.primary : 'transparent'
+        } else {
+          style.borderColor = colorShiftHsl(this.$themes.primary, {
+            s: 13,
+            l: -15,
+          }).css
         }
       }
 
-      return null
+      return style
     },
     computedIconStyles () {
-      if (!this.isDefaultColorTheme) {
+      if (this.contextConfig.invertedColor) {
         if (this.isHovered || this.isActive) {
           return {
             color: 'white',
@@ -163,6 +171,10 @@ export default {
     color: rgba(255, 255, 255, 0.65);
     box-sizing: border-box;
     width: 20rem;
+
+    @include media-breakpoint-down(sm) {
+      flex: 0 0 100%;
+    }
 
     .app-sidebar-link--minimized & {
       justify-content: center;

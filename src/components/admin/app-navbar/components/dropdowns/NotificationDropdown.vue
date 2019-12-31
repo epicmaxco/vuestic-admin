@@ -8,7 +8,7 @@
       slot="anchor"
       class="notification-dropdown__icon"
       :class="{'notification-dropdown__icon--unread': !allRead}"
-      :color="isDefaultColorTheme ? 'white' : $themes.gray"
+      :color="contextConfig.invertedColor ? $themes.gray : 'white'"
     />
     <div class="notification-dropdown__content pl-3 pr-3 pt-2 pb-2">
       <div
@@ -37,6 +37,7 @@ import { ColorThemeMixin } from '../../../../../services/vuestic-ui'
 
 export default {
   name: 'notification-dropdown',
+  inject: ['contextConfig'],
   components: {
     VaIconNotification,
   },

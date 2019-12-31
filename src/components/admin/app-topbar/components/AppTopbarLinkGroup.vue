@@ -39,6 +39,7 @@ import AppTopbarLink from './AppTopbarLink'
 
 export default {
   name: 'topbar-link-group',
+  inject: ['contextConfig'],
   components: {
     AppTopbarLink,
   },
@@ -101,14 +102,8 @@ export default {
       }
     },
     computedIconStyles () {
-      if (!this.isDefaultColorTheme) {
-        return {
-          backgroundColor: 'white',
-        }
-      }
-
       return {
-        backgroundColor: this.$themes[this.color],
+        backgroundColor: this.contextConfig.invertedColor ? this.$themes[this.color] : 'white',
       }
     },
   },

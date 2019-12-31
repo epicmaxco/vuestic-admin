@@ -8,7 +8,7 @@
       style="font-size: 1.4rem; display: flex;"
       class="settings-dropdown__icon"
       slot="anchor"
-      :color="isDefaultColorTheme ? 'white' : $themes.gray"
+      :color="contextConfig.invertedColor ? $themes.gray : 'white'"
     />
 
     <div class="settings-dropdown__content pl-4 pr-4 pt-2 pb-2">
@@ -31,6 +31,7 @@ import { ColorThemeMixin } from '../../../../../services/vuestic-ui'
 
 export default {
   name: 'settings-dropdown',
+  inject: ['contextConfig'],
   components: {},
   mixins: [ColorThemeMixin],
   props: {

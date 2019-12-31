@@ -76,10 +76,12 @@ export default {
     display: flex;
     flex-wrap: nowrap;
     align-items: stretch;
-    height: 100%;
-  }
+    // TODO Probably there is a better way to achieve this.
+    height: calc(100% - 65px);
 
-  &__sidebar {
+    @include media-breakpoint-down(sm) {
+      height: calc(100% - 110px);
+    }
   }
 
   &__main {
@@ -103,9 +105,6 @@ export default {
       min-height: 100%;
       margin: 0;
     }
-  }
-
-  &__topbar {
   }
 }
 </style>

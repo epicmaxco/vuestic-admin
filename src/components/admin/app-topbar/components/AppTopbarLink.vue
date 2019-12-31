@@ -32,6 +32,7 @@ import { colorShiftHsl, ColorThemeMixin } from './../../../../services/vuestic-u
 
 export default {
   name: 'topbar-link',
+  inject: ['contextConfig'],
   mixins: [ColorThemeMixin],
   props: {
     to: {
@@ -63,7 +64,8 @@ export default {
   },
   computed: {
     computedStyle () {
-      if (!this.isDefaultColorTheme) {
+      // TODO Inverted color condition is incorrect here.
+      if (this.contextConfig.invertedColor) {
         if (this.isHovered || this.isActive) {
           return {
             color: this.$themes.primary,
@@ -96,7 +98,7 @@ export default {
       }
     },
     computedIconStyles () {
-      if (!this.isDefaultColorTheme) {
+      if (this.contextConfig.invertedColor) {
         if (this.isHovered || this.isActive) {
           return {
             color: this.$themes.primary,

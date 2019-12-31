@@ -6,14 +6,14 @@
     <va-icon-color
       slot="anchor"
       class="color-dropdown__icon"
-      :color="isDefaultColorTheme ? 'white' : $themes.gray"
+      :color="contextConfig.invertedColor ? $themes.gray : 'white'"
     />
     <div class="color-dropdown__content pl-4 pr-4 pt-2 pb-2">
       <va-button-toggle
         outline
         small
         color="dark"
-        v-model="themeType"
+        @input="setTheme"
         :options="modeOptions"
         style="max-width: 100%;"
       />
@@ -27,8 +27,7 @@
         </va-badge>
         <va-advanced-color-picker
           class="my-1"
-          v-model="themeProxy.primary"
-          :value="themeProxy.primary"
+          v-model="$themes.primary"
         />
       </va-dropdown>
 
@@ -42,8 +41,7 @@
         </va-badge>
         <va-advanced-color-picker
           class="my-1"
-          v-model="themeProxy.secondary"
-          :value="themeProxy.secondary"
+          v-model="$themes.secondary"
         />
       </va-dropdown>
 
@@ -57,8 +55,7 @@
         </va-badge>
         <va-advanced-color-picker
           class="my-1"
-          v-model="themeProxy.success"
-          :value="themeProxy.success"
+          v-model="$themes.success"
         />
       </va-dropdown>
 
@@ -72,8 +69,7 @@
         </va-badge>
         <va-advanced-color-picker
           class="my-1"
-          v-model="themeProxy.info"
-          :value="themeProxy.info"
+          v-model="$themes.info"
         />
       </va-dropdown>
 
@@ -87,8 +83,7 @@
         </va-badge>
         <va-advanced-color-picker
           class="my-1"
-          v-model="themeProxy.danger"
-          :value="themeProxy.danger"
+          v-model="$themes.danger"
         />
       </va-dropdown>
 
@@ -102,8 +97,7 @@
         </va-badge>
         <va-advanced-color-picker
           class="my-1"
-          v-model="themeProxy.warning"
-          :value="themeProxy.warning"
+          v-model="$themes.warning"
         />
       </va-dropdown>
 
@@ -117,8 +111,7 @@
         </va-badge>
         <va-advanced-color-picker
           class="my-1"
-          v-model="themeProxy.gray"
-          :value="themeProxy.gray"
+          v-model="$themes.gray"
         />
       </va-dropdown>
 
@@ -132,92 +125,52 @@
         </va-badge>
         <va-advanced-color-picker
           class="my-1"
-          v-model="themeProxy.dark"
-          :value="themeProxy.dark"
+          v-model="$themes.dark"
         />
       </va-dropdown>
-
-      <va-button
-        class="button-restore"
-        outline
-        small
-        :color="$themes.dark"
-        icon="entypo entypo-arrows-ccw"
-        @click="restoreDefaultTheme"
-        :disabled="!isChangeTheme"
-      >
-        Restore Defaults
-      </va-button>
     </div>
   </va-dropdown>
 </template>
 
 <script>
-import { colorArray } from '../../../../../services/vuestic-ui/components'
-import { ColorThemeActionsMixin, ColorThemeMixin } from '../../../../../services/vuestic-ui'
-import { ColorThemeOptions, ColorThemes } from '../../../../../services/themes-config'
+import {
+  ColorThemeActionsMixin,
+  ColorThemeMixin,
+} from '../../../../../services/vuestic-ui'
 import VaIconColor from '../../../../../iconset/VaIconColor'
-import cloneDeep from 'lodash/cloneDeep'
+import { originalTheme, corporateTheme } from 'vuestic-ui/src/services/themes'
 
 export default {
   mixins: [ColorThemeActionsMixin, ColorThemeMixin],
+  inject: ['contextConfig'],
   components: {
     VaIconColor,
   },
   created () {
-    this.updateThemeCache()
-
-    if (this.$route.query && this.$route.query.theme === String(ColorThemes.CORPORATE).toLowerCase()) {
-      this.setTheme(ColorThemes.CORPORATE)
-
-      this.themeType = ColorThemes.CORPORATE
-    }
-  },
-  data () {
-    const proxyHandler = {
-      set: (target, property, value) => {
-        if (!this.isChangeTheme) {
-          this.isChangeTheme = true
-        }
-
-        target[property] = value
-
-        return true
-      },
-    }
-
-    const defaultThemeName = this.$themesOptions.defaultThemeName
-
-    return {
-      themeType: defaultThemeName,
-      palette: colorArray,
-      isChangeTheme: false,
-      themeProxy: new Proxy(this.$themes, proxyHandler),
+    if (this.$route.query && this.$route.query.theme === 'corporate') {
+      this.setTheme(corporateTheme)
     }
   },
   computed: {
     modeOptions () {
-      return ColorThemeOptions
-    },
-  },
-  watch: {
-    themeType (themeName) {
-      this.setTheme(themeName)
-
-      this.updateThemeCache()
+      return [
+        {
+          label: 'Original',
+          value: originalTheme,
+        },
+        {
+          label: 'Corporate',
+          value: corporateTheme,
+        },
+      ]
     },
   },
   methods: {
-    restoreDefaultTheme () {
-      Object.keys(this.themeCache).forEach((color) => {
-        this.$themes[color] = this.themeCache[color]
+    setTheme (theme) {
+      this.setColors(theme.colors)
+      Object.keys(theme.context).forEach((key) => {
+        this.contextConfig[key] = theme.context[key]
       })
-
-      this.isChangeTheme = false
-    },
-    updateThemeCache () {
-      this.themeCache = cloneDeep(this.$themes)
-      this.isChangeTheme = false
     },
   },
 }

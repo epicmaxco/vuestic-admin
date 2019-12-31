@@ -29,6 +29,7 @@ import { ColorThemeMixin } from '../../../../services/vuestic-ui'
 export default {
   name: 'app-navbar-actions',
   mixins: [ColorThemeMixin],
+  inject: ['contextConfig'],
   components: {
     SettingsDropdown,
     ColorDropdown,
@@ -57,14 +58,8 @@ export default {
       },
     },
     computedActionsStyles () {
-      if (this.isDefaultColorTheme) {
-        return {
-          color: 'white',
-        }
-      }
-
       return {
-        color: this.$themes.primary,
+        color: this.contextConfig.invertedColor ? this.$themes.primary : 'white',
       }
     },
   },

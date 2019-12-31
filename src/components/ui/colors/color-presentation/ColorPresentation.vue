@@ -28,6 +28,7 @@ import { ColorThemeMixin, getGradientBackground } from '../../../../services/vue
 export default {
   name: 'color-presentation',
   mixins: [ColorThemeMixin],
+  inject: ['contextConfig'],
   props: {
     color: {
       type: String,
@@ -81,7 +82,7 @@ export default {
       })
     },
     calcBackground () {
-      if (this.variant.includes('gradient') && this.isDefaultColorTheme) {
+      if (this.variant.includes('gradient') && this.contextConfig) {
         return getGradientBackground(this.colorComputed)
       }
 

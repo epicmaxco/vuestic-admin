@@ -6,13 +6,16 @@ const version = require('./package.json').version
 const timeStamp = new Date().toUTCString()
 
 const getLastCommitHash = () => {
-  const hash = require('child_process').execSync('git rev-parse HEAD').toString()
+  const hash = require('child_process').execSync('git rev-parse HEAD')
+    .toString()
 
   return hash.slice(0, 6)
 }
 
+const lintOnSave = true
+
 module.exports = {
-  lintOnSave: false,
+  lintOnSave,
   transpileDependencies: [
     'vuestic-ui',
     'epic-spinners',
@@ -41,9 +44,11 @@ module.exports = {
       },
     },
     plugins: [
-      new StylelintPlugin({
-        files: ['src/**/*.{vue,htm,html,css,sss,less,scss}'],
-      }),
+      ...(
+        (!lintOnSave && process.env.NODE_ENV === 'development') ? [] : [new StylelintPlugin({
+          files: ['src/**/*.{vue,htm,html,css,sss,less,scss}'],
+        })]
+      ),
       new webpack.DefinePlugin({
         VERSION: JSON.stringify(version),
         TIMESTAMP: JSON.stringify(timeStamp),

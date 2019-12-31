@@ -4,17 +4,6 @@ export const ColorThemes = {
   CORPORATE: 'CORPORATE',
 }
 
-export const ColorThemeOptions = [
-  {
-    label: 'Original',
-    value: ColorThemes.DEFAULT,
-  },
-  {
-    label: 'Corporate',
-    value: ColorThemes.CORPORATE,
-  },
-]
-
 export const AvailableColorThemes = [
   {
     name: ColorThemes.DEFAULT,

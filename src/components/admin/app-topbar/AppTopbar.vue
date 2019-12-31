@@ -49,6 +49,7 @@ import { ColorThemeMixin } from '../../../services/vuestic-ui'
 export default {
   name: 'app-topbar',
   mixins: [ColorThemeMixin],
+  inject: ['contextConfig'],
   components: {
     AppTopbarLink,
     AppTopbarLinkGroup,
@@ -58,7 +59,7 @@ export default {
   },
   computed: {
     computedStyles () {
-      if (!this.isDefaultColorTheme) {
+      if (this.contextConfig.invertedColor) {
         return {
           backgroundColor: 'white',
           boxShadow: '0 2px 3px 0 rgba(52, 56, 85, 0.25)',

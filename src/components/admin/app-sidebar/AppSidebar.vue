@@ -44,6 +44,7 @@ import { ColorThemeMixin } from '../../../services/vuestic-ui'
 
 export default {
   name: 'app-sidebar',
+  inject: ['contextConfig'],
   components: {
     AppSidebarLink,
     AppSidebarLinkGroup,
@@ -71,14 +72,8 @@ export default {
       }
     },
     computedStyle () {
-      if (this.isDefaultColorTheme) {
-        return {
-          backgroundColor: this.colorComputed,
-        }
-      }
-
       return {
-        backgroundColor: 'white',
+        backgroundColor: this.contextConfig.invertedColor ? 'white' : this.colorComputed,
       }
     },
   },
@@ -96,6 +91,15 @@ export default {
   overflow: auto;
   display: flex;
   max-height: 100%;
+  flex: 0 0 16rem;
+
+  @include media-breakpoint-down(sm) {
+    flex: 0 0 100%;
+  }
+
+  &--minimized {
+    flex: 0 0 3.25rem;
+  }
 
   &__menu {
     margin-bottom: 0;
