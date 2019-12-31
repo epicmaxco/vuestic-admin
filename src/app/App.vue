@@ -5,8 +5,20 @@
 </template>
 
 <script>
+import Vue from 'vue'
+
 export default {
   name: 'app',
+  // Temporary config for 2.1.
+  provide () {
+    return {
+      contextConfig: Vue.observable({
+        gradient: true,
+        shadow: 'lg', // 3 states: 'sm', 'lg', undefined (no shadow).
+        invertedColor: false,
+      }),
+    }
+  },
 }
 </script>
 

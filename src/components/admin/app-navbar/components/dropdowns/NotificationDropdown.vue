@@ -4,11 +4,11 @@
     offset="0, 16px"
     boundary-body
   >
-    <va-icon
+    <va-icon-notification
       slot="anchor"
-      name="i-nav-notification"
       class="notification-dropdown__icon"
       :class="{'notification-dropdown__icon--unread': !allRead}"
+      :color="contextConfig.invertedColor ? $themes.gray : 'white'"
     />
     <div class="notification-dropdown__content pl-3 pr-3 pt-2 pb-2">
       <div
@@ -32,8 +32,16 @@
 </template>
 
 <script>
+import VaIconNotification from '../../../../../iconset/VaIconNotification'
+import { ColorThemeMixin } from '../../../../../services/vuestic-ui'
+
 export default {
   name: 'notification-dropdown',
+  inject: ['contextConfig'],
+  components: {
+    VaIconNotification,
+  },
+  mixins: [ColorThemeMixin],
   data () {
     return {
       computedOptions: [...this.options],

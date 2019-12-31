@@ -1,5 +1,5 @@
-import { ColorThemePlugin, ColorThemeMixin } from 'vuestic-ui/src/services/ColorThemePlugin'
-import { getHoverColor, hex2rgb, hex2hsl } from 'vuestic-ui/src/services/color-functions'
+import { ColorThemePlugin, ColorThemeMixin, ColorThemeActionsMixin } from 'vuestic-ui/src/services/ColorThemePlugin'
+import { getHoverColor, getGradientBackground, hex2rgb, hex2hsl } from 'vuestic-ui/src/services/color-functions'
 
 const colorShiftHsl = (main, offset = { h: 0, s: 0, l: 0 }) => {
   offset = {
@@ -27,7 +27,9 @@ const colorShiftHsl = (main, offset = { h: 0, s: 0, l: 0 }) => {
 export {
   ColorThemePlugin,
   ColorThemeMixin,
+  ColorThemeActionsMixin,
   getHoverColor,
+  getGradientBackground,
   hex2rgb,
   hex2hsl,
   colorShiftHsl,

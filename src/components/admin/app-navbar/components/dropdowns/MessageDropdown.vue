@@ -3,11 +3,11 @@
     class="message-dropdown"
     offset="0, 16px"
   >
-    <va-icon
-      name="i-nav-messages"
+    <va-icon-message
       slot="anchor"
       class="message-dropdown__icon"
       :class="{'message-dropdown__icon--unread': !allRead}"
+      :color="iconColor"
     />
     <div class="message-dropdown__content pl-4 pr-4 pt-2 pb-2">
       <div
@@ -29,8 +29,16 @@
 </template>
 
 <script>
+import VaIconMessage from '../../../../../iconset/VaIconMessage'
+import { ColorThemeMixin } from '../../../../../services/vuestic-ui'
+
 export default {
   name: 'message-dropdown',
+  mixins: [ColorThemeMixin],
+  inject: ['contextConfig'],
+  components: {
+    VaIconMessage,
+  },
   data () {
     return {
       computedOptions: [...this.options],
@@ -42,13 +50,19 @@ export default {
       default: () => [
         {
           name: 'new',
-          details: { name: 'Oleg M', avatar: 'https://picsum.photos/24?image=1083' },
+          details: {
+            name: 'Oleg M',
+            avatar: 'https://picsum.photos/24?image=1083',
+          },
           unread: true,
           id: 1,
         },
         {
           name: 'new',
-          details: { name: 'Andrei H', avatar: 'https://picsum.photos/24?image=1025' },
+          details: {
+            name: 'Andrei H',
+            avatar: 'https://picsum.photos/24?image=1025',
+          },
           unread: true,
           id: 2,
         },
@@ -59,10 +73,16 @@ export default {
     allRead () {
       return !this.computedOptions.filter(item => item.unread).length
     },
+    iconColor () {
+      return this.contextConfig.invertedColor ? this.$themes.gray : 'white'
+    },
   },
   methods: {
     markAllAsRead () {
-      this.computedOptions = this.computedOptions.map(item => ({ ...item, unread: false }))
+      this.computedOptions = this.computedOptions.map(item => ({
+        ...item,
+        unread: false,
+      }))
     },
   },
 }

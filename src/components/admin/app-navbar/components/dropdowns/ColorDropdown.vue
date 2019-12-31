@@ -3,101 +3,174 @@
     class="color-dropdown"
     offset="0, 13px"
   >
-    <va-icon
-      name="i-nav-color"
+    <va-icon-color
       slot="anchor"
       class="color-dropdown__icon"
+      :color="contextConfig.invertedColor ? $themes.gray : 'white'"
     />
     <div class="color-dropdown__content pl-4 pr-4 pt-2 pb-2">
-      <va-button small color="primary" v-on:click="restoreDefaultTheme">
-        Default theme
-      </va-button>
-
+      <va-button-toggle
+        outline
+        small
+        color="dark"
+        @input="setTheme"
+        :options="modeOptions"
+        style="max-width: 100%;"
+      />
       <va-dropdown class="color-picker-dropdown mt-1 mb-1">
-        <va-badge class="color-picker-dropdown__badge" color="primary" slot="anchor">
+        <va-badge
+          class="color-picker-dropdown__badge"
+          color="primary"
+          slot="anchor"
+        >
           Primary
         </va-badge>
-        <va-advanced-color-picker class="my-1" v-model="themeProxy.primary" :value="themeProxy.primary"/>
+        <va-advanced-color-picker
+          class="my-1"
+          v-model="$themes.primary"
+        />
       </va-dropdown>
 
       <va-dropdown class="color-picker-dropdown mt-1 mb-1">
-        <va-badge class="color-picker-dropdown__badge" color="secondary" slot="anchor">
+        <va-badge
+          class="color-picker-dropdown__badge"
+          color="secondary"
+          slot="anchor"
+        >
           Secondary
         </va-badge>
-        <va-advanced-color-picker class="my-1" v-model="themeProxy.secondary" :value="themeProxy.secondary"/>
+        <va-advanced-color-picker
+          class="my-1"
+          v-model="$themes.secondary"
+        />
       </va-dropdown>
 
       <va-dropdown class="color-picker-dropdown mt-1 mb-1">
-        <va-badge class="color-picker-dropdown__badge" color="success" slot="anchor">
+        <va-badge
+          class="color-picker-dropdown__badge"
+          color="success"
+          slot="anchor"
+        >
           Success
         </va-badge>
-        <va-advanced-color-picker class="my-1" v-model="themeProxy.success" :value="themeProxy.success"/>
+        <va-advanced-color-picker
+          class="my-1"
+          v-model="$themes.success"
+        />
       </va-dropdown>
 
       <va-dropdown class="color-picker-dropdown mt-1 mb-1">
-        <va-badge class="color-picker-dropdown__badge" color="info" slot="anchor">
+        <va-badge
+          class="color-picker-dropdown__badge"
+          color="info"
+          slot="anchor"
+        >
           Info
         </va-badge>
-        <va-advanced-color-picker class="my-1" v-model="themeProxy.info" :value="themeProxy.info"/>
+        <va-advanced-color-picker
+          class="my-1"
+          v-model="$themes.info"
+        />
       </va-dropdown>
 
       <va-dropdown class="color-picker-dropdown mt-1 mb-1">
-        <va-badge class="color-picker-dropdown__badge" color="danger" slot="anchor">
+        <va-badge
+          class="color-picker-dropdown__badge"
+          color="danger"
+          slot="anchor"
+        >
           Danger
         </va-badge>
-        <va-advanced-color-picker class="my-1" v-model="themeProxy.danger" :value="themeProxy.danger"/>
+        <va-advanced-color-picker
+          class="my-1"
+          v-model="$themes.danger"
+        />
       </va-dropdown>
 
       <va-dropdown class="color-picker-dropdown mt-1 mb-1">
-        <va-badge class="color-picker-dropdown__badge" color="warning" slot="anchor">
+        <va-badge
+          class="color-picker-dropdown__badge"
+          color="warning"
+          slot="anchor"
+        >
           Warning
         </va-badge>
-        <va-advanced-color-picker class="my-1" v-model="themeProxy.warning" :value="themeProxy.warning"/>
+        <va-advanced-color-picker
+          class="my-1"
+          v-model="$themes.warning"
+        />
       </va-dropdown>
 
       <va-dropdown class="color-picker-dropdown mt-1 mb-1">
-        <va-badge class="color-picker-dropdown__badge" color="gray" slot="anchor">
+        <va-badge
+          class="color-picker-dropdown__badge"
+          color="gray"
+          slot="anchor"
+        >
           Gray
         </va-badge>
-        <va-advanced-color-picker class="my-1" v-model="themeProxy.gray" :value="themeProxy.gray"/>
+        <va-advanced-color-picker
+          class="my-1"
+          v-model="$themes.gray"
+        />
       </va-dropdown>
 
       <va-dropdown class="color-picker-dropdown mt-1 mb-1">
-        <va-badge class="color-picker-dropdown__badge" color="dark" slot="anchor">
+        <va-badge
+          class="color-picker-dropdown__badge"
+          color="dark"
+          slot="anchor"
+        >
           Dark
         </va-badge>
-        <va-advanced-color-picker class="my-1" v-model="themeProxy.dark" :value="themeProxy.dark"/>
+        <va-advanced-color-picker
+          class="my-1"
+          v-model="$themes.dark"
+        />
       </va-dropdown>
     </div>
   </va-dropdown>
 </template>
 
 <script>
-import { colorArray } from '../../../../../services/vuestic-ui/components'
-
-const themeCache = {}
+import {
+  ColorThemeActionsMixin,
+  ColorThemeMixin,
+} from '../../../../../services/vuestic-ui'
+import VaIconColor from '../../../../../iconset/VaIconColor'
+import { originalTheme, corporateTheme } from 'vuestic-ui/src/services/themes'
 
 export default {
-  data () {
-    const proxyHandler = {
-      set: function (target, property, value) {
-        if (!themeCache[property] && typeof target[property] === 'string') themeCache[property] = target[property]
-        target[property] = value
-
-        return true
-      },
-    }
-
-    return {
-      palette: colorArray,
-      themeProxy: new Proxy(this.$themes, proxyHandler),
+  mixins: [ColorThemeActionsMixin, ColorThemeMixin],
+  inject: ['contextConfig'],
+  components: {
+    VaIconColor,
+  },
+  created () {
+    if (this.$route.query && this.$route.query.theme === 'corporate') {
+      this.setTheme(corporateTheme)
     }
   },
+  computed: {
+    modeOptions () {
+      return [
+        {
+          label: 'Original',
+          value: originalTheme,
+        },
+        {
+          label: 'Corporate',
+          value: corporateTheme,
+        },
+      ]
+    },
+  },
   methods: {
-    restoreDefaultTheme () {
-      for (const theme in themeCache) {
-        this.$themes[theme] = themeCache[theme]
-      }
+    setTheme (theme) {
+      this.setColors(theme.colors)
+      Object.keys(theme.context).forEach((key) => {
+        this.contextConfig[key] = theme.context[key]
+      })
     },
   },
 }
@@ -133,5 +206,10 @@ export default {
   .va-dropdown__anchor {
     display: inline-block;
   }
+}
+
+.button-restore {
+  display: flex;
+  margin: 0.375rem auto;
 }
 </style>

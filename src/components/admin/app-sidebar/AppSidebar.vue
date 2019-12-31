@@ -26,7 +26,7 @@
           v-else
           :key="key"
           :minimized="minimized"
-          :activeByDefault="item.name === $route.name"
+          :active-by-default="item.name === $route.name"
           :icon="item.meta && item.meta.iconClass"
           :to="{ name: item.name }"
           :title="$t(item.displayName)"
@@ -44,6 +44,7 @@ import { ColorThemeMixin } from '../../../services/vuestic-ui'
 
 export default {
   name: 'app-sidebar',
+  inject: ['contextConfig'],
   components: {
     AppSidebarLink,
     AppSidebarLinkGroup,
@@ -72,7 +73,7 @@ export default {
     },
     computedStyle () {
       return {
-        backgroundColor: this.colorComputed,
+        backgroundColor: this.contextConfig.invertedColor ? 'white' : this.colorComputed,
       }
     },
   },
@@ -90,6 +91,15 @@ export default {
   overflow: auto;
   display: flex;
   max-height: 100%;
+  flex: 0 0 16rem;
+
+  @include media-breakpoint-down(sm) {
+    flex: 0 0 100%;
+  }
+
+  &--minimized {
+    flex: 0 0 3.25rem;
+  }
 
   &__menu {
     margin-bottom: 0;

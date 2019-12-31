@@ -6,7 +6,7 @@
           v-for="(themeColor, index) in themeColors"
           :key="index"
         >
-          <va-color-presentation
+          <color-presentation
             :color="themeColor.color"
             :name="themeColor.name"
             :description="themeColor.description"
@@ -21,7 +21,7 @@
           v-for="(extraColor, index) in extraColors"
           :key="index"
         >
-          <va-color-presentation
+          <color-presentation
             :color="extraColor.color"
             :name="extraColor.name"
             :description="extraColor.description"
@@ -36,7 +36,7 @@
           v-for="(buttonGradient, index) in buttonGradients"
           :key="index"
         >
-          <va-color-presentation
+          <color-presentation
             :color="buttonGradient.color"
             :variant="['gradient']"
             :name="buttonGradient.name"
@@ -56,7 +56,7 @@
           v-for="(buttonGradient, index) in buttonGradients"
           :key="index"
         >
-          <va-color-presentation
+          <color-presentation
             :color="buttonGradient.color"
             :variant="['gradient', 'hovered']"
             :name="buttonGradient.name"
@@ -76,7 +76,7 @@
           v-for="(buttonGradient, index) in buttonGradients"
           :key="index"
         >
-          <va-color-presentation
+          <color-presentation
             :color="buttonGradient.color"
             :variant="['gradient', 'pressed']"
             :name="buttonGradient.name"
@@ -90,19 +90,13 @@
 </template>
 
 <script>
-import VaColorPresentation
-  from 'vuestic-ui/src/components/vuestic-components/va-color-presentation/VaColorPresentation'
-import {
-  themeColors,
-  extraColors,
-  buttonGradients,
-} from 'vuestic-ui/src/components/vuestic-components/va-color-presentation/colorsData'
+import { themeColors, extraColors, buttonGradients } from './color-presentation/colorsData'
+import colorPresentation from './color-presentation/ColorPresentation'
 
 export default {
   components: {
-    VaColorPresentation,
+    colorPresentation,
   },
-
   data () {
     return {
       themeColors,

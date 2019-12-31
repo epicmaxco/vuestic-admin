@@ -5,22 +5,33 @@
   >
     <div class="app-navbar__content row">
       <div class="app-navbar__menu-container">
-        <span
+        <va-icon-menu
           class="app-navbar__menu"
-          v-if="!isTopBar"
-          :class="`i-menu-${minimized ? 'collapsed' : 'expanded'}`"
-          @click="$emit('update:minimized', !minimized)"
-        ></span>
+          v-if="!minimized && !isTopBar"
+          @click.native="$emit('update:minimized', !minimized)"
+          :color="contextConfig.invertedColor ? $themes.gray : 'white'"
+        ></va-icon-menu>
+
+        <va-icon-menu-collapsed
+          class="app-navbar__menu"
+          v-if="minimized && !isTopBar"
+          @click.native="$emit('update:minimized', !minimized)"
+          :color="contextConfig.invertedColor ? $themes.gray : 'white'"
+        ></va-icon-menu-collapsed>
 
         <router-link
           class="app-navbar__logo mr-3"
           to="/"
         >
-          <va-icon-vuestic/>
+          <va-icon-vuestic-toned v-if="contextConfig.invertedColor"/>
+          <va-icon-vuestic v-else/>
         </router-link>
       </div>
       <div class="app-navbar__center lg5 md4">
-        <span class="app-navbar__text">
+        <span
+          class="app-navbar__text"
+          :style="{color: this.$themes.gray}"
+        >
           {{$t('navbar.messageUs')}}&nbsp;
           <a
             href="mailto:hello@epicmax.co"
@@ -56,13 +67,21 @@
 
 <script>
 import VaIconVuestic from '../../../iconset/VaIconVuestic'
+import VaIconVuesticToned from '../../../iconset/VaIconVuesticToned'
+import VaIconMenu from '../../../iconset/VaIconMenu'
+import VaIconMenuCollapsed from '../../../iconset/VaIconMenuCollapsed'
 import AppNavbarActions from './components/AppNavbarActions'
-import { colorShiftHsl } from '../../../services/vuestic-ui'
+import { colorShiftHsl, ColorThemeMixin } from '../../../services/vuestic-ui'
 
 export default {
   name: 'app-navbar',
+  mixins: [ColorThemeMixin],
+  inject: ['contextConfig'],
   components: {
     VaIconVuestic,
+    VaIconVuesticToned,
+    VaIconMenu,
+    VaIconMenuCollapsed,
     AppNavbarActions,
   },
   props: {
@@ -98,14 +117,30 @@ export default {
       },
     },
     navbarStyle () {
-      return {
-        backgroundColor: colorShiftHsl(this.$themes.secondary, { s: -13, l: 15 }).css,
+      const style = {
+        backgroundColor: 'white',
       }
+
+      if (this.contextConfig.gradient) {
+        style.backgroundColor = colorShiftHsl(this.$themes.secondary, {
+          s: -13,
+          l: 15,
+        }).css
+      }
+
+      if (this.contextConfig.shadow === 'sm') {
+        style.boxShadow = !this.isTopBar ? '0 2px 3px 0 rgba(52, 56, 85, 0.25)' : null
+      }
+      return style
     },
 
     shapeStyle () {
       return {
-        borderTopColor: colorShiftHsl(this.$themes.secondary, { h: -1, s: -11, l: 10 }).css,
+        borderTopColor: this.contextConfig.gradient ? colorShiftHsl(this.$themes.secondary, {
+          h: -1,
+          s: -11,
+          l: 10,
+        }).css : 'transparent',
       }
     },
   },
@@ -119,6 +154,7 @@ $nav-border-side-width: 3.1875rem;
   transition: background-color 0.3s ease; /* sidebar's bg color transitions as well -> consistency */
   display: flex;
   padding: 1rem 1rem;
+  z-index: 1;
 
   &__content {
     z-index: 1;
@@ -156,8 +192,7 @@ $nav-border-side-width: 3.1875rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1 rem;
-    padding: 0.3rem 0;
+    font-size: 1rem;
     margin-right: 1.5rem;
   }
 
@@ -222,6 +257,7 @@ $nav-border-side-width: 3.1875rem;
     }
 
     &__actions {
+      margin-top: 1.25rem;
       justify-content: space-between;
       width: 100%;
     }

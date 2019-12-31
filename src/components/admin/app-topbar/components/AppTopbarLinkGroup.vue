@@ -17,17 +17,12 @@
         class="app-topbar-link-group__item"
         @mouseenter="updateHoverState"
         @mouseleave="updateHoverState"
-        :style="sidebarLinkStyles"
         :class="computedLinkClass"
         :icon="icon"
+        :icon-right="isOpen ? 'fa fa-angle-up' : 'fa fa-angle-down'"
         :is-active="isActive"
       >
         {{title}}
-        <va-icon
-          class="app-topbar-link-group__item-icon"
-          :name="isOpen ? 'fa fa-angle-up' : 'fa fa-angle-down'"
-          :color="isOpen ? $themes.primary : null"
-        />
       </app-topbar-link>
       <ul
         class="app-topbar-link-group__submenu"
@@ -40,11 +35,11 @@
 </template>
 
 <script>
-import { getHoverColor } from './../../../../services/vuestic-ui'
 import AppTopbarLink from './AppTopbarLink'
 
 export default {
   name: 'topbar-link-group',
+  inject: ['contextConfig'],
   components: {
     AppTopbarLink,
   },
@@ -106,23 +101,10 @@ export default {
         'app-topbar-link-group--minimized': this.minimized,
       }
     },
-    sidebarLinkStyles () {
-      if (this.isHovered || this.isActive) {
-        return {
-          color: this.$themes.success,
-          backgroundColor: getHoverColor(this.$themes.info),
-          borderColor: this.$themes.success,
-        }
+    computedIconStyles () {
+      return {
+        backgroundColor: this.contextConfig.invertedColor ? this.$themes[this.color] : 'white',
       }
-
-      if (this.isOpen) {
-        return {
-          color: this.$themes.success,
-          borderColor: this.$themes.success,
-        }
-      }
-
-      return {}
     },
   },
 }
@@ -134,11 +116,6 @@ export default {
   flex-direction: column;
 
   &__item {
-
-  }
-
-  &__item-icon {
-    color: white;
   }
 
   &__submenu {

@@ -41,7 +41,7 @@
       </div>
       <ul
         class="app-sidebar-link-group__submenu"
-        :style="{backgroundColor: $themes[color]}"
+        :style="computedSubmenuColor"
       >
         <slot/>
       </ul>
@@ -51,11 +51,13 @@
 
 <script>
 import TransitionExpand from './TransitionExpand'
-import { colorShiftHsl } from '../../../../services/vuestic-ui'
+import { colorShiftHsl, ColorThemeMixin } from '../../../../services/vuestic-ui'
 import AppSidebarLink from './AppSidebarLink'
 
 export default {
   name: 'app-sidebar-link-group',
+  mixins: [ColorThemeMixin],
+  inject: ['contextConfig'],
   props: {
     icon: [String, Array],
     title: String,
@@ -76,7 +78,6 @@ export default {
       isActive: this.activeByDefault,
       isHovered: false,
       expanded: this.expanded,
-      dropdownOpened: false,
     }
   },
   watch: {
@@ -120,11 +121,23 @@ export default {
           backgroundColor: colorShiftHsl(this.$themes.secondary, { s: -13, l: 15 }).css,
           borderColor: this.isActive ? this.$themes.primary : 'transparent',
         }
-      } else return {}
+      }
+
+      return {}
     },
     computedIconStyles () {
+      if (this.isHovered || this.isActive) {
+        return {
+          color: this.$themes.primary,
+        }
+      }
+
+      return 'white'
+    },
+
+    computedSubmenuColor () {
       return {
-        color: (this.isHovered || this.isActive) ? this.$themes.primary : 'white',
+        backgroundColor: this.contextConfig.invertedColor ? 'white' : this.$themes[this.color],
       }
     },
   },

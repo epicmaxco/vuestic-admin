@@ -1,5 +1,8 @@
 <template>
-  <div class="app-navbar-actions">
+  <div
+    class="app-navbar-actions"
+    :style="computedActionsStyles"
+  >
     <color-dropdown class="app-navbar-actions__item"/>
     <message-dropdown class="app-navbar-actions__item"/>
     <notification-dropdown class="app-navbar-actions__item"/>
@@ -21,9 +24,12 @@ import NotificationDropdown from './dropdowns/NotificationDropdown'
 import MessageDropdown from './dropdowns/MessageDropdown'
 import ColorDropdown from './dropdowns/ColorDropdown'
 import SettingsDropdown from './dropdowns/SettingsDropdown'
+import { ColorThemeMixin } from '../../../../services/vuestic-ui'
 
 export default {
   name: 'app-navbar-actions',
+  mixins: [ColorThemeMixin],
+  inject: ['contextConfig'],
   components: {
     SettingsDropdown,
     ColorDropdown,
@@ -50,6 +56,11 @@ export default {
       set (isTopBar) {
         this.$emit('update:isTopBar', isTopBar)
       },
+    },
+    computedActionsStyles () {
+      return {
+        color: this.contextConfig.invertedColor ? this.$themes.primary : 'white',
+      }
     },
   },
 }

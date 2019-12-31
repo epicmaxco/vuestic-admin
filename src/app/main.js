@@ -17,8 +17,11 @@ import '../metrics'
 import '../registerServiceWorker'
 
 if (process.env.VUE_APP_BUILD_VERSION) {
-  console.info( // eslint-disable-next-line no-undef
-    `%c${'Build_information:'}\n %c${'Version'}: %c${VERSION},\n %c${'Timestamp'}: %c${TIMESTAMP},\n %c${'Commit'}: %c${COMMIT}`,
+  // eslint-disable-next-line
+  const message = `%c${'Build_information:'}\n %c${'Version'}: %c${VERSION},\n %c${'Timestamp'}: %c${TIMESTAMP},\n %c${'Commit'}: %c${COMMIT}`
+  // eslint-disable-next-line
+  console.info(
+    message,
     'color: blue;', 'color: red;', 'color: blue;', 'color: red;', 'color: blue;', 'color: red;', 'color: blue;',
   )
 }
@@ -27,14 +30,9 @@ Vue.use(VuesticPlugin)
 Vue.use(YmapPlugin)
 Vue.use(VueClipboard)
 
-Vue.use(ColorThemePlugin,
-  {
-    // Add or change theme colors here
-    themes: {
-      // primary: '#f06595',
-      // blurple: '#7289DA',
-    },
-  })
+Vue.use(ColorThemePlugin, {
+  // override colors here.
+})
 
 router.beforeEach((to, from, next) => {
   store.commit('setLoading', true)

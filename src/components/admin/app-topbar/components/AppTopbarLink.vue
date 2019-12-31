@@ -14,21 +14,25 @@
       :style="computedIconStyles"
       :name="icon"
     />
-    <div
-      class="app-topbar-link__title"
-    >
+    <div class="app-topbar-link__title">
       <slot>
         {{title}}
       </slot>
     </div>
+    <va-icon
+      class="app-topbar-link__icon"
+      :name="iconRight"
+      :style="computedIconStyles"
+    />
   </router-link>
 </template>
 
 <script>
-import { getHoverColor, ColorThemeMixin } from './../../../../services/vuestic-ui'
+import { colorShiftHsl, ColorThemeMixin } from './../../../../services/vuestic-ui'
 
 export default {
   name: 'topbar-link',
+  inject: ['contextConfig'],
   mixins: [ColorThemeMixin],
   props: {
     to: {
@@ -42,6 +46,9 @@ export default {
     icon: {
       type: [String, Array],
     },
+    iconRight: {
+      type: [String, Array],
+    },
     title: {
       type: String,
     },
@@ -52,23 +59,37 @@ export default {
   },
   data () {
     return {
-      isHover: false,
+      isHovered: false,
     }
   },
   computed: {
     computedStyle () {
-      if (this.isActive) {
+      // TODO Inverted color condition is incorrect here.
+      if (this.contextConfig.invertedColor) {
+        if (this.isHovered || this.isActive) {
+          return {
+            color: this.$themes.primary,
+            borderColor: colorShiftHsl(this.$themes.primary, { s: 13, l: -15 }).css,
+          }
+        }
+
         return {
-          color: this.$themes.primary,
-          backgroundColor: getHoverColor(this.$themes.info),
-          borderColor: this.$themes.primary,
+          color: this.$themes.gray,
         }
       }
 
-      if (this.isHover) {
+      if (this.isActive) {
         return {
           color: this.$themes.primary,
-          backgroundColor: getHoverColor(this.$themes.info),
+          borderColor: this.$themes.primary,
+          backgroundColor: colorShiftHsl(this.$themes.secondary, { s: -13, l: 15 }).css,
+        }
+      }
+
+      if (this.isHovered) {
+        return {
+          color: this.$themes.primary,
+          backgroundColor: colorShiftHsl(this.$themes.secondary, { s: -13, l: 15 }).css,
         }
       }
 
@@ -77,7 +98,19 @@ export default {
       }
     },
     computedIconStyles () {
-      if (this.isHover || this.isActive) {
+      if (this.contextConfig.invertedColor) {
+        if (this.isHovered || this.isActive) {
+          return {
+            color: this.$themes.primary,
+          }
+        }
+
+        return {
+          color: this.$themes.gray,
+        }
+      }
+
+      if (this.isHovered || this.isActive) {
         return {
           color: this.$themes.primary,
         }
@@ -89,8 +122,14 @@ export default {
     },
   },
   methods: {
-    updateHoverState (isHover) {
-      this.isHover = isHover
+    updateHoverState (isHovered) {
+      this.isHovered = isHovered
+    },
+    updateActiveState () {
+      this.isActive = (this.$route.name === this.to.name) || this.activeByDefault
+    },
+    mounted () {
+      this.updateActiveState()
     },
   },
 }

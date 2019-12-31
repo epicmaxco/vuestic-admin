@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import LineMap from '@/components/maps/line-maps/LineMap'
+import LineMap from '../../components/maps/line-maps/LineMap'
 import { getLineMapData } from '../../data/maps/LineMapData'
 
 export default {
@@ -34,6 +34,14 @@ export default {
   },
   mounted () {
     this.lineMapData = getLineMapData(this.$themes)
+  },
+  watch: {
+    '$themesOptions.activeThemeName': { // hack for trigger change themes
+      handler () {
+        this.lineMapData = getLineMapData(this.$themes)
+      },
+      immediate: true,
+    },
   },
 }
 </script>
