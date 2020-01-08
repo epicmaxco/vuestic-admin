@@ -15,9 +15,8 @@ export default {
 
 <style lang="scss">
 .made-by-component {
-  width: 100%;
   position: absolute;
   bottom: 0;
-  color: $white;
+  width: 100%;
 }
 </style>
