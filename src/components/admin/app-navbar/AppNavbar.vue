@@ -10,21 +10,20 @@
           v-if="!minimized && !isTopBar"
           @click.native="$emit('update:minimized', !minimized)"
           :color="contextConfig.invertedColor ? $themes.gray : 'white'"
-        ></va-icon-menu>
+        />
 
         <va-icon-menu-collapsed
           class="app-navbar__menu"
           v-if="minimized && !isTopBar"
           @click.native="$emit('update:minimized', !minimized)"
           :color="contextConfig.invertedColor ? $themes.gray : 'white'"
-        ></va-icon-menu-collapsed>
+        />
 
         <router-link
           class="app-navbar__logo mr-3"
           to="/"
         >
-          <va-icon-vuestic-toned v-if="contextConfig.invertedColor"/>
-          <va-icon-vuestic v-else/>
+          <va-icon-vuestic />
         </router-link>
       </div>
       <div class="app-navbar__center lg5 md4">
@@ -67,7 +66,6 @@
 
 <script>
 import VaIconVuestic from '../../../iconset/VaIconVuestic'
-import VaIconVuesticToned from '../../../iconset/VaIconVuesticToned'
 import VaIconMenu from '../../../iconset/VaIconMenu'
 import VaIconMenuCollapsed from '../../../iconset/VaIconMenuCollapsed'
 import AppNavbarActions from './components/AppNavbarActions'
@@ -79,7 +77,6 @@ export default {
   inject: ['contextConfig'],
   components: {
     VaIconVuestic,
-    VaIconVuesticToned,
     VaIconMenu,
     VaIconMenuCollapsed,
     AppNavbarActions,
