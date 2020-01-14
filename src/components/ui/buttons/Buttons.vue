@@ -265,6 +265,41 @@
           </div>
         </va-card>
       </div>
+      <div class="flex xs12">
+        <va-card
+          class="larger-padding"
+          :title="$t('buttons.buttonsDropdown')"
+        >
+          <div class="row">
+            <div class="flex">
+              <va-button-dropdown
+                :label="$t('buttons.default')"
+              > {{ $t('buttons.content') }}</va-button-dropdown>
+              <va-button-dropdown
+                split
+                :label="$t('buttons.split')"
+              > {{ $t('buttons.content') }}</va-button-dropdown>
+              <va-button-dropdown
+                split
+                split-to="/"
+                :label="$t('buttons.splitTo')"
+              > {{ $t('buttons.content') }}</va-button-dropdown>
+              <va-button-dropdown
+                :label="$t('buttons.customIcon')"
+                icon="iconicstroke iconicstroke-info"
+              > {{ $t('buttons.content') }}</va-button-dropdown>
+              <va-button-dropdown
+                disabled
+                :label="$t('buttons.disabled')"
+              > {{ $t('buttons.content') }}</va-button-dropdown>
+              <va-button-dropdown
+                color="warning"
+                :label="$t('buttons.warning')"
+              > {{ $t('buttons.content') }}</va-button-dropdown>
+            </div>
+          </div>
+        </va-card>
+      </div>
     </div>
   </div>
 </template>
@@ -285,3 +320,9 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+  .va-button-dropdown {
+    display: inline-block;
+  }
+</style>
