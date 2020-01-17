@@ -7,11 +7,11 @@
     viewBox="0 0 304 31"
   >
     <defs>
-      <linearGradient :id="themetId.ORIGINAL" x1="0%" y1="50%" y2="50%">
+      <linearGradient :id="'ORIGINAL'" x1="0%" y1="50%" y2="50%">
         <stop offset="0%" stop-color="#4AE387"/>
         <stop offset="100%" stop-color="#C8EA13"/>
       </linearGradient>
-      <linearGradient :id="themetId.CORPORATE" x1="0%" y1="50%" y2="50%">
+      <linearGradient :id="'CORPORATE'" x1="0%" y1="50%" y2="50%">
         <stop offset="0%" stop-color="#74BBFF"/>
         <stop offset="100%" stop-color="#6E85E8"/>
       </linearGradient>
@@ -34,19 +34,13 @@
   </svg>
 </template>
 <script>
-import { themetId } from '../components/pages/404-pages/ThemeConfig'
 
 export default {
   name: 'VaIconVuestic',
   inject: ['contextConfig'],
-  data () {
-    return {
-      themetId,
-    }
-  },
   computed: {
     themeGradientId () {
-      return this.contextConfig.invertedColor ? themetId.CORPORATE : themetId.ORIGINAL
+      return this.contextConfig.invertedColor ? 'CORPORATE' : 'ORIGINAL'
     },
     textColor () {
       return this.contextConfig.invertedColor ? '#6E85E8' : '#E4FF32'
