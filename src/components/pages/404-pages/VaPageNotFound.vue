@@ -13,7 +13,9 @@
       <va-button v-if="!withoutButton" :to="{ name: 'dashboard' }">{{$t('404.back_button')}}</va-button>
     </div>
     <made-by-component/>
-    <wallpaper :color="wallpaperColor"/>
+    <div class="va-page-not-found__wallpaper">
+      <wallpaper :color="wallpaperColor"/>
+    </div>
   </div>
 </template>
 
@@ -50,7 +52,7 @@ export default {
   .va-page-not-found {
     min-height: 100vh;
     display: flex;
-    padding-top: 12%;
+    padding-top: 10%;
     position: relative;
 
     @include media-breakpoint-down(sm) {
@@ -80,6 +82,18 @@ export default {
 
     &__text {
       margin-bottom: 2.5rem;
+    }
+
+    &__wallpaper {
+      position: absolute;
+      bottom: 0;
+      left: 1rem;
+      width: 30%;
+      height: 40%;
+
+      @include media-breakpoint-down(xs) {
+        display: none;
+      }
     }
   }
 </style>
