@@ -4,14 +4,14 @@
     :title="$t('progressBars.colors')"
   >
     <div class="row">
-      <div v-for="n in 6" :key="n" class="flex md4 xs12">
+      <div v-for="n in 6" :key="`pb-${n}`" class="flex md4 xs12">
         <va-progress-bar
           :value="value * n / 6"
           :color="colors[n - 1]"
         >{{ colors[n - 1] }}
         </va-progress-bar>
       </div>
-      <div v-for="n in 6" :key="n" class="flex md2 xs6">
+      <div v-for="n in 6" :key="`pc-${n}`" class="flex md2 xs6">
         <va-progress-circle
           class="ma-auto"
           :value="value * n / 6"
