@@ -1,5 +1,5 @@
 <template>
-  <div class="va-page-not-found justify--center pb-5">
+  <div class="va-page-not-found justify--center pb-5" :style="pageNotFoundStyle">
     <div class="va-page-not-found__inner align--center">
       <slot name="image"/>
       <div class="va-page-not-found__title text--center mb-4">{{$t('404.title')}}</div>
@@ -7,34 +7,52 @@
         <span>
           {{$t('404.text')}}
         </span>
-        <a href="mailto:hello@epicmax.co" class="link">hello@epicmax.co</a>
+        <a href="mailto:hello@epicmax.co" :style="{color: this.$themes.primary}" class="link">hello@epicmax.co</a>
       </div>
       <slot/>
       <va-button v-if="!withoutButton" :to="{ name: 'dashboard' }">{{$t('404.back_button')}}</va-button>
     </div>
     <made-by-component/>
-    <div class="va-page-not-found__wallpaper"/>
+    <div class="va-page-not-found__wallpaper">
+      <wallpaper :color="wallpaperColor"/>
+    </div>
   </div>
 </template>
 
 <script>
 import MadeByComponent from './MadeByComponent'
+import Wallpaper from './Wallpaper'
+import { ColorThemeMixin } from '../../../services/vuestic-ui'
 
 export default {
   name: 'va-page-not-found',
+  mixins: [ColorThemeMixin],
+  inject: ['contextConfig'],
   components: {
     MadeByComponent,
+    Wallpaper,
   },
   props: { withoutButton: Boolean },
+  computed: {
+    pageNotFoundStyle () {
+      return {
+        color: this.contextConfig.invertedColor ? this.$themes.dark : 'white',
+        backgroundColor: this.contextConfig.invertedColor ? 'white' : this.$themes.danger,
+        backgroundImage: this.contextConfig.gradient && 'linear-gradient(to right, #ff2175, #d30505)',
+      }
+    },
+    wallpaperColor () {
+      return this.contextConfig.invertedColor ? this.$themes.dark : '#e4ff32'
+    },
+  },
 }
 </script>
 
 <style lang="scss">
   .va-page-not-found {
     min-height: 100vh;
-    background-image: linear-gradient(to right, #ff2175, #d30505);
     display: flex;
-    padding-top: 12%;
+    padding-top: 10%;
     position: relative;
 
     @include media-breakpoint-down(sm) {
@@ -53,7 +71,6 @@ export default {
     }
 
     &__title {
-      color: $white;
       font-size: 3rem;
       line-height: 1.25em;
       font-weight: 500;
@@ -65,7 +82,6 @@ export default {
 
     &__text {
       margin-bottom: 2.5rem;
-      color: $white;
     }
 
     &__wallpaper {
@@ -74,11 +90,6 @@ export default {
       left: 1rem;
       width: 30%;
       height: 40%;
-      background-color: transparent;
-      background-image: url("../../../assets/petro.svg");
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: bottom center;
 
       @include media-breakpoint-down(xs) {
         display: none;
