@@ -12,8 +12,7 @@
       <va-button-toggle
         outline
         small
-        color="dark"
-        @input="setTheme"
+        v-model="selectedTheme"
         :options="modeOptions"
         style="max-width: 100%;"
       />
@@ -133,44 +132,33 @@
 </template>
 
 <script>
-import {
-  ColorThemeActionsMixin,
-  ColorThemeMixin,
-} from '../../../../../services/vuestic-ui'
 import VaIconColor from '../../../../../iconset/VaIconColor'
-import { originalTheme, corporateTheme } from 'vuestic-ui/src/services/themes'
 
 export default {
-  mixins: [ColorThemeActionsMixin, ColorThemeMixin],
   inject: ['contextConfig'],
   components: {
     VaIconColor,
   },
-  created () {
-    if (this.$route.query && this.$route.query.theme === 'corporate') {
-      this.setTheme(corporateTheme)
-    }
-  },
   computed: {
+    selectedTheme: {
+      get () {
+        return this.contextConfig.invertedColor ? 'corporate' : 'original'
+      },
+      set (themeName) {
+        this.$root.$emit('change-theme', themeName)
+      },
+    },
     modeOptions () {
       return [
         {
           label: 'Original',
-          value: originalTheme,
+          value: 'original',
         },
         {
           label: 'Corporate',
-          value: corporateTheme,
+          value: 'corporate',
         },
       ]
-    },
-  },
-  methods: {
-    setTheme (theme) {
-      this.setColors(theme.colors)
-      Object.keys(theme.context).forEach((key) => {
-        this.contextConfig[key] = theme.context[key]
-      })
     },
   },
 }

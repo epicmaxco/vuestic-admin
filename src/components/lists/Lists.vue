@@ -223,6 +223,7 @@
 import data from './data.json'
 
 export default {
+  inject: ['contextConfig'],
   data () {
     return {
       customers: data.slice(0, 5),
@@ -242,6 +243,7 @@ export default {
     notify (name) {
       this.showToast(`Clicked ${name}`, {
         position: 'bottom-right',
+        containerClass: this.contextConfig.invertedColor ? 'inverted-color' : '',
       })
     },
     toggleStar (customer) {

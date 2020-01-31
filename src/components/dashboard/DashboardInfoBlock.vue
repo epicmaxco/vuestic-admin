@@ -51,7 +51,7 @@
         next level is a big next step.
 
         <div class="row mt-3">
-          <va-button color="success" target="_blank" href="https://github.com/epicmaxco/vuestic-ui">
+          <va-button color="primary" target="_blank" href="https://github.com/epicmaxco/vuestic-ui">
             {{$t('dashboard.info.viewLibrary')}}
           </va-button>
         </div>
@@ -68,7 +68,7 @@
           <va-button
             flat
             icon-right="ion ion-ios-arrow-forward"
-            color="success"
+            color="primary"
             class="ma-0"
             @click="showModal"
           >

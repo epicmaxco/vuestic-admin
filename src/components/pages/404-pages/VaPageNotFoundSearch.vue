@@ -19,7 +19,7 @@
             v-for="(item, index) in category.items"
             :key="index"
           >
-            <router-link :to="{ path: item.itemLink }" class="link" :style="{color: $themes.primary}">
+            <router-link :to="{ path: item.itemLink }" class="link">
               {{ item.itemName }}
             </router-link>
           </li>
