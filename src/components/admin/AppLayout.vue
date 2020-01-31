@@ -66,7 +66,7 @@ export default {
   mixins: [ColorThemeActionsMixin, ColorThemeMixin],
   created () {
     if (this.$route.query && this.$route.query.theme === 'corporate') {
-      this.setTheme(corporateTheme)
+      this.setTheme('corporate')
     }
     this.$root.$on('change-theme', this.setTheme)
   },
