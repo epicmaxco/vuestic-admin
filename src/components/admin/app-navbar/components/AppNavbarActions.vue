@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="app-navbar-actions"
-    :style="computedActionsStyles"
-  >
+  <div class="app-navbar-actions">
     <color-dropdown class="app-navbar-actions__item"/>
     <message-dropdown class="app-navbar-actions__item"/>
     <notification-dropdown class="app-navbar-actions__item"/>
@@ -56,11 +53,6 @@ export default {
       set (isTopBar) {
         this.$emit('update:isTopBar', isTopBar)
       },
-    },
-    computedActionsStyles () {
-      return {
-        color: this.contextConfig.invertedColor ? this.$themes.primary : 'white',
-      }
     },
   },
 }

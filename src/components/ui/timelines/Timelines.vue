@@ -12,7 +12,7 @@
               <template slot="before">
                 <div
                   class="title text--center"
-                  :style="{color: $themes.success}"
+                  :style="{color: $themes.primary}"
                 >
                   February 2018
                 </div>
@@ -25,7 +25,7 @@
               <template slot="before">
                 <div
                   class="title text--center"
-                  :style="{color: $themes.success}"
+                  :style="{color: $themes.primary}"
                 >
                   April 2018
                 </div>
@@ -60,7 +60,7 @@
               <template slot="before">
                 <div
                   class="title text--center"
-                  :style="{color: $themes.success}"
+                  :style="{color: $themes.primary}"
                 >
                   February 2018
                 </div>
@@ -78,7 +78,7 @@
               <template slot="before">
                 <div
                   class="title text--center"
-                  :style="{color: $themes.success}"
+                  :style="{color: $themes.primary}"
                 >
                   April 2018
                 </div>
@@ -118,7 +118,7 @@
               <span
                 slot="before"
                 class="title va-timeline-item__text"
-                :style="{color: $themes.success}"
+                :style="{color: $themes.primary}"
               >
                 Feb 2018
               </span>
@@ -135,7 +135,7 @@
               <span
                 slot="before"
                 class="title va-timeline-item__text"
-                :style="{color: $themes.success}"
+                :style="{color: $themes.primary}"
               >
                 Apr 2018
               </span>

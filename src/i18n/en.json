@@ -385,7 +385,7 @@
   },
   "notifications": {
     "all": "See all notifications",
-    "mark_as_read": "Mark As Read",
+    "mark_as_read": "Mark as read",
     "sentMessage": "sent you a message",
     "uploadedZip": "uploaded a new Zip file with {type}",
     "startedTopic": "started a new topic"

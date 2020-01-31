@@ -79,6 +79,7 @@ export default {
     notify () {
       this.showToast("The color's copied to your clipboard", {
         position: 'bottom-right',
+        containerClass: this.contextConfig.invertedColor ? 'inverted-color' : '',
       })
     },
     calcBackground () {
