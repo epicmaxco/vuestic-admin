@@ -19,7 +19,7 @@
 </p>
 
 <p align="center">
-  <a href="https://vuestic.epicmax.co"> Demo </a> | <a href="[THEME_URL]"> New white theme demo </a> | <a href="https://github.com/epicmaxco/vuestic-admin/wiki"> Documentation </a>
+  <a href="https://vuestic.epicmax.co"> Demo </a> | <a href="https://vuestic.epicmax.co/admin/dashboard?theme=corporate"> New white theme demo </a> | <a href="https://github.com/epicmaxco/vuestic-admin/wiki"> Documentation </a>
 </p>
 <p align="center">
   <a href="https://vuestic.epicmax.co" target="_blank">
@@ -34,13 +34,13 @@
 </p>
 
 <h2>
-  <a href="[THEME_URL]" target="_blank">
+  <a href="https://vuestic.epicmax.co/admin/dashboard?theme=corporate" target="_blank">
     New white theme demo
   </a>
 </h2>
 
 <p align="center">
-  <a href="[THEME_URL]" target="_blank">
+  <a href="https://vuestic.epicmax.co/admin/dashboard?theme=corporate" target="_blank">
     <img src="https://i.imgur.com/DnFcrjD.png" align="center" width="888px"/>
   </a>
 </p>
