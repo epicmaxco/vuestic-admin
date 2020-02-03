@@ -7,6 +7,7 @@
           :value="term"
           :placeholder="$t('tables.searchByName')"
           @input="search"
+          removable
         >
           <va-icon name="fa fa-search" slot="prepend" />
         </va-input>
