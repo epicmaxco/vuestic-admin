@@ -6,6 +6,7 @@
         :style="{'align-items': 'flex-start'}"
         v-model="inputValue"
         class="va-page-not-found-search__input mb-4"
+        removable
       />
       <div class="row va-page-not-found-search__links">
         <ul

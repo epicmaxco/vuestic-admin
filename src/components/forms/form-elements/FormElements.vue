@@ -297,7 +297,6 @@ import CountriesList from '../../../data/CountriesList'
 
 export default {
   name: 'form-elements',
-  components: {},
   data () {
     return {
       isMale: true,
