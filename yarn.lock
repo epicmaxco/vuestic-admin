@@ -11561,10 +11561,10 @@ vue@^2.6.10:
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
   integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==
 
-vuestic-ui@~0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/vuestic-ui/-/vuestic-ui-0.2.1.tgz#45b16173b23fa81ea1b373d0c55f4c500596b649"
-  integrity sha512-iaFGXvzXPabggX8TmSOKBcr4vAiQA93kdeQpmKNmouUcDjQtL0eTH1msXtU695tFHJjSOd6tqFc6UJFTh8ObQA==
+vuestic-ui@~0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/vuestic-ui/-/vuestic-ui-0.2.2.tgz#21f3a6e8d1617b1b33d42a7ce45f6cf3c84d55e8"
+  integrity sha512-CjetN1SIKLYf+C7DbZU47EkIlyxuGQ5z9leSjJNtfqQQSe+SF65ameOBduTS1ZrbGuARb3DJRHejw/jxr04Icw==
   dependencies:
     approximate-number "^2.0.0"
     asva-executors "^0.1.22"
