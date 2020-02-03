@@ -112,7 +112,6 @@ import ToastPositionPicker from './ToastPositionPicker.vue'
 export default {
   name: 'notifications',
   components: { ToastPositionPicker },
-  inject: ['contextConfig'],
   data () {
     return {
       toastText: 'This toast is awesome!',
@@ -136,7 +135,6 @@ export default {
           position: this.toastPosition,
           duration: this.toastDuration,
           fullWidth: this.isToastFullWidth,
-          containerClass: this.contextConfig.invertedColor ? 'inverted-color' : '',
         },
       )
     },

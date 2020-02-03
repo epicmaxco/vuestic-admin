@@ -68,7 +68,6 @@ import debounce from 'lodash/debounce'
 import data from '../markup-tables/data.json'
 
 export default {
-  inject: ['contextConfig'],
   data () {
     return {
       users: data.slice(),
@@ -178,7 +177,6 @@ export default {
           icon: 'fa-check',
           position: 'bottom-right',
           duration: 1500,
-          containerClass: this.contextConfig.invertedColor ? 'inverted-color' : '',
         })
       }, 500)
     },

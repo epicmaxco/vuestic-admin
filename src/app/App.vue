@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="app" :class="{'inverted-color': contextConfig.invertedColor}">
+  <div id="app" class="app">
     <router-view />
   </div>
 </template>
@@ -21,6 +21,17 @@ export default {
     return {
       contextConfig: this.contextConfig,
     }
+  },
+  watch: {
+    // Temporary colors fix for 2.1.
+    'contextConfig.invertedColor' (val) {
+      const invertedColorClass = 'va-inverted-color'
+      if (val) {
+        document.body.classList.add(invertedColorClass)
+      } else {
+        document.body.classList.remove(invertedColorClass)
+      }
+    },
   },
 }
 </script>

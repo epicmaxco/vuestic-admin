@@ -40,7 +40,6 @@
 <script>
 export default {
   name: 'bank-details-tab',
-  inject: ['contextConfig'],
   data () {
     return {
       form: {
@@ -54,9 +53,7 @@ export default {
   },
   methods: {
     sendDetails () {
-      this.showToast('Saved!', {
-        containerClass: this.contextConfig.invertedColor ? 'inverted-color' : '',
-      })
+      this.showToast('Saved!')
     },
   },
 }
