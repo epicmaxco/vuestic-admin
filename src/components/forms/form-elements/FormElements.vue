@@ -79,6 +79,7 @@
                     <va-date-picker
                       :label="$t('forms.dateTimePicker.basic')"
                       v-model="datepicker.simple"
+                      :invertedColor="contextConfig.invertedColor"
                     />
                   </div>
                   <div class="flex xs12 sm6">
@@ -86,6 +87,7 @@
                       :label="$t('forms.dateTimePicker.time')"
                       :config="{enableTime: true}"
                       v-model="datepicker.time"
+                      :invertedColor="contextConfig.invertedColor"
                     />
                   </div>
                   <div class="flex xs12 sm6">
@@ -93,6 +95,7 @@
                       :label="$t('forms.dateTimePicker.customFirstDay')"
                       :config="{locale: {firstDayOfWeek: 1}}"
                       v-model="datepicker.customFirstDay"
+                      :invertedColor="contextConfig.invertedColor"
                       weekDays
                     />
                   </div>
@@ -101,6 +104,7 @@
                       :label="$t('forms.dateTimePicker.disabled')"
                       disabled
                       v-model="datepicker.disabled"
+                      :invertedColor="contextConfig.invertedColor"
                     />
                   </div>
                   <div class="flex xs12 sm6">
@@ -108,6 +112,7 @@
                       :label="$t('forms.dateTimePicker.multiple')"
                       :config="{mode: 'multiple'}"
                       v-model="datepicker.multiple"
+                      :invertedColor="contextConfig.invertedColor"
                     />
                   </div>
                   <div class="flex xs12 sm6">
@@ -115,6 +120,7 @@
                       :label="$t('forms.dateTimePicker.customDateFormat')"
                       :config="{dateFormat: 'Y-M-d'}"
                       v-model="datepicker.customDate"
+                      :invertedColor="contextConfig.invertedColor"
                     />
                   </div>
                 </div>
@@ -125,6 +131,7 @@
                   :label="$t('forms.dateTimePicker.range')"
                   :config="{mode: 'range', inline: true}"
                   v-model="datepicker.range"
+                  :invertedColor="contextConfig.invertedColor"
                 />
               </div>
             </div>
@@ -297,7 +304,7 @@ import CountriesList from '../../../data/CountriesList'
 
 export default {
   name: 'form-elements',
-  components: {},
+  inject: ['contextConfig'],
   data () {
     return {
       isMale: true,
