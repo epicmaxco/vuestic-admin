@@ -44,7 +44,7 @@ export default {
     },
 
     highlightSampleText () {
-      let sampleText = document.getElementsByClassName('default-selection')[0]
+      const sampleText = document.getElementsByClassName('default-selection')[0]
       this.editor.selectElement(sampleText)
     },
   },

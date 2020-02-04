@@ -297,7 +297,6 @@ import CountriesList from '../../../data/CountriesList'
 
 export default {
   name: 'form-elements',
-  components: {},
   data () {
     return {
       isMale: true,
@@ -364,11 +363,6 @@ export default {
     clear (field) {
       this[field] = ''
     },
-  },
-  created () {
-    this.$nextTick(() => {
-      this.$validator.validateAll()
-    })
   },
 }
 </script>

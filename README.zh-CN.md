@@ -1,9 +1,9 @@
-<p align="center"> 
+<p align="center">
   <a href="./README.md"> English </a> | 简体中文 | <a href="./README.ja-JP.md"> 日本語 </a>
 </p>
 
 <h1 align="center"> Vuestic Admin </h1>
-  
+
 <p align="center">
   免费与美妙Vue.js管理模板包括38以上个定制用户界面组件</br>
   由<a href="https://epicmax.co">Epicmax</a>开发。
@@ -11,12 +11,12 @@
 </p>
 
 <p align="center">
-  <a href="https://vuestic.epicmax.co">演示版</a> | <a href="https://github.com/epicmaxco/vuestic-admin/wiki"> 文档 </a>
+  <a href="https://vuestic.epicmax.co"> 演示版 </a> | <a href="[THEME_URL]"> 新白色主题演示 </a> | <a href="https://github.com/epicmaxco/vuestic-admin/wiki"> 文档 </a>
 </p>
 
 <p align="center">
   <a href="https://vuestic.epicmax.co" target="_blank">
-    <img src="https://i.imgur.com/hgcSCmT.png" align="center" width="888px"/>
+    <img src="https://i.imgur.com/hVxoYQM.jpg" align="center" width="888px"/>
   </a>
 </p>
 
@@ -24,6 +24,19 @@
 <p align="center">
   <a href="https://circleci.com/gh/epicmaxco/vuestic-admin">
     <img src="https://img.shields.io/circleci/build/github/epicmaxco/vuestic-admin/master" alt="Circleci">
+  </a>
+</p>
+
+
+<h2>
+  <a href="[THEME_URL]" target="_blank">
+    新白色主题演示
+  </a>
+</h2>
+
+<p align="center">
+  <a href="[THEME_URL]" target="_blank">
+    <img src="https://i.imgur.com/DnFcrjD.png" align="center" width="888px"/>
   </a>
 </p>
 

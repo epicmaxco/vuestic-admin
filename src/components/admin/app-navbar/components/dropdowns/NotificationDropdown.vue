@@ -4,11 +4,11 @@
     offset="0, 16px"
     boundary-body
   >
-    <va-icon
+    <va-icon-notification
       slot="anchor"
-      name="i-nav-notification"
       class="notification-dropdown__icon"
       :class="{'notification-dropdown__icon--unread': !allRead}"
+      :color="contextConfig.invertedColor ? $themes.gray : 'white'"
     />
     <div class="notification-dropdown__content pl-3 pr-3 pt-2 pb-2">
       <div
@@ -32,8 +32,16 @@
 </template>
 
 <script>
+import VaIconNotification from '../../../../../iconset/VaIconNotification'
+import { ColorThemeMixin } from '../../../../../services/vuestic-ui'
+
 export default {
   name: 'notification-dropdown',
+  inject: ['contextConfig'],
+  components: {
+    VaIconNotification,
+  },
+  mixins: [ColorThemeMixin],
   data () {
     return {
       computedOptions: [...this.options],
@@ -85,9 +93,9 @@ export default {
 </script>
 
 <style lang="scss">
+
 .notification-dropdown {
   cursor: pointer;
-  margin-top: 0.3rem;
 
   .notification-dropdown__icon {
     position: relative;
@@ -99,25 +107,25 @@ export default {
       position: absolute;
       right: 0;
       left: 0;
-      top: -.5rem;
+      top: -0.5rem;
       background-color: $brand-danger;
-      height: .375rem;
-      width: .375rem;
+      height: 0.375rem;
+      width: 0.375rem;
       margin: 0 auto;
-      border-radius: .187rem;
+      border-radius: 0.187rem;
     }
   }
 
   &__content {
     background-color: $dropdown-background;
     box-shadow: $gray-box-shadow;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     max-width: 19rem;
   }
 
   &__item {
     cursor: pointer;
-    margin-bottom: .75rem;
+    margin-bottom: 0.75rem;
     color: $brand-secondary;
     flex-wrap: nowrap;
     position: relative;
@@ -125,17 +133,17 @@ export default {
     &--unread {
       color: $vue-darkest-blue;
 
-      &:after {
+      &::after {
         content: '';
         position: absolute;
         right: 0;
         top: 0;
         bottom: 0;
-        height: .375rem;
-        width: .375rem;
+        height: 0.375rem;
+        width: 0.375rem;
         background-color: $brand-danger;
         margin: auto;
-        border-radius: .187rem;
+        border-radius: 0.187rem;
       }
     }
 

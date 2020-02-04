@@ -83,14 +83,6 @@ export default [
         itemLink: '/admin/ui/color-pickers',
       },
       {
-        itemName: 'File Upload',
-        itemLink: '/admin/ui/file-upload',
-      },
-      {
-        itemName: 'Grid',
-        itemLink: '/admin/ui/grid',
-      },
-      {
         itemName: 'Icons',
         itemLink: '/admin/ui/icons',
       },
@@ -115,14 +107,6 @@ export default [
         itemLink: '/admin/ui/rating',
       },
       {
-        itemName: 'Sliders',
-        itemLink: '/admin/ui/sliders',
-      },
-      {
-        itemName: 'Spacing',
-        itemLink: '/admin/ui/spacing',
-      },
-      {
         itemName: 'Spinners',
         itemLink: '/admin/ui/spinners',
       },
@@ -137,10 +121,6 @@ export default [
       {
         itemName: 'Tree View',
         itemLink: '/admin/ui/tree-view',
-      },
-      {
-        itemName: 'Typography',
-        itemLink: '/admin/ui/typography',
       },
     ],
   },

@@ -1,6 +1,6 @@
 <template>
   <div class="pt-2">
-    <div class="title text-dark mb-1">
+    <div class="title text-dark mb-1" :style="{color: $themes.primary}">
       {{$t('dashboard.tabs.bankDetails.detailsFields')}}
     </div>
     <div class="row">
@@ -30,7 +30,7 @@
       </div>
     </div>
     <div class="row justify--center">
-      <va-button>
+      <va-button @click="sendDetails">
         {{ $t('dashboard.tabs.bankDetails.sendDetails') }}
       </va-button>
     </div>
@@ -50,6 +50,11 @@ export default {
         notes: '',
       },
     }
+  },
+  methods: {
+    sendDetails () {
+      this.showToast('Saved!')
+    },
   },
 }
 </script>

@@ -38,30 +38,35 @@
     "advanced": "Buttons With Icons",
     "size": "Button Sizes",
     "tags": "Button Tags",
-    "button": "BUTTON",
+    "button": "Button",
     "buttonGroups": "Button Groups",
+    "buttonsDropdown": "Buttons with dropdown",
+    "split": "Split",
+    "splitTo": "Split to",
+    "customIcon": "Custom icon",
+    "content": "Content",
     "buttonToggles": "Button Toggles",
     "pagination": "Pagination",
     "a-link": "Open EpicSpinners",
     "router-link": "Move to Charts",
     "colors": "Button Colors",
-    "disabled": "DISABLED",
+    "disabled": "Disabled",
     "dropdown": "DROPDOWN",
     "hover": "HOVER",
     "types": "Button Types",
     "pressed": "PRESSED",
-    "default": "DEFAULT",
-    "outline": "OUTLINE",
-    "flat": "FLAT",
-    "large": "LARGE",
-    "small": "SMALL",
-    "normal": "NORMAL",
-    "success": "SUCCESS",
-    "info": "INFO",
-    "danger": "DANGER",
-    "warning": "WARNING",
-    "gray": "GRAY",
-    "dark": "DARK"
+    "default": "Default",
+    "outline": "Outline",
+    "flat": "Flat",
+    "large": "Large",
+    "small": "Small",
+    "normal": "Normal",
+    "success": "Success",
+    "info": "Info",
+    "danger": "Danger",
+    "warning": "Warning",
+    "gray": "Gray",
+    "dark": "Dark"
   },
   "charts": {
     "horizontalBarChart": "Horizontal Bar Chart",
@@ -107,10 +112,10 @@
     "currentVisitors": "Current Visitors",
     "charts": {
       "trendyTrends": "Trendy Trends",
-      "deleteSection": "Delete Section",
+      "showInMoreDetail": "Show in more detail",
       "loadingSpeed": "Loading speed",
       "topContributors": "Top contributors",
-      "showAll": "Show All",
+      "showNextFive": "Show next five",
       "commits": "Commits"
     },
     "info": {
@@ -375,12 +380,12 @@
     "badges": "Badges"
   },
   "navbar": {
-    "messageUs": "Development inquiries:",
-    "support": "TY for support"
+    "messageUs": "Web development inquiries:",
+    "repository": "GitHub Repo"
   },
   "notifications": {
     "all": "See all notifications",
-    "mark_as_read": "Mark As Read",
+    "mark_as_read": "Mark as read",
     "sentMessage": "sent you a message",
     "uploadedZip": "uploaded a new Zip file with {type}",
     "startedTopic": "started a new topic"
@@ -439,7 +444,8 @@
       "firstName": "First Name",
       "lastName": "Last Name",
       "status": "Status",
-      "country": "Country"
+      "country": "Country",
+      "location": "Location"
     }
   },
   "user": {

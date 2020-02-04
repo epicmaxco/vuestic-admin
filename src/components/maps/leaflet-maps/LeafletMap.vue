@@ -14,7 +14,7 @@ export default {
     //    L.Icon.Default.imagePath = 'assets/vendor/leaflet' TODO: make it work with webpack
     Leaflet.Icon.Default.imagePath = 'https://unpkg.com/leaflet@1.0.3/dist/images'
 
-    let map = Leaflet.map(this.$el).setView([51.505, -0.09], 13)
+    const map = Leaflet.map(this.$el).setView([51.505, -0.09], 13)
 
     Leaflet.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',

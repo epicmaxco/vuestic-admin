@@ -3,11 +3,11 @@
     class="message-dropdown"
     offset="0, 16px"
   >
-    <va-icon
-      name="i-nav-messages"
+    <va-icon-message
       slot="anchor"
       class="message-dropdown__icon"
       :class="{'message-dropdown__icon--unread': !allRead}"
+      :color="iconColor"
     />
     <div class="message-dropdown__content pl-4 pr-4 pt-2 pb-2">
       <div
@@ -29,8 +29,16 @@
 </template>
 
 <script>
+import VaIconMessage from '../../../../../iconset/VaIconMessage'
+import { ColorThemeMixin } from '../../../../../services/vuestic-ui'
+
 export default {
   name: 'message-dropdown',
+  mixins: [ColorThemeMixin],
+  inject: ['contextConfig'],
+  components: {
+    VaIconMessage,
+  },
   data () {
     return {
       computedOptions: [...this.options],
@@ -42,13 +50,19 @@ export default {
       default: () => [
         {
           name: 'new',
-          details: { name: 'Oleg M', avatar: 'https://picsum.photos/24?image=1083' },
+          details: {
+            name: 'Oleg M',
+            avatar: 'https://picsum.photos/24?image=1083',
+          },
           unread: true,
           id: 1,
         },
         {
           name: 'new',
-          details: { name: 'Andrei H', avatar: 'https://picsum.photos/24?image=1025' },
+          details: {
+            name: 'Andrei H',
+            avatar: 'https://picsum.photos/24?image=1025',
+          },
           unread: true,
           id: 2,
         },
@@ -59,19 +73,25 @@ export default {
     allRead () {
       return !this.computedOptions.filter(item => item.unread).length
     },
+    iconColor () {
+      return this.contextConfig.invertedColor ? this.$themes.gray : 'white'
+    },
   },
   methods: {
     markAllAsRead () {
-      this.computedOptions = this.computedOptions.map(item => ({ ...item, unread: false }))
+      this.computedOptions = this.computedOptions.map(item => ({
+        ...item,
+        unread: false,
+      }))
     },
   },
 }
 </script>
 
 <style lang="scss">
+
 .message-dropdown {
   cursor: pointer;
-  margin-top: 0.3rem;
 
   .message-dropdown__icon {
     position: relative;
@@ -83,43 +103,49 @@ export default {
       position: absolute;
       right: 0;
       left: 0;
-      top: -.5rem;
+      top: -0.5rem;
       background-color: $brand-danger;
-      height: .375rem;
-      width: .375rem;
+      height: 0.375rem;
+      width: 0.375rem;
       margin: 0 auto;
-      border-radius: .187rem;
+      border-radius: 0.187rem;
     }
   }
+
   &__content {
     background-color: $dropdown-background;
     box-shadow: $gray-box-shadow;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
   }
+
   &__item {
     cursor: pointer;
-    margin-bottom: .75rem;
+    margin-bottom: 0.75rem;
     color: $brand-secondary;
     position: relative;
     flex-wrap: nowrap;
+
     &--unread {
       color: $vue-darkest-blue;
-      &:after {
+
+      &::after {
         content: '';
         position: absolute;
         right: 0;
         top: 0;
         bottom: 0;
-        height: .375rem;
-        width: .375rem;
+        height: 0.375rem;
+        width: 0.375rem;
         background-color: $brand-danger;
         margin: auto;
-        border-radius: .187rem;
+        border-radius: 0.187rem;
       }
     }
+
     &:hover {
       color: $vue-green;
     }
+
     &__avatar {
       border-radius: 50%;
       min-width: 1.5rem;

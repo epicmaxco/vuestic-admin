@@ -5,7 +5,6 @@
 We have a boierplate prepared with some analytics ingrained. This includes:
 
 * [Yandex Metrica](https://metrica.yandex.com/about)
-* [Drift](https://www.drift.com/mobile-app/)
 
 To get these running - just provide keys to respective apis. You're advised to copy `.env.example` with rename to `.env` then modify it.
 
@@ -36,3 +35,13 @@ You can enable demos in build by:
 VUE_APP_INCLUDE_DEMOS=true
 ```
 Demos are included in staging build by default. They're not present in production because of significant impact on bundle size.
+
+
+## Build Version
+
+You can enable build version, hash commit, and timestamp by build to the main page footer:
+
+```
+VUE_APP_BUILD_VERSION=true
+```
+This information are excluded by default.

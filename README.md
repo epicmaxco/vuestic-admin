@@ -6,27 +6,26 @@
 <br>
 
 
-<p align="center"> 
+<p align="center">
   English | <a href="./README.zh-CN.md"> 简体中文 </a> | <a href="./README.ja-JP.md"> 日本語 </a>
 </p>
 
 <h1 align="center"> Vuestic Admin </h1>
-  
+
 <p align="center">
   Free and beautiful Vue.js admin template with 44+ custom UI components.</br>
-  Developed by  <a href="https://epicmax.co">Epicmax</a>. 
+  Developed by  <a href="https://epicmax.co">Epicmax</a>.
   Designed by <a href="https://www.xxsavitski.com">Vasili Savitski</a>
 </p>
 
 <p align="center">
-  <a href="https://vuestic.epicmax.co"> Demo </a> | <a href="https://github.com/epicmaxco/vuestic-admin/wiki"> Documentation </a>
+  <a href="https://vuestic.epicmax.co"> Demo </a> | <a href="https://vuestic.epicmax.co/admin/dashboard?theme=corporate"> New white theme demo </a> | <a href="https://github.com/epicmaxco/vuestic-admin/wiki"> Documentation </a>
 </p>
 <p align="center">
   <a href="https://vuestic.epicmax.co" target="_blank">
-    <img src="https://i.imgur.com/h37ur0s.png" align="center" width="888px"/>
+    <img src="https://i.imgur.com/N9AeaSc.jpg" align="center" width="888px"/>
   </a>
 </p>
-
 
 <p align="center">
   <a href="https://circleci.com/gh/epicmaxco/vuestic-admin">
@@ -34,6 +33,17 @@
   </a>
 </p>
 
+<h2>
+  <a href="https://vuestic.epicmax.co/admin/dashboard?theme=corporate" target="_blank">
+    New white theme demo
+  </a>
+</h2>
+
+<p align="center">
+  <a href="https://vuestic.epicmax.co/admin/dashboard?theme=corporate" target="_blank">
+    <img src="https://i.imgur.com/DnFcrjD.png" align="center" width="888px"/>
+  </a>
+</p>
 
 ## Installation
 
@@ -60,7 +70,7 @@ $ npm install
 # serve with hot reload at localhost:8080 by default.
 $ npm run serve
 
-# build for production 
+# build for production
 $ npm run build
 
 # build for production and view the bundle analyzer report.
@@ -74,7 +84,7 @@ $ yarn install
 # serve with hot reload at localhost:8080 by default.
 $ yarn serve
 
-# build for production 
+# build for production
 $ yarn build
 
 # build for production and view the bundle analyzer report.

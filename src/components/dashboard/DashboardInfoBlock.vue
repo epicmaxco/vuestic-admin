@@ -8,7 +8,7 @@
           :key="idx"
         >
           <va-card class="mb-4" :color="info.color">
-            <p class="display-2 mb-0" style="color: white">{{ info.value }}</p>
+            <p class="display-2 mb-0" style="color: white;">{{ info.value }}</p>
             <p>{{$t('dashboard.info.' + info.text)}}</p>
           </va-card>
         </div>
@@ -51,7 +51,7 @@
         next level is a big next step.
 
         <div class="row mt-3">
-          <va-button color="success">
+          <va-button color="primary" target="_blank" href="https://github.com/epicmaxco/vuestic-ui">
             {{$t('dashboard.info.viewLibrary')}}
           </va-button>
         </div>
@@ -60,7 +60,7 @@
 
     <div class="flex xs12 md6 xl3">
       <va-card
-        image="https://i.imgur.com/qSykGko.jpg"
+        :image='images[0]'
         square
         titleOnImage
       >
@@ -68,14 +68,24 @@
           <va-button
             flat
             icon-right="ion ion-ios-arrow-forward"
-            color="success"
+            color="primary"
             class="ma-0"
+            @click="showModal"
           >
             {{$t('dashboard.info.exploreGallery')}}
           </va-button>
         </template>
       </va-card>
     </div>
+    <va-modal v-model="modal">
+      <div style="position: relative;">
+        <va-button @click="showPrevImage" icon="fa fa-chevron-left" flat style="position: absolute; top: 50%;"/>
+        <va-button @click="showNextImage" icon="fa fa-chevron-right" flat style="position: absolute; top: 50%; right: 0;"/>
+        <transition>
+          <img :src="images[currImage]" style="height: 50vh; max-width: 100%;">
+        </transition>
+      </div>
+    </va-modal>
   </div>
 </template>
 
@@ -100,7 +110,27 @@ export default {
         text: 'teamMembers',
         icon: '',
       }],
+      modal: false,
+      currImage: 0,
+      images: [
+        'https://i.imgur.com/qSykGko.jpg',
+        'https://i.imgur.com/jYwT08D.png',
+        'https://i.imgur.com/9930myH.jpg',
+        'https://i.imgur.com/2JxhWD6.jpg',
+        'https://i.imgur.com/MpiOWbM.jpg',
+      ],
     }
+  },
+  methods: {
+    showModal () {
+      this.modal = true
+    },
+    showPrevImage () {
+      this.currImage = !this.currImage ? this.images.length - 1 : this.currImage - 1
+    },
+    showNextImage () {
+      this.currImage = this.currImage === this.images.length - 1 ? 0 : this.currImage + 1
+    },
   },
 }
 </script>
@@ -112,7 +142,7 @@ export default {
     }
 
     @include media-breakpoint-down(xs) {
-      p:not(.display-2){
+      p:not(.display-2) {
         font-size: 0.875rem;
       }
     }

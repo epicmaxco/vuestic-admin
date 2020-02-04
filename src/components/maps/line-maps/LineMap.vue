@@ -18,46 +18,51 @@ export default {
 
   props: ['mapData'],
   watch: {
-    mapData: {
-      handler () {
-        this.drawMap()
+    mapData () {
+      this.addDataToMap()
+      this.map.validateData()
+    },
+  },
+  data () {
+    return {
+      dataProvider: {
+        mapVar: AmCharts.maps.worldLow,
       },
-      deep: true,
+    }
+  },
+  computed: {
+    map () {
+      return new AmCharts.AmMap()
     },
   },
   methods: {
     drawMap () {
       /* global AmCharts */
-      let map
-
-      map = new AmCharts.AmMap()
-
-      let dataProvider = {
-        mapVar: AmCharts.maps.worldLow,
-      }
-      map.areasSettings = {
+      this.map.areasSettings = {
         unlistedAreasColor: '#eee',
         unlistedAreasAlpha: 1,
         outlineColor: '#fff',
         outlineThickness: 2,
       }
-      map.imagesSettings = {
-        color: this.$themes['info'],
-        rollOverColor: this.$themes['info'],
-        selectedColor: this.$themes['primary'],
+      this.map.imagesSettings = {
+        color: this.$themes.info,
+        rollOverColor: this.$themes.info,
+        selectedColor: this.$themes.primary,
       }
-      map.linesSettings = {
-        color: this.$themes['info'],
+      this.map.linesSettings = {
+        color: this.$themes.info,
         alpha: 0.4,
       }
+      this.addDataToMap()
+      this.map.dataProvider = this.dataProvider
+      this.map.backgroundZoomsToTop = true
+      this.map.linesAboveImages = true
 
-      dataProvider.linkToObject = this.mapData.mainCity
-      dataProvider.images = this.mapData.cities
-      map.dataProvider = dataProvider
-      map.backgroundZoomsToTop = true
-      map.linesAboveImages = true
-
-      map.write(this.$el)
+      this.map.write(this.$el)
+    },
+    addDataToMap () {
+      this.dataProvider.linkToObject = this.mapData.mainCity
+      this.dataProvider.images = this.mapData.cities
     },
   },
   mounted () {

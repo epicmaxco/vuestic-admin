@@ -7,15 +7,15 @@
     <va-icon slot="anchor" :name="['flag-icon flag-icon-large', flagIconClass(currentLanguage())]"/>
     <div class="language-dropdown__content pl-4 pr-4 pt-2 pb-2">
       <div class="language-dropdown__item row align--center pt-1 pb-1 mt-2 mb-2"
-         v-for="(option, id) in options"
-         :key="id"
-         :class="{ active: option.code === currentLanguage() }"
-         @click="setLanguage(option.code)"
+        v-for="(option, id) in options"
+        :key="id"
+        :class="{ active: option.code === currentLanguage() }"
+        @click="setLanguage(option.code)"
       >
         <va-icon :name="['flag-icon flag-icon-small', flagIconClass(option.code)]"/>
         <span class="dropdown-item__text">
-        {{ $t(`language.${option.name}`) }}
-      </span>
+          {{ $t(`language.${option.name}`) }}
+        </span>
       </div>
     </div>
   </va-dropdown>
@@ -70,34 +70,39 @@ export default {
 
 .language-dropdown {
   cursor: pointer;
-  margin-top: 0.3rem;
 
   &__content {
     background-color: $dropdown-background;
     box-shadow: $gray-box-shadow;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     width: 12rem;
+
     .flag-icon-small {
       min-width: 1.5rem;
       min-height: 1.5rem;
-      margin-right: .5rem;
+      margin-right: 0.5rem;
     }
   }
+
   &__item {
     padding-bottom: 0.625rem;
     cursor: pointer;
     flex-wrap: nowrap;
+
     &:last-of-type {
       padding-bottom: 0 !important;
     }
-    &:hover, &.active {
+
+    &:hover,
+    &.active {
       color: $vue-green;
     }
   }
 
-  .flag-icon:before {
+  .flag-icon::before {
     content: "";
   }
+
   .flag-icon-large {
     display: block;
     width: 31px;

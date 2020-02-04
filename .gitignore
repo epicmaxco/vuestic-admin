@@ -10,6 +10,7 @@ node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+stylelintOutput.log*
 inspect.js
 
 # Editor directories and files
@@ -20,3 +21,4 @@ inspect.js
 *.njsproj
 *.sln
 *.sw*
+*.orig

@@ -6,6 +6,7 @@
           :value="term"
           :placeholder="$t('tables.searchByName')"
           @input="search"
+          removable
         >
           <va-icon name="fa fa-search" slot="prepend" />
         </va-input>
@@ -16,6 +17,7 @@
           v-model="perPage"
           :label="$t('tables.perPage')"
           :options="perPageOptions"
+          noClear
         />
       </div>
     </div>
