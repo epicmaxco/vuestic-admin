@@ -46,6 +46,10 @@ export default {
           code: 'cn',
           name: 'simplified_chinese',
         },
+        {
+          code: 'ir',
+          name: 'persian',
+        },
       ],
     },
   },
