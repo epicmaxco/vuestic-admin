@@ -68,9 +68,11 @@ import { getPieChartData } from '../../../data/charts/PieChartData'
 import { getDonutChartData } from '../../../data/charts/DonutChartData'
 import { getVerticalBarChartData } from '../../../data/charts/VerticalBarChartData'
 import { getHorizontalBarChartData } from '../../../data/charts/HorizontalBarChartData'
+import VaChart from './va-charts/VaChart'
 
 export default {
   name: 'charts',
+  components: { VaChart },
   data () {
     return {
       bubbleChartData: getBubbleChartData(this.$themes),
