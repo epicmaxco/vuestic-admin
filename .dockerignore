@@ -1,6 +1,5 @@
 node_modules/
 dist/
-.git/
 .dockerignore
 .gitattributes
 .gitignore
