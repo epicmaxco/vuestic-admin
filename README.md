@@ -138,6 +138,14 @@ Thanks for all your wonderful PRs, issues and ideas. You’re always welcome to 
 
 [![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/0)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/0)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/1)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/1)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/2)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/2)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/3)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/3)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/4)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/4)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/5)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/5)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/6)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/6)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/7)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/7)
 
+## Awards
+<a href="https://flatlogic.com/templates/vuestic-vue-free-admin" target="_blank">
+    <img src="https://i.imgur.com/ZeQPZ3Q.png" align="center" width="150px"/>
+</a>
+<p>
+  By <a href="https://flatlogic.com/templates/vuestic-vue-free-admin" target="_blank">@flatlogic</a> marketplace
+</p>
+
 ## Can I hire you guys?
 Yes! Say hi: [hello@epicmax.co](mailto:hello@epicmax.co) </br>
 We will be happy to work with you! Other [work we’ve done](https://epicmax.co)
