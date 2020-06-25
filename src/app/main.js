@@ -16,6 +16,10 @@ import VueClipboard from 'vue-clipboard2'
 import '../metrics'
 import '../registerServiceWorker'
 
+import { consoleBuildInfo } from 'vue-cli-plugin-build-info/plugin'
+
+consoleBuildInfo()
+
 if (process.env.VUE_APP_BUILD_VERSION) {
   // eslint-disable-next-line
   const message = `%c${'Build_information:'}\n %c${'Version'}: %c${VERSION},\n %c${'Timestamp'}: %c${TIMESTAMP},\n %c${'Commit'}: %c${COMMIT}`
