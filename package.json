@@ -41,7 +41,7 @@
     "vee-validate": "^2.2.13",
     "vue": "^2.6.10",
     "vue-bulma-expanding": "0.0.1",
-    "vue-chartjs": "^3.5.0",
+    "vue-chartjs": "^3.4.0",
     "vue-clipboard2": "^0.3.1",
     "vue-color": "^2.7.0",
     "vue-epic-bus": "^0.1.2",

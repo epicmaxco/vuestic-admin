@@ -11430,7 +11430,7 @@ vue-bulma-expanding@0.0.1:
   resolved "https://registry.yarnpkg.com/vue-bulma-expanding/-/vue-bulma-expanding-0.0.1.tgz#fcf71c2e8ef09157175bd5187eb71b3ce75a2229"
   integrity sha1-/PccLo7wkVcXW9UYfrcbPOdaIik=
 
-vue-chartjs@^3.4.0, vue-chartjs@^3.5.0:
+vue-chartjs@^3.4.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/vue-chartjs/-/vue-chartjs-3.5.0.tgz#edd0c2be94c521bcbc5357c24afb9f3560855f84"
   integrity sha512-yWNhG3B6g6lvYqNInP0WaDWNZG/SNb6XnltkjR0wYC5pmLm6jvdiotj8er7Mui8qkJGfLZe6ULjrZdHWjegAUg==
