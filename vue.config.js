@@ -1,16 +1,5 @@
 const path = require('path')
-const webpack = require('webpack')
 const StylelintPlugin = require('stylelint-webpack-plugin')
-
-const version = require('./package.json').version
-const timeStamp = new Date().toUTCString()
-
-const getLastCommitHash = () => {
-  const hash = require('child_process').execSync('git rev-parse HEAD')
-    .toString()
-
-  return hash.slice(0, 6)
-}
 
 const lintOnSave = true
 
@@ -49,11 +38,6 @@ module.exports = {
           files: ['src/**/*.{vue,htm,html,css,sss,less,scss}'],
         })]
       ),
-      new webpack.DefinePlugin({
-        VERSION: JSON.stringify(version),
-        TIMESTAMP: JSON.stringify(timeStamp),
-        COMMIT: JSON.stringify(getLastCommitHash()),
-      }),
     ],
   },
   css: {
