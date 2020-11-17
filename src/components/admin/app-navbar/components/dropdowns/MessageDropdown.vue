@@ -6,7 +6,7 @@
     <va-icon-message
       slot="anchor"
       class="message-dropdown__icon"
-      :class="{'message-dropdown__icon--unread': !allRead}"
+      :icon="{'message-dropdown__icon--unread': !allRead}"
       :color="iconColor"
     />
     <div class="message-dropdown__content pl-4 pr-4 pt-2 pb-2">
