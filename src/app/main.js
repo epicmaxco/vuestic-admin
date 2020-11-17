@@ -38,14 +38,17 @@ Vue.use(ContextPlugin, {
         github: {
           code: 'github',
         },
+        check: {
+          code: 'check',
+        },
       },
     },
     sizesConfig: {
-      defaultSize: 24,
+      defaultSize: 19,
       sizes: {
-        small: 16,
-        medium: 24,
-        large: 32,
+        small: 14,
+        medium: 19,
+        large: 26,
       },
     },
   },

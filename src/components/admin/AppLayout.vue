@@ -24,13 +24,13 @@
         class="app-layout__main"
         :class="{'app-layout__main--top': isTopBar}"
       >
-        <!-- <main
+        <main
           class="app-layout__main-layout layout fluid gutter--xl"
           slot="content"
           role="main"
         >
-          <router-view/>
-        </main> -->
+          <!-- <router-view/> -->
+        </main>
       </div>
     </div>
   </app-page-layout>
