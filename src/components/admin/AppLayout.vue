@@ -10,10 +10,10 @@
       :is-top-bar.sync="isTopBar"
       :minimized.sync="minimized"
     />
-    <!-- <app-topbar
+    <app-topbar
       class="app-layout__topbar"
       v-if="isTopBar"
-    /> -->
+    />
     <div class="app-layout__container">
       <!-- <app-sidebar
         class="app-layout__sidebar"

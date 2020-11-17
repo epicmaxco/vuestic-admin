@@ -10,7 +10,7 @@
     <div class="app-topbar-link-group-item__in">
       <va-icon
         class="app-topbar-link-group-item__icon"
-        :name="icon"
+        :class="icon"
         :style="computedIconStyles"
       />
       <span class="app-topbar-link-group-item__title">
