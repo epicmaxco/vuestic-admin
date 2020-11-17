@@ -73,7 +73,7 @@ export default {
     },
     computedStyle () {
       return {
-        backgroundColor: this.contextConfig.invertedColor ? 'white' : this.colorComputed,
+        backgroundColor: this.contextConfig.invertedColor ? 'white' : this.$themes.secondary,
       }
     },
   },
