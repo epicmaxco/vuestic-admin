@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { colorShiftHsl, ColorThemeMixin } from '../../../../services/vuestic-ui'
+import { shiftHslColor, ColorThemeMixin } from '../../../../services/vuestic-ui'
 
 export default {
   name: 'app-sidebar-link',
@@ -100,18 +100,18 @@ export default {
       }
 
       if (this.isHovered || this.isActive) {
-        style.backgroundColor = this.contextConfig.gradient ? colorShiftHsl(this.$themes.secondary, {
+        style.backgroundColor = this.contextConfig.gradient ? shiftHslColor(this.$themes.secondary, {
           s: -13,
           l: 15,
-        }).css : this.$themes.primary
+        }) : this.$themes.primary
 
         if (this.contextConfig.gradient) {
           style.borderColor = this.isActive ? this.$themes.primary : 'transparent'
         } else {
-          style.borderColor = colorShiftHsl(this.$themes.primary, {
+          style.borderColor = shiftHslColor(this.$themes.primary, {
             s: 13,
             l: -15,
-          }).css
+          })
         }
       }
 

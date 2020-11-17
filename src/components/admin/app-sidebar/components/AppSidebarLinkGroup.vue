@@ -51,7 +51,7 @@
 
 <script>
 import TransitionExpand from './TransitionExpand'
-import { colorShiftHsl, ColorThemeMixin } from '../../../../services/vuestic-ui'
+import { shiftHslColor, ColorThemeMixin } from '../../../../services/vuestic-ui'
 import AppSidebarLink from './AppSidebarLink'
 
 export default {
@@ -118,7 +118,7 @@ export default {
       if (this.isHovered || this.isActive) {
         return {
           color: this.$themes.primary,
-          backgroundColor: colorShiftHsl(this.$themes.secondary, { s: -13, l: 15 }).css,
+          backgroundColor: shiftHslColor(this.$themes.secondary, { s: -13, l: 15 }),
           borderColor: this.isActive ? this.$themes.primary : 'transparent',
         }
       }

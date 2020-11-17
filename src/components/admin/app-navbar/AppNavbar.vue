@@ -69,7 +69,7 @@ import VaIconVuestic from '../../../iconset/VaIconVuestic'
 import VaIconMenu from '../../../iconset/VaIconMenu'
 import VaIconMenuCollapsed from '../../../iconset/VaIconMenuCollapsed'
 import AppNavbarActions from './components/AppNavbarActions'
-import { colorShiftHsl, ColorThemeMixin } from '../../../services/vuestic-ui'
+import { shiftHslColor, ColorThemeMixin } from '../../../services/vuestic-ui'
 
 export default {
   name: 'app-navbar',
@@ -119,10 +119,10 @@ export default {
       }
 
       if (this.contextConfig.gradient) {
-        style.backgroundColor = colorShiftHsl(this.$themes.secondary, {
+        style.backgroundColor = shiftHslColor(this.$themes.secondary, {
           s: -13,
           l: 15,
-        }).css
+        })
       }
 
       if (this.contextConfig.shadow === 'sm') {
@@ -133,11 +133,11 @@ export default {
 
     shapeStyle () {
       return {
-        borderTopColor: this.contextConfig.gradient ? colorShiftHsl(this.$themes.secondary, {
+        borderTopColor: this.contextConfig.gradient ? shiftHslColor(this.$themes.secondary, {
           h: -1,
           s: -11,
           l: 10,
-        }).css : 'transparent',
+        }) : 'transparent',
       }
     },
   },

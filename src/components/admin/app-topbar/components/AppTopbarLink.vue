@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { colorShiftHsl, ColorThemeMixin } from './../../../../services/vuestic-ui'
+import { shiftHslColor, ColorThemeMixin } from './../../../../services/vuestic-ui'
 
 export default {
   name: 'topbar-link',
@@ -69,7 +69,7 @@ export default {
         if (this.isHovered || this.isActive) {
           return {
             color: this.$themes.primary,
-            borderColor: colorShiftHsl(this.$themes.primary, { s: 13, l: -15 }).css,
+            borderColor: shiftHslColor(this.$themes.primary, { s: 13, l: -15 }),
           }
         }
 
@@ -82,14 +82,14 @@ export default {
         return {
           color: this.$themes.primary,
           borderColor: this.$themes.primary,
-          backgroundColor: colorShiftHsl(this.$themes.secondary, { s: -13, l: 15 }).css,
+          backgroundColor: shiftHslColor(this.$themes.secondary, { s: -13, l: 15 }),
         }
       }
 
       if (this.isHovered) {
         return {
           color: this.$themes.primary,
-          backgroundColor: colorShiftHsl(this.$themes.secondary, { s: -13, l: 15 }).css,
+          backgroundColor: shiftHslColor(this.$themes.secondary, { s: -13, l: 15 }),
         }
       }
 
