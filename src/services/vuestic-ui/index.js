@@ -9,6 +9,7 @@ import {
   shiftHslColor,
   colorToRgba,
 } from 'vuestic-ui-next/src/services/color-functions.ts'
+import { ContextPlugin } from 'vuestic-ui-next/src/components/context-test/context-provide/ContextPlugin'
 
 export {
   ColorThemePlugin,
@@ -18,4 +19,5 @@ export {
   getGradientBackground,
   colorToRgba,
   shiftHslColor,
+  ContextPlugin,
 }

@@ -1,12 +1,11 @@
 <template>
   <va-dropdown
     class="settings-dropdown"
-    offset="0, 16px"
+    :offset="[0, '16px']"
   >
     <va-icon
-      name="vuestic-iconset vuestic-iconset-settings"
+      class="settings-dropdown__icon vuestic-iconset vuestic-iconset-settings"
       style="font-size: 1.4rem; display: flex;"
-      class="settings-dropdown__icon"
       slot="anchor"
       :color="contextConfig.invertedColor ? $themes.gray : 'white'"
     />

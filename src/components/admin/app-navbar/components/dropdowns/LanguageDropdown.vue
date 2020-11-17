@@ -1,10 +1,10 @@
 <template>
   <va-dropdown
     class="language-dropdown"
-    offset="0, 16px"
+    :offset="[0, '16px']"
     fixed
   >
-    <va-icon slot="anchor" :name="['flag-icon flag-icon-large', flagIconClass(currentLanguage())]"/>
+    <va-icon slot="anchor" :class="['flag-icon flag-icon-large', flagIconClass(currentLanguage())]"/>
     <div class="language-dropdown__content pl-4 pr-4 pt-2 pb-2">
       <div class="language-dropdown__item row align--center pt-1 pb-1 mt-2 mb-2"
         v-for="(option, id) in options"
@@ -12,7 +12,7 @@
         :class="{ active: option.code === currentLanguage() }"
         @click="setLanguage(option.code)"
       >
-        <va-icon :name="['flag-icon flag-icon-small', flagIconClass(option.code)]"/>
+        <va-icon :class="['flag-icon flag-icon-small', flagIconClass(option.code)]"/>
         <span class="dropdown-item__text">
           {{ $t(`language.${option.name}`) }}
         </span>

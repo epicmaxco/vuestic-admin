@@ -10,27 +10,27 @@
       :is-top-bar.sync="isTopBar"
       :minimized.sync="minimized"
     />
-    <app-topbar
+    <!-- <app-topbar
       class="app-layout__topbar"
       v-if="isTopBar"
-    />
+    /> -->
     <div class="app-layout__container">
-      <app-sidebar
+      <!-- <app-sidebar
         class="app-layout__sidebar"
         v-if="!isTopBar"
         :minimized="minimized"
-      />
+      /> -->
       <div
         class="app-layout__main"
         :class="{'app-layout__main--top': isTopBar}"
       >
-        <main
+        <!-- <main
           class="app-layout__main-layout layout fluid gutter--xl"
           slot="content"
           role="main"
         >
           <router-view/>
-        </main>
+        </main> -->
       </div>
     </div>
   </app-page-layout>

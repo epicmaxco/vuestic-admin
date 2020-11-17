@@ -45,7 +45,7 @@
           href="https://github.com/epicmaxco/vuestic-admin"
           color="#000000"
           class="app-navbar__button"
-          icon="fa fa-github"
+          icon="github"
           target="_blank"
         >
           {{$t('navbar.repository')}}

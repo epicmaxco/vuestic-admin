@@ -5,7 +5,8 @@ import 'regenerator-runtime/runtime'
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import { ColorThemePlugin } from '../services/vuestic-ui'
+import { ColorThemePlugin, ContextPlugin } from '../services/vuestic-ui'
+// import { getContext } from '../context'
 import store from '../store/index'
 import router from '../router/index'
 import { VuesticPlugin } from '../services/vuestic-ui/components'
@@ -26,6 +27,38 @@ Vue.use(VueClipboard)
 
 Vue.use(ColorThemePlugin, {
   // override colors here.
+})
+
+// context
+Vue.use(ContextPlugin, {
+  VaIcon: {
+    iconsConfig: {
+      defaultFont: 'fab',
+      icons: {
+        github: {
+          code: 'github',
+        },
+      },
+    },
+    sizesConfig: {
+      defaultSize: 24,
+      sizes: {
+        small: 16,
+        medium: 24,
+        large: 32,
+      },
+    },
+  },
+  VaRating: {
+    sizesConfig: {
+      defaultSize: 24,
+      sizes: {
+        small: 16,
+        medium: 24,
+        large: 32,
+      },
+    },
+  },
 })
 
 router.beforeEach((to, from, next) => {

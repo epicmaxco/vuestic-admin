@@ -3,7 +3,7 @@
     class="profile-dropdown"
     v-model="isShown"
     boundary-body
-    offset="0, 16px"
+    :offset="[0, '16px']"
   >
     <span
       class="profile-dropdown__anchor" slot="anchor"
@@ -12,7 +12,7 @@
       <slot/>
       <va-icon
         class="pa-1"
-        :name="`fa ${isShown ? 'fa-angle-up' :'fa-angle-down'}`"
+        :class="`fa ${isShown ? 'fa-angle-up' :'fa-angle-down'}`"
       />
     </span>
     <div class="profile-dropdown__content pl-4 pr-4 pt-2 pb-2">

@@ -1,7 +1,7 @@
 <template>
   <va-dropdown
     class="message-dropdown"
-    offset="0, 16px"
+    :offset="[0, '16px']"
   >
     <va-icon-message
       slot="anchor"
