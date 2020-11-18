@@ -209,6 +209,10 @@ Vue.use(ContextPlugin, {
           code: 'fa-close',
           font: 'fa4',
         },
+        print: {
+          code: 'fa-print',
+          font: 'fa4',
+        },
       },
     },
     sizesConfig: {
