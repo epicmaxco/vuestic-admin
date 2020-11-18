@@ -64,14 +64,14 @@
         >
           <div class="row">
             <div class="flex">
-              <va-button icon="ion-md-close ion"> {{ $t('buttons.button') }}</va-button>
-              <va-button icon-right="ion-ios-arrow-down arrow-down"> {{ $t('buttons.button') }}</va-button>
+              <va-button icon="ion_md_close"> {{ $t('buttons.button') }}</va-button>
+              <va-button icon-right="ion_arrow_down"> {{ $t('buttons.button') }}</va-button>
               <va-button
-                icon="ion-md-close ion"
-                icon-right="ion-ios-arrow-down arrow-down">
+                icon="ion_md_close"
+                icon-right="ion_arrow_down">
                 {{ $t('buttons.button') }}
               </va-button>
-              <va-button icon="ion-md-close ion"/>
+              <va-button icon="ion_md_close"/>
             </div>
           </div>
         </va-card>
@@ -130,18 +130,18 @@
             </div>
             <div class="flex xs12 xl6">
               <va-button-group>
-                <va-button outline small color="danger" icon="maki maki-art-gallery"> First</va-button>
+                <va-button outline small color="danger" icon="maki_art_gallery"> First</va-button>
                 <va-button outline small color="danger"> Second</va-button>
                 <va-button outline small color="danger"> Third</va-button>
               </va-button-group>
             </div>
             <div class="flex xs12 xl6">
               <va-button-group>
-                <va-button flat color="gray" icon="glyphicon glyphicon-envelope">
+                <va-button flat color="gray" icon="glyphicon_envelope">
                   First
                 </va-button>
-                <va-button flat color="gray" icon="entypo entypo-user"> Second</va-button>
-                <va-button flat color="gray" icon="ion ion-ios-alarm"> Third</va-button>
+                <va-button flat color="gray" icon="entypo_user"> Second</va-button>
+                <va-button flat color="gray" icon="ion_ios_alarm"> Third</va-button>
               </va-button-group>
             </div>
             <div class="flex xs12 xl6">
@@ -149,21 +149,21 @@
                 <va-button color="dark"> One</va-button>
                 <va-button color="dark"> Two</va-button>
                 <va-button color="dark"> Three</va-button>
-                <va-button color="dark" icon="ion-ios-arrow-down arrow-down"/>
+                <va-button color="dark" icon="ion_arrow_down"/>
               </va-button-group>
             </div>
             <div class="flex xs12 xl6">
               <va-button-group>
                 <va-button outline large color="info"> First</va-button>
-                <va-button outline large color="info" icon-right="glyphicon glyphicon-pencil"> Second</va-button>
+                <va-button outline large color="info" icon-right="glyphicon_pencil"> Second</va-button>
                 <va-button outline large color="info"> Third</va-button>
               </va-button-group>
             </div>
             <div class="flex xs12 xl6">
               <va-button-group>
-                <va-button flat small color="warning" icon="glyphicon glyphicon-envelope"/>
-                <va-button flat small color="warning" icon="entypo entypo-user"/>
-                <va-button flat small color="warning" icon-right="ion ion-ios-alarm"> Update</va-button>
+                <va-button flat small color="warning" icon="glyphicon_envelope"/>
+                <va-button flat small color="warning" icon="entypo_user"/>
+                <va-button flat small color="warning" icon-right="ion_ios_alarm"> Update</va-button>
               </va-button-group>
             </div>
           </div>
@@ -258,8 +258,8 @@
                 v-model="activePage"
                 :pages="10"
                 :visible-pages="3"
-                :icon="{ boundary: 'fa fa-bell-slash', direction: 'fa fa-volume-off' }"
-                :icon-right="{ boundary: 'fa fa-bell', direction: 'fa fa-volume-up' }"
+                :icon="{ boundary: 'bell_slash', direction: 'volume_off' }"
+                :icon-right="{ boundary: 'bell', direction: 'volume_up' }"
                 color="success"/>
             </div>
           </div>
@@ -286,7 +286,7 @@
               > {{ $t('buttons.content') }}</va-button-dropdown>
               <va-button-dropdown
                 :label="$t('buttons.customIcon')"
-                icon="iconicstroke iconicstroke-info"
+                icon="iconicstroke_info"
               > {{ $t('buttons.content') }}</va-button-dropdown>
               <va-button-dropdown
                 disabled

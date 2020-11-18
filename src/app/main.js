@@ -115,6 +115,60 @@ Vue.use(ContextPlugin, {
         done: {
           code: 'done',
         },
+        ion_md_close: {
+          code: 'ion-md-close',
+          font: 'ion',
+        },
+        ion_arrow_down: {
+          code: 'ion-ios-arrow-down',
+          font: 'ion',
+        },
+        maki_art_gallery: {
+          code: 'maki-art-gallery',
+          font: 'maki',
+        },
+        glyphicon_envelope: {
+          code: 'glyphicon-envelope',
+          font: 'glyphicon',
+        },
+        glyphicon_pencil: {
+          code: 'glyphicon-pencil',
+          font: 'glyphicon',
+        },
+        ion_ios_alarm: {
+          code: 'ion-ios-alarm',
+          font: 'ion',
+        },
+        entypo_user: {
+          code: 'entypo-user',
+          font: 'entypo',
+        },
+        bell_slash: {
+          code: 'fa-bell-slash',
+          font: 'fa4',
+        },
+        bell: {
+          code: 'fa-bell',
+          font: 'fa4',
+        },
+        volume_up: {
+          code: 'fa-volume-up',
+          font: 'fa4',
+        },
+        volume_off: {
+          code: 'fa-volume-off',
+          font: 'fa4',
+        },
+        iconicstroke_info: {
+          code: 'iconicstroke-info',
+          font: 'iconicstroke',
+        },
+        expand_more: {
+          code: 'expand_more',
+        },
+        expand_less: {
+          code: 'expand_less',
+        },
       },
     },
     sizesConfig: {
