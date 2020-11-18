@@ -48,31 +48,29 @@
             image="https://picsum.photos/300/200/?image=1043"
             :title="$t('cards.title.withImage')"
           >
-            {{ $t('cards.contentText') }}
+            <va-image src="https://picsum.photos/300/200/?image=1043" style="height: 200px;"/>
+            <va-card-title>{{ $t('cards.title.withImage') }}</va-card-title>
+            <va-card-content>{{ $t('cards.contentText') }}</va-card-content>
           </va-card>
         </div>
 
         <div class="flex xs12 sm6 lg4 xl3" :key="loop + '-6'">
-          <va-card
-            overlay
-            titleOnImage
-            image="https://picsum.photos/300/200/?image=898"
-            :title="$t('cards.title.withTitleOnImage')"
-          >
-            {{ $t('cards.contentText') }}
+          <va-card>
+            <!-- TODO: overlay the name of the card on the image  -->
+            <va-image src="https://picsum.photos/300/200/?image=898" style="height: 200px;">
+              <va-card-title text-color="#fff">{{ $t('cards.title.withTitleOnImage') }}</va-card-title>
+            </va-image>
+            <va-card-content>{{ $t('cards.contentText') }}</va-card-content>
           </va-card>
         </div>
 
         <div class="flex xs12 sm6 lg4 xl3" :key="loop + '-7'">
-          <va-card
-            overlay
-            titleOnImage
-            image="https://picsum.photos/300/200/?image=898"
-            :title="$t('cards.title.withCustomTitleOnImage')"
-          >
-            <va-button slot="header" class="ma-0">
-              Read More
-            </va-button>
+          <va-card>
+            <va-image src="https://picsum.photos/300/200/?image=898" style="height: 200px;">
+              <va-button class="ma-0">
+                Read More
+              </va-button>
+            </va-image>
           </va-card>
         </div>
 
@@ -80,9 +78,9 @@
           <va-card
             stripe
             stripe-color="danger"
-            :title="$t('cards.title.withStripe')"
           >
-            {{ $t('cards.contentTextLong') }}
+            <va-card-title>{{ $t('cards.title.withStripe') }}</va-card-title>
+            <va-card-content>{{ $t('cards.contentTextLong') }}</va-card-content>
           </va-card>
         </div>
 
@@ -90,7 +88,7 @@
           <va-card
             color="success"
           >
-            {{ $t('cards.contentTextLong') }}
+            <va-card-content>{{ $t('cards.contentTextLong') }}</va-card-content>
           </va-card>
         </div>
 
@@ -98,7 +96,7 @@
           <va-card
             color="danger"
           >
-            {{ $t('cards.contentTextLong') }}
+            <va-card-content>{{ $t('cards.contentTextLong') }}</va-card-content>
           </va-card>
         </div>
 
@@ -106,26 +104,24 @@
           <va-card
             stripe
             stripe-color="info"
-            :title="$t('cards.title.withStripe')"
           >
-            {{ $t('cards.contentTextLong') }}
+            <va-card-title>{{ $t('cards.title.withStripe') }}</va-card-title>
+            <va-card-content>{{ $t('cards.contentTextLong') }}</va-card-content>
           </va-card>
         </div>
 
         <div class="flex xs12 sm6 lg4 xl3" :key="loop + '-12'">
-          <va-card
-            overlay
-            titleOnImage
-            image="https://picsum.photos/300/200/?image=1067"
-            :title="$t('cards.title.withTitleOnImage')"
-          >
-            {{ $t('cards.contentText') }}
+          <va-card>
+            <va-image src="https://picsum.photos/300/200/?image=1067" style="height: 200px;">
+              <va-card-title text-color="#fff">{{ $t('cards.title.withTitleOnImage') }}</va-card-title>
+            </va-image>
+            <va-card-content>{{ $t('cards.contentText') }}</va-card-content>
           </va-card>
         </div>
       </template>
     </div>
 
-    <va-inner-loading class="flex-center py-3" :loading="isLoading">
+    <va-inner-loading class="flex-center py-3" style="width: 100%;" :loading="isLoading">
       <va-button @click="addCards()">
         Show More
       </va-button>
