@@ -319,7 +319,7 @@ export default new Router({
             {
               name: 'lists',
               path: 'lists',
-              component: () => import('../components/lists/Lists.vue'),
+              component: () => import('../components/ui/lists/Lists.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Lists',
               },
