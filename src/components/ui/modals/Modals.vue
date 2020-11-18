@@ -2,43 +2,43 @@
   <div class="modals">
     <div class="row">
       <div class="flex md12">
-        <va-card
-          class="modals-list larger-padding"
-          :title="$t('modal.title')"
-        >
-          <va-button color="danger" @click="showSmallModal = true">
-            {{ $t('modal.small') }}
-          </va-button>
-          <va-button color="info" @click="showMediumModal = true">
-            {{ $t('modal.medium') }}
-          </va-button>
-          <va-button color="warning" @click="showLargeModal = true">
-            {{ $t('modal.large') }}
-          </va-button>
-          <va-button color="success" @click="showStaticModal = true">
-            {{ $t('modal.static') }}
-          </va-button>
+        <va-card class="modals-list larger-padding">
+          <va-card-title>{{ $t('modal.title') }}</va-card-title>
+          <va-card-content>
+            <va-button color="danger" @click="showSmallModal = true">
+              {{ $t('modal.small') }}
+            </va-button>
+            <va-button color="info" @click="showMediumModal = true">
+              {{ $t('modal.medium') }}
+            </va-button>
+            <va-button color="warning" @click="showLargeModal = true">
+              {{ $t('modal.large') }}
+            </va-button>
+            <va-button color="success" @click="showStaticModal = true">
+              {{ $t('modal.static') }}
+            </va-button>
+          </va-card-content>
         </va-card>
       </div>
     </div>
     <div class="row">
       <div class="flex md12">
-        <va-card
-          class="modals-list larger-padding"
-          :title="$t('modal.titlePosition')"
-        >
-          <va-button color="danger" @click="showTopModal = true">
-            {{ $t('modal.top') }}
-          </va-button>
-          <va-button color="info" @click="showRightModal = true">
-            {{ $t('modal.right') }}
-          </va-button>
-          <va-button color="warning" @click="showBottomModal = true">
-            {{ $t('modal.bottom') }}
-          </va-button>
-          <va-button color="success" @click="showLeftModal = true">
-            {{ $t('modal.left') }}
-          </va-button>
+        <va-card class="modals-list larger-padding">
+          <va-card-title>{{ $t('modal.titlePosition') }}</va-card-title>
+          <va-card-content>
+            <va-button color="danger" @click="showTopModal = true">
+              {{ $t('modal.top') }}
+            </va-button>
+            <va-button color="info" @click="showRightModal = true">
+              {{ $t('modal.right') }}
+            </va-button>
+            <va-button color="warning" @click="showBottomModal = true">
+              {{ $t('modal.bottom') }}
+            </va-button>
+            <va-button color="success" @click="showLeftModal = true">
+              {{ $t('modal.left') }}
+            </va-button>
+          </va-card-content>
         </va-card>
       </div>
     </div>
