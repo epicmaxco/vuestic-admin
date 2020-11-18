@@ -1,69 +1,70 @@
+// TODO: fix lists
 <template>
   <div class="lists">
     <div class="row">
       <div class="flex xs12 lg6">
-        <va-list fit class="mb-2">
+        <va-list class="mb-2">
           <va-list-label>
             {{ $t('lists.customers') }}
           </va-list-label>
 
           <template v-for="(customer, i) in customers">
-            <va-item :key="'item' + customer.id" clickable @click="notify(customer.name)">
-              <va-item-section avatar>
+            <va-list-item :key="'item' + customer.id" clickable @click="notify(customer.name)">
+              <va-list-item-section avatar>
                 <va-avatar>
                   <img :src="customer.picture" :alt="customer.name">
                 </va-avatar>
-              </va-item-section>
+              </va-list-item-section>
 
-              <va-item-section>
-                <va-item-label>
+              <va-list-item-section>
+                <va-list-item-label>
                   {{ customer.name }}
-                </va-item-label>
+                </va-list-item-label>
 
-                <va-item-label caption>
+                <va-list-item-label caption>
                   {{ customer.address }}
-                </va-item-label>
-              </va-item-section>
+                </va-list-item-label>
+              </va-list-item-section>
 
-              <va-item-section side>
-                <va-icon name="fa fa-eye" color="gray" />
-              </va-item-section>
-            </va-item>
+              <va-list-item-section side>
+                <va-icon name="eye" color="gray" />
+              </va-list-item-section>
+            </va-list-item>
 
             <va-list-separator v-if="i < customers.length - 1" :key="'separator' + customer.id" />
           </template>
         </va-list>
 
-        <va-list fit>
+        <va-list>
           <va-list-label>
             {{ $t('lists.recentMessages') }}
           </va-list-label>
 
           <template v-for="(customer, i) in customers">
-            <va-item :key="'item' + customer.id" clickable @click="toggleStar(customer)">
-              <va-item-section side>
-                <va-icon v-if="customer.starred" name="fa fa-star" color="warning" />
-              </va-item-section>
+            <va-list-item :key="'item' + customer.id" clickable @click="toggleStar(customer)">
+              <va-list-item-section side>
+                <va-icon v-if="customer.starred" name="star" color="warning" />
+              </va-list-item-section>
 
-              <va-item-section avatar>
+              <va-list-item-section avatar>
                 <va-avatar>
                   <img :src="customer.picture" :alt="customer.name">
                 </va-avatar>
-              </va-item-section>
+              </va-list-item-section>
 
-              <va-item-section>
-                <va-item-label>
+              <va-list-item-section>
+                <va-list-item-label>
                   {{ customer.name }}
-                </va-item-label>
-              </va-item-section>
+                </va-list-item-label>
+              </va-list-item-section>
 
-              <va-item-section side>
+              <va-list-item-section side>
                 <va-icon
                   :name="getGenderIcon(customer.gender)"
                   :color="getGenderColor(customer.gender)"
                 />
-              </va-item-section>
-            </va-item>
+              </va-list-item-section>
+            </va-list-item>
 
             <va-list-separator v-if="i < customers.length - 1" :key="'separator' + customer.id" />
           </template>
@@ -75,23 +76,23 @@
           </va-list-label>
 
           <template v-for="(customer, i) in archived">
-            <va-item :key="'item' + customer.id">
-              <va-item-section side>
-                <va-icon v-if="customer.starred" name="fa fa-star" color="warning" />
-              </va-item-section>
+            <va-list-item :key="'item' + customer.id">
+              <va-list-item-section side>
+                <va-icon v-if="customer.starred" name="star" color="warning" />
+              </va-list-item-section>
 
-              <va-item-section avatar>
+              <va-list-item-section avatar>
                 <va-avatar>
                   <img :src="customer.picture" :alt="customer.name">
                 </va-avatar>
-              </va-item-section>
+              </va-list-item-section>
 
-              <va-item-section>
-                <va-item-label>
+              <va-list-item-section>
+                <va-list-item-label>
                   {{ customer.name }}
-                </va-item-label>
-              </va-item-section>
-            </va-item>
+                </va-list-item-label>
+              </va-list-item-section>
+            </va-list-item>
 
             <va-list-separator v-if="i < archived.length - 1" :key="'separator' + customer.id" />
           </template>
@@ -99,34 +100,34 @@
       </div>
 
       <div class="flex xs12 lg6">
-        <va-list fit class="mb-2">
+        <va-list class="mb-2">
           <va-list-label>
             {{ $t('lists.starterKit') }}
           </va-list-label>
 
-          <va-item clickable>
-            <va-item-section>
-              <va-item-label>
+          <va-list-item clickable>
+            <va-list-item-section>
+              <va-list-item-label>
                 Add profile images
-              </va-item-label>
+              </va-list-item-label>
 
-              <va-item-label caption>
+              <va-list-item-label caption>
                 You can use PNG or JPG files.
-              </va-item-label>
-            </va-item-section>
-          </va-item>
+              </va-list-item-label>
+            </va-list-item-section>
+          </va-list-item>
 
-          <va-item clickable>
-            <va-item-section>
-              <va-item-label>
+          <va-list-item clickable>
+            <va-list-item-section>
+              <va-list-item-label>
                 Invite friends
-              </va-item-label>
+              </va-list-item-label>
 
-              <va-item-label caption>
+              <va-list-item-label caption>
                 You can send invitations via email or any messenger.
-              </va-item-label>
-            </va-item-section>
-          </va-item>
+              </va-list-item-label>
+            </va-list-item-section>
+          </va-list-item>
 
           <va-list-separator fit spaced />
 
@@ -134,85 +135,85 @@
             {{ $t('lists.notifications') }}
           </va-list-label>
 
-          <va-item>
-            <va-item-section side>
+          <va-list-item>
+            <va-list-item-section side>
               <va-checkbox v-model="appBanners" />
-            </va-item-section>
+            </va-list-item-section>
 
-            <va-item-section>
-              <va-item-label>
+            <va-list-item-section>
+              <va-list-item-label>
                 Application Banners
-              </va-item-label>
+              </va-list-item-label>
 
-              <va-item-label caption>
+              <va-list-item-label caption>
                 You can send invitations via email or any messenger.
-              </va-item-label>
-            </va-item-section>
-          </va-item>
+              </va-list-item-label>
+            </va-list-item-section>
+          </va-list-item>
 
-          <va-item>
-            <va-item-section side>
+          <va-list-item>
+            <va-list-item-section side>
               <va-checkbox v-model="banners" />
-            </va-item-section>
+            </va-list-item-section>
 
-            <va-item-section>
-              <va-item-label>
+            <va-list-item-section>
+              <va-list-item-label>
                 Banners
-              </va-item-label>
+              </va-list-item-label>
 
-              <va-item-label caption>
+              <va-list-item-label caption>
                 You can send invitations via email or any messenger.
-              </va-item-label>
-            </va-item-section>
-          </va-item>
+              </va-list-item-label>
+            </va-list-item-section>
+          </va-list-item>
 
-          <va-item>
-            <va-item-section side>
+          <va-list-item>
+            <va-list-item-section side>
               <va-checkbox v-model="notifications" />
-            </va-item-section>
+            </va-list-item-section>
 
-            <va-item-section>
-              <va-item-label>
+            <va-list-item-section>
+              <va-list-item-label>
                 Midnight Notifications
-              </va-item-label>
-            </va-item-section>
-          </va-item>
+              </va-list-item-label>
+            </va-list-item-section>
+          </va-list-item>
         </va-list>
 
-        <va-list fit>
+        <va-list>
           <va-list-label>
             {{ $t('lists.routerSupport') }}
           </va-list-label>
 
-          <va-item :to="{ name: 'google-maps' }">
-            <va-item-section side>
-              <va-icon name="fa fa-google" color="red" />
-            </va-item-section>
+          <va-list-item :to="{ name: 'google-maps' }">
+            <va-list-item-section side>
+              <va-icon name="google" color="red" />
+            </va-list-item-section>
 
-            <va-item-section>
-              <va-item-label>Google Maps</va-item-label>
-            </va-item-section>
-          </va-item>
+            <va-list-item-section>
+              <va-list-item-label>Google Maps</va-list-item-label>
+            </va-list-item-section>
+          </va-list-item>
 
-          <va-item :to="{ name: 'yandex-maps' }">
-            <va-item-section side>
-              <va-icon name="fa fa-map" color="red" />
-            </va-item-section>
+          <va-list-item :to="{ name: 'yandex-maps' }">
+            <va-list-item-section side>
+              <va-icon name="map" color="red" />
+            </va-list-item-section>
 
-            <va-item-section>
-              <va-item-label>Yandex Maps</va-item-label>
-            </va-item-section>
-          </va-item>
+            <va-list-item-section>
+              <va-list-item-label>Yandex Maps</va-list-item-label>
+            </va-list-item-section>
+          </va-list-item>
 
-          <va-item :to="{ name: 'leaflet-maps' }">
-            <va-item-section side>
-              <va-icon name="fa fa-map-marker" color="red" />
-            </va-item-section>
+          <va-list-item :to="{ name: 'leaflet-maps' }">
+            <va-list-item-section side>
+              <va-icon name="map_marker" color="red" />
+            </va-list-item-section>
 
-            <va-item-section>
-              <va-item-label>Leaflet Maps</va-item-label>
-            </va-item-section>
-          </va-item>
+            <va-list-item-section>
+              <va-list-item-label>Leaflet Maps</va-list-item-label>
+            </va-list-item-section>
+          </va-list-item>
         </va-list>
       </div>
     </div>
@@ -234,7 +235,7 @@ export default {
   },
   methods: {
     getGenderIcon (gender) {
-      return gender === 'male' ? 'fa fa-mars' : 'fa fa-venus'
+      return gender === 'male' ? 'mars' : 'venus'
     },
     getGenderColor (gender) {
       return gender === 'male' ? 'blue' : 'pink'

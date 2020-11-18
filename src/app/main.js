@@ -181,6 +181,30 @@ Vue.use(ContextPlugin, {
           code: 'fa-cogs',
           font: 'fa4',
         },
+        eye: {
+          code: 'fa-eye',
+          font: 'fa4',
+        },
+        google: {
+          code: 'fa-google',
+          font: 'fa4',
+        },
+        map: {
+          code: 'fa-map',
+          font: 'fa4',
+        },
+        map_marker: {
+          code: 'fa-map-marker',
+          font: 'fa4',
+        },
+        mars: {
+          code: 'fa-mars',
+          font: 'fa4',
+        },
+        venus: {
+          code: 'fa-venus',
+          font: 'fa4',
+        },
       },
     },
     sizesConfig: {
