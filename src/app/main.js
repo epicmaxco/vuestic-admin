@@ -169,6 +169,18 @@ Vue.use(ContextPlugin, {
         expand_less: {
           code: 'expand_less',
         },
+        refresh: {
+          code: 'fa-refresh',
+          font: 'fa4',
+        },
+        gear: {
+          code: 'fa-gear',
+          font: 'fa4',
+        },
+        cogs: {
+          code: 'fa-cogs',
+          font: 'fa4',
+        },
       },
     },
     sizesConfig: {

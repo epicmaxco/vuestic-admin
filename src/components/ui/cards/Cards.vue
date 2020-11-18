@@ -4,39 +4,42 @@
       <!-- eslint-disable vue/valid-v-for -->
       <template v-for="loop in listLoops">
         <div class="flex xs12 sm6" :key="loop + '-1'">
-          <va-card
-            :title="$t('cards.title.default')"
-          >
-            {{ $t('cards.contentTextLong') }}
+          <va-card>
+            <va-card-title>{{ $t('cards.title.default') }}</va-card-title>
+            <va-card-content>{{ $t('cards.contentTextLong') }}</va-card-content>
           </va-card>
         </div>
 
         <div class="flex xs12 sm6" :key="loop + '-2'">
-          <va-card
-            :title="$t('cards.title.withControls')"
-          >
-            <template slot="actions">
-              <va-button icon="fa fa-refresh"/>
-              <va-button icon="fa fa-gear"/>
-            </template>
-            {{ $t('cards.contentTextLong') }}
+          <va-card>
+            <va-card-title>{{ $t('cards.title.withControls') }}</va-card-title>
+            <va-card-content>{{ $t('cards.contentTextLong') }}</va-card-content>
+            <!-- TODO: find solution -->
+            <!-- <template slot="actions">
+              <va-button icon="refresh"/>
+              <va-button icon="gear"/>
+            </template> -->
           </va-card>
         </div>
 
         <div class="flex xs12 sm6" :key="loop + '-3'">
           <va-card>
-            <template slot="header">
-              <va-icon name="fa fa-cogs mr-3" color="success"/>
+            <va-card-title>{{ $t('cards.title.customHeader') }}</va-card-title>
+            <va-card-content>{{ $t('cards.contentTextLong') }}</va-card-content>
+            <!-- TODO: find solution -->
+            <!-- <template slot="header">
+              <va-icon class="mr-3" name="cogs" color="success"/>
               <h5 class="mt-0 mb-0">{{ $t('cards.title.customHeader') }}</h5>
-            </template>
-            {{ $t('cards.contentTextLong') }}
+            </template> -->
           </va-card>
         </div>
 
         <div class="flex xs12 sm6" :key="loop + '-4'">
           <va-card>
-            <p>{{ $t('cards.title.withoutHeader') }}</p>
-            {{ $t('cards.contentTextLong') }}
+            <va-card-content>
+              <p>{{ $t('cards.title.withoutHeader') }}</p>
+              {{ $t('cards.contentTextLong') }}
+            </va-card-content>
           </va-card>
         </div>
 
@@ -75,7 +78,8 @@
 
         <div class="flex xs12 sm6 lg4 xl3" :key="loop + '-8'">
           <va-card
-            stripe="danger"
+            stripe
+            stripe-color="danger"
             :title="$t('cards.title.withStripe')"
           >
             {{ $t('cards.contentTextLong') }}
@@ -100,7 +104,8 @@
 
         <div class="flex xs12 sm6 lg4 xl3" :key="loop + '-11'">
           <va-card
-            stripe="info"
+            stripe
+            stripe-color="info"
             :title="$t('cards.title.withStripe')"
           >
             {{ $t('cards.contentTextLong') }}
