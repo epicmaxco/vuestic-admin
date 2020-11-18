@@ -1,3 +1,4 @@
+// TODO: fix naming
 <template>
   <div class="collapse-page">
     <div class="row">
