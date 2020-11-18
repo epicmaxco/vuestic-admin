@@ -37,7 +37,7 @@ Vue.use(ContextPlugin, {
       icons: {
         github: {
           code: 'github',
-          fobt: 'fa4',
+          font: 'fa4',
         },
         check: {
           code: 'check',

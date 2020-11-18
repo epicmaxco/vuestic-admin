@@ -2,11 +2,9 @@
   <div class="buttons">
     <div class="row">
       <div class="flex xs12">
-        <va-card
-          class="larger-padding"
-          :title="$t('buttons.types')"
-        >
-          <div class="row">
+        <va-card class="larger-padding">
+          <va-card-title>{{$t('buttons.types')}}</va-card-title>
+          <va-card-content class="row">
             <div class="flex">
               <va-button> {{ $t('buttons.default') }}</va-button>
               <va-button disabled> {{ $t('buttons.disabled') }}</va-button>
@@ -15,31 +13,27 @@
               <va-button flat> {{ $t('buttons.flat') }}</va-button>
               <va-button flat disabled> {{ $t('buttons.disabled') }}</va-button>
             </div>
-          </div>
+          </va-card-content>
         </va-card>
       </div>
 
       <div class="flex xs12">
-        <va-card
-          class="larger-padding"
-          :title="$t('buttons.size')"
-        >
-          <div class="row">
+        <va-card class="larger-padding">
+          <va-card-title>{{$t('buttons.size')}}</va-card-title>
+          <va-card-content class="row">
             <div class="flex">
               <va-button small> {{ $t('buttons.small') }}</va-button>
               <va-button> {{ $t('buttons.normal') }}</va-button>
               <va-button large> {{ $t('buttons.large') }}</va-button>
             </div>
-          </div>
+          </va-card-content>
         </va-card>
       </div>
 
       <div class="flex xs12">
-        <va-card
-          class="larger-padding"
-          :title="$t('buttons.tags')"
-        >
-          <div class="row">
+        <va-card class="larger-padding">
+          <va-card-title>{{$t('buttons.tags')}}</va-card-title>
+          <va-card-content class="row">
             <div class="flex">
               <va-button> {{ $t('buttons.button') }}</va-button>
               <va-button
@@ -53,16 +47,14 @@
                 {{ $t('buttons.router-link') }}
               </va-button>
             </div>
-          </div>
+          </va-card-content>
         </va-card>
       </div>
 
       <div class="flex xs12">
-        <va-card
-          class="larger-padding"
-          :title="$t('buttons.advanced')"
-        >
-          <div class="row">
+        <va-card class="larger-padding">
+          <va-card-title>{{$t('buttons.advanced')}}</va-card-title>
+          <va-card-content class="row">
             <div class="flex">
               <va-button icon="ion_md_close"> {{ $t('buttons.button') }}</va-button>
               <va-button icon-right="ion_arrow_down"> {{ $t('buttons.button') }}</va-button>
@@ -73,54 +65,52 @@
               </va-button>
               <va-button icon="ion_md_close"/>
             </div>
-          </div>
+          </va-card-content>
         </va-card>
       </div>
 
       <div class="flex xs12">
-        <va-card
-          class="larger-padding"
-          :title="$t('buttons.colors')"
-        >
-          <div class="row">
-            <div class="flex">
-              <va-button color="danger"> {{ $t('buttons.danger') }}</va-button>
-              <va-button color="info"> {{ $t('buttons.info') }}</va-button>
-              <va-button color="dark"> {{ $t('buttons.dark') }}</va-button>
-              <va-button color="warning"> {{ $t('buttons.warning') }}</va-button>
-              <va-button color="success"> {{ $t('buttons.success') }}</va-button>
-              <va-button color="gray"> {{ $t('buttons.gray') }}</va-button>
+        <va-card class="larger-padding">
+          <va-card-title>{{$t('buttons.colors')}}</va-card-title>
+          <va-card-content>
+            <div class="row">
+              <div class="flex">
+                <va-button color="danger"> {{ $t('buttons.danger') }}</va-button>
+                <va-button color="info"> {{ $t('buttons.info') }}</va-button>
+                <va-button color="dark"> {{ $t('buttons.dark') }}</va-button>
+                <va-button color="warning"> {{ $t('buttons.warning') }}</va-button>
+                <va-button color="success"> {{ $t('buttons.success') }}</va-button>
+                <va-button color="gray"> {{ $t('buttons.gray') }}</va-button>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="flex">
-              <va-button outline color="danger"> {{ $t('buttons.danger') }}</va-button>
-              <va-button outline color="info"> {{ $t('buttons.info') }}</va-button>
-              <va-button outline color="dark"> {{ $t('buttons.dark') }}</va-button>
-              <va-button outline color="warning"> {{ $t('buttons.warning') }}</va-button>
-              <va-button outline color="success"> {{ $t('buttons.success') }}</va-button>
-              <va-button outline color="gray"> {{ $t('buttons.gray') }}</va-button>
+            <div class="row">
+              <div class="flex">
+                <va-button outline color="danger"> {{ $t('buttons.danger') }}</va-button>
+                <va-button outline color="info"> {{ $t('buttons.info') }}</va-button>
+                <va-button outline color="dark"> {{ $t('buttons.dark') }}</va-button>
+                <va-button outline color="warning"> {{ $t('buttons.warning') }}</va-button>
+                <va-button outline color="success"> {{ $t('buttons.success') }}</va-button>
+                <va-button outline color="gray"> {{ $t('buttons.gray') }}</va-button>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="flex">
-              <va-button flat color="danger"> {{ $t('buttons.danger') }}</va-button>
-              <va-button flat color="info"> {{ $t('buttons.info') }}</va-button>
-              <va-button flat color="dark"> {{ $t('buttons.dark') }}</va-button>
-              <va-button flat color="warning"> {{ $t('buttons.warning') }}</va-button>
-              <va-button flat color="success"> {{ $t('buttons.success') }}</va-button>
-              <va-button flat color="gray"> {{ $t('buttons.gray') }}</va-button>
+            <div class="row">
+              <div class="flex">
+                <va-button flat color="danger"> {{ $t('buttons.danger') }}</va-button>
+                <va-button flat color="info"> {{ $t('buttons.info') }}</va-button>
+                <va-button flat color="dark"> {{ $t('buttons.dark') }}</va-button>
+                <va-button flat color="warning"> {{ $t('buttons.warning') }}</va-button>
+                <va-button flat color="success"> {{ $t('buttons.success') }}</va-button>
+                <va-button flat color="gray"> {{ $t('buttons.gray') }}</va-button>
+              </div>
             </div>
-          </div>
+          </va-card-content>
         </va-card>
       </div>
 
       <div class="flex xs12">
-        <va-card
-          class="larger-padding"
-          :title="$t('buttons.buttonGroups')"
-        >
-          <div class="row">
+        <va-card class="larger-padding">
+          <va-card-title>{{$t('buttons.buttonGroups')}}</va-card-title>
+          <va-card-content class="row">
             <div class="flex xs12 xl6">
               <va-button-group>
                 <va-button large> One</va-button>
@@ -166,16 +156,14 @@
                 <va-button flat small color="warning" icon-right="ion_ios_alarm"> Update</va-button>
               </va-button-group>
             </div>
-          </div>
+          </va-card-content>
         </va-card>
       </div>
 
       <div class="flex xs12">
-        <va-card
-          class="larger-padding"
-          :title="$t('buttons.buttonToggles')"
-        >
-          <div class="row">
+        <va-card class="larger-padding">
+          <va-card-title>{{$t('buttons.buttonToggles')}}</va-card-title>
+          <va-card-content class="row">
             <div class="flex xs12 lg6">
               <va-button-toggle
                 v-model="model"
@@ -221,16 +209,14 @@
                 color="warning"
               />
             </div>
-          </div>
+          </va-card-content>
         </va-card>
       </div>
 
       <div class="flex xs12">
-        <va-card
-          class="larger-padding"
-          :title="$t('buttons.pagination')"
-        >
-          <div class="row">
+        <va-card class="larger-padding">
+          <va-card-title>{{$t('buttons.pagination')}}</va-card-title>
+          <va-card-content class="row">
             <div class="flex xs12 xl6">
               <va-pagination
                 v-model="activePage"
@@ -262,15 +248,13 @@
                 :icon-right="{ boundary: 'bell', direction: 'volume_up' }"
                 color="success"/>
             </div>
-          </div>
+          </va-card-content>
         </va-card>
       </div>
       <div class="flex xs12">
-        <va-card
-          class="larger-padding"
-          :title="$t('buttons.buttonsDropdown')"
-        >
-          <div class="row">
+        <va-card class="larger-padding">
+          <va-card-title>{{$t('buttons.buttonsDropdown')}}</va-card-title>
+          <va-card-content class="row">
             <div class="flex">
               <va-button-dropdown
                 :label="$t('buttons.default')"
@@ -297,7 +281,7 @@
                 :label="$t('buttons.warning')"
               > {{ $t('buttons.content') }}</va-button-dropdown>
             </div>
-          </div>
+          </va-card-content>
         </va-card>
       </div>
     </div>
