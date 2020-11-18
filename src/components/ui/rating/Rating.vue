@@ -2,57 +2,75 @@
   <div class="rating">
     <div class="row">
       <div class="flex md6 xs12">
-        <va-card :title="$t('rating.singleIcon')">
-          <va-rating
-            color="danger"
-            v-model="value"
-            icon="fa fa-bug"
-          />
+        <va-card>
+          <va-card-title>{{ $t('rating.singleIcon') }}</va-card-title>
+          <va-card-content>
+            <va-rating
+              color="danger"
+              v-model="value"
+              icon="bug"
+            />
+          </va-card-content>
         </va-card>
       </div>
       <div class="flex md6 xs12">
-        <va-card :title="$t('rating.twoIcons')">
-          <va-rating
-            v-model="value"
-            icon="fa fa-bell-slash"
-            emptyIcon="fa fa-bell"
-          />
+        <va-card>
+          <va-card-title>{{ $t('rating.twoIcons') }}</va-card-title>
+          <va-card-content>
+            <va-rating
+              v-model="value"
+              icon="bell_slash"
+              emptyIcon="bell"
+            />
+          </va-card-content>
         </va-card>
       </div>
       <div class="flex md6 xs12">
-        <va-card :title="$t('rating.small')">
-          <va-rating
-            size="small"
-            color="warning"
-            v-model="value"
-          />
+        <va-card>
+          <va-card-title>{{ $t('rating.small') }}</va-card-title>
+          <va-card-content>
+            <va-rating
+              size="small"
+              color="warning"
+              v-model="value"
+            />
+          </va-card-content>
         </va-card>
       </div>
       <div class="flex md6 xs12">
-        <va-card :title="$t('rating.large')">
-          <va-rating
-            v-model="value"
-            size="large"
-            color="info"
-          />
+        <va-card>
+          <va-card-title>{{ $t('rating.large') }}</va-card-title>
+          <va-card-content>
+            <va-rating
+              v-model="value"
+              size="large"
+              color="info"
+            />
+          </va-card-content>
         </va-card>
       </div>
       <div class="flex md6 xs12">
-        <va-card :title="$t('rating.numbers')">
-          <va-rating
-            numbers
-            v-model="value"
-          />
+        <va-card>
+          <va-card-title>{{ $t('rating.numbers') }}</va-card-title>
+          <va-card-content>
+            <va-rating
+              numbers
+              v-model="value"
+            />
+          </va-card-content>
         </va-card>
       </div>
       <div class="flex md6 xs12">
-        <va-card :title="$t('rating.halves')">
-          <va-rating
-            color="warning"
-            emptyIcon="fa fa-star-o"
-            halves
-            v-model="value"
-          />
+        <va-card>
+          <va-card-title>{{ $t('rating.halves') }}</va-card-title>
+          <va-card-content>
+            <va-rating
+              color="warning"
+              emptyIcon="star_empty"
+              halves
+              v-model="value"
+            />
+          </va-card-content>
         </va-card>
       </div>
     </div>

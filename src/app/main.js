@@ -86,6 +86,10 @@ Vue.use(ContextPlugin, {
           code: 'fa-star',
           font: 'fa4',
         },
+        star_empty: {
+          code: 'fa-star-o',
+          font: 'fa4',
+        },
         pencil: {
           code: 'fa-pencil',
           font: 'fa4',
@@ -211,6 +215,10 @@ Vue.use(ContextPlugin, {
         },
         print: {
           code: 'fa-print',
+          font: 'fa4',
+        },
+        bug: {
+          code: 'fa-bug',
           font: 'fa4',
         },
       },
