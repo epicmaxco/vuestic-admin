@@ -8,7 +8,7 @@
         no-pagination
       >
         <template slot="marker" slot-scope="props">
-          <va-icon name="fa fa-circle" :color="props.rowData.color" size="8px" />
+          <va-icon name="circle" :color="props.rowData.color" size="8px" />
         </template>
       </va-data-table>
 

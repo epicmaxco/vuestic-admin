@@ -8,7 +8,7 @@
           @input="search"
           removable
         >
-          <va-icon name="fa fa-search" slot="prepend" />
+          <va-icon name="search" slot="prepend" />
         </va-input>
       </div>
 
@@ -98,14 +98,14 @@ export default {
   methods: {
     getTrendIcon (user) {
       if (user.trend === 'up') {
-        return 'fa fa-caret-up'
+        return 'caret_up'
       }
 
       if (user.trend === 'down') {
-        return 'fa fa-caret-down'
+        return 'caret_down'
       }
 
-      return 'fa fa-minus'
+      return 'minus'
     },
     getTrendColor (user) {
       if (user.trend === 'up') {

@@ -58,13 +58,9 @@ Vue.use(ContextPlugin, {
           code: 'chevron_left',
           font: 'md',
         },
-        'fa fa-search': {
+        search: {
           code: 'search',
           font: 'fa4',
-        },
-        arrow_drop_down: {
-          code: 'arrow_drop_down',
-          font: 'md',
         },
         loop: {
           code: 'loop',
@@ -81,6 +77,43 @@ Vue.use(ContextPlugin, {
         envelope: {
           code: 'fa-envelope-o',
           font: 'fa4',
+        },
+        circle: {
+          code: 'fa-circle',
+          font: 'fa4',
+        },
+        star: {
+          code: 'fa-star',
+          font: 'fa4',
+        },
+        pencil: {
+          code: 'fa-pencil',
+          font: 'fa4',
+        },
+        trash: {
+          code: 'fa-trash',
+          font: 'fa4',
+        },
+        caret_up: {
+          code: 'fa-caret-up',
+          font: 'fa4',
+        },
+        caret_down: {
+          code: 'fa-caret-down',
+          font: 'fa4',
+        },
+        minus: {
+          code: 'fa-minus',
+          font: 'fa4',
+        },
+        arrow_drop_down: {
+          code: 'arrow_drop_down',
+        },
+        arrow_drop_up: {
+          code: 'arrow_drop_up',
+        },
+        done: {
+          code: 'done',
         },
       },
     },

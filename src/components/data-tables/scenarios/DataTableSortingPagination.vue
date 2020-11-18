@@ -10,17 +10,17 @@
           <va-button
             flat small
             :color="getStarColor(props.rowData)"
-            icon="fa fa-star"
+            icon="star"
             @click="star(props.rowData)"
           />
         </va-popover>
 
         <va-popover :message="`${$t('tables.edit')} ${props.rowData.fullName}`" placement="top">
-          <va-button flat small color="gray" icon="fa fa-pencil" />
+          <va-button flat small color="gray" icon="pencil" />
         </va-popover>
 
         <va-popover :message="`${$t('tables.delete')} ${props.rowData.fullName}`" placement="top">
-          <va-button flat small color="gray" icon="fa fa-trash" />
+          <va-button flat small color="gray" icon="trash" />
         </va-popover>
       </template>
     </va-data-table>
