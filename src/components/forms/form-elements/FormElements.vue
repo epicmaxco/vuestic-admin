@@ -19,7 +19,7 @@
                   <va-icon
                     slot="prepend"
                     color="gray"
-                    name="fa fa-envelope-o"
+                    name="envelope"
                   />
                 </va-input>
               </div>
@@ -230,7 +230,7 @@
                 </fieldset>
               </div>
               <div class="flex md3">
-                <fieldset>
+                <!-- <fieldset>
                   <va-radio-button
                     option="option1"
                     v-model="radioSelectedOption"
@@ -241,8 +241,8 @@
                     v-model="radioSelectedOption"
                     label="Radio"
                   />
-                </fieldset>
-                <fieldset>
+                </fieldset> -->
+                <!-- <fieldset>
                   <va-radio-button
                     option="option1"
                     disabled
@@ -255,10 +255,10 @@
                     v-model="radioSelectedDisableOption"
                     label="Disabled Radio"
                   />
-                </fieldset>
+                </fieldset> -->
               </div>
               <div class="flex mb3">
-                <fieldset>
+                <!-- <fieldset>
                   <va-toggle
                     v-model="toggles.selected"
                     label="Selected toggle"
@@ -282,7 +282,7 @@
                     large
                     label="Large toggle"
                   />
-                </fieldset>
+                </fieldset> -->
               </div>
             </div>
           </form>

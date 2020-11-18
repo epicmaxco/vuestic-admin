@@ -33,13 +33,54 @@ Vue.use(ColorThemePlugin, {
 Vue.use(ContextPlugin, {
   VaIcon: {
     iconsConfig: {
-      defaultFont: 'fab',
+      defaultFont: 'md',
       icons: {
         github: {
           code: 'github',
+          fobt: 'fa4',
         },
         check: {
           code: 'check',
+        },
+        first_page: {
+          code: 'first_page',
+          font: 'md',
+        },
+        last_page: {
+          code: 'last_page',
+          font: 'md',
+        },
+        chevron_right: {
+          code: 'chevron_right',
+          font: 'md',
+        },
+        chevron_left: {
+          code: 'chevron_left',
+          font: 'md',
+        },
+        'fa fa-search': {
+          code: 'search',
+          font: 'fa4',
+        },
+        arrow_drop_down: {
+          code: 'arrow_drop_down',
+          font: 'md',
+        },
+        loop: {
+          code: 'loop',
+        },
+        calendar_today: {
+          code: 'calendar_today',
+        },
+        warning: {
+          code: 'warning',
+        },
+        highlight_off: {
+          code: 'highlight_off',
+        },
+        envelope: {
+          code: 'fa-envelope-o',
+          font: 'fa4',
         },
       },
     },
