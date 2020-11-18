@@ -205,6 +205,10 @@ Vue.use(ContextPlugin, {
           code: 'fa-venus',
           font: 'fa4',
         },
+        close: {
+          code: 'fa-close',
+          font: 'fa4',
+        },
       },
     },
     sizesConfig: {

@@ -1,64 +1,69 @@
+// TODO: fix badges
 <template>
   <div class="notifications">
     <div class="row">
       <div class="flex xs12">
-        <va-card :title="$t('notificationsPage.notifications.title')">
-          <div class="mb-3">
-            <va-notification closeable>
-              <va-badge>
-                {{ $t('notificationsPage.notifications.success') }}
-              </va-badge>
-              {{ $t('notificationsPage.notifications.successMessage') }}
-            </va-notification>
-          </div>
-          <div class="mb-3">
-            <va-notification color="info" closeable>
-              <va-badge color="info">
-                {{ $t('notificationsPage.notifications.info') }}
-              </va-badge>
-              {{ $t('notificationsPage.notifications.infoMessage') }}
-            </va-notification>
-          </div>
-          <div class="mb-3">
-            <va-notification color="warning" closeable>
-              <va-badge color="warning">
-                {{ $t('notificationsPage.notifications.warning') }}
-              </va-badge>
-              {{ $t('notificationsPage.notifications.warningMessage') }}
-            </va-notification>
-          </div>
-          <div class="mb-3">
-            <va-notification color="danger" closeable>
-              <va-badge color="danger">
-                {{ $t('notificationsPage.notifications.danger') }}
-              </va-badge>
-              {{ $t('notificationsPage.notifications.dangerMessage') }}
-            </va-notification>
-          </div>
-          <div class="mb-3">
-            <va-notification color="gray" closeable>
-              <va-badge color="gray">
-                {{ $t('notificationsPage.notifications.gray') }}
-              </va-badge>
-              {{ $t('notificationsPage.notifications.warningMessage') }}
-            </va-notification>
-          </div>
-          <div class="mb-3">
-            <va-notification color="dark" closeable>
-              <va-badge color="dark">
-                {{ $t('notificationsPage.notifications.dark') }}
-              </va-badge>
-              {{ $t('notificationsPage.notifications.dangerMessage') }}
-            </va-notification>
-          </div>
+        <va-card>
+          <va-card-title>{{ $t('notificationsPage.notifications.title') }}</va-card-title>
+          <va-card-content>
+            <div class="mb-3">
+              <va-alert closeable>
+                <va-badge>
+                  {{ $t('notificationsPage.notifications.success') }}
+                </va-badge>
+                {{ $t('notificationsPage.notifications.successMessage') }}
+              </va-alert>
+            </div>
+            <div class="mb-3">
+              <va-alert color="info" closeable>
+                <va-badge color="info">
+                  {{ $t('notificationsPage.notifications.info') }}
+                </va-badge>
+                {{ $t('notificationsPage.notifications.infoMessage') }}
+              </va-alert>
+            </div>
+            <div class="mb-3">
+              <va-alert color="warning" closeable>
+                <va-badge color="warning">
+                  {{ $t('notificationsPage.notifications.warning') }}
+                </va-badge>
+                {{ $t('notificationsPage.notifications.warningMessage') }}
+              </va-alert>
+            </div>
+            <div class="mb-3">
+              <va-alert color="danger" closeable>
+                <va-badge color="danger">
+                  {{ $t('notificationsPage.notifications.danger') }}
+                </va-badge>
+                {{ $t('notificationsPage.notifications.dangerMessage') }}
+              </va-alert>
+            </div>
+            <div class="mb-3">
+              <va-alert color="gray" closeable>
+                <va-badge color="gray">
+                  {{ $t('notificationsPage.notifications.gray') }}
+                </va-badge>
+                {{ $t('notificationsPage.notifications.warningMessage') }}
+              </va-alert>
+            </div>
+            <div class="mb-3">
+              <va-alert color="dark" closeable>
+                <va-badge color="dark">
+                  {{ $t('notificationsPage.notifications.dark') }}
+                </va-badge>
+                {{ $t('notificationsPage.notifications.dangerMessage') }}
+              </va-alert>
+            </div>
+          </va-card-content>
         </va-card>
       </div>
     </div>
 
     <div class="row">
       <div class="flex xs12">
-        <va-card :title="$t('notificationsPage.toasts.title')">
-          <div class="row">
+        <va-card>
+          <va-card-title>{{ $t('notificationsPage.toasts.title') }}</va-card-title>
+          <va-card-content class="row">
             <div class="flex xs12 md6">
               <va-input
                 v-model="toastText"
@@ -99,7 +104,7 @@
                 {{ $t('notificationsPage.toasts.launchToast') }}
               </va-button>
             </div>
-          </div>
+          </va-card-content>
         </va-card>
       </div>
     </div>
