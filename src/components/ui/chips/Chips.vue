@@ -1,8 +1,10 @@
+// TODO: fix naming
 <template>
   <div class="row">
     <div class="flex xs12">
-      <va-card :title="$t('chips.chips')">
-        <div class="row">
+      <va-card>
+        <va-card-title>{{ $t('chips.chips') }}</va-card-title>
+        <va-card-content class="row">
           <div class="flex xs12">
             <div class="row">
               <div class="flex xs12">
@@ -17,13 +19,14 @@
               </div>
             </div>
           </div>
-        </div>
+        </va-card-content>
       </va-card>
     </div>
 
     <div class="flex xs12">
-      <va-card :title="$t('chips.badges')">
-        <div class="row">
+      <va-card>
+        <va-card-title>{{ $t('chips.badges') }}</va-card-title>
+        <va-card-content class="row">
           <div class="flex xs12">
             <div class="row">
               <div class="flex xs12">
@@ -50,7 +53,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </va-card-content>
       </va-card>
     </div>
   </div>
