@@ -1,7 +1,10 @@
 <template>
   <div class="spacing flex xs12 md12">
-    <va-card title="Spacing">
-      <spacing-playgroud :title="''"/>
+    <va-card>
+      <va-card-title>Spacing</va-card-title>
+      <va-card-content>
+        <spacing-playgroud :title="''"/>
+      </va-card-content>
     </va-card>
   </div>
 </template>
