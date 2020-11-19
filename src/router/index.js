@@ -254,11 +254,11 @@ export default new Router({
               },
             },
             {
-              name: 'tags',
-              path: 'tags',
-              component: () => import('../components/ui/tags/Tags'),
+              name: 'chips',
+              path: 'chips',
+              component: () => import('../components/ui/chips/Chips'),
               meta: {
-                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tags',
+                wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Chips',
               },
             },
             {

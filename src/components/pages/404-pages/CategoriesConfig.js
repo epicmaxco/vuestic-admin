@@ -67,8 +67,8 @@ export default [
         itemLink: '/admin/ui/chat',
       },
       {
-        itemName: 'Tags',
-        itemLink: '/admin/ui/tags',
+        itemName: 'Chips',
+        itemLink: '/admin/ui/chips',
       },
       {
         itemName: 'Collapses',

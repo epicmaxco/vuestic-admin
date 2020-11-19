@@ -308,7 +308,7 @@
     "tables": "Tables",
     "markupTables": "Markup Tables",
     "dataTables": "Data Tables",
-    "tags": "Tags",
+    "chips": "Chips",
     "tabs": "Tabs",
     "typography": "Typography",
     "uiElements": "UI Elements",
@@ -376,8 +376,8 @@
     "modalTitle": "File validation",
     "modalText": "File type is incorrect!"
   },
-  "tags": {
-    "tags": "Tags",
+  "chips": {
+    "chips": "Chips",
     "badges": "Badges"
   },
   "navbar": {
