@@ -1,9 +1,7 @@
 <template>
-  <va-card
-    class="circle-bars"
-    :title="$t('progressBars.circle')"
-  >
-    <div class="row">
+  <va-card class="circle-bars">
+    <va-card-title>{{ $t('progressBars.circle') }}</va-card-title>
+    <va-card-content class="row">
       <div v-for="n in 10" :key="n" class="flex xs4 sm2 lg1">
         <div class="d-flex justify--center">
           <div>
@@ -18,7 +16,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </va-card-content>
   </va-card>
 </template>
 

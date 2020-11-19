@@ -1,9 +1,7 @@
 <template>
-  <va-card
-    class="bars-state"
-    :title="$t('progressBars.state')"
-  >
-    <div class="row">
+  <va-card class="bars-state">
+    <va-card-title>{{ $t('progressBars.state') }}</va-card-title>
+    <va-card-content class="row">
       <div class="flex md4 xs12">
         <va-progress-bar :value="value2">66%</va-progress-bar>
       </div>
@@ -17,7 +15,7 @@
       <div class="flex md4 xs12">
         <va-progress-bar indeterminate>Loading</va-progress-bar>
       </div>
-    </div>
+    </va-card-content>
   </va-card>
 </template>
 
