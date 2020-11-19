@@ -1,8 +1,9 @@
 <template>
   <div class="grid row">
     <div class="flex xs12 md6">
-      <va-card title="Tabs Alignment" class="fill-height" style="overflow-x: auto;">
-        <div>
+      <va-card class="fill-height" style="overflow-x: auto;">
+        <va-card-title>Tabs Alignment</va-card-title>
+        <va-card-content>
           <div class="row">
             <div class="flex xs12">
               <va-tabs v-model="tabValue" style="width: 100%; min-width: 250px;">
@@ -35,14 +36,15 @@
               </va-tabs>
             </div>
           </div>
-        </div>
+        </va-card-content>
       </va-card>
     </div>
     <div class="flex xs12 md6">
       <div class="row column">
         <div class="flex">
-          <va-card title="Tabs Overflow">
-            <div>
+          <va-card>
+            <va-card-title>Tabs Overflow</va-card-title>
+            <va-card-content>
               <div class="row">
                 <div class="flex xs12">
                   <va-tabs v-model="tabValue">
@@ -58,12 +60,13 @@
                   </va-tabs>
                 </div>
               </div>
-            </div>
+            </va-card-content>
           </va-card>
         </div>
         <div class="flex">
-          <va-card title="Tabs with Hidden slider">
-            <div>
+          <va-card>
+            <va-card-title>Tabs with Hidden slider</va-card-title>
+            <va-card-content>
               <div class="row">
                 <div class="flex xs12">
                   <va-tabs hideSlider v-model="tabValue">
@@ -76,15 +79,16 @@
                   </va-tabs>
                 </div>
               </div>
-            </div>
+            </va-card-content>
           </va-card>
         </div>
       </div>
     </div>
 
     <div class="flex xs12">
-      <va-card title="Tabs Grow" style="overflow-x: auto;">
-        <div>
+      <va-card style="overflow-x: auto;">
+        <va-card-title>Tabs Grow</va-card-title>
+        <va-card-content>
           <div class="row">
             <div class="flex xs12">
               <va-tabs grow v-model="tabValue" style="width: 100%;">
@@ -97,7 +101,7 @@
               </va-tabs>
             </div>
           </div>
-        </div>
+        </va-card-content>
       </va-card>
     </div>
   </div>
