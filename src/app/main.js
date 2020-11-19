@@ -127,6 +127,38 @@ Vue.use(ContextPlugin, {
           code: 'ion-ios-arrow-down',
           font: 'ion',
         },
+        ion_md_images: {
+          code: 'ion-md-images',
+          font: 'ion',
+        },
+        ion_md_image: {
+          code: 'ion-md-image',
+          font: 'ion',
+        },
+        ion_md_star_outline: {
+          code: 'ion-md-star-outline',
+          font: 'ion',
+        },
+        ion_md_musical_notes: {
+          code: 'ion-md-musical-notes',
+          font: 'ion',
+        },
+        ion_md_list: {
+          code: 'ion-md-list',
+          font: 'ion',
+        },
+        ion_md_grid: {
+          code: 'ion-md-grid',
+          font: 'ion',
+        },
+        ion_md_help: {
+          code: 'ion-md-help',
+          font: 'ion',
+        },
+        ion_md_key: {
+          code: 'ion-md-key',
+          font: 'ion',
+        },
         maki_art_gallery: {
           code: 'maki-art-gallery',
           font: 'maki',
@@ -228,6 +260,12 @@ Vue.use(ContextPlugin, {
         check_circle: {
           code: 'fa-check-circle',
           font: 'fa4',
+        },
+        add: {
+          code: 'add',
+        },
+        remove: {
+          code: 'remove',
         },
       },
     },

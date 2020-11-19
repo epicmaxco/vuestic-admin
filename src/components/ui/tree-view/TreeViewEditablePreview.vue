@@ -15,7 +15,7 @@
         <div class="flex row align--center">
           <va-input v-model="product.name" class="mb-0"/>
           <va-icon
-            name="ion ion-md-close"
+            name="ion_md_close"
             color="info"
             class="ml-2 pa-1 shrink"
             style="cursor: pointer;"
