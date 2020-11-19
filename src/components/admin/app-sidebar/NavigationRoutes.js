@@ -85,8 +85,8 @@ export const navigationRoutes = {
           displayName: 'menu.chat',
         },
         {
-          name: 'chips',
-          displayName: 'menu.chips',
+          name: 'tags',
+          displayName: 'menu.tags',
         },
         {
           name: 'collapses',
