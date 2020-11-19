@@ -1,9 +1,12 @@
 <template>
-  <va-card :title="$t('dashboard.currentVisitors')">
-    <line-map
-      class="dashboard-map"
-      :map-data="lineMapData"
-    />
+  <va-card>
+    <va-card-title>{{ $t('dashboard.currentVisitors') }}</va-card-title>
+    <va-card-content>
+      <line-map
+        class="dashboard-map"
+        :map-data="lineMapData"
+      />
+    </va-card-content>
   </va-card>
 </template>
 

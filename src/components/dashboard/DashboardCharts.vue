@@ -1,31 +1,37 @@
 <template>
   <div class="row row-equal">
     <div class="flex xs12 xl6">
-      <va-card :title="$t('dashboard.charts.trendyTrends')">
-        <va-button
-          small
-          slot="actions"
-          color="danger"
-          class="mr-0"
-          @click="deleteSection"
-          :disabled="lineChartData.labels.length < 2"
-        >
-          {{ $t('dashboard.charts.showInMoreDetail') }}
-        </va-button>
-        <va-chart class="chart" ref="lineChart" :data="lineChartData" type="line"/>
+      <va-card>
+        <va-card-title>{{ $t('dashboard.charts.trendyTrends') }}</va-card-title>
+        <va-card-content>
+          <va-button
+            small
+            slot="actions"
+            color="danger"
+            class="mr-0"
+            @click="deleteSection"
+            :disabled="lineChartData.labels.length < 2"
+          >
+            {{ $t('dashboard.charts.showInMoreDetail') }}
+          </va-button>
+          <va-chart class="chart" ref="lineChart" :data="lineChartData" type="line"/>
+        </va-card-content>
       </va-card>
     </div>
 
     <div class="flex xs12 md6 xl3">
-      <va-card :title="$t('dashboard.charts.loadingSpeed')">
-        <va-button
-          icon="fa fa-print"
-          flat
-          slot="actions"
-          class="mr-0"
-          @click="printChart"
-        />
-        <va-chart class="chart chart--donut" :data="donutChartData" type="donut"/>
+      <va-card>
+        <va-card-title>{{ $t('dashboard.charts.loadingSpeed') }}</va-card-title>
+        <va-card-content>
+          <va-button
+            icon="print"
+            flat
+            slot="actions"
+            class="mr-0"
+            @click="printChart"
+          />
+          <va-chart class="chart chart--donut" :data="donutChartData" type="donut"/>
+        </va-card-content>
       </va-card>
     </div>
 
@@ -39,10 +45,11 @@
 import { getDonutChartData } from '../../data/charts/DonutChartData'
 import { getLineChartData } from '../../data/charts/LineChartData'
 import DashboardContributorsChart from './DashboardContributorsList'
+import VaChart from './../statistics/charts/va-charts/VaChart'
 
 export default {
   name: 'dashboard-charts',
-  components: { DashboardContributorsChart },
+  components: { DashboardContributorsChart, VaChart },
   data () {
     return {
       lineChartData: getLineChartData(this.$themes),

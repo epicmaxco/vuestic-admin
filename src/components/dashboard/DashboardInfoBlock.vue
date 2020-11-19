@@ -8,8 +8,10 @@
           :key="idx"
         >
           <va-card class="mb-4" :color="info.color">
-            <p class="display-2 mb-0" style="color: white;">{{ info.value }}</p>
-            <p>{{$t('dashboard.info.' + info.text)}}</p>
+            <va-card-content>
+              <p class="display-2 mb-0" style="color: white;">{{ info.value }}</p>
+              <p>{{$t('dashboard.info.' + info.text)}}</p>
+            </va-card-content>
           </va-card>
         </div>
       </div>
@@ -17,13 +19,15 @@
       <div class="row">
         <div class="flex xs12 md6">
           <va-card>
-            <p class="display-2 mb-1" :style="{color: this.$themes.primary}">291</p>
-            <p class="no-wrap">{{$t('dashboard.info.completedPullRequests')}}</p>
+            <va-card-content>
+              <p class="display-2 mb-1" :style="{color: this.$themes.primary}">291</p>
+              <p class="no-wrap">{{$t('dashboard.info.completedPullRequests')}}</p>
+            </va-card-content>
           </va-card>
         </div>
         <div class="flex xs12 md6">
           <va-card>
-            <div class="row row-separated">
+            <va-card-content class="row row-separated">
               <div class="flex xs4">
                 <p class="display-2 mb-1 text--center" :style="{color: this.$themes.primary}">3</p>
                 <p class="text--center mb-1">{{$t('dashboard.info.users')}}</p>
@@ -36,7 +40,7 @@
                 <p class="display-2 mb-1 text--center" :style="{color: this.$themes.warning}">91</p>
                 <p class="text--center mb-1">{{$t('dashboard.info.units')}}</p>
               </div>
-            </div>
+            </va-card-content>
           </va-card>
         </div>
       </div>
@@ -44,43 +48,42 @@
 
     <div class="flex xs12 md6 xl3">
       <va-card
-        stripe="info"
-        :title="$t('dashboard.info.componentRichTheme')"
+        stripe
+        stripe-color="info"
       >
-        Buying the right telescope to take your love of astronomy to the
-        next level is a big next step.
+        <va-card-title>{{ $t('dashboard.info.componentRichTheme') }}</va-card-title>
+        <va-card-content>
+          Buying the right telescope to take your love of astronomy to the
+          next level is a big next step.
 
-        <div class="row mt-3">
-          <va-button color="primary" target="_blank" href="https://github.com/epicmaxco/vuestic-ui">
-            {{$t('dashboard.info.viewLibrary')}}
-          </va-button>
-        </div>
+          <div class="row mt-3">
+            <va-button color="primary" target="_blank" href="https://github.com/epicmaxco/vuestic-ui">
+              {{$t('dashboard.info.viewLibrary')}}
+            </va-button>
+          </div>
+        </va-card-content>
       </va-card>
     </div>
 
     <div class="flex xs12 md6 xl3">
-      <va-card
-        :image='images[0]'
-        square
-        titleOnImage
-      >
-        <template slot="header">
+      <va-card square>
+        <va-image :src="images[0]" style="max-height: 230px;">
           <va-button
             flat
-            icon-right="ion ion-ios-arrow-forward"
+            icon-right="ion_arrow_forward"
             color="primary"
             class="ma-0"
             @click="showModal"
           >
             {{$t('dashboard.info.exploreGallery')}}
           </va-button>
-        </template>
+        </va-image>
       </va-card>
     </div>
     <va-modal v-model="modal">
       <div style="position: relative;">
-        <va-button @click="showPrevImage" icon="fa fa-chevron-left" flat style="position: absolute; top: 50%;"/>
-        <va-button @click="showNextImage" icon="fa fa-chevron-right" flat style="position: absolute; top: 50%; right: 0;"/>
+        <va-button @click="showPrevImage" icon="chevron_left" flat style="position: absolute; top: 50%;"/>
+        <va-button @click="showNextImage" icon="chevron_right" flat style="position: absolute; top: 50%; right: 0;"/>
         <transition>
           <img :src="images[currImage]" style="height: 50vh; max-width: 100%;">
         </transition>

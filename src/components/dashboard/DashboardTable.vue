@@ -1,65 +1,68 @@
 <template>
-  <va-card :title="$t('dashboard.table.title')">
-    <div class="row align--center mb-1">
-      <div class="flex xs12 sm6">
-        <va-input
-          class="ma-0"
-          :value="term"
-          :placeholder="$t('tables.searchByName')"
-          @input="search"
-          removable
-        >
-          <va-icon name="fa fa-search" slot="prepend" />
-        </va-input>
-      </div>
+  <va-card>
+    <va-card-title>{{ $t('dashboard.table.title') }}</va-card-title>
+    <va-card-content>
+      <div class="row align--center mb-1">
+        <div class="flex xs12 sm6">
+          <va-input
+            class="ma-0"
+            :value="term"
+            :placeholder="$t('tables.searchByName')"
+            @input="search"
+            removable
+          >
+            <va-icon name="search" slot="prepend" />
+          </va-input>
+        </div>
 
-      <div class="flex xs12 sm6">
-        <div class="d-flex justify--end">
-          <va-button-toggle
-            outline
-            v-model="mode"
-            :options="modeOptions"
-            style="max-width: 100%;"
-          />
+        <div class="flex xs12 sm6">
+          <div class="d-flex justify--end">
+            <va-button-toggle
+              outline
+              v-model="mode"
+              :options="modeOptions"
+              style="max-width: 100%;"
+            />
+          </div>
         </div>
       </div>
-    </div>
 
-    <va-data-table
-      :fields="mode ? detailedFields : fields"
-      :data="filteredData"
-      :loading="loading"
-      hoverable
-    >
-      <template slot="icon">
-        <va-icon name="fa fa-user" color="secondary" />
-      </template>
-      <template v-slot:starred="props">
-        <va-icon
-          v-if="props.rowData.starred"
-          name="fa fa-star"
-          color="warning"
-        />
-      </template>
-      <template v-slot:status="props">
-        <va-badge :color="getStatusColor(props.rowData.status)">
-          {{ props.rowData.status }}
-        </va-badge>
-      </template>
+      <va-data-table
+        :fields="mode ? detailedFields : fields"
+        :data="filteredData"
+        :loading="loading"
+        hoverable
+      >
+        <template slot="icon">
+          <va-icon name="user" color="secondary" />
+        </template>
+        <template v-slot:starred="props">
+          <va-icon
+            v-if="props.rowData.starred"
+            name="star"
+            color="warning"
+          />
+        </template>
+        <template v-slot:status="props">
+          <va-badge :color="getStatusColor(props.rowData.status)">
+            {{ props.rowData.status }}
+          </va-badge>
+        </template>
 
-      <template v-slot:actions="props">
-        <va-button
-          small
-          outline
-          color="success"
-          icon="fa fa-check"
-          class="ma-0"
-          @click="resolveUser(props.rowData)"
-        >
-          {{ $t('dashboard.table.resolve') }}
-        </va-button>
-      </template>
-    </va-data-table>
+        <template v-slot:actions="props">
+          <va-button
+            small
+            outline
+            color="success"
+            icon="check"
+            class="ma-0"
+            @click="resolveUser(props.rowData)"
+          >
+            {{ $t('dashboard.table.resolve') }}
+          </va-button>
+        </template>
+      </va-data-table>
+    </va-card-content>
   </va-card>
 </template>
 
@@ -174,7 +177,7 @@ export default {
         this.loading = false
 
         this.showToast(this.$t('dashboard.table.resolved'), {
-          icon: 'fa-check',
+          icon: 'check',
           position: 'bottom-right',
           duration: 1500,
         })

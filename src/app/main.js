@@ -127,6 +127,10 @@ Vue.use(ContextPlugin, {
           code: 'ion-ios-arrow-down',
           font: 'ion',
         },
+        ion_arrow_forward: {
+          code: 'ion-ios-arrow-forward',
+          font: 'ion',
+        },
         ion_md_images: {
           code: 'ion-md-images',
           font: 'ion',
@@ -178,6 +182,10 @@ Vue.use(ContextPlugin, {
         entypo_user: {
           code: 'entypo-user',
           font: 'entypo',
+        },
+        user: {
+          code: 'fa fa-user',
+          font: 'fa4',
         },
         bell_slash: {
           code: 'fa-bell-slash',
