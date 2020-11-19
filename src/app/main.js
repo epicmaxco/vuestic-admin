@@ -221,6 +221,14 @@ Vue.use(ContextPlugin, {
           code: 'fa-bug',
           font: 'fa4',
         },
+        music: {
+          code: 'fa-music',
+          font: 'fa4',
+        },
+        check_circle: {
+          code: 'fa-check-circle',
+          font: 'fa4',
+        },
       },
     },
     sizesConfig: {

@@ -2,8 +2,9 @@
   <div class="sliders">
     <div class="row">
       <div class="flex md12">
-        <va-card :title="$t('sliders.slider')">
-          <div class="row">
+        <va-card>
+          <va-card-title>{{ $t('sliders.slider') }}</va-card-title>
+          <va-card-content class="row">
             <div class="flex xs12 lg6 xl4 mb-2">
               <div
                 class="title mb-3"
@@ -47,7 +48,7 @@
                 :style="{color: this.$themes.primary}"
               >{{$t('sliders.labelPlusIcon')}}</div>
               <va-slider
-                icon="fa fa-music"
+                icon="music"
                 v-model="value"
               />
             </div>
@@ -58,7 +59,7 @@
               >{{$t('sliders.labelPlusIcon')}}</div>
               <va-slider
                 color="danger"
-                icon-right="fa fa-check-circle"
+                icon-right="check_circle"
                 value-visible
                 v-model="value"
               />
@@ -97,17 +98,18 @@
             <div class="flex xs12 lg6 xl4 mb-2">
               <va-slider
                 color="info"
-                icon="fa fa-volume-off"
-                icon-right="fa fa-volume-up"
+                icon="volume_off"
+                icon-right="volume_up"
                 v-model="value"
               />
             </div>
-          </div>
+          </va-card-content>
         </va-card>
       </div>
       <div class="flex md12">
-        <va-card :title="$t('sliders.range')">
-          <div class="row">
+        <va-card>
+          <va-card-title>{{ $t('sliders.range') }}</va-card-title>
+          <va-card-content class="row">
             <div class="flex xs12 lg6 xl4 mb-2">
               <div
                 class="title mb-3"
@@ -156,7 +158,7 @@
               >{{$t('sliders.labelPlusIcon')}}</div>
               <va-slider
                 range
-                icon="fa fa-music"
+                icon="music"
                 v-model="value2"
               />
             </div>
@@ -168,7 +170,7 @@
               <va-slider
                 range
                 color="danger"
-                icon-right="fa fa-check-circle"
+                icon-right="check_circle"
                 value-visible
                 v-model="value2"
               />
@@ -210,12 +212,12 @@
               <va-slider
                 range
                 color="info"
-                icon="fa fa-volume-off"
-                icon-right="fa fa-volume-up"
+                icon="volume_off"
+                icon-right="volume_up"
                 v-model="value2"
               />
             </div>
-          </div>
+          </va-card-content>
         </va-card>
       </div>
     </div>
