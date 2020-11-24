@@ -1,4 +1,3 @@
-// TODO: fix naming
 <template>
   <div class="row">
     <div class="flex xs12">
