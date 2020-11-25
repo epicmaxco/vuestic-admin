@@ -12,7 +12,7 @@
       <slot/>
       <va-icon
         class="pa-1"
-        :class="`fa ${isShown ? 'fa-angle-up' :'fa-angle-down'}`"
+        :name="isShown ? 'angle_up' :'angle_down'"
       />
     </span>
     <div class="profile-dropdown__content pl-4 pr-4 pt-2 pb-2">

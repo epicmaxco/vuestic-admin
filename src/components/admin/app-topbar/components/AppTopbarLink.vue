@@ -12,7 +12,7 @@
       v-if="icon"
       class="app-topbar-link__icon"
       :style="computedIconStyles"
-      :class="icon"
+      :name="icon"
     />
     <div class="app-topbar-link__title">
       <slot>
@@ -21,7 +21,7 @@
     </div>
     <va-icon
       class="app-topbar-link__icon"
-      :class="iconRight"
+      :name="iconRight"
       :style="computedIconStyles"
     />
   </router-link>

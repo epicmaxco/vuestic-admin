@@ -66,16 +66,16 @@ Vue.use(ContextPlugin, {
           code: 'loop',
         },
         calendar_today: {
-          code: 'calendar_today',
+          code: 'calendar-today',
         },
         warning: {
           code: 'warning',
         },
         highlight_off: {
-          code: 'highlight_off',
+          code: 'highlight-off',
         },
         envelope: {
-          code: 'fa-envelope-o',
+          code: 'envelope-o',
           font: 'fa4',
         },
         circle: {
@@ -274,6 +274,49 @@ Vue.use(ContextPlugin, {
         },
         remove: {
           code: 'remove',
+        },
+        angle_up: {
+          code: 'angle-up',
+          font: 'fa4',
+        },
+        angle_down: {
+          code: 'angle-down',
+          font: 'fa4',
+        },
+        // Vuestic icons config
+        // navbar
+        vuestic_settings: {
+          code: 'vuestic-iconset-settings',
+          font: 'vuestic-iconset',
+        },
+        // sidebar & topbar
+        vuestic_dashboard: {
+          code: 'vuestic-iconset-dashboard',
+          font: 'vuestic-iconset',
+        },
+        vuestic_statistics: {
+          code: 'vuestic-iconset-statistics',
+          font: 'vuestic-iconset',
+        },
+        vuestic_forms: {
+          code: 'vuestic-iconset-forms',
+          font: 'vuestic-iconset',
+        },
+        vuestic_tables: {
+          code: 'vuestic-iconset-tables',
+          font: 'vuestic-iconset',
+        },
+        vuestic_ui_elements: {
+          code: 'vuestic-iconset-ui-elements',
+          font: 'vuestic-iconset',
+        },
+        vuestic_maps: {
+          code: 'vuestic-iconset-maps',
+          font: 'vuestic-iconset',
+        },
+        vuestic_files: {
+          code: 'vuestic-iconset-files',
+          font: 'vuestic-iconset',
         },
       },
     },

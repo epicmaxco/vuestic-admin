@@ -15,7 +15,7 @@
         v-if="icon"
         class="app-sidebar-link__item-icon"
         :style="computedIconStyles"
-        :class="icon"
+        :name="icon"
       />
       <div class="app-sidebar-link__item-title" v-if="title">
         <slot>
@@ -27,7 +27,7 @@
         v-if="iconRight"
         class="app-sidebar-link__item-icon-right"
         :style="computedIconStyles"
-        :class="iconRight"
+        :name="iconRight"
       >{{iconRightContent}}
       </va-icon>
     </router-link>

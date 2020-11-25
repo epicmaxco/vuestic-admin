@@ -7,7 +7,7 @@
       <div @click.stop.prevent="toggleMenuItem()">
         <app-sidebar-link
           :icon="icon"
-          :iconRight="`fa fa-angle-${expanded ? 'up' : 'down'}`"
+          :iconRight="expanded ? 'angle_up' : 'angle_down'"
           :title="title"
         />
       </div>
