@@ -1,24 +1,27 @@
 <template>
-  <va-card :title="$t('tables.labelsActions')">
-    <va-data-table
-      :fields="fields"
-      :data="users"
-      no-pagination
-    >
-      <template slot="marker" slot-scope="props">
-        <va-icon name="circle" :color="props.rowData.color" size="8px" />
-      </template>
+  <va-card>
+    <va-card-title>{{ $t('tables.labelsActions') }}</va-card-title>
+    <va-card-content>
+      <va-data-table
+        :fields="fields"
+        :data="users"
+        no-pagination
+      >
+        <template slot="marker" slot-scope="props">
+          <va-icon name="circle" :color="props.rowData.color" size="8px" />
+        </template>
 
-      <template slot="actions" slot-scope="props">
-        <va-button flat small color="gray" @click="edit(props.rowData)" class="ma-0">
-          {{ $t('tables.edit') }}
-        </va-button>
+        <template slot="actions" slot-scope="props">
+          <va-button flat small color="gray" @click="edit(props.rowData)" class="ma-0">
+            {{ $t('tables.edit') }}
+          </va-button>
 
-        <va-button flat small color="danger" @click="remove(props.rowData)" class="ma-0">
-          {{ $t('tables.delete') }}
-        </va-button>
-      </template>
-    </va-data-table>
+          <va-button flat small color="danger" @click="remove(props.rowData)" class="ma-0">
+            {{ $t('tables.delete') }}
+          </va-button>
+        </template>
+      </va-data-table>
+    </va-card-content>
   </va-card>
 </template>
 

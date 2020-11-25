@@ -1,24 +1,27 @@
 <template>
-  <va-card :title="$t('tables.selectable')">
-    <va-data-table
-      :fields="fields"
-      :data="users"
-      :per-page="5"
-    >
-      <template slot="select" slot-scope="props">
-        <va-checkbox :value="props.rowData.checked" @input="select(props.rowData)" />
-      </template>
+  <va-card>
+    <va-card-title>{{ $t('tables.selectable') }}</va-card-title>
+    <va-card-content>
+      <va-data-table
+        :fields="fields"
+        :data="users"
+        :per-page="5"
+      >
+        <template slot="select" slot-scope="props">
+          <va-checkbox :value="props.rowData.checked" @input="select(props.rowData)" />
+        </template>
 
-      <template slot="graph" slot-scope="props">
-        <svg width="100" height="40" xmlns="http://www.w3.org/2000/svg">
-          <path :d="props.rowData.graph" :stroke="props.rowData.graphColor" fill="transparent"/>
-        </svg>
-      </template>
-    </va-data-table>
+        <template slot="graph" slot-scope="props">
+          <svg width="100" height="40" xmlns="http://www.w3.org/2000/svg">
+            <path :d="props.rowData.graph" :stroke="props.rowData.graphColor" fill="transparent"/>
+          </svg>
+        </template>
+      </va-data-table>
 
-    <p v-if="selected.length">
-      {{ $t('tables.selected') }}: {{ selected.map(user => user.fullName).join(", ") }}.
-    </p>
+      <p v-if="selected.length">
+        {{ $t('tables.selected') }}: {{ selected.map(user => user.fullName).join(", ") }}.
+      </p>
+    </va-card-content>
   </va-card>
 </template>
 

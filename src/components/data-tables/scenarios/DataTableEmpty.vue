@@ -1,11 +1,14 @@
 <template>
-  <va-card :title="$t('tables.emptyTable')">
-    <va-data-table
-      :fields="fields"
-      :data="data"
-      :no-data-label="$t('tables.noReport')"
-      no-pagination
-    />
+  <va-card>
+    <va-card-title>{{ $t('tables.emptyTable') }}</va-card-title>
+    <va-card-content>
+      <va-data-table
+        :fields="fields"
+        :data="data"
+        :no-data-label="$t('tables.noReport')"
+        no-pagination
+      />
+    </va-card-content>
   </va-card>
 </template>
 

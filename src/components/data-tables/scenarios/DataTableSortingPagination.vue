@@ -1,29 +1,32 @@
 <template>
-  <va-card :title="$t('tables.sortingPaginationActionsAsIcons')">
-    <va-data-table
-      :fields="fields"
-      :data="users"
-      :per-page="5"
-    >
-      <template slot="actions" slot-scope="props">
-        <va-popover :message="getStarMessage(props.rowData)" placement="top">
-          <va-button
-            flat small
-            :color="getStarColor(props.rowData)"
-            icon="star"
-            @click="star(props.rowData)"
-          />
-        </va-popover>
+  <va-card>
+    <va-card-title>{{ $t('tables.sortingPaginationActionsAsIcons') }}</va-card-title>
+    <va-card-content>
+      <va-data-table
+        :fields="fields"
+        :data="users"
+        :per-page="5"
+      >
+        <template slot="actions" slot-scope="props">
+          <va-popover :message="getStarMessage(props.rowData)" placement="top">
+            <va-button
+              flat small
+              :color="getStarColor(props.rowData)"
+              icon="star"
+              @click="star(props.rowData)"
+            />
+          </va-popover>
 
-        <va-popover :message="`${$t('tables.edit')} ${props.rowData.fullName}`" placement="top">
-          <va-button flat small color="gray" icon="pencil" />
-        </va-popover>
+          <va-popover :message="`${$t('tables.edit')} ${props.rowData.fullName}`" placement="top">
+            <va-button flat small color="gray" icon="pencil" />
+          </va-popover>
 
-        <va-popover :message="`${$t('tables.delete')} ${props.rowData.fullName}`" placement="top">
-          <va-button flat small color="gray" icon="trash" />
-        </va-popover>
-      </template>
-    </va-data-table>
+          <va-popover :message="`${$t('tables.delete')} ${props.rowData.fullName}`" placement="top">
+            <va-button flat small color="gray" icon="trash" />
+          </va-popover>
+        </template>
+      </va-data-table>
+    </va-card-content>
   </va-card>
 </template>
 
