@@ -21,9 +21,8 @@
           class="color-picker-dropdown__badge"
           color="primary"
           slot="anchor"
-        >
-          Primary
-        </va-badge>
+          text="Primary"
+        />
         <va-advanced-color-picker
           class="my-1"
           v-model="$themes.primary"
@@ -35,9 +34,8 @@
           class="color-picker-dropdown__badge"
           color="secondary"
           slot="anchor"
-        >
-          Secondary
-        </va-badge>
+          text="Secondary"
+        />
         <va-advanced-color-picker
           class="my-1"
           v-model="$themes.secondary"
@@ -49,9 +47,8 @@
           class="color-picker-dropdown__badge"
           color="success"
           slot="anchor"
-        >
-          Success
-        </va-badge>
+          text="Success"
+        />
         <va-advanced-color-picker
           class="my-1"
           v-model="$themes.success"
@@ -63,9 +60,8 @@
           class="color-picker-dropdown__badge"
           color="info"
           slot="anchor"
-        >
-          Info
-        </va-badge>
+          text="Info"
+        />
         <va-advanced-color-picker
           class="my-1"
           v-model="$themes.info"
@@ -77,9 +73,8 @@
           class="color-picker-dropdown__badge"
           color="danger"
           slot="anchor"
-        >
-          Danger
-        </va-badge>
+          text="Danger"
+        />
         <va-advanced-color-picker
           class="my-1"
           v-model="$themes.danger"
@@ -91,9 +86,8 @@
           class="color-picker-dropdown__badge"
           color="warning"
           slot="anchor"
-        >
-          Warning
-        </va-badge>
+          text="Warning"
+        />
         <va-advanced-color-picker
           class="my-1"
           v-model="$themes.warning"
@@ -105,9 +99,8 @@
           class="color-picker-dropdown__badge"
           color="gray"
           slot="anchor"
-        >
-          Gray
-        </va-badge>
+          text="Gray"
+        />
         <va-advanced-color-picker
           class="my-1"
           v-model="$themes.gray"
@@ -119,9 +112,8 @@
           class="color-picker-dropdown__badge"
           color="dark"
           slot="anchor"
-        >
-          Dark
-        </va-badge>
+          text="Dark"
+        />
         <va-advanced-color-picker
           class="my-1"
           v-model="$themes.dark"
