@@ -2,8 +2,9 @@
   <div class="medium-editor">
     <div class="row">
       <div class="flex md12">
-        <va-card :title="$t('forms.mediumEditor.title')">
-          <div class="d-flex flex-center">
+        <va-card>
+          <va-card-title>{{ $t('forms.mediumEditor.title') }}</va-card-title>
+          <va-card-content class="d-flex flex-center">
             <va-medium-editor
               @initialized="handleEditorInitialization"
             >
@@ -24,7 +25,7 @@
                 Read the full article on <a href="https://medium.com/@dorn.anna/girl-no-you-dont-2e21e826c62c">Medium</a>
               </p>
             </va-medium-editor>
-          </div>
+          </va-card-content>
         </va-card>
       </div>
     </div>
