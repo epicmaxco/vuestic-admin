@@ -83,7 +83,7 @@ Vue.use(ContextPlugin, {
           font: 'fa4',
         },
         star: {
-          code: 'fa-star',
+          code: 'star',
           font: 'fa4',
         },
         star_empty: {
@@ -226,27 +226,27 @@ Vue.use(ContextPlugin, {
           font: 'fa4',
         },
         eye: {
-          code: 'fa-eye',
+          code: 'eye',
           font: 'fa4',
         },
         google: {
-          code: 'fa-google',
+          code: 'google',
           font: 'fa4',
         },
         map: {
-          code: 'fa-map',
+          code: 'map',
           font: 'fa4',
         },
         map_marker: {
-          code: 'fa-map-marker',
+          code: 'map-marker',
           font: 'fa4',
         },
         mars: {
-          code: 'fa-mars',
+          code: 'mars',
           font: 'fa4',
         },
         venus: {
-          code: 'fa-venus',
+          code: 'venus',
           font: 'fa4',
         },
         close: {

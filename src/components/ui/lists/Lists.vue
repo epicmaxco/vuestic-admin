@@ -10,7 +10,7 @@
 
           <template v-for="(customer, i) in customers">
             <va-list-item :key="'item' + customer.id" clickable @click="notify(customer.name)">
-              <va-list-item-section avatar>
+              <va-list-item-section class="ml-2" avatar>
                 <va-avatar>
                   <img :src="customer.picture" :alt="customer.name">
                 </va-avatar>
@@ -26,7 +26,7 @@
                 </va-list-item-label>
               </va-list-item-section>
 
-              <va-list-item-section side>
+              <va-list-item-section icon>
                 <va-icon name="eye" color="gray" />
               </va-list-item-section>
             </va-list-item>
@@ -42,7 +42,7 @@
 
           <template v-for="(customer, i) in customers">
             <va-list-item :key="'item' + customer.id" clickable @click="toggleStar(customer)">
-              <va-list-item-section side>
+              <va-list-item-section icon>
                 <va-icon v-if="customer.starred" name="star" color="warning" />
               </va-list-item-section>
 
@@ -58,7 +58,7 @@
                 </va-list-item-label>
               </va-list-item-section>
 
-              <va-list-item-section side>
+              <va-list-item-section icon>
                 <va-icon
                   :name="getGenderIcon(customer.gender)"
                   :color="getGenderColor(customer.gender)"
@@ -77,7 +77,7 @@
 
           <template v-for="(customer, i) in archived">
             <va-list-item :key="'item' + customer.id">
-              <va-list-item-section side>
+              <va-list-item-section icon>
                 <va-icon v-if="customer.starred" name="star" color="warning" />
               </va-list-item-section>
 
@@ -105,7 +105,7 @@
             {{ $t('lists.starterKit') }}
           </va-list-label>
 
-          <va-list-item clickable>
+          <va-list-item class="ml-2" clickable>
             <va-list-item-section>
               <va-list-item-label>
                 Add profile images
@@ -117,7 +117,7 @@
             </va-list-item-section>
           </va-list-item>
 
-          <va-list-item clickable>
+          <va-list-item class="ml-2" clickable>
             <va-list-item-section>
               <va-list-item-label>
                 Invite friends
@@ -136,9 +136,7 @@
           </va-list-label>
 
           <va-list-item>
-            <va-list-item-section side>
-              <va-checkbox v-model="appBanners" />
-            </va-list-item-section>
+            <va-checkbox class="mr-2" v-model="appBanners" />
 
             <va-list-item-section>
               <va-list-item-label>
@@ -152,9 +150,7 @@
           </va-list-item>
 
           <va-list-item>
-            <va-list-item-section side>
-              <va-checkbox v-model="banners" />
-            </va-list-item-section>
+            <va-checkbox class="mr-2" v-model="banners" />
 
             <va-list-item-section>
               <va-list-item-label>
@@ -168,9 +164,7 @@
           </va-list-item>
 
           <va-list-item>
-            <va-list-item-section side>
-              <va-checkbox v-model="notifications" />
-            </va-list-item-section>
+            <va-checkbox class="mr-2" v-model="notifications" />
 
             <va-list-item-section>
               <va-list-item-label>
@@ -186,7 +180,7 @@
           </va-list-label>
 
           <va-list-item :to="{ name: 'google-maps' }">
-            <va-list-item-section side>
+            <va-list-item-section icon>
               <va-icon name="google" color="red" />
             </va-list-item-section>
 
@@ -196,7 +190,7 @@
           </va-list-item>
 
           <va-list-item :to="{ name: 'yandex-maps' }">
-            <va-list-item-section side>
+            <va-list-item-section icon>
               <va-icon name="map" color="red" />
             </va-list-item-section>
 
@@ -206,7 +200,7 @@
           </va-list-item>
 
           <va-list-item :to="{ name: 'leaflet-maps' }">
-            <va-list-item-section side>
+            <va-list-item-section icon>
               <va-icon name="map_marker" color="red" />
             </va-list-item-section>
 
