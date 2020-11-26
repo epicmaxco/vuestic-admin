@@ -8,24 +8,29 @@
         <va-input
           :label="$t('dashboard.tabs.bankDetails.bankName')"
           v-model="form.bankName"
+          class="mb-3"
         />
         <va-input
           :label="$t('dashboard.tabs.bankDetails.accountName')"
           v-model="form.accountName"
+          class="mb-3"
         />
         <va-input
           :label="$t('dashboard.tabs.bankDetails.sortCode')"
           v-model="form.sortCode"
+          class="mb-3"
         />
       </div>
       <div class="flex xs12 md6">
         <va-input
           :label="$t('dashboard.tabs.bankDetails.accountNumber')"
           v-model="form.accountNumber"
+          class="mb-3"
         />
         <va-input
           :label="$t('dashboard.tabs.bankDetails.notes')"
           v-model="form.notes"
+          class="mb-3"
         />
       </div>
     </div>

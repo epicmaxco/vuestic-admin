@@ -11,7 +11,7 @@
             @input="search"
             removable
           >
-            <va-icon name="search" slot="prepend" />
+            <va-icon name="search" slot="prependInner" />
           </va-input>
         </div>
 
@@ -44,14 +44,12 @@
           />
         </template>
         <template v-slot:status="props">
-          <va-badge :color="getStatusColor(props.rowData.status)">
-            {{ props.rowData.status }}
-          </va-badge>
+          <va-badge :color="getStatusColor(props.rowData.status)" :text="props.rowData.status" />
         </template>
 
         <template v-slot:actions="props">
           <va-button
-            small
+            size="small"
             outline
             color="success"
             icon="check"

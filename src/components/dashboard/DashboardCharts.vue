@@ -2,11 +2,11 @@
   <div class="row row-equal">
     <div class="flex xs12 xl6">
       <va-card>
-        <va-card-title>{{ $t('dashboard.charts.trendyTrends') }}</va-card-title>
-        <va-card-content>
+        <va-card-title>
+          {{ $t('dashboard.charts.trendyTrends') }}
+          <va-spacer />
           <va-button
-            small
-            slot="actions"
+            size="small"
             color="danger"
             class="mr-0"
             @click="deleteSection"
@@ -14,6 +14,8 @@
           >
             {{ $t('dashboard.charts.showInMoreDetail') }}
           </va-button>
+        </va-card-title>
+        <va-card-content>
           <va-chart class="chart" ref="lineChart" :data="lineChartData" type="line"/>
         </va-card-content>
       </va-card>
@@ -21,15 +23,17 @@
 
     <div class="flex xs12 md6 xl3">
       <va-card>
-        <va-card-title>{{ $t('dashboard.charts.loadingSpeed') }}</va-card-title>
-        <va-card-content>
+        <va-card-title>
+          {{ $t('dashboard.charts.loadingSpeed') }}
+          <va-spacer />
           <va-button
             icon="print"
             flat
-            slot="actions"
             class="mr-0"
             @click="printChart"
           />
+        </va-card-title>
+        <va-card-content>
           <va-chart class="chart chart--donut" :data="donutChartData" type="donut"/>
         </va-card-content>
       </va-card>

@@ -254,8 +254,9 @@ Vue.use(ContextPlugin, {
           font: 'fa4',
         },
         print: {
-          code: 'fa-print',
-          font: 'fa4',
+          // broken
+          code: 'print',
+          font: 'fab',
         },
         bug: {
           code: 'fa-bug',

@@ -10,7 +10,7 @@
           <va-card class="mb-4" :color="info.color">
             <va-card-content>
               <p class="display-2 mb-0" style="color: white;">{{ info.value }}</p>
-              <p>{{$t('dashboard.info.' + info.text)}}</p>
+              <p style="color: white;">{{$t('dashboard.info.' + info.text)}}</p>
             </va-card-content>
           </va-card>
         </div>
