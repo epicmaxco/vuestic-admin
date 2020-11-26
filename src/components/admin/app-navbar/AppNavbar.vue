@@ -150,6 +150,8 @@ $nav-border-side-width: 3.1875rem;
 .app-navbar {
   transition: background-color 0.3s ease; /* sidebar's bg color transitions as well -> consistency */
   display: flex;
+  position: relative;
+  overflow: hidden;
   padding: 1rem 1rem;
   z-index: 1;
 

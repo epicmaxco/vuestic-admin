@@ -61,6 +61,7 @@ export default {
 <style lang="scss">
 .app-navbar-actions {
   display: flex;
+  align-items: center;
 
   &__item {
     margin-top: 0.3rem;
