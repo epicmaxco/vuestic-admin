@@ -56,8 +56,8 @@
           Buying the right telescope to take your love of astronomy to the
           next level is a big next step.
 
-          <div class="row mt-3">
-            <va-button color="primary" target="_blank" href="https://github.com/epicmaxco/vuestic-ui">
+          <div class="mt-3">
+            <va-button target="_blank" href="https://github.com/epicmaxco/vuestic-ui">
               {{$t('dashboard.info.viewLibrary')}}
             </va-button>
           </div>
