@@ -26,8 +26,10 @@
         :errorMessages="agreedToTermsErrors"
       >
         <template slot="label">
-          {{ $t('auth.agree') }}
-          <span class="link">{{ $t('auth.termsOfUse') }}</span>
+          <span class="ml-1">
+            {{ $t('auth.agree') }}
+            <span class="link">{{ $t('auth.termsOfUse') }}</span>
+          </span>
         </template>
       </va-checkbox>
       <router-link class="ml-1 link" :to="{name: 'recover-password'}">
