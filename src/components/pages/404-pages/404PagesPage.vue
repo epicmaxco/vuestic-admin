@@ -8,15 +8,17 @@
       >
         <va-card
           class="not-found-pages__cards text--center"
-          :image="item.imageUrl"
         >
-          {{ item.label }}
-          <div class="not-found-pages__button-container pt-3 mb-0">
-            <va-button
-              :to="{ name: item.buttonTo }">
-              {{ 'View Example' }}
-            </va-button>
-          </div>
+          <va-image :src="item.imageUrl" style="max-height: 200px;"/>
+          <va-card-content>
+            {{ item.label }}
+            <div class="not-found-pages__button-container pt-3 mb-0">
+              <va-button
+                :to="{ name: item.buttonTo }">
+                {{ 'View Example' }}
+              </va-button>
+            </div>
+          </va-card-content>
         </va-card>
       </div>
     </div>
