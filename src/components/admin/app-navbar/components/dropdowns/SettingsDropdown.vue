@@ -19,7 +19,7 @@
         v-model="isTopBarProxy"
         :options="options"
         class="settings-dropdown__control mb-2"
-        small
+        size="small"
       />
     </div>
   </va-dropdown>

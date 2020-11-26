@@ -11,7 +11,7 @@
     <div class="color-dropdown__content pl-4 pr-4 pt-2 pb-2">
       <va-button-toggle
         outline
-        small
+        size="small"
         v-model="selectedTheme"
         :options="modeOptions"
         style="max-width: 100%;"

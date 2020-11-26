@@ -21,8 +21,8 @@
         <span class="ellipsis" style="max-width: 85%;">{{ $t(`messages.${option.name}`, { name: option.details.name})}}</span>
       </div>
       <div class="row justify--space-between">
-        <va-button class="ma-0 mb-2 mt-1 mr-2" small>{{ $t('messages.all') }}</va-button>
-        <va-button class="ma-0 mb-2 mt-1" small outline @click="markAllAsRead" :disabled="allRead">{{ $t('messages.mark_as_read') }}</va-button>
+        <va-button class="ma-0 mb-2 mt-1 mr-2" size="small">{{ $t('messages.all') }}</va-button>
+        <va-button class="ma-0 mb-2 mt-1" size="small" outline @click="markAllAsRead" :disabled="allRead">{{ $t('messages.mark_as_read') }}</va-button>
       </div>
     </div>
   </va-dropdown>

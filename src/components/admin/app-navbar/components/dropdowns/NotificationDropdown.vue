@@ -24,8 +24,8 @@
         </span>
       </div>
       <div class="row justify--space-between">
-        <va-button class="ma-0 mb-2 mt-1" small>{{ $t('notifications.all') }}</va-button>
-        <va-button class="ma-0 mb-2 mt-1" small outline @click="markAllAsRead" :disabled="allRead">{{ $t('notifications.mark_as_read') }}</va-button>
+        <va-button class="ma-0 mb-2 mt-1" size="small">{{ $t('notifications.all') }}</va-button>
+        <va-button class="ma-0 mb-2 mt-1" size="small" outline @click="markAllAsRead" :disabled="allRead">{{ $t('notifications.mark_as_read') }}</va-button>
       </div>
     </div>
   </va-dropdown>
@@ -120,7 +120,7 @@ export default {
     background-color: $dropdown-background;
     box-shadow: $gray-box-shadow;
     border-radius: 0.5rem;
-    max-width: 19rem;
+    max-width: 20rem;
   }
 
   &__item {
