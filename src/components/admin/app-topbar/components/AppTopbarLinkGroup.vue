@@ -19,7 +19,7 @@
         @mouseleave="updateHoverState"
         :class="computedLinkClass"
         :icon="icon"
-        :icon-right="isOpen ? 'fa fa-angle-up' : 'fa fa-angle-down'"
+        :icon-right="isOpen ? 'angle_up' : 'angle_down'"
         :is-active="isActive"
       >
         {{title}}

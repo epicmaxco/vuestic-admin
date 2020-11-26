@@ -91,7 +91,7 @@ Vue.use(ContextPlugin, {
           font: 'fa4',
         },
         pencil: {
-          code: 'fa-pencil',
+          code: 'pencil',
           font: 'fa4',
         },
         trash: {

@@ -10,7 +10,7 @@
           v-if="item.children"
           :key="key"
           :is-active="hasActiveByDefault(item)"
-          :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
+          :icon="item.meta.iconClass"
           :title="$t(item.displayName)"
           :is-multi-row="item.children.length > 10"
         >
@@ -29,7 +29,7 @@
           v-else
           :key="key"
           :is-active="item.name === $route.name"
-          :icon="[ 'sidebar-menu-item-icon vuestic-iconset', item.meta.iconClass ]"
+          :icon="item.meta.iconClass"
           :to="{ name: item.name }"
         >
           {{ $t(item.displayName) }}

@@ -36,7 +36,7 @@ export default {
     },
     icon: {
       type: String,
-      default: 'fa fa-pencil',
+      default: 'pencil',
     },
     title: {
       type: String,
