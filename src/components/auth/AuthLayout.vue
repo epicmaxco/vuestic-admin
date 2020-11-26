@@ -9,19 +9,21 @@
     <div class="flex xs12 pa-3">
       <div class="d-flex justify--center">
         <va-card class="auth-layout__card">
-          <va-tabs
-            v-model="tabIndex"
-            center
-          >
-            <va-tab>{{ $t('auth.login') }}</va-tab>
-            <va-tab>{{ $t('auth.createNewAccount') }}</va-tab>
-          </va-tabs>
+          <va-card-content>
+            <va-tabs
+              v-model="tabIndex"
+              center
+            >
+              <va-tab>{{ $t('auth.login') }}</va-tab>
+              <va-tab>{{ $t('auth.createNewAccount') }}</va-tab>
+            </va-tabs>
 
-          <va-separator/>
+            <va-separator/>
 
-          <div class="pa-3">
-            <router-view/>
-          </div>
+            <div class="pa-3">
+              <router-view/>
+            </div>
+          </va-card-content>
         </va-card>
       </div>
     </div>

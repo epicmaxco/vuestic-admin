@@ -1,6 +1,7 @@
 <template>
   <form @submit.prevent="onsubmit">
     <va-input
+      class="mb-3"
       v-model="email"
       type="email"
       :label="$t('auth.email')"
@@ -9,6 +10,7 @@
     />
 
     <va-input
+      class="mb-3"
       v-model="password"
       type="password"
       :label="$t('auth.password')"

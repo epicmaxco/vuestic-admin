@@ -2,6 +2,7 @@
   <form @submit.prevent="onsubmit" class="login">
     <div class="row mb-2">
       <va-input
+        class="mb-3"
         v-model="email"
         type="email"
         :label="$t('auth.email')"
