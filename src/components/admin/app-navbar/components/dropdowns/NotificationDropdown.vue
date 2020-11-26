@@ -1,7 +1,7 @@
 <template>
   <va-dropdown
     class="notification-dropdown"
-    :offset="[0, '16px']"
+    :offset="[0, 16]"
     boundary-body
   >
     <va-icon-notification

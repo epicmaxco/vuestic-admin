@@ -1,7 +1,7 @@
 <template>
   <va-dropdown
     class="settings-dropdown"
-    :offset="[0, '16px']"
+    :offset="[0, 16]"
   >
     <va-icon
       class="settings-dropdown__icon vuestic-iconset vuestic-iconset-settings"

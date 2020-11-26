@@ -3,7 +3,7 @@
     class="profile-dropdown"
     v-model="isShown"
     boundary-body
-    :offset="[0, '16px']"
+    :offset="[0, 16]"
   >
     <span
       class="profile-dropdown__anchor" slot="anchor"
