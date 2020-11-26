@@ -184,7 +184,7 @@ Vue.use(ContextPlugin, {
           font: 'entypo',
         },
         user: {
-          code: 'fa fa-user',
+          code: 'user',
           font: 'fa4',
         },
         bell_slash: {
@@ -254,9 +254,8 @@ Vue.use(ContextPlugin, {
           font: 'fa4',
         },
         print: {
-          // broken
           code: 'print',
-          font: 'fab',
+          font: 'fa4',
         },
         bug: {
           code: 'fa-bug',

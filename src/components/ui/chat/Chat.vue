@@ -25,7 +25,7 @@
         v-model="inputMessage"
         @keypress.enter="sendMessage"
         placeholder="Type your message..."
-        class="va-chat__input"
+        class="va-chat__input mr-2"
       />
       <va-button @click="sendMessage()">
         Send

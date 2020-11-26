@@ -8,7 +8,7 @@
           <va-card-content>
             <!-- TODO: use accordion instead expand group & collapse instead expand (latest build) -->
             <va-expand-group>
-              <va-expand class="mb-2" header="Expand This Block">
+              <va-expand class="mb-4" header="Expand This Block">
                 <div class="pa-2">
                   <p class="display-3">Great Things</p>
                   <div>
@@ -38,7 +38,7 @@
           <va-card-title>{{ $t('collapse.collapseWithBackground') }}</va-card-title>
           <va-card-content>
             <va-expand-group>
-              <va-expand class="mb-2" header="Expand This Block" color="primary" color-all>
+              <va-expand class="mb-4" header="Expand This Block" color="primary" color-all>
                 <div class="pa-2">
                   <p class="display-3">Great Things</p>
                   <div>
@@ -68,7 +68,7 @@
           <va-card-title>{{ $t('collapse.collapseWithCustomHeader') }}</va-card-title>
           <va-card-content>
             <va-expand-group>
-              <va-expand class="mb-2" >
+              <va-expand class="mb-4" >
                 <span slot="header">
                   <va-button style="width: 100%;">
                     Expand This Block

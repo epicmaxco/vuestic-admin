@@ -6,12 +6,12 @@
           <va-card-title>{{$t('buttons.types')}}</va-card-title>
           <va-card-content class="row">
             <div class="flex">
-              <va-button> {{ $t('buttons.default') }}</va-button>
-              <va-button disabled> {{ $t('buttons.disabled') }}</va-button>
-              <va-button outline> {{ $t('buttons.outline') }}</va-button>
-              <va-button outline disabled> {{ $t('buttons.disabled') }}</va-button>
-              <va-button flat> {{ $t('buttons.flat') }}</va-button>
-              <va-button flat disabled> {{ $t('buttons.disabled') }}</va-button>
+              <va-button class="mr-2 mb-2" > {{ $t('buttons.default') }}</va-button>
+              <va-button class="mr-2 mb-2" disabled> {{ $t('buttons.disabled') }}</va-button>
+              <va-button class="mr-2 mb-2" outline> {{ $t('buttons.outline') }}</va-button>
+              <va-button class="mr-2 mb-2" outline disabled> {{ $t('buttons.disabled') }}</va-button>
+              <va-button class="mr-2 mb-2" flat> {{ $t('buttons.flat') }}</va-button>
+              <va-button class="mr-2 mb-2" flat disabled> {{ $t('buttons.disabled') }}</va-button>
             </div>
           </va-card-content>
         </va-card>
@@ -22,9 +22,9 @@
           <va-card-title>{{$t('buttons.size')}}</va-card-title>
           <va-card-content class="row">
             <div class="flex">
-              <va-button small> {{ $t('buttons.small') }}</va-button>
-              <va-button> {{ $t('buttons.normal') }}</va-button>
-              <va-button large> {{ $t('buttons.large') }}</va-button>
+              <va-button class="mr-2 mb-2" size="small"> {{ $t('buttons.small') }}</va-button>
+              <va-button class="mr-2 mb-2"> {{ $t('buttons.normal') }}</va-button>
+              <va-button class="mr-2 mb-2" size="large"> {{ $t('buttons.large') }}</va-button>
             </div>
           </va-card-content>
         </va-card>
@@ -35,13 +35,15 @@
           <va-card-title>{{$t('buttons.tags')}}</va-card-title>
           <va-card-content class="row">
             <div class="flex">
-              <va-button> {{ $t('buttons.button') }}</va-button>
+              <va-button class="mr-2 mb-2"> {{ $t('buttons.button') }}</va-button>
               <va-button
+                class="mr-2 mb-2"
                 href="http://epic-spinners.epicmax.co/"
               >
                 {{ $t('buttons.a-link') }}
               </va-button>
               <va-button
+                class="mr-2 mb-2"
                 :to="{ name: 'charts' }"
               >
                 {{ $t('buttons.router-link') }}
@@ -56,14 +58,15 @@
           <va-card-title>{{$t('buttons.advanced')}}</va-card-title>
           <va-card-content class="row">
             <div class="flex">
-              <va-button icon="ion_md_close"> {{ $t('buttons.button') }}</va-button>
-              <va-button icon-right="ion_arrow_down"> {{ $t('buttons.button') }}</va-button>
+              <va-button class="mr-2 mb-2" icon="ion_md_close"> {{ $t('buttons.button') }}</va-button>
+              <va-button class="mr-2 mb-2" icon-right="ion_arrow_down"> {{ $t('buttons.button') }}</va-button>
               <va-button
+                class="mr-2 mb-2"
                 icon="ion_md_close"
                 icon-right="ion_arrow_down">
                 {{ $t('buttons.button') }}
               </va-button>
-              <va-button icon="ion_md_close"/>
+              <va-button class="mr-2 mb-2" icon="ion_md_close"/>
             </div>
           </va-card-content>
         </va-card>
@@ -75,32 +78,32 @@
           <va-card-content>
             <div class="row">
               <div class="flex">
-                <va-button color="danger"> {{ $t('buttons.danger') }}</va-button>
-                <va-button color="info"> {{ $t('buttons.info') }}</va-button>
-                <va-button color="dark"> {{ $t('buttons.dark') }}</va-button>
-                <va-button color="warning"> {{ $t('buttons.warning') }}</va-button>
-                <va-button color="success"> {{ $t('buttons.success') }}</va-button>
-                <va-button color="gray"> {{ $t('buttons.gray') }}</va-button>
+                <va-button class="mr-2 mb-2" color="danger"> {{ $t('buttons.danger') }}</va-button>
+                <va-button class="mr-2 mb-2" color="info"> {{ $t('buttons.info') }}</va-button>
+                <va-button class="mr-2 mb-2" color="dark"> {{ $t('buttons.dark') }}</va-button>
+                <va-button class="mr-2 mb-2" color="warning"> {{ $t('buttons.warning') }}</va-button>
+                <va-button class="mr-2 mb-2" color="success"> {{ $t('buttons.success') }}</va-button>
+                <va-button class="mr-2 mb-2" color="gray"> {{ $t('buttons.gray') }}</va-button>
               </div>
             </div>
             <div class="row">
               <div class="flex">
-                <va-button outline color="danger"> {{ $t('buttons.danger') }}</va-button>
-                <va-button outline color="info"> {{ $t('buttons.info') }}</va-button>
-                <va-button outline color="dark"> {{ $t('buttons.dark') }}</va-button>
-                <va-button outline color="warning"> {{ $t('buttons.warning') }}</va-button>
-                <va-button outline color="success"> {{ $t('buttons.success') }}</va-button>
-                <va-button outline color="gray"> {{ $t('buttons.gray') }}</va-button>
+                <va-button class="mr-2 mb-2" outline color="danger"> {{ $t('buttons.danger') }}</va-button>
+                <va-button class="mr-2 mb-2" outline color="info"> {{ $t('buttons.info') }}</va-button>
+                <va-button class="mr-2 mb-2" outline color="dark"> {{ $t('buttons.dark') }}</va-button>
+                <va-button class="mr-2 mb-2" outline color="warning"> {{ $t('buttons.warning') }}</va-button>
+                <va-button class="mr-2 mb-2" outline color="success"> {{ $t('buttons.success') }}</va-button>
+                <va-button class="mr-2 mb-2" outline color="gray"> {{ $t('buttons.gray') }}</va-button>
               </div>
             </div>
             <div class="row">
               <div class="flex">
-                <va-button flat color="danger"> {{ $t('buttons.danger') }}</va-button>
-                <va-button flat color="info"> {{ $t('buttons.info') }}</va-button>
-                <va-button flat color="dark"> {{ $t('buttons.dark') }}</va-button>
-                <va-button flat color="warning"> {{ $t('buttons.warning') }}</va-button>
-                <va-button flat color="success"> {{ $t('buttons.success') }}</va-button>
-                <va-button flat color="gray"> {{ $t('buttons.gray') }}</va-button>
+                <va-button class="mr-2 mb-2" flat color="danger"> {{ $t('buttons.danger') }}</va-button>
+                <va-button class="mr-2 mb-2" flat color="info"> {{ $t('buttons.info') }}</va-button>
+                <va-button class="mr-2 mb-2" flat color="dark"> {{ $t('buttons.dark') }}</va-button>
+                <va-button class="mr-2 mb-2" flat color="warning"> {{ $t('buttons.warning') }}</va-button>
+                <va-button class="mr-2 mb-2" flat color="success"> {{ $t('buttons.success') }}</va-button>
+                <va-button class="mr-2 mb-2" flat color="gray"> {{ $t('buttons.gray') }}</va-button>
               </div>
             </div>
           </va-card-content>
@@ -113,23 +116,21 @@
           <va-card-content class="row">
             <div class="flex xs12 xl6">
               <va-button-group>
-                <va-button large> One</va-button>
-                <va-button large> Two</va-button>
-                <va-button large> Three</va-button>
+                <va-button size="large"> One</va-button>
+                <va-button size="large"> Two</va-button>
+                <va-button size="large"> Three</va-button>
               </va-button-group>
             </div>
             <div class="flex xs12 xl6">
               <va-button-group>
-                <va-button outline small color="danger" icon="maki_art_gallery"> First</va-button>
-                <va-button outline small color="danger"> Second</va-button>
-                <va-button outline small color="danger"> Third</va-button>
+                <va-button outline size="small" color="danger" icon="maki_art_gallery"> First</va-button>
+                <va-button outline size="small" color="danger"> Second</va-button>
+                <va-button outline size="small" color="danger"> Third</va-button>
               </va-button-group>
             </div>
             <div class="flex xs12 xl6">
               <va-button-group>
-                <va-button flat color="gray" icon="glyphicon_envelope">
-                  First
-                </va-button>
+                <va-button flat color="gray" icon="glyphicon_envelope"> First</va-button>
                 <va-button flat color="gray" icon="entypo_user"> Second</va-button>
                 <va-button flat color="gray" icon="ion_ios_alarm"> Third</va-button>
               </va-button-group>
@@ -144,16 +145,16 @@
             </div>
             <div class="flex xs12 xl6">
               <va-button-group>
-                <va-button outline large color="info"> First</va-button>
-                <va-button outline large color="info" icon-right="glyphicon_pencil"> Second</va-button>
-                <va-button outline large color="info"> Third</va-button>
+                <va-button outline size="large" color="info"> First</va-button>
+                <va-button outline size="large" color="info" icon-right="glyphicon_pencil"> Second</va-button>
+                <va-button outline size="large" color="info"> Third</va-button>
               </va-button-group>
             </div>
             <div class="flex xs12 xl6">
               <va-button-group>
-                <va-button flat small color="warning" icon="glyphicon_envelope"/>
-                <va-button flat small color="warning" icon="entypo_user"/>
-                <va-button flat small color="warning" icon-right="ion_ios_alarm"> Update</va-button>
+                <va-button flat size="small" color="warning" icon="glyphicon_envelope"/>
+                <va-button flat size="small" color="warning" icon="entypo_user"/>
+                <va-button flat size="small" color="warning" icon-right="ion_ios_alarm"> Update</va-button>
               </va-button-group>
             </div>
           </va-card-content>
@@ -257,26 +258,32 @@
           <va-card-content class="row">
             <div class="flex">
               <va-button-dropdown
+                class="mr-2 mb-2"
                 :label="$t('buttons.default')"
               > {{ $t('buttons.content') }}</va-button-dropdown>
               <va-button-dropdown
+                class="mr-2 mb-2"
                 split
                 :label="$t('buttons.split')"
               > {{ $t('buttons.content') }}</va-button-dropdown>
               <va-button-dropdown
+                class="mr-2 mb-2"
                 split
                 split-to="/"
                 :label="$t('buttons.splitTo')"
               > {{ $t('buttons.content') }}</va-button-dropdown>
               <va-button-dropdown
+                class="mr-2 mb-2"
                 :label="$t('buttons.customIcon')"
                 icon="iconicstroke_info"
               > {{ $t('buttons.content') }}</va-button-dropdown>
               <va-button-dropdown
+                class="mr-2 mb-2"
                 disabled
                 :label="$t('buttons.disabled')"
               > {{ $t('buttons.content') }}</va-button-dropdown>
               <va-button-dropdown
+                class="mr-2 mb-2"
                 color="warning"
                 :label="$t('buttons.warning')"
               > {{ $t('buttons.content') }}</va-button-dropdown>
