@@ -76,6 +76,7 @@ export default {
 
   .inner-loading {
     height: 100%;
+    overflow: hidden;
   }
 }
 </style>
