@@ -5,16 +5,16 @@
         <va-card class="modals-list larger-padding">
           <va-card-title>{{ $t('modal.title') }}</va-card-title>
           <va-card-content>
-            <va-button color="danger" @click="showSmallModal = true">
+            <va-button class="mr-2 mb-2" color="danger" @click="showSmallModal = true">
               {{ $t('modal.small') }}
             </va-button>
-            <va-button color="info" @click="showMediumModal = true">
+            <va-button class="mr-2 mb-2" color="info" @click="showMediumModal = true">
               {{ $t('modal.medium') }}
             </va-button>
-            <va-button color="warning" @click="showLargeModal = true">
+            <va-button class="mr-2 mb-2" color="warning" @click="showLargeModal = true">
               {{ $t('modal.large') }}
             </va-button>
-            <va-button color="success" @click="showStaticModal = true">
+            <va-button class="mr-2 mb-2" color="success" @click="showStaticModal = true">
               {{ $t('modal.static') }}
             </va-button>
           </va-card-content>
@@ -26,16 +26,16 @@
         <va-card class="modals-list larger-padding">
           <va-card-title>{{ $t('modal.titlePosition') }}</va-card-title>
           <va-card-content>
-            <va-button color="danger" @click="showTopModal = true">
+            <va-button class="mb-2 mr-2" color="danger" @click="showTopModal = true">
               {{ $t('modal.top') }}
             </va-button>
-            <va-button color="info" @click="showRightModal = true">
+            <va-button class="mb-2 mr-2" color="info" @click="showRightModal = true">
               {{ $t('modal.right') }}
             </va-button>
-            <va-button color="warning" @click="showBottomModal = true">
+            <va-button class="mb-2 mr-2" color="warning" @click="showBottomModal = true">
               {{ $t('modal.bottom') }}
             </va-button>
-            <va-button color="success" @click="showLeftModal = true">
+            <va-button class="mb-2 mr-2" color="success" @click="showLeftModal = true">
               {{ $t('modal.left') }}
             </va-button>
           </va-card-content>
