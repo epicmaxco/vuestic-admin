@@ -19,9 +19,7 @@
               <td>{{ user.email }}</td>
               <td>{{ user.country }}</td>
               <td>
-                <va-badge :color="getStatusColor(user.status)">
-                  {{ user.status }}
-                </va-badge>
+                <va-badge :color="getStatusColor(user.status)" :text="user.status" />
               </td>
             </tr>
           </tbody>
@@ -48,9 +46,7 @@
               <td>{{ user.email }}</td>
               <td>{{ user.country }}</td>
               <td>
-                <va-badge :color="getStatusColor(user.status)">
-                  {{ user.status }}
-                </va-badge>
+                <va-badge :color="getStatusColor(user.status)" :text="user.status" />
               </td>
             </tr>
           </tbody>

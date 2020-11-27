@@ -66,13 +66,13 @@ Vue.use(ContextPlugin, {
           code: 'loop',
         },
         calendar_today: {
-          code: 'calendar-today',
+          code: 'calendar_today',
         },
         warning: {
           code: 'warning',
         },
         highlight_off: {
-          code: 'highlight-off',
+          code: 'highlight_off',
         },
         envelope: {
           code: 'envelope-o',
