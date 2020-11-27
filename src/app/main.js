@@ -87,7 +87,7 @@ Vue.use(ContextPlugin, {
           font: 'fa4',
         },
         star_empty: {
-          code: 'fa-star-o',
+          code: 'star-o',
           font: 'fa4',
         },
         pencil: {
@@ -188,11 +188,11 @@ Vue.use(ContextPlugin, {
           font: 'fa4',
         },
         bell_slash: {
-          code: 'fa-bell-slash',
+          code: 'bell-slash',
           font: 'fa4',
         },
         bell: {
-          code: 'fa-bell',
+          code: 'bell',
           font: 'fa4',
         },
         volume_up: {
@@ -250,7 +250,7 @@ Vue.use(ContextPlugin, {
           font: 'fa4',
         },
         close: {
-          code: 'fa-close',
+          code: 'close',
           font: 'fa4',
         },
         print: {
@@ -258,7 +258,7 @@ Vue.use(ContextPlugin, {
           font: 'fa4',
         },
         bug: {
-          code: 'fa-bug',
+          code: 'bug',
           font: 'fa4',
         },
         music: {

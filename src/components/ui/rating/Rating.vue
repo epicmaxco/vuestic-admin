@@ -8,7 +8,6 @@
             <va-rating
               color="danger"
               v-model="value"
-              icon="bug"
             />
           </va-card-content>
         </va-card>
@@ -20,7 +19,7 @@
             <va-rating
               v-model="value"
               icon="bell_slash"
-              emptyIcon="bell"
+              empty-icon="bell"
             />
           </va-card-content>
         </va-card>
