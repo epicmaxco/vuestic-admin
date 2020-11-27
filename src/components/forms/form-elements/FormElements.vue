@@ -235,13 +235,13 @@
                     <va-checkbox
                       :label="$t('forms.controls.errorMessage')"
                       :error-messages="errorMessages"
-                      :errorCount="2"
+                      error
                       v-model="checkbox.errorMessages"
                     />
                   </fieldset>
                 </div>
                 <div class="flex md3">
-                  <fieldset>
+                  <fieldset class="field mb-2">
                     <va-radio
                       option="option1"
                       v-model="radioSelectedOption"
@@ -253,7 +253,7 @@
                       label="Radio"
                     />
                   </fieldset>
-                  <fieldset>
+                  <fieldset class="field">
                     <va-radio
                       option="option1"
                       disabled
@@ -269,7 +269,7 @@
                   </fieldset>
                 </div>
                 <div class="flex mb3">
-                  <fieldset>
+                  <fieldset class="field">
                     <va-switch
                       v-model="toggles.selected"
                       label="Selected switch"
@@ -382,5 +382,10 @@ export default {
 <style>
   .row.row-inside {
     max-width: none;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
   }
 </style>
