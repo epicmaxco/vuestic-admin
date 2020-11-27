@@ -79,7 +79,7 @@ Vue.use(ContextPlugin, {
           font: 'fa4',
         },
         circle: {
-          code: 'fa-circle',
+          code: 'circle',
           font: 'fa4',
         },
         star: {
@@ -95,7 +95,7 @@ Vue.use(ContextPlugin, {
           font: 'fa4',
         },
         trash: {
-          code: 'fa-trash',
+          code: 'trash',
           font: 'fa4',
         },
         caret_up: {

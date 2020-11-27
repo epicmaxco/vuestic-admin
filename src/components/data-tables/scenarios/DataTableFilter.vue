@@ -36,9 +36,7 @@
         </template>
 
         <template slot="status" slot-scope="props">
-          <va-badge :color="props.rowData.color">
-            {{ props.rowData.status }}
-          </va-badge>
+          <va-badge :color="props.rowData.color" :text="props.rowData.status" />
         </template>
 
         <template slot="actions" slot-scope="props">
