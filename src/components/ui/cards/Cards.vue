@@ -44,10 +44,7 @@
         </div>
 
         <div class="flex xs12 sm6 lg4 xl3" :key="loop + '-5'">
-          <va-card
-            image="https://picsum.photos/300/200/?image=1043"
-            :title="$t('cards.title.withImage')"
-          >
+          <va-card>
             <va-image src="https://picsum.photos/300/200/?image=1043" style="height: 200px;"/>
             <va-card-title>{{ $t('cards.title.withImage') }}</va-card-title>
             <va-card-content>{{ $t('cards.contentText') }}</va-card-content>
