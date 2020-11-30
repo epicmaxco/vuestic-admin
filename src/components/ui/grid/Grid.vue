@@ -2,7 +2,7 @@
   <div class="grid row">
     <div class="flex xs12 md12">
       <va-card>
-        <va-card-title>Fixed Grid</va-card-title>
+        <va-card-title>{{ $t('grid.fixed') }}</va-card-title>
         <va-card-content>
           <div class="row">
             <div class="flex xs12">
@@ -35,7 +35,7 @@
     </div>
     <div class="flex md12 xs12">
       <va-card>
-        <va-card-title>Desktop Grid</va-card-title>
+        <va-card-title>{{ $t('grid.desktop') }}</va-card-title>
         <va-card-content>
           <div class="row">
             <div class="flex xs6 lg4" v-for="i in 3" :key="`4${i}`">
@@ -69,7 +69,7 @@
 
     <div class="flex md12 xs12">
       <va-card>
-        <va-card-title>Mobile and Desktop Grid</va-card-title>
+        <va-card-title>{{ $t('grid.responsive') }}</va-card-title>
         <va-card-content>
           <div class="row">
             <div class="flex xs12 md4">
@@ -119,7 +119,7 @@
 
     <div class="flex md12 xs12">
       <va-card>
-        <va-card-title>Offsets</va-card-title>
+        <va-card-title>{{ $t('grid.offsets') }}</va-card-title>
         <va-card-content>
           <div class="row">
             <div class="flex xs6 md6 offset--md6">
