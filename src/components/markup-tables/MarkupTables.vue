@@ -33,10 +33,10 @@
         <table class="va-table va-table--striped va-table--hoverable">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Country</th>
-              <th>Status</th>
+              <th>{{ $t('tables.headings.name') }}</th>
+              <th>{{ $t('tables.headings.email') }}</th>
+              <th>{{ $t('tables.headings.country') }}</th>
+              <th>{{ $t('tables.headings.status') }}</th>
             </tr>
           </thead>
 

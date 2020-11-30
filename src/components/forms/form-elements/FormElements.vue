@@ -31,7 +31,7 @@
                     placeholder="Input With Button"
                   >
                     <va-button slot="append" style="margin-right: 0;" small>
-                      UPLOAD
+                      {{ $t('forms.inputs.upload')}}
                     </va-button>
                   </va-input>
                 </div>
