@@ -22,6 +22,12 @@ export default {
       this.addDataToMap()
       this.map.validateData()
     },
+    '$themes.primary': { // hack for trigger change themes
+      handler () {
+        this.drawMap()
+      },
+      immediate: true,
+    },
   },
   data () {
     return {

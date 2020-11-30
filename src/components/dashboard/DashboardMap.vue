@@ -39,7 +39,7 @@ export default {
     this.lineMapData = getLineMapData(this.$themes)
   },
   watch: {
-    '$themesOptions.activeThemeName': { // hack for trigger change themes
+    '$themes.primary': { // hack for trigger change themes
       handler () {
         this.lineMapData = getLineMapData(this.$themes)
       },
