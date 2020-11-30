@@ -496,6 +496,9 @@
     "margin": "Margin",
     "padding": "Padding"
   },
+  "spacing": {
+    "title": "Spacing"
+  },
   "cards": {
     "cards": "Cards",
     "fixed": "Fixed",
