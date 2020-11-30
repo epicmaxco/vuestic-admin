@@ -2,7 +2,7 @@
   <div class="row">
     <div class="flex xs12 sm6">
       <va-card>
-        <va-card-title>Theme Colors</va-card-title>
+        <va-card-title>{{ $t('colors.themeColors') }}</va-card-title>
         <va-card-content>
           <div
             v-for="(themeColor, index) in themeColors"
@@ -20,7 +20,7 @@
 
     <div class="flex xs12 sm6">
       <va-card>
-        <va-card-title>Extra Colors</va-card-title>
+        <va-card-title>{{ $t('colors.extraColors') }}</va-card-title>
         <va-card-content>
           <div
             v-for="(extraColor, index) in extraColors"
@@ -38,7 +38,7 @@
 
     <div class="flex xs12 sm6 lg4">
       <va-card>
-        <va-card-title>Button Gradients</va-card-title>
+        <va-card-title>{{ $t('colors.gradients.basic.title') }}</va-card-title>
         <va-card-content>
           <div
             v-for="(buttonGradient, index) in buttonGradients"
@@ -58,10 +58,10 @@
 
     <div class="flex xs12 sm6 lg4">
       <va-card>
-        <va-card-title>Hovered Button Gradients</va-card-title>
+        <va-card-title>{{ $t('colors.gradients.hovered.title') }}</va-card-title>
         <va-card-content>
           <p class="mt-0 mb-2">
-            Lighten 15% applied to an original style (gradient or flat color) for hover state.
+            {{ $t('colors.gradients.hovered.text') }}
           </p>
           <div
             v-for="(buttonGradient, index) in buttonGradients"
@@ -81,10 +81,10 @@
 
     <div class="flex xs12 sm6 lg4">
       <va-card>
-        <va-card-title>Pressed Button Gradients</va-card-title>
+        <va-card-title>{{ $t('colors.gradients.pressed.title') }}</va-card-title>
         <va-card-content>
           <p class="mt-0 mb-2">
-            Darken 15% applied to an original style (gradient or flat color) for pressed state.
+            {{ $t('colors.gradients.pressed.text') }}
           </p>
           <div
             v-for="(buttonGradient, index) in buttonGradients"

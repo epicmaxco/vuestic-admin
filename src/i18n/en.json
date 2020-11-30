@@ -533,5 +533,22 @@
       "action1": "Action 1",
       "action2": "Action 2"
     }
+  },
+  "colors": {
+    "themeColors": "Theme Colors",
+    "extraColors": "Extra Colors",
+    "gradients": {
+      "basic": {
+        "title": "Button Gradients"
+      },
+      "hovered": {
+        "title": "Hovered Button Gradients",
+        "text": "Lighten 15% applied to an original style (gradient or flat color) for hover state."
+      },
+      "pressed": {
+        "title": "Hovered Button Gradients",
+        "text": "Darken 15% applied to an original style (gradient or flat color) for pressed state."
+      }
+    }
   }
 }
