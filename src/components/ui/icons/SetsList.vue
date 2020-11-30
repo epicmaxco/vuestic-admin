@@ -26,7 +26,7 @@
                   :key="index"
                 >
                   <div class="sets-list__icon pa-3 flex-center vuestic-icon">
-                    <va-icon :name="iconClass(set, icon)">{{iconData(set, icon)}}</va-icon>
+                    <va-icon :class="iconClass(set, icon)">{{iconData(set, icon)}}</va-icon>
                   </div>
                 </div>
               </div>
@@ -38,13 +38,13 @@
               >
                 <div class="flex xs2 flex-center">
                   <div class="sets-list__icon pa-3 flex-center vuestic-icon">
-                    <va-icon :name="iconClass(set, filteredList[0])">{{iconData(set, filteredList[0])}}</va-icon>
+                    <va-icon :class="iconClass(set, filteredList[0])">{{iconData(set, filteredList[0])}}</va-icon>
                   </div>
                 </div>
                 <div class="flex xs8"/>
                 <div class="flex xs2 flex-center">
                   <div class="sets-list__icon pa-3 flex-center vuestic-icon">
-                    <va-icon :name="iconClass(set, filteredList[1])">{{iconData(set, filteredList[1])}}</va-icon>
+                    <va-icon :class="iconClass(set, filteredList[1])">{{iconData(set, filteredList[1])}}</va-icon>
                   </div>
                 </div>
               </div>

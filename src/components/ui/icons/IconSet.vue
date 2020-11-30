@@ -1,14 +1,16 @@
 <template>
   <div class="icon-set">
     <va-card class="icon-set__header mb-4 py-3 ma-0">
-      <div class="row">
+      <va-card-title>
+        <h2
+          class="my-0 ml-2"
+          :style="{ color: this.$themes.dark }"
+        >
+          {{ iconSet.name }}
+        </h2>
+      </va-card-title>
+      <va-card-content class="row">
         <div class="flex md3 xs12">
-          <h2
-            class="my-0 ml-2"
-            :style="{ color: this.$themes.dark }"
-          >
-            {{ iconSet.name }}
-          </h2>
           <va-button outline :to="{ name: 'icon-sets' }">
             {{ $t('icons.back') }}
           </va-button>
@@ -23,15 +25,15 @@
             removable
             required
           >
-            <template slot="prepend">
-              <va-icon name="fa fa-search icon-left input-icon"/>
+            <template slot="prependInner">
+              <va-icon class="icon-left input-icon" name="search"/>
             </template>
           </va-input>
         </div>
 
         <div class="flex md4 xs12 ma-0 flex-center content icon-set__header__size">
           <span
-            class="ma-2 pr-1 shrink icon-set__header__size--smaller"
+            class="ma-2 pr-2 shrink icon-set__header__size--smaller"
             :style="{ color: this.$themes.dark }"
           >
             A
@@ -46,25 +48,27 @@
           >
           </va-slider>
           <span
-            class="ma-2 pl-1 shrink icon-set__header__size--bigger"
+            class="ma-2 pl-2 shrink icon-set__header__size--bigger"
             :style="{ color: this.$themes.dark }"
           >
             A
           </span>
         </div>
-      </div>
+      </va-card-content>
     </va-card>
 
     <va-card
       v-for="(list, index) in filteredLists"
       :key="index"
-      :title="list.name"
       class="flex md12"
     >
-      <span v-if="list.icons.length === 0">
-        {{ $t('icons.none') }}
-      </span>
-      <div class="row">
+      <va-card-title>
+        {{list.name}}
+      </va-card-title>
+      <va-card-content class="row">
+        <span v-if="list.icons.length === 0">
+          {{ $t('icons.none') }}
+        </span>
         <div
           class="flex flex-center xs3 md1 mb-2 icon-grid-container"
           style="flex-direction: column;"
@@ -72,13 +76,13 @@
           :key="icon"
         >
           <div class="vuestic-icon mb-3 pt-3">
-            <va-icon :name="iconClass(icon)" :size="iconSize">{{iconData(icon)}}</va-icon>
+            <va-icon :class="iconClass(icon)" :size="iconSize">{{iconData(icon)}}</va-icon>
           </div>
           <div class="icon-text">
             {{ icon }}
           </div>
         </div>
-      </div>
+      </va-card-content>
     </va-card>
   </div>
 </template>
