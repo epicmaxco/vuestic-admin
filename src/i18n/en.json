@@ -553,5 +553,11 @@
         "text": "Darken 15% applied to an original style (gradient or flat color) for pressed state."
       }
     }
+  },
+  "tabs": {
+    "alignment": "Tabs Alignment",
+    "overflow": "Tabs Overflow",
+    "hidden": "Tabs with Hidden slider",
+    "grow": "Tabs Grow"
   }
 }
