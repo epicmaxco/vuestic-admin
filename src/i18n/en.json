@@ -79,7 +79,13 @@
   "collapse": {
     "basic": "Basic Collapse",
     "collapseWithBackground": "Collapse with background",
-    "collapseWithCustomHeader": "Collapse with custom header"
+    "collapseWithCustomHeader": "Collapse with custom header",
+    "firstHeader": "Expand This Block",
+    "secondHeader": "Another Block",
+    "content": {
+      "title": "Great Things",
+      "text": "There is something about parenthood that gives us a sense of history and a deeply rooted desire to send on into the next generation the great things we have discovered about life."
+    }
   },
   "sliders": {
     "slider": "Sliders",
