@@ -2,14 +2,14 @@
   <div class="line-maps-page">
     <div class="row">
       <div class="flex md12 xs12">
-        <va-card
-          class="line-maps-page__widget"
-          title="Line Maps"
-        >
-          <line-map
-            :map-data="lineMapData"
-            style="height: 65vh;"
-          />
+        <va-card class="line-maps-page__widget">
+          <va-card-title>Line Maps</va-card-title>
+          <va-card-content>
+            <line-map
+              :map-data="lineMapData"
+              style="height: 65vh;"
+            />
+          </va-card-content>
         </va-card>
       </div>
     </div>
