@@ -28,7 +28,7 @@
         class="va-chat__input mr-2"
       />
       <va-button @click="sendMessage()">
-        Send
+        {{ $t('chat.sendButton') }}
       </va-button>
     </div>
   </div>

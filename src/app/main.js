@@ -214,15 +214,15 @@ Vue.use(ContextPlugin, {
           code: 'expand_less',
         },
         refresh: {
-          code: 'fa-refresh',
+          code: 'refresh',
           font: 'fa4',
         },
         gear: {
-          code: 'fa-gear',
+          code: 'gear',
           font: 'fa4',
         },
         cogs: {
-          code: 'fa-cogs',
+          code: 'cogs',
           font: 'fa4',
         },
         eye: {

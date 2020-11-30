@@ -12,25 +12,23 @@
 
         <div class="flex xs12 sm6" :key="loop + '-2'">
           <va-card>
-            <va-card-title>{{ $t('cards.title.withControls') }}</va-card-title>
+            <va-card-title>
+              {{ $t('cards.title.withControls') }}
+              <va-spacer />
+              <va-button class="mr-1" size="small" icon="refresh"/>
+              <va-button size="small" icon="gear"/>
+            </va-card-title>
             <va-card-content>{{ $t('cards.contentTextLong') }}</va-card-content>
-            <!-- TODO: find solution -->
-            <!-- <template slot="actions">
-              <va-button icon="refresh"/>
-              <va-button icon="gear"/>
-            </template> -->
           </va-card>
         </div>
 
         <div class="flex xs12 sm6" :key="loop + '-3'">
           <va-card>
-            <va-card-title>{{ $t('cards.title.customHeader') }}</va-card-title>
+            <va-card-title>
+              <va-icon class="mr-3" name="cogs" />
+              {{ $t('cards.title.customHeader') }}
+            </va-card-title>
             <va-card-content>{{ $t('cards.contentTextLong') }}</va-card-content>
-            <!-- TODO: find solution -->
-            <!-- <template slot="header">
-              <va-icon class="mr-3" name="cogs" color="success"/>
-              <h5 class="mt-0 mb-0">{{ $t('cards.title.customHeader') }}</h5>
-            </template> -->
           </va-card>
         </div>
 
@@ -53,7 +51,6 @@
 
         <div class="flex xs12 sm6 lg4 xl3" :key="loop + '-6'">
           <va-card>
-            <!-- TODO: overlay the name of the card on the image  -->
             <va-image src="https://picsum.photos/300/200/?image=898" style="height: 200px;">
               <va-card-title text-color="#fff">{{ $t('cards.title.withTitleOnImage') }}</va-card-title>
             </va-image>
@@ -65,7 +62,7 @@
           <va-card>
             <va-image src="https://picsum.photos/300/200/?image=898" style="height: 200px;">
               <va-button class="ma-0">
-                Read More
+                {{ $t('cards.button.readMore') }}
               </va-button>
             </va-image>
           </va-card>
@@ -120,7 +117,7 @@
 
     <va-inner-loading class="flex-center py-3" style="width: 100%;" :loading="isLoading">
       <va-button @click="addCards()">
-        Show More
+        {{ $t('cards.button.showMore') }}
       </va-button>
     </va-inner-loading>
   </div>
