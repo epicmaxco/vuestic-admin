@@ -15,10 +15,10 @@
                     class="title text--center"
                     :style="{color: $themes.primary}"
                   >
-                    February 2018
+                    {{ $t('timelines.firstDate') }}
                   </div>
                   <div class="va-timeline-item__description">
-                    Complete drafts
+                    {{ $t('timelines.horizontalActionFirst') }}
                   </div>
                 </template>
               </va-timeline-item>
@@ -28,20 +28,20 @@
                     class="title text--center"
                     :style="{color: $themes.primary}"
                   >
-                    April 2018
+                    {{ $t('timelines.secondDate') }}
                   </div>
                   <div class="va-timeline-item__description">
-                    Push site live
+                    {{ $t('timelines.horizontalActionSecond') }}
                   </div>
                 </template>
               </va-timeline-item>
               <va-timeline-item>
                 <template slot="before">
                   <div class="title title--gray text--center">
-                    June 2018
+                    {{ $t('timelines.thirdDate') }}
                   </div>
                   <div class="va-timeline-item__description">
-                    Start ICO
+                    {{ $t('timelines.horizontalActionThird') }}
                   </div>
                 </template>
               </va-timeline-item>
@@ -65,7 +65,7 @@
                     class="title text--center"
                     :style="{color: $themes.primary}"
                   >
-                    February 2018
+                    {{ $t('timelines.firstDate') }}
                   </div>
                 </template>
                 <va-card
@@ -74,8 +74,8 @@
                   stripe-color="warning"
                   class="mb-0"
                 >
-                  <va-card-title>{{ dateFirst }}</va-card-title>
-                  <va-card-content>{{ contentFirst }}</va-card-content>
+                  <va-card-title>{{ $t('timelines.titleDateFirst') }}</va-card-title>
+                  <va-card-content>{{ $t('timelines.contentFirst') }}</va-card-content>
                 </va-card>
               </va-timeline-item>
               <va-timeline-item active>
@@ -84,7 +84,7 @@
                     class="title text--center"
                     :style="{color: $themes.primary}"
                   >
-                    April 2018
+                    {{ $t('timelines.secondDate') }}
                   </div>
                 </template>
                 <va-card
@@ -93,14 +93,14 @@
                   stripe-color="info"
                   class="mb-0"
                 >
-                  <va-card-title>{{ dateSecond }}</va-card-title>
-                  <va-card-content>{{ contentFirst }}</va-card-content>
+                  <va-card-title>{{ $t('timelines.titleDateSecond') }}</va-card-title>
+                  <va-card-content>{{ $t('timelines.contentSecond') }}</va-card-content>
                 </va-card>
               </va-timeline-item>
               <va-timeline-item>
                 <template slot="before">
                   <div class="title title--gray text--center">
-                    June 2018
+                    {{ $t('timelines.thirdDate') }}
                   </div>
                 </template>
                 <va-card
@@ -109,8 +109,8 @@
                   stripe-color="info"
                   class="mb-0"
                 >
-                  <va-card-title>{{ dateThird }}</va-card-title>
-                  <va-card-content>{{ contentThird }}</va-card-content>
+                  <va-card-title>{{ $t('timelines.titleDateThird') }}</va-card-title>
+                  <va-card-content>{{ $t('timelines.contentThird') }}</va-card-content>
                 </va-card>
               </va-timeline-item>
             </va-timeline>
@@ -129,7 +129,7 @@
                   class="title va-timeline-item__text"
                   :style="{color: $themes.primary}"
                 >
-                  Feb 2018
+                  {{ $t('timelines.firstDate') }}
                 </span>
                 <va-card
                   slot="after"
@@ -137,8 +137,8 @@
                   stripe-color="success"
                   class="mb-0"
                 >
-                  <va-card-title>{{ titleFirst }}</va-card-title>
-                  <va-card-content>{{ contentFirst }}</va-card-content>
+                  <va-card-title>{{ $t('timelines.titleFirst') }}</va-card-title>
+                  <va-card-content>{{ $t('timelines.contentFirst') }}</va-card-content>
                 </va-card>
               </va-timeline-item>
               <va-timeline-item active>
@@ -147,7 +147,7 @@
                   class="title va-timeline-item__text"
                   :style="{color: $themes.primary}"
                 >
-                  Apr 2018
+                  {{ $t('timelines.secondDate') }}
                 </span>
                 <va-card
                   slot="after"
@@ -155,21 +155,21 @@
                   stripe-color="success"
                   class="mb-0"
                 >
-                  <va-card-title>{{ titleSecond }}</va-card-title>
-                  <va-card-content>{{ contentFirst }}</va-card-content>
+                  <va-card-title>{{ $t('timelines.titleSecond') }}</va-card-title>
+                  <va-card-content>{{ $t('timelines.contentSecond') }}</va-card-content>
                 </va-card>
               </va-timeline-item>
               <va-timeline-item>
                 <span class="title title--gray va-timeline-item__text" slot="before">
-                  Jun 2018
+                  {{ $t('timelines.thirdDate') }}
                 </span>
                 <va-card
                   slot="after"
                   stripe
                   stripe-color="success"
                 >
-                  <va-card-title>{{ titleThird }}</va-card-title>
-                  <va-card-content>{{ contentFirst }}</va-card-content>
+                  <va-card-title>{{ $t('timelines.titleThird') }}</va-card-title>
+                  <va-card-content>{{ $t('timelines.contentThird') }}</va-card-content>
                 </va-card>
               </va-timeline-item>
             </va-timeline>
@@ -188,7 +188,7 @@
                   class="title title--danger va-timeline-item__text"
                   :style="{color: $themes.danger}"
                 >
-                  February 2018
+                  {{ $t('timelines.firstDate') }}
                 </span>
                 <va-card
                   slot="after"
@@ -196,8 +196,8 @@
                   stripe-color="danger"
                   class="mb-0"
                 >
-                  <va-card-title>{{ titleFirst }}</va-card-title>
-                  <va-card-content>{{ contentFirst }}</va-card-content>
+                  <va-card-title>{{ $t('timelines.titleFirst') }}</va-card-title>
+                  <va-card-content>{{ $t('timelines.contentFirst') }}</va-card-content>
                 </va-card>
               </va-timeline-item>
               <va-timeline-item color="danger" active>
@@ -206,15 +206,15 @@
                   class="title title--danger va-timeline-item__text"
                   :style="{color: $themes.danger}"
                 >
-                  April 2018
+                  {{ $t('timelines.secondDate') }}
                 </span>
                 <va-card
                   slot="after"
                   stripe
                   stripe-color="danger"
                 >
-                  <va-card-title>{{ titleSecond }}</va-card-title>
-                  <va-card-content>{{ contentFirst }}</va-card-content>
+                  <va-card-title>{{ $t('timelines.titleSecond') }}</va-card-title>
+                  <va-card-content>{{ $t('timelines.contentSecond') }}</va-card-content>
                 </va-card>
               </va-timeline-item>
               <va-timeline-item color="danger" active>
@@ -223,7 +223,7 @@
                   class="title title--danger va-timeline-item__text"
                   :style="{color: $themes.danger}"
                 >
-                  June 2018
+                  {{ $t('timelines.thirdDate') }}
                 </span>
                 <va-card
                   slot="after"
@@ -231,8 +231,8 @@
                   stripe-color="danger"
                   class="mb-0"
                 >
-                  <va-card-title>{{ titleThird}}</va-card-title>
-                  <va-card-content>{{ contentFirst }}</va-card-content>
+                  <va-card-title>{{ $t('timelines.titleThird') }}</va-card-title>
+                  <va-card-content>{{ $t('timelines.contentThird') }}</va-card-content>
                 </va-card>
               </va-timeline-item>
             </va-timeline>
@@ -248,20 +248,7 @@
 export default {
   name: 'timelines',
   data () {
-    return {
-      dateFirst: '',
-      titleFirst: 'Make design',
-      titleSecond: 'Develop an app',
-      titleThird: 'Submit an app',
-      horizontalSimpleContentFirst: 'Pre-sail rate: 50%',
-      dateSecond: 'May 22 10:00',
-      horizontalSimpleContentSecond: 'Pre-sail rate: 40%',
-      dateThird: 'July 19 17:45',
-      horizontalSimpleContentThird: 'Pre-sail rate: 20%',
-      contentFirst: 'The unique stripes of zebras make them one of the animals most familiar to people.',
-      contentSecond: 'They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands.',
-      contentThird: 'However, various anthropogenic factors have had a severe impact on zebra populations',
-    }
+    return {}
   },
 }
 </script>
