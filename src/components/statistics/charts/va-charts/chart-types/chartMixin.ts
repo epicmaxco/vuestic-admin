@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { mixins } from 'vue-chartjs'
 import { defaultConfig } from '../VaChartConfigs'
 

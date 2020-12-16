@@ -1,6 +1,6 @@
 import { colorToRgba } from '../../services/vuestic-ui'
 
-export const getBubbleChartData = (themes) => ({
+export const getBubbleChartData = (themes: ColorThemes) => ({
   datasets: [
     {
       label: 'USA',

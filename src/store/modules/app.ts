@@ -20,7 +20,7 @@ const state = {
 }
 
 const mutations = {
-  setLoading (state, isLoading) {
+  setLoading (state: any, isLoading: boolean) {
     state.isLoading = isLoading
   },
 }

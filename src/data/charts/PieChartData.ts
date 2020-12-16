@@ -1,4 +1,4 @@
-export const getPieChartData = (themes) => ({
+export const getPieChartData = (themes: ColorThemes) => ({
   labels: ['Africa', 'Asia', 'Europe'],
   datasets: [{
     label: 'Population (millions)',

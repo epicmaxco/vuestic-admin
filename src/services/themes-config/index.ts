@@ -16,7 +16,7 @@ export const AvailableColorThemes = [
       warning: '#ffc200',
       gray: '#babfc2',
       dark: '#34495e',
-    },
+    } as ColorThemes,
   },
   {
     name: ColorThemes.CORPORATE,
@@ -29,6 +29,6 @@ export const AvailableColorThemes = [
       warning: '#ffd652',
       gray: '#8396a5',
       dark: '#34495e',
-    },
+    } as ColorThemes,
   },
 ]

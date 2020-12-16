@@ -4,7 +4,7 @@ import 'regenerator-runtime/runtime'
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import App from './App'
+import App from './App.vue'
 import { ColorThemePlugin, ContextPlugin } from '../services/vuestic-ui'
 // import { getContext } from '../context'
 import store from '../store/index'
@@ -25,11 +25,13 @@ Vue.use(VuesticPlugin)
 Vue.use(YmapPlugin)
 Vue.use(VueClipboard)
 
+// @ts-ignore
 Vue.use(ColorThemePlugin, {
   // override colors here.
 })
 
 // context
+// @ts-ignore
 Vue.use(ContextPlugin, {
   VaIcon: {
     iconsConfig: {

@@ -9,7 +9,7 @@ const generateYLabels = () => {
   return flip ? ['Debit', 'Credit'] : ['Credit', 'Debit']
 }
 
-const generateArray = (length) => {
+const generateArray = (length: number) => {
   return Array.from(Array(length), generateValue)
 }
 
@@ -18,10 +18,11 @@ const getSize = () => {
   return Math.max(minSize, new Date().getMonth())
 }
 
-let generatedData
+let generatedData: any
 let firstMonthIndex = 0
 
-export const getLineChartData = (themes, firstMonth) => {
+export const getLineChartData = (themes: ColorThemes, firstMonth: any) => {
+  debugger
   const size = getSize()
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   const yLabels = generateYLabels()
@@ -31,7 +32,7 @@ export const getLineChartData = (themes, firstMonth) => {
     generatedData.datasets[1].backgroundColor = colorToRgba(themes.info, 0.6)
     if (firstMonth && firstMonthIndex !== firstMonth) {
       generatedData.labels.shift()
-      generatedData.datasets.forEach((dataset) => {
+      generatedData.datasets.forEach((dataset: any) => {
         dataset.data.shift()
       })
       firstMonthIndex = firstMonth

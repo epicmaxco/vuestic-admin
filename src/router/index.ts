@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import AuthLayout from '../components/auth/AuthLayout'
-import AppLayout from '../components/admin/AppLayout'
+import AuthLayout from '../components/auth/AuthLayout.vue'
+import AppLayout from '../components/admin/AppLayout.vue'
 
 Vue.use(Router)
 
@@ -9,7 +9,7 @@ const EmptyParentComponent = {
   template: '<router-view></router-view>',
 }
 
-const demoRoutes = []
+const demoRoutes = [] as any
 
 export default new Router({
   mode: process.env.VUE_APP_ROUTER_MODE_HISTORY === 'true' ? 'history' : 'hash',
@@ -159,7 +159,7 @@ export default new Router({
             {
               name: 'buttons',
               path: 'buttons',
-              component: () => import('../components/ui/buttons/Buttons'),
+              component: () => import('../components/ui/buttons/Buttons.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Buttons',
               },
@@ -167,7 +167,7 @@ export default new Router({
             {
               name: 'rating',
               path: 'rating',
-              component: () => import('../components/ui/rating/Rating'),
+              component: () => import('../components/ui/rating/Rating.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Rating',
               },
@@ -175,7 +175,7 @@ export default new Router({
             {
               name: 'color-pickers',
               path: 'color-pickers',
-              component: () => import('../components/ui/color-pickers/ColorPickers'),
+              component: () => import('../components/ui/color-pickers/ColorPickers.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Color-Pickers',
               },
@@ -183,7 +183,7 @@ export default new Router({
             {
               name: 'timelines',
               path: 'timelines',
-              component: () => import('../components/ui/timelines/Timelines'),
+              component: () => import('../components/ui/timelines/Timelines.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Timelines',
               },
@@ -191,19 +191,19 @@ export default new Router({
             {
               name: 'notifications',
               path: 'notifications',
-              component: () => import('../components/ui/notifications/Notifications'),
+              component: () => import('../components/ui/notifications/Notifications.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Notifications',
               },
             },
             {
               path: 'icons',
-              component: () => import('../components/ui/icons/Icons'),
+              component: () => import('../components/ui/icons/Icons.vue'),
               children: [
                 {
                   name: 'icon-sets',
                   path: '', // Default route
-                  component: () => import('../components/ui/icons/SetsList'),
+                  component: () => import('../components/ui/icons/SetsList.vue'),
                   meta: {
                     wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Icons',
                   },
@@ -211,7 +211,7 @@ export default new Router({
                 {
                   name: 'icon-set',
                   path: ':name',
-                  component: () => import('../components/ui/icons/IconSet'),
+                  component: () => import('../components/ui/icons/IconSet.vue'),
                   props: true,
                   meta: {
                     wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Icons',
@@ -222,17 +222,17 @@ export default new Router({
             {
               name: 'spinners',
               path: 'spinners',
-              component: () => import('../components/ui/spinners/Spinners'),
+              component: () => import('../components/ui/spinners/Spinners.vue'),
             },
             {
               name: 'grid',
               path: 'grid',
-              component: () => import('../components/ui/grid/Grid'),
+              component: () => import('../components/ui/grid/Grid.vue'),
             },
             {
               name: 'modals',
               path: 'modals',
-              component: () => import('../components/ui/modals/Modals'),
+              component: () => import('../components/ui/modals/Modals.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Modals',
               },
@@ -240,7 +240,7 @@ export default new Router({
             {
               name: 'cards',
               path: 'cards',
-              component: () => import('../components/ui/cards/Cards'),
+              component: () => import('../components/ui/cards/Cards.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Cards',
               },
@@ -248,7 +248,7 @@ export default new Router({
             {
               name: 'file-upload',
               path: 'file-upload',
-              component: () => import('../components/ui/file-upload/FileUpload'),
+              component: () => import('../components/ui/file-upload/FileUpload.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/File-Upload',
               },
@@ -256,7 +256,7 @@ export default new Router({
             {
               name: 'chips',
               path: 'chips',
-              component: () => import('../components/ui/chips/Chips'),
+              component: () => import('../components/ui/chips/Chips.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Chips',
               },
@@ -264,7 +264,7 @@ export default new Router({
             {
               name: 'tree-view',
               path: 'tree-view',
-              component: () => import('../components/ui/tree-view/TreeView'),
+              component: () => import('../components/ui/tree-view/TreeView.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tree-view',
               },
@@ -275,22 +275,22 @@ export default new Router({
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Collapse',
               },
-              component: () => import('../components/ui/collapse/Collapses'),
+              component: () => import('../components/ui/collapse/Collapses.vue'),
             },
             {
               name: 'colors',
               path: 'colors',
-              component: () => import('../components/ui/colors/Colors'),
+              component: () => import('../components/ui/colors/Colors.vue'),
             },
             {
               name: 'spacing',
               path: 'spacing',
-              component: () => import('../components/ui/spacing/Spacing'),
+              component: () => import('../components/ui/spacing/Spacing.vue'),
             },
             {
               name: 'sliders',
               path: 'sliders',
-              component: () => import('../components/ui/sliders/Sliders'),
+              component: () => import('../components/ui/sliders/Sliders.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Sliders',
               },
@@ -298,12 +298,12 @@ export default new Router({
             {
               name: 'popovers',
               path: 'popovers',
-              component: () => import('../components/ui/popovers/Popovers'),
+              component: () => import('../components/ui/popovers/Popovers.vue'),
             },
             {
               name: 'chat',
               path: 'chatPage',
-              component: () => import('../components/ui/chat/ChatPage'),
+              component: () => import('../components/ui/chat/ChatPage.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Chat',
               },
@@ -311,7 +311,7 @@ export default new Router({
             {
               name: 'tabs',
               path: 'tabs',
-              component: () => import('../components/ui/tabs/Tabs'),
+              component: () => import('../components/ui/tabs/Tabs.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tabs',
               },
@@ -334,7 +334,7 @@ export default new Router({
             {
               name: 'google-maps',
               path: 'google-maps',
-              component: () => import('../components/maps/google-maps/GoogleMapsPage'),
+              component: () => import('../components/maps/google-maps/GoogleMapsPage.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps',
               },
@@ -342,7 +342,7 @@ export default new Router({
             {
               name: 'yandex-maps',
               path: 'yandex-maps',
-              component: () => import('../components/maps/yandex-maps/YandexMapsPage'),
+              component: () => import('../components/maps/yandex-maps/YandexMapsPage.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps',
               },
@@ -350,7 +350,7 @@ export default new Router({
             {
               name: 'leaflet-maps',
               path: 'leaflet-maps',
-              component: () => import('../components/maps/leaflet-maps/LeafletMapsPage'),
+              component: () => import('../components/maps/leaflet-maps/LeafletMapsPage.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps',
               },
@@ -358,7 +358,7 @@ export default new Router({
             {
               name: 'bubble-maps',
               path: 'bubble-maps',
-              component: () => import('../components/maps/bubble-maps/BubbleMapsPage'),
+              component: () => import('../components/maps/bubble-maps/BubbleMapsPage.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps',
               },
@@ -366,7 +366,7 @@ export default new Router({
             {
               name: 'line-maps',
               path: 'line-maps',
-              component: () => import('../components/maps/line-maps/LineMapsPage'),
+              component: () => import('../components/maps/line-maps/LineMapsPage.vue'),
               meta: {
                 wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps',
               },
@@ -381,7 +381,7 @@ export default new Router({
             {
               name: '404-pages',
               path: '404-pages',
-              component: () => import('../components/pages/404-pages/404PagesPage'),
+              component: () => import('../components/pages/404-pages/404PagesPage.vue'),
             },
           ],
         },

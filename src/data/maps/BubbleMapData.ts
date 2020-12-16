@@ -1,4 +1,4 @@
-const latlong = {}
+const latlong = {} as any
 
 latlong.AD = {
   latitude: 42.5,

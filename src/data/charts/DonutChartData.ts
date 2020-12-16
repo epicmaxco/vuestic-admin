@@ -1,6 +1,6 @@
-let generatedData
+let generatedData: any
 
-export const getDonutChartData = (themes) => {
+export const getDonutChartData = (themes: ColorThemes) => {
   if (generatedData) {
     generatedData.datasets[0].backgroundColor = [themes.danger, themes.info, themes.primary]
   } else {
