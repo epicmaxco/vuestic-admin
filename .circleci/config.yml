@@ -1,0 +1,115 @@
+aliases:
+  - &restore_cache
+    name: Restore Yarn Package Cache
+    keys:
+      - yarn-packages-{{ checksum "yarn.lock" }}
+
+  - &install_dependencies
+    name: Install Dependencies
+    command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+
+  - &save_cache
+    name: Save Yarn Package Cache
+    key: yarn-packages-{{ checksum "yarn.lock" }}
+    paths:
+      - ~/.cache/yarn
+
+docker: &docker
+  docker:
+    - image: circleci/node:10.13.0
+
+defaults: &defaults
+  <<: *docker
+  parallelism: 1
+  working_directory: ~/repo
+
+version: 2
+jobs:
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache: *restore_cache
+      - run: *install_dependencies
+      - save_cache: *save_cache
+      - run: yarn test:unit
+
+  deploy-staging:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Add variables
+          command:
+            echo "VUE_APP_INCLUDE_DEMOS=true" >> .env.production.local &&
+            echo "VUE_APP_BUILD_VERSION=true" >> .env.production.local &&
+            echo "VUE_APP_GOOGLE_MAPS_API_KEY=$GOOGLE_MAPS_API_KEY" >> .env.production.local
+      - restore_cache: *restore_cache
+      - run: *install_dependencies
+      - save_cache: *save_cache
+      - run: yarn build
+      - add_ssh_keys:
+          fingerprints:
+            - "f8:c0:94:79:68:a2:5e:33:9f:78:bc:ad:ed:86:c6:3c"
+      - run:
+          name: Add $SERVER_IP to known_hosts
+          command: ssh-keyscan -H $SERVER_IP >> ~/.ssh/known_hosts
+      - run:
+          name: Deploy to hosting
+          command: |
+            tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
+            scp  ~/repo/dist.tar.gz $SERVER_USER@$SERVER_IP:~/tmp
+            ssh $SERVER_USER@$SERVER_IP /bin/bash << EOF
+              rm -rf $DEPLOY_PATH/*
+              tar -xzf ~/tmp/dist.tar.gz -C $DEPLOY_PATH
+              rm -f ~/tmp/dist.tar.gz
+            EOF
+
+  deploy-production:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Add variables
+          command:
+            echo "VUE_APP_YANDEX_METRICS_KEY=$YANDEX_METRICS_KEY" >> .env.production.local &&
+            echo "VUE_APP_DRIFT_KEY=$DRIFT_KEY" >> .env.production.local &&
+            echo "VUE_APP_GOOGLE_MAPS_API_KEY=$GOOGLE_MAPS_API_KEY" >> .env.production.local &&
+            echo "VUE_APP_GTM_KEY=$GTM_KEY" >> .env.production.local &&
+            echo "VUE_APP_ROUTER_MODE_HISTORY=$ROUTER_MODE_HISTORY" >> .env.production.local
+      - restore_cache: *restore_cache
+      - run: *install_dependencies
+      - save_cache: *save_cache
+      - run: yarn build
+      - run:
+          name: Deploy to hosting
+          command: |
+            tar -czf dist.tar.gz ~/repo/dist -C ~/repo/dist .
+            ssh-keyscan -t rsa $SERVER_IP >> ~/.ssh/known_hosts
+            scp ~/repo/dist.tar.gz $SERVER_USERNAME@$SERVER_IP:~/
+            ssh $SERVER_USERNAME@$SERVER_IP << EOF
+              mkdir -p tmp
+              rm -rf $PRODUCTION_DEPLOY_PATH/*
+              tar -xzf ~/dist.tar.gz -C $PRODUCTION_DEPLOY_PATH
+              rm -rf ~/dist.tar.gz ~/tmp
+            EOF
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - test
+      - deploy-staging:
+          requires:
+            - test
+          context: vuestic-admin-staging
+          filters:
+            branches:
+              only: develop
+      - deploy-production:
+          requires:
+            - test
+          context: vuestic-production
+          filters:
+            branches:
+              only: master
