@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createGtm } from 'vue-gtm'
+import { createI18n } from 'vue-i18n'
 import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
@@ -12,8 +13,13 @@ const gtmConfig = {
   debug: false,
   vueRouter: router,
 }
+
+const i18nConfig = {
+}
+
 createApp(App)
   .use(store)
   .use(router)
   .use(createGtm(gtmConfig))
+  .use(createI18n(i18nConfig))
   .mount('#app')
