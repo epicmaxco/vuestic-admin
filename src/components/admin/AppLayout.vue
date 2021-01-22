@@ -41,7 +41,7 @@ import AppPageLayout from './AppPageLayout'
 import AppNavbar from './app-navbar/AppNavbar'
 // import AppTopbar from './app-topbar/AppTopbar'
 // import AppSidebar from './app-sidebar/AppSidebar'
-// import { originalTheme, corporateTheme } from 'vuestic-ui/src/services/themes'
+import { originalTheme, corporateTheme } from 'vuestic-ui/src/services/themes'
 // import {
 //   ColorThemeActionsMixin,
 //   ColorThemeMixin,
@@ -73,15 +73,15 @@ export default {
   // beforeUnmount () {
   //   this.$root.$off('change-theme', this.setTheme)
   // },
-  // methods: {
-  //   setTheme (themeName) {
-  //     const theme = themeName === 'corporate' ? corporateTheme : originalTheme
-  //     this.setColors(theme.colors)
-  //     Object.keys(theme.context).forEach((key) => {
-  //       this.contextConfig[key] = theme.context[key]
-  //     })
-  //   },
-  // },
+  methods: {
+    setTheme (themeName) {
+      const theme = themeName === 'corporate' ? corporateTheme : originalTheme
+      this.setColors(theme.colors)
+      Object.keys(theme.context).forEach((key) => {
+        this.contextConfig[key] = theme.context[key]
+      })
+    },
+  },
 }
 </script>
 

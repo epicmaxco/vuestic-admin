@@ -32,7 +32,7 @@
           class="app-navbar__text"
           style="color: #f3f3f3"
         >
-        <!-- :style="{color: this.$themes.gray}" -->
+          <!-- :style="{color: this.$themes.gray}" -->
           {{$t('navbar.messageUs')}}&nbsp;
           <a
             href="mailto:hello@epicmax.co"
@@ -40,7 +40,7 @@
             class="app-navbar__mailto-link"
             style="color: #000"
           >
-          <!-- :style="{color: this.$themes.primary}" -->
+            <!-- :style="{color: this.$themes.primary}" -->
             hello@epicmax.co
           </a>
         </span>

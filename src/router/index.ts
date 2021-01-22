@@ -1,27 +1,21 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Home from '../views/Home.vue'
 // import AuthLayout from '../components/auth/AuthLayout.vue'
-// import AppLayout from '../components/admin/AppLayout.vue'
+import AppLayout from '@/components/admin/AppLayout.vue'
 
 const EmptyParentComponent = {
   template: '<router-view></router-view>',
 }
 
 const routes: Array<RouteRecordRaw> = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
   // {
   //   path: '/about',
   //   name: 'About',
   //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   // },
-  // {
-  //   path: '*',
-  //   redirect: { name: 'dashboard' },
-  // },
+  {
+    path: "/:catchAll(.*)",
+    redirect: { name: 'dashboard' },
+  },
   // {
   //   path: '/auth',
   //   component: AuthLayout,
@@ -73,17 +67,17 @@ const routes: Array<RouteRecordRaw> = [
   //     },
   //   ],
   // },
-  // {
-  //   name: 'Admin',
-  //   path: '/admin',
-  //   component: AppLayout,
-  //   children: [
-  //     {
-  //       name: 'dashboard',
-  //       path: 'dashboard',
-  //       component: () => import('../components/dashboard/Dashboard.vue'),
-  //       default: true,
-  //     },
+  {
+    name: 'admin',
+    path: '/admin',
+    component: AppLayout,
+    children: [
+      {
+        name: 'dashboard',
+        path: 'dashboard',
+        component: () => import('@/components/dashboard/Dashboard.vue'),
+        // default: true,
+      },
   //     {
   //       name: 'statistics',
   //       path: 'statistics',
@@ -393,8 +387,8 @@ const routes: Array<RouteRecordRaw> = [
   //         },
   //       ],
   //     },
-  //   ],
-  // },
+    ],
+  },
 ]
 
 const router = createRouter({
