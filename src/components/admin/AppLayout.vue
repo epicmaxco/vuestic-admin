@@ -26,7 +26,6 @@
       >
         <main
           class="app-layout__main-layout layout fluid gutter--xl"
-          slot="content"
           role="main"
         >
           <router-view/>
@@ -108,9 +107,6 @@ export default {
     position: relative;
     max-height: 100%;
     min-height: 100%;
-
-    &--top {
-    }
 
     &-layout {
       position: absolute;

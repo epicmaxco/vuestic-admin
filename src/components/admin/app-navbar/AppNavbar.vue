@@ -76,7 +76,7 @@ import { shiftHslColor, ColorThemeMixin } from '../../../services/vuestic-ui'
 
 export default {
   name: 'app-navbar',
-  // mixins: [ColorThemeMixin],
+  mixins: [ColorThemeMixin],
   // inject: ['contextConfig'],
   components: {
     // VaIconVuestic,
@@ -120,7 +120,7 @@ export default {
     navbarStyle () {
       const style = {
         // backgroundColor: 'white',
-        backgroundColor: '#000',
+        backgroundColor: '#323232',
       }
 
       // if (this.contextConfig.gradient) {

@@ -1,7 +1,6 @@
 <template>
   <div class="app-page-layout">
     <slot></slot>
-    <slot name="content" />
   </div>
 </template>
 

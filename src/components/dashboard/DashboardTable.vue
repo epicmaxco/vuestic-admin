@@ -33,7 +33,7 @@
         :loading="loading"
         hoverable
       >
-        <template slot="icon">
+        <template v-slot:icon>
           <va-icon name="user" color="secondary" />
         </template>
         <template v-slot:starred="props">
