@@ -15,22 +15,23 @@
           :children="item.children"
           :active-by-default="hasActiveByDefault(item)"
         >
-          <!-- <app-sidebar-link
+          <app-sidebar-link
             v-for="(subMenuItem, key) in item.children"
             :key="key"
-            :to="{ name: subMenuItem.name }"
+            to="{ name: subMenuItem.name }"
             :title="$t(subMenuItem.displayName)"
-          /> -->
+          />
         </app-sidebar-link-group>
-        <!-- <app-sidebar-link
+        <!-- fix key -->
+        <app-sidebar-link
           v-else
-          :key="key"
+          :key="key+1"
           :minimized="minimized"
           :active-by-default="item.name === $route.name"
           :icon="item.meta && item.meta.iconClass"
           :to="{ name: item.name }"
           :title="$t(item.displayName)"
-        /> -->
+        />
       </template>
     </ul>
   </aside>

@@ -13,13 +13,13 @@
       </div>
 
       <!-- <transition-expand> -->
-        <ul
-          class="app-sidebar-link-group__submenu"
-          v-show="expanded"
-          ref="linkGroupWrapper"
-        >
-          <slot/>
-        </ul>
+      <ul
+        class="app-sidebar-link-group__submenu"
+        v-show="expanded"
+        ref="linkGroupWrapper"
+      >
+        <slot/>
+      </ul>
       <!-- </transition-expand> -->
     </div>
     
@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import TransitionExpand from './TransitionExpand'
+// import TransitionExpand from './TransitionExpand'
 import { shiftHslColor, ColorThemeMixin } from '../../../../services/vuestic-ui'
 import AppSidebarLink from './AppSidebarLink'
 
