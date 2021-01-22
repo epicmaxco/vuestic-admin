@@ -15,11 +15,11 @@
       v-if="isTopBar"
     /> -->
     <div class="app-layout__container">
-      <!-- <app-sidebar
+      <app-sidebar
         class="app-layout__sidebar"
         v-if="!isTopBar"
         :minimized="minimized"
-      /> -->
+      />
       <div
         class="app-layout__main"
         :class="{'app-layout__main--top': isTopBar}"
@@ -39,7 +39,7 @@
 import AppPageLayout from './AppPageLayout'
 import AppNavbar from './app-navbar/AppNavbar'
 // import AppTopbar from './app-topbar/AppTopbar'
-// import AppSidebar from './app-sidebar/AppSidebar'
+import AppSidebar from './app-sidebar/AppSidebar'
 import { originalTheme, corporateTheme } from 'vuestic-ui/src/services/themes'
 // import {
 //   ColorThemeActionsMixin,
@@ -52,7 +52,7 @@ export default {
     AppPageLayout,
     AppNavbar,
     // AppTopbar,
-    // AppSidebar,
+    AppSidebar,
   },
   data () {
     return {

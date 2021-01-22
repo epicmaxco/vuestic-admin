@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard">
-    aaaaaaaaaaaaaaaaaaaaaa
+    Dashboard
     <!-- <dashboard-charts /> -->
     <!-- <dashboard-info-block /> -->
     <div class="row">

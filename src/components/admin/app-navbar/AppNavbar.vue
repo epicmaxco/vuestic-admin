@@ -76,7 +76,7 @@ import { shiftHslColor, ColorThemeMixin } from '../../../services/vuestic-ui'
 
 export default {
   name: 'app-navbar',
-  mixins: [ColorThemeMixin],
+  // mixins: [ColorThemeMixin],
   // inject: ['contextConfig'],
   components: {
     // VaIconVuestic,
