@@ -15,6 +15,11 @@ const gtmConfig = {
 }
 
 const i18nConfig = {
+  locale: 'en',
+  fallbackLocale: 'en',
+  messages: {
+    en: require('@/i18n/en.json'),
+  }
 }
 
 createApp(App)

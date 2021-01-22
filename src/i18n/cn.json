@@ -1,0 +1,321 @@
+{
+  "auth": {
+    "agree": "我同意",
+    "createAccount": "创建账号",
+    "createNewAccount": "创建新账号",
+    "email": "电子邮箱",
+    "login": "登录",
+    "password": "密码",
+    "signUp": "注册",
+    "termsOfUse": "使用条款"
+  },
+  "buttons": {
+    "advanced": "图标、组、下拉菜单",
+    "button": "按钮",
+    "colors": "颜色",
+    "disabled": "禁用",
+    "dropdown": "下拉菜单",
+    "hover": "悬停状态",
+    "main": "主按钮和辅助按钮",
+    "micro": "微型的",
+    "pressed": "按下",
+    "small": "小的"
+  },
+  "charts": {
+    "horizontalBarChart": "横条图",
+    "verticalBarChart": "纵条图",
+    "lineChart": "线形图",
+    "pieChart": "饼图",
+    "donutChart": "环形图",
+    "bubbleChart": "气泡图"
+  },
+  "collapse": {
+    "accordion": "Accordion",
+    "buttons": "按钮"
+  },
+  "dashboard": {
+    "success": "成功",
+    "successMessage": "您已成功阅读此重要通知。",
+    "elements": "元素",
+    "teamMembers": "团队成员",
+    "versions": "版本"
+  },
+  "notificationsPage": {
+    "alerts": {
+      "title": "警报",
+      "success": "成功",
+      "successMessage": "您已成功阅读此重要警报消息。",
+      "info": "信息",
+      "infoMessage": "此警报需要您的注意，但这并不是特别重要。",
+      "warning": "警告",
+      "warningMessage": "最好检查一下，现在状态好像不太好。",
+      "danger": "危险",
+      "dangerMessage": "请更改一些内容并尝试再次提交。"
+    },
+    "popovers": {
+      "title": "工具提示和弹出框",
+      "popoverTitleLabel": "弹出框的标题",
+      "popoverTextLabel": "弹出框的内容",
+      "popoverIconLabel": "弹出框的图标（fontAwesome）",
+      "showPopover": "显示弹出框",
+      "topTooltip": "上侧提示",
+      "rightTooltip": "右侧提示",
+      "leftTooltip": "左侧提示",
+      "bottomTooltip": "下侧提示"
+    },
+    "toasts": {
+      "title": "提示框",
+      "textLabel": "提示文本",
+      "durationLabel": "持续时间（毫秒）",
+      "iconLabel": "图标（fontAwesome）",
+      "fullWidthLabel": "全宽",
+      "launchToast": "加载提示框"
+    }
+  },
+  "forms": {
+    "controls": {
+      "female": "女",
+      "male": "男",
+      "title": "复选框，单选框，开关",
+      "radioDisabled": "禁用的单选框",
+      "radio": "单选框",
+      "subscribe": "订阅消息",
+      "unselected": "未选中的复选框",
+      "selected": "选中的复选框",
+      "readonly": "只读的复选框",
+      "disabled": "禁用的复选框",
+      "error": "错误状态的复选框",
+      "errorMessage": "带错误信息的复选框"
+    },
+    "dateTimePicker": {
+      "title": "日期时间选择器",
+      "basic": "基本的",
+      "time": "时间",
+      "range": "范围",
+      "multiple": "多重的",
+      "disabled": "禁用",
+      "customFirstDay": "自定义起始日",
+      "customDateFormat": "自定义日期格式"
+    },
+    "inputs": {
+      "emailValidatedSuccess": "电子邮件（验证成功）",
+      "emailValidated": "电子邮件（验证失败）",
+      "inputWithIcon": "带图标的输入框",
+      "inputWithButton": "带按钮的输入框",
+      "inputWithClearButton": "带清空图标的输入框",
+      "inputWithRoundButton": "带圆形按钮的输入框",
+      "textInput": "文本输入",
+      "textInputWithDescription": "文本输入（带说明）",
+      "textArea": "多行文本框",
+      "title": "输入框",
+      "upload": "上传"
+    },
+    "mediumEditor": {
+      "title": "Medium 编辑器"
+    },
+    "selects": {
+      "country": "国家选择框",
+      "countryMulti": "国家多选框",
+      "multi": "多选框",
+      "simple": "单选框",
+      "title": "选择框"
+    }
+  },
+  "grid": {
+    "desktop": "桌面网格",
+    "fixed": "固定网格",
+    "offsets": "偏移量",
+    "responsive": "响应网格"
+  },
+  "icons": {
+    "back": "回退图标",
+    "none": "没找到图标",
+    "search": "图标搜索",
+    "title": "图标"
+  },
+  "spinners": {
+    "title": "Spinners",
+    "poweredBy": "技术支持"
+  },
+  "language": {
+    "brazilian_portuguese": "葡萄牙语",
+    "english": "英语",
+    "spanish": "西班牙语",
+    "simplified_chinese": "简体中文"
+  },
+  "menu": {
+    "auth": "授权",
+    "buttons": "按钮",
+    "charts": "图表",
+    "colorPickers": "颜色选择器",
+    "collapse": "折叠器",
+    "timelines": "时间线",
+    "dashboard": "仪表板",
+    "formElements": "表单元素",
+    "forms": "表单",
+    "mediumEditor": "Medium Editor",
+    "grid": "网格",
+    "icons": "图标",
+    "cards": "卡片",
+    "spinners": "Spinners",
+    "login": "登录",
+    "maps": "地图",
+    "pages": "页面",
+    "modals": "模态对话框",
+    "notifications": "通知",
+    "progressBars": "进度条",
+    "signUp": "注册",
+    "statistics": "统计",
+    "tables": "表格",
+    "tags": "标签",
+    "typography": "段落",
+    "uiElements": "UI 元素",
+    "treeView": "树视图",
+    "dateTimePickers": "日期时间选择器",
+    "fileUpload": "文件上传",
+    "chat": "聊天"
+  },
+  "messages": {
+    "all": "查看全部消息",
+    "new": "来自{name}的新消息"
+  },
+  "modal": {
+    "cancel": "取消",
+    "close": "关闭",
+    "confirm": "确认",
+    "large": "大型",
+    "largeTitle": "大型模态对话框",
+    "medium": "中型",
+    "mediumTitle": "中型模态对话框",
+    "small": "小型",
+    "smallTitle": "小型模态对话框",
+    "static": "静态",
+    "staticMessage": "这是一个静态对话框，背景点击不会关闭它。",
+    "staticTitle": "静态对话框",
+    "title": "模态对话框"
+  },
+  "dropdown": {
+    "default": "默认项",
+    "withArrow": "带箭头",
+    "note": "注意",
+    "noteText": "如果屏幕上有足够的空间，下拉框将按指定方向打开，否则方向将自动更改"
+  },
+  "fileUpload": {
+    "advancedMediaGallery": "高级，媒体库",
+    "advancedUploadList": "高级，上传列表",
+    "mediaGallery": "媒体库",
+    "uploadList": "上传列表",
+    "single": "单独",
+    "dragNdropFiles": "拖放文件，或者",
+    "uploadedOn": "已上传",
+    "fileDeleted": "文件已成功删除",
+    "undo": "复原",
+    "preview": "预览",
+    "delete": "删除",
+    "deleteFile": "删除文件",
+    "uploadFile": "上传文件",
+    "uploadMedia": "上传媒体文件",
+    "addAttachment": "添加附件",
+    "modalTitle": "文件验证",
+    "modalText": "文件类型不正确！"
+  },
+  "tags": {
+    "default": "默认的",
+    "removable": "可移除",
+    "colored": "彩色的"
+  },
+  "navbar": {
+    "messageUs": "需要Web开发帮助吗？请联系我们。"
+  },
+  "notifications": {
+    "all": "查看所有通知",
+    "sentMessage": "{name} 给你发了一条消息",
+    "uploadedZip": "{name} 上传了一个新的Zip文件 {type}",
+    "startedTopic": "{name} 开始了一个新话题"
+  },
+  "timelines": {
+    "horizontalSimple": "水平简单",
+    "horizontalCards": "水平卡片",
+    "verticalSimple": "垂直简单",
+    "verticalLabel": "垂直带标签",
+    "verticalCentered": "垂直居中",
+    "firstDate": "2018年2月",
+    "secondDate": "2018年3月",
+    "thirdDate": "2018年4月",
+    "cardsSecondInfo": "它们存在于各种栖息地，比如草原。",
+    "cardsThirdInfo": "然而，各种人为因素对斑马种群产生了严重影响",
+    "verticalSimpleCardsFirstInfo": "独特的斑马条纹使它们成为人们最熟悉的动物之一。 它们出现在各种栖息地，如草原，热带稀树草原，林地，棘手的灌木丛中。",
+    "verticalSimpleCardsSecondInfo": "然而，各种人为因素对斑马种群产生了严重影响"
+  },
+  "progressBars": {
+    "basic": "基本的",
+    "basicVertical": "基本垂直",
+    "circle": "圆形",
+    "colorFulTitle": "彩色条型",
+    "thin": "窄型",
+    "thinVertical": "垂直窄型",
+    "thick": "宽型",
+    "title": "进度条"
+  },
+  "tables": {
+    "basic": "基本表格",
+    "styled": "颜色，图标，标签",
+    "advanced": "搜索和分页",
+    "headings": {
+      "city": "城市",
+      "email": "电子邮箱",
+      "name": "姓名",
+      "score": "分数"
+    },
+    "dataTable": {
+      "noDataAvailable": "无可用数据"
+    }
+  },
+  "user": {
+    "language": "修改语言",
+    "logout": "注销",
+    "profile": "个人信息"
+  },
+  "treeView": {
+    "basic": "基本型",
+    "icons": "图标",
+    "selectable": "可选择",
+    "editable": "可编辑",
+    "advanced": "高级"
+  },
+  "chat": {
+    "title": "聊天"
+  },
+  "cards": {
+    "cards": "卡片",
+    "fixed": "固定的",
+    "floating": "浮动的",
+    "contentText": "独特的斑马条纹使它们成为人们最熟悉的动物之一。",
+    "rowHeight": "行高",
+    "title": {
+      "dark": "暗色背景",
+      "bright": "亮色卡片",
+      "titleOnImageNoOverlay": "图像上的标题，但没有叠加",
+      "normal": "标准卡",
+      "overlayAndTextOnImage": "图像上有覆盖和文本的卡片",
+      "stripeNoImage": "无图像条纹卡"
+    },
+    "button": {
+      "main": "主要",
+      "cancel": "取消"
+    },
+    "link": {
+      "edit": "编辑",
+      "setAsDefault": "设为默认",
+      "delete": "删除",
+      "traveling": "Traveling",
+      "france": "法国",
+      "review": "评论",
+      "feedback": "反馈信息",
+      "readFull": "阅读全文",
+      "secondaryAction": "第二行为",
+      "action1": "行为 1",
+      "action2": "行为 2"
+    }
+  }
+}
