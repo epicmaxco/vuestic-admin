@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-// import AuthLayout from '../components/auth/AuthLayout.vue'
+import AuthLayout from '@/components/auth/AuthLayout.vue'
 import AppLayout from '@/components/admin/AppLayout.vue'
 
 const EmptyParentComponent = {
@@ -16,31 +16,31 @@ const routes: Array<RouteRecordRaw> = [
     path: "/:catchAll(.*)",
     redirect: { name: 'dashboard' },
   },
-  // {
-  //   path: '/auth',
-  //   component: AuthLayout,
-  //   children: [
-  //     {
-  //       name: 'login',
-  //       path: 'login',
-  //       component: () => import('../components/auth/login/Login.vue'),
-  //     },
-  //     {
-  //       name: 'signup',
-  //       path: 'signup',
-  //       component: () => import('../components/auth/signup/Signup.vue'),
-  //     },
-  //     {
-  //       name: 'recover-password',
-  //       path: 'recover-password',
-  //       component: () => import('../components/auth/recover-password/RecoverPassword.vue'),
-  //     },
-  //     {
-  //       path: '',
-  //       redirect: { name: 'login' },
-  //     },
-  //   ],
-  // },
+  {
+    path: '/auth',
+    component: AuthLayout,
+    children: [
+      {
+        name: 'login',
+        path: 'login',
+        component: () => import('../components/auth/login/Login.vue'),
+      },
+      {
+        name: 'signup',
+        path: 'signup',
+        component: () => import('../components/auth/signup/Signup.vue'),
+      },
+      {
+        name: 'recover-password',
+        path: 'recover-password',
+        component: () => import('../components/auth/recover-password/RecoverPassword.vue'),
+      },
+      {
+        path: '',
+        redirect: { name: 'login' },
+      },
+    ],
+  },
   // {
   //   path: '/404',
   //   component: EmptyParentComponent,
