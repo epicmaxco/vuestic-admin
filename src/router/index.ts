@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import AuthLayout from '@/components/auth/AuthLayout.vue'
 import AppLayout from '@/components/admin/AppLayout.vue'
 
+// fix it
 const EmptyParentComponent = {
   template: '<router-view></router-view>',
 }
@@ -370,23 +371,23 @@ const routes: Array<RouteRecordRaw> = [
   //         },
   //       ],
   //     },
-  //     {
-  //       name: 'pages',
-  //       path: 'pages',
-  //       component: EmptyParentComponent,
-  //       children: [
-  //         {
-  //           name: '404-pages',
-  //           path: '404-pages',
-  //           component: () => import('../components/pages/404-pages/404PagesPage.vue'),
-  //         },
-  //         {
-  //           name: 'faq',
-  //           path: 'faq',
-  //           component: () => import('../components/pages/FaqPage.vue'),
-  //         },
-  //       ],
-  //     },
+      {
+        name: 'pages',
+        path: 'pages',
+        component: EmptyParentComponent,
+        children: [
+          {
+            name: '404-pages',
+            path: '404-pages',
+            component: () => import('../components/pages/404-pages/404PagesPage.vue'),
+          },
+          {
+            name: 'faq',
+            path: 'faq',
+            component: () => import('../components/pages/FaqPage.vue'),
+          },
+        ],
+      },
     ],
   },
 ]
