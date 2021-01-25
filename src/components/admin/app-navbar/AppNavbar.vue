@@ -1,4 +1,4 @@
-<template>
+b<template>
   <nav
     class="app-navbar"
     :style="navbarStyle"
@@ -24,7 +24,7 @@
           class="app-navbar__logo mr-3"
           to="/"
         >
-          <!-- <va-icon-vuestic /> -->
+          <va-icon-vuestic />
         </router-link>
       </div>
       <div class="app-navbar__center lg5 md4">
@@ -53,6 +53,12 @@
         >
           {{$t('navbar.repository')}}
         </va-button> -->
+        <button @click="$emit('update:isTopBar', true)">
+          Enable topbar
+        </button>
+        <button @click="$emit('update:isTopBar', false)">
+          Disable topbar
+        </button>
       </div>
       <app-navbar-actions
         class="app-navbar__actions md5 lg4"
@@ -79,7 +85,7 @@ export default {
   // mixins: [ColorThemeMixin],
   // inject: ['contextConfig'],
   components: {
-    // VaIconVuestic,
+    VaIconVuestic,
     VaIconMenu,
     VaIconMenuCollapsed,
     AppNavbarActions,

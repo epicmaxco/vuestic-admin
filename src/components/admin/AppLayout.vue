@@ -10,10 +10,10 @@
       v-model:is-top-bar="isTopBar"
       v-model:minimized="minimized"
     />
-    <!-- <app-topbar
+    <app-topbar
       class="app-layout__topbar"
       v-if="isTopBar"
-    /> -->
+    />
     <div class="app-layout__container">
       <app-sidebar
         class="app-layout__sidebar"
@@ -38,7 +38,7 @@
 <script>
 import AppPageLayout from './AppPageLayout'
 import AppNavbar from './app-navbar/AppNavbar'
-// import AppTopbar from './app-topbar/AppTopbar'
+import AppTopbar from './app-topbar/AppTopbar'
 import AppSidebar from './app-sidebar/AppSidebar'
 import { originalTheme, corporateTheme } from 'vuestic-ui/src/services/themes'
 // import {
@@ -51,7 +51,7 @@ export default {
   components: {
     AppPageLayout,
     AppNavbar,
-    // AppTopbar,
+    AppTopbar,
     AppSidebar,
   },
   data () {
