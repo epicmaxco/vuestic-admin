@@ -2,28 +2,28 @@
   <router-link
     class="app-topbar-link"
     tag="li"
-    @mouseenter.native="updateHoverState(true)"
-    @mouseleave.native="updateHoverState(false)"
+    @mouseenter="updateHoverState(true)"
+    @mouseleave="updateHoverState(false)"
     :style="computedStyle"
     :to="to"
     :target="target"
   >
-    <va-icon
+    <!-- <va-icon
       v-if="icon"
       class="app-topbar-link__icon"
       :style="computedIconStyles"
       :name="icon"
-    />
+    /> -->
     <div class="app-topbar-link__title">
       <slot>
         {{title}}
       </slot>
     </div>
-    <va-icon
+    <!-- <va-icon
       class="app-topbar-link__icon"
       :name="iconRight"
       :style="computedIconStyles"
-    />
+    /> -->
   </router-link>
 </template>
 
@@ -32,8 +32,8 @@ import { shiftHslColor, ColorThemeMixin } from './../../../../services/vuestic-u
 
 export default {
   name: 'topbar-link',
-  inject: ['contextConfig'],
-  mixins: [ColorThemeMixin],
+  // inject: ['contextConfig'],
+  // mixins: [ColorThemeMixin],
   props: {
     to: {
       type: [Object, String],
@@ -65,56 +65,56 @@ export default {
   computed: {
     computedStyle () {
       // TODO Inverted color condition is incorrect here.
-      if (this.contextConfig.invertedColor) {
-        if (this.isHovered || this.isActive) {
-          return {
-            color: this.$themes.primary,
-            borderColor: shiftHslColor(this.$themes.primary, { s: 13, l: -15 }),
-          }
-        }
+      // if (this.contextConfig.invertedColor) {
+      //   if (this.isHovered || this.isActive) {
+      //     return {
+      //       color: this.$themes.primary,
+      //       borderColor: shiftHslColor(this.$themes.primary, { s: 13, l: -15 }),
+      //     }
+      //   }
 
-        return {
-          color: this.$themes.gray,
-        }
-      }
+      //   return {
+      //     color: this.$themes.gray,
+      //   }
+      // }
 
-      if (this.isActive) {
-        return {
-          color: this.$themes.primary,
-          borderColor: this.$themes.primary,
-          backgroundColor: shiftHslColor(this.$themes.secondary, { s: -13, l: 15 }),
-        }
-      }
+      // if (this.isActive) {
+      //   return {
+      //     color: this.$themes.primary,
+      //     borderColor: this.$themes.primary,
+      //     backgroundColor: shiftHslColor(this.$themes.secondary, { s: -13, l: 15 }),
+      //   }
+      // }
 
-      if (this.isHovered) {
-        return {
-          color: this.$themes.primary,
-          backgroundColor: shiftHslColor(this.$themes.secondary, { s: -13, l: 15 }),
-        }
-      }
+      // if (this.isHovered) {
+      //   return {
+      //     color: this.$themes.primary,
+      //     backgroundColor: shiftHslColor(this.$themes.secondary, { s: -13, l: 15 }),
+      //   }
+      // }
 
-      return {
-        color: this.$themes.info,
-      }
+      // return {
+      //   color: this.$themes.info,
+      // }
     },
     computedIconStyles () {
-      if (this.contextConfig.invertedColor) {
-        if (this.isHovered || this.isActive) {
-          return {
-            color: this.$themes.primary,
-          }
-        }
+      // if (this.contextConfig.invertedColor) {
+      //   if (this.isHovered || this.isActive) {
+      //     return {
+      //       color: this.$themes.primary,
+      //     }
+      //   }
 
-        return {
-          color: this.$themes.gray,
-        }
-      }
+      //   return {
+      //     color: this.$themes.gray,
+      //   }
+      // }
 
-      if (this.isHovered || this.isActive) {
-        return {
-          color: this.$themes.primary,
-        }
-      }
+      // if (this.isHovered || this.isActive) {
+      //   return {
+      //     color: this.$themes.primary,
+      //   }
+      // }
 
       return {
         color: 'white',

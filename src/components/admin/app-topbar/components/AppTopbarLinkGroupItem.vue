@@ -3,16 +3,16 @@
     class="app-topbar-link-group-item"
     :class="computedClass"
     :to="to"
-    @mouseenter.native="updateHoverState(true)"
-    @mouseleave.native="updateHoverState(false)"
+    @mouseenter="updateHoverState(true)"
+    @mouseleave="updateHoverState(false)"
     :style="computedStyles"
   >
     <div class="app-topbar-link-group-item__in">
-      <va-icon
+      <!-- <va-icon
         class="app-topbar-link-group-item__icon"
         :name="icon"
         :style="computedIconStyles"
-      />
+      /> -->
       <span class="app-topbar-link-group-item__title">
         {{title}}
       </span>
@@ -27,7 +27,7 @@ export default {
   name: 'app-topbar-link-group-item',
   components: {
   },
-  mixins: [ColorThemeMixin],
+  // mixins: [ColorThemeMixin],
   props: {
     to: [String, Array, Object],
     color: {
@@ -60,12 +60,12 @@ export default {
   computed: {
     computedStyles () {
       return {
-        color: (this.isHover || this.isActive) ? this.$themes.primary : 'inherit',
+        // color: (this.isHover || this.isActive) ? this.$themes.primary : 'inherit',
       }
     },
     computedIconStyles () {
       return {
-        color: (this.isHover || this.isActive) ? this.$themes.primary : this.$themes.info,
+        // color: (this.isHover || this.isActive) ? this.$themes.primary : this.$themes.info,
       }
     },
     computedClass () {

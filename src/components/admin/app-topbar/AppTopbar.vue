@@ -4,7 +4,7 @@
     :style="computedStyles"
   >
     <ul class="app-topbar__menu">
-      <!-- <template v-for="(item, key) in items">
+      <template v-for="(item, key) in items">
         <app-topbar-link-group
           class="app-topbar__menu-group"
           v-if="item.children"
@@ -19,12 +19,12 @@
             :class="{'app-topbar__menu-group-item--multi-row': item.children.length > 10 }"
             v-for="(subMenuItem, key) in item.children"
             :key="key"
-            :to="{ name: subMenuItem.name }"
+            to="{ name: subMenuItem.name }"
             :is-active="subMenuItem.name === $route.name"
             :title="$t(subMenuItem.displayName)"
           />
         </app-topbar-link-group>
-        <app-topbar-link
+        <!-- <app-topbar-link
           class="app-topbar__link"
           v-else
           :key="key"
@@ -33,8 +33,8 @@
           :to="{ name: item.name }"
         >
           {{ $t(item.displayName) }}
-        </app-topbar-link>
-      </template> -->
+        </app-topbar-link> -->
+      </template>
     </ul>
   </aside>
 </template>

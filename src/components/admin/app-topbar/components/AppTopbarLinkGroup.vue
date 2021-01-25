@@ -3,17 +3,15 @@
     class="app-topbar-link-group"
     :class="computedClass"
   >
-    <va-dropdown
+    <!-- <va-dropdown
       position="bottom"
       fixed
       :preventOverflow="false"
       ref="dropdown"
       @click.native="handleDropdownClick"
       @clickOutside="handleOutsideClick"
-    >
+    > -->
       <app-topbar-link
-        slot="anchor"
-        target="_self"
         class="app-topbar-link-group__item"
         @mouseenter="updateHoverState"
         @mouseleave="updateHoverState"
@@ -22,6 +20,7 @@
         :icon-right="isOpen ? 'angle_up' : 'angle_down'"
         :is-active="isActive"
       >
+      <!-- slot="anchor" -->
         {{title}}
       </app-topbar-link>
       <ul
@@ -30,7 +29,7 @@
       >
         <slot/>
       </ul>
-    </va-dropdown>
+    <!-- </va-dropdown> -->
   </li>
 </template>
 
@@ -39,7 +38,7 @@ import AppTopbarLink from './AppTopbarLink'
 
 export default {
   name: 'topbar-link-group',
-  inject: ['contextConfig'],
+  // inject: ['contextConfig'],
   components: {
     AppTopbarLink,
   },
@@ -103,7 +102,7 @@ export default {
     },
     computedIconStyles () {
       return {
-        backgroundColor: this.contextConfig.invertedColor ? this.$themes[this.color] : 'white',
+        // backgroundColor: this.contextConfig.invertedColor ? this.$themes[this.color] : 'white',
       }
     },
   },
