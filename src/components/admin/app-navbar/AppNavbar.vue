@@ -8,7 +8,7 @@
         <va-icon-menu
           class="app-navbar__menu"
           v-if="!minimized && !isTopBar"
-          @click.native="$emit('update:minimized', !minimized)"
+          @click="$emit('update:minimized', !minimized)"
           color="white"
         />
         <!-- :color="contextConfig.invertedColor ? $themes.gray : 'white'" -->
@@ -16,7 +16,7 @@
         <va-icon-menu-collapsed
           class="app-navbar__menu"
           v-if="minimized && !isTopBar"
-          @click.native="$emit('update:minimized', !minimized)"
+          @click="$emit('update:minimized', !minimized)"
           color="white"
         />
 
@@ -143,7 +143,7 @@ export default {
         //   s: -11,
         //   l: 10,
         // }) : 'transparent',
-        borderTopColor: 'transparent'
+        borderTopColor: '#303030'
       }
     },
   },
