@@ -15,7 +15,7 @@
     "vue-gtm": "^3.2.1",
     "vue-i18n": "^9.0.0-rc.3",
     "vue-router": "^4.0.0-0",
-    "vuestic-ui": "^0.2.2",
+    "vuestic-ui": "^1.0.0-alpha.15",
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {

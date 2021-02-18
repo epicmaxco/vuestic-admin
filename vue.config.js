@@ -42,7 +42,8 @@ module.exports = {
     loaderOptions: {
       sass: {
         // Preload vuestic-ui variables and mixins for every component
-        data: '@import "~vuestic-ui/src/components/vuestic-sass/resources/resources.scss";',
+        // TODO: @m0ksem: build scss variables?
+        // data: '@import "~vuestic-ui/dist/vuestic-ui.css";',
       },
     },
   },
