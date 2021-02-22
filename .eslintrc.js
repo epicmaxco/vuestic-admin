@@ -1,3 +1,10 @@
+// TODO: DONT FORGET TO ADD 
+  
+// TO package.json
+// "gitHooks": {
+//   "pre-commit": "lint-staged"
+// },
+
 module.exports = {
   root: true,
   env: {
