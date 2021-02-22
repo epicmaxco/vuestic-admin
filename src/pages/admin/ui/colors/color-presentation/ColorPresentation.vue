@@ -20,14 +20,14 @@
 </template>
 
 <script>
-import { ColorThemeMixin, getGradientBackground } from '../../../../services/vuestic-ui'
+// import { ColorThemeMixin, getGradientBackground } from '../../../../services/vuestic-ui'
 
 // NOTE This component is a tad weird.
 // It's not part of presentation nor is it UI component.
 // Could be seen as `playground` of sorts.
 export default {
   name: 'color-presentation',
-  mixins: [ColorThemeMixin],
+  // mixins: [ColorThemeMixin],
   inject: ['contextConfig'],
   props: {
     color: {
@@ -83,7 +83,8 @@ export default {
     },
     calcBackground () {
       if (this.variant.includes('gradient') && this.contextConfig) {
-        return getGradientBackground(this.colorComputed)
+        return null
+        // return getGradientBackground(this.colorComputed)
       }
 
       return this.colorComputed
