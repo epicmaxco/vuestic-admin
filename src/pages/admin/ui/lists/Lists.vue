@@ -8,8 +8,8 @@
             {{ $t('lists.customers') }}
           </va-list-label>
 
-          <template v-for="(customer, i) in customers">
-            <va-list-item :key="'item' + customer.id" clickable @click="notify(customer.name)">
+          <template v-for="(customer, i) in customers" :key="'item' + customer.id">
+            <va-list-item clickable @click="notify(customer.name)">
               <va-list-item-section class="ml-2" avatar>
                 <va-avatar>
                   <img :src="customer.picture" :alt="customer.name">
@@ -40,8 +40,8 @@
             {{ $t('lists.recentMessages') }}
           </va-list-label>
 
-          <template v-for="(customer, i) in customers">
-            <va-list-item :key="'item' + customer.id" clickable @click="toggleStar(customer)">
+          <template v-for="(customer, i) in customers" :key="'item' + customer.id">
+            <va-list-item clickable @click="toggleStar(customer)">
               <va-list-item-section icon>
                 <va-icon v-if="customer.starred" name="star" color="warning" />
               </va-list-item-section>
@@ -75,8 +75,8 @@
             {{ $t('lists.archieved') }}
           </va-list-label>
 
-          <template v-for="(customer, i) in archived">
-            <va-list-item :key="'item' + customer.id">
+          <template v-for="(customer, i) in archived" :key="'item' + customer.id">
+            <va-list-item>
               <va-list-item-section icon>
                 <va-icon v-if="customer.starred" name="star" color="warning" />
               </va-list-item-section>
