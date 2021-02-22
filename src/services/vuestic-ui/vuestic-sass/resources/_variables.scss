@@ -1,0 +1,377 @@
+// Colors //
+$gray-light: #acb5be !default;
+$light-gray: #eeeeee !default;
+$light-gray2: #eff4f5 !default;
+$light-gray3: #f5f8f9 !default;
+$lighter-gray: #dddddd !default;
+$charcoal: #555555 !default;
+$darkest-gray: #333333 !default;
+$almost-black: #161616 !default;
+$hover-black: #222222 !default;
+$vue-green: #4ae387 !default;
+$vue-light-green: #dbf9e8 !default;
+$light-green: #c8f9c5 !default;
+$lighter-green: #d6ffd3 !default;
+$light-blue: #dcf1ff !default;
+$light-yellow: #fff1c8 !default;
+$light-pink: #ffcece !default;
+$vue-darkest-blue: #34495e !default;
+$vue-turquoise: #dbf9e7 !default;
+$white: #ffffff !default;
+$theme-danger: #e34b4a !default;
+$theme-warning: #ffc200 !default;
+$theme-red: #e34a4a !default;
+$theme-orange: #f7cc36 !default;
+$theme-blue: #4ab2e3 !default;
+$theme-blue-dark: #2c82e0 !default;
+$theme-violet: #db76df !default;
+$theme-pale: #d9d9d9 !default;
+$brand-primary: $vue-green !default;
+$brand-danger: $theme-red !default;
+$brand-warning: $theme-orange !default;
+$brand-info: $theme-blue !default;
+$brand-success: $vue-green !default;
+$brand-secondary: #babfc2 !default;
+$light-gray2: #eff4f5 !default;
+$dark-gray: #282828 !default;
+$gray: #adb3b9 !default;
+$default-gray: #8396a5 !default;
+$dark-blue: #0e4ac4 !default;
+$text-gray: #b4b4b4 !default;
+$markdown-code: #d7234e !default;
+$prism-background: #f4f8fa !default;
+
+$separator-color: #e6e9ec !default;
+
+$transition-primary: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1) !default; // swing
+$transition-secondary: 0.2s cubic-bezier(0.4, 0, 0.6, 1) !default; // ease-in-out
+
+$colors-map: (
+  brand-danger: $brand-danger,
+  brand-primary: $brand-primary,
+  brand-info: $brand-info,
+  brand-success: $brand-success,
+  brand-warning: $brand-warning,
+  black: black,
+  white: white,
+  lighter-gray: $lighter-gray,
+) !default;
+
+$theme-colors: (
+  'primary': $brand-primary,
+  'secondary': $white,
+  'success': $light-green,
+  'info': $brand-info,
+  'warning': $brand-warning,
+  'danger': $brand-danger,
+  'light': $light-gray2,
+  'dark': $almost-black,
+  'pale': $theme-pale,
+) !default;
+
+// Layout //
+$min-body-width: 375px;
+$body-color: $vue-darkest-blue !default;
+$layout-padding: 24px !default;
+$top-mobile-nav-height: 6.5rem !default;
+
+$top-nav-height: 4.0625rem !default;
+$sidebar-width: 15.75rem !default;
+$sidebar-width--hidden: 3.5rem !default;
+$sidebar-menu-item-icon-size: 19px !default;
+$sidebar-viewport-min-height: calc(100vh - #{$top-nav-height}) !default;
+$sidebar-viewport-height: calc(100% - #{$top-nav-height}) !default;
+$sidebar-box-shadow: 0 2px 3px 0 rgba(52, 56, 85, 0.25) !default;
+$sidebar-minimized-width: 3.5rem !default;
+$sidebar-mobile-top: $top-mobile-nav-height !default;
+
+//Mobile Layout
+
+$content-mobile-wrap-px: 1rem !default;
+$content-mobile-wrap: 2rem $content-mobile-wrap-px $layout-padding $content-mobile-wrap-px !default;
+
+$greeny-box-shadow: 0 4px 9.6px 0.4px rgba($vue-green, 0.5) !default;
+$gray-box-shadow: 0 2px 3px 0 rgba(98, 106, 119, 0.25) !default;
+
+//Auth
+$auth-logo-height: 2.625rem !default;
+
+//Checkbox and RadioButton
+$checkbox-between-items-margin: 1rem !default;
+$checkbox-between-label-margin: 2.35rem !default;
+$checkbox-label-margin-top: 0.2rem !default;
+
+//Auth mobile
+$auth-mobile-nav-ivuestic-h: 1.5rem !default;
+$auth-mobile-main-h: calc(100% - #{$top-mobile-nav-height}) !default;
+$auth-content-padding-t: 2.875rem !default;
+
+// Typography
+$light-default-color: #ffffff !default;
+$dark-default-color: #34495e !default;
+$text-selected: #b3d4fc !default;
+$blockquote-font-color: $brand-secondary !default;
+$text-highlighted: #fff3d1 !default;
+$on-focus-background-color: rgba(187, 180, 178, 0.71) !default;
+
+//$text-color:            $gray !default;
+$font-family-sans-serif: 'Source Sans Pro', sans-serif !default;
+$font-size-root: 16px !default;
+
+// TODO
+$letter-spacing: 0.0375rem !default;
+
+$font-size-base: 1rem !default;
+$font-size-large: 1.5rem !default;
+$font-size-mini: 0.8rem !default;
+
+$font-weight-bold: 700 !default;
+
+$font-size-smaller: 85% !default;
+
+$line-height: 1.625rem !default;
+
+$blockquote-border-color: $vue-green !default;
+$blockquote-small-color: $gray-light !default;
+$blockquote-border-width: 0.375rem !default;
+$blockquote-font-size: 1.5rem !default;
+
+// Links
+$va-link-color: $brand-primary !default;
+$va-link-color-secondary: $brand-secondary !default;
+$va-link-color-hover: #79eca8 !default;
+$va-link-color-active: #48c279 !default;
+$va-link-color-visited: $va-link-color !default;
+$link-hover-decoration: none !default;
+
+//Widgets
+$widget-bg: $white !default;
+$widget-larger-padding: 45px !default;
+$widget-danger-shadow: 0 4px 70px -16px $brand-danger !default;
+$widget-info-shadow: 0 4px 70px -16px $brand-info !default;
+$info-widget-border: 0.5rem solid $brand-primary !default;
+
+$widget-padding: 1.5625rem !default;
+$widget-box-shadow: 0 4px 70px -18px #707070 !default;
+$widget-header-border: 2px solid $light-gray !default;
+$widget-header-height: 55px !default;
+$widget-mb: 1.875rem !default;
+
+//Buttons
+$btn-border: 0 !default;
+$btn-border-outline: 0.125rem !default;
+$btn-box-shadow: 0 0.125rem 0.19rem 0 !default;
+$btn-transition: $transition-primary !default;
+
+$btn-padding-y-lg: 0.75rem !default;
+$btn-padding-x-lg: 1.75rem !default;
+$btn-font-size-lg: 1.25rem !default;
+$btn-line-height-lg: 1.3 !default;
+$btn-border-radius-lg: 2rem !default;
+$btn-border-radius-lg-square: 0.4rem !default;
+$btn-letter-spacing-lg: 0.04rem !default;
+$btn-icon-width-lg: 2rem !default;
+$btn-with-icon-wrapper-padding-lg: 0.75rem !default;
+$btn-with-icon-content-padding-lg: 0.63rem !default;
+
+$btn-padding-y-sm: 0.125rem !default;
+$btn-padding-x-sm: 0.75rem !default;
+$btn-font-size-sm: 0.875rem !default;
+$btn-line-height-sm: 1.43 !default;
+$btn-border-radius-sm: 1rem !default;
+$btn-border-radius-sm-square: 0.2rem !default;
+$btn-letter-spacing-sm: 0 !default;
+$btn-icon-width-sm: 1rem !default;
+$btn-with-icon-wrapper-padding-sm: 0.25rem !default;
+$btn-with-icon-content-padding-sm: 0.25rem !default;
+
+$btn-padding-y-nrm: 0.375rem !default;
+$btn-padding-x-nrm: 1.25rem !default;
+$btn-font-size-nrm: 1rem !default;
+$btn-line-height-nrm: 1.5 !default;
+$btn-border-radius-nrm: 1.5rem !default;
+$btn-border-radius-nrm-square: 0.3rem !default;
+$btn-letter-spacing-nrm: 0.032rem !default;
+$btn-icon-width-nrm: 1.5rem !default;
+$btn-with-icon-wrapper-padding-nrm: 0.5rem !default;
+$btn-with-icon-content-padding-nrm: 0.5rem !default;
+
+//Badge
+$badge-border: 0.125rem !default;
+$badge-font-size: 0.625rem !default;
+$badge-line-height: 1.4 !default;
+$badge-border-radius: 0.6rem !default;
+$badge-padding-y: 0 !default;
+$badge-padding-x: 0.25rem !default;
+$badge-dot-size: 0.5rem !default;
+$badge-size: ($badge-font-size * $badge-line-height) + ($badge-border * 2) !default;
+$badge-letter-spacing: $letter-spacing !default;
+
+//Dropdowns
+$dropdown-box-shadow: $gray-box-shadow !default;
+$dropdown-background: $light-gray3 !default;
+$dropdown-padding: 0.375rem 0.5rem 0.375rem 0.5rem !default;
+$dropdown-border-radius: 0.5rem !default;
+
+//Progress Bars
+$progress-bar-width-basic: 0.5rem !default;
+$progress-bar-large-font-size: 12px !default;
+$progress-bar-large-height: 16px !default;
+$progress-bar-small-height: 2px !default;
+
+//Tables
+$table-border-color: #eceeef !default;
+$striped-row-odd: $white !default;
+$striped-row: $light-gray2 !default;
+$table-hover-bg: rgba($vue-green, 0.5) !default;
+
+//Badges
+$badge-min-width: 5rem !default;
+$badge-success-bg: $brand-success !default;
+
+//Alerts
+$with-close-pr: 3.125rem !default;
+$alert-padding-x: 1.25rem !default;
+$alert-padding-y: 0.75rem !default;
+
+$alert-success-bg: $light-green !default;
+$alert-success-text: $body-color !default;
+$alert-success-border: transparent !default;
+$alert-success-shadow: 0 4px 9.6px 0.4px rgba(79, 206, 145, 0.5) !default;
+
+$alert-info-bg: $light-blue !default;
+$alert-info-text: $body-color !default;
+$alert-info-border: transparent !default;
+$alert-info-shadow: 0 4px 9.6px 0.4px rgba(79, 142, 206, 0.5) !default;
+
+$alert-warning-bg: $light-yellow !default;
+$alert-warning-text: $body-color !default;
+$alert-warning-border: transparent !default;
+$alert-warning-shadow: 0 4px 9.6px 0.4px rgba(206, 178, 79, 0.5) !default;
+
+$alert-danger-bg: $light-pink !default;
+$alert-danger-text: $body-color !default;
+$alert-danger-border: transparent !default;
+$alert-danger-shadow: 0 4px 9.6px 0.4px rgba(206, 79, 79, 0.5) !default;
+
+//Tabs
+
+$tab-content-pt: 3.125rem !default;
+$tab-content-pb: 1.5rem !default;
+
+//Medium Editor
+$medium-editor-button-size: $btn-padding-y-lg * 2 + $font-size-base * $btn-line-height-lg !default;
+
+//tooltips
+
+$tooltip-box-shadow: $greeny-box-shadow !default;
+$tooltip-line-height: 1.13 !default;
+$tooltip-font-weight: 300 !default;
+
+// Popovers
+
+$popover-line-height: $tooltip-line-height !default;
+$popover-box-shadow: $tooltip-box-shadow !default;
+$popover-box-shadow: $greeny-box-shadow !default;
+
+$popover-header-no-icon-padding-x: 0 !default;
+$popover-header-font-weight: bold !default;
+
+$popover-body-padding-y: 0 !default;
+
+$popover-icon-size: 1.35rem !default;
+$popover-icon-color: $brand-primary !default;
+
+// Toasts
+
+$toast-width: 330px !default;
+$toast-padding: 14px 26px 14px 13px !default;
+$toast-radius: 8px !default;
+$toast-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1) !default;
+$toast-border-color: #ebeef5 !default;
+$toast-icon-size: 24px !default;
+$toast-close-font-size: $font-size-base !default;
+$toast-group-margin-left: 13px !default;
+$toast-group-margin-right: 8px !default;
+$toast-content-font-size: $font-size-base !default;
+$toast-content-color: #606266 !default;
+$toast-title-font-size: $font-size-base !default;
+$toast-title-color: #303133 !default;
+
+$toast-close-color: #909399 !default;
+$toast-close-hover-color: #909399 !default;
+
+$toast-success-icon-color: $brand-success !default;
+$toast-info-icon-color: $brand-info !default;
+$toast-warning-icon-color: $theme-warning !default;
+$toast-danger-icon-color: $theme-danger !default;
+
+/* Notification
+-------------------------- */
+
+$toast-font-size: $font-size-base !default;
+$toast-line-height: $popover-line-height !default;
+$toast-font-weight: normal !default;
+$toast-min-height: 3.25rem !default;
+$toast-box-shadow: $popover-box-shadow !default;
+$toast-bg: $darkest-gray !default;
+$toast-border-radius: $font-size-base * 0.5 !default;
+$toast-color: $white !default;
+
+$toast-padding-x: 1.15rem !default;
+$toast-padding-y: 0.5rem !default;
+
+$toast-icon-size: $popover-icon-size !default;
+$toast-icon-color: $popover-icon-color !default;
+$toast-icon-ml: 0 !default;
+$toast-icon-mr: 0.625rem !default;
+
+// Cards
+$card-border-color: rgba(52, 56, 85, 0.25) !default;
+$card-border: thin solid $card-border-color !default;
+$card-border-radius: 0.375rem !default;
+$card-box-shadow: 0 2px 3px 0 $card-border-color !default;
+$card-title-font-size: 0.625rem !default;
+$card-title-letter-spacing: $letter-spacing !default;
+$card-padding: 1.25rem !default;
+
+// Datepickers
+
+$datepicker-box-shadow: 0 2px 3px 0 rgba(98, 106, 119, 0.25) !default;
+
+// List
+$list-padding: 1.5rem 0 2.125rem 0 !default;
+$list-item-padding: 0.5rem 1rem 0.5rem 1.5rem !default;
+
+// Font sizes for display elements.
+$display-font-sizes: (
+  1: 3rem,
+  2: 2.5rem,
+  3: 2rem,
+  4: 1.75rem,
+  5: 1.5rem,
+  6: 1.25rem,
+) !default;
+$display-margins: (
+  1: 1rem,
+  2: 4rem,
+  3: 5rem,
+  4: 2.5rem,
+  5: 1.5rem,
+  6: 2rem,
+) !default;
+
+// Modals
+$basic-duration: 0.3s;
+
+$zindex-modal: 1050 !default;
+$modal-transform-transition: transform $basic-duration ease !default;
+$modal-opacity-transition: opacity ($basic-duration / 2) cubic-bezier(1, 0.5, 0.8, 1) !default;
+$modal-overlay-opacity-transition: opacity (2 * $basic-duration / 3) cubic-bezier(1, 0.5, 0.8, 1) !default;
+$modal-padding-top: 1.25rem !default;
+$modal-padding-right: 1.875rem !default;
+$modal-padding-bottom: 1.5rem !default;
+$modal-padding-left: 1.5rem !default;
+
+// Affix
+$zindex-affix: 10 !default;
