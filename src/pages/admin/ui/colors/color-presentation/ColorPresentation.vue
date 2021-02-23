@@ -21,14 +21,15 @@
 
 <script>
 // import { ColorThemeMixin, getGradientBackground } from '../../../../services/vuestic-ui'
+import { useColor } from 'vuestic-ui'
 
+
+const computeColor = useColor()
 // NOTE This component is a tad weird.
 // It's not part of presentation nor is it UI component.
 // Could be seen as `playground` of sorts.
 export default {
   name: 'color-presentation',
-  // mixins: [ColorThemeMixin],
-  inject: ['contextConfig'],
   props: {
     color: {
       type: String,
@@ -87,7 +88,7 @@ export default {
         // return getGradientBackground(this.colorComputed)
       }
 
-      return this.colorComputed
+      return computeColor(this.color)
     },
   },
 }
