@@ -11,10 +11,10 @@
 
       <div
         class="va-chat__message"
+        v-for="(message, index) in modelValue"
         :style="{
-          backgroundColor: message.yours ? $themes.primary : undefined
+          backgroundColor: message.yours ? theme.primary : undefined
         }"
-        v-for="(message, index) in value"
         :key="index"
         :class="{ 'va-chat__message--yours': message.yours }"
       >
@@ -39,6 +39,7 @@
 
 <script>
 // import { StickyScroll } from '../../../services/vuestic-ui/components'
+import { useTheme } from 'vuestic-ui'
 
 export default {
   name: "chat",
@@ -49,7 +50,7 @@ export default {
     };
   },
   props: {
-    value: {
+    modelValue: {
       type: Array,
       default: () => [
         {
@@ -91,14 +92,19 @@ export default {
         return;
       }
       this.$emit(
-        "input",
-        this.value.concat({
+        "update:modelValue",
+        this.modelValue.concat({
           text: this.inputMessage,
           yours: true
         })
       );
       this.inputMessage = "";
     }
+  },
+  computed: {
+    theme() {
+      return useTheme().getTheme()
+    },
   }
 };
 </script>
