@@ -144,7 +144,7 @@
               </p>
             </div>
             <div class="mb-4">
-              <blockquote class="va-blockquote" :style="{borderColor: $themes.primary}">
+              <blockquote class="va-blockquote" :style="{borderColor: theme.primary}">
                 <p>
                   BQ: Let’s talk about meat fondue recipes and what you need to know
                   first. Meat fondue also known as oil fondue is a method of cooking
@@ -172,8 +172,10 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(data, index) in tableData.map(i => i !== 0)" :key="index">
-                    <td v-for="(i, index) in data" :key="index">{{i}}</td>
+                  <tr v-for="(rowData, rowIndex) in tableData.slice(1)" :key="rowIndex">
+                    <td v-for="(itemData, colIndex) in rowData" :key="colIndex">
+                      {{ itemData }}
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -186,6 +188,8 @@
 </template>
 
 <script>
+import { useTheme } from 'vuestic-ui'
+
 export default {
   name: 'typography',
   data () {
@@ -198,5 +202,10 @@ export default {
       ],
     }
   },
+  computed: {
+    theme() {
+      return useTheme().getTheme()
+    }
+  }
 }
 </script>
