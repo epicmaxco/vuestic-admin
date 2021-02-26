@@ -8,14 +8,14 @@ export default {
       name: 'dashboard',
       displayName: 'menu.dashboard',
       meta: {
-        iconClass: 'vuestic_dashboard',
+        iconClass: 'vuestic-iconset-dashboard',
       },
     },
     {
       name: 'statistics',
       displayName: 'menu.statistics',
       meta: {
-        iconClass: 'vuestic_statistics',
+        iconClass: 'vuestic-iconset-statistics',
       },
       disabled: true,
       children: [
@@ -33,7 +33,7 @@ export default {
       name: 'forms',
       displayName: 'menu.forms',
       meta: {
-        iconClass: 'vuestic_forms',
+        iconClass: 'vuestic-iconset-forms',
       },
       disabled: true,
       children: [
@@ -68,7 +68,7 @@ export default {
       name: 'ui',
       displayName: 'menu.uiElements',
       meta: {
-        iconClass: 'vuestic_ui_elements',
+        iconClass: 'vuestic-iconset-ui-elements',
       },
       disabled: true,
       children: [

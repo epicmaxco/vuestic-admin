@@ -253,20 +253,20 @@ export default {
       },
       // Vuestic icons config
       // navbar
-      vuestic_settings: {
+      'vuestic-iconset-settings': {
         code: "vuestic-iconset-settings",
         font: "vuestic-iconset"
       },
       // sidebar & topbar
-      vuestic_dashboard: {
+      'vuestic-iconset-dashboard': {
         code: "vuestic-iconset-dashboard",
         font: "vuestic-iconset"
       },
-      vuestic_statistics: {
+      'vuestic-iconset-statistics': {
         code: "vuestic-iconset-statistics",
         font: "vuestic-iconset"
       },
-      vuestic_forms: {
+      'vuestic-iconset-forms': {
         code: "vuestic-iconset-forms",
         font: "vuestic-iconset"
       },
@@ -274,7 +274,7 @@ export default {
         code: "vuestic-iconset-tables",
         font: "vuestic-iconset"
       },
-      vuestic_ui_elements: {
+      'vuestic-iconset-ui-elements': {
         code: "vuestic-iconset-ui-elements",
         font: "vuestic-iconset"
       },
@@ -282,7 +282,7 @@ export default {
         code: "vuestic-iconset-maps",
         font: "vuestic-iconset"
       },
-      vuestic_files: {
+      'vuestic-iconset-files': {
         code: "vuestic-iconset-files",
         font: "vuestic-iconset"
       }
