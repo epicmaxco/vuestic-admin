@@ -99,84 +99,84 @@ export default {
         wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Cards',
       },
     },
-    // {
-    //   name: 'file-upload',
-    //   path: 'file-upload',
-    //   component: () => import('@/pages/admin/ui/file-upload/FileUpload.vue'),
-    //   meta: {
-    //     wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/File-Upload',
-    //   },
-    // },
-    // {
-    //   name: 'chips',
-    //   path: 'chips',
-    //   component: () => import('@/pages/admin/ui/chips/Chips.vue'),
-    //   meta: {
-    //     wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Chips',
-    //   },
-    // },
-    // {
-    //   name: 'tree-view',
-    //   path: 'tree-view',
-    //   component: () => import('@/pages/admin/ui/tree-view/TreeView.vue'),
-    //   meta: {
-    //     wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tree-view',
-    //   },
-    // },
-    // {
-    //   name: 'collapses',
-    //   path: 'collapses',
-    //   meta: {
-    //     wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Collapse',
-    //   },
-    //   component: () => import('@/pages/admin/ui/collapse/Collapses.vue'),
-    // },
-    // {
-    //   name: 'colors',
-    //   path: 'colors',
-    //   component: () => import('@/pages/admin/ui/colors/Colors.vue'),
-    // },
-    // {
-    //   name: 'spacing',
-    //   path: 'spacing',
-    //   component: () => import('@/pages/admin/ui/spacing/Spacing.vue'),
-    // },
-    // {
-    //   name: 'sliders',
-    //   path: 'sliders',
-    //   component: () => import('@/pages/admin/ui/sliders/Sliders.vue'),
-    //   meta: {
-    //     wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Sliders',
-    //   },
-    // },
-    // {
-    //   name: 'popovers',
-    //   path: 'popovers',
-    //   component: () => import('@/pages/admin/ui/popovers/Popovers.vue'),
-    // },
-    // {
-    //   name: 'chat',
-    //   path: 'chatPage',
-    //   component: () => import('@/pages/admin/ui/chat/ChatPage.vue'),
-    //   meta: {
-    //     wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Chat',
-    //   },
-    // },
-    // {
-    //   name: 'tabs',
-    //   path: 'tabs',
-    //   component: () => import('@/pages/admin/ui/tabs/Tabs.vue'),
-    //   meta: {
-    //     wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tabs',
-    //   },
-    // },
-    // {
-    //   name: 'lists',
-    //   path: 'lists',
-    //   component: () => import('@/pages/admin/ui/lists/Lists.vue'),
-    //   meta: {
-    //     wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Lists',
-    //   },
-    // },
+    {
+      name: 'file-upload',
+      path: 'file-upload',
+      component: () => import('@/pages/admin/ui/file-upload/FileUpload.vue'),
+      meta: {
+        wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/File-Upload',
+      },
+    },
+    {
+      name: 'chips',
+      path: 'chips',
+      component: () => import('@/pages/admin/ui/chips/Chips.vue'),
+      meta: {
+        wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Chips',
+      },
+    },
+    {
+      name: 'tree-view',
+      path: 'tree-view',
+      component: () => import('@/pages/admin/ui/tree-view/TreeView.vue'),
+      meta: {
+        wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tree-view',
+      },
+    },
+    {
+      name: 'collapses',
+      path: 'collapses',
+      meta: {
+        wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Collapse',
+      },
+      component: () => import('@/pages/admin/ui/collapse/Collapses.vue'),
+    },
+    {
+      name: 'colors',
+      path: 'colors',
+      component: () => import('@/pages/admin/ui/colors/Colors.vue'),
+    },
+    {
+      name: 'spacing',
+      path: 'spacing',
+      component: () => import('@/pages/admin/ui/spacing/Spacing.vue'),
+    },
+    {
+      name: 'sliders',
+      path: 'sliders',
+      component: () => import('@/pages/admin/ui/sliders/Sliders.vue'),
+      meta: {
+        wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Sliders',
+      },
+    },
+    {
+      name: 'popovers',
+      path: 'popovers',
+      component: () => import('@/pages/admin/ui/popovers/Popovers.vue'),
+    },
+    {
+      name: 'chat',
+      path: 'chatPage',
+      component: () => import('@/pages/admin/ui/chat/ChatPage.vue'),
+      meta: {
+        wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Chat',
+      },
+    },
+    {
+      name: 'tabs',
+      path: 'tabs',
+      component: () => import('@/pages/admin/ui/tabs/Tabs.vue'),
+      meta: {
+        wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tabs',
+      },
+    },
+    {
+      name: 'lists',
+      path: 'lists',
+      component: () => import('@/pages/admin/ui/lists/Lists.vue'),
+      meta: {
+        wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Lists',
+      },
+    },
   ],
 }
