@@ -24,7 +24,9 @@
     </va-navbar>
     <div class="app-layout__content">
       <sidebar/>
-      <router-view class="app-layout__page"/>
+      <div class="app-layout__page">
+        <router-view/>
+      </div>
     </div>
   </div>
 </template>
