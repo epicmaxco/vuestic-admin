@@ -278,7 +278,7 @@ export default {
         code: "vuestic-iconset-ui-elements",
         font: "vuestic-iconset"
       },
-      vuestic_maps: {
+      'vuestic-iconset-maps': {
         code: "vuestic-iconset-maps",
         font: "vuestic-iconset"
       },

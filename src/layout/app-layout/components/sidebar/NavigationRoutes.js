@@ -168,36 +168,36 @@ export default {
         },
       ],
     },
-    // {
-    //   name: 'maps',
-    //   displayName: 'menu.maps',
-    //   meta: {
-    //     iconClass: 'vuestic-iconset-maps',
-    //   },
-    //   disabled: true,
-    //   children: [
-    //     {
-    //       name: 'google-maps',
-    //       displayName: 'Google Maps',
-    //     },
-    //     {
-    //       name: 'yandex-maps',
-    //       displayName: 'Yandex Maps',
-    //     },
-    //     {
-    //       name: 'leaflet-maps',
-    //       displayName: 'Leaflet Maps',
-    //     },
-    //     {
-    //       name: 'bubble-maps',
-    //       displayName: 'Bubble Maps',
-    //     },
-    //     {
-    //       name: 'line-maps',
-    //       displayName: 'Line Maps',
-    //     },
-    //   ],
-    // },
+    {
+      name: 'maps',
+      displayName: 'menu.maps',
+      meta: {
+        iconClass: 'vuestic-iconset-maps',
+      },
+      disabled: true,
+      children: [
+        {
+          name: 'google-maps',
+          displayName: 'Google Maps',
+        },
+        {
+          name: 'yandex-maps',
+          displayName: 'Yandex Maps',
+        },
+        {
+          name: 'leaflet-maps',
+          displayName: 'Leaflet Maps',
+        },
+        {
+          name: 'bubble-maps',
+          displayName: 'Bubble Maps',
+        },
+        {
+          name: 'line-maps',
+          displayName: 'Line Maps',
+        },
+      ],
+    },
     // {
     //   name: 'pages',
     //   displayName: 'menu.pages',
