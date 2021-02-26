@@ -2,12 +2,12 @@
   font-family: 'IconicFill';
   font-style: normal;
   font-weight: normal;
-  src: url('./../sass/icon-fonts/iconicfill/iconicfill.eot');
+  src: url('./sass/icon-fonts/iconicfill/iconicfill.eot');
   src:
-    url('./../sass/icon-fonts/iconicfill/iconicfill.eot?#iefix') format('eot'),
-    url('./../sass/icon-fonts/iconicfill/iconicfill.woff') format('woff'),
-    url('./../sass/icon-fonts/iconicfill/iconicfill.ttf') format('truetype'),
-    url('./../sass/icon-fonts/iconicfill/iconicfill.svg#IconicFill') format('svg');
+    url('./sass/icon-fonts/iconicfill/iconicfill.eot?#iefix') format('eot'),
+    url('./sass/icon-fonts/iconicfill/iconicfill.woff') format('woff'),
+    url('./sass/icon-fonts/iconicfill/iconicfill.ttf') format('truetype'),
+    url('./sass/icon-fonts/iconicfill/iconicfill.svg#IconicFill') format('svg');
 }
 
 [class*="iconicfill-"]::before {

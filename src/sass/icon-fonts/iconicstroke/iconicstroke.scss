@@ -2,12 +2,12 @@
   font-family: 'IconicStroke';
   font-style: normal;
   font-weight: normal;
-  src: url('./../sass/icon-fonts/iconicstroke/iconicstroke.eot');
+  src: url('./sass/icon-fonts/iconicstroke/iconicstroke.eot');
   src:
-    url('./../sass/icon-fonts/iconicstroke/iconicstroke.eot?#iefix') format('eot'),
-    url('./../sass/icon-fonts/iconicstroke/iconicstroke.woff') format('woff'),
-    url('./../sass/icon-fonts/iconicstroke/iconicstroke.ttf') format('truetype'),
-    url('./../sass/icon-fonts/iconicstroke/iconicstroke.svg#IconicStroke') format('svg');
+    url('./sass/icon-fonts/iconicstroke/iconicstroke.eot?#iefix') format('eot'),
+    url('./sass/icon-fonts/iconicstroke/iconicstroke.woff') format('woff'),
+    url('./sass/icon-fonts/iconicstroke/iconicstroke.ttf') format('truetype'),
+    url('./sass/icon-fonts/iconicstroke/iconicstroke.svg#IconicStroke') format('svg');
 }
 
 [class*="iconicstroke-"]::before {

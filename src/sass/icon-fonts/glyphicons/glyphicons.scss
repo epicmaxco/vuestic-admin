@@ -1,49 +1,20 @@
-// Removed because does not support https.
-@import "../icon-fonts/icon-fonts";
-
-.i-nav {
-  display: inline-block;
-  height: 1.5rem;
-  width: 1.5rem;
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('./sass/icon-fonts/glyphicons/glyphicons.eot');
+  src:
+    url('./sass/icon-fonts/glyphicons/glyphicons.eot?#iefix') format('eot'),
+    url('./sass/icon-fonts/glyphicons/glyphicons.woff2') format('woff2'),
+    url('./sass/icon-fonts/glyphicons/glyphicons.woff') format('woff'),
+    url('./sass/icon-fonts/glyphicons/glyphicons.ttf') format('truetype'),
+    url('./sass/icon-fonts/glyphicons/glyphicons.svg') format('svg');
 }
 
-.i-nav-notification {
-  @extend .i-nav;
 
-  background: url('./../assets/icons/nav-notifications.svg') no-repeat center;
+[class*="glyphicons-"]::before {
+  font-family: 'Glyphicons Halflings', sans-serif;
+  font-style: normal;
 }
 
-.i-nav-color {
-  @extend .i-nav;
-
-  background: url('./../assets/icons/nav-color.svg') no-repeat center;
-}
-
-.i-nav-messages {
-  @extend .i-nav;
-
-  background: url('./../assets/icons/nav-messages.svg') no-repeat center;
-}
-
-.i-nav-search {
-  @extend .i-nav;
-
-  background: url('./../assets/icons/nav-search.svg') no-repeat center;
-}
-
-.i-menu-expanded {
-  @extend .i-nav;
-
-  background: url('./../assets/icons/menu-expanded.svg') no-repeat center;
-}
-
-.i-menu-collapsed {
-  @extend .i-nav;
-
-  background: url('./../assets/icons/menu-collapsed.svg') no-repeat center center;
-}
-
-// Catchall baseclass
 .glyphicon {
   position: relative;
   top: 1px;
