@@ -8,7 +8,7 @@
             <div class="flex xs12 lg6 xl4 mb-2">
               <div
                 class="title mb-3"
-                :style="{color: this.$themes.primary}"
+                :style="{color: theme.primary}"
               >{{$t('sliders.simple')}}</div>
               <va-slider
                 v-model="value"
@@ -17,7 +17,7 @@
             <div class="flex xs12 lg6 xl4 mb-2">
               <div
                 class="title title--danger mb-3"
-                :style="{color: this.$themes.danger}"
+                :style="{color: theme.danger}"
               >{{$t('sliders.value')}}</div>
               <va-slider
                 color="danger"
@@ -45,7 +45,7 @@
             <div class="flex xs12 lg6 xl4 mb-2">
               <div
                 class="title mb-3"
-                :style="{color: this.$themes.primary}"
+                :style="{color: theme.primary}"
               >{{$t('sliders.labelPlusIcon')}}</div>
               <va-slider
                 icon="music"
@@ -55,7 +55,7 @@
             <div class="flex xs12 lg6 xl4 mb-2">
               <div
                 class="title title--danger mb-3"
-                :style="{color: this.$themes.danger}"
+                :style="{color: theme.danger}"
               >{{$t('sliders.labelPlusIcon')}}</div>
               <va-slider
                 color="danger"
@@ -67,7 +67,7 @@
             <div class="flex xs12 lg6 xl4 mb-2">
               <div
                 class="title mb-3"
-                :style="{color: this.$themes.primary}"
+                :style="{color: theme.primary}"
               >{{$t('sliders.pins')}}</div>
               <va-slider
                 pins
@@ -78,7 +78,7 @@
             <div class="flex xs12 lg6 xl4 mb-2">
               <div
                 class="title title--warning mb-3"
-                :style="{color: this.$themes.warning}"
+                :style="{color: theme.warning}"
               >{{$t('sliders.pinsAndValue')}}</div>
               <va-slider
                 pins
@@ -113,7 +113,7 @@
             <div class="flex xs12 lg6 xl4 mb-2">
               <div
                 class="title mb-3"
-                :style="{color: this.$themes.primary}"
+                :style="{color: theme.primary}"
               >{{$t('sliders.simple')}}</div>
               <va-slider
                 range
@@ -123,7 +123,7 @@
             <div class="flex xs12 lg6 xl4 mb-2">
               <div
                 class="title title--danger mb-3"
-                :style="{color: this.$themes.danger}"
+                :style="{color: theme.danger}"
               >{{$t('sliders.value')}}</div>
               <va-slider
                 range
@@ -154,7 +154,7 @@
             <div class="flex xs12 lg6 xl4 mb-2">
               <div
                 class="title mb-3"
-                :style="{color: this.$themes.primary}"
+                :style="{color: theme.primary}"
               >{{$t('sliders.labelPlusIcon')}}</div>
               <va-slider
                 range
@@ -165,7 +165,7 @@
             <div class="flex xs12 lg6 xl4 mb-2">
               <div
                 class="title title--danger mb-3"
-                :style="{color: this.$themes.danger}"
+                :style="{color: theme.danger}"
               >{{$t('sliders.labelPlusIcon')}}</div>
               <va-slider
                 range
@@ -178,7 +178,7 @@
             <div class="flex xs12 lg6 xl4 mb-2">
               <div
                 class="title mb-3"
-                :style="{color: this.$themes.primary}"
+                :style="{color: theme.primary}"
               >{{$t('sliders.pins')}}</div>
               <va-slider
                 range
@@ -190,7 +190,7 @@
             <div class="flex xs12 lg6 xl4 mb-2">
               <div
                 class="title title--warning mb-3"
-                :style="{color: this.$themes.warning}"
+                :style="{color: theme.warning}"
               >{{$t('sliders.pinsAndValue')}}</div>
               <va-slider
                 range
@@ -225,6 +225,8 @@
 </template>
 
 <script>
+import { useTheme } from 'vuestic-ui'
+
 export default {
   name: 'sliders',
   data () {
@@ -233,5 +235,10 @@ export default {
       value2: [20, 60],
     }
   },
+  computed: {
+    theme() {
+      return useTheme().getTheme()
+    }
+  }
 }
 </script>
