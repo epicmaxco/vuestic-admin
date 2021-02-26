@@ -38,6 +38,8 @@
 </template>
 
 <script>
+import { useTheme } from 'vuestic-ui'
+
 export default {
   name: 'toast-position-picker',
 
@@ -49,9 +51,12 @@ export default {
   },
 
   computed: {
+    theme() {
+      return useTheme().getTheme()
+    },
     computedStyle () {
       return {
-        backgroundColor: this.$themes.primary,
+        backgroundColor: this.theme.primary,
       }
     },
   },

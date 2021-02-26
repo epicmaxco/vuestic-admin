@@ -8,37 +8,49 @@
           <va-card-content>
             <div class="mb-3">
               <va-alert closeable>
-                <va-badge slot="icon" :text="$t('notificationsPage.notifications.success')" />
+                <template #icon>
+                  <va-badge :text="$t('notificationsPage.notifications.success')" />
+                </template>
                 {{ $t('notificationsPage.notifications.successMessage') }}
               </va-alert>
             </div>
             <div class="mb-3">
               <va-alert color="info" closeable>
-                <va-badge color="info" slot="icon" :text="$t('notificationsPage.notifications.info')" />
+                <template #icon>
+                  <va-badge color="info" :text="$t('notificationsPage.notifications.info')" />
+                </template>
                 {{ $t('notificationsPage.notifications.infoMessage') }}
               </va-alert>
             </div>
             <div class="mb-3">
               <va-alert color="warning" closeable>
-                <va-badge color="warning" slot="icon" :text="$t('notificationsPage.notifications.warning')" />
+                <template #icon>
+                  <va-badge color="warning" :text="$t('notificationsPage.notifications.warning')" />
+                </template>
                 {{ $t('notificationsPage.notifications.warningMessage') }}
               </va-alert>
             </div>
             <div class="mb-3">
               <va-alert color="danger" closeable>
-                <va-badge color="danger" slot="icon" :text="$t('notificationsPage.notifications.danger')" />
+                <template #icon>
+                  <va-badge color="danger" :text="$t('notificationsPage.notifications.danger')" />
+                </template>
                 {{ $t('notificationsPage.notifications.dangerMessage') }}
               </va-alert>
             </div>
             <div class="mb-3">
               <va-alert color="gray" closeable>
-                <va-badge color="gray" slot="icon" :text="$t('notificationsPage.notifications.gray')" />
+                <template #icon>
+                  <va-badge color="gray" :text="$t('notificationsPage.notifications.gray')" />
+                </template>
                 {{ $t('notificationsPage.notifications.warningMessage') }}
               </va-alert>
             </div>
             <div class="mb-3">
               <va-alert color="dark" closeable>
-                <va-badge color="dark" slot="icon" :text="$t('notificationsPage.notifications.dark')" />
+                <template #icon>
+                  <va-badge color="dark" :text="$t('notificationsPage.notifications.dark')" />
+                </template>
                 {{ $t('notificationsPage.notifications.dangerMessage') }}
               </va-alert>
             </div>
@@ -88,7 +100,8 @@
               </div>
             </div>
             <div class="flex xs12">
-              <va-button class="ma-0" color="primary" slot="trigger" @click="launchToast">
+              <!-- There was slot="trigger" -->
+              <va-button class="ma-0" color="primary" @click="launchToast">
                 {{ $t('notificationsPage.toasts.launchToast') }}
               </va-button>
             </div>
