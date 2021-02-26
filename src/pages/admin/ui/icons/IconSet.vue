@@ -4,7 +4,7 @@
       <va-card-title>
         <h2
           class="my-0 ml-2"
-          :style="{ color: this.$themes.dark }"
+          :style="{ color: theme.dark }"
         >
           {{ iconSet.name }}
         </h2>
@@ -23,7 +23,6 @@
             class="mb-0"
             style="max-width: 300px;"
             removable
-            required
           >
             <template v-slot:prependInner>
               <va-icon class="icon-left input-icon" name="search"/>
@@ -34,7 +33,7 @@
         <div class="flex md4 xs12 ma-0 flex-center content icon-set__header__size">
           <span
             class="ma-2 pr-2 shrink icon-set__header__size--smaller"
-            :style="{ color: this.$themes.dark }"
+            :style="{ color: theme.dark }"
           >
             A
           </span>
@@ -49,7 +48,7 @@
           </va-slider>
           <span
             class="ma-2 pl-2 shrink icon-set__header__size--bigger"
-            :style="{ color: this.$themes.dark }"
+            :style="{ color: theme.dark }"
           >
             A
           </span>
@@ -88,6 +87,8 @@
 </template>
 
 <script>
+import { useTheme } from 'vuestic-ui'
+
 export default {
   name: 'icon-set',
   props: {
@@ -111,6 +112,9 @@ export default {
     }
   },
   computed: {
+    theme () {
+      return useTheme().getTheme()
+    },
     iconSet () {
       for (const set of this.sets) {
         if (set.href === this.name) {return set}

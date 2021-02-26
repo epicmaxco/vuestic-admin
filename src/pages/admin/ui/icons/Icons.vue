@@ -25,6 +25,7 @@ export default {
     sets () {
       const sets = []
       iconTypes.forEach(iconType => {
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
         const set = require('./sets/' + iconType + '.json')
         this.addFilteredListsTo(set)
         sets.push(set)

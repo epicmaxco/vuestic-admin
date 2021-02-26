@@ -6,10 +6,10 @@
         v-for="(set, index) in sets"
         :key="index"
       >
-        <router-link :to="{path: set.href}" style="color: inherit;">
+        <router-link :to="{ path: `icons/${set.href}` }" append style="color: inherit;">
           <div class="sets-list__set__content">
             <div class="sets-list__set__content__overlay flex-center pa-3 fill-height">
-              <va-button :to="{path: set.href}" append>
+              <va-button>
                 {{set.name.toUpperCase()}}
               </va-button>
             </div>
@@ -59,7 +59,9 @@
 <script>
 export default {
   name: 'iconsList',
-  props: ['sets'],
+  props: {
+    sets: { type: Array, required: true },
+  },
   methods: {
     iconClass (set, icon) {
       return set.prefix === 'material-icons' ? set.prefix : set.prefix + ' ' + set.prefix + '-' + icon
