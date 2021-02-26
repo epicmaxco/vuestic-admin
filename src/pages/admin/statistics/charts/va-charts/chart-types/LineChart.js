@@ -1,7 +1,6 @@
 import { Line } from 'vue-chartjs'
-import { chartMixin } from './chartMixin'
+import chartMixin from './chartMixin.js'
 
 export default {
-  extends: Line,
-  mixins: [chartMixin],
+  mixins: [chartMixin, Line],
 }

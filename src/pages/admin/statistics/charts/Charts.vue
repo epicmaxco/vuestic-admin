@@ -1,5 +1,5 @@
 <template>
-  <div class="charts">
+  <div class="charts" v-if="isMounted">
     <div class="row">
       <div class="flex md6 xs12">
         <va-card
@@ -71,24 +71,37 @@ import { getHorizontalBarChartData } from './data/HorizontalBarChartData'
 import VaChart from './va-charts/VaChart'
 import { useTheme } from 'vuestic-ui'
 
-const theme = useTheme().getTheme() || {}
-
 export default {
   name: 'charts',
   components: { VaChart },
   data () {
     return {
-      bubbleChartData: getBubbleChartData(theme),
-      lineChartData: getLineChartData(theme),
-      pieChartData: getPieChartData(theme),
-      donutChartData: getDonutChartData(theme),
-      verticalBarChartData: getVerticalBarChartData(theme),
-      horizontalBarChartData: getHorizontalBarChartData(theme),
+      bubbleChartData: null,
+      lineChartData: null,
+      pieChartData: null,
+      donutChartData: null,
+      verticalBarChartData: null,
+      horizontalBarChartData: null,
+      isMounted: false,
+    }
+  },
+  mounted() {
+    this.isMounted = true
+    this.bubbleChartData = getBubbleChartData(this.theme)
+    this.lineChartData = getLineChartData(this.theme)
+    this.pieChartData = getPieChartData(this.theme)
+    this.donutChartData = getDonutChartData(this.theme)
+    this.verticalBarChartData = getVerticalBarChartData(this.theme)
+    this.horizontalBarChartData = getHorizontalBarChartData(this.theme)
+  },
+  computed: {
+    theme() {
+      return useTheme().getTheme()
     }
   },
   methods: {
     refreshData () {
-      this.lineChartData = getLineChartData(theme)
+      this.lineChartData = getLineChartData(this.theme)
     },
   },
 }

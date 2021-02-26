@@ -1,7 +1,6 @@
 import { Pie } from 'vue-chartjs'
-import { chartMixin } from './chartMixin'
+import chartMixin from './chartMixin.js'
 
 export default {
-  extends: Pie,
-  mixins: [chartMixin],
+  mixins: [chartMixin, Pie],
 }

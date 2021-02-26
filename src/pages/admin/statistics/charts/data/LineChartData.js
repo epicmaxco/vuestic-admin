@@ -1,3 +1,9 @@
+
+// TODO: take thins function from vuestic-ui
+function hex2rgb(color) {
+  return { css: color }
+}
+
 const generateValue = () => {
   return Math.floor(Math.random() * 100)
 }

@@ -1,4 +1,7 @@
-let generatedData: any
+let generatedData: {
+  labels: string[];
+  datasets: {label: string; backgroundColor: string[]; data: number[]}[];
+}
 
 export const getDonutChartData = (themes: ColorThemes) => {
   if (generatedData) {

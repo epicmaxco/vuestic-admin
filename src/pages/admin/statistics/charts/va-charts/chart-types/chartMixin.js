@@ -1,7 +1,8 @@
 import { mixins } from 'vue-chartjs'
 import { defaultConfig } from '../VaChartConfigs'
+import { h as createElement } from 'vue'
 
-export const chartMixin = {
+export default {
   mixins: [mixins.reactiveProp],
   props: ['data', 'chartOptions'],
   mounted () {
@@ -33,5 +34,27 @@ export const chartMixin = {
     options () {
       return Object.assign({}, defaultConfig, this.chartOptions)
     },
+  },
+  // TODO: temp fix for vue3
+  render: function () {
+    return createElement(
+      'div', {
+        id: 'Hello',
+        style: this.styles,
+        class: this.cssClasses
+      },
+      [
+        createElement(
+          'canvas', {
+            attrs: {
+              id: this.chartId,
+              width: this.width,
+              height: this.height
+            },
+            ref: 'canvas'
+          }
+        )
+      ]
+    )
   },
 }
