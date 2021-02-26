@@ -24,7 +24,6 @@
 import { useColor } from 'vuestic-ui'
 
 
-const computeColor = useColor()
 // NOTE This component is a tad weird.
 // It's not part of presentation nor is it UI component.
 // Could be seen as `playground` of sorts.
@@ -88,7 +87,7 @@ export default {
         // return getGradientBackground(this.colorComputed)
       }
 
-      return computeColor(this.color)
+      return useColor()(this.color)
     },
   },
 }
