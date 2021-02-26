@@ -15,6 +15,7 @@ export const defaultConfig = {
   },
   responsive: true,
   maintainAspectRatio: false,
+  animation: false,
 }
 
 export const chartTypesMap = {

@@ -41,6 +41,11 @@ export default {
       return chartTypesMap[this.type]
     },
   },
+  methods: {
+    refresh() {
+      this.$refs.chart.refresh()
+    },
+  }
 }
 </script>
 

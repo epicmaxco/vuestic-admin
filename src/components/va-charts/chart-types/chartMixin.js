@@ -3,9 +3,11 @@ import { defaultConfig } from '../VaChartConfigs'
 import { h as createElement } from 'vue'
 
 export default {
+  name: 'VaChart',
   mixins: [mixins.reactiveProp],
   props: ['data', 'chartOptions'],
   mounted () {
+    console.log('Mounted')
     this.refresh()
   },
   watch: {

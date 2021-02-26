@@ -62,13 +62,13 @@
 </template>
 
 <script>
+import VaChart from '@/components/va-charts/VaChart'
 import { getLineChartData } from './data/LineChartData'
 import { getBubbleChartData } from './data/BubbleChartData'
 import { getPieChartData } from './data/PieChartData'
 import { getDonutChartData } from './data/DonutChartData'
 import { getVerticalBarChartData } from './data/VerticalBarChartData'
 import { getHorizontalBarChartData } from './data/HorizontalBarChartData'
-import VaChart from './va-charts/VaChart'
 import { useTheme } from 'vuestic-ui'
 
 export default {

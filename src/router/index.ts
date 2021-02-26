@@ -18,9 +18,7 @@ const routes: Array<RouteRecordRaw> = [
       {
         name: 'dashboard',
         path: 'dashboard',
-        // component: () => import('@/pages/admin/dashboard/Dashboard.vue'),
-        // TODO: temp fix
-        component: RouteViewComponent,
+        component: () => import('@/pages/admin/dashboard/Dashboard.vue'),
       },
       {
         name: 'statistics',
