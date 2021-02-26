@@ -1,4 +1,3 @@
-// @ts-ignore
 // import { ColorThemeActionsMixin } from 'vuestic-ui/src/services/ColorThemePlugin' // TODO
 // import { ColorThemeMixin, ColorThemeActionsMixin } from 'vuestic-ui/src/services/ColorThemePlugin'
 // // import { getHoverColor, getGradientBackground, hex2rgb, hex2hsl } from 'vuestic-ui/src/services/color-functions'
