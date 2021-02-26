@@ -8,14 +8,14 @@ export default {
       name: 'dashboard',
       displayName: 'menu.dashboard',
       meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-dashboard',
+        iconClass: 'vuestic_dashboard',
       },
     },
     {
       name: 'statistics',
       displayName: 'menu.statistics',
       meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-statistics',
+        iconClass: 'vuestic_statistics',
       },
       disabled: true,
       children: [
@@ -33,7 +33,7 @@ export default {
       name: 'forms',
       displayName: 'menu.forms',
       meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-forms',
+        iconClass: 'vuestic_forms',
       },
       disabled: true,
       children: [
@@ -47,28 +47,28 @@ export default {
         },
       ],
     },
-    // {
-    //   name: 'tables',
-    //   displayName: 'menu.tables',
-    //   meta: {
-    //     iconClass: 'vuestic-iconset vuestic-iconset-tables',
-    //   },
-    //   children: [
-    //     {
-    //       name: 'markup',
-    //       displayName: 'menu.markupTables',
-    //     },
-    //     {
-    //       name: 'data',
-    //       displayName: 'menu.dataTables',
-    //     },
-    //   ],
-    // },
+    {
+      name: 'tables',
+      displayName: 'menu.tables',
+      meta: {
+        iconClass: 'vuestic-iconset-tables',
+      },
+      children: [
+        {
+          name: 'markup',
+          displayName: 'menu.markupTables',
+        },
+        {
+          name: 'data',
+          displayName: 'menu.dataTables',
+        },
+      ],
+    },
     {
       name: 'ui',
       displayName: 'menu.uiElements',
       meta: {
-        iconClass: 'vuestic-iconset vuestic-iconset-ui-elements',
+        iconClass: 'vuestic_ui_elements',
       },
       disabled: true,
       children: [
@@ -80,30 +80,30 @@ export default {
           name: 'cards',
           displayName: 'menu.cards',
         },
-        // {
-        //   name: 'chat',
-        //   displayName: 'menu.chat',
-        // },
-        // {
-        //   name: 'chips',
-        //   displayName: 'menu.chips',
-        // },
-        // {
-        //   name: 'collapses',
-        //   displayName: 'menu.collapses',
-        // },
-        // {
-        //   name: 'colors',
-        //   displayName: 'menu.colors',
-        // },
-        // {
-        //   name: 'color-pickers',
-        //   displayName: 'menu.colorPickers',
-        // },
-        // {
-        //   name: 'file-upload',
-        //   displayName: 'menu.fileUpload',
-        // },
+        {
+          name: 'chat',
+          displayName: 'menu.chat',
+        },
+        {
+          name: 'chips',
+          displayName: 'menu.chips',
+        },
+        {
+          name: 'collapses',
+          displayName: 'menu.collapses',
+        },
+        {
+          name: 'colors',
+          displayName: 'menu.colors',
+        },
+        {
+          name: 'color-pickers',
+          displayName: 'menu.colorPickers',
+        },
+        {
+          name: 'file-upload',
+          displayName: 'menu.fileUpload',
+        },
         {
           name: 'grid',
           displayName: 'menu.grid',
@@ -118,61 +118,61 @@ export default {
             },
           ],
         },
-        // {
-        //   name: 'lists',
-        //   displayName: 'menu.lists',
-        // },
-        // {
-        //   name: 'modals',
-        //   displayName: 'menu.modals',
-        // },
-        // {
-        //   name: 'notifications',
-        //   displayName: 'menu.notifications',
-        // },
-        // {
-        //   name: 'popovers',
-        //   displayName: 'menu.popovers',
-        // },
-        // {
-        //   name: 'rating',
-        //   displayName: 'menu.rating',
-        // },
-        // {
-        //   name: 'sliders',
-        //   displayName: 'menu.sliders',
-        // },
-        // {
-        //   name: 'spacing',
-        //   displayName: 'menu.spacing',
-        // },
+        {
+          name: 'lists',
+          displayName: 'menu.lists',
+        },
+        {
+          name: 'modals',
+          displayName: 'menu.modals',
+        },
+        {
+          name: 'notifications',
+          displayName: 'menu.notifications',
+        },
+        {
+          name: 'popovers',
+          displayName: 'menu.popovers',
+        },
+        {
+          name: 'rating',
+          displayName: 'menu.rating',
+        },
+        {
+          name: 'sliders',
+          displayName: 'menu.sliders',
+        },
+        {
+          name: 'spacing',
+          displayName: 'menu.spacing',
+        },
         // {
         //   name: 'spinners',
         //   displayName: 'menu.spinners',
         // },
-        // {
-        //   name: 'tabs',
-        //   displayName: 'menu.tabs',
-        // },
-        // {
-        //   name: 'timelines',
-        //   displayName: 'menu.timelines',
-        // },
-        // {
-        //   name: 'tree-view',
-        //   displayName: 'menu.treeView',
-        // },
-        // {
-        //   name: 'typography',
-        //   displayName: 'menu.typography',
-        // },
+        {
+          name: 'tabs',
+          displayName: 'menu.tabs',
+        },
+        {
+          name: 'timelines',
+          displayName: 'menu.timelines',
+        },
+        {
+          name: 'tree-view',
+          displayName: 'menu.treeView',
+        },
+        {
+          name: 'typography',
+          displayName: 'menu.typography',
+        },
       ],
     },
     // {
     //   name: 'maps',
     //   displayName: 'menu.maps',
     //   meta: {
-    //     iconClass: 'vuestic-iconset vuestic-iconset-maps',
+    //     iconClass: 'vuestic-iconset-maps',
     //   },
     //   disabled: true,
     //   children: [
@@ -202,7 +202,7 @@ export default {
     //   name: 'pages',
     //   displayName: 'menu.pages',
     //   meta: {
-    //     iconClass: 'vuestic-iconset vuestic-iconset-files',
+    //     iconClass: 'vuestic-iconset-files',
     //   },
     //   disabled: true,
     //   children: [

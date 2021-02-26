@@ -37,7 +37,6 @@ import NavigationRoutes from './sidebar/NavigationRoutes';
 
 export default {
   name: "app-sidebar",
-  inject: ["contextConfig"],
   components: {
     AppSidebarLink,
     AppSidebarLinkGroup

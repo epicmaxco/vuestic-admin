@@ -12,12 +12,12 @@
       :target="target"
     >
       <!-- TODO:  -->
-      <!-- <va-icon
+      <va-icon
         v-if="icon"
         class="app-sidebar-link__item-icon"
         :style="computedIconStyles"
         :name="icon"
-      /> -->
+      />
       <div class="app-sidebar-link__item-title" v-if="title">
         <slot>
           {{title}}
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { shiftHslColor, ColorThemeMixin } from '../../../../services/vuestic-ui'
+import { useTheme } from 'vuestic-ui';
 
 export default {
   name: 'app-sidebar-link',
@@ -82,6 +82,9 @@ export default {
     },
   },
   computed: {
+    theme() {
+      return useTheme().getTheme();
+    },
     computedLinkClass () {
       return {
         'app-sidebar-link--minimized': this.minimized,
@@ -91,30 +94,24 @@ export default {
       const style = {}
 
       // if (this.contextConfig.invertedColor) {
-      //   if (this.isHovered || this.isActive) {
+      if (!(this.isHovered || this.isActive)) {
       //     style.color = 'white'
       //   } else {
       //     style.color = this.$themes.gray
       //   }
       // } else {
-      //   style.color = this.$themes.primary
-      // }
+        style.color = this.theme.primary
+      }
 
-      // if (this.isHovered || this.isActive) {
-      //   style.backgroundColor = this.contextConfig.gradient ? shiftHslColor(this.$themes.secondary, {
-      //     s: -13,
-      //     l: 15,
-      //   }) : this.$themes.primary
+      if (this.isHovered || this.isActive) {
+        style.backgroundColor = this.theme.primary;
 
-      //   if (this.contextConfig.gradient) {
-      //     style.borderColor = this.isActive ? this.$themes.primary : 'transparent'
-      //   } else {
-      //     style.borderColor = shiftHslColor(this.$themes.primary, {
-      //       s: 13,
-      //       l: -15,
-      //     })
-      //   }
-      // }
+        // if (this.contextConfig.gradient) {
+        //   style.borderColor = this.isActive ? this.theme.primary : 'transparent'
+        // } else {
+          style.borderColor = this.theme.primary
+        // }
+      }
 
       return style
     },
