@@ -270,7 +270,7 @@ export default {
         code: "vuestic-iconset-forms",
         font: "vuestic-iconset"
       },
-      vuestic_tables: {
+      'vuestic-iconset-tables': {
         code: "vuestic-iconset-tables",
         font: "vuestic-iconset"
       },
