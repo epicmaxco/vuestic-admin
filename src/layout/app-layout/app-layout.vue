@@ -33,8 +33,8 @@
 
 <script>
 import { useTheme } from 'vuestic-ui'
-import VuesticLogo from './components/vuestic-logo.vue'
-import Sidebar from './components/sidebar.vue';
+import VuesticLogo from '@/components/vuestic-logo'
+import Sidebar from '@/components/sidebar';
 
 export default {
   name: 'app-layout',

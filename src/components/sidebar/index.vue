@@ -31,9 +31,9 @@
 </template>
 
 <script>
-import AppSidebarLink from "./sidebar/AppSidebarLink";
-import AppSidebarLinkGroup from "./sidebar/AppSidebarLinkGroup";
-import NavigationRoutes from './sidebar/NavigationRoutes';
+import AppSidebarLink from "./AppSidebarLink";
+import AppSidebarLinkGroup from "./AppSidebarLinkGroup";
+import NavigationRoutes from './NavigationRoutes';
 
 export default {
   name: "app-sidebar",

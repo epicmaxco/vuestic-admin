@@ -51,7 +51,6 @@
 
 <script>
 // import TransitionExpand from './TransitionExpand'
-import { shiftHslColor, ColorThemeMixin } from '../../../../services/vuestic-ui'
 import AppSidebarLink from './AppSidebarLink'
 
 export default {
