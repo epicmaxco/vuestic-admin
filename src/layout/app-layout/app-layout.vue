@@ -2,7 +2,7 @@
   <div class="app-layout">
     <va-navbar class="app-layout__navbar">
       test
-      <template v-slot:logo>
+      <template v-slot:left>
         <vuestic-logo/>
       </template>
       <template v-slot:center>
