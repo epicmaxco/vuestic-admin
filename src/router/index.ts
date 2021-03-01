@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import AuthLayout from '@/components/auth/AuthLayout.vue'
+import AuthLayout from '@/pages/auth/AuthLayout.vue'
 import AppLayout from '@/layout/app-layout/app-layout.vue'
 
 import RouteViewComponent from './route-view.vue'
@@ -146,17 +146,17 @@ const routes: Array<RouteRecordRaw> = [
       {
         name: 'login',
         path: 'login',
-        component: () => import('../components/auth/login/Login.vue'),
+        component: () => import('@/pages/auth/login/Login.vue'),
       },
       {
         name: 'signup',
         path: 'signup',
-        component: () => import('../components/auth/signup/Signup.vue'),
+        component: () => import('@/pages/auth/signup/Signup.vue'),
       },
       {
         name: 'recover-password',
         path: 'recover-password',
-        component: () => import('../components/auth/recover-password/RecoverPassword.vue'),
+        component: () => import('@/pages/auth/recover-password/RecoverPassword.vue'),
       },
       {
         path: '',

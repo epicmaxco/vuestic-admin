@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="onsubmit">
-    <!-- <va-input
+    <va-input
       class="mb-3"
       v-model="email"
       type="email"
@@ -16,7 +16,7 @@
       :label="$t('auth.password')"
       :error="!!passwordErrors.length"
       :error-messages="passwordErrors"
-    /> -->
+    />
 
     <div class="auth-layout__options d-flex align--center justify--space-between">
       <!-- <va-checkbox v-model="keepLoggedIn" class="mb-0" :label="$t('auth.keep_logged_in')"/> -->
