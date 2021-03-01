@@ -56,7 +56,7 @@
 
 <script>
 import countriesList from '@/data/CountriesList'
-import { getLineMapData } from '@/assets/data/maps/LineMapData'
+import { getLineMapData } from '@/data/maps/LineMapData'
 import { useTheme } from 'vuestic-ui';
 
 export default {
