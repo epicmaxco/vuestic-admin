@@ -1,34 +1,34 @@
 <template>
-  <va-card
-    :title="$t('dashboard.charts.topContributors')"
-    class="d-flex dashboard-contributors-list"
-  >
-    <template #actions>
+  <va-card class="d-flex dashboard-contributors-list">
+    <va-card-title>
+      {{ $t('dashboard.charts.topContributors') }}
       <va-button
-        flat small
+        flat size="small"
         class="mr-0"
         :disabled="contributors.length <= step"
         @click="showNext"
       >
         {{ $t('dashboard.charts.showNextFive') }}
       </va-button>
-    </template>
+    </va-card-title>
 
-    <va-inner-loading :loading="loading">
-      <div
-        class="mb-3"
-        v-for="(contributor, idx) in visibleList"
-        :key="idx"
-      >
-        <va-progress-bar
-          :value="getPercent(contributor.contributions)"
-          :color="getRandomColor()"
+    <va-card-content>
+      <va-inner-loading :loading="loading" style="width: 100%;">
+        <div
+          class="mb-3"
+          v-for="(contributor, idx) in visibleList"
+          :key="idx"
         >
-          {{ contributor.contributions }} {{ $t('dashboard.charts.commits') }}
-        </va-progress-bar>
-        <p class="mt-2">{{ contributor.login }}</p>
-      </div>
-    </va-inner-loading>
+          <va-progress-bar
+            :modelValue="getPercent(contributor.contributions)"
+            :color="getRandomColor()"
+          >
+            {{ contributor.contributions }} {{ $t('dashboard.charts.commits') }}
+          </va-progress-bar>
+          <p class="mt-2">{{ contributor.login }}</p>
+        </div>
+      </va-inner-loading>
+    </va-card-content>
   </va-card>
 </template>
 

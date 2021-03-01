@@ -1,18 +1,23 @@
 <template>
-  <va-card :title="$t('dashboard.setupRemoteConnections')">
-    <va-tabs grow v-model="tabsState">
-      <va-tab>
-        {{$t('dashboard.tabs.overview.title')}}
-      </va-tab>
-      <va-tab>
-        {{$t('dashboard.tabs.billingAddress.title')}}
-      </va-tab>
-      <va-tab>
-        {{$t('dashboard.tabs.bankDetails.title')}}
-      </va-tab>
-    </va-tabs>
-    <va-separator/>
-    <component :is="tabs[tabsState]" @submit="submit"/>
+  <va-card>
+    <va-card-title>
+      {{ $t('dashboard.setupRemoteConnections') }}
+    </va-card-title>
+    <va-card-content>
+      <va-tabs grow v-model="activeTabName">
+        <va-tab name="OverviewTab">
+          {{$t('dashboard.tabs.overview.title')}}
+        </va-tab>
+        <va-tab name="BillingAddressTab">
+          {{$t('dashboard.tabs.billingAddress.title')}}
+        </va-tab>
+        <va-tab name="BankDetailsTab">
+          {{$t('dashboard.tabs.bankDetails.title')}}
+        </va-tab>
+      </va-tabs>
+      <va-separator/>
+      <component :is="activeTabName" @submit="submit"/>
+    </va-card-content>
   </va-card>
 </template>
 
@@ -30,7 +35,7 @@ export default {
   },
   data () {
     return {
-      tabsState: 1,
+      activeTabName: 'BillingAddressTab',
       tabs: [
         'OverviewTab',
         'BillingAddressTab',

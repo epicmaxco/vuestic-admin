@@ -5,7 +5,7 @@
       <div class="flex xs12 xl6 mb-5">
         <div class="overview-tab__item d-flex align--center">
           <div class="overview-tab__item-icon fill-height mr-2">
-            <!-- <va-icon-vue/> -->
+            <va-icon-vue/>
           </div>
           <div class="text--bold">{{$t('dashboard.tabs.overview.built')}}</div>
         </div>
@@ -14,7 +14,7 @@
       <div class="flex xs12 xl6 mb-5">
         <div class="overview-tab__item d-flex align--center">
           <div class="overview-tab__item-icon fill-height mr-2">
-            <!-- <va-icon-responsive/> -->
+            <va-icon-responsive/>
           </div>
           <div class="text--bold">{{$t('dashboard.tabs.overview.mobile')}}</div>
         </div>
@@ -25,7 +25,7 @@
       <div class="flex xs12 xl6 mb-5">
         <div class="overview-tab__item d-flex align--center">
           <div class="overview-tab__item-icon fill-height mr-2">
-            <!-- <va-icon-free/> -->
+            <va-icon-free/>
           </div>
           <div class="text--bold">{{$t('dashboard.tabs.overview.free')}}</div>
         </div>
@@ -34,7 +34,7 @@
       <div class="flex xs12 xl6 mb-5">
         <div class="overview-tab__item d-flex align--center">
           <div class="overview-tab__item-icon fill-height mr-2">
-            <!-- <va-icon-rich/> -->
+            <va-icon-rich/>
           </div>
           <div class="text--bold">{{$t('dashboard.tabs.overview.components')}}</div>
         </div>
@@ -45,7 +45,7 @@
       <div class="flex xs12 xl6 mb-5">
         <div class="overview-tab__item d-flex align--center">
           <div class="overview-tab__item-icon fill-height mr-2">
-            <!-- <va-icon-fresh/> -->
+            <va-icon-fresh/>
           </div>
           <div class="text--bold">{{$t('dashboard.tabs.overview.fresh')}}</div>
         </div>
@@ -54,7 +54,7 @@
       <div class="flex xs12 xl6">
         <div class="overview-tab__item d-flex align--center">
           <div class="overview-tab__item-icon fill-height mr-2">
-            <!-- <va-icon-clean-code/> -->
+            <va-icon-clean-code/>
           </div>
           <div class="text--bold">{{$t('dashboard.tabs.overview.nojQuery')}}</div>
         </div>
@@ -64,22 +64,22 @@
 </template>
 
 <script>
-// import VaIconVue from '../../../iconset/VaIconVue.vue'
-// import VaIconFree from '../../../iconset/VaIconFree.vue'
-// import VaIconFresh from '../../../iconset/VaIconFresh.vue'
-// import VaIconResponsive from '../../../iconset/VaIconResponsive.vue'
-// import VaIconRich from '../../../iconset/VaIconRich.vue'
-// import VaIconCleanCode from '../../../iconset/VaIconCleanCode.vue'
+import VaIconVue from '@/components/icons/VaIconVue.vue'
+import VaIconFree from '@/components/icons/VaIconFree.vue'
+import VaIconFresh from '@/components/icons/VaIconFresh.vue'
+import VaIconResponsive from '@/components/icons/VaIconResponsive.vue'
+import VaIconRich from '@/components/icons/VaIconRich.vue'
+import VaIconCleanCode from '@/components/icons/VaIconCleanCode.vue'
 
 export default {
   name: 'overview-tab',
   components: {
-    // VaIconCleanCode,
-    // VaIconRich,
-    // VaIconResponsive,
-    // VaIconFresh,
-    // VaIconFree,
-    // VaIconVue,
+    VaIconCleanCode,
+    VaIconRich,
+    VaIconResponsive,
+    VaIconFresh,
+    VaIconFree,
+    VaIconVue,
   },
 }
 </script>
