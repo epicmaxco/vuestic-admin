@@ -237,6 +237,14 @@ export default {
         code: "fa-check-circle",
         font: "fa4"
       },
+      'chevron-left': {
+        code: "chevron-left",
+        font: "fa4"
+      },
+      'chevron-right': {
+        code: "chevron-right",
+        font: "fa4"
+      },
       add: {
         code: "add"
       },
