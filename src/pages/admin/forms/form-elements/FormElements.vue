@@ -231,25 +231,25 @@
               </div>
               <div class="flex md3">
                 <fieldset>
-                  <va-radio-button
+                  <va-radio
                     option="option1"
                     v-model="radioSelectedOption"
                     label="Radio"
                   />
-                  <va-radio-button
+                  <va-radio
                     option="option2"
                     v-model="radioSelectedOption"
                     label="Radio"
                   />
                 </fieldset>
                 <fieldset>
-                  <va-radio-button
+                  <va-radio
                     option="option1"
                     disabled
                     v-model="radioSelectedDisableOption"
                     label="Disabled Radio"
                   />
-                  <va-radio-button
+                  <va-radio
                     option="option2"
                     disabled
                     v-model="radioSelectedDisableOption"
@@ -259,25 +259,25 @@
               </div>
               <div class="flex mb3">
                 <fieldset>
-                  <va-toggle
+                  <va-switch
                     v-model="toggles.selected"
                     label="Selected toggle"
                   />
-                  <va-toggle
+                  <va-switch
                     v-model="toggles.unselected"
                     label="Unselected toggle"
                   />
-                  <va-toggle
+                  <va-switch
                     v-model="toggles.disabled"
                     disable
                     label="Disabled toggle"
                   />
-                  <va-toggle
+                  <va-switch
                     v-model="toggles.disabled"
                     small
                     label="Small toggle"
                   />
-                  <va-toggle
+                  <va-switch
                     v-model="toggles.disabled"
                     large
                     label="Large toggle"

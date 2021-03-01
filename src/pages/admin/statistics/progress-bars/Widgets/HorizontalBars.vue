@@ -3,17 +3,17 @@
     class="horizontal-bars"
     :title="$t('progressBars.horizontal')"
   >
-    <div class="row">
+    <va-card-content class="row">
       <div class="flex md4 xs12">
-        <va-progress-bar :value="value / 3"/>
+        <va-progress-bar :modelValue="value / 3"/>
       </div>
       <div class="flex md4 xs12">
-        <va-progress-bar :value="value2"/>
+        <va-progress-bar :modelValue="value2"/>
       </div>
       <div class="flex md4 xs12">
-        <va-progress-bar :value="value3"/>
+        <va-progress-bar :modelValue="value3"/>
       </div>
-    </div>
+    </va-card-content>
   </va-card>
 </template>
 

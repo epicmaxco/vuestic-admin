@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import LineMap from './LineMap'
-import { getLineMapData } from '../data/LineMapData'
+import LineMap from '@/components/maps/LineMap'
+import { getLineMapData } from '@/assets/data/maps/LineMapData'
 import { useTheme } from 'vuestic-ui'
 
 export default {

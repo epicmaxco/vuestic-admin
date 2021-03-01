@@ -18,7 +18,7 @@
 
 <script>
 import BubbleMap from './BubbleMap'
-import BubbleMapData from '../data/BubbleMapData'
+import BubbleMapData from '@/assets/data/maps/BubbleMapData'
 
 export default {
   name: 'bubble-maps-page',
