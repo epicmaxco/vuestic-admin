@@ -36,7 +36,19 @@ export default {
       return Object.assign({}, defaultConfig, this.chartOptions)
     },
   },
-  // TODO: temp fix for vue3
+  
+  /**
+   * Fix for vue3. Wait for vue-chartjs package will fix this.
+   * 
+   * Problem: they use old vue2 style in their mixin:
+   * ```vue
+   *  render: function(h) {
+   *    return h('div')
+   *  }
+   * ```
+   * 
+   * In vue3 we need to use `createElement` from 'vue' package.
+   */
   render: function () {
     return createElement(
       'div', {
