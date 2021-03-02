@@ -11,7 +11,6 @@
       :to="to"
       :target="target"
     >
-      <!-- TODO:  -->
       <va-icon
         v-if="icon"
         class="app-sidebar-link__item-icon"
@@ -24,13 +23,14 @@
         </slot>
       </div>
 
-      <!-- <va-icon
+      <va-icon
         v-if="iconRight"
         class="app-sidebar-link__item-icon-right"
         :style="computedIconStyles"
         :name="iconRight"
-      >{{iconRightContent}}
-      </va-icon> -->
+      >
+        {{iconRightContent}}
+      </va-icon>
     </router-link>
   </li>
 </template>
