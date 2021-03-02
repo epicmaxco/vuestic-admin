@@ -2,7 +2,7 @@
   <svg
     xmlns="http://www.w3.org/2000/svg"
     class="va-icon-vuestic"
-    height="16"
+    :height="height"
     viewBox="0 0 304 31"
   >
     <defs>
@@ -41,12 +41,15 @@
 <script>
 export default {
   name: 'VaIconVuestic',
+
+  props: {
+    height: { type: [Number, String], default: 16 }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .va-icon-vuestic {
-  height: 16px;
   .st0 {
     fill: #4ae387;
   }
