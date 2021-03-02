@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import AuthLayout from '@/layout/auth-layout/auth-layout.vue'
-import AppLayout from '@/layout/app-layout/app-layout.vue'
+import AuthLayout from '@/layout/auth-layout.vue'
+import AppLayout from '@/layout/app-layout.vue'
+import Page404Layout from '@/layout/page-404-layout.vue'
 
 import RouteViewComponent from './route-view.vue'
 import UIRoute from '@/pages/admin/ui/route'
@@ -136,6 +137,23 @@ const routes: Array<RouteRecordRaw> = [
           },
         ],
       },
+      {
+        name: 'pages',
+        path: 'pages',
+        component: RouteViewComponent,
+        children: [
+          {
+            name: '404-pages',
+            path: '404-pages',
+            component: () => import('@/pages/admin/pages/404PagesPage.vue'),
+          },
+          {
+            name: 'faq',
+            path: 'faq',
+            component: () => import('@/pages/admin/pages/FaqPage.vue'),
+          },
+        ],
+      },
       UIRoute,
     ]
   },
@@ -164,32 +182,32 @@ const routes: Array<RouteRecordRaw> = [
       },
     ],
   },
-  // {
-  //   path: '/404',
-  //   component: EmptyParentComponent,
-  //   children: [
-  //     {
-  //       name: 'not-found-advanced',
-  //       path: 'not-found-advanced',
-  //       component: () => import('../components/pages/404-pages/VaPageNotFoundSearch.vue'),
-  //     },
-  //     {
-  //       name: 'not-found-simple',
-  //       path: 'not-found-simple',
-  //       component: () => import('../components/pages/404-pages/VaPageNotFoundSimple.vue'),
-  //     },
-  //     {
-  //       name: 'not-found-custom',
-  //       path: 'not-found-custom',
-  //       component: () => import('../components/pages/404-pages/VaPageNotFoundCustom.vue'),
-  //     },
-  //     {
-  //       name: 'not-found-large-text',
-  //       path: '/pages/not-found-large-text',
-  //       component: () => import('../components/pages/404-pages/VaPageNotFoundLargeText.vue'),
-  //     },
-  //   ],
-  // },
+  {
+    path: '/404',
+    component: Page404Layout,
+    children: [
+      {
+        name: 'not-found-advanced',
+        path: 'not-found-advanced',
+        component: () => import('@/pages/404-pages/VaPageNotFoundSearch.vue'),
+      },
+      {
+        name: 'not-found-simple',
+        path: 'not-found-simple',
+        component: () => import('@/pages/404-pages/VaPageNotFoundSimple.vue'),
+      },
+      {
+        name: 'not-found-custom',
+        path: 'not-found-custom',
+        component: () => import('@/pages/404-pages/VaPageNotFoundCustom.vue'),
+      },
+      {
+        name: 'not-found-large-text',
+        path: '/pages/not-found-large-text',
+        component: () => import('@/pages/404-pages/VaPageNotFoundLargeText.vue'),
+      },
+    ],
+  },
   // {
   //   name: 'admin',
   //   path: '/admin',

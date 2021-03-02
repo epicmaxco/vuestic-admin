@@ -198,23 +198,27 @@ export default {
         },
       ],
     },
-    // {
-    //   name: 'pages',
-    //   displayName: 'menu.pages',
-    //   meta: {
-    //     iconClass: 'vuestic-iconset-files',
-    //   },
-    //   disabled: true,
-    //   children: [
-    //     {
-    //       name: 'login',
-    //       displayName: 'Login/Signup',
-    //     },
-    //     {
-    //       name: '404-pages',
-    //       displayName: '404 Pages',
-    //     },
-    //   ],
-    // },
+    {
+      name: 'pages',
+      displayName: 'menu.pages',
+      meta: {
+        iconClass: 'vuestic-iconset-files',
+      },
+      disabled: true,
+      children: [
+        {
+          name: 'login',
+          displayName: 'Login/Signup',
+        },
+        {
+          name: '404-pages',
+          displayName: '404 Pages',
+        },
+        {
+          name: 'faq',
+          displayName: 'Faq',
+        },
+      ],
+    },
   ],
 }
