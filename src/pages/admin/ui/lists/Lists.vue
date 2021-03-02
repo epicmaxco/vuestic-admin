@@ -235,7 +235,9 @@ export default {
       return gender === 'male' ? 'blue' : 'pink'
     },
     notify (name) {
-      this.showToast(`Clicked ${name}`, {
+      this.$vaToast.init(
+      {
+        message: `Clicked ${name}`,
         position: 'bottom-right',
       })
     },

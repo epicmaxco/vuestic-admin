@@ -134,15 +134,13 @@ export default {
   },
   methods: {
     launchToast () {
-      this.showToast(
-        this.toastText,
-        {
-          icon: this.toastIcon,
-          position: this.toastPosition,
-          duration: this.toastDuration,
-          fullWidth: this.isToastFullWidth,
-        },
-      )
+      this.$vaToast.init({
+        message: this.toastText,
+        iconClass: this.toastIcon,
+        position: this.toastPosition,
+        duration: this.toastDuration,
+        fullWidth: this.isToastFullWidth,
+      })
     },
   },
 }

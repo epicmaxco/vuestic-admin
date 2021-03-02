@@ -74,10 +74,11 @@ export default {
   },
   methods: {
     colorCopy () {
-      this.$copyText(this.calcBackground())
+      // this.$copyText(this.calcBackground())
     },
     notify () {
-      this.showToast("The color's copied to your clipboard", {
+      this.$vaToast.init({
+        message: "The color's copied to your clipboard",
         position: 'bottom-right',
       })
     },

@@ -60,8 +60,8 @@ export default {
   },
   methods: {
     sendDetails () {
-      // TODO: show toast does not exists
-      this.showToast('Saved!')
+      const color = this.theme.primary
+      this.$vaToast.init({ message: `Saved!`, color })
     },
   },
 }

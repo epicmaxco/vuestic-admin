@@ -175,8 +175,9 @@ export default {
         this.users.splice(idx, 1)
         this.loading = false
 
-        this.showToast(this.$t('dashboard.table.resolved'), {
-          icon: 'fa-check',
+        this.$vaToast.init({
+          message: this.$t('dashboard.table.resolved'),
+          iconClass: 'fa-check',
           position: 'bottom-right',
           duration: 1500,
         })
