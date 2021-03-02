@@ -23,14 +23,14 @@
       <!-- </transition-expand> -->
     </div>
     
-    <!-- <va-dropdown
+    <va-dropdown
       v-if="minimized"
       position="right"
       fixed
       :preventOverflow="false"
       ref="dropdown"
     >
-      <div slot="anchor">
+      <template #anchor>
         <app-sidebar-link
           :icon="icon"
           iconRight="material-icons"
@@ -38,25 +38,24 @@
           :activeByDefault="isActive"
           minimized
         />
-      </div>
+      </template>
       <ul
         class="app-sidebar-link-group__submenu"
         :style="computedSubmenuColor"
       >
         <slot/>
       </ul>
-    </va-dropdown> -->
+    </va-dropdown>
   </li>
 </template>
 
 <script>
 // import TransitionExpand from './TransitionExpand'
 import AppSidebarLink from './AppSidebarLink'
+import { useTheme } from 'vuestic-ui'
 
 export default {
   name: 'app-sidebar-link-group',
-  // mixins: [ColorThemeMixin],
-  // inject: ['contextConfig'],
   props: {
     icon: [String, Array],
     title: String,
@@ -107,59 +106,62 @@ export default {
     },
   },
   computed: {
+    theme() {
+      return useTheme().getTheme()
+    },
     computedClass () {
       return {
         'app-sidebar-link-group--minimized': this.minimized,
         'app-sidebar-link-group--isActive': this.isActive,
       }
     },
-  //   computedLinkStyles () {
-  //     if (this.isHovered || this.isActive) {
-  //       return {
-  //         color: this.$themes.primary,
-  //         backgroundColor: shiftHslColor(this.$themes.secondary, { s: -13, l: 15 }),
-  //         borderColor: this.isActive ? this.$themes.primary : 'transparent',
-  //       }
-  //     }
+    computedLinkStyles () {
+      if (this.isHovered || this.isActive) {
+        return {
+          color: this.theme.primary,
+          // backgroundColor: shiftHslColor(this.$themes.secondary, { s: -13, l: 15 }),
+          borderColor: this.isActive ? this.theme.primary : 'transparent',
+        }
+      }
 
-  //     return {}
-  //   },
-  //   computedIconStyles () {
-  //     if (this.isHovered || this.isActive) {
-  //       return {
-  //         color: this.$themes.primary,
-  //       }
-  //     }
+      return {}
+    },
+    computedIconStyles () {
+      if (this.isHovered || this.isActive) {
+        return {
+          color: this.theme.primary,
+        }
+      }
 
-  //     return 'white'
-  //   },
+      return 'white'
+    },
 
-  //   computedSubmenuColor () {
-  //     return {
-  //       backgroundColor: this.contextConfig.invertedColor ? 'white' : this.$themes[this.color],
-  //     }
-  //   },
+    computedSubmenuColor () {
+      return {
+        backgroundColor: this.theme[this.color],
+      }
+    },
   },
 }
 
 </script>
 
 <style lang="scss" scoped>
-
-.app-sidebar-link-group {
+/deep/ .app-sidebar-link-group {
   flex-direction: column;
   position: relative;
   display: flex;
 
   &__submenu {
-    list-style: none;
-    padding-left: 0;
     width: 100%;
     overflow: hidden;
 
     a {
       display: block;
       padding-left: 2.5rem;
+      .app-sidebar-link__item-title {
+        line-height: 3rem;
+      }
     }
 
     .app-sidebar-link-group--minimized & {

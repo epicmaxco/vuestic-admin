@@ -1,5 +1,5 @@
 <template>
-  <va-sidebar class="app-sidebar__menu">
+  <va-sidebar>
     <template v-for="(item, key) in items">
       <app-sidebar-link-group
         v-if="item.children"
@@ -71,24 +71,11 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.app-sidebar {
-  overflow: auto;
-  display: flex;
-  max-height: 100%;
-  flex: 0 0 16rem;
-
-  &--minimized {
-    flex: 0 0 3.25rem;
-  }
-
-  &__menu {
-    margin-bottom: 0;
-    padding-top: 2.5625rem;
-    padding-bottom: 2.5rem;
-    list-style: none;
-    padding-left: 0;
-    width: 100%;
-  }
+<style lang="scss" scoped>
+/deep/ .va-sidebar__menu {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 </style>
