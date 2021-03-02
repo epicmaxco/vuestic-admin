@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import AuthLayout from '@/pages/auth/AuthLayout.vue'
+import AuthLayout from '@/layout/auth-layout/auth-layout.vue'
 import AppLayout from '@/layout/app-layout/app-layout.vue'
 
 import RouteViewComponent from './route-view.vue'
