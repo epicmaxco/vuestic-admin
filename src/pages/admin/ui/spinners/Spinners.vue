@@ -72,6 +72,7 @@
 <script>
 import * as spinners from 'epic-spinners'
 import { mapGetters } from 'vuex'
+import { useTheme } from 'vuestic-ui'
 // import VaIconFaster from '../../../iconset/VaIconFaster'
 // import VaIconSlower from '../../../iconset/VaIconSlower'
 
@@ -88,7 +89,7 @@ export default {
         group: 4,
         duration: 1500,
       },
-      spinnersColor: this.$themes.primary,
+      spinnersColor: null,
       currentDuration: 1500,
       sliderSize: {
         formatter: v => `${v}px`,
@@ -101,8 +102,15 @@ export default {
       },
     }
   },
+  mounted() {
+    this.spinnersColor = this.theme.primary
+  },
   computed: {
     ...mapGetters(['palette']),
+
+    theme() {
+      return useTheme().getTheme()
+    },
 
     speed () {
       return this.sliderDuration.min + this.sliderDuration.max - this.currentDuration
@@ -113,8 +121,7 @@ export default {
     },
 
     paletteArray () {
-      const t = this.$themes
-      return [t.primary, t.warning, t.danger]
+      return [this.theme.primary, this.theme.warning, this.theme.danger]
     },
   },
 
