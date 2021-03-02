@@ -2,7 +2,7 @@
   <div class="auth-layout row align-content--center">
     <div class="flex xs12 pa-3 flex-center">
       <router-link class="py-5 flex-center" to="/">
-        <va-icon-vuestic />
+        <vuestic-logo height="32"/>
       </router-link>
     </div>
 
@@ -11,8 +11,8 @@
         <va-card class="auth-layout__card">
           <va-card-content>
             <va-tabs v-model="tabIndex" center>
-              <va-tab>{{ $t("auth.login") }}</va-tab>
-              <va-tab>{{ $t("auth.createNewAccount") }}</va-tab>
+              <va-tab name="login">{{ $t("auth.login") }}</va-tab>
+              <va-tab name="signup">{{ $t("auth.createNewAccount") }}</va-tab>
             </va-tabs>
 
             <va-separator />
@@ -28,13 +28,13 @@
 </template>
 
 <script>
-import VaIconVuestic from "../../iconset/VaIconVuestic";
+import VuesticLogo from "@/components/vuestic-logo";
 
 const tabs = ["login", "signup"];
 
 export default {
   name: "AuthLayout",
-  components: { VaIconVuestic },
+  components: { VuesticLogo },
   data() {
     return {
       selectedTabIndex: 0
@@ -42,11 +42,11 @@ export default {
   },
   computed: {
     tabIndex: {
-      set(tabIndex) {
-        this.$router.push({ name: tabs[tabIndex] });
+      set(tabName) {
+        this.$router.push({ name: tabName });
       },
       get() {
-        return tabs.indexOf(this.$route.name);
+        return this.$route.name;
       }
     }
   }
