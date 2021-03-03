@@ -3,7 +3,7 @@
     <div class="row">
       <div class="flex md12">
         <va-card>
-          <va-card-title>$t('forms.mediumEditor.title')</va-card-title>
+          <va-card-title>{{ $t('forms.mediumEditor.title') }}</va-card-title>
           <va-card-content class="d-flex flex-center">
             <va-medium-editor
               @initialized="handleEditorInitialization"

@@ -40,9 +40,4 @@ nav {
     }
   }
 }
-
-// .flex {
-//   // TODO: temp fix of old vuestic-admin
-//   padding: .75rem;
-// }
 </style>

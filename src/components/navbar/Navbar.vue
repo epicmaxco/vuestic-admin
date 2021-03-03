@@ -1,10 +1,14 @@
 <template>
   <va-navbar class="app-layout__navbar">
-    test
     <template v-slot:left>
-      <!-- TODO:  -->
-      <!-- <va-icon-menu-collapsed :collapsed="isSidebarCollapsed" @click="isSidebarCollapsed = !isSidebarCollapsed" class="va-navbar__item" /> -->
-      <vuestic-logo/>
+      <div class="left">
+        <va-icon-menu-collapsed 
+          @click="isSidebarExpanded = !isSidebarExpanded"
+          :class="{ 'x-flip': isSidebarExpanded }"
+          class="va-navbar__item" 
+        />
+        <vuestic-logo class="logo"/>
+      </div>
     </template>
     <template v-slot:center>
       <span
@@ -41,18 +45,37 @@
 
 <script>
 import VuesticLogo from '@/components/vuestic-logo'
+import VaIconMenuCollapsed from '@/components/icons/VaIconMenuCollapsed'
 import { useTheme } from 'vuestic-ui'
 import AppNavbarActions from './components/AppNavbarActions'
 
 export default {
-  components: { VuesticLogo, AppNavbarActions },
+  components: { VuesticLogo, AppNavbarActions, VaIconMenuCollapsed },
   data() {
     return {
-      isSidebarCollapsed: false,
+      // TODO: Move this to vuex store
+      isSidebarExpanded: true,
     }
   },
   computed: {
     theme() { return useTheme().getTheme() }
-  }
+  },
 }
 </script>
+
+<style lang="scss" scoped>
+  .left {
+    display: flex;
+    align-items: center;
+    & > * {
+      margin-right: 1.5rem;
+    }
+    & > *:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .x-flip {
+    transform: scaleX(-100%);
+  }
+</style>
