@@ -4,7 +4,9 @@
     <div class="app-layout__content">
       <sidebar/>
       <div class="app-layout__page">
-        <router-view/>
+        <div class="layout fluid gutter--xl">
+          <router-view/>
+        </div>
       </div>
     </div>
   </div>
