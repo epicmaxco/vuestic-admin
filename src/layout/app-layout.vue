@@ -1,27 +1,6 @@
 <template>
   <div class="app-layout">
-    <va-navbar class="app-layout__navbar">
-      test
-      <template v-slot:left>
-        <vuestic-logo/>
-      </template>
-      <template v-slot:center>
-        <span
-          class="app-navbar__text"
-          style="color: #f3f3f3"
-        >
-          <!-- :style="{color: this.$themes.gray}" -->
-          {{$t('navbar.messageUs')}}&nbsp;
-          <a
-            href="mailto:hello@epicmax.co"
-            target="_blank"
-          >
-            <!-- :style="{color: this.$themes.primary}" -->
-            hello@epicmax.co
-          </a>
-        </span>
-      </template>
-    </va-navbar>
+    <navbar />
     <div class="app-layout__content">
       <sidebar/>
       <div class="app-layout__page">
@@ -33,14 +12,14 @@
 
 <script>
 import { useTheme } from 'vuestic-ui'
-import VuesticLogo from '@/components/vuestic-logo'
 import Sidebar from '@/components/sidebar';
+import Navbar from '@/components/navbar/Navbar.vue';
 
 export default {
   name: 'app-layout',
 
   components: {
-    VuesticLogo, Sidebar
+    Navbar, Sidebar
   },
 
   computed: {
