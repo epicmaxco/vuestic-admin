@@ -2,20 +2,22 @@
   <va-tree-root>
     <va-tree-category label="Products">
       <va-tree-node v-for="product in products" :key="product.id">
-        <va-checkbox
-          slot="checkbox"
-          v-model="product.selected"
-        />
-        {{ product.name }}
+        <template #checkbox>
+          <va-checkbox
+            v-model="electronic.selected"
+            :label="product.name"
+          />
+        </template>
       </va-tree-node>
     </va-tree-category>
     <va-tree-category isOpen label="Electronics">
       <va-tree-node v-for="electronic in electronics" :key="electronic.id">
-        <va-checkbox
-          slot="checkbox"
-          v-model="electronic.selected"
-        />
-        {{ electronic.name }}
+        <template #checkbox>
+          <va-checkbox
+            v-model="electronic.selected"
+            :label="electronic.name"
+          />
+        </template>
       </va-tree-node>
     </va-tree-category>
   </va-tree-root>
