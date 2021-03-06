@@ -58,12 +58,16 @@ export default {
 <style lang="scss">
 .app-navbar-actions {
   display: flex;
-
+  align-items: center;
+  
   &__item {
-    margin-top: 0.3rem;
     padding: 0;
     margin-left: 1.25rem;
     margin-right: 1.25rem;
+    
+    svg {
+      height: 24px;
+    }
 
     &:last-of-type {
       margin-right: 0;

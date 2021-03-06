@@ -4,6 +4,7 @@
     v-model="isShown"
     boundary-body
     position="bottom"
+    :offset="[0, 13]"
   >
     <template #anchor>
       <span

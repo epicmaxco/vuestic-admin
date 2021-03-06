@@ -1,9 +1,9 @@
 <template>
   <va-dropdown
     class="settings-dropdown"
-    offset="0, 16px"
     position="bottom"
     boundary-body
+    :offset="[0, 13]"
   >
     <template #anchor>
       <!-- TODO: temp fix with icon class  -->

@@ -1,7 +1,7 @@
 <template>
   <va-dropdown
     class="color-dropdown"
-    offset="0, 13px"
+    :offset="[0, 13]"
     position="bottom"
   >
     <template #anchor>

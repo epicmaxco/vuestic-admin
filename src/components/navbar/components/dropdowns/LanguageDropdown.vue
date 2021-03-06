@@ -1,9 +1,9 @@
 <template>
   <va-dropdown
     class="language-dropdown"
-    offset="0, 16px"
     fixed
     position="bottom"
+    :offset="[0, 13]"
   >
     <template #anchor>
       <!-- TODO: change class to name after fix https://github.com/epicmaxco/vuestic-ui/issues/538 -->
