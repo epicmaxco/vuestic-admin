@@ -5,15 +5,17 @@
     </va-card-title>
     <va-card-content>
       <va-tabs grow v-model="activeTabName">
-        <va-tab name="OverviewTab">
-          {{$t('dashboard.tabs.overview.title')}}
-        </va-tab>
-        <va-tab name="BillingAddressTab">
-          {{$t('dashboard.tabs.billingAddress.title')}}
-        </va-tab>
-        <va-tab name="BankDetailsTab">
-          {{$t('dashboard.tabs.bankDetails.title')}}
-        </va-tab>
+        <template #tabs>
+          <va-tab name="OverviewTab">
+            {{$t('dashboard.tabs.overview.title')}}
+          </va-tab>
+          <va-tab name="BillingAddressTab">
+            {{$t('dashboard.tabs.billingAddress.title')}}
+          </va-tab>
+          <va-tab name="BankDetailsTab">
+            {{$t('dashboard.tabs.bankDetails.title')}}
+          </va-tab>
+        </template>
       </va-tabs>
       <va-separator/>
       <component :is="activeTabName" @submit="submit"/>
