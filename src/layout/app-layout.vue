@@ -2,7 +2,7 @@
   <div class="app-layout">
     <navbar />
     <div class="app-layout__content">
-      <sidebar/>
+      <sidebar :minimized="isSidebarMinimized"/>
       <div class="app-layout__page">
         <div class="layout fluid gutter--xl">
           <router-view/>
@@ -14,8 +14,11 @@
 
 <script>
 import { useTheme } from 'vuestic-ui'
+import { useStore } from 'vuex';
+import { computed } from 'vue';
 import Sidebar from '@/components/sidebar';
 import Navbar from '@/components/navbar/Navbar.vue';
+
 
 export default {
   name: 'app-layout',
@@ -24,10 +27,15 @@ export default {
     Navbar, Sidebar
   },
 
-  computed: {
-    theme() {
-      const theme = useTheme()
-      return theme ? theme.getTheme() : null
+  setup() {
+    const theme = useTheme().getTheme()
+    
+    const store = useStore()
+    const isSidebarMinimized = computed(() => store.state.isSidebarMinimized)
+
+    return {
+      theme,
+      isSidebarMinimized
     }
   }
 }

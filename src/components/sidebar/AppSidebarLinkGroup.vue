@@ -33,7 +33,6 @@
       <template #anchor>
         <app-sidebar-link
           :icon="icon"
-          iconRight="material-icons"
           iconRightContent="more_horiz"
           :activeByDefault="isActive"
           minimized

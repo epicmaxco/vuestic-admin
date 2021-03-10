@@ -1,18 +1,17 @@
-// @ts-nocheck
 import { createStore } from 'vuex'
-import app from './modules/app'
-import * as getters from './getters'
 
 export default createStore({
   strict: true, // process.env.NODE_ENV !== 'production',
-  getters,
   state: {
+    isSidebarMinimized: false,
+    userName: 'Vasili S'
   },
   mutations: {
+    updateSidebarCollapsedState(state, isSidebarMinimized) {
+      state.isSidebarMinimized = isSidebarMinimized
+    },
+    changeUserName(state, newUserName) {
+      state.userName = newUserName
+    }
   },
-  actions: {
-  },
-  modules: {
-    app,
-  }
 })

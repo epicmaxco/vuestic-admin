@@ -3,8 +3,8 @@
     <template v-slot:left>
       <div class="left">
         <va-icon-menu-collapsed 
-          @click="isSidebarExpanded = !isSidebarExpanded"
-          :class="{ 'x-flip': isSidebarExpanded }"
+          @click="isSidebarMinimized = !isSidebarMinimized"
+          :class="{ 'x-flip': isSidebarMinimized }"
           class="va-navbar__item" 
         />
         <vuestic-logo class="logo"/>
@@ -44,21 +44,31 @@
 </template>
 
 <script>
+import { useTheme } from 'vuestic-ui'
+import { useStore } from 'vuex'
 import VuesticLogo from '@/components/vuestic-logo'
 import VaIconMenuCollapsed from '@/components/icons/VaIconMenuCollapsed'
-import { useTheme } from 'vuestic-ui'
 import AppNavbarActions from './components/AppNavbarActions'
+import { computed } from 'vue'
 
 export default {
   components: { VuesticLogo, AppNavbarActions, VaIconMenuCollapsed },
-  data() {
+  setup() {
+    const theme = useTheme().getTheme()
+    const store = useStore()
+
+    const isSidebarMinimized = computed({
+      get: () => store.state.isSidebarMinimized,
+      set: (value) => store.commit('updateSidebarCollapsedState', value)
+    })
+
+    const userName = computed(() => store.state.userName)
+
     return {
-      // TODO: Move this to vuex store
-      isSidebarExpanded: true,
+      theme,
+      isSidebarMinimized,
+      userName
     }
-  },
-  computed: {
-    theme() { return useTheme().getTheme() }
   },
 }
 </script>
