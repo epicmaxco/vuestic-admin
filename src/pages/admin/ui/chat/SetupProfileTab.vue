@@ -4,72 +4,83 @@
       :steps="steps"
       wizard-layout="vertical"
       :wizard-type="wizardType">
-      <div slot="page1">
-        <h4>Type your name</h4>
-        <p>Zebras communicate with facial expressions and sounds. They make loud
-          braying or barking sounds and
-          soft snorting sounds. The position of their ears, how wide open their
-          eyes are, and whether they show
-          their teeth all send a signal. For example, ears flat back means
-          trouble, or "you better follow orders!"</p>
-        <div class="form-group with-icon-right"
-          :class="{'has-error': errors.has('name'), 'valid': isFormFieldValid('name')}">
-          <div class="input-group">
-            <input
-              type="text"
-              name="name"
-              v-model="name"
-              required="required"/>
-            <va-icon name="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
-            <va-icon name="fa fa-check valid-icon icon-right input-icon"/>
-            <label class="control-label">Name</label>
-            <va-icon name="bar"/>
-            <small v-show="errors.has('name')" class="help text-danger">{{
-              errors.first('name') }}
-            </small>
+      <template #page1>
+        <div>
+          <h4>Type your name</h4>
+          <p>Zebras communicate with facial expressions and sounds. They make loud
+            braying or barking sounds and
+            soft snorting sounds. The position of their ears, how wide open their
+            eyes are, and whether they show
+            their teeth all send a signal. For example, ears flat back means
+            trouble, or "you better follow orders!"</p>
+          <div class="form-group with-icon-right"
+            :class="{'has-error': errors.has('name'), 'valid': isFormFieldValid('name')}">
+            <div class="input-group">
+              <input
+                type="text"
+                name="name"
+                v-model="name"
+                required="required"/>
+              <va-icon name="fa fa-exclamation-triangle error-icon icon-right input-icon"/>
+              <va-icon name="fa fa-check valid-icon icon-right input-icon"/>
+              <label class="control-label">Name</label>
+              <va-icon name="bar"/>
+              <small v-show="errors.has('name')" class="help text-danger">{{
+                errors.first('name') }}
+              </small>
+            </div>
           </div>
         </div>
-      </div>
-      <div slot="page2">
-        <h4>Select your country</h4>
-        <p>Zebras communicate with facial expressions and sounds. They make loud
-          braying or barking sounds and
-          soft snorting sounds. The position of their ears, how wide open their
-          eyes are, and whether they show
-          their teeth all send a signal. For example, ears flat back means
-          trouble, or "you better follow orders!"</p>
+      </template>
 
-        <va-select
-          label="Select country"
-          v-model="selectedCountry"
-          name="country"
-          :required="true"
-          ref="selectedCountrySelect"
-          :options="countriesList">
-        </va-select>
-      </div>
-      <div slot="page3">
-        <h4>Confirm selection</h4>
-        <p>
-          Zebras communicate with facial expressions and sounds. They make loud
-          braying or barking sounds and
-          soft snorting sounds. The position of their ears, how wide open their
-          eyes are, and whether they show
-          their teeth all send a signal. For example, ears flat back means
-          trouble, or "you better follow orders!"
-        </p>
-      </div>
-      <div slot="wizardCompleted">
-        <h4>Wizard completed!</h4>
-        <p>
-          Zebras communicate with facial expressions and sounds. They make loud
-          braying or barking sounds and
-          soft snorting sounds. The position of their ears, how wide open their
-          eyes are, and whether they show
-          their teeth all send a signal. For example, ears flat back means
-          trouble, or "you better follow orders!"
-        </p>
-      </div>
+      <template #page2>
+        <div>
+          <h4>Select your country</h4>
+          <p>Zebras communicate with facial expressions and sounds. They make loud
+            braying or barking sounds and
+            soft snorting sounds. The position of their ears, how wide open their
+            eyes are, and whether they show
+            their teeth all send a signal. For example, ears flat back means
+            trouble, or "you better follow orders!"</p>
+
+          <va-select
+            label="Select country"
+            v-model="selectedCountry"
+            name="country"
+            :required="true"
+            ref="selectedCountrySelect"
+            :options="countriesList">
+          </va-select>
+        </div>
+      </template>
+
+      <template #page3>
+        <div>
+          <h4>Confirm selection</h4>
+          <p>
+            Zebras communicate with facial expressions and sounds. They make loud
+            braying or barking sounds and
+            soft snorting sounds. The position of their ears, how wide open their
+            eyes are, and whether they show
+            their teeth all send a signal. For example, ears flat back means
+            trouble, or "you better follow orders!"
+          </p>
+        </div>
+      </template>
+      <template #wizardCompleted>
+        <div>
+          <h4>Wizard completed!</h4>
+          <p>
+            Zebras communicate with facial expressions and sounds. They make loud
+            braying or barking sounds and
+            soft snorting sounds. The position of their ears, how wide open their
+            eyes are, and whether they show
+            their teeth all send a signal. For example, ears flat back means
+            trouble, or "you better follow orders!"
+          </p>
+        </div>
+      </template>
+
     </va-wizard>
   </div>
 </template>

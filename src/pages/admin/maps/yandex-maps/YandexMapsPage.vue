@@ -41,8 +41,7 @@ export default {
           clusterName: '1',
           balloonTemplate: '<div>"Your custom template"</div>',
           callbacks: {
-            click () {
-            },
+
           },
         },
       ],
