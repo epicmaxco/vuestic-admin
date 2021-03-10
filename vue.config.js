@@ -43,7 +43,7 @@ module.exports = {
       sass: {
         // Preload vuestic-ui variables and mixins for every component
         // TODO: @m0ksem: build scss variables?
-        data: '@import "@/services/vuestic-ui/vuestic-sass/vuestic-styles.scss";',
+        data: '@import "@/sass/vuestic-sass/resources";',
       },
     },
   },
