@@ -5,16 +5,13 @@
     position="bottom"
   >
     <template #anchor>
-      <va-icon-color
-        class="color-dropdown__icon"
-        :color="theme && theme.gray"
-      />
+      <va-icon-color />
     </template>
 
     <div class="color-dropdown__content pl-4 pr-4 pt-2 pb-2">
       <va-button-toggle
-        v-model="selectedTheme"
-        :options="modeOptions"
+        v-model="selectedThemeName"
+        :options="buttonToggleOptions"
         outline
         size="small"
         style="max-width: 100%;"
@@ -29,6 +26,7 @@
 import { useTheme } from 'vuestic-ui'
 import VaIconColor from '@/iconset/VaIconColor'
 import ColorDropdownItem from './ColorDropdownItem'
+import { ref, computed } from 'vue'
 
 const THEME_NAMES = {
   DEFAULT: 'DEFAULT',
@@ -38,7 +36,7 @@ const THEME_NAMES = {
 const COLOR_THEMES = [
   {
     name: THEME_NAMES.DEFAULT,
-    themes: {
+    colors: {
       primary: '#40e583',
       secondary: '#002c85',
       success: '#40e583',
@@ -51,7 +49,7 @@ const COLOR_THEMES = [
   },
   {
     name: THEME_NAMES.CORPORATE,
-    themes: {
+    colors: {
       primary: '#6c7fee',
       secondary: '#6e7ff1',
       success: '#8ddc88',
@@ -69,45 +67,31 @@ export default {
   components: {
     VaIconColor, ColorDropdownItem
   },
-  data() {
-    return {
-      themeName: THEME_NAMES.DEFAULT
-    }
-  },
-  computed: {
-    selectedTheme: {
-      get () {
-        return THEME_NAMES.DEFAULT
-      },
-      set (themeName) {
-        this.themeName = themeName
-        const theme = COLOR_THEMES.find((theme) => theme.name === themeName)
-        // TODO: fix after GlobalConfig will not use provide/inject
-        // const setTheme = useTheme()
-        // if (setTheme) {
-        //   setTheme(theme.themes)
-        // }
-      },
-    },
-    theme() {
-      return useTheme().getTheme()
-    },
-    colorNames() {
-      return Object.keys(this.theme)
-    },
-    modeOptions () {
-      return [
-        {
-          label: 'Original',
-          value: THEME_NAMES.DEFAULT,
-        },
-        {
-          label: 'Corporate',
-          value: THEME_NAMES.CORPORATE,
-        },
-      ]
-    },
-  },
+  setup() {
+    const { setTheme, getTheme } = useTheme()
+
+    const buttonToggleOptions = [
+      { label: 'Original', value: THEME_NAMES.DEFAULT },
+      { label: 'Corporate', value: THEME_NAMES.CORPORATE },
+    ]
+
+    const themeName = ref(THEME_NAMES.DEFAULT)
+
+    const selectedTheme = getTheme()
+
+    const selectedThemeName = computed({
+      get: () => themeName.value,
+      set: (newThemeName) => { 
+        themeName.value = newThemeName
+        const theme = COLOR_THEMES.find((theme) => theme.name === newThemeName)
+        setTheme(theme.colors)
+      }
+    })
+
+    const colorNames = computed(() => Object.keys(selectedTheme))
+
+    return { selectedThemeName, colorNames, buttonToggleOptions }
+  }
 }
 </script>
 
