@@ -58,7 +58,7 @@
           <va-card-title>{{$t('buttons.advanced')}}</va-card-title>
           <va-card-content class="row">
             <div class="flex">
-              <!-- <va-button class="mr-2 mb-2" icon="ion_md_close"> {{ $t('buttons.button') }}</va-button>
+              <va-button class="mr-2 mb-2" icon="ion_md_close"> {{ $t('buttons.button') }}</va-button>
               <va-button class="mr-2 mb-2" icon-right="ion_arrow_down"> {{ $t('buttons.button') }}</va-button>
               <va-button
                 class="mr-2 mb-2"
@@ -66,7 +66,7 @@
                 icon-right="ion_arrow_down">
                 {{ $t('buttons.button') }}
               </va-button>
-              <va-button class="mr-2 mb-2" icon="ion_md_close"/> -->
+              <va-button class="mr-2 mb-2" icon="ion_md_close"/>
             </div>
           </va-card-content>
         </va-card>
