@@ -3,7 +3,28 @@
     class="app-sidebar-link-group"
     :class="computedClass"
   >
-    <div v-if="!minimized">
+    <va-dropdown v-if="minimized"
+      position="right"
+      fixed
+      :preventOverflow="false"
+      ref="dropdown"
+    >
+      <template #anchor>
+        <app-sidebar-link
+          :icon="icon"
+          :activeByDefault="isActive"
+          minimized
+        />
+      </template>
+      <ul
+        class="app-sidebar-link-group__submenu"
+        :style="computedSubmenuColor"
+      >
+        <slot/>
+      </ul>
+    </va-dropdown>
+
+    <div v-else>
       <div @click.stop.prevent="toggleMenuItem()">
         <app-sidebar-link
           :icon="icon"
@@ -23,28 +44,6 @@
       <!-- </transition-expand> -->
     </div>
     
-    <va-dropdown
-      v-if="minimized"
-      position="right"
-      fixed
-      :preventOverflow="false"
-      ref="dropdown"
-    >
-      <template #anchor>
-        <app-sidebar-link
-          :icon="icon"
-          iconRightContent="more_horiz"
-          :activeByDefault="isActive"
-          minimized
-        />
-      </template>
-      <ul
-        class="app-sidebar-link-group__submenu"
-        :style="computedSubmenuColor"
-      >
-        <slot/>
-      </ul>
-    </va-dropdown>
   </li>
 </template>
 
@@ -158,9 +157,6 @@ export default {
     a {
       display: block;
       padding-left: 2.5rem;
-      .app-sidebar-link__item-title {
-        line-height: 3rem;
-      }
     }
 
     .app-sidebar-link-group--minimized & {

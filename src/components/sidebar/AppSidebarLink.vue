@@ -2,12 +2,13 @@
   <li
     class="app-sidebar-link"
     :class="computedLinkClass"
+    :style="computedLinkStyles"
+    @mouseenter="updateHoverState(true)"
+    @mouseleave="updateHoverState(false)"
   >
     <router-link
       class="app-sidebar-link__item"
-      @mouseenter="updateHoverState(true)"
-      @mouseleave="updateHoverState(false)"
-      :style="computedLinkStyles"
+
       :to="to"
       :target="target"
     >
@@ -156,34 +157,27 @@ export default {
 <style lang="scss" scoped>
 .app-sidebar-link {
   display: flex;
+  padding: 1rem;
 
   &__item {
     position: relative;
     display: flex;
-    min-height: 3rem;
     cursor: pointer;
-    // padding: 0.75rem 0.75rem 0.75rem 0.75rem; // 0.75 - border size as 0.25
     align-items: center;
     text-decoration: none;
-    // border-left: 0.25rem solid transparent;
     color: rgba(255, 255, 255, 0.65);
     box-sizing: border-box;
     width: 20rem;
 
-    // @include media-breakpoint-down(sm) {
-    //   flex: 0 0 100%;
-    // }
-
     .app-sidebar-link--minimized & {
       justify-content: center;
-      padding-left: 0.5rem;
-      width: 3.5rem;
+      padding-left: 0rem;
+      width: auto;
     }
 
     &-icon {
       width: 1.5rem;
       text-align: center;
-      // font-size: $sidebar-menu-item-icon-size;
     }
 
     &-icon-right {
@@ -204,11 +198,7 @@ export default {
     }
 
     &-title {
-      line-height: 1.5em;
-
-      // .app-sidebar-link__item-icon + & {
-      //   margin-left: 0.5rem;
-      // }
+      padding-left: 1rem;
 
       .app-sidebar-link--minimized & {
         display: none;

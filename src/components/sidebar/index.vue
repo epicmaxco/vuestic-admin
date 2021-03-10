@@ -1,5 +1,5 @@
 <template>
-  <va-sidebar>
+  <va-sidebar :minimized="minimized">
     <template v-for="(item, key) in items">
       <app-sidebar-link-group
         v-if="item.children"
@@ -77,5 +77,9 @@ export default {
   padding-bottom: 2.5rem;
   width: 100%;
   box-sizing: border-box;
+}
+
+.va-sidebar--minimized {
+  width: auto !important;
 }
 </style>
