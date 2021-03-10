@@ -1,4 +1,3 @@
-// TODO: fix lists
 <template>
   <div class="lists">
     <div class="row">

@@ -1,4 +1,3 @@
-// TODO: fix select
 <template>
   <div class="tooltips">
     <div class="row">

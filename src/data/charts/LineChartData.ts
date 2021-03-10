@@ -1,4 +1,3 @@
-// TODO
 // import { colorToRgba } from '../../services/vuestic-ui'
 
 // TODO: import this function from vuestic-ui package

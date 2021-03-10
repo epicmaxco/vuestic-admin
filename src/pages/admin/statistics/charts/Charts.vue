@@ -75,12 +75,12 @@
 
 <script>
 import VaChart from '@/components/va-charts/VaChart'
-import { getLineChartData } from './data/LineChartData'
-import { getBubbleChartData } from './data/BubbleChartData'
-import { getPieChartData } from './data/PieChartData'
-import { getDonutChartData } from './data/DonutChartData'
-import { getVerticalBarChartData } from './data/VerticalBarChartData'
-import { getHorizontalBarChartData } from './data/HorizontalBarChartData'
+import { getLineChartData } from '@/data/charts/LineChartData'
+import { getBubbleChartData } from '@/data/charts/BubbleChartData'
+import { getPieChartData } from '@/data/charts/PieChartData'
+import { getDonutChartData } from '@/data/charts/DonutChartData'
+import { getVerticalBarChartData } from '@/data/charts/VerticalBarChartData'
+import { getHorizontalBarChartData } from '@/data/charts/HorizontalBarChartData'
 import { useTheme } from 'vuestic-ui'
 
 export default {

@@ -1,4 +1,3 @@
-// TODO: fix badges
 <template>
   <div class="notifications">
     <div class="row">
