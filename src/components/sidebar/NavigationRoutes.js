@@ -178,23 +178,23 @@ export default {
       children: [
         {
           name: 'google-maps',
-          displayName: 'Google Maps',
+          displayName: 'menu.google-maps',
         },
         {
           name: 'yandex-maps',
-          displayName: 'Yandex Maps',
+          displayName: 'menu.yandex-maps',
         },
         {
           name: 'leaflet-maps',
-          displayName: 'Leaflet Maps',
+          displayName: 'menu.leaflet-maps',
         },
         {
           name: 'bubble-maps',
-          displayName: 'Bubble Maps',
+          displayName: 'menu.bubble-maps',
         },
         {
           name: 'line-maps',
-          displayName: 'Line Maps',
+          displayName: 'menu.line-maps',
         },
       ],
     },
@@ -208,15 +208,15 @@ export default {
       children: [
         {
           name: 'login',
-          displayName: 'Login/Signup',
+          displayName: 'menu.login-singup',
         },
         {
           name: '404-pages',
-          displayName: '404 Pages',
+          displayName: 'menu.404-pages',
         },
         {
           name: 'faq',
-          displayName: 'Faq',
+          displayName: 'menu.faq',
         },
       ],
     },
