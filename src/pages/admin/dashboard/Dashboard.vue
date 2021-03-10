@@ -2,11 +2,11 @@
   <div class="dashboard">
     <dashboard-charts />
     <dashboard-info-block />
-    <div class="row">
+    <!-- <div class="row">
       <div class="flex xs12">
         <dashboard-table />
       </div>
-    </div>
+    </div> -->
     <div class="row row-equal">
       <div class="flex xs12 lg6">
         <dashboard-tabs @submit="addAddressToMap"/>
