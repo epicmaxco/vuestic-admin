@@ -88,7 +88,7 @@ export default {
         code: "done"
       },
       ion_md_close: {
-        code: "ion-md-close",
+        code: "close",
         font: "ion"
       },
       ion_arrow_down: {

@@ -19,7 +19,7 @@
             color="info"
             class="ml-2 pa-1 shrink"
             style="cursor: pointer;"
-            @click.native="removeProduct(product)"
+            @click="removeProduct(product)"
           />
         </div>
       </va-tree-node>
@@ -58,7 +58,7 @@ export default {
       })
     },
     removeProduct (product) {
-      this.products = this.products.filter(productToFilter => productToFilter !== product)
+      this.products = this.products.filter(productToFilter => productToFilter.id !== product.id)
     },
   },
 }
