@@ -154,8 +154,7 @@ export default {
     width: 100%;
     overflow: hidden;
 
-    a {
-      display: block;
+    & > * {
       padding-left: 2.5rem;
     }
 
@@ -167,10 +166,8 @@ export default {
       padding: 0.375rem 0;
       overflow-y: auto;
       overflow-x: hidden;
-
-      a {
-        padding: 0.75rem 1rem;
-        border: 0;
+      & > * {
+        padding-left: 0rem;
       }
     }
   }

@@ -41,8 +41,6 @@ import { useTheme } from 'vuestic-ui';
 
 export default {
   name: 'app-sidebar-link',
-  // inject: ['contextConfig'],
-  // mixins: [ColorThemeMixin],
   props: {
     to: {
       type: [Object, String],
@@ -136,7 +134,7 @@ export default {
       // }
 
       return {
-        color: 'white',
+        // color: 'white',
       }
     },
   },
@@ -157,7 +155,6 @@ export default {
 <style lang="scss" scoped>
 .app-sidebar-link {
   display: flex;
-  padding: 1rem;
 
   &__item {
     position: relative;
@@ -168,6 +165,7 @@ export default {
     color: rgba(255, 255, 255, 0.65);
     box-sizing: border-box;
     width: 20rem;
+    padding: 0.75rem;
 
     .app-sidebar-link--minimized & {
       justify-content: center;
@@ -198,7 +196,7 @@ export default {
     }
 
     &-title {
-      padding-left: 1rem;
+      padding-left: 0.25rem;
 
       .app-sidebar-link--minimized & {
         display: none;
