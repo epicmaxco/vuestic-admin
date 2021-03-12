@@ -7,7 +7,9 @@
           :class="{ 'x-flip': isSidebarMinimized }"
           class="va-navbar__item" 
         />
-        <vuestic-logo class="logo"/>
+        <router-link to="/">
+          <vuestic-logo class="logo"/>
+        </router-link>
       </div>
     </template>
     <template v-slot:center>
