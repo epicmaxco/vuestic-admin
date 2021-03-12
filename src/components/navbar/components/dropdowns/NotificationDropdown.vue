@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import VaIconNotification from '@/iconset/VaIconNotification'
+import VaIconNotification from '@/components/icons/VaIconNotification'
 
 export default {
   name: 'notification-dropdown',

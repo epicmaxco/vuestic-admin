@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import VaIconMessage from '@/iconset/VaIconMessage'
+import VaIconMessage from '@/components/icons/VaIconMessage'
 
 export default {
   name: 'message-dropdown',
