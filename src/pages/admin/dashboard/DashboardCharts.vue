@@ -1,18 +1,19 @@
 <template>
   <div class="row row-equal">
     <div class="flex xs12 xl6">
-      <va-card :title="$t('dashboard.charts.trendyTrends')" v-if="lineChartData">
-        <va-card-title>
-          Trendy Trends 
-          <va-button
-            small
-            color="danger"
-            class="mr-0"
-            @click="deleteSection"
-            :disabled="lineChartData.labels.length < 2"
-          >
-            {{ $t('dashboard.charts.showInMoreDetail') }}
-          </va-button>
+      <va-card v-if="lineChartData">
+        <va-card-title class="row">
+          <h1 class="flex md6">{{ $t('dashboard.charts.trendyTrends') }}</h1>
+          <div class="flex md6 mr-0 text-right">
+            <va-button
+              small
+              color="danger"
+              @click="deleteSection"
+              :disabled="lineChartData.labels.length < 2"
+            >
+              {{ $t('dashboard.charts.showInMoreDetail') }}
+            </va-button>
+          </div>
         </va-card-title>
         <va-card-content>
           <va-chart class="chart" ref="lineChart" :data="lineChartData" type="line"/>
@@ -21,15 +22,18 @@
     </div>
 
     <div class="flex xs12 md6 xl3">
-      <va-card :title="$t('dashboard.charts.loadingSpeed')">
-        <va-card-title>
-          Loading speed
-          <va-button
-            icon="print"
-            flat
-            class="mr-0"
-            @click="printChart"
-          />
+      <va-card>
+        <va-card-title class="row">
+          <h1 class="flex md6">{{ $t('dashboard.charts.loadingSpeed') }}</h1>
+          <div class="flex md6 mr-0 text-right">
+            <va-button
+              icon="print"
+              flat
+              class="mr-0"
+              @click="printChart"
+            />
+          </div>
+
         </va-card-title>
         <va-card-content v-if="donutChartData">
           <va-chart class="chart chart--donut" :data="donutChartData" type="donut"/>
@@ -111,5 +115,8 @@ export default {
 <style scoped>
   .chart {
     height: 400px;
+  }
+  .text-right {
+    text-align: right;
   }
 </style>

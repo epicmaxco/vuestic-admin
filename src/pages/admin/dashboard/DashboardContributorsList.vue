@@ -1,15 +1,17 @@
 <template>
   <va-card class="d-flex dashboard-contributors-list">
-    <va-card-title>
-      {{ $t('dashboard.charts.topContributors') }}
-      <va-button
-        flat size="small"
-        class="mr-0"
-        :disabled="contributors.length <= step"
-        @click="showNext"
-      >
-        {{ $t('dashboard.charts.showNextFive') }}
-      </va-button>
+    <va-card-title class="row">
+      <h1 class="flex md6">{{ $t('dashboard.charts.topContributors') }}</h1>
+      <div class="flex md6 mr-0 text-right">
+        <va-button
+          flat size="small"
+          class="mr-0"
+          :disabled="contributors.length <= step"
+          @click="showNext"
+        >
+          {{ $t('dashboard.charts.showNextFive') }}
+        </va-button>
+      </div>
     </va-card-title>
 
     <va-card-content>
