@@ -50,15 +50,18 @@
     </div>
 
     <div class="flex xs12 md6 xl3">
-      <va-card
-        stripe stripe-color="info"
-        :title="$t('dashboard.info.componentRichTheme')"
-      >
+      <va-card stripe stripe-color="info"> 
+        <va-card-title>
+          {{ $t('dashboard.info.componentRichTheme') }}
+        </va-card-title>
         <va-card-content>
-          Buying the right telescope to take your love of astronomy to the
-          next level is a big next step.
+          <p class="rich-theme-card-text">
+            Buying the right telescope to take your love of astronomy to the
+            next level is a big next step.
+          </p>
 
-          <div class="row mt-3">
+
+          <div class="mt-3">
             <va-button color="primary" target="_blank" href="https://github.com/epicmaxco/vuestic-ui">
               {{$t('dashboard.info.viewLibrary')}}
             </va-button>
@@ -151,7 +154,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .row-separated {
     .flex + .flex {
       border-left: 1px solid #e3eaeb;
@@ -162,6 +165,10 @@ export default {
         font-size: 0.875rem;
       }
     }
+  }
+
+  .rich-theme-card-text {
+    line-height: 24px;
   }
 
   .dashboard {

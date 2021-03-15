@@ -1,7 +1,7 @@
 <template>
   <div class="pt-2">
     <div class="row">
-      <div class="xs12 md6">
+      <div class="flex xs12 md6">
         <div
           class="title mb-3"
           :style="computedStylesTitle"
@@ -21,7 +21,7 @@
           v-model="form.address"
         />
       </div>
-      <div class="xs12 md6">
+      <div class="flex xs12 md6">
         <div
           class="title mb-3"
           :style="computedStylesTitle"
