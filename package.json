@@ -25,7 +25,7 @@
     "vue": "^3.0.0",
     "vue-chartjs": "^3.5.1",
     "vue-gtm": "^3.2.1",
-    "vue-i18n": "^9.0.0-rc.3",
+    "vue-i18n": "^9.0.0",
     "vue-router": "^4.0.0-0",
     "vue-yandex-maps": "^0.10.9",
     "vuestic-ui": "^1.0.0-alpha.15",

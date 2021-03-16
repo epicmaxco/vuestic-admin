@@ -23,21 +23,22 @@ module.exports = {
   //     chunks: ['chunk-vendors', 'chunk-common', 'index'],
   //   },
   // },
-  // configureWebpack: {
-  //   resolve: {
-  //     alias: {
-  //       vue$: 'vue/dist/vue.esm.js',
-  //       '@': path.resolve('src'),
-  //     },
-  //   },
-  //   plugins: [
-  //     ...(
-  //       (!lintOnSave && process.env.NODE_ENV === 'development') ? [] : [new StylelintPlugin({
-  //         files: ['src/**/*.{vue,htm,html,css,sss,less,scss}'],
-  //       })]
-  //     ),
-  //   ],
-  // },
+  configureWebpack: {
+    resolve: {
+      alias: {
+        // vue$: 'vue/dist/vue.esm.js',
+        'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js'
+        // '@': path.resolve('src'),
+      },
+    },
+    // plugins: [
+    //   ...(
+    //     (!lintOnSave && process.env.NODE_ENV === 'development') ? [] : [new StylelintPlugin({
+    //       files: ['src/**/*.{vue,htm,html,css,sss,less,scss}'],
+    //     })]
+    //   ),
+    // ],
+  },
   css: {
     loaderOptions: {
       sass: {
