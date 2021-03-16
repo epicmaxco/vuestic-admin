@@ -2,9 +2,9 @@
   <div class="row row-equal">
     <div class="flex xs12 xl6">
       <va-card v-if="lineChartData">
-        <va-card-title class="row">
-          <h1 class="flex md6">{{ $t('dashboard.charts.trendyTrends') }}</h1>
-          <div class="flex md6 mr-0 text-right">
+        <va-card-title>
+          <h1>{{ $t('dashboard.charts.trendyTrends') }}</h1>
+          <div class="mr-0 text-right">
             <va-button
               small
               color="danger"
@@ -22,10 +22,10 @@
     </div>
 
     <div class="flex xs12 md6 xl3">
-      <va-card>
-        <va-card-title class="row">
-          <h1 class="flex md6">{{ $t('dashboard.charts.loadingSpeed') }}</h1>
-          <div class="flex md6 mr-0 text-right">
+      <va-card class="d-flex">
+        <va-card-title>
+          <h1>{{ $t('dashboard.charts.loadingSpeed') }}</h1>
+          <div class="mr-0 text-right">
             <va-button
               icon="print"
               flat

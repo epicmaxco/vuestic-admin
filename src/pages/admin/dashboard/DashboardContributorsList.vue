@@ -1,8 +1,8 @@
 <template>
   <va-card class="d-flex dashboard-contributors-list">
-    <va-card-title class="row">
-      <h1 class="flex md6">{{ $t('dashboard.charts.topContributors') }}</h1>
-      <div class="flex md6 mr-0 text-right">
+    <va-card-title>
+      <h1>{{ $t('dashboard.charts.topContributors') }}</h1>
+      <div class="mr-0 text-right">
         <va-button
           flat size="small"
           class="mr-0"
