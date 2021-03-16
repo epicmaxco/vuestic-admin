@@ -37,7 +37,7 @@ export default {
         ...this.lineMapData,
         cities: this.lineMapData.cities.map(city => ({
           ...city,
-          color: city.title === address.city ? this.$themes.success : city.color,
+          color: city.title === address.city ? this.theme.success : city.color,
         })),
       }
     },

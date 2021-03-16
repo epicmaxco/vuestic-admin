@@ -61,6 +61,7 @@ import { useTheme } from 'vuestic-ui';
 
 export default {
   name: 'billing-address-tab',
+  emits: ['submit'],
   data () {
     return {
       form: {
