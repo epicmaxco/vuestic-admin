@@ -15,6 +15,7 @@
         <va-icon
           class="pa-1"
           :name="isShown ? 'angle_up' :'angle_down'"
+          :color="iconColor"
         />
       </span>
     </template>
@@ -57,7 +58,10 @@ export default {
     },
   },
   computed: {
-    theme() { return useTheme().getTheme() }
+    theme() { return useTheme().getTheme() },
+    iconColor () {
+      return useTheme().getTheme().navbarTextColor
+    },
   }
 }
 </script>

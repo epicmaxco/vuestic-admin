@@ -1,5 +1,5 @@
 <template>
-  <va-sidebar :minimized="minimized">
+  <va-sidebar :minimized="minimized" :style="{ color: theme.gray }">
     <template v-for="(item, key) in items">
       <app-sidebar-link-group
         v-if="item.children"
@@ -34,6 +34,7 @@
 import AppSidebarLink from "./AppSidebarLink";
 import AppSidebarLinkGroup from "./AppSidebarLinkGroup";
 import NavigationRoutes from './NavigationRoutes';
+import { useTheme } from 'vuestic-ui';
 
 export default {
   name: "app-sidebar",
@@ -61,6 +62,9 @@ export default {
       return {
         "app-sidebar--minimized": this.minimized
       };
+    },
+    theme() {
+      return useTheme().getTheme()
     }
   },
   methods: {

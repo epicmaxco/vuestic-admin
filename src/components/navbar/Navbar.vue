@@ -1,11 +1,12 @@
 <template>
-  <va-navbar class="app-layout__navbar">
+  <va-navbar class="app-layout__navbar" :color="theme.navbar" :style="{ color: theme.navbarTextColor, fill: theme.navbarTextColor }">
     <template v-slot:left>
       <div class="left">
         <va-icon-menu-collapsed 
           @click="isSidebarMinimized = !isSidebarMinimized"
           :class="{ 'x-flip': isSidebarMinimized }"
-          class="va-navbar__item" 
+          class="va-navbar__item"
+          :color="theme.navbarTextColor"
         />
         <router-link to="/">
           <vuestic-logo class="logo"/>
@@ -48,10 +49,10 @@
 <script>
 import { useTheme } from 'vuestic-ui'
 import { useStore } from 'vuex'
+import { computed } from 'vue'
 import VuesticLogo from '@/components/vuestic-logo'
 import VaIconMenuCollapsed from '@/components/icons/VaIconMenuCollapsed'
 import AppNavbarActions from './components/AppNavbarActions'
-import { computed } from 'vue'
 
 export default {
   components: { VuesticLogo, AppNavbarActions, VaIconMenuCollapsed },
@@ -89,5 +90,12 @@ export default {
 
   .x-flip {
     transform: scaleX(-100%);
+  }
+
+  .app-navbar__text > * {
+    margin-right: 0.5rem;
+    &:last-child {
+      margin-right: 0;
+    }
   }
 </style>

@@ -8,7 +8,7 @@
       <va-icon-notification
         class="notification-dropdown__icon"
         :class="{'notification-dropdown__icon--unread': !allRead}"
-        :color="'white'"
+        :color="iconColor"
       />
     </template>
     <div class="notification-dropdown__content pl-3 pr-3 pt-2 pb-2">
@@ -34,6 +34,7 @@
 
 <script>
 import VaIconNotification from '@/components/icons/VaIconNotification'
+import { useTheme } from 'vuestic-ui'
 
 export default {
   name: 'notification-dropdown',
@@ -77,6 +78,9 @@ export default {
   computed: {
     allRead () {
       return !this.computedOptions.filter(item => item.unread).length
+    },
+    iconColor () {
+      return useTheme().getTheme().navbarTextColor
     },
   },
   methods: {

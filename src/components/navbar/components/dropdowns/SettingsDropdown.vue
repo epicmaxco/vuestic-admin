@@ -11,7 +11,7 @@
         name="vuestic-iconset-settings"
         style="font-size: 1.4rem; display: flex;"
         class="vuestic-iconset vuestic-iconset-settings settings-dropdown__icon"
-        :color="'white'"
+        :color="iconColor"
       />
     </template>
 
@@ -56,6 +56,9 @@ export default {
         const value = isTopBar === 'true' // NOTE: convert string to boolean
         this.$emit('update:isTopBar', value)
       },
+    },
+    iconColor () {
+      return useTheme().getTheme().navbarTextColor
     },
   },
 }

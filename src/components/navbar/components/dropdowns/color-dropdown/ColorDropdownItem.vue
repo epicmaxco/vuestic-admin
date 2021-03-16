@@ -1,17 +1,13 @@
 <template>
-  <va-dropdown class="mt-1 mb-1">
-    <template #anchor>
-      <va-badge
-        :color="colorName"
-        :text="colorName"
-      />
-    </template>
-    
-    <!-- <va-advanced-color-picker
-      class="my-1"
-      v-model="theme.dark"
-    /> -->
-  </va-dropdown>
+  <tr>
+    <td class="color">
+      <!-- TODO: Replace with ColorIndicator -->
+      <div class="color color-bordered" :style="{ background: theme[colorName]}"/>
+    </td>
+    <td>
+      {{ colorName }}
+    </td>
+  </tr>
 </template>
 
 <script>
@@ -28,3 +24,23 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .color {
+    width: 16px;
+    height: 16px;
+    &-bordered {
+      border: 1px solid rgb(83, 83, 83);
+      border-radius: 50%;
+    }
+  }
+  td {
+    color: black;
+    padding: 0.25rem 0.5rem;
+    box-sizing: border-box;
+    vertical-align: middle;
+    &:first-child {
+      padding-right: 0;
+    }
+  }
+</style>

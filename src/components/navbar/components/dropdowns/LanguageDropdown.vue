@@ -27,8 +27,15 @@
 </template>
 
 <script>
+import { useTheme } from 'vuestic-ui'
+
 export default {
   name: 'language-dropdown',
+  setup() {
+    const { getTheme } = useTheme()
+
+    return { theme: getTheme() }
+  },
   props: {
     options: {
       type: Array,
