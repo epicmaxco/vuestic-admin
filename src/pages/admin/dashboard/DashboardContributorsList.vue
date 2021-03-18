@@ -73,8 +73,9 @@ export default {
       this.visibleList = this.contributors.splice(0, this.step)
     },
     getRandomColor () {
-      const keys = Object.keys(this.theme)
-      return this.theme[keys[keys.length * Math.random() << 0]]
+      const themeColors = ["primary", "secondary", "success", "info", "danger", "gray", "dark"]
+      const keys = Object.keys(themeColors)
+      return themeColors[keys[keys.length * Math.random() << 0]]
     },
   },
 }
