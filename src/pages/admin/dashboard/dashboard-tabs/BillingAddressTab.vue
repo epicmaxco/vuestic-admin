@@ -1,7 +1,7 @@
 <template>
   <div class="pt-2">
     <div class="row">
-      <div class="flex xs12 md6">
+      <div class="flex sm12 md6">
         <div
           class="title mb-3"
           :style="computedStylesTitle"
@@ -21,7 +21,7 @@
           v-model="form.address"
         />
       </div>
-      <div class="flex xs12 md6">
+      <div class="flex sm12 md6">
         <div
           class="title mb-3"
           :style="computedStylesTitle"
@@ -115,3 +115,9 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.va-input-wrapper {
+  margin-bottom: 1rem;
+}
+</style>
