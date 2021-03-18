@@ -382,4 +382,8 @@ export default {
   .row.row-inside {
     max-width: none;
   }
+
+  .va-input-wrapper, fieldset {
+    margin-bottom: 0.5rem;
+  }
 </style>
