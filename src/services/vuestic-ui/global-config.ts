@@ -4,8 +4,10 @@ import VaButton from './global-configs/va-button'
 import { COLOR_THEMES } from './theme'
 
 export default {
-  VaIcon,
-  VaToast,
-  VaButton,
-  theme: COLOR_THEMES[0].colors
+  components: {
+    VaIcon,
+    VaToast,
+    VaButton,
+  },
+  colors: COLOR_THEMES[0].colors
 }

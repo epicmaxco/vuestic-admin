@@ -2,20 +2,6 @@
   <router-view/>
 </template>
 
-<script>
-import { useGlobalConfig } from 'vuestic-ui';
-import globalConfig from './services/vuestic-ui/global-config'
-
-export default {
-  mounted() {
-    // TODO: move this to main.ts after fix https://github.com/epicmaxco/vuestic-ui/issues/532
-    const { setGlobalConfig } = useGlobalConfig()
-
-    setGlobalConfig(globalConfig)
-  }
-}
-</script>
-
 <style lang="scss">
 @import '~@/sass/main.scss';
 #app {
