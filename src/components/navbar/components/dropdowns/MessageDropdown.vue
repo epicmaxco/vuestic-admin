@@ -75,7 +75,7 @@ export default {
       return !this.computedOptions.filter(item => item.unread).length
     },
     iconColor () {
-      return useTheme().getTheme().navbarTextColor
+      return useTheme().getColors().navbarTextColor
     },
   },
   methods: {

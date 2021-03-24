@@ -103,7 +103,7 @@ export default {
   },
   computed: {
     theme() {
-      return useTheme().getTheme() 
+      return useTheme().getColors() 
     },
     donutChartDataURL () {
       return document.querySelector('.chart--donut canvas').toDataURL('image/png')

@@ -28,7 +28,7 @@ export default {
   },
 
   setup() {
-    const theme = useTheme().getTheme()
+    const theme = useTheme().getColors()
     
     const store = useStore()
     const isSidebarMinimized = computed(() => store.state.isSidebarMinimized)

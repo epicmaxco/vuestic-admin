@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     lineMapData () {
-      return getLineMapData(useTheme().getTheme())
+      return getLineMapData(useTheme().getColors())
     },
   },
 }

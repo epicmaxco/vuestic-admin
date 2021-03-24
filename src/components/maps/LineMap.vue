@@ -33,7 +33,7 @@ export default {
   },
   computed: {
     theme() {
-      return useTheme().getTheme()
+      return useTheme().getColors()
     },
     map () {
       return new AmCharts.AmMap()

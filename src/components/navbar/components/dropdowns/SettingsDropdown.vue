@@ -47,7 +47,7 @@ export default {
     }
   },
   computed: {
-    theme() { return useTheme().getTheme() },
+    theme() { return useTheme().getColors() },
     isTopBarProxy: {
       get () {
         return String(this.isTopBar)
@@ -58,7 +58,7 @@ export default {
       },
     },
     iconColor () {
-      return useTheme().getTheme().navbarTextColor
+      return useTheme().getColors().navbarTextColor
     },
   },
 }

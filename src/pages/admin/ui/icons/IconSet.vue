@@ -113,7 +113,7 @@ export default {
   },
   computed: {
     theme () {
-      return useTheme().getTheme()
+      return useTheme().getColors()
     },
     iconSet () {
       for (const set of this.sets) {

@@ -38,7 +38,7 @@ export default {
     VaIconColor, ColorDropdownItem
   },
   setup() {
-    const { setTheme, getTheme } = useTheme()
+    const { setColors, getColors } = useTheme()
 
     const buttonToggleOptions = [
       { label: 'Original', value: THEME_NAMES.DEFAULT },
@@ -47,14 +47,14 @@ export default {
 
     const themeName = ref(THEME_NAMES.DEFAULT)
 
-    const selectedTheme = getTheme()
+    const selectedTheme = getColors()
 
     const selectedThemeName = computed({
       get: () => themeName.value,
       set: (newThemeName) => { 
         themeName.value = newThemeName
         const theme = COLOR_THEMES.find((theme) => theme.name === newThemeName)
-        setTheme(theme.colors)
+        setColors(theme.colors)
       }
     })
 

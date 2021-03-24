@@ -64,7 +64,7 @@ export default {
       };
     },
     theme() {
-      return useTheme().getTheme()
+      return useTheme().getColors()
     }
   },
   methods: {

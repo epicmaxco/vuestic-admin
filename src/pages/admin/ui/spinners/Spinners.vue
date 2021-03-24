@@ -109,7 +109,7 @@ export default {
     ...mapGetters(['palette']),
 
     theme() {
-      return useTheme().getTheme()
+      return useTheme().getColors()
     },
 
     speed () {

@@ -58,9 +58,9 @@ export default {
     },
   },
   computed: {
-    theme() { return useTheme().getTheme() },
+    theme() { return useTheme().getColors() },
     iconColor () {
-      return useTheme().getTheme().navbarTextColor
+      return useTheme().getColors().navbarTextColor
     },
   }
 }

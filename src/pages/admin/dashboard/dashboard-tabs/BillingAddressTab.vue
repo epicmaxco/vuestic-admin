@@ -96,7 +96,7 @@ export default {
   },
   computed: {
     theme() {
-      return useTheme().getTheme()
+      return useTheme().getColors()
     },
     citiesList () {
       return getLineMapData(this.theme).cities.map(({ title, country }) => ({ text: title, country }))

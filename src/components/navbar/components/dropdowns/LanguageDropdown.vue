@@ -32,9 +32,9 @@ import { useTheme } from 'vuestic-ui'
 export default {
   name: 'language-dropdown',
   setup() {
-    const { getTheme } = useTheme()
+    const { getColors } = useTheme()
 
-    return { theme: getTheme() }
+    return { theme: getColors() }
   },
   props: {
     options: {

@@ -163,7 +163,7 @@ export default {
 
   computed: {
     computedStyle () {
-      const theme = useTheme().getTheme()
+      const theme = useTheme().getColors()
 
       return {
         backgroundColor: theme.primary,

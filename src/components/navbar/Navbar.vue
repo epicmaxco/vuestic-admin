@@ -57,7 +57,7 @@ import AppNavbarActions from './components/AppNavbarActions'
 export default {
   components: { VuesticLogo, AppNavbarActions, VaIconMenuCollapsed },
   setup() {
-    const theme = useTheme().getTheme()
+    const theme = useTheme().getColors()
     const store = useStore()
 
     const isSidebarMinimized = computed({
