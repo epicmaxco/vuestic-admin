@@ -1,14 +1,9 @@
 <template>
   <div class="va-chat">
-    <div class="va-chat__body" :style="{ height: height }">
-      <!-- 
-        TODO: Add this directive to top div 
-        v-sticky-scroll="{
-        animate: true,
-        duration: 500
-      }" 
-      -->
-
+    <div class="va-chat__body" :style="{ height: height }" v-sticky-scroll="{
+      animate: true,
+      duration: 500
+    }">
       <div
         class="va-chat__message"
         v-for="(message, index) in modelValue"
@@ -38,12 +33,12 @@
 </template>
 
 <script>
-// import { StickyScroll } from '../../../services/vuestic-ui/components'
+import StickyScroll from './StickyScroll'
 import { useTheme } from 'vuestic-ui'
 
 export default {
   name: "chat",
-  // directives: { StickyScroll },
+  directives: { StickyScroll },
   data() {
     return {
       inputMessage: ""
