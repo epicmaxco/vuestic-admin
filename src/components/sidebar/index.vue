@@ -76,7 +76,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/deep/ .va-sidebar__menu {
+.va-sidebar__menu:deep() {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
   width: 100%;

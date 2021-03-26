@@ -145,7 +145,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/deep/ .app-sidebar-link-group {
+.app-sidebar-link-group:deep() {
   flex-direction: column;
   position: relative;
   display: flex;
