@@ -50,7 +50,7 @@
 <script>
 // import TransitionExpand from './TransitionExpand'
 import AppSidebarLink from './AppSidebarLink'
-import { useTheme } from 'vuestic-ui'
+import { useGlobalConfig } from 'vuestic-ui'
 
 export default {
   name: 'app-sidebar-link-group',
@@ -105,7 +105,7 @@ export default {
   },
   computed: {
     theme() {
-      return useTheme().getColors()
+      return useGlobalConfig().getGlobalConfig()
     },
     computedClass () {
       return {

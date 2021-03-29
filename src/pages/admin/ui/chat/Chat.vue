@@ -34,7 +34,7 @@
 
 <script>
 import StickyScroll from './StickyScroll'
-import { useTheme } from 'vuestic-ui'
+import { useGlobalConfig } from 'vuestic-ui'
 
 export default {
   name: "chat",
@@ -98,7 +98,7 @@ export default {
   },
   computed: {
     theme() {
-      return useTheme().getColors()
+      return useGlobalConfig().getGlobalConfig()
     },
   }
 };

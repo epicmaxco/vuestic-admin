@@ -12,7 +12,7 @@ import 'amcharts3/amcharts/themes/light'
 
 import 'ammap3'
 import 'ammap3/ammap/maps/js/worldLow'
-import { useTheme } from 'vuestic-ui'
+import { useGlobalConfig } from 'vuestic-ui'
 
 export default {
   name: 'line-map',
@@ -33,7 +33,7 @@ export default {
   },
   computed: {
     theme() {
-      return useTheme().getColors()
+      return useGlobalConfig().getGlobalConfig()
     },
     map () {
       return new AmCharts.AmMap()

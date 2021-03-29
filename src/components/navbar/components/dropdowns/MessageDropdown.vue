@@ -33,7 +33,7 @@
 
 <script>
 import VaIconMessage from '@/components/icons/VaIconMessage'
-import { useTheme } from 'vuestic-ui'
+import { useGlobalConfig } from 'vuestic-ui'
 
 export default {
   name: 'message-dropdown',
@@ -75,7 +75,7 @@ export default {
       return !this.computedOptions.filter(item => item.unread).length
     },
     iconColor () {
-      return useTheme().getColors().navbarTextColor
+      return useGlobalConfig().getGlobalConfig().navbarTextColor
     },
   },
   methods: {

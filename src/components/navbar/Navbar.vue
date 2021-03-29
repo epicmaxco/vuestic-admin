@@ -1,5 +1,5 @@
 <template>
-  <va-navbar class="app-layout__navbar" :color="theme.navbar" :style="{ color: theme.navbarTextColor, fill: theme.navbarTextColor }">
+  <va-navbar class="app-layout__navbar" :color="theme.navbar" :style="computedStyle">
     <template v-slot:left>
       <div class="left">
         <va-icon-menu-collapsed 
@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import { useTheme } from 'vuestic-ui'
+import { useGlobalConfig } from 'vuestic-ui'
 import { useStore } from 'vuex'
 import { computed } from 'vue'
 import VuesticLogo from '@/components/vuestic-logo'
@@ -57,7 +57,7 @@ import AppNavbarActions from './components/AppNavbarActions'
 export default {
   components: { VuesticLogo, AppNavbarActions, VaIconMenuCollapsed },
   setup() {
-    const theme = useTheme().getColors()
+    const theme = useGlobalConfig().getGlobalConfig().colors
     const store = useStore()
 
     const isSidebarMinimized = computed({
@@ -66,11 +66,13 @@ export default {
     })
 
     const userName = computed(() => store.state.userName)
+    const computedStyle = computed(() => ({color: theme.navbarTextColor, fill: theme.navbarTextColor}))
 
     return {
       theme,
       isSidebarMinimized,
-      userName
+      userName,
+      computedStyle
     }
   },
 }

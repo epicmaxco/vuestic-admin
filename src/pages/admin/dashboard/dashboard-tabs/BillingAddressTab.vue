@@ -57,7 +57,7 @@
 <script>
 import countriesList from '@/data/CountriesList'
 import { getLineMapData } from '@/data/maps/LineMapData'
-import { useTheme } from 'vuestic-ui';
+import { useGlobalConfig } from 'vuestic-ui';
 
 export default {
   name: 'billing-address-tab',
@@ -96,7 +96,7 @@ export default {
   },
   computed: {
     theme() {
-      return useTheme().getColors()
+      return useGlobalConfig().getGlobalConfig()
     },
     citiesList () {
       return getLineMapData(this.theme).cities.map(({ title, country }) => ({ text: title, country }))

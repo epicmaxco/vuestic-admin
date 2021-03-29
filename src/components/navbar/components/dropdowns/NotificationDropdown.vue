@@ -34,7 +34,7 @@
 
 <script>
 import VaIconNotification from '@/components/icons/VaIconNotification'
-import { useTheme } from 'vuestic-ui'
+import { useGlobalConfig } from 'vuestic-ui'
 
 export default {
   name: 'notification-dropdown',
@@ -80,7 +80,7 @@ export default {
       return !this.computedOptions.filter(item => item.unread).length
     },
     iconColor () {
-      return useTheme().getColors().navbarTextColor
+      return useGlobalConfig().getGlobalConfig().navbarTextColor
     },
   },
   methods: {

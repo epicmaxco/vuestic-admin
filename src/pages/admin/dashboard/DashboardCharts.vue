@@ -52,7 +52,7 @@ import { getDonutChartData } from '@/data/charts/DonutChartData'
 import { getLineChartData } from '@/data/charts/LineChartData'
 import VaChart from '@/components/va-charts/VaChart.vue'
 import DashboardContributorsChart from './DashboardContributorsList'
-import { useTheme } from 'vuestic-ui'
+import { useGlobalConfig } from 'vuestic-ui'
 
 export default {
   name: 'dashboard-charts',
@@ -103,7 +103,7 @@ export default {
   },
   computed: {
     theme() {
-      return useTheme().getColors() 
+      return useGlobalConfig().getGlobalConfig() 
     },
     donutChartDataURL () {
       return document.querySelector('.chart--donut canvas').toDataURL('image/png')

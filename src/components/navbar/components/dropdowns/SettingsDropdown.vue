@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { useTheme } from 'vuestic-ui'
+import { useGlobalConfig } from 'vuestic-ui'
 
 export default {
   name: 'settings-dropdown',
@@ -47,7 +47,7 @@ export default {
     }
   },
   computed: {
-    theme() { return useTheme().getColors() },
+    theme() { return useGlobalConfig().getGlobalConfig() },
     isTopBarProxy: {
       get () {
         return String(this.isTopBar)
@@ -58,7 +58,7 @@ export default {
       },
     },
     iconColor () {
-      return useTheme().getColors().navbarTextColor
+      return useGlobalConfig().getGlobalConfig().navbarTextColor
     },
   },
 }

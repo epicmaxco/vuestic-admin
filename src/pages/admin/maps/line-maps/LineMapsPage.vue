@@ -19,7 +19,7 @@
 <script>
 import LineMap from '@/components/maps/LineMap'
 import { getLineMapData } from '@/data/maps/LineMapData'
-import { useTheme } from 'vuestic-ui'
+import { useGlobalConfig } from 'vuestic-ui'
 
 export default {
   name: 'line-maps-page',
@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     lineMapData () {
-      return getLineMapData(useTheme().getColors())
+      return getLineMapData(useGlobalConfig().getGlobalConfig())
     },
   },
 }

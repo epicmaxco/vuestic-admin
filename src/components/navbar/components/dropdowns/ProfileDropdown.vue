@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { useTheme } from 'vuestic-ui'
+import { useGlobalConfig } from 'vuestic-ui'
 
 export default {
   name: 'profile-section',
@@ -58,9 +58,9 @@ export default {
     },
   },
   computed: {
-    theme() { return useTheme().getColors() },
+    theme() { return useGlobalConfig().getGlobalConfig() },
     iconColor () {
-      return useTheme().getColors().navbarTextColor
+      return useGlobalConfig().getGlobalConfig().navbarTextColor
     },
   }
 }

@@ -87,7 +87,7 @@
 </template>
 
 <script>
-import { useTheme } from 'vuestic-ui'
+import { useGlobalConfig } from 'vuestic-ui'
 
 export default {
   name: 'icon-set',
@@ -113,7 +113,7 @@ export default {
   },
   computed: {
     theme () {
-      return useTheme().getColors()
+      return useGlobalConfig().getGlobalConfig()
     },
     iconSet () {
       for (const set of this.sets) {

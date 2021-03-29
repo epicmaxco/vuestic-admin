@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { useTheme } from 'vuestic-ui'
+import { useGlobalConfig } from 'vuestic-ui'
 
 export default {
   props: {
@@ -19,7 +19,7 @@ export default {
   },
   computed: {
     theme() {
-      return useTheme().getColors()
+      return useGlobalConfig().getGlobalConfig()
     }
   }
 }

@@ -27,7 +27,7 @@
 <script>
 import { SpringSpinner } from 'epic-spinners'
 import users from '../data/users.json'
-import { useTheme } from 'vuestic-ui'
+import { useGlobalConfig } from 'vuestic-ui'
 
 export default {
   components: {
@@ -42,7 +42,7 @@ export default {
   },
   computed: {
     theme() {
-      return useTheme().getColors();
+      return useGlobalConfig().getGlobalConfig();
     },
     fields () {
       return [{

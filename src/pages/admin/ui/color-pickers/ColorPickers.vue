@@ -100,7 +100,7 @@
 </template>
 
 <script>
-import { useTheme } from 'vuestic-ui'
+import { useGlobalConfig } from 'vuestic-ui'
 
 export default {
   name: 'color-pickers',
@@ -119,7 +119,7 @@ export default {
     // this.palette = Object.values(this.theme)
   },
   computed: {
-    theme() { return useTheme().getColors() }
+    theme() { return useGlobalConfig().getGlobalConfig() }
   }
 }
 </script>

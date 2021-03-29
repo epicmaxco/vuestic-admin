@@ -34,7 +34,7 @@
 import AppSidebarLink from "./AppSidebarLink";
 import AppSidebarLinkGroup from "./AppSidebarLinkGroup";
 import NavigationRoutes from './NavigationRoutes';
-import { useTheme } from 'vuestic-ui';
+import { useGlobalConfig } from 'vuestic-ui';
 
 export default {
   name: "app-sidebar",
@@ -64,7 +64,7 @@ export default {
       };
     },
     theme() {
-      return useTheme().getColors()
+      return useGlobalConfig().getGlobalConfig()
     }
   },
   methods: {

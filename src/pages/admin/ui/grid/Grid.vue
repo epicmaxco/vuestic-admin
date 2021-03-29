@@ -156,14 +156,14 @@
 </template>
 
 <script>
-import { useTheme } from 'vuestic-ui'
+import { useGlobalConfig } from 'vuestic-ui'
 
 export default {
   name: 'grid',
 
   computed: {
     computedStyle () {
-      const theme = useTheme().getColors()
+      const theme = useGlobalConfig().getGlobalConfig()
 
       return {
         backgroundColor: theme.primary,

@@ -72,7 +72,7 @@
 <script>
 import * as spinners from 'epic-spinners'
 import { mapGetters } from 'vuex'
-import { useTheme } from 'vuestic-ui'
+import { useGlobalConfig } from 'vuestic-ui'
 // import VaIconFaster from '../../../iconset/VaIconFaster'
 // import VaIconSlower from '../../../iconset/VaIconSlower'
 
@@ -109,7 +109,7 @@ export default {
     ...mapGetters(['palette']),
 
     theme() {
-      return useTheme().getColors()
+      return useGlobalConfig().getGlobalConfig()
     },
 
     speed () {

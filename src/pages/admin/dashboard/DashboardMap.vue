@@ -14,7 +14,7 @@
 <script>
 import LineMap from '@/components/maps/LineMap'
 import { getLineMapData } from '@/data/maps/LineMapData'
-import { useTheme } from 'vuestic-ui'
+import { useGlobalConfig } from 'vuestic-ui'
 
 export default {
   name: 'dashboard-map',
@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     theme() {
-      return useTheme().getColors()
+      return useGlobalConfig().getGlobalConfig()
     },
   },
   methods: {

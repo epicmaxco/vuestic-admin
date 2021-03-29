@@ -36,7 +36,7 @@
 
 <script>
 import axios from 'axios'
-import { useTheme } from 'vuestic-ui'
+import { useGlobalConfig } from 'vuestic-ui'
 
 export default {
   name: 'DashboardContributorsList',
@@ -54,7 +54,7 @@ export default {
   },
   computed: {
     theme() {
-      return useTheme().getColors()
+      return useGlobalConfig().getGlobalConfig()
     }
   },
   methods: {

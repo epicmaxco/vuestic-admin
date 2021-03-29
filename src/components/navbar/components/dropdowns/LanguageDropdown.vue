@@ -27,14 +27,14 @@
 </template>
 
 <script>
-import { useTheme } from 'vuestic-ui'
+import { useGlobalConfig } from 'vuestic-ui'
 
 export default {
   name: 'language-dropdown',
   setup() {
-    const { getColors } = useTheme()
+    const theme = useGlobalConfig().getGlobalConfig().colors
 
-    return { theme: getColors() }
+    return { theme }
   },
   props: {
     options: {

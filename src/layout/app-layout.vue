@@ -13,7 +13,6 @@
 </template>
 
 <script>
-import { useTheme } from 'vuestic-ui'
 import { useStore } from 'vuex';
 import { computed } from 'vue';
 import Sidebar from '@/components/sidebar';
@@ -27,14 +26,11 @@ export default {
     Navbar, Sidebar
   },
 
-  setup() {
-    const theme = useTheme().getColors()
-    
+  setup() {   
     const store = useStore()
     const isSidebarMinimized = computed(() => store.state.isSidebarMinimized)
 
     return {
-      theme,
       isSidebarMinimized
     }
   }

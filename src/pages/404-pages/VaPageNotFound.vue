@@ -22,7 +22,7 @@
 <script>
 import MadeByComponent from './MadeByComponent'
 import Wallpaper from './Wallpaper'
-import { useTheme } from 'vuestic-ui'
+import { useGlobalConfig } from 'vuestic-ui'
 
 export default {
   name: 'va-page-not-found',
@@ -35,7 +35,7 @@ export default {
   props: { withoutButton: Boolean },
   computed: {
     theme() {
-      return useTheme().getColors()
+      return useGlobalConfig().getGlobalConfig()
     },
     pageNotFoundStyle () {
       return {
