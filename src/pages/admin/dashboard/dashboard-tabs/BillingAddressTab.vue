@@ -96,7 +96,7 @@ export default {
   },
   computed: {
     theme() {
-      return useGlobalConfig().getGlobalConfig()
+      return useGlobalConfig().getGlobalConfig().colors
     },
     citiesList () {
       return getLineMapData(this.theme).cities.map(({ title, country }) => ({ text: title, country }))

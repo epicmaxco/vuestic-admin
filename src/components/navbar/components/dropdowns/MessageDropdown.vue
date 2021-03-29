@@ -75,7 +75,7 @@ export default {
       return !this.computedOptions.filter(item => item.unread).length
     },
     iconColor () {
-      return useGlobalConfig().getGlobalConfig().navbarTextColor
+      return useGlobalConfig().getGlobalConfig().colors.navbarTextColor
     },
   },
   methods: {

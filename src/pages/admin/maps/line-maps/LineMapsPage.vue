@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     lineMapData () {
-      return getLineMapData(useGlobalConfig().getGlobalConfig())
+      return getLineMapData(useGlobalConfig().getGlobalConfig().colors)
     },
   },
 }

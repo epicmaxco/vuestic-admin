@@ -6,11 +6,10 @@
     :offset="[0, 13]"
   >
     <template #anchor>
-      <!-- TODO: temp fix with icon class  -->
       <va-icon
         name="vuestic-iconset-settings"
         style="font-size: 1.4rem; display: flex;"
-        class="vuestic-iconset vuestic-iconset-settings settings-dropdown__icon"
+        class="settings-dropdown__icon"
         :color="iconColor"
       />
     </template>
@@ -47,7 +46,7 @@ export default {
     }
   },
   computed: {
-    theme() { return useGlobalConfig().getGlobalConfig() },
+    theme() { return useGlobalConfig().getGlobalConfig().colors },
     isTopBarProxy: {
       get () {
         return String(this.isTopBar)
@@ -58,7 +57,7 @@ export default {
       },
     },
     iconColor () {
-      return useGlobalConfig().getGlobalConfig().navbarTextColor
+      return this.theme.navbarTextColor
     },
   },
 }

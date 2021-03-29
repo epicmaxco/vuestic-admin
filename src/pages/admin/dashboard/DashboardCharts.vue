@@ -103,7 +103,7 @@ export default {
   },
   computed: {
     theme() {
-      return useGlobalConfig().getGlobalConfig() 
+      return useGlobalConfig().getGlobalConfig().colors
     },
     donutChartDataURL () {
       return document.querySelector('.chart--donut canvas').toDataURL('image/png')

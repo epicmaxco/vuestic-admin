@@ -163,7 +163,7 @@ export default {
 
   computed: {
     computedStyle () {
-      const theme = useGlobalConfig().getGlobalConfig()
+      const theme = useGlobalConfig().getGlobalConfig().colors
 
       return {
         backgroundColor: theme.primary,

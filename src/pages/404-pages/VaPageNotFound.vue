@@ -35,7 +35,7 @@ export default {
   props: { withoutButton: Boolean },
   computed: {
     theme() {
-      return useGlobalConfig().getGlobalConfig()
+      return useGlobalConfig().getGlobalConfig().colors
     },
     pageNotFoundStyle () {
       return {

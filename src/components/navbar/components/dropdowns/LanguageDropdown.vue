@@ -6,8 +6,7 @@
     :offset="[0, 13]"
   >
     <template #anchor>
-      <!-- TODO: change class to name after fix https://github.com/epicmaxco/vuestic-ui/issues/538 -->
-      <va-icon :class="['flag-icon flag-icon-large', flagIconClass(currentLanguage())]"/>
+      <va-icon :name="flagIcon(currentLanguage(), 'large')"/>
     </template>
     <div class="language-dropdown__content pl-4 pr-4 pt-2 pb-2">
       <div class="language-dropdown__item row align--center pt-1 pb-1 mt-2 mb-2"
@@ -16,8 +15,7 @@
         :class="{ active: option.code === currentLanguage() }"
         @click="setLanguage(option.code)"
       >
-        <!-- TODO: change class to name after fix https://github.com/epicmaxco/vuestic-ui/issues/538 -->
-        <va-icon :class="['flag-icon flag-icon-small', flagIconClass(option.code)]"/>
+        <va-icon :name="flagIcon(option.code, 'small')"/>
         <span class="dropdown-item__text">
           {{ $t(`language.${option.name}`) }}
         </span>
@@ -72,9 +70,9 @@ export default {
       return this.$i18n.locale === 'en' ? 'gb' : this.$i18n.locale
     },
 
-    flagIconClass (code) {
-      return `flag-icon-${code}`
-    },
+    flagIcon(code, size) {
+      return `flag-icon-${code} ${size}`
+    }
   },
 }
 </script>

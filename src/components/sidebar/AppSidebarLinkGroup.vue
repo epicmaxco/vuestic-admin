@@ -105,7 +105,7 @@ export default {
   },
   computed: {
     theme() {
-      return useGlobalConfig().getGlobalConfig()
+      return useGlobalConfig().getGlobalConfig().colors
     },
     computedClass () {
       return {

@@ -113,7 +113,7 @@ export default {
   },
   computed: {
     theme () {
-      return useGlobalConfig().getGlobalConfig()
+      return useGlobalConfig().getGlobalConfig().colors
     },
     iconSet () {
       for (const set of this.sets) {

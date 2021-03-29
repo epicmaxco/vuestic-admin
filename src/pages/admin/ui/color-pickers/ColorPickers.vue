@@ -119,7 +119,7 @@ export default {
     // this.palette = Object.values(this.theme)
   },
   computed: {
-    theme() { return useGlobalConfig().getGlobalConfig() }
+    theme() { return useGlobalConfig().getGlobalConfig().colors }
   }
 }
 </script>

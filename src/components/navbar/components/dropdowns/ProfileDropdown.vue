@@ -13,7 +13,6 @@
       >
         <slot/>
         <va-icon
-          class="pa-1"
           :name="isShown ? 'angle_up' :'angle_down'"
           :color="iconColor"
         />
@@ -60,7 +59,7 @@ export default {
   computed: {
     theme() { return useGlobalConfig().getGlobalConfig() },
     iconColor () {
-      return useGlobalConfig().getGlobalConfig().navbarTextColor
+      return useGlobalConfig().getGlobalConfig().colors.navbarTextColor
     },
   }
 }

@@ -64,7 +64,7 @@ export default {
       };
     },
     theme() {
-      return useGlobalConfig().getGlobalConfig()
+      return useGlobalConfig().getGlobalConfig().colors
     }
   },
   methods: {
