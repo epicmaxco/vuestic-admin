@@ -29,7 +29,7 @@ import { setupColors } from 'vuestic-ui'
 import VaIconColor from '@/components/icons/VaIconColor'
 import ColorDropdownItem from './ColorDropdownItem'
 import { ref, computed } from 'vue'
-import { COLOR_THEMES, THEME_NAMES } from '@/services/vuestic-ui/theme'
+import { COLOR_THEMES, THEME_NAMES } from '@/services/vuestic-ui/colors'
 
 
 export default {

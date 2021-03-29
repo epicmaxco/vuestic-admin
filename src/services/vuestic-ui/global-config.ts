@@ -1,8 +1,8 @@
-import VaIcon from './global-configs/va-icon'
-import VaToast from './global-configs/va-toast'
-import VaButton from './global-configs/va-button'
+import VaIcon from './components/va-icon'
+import VaToast from './components/va-toast'
+import VaButton from './components/va-button'
 import iconsConfig from './icons-config/icons-config'
-import { COLOR_THEMES } from './theme'
+import { COLOR_THEMES } from './colors'
 
 export default {
   components: {
