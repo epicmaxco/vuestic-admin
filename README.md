@@ -136,8 +136,8 @@ We design Vuestic Admin to support the latest modern web browsers.
 ### Contributing
 
 Thanks for all your wonderful PRs, issues and ideas.
-<a href="https://github.com/epicmaxco/vuestic-ui/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=epicmaxco/vuestic-ui">
+<a href="https://github.com/epicmaxco/vuestic-admin/graphs/contributors">
+<img src="https://opencollective.com/vuestic-admin/contributors.svg?width=890&button=false" />
 </a>
 <br>
 You’re always welcome to join: check out
@@ -146,7 +146,6 @@ contribution guides</a>
 , [open issues](https://github.com/epicmaxco/vuestic-ui/issues)
 and [discord server](https://discord.gg/jTKTjj2weV)
 
-### Can I hire you guys?
 
 Yes! Say hi: [hello@epicmax.co](mailto:hello@epicmax.co) </br>
 We will be happy to work with you! Other [work we’ve done](https://epicmax.co)
