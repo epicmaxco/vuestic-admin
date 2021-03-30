@@ -15,7 +15,7 @@
 <script>
 import { useStore } from 'vuex';
 import { computed } from 'vue';
-import Sidebar from '@/components/sidebar';
+import Sidebar from '@/components/sidebar/Sidebar';
 import Navbar from '@/components/navbar/Navbar.vue';
 
 

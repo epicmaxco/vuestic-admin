@@ -8,14 +8,14 @@ export default {
       name: 'dashboard',
       displayName: 'menu.dashboard',
       meta: {
-        iconClass: 'vuestic-iconset-dashboard',
+        icon: 'vuestic-iconset-dashboard',
       },
     },
     {
       name: 'statistics',
       displayName: 'menu.statistics',
       meta: {
-        iconClass: 'vuestic-iconset-statistics',
+        icon: 'vuestic-iconset-statistics',
       },
       disabled: true,
       children: [
@@ -33,7 +33,7 @@ export default {
       name: 'forms',
       displayName: 'menu.forms',
       meta: {
-        iconClass: 'vuestic-iconset-forms',
+        icon: 'vuestic-iconset-forms',
       },
       disabled: true,
       children: [
@@ -51,7 +51,7 @@ export default {
       name: 'tables',
       displayName: 'menu.tables',
       meta: {
-        iconClass: 'vuestic-iconset-tables',
+        icon: 'vuestic-iconset-tables',
       },
       children: [
         {
@@ -68,7 +68,7 @@ export default {
       name: 'ui',
       displayName: 'menu.uiElements',
       meta: {
-        iconClass: 'vuestic-iconset-ui-elements',
+        icon: 'vuestic-iconset-ui-elements',
       },
       disabled: true,
       children: [
@@ -172,7 +172,7 @@ export default {
       name: 'maps',
       displayName: 'menu.maps',
       meta: {
-        iconClass: 'vuestic-iconset-maps',
+        icon: 'vuestic-iconset-maps',
       },
       disabled: true,
       children: [
@@ -202,7 +202,7 @@ export default {
       name: 'pages',
       displayName: 'menu.pages',
       meta: {
-        iconClass: 'vuestic-iconset-files',
+        icon: 'vuestic-iconset-files',
       },
       disabled: true,
       children: [
