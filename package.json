@@ -18,7 +18,7 @@
     "ammap3": "^3.21.14",
     "approximate-number": "^2.0.0",
     "asva-executors": "^0.1.22",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "babel-polyfill": "^6.26.0",
     "chart.js": "^2.9.3",
     "core-js": "3",
