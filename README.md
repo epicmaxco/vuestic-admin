@@ -1,4 +1,8 @@
-<h1 align="center">Vuestic Admin</h1>
+<p align="center">
+  <a href="https://vuestic.dev" target="_blank">
+    <img alt="Vuestic UI Logo" width="500" src="./public/img/vuestic-admin-logo.png">
+  </a>
+</p>
 
 <p align="center">
   Free and beautiful Vue.js admin template with 44+ custom UI components.</br>
@@ -20,7 +24,7 @@ Based on <a href="https://github.com/epicmaxco/vuestic-ui">Vuestic UI</a> librar
 
 <p align="center">
   <a href="https://vuestic.epicmax.co" target="_blank">
-    <img src="https://i.imgur.com/N9AeaSc.jpg" align="center" width="888px"/>
+    <img src="./public/img/vuestic-admin-image.jpg" align="center" width="888px"/>
   </a>
 </p>
 
@@ -31,11 +35,14 @@ Based on <a href="https://github.com/epicmaxco/vuestic-ui">Vuestic UI</a> librar
 </p>
 
 ### Documentation
-Documentation, guides and tutorials are available on <a href="https://vuestic.dev">vuestic.dev</a>
+
+Documentation, guides and tutorials are available
+on <a href="https://vuestic.dev">vuestic.dev</a>
 
 ### Official Discord Server
 
-Ask questions at the official community [discord server](https://discord.gg/jTKTjj2weV)
+Ask questions at the official
+community [discord server](https://discord.gg/jTKTjj2weV)
 
 ### Installation
 
@@ -146,11 +153,11 @@ contribution guides</a>
 , [open issues](https://github.com/epicmaxco/vuestic-ui/issues)
 and [discord server](https://discord.gg/jTKTjj2weV)
 
-
 Yes! Say hi: [hello@epicmax.co](mailto:hello@epicmax.co) </br>
 We will be happy to work with you! Other [work we’ve done](https://epicmax.co)
 
 ### Awards
+
 <a href="https://flatlogic.com/templates/vuestic-vue-free-admin" target="_blank">
     <img src="https://i.imgur.com/ZeQPZ3Q.png" align="center" width="150px"/>
 </a>
