@@ -141,6 +141,9 @@ export default {
       }
     },
   },
+  created () {
+    this.updateActiveState();
+  }
 }
 
 </script>
