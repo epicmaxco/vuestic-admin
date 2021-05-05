@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { setupColors } from 'vuestic-ui'
+import { useColors } from 'vuestic-ui'
 import VaIconColor from '@/components/icons/VaIconColor'
 import ColorDropdownItem from './ColorDropdownItem'
 import { ref, computed } from 'vue'
@@ -38,7 +38,7 @@ export default {
     VaIconColor, ColorDropdownItem
   },
   setup() {
-    const { setColors, getColors } = setupColors()
+    const { setColors, getColors } = useColors()
 
     const buttonToggleOptions = [
       { label: 'Original', value: THEME_NAMES.DEFAULT },

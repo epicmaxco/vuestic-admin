@@ -21,7 +21,7 @@
 
 <script>
 // import { ColorThemeMixin, getGradientBackground } from '../../../../services/vuestic-ui'
-import { useColor } from 'vuestic-ui'
+import { getColor } from 'vuestic-ui'
 
 
 // NOTE This component is a tad weird.
@@ -88,7 +88,7 @@ export default {
         // return getGradientBackground(this.colorComputed)
       }
 
-      return useColor()(this.color)
+      return getColor(this.color)
     },
   },
 }

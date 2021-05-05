@@ -5,20 +5,20 @@ export default createIconsConfig({
   aliases,
   fonts: [
     {
-      name: /fa4-(.*)/,
-      iconClass: (code) => `fa4 fa fa-${code}`
+      name: 'fa4-{code}',
+      resolve: ({code}) => ({ class: `fa4 fa fa-${code}` })
     },
     {
-      name: /vuestic-iconset-(.*)/,
-      iconClass: (code) => `vuestic-iconset vuestic-iconset-${code}`
+      name: 'vuestic-iconset-{code}',
+      resolve: ({code}) => ({ class:`vuestic-iconset vuestic-iconset-${code}` })
     },
     {
-      name: /flag-icon-(.*) (.*)/,
-      iconClass: (code, size) => `flag-icon flag-icon-${code} flag-icon-${size}`
+      name: 'flag-icon-{code} {size}',
+      resolve: ({code, size}) => ({ class: `flag-icon flag-icon-${code} flag-icon-${size}` })
     },
     {
-      name: /ion-(.*)/,
-      iconClass: (code: string) => `icon ion-md-${code}`
+      name: 'ion-{code}',
+      resolve: ({code}) => ({ class: `icon ion-md-${code}` })
     }
   ]
 })

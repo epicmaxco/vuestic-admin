@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType, ref } from 'vue'
-import { useColor } from 'vuestic-ui'
+import { useColors } from 'vuestic-ui'
 
 export default defineComponent({
   name: 'SidebarItem',
@@ -35,7 +35,7 @@ export default defineComponent({
     minimized: { type: Boolean, default: false, }
   },
   setup(props) {
-    const getColor = useColor()
+    const { getColor } = useColors()
     const isHovered = ref(false)
 
     const doShowIcon = computed(() => props.icon !== undefined)
