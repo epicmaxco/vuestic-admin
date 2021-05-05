@@ -1,7 +1,0 @@
-node_modules/
-dist/
-.dockerignore
-.gitattributes
-.gitignore
-Dockerfile
-README.md
