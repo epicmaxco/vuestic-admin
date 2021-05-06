@@ -1,0 +1,62 @@
+// Breakpoints are in px because they're bound to screen size, which is in px.
+// Everything else is in rem.
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+) !default;
+
+$grid-gutter-default: 0.5rem !default;
+$grid-columns: 12 !default;
+
+// Gutters correspond to $grid-breakpoints
+$grid-gutters: (
+  xs: $grid-gutter-default * 0.25,
+  sm: $grid-gutter-default * 0.5,
+  md: $grid-gutter-default,
+  lg: $grid-gutter-default * 2,
+  xl: $grid-gutter-default * 3,
+) !default;
+
+$container-max-widths: (
+  // xs and sm are full width.
+  md: map-get($grid-breakpoints, md),
+  lg: map-get($grid-breakpoints, lg),
+  xl: map-get($grid-breakpoints, xl),
+) !default;
+
+$display-breakpoints: (
+  xs-only: 'only screen and (max-width: #{(map-get($grid-breakpoints, sm) - 1)})',
+  sm-only: 'only screen and (min-width: #{map-get($grid-breakpoints, sm)}) and (max-width: #{(map-get($grid-breakpoints, md)  - 1)})',
+  sm-and-down: 'only screen and (max-width: #{(map-get($grid-breakpoints, md) - 1)})',
+  sm-and-up: 'only screen and (min-width: #{map-get($grid-breakpoints, sm)})',
+  md-only: 'only screen and (min-width: #{map-get($grid-breakpoints, md)}) and (max-width: #{(map-get($grid-breakpoints, lg)  - 1)})',
+  md-and-down: 'only screen and (max-width: #{(map-get($grid-breakpoints, lg) - 1)})',
+  md-and-up: 'only screen and (min-width: #{map-get($grid-breakpoints, md)})',
+  lg-only: 'only screen and (min-width: #{map-get($grid-breakpoints, lg)}) and (max-width: #{(map-get($grid-breakpoints, xl) - 1)})',
+  lg-and-down: 'only screen and (max-width: (#{map-get($grid-breakpoints, xl)} - 1))',
+  lg-and-up: 'only screen and (min-width: #{map-get($grid-breakpoints, lg)})',
+  xl-only: 'only screen and (min-width: #{map-get($grid-breakpoints, xl)})',
+) !default;
+
+// These are used for various padding and typing to make them consistent.
+$spacer: 1rem !default;
+$spacer-x: $spacer !default;
+$spacer-y: $spacer !default;
+
+$spacer: 1rem !default;
+$spacers: () !default;
+
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * 0.25),
+    2: ($spacer * 0.5),
+    3: $spacer,
+    4: ($spacer * 1.5),
+    5: ($spacer * 3)
+  ),
+  $spacers
+);

@@ -1,0 +1,508 @@
+{
+  "auth": {
+    "agree": "با شرایط استفاده موافقم.",
+    "createAccount": "ساخت حساب کاربری",
+    "createNewAccount": "ساخت حساب کاربری تازه",
+    "email": "رایانامه",
+    "login": "ورود",
+    "password": "گذرواژه",
+    "recover_password": "فراموشی رمز عبور",
+    "sign_up": "ساخت حساب کاربری",
+    "keep_logged_in": "مرا در این مرورگر بخاطر بسپار",
+    "termsOfUse": "شرایط استفاده",
+    "reset_password": "بازنشانی گذرواژه"
+  },
+  "404": {
+    "title": "این صفحه رفته گل بچینه :)",
+    "text": "اگر فکر میکنید چیزی درست نیست برای ما پیام بفرستید.",
+    "back_button": "بازگشت به پیشخوان"
+  },
+  "rating": {
+    "singleIcon": "آیکون تکی",
+    "twoIcons": "آیکون دوتایی",
+    "large": "بزرگ",
+    "numbers": "اعداد",
+    "halves": "نصفه",
+    "small": "کوچک"
+  },
+  "typography": {
+    "primary": "سبک های متن اصلی",
+    "secondary": "سبکه های متن ثانوی"
+  },
+  "colorPickers": {
+    "simple": "ساده",
+    "slider": "اسلایدر",
+    "advanced": "پیشرفته"
+  },
+  "buttons": {
+    "advanced": "دکمه ها همراه آیکون",
+    "size": "اندازه دکمه",
+    "tags": "برچسب های دکمه",
+    "button": "دکمه",
+    "buttonGroups": "گروه های دکمه",
+    "buttonsDropdown": "دکمه های کشویی",
+    "split": "تقسیم",
+    "splitTo": "تقسیم به",
+    "customIcon": "آیکون سفارشی",
+    "content": "محتوا",
+    "buttonToggles": "دکمه توگل ",
+    "pagination": "صفحه بندی",
+    "a-link": "باز کردن EpicSpinners",
+    "router-link": "انتقال به نمودارها",
+    "colors": "رنگ های دکمه",
+    "disabled": "غیر فعال",
+    "dropdown": "کشویی",
+    "hover": "هاور",
+    "types": "انواع دکمه",
+    "pressed": "مطبوعات",
+    "default": "پیش فرض",
+    "outline": "رئوس مطالب",
+    "flat": "تخت",
+    "large": "بزرگ",
+    "small": "کوچک",
+    "normal": "معمولی",
+    "success": "موفقیت",
+    "info": "اطلاعات",
+    "danger": "خطر",
+    "warning": "هشداری",
+    "gray": "خاکستری",
+    "dark": "تیره"
+  },
+  "charts": {
+    "horizontalBarChart": "نوار افقی نمودار",
+    "verticalBarChart": "نوار عمودی نمودار",
+    "lineChart": "خط نمودار",
+    "pieChart": "نمودار کیک سیب",
+    "donutChart": "نمودار دوناتی",
+    "bubbleChart": "نمودار حبابی"
+  },
+  "collapse": {
+    "basic": "کادر کشویی معمولی",
+    "collapseWithBackground": "کادر کشویی بهمراه پس زمینه",
+    "collapseWithCustomHeader": "کادر کشویی سفارشی"
+  },
+  "sliders": {
+    "slider": "اسلایدر ها",
+    "range": "محدوده ها",
+    "simple": "ساده",
+    "value": "مقدار",
+    "label": "برجسب",
+    "labelPlusIcon": "برجسب + آيکون",
+    "pins": "پین ها",
+    "pinsAndValue": "پین ها & مقدارها"
+  },
+  "popovers": {
+    "popover": "ابزار راهنما",
+    "popoverStyle": "سبکه ابزار راهنما",
+    "popoverPlacement": "محل قرار گیری ابزار راهنما",
+    "minimalTooltip": "حداقل ابزار راهنما",
+    "anotherOneTooltip": "یکی دیگر از ابزارهای راهنما"
+  },
+  "datepickers": {
+    "dateOfBirth": "تاریخ تولد",
+    "daysOfTheWeek": "روزهای هفته",
+    "setupMeeting": "تنظیم جلسه",
+    "upcomingVacation": "تعطیلات آينده",
+    "multipleAndDisabledDates": "تاریخ های چندگانه و غیر فعال",
+    "inline": "خطی"
+  },
+  "dashboard": {
+    "versions": "ورژن ها",
+    "setupRemoteConnections": "راه اندازی اتصالات از راه دور",
+    "currentVisitors": "بازکنندگان فعلی",
+    "charts": {
+      "trendyTrends": "ترند های روز",
+      "showInMoreDetail": "نمایش جزییات بیشتر",
+      "loadingSpeed": "سرعت بارگزاری",
+      "topContributors": "مشارکت کنندگان برتر",
+      "showNextFive": "نمایش پنج تای بعدی",
+      "commits": "کامیت ها"
+    },
+    "info": {
+      "componentRichTheme": "تم کامپوننت ریچ",
+      "completedPullRequests": "پول رکویست های کامل شده",
+      "users": "کاربران",
+      "points": "امتیاز ها",
+      "units": "واحد ها",
+      "exploreGallery": "کاوشگر گالری",
+      "viewLibrary": "نمایش کتابخانه ها",
+      "commits": "کامیت ها",
+      "components": "کامپوننت ها",
+      "teamMembers": "اعضای تیم"
+    },
+    "table": {
+      "title": "جدول عالی",
+      "brief": "مختصر",
+      "detailed": "تفصیلی",
+      "resolve": "حل",
+      "resolved": "حل شده"
+    },
+    "tabs": {
+      "overview": {
+        "title": "نمای کلی",
+        "built": "ساخته شده با فریم ورک Vue.js",
+        "free": "کاملا رایگان برای همه",
+        "fresh": "طراحی تازه و باحال",
+        "mobile": "واکنش گرا و بهینه سازی برای موبایل",
+        "components": "پر از مولفه های باحال",
+        "nojQuery": "جی کویری رایگان"
+      },
+      "billingAddress": {
+        "title": "نشانی صورتحساب",
+        "personalInfo": "اطلاعات شخصی",
+        "firstName": "نام و نام خانوادگی",
+        "email": "رایانما",
+        "address": "نشانی",
+        "companyInfo": "اطلاعات شرکت",
+        "city": "شهر",
+        "country": "کشور",
+        "infiniteConnections": "اتصالات بینهایت",
+        "addConnection": "افزودن اتصال"
+      },
+      "bankDetails": {
+        "title": "اطلاعات بانکی",
+        "detailsFields": "فیلد ها همراه جزییات",
+        "bankName": "نام بانک",
+        "accountName": "شماره حساب",
+        "sortCode": "کد مرتب سازی",
+        "accountNumber": "کد حساب داری",
+        "notes": "یادداشت ها",
+        "sendDetails": "فرستادن جزییات"
+      }
+    },
+    "navigationLayout": "لایه ناوبری",
+    "topBarButton": "نوار بالا",
+    "sideBarButton": "نوار کناری"
+  },
+  "notificationsPage": {
+    "notifications": {
+      "title": "اعلان ها",
+      "gray": "در حال پردازش",
+      "dark": "بر چسب جدید",
+      "success": "پرداخت شده",
+      "successMessage": "شما این پیام مهم را با موفقیت خوانده اید.",
+      "info": "اطلاعات",
+      "infoMessage": "این پیام به توجه شما نیاز دارید, اما خیلی حیاتی نیست.",
+      "warning": "در انتظار",
+      "warningMessage": "بهتره یه دکتر بری خیلی خوب به نظر نمی رسی :)",
+      "danger": "خطرناک",
+      "dangerMessage": "مواردی نیاز به تغییر دارد دوباره بفرستید"
+    },
+    "popovers": {
+      "title": "نکات و ابزارهای راهنما",
+      "popoverTitleLabel": "عنوان راهنما",
+      "popoverTextLabel": "متن راهنما",
+      "popoverIconLabel": "آیکون راهنما (fontawesome)",
+      "showPopover": "نمایش راهنما",
+      "topTooltip": "بالاش",
+      "rightTooltip": "سمت راستش",
+      "leftTooltip": "سمت چپش",
+      "bottomTooltip": "زیرش"
+    },
+    "toasts": {
+      "title": "ازین پیام یهویی ها :)",
+      "textLabel": "متن",
+      "durationLabel": "مدت (میلی ثانیه)",
+      "iconLabel": "آیکون (fontawesome)",
+      "fullWidthLabel": "تمام عرض",
+      "launchToast": "پرتاب پیام"
+    }
+  },
+  "forms": {
+    "controls": {
+      "title": "جعبه کادر ها, رادیو ها, سوییچ ها, تاگل ها",
+      "radioDisabled": "غیر فعال کردن رادیو باکس",
+      "radio": "رادیو باکس",
+      "subscribe": "عضویت در خبرنامه",
+      "unselected": "گزینه انتخاب نشده",
+      "selected": "گزینه انتخاب شده",
+      "readonly": "گزینه فقط خواندنی",
+      "disabled": "گزینه غیر فعال",
+      "error": "گزینه همراه خطا",
+      "errorMessage": "گزینه همراه پیام خطا"
+    },
+    "dateTimePicker": {
+      "title": "انتخاب گر تاریخ و زمان",
+      "basic": "اصلی",
+      "time": "زمان",
+      "range": "محدوده",
+      "multiple": "چندگانه",
+      "disabled": "غیر فعال",
+      "customFirstDay": "روز اول سفارشی",
+      "customDateFormat": "قالب تاریخ سفارشی"
+    },
+    "inputs": {
+      "emailValidatedSuccess": "رایانما (با موفقیت تایید شد)",
+      "emailValidated": "رایا نما (معتبر)",
+      "inputWithIcon": "ورودی با آیکون",
+      "inputWithButton": "ورودی همراه دکمه",
+      "inputWithClearButton": "ورودی همراه دکمه شفاف",
+      "inputWithRoundButton": "ورودی همراه با دکمه گرد",
+      "textInput": "ورودی متن",
+      "textInputWithDescription": "ورودی متن (همراه توضیحات)",
+      "textArea": "منطقه متن",
+      "title": "ورودی ها",
+      "upload": "بارگذاری"
+    },
+    "mediumEditor": {
+      "title": "ویرایشگر مدیوم"
+    },
+    "selects": {
+      "country": "انتخاب کشور",
+      "countryMulti": "انتخاب همزان چند کشور",
+      "multi": "انتخاب همزمان",
+      "simple": "انتخاب ساده",
+      "searchable": "انتخاب به وسیله جستجو",
+      "searchableMulti": "انتخاب همزمان به وسلیه جستجو ها",
+      "title": "انتخاب ها"
+    }
+  },
+  "grid": {
+    "desktop": "شبکه رومیزی",
+    "fixed": "شبکه ثابت",
+    "offsets": "آفست ها",
+    "responsive": "شبکه واکنش گرا"
+  },
+  "icons": {
+    "back": "بازگشت به همه آيکونها",
+    "none": "هیچ آيکونی یافت نشد",
+    "search": "جستجوی آيکون",
+    "title": "آيکون ها"
+  },
+  "spinners": {
+    "title": "اسپینر ها",
+    "poweredBy": "قدرت گرقته توسط"
+  },
+  "language": {
+    "brazilian_portuguese": "پرتقالی",
+    "english": "انگلیسی",
+    "spanish": "اسپانیایی",
+    "simplified_chinese": "چینی",
+    "persian": "فارسی"
+  },
+  "menu": {
+    "auth": "Auth",
+    "rating": "رتبه بندی",
+    "buttons": "دکمه ها",
+    "charts": "نمودار ها",
+    "colorPickers": "انتخاب رنگ",
+    "collapses": "جمع شو",
+    "timelines": "جدول زمانی",
+    "dashboard": "پیشخوان",
+    "formElements": "المان های فرم",
+    "forms": "فرم ها",
+    "mediumEditor": "ویرایشگر مدیوم",
+    "grid": "شبکه بندی",
+    "icons": "آيکون ها",
+    "cards": "کارت ها",
+    "spinners": "اسپینر ها",
+    "login": "ورود",
+    "maps": "نقشه ها",
+    "pages": "صفحه ها",
+    "modals": "مودال ها",
+    "notifications": "اعلان ها",
+    "progressBars": "نوار پیشرفت",
+    "signUp": "نام نویسی",
+    "statistics": "آمار",
+    "lists": "لیست ها",
+    "tables": "جدول ها",
+    "markupTables": "حدول های نشان دار",
+    "dataTables": "حدول های داده",
+    "chips": "تراشه ها",
+    "tabs": "عنوان ها",
+    "typography": "تایپوگرافی",
+    "uiElements": "رابط کاربری",
+    "treeView": "نمای درختی",
+    "dateTimePickers": "انتخابگر تاریخ",
+    "fileUpload": "بارگذاری پرونده",
+    "colors": "رنگ ها",
+    "spacing": "فاصله گذاری",
+    "sliders": "اسلایدر",
+    "popovers": "ابزار راهنما",
+    "chat": "گفتگو"
+  },
+  "messages": {
+    "all": "مشاهده همه پیام ها",
+    "new": "پیام جدید از {name}",
+    "mark_as_read": "تغییر به خوانده شده"
+  },
+  "modal": {
+    "cancel": "لغو",
+    "close": "بستن",
+    "confirm": "تایید",
+    "large": "بزرگ",
+    "largeTitle": "مودال بزرگ",
+    "medium": "متوسط",
+    "mediumTitle": "مودال متوسط",
+    "small": "کوچک",
+    "smallTitle": "مودال کوچک",
+    "static": "استاتیک",
+    "staticMessage": "این یک مودال استاتیک است, کلیک بر روی پس زمینه آن را نمی بندد.",
+    "staticTitle": "مودال استاتیک",
+    "title": "مودال ها",
+    "titlePosition": "مودال پوزیشن",
+    "top": "بالا",
+    "right": "راست",
+    "bottom": "پایین",
+    "left": "چپ",
+    "message": "سه نوع برنامه نویس وجود دارد: البته همه ی آنها بسیار تنبل هستند پشم های خود را به ندرت اصلاح می کنند یک سری ها ادای برنامه نویس را در می آورند آنها از هر زبانی در حد سلام دنیا یادگرفته اند  و لیستی از تمام زبان های برنامه نویسی را در رزومه ی خودشان می آوردند برنامه نویس های جا افتاده و حرفه ای بسیار فروتن هستند و اصلا از خودشون تعریف نمی کنند. مثل علی شریفی نیستانی باشید"
+  },
+  "dropdown": {
+    "default": "پیش فرض",
+    "withArrow": "همراه فلش",
+    "note": "یادداشت",
+    "noteText": "اگر فضای کافی بر روی صفحه نمایش وجود داشته باشد ، لیست کشویی در جهت مشخص شده باز می شود ، در غیر این صورت جهت به طور خودکار تغییر می کند",
+    "top": "بالا",
+    "right": "راست",
+    "bottom": "پایین",
+    "left": "چپ"
+  },
+  "fileUpload": {
+    "advancedMediaGallery": "گالری رسانه پیشرفته",
+    "advancedUploadList": "لیست آپلود پیشرفته",
+    "mediaGallery": "گالری رسانه",
+    "uploadList": "آپلود لیستی",
+    "single": "تکی",
+    "dragNdropFiles": "درگ دراپ پوشه ها یا",
+    "uploadedOn": "بارگزاری شده بر روی",
+    "fileDeleted": "فایل با موقثست حذف گردید",
+    "undo": "واگرد",
+    "preview": "پش نمایش",
+    "delete": "حذف",
+    "deleteFile": "حذف فایل",
+    "uploadFile": "بارگزاری فایل",
+    "uploadMedia": "بارگزاری رسانه",
+    "addAttachment": "افزودن پیوست",
+    "modalTitle": "اعتبارسنجی پرونده",
+    "modalText": "نوع پرونده نادرست است!"
+  },
+  "chips": {
+    "chips": "تراشه ها",
+    "badges": "نشان ها"
+  },
+  "navbar": {
+    "messageUs": "سوالات مربوط به این افزونه را ما بپرسید",
+    "repository": "مخزن گیت هاب"
+  },
+  "notifications": {
+    "all": "همه اعلان ها را نشان بده",
+    "mark_as_read": "علامت گذاری به عنوان خوانده شده",
+    "sentMessage": "فرستادن یک پیام",
+    "uploadedZip": "بارگزاری یک فایل فشرده تازه به همراه {type}",
+    "startedTopic": "شروع یک موضوع جدید"
+  },
+  "timelines": {
+    "horizontalSimple": "افقی ساده",
+    "horizontalCards": "کارت های افقی",
+    "verticalSimple": "عمودی ساده",
+    "verticalLabel": "عمودی با برجسب",
+    "verticalCentered": "عمودی وسط چین",
+    "firstDate": "فوریه 2018",
+    "secondDate": "مارس 2018",
+    "thirdDate": "آوریل 2018",
+    "cardsSecondInfo": "یه برنامه نویس جنتلمن دست توی دماغش نمی کنه",
+    "cardsThirdInfo": "با این حال عوامل مختلف مانند رکود اقتصادی, سقوط هوا پیما, کروناویروس تاثیر زیادی بر روی جمعیت برنامه نویس ها داشته است",
+    "verticalSimpleCardsFirstInfo": "از قیافت معلومه خیلی وقته روی صندلی نشستی. کپک نزنی! پاشو یه تکونی بده ",
+    "verticalSimpleCardsSecondInfo": "با این حال عوامل مختلف مانند رکود اقتصادی, سقوط هوا پیما, کروناویروس تاثیر زیادی بر روی جمعیت برنامه نویس ها داشته است"
+  },
+  "progressBars": {
+    "circle": "دایره",
+    "horizontal": "افقی",
+    "colors": "رنگ ها"
+  },
+  "lists": {
+    "customers": "مشتری ها",
+    "recentMessages": "پیام های تازه",
+    "archieved": "بایگانی شده",
+    "starterKit": "کیت شروع کننده",
+    "notifications": "اعلان ها",
+    "routerSupport": "پیشتیبانی روتر"
+  },
+  "tables": {
+    "basic": "جدول اصلی",
+    "stripedHoverable": "راه راه, قابل حمل",
+    "labelsActions": "برچسب ها, عملیات ها و دکمه ها  ",
+    "sortingPaginationActionsAsIcons": "مرتب سازی, صفحه بندی, عملیات به عنوان آیکون  ",
+    "star": "ستاره",
+    "unstar": "زدودن ستاره",
+    "edit": "ویرایش",
+    "delete": "حذف",
+    "searchByName": "جستجو بر اساس نام",
+    "searchTrendsBadges": "جستجو, تردها, نشان ها",
+    "perPage": "هر صفحه",
+    "report": "گزارش",
+    "infiniteScroll": "اسکرول بینهایت",
+    "selectable": "قابل انتخاب",
+    "selected": "انتخاب شده",
+    "serverSidePagination": "صفحه بندی سمت سرور",
+    "emptyTable": "جدول خالی",
+    "noDataAvailable": "هیچ اطلاعاتی در دسترس نیست",
+    "noReport": "هیچ داده ای برای نمایش وجود ندارد. گزارش داده های موجود تا این تاریخ.",
+    "loading": "در حال بارگزاری",
+    "headings": {
+      "email": "رایانما",
+      "name": "نام کامل",
+      "firstName": "نام",
+      "lastName": "نام خانوادگی",
+      "status": "وضعیت",
+      "country": "کشور",
+      "location": "مکان"
+    }
+  },
+  "user": {
+    "language": "تغییر زبان",
+    "logout": "برون رفت",
+    "profile": "نمایه من"
+  },
+  "treeView": {
+    "basic": "اصلی",
+    "icons": "آيکون ها",
+    "selectable": "قابل انتخاب",
+    "editable": "قابل ویرایش",
+    "advanced": "پیشرفته"
+  },
+  "chat": {
+    "title": "گفتگو"
+  },
+  "spacingPlayground": {
+    "value": "مقدار",
+    "margin": "حاشیه",
+    "padding": "پدینگ"
+  },
+  "cards": {
+    "cards": "کارت ها",
+    "fixed": "ثابت",
+    "floating": "شناور",
+    "contentText": "از قیافت معلومه خیلی وقته روی صندلی نشستی. کپک نزنی! پاشو یه تکونی بده ",
+    "contentTextLong": "یک برنامه نویس حتما نباید سیگار دستش باشد تا جامعه متوجه بشود که او برنامه نویس است. مشخص نیست این تصور غلط از کجا و به چه شکل به وجود آمد اما اصلا درست نیست. برنامه نویس\u200Cهای بزرگ و موفق غیرسیگاری زیاد هستند. اشخاصی مثل بیل گیتس، ریچارد استالمن یا علی شریفی نیستانی که در دنیای برنامه نویسی کاملا شناخته شده می\u200Cباشند و سیگاری نیستند. در مقابل بعضی از برنامه نویس\u200Cها هم سیگار می\u200Cکشند و این موضوع کاملا به خود شخص برمی\u200Cگردد",
+    "rowHeight": "ارتفاع سطر",
+    "title": {
+      "default": "پیش فرض",
+      "withControls": "همراه کنترل",
+      "customHeader": "سربرگ سفارشی",
+      "withoutHeader": "بدون سربرگ",
+      "withImage": "همراه تصویر",
+      "withTitleOnImage": "همراه عنوان و بدون تصویر",
+      "withCustomTitleOnImage": "بدون تصویر یا عنوان",
+      "withStripe": "همراه نوار",
+      "withBackground": "همراه پس زمینه"
+    },
+    "button": {
+      "main": "اصلی",
+      "cancel": "لغو"
+    },
+    "link": {
+      "edit": "ویرایش",
+      "setAsDefault": "تنظیم به عنوان پیش فرض",
+      "delete": "حذف",
+      "traveling": "مسافرت",
+      "france": "فرانسیه",
+      "review": "بررسی",
+      "feedback": "ترک کردن بازخورد",
+      "readFull": "خواندن تمام مقالات",
+      "secondaryAction": "افدام دوم",
+      "action1": "اقدام یک",
+      "action2": "اقدام دو"
+    }
+  }
+}

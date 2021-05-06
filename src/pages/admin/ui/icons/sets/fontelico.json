@@ -1,0 +1,42 @@
+{
+  "name": "Fontelico",
+  "href": "fontelico",
+  "prefix": "fontelico",
+  "lists": [
+    {
+      "name": "Icons",
+      "icons": [
+        "emo-happy",
+        "emo-wink",
+        "emo-wink2",
+        "emo-unhappy",
+        "emo-sleep",
+        "emo-thumbsup",
+        "emo-devil",
+        "emo-surprised",
+        "emo-tongue",
+        "emo-coffee",
+        "emo-sunglasses",
+        "emo-displeased",
+        "emo-beer",
+        "emo-grin",
+        "emo-angry",
+        "emo-saint",
+        "emo-cry",
+        "emo-shoot",
+        "emo-squint",
+        "emo-laugh",
+        "spin1",
+        "spin2",
+        "spin3",
+        "spin4",
+        "spin5",
+        "spin6",
+        "firefox",
+        "chrome",
+        "opera",
+        "ie"
+      ]
+    }
+  ]
+}
