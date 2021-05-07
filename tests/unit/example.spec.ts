@@ -1,2 +1,5 @@
-import { shallowMount } from '@vue/test-utils'
-
+describe('Example', () => {
+  it('reality check', async () => {
+    expect(true).toBe(true)
+  })
+})
