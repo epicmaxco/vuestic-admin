@@ -13,7 +13,7 @@ import vuesticGlobalConfig from './services/vuestic-ui/global-config'
 
 const gtmConfig = {
   id: process.env.VUE_APP_GTM_KEY,
-  enabled: process.env.NODE_ENV === 'production',
+  enabled: process.env.VUE_APP_GTM_ENABLED === 'true',
   debug: false,
   vueRouter: router,
 }
@@ -24,7 +24,7 @@ const i18nConfig = {
   messages: {
     en: require('@/i18n/en.json'),
     ch: require('@/i18n/cn.json'),
-    es: require('@/i18n/es.json'), 
+    es: require('@/i18n/es.json'),
     ir: require('@/i18n/ir.json'),
     br: require('@/i18n/br.json')
   }
