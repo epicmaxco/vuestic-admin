@@ -47,7 +47,7 @@ jobs:
       - restore_cache: *restore_cache
       - run: *install_dependencies
       - save_cache: *save_cache
-      - run: yarn build:ci
+      - run: yarn build
       - add_ssh_keys:
           fingerprints:
             - "f8:c0:94:79:68:a2:5e:33:9f:78:bc:ad:ed:86:c6:3c"
@@ -80,7 +80,7 @@ jobs:
       - restore_cache: *restore_cache
       - run: *install_dependencies
       - save_cache: *save_cache
-      - run: yarn build:ci
+      - run: yarn build
       - run:
           name: Deploy to hosting
           command: |
