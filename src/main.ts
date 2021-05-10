@@ -11,12 +11,7 @@ import store from './store'
 import vuesticGlobalConfig from './services/vuestic-ui/global-config'
 
 
-const gtmConfig = {
-  id: process.env.VUE_APP_GTM_KEY,
-  enabled: process.env.VUE_APP_GTM_ENABLED === 'true',
-  debug: false,
-  vueRouter: router,
-}
+
 
 const i18nConfig = {
   locale: 'en',
@@ -30,12 +25,19 @@ const i18nConfig = {
   }
 }
 
-createApp(App)
-  .use(store)
-  .use(router)
-  .use(createGtm(gtmConfig))
-  .use(createI18n(i18nConfig))
-  .use(VuesticPlugin)
-  .mount('#app')
+const app = createApp(App)
+app.use(store)
+app.use(router)
+if (process.env.VUE_APP_GTM_ENABLED === 'true') {
+  const gtmConfig = {
+    id: process.env.VUE_APP_GTM_KEY,
+    debug: false,
+    vueRouter: router,
+  }
+  app.use(createGtm(gtmConfig))
+}
+app.use(createI18n(i18nConfig))
+app.use(VuesticPlugin)
+app.mount('#app')
 
 useGlobalConfig().setGlobalConfig(vuesticGlobalConfig)
