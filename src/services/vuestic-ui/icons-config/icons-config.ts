@@ -17,8 +17,12 @@ export default createIconsConfig({
       resolve: ({code, size}) => ({ class: `flag-icon flag-icon-${code} flag-icon-${size}` })
     },
     {
-      name: 'ion-{code}',
-      resolve: ({code}) => ({ class: `icon ion-md-${code}` })
+      name: /(brandico|entypo|fa|fontelico|glyphicon|iconicstroke|maki|openwebicons|ion)-(.*)/,
+      resolveFromRegex: (font, code) => ({ class: `${font} ${font}-${code}` })
+    },
+    {
+      name: 'material-icons-{code}',
+      resolve: ({code}) => ({ to: code })
     }
   ]
 })

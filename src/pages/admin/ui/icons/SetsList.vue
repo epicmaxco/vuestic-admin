@@ -1,16 +1,22 @@
 <template>
-  <va-card class="sets-list" :title="$t('icons.title')">
-    <div class="row">
-      <div
-        class="flex lg6 xs12 mb-4 sets-list__set fill-height"
-        v-for="(set, index) in sets"
-        :key="index"
-      >
-        <router-link :to="{ path: `icons/${set.href}` }" append style="color: inherit;">
+  <div class="row">
+    <div
+      class="va-card-wrapper flex lg6 xs12"
+      v-for="(set, index) in sets"
+      :key="index"
+    >
+      <va-card>
+        <router-link
+          :to="{ path: `icons/${set.href}` }"
+          append
+          style="color: inherit"
+        >
           <div class="sets-list__set__content">
-            <div class="sets-list__set__content__overlay flex-center pa-3 fill-height">
+            <div
+              class="sets-list__set__content__overlay flex-center pa-3 fill-height"
+            >
               <va-button>
-                {{set.name.toUpperCase()}}
+                {{ set.name.toUpperCase() }}
               </va-button>
             </div>
 
@@ -26,7 +32,7 @@
                   :key="index"
                 >
                   <div class="sets-list__icon pa-3 flex-center vuestic-icon">
-                    <va-icon :class="iconClass(set, icon)">{{iconData(set, icon)}}</va-icon>
+                    <va-icon :name="iconClass(set, icon)"></va-icon>
                   </div>
                 </div>
               </div>
@@ -38,39 +44,35 @@
               >
                 <div class="flex xs2 flex-center">
                   <div class="sets-list__icon pa-3 flex-center vuestic-icon">
-                    <va-icon :class="iconClass(set, filteredList[0])">{{iconData(set, filteredList[0])}}</va-icon>
+                    <va-icon :name="iconClass(set, filteredList[0])"></va-icon>
                   </div>
                 </div>
-                <div class="flex xs8"/>
+                <div class="flex xs8" />
                 <div class="flex xs2 flex-center">
                   <div class="sets-list__icon pa-3 flex-center vuestic-icon">
-                    <va-icon :class="iconClass(set, filteredList[1])">{{iconData(set, filteredList[1])}}</va-icon>
+                    <va-icon :name="iconClass(set, filteredList[1])"></va-icon>
                   </div>
                 </div>
               </div>
             </template>
           </div>
         </router-link>
-      </div>
+      </va-card>
     </div>
-  </va-card>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'iconsList',
   props: {
     sets: { type: Array, required: true },
   },
   methods: {
-    iconClass (set, icon) {
-      return set.prefix === 'material-icons' ? set.prefix : set.prefix + ' ' + set.prefix + '-' + icon
-    },
-    iconData (set, icon) {
-      return set.prefix === 'material-icons' ? icon : ''
+    iconClass(set, icon) {
+      return `${set.prefix}-${icon}`;
     },
   },
-}
+};
 </script>
 
 <style lang="scss">
@@ -85,15 +87,6 @@ export default {
 
     &__content {
       position: relative;
-      // background-color: $light-gray;
-
-      // &--middle {
-      //   @include media-breakpoint-down(sm) {
-      //     > * {
-      //       visibility: hidden;
-      //     }
-      //   }
-      // }
 
       &__overlay {
         padding: 0;
