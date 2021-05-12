@@ -2,7 +2,7 @@
   <va-sidebar :minimized="minimized" :style="{ color: theme.gray }">
     <menu-minimized v-if="minimized" :items="items" />
     <menu-accordion v-else :items="items" />
-  </va-sidebar>
+  </va-sidebar>    
 </template>
 
 <script>
@@ -51,12 +51,32 @@ export default {
   .va-collapse__body {
     margin-top: 0 !important;
   }
+
+  &__menu {
+    padding: 2rem 0;
+    &__inner {
+      padding-bottom: 8rem;
+    }
+  }
+
+  &-item {
+    &-content {
+      padding: 0.75rem 1rem;
+    }
+
+    &__icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }
 </style>
 
 <style lang="scss" scoped>
 .va-sidebar {
-  padding: 2rem 0;
   flex-shrink: 0;
 }
 

@@ -4,31 +4,26 @@
     :key="idx"
     position="right"
     fixed
+    :offset="[0, 8]"
     :preventOverflow="false"
   >
     <template #anchor>
-      <template v-if="isGroup(route)">
-        <sidebar-item
-          :icon="route.meta.icon"
-          :active="isItemChildsActive(route)"
-        >
-          <va-icon class="more_icon" name="more_horiz"/>
-        </sidebar-item>
-      </template>
-      <sidebar-item
-        v-else
-        :icon="route.meta.icon"
-        :to="{ name: route.name }"
-        :active="isActiveRoute(route)"
-      />
+      <va-sidebar-item :active="isItemChildsActive(route)">
+        <va-sidebar-item-content>
+          <va-icon :name="route.meta.icon" class="va-sidebar-item__icon"/>
+          <va-icon v-if="route.children" class="more_icon" name="more_horiz"/>          
+        </va-sidebar-item-content>
+      </va-sidebar-item>
     </template>
-    <div class="sidebar-item__children" :style="{ background: theme.navbar }">
+    <div class="sidebar-item__children">
       <template v-for="(child, index) in route.children" :key="index">
-        <sidebar-item
-          :title="$t(child.displayName)"
-          :to="{ name: child.name }"
-          :active="isActiveRoute(child)"
-        />
+        <va-sidebar-item :active="isRouteActive(child)" :to="{ name: child.name }">
+          <va-sidebar-item-content>
+            <va-sidebar-item-title>
+              {{ $t(child.displayName) }}
+            </va-sidebar-item-title>            
+          </va-sidebar-item-content>
+        </va-sidebar-item>
       </template>
     </div>
   </va-dropdown>
@@ -36,11 +31,9 @@
 
 <script>
 import { useGlobalConfig } from 'vuestic-ui';
-import SidebarItem from "../SidebarItem";
 
 export default {
   name: "AppMenuMinimized",
-  components: { SidebarItem },
   props: {
     items: { type: Array, default: () => [] }
   },
@@ -53,7 +46,7 @@ export default {
     isGroup(item) {
       return !!item.children;
     },
-    isActiveRoute(item) {
+    isRouteActive(item) {
       return item.name === this.$route.name;
     },
     isItemChildsActive(item) {
@@ -61,9 +54,9 @@ export default {
         return false;
       }
 
-      const isCurrentItemActive = this.isActiveRoute(item);
+      const isCurrentItemActive = this.isRouteActive(item);
       const isChildActive = !!item.children.find(child =>
-        child.children ? this.isItemChildsActive(child) : this.isActiveRoute(child)
+        child.children ? this.isItemChildsActive(child) : this.isRouteActive(child)
       );
 
       return isCurrentItemActive || isChildActive;
@@ -80,14 +73,27 @@ export default {
     overflow-y: auto;
     overflow-x: visible;
     min-width: 8rem;
+    background: var(--va-secondary);
   }
 }
 
-.more_icon {
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  transform: translateX(50%);
+.va-sidebar-item {
+  &__icon {
+    margin: 0;
+  }
+
+  &-content {
+    position: relative;
+
+    .more_icon {
+      text-align: center;
+      position: absolute;
+      bottom: 0.5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(50%);
+    }
+  }
 }
+
+
 </style>
