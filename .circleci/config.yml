@@ -43,11 +43,12 @@ jobs:
           command:
             echo "VUE_APP_INCLUDE_DEMOS=true" >> .env.production.local &&
             echo "VUE_APP_BUILD_VERSION=true" >> .env.production.local &&
+            echo "VUE_APP_GTM_ENABLED=false" >> .env.production.local &&
             echo "VUE_APP_GOOGLE_MAPS_API_KEY=$GOOGLE_MAPS_API_KEY" >> .env.production.local
       - restore_cache: *restore_cache
       - run: *install_dependencies
       - save_cache: *save_cache
-      - run: yarn build
+      - run: yarn build:ci
       - add_ssh_keys:
           fingerprints:
             - "f8:c0:94:79:68:a2:5e:33:9f:78:bc:ad:ed:86:c6:3c"
@@ -76,11 +77,12 @@ jobs:
             echo "VUE_APP_DRIFT_KEY=$DRIFT_KEY" >> .env.production.local &&
             echo "VUE_APP_GOOGLE_MAPS_API_KEY=$GOOGLE_MAPS_API_KEY" >> .env.production.local &&
             echo "VUE_APP_GTM_KEY=$GTM_KEY" >> .env.production.local &&
+            echo "VUE_APP_GTM_ENABLED=true" >> .env.production.local &&
             echo "VUE_APP_ROUTER_MODE_HISTORY=$ROUTER_MODE_HISTORY" >> .env.production.local
       - restore_cache: *restore_cache
       - run: *install_dependencies
       - save_cache: *save_cache
-      - run: yarn build
+      - run: yarn build:ci
       - run:
           name: Deploy to hosting
           command: |

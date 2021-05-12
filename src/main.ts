@@ -11,29 +11,30 @@ import store from './store'
 import vuesticGlobalConfig from './services/vuestic-ui/global-config'
 
 
-const gtmConfig = {
-  id: process.env.VUE_APP_GTM_KEY,
-  enabled: process.env.NODE_ENV === 'production',
-  debug: false,
-  vueRouter: router,
-}
-
 const i18nConfig = {
   locale: 'en',
   fallbackLocale: 'en',
   messages: {
     en: require('@/i18n/en.json'),
     ch: require('@/i18n/cn.json'),
-    es: require('@/i18n/es.json'), 
+    es: require('@/i18n/es.json'),
     ir: require('@/i18n/ir.json'),
     br: require('@/i18n/br.json')
   }
 }
 
-createApp(App)
-  .use(store)
-  .use(router)
-  .use(createGtm(gtmConfig))
-  .use(createI18n(i18nConfig))
-  .use(VuesticPlugin, vuesticGlobalConfig)
-  .mount('#app')
+const app = createApp(App)
+app.use(store)
+app.use(router)
+if (process.env.VUE_APP_GTM_ENABLED === 'true') {
+  const gtmConfig = {
+    id: process.env.VUE_APP_GTM_KEY,
+    debug: false,
+    vueRouter: router,
+  }
+  app.use(createGtm(gtmConfig))
+}
+app.use(createI18n(i18nConfig))
+app.use(VuesticPlugin, vuesticGlobalConfig)
+app.mount('#app')
+
