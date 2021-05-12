@@ -79,7 +79,7 @@ export default {
   }
 
   &__list {
-    color: $white;
+    // color: $white;
   }
 
   // @include media-breakpoint-down(md) {

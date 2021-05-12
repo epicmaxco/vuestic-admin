@@ -129,9 +129,9 @@ export default {
 </script>
 
 <style lang="scss">
-.tooltips {
-  &__content {
-    @include va-flex-center();
-  }
-}
+// .tooltips {
+//   &__content {
+//     @include va-flex-center();
+//   }
+// }
 </style>

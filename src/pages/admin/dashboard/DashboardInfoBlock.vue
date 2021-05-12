@@ -160,11 +160,11 @@ export default {
       border-left: 1px solid #e3eaeb;
     }
 
-    @include media-breakpoint-down(xs) {
-      p:not(.display-2) {
-        font-size: 0.875rem;
-      }
-    }
+    // @include media-breakpoint-down(xs) {
+    //   p:not(.display-2) {
+    //     font-size: 0.875rem;
+    //   }
+    // }
   }
 
   .rich-theme-card-text {
@@ -173,15 +173,15 @@ export default {
 
   .dashboard {
     .va-card__header--over {
-      @include media-breakpoint-up(md) {
-        padding-top: 0 !important;
-      }
+      // @include media-breakpoint-up(md) {
+      //   padding-top: 0 !important;
+      // }
     }
 
     .va-card__image {
-      @include media-breakpoint-up(md) {
-        padding-bottom: 0 !important;
-      }
+      // @include media-breakpoint-up(md) {
+      //   padding-bottom: 0 !important;
+      // }
     }
     // .image-card {
     //   position: relative;

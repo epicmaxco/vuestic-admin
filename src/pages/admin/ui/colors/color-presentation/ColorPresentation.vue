@@ -120,12 +120,12 @@ export default {
     margin-left: 1rem;
   }
 
-  &__name {
-    color: $vue-darkest-blue;
-  }
+  // &__name {
+  //   color: $vue-darkest-blue;
+  // }
 
-  &__text {
-    color: $brand-secondary;
-  }
+  // &__text {
+  //   color: $brand-secondary;
+  // }
 }
 </style>

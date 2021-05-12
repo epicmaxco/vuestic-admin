@@ -85,15 +85,15 @@ export default {
 
     &__content {
       position: relative;
-      background-color: $light-gray;
+      // background-color: $light-gray;
 
-      &--middle {
-        @include media-breakpoint-down(sm) {
-          > * {
-            visibility: hidden;
-          }
-        }
-      }
+      // &--middle {
+      //   @include media-breakpoint-down(sm) {
+      //     > * {
+      //       visibility: hidden;
+      //     }
+      //   }
+      // }
 
       &__overlay {
         padding: 0;

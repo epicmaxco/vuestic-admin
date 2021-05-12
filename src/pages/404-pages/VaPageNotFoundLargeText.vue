@@ -21,7 +21,7 @@ export default {
 .va-page-not-found-large-text {
   &__number {
     font-size: 21rem;
-    color: $white;
+    // color: $white;
     font-weight: 600;
 
     // @include media-breakpoint-down(xs) {

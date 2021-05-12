@@ -127,11 +127,11 @@ export default {
 </script>
 
 <style lang="scss">
-.grid {
-  &__container {
-    min-height: 3rem;
-    color: $white;
-    border-radius: 0.5rem;
-  }
-}
+// .grid {
+//   &__container {
+//     min-height: 3rem;
+//     color: $white;
+//     border-radius: 0.5rem;
+//   }
+// }
 </style>

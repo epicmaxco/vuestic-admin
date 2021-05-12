@@ -45,9 +45,9 @@ export default {
       margin-bottom: 1rem;
       display: flex;
 
-      @include media-breakpoint-down(xs) {
-        flex-flow: column;
-      }
+      // @include media-breakpoint-down(xs) {
+      //   flex-flow: column;
+      // }
     }
   }
 </style>

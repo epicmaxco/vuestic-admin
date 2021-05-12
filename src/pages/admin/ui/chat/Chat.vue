@@ -105,11 +105,11 @@ export default {
 </script>
 
 <style lang="scss">
-.chat {
-  &__content {
-    @include va-flex-center();
-  }
-}
+// .chat {
+//   &__content {
+//     @include va-flex-center();
+//   }
+// }
 
 $chat-message-br: 0.875rem;
 
@@ -133,7 +133,7 @@ $chat-message-br: 0.875rem;
     border-radius: 0.5rem;
     border-top-left-radius: 0;
     align-self: flex-start;
-    background-color: $light-gray2;
+    // background-color: $light-gray2;
 
     &-text {
       display: block;

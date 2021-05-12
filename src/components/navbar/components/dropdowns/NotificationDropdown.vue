@@ -117,7 +117,7 @@ export default {
       right: 0;
       left: 0;
       top: -0.5rem;
-      background-color: $brand-danger;
+      // background-color: $brand-danger;
       height: 0.375rem;
       width: 0.375rem;
       margin: 0 auto;
@@ -126,8 +126,8 @@ export default {
   }
 
   &__content {
-    background-color: $dropdown-background;
-    box-shadow: $gray-box-shadow;
+    // background-color: $dropdown-background;
+    // box-shadow: $gray-box-shadow;
     border-radius: 0.5rem;
     max-width: 19rem;
   }
@@ -135,12 +135,12 @@ export default {
   &__item {
     cursor: pointer;
     margin-bottom: 0.75rem;
-    color: $brand-secondary;
+    // color: $brand-secondary;
     flex-wrap: nowrap;
     position: relative;
 
     &--unread {
-      color: $vue-darkest-blue;
+      // color: $vue-darkest-blue;
 
       &::after {
         content: '';
@@ -150,14 +150,14 @@ export default {
         bottom: 0;
         height: 0.375rem;
         width: 0.375rem;
-        background-color: $brand-danger;
+        // background-color: $brand-danger;
         margin: auto;
         border-radius: 0.187rem;
       }
     }
 
     &:hover {
-      color: $vue-green;
+      // color: $vue-green;
     }
 
     &__avatar {

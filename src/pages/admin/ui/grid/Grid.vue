@@ -177,14 +177,14 @@ export default {
 .grid {
   &__container {
     min-height: 3rem;
-    color: $white;
-    border-radius: 0.5rem;
+    // color: $white;
+    // border-radius: 0.5rem;
 
-    @include media-breakpoint-down(xs) {
-      padding: 0.5rem;
-      text-align: center;
-      font-size: 0.75rem;
-    }
+    // @include media-breakpoint-down(xs) {
+    //   padding: 0.5rem;
+    //   text-align: center;
+    //   font-size: 0.75rem;
+    // }
   }
 }
 

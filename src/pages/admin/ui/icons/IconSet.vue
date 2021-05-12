@@ -164,8 +164,8 @@ export default {
 .icon-set {
   .icon-grid-container {
     &:hover {
-      color: $white;
-      background-color: $brand-primary;
+      // color: $white;
+      // background-color: $brand-primary;
       cursor: pointer;
     }
 
