@@ -35,7 +35,5 @@ createApp(App)
   .use(router)
   .use(createGtm(gtmConfig))
   .use(createI18n(i18nConfig))
-  .use(VuesticPlugin)
+  .use(VuesticPlugin, vuesticGlobalConfig)
   .mount('#app')
-
-useGlobalConfig().setGlobalConfig(vuesticGlobalConfig)

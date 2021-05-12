@@ -10,6 +10,6 @@ export default {
     VaToast,
     VaButton,
   },
-  colors: COLOR_THEMES[0].colors,
+  // colors: COLOR_THEMES[0].colors,
   icons: iconsConfig
 }
