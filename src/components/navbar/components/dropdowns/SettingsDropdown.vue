@@ -14,7 +14,7 @@
       />
     </template>
 
-    <div class="settings-dropdown__content pl-4 pr-4 pt-2 pb-2">
+    <va-dropdown-content class="settings-dropdown__content pl-4 pr-4 pt-2 pb-2">
       <div class="settings-dropdown__content-label mt-2 mb-3" :style="{color: theme.primary}">
         {{$t('dashboard.navigationLayout')}}
       </div>
@@ -25,7 +25,7 @@
         class="settings-dropdown__control mb-2"
         size="small"
       />
-    </div>
+    </va-dropdown-content>
   </va-dropdown>
 </template>
 

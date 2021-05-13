@@ -12,7 +12,7 @@
       />
     </template>
 
-    <div class="message-dropdown__content pl-4 pr-4 pt-2 pb-2">
+    <va-dropdown-content class="message-dropdown__content pl-4 pr-4 pt-2 pb-2">
       <div
         v-for="option in computedOptions"
         :key="option.id"
@@ -27,7 +27,7 @@
         <va-button class="md6 mr-2" size="small">{{ $t('messages.all') }}</va-button>
         <va-button class="md6" size="small" outline @click="markAllAsRead" :disabled="allRead">{{ $t('messages.mark_as_read') }}</va-button>
       </div>
-    </div>
+    </va-dropdown-content>
   </va-dropdown>
 </template>
 

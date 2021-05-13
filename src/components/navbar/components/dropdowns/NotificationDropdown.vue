@@ -11,7 +11,7 @@
         :color="iconColor"
       />
     </template>
-    <div class="notification-dropdown__content pl-3 pr-3 pt-2 pb-2">
+    <va-dropdown-content class="notification-dropdown__content pl-3 pr-3 pt-2 pb-2">
       <div
         v-for="option in computedOptions"
         :key="option.id"
@@ -28,7 +28,7 @@
         <va-button class="md6 mr-2" size="small">{{ $t('notifications.all') }}</va-button>
         <va-button class="md6" size="small" outline @click="markAllAsRead" :disabled="allRead">{{ $t('notifications.mark_as_read') }}</va-button>
       </div>
-    </div>
+    </va-dropdown-content>
   </va-dropdown>
 </template>
 

@@ -8,7 +8,7 @@
       <va-icon-color :color="theme.navbarTextColor"/>
     </template>
 
-    <div class="color-dropdown__content pl-4 pr-4 pt-2 pb-2">
+    <va-dropdown-content class="color-dropdown__content pl-4 pr-4 pt-2 pb-2">
       <va-button-toggle
         v-model="selectedThemeName"
         :options="buttonToggleOptions"
@@ -20,7 +20,7 @@
       <table style="width: 100%;">
         <color-dropdown-item class="color-picker-dropdown" v-for="colorName in colorNames" :key="colorName" :colorName="colorName"/>
       </table>
-    </div>
+    </va-dropdown-content>
   </va-dropdown>
 </template>
 

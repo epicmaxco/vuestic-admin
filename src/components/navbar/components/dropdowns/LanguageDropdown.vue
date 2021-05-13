@@ -8,7 +8,7 @@
     <template #anchor>
       <va-icon :name="flagIcon(currentLanguage(), 'large')"/>
     </template>
-    <div class="language-dropdown__content pl-4 pr-4 pt-2 pb-2">
+    <va-dropdown-content class="language-dropdown__content pl-4 pr-4 pt-2 pb-2">
       <div class="language-dropdown__item row align--center pt-1 pb-1 mt-2 mb-2"
         v-for="(option, id) in options"
         :key="id"
@@ -20,7 +20,7 @@
           {{ $t(`language.${option.name}`) }}
         </span>
       </div>
-    </div>
+    </va-dropdown-content>
   </va-dropdown>
 </template>
 

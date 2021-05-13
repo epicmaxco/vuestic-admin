@@ -35,7 +35,7 @@ export default {
     }
   }
   td {
-    color: black;
+    color: var(--va-dark);
     padding: 0.25rem 0.5rem;
     box-sizing: border-box;
     vertical-align: middle;

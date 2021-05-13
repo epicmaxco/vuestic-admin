@@ -7,10 +7,7 @@
     :offset="[0, 13]"
   >
     <template #anchor>
-      <span
-        class="profile-dropdown__anchor"
-        :style="{color: theme.primary}"
-      >
+      <span class="profile-dropdown__anchor">
         <slot/>
         <va-icon
           class="px-2"
@@ -19,16 +16,19 @@
         />
       </span>
     </template>
-    <div class="profile-dropdown__content pl-4 pr-4 pt-2 pb-2">
-      <router-link
+    <va-dropdown-content class="profile-dropdown__content pl-4 pr-4 pt-2 pb-2">
+      <va-list-item
         v-for="option in options"
         :key="option.name"
-        :to="{name: option.redirectTo}"
-        class="profile-dropdown__item pt-1 pb-1 mt-2 mb-2"
       >
-        {{ $t(`user.${option.name}`) }}
-      </router-link>
-    </div>
+        <router-link
+          :to="{name: option.redirectTo}"
+          class="profile-dropdown__item pt-1 pb-1 mt-2 mb-2"
+        >
+          {{ $t(`user.${option.name}`) }}
+        </router-link>          
+      </va-list-item>
+    </va-dropdown-content>
   </va-dropdown>
 </template>
 
