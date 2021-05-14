@@ -17,21 +17,20 @@
           </div>
 
           <div class="d-flex flex xs12 lg4 align--center">
-            <!-- <va-icon-slower class="shrink pr-3 spinners__duration-slower"/> -->
+            <va-icon-slower class="shrink pr-3 spinners__duration-slower"/>
             <va-slider
               value-visible
               v-model="currentDuration"
               :min="sliderDuration.min"
               :max="sliderDuration.max"
             />
-            <!-- <va-icon-faster class="shrink pl-3 spinners__duration-faster"/> -->
+            <va-icon-faster class="shrink pl-3 spinners__duration-faster"/>
           </div>
 
           <div class="d-flex flex justify--center xs12 lg4">
-            <va-palette-custom
+            <va-color-palette
               :palette="paletteArray"
               v-model="spinnersColor"
-              class="justify--center"
             />
           </div>
         </div>
@@ -55,7 +54,7 @@
                 <component
                   :animation-duration="speed"
                   :is="item"
-                  :color="spinnersColor"
+                  :color="computedSpinnersColor"
                   :size="config.size"
                 >
                 </component>
@@ -72,15 +71,15 @@
 <script>
 import * as spinners from 'epic-spinners'
 import { mapGetters } from 'vuex'
-import { useGlobalConfig } from 'vuestic-ui'
-// import VaIconFaster from '../../../iconset/VaIconFaster'
-// import VaIconSlower from '../../../iconset/VaIconSlower'
+import { useGlobalConfig, getColor } from 'vuestic-ui'
+import VaIconFaster from '../../../../components/icons/VaIconFaster'
+import VaIconSlower from '../../../../components/icons/VaIconSlower'
 
 export default {
   components: {
     ...spinners,
-    // VaIconFaster,
-    // VaIconSlower,
+    VaIconFaster,
+    VaIconSlower,
   },
   data () {
     return {
@@ -89,8 +88,8 @@ export default {
         group: 4,
         duration: 1500,
       },
-      spinnersColor: null,
       currentDuration: 1500,
+      spinnersColor: 'primary',
       sliderSize: {
         formatter: v => `${v}px`,
         min: 40,
@@ -102,14 +101,15 @@ export default {
       },
     }
   },
-  mounted() {
-    this.spinnersColor = this.theme.primary
-  },
   computed: {
     ...mapGetters(['palette']),
 
-    theme() {
+    colors() {
       return useGlobalConfig().getGlobalConfig().colors
+    },
+
+    computedSpinnersColor() {
+      return getColor(this.spinnersColor)
     },
 
     speed () {
@@ -121,7 +121,7 @@ export default {
     },
 
     paletteArray () {
-      return [this.theme.primary, this.theme.warning, this.theme.danger]
+      return ['primary', 'success', 'danger', 'warning', 'dark']
     },
   },
 
