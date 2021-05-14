@@ -13,6 +13,6 @@
 
 body {
   margin: 0;
-  background: #eeeeee;
+  background: var(--va-background);
 }
 </style>

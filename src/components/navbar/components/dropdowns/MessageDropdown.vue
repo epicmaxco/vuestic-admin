@@ -8,7 +8,6 @@
       <va-icon-message
         class="message-dropdown__icon"
         :class="{'message-dropdown__icon--unread': !allRead}"
-        :color="iconColor"
       />
     </template>
 
@@ -73,9 +72,6 @@ export default {
   computed: {
     allRead () {
       return !this.computedOptions.filter(item => item.unread).length
-    },
-    iconColor () {
-      return useGlobalConfig().getGlobalConfig().colors.navbarTextColor
     },
   },
   methods: {

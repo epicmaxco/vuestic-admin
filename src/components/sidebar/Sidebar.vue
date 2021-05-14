@@ -1,5 +1,5 @@
 <template>
-  <va-sidebar :minimized="minimized" :style="{ color: theme.gray }">
+  <va-sidebar :minimized="minimized">
     <menu-minimized v-if="minimized" :items="items" />
     <menu-accordion v-else :items="items" />
   </va-sidebar>    
@@ -39,7 +39,7 @@ export default {
         "app-sidebar--minimized": this.minimized
       };
     },
-    theme() {
+    colors() {
       return useGlobalConfig().getGlobalConfig().colors
     },
   },

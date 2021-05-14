@@ -10,7 +10,6 @@
         name="vuestic-iconset-settings"
         style="font-size: 1.4rem; display: flex;"
         class="settings-dropdown__icon"
-        :color="iconColor"
       />
     </template>
 
@@ -55,9 +54,6 @@ export default {
         const value = isTopBar === 'true' // NOTE: convert string to boolean
         this.$emit('update:isTopBar', value)
       },
-    },
-    iconColor () {
-      return this.theme.navbarTextColor
     },
   },
 }

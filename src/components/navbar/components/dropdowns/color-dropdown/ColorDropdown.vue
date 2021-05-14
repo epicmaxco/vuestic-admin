@@ -5,7 +5,7 @@
     position="bottom"
   >
     <template #anchor>
-      <va-icon-color :color="theme.navbarTextColor"/>
+      <va-icon-color />
     </template>
 
     <va-dropdown-content class="color-dropdown__content pl-4 pr-4 pt-2 pb-2">
@@ -28,9 +28,8 @@
 import { useColors } from 'vuestic-ui'
 import VaIconColor from '@/components/icons/VaIconColor'
 import ColorDropdownItem from './ColorDropdownItem'
-import { ref, computed } from 'vue'
-import { COLOR_THEMES, THEME_NAMES } from '@/services/vuestic-ui/colors'
-
+import { computed } from 'vue'
+import { THEME_NAMES, useTheme } from '@/services/vuestic-ui/themes'
 
 export default {
   emits: ['change-theme'],
@@ -38,29 +37,30 @@ export default {
     VaIconColor, ColorDropdownItem
   },
   setup() {
-    const { setColors, getColors } = useColors()
+    const { getColors } = useColors()
 
     const buttonToggleOptions = [
       { label: 'Original', value: THEME_NAMES.DEFAULT },
+      { label: 'Semi-Dark', value: THEME_NAMES.SEMI_DARK },
+      { label: 'Dark', value: THEME_NAMES.DARK },
+      { label: 'Toxic', value: THEME_NAMES.TOXIC },
       { label: 'Corporate', value: THEME_NAMES.CORPORATE },
     ]
 
-    const themeName = ref(THEME_NAMES.DEFAULT)
+    const { setTheme, themeName } = useTheme()
 
-    const selectedTheme = getColors()
+    const colors = getColors()
 
     const selectedThemeName = computed({
       get: () => themeName.value,
-      set: (newThemeName) => { 
-        themeName.value = newThemeName
-        const theme = COLOR_THEMES.find((theme) => theme.name === newThemeName)
-        setColors(theme.colors)
-      }
+      set: (newThemeName) => setTheme(newThemeName)
     })
 
-    const colorNames = computed(() => Object.keys(selectedTheme))
+    setTheme(THEME_NAMES.DEFAULT)
 
-    return { selectedThemeName, colorNames, buttonToggleOptions, theme: selectedTheme }
+    const colorNames = computed(() => Object.keys(colors))
+
+    return { selectedThemeName, colorNames, buttonToggleOptions }
   }
 }
 </script>

@@ -1,12 +1,12 @@
 <template>
-  <va-navbar class="app-layout__navbar" :color="theme.navbar" :style="computedStyle">
+  <va-navbar class="app-layout__navbar">
     <template v-slot:left>
       <div class="left">
         <va-icon-menu-collapsed 
           @click="isSidebarMinimized = !isSidebarMinimized"
           :class="{ 'x-flip': isSidebarMinimized }"
           class="va-navbar__item"
-          :color="theme.navbarTextColor"
+          :color="colors.primary"
         />
         <router-link to="/">
           <vuestic-logo class="logo"/>
@@ -14,15 +14,12 @@
       </div>
     </template>
     <template v-slot:center>
-      <span
-        class="app-navbar__text"
-        :style="{color: theme.gray}"
-      >
+      <span class="app-navbar__text">
         {{$t('navbar.messageUs')}}&nbsp;
         <a
           href="mailto:hello@epicmax.co"
           target="_blank"
-          :style="{color: theme.primary}"
+          :style="{color: colors.primary}"
         >
           hello@epicmax.co
         </a>
@@ -47,7 +44,7 @@
 </template>
 
 <script>
-import { useGlobalConfig } from 'vuestic-ui'
+import { useColors } from 'vuestic-ui'
 import { useStore } from 'vuex'
 import { computed } from 'vue'
 import VuesticLogo from '@/components/vuestic-logo'
@@ -57,7 +54,8 @@ import AppNavbarActions from './components/AppNavbarActions'
 export default {
   components: { VuesticLogo, AppNavbarActions, VaIconMenuCollapsed },
   setup() {
-    const theme = useGlobalConfig().getGlobalConfig().colors
+    const { getColors } = useColors()
+    const colors = computed(() => getColors() )
     const store = useStore()
 
     const isSidebarMinimized = computed({
@@ -66,19 +64,21 @@ export default {
     })
 
     const userName = computed(() => store.state.userName)
-    const computedStyle = computed(() => ({color: theme.navbarTextColor, fill: theme.navbarTextColor}))
-
     return {
-      theme,
+      colors,
       isSidebarMinimized,
-      userName,
-      computedStyle
+      userName
     }
   },
 }
 </script>
 
 <style lang="scss" scoped>
+  .va-navbar {
+    box-shadow: var(--va-box-shadow);
+    z-index: 2;
+  }
+
   .left {
     display: flex;
     align-items: center;
