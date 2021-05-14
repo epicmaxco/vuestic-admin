@@ -115,46 +115,46 @@
           <va-card-title>{{$t('buttons.buttonGroups')}}</va-card-title>
           <va-card-content class="row">
             <div class="flex xs12 xl6">
-              <va-button-group>
+              <va-button-group color="secondary">
                 <va-button size="large"> One</va-button>
                 <va-button size="large"> Two</va-button>
                 <va-button size="large"> Three</va-button>
               </va-button-group>
             </div>
             <div class="flex xs12 xl6">
-              <va-button-group>
-                <!-- <va-button outline size="small" color="danger" icon="maki_art_gallery"> First</va-button> -->
-                <va-button outline size="small" color="danger"> Second</va-button>
-                <va-button outline size="small" color="danger"> Third</va-button>
+              <va-button-group outline color="danger">
+                <va-button icon="maki-art-gallery">One</va-button>
+                <va-button>Two</va-button>
+                <va-button>Three</va-button>
               </va-button-group>
             </div>
             <div class="flex xs12 xl6">
-              <va-button-group>
-                <!-- <va-button flat color="gray" icon="glyphicon_envelope"> First</va-button> -->
-                <!-- <va-button flat color="gray" icon="entypo_user"> Second</va-button>
-                <va-button flat color="gray" icon="ion_ios_alarm"> Third</va-button> -->
+              <va-button-group flat color="gray">
+                <va-button icon="ion-ios-mail">One</va-button>
+                <va-button icon="entypo-user">Two</va-button>
+                <va-button icon="ion-ios-alarm">Three</va-button>
               </va-button-group>
             </div>
             <div class="flex xs12 xl6">
-              <va-button-group>
-                <va-button color="dark"> One</va-button>
-                <va-button color="dark"> Two</va-button>
-                <va-button color="dark"> Three</va-button>
-                <!-- <va-button color="dark" icon="ion_arrow_down"/> -->
+              <va-button-group color="dark" gradient>
+                <va-button> One</va-button>
+                <va-button> Two</va-button>
+                <va-button> Three</va-button>
+                <va-button icon="ion-ios-arrow-down"/>
               </va-button-group>
             </div>
             <div class="flex xs12 xl6">
-              <va-button-group>
-                <va-button outline size="large" color="info"> First</va-button>
-                <!-- <va-button outline size="large" color="info" icon-right="glyphicon_pencil"> Second</va-button> -->
-                <va-button outline size="large" color="info"> Third</va-button>
+              <va-button-group outline  size="large">
+                <va-button>First</va-button>
+                <va-button icon-right="glyphicon-pencil">Second</va-button>
+                <va-button>Third</va-button>
               </va-button-group>
             </div>
             <div class="flex xs12 xl6">
-              <va-button-group>
-                <!-- <va-button flat size="small" color="warning" icon="glyphicon_envelope"/> -->
-                <!-- <va-button flat size="small" color="warning" icon="entypo_user"/> -->
-                <!-- <va-button flat size="small" color="warning" icon-right="ion_ios_alarm"> Update</va-button> -->
+              <va-button-group flat size="small" color="warning">
+                <va-button icon="glyphicon-envelope"/>
+                <va-button icon="entypo-user"/>
+                <va-button icon-right="ion-ios-alarm"/>
               </va-button-group>
             </div>
           </va-card-content>
