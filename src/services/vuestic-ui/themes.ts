@@ -51,7 +51,7 @@ export const COLOR_THEMES = [
       warning: '#ffd43a',
       white: '#ffffff',
       dark: '#262824',
-      gray: '#767c88',
+      gray: '#f6f7f6',
     },
     components: {
       VaNavbar: {
@@ -80,7 +80,7 @@ export const COLOR_THEMES = [
       background: '#f6f7f6',
       white: '#ffffff',
       dark: '#262824',
-      gray: '#f6f7f6',
+      gray: '#767c88',
     },
     components: {
       VaNavbar: {

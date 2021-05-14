@@ -84,8 +84,8 @@ export default {
   cursor: pointer;
 
   &__content {
-    // background-color: $dropdown-background;
-    // box-shadow: $gray-box-shadow;
+    background: var(--va-background);
+    color: var(--va-gray);
     border-radius: 0.5rem;
     width: 12rem;
 
@@ -105,9 +105,8 @@ export default {
       padding-bottom: 0 !important;
     }
 
-    &:hover,
-    &.active {
-      // color: $vue-green;
+    &:hover {
+      color: var(--va-primary);
     }
   }
 

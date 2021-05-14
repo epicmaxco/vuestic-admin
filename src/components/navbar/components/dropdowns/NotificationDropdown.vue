@@ -122,22 +122,19 @@ export default {
   }
 
   &__content {
-    // background-color: $dropdown-background;
-    // box-shadow: $gray-box-shadow;
+    background: var(--va-background);
+    color: var(--va-gray);
     border-radius: 0.5rem;
-    max-width: 19rem;
+    max-width: 20rem;
   }
 
   &__item {
     cursor: pointer;
     margin-bottom: 0.75rem;
-    // color: $brand-secondary;
     flex-wrap: nowrap;
     position: relative;
 
     &--unread {
-      // color: $vue-darkest-blue;
-
       &::after {
         content: '';
         position: absolute;
@@ -146,14 +143,13 @@ export default {
         bottom: 0;
         height: 0.375rem;
         width: 0.375rem;
-        // background-color: $brand-danger;
         margin: auto;
         border-radius: 0.187rem;
       }
     }
 
     &:hover {
-      // color: $vue-green;
+      color: var(--va-primary);
     }
 
     &__avatar {

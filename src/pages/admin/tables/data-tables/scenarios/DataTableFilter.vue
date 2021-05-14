@@ -118,7 +118,7 @@ export default {
         return 'danger'
       }
 
-      return 'grey'
+      return 'gray'
     },
     showUser (user) {
       alert(JSON.stringify(user))

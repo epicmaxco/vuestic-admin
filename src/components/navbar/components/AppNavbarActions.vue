@@ -3,7 +3,7 @@
     <color-dropdown class="app-navbar-actions__item"/>
     <message-dropdown class="app-navbar-actions__item"/>
     <notification-dropdown class="app-navbar-actions__item"/>
-    <settings-dropdown class="app-navbar-actions__item" />
+    <!-- <settings-dropdown class="app-navbar-actions__item" /> -->
     <language-dropdown class="app-navbar-actions__item"/>
     <profile-dropdown class="app-navbar-actions__item app-navbar-actions__item--profile">
       <span>{{userName}}</span>
@@ -23,7 +23,7 @@ export default {
   name: 'app-navbar-actions',
 
   components: {
-    SettingsDropdown,
+    // SettingsDropdown,
     ColorDropdown,
     MessageDropdown,
     NotificationDropdown,

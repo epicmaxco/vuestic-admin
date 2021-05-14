@@ -87,71 +87,70 @@ export default {
 
 <style lang="scss">
 
-// .message-dropdown {
-//   cursor: pointer;
+.message-dropdown {
+  cursor: pointer;
 
-//   .message-dropdown__icon {
-//     position: relative;
-//     display: flex;
-//     align-items: center;
+  .message-dropdown__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
 
-//     &--unread::before {
-//       content: '';
-//       position: absolute;
-//       right: 0;
-//       left: 0;
-//       top: -0.5rem;
-//       background-color: $brand-danger;
-//       height: 0.375rem;
-//       width: 0.375rem;
-//       margin: 0 auto;
-//       border-radius: 0.187rem;
-//     }
-//   }
+    &--unread::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      left: 0;
+      top: -0.5rem;
+      background-color: var(--va-danger);
+      height: 0.375rem;
+      width: 0.375rem;
+      margin: 0 auto;
+      border-radius: 0.187rem;
+    }
+  }
 
-//   &__content {
-//     background-color: $dropdown-background;
-//     box-shadow: $gray-box-shadow;
-//     border-radius: 0.5rem;
-//   }
+  &__content {
+    background: var(--va-background);
+    color: var(--va-secondary);
+    max-width: 20rem;
+  }
 
-//   &__item {
-//     cursor: pointer;
-//     margin-bottom: 0.75rem;
-//     color: $brand-secondary;
-//     position: relative;
-//     flex-wrap: nowrap;
+  &__item {
+    cursor: pointer;
+    margin-bottom: 0.75rem;
+    position: relative;
+    flex-wrap: nowrap;
 
-//     &--unread {
-//       color: $vue-darkest-blue;
+    &--unread {
+      color: var(--va-gray);
 
-//       &::after {
-//         content: '';
-//         position: absolute;
-//         right: 0;
-//         top: 0;
-//         bottom: 0;
-//         height: 0.375rem;
-//         width: 0.375rem;
-//         background-color: $brand-danger;
-//         margin: auto;
-//         border-radius: 0.187rem;
-//       }
-//     }
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        height: 0.375rem;
+        width: 0.375rem;
+        background-color: var(--va-danger);
+        margin: auto;
+        border-radius: 0.187rem;
+      }
+    }
 
-//     &:hover {
-//       color: $vue-green;
-//     }
+    &:hover {
+      color: var(--va-primary);
+    }
 
-//     &__avatar {
-//       border-radius: 50%;
-//       min-width: 1.5rem;
-//       height: 1.5rem;
-//     }
-//   }
+    &__avatar {
+      border-radius: 50%;
+      min-width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
 
-//   .va-dropdown__anchor {
-//     display: inline-block;
-//   }
-// }
+  .va-dropdown__anchor {
+    display: inline-block;
+  }
+}
 </style>
