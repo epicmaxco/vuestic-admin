@@ -58,10 +58,10 @@ export default {
           name: 'markup',
           displayName: 'menu.markupTables',
         },
-        {
-          name: 'data',
-          displayName: 'menu.dataTables',
-        },
+        // {
+        //   name: 'data',
+        //   displayName: 'menu.dataTables',
+        // },
       ],
     },
     {
@@ -96,10 +96,10 @@ export default {
           name: 'colors',
           displayName: 'menu.colors',
         },
-        {
-          name: 'color-pickers',
-          displayName: 'menu.colorPickers',
-        },
+        // {
+        //   name: 'color-pickers',
+        //   displayName: 'menu.colorPickers',
+        // },
         {
           name: 'file-upload',
           displayName: 'menu.fileUpload',
