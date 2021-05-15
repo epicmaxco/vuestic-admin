@@ -28,7 +28,7 @@
               v-model="popover.message"
               label="Message"
             />
-            <div class="row popover-example mt-5">
+            <div class="popover-example mt-5">
               <va-popover
                 :icon="popover.icon.icon"
                 :color="popover.color"
