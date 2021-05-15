@@ -53,27 +53,27 @@ export const COLOR_THEMES = [
       info: '#2c82e0',
       danger: '#e42222',
       warning: '#ffd43a',
-      white: '#ffffff',
-      dark: '#262824',
+      white: '#262824',
+      dark: '#ffffff',
       gray: '#f6f7f6',
     },
     components: {
       VaNavbar: {
-        color: 'dark',
-        textColor: 'white',
+        color: 'white',
+        textColor: 'dark',
       },
       VaSidebar: {
-        color: 'dark',
-        textColor: 'white',
+        color: 'white',
+        textColor: 'dark',
       },
       VaCard: {
-        color: 'dark',
+        color: 'white',
       },
       VaCardContent: {
-        textColor: 'white',
+        textColor: 'dark',
       },
       VaCardTitle: {
-        textColor: 'white',
+        textColor: 'dark',
       }
     }
   },
