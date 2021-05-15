@@ -44,7 +44,6 @@ export default {
       { label: 'Semi-Dark', value: THEME_NAMES.SEMI_DARK },
       { label: 'Dark', value: THEME_NAMES.DARK },
       { label: 'Toxic', value: THEME_NAMES.TOXIC },
-      { label: 'Corporate', value: THEME_NAMES.CORPORATE },
     ]
 
     const { setTheme, themeName } = useTheme()
@@ -77,8 +76,8 @@ export default {
   }
 
   &__content {
-    // background-color: $dropdown-background;
-    // box-shadow: $gray-box-shadow;
+    background-color: var(--va-background);
+    color: var(--va-gray);
     border-radius: 0.5rem;
   }
 

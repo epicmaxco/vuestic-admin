@@ -148,7 +148,7 @@ export default {
   },
   computed: {
     theme() {
-      return useGlobalConfig().getGlobalConfig().colors
+      return useGlobalConfig().getGlobalConfig().colors || {}
     }
   }
 }
@@ -157,7 +157,7 @@ export default {
 <style lang="scss" scoped>
   .row-separated {
     .flex + .flex {
-      border-left: 1px solid #e3eaeb;
+      border-left: 1px solid var(--va-background);
     }
 
     // @include media-breakpoint-down(xs) {

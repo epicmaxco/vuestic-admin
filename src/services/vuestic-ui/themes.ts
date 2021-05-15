@@ -3,7 +3,6 @@ import { mergeGlobalConfig } from 'vuestic-ui'
 
 export const THEME_NAMES = {
   DEFAULT: 'DEFAULT',
-  CORPORATE: 'CORPORATE',
   TOXIC: 'TOXIC',
   DARK: 'DARK',
   SEMI_DARK: 'SEMI_DARK',
@@ -35,6 +34,11 @@ export const COLOR_THEMES = [
       },
       VaCard: {
         color: 'white',
+      },
+      VaCardContent: {
+        textColor: 'dark',
+      },
+      VaCardTitle: {
         textColor: 'dark',
       }
     }
@@ -64,6 +68,11 @@ export const COLOR_THEMES = [
       },
       VaCard: {
         color: 'dark',
+      },
+      VaCardContent: {
+        textColor: 'white',
+      },
+      VaCardTitle: {
         textColor: 'white',
       }
     }
@@ -93,23 +102,14 @@ export const COLOR_THEMES = [
       },
       VaCard: {
         color: 'white',
+      },
+      VaCardContent: {
+        textColor: 'dark',
+      },
+      VaCardTitle: {
         textColor: 'dark',
       }
     }
-  },
-  {
-    name: THEME_NAMES.CORPORATE,
-    colors: {
-      primary: '#6c7fee',
-      secondary: '#6e7ff1',
-      background: '#EDEDEE',
-      success: '#8ddc88',
-      info: '#71baff',
-      danger: '#f8706d',
-      warning: '#ffd652',
-      gray: '#8396a5',
-      dark: '#34495e',
-    },
   },
   {
     name: THEME_NAMES.TOXIC,
@@ -136,6 +136,11 @@ export const COLOR_THEMES = [
       },
       VaCard: {
         color: 'widget',
+      },
+      VaCardContent: {
+        textColor: 'dark',
+      },
+      VaCardTitle: {
         textColor: 'dark',
       }
     }

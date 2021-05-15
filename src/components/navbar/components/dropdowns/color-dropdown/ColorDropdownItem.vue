@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { useGlobalConfig } from 'vuestic-ui'
+import { getColors } from 'vuestic-ui'
 
 export default {
   props: {
@@ -19,7 +19,7 @@ export default {
   },
   computed: {
     theme() {
-      return useGlobalConfig().getGlobalConfig().colors
+      return getColors()
     }
   }
 }
@@ -30,12 +30,12 @@ export default {
     width: 16px;
     height: 16px;
     &-bordered {
-      border: 1px solid rgb(83, 83, 83);
+      border: 1px solid var(--va-gray);
       border-radius: 50%;
     }
   }
   td {
-    color: var(--va-dark);
+    color: var(--va-gray);
     padding: 0.25rem 0.5rem;
     box-sizing: border-box;
     vertical-align: middle;
