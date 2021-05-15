@@ -1,46 +1,42 @@
 <template>
-  <div class="typography content">
+  <va-content class="typography content">
     <div class="row">
       <div class="flex xs12">
         <va-card>
           <va-card-title>{{ $t('typography.primary') }}</va-card-title>
           <va-card-content>
             <div class="mb-4">
-              <p class="display-1">Display 1 Heading</p>
+              <h1>Display 1 Heading</h1>
               <p>Of all of the celestial bodies that capture our
                 attention and fascination as astronomers, none has a greater influence
                 on life on planet Earth than it’s own satellite, the moon. When
                 you think about it.</p>
             </div>
             <div class="mb-4">
-              <p class="display-2">Display 2 Heading</p>
+              <h2>Display 2 Heading</h2>
               <p>None has a greater influence on life on planet
                 Earth than it’s own satellite, the moon. When you think about it.</p>
             </div>
             <div class="mb-4">
-              <p class="display-3">Display 3 Heading</p>
+              <h3>Display 3 Heading</h3>
               <p>Let’s talk about meat fondue recipes and what you
                 need to know first. Meat fondue also known as oil fondue is a method
                 of cooking all kinds of meats, poultry, and seafood in a pot of
                 heated oil.</p>
             </div>
             <div class="mb-4">
-              <p class="display-4">Display 4 Heading</p>
+              <h4>Display 4 Heading</h4>
               <p>There is something about parenthood that gives us
                 a sense of history and a deeply rooted desire to send on into the
                 next generation the great things we have discovered about life.</p>
             </div>
             <div class="mb-4">
-              <p class="display-5">Display 5 Heading</p>
+              <h5>Display 5 Heading</h5>
               <p>
                 There is a moment in the life of any aspiring astronomer that it is
                 time to buy that first telescope. It’s exciting to think about
                 setting up your own viewing station.
               </p>
-            </div>
-            <div class="mb-4">
-              <p class="title">Widget title, form section title, input label,
-                inline label, table heading</p>
             </div>
             <div class="mb-4">
               <p>
@@ -58,9 +54,9 @@
             </div>
             <div class="mb-4">
               <pre class="code-snippet">&lt;p class=“code-snippet”>
-    This is a wonderful example.
-    &lt;a href=“#” onClick=“”>Read more&lt;/a>
-  &lt;/p></pre>
+  This is a wonderful example.
+  &lt;a href=“#” onClick=“”>Read more&lt;/a>
+&lt;/p></pre>
               <p>
                 Of all of the celestial bodies that capture our attention and fascination
                 as astronomers,
@@ -184,11 +180,11 @@
         </va-card>
       </div>
     </div>
-  </div>
+  </va-content>
 </template>
 
 <script>
-import { useGlobalConfig } from 'vuestic-ui'
+import { getColors } from 'vuestic-ui'
 
 export default {
   name: 'typography',
@@ -204,8 +200,14 @@ export default {
   },
   computed: {
     theme() {
-      return useGlobalConfig().getGlobalConfig().colors
+      return getColors()
     }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.text--secondary {
+  color: var(--va-secondary);
+}
+</style>
