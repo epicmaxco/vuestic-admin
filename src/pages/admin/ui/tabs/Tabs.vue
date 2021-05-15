@@ -7,32 +7,38 @@
           <div class="row">
             <div class="flex xs12">
               <va-tabs v-model="tabValue" style="width: 100%; min-width: 250px;">
-                <va-tab
-                  v-for="title in tabTitles.slice(0,3)"
-                  :key="title"
-                >
-                  {{title}}
-                </va-tab>
+                <template #tabs>
+                  <va-tab
+                    v-for="title in tabTitles.slice(0,3)"
+                    :key="title"
+                  >
+                    {{title}}
+                  </va-tab>
+                </template>
               </va-tabs>
             </div>
             <div class="flex xs12">
               <va-tabs right v-model="tabValue" style="width: 100%; min-width: 250px;">
-                <va-tab
-                  v-for="title in tabTitles.slice(0,3)"
-                  :key="title"
-                >
-                  {{title}}
-                </va-tab>
+                <template #tabs>
+                  <va-tab
+                    v-for="title in tabTitles.slice(0,3)"
+                    :key="title"
+                  >
+                    {{title}}
+                  </va-tab>
+                </template>
               </va-tabs>
             </div>
             <div class="flex xs12">
               <va-tabs center v-model="tabValue" style="width: 100%; min-width: 250px;">
-                <va-tab
-                  v-for="title in tabTitles.slice(0,3)"
-                  :key="title"
-                >
-                  {{title}}
-                </va-tab>
+                <template #tabs>
+                  <va-tab
+                    v-for="title in tabTitles.slice(0,3)"
+                    :key="title"
+                  >
+                    {{title}}
+                  </va-tab>
+                </template>
               </va-tabs>
             </div>
           </div>
@@ -48,15 +54,17 @@
               <div class="row">
                 <div class="flex xs12">
                   <va-tabs v-model="tabValue">
-                    <va-tab
-                      v-for="title in tabTitles"
-                      :key="title"
-                    >
-                      {{title}}
-                    </va-tab>
-                    <va-tab>
-                      Somewhat long long long long long long long long long text
-                    </va-tab>
+                    <template #tabs>
+                      <va-tab
+                        v-for="title in tabTitles.slice(0,3)"
+                        :key="title"
+                      >
+                        {{title}}
+                      </va-tab>                 
+                      <va-tab>
+                        Somewhat long long long long long long long long long text
+                      </va-tab>
+                    </template>
                   </va-tabs>
                 </div>
               </div>
@@ -70,12 +78,14 @@
               <div class="row">
                 <div class="flex xs12">
                   <va-tabs hideSlider v-model="tabValue">
-                    <va-tab
-                      v-for="title in tabTitles.slice(0,3)"
-                      :key="title"
-                    >
-                      {{title}}
-                    </va-tab>
+                    <template #tabs>
+                      <va-tab
+                        v-for="title in tabTitles.slice(0,3)"
+                        :key="title"
+                      >
+                        {{title}}
+                      </va-tab>
+                    </template>
                   </va-tabs>
                 </div>
               </div>
@@ -92,12 +102,14 @@
           <div class="row">
             <div class="flex xs12">
               <va-tabs grow v-model="tabValue" style="width: 100%;">
-                <va-tab
-                  v-for="title in tabTitles.slice(0,3)"
-                  :key="title"
-                >
-                  {{title}}
-                </va-tab>
+                <template #tabs>
+                  <va-tab
+                    v-for="title in tabTitles.slice(0,3)"
+                    :key="title"
+                  >
+                    {{title}}
+                  </va-tab>
+                </template>
               </va-tabs>
             </div>
           </div>
