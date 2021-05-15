@@ -77,25 +77,25 @@
                 class="control-input mb-3"
                 required
               />
-              <va-input
+              <!-- <va-input
                 v-model="toastIcon"
                 :label="$t('notificationsPage.toasts.iconLabel')"
                 class="control-input mb-0"
                 required
-              />
+              /> -->
             </div>
             <div class="flex xs12 md6">
               <div class="row">
                 <div class="flex xs12">
                   <toast-position-picker v-model="toastPosition"/>
                 </div>
-                <div class="flex xs12">
+                <!-- <div class="flex xs12">
                   <va-checkbox
                     :label="$t('notificationsPage.toasts.fullWidthLabel')"
                     :id="'toast-fullwidth'"
                     v-model="isToastFullWidth"
                   />
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="flex xs12">
@@ -137,7 +137,7 @@ export default {
         message: this.toastText,
         iconClass: this.toastIcon,
         position: this.toastPosition,
-        duration: this.toastDuration,
+        duration: Number(this.toastDuration),
         fullWidth: this.isToastFullWidth,
       })
     },

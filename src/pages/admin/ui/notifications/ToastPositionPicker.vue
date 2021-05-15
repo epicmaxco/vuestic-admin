@@ -6,11 +6,11 @@
         :class="{'selected': isBoxSelected('top-left')}"
         :style="computedStyle">
       </div>
-      <div class="position-box"
+      <!-- <div class="position-box"
         @click="updatePosition('top-center')"
         :class="{'selected': isBoxSelected('top-center')}"
         :style="computedStyle">
-      </div>
+      </div> -->
       <div class="position-box"
         @click="updatePosition('top-right')"
         :class="{'selected': isBoxSelected('top-right')}"
@@ -23,11 +23,11 @@
         :class="{'selected': isBoxSelected('bottom-left')}"
         :style="computedStyle">
       </div>
-      <div class="position-box"
+      <!-- <div class="position-box"
         @click="updatePosition('bottom-center')"
         :class="{'selected': isBoxSelected('bottom-center')}"
         :style="computedStyle">
-      </div>
+      </div> -->
       <div class="position-box"
         @click="updatePosition('bottom-right')"
         :class="{'selected': isBoxSelected('bottom-right')}"
@@ -44,7 +44,7 @@ export default {
   name: 'toast-position-picker',
 
   props: {
-    value: {
+    modelValue: {
       type: String,
       default: 'bottom-center',
     },
@@ -63,11 +63,11 @@ export default {
 
   methods: {
     updatePosition (position) {
-      this.$emit('input', position)
+      this.$emit('update:modelValue', position)
     },
 
     isBoxSelected (position) {
-      return this.value === position
+      return this.modelValue === position
     },
   },
 }
