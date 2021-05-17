@@ -74,7 +74,7 @@
         </va-card>
       </div>
 
-      <div class="flex xs12">
+      <!-- <div class="flex xs12">
         <va-card :title="$t('forms.dateTimePicker.title')">
           <va-card-content>
             <form>
@@ -137,7 +137,7 @@
             </form>
           </va-card-content>
         </va-card>
-      </div>
+      </div> -->
 
       <div class="flex xs12">
         <va-card :title="$t('forms.selects.title')">
