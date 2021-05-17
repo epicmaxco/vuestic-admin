@@ -6,7 +6,7 @@
           <h1>{{ $t('dashboard.charts.trendyTrends') }}</h1>
           <div class="mr-0 text-right">
             <va-button
-              small
+              size="small"
               color="danger"
               @click="deleteSection"
               :disabled="lineChartData.labels.length < 2"
