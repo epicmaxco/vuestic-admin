@@ -10,7 +10,7 @@
         />
         <router-link to="/">
           <vuestic-logo class="logo"/>
-        </router-link>
+        </router-link>          
       </div>
     </template>
     <template v-slot:center>
@@ -26,7 +26,7 @@
         <va-button
           href="https://github.com/epicmaxco/vuestic-admin"
           color="#000000"
-          class="app-navbar__button"
+          class="app-navbar__github-button"
           icon="github"
           target="_blank"
         >
@@ -77,6 +77,29 @@ export default {
   .va-navbar {
     box-shadow: var(--va-box-shadow);
     z-index: 2;
+    &__center {
+      @media screen and (max-width: 1200px) {
+        .app-navbar__github-button {
+          display: none;
+        }
+      }
+      @media screen and (max-width: 950px) {
+        .app-navbar__text {
+          display: none;
+        }
+      }
+    }
+
+    @media screen and (max-width: 950px) {
+      .left {
+        width: 100%;
+      }
+      .app-navbar__actions {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
   }
 
   .left {

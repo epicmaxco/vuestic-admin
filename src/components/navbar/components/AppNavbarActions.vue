@@ -79,25 +79,21 @@ export default {
       margin: auto 0 auto 1.25rem;
     }
 
-    // @include media-breakpoint-down(lg) {
-    //   margin-right: 0.25rem;
-    // }
+    @media screen and (max-width: 768px) {
+      margin-right: 0;
 
-    // @include media-breakpoint-down(sm) {
-    //   margin-right: 0;
+      &:first-of-type {
+        margin-left: 0;
+      }
 
-    //   &:first-of-type {
-    //     margin-left: 0;
-    //   }
-
-    //   &--profile {
-    //     position: absolute;
-    //     right: 0.75rem;
-    //     top: 1.25rem;
-    //     height: fit-content;
-    //     margin: auto;
-    //   }
-    // }
+      &--profile {
+        position: absolute;
+        right: 0.75rem;
+        top: 1.25rem;
+        height: fit-content;
+        margin: auto;
+      }
+    }
   }
 }
 </style>
