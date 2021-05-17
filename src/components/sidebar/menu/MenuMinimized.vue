@@ -8,7 +8,7 @@
     :preventOverflow="false"
   >
     <template #anchor>
-      <va-sidebar-item :active="isItemChildsActive(route)">
+      <va-sidebar-item :active="isItemChildsActive(route)" :to="route.children ? undefined : { name: route.name }">
         <va-sidebar-item-content>
           <va-icon :name="route.meta.icon" class="va-sidebar-item__icon"/>
           <va-icon v-if="route.children" class="more_icon" name="more_horiz"/>          
@@ -73,7 +73,8 @@ export default {
     overflow-y: auto;
     overflow-x: visible;
     min-width: 8rem;
-    background: var(--va-secondary);
+    color: var(--va-gray);
+    background: var(--va-white);
   }
 }
 

@@ -15,6 +15,7 @@
 <script>
 import { useStore } from 'vuex';
 import { computed, onBeforeUnmount, onMounted } from 'vue';
+import { onBeforeRouteUpdate } from 'vue-router';
 import Sidebar from '@/components/sidebar/Sidebar';
 import Navbar from '@/components/navbar/Navbar.vue';
 
@@ -28,10 +29,13 @@ export default {
 
   setup() {   
     const store = useStore()
+    const mobileBreakPointPX = 575
+
     const isSidebarMinimized = computed(() => store.state.isSidebarMinimized)
+    const isMobile = () => window.innerWidth <= mobileBreakPointPX
 
     const updateSidebarCollapsedState = () => {
-      store.commit('updateSidebarCollapsedState', window.innerWidth <= 575)
+      store.commit('updateSidebarCollapsedState', isMobile())
     }
 
     onMounted(() => {
@@ -40,6 +44,13 @@ export default {
 
     onBeforeUnmount(() => {
       window.removeEventListener('resize', updateSidebarCollapsedState)
+    })
+
+    onBeforeRouteUpdate(() => {
+      if (isMobile()) {
+        // Collapse sidebar after route change for Mobile
+        store.commit('updateSidebarCollapsedState', true)
+      }
     })
 
     updateSidebarCollapsedState()
