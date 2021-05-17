@@ -24,7 +24,7 @@
     </div>
 
     <div class="d-flex justify--center mt-3">
-      <va-button type="submit" class="my-0">{{ $t('auth.login') }}</va-button>
+      <va-button @click="onsubmit" class="my-0">{{ $t('auth.login') }}</va-button>
     </div>
   </form>
 </template>

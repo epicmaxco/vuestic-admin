@@ -11,8 +11,10 @@
         <va-card class="auth-layout__card">
           <va-card-content>
             <va-tabs v-model="tabIndex" center>
-              <va-tab name="login">{{ $t("auth.login") }}</va-tab>
-              <va-tab name="signup">{{ $t("auth.createNewAccount") }}</va-tab>
+              <template #tabs>
+                <va-tab name="login">{{ $t("auth.login") }}</va-tab>
+                <va-tab name="signup">{{ $t("auth.createNewAccount") }}</va-tab>
+              </template>
             </va-tabs>
 
             <va-separator />
@@ -29,8 +31,6 @@
 
 <script>
 import VuesticLogo from "@/components/vuestic-logo";
-
-const tabs = ["login", "signup"];
 
 export default {
   name: "AuthLayout",
@@ -56,17 +56,11 @@ export default {
 <style lang="scss">
 .auth-layout {
   min-height: 100vh;
-  background-image: linear-gradient(to right, #0e4ac4, #002c85);
+  background-image: linear-gradient(to right, var(--va-background), var(--va-white));
 
   &__card {
     width: 100%;
     max-width: 600px;
-  }
-
-  &__options {
-    // @include media-breakpoint-down(xs) {
-    //   flex-direction: column;
-    // }
   }
 }
 </style>
