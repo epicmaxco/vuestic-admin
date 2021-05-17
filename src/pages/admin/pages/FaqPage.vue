@@ -1,7 +1,7 @@
 <template>
   <div class="not-found-pages">
     <div class="row mb-4">
-      <va-card class="flex xl12">
+      <va-card class="flex xs12">
         <va-card-title>
           Do you have any questions?
         </va-card-title>
@@ -15,7 +15,7 @@
       </va-card>
     </div>
     <div class="row">
-      <va-card class="flex xl12">
+      <va-card class="flex xs12">
         <va-card-title>
           Frequently Asked Questions
         </va-card-title>
