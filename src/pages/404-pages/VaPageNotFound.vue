@@ -40,16 +40,16 @@ export default {
     pageNotFoundStyle () {
       return {
         // color: this.contextConfig.invertedColor ? this.$themes.dark : 'white',
-        color: 'white',
+        color: 'var(--va-gray)',
         // backgroundColor: this.contextConfig.invertedColor ? 'white' : this.$themes.danger,
         backgroundColor: this.theme.danger,
         // backgroundImage: this.contextConfig.gradient && 'linear-gradient(to right, #ff2175, #d30505)',
-        backgroundImage: 'linear-gradient(to right, #ff2175, #d30505)',
+        backgroundImage: 'linear-gradient(to right, var(--va-white), var(--va-white))',
       }
     },
     wallpaperColor () {
       // return this.contextConfig.invertedColor ? this.$themes.dark : '#e4ff32'
-      return '#e4ff32'
+      return 'var(--va-primary)'
     },
   },
 }
