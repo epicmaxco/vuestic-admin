@@ -148,14 +148,6 @@ export default [
     "to": "fa4-search"
   },
   {
-    "name": "star",
-    "to": "fa4-star"
-  },
-  {
-    "name": "star_empty",
-    "to": "fa4-star-empty"
-  },
-  {
     "name": "trash",
     "to": "fa4-trash"
   },

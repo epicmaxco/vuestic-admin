@@ -65,7 +65,6 @@
           <va-card-content>
             <va-rating
               color="warning"
-              emptyIcon="star_empty"
               halves
               v-model="value"
             />
