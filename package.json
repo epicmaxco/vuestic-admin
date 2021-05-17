@@ -1,6 +1,6 @@
 {
-  "name": "vuestic-admin-3",
-  "version": "0.1.0",
+  "name": "vuestic-admin",
+  "version": "3.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -29,7 +29,7 @@
     "vue-i18n": "^9.0.0",
     "vue-router": "^4.0.0-0",
     "vue-yandex-maps": "^0.10.9",
-    "vuestic-ui": "^1.0.0-rc.1",
+    "vuestic-ui": "^1.0.0-rc.3",
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {
