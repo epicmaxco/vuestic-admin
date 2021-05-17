@@ -2,15 +2,15 @@ import { ref, computed } from "vue"
 import { mergeGlobalConfig } from 'vuestic-ui'
 
 export const THEME_NAMES = {
-  DEFAULT: 'DEFAULT',
-  TOXIC: 'TOXIC',
+  LIGHT: 'LIGHT',
+  ORIGINAL: 'ORIGINAL',
   DARK: 'DARK',
   SEMI_DARK: 'SEMI_DARK',
 }
 
 export const COLOR_THEMES = [
   {
-    name: THEME_NAMES.DEFAULT,
+    name: THEME_NAMES.LIGHT,
     colors: {
       primary: '#154ec1',
       secondary: '#767c88',
@@ -112,7 +112,7 @@ export const COLOR_THEMES = [
     }
   },
   {
-    name: THEME_NAMES.TOXIC,
+    name: THEME_NAMES.ORIGINAL,
     colors: {
       primary: '#6EDC7D',
       secondary: '#A8AEBA',
@@ -148,7 +148,7 @@ export const COLOR_THEMES = [
 ]
 
 export const useTheme = () => {
-  const themeNameRef = ref(THEME_NAMES.DEFAULT)
+  const themeNameRef = ref(THEME_NAMES.LIGHT)
 
   const setTheme = (themeName: keyof typeof THEME_NAMES) => {
     themeNameRef.value = themeName

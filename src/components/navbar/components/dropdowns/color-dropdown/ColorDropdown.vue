@@ -28,8 +28,9 @@
 import { useColors } from 'vuestic-ui'
 import VaIconColor from '@/components/icons/VaIconColor'
 import ColorDropdownItem from './ColorDropdownItem'
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { THEME_NAMES, useTheme } from '@/services/vuestic-ui/themes'
+import { useRouter } from 'vue-router'
 
 export default {
   emits: ['change-theme'],
@@ -40,10 +41,10 @@ export default {
     const { getColors } = useColors()
 
     const buttonToggleOptions = [
-      { label: 'Original', value: THEME_NAMES.DEFAULT },
+      { label: 'Light', value: THEME_NAMES.LIGHT },
       { label: 'Semi-Dark', value: THEME_NAMES.SEMI_DARK },
-      { label: 'Dark', value: THEME_NAMES.DARK },
-      { label: 'Toxic', value: THEME_NAMES.TOXIC },
+      // { label: 'Dark', value: THEME_NAMES.DARK },
+      { label: 'Original', value: THEME_NAMES.ORIGINAL },
     ]
 
     const { setTheme, themeName } = useTheme()
@@ -55,7 +56,25 @@ export default {
       set: (newThemeName) => setTheme(newThemeName)
     })
 
-    setTheme(THEME_NAMES.DEFAULT)
+    const router = useRouter()
+
+    const themeNameFromUrl = () => {
+      const themeName = router.currentRoute.value.query.theme
+
+      if (themeName === 'semi-dark') {
+        return THEME_NAMES.SEMI_DARK
+      } else if (themeName === 'dark') {
+        return THEME_NAMES.DARK
+      } else if (themeName === 'original') {
+        return THEME_NAMES.ORIGINAL
+      } else {
+        return THEME_NAMES.LIGHT
+      }
+    }
+
+    onMounted(() => {
+      setTheme(themeNameFromUrl())
+    })
 
     const colorNames = computed(() => Object.keys(colors))
 
