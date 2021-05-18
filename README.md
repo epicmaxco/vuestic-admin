@@ -14,7 +14,7 @@ Based on <a href="https://github.com/epicmaxco/vuestic-ui">Vuestic UI</a> librar
 
 
 <p align="center">
-  <a href="https://vuestic.epicmax.co/admin/dashboard?theme=corporate"> White theme demo </a> | <a href="https://vuestic.epicmax.co">Blue theme demo </a> | <a href="https://vuestic.dev"> Documentation </a>
+  <a href="https://vuestic.epicmax.co/admin/dashboard?theme=light"> Light theme demo </a> | <a href="https://vuestic.epicmax.co/admin/dashboard?theme=semi-dark">Semi-dark theme demo </a> | <a href="https://vuestic.epicmax.co/admin/dashboard?theme=original">Original theme demo </a> | <a href="https://vuestic.dev"> Vuestic UI documentation </a>
 </p>
 
 > Vuestic Admin is built with Vuestic UI. See our
