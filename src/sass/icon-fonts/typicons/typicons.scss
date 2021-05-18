@@ -2,12 +2,12 @@
   font-family: 'Typicons';
   font-style: normal;
   font-weight: normal;
-  src: url('./../sass/icon-fonts/typicons/typicons-regular-webfont.eot');
+  src: url('./sass/icon-fonts/typicons/typicons-regular-webfont.eot');
   src:
-    url('./../sass/icon-fonts/typicons/typicons-regular-webfont.eot?#iefix') format('eot'),
-    url('./../sass/icon-fonts/typicons/typicons-regular-webfont.woff') format('woff'),
-    url('./../sass/icon-fonts/typicons/typicons-regular-webfont.ttf') format('truetype'),
-    url('./../sass/icon-fonts/typicons/typicons-regular-webfont.svg#TypiconsRegular') format('svg');
+    url('./sass/icon-fonts/typicons/typicons-regular-webfont.eot?#iefix') format('eot'),
+    url('./sass/icon-fonts/typicons/typicons-regular-webfont.woff') format('woff'),
+    url('./sass/icon-fonts/typicons/typicons-regular-webfont.ttf') format('truetype'),
+    url('./sass/icon-fonts/typicons/typicons-regular-webfont.svg#TypiconsRegular') format('svg');
 }
 
 [class*="typicons-"]::before {

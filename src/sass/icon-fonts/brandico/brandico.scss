@@ -2,12 +2,12 @@
   font-family: 'brandico';
   font-style: normal;
   font-weight: normal;
-  src: url('./../sass/icon-fonts/brandico/brandico.eot');
+  src: url('./sass/icon-fonts/brandico/brandico.eot');
   src:
-    url('./../sass/icon-fonts/brandico/brandico.eot#iefix') format('eot'),
-    url('./../sass/icon-fonts/brandico/brandico.woff') format('woff'),
-    url('./../sass/icon-fonts/brandico/brandico.ttf') format('truetype'),
-    url('./../sass/icon-fonts/brandico/brandico.svg#brandico') format('svg');
+    url('./sass/icon-fonts/brandico/brandico.eot#iefix') format('eot'),
+    url('./sass/icon-fonts/brandico/brandico.woff') format('woff'),
+    url('./sass/icon-fonts/brandico/brandico.ttf') format('truetype'),
+    url('./sass/icon-fonts/brandico/brandico.svg#brandico') format('svg');
 }
 
 [class*="brandico-"]::before {

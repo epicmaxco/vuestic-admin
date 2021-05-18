@@ -79,7 +79,13 @@
   "collapse": {
     "basic": "Basic Collapse",
     "collapseWithBackground": "Collapse with background",
-    "collapseWithCustomHeader": "Collapse with custom header"
+    "collapseWithCustomHeader": "Collapse with custom header",
+    "firstHeader": "Expand This Block",
+    "secondHeader": "Another Block",
+    "content": {
+      "title": "Great Things",
+      "text": "There is something about parenthood that gives us a sense of history and a deeply rooted desire to send on into the next generation the great things we have discovered about life."
+    }
   },
   "sliders": {
     "slider": "Sliders",
@@ -319,7 +325,15 @@
     "spacing": "Spacing",
     "sliders": "Sliders",
     "popovers": "Popovers",
-    "chat": "Chat"
+    "chat": "Chat",
+    "google-maps": "Google Maps",
+    "yandex-maps": "Yandex Maps",
+    "leaflet-maps": "Leaflet Maps",
+    "bubble-maps": "Bubble Maps",
+    "line-maps": "Line Maps",
+    "login-singup": "Login/Signup",
+    "404-pages": "404 Pages",
+    "faq": "Faq"
   },
   "messages": {
     "all": "See all messages",
@@ -377,8 +391,28 @@
     "modalText": "File type is incorrect!"
   },
   "chips": {
-    "chips": "Chips",
-    "badges": "Badges"
+    "chips": { 
+    "title": "Chips",
+    "primary": "Primary chip",
+    "secondary": "Secondary chip",
+    "success": "Success chip",
+    "info": "Info chip",
+    "danger": "Danger chip",
+    "warning": "Warning chip",
+    "gray": "Gray chip",
+    "dark": "Dark chip"
+    },
+    "badges": { 
+    "title": "Badges",
+    "primary": "Primary badge",
+    "secondary": "Secondary badge",
+    "success": "Success badge",
+    "info": "Info badge",
+    "danger": "Danger badge",
+    "warning": "Warning badge",
+    "gray": "Gray badge",
+    "dark": "Dark badge"
+    }
   },
   "navbar": {
     "messageUs": "Web development inquiries:",
@@ -397,13 +431,21 @@
     "verticalSimple": "Vertical Simple",
     "verticalLabel": "Vertical With Label",
     "verticalCentered": "Vertical Centered",
+    "horizontalActionFirst": "Complete drafts",
+    "horizontalActionSecond": "Push site live",
+    "horizontalActionThird": "Start ICO",
+    "titleFirst": "Make design",
+    "titleSecond": "Develop an app",
+    "titleThird": "Submit an app",
+    "titleDateFirst": "",
+    "titleDateSecond": "May 22 10:00",
+    "titleDateThird": "July 19 17:45",
     "firstDate": "February 2018",
     "secondDate": "March 2018",
     "thirdDate": "April 2018",
-    "cardsSecondInfo": "They occur in a variety of habitats, such as grasslands.",
-    "cardsThirdInfo": "However, various anthropogenic factors have had a severe impact on zebra populations",
-    "verticalSimpleCardsFirstInfo": "The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands.",
-    "verticalSimpleCardsSecondInfo": "However, various anthropogenic factors have had a severe impact on zebra populations"
+    "contentFirst": "The unique stripes of zebras make them one of the animals most familiar to people. They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands.",
+    "contentSecond": "They occur in a variety of habitats, such as grasslands, savannas, woodlands, thorny scrublands.",
+    "contentThird": "However, various anthropogenic factors have had a severe impact on zebra populations"
   },
   "progressBars": {
     "circle": "Circle",
@@ -462,12 +504,16 @@
     "advanced": "Advanced"
   },
   "chat": {
-    "title": "Chat"
+    "title": "Chat",
+    "sendButton": "Send"
   },
   "spacingPlayground": {
     "value": "Value",
     "margin": "Margin",
     "padding": "Padding"
+  },
+  "spacing": {
+    "title": "Spacing"
   },
   "cards": {
     "cards": "Cards",
@@ -489,7 +535,9 @@
     },
     "button": {
       "main": "Main",
-      "cancel": "Cancel"
+      "cancel": "Cancel",
+      "showMore": "Show More",
+      "readMore": "Show More"
     },
     "link": {
       "edit": "Edit",
@@ -504,5 +552,28 @@
       "action1": "Action 1",
       "action2": "Action 2"
     }
+  },
+  "colors": {
+    "themeColors": "Theme Colors",
+    "extraColors": "Extra Colors",
+    "gradients": {
+      "basic": {
+        "title": "Button Gradients"
+      },
+      "hovered": {
+        "title": "Hovered Button Gradients",
+        "text": "Lighten 15% applied to an original style (gradient or flat color) for hover state."
+      },
+      "pressed": {
+        "title": "Hovered Button Gradients",
+        "text": "Darken 15% applied to an original style (gradient or flat color) for pressed state."
+      }
+    }
+  },
+  "tabs": {
+    "alignment": "Tabs Alignment",
+    "overflow": "Tabs Overflow",
+    "hidden": "Tabs with Hidden slider",
+    "grow": "Tabs Grow"
   }
 }
