@@ -11892,10 +11892,10 @@ vue@^3.0.0, vue@^3.0.4:
     "@vue/runtime-dom" "3.0.5"
     "@vue/shared" "3.0.5"
 
-vuestic-ui@^1.0.0-rc.3:
-  version "1.0.0-rc.3"
-  resolved "https://registry.yarnpkg.com/vuestic-ui/-/vuestic-ui-1.0.0-rc.3.tgz#f3cfe3478046068737fd3a09fe0f86bf809d4cb4"
-  integrity sha512-8mN+QH5Fae3W3/HcwETGEsHIivN7DAPHpvcjn/oah+ap5DBXFSDHuqi8vCwAcfAhi57jpulIsadVSkqFVc0LMQ==
+vuestic-ui@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/vuestic-ui/-/vuestic-ui-1.0.0.tgz#8f52485fe1f6e01ddb407ddfa180ee57dff4782e"
+  integrity sha512-DPWkP5Kw8f56YORCv0u7qH8kTXPR3geK49GwEiyA8GnHHiT4F8UUgQ3RclGzUP0XeAtu5eE14imCubVas+Y78g==
   dependencies:
     "@popperjs/core" "^2.9.2"
     asva-executors "^0.1.23"
