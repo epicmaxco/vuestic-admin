@@ -1,5 +1,5 @@
 <template>
-  <va-page-not-found va-page-not-found-custom>
+  <va-page-not-found class="va-page-not-found-custom">
     <template #image>
       <img
         src="https://i.imgur.com/wodIng5.png"
@@ -30,11 +30,13 @@ export default {
     width: 150%;
     margin: 0 -25%;
     min-width: 20rem;
+    box-sizing: border-box;
 
-    // @include media-breakpoint-down(sm) {
-    //   margin: 0;
-    //   width: 100%;
-    // }
+    @media screen and (max-width: 600px) {
+      margin: 0;
+      max-width: 75%;
+      min-width: 0;
+    }
   }
 }
 </style>

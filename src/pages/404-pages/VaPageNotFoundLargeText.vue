@@ -24,9 +24,10 @@ export default {
     // color: $white;
     font-weight: 600;
 
-    // @include media-breakpoint-down(xs) {
-    //   font-size: 12rem;
-    // }
+
+    @media screen and (max-width: 600px) {
+      font-size: 6rem;
+    }
   }
 }
 </style>
