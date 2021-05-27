@@ -113,49 +113,51 @@
       <div class="flex xs12">
         <va-card class="larger-padding">
           <va-card-title>{{$t('buttons.buttonGroups')}}</va-card-title>
-          <va-card-content class="row">
-            <div class="flex xs12 xl6">
-              <va-button-group color="secondary">
-                <va-button size="large"> One</va-button>
-                <va-button size="large"> Two</va-button>
-                <va-button size="large"> Three</va-button>
-              </va-button-group>
-            </div>
-            <div class="flex xs12 xl6">
-              <va-button-group outline color="danger">
-                <va-button icon="maki-art-gallery">One</va-button>
-                <va-button>Two</va-button>
-                <va-button>Three</va-button>
-              </va-button-group>
-            </div>
-            <div class="flex xs12 xl6">
-              <va-button-group flat color="gray">
-                <va-button icon="ion-ios-mail">One</va-button>
-                <va-button icon="entypo-user">Two</va-button>
-                <va-button icon="ion-ios-alarm">Three</va-button>
-              </va-button-group>
-            </div>
-            <div class="flex xs12 xl6">
-              <va-button-group color="dark" gradient>
-                <va-button> One</va-button>
-                <va-button> Two</va-button>
-                <va-button> Three</va-button>
-                <va-button icon="ion-ios-arrow-down"/>
-              </va-button-group>
-            </div>
-            <div class="flex xs12 xl6">
-              <va-button-group outline  size="large">
-                <va-button>First</va-button>
-                <va-button icon-right="glyphicon-pencil">Second</va-button>
-                <va-button>Third</va-button>
-              </va-button-group>
-            </div>
-            <div class="flex xs12 xl6">
-              <va-button-group flat size="small" color="warning">
-                <va-button icon="glyphicon-envelope"/>
-                <va-button icon="entypo-user"/>
-                <va-button icon-right="ion-ios-alarm"/>
-              </va-button-group>
+          <va-card-content>
+            <div class="row">
+              <div class="flex xs12 xl6">
+                <va-button-group color="secondary">
+                  <va-button size="large"> One</va-button>
+                  <va-button size="large"> Two</va-button>
+                  <va-button size="large"> Three</va-button>
+                </va-button-group>
+              </div>
+              <div class="flex xs12 xl6">
+                <va-button-group outline color="danger">
+                  <va-button icon="maki-art-gallery">One</va-button>
+                  <va-button>Two</va-button>
+                  <va-button>Three</va-button>
+                </va-button-group>
+              </div>
+              <div class="flex xs12 xl6">
+                <va-button-group flat color="gray">
+                  <va-button icon="ion-ios-mail">One</va-button>
+                  <va-button icon="entypo-user">Two</va-button>
+                  <va-button icon="ion-ios-alarm">Three</va-button>
+                </va-button-group>
+              </div>
+              <div class="flex xs12 xl6">
+                <va-button-group color="dark" gradient>
+                  <va-button> One</va-button>
+                  <va-button> Two</va-button>
+                  <va-button> Three</va-button>
+                  <va-button icon="ion-ios-arrow-down"/>
+                </va-button-group>
+              </div>
+              <div class="flex xs12 xl6">
+                <va-button-group outline  size="large">
+                  <va-button>First</va-button>
+                  <va-button icon-right="glyphicon-pencil">Second</va-button>
+                  <va-button>Third</va-button>
+                </va-button-group>
+              </div>
+              <div class="flex xs12 xl6">
+                <va-button-group flat size="small" color="warning">
+                  <va-button icon="glyphicon-envelope"/>
+                  <va-button icon="entypo-user"/>
+                  <va-button icon-right="ion-ios-alarm"/>
+                </va-button-group>
+              </div>
             </div>
           </va-card-content>
         </va-card>
@@ -164,51 +166,53 @@
       <div class="flex xs12">
         <va-card class="larger-padding">
           <va-card-title>{{$t('buttons.buttonToggles')}}</va-card-title>
-          <va-card-content class="row">
-            <div class="flex xs12 lg6">
-              <va-button-toggle
-                v-model="model"
-                :options="options"
-              />
-            </div>
-            <div class="flex xs12 lg6">
-              <va-button-toggle
-                outline
-                v-model="model"
-                :options="options"
-                color="danger"
-              />
-            </div>
-            <div class="flex xs12 lg6">
-              <va-button-toggle
-                flat
-                v-model="model"
-                :options="options"
-                color="gray"
-              />
-            </div>
-            <div class="flex xs12 lg6">
-              <va-button-toggle
-                v-model="model"
-                :options="options"
-                color="dark"
-              />
-            </div>
-            <div class="flex xs12 lg6">
-              <va-button-toggle
-                outline
-                v-model="model"
-                :options="options"
-                color="info"
-              />
-            </div>
-            <div class="flex xs12 lg6">
-              <va-button-toggle
-                flat
-                v-model="model"
-                :options="options"
-                color="warning"
-              />
+          <va-card-content>
+            <div class="row">
+              <div class="flex xs12 lg6">
+                <va-button-toggle
+                  v-model="model"
+                  :options="options"
+                />
+              </div>
+              <div class="flex xs12 lg6">
+                <va-button-toggle
+                  outline
+                  v-model="model"
+                  :options="options"
+                  color="danger"
+                />
+              </div>
+              <div class="flex xs12 lg6">
+                <va-button-toggle
+                  flat
+                  v-model="model"
+                  :options="options"
+                  color="gray"
+                />
+              </div>
+              <div class="flex xs12 lg6">
+                <va-button-toggle
+                  v-model="model"
+                  :options="options"
+                  color="dark"
+                />
+              </div>
+              <div class="flex xs12 lg6">
+                <va-button-toggle
+                  outline
+                  v-model="model"
+                  :options="options"
+                  color="info"
+                />
+              </div>
+              <div class="flex xs12 lg6">
+                <va-button-toggle
+                  flat
+                  v-model="model"
+                  :options="options"
+                  color="warning"
+                />
+              </div>
             </div>
           </va-card-content>
         </va-card>
@@ -217,37 +221,39 @@
       <div class="flex xs12">
         <va-card class="larger-padding">
           <va-card-title>{{$t('buttons.pagination')}}</va-card-title>
-          <va-card-content class="row">
-            <div class="flex xs12 xl6">
-              <va-pagination
-                v-model="activePage"
-                :visible-pages="3"
-                :pages="20"
-              />
-            </div>
-            <div class="flex xs12 xl6">
-              <va-pagination
-                v-model="activePage"
-                :visible-pages="4"
-                :pages="15"
-                color="danger"
-              />
-            </div>
-            <div class="flex xs12 xl6">
-              <va-pagination
-                v-model="activePage"
-                :pages="5"
-                disabled
-              />
-            </div>
-            <div class="flex xs12 xl6">
-              <va-pagination
-                v-model="activePage"
-                :pages="10"
-                :visible-pages="3"
-                :icon="{ boundary: 'bell_slash', direction: 'volume_off' }"
-                :icon-right="{ boundary: 'bell', direction: 'volume_up' }"
-                color="success"/>
+          <va-card-content>
+            <div class="row">
+              <div class="flex xs12 xl6">
+                <va-pagination
+                  v-model="activePage"
+                  :visible-pages="3"
+                  :pages="20"
+                />
+              </div>
+              <div class="flex xs12 xl6">
+                <va-pagination
+                  v-model="activePage"
+                  :visible-pages="4"
+                  :pages="15"
+                  color="danger"
+                />
+              </div>
+              <div class="flex xs12 xl6">
+                <va-pagination
+                  v-model="activePage"
+                  :pages="5"
+                  disabled
+                />
+              </div>
+              <div class="flex xs12 xl6">
+                <va-pagination
+                  v-model="activePage"
+                  :pages="10"
+                  :visible-pages="3"
+                  :icon="{ boundary: 'bell_slash', direction: 'volume_off' }"
+                  :icon-right="{ boundary: 'bell', direction: 'volume_up' }"
+                  color="success"/>
+              </div>
             </div>
           </va-card-content>
         </va-card>
@@ -255,38 +261,40 @@
       <div class="flex xs12">
         <va-card class="larger-padding">
           <va-card-title>{{$t('buttons.buttonsDropdown')}}</va-card-title>
-          <va-card-content class="row">
-            <div class="flex">
-              <va-button-dropdown
-                class="mr-2 mb-2"
-                :label="$t('buttons.default')"
-              > {{ $t('buttons.content') }}</va-button-dropdown>
-              <va-button-dropdown
-                class="mr-2 mb-2"
-                split
-                :label="$t('buttons.split')"
-              > {{ $t('buttons.content') }}</va-button-dropdown>
-              <va-button-dropdown
-                class="mr-2 mb-2"
-                split
-                split-to="/"
-                :label="$t('buttons.splitTo')"
-              > {{ $t('buttons.content') }}</va-button-dropdown>
-              <!-- <va-button-dropdown
-                class="mr-2 mb-2"
-                :label="$t('buttons.customIcon')"
-                icon="iconicstroke_info"
-              > {{ $t('buttons.content') }}</va-button-dropdown> -->
-              <va-button-dropdown
-                class="mr-2 mb-2"
-                disabled
-                :label="$t('buttons.disabled')"
-              > {{ $t('buttons.content') }}</va-button-dropdown>
-              <va-button-dropdown
-                class="mr-2 mb-2"
-                color="warning"
-                :label="$t('buttons.warning')"
-              > {{ $t('buttons.content') }}</va-button-dropdown>
+          <va-card-content>
+            <div class="row">
+              <div class="flex">
+                <va-button-dropdown
+                  class="mr-2 mb-2"
+                  :label="$t('buttons.default')"
+                > {{ $t('buttons.content') }}</va-button-dropdown>
+                <va-button-dropdown
+                  class="mr-2 mb-2"
+                  split
+                  :label="$t('buttons.split')"
+                > {{ $t('buttons.content') }}</va-button-dropdown>
+                <va-button-dropdown
+                  class="mr-2 mb-2"
+                  split
+                  split-to="/"
+                  :label="$t('buttons.splitTo')"
+                > {{ $t('buttons.content') }}</va-button-dropdown>
+                <!-- <va-button-dropdown
+                  class="mr-2 mb-2"
+                  :label="$t('buttons.customIcon')"
+                  icon="iconicstroke_info"
+                > {{ $t('buttons.content') }}</va-button-dropdown> -->
+                <va-button-dropdown
+                  class="mr-2 mb-2"
+                  disabled
+                  :label="$t('buttons.disabled')"
+                > {{ $t('buttons.content') }}</va-button-dropdown>
+                <va-button-dropdown
+                  class="mr-2 mb-2"
+                  color="warning"
+                  :label="$t('buttons.warning')"
+                > {{ $t('buttons.content') }}</va-button-dropdown>
+              </div>
             </div>
           </va-card-content>
         </va-card>
@@ -313,6 +321,12 @@ export default {
 </script>
 
 <style lang="scss">
+  .va-card__content {
+    & > .row {
+      overflow-x: auto;
+    }
+  }
+
   .va-button-dropdown {
     display: inline-block;
   }
