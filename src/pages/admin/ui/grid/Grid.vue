@@ -179,6 +179,8 @@ export default {
     min-height: 3rem;
     color: var(--va-white);
     border-radius: 0.5rem;
+    padding: 1rem;
+    box-sizing: border-box;
   }
 }
 
