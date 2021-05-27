@@ -79,7 +79,6 @@ export default {
   &__content {
     display: flex;
     height: calc(100vh - 4rem);
-    position: relative;
     flex: 1;
     .va-sidebar {
       position: relative;
@@ -98,7 +97,6 @@ export default {
   &__page {
     flex-grow: 2;
     overflow-y: scroll;
-    z-index: 0;
   }
 }
 </style>
