@@ -47,7 +47,7 @@
           <div
             v-for="item in group"
             :key="item"
-            class="flex sm6 lg3"
+            class="flex sm6 xs12 lg3"
           >
             <div class="text--center pb-4">
               <div class="flex-center spinner-box">
