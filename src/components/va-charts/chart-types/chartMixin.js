@@ -52,18 +52,13 @@ export default {
   render: function () {
     return createElement(
       'div', {
-        id: 'Hello',
         style: this.styles,
         class: this.cssClasses
       },
       [
         createElement(
           'canvas', {
-            attrs: {
-              id: this.chartId,
-              width: this.width,
-              height: this.height
-            },
+            id: this.chartId,
             ref: 'canvas'
           }
         )
