@@ -1,5 +1,5 @@
 <template>
-  <va-sidebar :minimized="minimized">
+  <va-sidebar :minimized="minimized" :minimizedWidth="minimizedWidth">
     <menu-minimized v-if="minimized" :items="items" />
     <menu-accordion v-else :items="items" />
   </va-sidebar>    
@@ -22,6 +22,11 @@ export default {
     minimized: {
       type: Boolean,
       required: true
+    },
+    minimizedWidth: {
+      type: Boolean,
+      required: false,
+      default: undefined
     },
     color: {
       type: String,
@@ -80,7 +85,7 @@ export default {
   flex-shrink: 0;
 }
 
-.va-sidebar--minimized {
-  width: auto !important;
-}
+// .va-sidebar--minimized {
+//   width: auto !important;
+// }
 </style>

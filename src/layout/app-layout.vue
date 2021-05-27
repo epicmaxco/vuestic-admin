@@ -2,7 +2,7 @@
   <div class="app-layout">
     <navbar />
     <div class="app-layout__content">
-      <sidebar :minimized="isSidebarMinimized"/>
+      <sidebar :minimized="isSidebarMinimized" :minimizedWidth="sidebarMinimizedWidth"/>
       <div class="app-layout__page">
         <div class="layout fluid gutter--xl">
           <router-view/>
@@ -14,7 +14,7 @@
 
 <script>
 import { useStore } from 'vuex';
-import { computed, onBeforeUnmount, onMounted } from 'vue';
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 import { onBeforeRouteUpdate } from 'vue-router';
 import Sidebar from '@/components/sidebar/Sidebar';
 import Navbar from '@/components/navbar/Navbar.vue';
@@ -29,34 +29,39 @@ export default {
 
   setup() {   
     const store = useStore()
-    const mobileBreakPointPX = 575
+    const mobileBreakPointPX = 480
+    const collapsedBreakPointPX = 680
 
+    const sidebarMinimizedWidth = ref(undefined)
     const isSidebarMinimized = computed(() => store.state.isSidebarMinimized)
+    const isCollapsed = () => window.innerWidth <= collapsedBreakPointPX
     const isMobile = () => window.innerWidth <= mobileBreakPointPX
 
-    const updateSidebarCollapsedState = () => {
-      store.commit('updateSidebarCollapsedState', isMobile())
+    const onResize = () => {
+      store.commit('updateSidebarCollapsedState', isCollapsed())
+
+      sidebarMinimizedWidth.value = isMobile() ? 0 : '4rem'
     }
 
     onMounted(() => {
-      window.addEventListener('resize', updateSidebarCollapsedState)     
+      window.addEventListener('resize', onResize)     
     })
 
     onBeforeUnmount(() => {
-      window.removeEventListener('resize', updateSidebarCollapsedState)
+      window.removeEventListener('resize', onResize)
     })
 
     onBeforeRouteUpdate(() => {
-      if (isMobile()) {
+      if (isCollapsed()) {
         // Collapse sidebar after route change for Mobile
         store.commit('updateSidebarCollapsedState', true)
       }
     })
 
-    updateSidebarCollapsedState()
+    onResize()
 
     return {
-      isSidebarMinimized
+      isSidebarMinimized, sidebarMinimizedWidth
     }
   }
 }
