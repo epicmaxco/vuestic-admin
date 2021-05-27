@@ -9,7 +9,7 @@
     />
     <div class="row va-page-not-found-search__links">
       <ul
-        class="va-page-not-found-search__list flex xs3 lg1 mx-2 mb-2"
+        class="va-page-not-found-search__list flex xs6 md3 lg1 mb-2"
         v-for="(category, index) in filterItems"
         :key="index"
       >
@@ -70,24 +70,36 @@ export default {
     flex: 0 0 auto;
   }
 
+  ul {
+    margin: 0;
+  }
+
   &__links {
     margin: 0 -30%;
     width: 160%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    // text-align: center  
   }
 
   &__list {
     // color: $white;
   }
 
-  // @include media-breakpoint-down(md) {
-  //   .va-page-not-found-search__links {
-  //     margin: 0;
-  //     width: 100%;
-  //   }
-  // }
+  @media screen and (max-width: 1024px) {
+    .va-page-not-found-search__links {
+      width: 100%;
+      margin: 0;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .va-page-not-found-search__links {
+      flex-direction: column;
+      width: 33%;
+    }
+  }
 
   // @include media-breakpoint-down(xs) {
   //   .va-page-not-found-search {

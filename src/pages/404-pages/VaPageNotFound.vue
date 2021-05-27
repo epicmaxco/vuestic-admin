@@ -1,5 +1,5 @@
 <template>
-  <div class="va-page-not-found justify--center pb-5" :style="pageNotFoundStyle">
+  <div class="va-page-not-found justify--center pb-5" :style="pageNotFoundStyle" v-bind="$attrs">
     <div class="va-page-not-found__inner align--center">
       <slot name="image"/>
       <div class="va-page-not-found__title text--center mb-4">{{$t('404.title')}}</div>
@@ -69,6 +69,7 @@ export default {
     &__inner {
       display: flex;
       flex-direction: column;
+      max-width: 100%;
 
       .va-icon-vuestic {
         width: 19rem;
