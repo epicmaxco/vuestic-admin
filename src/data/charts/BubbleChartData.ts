@@ -33,7 +33,7 @@ export const getBubbleChartData = (themes: ColorThemes) => ({
         {
           x: 23,
           y: 27,
-          r: 120,
+          r: 12,
         },
         {
           x: 20,
