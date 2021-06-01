@@ -52,3 +52,9 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.va-tabs__tabs {
+  height: 100%;
+}
+</style>

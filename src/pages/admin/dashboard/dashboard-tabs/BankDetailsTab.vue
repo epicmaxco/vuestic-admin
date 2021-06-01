@@ -1,10 +1,10 @@
 <template>
   <div class="pt-2">
-    <div class="title text-dark mb-3" :style="{color: theme.primary}">
-      {{$t('dashboard.tabs.bankDetails.detailsFields')}}
-    </div>
     <div class="row">
-      <div class="xs12 md6">
+      <div class="flex xs12 md6">
+        <div class="title text-dark mb-3">
+          {{$t('dashboard.tabs.bankDetails.detailsFields')}}
+        </div>
         <va-input
           :label="$t('dashboard.tabs.bankDetails.bankName')"
           v-model="form.bankName"
@@ -18,7 +18,7 @@
           v-model="form.sortCode"
         />
       </div>
-      <div class="xs12 md6">
+      <div class="flex xs12 md6">
         <va-input
           :label="$t('dashboard.tabs.bankDetails.accountNumber')"
           v-model="form.accountNumber"

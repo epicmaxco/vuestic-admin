@@ -39,6 +39,7 @@
           v-model="form.city"
           :options="allowedCitiesList"
           key-by="text"
+          track-by="text"
         />
         <va-checkbox
           :label="$t('dashboard.tabs.billingAddress.infiniteConnections')"
