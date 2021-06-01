@@ -8,7 +8,7 @@
       <div
         class="color-presentation__color"
         :style="computedStyle"
-        @click="colorCopy(), notify()">
+        @click="colorCopy()">
       </div>
     </va-popover>
 
@@ -16,12 +16,13 @@
       <div class="color-presentation__name">{{name}}</div>
       <div class="color-presentation__text">{{description}}</div>
     </div>
+
+    <input :value="computedBackground" ref="hiddenInput" class="hidden-input" />
   </div>
 </template>
 
 <script>
-// import { ColorThemeMixin, getGradientBackground } from '../../../../services/vuestic-ui'
-import { getColor } from 'vuestic-ui'
+import { useColors } from 'vuestic-ui'
 
 
 // NOTE This component is a tad weird.
@@ -59,6 +60,17 @@ export default {
     }
   },
   computed: {
+    computedBackground () {
+      const { getColor, getGradientBackground } = useColors()
+
+      const colorComputed = getColor(this.color)
+
+      if (this.variant.includes('gradient')) {
+        return getGradientBackground(colorComputed)
+      }
+
+      return colorComputed
+    },
     computedStyle () {
       const calcFilter = () => {
         if (this.variant.includes('hovered')) {return 'brightness(115%)'}
@@ -66,7 +78,7 @@ export default {
       }
 
       return {
-        background: this.calcBackground(),
+        background: this.computedBackground,
         filter: calcFilter(),
         width: this.width ? `${this.width}px` : '',
       }
@@ -74,21 +86,15 @@ export default {
   },
   methods: {
     colorCopy () {
-      // this.$copyText(this.calcBackground())
+      this.$refs.hiddenInput.select()
+      document.execCommand('copy')
+      this.notify()
     },
     notify () {
       this.$vaToast.init({
         message: "The color's copied to your clipboard",
         position: 'bottom-right',
       })
-    },
-    calcBackground () {
-      if (this.variant.includes('gradient') && this.contextConfig) {
-        return null
-        // return getGradientBackground(this.colorComputed)
-      }
-
-      return getColor(this.color)
     },
   },
 }
@@ -112,20 +118,30 @@ export default {
   &__color {
     height: 40px;
     width: 40px;
-    margin-right: 1rem;
+    margin-right: 0.25rem;
     cursor: pointer;
+    border-radius: 4px;
+    overflow: hidden;
   }
 
   &__description {
     margin-left: 1rem;
   }
 
-  // &__name {
-  //   color: $vue-darkest-blue;
-  // }
+  &__name {
+    color: var(--va-dark);
+    padding-bottom: 4px;
+  }
 
-  // &__text {
-  //   color: $brand-secondary;
-  // }
+  &__text {
+    color: var(--va-secondary);
+  }
+
+  .hidden-input {
+    width: 0;
+    padding: 0;
+    opacity: 0;
+    user-select: none;
+  }
 }
 </style>
