@@ -33,8 +33,12 @@
 </template>
 
 <script>
+import VaMediumEditor from '@/components/va-medium-editor/va-medium-editor'
+
 export default {
-  name: 'medium-editor',
+  components: {
+    VaMediumEditor
+  },
 
   methods: {
     handleEditorInitialization (editor) {
