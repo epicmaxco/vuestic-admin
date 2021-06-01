@@ -59,6 +59,8 @@ export default {
 .app-navbar-actions {
   display: flex;
   align-items: center;
+  color: var(--va-primary);
+  fill: var(--va-primary);
   
   &__item {
     padding: 0;
