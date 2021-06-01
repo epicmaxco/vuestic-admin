@@ -76,6 +76,8 @@ export default defineComponent({
   box-shadow: 0 0.125rem 0.19rem 0 0 var(--va-primary);
   background-color: var(--va-secondary);
   border-radius: 1.5rem;
+  height: 44px;
+  line-height: 42px;
 }
 
 .medium-editor-toolbar {
@@ -90,7 +92,7 @@ export default defineComponent({
     margin: 0;
     border: 0;
     padding: 0.375rem 1rem;
-    height: 0.75rem * 2 + 1rem * 1.3;
+    height: 44px;
     background-color: var(--va-secondary);
     box-shadow: none;
     border-radius: 0;
@@ -139,7 +141,7 @@ export default defineComponent({
 
 .medium-toolbar-arrow-under::after {
   border-color: var(--va-secondary) transparent transparent transparent;
-  top: 0.75rem * 2 + 1rem * 1.3;
+  top: 100%;
 }
 
 .medium-toolbar-arrow-over::before {
