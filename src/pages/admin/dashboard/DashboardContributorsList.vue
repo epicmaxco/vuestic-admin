@@ -3,14 +3,13 @@
     <va-card-title>
       <h1>{{ $t('dashboard.charts.topContributors') }}</h1>
       <div class="mr-0 text-right">
-        <va-button
-          flat size="small"
-          class="mr-0"
+        <a
+          class="mr-0 link"
           :disabled="contributors.length <= step"
           @click="showNext"
         >
           {{ $t('dashboard.charts.showNextFive') }}
-        </va-button>
+        </a>
       </div>
     </va-card-title>
 
@@ -23,7 +22,7 @@
         >
           <va-progress-bar
             :modelValue="getPercent(contributor.contributions)"
-            :color="getRandomColor()"
+            :color="getProgressBarColor(idx)"
           >
             {{ contributor.contributions }} {{ $t('dashboard.charts.commits') }}
           </va-progress-bar>
@@ -47,6 +46,7 @@ export default {
       progressMax: 392,
       visibleList: [],
       step: 5,
+      page: 0,
     }
   },
   mounted () {
@@ -69,11 +69,24 @@ export default {
     getPercent (val) {
       return (val / this.progressMax) * 100
     },
-    showNext () {
-      this.visibleList = this.contributors.splice(0, this.step)
+    showNext () {     
+      this.visibleList = this.contributors.slice(this.page * this.step, this.page * this.step + this.step)
+      this.page += 1
+
+      const maxPages = (this.contributors.length - 1) / this.step
+
+      if (this.page > maxPages) {
+        this.page = 0
+      }
     },
-    getRandomColor () {
-      const themeColors = ["primary", "secondary", "success", "info", "danger", "gray", "dark"]
+    getProgressBarColor (idx) {
+      const themeColors = ["primary", "success", "info", "danger", "warning"]
+
+      if (idx < themeColors.length) {
+        return themeColors[idx]
+      }
+
+      // Get random color if idx out of colors array
       const keys = Object.keys(themeColors)
       return themeColors[keys[keys.length * Math.random() << 0]]
     },
