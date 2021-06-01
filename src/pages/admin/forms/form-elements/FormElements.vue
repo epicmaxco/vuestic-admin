@@ -149,6 +149,7 @@
                     :label="$t('forms.selects.simple')"
                     v-model="simpleSelectModel"
                     textBy="description"
+                    track-by="id"
                     :options="simpleOptions"
                   />
                 </div>
@@ -157,6 +158,7 @@
                     :label="$t('forms.selects.multi')"
                     v-model="multiSelectModel"
                     textBy="description"
+                    track-by="id"
                     multiple
                     :options="simpleOptions"
                   />
