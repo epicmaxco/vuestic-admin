@@ -1,8 +1,12 @@
-// import { colorToRgba } from '../../services/vuestic-ui'
+import { useColors } from 'vuestic-ui'
 
-// TODO: import this function from vuestic-ui package
 function colorToRgba(color: string, a: any) {
-  return color
+  const { shiftHSLAColor } = useColors()
+
+  // TODO: replace with set hsla color
+  // https://github.com/epicmaxco/vuestic-ui/issues/841
+  const transparentColor = shiftHSLAColor(color, { a: -1 })
+  return shiftHSLAColor(transparentColor, { a })
 }
 
 const generateValue = () => {

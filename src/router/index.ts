@@ -124,7 +124,7 @@ const routes: Array<RouteRecordRaw> = [
             path: 'markup',
             component: () => import('@/pages/admin/tables/markup-tables/MarkupTables.vue'),
             meta: {
-              wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tables', // TODO Update docs
+              wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tables',
             },
           },
           {
@@ -132,7 +132,7 @@ const routes: Array<RouteRecordRaw> = [
             path: 'data',
             component: () => import('@/pages/admin/tables/data-tables/DataTables.vue'),
             meta: {
-              wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tables', // TODO Add docs
+              wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Tables',
             },
           },
         ],

@@ -1,8 +1,7 @@
 <template>
   <tr>
     <td class="color">
-      <!-- TODO: Replace with ColorIndicator -->
-      <div class="color color-bordered" :style="{ background: theme[colorName]}"/>
+      <va-color-indicator :color="theme[colorName]" />
     </td>
     <td>
       {{ colorName }}

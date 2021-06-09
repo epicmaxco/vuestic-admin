@@ -1,6 +1,12 @@
-// TODO: import this function from vuestic-ui package
+import { useColors } from 'vuestic-ui'
+
 function colorToRgba(color: string, a: any) {
-  return color
+  const { shiftHSLAColor } = useColors()
+
+  // TODO: replace with set hsla color
+  // https://github.com/epicmaxco/vuestic-ui/issues/841
+  const transparentColor = shiftHSLAColor(color, { a: -1 })
+  return shiftHSLAColor(transparentColor, { a })
 }
 
 export const getBubbleChartData = (themes: ColorThemes) => ({

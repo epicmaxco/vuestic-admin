@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore // TODO: need .d.ts file
 import { VuesticPlugin, useGlobalConfig } from 'vuestic-ui';
 import { createApp } from 'vue'
 import { createGtm } from 'vue-gtm'
