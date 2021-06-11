@@ -66,6 +66,12 @@ export default defineComponent({
   &:focus {
     outline: none;
   }
+
+  &.content {
+    i {
+      font-style: italic;
+    }
+  }
 }
 
 // isn't a part of the .va-medium-editor, so can't be places inside it
