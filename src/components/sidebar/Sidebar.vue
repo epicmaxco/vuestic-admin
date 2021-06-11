@@ -1,5 +1,9 @@
 <template>
-  <va-sidebar :minimized="minimized" :minimizedWidth="minimizedWidth">
+  <va-sidebar
+    :width="width"
+    :minimized="minimized" 
+    :minimizedWidth="minimizedWidth"
+  >
     <menu-minimized v-if="minimized" :items="items" />
     <menu-accordion v-else :items="items" />
   </va-sidebar>    
@@ -19,19 +23,14 @@ export default {
     MenuMinimized,
   },
   props: {
-    minimized: {
-      type: Boolean,
-      required: true
-    },
+    width: { type: String, default: '16rem' },
+    color: { type: String, default: "secondary" },
+    minimized: { type: Boolean, required: true },
     minimizedWidth: {
       type: Boolean,
       required: false,
       default: undefined
     },
-    color: {
-      type: String,
-      default: "secondary"
-    }
   },
   data() {
     return {
