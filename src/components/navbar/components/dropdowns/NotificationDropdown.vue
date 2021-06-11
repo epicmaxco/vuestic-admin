@@ -122,9 +122,6 @@ export default {
   }
 
   &__content {
-    background: var(--va-background);
-    color: var(--va-gray);
-    border-radius: 0.5rem;
     max-width: 20rem;
   }
 

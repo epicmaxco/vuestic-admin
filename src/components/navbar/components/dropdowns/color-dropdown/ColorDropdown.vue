@@ -94,12 +94,6 @@ export default {
     align-items: center;
   }
 
-  &__content {
-    background-color: var(--va-background);
-    color: var(--va-gray);
-    border-radius: 0.5rem;
-  }
-
   .va-dropdown__anchor {
     display: inline-block;
   }

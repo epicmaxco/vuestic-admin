@@ -109,12 +109,6 @@ export default {
     }
   }
 
-  &__content {
-    background: var(--va-background);
-    color: var(--va-secondary);
-    max-width: 20rem;
-  }
-
   &__item {
     cursor: pointer;
     margin-bottom: 0.75rem;

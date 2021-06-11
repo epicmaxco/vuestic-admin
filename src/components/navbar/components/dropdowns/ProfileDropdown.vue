@@ -74,9 +74,6 @@ export default {
   }
 
   &__content {
-    background: var(--va-background);
-    color: var(--va-gray);
-    border-radius: 0.5rem;
     width: 8rem;
   }
 

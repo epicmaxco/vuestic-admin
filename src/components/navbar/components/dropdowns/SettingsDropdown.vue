@@ -71,10 +71,6 @@ export default {
   }
 
   &__content {
-    // background-color: $dropdown-background;
-    // box-shadow: $gray-box-shadow;
-    border-radius: 0.5rem;
-
     &-label {
       margin-bottom: 0.5rem;
     }

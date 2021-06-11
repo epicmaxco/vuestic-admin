@@ -59,8 +59,11 @@ export default {
 .app-navbar-actions {
   display: flex;
   align-items: center;
-  color: var(--va-primary);
-  fill: var(--va-primary);
+
+  .va-dropdown__anchor {
+    color: var(--va-primary);
+    fill: var(--va-primary);
+  }
   
   &__item {
     padding: 0;
@@ -79,6 +82,10 @@ export default {
       display: flex;
       justify-content: center;
       margin: auto 0 auto 1.25rem;
+    }
+
+    .va-dropdown-content {
+      background-color: var(--va-white);
     }
 
     @media screen and (max-width: 768px) {

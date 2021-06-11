@@ -84,11 +84,6 @@ export default {
   cursor: pointer;
 
   &__content {
-    background: var(--va-background);
-    color: var(--va-gray);
-    border-radius: 0.5rem;
-    width: 12rem;
-
     .flag-icon-small {
       min-width: 1.5rem;
       min-height: 1.5rem;
