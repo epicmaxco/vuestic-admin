@@ -6,12 +6,15 @@
     fixed
     :offset="[0, 8]"
     :preventOverflow="false"
+    v-model="dropdownsValue[idx]"
   >
     <template #anchor>
       <va-sidebar-item :active="isItemChildsActive(route)" :to="route.children ? undefined : { name: route.name }">
         <va-sidebar-item-content>
-          <va-icon :name="route.meta.icon" class="va-sidebar-item__icon"/>
-          <va-icon v-if="route.children" class="more_icon" name="more_horiz"/>          
+          <va-sidebar-item-title>
+            <va-icon :name="route.meta.icon" class="va-sidebar-item__icon"/>
+          </va-sidebar-item-title>
+          <va-icon v-if="route.children" class="more_icon" :name="dropdownsValue[idx] ? 'chevron_left' : 'chevron_right'"/>          
         </va-sidebar-item-content>
       </va-sidebar-item>
     </template>
@@ -36,6 +39,11 @@ export default {
   name: "AppMenuMinimized",
   props: {
     items: { type: Array, default: () => [] }
+  },
+  data () {
+    return {
+      dropdownsValue: []
+    }
   },
   computed: {
     theme() {
@@ -75,6 +83,7 @@ export default {
     min-width: 8rem;
     color: var(--va-gray);
     background: var(--va-white);
+    box-shadow: var(--va-box-shadow);
   }
 }
 
@@ -90,8 +99,9 @@ export default {
       text-align: center;
       position: absolute;
       bottom: 0.5rem;
-      left: 50%;
-      transform: translateX(-50%) translateY(50%);
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
     }
   }
 }
