@@ -58,6 +58,12 @@ export default defineComponent({
 @import "~medium-editor/src/sass/medium-editor";
 @import 'variables';
 
+$medium-editor-shadow: var(--va-box-shadow);
+$medium-editor-background-color: var(--va-divider);
+$medium-editor-text-color: var(--va-dark);
+$medium-editor-active-background-color: var(--va-primary);
+$medium-editor-active-text-color: var(--va-white);
+
 .va-medium-editor {
   margin-bottom: var(--va-medium-editor-margin-bottom);
   min-width: var(--va-medium-editor-min-width);
@@ -79,19 +85,27 @@ export default defineComponent({
 .medium-editor-toolbar-form,
 .medium-editor-toolbar-actions,
 .medium-editor-toolbar-anchor-preview {
-  box-shadow: 0 0.125rem 0.19rem 0 0 var(--va-primary);
-  background-color: var(--va-secondary);
+  box-shadow: $medium-editor-shadow;
+  background-color: $medium-editor-background-color;
   border-radius: 1.5rem;
   height: 44px;
   line-height: 42px;
 }
 
+.medium-editor-toolbar-anchor-preview {
+  a {
+    padding: 0 2rem;
+    margin: 0;
+    line-height: 44px;
+  }
+}
+
 .medium-editor-toolbar {
-  max-width: var(--va-medium-editor-toolbar-max-width);
-  box-shadow: var(--va-medium-editor-toolbar-box-shadow);
+  box-shadow: $medium-editor-shadow;
 
   .medium-editor-toolbar-actions {
     overflow: hidden;
+    height: 44px;
   }
 
   .medium-editor-action {
@@ -99,16 +113,18 @@ export default defineComponent({
     border: 0;
     padding: 0.375rem 1rem;
     height: 44px;
-    background-color: var(--va-secondary);
+    background-color: $medium-editor-background-color;
     box-shadow: none;
     border-radius: 0;
 
     i {
-      color: var(--va-white);
+      color:  $medium-editor-text-color;
     }
 
     &.medium-editor-button-active {
-      background-color: var(--va-primary);
+      background-color: $medium-editor-active-background-color;
+      color: $medium-editor-active-text-color;
+      i { color: $medium-editor-active-text-color; }
     }
   }
 
@@ -126,11 +142,11 @@ export default defineComponent({
 }
 
 .medium-editor-toolbar-form {
-  color: var(--va-white);
+  color:  $medium-editor-text-color;
   overflow: hidden;
 
   a {
-    color: var(--va-white);
+    color:  $medium-editor-text-color;
     transform: translateY(1px);
   }
 
@@ -146,7 +162,7 @@ export default defineComponent({
 }
 
 .medium-toolbar-arrow-under::after {
-  border-color: var(--va-secondary) transparent transparent transparent;
+  border-color: $medium-editor-background-color transparent transparent transparent;
   top: 100%;
 }
 
@@ -166,7 +182,7 @@ export default defineComponent({
   max-width: 50%;
 
   a {
-    color: var(--va-white);
+    color: $medium-editor-text-color;
     text-decoration: none;
   }
 }
