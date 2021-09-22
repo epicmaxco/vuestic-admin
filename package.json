@@ -30,7 +30,7 @@
     "vue-i18n": "^9.0.0",
     "vue-router": "^4.0.0-0",
     "vue-yandex-maps": "^0.10.9",
-    "vuestic-ui": "^1.2.7",
+    "vuestic-ui": "^1.2.8",
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {
