@@ -6,22 +6,23 @@ Hi! We are really excited that you are interested in contributing to Vuestic. Be
 
 ## Pull Request Guidelines
 
-* The `master` branch is basically just a snapshot of the latest stable release. All development should be done in dedicated branches. **Do not submit PRs against the `master` branch.**
-* Checkout a topic branch from the relevant branch, e.g. `develop`, and merge back against that branch.
+* The `master` branch is just a snapshot of the latest stable release. **Do not submit PRs against the `master` branch.**
+* Atomic code contribution looks something like this:
+  * Checkout from upstream `develop`.
+  * Work on your fork in dedicated branch.
+  * When you're ready to show results - create PR against upstream `develop` and add a developer for review. You can ping said developer to speed things up ;).
 * It's OK to have multiple small commits as you work on the PR - we will let GitHub automatically squash it before merging.
-* If fixing a bug:
-  * If you are resolving a special issue, add `(fix #xxxx[,#xxx])` (#xxxx is the issue id) so that github will close the issue once it's up on `master`.
-  * Provide detailed description of the bug in the PR if it's not done in the issue.
 
-### Committing Changes
-
-Commit messages should follow the [commit message convention](./COMMIT_CONVENTION.md) so that changelogs can be automatically generated.
+* Good stuff to add in your pull request:
+  * If your PR fully resolves existing issue, add `(fix #xxxx[,#xxx])` (#xxxx is the issue id) so that github will close the issue once it's up on `master`. You have to add that to the body of PR, won't work in header :).
+  * Provide detailed description of the issue in the PR if it's not done in the issue.
+  * If you're working on visual changes - provide before/after screenshot. That speeds up review immensely.
 
 ### Branches
 
-* Public branches (**epicmax/vuestic-admin**):
-  * `master` - stable snapshot from `develop`. Releases and hotfixes only. Do not submit PR's to `master`! (that's not entirely true as hotfixes are still possible to be in master, but not in develop).
-  * `develop` - main development branch. Houses `2.0` at the moment.
+* Upstream branches (**epicmax/vuestic-admin**):
+  * `master` - stable snapshot from `develop`. Releases and hotfixes only. Do not submit PR's to `master`!.
+  * `develop` - main development branch.
 
 * Local branches
   * For local branches naming stick to [commit message convention](./COMMIT_CONVENTION.md). So for feature branch that adds tabs name would be `feat/tabs`.
@@ -37,28 +38,13 @@ Commit messages should follow the [commit message convention](./COMMIT_CONVENTIO
 * We use [yarn](https://yarnpkg.com/lang/en/) for package management.
 * Be proactive. If you think something is wrong - create an issue or discuss.
 * Recommended tools: [GitKraken](https://www.gitkraken.com/), [WebStorm](https://www.jetbrains.com/webstorm/), [ShareX](https://getsharex.com/)
-* If you work on UI components - work in book environment (`yarn serve:book`). We want to keep global stuff out of components.
-
-#### Component folder structure
-
-Here's the component folder structure example for `va-checkbox` component.
-
-```
-va-checkbox // component directory
-  |- VaCheckbox.vue // component itself
-  |- VaCheckbox.demo.vue // component demo
-  |- VaCheckbox.spec.js // component tests
-  |- va-checkbox-docs.md // component documentation
-```
-
-This will allow us to easier version documentation as well as simplify transition docs to mature version (generation from markdown).
-
-Here's couple of points about these files:
-* Only tests are optional, documentation and demos are not. Docs and demos should also cover all supported cases.
-* Documentation for now should be duplicated to both wiki and `.md`, but you can copy it to wiki only before PR merge while keeping `*-docs.md` updated all the time.
 
 #### Before release workflow
 * Update package versions to newest ones. Update lock files (for both `npm` and `yarn`)
+
+### Vuestic-ui
+
+Vuestic-admin uses vuestic-ui internally. So if you have some troubles with components - it's better to submit issue or PR in [respective repo](https://github.com/epicmaxco/vuestic-ui).
 
 ### Commonly used NPM scripts
 
@@ -66,10 +52,7 @@ Here's couple of points about these files:
 # run dev server
 $ yarn serve
 
-# run dev server
-$ yarn serve:book
-
-# build vuestic project into bundle
+# build vuestic-admin project into bundle
 $ yarn build
 ```
 
