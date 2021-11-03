@@ -42,8 +42,6 @@ export default {
 </script>
 
 <style lang="scss">
-//$borderColor: #E1E9F8;
-//$dividerColor: #E1E9F8;
 //$avatarBackgroundColor: #FFE872;
 
 .chat-page {

@@ -30,17 +30,5 @@ export default {
 }
 </script>
 
-<!--TODO: move classes to global styles -->
 <style lang="scss">
-.text--small {
-  font-size: 0.75rem;
-}
-
-.text--gray {
-  color: var(--va-text-gray);
-}
-
-.mirrorY {
-  transform: scale(1, -1);
-}
 </style>

@@ -122,3 +122,16 @@
 //     border-color: transparent transparent $vue-purple transparent;
 //   }
 // }
+
+//TODO: move classes to global styles
+.text--small {
+  font-size: 0.75rem;
+}
+
+.text--gray {
+  color: var(--va-text-gray);
+}
+
+.mirrorY {
+  transform: scale(1, -1);
+}
