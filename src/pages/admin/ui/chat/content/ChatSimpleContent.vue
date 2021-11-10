@@ -2,27 +2,55 @@
   <div class="chat__content pa-3 d-flex">
     <div>
       <div class="chat__content-date text--bold text--secondary text--uppercase text--small text--center pa-5">October 6, 2021</div>
-      <div class="chat__content-messages">
-        <div class="chat__message chat__message--outgoing">
-          <div class="chat__message-text">Pure magic!! 🎩</div>
-          <div class="chat__message-time">17:39</div>
+
+      <va-infinite-scroll
+        class="chat__content-messages"
+        :load="messagesList"
+        disabled
+        reverse
+      >
+        <div
+          v-for="(item, index) in messagesList"
+          :key="index"
+          class="chat__message"
+          :class="{'chat__message--outgoing' : !item.isMessageIncoming, 'chat__message--incoming' : item.isMessageIncoming}"
+        >
+          <div class="chat__message-text">{{ item.text }}</div>
+          <div class="chat__message-time"><span v-if="item.sendingTime" >{{ item.sendingTime }}</span>
+            <va-icon-double-check
+              v-if="!item.isMessageIncoming"
+              :class="{'chat__message-icon--viewed': item.viewed}"
+            />
+          </div>
         </div>
-        <div class="chat__message chat__message--incoming">
-          <div class="chat__message-text">How about vodka and pepsi?</div>
-        </div>
-        <div class="chat__message chat__message--incoming">
-          <div class="chat__message-text">I have some cool ideas!</div>
-        </div>
-        <div class="chat__message chat__message--incoming">
-          <div class="chat__message-text">Hi!</div>
-          <div class="chat__message-time">03:49</div>
-        </div>
-      </div>
+      </va-infinite-scroll>
     </div>
   </div>
 </template>
 
 <script>
+import VaIconDoubleCheck from '@/components/icons/VaIconDoubleCheck'
+
+export default {
+  components: {
+    VaIconDoubleCheck,
+  },
+  props: {
+    messagesList: {
+      type: Array,
+      required: true,
+    },
+    inputValue: {
+      type: String,
+      default: '',
+    },
+  },
+  data () {
+    return {
+      isMessageIncoming: false,
+    }
+  },
+}
 </script>
 
 <style lang="scss" scoped>
@@ -55,6 +83,7 @@ $outgoingBackground: #246FFF;
   &-time {
     color: #767C88;
     font-size: 0.8rem;
+    margin-bottom: 0.5rem;
   }
 
   &--outgoing {

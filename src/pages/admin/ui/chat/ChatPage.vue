@@ -4,8 +4,8 @@
       <div class="flex md6 xs12">
         <div class="chat">
           <chat-simple-header />
-          <chat-simple-content />
-          <chat-simple-footer />
+          <chat-simple-content :messages-list="messagesList" />
+          <chat-simple-footer @send-message="sendMessage"/>
         </div>
       </div>
 
@@ -29,7 +29,7 @@ import ChatAdvancedContent from './content/ChatAdvancedContent'
 import ChatAdvancedFooter from './footer/ChatAdvancedFooter'
 
 export default {
-  name: 'chat',
+  name: 'ChatPage',
   components: {
     ChatSimpleHeader,
     ChatSimpleContent,
@@ -38,12 +38,31 @@ export default {
     ChatAdvancedContent,
     ChatAdvancedFooter,
   },
+  data () {
+    return {
+      messagesList: [
+        { text: 'Pure magic!! 🎩', isMessageIncoming: true, viewed: true},
+        { text: 'I have some cool ideas!', isMessageIncoming: true, sendingTime: '16:22', viewed: false},
+        { text: 'How about vodka and pepsi?', isMessageIncoming: false, sendingTime: '16:26', viewed: false},
+        { text: 'Hi', isMessageIncoming: true, viewed: true},
+        { text: 'Hello', isMessageIncoming: true, sendingTime: '16:57', viewed: true},
+        { text: 'Hola', isMessageIncoming: true, viewed: false},
+        { text: 'Wrrrr', isMessageIncoming: false, viewed: false},
+        { text: 'Prrrrrr', isMessageIncoming: true, viewed: true},
+      ]
+    }
+  },
+  methods: {
+    sendMessage(data) {
+      this.messagesList.push(
+        {text: data.inputValue, isMessageIncoming: false, sendingTime: '16:22', viewed: false},
+      )
+    },
+  }
 }
 </script>
 
 <style lang="scss">
-//$avatarBackgroundColor: #FFE872;
-
 .chat-page {
   max-width: 900px;
 }
@@ -64,70 +83,17 @@ export default {
   }
 
   &__content {
-    height: calc(100vh - 20rem);
+    height: 500px;
+    >div {
+      overflow: auto !important;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+    }
   }
 }
 </style>
-
-
-
-
-
-
-<!--<template>-->
-<!--  <div class="chat">-->
-<!--    <div class="row">-->
-<!--      <div class="flex xs12 md12">-->
-<!--        <va-card>-->
-<!--          <va-card-title>{{ $t('chat.title') }}</va-card-title>-->
-<!--          <va-card-content>-->
-<!--            <chat v-model="chatMessages"/>-->
-<!--          </va-card-content>-->
-<!--        </va-card>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</template>-->
-
-<!--<script>-->
-<!--import Chat from './Chat'-->
-
-<!--export default {-->
-<!--  name: 'chat-page',-->
-<!--  components: { Chat },-->
-<!--  data () {-->
-<!--    return {-->
-<!--      chatMessages: [-->
-<!--        {-->
-<!--          text: 'Hello! So glad you liked my work. Do you want me to shoot you?',-->
-<!--          yours: false,-->
-<!--        },-->
-<!--        {-->
-<!--          text: 'Yeah, that would be cool. Maybe this Sunday at 3 pm?',-->
-<!--          yours: true,-->
-<!--        },-->
-<!--        {-->
-<!--          text: 'Sounds great! See you later!',-->
-<!--          yours: false,-->
-<!--        },-->
-<!--        {-->
-<!--          text: 'Should I bring a lightbox with me?',-->
-<!--          yours: true,-->
-<!--        },-->
-<!--        {-->
-<!--          text: 'No, thanks. There is no need. Can we set up a meeting earlier?',-->
-<!--          yours: false,-->
-<!--        },-->
-<!--        {-->
-<!--          text: 'I\'m working on Vuestic, so let\'s meet at 3pm. Thanks!',-->
-<!--          yours: true,-->
-<!--        },-->
-<!--      ],-->
-<!--    }-->
-<!--  },-->
-<!--}-->
-<!--</script>-->
-
-<!--<style lang='scss'>-->
-
-<!--</style>-->
