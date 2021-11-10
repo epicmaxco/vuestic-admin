@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'chat-simple-header',
+  name: 'chat-advanced-header',
   data () {
     return {
       chatAdminName: 'Maria',

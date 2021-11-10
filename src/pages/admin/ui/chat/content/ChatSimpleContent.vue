@@ -1,10 +1,10 @@
 <template>
   <div class="chat__content pa-3 d-flex">
-    <div>
-      <div class="chat__content-date text--bold text--secondary text--uppercase text--small text--center pa-5">October 6, 2021</div>
+    <div class="chat__content-wrapper">
+      <div class="text--bold text--secondary text--uppercase text--small text--center pa-5">October 6, 2021</div>
 
       <va-infinite-scroll
-        class="chat__content-messages"
+        class="chat__content-messages d-flex"
         :load="messagesList"
         disabled
         reverse
@@ -15,8 +15,8 @@
           class="chat__message"
           :class="{'chat__message--outgoing' : !item.isMessageIncoming, 'chat__message--incoming' : item.isMessageIncoming}"
         >
-          <div class="chat__message-text">{{ item.text }}</div>
-          <div class="chat__message-time"><span v-if="item.sendingTime" >{{ item.sendingTime }}</span>
+          <div class="chat__message-text pa-2 my-1">{{ item.text }}</div>
+          <div class="chat__message-time text--small mb-2"><span v-if="item.sendingTime" >{{ item.sendingTime }}</span>
             <va-icon-double-check
               v-if="!item.isMessageIncoming"
               :class="{'chat__message-icon--viewed': item.viewed}"
@@ -45,28 +45,18 @@ export default {
       default: '',
     },
   },
-  data () {
-    return {
-      isMessageIncoming: false,
-    }
-  },
 }
 </script>
 
 <style lang="scss" scoped>
-$outgoingBackground: #246FFF;
-
 .chat__content {
   width: 100%;
   flex-direction: column;
   justify-content: flex-end;
 
-  &-date {
-    width: 100%;
-  }
 
   &-messages {
-    display: flex;
+    //TODO: change to style framework classes
     flex-direction: column;
   }
 }
@@ -75,15 +65,11 @@ $outgoingBackground: #246FFF;
   display: inline-block;
 
   &-text {
-    padding: 0.8rem;
-    margin: 0.25rem 0;
-    border-radius: 0.25rem;
+    border-radius: var(--va-input-border-radius);
   }
 
   &-time {
-    color: #767C88;
-    font-size: 0.8rem;
-    margin-bottom: 0.5rem;
+    color: var(--va-text-gray);
   }
 
   &--outgoing {
@@ -92,7 +78,7 @@ $outgoingBackground: #246FFF;
 
     .chat__message-text {
       color: white;
-      background: $outgoingBackground;
+      background: var(--va-bright-blue);
     }
   }
 

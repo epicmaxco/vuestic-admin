@@ -9,13 +9,13 @@
         </div>
       </div>
 
-      <div class="flex md6 xs12">
-        <div class="chat">
-          <chat-advanced-header />
-          <chat-advanced-content />
-          <chat-advanced-footer />
-        </div>
-      </div>
+      <!--      <div class="flex md6 xs12">-->
+      <!--        <div class="chat">-->
+      <!--          <chat-advanced-header />-->
+      <!--          <chat-advanced-content />-->
+      <!--          <chat-advanced-footer />-->
+      <!--        </div>-->
+      <!--      </div>-->
     </div>
   </div>
 </template>
@@ -24,9 +24,9 @@
 import ChatSimpleHeader from './header/ChatSimpleHeader'
 import ChatSimpleContent from './content/ChatSimpleContent'
 import ChatSimpleFooter from './footer/ChatSimpleFooter'
-import ChatAdvancedHeader from './header/ChatAdvancedHeader'
-import ChatAdvancedContent from './content/ChatAdvancedContent'
-import ChatAdvancedFooter from './footer/ChatAdvancedFooter'
+// import ChatAdvancedHeader from './header/ChatAdvancedHeader'
+// import ChatAdvancedContent from './content/ChatAdvancedContent'
+// import ChatAdvancedFooter from './footer/ChatAdvancedFooter'
 
 export default {
   name: 'ChatPage',
@@ -34,9 +34,9 @@ export default {
     ChatSimpleHeader,
     ChatSimpleContent,
     ChatSimpleFooter,
-    ChatAdvancedHeader,
-    ChatAdvancedContent,
-    ChatAdvancedFooter,
+    // ChatAdvancedHeader,
+    // ChatAdvancedContent,
+    // ChatAdvancedFooter,
   },
   data () {
     return {
@@ -64,6 +64,10 @@ export default {
 
 <style lang="scss">
 .chat-page {
+  --va-bright-blue: #246FFF;
+  --va-text-gray: #767C88;
+  --va-light-blue-border: #E1E9F8;
+
   max-width: 900px;
 }
 
@@ -84,7 +88,8 @@ export default {
 
   &__content {
     height: 500px;
-    >div {
+
+    &-wrapper {
       overflow: auto !important;
       -ms-overflow-style: none;
       scrollbar-width: none;
