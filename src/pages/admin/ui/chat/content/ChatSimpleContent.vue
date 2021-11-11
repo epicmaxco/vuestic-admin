@@ -1,6 +1,6 @@
 <template>
   <div class="chat__content pa-3 d-flex">
-    <div class="chat__content-wrapper">
+    <div ref="chatContent" class="chat__content-wrapper">
       <div class="text--bold text--secondary text--uppercase text--small text--center pa-5">October 6, 2021</div>
 
       <va-infinite-scroll
@@ -45,10 +45,28 @@ export default {
       default: '',
     },
   },
+  watch: {
+    messagesList: {
+      deep: true,
+      handler() {
+        this.scrollToBottom();
+      }
+    },
+  },
+  methods: {
+    scrollToBottom() {
+      this.$nextTick(() => {
+        if (!this.$refs.chatContent) {
+          return;
+        }
+        this.$refs.chatContent.scrollTop = this.$refs.chatContent.scrollHeight;
+      });
+    }
+  }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .chat__content {
   width: 100%;
   flex-direction: column;
@@ -57,36 +75,36 @@ export default {
 
   &-messages {
     //TODO: change to style framework classes
-    flex-direction: column;
-  }
-}
-
-.chat__message {
-  display: inline-block;
-
-  &-text {
-    border-radius: var(--va-input-border-radius);
+    flex-direction: column !important;
   }
 
-  &-time {
-    color: var(--va-text-gray);
-  }
+  .chat__message {
+    display: inline-block;
 
-  &--outgoing {
-    margin-left: auto;
-    text-align: right;
-
-    .chat__message-text {
-      color: white;
-      background: var(--va-bright-blue);
+    &-text {
+      border-radius: var(--va-input-border-radius);
     }
-  }
 
-  &--incoming {
-    margin-right: auto;
+    &-time {
+      color: var(--va-text-gray);
+    }
 
-    .chat__message-text {
-      background: white;
+    &--outgoing {
+      margin-left: auto;
+      text-align: right;
+
+      .chat__message-text {
+        color: white;
+        background: var(--va-bright-blue);
+      }
+    }
+
+    &--incoming {
+      margin-right: auto;
+
+      .chat__message-text {
+        background: white;
+      }
     }
   }
 }

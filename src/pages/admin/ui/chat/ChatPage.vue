@@ -4,7 +4,7 @@
       <div class="flex md6 xs12">
         <div class="chat">
           <chat-simple-header />
-          <chat-simple-content :messages-list="messagesList" />
+          <chat-simple-content :messages-list="messagesList"/>
           <chat-simple-footer @send-message="sendMessage"/>
         </div>
       </div>
@@ -49,16 +49,16 @@ export default {
         { text: 'Hola', isMessageIncoming: true, viewed: false},
         { text: 'Wrrrr', isMessageIncoming: false, viewed: false},
         { text: 'Prrrrrr', isMessageIncoming: true, viewed: true},
-      ]
+      ],
     }
   },
   methods: {
     sendMessage(data) {
       this.messagesList.push(
         {text: data.inputValue, isMessageIncoming: false, sendingTime: '16:22', viewed: false},
-      )
+      );
     },
-  }
+}
 }
 </script>
 
@@ -90,14 +90,8 @@ export default {
     height: 500px;
 
     &-wrapper {
-      overflow: auto !important;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-
-      &::-webkit-scrollbar {
-        width: 0;
-        height: 0;
-      }
+      overflow: auto;
+      scroll-behavior: smooth;
     }
   }
 }
