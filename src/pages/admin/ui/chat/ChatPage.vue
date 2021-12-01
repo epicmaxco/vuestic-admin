@@ -5,7 +5,7 @@
         <va-tabs v-model="tabValue" style="width: 100%; min-width: 250px;">
           <template #tabs>
             <va-tab
-              v-for="title in tabTitles.slice(0,3)"
+              v-for="title in tabTitles"
               :key="title"
               @click="chatView = title"
             >
@@ -14,7 +14,6 @@
           </template>
         </va-tabs>
       </div>
-
       <div v-if="chatView === 'Simple'" class="flex md6 xs12">
         <div class="chat">
           <chat-simple-header />
@@ -110,6 +109,21 @@ export default {
     &-wrapper {
       overflow: auto;
       scroll-behavior: smooth;
+    }
+  }
+
+  &__footer {
+    .va-input-solid .va-input__container, .va-button, .va-input {
+      --va-button-square-border-radius: 0 !important;
+      --va-input-border-radius: 0 !important;
+    }
+
+    .va-input {
+      border: 1px solid var(--va-light-blue-border);
+    }
+
+    .chat__typing {
+      color: var(--va-text-gray);
     }
   }
 }
