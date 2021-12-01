@@ -1,3 +1,4 @@
+
 <template>
   <div class="chat__header justify--space-between">
     <div class="d-flex">
@@ -20,7 +21,7 @@
 
 <script>
 export default {
-  name: 'chat-advanced-header',
+  name: 'chat-simple-header',
   data () {
     return {
       chatAdminName: 'Maria',
@@ -30,5 +31,3 @@ export default {
 }
 </script>
 
-<style lang="scss">
-</style>

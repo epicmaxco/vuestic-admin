@@ -1,7 +1,21 @@
 <template>
   <div class="chat-page">
     <div class="row">
-      <div class="flex md6 xs12">
+      <div class="flex xs12">
+        <va-tabs v-model="tabValue" style="width: 100%; min-width: 250px;">
+          <template #tabs>
+            <va-tab
+              v-for="title in tabTitles.slice(0,3)"
+              :key="title"
+              @click="chatView = title"
+            >
+              {{title}}
+            </va-tab>
+          </template>
+        </va-tabs>
+      </div>
+
+      <div v-if="chatView === 'Simple'" class="flex md6 xs12">
         <div class="chat">
           <chat-simple-header />
           <chat-simple-content :messages-list="messagesList"/>
@@ -9,13 +23,13 @@
         </div>
       </div>
 
-      <!--      <div class="flex md6 xs12">-->
-      <!--        <div class="chat">-->
-      <!--          <chat-advanced-header />-->
-      <!--          <chat-advanced-content />-->
-      <!--          <chat-advanced-footer />-->
-      <!--        </div>-->
-      <!--      </div>-->
+      <div v-if="chatView === 'Advanced'" class="flex md6 xs12">
+        <div class="chat">
+          <chat-advanced-header />
+          <chat-advanced-content :messages-list="messagesList" />
+          <chat-advanced-footer @send-message="sendMessage"/>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -24,9 +38,9 @@
 import ChatSimpleHeader from './header/ChatSimpleHeader'
 import ChatSimpleContent from './content/ChatSimpleContent'
 import ChatSimpleFooter from './footer/ChatSimpleFooter'
-// import ChatAdvancedHeader from './header/ChatAdvancedHeader'
-// import ChatAdvancedContent from './content/ChatAdvancedContent'
-// import ChatAdvancedFooter from './footer/ChatAdvancedFooter'
+import ChatAdvancedHeader from './header/ChatAdvancedHeader'
+import ChatAdvancedContent from './content/ChatAdvancedContent'
+import ChatAdvancedFooter from './footer/ChatAdvancedFooter'
 
 export default {
   name: 'ChatPage',
@@ -34,12 +48,14 @@ export default {
     ChatSimpleHeader,
     ChatSimpleContent,
     ChatSimpleFooter,
-    // ChatAdvancedHeader,
-    // ChatAdvancedContent,
-    // ChatAdvancedFooter,
+    ChatAdvancedHeader,
+    ChatAdvancedContent,
+    ChatAdvancedFooter,
   },
   data () {
     return {
+      tabTitles: ['Simple', 'Advanced', 'Group'],
+      tabValue: 1,
       messagesList: [
         { text: 'Pure magic!! 🎩', isMessageIncoming: true, viewed: true},
         { text: 'I have some cool ideas!', isMessageIncoming: true, sendingTime: '16:22', viewed: false},
@@ -50,6 +66,7 @@ export default {
         { text: 'Wrrrr', isMessageIncoming: false, viewed: false},
         { text: 'Prrrrrr', isMessageIncoming: true, viewed: true},
       ],
+      chatView: 'Advanced',
     }
   },
   methods: {
@@ -58,7 +75,8 @@ export default {
         {text: data.inputValue, isMessageIncoming: false, sendingTime: '16:22', viewed: false},
       );
     },
-}
+},
+
 }
 </script>
 
