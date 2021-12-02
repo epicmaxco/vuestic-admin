@@ -54,7 +54,7 @@ export default {
   data () {
     return {
       tabTitles: ['Simple', 'Advanced', 'Group'],
-      tabValue: 1,
+      tabValue: 2,
       messagesList: [
         { text: 'Pure magic!! 🎩', isMessageIncoming: true, viewed: true},
         { text: 'I have some cool ideas!', isMessageIncoming: true, sendingTime: '16:22', viewed: false},

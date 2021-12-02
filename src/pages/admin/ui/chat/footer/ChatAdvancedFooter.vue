@@ -7,7 +7,14 @@
         @submit="sendMessage()"
         @blur="onBlur"
         @keyup.enter.exact="sendMessage()"/>
+
       <va-button v-if="notEmpty || showSendButton" class="va-button--square" @click="sendMessage()" >Send</va-button>
+
+      <div v-if="showFooterTools" class="chat__footer-tools">
+        <va-icon class="mirrorY ml-2" name="fa-paperclip" color="primary" size="25px"/>
+        <va-icon class="ml-2" name="fa-file-photo-o" color="primary" size="25px"/>
+        <va-icon class="ml-2" name="fa-smile-o" color="primary" size="25px"/>
+      </div>
     </div>
   </div>
 </template>
@@ -20,6 +27,7 @@ export default {
       inputValue: '',
       chatAdminName: 'Maria',
       showSendButton: false,
+      showFooterTools: true,
     }
   },
   computed: {
@@ -36,14 +44,19 @@ export default {
         inputValue: this.inputValue
       });
       this.inputValue = '';
+      this.showFooterTools = true;
     },
     onFocus() {
       this.showSendButton = true;
+      this.showFooterTools = false;
     },
     onBlur() {
       setTimeout(() => {
         this.showSendButton = false;
       });
+      if (!this.notEmpty) {
+        this.showFooterTools = true;
+      }
     }
   }
 }
@@ -72,6 +85,23 @@ export default {
     top: 4.5px;
     border-radius: 30px;
     width: 65px;
+
+    &__content {
+      padding: 0;
+    }
+  }
+
+  .chat__footer-tools {
+    position: absolute;
+    right: 8px;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    i {
+      cursor: pointer;
+    }
   }
 }
 </style>
