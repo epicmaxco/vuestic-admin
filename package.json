@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "serve:production": "vue-cli-service serve --mode production",
     "build": "vue-cli-service build",
     "build:ci": "NODE_OPTIONS=--max_old_space_size=4096 vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
