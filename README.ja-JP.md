@@ -7,7 +7,7 @@
 <p align="center">
   38+のカスタムUIコンポーネントと美しいデザインのVue.js無料管理画面テンプレート</br>
   開発者  <a href="https://epicmax.co">Epicmax</a>.
-  デザイン <a href="https://www.xxsavitski.com">Vasili Savitski</a>
+  デザイン <a href="#">Vasili Savitski</a>
 </p>
 
 <p align="center">
