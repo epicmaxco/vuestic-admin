@@ -7,7 +7,7 @@
 <p align="center">
   Free and beautiful Vue.js admin template with 44+ custom UI components.</br>
   Developed by  <a href="https://epicmax.co">Epicmax</a>.
-  Designed by <a href="https://xxsavitski.com/">Vasili Savitski</a>
+  Designed by <a href="#">Vasili Savitski</a>
 <br>
 Based on <a href="https://github.com/epicmaxco/vuestic-ui">Vuestic UI</a> library.
 </p>

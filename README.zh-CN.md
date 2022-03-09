@@ -7,7 +7,7 @@
 <p align="center">
   免费与美妙Vue.js管理模板包括38以上个定制用户界面组件</br>
   由<a href="https://epicmax.co">Epicmax</a>开发。
-  由<a href="https://www.xxsavitski.com">Vasili Savitski</a>设计
+  由<a href="#">Vasili Savitski</a>设计
 </p>
 
 <p align="center">
