@@ -528,7 +528,7 @@
       "customHeader": "Custom header",
       "withoutHeader": "Without header",
       "withImage": "With Image",
-      "withTitleOnImage": "With title on image",
+      "withTitleOnImage": "With display on image",
       "withCustomTitleOnImage": "With custom title on image",
       "withStripe": "With stripe",
       "withBackground": "With background"

@@ -47,7 +47,7 @@ export default {
       margin-bottom: 0 !important;
       &__title {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
       }
     }
   }

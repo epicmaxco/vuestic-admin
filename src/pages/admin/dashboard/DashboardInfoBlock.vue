@@ -78,7 +78,6 @@
         />
         <va-card-title>
           <va-button
-            flat
             icon-right="ion_arrow_forward"
             color="primary"
             class="ma-0"
