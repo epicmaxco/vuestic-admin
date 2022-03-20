@@ -42,7 +42,7 @@
 
         <div class="flex xs12 sm6 lg4 xl3">
           <va-card>
-            <va-image src="https://picsum.photos/300/200/?image=1043" style="height: 200px;border-radius: 5px 5px 0px 0px"/>
+            <va-image src="https://picsum.photos/300/200/?image=1043" style="height: 200px;"/>
             <va-card-title>{{ $t('cards.title.withImage') }}</va-card-title>
             <va-card-content>{{ $t('cards.contentText') }}</va-card-content>
           </va-card>
@@ -50,7 +50,7 @@
 
         <div class="flex xs12 sm6 lg4 xl3">
           <va-card>
-            <va-image src="https://picsum.photos/300/200/?image=898" style="height: 200px;border-radius: 5px 5px 0px 0px">
+            <va-image src="https://picsum.photos/300/200/?image=898" style="height: 200px;">
               <va-card-title text-color="#fff">{{ $t('cards.title.withTitleOnImage') }}</va-card-title>
             </va-image>
             <va-card-content>{{ $t('cards.contentText') }}</va-card-content>
@@ -59,7 +59,7 @@
 
         <div class="flex xs12 sm6 lg4 xl3">
           <va-card>
-            <va-image src="https://picsum.photos/300/200/?image=898" style="height: 200px;border-radius: 5px 5px 0px 0px">
+            <va-image src="https://picsum.photos/300/200/?image=898" style="height: 200px;">
               <va-button class="ma-0">
                 {{ $t('cards.button.readMore') }}
               </va-button>
@@ -105,7 +105,7 @@
 
         <div class="flex xs12 sm6 lg4 xl3">
           <va-card>
-            <va-image src="https://picsum.photos/300/200/?image=1067" style="height: 200px;border-radius: 5px 5px 0px 0px">
+            <va-image src="https://picsum.photos/300/200/?image=1067" style="height: 200px;">
               <va-card-title text-color="#fff">{{ $t('cards.title.withTitleOnImage') }}</va-card-title>
             </va-image>
             <va-card-content>{{ $t('cards.contentText') }}</va-card-content>
@@ -148,12 +148,26 @@ export default {
 .cards-container {
   .va-card {
     margin: 0;
-    border-radius: 5px;
-  }
-  .va-card__stripe{
-    left: 2px;
-    width: 98%;
-    top: 3px;
+    .va-card__inner:first-child, .va-card__inner:last-child {
+      border-radius: inherit;
+      
+      .va-image, .va-parallax, .va-carousel, .va-file-upload {
+          &:first-child {
+            border-top-left-radius: inherit;
+            border-top-right-radius: inherit; 
+          }
+          
+          &:last-child {
+            border-bottom-left-radius: inherit;
+            border-bottom-right-radius: inherit;
+          }
+      }
+    }
+
+    .va-card__stripe:first-child, .va-card__stripe:last-child {
+      border-bottom-left-radius: inherit;
+      border-bottom-right-radius: inherit;
+    }
   }
 }
 </style>
