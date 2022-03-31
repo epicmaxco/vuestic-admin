@@ -1,6 +1,6 @@
 import { useColors } from 'vuestic-ui'
 
-function colorToRgba(color: string, a: any) {
+function colorToRgba(color: string, a: number) {
   const { shiftHSLAColor } = useColors()
 
   // TODO: replace with set hsla color
@@ -27,10 +27,10 @@ const getSize = () => {
   return Math.max(minSize, new Date().getMonth())
 }
 
-let generatedData: any
+let generatedData: GeneratedData
 let firstMonthIndex = 0
 
-export const getLineChartData = (themes: ColorThemes, firstMonth: any) => {
+export const getLineChartData = (themes: ColorThemes, firstMonth: number) => {
   const size = getSize()
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   const yLabels = generateYLabels()
@@ -40,7 +40,7 @@ export const getLineChartData = (themes: ColorThemes, firstMonth: any) => {
     generatedData.datasets[1].backgroundColor = colorToRgba(themes.info, 0.6)
     if (firstMonth && firstMonthIndex !== firstMonth) {
       generatedData.labels.shift()
-      generatedData.datasets.forEach((dataset: any) => {
+      generatedData.datasets.forEach((dataset) => {
         dataset.data.shift()
       })
       firstMonthIndex = firstMonth

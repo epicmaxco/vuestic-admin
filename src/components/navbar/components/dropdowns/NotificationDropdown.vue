@@ -33,7 +33,6 @@
 
 <script>
 import VaIconNotification from '@/components/icons/VaIconNotification'
-import { useGlobalConfig } from 'vuestic-ui'
 
 export default {
   name: 'notification-dropdown',

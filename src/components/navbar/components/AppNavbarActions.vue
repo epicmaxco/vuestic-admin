@@ -17,13 +17,11 @@ import ProfileDropdown from './dropdowns/ProfileDropdown'
 import NotificationDropdown from './dropdowns/NotificationDropdown'
 import MessageDropdown from './dropdowns/MessageDropdown'
 import ColorDropdown from './dropdowns/color-dropdown/ColorDropdown'
-import SettingsDropdown from './dropdowns/SettingsDropdown'
 
 export default {
   name: 'app-navbar-actions',
 
   components: {
-    // SettingsDropdown,
     ColorDropdown,
     MessageDropdown,
     NotificationDropdown,
@@ -64,12 +62,12 @@ export default {
     color: var(--va-primary);
     fill: var(--va-primary);
   }
-  
+
   &__item {
     padding: 0;
     margin-left: 1.25rem;
     margin-right: 1.25rem;
-    
+
     svg {
       height: 24px;
     }
