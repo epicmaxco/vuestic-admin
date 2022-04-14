@@ -274,24 +274,28 @@
                     <va-switch
                       v-model="toggles.selected"
                       label="Selected toggle"
+                      style="padding-right: 10px"
                     />
                     <va-switch
                       v-model="toggles.unselected"
                       label="Unselected toggle"
+                      style="padding-right: 10px"
                     />
                     <va-switch
                       v-model="toggles.disabled"
-                      disable
+                      disabled
                       label="Disabled toggle"
+                      style="padding-right: 10px"
                     />
                     <va-switch
-                      v-model="toggles.disabled"
-                      small
+                      v-model="toggles.small"
+                      size="small"
                       label="Small toggle"
+                      style="padding-right: 10px"
                     />
                     <va-switch
-                      v-model="toggles.disabled"
-                      large
+                      v-model="toggles.large"
+                      size="large"
                       label="Large toggle"
                     />
                   </fieldset>
