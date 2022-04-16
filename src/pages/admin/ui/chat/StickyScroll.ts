@@ -1,7 +1,7 @@
-import { Directive } from "@vue/runtime-core"
+import { Directive, DirectiveBinding } from "@vue/runtime-core"
 
 const directive: Directive = {
-  mounted: (el: HTMLElement, binding: any) => {
+  mounted: (el: HTMLElement, binding: DirectiveBinding) => {
     const duration = binding.value.duration || 500
     const isAnimated = binding.value.animate
 

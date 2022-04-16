@@ -1,4 +1,4 @@
-import { VuesticPlugin, useGlobalConfig } from 'vuestic-ui';
+import { VuesticPlugin } from 'vuestic-ui';
 import { createApp } from 'vue'
 import { createGtm } from 'vue-gtm'
 import { createI18n } from 'vue-i18n'
@@ -35,4 +35,3 @@ if (process.env.VUE_APP_GTM_ENABLED === 'true') {
 app.use(createI18n(i18nConfig))
 app.use(VuesticPlugin, vuesticGlobalConfig)
 app.mount('#app')
-

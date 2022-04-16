@@ -1,6 +1,6 @@
 import { useColors } from 'vuestic-ui'
 
-function colorToRgba(color: string, a: any) {
+function colorToRgba(color: string, a: number) {
   const { shiftHSLAColor } = useColors()
 
   // TODO: replace with set hsla color
