@@ -14,7 +14,7 @@ const i18nConfig = {
   fallbackLocale: 'en',
   messages: {
     en: require('@/i18n/en.json'),
-    ch: require('@/i18n/cn.json'),
+    cn: require('@/i18n/cn.json'),
     es: require('@/i18n/es.json'),
     ir: require('@/i18n/ir.json'),
     br: require('@/i18n/br.json')
