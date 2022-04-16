@@ -27,7 +27,7 @@ export default {
     color: { type: String, default: "secondary" },
     minimized: { type: Boolean, required: true },
     minimizedWidth: {
-      type: Boolean,
+      type: String,
       required: false,
       default: undefined
     },
