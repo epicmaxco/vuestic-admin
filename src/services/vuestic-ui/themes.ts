@@ -156,10 +156,9 @@ export const useTheme = () => {
 
     if (!theme) { throw new Error('Theme not found') }
 
-    mergeGlobalConfig({ colors: theme.colors as any, components: theme.components })
+    mergeGlobalConfig({ colors: theme.colors, components: theme.components })
   }
 
   const theme = computed(() =>  COLOR_THEMES.find((theme) => theme.name === themeNameRef.value))
-  
   return { setTheme, themeName: themeNameRef, theme }
 }
