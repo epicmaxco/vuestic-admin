@@ -41,7 +41,7 @@ export const getLineChartData = (themes: ColorThemes, firstMonth: number) => {
     if (firstMonth && firstMonthIndex !== firstMonth) {
       generatedData.labels.shift()
       generatedData.datasets.forEach((dataset) => {
-        dataset.data.shift()
+        dataset.data = dataset.data.slice(1)
       })
       firstMonthIndex = firstMonth
     }
