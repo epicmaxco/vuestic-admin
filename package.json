@@ -1,70 +1,40 @@
 {
   "name": "vuestic-admin",
-  "version": "3.0.2",
   "private": true,
+  "version": "0.0.0",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "serve:production": "vue-cli-service serve --mode production",
-    "build": "vue-cli-service build",
-    "build:ci": "NODE_OPTIONS=--max_old_space_size=4096 vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "amcharts3": "^3.21.15",
-    "ammap3": "^3.21.15",
-    "axios": "^0.21.1",
-    "chart.js": "^2.9.4",
-    "core-js": "^3.6.5",
-    "epic-spinners": "^1.1.0",
-    "flag-icon-css": "^3.5.0",
+    "flag-icon-css": "^4.1.7",
     "font-awesome": "^4.7.0",
-    "google-maps": "^4.3.3",
     "ionicons": "^4.6.3",
-    "leaflet": "^1.7.1",
-    "leaflet-map": "^0.2.1",
-    "medium-editor": "^5.23.3",
-    "register-service-worker": "^1.7.1",
-    "vue": "^3.2.0",
-    "vue-chartjs": "^3.5.1",
-    "vue-gtm": "^3.2.1",
-    "vue-i18n": "^9.0.0",
-    "vue-router": "^4.0.0-0",
-    "vue-yandex-maps": "^0.10.9",
-    "vuestic-ui": "^1.2.8",
-    "vuex": "^4.0.0-0"
+    "pinia": "^2.0.14",
+    "sass": "^1.53.0",
+    "vue": "^3.2.25",
+    "vue-i18n": "^9.1.10",
+    "vue-router": "^4.0.14",
+    "vuestic-ui": "^1.4.1"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.19",
-    "@types/medium-editor": "^5.0.3",
-    "@typescript-eslint/eslint-plugin": "^2.33.0",
-    "@typescript-eslint/parser": "^2.33.0",
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-plugin-pwa": "~4.5.0",
-    "@vue/cli-plugin-router": "~4.5.0",
-    "@vue/cli-plugin-typescript": "~4.5.0",
-    "@vue/cli-plugin-unit-jest": "~4.5.0",
-    "@vue/cli-plugin-vuex": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.2.0",
-    "@vue/eslint-config-typescript": "^5.0.2",
-    "@vue/test-utils": "^2.0.0-0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.0.0-0",
-    "lint-staged": "^9.5.0",
-    "sass": "^1.41.1",
-    "sass-loader": "^8.0.2",
-    "typescript": "^4.3.5",
-    "vue-jest": "^5.0.0-0"
-  },
-  "lint-staged": {
-    "*.{js,jsx,vue,ts,tsx}": [
-      "vue-cli-service lint",
-      "git add"
-    ]
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
+    "@types/node": "^17.0.25",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "@vue/eslint-config-typescript": "^10.0.0",
+    "autoprefixer": "^10.4.4",
+    "eslint": "^8.13.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.7.0",
+    "postcss": "^8.4.12",
+    "prettier": "^2.6.2",
+    "tailwindcss": "^3.0.24",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9",
+    "vue-eslint-parser": "^8.3.0",
+    "vue-tsc": "^0.34.7"
   }
 }

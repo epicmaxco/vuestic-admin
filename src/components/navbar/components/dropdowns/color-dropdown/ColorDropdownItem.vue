@@ -10,18 +10,23 @@
 </template>
 
 <script>
-import { getColors } from 'vuestic-ui'
+  import { useColors } from "vuestic-ui";
 
-export default {
-  props: {
-    colorName: { type: String, required: true }
-  },
-  computed: {
-    theme() {
-      return getColors()
-    }
-  }
-}
+  export default {
+    props: {
+      colorName: { type: String, required: true },
+    },
+    setup() {
+      const { getColors } = useColors();
+
+      return { getColors };
+    },
+    computed: {
+      theme() {
+        return this.getColors();
+      },
+    },
+  };
 </script>
 
 <style lang="scss" scoped>

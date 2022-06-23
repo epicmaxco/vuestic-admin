@@ -12,11 +12,11 @@
 </template>
 
 <script>
-  import LanguageDropdown from "./dropdowns/LanguageDropdown.vue";
-  import ProfileDropdown from "./dropdowns/ProfileDropdown.vue";
-  import NotificationDropdown from "./dropdowns/NotificationDropdown.vue";
-  import MessageDropdown from "./dropdowns/MessageDropdown.vue";
-  import ColorDropdown from "./dropdowns/color-dropdown/ColorDropdown.vue";
+  import LanguageDropdown from "./dropdowns/LanguageDropdown";
+  import ProfileDropdown from "./dropdowns/ProfileDropdown";
+  import NotificationDropdown from "./dropdowns/NotificationDropdown";
+  import MessageDropdown from "./dropdowns/MessageDropdown";
+  import ColorDropdown from "./dropdowns/color-dropdown/ColorDropdown";
 
   export default {
     name: "AppNavbarActions",

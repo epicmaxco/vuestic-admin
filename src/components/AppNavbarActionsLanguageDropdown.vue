@@ -13,7 +13,7 @@
       >
         <va-icon :name="flagIcon(option.code, 'small')" />
         <span class="dropdown-item__text">
-          {{ t(`language.${option.name}`) }}
+          {{ $t(`language.${option.name}`) }}
         </span>
       </div>
     </va-dropdown-content>
@@ -22,7 +22,6 @@
 
 <script>
   import { useGlobalConfig } from "vuestic-ui";
-  import { useI18n } from "vue-i18n";
 
   export default {
     name: "LanguageDropdown",
@@ -54,18 +53,17 @@
       },
     },
     setup() {
-      const { t, locale } = useI18n();
       const theme = useGlobalConfig().getGlobalConfig().colors;
 
-      return { theme, t };
+      return { theme };
     },
     methods: {
       setLanguage(locale) {
-        this.locale = locale;
+        this.$root.$i18n.locale = locale;
       },
 
       currentLanguage() {
-        return this.locale === "en" ? "gb" : this.locale;
+        return this.$i18n.locale === "en" ? "gb" : this.$i18n.locale;
       },
 
       flagIcon(code, size) {
@@ -76,7 +74,7 @@
 </script>
 
 <style lang="scss">
-  @import "flag-icon-css/css/flag-icons.css";
+  @import "~flag-icon-css/css/flag-icon.css";
 
   .language-dropdown {
     cursor: pointer;
