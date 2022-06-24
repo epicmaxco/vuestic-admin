@@ -9,47 +9,44 @@
     <va-dropdown-content class="profile-dropdown__content">
       <va-list-item v-for="option in options" :key="option.name">
         <router-link :to="{ name: option.redirectTo }" class="profile-dropdown__item">
-          {{ $t(`user.${option.name}`) }}
+          {{ t(`user.${option.name}`) }}
         </router-link>
       </va-list-item>
     </va-dropdown-content>
   </va-dropdown>
 </template>
 
-<script>
+<script setup lang="ts">
+  import { computed, ref } from "vue";
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
+
   import { useGlobalConfig } from "vuestic-ui";
 
-  export default {
-    name: "ProfileSection",
-    props: {
-      options: {
-        type: Array,
-        default: () => [
-          {
-            name: "profile",
-            redirectTo: "",
-          },
-          {
-            name: "logout",
-            redirectTo: "login",
-          },
-        ],
-      },
+  const props = withDefaults(
+    defineProps<{
+      options?: { name: string; redirectTo: string }[];
+    }>(),
+    {
+      options: () => [
+        {
+          name: "profile",
+          redirectTo: "",
+        },
+        {
+          name: "logout",
+          redirectTo: "login",
+        },
+      ],
     },
-    data() {
-      return {
-        isShown: false,
-      };
-    },
-    computed: {
-      theme() {
-        return useGlobalConfig().getGlobalConfig();
-      },
-    },
-  };
+  );
+
+  const isShown = ref(false);
+
+  const theme = computed(() => useGlobalConfig().getGlobalConfig());
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .profile-dropdown {
     cursor: pointer;
 

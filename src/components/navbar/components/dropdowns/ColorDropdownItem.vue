@@ -9,24 +9,18 @@
   </tr>
 </template>
 
-<script>
+<script setup lang="ts">
+  import { computed } from "vue";
   import { useColors } from "vuestic-ui";
+  const { getColors } = useColors();
 
-  export default {
-    props: {
-      colorName: { type: String, required: true },
-    },
-    setup() {
-      const { getColors } = useColors();
+  defineProps<{
+    colorName: string;
+  }>();
 
-      return { getColors };
-    },
-    computed: {
-      theme() {
-        return this.getColors();
-      },
-    },
-  };
+  const theme = computed(() => {
+    return getColors();
+  });
 </script>
 
 <style lang="scss" scoped>
