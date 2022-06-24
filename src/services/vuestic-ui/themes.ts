@@ -147,7 +147,7 @@ export const COLOR_THEMES = [
   },
 ];
 
-export const useTheme = () => {
+export function useTheme() {
   const themeNameRef = ref(THEME_NAMES.LIGHT);
 
   const setTheme = (themeName: keyof typeof THEME_NAMES) => {
@@ -164,4 +164,4 @@ export const useTheme = () => {
 
   const theme = computed(() => COLOR_THEMES.find((theme) => theme.name === themeNameRef.value));
   return { setTheme, themeName: themeNameRef, theme };
-};
+}

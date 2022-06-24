@@ -2,35 +2,40 @@
   <div class="progress-bars">
     <div class="row">
       <div class="flex xs12">
-        <horizontal-bars/>
+        <horizontal-bars />
       </div>
     </div>
     <div class="row">
       <div class="flex xs12">
-        <bars-state/>
+        <bars-state />
       </div>
     </div>
     <div class="row">
       <div class="flex xs12">
-        <circle-bars/>
+        <circle-bars />
       </div>
     </div>
     <div class="row">
       <div class="flex xs12">
-        <colorful-bars/>
+        <colorful-bars />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import HorizontalBars from './Widgets/HorizontalBars'
-import CircleBars from './Widgets/CircleBars'
-import BarsState from './Widgets/BarsState'
-import ColorfulBars from './Widgets/ColorfulBars'
+  import HorizontalBars from "./Widgets/HorizontalBars.vue";
+  import CircleBars from "./Widgets/CircleBars.vue";
+  import BarsState from "./Widgets/BarsState.vue";
+  import ColorfulBars from "./Widgets/ColorfulBars.vue";
+  import { useI18n } from "vue-i18n";
 
-export default {
-  name: 'progress-bars',
-  components: { HorizontalBars, CircleBars, BarsState, ColorfulBars },
-}
+  export default {
+    name: "ProgressBars",
+    components: { HorizontalBars, CircleBars, BarsState, ColorfulBars },
+    setup() {
+      const { t } = useI18n();
+      return { t };
+    },
+  };
 </script>

@@ -37,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, onMounted, ref, watch } from "vue";
+  import { computed, ref, watch } from "vue";
   import { getDonutChartData } from "../../../data/charts/DonutChartData";
   import { getLineChartData } from "../../../data/charts/LineChartData";
   import VaChart from "../../../components/va-charts/VaChart.vue";

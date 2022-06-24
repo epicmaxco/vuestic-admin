@@ -47,82 +47,65 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
   import * as spinners from "epic-spinners";
-  import { useGlobalConfig, getColor } from "vuestic-ui";
-  import VaIconFaster from "../../../../components/icons/VaIconFaster";
-  import VaIconSlower from "../../../../components/icons/VaIconSlower";
+  import { useColors, useGlobalConfig } from "vuestic-ui";
+  import VaIconFaster from "../../../../components/icons/VaIconFaster.vue";
+  import VaIconSlower from "../../../../components/icons/VaIconSlower.vue";
+  import { useI18n } from "vue-i18n";
+  import { computed, reactive, ref } from "vue";
 
-  export default {
-    components: {
-      ...spinners,
-      VaIconFaster,
-      VaIconSlower,
-    },
-    data() {
-      return {
-        config: {
-          size: 80,
-          group: 4,
-          duration: 1500,
-        },
-        currentDuration: 1500,
-        spinnersColor: "primary",
-        sliderSize: {
-          formatter: (v) => `${v}px`,
-          min: 40,
-          max: 100,
-        },
-        sliderDuration: {
-          min: 1000,
-          max: 2000,
-        },
-      };
-    },
-    computed: {
-      ...mapGetters(["palette"]),
+  const config = ref({
+    size: 80,
+    group: 4,
+    duration: 1500,
+  });
 
-      colors() {
-        return useGlobalConfig().getGlobalConfig().colors;
-      },
+  const currentDuration = ref(1500);
 
-      computedSpinnersColor() {
-        return getColor(this.spinnersColor);
-      },
+  const spinnersColor = ref("primary");
 
-      speed() {
-        return this.sliderDuration.min + this.sliderDuration.max - this.currentDuration;
-      },
+  const sliderSize = ref({
+    formatter: (v: number) => `${v}px`,
+    min: 40,
+    max: 100,
+  });
 
-      groups() {
-        return this.groupItems(Object.keys(spinners), this.config.group);
-      },
+  const sliderDuration = ref({
+    min: 1000,
+    max: 2000,
+  });
 
-      paletteArray() {
-        return ["primary", "success", "danger", "warning", "dark"];
-      },
-    },
+  const { t } = useI18n();
+  const { getColor } = useColors();
 
-    filters: {
-      displayName(name) {
-        return name
-          .replace("Spinner", "")
-          .match(/[A-Z][a-z]+/g)
-          .join(" ");
-      },
-    },
-    methods: {
-      groupItems(items, groupSize) {
-        const grouped = [];
+  const colors = useGlobalConfig().getGlobalConfig().colors;
 
-        for (let i = 0; i < items.length; i += groupSize) {
-          grouped.push(items.slice(i, i + groupSize));
-        }
+  const computedSpinnersColor = computed(() => {
+    return getColor(spinnersColor.value);
+  });
 
-        return grouped;
-      },
-    },
-  };
+  const speed = computed(() => {
+    return sliderDuration.value.min + sliderDuration.value.max - currentDuration.value;
+  });
+
+  const groups = computed(() => {
+    return groupItems(Object.keys(spinners), config.value.group);
+  });
+
+  const paletteArray = computed(() => {
+    return ["primary", "success", "danger", "warning", "dark"];
+  });
+
+  function groupItems(items: never[], groupSize: number) {
+    const grouped = [];
+
+    for (let i = 0; i < items.length; i += groupSize) {
+      grouped.push(items.slice(i, i + groupSize));
+    }
+
+    return grouped;
+  }
 </script>
 
 <style lang="scss">

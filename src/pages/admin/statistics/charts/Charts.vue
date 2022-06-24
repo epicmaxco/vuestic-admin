@@ -64,10 +64,15 @@
   import { getVerticalBarChartData } from "../../../../data/charts/VerticalBarChartData";
   import { getHorizontalBarChartData } from "../../../../data/charts/HorizontalBarChartData";
   import { useGlobalConfig } from "vuestic-ui";
+  import { useI18n } from "vue-i18n";
 
   export default {
     name: "Charts",
     components: { VaChart },
+    setup() {
+      const { t } = useI18n();
+      return { t };
+    },
     data() {
       return {
         bubbleChartData: null,
