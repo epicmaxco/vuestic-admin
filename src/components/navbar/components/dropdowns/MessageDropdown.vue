@@ -6,79 +6,84 @@
 
     <va-dropdown-content class="message-dropdown__content pl-4 pr-4 pt-2 pb-2">
       <div
-        v-for="option in computedOptions"
-        :key="option.id"
+        v-for="message in messagesProxy"
+        :key="message.id"
         class="message-dropdown__item row pt-1 pb-1 mt-2 mb-2"
-        :class="{ 'message-dropdown__item--unread': option.unread }"
-        @click="option.unread = false"
+        :class="{ 'message-dropdown__item--unread': message.unread }"
+        @click="message.unread = false"
       >
-        <img :src="option.details.avatar" class="message-dropdown__item__avatar mr-2" />
+        <img :src="message.details.avatar" class="message-dropdown__item__avatar mr-2" />
         <span class="ellipsis" style="max-width: 85%">{{
-          $t(`messages.${option.name}`, { name: option.details.name })
+          t(`messages.${message.name}`, { name: message.details.name })
         }}</span>
       </div>
       <div class="row justify--space-between mt-1">
-        <va-button class="md6 mr-2" size="small">{{ $t("messages.all") }}</va-button>
+        <va-button class="md6 mr-2" size="small">{{ t("messages.all") }}</va-button>
         <va-button class="md6" size="small" outline :disabled="allRead" @click="markAllAsRead">{{
-          $t("messages.mark_as_read")
+          t("messages.mark_as_read")
         }}</va-button>
       </div>
     </va-dropdown-content>
   </va-dropdown>
 </template>
 
-<script>
+<script setup lang="ts">
+  import { computed, ref } from "vue";
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
+
   import VaIconMessage from "../../../icons/VaIconMessage.vue";
 
-  export default {
-    name: "MessageDropdown",
-    components: {
-      VaIconMessage,
-    },
-    props: {
-      options: {
-        type: Array,
-        default: () => [
-          {
-            name: "new",
-            details: {
-              name: "Oleg M",
-              avatar: "https://picsum.photos/24?image=1083",
-            },
-            unread: true,
-            id: 1,
+  interface IMessage {
+    name: string;
+    details: {
+      name: string;
+      avatar: string;
+    };
+    unread: boolean;
+    id: number;
+  }
+
+  const props = withDefaults(
+    defineProps<{
+      messages?: IMessage[];
+    }>(),
+    {
+      messages: () => [
+        {
+          name: "new",
+          details: {
+            name: "Oleg M",
+            avatar: "https://picsum.photos/24?image=1083",
           },
-          {
-            name: "new",
-            details: {
-              name: "Andrei H",
-              avatar: "https://picsum.photos/24?image=1025",
-            },
-            unread: true,
-            id: 2,
+          unread: true,
+          id: 1,
+        },
+        {
+          name: "new",
+          details: {
+            name: "Andrei H",
+            avatar: "https://picsum.photos/24?image=1025",
           },
-        ],
-      },
+          unread: true,
+          id: 2,
+        },
+      ],
     },
-    data() {
-      return {
-        computedOptions: [...this.options],
-      };
-    },
-    computed: {
-      allRead() {
-        return !this.computedOptions.filter((item) => item.unread).length;
-      },
-    },
-    methods: {
-      markAllAsRead() {
-        this.computedOptions = this.computedOptions.map((item) => ({
-          ...item,
-          unread: false,
-        }));
-      },
-    },
-  };
+  );
+
+  const messagesProxy = ref<IMessage[]>([...props.messages]);
+
+  const allRead = computed(() => {
+    return messagesProxy.value.every((message) => !message.unread);
+  });
+
+  function markAllAsRead() {
+    messagesProxy.value = messagesProxy.value.map((message) => ({
+      ...message,
+      unread: false,
+    }));
+  }
 </script>
 
 <style lang="scss">
