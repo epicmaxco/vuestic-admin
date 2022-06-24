@@ -1,6 +1,6 @@
 import { createI18n } from "vue-i18n";
 
-const fileNameToLocaleModuleDict = import.meta.globEager("./*.json");
+const fileNameToLocaleModuleDict = import.meta.globEager("./locales/*.json");
 
 const messages: { [P: string]: Record<string, string> } = {};
 Object.entries(fileNameToLocaleModuleDict)
@@ -17,7 +17,7 @@ Object.entries(fileNameToLocaleModuleDict)
 
 export default createI18n({
   legacy: false,
-  locale: "en",
-  fallbackLocale: "en",
+  locale: "gb",
+  fallbackLocale: "gb",
   messages,
 });

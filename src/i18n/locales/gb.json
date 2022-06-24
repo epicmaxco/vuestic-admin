@@ -391,27 +391,27 @@
     "modalText": "File type is incorrect!"
   },
   "chips": {
-    "chips": {
-      "title": "Chips",
-      "primary": "Primary chip",
-      "secondary": "Secondary chip",
-      "success": "Success chip",
-      "info": "Info chip",
-      "danger": "Danger chip",
-      "warning": "Warning chip",
-      "gray": "Gray chip",
-      "dark": "Dark chip"
+    "chips": { 
+    "title": "Chips",
+    "primary": "Primary chip",
+    "secondary": "Secondary chip",
+    "success": "Success chip",
+    "info": "Info chip",
+    "danger": "Danger chip",
+    "warning": "Warning chip",
+    "gray": "Gray chip",
+    "dark": "Dark chip"
     },
-    "badges": {
-      "title": "Badges",
-      "primary": "Primary badge",
-      "secondary": "Secondary badge",
-      "success": "Success badge",
-      "info": "Info badge",
-      "danger": "Danger badge",
-      "warning": "Warning badge",
-      "gray": "Gray badge",
-      "dark": "Dark badge"
+    "badges": { 
+    "title": "Badges",
+    "primary": "Primary badge",
+    "secondary": "Secondary badge",
+    "success": "Success badge",
+    "info": "Info badge",
+    "danger": "Danger badge",
+    "warning": "Warning badge",
+    "gray": "Gray badge",
+    "dark": "Dark badge"
     }
   },
   "navbar": {

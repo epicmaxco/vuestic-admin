@@ -1,17 +1,18 @@
 <template>
   <va-dropdown class="language-dropdown" fixed position="bottom" :offset="[0, 13]">
     <template #anchor>
-      <va-icon :name="flagIcon(currentLanguage(), 'large')" />
+      <va-icon :name="getFlagIcon(locale, 'large')" />
     </template>
+
     <va-dropdown-content class="language-dropdown__content pl-4 pr-4 pt-2 pb-2">
       <div
         v-for="(option, id) in options"
         :key="id"
         class="language-dropdown__item row align--center pt-1 pb-1 mt-2 mb-2"
-        :class="{ active: option.code === currentLanguage() }"
-        @click="setLanguage(option.code)"
+        :class="{ active: option.code === locale }"
+        @click="locale = option.code"
       >
-        <va-icon :name="flagIcon(option.code, 'small')" />
+        <va-icon :name="getFlagIcon(option.code, 'small')" />
         <span class="dropdown-item__text">
           {{ t(`language.${option.name}`) }}
         </span>
@@ -20,62 +21,46 @@
   </va-dropdown>
 </template>
 
-<script>
-  import { useGlobalConfig } from "vuestic-ui";
+<script setup lang="ts">
   import { useI18n } from "vue-i18n";
+  const { t, locale } = useI18n();
 
-  export default {
-    name: "LanguageDropdown",
-    props: {
-      options: {
-        type: Array,
-        default: () => [
-          {
-            code: "gb",
-            name: "english",
-          },
-          {
-            code: "es",
-            name: "spanish",
-          },
-          {
-            code: "br",
-            name: "brazilian_portuguese",
-          },
-          {
-            code: "cn",
-            name: "simplified_chinese",
-          },
-          {
-            code: "ir",
-            name: "persian",
-          },
-        ],
-      },
+  withDefaults(
+    defineProps<{
+      options: { code: string; name: string }[];
+    }>(),
+    {
+      options: () => [
+        {
+          code: "gb",
+          name: "english",
+        },
+        {
+          code: "es",
+          name: "spanish",
+        },
+        {
+          code: "br",
+          name: "brazilian_portuguese",
+        },
+        {
+          code: "cn",
+          name: "simplified_chinese",
+        },
+        {
+          code: "ir",
+          name: "persian",
+        },
+      ],
     },
-    setup() {
-      const { t, locale } = useI18n();
-      const theme = useGlobalConfig().getGlobalConfig().colors;
+  );
 
-      return { theme, t };
-    },
-    methods: {
-      setLanguage(locale) {
-        this.locale = locale;
-      },
-
-      currentLanguage() {
-        return this.locale === "en" ? "gb" : this.locale;
-      },
-
-      flagIcon(code, size) {
-        return `flag-icon-${code} ${size}`;
-      },
-    },
-  };
+  function getFlagIcon(code: string, size: string) {
+    return `flag-icon-${code} ${size}`;
+  }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import "flag-icon-css/css/flag-icons.css";
 
   .language-dropdown {
