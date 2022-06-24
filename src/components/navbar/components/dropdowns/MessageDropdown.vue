@@ -86,7 +86,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .message-dropdown {
     cursor: pointer;
 

@@ -8,88 +8,93 @@
     </template>
     <va-dropdown-content class="notification-dropdown__content pl-3 pr-3 pt-2 pb-2">
       <div
-        v-for="option in computedOptions"
-        :key="option.id"
+        v-for="notification in notificationsProxy"
+        :key="notification.id"
         class="notification-dropdown__item row pt-1 pb-1 mt-2 mb-2"
-        :class="{ 'notification-dropdown__item--unread': option.unread }"
-        @click="option.unread = false"
+        :class="{ 'notification-dropdown__item--unread': notification.unread }"
+        @click="notification.unread = false"
       >
         <img
-          v-if="option.details.avatar"
+          v-if="notification.details.avatar"
           class="mr-2 notification-dropdown__item__avatar"
-          :src="option.details.avatar"
+          :src="notification.details.avatar"
         />
         <span class="ellipsis" style="max-width: 85%">
-          <span v-if="option.details.name" class="text--bold">{{ option.details.name }}</span>
-          {{ $t(`notifications.${option.name}`, { type: option.details.type }) }}
+          <span v-if="notification.details.name" class="text--bold">{{ notification.details.name }}</span>
+          {{ t(`notifications.${notification.name}`, { type: notification.details.type }) }}
         </span>
       </div>
       <div class="row justify--space-between mt-1">
-        <va-button class="md6 mr-2" size="small">{{ $t("notifications.all") }}</va-button>
+        <va-button class="md6 mr-2" size="small">{{ t("notifications.all") }}</va-button>
         <va-button class="md6" size="small" outline :disabled="allRead" @click="markAllAsRead">{{
-          $t("notifications.mark_as_read")
+          t("notifications.mark_as_read")
         }}</va-button>
       </div>
     </va-dropdown-content>
   </va-dropdown>
 </template>
 
-<script>
+<script setup lang="ts">
+  import { ref, computed } from "vue";
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
+
   import VaIconNotification from "../../../icons/VaIconNotification.vue";
 
-  export default {
-    name: "NotificationDropdown",
-    components: {
-      VaIconNotification,
-    },
-    props: {
-      options: {
-        type: Array,
-        default: () => [
-          {
-            name: "sentMessage",
-            details: { name: "Vasily S", avatar: "https://picsum.photos/123" },
-            unread: true,
-            id: 1,
+  interface INotification {
+    name: string;
+    details: {
+      name: string;
+      avatar: string;
+    };
+    unread: boolean;
+    id: number;
+  }
+
+  const props = withDefaults(
+    defineProps<{
+      notifications?: INotification[];
+    }>(),
+    {
+      notifications: () => [
+        {
+          name: "sentMessage",
+          details: { name: "Vasily S", avatar: "https://picsum.photos/123" },
+          unread: true,
+          id: 1,
+        },
+        {
+          name: "uploadedZip",
+          details: {
+            name: "Oleg M",
+            avatar: "https://picsum.photos/100",
+            type: "typography component",
           },
-          {
-            name: "uploadedZip",
-            details: {
-              name: "Oleg M",
-              avatar: "https://picsum.photos/100",
-              type: "typography component",
-            },
-            unread: true,
-            id: 2,
-          },
-          {
-            name: "startedTopic",
-            details: { name: "Andrei H", avatar: "https://picsum.photos/24" },
-            unread: true,
-            id: 3,
-          },
-        ],
-      },
+          unread: true,
+          id: 2,
+        },
+        {
+          name: "startedTopic",
+          details: { name: "Andrei H", avatar: "https://picsum.photos/24" },
+          unread: true,
+          id: 3,
+        },
+      ],
     },
-    data() {
-      return {
-        computedOptions: [...this.options],
-      };
-    },
-    computed: {
-      allRead() {
-        return !this.computedOptions.filter((item) => item.unread).length;
-      },
-    },
-    methods: {
-      markAllAsRead() {
-        this.computedOptions = this.computedOptions.map((item) => ({
-          ...item,
-          unread: false,
-        }));
-      },
-    },
-  };
+  );
+
+  const notificationsProxy = ref<INotification[]>([...props.notifications]);
+
+  const allRead = computed(() => {
+    return notificationsProxy.value.every((notification) => !notification.unread);
+  });
+
+  function markAllAsRead() {
+    notificationsProxy.value = notificationsProxy.value.map((notification) => ({
+      ...notification,
+      unread: false,
+    }));
+  }
 </script>
 
 <style lang="scss" scoped>
