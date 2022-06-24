@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "amcharts3": "^3.21.15",
     "flag-icon-css": "^4.1.7",
     "font-awesome": "^4.7.0",
     "ionicons": "^4.6.3",
@@ -16,7 +17,18 @@
     "vue": "^3.2.25",
     "vue-i18n": "^9.1.10",
     "vue-router": "^4.0.14",
-    "vuestic-ui": "^1.4.1"
+    "vuestic-ui": "^1.4.1",
+    "ammap3": "^3.21.15",
+    "axios": "^0.21.1",
+    "chart.js": "^2.9.4",
+    "google-maps": "^4.3.3",
+    "leaflet": "^1.7.1",
+    "leaflet-map": "^0.2.1",
+    "medium-editor": "^5.23.3",
+    "register-service-worker": "^1.7.1",
+    "vue-chartjs": "^3.5.1",
+    "vue-gtm": "^3.2.1",
+    "vue-yandex-maps": "^0.10.9"
   },
   "devDependencies": {
     "@types/node": "^17.0.25",

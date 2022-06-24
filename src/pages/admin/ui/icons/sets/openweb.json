@@ -1,0 +1,40 @@
+{
+  "name": "OpenWeb Icons",
+  "href": "openweb",
+  "prefix": "openwebicons",
+  "lists": [
+    {
+      "name": "Icons",
+      "icons": [
+        "apml",
+        "open-share",
+        "share",
+        "feed",
+        "ostatus",
+        "opml",
+        "activity",
+        "geo",
+        "opensearch",
+        "oauth",
+        "openid",
+        "rdf",
+        "dataportability",
+        "federated",
+        "open-web",
+        "web-intents",
+        "xmpp",
+        "qr",
+        "epub",
+        "opengraph",
+        "foaf",
+        "info-card",
+        "browserid",
+        "persona",
+        "remote-storage",
+        "odata",
+        "markdown",
+        "tosdr"
+      ]
+    }
+  ]
+}
