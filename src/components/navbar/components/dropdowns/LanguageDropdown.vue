@@ -27,7 +27,7 @@
 
   withDefaults(
     defineProps<{
-      options: { code: string; name: string }[];
+      options?: { code: string; name: string }[];
     }>(),
     {
       options: () => [
