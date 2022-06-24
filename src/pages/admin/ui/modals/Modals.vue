@@ -111,21 +111,18 @@
   </div>
 </template>
 
-<script>
-  export default {
-    name: "Modals",
-    data() {
-      return {
-        show: true,
-        showSmallModal: false,
-        showMediumModal: false,
-        showLargeModal: false,
-        showTopModal: false,
-        showRightModal: false,
-        showBottomModal: false,
-        showLeftModal: false,
-        showStaticModal: false,
-      };
-    },
-  };
+<script setup lang="ts">
+  import { ref } from "vue";
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
+
+  const show = ref(true);
+  const showSmallModal = ref(false);
+  const showMediumModal = ref(false);
+  const showLargeModal = ref(false);
+  const showTopModal = ref(false);
+  const showRightModal = ref(false);
+  const showBottomModal = ref(false);
+  const showLeftModal = ref(false);
+  const showStaticModal = ref(false);
 </script>

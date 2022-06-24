@@ -11,7 +11,7 @@
 </template>
 
 <script>
-  import LineMap from "../../../../components/maps/LineMap";
+  import LineMap from "../../../../components/maps/LineMap.vue";
   import { getLineMapData } from "../../../../data/maps/LineMapData";
   import { useGlobalConfig } from "vuestic-ui";
 

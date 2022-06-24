@@ -11,7 +11,7 @@
 </template>
 
 <script>
-  import BubbleMap from "./BubbleMap";
+  import BubbleMap from "./BubbleMap.vue";
   import BubbleMapData from "../../../../data/maps/BubbleMapData";
 
   export default {

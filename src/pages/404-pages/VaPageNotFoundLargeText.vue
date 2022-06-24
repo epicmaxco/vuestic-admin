@@ -7,27 +7,26 @@
 </template>
 
 <script>
-import VaPageNotFound from './VaPageNotFound'
+  import VaPageNotFound from "./VaPageNotFound.vue";
 
-export default {
-  name: 'va-page-not-found-large-text',
-  components: {
-    VaPageNotFound,
-  },
-}
+  export default {
+    name: "VaPageNotFoundLargeText",
+    components: {
+      VaPageNotFound,
+    },
+  };
 </script>
 
 <style lang="scss">
-.va-page-not-found-large-text {
-  &__number {
-    font-size: 21rem;
-    // color: $white;
-    font-weight: 600;
+  .va-page-not-found-large-text {
+    &__number {
+      font-size: 21rem;
+      // color: $white;
+      font-weight: 600;
 
-
-    @media screen and (max-width: 600px) {
-      font-size: 6rem;
+      @media screen and (max-width: 600px) {
+        font-size: 6rem;
+      }
     }
   }
-}
 </style>

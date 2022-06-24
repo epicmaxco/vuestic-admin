@@ -89,20 +89,9 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
+  import ColorPresentation from "./color-presentation/ColorPresentation.vue";
   import { themeColors, extraColors, buttonGradients } from "./color-presentation/colorsData";
-  import colorPresentation from "./color-presentation/ColorPresentation";
-
-  export default {
-    components: {
-      colorPresentation,
-    },
-    data() {
-      return {
-        themeColors,
-        extraColors,
-        buttonGradients,
-      };
-    },
-  };
 </script>

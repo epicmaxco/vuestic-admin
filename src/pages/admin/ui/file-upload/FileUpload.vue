@@ -45,17 +45,14 @@
   </div>
 </template>
 
-<script>
-  export default {
-    name: "FileUpload",
-    data() {
-      return {
-        advancedGallery: [],
-        advancedList: [],
-        single: [],
-        gallery: [],
-        list: [],
-      };
-    },
-  };
+<script setup lang="ts">
+  import { ref } from "vue";
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
+
+  const advancedGallery = ref([]);
+  const advancedList = ref([]);
+  const single = ref([]);
+  const gallery = ref([]);
+  const list = ref([]);
 </script>

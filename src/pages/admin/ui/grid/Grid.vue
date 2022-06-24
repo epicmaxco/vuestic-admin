@@ -99,22 +99,16 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+  import { ref } from "vue";
   import { useGlobalConfig } from "vuestic-ui";
+  import { computed } from "vue";
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
 
-  export default {
-    name: "Grid",
+  const theme = ref(useGlobalConfig().getGlobalConfig().colors);
 
-    computed: {
-      computedStyle() {
-        const theme = useGlobalConfig().getGlobalConfig().colors;
-
-        return {
-          backgroundColor: theme.primary,
-        };
-      },
-    },
-  };
+  const computedStyle = computed(() => ({ backgroundColor: theme.value.primary }));
 </script>
 
 <style lang="scss">

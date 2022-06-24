@@ -202,8 +202,13 @@
 
 <script>
   import data from "./data.json";
+  import { useI18n } from "vue-i18n";
 
   export default {
+    setup() {
+      const { t } = useI18n();
+      return { t };
+    },
     data() {
       return {
         customers: data.slice(0, 5),

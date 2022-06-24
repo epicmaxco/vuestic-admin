@@ -92,16 +92,12 @@
   </div>
 </template>
 
-<script>
-  export default {
-    name: "Collapses",
+<script setup lang="ts">
+  import { ref } from "vue";
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
 
-    data() {
-      return {
-        basicAccordionValue: [false, false],
-        colorAccordionValue: [false, false],
-        customHeaderAccordionValue: [false, false],
-      };
-    },
-  };
+  const basicAccordionValue = ref([false, false]);
+  const colorAccordionValue = ref([false, false]);
+  const customHeaderAccordionValue = ref([false, false]);
 </script>

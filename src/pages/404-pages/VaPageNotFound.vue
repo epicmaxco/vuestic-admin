@@ -20,9 +20,10 @@
 </template>
 
 <script>
-  import MadeByComponent from "./MadeByComponent";
-  import Wallpaper from "./Wallpaper";
+  import MadeByComponent from "./MadeByComponent.vue";
+  import Wallpaper from "./Wallpaper.vue";
   import { useGlobalConfig } from "vuestic-ui";
+  import { useI18n } from "vue-i18n";
 
   export default {
     name: "VaPageNotFound",
@@ -33,6 +34,10 @@
       Wallpaper,
     },
     props: { withoutButton: Boolean },
+    setup() {
+      const { t } = useI18n();
+      return { t };
+    },
     computed: {
       theme() {
         return useGlobalConfig().getGlobalConfig().colors;

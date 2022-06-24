@@ -113,10 +113,15 @@
 
 <script>
   import ToastPositionPicker from "./ToastPositionPicker.vue";
+  import { useI18n } from "vue-i18n";
 
   export default {
     name: "Notifications",
     components: { ToastPositionPicker },
+    setup() {
+      const { t } = useI18n();
+      return { t };
+    },
     data() {
       return {
         toastText: "This toast is awesome!",
