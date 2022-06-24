@@ -64,8 +64,13 @@
 
 <script>
   import data from "../../../../data/tables/markup-table/data.json";
+  import { useI18n } from "vue-i18n";
 
   export default {
+    setup() {
+      const { t } = useI18n();
+      return { t };
+    },
     data() {
       return {
         users: data.slice(0, 8),

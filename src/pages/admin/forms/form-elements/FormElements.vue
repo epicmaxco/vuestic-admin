@@ -233,9 +233,14 @@
 
 <script>
   import CountriesList from "../data/CountriesList";
+  import { useI18n } from "vue-i18n";
 
   export default {
     name: "FormElements",
+    setup() {
+      const { t } = useI18n();
+      return { t };
+    },
     data() {
       return {
         isMale: true,

@@ -14,11 +14,16 @@
 </template>
 
 <script>
-  import Chat from "./Chat";
+  import Chat from "./Chat.vue";
+  import { useI18n } from "vue-i18n";
 
   export default {
     name: "ChatPage",
     components: { Chat },
+    setup() {
+      const { t } = useI18n();
+      return { t };
+    },
     data() {
       return {
         chatMessages: [

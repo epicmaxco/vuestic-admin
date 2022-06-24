@@ -30,11 +30,16 @@
 </template>
 
 <script>
-  import VaMediumEditor from "../../../../components/va-medium-editor/va-medium-editor";
+  import VaMediumEditor from "../../../../components/va-medium-editor/VaMediumEditor.vue";
+  import { useI18n } from "vue-i18n";
 
   export default {
     components: {
       VaMediumEditor,
+    },
+    setup() {
+      const { t } = useI18n();
+      return { t };
     },
 
     methods: {

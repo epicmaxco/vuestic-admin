@@ -36,77 +36,68 @@
   </div>
 </template>
 
-<script>
-  import StickyScroll from "./StickyScroll";
+<script setup lang="ts">
+  import vStickyScroll from "./StickyScroll";
   import { useGlobalConfig } from "vuestic-ui";
+  import { ref } from "vue";
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
 
-  export default {
-    name: "Chat",
-    directives: { StickyScroll },
-    props: {
-      modelValue: {
-        type: Array,
-        default: () => [
-          {
-            text: "Hello! So glad you liked my work. Do you want me to shoot you?",
-            yours: false,
-          },
-          {
-            text: "Yeah, that would be cool. Maybe this Sunday at 3 pm?",
-            yours: true,
-          },
-          {
-            text: "Sounds great! See you later!",
-            yours: false,
-          },
-          {
-            text: "Should I bring a lightbox with me?",
-            yours: true,
-          },
-          {
-            text: "No, thanks. There is no need. Can we set up a meeting earlier?",
-            yours: false,
-          },
-          {
-            text: "I'm working on Vuestic, so let's meet at 3pm. Thanks!",
-            yours: true,
-          },
-        ],
-      },
-      height: {
-        default: "20rem",
-        type: String,
-      },
+  const props = withDefaults(
+    defineProps<{
+      modelValue?: { text: string; yours: boolean }[];
+      height?: string;
+    }>(),
+    {
+      modelValue: () => [
+        {
+          text: "Hello! So glad you liked my work. Do you want me to shoot you?",
+          yours: false,
+        },
+        {
+          text: "Yeah, that would be cool. Maybe this Sunday at 3 pm?",
+          yours: true,
+        },
+        {
+          text: "Sounds great! See you later!",
+          yours: false,
+        },
+        {
+          text: "Should I bring a lightbox with me?",
+          yours: true,
+        },
+        {
+          text: "No, thanks. There is no need. Can we set up a meeting earlier?",
+          yours: false,
+        },
+        {
+          text: "I'm working on Vuestic, so let's meet at 3pm. Thanks!",
+          yours: true,
+        },
+      ],
+      height: "20rem",
     },
-    data() {
-      return {
-        inputMessage: "",
-      };
-    },
-    computed: {
-      theme() {
-        return useGlobalConfig().getGlobalConfig().colors;
-      },
-    },
-    methods: {
-      sendMessage() {
-        if (!this.inputMessage) {
-          return;
-        }
-        this.$emit(
-          "update:modelValue",
-          this.modelValue.concat({
-            text: this.inputMessage,
-            yours: true,
-          }),
-        );
-        this.inputMessage = "";
-      },
-    },
-  };
+  );
+
+  const emit = defineEmits<{
+    (e: "update:modelValue", payload: { text: string; yours: boolean }[]): void;
+  }>();
+
+  const inputMessage = ref("");
+
+  const theme = useGlobalConfig().getGlobalConfig().colors;
+
+  function sendMessage() {
+    if (!inputMessage.value) {
+      return;
+    }
+
+    emit("update:modelValue", props.modelValue.concat({ text: inputMessage.value, yours: true }));
+    inputMessage.value = "";
+  }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   // .chat {
   //   &__content {
   //     @include va-flex-center();
