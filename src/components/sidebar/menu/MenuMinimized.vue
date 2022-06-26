@@ -58,14 +58,14 @@ export default {
       return item.name === this.$route.name;
     },
     isItemChildsActive(item) {
-      if (!item.children) {
-        return false;
-      }
-
       const isCurrentItemActive = this.isRouteActive(item);
-      const isChildActive = !!item.children.find(child =>
-        child.children ? this.isItemChildsActive(child) : this.isRouteActive(child)
-      );
+
+      let isChildActive = false
+      if (item.children) {
+        isChildActive = !!item.children.find(child =>
+          child.children ? this.isItemChildsActive(child) : this.isRouteActive(child)
+        );
+      }
 
       return isCurrentItemActive || isChildActive;
     },
