@@ -79,7 +79,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .sidebar-item {
     position: relative;
     &__children {

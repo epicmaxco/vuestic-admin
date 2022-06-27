@@ -28,6 +28,8 @@
     },
   );
 
+  console.log(props.minimized, props.width, props.minimizedWidth);
+
   const items = ref(NavigationRoutes.routes);
 
   const computedClass = computed(() => {
@@ -39,7 +41,7 @@
   const colors = computed(() => useGlobalConfig().getGlobalConfig().colors);
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .va-sidebar {
     .va-collapse__body {
       margin-top: 0 !important;

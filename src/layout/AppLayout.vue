@@ -42,7 +42,7 @@
   const checkIsMobile = () => window.innerWidth <= mobileBreakPointPX;
 
   const onResize = () => {
-    GlobalStore.toggleSidebar();
+    isSidebarMinimized.value = checkIsTablet();
 
     isMobile.value = checkIsMobile();
     isTablet.value = checkIsTablet();

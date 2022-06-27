@@ -2,12 +2,12 @@
   font-family: 'zocial';
   font-style: normal;
   font-weight: normal;
-  src: url('./sass/icon-fonts/zocial/zocial-regular-webfont.eot');
+  src: url('/src/assets/styles/icon-fonts/zocial/zocial-regular-webfont.eot');
   src:
-    url('./sass/icon-fonts/zocial/zocial-regular-webfont.eot?#iefix') format('eot'),
-    url('./sass/icon-fonts/zocial/zocial-regular-webfont.woff') format('woff'),
-    url('./sass/icon-fonts/zocial/zocial-regular-webfont.ttf') format('truetype'),
-    url('./sass/icon-fonts/zocial/zocial-regular-webfont.svg#zocialregular') format('svg');
+    url('/src/assets/styles/icon-fonts/zocial/zocial-regular-webfont.eot?#iefix') format('eot'),
+    url('/src/assets/styles/icon-fonts/zocial/zocial-regular-webfont.woff') format('woff'),
+    url('/src/assets/styles/icon-fonts/zocial/zocial-regular-webfont.ttf') format('truetype'),
+    url('/src/assets/styles/icon-fonts/zocial/zocial-regular-webfont.svg#zocialregular') format('svg');
 }
 
 [class*="zocial-"]::before {

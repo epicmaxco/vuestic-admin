@@ -2,12 +2,12 @@
   font-family: 'fontelico';
   font-style: normal;
   font-weight: normal;
-  src: url('./sass/icon-fonts/fontelico/fontelico.eot');
+  src: url('/src/assets/styles/icon-fonts/fontelico/fontelico.eot');
   src:
-    url('./sass/icon-fonts/fontelico/fontelico.eot?#iefix') format('eot'),
-    url('./sass/icon-fonts/fontelico/fontelico.woff') format('woff'),
-    url('./sass/icon-fonts/fontelico/fontelico.ttf') format('truetype'),
-    url('./sass/icon-fonts/fontelico/fontelico.svg#fontelico') format('svg');
+    url('/src/assets/styles/icon-fonts/fontelico/fontelico.eot?#iefix') format('eot'),
+    url('/src/assets/styles/icon-fonts/fontelico/fontelico.woff') format('woff'),
+    url('/src/assets/styles/icon-fonts/fontelico/fontelico.ttf') format('truetype'),
+    url('/src/assets/styles/icon-fonts/fontelico/fontelico.svg#fontelico') format('svg');
 }
 
 [class*="fontelico-"]::before {

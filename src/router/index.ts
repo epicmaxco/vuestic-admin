@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+
 import AuthLayout from "../layout/AuthLayout.vue";
 import AppLayout from "../layout/AppLayout.vue";
 import Page404Layout from "../layout/Page404Layout.vue";

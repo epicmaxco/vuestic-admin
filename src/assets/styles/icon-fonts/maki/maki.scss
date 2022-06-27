@@ -2,12 +2,12 @@
   font-family: 'maki';
   font-style: normal;
   font-weight: normal;
-  src: url('./sass/icon-fonts/maki/maki.eot');
+  src: url('/src/assets/styles/icon-fonts/maki/maki.eot');
   src:
-    url('./sass/icon-fonts/maki/maki.eot?#iefix') format('eot'),
-    url('./sass/icon-fonts/maki/maki.woff') format('woff'),
-    url('./sass/icon-fonts/maki/maki.ttf') format('truetype'),
-    url('./sass/icon-fonts/maki/maki.svg#maki') format('svg');
+    url('/src/assets/styles/icon-fonts/maki/maki.eot?#iefix') format('eot'),
+    url('/src/assets/styles/icon-fonts/maki/maki.woff') format('woff'),
+    url('/src/assets/styles/icon-fonts/maki/maki.ttf') format('truetype'),
+    url('/src/assets/styles/icon-fonts/maki/maki.svg#maki') format('svg');
 }
 
 [class*="maki-"]::before {
