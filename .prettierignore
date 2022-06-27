@@ -1,11 +1,12 @@
 # Ignore everything recursively...
 *
 
-# But not the .{ts,js,html,css,vue,json,md} files
+# But not the .{ts,js,html,css,scss,vue,json,md} files
 !*.ts
 !*.js
 !*.html
 !*.css
+!*.scss
 !*.vue
 !*.json
 !*.md

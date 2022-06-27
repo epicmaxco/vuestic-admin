@@ -35,10 +35,11 @@
   import VaIconColor from "../../../icons/VaIconColor.vue";
   import ColorDropdownItem from "./ColorDropdownItem.vue";
   import { THEME_NAMES, useTheme } from "../../../../services/vuestic-ui/themes";
+  const { setTheme, themeName } = useTheme();
 
-  onMounted(() => {
-    setTheme(getThemeNameFromUrl() as keyof typeof THEME_NAMES);
-  });
+  // onMounted(() => {
+  setTheme(getThemeNameFromUrl() as keyof typeof THEME_NAMES);
+  // });
 
   const buttonToggleOptions = [
     { label: "Light", value: THEME_NAMES.LIGHT },
@@ -46,8 +47,6 @@
     // { label: 'Dark', value: THEME_NAMES.DARK },
     { label: "Original", value: THEME_NAMES.ORIGINAL },
   ];
-
-  const { setTheme, themeName } = useTheme();
 
   const selectedThemeName = computed({
     get: () => themeName.value,
