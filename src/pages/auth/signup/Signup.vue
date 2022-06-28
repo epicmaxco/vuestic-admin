@@ -43,36 +43,32 @@
   </form>
 </template>
 
-<script>
-  export default {
-    name: "Signup",
-    data() {
-      return {
-        email: "",
-        password: "",
-        agreedToTerms: false,
-        emailErrors: [],
-        passwordErrors: [],
-        agreedToTermsErrors: [],
-      };
-    },
-    computed: {
-      formReady() {
-        return !(this.emailErrors.length || this.passwordErrors.length || this.agreedToTermsErrors.length);
-      },
-    },
-    methods: {
-      onsubmit() {
-        this.emailErrors = this.email ? [] : ["Email is required"];
-        this.passwordErrors = this.password ? [] : ["Password is required"];
-        this.agreedToTermsErrors = this.agreedToTerms ? [] : ["You must agree to the terms of use to continue"];
-        if (!this.formReady) {
-          return;
-        }
-        this.$router.push({ name: "dashboard" });
-      },
-    },
-  };
+<script setup lang="ts">
+  import { ref, computed } from "vue";
+  import { useRouter } from "vue-router";
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
+
+  const email = ref("");
+  const password = ref("");
+  const agreedToTerms = ref(false);
+  const emailErrors = ref<string[]>([]);
+  const passwordErrors = ref<string[]>([]);
+  const agreedToTermsErrors = ref<string[]>([]);
+
+  const formReady = computed(() => {
+    return !(this.emailErrors.length || this.passwordErrors.length || this.agreedToTermsErrors.length);
+  });
+
+  function onsubmit() {
+    if (!formReady.value) return;
+
+    emailErrors.value = email.value ? [] : ["Email is required"];
+    passwordErrors.value = password.value ? [] : ["Password is required"];
+    agreedToTermsErrors.value = agreedToTerms.value ? [] : ["You must agree to the terms of use to continue"];
+
+    useRouter().push({ name: "dashboard" });
+  }
 </script>
 
 <style lang="scss"></style>

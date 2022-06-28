@@ -17,7 +17,7 @@
     "vue": "^3.2.25",
     "vue-i18n": "^9.1.10",
     "vue-router": "^4.0.14",
-    "vuestic-ui": "^1.4.2",
+    "vuestic-ui": "0.0.0-experimental-2d25ec58-20220628",
     "ammap3": "^3.21.15",
     "axios": "^0.21.1",
     "chart.js": "^2.9.4",
