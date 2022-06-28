@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, ref } from "vue";
+  import { ref } from "vue";
   import NavigationRoutes from "./NavigationRoutes";
 
   import { useGlobalConfig } from "vuestic-ui";
@@ -28,17 +28,9 @@
     },
   );
 
-  console.log(props.minimized, props.width, props.minimizedWidth);
-
   const items = ref(NavigationRoutes.routes);
 
-  const computedClass = computed(() => {
-    return {
-      "app-sidebar--minimized": props.minimized,
-    };
-  });
-
-  const colors = computed(() => useGlobalConfig().getGlobalConfig().colors);
+  const colors = useGlobalConfig().getGlobalConfig().colors;
 </script>
 
 <style lang="scss">

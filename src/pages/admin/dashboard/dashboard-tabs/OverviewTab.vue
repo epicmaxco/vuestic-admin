@@ -63,7 +63,7 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
   import VaIconVue from "../../../../components/icons/VaIconVue.vue";
   import VaIconFree from "../../../../components/icons/VaIconFree.vue";
   import VaIconFresh from "../../../../components/icons/VaIconFresh.vue";
@@ -71,17 +71,8 @@
   import VaIconRich from "../../../../components/icons/VaIconRich.vue";
   import VaIconCleanCode from "../../../../components/icons/VaIconCleanCode.vue";
 
-  export default {
-    name: "OverviewTab",
-    components: {
-      VaIconCleanCode,
-      VaIconRich,
-      VaIconResponsive,
-      VaIconFresh,
-      VaIconFree,
-      VaIconVue,
-    },
-  };
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
 </script>
 
 <style lang="scss">

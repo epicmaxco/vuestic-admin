@@ -22,34 +22,32 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+  import { computed, getCurrentInstance, ref } from "vue";
   import { useGlobalConfig } from "vuestic-ui";
+  import { useToast } from "vuestic-ui";
+  import { useI18n } from "vue-i18n";
+  import globalConfig from "../../../../services/vuestic-ui/global-config";
+  const { t } = useI18n();
+  const { getGlobalConfig } = useGlobalConfig();
 
-  export default {
-    name: "BankDetailsTab",
-    data() {
-      return {
-        form: {
-          bankName: "Raiffeisen Bank",
-          accountName: "GoalSaver",
-          sortCode: "6558912",
-          accountNumber: "000876432",
-          notes: "",
-        },
-      };
-    },
-    computed: {
-      theme() {
-        return useGlobalConfig().getGlobalConfig().colors;
-      },
-    },
-    methods: {
-      sendDetails() {
-        const color = this.theme.primary;
-        this.$vaToast.init({ message: `Saved!`, color });
-      },
-    },
-  };
+  useGlobalConfig();
+  console.log(getCurrentInstance()?.appContext);
+
+  const form = ref({
+    bankName: "Raiffeisen Bank",
+    accountName: "GoalSaver",
+    sortCode: "6558912",
+    accountNumber: "000876432",
+    notes: "",
+  });
+
+  const theme = computed(() => globalConfig.colors);
+
+  function sendDetails() {
+    const color = theme.value?.primary;
+    useToast().init({ message: `Saved!`, color });
+  }
 </script>
 
 <style lang="scss" scoped>
