@@ -149,6 +149,7 @@ export const COLOR_THEMES = [
 
 export function useTheme() {
   const themeNameRef = ref(THEME_NAMES.LIGHT);
+  const { mergeGlobalConfig } = useGlobalConfig();
 
   const setTheme = (themeName: keyof typeof THEME_NAMES) => {
     themeNameRef.value = themeName;
@@ -158,7 +159,6 @@ export function useTheme() {
       throw new Error("Theme not found");
     }
 
-    const { mergeGlobalConfig } = useGlobalConfig();
     mergeGlobalConfig({ colors: theme.colors, components: theme.components });
   };
 
