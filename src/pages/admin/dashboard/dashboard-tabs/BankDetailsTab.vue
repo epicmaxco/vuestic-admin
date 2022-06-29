@@ -1,10 +1,10 @@
 <template>
   <div class="pt-2">
+    <div class="title text-dark">
+      {{ t("dashboard.tabs.bankDetails.detailsFields") }}
+    </div>
     <div class="row">
       <div class="flex xs12 md6">
-        <div class="title text-dark mb-3">
-          {{ t("dashboard.tabs.bankDetails.detailsFields") }}
-        </div>
         <va-input v-model="form.bankName" :label="t('dashboard.tabs.bankDetails.bankName')" />
         <va-input v-model="form.accountName" :label="t('dashboard.tabs.bankDetails.accountName')" />
         <va-input v-model="form.sortCode" :label="t('dashboard.tabs.bankDetails.sortCode')" />

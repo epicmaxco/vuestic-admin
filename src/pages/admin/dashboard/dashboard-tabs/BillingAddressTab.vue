@@ -18,6 +18,7 @@
           :options="countriesList"
           :label="t('dashboard.tabs.billingAddress.country')"
           searchable
+          class="mb-3"
         />
         <va-select
           v-model="form.city"
@@ -25,6 +26,7 @@
           :options="allowedCitiesList"
           key-by="text"
           track-by="text"
+          class="mb-3"
         />
         <va-checkbox v-model="form.connection" :label="t('dashboard.tabs.billingAddress.infiniteConnections')" />
       </div>

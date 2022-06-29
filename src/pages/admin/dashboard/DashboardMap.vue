@@ -3,7 +3,7 @@
     <va-card-title>
       {{ t("dashboard.currentVisitors") }}
     </va-card-title>
-    <line-map class="dashboard-map" :map-data="lineMapData" style="height: 400px" />
+    <line-map class="dashboard-map" :map-data="lineMapData" />
   </va-card>
 </template>
 
