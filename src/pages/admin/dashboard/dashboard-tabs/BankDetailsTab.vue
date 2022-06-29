@@ -31,8 +31,7 @@
   const { t } = useI18n();
   const { getGlobalConfig } = useGlobalConfig();
 
-  useGlobalConfig();
-  console.log(getCurrentInstance()?.appContext);
+  console.log(getGlobalConfig());
 
   const form = ref({
     bankName: "Raiffeisen Bank",
