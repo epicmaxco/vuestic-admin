@@ -7,14 +7,14 @@
           <div class="flex xs12">
             <div class="row">
               <div class="flex xs12">
-                <va-chip class="mb-2 mr-2" color="primary">{{ t("chips.chips.primary") }}</va-chip>
-                <va-chip class="mb-2 mr-2" color="secondary">{{ t("chips.chips.secondary") }}</va-chip>
-                <va-chip class="mb-2 mr-2" color="success">{{ t("chips.chips.success") }}</va-chip>
-                <va-chip class="mb-2 mr-2" color="info">{{ t("chips.chips.info") }}</va-chip>
-                <va-chip class="mb-2 mr-2" color="danger">{{ t("chips.chips.danger") }}</va-chip>
-                <va-chip class="mb-2 mr-2" color="warning">{{ t("chips.chips.warning") }}</va-chip>
-                <va-chip class="mb-2 mr-2" color="gray">{{ t("chips.chips.gray") }}</va-chip>
-                <va-chip class="mb-2 mr-2" color="dark">{{ t("chips.chips.dark") }}</va-chip>
+                <va-chip shadow class="mb-2 mr-2" color="primary">{{ t("chips.chips.primary") }}</va-chip>
+                <va-chip shadow class="mb-2 mr-2" color="secondary">{{ t("chips.chips.secondary") }}</va-chip>
+                <va-chip shadow class="mb-2 mr-2" color="success">{{ t("chips.chips.success") }}</va-chip>
+                <va-chip shadow class="mb-2 mr-2" color="info">{{ t("chips.chips.info") }}</va-chip>
+                <va-chip shadow class="mb-2 mr-2" color="danger">{{ t("chips.chips.danger") }}</va-chip>
+                <va-chip shadow class="mb-2 mr-2" color="warning">{{ t("chips.chips.warning") }}</va-chip>
+                <va-chip shadow class="mb-2 mr-2" color="gray">{{ t("chips.chips.gray") }}</va-chip>
+                <va-chip shadow class="mb-2 mr-2" color="dark">{{ t("chips.chips.dark") }}</va-chip>
               </div>
             </div>
             <div class="row">

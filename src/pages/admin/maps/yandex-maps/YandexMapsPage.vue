@@ -4,15 +4,13 @@
       <div class="flex md12 xs12">
         <va-card class="yandex-maps-page__widget" title="Yandex Maps">
           <yandex-map
-            :use-object-manager:="true"
+            map-type="hybrid"
             :coords="[55.2, 38.8]"
             :zoom="8"
-            style="width: 100%; height: 65vh"
-            :behaviors="['default']"
             :controls="['trafficControl', 'zoomControl', 'geolocationControl', 'fullscreenControl', 'searchControl']"
-            :placemarks="placemarks"
-            map-type="hybrid"
+            style="width: 100%; height: 65vh"
           >
+            <yandex-map-marker v-for="marker in markers" :key="marker['marker-id']" v-bind="marker" />
           </yandex-map>
         </va-card>
       </div>
@@ -21,19 +19,19 @@
 </template>
 
 <script setup lang="ts">
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  import { yandexMap as YandexMap } from "vue-yandex-maps";
   import { ref } from "vue";
 
-  const placemarks = ref([
+  // No TS declarations are provided - ignoring the error
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  import { yandexMap as YandexMap, ymapMarker as YandexMapMarker } from "vue-yandex-maps";
+
+  const markers = ref([
     {
+      "marker-id": 0,
       coords: [54.8, 38.9],
-      properties: {},
-      options: {},
       clusterName: "1",
       balloonTemplate: '<div>"Your custom template"</div>',
-      callbacks: {},
     },
   ]);
 </script>
