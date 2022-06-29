@@ -10,20 +10,15 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+  import { computed } from "vue";
+  import { useGlobalConfig } from "vuestic-ui";
+  const { getGlobalConfig } = useGlobalConfig();
+
   import LineMap from "../../../../components/maps/LineMap.vue";
   import { getLineMapData } from "../../../../data/maps/LineMapData";
-  import { useGlobalConfig } from "vuestic-ui";
 
-  export default {
-    name: "LineMapsPage",
-    components: {
-      LineMap,
-    },
-    computed: {
-      lineMapData() {
-        return getLineMapData(useGlobalConfig().getGlobalConfig().colors);
-      },
-    },
-  };
+  const lineMapData = computed(() => {
+    return getLineMapData(getGlobalConfig().colors!);
+  });
 </script>
