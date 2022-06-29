@@ -10,19 +10,7 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
   import BubbleMap from "./BubbleMap.vue";
-  import BubbleMapData from "../../../../data/maps/BubbleMapData";
-
-  export default {
-    name: "BubbleMapsPage",
-    components: {
-      BubbleMap,
-    },
-    data() {
-      return {
-        bubbleMapData: BubbleMapData,
-      };
-    },
-  };
+  import bubbleMapData from "../../../../data/maps/BubbleMapData";
 </script>

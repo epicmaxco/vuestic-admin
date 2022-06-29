@@ -32,6 +32,7 @@
     "vuestic-ui": "0.0.0-experimental-2d25ec58-20220628"
   },
   "devDependencies": {
+    "@types/leaflet": "^1.7.11",
     "@types/node": "^17.0.25",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",

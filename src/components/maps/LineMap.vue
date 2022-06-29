@@ -3,16 +3,15 @@
 </template>
 
 <script setup lang="ts">
+  import { computed, onMounted, ref, watch } from "vue";
+  import { useGlobalConfig } from "vuestic-ui";
+
   import "amcharts3";
   import "amcharts3/amcharts/plugins/responsive/responsive.js";
   import "amcharts3/amcharts/serial.js";
   import "amcharts3/amcharts/themes/light";
   import "ammap3";
   import "ammap3/ammap/maps/js/worldLow";
-  import { useGlobalConfig } from "vuestic-ui";
-  import { computed, onMounted, ref, watch } from "vue";
-
-  console.log(window);
 
   const props = defineProps<{
     mapData: any;
@@ -28,11 +27,11 @@
   });
 
   const dataProvider = ref({
-    mapVar: AmCharts.maps.worldLow,
+    mapVar: ((window as any).AmCharts as any).maps.worldLow,
   });
 
   const map = computed(() => {
-    return new AmCharts.AmMap();
+    return new ((window as any).AmCharts as any).AmMap();
   });
 
   const theme = computed(() => {
@@ -40,23 +39,26 @@
   });
 
   function drawMap() {
-    /* global AmCharts */
     map.value.areasSettings = {
       unlistedAreasColor: "#eee",
       unlistedAreasAlpha: 1,
       outlineColor: "#fff",
       outlineThickness: 2,
     };
+
     map.value.imagesSettings = {
-      color: theme.value.info,
-      rollOverColor: theme.value.info,
-      selectedColor: theme.value.primary,
+      color: theme.value?.info,
+      rollOverColor: theme.value?.info,
+      selectedColor: theme.value?.primary,
     };
+
     map.value.linesSettings = {
-      color: theme.value.info,
+      color: theme.value?.info,
       alpha: 0.4,
     };
+
     addDataToMap();
+
     map.value.dataProvider = dataProvider.value;
     map.value.backgroundZoomsToTop = true;
     map.value.linesAboveImages = true;
