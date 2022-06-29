@@ -7,11 +7,12 @@
   import "amcharts3/amcharts/plugins/responsive/responsive.js";
   import "amcharts3/amcharts/serial.js";
   import "amcharts3/amcharts/themes/light";
-
   import "ammap3";
   import "ammap3/ammap/maps/js/worldLow";
   import { useGlobalConfig } from "vuestic-ui";
   import { computed, onMounted, ref, watch } from "vue";
+
+  console.log(window);
 
   const props = defineProps<{
     mapData: any;
