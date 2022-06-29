@@ -112,21 +112,16 @@
   </div>
 </template>
 
-<script>
-  import { useGlobalConfig } from "vuestic-ui";
+<script setup lang="ts">
+  import { ref, computed } from "vue";
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
 
-  export default {
-    name: "Sliders",
-    data() {
-      return {
-        value: 90,
-        value2: [20, 60],
-      };
-    },
-    computed: {
-      theme() {
-        return useGlobalConfig().getGlobalConfig().colors;
-      },
-    },
-  };
+  import { useGlobalConfig } from "vuestic-ui";
+  const { getGlobalConfig } = useGlobalConfig();
+
+  const theme = computed(() => getGlobalConfig().colors);
+
+  const value = ref(90);
+  const value2 = ref([20, 60]);
 </script>

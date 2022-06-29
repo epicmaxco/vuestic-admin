@@ -71,40 +71,31 @@
   </div>
 </template>
 
-<script>
-  export default {
-    components: {},
-    data() {
-      return {
-        icons: [
-          {
-            icon: "print",
-            text: "print",
-          },
-          {
-            icon: "star",
-            text: "star",
-          },
-        ],
-        colors: ["success", "info", "danger", "warning", "gray", "dark"],
-        popover: {
-          title: "Hey folks!",
-          message: "This tooltip is amazing:D",
-          icon: {
-            icon: "print",
-            text: "print",
-          },
-          color: "warning",
-        },
-      };
-    },
-  };
-</script>
+<script setup lang="ts">
+  import { ref } from "vue";
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
 
-<style lang="scss">
-  // .tooltips {
-  //   &__content {
-  //     @include va-flex-center();
-  //   }
-  // }
-</style>
+  const icons = ref([
+    {
+      icon: "print",
+      text: "print",
+    },
+    {
+      icon: "star",
+      text: "star",
+    },
+  ]);
+
+  const colors = ref(["success", "info", "danger", "warning", "gray", "dark"]);
+
+  const popover = ref({
+    title: "Hey folks!",
+    message: "This tooltip is amazing :D",
+    icon: {
+      icon: "print",
+      text: "print",
+    },
+    color: "warning",
+  });
+</script>

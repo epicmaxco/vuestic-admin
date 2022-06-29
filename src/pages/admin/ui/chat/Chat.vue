@@ -151,6 +151,7 @@
     }
 
     &__input {
+      flex-grow: 1;
       margin-bottom: 0;
     }
   }

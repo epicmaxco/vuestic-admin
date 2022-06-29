@@ -15,10 +15,12 @@
     computed: {
       sets() {
         const sets = import.meta.globEager("./sets/*.json", {});
-        return Object.values(sets).map((module) => {
-          this.addFilteredListsTo(module.default);
-          return module.default;
-        });
+        return Object.values(sets)
+          .reverse()
+          .map((module) => {
+            this.addFilteredListsTo(module.default);
+            return module.default;
+          });
       },
     },
     methods: {

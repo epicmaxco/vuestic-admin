@@ -53,13 +53,10 @@
   </div>
 </template>
 
-<script>
-  export default {
-    name: "Rating",
-    data() {
-      return {
-        value: 2,
-      };
-    },
-  };
+<script setup lang="ts">
+  import { ref } from "vue";
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
+
+  const value = ref(2);
 </script>
