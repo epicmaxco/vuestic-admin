@@ -7,55 +7,31 @@
   </va-card>
 </template>
 
-<script>
+<script setup lang="ts">
+  import { computed, onMounted, ref, watch } from "vue";
+  import { useGlobalConfig } from "vuestic-ui";
+  const { getGlobalConfig } = useGlobalConfig();
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
+
   import LineMap from "../../../components/maps/LineMap.vue";
   import { getLineMapData } from "../../../data/maps/LineMapData";
-  import { useGlobalConfig } from "vuestic-ui";
-  import { useI18n } from "vue-i18n";
 
-  export default {
-    name: "DashboardMap",
-    components: {
-      LineMap,
+  const lineMapData = ref<unknown>({ lineMapData: { cities: [], mainCity: "" } });
+
+  onMounted(() => {
+    lineMapData.value = getLineMapData(theme.value);
+  });
+
+  const theme = computed(() => getGlobalConfig().colors!);
+
+  watch(
+    theme,
+    () => {
+      lineMapData.value = getLineMapData(theme.value);
     },
-    setup() {
-      const { t } = useI18n();
-      return { t };
-    },
-    data() {
-      return {
-        lineMapData: { cities: [], mainCity: "" },
-      };
-    },
-    computed: {
-      theme() {
-        return useGlobalConfig().getGlobalConfig().colors;
-      },
-    },
-    watch: {
-      "themesOptions.activeThemeName": {
-        // hack for trigger change themes
-        handler() {
-          this.lineMapData = getLineMapData(this.theme);
-        },
-        immediate: true,
-      },
-    },
-    mounted() {
-      this.lineMapData = getLineMapData(this.theme);
-    },
-    methods: {
-      addAddress(address) {
-        this.lineMapData = {
-          ...this.lineMapData,
-          cities: this.lineMapData.cities.map((city) => ({
-            ...city,
-            color: city.title === address.city ? this.theme.success : city.color,
-          })),
-        };
-      },
-    },
-  };
+    { immediate: true },
+  );
 </script>
 
 <style>
