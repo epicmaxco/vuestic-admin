@@ -191,18 +191,13 @@
   </div>
 </template>
 
-<script>
-  import { useGlobalConfig } from "vuestic-ui";
+<script setup lang="ts">
+  import { computed } from "vue";
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
 
-  export default {
-    name: "Timelines",
-    data() {
-      return {};
-    },
-    computed: {
-      theme() {
-        return useGlobalConfig().getGlobalConfig().colors;
-      },
-    },
-  };
+  import { useGlobalConfig } from "vuestic-ui";
+  const { getGlobalConfig } = useGlobalConfig();
+
+  const theme = computed(() => getGlobalConfig().colors);
 </script>

@@ -67,35 +67,31 @@
   </div>
 </template>
 
-<script>
-  import ColorPresentation from "../colors/color-presentation/ColorPresentation";
+<script setup lang="ts">
+  import { ref, computed } from "vue";
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
 
-  export default {
-    name: "SpacingPlaygroud",
-    components: { ColorPresentation },
-    data() {
-      return {
-        directionList: ["a", "y", "x", "t", "r", "b", "l"],
-        sizesList: ["1", "2", "3", "4", "5", "auto"],
-        selectedMarginDirection: "y",
-        selectedPaddingDirection: "x",
-        selectedMarginSize: "3",
-        selectedPaddingSize: "3",
-      };
-    },
-    computed: {
-      selectedMarginClass() {
-        return this.selectedMarginDirection && this.selectedMarginSize
-          ? `m${this.selectedMarginDirection}-${this.selectedMarginSize}`
-          : "";
-      },
-      selectedPaddingClass() {
-        return this.selectedPaddingDirection && this.selectedPaddingSize
-          ? `p${this.selectedPaddingDirection}-${this.selectedPaddingSize}`
-          : "";
-      },
-    },
-  };
+  import ColorPresentation from "../colors/color-presentation/ColorPresentation.vue";
+
+  const directionList = ref(["a", "y", "x", "t", "r", "b", "l"]);
+  const sizesList = ref(["1", "2", "3", "4", "5", "auto"]);
+  const selectedMarginDirection = ref("y");
+  const selectedPaddingDirection = ref("x");
+  const selectedMarginSize = ref("3");
+  const selectedPaddingSize = ref("3");
+
+  const selectedMarginClass = computed(() => {
+    return selectedMarginDirection.value && selectedMarginSize.value
+      ? `m${selectedMarginDirection.value}-${selectedMarginSize.value}`
+      : "";
+  });
+
+  const selectedPaddingClass = computed(() => {
+    return selectedPaddingDirection.value && selectedPaddingSize.value
+      ? `p${selectedPaddingDirection.value}-${selectedPaddingSize.value}`
+      : "";
+  });
 </script>
 
 <style lang="scss">

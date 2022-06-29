@@ -99,23 +99,18 @@
   </div>
 </template>
 
-<script>
-  export default {
-    name: "Grid",
-    data() {
-      return {
-        tabTitles: ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"],
-        tabValue: 1,
-      };
-    },
-    computed: {
-      computedStyle() {
-        return {
-          backgroundColor: this.themes.primary,
-        };
-      },
-    },
-  };
+<script setup lang="ts">
+  import { ref, computed } from "vue";
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
+
+  import { useGlobalConfig } from "vuestic-ui";
+  const { getGlobalConfig } = useGlobalConfig();
+
+  const tabTitles = ref(["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"]);
+  const tabValue = ref(1);
+
+  const backgroundColor = computed(() => getGlobalConfig().colors?.primary);
 </script>
 
 <style lang="scss">

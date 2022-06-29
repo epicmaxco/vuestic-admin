@@ -192,27 +192,22 @@
   </va-content>
 </template>
 
-<script>
-  import { getColors } from "vuestic-ui";
+<script setup lang="ts">
+  import { ref, computed } from "vue";
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
 
-  export default {
-    name: "Typography",
-    data() {
-      return {
-        tableData: [
-          ["Id", "FooBar type", "Actions"],
-          ["1", "Zebra", "Delete"],
-          ["2", "Not Zebra", "Remove"],
-          ["3", "Very Zebra", "Eradicate"],
-        ],
-      };
-    },
-    computed: {
-      theme() {
-        return getColors();
-      },
-    },
-  };
+  import { useGlobalConfig } from "vuestic-ui";
+  const { getGlobalConfig } = useGlobalConfig();
+
+  const tableData = ref([
+    ["Id", "FooBar type", "Actions"],
+    ["1", "Zebra", "Delete"],
+    ["2", "Not Zebra", "Remove"],
+    ["3", "Very Zebra", "Eradicate"],
+  ]);
+
+  const theme = computed(() => getGlobalConfig().colors);
 </script>
 
 <style lang="scss" scoped>

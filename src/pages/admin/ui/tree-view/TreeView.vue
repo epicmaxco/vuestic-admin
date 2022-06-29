@@ -55,26 +55,13 @@
   </div>
 </template>
 
-<script>
-  import TreeViewBasicPreview from "./TreeViewBasicPreview";
-  import TreeViewIconsPreview from "./TreeViewIconsPreview";
-  import TreeViewSelectablePreview from "./TreeViewSelectablePreview";
-  import TreeViewAdvancedPreview from "./TreeViewAdvancedPreview";
-  import TreeViewEditablePreview from "./TreeViewEditablePreview";
+<script setup lang="ts">
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
 
-  export default {
-    name: "TreeView",
-    components: {
-      TreeViewEditablePreview,
-      TreeViewAdvancedPreview,
-      TreeViewSelectablePreview,
-      TreeViewIconsPreview,
-      TreeViewBasicPreview,
-    },
-    data() {
-      return {
-        treeViewData: {},
-      };
-    },
-  };
+  import TreeViewBasicPreview from "./TreeViewBasicPreview.vue";
+  import TreeViewIconsPreview from "./TreeViewIconsPreview.vue";
+  import TreeViewSelectablePreview from "./TreeViewSelectablePreview.vue";
+  import TreeViewAdvancedPreview from "./TreeViewAdvancedPreview.vue";
+  import TreeViewEditablePreview from "./TreeViewEditablePreview.vue";
 </script>

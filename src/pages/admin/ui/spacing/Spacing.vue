@@ -9,11 +9,9 @@
   </div>
 </template>
 
-<script>
-  import SpacingPlaygroud from "./SpacingPlaygroud";
+<script setup lang="ts">
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
 
-  export default {
-    name: "Spacing",
-    components: { SpacingPlaygroud },
-  };
+  import SpacingPlaygroud from "./SpacingPlaygroud.vue";
 </script>
