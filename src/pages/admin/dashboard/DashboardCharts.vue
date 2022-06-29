@@ -25,7 +25,7 @@
           </div>
         </va-card-title>
         <va-card-content v-if="donutChartData">
-          <va-chart class="chart chart--donut" :data="donutChartData" type="donut" />
+          <va-chart ref="donutChart" class="chart chart--donut" :data="donutChartData" type="donut" />
         </va-card-content>
       </va-card>
     </div>
@@ -38,64 +38,61 @@
 
 <script setup lang="ts">
   import { computed, ref, watch } from "vue";
-  import { getDonutChartData } from "../../../data/charts/DonutChartData";
-  import { getLineChartData } from "../../../data/charts/LineChartData";
-  import VaChart from "../../../components/va-charts/VaChart.vue";
-  import DashboardContributorsChart from "./DashboardContributorsList.vue";
   import { useGlobalConfig } from "vuestic-ui";
+  const { getGlobalConfig } = useGlobalConfig();
   import { useI18n } from "vue-i18n";
   const { t } = useI18n();
 
-  const lineChartData = ref(null);
-  const donutChartData = ref(null);
+  import { useLineChartData } from "../../../data/charts/LineChartData";
+  const { getLineChartData } = useLineChartData();
+  import { useDonutChartData } from "../../../data/charts/DonutChartData";
+  const { getDonutChartData } = useDonutChartData();
+
+  import VaChart from "../../../components/va-charts/VaChart.vue";
+  import DashboardContributorsChart from "./DashboardContributorsList.vue";
+
+  const lineChart = ref();
+  const donutChart = ref();
+
+  const lineChartData = ref<ReturnType<typeof getLineChartData>>();
+  const donutChartData = ref<ReturnType<typeof getDonutChartData>>();
+
   const lineChartFirstMonthIndex = ref(0);
 
-  const theme = ref(useGlobalConfig().getGlobalConfig().colors);
+  const theme = computed(() => getGlobalConfig().colors!);
+
   const donutChartDataURL = computed(() => {
-    return document.querySelector(".chart--donut canvas").toDataURL("image/png");
+    return (document.querySelector(".chart--donut canvas") as HTMLCanvasElement | undefined)?.toDataURL("image/png");
   });
 
   watch(theme, () => {
-    lineChartData.value = getLineChartData(theme.value);
-    donutChartData.value = getDonutChartData(theme.value);
+    if (theme.value) {
+      lineChartData.value = getLineChartData(theme.value, 0);
+      donutChartData.value = getDonutChartData(theme.value);
+    }
   });
 
-  // "themes.primary"() {
-  //   this.lineChartData = getLineChartData(this.theme);
-  //   this.donutChartData = getDonutChartData(this.theme);
-  // },
-  //
-  // "themes.info"() {
-  //   this.lineChartData = getLineChartData(this.theme);
-  //   this.donutChartData = getDonutChartData(this.theme);
-  // },
-  //
-  // "themes.danger"() {
-  //   this.donutChartData = getDonutChartData(this.theme);
-  // },
-
-  const lineChart = ref();
-
-  // onMounted(() => {
-  lineChartData.value = getLineChartData(theme.value);
+  lineChartData.value = getLineChartData(theme.value, lineChartFirstMonthIndex.value);
   donutChartData.value = getDonutChartData(theme.value);
-  // });
 
   function deleteSection() {
     lineChartFirstMonthIndex.value += 1;
-    lineChartData.value = getLineChartData(theme.value, lineChartFirstMonthIndex);
+
+    lineChartData.value = getLineChartData(theme.value, lineChartFirstMonthIndex.value);
     lineChart.value.refresh();
   }
 
   function printChart() {
     const win = window.open("", "Print", "height=600,width=800");
-    win.document.write(`<br><img src='${donutChartDataURL.value}'/>`);
+
+    win?.document.write(`<br><img src='${donutChartDataURL.value}'/>`);
+
     // TODO: find better solution how to remove timeout
     setTimeout(() => {
-      win.document.close();
-      win.focus();
-      win.print();
-      win.close();
+      win?.document.close();
+      win?.focus();
+      win?.print();
+      win?.close();
     }, 200);
   }
 </script>

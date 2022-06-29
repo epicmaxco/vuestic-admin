@@ -18,40 +18,31 @@
         </template>
       </va-tabs>
       <va-separator />
-      <component :is="activeTabName" @submit="submit" />
+      <component :is="tabs[activeTabName]" @submit="submit" />
     </va-card-content>
   </va-card>
 </template>
 
-<script>
-  import OverviewTab from "./dashboard-tabs/OverviewTab.vue";
-  import BillingAddressTab from "./dashboard-tabs/BillingAddressTab.vue";
-  import BankDetailsTab from "./dashboard-tabs/BankDetailsTab.vue";
+<script setup lang="ts">
+  import { defineAsyncComponent, ref } from "vue";
   import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
 
-  export default {
-    name: "DashboardTabs",
-    components: {
-      OverviewTab,
-      BillingAddressTab,
-      BankDetailsTab,
-    },
-    setup() {
-      const { t } = useI18n();
-      return { t };
-    },
-    data() {
-      return {
-        activeTabName: "BillingAddressTab",
-        tabs: ["OverviewTab", "BillingAddressTab", "BankDetailsTab"],
-      };
-    },
-    methods: {
-      submit(data) {
-        this.$emit("submit", data);
-      },
-    },
+  const tabs = {
+    OverviewTab: defineAsyncComponent(() => import("./dashboard-tabs/OverviewTab.vue")),
+    BillingAddressTab: defineAsyncComponent(() => import("./dashboard-tabs/BillingAddressTab.vue")),
+    BankDetailsTab: defineAsyncComponent(() => import("./dashboard-tabs/BankDetailsTab.vue")),
   };
+
+  const emit = defineEmits<{
+    (e: "submit", data: never): void;
+  }>();
+
+  const activeTabName = ref("BillingAddressTab");
+
+  function submit(data: never) {
+    emit("submit", data);
+  }
 </script>
 
 <style lang="scss">

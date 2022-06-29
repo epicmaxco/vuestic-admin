@@ -1,11 +1,14 @@
 <template>
   <div class="dashboard">
     <dashboard-charts />
+
     <dashboard-info-block />
+
     <div class="row row-equal">
       <div class="flex xs12 lg6">
         <dashboard-tabs @submit="addAddressToMap" />
       </div>
+
       <div class="flex xs12 lg6">
         <dashboard-map ref="dashboardMap" />
       </div>
@@ -13,26 +16,19 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+  import { ref } from "vue";
+
   import DashboardCharts from "./DashboardCharts.vue";
   import DashboardInfoBlock from "./DashboardInfoBlock.vue";
   import DashboardTabs from "./DashboardTabs.vue";
   import DashboardMap from "./DashboardMap.vue";
 
-  export default {
-    name: "Dashboard",
-    components: {
-      DashboardCharts,
-      DashboardInfoBlock,
-      DashboardTabs,
-      DashboardMap,
-    },
-    methods: {
-      addAddressToMap({ city, country }) {
-        this.$refs.dashboardMap.addAddress({ city: city.text, country });
-      },
-    },
-  };
+  const dashboardMap = ref();
+
+  function addAddressToMap({ city, country }: { city: { text: string }; country: string }) {
+    dashboardMap.value.addAddress({ city: city.text, country });
+  }
 </script>
 
 <style lang="scss">

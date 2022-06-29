@@ -91,66 +91,57 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+  import { computed, ref } from "vue";
   import { useGlobalConfig } from "vuestic-ui";
+  const { getGlobalConfig } = useGlobalConfig();
   import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
 
-  export default {
-    name: "DashboardInfoBlock",
-    setup() {
-      const { t } = useI18n();
-      return { t };
+  const infoTiles = ref([
+    {
+      color: "success",
+      value: "803",
+      text: "commits",
+      icon: "",
     },
-    data() {
-      return {
-        infoTiles: [
-          {
-            color: "success",
-            value: "803",
-            text: "commits",
-            icon: "",
-          },
-          {
-            color: "danger",
-            value: "57",
-            text: "components",
-            icon: "",
-          },
-          {
-            color: "info",
-            value: "5",
-            text: "teamMembers",
-            icon: "",
-          },
-        ],
-        modal: false,
-        currentImageIndex: 0,
-        images: [
-          "https://i.imgur.com/qSykGko.jpg",
-          "https://i.imgur.com/jYwT08D.png",
-          "https://i.imgur.com/9930myH.jpg",
-          "https://i.imgur.com/2JxhWD6.jpg",
-          "https://i.imgur.com/MpiOWbM.jpg",
-        ],
-      };
+    {
+      color: "danger",
+      value: "57",
+      text: "components",
+      icon: "",
     },
-    computed: {
-      theme() {
-        return useGlobalConfig().getGlobalConfig().colors || {};
-      },
+    {
+      color: "info",
+      value: "5",
+      text: "teamMembers",
+      icon: "",
     },
-    methods: {
-      showModal() {
-        this.modal = true;
-      },
-      showPrevImage() {
-        this.currentImageIndex = !this.currentImageIndex ? this.images.length - 1 : this.currentImageIndex - 1;
-      },
-      showNextImage() {
-        this.currentImageIndex = this.currentImageIndex === this.images.length - 1 ? 0 : this.currentImageIndex + 1;
-      },
-    },
-  };
+  ]);
+
+  const modal = ref(false);
+  const currentImageIndex = ref(0);
+  const images = ref([
+    "https://i.imgur.com/qSykGko.jpg",
+    "https://i.imgur.com/jYwT08D.png",
+    "https://i.imgur.com/9930myH.jpg",
+    "https://i.imgur.com/2JxhWD6.jpg",
+    "https://i.imgur.com/MpiOWbM.jpg",
+  ]);
+
+  const theme = computed(() => getGlobalConfig().colors);
+
+  function showModal() {
+    modal.value = true;
+  }
+
+  function showPrevImage() {
+    currentImageIndex.value = !currentImageIndex.value ? images.value.length - 1 : currentImageIndex.value - 1;
+  }
+
+  function showNextImage() {
+    currentImageIndex.value = currentImageIndex.value === images.value.length - 1 ? 0 : currentImageIndex.value + 1;
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -158,35 +149,9 @@
     .flex + .flex {
       border-left: 1px solid var(--va-background);
     }
-
-    // @include media-breakpoint-down(xs) {
-    //   p:not(.display-2) {
-    //     font-size: 0.875rem;
-    //   }
-    // }
   }
 
   .rich-theme-card-text {
     line-height: 24px;
-  }
-
-  .dashboard {
-    .va-card__header--over {
-      // @include media-breakpoint-up(md) {
-      //   padding-top: 0 !important;
-      // }
-    }
-
-    .va-card__image {
-      // @include media-breakpoint-up(md) {
-      //   padding-bottom: 0 !important;
-      // }
-    }
-    // .image-card {
-    //   position: relative;
-    //   .va-button {
-    //     position: absolute;
-    //   }
-    // }
   }
 </style>
