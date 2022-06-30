@@ -16,38 +16,38 @@
       <va-card class="flex xs12">
         <va-card-title> Frequently Asked Questions </va-card-title>
         <va-card-content>
-          <va-expand-group>
-            <va-expand class="mb-4" header="First question">
+          <va-accordion>
+            <va-collapse class="mb-4" header="First question">
               <div class="pa-3">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo veniam provident voluptates consequuntur
                 nostrum cumque possimus unde asperiores magnam rem.
               </div>
-            </va-expand>
-            <va-expand class="mb-4" header="Second question">
+            </va-collapse>
+            <va-collapse class="mb-4" header="Second question">
               <div class="pa-3">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo veniam provident voluptates consequuntur
                 nostrum cumque possimus unde asperiores magnam rem.
               </div>
-            </va-expand>
-            <va-expand class="mb-4" header="Third question">
+            </va-collapse>
+            <va-collapse class="mb-4" header="Third question">
               <div class="pa-3">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo veniam provident voluptates consequuntur
                 nostrum cumque possimus unde asperiores magnam rem.
               </div>
-            </va-expand>
-            <va-expand class="mb-4" header="Fourth question">
+            </va-collapse>
+            <va-collapse class="mb-4" header="Fourth question">
               <div class="pa-3">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo veniam provident voluptates consequuntur
                 nostrum cumque possimus unde asperiores magnam rem.
               </div>
-            </va-expand>
-            <va-expand class="mb-4" header="Fifth question">
+            </va-collapse>
+            <va-collapse class="mb-4" header="Fifth question">
               <div class="pa-3">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo veniam provident voluptates consequuntur
                 nostrum cumque possimus unde asperiores magnam rem.
               </div>
-            </va-expand>
-          </va-expand-group>
+            </va-collapse>
+          </va-accordion>
         </va-card-content>
       </va-card>
     </div>
