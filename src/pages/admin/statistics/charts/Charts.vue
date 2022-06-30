@@ -2,14 +2,16 @@
   <div v-if="isMounted" class="charts">
     <div class="row">
       <div class="flex md6 xs12">
-        <va-card class="chart-widget" :title="t('charts.verticalBarChart')">
+        <va-card class="chart-widget">
+          <va-card-title>{{ t("charts.verticalBarChart") }}</va-card-title>
           <va-card-content>
             <va-chart :data="verticalBarChartData" type="vertical-bar" />
           </va-card-content>
         </va-card>
       </div>
       <div class="flex md6 xs12">
-        <va-card class="chart-widget" :title="t('charts.horizontalBarChart')">
+        <va-card class="chart-widget">
+          <va-card-title>{{ t("charts.horizontalBarChart") }}</va-card-title>
           <va-card-content>
             <va-chart :data="horizontalBarChartData" type="horizontal-bar" />
           </va-card-content>
@@ -19,7 +21,8 @@
 
     <div class="row">
       <div class="flex md12 xs12">
-        <va-card class="chart-widget" :title="t('charts.lineChart')">
+        <va-card class="chart-widget">
+          <va-card-title>{{ t("charts.lineChart") }}</va-card-title>
           <va-card-content>
             <va-chart :data="lineChartData" type="line" />
           </va-card-content>
@@ -29,14 +32,16 @@
 
     <div class="row">
       <div class="flex md6 xs12">
-        <va-card class="chart-widget" :title="t('charts.pieChart')">
+        <va-card class="chart-widget">
+          <va-card-title>{{ t("charts.pieChart") }}</va-card-title>
           <va-card-content>
             <va-chart :data="pieChartData" type="pie" />
           </va-card-content>
         </va-card>
       </div>
       <div class="flex md6 xs12">
-        <va-card class="chart-widget" :title="t('charts.donutChart')">
+        <va-card class="chart-widget">
+          <va-card-title>{{ t("charts.donutChart") }}</va-card-title>
           <va-card-content>
             <va-chart :data="donutChartData" type="donut" />
           </va-card-content>
@@ -45,7 +50,8 @@
     </div>
     <div class="row">
       <div class="flex md12 xs12">
-        <va-card class="chart-widget" :title="t('charts.bubbleChart')">
+        <va-card class="chart-widget">
+          <va-card-title>{{ t("charts.bubbleChart") }}</va-card-title>
           <va-card-content>
             <va-chart :data="bubbleChartData" type="bubble" />
           </va-card-content>
