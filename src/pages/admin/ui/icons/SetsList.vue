@@ -1,46 +1,28 @@
 <template>
   <div class="row">
-    <div
-      class="va-card-wrapper flex lg6 xs12"
-      v-for="(set, index) in sets"
-      :key="index"
-    >
+    <div v-for="(set, index) in sets" :key="index" class="va-card-wrapper flex lg6 xs12">
       <va-card>
-        <router-link
-          :to="{ path: `icons/${set.href}` }"
-          append
-          style="color: inherit"
-        >
+        <router-link :to="{ path: `icons/${set.href}` }" append style="color: inherit">
           <div class="sets-list__set__content">
-            <div
-              class="sets-list__set__content__overlay flex-center pa-3 fill-height"
-            >
+            <div class="sets-list__set__content__overlay flex-center pa-3 fill-height">
               <va-button>
                 {{ set.name.toUpperCase() }}
               </va-button>
             </div>
 
             <template v-for="(filteredList, index) in set.filteredLists">
-              <div
-                class="row pa-3"
-                :key="index"
-                v-if="filteredList.length !== 2"
-              >
-                <div
-                  class="flex xs2 flex-center"
-                  v-for="(icon, index) in filteredList"
-                  :key="index"
-                >
+              <div v-if="filteredList.length !== 2" :key="index" class="row pa-3">
+                <div v-for="(icon, index) in filteredList" :key="index" class="flex xs2 flex-center">
                   <div class="sets-list__icon pa-3 flex-center vuestic-icon">
                     <va-icon :name="iconClass(set, icon)"></va-icon>
                   </div>
                 </div>
               </div>
               <div
+                v-if="filteredList.length === 2"
+                :key="index"
                 class="row pa-3"
                 :class="index === 1 ? 'sets-list__set__content--middle' : ''"
-                :key="index"
-                v-if="filteredList.length === 2"
               >
                 <div class="flex xs2 flex-center">
                   <div class="sets-list__icon pa-3 flex-center vuestic-icon">
@@ -62,40 +44,39 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    sets: { type: Array, required: true },
-  },
-  methods: {
-    iconClass(set, icon) {
-      return `${set.prefix}-${icon}`;
-    },
-  },
-};
+<script setup lang="ts">
+  import { IconSet } from "./types";
+
+  defineProps<{
+    sets: IconSet[];
+  }>();
+
+  function iconClass(set: IconSet, icon: string) {
+    return `${set.prefix}-${icon}`;
+  }
 </script>
 
 <style lang="scss">
-.sets-list {
-  &__icon {
-    height: 1.5rem;
-    max-width: 1.5rem;
-  }
+  .sets-list {
+    &__icon {
+      height: 1.5rem;
+      max-width: 1.5rem;
+    }
 
-  &__set {
-    position: relative;
-
-    &__content {
+    &__set {
       position: relative;
 
-      &__overlay {
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        position: absolute;
-        z-index: 2;
+      &__content {
+        position: relative;
+
+        &__overlay {
+          padding: 0;
+          margin: 0;
+          width: 100%;
+          position: absolute;
+          z-index: 2;
+        }
       }
     }
   }
-}
 </style>

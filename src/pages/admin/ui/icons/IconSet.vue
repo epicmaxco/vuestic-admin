@@ -63,84 +63,77 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
   import { useGlobalConfig } from "vuestic-ui";
+  const { getGlobalConfig } = useGlobalConfig();
+  import { useI18n } from "vue-i18n";
+  import { computed, ref } from "vue";
+  import { IconSet } from "./types";
+  const { t } = useI18n();
 
-  export default {
-    name: "IconSet",
-    props: {
-      name: {
-        type: String,
-      },
+  const props = defineProps<{
+    name: string;
+    sets: IconSet[];
+  }>();
 
-      sets: {
-        type: Array,
-      },
-    },
-    data() {
-      return {
-        search: "",
-        iconSize: 30,
-        slider: {
-          formatter: (v) => `${v}px`,
-          min: 20,
-          max: 40,
-        },
-      };
-    },
-    computed: {
-      theme() {
-        return useGlobalConfig().getGlobalConfig().colors;
-      },
-      iconSet() {
-        for (const set of this.sets) {
-          if (set.href === this.name) {
-            return set;
-          }
+  const search = ref("");
+  const iconSize = ref(30);
+  const slider = ref({
+    formatter: (v: never) => `${v}px`,
+    min: 20,
+    max: 40,
+  });
+
+  const theme = computed(() => getGlobalConfig().colors!);
+
+  const iconSet = computed((): IconSet => {
+    for (const set of props.sets) {
+      if (set.href === props.name) {
+        return set;
+      }
+    }
+
+    return { name: "", href: "", prefix: "", lists: [], filteredLists: [] };
+  });
+
+  const filteredLists = computed(() => {
+    if (!search.value) {
+      // If nothing is searched - we return all sets
+      return iconSet.value.lists;
+    }
+
+    const foundIcons: string[] = [];
+    iconSet.value.lists.forEach((list) => {
+      list.icons.forEach((icon) => {
+        if (!icon.toUpperCase().includes(search.value.toUpperCase())) {
+          return;
         }
-
-        return {};
-      },
-      filteredLists() {
-        if (!this.search) {
-          // If nothing is searched - we return all sets
-          return this.iconSet.lists;
+        // Same icon could be included in different sets.
+        if (foundIcons.includes(icon)) {
+          return;
         }
+        foundIcons.push(icon);
+      });
+    });
 
-        const foundIcons = [];
-        this.iconSet.lists.forEach((list) => {
-          list.icons.forEach((icon) => {
-            if (!icon.toUpperCase().includes(this.search.toUpperCase())) {
-              return;
-            }
-            // Same icon could be included in different sets.
-            if (foundIcons.includes(icon)) {
-              return;
-            }
-            foundIcons.push(icon);
-          });
-        });
+    // We return all found icons as a single set.
+    return [
+      {
+        name: "Found Icons",
+        icons: foundIcons,
+      },
+    ];
+  });
 
-        // We return all found icons as a single set.
-        return [
-          {
-            name: "Found Icons",
-            icons: foundIcons,
-          },
-        ];
-      },
-    },
-    methods: {
-      iconClass(icon) {
-        return this.iconSet.prefix === "material-icons"
-          ? this.iconSet.prefix
-          : `${this.iconSet.prefix} ${this.iconSet.prefix}-${icon}`;
-      },
-      iconData(icon) {
-        return this.iconSet.prefix === "material-icons" ? icon : "";
-      },
-    },
-  };
+  function iconClass(icon: string) {
+    return iconSet.value.prefix === "material-icons"
+      ? iconSet.value.prefix
+      : `${iconSet.value.prefix} ${iconSet.value.prefix}-${icon}`;
+  }
+
+  function iconData(icon: string) {
+    return iconSet.value.prefix === "material-icons" ? icon : "";
+  }
 </script>
 
 <style lang="scss">
