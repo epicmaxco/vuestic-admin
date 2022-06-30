@@ -114,7 +114,7 @@ $ yarn build --report
 [卡片](https://vuestic.epicmax.co/#/admin/ui/cards) |
 [等级](https://vuestic.epicmax.co/#/admin/ui/rating) |
 [滑动器](https://vuestic.epicmax.co/#/admin/ui/sliders) |
-[聊天系统](https://vuestic.epicmax.co/#/admin/ui/chatPage) |
+[聊天系统](https://vuestic.epicmax.co/#/admin/ui/chat) |
 [地图(MapLibre, Yandex, Leaflet, amMap)](https://vuestic.epicmax.co/#/admin/maps/maplibre-maps) |
 [登录/注册页模板](https://vuestic.epicmax.co/#/auth/login) |
 [404 页模板](https://vuestic.epicmax.co/#/admin/pages/404-pages) |

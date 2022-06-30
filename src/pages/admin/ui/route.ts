@@ -156,7 +156,7 @@ export default {
     },
     {
       name: "chat",
-      path: "chatPage",
+      path: "chat",
       component: () => import("../../../pages/admin/ui/chat/ChatPage.vue"),
       meta: {
         wikiLink: "https://github.com/epicmaxco/vuestic-admin/wiki/Chat",

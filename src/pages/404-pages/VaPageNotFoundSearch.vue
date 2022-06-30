@@ -13,9 +13,9 @@
         :key="index"
         class="va-page-not-found-search__list flex xs6 md3 lg1 mb-2"
       >
-        {{
-          category.categoryName
-        }}
+        <li class="mb-2">
+          {{ category.categoryName }}
+        </li>
         <li v-for="(item, index) in category.items" :key="index" class="va-page-not-found-search__list-element">
           <router-link :to="{ path: item.itemLink }" class="link">
             {{ item.itemName }}

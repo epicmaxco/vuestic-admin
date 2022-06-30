@@ -124,7 +124,7 @@ $ yarn build --report
 [cards](https://vuestic.epicmax.co/admin/ui/cards) |
 [ratings](https://vuestic.epicmax.co/admin/ui/rating) |
 [sliders](https://vuestic.epicmax.co/admin/ui/sliders) |
-[chat](https://vuestic.epicmax.co/admin/ui/chatPage) |
+[chat](https://vuestic.epicmax.co/admin/ui/chat) |
 [maps (MapLibre, Yandex, Leaflet, amMap)](https://vuestic.epicmax.co/admin/maps/maplibre-maps)
 |
 [login/signup pages templates](https://vuestic.epicmax.co/auth/login) |

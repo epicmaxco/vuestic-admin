@@ -114,7 +114,7 @@ $ yarn build --report
 [カード ](https://vuestic.epicmax.co/#/admin/ui/cards) |
 [レーティング](https://vuestic.epicmax.co/#/admin/ui/rating) |
 [スライダー](https://vuestic.epicmax.co/#/admin/ui/sliders) |
-[チャット](https://vuestic.epicmax.co/#/admin/ui/chatPage) |
+[チャット](https://vuestic.epicmax.co/#/admin/ui/chat) |
 [マップ (MapLibre, Yandex, Leaflet, amMap)](https://vuestic.epicmax.co/#/admin/maps/maplibre-maps) |
 [ログイン/登録ページテンプレート](https://vuestic.epicmax.co/#/auth/login) |
 [404 ページテンプレート](https://vuestic.epicmax.co/#/admin/pages/404-pages) |
