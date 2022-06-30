@@ -26,40 +26,30 @@
   </va-page-not-found>
 </template>
 
-<script>
+<script setup lang="ts">
   import CategoriesConfig from "./CategoriesConfig";
   import VaPageNotFound from "./VaPageNotFound.vue";
+  import { computed, ref } from "vue";
 
-  export default {
-    name: "VaPageNotFoundSearch",
-    components: {
-      VaPageNotFound,
-    },
-    data() {
-      return {
-        categories: CategoriesConfig,
-        inputValue: "",
-      };
-    },
-    computed: {
-      filterItems() {
-        if (this.inputValue.length >= 1) {
-          return this.categories
-            .map((category) => {
-              return {
-                categoryName: category.categoryName,
-                items: category.items.filter(
-                  (item) => item.itemName.toUpperCase().search(this.inputValue.toUpperCase()) !== -1,
-                ),
-              };
-            })
-            .filter((category) => category.items.length >= 1);
-        } else {
-          return this.categories;
-        }
-      },
-    },
-  };
+  const categories = ref(CategoriesConfig);
+  const inputValue = ref("");
+
+  const filterItems = computed(() => {
+    if (inputValue.value.length >= 1) {
+      return categories.value
+        .map((category) => {
+          return {
+            categoryName: category.categoryName,
+            items: category.items.filter(
+              (item) => item.itemName.toUpperCase().search(inputValue.value.toUpperCase()) !== -1,
+            ),
+          };
+        })
+        .filter((category) => category.items.length >= 1);
+    } else {
+      return categories.value;
+    }
+  });
 </script>
 
 <style lang="scss">

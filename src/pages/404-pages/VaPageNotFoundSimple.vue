@@ -7,17 +7,9 @@
   </va-page-not-found>
 </template>
 
-<script>
+<script setup lang="ts">
   import VuesticLogo from "../../components/VuesticLogo.vue";
   import VaPageNotFound from "./VaPageNotFound.vue";
-
-  export default {
-    name: "VuesticPageNotFoundSimple",
-    components: {
-      VaPageNotFound,
-      VuesticLogo,
-    },
-  };
 </script>
 
 <style lang="scss">

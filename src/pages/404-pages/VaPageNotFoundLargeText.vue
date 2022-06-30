@@ -6,15 +6,8 @@
   </va-page-not-found>
 </template>
 
-<script>
+<script setup lang="ts">
   import VaPageNotFound from "./VaPageNotFound.vue";
-
-  export default {
-    name: "VaPageNotFoundLargeText",
-    components: {
-      VaPageNotFound,
-    },
-  };
 </script>
 
 <style lang="scss">
