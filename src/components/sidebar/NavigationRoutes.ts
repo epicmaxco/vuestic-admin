@@ -184,8 +184,8 @@ export default {
       disabled: true,
       children: [
         {
-          name: "google-maps",
-          displayName: "menu.google-maps",
+          name: "maplibre-maps",
+          displayName: "menu.maplibre-maps",
         },
         {
           name: "yandex-maps",

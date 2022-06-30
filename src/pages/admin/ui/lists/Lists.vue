@@ -164,13 +164,13 @@
               {{ t("lists.routerSupport") }}
             </va-list-label>
 
-            <va-list-item :to="{ name: 'google-maps' }">
+            <va-list-item :to="{ name: 'maplibre-maps' }">
               <va-list-item-section icon>
                 <va-icon name="google" color="red" />
               </va-list-item-section>
 
               <va-list-item-section>
-                <va-list-item-label>Google Maps</va-list-item-label>
+                <va-list-item-label>MapLibre Maps</va-list-item-label>
               </va-list-item-section>
             </va-list-item>
 

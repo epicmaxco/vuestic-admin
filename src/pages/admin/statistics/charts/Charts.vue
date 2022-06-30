@@ -57,10 +57,12 @@
 
 <script>
   import VaChart from "../../../../components/va-charts/VaChart.vue";
-  import { getLineChartData } from "../../../../data/charts/LineChartData";
+  import { useLineChartData } from "../../../../data/charts/LineChartData";
+  const { getLineChartData } = useLineChartData();
   import { getBubbleChartData } from "../../../../data/charts/BubbleChartData";
   import { getPieChartData } from "../../../../data/charts/PieChartData";
-  import { getDonutChartData } from "../../../../data/charts/DonutChartData";
+  import { useDonutChartData } from "../../../../data/charts/DonutChartData";
+  const { getDonutChartData } = useDonutChartData();
   import { getVerticalBarChartData } from "../../../../data/charts/VerticalBarChartData";
   import { getHorizontalBarChartData } from "../../../../data/charts/HorizontalBarChartData";
   import { useGlobalConfig } from "vuestic-ui";

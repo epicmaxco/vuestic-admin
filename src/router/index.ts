@@ -74,9 +74,9 @@ const routes: Array<RouteRecordRaw> = [
         component: RouteViewComponent,
         children: [
           {
-            name: "google-maps",
-            path: "google-maps",
-            component: () => import("../pages/admin/maps/google-maps/GoogleMapsPage.vue"),
+            name: "maplibre-maps",
+            path: "maplibre-maps",
+            component: () => import("../pages/admin/maps/maplibre-maps/MapLibreMapsPage.vue"),
             meta: {
               wikiLink: "https://github.com/epicmaxco/vuestic-admin/wiki/Maps",
             },

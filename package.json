@@ -15,7 +15,7 @@
     "epic-spinners": "^1.1.0",
     "flag-icon-css": "^4.1.7",
     "font-awesome": "^4.7.0",
-    "google-maps": "^4.3.3",
+    "maplibre-gl": "^2.1.9",
     "ionicons": "^4.6.3",
     "leaflet": "^1.7.1",
     "leaflet-map": "^0.2.1",

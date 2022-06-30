@@ -12,15 +12,14 @@
 Based on <a href="https://github.com/epicmaxco/vuestic-ui">Vuestic UI</a> library.
 </p>
 
-
 <p align="center">
   <a href="https://vuestic.epicmax.co/admin/dashboard?theme=light"> Light theme demo </a> | <a href="https://vuestic.epicmax.co/admin/dashboard?theme=semi-dark">Semi-dark theme demo </a> | <a href="https://vuestic.epicmax.co/admin/dashboard?theme=original">Original theme demo </a> | <a href="https://vuestic.dev"> Vuestic UI documentation </a>
 </p>
 
 > Vuestic Admin is built with Vuestic UI. See our
-<a href="https://github.com/epicmaxco/vuestic-ui/issues">issues</a>,
-<a href="https://vuestic.dev/en/contribution/guide">contributing guide</a> and join discussions on our
-<a href="https://discord.gg/jTKTjj2weV">discord server</a> to help us improve Vuestic Admin & Vuestic UI experience.
+> <a href="https://github.com/epicmaxco/vuestic-ui/issues">issues</a>,
+> <a href="https://vuestic.dev/en/contribution/guide">contributing guide</a> and join discussions on our
+> <a href="https://discord.gg/jTKTjj2weV">discord server</a> to help us improve Vuestic Admin & Vuestic UI experience.
 
 <p align="center">
   <a href="https://vuestic.epicmax.co" target="_blank">
@@ -48,8 +47,8 @@ community [discord server](https://discord.gg/jTKTjj2weV)
 
 First of all, make sure you have all prerequisites installed:
 
-* [Node.js](https://nodejs.org/en/) ( >=14.*)
-* [npm](https://www.npmjs.com/get-npm) version 3+ (
+- [Node.js](https://nodejs.org/en/) ( >=14.\*)
+- [npm](https://www.npmjs.com/get-npm) version 3+ (
   or [yarn](https://yarnpkg.com/lang/en/docs/install) version 1.16+)
   and [Git](https://git-scm.com).
 
@@ -126,7 +125,7 @@ $ yarn build --report
 [ratings](https://vuestic.epicmax.co/admin/ui/rating) |
 [sliders](https://vuestic.epicmax.co/admin/ui/sliders) |
 [chat](https://vuestic.epicmax.co/admin/ui/chatPage) |
-[maps (Google, Yandex, Leaflet, amMap)](https://vuestic.epicmax.co/admin/maps/google-maps)
+[maps (MapLibre, Yandex, Leaflet, amMap)](https://vuestic.epicmax.co/admin/maps/maplibre-maps)
 |
 [login/signup pages templates](https://vuestic.epicmax.co/auth/login) |
 [404 pages templates](https://vuestic.epicmax.co/admin/pages/404-pages) |
@@ -137,8 +136,8 @@ $ yarn build --report
 We design Vuestic Admin to support the latest modern web browsers.
 
 | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" /><br>Edge | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" /><br>Firefox | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" /><br>Chrome | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" /><br>Safari | <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" /><br>Opera |
-| --- | --- | --- | --- | --- |
-| Edge | last 2 versions  | last 2 versions | last 2 versions | last 2 versions |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Edge                                                                                                                                             | last 2 versions                                                                                                                                              | last 2 versions                                                                                                                                          | last 2 versions                                                                                                                                          | last 2 versions                                                                                                                                      |
 
 ### Contributing
 
@@ -154,6 +153,7 @@ contribution guides</a>
 and [discord server](https://discord.gg/jTKTjj2weV)
 
 ## Can I hire you guys?
+
 Yes! Say hi: [hello@epicmax.co](mailto:hello@epicmax.co) </br>
 We will be happy to work with you! Other [work we’ve done](https://epicmax.co)
 
