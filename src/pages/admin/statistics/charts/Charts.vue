@@ -58,6 +58,8 @@
 <script setup lang="ts">
   import { computed, onMounted, ref } from "vue";
 
+  import VaChart from "../../../../components/va-charts/VaChart.vue";
+
   import { useLineChartData } from "../../../../data/charts/LineChartData";
   const { getLineChartData } = useLineChartData();
   import { useBubbleChartData } from "../../../../data/charts/BubbleChartData";
@@ -74,8 +76,6 @@
   const { getGlobalConfig } = useGlobalConfig();
   import { useI18n } from "vue-i18n";
   const { t } = useI18n();
-
-  import VaChart from "../../../../components/va-charts/VaChart.vue";
 
   const bubbleChartData = ref<ReturnType<typeof getBubbleChartData>>(null);
   const lineChartData = ref<ReturnType<typeof getLineChartData>>(null);

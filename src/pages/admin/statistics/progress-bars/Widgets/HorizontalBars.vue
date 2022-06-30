@@ -1,5 +1,8 @@
 <template>
-  <va-card class="horizontal-bars" :title="t('progressBars.horizontal')">
+  <va-card class="horizontal-bars">
+    <va-card-title>
+      {{ t("progressBars.horizontal") }}
+    </va-card-title>
     <va-card-content class="row">
       <div class="flex md4 xs12">
         <va-progress-bar :model-value="value / 3" />

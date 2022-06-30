@@ -450,6 +450,7 @@
   "progressBars": {
     "circle": "Circle",
     "horizontal": "Horizontal",
+    "state": "State",
     "colors": "Colors"
   },
   "lists": {

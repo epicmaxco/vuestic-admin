@@ -207,6 +207,7 @@
   "progressBars": {
     "circle": "Circulo",
     "horizontal": "Horizontal",
+    "state": "Сondición",
     "colors": "Colores"
   },
   "lists": {

@@ -23,19 +23,12 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
+
   import HorizontalBars from "./Widgets/HorizontalBars.vue";
   import CircleBars from "./Widgets/CircleBars.vue";
   import BarsState from "./Widgets/BarsState.vue";
   import ColorfulBars from "./Widgets/ColorfulBars.vue";
-  import { useI18n } from "vue-i18n";
-
-  export default {
-    name: "ProgressBars",
-    components: { HorizontalBars, CircleBars, BarsState, ColorfulBars },
-    setup() {
-      const { t } = useI18n();
-      return { t };
-    },
-  };
 </script>

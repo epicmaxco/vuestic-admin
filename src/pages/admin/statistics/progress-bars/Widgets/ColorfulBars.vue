@@ -1,5 +1,6 @@
 <template>
-  <va-card class="colorful-bars progress-bar-widget" :title="t('progressBars.colors')">
+  <va-card class="colorful-bars progress-bar-widget">
+    <va-card-title> {{ t("progressBars.colors") }} </va-card-title>
     <va-card-content class="row">
       <div v-for="n in 6" :key="`pb-${n}`" class="flex md4 xs12">
         <va-progress-bar :model-value="(value * n) / 6" :color="colors[n - 1]">

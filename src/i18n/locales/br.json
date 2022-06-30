@@ -199,6 +199,7 @@
   "progressBars": {
     "circle": "Círculo",
     "horizontal": "Horizontal",
+    "state": "Doença",
     "colors": "Cores"
   },
   "lists": {

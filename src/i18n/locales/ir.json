@@ -408,6 +408,7 @@
   "progressBars": {
     "circle": "دایره",
     "horizontal": "افقی",
+    "state": "State",
     "colors": "رنگ ها"
   },
   "lists": {
