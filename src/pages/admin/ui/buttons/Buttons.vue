@@ -245,27 +245,18 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+  import { ref } from "vue";
   import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
 
-  export default {
-    name: "Buttons",
-    setup() {
-      const { t } = useI18n();
-      return { t };
-    },
-    data() {
-      return {
-        options: [
-          { label: "One", value: "one" },
-          { label: "Two", value: "two" },
-          { label: "Three", value: "three" },
-        ],
-        model: "three",
-        activePage: 4,
-      };
-    },
-  };
+  const options = ref([
+    { label: "One", value: "one" },
+    { label: "Two", value: "two" },
+    { label: "Three", value: "three" },
+  ]);
+  const model = ref("three");
+  const activePage = ref(4);
 </script>
 
 <style lang="scss">

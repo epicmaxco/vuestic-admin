@@ -112,32 +112,21 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+  import { ref } from "vue";
   import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
 
-  export default {
-    name: "Cards",
-    setup() {
-      const { t } = useI18n();
-      return { t };
-    },
-    data() {
-      return {
-        listLoops: 1,
-        counter: 1,
-        isLoading: false,
-      };
-    },
-    methods: {
-      addCards() {
-        this.isLoading = true;
-        setTimeout(() => {
-          this.isLoading = false;
-          ++this.listLoops;
-        }, 1000);
-      },
-    },
-  };
+  const listLoops = ref(1);
+  const isLoading = ref(false);
+
+  function addCards() {
+    isLoading.value = true;
+    setTimeout(() => {
+      isLoading.value = false;
+      ++listLoops.value;
+    }, 1000);
+  }
 </script>
 
 <style lang="scss">

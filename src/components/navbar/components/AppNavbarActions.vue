@@ -11,46 +11,38 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
   import LanguageDropdown from "./dropdowns/LanguageDropdown.vue";
   import ProfileDropdown from "./dropdowns/ProfileDropdown.vue";
   import NotificationDropdown from "./dropdowns/NotificationDropdown.vue";
   import MessageDropdown from "./dropdowns/MessageDropdown.vue";
   import ColorDropdown from "./dropdowns/ColorDropdown.vue";
+  import { computed } from "vue";
 
-  export default {
-    name: "AppNavbarActions",
+  const props = withDefaults(
+    defineProps<{
+      userName?: string;
+      isTopBar?: boolean;
+    }>(),
+    {
+      userName: "",
+      isTopBar: false,
+    },
+  );
 
-    components: {
-      ColorDropdown,
-      MessageDropdown,
-      NotificationDropdown,
-      LanguageDropdown,
-      ProfileDropdown,
+  const emit = defineEmits<{
+    (e: "update:isTopBar", isTopBar: boolean): void;
+  }>();
+
+  const isTopBarProxy = computed({
+    get() {
+      return props.isTopBar;
     },
 
-    props: {
-      userName: {
-        type: String,
-        default: "",
-      },
-      isTopBar: {
-        type: Boolean,
-        default: false,
-      },
+    set(isTopBar: boolean) {
+      emit("update:isTopBar", isTopBar);
     },
-
-    computed: {
-      isTopBarProxy: {
-        get() {
-          return this.isTopBar;
-        },
-        set(isTopBar) {
-          this.$emit("update:isTopBar", isTopBar);
-        },
-      },
-    },
-  };
+  });
 </script>
 
 <style lang="scss">

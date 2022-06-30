@@ -6,12 +6,6 @@
   </div>
 </template>
 
-<script>
-import VaIconVuestic from './VaIconVuestic.vue'
-
-export default {
-  components: {
-    VaIconVuestic,
-  },
-}
+<script setup lang="ts">
+  import VaIconVuestic from "./VaIconVuestic.vue";
 </script>

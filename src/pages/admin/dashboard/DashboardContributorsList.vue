@@ -22,71 +22,62 @@
   </va-card>
 </template>
 
-<script>
-  import axios from "axios";
+<script setup lang="ts">
+  import { computed, onMounted, ref } from "vue";
   import { useGlobalConfig } from "vuestic-ui";
-
+  const { getGlobalConfig } = useGlobalConfig();
   import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
+  import axios from "axios";
 
-  export default {
-    name: "DashboardContributorsList",
-    setup() {
-      const { t } = useI18n();
-      return { t };
-    },
-    data() {
-      return {
-        contributors: [],
-        loading: false,
-        progressMax: 392,
-        visibleList: [],
-        step: 5,
-        page: 0,
-      };
-    },
-    computed: {
-      theme() {
-        return useGlobalConfig().getGlobalConfig().colors;
-      },
-    },
-    mounted() {
-      this.loadContributorsList();
-    },
-    methods: {
-      async loadContributorsList() {
-        this.loading = true;
-        const { data } = await axios.get("https://api.github.com/repos/epicmaxco/vuestic-admin/contributors");
-        this.contributors = data;
-        this.progressMax = Math.max(...this.contributors.map(({ contributions }) => contributions));
-        this.showNext();
-        this.loading = false;
-      },
-      getPercent(val) {
-        return (val / this.progressMax) * 100;
-      },
-      showNext() {
-        this.visibleList = this.contributors.slice(this.page * this.step, this.page * this.step + this.step);
-        this.page += 1;
+  const contributors = ref([]);
+  const loading = ref(false);
+  const progressMax = ref(392);
+  const visibleList = ref([]);
+  const step = ref(5);
+  const page = ref(0);
 
-        const maxPages = (this.contributors.length - 1) / this.step;
+  const theme = computed(() => getGlobalConfig().colors!);
 
-        if (this.page > maxPages) {
-          this.page = 0;
-        }
-      },
-      getProgressBarColor(idx) {
-        const themeColors = ["primary", "success", "info", "danger", "warning"];
+  onMounted(() => {
+    loadContributorsList();
+  });
 
-        if (idx < themeColors.length) {
-          return themeColors[idx];
-        }
+  async function loadContributorsList() {
+    loading.value = true;
+    const { data } = await axios.get("https://api.github.com/repos/epicmaxco/vuestic-admin/contributors");
+    contributors.value = data;
+    progressMax.value = Math.max(...contributors.value.map(({ contributions }) => contributions));
+    showNext();
+    loading.value = false;
+  }
 
-        // Get random color if idx out of colors array
-        const keys = Object.keys(themeColors);
-        return themeColors[keys[(keys.length * Math.random()) << 0]];
-      },
-    },
-  };
+  function getPercent(val: number) {
+    return (val / progressMax.value) * 100;
+  }
+
+  function showNext() {
+    visibleList.value = contributors.value.slice(page.value * step.value, page.value * step.value + step.value);
+    page.value += 1;
+
+    const maxPages = (contributors.value.length - 1) / step.value;
+
+    if (page.value > maxPages) {
+      page.value = 0;
+    }
+  }
+
+  function getProgressBarColor(idx: number) {
+    const themeColors = ["primary", "success", "info", "danger", "warning"];
+
+    if (idx < themeColors.length) {
+      return themeColors[idx];
+    }
+
+    // Get random color if idx out of colors array
+    const keys = Object.keys(themeColors);
+    return themeColors[keys[(keys.length * Math.random()) << 0]];
+  }
 </script>
 
 <style scoped lang="scss">

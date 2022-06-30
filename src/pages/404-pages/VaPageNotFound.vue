@@ -19,45 +19,35 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
   import MadeByComponent from "./MadeByComponent.vue";
   import Wallpaper from "./Wallpaper.vue";
   import { useGlobalConfig } from "vuestic-ui";
+  const { getGlobalConfig } = useGlobalConfig();
   import { useI18n } from "vue-i18n";
+  import { computed } from "vue";
+  const { t } = useI18n();
 
-  export default {
-    name: "VaPageNotFound",
-    // mixins: [ColorThemeMixin],
-    // inject: ['contextConfig'],
-    components: {
-      MadeByComponent,
-      Wallpaper,
-    },
-    props: { withoutButton: Boolean },
-    setup() {
-      const { t } = useI18n();
-      return { t };
-    },
-    computed: {
-      theme() {
-        return useGlobalConfig().getGlobalConfig().colors;
-      },
-      pageNotFoundStyle() {
-        return {
-          // color: this.contextConfig.invertedColor ? this.themes.dark : 'white',
-          color: "var(--va-gray)",
-          // backgroundColor: this.contextConfig.invertedColor ? 'white' : this.themes.danger,
-          backgroundColor: this.theme.danger,
-          // backgroundImage: this.contextConfig.gradient && 'linear-gradient(to right, #ff2175, #d30505)',
-          backgroundImage: "linear-gradient(to right, var(--va-white), var(--va-white))",
-        };
-      },
-      wallpaperColor() {
-        // return this.contextConfig.invertedColor ? this.themes.dark : '#e4ff32'
-        return "var(--va-primary)";
-      },
-    },
-  };
+  defineProps<{
+    withoutButton: boolean;
+  }>();
+
+  const theme = computed(() => getGlobalConfig().colors!);
+
+  const pageNotFoundStyle = computed(() => {
+    return {
+      // color: this.contextConfig.invertedColor ? this.themes.dark : 'white',
+      color: "var(--va-gray)",
+      // backgroundColor: this.contextConfig.invertedColor ? 'white' : this.themes.danger,
+      backgroundColor: theme.value.danger,
+      // backgroundImage: this.contextConfig.gradient && 'linear-gradient(to right, #ff2175, #d30505)',
+      backgroundImage: "linear-gradient(to right, var(--va-white), var(--va-white))",
+    };
+  });
+
+  const wallpaperColor = computed(() => {
+    return "var(--va-primary)";
+  });
 </script>
 
 <style lang="scss">

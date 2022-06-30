@@ -64,34 +64,25 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
   import data from "../../../../data/tables/markup-table/data.json";
   import { useI18n } from "vue-i18n";
+  import { ref } from "vue";
+  const { t } = useI18n();
 
-  export default {
-    setup() {
-      const { t } = useI18n();
-      return { t };
-    },
-    data() {
-      return {
-        users: data.slice(0, 8),
-      };
-    },
-    methods: {
-      getStatusColor(status) {
-        if (status === "paid") {
-          return "success";
-        }
+  const users = ref(data.slice(0, 8));
 
-        if (status === "processing") {
-          return "info";
-        }
+  function getStatusColor(status: string) {
+    if (status === "paid") {
+      return "success";
+    }
 
-        return "danger";
-      },
-    },
-  };
+    if (status === "processing") {
+      return "info";
+    }
+
+    return "danger";
+  }
 </script>
 
 <style lang="scss">

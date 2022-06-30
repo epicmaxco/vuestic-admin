@@ -1,19 +1,9 @@
 <template>
-  <svg
-    class="va-icon-fresh"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 50.98 47.66"
-  >
+  <svg class="va-icon-fresh" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.98 47.66">
     <defs />
     <title>overview_icon_5</title>
-    <g
-      id="Layer_2"
-      data-name="Layer 2"
-    >
-      <g
-        id="Layer_1-2"
-        data-name="Layer 1"
-      >
+    <g id="Layer_2" data-name="Layer 2">
+      <g id="Layer_1-2" data-name="Layer 1">
         <path
           class="cls-1"
           d="M6,19C11,12.66,26.33,3,46.33,6c-3.67,17-8.67,26-8.67,26s-7,14-19.67-3.67C5.67,26.33,9,22.33,6,19Z"
@@ -27,24 +17,18 @@
   </svg>
 </template>
 
-<script>
-export default {
-  name: 'VaIconFresh',
-}
-</script>
-
 <style lang="scss">
-.va-icon-fresh {
-  display: inline-block;
-  width: 51px;
-  height: 48px;
+  .va-icon-fresh {
+    display: inline-block;
+    width: 51px;
+    height: 48px;
 
-  .cls-1 {
-    fill: #4ae387;
-  }
+    .cls-1 {
+      fill: #4ae387;
+    }
 
-  .cls-2 {
-    fill: #34495e;
+    .cls-2 {
+      fill: #34495e;
+    }
   }
-}
 </style>

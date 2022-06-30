@@ -111,41 +111,31 @@
   </div>
 </template>
 
-<script>
-  import ToastPositionPicker from "./ToastPositionPicker.vue";
+<script setup lang="ts">
   import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
 
-  export default {
-    name: "Notifications",
-    components: { ToastPositionPicker },
-    setup() {
-      const { t } = useI18n();
-      return { t };
-    },
-    data() {
-      return {
-        toastText: "This toast is awesome!",
-        toastDuration: 2500,
-        toastIcon: "fa-star-o",
-        toastPosition: "bottom-right",
-        isToastFullWidth: false,
-      };
-    },
-    computed: {
-      isToastContentPresent() {
-        return !!(this.toastText || this.toastIcon);
-      },
-    },
-    methods: {
-      launchToast() {
-        this.$vaToast.init({
-          message: this.toastText,
-          iconClass: this.toastIcon,
-          position: this.toastPosition,
-          duration: Number(this.toastDuration),
-          fullWidth: this.isToastFullWidth,
-        });
-      },
-    },
-  };
+  import { useToast } from "vuestic-ui";
+  import ToastPositionPicker from "./ToastPositionPicker.vue";
+  import { computed, ref } from "vue";
+
+  const toastText = ref("This toast is awesome!");
+  const toastDuration = ref(2500);
+  const toastIcon = ref("fa-star-o");
+  const toastPosition = ref("bottom-right");
+  const isToastFullWidth = ref(false);
+
+  const isToastContentPresent = computed(() => {
+    return !!(toastText.value || toastIcon.value);
+  });
+
+  function launchToast() {
+    useToast().init({
+      message: toastText.value,
+      iconClass: toastIcon.value,
+      position: toastPosition.value,
+      duration: Number(toastDuration.value),
+      fullWidth: isToastFullWidth.value,
+    });
+  }
 </script>

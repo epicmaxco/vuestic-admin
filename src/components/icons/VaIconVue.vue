@@ -1,19 +1,9 @@
 <template>
-  <svg
-    class="va-icon-vue"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 55.05 47.8"
-  >
+  <svg class="va-icon-vue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55.05 47.8">
     <defs />
     <title>overview_icon_1</title>
-    <g
-      id="Layer_2"
-      data-name="Layer 2"
-    >
-      <g
-        id="Layer_1-2"
-        data-name="Layer 1"
-      >
+    <g id="Layer_2" data-name="Layer 2">
+      <g id="Layer_1-2" data-name="Layer 1">
         <polygon
           class="cls-1"
           points="27.75 21.19 18.48 6.18 4.78 6.18 27.75 42.92 50.89 6.18 36.13 6.18 27.75 21.19"
@@ -27,24 +17,18 @@
   </svg>
 </template>
 
-<script>
-export default {
-  name: 'VaIconVue',
-}
-</script>
-
 <style lang="scss">
-.va-icon-vue {
-  display: inline-block;
-  width: 55px;
-  height: 47.8px;
+  .va-icon-vue {
+    display: inline-block;
+    width: 55px;
+    height: 47.8px;
 
-  .cls-1 {
-    fill: #4ae387;
-  }
+    .cls-1 {
+      fill: #4ae387;
+    }
 
-  .cls-2 {
-    fill: #34495e;
+    .cls-2 {
+      fill: #34495e;
+    }
   }
-}
 </style>

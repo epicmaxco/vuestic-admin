@@ -5,7 +5,7 @@
       <va-tree-node>Camera Body Kits</va-tree-node>
       <va-tree-node>External HDDs</va-tree-node>
     </va-tree-category>
-    <va-tree-category isOpen label="Products">
+    <va-tree-category is-open label="Products">
       <va-tree-category label="Cables">
         <va-tree-node>Audio</va-tree-node>
         <va-tree-node>Video</va-tree-node>
@@ -21,9 +21,3 @@
     </va-tree-category>
   </va-tree-root>
 </template>
-
-<script>
-export default {
-  name: 'tree-view-basic-preview',
-}
-</script>

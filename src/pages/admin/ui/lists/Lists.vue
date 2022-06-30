@@ -200,40 +200,36 @@
   </div>
 </template>
 
-<script>
-  import data from "./data.json";
+<script setup lang="ts">
+  import { ref } from "vue";
   import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
 
-  export default {
-    setup() {
-      const { t } = useI18n();
-      return { t };
-    },
-    data() {
-      return {
-        customers: data.slice(0, 5),
-        archived: data.slice(5, 8),
-        appBanners: false,
-        banners: false,
-        notifications: true,
-      };
-    },
-    methods: {
-      getGenderIcon(gender) {
-        return gender === "male" ? "mars" : "venus";
-      },
-      getGenderColor(gender) {
-        return gender === "male" ? "blue" : "pink";
-      },
-      notify(name) {
-        this.$vaToast.init({
-          message: `Clicked ${name}`,
-          position: "bottom-right",
-        });
-      },
-      toggleStar(customer) {
-        customer.starred = !customer.starred;
-      },
-    },
-  };
+  import { useToast } from "vuestic-ui";
+  import data from "./data.json";
+
+  const customers = ref(data.slice(0, 5));
+  const archived = ref(data.slice(5, 8));
+  const appBanners = ref(false);
+  const banners = ref(false);
+  const notifications = ref(true);
+
+  function getGenderIcon(gender: string) {
+    return gender === "male" ? "mars" : "venus";
+  }
+
+  function getGenderColor(gender: string) {
+    return gender === "male" ? "blue" : "pink";
+  }
+
+  function notify(name: string) {
+    useToast().init({
+      message: `Clicked ${name}`,
+      position: "bottom-right",
+    });
+  }
+
+  function toggleStar(customer: { starred: boolean }) {
+    customer.starred = !customer.starred;
+  }
 </script>

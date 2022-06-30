@@ -39,71 +39,66 @@
   </div>
 </template>
 
-<script>
-  import countriesList from "../../../../data/CountriesList";
-  import { getLineMapData } from "../../../../data/maps/LineMapData";
+<script setup lang="ts">
+  import { computed, onMounted, ref, watch } from "vue";
   import { useGlobalConfig } from "vuestic-ui";
+  const { getGlobalConfig } = useGlobalConfig();
   import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
 
-  export default {
-    name: "BillingAddressTab",
-    emits: ["submit"],
-    setup() {
-      const { t } = useI18n();
-      return { t };
+  import { getLineMapData } from "../../../../data/maps/LineMapData";
+  import CountriesList from "../../../../data/CountriesList";
+
+  const emit = defineEmits<{
+    (e: "submit", data: typeof form["value"]): void;
+  }>();
+
+  const form = ref({
+    name: "John Smith",
+    email: "smith@gmail.com",
+    address: "93  Guild Street",
+    city: { text: "London" },
+    country: "United Kingdom",
+    connection: true,
+  });
+
+  const theme = computed(() => getGlobalConfig().colors!);
+
+  const countriesList = computed(() => {
+    return CountriesList.filter((item) => citiesList.value.filter(({ country }) => country === item).length);
+  });
+
+  const citiesList = computed(() => {
+    return getLineMapData(theme.value).cities.map(({ title, country }) => ({ text: title, country }));
+  });
+
+  const allowedCitiesList = ref<typeof citiesList["value"]>([]);
+
+  const computedStylesTitle = computed(() => {
+    return {
+      color: theme.value.dark,
+    };
+  });
+
+  watch(
+    form,
+    () => {
+      allowedCitiesList.value = form.value.country
+        ? citiesList.value.filter(({ country }) => country === form.value.country)
+        : [...citiesList.value];
+
+      // form.value.country = countriesList.value.find((item) => item === form.value.country);
     },
-    data() {
-      return {
-        form: {
-          name: "John Smith",
-          email: "smith@gmail.com",
-          address: "93  Guild Street",
-          city: { text: "London" },
-          country: "United Kingdom",
-          connection: true,
-        },
-        allowedCountriesList: [],
-        allowedCitiesList: [],
-      };
-    },
-    computed: {
-      theme() {
-        return useGlobalConfig().getGlobalConfig().colors;
-      },
-      citiesList() {
-        return getLineMapData(this.theme).cities.map(({ title, country }) => ({ text: title, country }));
-      },
-      countriesList() {
-        return countriesList.filter((item) => this.citiesList.filter(({ country }) => country === item).length);
-      },
-      computedStylesTitle() {
-        return {
-          color: this.theme.dark,
-        };
-      },
-    },
-    watch: {
-      "form.country"(value) {
-        this.allowedCitiesList = value
-          ? this.citiesList.filter(({ country }) => country === value)
-          : [...this.citiesList];
-      },
-      "form.city": {
-        deep: true,
-        handler({ country }) {
-          this.form.country = this.countriesList.find((item) => item === country);
-        },
-      },
-    },
-    mounted() {
-      this.allowedCitiesList = [...this.citiesList];
-    },
-    methods: {
-      submit() {
-        this.$emit("submit", this.form);
-      },
-    },
-  };
+    { deep: true },
+  );
+
+  onMounted(() => {
+    allowedCitiesList.value = [...citiesList.value];
+  });
+
+  function submit() {
+    emit("submit", form.value);
+  }
 </script>
 
 <style lang="scss" scoped>
