@@ -56,7 +56,8 @@
 </template>
 
 <script setup lang="ts">
-  import VaChart from "../../../../components/va-charts/VaChart.vue";
+  import { computed, onMounted, ref } from "vue";
+
   import { useLineChartData } from "../../../../data/charts/LineChartData";
   const { getLineChartData } = useLineChartData();
   import { useBubbleChartData } from "../../../../data/charts/BubbleChartData";
@@ -72,8 +73,9 @@
   import { useGlobalConfig } from "vuestic-ui";
   const { getGlobalConfig } = useGlobalConfig();
   import { useI18n } from "vue-i18n";
-  import { computed, onMounted, ref } from "vue";
   const { t } = useI18n();
+
+  import VaChart from "../../../../components/va-charts/VaChart.vue";
 
   const bubbleChartData = ref<ReturnType<typeof getBubbleChartData>>(null);
   const lineChartData = ref<ReturnType<typeof getLineChartData>>(null);
