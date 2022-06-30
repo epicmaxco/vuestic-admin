@@ -55,57 +55,49 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
   import VaChart from "../../../../components/va-charts/VaChart.vue";
   import { useLineChartData } from "../../../../data/charts/LineChartData";
   const { getLineChartData } = useLineChartData();
-  import { getBubbleChartData } from "../../../../data/charts/BubbleChartData";
-  import { getPieChartData } from "../../../../data/charts/PieChartData";
+  import { useBubbleChartData } from "../../../../data/charts/BubbleChartData";
+  const { getBubbleChartData } = useBubbleChartData();
+  import { usePieChartData } from "../../../../data/charts/PieChartData";
+  const { getPieChartData } = usePieChartData();
   import { useDonutChartData } from "../../../../data/charts/DonutChartData";
   const { getDonutChartData } = useDonutChartData();
-  import { getVerticalBarChartData } from "../../../../data/charts/VerticalBarChartData";
-  import { getHorizontalBarChartData } from "../../../../data/charts/HorizontalBarChartData";
+  import { useVerticalBarChartData } from "../../../../data/charts/VerticalBarChartData";
+  const { getVerticalBarChartData } = useVerticalBarChartData();
+  import { useHorizontalBarChartData } from "../../../../data/charts/HorizontalBarChartData";
+  const { getHorizontalBarChartData } = useHorizontalBarChartData();
   import { useGlobalConfig } from "vuestic-ui";
+  const { getGlobalConfig } = useGlobalConfig();
   import { useI18n } from "vue-i18n";
+  import { computed, onMounted, ref } from "vue";
+  const { t } = useI18n();
 
-  export default {
-    name: "Charts",
-    components: { VaChart },
-    setup() {
-      const { t } = useI18n();
-      return { t };
-    },
-    data() {
-      return {
-        bubbleChartData: null,
-        lineChartData: null,
-        pieChartData: null,
-        donutChartData: null,
-        verticalBarChartData: null,
-        horizontalBarChartData: null,
-        isMounted: false,
-      };
-    },
-    computed: {
-      theme() {
-        return useGlobalConfig().getGlobalConfig().colors;
-      },
-    },
-    mounted() {
-      this.isMounted = true;
-      this.bubbleChartData = getBubbleChartData(this.theme);
-      this.lineChartData = getLineChartData(this.theme);
-      this.pieChartData = getPieChartData(this.theme);
-      this.donutChartData = getDonutChartData(this.theme);
-      this.verticalBarChartData = getVerticalBarChartData(this.theme);
-      this.horizontalBarChartData = getHorizontalBarChartData(this.theme);
-    },
-    methods: {
-      refreshData() {
-        this.lineChartData = getLineChartData(this.theme);
-      },
-    },
-  };
+  const bubbleChartData = ref<ReturnType<typeof getBubbleChartData>>(null);
+  const lineChartData = ref<ReturnType<typeof getLineChartData>>(null);
+  const pieChartData = ref<ReturnType<typeof getPieChartData>>(null);
+  const donutChartData = ref<ReturnType<typeof getDonutChartData>>(null);
+  const verticalBarChartData = ref<ReturnType<typeof getVerticalBarChartData>>(null);
+  const horizontalBarChartData = ref<ReturnType<typeof getHorizontalBarChartData>>(null);
+  const isMounted = ref(false);
+
+  const theme = computed(() => getGlobalConfig().colors!);
+
+  onMounted(() => {
+    isMounted.value = true;
+    bubbleChartData.value = getBubbleChartData(theme.value);
+    lineChartData.value = getLineChartData(theme.value, 0);
+    pieChartData.value = getPieChartData(theme.value);
+    donutChartData.value = getDonutChartData(theme.value);
+    verticalBarChartData.value = getVerticalBarChartData(theme.value);
+    horizontalBarChartData.value = getHorizontalBarChartData(theme.value);
+  });
+
+  function refreshData() {
+    lineChartData.value = getLineChartData(theme.value, 0);
+  }
 </script>
 
 <style lang="scss">

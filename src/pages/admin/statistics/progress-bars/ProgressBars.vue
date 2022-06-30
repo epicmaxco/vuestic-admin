@@ -1,16 +1,16 @@
 <template>
   <div class="progress-bars">
-    <div class="row">
-      <div class="flex xs12">
+    <div class="row mb-4">
+      <div class="flex xs12 mb-12">
         <horizontal-bars />
       </div>
     </div>
-    <div class="row">
+    <div class="row mb-4">
       <div class="flex xs12">
         <bars-state />
       </div>
     </div>
-    <div class="row">
+    <div class="row mb-4">
       <div class="flex xs12">
         <circle-bars />
       </div>
