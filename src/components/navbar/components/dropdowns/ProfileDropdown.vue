@@ -1,5 +1,5 @@
 <template>
-  <va-dropdown v-model="isShown" class="profile-dropdown" boundary-body position="bottom" :offset="[0, 13]">
+  <va-dropdown v-model="isShown" class="profile-dropdown" boundary-body position="bottom" :offset="[13, 0]">
     <template #anchor>
       <span class="profile-dropdown__anchor">
         <slot />

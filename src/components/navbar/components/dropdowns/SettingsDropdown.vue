@@ -1,5 +1,5 @@
 <template>
-  <va-dropdown class="settings-dropdown" position="bottom" boundary-body :offset="[0, 13]">
+  <va-dropdown class="settings-dropdown" position="bottom" boundary-body :offset="[13, 0]">
     <template #anchor>
       <va-icon
         name="vuestic-iconset-settings"

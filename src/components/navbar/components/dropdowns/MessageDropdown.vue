@@ -1,5 +1,5 @@
 <template>
-  <va-dropdown class="message-dropdown" position="bottom" :offset="[0, 13]">
+  <va-dropdown class="message-dropdown" position="bottom" :offset="[13, 0]">
     <template #anchor>
       <va-icon-message class="message-dropdown__icon" :class="{ 'message-dropdown__icon--unread': !allRead }" />
     </template>

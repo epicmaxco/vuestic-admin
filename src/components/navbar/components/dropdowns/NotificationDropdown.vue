@@ -1,5 +1,5 @@
 <template>
-  <va-dropdown class="notification-dropdown" position="bottom" :offset="[0, 13]">
+  <va-dropdown class="notification-dropdown" position="bottom" :offset="[13, 0]">
     <template #anchor>
       <va-icon-notification
         class="notification-dropdown__icon"

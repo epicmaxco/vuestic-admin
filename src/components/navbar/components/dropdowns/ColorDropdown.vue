@@ -1,5 +1,5 @@
 <template>
-  <va-dropdown class="color-dropdown" :offset="[0, 13]" position="bottom">
+  <va-dropdown class="color-dropdown" :offset="[13, 0]" position="bottom">
     <template #anchor>
       <va-icon-color />
     </template>
