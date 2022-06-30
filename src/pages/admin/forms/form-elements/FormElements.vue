@@ -2,7 +2,8 @@
   <div class="form-elements">
     <div class="row">
       <div class="flex xs12">
-        <va-card :title="t('forms.inputs.title')">
+        <va-card>
+          <va-card-title>{{ t("forms.inputs.title") }}</va-card-title>
           <va-card-content>
             <form>
               <div class="row">
@@ -54,7 +55,8 @@
       </div>
 
       <!-- <div class="flex xs12">
-        <va-card :title="t('forms.dateTimePicker.title')">
+        <va-card">
+          <va-card-title>{{ t('forms.dateTimePicker.title') }}</va-card-title>
           <va-card-content>
             <form>
               <div class="row overflow--hidden">
@@ -119,7 +121,8 @@
       </div> -->
 
       <div class="flex xs12">
-        <va-card :title="t('forms.selects.title')">
+        <va-card>
+          <va-card-title>{{ t("forms.selects.title") }}</va-card-title>
           <va-card-content>
             <form>
               <div class="row">
@@ -179,7 +182,8 @@
       </div>
 
       <div class="flex xs12">
-        <va-card :title="t('forms.controls.title')">
+        <va-card>
+          <va-card-title>{{ t("forms.controls.title") }}</va-card-title>
           <va-card-content>
             <form>
               <div class="row">
