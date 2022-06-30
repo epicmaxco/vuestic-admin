@@ -185,11 +185,21 @@
               <div class="row">
                 <div class="flex md3">
                   <fieldset>
-                    <va-checkbox v-model="checkbox.unselected" :label="t('forms.controls.unselected')" />
-                    <va-checkbox v-model="checkbox.selected" :label="t('forms.controls.selected')" />
-                    <va-checkbox v-model="checkbox.readonly" :label="t('forms.controls.readonly')" :readonly="true" />
-                    <va-checkbox v-model="checkbox.disabled" :label="t('forms.controls.disabled')" :disabled="true" />
-                    <va-checkbox v-model="checkbox.error" :label="t('forms.controls.error')" error />
+                    <va-checkbox v-model="checkbox.unselected" :label="t('forms.controls.unselected')" class="mb-2" />
+                    <va-checkbox v-model="checkbox.selected" :label="t('forms.controls.selected')" class="mb-2" />
+                    <va-checkbox
+                      v-model="checkbox.readonly"
+                      :label="t('forms.controls.readonly')"
+                      :readonly="true"
+                      class="mb-2"
+                    />
+                    <va-checkbox
+                      v-model="checkbox.disabled"
+                      :label="t('forms.controls.disabled')"
+                      :disabled="true"
+                      class="mb-2"
+                    />
+                    <va-checkbox v-model="checkbox.error" :label="t('forms.controls.error')" error class="mb-2" />
                     <va-checkbox
                       v-model="checkbox.errorMessages"
                       :label="t('forms.controls.errorMessage')"
@@ -231,89 +241,77 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+  import { ref } from "vue";
   import CountriesList from "../data/CountriesList";
   import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
 
-  export default {
-    name: "FormElements",
-    setup() {
-      const { t } = useI18n();
-      return { t };
+  const countriesList = ref(CountriesList);
+  const chosenCountry = ref("");
+  const simple = ref("");
+  const withIcon = ref("");
+  const withButton = ref("");
+  const withDescription = ref("");
+  const clearableText = ref("Vasili Savitski");
+  const successfulEmail = ref("andrei@dreamsupport.io");
+  const wrongEmail = ref("andrei@dreamsupport");
+  const messages = ref([
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
+      "incididunt ut labore et dolore magna aliqua.",
+  ]);
+  const errorMessages = ref(["Field should contain a valid email"]);
+  const simpleOptions = ref([
+    {
+      id: 1,
+      description: "First option",
     },
-    data() {
-      return {
-        isMale: true,
-        countriesList: CountriesList,
-        chosenCountry: "",
-        simple: "",
-        withIcon: "",
-        withButton: "",
-        withDescription: "",
-        clearableText: "Vasili Savitski",
-        successfulEmail: "andrei@dreamsupport.io",
-        wrongEmail: "andrei@dreamsupport",
-        messages: [
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
-            "incididunt ut labore et dolore magna aliqua.",
-        ],
-        errorMessages: ["Field should contain a valid email"],
-        simpleOptions: [
-          {
-            id: 1,
-            description: "First option",
-          },
-          {
-            id: 2,
-            description: "Second option",
-          },
-          {
-            id: 3,
-            description: "Third option",
-          },
-        ],
-        simpleSelectModel: "",
-        multiSelectModel: [],
-        multiSelectCountriesModel: [],
-        searchableSelectModel: "",
-        multiSearchableSelectModel: [],
-        radioSelectedOption: "option1",
-        radioSelectedDisableOption: "option1",
-        checkbox: {
-          unselected: false,
-          selected: true,
-          readonly: true,
-          disabled: true,
-          error: false,
-          errorMessages: true,
-        },
-        toggles: {
-          unselected: false,
-          selected: true,
-          disabled: true,
-          small: false,
-          large: false,
-        },
-        datepicker: {
-          simple: "2018-05-09",
-          time: "2018-05-08 14:10",
-          range: "2018-05-08 to 2018-05-23",
-          disabled: "2018-05-09",
-          multiple: "2018-04-25, 2018-04-27",
-          customFirstDay: "2018-05-09",
-          customDate: "2017-Dec-06",
-        },
-      };
+    {
+      id: 2,
+      description: "Second option",
     },
-    methods: {
-      clear(field) {
-        this[field] = "";
-      },
+    {
+      id: 3,
+      description: "Third option",
     },
-  };
+  ]);
+
+  const simpleSelectModel = ref("");
+  const multiSelectModel = ref([]);
+  const multiSelectCountriesModel = ref([]);
+  const searchableSelectModel = ref("");
+  const multiSearchableSelectModel = ref([]);
+  const radioSelectedOption = ref("option1");
+  const radioSelectedDisableOption = ref("option1");
+  const checkbox = ref({
+    unselected: false,
+    selected: true,
+    readonly: true,
+    disabled: true,
+    error: false,
+    errorMessages: true,
+  });
+
+  const toggles = ref({
+    unselected: false,
+    selected: true,
+    disabled: true,
+    small: false,
+    large: false,
+  });
+
+  const datepicker = ref({
+    simple: "2018-05-09",
+    time: "2018-05-08 14:10",
+    range: "2018-05-08 to 2018-05-23",
+    disabled: "2018-05-09",
+    multiple: "2018-04-25, 2018-04-27",
+    customFirstDay: "2018-05-09",
+    customDate: "2017-Dec-06",
+  });
 </script>
 
-<style>
+<style lang="scss">
   .row.row-inside {
     max-width: none;
   }

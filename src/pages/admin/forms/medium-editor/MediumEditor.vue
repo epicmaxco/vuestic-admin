@@ -29,31 +29,18 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
   import VaMediumEditor from "../../../../components/va-medium-editor/VaMediumEditor.vue";
   import { useI18n } from "vue-i18n";
+  import { nextTick } from "vue";
+  const { t } = useI18n();
 
-  export default {
-    components: {
-      VaMediumEditor,
-    },
-    setup() {
-      const { t } = useI18n();
-      return { t };
-    },
+  function handleEditorInitialization(editor: InstanceType<typeof VaMediumEditor>) {
+    nextTick(() => highlightSampleText(editor));
+  }
 
-    methods: {
-      handleEditorInitialization(editor) {
-        this.editor = editor;
-        this.$nextTick(() => {
-          this.highlightSampleText();
-        });
-      },
-
-      highlightSampleText() {
-        const sampleText = document.getElementsByClassName("default-selection")[0];
-        this.editor.selectElement(sampleText);
-      },
-    },
-  };
+  function highlightSampleText(editor: InstanceType<typeof VaMediumEditor>) {
+    const sampleText = document.getElementsByClassName("default-selection")[0];
+    editor.selectElement(sampleText);
+  }
 </script>
