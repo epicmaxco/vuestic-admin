@@ -17,7 +17,7 @@
   import LineMap from "../../../components/maps/LineMap.vue";
   import { getLineMapData } from "../../../data/maps/LineMapData";
 
-  const lineMapData = ref<unknown>({ lineMapData: { cities: [], mainCity: "" } });
+  const lineMapData = ref<ReturnType<typeof getLineMapData>>({});
 
   onMounted(() => {
     lineMapData.value = getLineMapData(theme.value);
@@ -32,6 +32,18 @@
     },
     { immediate: true },
   );
+
+  function addAddress(address: { city: { text: string }; country: string }) {
+    lineMapData.value = {
+      ...lineMapData.value,
+      cities: lineMapData.value.cities.map((city) => ({
+        ...city,
+        color: city.title === address.city ? theme.value.success : city.color,
+      })),
+    };
+  }
+
+  defineExpose({ addAddress });
 </script>
 
 <style>
