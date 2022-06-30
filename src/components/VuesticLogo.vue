@@ -29,24 +29,25 @@
     </defs>
   </svg>
 </template>
-<script>
+
+<script setup lang="ts">
+  import { computed } from "vue";
   import { useColors } from "vuestic-ui";
+  const { getColor, shiftHSLAColor } = useColors();
 
-  export default {
-    name: "VaIconVuestic",
-
-    props: {
-      height: { type: [Number, String], default: 16 },
-      color: { type: [String], default: "primary" },
+  const props = withDefaults(
+    defineProps<{
+      height?: number | string;
+      color?: string;
+    }>(),
+    {
+      height: 16,
+      color: "primary",
     },
+  );
 
-    computed: {
-      colorsComputed() {
-        const { getColor, shiftHSLAColor } = useColors();
-        const color = getColor(this.color, "primary");
-
-        return { start: color, end: shiftHSLAColor(color, { l: -20 }) };
-      },
-    },
-  };
+  const colorsComputed = computed(() => {
+    const color = getColor(props.color, "primary");
+    return { start: color, end: shiftHSLAColor(color, { l: -20 }) };
+  });
 </script>

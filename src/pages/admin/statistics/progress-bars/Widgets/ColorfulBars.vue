@@ -18,27 +18,19 @@
   </va-card>
 </template>
 
-<script>
+<script setup lang="ts">
   import { useI18n } from "vue-i18n";
+  import { onMounted, ref } from "vue";
+  const { t } = useI18n();
 
-  export default {
-    setup() {
-      const { t } = useI18n();
-      return { t };
-    },
-    data() {
-      return {
-        value: 0,
-        colors: ["danger", "success", "info", "gray", "warning", "black"],
-      };
-    },
-    mounted() {
-      this.animateValue();
-    },
-    methods: {
-      animateValue() {
-        setTimeout(() => (this.value = 100));
-      },
-    },
-  };
+  const value = ref(0);
+  const colors = ref(["danger", "success", "info", "gray", "warning", "black"]);
+
+  onMounted(() => {
+    animateValue();
+  });
+
+  function animateValue() {
+    setTimeout(() => (value.value = 100));
+  }
 </script>

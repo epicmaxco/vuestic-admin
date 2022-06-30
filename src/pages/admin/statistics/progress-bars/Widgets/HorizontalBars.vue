@@ -17,21 +17,12 @@
   </va-card>
 </template>
 
-<script>
+<script setup lang="ts">
+  import { ref } from "vue";
   import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
 
-  export default {
-    name: "HorizontalBars",
-    setup() {
-      const { t } = useI18n();
-      return { t };
-    },
-    data() {
-      return {
-        value: 0,
-        value2: 66,
-        value3: 100,
-      };
-    },
-  };
+  const value = ref(0);
+  const value2 = ref(66);
+  const value3 = ref(100);
 </script>
