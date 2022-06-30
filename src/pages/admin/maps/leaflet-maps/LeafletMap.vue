@@ -6,6 +6,7 @@
   import { ref, onMounted } from "vue";
 
   import "leaflet-map";
+  import "leaflet/dist/leaflet.css";
   import * as Leaflet from "leaflet";
 
   const mapRef = ref();
@@ -22,7 +23,3 @@
     Leaflet.marker([51.5, -0.09]).addTo(map).bindPopup("A pretty CSS3 popup.<br> Easily customizable.").openPopup();
   });
 </script>
-
-<style lang="scss">
-  @import "leaflet/dist/leaflet.css";
-</style>
