@@ -48,6 +48,11 @@
 </template>
 
 <script setup lang="ts">
+  /**
+   * HIDDEN FROM THE ADMIN! SEE src/components/sidebar/NavigationRoutes.ts AND src/pages/admin/ui/route.ts TO REVEAL.
+   * ALSO INSTALL THE DEPENDENCY "epic-spinners": "^1.1.0" (OR HIGHER WHEN IT'S UPDATED)!
+   */
+
   import * as spinners from "epic-spinners";
   import { useColors, useGlobalConfig } from "vuestic-ui";
   import VaIconFaster from "../../../../components/icons/VaIconFaster.vue";

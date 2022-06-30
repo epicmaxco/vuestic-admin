@@ -34,14 +34,14 @@ export default {
         wikiLink: "https://github.com/epicmaxco/vuestic-admin/wiki/Color-Pickers",
       },
     },
-    {
-      name: "timelines",
-      path: "timelines",
-      component: () => import("../../../pages/admin/ui/timelines/Timelines.vue"),
-      meta: {
-        wikiLink: "https://github.com/epicmaxco/vuestic-admin/wiki/Timelines",
-      },
-    },
+    // {
+    //   name: "timelines",
+    //   path: "timelines",
+    //   component: () => import("../../../pages/admin/ui/timelines/Timelines.vue"),
+    //   meta: {
+    //     wikiLink: "https://github.com/epicmaxco/vuestic-admin/wiki/Timelines",
+    //   },
+    // },
     {
       name: "notifications",
       path: "notifications",
@@ -73,11 +73,11 @@ export default {
         },
       ],
     },
-    {
-      name: "spinners",
-      path: "spinners",
-      component: () => import("../../../pages/admin/ui/spinners/Spinners.vue"),
-    },
+    // {
+    //   name: "spinners",
+    //   path: "spinners",
+    //   component: () => import("../../../pages/admin/ui/spinners/Spinners.vue"),
+    // },
     {
       name: "grid",
       path: "grid",

@@ -153,18 +153,18 @@ export default {
           name: "spacing",
           displayName: "menu.spacing",
         },
-        {
-          name: "spinners",
-          displayName: "menu.spinners",
-        },
+        // {
+        //   name: "spinners",
+        //   displayName: "menu.spinners",
+        // },
         {
           name: "tabs",
           displayName: "menu.tabs",
         },
-        {
-          name: "timelines",
-          displayName: "menu.timelines",
-        },
+        // {
+        //   name: "timelines",
+        //   displayName: "menu.timelines",
+        // },
         {
           name: "tree-view",
           displayName: "menu.treeView",

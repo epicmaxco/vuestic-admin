@@ -192,6 +192,10 @@
 </template>
 
 <script setup lang="ts">
+  /**
+   * HIDDEN FROM THE ADMIN! SEE src/components/sidebar/NavigationRoutes.ts AND src/pages/admin/ui/route.ts TO REVEAL.
+   */
+
   import { computed } from "vue";
   import { useI18n } from "vue-i18n";
   const { t } = useI18n();
