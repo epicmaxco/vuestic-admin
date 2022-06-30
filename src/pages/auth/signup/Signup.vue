@@ -57,7 +57,7 @@
   const agreedToTermsErrors = ref<string[]>([]);
 
   const formReady = computed(() => {
-    return !(this.emailErrors.length || this.passwordErrors.length || this.agreedToTermsErrors.length);
+    return !(emailErrors.value.length || passwordErrors.value.length || agreedToTermsErrors.value.length);
   });
 
   function onsubmit() {
@@ -70,5 +70,3 @@
     useRouter().push({ name: "dashboard" });
   }
 </script>
-
-<style lang="scss"></style>

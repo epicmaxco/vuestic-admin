@@ -29,38 +29,26 @@
   </form>
 </template>
 
-<script>
+<script setup lang="ts">
+  import { computed, ref } from "vue";
+  import { useRouter } from "vue-router";
   import { useI18n } from "vue-i18n";
+  const { t } = useI18n();
 
-  export default {
-    name: "Login",
-    setup() {
-      const { t } = useI18n();
-      return { t };
-    },
-    data() {
-      return {
-        email: "",
-        password: "",
-        keepLoggedIn: false,
-        emailErrors: [],
-        passwordErrors: [],
-      };
-    },
-    computed: {
-      formReady() {
-        return !this.emailErrors.length && !this.passwordErrors.length;
-      },
-    },
-    methods: {
-      onsubmit() {
-        this.emailErrors = this.email ? [] : ["Email is required"];
-        this.passwordErrors = this.password ? [] : ["Password is required"];
-        if (!this.formReady) {
-          return;
-        }
-        this.$router.push({ name: "dashboard" });
-      },
-    },
-  };
+  const email = ref("");
+  const password = ref("");
+  const keepLoggedIn = ref(false);
+  const emailErrors = ref<string[]>([]);
+  const passwordErrors = ref<string[]>([]);
+
+  const formReady = computed(() => !emailErrors.value.length && !passwordErrors.value.length);
+
+  function onsubmit() {
+    if (!formReady.value) return;
+
+    emailErrors.value = email.value ? [] : ["Email is required"];
+    passwordErrors.value = password.value ? [] : ["Password is required"];
+
+    useRouter().push({ name: "dashboard" });
+  }
 </script>
