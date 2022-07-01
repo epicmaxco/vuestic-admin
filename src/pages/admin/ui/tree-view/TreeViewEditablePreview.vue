@@ -27,28 +27,28 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from "vue";
+  import { ref } from 'vue'
 
   const electronics = ref([
-    { id: 1, name: "Cellphones" },
-    { id: 2, name: "Camera Body Kits" },
-    { id: 3, name: "External HDDs" },
-  ]);
+    { id: 1, name: 'Cellphones' },
+    { id: 2, name: 'Camera Body Kits' },
+    { id: 3, name: 'External HDDs' },
+  ])
 
   const products = ref([
-    { id: 4, name: "Cables" },
-    { id: 5, name: "Monitors" },
-    { id: 6, name: "Keyboards" },
-  ]);
+    { id: 4, name: 'Cables' },
+    { id: 5, name: 'Monitors' },
+    { id: 6, name: 'Keyboards' },
+  ])
 
   function addProduct() {
     products.value.push({
       id: Math.floor(Math.random() * 100000),
-      name: "New product",
-    });
+      name: 'New product',
+    })
   }
 
-  function removeProduct(product: { id: never }) {
-    products.value = products.value.filter((productToFilter) => productToFilter.id !== product.id);
+  function removeProduct(product: { id: number }) {
+    products.value = products.value.filter((productToFilter) => productToFilter.id !== product.id)
   }
 </script>

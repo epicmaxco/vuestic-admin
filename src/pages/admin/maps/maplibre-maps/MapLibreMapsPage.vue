@@ -11,5 +11,5 @@
 </template>
 
 <script setup lang="ts">
-  import MapLibreMap from "./MapLibreMap.vue";
+  import MapLibreMap from './MapLibreMap.vue'
 </script>

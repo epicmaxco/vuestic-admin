@@ -11,6 +11,6 @@
 </template>
 
 <script setup lang="ts">
-  import BubbleMap from "./BubbleMap.vue";
-  import bubbleMapData from "../../../../data/maps/BubbleMapData";
+  import BubbleMap from './BubbleMap.vue'
+  import bubbleMapData from '../../../../data/maps/BubbleMapData'
 </script>

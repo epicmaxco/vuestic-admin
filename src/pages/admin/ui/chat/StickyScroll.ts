@@ -1,4 +1,4 @@
-import { Directive, DirectiveBinding } from "@vue/runtime-core"
+import { Directive, DirectiveBinding } from '@vue/runtime-core'
 
 const directive: Directive = {
   mounted: (el: HTMLElement, binding: DirectiveBinding) => {
@@ -11,16 +11,16 @@ const directive: Directive = {
       const change = end - start
       const increment = 20
 
-      function easeInOut (currentTime: number, start: number, change: number, duration: number) {
+      function easeInOut(currentTime: number, start: number, change: number, duration: number) {
         currentTime /= duration / 2
         if (currentTime < 1) {
-          return change / 2 * currentTime * currentTime + start
+          return (change / 2) * currentTime * currentTime + start
         }
         currentTime -= 1
-        return -change / 2 * (currentTime * (currentTime - 2) - 1) + start
+        return (-change / 2) * (currentTime * (currentTime - 2) - 1) + start
       }
 
-      function animate (elapsedTime: number) {
+      function animate(elapsedTime: number) {
         elapsedTime += increment
         const position = easeInOut(elapsedTime, start, change, duration)
         el.scrollTop = position

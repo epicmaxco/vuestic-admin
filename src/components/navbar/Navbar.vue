@@ -16,7 +16,7 @@
       </template>
       <template #center>
         <span class="app-navbar__text">
-          {{ t("navbar.messageUs") }}&nbsp;
+          {{ t('navbar.messageUs') }}&nbsp;
           <a href="mailto:hello@epicmax.co" target="_blank" :style="{ color: colors.primary }"> hello@epicmax.co </a>
           <va-button
             href="https://github.com/epicmaxco/vuestic-admin"
@@ -25,7 +25,7 @@
             icon="github"
             target="_blank"
           >
-            {{ t("navbar.repository") }}
+            {{ t('navbar.repository') }}
           </va-button>
         </span>
       </template>
@@ -37,25 +37,22 @@
 </template>
 
 <script setup>
-  import { computed } from "vue";
+  import { computed } from 'vue'
+  import { storeToRefs } from 'pinia'
+  import { useGlobalStore } from '../../stores/global-store'
+  import { useI18n } from 'vue-i18n'
+  import { useColors } from 'vuestic-ui'
+  import VuesticLogo from '../VuesticLogo.vue'
+  import VaIconMenuCollapsed from '../icons/VaIconMenuCollapsed.vue'
+  import AppNavbarActions from './components/AppNavbarActions.vue'
 
-  import { storeToRefs } from "pinia";
-  import { useGlobalStore } from "../../stores/global-store";
-  const GlobalStore = useGlobalStore();
+  const GlobalStore = useGlobalStore()
+  const { t } = useI18n()
 
-  import { useI18n } from "vue-i18n";
-  const { t } = useI18n();
+  const { isSidebarMinimized, userName } = storeToRefs(GlobalStore)
 
-  import { useColors } from "vuestic-ui";
-
-  import VuesticLogo from "../VuesticLogo.vue";
-  import VaIconMenuCollapsed from "../icons/VaIconMenuCollapsed.vue";
-  import AppNavbarActions from "./components/AppNavbarActions.vue";
-
-  const { isSidebarMinimized, userName } = storeToRefs(GlobalStore);
-
-  const { getColors } = useColors();
-  const colors = computed(() => getColors());
+  const { getColors } = useColors()
+  const colors = computed(() => getColors())
 </script>
 
 <style lang="scss" scoped>

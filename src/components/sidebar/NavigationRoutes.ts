@@ -1,69 +1,69 @@
 export interface INavigationRoute {
-  name: string;
-  displayName: string;
-  meta?: Record<never, never>;
-  children?: INavigationRoute[];
+  name: string
+  displayName: string
+  meta: { icon: string }
+  children?: INavigationRoute[]
 }
 
 export default {
   root: {
-    name: "/",
-    displayName: "navigationRoutes.home",
+    name: '/',
+    displayName: 'navigationRoutes.home',
   },
   routes: [
     {
-      name: "dashboard",
-      displayName: "menu.dashboard",
+      name: 'dashboard',
+      displayName: 'menu.dashboard',
       meta: {
-        icon: "vuestic-iconset-dashboard",
+        icon: 'vuestic-iconset-dashboard',
       },
     },
     {
-      name: "statistics",
-      displayName: "menu.statistics",
+      name: 'statistics',
+      displayName: 'menu.statistics',
       meta: {
-        icon: "vuestic-iconset-statistics",
+        icon: 'vuestic-iconset-statistics',
       },
       disabled: true,
       children: [
         {
-          name: "charts",
-          displayName: "menu.charts",
+          name: 'charts',
+          displayName: 'menu.charts',
         },
         {
-          name: "progress-bars",
-          displayName: "menu.progressBars",
+          name: 'progress-bars',
+          displayName: 'menu.progressBars',
         },
       ],
     },
     {
-      name: "forms",
-      displayName: "menu.forms",
+      name: 'forms',
+      displayName: 'menu.forms',
       meta: {
-        icon: "vuestic-iconset-forms",
+        icon: 'vuestic-iconset-forms',
       },
       disabled: true,
       children: [
         {
-          name: "form-elements",
-          displayName: "menu.formElements",
+          name: 'form-elements',
+          displayName: 'menu.formElements',
         },
         {
-          name: "medium-editor",
-          displayName: "menu.mediumEditor",
+          name: 'medium-editor',
+          displayName: 'menu.mediumEditor',
         },
       ],
     },
     {
-      name: "tables",
-      displayName: "menu.tables",
+      name: 'tables',
+      displayName: 'menu.tables',
       meta: {
-        icon: "vuestic-iconset-tables",
+        icon: 'vuestic-iconset-tables',
       },
       children: [
         {
-          name: "markup",
-          displayName: "menu.markupTables",
+          name: 'markup',
+          displayName: 'menu.markupTables',
         },
         // {
         //   name: 'data',
@@ -72,160 +72,160 @@ export default {
       ],
     },
     {
-      name: "ui",
-      displayName: "menu.uiElements",
+      name: 'ui',
+      displayName: 'menu.uiElements',
       meta: {
-        icon: "vuestic-iconset-ui-elements",
+        icon: 'vuestic-iconset-ui-elements',
       },
       disabled: true,
       children: [
         {
-          name: "buttons",
-          displayName: "menu.buttons",
+          name: 'buttons',
+          displayName: 'menu.buttons',
         },
         {
-          name: "cards",
-          displayName: "menu.cards",
+          name: 'cards',
+          displayName: 'menu.cards',
         },
         {
-          name: "chat",
-          displayName: "menu.chat",
+          name: 'chat',
+          displayName: 'menu.chat',
         },
         {
-          name: "chips",
-          displayName: "menu.chips",
+          name: 'chips',
+          displayName: 'menu.chips',
         },
         {
-          name: "collapses",
-          displayName: "menu.collapses",
+          name: 'collapses',
+          displayName: 'menu.collapses',
         },
         {
-          name: "colors",
-          displayName: "menu.colors",
+          name: 'colors',
+          displayName: 'menu.colors',
         },
         // {
         //   name: 'color-pickers',
         //   displayName: 'menu.colorPickers',
         // },
         {
-          name: "file-upload",
-          displayName: "menu.fileUpload",
+          name: 'file-upload',
+          displayName: 'menu.fileUpload',
         },
         {
-          name: "grid",
-          displayName: "menu.grid",
+          name: 'grid',
+          displayName: 'menu.grid',
         },
         {
-          name: "icon-sets",
-          displayName: "menu.icons",
+          name: 'icon-sets',
+          displayName: 'menu.icons',
           children: [
             {
-              displayName: "concrete",
-              name: "icon-set",
+              displayName: 'concrete',
+              name: 'icon-set',
             },
           ],
         },
         {
-          name: "lists",
-          displayName: "menu.lists",
+          name: 'lists',
+          displayName: 'menu.lists',
         },
         {
-          name: "modals",
-          displayName: "menu.modals",
+          name: 'modals',
+          displayName: 'menu.modals',
         },
         {
-          name: "notifications",
-          displayName: "menu.notifications",
+          name: 'notifications',
+          displayName: 'menu.notifications',
         },
         {
-          name: "popovers",
-          displayName: "menu.popovers",
+          name: 'popovers',
+          displayName: 'menu.popovers',
         },
         {
-          name: "rating",
-          displayName: "menu.rating",
+          name: 'rating',
+          displayName: 'menu.rating',
         },
         {
-          name: "sliders",
-          displayName: "menu.sliders",
+          name: 'sliders',
+          displayName: 'menu.sliders',
         },
         {
-          name: "spacing",
-          displayName: "menu.spacing",
+          name: 'spacing',
+          displayName: 'menu.spacing',
         },
         // {
         //   name: "spinners",
         //   displayName: "menu.spinners",
         // },
         {
-          name: "tabs",
-          displayName: "menu.tabs",
+          name: 'tabs',
+          displayName: 'menu.tabs',
         },
         // {
         //   name: "timelines",
         //   displayName: "menu.timelines",
         // },
         {
-          name: "tree-view",
-          displayName: "menu.treeView",
+          name: 'tree-view',
+          displayName: 'menu.treeView',
         },
         {
-          name: "typography",
-          displayName: "menu.typography",
-        },
-      ],
-    },
-    {
-      name: "maps",
-      displayName: "menu.maps",
-      meta: {
-        icon: "vuestic-iconset-maps",
-      },
-      disabled: true,
-      children: [
-        {
-          name: "maplibre-maps",
-          displayName: "menu.maplibre-maps",
-        },
-        {
-          name: "yandex-maps",
-          displayName: "menu.yandex-maps",
-        },
-        {
-          name: "leaflet-maps",
-          displayName: "menu.leaflet-maps",
-        },
-        {
-          name: "bubble-maps",
-          displayName: "menu.bubble-maps",
-        },
-        {
-          name: "line-maps",
-          displayName: "menu.line-maps",
+          name: 'typography',
+          displayName: 'menu.typography',
         },
       ],
     },
     {
-      name: "pages",
-      displayName: "menu.pages",
+      name: 'maps',
+      displayName: 'menu.maps',
       meta: {
-        icon: "vuestic-iconset-files",
+        icon: 'vuestic-iconset-maps',
       },
       disabled: true,
       children: [
         {
-          name: "login",
-          displayName: "menu.login-singup",
+          name: 'maplibre-maps',
+          displayName: 'menu.maplibre-maps',
         },
         {
-          name: "404-pages",
-          displayName: "menu.404-pages",
+          name: 'yandex-maps',
+          displayName: 'menu.yandex-maps',
         },
         {
-          name: "faq",
-          displayName: "menu.faq",
+          name: 'leaflet-maps',
+          displayName: 'menu.leaflet-maps',
+        },
+        {
+          name: 'bubble-maps',
+          displayName: 'menu.bubble-maps',
+        },
+        {
+          name: 'line-maps',
+          displayName: 'menu.line-maps',
+        },
+      ],
+    },
+    {
+      name: 'pages',
+      displayName: 'menu.pages',
+      meta: {
+        icon: 'vuestic-iconset-files',
+      },
+      disabled: true,
+      children: [
+        {
+          name: 'login',
+          displayName: 'menu.login-singup',
+        },
+        {
+          name: '404-pages',
+          displayName: 'menu.404-pages',
+        },
+        {
+          name: 'faq',
+          displayName: 'menu.faq',
         },
       ],
     },
   ] as INavigationRoute[],
-};
+}

@@ -3,14 +3,13 @@
   font-style: normal;
   font-weight: normal;
   src: url('/src/assets/styles/icon-fonts/maki/maki.eot');
-  src:
-    url('/src/assets/styles/icon-fonts/maki/maki.eot?#iefix') format('eot'),
+  src: url('/src/assets/styles/icon-fonts/maki/maki.eot?#iefix') format('eot'),
     url('/src/assets/styles/icon-fonts/maki/maki.woff') format('woff'),
     url('/src/assets/styles/icon-fonts/maki/maki.ttf') format('truetype'),
     url('/src/assets/styles/icon-fonts/maki/maki.svg#maki') format('svg');
 }
 
-[class*="maki-"]::before {
+[class*='maki-']::before {
   font-family: 'maki', sans-serif;
   font-style: normal;
 }

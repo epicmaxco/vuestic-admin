@@ -62,7 +62,7 @@ npm をご使用の方：
 $ npm install
 
 # localhost:8080（デフォルト）でホットリロードを使ってサーブ
-$ npm run serve
+$ npm run dev
 
 # プロダクション用にビルド
 $ npm run build
@@ -77,7 +77,7 @@ yarn をご使用の方：
 $ yarn install
 
 # localhost:8080（デフォルト）でホットリロードを使ってサーブ
-$ yarn serve
+$ yarn dev
 
 # プロダクション用にビルド
 $ yarn build

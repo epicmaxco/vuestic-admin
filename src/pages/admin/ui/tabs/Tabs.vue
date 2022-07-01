@@ -2,7 +2,7 @@
   <div class="grid row">
     <div class="flex xs12 md6">
       <va-card class="fill-height" style="overflow-x: auto">
-        <va-card-title>{{ t("tabs.alignment") }}</va-card-title>
+        <va-card-title>{{ t('tabs.alignment') }}</va-card-title>
         <va-card-content>
           <div class="row">
             <div class="flex xs12">
@@ -40,7 +40,7 @@
       <div class="row column">
         <div class="flex">
           <va-card>
-            <va-card-title>{{ t("tabs.overflow") }}</va-card-title>
+            <va-card-title>{{ t('tabs.overflow') }}</va-card-title>
             <va-card-content>
               <div class="row">
                 <div class="flex xs12">
@@ -59,7 +59,7 @@
         </div>
         <div class="flex">
           <va-card>
-            <va-card-title>{{ t("tabs.hidden") }}</va-card-title>
+            <va-card-title>{{ t('tabs.hidden') }}</va-card-title>
             <va-card-content>
               <div class="row">
                 <div class="flex xs12">
@@ -80,7 +80,7 @@
 
     <div class="flex xs12">
       <va-card style="overflow-x: auto">
-        <va-card-title>{{ t("tabs.grow") }}</va-card-title>
+        <va-card-title>{{ t('tabs.grow') }}</va-card-title>
         <va-card-content>
           <div class="row">
             <div class="flex xs12">
@@ -100,15 +100,11 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, computed } from "vue";
-  import { useI18n } from "vue-i18n";
-  const { t } = useI18n();
+  import { ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
 
-  import { useGlobalConfig } from "vuestic-ui";
-  const { getGlobalConfig } = useGlobalConfig();
+  const { t } = useI18n()
 
-  const tabTitles = ref(["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"]);
-  const tabValue = ref(1);
-
-  const backgroundColor = computed(() => getGlobalConfig().colors?.primary);
+  const tabTitles = ref(['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight'])
+  const tabValue = ref(1)
 </script>

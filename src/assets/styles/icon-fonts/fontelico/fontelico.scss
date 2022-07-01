@@ -3,14 +3,13 @@
   font-style: normal;
   font-weight: normal;
   src: url('/src/assets/styles/icon-fonts/fontelico/fontelico.eot');
-  src:
-    url('/src/assets/styles/icon-fonts/fontelico/fontelico.eot?#iefix') format('eot'),
+  src: url('/src/assets/styles/icon-fonts/fontelico/fontelico.eot?#iefix') format('eot'),
     url('/src/assets/styles/icon-fonts/fontelico/fontelico.woff') format('woff'),
     url('/src/assets/styles/icon-fonts/fontelico/fontelico.ttf') format('truetype'),
     url('/src/assets/styles/icon-fonts/fontelico/fontelico.svg#fontelico') format('svg');
 }
 
-[class*="fontelico-"]::before {
+[class*='fontelico-']::before {
   font-family: 'fontelico', sans-serif;
   font-style: normal;
 }

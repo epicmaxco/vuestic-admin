@@ -85,12 +85,12 @@ export const extraColors = [
 ]
 
 export const buttonGradients = [
-  { color: 'primary' },
-  { color: 'secondary' },
-  { color: 'success' },
-  { color: 'info' },
-  { color: 'danger' },
-  { color: 'warning' },
-  { color: 'gray' },
-  { color: 'dark' },
+  { color: 'primary', name: 'primary', description: 'Buttons, chips, badges...' },
+  { color: 'secondary', name: 'secondary', description: 'Buttons, chips, badges...' },
+  { color: 'success', name: 'success', description: 'Buttons, chips, badges...' },
+  { color: 'info', name: 'info', description: 'Buttons, chips, badges...' },
+  { color: 'danger', name: 'danger', description: 'Buttons, chips, badges...' },
+  { color: 'warning', name: 'warning', description: 'Buttons, chips, badges...' },
+  { color: 'gray', name: 'gray', description: 'Buttons, chips, badges...' },
+  { color: 'dark', name: 'dark', description: 'Buttons, chips, badges...' },
 ]

@@ -3,19 +3,19 @@
     <div class="row">
       <div class="flex md12">
         <va-card class="modals-list larger-padding">
-          <va-card-title>{{ t("modal.title") }}</va-card-title>
+          <va-card-title>{{ t('modal.title') }}</va-card-title>
           <va-card-content>
             <va-button class="mr-2 mb-2" color="danger" @click="showSmallModal = true">
-              {{ t("modal.small") }}
+              {{ t('modal.small') }}
             </va-button>
             <va-button class="mr-2 mb-2" color="info" @click="showMediumModal = true">
-              {{ t("modal.medium") }}
+              {{ t('modal.medium') }}
             </va-button>
             <va-button class="mr-2 mb-2" color="warning" @click="showLargeModal = true">
-              {{ t("modal.large") }}
+              {{ t('modal.large') }}
             </va-button>
             <va-button class="mr-2 mb-2" color="success" @click="showStaticModal = true">
-              {{ t("modal.static") }}
+              {{ t('modal.static') }}
             </va-button>
           </va-card-content>
         </va-card>
@@ -24,19 +24,19 @@
     <div class="row">
       <div class="flex md12">
         <va-card class="modals-list larger-padding">
-          <va-card-title>{{ t("modal.titlePosition") }}</va-card-title>
+          <va-card-title>{{ t('modal.titlePosition') }}</va-card-title>
           <va-card-content>
             <va-button class="mb-2 mr-2" color="danger" @click="showTopModal = true">
-              {{ t("modal.top") }}
+              {{ t('modal.top') }}
             </va-button>
             <va-button class="mb-2 mr-2" color="info" @click="showRightModal = true">
-              {{ t("modal.right") }}
+              {{ t('modal.right') }}
             </va-button>
             <va-button class="mb-2 mr-2" color="warning" @click="showBottomModal = true">
-              {{ t("modal.bottom") }}
+              {{ t('modal.bottom') }}
             </va-button>
             <va-button class="mb-2 mr-2" color="success" @click="showLeftModal = true">
-              {{ t("modal.left") }}
+              {{ t('modal.left') }}
             </va-button>
           </va-card-content>
         </va-card>
@@ -112,17 +112,16 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from "vue";
-  import { useI18n } from "vue-i18n";
-  const { t } = useI18n();
+  import { ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
+  const { t } = useI18n()
 
-  const show = ref(true);
-  const showSmallModal = ref(false);
-  const showMediumModal = ref(false);
-  const showLargeModal = ref(false);
-  const showTopModal = ref(false);
-  const showRightModal = ref(false);
-  const showBottomModal = ref(false);
-  const showLeftModal = ref(false);
-  const showStaticModal = ref(false);
+  const showSmallModal = ref(false)
+  const showMediumModal = ref(false)
+  const showLargeModal = ref(false)
+  const showTopModal = ref(false)
+  const showRightModal = ref(false)
+  const showBottomModal = ref(false)
+  const showLeftModal = ref(false)
+  const showStaticModal = ref(false)
 </script>

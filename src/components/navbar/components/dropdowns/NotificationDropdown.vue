@@ -25,9 +25,9 @@
         </span>
       </div>
       <div class="row justify--space-between mt-1">
-        <va-button class="md6 mr-2" size="small">{{ t("notifications.all") }}</va-button>
+        <va-button class="md6 mr-2" size="small">{{ t('notifications.all') }}</va-button>
         <va-button class="md6" size="small" outline :disabled="allRead" @click="markAllAsRead">{{
-          t("notifications.mark_as_read")
+          t('notifications.mark_as_read')
         }}</va-button>
       </div>
     </va-dropdown-content>
@@ -35,65 +35,66 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, computed } from "vue";
-  import { useI18n } from "vue-i18n";
-  const { t } = useI18n();
+  import { ref, computed } from 'vue'
+  import { useI18n } from 'vue-i18n'
+  import VaIconNotification from '../../../icons/VaIconNotification.vue'
 
-  import VaIconNotification from "../../../icons/VaIconNotification.vue";
+  const { t } = useI18n()
 
   interface INotification {
-    name: string;
+    name: string
     details: {
-      name: string;
-      avatar: string;
-    };
-    unread: boolean;
-    id: number;
+      name: string
+      avatar: string
+      type?: string
+    }
+    unread: boolean
+    id: number
   }
 
   const props = withDefaults(
     defineProps<{
-      notifications?: INotification[];
+      notifications?: INotification[]
     }>(),
     {
       notifications: () => [
         {
-          name: "sentMessage",
-          details: { name: "Vasily S", avatar: "https://picsum.photos/123" },
+          name: 'sentMessage',
+          details: { name: 'Vasily S', avatar: 'https://picsum.photos/123' },
           unread: true,
           id: 1,
         },
         {
-          name: "uploadedZip",
+          name: 'uploadedZip',
           details: {
-            name: "Oleg M",
-            avatar: "https://picsum.photos/100",
-            type: "typography component",
+            name: 'Oleg M',
+            avatar: 'https://picsum.photos/100',
+            type: 'typography component',
           },
           unread: true,
           id: 2,
         },
         {
-          name: "startedTopic",
-          details: { name: "Andrei H", avatar: "https://picsum.photos/24" },
+          name: 'startedTopic',
+          details: { name: 'Andrei H', avatar: 'https://picsum.photos/24' },
           unread: true,
           id: 3,
         },
       ],
     },
-  );
+  )
 
-  const notificationsProxy = ref<INotification[]>([...props.notifications]);
+  const notificationsProxy = ref<INotification[]>([...props.notifications])
 
   const allRead = computed(() => {
-    return notificationsProxy.value.every((notification) => !notification.unread);
-  });
+    return notificationsProxy.value.every((notification) => !notification.unread)
+  })
 
   function markAllAsRead() {
     notificationsProxy.value = notificationsProxy.value.map((notification) => ({
       ...notification,
       unread: false,
-    }));
+    }))
   }
 </script>
 
@@ -114,7 +115,7 @@
       align-items: center;
 
       &--unread::before {
-        content: "";
+        content: '';
         position: absolute;
         right: 0;
         left: 0;
@@ -139,7 +140,7 @@
 
       &--unread {
         &::after {
-          content: "";
+          content: '';
           position: absolute;
           right: 0;
           top: 0;

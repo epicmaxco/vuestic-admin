@@ -16,7 +16,7 @@
 </template>
 
 <script>
-  import axios from "axios";
+  import axios from 'axios'
 
   export default {
     data() {
@@ -25,52 +25,52 @@
         totalPages: 0,
         items: [],
         loading: false,
-      };
+      }
     },
     computed: {
       fields() {
         return [
           {
-            name: "__slot:avatar",
-            width: "60px",
+            name: '__slot:avatar',
+            width: '60px',
           },
           {
-            name: "first_name",
-            title: this.t("tables.headings.firstName"),
-            width: "20%",
+            name: 'first_name',
+            title: this.t('tables.headings.firstName'),
+            width: '20%',
           },
           {
-            name: "last_name",
-            title: this.t("tables.headings.lastName"),
-            width: "20%",
+            name: 'last_name',
+            title: this.t('tables.headings.lastName'),
+            width: '20%',
           },
           {
-            name: "email",
-            title: this.t("tables.headings.email"),
+            name: 'email',
+            title: this.t('tables.headings.email'),
           },
-        ];
+        ]
       },
     },
     created() {
-      this.readItems();
+      this.readItems()
     },
     methods: {
       readItems(page = 0) {
-        this.loading = true;
+        this.loading = true
 
         const params = {
           per_page: this.perPage,
           page: page,
-        };
+        }
 
-        axios.get("https://reqres.in/api/users", { params }).then((response) => {
-          this.items = response.data.data;
-          this.totalPages = response.data.total_pages;
-          this.loading = false;
-        });
+        axios.get('https://reqres.in/api/users', { params }).then((response) => {
+          this.items = response.data.data
+          this.totalPages = response.data.total_pages
+          this.loading = false
+        })
       },
     },
-  };
+  }
 </script>
 
 <style lang="scss">

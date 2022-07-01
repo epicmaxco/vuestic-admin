@@ -19,19 +19,19 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from "vue";
+  import { ref } from 'vue'
 
   // No TS declarations are provided - ignoring the error
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  import { yandexMap as YandexMap, ymapMarker as YandexMapMarker } from "vue-yandex-maps";
+  import { yandexMap as YandexMap, ymapMarker as YandexMapMarker } from 'vue-yandex-maps'
 
   const markers = ref([
     {
-      "marker-id": 0,
+      'marker-id': 0,
       coords: [54.8, 38.9],
-      clusterName: "1",
+      clusterName: '1',
       balloonTemplate: '<div>"Your custom template"</div>',
     },
-  ]);
+  ])
 </script>

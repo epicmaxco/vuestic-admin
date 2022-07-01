@@ -7,11 +7,11 @@
 
       <template #actions="props">
         <va-button flat small color="gray" class="ma-0" @click="edit(props.rowData)">
-          {{ t("tables.edit") }}
+          {{ t('tables.edit') }}
         </va-button>
 
         <va-button flat small color="danger" class="ma-0" @click="remove(props.rowData)">
-          {{ t("tables.delete") }}
+          {{ t('tables.delete') }}
         </va-button>
       </template>
     </va-data-table>
@@ -19,51 +19,51 @@
 </template>
 
 <script>
-  import users from "../data/users.json";
+  import users from '../data/users.json'
 
   export default {
     data() {
       return {
         users: users.slice(0, 6),
-      };
+      }
     },
     computed: {
       fields() {
         return [
           {
-            name: "__slot:marker",
-            width: "30px",
-            dataClass: "text-center",
+            name: '__slot:marker',
+            width: '30px',
+            dataClass: 'text-center',
           },
           {
-            name: "fullName",
-            title: this.t("tables.headings.name"),
+            name: 'fullName',
+            title: this.t('tables.headings.name'),
           },
           {
-            name: "email",
-            title: this.t("tables.headings.email"),
+            name: 'email',
+            title: this.t('tables.headings.email'),
           },
           {
-            name: "country",
-            title: this.t("tables.headings.country"),
+            name: 'country',
+            title: this.t('tables.headings.country'),
           },
           {
-            name: "__slot:actions",
-            dataClass: "text-right",
+            name: '__slot:actions',
+            dataClass: 'text-right',
           },
-        ];
+        ]
       },
     },
     methods: {
       edit(user) {
-        alert("Edit User: " + JSON.stringify(user));
+        alert('Edit User: ' + JSON.stringify(user))
       },
       remove(user) {
-        const idx = this.users.findIndex((u) => u.id === user.id);
-        this.users.splice(idx, 1);
+        const idx = this.users.findIndex((u) => u.id === user.id)
+        this.users.splice(idx, 1)
       },
     },
-  };
+  }
 </script>
 
 <style lang="scss"></style>

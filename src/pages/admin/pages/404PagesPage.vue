@@ -8,7 +8,7 @@
             {{ item.label }}
             <div class="not-found-pages__button-container pt-3 mb-0">
               <va-button :to="{ name: item.buttonTo }">
-                {{ "View Example" }}
+                {{ 'View Example' }}
               </va-button>
             </div>
           </va-card-content>
@@ -19,28 +19,28 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from "vue";
+  import { ref } from 'vue'
 
   const items = ref([
     {
-      imageUrl: "https://i.imgur.com/GzUR0Wz.png",
-      label: "Advanced layout",
-      buttonTo: "not-found-advanced",
+      imageUrl: 'https://i.imgur.com/GzUR0Wz.png',
+      label: 'Advanced layout',
+      buttonTo: 'not-found-advanced',
     },
     {
-      imageUrl: "https://i.imgur.com/HttcXPi.png",
-      label: "Simple",
-      buttonTo: "not-found-simple",
+      imageUrl: 'https://i.imgur.com/HttcXPi.png',
+      label: 'Simple',
+      buttonTo: 'not-found-simple',
     },
     {
-      imageUrl: "https://i.imgur.com/dlcZMiG.png",
-      label: "Custom image",
-      buttonTo: "not-found-custom",
+      imageUrl: 'https://i.imgur.com/dlcZMiG.png',
+      label: 'Custom image',
+      buttonTo: 'not-found-custom',
     },
     {
-      imageUrl: "https://i.imgur.com/qcOlDz7.png",
-      label: "Large text heading",
-      buttonTo: "not-found-large-text",
+      imageUrl: 'https://i.imgur.com/qcOlDz7.png',
+      label: 'Large text heading',
+      buttonTo: 'not-found-large-text',
     },
-  ]);
+  ])
 </script>

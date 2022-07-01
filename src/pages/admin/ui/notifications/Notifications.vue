@@ -3,14 +3,14 @@
     <div class="row">
       <div class="flex xs12">
         <va-card>
-          <va-card-title>{{ t("notificationsPage.notifications.title") }}</va-card-title>
+          <va-card-title>{{ t('notificationsPage.notifications.title') }}</va-card-title>
           <va-card-content>
             <div class="mb-3">
               <va-alert closeable>
                 <template #icon>
                   <va-badge :text="t('notificationsPage.notifications.success')" />
                 </template>
-                {{ t("notificationsPage.notifications.successMessage") }}
+                {{ t('notificationsPage.notifications.successMessage') }}
               </va-alert>
             </div>
             <div class="mb-3">
@@ -18,7 +18,7 @@
                 <template #icon>
                   <va-badge color="info" :text="t('notificationsPage.notifications.info')" />
                 </template>
-                {{ t("notificationsPage.notifications.infoMessage") }}
+                {{ t('notificationsPage.notifications.infoMessage') }}
               </va-alert>
             </div>
             <div class="mb-3">
@@ -26,7 +26,7 @@
                 <template #icon>
                   <va-badge color="warning" :text="t('notificationsPage.notifications.warning')" />
                 </template>
-                {{ t("notificationsPage.notifications.warningMessage") }}
+                {{ t('notificationsPage.notifications.warningMessage') }}
               </va-alert>
             </div>
             <div class="mb-3">
@@ -34,7 +34,7 @@
                 <template #icon>
                   <va-badge color="danger" :text="t('notificationsPage.notifications.danger')" />
                 </template>
-                {{ t("notificationsPage.notifications.dangerMessage") }}
+                {{ t('notificationsPage.notifications.dangerMessage') }}
               </va-alert>
             </div>
             <div class="mb-3">
@@ -42,7 +42,7 @@
                 <template #icon>
                   <va-badge color="gray" :text="t('notificationsPage.notifications.gray')" />
                 </template>
-                {{ t("notificationsPage.notifications.warningMessage") }}
+                {{ t('notificationsPage.notifications.warningMessage') }}
               </va-alert>
             </div>
             <div class="mb-3">
@@ -50,7 +50,7 @@
                 <template #icon>
                   <va-badge color="dark" :text="t('notificationsPage.notifications.dark')" />
                 </template>
-                {{ t("notificationsPage.notifications.dangerMessage") }}
+                {{ t('notificationsPage.notifications.dangerMessage') }}
               </va-alert>
             </div>
           </va-card-content>
@@ -61,7 +61,7 @@
     <div class="row">
       <div class="flex xs12">
         <va-card>
-          <va-card-title>{{ t("notificationsPage.toasts.title") }}</va-card-title>
+          <va-card-title>{{ t('notificationsPage.toasts.title') }}</va-card-title>
           <va-card-content class="row">
             <div class="flex xs12 md6">
               <va-input
@@ -101,7 +101,7 @@
             <div class="flex xs12">
               <!-- There was slot="trigger" -->
               <va-button class="ma-0" color="primary" @click="launchToast">
-                {{ t("notificationsPage.toasts.launchToast") }}
+                {{ t('notificationsPage.toasts.launchToast') }}
               </va-button>
             </div>
           </va-card-content>
@@ -112,22 +112,17 @@
 </template>
 
 <script setup lang="ts">
-  import { useI18n } from "vue-i18n";
-  const { t } = useI18n();
+  import { useI18n } from 'vue-i18n'
+  import { ToastPosition, useToast } from 'vuestic-ui'
+  import ToastPositionPicker from './ToastPositionPicker.vue'
+  import { ref } from 'vue'
 
-  import { useToast } from "vuestic-ui";
-  import ToastPositionPicker from "./ToastPositionPicker.vue";
-  import { computed, ref } from "vue";
+  const { t } = useI18n()
 
-  const toastText = ref("This toast is awesome!");
-  const toastDuration = ref(2500);
-  const toastIcon = ref("fa-star-o");
-  const toastPosition = ref("bottom-right");
-  const isToastFullWidth = ref(false);
-
-  const isToastContentPresent = computed(() => {
-    return !!(toastText.value || toastIcon.value);
-  });
+  const toastText = ref('This toast is awesome!')
+  const toastDuration = ref(2500)
+  const toastIcon = ref('fa-star-o')
+  const toastPosition = ref<ToastPosition>('bottom-right')
 
   function launchToast() {
     useToast().init({
@@ -135,7 +130,6 @@
       iconClass: toastIcon.value,
       position: toastPosition.value,
       duration: Number(toastDuration.value),
-      fullWidth: isToastFullWidth.value,
-    });
+    })
   }
 </script>

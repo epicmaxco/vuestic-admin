@@ -3,206 +3,205 @@
   font-style: normal;
   font-weight: normal;
   src: url('/src/assets/styles/icon-fonts/openwebicons/openwebicons.eot');
-  src:
-    url('/src/assets/styles/icon-fonts/openwebicons/openwebicons.eot?#iefix') format('eot'),
+  src: url('/src/assets/styles/icon-fonts/openwebicons/openwebicons.eot?#iefix') format('eot'),
     url('/src/assets/styles/icon-fonts/openwebicons/openwebicons.woff') format('woff'),
     url('/src/assets/styles/icon-fonts/openwebicons/openwebicons.ttf') format('truetype'),
     url('/src/assets/styles/icon-fonts/openwebicons/openwebicons.svg#openweb_iconsregular') format('svg');
 }
 
-[class*="openwebicons-"]::before {
+[class*='openwebicons-']::before {
   font-family: 'OpenWeb Icons', sans-serif;
   font-style: normal;
 }
 
 .openwebicons-apml::before {
-  content: "\f001";
+  content: '\f001';
 }
 
 .openwebicons-open-share::before {
-  content: "\f00E";
+  content: '\f00E';
 }
 
 .openwebicons-open-share-simple::before {
-  content: "\f00F";
+  content: '\f00F';
 }
 
 .openwebicons-share::before {
-  content: "\f006";
+  content: '\f006';
 }
 
 .openwebicons-share-simple::before {
-  content: "\f007";
+  content: '\f007';
 }
 
 .openwebicons-feed::before {
-  content: "\f009";
+  content: '\f009';
 }
 
 .openwebicons-feed-simple::before {
-  content: "\f00A";
+  content: '\f00A';
 }
 
 .openwebicons-ostatus::before {
-  content: "\f004";
+  content: '\f004';
 }
 
 .openwebicons-ostatus-simple::before {
-  content: "\f005";
+  content: '\f005';
 }
 
 .openwebicons-opml::before {
-  content: "\f003";
+  content: '\f003';
 }
 
 .openwebicons-activity::before {
-  content: "\f010";
+  content: '\f010';
 }
 
 .openwebicons-microformats::before {
-  content: "\f00C";
+  content: '\f00C';
 }
 
 .openwebicons-geo::before {
-  content: "\f00B";
+  content: '\f00B';
 }
 
 .openwebicons-opensearch::before {
-  content: "\f002";
+  content: '\f002';
 }
 
 .openwebicons-oauth::before {
-  content: "\f008";
+  content: '\f008';
 }
 
 .openwebicons-openid::before {
-  content: "\f00D";
+  content: '\f00D';
 }
 
 .openwebicons-rdf::before {
-  content: "\f000";
+  content: '\f000';
 }
 
 .openwebicons-dataportability::before {
-  content: "\f013";
+  content: '\f013';
 }
 
 .openwebicons-federated::before {
-  content: "\f011";
+  content: '\f011';
 }
 
 .openwebicons-web-intents::before {
-  content: "\f014";
+  content: '\f014';
 }
 
 .openwebicons-open-web::before {
-  content: "\f012";
+  content: '\f012';
 }
 
 .openwebicons-xmpp::before {
-  content: "\f015";
+  content: '\f015';
 }
 
 .openwebicons-html5::before {
-  content: "\f016";
+  content: '\f016';
 }
 
 .openwebicons-css3::before {
-  content: "\f017";
+  content: '\f017';
 }
 
 .openwebicons-connectivity::before {
-  content: "\f018";
+  content: '\f018';
 }
 
 .openwebicons-semantics::before {
-  content: "\f019";
+  content: '\f019';
 }
 
 .openwebicons-opengraph::before {
-  content: "\f020";
+  content: '\f020';
 }
 
 .openwebicons-epub::before {
-  content: "\f021";
+  content: '\f021';
 }
 
 .openwebicons-qr::before {
-  content: "\f022";
+  content: '\f022';
 }
 
 .openwebicons-foaf::before {
-  content: "\f023";
+  content: '\f023';
 }
 
 .openwebicons-info-card::before {
-  content: "\f024";
+  content: '\f024';
 }
 
 .openwebicons-browserid::before {
-  content: "\f025";
+  content: '\f025';
 }
 
 .openwebicons-remote-storage::before {
-  content: "\f026";
+  content: '\f026';
 }
 
 .openwebicons-persona::before {
-  content: "\f027";
+  content: '\f027';
 }
 
 .openwebicons-odata::before {
-  content: "\f028";
+  content: '\f028';
 }
 
 .openwebicons-markdown::before {
-  content: "\f029";
+  content: '\f029';
 }
 
 .openwebicons-tosdr::before {
-  content: "\f030";
+  content: '\f030';
 }
 
 .openwebicons-cc::before {
-  content: "\f080";
+  content: '\f080';
 }
 
 .openwebicons-cc-by::before {
-  content: "\f081";
+  content: '\f081';
 }
 
 .openwebicons-cc-nc::before {
-  content: "\f082";
+  content: '\f082';
 }
 
 .openwebicons-cc-nc-eu::before {
-  content: "\f083";
+  content: '\f083';
 }
 
 .openwebicons-cc-nc-jp::before {
-  content: "\f084";
+  content: '\f084';
 }
 
 .openwebicons-cc-sa::before {
-  content: "\f085";
+  content: '\f085';
 }
 
 .openwebicons-cc-nd::before {
-  content: "\f086";
+  content: '\f086';
 }
 
 .openwebicons-cc-public::before {
-  content: "\f087";
+  content: '\f087';
 }
 
 .openwebicons-cc-zero::before {
-  content: "\f088";
+  content: '\f088';
 }
 
 .openwebicons-cc-share::before {
-  content: "\f089";
+  content: '\f089';
 }
 
 .openwebicons-cc-remix::before {
-  content: "\f08a";
+  content: '\f08a';
 }

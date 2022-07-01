@@ -1,7 +1,7 @@
 <template>
   <div class="pt-2">
     <div class="title text-dark">
-      {{ t("dashboard.tabs.bankDetails.detailsFields") }}
+      {{ t('dashboard.tabs.bankDetails.detailsFields') }}
     </div>
     <div class="row">
       <div class="flex xs12 md6">
@@ -16,36 +16,33 @@
     </div>
     <div class="row justify--center">
       <va-button @click="sendDetails">
-        {{ t("dashboard.tabs.bankDetails.sendDetails") }}
+        {{ t('dashboard.tabs.bankDetails.sendDetails') }}
       </va-button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { computed, getCurrentInstance, ref } from "vue";
-  import { useGlobalConfig } from "vuestic-ui";
-  import { useToast } from "vuestic-ui";
-  import { useI18n } from "vue-i18n";
-  import globalConfig from "../../../../services/vuestic-ui/global-config";
-  const { t } = useI18n();
-  const { getGlobalConfig } = useGlobalConfig();
-
-  console.log(getGlobalConfig());
+  import { computed, ref } from 'vue'
+  import { useGlobalConfig } from 'vuestic-ui'
+  import { useToast } from 'vuestic-ui'
+  import { useI18n } from 'vue-i18n'
+  const { t } = useI18n()
+  const { getGlobalConfig } = useGlobalConfig()
 
   const form = ref({
-    bankName: "Raiffeisen Bank",
-    accountName: "GoalSaver",
-    sortCode: "6558912",
-    accountNumber: "000876432",
-    notes: "",
-  });
+    bankName: 'Raiffeisen Bank',
+    accountName: 'GoalSaver',
+    sortCode: '6558912',
+    accountNumber: '000876432',
+    notes: '',
+  })
 
-  const theme = computed(() => globalConfig.colors);
+  const theme = computed(() => getGlobalConfig().colors!)
 
   function sendDetails() {
-    const color = theme.value?.primary;
-    useToast().init({ message: `Saved!`, color });
+    const color = theme.value?.primary
+    useToast().init({ message: `Saved!`, color })
   }
 </script>
 

@@ -5,7 +5,7 @@
         <va-card class="mb-4">
           <va-list>
             <va-list-label>
-              {{ t("lists.customers") }}
+              {{ t('lists.customers') }}
             </va-list-label>
 
             <template v-for="(customer, i) in customers" :key="'item' + customer.id">
@@ -39,7 +39,7 @@
         <va-card>
           <va-list>
             <va-list-label>
-              {{ t("lists.recentMessages") }}
+              {{ t('lists.recentMessages') }}
             </va-list-label>
 
             <template v-for="(customer, i) in customers" :key="'item' + customer.id">
@@ -71,7 +71,7 @@
             <va-list-separator fit spaced />
 
             <va-list-label color="gray">
-              {{ t("lists.archieved") }}
+              {{ t('lists.archieved') }}
             </va-list-label>
 
             <template v-for="(customer, i) in archived" :key="'item' + customer.id">
@@ -103,7 +103,7 @@
         <va-card class="mb-4">
           <va-list>
             <va-list-label>
-              {{ t("lists.starterKit") }}
+              {{ t('lists.starterKit') }}
             </va-list-label>
 
             <va-list-item class="ml-2" clickable>
@@ -125,7 +125,7 @@
             <va-list-separator fit spaced />
 
             <va-list-label>
-              {{ t("lists.notifications") }}
+              {{ t('lists.notifications') }}
             </va-list-label>
 
             <va-list-item>
@@ -161,7 +161,7 @@
         <va-card>
           <va-list>
             <va-list-label>
-              {{ t("lists.routerSupport") }}
+              {{ t('lists.routerSupport') }}
             </va-list-label>
 
             <va-list-item :to="{ name: 'maplibre-maps' }">
@@ -201,35 +201,35 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from "vue";
-  import { useI18n } from "vue-i18n";
-  const { t } = useI18n();
+  import { ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
+  import { useToast } from 'vuestic-ui'
+  import data from './data.json'
 
-  import { useToast } from "vuestic-ui";
-  import data from "./data.json";
+  const { t } = useI18n()
 
-  const customers = ref(data.slice(0, 5));
-  const archived = ref(data.slice(5, 8));
-  const appBanners = ref(false);
-  const banners = ref(false);
-  const notifications = ref(true);
+  const customers = ref(data.slice(0, 5))
+  const archived = ref(data.slice(5, 8))
+  const appBanners = ref(false)
+  const banners = ref(false)
+  const notifications = ref(true)
 
   function getGenderIcon(gender: string) {
-    return gender === "male" ? "mars" : "venus";
+    return gender === 'male' ? 'mars' : 'venus'
   }
 
   function getGenderColor(gender: string) {
-    return gender === "male" ? "blue" : "pink";
+    return gender === 'male' ? 'blue' : 'pink'
   }
 
   function notify(name: string) {
     useToast().init({
       message: `Clicked ${name}`,
-      position: "bottom-right",
-    });
+      position: 'bottom-right',
+    })
   }
 
   function toggleStar(customer: { starred: boolean }) {
-    customer.starred = !customer.starred;
+    customer.starred = !customer.starred
   }
 </script>

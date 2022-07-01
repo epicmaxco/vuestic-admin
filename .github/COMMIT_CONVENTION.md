@@ -6,19 +6,20 @@
 
 Messages must match the following regex:
 
-``` js
-/^(revert: )?(feat|fix|docs|style|refactor|test|ci|chore)(\(.+\))?: .{1,70}/
+```js
+;/^(revert: )?(feat|fix|docs|style|refactor|test|ci|chore)(\(.+\))?: .{1,70}/
 ```
 
 #### Types
-* `feat` - new functionality.
-* `fix` - patching a bug.
-* `docs` - documentation and comments.
-* `style` - style changes only (not necessarily in css).
-* `refactor` - reworking internals without impacting project interface.
-* `test` - tests and demo.
-* `ci` - deploy and continuous integration.
-* `chore` - no significant code changes: code formatting, version changes, tool updates, minor refactorings.
+
+- `feat` - new functionality.
+- `fix` - patching a bug.
+- `docs` - documentation and comments.
+- `style` - style changes only (not necessarily in css).
+- `refactor` - reworking internals without impacting project interface.
+- `test` - tests and demo.
+- `ci` - deploy and continuous integration.
+- `chore` - no significant code changes: code formatting, version changes, tool updates, minor refactorings.
 
 #### Examples
 
@@ -54,7 +55,7 @@ This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
 
 ### Full Message Format
 
-A commit message consists of a **header**, **body** and **footer**.  The header has a **type**, **scope** and **subject**:
+A commit message consists of a **header**, **body** and **footer**. The header has a **type**, **scope** and **subject**:
 
 ```
 <type>(<scope>): <subject>
@@ -84,9 +85,9 @@ The scope could be anything specifying place of the commit change. For example `
 
 The subject contains succinct description of the change:
 
-* use the imperative, present tense: "change" not "changed" nor "changes"
-* don't capitalize first letter
-* no period (.) at the end
+- use the imperative, present tense: "change" not "changed" nor "changes"
+- don't capitalize first letter
+- no period (.) at the end
 
 ### Body
 

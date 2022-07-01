@@ -10,7 +10,7 @@
 
     <va-dropdown-content class="settings-dropdown__content pl-4 pr-4 pt-2 pb-2">
       <div class="settings-dropdown__content-label mt-2 mb-3" :style="{ color: theme.primary }">
-        {{ t("dashboard.navigationLayout") }}
+        {{ t('dashboard.navigationLayout') }}
       </div>
       <va-button-toggle
         v-model="isTopBarProxy"
@@ -23,37 +23,37 @@
   </va-dropdown>
 </template>
 
-<script>
-  import { useGlobalConfig } from "vuestic-ui";
+<script setup lang="ts">
+  import { computed, ref } from 'vue'
+  import { useGlobalConfig } from 'vuestic-ui'
+  import { useI18n } from 'vue-i18n'
 
-  export default {
-    name: "SettingsDropdown",
-    props: {
-      isTopBar: Boolean,
+  const { getGlobalConfig } = useGlobalConfig()
+  const { t } = useI18n()
+
+  const props = defineProps<{
+    isTopBar: boolean
+  }>()
+
+  const emit = defineEmits<{
+    (e: 'update:isTopBar', value: boolean): void
+  }>()
+
+  const options = ref([
+    { label: t('dashboard.sideBarButton'), value: String(false) }, // NOTE: boolean is unsupported for va-dropdown
+    { label: t('dashboard.topBarButton'), value: String(true) },
+  ])
+
+  const theme = computed(() => getGlobalConfig().colors!)
+
+  const isTopBarProxy = computed({
+    get() {
+      return String(props.isTopBar)
     },
-    data() {
-      return {
-        options: [
-          { label: this.t("dashboard.sideBarButton"), value: String(false) }, // NOTE: boolean is unsupported for va-dropdown
-          { label: this.t("dashboard.topBarButton"), value: String(true) },
-        ],
-      };
+    set() {
+      emit('update:isTopBar', props.isTopBar)
     },
-    computed: {
-      theme() {
-        return useGlobalConfig().getGlobalConfig().colors;
-      },
-      isTopBarProxy: {
-        get() {
-          return String(this.isTopBar);
-        },
-        set(isTopBar) {
-          const value = isTopBar === "true"; // NOTE: convert string to boolean
-          this.$emit("update:isTopBar", value);
-        },
-      },
-    },
-  };
+  })
 </script>
 
 <style lang="scss">

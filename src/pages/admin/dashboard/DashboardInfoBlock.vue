@@ -6,7 +6,7 @@
           <va-card class="mb-4" :color="info.color">
             <va-card-content>
               <p class="display-2 mb-0" style="color: white">{{ info.value }}</p>
-              <p style="color: white">{{ t("dashboard.info." + info.text) }}</p>
+              <p style="color: white">{{ t('dashboard.info.' + info.text) }}</p>
             </va-card-content>
           </va-card>
         </div>
@@ -17,7 +17,7 @@
           <va-card>
             <va-card-content>
               <p class="display-2 mb-1" :style="{ color: theme.primary }">291</p>
-              <p class="no-wrap">{{ t("dashboard.info.completedPullRequests") }}</p>
+              <p class="no-wrap">{{ t('dashboard.info.completedPullRequests') }}</p>
             </va-card-content>
           </va-card>
         </div>
@@ -27,15 +27,15 @@
               <div class="row row-separated">
                 <div class="flex xs4">
                   <p class="display-2 mb-1 text--center" :style="{ color: theme.primary }">3</p>
-                  <p class="text--center mb-1">{{ t("dashboard.info.users") }}</p>
+                  <p class="text--center mb-1">{{ t('dashboard.info.users') }}</p>
                 </div>
                 <div class="flex xs4">
                   <p class="display-2 mb-1 text--center" :style="{ color: theme.info }">24</p>
-                  <p class="text--center no-wrap mb-1">{{ t("dashboard.info.points") }}</p>
+                  <p class="text--center no-wrap mb-1">{{ t('dashboard.info.points') }}</p>
                 </div>
                 <div class="flex xs4">
                   <p class="display-2 mb-1 text--center" :style="{ color: theme.warning }">91</p>
-                  <p class="text--center mb-1">{{ t("dashboard.info.units") }}</p>
+                  <p class="text--center mb-1">{{ t('dashboard.info.units') }}</p>
                 </div>
               </div>
             </va-card-content>
@@ -47,7 +47,7 @@
     <div class="flex xs12 md6 xl3">
       <va-card stripe stripe-color="info">
         <va-card-title>
-          {{ t("dashboard.info.componentRichTheme") }}
+          {{ t('dashboard.info.componentRichTheme') }}
         </va-card-title>
         <va-card-content>
           <p class="rich-theme-card-text">
@@ -56,7 +56,7 @@
 
           <div class="mt-3">
             <va-button color="primary" target="_blank" href="https://github.com/epicmaxco/vuestic-ui">
-              {{ t("dashboard.info.viewLibrary") }}
+              {{ t('dashboard.info.viewLibrary') }}
             </va-button>
           </div>
         </va-card-content>
@@ -68,7 +68,7 @@
         <va-image :src="images[0]" style="height: 200px" />
         <va-card-title>
           <va-button flat icon-right="fa-arrow-circle-right" color="primary" class="ma-0" @click="showModal">
-            {{ t("dashboard.info.exploreGallery") }}
+            {{ t('dashboard.info.exploreGallery') }}
           </va-button>
         </va-card-title>
       </va-card>
@@ -92,55 +92,56 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, ref } from "vue";
-  import { useGlobalConfig } from "vuestic-ui";
-  const { getGlobalConfig } = useGlobalConfig();
-  import { useI18n } from "vue-i18n";
-  const { t } = useI18n();
+  import { computed, ref } from 'vue'
+  import { useGlobalConfig } from 'vuestic-ui'
+  import { useI18n } from 'vue-i18n'
+
+  const { getGlobalConfig } = useGlobalConfig()
+  const { t } = useI18n()
 
   const infoTiles = ref([
     {
-      color: "success",
-      value: "803",
-      text: "commits",
-      icon: "",
+      color: 'success',
+      value: '803',
+      text: 'commits',
+      icon: '',
     },
     {
-      color: "danger",
-      value: "57",
-      text: "components",
-      icon: "",
+      color: 'danger',
+      value: '57',
+      text: 'components',
+      icon: '',
     },
     {
-      color: "info",
-      value: "5",
-      text: "teamMembers",
-      icon: "",
+      color: 'info',
+      value: '5',
+      text: 'teamMembers',
+      icon: '',
     },
-  ]);
+  ])
 
-  const modal = ref(false);
-  const currentImageIndex = ref(0);
+  const modal = ref(false)
+  const currentImageIndex = ref(0)
   const images = ref([
-    "https://i.imgur.com/qSykGko.jpg",
-    "https://i.imgur.com/jYwT08D.png",
-    "https://i.imgur.com/9930myH.jpg",
-    "https://i.imgur.com/2JxhWD6.jpg",
-    "https://i.imgur.com/MpiOWbM.jpg",
-  ]);
+    'https://i.imgur.com/qSykGko.jpg',
+    'https://i.imgur.com/jYwT08D.png',
+    'https://i.imgur.com/9930myH.jpg',
+    'https://i.imgur.com/2JxhWD6.jpg',
+    'https://i.imgur.com/MpiOWbM.jpg',
+  ])
 
-  const theme = computed(() => getGlobalConfig().colors);
+  const theme = computed(() => getGlobalConfig().colors)
 
   function showModal() {
-    modal.value = true;
+    modal.value = true
   }
 
   function showPrevImage() {
-    currentImageIndex.value = !currentImageIndex.value ? images.value.length - 1 : currentImageIndex.value - 1;
+    currentImageIndex.value = !currentImageIndex.value ? images.value.length - 1 : currentImageIndex.value - 1
   }
 
   function showNextImage() {
-    currentImageIndex.value = currentImageIndex.value === images.value.length - 1 ? 0 : currentImageIndex.value + 1;
+    currentImageIndex.value = currentImageIndex.value === images.value.length - 1 ? 0 : currentImageIndex.value + 1
   }
 </script>
 

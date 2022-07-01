@@ -12,8 +12,8 @@
           <va-card-content>
             <va-tabs v-model="tabIndex" center>
               <template #tabs>
-                <va-tab name="login">{{ t("auth.login") }}</va-tab>
-                <va-tab name="signup">{{ t("auth.createNewAccount") }}</va-tab>
+                <va-tab name="login">{{ t('auth.login') }}</va-tab>
+                <va-tab name="signup">{{ t('auth.createNewAccount') }}</va-tab>
               </template>
             </va-tabs>
 
@@ -30,32 +30,32 @@
 </template>
 
 <script>
-  import VuesticLogo from "../components/VuesticLogo.vue";
-  import { useI18n } from "vue-i18n";
+  import VuesticLogo from '../components/VuesticLogo.vue'
+  import { useI18n } from 'vue-i18n'
 
   export default {
-    name: "AuthLayout",
+    name: 'AuthLayout',
     components: { VuesticLogo },
     setup() {
-      const { t } = useI18n();
-      return { t };
+      const { t } = useI18n()
+      return { t }
     },
     data() {
       return {
         selectedTabIndex: 0,
-      };
+      }
     },
     computed: {
       tabIndex: {
         set(tabName) {
-          this.$router.push({ name: tabName });
+          this.$router.push({ name: tabName })
         },
         get() {
-          return this.$route.name;
+          return this.$route.name
         },
       },
     },
-  };
+  }
 </script>
 
 <style lang="scss">

@@ -13,86 +13,74 @@
   </div>
 </template>
 
-<script>
-  import { useColors } from "vuestic-ui";
+<script setup lang="ts">
+  import { useColors, useToast } from 'vuestic-ui'
+  import { computed, defineProps, ref } from 'vue'
 
-  // NOTE This component is a tad weird.
-  // It's not part of presentation nor is it UI component.
-  // Could be seen as `playground` of sorts.
-  export default {
-    name: "ColorPresentation",
-    props: {
-      color: {
-        type: String,
-        default: "",
-      },
-      variant: {
-        type: Array,
-        default: () => [],
-      },
-      width: {
-        type: Number,
-      },
-      name: {
-        type: String,
-        default: "",
-      },
-      description: {
-        type: String,
-        default: "",
-      },
+  const props = withDefaults(
+    defineProps<{
+      color?: string
+      variant?: string[]
+      width: number
+      name?: string
+      description?: string
+    }>(),
+    {
+      color: '',
+      variant: () => [],
+      name: '',
+      description: '',
     },
-    data() {
-      return {
-        popoverOptions: {
-          content: "Click to copy the color to clipboard",
-          placement: "right",
-        },
-      };
-    },
-    computed: {
-      computedBackground() {
-        const { getColor, getGradientBackground } = useColors();
+  )
 
-        const colorComputed = getColor(this.color);
+  const popoverOptions = ref({
+    content: 'Click to copy the color to clipboard',
+    placement: 'right',
+  })
 
-        if (this.variant.includes("gradient")) {
-          return getGradientBackground(colorComputed);
-        }
+  const computedBackground = computed(() => {
+    const { getColor, getGradientBackground } = useColors()
 
-        return colorComputed;
-      },
-      computedStyle() {
-        const calcFilter = () => {
-          if (this.variant.includes("hovered")) {
-            return "brightness(115%)";
-          }
-          if (this.variant.includes("pressed")) {
-            return "brightness(85%)";
-          }
-        };
+    const colorComputed = getColor(props.color)
 
-        return {
-          background: this.computedBackground,
-          filter: calcFilter(),
-          width: this.width ? `${this.width}px` : "",
-        };
-      },
-    },
-    methods: {
-      colorCopy() {
-        this.$refs.hiddenInput.select();
-        document.execCommand("copy");
-        this.notify();
-      },
-      notify() {
-        this.$vaToast.init({
-          message: "The color's copied to your clipboard",
-          position: "bottom-right",
-        });
-      },
-    },
-  };
+    if (props.variant.includes('gradient')) {
+      return getGradientBackground(colorComputed)
+    }
+
+    return colorComputed
+  })
+
+  const computedStyle = computed(() => {
+    const calcFilter = () => {
+      if (props.variant.includes('hovered')) {
+        return 'brightness(115%)'
+      }
+      if (props.variant.includes('pressed')) {
+        return 'brightness(85%)'
+      }
+    }
+
+    return {
+      background: computedBackground.value,
+      filter: calcFilter(),
+      width: props.width ? `${props.width}px` : '',
+    }
+  })
+
+  const hiddenInput = ref()
+
+  function colorCopy() {
+    hiddenInput.value.select()
+    document.execCommand('copy')
+    notify()
+  }
+
+  function notify() {
+    useToast().init({
+      message: "The color's copied to your clipboard",
+      position: 'bottom-right',
+    })
+  }
 </script>
 
 <style lang="scss">

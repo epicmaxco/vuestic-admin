@@ -26,47 +26,47 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, onMounted } from "vue";
-  import { useRouter } from "vue-router";
-  const router = useRouter();
+  import { computed } from 'vue'
+  import { useRouter } from 'vue-router'
+  import { useColors } from 'vuestic-ui'
+  import VaIconColor from '../../../icons/VaIconColor.vue'
+  import ColorDropdownItem from './ColorDropdownItem.vue'
+  import { THEME_NAMES, useTheme } from '../../../../services/vuestic-ui/themes'
 
-  import { useColors } from "vuestic-ui";
-  const { getColors } = useColors();
-  import VaIconColor from "../../../icons/VaIconColor.vue";
-  import ColorDropdownItem from "./ColorDropdownItem.vue";
-  import { THEME_NAMES, useTheme } from "../../../../services/vuestic-ui/themes";
-  const { setTheme, themeName } = useTheme();
+  const { getColors } = useColors()
+  const router = useRouter()
+  const { setTheme, themeName } = useTheme()
 
   // onMounted(() => {
-  setTheme(getThemeNameFromUrl() as keyof typeof THEME_NAMES);
+  setTheme(getThemeNameFromUrl() as keyof typeof THEME_NAMES)
   // });
 
   const buttonToggleOptions = [
-    { label: "Light", value: THEME_NAMES.LIGHT },
-    { label: "Semi-Dark", value: THEME_NAMES.SEMI_DARK },
+    { label: 'Light', value: THEME_NAMES.LIGHT },
+    { label: 'Semi-Dark', value: THEME_NAMES.SEMI_DARK },
     // { label: 'Dark', value: THEME_NAMES.DARK },
-    { label: "Original", value: THEME_NAMES.ORIGINAL },
-  ];
+    { label: 'Original', value: THEME_NAMES.ORIGINAL },
+  ]
 
   const selectedThemeName = computed({
     get: () => themeName.value,
     set: (newThemeName) => setTheme(newThemeName as keyof typeof THEME_NAMES),
-  });
+  })
 
-  const colors = getColors();
-  const colorNames = computed(() => Object.keys(colors));
+  const colors = getColors()
+  const colorNames = computed(() => Object.keys(colors))
 
   function getThemeNameFromUrl() {
-    const themeName = router.currentRoute.value.query.theme;
+    const themeName = router.currentRoute.value.query.theme
 
-    if (themeName === "semi-dark") {
-      return THEME_NAMES.SEMI_DARK;
-    } else if (themeName === "dark") {
-      return THEME_NAMES.DARK;
-    } else if (themeName === "original") {
-      return THEME_NAMES.ORIGINAL;
+    if (themeName === 'semi-dark') {
+      return THEME_NAMES.SEMI_DARK
+    } else if (themeName === 'dark') {
+      return THEME_NAMES.DARK
+    } else if (themeName === 'original') {
+      return THEME_NAMES.ORIGINAL
     } else {
-      return THEME_NAMES.LIGHT;
+      return THEME_NAMES.LIGHT
     }
   }
 </script>

@@ -12,37 +12,36 @@
 </template>
 
 <script setup lang="ts">
-  import LanguageDropdown from "./dropdowns/LanguageDropdown.vue";
-  import ProfileDropdown from "./dropdowns/ProfileDropdown.vue";
-  import NotificationDropdown from "./dropdowns/NotificationDropdown.vue";
-  import MessageDropdown from "./dropdowns/MessageDropdown.vue";
-  import ColorDropdown from "./dropdowns/ColorDropdown.vue";
-  import { computed } from "vue";
+  import LanguageDropdown from './dropdowns/LanguageDropdown.vue'
+  import ProfileDropdown from './dropdowns/ProfileDropdown.vue'
+  import NotificationDropdown from './dropdowns/NotificationDropdown.vue'
+  import MessageDropdown from './dropdowns/MessageDropdown.vue'
+  import ColorDropdown from './dropdowns/ColorDropdown.vue'
 
-  const props = withDefaults(
+  withDefaults(
     defineProps<{
-      userName?: string;
-      isTopBar?: boolean;
+      userName?: string
+      isTopBar?: boolean
     }>(),
     {
-      userName: "",
+      userName: '',
       isTopBar: false,
     },
-  );
+  )
 
-  const emit = defineEmits<{
-    (e: "update:isTopBar", isTopBar: boolean): void;
-  }>();
+  defineEmits<{
+    (e: 'update:isTopBar', isTopBar: boolean): void
+  }>()
 
-  const isTopBarProxy = computed({
-    get() {
-      return props.isTopBar;
-    },
-
-    set(isTopBar: boolean) {
-      emit("update:isTopBar", isTopBar);
-    },
-  });
+  // const isTopBarProxy = computed({
+  //   get() {
+  //     return props.isTopBar
+  //   },
+  //
+  //   set(isTopBar: boolean) {
+  //     emit('update:isTopBar', isTopBar)
+  //   },
+  // })
 </script>
 
 <style lang="scss">

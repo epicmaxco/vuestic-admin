@@ -16,7 +16,7 @@
         <li class="mb-2">
           {{ category.categoryName }}
         </li>
-        <li v-for="(item, index) in category.items" :key="index" class="va-page-not-found-search__list-element">
+        <li v-for="(item, j) in category.items" :key="j" class="va-page-not-found-search__list-element">
           <router-link :to="{ path: item.itemLink }" class="link">
             {{ item.itemName }}
           </router-link>
@@ -27,12 +27,12 @@
 </template>
 
 <script setup lang="ts">
-  import CategoriesConfig from "./CategoriesConfig";
-  import VaPageNotFound from "./VaPageNotFound.vue";
-  import { computed, ref } from "vue";
+  import CategoriesConfig from './CategoriesConfig'
+  import VaPageNotFound from './VaPageNotFound.vue'
+  import { computed, ref } from 'vue'
 
-  const categories = ref(CategoriesConfig);
-  const inputValue = ref("");
+  const categories = ref(CategoriesConfig)
+  const inputValue = ref('')
 
   const filterItems = computed(() => {
     if (inputValue.value.length >= 1) {
@@ -43,13 +43,13 @@
             items: category.items.filter(
               (item) => item.itemName.toUpperCase().search(inputValue.value.toUpperCase()) !== -1,
             ),
-          };
+          }
         })
-        .filter((category) => category.items.length >= 1);
+        .filter((category) => category.items.length >= 1)
     } else {
-      return categories.value;
+      return categories.value
     }
-  });
+  })
 </script>
 
 <style lang="scss">

@@ -10,17 +10,17 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from "vue";
-  import { useColors } from "vuestic-ui";
-  const { getColors } = useColors();
+  import { computed } from 'vue'
+  import { useColors } from 'vuestic-ui'
+  const { getColors } = useColors()
 
   defineProps<{
-    colorName: string;
-  }>();
+    colorName: string
+  }>()
 
   const theme = computed(() => {
-    return getColors();
-  });
+    return getColors()
+  })
 </script>
 
 <style lang="scss" scoped>

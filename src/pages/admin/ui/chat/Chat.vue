@@ -30,44 +30,44 @@
         @keypress.enter="sendMessage"
       />
       <va-button @click="sendMessage()">
-        {{ t("chat.sendButton") }}
+        {{ t('chat.sendButton') }}
       </va-button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  import vStickyScroll from "./StickyScroll";
-  import { useGlobalConfig } from "vuestic-ui";
-  import { ref } from "vue";
-  import { useI18n } from "vue-i18n";
-  const { t } = useI18n();
+  import vStickyScroll from './StickyScroll'
+  import { useGlobalConfig } from 'vuestic-ui'
+  import { ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
+  const { t } = useI18n()
 
   const props = withDefaults(
     defineProps<{
-      modelValue?: { text: string; yours: boolean }[];
-      height?: string;
+      modelValue?: { text: string; yours: boolean }[]
+      height?: string
     }>(),
     {
       modelValue: () => [
         {
-          text: "Hello! So glad you liked my work. Do you want me to shoot you?",
+          text: 'Hello! So glad you liked my work. Do you want me to shoot you?',
           yours: false,
         },
         {
-          text: "Yeah, that would be cool. Maybe this Sunday at 3 pm?",
+          text: 'Yeah, that would be cool. Maybe this Sunday at 3 pm?',
           yours: true,
         },
         {
-          text: "Sounds great! See you later!",
+          text: 'Sounds great! See you later!',
           yours: false,
         },
         {
-          text: "Should I bring a lightbox with me?",
+          text: 'Should I bring a lightbox with me?',
           yours: true,
         },
         {
-          text: "No, thanks. There is no need. Can we set up a meeting earlier?",
+          text: 'No, thanks. There is no need. Can we set up a meeting earlier?',
           yours: false,
         },
         {
@@ -75,25 +75,25 @@
           yours: true,
         },
       ],
-      height: "20rem",
+      height: '20rem',
     },
-  );
+  )
 
   const emit = defineEmits<{
-    (e: "update:modelValue", payload: { text: string; yours: boolean }[]): void;
-  }>();
+    (e: 'update:modelValue', payload: { text: string; yours: boolean }[]): void
+  }>()
 
-  const inputMessage = ref("");
+  const inputMessage = ref('')
 
-  const theme = useGlobalConfig().getGlobalConfig().colors;
+  const theme = useGlobalConfig().getGlobalConfig().colors
 
   function sendMessage() {
     if (!inputMessage.value) {
-      return;
+      return
     }
 
-    emit("update:modelValue", props.modelValue.concat({ text: inputMessage.value, yours: true }));
-    inputMessage.value = "";
+    emit('update:modelValue', props.modelValue.concat({ text: inputMessage.value, yours: true }))
+    inputMessage.value = ''
   }
 </script>
 

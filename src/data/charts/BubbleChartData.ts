@@ -1,21 +1,22 @@
-import { useColors } from "vuestic-ui";
+import { useColors } from 'vuestic-ui'
+import { ColorThemes } from './types'
 
 export function useBubbleChartData() {
   function colorToRgba(color: string, a: number) {
-    const { shiftHSLAColor } = useColors();
+    const { shiftHSLAColor } = useColors()
 
     // TODO: replace with set hsla color
     // https://github.com/epicmaxco/vuestic-ui/issues/841
-    const transparentColor = shiftHSLAColor(color, { a: -1 });
-    return shiftHSLAColor(transparentColor, { a });
+    const transparentColor = shiftHSLAColor(color, { a: -1 })
+    return shiftHSLAColor(transparentColor, { a })
   }
 
   const getBubbleChartData = (themes: ColorThemes) => ({
     datasets: [
       {
-        label: "USA",
+        label: 'USA',
         backgroundColor: colorToRgba(themes.danger, 0.9),
-        borderColor: "transparent",
+        borderColor: 'transparent',
         data: [
           {
             x: 23,
@@ -60,9 +61,9 @@ export function useBubbleChartData() {
         ],
       },
       {
-        label: "Russia",
+        label: 'Russia',
         backgroundColor: colorToRgba(themes.primary, 0.9),
-        borderColor: "transparent",
+        borderColor: 'transparent',
         data: [
           {
             x: 0,
@@ -107,9 +108,9 @@ export function useBubbleChartData() {
         ],
       },
       {
-        label: "Canada",
+        label: 'Canada',
         backgroundColor: colorToRgba(themes.warning, 0.9),
-        borderColor: "transparent",
+        borderColor: 'transparent',
         data: [
           {
             x: 10,
@@ -149,9 +150,9 @@ export function useBubbleChartData() {
         ],
       },
       {
-        label: "Belarus",
+        label: 'Belarus',
         backgroundColor: colorToRgba(themes.info, 0.9),
-        borderColor: "transparent",
+        borderColor: 'transparent',
         data: [
           {
             x: 35,
@@ -196,9 +197,9 @@ export function useBubbleChartData() {
         ],
       },
       {
-        label: "Ukraine",
+        label: 'Ukraine',
         backgroundColor: colorToRgba(themes.success, 0.9),
-        borderColor: "transparent",
+        borderColor: 'transparent',
         data: [
           {
             x: 25,
@@ -243,7 +244,7 @@ export function useBubbleChartData() {
         ],
       },
     ],
-  });
+  })
 
-  return { getBubbleChartData };
+  return { getBubbleChartData }
 }

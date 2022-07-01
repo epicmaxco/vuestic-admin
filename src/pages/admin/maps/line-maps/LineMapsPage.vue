@@ -11,14 +11,15 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from "vue";
-  import { useGlobalConfig } from "vuestic-ui";
-  const { getGlobalConfig } = useGlobalConfig();
+  import { computed } from 'vue'
+  import { useGlobalConfig } from 'vuestic-ui'
 
-  import LineMap from "../../../../components/maps/LineMap.vue";
-  import { getLineMapData } from "../../../../data/maps/LineMapData";
+  import LineMap from '../../../../components/maps/LineMap.vue'
+  import { getLineMapData } from '../../../../data/maps/LineMapData'
+
+  const { getGlobalConfig } = useGlobalConfig()
 
   const lineMapData = computed(() => {
-    return getLineMapData(getGlobalConfig().colors!);
-  });
+    return getLineMapData(getGlobalConfig().colors!)
+  })
 </script>

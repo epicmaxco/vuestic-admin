@@ -3,14 +3,13 @@
   font-style: normal;
   font-weight: normal;
   src: url('/src/assets/styles/icon-fonts/iconicstroke/iconicstroke.eot');
-  src:
-    url('/src/assets/styles/icon-fonts/iconicstroke/iconicstroke.eot?#iefix') format('eot'),
+  src: url('/src/assets/styles/icon-fonts/iconicstroke/iconicstroke.eot?#iefix') format('eot'),
     url('/src/assets/styles/icon-fonts/iconicstroke/iconicstroke.woff') format('woff'),
     url('/src/assets/styles/icon-fonts/iconicstroke/iconicstroke.ttf') format('truetype'),
     url('/src/assets/styles/icon-fonts/iconicstroke/iconicstroke.svg#IconicStroke') format('svg');
 }
 
-[class*="iconicstroke-"]::before {
+[class*='iconicstroke-']::before {
   font-family: 'IconicStroke', sans-serif;
   font-style: normal;
 }

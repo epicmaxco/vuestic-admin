@@ -3,7 +3,7 @@
     <div class="row">
       <div class="flex xs12">
         <va-card>
-          <va-card-title>{{ t("forms.inputs.title") }}</va-card-title>
+          <va-card-title>{{ t('forms.inputs.title') }}</va-card-title>
           <va-card-content>
             <form>
               <div class="row">
@@ -122,7 +122,7 @@
 
       <div class="flex xs12">
         <va-card>
-          <va-card-title>{{ t("forms.selects.title") }}</va-card-title>
+          <va-card-title>{{ t('forms.selects.title') }}</va-card-title>
           <va-card-content>
             <form>
               <div class="row">
@@ -183,7 +183,7 @@
 
       <div class="flex xs12">
         <va-card>
-          <va-card-title>{{ t("forms.controls.title") }}</va-card-title>
+          <va-card-title>{{ t('forms.controls.title') }}</va-card-title>
           <va-card-content>
             <form>
               <div class="row">
@@ -246,47 +246,47 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from "vue";
-  import CountriesList from "../data/CountriesList";
-  import { useI18n } from "vue-i18n";
-  const { t } = useI18n();
+  import { ref } from 'vue'
+  import CountriesList from '../data/CountriesList'
+  import { useI18n } from 'vue-i18n'
+  const { t } = useI18n()
 
-  const countriesList = ref(CountriesList);
-  const chosenCountry = ref("");
-  const simple = ref("");
-  const withIcon = ref("");
-  const withButton = ref("");
-  const withDescription = ref("");
-  const clearableText = ref("Vasili Savitski");
-  const successfulEmail = ref("andrei@dreamsupport.io");
-  const wrongEmail = ref("andrei@dreamsupport");
+  const countriesList = ref(CountriesList)
+  const chosenCountry = ref('')
+  const simple = ref('')
+  const withIcon = ref('')
+  const withButton = ref('')
+  const withDescription = ref('')
+  const clearableText = ref('Vasili Savitski')
+  const successfulEmail = ref('andrei@dreamsupport.io')
+  const wrongEmail = ref('andrei@dreamsupport')
   const messages = ref([
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
-      "incididunt ut labore et dolore magna aliqua.",
-  ]);
-  const errorMessages = ref(["Field should contain a valid email"]);
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ' +
+      'incididunt ut labore et dolore magna aliqua.',
+  ])
+  const errorMessages = ref(['Field should contain a valid email'])
   const simpleOptions = ref([
     {
       id: 1,
-      description: "First option",
+      description: 'First option',
     },
     {
       id: 2,
-      description: "Second option",
+      description: 'Second option',
     },
     {
       id: 3,
-      description: "Third option",
+      description: 'Third option',
     },
-  ]);
+  ])
 
-  const simpleSelectModel = ref("");
-  const multiSelectModel = ref([]);
-  const multiSelectCountriesModel = ref([]);
-  const searchableSelectModel = ref("");
-  const multiSearchableSelectModel = ref([]);
-  const radioSelectedOption = ref("option1");
-  const radioSelectedDisableOption = ref("option1");
+  const simpleSelectModel = ref('')
+  const multiSelectModel = ref([])
+  const multiSelectCountriesModel = ref([])
+  const searchableSelectModel = ref('')
+  const multiSearchableSelectModel = ref([])
+  const radioSelectedOption = ref('option1')
+  const radioSelectedDisableOption = ref('option1')
   const checkbox = ref({
     unselected: false,
     selected: true,
@@ -294,7 +294,7 @@
     disabled: true,
     error: false,
     errorMessages: true,
-  });
+  })
 
   const toggles = ref({
     unselected: false,
@@ -302,17 +302,17 @@
     disabled: true,
     small: false,
     large: false,
-  });
+  })
 
-  const datepicker = ref({
-    simple: "2018-05-09",
-    time: "2018-05-08 14:10",
-    range: "2018-05-08 to 2018-05-23",
-    disabled: "2018-05-09",
-    multiple: "2018-04-25, 2018-04-27",
-    customFirstDay: "2018-05-09",
-    customDate: "2017-Dec-06",
-  });
+  // const datepicker = ref({
+  //   simple: '2018-05-09',
+  //   time: '2018-05-08 14:10',
+  //   range: '2018-05-08 to 2018-05-23',
+  //   disabled: '2018-05-09',
+  //   multiple: '2018-04-25, 2018-04-27',
+  //   customFirstDay: '2018-05-09',
+  //   customDate: '2017-Dec-06',
+  // })
 </script>
 
 <style lang="scss">

@@ -42,37 +42,37 @@
 </template>
 
 <script setup lang="ts">
-  import { useGlobalConfig } from "vuestic-ui";
-  import { computed } from "vue";
-  const { getGlobalConfig } = useGlobalConfig();
+  import { useGlobalConfig } from 'vuestic-ui'
+  import { computed } from 'vue'
+  const { getGlobalConfig } = useGlobalConfig()
 
   const props = withDefaults(
     defineProps<{
-      modelValue?: string;
+      modelValue?: string
     }>(),
     {
-      modelValue: "bottom-center",
+      modelValue: 'bottom-center',
     },
-  );
+  )
 
   const emit = defineEmits<{
-    (e: "update:modelValue", position: string): void;
-  }>();
+    (e: 'update:modelValue', position: string): void
+  }>()
 
-  const theme = computed(() => getGlobalConfig().colors!);
+  const theme = computed(() => getGlobalConfig().colors!)
 
   const computedStyle = computed(() => {
     return {
       backgroundColor: theme.value.primary,
-    };
-  });
+    }
+  })
 
   function updatePosition(position: string) {
-    emit("update:modelValue", position);
+    emit('update:modelValue', position)
   }
 
   function isBoxSelected(position: string) {
-    return props.modelValue === position;
+    return props.modelValue === position
   }
 </script>
 

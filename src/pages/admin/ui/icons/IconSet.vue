@@ -9,7 +9,7 @@
       <va-card-content class="row">
         <div class="flex md3 xs12">
           <va-button outline :to="{ name: 'icon-sets' }">
-            {{ t("icons.back") }}
+            {{ t('icons.back') }}
           </va-button>
         </div>
 
@@ -43,7 +43,7 @@
       </va-card-title>
       <va-card-content class="row">
         <span v-if="list.icons.length === 0">
-          {{ t("icons.none") }}
+          {{ t('icons.none') }}
         </span>
         <div
           v-for="icon in list.icons"
@@ -64,75 +64,76 @@
 </template>
 
 <script setup lang="ts">
-  import { useGlobalConfig } from "vuestic-ui";
-  const { getGlobalConfig } = useGlobalConfig();
-  import { useI18n } from "vue-i18n";
-  import { computed, ref } from "vue";
-  import { IconSet } from "./types";
-  const { t } = useI18n();
+  import { useGlobalConfig } from 'vuestic-ui'
+  import { useI18n } from 'vue-i18n'
+  import { computed, ref } from 'vue'
+  import { IconSet } from './types'
+
+  const { getGlobalConfig } = useGlobalConfig()
+  const { t } = useI18n()
 
   const props = defineProps<{
-    name: string;
-    sets: IconSet[];
-  }>();
+    name: string
+    sets: IconSet[]
+  }>()
 
-  const search = ref("");
-  const iconSize = ref(30);
+  const search = ref('')
+  const iconSize = ref(30)
   const slider = ref({
     formatter: (v: never) => `${v}px`,
     min: 20,
     max: 40,
-  });
+  })
 
-  const theme = computed(() => getGlobalConfig().colors!);
+  const theme = computed(() => getGlobalConfig().colors!)
 
   const iconSet = computed((): IconSet => {
     for (const set of props.sets) {
       if (set.href === props.name) {
-        return set;
+        return set
       }
     }
 
-    return { name: "", href: "", prefix: "", lists: [], filteredLists: [] };
-  });
+    return { name: '', href: '', prefix: '', lists: [], filteredLists: [] }
+  })
 
   const filteredLists = computed(() => {
     if (!search.value) {
       // If nothing is searched - we return all sets
-      return iconSet.value.lists;
+      return iconSet.value.lists
     }
 
-    const foundIcons: string[] = [];
+    const foundIcons: string[] = []
     iconSet.value.lists.forEach((list) => {
       list.icons.forEach((icon) => {
         if (!icon.toUpperCase().includes(search.value.toUpperCase())) {
-          return;
+          return
         }
         // Same icon could be included in different sets.
         if (foundIcons.includes(icon)) {
-          return;
+          return
         }
-        foundIcons.push(icon);
-      });
-    });
+        foundIcons.push(icon)
+      })
+    })
 
     // We return all found icons as a single set.
     return [
       {
-        name: "Found Icons",
+        name: 'Found Icons',
         icons: foundIcons,
       },
-    ];
-  });
+    ]
+  })
 
   function iconClass(icon: string) {
-    return iconSet.value.prefix === "material-icons"
+    return iconSet.value.prefix === 'material-icons'
       ? iconSet.value.prefix
-      : `${iconSet.value.prefix} ${iconSet.value.prefix}-${icon}`;
+      : `${iconSet.value.prefix} ${iconSet.value.prefix}-${icon}`
   }
 
   function iconData(icon: string) {
-    return iconSet.value.prefix === "material-icons" ? icon : "";
+    return iconSet.value.prefix === 'material-icons' ? icon : ''
   }
 </script>
 

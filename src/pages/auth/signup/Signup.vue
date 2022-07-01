@@ -27,46 +27,46 @@
       >
         <template #label>
           <span class="ml-1">
-            {{ t("auth.agree") }}
-            <span class="link">{{ t("auth.termsOfUse") }}</span>
+            {{ t('auth.agree') }}
+            <span class="link">{{ t('auth.termsOfUse') }}</span>
           </span>
         </template>
       </va-checkbox>
       <router-link class="ml-1 link" :to="{ name: 'recover-password' }">
-        {{ t("auth.recover_password") }}
+        {{ t('auth.recover_password') }}
       </router-link>
     </div>
 
     <div class="d-flex justify--center mt-3">
-      <va-button class="my-0" @click="onsubmit">{{ t("auth.sign_up") }}</va-button>
+      <va-button class="my-0" @click="onsubmit">{{ t('auth.sign_up') }}</va-button>
     </div>
   </form>
 </template>
 
 <script setup lang="ts">
-  import { ref, computed } from "vue";
-  import { useRouter } from "vue-router";
-  import { useI18n } from "vue-i18n";
-  const { t } = useI18n();
+  import { ref, computed } from 'vue'
+  import { useRouter } from 'vue-router'
+  import { useI18n } from 'vue-i18n'
+  const { t } = useI18n()
 
-  const email = ref("");
-  const password = ref("");
-  const agreedToTerms = ref(false);
-  const emailErrors = ref<string[]>([]);
-  const passwordErrors = ref<string[]>([]);
-  const agreedToTermsErrors = ref<string[]>([]);
+  const email = ref('')
+  const password = ref('')
+  const agreedToTerms = ref(false)
+  const emailErrors = ref<string[]>([])
+  const passwordErrors = ref<string[]>([])
+  const agreedToTermsErrors = ref<string[]>([])
 
   const formReady = computed(() => {
-    return !(emailErrors.value.length || passwordErrors.value.length || agreedToTermsErrors.value.length);
-  });
+    return !(emailErrors.value.length || passwordErrors.value.length || agreedToTermsErrors.value.length)
+  })
 
   function onsubmit() {
-    if (!formReady.value) return;
+    if (!formReady.value) return
 
-    emailErrors.value = email.value ? [] : ["Email is required"];
-    passwordErrors.value = password.value ? [] : ["Password is required"];
-    agreedToTermsErrors.value = agreedToTerms.value ? [] : ["You must agree to the terms of use to continue"];
+    emailErrors.value = email.value ? [] : ['Email is required']
+    passwordErrors.value = password.value ? [] : ['Password is required']
+    agreedToTermsErrors.value = agreedToTerms.value ? [] : ['You must agree to the terms of use to continue']
 
-    useRouter().push({ name: "dashboard" });
+    useRouter().push({ name: 'dashboard' })
   }
 </script>

@@ -37,45 +37,42 @@
 </template>
 
 <script setup lang="ts">
-  import { useGlobalConfig } from "vuestic-ui";
-  import { INavigationRoute } from "../NavigationRoutes";
-  import { computed, ref } from "vue";
-  import { useRoute } from "vue-router";
-  import { useI18n } from "vue-i18n";
-  const { t } = useI18n();
+  import { INavigationRoute } from '../NavigationRoutes'
+  import { ref } from 'vue'
+  import { useRoute } from 'vue-router'
+  import { useI18n } from 'vue-i18n'
+  const { t } = useI18n()
 
-  const props = withDefaults(
+  withDefaults(
     defineProps<{
-      items?: INavigationRoute[];
+      items?: INavigationRoute[]
     }>(),
     {
       items: () => [],
     },
-  );
+  )
 
-  const dropdownsValue = ref<INavigationRoute[]>([]);
+  const dropdownsValue = ref<INavigationRoute[]>([])
 
-  const theme = computed(() => useGlobalConfig().getGlobalConfig().colors);
-
-  function isGroup(item: INavigationRoute) {
-    return !!item.children;
-  }
+  // function isGroup(item: INavigationRoute) {
+  //   return !!item.children
+  // }
 
   function isRouteActive(item: INavigationRoute) {
-    return item.name === useRoute().name;
+    return item.name === useRoute().name
   }
 
-  function isItemChildsActive(item: INavigationRoute) {
+  function isItemChildsActive(item: INavigationRoute): boolean {
     if (!item.children) {
-      return false;
+      return false
     }
 
-    const isCurrentItemActive = isRouteActive(item);
+    const isCurrentItemActive = isRouteActive(item)
     const isChildActive = !!item.children.find((child) =>
       child.children ? isItemChildsActive(child) : isRouteActive(child),
-    );
+    )
 
-    return isCurrentItemActive || isChildActive;
+    return isCurrentItemActive || isChildActive
   }
 </script>
 

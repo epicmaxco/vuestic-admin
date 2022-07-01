@@ -18,9 +18,9 @@
         }}</span>
       </div>
       <div class="row justify--space-between mt-1">
-        <va-button class="md6 mr-2" size="small">{{ t("messages.all") }}</va-button>
+        <va-button class="md6 mr-2" size="small">{{ t('messages.all') }}</va-button>
         <va-button class="md6" size="small" outline :disabled="allRead" @click="markAllAsRead">{{
-          t("messages.mark_as_read")
+          t('messages.mark_as_read')
         }}</va-button>
       </div>
     </va-dropdown-content>
@@ -28,61 +28,62 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, ref } from "vue";
-  import { useI18n } from "vue-i18n";
-  const { t } = useI18n();
+  import { computed, ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
 
-  import VaIconMessage from "../../../icons/VaIconMessage.vue";
+  import VaIconMessage from '../../../icons/VaIconMessage.vue'
+
+  const { t } = useI18n()
 
   interface IMessage {
-    name: string;
+    name: string
     details: {
-      name: string;
-      avatar: string;
-    };
-    unread: boolean;
-    id: number;
+      name: string
+      avatar: string
+    }
+    unread: boolean
+    id: number
   }
 
   const props = withDefaults(
     defineProps<{
-      messages?: IMessage[];
+      messages?: IMessage[]
     }>(),
     {
       messages: () => [
         {
-          name: "new",
+          name: 'new',
           details: {
-            name: "Oleg M",
-            avatar: "https://picsum.photos/24?image=1083",
+            name: 'Oleg M',
+            avatar: 'https://picsum.photos/24?image=1083',
           },
           unread: true,
           id: 1,
         },
         {
-          name: "new",
+          name: 'new',
           details: {
-            name: "Andrei H",
-            avatar: "https://picsum.photos/24?image=1025",
+            name: 'Andrei H',
+            avatar: 'https://picsum.photos/24?image=1025',
           },
           unread: true,
           id: 2,
         },
       ],
     },
-  );
+  )
 
-  const messagesProxy = ref<IMessage[]>([...props.messages]);
+  const messagesProxy = ref<IMessage[]>([...props.messages])
 
   const allRead = computed(() => {
-    return messagesProxy.value.every((message) => !message.unread);
-  });
+    return messagesProxy.value.every((message) => !message.unread)
+  })
 
   function markAllAsRead() {
     messagesProxy.value = messagesProxy.value.map((message) => ({
       ...message,
       unread: false,
-    }));
+    }))
   }
 </script>
 
@@ -96,7 +97,7 @@
       align-items: center;
 
       &--unread::before {
-        content: "";
+        content: '';
         position: absolute;
         right: 0;
         left: 0;
@@ -119,7 +120,7 @@
         color: var(--va-gray);
 
         &::after {
-          content: "";
+          content: '';
           position: absolute;
           right: 0;
           top: 0;

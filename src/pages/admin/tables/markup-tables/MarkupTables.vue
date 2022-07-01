@@ -1,16 +1,16 @@
 <template>
   <div class="markup-tables flex">
     <va-card class="flex mb-4">
-      <va-card-title>{{ t("tables.basic") }}</va-card-title>
+      <va-card-title>{{ t('tables.basic') }}</va-card-title>
       <va-card-content>
         <div class="table-wrapper">
           <table class="va-table">
             <thead>
               <tr>
-                <th>{{ t("tables.headings.name") }}</th>
-                <th>{{ t("tables.headings.email") }}</th>
-                <th>{{ t("tables.headings.country") }}</th>
-                <th>{{ t("tables.headings.status") }}</th>
+                <th>{{ t('tables.headings.name') }}</th>
+                <th>{{ t('tables.headings.email') }}</th>
+                <th>{{ t('tables.headings.country') }}</th>
+                <th>{{ t('tables.headings.status') }}</th>
               </tr>
             </thead>
 
@@ -32,7 +32,7 @@
     </va-card>
 
     <va-card>
-      <va-card-title>{{ t("tables.stripedHoverable") }}</va-card-title>
+      <va-card-title>{{ t('tables.stripedHoverable') }}</va-card-title>
       <va-card-content>
         <div class="table-wrapper">
           <table class="va-table va-table--striped va-table--hoverable">
@@ -65,23 +65,23 @@
 </template>
 
 <script setup lang="ts">
-  import data from "../../../../data/tables/markup-table/data.json";
-  import { useI18n } from "vue-i18n";
-  import { ref } from "vue";
-  const { t } = useI18n();
+  import data from '../../../../data/tables/markup-table/data.json'
+  import { useI18n } from 'vue-i18n'
+  import { ref } from 'vue'
+  const { t } = useI18n()
 
-  const users = ref(data.slice(0, 8));
+  const users = ref(data.slice(0, 8))
 
   function getStatusColor(status: string) {
-    if (status === "paid") {
-      return "success";
+    if (status === 'paid') {
+      return 'success'
     }
 
-    if (status === "processing") {
-      return "info";
+    if (status === 'processing') {
+      return 'info'
     }
 
-    return "danger";
+    return 'danger'
   }
 </script>
 

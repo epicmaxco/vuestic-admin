@@ -572,13 +572,7 @@
     },
     {
       "name": "Spinner Icons",
-      "icons": [
-        "circle-o-notch",
-        "cog",
-        "gear",
-        "refresh",
-        "spinner"
-      ]
+      "icons": ["circle-o-notch", "cog", "gear", "refresh", "spinner"]
     },
     {
       "name": "Form Control Icons",
@@ -615,13 +609,7 @@
     },
     {
       "name": "Chart Icons",
-      "icons": [
-        "area-chart",
-        "bar-chart",
-        "bar-chart-o",
-        "line-chart",
-        "pie-chart"
-      ]
+      "icons": ["area-chart", "bar-chart", "bar-chart-o", "line-chart", "pie-chart"]
     },
     {
       "name": "Currency Icons",

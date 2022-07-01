@@ -33,7 +33,7 @@
 
       <template #actions="props">
         <va-button v-if="props.rowData.hasReport" small color="danger" class="ma-0">
-          {{ t("tables.report") }}
+          {{ t('tables.report') }}
         </va-button>
       </template>
     </va-data-table>
@@ -41,87 +41,87 @@
 </template>
 
 <script>
-  import { debounce } from "lodash";
-  import users from "../data/users.json";
+  import { debounce } from 'lodash'
+  import users from '../data/users.json'
 
   export default {
     data() {
       return {
         term: null,
-        perPage: "6",
-        perPageOptions: ["4", "6", "10", "20"],
+        perPage: '6',
+        perPageOptions: ['4', '6', '10', '20'],
         users: users,
-      };
+      }
     },
     computed: {
       fields() {
         return [
           {
-            name: "__slot:trend",
-            width: "30px",
-            height: "45px",
-            dataClass: "text-center",
+            name: '__slot:trend',
+            width: '30px',
+            height: '45px',
+            dataClass: 'text-center',
           },
           {
-            name: "fullName",
-            title: this.t("tables.headings.name"),
-            width: "30%",
+            name: 'fullName',
+            title: this.t('tables.headings.name'),
+            width: '30%',
           },
           {
-            name: "__slot:status",
-            title: this.t("tables.headings.status"),
-            width: "20%",
+            name: '__slot:status',
+            title: this.t('tables.headings.status'),
+            width: '20%',
           },
           {
-            name: "email",
-            title: this.t("tables.headings.email"),
-            width: "30%",
+            name: 'email',
+            title: this.t('tables.headings.email'),
+            width: '30%',
           },
           {
-            name: "__slot:actions",
-            dataClass: "text-right",
+            name: '__slot:actions',
+            dataClass: 'text-right',
           },
-        ];
+        ]
       },
       filteredData() {
         if (!this.term || this.term.length < 1) {
-          return this.users;
+          return this.users
         }
 
         return this.users.filter((item) => {
-          return item.fullName.toLowerCase().startsWith(this.term.toLowerCase());
-        });
+          return item.fullName.toLowerCase().startsWith(this.term.toLowerCase())
+        })
       },
     },
     methods: {
       getTrendIcon(user) {
-        if (user.trend === "up") {
-          return "fa fa-caret-up";
+        if (user.trend === 'up') {
+          return 'fa fa-caret-up'
         }
 
-        if (user.trend === "down") {
-          return "fa fa-caret-down";
+        if (user.trend === 'down') {
+          return 'fa fa-caret-down'
         }
 
-        return "fa fa-minus";
+        return 'fa fa-minus'
       },
       getTrendColor(user) {
-        if (user.trend === "up") {
-          return "primary";
+        if (user.trend === 'up') {
+          return 'primary'
         }
 
-        if (user.trend === "down") {
-          return "danger";
+        if (user.trend === 'down') {
+          return 'danger'
         }
 
-        return "gray";
+        return 'gray'
       },
       showUser(user) {
-        alert(JSON.stringify(user));
+        alert(JSON.stringify(user))
       },
       search: debounce(function (term) {
-        this.term = term;
+        this.term = term
       }, 400),
     },
-  };
+  }
 </script>

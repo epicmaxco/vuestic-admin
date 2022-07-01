@@ -17,33 +17,33 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, ref } from "vue";
-  import { useI18n } from "vue-i18n";
-  const { t } = useI18n();
+  import { computed, ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
+  import { useGlobalConfig } from 'vuestic-ui'
 
-  import { useGlobalConfig } from "vuestic-ui";
+  const { t } = useI18n()
 
-  const props = withDefaults(
+  withDefaults(
     defineProps<{
-      options?: { name: string; redirectTo: string }[];
+      options?: { name: string; redirectTo: string }[]
     }>(),
     {
       options: () => [
         {
-          name: "profile",
-          redirectTo: "",
+          name: 'profile',
+          redirectTo: '',
         },
         {
-          name: "logout",
-          redirectTo: "login",
+          name: 'logout',
+          redirectTo: 'login',
         },
       ],
     },
-  );
+  )
 
-  const isShown = ref(false);
+  const isShown = ref(false)
 
-  const theme = computed(() => useGlobalConfig().getGlobalConfig());
+  const theme = computed(() => useGlobalConfig().getGlobalConfig().colors!)
 </script>
 
 <style lang="scss" scoped>

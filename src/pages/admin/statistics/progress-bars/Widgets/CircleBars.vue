@@ -1,7 +1,7 @@
 <template>
   <va-card class="circle-bars">
     <va-card-title>
-      {{ t("progressBars.circle") }}
+      {{ t('progressBars.circle') }}
     </va-card-title>
     <va-card-content class="row">
       <div v-for="n in 10" :key="n" class="flex xs4 sm2 lg1">
@@ -22,29 +22,20 @@
   </va-card>
 </template>
 
-<script>
-  import { useI18n } from "vue-i18n";
+<script setup lang="ts">
+  import { onMounted, ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
+  const { t } = useI18n()
 
-  export default {
-    name: "CircleBars",
-    setup() {
-      const { t } = useI18n();
-      return { t };
-    },
-    data() {
-      return {
-        value: 0,
-      };
-    },
-    mounted() {
-      this.animateValue();
-    },
-    methods: {
-      animateValue() {
-        setTimeout(() => {
-          this.value = 100;
-        });
-      },
-    },
-  };
+  const value = ref(0)
+
+  onMounted(() => {
+    animateValue()
+  })
+
+  function animateValue() {
+    setTimeout(() => {
+      value.value = 100
+    })
+  }
 </script>

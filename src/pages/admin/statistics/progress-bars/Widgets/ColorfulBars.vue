@@ -1,6 +1,6 @@
 <template>
   <va-card class="colorful-bars progress-bar-widget">
-    <va-card-title> {{ t("progressBars.colors") }} </va-card-title>
+    <va-card-title> {{ t('progressBars.colors') }} </va-card-title>
     <va-card-content class="row">
       <div v-for="n in 6" :key="`pb-${n}`" class="flex md4 xs12">
         <va-progress-bar :model-value="(value * n) / 6" :color="colors[n - 1]">
@@ -19,18 +19,18 @@
 </template>
 
 <script setup lang="ts">
-  import { useI18n } from "vue-i18n";
-  import { onMounted, ref } from "vue";
-  const { t } = useI18n();
+  import { useI18n } from 'vue-i18n'
+  import { onMounted, ref } from 'vue'
+  const { t } = useI18n()
 
-  const value = ref(0);
-  const colors = ref(["danger", "success", "info", "gray", "warning", "black"]);
+  const value = ref(0)
+  const colors = ref(['danger', 'success', 'info', 'gray', 'warning', 'black'])
 
   onMounted(() => {
-    animateValue();
-  });
+    animateValue()
+  })
 
   function animateValue() {
-    setTimeout(() => (value.value = 100));
+    setTimeout(() => (value.value = 100))
   }
 </script>

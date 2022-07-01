@@ -1,39 +1,39 @@
-import { mixins } from "vue-chartjs";
-import { defaultConfig } from "../VaChartConfigs";
-import { h as createElement } from "vue";
+import { mixins } from 'vue-chartjs'
+import { defaultConfig } from '../VaChartConfigs'
+import { h as createElement } from 'vue'
 
 export default {
-  name: "VaChart",
+  name: 'VaChart',
   mixins: [mixins.reactiveProp],
-  props: ["data", "chartOptions"],
+  props: ['data', 'chartOptions'],
   mounted() {
-    this.refresh();
+    this.refresh()
   },
   watch: {
-    "themes.primary"() {
-      this.options.animation = false;
-      this.refresh();
+    'themes.primary'() {
+      this.options.animation = false
+      this.refresh()
     },
 
-    "themes.info"() {
-      this.options.animation = false;
-      this.refresh();
+    'themes.info'() {
+      this.options.animation = false
+      this.refresh()
     },
 
-    "themes.danger"() {
-      this.options.animation = false;
-      this.refresh();
+    'themes.danger'() {
+      this.options.animation = false
+      this.refresh()
     },
   },
   methods: {
     refresh() {
-      this.renderChart(this.chartData, this.options);
+      this.renderChart(this.chartData, this.options)
     },
   },
   computed: {
     // `this.options` is used by vue-chartjs mixin on refresh.
     options() {
-      return Object.assign({}, defaultConfig, this.chartOptions);
+      return Object.assign({}, defaultConfig, this.chartOptions)
     },
   },
 
@@ -51,17 +51,17 @@ export default {
    */
   render: function () {
     return createElement(
-      "div",
+      'div',
       {
         style: this.styles,
         class: this.cssClasses,
       },
       [
-        createElement("canvas", {
+        createElement('canvas', {
           id: this.chartId,
-          ref: "canvas",
+          ref: 'canvas',
         }),
       ],
-    );
+    )
   },
-};
+}

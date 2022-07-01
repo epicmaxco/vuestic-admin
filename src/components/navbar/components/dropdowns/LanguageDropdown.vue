@@ -22,46 +22,46 @@
 </template>
 
 <script setup lang="ts">
-  import { useI18n } from "vue-i18n";
-  const { t, locale } = useI18n();
+  import { useI18n } from 'vue-i18n'
+  const { t, locale } = useI18n()
 
   withDefaults(
     defineProps<{
-      options?: { code: string; name: string }[];
+      options?: { code: string; name: string }[]
     }>(),
     {
       options: () => [
         {
-          code: "gb",
-          name: "english",
+          code: 'gb',
+          name: 'english',
         },
         {
-          code: "es",
-          name: "spanish",
+          code: 'es',
+          name: 'spanish',
         },
         {
-          code: "br",
-          name: "brazilian_portuguese",
+          code: 'br',
+          name: 'brazilian_portuguese',
         },
         {
-          code: "cn",
-          name: "simplified_chinese",
+          code: 'cn',
+          name: 'simplified_chinese',
         },
         {
-          code: "ir",
-          name: "persian",
+          code: 'ir',
+          name: 'persian',
         },
       ],
     },
-  );
+  )
 
   function getFlagIcon(code: string, size: string) {
-    return `flag-icon-${code} ${size}`;
+    return `flag-icon-${code} ${size}`
   }
 </script>
 
 <style lang="scss" scoped>
-  @import "flag-icon-css/css/flag-icons.css";
+  @import 'flag-icon-css/css/flag-icons.css';
 
   .language-dropdown {
     cursor: pointer;
@@ -89,7 +89,7 @@
     }
 
     .flag-icon::before {
-      content: "";
+      content: '';
     }
 
     .flag-icon-large {

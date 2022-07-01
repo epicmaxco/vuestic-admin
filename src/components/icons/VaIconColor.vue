@@ -21,12 +21,12 @@
 <script setup lang="ts">
   withDefaults(
     defineProps<{
-      color?: string;
+      color?: string
     }>(),
     {
-      color: "inherit",
+      color: 'inherit',
     },
-  );
+  )
 </script>
 
 <style lang="scss">

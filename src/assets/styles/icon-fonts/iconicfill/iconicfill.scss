@@ -3,14 +3,13 @@
   font-style: normal;
   font-weight: normal;
   src: url('/src/assets/styles/icon-fonts/iconicfill/iconicfill.eot');
-  src:
-    url('/src/assets/styles/icon-fonts/iconicfill/iconicfill.eot?#iefix') format('eot'),
+  src: url('/src/assets/styles/icon-fonts/iconicfill/iconicfill.eot?#iefix') format('eot'),
     url('/src/assets/styles/icon-fonts/iconicfill/iconicfill.woff') format('woff'),
     url('/src/assets/styles/icon-fonts/iconicfill/iconicfill.ttf') format('truetype'),
     url('/src/assets/styles/icon-fonts/iconicfill/iconicfill.svg#IconicFill') format('svg');
 }
 
-[class*="iconicfill-"]::before {
+[class*='iconicfill-']::before {
   font-family: 'IconicFill', sans-serif;
   font-style: normal;
 }

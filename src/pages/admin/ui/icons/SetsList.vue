@@ -10,9 +10,9 @@
               </va-button>
             </div>
 
-            <template v-for="(filteredList, index) in set.filteredLists">
-              <div v-if="filteredList.length !== 2" :key="index" class="row pa-3">
-                <div v-for="(icon, index) in filteredList" :key="index" class="flex xs2 flex-center">
+            <template v-for="(filteredList, i) in set.filteredLists">
+              <div v-if="filteredList.length !== 2" :key="i" class="row pa-3">
+                <div v-for="(icon, j) in filteredList" :key="j" class="flex xs2 flex-center">
                   <div class="sets-list__icon pa-3 flex-center vuestic-icon">
                     <va-icon :name="iconClass(set, icon)"></va-icon>
                   </div>
@@ -20,9 +20,9 @@
               </div>
               <div
                 v-if="filteredList.length === 2"
-                :key="index"
+                :key="i"
                 class="row pa-3"
-                :class="index === 1 ? 'sets-list__set__content--middle' : ''"
+                :class="i === 1 ? 'sets-list__set__content--middle' : ''"
               >
                 <div class="flex xs2 flex-center">
                   <div class="sets-list__icon pa-3 flex-center vuestic-icon">
@@ -45,14 +45,14 @@
 </template>
 
 <script setup lang="ts">
-  import { IconSet } from "./types";
+  import { IconSet } from './types'
 
   defineProps<{
-    sets: IconSet[];
-  }>();
+    sets: IconSet[]
+  }>()
 
   function iconClass(set: IconSet, icon: string) {
-    return `${set.prefix}-${icon}`;
+    return `${set.prefix}-${icon}`
   }
 </script>
 

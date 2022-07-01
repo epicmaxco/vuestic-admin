@@ -6,31 +6,27 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from "vue";
-  import NavigationRoutes from "./NavigationRoutes";
+  import { ref } from 'vue'
+  import NavigationRoutes from './NavigationRoutes'
+  import MenuAccordion from './menu/MenuAccordion.vue'
+  import MenuMinimized from './menu/MenuMinimized.vue'
 
-  import { useGlobalConfig } from "vuestic-ui";
-  import MenuAccordion from "./menu/MenuAccordion.vue";
-  import MenuMinimized from "./menu/MenuMinimized.vue";
-
-  const props = withDefaults(
+  withDefaults(
     defineProps<{
-      width?: string;
-      color?: string;
-      minimized?: boolean;
-      minimizedWidth?: string;
+      width?: string
+      color?: string
+      minimized?: boolean
+      minimizedWidth?: string
     }>(),
     {
-      width: "16rem",
-      color: "secondary",
+      width: '16rem',
+      color: 'secondary',
       minimized: true,
       minimizedWidth: undefined,
     },
-  );
+  )
 
-  const items = ref(NavigationRoutes.routes);
-
-  const colors = useGlobalConfig().getGlobalConfig().colors;
+  const items = ref(NavigationRoutes.routes)
 </script>
 
 <style lang="scss">

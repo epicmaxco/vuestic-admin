@@ -1,45 +1,45 @@
 export default [
   {
-    categoryName: "Dashboard",
+    categoryName: 'Dashboard',
     items: [
       {
-        itemName: "Dashboard",
-        itemLink: "/admin/dashboard",
+        itemName: 'Dashboard',
+        itemLink: '/admin/dashboard',
       },
     ],
   },
   {
-    categoryName: "Statistics",
+    categoryName: 'Statistics',
     items: [
       {
-        itemName: "Charts",
-        itemLink: "/admin/statistics/charts",
+        itemName: 'Charts',
+        itemLink: '/admin/statistics/charts',
       },
       {
-        itemName: "Progress bars",
-        itemLink: "/admin/statistics/progress-bars",
+        itemName: 'Progress bars',
+        itemLink: '/admin/statistics/progress-bars',
       },
     ],
   },
   {
-    categoryName: "Forms",
+    categoryName: 'Forms',
     items: [
       {
-        itemName: "Form Elements",
-        itemLink: "/admin/forms/form-elements",
+        itemName: 'Form Elements',
+        itemLink: '/admin/forms/form-elements',
       },
       {
-        itemName: "Medium Editor",
-        itemLink: "/admin/forms/medium-editor",
+        itemName: 'Medium Editor',
+        itemLink: '/admin/forms/medium-editor',
       },
     ],
   },
   {
-    categoryName: "Tables",
+    categoryName: 'Tables',
     items: [
       {
-        itemName: "Markup Tables",
-        itemLink: "/admin/tables/markup",
+        itemName: 'Markup Tables',
+        itemLink: '/admin/tables/markup',
       },
       // {
       //   itemName: "Data Tables",
@@ -48,101 +48,101 @@ export default [
     ],
   },
   {
-    categoryName: "UI Elements",
+    categoryName: 'UI Elements',
     items: [
       {
-        itemName: "Typography",
-        itemLink: "/admin/ui/typography",
+        itemName: 'Typography',
+        itemLink: '/admin/ui/typography',
       },
       {
-        itemName: "Buttons",
-        itemLink: "/admin/ui/buttons",
+        itemName: 'Buttons',
+        itemLink: '/admin/ui/buttons',
       },
       {
-        itemName: "Cards",
-        itemLink: "/admin/ui/cards",
+        itemName: 'Cards',
+        itemLink: '/admin/ui/cards',
       },
       {
-        itemName: "Chat",
-        itemLink: "/admin/ui/chat",
+        itemName: 'Chat',
+        itemLink: '/admin/ui/chat',
       },
       {
-        itemName: "Chips",
-        itemLink: "/admin/ui/chips",
+        itemName: 'Chips',
+        itemLink: '/admin/ui/chips',
       },
       {
-        itemName: "Collapses",
-        itemLink: "/admin/ui/collapses",
+        itemName: 'Collapses',
+        itemLink: '/admin/ui/collapses',
       },
       {
-        itemName: "Colors",
-        itemLink: "/admin/ui/colors",
+        itemName: 'Colors',
+        itemLink: '/admin/ui/colors',
       },
       {
-        itemName: "Icons",
-        itemLink: "/admin/ui/icons",
+        itemName: 'Icons',
+        itemLink: '/admin/ui/icons',
       },
       {
-        itemName: "Lists",
-        itemLink: "/admin/ui/lists",
+        itemName: 'Lists',
+        itemLink: '/admin/ui/lists',
       },
       {
-        itemName: "Modals",
-        itemLink: "/admin/ui/modals",
+        itemName: 'Modals',
+        itemLink: '/admin/ui/modals',
       },
       {
-        itemName: "Notifications",
-        itemLink: "/admin/ui/notifications",
+        itemName: 'Notifications',
+        itemLink: '/admin/ui/notifications',
       },
       {
-        itemName: "Popovers",
-        itemLink: "/admin/ui/popovers",
+        itemName: 'Popovers',
+        itemLink: '/admin/ui/popovers',
       },
       {
-        itemName: "Rating",
-        itemLink: "/admin/ui/rating",
+        itemName: 'Rating',
+        itemLink: '/admin/ui/rating',
       },
       // {
       //   itemName: "Spinners",
       //   itemLink: "/admin/ui/spinners",
       // },
       {
-        itemName: "Tabs",
-        itemLink: "/admin/ui/tabs",
+        itemName: 'Tabs',
+        itemLink: '/admin/ui/tabs',
       },
       // {
       //   itemName: "Timelines",
       //   itemLink: "/admin/ui/timelines",
       // },
       {
-        itemName: "Tree View",
-        itemLink: "/admin/ui/tree-view",
+        itemName: 'Tree View',
+        itemLink: '/admin/ui/tree-view',
       },
     ],
   },
   {
-    categoryName: "Maps",
+    categoryName: 'Maps',
     items: [
       {
-        itemName: "MapLibre Maps",
-        itemLink: "/admin/maps/maplibre-maps",
+        itemName: 'MapLibre Maps',
+        itemLink: '/admin/maps/maplibre-maps',
       },
       {
-        itemName: "Yandex Maps",
-        itemLink: "/admin/maps/yandex-maps",
+        itemName: 'Yandex Maps',
+        itemLink: '/admin/maps/yandex-maps',
       },
       {
-        itemName: "Leaflet Maps",
-        itemLink: "/admin/maps/leaflet-maps",
+        itemName: 'Leaflet Maps',
+        itemLink: '/admin/maps/leaflet-maps',
       },
       {
-        itemName: "Bubble Maps",
-        itemLink: "/admin/maps/bubble-maps",
+        itemName: 'Bubble Maps',
+        itemLink: '/admin/maps/bubble-maps',
       },
       {
-        itemName: "Line Maps",
-        itemLink: "/admin/maps/line-maps",
+        itemName: 'Line Maps',
+        itemLink: '/admin/maps/line-maps',
       },
     ],
   },
-];
+]

@@ -10,24 +10,24 @@
       </div>
 
       <div class="flex xs12 lg6">
-        <dashboard-map ref="dashboardMap" />
+        <DashboardMap ref="dashboardMap" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { ref } from "vue";
+  import { ref } from 'vue'
 
-  import DashboardCharts from "./DashboardCharts.vue";
-  import DashboardInfoBlock from "./DashboardInfoBlock.vue";
-  import DashboardTabs from "./DashboardTabs.vue";
-  import DashboardMap from "./DashboardMap.vue";
+  import DashboardCharts from './DashboardCharts.vue'
+  import DashboardInfoBlock from './DashboardInfoBlock.vue'
+  import DashboardTabs from './DashboardTabs.vue'
+  import DashboardMap from './DashboardMap.vue'
 
-  const dashboardMap = ref();
+  const dashboardMap = ref()
 
   function addAddressToMap({ city, country }: { city: { text: string }; country: string }) {
-    dashboardMap.value.addAddress({ city: city.text, country });
+    dashboardMap.value.addAddress({ city: city.text, country })
   }
 </script>
 

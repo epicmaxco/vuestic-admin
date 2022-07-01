@@ -3,124 +3,123 @@
   font-style: normal;
   font-weight: normal;
   src: url('/src/assets/styles/icon-fonts/zocial/zocial-regular-webfont.eot');
-  src:
-    url('/src/assets/styles/icon-fonts/zocial/zocial-regular-webfont.eot?#iefix') format('eot'),
+  src: url('/src/assets/styles/icon-fonts/zocial/zocial-regular-webfont.eot?#iefix') format('eot'),
     url('/src/assets/styles/icon-fonts/zocial/zocial-regular-webfont.woff') format('woff'),
     url('/src/assets/styles/icon-fonts/zocial/zocial-regular-webfont.ttf') format('truetype'),
     url('/src/assets/styles/icon-fonts/zocial/zocial-regular-webfont.svg#zocialregular') format('svg');
 }
 
-[class*="zocial-"]::before {
+[class*='zocial-']::before {
   font-family: 'zocial', sans-serif;
   font-style: normal;
 }
 
 .zocial-acrobat::before {
-  content: "\00E3";
+  content: '\00E3';
 }
 
 .zocial-amazon::before {
-  content: "a";
+  content: 'a';
 }
 
 .zocial-android::before {
-  content: "&";
+  content: '&';
 }
 
 .zocial-angellist::before {
-  content: "\00D6";
+  content: '\00D6';
 }
 
 .zocial-aol::before {
-  content: "\"";
+  content: '"';
 }
 
 .zocial-appnet::before {
-  content: "\00E1";
+  content: '\00E1';
 }
 
 .zocial-appstore::before {
-  content: "A";
+  content: 'A';
 }
 
 .zocial-bitbucket::before {
-  content: "\00E9";
+  content: '\00E9';
 }
 
 .zocial-bitcoin::before {
-  content: "2";
+  content: '2';
 }
 
 .zocial-blogger::before {
-  content: "B";
+  content: 'B';
 }
 
 .zocial-buffer::before {
-  content: "\00E5";
+  content: '\00E5';
 }
 
 .zocial-call::before {
-  content: "7";
+  content: '7';
 }
 
 .zocial-cal::before {
-  content: ".";
+  content: '.';
 }
 
 .zocial-cart::before {
-  content: "\00C9";
+  content: '\00C9';
 }
 
 .zocial-chrome::before {
-  content: "[";
+  content: '[';
 }
 
 .zocial-cloudapp::before {
-  content: "c";
+  content: 'c';
 }
 
 .zocial-creativecommons::before {
-  content: "C";
+  content: 'C';
 }
 
 .zocial-delicious::before {
-  content: "#";
+  content: '#';
 }
 
 .zocial-digg::before {
-  content: ";";
+  content: ';';
 }
 
 .zocial-disqus::before {
-  content: "Q";
+  content: 'Q';
 }
 
 .zocial-dribbble::before {
-  content: "D";
+  content: 'D';
 }
 
 .zocial-dropbox::before {
-  content: "d";
+  content: 'd';
 }
 
 .zocial-drupal::before {
-  content: "\00E4";
+  content: '\00E4';
 }
 
 .zocial-dwolla::before {
-  content: "\00E0";
+  content: '\00E0';
 }
 
 .zocial-email::before {
-  content: "]";
+  content: ']';
 }
 
 .zocial-eventasaurus::before {
-  content: "v";
+  content: 'v';
 }
 
 .zocial-eventbrite::before {
-  content: "|";
+  content: '|';
 }
 
 .zocial-eventful::before {
@@ -128,265 +127,265 @@
 }
 
 .zocial-evernote::before {
-  content: "E";
+  content: 'E';
 }
 
 .zocial-facebook::before {
-  content: "f";
+  content: 'f';
 }
 
 .zocial-fivehundredpx::before {
-  content: "0";
+  content: '0';
 }
 
 .zocial-flattr::before {
-  content: "%";
+  content: '%';
 }
 
 .zocial-flickr::before {
-  content: "F";
+  content: 'F';
 }
 
 .zocial-forrst::before {
-  content: ":";
+  content: ':';
 }
 
 .zocial-foursquare::before {
-  content: "4";
+  content: '4';
 }
 
 .zocial-github::before {
-  content: "g";
+  content: 'g';
 }
 
 .zocial-gmail::before {
-  content: "m";
+  content: 'm';
 }
 
 .zocial-google::before {
-  content: "G";
+  content: 'G';
 }
 
 .zocial-googleplay::before {
-  content: "h";
+  content: 'h';
 }
 
 .zocial-googleplus::before {
-  content: "+";
+  content: '+';
 }
 
 .zocial-gowalla::before {
-  content: "@";
+  content: '@';
 }
 
 .zocial-grooveshark::before {
-  content: "8";
+  content: '8';
 }
 
 .zocial-guest::before {
-  content: "?";
+  content: '?';
 }
 
 .zocial-html5::before {
-  content: "5";
+  content: '5';
 }
 
 .zocial-ie::before {
-  content: "6";
+  content: '6';
 }
 
 .zocial-instagram::before {
-  content: "\00DC";
+  content: '\00DC';
 }
 
 .zocial-instapaper::before {
-  content: "I";
+  content: 'I';
 }
 
 .zocial-intensedebate::before {
-  content: "{";
+  content: '{';
 }
 
 .zocial-itunes::before {
-  content: "i";
+  content: 'i';
 }
 
 .zocial-klout::before {
-  content: "K";
+  content: 'K';
 }
 
 .zocial-lanyrd::before {
-  content: "-";
+  content: '-';
 }
 
 .zocial-lastfm::before {
-  content: "l";
+  content: 'l';
 }
 
 .zocial-linkedin::before {
-  content: "L";
+  content: 'L';
 }
 
 .zocial-macstore::before {
-  content: "^";
+  content: '^';
 }
 
 .zocial-meetup::before {
-  content: "M";
+  content: 'M';
 }
 
 .zocial-myspace::before {
-  content: "_";
+  content: '_';
 }
 
 .zocial-ninetyninedesigns::before {
-  content: "9";
+  content: '9';
 }
 
 .zocial-openid::before {
-  content: "o";
+  content: 'o';
 }
 
 .zocial-opentable::before {
-  content: "\00C7";
+  content: '\00C7';
 }
 
 .zocial-paypal::before {
-  content: "$";
+  content: '$';
 }
 
 .zocial-pinboard::before {
-  content: "n";
+  content: 'n';
 }
 
 .zocial-pinterest::before {
-  content: "1";
+  content: '1';
 }
 
 .zocial-plancast::before {
-  content: "P";
+  content: 'P';
 }
 
 .zocial-plurk::before {
-  content: "j";
+  content: 'j';
 }
 
 .zocial-pocket::before {
-  content: "\00E7";
+  content: '\00E7';
 }
 
 .zocial-podcast::before {
-  content: "`";
+  content: '`';
 }
 
 .zocial-posterous::before {
-  content: "~";
+  content: '~';
 }
 
 .zocial-print::before {
-  content: "\00D1";
+  content: '\00D1';
 }
 
 .zocial-quora::before {
-  content: "q";
+  content: 'q';
 }
 
 .zocial-reddit::before {
-  content: ">";
+  content: '>';
 }
 
 .zocial-rss::before {
-  content: "R";
+  content: 'R';
 }
 
 .zocial-scribd::before {
-  content: "}";
+  content: '}';
 }
 
 .zocial-skype::before {
-  content: "S";
+  content: 'S';
 }
 
 .zocial-smashing::before {
-  content: "*";
+  content: '*';
 }
 
 .zocial-songkick::before {
-  content: "k";
+  content: 'k';
 }
 
 .zocial-soundcloud::before {
-  content: "s";
+  content: 's';
 }
 
 .zocial-spotify::before {
-  content: "=";
+  content: '=';
 }
 
 .zocial-statusnet::before {
-  content: "\00E2";
+  content: '\00E2';
 }
 
 .zocial-steam::before {
-  content: "b";
+  content: 'b';
 }
 
 .zocial-stripe::before {
-  content: "\00A3";
+  content: '\00A3';
 }
 
 .zocial-stumbleupon::before {
-  content: "/";
+  content: '/';
 }
 
 .zocial-tumblr::before {
-  content: "t";
+  content: 't';
 }
 
 .zocial-twitter::before {
-  content: "T";
+  content: 'T';
 }
 
 .zocial-viadeo::before {
-  content: "H";
+  content: 'H';
 }
 
 .zocial-vimeo::before {
-  content: "V";
+  content: 'V';
 }
 
 .zocial-vk::before {
-  content: "N";
+  content: 'N';
 }
 
 .zocial-weibo::before {
-  content: "J";
+  content: 'J';
 }
 
 .zocial-wikipedia::before {
-  content: ",";
+  content: ',';
 }
 
 .zocial-windows::before {
-  content: "W";
+  content: 'W';
 }
 
 .zocial-wordpress::before {
-  content: "w";
+  content: 'w';
 }
 
 .zocial-xing::before {
-  content: "X";
+  content: 'X';
 }
 
 .zocial-yahoo::before {
-  content: "Y";
+  content: 'Y';
 }
 
 .zocial-yelp::before {
-  content: "y";
+  content: 'y';
 }
 
 .zocial-youtube::before {
-  content: "U";
+  content: 'U';
 }

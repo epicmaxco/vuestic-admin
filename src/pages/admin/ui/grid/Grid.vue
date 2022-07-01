@@ -2,7 +2,7 @@
   <div class="grid row">
     <div class="flex xs12 md12">
       <va-card>
-        <va-card-title>{{ t("grid.fixed") }}</va-card-title>
+        <va-card-title>{{ t('grid.fixed') }}</va-card-title>
         <va-card-content>
           <div class="row">
             <div class="flex xs12">
@@ -20,7 +20,7 @@
     </div>
     <div class="flex md12 xs12">
       <va-card>
-        <va-card-title>{{ t("grid.desktop") }}</va-card-title>
+        <va-card-title>{{ t('grid.desktop') }}</va-card-title>
         <va-card-content>
           <div class="row">
             <div v-for="i in 3" :key="`4${i}`" class="flex xs6 lg4">
@@ -43,7 +43,7 @@
 
     <div class="flex md12 xs12">
       <va-card>
-        <va-card-title>{{ t("grid.responsive") }}</va-card-title>
+        <va-card-title>{{ t('grid.responsive') }}</va-card-title>
         <va-card-content>
           <div class="row">
             <div class="flex xs12 md4">
@@ -75,7 +75,7 @@
 
     <div class="flex md12 xs12">
       <va-card>
-        <va-card-title>{{ t("grid.offsets") }}</va-card-title>
+        <va-card-title>{{ t('grid.offsets') }}</va-card-title>
         <va-card-content>
           <div class="row">
             <div class="flex xs6 md6 offset--md6">
@@ -100,15 +100,16 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from "vue";
-  import { useGlobalConfig } from "vuestic-ui";
-  import { computed } from "vue";
-  import { useI18n } from "vue-i18n";
-  const { t } = useI18n();
+  import { ref } from 'vue'
+  import { useGlobalConfig } from 'vuestic-ui'
+  import { computed } from 'vue'
+  import { useI18n } from 'vue-i18n'
 
-  const theme = ref(useGlobalConfig().getGlobalConfig().colors);
+  const { t } = useI18n()
 
-  const computedStyle = computed(() => ({ backgroundColor: theme.value.primary }));
+  const theme = ref(useGlobalConfig().getGlobalConfig().colors!)
+
+  const computedStyle = computed(() => ({ backgroundColor: theme.value.primary }))
 </script>
 
 <style lang="scss">

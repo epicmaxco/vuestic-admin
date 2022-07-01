@@ -4,53 +4,57 @@
   </div>
 </template>
 
-<script lang="ts">
-  import { defineComponent, ref, Ref, onMounted, onBeforeUnmount } from "vue";
-  import MediumEditor from "medium-editor";
+<script setup lang="ts">
+  import { ref, Ref, onMounted, onBeforeUnmount } from 'vue'
+  import MediumEditor from 'medium-editor'
 
-  export default defineComponent({
-    name: "VaMediumEditor",
-    props: {
-      editorOptions: {
-        type: Object,
-        default: () => ({
-          buttonLabels: "fontawesome",
-          autoLink: true,
-          toolbar: {
-            buttons: ["bold", "italic", "underline", "anchor", "h1", "h2", "h3"],
-          },
-        }),
-      },
-    },
-    setup(props, { emit }) {
-      const editorElement: Ref<null | HTMLElement> = ref(null);
-      let editor: typeof MediumEditor | null = null;
-
-      onMounted(() => {
-        if (!editorElement.value) {
-          return;
+  const props = withDefaults(
+    defineProps<{
+      editorOptions?: {
+        buttonLabels: string
+        autoLink: boolean
+        toolbar: {
+          buttons: string[]
         }
-
-        editor = new MediumEditor(editorElement.value, props.editorOptions);
-        emit("initialized", editor);
-      });
-
-      onBeforeUnmount(() => {
-        if (editor) {
-          editor.destroy();
-        }
-      });
-
-      return {
-        editorElement,
-      };
+      }
+    }>(),
+    {
+      editorOptions: () => ({
+        buttonLabels: 'fontawesome',
+        autoLink: true,
+        toolbar: {
+          buttons: ['bold', 'italic', 'underline', 'anchor', 'h1', 'h2', 'h3'],
+        },
+      }),
     },
-  });
+  )
+
+  const emit = defineEmits<{
+    (e: 'initialized', editor: typeof MediumEditor): void
+  }>()
+
+  const editorElement: Ref<null | HTMLElement> = ref(null)
+  let editor: typeof MediumEditor | null = null
+
+  onMounted(() => {
+    if (!editorElement.value) {
+      return
+    }
+
+    editor = new MediumEditor(editorElement.value, props.editorOptions)
+    emit('initialized', editor)
+  })
+
+  onBeforeUnmount(() => {
+    if (editor) {
+      editor.destroy()
+    }
+  })
 </script>
 
 <style lang="scss">
-  @import "medium-editor/src/sass/medium-editor";
-  @import "variables";
+  @import 'medium-editor/src/sass/medium-editor';
+  @import 'variables';
 
   $medium-editor-shadow: var(--va-box-shadow);
   $medium-editor-background-color: var(--va-divider);

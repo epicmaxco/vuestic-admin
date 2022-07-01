@@ -3,7 +3,7 @@
     <div class="row">
       <div class="flex xs12">
         <va-card>
-          <va-card-title>{{ t("typography.primary") }}</va-card-title>
+          <va-card-title>{{ t('typography.primary') }}</va-card-title>
           <va-card-content>
             <div class="mb-4">
               <h1>Display 1 Heading</h1>
@@ -70,7 +70,7 @@
       </div>
       <div class="flex xs12">
         <va-card>
-          <va-card-title>{{ t("typography.secondary") }}</va-card-title>
+          <va-card-title>{{ t('typography.secondary') }}</va-card-title>
           <va-card-content>
             <p class="display-3">Lists</p>
             <ol class="va-ordered">
@@ -193,21 +193,21 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, computed } from "vue";
-  import { useI18n } from "vue-i18n";
-  const { t } = useI18n();
+  import { ref, computed } from 'vue'
+  import { useI18n } from 'vue-i18n'
+  import { useGlobalConfig } from 'vuestic-ui'
 
-  import { useGlobalConfig } from "vuestic-ui";
-  const { getGlobalConfig } = useGlobalConfig();
+  const { t } = useI18n()
+  const { getGlobalConfig } = useGlobalConfig()
 
   const tableData = ref([
-    ["Id", "FooBar type", "Actions"],
-    ["1", "Zebra", "Delete"],
-    ["2", "Not Zebra", "Remove"],
-    ["3", "Very Zebra", "Eradicate"],
-  ]);
+    ['Id', 'FooBar type', 'Actions'],
+    ['1', 'Zebra', 'Delete'],
+    ['2', 'Not Zebra', 'Remove'],
+    ['3', 'Very Zebra', 'Eradicate'],
+  ])
 
-  const theme = computed(() => getGlobalConfig().colors);
+  const theme = computed(() => getGlobalConfig().colors)
 </script>
 
 <style lang="scss" scoped>

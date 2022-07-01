@@ -1,64 +1,65 @@
-import { useColors } from "vuestic-ui";
+import { useColors } from 'vuestic-ui'
+import { ColorThemes, GeneratedData } from './types'
 
 export function useLineChartData() {
-  const { shiftHSLAColor } = useColors();
+  const { shiftHSLAColor } = useColors()
 
   function colorToRgba(color: string, a: number) {
     // TODO: replace with set hsla color
     // https://github.com/epicmaxco/vuestic-ui/issues/841
-    const transparentColor = shiftHSLAColor(color, { a: -1 });
-    return shiftHSLAColor(transparentColor, { a });
+    const transparentColor = shiftHSLAColor(color, { a: -1 })
+    return shiftHSLAColor(transparentColor, { a })
   }
 
   const generateValue = () => {
-    return Math.floor(Math.random() * 100);
-  };
+    return Math.floor(Math.random() * 100)
+  }
 
   const generateYLabels = () => {
-    const flip = !!Math.floor(Math.random() * 2);
-    return flip ? ["Debit", "Credit"] : ["Credit", "Debit"];
-  };
+    const flip = !!Math.floor(Math.random() * 2)
+    return flip ? ['Debit', 'Credit'] : ['Credit', 'Debit']
+  }
 
   const generateArray = (length: number) => {
-    return Array.from(Array(length), generateValue);
-  };
+    return Array.from(Array(length), generateValue)
+  }
 
   const getSize = () => {
-    const minSize = 4;
-    return Math.max(minSize, new Date().getMonth());
-  };
+    const minSize = 4
+    return Math.max(minSize, new Date().getMonth())
+  }
 
-  let generatedData: GeneratedData;
-  let firstMonthIndex = 0;
+  let generatedData: GeneratedData
+  let firstMonthIndex = 0
 
   const getLineChartData = (themes: ColorThemes, firstMonth: number) => {
-    const size = getSize();
+    const size = getSize()
     const months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ]
 
-    const yLabels = generateYLabels();
+    const yLabels = generateYLabels()
 
     if (generatedData) {
-      generatedData.datasets[0].backgroundColor = colorToRgba(themes.primary, 0.6);
-      generatedData.datasets[1].backgroundColor = colorToRgba(themes.info, 0.6);
+      generatedData.datasets[0].backgroundColor = colorToRgba(themes.primary, 0.6)
+      generatedData.datasets[1].backgroundColor = colorToRgba(themes.info, 0.6)
       if (firstMonth && firstMonthIndex !== firstMonth) {
-        generatedData.labels.shift();
+        generatedData.labels?.shift()
         generatedData.datasets.forEach((dataset) => {
-          dataset.data = dataset.data.slice(1);
-        });
-        firstMonthIndex = firstMonth;
+          dataset.data = dataset.data.slice(1)
+        })
+        firstMonthIndex = firstMonth
       }
     } else {
       generatedData = {
@@ -67,21 +68,21 @@ export function useLineChartData() {
           {
             label: yLabels[0],
             backgroundColor: colorToRgba(themes.primary, 0.6),
-            borderColor: "transparent",
+            borderColor: 'transparent',
             data: generateArray(size - firstMonthIndex),
           },
           {
             label: yLabels[1],
             backgroundColor: colorToRgba(themes.info, 0.6),
-            borderColor: "transparent",
+            borderColor: 'transparent',
             data: generateArray(size),
           },
         ],
-      };
+      }
     }
 
-    return generatedData;
-  };
+    return generatedData
+  }
 
-  return { getLineChartData };
+  return { getLineChartData }
 }

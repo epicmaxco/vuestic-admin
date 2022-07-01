@@ -3,10 +3,10 @@
     <div class="flex xs12 xl6">
       <va-card v-if="lineChartData">
         <va-card-title>
-          <h1>{{ t("dashboard.charts.trendyTrends") }}</h1>
+          <h1>{{ t('dashboard.charts.trendyTrends') }}</h1>
           <div class="mr-0 text-right">
             <va-button size="small" color="danger" :disabled="lineChartData.labels.length < 2" @click="deleteSection">
-              {{ t("dashboard.charts.showInMoreDetail") }}
+              {{ t('dashboard.charts.showInMoreDetail') }}
             </va-button>
           </div>
         </va-card-title>
@@ -19,7 +19,7 @@
     <div class="flex xs12 md6 xl3">
       <va-card class="d-flex">
         <va-card-title>
-          <h1>{{ t("dashboard.charts.loadingSpeed") }}</h1>
+          <h1>{{ t('dashboard.charts.loadingSpeed') }}</h1>
           <div class="mr-0 text-right">
             <va-button icon="print" flat class="mr-0" @click="printChart" />
           </div>
@@ -37,63 +37,62 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, ref, watch } from "vue";
-  import { useGlobalConfig } from "vuestic-ui";
-  const { getGlobalConfig } = useGlobalConfig();
-  import { useI18n } from "vue-i18n";
-  const { t } = useI18n();
+  import { computed, ref, watch } from 'vue'
+  import { useGlobalConfig } from 'vuestic-ui'
+  import { useI18n } from 'vue-i18n'
+  import { useLineChartData } from '../../../data/charts/LineChartData'
+  import { useDonutChartData } from '../../../data/charts/DonutChartData'
+  import VaChart from '../../../components/va-charts/VaChart.vue'
+  import DashboardContributorsChart from './DashboardContributorsList.vue'
 
-  import { useLineChartData } from "../../../data/charts/LineChartData";
-  const { getLineChartData } = useLineChartData();
-  import { useDonutChartData } from "../../../data/charts/DonutChartData";
-  const { getDonutChartData } = useDonutChartData();
+  const { getGlobalConfig } = useGlobalConfig()
+  const { t } = useI18n()
+  const { getLineChartData } = useLineChartData()
+  const { getDonutChartData } = useDonutChartData()
 
-  import VaChart from "../../../components/va-charts/VaChart.vue";
-  import DashboardContributorsChart from "./DashboardContributorsList.vue";
+  const lineChart = ref()
+  const donutChart = ref()
 
-  const lineChart = ref();
-  const donutChart = ref();
+  const lineChartData = ref<ReturnType<typeof getLineChartData>>()
+  const donutChartData = ref<ReturnType<typeof getDonutChartData>>()
 
-  const lineChartData = ref<ReturnType<typeof getLineChartData>>();
-  const donutChartData = ref<ReturnType<typeof getDonutChartData>>();
+  const lineChartFirstMonthIndex = ref(0)
 
-  const lineChartFirstMonthIndex = ref(0);
-
-  const theme = computed(() => getGlobalConfig().colors!);
+  const theme = computed(() => getGlobalConfig().colors!)
 
   const donutChartDataURL = computed(() => {
-    return (document.querySelector(".chart--donut canvas") as HTMLCanvasElement | undefined)?.toDataURL("image/png");
-  });
+    return (document.querySelector('.chart--donut canvas') as HTMLCanvasElement | undefined)?.toDataURL('image/png')
+  })
 
   watch(theme, () => {
     if (theme.value) {
-      lineChartData.value = getLineChartData(theme.value, 0);
-      donutChartData.value = getDonutChartData(theme.value);
+      lineChartData.value = getLineChartData(theme.value, 0)
+      donutChartData.value = getDonutChartData(theme.value)
     }
-  });
+  })
 
-  lineChartData.value = getLineChartData(theme.value, lineChartFirstMonthIndex.value);
-  donutChartData.value = getDonutChartData(theme.value);
+  lineChartData.value = getLineChartData(theme.value, lineChartFirstMonthIndex.value)
+  donutChartData.value = getDonutChartData(theme.value)
 
   function deleteSection() {
-    lineChartFirstMonthIndex.value += 1;
+    lineChartFirstMonthIndex.value += 1
 
-    lineChartData.value = getLineChartData(theme.value, lineChartFirstMonthIndex.value);
-    lineChart.value.refresh();
+    lineChartData.value = getLineChartData(theme.value, lineChartFirstMonthIndex.value)
+    lineChart.value.refresh()
   }
 
   function printChart() {
-    const win = window.open("", "Print", "height=600,width=800");
+    const win = window.open('', 'Print', 'height=600,width=800')
 
-    win?.document.write(`<br><img src='${donutChartDataURL.value}'/>`);
+    win?.document.write(`<br><img src='${donutChartDataURL.value}'/>`)
 
     // TODO: find better solution how to remove timeout
     setTimeout(() => {
-      win?.document.close();
-      win?.focus();
-      win?.print();
-      win?.close();
-    }, 200);
+      win?.document.close()
+      win?.focus()
+      win?.print()
+      win?.close()
+    }, 200)
   }
 </script>
 

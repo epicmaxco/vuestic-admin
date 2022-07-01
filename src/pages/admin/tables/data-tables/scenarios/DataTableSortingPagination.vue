@@ -19,55 +19,55 @@
 </template>
 
 <script>
-  import users from "../data/users.json";
+  import users from '../data/users.json'
 
   export default {
     data() {
       return {
         users: users.slice(),
-      };
+      }
     },
     computed: {
       fields() {
         return [
           {
-            name: "fullName",
-            title: this.t("tables.headings.name"),
-            sortField: "fullName",
-            width: "25%",
+            name: 'fullName',
+            title: this.t('tables.headings.name'),
+            sortField: 'fullName',
+            width: '25%',
           },
           {
-            name: "email",
-            title: this.t("tables.headings.email"),
-            width: "30%",
+            name: 'email',
+            title: this.t('tables.headings.email'),
+            width: '30%',
           },
           {
-            name: "country",
-            title: this.t("tables.headings.country"),
-            sortField: "country",
-            width: "25%",
+            name: 'country',
+            title: this.t('tables.headings.country'),
+            sortField: 'country',
+            width: '25%',
           },
           {
-            name: "__slot:actions",
-            dataClass: "text-right",
+            name: '__slot:actions',
+            dataClass: 'text-right',
           },
-        ];
+        ]
       },
     },
     methods: {
       getStarMessage(user) {
-        const actionName = user.starred ? this.t("tables.unstar") : this.t("tables.star");
-        return `${actionName} ${user.fullName}`;
+        const actionName = user.starred ? this.t('tables.unstar') : this.t('tables.star')
+        return `${actionName} ${user.fullName}`
       },
       getStarColor(user) {
-        return user.starred ? "primary" : "gray";
+        return user.starred ? 'primary' : 'gray'
       },
       star({ id }) {
-        const i = this.users.findIndex((user) => user.id === id);
-        this.users[i].starred = !this.users[i].starred;
+        const i = this.users.findIndex((user) => user.id === id)
+        this.users[i].starred = !this.users[i].starred
       },
     },
-  };
+  }
 </script>
 
 <style lang="scss"></style>

@@ -9,27 +9,27 @@
     data() {
       return {
         data: [],
-      };
+      }
     },
     computed: {
       fields() {
         return [
           {
-            name: "fullName",
-            title: this.t("tables.headings.name"),
+            name: 'fullName',
+            title: this.t('tables.headings.name'),
           },
           {
-            name: "email",
-            title: this.t("tables.headings.email"),
+            name: 'email',
+            title: this.t('tables.headings.email'),
           },
           {
-            name: "country",
-            title: this.t("tables.headings.country"),
+            name: 'country',
+            title: this.t('tables.headings.country'),
           },
-        ];
+        ]
       },
     },
-  };
+  }
 </script>
 
 <style lang="scss"></style>

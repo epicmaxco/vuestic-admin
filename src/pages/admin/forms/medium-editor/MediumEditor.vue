@@ -3,7 +3,7 @@
     <div class="row">
       <div class="flex md12">
         <va-card>
-          <va-card-title>{{ t("forms.mediumEditor.title") }}</va-card-title>
+          <va-card-title>{{ t('forms.mediumEditor.title') }}</va-card-title>
           <va-card-content class="d-flex flex-center">
             <va-medium-editor @initialized="handleEditorInitialization">
               <h1>Select Text To Open Editor</h1>
@@ -30,17 +30,18 @@
 </template>
 
 <script setup lang="ts">
-  import VaMediumEditor from "../../../../components/va-medium-editor/VaMediumEditor.vue";
-  import { useI18n } from "vue-i18n";
-  import { nextTick } from "vue";
-  const { t } = useI18n();
+  import VaMediumEditor from '../../../../components/va-medium-editor/VaMediumEditor.vue'
+  import { useI18n } from 'vue-i18n'
+  import { nextTick } from 'vue'
+  import type MediumEditor from 'medium-editor'
+  const { t } = useI18n()
 
-  function handleEditorInitialization(editor: InstanceType<typeof VaMediumEditor>) {
-    nextTick(() => highlightSampleText(editor));
+  function handleEditorInitialization(editor: typeof MediumEditor) {
+    nextTick(() => highlightSampleText(editor))
   }
 
-  function highlightSampleText(editor: InstanceType<typeof VaMediumEditor>) {
-    const sampleText = document.getElementsByClassName("default-selection")[0];
-    editor.selectElement(sampleText);
+  function highlightSampleText(editor: typeof MediumEditor) {
+    const sampleText = document.getElementsByClassName('default-selection')[0] as HTMLElement
+    editor.selectElement(sampleText)
   }
 </script>

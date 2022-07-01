@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-  import VaPageNotFound from "./VaPageNotFound.vue";
+  import VaPageNotFound from './VaPageNotFound.vue'
 </script>
 
 <style lang="scss">

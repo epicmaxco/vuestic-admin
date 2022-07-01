@@ -18,60 +18,60 @@
 </template>
 
 <script setup>
-  import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+  import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
-  import { storeToRefs } from "pinia";
-  import { useGlobalStore } from "../stores/global-store";
-  const GlobalStore = useGlobalStore();
+  import { storeToRefs } from 'pinia'
+  import { useGlobalStore } from '../stores/global-store'
+  import { onBeforeRouteUpdate } from 'vue-router'
 
-  import { onBeforeRouteUpdate } from "vue-router";
+  import Navbar from '../components/navbar/Navbar.vue'
+  import Sidebar from '../components/sidebar/Sidebar.vue'
 
-  import Navbar from "../components/navbar/Navbar.vue";
-  import Sidebar from "../components/sidebar/Sidebar.vue";
+  const GlobalStore = useGlobalStore()
 
-  const mobileBreakPointPX = 640;
-  const tabletBreakPointPX = 768;
+  const mobileBreakPointPX = 640
+  const tabletBreakPointPX = 768
 
-  const sidebarWidth = ref("16rem");
-  const sidebarMinimizedWidth = ref(undefined);
+  const sidebarWidth = ref('16rem')
+  const sidebarMinimizedWidth = ref(undefined)
 
-  const isMobile = ref(false);
-  const isTablet = ref(false);
-  const { isSidebarMinimized } = storeToRefs(GlobalStore);
-  const checkIsTablet = () => window.innerWidth <= tabletBreakPointPX;
-  const checkIsMobile = () => window.innerWidth <= mobileBreakPointPX;
+  const isMobile = ref(false)
+  const isTablet = ref(false)
+  const { isSidebarMinimized } = storeToRefs(GlobalStore)
+  const checkIsTablet = () => window.innerWidth <= tabletBreakPointPX
+  const checkIsMobile = () => window.innerWidth <= mobileBreakPointPX
 
   const onResize = () => {
-    isSidebarMinimized.value = checkIsTablet();
+    isSidebarMinimized.value = checkIsTablet()
 
-    isMobile.value = checkIsMobile();
-    isTablet.value = checkIsTablet();
-    sidebarMinimizedWidth.value = isMobile.value ? 0 : "4rem";
-    sidebarWidth.value = isTablet.value ? "100%" : "16rem";
-  };
+    isMobile.value = checkIsMobile()
+    isTablet.value = checkIsTablet()
+    sidebarMinimizedWidth.value = isMobile.value ? 0 : '4rem'
+    sidebarWidth.value = isTablet.value ? '100%' : '16rem'
+  }
 
   onMounted(() => {
-    window.addEventListener("resize", onResize);
-  });
+    window.addEventListener('resize', onResize)
+  })
 
   onBeforeUnmount(() => {
-    window.removeEventListener("resize", onResize);
-  });
+    window.removeEventListener('resize', onResize)
+  })
 
   onBeforeRouteUpdate(() => {
     if (checkIsTablet()) {
       // Collapse sidebar after route change for Mobile
-      isSidebarMinimized.value = false;
+      isSidebarMinimized.value = false
     }
-  });
+  })
 
-  onResize();
+  onResize()
 
-  const isFullScreenSidebar = computed(() => isTablet.value && !isSidebarMinimized.value);
+  const isFullScreenSidebar = computed(() => isTablet.value && !isSidebarMinimized.value)
 
   const onCloseSidebarButtonClick = () => {
-    isSidebarMinimized.value = false;
-  };
+    isSidebarMinimized.value = false
+  }
 </script>
 
 <style lang="scss">

@@ -3,7 +3,7 @@
     <div class="row">
       <div class="flex sm12 md6">
         <div class="title mb-3" :style="computedStylesTitle">
-          {{ t("dashboard.tabs.billingAddress.personalInfo") }}
+          {{ t('dashboard.tabs.billingAddress.personalInfo') }}
         </div>
         <va-input v-model="form.name" :label="t('dashboard.tabs.billingAddress.firstName')" />
         <va-input v-model="form.email" :label="t('dashboard.tabs.billingAddress.email')" />
@@ -11,7 +11,7 @@
       </div>
       <div class="flex sm12 md6">
         <div class="title mb-3" :style="computedStylesTitle">
-          {{ t("dashboard.tabs.billingAddress.companyInfo") }}
+          {{ t('dashboard.tabs.billingAddress.companyInfo') }}
         </div>
         <va-select
           v-model="form.country"
@@ -33,71 +33,71 @@
     </div>
     <div class="row justify--center">
       <va-button @click="submit">
-        {{ t("dashboard.tabs.billingAddress.addConnection") }}
+        {{ t('dashboard.tabs.billingAddress.addConnection') }}
       </va-button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { computed, onMounted, ref, watch } from "vue";
-  import { useGlobalConfig } from "vuestic-ui";
-  const { getGlobalConfig } = useGlobalConfig();
-  import { useI18n } from "vue-i18n";
-  const { t } = useI18n();
+  import { computed, onMounted, ref, watch } from 'vue'
+  import { useGlobalConfig } from 'vuestic-ui'
+  import { useI18n } from 'vue-i18n'
+  import { getLineMapData } from '../../../../data/maps/LineMapData'
+  import CountriesList from '../../../../data/CountriesList'
 
-  import { getLineMapData } from "../../../../data/maps/LineMapData";
-  import CountriesList from "../../../../data/CountriesList";
+  const { getGlobalConfig } = useGlobalConfig()
+  const { t } = useI18n()
 
   const emit = defineEmits<{
-    (e: "submit", data: typeof form["value"]): void;
-  }>();
+    (e: 'submit', data: typeof form['value']): void
+  }>()
 
   const form = ref({
-    name: "John Smith",
-    email: "smith@gmail.com",
-    address: "93  Guild Street",
-    city: { text: "London" },
-    country: "United Kingdom",
+    name: 'John Smith',
+    email: 'smith@gmail.com',
+    address: '93  Guild Street',
+    city: { text: 'London' },
+    country: 'United Kingdom',
     connection: true,
-  });
+  })
 
-  const theme = computed(() => getGlobalConfig().colors!);
+  const theme = computed(() => getGlobalConfig().colors!)
 
   const countriesList = computed(() => {
-    return CountriesList.filter((item) => citiesList.value.filter(({ country }) => country === item).length);
-  });
+    return CountriesList.filter((item) => citiesList.value.filter(({ country }) => country === item).length)
+  })
 
   const citiesList = computed(() => {
-    return getLineMapData(theme.value).cities.map(({ title, country }) => ({ text: title, country }));
-  });
+    return getLineMapData(theme.value).cities.map(({ title, country }) => ({ text: title, country }))
+  })
 
-  const allowedCitiesList = ref<typeof citiesList["value"]>([]);
+  const allowedCitiesList = ref<typeof citiesList['value']>([])
 
   const computedStylesTitle = computed(() => {
     return {
       color: theme.value.dark,
-    };
-  });
+    }
+  })
 
   watch(
     form,
     () => {
       allowedCitiesList.value = form.value.country
         ? citiesList.value.filter(({ country }) => country === form.value.country)
-        : [...citiesList.value];
+        : [...citiesList.value]
 
       // form.value.country = countriesList.value.find((item) => item === form.value.country);
     },
     { deep: true },
-  );
+  )
 
   onMounted(() => {
-    allowedCitiesList.value = [...citiesList.value];
-  });
+    allowedCitiesList.value = [...citiesList.value]
+  })
 
   function submit() {
-    emit("submit", form.value);
+    emit('submit', form.value)
   }
 </script>
 

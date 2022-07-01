@@ -3,264 +3,263 @@
   font-style: normal;
   font-weight: normal;
   src: url('/src/assets/styles/icon-fonts/typicons/typicons-regular-webfont.eot');
-  src:
-    url('/src/assets/styles/icon-fonts/typicons/typicons-regular-webfont.eot?#iefix') format('eot'),
+  src: url('/src/assets/styles/icon-fonts/typicons/typicons-regular-webfont.eot?#iefix') format('eot'),
     url('/src/assets/styles/icon-fonts/typicons/typicons-regular-webfont.woff') format('woff'),
     url('/src/assets/styles/icon-fonts/typicons/typicons-regular-webfont.ttf') format('truetype'),
     url('/src/assets/styles/icon-fonts/typicons/typicons-regular-webfont.svg#TypiconsRegular') format('svg');
 }
 
-[class*="typicons-"]::before {
+[class*='typicons-']::before {
   font-family: 'Typicons', sans-serif;
   font-style: normal;
 }
 
 .typicons-location::before {
-  content: "A";
+  content: 'A';
 }
 
 .typicons-phone::before {
-  content: "B";
+  content: 'B';
 }
 
 .typicons-home::before {
-  content: "C";
+  content: 'C';
 }
 
 .typicons-camera::before {
-  content: "D";
+  content: 'D';
 }
 
 .typicons-left::before {
-  content: "E";
+  content: 'E';
 }
 
 .typicons-right::before {
-  content: "F";
+  content: 'F';
 }
 
 .typicons-up::before {
-  content: "G";
+  content: 'G';
 }
 
 .typicons-down::before {
-  content: "H";
+  content: 'H';
 }
 
 .typicons-refresh::before {
-  content: "I";
+  content: 'I';
 }
 
 .typicons-sync::before {
-  content: "J";
+  content: 'J';
 }
 
 .typicons-loop::before {
-  content: "K";
+  content: 'K';
 }
 
 .typicons-repeat::before {
-  content: "L";
+  content: 'L';
 }
 
 .typicons-shuffle::before {
-  content: "M";
+  content: 'M';
 }
 
 .typicons-rss::before {
-  content: "N";
+  content: 'N';
 }
 
 .typicons-cog::before {
-  content: "O";
+  content: 'O';
 }
 
 .typicons-spanner::before {
-  content: "P";
+  content: 'P';
 }
 
 .typicons-barChart::before {
-  content: "Q";
+  content: 'Q';
 }
 
 .typicons-pieChart::before {
-  content: "R";
+  content: 'R';
 }
 
 .typicons-lineChart::before {
-  content: "S";
+  content: 'S';
 }
 
 .typicons-views::before {
-  content: "T";
+  content: 'T';
 }
 
 .typicons-zoomIn::before {
-  content: "V";
+  content: 'V';
 }
 
 .typicons-zoomOut::before {
-  content: "U";
+  content: 'U';
 }
 
 .typicons-export::before {
-  content: "W";
+  content: 'W';
 }
 
 .typicons-user::before {
-  content: "X";
+  content: 'X';
 }
 
 .typicons-group::before {
-  content: "Y";
+  content: 'Y';
 }
 
 .typicons-microphone::before {
-  content: "Z";
+  content: 'Z';
 }
 
 .typicons-globe::before {
-  content: "a";
+  content: 'a';
 }
 
 .typicons-thumbsUp::before {
-  content: "b";
+  content: 'b';
 }
 
 .typicons-thumbsDown::before {
-  content: "c";
+  content: 'c';
 }
 
 .typicons-tag::before {
-  content: "d";
+  content: 'd';
 }
 
 .typicons-tab::before {
-  content: "e";
+  content: 'e';
 }
 
 .typicons-warning::before {
-  content: "f";
+  content: 'f';
 }
 
 .typicons-tick::before {
-  content: "g";
+  content: 'g';
 }
 
 .typicons-beta::before {
-  content: "h";
+  content: 'h';
 }
 
 .typicons-unlock::before {
-  content: "i";
+  content: 'i';
 }
 
 .typicons-lock::before {
-  content: "j";
+  content: 'j';
 }
 
 .typicons-eject::before {
-  content: "k";
+  content: 'k';
 }
 
 .typicons-move::before {
-  content: "l";
+  content: 'l';
 }
 
 .typicons-expand::before {
-  content: "m";
+  content: 'm';
 }
 
 .typicons-cancel::before {
-  content: "n";
+  content: 'n';
 }
 
 .typicons-power::before {
-  content: "o";
+  content: 'o';
 }
 
 .typicons-compass::before {
-  content: "p";
+  content: 'p';
 }
 
 .typicons-radar::before {
-  content: "q";
+  content: 'q';
 }
 
 .typicons-directions::before {
-  content: "r";
+  content: 'r';
 }
 
 .typicons-pin::before {
-  content: "s";
+  content: 's';
 }
 
 .typicons-mute::before {
-  content: "t";
+  content: 't';
 }
 
 .typicons-volume::before {
-  content: "u";
+  content: 'u';
 }
 
 .typicons-world::before {
-  content: "v";
+  content: 'v';
 }
 
 .typicons-write::before {
-  content: "w";
+  content: 'w';
 }
 
 .typicons-minus::before {
-  content: "x";
+  content: 'x';
 }
 
 .typicons-equals::before {
-  content: "y";
+  content: 'y';
 }
 
 .typicons-feed::before {
-  content: "z";
+  content: 'z';
 }
 
 .typicons-batteryNone::before {
-  content: "0";
+  content: '0';
 }
 
 .typicons-batteryLow::before {
-  content: "1";
+  content: '1';
 }
 
 .typicons-batteryMid::before {
-  content: "2";
+  content: '2';
 }
 
 .typicons-batteryHigh::before {
-  content: "3";
+  content: '3';
 }
 
 .typicons-batteryPower::before {
-  content: "4";
+  content: '4';
 }
 
 .typicons-plus::before {
-  content: "5";
+  content: '5';
 }
 
 .typicons-times::before {
-  content: "6";
+  content: '6';
 }
 
 .typicons-next::before {
-  content: "7";
+  content: '7';
 }
 
 .typicons-previous::before {
-  content: "8";
+  content: '8';
 }
 
 .typicons-edit::before {
-  content: "9";
+  content: '9';
 }
 
 .typicons-cut::before {
@@ -268,97 +267,97 @@
 }
 
 .typicons-anchor::before {
-  content: "(";
+  content: '(';
 }
 
 .typicons-bookmark::before {
-  content: ")";
+  content: ')';
 }
 
 .typicons-music::before {
-  content: "*";
+  content: '*';
 }
 
 .typicons-puzzle::before {
-  content: "+";
+  content: '+';
 }
 
 .typicons-archive::before {
-  content: ",";
+  content: ',';
 }
 
 .typicons-mobile::before {
-  content: "-";
+  content: '-';
 }
 
 .typicons-brightness::before {
-  content: "/";
+  content: '/';
 }
 
 .typicons-flag::before {
-  content: "{";
+  content: '{';
 }
 
 .typicons-info::before {
-  content: "|";
+  content: '|';
 }
 
 .typicons-unknown::before {
-  content: "}";
+  content: '}';
 }
 
 .typicons-chat::before {
-  content: "~";
+  content: '~';
 }
 
 .typicons-mail::before {
-  content: "[";
+  content: '[';
 }
 
 .typicons-message::before {
-  content: "\005C";
+  content: '\005C';
 }
 
 .typicons-delete::before {
-  content: "]";
+  content: ']';
 }
 
 .typicons-backspace::before {
-  content: "^";
+  content: '^';
 }
 
 .typicons-infinity::before {
-  content: "_";
+  content: '_';
 }
 
 .typicons-key::before {
-  content: "$";
+  content: '$';
 }
 
 .typicons-time::before {
-  content: "%";
+  content: '%';
 }
 
 .typicons-grid::before {
-  content: "\0022";
+  content: '\0022';
 }
 
 .typicons-list::before {
-  content: "\0023";
+  content: '\0023';
 }
 
 .typicons-heart::before {
-  content: ";";
+  content: ';';
 }
 
 .typicons-star::before {
-  content: "=";
+  content: '=';
 }
 
 .typicons-back::before {
-  content: "?";
+  content: '?';
 }
 
 .typicons-forward::before {
-  content: "@";
+  content: '@';
 }
