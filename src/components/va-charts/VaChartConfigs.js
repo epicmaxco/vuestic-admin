@@ -20,20 +20,6 @@ export const defaultConfig = {
   animation: false,
 }
 
-// // These are used, but eslint won't understand it because they're used as dynamic components
-// // eslint-disable-next-line @typescript-eslint/no-unused-vars
-// import PieChart from
-// // eslint-disable-next-line @typescript-eslint/no-unused-vars
-// import BubbleChart from './chart-types/BubbleChart'
-// // eslint-disable-next-line @typescript-eslint/no-unused-vars
-// import DonutChart from
-// // eslint-disable-next-line @typescript-eslint/no-unused-vars
-// import HorizontalBarChart from './chart-types/HorizontalBarChart'
-// // eslint-disable-next-line @typescript-eslint/no-unused-vars
-// import VerticalBarChart from './chart-types/VerticalBarChart'
-// // eslint-disable-next-line @typescript-eslint/no-unused-vars
-// import LineChart from './chart-types/LineChart'
-
 export const chartTypesMap = {
   pie: defineAsyncComponent(() => import('./chart-types/PieChart')),
   donut: defineAsyncComponent(() => import('./chart-types/DonutChart')),
