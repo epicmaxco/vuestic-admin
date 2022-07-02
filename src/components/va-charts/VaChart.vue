@@ -3,19 +3,6 @@
 </template>
 
 <script setup lang="ts">
-  // These are used, but eslint won't understand it because they're used as dynamic components
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  import PieChart from './chart-types/PieChart'
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  import BubbleChart from './chart-types/BubbleChart'
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  import DonutChart from './chart-types/DonutChart'
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  import HorizontalBarChart from './chart-types/HorizontalBarChart'
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  import VerticalBarChart from './chart-types/VerticalBarChart'
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  import LineChart from './chart-types/LineChart'
   import { chartTypesMap } from './VaChartConfigs'
   import { computed, defineProps, ref } from 'vue'
 
