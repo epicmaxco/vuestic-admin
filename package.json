@@ -32,7 +32,7 @@
     "sass": "^1.53.0",
     "vue": "^3.2.25",
     "vue-chartjs": "^3.5.1",
-    "vue-gtm": "^3.2.1",
+    "@gtm-support/vue-gtm": "^1.6.0",
     "vue-i18n": "^9.1.10",
     "vue-router": "^4.0.14",
     "vue-yandex-maps": "^0.12.3",

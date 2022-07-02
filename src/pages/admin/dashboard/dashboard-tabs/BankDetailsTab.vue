@@ -27,8 +27,8 @@
   import { useGlobalConfig } from 'vuestic-ui'
   import { useToast } from 'vuestic-ui'
   import { useI18n } from 'vue-i18n'
-  const { t } = useI18n()
   const { getGlobalConfig } = useGlobalConfig()
+  const { t } = useI18n()
 
   const form = ref({
     bankName: 'Raiffeisen Bank',
