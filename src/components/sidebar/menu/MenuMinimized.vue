@@ -50,15 +50,9 @@
     {
       items: () => [],
     },
-    isItemChildsActive(item) {
-      const isCurrentItemActive = this.isRouteActive(item);
+  )
 
-      let isChildActive = false
-      if (item.children) {
-        isChildActive = !!item.children.find(child =>
-          child.children ? this.isItemChildsActive(child) : this.isRouteActive(child)
-        );
-      }
+  const dropdownsValue = ref([])
 
   // function isGroup(item: INavigationRoute) {
   //   return !!item.children
@@ -74,9 +68,13 @@
     }
 
     const isCurrentItemActive = isRouteActive(item)
-    const isChildActive = !!item.children.find((child) =>
-      child.children ? isItemChildsActive(child) : isRouteActive(child),
-    )
+
+    let isChildActive = false
+    if (item.children) {
+      isChildActive = !!item.children.find((child) =>
+        child.children ? isItemChildsActive(child) : isRouteActive(child),
+      )
+    }
 
     return isCurrentItemActive || isChildActive
   }
