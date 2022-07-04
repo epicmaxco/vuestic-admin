@@ -50,9 +50,15 @@
     {
       items: () => [],
     },
-  )
+    isItemChildsActive(item) {
+      const isCurrentItemActive = this.isRouteActive(item);
 
-  const dropdownsValue = ref<INavigationRoute[]>([])
+      let isChildActive = false
+      if (item.children) {
+        isChildActive = !!item.children.find(child =>
+          child.children ? this.isItemChildsActive(child) : this.isRouteActive(child)
+        );
+      }
 
   // function isGroup(item: INavigationRoute) {
   //   return !!item.children
