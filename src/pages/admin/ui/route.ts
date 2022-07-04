@@ -1,4 +1,4 @@
-import RouteViewComponent from '../../../layout/RouterBypass.vue'
+import RouteViewComponent from '../../../layouts/RouterBypass.vue'
 
 export default {
   name: 'ui',

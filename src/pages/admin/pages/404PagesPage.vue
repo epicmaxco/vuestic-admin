@@ -24,7 +24,7 @@
   const items = ref([
     {
       imageUrl: 'https://i.imgur.com/GzUR0Wz.png',
-      label: 'Advanced layout',
+      label: 'Advanced layouts',
       buttonTo: 'not-found-advanced',
     },
     {

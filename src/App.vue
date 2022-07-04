@@ -8,7 +8,7 @@
 </script>
 
 <style lang="scss">
-  @import './assets/styles/main.scss';
+  @import 'scss/main.scss';
 
   #app {
     font-family: 'Source Sans Pro', Avenir, Helvetica, Arial, sans-serif;

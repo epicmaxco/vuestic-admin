@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
-import AuthLayout from '../layout/AuthLayout.vue'
-import AppLayout from '../layout/AppLayout.vue'
-import Page404Layout from '../layout/Page404Layout.vue'
+import AuthLayout from '../layouts/AuthLayout.vue'
+import AppLayout from '../layouts/AppLayout.vue'
+import Page404Layout from '../layouts/Page404Layout.vue'
 
-import RouteViewComponent from '../layout/RouterBypass.vue'
+import RouteViewComponent from '../layouts/RouterBypass.vue'
 import UIRoute from '../pages/admin/ui/route'
 
 const routes: Array<RouteRecordRaw> = [
