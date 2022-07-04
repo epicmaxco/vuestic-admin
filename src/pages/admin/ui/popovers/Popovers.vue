@@ -3,31 +3,18 @@
     <div class="row">
       <div class="flex xs12 md6">
         <va-card>
-          <va-card-title>{{ $t('popovers.popoverStyle') }}</va-card-title>
+          <va-card-title>{{ t('popovers.popoverStyle') }}</va-card-title>
           <va-card-content>
+            <va-select v-model="popover.color" class="mb-4" label="color scheme" :options="colors" />
             <va-select
-              class="mb-4"
-              label="color scheme"
-              v-model="popover.color"
-              :options="colors"
-            />
-            <va-select
+              v-model="popover.icon"
               class="mb-4"
               label="icon (font-awesome)"
-              v-model="popover.icon"
               :options="icons"
               track-by="icon"
             />
-            <va-input
-              class="mb-4"
-              v-model="popover.title"
-              label="Title"
-            />
-            <va-input
-              class="mb-4"
-              v-model="popover.message"
-              label="Message"
-            />
+            <va-input v-model="popover.title" class="mb-4" label="Title" />
+            <va-input v-model="popover.message" class="mb-4" label="Message" />
             <div class="popover-example mt-5">
               <va-popover
                 :icon="popover.icon.icon"
@@ -38,7 +25,7 @@
                 open
               >
                 <va-button>
-                  {{ $t('notificationsPage.popovers.showPopover') }}
+                  {{ t('notificationsPage.popovers.showPopover') }}
                 </va-button>
               </va-popover>
             </div>
@@ -48,45 +35,31 @@
 
       <div class="flex xs12 md6">
         <va-card>
-          <va-card-title>{{ $t('popovers.popoverPlacement') }}</va-card-title>
+          <va-card-title>{{ t('popovers.popoverPlacement') }}</va-card-title>
           <va-card-content>
             <p class="my-2 mx-2">
               Any text can be used for
-              <va-popover
-                placement="bottom"
-                message="Bottom tooltip"
-              >
+              <va-popover placement="bottom" message="Bottom tooltip">
                 <a class="link">
-                  {{ $t('notificationsPage.popovers.bottomTooltip') }}
+                  {{ t('notificationsPage.popovers.bottomTooltip') }}
                 </a>
               </va-popover>
               tooltip showcase. Just anything you can possibly imagine to test
-              <va-popover
-                placement="right"
-                message="Right tooltip"
-              >
+              <va-popover placement="right" message="Right tooltip">
                 <a class="link">
-                  {{ $t('notificationsPage.popovers.rightTooltip') }}
+                  {{ t('notificationsPage.popovers.rightTooltip') }}
                 </a>
               </va-popover>
-              tooltip.
-              But it can appear on the
-              <va-popover
-                placement="left"
-                message="Left tooltip"
-              >
+              tooltip. But it can appear on the
+              <va-popover placement="left" message="Left tooltip">
                 <a class="link">
-                  {{$t('notificationsPage.popovers.leftTooltip')}}
+                  {{ t('notificationsPage.popovers.leftTooltip') }}
                 </a>
               </va-popover>
-              .
-              Or just
-              <va-popover
-                placement="top"
-                message="Top tooltip"
-              >
+              . Or just
+              <va-popover placement="top" message="Top tooltip">
                 <a class="link">
-                  {{ $t('notificationsPage.popovers.topTooltip') }}
+                  {{ t('notificationsPage.popovers.topTooltip') }}
                 </a>
               </va-popover>
               the item.
@@ -98,40 +71,31 @@
   </div>
 </template>
 
-<script>
-export default {
-  components: {},
-  data () {
-    return {
-      icons: [
-        {
-          icon: 'print',
-          text: 'print',
-        },
-        {
-          icon: 'star',
-          text: 'star',
-        },
-      ],
-      colors: ['success', 'info', 'danger', 'warning', 'gray', 'dark'],
-      popover: {
-        title: 'Hey folks!',
-        message: 'This tooltip is amazing:D',
-        icon: {
-          icon: 'print',
-          text: 'print',
-        },
-        color: 'warning',
-      },
-    }
-  },
-}
-</script>
+<script setup lang="ts">
+  import { ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
+  const { t } = useI18n()
 
-<style lang="scss">
-// .tooltips {
-//   &__content {
-//     @include va-flex-center();
-//   }
-// }
-</style>
+  const icons = ref([
+    {
+      icon: 'print',
+      text: 'print',
+    },
+    {
+      icon: 'star',
+      text: 'star',
+    },
+  ])
+
+  const colors = ref(['success', 'info', 'danger', 'warning', 'gray', 'dark'])
+
+  const popover = ref({
+    title: 'Hey folks!',
+    message: 'This tooltip is amazing :D',
+    icon: {
+      icon: 'print',
+      text: 'print',
+    },
+    color: 'warning',
+  })
+</script>

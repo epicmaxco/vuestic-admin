@@ -1,59 +1,51 @@
 <template>
-  <va-card >
+  <va-card>
     <va-card-title>
-      {{ $t('dashboard.currentVisitors') }}
+      {{ t('dashboard.currentVisitors') }}
     </va-card-title>
-    <line-map
-      class="dashboard-map"
-      :map-data="lineMapData"
-      style="height: 400px;"
-    />
+    <line-map class="dashboard-map" :map-data="lineMapData" />
   </va-card>
 </template>
 
-<script>
-import LineMap from '@/components/maps/LineMap'
-import { getLineMapData } from '@/data/maps/LineMapData'
-import { useGlobalConfig } from 'vuestic-ui'
+<script setup lang="ts">
+  import { computed, onMounted, ref, watch } from 'vue'
+  import { useGlobalConfig } from 'vuestic-ui'
+  import { useI18n } from 'vue-i18n'
 
-export default {
-  name: 'dashboard-map',
-  components: {
-    LineMap,
-  },
-  data () {
-    return {
-      lineMapData: { cities: [], mainCity: '' },
-    }
-  },
-  computed: {
-    theme() {
-      return useGlobalConfig().getGlobalConfig().colors
+  import LineMap from '../../../components/maps/LineMap.vue'
+  import { getLineMapData } from '../../../data/maps/LineMapData'
+
+  const { getGlobalConfig } = useGlobalConfig()
+  const { t } = useI18n()
+
+  const lineMapData = ref<ReturnType<typeof getLineMapData>>()
+
+  onMounted(() => {
+    lineMapData.value = getLineMapData(theme.value)
+  })
+
+  const theme = computed(() => getGlobalConfig().colors!)
+
+  watch(
+    theme,
+    () => {
+      lineMapData.value = getLineMapData(theme.value)
     },
-  },
-  methods: {
-    addAddress (address) {
-      this.lineMapData = {
-        ...this.lineMapData,
-        cities: this.lineMapData.cities.map(city => ({
-          ...city,
-          color: city.title === address.city ? this.theme.success : city.color,
-        })),
-      }
-    },
-  },
-  mounted () {
-    this.lineMapData = getLineMapData(this.theme)
-  },
-  watch: {
-    '$themesOptions.activeThemeName': { // hack for trigger change themes
-      handler () {
-        this.lineMapData = getLineMapData(this.theme)
-      },
-      immediate: true,
-    },
-  },
-}
+    { immediate: true },
+  )
+
+  function addAddress(address: { city: { text: string }; country: string }) {
+    address
+    // lineMapData.value = {
+    //   ...lineMapData.value,
+    //   cities: lineMapData.value.cities.map((city) => ({
+    //     ...city,
+    //     // color: city.title === address.city ? theme.value.success : city.color,
+    //   })),
+    // }
+  }
+
+  defineExpose({ addAddress })
 </script>
 
 <style>

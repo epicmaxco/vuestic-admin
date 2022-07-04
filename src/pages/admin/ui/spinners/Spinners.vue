@@ -1,14 +1,14 @@
 <template>
   <div class="spinners">
     <va-card>
-      <va-card-title>{{ $t('spinners.title') }}</va-card-title>
+      <va-card-title>{{ t('spinners.title') }}</va-card-title>
       <va-card-content>
         <div class="row mt-0">
           <div class="d-flex flex xs12 lg4 align--center">
             <span class="shrink pr-3 spinners__size-smaller">A</span>
             <va-slider
-              value-visible
               v-model="config.size"
+              value-visible
               :label-value="`${config.size}px`"
               :min="sliderSize.min"
               :max="sliderSize.max"
@@ -17,49 +17,28 @@
           </div>
 
           <div class="d-flex flex xs12 lg4 align--center">
-            <va-icon-slower class="shrink pr-3 spinners__duration-slower"/>
-            <va-slider
-              value-visible
-              v-model="currentDuration"
-              :min="sliderDuration.min"
-              :max="sliderDuration.max"
-            />
-            <va-icon-faster class="shrink pl-3 spinners__duration-faster"/>
+            <va-icon-slower class="shrink pr-3 spinners__duration-slower" />
+            <va-slider v-model="currentDuration" value-visible :min="sliderDuration.min" :max="sliderDuration.max" />
+            <va-icon-faster class="shrink pl-3 spinners__duration-faster" />
           </div>
 
           <div class="d-flex flex justify--center xs12 lg4">
-            <va-color-palette
-              :palette="paletteArray"
-              v-model="spinnersColor"
-            />
+            <va-color-palette v-model="spinnersColor" :palette="paletteArray" />
           </div>
         </div>
 
         <div class="content">
-          <hr class="separator">
+          <hr class="separator" />
         </div>
 
-        <div
-          v-for="(group, i) in groups"
-          :key="i"
-          class="row"
-        >
-          <div
-            v-for="item in group"
-            :key="item"
-            class="flex sm6 xs12 lg3"
-          >
+        <div v-for="(group, i) in groups" :key="i" class="row">
+          <div v-for="item in group" :key="item" class="flex sm6 xs12 lg3">
             <div class="text--center pb-4">
               <div class="flex-center spinner-box">
-                <component
-                  :animation-duration="speed"
-                  :is="item"
-                  :color="computedSpinnersColor"
-                  :size="config.size"
-                >
+                <component :is="item" :animation-duration="speed" :color="computedSpinnersColor" :size="config.size">
                 </component>
               </div>
-              <div>{{ $t(item) }}</div>
+              <div>{{ t(item) }}</div>
             </div>
           </div>
         </div>
@@ -68,110 +47,99 @@
   </div>
 </template>
 
-<script>
-import * as spinners from 'epic-spinners'
-import { mapGetters } from 'vuex'
-import { useGlobalConfig, getColor } from 'vuestic-ui'
-import VaIconFaster from '../../../../components/icons/VaIconFaster'
-import VaIconSlower from '../../../../components/icons/VaIconSlower'
+<script setup lang="ts">
+  /**
+   * HIDDEN FROM THE ADMIN! SEE src/components/sidebar/NavigationRoutes.ts AND src/pages/admin/ui/route.ts TO REVEAL.
+   * ALSO INSTALL THE DEPENDENCY "epic-spinners": "^1.1.0" (OR HIGHER WHEN IT'S UPDATED)!
+   */
 
-export default {
-  components: {
-    ...spinners,
-    VaIconFaster,
-    VaIconSlower,
-  },
-  data () {
-    return {
-      config: {
-        size: 80,
-        group: 4,
-        duration: 1500,
-      },
-      currentDuration: 1500,
-      spinnersColor: 'primary',
-      sliderSize: {
-        formatter: v => `${v}px`,
-        min: 40,
-        max: 100,
-      },
-      sliderDuration: {
-        min: 1000,
-        max: 2000,
-      },
-    }
-  },
-  computed: {
-    ...mapGetters(['palette']),
+  // import * as spinners from 'epic-spinners'
+  import { useColors } from 'vuestic-ui'
+  import VaIconFaster from '../../../../components/icons/VaIconFaster.vue'
+  import VaIconSlower from '../../../../components/icons/VaIconSlower.vue'
+  import { useI18n } from 'vue-i18n'
+  import { computed, ref } from 'vue'
 
-    colors() {
-      return useGlobalConfig().getGlobalConfig().colors
-    },
+  const config = ref({
+    size: 80,
+    group: 4,
+    duration: 1500,
+  })
 
-    computedSpinnersColor() {
-      return getColor(this.spinnersColor)
-    },
+  const currentDuration = ref(1500)
 
-    speed () {
-      return this.sliderDuration.min + this.sliderDuration.max - this.currentDuration
-    },
+  const spinnersColor = ref('primary')
 
-    groups () {
-      return this.groupItems(Object.keys(spinners), this.config.group)
-    },
+  const sliderSize = ref({
+    formatter: (v: number) => `${v}px`,
+    min: 40,
+    max: 100,
+  })
 
-    paletteArray () {
-      return ['primary', 'success', 'danger', 'warning', 'dark']
-    },
-  },
+  const sliderDuration = ref({
+    min: 1000,
+    max: 2000,
+  })
 
-  filters: {
-    displayName (name) {
-      return name.replace('Spinner', '').match(/[A-Z][a-z]+/g).join(' ')
-    },
-  },
-  methods: {
-    groupItems (items, groupSize) {
-      const grouped = []
+  const { t } = useI18n()
+  const { getColor } = useColors()
 
-      for (let i = 0; i < items.length; i += groupSize) {
-        grouped.push(items.slice(i, i + groupSize))
-      }
+  const computedSpinnersColor = computed(() => {
+    return getColor(spinnersColor.value)
+  })
 
-      return grouped
-    },
-  },
-}
+  const speed = computed(() => {
+    return sliderDuration.value.min + sliderDuration.value.max - currentDuration.value
+  })
+
+  const groups = computed(() => {
+    // return groupItems(Object.keys(spinners), config.value.group)
+    return []
+  })
+
+  const paletteArray = computed(() => {
+    return ['primary', 'success', 'danger', 'warning', 'dark']
+  })
+
+  // function groupItems(items: never[], groupSize: number) {
+  //   const grouped = []
+  //
+  //   for (let i = 0; i < items.length; i += groupSize) {
+  //     grouped.push(items.slice(i, i + groupSize))
+  //   }
+  //
+  //   return grouped
+  // }
 </script>
 
 <style lang="scss">
-.spinners {
-  &__size {
-    &-smaller,
-    &-bigger {
-      width: 40px;
-      text-align: center;
-      font-weight: 600;
+  .spinners {
+    &__size {
+      &-smaller,
+      &-bigger {
+        width: 40px;
+        text-align: center;
+        font-weight: 600;
+      }
+
+      &-smaller {
+        font-size: 1rem;
+      }
+
+      &-bigger {
+        font-size: 1.3rem;
+      }
     }
 
-    &-smaller {
-      font-size: 1rem;
+    &__duration {
+      &-slower,
+      &-faster {
+        transform: translateY(-1px);
+      }
     }
 
-    &-bigger {
-      font-size: 1.3rem;
+    .spinner-box {
+      height: 140px;
     }
   }
-
-  &__duration {
-    &-slower,
-    &-faster {
-      transform: translateY(-1px);
-    }
-  }
-
-  .spinner-box {
-    height: 140px;
-  }
-}
 </style>

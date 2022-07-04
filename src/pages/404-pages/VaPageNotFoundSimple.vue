@@ -3,32 +3,22 @@
     <template #image>
       <vuestic-logo />
     </template>
-    <va-button :to="{name: 'dashboard'}">
-      Back to dashboard
-    </va-button>
+    <va-button :to="{ name: 'dashboard' }"> Back to dashboard </va-button>
   </va-page-not-found>
 </template>
 
-<script>
-import VuesticLogo from '@/components/vuestic-logo'
-import VaPageNotFound from './VaPageNotFound'
-
-export default {
-  name: 'vuestic-page-not-found-simple',
-  components: {
-    VaPageNotFound,
-    VuesticLogo,
-  },
-}
+<script setup lang="ts">
+  import VuesticLogo from '../../components/VuesticLogo.vue'
+  import VaPageNotFound from './VaPageNotFound.vue'
 </script>
 
 <style lang="scss">
-.va-page-not-found-simple {
-  .va-icon-vuestic {
-    width: 19rem;
-    height: 2rem;
-    max-width: 100%;
-    margin-bottom: 13%;
+  .va-page-not-found-simple {
+    .va-icon-vuestic {
+      width: 19rem;
+      height: 2rem;
+      max-width: 100%;
+      margin-bottom: 13%;
+    }
   }
-}
 </style>

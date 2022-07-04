@@ -2,19 +2,15 @@
   <div class="yandex-maps-page">
     <div class="row">
       <div class="flex md12 xs12">
-        <va-card
-          class="yandex-maps-page__widget"
-          title="Yandex Maps"
-        >
+        <va-card class="yandex-maps-page__widget" title="Yandex Maps">
           <yandex-map
-            :use-object-manager:="true"
+            map-type="hybrid"
             :coords="[55.2, 38.8]"
             :zoom="8"
-            style="width: 100%; height: 65vh;"
-            :behaviors="['default']"
-            :controls="['trafficControl','zoomControl', 'geolocationControl','fullscreenControl', 'searchControl']"
-            :placemarks="placemarks"
-            map-type="hybrid">
+            :controls="['trafficControl', 'zoomControl', 'geolocationControl', 'fullscreenControl', 'searchControl']"
+            style="width: 100%; height: 65vh"
+          >
+            <yandex-map-marker v-for="marker in markers" :key="marker['marker-id']" v-bind="marker" />
           </yandex-map>
         </va-card>
       </div>
@@ -22,30 +18,20 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+  import { ref } from 'vue'
 
-import { yandexMap } from 'vue-yandex-maps'
+  // No TS declarations are provided - ignoring the error
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  import { yandexMap as YandexMap, ymapMarker as YandexMapMarker } from 'vue-yandex-maps'
 
-export default {
-  name: 'yandex-maps-page',
-  components: {
-    yandexMap,
-  },
-  data () {
-    return {
-      placemarks: [
-        {
-          coords: [54.8, 38.9],
-          properties: {},
-          options: {},
-          clusterName: '1',
-          balloonTemplate: '<div>"Your custom template"</div>',
-          callbacks: {
-
-          },
-        },
-      ],
-    }
-  },
-}
+  const markers = ref([
+    {
+      'marker-id': 0,
+      coords: [54.8, 38.9],
+      clusterName: '1',
+      balloonTemplate: '<div>"Your custom template"</div>',
+    },
+  ])
 </script>

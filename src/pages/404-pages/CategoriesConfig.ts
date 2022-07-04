@@ -41,10 +41,10 @@ export default [
         itemName: 'Markup Tables',
         itemLink: '/admin/tables/markup',
       },
-      {
-        itemName: 'Data Tables',
-        itemLink: '/admin/tables/data',
-      },
+      // {
+      //   itemName: "Data Tables",
+      //   itemLink: "/admin/tables/data",
+      // },
     ],
   },
   {
@@ -79,10 +79,6 @@ export default [
         itemLink: '/admin/ui/colors',
       },
       {
-        itemName: 'Color Pickers',
-        itemLink: '/admin/ui/color-pickers',
-      },
-      {
         itemName: 'Icons',
         itemLink: '/admin/ui/icons',
       },
@@ -106,18 +102,18 @@ export default [
         itemName: 'Rating',
         itemLink: '/admin/ui/rating',
       },
-      {
-        itemName: 'Spinners',
-        itemLink: '/admin/ui/spinners',
-      },
+      // {
+      //   itemName: "Spinners",
+      //   itemLink: "/admin/ui/spinners",
+      // },
       {
         itemName: 'Tabs',
         itemLink: '/admin/ui/tabs',
       },
-      {
-        itemName: 'Timelines',
-        itemLink: '/admin/ui/timelines',
-      },
+      // {
+      //   itemName: "Timelines",
+      //   itemLink: "/admin/ui/timelines",
+      // },
       {
         itemName: 'Tree View',
         itemLink: '/admin/ui/tree-view',
@@ -128,8 +124,8 @@ export default [
     categoryName: 'Maps',
     items: [
       {
-        itemName: 'Google Maps',
-        itemLink: '/admin/maps/google-maps',
+        itemName: 'MapLibre Maps',
+        itemLink: '/admin/maps/maplibre-maps',
       },
       {
         itemName: 'Yandex Maps',

@@ -1,60 +1,52 @@
 <template>
   <va-card>
     <va-card-title>
-      {{ $t('dashboard.setupRemoteConnections') }}
+      {{ t('dashboard.setupRemoteConnections') }}
     </va-card-title>
     <va-card-content>
-      <va-tabs grow v-model="activeTabName">
+      <va-tabs v-model="activeTabName" grow>
         <template #tabs>
           <va-tab name="OverviewTab">
-            {{$t('dashboard.tabs.overview.title')}}
+            {{ t('dashboard.tabs.overview.title') }}
           </va-tab>
           <va-tab name="BillingAddressTab">
-            {{$t('dashboard.tabs.billingAddress.title')}}
+            {{ t('dashboard.tabs.billingAddress.title') }}
           </va-tab>
           <va-tab name="BankDetailsTab">
-            {{$t('dashboard.tabs.bankDetails.title')}}
+            {{ t('dashboard.tabs.bankDetails.title') }}
           </va-tab>
         </template>
       </va-tabs>
-      <va-separator/>
-      <component :is="activeTabName" @submit="submit"/>
+      <va-separator />
+      <component :is="tabs[activeTabName]" @submit="submit" />
     </va-card-content>
   </va-card>
 </template>
 
-<script>
-import OverviewTab from './dashboard-tabs/OverviewTab'
-import BillingAddressTab from './dashboard-tabs/BillingAddressTab'
-import BankDetailsTab from './dashboard-tabs/BankDetailsTab'
+<script setup lang="ts">
+  import { defineAsyncComponent, ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
+  const { t } = useI18n()
 
-export default {
-  name: 'DashboardTabs',
-  components: {
-    OverviewTab,
-    BillingAddressTab,
-    BankDetailsTab,
-  },
-  data () {
-    return {
-      activeTabName: 'BillingAddressTab',
-      tabs: [
-        'OverviewTab',
-        'BillingAddressTab',
-        'BankDetailsTab',
-      ],
-    }
-  },
-  methods: {
-    submit (data) {
-      this.$emit('submit', data)
-    },
-  },
-}
+  const tabs = {
+    OverviewTab: defineAsyncComponent(() => import('./dashboard-tabs/OverviewTab.vue')),
+    BillingAddressTab: defineAsyncComponent(() => import('./dashboard-tabs/BillingAddressTab.vue')),
+    BankDetailsTab: defineAsyncComponent(() => import('./dashboard-tabs/BankDetailsTab.vue')),
+  }
+
+  const emit = defineEmits<{
+    (e: 'submit', data: never): void
+  }>()
+
+  const activeTabName = ref('BillingAddressTab')
+
+  function submit(data: never) {
+    emit('submit', data)
+  }
 </script>
 
 <style lang="scss">
-.va-tabs__tabs {
-  height: 100%;
-}
+  .va-tabs__tabs {
+    height: 100%;
+  }
 </style>

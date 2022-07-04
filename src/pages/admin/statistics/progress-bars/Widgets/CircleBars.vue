@@ -1,20 +1,20 @@
 <template>
-  <va-card
-    class="circle-bars"
-    :title="$t('progressBars.circle')"
-  >
+  <va-card class="circle-bars">
+    <va-card-title>
+      {{ t('progressBars.circle') }}
+    </va-card-title>
     <va-card-content class="row">
       <div v-for="n in 10" :key="n" class="flex xs4 sm2 lg1">
         <div class="d-flex justify--center">
           <div>
-            <va-progress-circle :modelValue="value * n / 10">{{ value * n / 10 }}%</va-progress-circle>
+            <va-progress-circle :model-value="(value * n) / 10">{{ (value * n) / 10 }}%</va-progress-circle>
           </div>
         </div>
       </div>
       <div class="flex xs4 sm2 lg1">
         <div class="d-flex justify--center">
           <div>
-            <va-progress-circle indeterminate/>
+            <va-progress-circle indeterminate />
           </div>
         </div>
       </div>
@@ -22,23 +22,20 @@
   </va-card>
 </template>
 
-<script>
-export default {
-  name: 'circle-bars',
-  data () {
-    return {
-      value: 0,
-    }
-  },
-  mounted () {
-    this.animateValue()
-  },
-  methods: {
-    animateValue () {
-      setTimeout(() => {
-        this.value = 100
-      })
-    },
-  },
-}
+<script setup lang="ts">
+  import { onMounted, ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
+  const { t } = useI18n()
+
+  const value = ref(0)
+
+  onMounted(() => {
+    animateValue()
+  })
+
+  function animateValue() {
+    setTimeout(() => {
+      value.value = 100
+    })
+  }
 </script>

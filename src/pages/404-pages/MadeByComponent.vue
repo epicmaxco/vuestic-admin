@@ -7,16 +7,10 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'made-by',
-}
-</script>
-
 <style lang="scss">
-.made-by-component {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
+  .made-by-component {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
 </style>

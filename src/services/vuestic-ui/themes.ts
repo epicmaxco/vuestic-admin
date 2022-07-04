@@ -1,5 +1,5 @@
-import { ref, computed } from "vue"
-import { mergeGlobalConfig } from 'vuestic-ui'
+import { ref, computed } from 'vue'
+import { useGlobalConfig } from 'vuestic-ui'
 
 export const THEME_NAMES = {
   LIGHT: 'LIGHT',
@@ -40,8 +40,8 @@ export const COLOR_THEMES = [
       },
       VaCardTitle: {
         textColor: 'dark',
-      }
-    }
+      },
+    },
   },
   {
     name: THEME_NAMES.DARK,
@@ -74,8 +74,8 @@ export const COLOR_THEMES = [
       },
       VaCardTitle: {
         textColor: 'dark',
-      }
-    }
+      },
+    },
   },
   {
     name: THEME_NAMES.SEMI_DARK,
@@ -108,8 +108,8 @@ export const COLOR_THEMES = [
       },
       VaCardTitle: {
         textColor: 'dark',
-      }
-    }
+      },
+    },
   },
   {
     name: THEME_NAMES.ORIGINAL,
@@ -135,30 +135,33 @@ export const COLOR_THEMES = [
         textColor: 'primary',
       },
       VaCard: {
-        color: 'widget',
+        color: 'white',
       },
       VaCardContent: {
         textColor: 'dark',
       },
       VaCardTitle: {
         textColor: 'dark',
-      }
-    }
+      },
+    },
   },
 ]
 
-export const useTheme = () => {
+export function useTheme() {
   const themeNameRef = ref(THEME_NAMES.LIGHT)
+  const { mergeGlobalConfig } = useGlobalConfig()
 
   const setTheme = (themeName: keyof typeof THEME_NAMES) => {
     themeNameRef.value = themeName
     const theme = COLOR_THEMES.find((theme) => theme.name === themeName)
 
-    if (!theme) { throw new Error('Theme not found') }
+    if (!theme) {
+      throw new Error('Theme not found')
+    }
 
     mergeGlobalConfig({ colors: theme.colors, components: theme.components })
   }
 
-  const theme = computed(() =>  COLOR_THEMES.find((theme) => theme.name === themeNameRef.value))
+  const theme = computed(() => COLOR_THEMES.find((theme) => theme.name === themeNameRef.value))
   return { setTheme, themeName: themeNameRef, theme }
 }

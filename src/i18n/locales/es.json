@@ -1,0 +1,258 @@
+{
+  "auth": {
+    "agree": "Acepto",
+    "createAccount": "Create cuenta",
+    "createNewAccount": "Crear cuenta",
+    "email": "Email",
+    "login": "Iniciar sesión",
+    "password": "Contraseña",
+    "signUp": "Registrar",
+    "termsOfUse": "Los terminos de uso"
+  },
+  "buttons": {
+    "advanced": "Iconos, Grupos, Dropdowns",
+    "button": "BOTON",
+    "colors": "Colores",
+    "disabled": "DESHABILITADO",
+    "dropdown": "DESPLEGABLE",
+    "hover": "HOVER",
+    "main": "Botón Primario y Secundario",
+    "micro": "MICRO",
+    "pressed": "PRESIONADO",
+    "small": "PEQUEÑO"
+  },
+  "charts": {
+    "bubbleChart": "Bubble Chart",
+    "donutChart": "Donut Chart",
+    "horizontalBarChart": "Horizontal Bar Chart",
+    "lineChart": "Line Chart",
+    "pieChart": "Pie Chart",
+    "verticalBarChart": "Vertical Bar Chart"
+  },
+  "collapse": {
+    "accordion": "Acordeón",
+    "buttons": "Botones"
+  },
+  "dashboard": {
+    "elements": "Elementos",
+    "success": "ÉXITO",
+    "successMessage": "Ha leído correctamente este mensaje de alerta importante.",
+    "teamMembers": "Miembros del Equipo",
+    "versions": "Versiones",
+    "table": {
+      "title": "Mesa impresionante",
+      "brief": "Breve",
+      "detailed": "Detallado",
+      "resolve": "Resolver",
+      "resolved": "Resuelto"
+    }
+  },
+  "notificationsPage": {
+    "alerts": {
+      "title": "Alerts",
+      "success": "ÉXITO",
+      "successMessage": "Ha leído correctamente este mensaje de alerta importante.",
+      "info": "INFO",
+      "infoMessage": "Esta alerta necesita tu atención, pero no es muy importante.",
+      "warning": "ADVERTENCIA",
+      "warningMessage": "Mejor compruébalo, esto no pinta bien.",
+      "danger": "PELIGRO",
+      "dangerMessage": "Cambiar algunas cosas e enviarlo de nuevo."
+    },
+    "popovers": {
+      "title": "Tooltips & Popovers",
+      "popoverTitleLabel": "Title de Popover",
+      "popoverTextLabel": "Texto de Popover",
+      "popoverIconLabel": "Icono de Popover (fontawesome)",
+      "showPopover": "Mostrar Popover",
+      "topTooltip": "tope tooltip",
+      "rightTooltip": "derecha tooltip",
+      "leftTooltip": "izquierda",
+      "bottomTooltip": "fondo"
+    },
+    "Toasts": {
+      "title": "tostadas",
+      "textLabel": "Texto",
+      "durationLabel": "Duración (milisegundos)",
+      "iconLabel": "Icono (fontawesome)",
+      "fullWidthLabel": "Ancho total",
+      "launchToast": "Lanzar tostadas"
+    }
+  },
+  "forms": {
+    "controls": {
+      "title": "Checkboxes, Radios, Switches",
+      "radioDisabled": "Radio Desactivado",
+      "radio": "Radio",
+      "subscribe": "Suscribirse a la newsletter"
+    },
+    "inputs": {
+      "emailValidatedSuccess": "Email (validado con éxito)",
+      "emailValidated": "Email (validado)",
+      "inputWithIcon": "Input con Icono",
+      "inputWithButton": "Input con Boton",
+      "inputWithClearButton": "Input With Clear Button",
+      "inputWithRoundButton": "Input With Round Button",
+      "textInput": "Input de Texto",
+      "textInputWithDescription": "Input de Texto (con descripcion)",
+      "textArea": "Text Area",
+      "title": "Inputs",
+      "upload": "SUBIR"
+    },
+    "mediumEditor": {
+      "title": "Medium Editor"
+    },
+    "selects": {
+      "country": "País Select",
+      "countryMulti": "País Multi Select",
+      "multi": "Multi Select",
+      "simple": "Select Simple",
+      "title": "Selects"
+    }
+  },
+  "grid": {
+    "fixed": "Grid Fijo",
+    "desktop": "Desktop Grid",
+    "responsive": "Responsive Grid",
+    "offsets": "Offsets"
+  },
+  "icons": {
+    "back": "Volver a los iconos",
+    "none": "No se han encontrado iconos",
+    "search": "Búsqueda de iconos",
+    "title": "Iconos"
+  },
+  "language": {
+    "brazilian_portuguese": "Português",
+    "english": "English",
+    "spanish": "Spanish",
+    "simplified_chinese": "Versión abreviada"
+  },
+  "menu": {
+    "auth": "Autenticación",
+    "buttons": "Botones",
+    "charts": "Gráficos",
+    "collapse": "Colapso",
+    "colorPickers": "Selector de color",
+    "dashboard": "Dashboard",
+    "formElements": "Elementos de un Formulario",
+    "forms": "Formularios",
+    "mediumEditor": "Medium Editor",
+    "grid": "Grid",
+    "icons": "Iconos",
+    "cards": "Cards",
+    "login": "Iniciar sesión",
+    "maps": "Mapas",
+    "modals": "Modals",
+    "notifications": "Notificaciones",
+    "progressBars": "Barras de Progreso",
+    "signUp": "Registrar",
+    "statistics": "Estadisticas",
+    "lists": "Listas",
+    "tables": "Tablas",
+    "markupTables": "Tablas de Marcado",
+    "dataTables": "Tablas de Datos",
+    "typography": "Tipografía",
+    "uiElements": "Elementos UI",
+    "colors": "Colores",
+    "chat": "Chat"
+  },
+  "messages": {
+    "all": "Ver todos los mensajes",
+    "new": "Nuevo mensajes de {name}"
+  },
+  "modal": {
+    "cancel": "CANCELAR",
+    "close": "CERRAR",
+    "confirm": "CONFIRMAR",
+    "large": "Largo",
+    "largeTitle": "Modal Largo",
+    "medium": "Mediano",
+    "mediumTitle": "Modal Mediana",
+    "small": "Pequeño",
+    "static": "Estático",
+    "smallTitle": "Modal Pequeña",
+    "staticMessage": "Esto es un modal estático. No se cerrará haciendo clic en el fondo.",
+    "staticTitle": "Modal Estático",
+    "title": "Modals"
+  },
+  "fileUpload": {
+    "advancedMediaGallery": "Avanzado, Galería de medios",
+    "advancedUploadList": "Avanzado, lista de carga",
+    "mediaGallery": "Galería media",
+    "uploadList": "Lista de carga",
+    "single": "Soltero",
+    "dragNdropFiles": "Arrastrar y soltar archivos",
+    "uploadedOn": "Subido en",
+    "fileDeleted": "El archivo fue eliminado exitosamente",
+    "undo": "Deshacer",
+    "preview": "Avance",
+    "delete": "Borrar",
+    "deleteFile": "Borrar archivo",
+    "uploadFile": "Subir archivo",
+    "uploadMedia": "Cargar medios",
+    "addAttachment": "Añadir un adjunto",
+    "modalTitle": "Validación de archivo",
+    "modalText": "El tipo de archivo es incorrecto!"
+  },
+  "navbar": {
+    "messageUs": "Envíenos sus preguntas o comentarios a"
+  },
+  "notifications": {
+    "all": "Ver todos los notificaciones",
+    "sentMessage": "{name} te ha mandado un mensaje",
+    "uploadedZip": "{name} ha subido un archivo Zip con {type}",
+    "startedTopic": "{name} ha creado una tema nueva"
+  },
+  "progressBars": {
+    "circle": "Circulo",
+    "horizontal": "Horizontal",
+    "state": "Сondición",
+    "colors": "Colores"
+  },
+  "lists": {
+    "customers": "Clientes",
+    "recentMessages": "Mensajes recientes",
+    "archieved": "Archivado",
+    "starterKit": "Kit de inicio",
+    "notifications": "Notificaciones"
+  },
+  "tables": {
+    "basic": "Tabla basica",
+    "stripedHoverable": "Rayado, Hoverable",
+    "labelsActions": "Etiquetas, Acciones como Botones",
+    "sortingPaginationActionsAsIcons": "Clasificación, Paginación, Acciones como Iconos",
+    "star": "Star",
+    "unstar": "Unstar",
+    "edit": "Editar",
+    "delete": "Borrar",
+    "searchByName": "Buscar por nombre",
+    "searchTrendsBadges": "Búsqueda, Tendencias, Insignias",
+    "perPage": "Por página",
+    "report": "Informe",
+    "infiniteScroll": "Scroll infinito",
+    "selectable": "Seleccionable",
+    "selected": "Seleccionado",
+    "serverSidePagination": "Server-Side Paginación",
+    "emptyTable": "Mesa vacía",
+    "noDataAvailable": "Datos no disponibles.",
+    "noReport": "No hay datos para mostrar. El informe estará disponible el 3 de noviembre de 2018.",
+    "loading": "Cargando",
+    "headings": {
+      "email": "Email",
+      "name": "Nombre",
+      "firstName": "Nombre de pila",
+      "lastName": "Apellido",
+      "status": "Estado",
+      "country": "País"
+    }
+  },
+  "chat": {
+    "title": "Chat"
+  },
+  "user": {
+    "language": "Cambiar Idioma",
+    "profile": "Mi Perfil",
+    "logout": "Cerrar Sesión"
+  }
+}

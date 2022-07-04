@@ -3,58 +3,41 @@
     <div class="row">
       <div class="flex xs12">
         <va-card>
-          <va-card-title>{{ $t('fileUpload.advancedMediaGallery') }}</va-card-title>
+          <va-card-title>{{ t('fileUpload.advancedMediaGallery') }}</va-card-title>
           <va-card-content>
-            <va-file-upload
-              type="gallery"
-              file-types=".png, .jpg, .jpeg, .gif"
-              dropzone
-              v-model="advancedGallery"
-            />
+            <va-file-upload v-model="advancedGallery" type="gallery" file-types=".png, .jpg, .jpeg, .gif" dropzone />
           </va-card-content>
         </va-card>
       </div>
       <div class="flex xs12">
         <va-card>
-          <va-card-title>{{ $t('fileUpload.advancedUploadList') }}</va-card-title>
+          <va-card-title>{{ t('fileUpload.advancedUploadList') }}</va-card-title>
           <va-card-content>
-            <va-file-upload
-              dropzone
-              v-model="advancedList"
-            />
+            <va-file-upload v-model="advancedList" dropzone />
           </va-card-content>
         </va-card>
       </div>
       <div class="flex xs12">
         <va-card>
-          <va-card-title>{{ $t('fileUpload.single') }}</va-card-title>
+          <va-card-title>{{ t('fileUpload.single') }}</va-card-title>
           <va-card-content>
-            <va-file-upload
-              type="single"
-              v-model="single"
-            />
+            <va-file-upload v-model="single" type="single" />
           </va-card-content>
         </va-card>
       </div>
       <div class="flex xs12">
         <va-card>
-          <va-card-title>{{ $t('fileUpload.mediaGallery') }}</va-card-title>
+          <va-card-title>{{ t('fileUpload.mediaGallery') }}</va-card-title>
           <va-card-content>
-            <va-file-upload
-              type="gallery"
-              file-types=".png, .jpg, .jpeg, .gif"
-              v-model="gallery"
-            />
+            <va-file-upload v-model="gallery" type="gallery" file-types=".png, .jpg, .jpeg, .gif" />
           </va-card-content>
         </va-card>
       </div>
       <div class="flex xs12">
         <va-card>
-          <va-card-title>{{ $t('fileUpload.uploadList') }}</va-card-title>
+          <va-card-title>{{ t('fileUpload.uploadList') }}</va-card-title>
           <va-card-content>
-            <va-file-upload
-              v-model="list"
-            />
+            <va-file-upload v-model="list" />
           </va-card-content>
         </va-card>
       </div>
@@ -62,17 +45,14 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'file-upload',
-  data () {
-    return {
-      advancedGallery: [],
-      advancedList: [],
-      single: [],
-      gallery: [],
-      list: [],
-    }
-  },
-}
+<script setup lang="ts">
+  import { ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
+  const { t } = useI18n()
+
+  const advancedGallery = ref([])
+  const advancedList = ref([])
+  const single = ref([])
+  const gallery = ref([])
+  const list = ref([])
 </script>

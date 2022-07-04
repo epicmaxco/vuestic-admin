@@ -2,16 +2,14 @@
   <div class="row">
     <div class="flex xs12 sm6">
       <va-card>
-        <va-card-title>{{ $t('colors.themeColors') }}</va-card-title>
+        <va-card-title>{{ t('colors.themeColors') }}</va-card-title>
         <va-card-content>
-          <div
-            v-for="(themeColor, index) in themeColors"
-            :key="index"
-          >
+          <div v-for="(themeColor, index) in themeColors" :key="index">
             <color-presentation
               :color="themeColor.color"
               :name="themeColor.name"
               :description="themeColor.description"
+              :width="150"
             />
           </div>
         </va-card-content>
@@ -20,16 +18,14 @@
 
     <div class="flex xs12 sm6">
       <va-card>
-        <va-card-title>{{ $t('colors.extraColors') }}</va-card-title>
+        <va-card-title>{{ t('colors.extraColors') }}</va-card-title>
         <va-card-content>
-          <div
-            v-for="(extraColor, index) in extraColors"
-            :key="index"
-          >
+          <div v-for="(extraColor, index) in extraColors" :key="index">
             <color-presentation
               :color="extraColor.color"
               :name="extraColor.name"
               :description="extraColor.description"
+              :width="150"
             />
           </div>
         </va-card-content>
@@ -38,12 +34,9 @@
 
     <div class="flex xs12 sm6 lg4">
       <va-card>
-        <va-card-title>{{ $t('colors.gradients.basic.title') }}</va-card-title>
+        <va-card-title>{{ t('colors.gradients.basic.title') }}</va-card-title>
         <va-card-content>
-          <div
-            v-for="(buttonGradient, index) in buttonGradients"
-            :key="index"
-          >
+          <div v-for="(buttonGradient, index) in buttonGradients" :key="index">
             <color-presentation
               :color="buttonGradient.color"
               :variant="['gradient']"
@@ -58,15 +51,12 @@
 
     <div class="flex xs12 sm6 lg4">
       <va-card>
-        <va-card-title>{{ $t('colors.gradients.hovered.title') }}</va-card-title>
+        <va-card-title>{{ t('colors.gradients.hovered.title') }}</va-card-title>
         <va-card-content>
           <p class="mt-0 mb-2">
-            {{ $t('colors.gradients.hovered.text') }}
+            {{ t('colors.gradients.hovered.text') }}
           </p>
-          <div
-            v-for="(buttonGradient, index) in buttonGradients"
-            :key="index"
-          >
+          <div v-for="(buttonGradient, index) in buttonGradients" :key="index">
             <color-presentation
               :color="buttonGradient.color"
               :variant="['gradient', 'hovered']"
@@ -81,15 +71,12 @@
 
     <div class="flex xs12 sm6 lg4">
       <va-card>
-        <va-card-title>{{ $t('colors.gradients.pressed.title') }}</va-card-title>
+        <va-card-title>{{ t('colors.gradients.pressed.title') }}</va-card-title>
         <va-card-content>
           <p class="mt-0 mb-2">
-            {{ $t('colors.gradients.pressed.text') }}
+            {{ t('colors.gradients.pressed.text') }}
           </p>
-          <div
-            v-for="(buttonGradient, index) in buttonGradients"
-            :key="index"
-          >
+          <div v-for="(buttonGradient, index) in buttonGradients" :key="index">
             <color-presentation
               :color="buttonGradient.color"
               :variant="['gradient', 'pressed']"
@@ -104,20 +91,10 @@
   </div>
 </template>
 
-<script>
-import { themeColors, extraColors, buttonGradients } from './color-presentation/colorsData'
-import colorPresentation from './color-presentation/ColorPresentation'
+<script setup lang="ts">
+  import { useI18n } from 'vue-i18n'
+  import ColorPresentation from './color-presentation/ColorPresentation.vue'
+  import { themeColors, extraColors, buttonGradients } from './color-presentation/colorsData'
 
-export default {
-  components: {
-    colorPresentation,
-  },
-  data () {
-    return {
-      themeColors,
-      extraColors,
-      buttonGradients,
-    }
-  },
-}
+  const { t } = useI18n()
 </script>

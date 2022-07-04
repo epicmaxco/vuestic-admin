@@ -1,0 +1,18 @@
+# Ignore everything recursively...
+*
+
+# But not the .{ts,js,html,css,scss,vue,json,md} files
+!*.ts
+!*.js
+!*.html
+!*.css
+!*.scss
+!*.vue
+!*.json
+!*.md
+
+# But still ignore the dist folder
+dist/**
+
+# Check subdirectories too
+!*/

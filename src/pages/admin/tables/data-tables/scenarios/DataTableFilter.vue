@@ -1,26 +1,16 @@
 <template>
-  <va-card :title="$t('tables.searchTrendsBadges')">
+  <va-card :title="t('tables.searchTrendsBadges')">
     <div class="row align--center">
       <div class="flex xs12 md6">
-        <va-input
-          :value="term"
-          :placeholder="$t('tables.searchByName')"
-          @input="search"
-          removable
-        >
+        <va-input :value="term" :placeholder="t('tables.searchByName')" removable @input="search">
           <template #prepend>
-            <va-icon name="search"/>
+            <va-icon name="search" />
           </template>
         </va-input>
       </div>
 
       <div class="flex xs12 md3 offset--md3">
-        <va-select
-          v-model="perPage"
-          :label="$t('tables.perPage')"
-          :options="perPageOptions"
-          noClear
-        />
+        <va-select v-model="perPage" :label="t('tables.perPage')" :options="perPageOptions" no-clear />
       </div>
     </div>
 
@@ -28,8 +18,8 @@
       :fields="fields"
       :data="filteredData"
       :per-page="parseInt(perPage)"
-      @row-clicked="showUser"
       clickable
+      @row-clicked="showUser"
     >
       <template #trend="props">
         <va-icon :name="getTrendIcon(props.rowData)" :color="getTrendColor(props.rowData)" />
@@ -43,7 +33,7 @@
 
       <template #actions="props">
         <va-button v-if="props.rowData.hasReport" small color="danger" class="ma-0">
-          {{ $t('tables.report') }}
+          {{ t('tables.report') }}
         </va-button>
       </template>
     </va-data-table>
@@ -51,81 +41,87 @@
 </template>
 
 <script>
-import { debounce } from 'lodash'
-import users from '../data/users.json'
+  import { debounce } from 'lodash'
+  import users from '../data/users.json'
 
-export default {
-  data () {
-    return {
-      term: null,
-      perPage: '6',
-      perPageOptions: ['4', '6', '10', '20'],
-      users: users,
-    }
-  },
-  computed: {
-    fields () {
-      return [{
-        name: '__slot:trend',
-        width: '30px',
-        height: '45px',
-        dataClass: 'text-center',
-      }, {
-        name: 'fullName',
-        title: this.$t('tables.headings.name'),
-        width: '30%',
-      }, {
-        name: '__slot:status',
-        title: this.$t('tables.headings.status'),
-        width: '20%',
-      }, {
-        name: 'email',
-        title: this.$t('tables.headings.email'),
-        width: '30%',
-      }, {
-        name: '__slot:actions',
-        dataClass: 'text-right',
-      }]
-    },
-    filteredData () {
-      if (!this.term || this.term.length < 1) {
-        return this.users
+  export default {
+    data() {
+      return {
+        term: null,
+        perPage: '6',
+        perPageOptions: ['4', '6', '10', '20'],
+        users: users,
       }
-
-      return this.users.filter(item => {
-        return item.fullName.toLowerCase().startsWith(this.term.toLowerCase())
-      })
     },
-  },
-  methods: {
-    getTrendIcon (user) {
-      if (user.trend === 'up') {
-        return 'fa fa-caret-up'
-      }
+    computed: {
+      fields() {
+        return [
+          {
+            name: '__slot:trend',
+            width: '30px',
+            height: '45px',
+            dataClass: 'text-center',
+          },
+          {
+            name: 'fullName',
+            title: this.t('tables.headings.name'),
+            width: '30%',
+          },
+          {
+            name: '__slot:status',
+            title: this.t('tables.headings.status'),
+            width: '20%',
+          },
+          {
+            name: 'email',
+            title: this.t('tables.headings.email'),
+            width: '30%',
+          },
+          {
+            name: '__slot:actions',
+            dataClass: 'text-right',
+          },
+        ]
+      },
+      filteredData() {
+        if (!this.term || this.term.length < 1) {
+          return this.users
+        }
 
-      if (user.trend === 'down') {
-        return 'fa fa-caret-down'
-      }
-
-      return 'fa fa-minus'
+        return this.users.filter((item) => {
+          return item.fullName.toLowerCase().startsWith(this.term.toLowerCase())
+        })
+      },
     },
-    getTrendColor (user) {
-      if (user.trend === 'up') {
-        return 'primary'
-      }
+    methods: {
+      getTrendIcon(user) {
+        if (user.trend === 'up') {
+          return 'fa fa-caret-up'
+        }
 
-      if (user.trend === 'down') {
-        return 'danger'
-      }
+        if (user.trend === 'down') {
+          return 'fa fa-caret-down'
+        }
 
-      return 'gray'
+        return 'fa fa-minus'
+      },
+      getTrendColor(user) {
+        if (user.trend === 'up') {
+          return 'primary'
+        }
+
+        if (user.trend === 'down') {
+          return 'danger'
+        }
+
+        return 'gray'
+      },
+      showUser(user) {
+        alert(JSON.stringify(user))
+      },
+      search: debounce(function (term) {
+        this.term = term
+      }, 400),
     },
-    showUser (user) {
-      alert(JSON.stringify(user))
-    },
-    search: debounce(function (term) {
-      this.term = term
-    }, 400),
-  },
-}
+  }
 </script>

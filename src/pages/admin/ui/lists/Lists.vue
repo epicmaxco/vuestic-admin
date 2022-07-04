@@ -5,14 +5,14 @@
         <va-card class="mb-4">
           <va-list>
             <va-list-label>
-              {{ $t('lists.customers') }}
+              {{ t('lists.customers') }}
             </va-list-label>
 
             <template v-for="(customer, i) in customers" :key="'item' + customer.id">
               <va-list-item clickable @click="notify(customer.name)">
                 <va-list-item-section class="ml-2" avatar>
                   <va-avatar>
-                    <img :src="customer.picture" :alt="customer.name">
+                    <img :src="customer.picture" :alt="customer.name" />
                   </va-avatar>
                 </va-list-item-section>
 
@@ -39,7 +39,7 @@
         <va-card>
           <va-list>
             <va-list-label>
-              {{ $t('lists.recentMessages') }}
+              {{ t('lists.recentMessages') }}
             </va-list-label>
 
             <template v-for="(customer, i) in customers" :key="'item' + customer.id">
@@ -50,7 +50,7 @@
 
                 <va-list-item-section avatar>
                   <va-avatar>
-                    <img :src="customer.picture" :alt="customer.name">
+                    <img :src="customer.picture" :alt="customer.name" />
                   </va-avatar>
                 </va-list-item-section>
 
@@ -61,10 +61,7 @@
                 </va-list-item-section>
 
                 <va-list-item-section icon>
-                  <va-icon
-                    :name="getGenderIcon(customer.gender)"
-                    :color="getGenderColor(customer.gender)"
-                  />
+                  <va-icon :name="getGenderIcon(customer.gender)" :color="getGenderColor(customer.gender)" />
                 </va-list-item-section>
               </va-list-item>
 
@@ -74,7 +71,7 @@
             <va-list-separator fit spaced />
 
             <va-list-label color="gray">
-              {{ $t('lists.archieved') }}
+              {{ t('lists.archieved') }}
             </va-list-label>
 
             <template v-for="(customer, i) in archived" :key="'item' + customer.id">
@@ -85,7 +82,7 @@
 
                 <va-list-item-section avatar>
                   <va-avatar>
-                    <img :src="customer.picture" :alt="customer.name">
+                    <img :src="customer.picture" :alt="customer.name" />
                   </va-avatar>
                 </va-list-item-section>
 
@@ -98,7 +95,7 @@
 
               <va-list-separator v-if="i < archived.length - 1" :key="'separator' + customer.id" />
             </template>
-          </va-list>         
+          </va-list>
         </va-card>
       </div>
 
@@ -106,92 +103,74 @@
         <va-card class="mb-4">
           <va-list>
             <va-list-label>
-              {{ $t('lists.starterKit') }}
+              {{ t('lists.starterKit') }}
             </va-list-label>
 
             <va-list-item class="ml-2" clickable>
               <va-list-item-section>
-                <va-list-item-label>
-                  Add profile images
-                </va-list-item-label>
+                <va-list-item-label> Add profile images </va-list-item-label>
 
-                <va-list-item-label caption>
-                  You can use PNG or JPG files.
-                </va-list-item-label>
+                <va-list-item-label caption> You can use PNG or JPG files. </va-list-item-label>
               </va-list-item-section>
             </va-list-item>
 
             <va-list-item class="ml-2" clickable>
               <va-list-item-section>
-                <va-list-item-label>
-                  Invite friends
-                </va-list-item-label>
+                <va-list-item-label> Invite friends </va-list-item-label>
 
-                <va-list-item-label caption>
-                  You can send invitations via email or any messenger.
-                </va-list-item-label>
+                <va-list-item-label caption> You can send invitations via email or any messenger. </va-list-item-label>
               </va-list-item-section>
             </va-list-item>
 
             <va-list-separator fit spaced />
 
             <va-list-label>
-              {{ $t('lists.notifications') }}
+              {{ t('lists.notifications') }}
             </va-list-label>
 
             <va-list-item>
-              <va-checkbox class="mr-2" v-model="appBanners" />
+              <va-checkbox v-model="appBanners" class="mr-2" />
 
               <va-list-item-section>
-                <va-list-item-label>
-                  Application Banners
-                </va-list-item-label>
+                <va-list-item-label> Application Banners </va-list-item-label>
 
-                <va-list-item-label caption>
-                  You can send invitations via email or any messenger.
-                </va-list-item-label>
+                <va-list-item-label caption> You can send invitations via email or any messenger. </va-list-item-label>
               </va-list-item-section>
             </va-list-item>
 
             <va-list-item>
-              <va-checkbox class="mr-2" v-model="banners" />
+              <va-checkbox v-model="banners" class="mr-2" />
 
               <va-list-item-section>
-                <va-list-item-label>
-                  Banners
-                </va-list-item-label>
+                <va-list-item-label> Banners </va-list-item-label>
 
-                <va-list-item-label caption>
-                  You can send invitations via email or any messenger.
-                </va-list-item-label>
+                <va-list-item-label caption> You can send invitations via email or any messenger. </va-list-item-label>
               </va-list-item-section>
             </va-list-item>
 
             <va-list-item>
-              <va-checkbox class="mr-2" v-model="notifications" />
+              <va-checkbox v-model="notifications" class="mr-2" />
 
               <va-list-item-section>
-                <va-list-item-label>
-                  Midnight Notifications
-                </va-list-item-label>
+                <va-list-item-label> Midnight Notifications </va-list-item-label>
               </va-list-item-section>
             </va-list-item>
-          </va-list>          
+          </va-list>
         </va-card>
 
         <va-card>
           <va-list>
             <va-list-label>
-              {{ $t('lists.routerSupport') }}
+              {{ t('lists.routerSupport') }}
             </va-list-label>
 
-            <va-list-item :to="{ name: 'google-maps' }">
+            <va-list-item :to="{ name: 'maplibre-maps' }">
               <va-list-item-section icon>
                 <va-icon name="google" color="red" />
               </va-list-item-section>
 
               <va-list-item-section>
-                <va-list-item-label>Google Maps</va-list-item-label>
+                <va-list-item-label>MapLibre Maps</va-list-item-label>
               </va-list-item-section>
             </va-list-item>
 
@@ -214,43 +193,43 @@
                 <va-list-item-label>Leaflet Maps</va-list-item-label>
               </va-list-item-section>
             </va-list-item>
-          </va-list>          
+          </va-list>
         </va-card>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-import data from './data.json'
+<script setup lang="ts">
+  import { ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
+  import { useToast } from 'vuestic-ui'
+  import data from './data.json'
 
-export default {
-  data () {
-    return {
-      customers: data.slice(0, 5),
-      archived: data.slice(5, 8),
-      appBanners: false,
-      banners: false,
-      notifications: true,
-    }
-  },
-  methods: {
-    getGenderIcon (gender) {
-      return gender === 'male' ? 'mars' : 'venus'
-    },
-    getGenderColor (gender) {
-      return gender === 'male' ? 'blue' : 'pink'
-    },
-    notify (name) {
-      this.$vaToast.init(
-      {
-        message: `Clicked ${name}`,
-        position: 'bottom-right',
-      })
-    },
-    toggleStar (customer) {
-      customer.starred = !customer.starred
-    },
-  },
-}
+  const { t } = useI18n()
+
+  const customers = ref(data.slice(0, 5))
+  const archived = ref(data.slice(5, 8))
+  const appBanners = ref(false)
+  const banners = ref(false)
+  const notifications = ref(true)
+
+  function getGenderIcon(gender: string) {
+    return gender === 'male' ? 'mars' : 'venus'
+  }
+
+  function getGenderColor(gender: string) {
+    return gender === 'male' ? 'blue' : 'pink'
+  }
+
+  function notify(name: string) {
+    useToast().init({
+      message: `Clicked ${name}`,
+      position: 'bottom-right',
+    })
+  }
+
+  function toggleStar(customer: { starred: boolean }) {
+    customer.starred = !customer.starred
+  }
 </script>
