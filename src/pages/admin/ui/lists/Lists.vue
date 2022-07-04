@@ -207,6 +207,7 @@
   import data from './data.json'
 
   const { t } = useI18n()
+  const { init: initToast } = useToast()
 
   const customers = ref(data.slice(0, 5))
   const archived = ref(data.slice(5, 8))
@@ -223,7 +224,7 @@
   }
 
   function notify(name: string) {
-    useToast().init({
+    initToast({
       message: `Clicked ${name}`,
       position: 'bottom-right',
     })
