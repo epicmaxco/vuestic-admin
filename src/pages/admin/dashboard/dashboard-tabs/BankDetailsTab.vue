@@ -27,8 +27,10 @@
   import { useGlobalConfig } from 'vuestic-ui'
   import { useToast } from 'vuestic-ui'
   import { useI18n } from 'vue-i18n'
+
   const { getGlobalConfig } = useGlobalConfig()
   const { t } = useI18n()
+  const { init: initToast } = useToast()
 
   const form = ref({
     bankName: 'Raiffeisen Bank',
@@ -42,7 +44,7 @@
 
   function sendDetails() {
     const color = theme.value?.primary
-    useToast().init({ message: `Saved!`, color })
+    initToast({ message: `Saved!`, color })
   }
 </script>
 
