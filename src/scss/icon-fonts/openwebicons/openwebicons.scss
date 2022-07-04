@@ -2,11 +2,11 @@
   font-family: 'OpenWeb Icons';
   font-style: normal;
   font-weight: normal;
-  src: url('/src/stylesonts/openwebicons/openwebicons.eot');
-  src: url('/src/stylesonts/openwebicons/openwebicons.eot?#iefix') format('eot'),
-    url('/src/stylesonts/openwebicons/openwebicons.woff') format('woff'),
-    url('/src/stylesonts/openwebicons/openwebicons.ttf') format('truetype'),
-    url('/src/stylesonts/openwebicons/openwebicons.svg#openweb_iconsregular') format('svg');
+  src: url('/src/scss/icon-fonts/openwebicons/openwebicons.eot');
+  src: url('/src/scss/icon-fonts/openwebicons/openwebicons.eot?#iefix') format('eot'),
+    url('/src/scss/icon-fonts/openwebicons/openwebicons.woff') format('woff'),
+    url('/src/scss/icon-fonts/openwebicons/openwebicons.ttf') format('truetype'),
+    url('/src/scss/icon-fonts/openwebicons/openwebicons.svg#openweb_iconsregular') format('svg');
 }
 
 [class*='openwebicons-']::before {

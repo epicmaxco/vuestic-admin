@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('/src/stylesonts/glyphicons/glyphicons.eot');
-  src: url('/src/stylesonts/glyphicons/glyphicons.eot?#iefix') format('eot'),
-    url('/src/stylesonts/glyphicons/glyphicons.woff2') format('woff2'),
-    url('/src/stylesonts/glyphicons/glyphicons.woff') format('woff'),
-    url('/src/stylesonts/glyphicons/glyphicons.ttf') format('truetype'),
-    url('/src/stylesonts/glyphicons/glyphicons.svg') format('svg');
+  src: url('/src/scss/icon-fonts/glyphicons/glyphicons.eot');
+  src: url('/src/scss/icon-fonts/glyphicons/glyphicons.eot?#iefix') format('eot'),
+    url('/src/scss/icon-fonts/glyphicons/glyphicons.woff2') format('woff2'),
+    url('/src/scss/icon-fonts/glyphicons/glyphicons.woff') format('woff'),
+    url('/src/scss/icon-fonts/glyphicons/glyphicons.ttf') format('truetype'),
+    url('/src/scss/icon-fonts/glyphicons/glyphicons.svg') format('svg');
 }
 
 [class*='glyphicons-']::before {

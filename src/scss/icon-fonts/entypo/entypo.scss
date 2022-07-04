@@ -2,11 +2,11 @@
   font-family: 'entypo';
   font-style: normal;
   font-weight: normal;
-  src: url('/src/stylesonts/entypo/entypo.eot');
-  src: url('/src/stylesonts/entypo/entypo.eot?#iefix') format('eot'),
-    url('/src/stylesonts/entypo/entypo.woff') format('woff'),
-    url('/src/stylesonts/entypo/entypo.ttf') format('truetype'),
-    url('/src/stylesonts/entypo/entypo.svg#entypo') format('svg');
+  src: url('/src/scss/icon-fonts/entypo/entypo.eot');
+  src: url('/src/scss/icon-fonts/entypo/entypo.eot?#iefix') format('eot'),
+    url('/src/scss/icon-fonts/entypo/entypo.woff') format('woff'),
+    url('/src/scss/icon-fonts/entypo/entypo.ttf') format('truetype'),
+    url('/src/scss/icon-fonts/entypo/entypo.svg#entypo') format('svg');
 }
 
 [class*='entypo-']::before {
