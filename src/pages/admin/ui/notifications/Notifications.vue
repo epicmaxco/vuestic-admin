@@ -118,16 +118,15 @@
   import { ref } from 'vue'
 
   const { t } = useI18n()
+  const { init } = useToast()
 
   const toastText = ref('This toast is awesome!')
   const toastDuration = ref(2500)
-  const toastIcon = ref('fa-star-o')
   const toastPosition = ref<ToastPosition>('bottom-right')
 
   function launchToast() {
-    useToast().init({
+    init({
       message: toastText.value,
-      iconClass: toastIcon.value,
       position: toastPosition.value,
       duration: Number(toastDuration.value),
     })

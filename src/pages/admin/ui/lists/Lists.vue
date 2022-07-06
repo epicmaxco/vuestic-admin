@@ -166,7 +166,7 @@
 
             <va-list-item :to="{ name: 'maplibre-maps' }">
               <va-list-item-section icon>
-                <va-icon name="google" color="red" />
+                <va-icon name="google" color="danger" />
               </va-list-item-section>
 
               <va-list-item-section>
@@ -176,7 +176,7 @@
 
             <va-list-item :to="{ name: 'yandex-maps' }">
               <va-list-item-section icon>
-                <va-icon name="map" color="red" />
+                <va-icon name="map" color="danger" />
               </va-list-item-section>
 
               <va-list-item-section>
@@ -186,7 +186,7 @@
 
             <va-list-item :to="{ name: 'leaflet-maps' }">
               <va-list-item-section icon>
-                <va-icon name="map_marker" color="red" />
+                <va-icon name="map_marker" color="danger" />
               </va-list-item-section>
 
               <va-list-item-section>
@@ -220,7 +220,7 @@
   }
 
   function getGenderColor(gender: string) {
-    return gender === 'male' ? 'blue' : 'pink'
+    return gender === 'male' ? 'info' : 'success'
   }
 
   function notify(name: string) {

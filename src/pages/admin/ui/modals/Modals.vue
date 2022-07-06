@@ -17,6 +17,9 @@
             <va-button class="mr-2 mb-2" color="success" @click="showStaticModal = true">
               {{ t('modal.static') }}
             </va-button>
+            <va-button class="mb-2 mr-2" color="secondary" @click="showFullscreenModal = true">
+              {{ t('modal.fullscreen') }}
+            </va-button>
           </va-card-content>
         </va-card>
       </div>
@@ -24,20 +27,25 @@
     <div class="row">
       <div class="flex md12">
         <va-card class="modals-list larger-padding">
-          <va-card-title>{{ t('modal.titlePosition') }}</va-card-title>
+          <va-card-title>{{ t('modal.titleOptions') }}</va-card-title>
           <va-card-content>
-            <va-button class="mb-2 mr-2" color="danger" @click="showTopModal = true">
-              {{ t('modal.top') }}
+            <va-button class="mb-2 mr-2" color="danger" @click="showBlurredModal = true">
+              {{ t('modal.blurred') }}
             </va-button>
-            <va-button class="mb-2 mr-2" color="info" @click="showRightModal = true">
-              {{ t('modal.right') }}
-            </va-button>
-            <va-button class="mb-2 mr-2" color="warning" @click="showBottomModal = true">
-              {{ t('modal.bottom') }}
-            </va-button>
-            <va-button class="mb-2 mr-2" color="success" @click="showLeftModal = true">
-              {{ t('modal.left') }}
-            </va-button>
+            <va-modal
+              v-model="showAnchorModal"
+              anchor-class="modal-anchor"
+              :title="t('modal.withAnchorSlot')"
+              :message="t('modal.message')"
+              :ok-text="t('modal.confirm')"
+              :cancel-text="t('modal.cancel')"
+            >
+              <template #anchor="{ show }">
+                <va-button class="mb-2 mr-2" @click="show">
+                  {{ t('modal.withAnchorSlot') }}
+                </va-button>
+              </template>
+            </va-modal>
           </va-card-content>
         </va-card>
       </div>
@@ -68,45 +76,28 @@
       :cancel-text="t('modal.cancel')"
     />
     <va-modal
-      v-model="showTopModal"
-      position="top"
-      :title="t('modal.top')"
-      :message="t('modal.message')"
-      :ok-text="t('modal.confirm')"
-      :cancel-text="t('modal.cancel')"
-    />
-    <va-modal
-      v-model="showRightModal"
-      position="right"
-      :title="t('modal.right')"
+      v-model="showFullscreenModal"
+      :title="t('modal.fullscreen')"
       :ok-text="t('modal.confirm')"
       :cancel-text="t('modal.cancel')"
       :message="t('modal.message')"
-    />
-    <va-modal
-      v-model="showBottomModal"
-      position="bottom"
-      :title="t('modal.bottom')"
-      :message="t('modal.message')"
-      :ok-text="t('modal.confirm')"
-      :cancel-text="t('modal.cancel')"
-    />
-    <va-modal
-      v-model="showLeftModal"
-      position="left"
-      :title="t('modal.left')"
-      cancel-class="none"
-      :ok-text="t('modal.close')"
-      :message="t('modal.staticMessage')"
+      fullscreen
     />
     <va-modal
       v-model="showStaticModal"
       :title="t('modal.staticTitle')"
-      cancel-class="none"
-      :ok-text="t('modal.close')"
+      :ok-text="t('modal.confirm')"
+      :cancel-text="t('modal.cancel')"
       :message="t('modal.staticMessage')"
-      no-outside-dismiss
-      no-esc-dismiss
+      no-dismiss
+    />
+    <va-modal
+      v-model="showBlurredModal"
+      :title="t('modal.blurred')"
+      :message="t('modal.message')"
+      :ok-text="t('modal.confirm')"
+      :cancel-text="t('modal.cancel')"
+      blur
     />
   </div>
 </template>
@@ -119,9 +110,15 @@
   const showSmallModal = ref(false)
   const showMediumModal = ref(false)
   const showLargeModal = ref(false)
-  const showTopModal = ref(false)
-  const showRightModal = ref(false)
-  const showBottomModal = ref(false)
-  const showLeftModal = ref(false)
+  const showFullscreenModal = ref(false)
   const showStaticModal = ref(false)
+
+  const showBlurredModal = ref(false)
+  const showAnchorModal = ref(false)
 </script>
+
+<style lang="scss">
+  .modal-anchor {
+    display: inline-flex;
+  }
+</style>

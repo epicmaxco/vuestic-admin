@@ -1,7 +1,7 @@
 <template>
   <div class="tree-view-advanced-preview">
     <div class="tree-view-advanced-preview__buttons">
-      <va-button @click="$refs.treeView.expand()"> EXPAND ALL </va-button>
+      <va-button class="mr-2" @click="$refs.treeView.expand()"> EXPAND ALL </va-button>
       <va-button @click="$refs.treeView.collapse()"> COLLAPSE ALL </va-button>
     </div>
 
