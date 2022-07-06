@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
   import { chartTypesMap } from './VaChartConfigs'
-  import { computed, defineProps, ref } from 'vue'
+  import { computed, ref } from 'vue'
 
   const props = defineProps<{
     // TODO: Provide better types for this prop. See GeneratedData and VaChartData
