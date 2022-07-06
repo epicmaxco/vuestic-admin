@@ -32,7 +32,7 @@
           <va-card-title>{{ t('collapse.collapseWithBackground') }}</va-card-title>
           <va-card-content>
             <va-accordion v-model="colorAccordionValue">
-              <va-collapse class="mb-4" :header="t('collapse.firstHeader')" color="success" color-all>
+              <va-collapse :header="t('collapse.firstHeader')" color="success" color-all>
                 <div class="pa-3">
                   <p class="display-3">{{ t('collapse.content.title') }}</p>
                   <div>

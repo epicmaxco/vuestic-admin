@@ -207,6 +207,7 @@
                     <va-checkbox
                       v-model="checkbox.errorMessages"
                       :label="t('forms.controls.errorMessage')"
+                      error
                       :error-messages="errorMessages"
                       :error-count="2"
                     />

@@ -53,8 +53,8 @@
           <va-card-content class="row">
             <div class="flex">
               <va-button class="mr-2 mb-2" icon="ion_md_close"> {{ t('buttons.button') }}</va-button>
-              <va-button class="mr-2 mb-2" icon-right="ion_arrow_down"> {{ t('buttons.button') }}</va-button>
-              <va-button class="mr-2 mb-2" icon="ion_md_close" icon-right="ion_arrow_down">
+              <va-button class="mr-2 mb-2" icon-right="expand_more"> {{ t('buttons.button') }}</va-button>
+              <va-button class="mr-2 mb-2" icon="ion_md_close" icon-right="expand_more">
                 {{ t('buttons.button') }}
               </va-button>
               <va-button class="mr-2 mb-2" icon="ion_md_close" />
@@ -128,7 +128,7 @@
                 </va-button-group>
               </div>
               <div class="flex xs12 xl6">
-                <va-button-group color="dark" gradient>
+                <va-button-group color="dark">
                   <va-button> One</va-button>
                   <va-button> Two</va-button>
                   <va-button> Three</va-button>
@@ -225,11 +225,14 @@
                 <va-button-dropdown class="mr-2 mb-2" split split-to="/" :label="t('buttons.splitTo')">
                   {{ t('buttons.content') }}</va-button-dropdown
                 >
-                <!-- <va-button-dropdown
+                <va-button-dropdown
                   class="mr-2 mb-2"
                   :label="t('buttons.customIcon')"
-                  icon="iconicstroke_info"
-                > {{ t('buttons.content') }}</va-button-dropdown> -->
+                  icon="info"
+                  opened-icon="bell_slash"
+                >
+                  {{ t('buttons.content') }}
+                </va-button-dropdown>
                 <va-button-dropdown class="mr-2 mb-2" disabled :label="t('buttons.disabled')">
                   {{ t('buttons.content') }}</va-button-dropdown
                 >
