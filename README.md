@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://vuestic.dev" target="_blank">
-    <img alt="Vuestic UI Logo" width="500" src="./public/img/vuestic-admin-logo.png">
+    <img alt="Vuestic UI Logo" width="500" src="./public/vuestic-admin-logo.png">
   </a>
 </p>
 
