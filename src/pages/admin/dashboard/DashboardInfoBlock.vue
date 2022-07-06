@@ -16,7 +16,7 @@
         <div class="flex xs12 md6">
           <va-card>
             <va-card-content>
-              <p class="display-2 mb-1" :style="{ color: theme.primary }">291</p>
+              <p class="display-2 mb-1" :style="{ color: theme?.primary }">291</p>
               <p class="no-wrap">{{ t('dashboard.info.completedPullRequests') }}</p>
             </va-card-content>
           </va-card>
@@ -26,15 +26,15 @@
             <va-card-content>
               <div class="row row-separated">
                 <div class="flex xs4">
-                  <p class="display-2 mb-1 text--center" :style="{ color: theme.primary }">3</p>
+                  <p class="display-2 mb-1 text--center" :style="{ color: theme?.primary }">3</p>
                   <p class="text--center mb-1">{{ t('dashboard.info.users') }}</p>
                 </div>
                 <div class="flex xs4">
-                  <p class="display-2 mb-1 text--center" :style="{ color: theme.info }">24</p>
+                  <p class="display-2 mb-1 text--center" :style="{ color: theme?.info }">24</p>
                   <p class="text--center no-wrap mb-1">{{ t('dashboard.info.points') }}</p>
                 </div>
                 <div class="flex xs4">
-                  <p class="display-2 mb-1 text--center" :style="{ color: theme.warning }">91</p>
+                  <p class="display-2 mb-1 text--center" :style="{ color: theme?.warning }">91</p>
                   <p class="text--center mb-1">{{ t('dashboard.info.units') }}</p>
                 </div>
               </div>
@@ -75,10 +75,16 @@
     </div>
     <va-modal v-model="modal">
       <div style="position: relative">
-        <va-button color="#fff" icon="chevron-left" flat style="position: absolute; top: 50%" @click="showPrevImage" />
         <va-button
           color="#fff"
-          icon="chevron-right"
+          icon="arrow_back_ios_new"
+          flat
+          style="position: absolute; top: 50%"
+          @click="showPrevImage"
+        />
+        <va-button
+          color="#fff"
+          icon="arrow_forward_ios"
           flat
           style="position: absolute; top: 50%; right: 0"
           @click="showNextImage"
