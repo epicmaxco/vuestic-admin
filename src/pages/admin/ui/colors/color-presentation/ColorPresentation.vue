@@ -21,13 +21,14 @@
     defineProps<{
       color?: string
       variant?: string[]
-      width: number
+      width?: number
       name?: string
       description?: string
     }>(),
     {
       color: '',
       variant: () => [],
+      width: 0,
       name: '',
       description: '',
     },
@@ -38,16 +39,16 @@
     placement: 'right',
   })
 
-  const computedBackground = computed(() => {
-    const { getColor, getGradientBackground } = useColors()
+  const { getColor, getGradientBackground } = useColors()
 
-    const colorComputed = getColor(props.color)
+  const computedBackground = computed(() => {
+    const color = getColor(props.color)
 
     if (props.variant.includes('gradient')) {
-      return getGradientBackground(colorComputed)
+      return getGradientBackground(color)
     }
 
-    return colorComputed
+    return color
   })
 
   const computedStyle = computed(() => {
@@ -70,15 +71,16 @@
   const hiddenInput = ref()
 
   function colorCopy() {
-    hiddenInput.value.select()
-    document.execCommand('copy')
-    notify()
+    navigator.clipboard?.writeText?.(hiddenInput.value.value).then(notify)
   }
 
+  const { init } = useToast()
+
   function notify() {
-    useToast().init({
+    init({
       message: "The color's copied to your clipboard",
       position: 'bottom-right',
+      color: getColor(props.color),
     })
   }
 </script>
@@ -90,7 +92,7 @@
     margin-bottom: 1.125rem;
 
     .v-popover {
-      width: 40px;
+      width: 80px;
       height: 40px;
 
       span {
@@ -100,7 +102,7 @@
 
     &__color {
       height: 40px;
-      width: 40px;
+      width: 80px;
       margin-right: 0.25rem;
       cursor: pointer;
       border-radius: 4px;
@@ -109,6 +111,7 @@
 
     &__description {
       margin-left: 1rem;
+      min-width: 100px;
     }
 
     &__name {

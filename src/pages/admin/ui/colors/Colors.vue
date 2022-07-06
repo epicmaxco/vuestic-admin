@@ -9,7 +9,6 @@
               :color="themeColor.color"
               :name="themeColor.name"
               :description="themeColor.description"
-              :width="150"
             />
           </div>
         </va-card-content>
@@ -25,7 +24,6 @@
               :color="extraColor.color"
               :name="extraColor.name"
               :description="extraColor.description"
-              :width="150"
             />
           </div>
         </va-card-content>
@@ -42,7 +40,6 @@
               :variant="['gradient']"
               :name="buttonGradient.name"
               :description="buttonGradient.description"
-              :width="150"
             />
           </div>
         </va-card-content>
@@ -62,7 +59,6 @@
               :variant="['gradient', 'hovered']"
               :name="buttonGradient.name"
               :description="buttonGradient.description"
-              :width="150"
             />
           </div>
         </va-card-content>
@@ -82,7 +78,6 @@
               :variant="['gradient', 'pressed']"
               :name="buttonGradient.name"
               :description="buttonGradient.description"
-              :width="150"
             />
           </div>
         </va-card-content>

@@ -566,7 +566,7 @@
         "text": "Lighten 15% applied to an original style (gradient or flat color) for hover state."
       },
       "pressed": {
-        "title": "Hovered Button Gradients",
+        "title": "Pressed Button Gradients",
         "text": "Darken 15% applied to an original style (gradient or flat color) for pressed state."
       }
     }
