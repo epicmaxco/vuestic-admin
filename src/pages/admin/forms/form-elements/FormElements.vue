@@ -162,6 +162,7 @@
                     :label="t('forms.selects.searchable')"
                     searchable
                     text-by="description"
+                    track-by="id"
                     :options="simpleOptions"
                   />
                 </div>
