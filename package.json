@@ -36,7 +36,7 @@
     "vue-i18n": "^9.1.10",
     "vue-router": "^4.0.14",
     "vue-yandex-maps": "^0.12.3",
-    "vuestic-ui": "^1.4.5"
+    "vuestic-ui": "^1.4.6"
   },
   "devDependencies": {
     "@types/leaflet": "^1.7.11",
