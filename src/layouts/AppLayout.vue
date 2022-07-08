@@ -46,7 +46,7 @@
 
     isMobile.value = checkIsMobile()
     isTablet.value = checkIsTablet()
-    sidebarMinimizedWidth.value = isMobile.value ? '0' : '4rem'
+    sidebarMinimizedWidth.value = isMobile.value ? '0' : '4.5rem'
     sidebarWidth.value = isTablet.value ? '100%' : '16rem'
   }
 

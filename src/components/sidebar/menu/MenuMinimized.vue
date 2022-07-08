@@ -3,10 +3,8 @@
     v-for="(route, idx) in items"
     :key="idx"
     v-model="dropdownsValue[idx]"
-    position="right"
-    fixed
-    :offset="[0, 8]"
-    :prevent-overflow="false"
+    placement="right-start"
+    :offset="[1, 0]"
   >
     <template #anchor>
       <va-sidebar-item :active="isItemChildsActive(route)" :to="route.children ? undefined : { name: route.name }">
@@ -80,12 +78,11 @@
 
 <style lang="scss">
   .sidebar-item {
-    position: relative;
     &__children {
       max-height: 60vh;
       overflow-y: auto;
       overflow-x: visible;
-      min-width: 8rem;
+      width: 16rem;
       color: var(--va-gray);
       background: var(--va-white);
       box-shadow: var(--va-box-shadow);
@@ -93,10 +90,6 @@
   }
 
   .va-sidebar-item {
-    &__icon {
-      margin: 0;
-    }
-
     &-content {
       position: relative;
 

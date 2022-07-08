@@ -31,22 +31,11 @@
 
 <style lang="scss">
   .va-sidebar {
-    .va-collapse__body {
-      margin-top: 0 !important;
-    }
-
     &__menu {
       padding: 2rem 0;
-      &__inner {
-        padding-bottom: 8rem;
-      }
     }
 
     &-item {
-      &-content {
-        padding: 0.75rem 1rem;
-      }
-
       &__icon {
         width: 1.5rem;
         height: 1.5rem;
@@ -55,11 +44,5 @@
         align-items: center;
       }
     }
-  }
-</style>
-
-<style lang="scss" scoped>
-  .va-sidebar {
-    flex-shrink: 0;
   }
 </style>
