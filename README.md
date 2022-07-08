@@ -23,7 +23,7 @@ Based on <a href="https://github.com/epicmaxco/vuestic-ui">Vuestic UI</a> librar
 
 <p align="center">
   <a href="https://vuestic.epicmax.co" target="_blank">
-    <img src="./public/img/vuestic-admin-image.jpg" align="center" width="888px"/>
+    <img src="./public/vuestic-admin-image.jpg" align="center" width="888px"/>
   </a>
 </p>
 
