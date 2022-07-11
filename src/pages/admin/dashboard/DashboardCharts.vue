@@ -64,9 +64,9 @@
     return (document.querySelector('.chart--donut canvas') as HTMLCanvasElement | undefined)?.toDataURL('image/png')
   })
 
-  watch(theme, () => {
-    if (theme.value) {
-      lineChartData.value = getLineChartData(0)
+  watch(theme, (newTheme) => {
+    if (newTheme) {
+      lineChartData.value = getLineChartData(lineChartFirstMonthIndex.value)
       donutChartData.value = getDonutChartData()
     }
   })

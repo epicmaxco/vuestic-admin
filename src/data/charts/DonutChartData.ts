@@ -1,8 +1,7 @@
-import { useColors } from 'vuestic-ui'
+import { useChartColors } from './composables/useChartColors'
 
 export function useDonutChartData() {
-  const { getColor } = useColors()
-  const generateColor = (color: string) => getColor(color)
+  const { generateColors } = useChartColors()
 
   let generatedData: {
     labels: string[]
@@ -10,7 +9,7 @@ export function useDonutChartData() {
   }
 
   const getDonutChartData = () => {
-    const backgroundColors = ['danger', 'info', 'primary'].map(generateColor)
+    const backgroundColors = generateColors(['danger', 'info', 'primary'])
 
     if (generatedData) {
       generatedData.datasets[0].backgroundColor = backgroundColors

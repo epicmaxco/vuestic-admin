@@ -1,12 +1,10 @@
-import { useColors } from 'vuestic-ui'
+import { useChartColors } from './composables/useChartColors'
 import { GeneratedData } from './types'
 
 export function useLineChartData() {
-  const { setHSLAColor, getColor } = useColors()
+  const { generateHSLAColors } = useChartColors()
 
   const generateValue = () => Math.floor(Math.random() * 100)
-
-  const generateColor = (color: string) => setHSLAColor(getColor(color), { a: 0.6 })
 
   const generateYLabels = () => {
     const flip = !!Math.floor(Math.random() * 2)
@@ -20,7 +18,9 @@ export function useLineChartData() {
   let generatedData: GeneratedData
   let firstMonthIndex = 0
 
-  const getLineChartData = (firstMonth: number) => {
+  const getLineChartData = (firstMonth = 0) => {
+    const backgroundColors = generateHSLAColors(['primary', 'secondary'], 0.6)
+
     const size = getSize()
     const months = [
       'January',
@@ -38,8 +38,6 @@ export function useLineChartData() {
     ]
 
     const yLabels = generateYLabels()
-
-    const backgroundColors = ['primary', 'secondary'].map(generateColor)
 
     if (generatedData) {
       generatedData.datasets[0].backgroundColor = backgroundColors[0]

@@ -62,7 +62,7 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, onMounted, ref } from 'vue'
+  import { computed, onMounted, ref, watch } from 'vue'
   import VaChart from '../../../../components/va-charts/VaChart.vue'
   import { useLineChartData } from '../../../../data/charts/LineChartData'
   import { useBubbleChartData } from '../../../../data/charts/BubbleChartData'
@@ -92,19 +92,21 @@
 
   const theme = computed(() => getGlobalConfig().colors!)
 
+  function refreshData() {
+    bubbleChartData.value = getBubbleChartData()
+    lineChartData.value = getLineChartData()
+    pieChartData.value = getPieChartData()
+    donutChartData.value = getDonutChartData()
+    verticalBarChartData.value = getVerticalBarChartData()
+    horizontalBarChartData.value = getHorizontalBarChartData()
+  }
+
   onMounted(() => {
+    refreshData()
     isMounted.value = true
-    bubbleChartData.value = getBubbleChartData(theme.value)
-    lineChartData.value = getLineChartData(theme.value, 0)
-    pieChartData.value = getPieChartData(theme.value)
-    donutChartData.value = getDonutChartData(theme.value)
-    verticalBarChartData.value = getVerticalBarChartData(theme.value)
-    horizontalBarChartData.value = getHorizontalBarChartData(theme.value)
   })
 
-  // function refreshData() {
-  //   lineChartData.value = getLineChartData(theme.value, 0)
-  // }
+  watch(theme, refreshData)
 </script>
 
 <style lang="scss">
