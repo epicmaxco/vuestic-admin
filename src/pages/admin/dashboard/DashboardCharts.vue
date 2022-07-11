@@ -5,7 +5,7 @@
         <va-card-title>
           <h1>{{ t('dashboard.charts.trendyTrends') }}</h1>
           <div class="mr-0 text-right">
-            <va-button size="small" color="danger" :disabled="lineChartData.labels.length < 2" @click="deleteSection">
+            <va-button size="small" color="danger" :disabled="isDisabled" @click="deleteSection">
               {{ t('dashboard.charts.showInMoreDetail') }}
             </va-button>
           </div>
@@ -20,9 +20,7 @@
       <va-card class="d-flex">
         <va-card-title>
           <h1>{{ t('dashboard.charts.loadingSpeed') }}</h1>
-          <div class="mr-0 text-right">
-            <va-button icon="print" flat class="mr-0" @click="printChart" />
-          </div>
+          <va-button icon="print" flat @click="printChart" />
         </va-card-title>
         <va-card-content v-if="donutChartData">
           <va-chart ref="donutChart" class="chart chart--donut" :data="donutChartData" type="donut" />
@@ -60,25 +58,25 @@
 
   const theme = computed(() => getGlobalConfig().colors!)
 
+  const isDisabled = computed(() => (lineChartData.value?.labels?.length ?? 0) <= 2)
+
   const donutChartDataURL = computed(() => {
     return (document.querySelector('.chart--donut canvas') as HTMLCanvasElement | undefined)?.toDataURL('image/png')
   })
 
   watch(theme, () => {
     if (theme.value) {
-      lineChartData.value = getLineChartData(theme.value, 0)
-      donutChartData.value = getDonutChartData(theme.value)
+      lineChartData.value = getLineChartData(0)
+      donutChartData.value = getDonutChartData()
     }
   })
 
-  lineChartData.value = getLineChartData(theme.value, lineChartFirstMonthIndex.value)
-  donutChartData.value = getDonutChartData(theme.value)
+  lineChartData.value = getLineChartData(lineChartFirstMonthIndex.value)
+  donutChartData.value = getDonutChartData()
 
   function deleteSection() {
     lineChartFirstMonthIndex.value += 1
-
-    lineChartData.value = getLineChartData(theme.value, lineChartFirstMonthIndex.value)
-    lineChart.value.refresh()
+    lineChartData.value = getLineChartData(lineChartFirstMonthIndex.value)
   }
 
   function printChart() {

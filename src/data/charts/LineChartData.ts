@@ -1,38 +1,26 @@
 import { useColors } from 'vuestic-ui'
-import { ColorThemes, GeneratedData } from './types'
+import { GeneratedData } from './types'
 
 export function useLineChartData() {
-  const { shiftHSLAColor } = useColors()
+  const { setHSLAColor, getColor } = useColors()
 
-  function colorToRgba(color: string, a: number) {
-    // TODO: replace with set hsla color
-    // https://github.com/epicmaxco/vuestic-ui/issues/841
-    const transparentColor = shiftHSLAColor(color, { a: -1 })
-    return shiftHSLAColor(transparentColor, { a })
-  }
+  const generateValue = () => Math.floor(Math.random() * 100)
 
-  const generateValue = () => {
-    return Math.floor(Math.random() * 100)
-  }
+  const generateColor = (color: string) => setHSLAColor(getColor(color), { a: 0.6 })
 
   const generateYLabels = () => {
     const flip = !!Math.floor(Math.random() * 2)
     return flip ? ['Debit', 'Credit'] : ['Credit', 'Debit']
   }
 
-  const generateArray = (length: number) => {
-    return Array.from(Array(length), generateValue)
-  }
+  const generateArray = (length: number) => Array.from(Array(length), generateValue)
 
-  const getSize = () => {
-    const minSize = 4
-    return Math.max(minSize, new Date().getMonth())
-  }
+  const getSize = (minSize = 4) => Math.max(minSize, new Date().getMonth())
 
   let generatedData: GeneratedData
   let firstMonthIndex = 0
 
-  const getLineChartData = (themes: ColorThemes, firstMonth: number) => {
+  const getLineChartData = (firstMonth: number) => {
     const size = getSize()
     const months = [
       'January',
@@ -51,9 +39,11 @@ export function useLineChartData() {
 
     const yLabels = generateYLabels()
 
+    const backgroundColors = ['primary', 'secondary'].map(generateColor)
+
     if (generatedData) {
-      generatedData.datasets[0].backgroundColor = colorToRgba(themes.primary, 0.6)
-      generatedData.datasets[1].backgroundColor = colorToRgba(themes.info, 0.6)
+      generatedData.datasets[0].backgroundColor = backgroundColors[0]
+      generatedData.datasets[1].backgroundColor = backgroundColors[1]
       if (firstMonth && firstMonthIndex !== firstMonth) {
         generatedData.labels?.shift()
         generatedData.datasets.forEach((dataset) => {
@@ -67,13 +57,13 @@ export function useLineChartData() {
         datasets: [
           {
             label: yLabels[0],
-            backgroundColor: colorToRgba(themes.primary, 0.6),
+            backgroundColor: backgroundColors[0],
             borderColor: 'transparent',
             data: generateArray(size - firstMonthIndex),
           },
           {
             label: yLabels[1],
-            backgroundColor: colorToRgba(themes.info, 0.6),
+            backgroundColor: backgroundColors[1],
             borderColor: 'transparent',
             data: generateArray(size),
           },
@@ -81,7 +71,7 @@ export function useLineChartData() {
       }
     }
 
-    return generatedData
+    return { ...generatedData }
   }
 
   return { getLineChartData }
