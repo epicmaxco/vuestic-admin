@@ -89,7 +89,7 @@ export default [
   },
   {
     name: 'close',
-    to: 'fa4-close',
+    to: 'close',
   },
   {
     name: 'cogs',
