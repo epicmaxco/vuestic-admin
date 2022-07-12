@@ -64,43 +64,34 @@
     </div>
 
     <div class="flex xs12 md6 xl3">
-      <va-card class="image-card">
-        <va-image :src="images[0]" style="height: 200px" />
+      <va-card>
+        <va-image :src="images[currentImageIndex]" style="height: 200px" />
         <va-card-title>
-          <va-button flat icon-right="fa-arrow-circle-right" color="primary" class="ma-0" @click="showModal">
+          <va-button flat icon-right="fa-arrow-circle-right" @click="showModal">
             {{ t('dashboard.info.exploreGallery') }}
           </va-button>
         </va-card-title>
       </va-card>
     </div>
     <va-modal v-model="modal">
-      <div style="position: relative">
-        <va-button
-          color="#fff"
-          icon="arrow_back_ios_new"
-          flat
-          style="position: absolute; top: 50%"
-          @click="showPrevImage"
-        />
-        <va-button
-          color="#fff"
-          icon="arrow_forward_ios"
-          flat
-          style="position: absolute; top: 50%; right: 0"
-          @click="showNextImage"
-        />
-        <transition>
-          <img :src="images[currentImageIndex]" style="height: 50vh; max-width: 100%" />
-        </transition>
-      </div>
+      <va-carousel v-model="currentImageIndex" :items="images" class="gallery-carousel" />
     </va-modal>
   </div>
 </template>
 
 <script setup lang="ts">
   import { computed, ref } from 'vue'
-  import { useGlobalConfig } from 'vuestic-ui'
   import { useI18n } from 'vue-i18n'
+  import {
+    useGlobalConfig,
+    VaCarousel,
+    VaModal,
+    VaCard,
+    VaCardContent,
+    VaCardTitle,
+    VaButton,
+    VaImage,
+  } from 'vuestic-ui'
 
   const { getGlobalConfig } = useGlobalConfig()
   const { t } = useI18n()
@@ -141,14 +132,6 @@
   function showModal() {
     modal.value = true
   }
-
-  function showPrevImage() {
-    currentImageIndex.value = !currentImageIndex.value ? images.value.length - 1 : currentImageIndex.value - 1
-  }
-
-  function showNextImage() {
-    currentImageIndex.value = currentImageIndex.value === images.value.length - 1 ? 0 : currentImageIndex.value + 1
-  }
 </script>
 
 <style lang="scss" scoped>
@@ -159,6 +142,15 @@
   }
 
   .rich-theme-card-text {
-    line-height: 24px;
+    line-height: 1.5;
+  }
+
+  .gallery-carousel {
+    width: 80vw;
+    max-width: 100%;
+
+    @media all and (max-width: 576px) {
+      width: 100%;
+    }
   }
 </style>
