@@ -121,6 +121,7 @@
     "charts": {
       "trendyTrends": "Trendy Trends",
       "showInMoreDetail": "Show in more detail",
+      "showInLessDetail": "Show in less detail",
       "loadingSpeed": "Loading speed",
       "topContributors": "Top contributors",
       "showNextFive": "Show next five",

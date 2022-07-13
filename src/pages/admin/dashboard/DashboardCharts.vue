@@ -1,17 +1,31 @@
 <template>
   <div class="row row-equal">
     <div class="flex xs12 xl6">
-      <va-card v-if="lineChartData">
+      <va-card v-if="lineChartDataGenerated">
         <va-card-title>
           <h1>{{ t('dashboard.charts.trendyTrends') }}</h1>
-          <div class="mr-0 text-right">
-            <va-button size="small" color="danger" :disabled="isDisabled" @click="deleteSection">
+          <div>
+            <va-button
+              size="small"
+              color="danger"
+              :disabled="monthIndex === minIndex"
+              @click="setMonthIndex(monthIndex - 1)"
+            >
+              {{ t('dashboard.charts.showInLessDetail') }}
+            </va-button>
+            <va-button
+              class="ml-2"
+              size="small"
+              color="danger"
+              :disabled="monthIndex === maxIndex - 1"
+              @click="setMonthIndex(monthIndex + 1)"
+            >
               {{ t('dashboard.charts.showInMoreDetail') }}
             </va-button>
           </div>
         </va-card-title>
         <va-card-content>
-          <va-chart ref="lineChart" class="chart" :data="lineChartData" type="line" />
+          <va-chart class="chart" :data="lineChartDataGenerated" type="line" />
         </va-card-content>
       </va-card>
     </div>
@@ -22,8 +36,8 @@
           <h1>{{ t('dashboard.charts.loadingSpeed') }}</h1>
           <va-button icon="print" flat @click="printChart" />
         </va-card-title>
-        <va-card-content v-if="donutChartData">
-          <va-chart ref="donutChart" class="chart chart--donut" :data="donutChartData" type="donut" />
+        <va-card-content v-if="doughnutChartDataGenerated">
+          <va-chart ref="doughnutChart" class="chart chart--donut" :data="doughnutChartDataGenerated" type="doughnut" />
         </va-card-content>
       </va-card>
     </div>
@@ -35,54 +49,34 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, ref, watch } from 'vue'
-  import { useGlobalConfig } from 'vuestic-ui'
+  import { computed, ref } from 'vue'
   import { useI18n } from 'vue-i18n'
-  import { useLineChartData } from '../../../data/charts/LineChartData'
-  import { useDonutChartData } from '../../../data/charts/DonutChartData'
+  import { doughnutChartData, lineChartData } from '../../../data/charts'
+  import { useChartData, useLineChartData } from '../../../data/charts/composables'
   import VaChart from '../../../components/va-charts/VaChart.vue'
   import DashboardContributorsChart from './DashboardContributorsList.vue'
 
-  const { getGlobalConfig } = useGlobalConfig()
   const { t } = useI18n()
-  const { getLineChartData } = useLineChartData()
-  const { getDonutChartData } = useDonutChartData()
 
-  const lineChart = ref()
-  const donutChart = ref()
+  const doughnutChart = ref()
 
-  const lineChartData = ref<ReturnType<typeof getLineChartData>>()
-  const donutChartData = ref<ReturnType<typeof getDonutChartData>>()
+  const {
+    dataGenerated: lineChartDataGenerated,
+    minIndex,
+    maxIndex,
+    monthIndex,
+    setMonthIndex,
+  } = useLineChartData(lineChartData)
+  const { dataGenerated: doughnutChartDataGenerated } = useChartData(doughnutChartData)
 
-  const lineChartFirstMonthIndex = ref(0)
-
-  const theme = computed(() => getGlobalConfig().colors!)
-
-  const isDisabled = computed(() => (lineChartData.value?.labels?.length ?? 0) <= 2)
-
-  const donutChartDataURL = computed(() => {
+  const doughnutChartDataURL = computed(() => {
     return (document.querySelector('.chart--donut canvas') as HTMLCanvasElement | undefined)?.toDataURL('image/png')
   })
-
-  watch(theme, (newTheme) => {
-    if (newTheme) {
-      lineChartData.value = getLineChartData(lineChartFirstMonthIndex.value)
-      donutChartData.value = getDonutChartData()
-    }
-  })
-
-  lineChartData.value = getLineChartData(lineChartFirstMonthIndex.value)
-  donutChartData.value = getDonutChartData()
-
-  function deleteSection() {
-    lineChartFirstMonthIndex.value += 1
-    lineChartData.value = getLineChartData(lineChartFirstMonthIndex.value)
-  }
 
   function printChart() {
     const win = window.open('', 'Print', 'height=600,width=800')
 
-    win?.document.write(`<br><img src='${donutChartDataURL.value}'/>`)
+    win?.document.write(`<br><img src='${doughnutChartDataURL.value}'/>`)
 
     // TODO: find better solution how to remove timeout
     setTimeout(() => {
@@ -97,8 +91,5 @@
 <style scoped>
   .chart {
     height: 400px;
-  }
-  .text-right {
-    text-align: right;
   }
 </style>

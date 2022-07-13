@@ -1,4 +1,4 @@
-import { ColorThemes } from '../charts/types'
+import { ColorThemes } from '../types'
 
 export const getLineMapData = (themes: ColorThemes) => {
   const targetSVG =

@@ -1,6 +1,6 @@
 import { TChartData } from 'vue-chartjs/dist/types'
 
-export const horizontalBarChartData: TChartData<'bar'> = {
+export const barChartData: TChartData<'bar'> = {
   labels: [
     'January',
     'February',
@@ -17,14 +17,14 @@ export const horizontalBarChartData: TChartData<'bar'> = {
   ],
   datasets: [
     {
-      label: 'Vuestic Satisfaction Score',
+      label: 'Last year',
       backgroundColor: 'primary',
-      data: [80, 90, 50, 70, 60, 90, 50, 90, 80, 40, 72, 93],
+      data: [50, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11],
     },
     {
-      label: 'Bulma Satisfaction Score',
-      backgroundColor: 'danger',
-      data: [20, 30, 20, 40, 50, 40, 15, 60, 30, 20, 42, 53],
+      label: 'Current year',
+      backgroundColor: 'info',
+      data: [50, 10, 22, 39, 15, 20, 85, 32, 60, 50, 20, 30],
     },
   ],
 }

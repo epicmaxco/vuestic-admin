@@ -1,27 +1,26 @@
 <template>
-  <component :is="chartComponent" ref="chart" class="va-chart" :chart-options="options" :chart-data="data" />
+  <component :is="chartComponent" ref="chart" class="va-chart" :chart-options="chartOptions" :chart-data="data" />
 </template>
 
 <script setup lang="ts">
-  import { chartTypesMap } from './VaChartConfigs'
   import { computed, ref } from 'vue'
+  import { TChartData, TChartOptions } from 'vue-chartjs/dist/types'
+  import { defaultConfig, chartTypesMap } from './VaChartConfigs'
 
   const props = defineProps<{
-    // TODO: Provide better types for this prop. See GeneratedData and VaChartData
-    data?: any
-    options?: Record<string, never>
+    data: TChartData<'line' | 'bar' | 'bubble' | 'doughnut' | 'pie'>
+    options?: TChartOptions<'line' | 'bar' | 'bubble' | 'doughnut' | 'pie'>
     type: keyof typeof chartTypesMap
   }>()
 
-  const chartComponent = computed(() => chartTypesMap[props.type])
-
   const chart = ref()
 
-  function refresh() {
-    chart.value.refresh()
-  }
+  const chartComponent = computed(() => chartTypesMap[props.type])
 
-  defineExpose({ refresh })
+  const chartOptions = computed(() => ({
+    ...defaultConfig,
+    ...props.options,
+  }))
 </script>
 
 <style lang="scss">

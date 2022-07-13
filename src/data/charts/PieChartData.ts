@@ -1,22 +1,12 @@
-import { useChartColors } from './composables/useChartColors'
+import { TChartData } from 'vue-chartjs/dist/types'
 
-export function usePieChartData() {
-  const { generateColors } = useChartColors()
-
-  const getPieChartData = () => {
-    const backgroundColors = generateColors(['primary', 'warning', 'danger'])
-
-    return {
-      labels: ['Africa', 'Asia', 'Europe'],
-      datasets: [
-        {
-          label: 'Population (millions)',
-          backgroundColor: backgroundColors,
-          data: [2478, 5267, 734],
-        },
-      ],
-    }
-  }
-
-  return { getPieChartData }
+export const pieChartData: TChartData<'pie'> = {
+  labels: ['Africa', 'Asia', 'Europe'],
+  datasets: [
+    {
+      label: 'Population (millions)',
+      backgroundColor: ['primary', 'warning', 'danger'],
+      data: [2478, 5267, 734],
+    },
+  ],
 }
