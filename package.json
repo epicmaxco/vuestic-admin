@@ -1,7 +1,7 @@
 {
   "name": "vuestic-admin",
   "private": true,
-  "version": "0.0.0",
+  "version": "3.1.0",
   "scripts": {
     "prepare": "husky install",
     "dev": "vite",
