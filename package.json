@@ -28,7 +28,7 @@
     "leaflet-map": "^0.2.1",
     "maplibre-gl": "^2.1.9",
     "medium-editor": "^5.23.3",
-    "pinia": "^2.0.14",
+    "pinia": "^2.0.16",
     "register-service-worker": "^1.7.1",
     "sass": "^1.53.0",
     "vue": "^3.2.25",
