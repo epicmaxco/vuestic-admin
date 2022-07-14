@@ -49,7 +49,7 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, ref } from 'vue'
+  import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { doughnutChartData, lineChartData } from '../../../data/charts'
   import { useChartData } from '../../../data/charts/composables/useChartData'
@@ -72,22 +72,24 @@
     setDatasetIndex,
   } = usePartOfChartData(dataGenerated)
 
-  const doughnutChartDataURL = computed(() => {
-    return (document.querySelector('.chart--donut canvas') as HTMLCanvasElement | undefined)?.toDataURL('image/png')
-  })
-
   function printChart() {
-    const win = window.open('', 'Print', 'height=600,width=800')
+    const windowObjectReference = window.open('', 'Print', 'height=600,width=800') as Window
 
-    win?.document.write(`<br><img src='${doughnutChartDataURL.value}'/>`)
+    const img = windowObjectReference.document.createElement('img')
 
-    // TODO: find better solution how to remove timeout
-    setTimeout(() => {
-      win?.document.close()
-      win?.focus()
-      win?.print()
-      win?.close()
-    }, 200)
+    img.src = `${(document.querySelector('.chart--donut canvas') as HTMLCanvasElement | undefined)?.toDataURL(
+      'image/png',
+    )}`
+
+    img.onload = () => {
+      windowObjectReference?.document.body.appendChild(img)
+    }
+
+    windowObjectReference.print()
+
+    windowObjectReference.onafterprint = () => {
+      windowObjectReference?.close()
+    }
   }
 </script>
 
