@@ -24,7 +24,7 @@
     "chart.js": "^3.8.0",
     "flag-icon-css": "^4.1.7",
     "ionicons": "^4.6.3",
-    "leaflet": "^1.7.1",
+    "leaflet": "^1.8.0",
     "leaflet-map": "^0.2.1",
     "maplibre-gl": "^2.1.9",
     "medium-editor": "^5.23.3",

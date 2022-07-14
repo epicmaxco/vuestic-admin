@@ -9,11 +9,11 @@
   import 'leaflet/dist/leaflet.css'
   import * as Leaflet from 'leaflet'
 
+  Leaflet.Icon.Default.imagePath = '/vendor/leaflet/'
+
   const mapRef = ref()
 
   onMounted(() => {
-    Leaflet.Icon.Default.imagePath = '/vendor/leaflet/'
-
     const map = Leaflet.map(mapRef.value).setView([51.505, -0.09], 13)
 
     Leaflet.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
