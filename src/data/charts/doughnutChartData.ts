@@ -1,6 +1,6 @@
-import { TChartData } from 'vue-chartjs/dist/types'
+import { TDoughnutChartData } from '../types'
 
-export const doughnutChartData: TChartData<'doughnut'> = {
+export const doughnutChartData: TDoughnutChartData = {
   labels: ['North America', 'South America', 'Australia'],
   datasets: [
     {

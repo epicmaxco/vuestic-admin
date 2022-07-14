@@ -1,6 +1,6 @@
-import { TChartData } from 'vue-chartjs/dist/types'
+import { TBubbleChartData } from '../types'
 
-export const bubbleChartData: TChartData<'bubble'> = {
+export const bubbleChartData: TBubbleChartData = {
   datasets: [
     {
       label: 'USA',

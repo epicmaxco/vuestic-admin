@@ -1,6 +1,6 @@
-import { TChartData } from 'vue-chartjs/dist/types'
+import { TBarChartData } from '../types'
 
-export const barChartData: TChartData<'bar'> = {
+export const barChartData: TBarChartData = {
   labels: [
     'January',
     'February',

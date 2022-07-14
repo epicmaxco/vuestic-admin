@@ -1,4 +1,4 @@
-import { TChartData } from 'vue-chartjs/dist/types'
+import { TLineChartData } from '../types'
 
 const months = [
   'January',
@@ -27,7 +27,7 @@ const generateYLabels = () => {
 }
 const yLabels = generateYLabels()
 
-export const lineChartData: TChartData<'line'> = {
+export const lineChartData: TLineChartData = {
   labels: months.slice(0, size),
   datasets: [
     {

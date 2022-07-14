@@ -1,6 +1,6 @@
-import { TChartData } from 'vue-chartjs/dist/types'
+import { TLineChartData } from '../types'
 
-export const pieChartData: TChartData<'pie'> = {
+export const pieChartData: TLineChartData = {
   labels: ['Africa', 'Asia', 'Europe'],
   datasets: [
     {

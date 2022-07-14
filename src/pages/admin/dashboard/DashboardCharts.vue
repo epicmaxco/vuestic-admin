@@ -8,8 +8,8 @@
             <va-button
               size="small"
               color="danger"
-              :disabled="monthIndex === minIndex"
-              @click="setMonthIndex(monthIndex - 1)"
+              :disabled="datasetIndex === minIndex"
+              @click="setDatasetIndex(datasetIndex - 1)"
             >
               {{ t('dashboard.charts.showInLessDetail') }}
             </va-button>
@@ -17,8 +17,8 @@
               class="ml-2"
               size="small"
               color="danger"
-              :disabled="monthIndex === maxIndex - 1"
-              @click="setMonthIndex(monthIndex + 1)"
+              :disabled="datasetIndex === maxIndex - 1"
+              @click="setDatasetIndex(datasetIndex + 1)"
             >
               {{ t('dashboard.charts.showInMoreDetail') }}
             </va-button>
@@ -52,7 +52,8 @@
   import { computed, ref } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { doughnutChartData, lineChartData } from '../../../data/charts'
-  import { useChartData, useLineChartData } from '../../../data/charts/composables'
+  import { useChartData } from '../../../data/charts/composables/useChartData'
+  import { usePartOfChartData } from './composables/usePartOfChartData'
   import VaChart from '../../../components/va-charts/VaChart.vue'
   import DashboardContributorsChart from './DashboardContributorsList.vue'
 
@@ -60,14 +61,16 @@
 
   const doughnutChart = ref()
 
+  const dataGenerated = useChartData(lineChartData, 0.7)
+  const doughnutChartDataGenerated = useChartData(doughnutChartData)
+
   const {
-    dataGenerated: lineChartDataGenerated,
+    dataComputed: lineChartDataGenerated,
     minIndex,
     maxIndex,
-    monthIndex,
-    setMonthIndex,
-  } = useLineChartData(lineChartData)
-  const { dataGenerated: doughnutChartDataGenerated } = useChartData(doughnutChartData)
+    datasetIndex,
+    setDatasetIndex,
+  } = usePartOfChartData(dataGenerated)
 
   const doughnutChartDataURL = computed(() => {
     return (document.querySelector('.chart--donut canvas') as HTMLCanvasElement | undefined)?.toDataURL('image/png')

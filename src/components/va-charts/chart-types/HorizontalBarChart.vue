@@ -4,8 +4,9 @@
 
 <script setup lang="ts">
   import { Bar } from 'vue-chartjs'
-  import { TChartData, TChartOptions } from 'vue-chartjs/dist/types'
+  import { TChartOptions } from 'vue-chartjs/dist/types'
   import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, LinearScale, CategoryScale } from 'chart.js'
+  import { TBarChartData } from '../../../data/types'
 
   ChartJS.register(Title, Tooltip, Legend, BarElement, LinearScale, CategoryScale)
 
@@ -19,7 +20,7 @@
   }
 
   const props = defineProps<{
-    chartData: TChartData<'bar'>
+    chartData: TBarChartData
     chartOptions?: TChartOptions<'bar'>
   }>()
 </script>

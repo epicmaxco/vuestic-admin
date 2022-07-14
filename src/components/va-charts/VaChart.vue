@@ -4,11 +4,12 @@
 
 <script setup lang="ts">
   import { computed, ref } from 'vue'
-  import { TChartData, TChartOptions } from 'vue-chartjs/dist/types'
+  import { TChartOptions } from 'vue-chartjs/dist/types'
   import { defaultConfig, chartTypesMap } from './VaChartConfigs'
+  import { TChartData } from '../../data/types'
 
   const props = defineProps<{
-    data: TChartData<'line' | 'bar' | 'bubble' | 'doughnut' | 'pie'>
+    data: TChartData
     options?: TChartOptions<'line' | 'bar' | 'bubble' | 'doughnut' | 'pie'>
     type: keyof typeof chartTypesMap
   }>()

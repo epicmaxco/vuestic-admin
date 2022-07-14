@@ -4,13 +4,14 @@
 
 <script setup lang="ts">
   import { Doughnut } from 'vue-chartjs'
-  import { TChartData, TChartOptions } from 'vue-chartjs/dist/types'
+  import { TChartOptions } from 'vue-chartjs/dist/types'
   import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale } from 'chart.js'
+  import { TDoughnutChartData } from '../../../data/types'
 
   ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale)
 
   const props = defineProps<{
-    chartData: TChartData<'doughnut'>
+    chartData: TDoughnutChartData
     chartOptions?: TChartOptions<'doughnut'>
   }>()
 </script>

@@ -66,7 +66,7 @@
 
 <script setup lang="ts">
   import { useI18n } from 'vue-i18n'
-  import { useChartData, useLineChartData } from '../../../../data/charts/composables'
+  import { useChartData } from '../../../../data/charts/composables/useChartData'
   import {
     lineChartData,
     doughnutChartData,
@@ -77,12 +77,12 @@
   } from '../../../../data/charts'
   import VaChart from '../../../../components/va-charts/VaChart.vue'
 
-  const { dataGenerated: lineChartDataGenerated } = useLineChartData(lineChartData)
-  const { dataGenerated: doughnutChartDataGenerated } = useChartData(doughnutChartData)
-  const { dataGenerated: bubbleChartDataGenerated } = useChartData(bubbleChartData, 0.9)
-  const { dataGenerated: pieChartDataGenerated } = useChartData(pieChartData)
-  const { dataGenerated: barChartDataGenerated } = useChartData(barChartData)
-  const { dataGenerated: horizontalBarChartDataGenerated } = useChartData(horizontalBarChartData)
+  const lineChartDataGenerated = useChartData(lineChartData, 0.7)
+  const doughnutChartDataGenerated = useChartData(doughnutChartData)
+  const bubbleChartDataGenerated = useChartData(bubbleChartData, 0.9)
+  const pieChartDataGenerated = useChartData(pieChartData)
+  const barChartDataGenerated = useChartData(barChartData)
+  const horizontalBarChartDataGenerated = useChartData(horizontalBarChartData)
 
   const { t } = useI18n()
 </script>

@@ -4,13 +4,14 @@
 
 <script setup lang="ts">
   import { Pie } from 'vue-chartjs'
-  import { TChartData, TChartOptions } from 'vue-chartjs/dist/types'
+  import { TChartOptions } from 'vue-chartjs/dist/types'
   import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale } from 'chart.js'
+  import { TPieChartData } from '../../../data/types'
 
   ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale)
 
   const props = defineProps<{
-    chartData: TChartData<'pie'>
+    chartData: TPieChartData
     chartOptions?: TChartOptions<'pie'>
   }>()
 </script>
