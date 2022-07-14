@@ -20,7 +20,7 @@
     "@gtm-support/vue-gtm": "^1.6.0",
     "amcharts3": "^3.21.15",
     "ammap3": "^3.21.15",
-    "axios": "^0.21.1",
+    "axios": "^0.27.2",
     "chart.js": "^3.8.0",
     "flag-icon-css": "^4.1.7",
     "ionicons": "^4.6.3",
