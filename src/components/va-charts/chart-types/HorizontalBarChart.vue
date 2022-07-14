@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
   import { Bar } from 'vue-chartjs'
-  import { TChartOptions } from 'vue-chartjs/dist/types'
+  import type { TChartOptions } from 'vue-chartjs/dist/types'
   import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, LinearScale, CategoryScale } from 'chart.js'
   import { TBarChartData } from '../../../data/types'
 

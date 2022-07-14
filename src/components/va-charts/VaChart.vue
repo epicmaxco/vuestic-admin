@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
   import { computed, ref } from 'vue'
-  import { TChartOptions } from 'vue-chartjs/dist/types'
+  import type { TChartOptions } from 'vue-chartjs/dist/types'
   import { defaultConfig, chartTypesMap } from './VaChartConfigs'
   import { TChartData } from '../../data/types'
 

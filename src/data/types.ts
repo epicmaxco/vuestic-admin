@@ -1,4 +1,4 @@
-import { TChartData as ChartData } from 'vue-chartjs/dist/types'
+import type { TChartData as ChartData } from 'vue-chartjs/dist/types'
 
 export type ColorThemes = {
   [key: string]: string

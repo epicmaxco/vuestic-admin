@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
   import { Line } from 'vue-chartjs'
-  import { TChartOptions } from 'vue-chartjs/dist/types'
+  import type { TChartOptions } from 'vue-chartjs/dist/types'
   import {
     Chart as ChartJS,
     Title,
