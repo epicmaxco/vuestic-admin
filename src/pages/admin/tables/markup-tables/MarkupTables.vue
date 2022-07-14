@@ -20,9 +20,7 @@
                 <td>{{ user.email }}</td>
                 <td>{{ user.country }}</td>
                 <td>
-                  <va-badge :color="getStatusColor(user.status)">
-                    {{ user.status }}
-                  </va-badge>
+                  <va-badge :text="user.status" :color="getStatusColor(user.status)" />
                 </td>
               </tr>
             </tbody>
@@ -51,9 +49,7 @@
                 <td>{{ user.email }}</td>
                 <td>{{ user.country }}</td>
                 <td>
-                  <va-badge :color="getStatusColor(user.status)">
-                    {{ user.status }}
-                  </va-badge>
+                  <va-badge :text="user.status" :color="getStatusColor(user.status)" />
                 </td>
               </tr>
             </tbody>
@@ -65,9 +61,10 @@
 </template>
 
 <script setup lang="ts">
-  import data from '../../../../data/tables/markup-table/data.json'
-  import { useI18n } from 'vue-i18n'
   import { ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
+  import data from '../../../../data/tables/markup-table/data.json'
+
   const { t } = useI18n()
 
   const users = ref(data.slice(0, 8))
