@@ -61,13 +61,13 @@
 </script>
 
 <style lang="scss" scoped>
-  @import 'flag-icon-css/css/flag-icons.css';
+  @import 'flag-icons/css/flag-icons.css';
 
   .language-dropdown {
     cursor: pointer;
 
     &__content {
-      .flag-icon-small {
+      .fi-size-small {
         min-width: 1.5rem;
         min-height: 1.5rem;
         margin-right: 0.5rem;
@@ -88,14 +88,14 @@
       }
     }
 
-    .flag-icon::before {
+    .fi::before {
       content: '';
     }
 
-    .flag-icon-large {
+    .fi-size-large {
       display: block;
-      width: 31px;
-      height: 23px;
+      width: 32px;
+      height: 24px;
     }
 
     .va-dropdown__anchor {

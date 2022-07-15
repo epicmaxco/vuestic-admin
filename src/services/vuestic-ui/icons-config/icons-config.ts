@@ -14,7 +14,7 @@ export default createIconsConfig({
     },
     {
       name: 'flag-icon-{code} {size}',
-      resolve: ({ code, size }) => ({ class: `flag-icon flag-icon-${code} flag-icon-${size}` }),
+      resolve: ({ code, size }) => ({ class: `fi fi-${code} fi-size-${size}`, tag: 'span' }),
     },
     {
       name: /(brandico|entypo|fa|fontelico|glyphicon|iconicstroke|maki|openwebicons|ion)-(.*)/,

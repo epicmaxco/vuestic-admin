@@ -22,7 +22,7 @@
     "ammap3": "^3.21.15",
     "axios": "^0.27.2",
     "chart.js": "^3.8.0",
-    "flag-icon-css": "^4.1.7",
+    "flag-icons": "^6.6.4",
     "ionicons": "^4.6.3",
     "leaflet": "^1.8.0",
     "leaflet-map": "^0.2.1",
