@@ -9,6 +9,12 @@ export default createIconsConfig({
       resolve: ({ code }) => ({ class: `fa4 fa fa-${code}` }),
     },
     {
+      name: 'ion-{code}',
+      resolve: ({ code }) => ({
+        class: `icon ion-md-${code}`,
+      }),
+    },
+    {
       name: 'vuestic-iconset-{code}',
       resolve: ({ code }) => ({ class: `vuestic-iconset vuestic-iconset-${code}` }),
     },
