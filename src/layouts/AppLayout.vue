@@ -6,7 +6,12 @@
         <div v-if="isFullScreenSidebar" class="d-flex justify--end">
           <va-button class="px-4 py-4" icon="close" flat color="dark" @click="onCloseSidebarButtonClick" />
         </div>
-        <sidebar :width="sidebarWidth" :minimized="isSidebarMinimized" :minimized-width="sidebarMinimizedWidth" />
+        <sidebar
+          :width="sidebarWidth"
+          :minimized="isSidebarMinimized"
+          :minimized-width="sidebarMinimizedWidth"
+          :animated="!isMobile"
+        />
       </div>
       <div class="app-layout__page">
         <div class="layout fluid gutter--xl">

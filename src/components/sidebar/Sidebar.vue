@@ -1,5 +1,5 @@
 <template>
-  <va-sidebar :width="width" :minimized="minimized" :minimized-width="minimizedWidth">
+  <va-sidebar :width="width" :minimized="minimized" :minimized-width="minimizedWidth" :animated="animated">
     <menu-minimized v-if="minimized" :items="items" />
     <menu-accordion v-else :items="items" />
   </va-sidebar>
@@ -15,12 +15,14 @@
     defineProps<{
       width?: string
       color?: string
+      animated?: boolean
       minimized?: boolean
       minimizedWidth?: string
     }>(),
     {
       width: '16rem',
       color: 'secondary',
+      animated: true,
       minimized: true,
       minimizedWidth: undefined,
     },
