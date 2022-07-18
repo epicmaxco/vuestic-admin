@@ -6,6 +6,7 @@
           <h1>{{ t('dashboard.charts.trendyTrends') }}</h1>
           <div>
             <va-button
+              class="ma-1"
               size="small"
               color="danger"
               :disabled="datasetIndex === minIndex"
@@ -14,7 +15,7 @@
               {{ t('dashboard.charts.showInLessDetail') }}
             </va-button>
             <va-button
-              class="ml-2"
+              class="ma-1"
               size="small"
               color="danger"
               :disabled="datasetIndex === maxIndex - 1"
