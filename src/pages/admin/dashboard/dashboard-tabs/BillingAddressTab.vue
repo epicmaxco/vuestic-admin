@@ -43,7 +43,7 @@
   import { computed, onMounted, ref, watch } from 'vue'
   import { useGlobalConfig } from 'vuestic-ui'
   import { useI18n } from 'vue-i18n'
-  import { getLineMapData } from '../../../../data/maps/LineMapData'
+  import { linaMapData } from '../../../../data/maps/lineMapData'
   import CountriesList from '../../../../data/CountriesList'
 
   const { getGlobalConfig } = useGlobalConfig()
@@ -69,7 +69,7 @@
   })
 
   const citiesList = computed(() => {
-    return getLineMapData(theme.value).cities.map(({ title, country }) => ({ text: title, country }))
+    return linaMapData.cities.map(({ title, country }) => ({ text: title, country }))
   })
 
   const allowedCitiesList = ref<typeof citiesList['value']>([])

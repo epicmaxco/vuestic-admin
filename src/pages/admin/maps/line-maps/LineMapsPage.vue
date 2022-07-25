@@ -3,7 +3,7 @@
     <div class="row">
       <div class="flex md12 xs12">
         <va-card class="line-maps-page__widget" title="Line Maps">
-          <line-map :map-data="lineMapData" style="height: 65vh" />
+          <line-map v-model="mainCity" :map-data="cities" :home-city="homeCity" style="height: 75vh" />
         </va-card>
       </div>
     </div>
@@ -11,15 +11,12 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue'
-  import { useGlobalConfig } from 'vuestic-ui'
+  import { ref } from 'vue'
 
   import LineMap from '../../../../components/maps/LineMap.vue'
-  import { getLineMapData } from '../../../../data/maps/LineMapData'
+  import { linaMapData } from '../../../../data/maps/lineMapData'
 
-  const { getGlobalConfig } = useGlobalConfig()
-
-  const lineMapData = computed(() => {
-    return getLineMapData(getGlobalConfig().colors!)
-  })
+  const mainCity = ref(linaMapData.mainCity)
+  const homeCity = ref(linaMapData.homeCity)
+  const cities = ref(linaMapData.cities)
 </script>
