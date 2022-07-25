@@ -290,7 +290,7 @@ const cities: CityItem[] = [
   },
 ]
 
-export const linaMapData = {
+export const lineMapData = {
   cities,
   mainCity: london.title,
   homeCity: london.title,

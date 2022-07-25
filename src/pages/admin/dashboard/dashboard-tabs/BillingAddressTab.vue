@@ -43,7 +43,7 @@
   import { computed, onMounted, ref, watch } from 'vue'
   import { useGlobalConfig } from 'vuestic-ui'
   import { useI18n } from 'vue-i18n'
-  import { linaMapData } from '../../../../data/maps/lineMapData'
+  import { lineMapData } from '../../../../data/maps/lineMapData'
   import CountriesList from '../../../../data/CountriesList'
 
   const { getGlobalConfig } = useGlobalConfig()
@@ -69,16 +69,12 @@
   })
 
   const citiesList = computed(() => {
-    return linaMapData.cities.map(({ title, country }) => ({ text: title, country }))
+    return lineMapData.cities.map(({ title, country }) => ({ text: title, country }))
   })
 
   const allowedCitiesList = ref<typeof citiesList['value']>([])
 
-  const computedStylesTitle = computed(() => {
-    return {
-      color: theme.value.dark,
-    }
-  })
+  const computedStylesTitle = computed(() => ({ color: theme.value.dark }))
 
   watch(
     form,
@@ -86,8 +82,6 @@
       allowedCitiesList.value = form.value.country
         ? citiesList.value.filter(({ country }) => country === form.value.country)
         : [...citiesList.value]
-
-      // form.value.country = countriesList.value.find((item) => item === form.value.country);
     },
     { deep: true },
   )

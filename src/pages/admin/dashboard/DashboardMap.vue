@@ -12,11 +12,11 @@
   import { useI18n } from 'vue-i18n'
 
   import LineMap from '../../../components/maps/LineMap.vue'
-  import { linaMapData } from '../../../data/maps/lineMapData'
+  import { lineMapData } from '../../../data/maps/lineMapData'
 
   const { t } = useI18n()
 
-  const cities = ref(linaMapData.cities)
+  const cities = ref(lineMapData.cities)
   const mainCity = ref('Vilnius')
   const homeCity = ref('Vilnius')
 
