@@ -16,10 +16,10 @@
     ]
   },
   "dependencies": {
+    "@amcharts/amcharts5": "^5.2.13",
+    "@amcharts/amcharts5-geodata": "^5.0.3",
     "@fortawesome/fontawesome-free": "^6.1.1",
     "@gtm-support/vue-gtm": "^1.6.0",
-    "amcharts3": "^3.21.15",
-    "ammap3": "^3.21.15",
     "axios": "^0.27.2",
     "chart.js": "^3.8.0",
     "flag-icons": "^6.6.4",
