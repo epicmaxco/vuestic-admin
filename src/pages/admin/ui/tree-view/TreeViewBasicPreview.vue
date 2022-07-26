@@ -1,5 +1,5 @@
 <template>
-  <va-tree-root>
+  <va-tree-view>
     <va-tree-category label="Electronics">
       <va-tree-node>Cellphones</va-tree-node>
       <va-tree-node>Camera Body Kits</va-tree-node>
@@ -19,5 +19,5 @@
       <va-tree-node>Pants</va-tree-node>
       <va-tree-node>Skirts</va-tree-node>
     </va-tree-category>
-  </va-tree-root>
+  </va-tree-view>
 </template>

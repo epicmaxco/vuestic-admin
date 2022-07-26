@@ -1,11 +1,11 @@
 <template>
   <div class="tree-view-advanced-preview">
     <div class="tree-view-advanced-preview__buttons">
-      <va-button class="mr-2" @click="$refs.treeView.expand()"> EXPAND ALL </va-button>
-      <va-button @click="$refs.treeView.collapse()"> COLLAPSE ALL </va-button>
+      <va-button class="mr-2" @click="expand">EXPAND ALL</va-button>
+      <va-button @click="collapse">COLLAPSE ALL</va-button>
     </div>
 
-    <va-tree-root ref="treeView">
+    <va-tree-view ref="treeView">
       <va-tree-category label="Electronics">
         <va-tree-node>Cellphones</va-tree-node>
         <va-tree-node>Camera Body Kits</va-tree-node>
@@ -25,9 +25,23 @@
         <va-tree-node>Pants</va-tree-node>
         <va-tree-node>Skirts</va-tree-node>
       </va-tree-category>
-    </va-tree-root>
+    </va-tree-view>
   </div>
 </template>
+
+<script setup lang="ts">
+  import { ref } from 'vue'
+
+  const treeView = ref()
+
+  const expand = () => {
+    treeView.value?.expand?.()
+  }
+
+  const collapse = () => {
+    treeView.value?.collapse?.()
+  }
+</script>
 
 <style lang="scss">
   .tree-view-advanced-preview {

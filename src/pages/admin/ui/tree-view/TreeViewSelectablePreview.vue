@@ -1,5 +1,5 @@
 <template>
-  <va-tree-root>
+  <va-tree-view>
     <va-tree-category label="Products">
       <va-tree-node v-for="product in products" :key="product.id">
         <template #checkbox>
@@ -14,7 +14,7 @@
         </template>
       </va-tree-node>
     </va-tree-category>
-  </va-tree-root>
+  </va-tree-view>
 </template>
 
 <script setup lang="ts">

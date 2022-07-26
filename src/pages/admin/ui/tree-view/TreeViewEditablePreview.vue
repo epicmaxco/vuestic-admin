@@ -1,5 +1,5 @@
 <template>
-  <va-tree-root>
+  <va-tree-view>
     <va-tree-category label="Electronics">
       <va-tree-node v-for="electronic in electronics" :key="electronic.id">
         <va-input v-model="electronic.name" class="mb-0" />
@@ -23,7 +23,7 @@
         <va-button class="mb-2" @click="addProduct()"> Add new product </va-button>
       </va-tree-node>
     </va-tree-category>
-  </va-tree-root>
+  </va-tree-view>
 </template>
 
 <script setup lang="ts">
