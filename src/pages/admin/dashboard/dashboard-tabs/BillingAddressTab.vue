@@ -40,7 +40,7 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, onMounted, ref, watch } from 'vue'
+  import { computed, onMounted, reactive, ref, watch } from 'vue'
   import { useGlobalConfig } from 'vuestic-ui'
   import { useI18n } from 'vue-i18n'
   import { lineMapData } from '../../../../data/maps/lineMapData'
@@ -50,10 +50,10 @@
   const { t } = useI18n()
 
   const emit = defineEmits<{
-    (e: 'submit', data: typeof form['value']): void
+    (e: 'submit', data: typeof form): void
   }>()
 
-  const form = ref({
+  const form = reactive({
     name: 'John Smith',
     email: 'smith@gmail.com',
     address: '93  Guild Street',
@@ -77,13 +77,17 @@
   const computedStylesTitle = computed(() => ({ color: theme.value.dark }))
 
   watch(
-    form,
-    () => {
-      allowedCitiesList.value = form.value.country
-        ? citiesList.value.filter(({ country }) => country === form.value.country)
+    () => form.country,
+    (newCountry, oldCountry) => {
+      allowedCitiesList.value = form.country
+        ? citiesList.value.filter(({ country }) => country === form.country)
         : [...citiesList.value]
+
+      if (newCountry !== oldCountry) {
+        const city = allowedCitiesList.value.find(({ country }) => country === newCountry)?.text || ''
+        form.city = { text: city }
+      }
     },
-    { deep: true },
   )
 
   onMounted(() => {
@@ -91,7 +95,7 @@
   })
 
   function submit() {
-    emit('submit', form.value)
+    emit('submit', form)
   }
 </script>
 

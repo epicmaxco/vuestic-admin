@@ -3,16 +3,21 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, computed, onMounted, onBeforeUnmount, watch, shallowRef, onUpdated } from 'vue'
+  import { ref, toRef, computed, onMounted, onBeforeUnmount, watch, shallowRef, onUpdated } from 'vue'
   import * as am5 from '@amcharts/amcharts5'
   import * as am5map from '@amcharts/amcharts5/map'
   import am5geodata_worldLow from '@amcharts/amcharts5-geodata/worldLow'
   import am5themes_Animated from '@amcharts/amcharts5/themes/Animated'
   import { useGlobalConfig, useColors } from 'vuestic-ui'
 
-  import { planeSVG, useMapData, CityItem, getGeoBounds, generateLineSeriesData } from '../../data/maps/lineMapData'
-
-  const compareStrings = (first: string, second: string) => first.toLowerCase() === second.toLowerCase()
+  import {
+    planeSVG,
+    useMapData,
+    CityItem,
+    getGeoBounds,
+    generateLineSeriesData,
+    compareStrings,
+  } from '../../data/maps/lineMapData'
 
   const generateLabelText = (city?: string) => (city ? `Flights from ${city}` : '')
 
@@ -59,7 +64,7 @@
     },
   })
 
-  const mapPointSeriesData = useMapData(props.mapData)
+  const mapPointSeriesData = useMapData(toRef(props, 'mapData'))
 
   const mapLineSeriesData = computed(() => {
     const item = getItemByMainCityTitle()

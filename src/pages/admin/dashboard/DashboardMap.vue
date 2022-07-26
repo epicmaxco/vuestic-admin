@@ -12,7 +12,7 @@
   import { useI18n } from 'vue-i18n'
 
   import LineMap from '../../../components/maps/LineMap.vue'
-  import { lineMapData } from '../../../data/maps/lineMapData'
+  import { lineMapData, compareStrings } from '../../../data/maps/lineMapData'
 
   const { t } = useI18n()
 
@@ -20,15 +20,12 @@
   const mainCity = ref('Vilnius')
   const homeCity = ref('Vilnius')
 
-  function addAddress(address: { city: { text: string }; country: string }) {
-    address
-    // lineMapData.value = {
-    //   ...lineMapData.value,
-    //   cities: lineMapData.value.cities.map((city) => ({
-    //     ...city,
-    //     // color: city.title === address.city ? theme.value.success : city.color,
-    //   })),
-    // }
+  function addAddress(address: { city: string; country: string }) {
+    cities.value = cities.value.map((mapItem) =>
+      compareStrings(mapItem.title, address.city) && compareStrings(mapItem.country, address.country)
+        ? { ...mapItem, color: 'success' }
+        : mapItem,
+    )
   }
 
   defineExpose({ addAddress })

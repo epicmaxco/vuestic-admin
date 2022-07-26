@@ -1,4 +1,4 @@
-import { computed, ComputedRef } from '@vue/reactivity'
+import { computed, ComputedRef, Ref } from '@vue/reactivity'
 import { useColors } from 'vuestic-ui'
 
 type GeoBounds = {
@@ -296,11 +296,11 @@ export const lineMapData = {
   homeCity: london.title,
 }
 
-export const useMapData = (data: CityItem[]): ComputedRef<CityItem[]> => {
+export const useMapData = (data: Ref<CityItem[]>): ComputedRef<CityItem[]> => {
   const { getColor } = useColors()
 
   return computed(() =>
-    data.map((item) => ({
+    data.value.map((item) => ({
       ...item,
       color: getColor(item.color),
     })),
@@ -338,3 +338,5 @@ export const generateLineSeriesData = (item?: CityItem): DataGeometry[] | undefi
     },
   }))
 }
+
+export const compareStrings = (first: string, second: string) => first.toLowerCase() === second.toLowerCase()
