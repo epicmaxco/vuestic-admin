@@ -6,7 +6,7 @@
           <va-card-title>{{ t('collapse.basic') }}</va-card-title>
           <va-card-content>
             <va-accordion v-model="basicAccordionValue">
-              <va-collapse class="mb-4" :header="t('collapse.firstHeader')">
+              <va-collapse :header="t('collapse.firstHeader')">
                 <div class="pa-3">
                   <p class="display-3">{{ t('collapse.content.title') }}</p>
                   <div>

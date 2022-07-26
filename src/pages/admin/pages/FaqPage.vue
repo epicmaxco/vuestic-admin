@@ -17,31 +17,31 @@
         <va-card-title> Frequently Asked Questions </va-card-title>
         <va-card-content>
           <va-accordion>
-            <va-collapse class="mb-4" header="First question">
+            <va-collapse header="First question">
               <div class="pa-3">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo veniam provident voluptates consequuntur
                 nostrum cumque possimus unde asperiores magnam rem.
               </div>
             </va-collapse>
-            <va-collapse class="mb-4" header="Second question">
+            <va-collapse header="Second question">
               <div class="pa-3">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo veniam provident voluptates consequuntur
                 nostrum cumque possimus unde asperiores magnam rem.
               </div>
             </va-collapse>
-            <va-collapse class="mb-4" header="Third question">
+            <va-collapse header="Third question">
               <div class="pa-3">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo veniam provident voluptates consequuntur
                 nostrum cumque possimus unde asperiores magnam rem.
               </div>
             </va-collapse>
-            <va-collapse class="mb-4" header="Fourth question">
+            <va-collapse header="Fourth question">
               <div class="pa-3">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo veniam provident voluptates consequuntur
                 nostrum cumque possimus unde asperiores magnam rem.
               </div>
             </va-collapse>
-            <va-collapse class="mb-4" header="Fifth question">
+            <va-collapse header="Fifth question">
               <div class="pa-3">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo veniam provident voluptates consequuntur
                 nostrum cumque possimus unde asperiores magnam rem.
