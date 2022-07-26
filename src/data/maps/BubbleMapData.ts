@@ -1,3 +1,23 @@
+export type PointGeoCoord = {
+  latitude: number
+  longitude: number
+}
+
+export type CountryItem = {
+  code: string
+  name: string
+  value: number
+  color: string
+  latitude?: number
+  longitude?: number
+  radius?: number
+}
+
+export type ValueBounds = {
+  min: number
+  max: number
+}
+
 const latLng = {
   AD: {
     latitude: 42.5,
@@ -1978,7 +1998,20 @@ const data = [
   },
 ]
 
-export default {
+export const bubbleMapData = {
   latLng,
   data,
+}
+
+export const getValueBounds = (items: CountryItem[]) => {
+  const values = items.map(({ value }) => value)
+  return {
+    min: Math.min(...values),
+    max: Math.max(...values),
+  }
+}
+
+export const getItemRadius = (item: CountryItem, values: ValueBounds, squares: ValueBounds) => {
+  const square = ((item.value - values.min) / (values.max - values.min)) * (squares.max - squares.min) + squares.min
+  return Math.round(Math.sqrt((4 * square) / Math.PI) * 10) / 10
 }

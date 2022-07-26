@@ -1,121 +1,165 @@
 <template>
-  <div ref="mapRef" class="bubble-map fill-height" />
+  <div ref="mapRef" class="bubble-map" />
 </template>
 
 <script setup lang="ts">
-  import { onMounted, ref } from 'vue'
+  import { computed, onMounted, onUpdated, onBeforeUnmount, ref, shallowRef, watch } from 'vue'
+  import * as am5 from '@amcharts/amcharts5'
+  import * as am5map from '@amcharts/amcharts5/map'
+  import am5geodata_worldLow from '@amcharts/amcharts5-geodata/worldLow'
+  import am5themes_Animated from '@amcharts/amcharts5/themes/Animated'
+  import { useGlobalConfig, useColors } from 'vuestic-ui'
 
-  import 'amcharts3'
-  import 'amcharts3/amcharts/plugins/responsive/responsive.js'
-  import 'amcharts3/amcharts/serial.js'
-  import 'amcharts3/amcharts/themes/light'
-  import 'ammap3'
-  import 'ammap3/ammap/maps/js/worldLow'
+  import { PointGeoCoord, CountryItem, getValueBounds, getItemRadius } from '../../../../data/maps/bubbleMapData'
+
+  const bulletSizes = { min: 3, max: 30 }
+
+  const titleHTML = `
+  <div style="text-align: center">
+    <h2 style="font-size: 16px; margin-bottom: 8px">Population of the World in 2011</h2>
+    <p style="font-size: 12px">source: Gapminder</p>
+  <div>`
 
   const props = defineProps<{
     mapData: {
-      latLng: Record<string, { latitude: number; longitude: number }>
-      data: {
-        code: string
-        name: string
-        value: number
-        color: string
-      }[]
+      latLng: Record<string, PointGeoCoord>
+      data: CountryItem[]
     }
   }>()
 
+  const { getGlobalConfig } = useGlobalConfig()
+  const { getColor } = useColors()
+
   const mapRef = ref()
+  const mapRoot = shallowRef()
+  const mapChart = shallowRef()
+  const mapPolygonSeries = shallowRef()
+  const mapPointSeries = shallowRef()
+  const mapZoomControl = shallowRef()
 
-  onMounted(() => {
-    drawMap()
-  })
+  const themeColors = computed(() => getGlobalConfig().colors)
 
-  function drawMap() {
-    const minBulletSize = 3
-    const maxBulletSize = 70
+  const pointData = computed(() =>
+    props.mapData.data.map((country) => ({
+      ...country,
+      ...props.mapData.latLng[country.code],
+    })),
+  )
 
-    let min = Infinity
-    let max = -Infinity
+  const bulletBounds = computed(() => ({
+    min: (Math.PI * bulletSizes.min ** 2) / 4,
+    max: (Math.PI * bulletSizes.max ** 2) / 4,
+  }))
 
-    ;((window as any).AmCharts as any).theme = ((window as any).AmCharts as any).themes.light
+  const valueBounds = computed(() => getValueBounds(pointData.value))
 
-    // get min and max values
-    props.mapData.data.forEach((dataItem) => {
-      const value = dataItem.value
+  const createMap = () => {
+    const root = am5.Root.new(mapRef.value)
 
-      if (value < min) {
-        min = value
-      }
+    root.setThemes([am5themes_Animated.new(root)])
 
-      if (value > max) {
-        max = value
-      }
+    const chart = root.container.children.push(
+      am5map.MapChart.new(root, {
+        minZoomLevel: 1,
+        maxZoomLevel: 10,
+      }),
+    )
+
+    const zoomControl = chart.set('zoomControl', am5map.ZoomControl.new(root, {}))
+
+    // polygon series
+    const polygonSeries = chart.series.push(
+      am5map.MapPolygonSeries.new(root, {
+        geoJSON: am5geodata_worldLow,
+        exclude: ['AQ'],
+      }),
+    )
+
+    polygonSeries.mapPolygons.template.setAll({
+      fill: am5.color(getColor(themeColors.value?.secondary)),
+      fillOpacity: 0.2,
+      strokeWidth: 0.5,
     })
 
-    // build map
-    const map = new ((window as any).AmCharts as any).AmMap()
-    map.projection = 'winkel3'
+    // title
+    chart.children.push(
+      am5.Label.new(root, {
+        html: titleHTML,
+        y: 15,
+        x: am5.percent(50),
+        centerX: am5.percent(50),
+      }),
+    )
 
-    map.addTitle('Population of the World in 2011', 14, 1, 1, false)
-    map.addTitle('source: Gapminder', 11, 1, 1, 1, false)
+    // point series
+    const pointSeries = chart.series.push(
+      am5map.MapPointSeries.new(root, {
+        latitudeField: 'latitude',
+        longitudeField: 'longitude',
+      }),
+    )
 
-    map.areasSettings = {
-      unlistedAreasColor: '#eee',
-      unlistedAreasAlpha: 1,
-      outlineColor: '#fff',
-      outlineThickness: 2,
-    }
+    pointSeries.bullets.push((root, series, dataItem) => {
+      const itemData = dataItem.dataContext as CountryItem
 
-    map.imagesSettings = {
-      balloonText: '<span style="font-size:14px"><b>[[title]]</b>: [[value]]</span>',
-      alpha: 0.75,
-    }
-
-    const dataProvider = {
-      mapVar: ((window as any).AmCharts as any).maps.worldLow,
-      images: [] as {
-        type: string
-        width: number
-        height: number
-        color: string
-        longitude: number
-        latitude: number
-        title: string
-        value: number
-      }[],
-    }
-
-    // create circle for each country
-    // it's better to use circle square to show difference between values, not a radius
-    const maxSquare = maxBulletSize * maxBulletSize * 2 * Math.PI
-    const minSquare = minBulletSize * minBulletSize * 2 * Math.PI
-
-    // create circle for each country
-    props.mapData.data.forEach((dataItem) => {
-      const value = dataItem.value
-
-      // calculate size of a bubble
-      let square = ((value - min) / (max - min)) * (maxSquare - minSquare) + minSquare
-      if (square < minSquare) {
-        square = minSquare
-      }
-
-      const size = Math.sqrt(square / (Math.PI * 2))
-      const id = dataItem.code
-
-      dataProvider.images.push({
-        type: 'circle',
-        width: size,
-        height: size,
-        color: dataItem.color,
-        longitude: props.mapData.latLng[id].longitude,
-        latitude: props.mapData.latLng[id].latitude,
-        title: dataItem.name,
-        value: value,
+      return am5.Bullet.new(root, {
+        sprite: am5.Circle.new(root, {
+          radius: getItemRadius(itemData, valueBounds.value, bulletBounds.value),
+          fill: am5.color(itemData.color),
+          opacity: 0.6,
+          tooltipText: '{name}: {value}',
+        }),
       })
     })
 
-    map.dataProvider = dataProvider
-    map.write(mapRef.value)
+    // set map data
+    pointSeries.data.setAll(pointData.value)
+
+    // assign objects to refs
+    mapRoot.value = root
+    mapChart.value = chart
+    mapZoomControl.value = zoomControl
+    mapPointSeries.value = pointSeries
+    mapPolygonSeries.value = polygonSeries
   }
+
+  const setPointSeriesData = () => {
+    mapPointSeries.value.data.setAll(pointData.value)
+  }
+
+  const updateChartDataOnChangeTheme = () => {
+    if (mapRoot.value) {
+      mapPolygonSeries.value.mapPolygons.template.setAll({
+        fill: am5.color(getColor(themeColors.value?.secondary)),
+      })
+    }
+  }
+
+  const updateChartDataOnUpdateProps = () => {
+    if (mapRoot.value) {
+      setPointSeriesData()
+    }
+  }
+
+  const disposeMap = () => {
+    if (mapRoot.value) {
+      mapRoot.value.dispose()
+    }
+  }
+
+  onMounted(createMap)
+  onUpdated(updateChartDataOnUpdateProps)
+  watch(themeColors, updateChartDataOnChangeTheme)
+  onBeforeUnmount(disposeMap)
 </script>
+
+<style lang="scss" scoped>
+  .bubble-map {
+    border-radius: inherit;
+
+    :deep(div),
+    :deep(canvas) {
+      border-radius: inherit;
+    }
+  }
+</style>
