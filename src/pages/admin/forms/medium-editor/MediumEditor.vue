@@ -30,10 +30,11 @@
 </template>
 
 <script setup lang="ts">
-  import VaMediumEditor from '../../../../components/va-medium-editor/VaMediumEditor.vue'
-  import { useI18n } from 'vue-i18n'
   import { nextTick } from 'vue'
+  import { useI18n } from 'vue-i18n'
   import type MediumEditor from 'medium-editor'
+  import VaMediumEditor from '../../../../components/va-medium-editor/VaMediumEditor.vue'
+
   const { t } = useI18n()
 
   function handleEditorInitialization(editor: typeof MediumEditor) {

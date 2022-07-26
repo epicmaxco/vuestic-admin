@@ -100,10 +100,9 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
-  import { useGlobalConfig } from 'vuestic-ui'
-  import { computed } from 'vue'
+  import { ref, computed } from 'vue'
   import { useI18n } from 'vue-i18n'
+  import { useGlobalConfig } from 'vuestic-ui'
 
   const { t } = useI18n()
 

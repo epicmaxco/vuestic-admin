@@ -203,5 +203,5 @@
   const { t } = useI18n()
   const { getGlobalConfig } = useGlobalConfig()
 
-  const theme = computed(() => getGlobalConfig().colors)
+  const theme = computed(() => getGlobalConfig().colors!)
 </script>

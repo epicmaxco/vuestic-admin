@@ -207,7 +207,7 @@
     ['3', 'Very Zebra', 'Eradicate'],
   ])
 
-  const theme = computed(() => getGlobalConfig().colors)
+  const theme = computed(() => getGlobalConfig().colors!)
 </script>
 
 <style lang="scss" scoped>

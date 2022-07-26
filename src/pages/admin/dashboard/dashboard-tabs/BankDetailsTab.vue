@@ -24,9 +24,8 @@
 
 <script setup lang="ts">
   import { computed, ref } from 'vue'
-  import { useGlobalConfig } from 'vuestic-ui'
-  import { useToast } from 'vuestic-ui'
   import { useI18n } from 'vue-i18n'
+  import { useGlobalConfig, useToast } from 'vuestic-ui'
 
   const { getGlobalConfig } = useGlobalConfig()
   const { t } = useI18n()
@@ -44,7 +43,7 @@
 
   function sendDetails() {
     const color = theme.value?.primary
-    initToast({ message: `Saved!`, color })
+    initToast({ message: `Details sent!`, color })
   }
 </script>
 

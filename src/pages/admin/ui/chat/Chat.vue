@@ -85,7 +85,7 @@
 
   const inputMessage = ref('')
 
-  const theme = useGlobalConfig().getGlobalConfig().colors
+  const theme = useGlobalConfig().getGlobalConfig().colors!
 
   function sendMessage() {
     if (!inputMessage.value) {

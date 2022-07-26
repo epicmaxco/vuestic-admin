@@ -54,11 +54,11 @@
    */
 
   // import * as spinners from 'epic-spinners'
+  import { computed, ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
   import { useColors } from 'vuestic-ui'
   import VaIconFaster from '../../../../components/icons/VaIconFaster.vue'
   import VaIconSlower from '../../../../components/icons/VaIconSlower.vue'
-  import { useI18n } from 'vue-i18n'
-  import { computed, ref } from 'vue'
 
   const config = ref({
     size: 80,
