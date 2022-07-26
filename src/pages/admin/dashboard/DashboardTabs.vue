@@ -26,6 +26,7 @@
 <script setup lang="ts">
   import { defineAsyncComponent, ref } from 'vue'
   import { useI18n } from 'vue-i18n'
+
   const { t } = useI18n()
 
   const tabs = {
@@ -35,12 +36,12 @@
   }
 
   const emit = defineEmits<{
-    (e: 'submit', data: never): void
+    (e: 'submit', data: any): void
   }>()
 
-  const activeTabName = ref('BillingAddressTab')
+  const activeTabName = ref<keyof typeof tabs>('BillingAddressTab')
 
-  function submit(data: never) {
+  function submit(data: any) {
     emit('submit', data)
   }
 </script>
