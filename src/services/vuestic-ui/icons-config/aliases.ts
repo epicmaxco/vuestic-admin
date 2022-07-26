@@ -205,39 +205,39 @@ export default [
   },
   {
     name: 'ion_md_close',
-    to: 'ion-md-close',
+    to: 'ion-close',
   },
   {
     name: 'ion_md_grid',
-    to: 'ion-md-grid',
+    to: 'ion-grid',
   },
   {
     name: 'ion_md_help',
-    to: 'ion-md-help',
+    to: 'ion-help',
   },
   {
     name: 'ion_md_image',
-    to: 'ion-md-image',
+    to: 'ion-image',
   },
   {
     name: 'ion_md_images',
-    to: 'ion-md-images',
+    to: 'ion-images',
   },
   {
     name: 'ion_md_key',
-    to: 'ion-md-key',
+    to: 'ion-key',
   },
   {
     name: 'ion_md_list',
-    to: 'ion-md-list',
+    to: 'ion-list',
   },
   {
     name: 'ion_md_musical_notes',
-    to: 'ion-md-musical-notes',
+    to: 'ion-musical-notes',
   },
   {
     name: 'ion_md_star_outline',
-    to: 'ion-md-star-outline',
+    to: 'ion-star-outline',
   },
   {
     name: 'last_page',
