@@ -1,5 +1,5 @@
 <template>
-  <div ref="mapRef" />
+  <div ref="mapRef" class="line-map" />
 </template>
 
 <script setup lang="ts">
@@ -270,3 +270,14 @@
   watch(themeColors, updateChartDataOnChangeTheme)
   onBeforeUnmount(disposeMap)
 </script>
+
+<style lang="scss" scoped>
+  .line-map {
+    border-radius: inherit;
+
+    :deep(div),
+    :deep(canvas) {
+      border-radius: inherit;
+    }
+  }
+</style>

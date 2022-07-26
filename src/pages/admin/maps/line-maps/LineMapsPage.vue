@@ -20,3 +20,11 @@
   const homeCity = ref(lineMapData.homeCity)
   const cities = ref(lineMapData.cities)
 </script>
+
+<style lang="scss">
+  .line-maps-page__widget {
+    .va-card__inner {
+      border-radius: inherit;
+    }
+  }
+</style>
