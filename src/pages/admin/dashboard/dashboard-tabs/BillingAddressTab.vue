@@ -31,7 +31,7 @@
         <va-checkbox v-model="form.connection" :label="t('dashboard.tabs.billingAddress.infiniteConnections')" />
       </div>
     </div>
-    <div class="row justify--center">
+    <div class="row justify--center mb-3">
       <va-button @click="submit">
         {{ t('dashboard.tabs.billingAddress.addConnection') }}
       </va-button>

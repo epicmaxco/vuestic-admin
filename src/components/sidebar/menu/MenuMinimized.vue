@@ -4,6 +4,7 @@
     :key="idx"
     v-model="dropdownsValue[idx]"
     placement="right-start"
+    prevent-overflow
     :offset="[1, 0]"
   >
     <template #anchor>
