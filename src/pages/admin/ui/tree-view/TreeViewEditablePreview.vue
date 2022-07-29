@@ -8,12 +8,12 @@
 
     <va-tree-category is-open label="Products">
       <va-tree-node v-for="product in products" :key="product.id">
-        <div class="flex row align--center">
+        <div class="tree-node-editable flex row align--center">
           <va-input v-model="product.name" class="mb-0" />
           <va-icon
             name="ion_md_close"
             color="info"
-            class="ml-2 pa-1 shrink"
+            class="ml-2 shrink"
             style="cursor: pointer"
             @click="removeProduct(product)"
           />
@@ -52,3 +52,11 @@
     products.value = products.value.filter((productToFilter) => productToFilter.id !== product.id)
   }
 </script>
+
+<style lang="scss" scoped>
+  .tree-node-editable {
+    .va-input {
+      width: auto;
+    }
+  }
+</style>

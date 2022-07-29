@@ -45,7 +45,7 @@
         <va-card>
           <va-card-title>{{ t('rating.halves') }}</va-card-title>
           <va-card-content>
-            <va-rating v-model="value" color="warning" halves />
+            <va-rating v-model="value" color="success" size="large" halves />
           </va-card-content>
         </va-card>
       </div>
