@@ -1,8 +1,7 @@
-// @import 'vuestic-ui/dist/vuestic-ui.css';
-@import 'vuestic-ui/dist/styles/index2.css';
+@import 'vuestic-ui/dist/styles/index.css';
 
-.va-input-wrapper,
-.va-select-dropdown {
+.va-input,
+.va-select {
     min-width: auto;
     width: 100%;
 }
