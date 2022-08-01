@@ -5,7 +5,7 @@
       placeholder="Search on the menu"
       :style="{ 'align-items': 'flex-start' }"
       class="va-page-not-found-search__input mb-4"
-      removable
+      clearable
     />
     <div class="row va-page-not-found-search__links">
       <ul

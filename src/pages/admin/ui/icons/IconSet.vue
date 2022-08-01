@@ -1,38 +1,38 @@
 <template>
   <div class="icon-set">
-    <va-card class="icon-set__header mb-4 py-3 ma-0">
+    <va-card class="icon-set__header mb-4 pb-3">
       <va-card-title>
         <h2 class="my-0 ml-2" :style="{ color: theme.dark }">
           {{ iconSet.name }}
         </h2>
       </va-card-title>
       <va-card-content class="row">
-        <div class="flex md3 xs12">
+        <div class="flex md4 xs12 flex-center">
           <va-button outline :to="{ name: 'icon-sets' }">
             {{ t('icons.back') }}
           </va-button>
         </div>
 
-        <div class="flex md5 xs12 flex-center">
-          <va-input v-model="search" :label="t('icons.search')" class="mb-0" style="max-width: 300px" removable>
+        <div class="flex md4 xs12 flex-center">
+          <va-input v-model="search" :label="t('icons.search')" clearable>
             <template #prependInner>
               <va-icon class="icon-left input-icon" name="search" />
             </template>
           </va-input>
         </div>
 
-        <div class="flex md4 xs12 ma-0 flex-center content icon-set__header__size">
-          <span class="ma-2 pr-2 shrink icon-set__header__size--smaller" :style="{ color: theme.dark }"> A </span>
+        <div class="flex md4 xs12 flex-center content icon-set__header__size">
+          <span class="ma-2 pr-2 shrink icon-set__header__size--smaller" :style="{ color: theme.dark }">A</span>
           <va-slider
             v-model="iconSize"
             value-visible
-            style="max-width: 300px"
+            style="flex: 1"
             :label-value="`${iconSize}px`"
             :min="slider.min"
             :max="slider.max"
           >
           </va-slider>
-          <span class="ma-2 pl-2 shrink icon-set__header__size--bigger" :style="{ color: theme.dark }"> A </span>
+          <span class="ma-2 pl-2 shrink icon-set__header__size--bigger" :style="{ color: theme.dark }">A</span>
         </div>
       </va-card-content>
     </va-card>
@@ -52,7 +52,7 @@
           style="flex-direction: column"
         >
           <div class="vuestic-icon mb-3 pt-3">
-            <va-icon :class="iconClass(icon)" :size="iconSize">{{ iconData(icon) }}</va-icon>
+            <va-icon :name="iconName(icon)" :size="iconSize" />
           </div>
           <div class="icon-text">
             {{ icon }}
@@ -126,26 +126,12 @@
     ]
   })
 
-  function iconClass(icon: string) {
-    return iconSet.value.prefix === 'material-icons'
-      ? iconSet.value.prefix
-      : `${iconSet.value.prefix} ${iconSet.value.prefix}-${icon}`
-  }
-
-  function iconData(icon: string) {
-    return iconSet.value.prefix === 'material-icons' ? icon : ''
-  }
+  const iconName = (icon: string) => `${iconSet.value.prefix}-${icon}`
 </script>
 
 <style lang="scss">
   .icon-set {
     .icon-grid-container {
-      &:hover {
-        // color: $white;
-        // background-color: $brand-primary;
-        cursor: pointer;
-      }
-
       .icon-text {
         font-size: 0.6rem;
       }

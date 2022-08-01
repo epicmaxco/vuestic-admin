@@ -14,7 +14,7 @@
               <div v-if="filteredList.length !== 2" :key="i" class="row pa-3">
                 <div v-for="(icon, j) in filteredList" :key="j" class="flex xs2 flex-center">
                   <div class="sets-list__icon pa-3 flex-center vuestic-icon">
-                    <va-icon :name="iconClass(set, icon)"></va-icon>
+                    <va-icon :name="iconName(set, icon)" />
                   </div>
                 </div>
               </div>
@@ -26,13 +26,13 @@
               >
                 <div class="flex xs2 flex-center">
                   <div class="sets-list__icon pa-3 flex-center vuestic-icon">
-                    <va-icon :name="iconClass(set, filteredList[0])"></va-icon>
+                    <va-icon :name="iconName(set, filteredList[0])" />
                   </div>
                 </div>
                 <div class="flex xs8" />
                 <div class="flex xs2 flex-center">
                   <div class="sets-list__icon pa-3 flex-center vuestic-icon">
-                    <va-icon :name="iconClass(set, filteredList[1])"></va-icon>
+                    <va-icon :name="iconName(set, filteredList[1])" />
                   </div>
                 </div>
               </div>
@@ -51,9 +51,7 @@
     sets: IconSet[]
   }>()
 
-  function iconClass(set: IconSet, icon: string) {
-    return `${set.prefix}-${icon}`
-  }
+  const iconName = (set: IconSet, icon: string) => `${set.prefix}-${icon}`
 </script>
 
 <style lang="scss">
