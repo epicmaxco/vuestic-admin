@@ -25,3 +25,4 @@ dist-ssr
 
 # Local Netlify folder
 .netlify
+netlify.toml
