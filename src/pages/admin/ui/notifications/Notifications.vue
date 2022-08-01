@@ -6,7 +6,10 @@
           <va-card-title>{{ t('notificationsPage.notifications.title') }}</va-card-title>
           <va-card-content>
             <div class="mb-3">
-              <va-alert closeable>
+              <va-checkbox v-model="isCloseableAlertVisible" label="Toggle visibility" />
+            </div>
+            <div class="mb-3">
+              <va-alert v-model="isCloseableAlertVisible" closeable>
                 <template #icon>
                   <va-badge :text="t('notificationsPage.notifications.success')" />
                 </template>
@@ -14,7 +17,7 @@
               </va-alert>
             </div>
             <div class="mb-3">
-              <va-alert color="info" closeable>
+              <va-alert v-model="isCloseableAlertVisible" color="info" closeable>
                 <template #icon>
                   <va-badge color="info" :text="t('notificationsPage.notifications.info')" />
                 </template>
@@ -22,7 +25,7 @@
               </va-alert>
             </div>
             <div class="mb-3">
-              <va-alert color="warning" closeable>
+              <va-alert v-model="isCloseableAlertVisible" color="warning" closeable>
                 <template #icon>
                   <va-badge color="warning" :text="t('notificationsPage.notifications.warning')" />
                 </template>
@@ -30,7 +33,7 @@
               </va-alert>
             </div>
             <div class="mb-3">
-              <va-alert color="danger" closeable>
+              <va-alert v-model="isCloseableAlertVisible" color="danger" closeable>
                 <template #icon>
                   <va-badge color="danger" :text="t('notificationsPage.notifications.danger')" />
                 </template>
@@ -38,7 +41,7 @@
               </va-alert>
             </div>
             <div class="mb-3">
-              <va-alert color="gray" closeable>
+              <va-alert v-model="isCloseableAlertVisible" color="gray" closeable>
                 <template #icon>
                   <va-badge color="gray" :text="t('notificationsPage.notifications.gray')" />
                 </template>
@@ -46,7 +49,7 @@
               </va-alert>
             </div>
             <div class="mb-3">
-              <va-alert color="dark" closeable>
+              <va-alert v-model="isCloseableAlertVisible" color="dark" closeable>
                 <template #icon>
                   <va-badge color="dark" :text="t('notificationsPage.notifications.dark')" />
                 </template>
@@ -119,6 +122,8 @@
 
   const { t } = useI18n()
   const { init } = useToast()
+
+  const isCloseableAlertVisible = ref(true)
 
   const toastText = ref('This toast is awesome!')
   const toastDuration = ref(2500)
