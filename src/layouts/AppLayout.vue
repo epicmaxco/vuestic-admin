@@ -4,7 +4,7 @@
     <div class="app-layout__content">
       <div class="app-layout__sidebar-wrapper" :class="{ minimized: isSidebarMinimized }">
         <div v-if="isFullScreenSidebar" class="d-flex justify--end">
-          <va-button class="px-4 py-4" icon="close" flat color="dark" @click="onCloseSidebarButtonClick" />
+          <va-button class="px-4 py-4" icon="md_close" flat color="dark" @click="onCloseSidebarButtonClick" />
         </div>
         <sidebar
           :width="sidebarWidth"

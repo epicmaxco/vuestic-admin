@@ -11,7 +11,7 @@
         <div class="tree-node-editable flex row align--center">
           <va-input v-model="product.name" class="mb-0" />
           <va-icon
-            name="ion_md_close"
+            name="md_close"
             color="info"
             class="ml-2 shrink"
             style="cursor: pointer"

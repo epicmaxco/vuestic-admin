@@ -52,12 +52,12 @@
           <va-card-title>{{ t('buttons.advanced') }}</va-card-title>
           <va-card-content class="row">
             <div class="flex">
-              <va-button class="mr-2 mb-2" icon="ion_md_close"> {{ t('buttons.button') }}</va-button>
+              <va-button class="mr-2 mb-2" icon="md_close"> {{ t('buttons.button') }}</va-button>
               <va-button class="mr-2 mb-2" icon-right="expand_more"> {{ t('buttons.button') }}</va-button>
-              <va-button class="mr-2 mb-2" icon="ion_md_close" icon-right="expand_more">
+              <va-button class="mr-2 mb-2" icon="md_close" icon-right="expand_more">
                 {{ t('buttons.button') }}
               </va-button>
-              <va-button class="mr-2 mb-2" icon="ion_md_close" />
+              <va-button class="mr-2 mb-2" icon="md_close" />
             </div>
           </va-card-content>
         </va-card>
@@ -146,7 +146,7 @@
                 <va-button-group flat size="small" color="warning">
                   <va-button icon="glyphicon-envelope" />
                   <va-button icon="entypo-user" />
-                  <va-button icon-right="ion-ios-alarm" />
+                  <va-button icon="ion-ios-alarm" />
                 </va-button-group>
               </div>
             </div>

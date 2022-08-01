@@ -29,7 +29,7 @@
                   </va-input>
                 </div>
                 <div class="flex md4 sm6 xs12">
-                  <va-input v-model="clearableText" placeholder="Input With Clear Button" removable />
+                  <va-input v-model="clearableText" placeholder="Input With Clear Button" clearable />
                 </div>
                 <div class="flex md4 sm6 xs12">
                   <va-input

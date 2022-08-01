@@ -14,8 +14,8 @@
             <va-card-title>
               {{ t('cards.title.withControls') }}
               <va-spacer />
-              <!-- <va-button class="mr-1" size="small" icon="refresh"/> -->
-              <!-- <va-button size="small" icon="gear"/> -->
+              <va-button class="mr-1" size="small" icon="refresh" />
+              <va-button size="small" icon="gear" />
             </va-card-title>
             <va-card-content>{{ t('cards.contentTextLong') }}</va-card-content>
           </va-card>
@@ -24,7 +24,7 @@
         <div class="flex xs12 sm6">
           <va-card>
             <va-card-title>
-              <!-- <va-icon class="mr-3" name="cogs" /> -->
+              <va-icon class="mr-3" name="cogs" />
               {{ t('cards.title.customHeader') }}
             </va-card-title>
             <va-card-content>{{ t('cards.contentTextLong') }}</va-card-content>
