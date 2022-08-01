@@ -90,6 +90,7 @@
       "time": "Hora",
       "range": "Alcance",
       "multiple": "Múltiplo",
+      "manualInput": "Entrada manual",
       "disabled": "Desabilitado"
     },
     "inputs": {

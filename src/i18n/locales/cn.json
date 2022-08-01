@@ -93,6 +93,7 @@
       "time": "时间",
       "range": "范围",
       "multiple": "多重的",
+      "manualInput": "手動輸入",
       "disabled": "禁用",
       "customFirstDay": "自定义起始日",
       "customDateFormat": "自定义日期格式"

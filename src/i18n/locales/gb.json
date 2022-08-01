@@ -235,6 +235,7 @@
       "basic": "Basic",
       "time": "Time",
       "range": "Range",
+      "manualInput": "Manual input",
       "multiple": "Multiple",
       "disabled": "Disabled",
       "customFirstDay": "Custom first day",

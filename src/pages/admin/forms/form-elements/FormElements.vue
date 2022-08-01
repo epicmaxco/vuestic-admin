@@ -54,71 +54,54 @@
         </va-card>
       </div>
 
-      <!-- <div class="flex xs12">
-        <va-card">
+      <div class="flex xs12">
+        <va-card>
           <va-card-title>{{ t('forms.dateTimePicker.title') }}</va-card-title>
           <va-card-content>
             <form>
-              <div class="row overflow--hidden">
-                <div class="flex md8">
-                  <div class="row row-inside">
-                    <div class="flex xs12 sm6">
-                      <va-date-picker
-                        :label="t('forms.dateTimePicker.basic')"
-                        v-model="datepicker.simple"
-                      />
-                    </div>
-                    <div class="flex xs12 sm6">
-                      <va-date-picker
-                        :label="t('forms.dateTimePicker.time')"
-                        :config="{enableTime: true}"
-                        v-model="datepicker.time"
-                      />
-                    </div>
-                    <div class="flex xs12 sm6">
-                      <va-date-picker
-                        :label="t('forms.dateTimePicker.customFirstDay')"
-                        :config="{locale: {firstDayOfWeek: 1}}"
-                        v-model="datepicker.customFirstDay"
-                        weekDays
-                      />
-                    </div>
-                    <div class="flex xs12 sm6">
-                      <va-date-picker
-                        :label="t('forms.dateTimePicker.disabled')"
-                        disabled
-                        v-model="datepicker.disabled"
-                      />
-                    </div>
-                    <div class="flex xs12 sm6">
-                      <va-date-picker
-                        :label="t('forms.dateTimePicker.multiple')"
-                        :config="{mode: 'multiple'}"
-                        v-model="datepicker.multiple"
-                      />
-                    </div>
-                    <div class="flex xs12 sm6">
-                      <va-date-picker
-                        :label="t('forms.dateTimePicker.customDateFormat')"
-                        :config="{dateFormat: 'Y-M-d'}"
-                        v-model="datepicker.customDate"
-                      />
-                    </div>
-                  </div>
+              <div class="row">
+                <div class="flex md4 sm6 xs12">
+                  <va-date-input v-model="dateInput.simple" :label="t('forms.dateTimePicker.basic')" />
                 </div>
-
-                <div class="flex xs12 md4">
-                  <va-date-picker
+                <div class="flex md4 sm6 xs12">
+                  <va-date-input
+                    v-model="dateInput.simple"
+                    :label="t('forms.dateTimePicker.manualInput')"
+                    manual-input
+                  />
+                </div>
+                <div class="flex md4 sm6 xs12">
+                  <va-date-input v-model="dateInput.disabled" :label="t('forms.dateTimePicker.disabled')" disabled />
+                </div>
+                <div class="flex md4 sm6 xs12">
+                  <va-date-input
+                    v-model="dateInput.multiple"
+                    :label="t('forms.dateTimePicker.multiple')"
+                    mode="multiple"
+                    clearable
+                  />
+                </div>
+                <div class="flex md4 sm6 xs12">
+                  <va-date-input
+                    v-model="dateInput.range"
                     :label="t('forms.dateTimePicker.range')"
-                    :config="{mode: 'range', inline: true}"
-                    v-model="datepicker.range"
+                    mode="range"
+                    clearable
+                  />
+                </div>
+                <div class="flex md4 sm6 xs12">
+                  <va-date-input
+                    v-model="dateInput.customFirstDay"
+                    :label="t('forms.dateTimePicker.customFirstDay')"
+                    first-weekday="Monday"
+                    highlight-weekend
                   />
                 </div>
               </div>
             </form>
           </va-card-content>
         </va-card>
-      </div> -->
+      </div>
 
       <div class="flex xs12">
         <va-card>
@@ -188,20 +171,20 @@
           <va-card-content>
             <form>
               <div class="row">
-                <div class="flex md3">
+                <div class="flex md6 xs12">
                   <fieldset>
                     <va-checkbox v-model="checkbox.unselected" :label="t('forms.controls.unselected')" class="mb-2" />
                     <va-checkbox v-model="checkbox.selected" :label="t('forms.controls.selected')" class="mb-2" />
                     <va-checkbox
                       v-model="checkbox.readonly"
                       :label="t('forms.controls.readonly')"
-                      :readonly="true"
+                      readonly
                       class="mb-2"
                     />
                     <va-checkbox
                       v-model="checkbox.disabled"
                       :label="t('forms.controls.disabled')"
-                      :disabled="true"
+                      disabled
                       class="mb-2"
                     />
                     <va-checkbox v-model="checkbox.error" :label="t('forms.controls.error')" error class="mb-2" />
@@ -214,28 +197,28 @@
                     />
                   </fieldset>
                 </div>
-                <div class="flex md3">
+                <div class="flex md6 xs12">
                   <fieldset>
-                    <va-radio v-model="radioSelectedOption" option="option1" label="Radio" />
-                    <va-radio v-model="radioSelectedOption" option="option2" label="Radio" />
+                    <va-radio v-model="radioSelectedOption" option="option1" label="Radio-1" />
+                    <va-radio v-model="radioSelectedOption" option="option2" label="Radio-2" />
                   </fieldset>
                   <fieldset>
-                    <va-radio v-model="radioSelectedDisableOption" option="option1" disabled label="Disabled Radio" />
-                    <va-radio v-model="radioSelectedDisableOption" option="option2" disabled label="Disabled Radio" />
+                    <va-radio v-model="radioSelectedDisableOption" option="option1" disabled label="Disabled Radio-1" />
+                    <va-radio v-model="radioSelectedDisableOption" option="option2" disabled label="Disabled Radio-2" />
                   </fieldset>
                 </div>
-                <div class="flex mb3">
+                <div class="flex">
                   <fieldset>
-                    <va-switch v-model="toggles.selected" label="Selected toggle" style="padding-right: 10px" />
-                    <va-switch v-model="toggles.unselected" label="Unselected toggle" style="padding-right: 10px" />
-                    <va-switch
-                      v-model="toggles.disabled"
-                      disabled
-                      label="Disabled toggle"
-                      style="padding-right: 10px"
-                    />
-                    <va-switch v-model="toggles.small" size="small" label="Small toggle" style="padding-right: 10px" />
-                    <va-switch v-model="toggles.large" size="large" label="Large toggle" />
+                    <va-switch v-model="toggles.selected" label="Selected toggle" class="mr-4 mb-2" />
+                    <va-switch v-model="toggles.unselected" label="Unselected toggle" class="mr-4 mb-2" />
+                  </fieldset>
+                  <fieldset>
+                    <va-switch v-model="toggles.disabled" disabled label="Disabled toggle" class="mr-4 mb-2" />
+                    <va-switch v-model="toggles.disabled" readonly label="Readonly toggle" class="mr-4 mb-2" />
+                  </fieldset>
+                  <fieldset>
+                    <va-switch v-model="toggles.small" size="small" label="Small toggle" class="mr-4 mb-2" />
+                    <va-switch v-model="toggles.large" size="large" label="Large toggle" class="mr-4 mb-2" />
                   </fieldset>
                 </div>
               </div>
@@ -306,23 +289,22 @@
     large: false,
   })
 
-  // const datepicker = ref({
-  //   simple: '2018-05-09',
-  //   time: '2018-05-08 14:10',
-  //   range: '2018-05-08 to 2018-05-23',
-  //   disabled: '2018-05-09',
-  //   multiple: '2018-04-25, 2018-04-27',
-  //   customFirstDay: '2018-05-09',
-  //   customDate: '2017-Dec-06',
-  // })
-</script>
-
-<style lang="scss">
-  .row.row-inside {
-    max-width: none;
+  const datePlusDay = (date: Date, days: number) => {
+    const d = new Date(date)
+    d.setDate(d.getDate() + days)
+    return d
   }
 
-  .va-input-wrapper,
+  const dateInput = ref({
+    simple: new Date(),
+    disabled: '2018-05-09',
+    range: { start: new Date(), end: datePlusDay(new Date(), 7) },
+    multiple: ['2018-04-25', '2018-04-27'],
+    customFirstDay: new Date(),
+  })
+</script>
+
+<style lang="scss" scoped>
   fieldset {
     margin-bottom: 0.5rem;
   }
