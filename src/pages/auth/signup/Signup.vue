@@ -26,7 +26,7 @@
         :error-messages="agreedToTermsErrors"
       >
         <template #label>
-          <span class="ml-1">
+          <span class="ml-2">
             {{ t('auth.agree') }}
             <span class="link">{{ t('auth.termsOfUse') }}</span>
           </span>

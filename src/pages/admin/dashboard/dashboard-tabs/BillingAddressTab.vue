@@ -18,6 +18,7 @@
           :options="countriesList"
           :label="t('dashboard.tabs.billingAddress.country')"
           searchable
+          clearable
           class="mb-3"
         />
         <va-select
@@ -40,7 +41,7 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, onMounted, reactive, ref, watch } from 'vue'
+  import { computed, reactive, ref, watch } from 'vue'
   import { useGlobalConfig } from 'vuestic-ui'
   import { useI18n } from 'vue-i18n'
   import { lineMapData } from '../../../../data/maps/lineMapData'
@@ -88,11 +89,8 @@
         form.city = { text: city }
       }
     },
+    { immediate: true },
   )
-
-  onMounted(() => {
-    allowedCitiesList.value = [...citiesList.value]
-  })
 
   function submit() {
     emit('submit', form)
