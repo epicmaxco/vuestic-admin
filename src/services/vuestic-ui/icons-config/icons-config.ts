@@ -9,9 +9,9 @@ export default createIconsConfig({
       resolve: ({ code }) => ({ class: `fa4 fa fa-${code}` }),
     },
     {
-      name: 'ion-{code}',
-      resolve: ({ code }) => ({
-        class: `icon ion-md-${code}`,
+      name: 'ion-{font}-{code}',
+      resolve: ({ font, code }) => ({
+        class: `icon ion-${font}-${code}`,
       }),
     },
     {
@@ -23,7 +23,7 @@ export default createIconsConfig({
       resolve: ({ code, size }) => ({ class: `fi fi-${code} fi-size-${size}`, tag: 'span' }),
     },
     {
-      name: /(brandico|entypo|fa|fontelico|glyphicon|iconicstroke|maki|openwebicons|ion)-(.*)/,
+      name: /(brandico|entypo|fa|fontelico|glyphicon|iconicstroke|maki|openwebicons)-(.*)/,
       resolveFromRegex: (font, code) => ({ class: `${font} ${font}-${code}` }),
     },
     {
