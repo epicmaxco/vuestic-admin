@@ -91,11 +91,31 @@
                 </div>
                 <div class="flex md4 sm6 xs12">
                   <va-date-input
-                    v-model="dateInput.customFirstDay"
+                    v-model="dateInput.simple"
                     :label="t('forms.dateTimePicker.customFirstDay')"
                     first-weekday="Monday"
                     highlight-weekend
                   />
+                </div>
+              </div>
+            </form>
+          </va-card-content>
+          <va-divider />
+          <va-card-content>
+            <form>
+              <div class="row">
+                <div class="flex md4 sm6 xs12">
+                  <va-time-input v-model="dateInput.simple" :label="t('forms.dateTimePicker.basic')" />
+                </div>
+                <div class="flex md4 sm6 xs12">
+                  <va-time-input
+                    v-model="dateInput.simple"
+                    :label="t('forms.dateTimePicker.manualInput')"
+                    manual-input
+                  />
+                </div>
+                <div class="flex md4 sm6 xs12">
+                  <va-time-input v-model="dateInput.simple" :label="t('forms.dateTimePicker.disabled')" disabled />
                 </div>
               </div>
             </form>
@@ -300,7 +320,6 @@
     disabled: '2018-05-09',
     range: { start: new Date(), end: datePlusDay(new Date(), 7) },
     multiple: ['2018-04-25', '2018-04-27'],
-    customFirstDay: new Date(),
   })
 </script>
 
