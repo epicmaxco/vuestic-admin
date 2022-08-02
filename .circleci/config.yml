@@ -98,17 +98,17 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
-      - test
+#      - test
       - deploy-staging:
-          requires:
-            - test
+#          requires:
+#            - test
           context: vuestic-admin-staging
           filters:
             branches:
               only: develop
       - deploy-production:
-          requires:
-            - test
+#          requires:
+#            - test
           context: vuestic-production
           filters:
             branches:
