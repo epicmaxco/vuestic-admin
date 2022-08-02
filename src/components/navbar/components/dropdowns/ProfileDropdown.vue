@@ -1,5 +1,5 @@
 <template>
-  <va-dropdown v-model="isShown" class="profile-dropdown" boundary-body position="bottom" :offset="[13, 0]">
+  <va-dropdown v-model="isShown" class="profile-dropdown" stick-to-edges placement="bottom" :offset="[13, 0]">
     <template #anchor>
       <span class="profile-dropdown__anchor">
         <slot />
@@ -7,7 +7,7 @@
       </span>
     </template>
     <va-dropdown-content class="profile-dropdown__content">
-      <va-list-item v-for="option in options" :key="option.name">
+      <va-list-item v-for="option in options" :key="option.name" class="pa-2">
         <router-link :to="{ name: option.redirectTo }" class="profile-dropdown__item">
           {{ t(`user.${option.name}`) }}
         </router-link>
@@ -50,13 +50,8 @@
   .profile-dropdown {
     cursor: pointer;
 
-    .va-dropdown-popper__anchor {
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    &__content {
-      width: 8rem;
+    &__anchor {
+      display: inline-block;
     }
 
     &__item {
@@ -67,10 +62,6 @@
       &:active {
         color: var(--va-primary);
       }
-    }
-
-    .va-dropdown__anchor {
-      display: inline-block;
     }
   }
 </style>
