@@ -14,7 +14,7 @@
   import { ref } from 'vue'
 
   import LineMap from '../../../../components/maps/LineMap.vue'
-  import { lineMapData } from '../../../../data/maps/lineMapData'
+  import { lineMapData } from '../../../../data/maps/LineMapData'
 
   const mainCity = ref(lineMapData.mainCity)
   const homeCity = ref(lineMapData.homeCity)

@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
   import BubbleMap from './BubbleMap.vue'
-  import { bubbleMapData } from '../../../../data/maps/bubbleMapData'
+  import { bubbleMapData } from '../../../../data/maps/BubbleMapData'
 </script>
 
 <style lang="scss">
