@@ -12,7 +12,7 @@
   import { useI18n } from 'vue-i18n'
 
   import LineMap from '../../../components/maps/LineMap.vue'
-  import { lineMapData, compareStrings } from '../../../data/maps/lineMapData'
+  import { lineMapData, compareStrings } from '../../../data/maps/LineMapData'
 
   const { t } = useI18n()
 
