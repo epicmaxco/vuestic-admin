@@ -160,6 +160,7 @@ and [discord server](https://discord.gg/jTKTjj2weV)
        <img vspace="10" hspace="15" src="./.github/assets/flatlogic.svg" loading="lazy" alt="">
     </div>
 <br >
+
 Become a partner: [hello@epicmax.co](mailto:hello@epicmax.co)
 
 ## Can I hire you guys?
