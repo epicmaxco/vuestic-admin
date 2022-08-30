@@ -73,11 +73,11 @@ export default {
         },
       ],
     },
-    // {
-    //   name: "spinners",
-    //   path: "spinners",
-    //   component: () => import("../../../pages/admin/ui/spinners/Spinners.vue"),
-    // },
+    {
+      name: 'spinners',
+      path: 'spinners',
+      component: () => import('../../../pages/admin/ui/spinners/Spinners.vue'),
+    },
     {
       name: 'grid',
       path: 'grid',
