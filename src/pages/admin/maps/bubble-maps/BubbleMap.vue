@@ -10,7 +10,7 @@
   import am5themes_Animated from '@amcharts/amcharts5/themes/Animated'
   import { useGlobalConfig, useColors } from 'vuestic-ui'
 
-  import { PointGeoCoord, CountryItem, getValueBounds, getItemRadius } from '../../../../data/maps/BubbleMapData'
+  import { PointGeoCoord, CountryItem, getValueBounds, getItemRadius } from '../../../../data/maps/bubbleMapData'
 
   const bulletSizes = { min: 3, max: 30 }
 
