@@ -9,10 +9,10 @@
   dependencies:
     "@types/geojson" "^7946.0.8"
 
-"@amcharts/amcharts5@^5.2.13":
-  version "5.2.13"
-  resolved "https://registry.npmjs.org/@amcharts/amcharts5/-/amcharts5-5.2.13.tgz"
-  integrity sha512-jpCaY2XK9u47KGpHPawuXnxVPnmDg/P5nMg54ySMsNBE8xfuqtFpCK+tMGisWYax9y+Ihp/5oCLFA332jJwPGQ==
+"@amcharts/amcharts5@^5.2.19":
+  version "5.2.19"
+  resolved "https://registry.npmjs.org/@amcharts/amcharts5/-/amcharts5-5.2.19.tgz"
+  integrity sha512-cKIHiPto6rmmrW7x+KKXVPLGW8+PfBwV9Z17Ns6ZdQF8KddSCDcfqHF/+PtAa81oTbfrFbr8N+fAg38fOOcECw==
   dependencies:
     "@types/d3" "^7.0.0"
     "@types/d3-chord" "^3.0.0"
@@ -1684,12 +1684,12 @@ esbuild-android-arm64@0.14.47:
 
 esbuild-darwin-64@0.14.47:
   version "0.14.47"
-  resolved "https://registry.yarnpkg.com/esbuild-darwin-64/-/esbuild-darwin-64-0.14.47.tgz#e0da6c244f497192f951807f003f6a423ed23188"
+  resolved "https://registry.npmjs.org/esbuild-darwin-64/-/esbuild-darwin-64-0.14.47.tgz"
   integrity sha512-R6oaW0y5/u6Eccti/TS6c/2c1xYTb1izwK3gajJwi4vIfNs1s8B1dQzI1UiC9T61YovOQVuePDcfqHLT3mUZJA==
 
 esbuild-darwin-arm64@0.14.47:
   version "0.14.47"
-  resolved "https://registry.npmjs.org/esbuild-darwin-arm64/-/esbuild-darwin-arm64-0.14.47.tgz"
+  resolved "https://registry.yarnpkg.com/esbuild-darwin-arm64/-/esbuild-darwin-arm64-0.14.47.tgz#cd40fd49a672fca581ed202834239dfe540a9028"
   integrity sha512-seCmearlQyvdvM/noz1L9+qblC5vcBrhUaOoLEDDoLInF/VQ9IkobGiLlyTPYP5dW1YD4LXhtBgOyevoIHGGnw==
 
 esbuild-freebsd-64@0.14.47:
@@ -3562,10 +3562,10 @@ vue@^3.2.25:
     "@vue/server-renderer" "3.2.37"
     "@vue/shared" "3.2.37"
 
-vuestic-ui@^1.4.8:
-  version "1.4.8"
-  resolved "https://registry.npmjs.org/vuestic-ui/-/vuestic-ui-1.4.8.tgz"
-  integrity sha512-1DUq1SAlUyHrOkMz5kTAJIT3PGdPbgLViwSc9Uqn+PY800iyQBMF+c+z4jDc01drerWmFxR8QjmUV5rzDZEESg==
+vuestic-ui@^1.4.9:
+  version "1.4.9"
+  resolved "https://registry.npmjs.org/vuestic-ui/-/vuestic-ui-1.4.9.tgz"
+  integrity sha512-Pc+qCBwycMQKaaGhPz012oYnbIga5gsG0LsjWFMfaWxe8YP9EAiYKzrTSz4fDllk2xcHHF06GgaMw0bMFW+Bbw==
   dependencies:
     cleave.js "^1.6.0"
     colortranslator "^1.9.2"
