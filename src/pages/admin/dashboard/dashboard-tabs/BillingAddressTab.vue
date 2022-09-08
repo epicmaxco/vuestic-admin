@@ -44,7 +44,7 @@
   import { computed, reactive, ref, watch } from 'vue'
   import { useGlobalConfig } from 'vuestic-ui'
   import { useI18n } from 'vue-i18n'
-  import { lineMapData } from '../../../../data/maps/LineMapData'
+  import { lineMapData } from '../../../../data/maps/lineMapData'
   import CountriesList from '../../../../data/CountriesList'
 
   const { getGlobalConfig } = useGlobalConfig()

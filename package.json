@@ -9,7 +9,8 @@
     "build:ci": "vite build",
     "prelint": "npm run format",
     "lint": "eslint --fix './src/**/*.{ts,js,vue}'",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "preview": "vite preview"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,vue}": [
@@ -17,7 +18,7 @@
     ]
   },
   "dependencies": {
-    "@amcharts/amcharts5": "^5.2.13",
+    "@amcharts/amcharts5": "^5.2.19",
     "@amcharts/amcharts5-geodata": "^5.0.3",
     "@fortawesome/fontawesome-free": "^6.1.1",
     "@gtm-support/vue-gtm": "^1.6.0",
@@ -37,7 +38,7 @@
     "vue-i18n": "^9.1.10",
     "vue-router": "^4.0.14",
     "vue-yandex-maps": "^0.12.3",
-    "vuestic-ui": "^1.4.8"
+    "vuestic-ui": "^1.4.10"
   },
   "devDependencies": {
     "@intlify/vite-plugin-vue-i18n": "^5.0.1",

@@ -17,7 +17,7 @@
     getGeoBounds,
     generateLineSeriesData,
     compareStrings,
-  } from '../../data/maps/LineMapData'
+  } from '../../data/maps/lineMapData'
 
   const generateLabelText = (city?: string) => (city ? `Flights from ${city}` : '')
 
