@@ -8,8 +8,8 @@
             <span class="shrink pr-3 spinners__size-smaller">A</span>
             <va-slider
               v-model="config.size"
-              value-visible
-              :label-value="`${config.size}px`"
+              track-label-visible
+              :track-label="`${config.size}px`"
               :min="sliderSize.min"
               :max="sliderSize.max"
             />
@@ -18,7 +18,12 @@
 
           <div class="d-flex flex xs12 lg4 align--center">
             <va-icon-slower class="shrink pr-3 spinners__duration-slower" />
-            <va-slider v-model="currentDuration" value-visible :min="sliderDuration.min" :max="sliderDuration.max" />
+            <va-slider
+              v-model="config.duration"
+              track-label-visible
+              :min="sliderDuration.min"
+              :max="sliderDuration.max"
+            />
             <va-icon-faster class="shrink pl-3 spinners__duration-faster" />
           </div>
 
@@ -35,10 +40,14 @@
           <div v-for="item in group" :key="item" class="flex sm6 xs12 lg3">
             <div class="text--center pb-4">
               <div class="flex-center spinner-box">
-                <component :is="item" :animation-duration="speed" :color="computedSpinnersColor" :size="config.size">
-                </component>
+                <component
+                  :is="getComponent(item)"
+                  :animation-duration="config.duration"
+                  :color="computedSpinnersColor"
+                  :size="config.size"
+                />
               </div>
-              <div>{{ t(item) }}</div>
+              <div>{{ item }}</div>
             </div>
           </div>
         </div>
@@ -48,25 +57,24 @@
 </template>
 
 <script setup lang="ts">
-  /**
-   * HIDDEN FROM THE ADMIN! SEE src/components/sidebar/NavigationRoutes.ts AND src/pages/admin/ui/route.ts TO REVEAL.
-   * ALSO INSTALL THE DEPENDENCY "epic-spinners": "^1.1.0" (OR HIGHER WHEN IT'S UPDATED)!
-   */
-
-  // import * as spinners from 'epic-spinners'
   import { computed, ref } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useColors } from 'vuestic-ui'
+  import * as spinners from 'epic-spinners'
+
   import VaIconFaster from '../../../../components/icons/VaIconFaster.vue'
   import VaIconSlower from '../../../../components/icons/VaIconSlower.vue'
 
-  const config = ref({
-    size: 80,
-    group: 4,
-    duration: 1500,
-  })
+  type SpinnersItems = keyof typeof spinners
 
-  const currentDuration = ref(1500)
+  const { t } = useI18n()
+  const { getColor } = useColors()
+
+  const config = ref({
+    size: 70,
+    group: 4,
+    duration: 2000,
+  })
 
   const spinnersColor = ref('primary')
 
@@ -78,38 +86,26 @@
 
   const sliderDuration = ref({
     min: 1000,
-    max: 2000,
+    max: 3000,
   })
 
-  const { t } = useI18n()
-  const { getColor } = useColors()
+  const computedSpinnersColor = computed(() => getColor(spinnersColor.value))
 
-  const computedSpinnersColor = computed(() => {
-    return getColor(spinnersColor.value)
-  })
+  const groups = computed(() => groupItems(Object.keys(spinners) as SpinnersItems[], config.value.group))
 
-  const speed = computed(() => {
-    return sliderDuration.value.min + sliderDuration.value.max - currentDuration.value
-  })
+  const paletteArray = computed(() => ['primary', 'success', 'danger', 'warning', 'dark'])
 
-  const groups = computed(() => {
-    // return groupItems(Object.keys(spinners), config.value.group)
-    return []
-  })
+  function groupItems(items: SpinnersItems[], groupSize: number) {
+    const grouped = []
 
-  const paletteArray = computed(() => {
-    return ['primary', 'success', 'danger', 'warning', 'dark']
-  })
+    for (let i = 0; i < items.length; i += groupSize) {
+      grouped.push(items.slice(i, i + groupSize))
+    }
 
-  // function groupItems(items: never[], groupSize: number) {
-  //   const grouped = []
-  //
-  //   for (let i = 0; i < items.length; i += groupSize) {
-  //     grouped.push(items.slice(i, i + groupSize))
-  //   }
-  //
-  //   return grouped
-  // }
+    return grouped
+  }
+
+  const getComponent = (item: SpinnersItems) => spinners[item]
 </script>
 
 <style lang="scss">
