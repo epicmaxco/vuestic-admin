@@ -41,6 +41,9 @@ export const COLOR_THEMES = [
       VaCardTitle: {
         textColor: 'dark',
       },
+      VaButton: {
+        round: true,
+      },
     },
   },
   {
@@ -74,6 +77,9 @@ export const COLOR_THEMES = [
       },
       VaCardTitle: {
         textColor: 'dark',
+      },
+      VaButton: {
+        round: true,
       },
     },
   },
@@ -109,6 +115,9 @@ export const COLOR_THEMES = [
       VaCardTitle: {
         textColor: 'dark',
       },
+      VaButton: {
+        round: true,
+      },
     },
   },
   {
@@ -142,6 +151,9 @@ export const COLOR_THEMES = [
       },
       VaCardTitle: {
         textColor: 'dark',
+      },
+      VaButton: {
+        round: true,
       },
     },
   },
