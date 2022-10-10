@@ -28,10 +28,6 @@ export const COLOR_THEMES = [
         color: 'white',
         textColor: 'dark',
       },
-      VaSidebar: {
-        color: 'white',
-        textColor: 'dark',
-      },
       VaCard: {
         color: 'white',
       },
@@ -62,10 +58,6 @@ export const COLOR_THEMES = [
     },
     components: {
       VaNavbar: {
-        color: 'white',
-        textColor: 'dark',
-      },
-      VaSidebar: {
         color: 'white',
         textColor: 'dark',
       },
@@ -102,10 +94,6 @@ export const COLOR_THEMES = [
         color: 'dark',
         textColor: 'white',
       },
-      VaSidebar: {
-        color: 'dark',
-        textColor: 'white',
-      },
       VaCard: {
         color: 'white',
       },
@@ -137,10 +125,6 @@ export const COLOR_THEMES = [
     components: {
       VaNavbar: {
         color: '#1E4CBD',
-        textColor: 'primary',
-      },
-      VaSidebar: {
-        color: '#0A2E80',
         textColor: 'primary',
       },
       VaCard: {
