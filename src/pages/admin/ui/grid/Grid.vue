@@ -78,19 +78,19 @@
         <va-card-title>{{ t('grid.offsets') }}</va-card-title>
         <va-card-content>
           <div class="row">
-            <div class="flex xs6 md6 offset--md6">
-              <div class="grid__container flex-center" :style="computedStyle">xs6 md6 offset--md6</div>
+            <div class="flex xs6 md6 offset-md6">
+              <div class="grid__container flex-center" :style="computedStyle">xs6 md6 offset-md6</div>
             </div>
           </div>
-          <div class="flex md6 offset--md3">
-            <div class="grid__container flex-center" :style="computedStyle">md6 offset--md3</div>
+          <div class="flex md6 offset-md3">
+            <div class="grid__container flex-center" :style="computedStyle">md6 offset-md3</div>
           </div>
           <div class="row">
             <div class="flex md4">
               <div class="grid__container flex-center" :style="computedStyle">md4</div>
             </div>
-            <div class="flex md4 offset--md4">
-              <div class="grid__container flex-center" :style="computedStyle">md4 offset--md4</div>
+            <div class="flex md4 offset-md4">
+              <div class="grid__container flex-center" :style="computedStyle">md4 offset-md4</div>
             </div>
           </div>
         </va-card-content>
@@ -108,7 +108,7 @@
 
   const theme = ref(useGlobalConfig().getGlobalConfig().colors!)
 
-  const computedStyle = computed(() => ({ backgroundColor: theme.value.primary }))
+  const computedStyle = computed(() => ({ backgroundColor: theme.value.variables.primary }))
 </script>
 
 <style lang="scss">
