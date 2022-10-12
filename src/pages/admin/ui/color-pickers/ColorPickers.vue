@@ -7,7 +7,7 @@
           <va-card-content class="row">
             <div class="flex xs4 md2">
               <div class="vuestic-color-picker-page__top-square">
-                <span class="title no-wrap" :style="{ color: theme.primary }">
+                <span class="title no-wrap" :style="{ color: theme.variables.primary }">
                   {{ t('colorPickers.simple') }}
                 </span>
                 <va-color-picker v-model="topSimpleSquareColor" :palette="palette" />
@@ -15,7 +15,7 @@
             </div>
             <div class="flex xs4 md2">
               <div class="vuestic-color-picker-page__top-square">
-                <span class="title no-wrap" :style="{ color: theme.primary }">
+                <span class="title no-wrap" :style="{ color: theme.variables.primary }">
                   {{ t('colorPickers.slider') }}
                 </span>
                 <va-color-picker v-model="topSliderSquareColor" mode="slider" />
@@ -23,7 +23,7 @@
             </div>
             <div class="flex xs4 md2">
               <div class="vuestic-color-picker-page__top-square">
-                <span class="title no-wrap" :style="{ color: theme.primary }">
+                <span class="title no-wrap" :style="{ color: theme.variables.primary }">
                   {{ t('colorPickers.advanced') }}
                 </span>
                 <va-color-input v-model="topAdvancedSquareColor" mode="advanced" />

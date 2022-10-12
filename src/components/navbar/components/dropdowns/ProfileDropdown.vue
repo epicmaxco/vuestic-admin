@@ -3,7 +3,7 @@
     <template #anchor>
       <span class="profile-dropdown__anchor">
         <slot />
-        <va-icon class="px-2" :name="isShown ? 'angle_up' : 'angle_down'" :color="theme.primary" />
+        <va-icon class="px-2" :name="isShown ? 'angle_up' : 'angle_down'" :color="theme.variables.primary" />
       </span>
     </template>
     <va-dropdown-content class="profile-dropdown__content">

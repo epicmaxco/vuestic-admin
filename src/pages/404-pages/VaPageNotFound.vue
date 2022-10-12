@@ -7,7 +7,7 @@
         <span>
           {{ t('404.text') }}
         </span>
-        <a href="mailto:hello@epicmax.co" :style="{ color: theme.primary }" class="link">hello@epicmax.co</a>
+        <a href="mailto:hello@epicmax.co" :style="{ color: theme.variables.primary }" class="link">hello@epicmax.co</a>
       </div>
       <slot />
       <!-- <va-button v-if="!withoutButton" :to="{ name: 'dashboard' }">{{t('404.back_button')}}</va-button> -->
@@ -39,7 +39,7 @@
       // color: this.contextConfig.invertedColor ? this.themes.dark : 'white',
       color: 'var(--va-gray)',
       // backgroundColor: this.contextConfig.invertedColor ? 'white' : this.themes.danger,
-      backgroundColor: theme.value.danger,
+      backgroundColor: theme.value.variables.danger,
       // backgroundImage: this.contextConfig.gradient && 'linear-gradient(to right, #ff2175, #d30505)',
       backgroundImage: 'linear-gradient(to right, var(--va-white), var(--va-white))',
     }

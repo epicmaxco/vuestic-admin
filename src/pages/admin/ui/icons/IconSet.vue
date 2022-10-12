@@ -2,7 +2,7 @@
   <div class="icon-set">
     <va-card class="icon-set__header mb-4 pb-3">
       <va-card-title>
-        <h2 class="my-0 ml-2" :style="{ color: theme.dark }">
+        <h2 class="my-0 ml-2" :style="{ color: theme.variables.dark }">
           {{ iconSet.name }}
         </h2>
       </va-card-title>
@@ -22,7 +22,9 @@
         </div>
 
         <div class="flex md4 xs12 flex-center content icon-set__header__size">
-          <span class="ma-2 pr-2 shrink icon-set__header__size--smaller" :style="{ color: theme.dark }">A</span>
+          <span class="ma-2 pr-2 shrink icon-set__header__size--smaller" :style="{ color: theme.variables.dark }"
+            >A</span
+          >
           <va-slider
             v-model="iconSize"
             value-visible
@@ -32,7 +34,9 @@
             :max="slider.max"
           >
           </va-slider>
-          <span class="ma-2 pl-2 shrink icon-set__header__size--bigger" :style="{ color: theme.dark }">A</span>
+          <span class="ma-2 pl-2 shrink icon-set__header__size--bigger" :style="{ color: theme.variables.dark }"
+            >A</span
+          >
         </div>
       </va-card-content>
     </va-card>

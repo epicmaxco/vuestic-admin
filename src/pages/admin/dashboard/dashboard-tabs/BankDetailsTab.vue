@@ -42,7 +42,7 @@
   const theme = computed(() => getGlobalConfig().colors!)
 
   function sendDetails() {
-    const color = theme.value?.primary
+    const color = theme.value.variables?.primary
     initToast({ message: `Details sent!`, color })
   }
 </script>

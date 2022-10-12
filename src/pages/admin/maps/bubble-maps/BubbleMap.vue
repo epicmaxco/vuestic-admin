@@ -76,7 +76,7 @@
     )
 
     polygonSeries.mapPolygons.template.setAll({
-      fill: am5.color(getColor(themeColors.value?.secondary)),
+      fill: am5.color(getColor(themeColors.value.variables?.secondary)),
       fillOpacity: 0.2,
       strokeWidth: 0.5,
     })
@@ -130,7 +130,7 @@
   const updateChartDataOnChangeTheme = () => {
     if (mapRoot.value) {
       mapPolygonSeries.value.mapPolygons.template.setAll({
-        fill: am5.color(getColor(themeColors.value?.secondary)),
+        fill: am5.color(getColor(themeColors.value.variables?.secondary)),
       })
     }
   }

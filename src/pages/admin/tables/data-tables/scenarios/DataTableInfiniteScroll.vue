@@ -8,7 +8,7 @@
 <!--      </va-data-table>-->
 
 <!--      <div class="flex-center ma-3">-->
-<!--        <spring-spinner v-if="loading" :animation-duration="2000" :size="60" :color="theme.primary" />-->
+<!--        <spring-spinner v-if="loading" :animation-duration="2000" :size="60" :color="theme.variables.primary" />-->
 <!--      </div>-->
 <!--    </div>-->
 <!--  </va-card>-->
