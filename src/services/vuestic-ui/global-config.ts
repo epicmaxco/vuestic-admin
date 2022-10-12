@@ -11,4 +11,15 @@ export default {
     variables: COLOR_THEMES[0].colors,
   },
   icons: iconsConfig,
+  breakpoint: {
+    enabled: true,
+    bodyClass: true,
+    thresholds: {
+      xs: 0,
+      sm: 320,
+      md: 640,
+      lg: 1024,
+      xl: 1440,
+    },
+  },
 }

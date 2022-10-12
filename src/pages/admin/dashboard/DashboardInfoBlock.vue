@@ -5,7 +5,7 @@
         <div v-for="(info, idx) in infoTiles" :key="idx" class="flex xs12 sm4">
           <va-card class="mb-4" :color="info.color">
             <va-card-content>
-              <p class="display-2" style="color: white">{{ info.value }}</p>
+              <p class="va-h2" style="color: white">{{ info.value }}</p>
               <p style="color: white">{{ t('dashboard.info.' + info.text) }}</p>
             </va-card-content>
           </va-card>
@@ -16,7 +16,7 @@
         <div class="flex xs12 md6">
           <va-card>
             <va-card-content>
-              <p class="display-2" :style="{ color: theme?.primary }">291</p>
+              <p class="va-h2" :style="{ color: theme?.primary }">291</p>
               <p class="no-wrap">{{ t('dashboard.info.completedPullRequests') }}</p>
             </va-card-content>
           </va-card>
@@ -26,15 +26,15 @@
             <va-card-content>
               <div class="row row-separated">
                 <div class="flex xs4">
-                  <p class="display-2 text--center" :style="{ color: theme?.primary }">3</p>
+                  <p class="va-h2 text--center" :style="{ color: theme?.primary }">3</p>
                   <p class="text--center">{{ t('dashboard.info.users') }}</p>
                 </div>
                 <div class="flex xs4">
-                  <p class="display-2 text--center" :style="{ color: theme?.info }">24</p>
+                  <p class="va-h2 text--center" :style="{ color: theme?.info }">24</p>
                   <p class="text--center no-wrap">{{ t('dashboard.info.points') }}</p>
                 </div>
                 <div class="flex xs4">
-                  <p class="display-2 text--center" :style="{ color: theme?.warning }">91</p>
+                  <p class="va-h2 text--center" :style="{ color: theme?.warning }">91</p>
                   <p class="text--center">{{ t('dashboard.info.units') }}</p>
                 </div>
               </div>
@@ -135,7 +135,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .display-2 {
+  .va-h2 {
     margin: 0;
     line-height: 1;
   }

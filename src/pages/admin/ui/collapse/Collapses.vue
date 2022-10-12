@@ -8,7 +8,7 @@
             <va-accordion v-model="basicAccordionValue">
               <va-collapse :header="t('collapse.firstHeader')">
                 <div class="pa-3">
-                  <p class="display-3">{{ t('collapse.content.title') }}</p>
+                  <p class="va-h3">{{ t('collapse.content.title') }}</p>
                   <div>
                     {{ t('collapse.content.text') }}
                   </div>
@@ -16,7 +16,7 @@
               </va-collapse>
               <va-collapse :header="t('collapse.secondHeader')">
                 <div class="pa-3">
-                  <p class="display-3">{{ t('collapse.content.title') }}</p>
+                  <p class="va-h3">{{ t('collapse.content.title') }}</p>
                   <div>
                     {{ t('collapse.content.text') }}
                   </div>
@@ -34,7 +34,7 @@
             <va-accordion v-model="colorAccordionValue">
               <va-collapse :header="t('collapse.firstHeader')" color="success" color-all>
                 <div class="pa-3">
-                  <p class="display-3">{{ t('collapse.content.title') }}</p>
+                  <p class="va-h3">{{ t('collapse.content.title') }}</p>
                   <div>
                     {{ t('collapse.content.text') }}
                   </div>
@@ -42,7 +42,7 @@
               </va-collapse>
               <va-collapse :header="t('collapse.secondHeader')" color="warning" color-all>
                 <div class="pa-3">
-                  <p class="display-3">{{ t('collapse.content.title') }}</p>
+                  <p class="va-h3">{{ t('collapse.content.title') }}</p>
                   <div>
                     {{ t('collapse.content.text') }}
                   </div>
@@ -65,7 +65,7 @@
                   </va-button>
                 </template>
                 <div class="pa-3">
-                  <p class="display-3">{{ t('collapse.content.title') }}</p>
+                  <p class="va-h3">{{ t('collapse.content.title') }}</p>
                   <div>
                     {{ t('collapse.content.text') }}
                   </div>
@@ -78,7 +78,7 @@
                   </va-button>
                 </template>
                 <div>
-                  <p class="display-3">{{ t('collapse.content.title') }}</p>
+                  <p class="va-h3">{{ t('collapse.content.title') }}</p>
                   <div class="pa-3">
                     {{ t('collapse.content.text') }}
                   </div>
