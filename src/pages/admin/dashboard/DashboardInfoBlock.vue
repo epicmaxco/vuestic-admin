@@ -16,7 +16,7 @@
         <div class="flex xs12 md6">
           <va-card>
             <va-card-content>
-              <p class="va-h2" :style="{ color: theme?.primary }">291</p>
+              <p class="va-h2" :style="{ color: theme.variables?.primary }">291</p>
               <p class="no-wrap">{{ t('dashboard.info.completedPullRequests') }}</p>
             </va-card-content>
           </va-card>
@@ -26,15 +26,15 @@
             <va-card-content>
               <div class="row row-separated">
                 <div class="flex xs4">
-                  <p class="va-h2 text--center" :style="{ color: theme?.primary }">3</p>
+                  <p class="va-h2 text--center" :style="{ color: theme.variables?.primary }">3</p>
                   <p class="text--center">{{ t('dashboard.info.users') }}</p>
                 </div>
                 <div class="flex xs4">
-                  <p class="va-h2 text--center" :style="{ color: theme?.info }">24</p>
+                  <p class="va-h2 text--center" :style="{ color: theme.variables?.info }">24</p>
                   <p class="text--center no-wrap">{{ t('dashboard.info.points') }}</p>
                 </div>
                 <div class="flex xs4">
-                  <p class="va-h2 text--center" :style="{ color: theme?.warning }">91</p>
+                  <p class="va-h2 text--center" :style="{ color: theme.variables?.warning }">91</p>
                   <p class="text--center">{{ t('dashboard.info.units') }}</p>
                 </div>
               </div>

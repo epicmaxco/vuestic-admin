@@ -13,7 +13,7 @@
         :key="index"
         class="va-chat__message"
         :style="{
-          backgroundColor: message.yours ? theme.primary : undefined,
+          backgroundColor: message.yours ? theme.variables.primary : undefined,
         }"
         :class="{ 'va-chat__message--yours': message.yours }"
       >

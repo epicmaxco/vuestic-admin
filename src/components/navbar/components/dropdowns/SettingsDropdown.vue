@@ -9,7 +9,7 @@
     </template>
 
     <va-dropdown-content class="settings-dropdown__content pl-4 pr-4 pt-2 pb-2">
-      <div class="settings-dropdown__content-label mt-2 mb-3" :style="{ color: theme.primary }">
+      <div class="settings-dropdown__content-label mt-2 mb-3" :style="{ color: theme.variables.primary }">
         {{ t('dashboard.navigationLayout') }}
       </div>
       <va-button-toggle

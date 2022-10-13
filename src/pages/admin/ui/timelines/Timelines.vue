@@ -8,7 +8,7 @@
             <va-timeline style="min-width: 400px">
               <va-timeline-item active>
                 <template #before>
-                  <div class="title text--center" :style="{ color: theme.primary }">
+                  <div class="title text--center" :style="{ color: theme.variables.primary }">
                     {{ t('timelines.firstDate') }}
                   </div>
                   <div class="va-timeline-item__description">
@@ -18,7 +18,7 @@
               </va-timeline-item>
               <va-timeline-item active>
                 <template #before>
-                  <div class="title text--center" :style="{ color: theme.primary }">
+                  <div class="title text--center" :style="{ color: theme.variables.primary }">
                     {{ t('timelines.secondDate') }}
                   </div>
                   <div class="va-timeline-item__description">
@@ -48,7 +48,7 @@
             <va-timeline align-top style="min-width: 600px" class="timelines__horizontal-long__timeline">
               <va-timeline-item active>
                 <template #before>
-                  <div class="title text--center" :style="{ color: theme.primary }">
+                  <div class="title text--center" :style="{ color: theme.variables.primary }">
                     {{ t('timelines.firstDate') }}
                   </div>
                 </template>
@@ -61,7 +61,7 @@
               </va-timeline-item>
               <va-timeline-item active>
                 <template #before>
-                  <div class="title text--center" :style="{ color: theme.primary }">
+                  <div class="title text--center" :style="{ color: theme.variables.primary }">
                     {{ t('timelines.secondDate') }}
                   </div>
                 </template>
@@ -97,7 +97,7 @@
             <va-timeline vertical>
               <va-timeline-item active>
                 <template #before>
-                  <span class="title va-timeline-item__text" :style="{ color: theme.primary }">
+                  <span class="title va-timeline-item__text" :style="{ color: theme.variables.primary }">
                     {{ t('timelines.firstDate') }}
                   </span>
                 </template>
@@ -110,7 +110,7 @@
               </va-timeline-item>
               <va-timeline-item active>
                 <template #before>
-                  <span class="title va-timeline-item__text" :style="{ color: theme.primary }">
+                  <span class="title va-timeline-item__text" :style="{ color: theme.variables.primary }">
                     {{ t('timelines.secondDate') }}
                   </span>
                 </template>
@@ -146,7 +146,7 @@
             <va-timeline vertical centered style="min-width: 300px">
               <va-timeline-item color="danger" active>
                 <template #before>
-                  <span class="title title--danger va-timeline-item__text" :style="{ color: theme.danger }">
+                  <span class="title title--danger va-timeline-item__text" :style="{ color: theme.variables.danger }">
                     {{ t('timelines.firstDate') }}
                   </span>
                 </template>
@@ -159,7 +159,7 @@
               </va-timeline-item>
               <va-timeline-item color="danger" active>
                 <template #before>
-                  <span class="title title--danger va-timeline-item__text" :style="{ color: theme.danger }">
+                  <span class="title title--danger va-timeline-item__text" :style="{ color: theme.variables.danger }">
                     {{ t('timelines.secondDate') }}
                   </span>
                 </template>
@@ -172,7 +172,7 @@
               </va-timeline-item>
               <va-timeline-item color="danger" active>
                 <template #before>
-                  <span class="title title--danger va-timeline-item__text" :style="{ color: theme.danger }">
+                  <span class="title title--danger va-timeline-item__text" :style="{ color: theme.variables.danger }">
                     {{ t('timelines.thirdDate') }}
                   </span>
                 </template>
