@@ -7,7 +7,9 @@ export default {
     VaIcon,
     ...COLOR_THEMES[0].components,
   },
-  colors: COLOR_THEMES[0].colors,
+  colors: {
+    variables: COLOR_THEMES[0].colors,
+  },
   icons: iconsConfig,
   breakpoint: {
     enabled: true,
