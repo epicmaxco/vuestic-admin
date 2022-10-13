@@ -1,6 +1,6 @@
 <template>
   <div class="row row-equal">
-    <div class="flex xl6 xs12">
+    <div class="flex xl6 xs12 lg6">
       <div class="row">
         <div v-for="(info, idx) in infoTiles" :key="idx" class="flex xs12 sm4">
           <va-card class="mb-4" :color="info.color">
@@ -13,7 +13,7 @@
       </div>
 
       <div class="row">
-        <div class="flex xs12 md6">
+        <div class="flex xs12 sm6 md6">
           <va-card>
             <va-card-content>
               <p class="va-h2" :style="{ color: theme.variables?.primary }">291</p>
@@ -21,7 +21,7 @@
             </va-card-content>
           </va-card>
         </div>
-        <div class="flex xs12 md6">
+        <div class="flex xs12 sm6 md6">
           <va-card>
             <va-card-content>
               <div class="row row-separated">
@@ -44,7 +44,7 @@
       </div>
     </div>
 
-    <div class="flex xs12 md6 xl3">
+    <div class="flex xs12 sm6 md6 xl3 lg3">
       <va-card stripe stripe-color="info">
         <va-card-title>
           {{ t('dashboard.info.componentRichTheme') }}
@@ -63,7 +63,7 @@
       </va-card>
     </div>
 
-    <div class="flex xs12 md6 xl3">
+    <div class="flex xs12 sm6 md6 xl3 lg3">
       <va-card>
         <va-image :src="images[currentImageIndex]" style="height: 200px" />
         <va-card-title>

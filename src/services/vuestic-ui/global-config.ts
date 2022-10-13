@@ -6,6 +6,9 @@ export default {
   components: {
     VaIcon,
     ...COLOR_THEMES[0].components,
+    VaButton: {
+      round: true,
+    },
   },
   colors: {
     variables: COLOR_THEMES[0].colors,
