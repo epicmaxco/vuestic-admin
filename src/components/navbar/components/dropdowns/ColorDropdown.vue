@@ -54,7 +54,7 @@
   })
 
   const colors = getColors()
-  const colorNames = computed(() => Object.keys(colors))
+  const colorNames = computed(() => Object.keys(colors.variables))
 
   function getThemeNameFromUrl() {
     const themeName = router.currentRoute.value.query.theme
