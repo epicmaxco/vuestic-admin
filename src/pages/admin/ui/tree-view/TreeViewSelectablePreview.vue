@@ -1,34 +1,73 @@
 <template>
-  <va-tree-view>
-    <va-tree-category label="Products">
-      <va-tree-node v-for="product in products" :key="product.id">
-        <template #checkbox>
-          <va-checkbox v-model="product.selected" :label="product.name" />
-        </template>
-      </va-tree-node>
-    </va-tree-category>
-    <va-tree-category is-open label="Electronics">
-      <va-tree-node v-for="electronic in electronics" :key="electronic.id">
-        <template #checkbox>
-          <va-checkbox v-model="electronic.selected" :label="electronic.name" />
-        </template>
-      </va-tree-node>
-    </va-tree-category>
-  </va-tree-view>
+  <va-tree-view v-model:checked="selectedNodes" :nodes="nodes" selectable />
 </template>
 
 <script setup lang="ts">
   import { ref } from 'vue'
 
-  const electronics = ref([
-    { id: 1, name: 'Cellphones', selected: false },
-    { id: 2, name: 'Camera Body Kits', selected: false },
-    { id: 3, name: 'External HDDs', selected: false },
-  ])
-
-  const products = ref([
-    { id: 4, name: 'Cables', selected: false },
-    { id: 5, name: 'Monitors', selected: false },
-    { id: 6, name: 'Keyboards', selected: false },
-  ])
+  const nodes = [
+    {
+      id: 1,
+      label: 'Electronics',
+      children: [
+        { id: 2, label: 'Cellphones' },
+        {
+          id: 3,
+          label: 'Camera Body Kits',
+        },
+        { id: 6, label: 'External HDDs' },
+      ],
+    },
+    {
+      id: 7,
+      label: 'Products',
+      children: [
+        {
+          id: 8,
+          label: 'Cables',
+          children: [
+            {
+              id: 9,
+              label: 'Audio',
+            },
+            {
+              id: 10,
+              label: 'Video',
+            },
+            {
+              id: 11,
+              label: 'Optical',
+            },
+          ],
+        },
+        {
+          id: 12,
+          label: 'Monitors',
+        },
+        {
+          id: 13,
+          label: 'Keyboards',
+        },
+      ],
+    },
+    {
+      id: 14,
+      label: 'Apparel',
+      children: [
+        {
+          id: 15,
+          label: 'Jackets',
+        },
+        {
+          id: 16,
+          label: 'Pants',
+        },
+        {
+          id: 17,
+          label: 'Skirts',
+        },
+      ],
+    },
+  ]
+  const selectedNodes = ref([])
 </script>
