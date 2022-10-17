@@ -14,29 +14,10 @@ export const COLOR_THEMES = [
     colors: {
       primary: '#154ec1',
       secondary: '#767c88',
-      background: '#f6f7f6',
       success: '#3d9209',
       info: '#2c82e0',
       danger: '#e42222',
       warning: '#ffd43a',
-      white: '#ffffff',
-      dark: '#262824',
-      gray: '#767c88',
-    },
-    components: {
-      VaNavbar: {
-        color: 'white',
-        textColor: 'dark',
-      },
-      VaCard: {
-        color: 'white',
-      },
-      VaCardContent: {
-        textColor: 'dark',
-      },
-      VaCardTitle: {
-        textColor: 'dark',
-      },
     },
   },
   {
@@ -44,29 +25,10 @@ export const COLOR_THEMES = [
     colors: {
       primary: '#6F92DA',
       secondary: '#A8AEBA',
-      background: '#2f302d',
       success: '#3d9209',
       info: '#2c82e0',
       danger: '#e42222',
       warning: '#ffd43a',
-      white: '#262824',
-      dark: '#ffffff',
-      gray: '#f6f7f6',
-    },
-    components: {
-      VaNavbar: {
-        color: 'white',
-        textColor: 'dark',
-      },
-      VaCard: {
-        color: 'white',
-      },
-      VaCardContent: {
-        textColor: 'dark',
-      },
-      VaCardTitle: {
-        textColor: 'dark',
-      },
     },
   },
   {
@@ -78,25 +40,6 @@ export const COLOR_THEMES = [
       info: '#2c82e0',
       danger: '#e42222',
       warning: '#ffd43a',
-      background: '#f6f7f6',
-      white: '#ffffff',
-      dark: '#262824',
-      gray: '#767c88',
-    },
-    components: {
-      VaNavbar: {
-        color: 'dark',
-        textColor: 'white',
-      },
-      VaCard: {
-        color: 'white',
-      },
-      VaCardContent: {
-        textColor: 'dark',
-      },
-      VaCardTitle: {
-        textColor: 'dark',
-      },
     },
   },
   {
@@ -104,29 +47,10 @@ export const COLOR_THEMES = [
     colors: {
       primary: '#6EDC7D',
       secondary: '#A8AEBA',
-      background: '#eeeeee',
       success: '#76E18D',
       info: '#2c82e0',
       danger: '#e34b4a',
       warning: '#ffc200',
-      gray: '#767c88',
-      white: '#ffffff',
-      dark: '#262824',
-    },
-    components: {
-      VaNavbar: {
-        color: '#1E4CBD',
-        textColor: 'primary',
-      },
-      VaCard: {
-        color: 'white',
-      },
-      VaCardContent: {
-        textColor: 'dark',
-      },
-      VaCardTitle: {
-        textColor: 'dark',
-      },
     },
   },
 ]
