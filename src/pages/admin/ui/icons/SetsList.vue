@@ -4,7 +4,7 @@
       <va-card>
         <router-link :to="{ path: `icons/${set.href}` }" append style="color: inherit">
           <div class="sets-list__set__content">
-            <div class="sets-list__set__content__overlay flex-center pa-3 fill-height">
+            <div class="sets-list__set__content__overlay justify-center pa-3 fill-height">
               <va-button>
                 {{ set.name.toUpperCase() }}
               </va-button>
@@ -12,8 +12,8 @@
 
             <template v-for="(filteredList, i) in set.filteredLists">
               <div v-if="filteredList.length !== 2" :key="i" class="row pa-3">
-                <div v-for="(icon, j) in filteredList" :key="j" class="flex xs2 flex-center">
-                  <div class="sets-list__icon pa-3 flex-center vuestic-icon">
+                <div v-for="(icon, j) in filteredList" :key="j" class="flex xs2 justify-center">
+                  <div class="sets-list__icon pa-3 justify-center vuestic-icon">
                     <va-icon :name="iconName(set, icon)" />
                   </div>
                 </div>
@@ -24,14 +24,14 @@
                 class="row pa-3"
                 :class="i === 1 ? 'sets-list__set__content--middle' : ''"
               >
-                <div class="flex xs2 flex-center">
-                  <div class="sets-list__icon pa-3 flex-center vuestic-icon">
+                <div class="flex xs2 justify-center">
+                  <div class="sets-list__icon pa-3 justify-center vuestic-icon">
                     <va-icon :name="iconName(set, filteredList[0])" />
                   </div>
                 </div>
                 <div class="flex xs8" />
-                <div class="flex xs2 flex-center">
-                  <div class="sets-list__icon pa-3 flex-center vuestic-icon">
+                <div class="flex xs2 justify-center">
+                  <div class="sets-list__icon pa-3 justify-center vuestic-icon">
                     <va-icon :name="iconName(set, filteredList[1])" />
                   </div>
                 </div>

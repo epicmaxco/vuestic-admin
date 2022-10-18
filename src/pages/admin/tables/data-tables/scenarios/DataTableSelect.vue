@@ -48,7 +48,7 @@
           },
           {
             name: '__slot:graph',
-            dataClass: 'text-right',
+            dataClass: 'va-text-right',
           },
         ]
       },

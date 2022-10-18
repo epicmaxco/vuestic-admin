@@ -28,11 +28,11 @@
         <template #label>
           <span class="ml-2">
             {{ t('auth.agree') }}
-            <span class="link">{{ t('auth.termsOfUse') }}</span>
+            <span class="va-link">{{ t('auth.termsOfUse') }}</span>
           </span>
         </template>
       </va-checkbox>
-      <router-link class="ml-1 link" :to="{ name: 'recover-password' }">
+      <router-link class="ml-1 va-link" :to="{ name: 'recover-password' }">
         {{ t('auth.recover_password') }}
       </router-link>
     </div>

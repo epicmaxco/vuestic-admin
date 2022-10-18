@@ -40,25 +40,25 @@
             <p class="my-2 mx-2">
               Any text can be used for
               <va-popover placement="bottom" message="Bottom tooltip">
-                <a class="link">
+                <a class="va-link">
                   {{ t('notificationsPage.popovers.bottomTooltip') }}
                 </a>
               </va-popover>
               tooltip showcase. Just anything you can possibly imagine to test
               <va-popover placement="right" message="Right tooltip">
-                <a class="link">
+                <a class="va-link">
                   {{ t('notificationsPage.popovers.rightTooltip') }}
                 </a>
               </va-popover>
               tooltip. But it can appear on the
               <va-popover placement="left" message="Left tooltip">
-                <a class="link">
+                <a class="va-link">
                   {{ t('notificationsPage.popovers.leftTooltip') }}
                 </a>
               </va-popover>
               . Or just
               <va-popover placement="top" message="Top tooltip">
-                <a class="link">
+                <a class="va-link">
                   {{ t('notificationsPage.popovers.topTooltip') }}
                 </a>
               </va-popover>

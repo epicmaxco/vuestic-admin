@@ -14,7 +14,7 @@
         <va-input v-model="form.notes" :label="t('dashboard.tabs.bankDetails.notes')" />
       </div>
     </div>
-    <div class="row justify--center">
+    <div class="row justify-center">
       <va-button @click="sendDetails">
         {{ t('dashboard.tabs.bankDetails.sendDetails') }}
       </va-button>
@@ -50,5 +50,10 @@
 <style lang="scss" scoped>
   .va-input-wrapper {
     margin-bottom: 1rem;
+  }
+
+  .button-wrapper {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 </style>

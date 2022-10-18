@@ -100,7 +100,7 @@
 <style lang="scss" scoped>
   // .chat {
   //   &__content {
-  //     @include va-flex-center();
+  //     @include va-justify-center();
   //   }
   // }
 

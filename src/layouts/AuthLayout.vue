@@ -1,7 +1,7 @@
 <template>
   <div class="auth-layout row align-content-center">
-    <div class="flex xs12 pa-3 flex-center">
-      <router-link class="py-5 flex-center" to="/">
+    <div class="flex xs12 pa-3 justify-center">
+      <router-link class="py-5 justify-center" to="/">
         <vuestic-logo height="32" />
       </router-link>
     </div>

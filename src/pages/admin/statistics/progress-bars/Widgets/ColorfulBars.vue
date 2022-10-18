@@ -25,7 +25,7 @@
   const { t } = useI18n()
 
   const value = ref(0)
-  const colors = ref(['danger', 'success', 'info', 'gray', 'warning', 'black'])
+  const colors = ref(['danger', 'success', 'info', 'secondary', 'warning', 'textDark'])
 
   onMounted(animateValue)
 

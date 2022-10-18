@@ -71,7 +71,6 @@ export function useTheme() {
       colors: {
         variables: theme.colors,
       },
-      components: theme.components,
     })
   }
 

@@ -8,7 +8,7 @@
             <va-timeline style="min-width: 400px">
               <va-timeline-item active>
                 <template #before>
-                  <div class="title text--center" :style="{ color: theme.variables.primary }">
+                  <div class="title va-text-center" :style="{ color: theme.variables.primary }">
                     {{ t('timelines.firstDate') }}
                   </div>
                   <div class="va-timeline-item__description">
@@ -18,7 +18,7 @@
               </va-timeline-item>
               <va-timeline-item active>
                 <template #before>
-                  <div class="title text--center" :style="{ color: theme.variables.primary }">
+                  <div class="title va-text-center" :style="{ color: theme.variables.primary }">
                     {{ t('timelines.secondDate') }}
                   </div>
                   <div class="va-timeline-item__description">
@@ -28,7 +28,7 @@
               </va-timeline-item>
               <va-timeline-item>
                 <template #before>
-                  <div class="title title--gray text--center">
+                  <div class="title title--gray va-text-center">
                     {{ t('timelines.thirdDate') }}
                   </div>
                   <div class="va-timeline-item__description">
@@ -48,7 +48,7 @@
             <va-timeline align-top style="min-width: 600px" class="timelines__horizontal-long__timeline">
               <va-timeline-item active>
                 <template #before>
-                  <div class="title text--center" :style="{ color: theme.variables.primary }">
+                  <div class="title va-text-center" :style="{ color: theme.variables.primary }">
                     {{ t('timelines.firstDate') }}
                   </div>
                 </template>
@@ -61,7 +61,7 @@
               </va-timeline-item>
               <va-timeline-item active>
                 <template #before>
-                  <div class="title text--center" :style="{ color: theme.variables.primary }">
+                  <div class="title va-text-center" :style="{ color: theme.variables.primary }">
                     {{ t('timelines.secondDate') }}
                   </div>
                 </template>
@@ -74,7 +74,7 @@
               </va-timeline-item>
               <va-timeline-item>
                 <template #before>
-                  <div class="title title--gray text--center">
+                  <div class="title title--gray va-text-center">
                     {{ t('timelines.thirdDate') }}
                   </div>
                 </template>

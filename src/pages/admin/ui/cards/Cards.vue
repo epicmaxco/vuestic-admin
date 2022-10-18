@@ -104,7 +104,7 @@
       </template>
     </div>
 
-    <va-inner-loading class="flex-center py-3" style="width: 100%" :loading="isLoading">
+    <va-inner-loading class="justify-center py-3" style="width: 100%" :loading="isLoading">
       <va-button @click="addCards()">
         {{ t('cards.button.showMore') }}
       </va-button>

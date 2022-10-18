@@ -7,13 +7,13 @@
         </h2>
       </va-card-title>
       <va-card-content class="row">
-        <div class="flex md4 xs12 flex-center">
+        <div class="flex md4 xs12 justify-center">
           <va-button outline :to="{ name: 'icon-sets' }">
             {{ t('icons.back') }}
           </va-button>
         </div>
 
-        <div class="flex md4 xs12 flex-center">
+        <div class="flex md4 xs12 justify-center">
           <va-input v-model="search" :label="t('icons.search')" clearable>
             <template #prependInner>
               <va-icon class="icon-left input-icon" name="search" />
@@ -21,7 +21,7 @@
           </va-input>
         </div>
 
-        <div class="flex md4 xs12 flex-center content icon-set__header__size">
+        <div class="flex md4 xs12 justify-center content icon-set__header__size">
           <span class="ma-2 pr-2 shrink icon-set__header__size--smaller" :style="{ color: theme.variables.dark }"
             >A</span
           >
@@ -52,7 +52,7 @@
         <div
           v-for="icon in list.icons"
           :key="icon"
-          class="flex flex-center xs3 md1 mb-2 icon-grid-container"
+          class="flex justify-center xs3 md1 mb-2 icon-grid-container"
           style="flex-direction: column"
         >
           <div class="vuestic-icon mb-3 pt-3">

@@ -17,7 +17,7 @@
           {{ category.categoryName }}
         </li>
         <li v-for="(item, j) in category.items" :key="j" class="va-page-not-found-search__list-element">
-          <router-link :to="{ path: item.itemLink }" class="link">
+          <router-link :to="{ path: item.itemLink }" class="va-link">
             {{ item.itemName }}
           </router-link>
         </li>
