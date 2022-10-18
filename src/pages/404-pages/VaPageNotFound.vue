@@ -35,12 +35,8 @@
 
   const pageNotFoundStyle = computed(() => {
     return {
-      // color: this.contextConfig.invertedColor ? this.themes.dark : 'white',
       color: 'var(--va-secondary)',
-      // backgroundColor: this.contextConfig.invertedColor ? 'white' : this.themes.danger,
-      backgroundColor: colors.value.danger,
-      // backgroundImage: this.contextConfig.gradient && 'linear-gradient(to right, #ff2175, #d30505)',
-      backgroundImage: 'linear-gradient(to right, var(--va-background-primary), var(--va-background-primary))',
+      backgroundColor: colors.value.backgroundPrimary,
     }
   })
 
