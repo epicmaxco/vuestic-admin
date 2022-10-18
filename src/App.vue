@@ -2,11 +2,6 @@
   <router-view />
 </template>
 
-<script setup lang="ts">
-  import { useTheme } from './services/vuestic-ui/themes'
-  useTheme()
-</script>
-
 <style lang="scss">
   @import 'scss/main.scss';
 
@@ -19,6 +14,5 @@
 
   body {
     margin: 0;
-    background: var(--va-background);
   }
 </style>

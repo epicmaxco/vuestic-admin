@@ -130,7 +130,7 @@
   }
   .row-separated {
     .flex + .flex {
-      border-left: 1px solid var(--va-background);
+      border-left: 1px solid var(--va-background-primary);
     }
   }
 
