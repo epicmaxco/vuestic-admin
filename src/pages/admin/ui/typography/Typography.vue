@@ -149,7 +149,7 @@
               </p>
             </div>
             <div class="mb-4">
-              <blockquote class="va-blockquote" :style="{ borderColor: theme.variables.primary }">
+              <blockquote class="va-blockquote" :style="{ borderColor: colors.primary }">
                 <p>
                   BQ: Let’s talk about meat fondue recipes and what you need to know first. Meat fondue also known as
                   oil fondue is a method of cooking all kinds.
@@ -193,12 +193,12 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, computed } from 'vue'
+  import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
-  import { useGlobalConfig } from 'vuestic-ui'
+  import { useColors } from 'vuestic-ui'
 
   const { t } = useI18n()
-  const { getGlobalConfig } = useGlobalConfig()
+  const { colors } = useColors()
 
   const tableData = ref([
     ['Id', 'FooBar type', 'Actions'],
@@ -206,8 +206,6 @@
     ['2', 'Not Zebra', 'Remove'],
     ['3', 'Very Zebra', 'Eradicate'],
   ])
-
-  const theme = computed(() => getGlobalConfig().colors!)
 </script>
 
 <style lang="scss" scoped>

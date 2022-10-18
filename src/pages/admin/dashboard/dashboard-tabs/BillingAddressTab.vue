@@ -42,12 +42,12 @@
 
 <script setup lang="ts">
   import { computed, reactive, ref, watch } from 'vue'
-  import { useGlobalConfig } from 'vuestic-ui'
+  import { useColors } from 'vuestic-ui'
   import { useI18n } from 'vue-i18n'
   import { lineMapData } from '../../../../data/maps/lineMapData'
   import CountriesList from '../../../../data/CountriesList'
 
-  const { getGlobalConfig } = useGlobalConfig()
+  const { colors } = useColors()
   const { t } = useI18n()
 
   const emit = defineEmits<{
@@ -63,8 +63,6 @@
     connection: true,
   })
 
-  const theme = computed(() => getGlobalConfig().colors!)
-
   const countriesList = computed(() => {
     return CountriesList.filter((item) => citiesList.value.filter(({ country }) => country === item).length)
   })
@@ -75,7 +73,7 @@
 
   const allowedCitiesList = ref<typeof citiesList['value']>([])
 
-  const computedStylesTitle = computed(() => ({ color: theme.value.variables.dark }))
+  const computedStylesTitle = computed(() => ({ color: colors.value.dark }))
 
   watch(
     () => form.country,

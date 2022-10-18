@@ -5,7 +5,6 @@ import { COLOR_THEMES } from './themes'
 export default {
   components: {
     VaIcon,
-    ...COLOR_THEMES[0].components,
     VaButton: {
       round: true,
     },

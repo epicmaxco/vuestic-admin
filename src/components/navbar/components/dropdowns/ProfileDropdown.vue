@@ -3,7 +3,7 @@
     <template #anchor>
       <span class="profile-dropdown__anchor">
         <slot />
-        <va-icon class="px-2" :name="isShown ? 'angle_up' : 'angle_down'" :color="theme.variables.primary" />
+        <va-icon class="px-2" :name="isShown ? 'angle_up' : 'angle_down'" :color="colors.primary" />
       </span>
     </template>
     <va-dropdown-content class="profile-dropdown__content">
@@ -17,11 +17,12 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, ref } from 'vue'
+  import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
-  import { useGlobalConfig } from 'vuestic-ui'
+  import { useColors } from 'vuestic-ui'
 
   const { t } = useI18n()
+  const { colors } = useColors()
 
   withDefaults(
     defineProps<{
@@ -42,8 +43,6 @@
   )
 
   const isShown = ref(false)
-
-  const theme = computed(() => useGlobalConfig().getGlobalConfig().colors!)
 </script>
 
 <style lang="scss" scoped>

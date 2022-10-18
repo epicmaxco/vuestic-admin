@@ -7,9 +7,7 @@
         <span>
           {{ t('404.text') }}
         </span>
-        <a href="mailto:hello@epicmax.co" :style="{ color: theme.variables.primary }" class="va-link"
-          >hello@epicmax.co</a
-        >
+        <a href="mailto:hello@epicmax.co" :style="{ color: colors.primary }" class="va-link">hello@epicmax.co</a>
       </div>
       <slot />
       <!-- <va-button v-if="!withoutButton" :to="{ name: 'dashboard' }">{{t('404.back_button')}}</va-button> -->
@@ -24,24 +22,23 @@
 <script setup lang="ts">
   import MadeByComponent from './MadeByComponent.vue'
   import Wallpaper from './Wallpaper.vue'
-  import { useGlobalConfig } from 'vuestic-ui'
+  import { useColors } from 'vuestic-ui'
   import { useI18n } from 'vue-i18n'
   import { computed } from 'vue'
-  const { getGlobalConfig } = useGlobalConfig()
+
+  const { colors } = useColors()
   const { t } = useI18n()
 
   defineProps<{
     withoutButton?: boolean
   }>()
 
-  const theme = computed(() => getGlobalConfig().colors!)
-
   const pageNotFoundStyle = computed(() => {
     return {
       // color: this.contextConfig.invertedColor ? this.themes.dark : 'white',
       color: 'var(--va-gray)',
       // backgroundColor: this.contextConfig.invertedColor ? 'white' : this.themes.danger,
-      backgroundColor: theme.value.variables.danger,
+      backgroundColor: colors.value.danger,
       // backgroundImage: this.contextConfig.gradient && 'linear-gradient(to right, #ff2175, #d30505)',
       backgroundImage: 'linear-gradient(to right, var(--va-white), var(--va-white))',
     }

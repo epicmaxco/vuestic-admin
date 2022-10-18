@@ -100,15 +100,13 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, computed } from 'vue'
+  import { computed } from 'vue'
   import { useI18n } from 'vue-i18n'
-  import { useGlobalConfig } from 'vuestic-ui'
+  import { useColors } from 'vuestic-ui'
 
   const { t } = useI18n()
-
-  const theme = ref(useGlobalConfig().getGlobalConfig().colors!)
-
-  const computedStyle = computed(() => ({ backgroundColor: theme.value.variables.primary }))
+  const { colors } = useColors()
+  const computedStyle = computed(() => ({ backgroundColor: colors.value.primary }))
 </script>
 
 <style lang="scss">

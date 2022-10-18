@@ -23,11 +23,11 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, ref } from 'vue'
+  import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
-  import { useGlobalConfig, useToast } from 'vuestic-ui'
+  import { useColors, useToast } from 'vuestic-ui'
 
-  const { getGlobalConfig } = useGlobalConfig()
+  const { colors } = useColors()
   const { t } = useI18n()
   const { init: initToast } = useToast()
 
@@ -39,10 +39,8 @@
     notes: '',
   })
 
-  const theme = computed(() => getGlobalConfig().colors!)
-
   function sendDetails() {
-    const color = theme.value.variables?.primary
+    const color = colors.value.primary
     initToast({ message: `Details sent!`, color })
   }
 </script>

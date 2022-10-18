@@ -2,7 +2,7 @@
   <div class="icon-set">
     <va-card class="icon-set__header mb-4 pb-3">
       <va-card-title>
-        <h2 class="my-0 ml-2" :style="{ color: theme.variables.dark }">
+        <h2 class="my-0 ml-2" :style="{ color: colors.dark }">
           {{ iconSet.name }}
         </h2>
       </va-card-title>
@@ -22,9 +22,7 @@
         </div>
 
         <div class="flex md4 xs12 justify-center content icon-set__header__size">
-          <span class="ma-2 pr-2 shrink icon-set__header__size--smaller" :style="{ color: theme.variables.dark }"
-            >A</span
-          >
+          <span class="ma-2 pr-2 shrink icon-set__header__size--smaller" :style="{ color: colors.dark }">A</span>
           <va-slider
             v-model="iconSize"
             value-visible
@@ -34,9 +32,7 @@
             :max="slider.max"
           >
           </va-slider>
-          <span class="ma-2 pl-2 shrink icon-set__header__size--bigger" :style="{ color: theme.variables.dark }"
-            >A</span
-          >
+          <span class="ma-2 pl-2 shrink icon-set__header__size--bigger" :style="{ color: colors.dark }">A</span>
         </div>
       </va-card-content>
     </va-card>
@@ -68,12 +64,12 @@
 </template>
 
 <script setup lang="ts">
-  import { useGlobalConfig } from 'vuestic-ui'
+  import { useColors } from 'vuestic-ui'
   import { useI18n } from 'vue-i18n'
   import { computed, ref } from 'vue'
   import { IconSet } from './types'
 
-  const { getGlobalConfig } = useGlobalConfig()
+  const { colors } = useColors()
   const { t } = useI18n()
 
   const props = defineProps<{
@@ -88,8 +84,6 @@
     min: 20,
     max: 40,
   })
-
-  const theme = computed(() => getGlobalConfig().colors!)
 
   const iconSet = computed((): IconSet => {
     for (const set of props.sets) {

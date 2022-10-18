@@ -16,7 +16,7 @@
         <div class="flex xs12 sm6 md6">
           <va-card>
             <va-card-content>
-              <p class="va-h2" :style="{ color: theme.variables?.primary }">291</p>
+              <p class="va-h2" :style="{ color: colors.primary }">291</p>
               <p class="no-wrap">{{ t('dashboard.info.completedPullRequests') }}</p>
             </va-card-content>
           </va-card>
@@ -26,15 +26,15 @@
             <va-card-content>
               <div class="row row-separated">
                 <div class="flex xs4">
-                  <p class="va-h2 va-text-center" :style="{ color: theme.variables?.primary }">3</p>
+                  <p class="va-h2 va-text-center" :style="{ color: colors.primary }">3</p>
                   <p class="va-text-center">{{ t('dashboard.info.users') }}</p>
                 </div>
                 <div class="flex xs4">
-                  <p class="va-h2 va-text-center" :style="{ color: theme.variables?.info }">24</p>
+                  <p class="va-h2 va-text-center" :style="{ color: colors.info }">24</p>
                   <p class="va-text-center no-wrap">{{ t('dashboard.info.points') }}</p>
                 </div>
                 <div class="flex xs4">
-                  <p class="va-h2 va-text-center" :style="{ color: theme.variables?.warning }">91</p>
+                  <p class="va-h2 va-text-center" :style="{ color: colors.warning }">91</p>
                   <p class="va-text-center">{{ t('dashboard.info.units') }}</p>
                 </div>
               </div>
@@ -80,21 +80,12 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, ref } from 'vue'
+  import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
-  import {
-    useGlobalConfig,
-    VaCarousel,
-    VaModal,
-    VaCard,
-    VaCardContent,
-    VaCardTitle,
-    VaButton,
-    VaImage,
-  } from 'vuestic-ui'
+  import { VaCarousel, VaModal, VaCard, VaCardContent, VaCardTitle, VaButton, VaImage, useColors } from 'vuestic-ui'
 
-  const { getGlobalConfig } = useGlobalConfig()
   const { t } = useI18n()
+  const { colors } = useColors()
 
   const infoTiles = ref([
     {
@@ -126,8 +117,6 @@
     'https://i.imgur.com/2JxhWD6.jpg',
     'https://i.imgur.com/MpiOWbM.jpg',
   ])
-
-  const theme = computed(() => getGlobalConfig().colors)
 
   function showModal() {
     modal.value = true
