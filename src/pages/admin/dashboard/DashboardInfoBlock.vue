@@ -67,7 +67,7 @@
       <va-card>
         <va-image :src="images[currentImageIndex]" style="height: 200px" />
         <va-card-title>
-          <va-button flat icon-right="fa-arrow-circle-right" @click="showModal">
+          <va-button preset="plain" icon-right="fa-arrow-circle-right" @click="showModal">
             {{ t('dashboard.info.exploreGallery') }}
           </va-button>
         </va-card-title>

@@ -3,15 +3,21 @@
     <va-data-table :fields="fields" :data="users" :per-page="5">
       <template #actions="props">
         <va-popover :message="getStarMessage(props.rowData)" placement="top">
-          <va-button flat small :color="getStarColor(props.rowData)" icon="fa fa-star" @click="star(props.rowData)" />
+          <va-button
+            preset="plain"
+            small
+            :color="getStarColor(props.rowData)"
+            icon="fa fa-star"
+            @click="star(props.rowData)"
+          />
         </va-popover>
 
         <va-popover :message="`${t('tables.edit')} ${props.rowData.fullName}`" placement="top">
-          <va-button flat small color="gray" icon="fa fa-pencil" />
+          <va-button preset="plain" small color="gray" icon="fa fa-pencil" />
         </va-popover>
 
         <va-popover :message="`${t('tables.delete')} ${props.rowData.fullName}`" placement="top">
-          <va-button flat small color="gray" icon="fa fa-trash" />
+          <va-button preset="plain" small color="gray" icon="fa fa-trash" />
         </va-popover>
       </template>
     </va-data-table>

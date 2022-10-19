@@ -8,10 +8,14 @@
             <div class="flex">
               <va-button class="mr-2 mb-2"> {{ t('buttons.default') }}</va-button>
               <va-button class="mr-2 mb-2" disabled> {{ t('buttons.disabled') }}</va-button>
-              <va-button class="mr-2 mb-2" outline> {{ t('buttons.outline') }}</va-button>
-              <va-button class="mr-2 mb-2" outline disabled> {{ t('buttons.disabled') }}</va-button>
-              <va-button class="mr-2 mb-2" flat> {{ t('buttons.flat') }}</va-button>
-              <va-button class="mr-2 mb-2" flat disabled> {{ t('buttons.disabled') }}</va-button>
+              <va-button class="mr-2 mb-2" preset="outline" border-color="primary" color="primary">
+                {{ t('buttons.outline') }}</va-button
+              >
+              <va-button class="mr-2 mb-2" preset="outline" border-color="primary" color="primary" disabled>
+                {{ t('buttons.disabled') }}</va-button
+              >
+              <va-button class="mr-2 mb-2" preset="plain"> {{ t('buttons.flat') }}</va-button>
+              <va-button class="mr-2 mb-2" preset="plain" disabled> {{ t('buttons.disabled') }}</va-button>
             </div>
           </va-card-content>
         </va-card>
@@ -79,22 +83,34 @@
             </div>
             <div class="row">
               <div class="flex">
-                <va-button class="mr-2 mb-2" outline color="danger"> {{ t('buttons.danger') }}</va-button>
-                <va-button class="mr-2 mb-2" outline color="info"> {{ t('buttons.info') }}</va-button>
-                <va-button class="mr-2 mb-2" outline color="dark"> {{ t('buttons.dark') }}</va-button>
-                <va-button class="mr-2 mb-2" outline color="warning"> {{ t('buttons.warning') }}</va-button>
-                <va-button class="mr-2 mb-2" outline color="success"> {{ t('buttons.success') }}</va-button>
-                <va-button class="mr-2 mb-2" outline color="gray"> {{ t('buttons.gray') }}</va-button>
+                <va-button class="mr-2 mb-2" preset="outline" border-color="danger" color="danger">
+                  {{ t('buttons.danger') }}</va-button
+                >
+                <va-button class="mr-2 mb-2" preset="outline" border-color="info" color="info">
+                  {{ t('buttons.info') }}</va-button
+                >
+                <va-button class="mr-2 mb-2" preset="outline" border-color="dark" color="dark">
+                  {{ t('buttons.dark') }}</va-button
+                >
+                <va-button class="mr-2 mb-2" preset="outline" border-color="warning" color="warning">
+                  {{ t('buttons.warning') }}</va-button
+                >
+                <va-button class="mr-2 mb-2" preset="outline" border-color="success" color="success">
+                  {{ t('buttons.success') }}</va-button
+                >
+                <va-button class="mr-2 mb-2" preset="outline" border-color="gray" color="gray">
+                  {{ t('buttons.gray') }}</va-button
+                >
               </div>
             </div>
             <div class="row">
               <div class="flex">
-                <va-button class="mr-2 mb-2" flat color="danger"> {{ t('buttons.danger') }}</va-button>
-                <va-button class="mr-2 mb-2" flat color="info"> {{ t('buttons.info') }}</va-button>
-                <va-button class="mr-2 mb-2" flat color="dark"> {{ t('buttons.dark') }}</va-button>
-                <va-button class="mr-2 mb-2" flat color="warning"> {{ t('buttons.warning') }}</va-button>
-                <va-button class="mr-2 mb-2" flat color="success"> {{ t('buttons.success') }}</va-button>
-                <va-button class="mr-2 mb-2" flat color="gray"> {{ t('buttons.gray') }}</va-button>
+                <va-button class="mr-2 mb-2" preset="plain" color="danger"> {{ t('buttons.danger') }}</va-button>
+                <va-button class="mr-2 mb-2" preset="plain" color="info"> {{ t('buttons.info') }}</va-button>
+                <va-button class="mr-2 mb-2" preset="plain" color="dark"> {{ t('buttons.dark') }}</va-button>
+                <va-button class="mr-2 mb-2" preset="plain" color="warning"> {{ t('buttons.warning') }}</va-button>
+                <va-button class="mr-2 mb-2" preset="plain" color="success"> {{ t('buttons.success') }}</va-button>
+                <va-button class="mr-2 mb-2" preset="plain" color="gray"> {{ t('buttons.gray') }}</va-button>
               </div>
             </div>
           </va-card-content>
@@ -114,14 +130,14 @@
                 </va-button-group>
               </div>
               <div class="flex xs12 xl6">
-                <va-button-group outline color="danger">
+                <va-button-group preset="outline" border-color="danger" color="danger">
                   <va-button icon="maki-art-gallery">One</va-button>
                   <va-button>Two</va-button>
                   <va-button>Three</va-button>
                 </va-button-group>
               </div>
               <div class="flex xs12 xl6">
-                <va-button-group flat color="gray">
+                <va-button-group preset="plain" color="gray">
                   <va-button icon="ion-ios-mail">One</va-button>
                   <va-button icon="entypo-user">Two</va-button>
                   <va-button icon="ion-ios-alarm">Three</va-button>
@@ -136,14 +152,14 @@
                 </va-button-group>
               </div>
               <div class="flex xs12 xl6">
-                <va-button-group outline size="large">
+                <va-button-group preset="outline" border-color="primary" color="primary" size="large">
                   <va-button>First</va-button>
                   <va-button icon-right="glyphicon-pencil">Second</va-button>
                   <va-button>Third</va-button>
                 </va-button-group>
               </div>
               <div class="flex xs12 xl6">
-                <va-button-group flat size="small" color="warning">
+                <va-button-group preset="plain" size="small" color="warning">
                   <va-button icon="glyphicon-envelope" />
                   <va-button icon="entypo-user" />
                   <va-button icon="ion-ios-alarm" />
@@ -163,19 +179,31 @@
                 <va-button-toggle v-model="model" :options="options" />
               </div>
               <div class="flex xs12 lg6">
-                <va-button-toggle v-model="model" outline :options="options" color="danger" />
+                <va-button-toggle
+                  v-model="model"
+                  preset="outline"
+                  :options="options"
+                  border-color="danger"
+                  color="danger"
+                />
               </div>
               <div class="flex xs12 lg6">
-                <va-button-toggle v-model="model" flat :options="options" color="gray" />
+                <va-button-toggle v-model="model" preset="plain" :options="options" color="gray" />
               </div>
               <div class="flex xs12 lg6">
                 <va-button-toggle v-model="model" :options="options" color="dark" />
               </div>
               <div class="flex xs12 lg6">
-                <va-button-toggle v-model="model" outline :options="options" color="info" />
+                <va-button-toggle
+                  v-model="model"
+                  preset="outline"
+                  :options="options"
+                  border-color="info"
+                  color="info"
+                />
               </div>
               <div class="flex xs12 lg6">
-                <va-button-toggle v-model="model" flat :options="options" color="warning" />
+                <va-button-toggle v-model="model" preset="plain" :options="options" color="warning" />
               </div>
             </div>
           </va-card-content>
