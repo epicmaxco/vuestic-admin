@@ -1,5 +1,5 @@
 <template>
-  <va-dropdown class="notification-dropdown" position="bottom" :offset="[13, 0]">
+  <va-dropdown v-model="showDropdown" class="notification-dropdown" position="bottom" :offset="[13, 0]">
     <template #anchor>
       <va-icon-notification
         class="notification-dropdown__icon"
@@ -84,6 +84,7 @@
     },
   )
 
+  const showDropdown = ref(false)
   const notificationsProxy = ref<INotification[]>([...props.notifications])
 
   const allRead = computed(() => {
