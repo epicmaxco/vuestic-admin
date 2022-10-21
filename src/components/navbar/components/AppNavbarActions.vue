@@ -77,7 +77,7 @@
         background-color: var(--va-white);
       }
 
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 640px) {
         margin-right: 0;
 
         &:first-of-type {
