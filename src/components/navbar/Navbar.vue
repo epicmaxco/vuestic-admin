@@ -62,7 +62,6 @@
 
 <style lang="scss" scoped>
   .va-navbar {
-    background: red;
     box-shadow: var(--va-box-shadow);
     z-index: 2;
 
