@@ -1,5 +1,5 @@
 <template>
-  <va-dropdown class="language-dropdown" fixed position="bottom" :offset="[13, 0]">
+  <va-dropdown v-model="showDropdown" class="language-dropdown" fixed position="bottom" :offset="[13, 0]">
     <template #anchor>
       <va-icon :name="getFlagIcon(locale, 'large')" />
     </template>
@@ -23,7 +23,10 @@
 
 <script setup lang="ts">
   import { useI18n } from 'vue-i18n'
+  import { ref } from 'vue'
   const { t, locale } = useI18n()
+
+  const showDropdown = ref(false)
 
   withDefaults(
     defineProps<{

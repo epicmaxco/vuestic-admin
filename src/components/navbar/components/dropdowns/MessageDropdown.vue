@@ -1,5 +1,5 @@
 <template>
-  <va-dropdown class="message-dropdown" position="bottom" :offset="[13, 0]">
+  <va-dropdown v-model="showDropdown" class="message-dropdown" position="bottom" :offset="[13, 0]">
     <template #anchor>
       <va-icon-message class="message-dropdown__icon" :class="{ 'message-dropdown__icon--unread': !allRead }" />
     </template>
@@ -19,9 +19,15 @@
       </div>
       <div class="row justify--space-between mt-1">
         <va-button class="md6 mr-2" size="small">{{ t('messages.all') }}</va-button>
-        <va-button class="md6" size="small" outline :disabled="allRead" @click="markAllAsRead">{{
-          t('messages.mark_as_read')
-        }}</va-button>
+        <va-button
+          class="md6"
+          size="small"
+          preset="outline"
+          border-color="primary"
+          :disabled="allRead"
+          @click="markAllAsRead"
+          >{{ t('messages.mark_as_read') }}</va-button
+        >
       </div>
     </va-dropdown-content>
   </va-dropdown>
@@ -73,6 +79,7 @@
     },
   )
 
+  const showDropdown = ref(false)
   const messagesProxy = ref<IMessage[]>([...props.messages])
 
   const allRead = computed(() => {

@@ -3572,10 +3572,10 @@ vue@^3.2.25:
     "@vue/server-renderer" "3.2.37"
     "@vue/shared" "3.2.37"
 
-vuestic-ui@0.0.0-experimental-aa9f93871-20221013:
-  version "0.0.0-experimental-aa9f93871-20221013"
-  resolved "https://registry.yarnpkg.com/vuestic-ui/-/vuestic-ui-0.0.0-experimental-aa9f93871-20221013.tgz#c91b357733cab3f35db0c5814681069bd57b45a6"
-  integrity sha512-tjt8v/fEiO/3O75tEgEbjlCSF8sXOACU6/HT8TpTEKAoETNp7YN0Cng27Ur6Hp9R0uZjVeojmYVS3UA8Uc18Eg==
+vuestic-ui@0.0.0-experimental-7568c8b61-20221019:
+  version "0.0.0-experimental-7568c8b61-20221019"
+  resolved "https://registry.yarnpkg.com/vuestic-ui/-/vuestic-ui-0.0.0-experimental-7568c8b61-20221019.tgz#2efa7b4aed5db702b611c4fd9ad3d1fd865832bb"
+  integrity sha512-ob7iyVCOKCurXGQPM0N4++19EMd8Hgon7xZfDviQWsFsIBJOJdJxiIAc0lplAJ2TSJtysoc2EvQ5H3KUcWJd1g==
   dependencies:
     "@types/lodash" "^4.14.161"
     cleave.js "^1.6.0"

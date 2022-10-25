@@ -68,9 +68,7 @@ export function useTheme() {
     }
 
     mergeGlobalConfig({
-      colors: {
-        variables: theme.colors,
-      },
+      colors: { variables: theme.colors },
     })
   }
 

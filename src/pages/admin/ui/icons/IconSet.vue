@@ -8,7 +8,7 @@
       </va-card-title>
       <va-card-content class="row">
         <div class="flex md4 xs12 justify-center">
-          <va-button outline :to="{ name: 'icon-sets' }">
+          <va-button preset="outline" border-color="primary" color="primary" :to="{ name: 'icon-sets' }">
             {{ t('icons.back') }}
           </va-button>
         </div>
