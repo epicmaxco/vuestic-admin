@@ -15,9 +15,9 @@
     </template>
     <template #center>
       <div class="app-navbar-center">
-        <span class="app-navbar-center__text">{{ t('navbar.messageUs') }}</span>
+        <span class="app-navbar-center__text mr-2">{{ t('navbar.messageUs') }}</span>
         <a
-          class="app-navbar-center__mail"
+          class="app-navbar-center__mail mr-2"
           href="mailto:hello@epicmax.co"
           target="_blank"
           :style="{ color: colors.primary }"
@@ -98,11 +98,6 @@
   .app-navbar-center {
     display: flex;
     align-items: center;
-
-    &__text,
-    &__mail {
-      margin-right: 0.5rem;
-    }
 
     @media screen and (max-width: 1200px) {
       &__github-button {
