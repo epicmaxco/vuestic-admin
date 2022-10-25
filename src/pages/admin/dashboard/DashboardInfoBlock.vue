@@ -5,7 +5,7 @@
         <div v-for="(info, idx) in infoTiles" :key="idx" class="flex xs12 sm4">
           <va-card class="mb-4" :color="info.color">
             <va-card-content>
-              <p class="va-h2" style="color: white">{{ info.value }}</p>
+              <h2 class="va-h2 ma-0" style="color: white">{{ info.value }}</h2>
               <p style="color: white">{{ t('dashboard.info.' + info.text) }}</p>
             </va-card-content>
           </va-card>
@@ -16,7 +16,7 @@
         <div class="flex xs12 sm6 md6">
           <va-card>
             <va-card-content>
-              <p class="va-h2" :style="{ color: colors.primary }">291</p>
+              <h2 class="va-h2 ma-0" :style="{ color: colors.primary }">291</h2>
               <p class="no-wrap">{{ t('dashboard.info.completedPullRequests') }}</p>
             </va-card-content>
           </va-card>
@@ -26,15 +26,15 @@
             <va-card-content>
               <div class="row row-separated">
                 <div class="flex xs4">
-                  <p class="va-h2 va-text-center" :style="{ color: colors.primary }">3</p>
+                  <h2 class="va-h2 ma-0 va-text-center" :style="{ color: colors.primary }">3</h2>
                   <p class="va-text-center">{{ t('dashboard.info.users') }}</p>
                 </div>
                 <div class="flex xs4">
-                  <p class="va-h2 va-text-center" :style="{ color: colors.info }">24</p>
+                  <h2 class="va-h2 ma-0 va-text-center" :style="{ color: colors.info }">24</h2>
                   <p class="va-text-center no-wrap">{{ t('dashboard.info.points') }}</p>
                 </div>
                 <div class="flex xs4">
-                  <p class="va-h2 va-text-center" :style="{ color: colors.warning }">91</p>
+                  <h2 class="va-h2 ma-0 va-text-center" :style="{ color: colors.warning }">91</h2>
                   <p class="va-text-center">{{ t('dashboard.info.units') }}</p>
                 </div>
               </div>
@@ -124,10 +124,6 @@
 </script>
 
 <style lang="scss" scoped>
-  .va-h2 {
-    margin: 0;
-    line-height: 1;
-  }
   .row-separated {
     .flex + .flex {
       border-left: 1px solid var(--va-background-primary);
