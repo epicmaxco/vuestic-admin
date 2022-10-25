@@ -5,13 +5,13 @@
     </div>
     <div class="row">
       <div class="flex xs12 md6">
-        <va-input v-model="form.bankName" :label="t('dashboard.tabs.bankDetails.bankName')" />
-        <va-input v-model="form.accountName" :label="t('dashboard.tabs.bankDetails.accountName')" />
-        <va-input v-model="form.sortCode" :label="t('dashboard.tabs.bankDetails.sortCode')" />
+        <va-input v-model="form.bankName" class="mb-3" :label="t('dashboard.tabs.bankDetails.bankName')" />
+        <va-input v-model="form.accountName" class="mb-3" :label="t('dashboard.tabs.bankDetails.accountName')" />
+        <va-input v-model="form.sortCode" class="mb-3" :label="t('dashboard.tabs.bankDetails.sortCode')" />
       </div>
       <div class="flex xs12 md6">
-        <va-input v-model="form.accountNumber" :label="t('dashboard.tabs.bankDetails.accountNumber')" />
-        <va-input v-model="form.notes" :label="t('dashboard.tabs.bankDetails.notes')" />
+        <va-input v-model="form.accountNumber" class="mb-3" :label="t('dashboard.tabs.bankDetails.accountNumber')" />
+        <va-input v-model="form.notes" class="mb-3" :label="t('dashboard.tabs.bankDetails.notes')" />
       </div>
     </div>
     <div class="row justify-center">
@@ -44,14 +44,3 @@
     initToast({ message: `Details sent!`, color })
   }
 </script>
-
-<style lang="scss" scoped>
-  .va-input-wrapper {
-    margin-bottom: 1rem;
-  }
-
-  .button-wrapper {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-</style>
