@@ -1,5 +1,5 @@
 <template>
-  <va-dropdown v-model="showDropdown" class="color-dropdown" :offset="[13, 0]" position="bottom">
+  <va-dropdown class="color-dropdown" :offset="[13, 0]" position="bottom">
     <template #anchor>
       <va-icon-color />
     </template>
@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, ref } from 'vue'
+  import { computed } from 'vue'
   import { useRouter } from 'vue-router'
   import { useColors } from 'vuestic-ui'
   import VaIconColor from '../../../icons/VaIconColor.vue'
@@ -36,7 +36,6 @@
   const { getColors } = useColors()
   const router = useRouter()
   const { setTheme, themeName } = useTheme()
-  const showDropdown = ref(false)
 
   // onMounted(() => {
   setTheme(getThemeNameFromUrl() as keyof typeof THEME_NAMES)

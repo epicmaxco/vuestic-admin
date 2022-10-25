@@ -1,5 +1,5 @@
 <template>
-  <va-dropdown v-model="showDropdown" class="message-dropdown" position="bottom" :offset="[13, 0]">
+  <va-dropdown class="message-dropdown" position="bottom" :offset="[13, 0]">
     <template #anchor>
       <va-icon-message class="message-dropdown__icon" :class="{ 'message-dropdown__icon--unread': !allRead }" />
     </template>
@@ -79,7 +79,6 @@
     },
   )
 
-  const showDropdown = ref(false)
   const messagesProxy = ref<IMessage[]>([...props.messages])
 
   const allRead = computed(() => {
