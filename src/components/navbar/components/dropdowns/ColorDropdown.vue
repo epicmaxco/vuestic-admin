@@ -5,7 +5,15 @@
     </template>
 
     <va-dropdown-content class="color-dropdown__content pl-4 pr-4 pt-2 pb-2">
-      <va-button-toggle v-model="currentTheme" :options="themeOptions" outline size="small" style="max-width: 100%" />
+      <va-button-toggle
+        v-model="currentTheme"
+        class="color-dropdown__toggle"
+        :options="themeOptions"
+        outline
+        round
+        grow
+        size="small"
+      />
 
       <table style="width: 100%">
         <color-dropdown-item
@@ -52,6 +60,12 @@
 
     .va-dropdown__anchor {
       display: inline-block;
+    }
+
+    &__toggle {
+      width: 100%;
+      display: flex;
+      justify-content: stretch;
     }
   }
 
