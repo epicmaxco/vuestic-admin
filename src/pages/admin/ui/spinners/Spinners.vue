@@ -39,7 +39,7 @@
         <div v-for="(group, i) in groups" :key="i" class="row">
           <div v-for="item in group" :key="item" class="flex sm6 xs12 lg3">
             <div class="va-text-center pb-4">
-              <div class="justify-center spinner-box">
+              <div class="justify-center d-flex align-center spinner-box">
                 <component
                   :is="getComponent(item)"
                   :animation-duration="config.duration"

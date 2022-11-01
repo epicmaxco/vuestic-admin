@@ -108,7 +108,7 @@
   const { colors } = useColors()
   const computedStyle = computed(() => ({
     backgroundColor: colors.primary,
-    color: colors.textLight,
+    color: colors.textInverted,
   }))
 </script>
 
@@ -116,7 +116,6 @@
   .grid {
     &__container {
       min-height: 3rem;
-      color: var(--va-white);
       border-radius: 0.5rem;
       padding: 1rem;
       box-sizing: border-box;

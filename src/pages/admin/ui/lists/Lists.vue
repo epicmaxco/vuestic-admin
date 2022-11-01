@@ -3,7 +3,7 @@
     <div class="row">
       <div class="flex xs12 lg6">
         <va-card class="mb-4 px-3">
-          <va-list>
+          <va-list class="py-4">
             <va-list-label>
               {{ t('lists.customers') }}
             </va-list-label>
@@ -37,7 +37,7 @@
         </va-card>
 
         <va-card class="px-3">
-          <va-list>
+          <va-list class="py-4">
             <va-list-label>
               {{ t('lists.recentMessages') }}
             </va-list-label>
@@ -101,7 +101,7 @@
 
       <div class="flex xs12 lg6">
         <va-card class="mb-4 px-3">
-          <va-list>
+          <va-list class="py-4">
             <va-list-label>
               {{ t('lists.starterKit') }}
             </va-list-label>
@@ -159,7 +159,7 @@
         </va-card>
 
         <va-card class="px-3">
-          <va-list>
+          <va-list class="py-4">
             <va-list-label>
               {{ t('lists.routerSupport') }}
             </va-list-label>
