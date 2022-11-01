@@ -107,8 +107,8 @@
   const { t } = useI18n()
   const { colors } = useColors()
   const computedStyle = computed(() => ({
-    backgroundColor: colors.value.primary,
-    color: colors.value.textLight,
+    backgroundColor: colors.primary,
+    color: colors.textLight,
   }))
 </script>
 

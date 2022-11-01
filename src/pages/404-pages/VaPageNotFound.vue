@@ -35,8 +35,8 @@
 
   const pageNotFoundStyle = computed(() => {
     return {
-      color: colors.value.secondary,
-      backgroundColor: colors.value.backgroundPrimary,
+      color: colors.secondary,
+      backgroundColor: colors.backgroundPrimary,
     }
   })
 

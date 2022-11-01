@@ -40,7 +40,7 @@
   })
 
   function sendDetails() {
-    const color = colors.value.primary
+    const color = colors.primary
     initToast({ message: `Details sent!`, color })
   }
 </script>

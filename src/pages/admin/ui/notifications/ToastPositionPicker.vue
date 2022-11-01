@@ -60,7 +60,7 @@
   }>()
   const computedStyle = computed(() => {
     return {
-      backgroundColor: colors.value.primary,
+      backgroundColor: colors.primary,
     }
   })
 

@@ -73,7 +73,7 @@
 
   const allowedCitiesList = ref<typeof citiesList['value']>([])
 
-  const computedStylesTitle = computed(() => ({ color: colors.value.dark }))
+  const computedStylesTitle = computed(() => ({ color: colors.dark }))
 
   watch(
     () => form.country,

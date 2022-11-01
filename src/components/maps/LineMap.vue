@@ -102,7 +102,7 @@
     )
 
     polygonSeries.mapPolygons.template.setAll({
-      fill: am5.color(colors.value.secondary),
+      fill: am5.color(colors.secondary),
       fillOpacity: 0.4,
       strokeWidth: 0.5,
     })
@@ -136,7 +136,7 @@
             y: am5.percent(50),
             centerX: am5.percent(50),
             centerY: am5.percent(50),
-            fill: am5.color(isMainCity ? colors.value.primary : itemData.color),
+            fill: am5.color(isMainCity ? colors.primary : itemData.color),
             scale: isMainCity ? 1.5 : 1,
             tooltipText: '{title}',
           },
@@ -149,7 +149,7 @@
     const lineSeries = chart.series.push(am5map.MapLineSeries.new(root, {}))
 
     lineSeries.mapLines.template.setAll({
-      stroke: am5.color(colors.value.primary),
+      stroke: am5.color(colors.primary),
       strokeWidth: 2,
       strokeOpacity: 0.5,
     })
@@ -170,14 +170,14 @@
     const labelSvg = labelContainer.children.push(
       am5.Graphics.new(root, {
         svgPath: planeSVG,
-        fill: am5.color(colors.value.info),
+        fill: am5.color(colors.info),
       }),
     )
 
     const labelText = labelContainer.children.push(
       am5.Label.new(root, {
         text: generateLabelText(getItemByMainCityTitle()?.title),
-        fill: am5.color(colors.value.info),
+        fill: am5.color(colors.info),
         fontSize: 22,
         lineHeight: am5.p100,
       }),
@@ -232,15 +232,15 @@
   const updateChartDataOnChangeTheme = () => {
     if (mapRoot.value) {
       mapPolygonSeries.value.mapPolygons.template.setAll({
-        fill: am5.color(colors.value.secondary),
+        fill: am5.color(colors.secondary),
       })
 
       mapLineSeries.value.mapLines.template.setAll({
-        stroke: am5.color(colors.value.primary),
+        stroke: am5.color(colors.primary),
       })
 
-      mapLabelText.value.set('fill', am5.color(colors.value.info))
-      mapLabelSvg.value.set('fill', am5.color(colors.value.info))
+      mapLabelText.value.set('fill', am5.color(colors.info))
+      mapLabelSvg.value.set('fill', am5.color(colors.info))
 
       setPointSeriesData()
     }
