@@ -152,6 +152,17 @@ contribution guides</a>
 , [open issues](https://github.com/epicmaxco/vuestic-ui/issues)
 and [discord server](https://discord.gg/jTKTjj2weV)
 
+### Partners & Sponsors ❤️
+<div>
+        <a href="https://epicmax.co/" target="_blank" title="Epicmax - Top Vue.js Development Company"><img src="./.github/assets/epicmax.svg" loading="lazy" vspace="10" alt=""></a>
+        <a href="https://www.ag-grid.com/" target="_blank" title=" Data Grid: AG Grid: High-Performance React Grid, Angular Grid, JavaScript Grid"><img hspace="15" vspace="10" src="./.github/assets/aggrid.svg" loading="lazy" alt=""></a>
+        <a href="https://vuejobs.com/" target="_blank" title="Vue.js jobs – Browse through dozens of Vue.js openings"><img src="./.github/assets/vuejobs.svg" loading="lazy" vspace="10" alt=""></a>
+        <a href="https://flatlogic.com/" target="_blank" title="Flatlogic - The best way to create React, Angular and Vue full-stack web applications"><img hspace="15" vspace="10" src="./.github/assets/flatlogic.svg" loading="lazy" alt=""></a>
+</div>
+<br >
+
+Become a partner: [hello@epicmax.co](mailto:hello@epicmax.co)
+
 ## Can I hire you guys?
 
 Yes! Say hi: [hello@epicmax.co](mailto:hello@epicmax.co) </br>
