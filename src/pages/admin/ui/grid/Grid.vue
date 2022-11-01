@@ -102,13 +102,14 @@
 <script setup lang="ts">
   import { computed } from 'vue'
   import { useI18n } from 'vue-i18n'
-  import { useColors } from 'vuestic-ui'
+  import { useColors, useElementTextColor } from 'vuestic-ui'
 
   const { t } = useI18n()
   const { colors } = useColors()
+  const textColor = useElementTextColor(colors.primary)
   const computedStyle = computed(() => ({
     backgroundColor: colors.primary,
-    color: colors.textInverted,
+    color: textColor.value,
   }))
 </script>
 
