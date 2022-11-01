@@ -528,6 +528,11 @@
   dependencies:
     "@types/geojson" "*"
 
+"@types/lodash@^4.14.161":
+  version "4.14.186"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.186.tgz#862e5514dd7bd66ada6c70ee5fce844b06c8ee97"
+  integrity sha512-eHcVlLXP0c2FlMPm56ITode2AgLMSa6aJ05JTTbYbI+7EMkCEE5qk2E41d5g2lCVTqRe0GnnRFurmlCsDODrPw==
+
 "@types/mapbox__point-geometry@*", "@types/mapbox__point-geometry@^0.1.2":
   version "0.1.2"
   resolved "https://registry.npmjs.org/@types/mapbox__point-geometry/-/mapbox__point-geometry-0.1.2.tgz"
@@ -3567,11 +3572,12 @@ vue@^3.2.25:
     "@vue/server-renderer" "3.2.37"
     "@vue/shared" "3.2.37"
 
-vuestic-ui@^1.4.13:
-  version "1.4.13"
-  resolved "https://registry.npmjs.org/vuestic-ui/-/vuestic-ui-1.4.13.tgz"
-  integrity sha512-5f2d3isSaXq7RKWHZvGuMaiJraMugAy8DLnGBF9nLjiCZFT3b6E2WQiXpxvsyA4ZA7ZQsaEChNuaymAHdlv+xA==
+vuestic-ui@0.0.0-experimental-7568c8b61-20221019:
+  version "0.0.0-experimental-7568c8b61-20221019"
+  resolved "https://registry.yarnpkg.com/vuestic-ui/-/vuestic-ui-0.0.0-experimental-7568c8b61-20221019.tgz#2efa7b4aed5db702b611c4fd9ad3d1fd865832bb"
+  integrity sha512-ob7iyVCOKCurXGQPM0N4++19EMd8Hgon7xZfDviQWsFsIBJOJdJxiIAc0lplAJ2TSJtysoc2EvQ5H3KUcWJd1g==
   dependencies:
+    "@types/lodash" "^4.14.161"
     cleave.js "^1.6.0"
     colortranslator "^1.9.2"
     lodash "^4.17.21"

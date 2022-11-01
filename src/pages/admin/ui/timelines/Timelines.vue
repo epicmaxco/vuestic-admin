@@ -8,7 +8,7 @@
             <va-timeline style="min-width: 400px">
               <va-timeline-item active>
                 <template #before>
-                  <div class="title text--center" :style="{ color: theme.primary }">
+                  <div class="title va-text-center" :style="{ color: colors.primary }">
                     {{ t('timelines.firstDate') }}
                   </div>
                   <div class="va-timeline-item__description">
@@ -18,7 +18,7 @@
               </va-timeline-item>
               <va-timeline-item active>
                 <template #before>
-                  <div class="title text--center" :style="{ color: theme.primary }">
+                  <div class="title va-text-center" :style="{ color: colors.primary }">
                     {{ t('timelines.secondDate') }}
                   </div>
                   <div class="va-timeline-item__description">
@@ -28,7 +28,7 @@
               </va-timeline-item>
               <va-timeline-item>
                 <template #before>
-                  <div class="title title--gray text--center">
+                  <div class="title title--gray va-text-center">
                     {{ t('timelines.thirdDate') }}
                   </div>
                   <div class="va-timeline-item__description">
@@ -48,7 +48,7 @@
             <va-timeline align-top style="min-width: 600px" class="timelines__horizontal-long__timeline">
               <va-timeline-item active>
                 <template #before>
-                  <div class="title text--center" :style="{ color: theme.primary }">
+                  <div class="title va-text-center" :style="{ color: colors.primary }">
                     {{ t('timelines.firstDate') }}
                   </div>
                 </template>
@@ -61,7 +61,7 @@
               </va-timeline-item>
               <va-timeline-item active>
                 <template #before>
-                  <div class="title text--center" :style="{ color: theme.primary }">
+                  <div class="title va-text-center" :style="{ color: colors.primary }">
                     {{ t('timelines.secondDate') }}
                   </div>
                 </template>
@@ -74,7 +74,7 @@
               </va-timeline-item>
               <va-timeline-item>
                 <template #before>
-                  <div class="title title--gray text--center">
+                  <div class="title title--gray va-text-center">
                     {{ t('timelines.thirdDate') }}
                   </div>
                 </template>
@@ -97,7 +97,7 @@
             <va-timeline vertical>
               <va-timeline-item active>
                 <template #before>
-                  <span class="title va-timeline-item__text" :style="{ color: theme.primary }">
+                  <span class="title va-timeline-item__text" :style="{ color: colors.primary }">
                     {{ t('timelines.firstDate') }}
                   </span>
                 </template>
@@ -110,7 +110,7 @@
               </va-timeline-item>
               <va-timeline-item active>
                 <template #before>
-                  <span class="title va-timeline-item__text" :style="{ color: theme.primary }">
+                  <span class="title va-timeline-item__text" :style="{ color: colors.primary }">
                     {{ t('timelines.secondDate') }}
                   </span>
                 </template>
@@ -146,7 +146,7 @@
             <va-timeline vertical centered style="min-width: 300px">
               <va-timeline-item color="danger" active>
                 <template #before>
-                  <span class="title title--danger va-timeline-item__text" :style="{ color: theme.danger }">
+                  <span class="title title--danger va-timeline-item__text" :style="{ color: colors.danger }">
                     {{ t('timelines.firstDate') }}
                   </span>
                 </template>
@@ -159,7 +159,7 @@
               </va-timeline-item>
               <va-timeline-item color="danger" active>
                 <template #before>
-                  <span class="title title--danger va-timeline-item__text" :style="{ color: theme.danger }">
+                  <span class="title title--danger va-timeline-item__text" :style="{ color: colors.danger }">
                     {{ t('timelines.secondDate') }}
                   </span>
                 </template>
@@ -172,7 +172,7 @@
               </va-timeline-item>
               <va-timeline-item color="danger" active>
                 <template #before>
-                  <span class="title title--danger va-timeline-item__text" :style="{ color: theme.danger }">
+                  <span class="title title--danger va-timeline-item__text" :style="{ color: colors.danger }">
                     {{ t('timelines.thirdDate') }}
                   </span>
                 </template>
@@ -196,12 +196,9 @@
    * HIDDEN FROM THE ADMIN! SEE src/components/sidebar/NavigationRoutes.ts AND src/pages/admin/ui/route.ts TO REVEAL.
    */
 
-  import { computed } from 'vue'
   import { useI18n } from 'vue-i18n'
-  import { useGlobalConfig } from 'vuestic-ui'
+  import { useColors } from 'vuestic-ui'
 
   const { t } = useI18n()
-  const { getGlobalConfig } = useGlobalConfig()
-
-  const theme = computed(() => getGlobalConfig().colors!)
+  const { colors } = useColors()
 </script>

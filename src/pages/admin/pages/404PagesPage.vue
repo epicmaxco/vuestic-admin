@@ -2,7 +2,7 @@
   <div class="not-found-pages">
     <div class="row">
       <div v-for="(item, index) in items" :key="index" class="flex xs12 sm6 lg4 xl3">
-        <va-card class="not-found-pages__cards text--center">
+        <va-card class="not-found-pages__cards va-text-center">
           <va-image :src="item.imageUrl" style="max-height: 200px" />
           <va-card-content>
             {{ item.label }}

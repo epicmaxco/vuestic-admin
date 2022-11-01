@@ -9,7 +9,7 @@
       :error-messages="emailErrors"
     />
 
-    <div class="d-flex justify--center mt-3">
+    <div class="d-flex justify-center mt-3">
       <va-button type="submit" class="my-0">{{ t('auth.reset_password') }}</va-button>
     </div>
   </form>

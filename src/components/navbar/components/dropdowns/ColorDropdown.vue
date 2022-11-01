@@ -6,11 +6,13 @@
 
     <va-dropdown-content class="color-dropdown__content pl-4 pr-4 pt-2 pb-2">
       <va-button-toggle
-        v-model="selectedThemeName"
-        :options="buttonToggleOptions"
+        v-model="currentTheme"
+        class="color-dropdown__toggle"
+        :options="themeOptions"
         outline
+        round
+        grow
         size="small"
-        style="max-width: 100%"
       />
 
       <table style="width: 100%">
@@ -26,49 +28,24 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue'
-  import { useRouter } from 'vue-router'
-  import { useColors } from 'vuestic-ui'
   import VaIconColor from '../../../icons/VaIconColor.vue'
   import ColorDropdownItem from './ColorDropdownItem.vue'
-  import { THEME_NAMES, useTheme } from '../../../../services/vuestic-ui/themes'
+  import { useColors } from 'vuestic-ui'
+  import { ref, watchEffect } from 'vue'
 
-  const { getColors } = useColors()
-  const router = useRouter()
-  const { setTheme, themeName } = useTheme()
+  const { presets, applyPreset, colors } = useColors()
 
-  // onMounted(() => {
-  setTheme(getThemeNameFromUrl() as keyof typeof THEME_NAMES)
-  // });
+  const currentTheme = ref('light')
 
-  const buttonToggleOptions = [
-    { label: 'Light', value: THEME_NAMES.LIGHT },
-    { label: 'Semi-Dark', value: THEME_NAMES.SEMI_DARK },
-    // { label: 'Dark', value: THEME_NAMES.DARK },
-    { label: 'Original', value: THEME_NAMES.ORIGINAL },
-  ]
-
-  const selectedThemeName = computed({
-    get: () => themeName.value,
-    set: (newThemeName) => setTheme(newThemeName as keyof typeof THEME_NAMES),
+  watchEffect(() => {
+    applyPreset(currentTheme.value)
   })
 
-  const colors = getColors()
-  const colorNames = computed(() => Object.keys(colors))
-
-  function getThemeNameFromUrl() {
-    const themeName = router.currentRoute.value.query.theme
-
-    if (themeName === 'semi-dark') {
-      return THEME_NAMES.SEMI_DARK
-    } else if (themeName === 'dark') {
-      return THEME_NAMES.DARK
-    } else if (themeName === 'original') {
-      return THEME_NAMES.ORIGINAL
-    } else {
-      return THEME_NAMES.LIGHT
-    }
-  }
+  const themeOptions = Object.keys(presets.value).map((themeName) => ({
+    value: themeName,
+    label: themeName,
+  }))
+  const colorNames = Object.keys(colors)
 </script>
 
 <style lang="scss" scoped>
@@ -83,6 +60,12 @@
 
     .va-dropdown__anchor {
       display: inline-block;
+    }
+
+    &__toggle {
+      width: 100%;
+      display: flex;
+      justify-content: stretch;
     }
   }
 

@@ -26,9 +26,15 @@
       </div>
       <div class="row justify--space-between mt-1">
         <va-button class="md6 mr-2" size="small">{{ t('notifications.all') }}</va-button>
-        <va-button class="md6" size="small" outline :disabled="allRead" @click="markAllAsRead">{{
-          t('notifications.mark_as_read')
-        }}</va-button>
+        <va-button
+          class="md6"
+          size="small"
+          preset="outline"
+          border-color="primary"
+          :disabled="allRead"
+          @click="markAllAsRead"
+          >{{ t('notifications.mark_as_read') }}</va-button
+        >
       </div>
     </va-dropdown-content>
   </va-dropdown>
@@ -83,7 +89,6 @@
       ],
     },
   )
-
   const notificationsProxy = ref<INotification[]>([...props.notifications])
 
   const allRead = computed(() => {

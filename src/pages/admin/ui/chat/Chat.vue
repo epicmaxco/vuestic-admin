@@ -13,7 +13,7 @@
         :key="index"
         class="va-chat__message"
         :style="{
-          backgroundColor: message.yours ? theme.primary : undefined,
+          backgroundColor: message.yours ? colors.primary : undefined,
         }"
         :class="{ 'va-chat__message--yours': message.yours }"
       >
@@ -38,9 +38,11 @@
 
 <script setup lang="ts">
   import vStickyScroll from './StickyScroll'
-  import { useGlobalConfig } from 'vuestic-ui'
+  import { useColors } from 'vuestic-ui'
   import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
+
+  const { colors } = useColors()
   const { t } = useI18n()
 
   const props = withDefaults(
@@ -85,8 +87,6 @@
 
   const inputMessage = ref('')
 
-  const theme = useGlobalConfig().getGlobalConfig().colors!
-
   function sendMessage() {
     if (!inputMessage.value) {
       return
@@ -100,7 +100,7 @@
 <style lang="scss" scoped>
   // .chat {
   //   &__content {
-  //     @include va-flex-center();
+  //     @include va-justify-center();
   //   }
   // }
 

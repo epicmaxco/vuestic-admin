@@ -4,7 +4,7 @@
       <div class="flex md12">
         <va-card>
           <va-card-title>{{ t('forms.mediumEditor.title') }}</va-card-title>
-          <va-card-content class="d-flex flex-center">
+          <va-card-content class="d-flex justify-center">
             <va-medium-editor @initialized="handleEditorInitialization">
               <h1>Select Text To Open Editor</h1>
 

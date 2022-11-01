@@ -2,18 +2,18 @@
   <div class="icon-set">
     <va-card class="icon-set__header mb-4 pb-3">
       <va-card-title>
-        <h2 class="my-0 ml-2" :style="{ color: theme.dark }">
+        <h2 class="my-0 ml-2" :style="{ color: colors.dark }">
           {{ iconSet.name }}
         </h2>
       </va-card-title>
       <va-card-content class="row">
-        <div class="flex md4 xs12 flex-center">
-          <va-button outline :to="{ name: 'icon-sets' }">
+        <div class="flex md4 xs12 justify-center">
+          <va-button preset="outline" border-color="primary" color="primary" :to="{ name: 'icon-sets' }">
             {{ t('icons.back') }}
           </va-button>
         </div>
 
-        <div class="flex md4 xs12 flex-center">
+        <div class="flex md4 xs12 justify-center">
           <va-input v-model="search" :label="t('icons.search')" clearable>
             <template #prependInner>
               <va-icon class="icon-left input-icon" name="search" />
@@ -21,8 +21,8 @@
           </va-input>
         </div>
 
-        <div class="flex md4 xs12 flex-center content icon-set__header__size">
-          <span class="ma-2 pr-2 shrink icon-set__header__size--smaller" :style="{ color: theme.dark }">A</span>
+        <div class="flex md4 xs12 justify-center content icon-set__header__size">
+          <span class="ma-2 pr-2 shrink icon-set__header__size--smaller" :style="{ color: colors.dark }">A</span>
           <va-slider
             v-model="iconSize"
             value-visible
@@ -32,7 +32,7 @@
             :max="slider.max"
           >
           </va-slider>
-          <span class="ma-2 pl-2 shrink icon-set__header__size--bigger" :style="{ color: theme.dark }">A</span>
+          <span class="ma-2 pl-2 shrink icon-set__header__size--bigger" :style="{ color: colors.dark }">A</span>
         </div>
       </va-card-content>
     </va-card>
@@ -48,7 +48,7 @@
         <div
           v-for="icon in list.icons"
           :key="icon"
-          class="flex flex-center xs3 md1 mb-2 icon-grid-container"
+          class="flex justify-center xs3 md1 mb-2 icon-grid-container"
           style="flex-direction: column"
         >
           <div class="vuestic-icon mb-3 pt-3">
@@ -64,12 +64,12 @@
 </template>
 
 <script setup lang="ts">
-  import { useGlobalConfig } from 'vuestic-ui'
+  import { useColors } from 'vuestic-ui'
   import { useI18n } from 'vue-i18n'
   import { computed, ref } from 'vue'
   import { IconSet } from './types'
 
-  const { getGlobalConfig } = useGlobalConfig()
+  const { colors } = useColors()
   const { t } = useI18n()
 
   const props = defineProps<{
@@ -84,8 +84,6 @@
     min: 20,
     max: 40,
   })
-
-  const theme = computed(() => getGlobalConfig().colors!)
 
   const iconSet = computed((): IconSet => {
     for (const set of props.sets) {

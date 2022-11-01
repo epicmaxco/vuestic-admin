@@ -5,16 +5,16 @@
     </div>
     <div class="row">
       <div class="flex xs12 md6">
-        <va-input v-model="form.bankName" :label="t('dashboard.tabs.bankDetails.bankName')" />
-        <va-input v-model="form.accountName" :label="t('dashboard.tabs.bankDetails.accountName')" />
-        <va-input v-model="form.sortCode" :label="t('dashboard.tabs.bankDetails.sortCode')" />
+        <va-input v-model="form.bankName" class="mb-3" :label="t('dashboard.tabs.bankDetails.bankName')" />
+        <va-input v-model="form.accountName" class="mb-3" :label="t('dashboard.tabs.bankDetails.accountName')" />
+        <va-input v-model="form.sortCode" class="mb-3" :label="t('dashboard.tabs.bankDetails.sortCode')" />
       </div>
       <div class="flex xs12 md6">
-        <va-input v-model="form.accountNumber" :label="t('dashboard.tabs.bankDetails.accountNumber')" />
-        <va-input v-model="form.notes" :label="t('dashboard.tabs.bankDetails.notes')" />
+        <va-input v-model="form.accountNumber" class="mb-3" :label="t('dashboard.tabs.bankDetails.accountNumber')" />
+        <va-input v-model="form.notes" class="mb-3" :label="t('dashboard.tabs.bankDetails.notes')" />
       </div>
     </div>
-    <div class="row justify--center">
+    <div class="row justify-center">
       <va-button @click="sendDetails">
         {{ t('dashboard.tabs.bankDetails.sendDetails') }}
       </va-button>
@@ -23,11 +23,11 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, ref } from 'vue'
+  import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
-  import { useGlobalConfig, useToast } from 'vuestic-ui'
+  import { useColors, useToast } from 'vuestic-ui'
 
-  const { getGlobalConfig } = useGlobalConfig()
+  const { colors } = useColors()
   const { t } = useI18n()
   const { init: initToast } = useToast()
 
@@ -39,16 +39,8 @@
     notes: '',
   })
 
-  const theme = computed(() => getGlobalConfig().colors!)
-
   function sendDetails() {
-    const color = theme.value?.primary
+    const color = colors.primary
     initToast({ message: `Details sent!`, color })
   }
 </script>
-
-<style lang="scss" scoped>
-  .va-input-wrapper {
-    margin-bottom: 1rem;
-  }
-</style>

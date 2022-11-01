@@ -42,9 +42,9 @@
 </template>
 
 <script setup lang="ts">
-  import { useGlobalConfig } from 'vuestic-ui'
+  import { useColors } from 'vuestic-ui'
   import { computed } from 'vue'
-  const { getGlobalConfig } = useGlobalConfig()
+  const { colors } = useColors()
 
   const props = withDefaults(
     defineProps<{
@@ -58,12 +58,9 @@
   const emit = defineEmits<{
     (e: 'update:modelValue', position: string): void
   }>()
-
-  const theme = computed(() => getGlobalConfig().colors!)
-
   const computedStyle = computed(() => {
     return {
-      backgroundColor: theme.value.primary,
+      backgroundColor: colors.primary,
     }
   })
 

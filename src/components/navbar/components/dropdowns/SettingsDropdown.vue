@@ -9,7 +9,7 @@
     </template>
 
     <va-dropdown-content class="settings-dropdown__content pl-4 pr-4 pt-2 pb-2">
-      <div class="settings-dropdown__content-label mt-2 mb-3" :style="{ color: theme.primary }">
+      <div class="settings-dropdown__content-label mt-2 mb-3" :style="{ color: colors.primary }">
         {{ t('dashboard.navigationLayout') }}
       </div>
       <va-button-toggle
@@ -25,10 +25,10 @@
 
 <script setup lang="ts">
   import { computed, ref } from 'vue'
-  import { useGlobalConfig } from 'vuestic-ui'
   import { useI18n } from 'vue-i18n'
+  import { useColors } from 'vuestic-ui'
 
-  const { getGlobalConfig } = useGlobalConfig()
+  const { colors } = useColors()
   const { t } = useI18n()
 
   const props = defineProps<{
@@ -43,8 +43,6 @@
     { label: t('dashboard.sideBarButton'), value: String(false) }, // NOTE: boolean is unsupported for va-dropdown
     { label: t('dashboard.topBarButton'), value: String(true) },
   ])
-
-  const theme = computed(() => getGlobalConfig().colors!)
 
   const isTopBarProxy = computed({
     get() {

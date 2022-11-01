@@ -79,7 +79,7 @@
           },
           {
             name: '__slot:actions',
-            dataClass: 'text-right',
+            dataClass: 'va-text-right',
           },
         ]
       },

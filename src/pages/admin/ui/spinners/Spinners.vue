@@ -27,7 +27,7 @@
             <va-icon-faster class="shrink pl-3 spinners__duration-faster" />
           </div>
 
-          <div class="d-flex flex justify--center xs12 lg4">
+          <div class="d-flex flex justify-center xs12 lg4">
             <va-color-palette v-model="spinnersColor" :palette="paletteArray" />
           </div>
         </div>
@@ -38,8 +38,8 @@
 
         <div v-for="(group, i) in groups" :key="i" class="row">
           <div v-for="item in group" :key="item" class="flex sm6 xs12 lg3">
-            <div class="text--center pb-4">
-              <div class="flex-center spinner-box">
+            <div class="va-text-center pb-4">
+              <div class="justify-center d-flex align-center spinner-box">
                 <component
                   :is="getComponent(item)"
                   :animation-duration="config.duration"

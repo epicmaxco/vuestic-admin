@@ -7,7 +7,7 @@
           <va-card-content class="row">
             <div class="flex xs4 md2">
               <div class="vuestic-color-picker-page__top-square">
-                <span class="title no-wrap" :style="{ color: theme.primary }">
+                <span class="title no-wrap" :style="{ color: colors.primary }">
                   {{ t('colorPickers.simple') }}
                 </span>
                 <va-color-picker v-model="topSimpleSquareColor" :palette="palette" />
@@ -15,7 +15,7 @@
             </div>
             <div class="flex xs4 md2">
               <div class="vuestic-color-picker-page__top-square">
-                <span class="title no-wrap" :style="{ color: theme.primary }">
+                <span class="title no-wrap" :style="{ color: colors.primary }">
                   {{ t('colorPickers.slider') }}
                 </span>
                 <va-color-picker v-model="topSliderSquareColor" mode="slider" />
@@ -23,7 +23,7 @@
             </div>
             <div class="flex xs4 md2">
               <div class="vuestic-color-picker-page__top-square">
-                <span class="title no-wrap" :style="{ color: theme.primary }">
+                <span class="title no-wrap" :style="{ color: colors.primary }">
                   {{ t('colorPickers.advanced') }}
                 </span>
                 <va-color-input v-model="topAdvancedSquareColor" mode="advanced" />
@@ -81,29 +81,15 @@
   </div>
 </template>
 
-<script>
-  import { useGlobalConfig } from 'vuestic-ui'
+<script setup>
+  import { useColors } from 'vuestic-ui'
 
-  export default {
-    name: 'ColorPickers',
-    data() {
-      return {
-        topSimpleSquareColor: '#f81953',
-        topSliderSquareColor: '#34495e',
-        topAdvancedSquareColor: '#ffd50a',
-        sliderColor: '#2e5e2a',
-        advancedColor: '#ffd50a',
-        simpleColor: '#f81953',
-        palette: [],
-      }
-    },
-    computed: {
-      theme() {
-        return useGlobalConfig().getGlobalConfig().colors
-      },
-    },
-    mounted() {
-      // this.palette = Object.values(this.theme)
-    },
-  }
+  const topSimpleSquareColor = '#f81953'
+  const topSliderSquareColor = '#34495e'
+  const topAdvancedSquareColor = '#ffd50a'
+  const sliderColor = '#2e5e2a'
+  const advancedColor = '#ffd50a'
+  const simpleColor = '#f81953'
+  const palette = []
+  const { colors } = useColors()
 </script>

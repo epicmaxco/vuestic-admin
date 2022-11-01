@@ -2,8 +2,8 @@
   <va-card class="d-flex dashboard-contributors-list">
     <va-card-title>
       <h1>{{ t('dashboard.charts.topContributors') }}</h1>
-      <div class="mr-0 text-right">
-        <a class="mr-0 link" :disabled="contributors.length <= step" @click="showNext">
+      <div class="mr-0 va-text-right">
+        <a class="mr-0 va-link" :disabled="contributors.length <= step" @click="showNext">
           {{ t('dashboard.charts.showNextFive') }}
         </a>
       </div>

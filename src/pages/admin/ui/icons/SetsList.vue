@@ -4,7 +4,7 @@
       <va-card>
         <router-link :to="{ path: `icons/${set.href}` }" append style="color: inherit">
           <div class="sets-list__set__content">
-            <div class="sets-list__set__content__overlay flex-center pa-3 fill-height">
+            <div class="sets-list__set__content__overlay pa-3 fill-height">
               <va-button>
                 {{ set.name.toUpperCase() }}
               </va-button>
@@ -12,8 +12,8 @@
 
             <template v-for="(filteredList, i) in set.filteredLists">
               <div v-if="filteredList.length !== 2" :key="i" class="row pa-3">
-                <div v-for="(icon, j) in filteredList" :key="j" class="flex xs2 flex-center">
-                  <div class="sets-list__icon pa-3 flex-center vuestic-icon">
+                <div v-for="(icon, j) in filteredList" :key="j" class="sets-list__icon flex xs2">
+                  <div class="vuestic-icon">
                     <va-icon :name="iconName(set, icon)" />
                   </div>
                 </div>
@@ -24,14 +24,14 @@
                 class="row pa-3"
                 :class="i === 1 ? 'sets-list__set__content--middle' : ''"
               >
-                <div class="flex xs2 flex-center">
-                  <div class="sets-list__icon pa-3 flex-center vuestic-icon">
+                <div class="sets-list__icon flex xs2">
+                  <div class="vuestic-icon">
                     <va-icon :name="iconName(set, filteredList[0])" />
                   </div>
                 </div>
                 <div class="flex xs8" />
-                <div class="flex xs2 flex-center">
-                  <div class="sets-list__icon pa-3 flex-center vuestic-icon">
+                <div class="sets-list__icon flex xs2">
+                  <div class="vuestic-icon">
                     <va-icon :name="iconName(set, filteredList[1])" />
                   </div>
                 </div>
@@ -57,8 +57,14 @@
 <style lang="scss">
   .sets-list {
     &__icon {
-      height: 1.5rem;
       max-width: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .vuestic-icon {
+        flex: 0 0 auto;
+      }
     }
 
     &__set {
@@ -68,6 +74,9 @@
         position: relative;
 
         &__overlay {
+          display: flex;
+          align-items: center;
+          justify-content: center;
           padding: 0;
           margin: 0;
           width: 100%;

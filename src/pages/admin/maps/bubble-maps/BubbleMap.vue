@@ -8,7 +8,7 @@
   import * as am5map from '@amcharts/amcharts5/map'
   import am5geodata_worldLow from '@amcharts/amcharts5-geodata/worldLow'
   import am5themes_Animated from '@amcharts/amcharts5/themes/Animated'
-  import { useGlobalConfig, useColors } from 'vuestic-ui'
+  import { useColors } from 'vuestic-ui'
 
   import { PointGeoCoord, CountryItem, getValueBounds, getItemRadius } from '../../../../data/maps/bubbleMapData'
 
@@ -27,8 +27,7 @@
     }
   }>()
 
-  const { getGlobalConfig } = useGlobalConfig()
-  const { getColor } = useColors()
+  const { getColor, colors } = useColors()
 
   const mapRef = ref()
   const mapRoot = shallowRef()
@@ -36,8 +35,6 @@
   const mapPolygonSeries = shallowRef()
   const mapPointSeries = shallowRef()
   const mapZoomControl = shallowRef()
-
-  const themeColors = computed(() => getGlobalConfig().colors)
 
   const pointData = computed(() =>
     props.mapData.data.map((country) => ({
@@ -76,7 +73,7 @@
     )
 
     polygonSeries.mapPolygons.template.setAll({
-      fill: am5.color(getColor(themeColors.value?.secondary)),
+      fill: am5.color(getColor(colors.secondary)),
       fillOpacity: 0.2,
       strokeWidth: 0.5,
     })
@@ -130,7 +127,7 @@
   const updateChartDataOnChangeTheme = () => {
     if (mapRoot.value) {
       mapPolygonSeries.value.mapPolygons.template.setAll({
-        fill: am5.color(getColor(themeColors.value?.secondary)),
+        fill: am5.color(getColor(colors.secondary)),
       })
     }
   }
@@ -149,7 +146,7 @@
 
   onMounted(createMap)
   onUpdated(updateChartDataOnUpdateProps)
-  watch(themeColors, updateChartDataOnChangeTheme)
+  watch(colors, updateChartDataOnChangeTheme)
   onBeforeUnmount(disposeMap)
 </script>
 

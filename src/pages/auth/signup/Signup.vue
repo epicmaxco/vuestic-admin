@@ -18,7 +18,7 @@
       :error-messages="passwordErrors"
     />
 
-    <div class="auth-layout__options d-flex align--center justify--space-between">
+    <div class="auth-layout__options d-flex align-center justify-space-between">
       <va-checkbox
         v-model="agreedToTerms"
         class="mb-0"
@@ -28,16 +28,16 @@
         <template #label>
           <span class="ml-2">
             {{ t('auth.agree') }}
-            <span class="link">{{ t('auth.termsOfUse') }}</span>
+            <span class="va-link">{{ t('auth.termsOfUse') }}</span>
           </span>
         </template>
       </va-checkbox>
-      <router-link class="ml-1 link" :to="{ name: 'recover-password' }">
+      <router-link class="ml-1 va-link" :to="{ name: 'recover-password' }">
         {{ t('auth.recover_password') }}
       </router-link>
     </div>
 
-    <div class="d-flex justify--center mt-3">
+    <div class="d-flex justify-center mt-3">
       <va-button class="my-0" @click="onsubmit">{{ t('auth.sign_up') }}</va-button>
     </div>
   </form>

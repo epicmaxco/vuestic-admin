@@ -72,7 +72,7 @@
         <va-card>
           <va-card-title>{{ t('typography.secondary') }}</va-card-title>
           <va-card-content>
-            <p class="display-3">Lists</p>
+            <p class="va-h3">Lists</p>
             <ol class="va-ordered">
               <li>
                 Of all of the celestial bodies that capture our attention and fascination as astronomers, none has a
@@ -135,13 +135,13 @@
               </li>
               <li>Milk</li>
             </ul>
-            <p class="display-3">Links</p>
+            <p class="va-h3">Links</p>
             <div class="mb-4">
               <a href="/default" class="link mr-4" @click.prevent> Default Link </a>
               <a href="/secondary" class="link-secondary" @click.prevent> Secondary Link </a>
             </div>
             <div class="mb-4">
-              <p class="display-3">Other Elements</p>
+              <p class="va-h3">Other Elements</p>
               <p>
                 None has a greater influence on
                 <span class="text--highlighted">highlighted text</span>
@@ -149,7 +149,7 @@
               </p>
             </div>
             <div class="mb-4">
-              <blockquote class="va-blockquote" :style="{ borderColor: theme.primary }">
+              <blockquote class="va-blockquote" :style="{ borderColor: colors.primary }">
                 <p>
                   BQ: Let’s talk about meat fondue recipes and what you need to know first. Meat fondue also known as
                   oil fondue is a method of cooking all kinds.
@@ -161,7 +161,7 @@
             </div>
             <div class="mb-4">
               <div class="text-block">
-                <p class="display-3">Display-3 Heading</p>
+                <p class="va-h3">va-h3 Heading</p>
                 <span
                   >Of all of the celestial bodies that capture our attention and fascination as astronomers, none has a
                   greater influence on life on planet Earth than it’s own satellite, the moon. When you think about
@@ -193,12 +193,12 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, computed } from 'vue'
+  import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
-  import { useGlobalConfig } from 'vuestic-ui'
+  import { useColors } from 'vuestic-ui'
 
   const { t } = useI18n()
-  const { getGlobalConfig } = useGlobalConfig()
+  const { colors } = useColors()
 
   const tableData = ref([
     ['Id', 'FooBar type', 'Actions'],
@@ -206,8 +206,6 @@
     ['2', 'Not Zebra', 'Remove'],
     ['3', 'Very Zebra', 'Eradicate'],
   ])
-
-  const theme = computed(() => getGlobalConfig().colors!)
 </script>
 
 <style lang="scss" scoped>

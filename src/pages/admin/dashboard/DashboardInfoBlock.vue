@@ -1,11 +1,11 @@
 <template>
   <div class="row row-equal">
-    <div class="flex xl6 xs12">
+    <div class="flex xl6 xs12 lg6">
       <div class="row">
         <div v-for="(info, idx) in infoTiles" :key="idx" class="flex xs12 sm4">
           <va-card class="mb-4" :color="info.color">
             <va-card-content>
-              <p class="display-2" style="color: white">{{ info.value }}</p>
+              <h2 class="va-h2 ma-0" style="color: white">{{ info.value }}</h2>
               <p style="color: white">{{ t('dashboard.info.' + info.text) }}</p>
             </va-card-content>
           </va-card>
@@ -13,29 +13,29 @@
       </div>
 
       <div class="row">
-        <div class="flex xs12 md6">
+        <div class="flex xs12 sm6 md6">
           <va-card>
             <va-card-content>
-              <p class="display-2" :style="{ color: theme?.primary }">291</p>
+              <h2 class="va-h2 ma-0" :style="{ color: colors.primary }">291</h2>
               <p class="no-wrap">{{ t('dashboard.info.completedPullRequests') }}</p>
             </va-card-content>
           </va-card>
         </div>
-        <div class="flex xs12 md6">
+        <div class="flex xs12 sm6 md6">
           <va-card>
             <va-card-content>
               <div class="row row-separated">
                 <div class="flex xs4">
-                  <p class="display-2 text--center" :style="{ color: theme?.primary }">3</p>
-                  <p class="text--center">{{ t('dashboard.info.users') }}</p>
+                  <h2 class="va-h2 ma-0 va-text-center" :style="{ color: colors.primary }">3</h2>
+                  <p class="va-text-center">{{ t('dashboard.info.users') }}</p>
                 </div>
                 <div class="flex xs4">
-                  <p class="display-2 text--center" :style="{ color: theme?.info }">24</p>
-                  <p class="text--center no-wrap">{{ t('dashboard.info.points') }}</p>
+                  <h2 class="va-h2 ma-0 va-text-center" :style="{ color: colors.info }">24</h2>
+                  <p class="va-text-center no-wrap">{{ t('dashboard.info.points') }}</p>
                 </div>
                 <div class="flex xs4">
-                  <p class="display-2 text--center" :style="{ color: theme?.warning }">91</p>
-                  <p class="text--center">{{ t('dashboard.info.units') }}</p>
+                  <h2 class="va-h2 ma-0 va-text-center" :style="{ color: colors.warning }">91</h2>
+                  <p class="va-text-center">{{ t('dashboard.info.units') }}</p>
                 </div>
               </div>
             </va-card-content>
@@ -44,7 +44,7 @@
       </div>
     </div>
 
-    <div class="flex xs12 md6 xl3">
+    <div class="flex xs12 sm6 md6 xl3 lg3">
       <va-card stripe stripe-color="info">
         <va-card-title>
           {{ t('dashboard.info.componentRichTheme') }}
@@ -63,11 +63,11 @@
       </va-card>
     </div>
 
-    <div class="flex xs12 md6 xl3">
+    <div class="flex xs12 sm6 md6 xl3 lg3">
       <va-card>
         <va-image :src="images[currentImageIndex]" style="height: 200px" />
         <va-card-title>
-          <va-button flat icon-right="fa-arrow-circle-right" @click="showModal">
+          <va-button preset="plain" icon-right="fa-arrow-circle-right" @click="showModal">
             {{ t('dashboard.info.exploreGallery') }}
           </va-button>
         </va-card-title>
@@ -80,21 +80,12 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, ref } from 'vue'
+  import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
-  import {
-    useGlobalConfig,
-    VaCarousel,
-    VaModal,
-    VaCard,
-    VaCardContent,
-    VaCardTitle,
-    VaButton,
-    VaImage,
-  } from 'vuestic-ui'
+  import { VaCarousel, VaModal, VaCard, VaCardContent, VaCardTitle, VaButton, VaImage, useColors } from 'vuestic-ui'
 
-  const { getGlobalConfig } = useGlobalConfig()
   const { t } = useI18n()
+  const { colors } = useColors()
 
   const infoTiles = ref([
     {
@@ -127,21 +118,15 @@
     'https://i.imgur.com/MpiOWbM.jpg',
   ])
 
-  const theme = computed(() => getGlobalConfig().colors)
-
   function showModal() {
     modal.value = true
   }
 </script>
 
 <style lang="scss" scoped>
-  .display-2 {
-    margin: 0;
-    line-height: 1;
-  }
   .row-separated {
     .flex + .flex {
-      border-left: 1px solid var(--va-background);
+      border-left: 1px solid var(--va-background-primary);
     }
   }
 

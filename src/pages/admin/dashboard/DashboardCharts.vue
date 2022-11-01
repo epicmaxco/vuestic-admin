@@ -1,6 +1,6 @@
 <template>
   <div class="row row-equal">
-    <div class="flex xs12 xl6">
+    <div class="flex xs12 lg6 xl6">
       <va-card v-if="lineChartDataGenerated">
         <va-card-title>
           <h1>{{ t('dashboard.charts.trendyTrends') }}</h1>
@@ -31,11 +31,11 @@
       </va-card>
     </div>
 
-    <div class="flex xs12 md6 xl3">
+    <div class="flex xs12 sm6 md6 lg3 xl3">
       <va-card class="d-flex">
         <va-card-title>
           <h1>{{ t('dashboard.charts.loadingSpeed') }}</h1>
-          <va-button icon="print" flat @click="printChart" />
+          <va-button icon="print" plain @click="printChart" />
         </va-card-title>
         <va-card-content v-if="doughnutChartDataGenerated">
           <va-chart ref="doughnutChart" class="chart chart--donut" :data="doughnutChartDataGenerated" type="doughnut" />
@@ -43,7 +43,7 @@
       </va-card>
     </div>
 
-    <div class="flex xs12 md6 xl3">
+    <div class="flex xs12 sm6 md6 lg3 xl3">
       <dashboard-contributors-chart />
     </div>
   </div>
