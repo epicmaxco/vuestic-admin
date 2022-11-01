@@ -26,6 +26,7 @@
       data: CountryItem[]
     }
   }>()
+
   const { getColor, colors } = useColors()
 
   const mapRef = ref()
