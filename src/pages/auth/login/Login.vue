@@ -42,6 +42,7 @@
   const keepLoggedIn = ref(false)
   const emailErrors = ref<string[]>([])
   const passwordErrors = ref<string[]>([])
+  const router = useRouter()
 
   const formReady = computed(() => !emailErrors.value.length && !passwordErrors.value.length)
 
@@ -51,6 +52,6 @@
     emailErrors.value = email.value ? [] : ['Email is required']
     passwordErrors.value = password.value ? [] : ['Password is required']
 
-    useRouter().push({ name: 'dashboard' })
+    router.push({ name: 'dashboard' })
   }
 </script>
