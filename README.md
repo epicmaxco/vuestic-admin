@@ -154,19 +154,55 @@ and [discord server](https://discord.gg/jTKTjj2weV)
 
 ### Partners & Sponsors ❤️
 <div>
-        <a href="https://epicmax.co/" target="_blank" title="Epicmax - Top Vue.js Development Company"><img src="./.github/assets/epicmax.svg" loading="lazy" vspace="10" alt=""></a>
-        <a href="https://www.ag-grid.com/" target="_blank" title=" Data Grid: AG Grid: High-Performance React Grid, Angular Grid, JavaScript Grid"><img hspace="15" vspace="10" src="./.github/assets/aggrid.svg" loading="lazy" alt=""></a>
-        <a href="https://vuejobs.com/" target="_blank" title="Vue.js jobs – Browse through dozens of Vue.js openings"><img src="./.github/assets/vuejobs.svg" loading="lazy" vspace="10" alt=""></a>
-        <a href="https://flatlogic.com/" target="_blank" title="Flatlogic - The best way to create React, Angular and Vue full-stack web applications"><img hspace="15" vspace="10" src="./.github/assets/flatlogic.svg" loading="lazy" alt=""></a>
+  <a href="https://vuejs.org/partners/epicmax.html" target="_blank" title="VueJS - The Progressive JavaScript Framework">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/vuejs-light.svg" />
+      <img src="./.github/assets/vuejs.svg" loading="lazy" alt=""/>
+    </picture>
+  </a>
+  <a href="https://nuxt.com/support/agencies/epicmax" target="_blank" title="Nuxt - The Intuitive Web Framework">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/nuxt-light.svg" />
+      <img hspace="15" src="./.github/assets/nuxt.svg" loading="lazy" alt=""/>
+    </picture>
+  </a>
+  <a href="https://epicmax.co/" target="_blank" title="Epicmax - Top Vue.js Development Company"><img src="./.github/assets/epicmax.svg" loading="lazy" alt=""></a>
+  <br />
+  <br />
+  <a href="https://www.ag-grid.com/" target="_blank" title=" Data Grid: AG Grid: High-Performance React Grid, Angular Grid, JavaScript Grid">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/aggrid-light.svg" />
+      <img src="./.github/assets/aggrid.svg" loading="lazy" alt=""/>
+    </picture>
+  </a>
+  <a href="https://vuejobs.com/" target="_blank" title="Vue.js jobs – Browse through dozens of Vue.js openings">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/vuejobs-light.svg" />
+      <img hspace="15" src="./.github/assets/vuejobs.svg" loading="lazy" alt=""/>
+    </picture>
+  </a>
+  <a href="https://flatlogic.com/" target="_blank" title="Flatlogic - The best way to create React, Angular and Vue full-stack web applications">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/flatlogic-light.svg" />
+      <img src="./.github/assets/flatlogic.svg" loading="lazy" alt=""/>
+    </picture>
+  </a>
 </div>
-<br >
+<br />
 
 Become a partner: [hello@epicmax.co](mailto:hello@epicmax.co)
 
 ## Can I hire you guys?
 
-Yes! Say hi: [hello@epicmax.co](mailto:hello@epicmax.co) </br>
-We will be happy to work with you! Other [work we’ve done](https://epicmax.co)
+[Epicmax](https://epicmax.co) is committed to Open Source from its beginning.
+[Vuestic UI](https://vuestic.dev) was created and backed by Epicmax, and is supported through all the years.
+You can request a consultation or order web development services by Epicmax via this [form](https://epicmax.co/contacts) 😎
+
+Say hi: <a href="mailto:hello@epicmax.co">hello@epicmax.co</a>. We will be happy to work with you!
+
+[Other work](https://epicmax.co) we’ve done :the_horns:
+
+[Meet the Team](https://vuestic.dev/team)
 
 ### Awards
 
@@ -180,8 +216,8 @@ We will be happy to work with you! Other [work we’ve done](https://epicmax.co)
 ### Follow us
 
 Stay up to date with the latest Vuestic news! Follow us
-on [Twitter](https://twitter.com/epicmaxco)
-or [Facebook](https://facebook.com/epicmaxco)
+on [Twitter](https://twitter.com/vuestic_ui)
+or [Linkedin](https://www.linkedin.com/company/18509340)
 
 ### License
 
