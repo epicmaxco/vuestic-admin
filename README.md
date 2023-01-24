@@ -200,6 +200,10 @@ You can request a consultation or order web development services by Epicmax via 
 
 Say hi: <a href="mailto:hello@epicmax.co">hello@epicmax.co</a>. We will be happy to work with you!
 
+[Other work](https://epicmax.co) we’ve done :the_horns:
+
+[Meet the Team](https://vuestic.dev/team)
+
 ### Awards
 
 <a href="https://flatlogic.com/templates/vuestic-vue-free-admin" target="_blank">
