@@ -194,8 +194,11 @@ Become a partner: [hello@epicmax.co](mailto:hello@epicmax.co)
 
 ## Can I hire you guys?
 
-Yes! Say hi: [hello@epicmax.co](mailto:hello@epicmax.co) </br>
-We will be happy to work with you! Other [work we’ve done](https://epicmax.co)
+[Epicmax](https://epicmax.co) is committed to Open Source from its beginning.
+[Vuestic UI](https://vuestic.dev) was created and backed by Epicmax, and is supported through all the years.
+You can request a consultation or order web development services by Epicmax via this [form](https://epicmax.co/contacts) 😎
+
+Say hi: <a href="mailto:hello@epicmax.co">hello@epicmax.co</a>. We will be happy to work with you!
 
 ### Awards
 
@@ -209,8 +212,8 @@ We will be happy to work with you! Other [work we’ve done](https://epicmax.co)
 ### Follow us
 
 Stay up to date with the latest Vuestic news! Follow us
-on [Twitter](https://twitter.com/epicmaxco)
-or [Facebook](https://facebook.com/epicmaxco)
+on [Twitter](https://twitter.com/vuestic_ui)
+or [Linkedin](https://www.linkedin.com/company/18509340)
 
 ### License
 
