@@ -1,5 +1,5 @@
 <template>
-  <div class="spacing flex xs12 md12">
+  <div class="spacing flex xs:col-span-full md12">
     <va-card>
       <va-card-title>{{ t('spacing.title') }}</va-card-title>
       <va-card-content>

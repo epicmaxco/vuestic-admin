@@ -4,12 +4,12 @@
       {{ t('dashboard.tabs.bankDetails.detailsFields') }}
     </div>
     <div class="row">
-      <div class="flex xs12 md6">
+      <div class="flex xs:col-span-full md6">
         <va-input v-model="form.bankName" class="mb-3" :label="t('dashboard.tabs.bankDetails.bankName')" />
         <va-input v-model="form.accountName" class="mb-3" :label="t('dashboard.tabs.bankDetails.accountName')" />
         <va-input v-model="form.sortCode" class="mb-3" :label="t('dashboard.tabs.bankDetails.sortCode')" />
       </div>
-      <div class="flex xs12 md6">
+      <div class="flex xs:col-span-full md6">
         <va-input v-model="form.accountNumber" class="mb-3" :label="t('dashboard.tabs.bankDetails.accountNumber')" />
         <va-input v-model="form.notes" class="mb-3" :label="t('dashboard.tabs.bankDetails.notes')" />
       </div>

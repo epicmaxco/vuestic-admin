@@ -1,12 +1,12 @@
 <template>
   <div class="row">
-    <div class="flex xs12">
+    <div class="flex xs:col-span-full">
       <va-card>
         <va-card-title>{{ t('chips.chips.title') }}</va-card-title>
         <va-card-content class="row">
-          <div class="flex xs12">
+          <div class="flex xs:col-span-full">
             <div class="row">
-              <div class="flex xs12">
+              <div class="flex xs:col-span-full">
                 <va-chip shadow class="mb-2 mr-2" color="primary">{{ t('chips.chips.primary') }}</va-chip>
                 <va-chip shadow class="mb-2 mr-2" color="secondary">{{ t('chips.chips.secondary') }}</va-chip>
                 <va-chip shadow class="mb-2 mr-2" color="success">{{ t('chips.chips.success') }}</va-chip>
@@ -18,7 +18,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="flex xs12">
+              <div class="flex xs:col-span-full">
                 <va-chip outline class="mb-2 mr-2" color="primary">{{ t('chips.chips.primary') }}</va-chip>
                 <va-chip outline class="mb-2 mr-2" color="secondary">{{ t('chips.chips.secondary') }}</va-chip>
                 <va-chip outline class="mb-2 mr-2" color="success">{{ t('chips.chips.success') }}</va-chip>
@@ -34,13 +34,13 @@
       </va-card>
     </div>
 
-    <div class="flex xs12">
+    <div class="flex xs:col-span-full">
       <va-card>
         <va-card-title>{{ t('chips.badges.title') }}</va-card-title>
         <va-card-content class="row">
-          <div class="flex xs12">
+          <div class="flex xs:col-span-full">
             <div class="row">
-              <div class="flex xs12">
+              <div class="flex xs:col-span-full">
                 <va-badge class="mb-2 mr-2" color="primary" :text="t('chips.badges.primary')" />
                 <va-badge class="mb-2 mr-2" color="secondary" :text="t('chips.badges.secondary')" />
                 <va-badge class="mb-2 mr-2" color="success" :text="t('chips.badges.success')" />
@@ -52,7 +52,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="flex xs12">
+              <div class="flex xs:col-span-full">
                 <va-badge class="mb-2 mr-2" color="primary" :text="t('chips.badges.primary')" transparent />
                 <va-badge class="mb-2 mr-2" color="secondary" :text="t('chips.badges.secondary')" transparent />
                 <va-badge class="mb-2 mr-2" color="success" :text="t('chips.badges.success')" transparent />

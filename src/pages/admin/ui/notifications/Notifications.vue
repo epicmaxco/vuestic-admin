@@ -1,7 +1,7 @@
 <template>
   <div class="notifications">
     <div class="row">
-      <div class="flex xs12">
+      <div class="flex xs:col-span-full">
         <va-card>
           <va-card-title>{{ t('notificationsPage.notifications.title') }}</va-card-title>
           <va-card-content>
@@ -62,11 +62,11 @@
     </div>
 
     <div class="row">
-      <div class="flex xs12">
+      <div class="flex xs:col-span-full">
         <va-card>
           <va-card-title>{{ t('notificationsPage.toasts.title') }}</va-card-title>
           <va-card-content class="row">
-            <div class="flex xs12 md6">
+            <div class="flex xs:col-span-full md6">
               <va-input
                 v-model="toastText"
                 :label="t('notificationsPage.toasts.textLabel')"
@@ -87,12 +87,12 @@
                 required
               /> -->
             </div>
-            <div class="flex xs12 md6">
+            <div class="flex xs:col-span-full md6">
               <div class="row">
-                <div class="flex xs12">
+                <div class="flex xs:col-span-full">
                   <toast-position-picker v-model="toastPosition" />
                 </div>
-                <!-- <div class="flex xs12">
+                <!-- <div class="flex xs:col-span-full">
                   <va-checkbox
                     :label="t('notificationsPage.toasts.fullWidthLabel')"
                     :id="'toast-fullwidth'"
@@ -101,7 +101,7 @@
                 </div> -->
               </div>
             </div>
-            <div class="flex xs12">
+            <div class="flex xs:col-span-full">
               <!-- There was slot="trigger" -->
               <va-button class="ma-0" color="primary" @click="launchToast">
                 {{ t('notificationsPage.toasts.launchToast') }}

@@ -11,7 +11,7 @@
       <ul
         v-for="(category, index) in filterItems"
         :key="index"
-        class="va-page-not-found-search__list flex xs6 md3 lg1 mb-2"
+        class="va-page-not-found-search__list flex xs:col-span-6 md3 lg1 mb-2"
       >
         <li class="mb-2">
           {{ category.categoryName }}

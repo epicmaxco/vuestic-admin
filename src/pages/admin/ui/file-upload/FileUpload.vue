@@ -1,7 +1,7 @@
 <template>
   <div class="file-upload">
     <div class="row">
-      <div class="flex xs12">
+      <div class="flex xs:col-span-full">
         <va-card>
           <va-card-title>{{ t('fileUpload.advancedMediaGallery') }}</va-card-title>
           <va-card-content>
@@ -9,7 +9,7 @@
           </va-card-content>
         </va-card>
       </div>
-      <div class="flex xs12">
+      <div class="flex xs:col-span-full">
         <va-card>
           <va-card-title>{{ t('fileUpload.advancedUploadList') }}</va-card-title>
           <va-card-content>
@@ -17,7 +17,7 @@
           </va-card-content>
         </va-card>
       </div>
-      <div class="flex xs12">
+      <div class="flex xs:col-span-full">
         <va-card>
           <va-card-title>{{ t('fileUpload.single') }}</va-card-title>
           <va-card-content>
@@ -25,7 +25,7 @@
           </va-card-content>
         </va-card>
       </div>
-      <div class="flex xs12">
+      <div class="flex xs:col-span-full">
         <va-card>
           <va-card-title>{{ t('fileUpload.mediaGallery') }}</va-card-title>
           <va-card-content>
@@ -33,7 +33,7 @@
           </va-card-content>
         </va-card>
       </div>
-      <div class="flex xs12">
+      <div class="flex xs:col-span-full">
         <va-card>
           <va-card-title>{{ t('fileUpload.uploadList') }}</va-card-title>
           <va-card-content>

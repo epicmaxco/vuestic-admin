@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="flex xs12 sm6">
+    <div class="flex xs:col-span-full sm:col-span-6">
       <va-card>
         <va-card-title>{{ t('colors.themeColors') }}</va-card-title>
         <va-card-content>
@@ -15,7 +15,7 @@
       </va-card>
     </div>
 
-    <div class="flex xs12 sm6">
+    <div class="flex xs:col-span-full sm:col-span-6">
       <va-card>
         <va-card-title>{{ t('colors.extraColors') }}</va-card-title>
         <va-card-content>
@@ -30,7 +30,7 @@
       </va-card>
     </div>
 
-    <div class="flex xs12 sm6 lg4">
+    <div class="flex xs:col-span-full sm:col-span-6 lg4">
       <va-card>
         <va-card-title>{{ t('colors.gradients.basic.title') }}</va-card-title>
         <va-card-content>
@@ -46,7 +46,7 @@
       </va-card>
     </div>
 
-    <div class="flex xs12 sm6 lg4">
+    <div class="flex xs:col-span-full sm:col-span-6 lg4">
       <va-card>
         <va-card-title>{{ t('colors.gradients.hovered.title') }}</va-card-title>
         <va-card-content>
@@ -65,7 +65,7 @@
       </va-card>
     </div>
 
-    <div class="flex xs12 sm6 lg4">
+    <div class="flex xs:col-span-full sm:col-span-6 lg4">
       <va-card>
         <va-card-title>{{ t('colors.gradients.pressed.title') }}</va-card-title>
         <va-card-content>

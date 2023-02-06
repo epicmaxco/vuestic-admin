@@ -1,7 +1,7 @@
 <template>
   <div class="spacing-playground">
     <div class="row">
-      <div class="flex xs12 sm6 md4">
+      <div class="flex xs:col-span-full sm:col-span-6 md4">
         <va-select
           v-model="selectedMarginDirection"
           :options="directionList"
@@ -10,7 +10,7 @@
           no-clear
         />
       </div>
-      <div class="flex xs12 sm6 md2">
+      <div class="flex xs:col-span-full sm:col-span-6 md2">
         <va-select
           v-model="selectedMarginSize"
           :options="sizesList"
@@ -19,7 +19,7 @@
           no-clear
         />
       </div>
-      <div class="flex xs12 sm6 md4">
+      <div class="flex xs:col-span-full sm:col-span-6 md4">
         <va-select
           v-model="selectedPaddingDirection"
           :options="directionList"
@@ -28,7 +28,7 @@
           no-clear
         />
       </div>
-      <div class="flex xs12 sm6 md2">
+      <div class="flex xs:col-span-full sm:col-span-6 md2">
         <va-select
           v-model="selectedPaddingSize"
           :options="sizesList"
@@ -40,12 +40,12 @@
     </div>
 
     <div v-if="selectedMarginClass || selectedPaddingClass" class="row">
-      <div class="flex xs12 content">
+      <div class="flex xs:col-span-full content">
         <pre class="code">class="{{ (selectedMarginClass + ' ' + selectedPaddingClass).trim() }}"</pre>
       </div>
     </div>
     <div class="row">
-      <div class="flex xs12">
+      <div class="flex xs:col-span-full">
         <div class="playground-component">
           <div class="playground-component__margin" :class="selectedMarginClass">
             <div class="playground-component__padding" :class="selectedPaddingClass">
@@ -57,10 +57,10 @@
     </div>
 
     <div class="row">
-      <div class="flex xs12 sm6">
+      <div class="flex xs:col-span-full sm:col-span-6">
         <color-presentation color="#ffd093" :name="t('spacingPlayground.margin')" :width="40" />
       </div>
-      <div class="flex xs12 sm6">
+      <div class="flex xs:col-span-full sm:col-span-6">
         <color-presentation color="#c9f7db" :name="t('spacingPlayground.padding')" :width="40" />
       </div>
     </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="charts">
     <div class="row">
-      <div class="flex md6 xs12">
+      <div class="flex md6 xs:col-span-full">
         <va-card v-if="barChartDataGenerated" class="chart-widget">
           <va-card-title>{{ t('charts.verticalBarChart') }}</va-card-title>
           <va-card-content>
@@ -10,7 +10,7 @@
         </va-card>
       </div>
 
-      <div class="flex md6 xs12">
+      <div class="flex md6 xs:col-span-full">
         <va-card v-if="horizontalBarChartDataGenerated" class="chart-widget">
           <va-card-title>{{ t('charts.horizontalBarChart') }}</va-card-title>
           <va-card-content>
@@ -21,7 +21,7 @@
     </div>
 
     <div class="row">
-      <div class="flex md12 xs12">
+      <div class="flex md12 xs:col-span-full">
         <va-card v-if="lineChartDataGenerated" class="chart-widget">
           <va-card-title>{{ t('charts.lineChart') }}</va-card-title>
           <va-card-content>
@@ -32,7 +32,7 @@
     </div>
 
     <div class="row">
-      <div class="flex md6 xs12">
+      <div class="flex md6 xs:col-span-full">
         <va-card v-if="pieChartDataGenerated" class="chart-widget">
           <va-card-title>{{ t('charts.pieChart') }}</va-card-title>
           <va-card-content>
@@ -41,7 +41,7 @@
         </va-card>
       </div>
 
-      <div class="flex md6 xs12">
+      <div class="flex md6 xs:col-span-full">
         <va-card v-if="doughnutChartDataGenerated" class="chart-widget">
           <va-card-title>{{ t('charts.donutChart') }}</va-card-title>
           <va-card-content>
@@ -52,7 +52,7 @@
     </div>
 
     <div class="row">
-      <div class="flex md12 xs12">
+      <div class="flex md12 xs:col-span-full">
         <va-card v-if="bubbleChartDataGenerated" class="chart-widget">
           <va-card-title>{{ t('charts.bubbleChart') }}</va-card-title>
           <va-card-content>

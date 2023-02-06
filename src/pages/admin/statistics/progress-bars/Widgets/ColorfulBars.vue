@@ -2,12 +2,12 @@
   <va-card class="colorful-bars progress-bar-widget">
     <va-card-title> {{ t('progressBars.colors') }} </va-card-title>
     <va-card-content class="row">
-      <div v-for="n in 6" :key="`pb-${n}`" class="flex md4 xs12">
+      <div v-for="n in 6" :key="`pb-${n}`" class="flex md4 xs:col-span-full">
         <va-progress-bar :model-value="(value * n) / 6" :color="colors[n - 1]">
           {{ colors[n - 1] }}
         </va-progress-bar>
       </div>
-      <div v-for="n in 6" :key="`pc-${n}`" class="flex md2 xs6">
+      <div v-for="n in 6" :key="`pc-${n}`" class="flex md2 xs:col-span-6">
         <va-progress-circle class="ma-auto" :model-value="(value * n) / 6" :color="colors[n - 1]">
           <span style="font-size: 0.625rem">
             {{ colors[n - 1] }}

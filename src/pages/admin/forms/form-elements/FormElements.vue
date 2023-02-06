@@ -1,37 +1,37 @@
 <template>
   <div class="form-elements">
     <div class="row">
-      <div class="flex xs12">
+      <div class="flex xs:col-span-full">
         <va-card>
           <va-card-title>{{ t('forms.inputs.title') }}</va-card-title>
           <va-card-content>
             <form>
               <div class="row">
-                <div class="flex md4 sm6 xs12">
+                <div class="flex md4 sm:col-span-6 xs:col-span-full">
                   <va-input v-model="simple" placeholder="Text Input" />
                 </div>
-                <div class="flex md4 sm6 xs12">
+                <div class="flex md4 sm:col-span-6 xs:col-span-full">
                   <va-input v-model="withIcon" placeholder="Input With Icon">
                     <template #prepend>
                       <va-icon color="gray" name="envelope" />
                     </template>
                   </va-input>
                 </div>
-                <div class="flex md4 sm6 xs12">
+                <div class="flex md4 sm:col-span-6 xs:col-span-full">
                   <va-input v-model="withButton" placeholder="Input With Button">
                     <template #append>
                       <va-button style="margin-right: 0" small> UPLOAD </va-button>
                     </template>
                   </va-input>
                 </div>
-                <div class="flex md4 sm6 xs12">
+                <div class="flex md4 sm:col-span-6 xs:col-span-full">
                   <va-input v-model="successfulEmail" type="email" label="Email (Validated with success)" success>
                   </va-input>
                 </div>
-                <div class="flex md4 sm6 xs12">
+                <div class="flex md4 sm:col-span-6 xs:col-span-full">
                   <va-input v-model="clearableText" placeholder="Input With Clear Button" clearable />
                 </div>
-                <div class="flex md4 sm6 xs12">
+                <div class="flex md4 sm:col-span-6 xs:col-span-full">
                   <va-input
                     v-model="wrongEmail"
                     type="email"
@@ -41,7 +41,7 @@
                   >
                   </va-input>
                 </div>
-                <div class="flex md4 sm6 xs12">
+                <div class="flex md4 sm:col-span-6 xs:col-span-full">
                   <va-input
                     v-model="withDescription"
                     placeholder="Text Input (with description)"
@@ -54,26 +54,26 @@
         </va-card>
       </div>
 
-      <div class="flex xs12">
+      <div class="flex xs:col-span-full">
         <va-card>
           <va-card-title>{{ t('forms.dateTimePicker.title') }}</va-card-title>
           <va-card-content>
             <form>
               <div class="row">
-                <div class="flex md4 sm6 xs12">
+                <div class="flex md4 sm:col-span-6 xs:col-span-full">
                   <va-date-input v-model="dateInput.simple" :label="t('forms.dateTimePicker.basic')" />
                 </div>
-                <div class="flex md4 sm6 xs12">
+                <div class="flex md4 sm:col-span-6 xs:col-span-full">
                   <va-date-input
                     v-model="dateInput.simple"
                     :label="t('forms.dateTimePicker.manualInput')"
                     manual-input
                   />
                 </div>
-                <div class="flex md4 sm6 xs12">
+                <div class="flex md4 sm:col-span-6 xs:col-span-full">
                   <va-date-input v-model="dateInput.disabled" :label="t('forms.dateTimePicker.disabled')" disabled />
                 </div>
-                <div class="flex md4 sm6 xs12">
+                <div class="flex md4 sm:col-span-6 xs:col-span-full">
                   <va-date-input
                     v-model="dateInput.multiple"
                     :label="t('forms.dateTimePicker.multiple')"
@@ -81,7 +81,7 @@
                     clearable
                   />
                 </div>
-                <div class="flex md4 sm6 xs12">
+                <div class="flex md4 sm:col-span-6 xs:col-span-full">
                   <va-date-input
                     v-model="dateInput.range"
                     :label="t('forms.dateTimePicker.range')"
@@ -89,7 +89,7 @@
                     clearable
                   />
                 </div>
-                <div class="flex md4 sm6 xs12">
+                <div class="flex md4 sm:col-span-6 xs:col-span-full">
                   <va-date-input
                     v-model="dateInput.simple"
                     :label="t('forms.dateTimePicker.customFirstDay')"
@@ -104,17 +104,17 @@
           <va-card-content>
             <form>
               <div class="row">
-                <div class="flex md4 sm6 xs12">
+                <div class="flex md4 sm:col-span-6 xs:col-span-full">
                   <va-time-input v-model="dateInput.simple" :label="t('forms.dateTimePicker.basic')" />
                 </div>
-                <div class="flex md4 sm6 xs12">
+                <div class="flex md4 sm:col-span-6 xs:col-span-full">
                   <va-time-input
                     v-model="dateInput.simple"
                     :label="t('forms.dateTimePicker.manualInput')"
                     manual-input
                   />
                 </div>
-                <div class="flex md4 sm6 xs12">
+                <div class="flex md4 sm:col-span-6 xs:col-span-full">
                   <va-time-input v-model="dateInput.simple" :label="t('forms.dateTimePicker.disabled')" disabled />
                 </div>
               </div>
@@ -123,13 +123,13 @@
         </va-card>
       </div>
 
-      <div class="flex xs12">
+      <div class="flex xs:col-span-full">
         <va-card>
           <va-card-title>{{ t('forms.selects.title') }}</va-card-title>
           <va-card-content>
             <form>
               <div class="row">
-                <div class="flex md6 xs12">
+                <div class="flex md6 xs:col-span-full">
                   <va-select
                     v-model="simpleSelectModel"
                     :label="t('forms.selects.simple')"
@@ -138,7 +138,7 @@
                     :options="simpleOptions"
                   />
                 </div>
-                <div class="flex md6 xs12">
+                <div class="flex md6 xs:col-span-full">
                   <va-select
                     v-model="multiSelectModel"
                     :label="t('forms.selects.multi')"
@@ -148,10 +148,10 @@
                     :options="simpleOptions"
                   />
                 </div>
-                <div class="flex md6 xs12">
+                <div class="flex md6 xs:col-span-full">
                   <va-select v-model="chosenCountry" :label="t('forms.selects.country')" :options="countriesList" />
                 </div>
-                <div class="flex md6 xs12">
+                <div class="flex md6 xs:col-span-full">
                   <va-select
                     v-model="multiSelectCountriesModel"
                     :label="t('forms.selects.countryMulti')"
@@ -159,7 +159,7 @@
                     :options="countriesList"
                   />
                 </div>
-                <div class="flex md6 xs12">
+                <div class="flex md6 xs:col-span-full">
                   <va-select
                     v-model="searchableSelectModel"
                     :label="t('forms.selects.searchable')"
@@ -169,7 +169,7 @@
                     :options="simpleOptions"
                   />
                 </div>
-                <div class="flex md6 xs12">
+                <div class="flex md6 xs:col-span-full">
                   <va-select
                     v-model="multiSearchableSelectModel"
                     :label="t('forms.selects.searchableMulti')"
@@ -185,13 +185,13 @@
         </va-card>
       </div>
 
-      <div class="flex xs12">
+      <div class="flex xs:col-span-full">
         <va-card>
           <va-card-title>{{ t('forms.controls.title') }}</va-card-title>
           <va-card-content>
             <form>
               <div class="row">
-                <div class="flex md6 xs12">
+                <div class="flex md6 xs:col-span-full">
                   <fieldset>
                     <va-checkbox v-model="checkbox.unselected" :label="t('forms.controls.unselected')" class="mb-2" />
                     <va-checkbox v-model="checkbox.selected" :label="t('forms.controls.selected')" class="mb-2" />
@@ -217,7 +217,7 @@
                     />
                   </fieldset>
                 </div>
-                <div class="flex md6 xs12">
+                <div class="flex md6 xs:col-span-full">
                   <fieldset>
                     <va-radio v-model="radioSelectedOption" option="option1" label="Radio-1" />
                     <va-radio v-model="radioSelectedOption" option="option2" label="Radio-2" />
