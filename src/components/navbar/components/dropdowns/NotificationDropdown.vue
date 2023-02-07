@@ -25,7 +25,7 @@
           {{ t(`notifications.${notification.name}`, { type: notification.details.type }) }}
         </span>
       </div>
-      <div class="row justify--space-between mt-1">
+      <div class="grid grid-cols-12 justify--space-between mt-1">
         <va-button class="md:col-span-6 mr-2" size="small">{{ t('notifications.all') }}</va-button>
         <va-button
           class="md:col-span-6"
@@ -105,10 +105,6 @@
 </script>
 
 <style lang="scss" scoped>
-  .row {
-    flex-wrap: nowrap !important;
-  }
-
   .notification-dropdown {
     cursor: pointer;
 

@@ -3,7 +3,7 @@
     <va-card-title>
       {{ t('progressBars.circle') }}
     </va-card-title>
-    <va-card-content class="row">
+    <va-card-content class="grid grid-cols-12">
       <div v-for="n in 10" :key="n" class="flex xs:col-span-4 sm:col-span-2 lg:col-span-1">
         <div class="d-flex justify-center">
           <div>

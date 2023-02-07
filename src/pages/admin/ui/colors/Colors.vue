@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="grid grid-cols-12">
     <div class="flex xs:col-span-12 sm:col-span-6">
       <va-card>
         <va-card-title>{{ t('colors.themeColors') }}</va-card-title>

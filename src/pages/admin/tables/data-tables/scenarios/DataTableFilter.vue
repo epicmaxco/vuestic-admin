@@ -1,6 +1,6 @@
 <template>
   <va-card :title="t('tables.searchTrendsBadges')">
-    <div class="row align--center">
+    <div class="grid grid-cols-12 align--center">
       <div class="flex xs:col-span-12 md:col-span-6">
         <va-input :value="term" :placeholder="t('tables.searchByName')" removable @input="search">
           <template #prepend>

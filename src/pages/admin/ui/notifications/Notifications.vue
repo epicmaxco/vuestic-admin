@@ -1,6 +1,6 @@
 <template>
   <div class="notifications">
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12">
         <va-card>
           <va-card-title>{{ t('notificationsPage.notifications.title') }}</va-card-title>
@@ -61,11 +61,11 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12">
         <va-card>
           <va-card-title>{{ t('notificationsPage.toasts.title') }}</va-card-title>
-          <va-card-content class="row">
+          <va-card-content class="grid grid-cols-12">
             <div class="flex xs:col-span-12 md:col-span-6">
               <va-input
                 v-model="toastText"
@@ -88,7 +88,7 @@
               /> -->
             </div>
             <div class="flex xs:col-span-12 md:col-span-6">
-              <div class="row">
+              <div class="grid grid-cols-12">
                 <div class="flex xs:col-span-12">
                   <toast-position-picker v-model="toastPosition" />
                 </div>

@@ -36,7 +36,7 @@
       </div>
     </template>
     <template #right>
-      <app-navbar-actions class="app-navbar__actions md:col-span-5 lg:col-span-4" :user-name="userName" />
+      <app-navbar-actions class="app-navbar__actions" :user-name="userName" />
     </template>
   </va-navbar>
 </template>

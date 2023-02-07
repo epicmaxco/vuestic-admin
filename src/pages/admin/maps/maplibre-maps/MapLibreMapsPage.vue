@@ -1,6 +1,6 @@
 <template>
   <div class="maplibre-maps-page">
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12">
         <va-card class="maplibre-maps-page__widget" title="MapLibre Maps">
           <map-libre-map style="height: 65vh" />

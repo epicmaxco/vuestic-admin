@@ -17,10 +17,10 @@
           t(`messages.${message.name}`, { name: message.details.name })
         }}</span>
       </div>
-      <div class="row justify--space-between mt-1">
-        <va-button class="md:col-span-6 mr-2" size="small">{{ t('messages.all') }}</va-button>
+      <div class="grid grid-cols-12 justify--space-between mt-1">
+        <va-button class="col-span-full md:col-span-6 mr-2" size="small">{{ t('messages.all') }}</va-button>
         <va-button
-          class="md:col-span-6"
+          class="col-span-full md:col-span-6"
           size="small"
           preset="outline"
           border-color="primary"

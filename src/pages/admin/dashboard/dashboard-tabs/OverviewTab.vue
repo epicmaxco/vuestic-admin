@@ -1,7 +1,7 @@
 <template>
   <div class="overview-tab pt-2 layout">
     <div class="mb-2"></div>
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12 xl:col-span-6 mb-5">
         <div class="overview-tab__item d-flex align--center">
           <div class="overview-tab__item-icon fill-height mr-2">
@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12 xl:col-span-6 mb-5">
         <div class="overview-tab__item d-flex align--center">
           <div class="overview-tab__item-icon fill-height mr-2">
@@ -41,7 +41,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12 xl:col-span-6 mb-5">
         <div class="overview-tab__item d-flex align--center">
           <div class="overview-tab__item-icon fill-height mr-2">

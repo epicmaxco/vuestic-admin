@@ -1,11 +1,11 @@
 <template>
-  <div class="row">
+  <div class="grid grid-cols-12">
     <div class="flex xs:col-span-12">
       <va-card>
         <va-card-title>{{ t('chips.chips.title') }}</va-card-title>
-        <va-card-content class="row">
+        <va-card-content class="grid grid-cols-12">
           <div class="flex xs:col-span-12">
-            <div class="row">
+            <div class="grid grid-cols-12">
               <div class="flex xs:col-span-12">
                 <va-chip shadow class="mb-2 mr-2" color="primary">{{ t('chips.chips.primary') }}</va-chip>
                 <va-chip shadow class="mb-2 mr-2" color="secondary">{{ t('chips.chips.secondary') }}</va-chip>
@@ -17,7 +17,7 @@
                 <va-chip shadow class="mb-2 mr-2" color="dark">{{ t('chips.chips.dark') }}</va-chip>
               </div>
             </div>
-            <div class="row">
+            <div class="grid grid-cols-12">
               <div class="flex xs:col-span-12">
                 <va-chip outline class="mb-2 mr-2" color="primary">{{ t('chips.chips.primary') }}</va-chip>
                 <va-chip outline class="mb-2 mr-2" color="secondary">{{ t('chips.chips.secondary') }}</va-chip>
@@ -37,9 +37,9 @@
     <div class="flex xs:col-span-12">
       <va-card>
         <va-card-title>{{ t('chips.badges.title') }}</va-card-title>
-        <va-card-content class="row">
+        <va-card-content class="grid grid-cols-12">
           <div class="flex xs:col-span-12">
-            <div class="row">
+            <div class="grid grid-cols-12">
               <div class="flex xs:col-span-12">
                 <va-badge class="mb-2 mr-2" color="primary" :text="t('chips.badges.primary')" />
                 <va-badge class="mb-2 mr-2" color="secondary" :text="t('chips.badges.secondary')" />
@@ -51,7 +51,7 @@
                 <va-badge class="mb-2 mr-2" color="dark" :text="t('chips.badges.dark')" />
               </div>
             </div>
-            <div class="row">
+            <div class="grid grid-cols-12">
               <div class="flex xs:col-span-12">
                 <va-badge class="mb-2 mr-2" color="primary" :text="t('chips.badges.primary')" transparent />
                 <va-badge class="mb-2 mr-2" color="secondary" :text="t('chips.badges.secondary')" transparent />

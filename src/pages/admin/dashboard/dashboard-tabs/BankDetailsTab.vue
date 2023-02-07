@@ -3,7 +3,7 @@
     <div class="title text-dark">
       {{ t('dashboard.tabs.bankDetails.detailsFields') }}
     </div>
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12 md:col-span-6">
         <va-input v-model="form.bankName" class="mb-3" :label="t('dashboard.tabs.bankDetails.bankName')" />
         <va-input v-model="form.accountName" class="mb-3" :label="t('dashboard.tabs.bankDetails.accountName')" />

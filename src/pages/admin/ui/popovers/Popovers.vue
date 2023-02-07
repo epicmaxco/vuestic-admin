@@ -1,6 +1,6 @@
 <template>
   <div class="tooltips">
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12 md:col-span-6">
         <va-card>
           <va-card-title>{{ t('popovers.popoverStyle') }}</va-card-title>

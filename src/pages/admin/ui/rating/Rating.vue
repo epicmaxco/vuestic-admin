@@ -1,6 +1,6 @@
 <template>
   <div class="rating">
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex md:col-span-6 xs:col-span-12">
         <va-card>
           <va-card-title>{{ t('rating.singleIcon') }}</va-card-title>

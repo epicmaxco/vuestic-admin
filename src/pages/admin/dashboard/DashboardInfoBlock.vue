@@ -1,7 +1,7 @@
 <template>
-  <div class="row row-equal">
+  <div class="grid grid-cols-12 row-equal">
     <div class="flex xs:col-span-12 lg:col-span-6">
-      <div class="row">
+      <div class="grid grid-cols-12">
         <div v-for="(info, idx) in infoTiles" :key="idx" class="flex xs:col-span-12 sm:col-span-4">
           <va-card class="mb-4" :color="info.color">
             <va-card-content>
@@ -12,7 +12,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="grid grid-cols-12">
         <div class="flex xs:col-span-12 sm:col-span-6 md:col-span-6">
           <va-card>
             <va-card-content>
@@ -24,7 +24,7 @@
         <div class="flex xs:col-span-12 sm:col-span-6 md:col-span-6">
           <va-card>
             <va-card-content>
-              <div class="row row-separated">
+              <div class="grid grid-cols-12 row-separated">
                 <div class="flex xs:col-span-4">
                   <h2 class="va-h2 ma-0 va-text-center" :style="{ color: colors.primary }">3</h2>
                   <p class="va-text-center">{{ t('dashboard.info.users') }}</p>

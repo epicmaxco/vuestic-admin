@@ -1,6 +1,6 @@
 <template>
   <div class="cards">
-    <div class="cards-container row d-flex wrap align--start">
+    <div class="cards-container grid grid-cols-12 wrap align--start">
       <template v-for="loop in listLoops" :key="loop + '-0'">
         <div class="flex xs:col-span-12 sm:col-span-6 md:col-span-6">
           <va-card>

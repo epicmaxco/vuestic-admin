@@ -1,10 +1,10 @@
 <template>
   <div class="color-pickers vuestic-color-picker-page">
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12">
         <va-card>
           <va-card-title>{{ t('menu.colorPickers') }}</va-card-title>
-          <va-card-content class="row">
+          <va-card-content class="grid grid-cols-12">
             <div class="flex xs:col-span-4 md:col-span-2">
               <div class="vuestic-color-picker-page__top-square">
                 <span class="title no-wrap" :style="{ color: colors.primary }">
@@ -33,11 +33,11 @@
         </va-card>
       </div>
     </div>
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12">
         <va-card>
           <va-card-title>Simple Inline</va-card-title>
-          <va-card-content class="row">
+          <va-card-content class="grid grid-cols-12">
             <div class="flex md:col-span-1">
               <va-color-square :value="simpleColor" />
             </div>
@@ -48,11 +48,11 @@
         </va-card>
       </div>
     </div>
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12">
         <va-card>
           <va-card-title>Slider</va-card-title>
-          <va-card-content class="row">
+          <va-card-content class="grid grid-cols-12">
             <div class="flex xs:col-span-12 md:col-span-1">
               <va-color-square :value="sliderColor" />
             </div>
@@ -63,11 +63,11 @@
         </va-card>
       </div>
     </div>
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12">
         <va-card>
           <va-card-title>Advanced</va-card-title>
-          <va-card-content class="row">
+          <va-card-content class="grid grid-cols-12">
             <div class="flex md:col-span-1">
               <va-color-square :value="advancedColor" />
             </div>

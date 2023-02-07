@@ -1,12 +1,12 @@
 <template>
   <div class="form-elements">
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12">
         <va-card>
           <va-card-title>{{ t('forms.inputs.title') }}</va-card-title>
           <va-card-content>
             <form>
-              <div class="row">
+              <div class="grid grid-cols-12">
                 <div class="flex md:col-span-4 sm:col-span-6 xs:col-span-12">
                   <va-input v-model="simple" placeholder="Text Input" />
                 </div>
@@ -59,7 +59,7 @@
           <va-card-title>{{ t('forms.dateTimePicker.title') }}</va-card-title>
           <va-card-content>
             <form>
-              <div class="row">
+              <div class="grid grid-cols-12">
                 <div class="flex md:col-span-4 sm:col-span-6 xs:col-span-12">
                   <va-date-input v-model="dateInput.simple" :label="t('forms.dateTimePicker.basic')" />
                 </div>
@@ -103,7 +103,7 @@
           <va-divider />
           <va-card-content>
             <form>
-              <div class="row">
+              <div class="grid grid-cols-12">
                 <div class="flex md:col-span-4 sm:col-span-6 xs:col-span-12">
                   <va-time-input v-model="dateInput.simple" :label="t('forms.dateTimePicker.basic')" />
                 </div>
@@ -128,7 +128,7 @@
           <va-card-title>{{ t('forms.selects.title') }}</va-card-title>
           <va-card-content>
             <form>
-              <div class="row">
+              <div class="grid grid-cols-12">
                 <div class="flex md:col-span-6 xs:col-span-12">
                   <va-select
                     v-model="simpleSelectModel"
@@ -190,7 +190,7 @@
           <va-card-title>{{ t('forms.controls.title') }}</va-card-title>
           <va-card-content>
             <form>
-              <div class="row">
+              <div class="grid grid-cols-12">
                 <div class="flex md:col-span-6 xs:col-span-12">
                   <fieldset>
                     <va-checkbox v-model="checkbox.unselected" :label="t('forms.controls.unselected')" class="mb-2" />

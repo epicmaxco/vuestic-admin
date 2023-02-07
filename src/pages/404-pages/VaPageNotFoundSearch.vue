@@ -7,7 +7,7 @@
       class="va-page-not-found-search__input mb-4"
       clearable
     />
-    <div class="row va-page-not-found-search__links">
+    <div class="grid grid-cols-12 va-page-not-found-search__links">
       <ul
         v-for="(category, index) in filterItems"
         :key="index"

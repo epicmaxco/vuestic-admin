@@ -1,6 +1,6 @@
 <template>
   <va-content class="typography content">
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12">
         <va-card>
           <va-card-title>{{ t('typography.primary') }}</va-card-title>

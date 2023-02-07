@@ -1,10 +1,10 @@
 <template>
   <div class="sliders">
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex md:col-span-12">
         <va-card>
           <va-card-title>{{ t('sliders.slider') }}</va-card-title>
-          <va-card-content class="row">
+          <va-card-content class="grid grid-cols-12">
             <div class="flex xs:col-span-12 lg:col-span-6 xl:col-span-4 mb-2">
               <div class="title mb-3" :style="{ color: colors.primary }">{{ t('sliders.simple') }}</div>
               <va-slider v-model="value" />
@@ -73,7 +73,7 @@
       <div class="flex md:col-span-12">
         <va-card>
           <va-card-title>{{ t('sliders.range') }}</va-card-title>
-          <va-card-content class="row">
+          <va-card-content class="grid grid-cols-12">
             <div class="flex xs:col-span-12 lg:col-span-6 xl:col-span-4 mb-2">
               <div class="title mb-3" :style="{ color: colors.primary }">{{ t('sliders.simple') }}</div>
               <va-slider v-model="value2" range />

@@ -1,6 +1,6 @@
 <template>
   <div class="not-found-pages">
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div
         v-for="(item, index) in items"
         :key="index"

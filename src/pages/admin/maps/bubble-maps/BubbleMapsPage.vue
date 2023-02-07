@@ -1,6 +1,6 @@
 <template>
   <div class="bubble-maps-page">
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12">
         <va-card class="bubble-maps-page__widget" title="Bubble Maps">
           <bubble-map :map-data="bubbleMapData" style="height: 75vh" />

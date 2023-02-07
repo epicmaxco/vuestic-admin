@@ -4,7 +4,7 @@
 
     <dashboard-info-block />
 
-    <div class="row row-equal">
+    <div class="grid grid-cols-12 row-equal">
       <div class="flex xs:col-span-12 lg:col-span-6">
         <dashboard-tabs @submit="addAddressToMap" />
       </div>

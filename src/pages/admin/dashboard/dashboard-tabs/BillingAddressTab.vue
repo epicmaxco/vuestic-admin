@@ -1,6 +1,6 @@
 <template>
   <div class="pt-2">
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex sm:col-span-12 md:col-span-6">
         <div class="title mb-3" :style="computedStylesTitle">
           {{ t('dashboard.tabs.billingAddress.personalInfo') }}

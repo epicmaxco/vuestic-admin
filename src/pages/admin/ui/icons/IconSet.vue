@@ -6,7 +6,7 @@
           {{ iconSet.name }}
         </h2>
       </va-card-title>
-      <va-card-content class="row">
+      <va-card-content class="grid grid-cols-12">
         <div class="flex md:col-span-4 xs:col-span-12 justify-center">
           <va-button preset="outline" border-color="primary" color="primary" :to="{ name: 'icon-sets' }">
             {{ t('icons.back') }}

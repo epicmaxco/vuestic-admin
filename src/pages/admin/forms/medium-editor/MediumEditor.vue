@@ -1,6 +1,6 @@
 <template>
   <div class="medium-editor">
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex md:col-span-12">
         <va-card>
           <va-card-title>{{ t('forms.mediumEditor.title') }}</va-card-title>

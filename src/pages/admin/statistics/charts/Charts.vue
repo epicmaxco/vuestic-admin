@@ -1,6 +1,6 @@
 <template>
   <div class="charts">
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex md:col-span-6 xs:col-span-12">
         <va-card v-if="barChartDataGenerated" class="chart-widget">
           <va-card-title>{{ t('charts.verticalBarChart') }}</va-card-title>
@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12">
         <va-card v-if="lineChartDataGenerated" class="chart-widget">
           <va-card-title>{{ t('charts.lineChart') }}</va-card-title>
@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex md:col-span-6 xs:col-span-12">
         <va-card v-if="pieChartDataGenerated" class="chart-widget">
           <va-card-title>{{ t('charts.pieChart') }}</va-card-title>
@@ -51,7 +51,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12">
         <va-card v-if="bubbleChartDataGenerated" class="chart-widget">
           <va-card-title>{{ t('charts.bubbleChart') }}</va-card-title>

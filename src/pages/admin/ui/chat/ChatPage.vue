@@ -1,6 +1,6 @@
 <template>
   <div class="chat">
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12">
         <va-card>
           <va-card-title>{{ t('chat.title') }}</va-card-title>

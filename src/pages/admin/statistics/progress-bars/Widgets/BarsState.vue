@@ -3,7 +3,7 @@
     <va-card-title>
       {{ t('progressBars.state') }}
     </va-card-title>
-    <va-card-content class="row">
+    <va-card-content class="grid grid-cols-12">
       <div class="flex md:col-span-4 xs:col-span-12">
         <va-progress-bar :model-value="value2">66%</va-progress-bar>
       </div>

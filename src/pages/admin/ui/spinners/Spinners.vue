@@ -3,7 +3,7 @@
     <va-card>
       <va-card-title>{{ t('spinners.title') }}</va-card-title>
       <va-card-content>
-        <div class="row mt-0">
+        <div class="grid grid-cols-12 mt-0">
           <div class="d-flex flex xs:col-span-12 lg:col-span-4 align--center">
             <span class="shrink pr-3 spinners__size-smaller">A</span>
             <va-slider
@@ -36,7 +36,7 @@
           <hr class="separator" />
         </div>
 
-        <div v-for="(group, i) in groups" :key="i" class="row">
+        <div v-for="(group, i) in groups" :key="i" class="grid grid-cols-12">
           <div v-for="item in group" :key="item" class="flex sm:col-span-6 xs:col-span-12 lg:col-span-3">
             <div class="va-text-center pb-4">
               <div class="justify-center d-flex align-center spinner-box">

@@ -1,6 +1,6 @@
 <template>
   <div class="spacing-playground">
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12 sm:col-span-6 md:col-span-4">
         <va-select
           v-model="selectedMarginDirection"
@@ -39,12 +39,12 @@
       </div>
     </div>
 
-    <div v-if="selectedMarginClass || selectedPaddingClass" class="row">
+    <div v-if="selectedMarginClass || selectedPaddingClass" class="grid grid-cols-12">
       <div class="flex xs:col-span-12 content">
         <pre class="code">class="{{ (selectedMarginClass + ' ' + selectedPaddingClass).trim() }}"</pre>
       </div>
     </div>
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12">
         <div class="playground-component">
           <div class="playground-component__margin" :class="selectedMarginClass">
@@ -56,7 +56,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12 sm:col-span-6">
         <color-presentation color="#ffd093" :name="t('spacingPlayground.margin')" :width="40" />
       </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="timelines">
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12">
         <va-card no-padding-h style="overflow-x: auto">
           <va-card-title>{{ t('timelines.horizontalSimple') }}</va-card-title>

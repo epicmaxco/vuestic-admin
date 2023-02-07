@@ -1,6 +1,6 @@
 <template>
   <div class="buttons">
-    <div class="row">
+    <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12">
         <va-card class="larger-padding">
           <va-card-title>{{ t('buttons.types') }}</va-card-title>
@@ -121,7 +121,7 @@
         <va-card class="larger-padding">
           <va-card-title>{{ t('buttons.buttonGroups') }}</va-card-title>
           <va-card-content>
-            <div class="row">
+            <div class="grid grid-cols-12">
               <div class="flex xs:col-span-12 xl:col-span-6">
                 <va-button-group color="secondary">
                   <va-button size="large"> One</va-button>
@@ -174,7 +174,7 @@
         <va-card class="larger-padding">
           <va-card-title>{{ t('buttons.buttonToggles') }}</va-card-title>
           <va-card-content>
-            <div class="row">
+            <div class="grid grid-cols-12">
               <div class="flex xs:col-span-12 lg:col-span-6">
                 <va-button-toggle v-model="model" :options="options" />
               </div>
@@ -214,7 +214,7 @@
         <va-card class="larger-padding">
           <va-card-title>{{ t('buttons.pagination') }}</va-card-title>
           <va-card-content>
-            <div class="row">
+            <div class="grid grid-cols-12">
               <div class="flex xs:col-span-12 xl:col-span-6">
                 <va-pagination v-model="activePage" :visible-pages="3" :pages="20" />
               </div>

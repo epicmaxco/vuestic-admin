@@ -1,7 +1,7 @@
 <template>
-  <div class="tree-view sets-list row">
+  <div class="tree-view sets-list grid grid-cols-12">
     <div class="flex xs:col-span-12">
-      <div class="row">
+      <div class="grid grid-cols-12">
         <div class="small-set flex lg:col-span-6 xs:col-span-12">
           <va-card>
             <va-card-title>{{ t('treeView.basic') }}</va-card-title>
@@ -21,7 +21,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="grid grid-cols-12">
         <div class="small-set flex lg:col-span-6 xs:col-span-12">
           <va-card>
             <va-card-title>{{ t('treeView.advanced') }}</va-card-title>
@@ -41,7 +41,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="grid grid-cols-12">
         <div class="small-set flex lg:col-span-6 xs:col-span-12">
           <va-card>
             <va-card-title>{{ t('treeView.selectable') }}</va-card-title>
