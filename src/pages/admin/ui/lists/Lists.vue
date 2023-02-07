@@ -1,7 +1,7 @@
 <template>
   <div class="lists">
     <div class="row">
-      <div class="flex xs:col-span-12 lg6">
+      <div class="flex xs:col-span-12 lg:col-span-6">
         <va-card class="mb-4 px-3">
           <va-list class="py-4">
             <va-list-label>
@@ -99,7 +99,7 @@
         </va-card>
       </div>
 
-      <div class="flex xs:col-span-12 lg6">
+      <div class="flex xs:col-span-12 lg:col-span-6">
         <va-card class="mb-4 px-3">
           <va-list class="py-4">
             <va-list-label>

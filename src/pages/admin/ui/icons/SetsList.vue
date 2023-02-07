@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div v-for="(set, index) in sets" :key="index" class="va-card-wrapper flex lg6 xs:col-span-12">
+    <div v-for="(set, index) in sets" :key="index" class="va-card-wrapper flex lg:col-span-6 xs:col-span-12">
       <va-card>
         <router-link :to="{ path: `icons/${set.href}` }" append style="color: inherit">
           <div class="sets-list__set__content">

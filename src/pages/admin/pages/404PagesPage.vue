@@ -1,7 +1,11 @@
 <template>
   <div class="not-found-pages">
     <div class="row">
-      <div v-for="(item, index) in items" :key="index" class="flex xs:col-span-12 sm:col-span-6 lg4 xl3">
+      <div
+        v-for="(item, index) in items"
+        :key="index"
+        class="flex xs:col-span-12 sm:col-span-6 lg:col-span-4 xl:col-span-3"
+      >
         <va-card class="not-found-pages__cards va-text-center">
           <va-image :src="item.imageUrl" style="max-height: 200px" />
           <va-card-content>

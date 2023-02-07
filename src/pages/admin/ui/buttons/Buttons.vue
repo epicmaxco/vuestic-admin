@@ -122,28 +122,28 @@
           <va-card-title>{{ t('buttons.buttonGroups') }}</va-card-title>
           <va-card-content>
             <div class="row">
-              <div class="flex xs:col-span-12 xl6">
+              <div class="flex xs:col-span-12 xl:col-span-6">
                 <va-button-group color="secondary">
                   <va-button size="large"> One</va-button>
                   <va-button size="large"> Two</va-button>
                   <va-button size="large"> Three</va-button>
                 </va-button-group>
               </div>
-              <div class="flex xs:col-span-12 xl6">
+              <div class="flex xs:col-span-12 xl:col-span-6">
                 <va-button-group preset="outline" border-color="danger" color="danger">
                   <va-button icon="maki-art-gallery">One</va-button>
                   <va-button>Two</va-button>
                   <va-button>Three</va-button>
                 </va-button-group>
               </div>
-              <div class="flex xs:col-span-12 xl6">
+              <div class="flex xs:col-span-12 xl:col-span-6">
                 <va-button-group preset="plain" color="gray">
                   <va-button icon="ion-ios-mail">One</va-button>
                   <va-button icon="entypo-user">Two</va-button>
                   <va-button icon="ion-ios-alarm">Three</va-button>
                 </va-button-group>
               </div>
-              <div class="flex xs:col-span-12 xl6">
+              <div class="flex xs:col-span-12 xl:col-span-6">
                 <va-button-group color="dark">
                   <va-button> One</va-button>
                   <va-button> Two</va-button>
@@ -151,14 +151,14 @@
                   <va-button icon="ion-ios-arrow-down" />
                 </va-button-group>
               </div>
-              <div class="flex xs:col-span-12 xl6">
+              <div class="flex xs:col-span-12 xl:col-span-6">
                 <va-button-group preset="outline" border-color="primary" color="primary" size="large">
                   <va-button>First</va-button>
                   <va-button icon-right="glyphicon-pencil">Second</va-button>
                   <va-button>Third</va-button>
                 </va-button-group>
               </div>
-              <div class="flex xs:col-span-12 xl6">
+              <div class="flex xs:col-span-12 xl:col-span-6">
                 <va-button-group preset="plain" size="small" color="warning">
                   <va-button icon="glyphicon-envelope" />
                   <va-button icon="entypo-user" />
@@ -175,10 +175,10 @@
           <va-card-title>{{ t('buttons.buttonToggles') }}</va-card-title>
           <va-card-content>
             <div class="row">
-              <div class="flex xs:col-span-12 lg6">
+              <div class="flex xs:col-span-12 lg:col-span-6">
                 <va-button-toggle v-model="model" :options="options" />
               </div>
-              <div class="flex xs:col-span-12 lg6">
+              <div class="flex xs:col-span-12 lg:col-span-6">
                 <va-button-toggle
                   v-model="model"
                   preset="outline"
@@ -187,13 +187,13 @@
                   color="danger"
                 />
               </div>
-              <div class="flex xs:col-span-12 lg6">
+              <div class="flex xs:col-span-12 lg:col-span-6">
                 <va-button-toggle v-model="model" preset="plain" :options="options" color="gray" />
               </div>
-              <div class="flex xs:col-span-12 lg6">
+              <div class="flex xs:col-span-12 lg:col-span-6">
                 <va-button-toggle v-model="model" :options="options" color="dark" />
               </div>
-              <div class="flex xs:col-span-12 lg6">
+              <div class="flex xs:col-span-12 lg:col-span-6">
                 <va-button-toggle
                   v-model="model"
                   preset="outline"
@@ -202,7 +202,7 @@
                   color="info"
                 />
               </div>
-              <div class="flex xs:col-span-12 lg6">
+              <div class="flex xs:col-span-12 lg:col-span-6">
                 <va-button-toggle v-model="model" preset="plain" :options="options" color="warning" />
               </div>
             </div>
@@ -215,16 +215,16 @@
           <va-card-title>{{ t('buttons.pagination') }}</va-card-title>
           <va-card-content>
             <div class="row">
-              <div class="flex xs:col-span-12 xl6">
+              <div class="flex xs:col-span-12 xl:col-span-6">
                 <va-pagination v-model="activePage" :visible-pages="3" :pages="20" />
               </div>
-              <div class="flex xs:col-span-12 xl6">
+              <div class="flex xs:col-span-12 xl:col-span-6">
                 <va-pagination v-model="activePage" :visible-pages="4" :pages="15" color="danger" />
               </div>
-              <div class="flex xs:col-span-12 xl6">
+              <div class="flex xs:col-span-12 xl:col-span-6">
                 <va-pagination v-model="activePage" :pages="5" disabled />
               </div>
-              <div class="flex xs:col-span-12 xl6">
+              <div class="flex xs:col-span-12 xl:col-span-6">
                 <va-pagination
                   v-model="activePage"
                   :pages="10"

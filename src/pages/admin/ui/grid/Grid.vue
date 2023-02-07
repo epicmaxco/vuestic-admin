@@ -23,17 +23,17 @@
         <va-card-title>{{ t('grid.desktop') }}</va-card-title>
         <va-card-content>
           <div class="row">
-            <div v-for="i in 3" :key="`4${i}`" class="flex xs:col-span-6 lg4">
+            <div v-for="i in 3" :key="`4${i}`" class="flex xs:col-span-6 lg:col-span-4">
               <div class="grid__container va-text-center" :style="computedStyle">xs:col-span-4</div>
             </div>
           </div>
           <div class="row">
-            <div v-for="i in 6" :key="i" class="flex xs:col-span-4 lg2">
+            <div v-for="i in 6" :key="i" class="flex xs:col-span-4 lg:col-span-2">
               <div class="grid__container va-text-center" :style="computedStyle">xs2</div>
             </div>
           </div>
           <div class="row">
-            <div v-for="i in 12" :key="i" class="flex xs:col-span-3 lg1">
+            <div v-for="i in 12" :key="i" class="flex xs:col-span-3 lg:col-span-1">
               <div class="grid__container va-text-center" :style="computedStyle">xs1</div>
             </div>
           </div>

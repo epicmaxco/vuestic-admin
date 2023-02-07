@@ -30,7 +30,7 @@
       </va-card>
     </div>
 
-    <div class="flex xs:col-span-12 sm:col-span-6 lg4">
+    <div class="flex xs:col-span-12 sm:col-span-6 lg:col-span-4">
       <va-card>
         <va-card-title>{{ t('colors.gradients.basic.title') }}</va-card-title>
         <va-card-content>
@@ -46,7 +46,7 @@
       </va-card>
     </div>
 
-    <div class="flex xs:col-span-12 sm:col-span-6 lg4">
+    <div class="flex xs:col-span-12 sm:col-span-6 lg:col-span-4">
       <va-card>
         <va-card-title>{{ t('colors.gradients.hovered.title') }}</va-card-title>
         <va-card-content>
@@ -65,7 +65,7 @@
       </va-card>
     </div>
 
-    <div class="flex xs:col-span-12 sm:col-span-6 lg4">
+    <div class="flex xs:col-span-12 sm:col-span-6 lg:col-span-4">
       <va-card>
         <va-card-title>{{ t('colors.gradients.pressed.title') }}</va-card-title>
         <va-card-content>

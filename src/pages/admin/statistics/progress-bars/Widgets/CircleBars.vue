@@ -4,14 +4,14 @@
       {{ t('progressBars.circle') }}
     </va-card-title>
     <va-card-content class="row">
-      <div v-for="n in 10" :key="n" class="flex xs:col-span-4 sm:col-span-2 lg1">
+      <div v-for="n in 10" :key="n" class="flex xs:col-span-4 sm:col-span-2 lg:col-span-1">
         <div class="d-flex justify-center">
           <div>
             <va-progress-circle :model-value="(value * n) / 10">{{ (value * n) / 10 }}%</va-progress-circle>
           </div>
         </div>
       </div>
-      <div class="flex xs:col-span-4 sm:col-span-2 lg1">
+      <div class="flex xs:col-span-4 sm:col-span-2 lg:col-span-1">
         <div class="d-flex justify-center">
           <div>
             <va-progress-circle indeterminate />
