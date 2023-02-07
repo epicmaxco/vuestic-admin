@@ -1,12 +1,12 @@
 <template>
   <div class="grid row">
-    <div class="flex xs:col-span-full md12">
+    <div class="flex xs:col-span-12">
       <va-card>
         <va-card-title>{{ t('grid.fixed') }}</va-card-title>
         <va-card-content>
           <div class="row">
-            <div class="flex xs:col-span-full">
-              <div class="grid__container va-text-center" :style="computedStyle">xs:col-span-full</div>
+            <div class="flex xs:col-span-12">
+              <div class="grid__container va-text-center" :style="computedStyle">xs:col-span-12</div>
             </div>
             <div v-for="i in 2" :key="`6${i}`" class="flex xs:col-span-6">
               <div class="grid__container va-text-center" :style="computedStyle">xs:col-span-6</div>
@@ -18,7 +18,7 @@
         </va-card-content>
       </va-card>
     </div>
-    <div class="flex md12 xs:col-span-full">
+    <div class="flex xs:col-span-12">
       <va-card>
         <va-card-title>{{ t('grid.desktop') }}</va-card-title>
         <va-card-content>
@@ -41,56 +41,58 @@
       </va-card>
     </div>
 
-    <div class="flex md12 xs:col-span-full">
+    <div class="flex xs:col-span-12">
       <va-card>
         <va-card-title>{{ t('grid.responsive') }}</va-card-title>
         <va-card-content>
           <div class="row">
-            <div class="flex xs:col-span-full md4">
-              <div class="grid__container va-text-center" :style="computedStyle">xs:col-span-full md4</div>
+            <div class="flex xs:col-span-12 md:col-span-4">
+              <div class="grid__container va-text-center" :style="computedStyle">xs:col-span-12 md:col-span-4</div>
             </div>
           </div>
           <div class="row">
-            <div class="flex xs:col-span-8 md3">
-              <div class="grid__container va-text-center" :style="computedStyle">xs:col-span-8 md3</div>
+            <div class="flex xs:col-span-8 md:col-span-3">
+              <div class="grid__container va-text-center" :style="computedStyle">xs:col-span-8 md:col-span-3</div>
             </div>
-            <div class="flex xs:col-span-4 md9">
-              <div class="grid__container va-text-center" :style="computedStyle">xs:col-span-4 md9</div>
+            <div class="flex xs:col-span-4 md:col-span-9">
+              <div class="grid__container va-text-center" :style="computedStyle">xs:col-span-4 md:col-span-9</div>
             </div>
           </div>
           <div class="row">
-            <div class="flex xs:col-span-3 md4">
-              <div class="grid__container va-text-center" :style="computedStyle">xs:col-span-3 md4</div>
+            <div class="flex xs:col-span-3 md:col-span-4">
+              <div class="grid__container va-text-center" :style="computedStyle">xs:col-span-3 md:col-span-4</div>
             </div>
-            <div class="flex xs:col-span-6 md4">
-              <div class="grid__container va-text-center" :style="computedStyle">xs:col-span-6 md4</div>
+            <div class="flex xs:col-span-6 md:col-span-4">
+              <div class="grid__container va-text-center" :style="computedStyle">xs:col-span-6 md:col-span-4</div>
             </div>
-            <div class="flex xs:col-span-3 md4">
-              <div class="grid__container va-text-center" :style="computedStyle">xs:col-span-3 md4</div>
+            <div class="flex xs:col-span-3 md:col-span-4">
+              <div class="grid__container va-text-center" :style="computedStyle">xs:col-span-3 md:col-span-4</div>
             </div>
           </div>
         </va-card-content>
       </va-card>
     </div>
 
-    <div class="flex md12 xs:col-span-full">
+    <div class="flex xs:col-span-12">
       <va-card>
         <va-card-title>{{ t('grid.offsets') }}</va-card-title>
         <va-card-content>
           <div class="row">
-            <div class="flex xs:col-span-6 md6 offset-md6">
-              <div class="grid__container va-text-center" :style="computedStyle">xs:col-span-6 md6 offset-md6</div>
+            <div class="flex xs:col-span-6 md:col-span-6 offset-md6">
+              <div class="grid__container va-text-center" :style="computedStyle">
+                xs:col-span-6 md:col-span-6 offset-md6
+              </div>
             </div>
           </div>
-          <div class="flex md6 offset-md3">
-            <div class="grid__container va-text-center" :style="computedStyle">md6 offset-md3</div>
+          <div class="flex md:col-span-6 offset-md3">
+            <div class="grid__container va-text-center" :style="computedStyle">md:col-span-6 offset-md3</div>
           </div>
           <div class="row">
-            <div class="flex md4">
-              <div class="grid__container va-text-center" :style="computedStyle">md4</div>
+            <div class="flex md:col-span-4">
+              <div class="grid__container va-text-center" :style="computedStyle">md:col-span-4</div>
             </div>
-            <div class="flex md4 offset-md4">
-              <div class="grid__container va-text-center" :style="computedStyle">md4 offset-md4</div>
+            <div class="flex md:col-span-4 offset-md4">
+              <div class="grid__container va-text-center" :style="computedStyle">md:col-span-4 offset-md4</div>
             </div>
           </div>
         </va-card-content>

@@ -18,6 +18,7 @@
           v-if="notification.details.avatar"
           class="mr-2 notification-dropdown__item__avatar"
           :src="notification.details.avatar"
+          alt=""
         />
         <span class="ellipsis" style="max-width: 85%">
           <span v-if="notification.details.name" class="text--bold">{{ notification.details.name }}</span>
@@ -25,9 +26,9 @@
         </span>
       </div>
       <div class="row justify--space-between mt-1">
-        <va-button class="md6 mr-2" size="small">{{ t('notifications.all') }}</va-button>
+        <va-button class="md:col-span-6 mr-2" size="small">{{ t('notifications.all') }}</va-button>
         <va-button
-          class="md6"
+          class="md:col-span-6"
           size="small"
           preset="outline"
           border-color="primary"
@@ -106,9 +107,6 @@
 <style lang="scss" scoped>
   .row {
     flex-wrap: nowrap !important;
-  }
-  .md6 {
-    box-sizing: border-box;
   }
 
   .notification-dropdown {

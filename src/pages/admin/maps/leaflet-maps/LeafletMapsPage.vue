@@ -1,7 +1,7 @@
 <template>
   <div class="leaflet-maps-page">
     <div class="row">
-      <div class="flex md12 xs:col-span-full">
+      <div class="flex xs:col-span-12">
         <va-card class="leaflet-maps-page__widget" title="Leaflet Maps">
           <leaflet-map style="height: 65vh" />
         </va-card>

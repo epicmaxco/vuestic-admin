@@ -153,6 +153,7 @@ contribution guides</a>
 and [discord server](https://discord.gg/jTKTjj2weV)
 
 ### Partners & Sponsors ❤️
+
 <div>
   <a href="https://vuejs.org/partners/epicmax.html" target="_blank" title="VueJS - The Progressive JavaScript Framework">
     <picture>

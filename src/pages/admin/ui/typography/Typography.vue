@@ -1,7 +1,7 @@
 <template>
   <va-content class="typography content">
     <div class="row">
-      <div class="flex xs:col-span-full">
+      <div class="flex xs:col-span-12">
         <va-card>
           <va-card-title>{{ t('typography.primary') }}</va-card-title>
           <va-card-content>
@@ -68,7 +68,7 @@
           </va-card-content>
         </va-card>
       </div>
-      <div class="flex xs:col-span-full">
+      <div class="flex xs:col-span-12">
         <va-card>
           <va-card-title>{{ t('typography.secondary') }}</va-card-title>
           <va-card-content>

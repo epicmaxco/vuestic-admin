@@ -1,7 +1,7 @@
 <template>
   <div class="yandex-maps-page">
     <div class="row">
-      <div class="flex md12 xs:col-span-full">
+      <div class="flex xs:col-span-12">
         <va-card class="yandex-maps-page__widget" title="Yandex Maps">
           <yandex-map
             map-type="hybrid"

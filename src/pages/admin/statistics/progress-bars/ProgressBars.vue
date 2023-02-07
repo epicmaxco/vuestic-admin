@@ -1,22 +1,22 @@
 <template>
   <div class="progress-bars">
     <div class="row mb-4">
-      <div class="flex xs:col-span-full mb-12">
+      <div class="flex xs:col-span-12 mb-12">
         <horizontal-bars />
       </div>
     </div>
     <div class="row mb-4">
-      <div class="flex xs:col-span-full">
+      <div class="flex xs:col-span-12">
         <bars-state />
       </div>
     </div>
     <div class="row mb-4">
-      <div class="flex xs:col-span-full">
+      <div class="flex xs:col-span-12">
         <circle-bars />
       </div>
     </div>
     <div class="row">
-      <div class="flex xs:col-span-full">
+      <div class="flex xs:col-span-12">
         <colorful-bars />
       </div>
     </div>

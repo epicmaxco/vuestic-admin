@@ -2,7 +2,7 @@
   <div class="overview-tab pt-2 layout">
     <div class="mb-2"></div>
     <div class="row">
-      <div class="flex xs:col-span-full xl6 mb-5">
+      <div class="flex xs:col-span-12 xl6 mb-5">
         <div class="overview-tab__item d-flex align--center">
           <div class="overview-tab__item-icon fill-height mr-2">
             <va-icon-vue />
@@ -11,7 +11,7 @@
         </div>
       </div>
 
-      <div class="flex xs:col-span-full xl6 mb-5">
+      <div class="flex xs:col-span-12 xl6 mb-5">
         <div class="overview-tab__item d-flex align--center">
           <div class="overview-tab__item-icon fill-height mr-2">
             <va-icon-responsive />
@@ -22,7 +22,7 @@
     </div>
 
     <div class="row">
-      <div class="flex xs:col-span-full xl6 mb-5">
+      <div class="flex xs:col-span-12 xl6 mb-5">
         <div class="overview-tab__item d-flex align--center">
           <div class="overview-tab__item-icon fill-height mr-2">
             <va-icon-free />
@@ -31,7 +31,7 @@
         </div>
       </div>
 
-      <div class="flex xs:col-span-full xl6 mb-5">
+      <div class="flex xs:col-span-12 xl6 mb-5">
         <div class="overview-tab__item d-flex align--center">
           <div class="overview-tab__item-icon fill-height mr-2">
             <va-icon-rich />
@@ -42,7 +42,7 @@
     </div>
 
     <div class="row">
-      <div class="flex xs:col-span-full xl6 mb-5">
+      <div class="flex xs:col-span-12 xl6 mb-5">
         <div class="overview-tab__item d-flex align--center">
           <div class="overview-tab__item-icon fill-height mr-2">
             <va-icon-fresh />
@@ -51,7 +51,7 @@
         </div>
       </div>
 
-      <div class="flex xs:col-span-full xl6">
+      <div class="flex xs:col-span-12 xl6">
         <div class="overview-tab__item d-flex align--center">
           <div class="overview-tab__item-icon fill-height mr-2">
             <va-icon-clean-code />

@@ -4,7 +4,7 @@
       <va-card-title>{{ t('spinners.title') }}</va-card-title>
       <va-card-content>
         <div class="row mt-0">
-          <div class="d-flex flex xs:col-span-full lg4 align--center">
+          <div class="d-flex flex xs:col-span-12 lg4 align--center">
             <span class="shrink pr-3 spinners__size-smaller">A</span>
             <va-slider
               v-model="config.size"
@@ -16,7 +16,7 @@
             <span class="shrink pl-3 spinners__size-bigger">A</span>
           </div>
 
-          <div class="d-flex flex xs:col-span-full lg4 align--center">
+          <div class="d-flex flex xs:col-span-12 lg4 align--center">
             <va-icon-slower class="shrink pr-3 spinners__duration-slower" />
             <va-slider
               v-model="config.duration"
@@ -27,7 +27,7 @@
             <va-icon-faster class="shrink pl-3 spinners__duration-faster" />
           </div>
 
-          <div class="d-flex flex justify-center xs:col-span-full lg4">
+          <div class="d-flex flex justify-center xs:col-span-12 lg4">
             <va-color-palette v-model="spinnersColor" :palette="paletteArray" />
           </div>
         </div>
@@ -37,7 +37,7 @@
         </div>
 
         <div v-for="(group, i) in groups" :key="i" class="row">
-          <div v-for="item in group" :key="item" class="flex sm:col-span-6 xs:col-span-full lg3">
+          <div v-for="item in group" :key="item" class="flex sm:col-span-6 xs:col-span-12 lg3">
             <div class="va-text-center pb-4">
               <div class="justify-center d-flex align-center spinner-box">
                 <component

@@ -1,7 +1,7 @@
 <template>
   <div class="pt-2">
     <div class="row">
-      <div class="flex sm:col-span-12 md6">
+      <div class="flex sm:col-span-12 md:col-span-6">
         <div class="title mb-3" :style="computedStylesTitle">
           {{ t('dashboard.tabs.billingAddress.personalInfo') }}
         </div>
@@ -9,7 +9,7 @@
         <va-input v-model="form.email" :label="t('dashboard.tabs.billingAddress.email')" />
         <va-input v-model="form.address" :label="t('dashboard.tabs.billingAddress.address')" />
       </div>
-      <div class="flex sm:col-span-12 md6">
+      <div class="flex sm:col-span-12 md:col-span-6">
         <div class="title mb-3" :style="computedStylesTitle">
           {{ t('dashboard.tabs.billingAddress.companyInfo') }}
         </div>

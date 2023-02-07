@@ -1,6 +1,6 @@
 <template>
   <div class="row row-equal">
-    <div class="flex xs:col-span-full lg6 xl6">
+    <div class="flex xs:col-span-12 lg6 xl6">
       <va-card v-if="lineChartDataGenerated">
         <va-card-title>
           <h1>{{ t('dashboard.charts.trendyTrends') }}</h1>
@@ -31,7 +31,7 @@
       </va-card>
     </div>
 
-    <div class="flex xs:col-span-full sm:col-span-6 md6 lg3 xl3">
+    <div class="flex xs:col-span-12 sm:col-span-6 md:col-span-6 lg3 xl3">
       <va-card class="d-flex">
         <va-card-title>
           <h1>{{ t('dashboard.charts.loadingSpeed') }}</h1>
@@ -43,7 +43,7 @@
       </va-card>
     </div>
 
-    <div class="flex xs:col-span-full sm:col-span-6 md6 lg3 xl3">
+    <div class="flex xs:col-span-12 sm:col-span-6 md:col-span-6 lg3 xl3">
       <dashboard-contributors-chart />
     </div>
   </div>

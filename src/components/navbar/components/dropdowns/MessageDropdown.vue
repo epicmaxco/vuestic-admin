@@ -12,15 +12,15 @@
         :class="{ 'message-dropdown__item--unread': message.unread }"
         @click="message.unread = false"
       >
-        <img :src="message.details.avatar" class="message-dropdown__item__avatar mr-2" />
+        <img :src="message.details.avatar" class="message-dropdown__item__avatar mr-2" alt="" />
         <span class="ellipsis" style="max-width: 85%">{{
           t(`messages.${message.name}`, { name: message.details.name })
         }}</span>
       </div>
       <div class="row justify--space-between mt-1">
-        <va-button class="md6 mr-2" size="small">{{ t('messages.all') }}</va-button>
+        <va-button class="md:col-span-6 mr-2" size="small">{{ t('messages.all') }}</va-button>
         <va-button
-          class="md6"
+          class="md:col-span-6"
           size="small"
           preset="outline"
           border-color="primary"

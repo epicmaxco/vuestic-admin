@@ -1,7 +1,7 @@
 <template>
   <div class="modals">
     <div class="row">
-      <div class="flex md12">
+      <div class="flex md:col-span-12">
         <va-card class="modals-list larger-padding">
           <va-card-title>{{ t('modal.title') }}</va-card-title>
           <va-card-content>
@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="flex md12">
+      <div class="flex md:col-span-12">
         <va-card class="modals-list larger-padding">
           <va-card-title>{{ t('modal.titleOptions') }}</va-card-title>
           <va-card-content>
