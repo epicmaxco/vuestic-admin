@@ -1,11 +1,9 @@
 <template>
   <div class="line-maps-page">
-    <div class="grid grid-cols-12">
-      <div class="flex xs:col-span-12">
-        <va-card class="line-maps-page__widget" title="Line Maps">
-          <line-map v-model="mainCity" :map-data="cities" :home-city="homeCity" style="height: 75vh" />
-        </va-card>
-      </div>
+    <div class="flex">
+      <va-card class="line-maps-page__widget" title="Line Maps">
+        <line-map v-model="mainCity" :map-data="cities" :home-city="homeCity" style="height: 75vh" />
+      </va-card>
     </div>
   </div>
 </template>

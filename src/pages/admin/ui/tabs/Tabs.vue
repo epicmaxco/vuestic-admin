@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-12">
     <div class="flex xs:col-span-12 md:col-span-6">
-      <va-card class="fill-height" style="overflow-x: auto">
+      <va-card class="h-full overflow-x-auto">
         <va-card-title>{{ t('tabs.alignment') }}</va-card-title>
         <va-card-content>
           <div class="grid grid-cols-12">
@@ -37,7 +37,7 @@
       </va-card>
     </div>
     <div class="flex xs:col-span-12 md:col-span-6">
-      <div class="row column">
+      <div class="flex flex-1 flex-wrap flex-col">
         <div class="flex">
           <va-card>
             <va-card-title>{{ t('tabs.overflow') }}</va-card-title>

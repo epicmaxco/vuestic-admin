@@ -1,62 +1,62 @@
 <template>
   <div class="overview-tab pt-2 layout">
-    <div class="mb-2"></div>
+    <div class="mb-2" />
     <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12 xl:col-span-6 mb-5">
-        <div class="overview-tab__item d-flex align--center">
-          <div class="overview-tab__item-icon fill-height mr-2">
+        <div class="overview-tab__item flex items-center">
+          <div class="overview-tab__item-icon h-full mr-2">
             <va-icon-vue />
           </div>
-          <div class="text--bold">{{ t('dashboard.tabs.overview.built') }}</div>
+          <div class="font-bold">{{ t('dashboard.tabs.overview.built') }}</div>
         </div>
       </div>
 
       <div class="flex xs:col-span-12 xl:col-span-6 mb-5">
-        <div class="overview-tab__item d-flex align--center">
-          <div class="overview-tab__item-icon fill-height mr-2">
+        <div class="overview-tab__item flex items-center">
+          <div class="overview-tab__item-icon h-full mr-2">
             <va-icon-responsive />
           </div>
-          <div class="text--bold">{{ t('dashboard.tabs.overview.mobile') }}</div>
+          <div class="font-bold">{{ t('dashboard.tabs.overview.mobile') }}</div>
         </div>
       </div>
     </div>
 
     <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12 xl:col-span-6 mb-5">
-        <div class="overview-tab__item d-flex align--center">
-          <div class="overview-tab__item-icon fill-height mr-2">
+        <div class="overview-tab__item flex items-center">
+          <div class="overview-tab__item-icon h-full mr-2">
             <va-icon-free />
           </div>
-          <div class="text--bold">{{ t('dashboard.tabs.overview.free') }}</div>
+          <div class="font-bold">{{ t('dashboard.tabs.overview.free') }}</div>
         </div>
       </div>
 
       <div class="flex xs:col-span-12 xl:col-span-6 mb-5">
-        <div class="overview-tab__item d-flex align--center">
-          <div class="overview-tab__item-icon fill-height mr-2">
+        <div class="overview-tab__item flex items-center">
+          <div class="overview-tab__item-icon h-full mr-2">
             <va-icon-rich />
           </div>
-          <div class="text--bold">{{ t('dashboard.tabs.overview.components') }}</div>
+          <div class="font-bold">{{ t('dashboard.tabs.overview.components') }}</div>
         </div>
       </div>
     </div>
 
     <div class="grid grid-cols-12">
       <div class="flex xs:col-span-12 xl:col-span-6 mb-5">
-        <div class="overview-tab__item d-flex align--center">
-          <div class="overview-tab__item-icon fill-height mr-2">
+        <div class="overview-tab__item flex items-center">
+          <div class="overview-tab__item-icon h-full mr-2">
             <va-icon-fresh />
           </div>
-          <div class="text--bold">{{ t('dashboard.tabs.overview.fresh') }}</div>
+          <div class="font-bold">{{ t('dashboard.tabs.overview.fresh') }}</div>
         </div>
       </div>
 
       <div class="flex xs:col-span-12 xl:col-span-6">
-        <div class="overview-tab__item d-flex align--center">
-          <div class="overview-tab__item-icon fill-height mr-2">
+        <div class="overview-tab__item flex items-center">
+          <div class="overview-tab__item-icon h-full mr-2">
             <va-icon-clean-code />
           </div>
-          <div class="text--bold">{{ t('dashboard.tabs.overview.nojQuery') }}</div>
+          <div class="font-bold">{{ t('dashboard.tabs.overview.nojQuery') }}</div>
         </div>
       </div>
     </div>

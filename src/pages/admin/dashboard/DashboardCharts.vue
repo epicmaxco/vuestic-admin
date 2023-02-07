@@ -6,7 +6,7 @@
           <h1>{{ t('dashboard.charts.trendyTrends') }}</h1>
           <div>
             <va-button
-              class="ma-1"
+              class="m-1"
               size="small"
               color="danger"
               :disabled="datasetIndex === minIndex"
@@ -15,7 +15,7 @@
               {{ t('dashboard.charts.showInLessDetail') }}
             </va-button>
             <va-button
-              class="ma-1"
+              class="m-1"
               size="small"
               color="danger"
               :disabled="datasetIndex === maxIndex - 1"
@@ -31,8 +31,8 @@
       </va-card>
     </div>
 
-    <div class="flex xs:col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-3 xl:col-span-3">
-      <va-card class="d-flex">
+    <div class="flex xs:col-span-12 sm:col-span-6 lg:col-span-3">
+      <va-card class="flex">
         <va-card-title>
           <h1>{{ t('dashboard.charts.loadingSpeed') }}</h1>
           <va-button icon="print" plain @click="printChart" />
@@ -43,7 +43,7 @@
       </va-card>
     </div>
 
-    <div class="flex xs:col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-3 xl:col-span-3">
+    <div class="flex xs:col-span-12 sm:col-span-6 lg:col-span-3">
       <dashboard-contributors-chart />
     </div>
   </div>

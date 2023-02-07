@@ -14,7 +14,7 @@
         <va-input v-model="form.notes" class="mb-3" :label="t('dashboard.tabs.bankDetails.notes')" />
       </div>
     </div>
-    <div class="row justify-center">
+    <div class="flex flex-1 flex-wrap justify-center">
       <va-button @click="sendDetails">
         {{ t('dashboard.tabs.bankDetails.sendDetails') }}
       </va-button>

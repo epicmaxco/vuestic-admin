@@ -18,31 +18,31 @@
         <va-card-content>
           <va-accordion>
             <va-collapse header="First question">
-              <div class="pa-3">
+              <div class="p-3">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo veniam provident voluptates consequuntur
                 nostrum cumque possimus unde asperiores magnam rem.
               </div>
             </va-collapse>
             <va-collapse header="Second question">
-              <div class="pa-3">
+              <div class="p-3">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo veniam provident voluptates consequuntur
                 nostrum cumque possimus unde asperiores magnam rem.
               </div>
             </va-collapse>
             <va-collapse header="Third question">
-              <div class="pa-3">
+              <div class="p-3">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo veniam provident voluptates consequuntur
                 nostrum cumque possimus unde asperiores magnam rem.
               </div>
             </va-collapse>
             <va-collapse header="Fourth question">
-              <div class="pa-3">
+              <div class="p-3">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo veniam provident voluptates consequuntur
                 nostrum cumque possimus unde asperiores magnam rem.
               </div>
             </va-collapse>
             <va-collapse header="Fifth question">
-              <div class="pa-3">
+              <div class="p-3">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo veniam provident voluptates consequuntur
                 nostrum cumque possimus unde asperiores magnam rem.
               </div>

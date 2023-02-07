@@ -103,7 +103,7 @@
             </div>
             <div class="flex xs:col-span-12">
               <!-- There was slot="trigger" -->
-              <va-button class="ma-0" color="primary" @click="launchToast">
+              <va-button class="m-0" color="primary" @click="launchToast">
                 {{ t('notificationsPage.toasts.launchToast') }}
               </va-button>
             </div>

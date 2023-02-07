@@ -60,7 +60,7 @@
         <div class="flex xs:col-span-12 sm:col-span-6 md:col-span-3 xl:col-span-3 lg:col-span-3 xl:col-span-3">
           <va-card>
             <va-image src="https://picsum.photos/300/200/?image=898" style="height: 200px">
-              <va-button class="ma-0">
+              <va-button class="m-0">
                 {{ t('cards.button.readMore') }}
               </va-button>
             </va-image>

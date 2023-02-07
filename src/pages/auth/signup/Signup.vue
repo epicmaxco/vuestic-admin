@@ -18,7 +18,7 @@
       :error-messages="passwordErrors"
     />
 
-    <div class="auth-layout__options d-flex align-center justify-space-between">
+    <div class="auth-layout__options flex items-center justify-between">
       <va-checkbox
         v-model="agreedToTerms"
         class="mb-0"
@@ -37,7 +37,7 @@
       </router-link>
     </div>
 
-    <div class="d-flex justify-center mt-3">
+    <div class="flex justify-center mt-3">
       <va-button class="my-0" @click="onsubmit">{{ t('auth.sign_up') }}</va-button>
     </div>
   </form>

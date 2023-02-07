@@ -8,7 +8,7 @@
       <div
         v-for="(option, id) in options"
         :key="id"
-        class="language-dropdown__item row align--center pt-1 pb-1 mt-2 mb-2"
+        class="language-dropdown__item flex flex-1 flex-wrap items-center pt-1 pb-1 mt-2 mb-2"
         :class="{ active: option.code === locale }"
         @click="locale = option.code"
       >

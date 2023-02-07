@@ -22,7 +22,7 @@
         </div>
 
         <div class="flex md:col-span-4 xs:col-span-12 justify-center content icon-set__header__size">
-          <span class="ma-2 pr-2 shrink icon-set__header__size--smaller" :style="{ color: colors.dark }">A</span>
+          <span class="m-2 pr-2 shrink icon-set__header__size--smaller" :style="{ color: colors.dark }">A</span>
           <va-slider
             v-model="iconSize"
             value-visible
@@ -32,7 +32,7 @@
             :max="slider.max"
           >
           </va-slider>
-          <span class="ma-2 pl-2 shrink icon-set__header__size--bigger" :style="{ color: colors.dark }">A</span>
+          <span class="m-2 pl-2 shrink icon-set__header__size--bigger" :style="{ color: colors.dark }">A</span>
         </div>
       </va-card-content>
     </va-card>
@@ -41,7 +41,7 @@
       <va-card-title>
         {{ list.name }}
       </va-card-title>
-      <va-card-content class="row">
+      <va-card-content class="flex flex-1 flex-wrap">
         <span v-if="list.icons.length === 0">
           {{ t('icons.none') }}
         </span>

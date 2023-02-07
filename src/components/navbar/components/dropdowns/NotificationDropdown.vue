@@ -10,7 +10,7 @@
       <div
         v-for="notification in notificationsProxy"
         :key="notification.id"
-        class="notification-dropdown__item row pt-1 pb-1 mt-2 mb-2"
+        class="notification-dropdown__item flex flex-1 flex-wrap pt-1 pb-1 mt-2 mb-2"
         :class="{ 'notification-dropdown__item--unread': notification.unread }"
         @click="notification.unread = false"
       >
@@ -21,11 +21,11 @@
           alt=""
         />
         <span class="ellipsis" style="max-width: 85%">
-          <span v-if="notification.details.name" class="text--bold">{{ notification.details.name }}</span>
+          <span v-if="notification.details.name" class="font-bold">{{ notification.details.name }}</span>
           {{ t(`notifications.${notification.name}`, { type: notification.details.type }) }}
         </span>
       </div>
-      <div class="grid grid-cols-12 justify--space-between mt-1">
+      <div class="grid grid-cols-12 justify-between mt-1">
         <va-button class="md:col-span-6 mr-2" size="small">{{ t('notifications.all') }}</va-button>
         <va-button
           class="md:col-span-6"

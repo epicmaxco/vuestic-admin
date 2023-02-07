@@ -1,13 +1,13 @@
 <template>
-  <div class="auth-layout grid grid-cols-12 align-content-center">
-    <div class="flex xs:col-span-12 pa-3 justify-center">
-      <router-link class="py-5 justify-center d-flex" to="/">
+  <div class="auth-layout grid grid-cols-12 content-center">
+    <div class="flex xs:col-span-12 p-3 justify-center">
+      <router-link class="py-5 justify-center flex" to="/">
         <vuestic-logo height="32" />
       </router-link>
     </div>
 
-    <div class="flex xs:col-span-12 pa-3">
-      <div class="d-flex justify-center">
+    <div class="flex xs:col-span-12 p-3">
+      <div class="flex justify-center">
         <va-card class="auth-layout__card">
           <va-card-content>
             <va-tabs v-model="tabIndex" center>
@@ -19,7 +19,7 @@
 
             <va-separator />
 
-            <div class="pa-3">
+            <div class="p-3">
               <router-view />
             </div>
           </va-card-content>

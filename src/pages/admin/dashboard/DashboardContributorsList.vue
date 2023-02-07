@@ -1,5 +1,5 @@
 <template>
-  <va-card class="d-flex dashboard-contributors-list">
+  <va-card class="flex dashboard-contributors-list">
     <va-card-title>
       <h1>{{ t('dashboard.charts.topContributors') }}</h1>
       <div class="mr-0 va-text-right">

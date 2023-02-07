@@ -4,7 +4,7 @@
       <div class="flex xs:col-span-12">
         <va-card class="larger-padding">
           <va-card-title>{{ t('buttons.types') }}</va-card-title>
-          <va-card-content class="row">
+          <va-card-content class="flex flex-1 flex-wrap">
             <div class="flex">
               <va-button class="mr-2 mb-2"> {{ t('buttons.default') }}</va-button>
               <va-button class="mr-2 mb-2" disabled> {{ t('buttons.disabled') }}</va-button>
@@ -24,7 +24,7 @@
       <div class="flex xs:col-span-12">
         <va-card class="larger-padding">
           <va-card-title>{{ t('buttons.size') }}</va-card-title>
-          <va-card-content class="row">
+          <va-card-content class="flex flex-1 flex-wrap">
             <div class="flex">
               <va-button class="mr-2 mb-2" size="small"> {{ t('buttons.small') }}</va-button>
               <va-button class="mr-2 mb-2"> {{ t('buttons.normal') }}</va-button>
@@ -37,7 +37,7 @@
       <div class="flex xs:col-span-12">
         <va-card class="larger-padding">
           <va-card-title>{{ t('buttons.tags') }}</va-card-title>
-          <va-card-content class="row">
+          <va-card-content class="flex flex-1 flex-wrap">
             <div class="flex">
               <va-button class="mr-2 mb-2"> {{ t('buttons.button') }}</va-button>
               <va-button class="mr-2 mb-2" href="http://epic-spinners.epicmax.co/">
@@ -54,7 +54,7 @@
       <div class="flex xs:col-span-12">
         <va-card class="larger-padding">
           <va-card-title>{{ t('buttons.advanced') }}</va-card-title>
-          <va-card-content class="row">
+          <va-card-content class="flex flex-1 flex-wrap">
             <div class="flex">
               <va-button class="mr-2 mb-2" icon="md_close"> {{ t('buttons.button') }}</va-button>
               <va-button class="mr-2 mb-2" icon-right="expand_more"> {{ t('buttons.button') }}</va-button>
@@ -71,7 +71,7 @@
         <va-card class="larger-padding">
           <va-card-title>{{ t('buttons.colors') }}</va-card-title>
           <va-card-content>
-            <div class="row">
+            <div class="flex flex-1 flex-wrap">
               <div class="flex">
                 <va-button class="mr-2 mb-2" color="danger"> {{ t('buttons.danger') }}</va-button>
                 <va-button class="mr-2 mb-2" color="info"> {{ t('buttons.info') }}</va-button>
@@ -81,7 +81,7 @@
                 <va-button class="mr-2 mb-2" color="gray"> {{ t('buttons.gray') }}</va-button>
               </div>
             </div>
-            <div class="row">
+            <div class="flex flex-1 flex-wrap">
               <div class="flex">
                 <va-button class="mr-2 mb-2" preset="outline" border-color="danger" color="danger">
                   {{ t('buttons.danger') }}</va-button
@@ -103,7 +103,7 @@
                 >
               </div>
             </div>
-            <div class="row">
+            <div class="flex flex-1 flex-wrap">
               <div class="flex">
                 <va-button class="mr-2 mb-2" preset="plain" color="danger"> {{ t('buttons.danger') }}</va-button>
                 <va-button class="mr-2 mb-2" preset="plain" color="info"> {{ t('buttons.info') }}</va-button>
@@ -242,7 +242,7 @@
         <va-card class="larger-padding">
           <va-card-title>{{ t('buttons.buttonsDropdown') }}</va-card-title>
           <va-card-content>
-            <div class="row">
+            <div class="flex flex-1 flex-wrap">
               <div class="flex">
                 <va-button-dropdown class="mr-2 mb-2" :label="t('buttons.default')">
                   {{ t('buttons.content') }}</va-button-dropdown

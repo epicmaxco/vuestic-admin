@@ -8,7 +8,7 @@
         </va-progress-bar>
       </div>
       <div v-for="n in 6" :key="`pc-${n}`" class="flex md:col-span-2 xs:col-span-6">
-        <va-progress-circle class="ma-auto" :model-value="(value * n) / 6" :color="colors[n - 1]">
+        <va-progress-circle class="m-auto" :model-value="(value * n) / 6" :color="colors[n - 1]">
           <span style="font-size: 0.625rem">
             {{ colors[n - 1] }}
           </span>

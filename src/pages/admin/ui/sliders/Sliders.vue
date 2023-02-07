@@ -13,10 +13,10 @@
               <div class="title mb-3" :style="{ color: colors.danger }">{{ t('sliders.value') }}</div>
               <va-slider v-model="value" color="danger" track-label-visible />
             </div>
-            <div class="flex d-flex xs:col-span-12 lg:col-span-6 xl:col-span-4 mb-2">
+            <div class="flex flex xs:col-span-12 lg:col-span-6 xl:col-span-4 mb-2">
               <va-slider v-model="value" :label="t('sliders.label')" color="info" track-label-visible />
             </div>
-            <div class="flex d-flex xs:col-span-12 lg:col-span-6 xl:col-span-4 mb-2">
+            <div class="flex flex xs:col-span-12 lg:col-span-6 xl:col-span-4 mb-2">
               <va-slider v-model="value" :label="t('sliders.label')" invert-label color="warning" track-label-visible />
             </div>
             <div class="flex xs:col-span-12 lg:col-span-6 xl:col-span-4 mb-2">
@@ -82,10 +82,10 @@
               <div class="title mb-3" :style="{ color: colors.danger }">{{ t('sliders.value') }}</div>
               <va-slider v-model="value2" range color="danger" track-label-visible />
             </div>
-            <div class="flex d-flex xs:col-span-12 lg:col-span-6 xl:col-span-4 mb-2">
+            <div class="flex flex xs:col-span-12 lg:col-span-6 xl:col-span-4 mb-2">
               <va-slider v-model="value2" range :label="t('sliders.label')" color="info" track-label-visible />
             </div>
-            <div class="flex d-flex xs:col-span-12 lg:col-span-6 xl:col-span-4 mb-2">
+            <div class="flex flex xs:col-span-12 lg:col-span-6 xl:col-span-4 mb-2">
               <va-slider
                 v-model="value2"
                 range

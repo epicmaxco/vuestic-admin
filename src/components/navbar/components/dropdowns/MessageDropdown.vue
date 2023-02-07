@@ -8,7 +8,7 @@
       <div
         v-for="message in messagesProxy"
         :key="message.id"
-        class="message-dropdown__item row pt-1 pb-1 mt-2 mb-2"
+        class="message-dropdown__item flex flex-1 flex-wrap pt-1 pb-1 mt-2 mb-2"
         :class="{ 'message-dropdown__item--unread': message.unread }"
         @click="message.unread = false"
       >
@@ -17,7 +17,7 @@
           t(`messages.${message.name}`, { name: message.details.name })
         }}</span>
       </div>
-      <div class="grid grid-cols-12 justify--space-between mt-1">
+      <div class="grid grid-cols-12 justify-between mt-1">
         <va-button class="col-span-full md:col-span-6 mr-2" size="small">{{ t('messages.all') }}</va-button>
         <va-button
           class="col-span-full md:col-span-6"

@@ -1,6 +1,6 @@
 <template>
   <va-card :title="t('tables.searchTrendsBadges')">
-    <div class="grid grid-cols-12 align--center">
+    <div class="grid grid-cols-12 items-center">
       <div class="flex xs:col-span-12 md:col-span-6">
         <va-input :value="term" :placeholder="t('tables.searchByName')" removable @input="search">
           <template #prepend>
@@ -32,7 +32,7 @@
       </template>
 
       <template #actions="props">
-        <va-button v-if="props.rowData.hasReport" small color="danger" class="ma-0">
+        <va-button v-if="props.rowData.hasReport" small color="danger" class="m-0">
           {{ t('tables.report') }}
         </va-button>
       </template>

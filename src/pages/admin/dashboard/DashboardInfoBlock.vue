@@ -5,7 +5,7 @@
         <div v-for="(info, idx) in infoTiles" :key="idx" class="flex xs:col-span-12 sm:col-span-4">
           <va-card class="mb-4" :color="info.color">
             <va-card-content>
-              <h2 class="va-h2 ma-0" style="color: white">{{ info.value }}</h2>
+              <h2 class="va-h2 m-0" style="color: white">{{ info.value }}</h2>
               <p style="color: white">{{ t('dashboard.info.' + info.text) }}</p>
             </va-card-content>
           </va-card>
@@ -16,7 +16,7 @@
         <div class="flex xs:col-span-12 sm:col-span-6 md:col-span-6">
           <va-card>
             <va-card-content>
-              <h2 class="va-h2 ma-0" :style="{ color: colors.primary }">291</h2>
+              <h2 class="va-h2 m-0" :style="{ color: colors.primary }">291</h2>
               <p class="no-wrap">{{ t('dashboard.info.completedPullRequests') }}</p>
             </va-card-content>
           </va-card>
@@ -26,15 +26,15 @@
             <va-card-content>
               <div class="grid grid-cols-12 row-separated">
                 <div class="flex xs:col-span-4">
-                  <h2 class="va-h2 ma-0 va-text-center" :style="{ color: colors.primary }">3</h2>
+                  <h2 class="va-h2 m-0 va-text-center" :style="{ color: colors.primary }">3</h2>
                   <p class="va-text-center">{{ t('dashboard.info.users') }}</p>
                 </div>
                 <div class="flex xs:col-span-4">
-                  <h2 class="va-h2 ma-0 va-text-center" :style="{ color: colors.info }">24</h2>
+                  <h2 class="va-h2 m-0 va-text-center" :style="{ color: colors.info }">24</h2>
                   <p class="va-text-center no-wrap">{{ t('dashboard.info.points') }}</p>
                 </div>
                 <div class="flex xs:col-span-4">
-                  <h2 class="va-h2 ma-0 va-text-center" :style="{ color: colors.warning }">91</h2>
+                  <h2 class="va-h2 m-0 va-text-center" :style="{ color: colors.warning }">91</h2>
                   <p class="va-text-center">{{ t('dashboard.info.units') }}</p>
                 </div>
               </div>
@@ -44,7 +44,7 @@
       </div>
     </div>
 
-    <div class="flex xs:col-span-12 sm:col-span-6 md:col-span-6 xl:col-span-3 lg:col-span-3">
+    <div class="flex xs:col-span-12 sm:col-span-6 lg:col-span-3">
       <va-card stripe stripe-color="info">
         <va-card-title>
           {{ t('dashboard.info.componentRichTheme') }}
@@ -63,7 +63,7 @@
       </va-card>
     </div>
 
-    <div class="flex xs:col-span-12 sm:col-span-6 md:col-span-6 xl:col-span-3 lg:col-span-3">
+    <div class="flex xs:col-span-12 sm:col-span-6 lg:col-span-3">
       <va-card>
         <va-image :src="images[currentImageIndex]" style="height: 200px" />
         <va-card-title>
