@@ -1,24 +1,10 @@
 <template>
   <div class="progress-bars">
-    <div class="grid grid-cols-12 mb-4">
-      <div class="flex xs:col-span-12 mb-12">
-        <horizontal-bars />
-      </div>
-    </div>
-    <div class="grid grid-cols-12 mb-4">
-      <div class="flex xs:col-span-12">
-        <bars-state />
-      </div>
-    </div>
-    <div class="grid grid-cols-12 mb-4">
-      <div class="flex xs:col-span-12">
-        <circle-bars />
-      </div>
-    </div>
-    <div class="grid grid-cols-12">
-      <div class="flex xs:col-span-12">
-        <colorful-bars />
-      </div>
+    <div class="grid grid-cols-12 gap-8">
+      <horizontal-bars class="col-span-full" />
+      <bars-state class="col-span-full" />
+      <circle-bars class="col-span-full" />
+      <colorful-bars class="col-span-full" />
     </div>
   </div>
 </template>

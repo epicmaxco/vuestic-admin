@@ -3,14 +3,14 @@
     <va-card-title>
       {{ t('progressBars.state') }}
     </va-card-title>
-    <va-card-content class="grid grid-cols-12">
-      <div class="flex md:col-span-4 xs:col-span-12">
+    <va-card-content class="grid grid-cols-12 gap-6">
+      <div class="flex md:col-span-4 col-span-12">
         <va-progress-bar :model-value="value2">66%</va-progress-bar>
       </div>
-      <div class="flex md:col-span-4 xs:col-span-12">
+      <div class="flex md:col-span-4 col-span-12">
         <va-progress-bar :model-value="bufferValues.value" :buffer="bufferValues.buffer">Buffering </va-progress-bar>
       </div>
-      <div class="flex md:col-span-4 xs:col-span-12">
+      <div class="flex md:col-span-4 col-span-12">
         <va-progress-bar indeterminate>Loading</va-progress-bar>
       </div>
     </va-card-content>

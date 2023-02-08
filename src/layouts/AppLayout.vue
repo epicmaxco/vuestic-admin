@@ -14,7 +14,7 @@
         />
       </div>
       <div class="app-layout__page">
-        <div class="layout fluid va-gutter-5">
+        <div class="layout fluid px-6 py-8">
           <router-view />
         </div>
       </div>

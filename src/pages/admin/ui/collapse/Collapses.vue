@@ -1,7 +1,7 @@
 <template>
   <div class="collapse-page">
     <div class="grid grid-cols-12">
-      <div class="flex xs:col-span-12">
+      <div class="flex col-span-12">
         <va-card>
           <va-card-title>{{ t('collapse.basic') }}</va-card-title>
           <va-card-content>
@@ -27,7 +27,7 @@
         </va-card>
       </div>
 
-      <div class="flex xs:col-span-12">
+      <div class="flex col-span-12">
         <va-card>
           <va-card-title>{{ t('collapse.collapseWithBackground') }}</va-card-title>
           <va-card-content>
@@ -53,7 +53,7 @@
         </va-card>
       </div>
 
-      <div class="flex xs:col-span-12">
+      <div class="flex col-span-12">
         <va-card>
           <va-card-title>{{ t('collapse.collapseWithCustomHeader') }}</va-card-title>
           <va-card-content>

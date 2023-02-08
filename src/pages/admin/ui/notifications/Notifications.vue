@@ -1,7 +1,7 @@
 <template>
   <div class="notifications">
     <div class="grid grid-cols-12">
-      <div class="flex xs:col-span-12">
+      <div class="flex col-span-12">
         <va-card>
           <va-card-title>{{ t('notificationsPage.notifications.title') }}</va-card-title>
           <va-card-content>
@@ -62,11 +62,11 @@
     </div>
 
     <div class="grid grid-cols-12">
-      <div class="flex xs:col-span-12">
+      <div class="flex col-span-12">
         <va-card>
           <va-card-title>{{ t('notificationsPage.toasts.title') }}</va-card-title>
           <va-card-content class="grid grid-cols-12">
-            <div class="flex xs:col-span-12 md:col-span-6">
+            <div class="flex col-span-12 md:col-span-6">
               <va-input
                 v-model="toastText"
                 :label="t('notificationsPage.toasts.textLabel')"
@@ -87,12 +87,12 @@
                 required
               /> -->
             </div>
-            <div class="flex xs:col-span-12 md:col-span-6">
+            <div class="flex col-span-12 md:col-span-6">
               <div class="grid grid-cols-12">
-                <div class="flex xs:col-span-12">
+                <div class="flex col-span-12">
                   <toast-position-picker v-model="toastPosition" />
                 </div>
-                <!-- <div class="flex xs:col-span-12">
+                <!-- <div class="flex col-span-12">
                   <va-checkbox
                     :label="t('notificationsPage.toasts.fullWidthLabel')"
                     :id="'toast-fullwidth'"
@@ -101,7 +101,7 @@
                 </div> -->
               </div>
             </div>
-            <div class="flex xs:col-span-12">
+            <div class="flex col-span-12">
               <!-- There was slot="trigger" -->
               <va-button class="m-0" color="primary" @click="launchToast">
                 {{ t('notificationsPage.toasts.launchToast') }}

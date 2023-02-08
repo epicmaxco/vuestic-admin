@@ -1,12 +1,12 @@
 <template>
   <div class="grid grid-cols-12">
-    <div class="flex xs:col-span-12">
+    <div class="flex col-span-12">
       <va-card>
         <va-card-title>{{ t('grid.fixed') }}</va-card-title>
         <va-card-content>
           <div class="grid grid-cols-12">
-            <div class="flex xs:col-span-12">
-              <div class="grid__container va-text-center" :style="computedStyle">xs:col-span-12</div>
+            <div class="flex col-span-12">
+              <div class="grid__container va-text-center" :style="computedStyle">col-span-12</div>
             </div>
             <div v-for="i in 2" :key="`6${i}`" class="flex xs:col-span-6">
               <div class="grid__container va-text-center" :style="computedStyle">xs:col-span-6</div>
@@ -18,7 +18,7 @@
         </va-card-content>
       </va-card>
     </div>
-    <div class="flex xs:col-span-12">
+    <div class="flex col-span-12">
       <va-card>
         <va-card-title>{{ t('grid.desktop') }}</va-card-title>
         <va-card-content>
@@ -41,13 +41,13 @@
       </va-card>
     </div>
 
-    <div class="flex xs:col-span-12">
+    <div class="flex col-span-12">
       <va-card>
         <va-card-title>{{ t('grid.responsive') }}</va-card-title>
         <va-card-content>
           <div class="grid grid-cols-12">
-            <div class="flex xs:col-span-12 md:col-span-4">
-              <div class="grid__container va-text-center" :style="computedStyle">xs:col-span-12 md:col-span-4</div>
+            <div class="flex col-span-12 md:col-span-4">
+              <div class="grid__container va-text-center" :style="computedStyle">col-span-12 md:col-span-4</div>
             </div>
           </div>
           <div class="grid grid-cols-12">
@@ -73,7 +73,7 @@
       </va-card>
     </div>
 
-    <div class="flex xs:col-span-12">
+    <div class="flex col-span-12">
       <va-card>
         <va-card-title>{{ t('grid.offsets') }}</va-card-title>
         <va-card-content>

@@ -1,7 +1,7 @@
 <template>
   <div class="not-found-pages">
     <div class="grid grid-cols-12 mb-4">
-      <va-card class="flex xs:col-span-12">
+      <va-card class="flex col-span-12">
         <va-card-title> Do you have any questions? </va-card-title>
         <va-card-content>
           <va-input>
@@ -13,7 +13,7 @@
       </va-card>
     </div>
     <div class="grid grid-cols-12">
-      <va-card class="flex xs:col-span-12">
+      <va-card class="flex col-span-12">
         <va-card-title> Frequently Asked Questions </va-card-title>
         <va-card-content>
           <va-accordion>
