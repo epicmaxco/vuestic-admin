@@ -14,7 +14,7 @@
         />
       </div>
       <div class="app-layout__page">
-        <div class="layout fluid px-6 py-8">
+        <div class="p-2 md:px-6 md:py-9">
           <router-view />
         </div>
       </div>

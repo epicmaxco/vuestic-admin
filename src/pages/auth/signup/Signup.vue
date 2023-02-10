@@ -2,7 +2,7 @@
   <form @submit.prevent="onsubmit()">
     <va-input
       v-model="email"
-      class="mb-3"
+      class="mb-4"
       type="email"
       :label="t('auth.email')"
       :error="!!emailErrors.length"
@@ -11,7 +11,7 @@
 
     <va-input
       v-model="password"
-      class="mb-3"
+      class="mb-4"
       type="password"
       :label="t('auth.password')"
       :error="!!passwordErrors.length"
@@ -37,7 +37,7 @@
       </router-link>
     </div>
 
-    <div class="flex justify-center mt-3">
+    <div class="flex justify-center mt-4">
       <va-button class="my-0" @click="onsubmit">{{ t('auth.sign_up') }}</va-button>
     </div>
   </form>

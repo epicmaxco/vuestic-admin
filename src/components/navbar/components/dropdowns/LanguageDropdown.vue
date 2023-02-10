@@ -4,7 +4,7 @@
       <va-icon :name="getFlagIcon(locale, 'large')" />
     </template>
 
-    <va-dropdown-content class="language-dropdown__content pl-4 pr-4 pt-2 pb-2">
+    <va-dropdown-content class="language-dropdown__content pl-8 pr-8 pt-2 pb-2">
       <div
         v-for="(option, id) in options"
         :key="id"
@@ -76,7 +76,6 @@
     }
 
     &__item {
-      padding-bottom: 0.625rem;
       cursor: pointer;
       flex-wrap: nowrap;
 

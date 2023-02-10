@@ -1,5 +1,5 @@
 <template>
-  <div class="overview-tab pt-2 layout">
+  <div class="overview-tab pt-2">
     <div class="mb-2" />
 
     <div class="grid grid-cols-12 gap-6">

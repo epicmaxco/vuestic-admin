@@ -32,7 +32,7 @@
         <va-checkbox v-model="form.connection" :label="t('dashboard.tabs.billingAddress.infiniteConnections')" />
       </div>
     </div>
-    <div class="flex flex-1 flex-wrap justify-center">
+    <div class="mt-3 flex flex-1 flex-wrap justify-center">
       <va-button @click="submit">
         {{ t('dashboard.tabs.billingAddress.addConnection') }}
       </va-button>
@@ -42,8 +42,9 @@
 
 <script setup lang="ts">
   import { computed, reactive, ref, watch } from 'vue'
-  import { useColors } from 'vuestic-ui'
   import { useI18n } from 'vue-i18n'
+
+  import { useColors } from 'vuestic-ui'
   import { lineMapData } from '../../../../data/maps/lineMapData'
   import CountriesList from '../../../../data/CountriesList'
 

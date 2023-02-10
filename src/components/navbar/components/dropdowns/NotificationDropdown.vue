@@ -6,7 +6,7 @@
         :class="{ 'notification-dropdown__icon--unread': !allRead }"
       />
     </template>
-    <va-dropdown-content class="notification-dropdown__content pl-3 pr-3 pt-2 pb-2">
+    <va-dropdown-content class="notification-dropdown__content pl-4 pt-4 pt-2 pb-2">
       <div
         v-for="notification in notificationsProxy"
         :key="notification.id"

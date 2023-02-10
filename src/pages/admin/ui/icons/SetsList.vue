@@ -1,46 +1,37 @@
 <template>
-  <div class="grid grid-cols-12">
-    <div v-for="(set, index) in sets" :key="index" class="va-card-wrapper flex lg:col-span-6 col-span-12">
-      <va-card>
-        <router-link :to="{ path: `icons/${set.href}` }" append style="color: inherit">
-          <div class="sets-list__set__content">
-            <div class="sets-list__set__content__overlay p-3 h-full">
-              <va-button>
-                {{ set.name.toUpperCase() }}
-              </va-button>
-            </div>
+  <div class="grid grid-cols-12 gap-6">
+    <va-card v-for="(set, index) in sets" :key="index" class="va-card-wrapper lg:col-span-6 col-span-12 py-3">
+      <router-link class="sets-list__set__content text-[inherit]" :to="{ path: `icons/${set.href}` }" append>
+        <div class="sets-list__set__content__overlay h-full">
+          <va-button>
+            {{ set.name.toUpperCase() }}
+          </va-button>
+        </div>
 
-            <template v-for="(filteredList, i) in set.filteredLists">
-              <div v-if="filteredList.length !== 2" :key="i" class="grid grid-cols-12 p-3">
-                <div v-for="(icon, j) in filteredList" :key="j" class="sets-list__icon flex xs:col-span-2">
-                  <div class="vuestic-icon">
-                    <va-icon :name="iconName(set, icon)" />
-                  </div>
-                </div>
-              </div>
-              <div
-                v-if="filteredList.length === 2"
-                :key="i"
-                class="grid grid-cols-12 p-3"
-                :class="i === 1 ? 'sets-list__set__content--middle' : ''"
-              >
-                <div class="sets-list__icon flex xs:col-span-2">
-                  <div class="vuestic-icon">
-                    <va-icon :name="iconName(set, filteredList[0])" />
-                  </div>
-                </div>
-                <div class="flex xs:col-span-8" />
-                <div class="sets-list__icon flex xs:col-span-2">
-                  <div class="vuestic-icon">
-                    <va-icon :name="iconName(set, filteredList[1])" />
-                  </div>
-                </div>
-              </div>
-            </template>
+        <template v-for="(filteredList, i) in set.filteredLists">
+          <div v-if="filteredList.length !== 2" :key="i" class="py-3 grid grid-cols-6">
+            <div v-for="(icon, j) in filteredList" :key="j" class="col-span-1 flex justify-center items-center">
+              <va-icon :name="iconName(set, icon)" />
+            </div>
           </div>
-        </router-link>
-      </va-card>
-    </div>
+
+          <div
+            v-if="filteredList.length === 2"
+            :key="i"
+            class="py-12 grid grid-cols-12"
+            :class="{ 'sets-list__set__content--middle': i === 1 }"
+          >
+            <div class="col-span-2 flex justify-center items-center">
+              <va-icon :name="iconName(set, filteredList[0])" />
+            </div>
+            <div class="col-span-8" />
+            <div class="col-span-2 flex justify-center items-center">
+              <va-icon :name="iconName(set, filteredList[1])" />
+            </div>
+          </div>
+        </template>
+      </router-link>
+    </va-card>
   </div>
 </template>
 
@@ -56,17 +47,6 @@
 
 <style lang="scss">
   .sets-list {
-    &__icon {
-      max-width: 1.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .vuestic-icon {
-        flex: 0 0 auto;
-      }
-    }
-
     &__set {
       position: relative;
 

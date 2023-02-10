@@ -11,7 +11,7 @@
 
     <va-card-content>
       <va-inner-loading :loading="loading" style="width: 100%">
-        <div v-for="(contributor, idx) in visibleList" :key="idx" class="mb-3">
+        <div v-for="(contributor, idx) in visibleList" :key="idx" class="mb-4">
           <va-progress-bar :model-value="getPercent(contributor.contributions)" :color="getProgressBarColor(idx)">
             {{ contributor.contributions }} {{ t('dashboard.charts.commits') }}
           </va-progress-bar>

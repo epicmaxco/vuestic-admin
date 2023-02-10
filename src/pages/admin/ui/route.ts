@@ -79,11 +79,6 @@ export default {
       component: () => import('../../../pages/admin/ui/spinners/Spinners.vue'),
     },
     {
-      name: 'grid',
-      path: 'grid',
-      component: () => import('../../../pages/admin/ui/grid/Grid.vue'),
-    },
-    {
       name: 'modals',
       path: 'modals',
       component: () => import('../../../pages/admin/ui/modals/Modals.vue'),
@@ -135,11 +130,6 @@ export default {
       name: 'colors',
       path: 'colors',
       component: () => import('../../../pages/admin/ui/colors/Colors.vue'),
-    },
-    {
-      name: 'spacing',
-      path: 'spacing',
-      component: () => import('../../../pages/admin/ui/spacing/Spacing.vue'),
     },
     {
       name: 'sliders',

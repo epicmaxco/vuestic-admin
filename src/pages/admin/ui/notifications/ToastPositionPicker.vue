@@ -1,5 +1,5 @@
 <template>
-  <div class="toast-position-picker mr-4">
+  <div class="toast-position-picker mr-8">
     <div class="position-boxes-row flex">
       <div
         class="position-box"

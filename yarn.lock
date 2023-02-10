@@ -529,9 +529,9 @@
     "@types/geojson" "*"
 
 "@types/lodash@^4.14.161":
-  "integrity" "sha512-MrO/xLXCaUgZy3y96C/iOsaIqZSeupyTImKClHunL5GrmaiII2VwvWmLBu2hwa0Kp0sV19CsyjtrTc/Fx8rg/A=="
-  "resolved" "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.187.tgz"
-  "version" "4.14.187"
+  "integrity" "sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ=="
+  "resolved" "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.191.tgz"
+  "version" "4.14.191"
 
 "@types/mapbox__point-geometry@*", "@types/mapbox__point-geometry@^0.1.2":
   "integrity" "sha512-D0lgCq+3VWV85ey1MZVkE8ZveyuvW5VAfuahVTQRpXFQTxw03SuIf1/K4UQ87MMIXVKzpFjXFiFMZzLj2kU+iA=="
@@ -3106,7 +3106,7 @@
   "resolved" "https://registry.npmjs.org/robust-predicates/-/robust-predicates-3.0.1.tgz"
   "version" "3.0.1"
 
-"rollup@^2.59.0":
+"rollup@>=2.59.0 <2.78.0":
   "integrity" "sha512-VSE1iy0eaAYNCxEXaleThdFXqZJ42qDBatAwrfnPlENEZ8erQ+0LYX4JXOLPceWfZpV1VtZwZ3dFCuOZiSyFtQ=="
   "resolved" "https://registry.npmjs.org/rollup/-/rollup-2.75.7.tgz"
   "version" "2.75.7"
@@ -3554,14 +3554,14 @@
   "version" "2.3.0"
 
 "vite@^2.5.10", "vite@^2.9.0 || ^3.0.0", "vite@^2.9.13":
-  "integrity" "sha512-AsOBAaT0AD7Mhe8DuK+/kE4aWYFMx/i0ZNi98hJclxb4e0OhQcZYUrvLjIaQ8e59Ui7txcvKMiJC1yftqpQoDw=="
-  "resolved" "https://registry.npmjs.org/vite/-/vite-2.9.13.tgz"
-  "version" "2.9.13"
+  "integrity" "sha512-fzMt2jK4vQ3yK56te3Kqpkaeq9DkcZfBbzHwYpobasvgYmP2SoAr6Aic05CsB4CzCZbsDv4sujX3pkEGhLabVQ=="
+  "resolved" "https://registry.npmjs.org/vite/-/vite-2.9.15.tgz"
+  "version" "2.9.15"
   dependencies:
     "esbuild" "^0.14.27"
     "postcss" "^8.4.13"
     "resolve" "^1.22.0"
-    "rollup" "^2.59.0"
+    "rollup" ">=2.59.0 <2.78.0"
   optionalDependencies:
     "fsevents" "~2.3.2"
 
@@ -3637,10 +3637,10 @@
     "@vue/server-renderer" "3.2.37"
     "@vue/shared" "3.2.37"
 
-"vuestic-ui@^1.5.3":
-  "integrity" "sha512-p/OwbqMxQ6I67DjV5Ahl6u5/8/uHgAxWVFhc6xxo6+o9EEogXX5GfMtfDjK002X+cuXQUJKeDC5WGXu+Ugkkag=="
-  "resolved" "https://registry.npmjs.org/vuestic-ui/-/vuestic-ui-1.5.3.tgz"
-  "version" "1.5.3"
+"vuestic-ui@^0.0.0-experimental-4e3b9059c-20230207":
+  "integrity" "sha512-Y57yFZqeecG464NBvTEATi1FgcW5Yb4Q4wKCtSqD6rmr5of2NCKusy9C91FaRd3vWZcK7HMaZTxPX1ZCsLaV0Q=="
+  "resolved" "https://registry.npmjs.org/vuestic-ui/-/vuestic-ui-0.0.0-experimental-4e3b9059c-20230207.tgz"
+  "version" "0.0.0-experimental-4e3b9059c-20230207"
   dependencies:
     "@types/lodash" "^4.14.161"
     "cleave.js" "^1.6.0"

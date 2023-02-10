@@ -1,11 +1,9 @@
 <template>
-  <div class="progress-bars">
-    <div class="grid grid-cols-12 gap-8">
-      <horizontal-bars class="col-span-full" />
-      <bars-state class="col-span-full" />
-      <circle-bars class="col-span-full" />
-      <colorful-bars class="col-span-full" />
-    </div>
+  <div class="progress-bars flex flex-col gap-10">
+    <horizontal-bars />
+    <bars-state />
+    <circle-bars />
+    <colorful-bars />
   </div>
 </template>
 

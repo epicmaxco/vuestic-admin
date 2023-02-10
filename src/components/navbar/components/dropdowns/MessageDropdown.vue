@@ -4,7 +4,7 @@
       <va-icon-message class="message-dropdown__icon" :class="{ 'message-dropdown__icon--unread': !allRead }" />
     </template>
 
-    <va-dropdown-content class="message-dropdown__content pl-4 pr-4 pt-2 pb-2">
+    <va-dropdown-content class="message-dropdown__content pl-8 pr-8 pt-2 pb-2">
       <div
         v-for="message in messagesProxy"
         :key="message.id"

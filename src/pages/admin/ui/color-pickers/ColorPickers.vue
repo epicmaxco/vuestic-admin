@@ -1,42 +1,30 @@
 <template>
-  <div class="color-pickers vuestic-color-picker-page">
-    <div class="grid grid-cols-12">
-      <div class="flex col-span-12">
-        <va-card>
-          <va-card-title>{{ t('menu.colorPickers') }}</va-card-title>
-          <va-card-content class="grid grid-cols-12">
-            <div class="flex xs:col-span-4 md:col-span-2">
-              <div class="vuestic-color-picker-page__top-square">
-                <span class="title no-wrap" :style="{ color: colors.primary }">
-                  {{ t('colorPickers.advanced') }}
-                </span>
-                <va-color-input v-model="topAdvancedSquareColor" mode="advanced" />
-              </div>
-            </div>
-          </va-card-content>
-        </va-card>
-      </div>
-    </div>
-    <div class="grid grid-cols-12">
-      <div class="flex col-span-12">
-        <va-card>
-          <va-card-title>Simple Inline</va-card-title>
-          <va-card-content class="grid grid-cols-12">
-            <div class="flex md:col-span-2">
-              <va-color-palette v-model="simpleColor" :palette="palette" />
-            </div>
-          </va-card-content>
-        </va-card>
-      </div>
-    </div>
+  <div class="color-pickers vuestic-color-picker-page grid grid-cols-12 gap-6">
+    <va-card class="col-span-12">
+      <va-card-title>{{ t('menu.colorPickers') }}</va-card-title>
+      <va-card-content>
+        <va-color-input v-model="value" />
+      </va-card-content>
+    </va-card>
+
+    <va-card class="col-span-12">
+      <va-card-title>Simple Inline</va-card-title>
+      <va-card-content>
+        <va-color-palette v-model="paletteValue" :palette="palette" />
+      </va-card-content>
+    </va-card>
   </div>
 </template>
 
 <script setup>
-  import { useColors } from 'vuestic-ui'
+  import { ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
 
-  const topAdvancedSquareColor = '#ffd50a'
-  const simpleColor = '#f81953'
-  const palette = []
-  const { colors } = useColors()
+  const { t } = useI18n()
+
+  const colorArray = ['#4ae387', '#e34a4a', '#4ab2e3', '#db76df', '#f7cc36']
+
+  const palette = ref(colorArray)
+  const paletteValue = ref(colorArray[0])
+  const value = ref('#4AE387')
 </script>

@@ -1,59 +1,55 @@
 <template>
-  <va-card class="markup-tables mb-4">
+  <va-card class="markup-tables mb-8">
     <va-card-title>{{ t('tables.basic') }}</va-card-title>
-    <va-card-content>
-      <div class="table-wrapper">
-        <table class="va-table">
-          <thead>
-            <tr>
-              <th>{{ t('tables.headings.name') }}</th>
-              <th>{{ t('tables.headings.email') }}</th>
-              <th>{{ t('tables.headings.country') }}</th>
-              <th>{{ t('tables.headings.status') }}</th>
-            </tr>
-          </thead>
+    <va-card-content class="overflow-auto">
+      <table class="va-table w-full">
+        <thead>
+          <tr>
+            <th>{{ t('tables.headings.name') }}</th>
+            <th>{{ t('tables.headings.email') }}</th>
+            <th>{{ t('tables.headings.country') }}</th>
+            <th>{{ t('tables.headings.status') }}</th>
+          </tr>
+        </thead>
 
-          <tbody>
-            <tr v-for="user in users" :key="user.id">
-              <td>{{ user.name }}</td>
-              <td>{{ user.email }}</td>
-              <td>{{ user.country }}</td>
-              <td>
-                <va-badge :text="user.status" :color="getStatusColor(user.status)" />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <tbody>
+          <tr v-for="user in users" :key="user.id">
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.country }}</td>
+            <td>
+              <va-badge :text="user.status" :color="getStatusColor(user.status)" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </va-card-content>
   </va-card>
 
   <va-card>
     <va-card-title>{{ t('tables.stripedHoverable') }}</va-card-title>
-    <va-card-content>
-      <div class="table-wrapper">
-        <table class="va-table va-table--striped va-table--hoverable">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Country</th>
-              <th>Status</th>
-            </tr>
-          </thead>
+    <va-card-content class="overflow-auto">
+      <table class="va-table va-table--striped va-table--hoverable w-full">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Country</th>
+            <th>Status</th>
+          </tr>
+        </thead>
 
-          <tbody>
-            <tr v-for="user in users" :key="user.id">
-              <td>{{ user.name }}</td>
-              <td>{{ user.email }}</td>
-              <td>{{ user.country }}</td>
-              <td>
-                <va-badge :text="user.status" :color="getStatusColor(user.status)" />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <tbody>
+          <tr v-for="user in users" :key="user.id">
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.country }}</td>
+            <td>
+              <va-badge :text="user.status" :color="getStatusColor(user.status)" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </va-card-content>
   </va-card>
 </template>
@@ -79,15 +75,3 @@
     return 'danger'
   }
 </script>
-
-<style lang="scss">
-  .markup-tables {
-    .table-wrapper {
-      overflow: auto;
-    }
-
-    .va-table {
-      width: 100%;
-    }
-  }
-</style>

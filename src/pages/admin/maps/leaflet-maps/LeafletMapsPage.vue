@@ -1,10 +1,8 @@
 <template>
   <div class="leaflet-maps-page">
-    <div class="flex">
-      <va-card class="leaflet-maps-page__widget" title="Leaflet Maps">
-        <leaflet-map style="height: 65vh" />
-      </va-card>
-    </div>
+    <va-card class="leaflet-maps-page__widget" title="Leaflet Maps">
+      <leaflet-map style="height: 65vh" />
+    </va-card>
   </div>
 </template>
 
