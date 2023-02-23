@@ -166,7 +166,12 @@ and [discord server](https://discord.gg/jTKTjj2weV)
       <img hspace="15" src="./.github/assets/nuxt.svg" loading="lazy" alt=""/>
     </picture>
   </a>
-  <a href="https://epicmax.co/" target="_blank" title="Epicmax - Top Vue.js Development Company"><img src="./.github/assets/epicmax.svg" loading="lazy" alt=""></a>
+  <a href="https://epicmax.co/" target="_blank" title="Epicmax - Top Vue.js Development Company">
+    <img src="./.github/assets/epicmax.svg" loading="lazy" alt="">
+  </a>
+  <a href="https://www.jetbrains.com/" target="_blank" title="JetBrains: Essential tools for software developers and teams">
+    <img hspace="15"  src="./.github/assets/jb_square.svg" loading="lazy" alt="">
+  </a>
   <br />
   <br />
   <a href="https://www.ag-grid.com/" target="_blank" title=" Data Grid: AG Grid: High-Performance React Grid, Angular Grid, JavaScript Grid">
