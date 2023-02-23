@@ -103,7 +103,7 @@
       .app-layout__sidebar-wrapper {
         position: relative;
         height: 100%;
-        background: var(--va-white);
+        background: #ffffff;
 
         @media screen and (max-width: $tabletBreakPointPX) {
           &:not(.minimized) {
@@ -115,8 +115,6 @@
           }
 
           .va-sidebar:not(.va-sidebar--minimized) {
-            // Z-index fix for preventing overflow for close button
-            z-index: -1;
             .va-sidebar__menu {
               padding: 0;
             }
