@@ -3637,10 +3637,10 @@
     "@vue/server-renderer" "3.2.37"
     "@vue/shared" "3.2.37"
 
-"vuestic-ui@^0.0.0-experimental-4e3b9059c-20230207":
-  "integrity" "sha512-Y57yFZqeecG464NBvTEATi1FgcW5Yb4Q4wKCtSqD6rmr5of2NCKusy9C91FaRd3vWZcK7HMaZTxPX1ZCsLaV0Q=="
-  "resolved" "https://registry.npmjs.org/vuestic-ui/-/vuestic-ui-0.0.0-experimental-4e3b9059c-20230207.tgz"
-  "version" "0.0.0-experimental-4e3b9059c-20230207"
+"vuestic-ui@^1.6.1":
+  "integrity" "sha512-ZF/FP/xJ8KKVuQtteWNOK7XlQ2/Qu5RGjsgaKRIkL2l0gHK47GvlSqEEkR3R6pmhPtkIHkKxSDzj3Hd9aIdHXg=="
+  "resolved" "https://registry.npmjs.org/vuestic-ui/-/vuestic-ui-1.6.1.tgz"
+  "version" "1.6.1"
   dependencies:
     "@types/lodash" "^4.14.161"
     "cleave.js" "^1.6.0"
