@@ -1,8 +1,8 @@
 <template>
   <div class="grid grid-cols-12 gap-6">
-    <va-card v-for="(set, index) in sets" :key="index" class="va-card-wrapper lg:col-span-6 col-span-12 py-3">
-      <router-link class="sets-list__set__content text-[inherit]" :to="{ path: `icons/${set.href}` }" append>
-        <div class="sets-list__set__content__overlay h-full">
+    <va-card v-for="(set, index) in sets" :key="index" class="va-card-wrapper relative lg:col-span-6 col-span-12 py-3">
+      <router-link class="text-[inherit]" :to="{ path: `icons/${set.href}` }" append>
+        <div class="absolute inset-0 flex justify-center items-center z-10">
           <va-button>
             {{ set.name.toUpperCase() }}
           </va-button>
@@ -44,26 +44,3 @@
 
   const iconName = (set: IconSet, icon: string) => `${set.prefix}-${icon}`
 </script>
-
-<style lang="scss">
-  .sets-list {
-    &__set {
-      position: relative;
-
-      &__content {
-        position: relative;
-
-        &__overlay {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 0;
-          margin: 0;
-          width: 100%;
-          position: absolute;
-          z-index: 2;
-        }
-      }
-    }
-  }
-</style>
