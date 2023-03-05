@@ -3,7 +3,7 @@
     <navbar />
     <div class="app-layout__content">
       <div class="app-layout__sidebar-wrapper" :class="{ minimized: isSidebarMinimized }">
-        <div v-if="isFullScreenSidebar" class="d-flex justify-end">
+        <div v-if="isFullScreenSidebar" class="flex justify-end">
           <va-button class="px-4 py-4" icon="md_close" preset="plain" color="dark" @click="onCloseSidebarButtonClick" />
         </div>
         <sidebar
@@ -14,7 +14,7 @@
         />
       </div>
       <div class="app-layout__page">
-        <div class="layout fluid va-gutter-5">
+        <div class="p-2 md:px-6 md:py-9">
           <router-view />
         </div>
       </div>

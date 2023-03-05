@@ -103,17 +103,13 @@ export default {
           name: 'colors',
           displayName: 'menu.colors',
         },
-        // {
-        //   name: 'color-pickers',
-        //   displayName: 'menu.colorPickers',
-        // },
+        {
+          name: 'color-pickers',
+          displayName: 'menu.colorPickers',
+        },
         {
           name: 'file-upload',
           displayName: 'menu.fileUpload',
-        },
-        {
-          name: 'grid',
-          displayName: 'menu.grid',
         },
         {
           name: 'icon-sets',
@@ -148,10 +144,6 @@ export default {
         {
           name: 'sliders',
           displayName: 'menu.sliders',
-        },
-        {
-          name: 'spacing',
-          displayName: 'menu.spacing',
         },
         {
           name: 'spinners',

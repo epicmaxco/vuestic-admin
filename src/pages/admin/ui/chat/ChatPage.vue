@@ -1,16 +1,10 @@
 <template>
-  <div class="chat">
-    <div class="row">
-      <div class="flex xs12 md12">
-        <va-card>
-          <va-card-title>{{ t('chat.title') }}</va-card-title>
-          <va-card-content>
-            <chat v-model="chatMessages" />
-          </va-card-content>
-        </va-card>
-      </div>
-    </div>
-  </div>
+  <va-card class="chat w-full">
+    <va-card-title>{{ t('chat.title') }}</va-card-title>
+    <va-card-content>
+      <chat v-model="chatMessages" />
+    </va-card-content>
+  </va-card>
 </template>
 
 <script setup lang="ts">
@@ -46,5 +40,3 @@
     },
   ])
 </script>
-
-<style lang="scss"></style>

@@ -1,7 +1,7 @@
 <template>
   <div class="timelines">
-    <div class="row">
-      <div class="flex xs12">
+    <div class="grid grid-cols-12">
+      <div class="flex col-span-12">
         <va-card no-padding-h style="overflow-x: auto">
           <va-card-title>{{ t('timelines.horizontalSimple') }}</va-card-title>
           <va-card-content>
@@ -41,7 +41,7 @@
         </va-card>
       </div>
 
-      <div class="flex xs12">
+      <div class="flex col-span-12">
         <va-card no-padding-h style="overflow-x: auto" class="timelines__horizontal-long">
           <va-card-title>{{ t('timelines.horizontalCards') }}</va-card-title>
           <va-card-content>
@@ -90,7 +90,7 @@
         </va-card>
       </div>
 
-      <div class="flex xs12">
+      <div class="flex col-span-12">
         <va-card no-padding-v>
           <va-card-title>{{ t('timelines.verticalLabel') }}</va-card-title>
           <va-card-content>
@@ -139,7 +139,7 @@
         </va-card>
       </div>
 
-      <div class="flex xs12">
+      <div class="flex col-span-12">
         <va-card no-padding-v>
           <va-card-title>{{ t('timelines.verticalCentered') }}</va-card-title>
           <va-card-content>

@@ -2,7 +2,7 @@
   <form @submit.prevent="onsubmit">
     <va-input
       v-model="email"
-      class="mb-3"
+      class="mb-4"
       type="email"
       :label="t('auth.email')"
       :error="!!emailErrors.length"
@@ -11,21 +11,21 @@
 
     <va-input
       v-model="password"
-      class="mb-3"
+      class="mb-4"
       type="password"
       :label="t('auth.password')"
       :error="!!passwordErrors.length"
       :error-messages="passwordErrors"
     />
 
-    <div class="auth-layout__options d-flex align-center justify-space-between">
+    <div class="auth-layout__options flex items-center justify-between">
       <va-checkbox v-model="keepLoggedIn" class="mb-0" :label="t('auth.keep_logged_in')" />
       <router-link class="ml-1 va-link" :to="{ name: 'recover-password' }">{{
         t('auth.recover_password')
       }}</router-link>
     </div>
 
-    <div class="d-flex justify-center mt-3">
+    <div class="flex justify-center mt-4">
       <va-button class="my-0" @click="onsubmit">{{ t('auth.login') }}</va-button>
     </div>
   </form>

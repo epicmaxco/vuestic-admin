@@ -8,7 +8,7 @@
         </span>
       </template>
       <va-dropdown-content class="profile-dropdown__content">
-        <va-list-item v-for="option in options" :key="option.name" class="pa-2">
+        <va-list-item v-for="option in options" :key="option.name" class="p-2">
           <router-link :to="{ name: option.redirectTo }" class="profile-dropdown__item">
             {{ t(`user.${option.name}`) }}
           </router-link>

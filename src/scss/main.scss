@@ -1,2 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import 'vuestic-sass/index';
 @import 'icon-fonts/index';
+
+html {
+  line-height: 1.15;
+}
+
+body {
+  line-height: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+b {
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: monospace;
+  font-size: 1em;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -4,14 +4,10 @@
 
     <dashboard-info-block />
 
-    <div class="row row-equal">
-      <div class="flex xs12 lg6">
-        <dashboard-tabs @submit="addAddressToMap" />
-      </div>
+    <div class="grid grid-cols-12 gap-6">
+      <dashboard-tabs class="col-span-12 lg:col-span-6" @submit="addAddressToMap" />
 
-      <div class="flex xs12 lg6">
-        <DashboardMap ref="dashboardMap" />
-      </div>
+      <DashboardMap ref="dashboardMap" class="col-span-12 lg:col-span-6" />
     </div>
   </div>
 </template>
@@ -32,12 +28,6 @@
 </script>
 
 <style lang="scss">
-  .row-equal .flex {
-    .va-card {
-      height: 100%;
-    }
-  }
-
   .dashboard {
     .va-card {
       margin-bottom: 0 !important;

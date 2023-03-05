@@ -1,5 +1,5 @@
 <template>
-  <div ref="mapRef" class="maplibre-map fill-height" />
+  <div ref="mapRef" class="maplibre-map h-full" />
 </template>
 
 <script setup lang="ts">

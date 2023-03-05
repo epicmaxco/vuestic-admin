@@ -1,55 +1,48 @@
 <template>
-  <div class="modals">
-    <div class="row">
-      <div class="flex md12">
-        <va-card class="modals-list larger-padding">
-          <va-card-title>{{ t('modal.title') }}</va-card-title>
-          <va-card-content>
-            <va-button class="mr-2 mb-2" color="danger" @click="showSmallModal = true">
-              {{ t('modal.small') }}
+  <div class="modals grid grid-cols-12 gap-6">
+    <va-card class="modals-list larger-padding col-span-12">
+      <va-card-title>{{ t('modal.title') }}</va-card-title>
+      <va-card-content>
+        <va-button class="mr-2 mb-2" color="danger" @click="showSmallModal = true">
+          {{ t('modal.small') }}
+        </va-button>
+        <va-button class="mr-2 mb-2" color="info" @click="showMediumModal = true">
+          {{ t('modal.medium') }}
+        </va-button>
+        <va-button class="mr-2 mb-2" color="warning" @click="showLargeModal = true">
+          {{ t('modal.large') }}
+        </va-button>
+        <va-button class="mr-2 mb-2" color="success" @click="showStaticModal = true">
+          {{ t('modal.static') }}
+        </va-button>
+        <va-button class="mb-2 mr-2" color="secondary" @click="showFullscreenModal = true">
+          {{ t('modal.fullscreen') }}
+        </va-button>
+      </va-card-content>
+    </va-card>
+
+    <va-card class="modals-list larger-padding col-span-12">
+      <va-card-title>{{ t('modal.titleOptions') }}</va-card-title>
+      <va-card-content>
+        <va-button class="mb-2 mr-2" color="danger" @click="showBlurredModal = true">
+          {{ t('modal.blurred') }}
+        </va-button>
+        <va-modal
+          v-model="showAnchorModal"
+          anchor-class="inline-flex"
+          :title="t('modal.withAnchorSlot')"
+          :message="t('modal.message')"
+          :ok-text="t('modal.confirm')"
+          :cancel-text="t('modal.cancel')"
+        >
+          <template #anchor="{ show }">
+            <va-button class="mb-2 mr-2" @click="show">
+              {{ t('modal.withAnchorSlot') }}
             </va-button>
-            <va-button class="mr-2 mb-2" color="info" @click="showMediumModal = true">
-              {{ t('modal.medium') }}
-            </va-button>
-            <va-button class="mr-2 mb-2" color="warning" @click="showLargeModal = true">
-              {{ t('modal.large') }}
-            </va-button>
-            <va-button class="mr-2 mb-2" color="success" @click="showStaticModal = true">
-              {{ t('modal.static') }}
-            </va-button>
-            <va-button class="mb-2 mr-2" color="secondary" @click="showFullscreenModal = true">
-              {{ t('modal.fullscreen') }}
-            </va-button>
-          </va-card-content>
-        </va-card>
-      </div>
-    </div>
-    <div class="row">
-      <div class="flex md12">
-        <va-card class="modals-list larger-padding">
-          <va-card-title>{{ t('modal.titleOptions') }}</va-card-title>
-          <va-card-content>
-            <va-button class="mb-2 mr-2" color="danger" @click="showBlurredModal = true">
-              {{ t('modal.blurred') }}
-            </va-button>
-            <va-modal
-              v-model="showAnchorModal"
-              anchor-class="modal-anchor"
-              :title="t('modal.withAnchorSlot')"
-              :message="t('modal.message')"
-              :ok-text="t('modal.confirm')"
-              :cancel-text="t('modal.cancel')"
-            >
-              <template #anchor="{ show }">
-                <va-button class="mb-2 mr-2" @click="show">
-                  {{ t('modal.withAnchorSlot') }}
-                </va-button>
-              </template>
-            </va-modal>
-          </va-card-content>
-        </va-card>
-      </div>
-    </div>
+          </template>
+        </va-modal>
+      </va-card-content>
+    </va-card>
 
     <!--//Modals-->
     <va-modal
@@ -117,9 +110,3 @@
   const showBlurredModal = ref(false)
   const showAnchorModal = ref(false)
 </script>
-
-<style lang="scss">
-  .modal-anchor {
-    display: inline-flex;
-  }
-</style>

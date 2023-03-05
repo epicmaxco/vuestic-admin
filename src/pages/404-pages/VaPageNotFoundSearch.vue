@@ -4,20 +4,20 @@
       v-model="inputValue"
       placeholder="Search on the menu"
       :style="{ 'align-items': 'flex-start' }"
-      class="va-page-not-found-search__input mb-4"
+      class="va-page-not-found-search__input mb-8"
       clearable
     />
-    <div class="row va-page-not-found-search__links">
+    <div class="grid grid-cols-12 va-page-not-found-search__links">
       <ul
         v-for="(category, index) in filterItems"
         :key="index"
-        class="va-page-not-found-search__list flex xs6 md3 lg1 mb-2"
+        class="va-page-not-found-search__list flex flex-col xs:col-span-6 md:col-span-3 lg:col-span-1 mb-2"
       >
         <li class="mb-2">
           {{ category.categoryName }}
         </li>
         <li v-for="(item, j) in category.items" :key="j" class="va-page-not-found-search__list-element">
-          <router-link :to="{ path: item.itemLink }" class="va-link">
+          <router-link :to="{ path: item.itemLink }" class="va-link whitespace-nowrap">
             {{ item.itemName }}
           </router-link>
         </li>
