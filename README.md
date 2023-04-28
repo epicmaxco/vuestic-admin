@@ -167,13 +167,10 @@ and [discord server](https://discord.gg/jTKTjj2weV)
     </picture>
   </a>
   <a href="https://epicmax.co/" target="_blank" title="Epicmax - Top Vue.js Development Company">
-    <img hspace="24" src="./.github/assets/epicmax.svg" loading="lazy" alt="">
+    <img src="./.github/assets/epicmax.svg" loading="lazy" alt="">
   </a>
-  <a href="https://vuejobs.com/" target="_blank" title="Vue.js jobs – Browse through dozens of Vue.js openings">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/vuejobs-light.svg" />
-      <img src="./.github/assets/vuejobs.svg" loading="lazy" alt=""/>
-    </picture>
+  <a href="https://www.jetbrains.com/" target="_blank" title="JetBrains: Essential tools for software developers and teams">
+    <img hspace="15"  src="./.github/assets/jb_square.svg" loading="lazy" alt="">
   </a>
   <br />
   <br />
