@@ -156,7 +156,6 @@ and [discord server](https://discord.gg/jTKTjj2weV)
 
 <img hspace="24" src="./.github/assets/sponsors.jpg" loading="lazy" alt="Epicmax, vuejobs, ag-grid, flatlogic, browserstack and jetbrains">
 
-
 Become a partner: [hello@epicmax.co](mailto:hello@epicmax.co)
 
 ## Can I hire you guys?
