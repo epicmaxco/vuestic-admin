@@ -1,50 +1,42 @@
 <template>
-  <div class="row row-equal">
-    <div class="flex xl6 xs12 lg6">
-      <div class="row">
-        <div v-for="(info, idx) in infoTiles" :key="idx" class="flex xs12 sm4">
-          <va-card class="mb-4" :color="info.color">
-            <va-card-content>
-              <h2 class="va-h2 ma-0" style="color: white">{{ info.value }}</h2>
-              <p style="color: white">{{ t('dashboard.info.' + info.text) }}</p>
-            </va-card-content>
-          </va-card>
-        </div>
+  <div class="pt-6 grid grid-cols-12 gap-6">
+    <div class="col-span-12 lg:col-span-6 flex flex-wrap">
+      <div class="w-full pb-6 grid grid-cols-12 gap-6">
+        <va-card v-for="(info, idx) in infoTiles" :key="idx" class="col-span-12 sm:col-span-4 mb-8" :color="info.color">
+          <va-card-content>
+            <h2 class="va-h2 m-0 text-white">{{ info.value }}</h2>
+            <p class="text-white">{{ t('dashboard.info.' + info.text) }}</p>
+          </va-card-content>
+        </va-card>
       </div>
 
-      <div class="row">
-        <div class="flex xs12 sm6 md6">
-          <va-card>
-            <va-card-content>
-              <h2 class="va-h2 ma-0" :style="{ color: colors.primary }">291</h2>
-              <p class="no-wrap">{{ t('dashboard.info.completedPullRequests') }}</p>
-            </va-card-content>
-          </va-card>
-        </div>
-        <div class="flex xs12 sm6 md6">
-          <va-card>
-            <va-card-content>
-              <div class="row row-separated">
-                <div class="flex xs4">
-                  <h2 class="va-h2 ma-0 va-text-center" :style="{ color: colors.primary }">3</h2>
-                  <p class="va-text-center">{{ t('dashboard.info.users') }}</p>
-                </div>
-                <div class="flex xs4">
-                  <h2 class="va-h2 ma-0 va-text-center" :style="{ color: colors.info }">24</h2>
-                  <p class="va-text-center no-wrap">{{ t('dashboard.info.points') }}</p>
-                </div>
-                <div class="flex xs4">
-                  <h2 class="va-h2 ma-0 va-text-center" :style="{ color: colors.warning }">91</h2>
-                  <p class="va-text-center">{{ t('dashboard.info.units') }}</p>
-                </div>
-              </div>
-            </va-card-content>
-          </va-card>
-        </div>
+      <div class="w-full grid grid-cols-12 gap-6">
+        <va-card class="col-span-12 sm:col-span-6">
+          <va-card-content class="h-full flex flex-col justify-center">
+            <h2 class="va-h2 m-0" :style="{ color: colors.primary }">291</h2>
+            <p class="no-wrap">{{ t('dashboard.info.completedPullRequests') }}</p>
+          </va-card-content>
+        </va-card>
+        <va-card class="col-span-12 sm:col-span-6">
+          <va-card-content class="grid grid-cols-12 row-separated">
+            <div class="col-span-4 p-4 flex flex-col">
+              <h2 class="va-h2 m-0 va-text-center" :style="{ color: colors.primary }">3</h2>
+              <p class="va-text-center">{{ t('dashboard.info.users') }}</p>
+            </div>
+            <div class="col-span-4 p-4 flex flex-col">
+              <h2 class="va-h2 m-0 va-text-center" :style="{ color: colors.info }">24</h2>
+              <p class="va-text-center no-wrap">{{ t('dashboard.info.points') }}</p>
+            </div>
+            <div class="col-span-4 p-4 flex flex-col">
+              <h2 class="va-h2 m-0 va-text-center" :style="{ color: colors.warning }">91</h2>
+              <p class="va-text-center">{{ t('dashboard.info.units') }}</p>
+            </div>
+          </va-card-content>
+        </va-card>
       </div>
     </div>
 
-    <div class="flex xs12 sm6 md6 xl3 lg3">
+    <div class="flex col-span-12 sm:col-span-6 lg:col-span-3">
       <va-card stripe stripe-color="info">
         <va-card-title>
           {{ t('dashboard.info.componentRichTheme') }}
@@ -54,7 +46,7 @@
             Buying the right telescope to take your love of astronomy to the next level is a big next step.
           </p>
 
-          <div class="mt-3">
+          <div class="mt-4">
             <va-button color="primary" target="_blank" href="https://github.com/epicmaxco/vuestic-ui">
               {{ t('dashboard.info.viewLibrary') }}
             </va-button>
@@ -63,16 +55,15 @@
       </va-card>
     </div>
 
-    <div class="flex xs12 sm6 md6 xl3 lg3">
-      <va-card>
-        <va-image :src="images[currentImageIndex]" style="height: 200px" />
-        <va-card-title>
-          <va-button preset="plain" icon-right="fa-arrow-circle-right" @click="showModal">
-            {{ t('dashboard.info.exploreGallery') }}
-          </va-button>
-        </va-card-title>
-      </va-card>
-    </div>
+    <va-card class="col-span-12 sm:col-span-6 lg:col-span-3">
+      <va-image :src="images[currentImageIndex]" style="height: 200px" />
+      <va-card-title>
+        <va-button preset="plain" icon-right="fa-arrow-circle-right" @click="showModal">
+          {{ t('dashboard.info.exploreGallery') }}
+        </va-button>
+      </va-card-title>
+    </va-card>
+
     <va-modal v-model="modal">
       <va-carousel v-model="currentImageIndex" :items="images" class="gallery-carousel" />
     </va-modal>

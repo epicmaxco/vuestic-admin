@@ -3,14 +3,14 @@
     <va-card-title>
       {{ t('progressBars.horizontal') }}
     </va-card-title>
-    <va-card-content class="row">
-      <div class="flex md4 xs12">
+    <va-card-content class="my-3 grid grid-cols-12 gap-6">
+      <div class="flex md:col-span-4 col-span-12">
         <va-progress-bar :model-value="value / 3" />
       </div>
-      <div class="flex md4 xs12">
+      <div class="flex md:col-span-4 col-span-12">
         <va-progress-bar :model-value="value2" />
       </div>
-      <div class="flex md4 xs12">
+      <div class="flex md:col-span-4 col-span-12">
         <va-progress-bar :model-value="value3" />
       </div>
     </va-card-content>

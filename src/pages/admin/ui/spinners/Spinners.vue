@@ -1,59 +1,53 @@
 <template>
-  <div class="spinners">
-    <va-card>
-      <va-card-title>{{ t('spinners.title') }}</va-card-title>
-      <va-card-content>
-        <div class="row mt-0">
-          <div class="d-flex flex xs12 lg4 align--center">
-            <span class="shrink pr-3 spinners__size-smaller">A</span>
-            <va-slider
-              v-model="config.size"
-              track-label-visible
-              :track-label="`${config.size}px`"
-              :min="sliderSize.min"
-              :max="sliderSize.max"
+  <va-card class="spinners">
+    <va-card-title>{{ t('spinners.title') }}</va-card-title>
+    <va-card-content>
+      <div class="grid grid-cols-12 gap-6">
+        <div class="flex col-span-12 lg:col-span-4 items-center">
+          <span class="pr-4 spinners__size-smaller">A</span>
+          <va-slider
+            v-model="config.size"
+            class="flex-grow"
+            track-label-visible
+            :track-label="`${config.size}px`"
+            :min="sliderSize.min"
+            :max="sliderSize.max"
+          />
+          <span class="pl-4 spinners__size-bigger">A</span>
+        </div>
+
+        <div class="flex col-span-12 lg:col-span-4 items-center">
+          <va-icon-slower class="pr-4 spinners__duration-slower" />
+          <va-slider
+            v-model="config.duration"
+            class="flex-grow"
+            track-label-visible
+            :min="sliderDuration.min"
+            :max="sliderDuration.max"
+          />
+          <va-icon-faster class="pl-4 spinners__duration-faster" />
+        </div>
+
+        <va-color-palette v-model="spinnersColor" class="col-span-12 lg:col-span-4" :palette="paletteArray" />
+      </div>
+
+      <va-divider class="py-3" />
+
+      <div v-for="(group, i) in groups" :key="i" class="grid grid-cols-12 gap-6">
+        <div v-for="item in group" :key="item" class="sm:col-span-6 col-span-12 lg:col-span-3 flex flex-col">
+          <div class="h-[140px] flex justify-center items-center">
+            <component
+              :is="getComponent(item)"
+              :animation-duration="config.duration"
+              :color="computedSpinnersColor"
+              :size="config.size"
             />
-            <span class="shrink pl-3 spinners__size-bigger">A</span>
           </div>
-
-          <div class="d-flex flex xs12 lg4 align--center">
-            <va-icon-slower class="shrink pr-3 spinners__duration-slower" />
-            <va-slider
-              v-model="config.duration"
-              track-label-visible
-              :min="sliderDuration.min"
-              :max="sliderDuration.max"
-            />
-            <va-icon-faster class="shrink pl-3 spinners__duration-faster" />
-          </div>
-
-          <div class="d-flex flex justify-center xs12 lg4">
-            <va-color-palette v-model="spinnersColor" :palette="paletteArray" />
-          </div>
+          <div class="text-center">{{ item }}</div>
         </div>
-
-        <div class="content">
-          <hr class="separator" />
-        </div>
-
-        <div v-for="(group, i) in groups" :key="i" class="row">
-          <div v-for="item in group" :key="item" class="flex sm6 xs12 lg3">
-            <div class="va-text-center pb-4">
-              <div class="justify-center d-flex align-center spinner-box">
-                <component
-                  :is="getComponent(item)"
-                  :animation-duration="config.duration"
-                  :color="computedSpinnersColor"
-                  :size="config.size"
-                />
-              </div>
-              <div>{{ item }}</div>
-            </div>
-          </div>
-        </div>
-      </va-card-content>
-    </va-card>
-  </div>
+      </div>
+    </va-card-content>
+  </va-card>
 </template>
 
 <script setup lang="ts">
@@ -131,11 +125,10 @@
       &-slower,
       &-faster {
         transform: translateY(-1px);
+        width: 40px;
+        text-align: center;
+        font-weight: 600;
       }
-    }
-
-    .spinner-box {
-      height: 140px;
     }
   }
 </style>

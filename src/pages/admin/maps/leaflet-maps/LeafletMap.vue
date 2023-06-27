@@ -1,5 +1,5 @@
 <template>
-  <div ref="mapRef" class="leaflet-map fill-height" />
+  <div ref="mapRef" class="leaflet-map h-full" />
 </template>
 
 <script setup lang="ts">

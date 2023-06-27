@@ -1,7 +1,7 @@
 <template>
   <va-card :title="t('tables.searchTrendsBadges')">
-    <div class="row align--center">
-      <div class="flex xs12 md6">
+    <div class="grid grid-cols-12 items-center">
+      <div class="flex col-span-12 md:col-span-6">
         <va-input :value="term" :placeholder="t('tables.searchByName')" removable @input="search">
           <template #prepend>
             <va-icon name="search" />
@@ -9,7 +9,7 @@
         </va-input>
       </div>
 
-      <div class="flex xs12 md3 offset--md3">
+      <div class="flex col-span-12 md:col-span-3 offset--md3">
         <va-select v-model="perPage" :label="t('tables.perPage')" :options="perPageOptions" no-clear />
       </div>
     </div>
@@ -32,7 +32,7 @@
       </template>
 
       <template #actions="props">
-        <va-button v-if="props.rowData.hasReport" small color="danger" class="ma-0">
+        <va-button v-if="props.rowData.hasReport" small color="danger" class="m-0">
           {{ t('tables.report') }}
         </va-button>
       </template>

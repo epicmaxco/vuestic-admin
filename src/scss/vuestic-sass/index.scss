@@ -1,10 +1,9 @@
-@import 'vuestic-ui/dist/styles/index.css';
+@import 'vuestic-ui/dist/styles/css-variables.css';
+@import 'vuestic-ui/dist/styles/essential.css';
+@import 'vuestic-ui/dist/styles/theme.css';
+@import 'vuestic-ui/dist/styles/typography.css';
 
 .va-input,
 .va-select {
   width: 100%;
-}
-
-.fill-height {
-  height: 100%;
 }

@@ -6,11 +6,11 @@
       </template>
 
       <template #actions="props">
-        <va-button preset="plain" small color="gray" class="ma-0" @click="edit(props.rowData)">
+        <va-button preset="plain" small color="gray" class="m-0" @click="edit(props.rowData)">
           {{ t('tables.edit') }}
         </va-button>
 
-        <va-button preset="plain" small color="danger" class="ma-0" @click="remove(props.rowData)">
+        <va-button preset="plain" small color="danger" class="m-0" @click="remove(props.rowData)">
           {{ t('tables.delete') }}
         </va-button>
       </template>

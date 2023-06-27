@@ -6,11 +6,11 @@
         :class="{ 'notification-dropdown__icon--unread': !allRead }"
       />
     </template>
-    <va-dropdown-content class="notification-dropdown__content pl-3 pr-3 pt-2 pb-2">
+    <va-dropdown-content class="notification-dropdown__content pl-4 pt-4 pt-2 pb-2">
       <div
         v-for="notification in notificationsProxy"
         :key="notification.id"
-        class="notification-dropdown__item row pt-1 pb-1 mt-2 mb-2"
+        class="notification-dropdown__item flex flex-1 flex-wrap pt-1 pb-1 mt-2 mb-2"
         :class="{ 'notification-dropdown__item--unread': notification.unread }"
         @click="notification.unread = false"
       >
@@ -18,16 +18,17 @@
           v-if="notification.details.avatar"
           class="mr-2 notification-dropdown__item__avatar"
           :src="notification.details.avatar"
+          alt=""
         />
         <span class="ellipsis" style="max-width: 85%">
-          <span v-if="notification.details.name" class="text--bold">{{ notification.details.name }}</span>
+          <span v-if="notification.details.name" class="font-bold">{{ notification.details.name }}</span>
           {{ t(`notifications.${notification.name}`, { type: notification.details.type }) }}
         </span>
       </div>
-      <div class="row justify--space-between mt-1">
-        <va-button class="md6 mr-2" size="small">{{ t('notifications.all') }}</va-button>
+      <div class="grid grid-cols-12 justify-between mt-1">
+        <va-button class="md:col-span-6 mr-2" size="small">{{ t('notifications.all') }}</va-button>
         <va-button
-          class="md6"
+          class="md:col-span-6"
           size="small"
           preset="outline"
           border-color="primary"
@@ -104,13 +105,6 @@
 </script>
 
 <style lang="scss" scoped>
-  .row {
-    flex-wrap: nowrap !important;
-  }
-  .md6 {
-    box-sizing: border-box;
-  }
-
   .notification-dropdown {
     cursor: pointer;
 

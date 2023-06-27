@@ -1,6 +1,6 @@
 <template>
-  <div class="toast-position-picker mr-4">
-    <div class="position-boxes-row d-flex">
+  <div class="toast-position-picker mr-8">
+    <div class="position-boxes-row flex">
       <div
         class="position-box"
         :class="{ selected: isBoxSelected('top-left') }"
@@ -19,7 +19,7 @@
         @click="updatePosition('top-right')"
       ></div>
     </div>
-    <div class="position-boxes-row d-flex">
+    <div class="position-boxes-row flex">
       <div
         class="position-box"
         :class="{ selected: isBoxSelected('bottom-left') }"

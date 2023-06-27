@@ -1,60 +1,57 @@
 <template>
   <div class="icon-set">
-    <va-card class="icon-set__header mb-4 pb-3">
+    <va-card class="icon-set__header mb-8 pb-4">
       <va-card-title>
-        <h2 class="my-0 ml-2" :style="{ color: colors.dark }">
+        <h2 class="ml-2" :style="{ color: colors.dark }">
           {{ iconSet.name }}
         </h2>
       </va-card-title>
-      <va-card-content class="row">
-        <div class="flex md4 xs12 justify-center">
-          <va-button preset="outline" border-color="primary" color="primary" :to="{ name: 'icon-sets' }">
-            {{ t('icons.back') }}
-          </va-button>
-        </div>
+      <va-card-content class="grid grid-cols-12 gap-6 items-start justify-between">
+        <va-button
+          class="col-span-full md:col-span-2"
+          preset="outline"
+          border-color="primary"
+          color="primary"
+          :to="{ name: 'icon-sets' }"
+        >
+          {{ t('icons.back') }}
+        </va-button>
 
-        <div class="flex md4 xs12 justify-center">
-          <va-input v-model="search" :label="t('icons.search')" clearable>
-            <template #prependInner>
-              <va-icon class="icon-left input-icon" name="search" />
-            </template>
-          </va-input>
-        </div>
+        <va-input v-model="search" class="col-span-full md:col-span-5" :label="t('icons.search')" clearable>
+          <template #prependInner>
+            <va-icon class="icon-left input-icon" name="search" />
+          </template>
+        </va-input>
 
-        <div class="flex md4 xs12 justify-center content icon-set__header__size">
-          <span class="ma-2 pr-2 shrink icon-set__header__size--smaller" :style="{ color: colors.dark }">A</span>
+        <div class="icon-set__header__size col-span-full md:col-span-5 flex items-center">
+          <span class="m-2 pr-2 icon-set__header__size--smaller" :style="{ color: colors.dark }">A</span>
           <va-slider
             v-model="iconSize"
-            value-visible
-            style="flex: 1"
+            class="flex-1"
             :label-value="`${iconSize}px`"
             :min="slider.min"
             :max="slider.max"
+            value-visible
           >
           </va-slider>
-          <span class="ma-2 pl-2 shrink icon-set__header__size--bigger" :style="{ color: colors.dark }">A</span>
+          <span class="m-2 pl-2 icon-set__header__size--bigger" :style="{ color: colors.dark }">A</span>
         </div>
       </va-card-content>
     </va-card>
 
-    <va-card v-for="(list, index) in filteredLists" :key="index" class="flex md12">
+    <va-card v-for="(list, index) in filteredLists" :key="index" class="col-span-12">
       <va-card-title>
         {{ list.name }}
       </va-card-title>
-      <va-card-content class="row">
-        <span v-if="list.icons.length === 0">
+      <va-card-content class="flex flex-wrap gap-3">
+        <span v-if="!list.icons.length">
           {{ t('icons.none') }}
         </span>
-        <div
-          v-for="icon in list.icons"
-          :key="icon"
-          class="flex justify-center xs3 md1 mb-2 icon-grid-container"
-          style="flex-direction: column"
-        >
-          <div class="vuestic-icon mb-3 pt-3">
+        <div v-for="icon in list.icons" :key="icon" class="flex flex-col text-[0.6rem]">
+          <div class="vuestic-icon mb-4 text-center">
             <va-icon :name="iconName(icon)" :size="iconSize" />
           </div>
-          <div class="icon-text">
+          <div class="icon-text text-center">
             {{ icon }}
           </div>
         </div>
@@ -129,12 +126,6 @@
 
 <style lang="scss">
   .icon-set {
-    .icon-grid-container {
-      .icon-text {
-        font-size: 0.6rem;
-      }
-    }
-
     &__header {
       &__size {
         &--smaller,

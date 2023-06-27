@@ -1,12 +1,12 @@
 <template>
   <div>
-    <data-table-actions class="mb-4" />
-    <data-table-sorting-pagination class="mb-4" />
-    <data-table-filter class="mb-4" />
-    <data-table-infinite-scroll class="mb-4" />
-    <data-table-select class="mb-4" />
-    <data-table-server-pagination class="mb-4" />
-    <data-table-empty class="mb-4" />
+    <data-table-actions class="mb-8" />
+    <data-table-sorting-pagination class="mb-8" />
+    <data-table-filter class="mb-8" />
+    <data-table-infinite-scroll class="mb-8" />
+    <data-table-select class="mb-8" />
+    <data-table-server-pagination class="mb-8" />
+    <data-table-empty class="mb-8" />
     <data-table-loading />
   </div>
 </template>

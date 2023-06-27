@@ -1,8 +1,8 @@
 <template>
   <div class="va-page-not-found justify-center pb-5" :style="pageNotFoundStyle" v-bind="$attrs">
-    <div class="va-page-not-found__inner align-center">
+    <div class="va-page-not-found__inner items-center">
       <slot name="image" />
-      <div class="va-page-not-found__title text-center mb-4">{{ t('404.title') }}</div>
+      <div class="va-page-not-found__title text-center mb-8">{{ t('404.title') }}</div>
       <div class="va-page-not-found__text px-4 text-center">
         <span>
           {{ t('404.text') }}

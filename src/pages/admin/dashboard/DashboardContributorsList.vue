@@ -1,5 +1,5 @@
 <template>
-  <va-card class="d-flex dashboard-contributors-list">
+  <va-card class="flex dashboard-contributors-list">
     <va-card-title>
       <h1>{{ t('dashboard.charts.topContributors') }}</h1>
       <div class="mr-0 va-text-right">
@@ -11,7 +11,7 @@
 
     <va-card-content>
       <va-inner-loading :loading="loading" style="width: 100%">
-        <div v-for="(contributor, idx) in visibleList" :key="idx" class="mb-3">
+        <div v-for="(contributor, idx) in visibleList" :key="idx" class="mb-4">
           <va-progress-bar :model-value="getPercent(contributor.contributions)" :color="getProgressBarColor(idx)">
             {{ contributor.contributions }} {{ t('dashboard.charts.commits') }}
           </va-progress-bar>

@@ -7,7 +7,7 @@
 <!--        </template>-->
 <!--      </va-data-table>-->
 
-<!--      <div class="justify-center ma-3">-->
+<!--      <div class="justify-center m-4">-->
 <!--        <spring-spinner v-if="loading" :animation-duration="2000" :size="60" :color="theme.variables.primary" />-->
 <!--      </div>-->
 <!--    </div>-->

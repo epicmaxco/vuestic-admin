@@ -4,7 +4,8 @@
       <img
         src="https://i.imgur.com/wodIng5.png"
         style="max-height: 400px; width: auto"
-        class="va-page-not-found-custom__image mb-3"
+        class="va-page-not-found-custom__image mb-4 mx-[-25%]"
+        alt=""
       />
     </template>
     <va-button :to="{ name: 'dashboard' }"> Back to dashboard </va-button>
@@ -19,7 +20,6 @@
   .va-page-not-found-custom {
     &__image {
       width: 150%;
-      margin: 0 -25%;
       min-width: 20rem;
       box-sizing: border-box;
 

@@ -1,25 +1,9 @@
 <template>
-  <div class="progress-bars">
-    <div class="row mb-4">
-      <div class="flex xs12 mb-12">
-        <horizontal-bars />
-      </div>
-    </div>
-    <div class="row mb-4">
-      <div class="flex xs12">
-        <bars-state />
-      </div>
-    </div>
-    <div class="row mb-4">
-      <div class="flex xs12">
-        <circle-bars />
-      </div>
-    </div>
-    <div class="row">
-      <div class="flex xs12">
-        <colorful-bars />
-      </div>
-    </div>
+  <div class="progress-bars flex flex-col gap-10">
+    <horizontal-bars />
+    <bars-state />
+    <circle-bars />
+    <colorful-bars />
   </div>
 </template>
 

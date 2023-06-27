@@ -4,11 +4,11 @@
       <va-icon :name="getFlagIcon(locale, 'large')" />
     </template>
 
-    <va-dropdown-content class="language-dropdown__content pl-4 pr-4 pt-2 pb-2">
+    <va-dropdown-content class="language-dropdown__content pl-8 pr-8 pt-2 pb-2">
       <div
         v-for="(option, id) in options"
         :key="id"
-        class="language-dropdown__item row align--center pt-1 pb-1 mt-2 mb-2"
+        class="language-dropdown__item flex flex-1 flex-wrap items-center pt-1 pb-1 mt-2 mb-2"
         :class="{ active: option.code === locale }"
         @click="locale = option.code"
       >
@@ -76,7 +76,6 @@
     }
 
     &__item {
-      padding-bottom: 0.625rem;
       cursor: pointer;
       flex-wrap: nowrap;
 
