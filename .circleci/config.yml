@@ -74,7 +74,7 @@ jobs:
           command:
             echo "VUE_APP_YANDEX_METRICS_KEY=$YANDEX_METRICS_KEY" >> .env.production.local &&
             echo "VUE_APP_DRIFT_KEY=$DRIFT_KEY" >> .env.production.local &&
-            echo "VUE_APP_GTM_KEY=$GTM_KEY" >> .env.production.local &&
+            echo "VITE_APP_GTM_KEY=$GTM_KEY" >> .env.production.local &&
             echo "VUE_APP_GTM_ENABLED=true" >> .env.production.local &&
             echo "VUE_APP_ROUTER_MODE_HISTORY=$ROUTER_MODE_HISTORY" >> .env.production.local
       - restore_cache: *restore_cache
