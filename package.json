@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "npm run lint && vue-tsc --noEmit && vite build",
     "build:ci": "vite build",
+    "start:ci": "serve -s ./dist",
     "prelint": "npm run format",
     "lint": "eslint --fix \"./src/**/*.{ts,js,vue}\"",
     "format": "prettier --write .",

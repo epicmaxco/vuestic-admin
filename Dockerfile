@@ -4,10 +4,10 @@ WORKDIR /app
 
 COPY . /app
 
-EXPOSE 8080
+EXPOSE 3000
+
+RUN npm install --no-optional && npm run build:ci
 
 RUN npm install serve -g
 
-RUN npm install --no-optional && npm run build
-
-CMD server ./dist
+CMD npm run start:ci
