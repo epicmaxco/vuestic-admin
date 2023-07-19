@@ -22,7 +22,7 @@
     "@amcharts/amcharts5": "^5.2.19",
     "@amcharts/amcharts5-geodata": "^5.0.3",
     "@fortawesome/fontawesome-free": "^6.1.1",
-    "@gtm-support/vue-gtm": "^1.6.0",
+    "@gtm-support/vue-gtm": "^2.0.0",
     "axios": "^0.27.2",
     "chart.js": "^3.8.0",
     "epic-spinners": "^2.0.0",
@@ -38,7 +38,7 @@
     "vue": "^3.2.25",
     "vue-chartjs": "^4.1.1",
     "vue-i18n": "^9.1.10",
-    "vue-router": "^4.0.14",
+    "vue-router": "^4.2.4",
     "vue-yandex-maps": "^0.12.3",
     "vuestic-ui": "^1.6.1"
   },

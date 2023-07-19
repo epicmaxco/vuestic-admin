@@ -101,19 +101,19 @@
   resolved "https://registry.npmjs.org/@fortawesome/fontawesome-free/-/fontawesome-free-6.1.1.tgz"
   integrity sha512-J/3yg2AIXc9wznaVqpHVX3Wa5jwKovVF0AMYSnbmcXTiL3PpRPfF58pzWucCwEiCJBp+hCNRLWClTomD8SseKg==
 
-"@gtm-support/core@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.npmjs.org/@gtm-support/core/-/core-1.4.0.tgz"
-  integrity sha512-eiAiEdW7DdzDs45pdi+MF/6+OThMZAwwQeMQNcbE0wEGHvbIB/mZ1PiBq4qK7IYDscBKDT/PdnAacY7P/zHIjw==
+"@gtm-support/core@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@gtm-support/core/-/core-2.0.0.tgz#87378d289bbf027e74cc76507243afb58a40ff19"
+  integrity sha512-32hyxR/LIB6EWnUcbbrUzjkAE6PSRtqv/AztEnQ8MuCOQ7+u+yXOssfZqNDSWlQkEBn0Co6f7aHG+vcNZCGiLw==
 
-"@gtm-support/vue-gtm@^1.6.0":
-  version "1.6.0"
-  resolved "https://registry.npmjs.org/@gtm-support/vue-gtm/-/vue-gtm-1.6.0.tgz"
-  integrity sha512-Mp814G5hM/KrwiSRl5VJEljGcjyn5I/Wv78RsFpJUKp0W4F8cGh+SmbBAauUOBWmrhIA2OVgsKh7PwTplaf0Dw==
+"@gtm-support/vue-gtm@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@gtm-support/vue-gtm/-/vue-gtm-2.0.0.tgz#2e9c56af4205dba3b8a5b71454786e985dd6c634"
+  integrity sha512-zcnCMZbjPkTGkQpMkF9U2JcCtK9JiasfoZJCYYJLGKFj0cd7abwNLPMa3/sXB89YqiFniazkP++nIzFU9kZzqw==
   dependencies:
-    "@gtm-support/core" "^1.4.0"
+    "@gtm-support/core" "^2.0.0"
   optionalDependencies:
-    vue-router "^4.0.0"
+    vue-router "^4.1.0"
 
 "@humanwhocodes/config-array@^0.9.2":
   version "0.9.5"
@@ -733,10 +733,15 @@
     "@vue/compiler-dom" "3.2.37"
     "@vue/shared" "3.2.37"
 
-"@vue/devtools-api@^6.0.0", "@vue/devtools-api@^6.0.0-beta.7", "@vue/devtools-api@^6.1.4":
+"@vue/devtools-api@^6.0.0-beta.7", "@vue/devtools-api@^6.1.4":
   version "6.1.4"
   resolved "https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-6.1.4.tgz"
   integrity sha512-IiA0SvDrJEgXvVxjNkHPFfDx6SXw0b/TUkqMcDZWNg9fnCAHbTpoo59YfJ9QLFkwa3raau5vSlRVzMSLDnfdtQ==
+
+"@vue/devtools-api@^6.5.0":
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/@vue/devtools-api/-/devtools-api-6.5.0.tgz#98b99425edee70b4c992692628fa1ea2c1e57d07"
+  integrity sha512-o9KfBeaBmCKl10usN4crU53fYtC1r7jJwdGKjPT24t348rHxgfpZ0xL3Xm/gLUYnc0oTp8LAmrxOeLyu6tbk2Q==
 
 "@vue/eslint-config-prettier@^7.0.0":
   version "7.0.0"
@@ -3663,12 +3668,12 @@ vue-i18n@^9.1.10:
     "@intlify/vue-devtools" "9.1.10"
     "@vue/devtools-api" "^6.0.0-beta.7"
 
-vue-router@^4.0.0, vue-router@^4.0.14:
-  version "4.0.16"
-  resolved "https://registry.npmjs.org/vue-router/-/vue-router-4.0.16.tgz"
-  integrity sha512-JcO7cb8QJLBWE+DfxGUL3xUDOae/8nhM1KVdnudadTAORbuxIC/xAydC5Zr/VLHUDQi1ppuTF5/rjBGzgzrJNA==
+vue-router@^4.1.0, vue-router@^4.2.4:
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.2.4.tgz#382467a7e2923e6a85f015d081e1508052c191b9"
+  integrity sha512-9PISkmaCO02OzPVOMq2w82ilty6+xJmQrarYZDkjZBfl4RvYAlt4PKnEX21oW4KTtWfa9OuO/b3qk1Od3AEdCQ==
   dependencies:
-    "@vue/devtools-api" "^6.0.0"
+    "@vue/devtools-api" "^6.5.0"
 
 vue-tsc@^0.35.0:
   version "0.35.2"
