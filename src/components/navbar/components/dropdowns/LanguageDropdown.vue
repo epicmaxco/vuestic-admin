@@ -1,5 +1,5 @@
 <template>
-  <va-dropdown class="language-dropdown" fixed position="bottom" :offset="[13, 0]">
+  <va-dropdown class="language-dropdown" :offset="[13, 0]" stick-to-edges>
     <template #anchor>
       <va-icon :name="getFlagIcon(locale, 'large')" />
     </template>

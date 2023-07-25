@@ -1,5 +1,5 @@
 <template>
-  <va-dropdown class="message-dropdown" position="bottom" :offset="[13, 0]">
+  <va-dropdown class="message-dropdown" :offset="[13, 0]" stick-to-edges>
     <template #anchor>
       <va-icon-message class="message-dropdown__icon" :class="{ 'message-dropdown__icon--unread': !allRead }" />
     </template>
@@ -17,17 +17,11 @@
           t(`messages.${message.name}`, { name: message.details.name })
         }}</span>
       </div>
-      <div class="grid grid-cols-12 justify-between mt-1">
-        <va-button class="col-span-full md:col-span-6 mr-2" size="small">{{ t('messages.all') }}</va-button>
-        <va-button
-          class="col-span-full md:col-span-6"
-          size="small"
-          preset="outline"
-          border-color="primary"
-          :disabled="allRead"
-          @click="markAllAsRead"
-          >{{ t('messages.mark_as_read') }}</va-button
-        >
+      <div class="grid grid-cols-2 justify-between mt-1">
+        <va-button class="mr-2" size="small">{{ t('messages.all') }}</va-button>
+        <va-button size="small" preset="outline" border-color="primary" :disabled="allRead" @click="markAllAsRead">{{
+          t('messages.mark_as_read')
+        }}</va-button>
       </div>
     </va-dropdown-content>
   </va-dropdown>
@@ -128,9 +122,9 @@
         &::after {
           content: '';
           position: absolute;
-          right: 0;
+          right: -0.25rem;
           top: 0;
-          bottom: 0;
+          bottom: 0.5rem;
           height: 0.375rem;
           width: 0.375rem;
           background-color: var(--va-danger);
