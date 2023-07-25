@@ -1,6 +1,6 @@
 <template>
   <div class="profile-dropdown-wrapper">
-    <va-dropdown v-model="isShown" class="profile-dropdown" stick-to-edges placement="bottom" :offset="[13, 0]">
+    <va-dropdown v-model="isShown" class="profile-dropdown" stick-to-edges :offset="[13, 0]">
       <template #anchor>
         <span class="profile-dropdown__anchor">
           <slot />

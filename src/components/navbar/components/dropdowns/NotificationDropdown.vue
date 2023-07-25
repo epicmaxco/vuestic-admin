@@ -1,5 +1,5 @@
 <template>
-  <va-dropdown class="notification-dropdown" position="bottom" :offset="[13, 0]">
+  <va-dropdown class="notification-dropdown" :offset="[13, 0]" stick-to-edges>
     <template #anchor>
       <va-icon-notification
         class="notification-dropdown__icon"
@@ -25,10 +25,10 @@
           {{ t(`notifications.${notification.name}`, { type: notification.details.type }) }}
         </span>
       </div>
-      <div class="grid grid-cols-12 justify-between mt-1">
-        <va-button class="md:col-span-6 mr-2" size="small">{{ t('notifications.all') }}</va-button>
+      <div class="grid grid-cols-2 justify-between mt-1">
+        <va-button class="mr-2" size="small">{{ t('notifications.all') }}</va-button>
         <va-button
-          class="md:col-span-6"
+          class=""
           size="small"
           preset="outline"
           border-color="primary"
