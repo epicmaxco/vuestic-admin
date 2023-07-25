@@ -39,19 +39,19 @@
       </va-card-content>
     </va-card>
 
-    <va-card v-for="(list, index) in filteredLists" :key="index" class="col-span-12">
+    <va-card v-for="(list, index) in filteredLists" :key="index" class="col-span-12 text-[0.6rem]">
       <va-card-title>
         {{ list.name }}
       </va-card-title>
-      <va-card-content class="flex flex-wrap gap-3">
+      <va-card-content class="grid grid-cols-4 md:grid-cols-12 gap-4">
         <span v-if="!list.icons.length">
           {{ t('icons.none') }}
         </span>
-        <div v-for="icon in list.icons" :key="icon" class="flex flex-col text-[0.6rem]">
+        <div v-for="icon in list.icons" :key="icon" class="flex flex-col">
           <div class="vuestic-icon mb-4 text-center">
             <va-icon :name="iconName(icon)" :size="iconSize" />
           </div>
-          <div class="icon-text text-center">
+          <div class="w-15 truncate text-center">
             {{ icon }}
           </div>
         </div>
