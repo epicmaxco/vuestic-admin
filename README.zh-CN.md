@@ -11,11 +11,11 @@
 </p>
 
 <p align="center">
-  <a href="https://vuestic.epicmax.co"> 演示版 </a> | <a href="[THEME_URL]"> 新白色主题演示 </a> | <a href="https://github.com/epicmaxco/vuestic-admin/wiki"> 文档 </a>
+  <a href="https://admin.vuestic.dev"> 演示版 </a> | <a href="[THEME_URL]"> 新白色主题演示 </a> | <a href="https://github.com/epicmaxco/vuestic-admin/wiki"> 文档 </a>
 </p>
 
 <p align="center">
-  <a href="https://vuestic.epicmax.co" target="_blank">
+  <a href="https://admin.vuestic.dev" target="_blank">
     <img src="https://i.imgur.com/hVxoYQM.jpg" align="center" width="888px"/>
   </a>
 </p>
@@ -88,37 +88,37 @@ $ yarn build --report
 
 ## 功能
 
-[响应布局](https://vuestic.epicmax.co/#/admin/dashboard) |
-[图表(Charts.js)](https://vuestic.epicmax.co/#/admin/statistics/charts) |
-[进度表](https://vuestic.epicmax.co/#/admin/statistics/progress-bars) |
-[表格](https://vuestic.epicmax.co/#/admin/forms/form-elements) |
-[选辑](https://vuestic.epicmax.co/#/admin/forms/form-elements) |
-[日期选择器](https://vuestic.epicmax.co/#/admin/forms/form-elements) |
-[复选框和单选框](https://vuestic.epicmax.co/#/admin/forms/form-elements) |
-[静态表与数据表](https://vuestic.epicmax.co/#/admin/tables/data) |
-[medium editor](https://vuestic.epicmax.co/#/admin/forms/medium-editor) |
-[平滑设计字体](https://vuestic.epicmax.co/#/admin/ui/typography) |
-[按钮](https://vuestic.epicmax.co/#/admin/ui/buttons) |
-[塌缩](https://vuestic.epicmax.co/#/admin/ui/collapses) |
-[颜色选择器](https://vuestic.epicmax.co/#/admin/ui/color-pickers) |
-[时间线](https://vuestic.epicmax.co/#/admin/ui/timelines) |
-[土司通知](https://vuestic.epicmax.co/#/admin/ui/notifications) |
-[工具提示](https://vuestic.epicmax.co/#/admin/ui/popovers) |
-[弹窗](https://vuestic.epicmax.co/#/admin/ui/popovers) |
-[图标](https://vuestic.epicmax.co/#/admin/ui/icons/) |
-[自旋体](https://vuestic.epicmax.co/#/admin/ui/spinners) |
-[模式](https://vuestic.epicmax.co/#/admin/ui/modals) |
-[文件上传](https://vuestic.epicmax.co/#/admin/ui/file-upload) |
-[厚切薯条通知](https://vuestic.epicmax.co/#/admin/ui/chips) |
-[树](https://vuestic.epicmax.co/#/admin/ui/tree-view) |
-[卡片](https://vuestic.epicmax.co/#/admin/ui/cards) |
-[等级](https://vuestic.epicmax.co/#/admin/ui/rating) |
-[滑动器](https://vuestic.epicmax.co/#/admin/ui/sliders) |
-[聊天系统](https://vuestic.epicmax.co/#/admin/ui/chat) |
-[地图(MapLibre, Yandex, Leaflet, amMap)](https://vuestic.epicmax.co/#/admin/maps/maplibre-maps) |
-[登录/注册页模板](https://vuestic.epicmax.co/#/auth/login) |
-[404 页模板](https://vuestic.epicmax.co/#/admin/pages/404-pages) |
-[i18n](https://vuestic.epicmax.co/#/admin/dashboard)
+[响应布局](https://admin.vuestic.dev/#/admin/dashboard) |
+[图表(Charts.js)](https://admin.vuestic.dev/#/admin/statistics/charts) |
+[进度表](https://admin.vuestic.dev/#/admin/statistics/progress-bars) |
+[表格](https://admin.vuestic.dev/#/admin/forms/form-elements) |
+[选辑](https://admin.vuestic.dev/#/admin/forms/form-elements) |
+[日期选择器](https://admin.vuestic.dev/#/admin/forms/form-elements) |
+[复选框和单选框](https://admin.vuestic.dev/#/admin/forms/form-elements) |
+[静态表与数据表](https://admin.vuestic.dev/#/admin/tables/data) |
+[medium editor](https://admin.vuestic.dev/#/admin/forms/medium-editor) |
+[平滑设计字体](https://admin.vuestic.dev/#/admin/ui/typography) |
+[按钮](https://admin.vuestic.dev/#/admin/ui/buttons) |
+[塌缩](https://admin.vuestic.dev/#/admin/ui/collapses) |
+[颜色选择器](https://admin.vuestic.dev/#/admin/ui/color-pickers) |
+[时间线](https://admin.vuestic.dev/#/admin/ui/timelines) |
+[土司通知](https://admin.vuestic.dev/#/admin/ui/notifications) |
+[工具提示](https://admin.vuestic.dev/#/admin/ui/popovers) |
+[弹窗](https://admin.vuestic.dev/#/admin/ui/popovers) |
+[图标](https://admin.vuestic.dev/#/admin/ui/icons/) |
+[自旋体](https://admin.vuestic.dev/#/admin/ui/spinners) |
+[模式](https://admin.vuestic.dev/#/admin/ui/modals) |
+[文件上传](https://admin.vuestic.dev/#/admin/ui/file-upload) |
+[厚切薯条通知](https://admin.vuestic.dev/#/admin/ui/chips) |
+[树](https://admin.vuestic.dev/#/admin/ui/tree-view) |
+[卡片](https://admin.vuestic.dev/#/admin/ui/cards) |
+[等级](https://admin.vuestic.dev/#/admin/ui/rating) |
+[滑动器](https://admin.vuestic.dev/#/admin/ui/sliders) |
+[聊天系统](https://admin.vuestic.dev/#/admin/ui/chat) |
+[地图(MapLibre, Yandex, Leaflet, amMap)](https://admin.vuestic.dev/#/admin/maps/maplibre-maps) |
+[登录/注册页模板](https://admin.vuestic.dev/#/auth/login) |
+[404 页模板](https://admin.vuestic.dev/#/admin/pages/404-pages) |
+[i18n](https://admin.vuestic.dev/#/admin/dashboard)
 
 ## 支持的浏览器
 

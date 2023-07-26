@@ -11,11 +11,11 @@
 </p>
 
 <p align="center">
-  <a href="https://vuestic.epicmax.co"> デモ </a> | <a href="[THEME_URL]"> 新しい白いテーマのデモ </a> | <a href="https://github.com/epicmaxco/vuestic-admin/wiki"> 説明書 </a>
+  <a href="https://admin.vuestic.dev"> デモ </a> | <a href="[THEME_URL]"> 新しい白いテーマのデモ </a> | <a href="https://github.com/epicmaxco/vuestic-admin/wiki"> 説明書 </a>
 </p>
 
 <p align="center">
-  <a href="https://vuestic.epicmax.co" target="_blank">
+  <a href="https://admin.vuestic.dev" target="_blank">
     <img src="https://i.imgur.com/RMchKNW.jpg" align="center" width="888px"/>
   </a>
 </p>
@@ -88,37 +88,37 @@ $ yarn build --report
 
 ## 機能
 
-[レスポンシブレイアウト](https://vuestic.epicmax.co/#/admin/dashboard) |
-[チャート (Chart.js)](https://vuestic.epicmax.co/#/admin/statistics/charts) |
-[プログレスバー](https://vuestic.epicmax.co/#/admin/statistics/progress-bars) |
-[フォーム](https://vuestic.epicmax.co/#/admin/forms/form-elements) |
-[セレクト](https://vuestic.epicmax.co/#/admin/forms/form-elements) |
-[デートピッカー](https://vuestic.epicmax.co/#/admin/forms/form-elements) |
-[チェックボックス・ラジオ](https://vuestic.epicmax.co/#/admin/forms/form-elements) |
-[スタティックテーブル・データテーブル](https://vuestic.epicmax.co/#/admin/tables/data) |
-[medium エディタ](https://vuestic.epicmax.co/#/admin/forms/medium-editor) |
-[スムーズタイポグラフィ](https://vuestic.epicmax.co/#/admin/ui/typography) |
-[ボタン](https://vuestic.epicmax.co/#/admin/ui/buttons) |
-[折りたたみ](https://vuestic.epicmax.co/#/admin/ui/collapses) |
-[カラーピッカー](https://vuestic.epicmax.co/#/admin/ui/color-pickers) |
-[タイムライン](https://vuestic.epicmax.co/#/admin/ui/timelines) |
-[トースト](https://vuestic.epicmax.co/#/admin/ui/notifications) |
-[ツールチップ](https://vuestic.epicmax.co/#/admin/ui/popovers) |
-[ポップオーバー](https://vuestic.epicmax.co/#/admin/ui/popovers) |
-[アイコン](https://vuestic.epicmax.co/#/admin/ui/icons/) |
-[スピナー](https://vuestic.epicmax.co/#/admin/ui/spinners) |
-[モーダル](https://vuestic.epicmax.co/#/admin/ui/modals) |
-[ファイルアップロード](https://vuestic.epicmax.co/#/admin/ui/file-upload) |
-[チップ](https://vuestic.epicmax.co/#/admin/ui/chips) |
-[ツリー](https://vuestic.epicmax.co/#/admin/ui/tree-view) |
-[カード ](https://vuestic.epicmax.co/#/admin/ui/cards) |
-[レーティング](https://vuestic.epicmax.co/#/admin/ui/rating) |
-[スライダー](https://vuestic.epicmax.co/#/admin/ui/sliders) |
-[チャット](https://vuestic.epicmax.co/#/admin/ui/chat) |
-[マップ (MapLibre, Yandex, Leaflet, amMap)](https://vuestic.epicmax.co/#/admin/maps/maplibre-maps) |
-[ログイン/登録ページテンプレート](https://vuestic.epicmax.co/#/auth/login) |
-[404 ページテンプレート](https://vuestic.epicmax.co/#/admin/pages/404-pages) |
-[i18n](https://vuestic.epicmax.co/#/admin/dashboard)
+[レスポンシブレイアウト](https://admin.vuestic.dev/#/admin/dashboard) |
+[チャート (Chart.js)](https://admin.vuestic.dev/#/admin/statistics/charts) |
+[プログレスバー](https://admin.vuestic.dev/#/admin/statistics/progress-bars) |
+[フォーム](https://admin.vuestic.dev/#/admin/forms/form-elements) |
+[セレクト](https://admin.vuestic.dev/#/admin/forms/form-elements) |
+[デートピッカー](https://admin.vuestic.dev/#/admin/forms/form-elements) |
+[チェックボックス・ラジオ](https://admin.vuestic.dev/#/admin/forms/form-elements) |
+[スタティックテーブル・データテーブル](https://admin.vuestic.dev/#/admin/tables/data) |
+[medium エディタ](https://admin.vuestic.dev/#/admin/forms/medium-editor) |
+[スムーズタイポグラフィ](https://admin.vuestic.dev/#/admin/ui/typography) |
+[ボタン](https://admin.vuestic.dev/#/admin/ui/buttons) |
+[折りたたみ](https://admin.vuestic.dev/#/admin/ui/collapses) |
+[カラーピッカー](https://admin.vuestic.dev/#/admin/ui/color-pickers) |
+[タイムライン](https://admin.vuestic.dev/#/admin/ui/timelines) |
+[トースト](https://admin.vuestic.dev/#/admin/ui/notifications) |
+[ツールチップ](https://admin.vuestic.dev/#/admin/ui/popovers) |
+[ポップオーバー](https://admin.vuestic.dev/#/admin/ui/popovers) |
+[アイコン](https://admin.vuestic.dev/#/admin/ui/icons/) |
+[スピナー](https://admin.vuestic.dev/#/admin/ui/spinners) |
+[モーダル](https://admin.vuestic.dev/#/admin/ui/modals) |
+[ファイルアップロード](https://admin.vuestic.dev/#/admin/ui/file-upload) |
+[チップ](https://admin.vuestic.dev/#/admin/ui/chips) |
+[ツリー](https://admin.vuestic.dev/#/admin/ui/tree-view) |
+[カード ](https://admin.vuestic.dev/#/admin/ui/cards) |
+[レーティング](https://admin.vuestic.dev/#/admin/ui/rating) |
+[スライダー](https://admin.vuestic.dev/#/admin/ui/sliders) |
+[チャット](https://admin.vuestic.dev/#/admin/ui/chat) |
+[マップ (MapLibre, Yandex, Leaflet, amMap)](https://admin.vuestic.dev/#/admin/maps/maplibre-maps) |
+[ログイン/登録ページテンプレート](https://admin.vuestic.dev/#/auth/login) |
+[404 ページテンプレート](https://admin.vuestic.dev/#/admin/pages/404-pages) |
+[i18n](https://admin.vuestic.dev/#/admin/dashboard)
 
 ## ブラウザサポート
 
