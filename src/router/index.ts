@@ -14,7 +14,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     name: 'admin',
-    path: '/admin',
+    path: '/',
     component: AppLayout,
     children: [
       {
