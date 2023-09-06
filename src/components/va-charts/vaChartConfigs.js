@@ -1,13 +1,31 @@
 import { defineAsyncComponent } from 'vue'
 
+const DEFAULT_FONT_FAMILY = "'Inter', sans-serif"
+
 export const defaultConfig = {
+  scales: {
+    x: {
+      ticks: {
+        font: {
+          family: DEFAULT_FONT_FAMILY,
+        },
+      },
+    },
+    y: {
+      ticks: {
+        font: {
+          family: DEFAULT_FONT_FAMILY,
+        },
+      },
+    },
+  },
   plugins: {
     legend: {
       position: 'bottom',
       labels: {
         font: {
           color: '#34495e',
-          family: 'sans-serif',
+          family: DEFAULT_FONT_FAMILY,
           size: 14,
         },
         usePointStyle: true,
@@ -16,7 +34,7 @@ export const defaultConfig = {
     tooltip: {
       bodyFont: {
         size: 14,
-        family: 'sans-serif',
+        family: DEFAULT_FONT_FAMILY,
       },
       boxPadding: 4,
     },
