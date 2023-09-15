@@ -2,7 +2,11 @@
 module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      maxWidth: {
+        '7xl': '1260px',
+      },
+    },
     screens: {
       xs: '0px',
       sm: '576px',
