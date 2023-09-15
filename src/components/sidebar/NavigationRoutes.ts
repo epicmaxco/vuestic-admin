@@ -15,7 +15,7 @@ export default {
       name: 'dashboard',
       displayName: 'menu.dashboard',
       meta: {
-        icon: 'vuestic-iconset-dashboard',
+        icon: 'space_dashboard',
       },
     },
     {

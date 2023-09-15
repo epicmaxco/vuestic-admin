@@ -3,22 +3,29 @@
     <va-collapse v-for="(route, idx) in items" :key="idx">
       <template #header>
         <va-sidebar-item :active="isRouteActive(route)" :to="route.children ? undefined : { name: route.name }">
-          <va-sidebar-item-content>
-            <va-icon :name="route.meta.icon" class="va-sidebar-item__icon" />
+          <va-sidebar-item-content class="p-0 pl-4" :class="{ 'va-sidebar-item--active': isRouteActive(route) }">
+            <va-icon
+              :name="route.meta.icon"
+              class="va-sidebar-item__icon"
+              :class="{ 'va-sidebar-item--active': isRouteActive(route) }"
+              size="1.25rem"
+            />
 
             <va-sidebar-item-title>
               {{ t(route.displayName) }}
             </va-sidebar-item-title>
 
-            <va-icon v-if="route.children" :name="accordionValue[idx] ? 'expand_less' : 'expand_more'" />
+            <va-icon
+              v-if="route.children"
+              color="secondary"
+              :name="accordionValue[idx] ? 'expand_less' : 'expand_more'"
+            />
           </va-sidebar-item-content>
         </va-sidebar-item>
       </template>
       <template v-for="(child, index) in route.children" :key="index">
         <va-sidebar-item :active="isRouteActive(child)" :to="{ name: child.name }">
-          <va-sidebar-item-content>
-            <div class="va-sidebar-item__icon" />
-
+          <va-sidebar-item-content class="pl-12" :class="{ 'va-sidebar-item--active': isRouteActive(child) }">
             <va-sidebar-item-title>
               {{ t(child.displayName) }}
             </va-sidebar-item-title>
@@ -72,3 +79,16 @@
     return isCurrentItemActive || isChildActive
   }
 </script>
+
+<style>
+  .va-sidebar-item__icon {
+    font-family: 'Material Symbols Outlined';
+    color: var(--va-secondary);
+  }
+  .va-sidebar-item--active {
+    color: var(--va-primary);
+  }
+  .va-collapse__content {
+    padding: 0;
+  }
+</style>

@@ -3,13 +3,16 @@ import iconsConfig from './icons-config/icons-config'
 // import { COLOR_THEMES } from './themes'
 
 export default {
-  // colors: {
-  //   presets: {
-  //     original: {
-  //       ...COLOR_THEMES[3].colors,
-  //     },
-  //   },
-  // },
+  colors: {
+    variables: {
+      'picton-blue': '#49A8FF',
+    },
+    // presets: {
+    //   original: {
+    //     ...COLOR_THEMES[3].colors,
+    //   },
+    // },
+  },
   icons: iconsConfig,
   breakpoint: {
     enabled: true,
