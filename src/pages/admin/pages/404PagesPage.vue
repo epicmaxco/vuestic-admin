@@ -1,22 +1,20 @@
 <template>
-  <div class="not-found-pages">
-    <div class="grid grid-cols-12 gap-6">
-      <va-card
-        v-for="(item, index) in items"
-        :key="index"
-        class="not-found-pages__cards va-text-center col-span-12 sm:col-span-6 lg:col-span-4 xl:col-span-3"
-      >
-        <va-image :src="item.imageUrl" style="max-height: 200px" />
-        <va-card-content>
-          {{ item.label }}
-          <div class="not-found-pages__button-container pt-4 mb-0">
-            <va-button :to="{ name: item.buttonTo }">
-              {{ 'View Example' }}
-            </va-button>
-          </div>
-        </va-card-content>
-      </va-card>
-    </div>
+  <div class="grid grid-cols-12 gap-6">
+    <va-card
+      v-for="(item, index) in items"
+      :key="index"
+      class="not-found-pages__cards va-text-center col-span-12 sm:col-span-6 lg:col-span-4 xl:col-span-3"
+    >
+      <va-image :src="item.imageUrl" style="max-height: 200px" />
+      <va-card-content>
+        {{ item.label }}
+        <div class="not-found-pages__button-container pt-4 mb-0">
+          <va-button :to="{ name: item.buttonTo }">
+            {{ 'View Example' }}
+          </va-button>
+        </div>
+      </va-card-content>
+    </va-card>
   </div>
 </template>
 

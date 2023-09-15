@@ -9,13 +9,14 @@ import UIRoute from '../pages/admin/ui/route'
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/:catchAll(.*)',
+    path: '/:pathMatch(.*)*',
     redirect: { name: 'dashboard' },
   },
   {
     name: 'admin',
     path: '/',
     component: AppLayout,
+    redirect: { name: 'dashboard' },
     children: [
       {
         name: 'dashboard',
