@@ -1,6 +1,6 @@
 <template>
-  <section className="xl:grid xl:grid-cols-3 xl:gap-9">
-    <div v-for="section in navSections" :key="section">
+  <section className="md:grid md:grid-cols-2 xl:grid-cols-3 md:gap-6 xl:gap-9">
+    <div v-for="section in navSections" :key="section" class="mb-10 md:mb-0">
       <h3 class="mb-4">{{ section }}</h3>
       <ul>
         <li v-for="item in navigation[section]" :key="`${section}-${item.name}`" class="mb-4">

@@ -15,10 +15,12 @@
     <div class="h-48 w-96 flex justify-center items-center">
       <div v-if="requestStatus === 'success'">Please check your email to redeem demo access</div>
       <div v-else-if="requestStatus === 'loading'"><va-inner-loading loading :size="60" /></div>
-      <div v-else class="flex flex-col">
+      <div v-else class="text-center">
         <h3 class="mb-3">Enter email</h3>
-        <va-input v-model="value" label="Email" placeholder="your@email.com" class="mb-4" />
-        <va-button @click="sendFakeRequest">Send email</va-button>
+        <form class="flex flex-col items-center" @submit="sendFakeRequest">
+          <va-input v-model="value" label="Email" class="mb-4" type="email" placeholder="your@email.com" />
+          <va-button type="submit">Send email</va-button>
+        </form>
       </div>
     </div>
   </va-modal>
