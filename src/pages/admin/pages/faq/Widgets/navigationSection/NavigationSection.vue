@@ -1,5 +1,5 @@
 <template>
-  <section className="md:grid md:grid-cols-2 xl:grid-cols-3 md:gap-6 xl:gap-9">
+  <section className="place-content-center grid sm:grid-cols-2 xl:grid-cols-3 sm:gap-5 xl:gap-9">
     <div v-for="section in navSections" :key="section" class="mb-10 md:mb-0">
       <h3 class="mb-4">{{ section }}</h3>
       <ul>

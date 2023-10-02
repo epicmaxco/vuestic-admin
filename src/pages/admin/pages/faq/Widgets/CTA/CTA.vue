@@ -11,15 +11,21 @@
     </div>
     <img :src="messageSent" alt="Send a message" />
   </va-card>
-  <va-modal v-model="showModal" hide-default-actions>
-    <div class="h-48 w-96 flex justify-center items-center">
-      <div v-if="requestStatus === 'success'">Please check your email to redeem demo access</div>
+  <va-modal
+    v-model="showModal"
+    ok-text="Request demo"
+    :before-ok="sendFakeRequest"
+    close-button
+    :hide-default-actions="requestStatus === 'loading' || requestStatus === 'success'"
+  >
+    <div class="h-48 w-96 flex flex-col justify-center">
+      <div v-if="requestStatus === 'success'" class="text-center">Please check your email to redeem demo access</div>
       <div v-else-if="requestStatus === 'loading'"><va-inner-loading loading :size="60" /></div>
-      <div v-else class="text-center">
-        <h3 class="mb-3">Enter email</h3>
+      <div v-else>
+        <h3 class="va-h3">Request free demo</h3>
+        <p class="mb-4">Claim your spot now and ignite innovation with our exceptional software solution! 🔥</p>
         <form class="flex flex-col items-center" @submit="sendFakeRequest">
-          <va-input v-model="value" label="Email" class="mb-4" type="email" placeholder="your@email.com" />
-          <va-button type="submit">Send email</va-button>
+          <va-input v-model="emailValue" label="Email" class="mb-4" type="email" placeholder="your@email.com" />
         </form>
       </div>
     </div>
@@ -33,15 +39,18 @@
   import messageSent from '../../lib/message-sent.svg'
 
   const showModal = ref(false)
+  const emailValue = ref('')
   const requestStatus = ref('idle')
 
   async function sendFakeRequest() {
-    requestStatus.value = 'loading'
-    await wait()
-    requestStatus.value = 'success'
-    await wait(2000)
-    requestStatus.value = 'idle'
-    showModal.value = false
+    if (emailValue.value.trim().length > 0) {
+      requestStatus.value = 'loading'
+      await wait()
+      requestStatus.value = 'success'
+      await wait(2000)
+      requestStatus.value = 'idle'
+      showModal.value = false
+    }
   }
 </script>
 
