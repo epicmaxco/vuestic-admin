@@ -22,7 +22,7 @@ export default {
       name: 'statistics',
       displayName: 'menu.statistics',
       meta: {
-        icon: 'vuestic-iconset-statistics',
+        icon: 'signal_cellular_alt',
       },
       disabled: true,
       children: [
@@ -40,7 +40,7 @@ export default {
       name: 'forms',
       displayName: 'menu.forms',
       meta: {
-        icon: 'vuestic-iconset-forms',
+        icon: 'task',
       },
       disabled: true,
       children: [
@@ -58,7 +58,7 @@ export default {
       name: 'tables',
       displayName: 'menu.tables',
       meta: {
-        icon: 'vuestic-iconset-tables',
+        icon: 'table_chart',
       },
       children: [
         {
@@ -75,7 +75,7 @@ export default {
       name: 'ui',
       displayName: 'menu.uiElements',
       meta: {
-        icon: 'vuestic-iconset-ui-elements',
+        icon: 'widgets',
       },
       disabled: true,
       children: [
@@ -171,7 +171,7 @@ export default {
       name: 'maps',
       displayName: 'menu.maps',
       meta: {
-        icon: 'vuestic-iconset-maps',
+        icon: 'near_me',
       },
       disabled: true,
       children: [
@@ -201,7 +201,7 @@ export default {
       name: 'pages',
       displayName: 'menu.pages',
       meta: {
-        icon: 'vuestic-iconset-files',
+        icon: 'article',
       },
       disabled: true,
       children: [

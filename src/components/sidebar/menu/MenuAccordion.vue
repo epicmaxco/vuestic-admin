@@ -3,10 +3,10 @@
     <va-collapse v-for="(route, idx) in items" :key="idx">
       <template #header>
         <va-sidebar-item :active="isRouteActive(route)" :to="route.children ? undefined : { name: route.name }">
-          <va-sidebar-item-content class="p-0 pl-4" :class="{ 'va-sidebar-item--active': isRouteActive(route) }">
+          <va-sidebar-item-content class="p-0" :class="{ 'va-sidebar-item--active': isRouteActive(route) }">
             <va-icon
               :name="route.meta.icon"
-              class="va-sidebar-item__icon"
+              class="va-sidebar-item__symbol"
               :class="{ 'va-sidebar-item--active': isRouteActive(route) }"
               size="1.25rem"
             />
@@ -25,7 +25,7 @@
       </template>
       <template v-for="(child, index) in route.children" :key="index">
         <va-sidebar-item :active="isRouteActive(child)" :to="{ name: child.name }">
-          <va-sidebar-item-content class="pl-12" :class="{ 'va-sidebar-item--active': isRouteActive(child) }">
+          <va-sidebar-item-content class="p-0 pl-7" :class="{ 'va-sidebar-item--active': isRouteActive(child) }">
             <va-sidebar-item-title>
               {{ t(child.displayName) }}
             </va-sidebar-item-title>
@@ -81,12 +81,23 @@
 </script>
 
 <style>
-  .va-sidebar-item__icon {
+  .va-sidebar-item {
+    border-left: initial;
+    padding: 0.75rem 0.5rem 0.75rem 1rem;
+  }
+  .va-sidebar__item__content {
+    min-height: initial;
+  }
+  .va-sidebar-item__symbol {
     font-family: 'Material Symbols Outlined';
     color: var(--va-secondary);
+    width: 1.25rem;
   }
   .va-sidebar-item--active {
     color: var(--va-primary);
+  }
+  .va-collapse {
+    cursor: pointer;
   }
   .va-collapse__content {
     padding: 0;
