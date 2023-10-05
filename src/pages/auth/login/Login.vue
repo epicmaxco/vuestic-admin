@@ -1,5 +1,9 @@
 <template>
   <form @submit.prevent="onsubmit">
+    <h1 class="font-semibold text-4xl leading-relaxed mb-2">Log in</h1>
+    <p class="text-base mb-4">
+      New to Vuestic? <router-link class="font-semibold text-primary" to="/sign-up">Sign up</router-link>
+    </p>
     <va-input
       v-model="email"
       class="mb-4"
@@ -9,24 +13,34 @@
       :error-messages="emailErrors"
     />
 
-    <va-input
-      v-model="password"
-      class="mb-4"
-      type="password"
-      :label="t('auth.password')"
-      :error="!!passwordErrors.length"
-      :error-messages="passwordErrors"
-    />
+    <va-value v-slot="isPasswordVisible" :default-value="false">
+      <va-input
+        v-model="password"
+        class="mb-4"
+        :type="isPasswordVisible.value ? 'text' : 'password'"
+        label="Password"
+        :error="!!passwordErrors.length"
+        :error-messages="passwordErrors"
+        @click-append-inner="isPasswordVisible.value = !isPasswordVisible.value"
+      >
+        <template #appendInner>
+          <va-icon
+            class="cursor-pointer"
+            :name="isPasswordVisible.value ? 'visibility_off' : 'visibility'"
+            size="small"
+            color="primary"
+          />
+        </template>
+      </va-input>
+    </va-value>
 
     <div class="auth-layout__options flex items-center justify-between">
-      <va-checkbox v-model="keepLoggedIn" class="mb-0" :label="t('auth.keep_logged_in')" />
-      <router-link class="ml-1 va-link" :to="{ name: 'recover-password' }">{{
-        t('auth.recover_password')
-      }}</router-link>
+      <va-checkbox v-model="keepLoggedIn" class="mb-0" label="Keep me signed in on this device" />
+      <router-link class="ml-1 va-link" :to="{ name: 'recover-password' }"> Forgot password? </router-link>
     </div>
 
     <div class="flex justify-center mt-4">
-      <va-button class="my-0" @click="onsubmit">{{ t('auth.login') }}</va-button>
+      <va-button class="w-full" @click="onsubmit">{{ t('auth.login') }}</va-button>
     </div>
   </form>
 </template>

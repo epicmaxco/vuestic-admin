@@ -11,6 +11,10 @@ html {
 
 body {
   line-height: 1;
+
+  // TODO Move to some other place so that it's more elegant.
+  font-size: 14px;
+  --va-checkbox-font-size: 14px;
 }
 
 h1,
