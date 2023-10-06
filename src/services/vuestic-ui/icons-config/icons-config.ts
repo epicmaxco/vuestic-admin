@@ -30,5 +30,10 @@ export default createIconsConfig({
       name: 'material-icons-{code}',
       resolve: ({ code }) => ({ to: code }),
     },
+    {
+      name: 'mso-{content}',
+      class: 'material-symbols-outlined',
+      resolve: ({ content }) => ({ content: content }),
+    },
   ],
 })

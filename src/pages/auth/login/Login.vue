@@ -21,14 +21,13 @@
         label="Password"
         :error="!!passwordErrors.length"
         :error-messages="passwordErrors"
-        @click-append-inner="isPasswordVisible.value = !isPasswordVisible.value"
+        @click-append-inner.stop="isPasswordVisible.value = !isPasswordVisible.value"
       >
         <template #appendInner>
           <va-icon
             class="cursor-pointer"
-            :name="isPasswordVisible.value ? 'visibility_off' : 'visibility'"
-            size="small"
-            color="primary"
+            :name="isPasswordVisible.value ? 'mso-visibility_off' : 'mso-visibility'"
+            color="secondary"
           />
         </template>
       </va-input>
