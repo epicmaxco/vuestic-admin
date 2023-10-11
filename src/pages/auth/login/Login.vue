@@ -1,26 +1,23 @@
 <template>
-  <form @submit.prevent="onsubmit">
+  <va-form ref="form" @submit.prevent="submit">
     <h1 class="font-semibold text-4xl leading-relaxed mb-2">Log in</h1>
     <p class="text-base mb-4">
       New to Vuestic? <router-link class="font-semibold text-primary" to="/sign-up">Sign up</router-link>
     </p>
     <va-input
-      v-model="email"
+      v-model="formData.email"
       class="mb-4"
       type="email"
-      :label="t('auth.email')"
-      :error="!!emailErrors.length"
-      :error-messages="emailErrors"
+      label="Email"
+      :rules="[(v) => !!v || 'Email field is required']"
     />
-
     <va-value v-slot="isPasswordVisible" :default-value="false">
       <va-input
-        v-model="password"
+        v-model="formData.password"
         class="mb-4"
         :type="isPasswordVisible.value ? 'text' : 'password'"
         label="Password"
-        :error="!!passwordErrors.length"
-        :error-messages="passwordErrors"
+        :rules="[(v) => !!v || 'Password field is required']"
         @click-append-inner.stop="isPasswordVisible.value = !isPasswordVisible.value"
       >
         <template #appendInner>
@@ -33,38 +30,39 @@
       </va-input>
     </va-value>
 
-    <div class="auth-layout__options flex items-center justify-between">
-      <va-checkbox v-model="keepLoggedIn" class="mb-0" label="Keep me signed in on this device" />
-      <router-link class="ml-1 va-link" :to="{ name: 'recover-password' }"> Forgot password? </router-link>
+    <div class="auth-layout__options flex flex-col sm:flex-row items-start sm:items-center justify-between">
+      <va-checkbox v-model="formData.keepLoggedIn" class="mb-2 sm:mb-0" label="Keep me signed in on this device" />
+      <router-link class="mt-2 sm:mt-0 sm:ml-1 va-link" :to="{ name: 'recover-password' }">
+        Forgot password?
+      </router-link>
     </div>
 
     <div class="flex justify-center mt-4">
-      <va-button class="w-full" @click="onsubmit">{{ t('auth.login') }}</va-button>
+      <va-button class="w-full" @click="submit"> Login </va-button>
     </div>
-  </form>
+  </va-form>
 </template>
 
 <script setup lang="ts">
-  import { computed, ref } from 'vue'
+  import { reactive } from 'vue'
   import { useRouter } from 'vue-router'
-  import { useI18n } from 'vue-i18n'
-  const { t } = useI18n()
+  import { useForm, useToast } from 'vuestic-ui'
 
-  const email = ref('')
-  const password = ref('')
-  const keepLoggedIn = ref(false)
-  const emailErrors = ref<string[]>([])
-  const passwordErrors = ref<string[]>([])
+  const { validate } = useForm('form')
+  const { init } = useToast()
+
+  const formData = reactive({
+    email: '',
+    password: '',
+    keepLoggedIn: false,
+  })
+
   const router = useRouter()
 
-  const formReady = computed(() => !emailErrors.value.length && !passwordErrors.value.length)
-
-  function onsubmit() {
-    if (!formReady.value) return
-
-    emailErrors.value = email.value ? [] : ['Email is required']
-    passwordErrors.value = password.value ? [] : ['Password is required']
-
-    router.push({ name: 'dashboard' })
+  const submit = () => {
+    if (validate()) {
+      init({ message: "You've successfully logged in", color: 'success' })
+      router.push({ name: 'dashboard' })
+    }
   }
 </script>

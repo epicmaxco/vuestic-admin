@@ -11,14 +11,17 @@
       </main>
     </template>
   </va-layout>
+
   <va-layout v-else style="height: 100vh">
     <template #content>
       <div class="p-4">
-        <div class="py-4">
-          <vuestic-logo class="mb-2" color="primary" />
-        </div>
-        <main class="h-full flex items-center">
-          <router-view />
+        <main class="h-full flex flex-row items-center justify-start mx-auto max-w-[420px]">
+          <div class="flex flex-col items-start">
+            <div class="py-4">
+              <vuestic-logo class="mb-2" color="primary" />
+            </div>
+            <router-view />
+          </div>
         </main>
       </div>
     </template>
@@ -27,7 +30,7 @@
 
 <script setup lang="ts">
   import VuesticLogo from '../pages/auth/VuesticLogo.vue'
-  import { useBreakpoint, useColors } from 'vuestic-ui'
+  import { useBreakpoint } from 'vuestic-ui'
 
   const breakpoint = useBreakpoint()
 </script>
