@@ -1,72 +1,88 @@
 <template>
-  <form @submit.prevent="onsubmit()">
+  <va-form ref="form" @submit.prevent="submit">
+    <h1 class="font-semibold text-4xl leading-relaxed mb-2">Log in</h1>
+    <p class="text-base mb-4">
+      Have an account?
+      <router-link class="font-semibold text-primary" :to="{ name: 'login' }">Login</router-link>
+    </p>
     <va-input
-      v-model="email"
+      v-model="formData.email"
       class="mb-4"
       type="email"
-      :label="t('auth.email')"
-      :error="!!emailErrors.length"
-      :error-messages="emailErrors"
+      label="Email"
+      :rules="[(v) => !!v || 'Email field is required']"
     />
-
-    <va-input
-      v-model="password"
-      class="mb-4"
-      type="password"
-      :label="t('auth.password')"
-      :error="!!passwordErrors.length"
-      :error-messages="passwordErrors"
-    />
-
-    <div class="auth-layout__options flex items-center justify-between">
-      <va-checkbox
-        v-model="agreedToTerms"
-        class="mb-0"
-        :error="!!agreedToTermsErrors.length"
-        :error-messages="agreedToTermsErrors"
+    <va-value v-slot="isPasswordVisible" :default-value="false">
+      <va-input
+        v-model="formData.password"
+        class="mb-4"
+        :type="isPasswordVisible.value ? 'text' : 'password'"
+        label="Password"
+        :rules="passwordRules"
+        messages="Password should be 8+ characters: letters, numbers, and special characters."
+        @click-append-inner.stop="isPasswordVisible.value = !isPasswordVisible.value"
       >
-        <template #label>
-          <span class="ml-2">
-            {{ t('auth.agree') }}
-            <span class="va-link">{{ t('auth.termsOfUse') }}</span>
-          </span>
+        <template #appendInner>
+          <va-icon
+            class="cursor-pointer"
+            :name="isPasswordVisible.value ? 'mso-visibility_off' : 'mso-visibility'"
+            color="secondary"
+          />
         </template>
-      </va-checkbox>
-      <router-link class="ml-1 va-link" :to="{ name: 'recover-password' }">
-        {{ t('auth.recover_password') }}
-      </router-link>
-    </div>
+      </va-input>
+      <va-input
+        v-model="formData.repeatPassword"
+        class="mb-4"
+        :type="isPasswordVisible.value ? 'text' : 'password'"
+        label="Repeat Password"
+        :rules="[
+          (v) => !!v || 'Repeat Password field is required',
+          (v) => v === formData.password || 'Both passwords should be the same',
+        ]"
+        @click-append-inner.stop="isPasswordVisible.value = !isPasswordVisible.value"
+      >
+        <template #appendInner>
+          <va-icon
+            class="cursor-pointer"
+            :name="isPasswordVisible.value ? 'mso-visibility_off' : 'mso-visibility'"
+            color="secondary"
+          />
+        </template>
+      </va-input>
+    </va-value>
 
     <div class="flex justify-center mt-4">
-      <va-button class="my-0" @click="onsubmit">{{ t('auth.sign_up') }}</va-button>
+      <va-button class="w-full" @click="submit"> Create account</va-button>
     </div>
-  </form>
+  </va-form>
 </template>
 
 <script setup lang="ts">
-  import { ref, computed } from 'vue'
+  import { reactive } from 'vue'
   import { useRouter } from 'vue-router'
-  import { useI18n } from 'vue-i18n'
-  const { t } = useI18n()
+  import { useForm, useToast } from 'vuestic-ui'
 
-  const email = ref('')
-  const password = ref('')
-  const agreedToTerms = ref(false)
-  const emailErrors = ref<string[]>([])
-  const passwordErrors = ref<string[]>([])
-  const agreedToTermsErrors = ref<string[]>([])
-
-  const formReady = computed(() => {
-    return !(emailErrors.value.length || passwordErrors.value.length || agreedToTermsErrors.value.length)
+  const formData = reactive({
+    email: '',
+    password: '',
+    repeatPassword: '',
   })
 
-  function onsubmit() {
-    if (!formReady.value) return
-
-    emailErrors.value = email.value ? [] : ['Email is required']
-    passwordErrors.value = password.value ? [] : ['Password is required']
-    agreedToTermsErrors.value = agreedToTerms.value ? [] : ['You must agree to the terms of use to continue']
-
-    useRouter().push({ name: 'dashboard' })
+  const submit = () => {
+    if (useForm('form').validate()) {
+      useToast().init({
+        message: "You've successfully signed in",
+        color: 'success',
+      })
+      useRouter().push({ name: 'dashboard' })
+    }
   }
+
+  const passwordRules: ((v: string) => boolean | string)[] = [
+    (v) => !!v || 'Password field is required',
+    (v) => (v && v.length >= 8) || 'Password must be at least 8 characters long',
+    (v) => (v && /[A-Za-z]/.test(v)) || 'Password must contain at least one letter',
+    (v) => (v && /\d/.test(v)) || 'Password must contain at least one number',
+    (v) => (v && /[!@#$%^&*(),.?":{}|<>]/.test(v)) || 'Password must contain at least one special character',
+  ]
 </script>

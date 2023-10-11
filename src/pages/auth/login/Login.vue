@@ -2,7 +2,8 @@
   <va-form ref="form" @submit.prevent="submit">
     <h1 class="font-semibold text-4xl leading-relaxed mb-2">Log in</h1>
     <p class="text-base mb-4">
-      New to Vuestic? <router-link class="font-semibold text-primary" to="/sign-up">Sign up</router-link>
+      New to Vuestic?
+      <router-link class="font-semibold text-primary" :to="{ name: 'signup' }">Sign up</router-link>
     </p>
     <va-input
       v-model="formData.email"
@@ -38,7 +39,7 @@
     </div>
 
     <div class="flex justify-center mt-4">
-      <va-button class="w-full" @click="submit"> Login </va-button>
+      <va-button class="w-full" @click="submit"> Login</va-button>
     </div>
   </va-form>
 </template>
@@ -48,21 +49,16 @@
   import { useRouter } from 'vue-router'
   import { useForm, useToast } from 'vuestic-ui'
 
-  const { validate } = useForm('form')
-  const { init } = useToast()
-
   const formData = reactive({
     email: '',
     password: '',
     keepLoggedIn: false,
   })
 
-  const router = useRouter()
-
   const submit = () => {
-    if (validate()) {
-      init({ message: "You've successfully logged in", color: 'success' })
-      router.push({ name: 'dashboard' })
+    if (useForm('form').validate()) {
+      useToast().init({ message: "You've successfully logged in", color: 'success' })
+      useRouter().push({ name: 'dashboard' })
     }
   }
 </script>
