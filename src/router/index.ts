@@ -166,17 +166,22 @@ const routes: Array<RouteRecordRaw> = [
       {
         name: 'login',
         path: 'login',
-        component: () => import('../pages/auth/login/Login.vue'),
+        component: () => import('../pages/auth/Login.vue'),
       },
       {
         name: 'signup',
         path: 'signup',
-        component: () => import('../pages/auth/signup/Signup.vue'),
+        component: () => import('../pages/auth/Signup.vue'),
       },
       {
         name: 'recover-password',
         path: 'recover-password',
-        component: () => import('../pages/auth/recover-password/RecoverPassword.vue'),
+        component: () => import('../pages/auth/RecoverPassword.vue'),
+      },
+      {
+        name: 'recover-password-email',
+        path: 'recover-password-email',
+        component: () => import('../pages/auth/CheckTheEmail.vue'),
       },
       {
         path: '',

@@ -1,7 +1,7 @@
 <template>
   <va-form ref="form" @submit.prevent="submit">
-    <h1 class="font-semibold text-4xl leading-relaxed mb-2">Log in</h1>
-    <p class="text-base mb-4">
+    <h1 class="font-semibold text-4xl mb-4">Log in</h1>
+    <p class="text-base mb-4 leading-5">
       New to Vuestic?
       <router-link class="font-semibold text-primary" :to="{ name: 'signup' }">Sign up</router-link>
     </p>
@@ -49,6 +49,10 @@
   import { useRouter } from 'vue-router'
   import { useForm, useToast } from 'vuestic-ui'
 
+  const { validate } = useForm('form')
+  const { push } = useRouter()
+  const { init } = useToast()
+
   const formData = reactive({
     email: '',
     password: '',
@@ -56,9 +60,9 @@
   })
 
   const submit = () => {
-    if (useForm('form').validate()) {
-      useToast().init({ message: "You've successfully logged in", color: 'success' })
-      useRouter().push({ name: 'dashboard' })
+    if (validate()) {
+      init({ message: "You've successfully logged in", color: 'success' })
+      push({ name: 'dashboard' })
     }
   }
 </script>

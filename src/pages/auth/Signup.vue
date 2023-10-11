@@ -1,7 +1,7 @@
 <template>
   <va-form ref="form" @submit.prevent="submit">
-    <h1 class="font-semibold text-4xl leading-relaxed mb-2">Log in</h1>
-    <p class="text-base mb-4">
+    <h1 class="font-semibold text-4xl mb-4">Sign up</h1>
+    <p class="text-base mb-4 leading-5">
       Have an account?
       <router-link class="font-semibold text-primary" :to="{ name: 'login' }">Login</router-link>
     </p>
@@ -14,6 +14,7 @@
     />
     <va-value v-slot="isPasswordVisible" :default-value="false">
       <va-input
+        ref="password1"
         v-model="formData.password"
         class="mb-4"
         :type="isPasswordVisible.value ? 'text' : 'password'"
@@ -31,13 +32,14 @@
         </template>
       </va-input>
       <va-input
+        ref="password2"
         v-model="formData.repeatPassword"
         class="mb-4"
         :type="isPasswordVisible.value ? 'text' : 'password'"
         label="Repeat Password"
         :rules="[
           (v) => !!v || 'Repeat Password field is required',
-          (v) => v === formData.password || 'Both passwords should be the same',
+          (v) => v === formData.password || 'Passwords don\'t match',
         ]"
         @click-append-inner.stop="isPasswordVisible.value = !isPasswordVisible.value"
       >
@@ -62,6 +64,10 @@
   import { useRouter } from 'vue-router'
   import { useForm, useToast } from 'vuestic-ui'
 
+  const { validate } = useForm('form')
+  const { push } = useRouter()
+  const { init } = useToast()
+
   const formData = reactive({
     email: '',
     password: '',
@@ -69,12 +75,12 @@
   })
 
   const submit = () => {
-    if (useForm('form').validate()) {
-      useToast().init({
-        message: "You've successfully signed in",
+    if (validate()) {
+      init({
+        message: "You've successfully signed up",
         color: 'success',
       })
-      useRouter().push({ name: 'dashboard' })
+      push({ name: 'dashboard' })
     }
   }
 
