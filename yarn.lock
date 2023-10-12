@@ -1028,6 +1028,11 @@
   resolved "https://registry.npmjs.org/@vue/shared/-/shared-3.3.4.tgz"
   integrity sha512-7OjdcV8vQ74eiz1TZLzZP4JwqM5fA94K6yntPS5Z25r9HDuGNzaGdgvwKYq6S+MxwF0TFRwe50fIR/MYnakdkQ==
 
+"@vuestic/tailwind@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@vuestic/tailwind/-/tailwind-0.1.3.tgz#9610e350171268711ad70dc484766b37c3d45fc1"
+  integrity sha512-R5mQtUR0A0ygBo/csDNy3V1O+FWFzVyvJGgM0SDJ1WbC0/PnZVNdc5C0OdbqZwvbMcRlftbjAPf+HdXQFQSklg==
+
 "@zeit/schemas@2.29.0":
   version "2.29.0"
   resolved "https://registry.npmjs.org/@zeit/schemas/-/schemas-2.29.0.tgz"
@@ -4230,10 +4235,10 @@ vue@^3.2.25:
     "@vue/server-renderer" "3.2.37"
     "@vue/shared" "3.2.37"
 
-vuestic-ui@^1.7.3:
-  version "1.7.3"
-  resolved "https://registry.npmjs.org/vuestic-ui/-/vuestic-ui-1.7.3.tgz"
-  integrity sha512-on3L9Z0wADQuTmIJk1BZeuOuuttgSmI5tqWWaBdneFh7wK7AJaTyN2aCnkIU7g1iazyG4DyLw022Bor9gL7/+A==
+vuestic-ui@^1.8.1:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/vuestic-ui/-/vuestic-ui-1.8.1.tgz#a44e9f901a322574ab8e22848aeafbc8914e8bc6"
+  integrity sha512-gkZskikxyX1XlTGy/rNPMpK8+fNuoePxhU3Wa1kZE3pX1JbagTxT3nIHiiEbKbHfnirKu07CTj09zyshQ8/Paw==
   dependencies:
     "@floating-ui/vue" "^1.0.1"
     "@types/lodash" "^4.14.161"
