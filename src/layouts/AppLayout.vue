@@ -14,7 +14,7 @@
         />
       </div>
       <div class="app-layout__page">
-        <div class="p-2 md:px-6 md:py-9">
+        <div class="p-4">
           <router-view />
         </div>
       </div>

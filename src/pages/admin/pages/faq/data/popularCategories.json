@@ -2,20 +2,20 @@
   {
     "id": 1,
     "icon": "diversity_1",
-    "name": "Getting started",
+    "name": "Getting Started",
     "intro": "Start using Service easily with our actionable tips."
   },
   {
     "id": 2,
     "icon": "check_box",
-    "name": "How-to articles",
-    "intro": "Check out ready workflows tailored to your needs.     "
+    "name": "How-to Articles",
+    "intro": "Check out ready workflows tailored to your needs."
   },
   {
     "id": 3,
     "icon": "tv_signin",
-    "name": "Billing and account",
-    "intro": "Adjust your subscription and limits to your liking.  "
+    "name": "Billing and Account",
+    "intro": "Adjust your subscription and limits to your liking."
   },
   {
     "id": 4,
@@ -27,18 +27,18 @@
     "id": 5,
     "icon": "currency_exchange",
     "name": "Advertising",
-    "intro": "Research your competitors' advertising campaigns and launch your own.    "
+    "intro": "Research your competitors' advertising campaigns and launch your own."
   },
   {
     "id": 6,
     "icon": "feed",
-    "name": "Social media",
+    "name": "Social Media",
     "intro": "Schedule, post, and track performance across all key social platforms."
   },
   {
     "id": 7,
     "icon": "content_paste_go",
-    "name": "Content marketing",
+    "name": "Content Marketing",
     "intro": "Create a content plan, find gaps, and research, write and audit content."
   },
   {
