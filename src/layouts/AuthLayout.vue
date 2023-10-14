@@ -2,7 +2,9 @@
   <va-layout v-if="breakpoint.lgUp" class="h-screen">
     <template #left>
       <div class="bg-primary h-full flex items-center justify-center" style="width: 35vw">
-        <vuestic-logo color="#fff" :scale="2" />
+        <div>
+          <img src="../../public/vuestic-admin-logo-white.svg" alt="Vuestic Admin" />
+        </div>
       </div>
     </template>
     <template #content>
@@ -18,7 +20,7 @@
         <main class="h-full flex flex-row items-center justify-start mx-auto max-w-[420px]">
           <div class="flex flex-col items-start">
             <div class="py-4">
-              <vuestic-logo class="mb-2" color="primary" />
+              <img src="../../public/vuestic-admin-logo.svg" alt="Vuestic Admin" />
             </div>
             <router-view />
           </div>
@@ -29,7 +31,6 @@
 </template>
 
 <script setup lang="ts">
-  import VuesticLogo from '../pages/auth/VuesticLogo.vue'
   import { useBreakpoint } from 'vuestic-ui'
 
   const breakpoint = useBreakpoint()

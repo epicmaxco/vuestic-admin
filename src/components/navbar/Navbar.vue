@@ -9,7 +9,7 @@
           @click="isSidebarMinimized = !isSidebarMinimized"
         />
         <router-link to="/">
-          <vuestic-logo class="logo" />
+          <img src="../../../public/vuestic-admin-logo.svg" alt="Vuestic Admin" />
         </router-link>
       </div>
     </template>
@@ -40,7 +40,6 @@
   import { useGlobalStore } from '../../stores/global-store'
   import { useI18n } from 'vue-i18n'
   import { useColors } from 'vuestic-ui'
-  import VuesticLogo from '../VuesticLogo.vue'
   import VaIconMenuCollapsed from '../icons/VaIconMenuCollapsed.vue'
   import AppNavbarActions from './components/AppNavbarActions.vue'
 
