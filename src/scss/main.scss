@@ -15,7 +15,9 @@ body {
   // TODO Move to some other place so that it's more elegant.
   font-size: 14px;
   --va-checkbox-font-size: 14px;
-  --va-card-box-shadow: none;
+  --va-card-box-shadow: none; // TODO Remove after https://github.com/epicmaxco/vuestic-ui/issues/3964
+  --va-font-family: 'Inter', sans-serif;
+  --va-button-font-size: 14px;
 }
 
 h1,
