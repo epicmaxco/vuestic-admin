@@ -15,19 +15,21 @@ body {
   // TODO Move to some other place so that it's more elegant.
   font-size: 14px;
   --va-checkbox-font-size: 14px;
+  --va-font-family: 'Inter', sans-serif;
+  --va-button-font-size: 0.875rem;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong,
-b {
-  line-height: 1.2;
-  font-weight: 600;
-}
+//h1,
+//h2,
+//h3,
+//h4,
+//h5,
+//h6,
+//strong,
+//b {
+//  line-height: 1.2;
+//  font-weight: 600;
+//}
 
 code,
 kbd,
