@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 import AuthLayout from '../layouts/AuthLayout.vue'
-import AppLayout from '../layouts/AppLayout.vue'
+import AppLayoutNew from '../layouts/AppLayoutNew.vue'
 import Page404Layout from '../layouts/Page404Layout.vue'
 
 import RouteViewComponent from '../layouts/RouterBypass.vue'
@@ -15,7 +15,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     name: 'admin',
     path: '/',
-    component: AppLayout,
+    component: AppLayoutNew,
     redirect: { name: 'dashboard' },
     children: [
       {

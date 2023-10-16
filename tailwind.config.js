@@ -26,10 +26,10 @@ module.exports = {
       },
       screens: {
         xs: '0px',
-        sm: '640px',
-        md: '1024px',
-        lg: '1440px',
-        xl: '1920px',
+        sm: '320px',
+        md: '640px',
+        lg: '1024px',
+        xl: '1440px',
       },
     },
     screens: {
