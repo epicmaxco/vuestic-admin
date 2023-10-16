@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "icon": "diversity_1",
+    "name": "Getting Started",
+    "intro": "Start using Service easily with our actionable tips."
+  },
+  {
+    "id": 2,
+    "icon": "check_box",
+    "name": "How-to Articles",
+    "intro": "Check out ready workflows tailored to your needs."
+  },
+  {
+    "id": 3,
+    "icon": "tv_signin",
+    "name": "Billing and Account",
+    "intro": "Adjust your subscription and limits to your liking."
+  },
+  {
+    "id": 4,
+    "icon": "page_info",
+    "name": "SEO",
+    "intro": "Increase traffic and boost search rankings with the help of 20+ tools."
+  },
+  {
+    "id": 5,
+    "icon": "currency_exchange",
+    "name": "Advertising",
+    "intro": "Research your competitors' advertising campaigns and launch your own."
+  },
+  {
+    "id": 6,
+    "icon": "feed",
+    "name": "Social Media",
+    "intro": "Schedule, post, and track performance across all key social platforms."
+  },
+  {
+    "id": 7,
+    "icon": "content_paste_go",
+    "name": "Content Marketing",
+    "intro": "Create a content plan, find gaps, and research, write and audit content."
+  },
+  {
+    "id": 8,
+    "icon": "chart_data",
+    "name": "Trends",
+    "intro": "Analyze the market, benchmark against competitors,and follow emerging trends."
+  },
+  {
+    "id": 9,
+    "icon": "manage_accounts",
+    "name": "Management",
+    "intro": "Keep all your marketing plans and activities under control. Automate reporting."
+  }
+]

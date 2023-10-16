@@ -10,7 +10,7 @@
       class="mb-4"
       type="email"
       label="Email"
-      :rules="[(v) => !!v || 'Email field is required']"
+      :rules="[(v) => !!v || 'Email field is required', (v) => /.+@.+\..+/.test(v) || 'Email should be valid']"
     />
     <va-value v-slot="isPasswordVisible" :default-value="false">
       <va-input
