@@ -5,7 +5,9 @@
 
 <template>
   <div class="flex flex-col justify-between h-screen items-center bg-[var(--va-background-secondary)]">
-    <VuesticLogo class="my-8 h-5" :gradient="false" />
+    <RouterLink to="/">
+      <VuesticLogo class="my-8 h-5" :gradient="false" />
+    </RouterLink>
 
     <div class="flex flex-col items-center gap-6 px-4 my-8">
       <NotFoundImage />
