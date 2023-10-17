@@ -10,7 +10,7 @@ import UIRoute from '../pages/admin/ui/route'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/:pathMatch(.*)*',
-    redirect: { name: 'dashboard' },
+    component: () => import('../pages/404.vue'),
   },
   {
     name: 'admin',
