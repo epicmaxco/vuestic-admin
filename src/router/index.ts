@@ -2,7 +2,6 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 import AuthLayout from '../layouts/AuthLayout.vue'
 import AppLayout from '../layouts/AppLayout.vue'
-import Page404Layout from '../layouts/Page404Layout.vue'
 
 import RouteViewComponent from '../layouts/RouterBypass.vue'
 import UIRoute from '../pages/admin/ui/route'
@@ -145,11 +144,6 @@ const routes: Array<RouteRecordRaw> = [
         component: RouteViewComponent,
         children: [
           {
-            name: '404-pages',
-            path: '404-pages',
-            component: () => import('../pages/admin/pages/404PagesPage.vue'),
-          },
-          {
             name: 'faq',
             path: 'faq',
             component: () => import('../pages/admin/pages/faq/FaqPage.vue'),
@@ -190,30 +184,9 @@ const routes: Array<RouteRecordRaw> = [
     ],
   },
   {
+    name: '404',
     path: '/404',
-    component: Page404Layout,
-    children: [
-      {
-        name: 'not-found-advanced',
-        path: 'not-found-advanced',
-        component: () => import('../pages/404-pages/VaPageNotFoundSearch.vue'),
-      },
-      {
-        name: 'not-found-simple',
-        path: 'not-found-simple',
-        component: () => import('../pages/404-pages/VaPageNotFoundSimple.vue'),
-      },
-      {
-        name: 'not-found-custom',
-        path: 'not-found-custom',
-        component: () => import('../pages/404-pages/VaPageNotFoundCustom.vue'),
-      },
-      {
-        name: 'not-found-large-text',
-        path: '/pages/not-found-large-text',
-        component: () => import('../pages/404-pages/VaPageNotFoundLargeText.vue'),
-      },
-    ],
+    component: () => import('../pages/404.vue'),
   },
 ]
 
