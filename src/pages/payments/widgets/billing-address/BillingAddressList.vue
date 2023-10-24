@@ -21,7 +21,7 @@
         @edit="addressToEdit = billingAddress"
       />
       <div
-        class="sm:h-[114px] p-4 bg-primary bg-opacity-5 rounded-lg border border-dashed border-primary flex flex-col sm:flex-row items-start sm:items-center gap-4"
+        class="sm:min-h-[114px] p-4 bg-primary bg-opacity-5 rounded-lg border border-dashed border-primary flex flex-col sm:flex-row items-start sm:items-center gap-4"
       >
         <div class="flex flex-col gap-2 flex-grow">
           <div class="text-lg font-bold leading-relaxed">Important note</div>
