@@ -20,7 +20,8 @@
       <div class="flex flex-col sm:flex-row gap-4">
         <VaButton to="/">Go to homepage</VaButton>
         <VaButton
-          to="https://github.com/epicmaxco/vuestic-admin"
+          href="https://github.com/epicmaxco/vuestic-admin"
+          target="_blank"
           preset="secondary"
           class="underline underline-offset-4"
           >Create a GitHub issue</VaButton
