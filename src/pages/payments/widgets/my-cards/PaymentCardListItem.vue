@@ -16,19 +16,21 @@
       </div>
     </div>
     <div class="w-full sm:w-auto flex-none flex sm:block">
-      <va-button class="mr-2 flex-grow" preset="primary">Edit</va-button>
-      <va-button preset="primary" icon="mso-delete" />
+      <va-button class="mr-2 flex-grow" preset="primary" @click="emits('edit')">Edit</va-button>
+      <va-button preset="primary" icon="mso-delete" @click="emits('remove')" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { defineProps, computed } from 'vue'
-  import PaymentSystem from './payment-system/PaymentSystem.vue'
-  import { CardInfo } from './types'
+  import { defineProps, computed, defineEmits } from 'vue'
+  import PaymentSystem from '../../payment-system/PaymentSystem.vue'
+  import { PaymentCard } from '../../types'
+
+  const emits = defineEmits(['edit', 'remove'])
 
   const props = defineProps<{
-    card: CardInfo
+    card: PaymentCard
   }>()
 
   const card = computed(() => props.card)

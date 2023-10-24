@@ -4,8 +4,13 @@ import vuesticGlobalConfig from '../src/services/vuestic-ui/global-config'
 import './storybook-main.scss'
 import '../src/scss/main.scss'
 
+import { createPinia } from 'pinia'
+
+const pinia = createPinia()
+
 setup((app) => {
   app.use(createVuestic({ config: vuesticGlobalConfig }))
+  app.use(pinia)
 })
 
 const preview: Preview = {

@@ -7,11 +7,14 @@ import stores from './stores'
 import router from './router'
 import vuesticGlobalConfig from './services/vuestic-ui/global-config'
 import App from './App.vue'
+import { createPinia } from 'pinia'
 
 const app = createApp(App)
+const pinia = createPinia()
 
 app.use(stores)
 app.use(router)
+app.use(pinia)
 app.use(i18n)
 app.use(createVuestic({ config: vuesticGlobalConfig }))
 

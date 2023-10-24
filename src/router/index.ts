@@ -154,6 +154,11 @@ const routes: Array<RouteRecordRaw> = [
             path: 'faq',
             component: () => import('../pages/admin/pages/FaqPage.vue'),
           },
+          {
+            name: 'payments',
+            path: 'payments',
+            component: () => import('../pages/payments/PaymentsPage.vue'),
+          },
         ],
       },
       UIRoute,
