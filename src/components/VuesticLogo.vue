@@ -39,15 +39,20 @@
     defineProps<{
       height?: number | string
       color?: string
+      gradient?: boolean
     }>(),
     {
       height: 16,
       color: 'primary',
+      gradient: true,
     },
   )
 
   const colorsComputed = computed(() => {
     const color = getColor(props.color, 'primary')
+
+    if (!props.gradient) return { start: color, end: color }
+
     return { start: color, end: shiftHSLAColor(color, { l: -20 }) }
   })
 </script>

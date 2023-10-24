@@ -210,7 +210,7 @@ export default {
           displayName: 'menu.login-singup',
         },
         {
-          name: '404-pages',
+          name: '404',
           displayName: 'menu.404-pages',
         },
         {
