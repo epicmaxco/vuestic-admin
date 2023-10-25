@@ -1,5 +1,5 @@
 <template>
-  <h1 class="va-h1 text-4xl md:text-5xl">How can we help you?</h1>
+  <h1 class="page-title">How can we help you?</h1>
   <Categories />
   <RequestDemo />
   <Questions />

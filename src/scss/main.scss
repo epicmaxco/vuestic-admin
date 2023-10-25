@@ -14,23 +14,24 @@ body {
 
   // TODO Move to some other place so that it's more elegant.
   font-size: 14px;
-  --va-checkbox-font-size: 14px;
+  --va-checkbox-font-size: 0.875rem;
   --va-card-box-shadow: none; // TODO Remove after https://github.com/epicmaxco/vuestic-ui/issues/3964
+  --va-card-padding: 1rem;
   --va-font-family: 'Inter', sans-serif;
-  --va-button-font-size: 14px;
+  --va-button-font-size: 0.875rem;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong,
-b {
-  line-height: 1.2;
-  font-weight: 600;
-}
+//h1,
+//h2,
+//h3,
+//h4,
+//h5,
+//h6,
+//strong,
+//b {
+//  line-height: 1.2;
+//  font-weight: 600;
+//}
 
 code,
 kbd,
@@ -44,4 +45,8 @@ pre {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.page-title {
+  @apply text-3xl md:text-5xl font-bold leading-9 mb-6;
 }

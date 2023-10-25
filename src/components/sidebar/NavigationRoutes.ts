@@ -217,6 +217,10 @@ export default {
           name: 'faq',
           displayName: 'menu.faq',
         },
+        {
+          name: 'payments',
+          displayName: 'menu.payments',
+        },
       ],
     },
   ] as INavigationRoute[],

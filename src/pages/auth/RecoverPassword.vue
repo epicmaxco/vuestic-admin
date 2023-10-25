@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
   import { ref } from 'vue'
-  import { useForm, useToast } from 'vuestic-ui'
+  import { useForm } from 'vuestic-ui'
   import { useRouter } from 'vue-router'
 
   const email = ref('')
