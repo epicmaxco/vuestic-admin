@@ -35,7 +35,7 @@
     </template>
   </div>
   <PaymentCardCreateModal v-if="showCreate" @close="showCreate = false" />
-  <PaymentCardUpdateModal v-if="cardToEdit" :payment-card="cardToEdit" @close="cardToEdit = ''" />
+  <PaymentCardUpdateModal v-if="cardToEdit" :payment-card="cardToEdit" @close="cardToEdit = undefined" />
 </template>
 
 <script setup lang="ts">

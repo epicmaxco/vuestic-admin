@@ -35,7 +35,7 @@
     </template>
   </div>
   <AddressCreateModal v-if="showCreate" @close="showCreate = false" />
-  <AddressUpdateModal v-if="addressToEdit" :billing-address="addressToEdit" @close="addressToEdit = ''" />
+  <AddressUpdateModal v-if="addressToEdit" :billing-address="addressToEdit" @close="addressToEdit = undefined" />
 </template>
 
 <script setup lang="ts">

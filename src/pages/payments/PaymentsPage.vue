@@ -3,13 +3,17 @@
 
   <va-card class="mb-6">
     <va-card-content>
-      <CardList />
+      <div class="text-2xl font-bold leading-5 mb-6">My Cards</div>
+
+      <PaymentCardList />
     </va-card-content>
   </va-card>
 
   <va-card class="mb-6">
     <va-card-content>
-      <AddressList />
+      <div class="text-2xl font-bold leading-5 mb-6">Billing Address</div>
+
+      <BillingAddressList />
 
       <div class="space-y-2 mt-6">
         <div class="text-lg font-bold mb-2">Tax Location</div>
@@ -23,6 +27,6 @@
 </template>
 
 <script setup lang="ts">
-  import CardList from './widgets/my-cards/PaymentCardList.vue'
-  import AddressList from './widgets/billing-address/BillingAddressList.vue'
+  import PaymentCardList from './widgets/my-cards/PaymentCardList.vue'
+  import BillingAddressList from './widgets/billing-address/BillingAddressList.vue'
 </script>
