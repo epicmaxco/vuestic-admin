@@ -47,7 +47,7 @@
                 {{ plan.description }}
               </p>
               <div class="flex space-x-1 justify-center items-end text-lg leading-[26px]">
-                <span>$</span><span class="text-[32px] md:text-5xl inset-[110%] md:inset-[56px] font-bold">{{ plan.price }}</span><span>/ mo</span>
+                <span>$</span><span class="text-[32px] md:text-5xl leading-[110%] md:leading-[56px] font-bold">{{ plan.price }}</span><span>/ mo</span>
               </div>
             </div>
             <div class="space-y-6">
