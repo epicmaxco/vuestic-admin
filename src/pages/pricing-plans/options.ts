@@ -39,7 +39,7 @@ export const pricingPlans: PricingPlans[] = [
     price: 339,
     features: features.map((d, i) => ({ description: d, isAvailable: i < 5 })),
     badges: ['Popular choice'],
-    class: '!md:py-10 !bg-[#ECFDE6]'
+    class: 'md:!py-10 !bg-[#ECFDE6]'
   },
   {
     title: 'Enterprise',
