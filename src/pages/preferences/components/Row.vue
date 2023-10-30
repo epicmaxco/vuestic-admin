@@ -12,6 +12,7 @@
       class="w-fit"
       v-show="$props.hasButton"
       preset="primary"
+      :style="buttonStyles"
       @click="emits('click')"
     >
       {{ $props.buttonName }}
@@ -19,6 +20,7 @@
   </div>
 </template>
 <script setup lang="ts">
+import { buttonStyles } from '../styles'
 
 const props = defineProps({
   name: { type: String },
@@ -27,5 +29,4 @@ const props = defineProps({
 })
 
 const emits = defineEmits(['click'])
-
 </script>

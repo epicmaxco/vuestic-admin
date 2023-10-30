@@ -57,11 +57,16 @@
         </div>
       </div>
       <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-        <va-button type="submit">
+        <va-button 
+          type="submit"
+          :style="buttonStyles"
+          @click="submit"
+        >
           Update Password
         </va-button>
         <va-button 
           preset="plain"
+          :style="buttonStyles"
           @click="emits('cancel')"
         >
           Cancel
@@ -99,6 +104,8 @@
 <script setup lang="ts">
 import { useForm } from 'vuestic-ui'
 
+import { buttonStyles } from '../styles'
+
 const { validate } = useForm('form')
 
 const emits = defineEmits(['cancel'])
@@ -106,7 +113,7 @@ const emits = defineEmits(['cancel'])
 const submit = () => {
   if (validate()) {
     console.log('success')
+    emits('cancel')
   }
 }
-
 </script>

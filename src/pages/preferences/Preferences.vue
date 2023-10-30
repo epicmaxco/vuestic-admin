@@ -1,12 +1,12 @@
 <template>
-  <h1 class="text-5xl leading-[56px] font-bolds">
+  <h1 class="text-[32px] md:text-5xl leading-[110%] md:leading-[56px] font-bolds">
     Preferences
   </h1>
   <div class="flex flex-col mt-4 p-4 space-y-10 bg-backgroundSecondary rounded-lg">
     <div class="flex space-x-5">
       <va-avatar size="large"/>
       <div class="flex flex-col justify-center">
-        <h2 class="text-[32px] leading-10 font-bold">
+        <h2 class="text-[28px] md:text-[32px] leading-10 font-bold">
           Salma Fadel
         </h2>
         <div class="flex space-x-1 text-[13px] leading-4">
@@ -91,57 +91,4 @@ import ResetPasswordModal from "./modals/ResetPasswordModal.vue"
 
 const isEditNameModalOpen = ref<boolean>(false)
 const isResetPasswordModalOpen = ref<boolean>(false)
-
 </script>
-<style lang="scss">
-.va-button {
-  &--normal &__content {
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 20px;
-  }
-}
-
-.va-modal {
-  line-height: 20px;
-
-  &__message {
-    margin-bottom: 16px;
-  }
-
-  &__dialog {
-    border-radius: 8px;
-
-    @media (min-width: 640px) {
-      border-radius: 4px;
-    }
-  }
-
-  &__inner {
-    padding: 16px;
-  }
-}
-
-.va-input {
-  &-label {
-    font-size: 9px;
-    line-height: 14px;
-    letter-spacing: .4px;
-    min-height: 14px;
-
-    &__required-mark {
-      font-size: 13px;
-    }
-  }
-
-  &-wrapper {
-    &__label--outer {
-      margin-bottom: 4px;
-    }
-
-    &__field {
-      padding: 8px 12px;
-    }
-  }
-}
-</style>

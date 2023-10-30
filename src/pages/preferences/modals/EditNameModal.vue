@@ -18,6 +18,7 @@
       <div class="flex flex-col-reverse md:flex-row md:items-center md:justify-end md:space-x-4 mt-4">
         <va-button 
           preset="plain"
+          :style="buttonStyles"
           @click="emits('cancel')"
         >
           Cancel
@@ -25,6 +26,8 @@
         <va-button 
           class="mb-4 md:mb-0"
           type="submit"
+          :style="buttonStyles"
+          @click="submit"
         >
           Save
         </va-button>
@@ -36,6 +39,8 @@
 import { ref } from "vue"
 import { useForm } from 'vuestic-ui'
 
+import { buttonStyles } from '../styles'
+
 const { validate } = useForm('form')
 
 const emits = defineEmits(['cancel'])
@@ -45,7 +50,7 @@ const Name = ref<string>("Salma Fadel")
 const submit = () => {
   if(validate()) {
     console.log('success')
+    emits('cancel')
   }
 }
-
 </script>
