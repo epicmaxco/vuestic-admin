@@ -23,11 +23,6 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('../pages/admin/dashboard/Dashboard.vue'),
       },
       {
-        name: 'preferences',
-        path: 'preferences',
-        component: () => import('../pages/preferences/Preferences.vue')
-      },
-      {
         name: 'statistics',
         path: 'statistics',
         component: RouteViewComponent,
@@ -157,6 +152,11 @@ const routes: Array<RouteRecordRaw> = [
             name: 'payments',
             path: 'payments',
             component: () => import('../pages/payments/PaymentsPage.vue'),
+          },
+          {
+            name: 'preferences',
+            path: 'preferences',
+            component: () => import('../pages/preferences/Preferences.vue'),
           },
         ],
       },
