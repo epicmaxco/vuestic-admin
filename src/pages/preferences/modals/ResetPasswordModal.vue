@@ -63,7 +63,7 @@
           </p>
         </div>
       </div>
-      <div class="flex flex-col justify-end md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+      <div class="flex flex-col-reverse md:justify-end md:flex-row md:space-x-4">
         <va-button 
           preset="plain"
           :style="buttonStyles"
@@ -72,6 +72,7 @@
           Cancel
         </va-button>
         <va-button 
+          class="mb-4 md:mb-0"
           type="submit"
           :style="buttonStyles"
           @click="submit"
