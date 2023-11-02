@@ -3,8 +3,14 @@ import { defineStore } from 'pinia'
 export const useGlobalStore = defineStore('global', {
   state: () => {
     return {
-      isSidebarMinimized: false,
       userName: 'Vasili S',
+      email: 'vasili@gmail.com',
+      password: '12345678',
+      memberSince: '8/12/2020',
+      pfp: 'https://picsum.photos/id/22/200/300',
+      isSidebarMinimized: false,
+      isEditNameModalOpen: false,
+      isResetPasswordModalOpen: false,
     }
   },
 
@@ -13,8 +19,20 @@ export const useGlobalStore = defineStore('global', {
       this.isSidebarMinimized = !this.isSidebarMinimized
     },
 
+    toggleEditNameModal() {
+      this.isEditNameModalOpen = !this.isEditNameModalOpen
+    },
+
+    toggleResetPasswordModal() {
+      this.isResetPasswordModalOpen = !this.isResetPasswordModalOpen
+    },
+
     changeUserName(userName: string) {
       this.userName = userName
+    },
+
+    changePassword(password: string) {
+      this.password = password
     },
   },
 })

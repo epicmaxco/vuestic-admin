@@ -1,33 +1,40 @@
 <template>
   <va-modal 
     hideDefaultActions
-    model-value
+    modelValue
     :mobileFullscreen="false"
     @update:modelValue="emits('cancel')"
   >
     <va-form 
-      class="space-y-6"
+      class="space-y-6 w-[326px] md:w-[608px]"
       ref="form"
       @submit.prevent="submit"
     >
-      <va-input 
-        class="!w-[326px] md:!w-[292px]"
-        requiredMark
-        label="Old password"
-        placeholder="Old password"
-      />
-      <div class="flex flex-col md:flex-row md:space-x-6">
-        <va-input 
-          class="!w-[326px] md:!w-[292px]"
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <va-input
           requiredMark
+          v-model="oldPassowrd"
+          label="Old password"
+          placeholder="Old password"
+          type="password"
+          :rules="oldPasswordRules"
+        />
+        <div class="hidden md:block" />
+        <va-input
+          requiredMark
+          v-model="newPassword"
           label="New password"
           placeholder="New password"
+          type="password"
+          :rules="newPasswordRules"
         />
-        <va-input 
-          class="!w-[326px] md:!w-[292px] mt-6 md:mt-0"
+        <va-input
           requiredMark
+          v-model="repeatNewPassword"
           label="Repeat new password"
           placeholder="Repeat new password"
+          type="password"
+          :rules="repeatNewPasswordRules"
         />
       </div>
       <div class="flex flex-col space-y-2">
@@ -56,20 +63,20 @@
           </p>
         </div>
       </div>
-      <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-        <va-button 
-          type="submit"
-          :style="buttonStyles"
-          @click="submit"
-        >
-          Update Password
-        </va-button>
+      <div class="flex flex-col justify-end md:flex-row space-y-4 md:space-y-0 md:space-x-4">
         <va-button 
           preset="plain"
           :style="buttonStyles"
           @click="emits('cancel')"
         >
           Cancel
+        </va-button>
+        <va-button 
+          type="submit"
+          :style="buttonStyles"
+          @click="submit"
+        >
+          Update Password
         </va-button>
       </div>
     </va-form>
@@ -79,12 +86,9 @@
           <p class="text-textPrimary">
             Can’t remember your current password?
           </p>
-          <router-link 
-            class="text-primary font-semibold"
-            to="/"
-          >
+          <div class="text-primary font-semibold">
             Reset Via Email
-          </router-link >
+          </div>
         </div>
         <div class="flex items-center space-x-1 text-secondary">
           <div>
@@ -102,9 +106,17 @@
   </va-modal>
 </template>
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useForm } from 'vuestic-ui'
+import { useGlobalStore } from "../../../stores/global-store"
 
 import { buttonStyles } from '../styles'
+
+const store = useGlobalStore()
+
+const oldPassowrd = ref<string>()
+const newPassword = ref<string>()
+const repeatNewPassword = ref<string>()
 
 const { validate } = useForm('form')
 
@@ -112,8 +124,24 @@ const emits = defineEmits(['cancel'])
 
 const submit = () => {
   if (validate()) {
-    console.log('success')
+    store.changePassword(newPassword.value!)
     emits('cancel')
   }
 }
+
+const oldPasswordRules = [
+  (v: string) => !!v || 'Old password field is required',
+  (v: string) => v === store.password || 'Incorrect password'
+]
+
+const newPasswordRules = [
+  (v: string) => !!v || 'New password field is required',
+  (v: string) => v !== oldPassowrd.value || 'New password cannot be the same',
+]
+
+const repeatNewPasswordRules = [
+  (v: string) => !!v || 'Repeat new password field is required',
+  (v: string) => v === newPassword.value || 'Confirm password does not match New password',
+  (v: string) => v !== oldPassowrd.value|| 'New password cannot be the same',
+]
 </script>

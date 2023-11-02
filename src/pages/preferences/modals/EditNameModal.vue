@@ -1,21 +1,22 @@
 <template>
   <va-modal
     hideDefaultActions
-    model-value
+    modelValue
     :mobileFullscreen="false"
     @update:modelValue="emits('cancel')"
   >
     <va-form 
+      class="w-[326px] md:w-[288px]"
       ref="form"
       @submit.prevent="submit"
     >
       <va-input 
-        class="!w-[326px] md:!w-[288px]"
+        class="mb-4"
         label="Name"
         placeholder="Name"
         v-model="Name"
       />
-      <div class="flex flex-col-reverse md:flex-row md:items-center md:justify-end md:space-x-4 mt-4">
+      <div class="flex flex-col-reverse md:flex-row md:items-center md:justify-end md:space-x-4">
         <va-button 
           preset="plain"
           :style="buttonStyles"
@@ -37,20 +38,20 @@
 </template>
 <script setup lang="ts">
 import { ref } from "vue"
-import { useForm } from 'vuestic-ui'
+import { useGlobalStore } from "../../../stores/global-store"
 
 import { buttonStyles } from '../styles'
 
-const { validate } = useForm('form')
+const store = useGlobalStore()
 
 const emits = defineEmits(['cancel'])
 
-const Name = ref<string>("Salma Fadel")
+const Name = ref<string>(store.userName)
 
 const submit = () => {
-  if(validate()) {
-    console.log('success')
-    emits('cancel')
-  }
+  if(!Name.value) { return emits('cancel') }
+  
+  store.changeUserName(Name.value)
+  emits('cancel')
 }
 </script>
