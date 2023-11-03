@@ -1,0 +1,34 @@
+<script setup lang="ts">
+import { PropType } from 'vue'
+import { User } from '../types'
+
+  const avatarColor = (userName: string) => {
+    const colors = ['primary', '#FFD43A', '#ADFF00', '#262824', 'danger']
+    const index = userName.charCodeAt(0) % colors.length
+    return colors[index]
+  }
+
+  const props = defineProps({
+    user: {
+      type: Object as PropType<User>,
+      required: true
+    },
+    size: {
+      type: String,
+      default: 'medium'
+    }
+  })
+
+  const isUrl = (avatar: string) => {
+    return avatar.startsWith('http')
+  }
+</script>
+
+<template>
+  <va-avatar
+    :size="size"
+    :src="isUrl(user.avatar) ? user.avatar : 'none'"
+    :fallback-text="!user.avatar ? user.fullname[0] : user.avatar"
+    :color="avatarColor(user.fullname)"
+  />
+</template>
