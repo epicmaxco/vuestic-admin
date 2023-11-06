@@ -2,7 +2,7 @@
   import { defineVaDataTableColumns } from 'vuestic-ui'
   import { User, UserRole } from '../types'
   import { useUsersStore } from '../../../stores/users'
-import UserAvatar from './UserAvatar.vue'
+  import UserAvatar from './UserAvatar.vue'
 
   const columns = defineVaDataTableColumns([
     { label: 'Full Name', key: 'fullname', sortable: true },
@@ -21,7 +21,7 @@ import UserAvatar from './UserAvatar.vue'
     owner: 'warning',
   }
 
-  const emit = defineEmits<{
+  defineEmits<{
     (event: 'edit-user', user: User): void
   }>()
 </script>
@@ -48,7 +48,7 @@ import UserAvatar from './UserAvatar.vue'
         <td colspan="9999">
           <div class="flex flex-col-reverse md:flex-row gap-2 justify-between items-center py-2">
             <div>
-              <b>{{ users.pagination.total}} results.</b>
+              <b>{{ users.pagination.total }} results.</b>
               Results per page
               <va-select class="w-16" v-model="users.pagination.perPage" :options="[10, 50, 100]" />
             </div>

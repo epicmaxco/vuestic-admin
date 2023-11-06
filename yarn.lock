@@ -9821,10 +9821,10 @@ vue@^3.2.25:
     "@vue/server-renderer" "3.2.37"
     "@vue/shared" "3.2.37"
 
-vuestic-ui@^1.8.1:
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/vuestic-ui/-/vuestic-ui-1.8.1.tgz#a44e9f901a322574ab8e22848aeafbc8914e8bc6"
-  integrity sha512-gkZskikxyX1XlTGy/rNPMpK8+fNuoePxhU3Wa1kZE3pX1JbagTxT3nIHiiEbKbHfnirKu07CTj09zyshQ8/Paw==
+vuestic-ui@^1.8.4:
+  version "1.8.4"
+  resolved "https://registry.yarnpkg.com/vuestic-ui/-/vuestic-ui-1.8.4.tgz#583e64711051d704886af44d997f9ba30a5139bf"
+  integrity sha512-AH0RFsnvBR/lOsgTfowkzt9TRnYo7C2XcXAZt8ILP0LWU0atciMJdMZ4e89TcNj0L/SOoijb+1lPx9e62mJTBg==
   dependencies:
     "@floating-ui/vue" "^1.0.1"
     "@types/lodash" "^4.14.161"

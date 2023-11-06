@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { PropType } from 'vue'
-import { User } from '../types'
+  import { PropType } from 'vue'
+  import { User } from '../types'
 
   const avatarColor = (userName: string) => {
     const colors = ['primary', '#FFD43A', '#ADFF00', '#262824', 'danger']
@@ -8,15 +8,15 @@ import { User } from '../types'
     return colors[index]
   }
 
-  const props = defineProps({
+  defineProps({
     user: {
       type: Object as PropType<User>,
-      required: true
+      required: true,
     },
     size: {
       type: String,
-      default: 'medium'
-    }
+      default: 'medium',
+    },
   })
 
   const isUrl = (avatar: string) => {
@@ -27,8 +27,8 @@ import { User } from '../types'
 <template>
   <va-avatar
     :size="size"
-    :src="isUrl(user.avatar) ? user.avatar : 'none'"
-    :fallback-text="!user.avatar ? user.fullname[0] : user.avatar"
+    :src="isUrl(user.avatar) ? user.avatar : ''"
+    :fallback-text="user.avatar || user.fullname[0]"
     :color="avatarColor(user.fullname)"
   />
 </template>
