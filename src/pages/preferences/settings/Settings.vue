@@ -1,10 +1,10 @@
 <template>
-  <Row class="md:items-center" name="Name" hasButton buttonName="Edit" @click="store.toggleEditNameModal">
+  <Row class="md:items-center" name="Name" hasButton buttonName="Edit" @click="emits('OpenNameModal')">
     {{ store.userName }}
   </Row>
   <va-divider />
   <Row name="Email">{{ store.email }}</Row>
-  <Row name="Password" hasButton buttonName="Reset Password" @click="store.toggleResetPasswordModal">
+  <Row name="Password" hasButton buttonName="Reset Password" @click="emits('OpenResetPasswordModal')">
     •••••••••••••
   </Row>
   <va-divider />
@@ -27,6 +27,8 @@
 import Row from '../components/Row.vue'
 
 import { useGlobalStore } from '../../../stores/global-store'
+
+const emits = defineEmits(['OpenNameModal', 'OpenResetPasswordModal'])
 
 const store = useGlobalStore()
 </script>

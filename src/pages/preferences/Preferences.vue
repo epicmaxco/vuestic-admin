@@ -5,19 +5,20 @@
       <PreferencesHeader />
     </div>
     <div class="space-y-4 md:space-y-6">
-      <Settings />
+      <Settings @OpenNameModal="isEditNameModalOpen = true" @OpenResetPasswordModal="isResetPasswordModalOpen = true"/>
     </div>
   </div>
-  <EditNameModal v-if="store.isEditNameModalOpen" @cancel="store.toggleEditNameModal" />
-  <ResetPasswordModal v-if="store.isResetPasswordModalOpen" @cancel="store.toggleResetPasswordModal" />
+  <EditNameModal v-if="isEditNameModalOpen" @cancel="isEditNameModalOpen = false" />
+  <ResetPasswordModal v-if="isResetPasswordModalOpen" @cancel="isResetPasswordModalOpen = false" />
 </template>
 <script setup lang="ts">
-  import { useGlobalStore } from '../../stores/global-store'
+  import { ref } from 'vue'
 
   import PreferencesHeader from './preferences-header/PreferencesHeader.vue'
   import Settings from './settings/Settings.vue'
   import EditNameModal from './modals/EditNameModal.vue'
   import ResetPasswordModal from './modals/ResetPasswordModal.vue'
 
-  const store = useGlobalStore()
+  const isEditNameModalOpen = ref(false)
+  const isResetPasswordModalOpen = ref(false)
 </script>

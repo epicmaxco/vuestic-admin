@@ -9,22 +9,12 @@ export const useGlobalStore = defineStore('global', {
       memberSince: '8/12/2020',
       pfp: 'https://picsum.photos/id/22/200/300',
       isSidebarMinimized: false,
-      isEditNameModalOpen: false,
-      isResetPasswordModalOpen: false,
     }
   },
 
   actions: {
     toggleSidebar() {
       this.isSidebarMinimized = !this.isSidebarMinimized
-    },
-
-    toggleEditNameModal() {
-      this.isEditNameModalOpen = !this.isEditNameModalOpen
-    },
-
-    toggleResetPasswordModal() {
-      this.isResetPasswordModalOpen = !this.isResetPasswordModalOpen
     },
 
     changeUserName(userName: string) {
