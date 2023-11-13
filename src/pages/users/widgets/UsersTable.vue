@@ -50,15 +50,15 @@
             <div>
               <b>{{ users.pagination.total }} results.</b>
               Results per page
-              <va-select class="w-16" v-model="users.pagination.perPage" :options="[10, 50, 100]" />
+              <va-select v-model="users.pagination.perPage" class="w-16" :options="[10, 50, 100]" />
             </div>
 
             <div class="flex">
               <!-- <va-button preset="secondary" icon="va-arrow-left" :disabled="users.pagination.page === 0" />
               <va-button preset="secondary" icon="va-arrow-right" :disabled="users.pagination.page === users.totalPages - 1" /> -->
               <va-pagination
-                buttons-preset="secondary"
                 v-model="users.pagination.page"
+                buttons-preset="secondary"
                 :pages="users.totalPages"
                 :visible-pages="5"
                 boundary-numbers
@@ -70,7 +70,6 @@
     </template>
   </va-data-table>
 </template>
-
 
 <style lang="scss" scoped>
   .va-data-table {

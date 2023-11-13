@@ -1,5 +1,5 @@
-import { repeatArray } from '../../services/utils';
-import { User } from './../../pages/users/types';
+import { repeatArray } from '../../services/utils'
+import { User } from './../../pages/users/types'
 
 export default repeatArray(50, [
   {
@@ -32,7 +32,7 @@ export default repeatArray(50, [
     username: 'mrm',
     role: 'owner',
     projects: 1,
-    avatar: ''
+    avatar: '',
   },
   {
     fullname: 'Kevin Smith',
@@ -56,7 +56,7 @@ export default repeatArray(50, [
     username: 'john',
     role: 'user',
     projects: 1,
-    avatar: ''
+    avatar: '',
   },
   {
     fullname: 'Maksim Nedo',
@@ -64,7 +64,7 @@ export default repeatArray(50, [
     username: 'maksim',
     role: 'admin',
     projects: 1,
-    avatar: 'https://avatars.githubusercontent.com/u/23530004?v=4'
+    avatar: 'https://avatars.githubusercontent.com/u/23530004?v=4',
   },
   {
     fullname: 'Dmitry Kuzmenko',
@@ -72,7 +72,7 @@ export default repeatArray(50, [
     username: 'dd',
     role: 'user',
     projects: 1,
-    avatar: ''
+    avatar: '',
   },
   {
     fullname: 'Rayan Gosling',
@@ -80,6 +80,6 @@ export default repeatArray(50, [
     username: 'rayan',
     role: 'user',
     projects: 1,
-    avatar: ''
-  }
+    avatar: '',
+  },
 ]) satisfies User[]

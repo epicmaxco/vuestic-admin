@@ -1,23 +1,22 @@
-
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
-import UsersTable from './widgets/UsersTable.vue';
-import EditUserForm from './widgets/EditUserForm.vue';
-import { User } from './types';
+  import { reactive, ref } from 'vue'
+  import UsersTable from './widgets/UsersTable.vue'
+  import EditUserForm from './widgets/EditUserForm.vue'
+  import { User } from './types'
 
-const filters = reactive({
-  isActive: true,
-  searchText: '',
-})
+  const filters = reactive({
+    isActive: true,
+    searchText: '',
+  })
 
-const showEditUserModal = ref(false)
+  const showEditUserModal = ref(false)
 
-const userToEdit = ref<User | null>(null)
+  const userToEdit = ref<User | null>(null)
 
-const editUser = (user: User) => {
-  userToEdit.value = user
-  showEditUserModal.value = true
-}
+  const editUser = (user: User) => {
+    userToEdit.value = user
+    showEditUserModal.value = true
+  }
 </script>
 
 <template>
@@ -48,16 +47,11 @@ const editUser = (user: User) => {
         <va-button @click="showEditUserModal = true">Add User</va-button>
       </div>
 
-      <UsersTable
-        @edit-user="editUser"
-      />
+      <UsersTable @edit-user="editUser" />
     </va-card-content>
   </va-card>
 
-  <va-modal v-model="showEditUserModal" hide-default-actions #default="{ hide }">
-    <EditUserForm
-      :user="userToEdit"
-      @close="hide"
-    />
+  <va-modal v-slot="{ hide }" v-model="showEditUserModal" hide-default-actions>
+    <EditUserForm :user="userToEdit" @close="hide" />
   </va-modal>
 </template>

@@ -157,7 +157,7 @@ const routes: Array<RouteRecordRaw> = [
             name: 'users',
             path: 'users',
             component: () => import('../pages/users/UsersPage.vue'),
-          }
+          },
         ],
       },
       UIRoute,

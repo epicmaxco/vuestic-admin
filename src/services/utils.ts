@@ -3,5 +3,8 @@ export const sleep = (ms = 0) => {
 }
 
 export const repeatArray = (count: number, array: any[]) => {
-  return Array.from({ length: Math.ceil(count / array.length) }, () => array).flat().sort(() => Math.random() - 0.5).slice(0, count)
+  return Array.from({ length: Math.ceil(count / array.length) }, () => array)
+    .flat()
+    .sort(() => Math.random() - 0.5)
+    .slice(0, count)
 }

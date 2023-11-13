@@ -1,21 +1,18 @@
-import { defineStore } from "pinia";
-import { User, UserRole } from "../pages/users/types";
-import { repeatArray, sleep } from "../services/utils";
-import users from "./mock/users";
-import { computed, ref, watch } from "vue";
+import { defineStore } from 'pinia'
+import { User } from '../pages/users/types'
+import { sleep } from '../services/utils'
+import users from './mock/users'
+import { computed, ref, watch } from 'vue'
 
-const apiFetchUsers = async (pagination: {
-  page: number,
-  perPage: number,
-}) => {
-  await sleep(1000);
+const apiFetchUsers = async (pagination: { page: number; perPage: number }) => {
+  await sleep(1000)
   return {
     data: users.slice((pagination.page - 1) * pagination.perPage, pagination.page * pagination.perPage),
     pagination: {
       page: pagination.page,
       perPage: pagination.perPage,
       total: users.length,
-    }
+    },
   }
 }
 

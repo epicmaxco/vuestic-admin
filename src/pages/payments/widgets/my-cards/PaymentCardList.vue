@@ -65,5 +65,4 @@
       init({ message: 'Payment card has been deleted', color: 'success' })
     })
   }
-  const edit = (card: PaymentCard) => console.log('edit')
 </script>
