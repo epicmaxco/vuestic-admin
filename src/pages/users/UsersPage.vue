@@ -1,21 +1,38 @@
 <script setup lang="ts">
   import { reactive, ref } from 'vue'
   import UsersTable from './widgets/UsersTable.vue'
+  import InactiveUsersTable from './widgets/InactiveUsersTable.vue'
   import EditUserForm from './widgets/EditUserForm.vue'
   import { User } from './types'
+  import { useUsersStore } from '../../stores/users'
 
   const filters = reactive({
     isActive: true,
     searchText: '',
   })
 
-  const showEditUserModal = ref(false)
+  const doShowEditUserModal = ref(false)
 
   const userToEdit = ref<User | null>(null)
 
-  const editUser = (user: User) => {
+  const showEditUserModal = (user: User) => {
     userToEdit.value = user
-    showEditUserModal.value = true
+    doShowEditUserModal.value = true
+  }
+
+  const showAddUserModal = () => {
+    userToEdit.value = null
+    doShowEditUserModal.value = true
+  }
+
+  const users = useUsersStore()
+
+  const onUserSaved = (user: User) => {
+    if (userToEdit.value) {
+      users.updateUser(user)
+    } else {
+      users.addNewUser(user)
+    }
   }
 </script>
 
@@ -44,14 +61,19 @@
           </va-input>
         </div>
         <va-spacer />
-        <va-button @click="showEditUserModal = true">Add User</va-button>
+        <va-button @click="showAddUserModal">Add User</va-button>
       </div>
 
-      <UsersTable @edit-user="editUser" />
+      <UsersTable
+        v-if="filters.isActive"
+        @edit-user="showEditUserModal"
+        @delete-user="(user) => users.removeUser(user)"
+      />
+      <InactiveUsersTable v-else />
     </va-card-content>
   </va-card>
 
-  <va-modal v-slot="{ hide }" v-model="showEditUserModal" hide-default-actions>
-    <EditUserForm :user="userToEdit" @close="hide" />
+  <va-modal v-slot="{ hide }" v-model="doShowEditUserModal" hide-default-actions>
+    <EditUserForm :user="userToEdit" @close="hide" @save="onUserSaved" />
   </va-modal>
 </template>

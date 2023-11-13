@@ -12,6 +12,7 @@
   })
 
   const newUser = ref<User>({
+    id: -1,
     avatar: '',
     fullname: '',
     role: 'user',
@@ -57,6 +58,7 @@
     if (form.validate()) {
       emit('close')
     }
+    emit('save', newUser.value)
   }
 
   const roleSelectOptions: { text: Capitalize<UserRole>; value: UserRole }[] = [
@@ -87,7 +89,6 @@
         @click.stop="avatar = undefined"
       />
     </va-file-upload>
-    <va-input class="hidden-input" :rules="[required]" :model-value="newUser.avatar === 'none' ? '' : newUser.avatar" />
     <div class="self-stretch flex-col justify-start items-start gap-4 flex">
       <va-input v-model="newUser.fullname" label="Full name" class="w-full" :rules="[required]" name="fullname" />
 
@@ -102,6 +103,7 @@
       />
 
       <va-input v-model="newUser.username" label="Username" class="w-full" :rules="[required]" name="username" />
+      <va-input v-model="newUser.email" label="Email" class="w-full" :rules="[required]" name="username" />
 
       <va-textarea v-model="newUser.notes" label="Notes" class="w-full" name="notes" />
       <div class="flex gap-2 flex-col-reverse items-stretch justify-end w-full sm:flex-row sm:items-center">
@@ -111,11 +113,3 @@
     </div>
   </va-form>
 </template>
-
-<style lang="scss" scoped>
-  .hidden-input {
-    &:deep(.va-input-wrapper__container) {
-      display: none;
-    }
-  }
-</style>

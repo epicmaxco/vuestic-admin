@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import { defineVaDataTableColumns } from 'vuestic-ui'
   import { User, UserRole } from '../types'
-  import { useUsersStore } from '../../../stores/users'
   import UserAvatar from './UserAvatar.vue'
+  import { useInactiveUsersStore } from '../../../stores/inactive-users'
 
   const columns = defineVaDataTableColumns([
     { label: 'Full Name', key: 'fullname', sortable: true },
@@ -10,10 +10,10 @@
     { label: 'Username', key: 'username', sortable: true },
     { label: 'Role', key: 'role', sortable: true },
     { label: 'Projects', key: 'projects', sortable: true },
-    { label: ' ', key: 'actions', align: 'right' },
+    { label: 'Resign date', key: 'resignedAt', sortable: true },
   ])
 
-  const users = useUsersStore()
+  const users = useInactiveUsersStore()
 
   const roleColors: Record<UserRole, string> = {
     admin: 'danger',
@@ -23,7 +23,6 @@
 
   defineEmits<{
     (event: 'edit-user', user: User): void
-    (event: 'delete-user', user: User): void
   }>()
 
   users.load()
@@ -40,19 +39,6 @@
 
     <template #cell(role)="{ rowData }">
       <va-badge :text="rowData.role" :color="roleColors[rowData.role as UserRole]" />
-    </template>
-
-    <template #cell(actions)="{ rowData }">
-      <div class="flex gap-2 justify-end">
-        <va-button preset="primary" icon="edit" size="small" @click="$emit('edit-user', rowData as User)" />
-        <va-button
-          preset="primary"
-          icon="delete"
-          size="small"
-          color="danger"
-          @click="$emit('delete-user', rowData as User)"
-        />
-      </div>
     </template>
 
     <template #bodyAppend>

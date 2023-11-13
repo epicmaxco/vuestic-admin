@@ -1,31 +1,38 @@
 import { defineStore } from 'pinia'
 import { User } from '../pages/users/types'
 import { sleep } from '../services/utils'
-import users from './mock/users'
+import { activeUsers } from './mock/users'
 import { computed, ref, watch } from 'vue'
 
 const apiFetchUsers = async (pagination: { page: number; perPage: number }) => {
   await sleep(1000)
   return {
-    data: users.slice((pagination.page - 1) * pagination.perPage, pagination.page * pagination.perPage),
+    data: activeUsers.slice((pagination.page - 1) * pagination.perPage, pagination.page * pagination.perPage),
     pagination: {
       page: pagination.page,
       perPage: pagination.perPage,
-      total: users.length,
+      total: activeUsers.length,
     },
   }
 }
 
 const apiAddUser = async (user: User) => {
   await sleep(1000)
-  users.unshift(user)
-  return users
+  activeUsers.unshift(user)
+  return activeUsers
+}
+
+const apiUpdateUser = async (user: User) => {
+  await sleep(1000)
+  const index = activeUsers.findIndex((u) => u.id === user.id)
+  activeUsers[index] = user
+  return activeUsers
 }
 
 const apiRemoveUser = async (user: User) => {
   await sleep(1000)
-  users.splice(users.indexOf(user), 1)
-  return users
+  activeUsers.splice(activeUsers.indexOf(user), 1)
+  return activeUsers
 }
 
 export const useUsersStore = defineStore('users', () => {
@@ -51,8 +58,6 @@ export const useUsersStore = defineStore('users', () => {
     load()
   })
 
-  load()
-
   const addNewUser = async (user: User) => {
     loading.value = true
     users.value = await apiAddUser(user)
@@ -65,6 +70,12 @@ export const useUsersStore = defineStore('users', () => {
     loading.value = false
   }
 
+  const updateUser = async (user: User) => {
+    loading.value = true
+    users.value = await apiUpdateUser(user)
+    loading.value = false
+  }
+
   return {
     users,
     loading,
@@ -72,6 +83,7 @@ export const useUsersStore = defineStore('users', () => {
     totalPages,
     load,
     addNewUser,
+    updateUser,
     removeUser,
   }
 })
