@@ -41,17 +41,21 @@ import { ref } from "vue"
 import { useGlobalStore } from "../../../stores/global-store"
 
 import { buttonStyles } from '../styles'
+import { useToast } from "vuestic-ui/web-components"
 
 const store = useGlobalStore()
+
+const { init } = useToast()
 
 const emits = defineEmits(['cancel'])
 
 const Name = ref<string>(store.userName)
 
 const submit = () => {
-  if(!Name.value) { return emits('cancel') }
+  if(!Name.value || Name.value === store.userName) { return emits('cancel') }
   
   store.changeUserName(Name.value)
+  init({ message: "You've successfully changed your name", color: 'success' })
   emits('cancel')
 }
 </script>

@@ -5,7 +5,7 @@
       <PreferencesHeader />
     </div>
     <div class="space-y-4 md:space-y-6">
-      <Settings @OpenNameModal="isEditNameModalOpen = true" @OpenResetPasswordModal="isResetPasswordModalOpen = true"/>
+      <Settings @openNameModal="isEditNameModalOpen = true" @openResetPasswordModal="isResetPasswordModalOpen = true"/>
     </div>
   </div>
   <EditNameModal v-if="isEditNameModalOpen" @cancel="isEditNameModalOpen = false" />
