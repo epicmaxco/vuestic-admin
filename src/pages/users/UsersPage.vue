@@ -41,8 +41,6 @@
 
   <va-card>
     <va-card-content>
-      <h2 class="va-h4 mb-2">Users</h2>
-
       <div class="flex flex-col md:flex-row gap-2 mb-2">
         <div class="flex flex-col md:flex-row gap-2 justify-start">
           <va-button-toggle

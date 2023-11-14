@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { User } from '../pages/users/types'
 import { sleep } from '../services/utils'
-import { activeUsers } from './mock/users'
+import { activeUsers } from '../data/pages/users'
 import { computed, ref, watch } from 'vue'
 
 const apiFetchUsers = async (pagination: { page: number; perPage: number }) => {

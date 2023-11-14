@@ -2,7 +2,7 @@ import { sleep } from './../services/utils'
 import { defineStore } from 'pinia'
 import { computed, ref, watch } from 'vue'
 import { User } from '../pages/users/types'
-import { inactiveUsers } from './mock/users'
+import { inactiveUsers } from '../data/pages/users'
 
 const apiFetchUsers = async (pagination: { page: number; perPage: number }) => {
   await sleep(1000)
