@@ -9,7 +9,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useGlobalStore } from '../../../stores/global-store'
+import { useUserStore } from '../../../stores/user-store'
 
-const store = useGlobalStore()
+const store = useUserStore()
 </script>

@@ -38,12 +38,12 @@
 </template>
 <script setup lang="ts">
 import { ref } from "vue"
-import { useGlobalStore } from "../../../stores/global-store"
+import { useUserStore } from "../../../stores/user-store"
 
 import { buttonStyles } from '../styles'
 import { useToast } from "vuestic-ui/web-components"
 
-const store = useGlobalStore()
+const store = useUserStore()
 
 const { init } = useToast()
 

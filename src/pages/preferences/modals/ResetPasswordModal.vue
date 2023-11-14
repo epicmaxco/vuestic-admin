@@ -81,39 +81,13 @@
         </va-button>
       </div>
     </va-form>
-    <template #footer>
-      <div class="flex flex-1 flex-col p-4 space-y-4 bg-backgroundElement text-[13px] leading-4 -mx-4 -mb-4">
-        <div class="flex flex-col md:flex-row md:space-x-1 space-y-4 md:space-y-0">
-          <p class="text-textPrimary">
-            Can’t remember your current password?
-          </p>
-          <div class="text-primary font-semibold">
-            Reset Via Email
-          </div>
-        </div>
-        <div class="flex items-center space-x-1 text-secondary">
-          <div>
-            <va-icon
-              size="16px" 
-              name="mso-info"
-            />
-          </div>
-          <p>
-            You will be asked to log again.
-          </p>
-        </div>
-      </div>
-    </template>
   </va-modal>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useForm, useToast } from 'vuestic-ui'
-import { useGlobalStore } from "../../../stores/global-store"
 
 import { buttonStyles } from '../styles'
-
-const store = useGlobalStore()
 
 const oldPassowrd = ref<string>()
 const newPassword = ref<string>()
@@ -126,26 +100,22 @@ const emits = defineEmits(['cancel'])
 
 const submit = () => {
   if (validate()) {
-    store.changePassword(newPassword.value!)
     init({ message: "You've successfully changed your password", color: 'success' })
     emits('cancel')
   }
 }
 
-const oldPasswordRules = [
-  (v: string) => !!v || 'Old password field is required',
-  (v: string) => v === store.password || 'Incorrect password'
-]
+const oldPasswordRules = [(v: string) => !!v || 'Old password field is required']
 
 const newPasswordRules = [
   (v: string) => !!v || 'New password field is required',
-  (v: string) => v.length >= 8 || 'Must be at least 8 characters long',
+  (v: string) => v?.length >= 8 || 'Must be at least 8 characters long',
   (v: string) => new Set(v).size >= 6 || 'Must contain at least 6 unique characters',
   (v: string) => v !== oldPassowrd.value || 'New password cannot be the same',
 ]
 
 const repeatNewPasswordRules = [
   (v: string) => !!v || 'Repeat new password field is required',
-  (v: string) => v === newPassword.value || `Confirm password does not match '${newPassword.value}'`,
+  (v: string) => v === newPassword.value || 'Confirm password does not match new password',
 ]
 </script>
