@@ -3,8 +3,7 @@
     <va-dropdown v-model="isShown" class="profile-dropdown" stick-to-edges :offset="[13, 0]">
       <template #anchor>
         <span class="profile-dropdown__anchor">
-          <slot />
-          <va-icon class="px-2" :name="isShown ? 'angle_up' : 'angle_down'" :color="colors.primary" />
+          <va-avatar size="small" />
         </span>
       </template>
       <va-dropdown-content class="profile-dropdown__content">

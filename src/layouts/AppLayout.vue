@@ -1,29 +1,35 @@
 <template>
-  <div class="app-layout">
-    <navbar />
-    <div class="app-layout__content">
-      <div class="app-layout__sidebar-wrapper" :class="{ minimized: isSidebarMinimized }">
-        <div v-if="isFullScreenSidebar" class="flex justify-end">
-          <va-button class="px-4 py-4" icon="md_close" preset="plain" color="dark" @click="onCloseSidebarButtonClick" />
-        </div>
-        <sidebar
-          :width="sidebarWidth"
-          :minimized="isSidebarMinimized"
-          :minimized-width="sidebarMinimizedWidth"
-          :animated="!isMobile"
-        />
-      </div>
-      <div class="app-layout__page">
-        <div class="p-4">
+  <VaLayout
+    :top="{ fixed: true, order: 2 }"
+    :left="{ fixed: true, absolute: breakpoints.smDown, order: 1, overlay: breakpoints.smDown && isSidebarVisible }"
+    @left-overlay-click="isSidebarVisible = false"
+  >
+    <template #top>
+      <navbar />
+    </template>
+
+    <template #left>
+      <sidebar
+        :width="sidebarWidth"
+        :minimized="isSidebarMinimized"
+        :minimized-width="sidebarMinimizedWidth"
+        :animated="!isMobile"
+      />
+    </template>
+
+    <template #content>
+      <Breadcrumbs class="p-4" />
+      <main class="p-4">
+        <article>
           <router-view />
-        </div>
-      </div>
-    </div>
-  </div>
+        </article>
+      </main>
+    </template>
+  </VaLayout>
 </template>
 
 <script setup>
-  import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+  import { onBeforeUnmount, onMounted, ref } from 'vue'
   import { storeToRefs } from 'pinia'
   import { onBeforeRouteUpdate } from 'vue-router'
 
@@ -31,6 +37,8 @@
 
   import Navbar from '../components/navbar/Navbar.vue'
   import Sidebar from '../components/sidebar/Sidebar.vue'
+  import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs.vue'
+  import { useBreakpoint } from 'vuestic-ui'
 
   const GlobalStore = useGlobalStore()
 
@@ -72,59 +80,5 @@
 
   onResize()
 
-  const isFullScreenSidebar = computed(() => isTablet.value && !isSidebarMinimized.value)
-
-  const onCloseSidebarButtonClick = () => {
-    isSidebarMinimized.value = true
-  }
+  const breakpoints = useBreakpoint()
 </script>
-
-<style lang="scss">
-  $mobileBreakPointPX: 640px;
-  $tabletBreakPointPX: 768px;
-
-  .app-layout {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    &__navbar {
-      min-height: 4rem;
-    }
-
-    &__content {
-      display: flex;
-      height: calc(100vh - 4rem);
-      flex: 1;
-
-      @media screen and (max-width: $tabletBreakPointPX) {
-        height: calc(100vh - 6.5rem);
-      }
-
-      .app-layout__sidebar-wrapper {
-        position: relative;
-        height: 100%;
-        background: #ffffff;
-
-        @media screen and (max-width: $tabletBreakPointPX) {
-          &:not(.minimized) {
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            top: 0;
-            z-index: 999;
-          }
-
-          .va-sidebar:not(.va-sidebar--minimized) {
-            .va-sidebar__menu {
-              padding: 0;
-            }
-          }
-        }
-      }
-    }
-    &__page {
-      flex-grow: 2;
-      overflow-y: scroll;
-    }
-  }
-</style>
