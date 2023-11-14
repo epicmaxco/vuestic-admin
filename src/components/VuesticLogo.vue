@@ -1,5 +1,5 @@
 <template>
-  <svg class="va-icon-vuestic" :height="height" viewBox="0 0 478 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg alt="Vuestic Admin" :height="height" viewBox="0 0 478 57" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M18.2761 56.1386L0 13.3794H10.5519L18.8968 33.3107L27.2417 13.3794H37.7936L19.5175 56.1386H18.2761ZM62.4836 40.8281V13.3794H72.5527V39.3108C72.5527 44.8281 75.1734 46.7592 78.6907 46.7592C82.5528 46.7592 84.9666 44.8281 84.9666 39.3108V13.3794H95.1047V40.8281C95.1047 50.6213 87.7942 56.1386 78.6907 56.1386C69.2423 56.1386 62.4836 50.3454 62.4836 40.8281ZM122.415 54.7593V13.3794H149.795V22.3451H132.553V29.7935H148.485V38.6211H132.553V46.0695H150.554V54.7593H122.415ZM175.933 42.6212H185.795C185.795 45.035 187.727 46.9661 190.071 46.9661C192.623 46.9661 194.209 45.5178 194.209 43.3798C194.209 40.2763 190.14 39.3798 186.761 38.2074C179.795 35.7246 175.933 32.4831 175.933 25.3796C175.933 18.0692 182.209 12.0001 190.002 12.0001C199.175 12.0001 203.52 17.8623 204.072 25.5175H194.554C194.554 23.1727 193.106 21.2416 190.278 21.2416C188.071 21.2416 185.933 22.552 185.933 25.2417C185.933 28.3452 189.727 28.8969 193.244 29.9314C200.623 32.1383 204.072 36.2763 204.072 42.7591C204.072 50.0696 197.865 56.1386 190.071 56.1386C181.037 56.1386 175.933 50.0696 175.933 42.6212ZM236.442 54.7593V22.3451H227.2V13.3794H256.028V22.3451H246.649V54.7593H236.442ZM281.408 54.7593V13.3794H291.546V54.7593H281.408ZM317.502 34.0694C317.502 21.7244 326.812 12.0001 339.916 12.0001C347.778 12.0001 353.226 14.9657 357.64 19.5864L350.675 26.2072C347.778 23.3796 344.054 21.5865 339.916 21.5865C332.536 21.5865 327.778 27.1038 327.778 34.0694C327.778 41.035 332.536 46.5523 339.916 46.5523C344.054 46.5523 347.778 44.7592 350.675 41.9315L357.433 48.5523C353.295 52.8972 347.571 56.1386 339.916 56.1386C326.812 56.1386 317.502 46.4143 317.502 34.0694Z"
       fill="url(#paint0_linear)"
@@ -33,26 +33,24 @@
 <script setup lang="ts">
   import { computed } from 'vue'
   import { useColors } from 'vuestic-ui'
-  const { getColor, shiftHSLAColor } = useColors()
+  const { getColor } = useColors()
 
   const props = withDefaults(
     defineProps<{
-      height?: number | string
-      color?: string
-      gradient?: boolean
+      height?: number
+      start?: string
+      end?: string
     }>(),
     {
-      height: 16,
-      color: 'primary',
-      gradient: true,
+      height: 14,
+      start: 'primary',
     },
   )
 
   const colorsComputed = computed(() => {
-    const color = getColor(props.color, 'primary')
-
-    if (!props.gradient) return { start: color, end: color }
-
-    return { start: color, end: shiftHSLAColor(color, { l: -20 }) }
+    return {
+      start: getColor(props.start),
+      end: getColor(props.end || props.start),
+    }
   })
 </script>
