@@ -13,7 +13,7 @@
 <script setup lang="ts">
   import { ref, reactive } from 'vue'
   import BillingAddressEdit from './BillingAddressEdit.vue'
-  import { BillingAddress, PaymentSystemType, PaymentCard } from '../../types'
+  import { BillingAddress } from '../../types'
   import { useToast } from 'vuestic-ui'
   import { useBillingAddressesStore } from '../../../../stores/billing-addresses'
 

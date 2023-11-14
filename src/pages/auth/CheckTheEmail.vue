@@ -12,7 +12,4 @@
   </div>
 </template>
 
-<script setup lang="ts">
-  import { ref } from 'vue'
-  const email = ref('')
-</script>
+<script setup lang="ts"></script>

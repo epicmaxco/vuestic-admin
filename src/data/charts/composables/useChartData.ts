@@ -1,4 +1,4 @@
-import { computed, ComputedRef } from '@vue/reactivity'
+import { computed, ComputedRef } from 'vue'
 import { useChartColors } from './useChartColors'
 import { TChartData } from '../../types'
 

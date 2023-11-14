@@ -1,4 +1,4 @@
-import { Directive, DirectiveBinding } from '@vue/runtime-core'
+import { Directive, DirectiveBinding } from 'vue'
 
 const directive: Directive = {
   mounted: (el: HTMLElement, binding: DirectiveBinding) => {

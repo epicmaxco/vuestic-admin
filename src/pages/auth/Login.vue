@@ -33,7 +33,7 @@
 
     <div class="auth-layout__options flex flex-col sm:flex-row items-start sm:items-center justify-between">
       <va-checkbox v-model="formData.keepLoggedIn" class="mb-2 sm:mb-0" label="Keep me signed in on this device" />
-      <router-link class="mt-2 sm:mt-0 sm:ml-1 va-link" :to="{ name: 'recover-password' }">
+      <router-link class="mt-2 sm:mt-0 sm:ml-1 font-semibold text-primary" :to="{ name: 'recover-password' }">
         Forgot password?
       </router-link>
     </div>

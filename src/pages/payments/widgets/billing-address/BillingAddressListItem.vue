@@ -21,9 +21,8 @@
 </template>
 
 <script setup lang="ts">
-  import { defineProps, computed, defineEmits } from 'vue'
+  import { computed } from 'vue'
   import { BillingAddress } from '../../types'
-  import PaymentSystem from '../../payment-system/PaymentSystem.vue'
 
   const emits = defineEmits(['edit', 'remove'])
 

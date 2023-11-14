@@ -1,38 +1,38 @@
 <template>
   <va-form ref="form" @submit.prevent="submit">
     <va-input
-      v-model="billingAddress.name"
+      v-model="localBillingAddress.name"
       class="mb-4"
       label="Name"
       :rules="[(v) => !!v || 'Name field is required']"
     />
-    <va-checkbox v-model="billingAddress.isPrimary" label="Primary Address" class="mb-4" />
+    <va-checkbox v-model="localBillingAddress.isPrimary" label="Primary Address" class="mb-4" />
     <va-input
-      v-model="billingAddress.street"
+      v-model="localBillingAddress.street"
       class="mb-4"
       label="Street"
       :rules="[(v) => !!v || 'Street field is required']"
     />
     <va-input
-      v-model="billingAddress.city"
+      v-model="localBillingAddress.city"
       class="mb-4"
       label="City"
       :rules="[(v) => !!v || 'City field is required']"
     />
     <va-input
-      v-model="billingAddress.state"
+      v-model="localBillingAddress.state"
       class="mb-4"
       label="State"
       :rules="[(v) => !!v || 'State field is required']"
     />
     <va-input
-      v-model="billingAddress.postalCode"
+      v-model="localBillingAddress.postalCode"
       class="mb-4"
       label="Postal Code"
       :rules="[(v) => !!v || 'Postal Code field is required']"
     />
     <va-input
-      v-model="billingAddress.country"
+      v-model="localBillingAddress.country"
       class="mb-4"
       label="Country"
       :rules="[(v) => !!v || 'Country field is required']"
@@ -47,7 +47,7 @@
 <script setup lang="ts">
   import { useForm } from 'vuestic-ui'
   import { BillingAddress } from '../../types'
-  import { defineEmits, watch, ref } from 'vue'
+  import { watch, ref } from 'vue'
 
   const { validate } = useForm('form')
   const emits = defineEmits(['save', 'cancel'])
@@ -57,19 +57,19 @@
     submitText: string
   }>()
 
-  const billingAddress = ref<BillingAddress>()
+  const localBillingAddress = ref<BillingAddress>({ ...props.billingAddress })
 
   watch(
     () => props.billingAddress,
     (value) => {
-      billingAddress.value = { ...value }
+      localBillingAddress.value = { ...value }
     },
-    { deep: true, immediate: true },
+    { deep: true },
   )
 
   const submit = () => {
     if (validate()) {
-      emits('save', billingAddress.value)
+      emits('save', localBillingAddress.value)
     }
   }
 </script>
