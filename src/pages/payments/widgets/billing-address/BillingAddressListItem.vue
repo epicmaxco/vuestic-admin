@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-  import { defineProps, computed, defineEmits } from 'vue'
+  import { computed, defineEmits } from 'vue'
   import { BillingAddress } from '../../types'
 
   const emits = defineEmits(['edit', 'remove'])
