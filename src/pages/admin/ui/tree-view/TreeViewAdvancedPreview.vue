@@ -6,9 +6,9 @@
     </div>
 
     <va-tree-view ref="treeView" v-model:expanded="expanded" :nodes="nodes">
-      <template #icon-toggle="{ expanded }">
+      <template #icon-toggle="node">
         <div class="tree-view-advanced-preview__icon-square">
-          <va-icon color="backgroundPrimary" :name="expanded ? 'remove' : 'add'" />
+          <va-icon color="backgroundPrimary" :name="node.expanded ? 'remove' : 'add'" />
         </div>
       </template>
     </va-tree-view>

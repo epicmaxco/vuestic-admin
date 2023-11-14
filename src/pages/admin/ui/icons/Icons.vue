@@ -13,7 +13,7 @@
 
     return Object.values(sets)
       .reverse()
-      .map((module) => {
+      .map((module: any) => {
         addFilteredListsTo(module.default)
         return module.default
       })

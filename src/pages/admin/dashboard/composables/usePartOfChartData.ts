@@ -1,4 +1,4 @@
-import { computed, ref, ComputedRef } from '@vue/reactivity'
+import { computed, ref, ComputedRef } from 'vue'
 import { TChartData } from '../../../../data/types'
 
 export function usePartOfChartData<T extends TChartData>(data: ComputedRef<T>) {
