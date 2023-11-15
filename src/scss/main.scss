@@ -36,8 +36,12 @@ pre {
 }
 
 .page-title {
-  @apply text-3xl md:text-5xl font-bold leading-9 mb-6;
+  @apply text-[32px] md:text-5xl font-bold leading-9 md:leading-[56px];
 }
 .h5 {
   @apply font-bold leading-tight;
+}
+
+.pricing-plan-card-title {
+  @apply text-[28px] md:text-[32px] leading-10 font-bold;
 }

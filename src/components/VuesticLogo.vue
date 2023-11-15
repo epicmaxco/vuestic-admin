@@ -44,6 +44,7 @@
     {
       height: 14,
       start: 'primary',
+      end: undefined,
     },
   )
 
