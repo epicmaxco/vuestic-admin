@@ -221,6 +221,10 @@ export default {
           name: 'payments',
           displayName: 'menu.payments',
         },
+        {
+          name: 'pricing-plans',
+          displayName: 'menu.pricing-plans',
+        },
       ],
     },
   ] as INavigationRoute[],

@@ -1,6 +1,6 @@
 <template>
   <div class="text-textPrimary">
-    <h1 class="text-[32px] md:text-5xl leading-[110%] md:leading-[56px] font-bold">
+    <h1 class="page-title">
       Choose your plan
     </h1>
     <div class="py-4 text-lg leading-[26px]">
@@ -8,38 +8,29 @@
     </div>
     <div class="flex flex-col p-4 bg-backgroundSecondary">
       <div class="flex justify-center">
-        <div class="space-x-[1px] p-[2px] border rounded">
-          <va-button 
-            v-for="option in ['Monthly', 'Annual']"
-            class="w-[85.5px]"
-            color="textPrimary"
-            preset="plain"
-            :pressedOpacity="0.85"
-            :hoverOpacity="0.85"
-            :style="{ ...durationButtonStyles, ...( planDuration === option && { '--va-0-background-color': '#ECF0F1' } ) }"
-            @click="planDuration = option"
-          >
-            {{ option }}
-          </va-button>
-        </div>
+        <va-button-select v-model="selectedDuration" :options="['Monthly', 'Annual']" />
       </div>
       <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-x-6 md:space-y-0 mt-6">
         <va-card 
           v-for="plan in pricingPlans"
           class="flex w-[326px] md:w-[349px] h-fit p-6 rounded-[13px]"
-          :class="plan.class"
+          :class="{ 
+            'md:!py-10 !bg-backgroundCardSecondary' : plan.model === 'Advanced',
+            '!bg-backgroundCardPrimary' : plan.model !== 'Advanced',
+            'ring-2 ring-primary ring-offset-2' : plan.model === selectedPlan
+          }"
         >
           <div 
             class="space-y-8 md:space-y-10"
             :class="{ '!space-y-10' : plan.model === 'Advanced' }"
           >
             <div class="space-y-4 text-center">
-              <h2 class="text-[28px] md:text-[32px] leading-10 font-bold">
+              <h2 class="pricing-plan-card-title">
                 {{ plan.title }}
               </h2>
               <va-badge 
-                v-for="b in plan.badges"
-                :text="b"
+                v-for="badge in plan.badges"
+                :text="badge"
                 color="primary"
                 :style="badgeStyles"
               />
@@ -67,6 +58,7 @@
             </div>
             <div class="flex justify-center">
               <va-button 
+                :disabled="plan.model === selectedPlan"
                 :style="selectButtonStyles"
                 @click="selectedPlan = plan.model"
               >
@@ -82,10 +74,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-import { badgeStyles, durationButtonStyles, selectButtonStyles } from './styles'
+import { badgeStyles, selectButtonStyles } from './styles'
 
 import { pricingPlans  } from './options'
 
-const planDuration = ref<string>('Annual')
+import VaButtonSelect from '../../components/va-button-select/VaButtonSelect.vue'
+
+const selectedDuration = ref<string>('Annual')
 const selectedPlan = ref<string>()
 </script>

@@ -5,7 +5,6 @@ export type PricingPlans = {
   description: string
   price: number
   features: Feature[]
-  class?: string
 }
 
 type Feature = {
@@ -30,7 +29,6 @@ export const pricingPlans: PricingPlans[] = [
     description: 'Optimal for 10+ team size and new startup',
     price: 39,
     features: features.map((d, i) => ({ description: d, isAvailable: i < 3 })),
-    class: '!bg-[#F7F9F9]',
   },
   {
     title: 'Advanced',
@@ -39,7 +37,6 @@ export const pricingPlans: PricingPlans[] = [
     price: 339,
     features: features.map((d, i) => ({ description: d, isAvailable: i < 5 })),
     badges: ['Popular choice'],
-    class: 'md:!py-10 !bg-[#ECFDE6]'
   },
   {
     title: 'Enterprise',
@@ -47,6 +44,5 @@ export const pricingPlans: PricingPlans[] = [
     description: 'Optimal for 1000+ team and enterpise',
     price: 999,
     features: features.map(d => ({ description: d, isAvailable: true })),
-    class: '!bg-[#F7F9F9]',
   }
 ]
