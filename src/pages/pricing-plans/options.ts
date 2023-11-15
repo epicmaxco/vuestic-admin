@@ -43,6 +43,6 @@ export const pricingPlans: PricingPlans[] = [
     model: 'Enterprise',
     description: 'Optimal for 1000+ team and enterpise',
     price: 999,
-    features: features.map(d => ({ description: d, isAvailable: true })),
-  }
+    features: features.map((d) => ({ description: d, isAvailable: true })),
+  },
 ]

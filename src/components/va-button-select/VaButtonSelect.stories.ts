@@ -8,7 +8,7 @@ export default {
 
 export const Default = () => ({
   components: { VaButtonSelect },
-  data: () => ({ value: 'Annual', options: ['Monthly', 'Annual']}),
+  data: () => ({ value: 'Annual', options: ['Monthly', 'Annual'] }),
   template: `
     <VaButtonSelect v-model="value" :options="options" />
   `,

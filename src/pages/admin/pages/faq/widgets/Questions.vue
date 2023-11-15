@@ -1,9 +1,7 @@
 <template>
   <va-card class="mb-4">
-    <va-card-title class="popular-questions__title">
-      <h2 class="text-xl normal-case">Popular questions</h2>
-    </va-card-title>
     <va-card-content>
+      <h5 class="va-h5">Popular questions</h5>
       <va-accordion v-model="accordionState" class="mb-1" :style="{ '--va-collapse-padding': '1rem 0' }">
         <va-collapse header="How do I reload a page?">
           <article class="max-w-3xl leading-5">
@@ -38,9 +36,9 @@
               have the right type of smartphone you can use your fingerprint or face recognition to seamlessly log on or
               authorise payments.
             </p>
-            <a href="#" class="va-link font-bold"
+            <a href="#" class="va-link font-semibold"
               >Find out more about Secure Keys
-              <va-icon name="chevron_right" />
+              <va-icon name="chevron_right" :size="18" />
             </a>
           </article>
         </va-collapse>
