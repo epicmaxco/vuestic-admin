@@ -7,3 +7,50 @@
 .va-select {
   width: 100%;
 }
+
+.va-modal {
+  line-height: 20px;
+
+  &__message {
+    margin-bottom: 16px;
+  }
+
+  &__dialog {
+    border-radius: 8px;
+
+    @media (min-width: 640px) {
+      border-radius: 4px;
+    }
+  }
+
+  &__inner {
+    padding: 16px;
+  }
+}
+
+.va-input {
+  &-label {
+    font-size: 9px;
+    line-height: 14px;
+    letter-spacing: 0.4px;
+    min-height: 14px;
+
+    &__required-mark {
+      font-size: 13px;
+    }
+  }
+
+  &-wrapper {
+    &__size-keeper {
+      height: auto;
+    }
+
+    &__label--outer {
+      margin-bottom: 4px;
+    }
+
+    &__field {
+      padding: 8px 12px;
+    }
+  }
+}
