@@ -1,5 +1,5 @@
 <template>
-  <va-form ref="form" @submit.prevent="submit">
+  <va-form ref="passwordForm" @submit.prevent="submit">
     <h1 class="font-semibold text-4xl mb-4">Forgot your password?</h1>
     <p class="text-base mb-4 leading-5">
       If you've forgotten your password, don't worry. Simply enter your email address below, and we'll send you an email
@@ -23,7 +23,7 @@
   import { useRouter } from 'vue-router'
 
   const email = ref('')
-  const form = useForm('form')
+  const form = useForm('passwordForm')
   const router = useRouter()
 
   const submit = () => {

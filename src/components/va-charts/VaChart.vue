@@ -1,4 +1,5 @@
 <template>
+  <!-- @vue-ignore -->
   <component :is="chartComponent" ref="chart" class="va-chart" :chart-options="chartOptions" :chart-data="data" />
 </template>
 

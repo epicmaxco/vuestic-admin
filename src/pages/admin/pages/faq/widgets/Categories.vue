@@ -9,7 +9,7 @@
       <va-card class="col-span-3 md:col-span-1 min-h-[146px]" href="#">
         <va-card-content class="leading-5 text-sm">
           <va-icon class="font-light mb-2" size="2rem" color="primary" :name="`mso-${category.icon}`" />
-          <h3 class="text-primary mb-2 text-primary text-lg leading-7">{{ category.name }}</h3>
+          <h3 class="text-primary mb-2 text-primary text-lg leading-7 font-bold">{{ category.name }}</h3>
           <p>{{ category.intro }}</p>
         </va-card-content>
       </va-card>

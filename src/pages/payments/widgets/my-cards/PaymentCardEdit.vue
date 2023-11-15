@@ -1,21 +1,21 @@
 <template>
   <va-form ref="form" @submit.prevent="submit">
     <va-input
-      v-model="paymentCard.name"
+      v-model="paymentCardLocal.name"
       class="mb-4"
       label="Card Name"
       :rules="[(v) => !!v || 'Card Name field is required']"
     />
-    <va-checkbox v-model="paymentCard.isPrimary" label="Primary Card" class="mb-4" />
+    <va-checkbox v-model="paymentCardLocal.isPrimary" label="Primary Card" class="mb-4" />
     <va-select
-      v-model="paymentCard.paymentSystem"
+      v-model="paymentCardLocal.paymentSystem"
       class="mb-4"
       label="Payment System"
       :options="paymentSystemTypeOptions"
       :rules="[(v) => !!v || 'Payment System field is required']"
     />
     <va-input
-      v-model="paymentCard.cardNumberMasked"
+      v-model="paymentCardLocal.cardNumberMasked"
       class="mb-4"
       label="Card Number"
       :rules="[(v) => !!v || 'Card Number field is required']"
@@ -23,7 +23,7 @@
       placeholder="#### #### #### ####"
     />
     <va-input
-      v-model="paymentCard.expirationDate"
+      v-model="paymentCardLocal.expirationDate"
       class="mb-4"
       label="Expiration Date"
       :mask="{
@@ -46,7 +46,7 @@
 <script setup lang="ts">
   import { useForm } from 'vuestic-ui'
   import { PaymentCard, PaymentSystemType } from '../../types'
-  import { defineEmits, watch, ref } from 'vue'
+  import { watch, ref } from 'vue'
 
   const { validate } = useForm('form')
   const emits = defineEmits(['save', 'cancel'])
@@ -57,19 +57,19 @@
   }>()
 
   const paymentSystemTypeOptions = Object.values(PaymentSystemType)
-  const paymentCard = ref<PaymentCard>()
+  const paymentCardLocal = ref({ ...props.paymentCard })
 
   watch(
     () => props.paymentCard,
     (value) => {
-      paymentCard.value = { ...value }
+      paymentCardLocal.value = { ...value }
     },
-    { deep: true, immediate: true },
+    { deep: true },
   )
 
   const submit = () => {
     if (validate()) {
-      emits('save', paymentCard.value)
+      emits('save', paymentCardLocal.value)
     }
   }
 </script>

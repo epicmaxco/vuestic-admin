@@ -1,4 +1,4 @@
-import { computed, ref } from '@vue/reactivity'
+import { computed, ref } from 'vue'
 import { watch } from 'vue'
 import { useColors, useGlobalConfig } from 'vuestic-ui'
 
