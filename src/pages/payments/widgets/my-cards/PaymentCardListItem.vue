@@ -11,7 +11,7 @@
         <PaymentSystem :type="card.paymentSystem" />
         <div>
           <div class="text-[15px] font-bold mb-2 capitalize">{{ card.paymentSystem }} {{ card.cardNumberMasked }}</div>
-          <div class="text-secondary">Card expires at {{ card.expirationDate }}</div>
+          <div class="text-secondary">Card expires at {{ expirationDateString }}</div>
         </div>
       </div>
     </div>
@@ -34,4 +34,9 @@
   }>()
 
   const card = computed(() => props.card)
+
+  const expirationDateString = computed(() => {
+    const e = props.card.expirationDate
+    return `${e[0]}${e[1]}/${e[2]}${e[3]}`
+  })
 </script>

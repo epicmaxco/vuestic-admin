@@ -36,7 +36,7 @@
 
   const popoverOptions = ref({
     content: 'Click to copy the color to clipboard',
-    placement: 'right',
+    placement: 'right' as const,
   })
 
   const { getColor, getGradientBackground } = useColors()

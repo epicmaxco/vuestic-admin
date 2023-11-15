@@ -11,16 +11,16 @@
 </template>
 
 <script setup lang="ts">
-  import { reactive } from 'vue'
+  import { reactive, ref } from 'vue'
 
-  const expandedNodes = reactive([1, 2])
+  const expandedNodes = ref([1, 2])
   const electronics = reactive([
     { id: 3, label: 'Cellphones' },
     { id: 4, label: 'Camera Body Kits' },
     { id: 5, label: 'External HDDs' },
   ])
 
-  let products = reactive([
+  const products = reactive([
     { id: 6, label: 'Cables' },
     { id: 7, label: 'Monitors' },
     { id: 8, label: 'Keyboards' },

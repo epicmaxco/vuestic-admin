@@ -18,6 +18,8 @@ module.exports = {
         backgroundPrimary: '#f6f6f6',
         backgroundSecondary: '#FFFFFF',
         backgroundElement: '#ECF0F1',
+        backgroundCardPrimary: '#F7F9F9',
+        backgroundCardSecondary: '#ECFDE6',
         backgroundBorder: '#DEE5F2',
         textPrimary: '#262824',
         textInverted: '#FFFFFF',

@@ -3,7 +3,7 @@
     <div>
       <va-card-content>
         <h5 class="va-h5">Got questions?</h5>
-        <p class="text-base mb-4 leading-5">Request a free demo to have all your questions answered by an expert.</p>
+        <p class="text-base leading-5">Request a free demo to have all your questions answered by an expert.</p>
       </va-card-content>
       <va-card-actions align="left">
         <va-button @click="showModal = !showModal">Request a demo</va-button>

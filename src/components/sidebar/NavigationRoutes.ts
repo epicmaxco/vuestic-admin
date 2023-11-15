@@ -222,6 +222,14 @@ export default {
           displayName: 'menu.payments',
         },
         {
+          name: 'preferences',
+          displayName: 'menu.preferences',
+        },
+        {
+          name: 'pricing-plans',
+          displayName: 'menu.pricing-plans',
+        },
+        {
           name: 'users',
           displayName: 'menu.users',
         },
