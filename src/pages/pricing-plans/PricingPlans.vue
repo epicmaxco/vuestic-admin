@@ -29,10 +29,12 @@
               <p class="text-lg leading-[26px] text-secondary">
                 {{ plan.description }}
               </p>
-              <div class="flex space-x-1 justify-center items-end text-lg leading-[26px]">
+              <div class="flex space-x-1 justify-center items-baseline text-lg leading-[26px]">
                 <span>$</span
-                ><span class="text-[32px] md:text-5xl leading-[110%] md:leading-[56px] font-bold">{{ plan.price }}</span
-                ><span>/ mo</span>
+                ><span class="text-[32px] md:text-5xl leading-[110%] md:leading-[56px] font-bold">{{
+                  selectedDuration === 'Annual' ? plan.price : plan.priceMonth
+                }}</span
+                ><span>/ {{ selectedDuration === 'Annual' ? 'year' : 'mo' }}</span>
               </div>
             </div>
             <div class="space-y-6">
@@ -52,7 +54,7 @@
               <va-button
                 :disabled="plan.model === selectedPlan"
                 :style="selectButtonStyles"
-                @click="selectedPlan = plan.model"
+                @click="selectPlan(plan.model)"
               >
                 Select
               </va-button>
@@ -65,6 +67,7 @@
 </template>
 <script setup lang="ts">
   import { ref } from 'vue'
+  import { useToast } from 'vuestic-ui'
 
   import { badgeStyles, selectButtonStyles } from './styles'
 
@@ -72,6 +75,13 @@
 
   import VaButtonSelect from '../../components/va-button-select/VaButtonSelect.vue'
 
+  const { init } = useToast()
+
   const selectedDuration = ref<string>('Annual')
   const selectedPlan = ref<string>()
+
+  const selectPlan = (planModel: string) => {
+    init({ message: 'You successfully changed payment plan!', color: 'success' })
+    selectedPlan.value = planModel
+  }
 </script>
