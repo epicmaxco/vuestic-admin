@@ -1,8 +1,8 @@
 <template>
-  <Bubble :chart-options="chartOptions" :chart-data="props.chartData" />
+  <Bubble :chart-data="props.chartData" :chart-options="chartOptions" />
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { Bubble } from 'vue-chartjs'
   import type { TChartOptions } from 'vue-chartjs/dist/types'
   import { Chart as ChartJS, Title, Tooltip, Legend, PointElement, LinearScale } from 'chart.js'

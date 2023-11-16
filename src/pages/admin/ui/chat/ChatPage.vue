@@ -7,10 +7,11 @@
   </VaCard>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import Chat from './Chat.vue'
   import { useI18n } from 'vue-i18n'
   import { ref } from 'vue'
+
   const { t } = useI18n()
 
   const chatMessages = ref([

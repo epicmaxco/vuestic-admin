@@ -2,6 +2,7 @@ export enum PaymentSystemType {
   Visa = 'visa',
   MasterCard = 'mastercard',
 }
+
 export const paymentSystemTypeOptions = Object.values(PaymentSystemType)
 
 export interface PaymentCard {

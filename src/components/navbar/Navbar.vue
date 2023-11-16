@@ -4,8 +4,8 @@
       <div class="left">
         <VaIconMenuCollapsed
           :class="{ 'x-flip': isSidebarMinimized }"
-          class="va-navbar__item"
           :color="colors.primary"
+          class="va-navbar__item"
           @click="isSidebarMinimized = !isSidebarMinimized"
         />
         <RouterLink to="/">
@@ -15,13 +15,13 @@
     </template>
     <div class="app-navbar-center">
       <span class="hidden md:block mr-2">{{ t('navbar.messageUs') }}</span>
-      <a class="hidden md:block mr-2" href="mailto:hello@epicmax.co" target="_blank" :style="{ color: colors.primary }">
+      <a :style="{ color: colors.primary }" class="hidden md:block mr-2" href="mailto:hello@epicmax.co" target="_blank">
         hello@epicmax.co
       </a>
       <VaButton
-        href="https://github.com/epicmaxco/vuestic-admin"
-        color="#000000"
         class="hidden lg:block"
+        color="#000000"
+        href="https://github.com/epicmaxco/vuestic-admin"
         icon="github"
         target="_blank"
       >
@@ -29,7 +29,7 @@
       </VaButton>
     </div>
     <template #right>
-      <AppNavbarActions class="app-navbar__actions" :user-name="userName" />
+      <AppNavbarActions :user-name="userName" class="app-navbar__actions" />
     </template>
   </VaNavbar>
 </template>

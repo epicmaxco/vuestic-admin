@@ -10,33 +10,33 @@
           </template>
           {{ t('notificationsPage.notifications.successMessage') }}
         </VaAlert>
-        <VaAlert v-model="isCloseableAlertVisible" class="w-full" color="info" closeable>
+        <VaAlert v-model="isCloseableAlertVisible" class="w-full" closeable color="info">
           <template #icon>
-            <VaBadge color="info" :text="t('notificationsPage.notifications.info')" />
+            <VaBadge :text="t('notificationsPage.notifications.info')" color="info" />
           </template>
           {{ t('notificationsPage.notifications.infoMessage') }}
         </VaAlert>
-        <VaAlert v-model="isCloseableAlertVisible" class="w-full" color="warning" closeable>
+        <VaAlert v-model="isCloseableAlertVisible" class="w-full" closeable color="warning">
           <template #icon>
-            <VaBadge color="warning" :text="t('notificationsPage.notifications.warning')" />
+            <VaBadge :text="t('notificationsPage.notifications.warning')" color="warning" />
           </template>
           {{ t('notificationsPage.notifications.warningMessage') }}
         </VaAlert>
-        <VaAlert v-model="isCloseableAlertVisible" class="w-full" color="danger" closeable>
+        <VaAlert v-model="isCloseableAlertVisible" class="w-full" closeable color="danger">
           <template #icon>
-            <VaBadge color="danger" :text="t('notificationsPage.notifications.danger')" />
+            <VaBadge :text="t('notificationsPage.notifications.danger')" color="danger" />
           </template>
           {{ t('notificationsPage.notifications.dangerMessage') }}
         </VaAlert>
-        <VaAlert v-model="isCloseableAlertVisible" class="w-full" color="gray" closeable>
+        <VaAlert v-model="isCloseableAlertVisible" class="w-full" closeable color="gray">
           <template #icon>
-            <VaBadge color="gray" :text="t('notificationsPage.notifications.gray')" />
+            <VaBadge :text="t('notificationsPage.notifications.gray')" color="gray" />
           </template>
           {{ t('notificationsPage.notifications.warningMessage') }}
         </VaAlert>
-        <VaAlert v-model="isCloseableAlertVisible" class="w-full" color="dark" closeable>
+        <VaAlert v-model="isCloseableAlertVisible" class="w-full" closeable color="dark">
           <template #icon>
-            <VaBadge color="dark" :text="t('notificationsPage.notifications.dark')" />
+            <VaBadge :text="t('notificationsPage.notifications.dark')" color="dark" />
           </template>
           {{ t('notificationsPage.notifications.dangerMessage') }}
         </VaAlert>
@@ -55,10 +55,10 @@
           />
           <VaInput
             v-model="toastDuration"
-            type="number"
             :label="t('notificationsPage.toasts.durationLabel')"
             class="control-input"
             required
+            type="number"
           />
         </div>
         <div class="flex items-center col-span-12 md:col-span-6">
@@ -75,7 +75,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { ToastPosition, useToast } from 'vuestic-ui'

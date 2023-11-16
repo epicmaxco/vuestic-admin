@@ -4,7 +4,7 @@
       <VaCardTitle>{{ t('colors.themeColors') }}</VaCardTitle>
       <VaCardContent>
         <div v-for="(themeColor, index) in themeColors" :key="index">
-          <ColorPresentation :color="themeColor.color" :name="themeColor.name" :description="themeColor.description" />
+          <ColorPresentation :color="themeColor.color" :description="themeColor.description" :name="themeColor.name" />
         </div>
       </VaCardContent>
     </VaCard>
@@ -13,7 +13,7 @@
       <VaCardTitle>{{ t('colors.extraColors') }}</VaCardTitle>
       <VaCardContent>
         <div v-for="(extraColor, index) in extraColors" :key="index">
-          <ColorPresentation :color="extraColor.color" :name="extraColor.name" :description="extraColor.description" />
+          <ColorPresentation :color="extraColor.color" :description="extraColor.description" :name="extraColor.name" />
         </div>
       </VaCardContent>
     </VaCard>
@@ -24,9 +24,9 @@
         <div v-for="(buttonGradient, index) in buttonGradients" :key="index">
           <ColorPresentation
             :color="buttonGradient.color"
-            :variant="['gradient']"
-            :name="buttonGradient.name"
             :description="buttonGradient.description"
+            :name="buttonGradient.name"
+            :variant="['gradient']"
           />
         </div>
       </VaCardContent>
@@ -41,9 +41,9 @@
         <div v-for="(buttonGradient, index) in buttonGradients" :key="index">
           <ColorPresentation
             :color="buttonGradient.color"
-            :variant="['gradient', 'hovered']"
-            :name="buttonGradient.name"
             :description="buttonGradient.description"
+            :name="buttonGradient.name"
+            :variant="['gradient', 'hovered']"
           />
         </div>
       </VaCardContent>
@@ -58,9 +58,9 @@
         <div v-for="(buttonGradient, index) in buttonGradients" :key="index">
           <ColorPresentation
             :color="buttonGradient.color"
-            :variant="['gradient', 'pressed']"
-            :name="buttonGradient.name"
             :description="buttonGradient.description"
+            :name="buttonGradient.name"
+            :variant="['gradient', 'pressed']"
           />
         </div>
       </VaCardContent>
@@ -68,7 +68,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { useI18n } from 'vue-i18n'
   import ColorPresentation from './color-presentation/ColorPresentation.vue'
   import { themeColors, extraColors, buttonGradients } from './color-presentation/colorsData'

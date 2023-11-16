@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import HorizontalBars from './Widgets/HorizontalBars.vue'
   import CircleBars from './Widgets/CircleBars.vue'
   import BarsState from './Widgets/BarsState.vue'

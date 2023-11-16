@@ -8,7 +8,7 @@
         <VaProgressBar :model-value="value2">66%</VaProgressBar>
       </div>
       <div class="flex md:col-span-4 col-span-12">
-        <VaProgressBar :model-value="bufferValues.value" :buffer="bufferValues.buffer">Buffering </VaProgressBar>
+        <VaProgressBar :buffer="bufferValues.buffer" :model-value="bufferValues.value">Buffering</VaProgressBar>
       </div>
       <div class="flex md:col-span-4 col-span-12">
         <VaProgressBar indeterminate>Loading</VaProgressBar>

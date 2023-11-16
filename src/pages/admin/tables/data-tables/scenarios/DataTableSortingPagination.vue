@@ -1,23 +1,23 @@
 <template>
   <VaCard :title="t('tables.sortingPaginationActionsAsIcons')">
-    <VaDataTable :fields="fields" :data="users" :per-page="5">
+    <VaDataTable :data="users" :fields="fields" :per-page="5">
       <template #actions="props">
         <VaPopover :message="getStarMessage(props.rowData)" placement="top">
           <VaButton
-            preset="plain"
-            small
             :color="getStarColor(props.rowData)"
             icon="fa fa-star"
+            preset="plain"
+            small
             @click="star(props.rowData)"
           />
         </VaPopover>
 
         <VaPopover :message="`${t('tables.edit')} ${props.rowData.fullName}`" placement="top">
-          <VaButton preset="plain" small color="gray" icon="fa fa-pencil" />
+          <VaButton color="gray" icon="fa fa-pencil" preset="plain" small />
         </VaPopover>
 
         <VaPopover :message="`${t('tables.delete')} ${props.rowData.fullName}`" placement="top">
-          <VaButton preset="plain" small color="gray" icon="fa fa-trash" />
+          <VaButton color="gray" icon="fa fa-trash" preset="plain" small />
         </VaPopover>
       </template>
     </VaDataTable>

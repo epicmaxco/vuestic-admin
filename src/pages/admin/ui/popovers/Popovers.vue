@@ -3,18 +3,18 @@
     <VaCard class="col-span-12 md:col-span-6">
       <VaCardTitle>{{ t('popovers.popoverStyle') }}</VaCardTitle>
       <VaCardContent>
-        <VaSelect v-model="popover.color" class="mb-8" label="color scheme" :options="colors" />
-        <VaSelect v-model="popover.icon" class="mb-8" label="icon (font-awesome)" :options="icons" track-by="icon" />
+        <VaSelect v-model="popover.color" :options="colors" class="mb-8" label="color scheme" />
+        <VaSelect v-model="popover.icon" :options="icons" class="mb-8" label="icon (font-awesome)" track-by="icon" />
         <VaInput v-model="popover.title" class="mb-8" label="Title" />
         <VaInput v-model="popover.message" class="mb-8" label="Message" />
         <div class="popover-example mt-5">
           <VaPopover
-            :icon="popover.icon.icon"
             :color="popover.color"
-            :title="popover.title"
+            :icon="popover.icon.icon"
             :message="popover.message"
-            placement="right"
+            :title="popover.title"
             open
+            placement="right"
           >
             <VaButton>
               {{ t('notificationsPage.popovers.showPopover') }}
@@ -29,25 +29,25 @@
       <VaCardContent>
         <p class="my-2 mx-2">
           Any text can be used for
-          <VaPopover placement="bottom" message="Bottom tooltip">
+          <VaPopover message="Bottom tooltip" placement="bottom">
             <a class="va-link">
               {{ t('notificationsPage.popovers.bottomTooltip') }}
             </a>
           </VaPopover>
           tooltip showcase. Just anything you can possibly imagine to test
-          <VaPopover placement="right" message="Right tooltip">
+          <VaPopover message="Right tooltip" placement="right">
             <a class="va-link">
               {{ t('notificationsPage.popovers.rightTooltip') }}
             </a>
           </VaPopover>
           tooltip. But it can appear on the
-          <VaPopover placement="left" message="Left tooltip">
+          <VaPopover message="Left tooltip" placement="left">
             <a class="va-link">
               {{ t('notificationsPage.popovers.leftTooltip') }}
             </a>
           </VaPopover>
           . Or just
-          <VaPopover placement="top" message="Top tooltip">
+          <VaPopover message="Top tooltip" placement="top">
             <a class="va-link">
               {{ t('notificationsPage.popovers.topTooltip') }}
             </a>
@@ -59,9 +59,10 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
+
   const { t } = useI18n()
 
   const icons = ref([

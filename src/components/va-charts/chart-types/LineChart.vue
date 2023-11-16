@@ -1,8 +1,8 @@
 <template>
-  <Line :chart-options="chartOptions" :chart-data="props.chartData" />
+  <Line :chart-data="props.chartData" :chart-options="chartOptions" />
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { Line } from 'vue-chartjs'
   import type { TChartOptions } from 'vue-chartjs/dist/types'
   import {

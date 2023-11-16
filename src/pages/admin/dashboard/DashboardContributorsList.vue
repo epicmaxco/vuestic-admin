@@ -3,7 +3,7 @@
     <VaCardTitle>
       <h1>{{ t('dashboard.charts.topContributors') }}</h1>
       <div class="mr-0 va-text-right">
-        <a class="mr-0 va-link" :disabled="contributors.length <= step" @click="showNext">
+        <a :disabled="contributors.length <= step" class="mr-0 va-link" @click="showNext">
           {{ t('dashboard.charts.showNextFive') }}
         </a>
       </div>
@@ -12,7 +12,7 @@
     <VaCardContent>
       <VaInnerLoading :loading="loading" style="width: 100%">
         <div v-for="(contributor, idx) in visibleList" :key="idx" class="mb-4">
-          <VaProgressBar :model-value="getPercent(contributor.contributions)" :color="getProgressBarColor(idx)">
+          <VaProgressBar :color="getProgressBarColor(idx)" :model-value="getPercent(contributor.contributions)">
             {{ contributor.contributions }} {{ t('dashboard.charts.commits') }}
           </VaProgressBar>
           <p class="mt-2">{{ contributor.login }}</p>
@@ -22,7 +22,7 @@
   </VaCard>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { onMounted, ref } from 'vue'
   import { useI18n } from 'vue-i18n'
   import axios from 'axios'
@@ -84,7 +84,7 @@
   }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
   .dashboard-contributors-list {
     flex-direction: column;
 

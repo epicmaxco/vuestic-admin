@@ -2,7 +2,7 @@
   <span></span>
 </template>
 
-<script setup lang="ts"></script>
+<script lang="ts" setup></script>
 
 <!--<template>-->
 <!--  <va-card :title="t('tables.infiniteScroll')">-->

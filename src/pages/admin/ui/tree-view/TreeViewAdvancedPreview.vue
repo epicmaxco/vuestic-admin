@@ -8,7 +8,7 @@
     <VaTreeView ref="treeView" v-model:expanded="expanded" :nodes="nodes">
       <template #icon-toggle="node">
         <div class="tree-view-advanced-preview__icon-square">
-          <VaIcon color="backgroundPrimary" :name="node.expanded ? 'remove' : 'add'" />
+          <VaIcon :name="node.expanded ? 'remove' : 'add'" color="backgroundPrimary" />
         </div>
       </template>
     </VaTreeView>
@@ -23,12 +23,18 @@
       id: 1,
       label: 'Electronics',
       children: [
-        { id: 2, label: 'Cellphones' },
+        {
+          id: 2,
+          label: 'Cellphones',
+        },
         {
           id: 3,
           label: 'Camera Body Kits',
         },
-        { id: 6, label: 'External HDDs' },
+        {
+          id: 6,
+          label: 'External HDDs',
+        },
       ],
     },
     {

@@ -3,17 +3,17 @@
     <VaButton
       v-for="option in options"
       :key="option"
-      class="w-[86px]"
-      :text-color="$props.textColor"
       :color="color(option)"
       :style="durationButtonStyles"
+      :text-color="$props.textColor"
+      class="w-[86px]"
       @click="emits('update:modelValue', option)"
     >
       {{ option }}
     </VaButton>
   </div>
 </template>
-<script setup lang="ts">
+<script lang="ts" setup>
   import { durationButtonStyles } from '../../pages/pricing-plans/styles'
 
   const props = defineProps({

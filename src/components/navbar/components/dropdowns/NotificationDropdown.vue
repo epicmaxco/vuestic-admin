@@ -1,24 +1,24 @@
 <template>
-  <VaDropdown class="notification-dropdown" :offset="[13, 0]" stick-to-edges>
+  <VaDropdown :offset="[13, 0]" class="notification-dropdown" stick-to-edges>
     <template #anchor>
       <VaIconNotification
-        class="notification-dropdown__icon"
         :class="{ 'notification-dropdown__icon--unread': !allRead }"
+        class="notification-dropdown__icon"
       />
     </template>
     <VaDropdownContent class="notification-dropdown__content pl-4 pt-4 pt-2 pb-2">
       <div
         v-for="notification in notificationsProxy"
         :key="notification.id"
-        class="notification-dropdown__item flex flex-1 flex-wrap pt-1 pb-1 mt-2 mb-2"
         :class="{ 'notification-dropdown__item--unread': notification.unread }"
+        class="notification-dropdown__item flex flex-1 flex-wrap pt-1 pb-1 mt-2 mb-2"
         @click="notification.unread = false"
       >
         <img
           v-if="notification.details.avatar"
-          class="mr-2 notification-dropdown__item__avatar"
           :src="notification.details.avatar"
           alt=""
+          class="mr-2 notification-dropdown__item__avatar"
         />
         <span class="ellipsis" style="max-width: 85%">
           <span v-if="notification.details.name" class="font-bold">{{ notification.details.name }}</span>
@@ -28,20 +28,20 @@
       <div class="grid grid-cols-2 justify-between mt-1">
         <VaButton class="mr-2" size="small">{{ t('notifications.all') }}</VaButton>
         <VaButton
-          class=""
-          size="small"
-          preset="outline"
-          border-color="primary"
           :disabled="allRead"
+          border-color="primary"
+          class=""
+          preset="outline"
+          size="small"
           @click="markAllAsRead"
-          >{{ t('notifications.mark_as_read') }}</VaButton
-        >
+          >{{ t('notifications.mark_as_read') }}
+        </VaButton>
       </div>
     </VaDropdownContent>
   </VaDropdown>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref, computed } from 'vue'
   import { useI18n } from 'vue-i18n'
   import VaIconNotification from '../../../icons/VaIconNotification.vue'

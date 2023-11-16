@@ -1,5 +1,5 @@
 <template>
-  <VaDropdown class="color-dropdown pointer" :offset="[13, 0]" stick-to-edges>
+  <VaDropdown :offset="[13, 0]" class="color-dropdown pointer" stick-to-edges>
     <template #anchor>
       <VaIconColor />
     </template>
@@ -7,11 +7,11 @@
     <VaDropdownContent class="color-dropdown__content pl-8 pr-8 pt-2 pb-2">
       <VaButtonToggle
         v-model="currentTheme"
-        class="color-dropdown__toggle"
         :options="themeOptions"
+        class="color-dropdown__toggle"
+        grow
         outline
         round
-        grow
         size="small"
       />
 
@@ -19,15 +19,15 @@
         <ColorDropdownItem
           v-for="colorName in colorNames"
           :key="colorName"
-          class="color-picker-dropdown"
           :color-name="colorName"
+          class="color-picker-dropdown"
         />
       </table>
     </VaDropdownContent>
   </VaDropdown>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import VaIconColor from '../../../icons/VaIconColor.vue'
   import ColorDropdownItem from './ColorDropdownItem.vue'
   import { useColors } from 'vuestic-ui'

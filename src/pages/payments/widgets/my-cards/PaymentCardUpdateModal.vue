@@ -1,11 +1,11 @@
 <template>
   <VaModal hide-default-actions model-value size="small" @cancel="emits('close')">
     <h3 class="va-h4 mb-4">Add Payment Card</h3>
-    <PaymentCardEdit :payment-card="paymentCard" submit-text="Save Card" @save="updateCard" @cancel="emits('close')" />
+    <PaymentCardEdit :payment-card="paymentCard" submit-text="Save Card" @cancel="emits('close')" @save="updateCard" />
   </VaModal>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import PaymentCardEdit from './PaymentCardEdit.vue'
   import { PaymentCard } from '../../types'

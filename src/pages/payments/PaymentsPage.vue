@@ -26,7 +26,7 @@
   </VaCard>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import PaymentCardList from './widgets/my-cards/PaymentCardList.vue'
   import BillingAddressList from './widgets/billing-address/BillingAddressList.vue'
 </script>

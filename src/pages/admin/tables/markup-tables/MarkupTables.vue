@@ -18,7 +18,7 @@
             <td>{{ user.email }}</td>
             <td>{{ user.country }}</td>
             <td>
-              <VaBadge :text="user.status" :color="getStatusColor(user.status)" />
+              <VaBadge :color="getStatusColor(user.status)" :text="user.status" />
             </td>
           </tr>
         </tbody>
@@ -45,7 +45,7 @@
             <td>{{ user.email }}</td>
             <td>{{ user.country }}</td>
             <td>
-              <VaBadge :text="user.status" :color="getStatusColor(user.status)" />
+              <VaBadge :color="getStatusColor(user.status)" :text="user.status" />
             </td>
           </tr>
         </tbody>
@@ -54,7 +54,7 @@
   </VaCard>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
   import data from '../../../../data/tables/markup-table/data.json'

@@ -1,6 +1,6 @@
 <template>
   <VaCard :title="t('tables.loading')">
-    <VaDataTable :fields="fields" :data="users" loading />
+    <VaDataTable :data="users" :fields="fields" loading />
   </VaCard>
 </template>
 

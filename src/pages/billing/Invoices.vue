@@ -21,7 +21,7 @@
   </VaCard>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { useToast } from 'vuestic-ui'
 
   const { init } = useToast()

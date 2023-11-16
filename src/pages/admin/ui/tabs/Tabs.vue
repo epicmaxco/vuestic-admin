@@ -42,7 +42,7 @@
               <VaTab v-for="title in tabTitles.slice(0, 3)" :key="title">
                 {{ title }}
               </VaTab>
-              <VaTab> Somewhat long long long long long long long long long text </VaTab>
+              <VaTab> Somewhat long long long long long long long long long text</VaTab>
             </template>
           </VaTabs>
         </VaCardContent>
@@ -77,7 +77,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
 

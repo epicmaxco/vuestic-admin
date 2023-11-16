@@ -3,28 +3,28 @@
     <h1 class="font-semibold text-4xl mb-4">Log in</h1>
     <p class="text-base mb-4 leading-5">
       New to Vuestic?
-      <RouterLink class="font-semibold text-primary" :to="{ name: 'signup' }">Sign up</RouterLink>
+      <RouterLink :to="{ name: 'signup' }" class="font-semibold text-primary">Sign up</RouterLink>
     </p>
     <VaInput
       v-model="formData.email"
-      class="mb-4"
-      type="email"
-      label="Email"
       :rules="[(v) => !!v || 'Email field is required']"
+      class="mb-4"
+      label="Email"
+      type="email"
     />
     <VaValue v-slot="isPasswordVisible" :default-value="false">
       <VaInput
         v-model="formData.password"
-        class="mb-4"
-        :type="isPasswordVisible.value ? 'text' : 'password'"
-        label="Password"
         :rules="[(v) => !!v || 'Password field is required']"
+        :type="isPasswordVisible.value ? 'text' : 'password'"
+        class="mb-4"
+        label="Password"
         @clickAppendInner.stop="isPasswordVisible.value = !isPasswordVisible.value"
       >
         <template #appendInner>
           <VaIcon
-            class="cursor-pointer"
             :name="isPasswordVisible.value ? 'mso-visibility_off' : 'mso-visibility'"
+            class="cursor-pointer"
             color="secondary"
           />
         </template>
@@ -33,7 +33,7 @@
 
     <div class="auth-layout__options flex flex-col sm:flex-row items-start sm:items-center justify-between">
       <VaCheckbox v-model="formData.keepLoggedIn" class="mb-2 sm:mb-0" label="Keep me signed in on this device" />
-      <RouterLink class="mt-2 sm:mt-0 sm:ml-1 font-semibold text-primary" :to="{ name: 'recover-password' }">
+      <RouterLink :to="{ name: 'recover-password' }" class="mt-2 sm:mt-0 sm:ml-1 font-semibold text-primary">
         Forgot password?
       </RouterLink>
     </div>
@@ -44,7 +44,7 @@
   </VaForm>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { reactive } from 'vue'
   import { useRouter } from 'vue-router'
   import { useForm, useToast } from 'vuestic-ui'

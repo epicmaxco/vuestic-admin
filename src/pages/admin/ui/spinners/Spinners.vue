@@ -7,11 +7,11 @@
           <span class="pr-4 spinners__size-smaller">A</span>
           <VaSlider
             v-model="config.size"
+            :max="sliderSize.max"
+            :min="sliderSize.min"
+            :track-label="`${config.size}px`"
             class="flex-grow"
             track-label-visible
-            :track-label="`${config.size}px`"
-            :min="sliderSize.min"
-            :max="sliderSize.max"
           />
           <span class="pl-4 spinners__size-bigger">A</span>
         </div>
@@ -20,15 +20,15 @@
           <VaIconSlower class="pr-4 spinners__duration-slower" />
           <VaSlider
             v-model="config.duration"
+            :max="sliderDuration.max"
+            :min="sliderDuration.min"
             class="flex-grow"
             track-label-visible
-            :min="sliderDuration.min"
-            :max="sliderDuration.max"
           />
           <VaIconFaster class="pl-4 spinners__duration-faster" />
         </div>
 
-        <VaColorPalette v-model="spinnersColor" class="col-span-12 lg:col-span-4" :palette="paletteArray" />
+        <VaColorPalette v-model="spinnersColor" :palette="paletteArray" class="col-span-12 lg:col-span-4" />
       </div>
 
       <VaDivider class="py-3" />
@@ -50,7 +50,7 @@
   </VaCard>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { computed, ref } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useColors } from 'vuestic-ui'

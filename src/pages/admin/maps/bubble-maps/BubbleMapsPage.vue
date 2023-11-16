@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import BubbleMap from './BubbleMap.vue'
   import { bubbleMapData } from '../../../../data/maps/bubbleMapData'
 </script>

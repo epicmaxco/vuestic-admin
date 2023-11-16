@@ -1,33 +1,33 @@
 <template>
-  <VaDropdown class="message-dropdown" :offset="[13, 0]" stick-to-edges>
+  <VaDropdown :offset="[13, 0]" class="message-dropdown" stick-to-edges>
     <template #anchor>
-      <VaIconMessage class="message-dropdown__icon" :class="{ 'message-dropdown__icon--unread': !allRead }" />
+      <VaIconMessage :class="{ 'message-dropdown__icon--unread': !allRead }" class="message-dropdown__icon" />
     </template>
 
     <VaDropdownContent class="message-dropdown__content pl-8 pr-8 pt-2 pb-2">
       <div
         v-for="message in messagesProxy"
         :key="message.id"
-        class="message-dropdown__item flex flex-1 flex-wrap pt-1 pb-1 mt-2 mb-2"
         :class="{ 'message-dropdown__item--unread': message.unread }"
+        class="message-dropdown__item flex flex-1 flex-wrap pt-1 pb-1 mt-2 mb-2"
         @click="message.unread = false"
       >
-        <img :src="message.details.avatar" class="message-dropdown__item__avatar mr-2" alt="" />
+        <img :src="message.details.avatar" alt="" class="message-dropdown__item__avatar mr-2" />
         <span class="ellipsis" style="max-width: 85%">{{
           t(`messages.${message.name}`, { name: message.details.name })
         }}</span>
       </div>
       <div class="grid grid-cols-2 justify-between mt-1">
         <VaButton class="mr-2" size="small">{{ t('messages.all') }}</VaButton>
-        <VaButton size="small" preset="outline" border-color="primary" :disabled="allRead" @click="markAllAsRead">{{
-          t('messages.mark_as_read')
-        }}</VaButton>
+        <VaButton :disabled="allRead" border-color="primary" preset="outline" size="small" @click="markAllAsRead"
+          >{{ t('messages.mark_as_read') }}
+        </VaButton>
       </div>
     </VaDropdownContent>
   </VaDropdown>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { computed, ref } from 'vue'
   import { useI18n } from 'vue-i18n'
 

@@ -2,7 +2,7 @@
   <VaCard class="mb-4">
     <VaCardContent>
       <h5 class="va-h5">Popular questions</h5>
-      <VaAccordion v-model="accordionState" class="mb-1" :style="{ '--va-collapse-padding': '1rem 0' }">
+      <VaAccordion v-model="accordionState" :style="{ '--va-collapse-padding': '1rem 0' }" class="mb-1">
         <VaCollapse header="How do I reload a page?">
           <article class="max-w-3xl leading-5">
             <p class="mb-2">
@@ -36,9 +36,9 @@
               have the right type of smartphone you can use your fingerprint or face recognition to seamlessly log on or
               authorise payments.
             </p>
-            <a href="#" class="va-link font-semibold"
+            <a class="va-link font-semibold" href="#"
               >Find out more about Secure Keys
-              <VaIcon name="chevron_right" :size="18" />
+              <VaIcon :size="18" name="chevron_right" />
             </a>
           </article>
         </VaCollapse>

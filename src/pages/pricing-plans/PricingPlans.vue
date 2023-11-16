@@ -13,19 +13,19 @@
         <VaCard
           v-for="plan in pricingPlans"
           :key="plan.model"
-          class="flex w-[326px] md:w-[349px] h-fit p-6 rounded-[13px]"
           :class="{
             'md:!py-10 !bg-backgroundCardSecondary': plan.model === 'Advanced',
             '!bg-backgroundCardPrimary': plan.model !== 'Advanced',
             'ring-2 ring-primary ring-offset-2': plan.model === selectedPlan,
           }"
+          class="flex w-[326px] md:w-[349px] h-fit p-6 rounded-[13px]"
         >
-          <div class="space-y-8 md:space-y-10" :class="{ '!space-y-10': plan.model === 'Advanced' }">
+          <div :class="{ '!space-y-10': plan.model === 'Advanced' }" class="space-y-8 md:space-y-10">
             <div class="space-y-4 text-center">
               <h2 class="pricing-plan-card-title">
                 {{ plan.title }}
               </h2>
-              <VaBadge v-for="badge in plan.badges" :key="badge" :text="badge" color="primary" :style="badgeStyles" />
+              <VaBadge v-for="badge in plan.badges" :key="badge" :style="badgeStyles" :text="badge" color="primary" />
               <p class="text-lg leading-[26px] text-secondary">
                 {{ plan.description }}
               </p>
@@ -46,8 +46,8 @@
                 <p :class="{ 'text-secondary': !feature.isAvailable }">
                   {{ feature.description }}
                 </p>
-                <VaIcon v-if="feature.isAvailable" name="mso-check" color="primary" size="20px" />
-                <VaIcon v-else name="mso-block" color="backgroundBorder" size="20px" />
+                <VaIcon v-if="feature.isAvailable" color="primary" name="mso-check" size="20px" />
+                <VaIcon v-else color="backgroundBorder" name="mso-block" size="20px" />
               </div>
             </div>
             <div class="flex justify-center">
@@ -65,7 +65,7 @@
     </div>
   </div>
 </template>
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import { useToast } from 'vuestic-ui'
 

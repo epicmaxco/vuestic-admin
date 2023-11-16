@@ -2,7 +2,7 @@
   <div class="pt-2">
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12 md:col-span-6 flex flex-col">
-        <div class="title mb-4" :style="computedStylesTitle">
+        <div :style="computedStylesTitle" class="title mb-4">
           {{ t('dashboard.tabs.billingAddress.personalInfo') }}
         </div>
         <VaInput v-model="form.name" :label="t('dashboard.tabs.billingAddress.firstName')" />
@@ -10,22 +10,22 @@
         <VaInput v-model="form.address" :label="t('dashboard.tabs.billingAddress.address')" />
       </div>
       <div class="col-span-12 md:col-span-6 flex flex-col">
-        <div class="title mb-4" :style="computedStylesTitle">
+        <div :style="computedStylesTitle" class="title mb-4">
           {{ t('dashboard.tabs.billingAddress.companyInfo') }}
         </div>
         <VaSelect
           v-model="form.country"
-          class="mb-4"
-          :options="countriesList"
           :label="t('dashboard.tabs.billingAddress.country')"
-          searchable
+          :options="countriesList"
+          class="mb-4"
           clearable
+          searchable
         />
         <VaSelect
           v-model="form.city"
-          class="mb-4"
           :label="t('dashboard.tabs.billingAddress.city')"
           :options="allowedCitiesList"
+          class="mb-4"
           key-by="text"
           track-by="text"
         />
@@ -40,7 +40,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { computed, reactive, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
 

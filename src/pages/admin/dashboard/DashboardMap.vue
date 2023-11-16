@@ -3,11 +3,11 @@
     <VaCardTitle>
       {{ t('dashboard.currentVisitors') }}
     </VaCardTitle>
-    <LineMap v-model="mainCity" :map-data="cities" :home-city="homeCity" class="dashboard-map" />
+    <LineMap v-model="mainCity" :home-city="homeCity" :map-data="cities" class="dashboard-map" />
   </VaCard>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
 

@@ -1,12 +1,12 @@
 <template>
   <div class="line-maps-page">
     <VaCard class="line-maps-page__widget" title="Line Maps">
-      <LineMap v-model="mainCity" :map-data="cities" :home-city="homeCity" style="height: 75vh" />
+      <LineMap v-model="mainCity" :home-city="homeCity" :map-data="cities" style="height: 75vh" />
     </VaCard>
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
 
   import LineMap from '../../../../components/maps/LineMap.vue'

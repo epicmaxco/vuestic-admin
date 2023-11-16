@@ -1,11 +1,11 @@
 <template>
-  <VaSidebar :width="width" :minimized="minimized" :minimized-width="minimizedWidth" :animated="animated">
+  <VaSidebar :animated="animated" :minimized="minimized" :minimized-width="minimizedWidth" :width="width">
     <MenuMinimized v-if="minimized" :items="items" />
     <MenuAccordion v-else :items="items" />
   </VaSidebar>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import NavigationRoutes from './NavigationRoutes'
   import MenuAccordion from './menu/MenuAccordion.vue'

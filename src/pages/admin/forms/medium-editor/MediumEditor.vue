@@ -25,7 +25,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { nextTick } from 'vue'
   import { useI18n } from 'vue-i18n'
   import type MediumEditor from 'medium-editor'

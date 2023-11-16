@@ -5,17 +5,17 @@
         animate: true,
         duration: 500,
       }"
-      class="va-chat__body"
       :style="{ height: height }"
+      class="va-chat__body"
     >
       <div
         v-for="(message, index) in modelValue"
         :key="index"
-        class="va-chat__message"
+        :class="{ 'va-chat__message--yours': message.yours }"
         :style="{
           backgroundColor: message.yours ? colors.primary : undefined,
         }"
-        :class="{ 'va-chat__message--yours': message.yours }"
+        class="va-chat__message"
       >
         <span class="va-chat__message-text">
           {{ message.text }}
@@ -25,8 +25,8 @@
     <div class="va-chat__controls">
       <VaInput
         v-model="inputMessage"
-        placeholder="Type your message..."
         class="va-chat__input mr-2"
+        placeholder="Type your message..."
         @keypress.enter="sendMessage"
       />
       <VaButton @click="sendMessage()">
@@ -36,7 +36,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import vStickyScroll from './StickyScroll'
   import { useColors } from 'vuestic-ui'
   import { ref } from 'vue'

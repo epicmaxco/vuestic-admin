@@ -1,5 +1,5 @@
 <template>
-  <VaDropdown class="language-dropdown" :offset="[13, 0]" stick-to-edges>
+  <VaDropdown :offset="[13, 0]" class="language-dropdown" stick-to-edges>
     <template #anchor>
       <VaIcon :name="getFlagIcon(locale, 'large')" />
     </template>
@@ -8,8 +8,8 @@
       <div
         v-for="(option, id) in options"
         :key="id"
-        class="language-dropdown__item flex flex-1 flex-wrap items-center pt-1 pb-1 mt-2 mb-2"
         :class="{ active: option.code === locale }"
+        class="language-dropdown__item flex flex-1 flex-wrap items-center pt-1 pb-1 mt-2 mb-2"
         @click="locale = option.code"
       >
         <VaIcon :name="getFlagIcon(option.code, 'small')" />
@@ -21,7 +21,7 @@
   </VaDropdown>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { useI18n } from 'vue-i18n'
 
   const { t, locale } = useI18n()

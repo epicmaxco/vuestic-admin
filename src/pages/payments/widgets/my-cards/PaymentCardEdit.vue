@@ -2,30 +2,28 @@
   <VaForm ref="form" @submit.prevent="submit">
     <VaInput
       v-model="paymentCardLocal.name"
+      :rules="[(v) => !!v || 'Card Name field is required']"
       class="mb-4"
       label="Card Name"
-      :rules="[(v) => !!v || 'Card Name field is required']"
     />
-    <VaCheckbox v-model="paymentCardLocal.isPrimary" label="Primary Card" class="mb-4" />
+    <VaCheckbox v-model="paymentCardLocal.isPrimary" class="mb-4" label="Primary Card" />
     <VaSelect
       v-model="paymentCardLocal.paymentSystem"
-      class="mb-4"
-      label="Payment System"
       :options="paymentSystemTypeOptions"
       :rules="[(v) => !!v || 'Payment System field is required']"
+      class="mb-4"
+      label="Payment System"
     />
     <VaInput
       v-model="paymentCardLocal.cardNumberMasked"
+      :rules="[(v) => !!v || 'Card Number field is required']"
       class="mb-4"
       label="Card Number"
-      :rules="[(v) => !!v || 'Card Number field is required']"
       mask="creditCard"
       placeholder="#### #### #### ####"
     />
     <VaInput
       v-model="paymentCardLocal.expirationDate"
-      class="mb-4"
-      label="Expiration Date"
       :mask="{
         date: true,
         datePattern: ['m', 'y'],
@@ -34,16 +32,18 @@
         (v) => !!v || 'Expiration Date field is required',
         (v) => /^\d{4}$/.test(v) || 'Expiration Date must be in MM/YY format',
       ]"
+      class="mb-4"
+      label="Expiration Date"
     />
 
     <div class="flex justify-end gap-3">
-      <VaButton preset="secondary" color="secondary" @click="emits('cancel')">Cancel</VaButton>
+      <VaButton color="secondary" preset="secondary" @click="emits('cancel')">Cancel</VaButton>
       <VaButton @click="submit">{{ submitText }}</VaButton>
     </div>
   </VaForm>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { useForm } from 'vuestic-ui'
   import { PaymentCard, PaymentSystemType } from '../../types'
   import { watch, ref } from 'vue'

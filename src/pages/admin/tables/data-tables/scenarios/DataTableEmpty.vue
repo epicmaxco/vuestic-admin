@@ -1,6 +1,6 @@
 <template>
   <VaCard :title="t('tables.emptyTable')">
-    <VaDataTable :fields="fields" :data="data" :no-data-label="t('tables.noReport')" no-pagination />
+    <VaDataTable :data="data" :fields="fields" :no-data-label="t('tables.noReport')" no-pagination />
   </VaCard>
 </template>
 

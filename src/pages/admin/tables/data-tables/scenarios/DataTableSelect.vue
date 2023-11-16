@@ -1,12 +1,12 @@
 <template>
   <VaCard :title="t('tables.selectable')">
-    <VaDataTable :fields="fields" :data="users" :per-page="5">
+    <VaDataTable :data="users" :fields="fields" :per-page="5">
       <template #select="props">
         <VaCheckbox :value="props.rowData.checked" @input="select(props.rowData)" />
       </template>
 
       <template #graph="props">
-        <svg width="100" height="40" xmlns="http://www.w3.org/2000/svg">
+        <svg height="40" width="100" xmlns="http://www.w3.org/2000/svg">
           <path :d="props.rowData.graph" :stroke="props.rowData.graphColor" fill="transparent" />
         </svg>
       </template>

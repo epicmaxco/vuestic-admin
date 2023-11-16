@@ -5,10 +5,10 @@
       class="min-h-[114px] p-4 rounded-lg border border-dashed border-backgroundBorder flex flex-row items-center gap-6"
     >
       <div class="flex flex-col gap-2 flex-grow">
-        <VaSkeleton class variant="text" width="10rem" height="1.5rem" />
+        <VaSkeleton class height="1.5rem" variant="text" width="10rem" />
         <div class="flex gap-4">
-          <VaSkeleton variant="rounded" width="5rem" height="3rem" />
-          <VaSkeleton variant="text" :lines="2" />
+          <VaSkeleton height="3rem" variant="rounded" width="5rem" />
+          <VaSkeleton :lines="2" variant="text" />
         </div>
       </div>
     </VaSkeletonGroup>
@@ -17,8 +17,8 @@
         v-for="paymentCard in list"
         :key="paymentCard.id"
         :card="paymentCard"
-        @remove="remove(paymentCard)"
         @edit="cardToEdit = paymentCard"
+        @remove="remove(paymentCard)"
       />
       <div
         class="sm:h-[114px] p-4 bg-primary bg-opacity-5 rounded-lg border border-dashed border-primary flex flex-col sm:flex-row items-start sm:items-center gap-4"
@@ -38,7 +38,7 @@
   <PaymentCardUpdateModal v-if="cardToEdit" :payment-card="cardToEdit" @close="cardToEdit = undefined" />
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import CardListItem from './PaymentCardListItem.vue'
   import { usePaymentCardsStore } from '../../../../stores/payment-cards'
   import { computed, ref } from 'vue'

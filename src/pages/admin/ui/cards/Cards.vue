@@ -11,8 +11,8 @@
           <VaCardTitle>
             {{ t('cards.title.withControls') }}
             <VaSpacer />
-            <VaButton class="mr-1" size="small" icon="refresh" />
-            <VaButton size="small" icon="gear" />
+            <VaButton class="mr-1" icon="refresh" size="small" />
+            <VaButton icon="gear" size="small" />
           </VaCardTitle>
           <VaCardContent>{{ t('cards.contentTextLong') }}</VaCardContent>
         </VaCard>
@@ -80,7 +80,7 @@
       </template>
     </div>
 
-    <VaInnerLoading class="w-full py-4 justify-center" :loading="isLoading">
+    <VaInnerLoading :loading="isLoading" class="w-full py-4 justify-center">
       <VaButton @click="addCards()">
         {{ t('cards.button.showMore') }}
       </VaButton>
@@ -88,9 +88,10 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
+
   const { t } = useI18n()
 
   const listLoops = ref(1)

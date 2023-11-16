@@ -35,15 +35,19 @@ pre {
 .page-title {
   @apply text-[32px] md:text-5xl font-bold leading-9 md:leading-[56px] mb-6 md:mb-4;
 }
+
 .h1 {
   @apply text-[32px] md:text-5xl font-bold leading-9 md:leading-[56px] mb-6 md:mb-4;
 }
+
 .h3 {
   @apply text-2xl font-bold leading-[30px] mb-2;
 }
+
 .h5 {
   @apply font-bold leading-tight;
 }
+
 .block-title {
   @apply text-2xl font-bold mb-2;
 }

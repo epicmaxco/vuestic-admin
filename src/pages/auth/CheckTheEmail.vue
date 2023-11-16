@@ -7,9 +7,9 @@
     </p>
 
     <div class="flex justify-center mt-4">
-      <VaButton class="w-full" :to="{ name: 'login' }">Back to login</VaButton>
+      <VaButton :to="{ name: 'login' }" class="w-full">Back to login</VaButton>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script lang="ts" setup></script>

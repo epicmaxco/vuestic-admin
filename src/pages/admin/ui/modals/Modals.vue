@@ -29,11 +29,11 @@
         </VaButton>
         <VaModal
           v-model="showAnchorModal"
-          anchor-class="inline-flex"
-          :title="t('modal.withAnchorSlot')"
+          :cancel-text="t('modal.cancel')"
           :message="t('modal.message')"
           :ok-text="t('modal.confirm')"
-          :cancel-text="t('modal.cancel')"
+          :title="t('modal.withAnchorSlot')"
+          anchor-class="inline-flex"
         >
           <template #anchor="{ show }">
             <VaButton class="mb-2 mr-2" @click="show">
@@ -47,55 +47,55 @@
     <!--//Modals-->
     <VaModal
       v-model="showSmallModal"
-      size="small"
-      :title="t('modal.smallTitle')"
+      :cancel-text="t('modal.cancel')"
       :message="t('modal.message')"
       :ok-text="t('modal.confirm')"
-      :cancel-text="t('modal.cancel')"
+      :title="t('modal.smallTitle')"
+      size="small"
     />
     <VaModal
       v-model="showMediumModal"
-      :title="t('modal.mediumTitle')"
-      :ok-text="t('modal.confirm')"
       :cancel-text="t('modal.cancel')"
       :message="t('modal.message')"
+      :ok-text="t('modal.confirm')"
+      :title="t('modal.mediumTitle')"
     />
     <VaModal
       v-model="showLargeModal"
-      size="large"
-      :title="t('modal.largeTitle')"
+      :cancel-text="t('modal.cancel')"
       :message="t('modal.message')"
       :ok-text="t('modal.confirm')"
-      :cancel-text="t('modal.cancel')"
+      :title="t('modal.largeTitle')"
+      size="large"
     />
     <VaModal
       v-model="showFullscreenModal"
-      :title="t('modal.fullscreen')"
-      :ok-text="t('modal.confirm')"
       :cancel-text="t('modal.cancel')"
       :message="t('modal.message')"
+      :ok-text="t('modal.confirm')"
+      :title="t('modal.fullscreen')"
       fullscreen
     />
     <VaModal
       v-model="showStaticModal"
-      :title="t('modal.staticTitle')"
-      :ok-text="t('modal.confirm')"
       :cancel-text="t('modal.cancel')"
       :message="t('modal.staticMessage')"
+      :ok-text="t('modal.confirm')"
+      :title="t('modal.staticTitle')"
       no-dismiss
     />
     <VaModal
       v-model="showBlurredModal"
-      :title="t('modal.blurred')"
+      :cancel-text="t('modal.cancel')"
       :message="t('modal.message')"
       :ok-text="t('modal.confirm')"
-      :cancel-text="t('modal.cancel')"
+      :title="t('modal.blurred')"
       blur
     />
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
 

@@ -5,13 +5,13 @@
     </div>
     <div class="py-3 grid grid-cols-12 gap-6">
       <div class="col-span-12 md:col-span-6 flex flex-col">
-        <VaInput v-model="form.bankName" class="mb-4" :label="t('dashboard.tabs.bankDetails.bankName')" />
-        <VaInput v-model="form.accountName" class="mb-4" :label="t('dashboard.tabs.bankDetails.accountName')" />
-        <VaInput v-model="form.sortCode" class="mb-4" :label="t('dashboard.tabs.bankDetails.sortCode')" />
+        <VaInput v-model="form.bankName" :label="t('dashboard.tabs.bankDetails.bankName')" class="mb-4" />
+        <VaInput v-model="form.accountName" :label="t('dashboard.tabs.bankDetails.accountName')" class="mb-4" />
+        <VaInput v-model="form.sortCode" :label="t('dashboard.tabs.bankDetails.sortCode')" class="mb-4" />
       </div>
       <div class="col-span-12 md:col-span-6 h-[min-content] flex flex-col">
-        <VaInput v-model="form.accountNumber" class="mb-4" :label="t('dashboard.tabs.bankDetails.accountNumber')" />
-        <VaInput v-model="form.notes" class="mb-4" :label="t('dashboard.tabs.bankDetails.notes')" />
+        <VaInput v-model="form.accountNumber" :label="t('dashboard.tabs.bankDetails.accountNumber')" class="mb-4" />
+        <VaInput v-model="form.notes" :label="t('dashboard.tabs.bankDetails.notes')" class="mb-4" />
       </div>
     </div>
     <div class="flex flex-1 flex-wrap justify-center">
@@ -22,7 +22,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useColors, useToast } from 'vuestic-ui'

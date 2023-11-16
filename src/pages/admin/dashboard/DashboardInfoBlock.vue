@@ -2,7 +2,7 @@
   <div class="pt-6 grid grid-cols-12 gap-6">
     <div class="col-span-12 lg:col-span-6 flex flex-wrap">
       <div class="w-full pb-6 grid grid-cols-12 gap-6">
-        <VaCard v-for="(info, idx) in infoTiles" :key="idx" class="col-span-12 sm:col-span-4 mb-8" :color="info.color">
+        <VaCard v-for="(info, idx) in infoTiles" :key="idx" :color="info.color" class="col-span-12 sm:col-span-4 mb-8">
           <VaCardContent>
             <h2 class="va-h2 m-0 text-white">{{ info.value }}</h2>
             <p class="text-white">{{ t('dashboard.info.' + info.text) }}</p>
@@ -13,22 +13,22 @@
       <div class="w-full grid grid-cols-12 gap-6">
         <VaCard class="col-span-12 sm:col-span-6">
           <VaCardContent class="h-full flex flex-col justify-center">
-            <h2 class="va-h2 m-0" :style="{ color: colors.primary }">291</h2>
+            <h2 :style="{ color: colors.primary }" class="va-h2 m-0">291</h2>
             <p class="no-wrap">{{ t('dashboard.info.completedPullRequests') }}</p>
           </VaCardContent>
         </VaCard>
         <VaCard class="col-span-12 sm:col-span-6">
           <VaCardContent class="grid grid-cols-12 row-separated">
             <div class="col-span-4 p-4 flex flex-col">
-              <h2 class="va-h2 m-0 va-text-center" :style="{ color: colors.primary }">3</h2>
+              <h2 :style="{ color: colors.primary }" class="va-h2 m-0 va-text-center">3</h2>
               <p class="va-text-center">{{ t('dashboard.info.users') }}</p>
             </div>
             <div class="col-span-4 p-4 flex flex-col">
-              <h2 class="va-h2 m-0 va-text-center" :style="{ color: colors.info }">24</h2>
+              <h2 :style="{ color: colors.info }" class="va-h2 m-0 va-text-center">24</h2>
               <p class="va-text-center no-wrap">{{ t('dashboard.info.points') }}</p>
             </div>
             <div class="col-span-4 p-4 flex flex-col">
-              <h2 class="va-h2 m-0 va-text-center" :style="{ color: colors.warning }">91</h2>
+              <h2 :style="{ color: colors.warning }" class="va-h2 m-0 va-text-center">91</h2>
               <p class="va-text-center">{{ t('dashboard.info.units') }}</p>
             </div>
           </VaCardContent>
@@ -47,7 +47,7 @@
           </p>
 
           <div class="mt-4">
-            <VaButton color="primary" target="_blank" href="https://github.com/epicmaxco/vuestic-ui">
+            <VaButton color="primary" href="https://github.com/epicmaxco/vuestic-ui" target="_blank">
               {{ t('dashboard.info.viewLibrary') }}
             </VaButton>
           </div>
@@ -58,7 +58,7 @@
     <VaCard class="col-span-12 sm:col-span-6 lg:col-span-3">
       <VaImage :src="images[currentImageIndex]" style="height: 200px" />
       <VaCardTitle>
-        <VaButton preset="plain" icon-right="fa-arrow-circle-right" @click="showModal">
+        <VaButton icon-right="fa-arrow-circle-right" preset="plain" @click="showModal">
           {{ t('dashboard.info.exploreGallery') }}
         </VaButton>
       </VaCardTitle>
@@ -70,7 +70,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { VaCarousel, VaModal, VaCard, VaCardContent, VaCardTitle, VaButton, VaImage, useColors } from 'vuestic-ui'

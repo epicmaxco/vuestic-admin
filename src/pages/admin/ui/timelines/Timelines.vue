@@ -8,7 +8,7 @@
             <VaTimeline style="min-width: 400px">
               <VaTimelineItem active>
                 <template #before>
-                  <div class="title va-text-center" :style="{ color: colors.primary }">
+                  <div :style="{ color: colors.primary }" class="title va-text-center">
                     {{ t('timelines.firstDate') }}
                   </div>
                   <div class="va-timeline-item__description">
@@ -18,7 +18,7 @@
               </VaTimelineItem>
               <VaTimelineItem active>
                 <template #before>
-                  <div class="title va-text-center" :style="{ color: colors.primary }">
+                  <div :style="{ color: colors.primary }" class="title va-text-center">
                     {{ t('timelines.secondDate') }}
                   </div>
                   <div class="va-timeline-item__description">
@@ -42,18 +42,18 @@
       </div>
 
       <div class="flex col-span-12">
-        <VaCard no-padding-h style="overflow-x: auto" class="timelines__horizontal-long">
+        <VaCard class="timelines__horizontal-long" no-padding-h style="overflow-x: auto">
           <VaCardTitle>{{ t('timelines.horizontalCards') }}</VaCardTitle>
           <VaCardContent>
-            <VaTimeline align-top style="min-width: 600px" class="timelines__horizontal-long__timeline">
+            <VaTimeline align-top class="timelines__horizontal-long__timeline" style="min-width: 600px">
               <VaTimelineItem active>
                 <template #before>
-                  <div class="title va-text-center" :style="{ color: colors.primary }">
+                  <div :style="{ color: colors.primary }" class="title va-text-center">
                     {{ t('timelines.firstDate') }}
                   </div>
                 </template>
                 <template #after>
-                  <VaCard stripe stripe-color="warning" class="mb-0">
+                  <VaCard class="mb-0" stripe stripe-color="warning">
                     <VaCardTitle>{{ t('timelines.titleDateFirst') }}</VaCardTitle>
                     <VaCardContent>{{ t('timelines.contentFirst') }}</VaCardContent>
                   </VaCard>
@@ -61,12 +61,12 @@
               </VaTimelineItem>
               <VaTimelineItem active>
                 <template #before>
-                  <div class="title va-text-center" :style="{ color: colors.primary }">
+                  <div :style="{ color: colors.primary }" class="title va-text-center">
                     {{ t('timelines.secondDate') }}
                   </div>
                 </template>
                 <template #after>
-                  <VaCard stripe stripe-color="info" class="mb-0">
+                  <VaCard class="mb-0" stripe stripe-color="info">
                     <VaCardTitle>{{ t('timelines.titleDateSecond') }}</VaCardTitle>
                     <VaCardContent>{{ t('timelines.contentSecond') }}</VaCardContent>
                   </VaCard>
@@ -79,7 +79,7 @@
                   </div>
                 </template>
                 <template #after>
-                  <VaCard stripe stripe-color="info" class="mb-0">
+                  <VaCard class="mb-0" stripe stripe-color="info">
                     <VaCardTitle>{{ t('timelines.titleDateThird') }}</VaCardTitle>
                     <VaCardContent>{{ t('timelines.contentThird') }}</VaCardContent>
                   </VaCard>
@@ -97,12 +97,12 @@
             <VaTimeline vertical>
               <VaTimelineItem active>
                 <template #before>
-                  <span class="title va-timeline-item__text" :style="{ color: colors.primary }">
+                  <span :style="{ color: colors.primary }" class="title va-timeline-item__text">
                     {{ t('timelines.firstDate') }}
                   </span>
                 </template>
                 <template #after>
-                  <VaCard stripe stripe-color="success" class="mb-0">
+                  <VaCard class="mb-0" stripe stripe-color="success">
                     <VaCardTitle>{{ t('timelines.titleFirst') }}</VaCardTitle>
                     <VaCardContent>{{ t('timelines.contentFirst') }}</VaCardContent>
                   </VaCard>
@@ -110,12 +110,12 @@
               </VaTimelineItem>
               <VaTimelineItem active>
                 <template #before>
-                  <span class="title va-timeline-item__text" :style="{ color: colors.primary }">
+                  <span :style="{ color: colors.primary }" class="title va-timeline-item__text">
                     {{ t('timelines.secondDate') }}
                   </span>
                 </template>
                 <template #after>
-                  <VaCard stripe stripe-color="success" class="mb-0">
+                  <VaCard class="mb-0" stripe stripe-color="success">
                     <VaCardTitle>{{ t('timelines.titleSecond') }}</VaCardTitle>
                     <VaCardContent>{{ t('timelines.contentSecond') }}</VaCardContent>
                   </VaCard>
@@ -143,23 +143,23 @@
         <VaCard no-padding-v>
           <VaCardTitle>{{ t('timelines.verticalCentered') }}</VaCardTitle>
           <VaCardContent>
-            <VaTimeline vertical centered style="min-width: 300px">
-              <VaTimelineItem color="danger" active>
+            <VaTimeline centered style="min-width: 300px" vertical>
+              <VaTimelineItem active color="danger">
                 <template #before>
-                  <span class="title title--danger va-timeline-item__text" :style="{ color: colors.danger }">
+                  <span :style="{ color: colors.danger }" class="title title--danger va-timeline-item__text">
                     {{ t('timelines.firstDate') }}
                   </span>
                 </template>
                 <template class="after">
-                  <VaCard stripe stripe-color="danger" class="mb-0">
+                  <VaCard class="mb-0" stripe stripe-color="danger">
                     <VaCardTitle>{{ t('timelines.titleFirst') }}</VaCardTitle>
                     <VaCardContent>{{ t('timelines.contentFirst') }}</VaCardContent>
                   </VaCard>
                 </template>
               </VaTimelineItem>
-              <VaTimelineItem color="danger" active>
+              <VaTimelineItem active color="danger">
                 <template #before>
-                  <span class="title title--danger va-timeline-item__text" :style="{ color: colors.danger }">
+                  <span :style="{ color: colors.danger }" class="title title--danger va-timeline-item__text">
                     {{ t('timelines.secondDate') }}
                   </span>
                 </template>
@@ -170,14 +170,14 @@
                   </VaCard>
                 </template>
               </VaTimelineItem>
-              <VaTimelineItem color="danger" active>
+              <VaTimelineItem active color="danger">
                 <template #before>
-                  <span class="title title--danger va-timeline-item__text" :style="{ color: colors.danger }">
+                  <span :style="{ color: colors.danger }" class="title title--danger va-timeline-item__text">
                     {{ t('timelines.thirdDate') }}
                   </span>
                 </template>
                 <template #after>
-                  <VaCard stripe stripe-color="danger" class="mb-0">
+                  <VaCard class="mb-0" stripe stripe-color="danger">
                     <VaCardTitle>{{ t('timelines.titleThird') }}</VaCardTitle>
                     <VaCardContent>{{ t('timelines.contentThird') }}</VaCardContent>
                   </VaCard>
@@ -191,7 +191,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   /**
    * HIDDEN FROM THE ADMIN! SEE src/components/sidebar/NavigationRoutes.ts AND src/pages/admin/ui/route.ts TO REVEAL.
    */

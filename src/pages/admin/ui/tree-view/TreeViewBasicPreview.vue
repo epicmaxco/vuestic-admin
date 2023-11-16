@@ -8,12 +8,18 @@
       id: 1,
       label: 'Electronics',
       children: [
-        { id: 2, label: 'Cellphones' },
+        {
+          id: 2,
+          label: 'Cellphones',
+        },
         {
           id: 3,
           label: 'Camera Body Kits',
         },
-        { id: 6, label: 'External HDDs' },
+        {
+          id: 6,
+          label: 'External HDDs',
+        },
       ],
     },
     {

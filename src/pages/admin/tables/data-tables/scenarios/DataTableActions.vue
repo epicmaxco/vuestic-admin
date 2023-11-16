@@ -1,16 +1,16 @@
 <template>
   <VaCard :title="t('tables.labelsActions')">
-    <VaDataTable :fields="fields" :data="users" no-pagination>
+    <VaDataTable :data="users" :fields="fields" no-pagination>
       <template #marker="props">
-        <VaIcon name="fa fa-circle" :color="props.rowData.color" size="8px" />
+        <VaIcon :color="props.rowData.color" name="fa fa-circle" size="8px" />
       </template>
 
       <template #actions="props">
-        <VaButton preset="plain" small color="gray" class="m-0" @click="edit(props.rowData)">
+        <VaButton class="m-0" color="gray" preset="plain" small @click="edit(props.rowData)">
           {{ t('tables.edit') }}
         </VaButton>
 
-        <VaButton preset="plain" small color="danger" class="m-0" @click="remove(props.rowData)">
+        <VaButton class="m-0" color="danger" preset="plain" small @click="remove(props.rowData)">
           {{ t('tables.delete') }}
         </VaButton>
       </template>

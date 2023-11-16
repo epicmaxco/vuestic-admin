@@ -1,5 +1,5 @@
 <template>
-  <svg class="va-icon-responsive" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.5 49">
+  <svg class="va-icon-responsive" viewBox="0 0 47.5 49" xmlns="http://www.w3.org/2000/svg">
     <defs />
     <title>overview_icon_3</title>
     <g id="Layer_2" data-name="Layer 2">

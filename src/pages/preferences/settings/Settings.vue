@@ -6,7 +6,7 @@
         {{ store.userName }}
       </div>
     </div>
-    <VaButton class="w-fit h-fit" preset="primary" :style="buttonStyles" @click="emits('openNameModal')">
+    <VaButton :style="buttonStyles" class="w-fit h-fit" preset="primary" @click="emits('openNameModal')">
       Edit
     </VaButton>
   </div>
@@ -24,7 +24,7 @@
     <div class="flex-1">
       <div class="max-w-[748px]">•••••••••••••</div>
     </div>
-    <VaButton class="w-fit h-fit" preset="primary" :style="buttonStyles" @click="emits('openResetPasswordModal')">
+    <VaButton :style="buttonStyles" class="w-fit h-fit" preset="primary" @click="emits('openResetPasswordModal')">
       Reset Password
     </VaButton>
   </div>
@@ -36,7 +36,7 @@
         {{ twoFA.content }}
       </div>
     </div>
-    <VaButton class="w-fit h-fit" preset="primary" :style="buttonStyles" @click="toggle2FA">
+    <VaButton :style="buttonStyles" class="w-fit h-fit" preset="primary" @click="toggle2FA">
       {{ twoFA.button }}
     </VaButton>
   </div>
@@ -49,14 +49,14 @@
         <div class="flex space-x-1 w-fit">
           <p class="font-semibold text-primary">Subscriptions Preferences Center</p>
           <div>
-            <VaIcon size="14px" color="primary" name="mso-arrow_outward" />
+            <VaIcon color="primary" name="mso-arrow_outward" size="14px" />
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
-<script setup lang="ts">
+<script lang="ts" setup>
   import { computed } from 'vue'
 
   import { useToast } from 'vuestic-ui/web-components'

@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-12 gap-6">
     <VaCard v-for="(set, index) in sets" :key="index" class="va-card-wrapper relative lg:col-span-6 col-span-12 py-3">
-      <RouterLink class="text-[inherit]" :to="{ path: `icons/${set.href}` }" append>
+      <RouterLink :to="{ path: `icons/${set.href}` }" append class="text-[inherit]">
         <div class="absolute inset-0 flex justify-center items-center z-10">
           <VaButton>
             {{ set.name.toUpperCase() }}
@@ -18,8 +18,8 @@
           <div
             v-if="filteredList.length === 2"
             :key="i"
-            class="py-12 grid grid-cols-12"
             :class="{ 'sets-list__set__content--middle': i === 1 }"
+            class="py-12 grid grid-cols-12"
           >
             <div class="col-span-2 flex justify-center items-center">
               <VaIcon :name="iconName(set, filteredList[0])" />
@@ -35,7 +35,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { IconSet } from './types'
 
   defineProps<{

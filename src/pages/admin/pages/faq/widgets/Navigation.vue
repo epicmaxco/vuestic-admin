@@ -5,7 +5,7 @@
         <h5 class="h5 mb-4">{{ section }}</h5>
         <ul class="leading-5">
           <li v-for="item in navigation[section]" :key="`${section}-${item.name}`" class="mb-4">
-            <a href="#" class="va-link">{{ item.name }}</a>
+            <a class="va-link" href="#">{{ item.name }}</a>
           </li>
         </ul>
       </div>

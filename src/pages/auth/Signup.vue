@@ -3,30 +3,30 @@
     <h1 class="font-semibold text-4xl mb-4">Sign up</h1>
     <p class="text-base mb-4 leading-5">
       Have an account?
-      <RouterLink class="font-semibold text-primary" :to="{ name: 'login' }">Login</RouterLink>
+      <RouterLink :to="{ name: 'login' }" class="font-semibold text-primary">Login</RouterLink>
     </p>
     <VaInput
       v-model="formData.email"
-      class="mb-4"
-      type="email"
-      label="Email"
       :rules="[(v) => !!v || 'Email field is required', (v) => /.+@.+\..+/.test(v) || 'Email should be valid']"
+      class="mb-4"
+      label="Email"
+      type="email"
     />
     <VaValue v-slot="isPasswordVisible" :default-value="false">
       <VaInput
         ref="password1"
         v-model="formData.password"
-        class="mb-4"
-        :type="isPasswordVisible.value ? 'text' : 'password'"
-        label="Password"
         :rules="passwordRules"
+        :type="isPasswordVisible.value ? 'text' : 'password'"
+        class="mb-4"
+        label="Password"
         messages="Password should be 8+ characters: letters, numbers, and special characters."
         @clickAppendInner.stop="isPasswordVisible.value = !isPasswordVisible.value"
       >
         <template #appendInner>
           <VaIcon
-            class="cursor-pointer"
             :name="isPasswordVisible.value ? 'mso-visibility_off' : 'mso-visibility'"
+            class="cursor-pointer"
             color="secondary"
           />
         </template>
@@ -34,19 +34,19 @@
       <VaInput
         ref="password2"
         v-model="formData.repeatPassword"
-        class="mb-4"
-        :type="isPasswordVisible.value ? 'text' : 'password'"
-        label="Repeat Password"
         :rules="[
           (v) => !!v || 'Repeat Password field is required',
           (v) => v === formData.password || 'Passwords don\'t match',
         ]"
+        :type="isPasswordVisible.value ? 'text' : 'password'"
+        class="mb-4"
+        label="Repeat Password"
         @clickAppendInner.stop="isPasswordVisible.value = !isPasswordVisible.value"
       >
         <template #appendInner>
           <VaIcon
-            class="cursor-pointer"
             :name="isPasswordVisible.value ? 'mso-visibility_off' : 'mso-visibility'"
+            class="cursor-pointer"
             color="secondary"
           />
         </template>
@@ -59,7 +59,7 @@
   </VaForm>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { reactive } from 'vue'
   import { useRouter } from 'vue-router'
   import { useForm, useToast } from 'vuestic-ui'

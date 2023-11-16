@@ -9,9 +9,10 @@
   </tr>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { computed } from 'vue'
   import { useColors } from 'vuestic-ui'
+
   const { getColors } = useColors()
 
   defineProps<{
@@ -27,16 +28,19 @@
   .color {
     width: 16px;
     height: 16px;
+
     &-bordered {
       border: 1px solid var(--va-gray);
       border-radius: 50%;
     }
   }
+
   td {
     color: var(--va-gray);
     padding: 0.25rem 0.5rem;
     box-sizing: border-box;
     vertical-align: middle;
+
     &:first-child {
       padding-right: 0;
     }

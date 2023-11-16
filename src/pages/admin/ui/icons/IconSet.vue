@@ -2,39 +2,39 @@
   <div class="icon-set">
     <VaCard class="icon-set__header mb-8 pb-4">
       <VaCardTitle>
-        <h2 class="ml-2" :style="{ color: colors.dark }">
+        <h2 :style="{ color: colors.dark }" class="ml-2">
           {{ iconSet.name }}
         </h2>
       </VaCardTitle>
       <VaCardContent class="grid grid-cols-12 gap-6 items-start justify-between">
         <VaButton
-          class="col-span-full md:col-span-2"
-          preset="outline"
-          border-color="primary"
-          color="primary"
           :to="{ name: 'icon-sets' }"
+          border-color="primary"
+          class="col-span-full md:col-span-2"
+          color="primary"
+          preset="outline"
         >
           {{ t('icons.back') }}
         </VaButton>
 
-        <VaInput v-model="search" class="col-span-full md:col-span-5" :label="t('icons.search')" clearable>
+        <VaInput v-model="search" :label="t('icons.search')" class="col-span-full md:col-span-5" clearable>
           <template #prependInner>
             <VaIcon class="icon-left input-icon" name="search" />
           </template>
         </VaInput>
 
         <div class="icon-set__header__size col-span-full md:col-span-5 flex items-center">
-          <span class="m-2 pr-2 icon-set__header__size--smaller" :style="{ color: colors.dark }">A</span>
+          <span :style="{ color: colors.dark }" class="m-2 pr-2 icon-set__header__size--smaller">A</span>
           <VaSlider
             v-model="iconSize"
-            class="flex-1"
             :label-value="`${iconSize}px`"
-            :min="slider.min"
             :max="slider.max"
+            :min="slider.min"
+            class="flex-1"
             value-visible
           >
           </VaSlider>
-          <span class="m-2 pl-2 icon-set__header__size--bigger" :style="{ color: colors.dark }">A</span>
+          <span :style="{ color: colors.dark }" class="m-2 pl-2 icon-set__header__size--bigger">A</span>
         </div>
       </VaCardContent>
     </VaCard>
@@ -60,7 +60,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { useColors } from 'vuestic-ui'
   import { useI18n } from 'vue-i18n'
   import { computed, ref } from 'vue'

@@ -3,7 +3,7 @@
     <VaCard class="col-span-12">
       <VaCardTitle>{{ t('fileUpload.advancedMediaGallery') }}</VaCardTitle>
       <VaCardContent>
-        <VaFileUpload v-model="advancedGallery" type="gallery" file-types=".png, .jpg, .jpeg, .gif" dropzone />
+        <VaFileUpload v-model="advancedGallery" dropzone file-types=".png, .jpg, .jpeg, .gif" type="gallery" />
       </VaCardContent>
     </VaCard>
     <VaCard class="col-span-12">
@@ -21,7 +21,7 @@
     <VaCard class="col-span-12">
       <VaCardTitle>{{ t('fileUpload.mediaGallery') }}</VaCardTitle>
       <VaCardContent>
-        <VaFileUpload v-model="gallery" type="gallery" file-types=".png, .jpg, .jpeg, .gif" />
+        <VaFileUpload v-model="gallery" file-types=".png, .jpg, .jpeg, .gif" type="gallery" />
       </VaCardContent>
     </VaCard>
     <VaCard class="col-span-12">
@@ -33,7 +33,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
 

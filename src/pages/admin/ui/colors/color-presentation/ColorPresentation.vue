@@ -1,7 +1,7 @@
 <template>
   <div class="color-presentation">
-    <VaPopover color="info" :placement="popoverOptions.placement" :message="popoverOptions.content">
-      <div class="color-presentation__color" :style="computedStyle" @click="colorCopy()"></div>
+    <VaPopover :message="popoverOptions.content" :placement="popoverOptions.placement" color="info">
+      <div :style="computedStyle" class="color-presentation__color" @click="colorCopy()"></div>
     </VaPopover>
 
     <div v-if="name || description" class="color-presentation__description">
@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { useColors, useToast } from 'vuestic-ui'
   import { computed, ref } from 'vue'
 

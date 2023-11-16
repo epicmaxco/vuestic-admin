@@ -6,6 +6,6 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import LeafletMap from './LeafletMap.vue'
 </script>

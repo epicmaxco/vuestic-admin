@@ -18,28 +18,28 @@
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
               <VaInput v-model="withButton" placeholder="Input With Button">
                 <template #append>
-                  <VaButton style="margin-right: 0" small> UPLOAD </VaButton>
+                  <VaButton small style="margin-right: 0"> UPLOAD</VaButton>
                 </template>
               </VaInput>
             </div>
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
-              <VaInput v-model="successfulEmail" type="email" label="Email (Validated with success)" success> </VaInput>
+              <VaInput v-model="successfulEmail" label="Email (Validated with success)" success type="email"></VaInput>
             </div>
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
-              <VaInput v-model="clearableText" placeholder="Input With Clear Button" clearable />
+              <VaInput v-model="clearableText" clearable placeholder="Input With Clear Button" />
             </div>
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
               <VaInput
                 v-model="wrongEmail"
-                type="email"
-                label="Email (Validated)"
-                error
                 :error-messages="errorMessages"
+                error
+                label="Email (Validated)"
+                type="email"
               >
               </VaInput>
             </div>
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
-              <VaInput v-model="withDescription" placeholder="Text Input (with description)" :messages="messages" />
+              <VaInput v-model="withDescription" :messages="messages" placeholder="Text Input (with description)" />
             </div>
           </div>
         </form>
@@ -64,12 +64,12 @@
               <VaDateInput
                 v-model="dateInput.multiple"
                 :label="t('forms.dateTimePicker.multiple')"
-                mode="multiple"
                 clearable
+                mode="multiple"
               />
             </div>
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
-              <VaDateInput v-model="dateInput.range" :label="t('forms.dateTimePicker.range')" mode="range" clearable />
+              <VaDateInput v-model="dateInput.range" :label="t('forms.dateTimePicker.range')" clearable mode="range" />
             </div>
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
               <VaDateInput
@@ -111,19 +111,19 @@
               <VaSelect
                 v-model="simpleSelectModel"
                 :label="t('forms.selects.simple')"
+                :options="simpleOptions"
                 text-by="description"
                 track-by="id"
-                :options="simpleOptions"
               />
             </div>
             <div class="flex md:col-span-6 col-span-12">
               <VaSelect
                 v-model="multiSelectModel"
                 :label="t('forms.selects.multi')"
+                :options="simpleOptions"
+                multiple
                 text-by="description"
                 track-by="id"
-                multiple
-                :options="simpleOptions"
               />
             </div>
             <div class="flex md:col-span-6 col-span-12">
@@ -133,28 +133,28 @@
               <VaSelect
                 v-model="multiSelectCountriesModel"
                 :label="t('forms.selects.countryMulti')"
-                multiple
                 :options="countriesList"
+                multiple
               />
             </div>
             <div class="flex md:col-span-6 col-span-12">
               <VaSelect
                 v-model="searchableSelectModel"
                 :label="t('forms.selects.searchable')"
+                :options="simpleOptions"
                 searchable
                 text-by="description"
                 track-by="id"
-                :options="simpleOptions"
               />
             </div>
             <div class="flex md:col-span-6 col-span-12">
               <VaSelect
                 v-model="multiSearchableSelectModel"
                 :label="t('forms.selects.searchableMulti')"
-                text-by="description"
-                searchable
-                multiple
                 :options="countriesList"
+                multiple
+                searchable
+                text-by="description"
               />
             </div>
           </div>
@@ -175,36 +175,36 @@
               <VaCheckbox v-model="checkbox.error" :label="t('forms.controls.error')" error />
               <VaCheckbox
                 v-model="checkbox.errorMessages"
+                :error-count="2"
+                :error-messages="errorMessages"
                 :label="t('forms.controls.errorMessage')"
                 error
-                :error-messages="errorMessages"
-                :error-count="2"
               />
             </fieldset>
 
             <div class="md:col-span-6 col-span-12 grid grid-cols-2">
               <fieldset class="flex flex-col">
-                <VaRadio v-model="radioSelectedOption" option="option1" label="Radio-1" />
-                <VaRadio v-model="radioSelectedOption" option="option2" label="Radio-2" />
+                <VaRadio v-model="radioSelectedOption" label="Radio-1" option="option1" />
+                <VaRadio v-model="radioSelectedOption" label="Radio-2" option="option2" />
               </fieldset>
               <fieldset class="flex flex-col">
-                <VaRadio v-model="radioSelectedDisableOption" option="option1" disabled label="Disabled Radio-1" />
-                <VaRadio v-model="radioSelectedDisableOption" option="option2" disabled label="Disabled Radio-2" />
+                <VaRadio v-model="radioSelectedDisableOption" disabled label="Disabled Radio-1" option="option1" />
+                <VaRadio v-model="radioSelectedDisableOption" disabled label="Disabled Radio-2" option="option2" />
               </fieldset>
             </div>
 
             <div class="col-span-full md:col-span-8 grid grid-cols-1 md:grid-cols-3">
               <fieldset class="flex flex-col">
-                <VaSwitch v-model="toggles.selected" label="Selected toggle" class="mr-8 mb-2" />
-                <VaSwitch v-model="toggles.unselected" label="Unselected toggle" class="mr-8 mb-2" />
+                <VaSwitch v-model="toggles.selected" class="mr-8 mb-2" label="Selected toggle" />
+                <VaSwitch v-model="toggles.unselected" class="mr-8 mb-2" label="Unselected toggle" />
               </fieldset>
               <fieldset class="flex flex-col">
-                <VaSwitch v-model="toggles.disabled" disabled label="Disabled toggle" class="mr-8 mb-2" />
-                <VaSwitch v-model="toggles.disabled" readonly label="Readonly toggle" class="mr-8 mb-2" />
+                <VaSwitch v-model="toggles.disabled" class="mr-8 mb-2" disabled label="Disabled toggle" />
+                <VaSwitch v-model="toggles.disabled" class="mr-8 mb-2" label="Readonly toggle" readonly />
               </fieldset>
               <fieldset class="flex flex-col">
-                <VaSwitch v-model="toggles.small" size="small" label="Small toggle" class="mr-8 mb-2" />
-                <VaSwitch v-model="toggles.large" size="large" label="Large toggle" class="mr-8 mb-2" />
+                <VaSwitch v-model="toggles.small" class="mr-8 mb-2" label="Small toggle" size="small" />
+                <VaSwitch v-model="toggles.large" class="mr-8 mb-2" label="Large toggle" size="large" />
               </fieldset>
             </div>
           </div>
@@ -214,10 +214,11 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import CountriesList from '../data/CountriesList'
   import { useI18n } from 'vue-i18n'
+
   const { t } = useI18n()
 
   const countriesList = ref(CountriesList)

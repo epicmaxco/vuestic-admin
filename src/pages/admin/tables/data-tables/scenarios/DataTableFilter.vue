@@ -2,7 +2,7 @@
   <VaCard :title="t('tables.searchTrendsBadges')">
     <div class="grid grid-cols-12 items-center">
       <div class="flex col-span-12 md:col-span-6">
-        <VaInput :value="term" :placeholder="t('tables.searchByName')" removable @input="search">
+        <VaInput :placeholder="t('tables.searchByName')" :value="term" removable @input="search">
           <template #prepend>
             <VaIcon name="search" />
           </template>
@@ -14,9 +14,9 @@
       </div>
     </div>
 
-    <VaDataTable :fields="fields" :data="filteredData" :per-page="parseInt(perPage)" clickable @rowClicked="showUser">
+    <VaDataTable :data="filteredData" :fields="fields" :per-page="parseInt(perPage)" clickable @rowClicked="showUser">
       <template #trend="props">
-        <VaIcon :name="getTrendIcon(props.rowData)" :color="getTrendColor(props.rowData)" />
+        <VaIcon :color="getTrendColor(props.rowData)" :name="getTrendIcon(props.rowData)" />
       </template>
 
       <template #status="props">
@@ -26,7 +26,7 @@
       </template>
 
       <template #actions="props">
-        <VaButton v-if="props.rowData.hasReport" small color="danger" class="m-0">
+        <VaButton v-if="props.rowData.hasReport" class="m-0" color="danger" small>
           {{ t('tables.report') }}
         </VaButton>
       </template>

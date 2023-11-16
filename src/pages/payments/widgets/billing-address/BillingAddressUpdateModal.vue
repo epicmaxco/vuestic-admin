@@ -4,13 +4,13 @@
     <AddressEdit
       :billing-address="billingAddress"
       submit-text="Save Address"
-      @save="updateCard"
       @cancel="emits('close')"
+      @save="updateCard"
     />
   </VaModal>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import AddressEdit from './BillingAddressEdit.vue'
   import { BillingAddress } from '../../types'

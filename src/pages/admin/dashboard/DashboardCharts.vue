@@ -5,19 +5,19 @@
         <h1>{{ t('dashboard.charts.trendyTrends') }}</h1>
         <div>
           <VaButton
-            class="m-1"
-            size="small"
-            color="danger"
             :disabled="datasetIndex === minIndex"
+            class="m-1"
+            color="danger"
+            size="small"
             @click="setDatasetIndex(datasetIndex - 1)"
           >
             {{ t('dashboard.charts.showInLessDetail') }}
           </VaButton>
           <VaButton
-            class="m-1"
-            size="small"
-            color="danger"
             :disabled="datasetIndex === maxIndex - 1"
+            class="m-1"
+            color="danger"
+            size="small"
             @click="setDatasetIndex(datasetIndex + 1)"
           >
             {{ t('dashboard.charts.showInMoreDetail') }}
@@ -25,7 +25,7 @@
         </div>
       </VaCardTitle>
       <VaCardContent>
-        <VaChart class="chart" :data="lineChartDataGenerated" type="line" />
+        <VaChart :data="lineChartDataGenerated" class="chart" type="line" />
       </VaCardContent>
     </VaCard>
 
@@ -35,7 +35,7 @@
         <VaButton icon="print" plain @click="printChart" />
       </VaCardTitle>
       <VaCardContent v-if="doughnutChartDataGenerated">
-        <VaChart ref="doughnutChart" class="chart chart--donut" :data="doughnutChartDataGenerated" type="doughnut" />
+        <VaChart ref="doughnutChart" :data="doughnutChartDataGenerated" class="chart chart--donut" type="doughnut" />
       </VaCardContent>
     </VaCard>
 
@@ -43,7 +43,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
 

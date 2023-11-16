@@ -2,7 +2,7 @@
   <VaTreeView v-model:checked="selectedNodes" :nodes="nodes" selectable />
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
 
   const nodes = [

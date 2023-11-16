@@ -1,8 +1,8 @@
 <template>
-  <Doughnut :chart-options="chartOptions" :chart-data="props.chartData" />
+  <Doughnut :chart-data="props.chartData" :chart-options="chartOptions" />
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { Doughnut } from 'vue-chartjs'
   import type { TChartOptions } from 'vue-chartjs/dist/types'
   import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale } from 'chart.js'

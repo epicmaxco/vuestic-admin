@@ -9,19 +9,19 @@
     <VaCard class="md:col-span-6 col-span-12">
       <VaCardTitle>{{ t('rating.twoIcons') }}</VaCardTitle>
       <VaCardContent>
-        <VaRating v-model="value" icon="bell_slash" empty-icon="bell" />
+        <VaRating v-model="value" empty-icon="bell" icon="bell_slash" />
       </VaCardContent>
     </VaCard>
     <VaCard class="md:col-span-6 col-span-12">
       <VaCardTitle>{{ t('rating.small') }}</VaCardTitle>
       <VaCardContent>
-        <VaRating v-model="value" size="small" color="warning" />
+        <VaRating v-model="value" color="warning" size="small" />
       </VaCardContent>
     </VaCard>
     <VaCard class="md:col-span-6 col-span-12">
       <VaCardTitle>{{ t('rating.large') }}</VaCardTitle>
       <VaCardContent>
-        <VaRating v-model="value" size="large" color="info" />
+        <VaRating v-model="value" color="info" size="large" />
       </VaCardContent>
     </VaCard>
     <VaCard class="md:col-span-6 col-span-12">
@@ -33,13 +33,13 @@
     <VaCard class="md:col-span-6 col-span-12">
       <VaCardTitle>{{ t('rating.halves') }}</VaCardTitle>
       <VaCardContent>
-        <VaRating v-model="value" color="success" size="large" halves />
+        <VaRating v-model="value" color="success" halves size="large" />
       </VaCardContent>
     </VaCard>
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
 

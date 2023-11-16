@@ -1,55 +1,55 @@
 <template>
-  <VaModal hide-default-actions model-value :mobile-fullscreen="false" @update:modelValue="emits('cancel')">
+  <VaModal :mobile-fullscreen="false" hide-default-actions model-value @update:modelValue="emits('cancel')">
     <VaForm ref="form" class="space-y-6 w-[326px] md:w-[608px]" @submit.prevent="submit">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <VaInput
           v-model="oldPassowrd"
-          required-mark
+          :rules="oldPasswordRules"
           label="Old password"
           placeholder="Old password"
+          required-mark
           type="password"
-          :rules="oldPasswordRules"
         />
         <div class="hidden md:block" />
         <VaInput
           v-model="newPassword"
-          required-mark
+          :rules="newPasswordRules"
           label="New password"
           placeholder="New password"
+          required-mark
           type="password"
-          :rules="newPasswordRules"
         />
         <VaInput
           v-model="repeatNewPassword"
-          required-mark
+          :rules="repeatNewPasswordRules"
           label="Repeat new password"
           placeholder="Repeat new password"
+          required-mark
           type="password"
-          :rules="repeatNewPasswordRules"
         />
       </div>
       <div class="flex flex-col space-y-2">
         <div class="flex space-x-2 items-center">
           <div>
-            <VaIcon color="secondary" size="20px" :name="newPassword?.length! >= 8 ? 'mso-check' : 'mso-close'" />
+            <VaIcon :name="newPassword?.length! >= 8 ? 'mso-check' : 'mso-close'" color="secondary" size="20px" />
           </div>
           <p>Must be at least 8 characters long</p>
         </div>
         <div class="flex space-x-2 items-center">
           <div>
-            <VaIcon color="secondary" size="20px" :name="new Set(newPassword).size >= 6 ? 'mso-check' : 'mso-close'" />
+            <VaIcon :name="new Set(newPassword).size >= 6 ? 'mso-check' : 'mso-close'" color="secondary" size="20px" />
           </div>
           <p>Must contain at least 6 unique characters</p>
         </div>
       </div>
       <div class="flex flex-col-reverse md:justify-end md:flex-row md:space-x-4">
-        <VaButton preset="plain" :style="buttonStyles" @click="emits('cancel')"> Cancel </VaButton>
-        <VaButton class="mb-4 md:mb-0" type="submit" :style="buttonStyles" @click="submit"> Update Password </VaButton>
+        <VaButton :style="buttonStyles" preset="plain" @click="emits('cancel')"> Cancel</VaButton>
+        <VaButton :style="buttonStyles" class="mb-4 md:mb-0" type="submit" @click="submit"> Update Password</VaButton>
       </div>
     </VaForm>
   </VaModal>
 </template>
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import { useForm, useToast } from 'vuestic-ui'
 

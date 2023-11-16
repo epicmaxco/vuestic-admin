@@ -1,9 +1,9 @@
 <template>
   <!-- @vue-ignore -->
-  <component :is="chartComponent" ref="chart" class="va-chart" :chart-options="chartOptions" :chart-data="data" />
+  <component :is="chartComponent" ref="chart" :chart-data="data" :chart-options="chartOptions" class="va-chart" />
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { computed, ref } from 'vue'
   import type { TChartOptions } from 'vue-chartjs/dist/types'
   import { defaultConfig, chartTypesMap } from './vaChartConfigs'

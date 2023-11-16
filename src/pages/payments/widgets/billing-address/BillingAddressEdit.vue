@@ -2,49 +2,49 @@
   <VaForm ref="form" @submit.prevent="submit">
     <VaInput
       v-model="localBillingAddress.name"
+      :rules="[(v) => !!v || 'Name field is required']"
       class="mb-4"
       label="Name"
-      :rules="[(v) => !!v || 'Name field is required']"
     />
-    <VaCheckbox v-model="localBillingAddress.isPrimary" label="Primary Address" class="mb-4" />
+    <VaCheckbox v-model="localBillingAddress.isPrimary" class="mb-4" label="Primary Address" />
     <VaInput
       v-model="localBillingAddress.street"
+      :rules="[(v) => !!v || 'Street field is required']"
       class="mb-4"
       label="Street"
-      :rules="[(v) => !!v || 'Street field is required']"
     />
     <VaInput
       v-model="localBillingAddress.city"
+      :rules="[(v) => !!v || 'City field is required']"
       class="mb-4"
       label="City"
-      :rules="[(v) => !!v || 'City field is required']"
     />
     <VaInput
       v-model="localBillingAddress.state"
+      :rules="[(v) => !!v || 'State field is required']"
       class="mb-4"
       label="State"
-      :rules="[(v) => !!v || 'State field is required']"
     />
     <VaInput
       v-model="localBillingAddress.postalCode"
+      :rules="[(v) => !!v || 'Postal Code field is required']"
       class="mb-4"
       label="Postal Code"
-      :rules="[(v) => !!v || 'Postal Code field is required']"
     />
     <VaInput
       v-model="localBillingAddress.country"
+      :rules="[(v) => !!v || 'Country field is required']"
       class="mb-4"
       label="Country"
-      :rules="[(v) => !!v || 'Country field is required']"
     />
     <div class="flex justify-end gap-3">
-      <VaButton preset="secondary" color="secondary" @click="emits('cancel')">Cancel</VaButton>
+      <VaButton color="secondary" preset="secondary" @click="emits('cancel')">Cancel</VaButton>
       <VaButton @click="submit">{{ submitText }}</VaButton>
     </div>
   </VaForm>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { useForm } from 'vuestic-ui'
   import { BillingAddress } from '../../types'
   import { watch, ref } from 'vue'

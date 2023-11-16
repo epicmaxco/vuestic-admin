@@ -3,9 +3,9 @@
     v-for="(route, idx) in items"
     :key="idx"
     v-model="dropdownsValue[idx]"
+    :offset="[1, 0]"
     placement="right-start"
     prevent-overflow
-    :offset="[1, 0]"
   >
     <template #anchor>
       <VaSidebarItem :active="isItemChildsActive(route)" :to="route.children ? undefined : { name: route.name }">
@@ -13,8 +13,8 @@
           <VaIcon :name="route.meta.icon" class="va-sidebar-item__icon" />
           <VaIcon
             v-if="route.children"
-            class="more_icon"
             :name="dropdownsValue[idx] ? 'chevron_left' : 'chevron_right'"
+            class="more_icon"
           />
         </VaSidebarItemContent>
       </VaSidebarItem>
@@ -33,11 +33,12 @@
   </VaDropdown>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { INavigationRoute } from '../NavigationRoutes'
   import { ref } from 'vue'
   import { useRoute } from 'vue-router'
   import { useI18n } from 'vue-i18n'
+
   const { t } = useI18n()
 
   withDefaults(

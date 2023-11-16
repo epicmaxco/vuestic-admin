@@ -1,8 +1,8 @@
 <template>
-  <Bar :chart-options="chartOptions" :chart-data="props.chartData" />
+  <Bar :chart-data="props.chartData" :chart-options="chartOptions" />
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { Bar } from 'vue-chartjs'
   import type { TChartOptions } from 'vue-chartjs/dist/types'
   import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, LinearScale, CategoryScale } from 'chart.js'

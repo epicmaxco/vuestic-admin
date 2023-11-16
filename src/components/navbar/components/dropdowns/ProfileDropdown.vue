@@ -1,10 +1,10 @@
 <template>
   <div class="profile-dropdown-wrapper">
-    <VaDropdown v-model="isShown" class="profile-dropdown" stick-to-edges :offset="[13, 0]">
+    <VaDropdown v-model="isShown" :offset="[13, 0]" class="profile-dropdown" stick-to-edges>
       <template #anchor>
         <span class="profile-dropdown__anchor">
           <slot />
-          <VaIcon class="px-2" :name="isShown ? 'angle_up' : 'angle_down'" :color="colors.primary" />
+          <VaIcon :color="colors.primary" :name="isShown ? 'angle_up' : 'angle_down'" class="px-2" />
         </span>
       </template>
       <VaDropdownContent class="profile-dropdown__content">
@@ -18,7 +18,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useColors } from 'vuestic-ui'

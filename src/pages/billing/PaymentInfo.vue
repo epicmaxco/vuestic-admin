@@ -16,9 +16,9 @@
           </div>
         </div>
         <div class="md:w-48 flex flex-col justify-end items-end">
-          <VaButton preset="primary" :to="{ name: 'pricing-plans' }"
-            >Switch to {{ paymentPlan.isYearly ? 'monthly' : 'annual' }}</VaButton
-          >
+          <VaButton :to="{ name: 'pricing-plans' }" preset="primary"
+            >Switch to {{ paymentPlan.isYearly ? 'monthly' : 'annual' }}
+          </VaButton>
           <div v-if="!paymentPlan.isYearly" class="mt-2 text-regularSmall">
             <span>{{ paymentPlan.priceYear }}&nbsp;/year</span>
             <span class="text-danger ml-1">save 16%</span>
@@ -47,7 +47,7 @@
   </VaCard>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { usePaymentCardsStore } from '../../stores/payment-cards'
   import { computed } from 'vue'
 

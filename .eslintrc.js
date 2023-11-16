@@ -32,6 +32,6 @@ module.exports = {
     'vue/no-lone-template': 0,
     'vue/v-on-event-hyphenation': ['warn', 'never', { autofix: true }],
     'vue/component-name-in-template-casing': ['warn', 'PascalCase', { registeredComponentsOnly: false }],
-    'vue/script-indent': ['warn', 2, { baseIndent: 0 }],
+    'vue/script-indent': ['warn', 2], // , { baseIndent: 0 } - we should use that, but it didn't work for me for some reason.
   },
 }

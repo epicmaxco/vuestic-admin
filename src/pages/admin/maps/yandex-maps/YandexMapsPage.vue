@@ -2,10 +2,10 @@
   <div class="yandex-maps-page">
     <VaCard class="yandex-maps-page__widget" title="Yandex Maps">
       <YandexMap
-        map-type="hybrid"
+        :controls="['trafficControl', 'zoomControl', 'geolocationControl', 'fullscreenControl', 'searchControl']"
         :coords="[55.2, 38.8]"
         :zoom="8"
-        :controls="['trafficControl', 'zoomControl', 'geolocationControl', 'fullscreenControl', 'searchControl']"
+        map-type="hybrid"
         style="width: 100%; height: 65vh"
       >
         <YandexMapMarker v-for="marker in markers" :key="marker['marker-id']" v-bind="marker" />
@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
 
   // No TS declarations are provided - ignoring the error

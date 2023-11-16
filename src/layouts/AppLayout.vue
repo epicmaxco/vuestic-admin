@@ -2,15 +2,15 @@
   <div class="app-layout">
     <Navbar />
     <div class="app-layout__content">
-      <div class="app-layout__sidebar-wrapper" :class="{ minimized: isSidebarMinimized }">
+      <div :class="{ minimized: isSidebarMinimized }" class="app-layout__sidebar-wrapper">
         <div v-if="isFullScreenSidebar" class="flex justify-end">
-          <VaButton class="px-4 py-4" icon="md_close" preset="plain" color="dark" @click="onCloseSidebarButtonClick" />
+          <VaButton class="px-4 py-4" color="dark" icon="md_close" preset="plain" @click="onCloseSidebarButtonClick" />
         </div>
         <Sidebar
-          :width="sidebarWidth"
+          :animated="!isMobile"
           :minimized="isSidebarMinimized"
           :minimized-width="sidebarMinimizedWidth"
-          :animated="!isMobile"
+          :width="sidebarWidth"
         />
       </div>
       <div class="app-layout__page">
@@ -87,6 +87,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+
     &__navbar {
       min-height: 4rem;
     }
@@ -122,6 +123,7 @@
         }
       }
     }
+
     &__page {
       flex-grow: 2;
       overflow-y: scroll;

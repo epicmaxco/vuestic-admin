@@ -1,25 +1,25 @@
 <template>
-  <VaDropdown class="settings-dropdown" position="bottom" boundary-body :offset="[13, 0]">
+  <VaDropdown :offset="[13, 0]" boundary-body class="settings-dropdown" position="bottom">
     <template #anchor>
-      <VaIcon name="vuestic-iconset-settings flex text-[1.4rem]" class="settings-dropdown__icon" />
+      <VaIcon class="settings-dropdown__icon" name="vuestic-iconset-settings flex text-[1.4rem]" />
     </template>
 
     <VaDropdownContent class="settings-dropdown__content pl-8 pr-8 pt-2 pb-2">
-      <div class="settings-dropdown__content-label mt-2 mb-4" :style="{ color: colors.primary }">
+      <div :style="{ color: colors.primary }" class="settings-dropdown__content-label mt-2 mb-4">
         {{ t('dashboard.navigationLayout') }}
       </div>
       <VaButtonToggle
         v-model="isTopBarProxy"
-        outline
         :options="options"
         class="settings-dropdown__control mb-2"
+        outline
         size="small"
       />
     </VaDropdownContent>
   </VaDropdown>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { computed, ref } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useColors } from 'vuestic-ui'

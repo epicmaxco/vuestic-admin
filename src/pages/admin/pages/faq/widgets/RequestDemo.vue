@@ -9,9 +9,9 @@
         <VaButton @click="showModal = !showModal">Request a demo</VaButton>
       </VaCardActions>
     </div>
-    <img src="../request-demo.svg" alt="Send a message" />
+    <img alt="Send a message" src="../request-demo.svg" />
   </VaCard>
-  <VaModal v-model="showModal" ok-text="Request demo" :before-ok="submit" close-button>
+  <VaModal v-model="showModal" :before-ok="submit" close-button ok-text="Request demo">
     <VaForm ref="form" class="sm:w-96" @submit.prevent="submit">
       <h3 class="va-h3">Request free demo</h3>
       <p class="text-base mb-4 leading-5">
@@ -19,10 +19,10 @@
       </p>
       <VaInput
         v-model="email"
-        class="mb-4"
-        type="email"
-        label="Email"
         :rules="[(v) => !!v || 'Email field is required', (v) => /.+@.+\..+/.test(v) || 'Email should be valid']"
+        class="mb-4"
+        label="Email"
+        type="email"
       />
     </VaForm>
   </VaModal>
@@ -42,7 +42,11 @@
     if (!validate()) {
       return
     }
-    init({ title: 'Demo Request Submitted!', message: 'An expert will get in touch soon', color: 'success' })
+    init({
+      title: 'Demo Request Submitted!',
+      message: 'An expert will get in touch soon',
+      color: 'success',
+    })
     showModal.value = false
   }
 </script>

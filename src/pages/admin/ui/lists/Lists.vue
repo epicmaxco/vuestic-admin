@@ -10,7 +10,7 @@
           <VaListItem clickable @click="notify(customer.name)">
             <VaListItemSection avatar>
               <VaAvatar>
-                <img :src="customer.picture" :alt="customer.name" />
+                <img :alt="customer.name" :src="customer.picture" />
               </VaAvatar>
             </VaListItemSection>
 
@@ -25,7 +25,7 @@
             </VaListItemSection>
 
             <VaListItemSection icon>
-              <VaIcon name="eye" color="gray" />
+              <VaIcon color="gray" name="eye" />
             </VaListItemSection>
           </VaListItem>
 
@@ -101,12 +101,12 @@
         <template v-for="(customer, i) in customers" :key="'item' + customer.id">
           <VaListItem clickable @click="toggleStar(customer)">
             <VaListItemSection icon>
-              <VaIcon v-if="customer.starred" name="star" color="warning" />
+              <VaIcon v-if="customer.starred" color="warning" name="star" />
             </VaListItemSection>
 
             <VaListItemSection avatar>
               <VaAvatar>
-                <img :src="customer.picture" :alt="customer.name" />
+                <img :alt="customer.name" :src="customer.picture" />
               </VaAvatar>
             </VaListItemSection>
 
@@ -117,7 +117,7 @@
             </VaListItemSection>
 
             <VaListItemSection icon>
-              <VaIcon :name="getGenderIcon(customer.gender)" :color="getGenderColor(customer.gender)" />
+              <VaIcon :color="getGenderColor(customer.gender)" :name="getGenderIcon(customer.gender)" />
             </VaListItemSection>
           </VaListItem>
 
@@ -133,12 +133,12 @@
         <template v-for="(customer, i) in archived" :key="'item' + customer.id">
           <VaListItem disabled>
             <VaListItemSection icon>
-              <VaIcon v-if="customer.starred" name="star" color="warning" />
+              <VaIcon v-if="customer.starred" color="warning" name="star" />
             </VaListItemSection>
 
             <VaListItemSection avatar>
               <VaAvatar>
-                <img :src="customer.picture" :alt="customer.name" />
+                <img :alt="customer.name" :src="customer.picture" />
               </VaAvatar>
             </VaListItemSection>
 
@@ -162,7 +162,7 @@
 
         <VaListItem :to="{ name: 'maplibre-maps' }">
           <VaListItemSection icon>
-            <VaIcon name="public" color="danger" />
+            <VaIcon color="danger" name="public" />
           </VaListItemSection>
 
           <VaListItemSection>
@@ -172,7 +172,7 @@
 
         <VaListItem :to="{ name: 'yandex-maps' }">
           <VaListItemSection icon>
-            <VaIcon name="map" color="danger" />
+            <VaIcon color="danger" name="map" />
           </VaListItemSection>
 
           <VaListItemSection>
@@ -182,7 +182,7 @@
 
         <VaListItem :to="{ name: 'leaflet-maps' }">
           <VaListItemSection icon>
-            <VaIcon name="map_marker" color="danger" />
+            <VaIcon color="danger" name="map_marker" />
           </VaListItemSection>
 
           <VaListItemSection>
@@ -194,7 +194,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useToast } from 'vuestic-ui'

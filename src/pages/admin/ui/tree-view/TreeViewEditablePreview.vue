@@ -3,14 +3,14 @@
     <template #content="node">
       <div v-if="!node.hasChildren" class="tree-node-editable flex flex-1 flex-wrap items-center">
         <VaInput v-model="node.label" class="mb-0" />
-        <VaIcon name="md_close" color="info" class="ml-2 cursor-pointer" @click="removeProduct(node)" />
+        <VaIcon class="ml-2 cursor-pointer" color="info" name="md_close" @click="removeProduct(node)" />
       </div>
     </template>
   </VaTreeView>
-  <VaButton class="mb-2" @click="addProduct()"> Add new product </VaButton>
+  <VaButton class="mb-2" @click="addProduct()"> Add new product</VaButton>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { reactive, ref } from 'vue'
 
   const expandedNodes = ref([1, 2])

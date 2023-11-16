@@ -7,17 +7,17 @@
     </p>
     <VaInput
       v-model="email"
-      class="mb-4"
-      type="email"
-      label="Enter your email"
       :rules="[(v) => !!v || 'Email field is required']"
+      class="mb-4"
+      label="Enter your email"
+      type="email"
     />
     <VaButton class="w-full mb-2" @click="submit">Send password</VaButton>
-    <VaButton class="w-full" preset="secondary" :to="{ name: 'login' }" @click="submit">Go back</VaButton>
+    <VaButton :to="{ name: 'login' }" class="w-full" preset="secondary" @click="submit">Go back</VaButton>
   </VaForm>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import { useForm } from 'vuestic-ui'
   import { useRouter } from 'vue-router'

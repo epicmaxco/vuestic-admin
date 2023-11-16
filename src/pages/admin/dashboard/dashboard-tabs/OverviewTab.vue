@@ -48,7 +48,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import VaIconVue from '../../../../components/icons/VaIconVue.vue'
   import VaIconFree from '../../../../components/icons/VaIconFree.vue'
   import VaIconFresh from '../../../../components/icons/VaIconFresh.vue'
@@ -57,6 +57,7 @@
   import VaIconCleanCode from '../../../../components/icons/VaIconCleanCode.vue'
 
   import { useI18n } from 'vue-i18n'
+
   const { t } = useI18n()
 </script>
 

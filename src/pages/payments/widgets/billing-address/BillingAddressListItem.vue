@@ -5,7 +5,7 @@
     <div class="flex flex-col gap-2 flex-grow">
       <div class="flex items-center">
         <div class="text-lg font-bold">{{ billingAddress.name }}</div>
-        <VaBadge v-if="billingAddress.isPrimary" text="Primary" color="danger" class="ml-2" />
+        <VaBadge v-if="billingAddress.isPrimary" class="ml-2" color="danger" text="Primary" />
       </div>
       <div class="text-secondary leading-5">
         <div>{{ billingAddress.street }}</div>
@@ -15,12 +15,12 @@
     </div>
     <div class="w-full sm:w-auto flex-none flex sm:block">
       <VaButton class="mr-2 flex-grow" preset="primary" @click="emits('edit')">Edit</VaButton>
-      <VaButton preset="primary" icon="mso-delete" @click="emits('remove')" />
+      <VaButton icon="mso-delete" preset="primary" @click="emits('remove')" />
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { computed } from 'vue'
   import { BillingAddress } from '../../types'
 

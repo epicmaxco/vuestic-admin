@@ -2,9 +2,9 @@
   <div class="toast-position-picker mr-8">
     <div class="position-boxes-row flex">
       <div
-        class="position-box"
         :class="{ selected: isBoxSelected('top-left') }"
         :style="computedStyle"
+        class="position-box"
         @click="updatePosition('top-left')"
       ></div>
       <!-- <div class="position-box"
@@ -13,17 +13,17 @@
         :style="computedStyle">
       </div> -->
       <div
-        class="position-box"
         :class="{ selected: isBoxSelected('top-right') }"
         :style="computedStyle"
+        class="position-box"
         @click="updatePosition('top-right')"
       ></div>
     </div>
     <div class="position-boxes-row flex">
       <div
-        class="position-box"
         :class="{ selected: isBoxSelected('bottom-left') }"
         :style="computedStyle"
+        class="position-box"
         @click="updatePosition('bottom-left')"
       ></div>
       <!-- <div class="position-box"
@@ -32,18 +32,19 @@
         :style="computedStyle">
       </div> -->
       <div
-        class="position-box"
         :class="{ selected: isBoxSelected('bottom-right') }"
         :style="computedStyle"
+        class="position-box"
         @click="updatePosition('bottom-right')"
       ></div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { useColors } from 'vuestic-ui'
   import { computed } from 'vue'
+
   const { colors } = useColors()
 
   const props = withDefaults(

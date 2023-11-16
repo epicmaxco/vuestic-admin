@@ -135,8 +135,8 @@
           </ul>
           <p class="va-h3">Links</p>
           <div class="mb-8">
-            <a href="/default" class="link mr-8" @click.prevent> Default Link </a>
-            <a href="/secondary" class="link-secondary" @click.prevent> Secondary Link </a>
+            <a class="link mr-8" href="/default" @click.prevent> Default Link </a>
+            <a class="link-secondary" href="/secondary" @click.prevent> Secondary Link </a>
           </div>
           <div class="mb-8">
             <p class="va-h3">Other Elements</p>
@@ -147,7 +147,7 @@
             </p>
           </div>
           <div class="mb-8">
-            <blockquote class="va-blockquote" :style="{ borderColor: colors.primary }">
+            <blockquote :style="{ borderColor: colors.primary }" class="va-blockquote">
               <p>
                 BQ: Let’s talk about meat fondue recipes and what you need to know first. Meat fondue also known as oil
                 fondue is a method of cooking all kinds.
@@ -189,7 +189,7 @@
   </VaContent>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useColors } from 'vuestic-ui'

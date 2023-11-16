@@ -1,8 +1,8 @@
 <template>
   <VaCard :title="t('tables.serverSidePagination')">
     <VaDataTable
-      :fields="fields"
       :data="items"
+      :fields="fields"
       :loading="loading"
       :total-pages="totalPages"
       api-mode

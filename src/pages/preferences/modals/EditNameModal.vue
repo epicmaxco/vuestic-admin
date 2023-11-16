@@ -1,15 +1,15 @@
 <template>
-  <VaModal hide-default-actions model-value :mobile-fullscreen="false" @update:modelValue="emits('cancel')">
+  <VaModal :mobile-fullscreen="false" hide-default-actions model-value @update:modelValue="emits('cancel')">
     <VaForm ref="form" class="w-[326px] md:w-[288px]" @submit.prevent="submit">
       <VaInput v-model="Name" class="mb-4" label="Name" placeholder="Name" />
       <div class="flex flex-col-reverse md:flex-row md:items-center md:justify-end md:space-x-4">
-        <VaButton preset="plain" :style="buttonStyles" @click="emits('cancel')"> Cancel </VaButton>
-        <VaButton class="mb-4 md:mb-0" type="submit" :style="buttonStyles" @click="submit"> Save </VaButton>
+        <VaButton :style="buttonStyles" preset="plain" @click="emits('cancel')"> Cancel</VaButton>
+        <VaButton :style="buttonStyles" class="mb-4 md:mb-0" type="submit" @click="submit"> Save</VaButton>
       </div>
     </VaForm>
   </VaModal>
 </template>
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref } from 'vue'
   import { useUserStore } from '../../../stores/user-store'
 

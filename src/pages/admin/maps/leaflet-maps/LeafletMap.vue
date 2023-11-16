@@ -2,7 +2,7 @@
   <div ref="mapRef" class="leaflet-map h-full" />
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref, onMounted } from 'vue'
 
   import 'leaflet-map'

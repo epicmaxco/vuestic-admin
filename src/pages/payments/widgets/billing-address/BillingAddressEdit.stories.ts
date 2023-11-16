@@ -24,14 +24,15 @@ export const Default = () => ({
       } satisfies BillingAddress,
     }
   },
-  template: `<BillingAddressEdit
-    :billingAddress="billingAddress"
-    submitText="Update"
-    @save="lastEvent = 'save'"
-    @cancel="lastEvent = 'cancel'"
-  />
-  <br>
-  <p>Last event: <span data-testid="lastEvent">{{lastEvent}}</span></p>`,
+  template: `
+    <BillingAddressEdit
+        :billingAddress="billingAddress"
+        submitText="Update"
+        @save="lastEvent = 'save'"
+        @cancel="lastEvent = 'cancel'"
+    />
+    <br>
+    <p>Last event: <span data-testid="lastEvent">{{ lastEvent }}</span></p>`,
 })
 
 export const Empty = () => ({
@@ -50,8 +51,9 @@ export const Empty = () => ({
       } satisfies BillingAddress,
     }
   },
-  template: `<BillingAddressEdit
-    :billingAddress="billingAddress"
-    submitText="Create"
-  />`,
+  template: `
+    <BillingAddressEdit
+        :billingAddress="billingAddress"
+        submitText="Create"
+    />`,
 })

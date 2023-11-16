@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
   import { ref, Ref, onMounted, onBeforeUnmount } from 'vue'
   import MediumEditor from 'medium-editor'
 
@@ -122,6 +122,7 @@
       &.medium-editor-button-active {
         background-color: $medium-editor-active-background-color;
         color: $medium-editor-active-text-color;
+
         i {
           color: $medium-editor-active-text-color;
         }
