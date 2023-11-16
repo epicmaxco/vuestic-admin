@@ -1,131 +1,131 @@
 <template>
   <div class="buttons grid grid-cols-12 gap-3">
-    <va-card class="larger-padding col-span-12">
-      <va-card-title>{{ t('buttons.types') }}</va-card-title>
-      <va-card-content class="my-3 flex flex-wrap items-center gap-2">
-        <va-button> {{ t('buttons.default') }}</va-button>
-        <va-button disabled> {{ t('buttons.disabled') }}</va-button>
-        <va-button preset="outline" border-color="primary" color="primary"> {{ t('buttons.outline') }}</va-button>
-        <va-button preset="outline" border-color="primary" color="primary" disabled>
-          {{ t('buttons.disabled') }}</va-button
+    <VaCard class="larger-padding col-span-12">
+      <VaCardTitle>{{ t('buttons.types') }}</VaCardTitle>
+      <VaCardContent class="my-3 flex flex-wrap items-center gap-2">
+        <VaButton> {{ t('buttons.default') }}</VaButton>
+        <VaButton disabled> {{ t('buttons.disabled') }}</VaButton>
+        <VaButton preset="outline" border-color="primary" color="primary"> {{ t('buttons.outline') }}</VaButton>
+        <VaButton preset="outline" border-color="primary" color="primary" disabled>
+          {{ t('buttons.disabled') }}</VaButton
         >
-        <va-button preset="plain"> {{ t('buttons.flat') }}</va-button>
-        <va-button preset="plain" disabled> {{ t('buttons.disabled') }}</va-button>
-      </va-card-content>
-    </va-card>
+        <VaButton preset="plain"> {{ t('buttons.flat') }}</VaButton>
+        <VaButton preset="plain" disabled> {{ t('buttons.disabled') }}</VaButton>
+      </VaCardContent>
+    </VaCard>
 
-    <va-card class="larger-padding col-span-12">
-      <va-card-title>{{ t('buttons.size') }}</va-card-title>
-      <va-card-content class="my-3 flex flex-wrap items-center gap-2">
-        <va-button size="small"> {{ t('buttons.small') }}</va-button>
-        <va-button> {{ t('buttons.normal') }}</va-button>
-        <va-button size="large"> {{ t('buttons.large') }}</va-button>
-      </va-card-content>
-    </va-card>
+    <VaCard class="larger-padding col-span-12">
+      <VaCardTitle>{{ t('buttons.size') }}</VaCardTitle>
+      <VaCardContent class="my-3 flex flex-wrap items-center gap-2">
+        <VaButton size="small"> {{ t('buttons.small') }}</VaButton>
+        <VaButton> {{ t('buttons.normal') }}</VaButton>
+        <VaButton size="large"> {{ t('buttons.large') }}</VaButton>
+      </VaCardContent>
+    </VaCard>
 
-    <va-card class="larger-padding col-span-12">
-      <va-card-title>{{ t('buttons.tags') }}</va-card-title>
-      <va-card-content class="my-3 flex flex-wrap items-center gap-2">
-        <va-button> {{ t('buttons.button') }}</va-button>
-        <va-button href="http://epic-spinners.epicmax.co/">
+    <VaCard class="larger-padding col-span-12">
+      <VaCardTitle>{{ t('buttons.tags') }}</VaCardTitle>
+      <VaCardContent class="my-3 flex flex-wrap items-center gap-2">
+        <VaButton> {{ t('buttons.button') }}</VaButton>
+        <VaButton href="http://epic-spinners.epicmax.co/">
           {{ t('buttons.a-link') }}
-        </va-button>
-        <va-button :to="{ name: 'charts' }">
+        </VaButton>
+        <VaButton :to="{ name: 'charts' }">
           {{ t('buttons.router-link') }}
-        </va-button>
-      </va-card-content>
-    </va-card>
+        </VaButton>
+      </VaCardContent>
+    </VaCard>
 
-    <va-card class="larger-padding col-span-12">
-      <va-card-title>{{ t('buttons.advanced') }}</va-card-title>
-      <va-card-content class="my-3 flex flex-wrap items-center gap-2">
-        <va-button icon="md_close"> {{ t('buttons.button') }}</va-button>
-        <va-button icon-right="expand_more"> {{ t('buttons.button') }}</va-button>
-        <va-button icon="md_close" icon-right="expand_more">
+    <VaCard class="larger-padding col-span-12">
+      <VaCardTitle>{{ t('buttons.advanced') }}</VaCardTitle>
+      <VaCardContent class="my-3 flex flex-wrap items-center gap-2">
+        <VaButton icon="md_close"> {{ t('buttons.button') }}</VaButton>
+        <VaButton icon-right="expand_more"> {{ t('buttons.button') }}</VaButton>
+        <VaButton icon="md_close" icon-right="expand_more">
           {{ t('buttons.button') }}
-        </va-button>
-        <va-button icon="md_close" />
-      </va-card-content>
-    </va-card>
+        </VaButton>
+        <VaButton icon="md_close" />
+      </VaCardContent>
+    </VaCard>
 
-    <va-card class="larger-padding col-span-12">
-      <va-card-title>{{ t('buttons.colors') }}</va-card-title>
-      <va-card-content>
+    <VaCard class="larger-padding col-span-12">
+      <VaCardTitle>{{ t('buttons.colors') }}</VaCardTitle>
+      <VaCardContent>
         <div class="mb-6 my-3 flex flex-wrap items-center gap-2">
-          <va-button color="danger"> {{ t('buttons.danger') }}</va-button>
-          <va-button color="info"> {{ t('buttons.info') }}</va-button>
-          <va-button color="dark"> {{ t('buttons.dark') }}</va-button>
-          <va-button color="warning"> {{ t('buttons.warning') }}</va-button>
-          <va-button color="success"> {{ t('buttons.success') }}</va-button>
-          <va-button color="gray"> {{ t('buttons.gray') }}</va-button>
+          <VaButton color="danger"> {{ t('buttons.danger') }}</VaButton>
+          <VaButton color="info"> {{ t('buttons.info') }}</VaButton>
+          <VaButton color="dark"> {{ t('buttons.dark') }}</VaButton>
+          <VaButton color="warning"> {{ t('buttons.warning') }}</VaButton>
+          <VaButton color="success"> {{ t('buttons.success') }}</VaButton>
+          <VaButton color="gray"> {{ t('buttons.gray') }}</VaButton>
         </div>
         <div class="mb-6 my-3 flex flex-wrap items-center gap-2">
-          <va-button preset="outline" border-color="danger" color="danger"> {{ t('buttons.danger') }}</va-button>
-          <va-button preset="outline" border-color="info" color="info"> {{ t('buttons.info') }}</va-button>
-          <va-button preset="outline" border-color="dark" color="dark"> {{ t('buttons.dark') }}</va-button>
-          <va-button preset="outline" border-color="warning" color="warning"> {{ t('buttons.warning') }}</va-button>
-          <va-button preset="outline" border-color="success" color="success"> {{ t('buttons.success') }}</va-button>
-          <va-button preset="outline" border-color="gray" color="gray"> {{ t('buttons.gray') }}</va-button>
+          <VaButton preset="outline" border-color="danger" color="danger"> {{ t('buttons.danger') }}</VaButton>
+          <VaButton preset="outline" border-color="info" color="info"> {{ t('buttons.info') }}</VaButton>
+          <VaButton preset="outline" border-color="dark" color="dark"> {{ t('buttons.dark') }}</VaButton>
+          <VaButton preset="outline" border-color="warning" color="warning"> {{ t('buttons.warning') }}</VaButton>
+          <VaButton preset="outline" border-color="success" color="success"> {{ t('buttons.success') }}</VaButton>
+          <VaButton preset="outline" border-color="gray" color="gray"> {{ t('buttons.gray') }}</VaButton>
         </div>
         <div class="my-3 flex flex-wrap items-center gap-2">
-          <va-button preset="plain" color="danger"> {{ t('buttons.danger') }}</va-button>
-          <va-button preset="plain" color="info"> {{ t('buttons.info') }}</va-button>
-          <va-button preset="plain" color="dark"> {{ t('buttons.dark') }}</va-button>
-          <va-button preset="plain" color="warning"> {{ t('buttons.warning') }}</va-button>
-          <va-button preset="plain" color="success"> {{ t('buttons.success') }}</va-button>
-          <va-button preset="plain" color="gray"> {{ t('buttons.gray') }}</va-button>
+          <VaButton preset="plain" color="danger"> {{ t('buttons.danger') }}</VaButton>
+          <VaButton preset="plain" color="info"> {{ t('buttons.info') }}</VaButton>
+          <VaButton preset="plain" color="dark"> {{ t('buttons.dark') }}</VaButton>
+          <VaButton preset="plain" color="warning"> {{ t('buttons.warning') }}</VaButton>
+          <VaButton preset="plain" color="success"> {{ t('buttons.success') }}</VaButton>
+          <VaButton preset="plain" color="gray"> {{ t('buttons.gray') }}</VaButton>
         </div>
-      </va-card-content>
-    </va-card>
+      </VaCardContent>
+    </VaCard>
 
-    <va-card class="larger-padding col-span-12">
-      <va-card-title>{{ t('buttons.buttonGroups') }}</va-card-title>
-      <va-card-content class="grid grid-cols-12 gap-6">
-        <va-button-group class="col-span-12 xl:col-span-6" color="secondary">
-          <va-button size="large"> One</va-button>
-          <va-button size="large"> Two</va-button>
-          <va-button size="large"> Three</va-button>
-        </va-button-group>
-        <va-button-group class="col-span-12 xl:col-span-6" preset="outline" border-color="danger" color="danger">
-          <va-button icon="maki-art-gallery">One</va-button>
-          <va-button>Two</va-button>
-          <va-button>Three</va-button>
-        </va-button-group>
-        <va-button-group class="col-span-12 xl:col-span-6" preset="plain" color="gray">
-          <va-button icon="ion-ios-mail">One</va-button>
-          <va-button icon="entypo-user">Two</va-button>
-          <va-button icon="ion-ios-alarm">Three</va-button>
-        </va-button-group>
-        <va-button-group class="col-span-12 xl:col-span-6" color="dark">
-          <va-button> One</va-button>
-          <va-button> Two</va-button>
-          <va-button> Three</va-button>
-          <va-button icon="ion-ios-arrow-down" />
-        </va-button-group>
-        <va-button-group
+    <VaCard class="larger-padding col-span-12">
+      <VaCardTitle>{{ t('buttons.buttonGroups') }}</VaCardTitle>
+      <VaCardContent class="grid grid-cols-12 gap-6">
+        <VaButtonGroup class="col-span-12 xl:col-span-6" color="secondary">
+          <VaButton size="large"> One</VaButton>
+          <VaButton size="large"> Two</VaButton>
+          <VaButton size="large"> Three</VaButton>
+        </VaButtonGroup>
+        <VaButtonGroup class="col-span-12 xl:col-span-6" preset="outline" border-color="danger" color="danger">
+          <VaButton icon="maki-art-gallery">One</VaButton>
+          <VaButton>Two</VaButton>
+          <VaButton>Three</VaButton>
+        </VaButtonGroup>
+        <VaButtonGroup class="col-span-12 xl:col-span-6" preset="plain" color="gray">
+          <VaButton icon="ion-ios-mail">One</VaButton>
+          <VaButton icon="entypo-user">Two</VaButton>
+          <VaButton icon="ion-ios-alarm">Three</VaButton>
+        </VaButtonGroup>
+        <VaButtonGroup class="col-span-12 xl:col-span-6" color="dark">
+          <VaButton> One</VaButton>
+          <VaButton> Two</VaButton>
+          <VaButton> Three</VaButton>
+          <VaButton icon="ion-ios-arrow-down" />
+        </VaButtonGroup>
+        <VaButtonGroup
           class="col-span-12 xl:col-span-6"
           preset="outline"
           border-color="primary"
           color="primary"
           size="large"
         >
-          <va-button>First</va-button>
-          <va-button icon-right="glyphicon-pencil">Second</va-button>
-          <va-button>Third</va-button>
-        </va-button-group>
-        <va-button-group class="col-span-12 xl:col-span-6" preset="plain" size="small" color="warning">
-          <va-button icon="glyphicon-envelope" />
-          <va-button icon="entypo-user" />
-          <va-button icon="ion-ios-alarm" />
-        </va-button-group>
-      </va-card-content>
-    </va-card>
+          <VaButton>First</VaButton>
+          <VaButton icon-right="glyphicon-pencil">Second</VaButton>
+          <VaButton>Third</VaButton>
+        </VaButtonGroup>
+        <VaButtonGroup class="col-span-12 xl:col-span-6" preset="plain" size="small" color="warning">
+          <VaButton icon="glyphicon-envelope" />
+          <VaButton icon="entypo-user" />
+          <VaButton icon="ion-ios-alarm" />
+        </VaButtonGroup>
+      </VaCardContent>
+    </VaCard>
 
-    <va-card class="larger-padding col-span-12">
-      <va-card-title>{{ t('buttons.buttonToggles') }}</va-card-title>
-      <va-card-content class="grid grid-cols-12 gap-6">
-        <va-button-toggle v-model="model" class="col-span-12 lg:col-span-6" :options="options" />
-        <va-button-toggle
+    <VaCard class="larger-padding col-span-12">
+      <VaCardTitle>{{ t('buttons.buttonToggles') }}</VaCardTitle>
+      <VaCardContent class="grid grid-cols-12 gap-6">
+        <VaButtonToggle v-model="model" class="col-span-12 lg:col-span-6" :options="options" />
+        <VaButtonToggle
           v-model="model"
           class="col-span-12 lg:col-span-6"
           preset="outline"
@@ -133,15 +133,15 @@
           border-color="danger"
           color="danger"
         />
-        <va-button-toggle
+        <VaButtonToggle
           v-model="model"
           class="col-span-12 lg:col-span-6"
           preset="plain"
           :options="options"
           color="gray"
         />
-        <va-button-toggle v-model="model" class="col-span-12 lg:col-span-6" :options="options" color="dark" />
-        <va-button-toggle
+        <VaButtonToggle v-model="model" class="col-span-12 lg:col-span-6" :options="options" color="dark" />
+        <VaButtonToggle
           v-model="model"
           class="col-span-12 lg:col-span-6"
           preset="outline"
@@ -149,29 +149,29 @@
           border-color="info"
           color="info"
         />
-        <va-button-toggle
+        <VaButtonToggle
           v-model="model"
           class="col-span-12 lg:col-span-6"
           preset="plain"
           :options="options"
           color="warning"
         />
-      </va-card-content>
-    </va-card>
+      </VaCardContent>
+    </VaCard>
 
-    <va-card class="larger-padding col-span-12">
-      <va-card-title>{{ t('buttons.pagination') }}</va-card-title>
-      <va-card-content class="grid grid-cols-12 gap-6">
-        <va-pagination v-model="activePage" class="col-span-12 xl:col-span-6" :visible-pages="3" :pages="20" />
-        <va-pagination
+    <VaCard class="larger-padding col-span-12">
+      <VaCardTitle>{{ t('buttons.pagination') }}</VaCardTitle>
+      <VaCardContent class="grid grid-cols-12 gap-6">
+        <VaPagination v-model="activePage" class="col-span-12 xl:col-span-6" :visible-pages="3" :pages="20" />
+        <VaPagination
           v-model="activePage"
           class="col-span-12 xl:col-span-6"
           :visible-pages="3"
           :pages="15"
           color="danger"
         />
-        <va-pagination v-model="activePage" class="col-span-12 xl:col-span-6" :pages="5" disabled />
-        <va-pagination
+        <VaPagination v-model="activePage" class="col-span-12 xl:col-span-6" :pages="5" disabled />
+        <VaPagination
           v-model="activePage"
           class="col-span-12 xl:col-span-6"
           :pages="10"
@@ -180,26 +180,24 @@
           :icon-right="{ boundary: 'bell', direction: 'volume_up' }"
           color="success"
         />
-      </va-card-content>
-    </va-card>
+      </VaCardContent>
+    </VaCard>
 
-    <va-card class="larger-padding col-span-12">
-      <va-card-title>{{ t('buttons.buttonsDropdown') }}</va-card-title>
-      <va-card-content class="my-3 flex flex-wrap items-center gap-2">
-        <va-button-dropdown :label="t('buttons.default')"> {{ t('buttons.content') }}</va-button-dropdown>
-        <va-button-dropdown split :label="t('buttons.split')"> {{ t('buttons.content') }}</va-button-dropdown>
-        <va-button-dropdown split split-to="/" :label="t('buttons.splitTo')">
-          {{ t('buttons.content') }}</va-button-dropdown
+    <VaCard class="larger-padding col-span-12">
+      <VaCardTitle>{{ t('buttons.buttonsDropdown') }}</VaCardTitle>
+      <VaCardContent class="my-3 flex flex-wrap items-center gap-2">
+        <VaButtonDropdown :label="t('buttons.default')"> {{ t('buttons.content') }}</VaButtonDropdown>
+        <VaButtonDropdown split :label="t('buttons.split')"> {{ t('buttons.content') }}</VaButtonDropdown>
+        <VaButtonDropdown split split-to="/" :label="t('buttons.splitTo')">
+          {{ t('buttons.content') }}</VaButtonDropdown
         >
-        <va-button-dropdown :label="t('buttons.customIcon')" icon="info" opened-icon="bell_slash">
+        <VaButtonDropdown :label="t('buttons.customIcon')" icon="info" opened-icon="bell_slash">
           {{ t('buttons.content') }}
-        </va-button-dropdown>
-        <va-button-dropdown disabled :label="t('buttons.disabled')"> {{ t('buttons.content') }}</va-button-dropdown>
-        <va-button-dropdown color="warning" :label="t('buttons.warning')">
-          {{ t('buttons.content') }}</va-button-dropdown
-        >
-      </va-card-content>
-    </va-card>
+        </VaButtonDropdown>
+        <VaButtonDropdown disabled :label="t('buttons.disabled')"> {{ t('buttons.content') }}</VaButtonDropdown>
+        <VaButtonDropdown color="warning" :label="t('buttons.warning')"> {{ t('buttons.content') }}</VaButtonDropdown>
+      </VaCardContent>
+    </VaCard>
   </div>
 </template>
 

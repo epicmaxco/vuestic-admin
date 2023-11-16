@@ -1,43 +1,37 @@
 <template>
-  <va-card :title="t('tables.searchTrendsBadges')">
+  <VaCard :title="t('tables.searchTrendsBadges')">
     <div class="grid grid-cols-12 items-center">
       <div class="flex col-span-12 md:col-span-6">
-        <va-input :value="term" :placeholder="t('tables.searchByName')" removable @input="search">
+        <VaInput :value="term" :placeholder="t('tables.searchByName')" removable @input="search">
           <template #prepend>
-            <va-icon name="search" />
+            <VaIcon name="search" />
           </template>
-        </va-input>
+        </VaInput>
       </div>
 
       <div class="flex col-span-12 md:col-span-3 offset--md3">
-        <va-select v-model="perPage" :label="t('tables.perPage')" :options="perPageOptions" no-clear />
+        <VaSelect v-model="perPage" :label="t('tables.perPage')" :options="perPageOptions" no-clear />
       </div>
     </div>
 
-    <va-data-table
-      :fields="fields"
-      :data="filteredData"
-      :per-page="parseInt(perPage)"
-      clickable
-      @row-clicked="showUser"
-    >
+    <VaDataTable :fields="fields" :data="filteredData" :per-page="parseInt(perPage)" clickable @rowClicked="showUser">
       <template #trend="props">
-        <va-icon :name="getTrendIcon(props.rowData)" :color="getTrendColor(props.rowData)" />
+        <VaIcon :name="getTrendIcon(props.rowData)" :color="getTrendColor(props.rowData)" />
       </template>
 
       <template #status="props">
-        <va-badge :color="props.rowData.color">
+        <VaBadge :color="props.rowData.color">
           {{ props.rowData.status }}
-        </va-badge>
+        </VaBadge>
       </template>
 
       <template #actions="props">
-        <va-button v-if="props.rowData.hasReport" small color="danger" class="m-0">
+        <VaButton v-if="props.rowData.hasReport" small color="danger" class="m-0">
           {{ t('tables.report') }}
-        </va-button>
+        </VaButton>
       </template>
-    </va-data-table>
-  </va-card>
+    </VaDataTable>
+  </VaCard>
 </template>
 
 <script>

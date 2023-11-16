@@ -30,7 +30,7 @@
             to avoid any processing delays.
           </div>
         </div>
-        <va-button class="flex-none w-full sm:w-auto" @click="showCreate = true">New address</va-button>
+        <VaButton class="flex-none w-full sm:w-auto" @click="showCreate = true">New address</VaButton>
       </div>
     </template>
   </div>

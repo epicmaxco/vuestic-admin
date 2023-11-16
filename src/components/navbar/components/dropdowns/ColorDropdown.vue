@@ -1,11 +1,11 @@
 <template>
-  <va-dropdown class="color-dropdown pointer" :offset="[13, 0]" stick-to-edges>
+  <VaDropdown class="color-dropdown pointer" :offset="[13, 0]" stick-to-edges>
     <template #anchor>
-      <va-icon-color />
+      <VaIconColor />
     </template>
 
-    <va-dropdown-content class="color-dropdown__content pl-8 pr-8 pt-2 pb-2">
-      <va-button-toggle
+    <VaDropdownContent class="color-dropdown__content pl-8 pr-8 pt-2 pb-2">
+      <VaButtonToggle
         v-model="currentTheme"
         class="color-dropdown__toggle"
         :options="themeOptions"
@@ -16,15 +16,15 @@
       />
 
       <table class="w-full my-4">
-        <color-dropdown-item
+        <ColorDropdownItem
           v-for="colorName in colorNames"
           :key="colorName"
           class="color-picker-dropdown"
           :color-name="colorName"
         />
       </table>
-    </va-dropdown-content>
-  </va-dropdown>
+    </VaDropdownContent>
+  </VaDropdown>
 </template>
 
 <script setup lang="ts">

@@ -1,10 +1,10 @@
 <template>
-  <va-dropdown class="language-dropdown" :offset="[13, 0]" stick-to-edges>
+  <VaDropdown class="language-dropdown" :offset="[13, 0]" stick-to-edges>
     <template #anchor>
-      <va-icon :name="getFlagIcon(locale, 'large')" />
+      <VaIcon :name="getFlagIcon(locale, 'large')" />
     </template>
 
-    <va-dropdown-content class="language-dropdown__content pl-8 pr-8 pt-2 pb-2">
+    <VaDropdownContent class="language-dropdown__content pl-8 pr-8 pt-2 pb-2">
       <div
         v-for="(option, id) in options"
         :key="id"
@@ -12,13 +12,13 @@
         :class="{ active: option.code === locale }"
         @click="locale = option.code"
       >
-        <va-icon :name="getFlagIcon(option.code, 'small')" />
+        <VaIcon :name="getFlagIcon(option.code, 'small')" />
         <span class="dropdown-item__text">
           {{ t(`language.${option.name}`) }}
         </span>
       </div>
-    </va-dropdown-content>
-  </va-dropdown>
+    </VaDropdownContent>
+  </VaDropdown>
 </template>
 
 <script setup lang="ts">

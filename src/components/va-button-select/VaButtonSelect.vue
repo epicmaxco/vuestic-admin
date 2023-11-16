@@ -1,6 +1,6 @@
 <template>
   <div class="space-x-[1px] p-[2px] border rounded w-fit">
-    <va-button
+    <VaButton
       v-for="option in options"
       :key="option"
       class="w-[86px]"
@@ -10,7 +10,7 @@
       @click="emits('update:modelValue', option)"
     >
       {{ option }}
-    </va-button>
+    </VaButton>
   </div>
 </template>
 <script setup lang="ts">

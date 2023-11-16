@@ -1,9 +1,9 @@
 <template>
-  <va-card class="mb-4">
-    <va-card-content>
+  <VaCard class="mb-4">
+    <VaCardContent>
       <h5 class="va-h5">Popular questions</h5>
-      <va-accordion v-model="accordionState" class="mb-1" :style="{ '--va-collapse-padding': '1rem 0' }">
-        <va-collapse header="How do I reload a page?">
+      <VaAccordion v-model="accordionState" class="mb-1" :style="{ '--va-collapse-padding': '1rem 0' }">
+        <VaCollapse header="How do I reload a page?">
           <article class="max-w-3xl leading-5">
             <p class="mb-2">
               Get ready for some page-refreshing wisdom! We're about to dive into the magical world of reloading web
@@ -20,9 +20,9 @@
               <li>Use JavaScript to reload the page programmatically: location.reload();</li>
             </ul>
           </article>
-        </va-collapse>
+        </VaCollapse>
 
-        <va-collapse header="What is a Secure Key?">
+        <VaCollapse header="What is a Secure Key?">
           <article class="max-w-3xl text-sm">
             <p class="mb-4">
               A Secure Key is an extra layer of security that helps look after you and your money by generating a
@@ -38,12 +38,12 @@
             </p>
             <a href="#" class="va-link font-semibold"
               >Find out more about Secure Keys
-              <va-icon name="chevron_right" :size="18" />
+              <VaIcon name="chevron_right" :size="18" />
             </a>
           </article>
-        </va-collapse>
+        </VaCollapse>
 
-        <va-collapse header="How do I report fraud?">
+        <VaCollapse header="How do I report fraud?">
           <article class="max-w-3xl text-sm">
             <p class="mb-3">
               Reporting fraud is a serious matter, and it's important to take appropriate steps to address and prevent
@@ -75,9 +75,9 @@
               further fraudulent activities.
             </p>
           </article>
-        </va-collapse>
+        </VaCollapse>
 
-        <va-collapse :style="{ '--va-background-border': 'transparent' }" header="How to download statements?">
+        <VaCollapse :style="{ '--va-background-border': 'transparent' }" header="How to download statements?">
           <article class="max-w-3xl text-sm">
             <p class="mb-3">
               Downloading statements can vary depending on the type of statements you're referring to (e.g., bank
@@ -110,10 +110,10 @@
               service.
             </p>
           </article>
-        </va-collapse>
-      </va-accordion>
-    </va-card-content>
-  </va-card>
+        </VaCollapse>
+      </VaAccordion>
+    </VaCardContent>
+  </VaCard>
 </template>
 
 <script setup>

@@ -1,5 +1,5 @@
 <template>
-  <va-avatar size="large" :src="store.pfp" />
+  <VaAvatar size="large" :src="store.pfp" />
   <div class="flex flex-col justify-center">
     <h2 class="text-[28px] md:text-[32px] leading-10 font-bold">{{ store.userName }}</h2>
     <div class="flex space-x-1 text-[13px] leading-4">

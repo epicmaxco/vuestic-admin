@@ -1,26 +1,26 @@
 <template>
-  <va-card>
-    <va-card-title>
+  <VaCard>
+    <VaCardTitle>
       {{ t('dashboard.setupRemoteConnections') }}
-    </va-card-title>
-    <va-card-content>
-      <va-tabs v-model="activeTabName" grow>
+    </VaCardTitle>
+    <VaCardContent>
+      <VaTabs v-model="activeTabName" grow>
         <template #tabs>
-          <va-tab name="OverviewTab">
+          <VaTab name="OverviewTab">
             {{ t('dashboard.tabs.overview.title') }}
-          </va-tab>
-          <va-tab name="BillingAddressTab">
+          </VaTab>
+          <VaTab name="BillingAddressTab">
             {{ t('dashboard.tabs.billingAddress.title') }}
-          </va-tab>
-          <va-tab name="BankDetailsTab">
+          </VaTab>
+          <VaTab name="BankDetailsTab">
             {{ t('dashboard.tabs.bankDetails.title') }}
-          </va-tab>
+          </VaTab>
         </template>
-      </va-tabs>
-      <va-separator />
+      </VaTabs>
+      <VaSeparator />
       <component :is="tabs[activeTabName]" @submit="submit" />
-    </va-card-content>
-  </va-card>
+    </VaCardContent>
+  </VaCard>
 </template>
 
 <script setup lang="ts">

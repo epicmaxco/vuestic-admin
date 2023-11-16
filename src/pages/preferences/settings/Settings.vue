@@ -6,11 +6,11 @@
         {{ store.userName }}
       </div>
     </div>
-    <va-button class="w-fit h-fit" preset="primary" :style="buttonStyles" @click="emits('openNameModal')">
+    <VaButton class="w-fit h-fit" preset="primary" :style="buttonStyles" @click="emits('openNameModal')">
       Edit
-    </va-button>
+    </VaButton>
   </div>
-  <va-divider />
+  <VaDivider />
   <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 min-h-[36px] leading-5">
     <p class="font-bold w-[200px]">Email</p>
     <div class="flex-1">
@@ -24,11 +24,11 @@
     <div class="flex-1">
       <div class="max-w-[748px]">•••••••••••••</div>
     </div>
-    <va-button class="w-fit h-fit" preset="primary" :style="buttonStyles" @click="emits('openResetPasswordModal')">
+    <VaButton class="w-fit h-fit" preset="primary" :style="buttonStyles" @click="emits('openResetPasswordModal')">
       Reset Password
-    </va-button>
+    </VaButton>
   </div>
-  <va-divider />
+  <VaDivider />
   <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 min-h-[36px] leading-5">
     <p class="font-bold w-[200px]">Two-factor authentication</p>
     <div class="flex-1">
@@ -36,11 +36,11 @@
         {{ twoFA.content }}
       </div>
     </div>
-    <va-button class="w-fit h-fit" preset="primary" :style="buttonStyles" @click="toggle2FA">
+    <VaButton class="w-fit h-fit" preset="primary" :style="buttonStyles" @click="toggle2FA">
       {{ twoFA.button }}
-    </va-button>
+    </VaButton>
   </div>
-  <va-divider />
+  <VaDivider />
   <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 min-h-[36px] leading-5">
     <p class="font-bold w-[200px]">Email subscriptions</p>
     <div class="flex-1">
@@ -49,7 +49,7 @@
         <div class="flex space-x-1 w-fit">
           <p class="font-semibold text-primary">Subscriptions Preferences Center</p>
           <div>
-            <va-icon size="14px" color="primary" name="mso-arrow_outward" />
+            <VaIcon size="14px" color="primary" name="mso-arrow_outward" />
           </div>
         </div>
       </div>

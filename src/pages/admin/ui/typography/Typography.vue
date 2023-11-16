@@ -1,9 +1,9 @@
 <template>
-  <va-content class="typography content">
+  <VaContent class="typography content">
     <div class="grid grid-cols-12 gap-6">
-      <va-card class="col-span-12">
-        <va-card-title>{{ t('typography.primary') }}</va-card-title>
-        <va-card-content>
+      <VaCard class="col-span-12">
+        <VaCardTitle>{{ t('typography.primary') }}</VaCardTitle>
+        <VaCardContent>
           <div class="mb-8">
             <h1>Display 1 Heading</h1>
             <p>
@@ -64,12 +64,12 @@
               it’s own satellite, the moon.
             </p>
           </div>
-        </va-card-content>
-      </va-card>
+        </VaCardContent>
+      </VaCard>
 
-      <va-card class="col-span-12">
-        <va-card-title>{{ t('typography.secondary') }}</va-card-title>
-        <va-card-content>
+      <VaCard class="col-span-12">
+        <VaCardTitle>{{ t('typography.secondary') }}</VaCardTitle>
+        <VaCardContent>
           <p class="va-h3">Lists</p>
           <ol class="va-ordered">
             <li>
@@ -183,10 +183,10 @@
               </tbody>
             </table>
           </div>
-        </va-card-content>
-      </va-card>
+        </VaCardContent>
+      </VaCard>
     </div>
-  </va-content>
+  </VaContent>
 </template>
 
 <script setup lang="ts">

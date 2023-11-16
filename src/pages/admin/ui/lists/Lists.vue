@@ -1,196 +1,196 @@
 <template>
   <div class="lists grid grid-cols-12 items-start gap-6">
-    <va-card class="col-span-12 lg:col-span-6 p-4">
-      <va-list class="py-4">
-        <va-list-label>
+    <VaCard class="col-span-12 lg:col-span-6 p-4">
+      <VaList class="py-4">
+        <VaListLabel>
           {{ t('lists.customers') }}
-        </va-list-label>
+        </VaListLabel>
 
         <template v-for="(customer, i) in customers" :key="'item' + customer.id">
-          <va-list-item clickable @click="notify(customer.name)">
-            <va-list-item-section avatar>
-              <va-avatar>
+          <VaListItem clickable @click="notify(customer.name)">
+            <VaListItemSection avatar>
+              <VaAvatar>
                 <img :src="customer.picture" :alt="customer.name" />
-              </va-avatar>
-            </va-list-item-section>
+              </VaAvatar>
+            </VaListItemSection>
 
-            <va-list-item-section>
-              <va-list-item-label>
+            <VaListItemSection>
+              <VaListItemLabel>
                 {{ customer.name }}
-              </va-list-item-label>
+              </VaListItemLabel>
 
-              <va-list-item-label caption>
+              <VaListItemLabel caption>
                 {{ customer.address }}
-              </va-list-item-label>
-            </va-list-item-section>
+              </VaListItemLabel>
+            </VaListItemSection>
 
-            <va-list-item-section icon>
-              <va-icon name="eye" color="gray" />
-            </va-list-item-section>
-          </va-list-item>
+            <VaListItemSection icon>
+              <VaIcon name="eye" color="gray" />
+            </VaListItemSection>
+          </VaListItem>
 
-          <va-list-separator v-if="i < customers.length - 1" :key="'separator' + customer.id" class="my-1" fit />
+          <VaListSeparator v-if="i < customers.length - 1" :key="'separator' + customer.id" class="my-1" fit />
         </template>
-      </va-list>
-    </va-card>
+      </VaList>
+    </VaCard>
 
-    <va-card class="col-span-12 lg:col-span-6 p-4">
-      <va-list class="py-4">
-        <va-list-label>
+    <VaCard class="col-span-12 lg:col-span-6 p-4">
+      <VaList class="py-4">
+        <VaListLabel>
           {{ t('lists.starterKit') }}
-        </va-list-label>
+        </VaListLabel>
 
-        <va-list-item class="mb-2" clickable>
-          <va-list-item-section>
-            <va-list-item-label>Add profile images</va-list-item-label>
+        <VaListItem class="mb-2" clickable>
+          <VaListItemSection>
+            <VaListItemLabel>Add profile images</VaListItemLabel>
 
-            <va-list-item-label caption>You can use PNG or JPG files.</va-list-item-label>
-          </va-list-item-section>
-        </va-list-item>
+            <VaListItemLabel caption>You can use PNG or JPG files.</VaListItemLabel>
+          </VaListItemSection>
+        </VaListItem>
 
-        <va-list-item clickable>
-          <va-list-item-section>
-            <va-list-item-label>Invite friends</va-list-item-label>
+        <VaListItem clickable>
+          <VaListItemSection>
+            <VaListItemLabel>Invite friends</VaListItemLabel>
 
-            <va-list-item-label caption>You can send invitations via email or any messenger.</va-list-item-label>
-          </va-list-item-section>
-        </va-list-item>
+            <VaListItemLabel caption>You can send invitations via email or any messenger.</VaListItemLabel>
+          </VaListItemSection>
+        </VaListItem>
 
-        <va-list-separator fit spaced />
+        <VaListSeparator fit spaced />
 
-        <va-list-label>
+        <VaListLabel>
           {{ t('lists.notifications') }}
-        </va-list-label>
+        </VaListLabel>
 
-        <va-list-item class="mb-2">
-          <va-checkbox v-model="appBanners" class="mr-2" />
+        <VaListItem class="mb-2">
+          <VaCheckbox v-model="appBanners" class="mr-2" />
 
-          <va-list-item-section>
-            <va-list-item-label>Application Banners</va-list-item-label>
+          <VaListItemSection>
+            <VaListItemLabel>Application Banners</VaListItemLabel>
 
-            <va-list-item-label caption>You can send invitations via email or any messenger.</va-list-item-label>
-          </va-list-item-section>
-        </va-list-item>
+            <VaListItemLabel caption>You can send invitations via email or any messenger.</VaListItemLabel>
+          </VaListItemSection>
+        </VaListItem>
 
-        <va-list-item class="mb-2">
-          <va-checkbox v-model="banners" class="mr-2" />
+        <VaListItem class="mb-2">
+          <VaCheckbox v-model="banners" class="mr-2" />
 
-          <va-list-item-section>
-            <va-list-item-label>Banners</va-list-item-label>
+          <VaListItemSection>
+            <VaListItemLabel>Banners</VaListItemLabel>
 
-            <va-list-item-label caption>You can send invitations via email or any messenger.</va-list-item-label>
-          </va-list-item-section>
-        </va-list-item>
+            <VaListItemLabel caption>You can send invitations via email or any messenger.</VaListItemLabel>
+          </VaListItemSection>
+        </VaListItem>
 
-        <va-list-item>
-          <va-checkbox v-model="notifications" class="mr-2" />
+        <VaListItem>
+          <VaCheckbox v-model="notifications" class="mr-2" />
 
-          <va-list-item-section>
-            <va-list-item-label>Midnight Notifications</va-list-item-label>
-          </va-list-item-section>
-        </va-list-item>
-      </va-list>
-    </va-card>
+          <VaListItemSection>
+            <VaListItemLabel>Midnight Notifications</VaListItemLabel>
+          </VaListItemSection>
+        </VaListItem>
+      </VaList>
+    </VaCard>
 
-    <va-card class="col-span-12 lg:col-span-6 p-4">
-      <va-list class="py-4">
-        <va-list-label>
+    <VaCard class="col-span-12 lg:col-span-6 p-4">
+      <VaList class="py-4">
+        <VaListLabel>
           {{ t('lists.recentMessages') }}
-        </va-list-label>
+        </VaListLabel>
 
         <template v-for="(customer, i) in customers" :key="'item' + customer.id">
-          <va-list-item clickable @click="toggleStar(customer)">
-            <va-list-item-section icon>
-              <va-icon v-if="customer.starred" name="star" color="warning" />
-            </va-list-item-section>
+          <VaListItem clickable @click="toggleStar(customer)">
+            <VaListItemSection icon>
+              <VaIcon v-if="customer.starred" name="star" color="warning" />
+            </VaListItemSection>
 
-            <va-list-item-section avatar>
-              <va-avatar>
+            <VaListItemSection avatar>
+              <VaAvatar>
                 <img :src="customer.picture" :alt="customer.name" />
-              </va-avatar>
-            </va-list-item-section>
+              </VaAvatar>
+            </VaListItemSection>
 
-            <va-list-item-section>
-              <va-list-item-label>
+            <VaListItemSection>
+              <VaListItemLabel>
                 {{ customer.name }}
-              </va-list-item-label>
-            </va-list-item-section>
+              </VaListItemLabel>
+            </VaListItemSection>
 
-            <va-list-item-section icon>
-              <va-icon :name="getGenderIcon(customer.gender)" :color="getGenderColor(customer.gender)" />
-            </va-list-item-section>
-          </va-list-item>
+            <VaListItemSection icon>
+              <VaIcon :name="getGenderIcon(customer.gender)" :color="getGenderColor(customer.gender)" />
+            </VaListItemSection>
+          </VaListItem>
 
-          <va-list-separator v-if="i < customers.length - 1" :key="'separator' + customer.id" class="my-1" fit />
+          <VaListSeparator v-if="i < customers.length - 1" :key="'separator' + customer.id" class="my-1" fit />
         </template>
 
-        <va-list-separator fit spaced />
+        <VaListSeparator fit spaced />
 
-        <va-list-label color="gray">
+        <VaListLabel color="gray">
           {{ t('lists.archieved') }}
-        </va-list-label>
+        </VaListLabel>
 
         <template v-for="(customer, i) in archived" :key="'item' + customer.id">
-          <va-list-item disabled>
-            <va-list-item-section icon>
-              <va-icon v-if="customer.starred" name="star" color="warning" />
-            </va-list-item-section>
+          <VaListItem disabled>
+            <VaListItemSection icon>
+              <VaIcon v-if="customer.starred" name="star" color="warning" />
+            </VaListItemSection>
 
-            <va-list-item-section avatar>
-              <va-avatar>
+            <VaListItemSection avatar>
+              <VaAvatar>
                 <img :src="customer.picture" :alt="customer.name" />
-              </va-avatar>
-            </va-list-item-section>
+              </VaAvatar>
+            </VaListItemSection>
 
-            <va-list-item-section>
-              <va-list-item-label>
+            <VaListItemSection>
+              <VaListItemLabel>
                 {{ customer.name }}
-              </va-list-item-label>
-            </va-list-item-section>
-          </va-list-item>
+              </VaListItemLabel>
+            </VaListItemSection>
+          </VaListItem>
 
-          <va-list-separator v-if="i < archived.length - 1" :key="'separator' + customer.id" class="my-1" fit />
+          <VaListSeparator v-if="i < archived.length - 1" :key="'separator' + customer.id" class="my-1" fit />
         </template>
-      </va-list>
-    </va-card>
+      </VaList>
+    </VaCard>
 
-    <va-card class="col-span-12 lg:col-span-6 p-4">
-      <va-list class="py-4">
-        <va-list-label>
+    <VaCard class="col-span-12 lg:col-span-6 p-4">
+      <VaList class="py-4">
+        <VaListLabel>
           {{ t('lists.routerSupport') }}
-        </va-list-label>
+        </VaListLabel>
 
-        <va-list-item :to="{ name: 'maplibre-maps' }">
-          <va-list-item-section icon>
-            <va-icon name="public" color="danger" />
-          </va-list-item-section>
+        <VaListItem :to="{ name: 'maplibre-maps' }">
+          <VaListItemSection icon>
+            <VaIcon name="public" color="danger" />
+          </VaListItemSection>
 
-          <va-list-item-section>
-            <va-list-item-label>MapLibre Maps</va-list-item-label>
-          </va-list-item-section>
-        </va-list-item>
+          <VaListItemSection>
+            <VaListItemLabel>MapLibre Maps</VaListItemLabel>
+          </VaListItemSection>
+        </VaListItem>
 
-        <va-list-item :to="{ name: 'yandex-maps' }">
-          <va-list-item-section icon>
-            <va-icon name="map" color="danger" />
-          </va-list-item-section>
+        <VaListItem :to="{ name: 'yandex-maps' }">
+          <VaListItemSection icon>
+            <VaIcon name="map" color="danger" />
+          </VaListItemSection>
 
-          <va-list-item-section>
-            <va-list-item-label>Yandex Maps</va-list-item-label>
-          </va-list-item-section>
-        </va-list-item>
+          <VaListItemSection>
+            <VaListItemLabel>Yandex Maps</VaListItemLabel>
+          </VaListItemSection>
+        </VaListItem>
 
-        <va-list-item :to="{ name: 'leaflet-maps' }">
-          <va-list-item-section icon>
-            <va-icon name="map_marker" color="danger" />
-          </va-list-item-section>
+        <VaListItem :to="{ name: 'leaflet-maps' }">
+          <VaListItemSection icon>
+            <VaIcon name="map_marker" color="danger" />
+          </VaListItemSection>
 
-          <va-list-item-section>
-            <va-list-item-label>Leaflet Maps</va-list-item-label>
-          </va-list-item-section>
-        </va-list-item>
-      </va-list>
-    </va-card>
+          <VaListItemSection>
+            <VaListItemLabel>Leaflet Maps</VaListItemLabel>
+          </VaListItemSection>
+        </VaListItem>
+      </VaList>
+    </VaCard>
   </div>
 </template>
 

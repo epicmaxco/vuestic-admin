@@ -1,7 +1,7 @@
 <template>
-  <va-card :title="t('tables.emptyTable')">
-    <va-data-table :fields="fields" :data="data" :no-data-label="t('tables.noReport')" no-pagination />
-  </va-card>
+  <VaCard :title="t('tables.emptyTable')">
+    <VaDataTable :fields="fields" :data="data" :no-data-label="t('tables.noReport')" no-pagination />
+  </VaCard>
 </template>
 
 <script>

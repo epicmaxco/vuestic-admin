@@ -1,10 +1,10 @@
 <template>
-  <va-dropdown class="message-dropdown" :offset="[13, 0]" stick-to-edges>
+  <VaDropdown class="message-dropdown" :offset="[13, 0]" stick-to-edges>
     <template #anchor>
-      <va-icon-message class="message-dropdown__icon" :class="{ 'message-dropdown__icon--unread': !allRead }" />
+      <VaIconMessage class="message-dropdown__icon" :class="{ 'message-dropdown__icon--unread': !allRead }" />
     </template>
 
-    <va-dropdown-content class="message-dropdown__content pl-8 pr-8 pt-2 pb-2">
+    <VaDropdownContent class="message-dropdown__content pl-8 pr-8 pt-2 pb-2">
       <div
         v-for="message in messagesProxy"
         :key="message.id"
@@ -18,13 +18,13 @@
         }}</span>
       </div>
       <div class="grid grid-cols-2 justify-between mt-1">
-        <va-button class="mr-2" size="small">{{ t('messages.all') }}</va-button>
-        <va-button size="small" preset="outline" border-color="primary" :disabled="allRead" @click="markAllAsRead">{{
+        <VaButton class="mr-2" size="small">{{ t('messages.all') }}</VaButton>
+        <VaButton size="small" preset="outline" border-color="primary" :disabled="allRead" @click="markAllAsRead">{{
           t('messages.mark_as_read')
-        }}</va-button>
+        }}</VaButton>
       </div>
-    </va-dropdown-content>
-  </va-dropdown>
+    </VaDropdownContent>
+  </VaDropdown>
 </template>
 
 <script setup lang="ts">

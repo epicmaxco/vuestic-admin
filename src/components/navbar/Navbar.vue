@@ -1,16 +1,16 @@
 <template>
-  <va-navbar class="app-layout-navbar">
+  <VaNavbar class="app-layout-navbar">
     <template #left>
       <div class="left">
-        <va-icon-menu-collapsed
+        <VaIconMenuCollapsed
           :class="{ 'x-flip': isSidebarMinimized }"
           class="va-navbar__item"
           :color="colors.primary"
           @click="isSidebarMinimized = !isSidebarMinimized"
         />
-        <router-link to="/">
+        <RouterLink to="/">
           <VuesticLogo />
-        </router-link>
+        </RouterLink>
       </div>
     </template>
     <div class="app-navbar-center">
@@ -18,7 +18,7 @@
       <a class="hidden md:block mr-2" href="mailto:hello@epicmax.co" target="_blank" :style="{ color: colors.primary }">
         hello@epicmax.co
       </a>
-      <va-button
+      <VaButton
         href="https://github.com/epicmaxco/vuestic-admin"
         color="#000000"
         class="hidden lg:block"
@@ -26,12 +26,12 @@
         target="_blank"
       >
         {{ t('navbar.repository') }}
-      </va-button>
+      </VaButton>
     </div>
     <template #right>
-      <app-navbar-actions class="app-navbar__actions" :user-name="userName" />
+      <AppNavbarActions class="app-navbar__actions" :user-name="userName" />
     </template>
-  </va-navbar>
+  </VaNavbar>
 </template>
 
 <script setup>

@@ -1,5 +1,5 @@
 <template>
-  <va-tree-view :nodes="nodes" />
+  <VaTreeView :nodes="nodes" />
 </template>
 
 <script setup>

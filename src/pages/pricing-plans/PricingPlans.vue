@@ -7,10 +7,10 @@
     </div>
     <div class="flex flex-col p-4 bg-backgroundSecondary">
       <div class="flex justify-center">
-        <va-button-select v-model="selectedDuration" :options="['Monthly', 'Annual']" />
+        <VaButtonSelect v-model="selectedDuration" :options="['Monthly', 'Annual']" />
       </div>
       <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-x-6 md:space-y-0 mt-6">
-        <va-card
+        <VaCard
           v-for="plan in pricingPlans"
           :key="plan.model"
           class="flex w-[326px] md:w-[349px] h-fit p-6 rounded-[13px]"
@@ -25,7 +25,7 @@
               <h2 class="pricing-plan-card-title">
                 {{ plan.title }}
               </h2>
-              <va-badge v-for="badge in plan.badges" :key="badge" :text="badge" color="primary" :style="badgeStyles" />
+              <VaBadge v-for="badge in plan.badges" :key="badge" :text="badge" color="primary" :style="badgeStyles" />
               <p class="text-lg leading-[26px] text-secondary">
                 {{ plan.description }}
               </p>
@@ -46,21 +46,21 @@
                 <p :class="{ 'text-secondary': !feature.isAvailable }">
                   {{ feature.description }}
                 </p>
-                <va-icon v-if="feature.isAvailable" name="mso-check" color="primary" size="20px" />
-                <va-icon v-else name="mso-block" color="backgroundBorder" size="20px" />
+                <VaIcon v-if="feature.isAvailable" name="mso-check" color="primary" size="20px" />
+                <VaIcon v-else name="mso-block" color="backgroundBorder" size="20px" />
               </div>
             </div>
             <div class="flex justify-center">
-              <va-button
+              <VaButton
                 :disabled="plan.model === selectedPlan"
                 :style="selectButtonStyles"
                 @click="selectPlan(plan.model)"
               >
                 Select
-              </va-button>
+              </VaButton>
             </div>
           </div>
-        </va-card>
+        </VaCard>
       </div>
     </div>
   </div>

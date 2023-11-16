@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <router-view :sets="sets"></router-view>
+    <RouterView :sets="sets"></RouterView>
   </div>
 </template>
 

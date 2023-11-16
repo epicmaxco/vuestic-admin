@@ -1,8 +1,8 @@
 <template>
   <div class="color-presentation">
-    <va-popover color="info" :placement="popoverOptions.placement" :message="popoverOptions.content">
+    <VaPopover color="info" :placement="popoverOptions.placement" :message="popoverOptions.content">
       <div class="color-presentation__color" :style="computedStyle" @click="colorCopy()"></div>
-    </va-popover>
+    </VaPopover>
 
     <div v-if="name || description" class="color-presentation__description">
       <div class="color-presentation__name">{{ name }}</div>

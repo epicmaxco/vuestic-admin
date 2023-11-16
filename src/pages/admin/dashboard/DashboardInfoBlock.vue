@@ -2,23 +2,23 @@
   <div class="pt-6 grid grid-cols-12 gap-6">
     <div class="col-span-12 lg:col-span-6 flex flex-wrap">
       <div class="w-full pb-6 grid grid-cols-12 gap-6">
-        <va-card v-for="(info, idx) in infoTiles" :key="idx" class="col-span-12 sm:col-span-4 mb-8" :color="info.color">
-          <va-card-content>
+        <VaCard v-for="(info, idx) in infoTiles" :key="idx" class="col-span-12 sm:col-span-4 mb-8" :color="info.color">
+          <VaCardContent>
             <h2 class="va-h2 m-0 text-white">{{ info.value }}</h2>
             <p class="text-white">{{ t('dashboard.info.' + info.text) }}</p>
-          </va-card-content>
-        </va-card>
+          </VaCardContent>
+        </VaCard>
       </div>
 
       <div class="w-full grid grid-cols-12 gap-6">
-        <va-card class="col-span-12 sm:col-span-6">
-          <va-card-content class="h-full flex flex-col justify-center">
+        <VaCard class="col-span-12 sm:col-span-6">
+          <VaCardContent class="h-full flex flex-col justify-center">
             <h2 class="va-h2 m-0" :style="{ color: colors.primary }">291</h2>
             <p class="no-wrap">{{ t('dashboard.info.completedPullRequests') }}</p>
-          </va-card-content>
-        </va-card>
-        <va-card class="col-span-12 sm:col-span-6">
-          <va-card-content class="grid grid-cols-12 row-separated">
+          </VaCardContent>
+        </VaCard>
+        <VaCard class="col-span-12 sm:col-span-6">
+          <VaCardContent class="grid grid-cols-12 row-separated">
             <div class="col-span-4 p-4 flex flex-col">
               <h2 class="va-h2 m-0 va-text-center" :style="{ color: colors.primary }">3</h2>
               <p class="va-text-center">{{ t('dashboard.info.users') }}</p>
@@ -31,42 +31,42 @@
               <h2 class="va-h2 m-0 va-text-center" :style="{ color: colors.warning }">91</h2>
               <p class="va-text-center">{{ t('dashboard.info.units') }}</p>
             </div>
-          </va-card-content>
-        </va-card>
+          </VaCardContent>
+        </VaCard>
       </div>
     </div>
 
     <div class="flex col-span-12 sm:col-span-6 lg:col-span-3">
-      <va-card stripe stripe-color="info">
-        <va-card-title>
+      <VaCard stripe stripe-color="info">
+        <VaCardTitle>
           {{ t('dashboard.info.componentRichTheme') }}
-        </va-card-title>
-        <va-card-content>
+        </VaCardTitle>
+        <VaCardContent>
           <p class="rich-theme-card-text">
             Buying the right telescope to take your love of astronomy to the next level is a big next step.
           </p>
 
           <div class="mt-4">
-            <va-button color="primary" target="_blank" href="https://github.com/epicmaxco/vuestic-ui">
+            <VaButton color="primary" target="_blank" href="https://github.com/epicmaxco/vuestic-ui">
               {{ t('dashboard.info.viewLibrary') }}
-            </va-button>
+            </VaButton>
           </div>
-        </va-card-content>
-      </va-card>
+        </VaCardContent>
+      </VaCard>
     </div>
 
-    <va-card class="col-span-12 sm:col-span-6 lg:col-span-3">
-      <va-image :src="images[currentImageIndex]" style="height: 200px" />
-      <va-card-title>
-        <va-button preset="plain" icon-right="fa-arrow-circle-right" @click="showModal">
+    <VaCard class="col-span-12 sm:col-span-6 lg:col-span-3">
+      <VaImage :src="images[currentImageIndex]" style="height: 200px" />
+      <VaCardTitle>
+        <VaButton preset="plain" icon-right="fa-arrow-circle-right" @click="showModal">
           {{ t('dashboard.info.exploreGallery') }}
-        </va-button>
-      </va-card-title>
-    </va-card>
+        </VaButton>
+      </VaCardTitle>
+    </VaCard>
 
-    <va-modal v-model="modal">
-      <va-carousel v-model="currentImageIndex" :items="images" class="gallery-carousel" />
-    </va-modal>
+    <VaModal v-model="modal">
+      <VaCarousel v-model="currentImageIndex" :items="images" class="gallery-carousel" />
+    </VaModal>
   </div>
 </template>
 

@@ -1,22 +1,22 @@
 <template>
-  <va-dropdown class="settings-dropdown" position="bottom" boundary-body :offset="[13, 0]">
+  <VaDropdown class="settings-dropdown" position="bottom" boundary-body :offset="[13, 0]">
     <template #anchor>
-      <va-icon name="vuestic-iconset-settings flex text-[1.4rem]" class="settings-dropdown__icon" />
+      <VaIcon name="vuestic-iconset-settings flex text-[1.4rem]" class="settings-dropdown__icon" />
     </template>
 
-    <va-dropdown-content class="settings-dropdown__content pl-8 pr-8 pt-2 pb-2">
+    <VaDropdownContent class="settings-dropdown__content pl-8 pr-8 pt-2 pb-2">
       <div class="settings-dropdown__content-label mt-2 mb-4" :style="{ color: colors.primary }">
         {{ t('dashboard.navigationLayout') }}
       </div>
-      <va-button-toggle
+      <VaButtonToggle
         v-model="isTopBarProxy"
         outline
         :options="options"
         class="settings-dropdown__control mb-2"
         size="small"
       />
-    </va-dropdown-content>
-  </va-dropdown>
+    </VaDropdownContent>
+  </VaDropdown>
 </template>
 
 <script setup lang="ts">

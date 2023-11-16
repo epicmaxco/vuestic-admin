@@ -1,6 +1,6 @@
 <template>
-  <va-card class="mb-6">
-    <va-card-content>
+  <VaCard class="mb-6">
+    <VaCardContent>
       <h2 class="block-title">Invoices</h2>
       <template v-for="(item, index) in items" :key="item.id">
         <div class="flex items-center justify-between md:justify-items-stretch">
@@ -11,14 +11,14 @@
             {{ item.amount }}
           </div>
           <div>
-            <va-button preset="primary">Download</va-button>
+            <VaButton preset="primary">Download</VaButton>
           </div>
         </div>
 
-        <va-divider v-if="index !== items.length - 1" />
+        <VaDivider v-if="index !== items.length - 1" />
       </template>
-    </va-card-content>
-  </va-card>
+    </VaCardContent>
+  </VaCard>
 </template>
 
 <script setup lang="ts">

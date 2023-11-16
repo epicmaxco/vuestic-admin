@@ -1,19 +1,19 @@
 <template>
-  <va-form ref="form" @submit.prevent="submit">
+  <VaForm ref="form" @submit.prevent="submit">
     <h1 class="font-semibold text-4xl mb-4">Sign up</h1>
     <p class="text-base mb-4 leading-5">
       Have an account?
-      <router-link class="font-semibold text-primary" :to="{ name: 'login' }">Login</router-link>
+      <RouterLink class="font-semibold text-primary" :to="{ name: 'login' }">Login</RouterLink>
     </p>
-    <va-input
+    <VaInput
       v-model="formData.email"
       class="mb-4"
       type="email"
       label="Email"
       :rules="[(v) => !!v || 'Email field is required', (v) => /.+@.+\..+/.test(v) || 'Email should be valid']"
     />
-    <va-value v-slot="isPasswordVisible" :default-value="false">
-      <va-input
+    <VaValue v-slot="isPasswordVisible" :default-value="false">
+      <VaInput
         ref="password1"
         v-model="formData.password"
         class="mb-4"
@@ -21,17 +21,17 @@
         label="Password"
         :rules="passwordRules"
         messages="Password should be 8+ characters: letters, numbers, and special characters."
-        @click-append-inner.stop="isPasswordVisible.value = !isPasswordVisible.value"
+        @clickAppendInner.stop="isPasswordVisible.value = !isPasswordVisible.value"
       >
         <template #appendInner>
-          <va-icon
+          <VaIcon
             class="cursor-pointer"
             :name="isPasswordVisible.value ? 'mso-visibility_off' : 'mso-visibility'"
             color="secondary"
           />
         </template>
-      </va-input>
-      <va-input
+      </VaInput>
+      <VaInput
         ref="password2"
         v-model="formData.repeatPassword"
         class="mb-4"
@@ -41,22 +41,22 @@
           (v) => !!v || 'Repeat Password field is required',
           (v) => v === formData.password || 'Passwords don\'t match',
         ]"
-        @click-append-inner.stop="isPasswordVisible.value = !isPasswordVisible.value"
+        @clickAppendInner.stop="isPasswordVisible.value = !isPasswordVisible.value"
       >
         <template #appendInner>
-          <va-icon
+          <VaIcon
             class="cursor-pointer"
             :name="isPasswordVisible.value ? 'mso-visibility_off' : 'mso-visibility'"
             color="secondary"
           />
         </template>
-      </va-input>
-    </va-value>
+      </VaInput>
+    </VaValue>
 
     <div class="flex justify-center mt-4">
-      <va-button class="w-full" @click="submit"> Create account</va-button>
+      <VaButton class="w-full" @click="submit"> Create account</VaButton>
     </div>
-  </va-form>
+  </VaForm>
 </template>
 
 <script setup lang="ts">

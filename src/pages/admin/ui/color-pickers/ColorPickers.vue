@@ -1,18 +1,18 @@
 <template>
   <div class="color-pickers vuestic-color-picker-page grid grid-cols-12 gap-6">
-    <va-card class="col-span-12">
-      <va-card-title>{{ t('menu.colorPickers') }}</va-card-title>
-      <va-card-content>
-        <va-color-input v-model="value" />
-      </va-card-content>
-    </va-card>
+    <VaCard class="col-span-12">
+      <VaCardTitle>{{ t('menu.colorPickers') }}</VaCardTitle>
+      <VaCardContent>
+        <VaColorInput v-model="value" />
+      </VaCardContent>
+    </VaCard>
 
-    <va-card class="col-span-12">
-      <va-card-title>Simple Inline</va-card-title>
-      <va-card-content>
-        <va-color-palette v-model="paletteValue" :palette="palette" />
-      </va-card-content>
-    </va-card>
+    <VaCard class="col-span-12">
+      <VaCardTitle>Simple Inline</VaCardTitle>
+      <VaCardContent>
+        <VaColorPalette v-model="paletteValue" :palette="palette" />
+      </VaCardContent>
+    </VaCard>
   </div>
 </template>
 

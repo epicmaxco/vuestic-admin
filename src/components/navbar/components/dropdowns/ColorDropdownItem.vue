@@ -1,7 +1,7 @@
 <template>
   <tr>
     <td class="color">
-      <va-color-indicator :color="theme[colorName]" />
+      <VaColorIndicator :color="theme[colorName]" />
     </td>
     <td>
       {{ colorName }}

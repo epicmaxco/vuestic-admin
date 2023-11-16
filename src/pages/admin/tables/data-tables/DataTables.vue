@@ -1,13 +1,13 @@
 <template>
   <div>
-    <data-table-actions class="mb-8" />
-    <data-table-sorting-pagination class="mb-8" />
-    <data-table-filter class="mb-8" />
-    <data-table-infinite-scroll class="mb-8" />
-    <data-table-select class="mb-8" />
-    <data-table-server-pagination class="mb-8" />
-    <data-table-empty class="mb-8" />
-    <data-table-loading />
+    <DataTableActions class="mb-8" />
+    <DataTableSortingPagination class="mb-8" />
+    <DataTableFilter class="mb-8" />
+    <DataTableInfiniteScroll class="mb-8" />
+    <DataTableSelect class="mb-8" />
+    <DataTableServerPagination class="mb-8" />
+    <DataTableEmpty class="mb-8" />
+    <DataTableLoading />
   </div>
 </template>
 

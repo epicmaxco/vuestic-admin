@@ -1,7 +1,7 @@
 <template>
-  <va-card :title="t('tables.loading')">
-    <va-data-table :fields="fields" :data="users" loading />
-  </va-card>
+  <VaCard :title="t('tables.loading')">
+    <VaDataTable :fields="fields" :data="users" loading />
+  </VaCard>
 </template>
 
 <script>

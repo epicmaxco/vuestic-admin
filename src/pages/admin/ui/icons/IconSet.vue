@@ -1,13 +1,13 @@
 <template>
   <div class="icon-set">
-    <va-card class="icon-set__header mb-8 pb-4">
-      <va-card-title>
+    <VaCard class="icon-set__header mb-8 pb-4">
+      <VaCardTitle>
         <h2 class="ml-2" :style="{ color: colors.dark }">
           {{ iconSet.name }}
         </h2>
-      </va-card-title>
-      <va-card-content class="grid grid-cols-12 gap-6 items-start justify-between">
-        <va-button
+      </VaCardTitle>
+      <VaCardContent class="grid grid-cols-12 gap-6 items-start justify-between">
+        <VaButton
           class="col-span-full md:col-span-2"
           preset="outline"
           border-color="primary"
@@ -15,17 +15,17 @@
           :to="{ name: 'icon-sets' }"
         >
           {{ t('icons.back') }}
-        </va-button>
+        </VaButton>
 
-        <va-input v-model="search" class="col-span-full md:col-span-5" :label="t('icons.search')" clearable>
+        <VaInput v-model="search" class="col-span-full md:col-span-5" :label="t('icons.search')" clearable>
           <template #prependInner>
-            <va-icon class="icon-left input-icon" name="search" />
+            <VaIcon class="icon-left input-icon" name="search" />
           </template>
-        </va-input>
+        </VaInput>
 
         <div class="icon-set__header__size col-span-full md:col-span-5 flex items-center">
           <span class="m-2 pr-2 icon-set__header__size--smaller" :style="{ color: colors.dark }">A</span>
-          <va-slider
+          <VaSlider
             v-model="iconSize"
             class="flex-1"
             :label-value="`${iconSize}px`"
@@ -33,30 +33,30 @@
             :max="slider.max"
             value-visible
           >
-          </va-slider>
+          </VaSlider>
           <span class="m-2 pl-2 icon-set__header__size--bigger" :style="{ color: colors.dark }">A</span>
         </div>
-      </va-card-content>
-    </va-card>
+      </VaCardContent>
+    </VaCard>
 
-    <va-card v-for="(list, index) in filteredLists" :key="index" class="col-span-12 text-[0.6rem]">
-      <va-card-title>
+    <VaCard v-for="(list, index) in filteredLists" :key="index" class="col-span-12 text-[0.6rem]">
+      <VaCardTitle>
         {{ list.name }}
-      </va-card-title>
-      <va-card-content class="grid grid-cols-4 md:grid-cols-12 gap-4">
+      </VaCardTitle>
+      <VaCardContent class="grid grid-cols-4 md:grid-cols-12 gap-4">
         <span v-if="!list.icons.length">
           {{ t('icons.none') }}
         </span>
         <div v-for="icon in list.icons" :key="icon" class="flex flex-col">
           <div class="vuestic-icon mb-4 text-center">
-            <va-icon :name="iconName(icon)" :size="iconSize" />
+            <VaIcon :name="iconName(icon)" :size="iconSize" />
           </div>
           <div class="w-15 truncate text-center">
             {{ icon }}
           </div>
         </div>
-      </va-card-content>
-    </va-card>
+      </VaCardContent>
+    </VaCard>
   </div>
 </template>
 

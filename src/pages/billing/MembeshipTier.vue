@@ -1,6 +1,6 @@
 <template>
-  <va-card class="mb-6">
-    <va-card-content>
+  <VaCard class="mb-6">
+    <VaCardContent>
       <h2 class="block-title">Membership tier</h2>
       <template v-for="(item, index) in items" :key="item.id">
         <div class="flex items-center justify-between md:justify-items-stretch">
@@ -9,7 +9,7 @@
           >
             <div class="flex items-center md:w-48">
               <div class="font-bold">{{ item.name }}</div>
-              <va-badge v-if="item.type === 'current'" class="ml-2" color="success" text="Selected" />
+              <VaBadge v-if="item.type === 'current'" class="ml-2" color="success" text="Selected" />
             </div>
             <div class="md:w-48">
               <p class="mb-1">{{ item.padletsTotal }} padlets</p>
@@ -25,15 +25,15 @@
           </div>
           <div class="md:w-48 flex justify-end">
             <div v-if="item.type === 'current'" class="font-bold">{{ item.padletsUsed }} padlets used</div>
-            <va-button v-else-if="item.type === 'upgrade'">Upgrade</va-button>
-            <va-button v-else preset="primary">Downgrade</va-button>
+            <VaButton v-else-if="item.type === 'upgrade'">Upgrade</VaButton>
+            <VaButton v-else preset="primary">Downgrade</VaButton>
           </div>
         </div>
 
-        <va-divider v-if="index !== items.length - 1" />
+        <VaDivider v-if="index !== items.length - 1" />
       </template>
-    </va-card-content>
-  </va-card>
+    </VaCardContent>
+  </VaCard>
 </template>
 
 <script setup lang="ts">

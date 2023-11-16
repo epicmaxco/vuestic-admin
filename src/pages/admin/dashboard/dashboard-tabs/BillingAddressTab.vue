@@ -5,15 +5,15 @@
         <div class="title mb-4" :style="computedStylesTitle">
           {{ t('dashboard.tabs.billingAddress.personalInfo') }}
         </div>
-        <va-input v-model="form.name" :label="t('dashboard.tabs.billingAddress.firstName')" />
-        <va-input v-model="form.email" :label="t('dashboard.tabs.billingAddress.email')" />
-        <va-input v-model="form.address" :label="t('dashboard.tabs.billingAddress.address')" />
+        <VaInput v-model="form.name" :label="t('dashboard.tabs.billingAddress.firstName')" />
+        <VaInput v-model="form.email" :label="t('dashboard.tabs.billingAddress.email')" />
+        <VaInput v-model="form.address" :label="t('dashboard.tabs.billingAddress.address')" />
       </div>
       <div class="col-span-12 md:col-span-6 flex flex-col">
         <div class="title mb-4" :style="computedStylesTitle">
           {{ t('dashboard.tabs.billingAddress.companyInfo') }}
         </div>
-        <va-select
+        <VaSelect
           v-model="form.country"
           class="mb-4"
           :options="countriesList"
@@ -21,7 +21,7 @@
           searchable
           clearable
         />
-        <va-select
+        <VaSelect
           v-model="form.city"
           class="mb-4"
           :label="t('dashboard.tabs.billingAddress.city')"
@@ -29,13 +29,13 @@
           key-by="text"
           track-by="text"
         />
-        <va-checkbox v-model="form.connection" :label="t('dashboard.tabs.billingAddress.infiniteConnections')" />
+        <VaCheckbox v-model="form.connection" :label="t('dashboard.tabs.billingAddress.infiniteConnections')" />
       </div>
     </div>
     <div class="mt-3 flex flex-1 flex-wrap justify-center">
-      <va-button @click="submit">
+      <VaButton @click="submit">
         {{ t('dashboard.tabs.billingAddress.addConnection') }}
-      </va-button>
+      </VaButton>
     </div>
   </div>
 </template>

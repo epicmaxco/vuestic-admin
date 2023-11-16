@@ -1,8 +1,8 @@
 <template>
   <div class="line-maps-page">
-    <va-card class="line-maps-page__widget" title="Line Maps">
-      <line-map v-model="mainCity" :map-data="cities" :home-city="homeCity" style="height: 75vh" />
-    </va-card>
+    <VaCard class="line-maps-page__widget" title="Line Maps">
+      <LineMap v-model="mainCity" :map-data="cities" :home-city="homeCity" style="height: 75vh" />
+    </VaCard>
   </div>
 </template>
 

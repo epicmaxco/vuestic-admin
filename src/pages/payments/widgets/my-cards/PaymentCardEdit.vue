@@ -1,20 +1,20 @@
 <template>
-  <va-form ref="form" @submit.prevent="submit">
-    <va-input
+  <VaForm ref="form" @submit.prevent="submit">
+    <VaInput
       v-model="paymentCardLocal.name"
       class="mb-4"
       label="Card Name"
       :rules="[(v) => !!v || 'Card Name field is required']"
     />
-    <va-checkbox v-model="paymentCardLocal.isPrimary" label="Primary Card" class="mb-4" />
-    <va-select
+    <VaCheckbox v-model="paymentCardLocal.isPrimary" label="Primary Card" class="mb-4" />
+    <VaSelect
       v-model="paymentCardLocal.paymentSystem"
       class="mb-4"
       label="Payment System"
       :options="paymentSystemTypeOptions"
       :rules="[(v) => !!v || 'Payment System field is required']"
     />
-    <va-input
+    <VaInput
       v-model="paymentCardLocal.cardNumberMasked"
       class="mb-4"
       label="Card Number"
@@ -22,7 +22,7 @@
       mask="creditCard"
       placeholder="#### #### #### ####"
     />
-    <va-input
+    <VaInput
       v-model="paymentCardLocal.expirationDate"
       class="mb-4"
       label="Expiration Date"
@@ -37,10 +37,10 @@
     />
 
     <div class="flex justify-end gap-3">
-      <va-button preset="secondary" color="secondary" @click="emits('cancel')">Cancel</va-button>
-      <va-button @click="submit">{{ submitText }}</va-button>
+      <VaButton preset="secondary" color="secondary" @click="emits('cancel')">Cancel</VaButton>
+      <VaButton @click="submit">{{ submitText }}</VaButton>
     </div>
-  </va-form>
+  </VaForm>
 </template>
 
 <script setup lang="ts">

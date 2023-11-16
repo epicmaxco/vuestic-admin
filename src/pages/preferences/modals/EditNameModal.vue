@@ -1,13 +1,13 @@
 <template>
-  <va-modal hide-default-actions model-value :mobile-fullscreen="false" @update:model-value="emits('cancel')">
-    <va-form ref="form" class="w-[326px] md:w-[288px]" @submit.prevent="submit">
-      <va-input v-model="Name" class="mb-4" label="Name" placeholder="Name" />
+  <VaModal hide-default-actions model-value :mobile-fullscreen="false" @update:modelValue="emits('cancel')">
+    <VaForm ref="form" class="w-[326px] md:w-[288px]" @submit.prevent="submit">
+      <VaInput v-model="Name" class="mb-4" label="Name" placeholder="Name" />
       <div class="flex flex-col-reverse md:flex-row md:items-center md:justify-end md:space-x-4">
-        <va-button preset="plain" :style="buttonStyles" @click="emits('cancel')"> Cancel </va-button>
-        <va-button class="mb-4 md:mb-0" type="submit" :style="buttonStyles" @click="submit"> Save </va-button>
+        <VaButton preset="plain" :style="buttonStyles" @click="emits('cancel')"> Cancel </VaButton>
+        <VaButton class="mb-4 md:mb-0" type="submit" :style="buttonStyles" @click="submit"> Save </VaButton>
       </div>
-    </va-form>
-  </va-modal>
+    </VaForm>
+  </VaModal>
 </template>
 <script setup lang="ts">
   import { ref } from 'vue'

@@ -1,17 +1,17 @@
 <template>
   <div class="tree-view-advanced-preview">
     <div class="tree-view-advanced-preview__buttons">
-      <va-button class="mr-2" @click="expandAll">EXPAND ALL</va-button>
-      <va-button @click="collapseAll">COLLAPSE ALL</va-button>
+      <VaButton class="mr-2" @click="expandAll">EXPAND ALL</VaButton>
+      <VaButton @click="collapseAll">COLLAPSE ALL</VaButton>
     </div>
 
-    <va-tree-view ref="treeView" v-model:expanded="expanded" :nodes="nodes">
+    <VaTreeView ref="treeView" v-model:expanded="expanded" :nodes="nodes">
       <template #icon-toggle="node">
         <div class="tree-view-advanced-preview__icon-square">
-          <va-icon color="backgroundPrimary" :name="node.expanded ? 'remove' : 'add'" />
+          <VaIcon color="backgroundPrimary" :name="node.expanded ? 'remove' : 'add'" />
         </div>
       </template>
-    </va-tree-view>
+    </VaTreeView>
   </div>
 </template>
 

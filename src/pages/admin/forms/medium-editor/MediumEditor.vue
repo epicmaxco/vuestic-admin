@@ -1,9 +1,9 @@
 <template>
   <div class="medium-editor">
-    <va-card>
-      <va-card-title>{{ t('forms.mediumEditor.title') }}</va-card-title>
-      <va-card-content class="flex justify-center">
-        <va-medium-editor @initialized="handleEditorInitialization">
+    <VaCard>
+      <VaCardTitle>{{ t('forms.mediumEditor.title') }}</VaCardTitle>
+      <VaCardContent class="flex justify-center">
+        <VaMediumEditor @initialized="handleEditorInitialization">
           <h1>Select Text To Open Editor</h1>
 
           <p>
@@ -19,9 +19,9 @@
             Read the full article on
             <a href="https://medium.com/@dorn.anna/girl-no-you-dont-2e21e826c62c">Medium</a>
           </p>
-        </va-medium-editor>
-      </va-card-content>
-    </va-card>
+        </VaMediumEditor>
+      </VaCardContent>
+    </VaCard>
   </div>
 </template>
 

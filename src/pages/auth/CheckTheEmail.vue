@@ -7,7 +7,7 @@
     </p>
 
     <div class="flex justify-center mt-4">
-      <va-button class="w-full" :to="{ name: 'login' }">Back to login</va-button>
+      <VaButton class="w-full" :to="{ name: 'login' }">Back to login</VaButton>
     </div>
   </div>
 </template>

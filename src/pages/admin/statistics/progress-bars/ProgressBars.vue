@@ -1,9 +1,9 @@
 <template>
   <div class="progress-bars flex flex-col gap-10">
-    <horizontal-bars />
-    <bars-state />
-    <circle-bars />
-    <colorful-bars />
+    <HorizontalBars />
+    <BarsState />
+    <CircleBars />
+    <ColorfulBars />
   </div>
 </template>
 

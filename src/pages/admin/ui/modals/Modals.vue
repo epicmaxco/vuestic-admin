@@ -1,33 +1,33 @@
 <template>
   <div class="modals grid grid-cols-12 gap-6">
-    <va-card class="modals-list larger-padding col-span-12">
-      <va-card-title>{{ t('modal.title') }}</va-card-title>
-      <va-card-content>
-        <va-button class="mr-2 mb-2" color="danger" @click="showSmallModal = true">
+    <VaCard class="modals-list larger-padding col-span-12">
+      <VaCardTitle>{{ t('modal.title') }}</VaCardTitle>
+      <VaCardContent>
+        <VaButton class="mr-2 mb-2" color="danger" @click="showSmallModal = true">
           {{ t('modal.small') }}
-        </va-button>
-        <va-button class="mr-2 mb-2" color="info" @click="showMediumModal = true">
+        </VaButton>
+        <VaButton class="mr-2 mb-2" color="info" @click="showMediumModal = true">
           {{ t('modal.medium') }}
-        </va-button>
-        <va-button class="mr-2 mb-2" color="warning" @click="showLargeModal = true">
+        </VaButton>
+        <VaButton class="mr-2 mb-2" color="warning" @click="showLargeModal = true">
           {{ t('modal.large') }}
-        </va-button>
-        <va-button class="mr-2 mb-2" color="success" @click="showStaticModal = true">
+        </VaButton>
+        <VaButton class="mr-2 mb-2" color="success" @click="showStaticModal = true">
           {{ t('modal.static') }}
-        </va-button>
-        <va-button class="mb-2 mr-2" color="secondary" @click="showFullscreenModal = true">
+        </VaButton>
+        <VaButton class="mb-2 mr-2" color="secondary" @click="showFullscreenModal = true">
           {{ t('modal.fullscreen') }}
-        </va-button>
-      </va-card-content>
-    </va-card>
+        </VaButton>
+      </VaCardContent>
+    </VaCard>
 
-    <va-card class="modals-list larger-padding col-span-12">
-      <va-card-title>{{ t('modal.titleOptions') }}</va-card-title>
-      <va-card-content>
-        <va-button class="mb-2 mr-2" color="danger" @click="showBlurredModal = true">
+    <VaCard class="modals-list larger-padding col-span-12">
+      <VaCardTitle>{{ t('modal.titleOptions') }}</VaCardTitle>
+      <VaCardContent>
+        <VaButton class="mb-2 mr-2" color="danger" @click="showBlurredModal = true">
           {{ t('modal.blurred') }}
-        </va-button>
-        <va-modal
+        </VaButton>
+        <VaModal
           v-model="showAnchorModal"
           anchor-class="inline-flex"
           :title="t('modal.withAnchorSlot')"
@@ -36,16 +36,16 @@
           :cancel-text="t('modal.cancel')"
         >
           <template #anchor="{ show }">
-            <va-button class="mb-2 mr-2" @click="show">
+            <VaButton class="mb-2 mr-2" @click="show">
               {{ t('modal.withAnchorSlot') }}
-            </va-button>
+            </VaButton>
           </template>
-        </va-modal>
-      </va-card-content>
-    </va-card>
+        </VaModal>
+      </VaCardContent>
+    </VaCard>
 
     <!--//Modals-->
-    <va-modal
+    <VaModal
       v-model="showSmallModal"
       size="small"
       :title="t('modal.smallTitle')"
@@ -53,14 +53,14 @@
       :ok-text="t('modal.confirm')"
       :cancel-text="t('modal.cancel')"
     />
-    <va-modal
+    <VaModal
       v-model="showMediumModal"
       :title="t('modal.mediumTitle')"
       :ok-text="t('modal.confirm')"
       :cancel-text="t('modal.cancel')"
       :message="t('modal.message')"
     />
-    <va-modal
+    <VaModal
       v-model="showLargeModal"
       size="large"
       :title="t('modal.largeTitle')"
@@ -68,7 +68,7 @@
       :ok-text="t('modal.confirm')"
       :cancel-text="t('modal.cancel')"
     />
-    <va-modal
+    <VaModal
       v-model="showFullscreenModal"
       :title="t('modal.fullscreen')"
       :ok-text="t('modal.confirm')"
@@ -76,7 +76,7 @@
       :message="t('modal.message')"
       fullscreen
     />
-    <va-modal
+    <VaModal
       v-model="showStaticModal"
       :title="t('modal.staticTitle')"
       :ok-text="t('modal.confirm')"
@@ -84,7 +84,7 @@
       :message="t('modal.staticMessage')"
       no-dismiss
     />
-    <va-modal
+    <VaModal
       v-model="showBlurredModal"
       :title="t('modal.blurred')"
       :message="t('modal.message')"

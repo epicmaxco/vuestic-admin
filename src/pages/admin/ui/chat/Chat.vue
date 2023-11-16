@@ -23,15 +23,15 @@
       </div>
     </div>
     <div class="va-chat__controls">
-      <va-input
+      <VaInput
         v-model="inputMessage"
         placeholder="Type your message..."
         class="va-chat__input mr-2"
         @keypress.enter="sendMessage"
       />
-      <va-button @click="sendMessage()">
+      <VaButton @click="sendMessage()">
         {{ t('chat.sendButton') }}
-      </va-button>
+      </VaButton>
     </div>
   </div>
 </template>

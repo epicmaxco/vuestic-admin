@@ -1,13 +1,13 @@
 <template>
   <div class="app-navbar-actions">
-    <color-dropdown class="app-navbar-actions__item" />
-    <message-dropdown class="app-navbar-actions__item" />
-    <notification-dropdown class="app-navbar-actions__item" />
+    <ColorDropdown class="app-navbar-actions__item" />
+    <MessageDropdown class="app-navbar-actions__item" />
+    <NotificationDropdown class="app-navbar-actions__item" />
     <!-- <settings-dropdown class="app-navbar-actions__item" /> -->
-    <language-dropdown class="app-navbar-actions__item" />
-    <profile-dropdown class="app-navbar-actions__item app-navbar-actions__item--profile">
+    <LanguageDropdown class="app-navbar-actions__item" />
+    <ProfileDropdown class="app-navbar-actions__item app-navbar-actions__item--profile">
       <span>{{ userName }}</span>
-    </profile-dropdown>
+    </ProfileDropdown>
   </div>
 </template>
 

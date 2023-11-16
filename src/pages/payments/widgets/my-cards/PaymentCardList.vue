@@ -30,7 +30,7 @@
             <span class="underline">Product Terms</span> before adding your new payment card
           </div>
         </div>
-        <va-button class="flex-none w-full sm:w-auto" @click="showCreate = true">Add card</va-button>
+        <VaButton class="flex-none w-full sm:w-auto" @click="showCreate = true">Add card</VaButton>
       </div>
     </template>
   </div>

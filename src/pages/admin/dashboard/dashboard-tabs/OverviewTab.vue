@@ -5,42 +5,42 @@
     <div class="grid grid-cols-12 gap-6">
       <div class="col-span-12 xl:col-span-6 overview-tab__item flex items-center">
         <div class="overview-tab__item-icon">
-          <va-icon-vue />
+          <VaIconVue />
         </div>
         <div>{{ t('dashboard.tabs.overview.built') }}</div>
       </div>
 
       <div class="col-span-12 xl:col-span-6 overview-tab__item flex items-center">
         <div class="overview-tab__item-icon">
-          <va-icon-responsive />
+          <VaIconResponsive />
         </div>
         <div>{{ t('dashboard.tabs.overview.mobile') }}</div>
       </div>
 
       <div class="col-span-12 xl:col-span-6 overview-tab__item flex items-center">
         <div class="overview-tab__item-icon">
-          <va-icon-free />
+          <VaIconFree />
         </div>
         <div>{{ t('dashboard.tabs.overview.free') }}</div>
       </div>
 
       <div class="col-span-12 xl:col-span-6 overview-tab__item flex items-center">
         <div class="overview-tab__item-icon">
-          <va-icon-rich />
+          <VaIconRich />
         </div>
         <div>{{ t('dashboard.tabs.overview.components') }}</div>
       </div>
 
       <div class="col-span-12 xl:col-span-6 overview-tab__item flex items-center">
         <div class="overview-tab__item-icon">
-          <va-icon-fresh />
+          <VaIconFresh />
         </div>
         <div>{{ t('dashboard.tabs.overview.fresh') }}</div>
       </div>
 
       <div class="col-span-12 xl:col-span-6 overview-tab__item flex items-center">
         <div class="overview-tab__item-icon">
-          <va-icon-clean-code />
+          <VaIconCleanCode />
         </div>
         <div>{{ t('dashboard.tabs.overview.nojQuery') }}</div>
       </div>

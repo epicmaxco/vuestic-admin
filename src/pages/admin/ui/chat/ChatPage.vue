@@ -1,10 +1,10 @@
 <template>
-  <va-card class="chat w-full">
-    <va-card-title>{{ t('chat.title') }}</va-card-title>
-    <va-card-content>
-      <chat v-model="chatMessages" />
-    </va-card-content>
-  </va-card>
+  <VaCard class="chat w-full">
+    <VaCardTitle>{{ t('chat.title') }}</VaCardTitle>
+    <VaCardContent>
+      <Chat v-model="chatMessages" />
+    </VaCardContent>
+  </VaCard>
 </template>
 
 <script setup lang="ts">

@@ -1,8 +1,8 @@
 <template>
-  <va-card :title="t('tables.selectable')">
-    <va-data-table :fields="fields" :data="users" :per-page="5">
+  <VaCard :title="t('tables.selectable')">
+    <VaDataTable :fields="fields" :data="users" :per-page="5">
       <template #select="props">
-        <va-checkbox :value="props.rowData.checked" @input="select(props.rowData)" />
+        <VaCheckbox :value="props.rowData.checked" @input="select(props.rowData)" />
       </template>
 
       <template #graph="props">
@@ -10,10 +10,10 @@
           <path :d="props.rowData.graph" :stroke="props.rowData.graphColor" fill="transparent" />
         </svg>
       </template>
-    </va-data-table>
+    </VaDataTable>
 
     <p v-if="selected.length">{{ t('tables.selected') }}: {{ selected.map((user) => user.fullName).join(', ') }}.</p>
-  </va-card>
+  </VaCard>
 </template>
 
 <script>

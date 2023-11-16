@@ -1,8 +1,8 @@
 <template>
-  <va-sidebar :width="width" :minimized="minimized" :minimized-width="minimizedWidth" :animated="animated">
-    <menu-minimized v-if="minimized" :items="items" />
-    <menu-accordion v-else :items="items" />
-  </va-sidebar>
+  <VaSidebar :width="width" :minimized="minimized" :minimized-width="minimizedWidth" :animated="animated">
+    <MenuMinimized v-if="minimized" :items="items" />
+    <MenuAccordion v-else :items="items" />
+  </VaSidebar>
 </template>
 
 <script setup lang="ts">

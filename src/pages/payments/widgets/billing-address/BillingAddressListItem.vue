@@ -5,7 +5,7 @@
     <div class="flex flex-col gap-2 flex-grow">
       <div class="flex items-center">
         <div class="text-lg font-bold">{{ billingAddress.name }}</div>
-        <va-badge v-if="billingAddress.isPrimary" text="Primary" color="danger" class="ml-2" />
+        <VaBadge v-if="billingAddress.isPrimary" text="Primary" color="danger" class="ml-2" />
       </div>
       <div class="text-secondary leading-5">
         <div>{{ billingAddress.street }}</div>
@@ -14,8 +14,8 @@
       </div>
     </div>
     <div class="w-full sm:w-auto flex-none flex sm:block">
-      <va-button class="mr-2 flex-grow" preset="primary" @click="emits('edit')">Edit</va-button>
-      <va-button preset="primary" icon="mso-delete" @click="emits('remove')" />
+      <VaButton class="mr-2 flex-grow" preset="primary" @click="emits('edit')">Edit</VaButton>
+      <VaButton preset="primary" icon="mso-delete" @click="emits('remove')" />
     </div>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <va-card class="mb-4 p-6">
+  <VaCard class="mb-4 p-6">
     <section class="grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-5 lg:gap-9">
       <div v-for="section in navSections" :key="section" class="mb-6 md:mb-0">
         <h5 class="h5 mb-4">{{ section }}</h5>
@@ -10,7 +10,7 @@
         </ul>
       </div>
     </section>
-  </va-card>
+  </VaCard>
 </template>
 
 <script setup>

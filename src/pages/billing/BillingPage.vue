@@ -1,11 +1,11 @@
 <template>
   <h1 class="page-title">Billing information</h1>
 
-  <va-skeleton-group v-if="cardStore.loading">
-    <va-skeleton class="mb-4" variant="square" height="120px" />
-    <va-skeleton class="mb-4" variant="square" height="120px" />
-    <va-skeleton variant="square" height="120px" />
-  </va-skeleton-group>
+  <VaSkeletonGroup v-if="cardStore.loading">
+    <VaSkeleton class="mb-4" variant="square" height="120px" />
+    <VaSkeleton class="mb-4" variant="square" height="120px" />
+    <VaSkeleton variant="square" height="120px" />
+  </VaSkeletonGroup>
 
   <template v-else>
     <MembeshipTier />

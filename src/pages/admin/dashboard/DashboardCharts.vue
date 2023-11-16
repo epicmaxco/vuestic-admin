@@ -1,10 +1,10 @@
 <template>
   <div class="grid grid-cols-12 gap-6">
-    <va-card v-if="lineChartDataGenerated" class="col-span-12 lg:col-span-6">
-      <va-card-title>
+    <VaCard v-if="lineChartDataGenerated" class="col-span-12 lg:col-span-6">
+      <VaCardTitle>
         <h1>{{ t('dashboard.charts.trendyTrends') }}</h1>
         <div>
-          <va-button
+          <VaButton
             class="m-1"
             size="small"
             color="danger"
@@ -12,8 +12,8 @@
             @click="setDatasetIndex(datasetIndex - 1)"
           >
             {{ t('dashboard.charts.showInLessDetail') }}
-          </va-button>
-          <va-button
+          </VaButton>
+          <VaButton
             class="m-1"
             size="small"
             color="danger"
@@ -21,25 +21,25 @@
             @click="setDatasetIndex(datasetIndex + 1)"
           >
             {{ t('dashboard.charts.showInMoreDetail') }}
-          </va-button>
+          </VaButton>
         </div>
-      </va-card-title>
-      <va-card-content>
-        <va-chart class="chart" :data="lineChartDataGenerated" type="line" />
-      </va-card-content>
-    </va-card>
+      </VaCardTitle>
+      <VaCardContent>
+        <VaChart class="chart" :data="lineChartDataGenerated" type="line" />
+      </VaCardContent>
+    </VaCard>
 
-    <va-card class="col-span-12 sm:col-span-6 lg:col-span-3">
-      <va-card-title>
+    <VaCard class="col-span-12 sm:col-span-6 lg:col-span-3">
+      <VaCardTitle>
         <h1>{{ t('dashboard.charts.loadingSpeed') }}</h1>
-        <va-button icon="print" plain @click="printChart" />
-      </va-card-title>
-      <va-card-content v-if="doughnutChartDataGenerated">
-        <va-chart ref="doughnutChart" class="chart chart--donut" :data="doughnutChartDataGenerated" type="doughnut" />
-      </va-card-content>
-    </va-card>
+        <VaButton icon="print" plain @click="printChart" />
+      </VaCardTitle>
+      <VaCardContent v-if="doughnutChartDataGenerated">
+        <VaChart ref="doughnutChart" class="chart chart--donut" :data="doughnutChartDataGenerated" type="doughnut" />
+      </VaCardContent>
+    </VaCard>
 
-    <dashboard-contributors-chart class="col-span-12 sm:col-span-6 lg:col-span-3" />
+    <DashboardContributorsChart class="col-span-12 sm:col-span-6 lg:col-span-3" />
   </div>
 </template>
 

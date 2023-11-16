@@ -1,13 +1,13 @@
 <template>
-  <va-tree-view v-model:expanded="expandedNodes" :nodes="nodes">
+  <VaTreeView v-model:expanded="expandedNodes" :nodes="nodes">
     <template #content="node">
       <div v-if="!node.hasChildren" class="tree-node-editable flex flex-1 flex-wrap items-center">
-        <va-input v-model="node.label" class="mb-0" />
-        <va-icon name="md_close" color="info" class="ml-2 cursor-pointer" @click="removeProduct(node)" />
+        <VaInput v-model="node.label" class="mb-0" />
+        <VaIcon name="md_close" color="info" class="ml-2 cursor-pointer" @click="removeProduct(node)" />
       </div>
     </template>
-  </va-tree-view>
-  <va-button class="mb-2" @click="addProduct()"> Add new product </va-button>
+  </VaTreeView>
+  <VaButton class="mb-2" @click="addProduct()"> Add new product </VaButton>
 </template>
 
 <script setup lang="ts">

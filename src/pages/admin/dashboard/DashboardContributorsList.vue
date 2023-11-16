@@ -1,25 +1,25 @@
 <template>
-  <va-card class="flex dashboard-contributors-list">
-    <va-card-title>
+  <VaCard class="flex dashboard-contributors-list">
+    <VaCardTitle>
       <h1>{{ t('dashboard.charts.topContributors') }}</h1>
       <div class="mr-0 va-text-right">
         <a class="mr-0 va-link" :disabled="contributors.length <= step" @click="showNext">
           {{ t('dashboard.charts.showNextFive') }}
         </a>
       </div>
-    </va-card-title>
+    </VaCardTitle>
 
-    <va-card-content>
-      <va-inner-loading :loading="loading" style="width: 100%">
+    <VaCardContent>
+      <VaInnerLoading :loading="loading" style="width: 100%">
         <div v-for="(contributor, idx) in visibleList" :key="idx" class="mb-4">
-          <va-progress-bar :model-value="getPercent(contributor.contributions)" :color="getProgressBarColor(idx)">
+          <VaProgressBar :model-value="getPercent(contributor.contributions)" :color="getProgressBarColor(idx)">
             {{ contributor.contributions }} {{ t('dashboard.charts.commits') }}
-          </va-progress-bar>
+          </VaProgressBar>
           <p class="mt-2">{{ contributor.login }}</p>
         </div>
-      </va-inner-loading>
-    </va-card-content>
-  </va-card>
+      </VaInnerLoading>
+    </VaCardContent>
+  </VaCard>
 </template>
 
 <script setup lang="ts">

@@ -1,12 +1,12 @@
 <template>
-  <va-dropdown class="notification-dropdown" :offset="[13, 0]" stick-to-edges>
+  <VaDropdown class="notification-dropdown" :offset="[13, 0]" stick-to-edges>
     <template #anchor>
-      <va-icon-notification
+      <VaIconNotification
         class="notification-dropdown__icon"
         :class="{ 'notification-dropdown__icon--unread': !allRead }"
       />
     </template>
-    <va-dropdown-content class="notification-dropdown__content pl-4 pt-4 pt-2 pb-2">
+    <VaDropdownContent class="notification-dropdown__content pl-4 pt-4 pt-2 pb-2">
       <div
         v-for="notification in notificationsProxy"
         :key="notification.id"
@@ -26,19 +26,19 @@
         </span>
       </div>
       <div class="grid grid-cols-2 justify-between mt-1">
-        <va-button class="mr-2" size="small">{{ t('notifications.all') }}</va-button>
-        <va-button
+        <VaButton class="mr-2" size="small">{{ t('notifications.all') }}</VaButton>
+        <VaButton
           class=""
           size="small"
           preset="outline"
           border-color="primary"
           :disabled="allRead"
           @click="markAllAsRead"
-          >{{ t('notifications.mark_as_read') }}</va-button
+          >{{ t('notifications.mark_as_read') }}</VaButton
         >
       </div>
-    </va-dropdown-content>
-  </va-dropdown>
+    </VaDropdownContent>
+  </VaDropdown>
 </template>
 
 <script setup lang="ts">

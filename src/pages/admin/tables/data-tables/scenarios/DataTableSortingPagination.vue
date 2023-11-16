@@ -1,27 +1,27 @@
 <template>
-  <va-card :title="t('tables.sortingPaginationActionsAsIcons')">
-    <va-data-table :fields="fields" :data="users" :per-page="5">
+  <VaCard :title="t('tables.sortingPaginationActionsAsIcons')">
+    <VaDataTable :fields="fields" :data="users" :per-page="5">
       <template #actions="props">
-        <va-popover :message="getStarMessage(props.rowData)" placement="top">
-          <va-button
+        <VaPopover :message="getStarMessage(props.rowData)" placement="top">
+          <VaButton
             preset="plain"
             small
             :color="getStarColor(props.rowData)"
             icon="fa fa-star"
             @click="star(props.rowData)"
           />
-        </va-popover>
+        </VaPopover>
 
-        <va-popover :message="`${t('tables.edit')} ${props.rowData.fullName}`" placement="top">
-          <va-button preset="plain" small color="gray" icon="fa fa-pencil" />
-        </va-popover>
+        <VaPopover :message="`${t('tables.edit')} ${props.rowData.fullName}`" placement="top">
+          <VaButton preset="plain" small color="gray" icon="fa fa-pencil" />
+        </VaPopover>
 
-        <va-popover :message="`${t('tables.delete')} ${props.rowData.fullName}`" placement="top">
-          <va-button preset="plain" small color="gray" icon="fa fa-trash" />
-        </va-popover>
+        <VaPopover :message="`${t('tables.delete')} ${props.rowData.fullName}`" placement="top">
+          <VaButton preset="plain" small color="gray" icon="fa fa-trash" />
+        </VaPopover>
       </template>
-    </va-data-table>
-  </va-card>
+    </VaDataTable>
+  </VaCard>
 </template>
 
 <script>

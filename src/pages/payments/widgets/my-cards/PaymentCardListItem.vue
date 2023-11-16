@@ -5,7 +5,7 @@
     <div class="flex flex-col gap-2 flex-grow">
       <div class="flex items-center">
         <div class="text-lg font-bold">{{ card.name }}</div>
-        <va-badge v-if="card.isPrimary" text="Primary" color="danger" class="ml-2" />
+        <VaBadge v-if="card.isPrimary" text="Primary" color="danger" class="ml-2" />
       </div>
       <div class="flex gap-4 items-center">
         <PaymentSystem :type="card.paymentSystem" />
@@ -16,8 +16,8 @@
       </div>
     </div>
     <div class="w-full sm:w-auto flex-none flex sm:block">
-      <va-button class="mr-2 flex-grow" preset="primary" @click="emits('edit')">Edit</va-button>
-      <va-button preset="primary" icon="mso-delete" @click="emits('remove')" />
+      <VaButton class="mr-2 flex-grow" preset="primary" @click="emits('edit')">Edit</VaButton>
+      <VaButton preset="primary" icon="mso-delete" @click="emits('remove')" />
     </div>
   </div>
 </template>

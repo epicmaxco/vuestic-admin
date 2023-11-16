@@ -1,20 +1,20 @@
 <template>
-  <va-card class="bars-state">
-    <va-card-title>
+  <VaCard class="bars-state">
+    <VaCardTitle>
       {{ t('progressBars.state') }}
-    </va-card-title>
-    <va-card-content class="my-3 grid grid-cols-12 gap-6">
+    </VaCardTitle>
+    <VaCardContent class="my-3 grid grid-cols-12 gap-6">
       <div class="flex md:col-span-4 col-span-12">
-        <va-progress-bar :model-value="value2">66%</va-progress-bar>
+        <VaProgressBar :model-value="value2">66%</VaProgressBar>
       </div>
       <div class="flex md:col-span-4 col-span-12">
-        <va-progress-bar :model-value="bufferValues.value" :buffer="bufferValues.buffer">Buffering </va-progress-bar>
+        <VaProgressBar :model-value="bufferValues.value" :buffer="bufferValues.buffer">Buffering </VaProgressBar>
       </div>
       <div class="flex md:col-span-4 col-span-12">
-        <va-progress-bar indeterminate>Loading</va-progress-bar>
+        <VaProgressBar indeterminate>Loading</VaProgressBar>
       </div>
-    </va-card-content>
-  </va-card>
+    </VaCardContent>
+  </VaCard>
 </template>
 
 <script>

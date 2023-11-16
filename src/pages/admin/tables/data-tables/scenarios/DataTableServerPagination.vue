@@ -1,18 +1,18 @@
 <template>
-  <va-card :title="t('tables.serverSidePagination')">
-    <va-data-table
+  <VaCard :title="t('tables.serverSidePagination')">
+    <VaDataTable
       :fields="fields"
       :data="items"
       :loading="loading"
       :total-pages="totalPages"
       api-mode
-      @page-selected="readItems"
+      @pageSelected="readItems"
     >
       <template #avatar="props">
         <img :src="props.rowData.avatar" class="data-table-server-pagination---avatar" />
       </template>
-    </va-data-table>
-  </va-card>
+    </VaDataTable>
+  </VaCard>
 </template>
 
 <script>

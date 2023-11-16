@@ -1,8 +1,8 @@
 <template>
-  <va-modal hide-default-actions model-value :mobile-fullscreen="false" @update:model-value="emits('cancel')">
-    <va-form ref="form" class="space-y-6 w-[326px] md:w-[608px]" @submit.prevent="submit">
+  <VaModal hide-default-actions model-value :mobile-fullscreen="false" @update:modelValue="emits('cancel')">
+    <VaForm ref="form" class="space-y-6 w-[326px] md:w-[608px]" @submit.prevent="submit">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <va-input
+        <VaInput
           v-model="oldPassowrd"
           required-mark
           label="Old password"
@@ -11,7 +11,7 @@
           :rules="oldPasswordRules"
         />
         <div class="hidden md:block" />
-        <va-input
+        <VaInput
           v-model="newPassword"
           required-mark
           label="New password"
@@ -19,7 +19,7 @@
           type="password"
           :rules="newPasswordRules"
         />
-        <va-input
+        <VaInput
           v-model="repeatNewPassword"
           required-mark
           label="Repeat new password"
@@ -31,25 +31,23 @@
       <div class="flex flex-col space-y-2">
         <div class="flex space-x-2 items-center">
           <div>
-            <va-icon color="secondary" size="20px" :name="newPassword?.length! >= 8 ? 'mso-check' : 'mso-close'" />
+            <VaIcon color="secondary" size="20px" :name="newPassword?.length! >= 8 ? 'mso-check' : 'mso-close'" />
           </div>
           <p>Must be at least 8 characters long</p>
         </div>
         <div class="flex space-x-2 items-center">
           <div>
-            <va-icon color="secondary" size="20px" :name="new Set(newPassword).size >= 6 ? 'mso-check' : 'mso-close'" />
+            <VaIcon color="secondary" size="20px" :name="new Set(newPassword).size >= 6 ? 'mso-check' : 'mso-close'" />
           </div>
           <p>Must contain at least 6 unique characters</p>
         </div>
       </div>
       <div class="flex flex-col-reverse md:justify-end md:flex-row md:space-x-4">
-        <va-button preset="plain" :style="buttonStyles" @click="emits('cancel')"> Cancel </va-button>
-        <va-button class="mb-4 md:mb-0" type="submit" :style="buttonStyles" @click="submit">
-          Update Password
-        </va-button>
+        <VaButton preset="plain" :style="buttonStyles" @click="emits('cancel')"> Cancel </VaButton>
+        <VaButton class="mb-4 md:mb-0" type="submit" :style="buttonStyles" @click="submit"> Update Password </VaButton>
       </div>
-    </va-form>
-  </va-modal>
+    </VaForm>
+  </VaModal>
 </template>
 <script setup lang="ts">
   import { ref } from 'vue'

@@ -1,11 +1,11 @@
 <template>
-  <va-card class="spinners">
-    <va-card-title>{{ t('spinners.title') }}</va-card-title>
-    <va-card-content>
+  <VaCard class="spinners">
+    <VaCardTitle>{{ t('spinners.title') }}</VaCardTitle>
+    <VaCardContent>
       <div class="grid grid-cols-12 gap-6">
         <div class="flex col-span-12 lg:col-span-4 items-center">
           <span class="pr-4 spinners__size-smaller">A</span>
-          <va-slider
+          <VaSlider
             v-model="config.size"
             class="flex-grow"
             track-label-visible
@@ -17,21 +17,21 @@
         </div>
 
         <div class="flex col-span-12 lg:col-span-4 items-center">
-          <va-icon-slower class="pr-4 spinners__duration-slower" />
-          <va-slider
+          <VaIconSlower class="pr-4 spinners__duration-slower" />
+          <VaSlider
             v-model="config.duration"
             class="flex-grow"
             track-label-visible
             :min="sliderDuration.min"
             :max="sliderDuration.max"
           />
-          <va-icon-faster class="pl-4 spinners__duration-faster" />
+          <VaIconFaster class="pl-4 spinners__duration-faster" />
         </div>
 
-        <va-color-palette v-model="spinnersColor" class="col-span-12 lg:col-span-4" :palette="paletteArray" />
+        <VaColorPalette v-model="spinnersColor" class="col-span-12 lg:col-span-4" :palette="paletteArray" />
       </div>
 
-      <va-divider class="py-3" />
+      <VaDivider class="py-3" />
 
       <div v-for="(group, i) in groups" :key="i" class="grid grid-cols-12 gap-6">
         <div v-for="item in group" :key="item" class="sm:col-span-6 col-span-12 lg:col-span-3 flex flex-col">
@@ -46,8 +46,8 @@
           <div class="text-center">{{ item }}</div>
         </div>
       </div>
-    </va-card-content>
-  </va-card>
+    </VaCardContent>
+  </VaCard>
 </template>
 
 <script setup lang="ts">

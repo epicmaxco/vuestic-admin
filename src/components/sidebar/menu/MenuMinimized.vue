@@ -1,5 +1,5 @@
 <template>
-  <va-dropdown
+  <VaDropdown
     v-for="(route, idx) in items"
     :key="idx"
     v-model="dropdownsValue[idx]"
@@ -8,29 +8,29 @@
     :offset="[1, 0]"
   >
     <template #anchor>
-      <va-sidebar-item :active="isItemChildsActive(route)" :to="route.children ? undefined : { name: route.name }">
-        <va-sidebar-item-content>
-          <va-icon :name="route.meta.icon" class="va-sidebar-item__icon" />
-          <va-icon
+      <VaSidebarItem :active="isItemChildsActive(route)" :to="route.children ? undefined : { name: route.name }">
+        <VaSidebarItemContent>
+          <VaIcon :name="route.meta.icon" class="va-sidebar-item__icon" />
+          <VaIcon
             v-if="route.children"
             class="more_icon"
             :name="dropdownsValue[idx] ? 'chevron_left' : 'chevron_right'"
           />
-        </va-sidebar-item-content>
-      </va-sidebar-item>
+        </VaSidebarItemContent>
+      </VaSidebarItem>
     </template>
     <div class="sidebar-item__children">
       <template v-for="(child, index) in route.children" :key="index">
-        <va-sidebar-item :active="isRouteActive(child)" :to="{ name: child.name }">
-          <va-sidebar-item-content>
-            <va-sidebar-item-title>
+        <VaSidebarItem :active="isRouteActive(child)" :to="{ name: child.name }">
+          <VaSidebarItemContent>
+            <VaSidebarItemTitle>
               {{ t(child.displayName) }}
-            </va-sidebar-item-title>
-          </va-sidebar-item-content>
-        </va-sidebar-item>
+            </VaSidebarItemTitle>
+          </VaSidebarItemContent>
+        </VaSidebarItem>
       </template>
     </div>
-  </va-dropdown>
+  </VaDropdown>
 </template>
 
 <script setup lang="ts">

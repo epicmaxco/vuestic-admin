@@ -1,14 +1,14 @@
 <template>
   <div class="tooltips grid grid-cols-12 items-start gap-6">
-    <va-card class="col-span-12 md:col-span-6">
-      <va-card-title>{{ t('popovers.popoverStyle') }}</va-card-title>
-      <va-card-content>
-        <va-select v-model="popover.color" class="mb-8" label="color scheme" :options="colors" />
-        <va-select v-model="popover.icon" class="mb-8" label="icon (font-awesome)" :options="icons" track-by="icon" />
-        <va-input v-model="popover.title" class="mb-8" label="Title" />
-        <va-input v-model="popover.message" class="mb-8" label="Message" />
+    <VaCard class="col-span-12 md:col-span-6">
+      <VaCardTitle>{{ t('popovers.popoverStyle') }}</VaCardTitle>
+      <VaCardContent>
+        <VaSelect v-model="popover.color" class="mb-8" label="color scheme" :options="colors" />
+        <VaSelect v-model="popover.icon" class="mb-8" label="icon (font-awesome)" :options="icons" track-by="icon" />
+        <VaInput v-model="popover.title" class="mb-8" label="Title" />
+        <VaInput v-model="popover.message" class="mb-8" label="Message" />
         <div class="popover-example mt-5">
-          <va-popover
+          <VaPopover
             :icon="popover.icon.icon"
             :color="popover.color"
             :title="popover.title"
@@ -16,46 +16,46 @@
             placement="right"
             open
           >
-            <va-button>
+            <VaButton>
               {{ t('notificationsPage.popovers.showPopover') }}
-            </va-button>
-          </va-popover>
+            </VaButton>
+          </VaPopover>
         </div>
-      </va-card-content>
-    </va-card>
+      </VaCardContent>
+    </VaCard>
 
-    <va-card class="col-span-12 md:col-span-6">
-      <va-card-title>{{ t('popovers.popoverPlacement') }}</va-card-title>
-      <va-card-content>
+    <VaCard class="col-span-12 md:col-span-6">
+      <VaCardTitle>{{ t('popovers.popoverPlacement') }}</VaCardTitle>
+      <VaCardContent>
         <p class="my-2 mx-2">
           Any text can be used for
-          <va-popover placement="bottom" message="Bottom tooltip">
+          <VaPopover placement="bottom" message="Bottom tooltip">
             <a class="va-link">
               {{ t('notificationsPage.popovers.bottomTooltip') }}
             </a>
-          </va-popover>
+          </VaPopover>
           tooltip showcase. Just anything you can possibly imagine to test
-          <va-popover placement="right" message="Right tooltip">
+          <VaPopover placement="right" message="Right tooltip">
             <a class="va-link">
               {{ t('notificationsPage.popovers.rightTooltip') }}
             </a>
-          </va-popover>
+          </VaPopover>
           tooltip. But it can appear on the
-          <va-popover placement="left" message="Left tooltip">
+          <VaPopover placement="left" message="Left tooltip">
             <a class="va-link">
               {{ t('notificationsPage.popovers.leftTooltip') }}
             </a>
-          </va-popover>
+          </VaPopover>
           . Or just
-          <va-popover placement="top" message="Top tooltip">
+          <VaPopover placement="top" message="Top tooltip">
             <a class="va-link">
               {{ t('notificationsPage.popovers.topTooltip') }}
             </a>
-          </va-popover>
+          </VaPopover>
           the item.
         </p>
-      </va-card-content>
-    </va-card>
+      </VaCardContent>
+    </VaCard>
   </div>
 </template>
 

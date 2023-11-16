@@ -1,31 +1,31 @@
 <template>
-  <va-card class="mb-5 pr-4 flex justify-between">
+  <VaCard class="mb-5 pr-4 flex justify-between">
     <div>
-      <va-card-content>
+      <VaCardContent>
         <h5 class="va-h5">Got questions?</h5>
         <p class="text-base leading-5">Request a free demo to have all your questions answered by an expert.</p>
-      </va-card-content>
-      <va-card-actions align="left">
-        <va-button @click="showModal = !showModal">Request a demo</va-button>
-      </va-card-actions>
+      </VaCardContent>
+      <VaCardActions align="left">
+        <VaButton @click="showModal = !showModal">Request a demo</VaButton>
+      </VaCardActions>
     </div>
     <img src="../request-demo.svg" alt="Send a message" />
-  </va-card>
-  <va-modal v-model="showModal" ok-text="Request demo" :before-ok="submit" close-button>
-    <va-form ref="form" class="sm:w-96" @submit.prevent="submit">
+  </VaCard>
+  <VaModal v-model="showModal" ok-text="Request demo" :before-ok="submit" close-button>
+    <VaForm ref="form" class="sm:w-96" @submit.prevent="submit">
       <h3 class="va-h3">Request free demo</h3>
       <p class="text-base mb-4 leading-5">
         Claim your spot now and ignite innovation with our exceptional software solution! 🔥
       </p>
-      <va-input
+      <VaInput
         v-model="email"
         class="mb-4"
         type="email"
         label="Email"
         :rules="[(v) => !!v || 'Email field is required', (v) => /.+@.+\..+/.test(v) || 'Email should be valid']"
       />
-    </va-form>
-  </va-modal>
+    </VaForm>
+  </VaModal>
 </template>
 
 <script setup>

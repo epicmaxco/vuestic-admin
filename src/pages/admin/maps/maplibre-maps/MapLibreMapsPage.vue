@@ -1,8 +1,8 @@
 <template>
   <div class="maplibre-maps-page">
-    <va-card class="maplibre-maps-page__widget" title="MapLibre Maps">
-      <map-libre-map style="height: 65vh" />
-    </va-card>
+    <VaCard class="maplibre-maps-page__widget" title="MapLibre Maps">
+      <MapLibreMap style="height: 65vh" />
+    </VaCard>
   </div>
 </template>
 

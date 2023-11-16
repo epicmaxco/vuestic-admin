@@ -1,6 +1,6 @@
 <template>
-  <va-card class="mb-6">
-    <va-card-content>
+  <VaCard class="mb-6">
+    <VaCardContent>
       <h2 class="block-title">Payment info</h2>
       <div class="flex items-center justify-between md:justify-items-stretch">
         <div
@@ -16,8 +16,8 @@
           </div>
         </div>
         <div class="md:w-48 flex flex-col justify-end items-end">
-          <va-button preset="primary" @click="initiateSwitch"
-            >Switch to {{ paymentPlan.isYearly ? 'monthly' : 'annual' }}</va-button
+          <VaButton preset="primary" @click="initiateSwitch"
+            >Switch to {{ paymentPlan.isYearly ? 'monthly' : 'annual' }}</VaButton
           >
           <div v-if="!paymentPlan.isYearly" class="mt-2 text-regularSmall">
             <span>{{ paymentPlan.priceYear }}&nbsp;/year</span>
@@ -27,7 +27,7 @@
       </div>
 
       <template v-if="paymentCard">
-        <va-divider />
+        <VaDivider />
 
         <div class="flex items-center justify-between md:justify-items-stretch">
           <div
@@ -39,12 +39,12 @@
             </div>
           </div>
           <div class="md:w-48 flex justify-end">
-            <va-button preset="primary">Change card</va-button>
+            <VaButton preset="primary">Change card</VaButton>
           </div>
         </div>
       </template>
-    </va-card-content>
-  </va-card>
+    </VaCardContent>
+  </VaCard>
 </template>
 
 <script setup lang="ts">

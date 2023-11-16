@@ -1,5 +1,5 @@
 <template>
-  <va-modal hide-default-actions model-value size="small" @cancel="emits('close')">
+  <VaModal hide-default-actions model-value size="small" @cancel="emits('close')">
     <h3 class="va-h4 mb-4">Add Billing Address</h3>
     <AddressEdit
       :billing-address="billingAddress"
@@ -7,7 +7,7 @@
       @save="updateCard"
       @cancel="emits('close')"
     />
-  </va-modal>
+  </VaModal>
 </template>
 
 <script setup lang="ts">

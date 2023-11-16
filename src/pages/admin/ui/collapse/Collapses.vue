@@ -1,62 +1,62 @@
 <template>
   <div class="collapse-page grid grid-cols-12 gap-6">
-    <va-card class="col-span-12">
-      <va-card-title>{{ t('collapse.basic') }}</va-card-title>
-      <va-card-content>
-        <va-accordion v-model="basicAccordionValue">
-          <va-collapse :header="t('collapse.firstHeader')">
+    <VaCard class="col-span-12">
+      <VaCardTitle>{{ t('collapse.basic') }}</VaCardTitle>
+      <VaCardContent>
+        <VaAccordion v-model="basicAccordionValue">
+          <VaCollapse :header="t('collapse.firstHeader')">
             <div class="p-4">
               <p class="va-h3">{{ t('collapse.content.title') }}</p>
               <div>
                 {{ t('collapse.content.text') }}
               </div>
             </div>
-          </va-collapse>
-          <va-collapse :header="t('collapse.secondHeader')">
+          </VaCollapse>
+          <VaCollapse :header="t('collapse.secondHeader')">
             <div class="p-4">
               <p class="va-h3">{{ t('collapse.content.title') }}</p>
               <div>
                 {{ t('collapse.content.text') }}
               </div>
             </div>
-          </va-collapse>
-        </va-accordion>
-      </va-card-content>
-    </va-card>
+          </VaCollapse>
+        </VaAccordion>
+      </VaCardContent>
+    </VaCard>
 
-    <va-card class="col-span-12">
-      <va-card-title>{{ t('collapse.collapseWithBackground') }}</va-card-title>
-      <va-card-content>
-        <va-accordion v-model="colorAccordionValue">
-          <va-collapse :header="t('collapse.firstHeader')" color="success" color-all>
+    <VaCard class="col-span-12">
+      <VaCardTitle>{{ t('collapse.collapseWithBackground') }}</VaCardTitle>
+      <VaCardContent>
+        <VaAccordion v-model="colorAccordionValue">
+          <VaCollapse :header="t('collapse.firstHeader')" color="success" color-all>
             <div class="p-4">
               <p class="va-h3">{{ t('collapse.content.title') }}</p>
               <div>
                 {{ t('collapse.content.text') }}
               </div>
             </div>
-          </va-collapse>
-          <va-collapse :header="t('collapse.secondHeader')" color="warning" color-all>
+          </VaCollapse>
+          <VaCollapse :header="t('collapse.secondHeader')" color="warning" color-all>
             <div class="p-4">
               <p class="va-h3">{{ t('collapse.content.title') }}</p>
               <div>
                 {{ t('collapse.content.text') }}
               </div>
             </div>
-          </va-collapse>
-        </va-accordion>
-      </va-card-content>
-    </va-card>
+          </VaCollapse>
+        </VaAccordion>
+      </VaCardContent>
+    </VaCard>
 
-    <va-card class="col-span-12">
-      <va-card-title>{{ t('collapse.collapseWithCustomHeader') }}</va-card-title>
-      <va-card-content>
-        <va-accordion v-model="customHeaderAccordionValue">
-          <va-collapse class="mb-8">
+    <VaCard class="col-span-12">
+      <VaCardTitle>{{ t('collapse.collapseWithCustomHeader') }}</VaCardTitle>
+      <VaCardContent>
+        <VaAccordion v-model="customHeaderAccordionValue">
+          <VaCollapse class="mb-8">
             <template #header>
-              <va-button class="w-full">
+              <VaButton class="w-full">
                 {{ t('collapse.firstHeader') }}
-              </va-button>
+              </VaButton>
             </template>
             <div class="p-4">
               <p class="va-h3">{{ t('collapse.content.title') }}</p>
@@ -64,12 +64,12 @@
                 {{ t('collapse.content.text') }}
               </div>
             </div>
-          </va-collapse>
-          <va-collapse>
+          </VaCollapse>
+          <VaCollapse>
             <template #header>
-              <va-button class="w-full">
+              <VaButton class="w-full">
                 {{ t('collapse.secondHeader') }}
-              </va-button>
+              </VaButton>
             </template>
             <div>
               <p class="va-h3">{{ t('collapse.content.title') }}</p>
@@ -77,10 +77,10 @@
                 {{ t('collapse.content.text') }}
               </div>
             </div>
-          </va-collapse>
-        </va-accordion>
-      </va-card-content>
-    </va-card>
+          </VaCollapse>
+        </VaAccordion>
+      </VaCardContent>
+    </VaCard>
   </div>
 </template>
 

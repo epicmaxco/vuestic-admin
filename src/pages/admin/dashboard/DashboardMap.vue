@@ -1,10 +1,10 @@
 <template>
-  <va-card>
-    <va-card-title>
+  <VaCard>
+    <VaCardTitle>
       {{ t('dashboard.currentVisitors') }}
-    </va-card-title>
-    <line-map v-model="mainCity" :map-data="cities" :home-city="homeCity" class="dashboard-map" />
-  </va-card>
+    </VaCardTitle>
+    <LineMap v-model="mainCity" :map-data="cities" :home-city="homeCity" class="dashboard-map" />
+  </VaCard>
 </template>
 
 <script setup lang="ts">
