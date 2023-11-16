@@ -1,5 +1,5 @@
 <template>
-  <va-modal hide-default-actions model-value :mobile-fullscreen="false" @update:modelValue="emits('cancel')">
+  <va-modal hide-default-actions model-value :mobile-fullscreen="false" @update:model-value="emits('cancel')">
     <va-form ref="form" class="space-y-6 w-[326px] md:w-[608px]" @submit.prevent="submit">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <va-input

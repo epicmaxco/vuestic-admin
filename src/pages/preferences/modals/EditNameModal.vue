@@ -1,5 +1,5 @@
 <template>
-  <va-modal hide-default-actions model-value :mobile-fullscreen="false" @update:modelValue="emits('cancel')">
+  <va-modal hide-default-actions model-value :mobile-fullscreen="false" @update:model-value="emits('cancel')">
     <va-form ref="form" class="w-[326px] md:w-[288px]" @submit.prevent="submit">
       <va-input v-model="Name" class="mb-4" label="Name" placeholder="Name" />
       <div class="flex flex-col-reverse md:flex-row md:items-center md:justify-end md:space-x-4">
