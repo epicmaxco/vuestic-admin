@@ -60,35 +60,35 @@
 </template>
 
 <script lang="ts" setup>
-  import { reactive } from 'vue'
-  import { useRouter } from 'vue-router'
-  import { useForm, useToast } from 'vuestic-ui'
+import { reactive } from 'vue'
+import { useRouter } from 'vue-router'
+import { useForm, useToast } from 'vuestic-ui'
 
-  const { validate } = useForm('form')
-  const { push } = useRouter()
-  const { init } = useToast()
+const { validate } = useForm('form')
+const { push } = useRouter()
+const { init } = useToast()
 
-  const formData = reactive({
-    email: '',
-    password: '',
-    repeatPassword: '',
-  })
+const formData = reactive({
+  email: '',
+  password: '',
+  repeatPassword: '',
+})
 
-  const submit = () => {
-    if (validate()) {
-      init({
-        message: "You've successfully signed up",
-        color: 'success',
-      })
-      push({ name: 'dashboard' })
-    }
+const submit = () => {
+  if (validate()) {
+    init({
+      message: "You've successfully signed up",
+      color: 'success',
+    })
+    push({ name: 'dashboard' })
   }
+}
 
-  const passwordRules: ((v: string) => boolean | string)[] = [
-    (v) => !!v || 'Password field is required',
-    (v) => (v && v.length >= 8) || 'Password must be at least 8 characters long',
-    (v) => (v && /[A-Za-z]/.test(v)) || 'Password must contain at least one letter',
-    (v) => (v && /\d/.test(v)) || 'Password must contain at least one number',
-    (v) => (v && /[!@#$%^&*(),.?":{}|<>]/.test(v)) || 'Password must contain at least one special character',
-  ]
+const passwordRules: ((v: string) => boolean | string)[] = [
+  (v) => !!v || 'Password field is required',
+  (v) => (v && v.length >= 8) || 'Password must be at least 8 characters long',
+  (v) => (v && /[A-Za-z]/.test(v)) || 'Password must contain at least one letter',
+  (v) => (v && /\d/.test(v)) || 'Password must contain at least one number',
+  (v) => (v && /[!@#$%^&*(),.?":{}|<>]/.test(v)) || 'Password must contain at least one special character',
+]
 </script>

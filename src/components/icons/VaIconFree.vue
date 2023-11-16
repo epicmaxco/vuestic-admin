@@ -23,24 +23,24 @@
 </template>
 
 <style lang="scss">
-  .va-icon-free {
-    display: inline-block;
-    width: 55px;
-    height: 47.8px;
+.va-icon-free {
+  display: inline-block;
+  width: 55px;
+  height: 47.8px;
 
-    .cls-1 {
-      fill: #4ae387;
-    }
-
-    .cls-2 {
-      fill: none;
-      stroke: #34495e;
-      stroke-miterlimit: 10;
-      stroke-width: 3px;
-    }
-
-    .cls-3 {
-      fill: #34495e;
-    }
+  .cls-1 {
+    fill: #4ae387;
   }
+
+  .cls-2 {
+    fill: none;
+    stroke: #34495e;
+    stroke-miterlimit: 10;
+    stroke-width: 3px;
+  }
+
+  .cls-3 {
+    fill: #34495e;
+  }
+}
 </style>

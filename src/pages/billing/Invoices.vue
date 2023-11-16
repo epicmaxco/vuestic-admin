@@ -22,27 +22,27 @@
 </template>
 
 <script lang="ts" setup>
-  import { useToast } from 'vuestic-ui'
+import { useToast } from 'vuestic-ui'
 
-  const { init } = useToast()
+const { init } = useToast()
 
-  const items = [
-    {
-      id: '1',
-      date: 'March 25, 2022',
-      amount: '$6.99',
-    },
-    {
-      id: '2',
-      date: 'February 24, 2022',
-      amount: '$6.99',
-    },
-  ]
+const items = [
+  {
+    id: '1',
+    date: 'March 25, 2022',
+    amount: '$6.99',
+  },
+  {
+    id: '2',
+    date: 'February 24, 2022',
+    amount: '$6.99',
+  },
+]
 
-  const download = () => {
-    init({
-      message: "Request received. We'll email your invoice once we've completed data collection.",
-      color: 'success',
-    })
-  }
+const download = () => {
+  init({
+    message: "Request received. We'll email your invoice once we've completed data collection.",
+    color: 'success',
+  })
+}
 </script>

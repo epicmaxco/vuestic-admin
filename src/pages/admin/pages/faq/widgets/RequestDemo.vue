@@ -29,24 +29,24 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue'
+import { ref } from 'vue'
 
-  import { useForm, useToast } from 'vuestic-ui'
+import { useForm, useToast } from 'vuestic-ui'
 
-  const showModal = ref(false)
-  const email = ref('')
-  const { validate } = useForm('form')
-  const { init } = useToast()
+const showModal = ref(false)
+const email = ref('')
+const { validate } = useForm('form')
+const { init } = useToast()
 
-  const submit = async () => {
-    if (!validate()) {
-      return
-    }
-    init({
-      title: 'Demo Request Submitted!',
-      message: 'An expert will get in touch soon',
-      color: 'success',
-    })
-    showModal.value = false
+const submit = async () => {
+  if (!validate()) {
+    return
   }
+  init({
+    title: 'Demo Request Submitted!',
+    message: 'An expert will get in touch soon',
+    color: 'success',
+  })
+  showModal.value = false
+}
 </script>

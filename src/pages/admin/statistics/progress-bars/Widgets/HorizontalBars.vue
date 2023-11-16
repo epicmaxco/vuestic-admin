@@ -18,12 +18,12 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-  const { t } = useI18n()
+const { t } = useI18n()
 
-  const value = ref(0)
-  const value2 = ref(66)
-  const value3 = ref(100)
+const value = ref(0)
+const value2 = ref(66)
+const value3 = ref(100)
 </script>

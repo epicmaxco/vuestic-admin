@@ -15,11 +15,11 @@
 </template>
 
 <script lang="ts" setup>
-  import MembeshipTier from './MembeshipTier.vue'
-  import PaymentInfo from './PaymentInfo.vue'
-  import { usePaymentCardsStore } from '../../stores/payment-cards'
-  import Invoices from './Invoices.vue'
+import MembeshipTier from './MembeshipTier.vue'
+import PaymentInfo from './PaymentInfo.vue'
+import { usePaymentCardsStore } from '../../stores/payment-cards'
+import Invoices from './Invoices.vue'
 
-  const cardStore = usePaymentCardsStore()
-  cardStore.load()
+const cardStore = usePaymentCardsStore()
+cardStore.load()
 </script>

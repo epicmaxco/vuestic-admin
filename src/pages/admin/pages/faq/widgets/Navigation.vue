@@ -14,10 +14,10 @@
 </template>
 
 <script setup>
-  import { computed } from 'vue'
-  import navigation from '../data/navigationLinks.json'
+import { computed } from 'vue'
+import navigation from '../data/navigationLinks.json'
 
-  const navSections = computed(() => {
-    return Object.keys(navigation)
-  })
+const navSections = computed(() => {
+  return Object.keys(navigation)
+})
 </script>

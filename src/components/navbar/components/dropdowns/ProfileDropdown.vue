@@ -19,50 +19,50 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
-  import { useColors } from 'vuestic-ui'
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useColors } from 'vuestic-ui'
 
-  const { t } = useI18n()
-  const { colors } = useColors()
+const { t } = useI18n()
+const { colors } = useColors()
 
-  withDefaults(
-    defineProps<{
-      options?: { name: string; redirectTo: string }[]
-    }>(),
-    {
-      options: () => [
-        {
-          name: 'profile',
-          redirectTo: '',
-        },
-        {
-          name: 'logout',
-          redirectTo: 'login',
-        },
-      ],
-    },
-  )
+withDefaults(
+  defineProps<{
+    options?: { name: string; redirectTo: string }[]
+  }>(),
+  {
+    options: () => [
+      {
+        name: 'profile',
+        redirectTo: '',
+      },
+      {
+        name: 'logout',
+        redirectTo: 'login',
+      },
+    ],
+  },
+)
 
-  const isShown = ref(false)
+const isShown = ref(false)
 </script>
 
 <style lang="scss" scoped>
-  .profile-dropdown {
-    cursor: pointer;
+.profile-dropdown {
+  cursor: pointer;
 
-    &__anchor {
-      display: inline-block;
-    }
+  &__anchor {
+    display: inline-block;
+  }
 
-    &__item {
-      display: block;
-      color: var(--va-gray);
+  &__item {
+    display: block;
+    color: var(--va-gray);
 
-      &:hover,
-      &:active {
-        color: var(--va-primary);
-      }
+    &:hover,
+    &:active {
+      color: var(--va-primary);
     }
   }
+}
 </style>

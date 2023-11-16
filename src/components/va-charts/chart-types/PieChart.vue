@@ -3,15 +3,15 @@
 </template>
 
 <script lang="ts" setup>
-  import { Pie } from 'vue-chartjs'
-  import type { TChartOptions } from 'vue-chartjs/dist/types'
-  import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale } from 'chart.js'
-  import { TPieChartData } from '../../../data/types'
+import { Pie } from 'vue-chartjs'
+import type { TChartOptions } from 'vue-chartjs/dist/types'
+import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale } from 'chart.js'
+import { TPieChartData } from '../../../data/types'
 
-  ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale)
+ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale)
 
-  const props = defineProps<{
-    chartData: TPieChartData
-    chartOptions?: TChartOptions<'pie'>
-  }>()
+const props = defineProps<{
+  chartData: TPieChartData
+  chartOptions?: TChartOptions<'pie'>
+}>()
 </script>

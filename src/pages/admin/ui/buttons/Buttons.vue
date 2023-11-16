@@ -202,28 +202,28 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-  const { t } = useI18n()
+const { t } = useI18n()
 
-  const options = ref([
-    { label: 'One', value: 'one' },
-    { label: 'Two', value: 'two' },
-    { label: 'Three', value: 'three' },
-  ])
-  const model = ref('three')
-  const activePage = ref(4)
+const options = ref([
+  { label: 'One', value: 'one' },
+  { label: 'Two', value: 'two' },
+  { label: 'Three', value: 'three' },
+])
+const model = ref('three')
+const activePage = ref(4)
 </script>
 
 <style lang="scss">
-  .va-card__content {
-    & > .row {
-      overflow-x: auto;
-    }
+.va-card__content {
+  & > .row {
+    overflow-x: auto;
   }
+}
 
-  .va-button-dropdown {
-    display: inline-block;
-  }
+.va-button-dropdown {
+  display: inline-block;
+}
 </style>

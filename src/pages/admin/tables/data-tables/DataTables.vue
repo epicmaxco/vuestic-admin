@@ -12,27 +12,27 @@
 </template>
 
 <script>
-  import DataTableActions from './scenarios/DataTableActions.vue'
-  import DataTableSortingPagination from './scenarios/DataTableSortingPagination.vue'
-  import DataTableFilter from './scenarios/DataTableFilter.vue'
-  import DataTableInfiniteScroll from './scenarios/DataTableInfiniteScroll.vue'
-  import DataTableSelect from './scenarios/DataTableSelect.vue'
-  import DataTableServerPagination from './scenarios/DataTableServerPagination.vue'
-  import DataTableEmpty from './scenarios/DataTableEmpty.vue'
-  import DataTableLoading from './scenarios/DataTableLoading.vue'
+import DataTableActions from './scenarios/DataTableActions.vue'
+import DataTableSortingPagination from './scenarios/DataTableSortingPagination.vue'
+import DataTableFilter from './scenarios/DataTableFilter.vue'
+import DataTableInfiniteScroll from './scenarios/DataTableInfiniteScroll.vue'
+import DataTableSelect from './scenarios/DataTableSelect.vue'
+import DataTableServerPagination from './scenarios/DataTableServerPagination.vue'
+import DataTableEmpty from './scenarios/DataTableEmpty.vue'
+import DataTableLoading from './scenarios/DataTableLoading.vue'
 
-  export default {
-    components: {
-      DataTableActions,
-      DataTableSortingPagination,
-      DataTableFilter,
-      DataTableInfiniteScroll,
-      DataTableSelect,
-      DataTableServerPagination,
-      DataTableEmpty,
-      DataTableLoading,
-    },
-  }
+export default {
+  components: {
+    DataTableActions,
+    DataTableSortingPagination,
+    DataTableFilter,
+    DataTableInfiniteScroll,
+    DataTableSelect,
+    DataTableServerPagination,
+    DataTableEmpty,
+    DataTableLoading,
+  },
+}
 </script>
 
 <style lang="scss"></style>

@@ -51,84 +51,84 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
-  import { useColors } from 'vuestic-ui'
-  import * as spinners from 'epic-spinners'
+import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useColors } from 'vuestic-ui'
+import * as spinners from 'epic-spinners'
 
-  import VaIconFaster from '../../../../components/icons/VaIconFaster.vue'
-  import VaIconSlower from '../../../../components/icons/VaIconSlower.vue'
+import VaIconFaster from '../../../../components/icons/VaIconFaster.vue'
+import VaIconSlower from '../../../../components/icons/VaIconSlower.vue'
 
-  type SpinnersItems = keyof typeof spinners
+type SpinnersItems = keyof typeof spinners
 
-  const { t } = useI18n()
-  const { getColor } = useColors()
+const { t } = useI18n()
+const { getColor } = useColors()
 
-  const config = ref({
-    size: 70,
-    group: 4,
-    duration: 2000,
-  })
+const config = ref({
+  size: 70,
+  group: 4,
+  duration: 2000,
+})
 
-  const spinnersColor = ref('primary')
+const spinnersColor = ref('primary')
 
-  const sliderSize = ref({
-    formatter: (v: number) => `${v}px`,
-    min: 40,
-    max: 100,
-  })
+const sliderSize = ref({
+  formatter: (v: number) => `${v}px`,
+  min: 40,
+  max: 100,
+})
 
-  const sliderDuration = ref({
-    min: 1000,
-    max: 3000,
-  })
+const sliderDuration = ref({
+  min: 1000,
+  max: 3000,
+})
 
-  const computedSpinnersColor = computed(() => getColor(spinnersColor.value))
+const computedSpinnersColor = computed(() => getColor(spinnersColor.value))
 
-  const groups = computed(() => groupItems(Object.keys(spinners) as SpinnersItems[], config.value.group))
+const groups = computed(() => groupItems(Object.keys(spinners) as SpinnersItems[], config.value.group))
 
-  const paletteArray = computed(() => ['primary', 'success', 'danger', 'warning', 'dark'])
+const paletteArray = computed(() => ['primary', 'success', 'danger', 'warning', 'dark'])
 
-  function groupItems(items: SpinnersItems[], groupSize: number) {
-    const grouped = []
+function groupItems(items: SpinnersItems[], groupSize: number) {
+  const grouped = []
 
-    for (let i = 0; i < items.length; i += groupSize) {
-      grouped.push(items.slice(i, i + groupSize))
-    }
-
-    return grouped
+  for (let i = 0; i < items.length; i += groupSize) {
+    grouped.push(items.slice(i, i + groupSize))
   }
 
-  const getComponent = (item: SpinnersItems) => spinners[item]
+  return grouped
+}
+
+const getComponent = (item: SpinnersItems) => spinners[item]
 </script>
 
 <style lang="scss">
-  .spinners {
-    &__size {
-      &-smaller,
-      &-bigger {
-        width: 40px;
-        text-align: center;
-        font-weight: 600;
-      }
-
-      &-smaller {
-        font-size: 1rem;
-      }
-
-      &-bigger {
-        font-size: 1.3rem;
-      }
+.spinners {
+  &__size {
+    &-smaller,
+    &-bigger {
+      width: 40px;
+      text-align: center;
+      font-weight: 600;
     }
 
-    &__duration {
-      &-slower,
-      &-faster {
-        transform: translateY(-1px);
-        width: 40px;
-        text-align: center;
-        font-weight: 600;
-      }
+    &-smaller {
+      font-size: 1rem;
+    }
+
+    &-bigger {
+      font-size: 1.3rem;
     }
   }
+
+  &__duration {
+    &-slower,
+    &-faster {
+      transform: translateY(-1px);
+      width: 40px;
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+}
 </style>

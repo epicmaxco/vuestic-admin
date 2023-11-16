@@ -89,19 +89,19 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-  const { t } = useI18n()
+const { t } = useI18n()
 
-  const listLoops = ref(1)
-  const isLoading = ref(false)
+const listLoops = ref(1)
+const isLoading = ref(false)
 
-  function addCards() {
-    isLoading.value = true
-    setTimeout(() => {
-      isLoading.value = false
-      ++listLoops.value
-    }, 1000)
-  }
+function addCards() {
+  isLoading.value = true
+  setTimeout(() => {
+    isLoading.value = false
+    ++listLoops.value
+  }, 1000)
+}
 </script>

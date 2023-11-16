@@ -60,31 +60,31 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-  const { t } = useI18n()
+const { t } = useI18n()
 
-  const icons = ref([
-    {
-      icon: 'print',
-      text: 'print',
-    },
-    {
-      icon: 'star',
-      text: 'star',
-    },
-  ])
+const icons = ref([
+  {
+    icon: 'print',
+    text: 'print',
+  },
+  {
+    icon: 'star',
+    text: 'star',
+  },
+])
 
-  const colors = ref(['success', 'info', 'danger', 'warning', 'gray', 'dark'])
+const colors = ref(['success', 'info', 'danger', 'warning', 'gray', 'dark'])
 
-  const popover = ref({
-    title: 'Hey folks!',
-    message: 'This tooltip is amazing :D',
-    icon: {
-      icon: 'print',
-      text: 'print',
-    },
-    color: 'warning',
-  })
+const popover = ref({
+  title: 'Hey folks!',
+  message: 'This tooltip is amazing :D',
+  icon: {
+    icon: 'print',
+    text: 'print',
+  },
+  color: 'warning',
+})
 </script>

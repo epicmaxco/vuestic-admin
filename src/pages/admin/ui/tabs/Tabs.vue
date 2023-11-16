@@ -78,11 +78,11 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-  const { t } = useI18n()
+const { t } = useI18n()
 
-  const tabTitles = ref(['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight'])
-  const tabValue = ref(1)
+const tabTitles = ref(['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight'])
+const tabValue = ref(1)
 </script>

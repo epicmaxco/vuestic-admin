@@ -45,24 +45,24 @@
 </template>
 
 <script lang="ts" setup>
-  import { reactive } from 'vue'
-  import { useRouter } from 'vue-router'
-  import { useForm, useToast } from 'vuestic-ui'
+import { reactive } from 'vue'
+import { useRouter } from 'vue-router'
+import { useForm, useToast } from 'vuestic-ui'
 
-  const { validate } = useForm('form')
-  const { push } = useRouter()
-  const { init } = useToast()
+const { validate } = useForm('form')
+const { push } = useRouter()
+const { init } = useToast()
 
-  const formData = reactive({
-    email: '',
-    password: '',
-    keepLoggedIn: false,
-  })
+const formData = reactive({
+  email: '',
+  password: '',
+  keepLoggedIn: false,
+})
 
-  const submit = () => {
-    if (validate()) {
-      init({ message: "You've successfully logged in", color: 'success' })
-      push({ name: 'dashboard' })
-    }
+const submit = () => {
+  if (validate()) {
+    init({ message: "You've successfully logged in", color: 'success' })
+    push({ name: 'dashboard' })
   }
+}
 </script>

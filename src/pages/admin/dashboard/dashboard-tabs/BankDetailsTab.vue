@@ -23,24 +23,24 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
-  import { useColors, useToast } from 'vuestic-ui'
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useColors, useToast } from 'vuestic-ui'
 
-  const { colors } = useColors()
-  const { t } = useI18n()
-  const { init: initToast } = useToast()
+const { colors } = useColors()
+const { t } = useI18n()
+const { init: initToast } = useToast()
 
-  const form = ref({
-    bankName: 'Raiffeisen Bank',
-    accountName: 'GoalSaver',
-    sortCode: '6558912',
-    accountNumber: '000876432',
-    notes: '',
-  })
+const form = ref({
+  bankName: 'Raiffeisen Bank',
+  accountName: 'GoalSaver',
+  sortCode: '6558912',
+  accountNumber: '000876432',
+  notes: '',
+})
 
-  function sendDetails() {
-    const color = colors.primary
-    initToast({ message: `Details sent!`, color })
-  }
+function sendDetails() {
+  const color = colors.primary
+  initToast({ message: `Details sent!`, color })
+}
 </script>

@@ -66,22 +66,22 @@
   </div>
 </template>
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import { useToast } from 'vuestic-ui'
+import { ref } from 'vue'
+import { useToast } from 'vuestic-ui'
 
-  import { badgeStyles, selectButtonStyles } from './styles'
+import { badgeStyles, selectButtonStyles } from './styles'
 
-  import { pricingPlans } from './options'
+import { pricingPlans } from './options'
 
-  import VaButtonSelect from '../../components/va-button-select/VaButtonSelect.vue'
+import VaButtonSelect from '../../components/va-button-select/VaButtonSelect.vue'
 
-  const { init } = useToast()
+const { init } = useToast()
 
-  const selectedDuration = ref<string>('Annual')
-  const selectedPlan = ref<string>()
+const selectedDuration = ref<string>('Annual')
+const selectedPlan = ref<string>()
 
-  const selectPlan = (planModel: string) => {
-    init({ message: 'You successfully changed payment plan!', color: 'success' })
-    selectedPlan.value = planModel
-  }
+const selectPlan = (planModel: string) => {
+  init({ message: 'You successfully changed payment plan!', color: 'success' })
+  selectedPlan.value = planModel
+}
 </script>

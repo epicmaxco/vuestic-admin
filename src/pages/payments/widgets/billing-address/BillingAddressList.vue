@@ -39,30 +39,30 @@
 </template>
 
 <script lang="ts" setup>
-  import CardListItem from './BillingAddressListItem.vue'
-  import { computed, ref } from 'vue'
-  import { useModal, useToast } from 'vuestic-ui'
-  import AddressCreateModal from './BillingAddressCreateModal.vue'
-  import AddressUpdateModal from './BillingAddressUpdateModal.vue'
-  import { useBillingAddressesStore } from '../../../../stores/billing-addresses'
-  import { BillingAddress } from '../../types'
+import CardListItem from './BillingAddressListItem.vue'
+import { computed, ref } from 'vue'
+import { useModal, useToast } from 'vuestic-ui'
+import AddressCreateModal from './BillingAddressCreateModal.vue'
+import AddressUpdateModal from './BillingAddressUpdateModal.vue'
+import { useBillingAddressesStore } from '../../../../stores/billing-addresses'
+import { BillingAddress } from '../../types'
 
-  const store = useBillingAddressesStore()
+const store = useBillingAddressesStore()
 
-  const list = computed(() => store.allBillingAddresses)
-  const loading = computed(() => store.loading)
-  const { confirm } = useModal()
+const list = computed(() => store.allBillingAddresses)
+const loading = computed(() => store.loading)
+const { confirm } = useModal()
 
-  const showCreate = ref<boolean>(false)
-  const addressToEdit = ref<BillingAddress>()
-  const { init } = useToast()
+const showCreate = ref<boolean>(false)
+const addressToEdit = ref<BillingAddress>()
+const { init } = useToast()
 
-  store.load()
-  const remove = async (card: BillingAddress) => {
-    confirm('Are you really sure you want to delete this address?').then((ok) => {
-      if (!ok) return
-      store.remove(card.id)
-      init({ message: 'Billing Address has been deleted', color: 'success' })
-    })
-  }
+store.load()
+const remove = async (card: BillingAddress) => {
+  confirm('Are you really sure you want to delete this address?').then((ok) => {
+    if (!ok) return
+    store.remove(card.id)
+    init({ message: 'Billing Address has been deleted', color: 'success' })
+  })
+}
 </script>

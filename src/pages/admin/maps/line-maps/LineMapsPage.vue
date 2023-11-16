@@ -7,20 +7,20 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
+import { ref } from 'vue'
 
-  import LineMap from '../../../../components/maps/LineMap.vue'
-  import { lineMapData } from '../../../../data/maps/lineMapData'
+import LineMap from '../../../../components/maps/LineMap.vue'
+import { lineMapData } from '../../../../data/maps/lineMapData'
 
-  const mainCity = ref(lineMapData.mainCity)
-  const homeCity = ref(lineMapData.homeCity)
-  const cities = ref(lineMapData.cities)
+const mainCity = ref(lineMapData.mainCity)
+const homeCity = ref(lineMapData.homeCity)
+const cities = ref(lineMapData.cities)
 </script>
 
 <style lang="scss">
-  .line-maps-page__widget {
-    .va-card__inner {
-      border-radius: inherit;
-    }
+.line-maps-page__widget {
+  .va-card__inner {
+    border-radius: inherit;
   }
+}
 </style>

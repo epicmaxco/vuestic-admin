@@ -42,129 +42,129 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref, computed } from 'vue'
-  import { useI18n } from 'vue-i18n'
-  import VaIconNotification from '../../../icons/VaIconNotification.vue'
+import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+import VaIconNotification from '../../../icons/VaIconNotification.vue'
 
-  const { t } = useI18n()
+const { t } = useI18n()
 
-  interface INotification {
+interface INotification {
+  name: string
+  details: {
     name: string
-    details: {
-      name: string
-      avatar: string
-      type?: string
-    }
-    unread: boolean
-    id: number
+    avatar: string
+    type?: string
   }
+  unread: boolean
+  id: number
+}
 
-  const props = withDefaults(
-    defineProps<{
-      notifications?: INotification[]
-    }>(),
-    {
-      notifications: () => [
-        {
-          name: 'sentMessage',
-          details: { name: 'Vasily S', avatar: 'https://picsum.photos/123' },
-          unread: true,
-          id: 1,
+const props = withDefaults(
+  defineProps<{
+    notifications?: INotification[]
+  }>(),
+  {
+    notifications: () => [
+      {
+        name: 'sentMessage',
+        details: { name: 'Vasily S', avatar: 'https://picsum.photos/123' },
+        unread: true,
+        id: 1,
+      },
+      {
+        name: 'uploadedZip',
+        details: {
+          name: 'Oleg M',
+          avatar: 'https://picsum.photos/100',
+          type: 'typography component',
         },
-        {
-          name: 'uploadedZip',
-          details: {
-            name: 'Oleg M',
-            avatar: 'https://picsum.photos/100',
-            type: 'typography component',
-          },
-          unread: true,
-          id: 2,
-        },
-        {
-          name: 'startedTopic',
-          details: { name: 'Andrei H', avatar: 'https://picsum.photos/24' },
-          unread: true,
-          id: 3,
-        },
-      ],
-    },
-  )
-  const notificationsProxy = ref<INotification[]>([...props.notifications])
+        unread: true,
+        id: 2,
+      },
+      {
+        name: 'startedTopic',
+        details: { name: 'Andrei H', avatar: 'https://picsum.photos/24' },
+        unread: true,
+        id: 3,
+      },
+    ],
+  },
+)
+const notificationsProxy = ref<INotification[]>([...props.notifications])
 
-  const allRead = computed(() => {
-    return notificationsProxy.value.every((notification) => !notification.unread)
-  })
+const allRead = computed(() => {
+  return notificationsProxy.value.every((notification) => !notification.unread)
+})
 
-  function markAllAsRead() {
-    notificationsProxy.value = notificationsProxy.value.map((notification) => ({
-      ...notification,
-      unread: false,
-    }))
-  }
+function markAllAsRead() {
+  notificationsProxy.value = notificationsProxy.value.map((notification) => ({
+    ...notification,
+    unread: false,
+  }))
+}
 </script>
 
 <style lang="scss" scoped>
-  .notification-dropdown {
+.notification-dropdown {
+  cursor: pointer;
+
+  .notification-dropdown__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &--unread::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      left: 0;
+      top: -0.5rem;
+      // background-color: $brand-danger;
+      height: 0.375rem;
+      width: 0.375rem;
+      margin: 0 auto;
+      border-radius: 0.187rem;
+    }
+  }
+
+  &__content {
+    max-width: 20rem;
+  }
+
+  &__item {
     cursor: pointer;
+    margin-bottom: 0.75rem;
+    flex-wrap: nowrap;
+    position: relative;
 
-    .notification-dropdown__icon {
-      position: relative;
-      display: flex;
-      align-items: center;
-
-      &--unread::before {
+    &--unread {
+      &::after {
         content: '';
         position: absolute;
         right: 0;
-        left: 0;
-        top: -0.5rem;
-        // background-color: $brand-danger;
+        top: 0;
+        bottom: 0;
         height: 0.375rem;
         width: 0.375rem;
-        margin: 0 auto;
+        margin: auto;
         border-radius: 0.187rem;
       }
     }
 
-    &__content {
-      max-width: 20rem;
+    &:hover {
+      color: var(--va-primary);
     }
 
-    &__item {
-      cursor: pointer;
-      margin-bottom: 0.75rem;
-      flex-wrap: nowrap;
-      position: relative;
-
-      &--unread {
-        &::after {
-          content: '';
-          position: absolute;
-          right: 0;
-          top: 0;
-          bottom: 0;
-          height: 0.375rem;
-          width: 0.375rem;
-          margin: auto;
-          border-radius: 0.187rem;
-        }
-      }
-
-      &:hover {
-        color: var(--va-primary);
-      }
-
-      &__avatar {
-        border-radius: 50%;
-        width: 1.5rem;
-        height: 1.5rem;
-        min-width: 1.5rem;
-      }
-    }
-
-    .va-dropdown__anchor {
-      display: inline-block;
+    &__avatar {
+      border-radius: 50%;
+      width: 1.5rem;
+      height: 1.5rem;
+      min-width: 1.5rem;
     }
   }
+
+  .va-dropdown__anchor {
+    display: inline-block;
+  }
+}
 </style>

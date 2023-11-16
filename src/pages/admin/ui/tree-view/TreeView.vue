@@ -38,13 +38,13 @@
 </template>
 
 <script lang="ts" setup>
-  import { useI18n } from 'vue-i18n'
+import { useI18n } from 'vue-i18n'
 
-  import TreeViewBasicPreview from './TreeViewBasicPreview.vue'
-  import TreeViewIconsPreview from './TreeViewIconsPreview.vue'
-  import TreeViewSelectablePreview from './TreeViewSelectablePreview.vue'
-  import TreeViewAdvancedPreview from './TreeViewAdvancedPreview.vue'
-  import TreeViewEditablePreview from './TreeViewEditablePreview.vue'
+import TreeViewBasicPreview from './TreeViewBasicPreview.vue'
+import TreeViewIconsPreview from './TreeViewIconsPreview.vue'
+import TreeViewSelectablePreview from './TreeViewSelectablePreview.vue'
+import TreeViewAdvancedPreview from './TreeViewAdvancedPreview.vue'
+import TreeViewEditablePreview from './TreeViewEditablePreview.vue'
 
-  const { t } = useI18n()
+const { t } = useI18n()
 </script>

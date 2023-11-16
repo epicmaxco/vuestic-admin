@@ -18,17 +18,17 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import { useForm } from 'vuestic-ui'
-  import { useRouter } from 'vue-router'
+import { ref } from 'vue'
+import { useForm } from 'vuestic-ui'
+import { useRouter } from 'vue-router'
 
-  const email = ref('')
-  const form = useForm('passwordForm')
-  const router = useRouter()
+const email = ref('')
+const form = useForm('passwordForm')
+const router = useRouter()
 
-  const submit = () => {
-    if (form.validate()) {
-      router.push({ name: 'recover-password-email' })
-    }
+const submit = () => {
+  if (form.validate()) {
+    router.push({ name: 'recover-password-email' })
   }
+}
 </script>

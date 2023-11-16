@@ -18,17 +18,17 @@
 </template>
 
 <style lang="scss">
-  .va-icon-fresh {
-    display: inline-block;
-    width: 51px;
-    height: 48px;
+.va-icon-fresh {
+  display: inline-block;
+  width: 51px;
+  height: 48px;
 
-    .cls-1 {
-      fill: #4ae387;
-    }
-
-    .cls-2 {
-      fill: #34495e;
-    }
+  .cls-1 {
+    fill: #4ae387;
   }
+
+  .cls-2 {
+    fill: #34495e;
+  }
+}
 </style>

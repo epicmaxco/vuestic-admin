@@ -13,20 +13,20 @@
 </template>
 
 <script lang="ts" setup>
-  withDefaults(
-    defineProps<{
-      color?: string
-    }>(),
-    {
-      color: 'inherit',
-    },
-  )
+withDefaults(
+  defineProps<{
+    color?: string
+  }>(),
+  {
+    color: 'inherit',
+  },
+)
 </script>
 
 <style lang="scss">
-  .va-icon-menu-collapsed {
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-  }
+.va-icon-menu-collapsed {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
 </style>

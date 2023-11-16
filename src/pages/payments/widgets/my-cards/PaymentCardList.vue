@@ -39,30 +39,30 @@
 </template>
 
 <script lang="ts" setup>
-  import CardListItem from './PaymentCardListItem.vue'
-  import { usePaymentCardsStore } from '../../../../stores/payment-cards'
-  import { computed, ref } from 'vue'
-  import { PaymentCard } from '../../types'
-  import { useModal, useToast } from 'vuestic-ui'
-  import PaymentCardCreateModal from './PaymentCardCreateModal.vue'
-  import PaymentCardUpdateModal from './PaymentCardUpdateModal.vue'
+import CardListItem from './PaymentCardListItem.vue'
+import { usePaymentCardsStore } from '../../../../stores/payment-cards'
+import { computed, ref } from 'vue'
+import { PaymentCard } from '../../types'
+import { useModal, useToast } from 'vuestic-ui'
+import PaymentCardCreateModal from './PaymentCardCreateModal.vue'
+import PaymentCardUpdateModal from './PaymentCardUpdateModal.vue'
 
-  const store = usePaymentCardsStore()
+const store = usePaymentCardsStore()
 
-  const list = computed(() => store.allPaymentCards)
-  const loading = computed(() => store.loading)
-  const { confirm } = useModal()
+const list = computed(() => store.allPaymentCards)
+const loading = computed(() => store.loading)
+const { confirm } = useModal()
 
-  const showCreate = ref<boolean>(false)
-  const cardToEdit = ref<PaymentCard>()
-  const { init } = useToast()
+const showCreate = ref<boolean>(false)
+const cardToEdit = ref<PaymentCard>()
+const { init } = useToast()
 
-  store.load()
-  const remove = async (card: PaymentCard) => {
-    confirm('Are you really sure you want to delete this card?').then((ok) => {
-      if (!ok) return
-      store.remove(card.id)
-      init({ message: 'Payment card has been deleted', color: 'success' })
-    })
-  }
+store.load()
+const remove = async (card: PaymentCard) => {
+  confirm('Are you really sure you want to delete this card?').then((ok) => {
+    if (!ok) return
+    store.remove(card.id)
+    init({ message: 'Payment card has been deleted', color: 'success' })
+  })
+}
 </script>

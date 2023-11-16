@@ -17,14 +17,14 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-  const { t } = useI18n()
+const { t } = useI18n()
 
-  const colorArray = ['#4ae387', '#e34a4a', '#4ab2e3', '#db76df', '#f7cc36']
+const colorArray = ['#4ae387', '#e34a4a', '#4ab2e3', '#db76df', '#f7cc36']
 
-  const palette = ref(colorArray)
-  const paletteValue = ref(colorArray[0])
-  const value = ref('#4AE387')
+const palette = ref(colorArray)
+const paletteValue = ref(colorArray[0])
+const value = ref('#4AE387')
 </script>

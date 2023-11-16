@@ -20,8 +20,8 @@
 </template>
 
 <style lang="scss">
-  .va-icon-faster {
-    width: 24px;
-    height: 24px;
-  }
+.va-icon-faster {
+  width: 24px;
+  height: 24px;
+}
 </style>

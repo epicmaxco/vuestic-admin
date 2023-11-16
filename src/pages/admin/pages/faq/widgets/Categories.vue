@@ -21,18 +21,18 @@
 </template>
 
 <script lang="ts" setup>
-  import categories from '../data/popularCategories.json'
-  import { ref, computed } from 'vue'
+import categories from '../data/popularCategories.json'
+import { ref, computed } from 'vue'
 
-  const searchValue = ref('')
+const searchValue = ref('')
 
-  const filteredCategories = computed(() => {
-    const value = searchValue.value.trim().toLowerCase()
-    if (value.length === 0) {
-      return categories
-    }
-    return categories.filter((category) => {
-      return category.intro.toLowerCase().includes(value) || category.name.toLowerCase().includes(value)
-    })
+const filteredCategories = computed(() => {
+  const value = searchValue.value.trim().toLowerCase()
+  if (value.length === 0) {
+    return categories
+  }
+  return categories.filter((category) => {
+    return category.intro.toLowerCase().includes(value) || category.name.toLowerCase().includes(value)
   })
+})
 </script>

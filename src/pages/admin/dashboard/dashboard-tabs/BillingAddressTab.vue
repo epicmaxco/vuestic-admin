@@ -41,63 +41,63 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, reactive, ref, watch } from 'vue'
-  import { useI18n } from 'vue-i18n'
+import { computed, reactive, ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-  import { useColors } from 'vuestic-ui'
-  import { lineMapData } from '../../../../data/maps/lineMapData'
-  import CountriesList from '../../../../data/CountriesList'
+import { useColors } from 'vuestic-ui'
+import { lineMapData } from '../../../../data/maps/lineMapData'
+import CountriesList from '../../../../data/CountriesList'
 
-  const { colors } = useColors()
-  const { t } = useI18n()
+const { colors } = useColors()
+const { t } = useI18n()
 
-  const emit = defineEmits<{
-    (e: 'submit', data: typeof form): void
-  }>()
+const emit = defineEmits<{
+  (e: 'submit', data: typeof form): void
+}>()
 
-  const form = reactive({
-    name: 'John Smith',
-    email: 'smith@gmail.com',
-    address: '93  Guild Street',
-    city: { text: 'London' },
-    country: 'United Kingdom',
-    connection: true,
-  })
+const form = reactive({
+  name: 'John Smith',
+  email: 'smith@gmail.com',
+  address: '93  Guild Street',
+  city: { text: 'London' },
+  country: 'United Kingdom',
+  connection: true,
+})
 
-  const countriesList = computed(() => {
-    return CountriesList.filter((item) => citiesList.value.filter(({ country }) => country === item).length)
-  })
+const countriesList = computed(() => {
+  return CountriesList.filter((item) => citiesList.value.filter(({ country }) => country === item).length)
+})
 
-  const citiesList = computed(() => {
-    return lineMapData.cities.map(({ title, country }) => ({ text: title, country }))
-  })
+const citiesList = computed(() => {
+  return lineMapData.cities.map(({ title, country }) => ({ text: title, country }))
+})
 
-  const allowedCitiesList = ref<(typeof citiesList)['value']>([])
+const allowedCitiesList = ref<(typeof citiesList)['value']>([])
 
-  const computedStylesTitle = computed(() => ({ color: colors.dark }))
+const computedStylesTitle = computed(() => ({ color: colors.dark }))
 
-  watch(
-    () => form.country,
-    (newCountry, oldCountry) => {
-      allowedCitiesList.value = form.country
-        ? citiesList.value.filter(({ country }) => country === form.country)
-        : [...citiesList.value]
+watch(
+  () => form.country,
+  (newCountry, oldCountry) => {
+    allowedCitiesList.value = form.country
+      ? citiesList.value.filter(({ country }) => country === form.country)
+      : [...citiesList.value]
 
-      if (newCountry !== oldCountry) {
-        const city = allowedCitiesList.value.find(({ country }) => country === newCountry)?.text || ''
-        form.city = { text: city }
-      }
-    },
-    { immediate: true },
-  )
+    if (newCountry !== oldCountry) {
+      const city = allowedCitiesList.value.find(({ country }) => country === newCountry)?.text || ''
+      form.city = { text: city }
+    }
+  },
+  { immediate: true },
+)
 
-  function submit() {
-    emit('submit', form)
-  }
+function submit() {
+  emit('submit', form)
+}
 </script>
 
 <style lang="scss" scoped>
-  .va-input-wrapper {
-    margin-bottom: 1rem;
-  }
+.va-input-wrapper {
+  margin-bottom: 1rem;
+}
 </style>

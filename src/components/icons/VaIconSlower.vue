@@ -20,8 +20,8 @@
 </template>
 
 <style lang="scss">
-  .va-icon-slower {
-    width: 24px;
-    height: 24px;
-  }
+.va-icon-slower {
+  width: 24px;
+  height: 24px;
+}
 </style>

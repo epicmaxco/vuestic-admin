@@ -195,36 +195,36 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
-  import { useToast } from 'vuestic-ui'
-  import data from './data.json'
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useToast } from 'vuestic-ui'
+import data from './data.json'
 
-  const { t } = useI18n()
-  const { init: initToast } = useToast()
+const { t } = useI18n()
+const { init: initToast } = useToast()
 
-  const customers = ref(data.slice(0, 5))
-  const archived = ref(data.slice(5, 8))
-  const appBanners = ref(false)
-  const banners = ref(false)
-  const notifications = ref(true)
+const customers = ref(data.slice(0, 5))
+const archived = ref(data.slice(5, 8))
+const appBanners = ref(false)
+const banners = ref(false)
+const notifications = ref(true)
 
-  function getGenderIcon(gender: string) {
-    return gender === 'male' ? 'mars' : 'venus'
-  }
+function getGenderIcon(gender: string) {
+  return gender === 'male' ? 'mars' : 'venus'
+}
 
-  function getGenderColor(gender: string) {
-    return gender === 'male' ? 'info' : 'success'
-  }
+function getGenderColor(gender: string) {
+  return gender === 'male' ? 'info' : 'success'
+}
 
-  function notify(name: string) {
-    initToast({
-      message: `Clicked ${name}`,
-      position: 'bottom-right',
-    })
-  }
+function notify(name: string) {
+  initToast({
+    message: `Clicked ${name}`,
+    position: 'bottom-right',
+  })
+}
 
-  function toggleStar(customer: { starred: boolean }) {
-    customer.starred = !customer.starred
-  }
+function toggleStar(customer: { starred: boolean }) {
+  customer.starred = !customer.starred
+}
 </script>

@@ -44,32 +44,32 @@
 </template>
 
 <script lang="ts" setup>
-  import { useForm } from 'vuestic-ui'
-  import { PaymentCard, PaymentSystemType } from '../../types'
-  import { watch, ref } from 'vue'
+import { useForm } from 'vuestic-ui'
+import { PaymentCard, PaymentSystemType } from '../../types'
+import { watch, ref } from 'vue'
 
-  const { validate } = useForm('form')
-  const emits = defineEmits(['save', 'cancel'])
+const { validate } = useForm('form')
+const emits = defineEmits(['save', 'cancel'])
 
-  const props = defineProps<{
-    paymentCard: PaymentCard
-    submitText: string
-  }>()
+const props = defineProps<{
+  paymentCard: PaymentCard
+  submitText: string
+}>()
 
-  const paymentSystemTypeOptions = Object.values(PaymentSystemType)
-  const paymentCardLocal = ref({ ...props.paymentCard })
+const paymentSystemTypeOptions = Object.values(PaymentSystemType)
+const paymentCardLocal = ref({ ...props.paymentCard })
 
-  watch(
-    () => props.paymentCard,
-    (value) => {
-      paymentCardLocal.value = { ...value }
-    },
-    { deep: true },
-  )
+watch(
+  () => props.paymentCard,
+  (value) => {
+    paymentCardLocal.value = { ...value }
+  },
+  { deep: true },
+)
 
-  const submit = () => {
-    if (validate()) {
-      emits('save', paymentCardLocal.value)
-    }
+const submit = () => {
+  if (validate()) {
+    emits('save', paymentCardLocal.value)
   }
+}
 </script>

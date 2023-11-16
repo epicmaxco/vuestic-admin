@@ -69,9 +69,9 @@
 </template>
 
 <script lang="ts" setup>
-  import { useI18n } from 'vue-i18n'
-  import ColorPresentation from './color-presentation/ColorPresentation.vue'
-  import { themeColors, extraColors, buttonGradients } from './color-presentation/colorsData'
+import { useI18n } from 'vue-i18n'
+import ColorPresentation from './color-presentation/ColorPresentation.vue'
+import { themeColors, extraColors, buttonGradients } from './color-presentation/colorsData'
 
-  const { t } = useI18n()
+const { t } = useI18n()
 </script>

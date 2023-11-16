@@ -14,17 +14,17 @@
   </div>
 </template>
 <script lang="ts" setup>
-  import { durationButtonStyles } from '../../pages/pricing-plans/styles'
+import { durationButtonStyles } from '../../pages/pricing-plans/styles'
 
-  const props = defineProps({
-    modelValue: { type: [String, Number], default: undefined },
-    options: { type: Array<string | number>, required: true },
-    textColor: { type: String, default: 'textPrimary' },
-    color: { type: String, default: 'backgroundSecondary' },
-    selectedColor: { type: String, default: 'backgroundElement' },
-  })
+const props = defineProps({
+  modelValue: { type: [String, Number], default: undefined },
+  options: { type: Array<string | number>, required: true },
+  textColor: { type: String, default: 'textPrimary' },
+  color: { type: String, default: 'backgroundSecondary' },
+  selectedColor: { type: String, default: 'backgroundElement' },
+})
 
-  const color = (option: string | number) => (props.modelValue === option ? props.selectedColor : props.color)
+const color = (option: string | number) => (props.modelValue === option ? props.selectedColor : props.color)
 
-  const emits = defineEmits(['update:modelValue'])
+const emits = defineEmits(['update:modelValue'])
 </script>

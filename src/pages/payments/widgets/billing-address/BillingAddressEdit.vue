@@ -45,31 +45,31 @@
 </template>
 
 <script lang="ts" setup>
-  import { useForm } from 'vuestic-ui'
-  import { BillingAddress } from '../../types'
-  import { watch, ref } from 'vue'
+import { useForm } from 'vuestic-ui'
+import { BillingAddress } from '../../types'
+import { watch, ref } from 'vue'
 
-  const { validate } = useForm('form')
-  const emits = defineEmits(['save', 'cancel'])
+const { validate } = useForm('form')
+const emits = defineEmits(['save', 'cancel'])
 
-  const props = defineProps<{
-    billingAddress: BillingAddress
-    submitText: string
-  }>()
+const props = defineProps<{
+  billingAddress: BillingAddress
+  submitText: string
+}>()
 
-  const localBillingAddress = ref<BillingAddress>({ ...props.billingAddress })
+const localBillingAddress = ref<BillingAddress>({ ...props.billingAddress })
 
-  watch(
-    () => props.billingAddress,
-    (value) => {
-      localBillingAddress.value = { ...value }
-    },
-    { deep: true },
-  )
+watch(
+  () => props.billingAddress,
+  (value) => {
+    localBillingAddress.value = { ...value }
+  },
+  { deep: true },
+)
 
-  const submit = () => {
-    if (validate()) {
-      emits('save', localBillingAddress.value)
-    }
+const submit = () => {
+  if (validate()) {
+    emits('save', localBillingAddress.value)
   }
+}
 </script>

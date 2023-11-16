@@ -10,39 +10,39 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from 'vue'
-  import { useColors } from 'vuestic-ui'
+import { computed } from 'vue'
+import { useColors } from 'vuestic-ui'
 
-  const { getColors } = useColors()
+const { getColors } = useColors()
 
-  defineProps<{
-    colorName: string
-  }>()
+defineProps<{
+  colorName: string
+}>()
 
-  const theme = computed(() => {
-    return getColors()
-  })
+const theme = computed(() => {
+  return getColors()
+})
 </script>
 
 <style lang="scss" scoped>
-  .color {
-    width: 16px;
-    height: 16px;
+.color {
+  width: 16px;
+  height: 16px;
 
-    &-bordered {
-      border: 1px solid var(--va-gray);
-      border-radius: 50%;
-    }
+  &-bordered {
+    border: 1px solid var(--va-gray);
+    border-radius: 50%;
   }
+}
 
-  td {
-    color: var(--va-gray);
-    padding: 0.25rem 0.5rem;
-    box-sizing: border-box;
-    vertical-align: middle;
+td {
+  color: var(--va-gray);
+  padding: 0.25rem 0.5rem;
+  box-sizing: border-box;
+  vertical-align: middle;
 
-    &:first-child {
-      padding-right: 0;
-    }
+  &:first-child {
+    padding-right: 0;
   }
+}
 </style>

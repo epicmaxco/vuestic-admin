@@ -57,40 +57,40 @@
   </div>
 </template>
 <script lang="ts" setup>
-  import { computed } from 'vue'
+import { computed } from 'vue'
 
-  import { useToast } from 'vuestic-ui/web-components'
+import { useToast } from 'vuestic-ui/web-components'
 
-  import { useUserStore } from '../../../stores/user-store'
+import { useUserStore } from '../../../stores/user-store'
 
-  import { buttonStyles } from '../styles'
+import { buttonStyles } from '../styles'
 
-  const store = useUserStore()
+const store = useUserStore()
 
-  const { init } = useToast()
+const { init } = useToast()
 
-  const toastMessage = computed(() => (store.is2FAEnabled ? '2FA successfully enabled' : '2FA successfully disabled'))
+const toastMessage = computed(() => (store.is2FAEnabled ? '2FA successfully enabled' : '2FA successfully disabled'))
 
-  const twoFA = computed(() => {
-    if (store.is2FAEnabled) {
-      return {
-        button: 'Disable 2FA',
-        content:
-          'Two-Factor Authentication (2FA) is now enabled for your account, adding an extra layer of security to your sign-ins.',
-      }
-    } else {
-      return {
-        button: 'Set Up 2FA',
-        content:
-          'Add an extra layer of security to your account. To sign in, you’ll need to provide a code along with your username and password.',
-      }
+const twoFA = computed(() => {
+  if (store.is2FAEnabled) {
+    return {
+      button: 'Disable 2FA',
+      content:
+        'Two-Factor Authentication (2FA) is now enabled for your account, adding an extra layer of security to your sign-ins.',
     }
-  })
-
-  const toggle2FA = () => {
-    store.toggle2FA()
-    init({ message: toastMessage.value, color: 'success' })
+  } else {
+    return {
+      button: 'Set Up 2FA',
+      content:
+        'Add an extra layer of security to your account. To sign in, you’ll need to provide a code along with your username and password.',
+    }
   }
+})
 
-  const emits = defineEmits(['openNameModal', 'openResetPasswordModal'])
+const toggle2FA = () => {
+  store.toggle2FA()
+  init({ message: toastMessage.value, color: 'success' })
+}
+
+const emits = defineEmits(['openNameModal', 'openResetPasswordModal'])
 </script>

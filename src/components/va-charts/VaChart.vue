@@ -4,44 +4,44 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, ref } from 'vue'
-  import type { TChartOptions } from 'vue-chartjs/dist/types'
-  import { defaultConfig, chartTypesMap } from './vaChartConfigs'
-  import { TChartData } from '../../data/types'
+import { computed, ref } from 'vue'
+import type { TChartOptions } from 'vue-chartjs/dist/types'
+import { defaultConfig, chartTypesMap } from './vaChartConfigs'
+import { TChartData } from '../../data/types'
 
-  const props = defineProps<{
-    data: TChartData
-    options?: TChartOptions<'line' | 'bar' | 'bubble' | 'doughnut' | 'pie'>
-    type: keyof typeof chartTypesMap
-  }>()
+const props = defineProps<{
+  data: TChartData
+  options?: TChartOptions<'line' | 'bar' | 'bubble' | 'doughnut' | 'pie'>
+  type: keyof typeof chartTypesMap
+}>()
 
-  const chart = ref()
+const chart = ref()
 
-  const chartComponent = computed(() => chartTypesMap[props.type])
+const chartComponent = computed(() => chartTypesMap[props.type])
 
-  const chartOptions = computed(() => ({
-    ...defaultConfig,
-    ...props.options,
-  }))
+const chartOptions = computed(() => ({
+  ...defaultConfig,
+  ...props.options,
+}))
 </script>
 
 <style lang="scss">
-  .va-chart {
-    width: 100%;
+.va-chart {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > * {
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    > * {
-      height: 100%;
-      width: 100%;
-    }
-
-    canvas {
-      width: 100%;
-      height: auto;
-      min-height: 320px;
-    }
+    width: 100%;
   }
+
+  canvas {
+    width: 100%;
+    height: auto;
+    min-height: 320px;
+  }
+}
 </style>

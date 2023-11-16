@@ -7,5 +7,5 @@
 </template>
 
 <script lang="ts" setup>
-  import LeafletMap from './LeafletMap.vue'
+import LeafletMap from './LeafletMap.vue'
 </script>

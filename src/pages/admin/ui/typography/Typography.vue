@@ -190,23 +190,23 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
-  import { useColors } from 'vuestic-ui'
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useColors } from 'vuestic-ui'
 
-  const { t } = useI18n()
-  const { colors } = useColors()
+const { t } = useI18n()
+const { colors } = useColors()
 
-  const tableData = ref([
-    ['Id', 'FooBar type', 'Actions'],
-    ['1', 'Zebra', 'Delete'],
-    ['2', 'Not Zebra', 'Remove'],
-    ['3', 'Very Zebra', 'Eradicate'],
-  ])
+const tableData = ref([
+  ['Id', 'FooBar type', 'Actions'],
+  ['1', 'Zebra', 'Delete'],
+  ['2', 'Not Zebra', 'Remove'],
+  ['3', 'Very Zebra', 'Eradicate'],
+])
 </script>
 
 <style lang="scss" scoped>
-  .text--secondary {
-    color: var(--va-secondary);
-  }
+.text--secondary {
+  color: var(--va-secondary);
+}
 </style>

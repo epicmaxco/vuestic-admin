@@ -85,12 +85,12 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-  const { t } = useI18n()
+const { t } = useI18n()
 
-  const basicAccordionValue = ref([false, false])
-  const colorAccordionValue = ref([false, false])
-  const customHeaderAccordionValue = ref([false, false])
+const basicAccordionValue = ref([false, false])
+const colorAccordionValue = ref([false, false])
+const customHeaderAccordionValue = ref([false, false])
 </script>

@@ -96,17 +96,17 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-  const { t } = useI18n()
+const { t } = useI18n()
 
-  const showSmallModal = ref(false)
-  const showMediumModal = ref(false)
-  const showLargeModal = ref(false)
-  const showFullscreenModal = ref(false)
-  const showStaticModal = ref(false)
+const showSmallModal = ref(false)
+const showMediumModal = ref(false)
+const showLargeModal = ref(false)
+const showFullscreenModal = ref(false)
+const showStaticModal = ref(false)
 
-  const showBlurredModal = ref(false)
-  const showAnchorModal = ref(false)
+const showBlurredModal = ref(false)
+const showAnchorModal = ref(false)
 </script>

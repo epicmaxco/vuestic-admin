@@ -24,17 +24,17 @@
 </template>
 
 <style lang="scss">
-  .va-icon-rich {
-    display: inline-block;
-    width: 57px;
-    height: 55px;
+.va-icon-rich {
+  display: inline-block;
+  width: 57px;
+  height: 55px;
 
-    .cls-1 {
-      fill: #4ae387;
-    }
-
-    .cls-2 {
-      fill: #34495e;
-    }
+  .cls-1 {
+    fill: #4ae387;
   }
+
+  .cls-2 {
+    fill: #34495e;
+  }
+}
 </style>

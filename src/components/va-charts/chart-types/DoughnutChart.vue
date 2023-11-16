@@ -3,15 +3,15 @@
 </template>
 
 <script lang="ts" setup>
-  import { Doughnut } from 'vue-chartjs'
-  import type { TChartOptions } from 'vue-chartjs/dist/types'
-  import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale } from 'chart.js'
-  import { TDoughnutChartData } from '../../../data/types'
+import { Doughnut } from 'vue-chartjs'
+import type { TChartOptions } from 'vue-chartjs/dist/types'
+import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale } from 'chart.js'
+import { TDoughnutChartData } from '../../../data/types'
 
-  ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale)
+ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale)
 
-  const props = defineProps<{
-    chartData: TDoughnutChartData
-    chartOptions?: TChartOptions<'doughnut'>
-  }>()
+const props = defineProps<{
+  chartData: TDoughnutChartData
+  chartOptions?: TChartOptions<'doughnut'>
+}>()
 </script>

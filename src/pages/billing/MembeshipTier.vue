@@ -37,69 +37,69 @@
 </template>
 
 <script lang="ts" setup>
-  import { useToast } from 'vuestic-ui'
-  import { reactive } from 'vue'
+import { useToast } from 'vuestic-ui'
+import { reactive } from 'vue'
 
-  const { init } = useToast()
+const { init } = useToast()
 
-  type MembershipTier = {
-    id: string
-    name: string
-    type: 'upgrade' | 'downgrade' | 'current'
-    padletsUsed: number
-    padletsTotal: string
-    priceMonth?: string
-    priceYear?: string
-    uploadLimit: string
-  }
+type MembershipTier = {
+  id: string
+  name: string
+  type: 'upgrade' | 'downgrade' | 'current'
+  padletsUsed: number
+  padletsTotal: string
+  priceMonth?: string
+  priceYear?: string
+  uploadLimit: string
+}
 
-  const plans = reactive<MembershipTier[]>([
-    {
-      id: '1',
-      name: 'Platinum',
-      type: 'upgrade',
-      padletsUsed: 0,
-      padletsTotal: 'Unlimited',
-      priceMonth: '$9.99',
-      priceYear: '$99.99',
-      uploadLimit: '500MB',
-    },
-    {
-      id: '2',
-      name: 'Gold',
-      type: 'current',
-      padletsUsed: 19,
-      padletsTotal: '20',
-      priceMonth: '$6.99',
-      priceYear: '$69.99',
-      uploadLimit: '100MB',
-    },
-    {
-      id: '3',
-      name: 'Neon',
-      type: 'downgrade',
-      padletsUsed: 0,
-      padletsTotal: '3',
-      priceMonth: undefined,
-      priceYear: undefined,
-      uploadLimit: '20MB',
-    },
-  ])
+const plans = reactive<MembershipTier[]>([
+  {
+    id: '1',
+    name: 'Platinum',
+    type: 'upgrade',
+    padletsUsed: 0,
+    padletsTotal: 'Unlimited',
+    priceMonth: '$9.99',
+    priceYear: '$99.99',
+    uploadLimit: '500MB',
+  },
+  {
+    id: '2',
+    name: 'Gold',
+    type: 'current',
+    padletsUsed: 19,
+    padletsTotal: '20',
+    priceMonth: '$6.99',
+    priceYear: '$69.99',
+    uploadLimit: '100MB',
+  },
+  {
+    id: '3',
+    name: 'Neon',
+    type: 'downgrade',
+    padletsUsed: 0,
+    padletsTotal: '3',
+    priceMonth: undefined,
+    priceYear: undefined,
+    uploadLimit: '20MB',
+  },
+])
 
-  const switchPlan = (planId: string) => {
-    plans.forEach((item, index) => {
-      if (item.id === planId) {
-        // Set the selected plan to 'current'
-        item.type = 'current'
-      } else {
-        // Determine if other plans are an 'upgrade' or 'downgrade'
-        const selectedIndex = plans.findIndex((plan) => plan.id === planId)
-        item.type = index < selectedIndex ? 'upgrade' : 'downgrade'
-      }
-    })
-    init({
-      message: "You've successfully changed the membership tier",
-      color: 'success',
-    })
-  }
+const switchPlan = (planId: string) => {
+  plans.forEach((item, index) => {
+    if (item.id === planId) {
+      // Set the selected plan to 'current'
+      item.type = 'current'
+    } else {
+      // Determine if other plans are an 'upgrade' or 'downgrade'
+      const selectedIndex = plans.findIndex((plan) => plan.id === planId)
+      item.type = index < selectedIndex ? 'upgrade' : 'downgrade'
+    }
+  })
+  init({
+    message: "You've successfully changed the membership tier",
+    color: 'success',
+  })
+}
 </script>

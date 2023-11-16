@@ -36,11 +36,11 @@
 </template>
 
 <script lang="ts" setup>
-  import { IconSet } from './types'
+import { IconSet } from './types'
 
-  defineProps<{
-    sets: IconSet[]
-  }>()
+defineProps<{
+  sets: IconSet[]
+}>()
 
-  const iconName = (set: IconSet, icon: string) => `${set.prefix}-${icon}`
+const iconName = (set: IconSet, icon: string) => `${set.prefix}-${icon}`
 </script>

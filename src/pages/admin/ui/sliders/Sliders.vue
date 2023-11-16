@@ -153,13 +153,13 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
-  import { useColors } from 'vuestic-ui'
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useColors } from 'vuestic-ui'
 
-  const { t } = useI18n()
-  const { colors } = useColors()
+const { t } = useI18n()
+const { colors } = useColors()
 
-  const value = ref(90)
-  const value2 = ref([20, 60])
+const value = ref(90)
+const value2 = ref([20, 60])
 </script>

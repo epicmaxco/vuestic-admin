@@ -76,25 +76,25 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
-  import { ToastPosition, useToast } from 'vuestic-ui'
-  import ToastPositionPicker from './ToastPositionPicker.vue'
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { ToastPosition, useToast } from 'vuestic-ui'
+import ToastPositionPicker from './ToastPositionPicker.vue'
 
-  const { t } = useI18n()
-  const { init } = useToast()
+const { t } = useI18n()
+const { init } = useToast()
 
-  const isCloseableAlertVisible = ref(true)
+const isCloseableAlertVisible = ref(true)
 
-  const toastText = ref('This toast is awesome!')
-  const toastDuration = ref(2500)
-  const toastPosition = ref<ToastPosition>('bottom-right')
+const toastText = ref('This toast is awesome!')
+const toastDuration = ref(2500)
+const toastPosition = ref<ToastPosition>('bottom-right')
 
-  function launchToast() {
-    init({
-      message: toastText.value,
-      position: toastPosition.value,
-      duration: Number(toastDuration.value),
-    })
-  }
+function launchToast() {
+  init({
+    message: toastText.value,
+    position: toastPosition.value,
+    duration: Number(toastDuration.value),
+  })
+}
 </script>

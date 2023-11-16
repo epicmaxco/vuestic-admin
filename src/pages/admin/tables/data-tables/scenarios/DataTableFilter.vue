@@ -35,87 +35,87 @@
 </template>
 
 <script>
-  import { debounce } from 'lodash'
-  import users from '../data/users.json'
+import { debounce } from 'lodash'
+import users from '../data/users.json'
 
-  export default {
-    data() {
-      return {
-        term: null,
-        perPage: '6',
-        perPageOptions: ['4', '6', '10', '20'],
-        users: users,
+export default {
+  data() {
+    return {
+      term: null,
+      perPage: '6',
+      perPageOptions: ['4', '6', '10', '20'],
+      users: users,
+    }
+  },
+  computed: {
+    fields() {
+      return [
+        {
+          name: '__slot:trend',
+          width: '30px',
+          height: '45px',
+          dataClass: 'text-center',
+        },
+        {
+          name: 'fullName',
+          title: this.t('tables.headings.name'),
+          width: '30%',
+        },
+        {
+          name: '__slot:status',
+          title: this.t('tables.headings.status'),
+          width: '20%',
+        },
+        {
+          name: 'email',
+          title: this.t('tables.headings.email'),
+          width: '30%',
+        },
+        {
+          name: '__slot:actions',
+          dataClass: 'va-text-right',
+        },
+      ]
+    },
+    filteredData() {
+      if (!this.term || this.term.length < 1) {
+        return this.users
       }
+
+      return this.users.filter((item) => {
+        return item.fullName.toLowerCase().startsWith(this.term.toLowerCase())
+      })
     },
-    computed: {
-      fields() {
-        return [
-          {
-            name: '__slot:trend',
-            width: '30px',
-            height: '45px',
-            dataClass: 'text-center',
-          },
-          {
-            name: 'fullName',
-            title: this.t('tables.headings.name'),
-            width: '30%',
-          },
-          {
-            name: '__slot:status',
-            title: this.t('tables.headings.status'),
-            width: '20%',
-          },
-          {
-            name: 'email',
-            title: this.t('tables.headings.email'),
-            width: '30%',
-          },
-          {
-            name: '__slot:actions',
-            dataClass: 'va-text-right',
-          },
-        ]
-      },
-      filteredData() {
-        if (!this.term || this.term.length < 1) {
-          return this.users
-        }
+  },
+  methods: {
+    getTrendIcon(user) {
+      if (user.trend === 'up') {
+        return 'fa fa-caret-up'
+      }
 
-        return this.users.filter((item) => {
-          return item.fullName.toLowerCase().startsWith(this.term.toLowerCase())
-        })
-      },
+      if (user.trend === 'down') {
+        return 'fa fa-caret-down'
+      }
+
+      return 'fa fa-minus'
     },
-    methods: {
-      getTrendIcon(user) {
-        if (user.trend === 'up') {
-          return 'fa fa-caret-up'
-        }
+    getTrendColor(user) {
+      if (user.trend === 'up') {
+        return 'primary'
+      }
 
-        if (user.trend === 'down') {
-          return 'fa fa-caret-down'
-        }
+      if (user.trend === 'down') {
+        return 'danger'
+      }
 
-        return 'fa fa-minus'
-      },
-      getTrendColor(user) {
-        if (user.trend === 'up') {
-          return 'primary'
-        }
-
-        if (user.trend === 'down') {
-          return 'danger'
-        }
-
-        return 'gray'
-      },
-      showUser(user) {
-        alert(JSON.stringify(user))
-      },
-      search: debounce(function (term) {
-        this.term = term
-      }, 400),
+      return 'gray'
     },
-  }
+    showUser(user) {
+      alert(JSON.stringify(user))
+    },
+    search: debounce(function (term) {
+      this.term = term
+    }, 400),
+  },
+}
 </script>

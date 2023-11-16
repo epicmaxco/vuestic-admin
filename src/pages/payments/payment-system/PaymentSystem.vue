@@ -6,10 +6,10 @@
 </template>
 
 <script lang="ts" setup>
-  import { defineProps } from 'vue'
-  import { PaymentSystemType } from '../types'
+import { defineProps } from 'vue'
+import { PaymentSystemType } from '../types'
 
-  const props = defineProps<{
-    type: PaymentSystemType
-  }>()
+const props = defineProps<{
+  type: PaymentSystemType
+}>()
 </script>

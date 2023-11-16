@@ -48,23 +48,23 @@
 </template>
 
 <script lang="ts" setup>
-  import { usePaymentCardsStore } from '../../stores/payment-cards'
-  import { computed } from 'vue'
+import { usePaymentCardsStore } from '../../stores/payment-cards'
+import { computed } from 'vue'
 
-  const paymentPlan = {
-    id: '1',
-    name: 'Gold',
-    isYearly: false,
-    type: 'current',
-    padletsUsed: 19,
-    padletsTotal: '20',
-    priceMonth: '$6.99',
-    priceYear: '$69.99',
-    switchToYearlySave: '16%',
-    uploadLimit: '100MB',
-  }
+const paymentPlan = {
+  id: '1',
+  name: 'Gold',
+  isYearly: false,
+  type: 'current',
+  padletsUsed: 19,
+  padletsTotal: '20',
+  priceMonth: '$6.99',
+  priceYear: '$69.99',
+  switchToYearlySave: '16%',
+  uploadLimit: '100MB',
+}
 
-  const cardStore = usePaymentCardsStore()
+const cardStore = usePaymentCardsStore()
 
-  const paymentCard = computed(() => cardStore.currentPaymentCard)
+const paymentCard = computed(() => cardStore.currentPaymentCard)
 </script>

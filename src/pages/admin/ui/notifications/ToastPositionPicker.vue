@@ -42,69 +42,69 @@
 </template>
 
 <script lang="ts" setup>
-  import { useColors } from 'vuestic-ui'
-  import { computed } from 'vue'
+import { useColors } from 'vuestic-ui'
+import { computed } from 'vue'
 
-  const { colors } = useColors()
+const { colors } = useColors()
 
-  const props = withDefaults(
-    defineProps<{
-      modelValue?: string
-    }>(),
-    {
-      modelValue: 'bottom-center',
-    },
-  )
+const props = withDefaults(
+  defineProps<{
+    modelValue?: string
+  }>(),
+  {
+    modelValue: 'bottom-center',
+  },
+)
 
-  const emit = defineEmits<{
-    (e: 'update:modelValue', position: string): void
-  }>()
-  const computedStyle = computed(() => {
-    return {
-      backgroundColor: colors.primary,
-    }
-  })
-
-  function updatePosition(position: string) {
-    emit('update:modelValue', position)
+const emit = defineEmits<{
+  (e: 'update:modelValue', position: string): void
+}>()
+const computedStyle = computed(() => {
+  return {
+    backgroundColor: colors.primary,
   }
+})
 
-  function isBoxSelected(position: string) {
-    return props.modelValue === position
-  }
+function updatePosition(position: string) {
+  emit('update:modelValue', position)
+}
+
+function isBoxSelected(position: string) {
+  return props.modelValue === position
+}
 </script>
 
 <style lang="scss" scoped>
-  .toast-position-picker {
-    width: 112px;
-    height: 76px;
+.toast-position-picker {
+  width: 112px;
+  height: 76px;
+}
+
+.position-boxes-row {
+  flex-direction: row;
+
+  &:first-child {
+    margin-bottom: 2px;
+  }
+}
+
+.position-box {
+  height: 36px;
+  width: 36px;
+  margin-right: 2px;
+  cursor: pointer;
+  opacity: 0.3;
+
+  &:last-child {
+    margin-right: 0;
   }
 
-  .position-boxes-row {
-    flex-direction: row;
-
-    &:first-child {
-      margin-bottom: 2px;
-    }
+  &:hover {
+    opacity: 0.6;
   }
 
-  .position-box {
-    height: 36px;
-    width: 36px;
-    margin-right: 2px;
-    cursor: pointer;
-    opacity: 0.3;
-
-    &:last-child {
-      margin-right: 0;
-    }
-
-    &:hover {
-      opacity: 0.6;
-    }
-
-    &.selected {
-      opacity: 1;
-    }
+  &.selected {
+    opacity: 1;
   }
+}
 </style>

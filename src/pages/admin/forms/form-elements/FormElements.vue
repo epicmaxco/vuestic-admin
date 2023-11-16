@@ -215,81 +215,81 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import CountriesList from '../data/CountriesList'
-  import { useI18n } from 'vue-i18n'
+import { ref } from 'vue'
+import CountriesList from '../data/CountriesList'
+import { useI18n } from 'vue-i18n'
 
-  const { t } = useI18n()
+const { t } = useI18n()
 
-  const countriesList = ref(CountriesList)
-  const chosenCountry = ref('')
-  const simple = ref('')
-  const withIcon = ref('')
-  const withButton = ref('')
-  const withDescription = ref('')
-  const clearableText = ref('Vasili Savitski')
-  const successfulEmail = ref('andrei@dreamsupport.io')
-  const wrongEmail = ref('andrei@dreamsupport')
-  const messages = ref([
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ' +
-      'incididunt ut labore et dolore magna aliqua.',
-  ])
-  const errorMessages = ref(['Field should contain a valid email'])
-  const simpleOptions = ref([
-    {
-      id: 1,
-      description: 'First option',
-    },
-    {
-      id: 2,
-      description: 'Second option',
-    },
-    {
-      id: 3,
-      description: 'Third option',
-    },
-  ])
+const countriesList = ref(CountriesList)
+const chosenCountry = ref('')
+const simple = ref('')
+const withIcon = ref('')
+const withButton = ref('')
+const withDescription = ref('')
+const clearableText = ref('Vasili Savitski')
+const successfulEmail = ref('andrei@dreamsupport.io')
+const wrongEmail = ref('andrei@dreamsupport')
+const messages = ref([
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ' +
+    'incididunt ut labore et dolore magna aliqua.',
+])
+const errorMessages = ref(['Field should contain a valid email'])
+const simpleOptions = ref([
+  {
+    id: 1,
+    description: 'First option',
+  },
+  {
+    id: 2,
+    description: 'Second option',
+  },
+  {
+    id: 3,
+    description: 'Third option',
+  },
+])
 
-  const simpleSelectModel = ref('')
-  const multiSelectModel = ref([])
-  const multiSelectCountriesModel = ref([])
-  const searchableSelectModel = ref('')
-  const multiSearchableSelectModel = ref([])
-  const radioSelectedOption = ref('option1')
-  const radioSelectedDisableOption = ref('option1')
-  const checkbox = ref({
-    unselected: false,
-    selected: true,
-    readonly: true,
-    disabled: true,
-    error: false,
-    errorMessages: true,
-  })
+const simpleSelectModel = ref('')
+const multiSelectModel = ref([])
+const multiSelectCountriesModel = ref([])
+const searchableSelectModel = ref('')
+const multiSearchableSelectModel = ref([])
+const radioSelectedOption = ref('option1')
+const radioSelectedDisableOption = ref('option1')
+const checkbox = ref({
+  unselected: false,
+  selected: true,
+  readonly: true,
+  disabled: true,
+  error: false,
+  errorMessages: true,
+})
 
-  const toggles = ref({
-    unselected: false,
-    selected: true,
-    disabled: true,
-    small: false,
-    large: false,
-  })
+const toggles = ref({
+  unselected: false,
+  selected: true,
+  disabled: true,
+  small: false,
+  large: false,
+})
 
-  const datePlusDay = (date: Date, days: number) => {
-    const d = new Date(date)
-    d.setDate(d.getDate() + days)
-    return d
-  }
+const datePlusDay = (date: Date, days: number) => {
+  const d = new Date(date)
+  d.setDate(d.getDate() + days)
+  return d
+}
 
-  const dateInput = ref({
-    simple: new Date(),
-    disabled: '2018-05-09',
-    range: { start: new Date(), end: datePlusDay(new Date(), 7) },
-    multiple: ['2018-04-25', '2018-04-27'],
-  })
+const dateInput = ref({
+  simple: new Date(),
+  disabled: '2018-05-09',
+  range: { start: new Date(), end: datePlusDay(new Date(), 7) },
+  multiple: ['2018-04-25', '2018-04-27'],
+})
 </script>
 
 <style lang="scss" scoped>
-  fieldset {
-    margin-bottom: 0.5rem;
-  }
+fieldset {
+  margin-bottom: 0.5rem;
+}
 </style>

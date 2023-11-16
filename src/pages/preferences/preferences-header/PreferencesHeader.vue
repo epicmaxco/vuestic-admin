@@ -9,7 +9,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-  import { useUserStore } from '../../../stores/user-store'
+import { useUserStore } from '../../../stores/user-store'
 
-  const store = useUserStore()
+const store = useUserStore()
 </script>

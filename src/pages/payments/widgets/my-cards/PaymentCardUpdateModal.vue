@@ -6,27 +6,27 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import PaymentCardEdit from './PaymentCardEdit.vue'
-  import { PaymentCard } from '../../types'
-  import { usePaymentCardsStore } from '../../../../stores/payment-cards'
-  import { useToast } from 'vuestic-ui'
+import { ref } from 'vue'
+import PaymentCardEdit from './PaymentCardEdit.vue'
+import { PaymentCard } from '../../types'
+import { usePaymentCardsStore } from '../../../../stores/payment-cards'
+import { useToast } from 'vuestic-ui'
 
-  const isModalOpen = ref(false)
-  const { init } = useToast()
+const isModalOpen = ref(false)
+const { init } = useToast()
 
-  const props = defineProps<{
-    paymentCard: PaymentCard
-  }>()
+const props = defineProps<{
+  paymentCard: PaymentCard
+}>()
 
-  const emits = defineEmits(['close'])
-  const store = usePaymentCardsStore()
-  const paymentCard = ref({ ...props.paymentCard })
+const emits = defineEmits(['close'])
+const store = usePaymentCardsStore()
+const paymentCard = ref({ ...props.paymentCard })
 
-  const updateCard = (card: PaymentCard) => {
-    isModalOpen.value = false
-    store.update(card)
-    init({ message: "You've successfully updated a Payment Card", color: 'success' })
-    emits('close')
-  }
+const updateCard = (card: PaymentCard) => {
+  isModalOpen.value = false
+  store.update(card)
+  init({ message: "You've successfully updated a Payment Card", color: 'success' })
+  emits('close')
+}
 </script>

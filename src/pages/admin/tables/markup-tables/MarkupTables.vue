@@ -55,23 +55,23 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
-  import data from '../../../../data/tables/markup-table/data.json'
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import data from '../../../../data/tables/markup-table/data.json'
 
-  const { t } = useI18n()
+const { t } = useI18n()
 
-  const users = ref(data.slice(0, 8))
+const users = ref(data.slice(0, 8))
 
-  function getStatusColor(status: string) {
-    if (status === 'paid') {
-      return 'success'
-    }
-
-    if (status === 'processing') {
-      return 'info'
-    }
-
-    return 'danger'
+function getStatusColor(status: string) {
+  if (status === 'paid') {
+    return 'success'
   }
+
+  if (status === 'processing') {
+    return 'info'
+  }
+
+  return 'danger'
+}
 </script>

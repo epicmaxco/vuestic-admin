@@ -192,13 +192,13 @@
 </template>
 
 <script lang="ts" setup>
-  /**
-   * HIDDEN FROM THE ADMIN! SEE src/components/sidebar/NavigationRoutes.ts AND src/pages/admin/ui/route.ts TO REVEAL.
-   */
+/**
+ * HIDDEN FROM THE ADMIN! SEE src/components/sidebar/NavigationRoutes.ts AND src/pages/admin/ui/route.ts TO REVEAL.
+ */
 
-  import { useI18n } from 'vue-i18n'
-  import { useColors } from 'vuestic-ui'
+import { useI18n } from 'vue-i18n'
+import { useColors } from 'vuestic-ui'
 
-  const { t } = useI18n()
-  const { colors } = useColors()
+const { t } = useI18n()
+const { colors } = useColors()
 </script>

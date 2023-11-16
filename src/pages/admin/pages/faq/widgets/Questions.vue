@@ -117,7 +117,7 @@
 </template>
 
 <script setup>
-  import { reactive } from 'vue'
+import { reactive } from 'vue'
 
-  const accordionState = reactive([false, true, false, false])
+const accordionState = reactive([false, true, false, false])
 </script>

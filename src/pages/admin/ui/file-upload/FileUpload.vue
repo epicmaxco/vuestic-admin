@@ -34,14 +34,14 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-  const { t } = useI18n()
+const { t } = useI18n()
 
-  const advancedGallery = ref([])
-  const advancedList = ref([])
-  const single = ref([])
-  const gallery = ref([])
-  const list = ref([])
+const advancedGallery = ref([])
+const advancedList = ref([])
+const single = ref([])
+const gallery = ref([])
+const list = ref([])
 </script>

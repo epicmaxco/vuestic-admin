@@ -15,18 +15,18 @@
 </template>
 
 <script lang="ts" setup>
-  import { onMounted, ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
+import { onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-  const { t } = useI18n()
+const { t } = useI18n()
 
-  const value = ref(0)
+const value = ref(0)
 
-  onMounted(animateValue)
+onMounted(animateValue)
 
-  function animateValue() {
-    setTimeout(() => {
-      value.value = 100
-    })
-  }
+function animateValue() {
+  setTimeout(() => {
+    value.value = 100
+  })
+}
 </script>

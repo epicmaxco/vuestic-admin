@@ -19,51 +19,51 @@
 </template>
 
 <script>
-  import users from '../data/users.json'
+import users from '../data/users.json'
 
-  export default {
-    data() {
-      return {
-        users: users.slice(0, 6),
-      }
+export default {
+  data() {
+    return {
+      users: users.slice(0, 6),
+    }
+  },
+  computed: {
+    fields() {
+      return [
+        {
+          name: '__slot:marker',
+          width: '30px',
+          dataClass: 'text-center',
+        },
+        {
+          name: 'fullName',
+          title: this.t('tables.headings.name'),
+        },
+        {
+          name: 'email',
+          title: this.t('tables.headings.email'),
+        },
+        {
+          name: 'country',
+          title: this.t('tables.headings.country'),
+        },
+        {
+          name: '__slot:actions',
+          dataClass: 'va-text-right',
+        },
+      ]
     },
-    computed: {
-      fields() {
-        return [
-          {
-            name: '__slot:marker',
-            width: '30px',
-            dataClass: 'text-center',
-          },
-          {
-            name: 'fullName',
-            title: this.t('tables.headings.name'),
-          },
-          {
-            name: 'email',
-            title: this.t('tables.headings.email'),
-          },
-          {
-            name: 'country',
-            title: this.t('tables.headings.country'),
-          },
-          {
-            name: '__slot:actions',
-            dataClass: 'va-text-right',
-          },
-        ]
-      },
+  },
+  methods: {
+    edit(user) {
+      alert('Edit User: ' + JSON.stringify(user))
     },
-    methods: {
-      edit(user) {
-        alert('Edit User: ' + JSON.stringify(user))
-      },
-      remove(user) {
-        const idx = this.users.findIndex((u) => u.id === user.id)
-        this.users.splice(idx, 1)
-      },
+    remove(user) {
+      const idx = this.users.findIndex((u) => u.id === user.id)
+      this.users.splice(idx, 1)
     },
-  }
+  },
+}
 </script>
 
 <style lang="scss"></style>

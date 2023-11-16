@@ -7,14 +7,14 @@
 </template>
 
 <script lang="ts" setup>
-  import BubbleMap from './BubbleMap.vue'
-  import { bubbleMapData } from '../../../../data/maps/bubbleMapData'
+import BubbleMap from './BubbleMap.vue'
+import { bubbleMapData } from '../../../../data/maps/bubbleMapData'
 </script>
 
 <style lang="scss">
-  .line-maps-page__widget {
-    .va-card__inner {
-      border-radius: inherit;
-    }
+.line-maps-page__widget {
+  .va-card__inner {
+    border-radius: inherit;
   }
+}
 </style>

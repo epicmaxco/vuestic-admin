@@ -7,5 +7,5 @@
 </template>
 
 <script lang="ts" setup>
-  import MapLibreMap from './MapLibreMap.vue'
+import MapLibreMap from './MapLibreMap.vue'
 </script>

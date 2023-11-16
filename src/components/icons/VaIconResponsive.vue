@@ -13,17 +13,17 @@
 </template>
 
 <style lang="scss">
-  .va-icon-responsive {
-    display: inline-block;
-    width: 47.5px;
-    height: 49px;
+.va-icon-responsive {
+  display: inline-block;
+  width: 47.5px;
+  height: 49px;
 
-    .cls-1 {
-      fill: #4ae387;
-    }
-
-    .cls-2 {
-      fill: #34495e;
-    }
+  .cls-1 {
+    fill: #4ae387;
   }
+
+  .cls-2 {
+    fill: #34495e;
+  }
+}
 </style>

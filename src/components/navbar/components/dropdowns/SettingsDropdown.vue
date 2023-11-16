@@ -20,60 +20,60 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
-  import { useColors } from 'vuestic-ui'
+import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useColors } from 'vuestic-ui'
 
-  const { colors } = useColors()
-  const { t } = useI18n()
+const { colors } = useColors()
+const { t } = useI18n()
 
-  const props = defineProps<{
-    isTopBar: boolean
-  }>()
+const props = defineProps<{
+  isTopBar: boolean
+}>()
 
-  const emit = defineEmits<{
-    (e: 'update:isTopBar', value: boolean): void
-  }>()
+const emit = defineEmits<{
+  (e: 'update:isTopBar', value: boolean): void
+}>()
 
-  const options = ref([
-    { label: t('dashboard.sideBarButton'), value: String(false) }, // NOTE: boolean is unsupported for va-dropdown
-    { label: t('dashboard.topBarButton'), value: String(true) },
-  ])
+const options = ref([
+  { label: t('dashboard.sideBarButton'), value: String(false) }, // NOTE: boolean is unsupported for va-dropdown
+  { label: t('dashboard.topBarButton'), value: String(true) },
+])
 
-  const isTopBarProxy = computed({
-    get() {
-      return String(props.isTopBar)
-    },
-    set() {
-      emit('update:isTopBar', props.isTopBar)
-    },
-  })
+const isTopBarProxy = computed({
+  get() {
+    return String(props.isTopBar)
+  },
+  set() {
+    emit('update:isTopBar', props.isTopBar)
+  },
+})
 </script>
 
 <style lang="scss">
-  .settings-dropdown {
-    cursor: pointer;
+.settings-dropdown {
+  cursor: pointer;
 
-    &__icon {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
+  &__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
 
-    &__content {
-      &-label {
-        margin-bottom: 0.5rem;
-      }
-    }
-
-    &__control {
-      .va-button-group {
-        margin: 0;
-      }
-    }
-
-    .va-dropdown__anchor {
-      display: inline-block;
+  &__content {
+    &-label {
+      margin-bottom: 0.5rem;
     }
   }
+
+  &__control {
+    .va-button-group {
+      margin: 0;
+    }
+  }
+
+  .va-dropdown__anchor {
+    display: inline-block;
+  }
+}
 </style>

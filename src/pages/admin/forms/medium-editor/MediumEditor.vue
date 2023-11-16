@@ -26,27 +26,27 @@
 </template>
 
 <script lang="ts" setup>
-  import { nextTick } from 'vue'
-  import { useI18n } from 'vue-i18n'
-  import type MediumEditor from 'medium-editor'
-  import VaMediumEditor from '../../../../components/va-medium-editor/VaMediumEditor.vue'
+import { nextTick } from 'vue'
+import { useI18n } from 'vue-i18n'
+import type MediumEditor from 'medium-editor'
+import VaMediumEditor from '../../../../components/va-medium-editor/VaMediumEditor.vue'
 
-  const { t } = useI18n()
+const { t } = useI18n()
 
-  function handleEditorInitialization(editor: typeof MediumEditor) {
-    nextTick(() => highlightSampleText(editor))
-  }
+function handleEditorInitialization(editor: typeof MediumEditor) {
+  nextTick(() => highlightSampleText(editor))
+}
 
-  function highlightSampleText(editor: typeof MediumEditor) {
-    const sampleText = document.getElementsByClassName('default-selection')[0] as HTMLElement
-    editor.selectElement(sampleText)
-  }
+function highlightSampleText(editor: typeof MediumEditor) {
+  const sampleText = document.getElementsByClassName('default-selection')[0] as HTMLElement
+  editor.selectElement(sampleText)
+}
 </script>
 
 <style lang="scss">
-  .medium-editor {
-    a {
-      @apply text-blue-700;
-    }
+.medium-editor {
+  a {
+    @apply text-blue-700;
   }
+}
 </style>

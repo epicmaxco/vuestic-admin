@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-  import VuesticLogo from '../components/VuesticLogo.vue'
-  import NotFoundImage from '../components/NotFoundImage.vue'
+import VuesticLogo from '../components/VuesticLogo.vue'
+import NotFoundImage from '../components/NotFoundImage.vue'
 </script>
 
 <template>

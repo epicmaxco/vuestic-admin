@@ -71,66 +71,66 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
-  import { VaCarousel, VaModal, VaCard, VaCardContent, VaCardTitle, VaButton, VaImage, useColors } from 'vuestic-ui'
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { VaCarousel, VaModal, VaCard, VaCardContent, VaCardTitle, VaButton, VaImage, useColors } from 'vuestic-ui'
 
-  const { t } = useI18n()
-  const { colors } = useColors()
+const { t } = useI18n()
+const { colors } = useColors()
 
-  const infoTiles = ref([
-    {
-      color: 'success',
-      value: '803',
-      text: 'commits',
-      icon: '',
-    },
-    {
-      color: 'danger',
-      value: '57',
-      text: 'components',
-      icon: '',
-    },
-    {
-      color: 'info',
-      value: '5',
-      text: 'teamMembers',
-      icon: '',
-    },
-  ])
+const infoTiles = ref([
+  {
+    color: 'success',
+    value: '803',
+    text: 'commits',
+    icon: '',
+  },
+  {
+    color: 'danger',
+    value: '57',
+    text: 'components',
+    icon: '',
+  },
+  {
+    color: 'info',
+    value: '5',
+    text: 'teamMembers',
+    icon: '',
+  },
+])
 
-  const modal = ref(false)
-  const currentImageIndex = ref(0)
-  const images = ref([
-    'https://i.imgur.com/qSykGko.jpg',
-    'https://i.imgur.com/jYwT08D.png',
-    'https://i.imgur.com/9930myH.jpg',
-    'https://i.imgur.com/2JxhWD6.jpg',
-    'https://i.imgur.com/MpiOWbM.jpg',
-  ])
+const modal = ref(false)
+const currentImageIndex = ref(0)
+const images = ref([
+  'https://i.imgur.com/qSykGko.jpg',
+  'https://i.imgur.com/jYwT08D.png',
+  'https://i.imgur.com/9930myH.jpg',
+  'https://i.imgur.com/2JxhWD6.jpg',
+  'https://i.imgur.com/MpiOWbM.jpg',
+])
 
-  function showModal() {
-    modal.value = true
-  }
+function showModal() {
+  modal.value = true
+}
 </script>
 
 <style lang="scss" scoped>
-  .row-separated {
-    .flex + .flex {
-      border-left: 1px solid var(--va-background-primary);
-    }
+.row-separated {
+  .flex + .flex {
+    border-left: 1px solid var(--va-background-primary);
   }
+}
 
-  .rich-theme-card-text {
-    line-height: 1.5;
+.rich-theme-card-text {
+  line-height: 1.5;
+}
+
+.gallery-carousel {
+  width: 80vw;
+  max-width: 100%;
+
+  @media all and (max-width: 576px) {
+    width: 100%;
   }
-
-  .gallery-carousel {
-    width: 80vw;
-    max-width: 100%;
-
-    @media all and (max-width: 576px) {
-      width: 100%;
-    }
-  }
+}
 </style>

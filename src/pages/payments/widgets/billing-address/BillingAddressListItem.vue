@@ -21,14 +21,14 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from 'vue'
-  import { BillingAddress } from '../../types'
+import { computed } from 'vue'
+import { BillingAddress } from '../../types'
 
-  const emits = defineEmits(['edit', 'remove'])
+const emits = defineEmits(['edit', 'remove'])
 
-  const props = defineProps<{
-    billingAddress: BillingAddress
-  }>()
+const props = defineProps<{
+  billingAddress: BillingAddress
+}>()
 
-  const billingAddress = computed(() => props.billingAddress)
+const billingAddress = computed(() => props.billingAddress)
 </script>
