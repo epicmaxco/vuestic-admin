@@ -82,7 +82,7 @@ export default defineComponent({
       return section.children.some(({ name }) => route.path.endsWith(`${name}`))
     }
 
-    const setActiveExpand = () => value.value = navigationRoutes.routes.map((route: INavigationRoute) => routeHasActiveChild(route) || false)
+    const setActiveExpand = () => value.value = navigationRoutes.routes.map((route: INavigationRoute) => routeHasActiveChild(route))
 
     const sidebarWidth = computed(() => props.mobile ? '100%' : '280px')
     const color = computed(() => getColor('background-secondary'))
