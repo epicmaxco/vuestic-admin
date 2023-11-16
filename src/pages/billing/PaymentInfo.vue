@@ -1,7 +1,7 @@
 <template>
   <VaCard class="mb-6">
     <VaCardContent>
-      <h2 class="block-title">Payment info</h2>
+      <h3 class="h3">Payment info</h3>
       <div class="flex items-center justify-between md:justify-items-stretch">
         <div
           class="flex grow flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-1 justify-between items-start md:items-center"
@@ -16,7 +16,7 @@
           </div>
         </div>
         <div class="md:w-48 flex flex-col justify-end items-end">
-          <VaButton preset="primary" @click="initiateSwitch"
+          <VaButton preset="primary" :to="{ name: 'pricing-plans' }"
             >Switch to {{ paymentPlan.isYearly ? 'monthly' : 'annual' }}</VaButton
           >
           <div v-if="!paymentPlan.isYearly" class="mt-2 text-regularSmall">
@@ -39,7 +39,7 @@
             </div>
           </div>
           <div class="md:w-48 flex justify-end">
-            <VaButton preset="primary">Change card</VaButton>
+            <VaButton :to="{ name: 'payments' }" preset="primary">Change card</VaButton>
           </div>
         </div>
       </template>
@@ -67,6 +67,4 @@
   const cardStore = usePaymentCardsStore()
 
   const paymentCard = computed(() => cardStore.currentPaymentCard)
-
-  const initiateSwitch = () => {}
 </script>

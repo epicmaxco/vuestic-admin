@@ -1,7 +1,7 @@
 <template>
   <VaCard class="mb-6">
     <VaCardContent>
-      <h2 class="block-title">Invoices</h2>
+      <h3 class="h3">Invoices</h3>
       <template v-for="(item, index) in items" :key="item.id">
         <div class="flex items-center justify-between md:justify-items-stretch">
           <div class="flex items-center w-48">
@@ -11,7 +11,7 @@
             {{ item.amount }}
           </div>
           <div>
-            <VaButton preset="primary">Download</VaButton>
+            <VaButton preset="primary" @click="download">Download</VaButton>
           </div>
         </div>
 
@@ -22,6 +22,10 @@
 </template>
 
 <script setup lang="ts">
+  import { useToast } from 'vuestic-ui'
+
+  const { init } = useToast()
+
   const items = [
     {
       id: '1',
@@ -34,4 +38,11 @@
       amount: '$6.99',
     },
   ]
+
+  const download = () => {
+    init({
+      message: "Request received. We'll email your invoice once we've completed data collection.",
+      color: 'success',
+    })
+  }
 </script>

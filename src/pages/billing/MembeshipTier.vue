@@ -1,43 +1,59 @@
 <template>
   <VaCard class="mb-6">
     <VaCardContent>
-      <h2 class="block-title">Membership tier</h2>
-      <template v-for="(item, index) in items" :key="item.id">
+      <h3 class="h3">Membership tier</h3>
+      <template v-for="(plan, index) in plans" :key="plan.id">
         <div class="flex items-center justify-between md:justify-items-stretch">
           <div
             class="flex grow flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-1 justify-between items-start md:items-center"
           >
             <div class="flex items-center md:w-48">
-              <div class="font-bold">{{ item.name }}</div>
-              <VaBadge v-if="item.type === 'current'" class="ml-2" color="success" text="Selected" />
+              <div class="font-bold">{{ plan.name }}</div>
+              <VaBadge v-if="plan.type === 'current'" class="ml-2" color="success" text="Selected" />
             </div>
             <div class="md:w-48">
-              <p class="mb-1">{{ item.padletsTotal }} padlets</p>
-              <p>{{ item.uploadLimit }}&nbsp;/upload</p>
+              <p class="mb-1">{{ plan.padletsTotal }} padlets</p>
+              <p>{{ plan.uploadLimit }}&nbsp;/upload</p>
             </div>
             <div class="md:w-48">
-              <template v-if="item.priceMonth">
-                <p class="mb-1">{{ item.priceMonth }}&nbsp;/month</p>
-                <p>{{ item.priceYear }}&nbsp;/year</p>
+              <template v-if="plan.priceMonth">
+                <p class="mb-1">{{ plan.priceMonth }}&nbsp;/month</p>
+                <p>{{ plan.priceYear }}&nbsp;/year</p>
               </template>
               <p v-else>Free</p>
             </div>
           </div>
           <div class="md:w-48 flex justify-end">
-            <div v-if="item.type === 'current'" class="font-bold">{{ item.padletsUsed }} padlets used</div>
-            <VaButton v-else-if="item.type === 'upgrade'">Upgrade</VaButton>
-            <VaButton v-else preset="primary">Downgrade</VaButton>
+            <div v-if="plan.type === 'current'" class="font-bold">{{ plan.padletsUsed }} padlets used</div>
+            <VaButton v-else-if="plan.type === 'upgrade'" @click="switchPlan(plan.id)">Upgrade</VaButton>
+            <VaButton v-else preset="primary" @click="switchPlan(plan.id)">Downgrade</VaButton>
           </div>
         </div>
 
-        <VaDivider v-if="index !== items.length - 1" />
+        <VaDivider v-if="index !== plans.length - 1" />
       </template>
     </VaCardContent>
   </VaCard>
 </template>
 
 <script setup lang="ts">
-  const items = [
+  import { useToast } from 'vuestic-ui'
+  import { reactive } from 'vue'
+
+  const { init } = useToast()
+
+  type MembershipTier = {
+    id: string
+    name: string
+    type: 'upgrade' | 'downgrade' | 'current'
+    padletsUsed: number
+    padletsTotal: string
+    priceMonth?: string
+    priceYear?: string
+    uploadLimit: string
+  }
+
+  const plans = reactive<MembershipTier[]>([
     {
       id: '1',
       name: 'Platinum',
@@ -64,9 +80,26 @@
       type: 'downgrade',
       padletsUsed: 0,
       padletsTotal: '3',
-      priceMonth: null,
-      priceYear: null,
+      priceMonth: undefined,
+      priceYear: undefined,
       uploadLimit: '20MB',
     },
-  ]
+  ])
+
+  const switchPlan = (planId: string) => {
+    plans.forEach((item, index) => {
+      if (item.id === planId) {
+        // Set the selected plan to 'current'
+        item.type = 'current'
+      } else {
+        // Determine if other plans are an 'upgrade' or 'downgrade'
+        const selectedIndex = plans.findIndex((plan) => plan.id === planId)
+        item.type = index < selectedIndex ? 'upgrade' : 'downgrade'
+      }
+    })
+    init({
+      message: "You've successfully changed the membership tier",
+      color: 'success',
+    })
+  }
 </script>
