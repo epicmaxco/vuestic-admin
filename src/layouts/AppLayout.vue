@@ -6,12 +6,7 @@
         <div v-if="isFullScreenSidebar" class="flex justify-end">
           <va-button class="px-4 py-4" icon="md_close" preset="plain" color="dark" @click="onCloseSidebarButtonClick" />
         </div>
-        <sidebar
-          :width="sidebarWidth"
-          :minimized="isSidebarMinimized"
-          :minimized-width="sidebarMinimizedWidth"
-          :animated="!isMobile"
-        />
+        <sidebar :minimized="isSidebarMinimized" :animated="!isMobile" />
       </div>
       <div class="app-layout__page">
         <div class="p-4">
