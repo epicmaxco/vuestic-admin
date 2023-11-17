@@ -1,7 +1,7 @@
 <template>
   <VaSidebar v-model="writableVisible" :width="sidebarWidth" :color="color" :minimized="mobile">
     <VaAccordion v-model="value" multiple>
-      <VaCollapse v-for="(route, key) in navigationRoutes.routes" :key="key">
+      <VaCollapse v-for="(route, index) in navigationRoutes.routes" :key="index">
         <template #header="{ value: isCollapsed }">
           <VaSidebarItem
             :to="route.children ? undefined : { name: route.name }"
@@ -20,7 +20,7 @@
           </VaSidebarItem>
         </template>
         <template #body>
-          <div v-for="(childRoute, key) in route.children" :key="key">
+          <div v-for="(childRoute, index2) in route.children" :key="index2">
             <VaSidebarItem
               :to="{ name: childRoute.name }"
               :active="isActiveChildRoute(childRoute)"
