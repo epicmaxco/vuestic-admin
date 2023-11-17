@@ -22,14 +22,15 @@ export const Default = () => ({
       } satisfies PaymentCard,
     }
   },
-  template: `<PaymentCardEdit
-    :paymentCard="paymentCard"
-    submitText="Update Card"
-    @save="lastEvent = 'save'"
-    @cancel="lastEvent = 'cancel'"
-  />
-  <br>
-  <p>Last event: <span data-testid>{{lastEvent}}</span></p>`,
+  template: `
+    <PaymentCardEdit
+        :paymentCard="paymentCard"
+        submitText="Update Card"
+        @save="lastEvent = 'save'"
+        @cancel="lastEvent = 'cancel'"
+    />
+    <br>
+    <p>Last event: <span data-testid>{{ lastEvent }}</span></p>`,
 })
 
 export const Empty = () => ({
@@ -46,8 +47,9 @@ export const Empty = () => ({
       } satisfies PaymentCard,
     }
   },
-  template: `<PaymentCardEdit
-    :paymentCard="paymentCard"
-    submitText="Create Card"
-  />`,
+  template: `
+    <PaymentCardEdit
+        :paymentCard="paymentCard"
+        submitText="Create Card"
+    />`,
 })

@@ -5,7 +5,7 @@
     <div class="flex flex-col gap-2 flex-grow">
       <div class="flex items-center">
         <div class="text-lg font-bold">{{ card.name }}</div>
-        <va-badge v-if="card.isPrimary" text="Primary" color="danger" class="ml-2" />
+        <VaBadge v-if="card.isPrimary" class="ml-2" color="danger" text="Primary" />
       </div>
       <div class="flex gap-4 items-center">
         <PaymentSystem :type="card.paymentSystem" />
@@ -16,27 +16,27 @@
       </div>
     </div>
     <div class="w-full sm:w-auto flex-none flex sm:block">
-      <va-button class="mr-2 flex-grow" preset="primary" @click="emits('edit')">Edit</va-button>
-      <va-button preset="primary" icon="mso-delete" @click="emits('remove')" />
+      <VaButton class="mr-2 flex-grow" preset="primary" @click="emits('edit')">Edit</VaButton>
+      <VaButton icon="mso-delete" preset="primary" @click="emits('remove')" />
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
-  import { defineProps, computed, defineEmits } from 'vue'
-  import PaymentSystem from '../../payment-system/PaymentSystem.vue'
-  import { PaymentCard } from '../../types'
+<script lang="ts" setup>
+import { defineProps, computed, defineEmits } from 'vue'
+import PaymentSystem from '../../payment-system/PaymentSystem.vue'
+import { PaymentCard } from '../../types'
 
-  const emits = defineEmits(['edit', 'remove'])
+const emits = defineEmits(['edit', 'remove'])
 
-  const props = defineProps<{
-    card: PaymentCard
-  }>()
+const props = defineProps<{
+  card: PaymentCard
+}>()
 
-  const card = computed(() => props.card)
+const card = computed(() => props.card)
 
-  const expirationDateString = computed(() => {
-    const e = props.card.expirationDate
-    return `${e[0]}${e[1]}/${e[2]}${e[3]}`
-  })
+const expirationDateString = computed(() => {
+  const e = props.card.expirationDate
+  return `${e[0]}${e[1]}/${e[2]}${e[3]}`
+})
 </script>

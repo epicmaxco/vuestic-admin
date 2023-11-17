@@ -7,25 +7,25 @@
     </div>
     <div class="flex flex-col p-4 bg-backgroundSecondary">
       <div class="flex justify-center">
-        <va-button-select v-model="selectedDuration" :options="['Monthly', 'Annual']" />
+        <VaButtonSelect v-model="selectedDuration" :options="['Monthly', 'Annual']" />
       </div>
       <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-x-6 md:space-y-0 mt-6">
-        <va-card
+        <VaCard
           v-for="plan in pricingPlans"
           :key="plan.model"
-          class="flex w-[326px] md:w-[349px] h-fit p-6 rounded-[13px]"
           :class="{
             'md:!py-10 !bg-backgroundCardSecondary': plan.model === 'Advanced',
             '!bg-backgroundCardPrimary': plan.model !== 'Advanced',
             'ring-2 ring-primary ring-offset-2': plan.model === selectedPlan,
           }"
+          class="flex w-[326px] md:w-[349px] h-fit p-6 rounded-[13px]"
         >
-          <div class="space-y-8 md:space-y-10" :class="{ '!space-y-10': plan.model === 'Advanced' }">
+          <div :class="{ '!space-y-10': plan.model === 'Advanced' }" class="space-y-8 md:space-y-10">
             <div class="space-y-4 text-center">
               <h2 class="pricing-plan-card-title">
                 {{ plan.title }}
               </h2>
-              <va-badge v-for="badge in plan.badges" :key="badge" :text="badge" color="primary" :style="badgeStyles" />
+              <VaBadge v-for="badge in plan.badges" :key="badge" :style="badgeStyles" :text="badge" color="primary" />
               <p class="text-lg leading-[26px] text-secondary">
                 {{ plan.description }}
               </p>
@@ -46,42 +46,42 @@
                 <p :class="{ 'text-secondary': !feature.isAvailable }">
                   {{ feature.description }}
                 </p>
-                <va-icon v-if="feature.isAvailable" name="mso-check" color="primary" size="20px" />
-                <va-icon v-else name="mso-block" color="backgroundBorder" size="20px" />
+                <VaIcon v-if="feature.isAvailable" color="primary" name="mso-check" size="20px" />
+                <VaIcon v-else color="backgroundBorder" name="mso-block" size="20px" />
               </div>
             </div>
             <div class="flex justify-center">
-              <va-button
+              <VaButton
                 :disabled="plan.model === selectedPlan"
                 :style="selectButtonStyles"
                 @click="selectPlan(plan.model)"
               >
                 Select
-              </va-button>
+              </VaButton>
             </div>
           </div>
-        </va-card>
+        </VaCard>
       </div>
     </div>
   </div>
 </template>
-<script setup lang="ts">
-  import { ref } from 'vue'
-  import { useToast } from 'vuestic-ui'
+<script lang="ts" setup>
+import { ref } from 'vue'
+import { useToast } from 'vuestic-ui'
 
-  import { badgeStyles, selectButtonStyles } from './styles'
+import { badgeStyles, selectButtonStyles } from './styles'
 
-  import { pricingPlans } from './options'
+import { pricingPlans } from './options'
 
-  import VaButtonSelect from '../../components/va-button-select/VaButtonSelect.vue'
+import VaButtonSelect from '../../components/va-button-select/VaButtonSelect.vue'
 
-  const { init } = useToast()
+const { init } = useToast()
 
-  const selectedDuration = ref<string>('Annual')
-  const selectedPlan = ref<string>()
+const selectedDuration = ref<string>('Annual')
+const selectedPlan = ref<string>()
 
-  const selectPlan = (planModel: string) => {
-    init({ message: 'You successfully changed payment plan!', color: 'success' })
-    selectedPlan.value = planModel
-  }
+const selectPlan = (planModel: string) => {
+  init({ message: 'You successfully changed payment plan!', color: 'success' })
+  selectedPlan.value = planModel
+}
 </script>

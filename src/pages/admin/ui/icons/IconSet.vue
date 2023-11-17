@@ -1,148 +1,148 @@
 <template>
   <div class="icon-set">
-    <va-card class="icon-set__header mb-8 pb-4">
-      <va-card-title>
-        <h2 class="ml-2" :style="{ color: colors.dark }">
+    <VaCard class="icon-set__header mb-8 pb-4">
+      <VaCardTitle>
+        <h2 :style="{ color: colors.dark }" class="ml-2">
           {{ iconSet.name }}
         </h2>
-      </va-card-title>
-      <va-card-content class="grid grid-cols-12 gap-6 items-start justify-between">
-        <va-button
-          class="col-span-full md:col-span-2"
-          preset="outline"
-          border-color="primary"
-          color="primary"
+      </VaCardTitle>
+      <VaCardContent class="grid grid-cols-12 gap-6 items-start justify-between">
+        <VaButton
           :to="{ name: 'icon-sets' }"
+          border-color="primary"
+          class="col-span-full md:col-span-2"
+          color="primary"
+          preset="outline"
         >
           {{ t('icons.back') }}
-        </va-button>
+        </VaButton>
 
-        <va-input v-model="search" class="col-span-full md:col-span-5" :label="t('icons.search')" clearable>
+        <VaInput v-model="search" :label="t('icons.search')" class="col-span-full md:col-span-5" clearable>
           <template #prependInner>
-            <va-icon class="icon-left input-icon" name="search" />
+            <VaIcon class="icon-left input-icon" name="search" />
           </template>
-        </va-input>
+        </VaInput>
 
         <div class="icon-set__header__size col-span-full md:col-span-5 flex items-center">
-          <span class="m-2 pr-2 icon-set__header__size--smaller" :style="{ color: colors.dark }">A</span>
-          <va-slider
+          <span :style="{ color: colors.dark }" class="m-2 pr-2 icon-set__header__size--smaller">A</span>
+          <VaSlider
             v-model="iconSize"
-            class="flex-1"
             :label-value="`${iconSize}px`"
-            :min="slider.min"
             :max="slider.max"
+            :min="slider.min"
+            class="flex-1"
             value-visible
           >
-          </va-slider>
-          <span class="m-2 pl-2 icon-set__header__size--bigger" :style="{ color: colors.dark }">A</span>
+          </VaSlider>
+          <span :style="{ color: colors.dark }" class="m-2 pl-2 icon-set__header__size--bigger">A</span>
         </div>
-      </va-card-content>
-    </va-card>
+      </VaCardContent>
+    </VaCard>
 
-    <va-card v-for="(list, index) in filteredLists" :key="index" class="col-span-12 text-[0.6rem]">
-      <va-card-title>
+    <VaCard v-for="(list, index) in filteredLists" :key="index" class="col-span-12 text-[0.6rem]">
+      <VaCardTitle>
         {{ list.name }}
-      </va-card-title>
-      <va-card-content class="grid grid-cols-4 md:grid-cols-12 gap-4">
+      </VaCardTitle>
+      <VaCardContent class="grid grid-cols-4 md:grid-cols-12 gap-4">
         <span v-if="!list.icons.length">
           {{ t('icons.none') }}
         </span>
         <div v-for="icon in list.icons" :key="icon" class="flex flex-col">
           <div class="vuestic-icon mb-4 text-center">
-            <va-icon :name="iconName(icon)" :size="iconSize" />
+            <VaIcon :name="iconName(icon)" :size="iconSize" />
           </div>
           <div class="w-15 truncate text-center">
             {{ icon }}
           </div>
         </div>
-      </va-card-content>
-    </va-card>
+      </VaCardContent>
+    </VaCard>
   </div>
 </template>
 
-<script setup lang="ts">
-  import { useColors } from 'vuestic-ui'
-  import { useI18n } from 'vue-i18n'
-  import { computed, ref } from 'vue'
-  import { IconSet } from './types'
+<script lang="ts" setup>
+import { useColors } from 'vuestic-ui'
+import { useI18n } from 'vue-i18n'
+import { computed, ref } from 'vue'
+import { IconSet } from './types'
 
-  const { colors } = useColors()
-  const { t } = useI18n()
+const { colors } = useColors()
+const { t } = useI18n()
 
-  const props = defineProps<{
-    name: string
-    sets: IconSet[]
-  }>()
+const props = defineProps<{
+  name: string
+  sets: IconSet[]
+}>()
 
-  const search = ref('')
-  const iconSize = ref(30)
-  const slider = ref({
-    formatter: (v: never) => `${v}px`,
-    min: 20,
-    max: 40,
-  })
+const search = ref('')
+const iconSize = ref(30)
+const slider = ref({
+  formatter: (v: never) => `${v}px`,
+  min: 20,
+  max: 40,
+})
 
-  const iconSet = computed((): IconSet => {
-    for (const set of props.sets) {
-      if (set.href === props.name) {
-        return set
+const iconSet = computed((): IconSet => {
+  for (const set of props.sets) {
+    if (set.href === props.name) {
+      return set
+    }
+  }
+
+  return { name: '', href: '', prefix: '', lists: [], filteredLists: [] }
+})
+
+const filteredLists = computed(() => {
+  if (!search.value) {
+    // If nothing is searched - we return all sets
+    return iconSet.value.lists
+  }
+
+  const foundIcons: string[] = []
+  iconSet.value.lists.forEach((list) => {
+    list.icons.forEach((icon) => {
+      if (!icon.toUpperCase().includes(search.value.toUpperCase())) {
+        return
       }
-    }
-
-    return { name: '', href: '', prefix: '', lists: [], filteredLists: [] }
-  })
-
-  const filteredLists = computed(() => {
-    if (!search.value) {
-      // If nothing is searched - we return all sets
-      return iconSet.value.lists
-    }
-
-    const foundIcons: string[] = []
-    iconSet.value.lists.forEach((list) => {
-      list.icons.forEach((icon) => {
-        if (!icon.toUpperCase().includes(search.value.toUpperCase())) {
-          return
-        }
-        // Same icon could be included in different sets.
-        if (foundIcons.includes(icon)) {
-          return
-        }
-        foundIcons.push(icon)
-      })
+      // Same icon could be included in different sets.
+      if (foundIcons.includes(icon)) {
+        return
+      }
+      foundIcons.push(icon)
     })
-
-    // We return all found icons as a single set.
-    return [
-      {
-        name: 'Found Icons',
-        icons: foundIcons,
-      },
-    ]
   })
 
-  const iconName = (icon: string) => `${iconSet.value.prefix}-${icon}`
+  // We return all found icons as a single set.
+  return [
+    {
+      name: 'Found Icons',
+      icons: foundIcons,
+    },
+  ]
+})
+
+const iconName = (icon: string) => `${iconSet.value.prefix}-${icon}`
 </script>
 
 <style lang="scss">
-  .icon-set {
-    &__header {
-      &__size {
-        &--smaller,
-        &--bigger {
-          font-weight: 600;
-        }
+.icon-set {
+  &__header {
+    &__size {
+      &--smaller,
+      &--bigger {
+        font-weight: 600;
+      }
 
-        &--smaller {
-          line-height: 1em;
-          font-size: 1em;
-        }
+      &--smaller {
+        line-height: 1em;
+        font-size: 1em;
+      }
 
-        &--bigger {
-          line-height: 1.3em;
-          font-size: 1.3em;
-        }
+      &--bigger {
+        line-height: 1.3em;
+        font-size: 1.3em;
       }
     }
   }
+}
 </style>

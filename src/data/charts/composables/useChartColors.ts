@@ -1,5 +1,4 @@
-import { computed, ref } from 'vue'
-import { watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useColors, useGlobalConfig } from 'vuestic-ui'
 
 type chartColors = string | string[]

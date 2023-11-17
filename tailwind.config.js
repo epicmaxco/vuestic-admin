@@ -1,8 +1,16 @@
+const textSizes = {
+  regularSmall: {
+    fontSize: '0.8125rem',
+    lineHeight: '1rem',
+  },
+}
+
 module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
       fontSize: {
+        regularSmall: ['0.8125rem', '1rem'],
         base: '14px',
       },
       maxWidth: {

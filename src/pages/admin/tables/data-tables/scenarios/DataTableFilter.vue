@@ -1,127 +1,121 @@
 <template>
-  <va-card :title="t('tables.searchTrendsBadges')">
+  <VaCard :title="t('tables.searchTrendsBadges')">
     <div class="grid grid-cols-12 items-center">
       <div class="flex col-span-12 md:col-span-6">
-        <va-input :value="term" :placeholder="t('tables.searchByName')" removable @input="search">
+        <VaInput :placeholder="t('tables.searchByName')" :value="term" removable @input="search">
           <template #prepend>
-            <va-icon name="search" />
+            <VaIcon name="search" />
           </template>
-        </va-input>
+        </VaInput>
       </div>
 
       <div class="flex col-span-12 md:col-span-3 offset--md3">
-        <va-select v-model="perPage" :label="t('tables.perPage')" :options="perPageOptions" no-clear />
+        <VaSelect v-model="perPage" :label="t('tables.perPage')" :options="perPageOptions" no-clear />
       </div>
     </div>
 
-    <va-data-table
-      :fields="fields"
-      :data="filteredData"
-      :per-page="parseInt(perPage)"
-      clickable
-      @row-clicked="showUser"
-    >
+    <VaDataTable :data="filteredData" :fields="fields" :per-page="parseInt(perPage)" clickable @rowClicked="showUser">
       <template #trend="props">
-        <va-icon :name="getTrendIcon(props.rowData)" :color="getTrendColor(props.rowData)" />
+        <VaIcon :color="getTrendColor(props.rowData)" :name="getTrendIcon(props.rowData)" />
       </template>
 
       <template #status="props">
-        <va-badge :color="props.rowData.color">
+        <VaBadge :color="props.rowData.color">
           {{ props.rowData.status }}
-        </va-badge>
+        </VaBadge>
       </template>
 
       <template #actions="props">
-        <va-button v-if="props.rowData.hasReport" small color="danger" class="m-0">
+        <VaButton v-if="props.rowData.hasReport" class="m-0" color="danger" small>
           {{ t('tables.report') }}
-        </va-button>
+        </VaButton>
       </template>
-    </va-data-table>
-  </va-card>
+    </VaDataTable>
+  </VaCard>
 </template>
 
 <script>
-  import { debounce } from 'lodash'
-  import users from '../data/users.json'
+import { debounce } from 'lodash'
+import users from '../data/users.json'
 
-  export default {
-    data() {
-      return {
-        term: null,
-        perPage: '6',
-        perPageOptions: ['4', '6', '10', '20'],
-        users: users,
+export default {
+  data() {
+    return {
+      term: null,
+      perPage: '6',
+      perPageOptions: ['4', '6', '10', '20'],
+      users: users,
+    }
+  },
+  computed: {
+    fields() {
+      return [
+        {
+          name: '__slot:trend',
+          width: '30px',
+          height: '45px',
+          dataClass: 'text-center',
+        },
+        {
+          name: 'fullName',
+          title: this.t('tables.headings.name'),
+          width: '30%',
+        },
+        {
+          name: '__slot:status',
+          title: this.t('tables.headings.status'),
+          width: '20%',
+        },
+        {
+          name: 'email',
+          title: this.t('tables.headings.email'),
+          width: '30%',
+        },
+        {
+          name: '__slot:actions',
+          dataClass: 'va-text-right',
+        },
+      ]
+    },
+    filteredData() {
+      if (!this.term || this.term.length < 1) {
+        return this.users
       }
+
+      return this.users.filter((item) => {
+        return item.fullName.toLowerCase().startsWith(this.term.toLowerCase())
+      })
     },
-    computed: {
-      fields() {
-        return [
-          {
-            name: '__slot:trend',
-            width: '30px',
-            height: '45px',
-            dataClass: 'text-center',
-          },
-          {
-            name: 'fullName',
-            title: this.t('tables.headings.name'),
-            width: '30%',
-          },
-          {
-            name: '__slot:status',
-            title: this.t('tables.headings.status'),
-            width: '20%',
-          },
-          {
-            name: 'email',
-            title: this.t('tables.headings.email'),
-            width: '30%',
-          },
-          {
-            name: '__slot:actions',
-            dataClass: 'va-text-right',
-          },
-        ]
-      },
-      filteredData() {
-        if (!this.term || this.term.length < 1) {
-          return this.users
-        }
+  },
+  methods: {
+    getTrendIcon(user) {
+      if (user.trend === 'up') {
+        return 'fa fa-caret-up'
+      }
 
-        return this.users.filter((item) => {
-          return item.fullName.toLowerCase().startsWith(this.term.toLowerCase())
-        })
-      },
+      if (user.trend === 'down') {
+        return 'fa fa-caret-down'
+      }
+
+      return 'fa fa-minus'
     },
-    methods: {
-      getTrendIcon(user) {
-        if (user.trend === 'up') {
-          return 'fa fa-caret-up'
-        }
+    getTrendColor(user) {
+      if (user.trend === 'up') {
+        return 'primary'
+      }
 
-        if (user.trend === 'down') {
-          return 'fa fa-caret-down'
-        }
+      if (user.trend === 'down') {
+        return 'danger'
+      }
 
-        return 'fa fa-minus'
-      },
-      getTrendColor(user) {
-        if (user.trend === 'up') {
-          return 'primary'
-        }
-
-        if (user.trend === 'down') {
-          return 'danger'
-        }
-
-        return 'gray'
-      },
-      showUser(user) {
-        alert(JSON.stringify(user))
-      },
-      search: debounce(function (term) {
-        this.term = term
-      }, 400),
+      return 'gray'
     },
-  }
+    showUser(user) {
+      alert(JSON.stringify(user))
+    },
+    search: debounce(function (term) {
+      this.term = term
+    }, 400),
+  },
+}
 </script>

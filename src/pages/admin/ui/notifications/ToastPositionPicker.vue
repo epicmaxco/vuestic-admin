@@ -2,9 +2,9 @@
   <div class="toast-position-picker mr-8">
     <div class="position-boxes-row flex">
       <div
-        class="position-box"
         :class="{ selected: isBoxSelected('top-left') }"
         :style="computedStyle"
+        class="position-box"
         @click="updatePosition('top-left')"
       ></div>
       <!-- <div class="position-box"
@@ -13,17 +13,17 @@
         :style="computedStyle">
       </div> -->
       <div
-        class="position-box"
         :class="{ selected: isBoxSelected('top-right') }"
         :style="computedStyle"
+        class="position-box"
         @click="updatePosition('top-right')"
       ></div>
     </div>
     <div class="position-boxes-row flex">
       <div
-        class="position-box"
         :class="{ selected: isBoxSelected('bottom-left') }"
         :style="computedStyle"
+        class="position-box"
         @click="updatePosition('bottom-left')"
       ></div>
       <!-- <div class="position-box"
@@ -32,78 +32,79 @@
         :style="computedStyle">
       </div> -->
       <div
-        class="position-box"
         :class="{ selected: isBoxSelected('bottom-right') }"
         :style="computedStyle"
+        class="position-box"
         @click="updatePosition('bottom-right')"
       ></div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
-  import { useColors } from 'vuestic-ui'
-  import { computed } from 'vue'
-  const { colors } = useColors()
+<script lang="ts" setup>
+import { useColors } from 'vuestic-ui'
+import { computed } from 'vue'
 
-  const props = withDefaults(
-    defineProps<{
-      modelValue?: string
-    }>(),
-    {
-      modelValue: 'bottom-center',
-    },
-  )
+const { colors } = useColors()
 
-  const emit = defineEmits<{
-    (e: 'update:modelValue', position: string): void
-  }>()
-  const computedStyle = computed(() => {
-    return {
-      backgroundColor: colors.primary,
-    }
-  })
+const props = withDefaults(
+  defineProps<{
+    modelValue?: string
+  }>(),
+  {
+    modelValue: 'bottom-center',
+  },
+)
 
-  function updatePosition(position: string) {
-    emit('update:modelValue', position)
+const emit = defineEmits<{
+  (e: 'update:modelValue', position: string): void
+}>()
+const computedStyle = computed(() => {
+  return {
+    backgroundColor: colors.primary,
   }
+})
 
-  function isBoxSelected(position: string) {
-    return props.modelValue === position
-  }
+function updatePosition(position: string) {
+  emit('update:modelValue', position)
+}
+
+function isBoxSelected(position: string) {
+  return props.modelValue === position
+}
 </script>
 
 <style lang="scss" scoped>
-  .toast-position-picker {
-    width: 112px;
-    height: 76px;
+.toast-position-picker {
+  width: 112px;
+  height: 76px;
+}
+
+.position-boxes-row {
+  flex-direction: row;
+
+  &:first-child {
+    margin-bottom: 2px;
+  }
+}
+
+.position-box {
+  height: 36px;
+  width: 36px;
+  margin-right: 2px;
+  cursor: pointer;
+  opacity: 0.3;
+
+  &:last-child {
+    margin-right: 0;
   }
 
-  .position-boxes-row {
-    flex-direction: row;
-
-    &:first-child {
-      margin-bottom: 2px;
-    }
+  &:hover {
+    opacity: 0.6;
   }
 
-  .position-box {
-    height: 36px;
-    width: 36px;
-    margin-right: 2px;
-    cursor: pointer;
-    opacity: 0.3;
-
-    &:last-child {
-      margin-right: 0;
-    }
-
-    &:hover {
-      opacity: 0.6;
-    }
-
-    &.selected {
-      opacity: 1;
-    }
+  &.selected {
+    opacity: 1;
   }
+}
 </style>

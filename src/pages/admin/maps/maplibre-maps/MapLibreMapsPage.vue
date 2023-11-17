@@ -1,11 +1,11 @@
 <template>
   <div class="maplibre-maps-page">
-    <va-card class="maplibre-maps-page__widget" title="MapLibre Maps">
-      <map-libre-map style="height: 65vh" />
-    </va-card>
+    <VaCard class="maplibre-maps-page__widget" title="MapLibre Maps">
+      <MapLibreMap style="height: 65vh" />
+    </VaCard>
   </div>
 </template>
 
-<script setup lang="ts">
-  import MapLibreMap from './MapLibreMap.vue'
+<script lang="ts" setup>
+import MapLibreMap from './MapLibreMap.vue'
 </script>

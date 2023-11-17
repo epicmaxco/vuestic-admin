@@ -24,11 +24,11 @@ export const Default = () => ({
   },
   template: `
     <CardListItem
-      :card="card"
-      @remove="lastEvent = 'remove'"
-      @edit="lastEvent = 'edit'"
+        :card="card"
+        @remove="lastEvent = 'remove'"
+        @edit="lastEvent = 'edit'"
     />
     <br>
-    <p>Last event: <span data-testid>{{lastEvent}}</span></p>
+    <p>Last event: <span data-testid>{{ lastEvent }}</span></p>
   `,
 })

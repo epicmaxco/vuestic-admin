@@ -1,96 +1,96 @@
 <template>
   <div class="grid grid-cols-12 gap-6">
-    <va-card v-if="lineChartDataGenerated" class="col-span-12 lg:col-span-6">
-      <va-card-title>
+    <VaCard v-if="lineChartDataGenerated" class="col-span-12 lg:col-span-6">
+      <VaCardTitle>
         <h1>{{ t('dashboard.charts.trendyTrends') }}</h1>
         <div>
-          <va-button
-            class="m-1"
-            size="small"
-            color="danger"
+          <VaButton
             :disabled="datasetIndex === minIndex"
+            class="m-1"
+            color="danger"
+            size="small"
             @click="setDatasetIndex(datasetIndex - 1)"
           >
             {{ t('dashboard.charts.showInLessDetail') }}
-          </va-button>
-          <va-button
-            class="m-1"
-            size="small"
-            color="danger"
+          </VaButton>
+          <VaButton
             :disabled="datasetIndex === maxIndex - 1"
+            class="m-1"
+            color="danger"
+            size="small"
             @click="setDatasetIndex(datasetIndex + 1)"
           >
             {{ t('dashboard.charts.showInMoreDetail') }}
-          </va-button>
+          </VaButton>
         </div>
-      </va-card-title>
-      <va-card-content>
-        <va-chart class="chart" :data="lineChartDataGenerated" type="line" />
-      </va-card-content>
-    </va-card>
+      </VaCardTitle>
+      <VaCardContent>
+        <VaChart :data="lineChartDataGenerated" class="chart" type="line" />
+      </VaCardContent>
+    </VaCard>
 
-    <va-card class="col-span-12 sm:col-span-6 lg:col-span-3">
-      <va-card-title>
+    <VaCard class="col-span-12 sm:col-span-6 lg:col-span-3">
+      <VaCardTitle>
         <h1>{{ t('dashboard.charts.loadingSpeed') }}</h1>
-        <va-button icon="print" plain @click="printChart" />
-      </va-card-title>
-      <va-card-content v-if="doughnutChartDataGenerated">
-        <va-chart ref="doughnutChart" class="chart chart--donut" :data="doughnutChartDataGenerated" type="doughnut" />
-      </va-card-content>
-    </va-card>
+        <VaButton icon="print" plain @click="printChart" />
+      </VaCardTitle>
+      <VaCardContent v-if="doughnutChartDataGenerated">
+        <VaChart ref="doughnutChart" :data="doughnutChartDataGenerated" class="chart chart--donut" type="doughnut" />
+      </VaCardContent>
+    </VaCard>
 
-    <dashboard-contributors-chart class="col-span-12 sm:col-span-6 lg:col-span-3" />
+    <DashboardContributorsChart class="col-span-12 sm:col-span-6 lg:col-span-3" />
   </div>
 </template>
 
-<script setup lang="ts">
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
+<script lang="ts" setup>
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-  import { doughnutChartData, lineChartData } from '../../../data/charts'
-  import { useChartData } from '../../../data/charts/composables/useChartData'
-  import { usePartOfChartData } from './composables/usePartOfChartData'
-  import VaChart from '../../../components/va-charts/VaChart.vue'
-  import DashboardContributorsChart from './DashboardContributorsList.vue'
+import { doughnutChartData, lineChartData } from '../../../data/charts'
+import { useChartData } from '../../../data/charts/composables/useChartData'
+import { usePartOfChartData } from './composables/usePartOfChartData'
+import VaChart from '../../../components/va-charts/VaChart.vue'
+import DashboardContributorsChart from './DashboardContributorsList.vue'
 
-  const { t } = useI18n()
+const { t } = useI18n()
 
-  const doughnutChart = ref()
+const doughnutChart = ref()
 
-  const dataGenerated = useChartData(lineChartData, 0.7)
-  const doughnutChartDataGenerated = useChartData(doughnutChartData)
+const dataGenerated = useChartData(lineChartData, 0.7)
+const doughnutChartDataGenerated = useChartData(doughnutChartData)
 
-  const {
-    dataComputed: lineChartDataGenerated,
-    minIndex,
-    maxIndex,
-    datasetIndex,
-    setDatasetIndex,
-  } = usePartOfChartData(dataGenerated)
+const {
+  dataComputed: lineChartDataGenerated,
+  minIndex,
+  maxIndex,
+  datasetIndex,
+  setDatasetIndex,
+} = usePartOfChartData(dataGenerated)
 
-  function printChart() {
-    const windowObjectReference = window.open('', 'Print', 'height=600,width=800') as Window
+function printChart() {
+  const windowObjectReference = window.open('', 'Print', 'height=600,width=800') as Window
 
-    const img = windowObjectReference.document.createElement('img')
+  const img = windowObjectReference.document.createElement('img')
 
-    img.src = `${(document.querySelector('.chart--donut canvas') as HTMLCanvasElement | undefined)?.toDataURL(
-      'image/png',
-    )}`
+  img.src = `${(document.querySelector('.chart--donut canvas') as HTMLCanvasElement | undefined)?.toDataURL(
+    'image/png',
+  )}`
 
-    img.onload = () => {
-      windowObjectReference?.document.body.appendChild(img)
-    }
-
-    windowObjectReference.print()
-
-    windowObjectReference.onafterprint = () => {
-      windowObjectReference?.close()
-    }
+  img.onload = () => {
+    windowObjectReference?.document.body.appendChild(img)
   }
+
+  windowObjectReference.print()
+
+  windowObjectReference.onafterprint = () => {
+    windowObjectReference?.close()
+  }
+}
 </script>
 
 <style scoped>
-  .chart {
-    height: 400px;
-  }
+.chart {
+  height: 400px;
+}
 </style>

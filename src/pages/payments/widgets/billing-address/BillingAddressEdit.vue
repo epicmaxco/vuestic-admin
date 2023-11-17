@@ -1,75 +1,75 @@
 <template>
-  <va-form ref="form" @submit.prevent="submit">
-    <va-input
+  <VaForm ref="form" @submit.prevent="submit">
+    <VaInput
       v-model="localBillingAddress.name"
+      :rules="[(v) => !!v || 'Name field is required']"
       class="mb-4"
       label="Name"
-      :rules="[(v) => !!v || 'Name field is required']"
     />
-    <va-checkbox v-model="localBillingAddress.isPrimary" label="Primary Address" class="mb-4" />
-    <va-input
+    <VaCheckbox v-model="localBillingAddress.isPrimary" class="mb-4" label="Primary Address" />
+    <VaInput
       v-model="localBillingAddress.street"
+      :rules="[(v) => !!v || 'Street field is required']"
       class="mb-4"
       label="Street"
-      :rules="[(v) => !!v || 'Street field is required']"
     />
-    <va-input
+    <VaInput
       v-model="localBillingAddress.city"
+      :rules="[(v) => !!v || 'City field is required']"
       class="mb-4"
       label="City"
-      :rules="[(v) => !!v || 'City field is required']"
     />
-    <va-input
+    <VaInput
       v-model="localBillingAddress.state"
+      :rules="[(v) => !!v || 'State field is required']"
       class="mb-4"
       label="State"
-      :rules="[(v) => !!v || 'State field is required']"
     />
-    <va-input
+    <VaInput
       v-model="localBillingAddress.postalCode"
+      :rules="[(v) => !!v || 'Postal Code field is required']"
       class="mb-4"
       label="Postal Code"
-      :rules="[(v) => !!v || 'Postal Code field is required']"
     />
-    <va-input
+    <VaInput
       v-model="localBillingAddress.country"
+      :rules="[(v) => !!v || 'Country field is required']"
       class="mb-4"
       label="Country"
-      :rules="[(v) => !!v || 'Country field is required']"
     />
     <div class="flex justify-end gap-3">
-      <va-button preset="secondary" color="secondary" @click="emits('cancel')">Cancel</va-button>
-      <va-button @click="submit">{{ submitText }}</va-button>
+      <VaButton color="secondary" preset="secondary" @click="emits('cancel')">Cancel</VaButton>
+      <VaButton @click="submit">{{ submitText }}</VaButton>
     </div>
-  </va-form>
+  </VaForm>
 </template>
 
-<script setup lang="ts">
-  import { useForm } from 'vuestic-ui'
-  import { BillingAddress } from '../../types'
-  import { watch, ref } from 'vue'
+<script lang="ts" setup>
+import { useForm } from 'vuestic-ui'
+import { BillingAddress } from '../../types'
+import { watch, ref } from 'vue'
 
-  const { validate } = useForm('form')
-  const emits = defineEmits(['save', 'cancel'])
+const { validate } = useForm('form')
+const emits = defineEmits(['save', 'cancel'])
 
-  const props = defineProps<{
-    billingAddress: BillingAddress
-    submitText: string
-  }>()
+const props = defineProps<{
+  billingAddress: BillingAddress
+  submitText: string
+}>()
 
-  const localBillingAddress = ref<BillingAddress>({ ...props.billingAddress })
+const localBillingAddress = ref<BillingAddress>({ ...props.billingAddress })
 
-  watch(
-    () => props.billingAddress,
-    (value) => {
-      localBillingAddress.value = { ...value }
-    },
-    { deep: true },
-  )
+watch(
+  () => props.billingAddress,
+  (value) => {
+    localBillingAddress.value = { ...value }
+  },
+  { deep: true },
+)
 
-  const submit = () => {
-    if (validate()) {
-      emits('save', localBillingAddress.value)
-    }
+const submit = () => {
+  if (validate()) {
+    emits('save', localBillingAddress.value)
   }
+}
 </script>

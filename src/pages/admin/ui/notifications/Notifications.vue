@@ -1,100 +1,100 @@
 <template>
   <div class="notifications grid grid-cols-12 gap-6">
-    <va-card class="col-span-12">
-      <va-card-title>{{ t('notificationsPage.notifications.title') }}</va-card-title>
-      <va-card-content class="flex flex-col gap-4">
-        <va-checkbox v-model="isCloseableAlertVisible" label="Toggle visibility" />
-        <va-alert v-model="isCloseableAlertVisible" class="w-full" closeable>
+    <VaCard class="col-span-12">
+      <VaCardTitle>{{ t('notificationsPage.notifications.title') }}</VaCardTitle>
+      <VaCardContent class="flex flex-col gap-4">
+        <VaCheckbox v-model="isCloseableAlertVisible" label="Toggle visibility" />
+        <VaAlert v-model="isCloseableAlertVisible" class="w-full" closeable>
           <template #icon>
-            <va-badge :text="t('notificationsPage.notifications.success')" />
+            <VaBadge :text="t('notificationsPage.notifications.success')" />
           </template>
           {{ t('notificationsPage.notifications.successMessage') }}
-        </va-alert>
-        <va-alert v-model="isCloseableAlertVisible" class="w-full" color="info" closeable>
+        </VaAlert>
+        <VaAlert v-model="isCloseableAlertVisible" class="w-full" closeable color="info">
           <template #icon>
-            <va-badge color="info" :text="t('notificationsPage.notifications.info')" />
+            <VaBadge :text="t('notificationsPage.notifications.info')" color="info" />
           </template>
           {{ t('notificationsPage.notifications.infoMessage') }}
-        </va-alert>
-        <va-alert v-model="isCloseableAlertVisible" class="w-full" color="warning" closeable>
+        </VaAlert>
+        <VaAlert v-model="isCloseableAlertVisible" class="w-full" closeable color="warning">
           <template #icon>
-            <va-badge color="warning" :text="t('notificationsPage.notifications.warning')" />
+            <VaBadge :text="t('notificationsPage.notifications.warning')" color="warning" />
           </template>
           {{ t('notificationsPage.notifications.warningMessage') }}
-        </va-alert>
-        <va-alert v-model="isCloseableAlertVisible" class="w-full" color="danger" closeable>
+        </VaAlert>
+        <VaAlert v-model="isCloseableAlertVisible" class="w-full" closeable color="danger">
           <template #icon>
-            <va-badge color="danger" :text="t('notificationsPage.notifications.danger')" />
+            <VaBadge :text="t('notificationsPage.notifications.danger')" color="danger" />
           </template>
           {{ t('notificationsPage.notifications.dangerMessage') }}
-        </va-alert>
-        <va-alert v-model="isCloseableAlertVisible" class="w-full" color="gray" closeable>
+        </VaAlert>
+        <VaAlert v-model="isCloseableAlertVisible" class="w-full" closeable color="gray">
           <template #icon>
-            <va-badge color="gray" :text="t('notificationsPage.notifications.gray')" />
+            <VaBadge :text="t('notificationsPage.notifications.gray')" color="gray" />
           </template>
           {{ t('notificationsPage.notifications.warningMessage') }}
-        </va-alert>
-        <va-alert v-model="isCloseableAlertVisible" class="w-full" color="dark" closeable>
+        </VaAlert>
+        <VaAlert v-model="isCloseableAlertVisible" class="w-full" closeable color="dark">
           <template #icon>
-            <va-badge color="dark" :text="t('notificationsPage.notifications.dark')" />
+            <VaBadge :text="t('notificationsPage.notifications.dark')" color="dark" />
           </template>
           {{ t('notificationsPage.notifications.dangerMessage') }}
-        </va-alert>
-      </va-card-content>
-    </va-card>
+        </VaAlert>
+      </VaCardContent>
+    </VaCard>
 
-    <va-card class="col-span-12">
-      <va-card-title>{{ t('notificationsPage.toasts.title') }}</va-card-title>
-      <va-card-content class="grid grid-cols-12 gap-6">
+    <VaCard class="col-span-12">
+      <VaCardTitle>{{ t('notificationsPage.toasts.title') }}</VaCardTitle>
+      <VaCardContent class="grid grid-cols-12 gap-6">
         <div class="py-3 col-span-12 md:col-span-6 flex flex-col gap-4">
-          <va-input
+          <VaInput
             v-model="toastText"
             :label="t('notificationsPage.toasts.textLabel')"
             class="control-input"
             required
           />
-          <va-input
+          <VaInput
             v-model="toastDuration"
-            type="number"
             :label="t('notificationsPage.toasts.durationLabel')"
             class="control-input"
             required
+            type="number"
           />
         </div>
         <div class="flex items-center col-span-12 md:col-span-6">
-          <toast-position-picker v-model="toastPosition" />
+          <ToastPositionPicker v-model="toastPosition" />
         </div>
         <div class="flex col-span-12">
           <!-- There was slot="trigger" -->
-          <va-button color="primary" @click="launchToast">
+          <VaButton color="primary" @click="launchToast">
             {{ t('notificationsPage.toasts.launchToast') }}
-          </va-button>
+          </VaButton>
         </div>
-      </va-card-content>
-    </va-card>
+      </VaCardContent>
+    </VaCard>
   </div>
 </template>
 
-<script setup lang="ts">
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
-  import { ToastPosition, useToast } from 'vuestic-ui'
-  import ToastPositionPicker from './ToastPositionPicker.vue'
+<script lang="ts" setup>
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { ToastPosition, useToast } from 'vuestic-ui'
+import ToastPositionPicker from './ToastPositionPicker.vue'
 
-  const { t } = useI18n()
-  const { init } = useToast()
+const { t } = useI18n()
+const { init } = useToast()
 
-  const isCloseableAlertVisible = ref(true)
+const isCloseableAlertVisible = ref(true)
 
-  const toastText = ref('This toast is awesome!')
-  const toastDuration = ref(2500)
-  const toastPosition = ref<ToastPosition>('bottom-right')
+const toastText = ref('This toast is awesome!')
+const toastDuration = ref(2500)
+const toastPosition = ref<ToastPosition>('bottom-right')
 
-  function launchToast() {
-    init({
-      message: toastText.value,
-      position: toastPosition.value,
-      duration: Number(toastDuration.value),
-    })
-  }
+function launchToast() {
+  init({
+    message: toastText.value,
+    position: toastPosition.value,
+    duration: Number(toastDuration.value),
+  })
+}
 </script>

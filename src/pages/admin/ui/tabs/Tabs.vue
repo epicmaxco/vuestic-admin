@@ -1,88 +1,88 @@
 <template>
   <div class="tabs grid grid-cols-12 gap-6">
-    <va-card class="col-span-12 md:col-span-6">
-      <va-card-title>{{ t('tabs.alignment') }}</va-card-title>
-      <va-card-content class="grid grid-cols-12 gap-6">
+    <VaCard class="col-span-12 md:col-span-6">
+      <VaCardTitle>{{ t('tabs.alignment') }}</VaCardTitle>
+      <VaCardContent class="grid grid-cols-12 gap-6">
         <div class="col-span-12">
-          <va-tabs v-model="tabValue" style="width: 100%; min-width: 250px">
+          <VaTabs v-model="tabValue" style="width: 100%; min-width: 250px">
             <template #tabs>
-              <va-tab v-for="title in tabTitles.slice(0, 3)" :key="title">
+              <VaTab v-for="title in tabTitles.slice(0, 3)" :key="title">
                 {{ title }}
-              </va-tab>
+              </VaTab>
             </template>
-          </va-tabs>
+          </VaTabs>
         </div>
         <div class="col-span-12">
-          <va-tabs v-model="tabValue" right style="width: 100%; min-width: 250px">
+          <VaTabs v-model="tabValue" right style="width: 100%; min-width: 250px">
             <template #tabs>
-              <va-tab v-for="title in tabTitles.slice(0, 3)" :key="title">
+              <VaTab v-for="title in tabTitles.slice(0, 3)" :key="title">
                 {{ title }}
-              </va-tab>
+              </VaTab>
             </template>
-          </va-tabs>
+          </VaTabs>
         </div>
         <div class="col-span-12">
-          <va-tabs v-model="tabValue" center style="width: 100%; min-width: 250px">
+          <VaTabs v-model="tabValue" center style="width: 100%; min-width: 250px">
             <template #tabs>
-              <va-tab v-for="title in tabTitles.slice(0, 3)" :key="title">
+              <VaTab v-for="title in tabTitles.slice(0, 3)" :key="title">
                 {{ title }}
-              </va-tab>
+              </VaTab>
             </template>
-          </va-tabs>
+          </VaTabs>
         </div>
-      </va-card-content>
-    </va-card>
+      </VaCardContent>
+    </VaCard>
 
     <div class="col-span-12 md:col-span-6 grid grid-cols-12 gap-6">
-      <va-card class="col-span-12">
-        <va-card-title>{{ t('tabs.overflow') }}</va-card-title>
-        <va-card-content>
-          <va-tabs v-model="tabValue">
+      <VaCard class="col-span-12">
+        <VaCardTitle>{{ t('tabs.overflow') }}</VaCardTitle>
+        <VaCardContent>
+          <VaTabs v-model="tabValue">
             <template #tabs>
-              <va-tab v-for="title in tabTitles.slice(0, 3)" :key="title">
+              <VaTab v-for="title in tabTitles.slice(0, 3)" :key="title">
                 {{ title }}
-              </va-tab>
-              <va-tab> Somewhat long long long long long long long long long text </va-tab>
+              </VaTab>
+              <VaTab> Somewhat long long long long long long long long long text</VaTab>
             </template>
-          </va-tabs>
-        </va-card-content>
-      </va-card>
+          </VaTabs>
+        </VaCardContent>
+      </VaCard>
 
-      <va-card class="col-span-12">
-        <va-card-title>{{ t('tabs.hidden') }}</va-card-title>
-        <va-card-content>
-          <va-tabs v-model="tabValue" hide-slider>
+      <VaCard class="col-span-12">
+        <VaCardTitle>{{ t('tabs.hidden') }}</VaCardTitle>
+        <VaCardContent>
+          <VaTabs v-model="tabValue" hide-slider>
             <template #tabs>
-              <va-tab v-for="title in tabTitles.slice(0, 3)" :key="title">
+              <VaTab v-for="title in tabTitles.slice(0, 3)" :key="title">
                 {{ title }}
-              </va-tab>
+              </VaTab>
             </template>
-          </va-tabs>
-        </va-card-content>
-      </va-card>
+          </VaTabs>
+        </VaCardContent>
+      </VaCard>
     </div>
 
-    <va-card class="col-span-12">
-      <va-card-title>{{ t('tabs.grow') }}</va-card-title>
-      <va-card-content>
-        <va-tabs v-model="tabValue" class="w-fill" grow>
+    <VaCard class="col-span-12">
+      <VaCardTitle>{{ t('tabs.grow') }}</VaCardTitle>
+      <VaCardContent>
+        <VaTabs v-model="tabValue" class="w-fill" grow>
           <template #tabs>
-            <va-tab v-for="title in tabTitles.slice(0, 3)" :key="title">
+            <VaTab v-for="title in tabTitles.slice(0, 3)" :key="title">
               {{ title }}
-            </va-tab>
+            </VaTab>
           </template>
-        </va-tabs>
-      </va-card-content>
-    </va-card>
+        </VaTabs>
+      </VaCardContent>
+    </VaCard>
   </div>
 </template>
 
-<script setup lang="ts">
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
+<script lang="ts" setup>
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-  const { t } = useI18n()
+const { t } = useI18n()
 
-  const tabTitles = ref(['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight'])
-  const tabValue = ref(1)
+const tabTitles = ref(['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight'])
+const tabValue = ref(1)
 </script>

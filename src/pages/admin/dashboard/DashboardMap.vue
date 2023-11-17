@@ -1,38 +1,38 @@
 <template>
-  <va-card>
-    <va-card-title>
+  <VaCard>
+    <VaCardTitle>
       {{ t('dashboard.currentVisitors') }}
-    </va-card-title>
-    <line-map v-model="mainCity" :map-data="cities" :home-city="homeCity" class="dashboard-map" />
-  </va-card>
+    </VaCardTitle>
+    <LineMap v-model="mainCity" :home-city="homeCity" :map-data="cities" class="dashboard-map" />
+  </VaCard>
 </template>
 
-<script setup lang="ts">
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
+<script lang="ts" setup>
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-  import LineMap from '../../../components/maps/LineMap.vue'
-  import { lineMapData, compareStrings } from '../../../data/maps/lineMapData'
+import LineMap from '../../../components/maps/LineMap.vue'
+import { lineMapData, compareStrings } from '../../../data/maps/lineMapData'
 
-  const { t } = useI18n()
+const { t } = useI18n()
 
-  const cities = ref(lineMapData.cities)
-  const mainCity = ref('Vilnius')
-  const homeCity = ref('Vilnius')
+const cities = ref(lineMapData.cities)
+const mainCity = ref('Vilnius')
+const homeCity = ref('Vilnius')
 
-  function addAddress(address: { city: string; country: string }) {
-    cities.value = cities.value.map((mapItem) =>
-      compareStrings(mapItem.title, address.city) && compareStrings(mapItem.country, address.country)
-        ? { ...mapItem, color: 'success' }
-        : mapItem,
-    )
-  }
+function addAddress(address: { city: string; country: string }) {
+  cities.value = cities.value.map((mapItem) =>
+    compareStrings(mapItem.title, address.city) && compareStrings(mapItem.country, address.country)
+      ? { ...mapItem, color: 'success' }
+      : mapItem,
+  )
+}
 
-  defineExpose({ addAddress })
+defineExpose({ addAddress })
 </script>
 
 <style>
-  .dashboard-map {
-    height: 380px;
-  }
+.dashboard-map {
+  height: 380px;
+}
 </style>
