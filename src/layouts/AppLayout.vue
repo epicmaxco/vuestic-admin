@@ -1,17 +1,12 @@
 <template>
   <div class="app-layout">
-    <Navbar />
+    <AppNavbar />
     <div class="app-layout__content">
       <div :class="{ minimized: isSidebarMinimized }" class="app-layout__sidebar-wrapper">
         <div v-if="isFullScreenSidebar" class="flex justify-end">
           <VaButton class="px-4 py-4" color="dark" icon="md_close" preset="plain" @click="onCloseSidebarButtonClick" />
         </div>
-        <Sidebar
-          :animated="!isMobile"
-          :minimized="isSidebarMinimized"
-          :minimized-width="sidebarMinimizedWidth"
-          :width="sidebarWidth"
-        />
+        <AppSidebar :minimized="isSidebarMinimized" :animated="!isMobile" />
       </div>
       <div class="app-layout__page">
         <div class="p-4">
@@ -29,8 +24,8 @@ import { onBeforeRouteUpdate } from 'vue-router'
 
 import { useGlobalStore } from '../stores/global-store'
 
-import Navbar from '../components/navbar/Navbar.vue'
-import Sidebar from '../components/sidebar/Sidebar.vue'
+import AppNavbar from '../components/navbar/AppNavbar.vue'
+import AppSidebar from '../components/sidebar/AppSidebar.vue'
 
 const GlobalStore = useGlobalStore()
 
