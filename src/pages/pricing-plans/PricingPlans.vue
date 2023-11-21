@@ -83,7 +83,6 @@ const selectedPlan = ref<string>()
 
 const createModal = (planModel: string) => {
   initModal({
-    title: 'Plan Change Confirmation',
     message: 'Are you sure you want to change plan?',
     mobileFullscreen: false,
     onOk: () => selectPlan(planModel),
