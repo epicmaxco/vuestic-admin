@@ -54,7 +54,7 @@
               <VaButton
                 :disabled="plan.model === selectedPlan"
                 :style="selectButtonStyles"
-                @click="selectPlan(plan.model)"
+                @click="createModal(plan.model)"
               >
                 Select
               </VaButton>
@@ -67,7 +67,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { useToast } from 'vuestic-ui'
+import { useToast, useModal } from 'vuestic-ui'
 
 import { badgeStyles, selectButtonStyles } from './styles'
 
@@ -76,9 +76,18 @@ import { pricingPlans } from './options'
 import VaButtonSelect from '../../components/va-button-select/VaButtonSelect.vue'
 
 const { init } = useToast()
+const { init: initModal } = useModal()
 
 const selectedDuration = ref<string>('Annual')
 const selectedPlan = ref<string>()
+
+const createModal = (planModel: string) => {
+  initModal({
+    message: 'Are you sure you want to change plan?',
+    mobileFullscreen: false,
+    onOk: () => selectPlan(planModel),
+  })
+}
 
 const selectPlan = (planModel: string) => {
   init({ message: 'You successfully changed payment plan!', color: 'success' })
