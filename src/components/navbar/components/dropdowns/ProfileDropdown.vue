@@ -4,7 +4,7 @@
       <template #anchor>
         <span class="profile-dropdown__anchor">
           <slot />
-          <VaIcon :color="colors.primary" :name="isShown ? 'angle_up' : 'angle_down'" class="px-2" />
+          <VaIcon :color="colors.primary" size="large" :name="isShown ? 'expand_more' : 'expand_less'" class="px-2" />
         </span>
       </template>
       <VaDropdownContent class="profile-dropdown__content">
