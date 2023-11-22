@@ -5,6 +5,5 @@
   "quoteProps": "as-needed",
   "trailingComma": "all",
   "bracketSpacing": true,
-  "printWidth": 120,
-  "vueIndentScriptAndStyle": true
+  "printWidth": 120
 }

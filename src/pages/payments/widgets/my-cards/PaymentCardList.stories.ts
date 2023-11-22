@@ -1,14 +1,14 @@
-import CardList from './PaymentCardList.vue'
+import PaymentCardList from './PaymentCardList.vue'
 
 export default {
-  title: 'CardList',
-  component: CardList,
+  title: 'PaymentCardList',
+  component: PaymentCardList,
   tags: ['autodocs'],
 }
 
 export const Default = () => ({
-  components: { CardList },
+  components: { PaymentCardList },
   template: `
-    <CardList/>
+    <PaymentCardList/>
   `,
 })

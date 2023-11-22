@@ -1,4 +1,4 @@
-import { computed, ComputedRef, Ref } from '@vue/reactivity'
+import { computed, ComputedRef, Ref } from 'vue'
 import { useColors } from 'vuestic-ui'
 
 type GeoBounds = {

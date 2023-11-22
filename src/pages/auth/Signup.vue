@@ -1,94 +1,94 @@
 <template>
-  <va-form ref="form" @submit.prevent="submit">
+  <VaForm ref="form" @submit.prevent="submit">
     <h1 class="font-semibold text-4xl mb-4">Sign up</h1>
     <p class="text-base mb-4 leading-5">
       Have an account?
-      <router-link class="font-semibold text-primary" :to="{ name: 'login' }">Login</router-link>
+      <RouterLink :to="{ name: 'login' }" class="font-semibold text-primary">Login</RouterLink>
     </p>
-    <va-input
+    <VaInput
       v-model="formData.email"
-      class="mb-4"
-      type="email"
-      label="Email"
       :rules="[(v) => !!v || 'Email field is required', (v) => /.+@.+\..+/.test(v) || 'Email should be valid']"
+      class="mb-4"
+      label="Email"
+      type="email"
     />
-    <va-value v-slot="isPasswordVisible" :default-value="false">
-      <va-input
+    <VaValue v-slot="isPasswordVisible" :default-value="false">
+      <VaInput
         ref="password1"
         v-model="formData.password"
-        class="mb-4"
-        :type="isPasswordVisible.value ? 'text' : 'password'"
-        label="Password"
         :rules="passwordRules"
+        :type="isPasswordVisible.value ? 'text' : 'password'"
+        class="mb-4"
+        label="Password"
         messages="Password should be 8+ characters: letters, numbers, and special characters."
-        @click-append-inner.stop="isPasswordVisible.value = !isPasswordVisible.value"
+        @clickAppendInner.stop="isPasswordVisible.value = !isPasswordVisible.value"
       >
         <template #appendInner>
-          <va-icon
-            class="cursor-pointer"
+          <VaIcon
             :name="isPasswordVisible.value ? 'mso-visibility_off' : 'mso-visibility'"
+            class="cursor-pointer"
             color="secondary"
           />
         </template>
-      </va-input>
-      <va-input
+      </VaInput>
+      <VaInput
         ref="password2"
         v-model="formData.repeatPassword"
-        class="mb-4"
-        :type="isPasswordVisible.value ? 'text' : 'password'"
-        label="Repeat Password"
         :rules="[
           (v) => !!v || 'Repeat Password field is required',
           (v) => v === formData.password || 'Passwords don\'t match',
         ]"
-        @click-append-inner.stop="isPasswordVisible.value = !isPasswordVisible.value"
+        :type="isPasswordVisible.value ? 'text' : 'password'"
+        class="mb-4"
+        label="Repeat Password"
+        @clickAppendInner.stop="isPasswordVisible.value = !isPasswordVisible.value"
       >
         <template #appendInner>
-          <va-icon
-            class="cursor-pointer"
+          <VaIcon
             :name="isPasswordVisible.value ? 'mso-visibility_off' : 'mso-visibility'"
+            class="cursor-pointer"
             color="secondary"
           />
         </template>
-      </va-input>
-    </va-value>
+      </VaInput>
+    </VaValue>
 
     <div class="flex justify-center mt-4">
-      <va-button class="w-full" @click="submit"> Create account</va-button>
+      <VaButton class="w-full" @click="submit"> Create account</VaButton>
     </div>
-  </va-form>
+  </VaForm>
 </template>
 
-<script setup lang="ts">
-  import { reactive } from 'vue'
-  import { useRouter } from 'vue-router'
-  import { useForm, useToast } from 'vuestic-ui'
+<script lang="ts" setup>
+import { reactive } from 'vue'
+import { useRouter } from 'vue-router'
+import { useForm, useToast } from 'vuestic-ui'
 
-  const { validate } = useForm('form')
-  const { push } = useRouter()
-  const { init } = useToast()
+const { validate } = useForm('form')
+const { push } = useRouter()
+const { init } = useToast()
 
-  const formData = reactive({
-    email: '',
-    password: '',
-    repeatPassword: '',
-  })
+const formData = reactive({
+  email: '',
+  password: '',
+  repeatPassword: '',
+})
 
-  const submit = () => {
-    if (validate()) {
-      init({
-        message: "You've successfully signed up",
-        color: 'success',
-      })
-      push({ name: 'dashboard' })
-    }
+const submit = () => {
+  if (validate()) {
+    init({
+      message: "You've successfully signed up",
+      color: 'success',
+    })
+    push({ name: 'dashboard' })
   }
+}
 
-  const passwordRules: ((v: string) => boolean | string)[] = [
-    (v) => !!v || 'Password field is required',
-    (v) => (v && v.length >= 8) || 'Password must be at least 8 characters long',
-    (v) => (v && /[A-Za-z]/.test(v)) || 'Password must contain at least one letter',
-    (v) => (v && /\d/.test(v)) || 'Password must contain at least one number',
-    (v) => (v && /[!@#$%^&*(),.?":{}|<>]/.test(v)) || 'Password must contain at least one special character',
-  ]
+const passwordRules: ((v: string) => boolean | string)[] = [
+  (v) => !!v || 'Password field is required',
+  (v) => (v && v.length >= 8) || 'Password must be at least 8 characters long',
+  (v) => (v && /[A-Za-z]/.test(v)) || 'Password must contain at least one letter',
+  (v) => (v && /\d/.test(v)) || 'Password must contain at least one number',
+  (v) => (v && /[!@#$%^&*(),.?":{}|<>]/.test(v)) || 'Password must contain at least one special character',
+]
 </script>

@@ -2,14 +2,14 @@
   <VaLayout
     :top="{ fixed: true, order: 2 }"
     :left="{ fixed: true, absolute: breakpoints.smDown, order: 1, overlay: breakpoints.smDown && isSidebarVisible }"
-    @left-overlay-click="isSidebarVisible = false"
+    @leftOverlayClick="isSidebarVisible = false"
   >
     <template #top>
-      <navbar />
+      <AppNavbar />
     </template>
 
     <template #left>
-      <sidebar
+      <AppSidebar
         :width="sidebarWidth"
         :minimized="isSidebarMinimized"
         :minimized-width="sidebarMinimizedWidth"
@@ -18,10 +18,15 @@
     </template>
 
     <template #content>
+      <div :class="{ minimized: isSidebarMinimized }" class="app-layout__sidebar-wrapper">
+        <div v-if="isFullScreenSidebar" class="flex justify-end">
+          <VaButton class="px-4 py-4" color="dark" icon="md_close" preset="plain" @click="onCloseSidebarButtonClick" />
+        </div>
+      </div>
       <Breadcrumbs class="p-4" />
       <main class="p-4">
         <article>
-          <router-view />
+          <RouterView />
         </article>
       </main>
     </template>
@@ -29,56 +34,111 @@
 </template>
 
 <script setup>
-  import { onBeforeUnmount, onMounted, ref } from 'vue'
-  import { storeToRefs } from 'pinia'
-  import { onBeforeRouteUpdate } from 'vue-router'
+import { onBeforeUnmount, onMounted, ref, computed } from 'vue'
+import { storeToRefs } from 'pinia'
+import { onBeforeRouteUpdate } from 'vue-router'
 
-  import { useGlobalStore } from '../stores/global-store'
+import { useGlobalStore } from '../stores/global-store'
 
-  import Navbar from '../components/navbar/Navbar.vue'
-  import Sidebar from '../components/sidebar/Sidebar.vue'
-  import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs.vue'
-  import { useBreakpoint } from 'vuestic-ui'
+import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs.vue'
+import AppNavbar from '../components/navbar/AppNavbar.vue'
+import AppSidebar from '../components/sidebar/AppSidebar.vue'
 
-  const GlobalStore = useGlobalStore()
+const GlobalStore = useGlobalStore()
 
-  const mobileBreakPointPX = 640
-  const tabletBreakPointPX = 768
+const mobileBreakPointPX = 640
+const tabletBreakPointPX = 768
 
-  const sidebarWidth = ref('16rem')
-  const sidebarMinimizedWidth = ref(undefined)
+const sidebarWidth = ref('16rem')
+const sidebarMinimizedWidth = ref(undefined)
 
-  const isMobile = ref(false)
-  const isTablet = ref(false)
-  const { isSidebarMinimized } = storeToRefs(GlobalStore)
-  const checkIsTablet = () => window.innerWidth <= tabletBreakPointPX
-  const checkIsMobile = () => window.innerWidth <= mobileBreakPointPX
+const isMobile = ref(false)
+const isTablet = ref(false)
+const { isSidebarMinimized } = storeToRefs(GlobalStore)
+const checkIsTablet = () => window.innerWidth <= tabletBreakPointPX
+const checkIsMobile = () => window.innerWidth <= mobileBreakPointPX
 
-  const onResize = () => {
-    isSidebarMinimized.value = checkIsTablet()
+const onResize = () => {
+  isSidebarMinimized.value = checkIsTablet()
 
-    isMobile.value = checkIsMobile()
-    isTablet.value = checkIsTablet()
-    sidebarMinimizedWidth.value = isMobile.value ? '0' : '4.5rem'
-    sidebarWidth.value = isTablet.value ? '100%' : '16rem'
+  isMobile.value = checkIsMobile()
+  isTablet.value = checkIsTablet()
+  sidebarMinimizedWidth.value = isMobile.value ? '0' : '4.5rem'
+  sidebarWidth.value = isTablet.value ? '100%' : '16rem'
+}
+
+onMounted(() => {
+  window.addEventListener('resize', onResize)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', onResize)
+})
+
+onBeforeRouteUpdate(() => {
+  if (checkIsTablet()) {
+    // Collapse sidebar after route change for Mobile
+    isSidebarMinimized.value = true
+  }
+})
+
+onResize()
+
+const isFullScreenSidebar = computed(() => isTablet.value && !isSidebarMinimized.value)
+
+const onCloseSidebarButtonClick = () => {
+  isSidebarMinimized.value = true
+}
+</script>
+
+<style lang="scss">
+$mobileBreakPointPX: 640px;
+$tabletBreakPointPX: 768px;
+
+.app-layout {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__navbar {
+    min-height: 4rem;
   }
 
-  onMounted(() => {
-    window.addEventListener('resize', onResize)
-  })
+  &__content {
+    display: flex;
+    height: calc(100vh - 4rem);
+    flex: 1;
 
-  onBeforeUnmount(() => {
-    window.removeEventListener('resize', onResize)
-  })
-
-  onBeforeRouteUpdate(() => {
-    if (checkIsTablet()) {
-      // Collapse sidebar after route change for Mobile
-      isSidebarMinimized.value = true
+    @media screen and (max-width: $tabletBreakPointPX) {
+      height: calc(100vh - 6.5rem);
     }
-  })
 
-  onResize()
+    .app-layout__sidebar-wrapper {
+      position: relative;
+      height: 100%;
+      background: #ffffff;
 
-  const breakpoints = useBreakpoint()
-</script>
+      @media screen and (max-width: $tabletBreakPointPX) {
+        &:not(.minimized) {
+          width: 100%;
+          height: 100%;
+          position: fixed;
+          top: 0;
+          z-index: 999;
+        }
+
+        .va-sidebar:not(.va-sidebar--minimized) {
+          .va-sidebar__menu {
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &__page {
+    flex-grow: 2;
+    overflow-y: scroll;
+  }
+}
+</style>

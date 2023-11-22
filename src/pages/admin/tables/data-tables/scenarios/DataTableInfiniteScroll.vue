@@ -1,3 +1,9 @@
+<template>
+  <span></span>
+</template>
+
+<script lang="ts" setup></script>
+
 <!--<template>-->
 <!--  <va-card :title="t('tables.infiniteScroll')">-->
 <!--    <div ref="scrollable" class="data-table-infinite-scroll&#45;&#45;container" @scroll="onScroll">-->

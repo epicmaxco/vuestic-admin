@@ -1,7 +1,7 @@
 <template>
-  <va-card class="markup-tables mb-8">
-    <va-card-title>{{ t('tables.basic') }}</va-card-title>
-    <va-card-content class="overflow-auto">
+  <VaCard class="markup-tables mb-8">
+    <VaCardTitle>{{ t('tables.basic') }}</VaCardTitle>
+    <VaCardContent class="overflow-auto">
       <table class="va-table w-full">
         <thead>
           <tr>
@@ -18,17 +18,17 @@
             <td>{{ user.email }}</td>
             <td>{{ user.country }}</td>
             <td>
-              <va-badge :text="user.status" :color="getStatusColor(user.status)" />
+              <VaBadge :color="getStatusColor(user.status)" :text="user.status" />
             </td>
           </tr>
         </tbody>
       </table>
-    </va-card-content>
-  </va-card>
+    </VaCardContent>
+  </VaCard>
 
-  <va-card>
-    <va-card-title>{{ t('tables.stripedHoverable') }}</va-card-title>
-    <va-card-content class="overflow-auto">
+  <VaCard>
+    <VaCardTitle>{{ t('tables.stripedHoverable') }}</VaCardTitle>
+    <VaCardContent class="overflow-auto">
       <table class="va-table va-table--striped va-table--hoverable w-full">
         <thead>
           <tr>
@@ -45,33 +45,33 @@
             <td>{{ user.email }}</td>
             <td>{{ user.country }}</td>
             <td>
-              <va-badge :text="user.status" :color="getStatusColor(user.status)" />
+              <VaBadge :color="getStatusColor(user.status)" :text="user.status" />
             </td>
           </tr>
         </tbody>
       </table>
-    </va-card-content>
-  </va-card>
+    </VaCardContent>
+  </VaCard>
 </template>
 
-<script setup lang="ts">
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
-  import data from '../../../../data/tables/markup-table/data.json'
+<script lang="ts" setup>
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import data from '../../../../data/tables/markup-table/data.json'
 
-  const { t } = useI18n()
+const { t } = useI18n()
 
-  const users = ref(data.slice(0, 8))
+const users = ref(data.slice(0, 8))
 
-  function getStatusColor(status: string) {
-    if (status === 'paid') {
-      return 'success'
-    }
-
-    if (status === 'processing') {
-      return 'info'
-    }
-
-    return 'danger'
+function getStatusColor(status: string) {
+  if (status === 'paid') {
+    return 'success'
   }
+
+  if (status === 'processing') {
+    return 'info'
+  }
+
+  return 'danger'
+}
 </script>

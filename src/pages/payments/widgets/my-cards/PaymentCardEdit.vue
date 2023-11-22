@@ -1,31 +1,29 @@
 <template>
-  <va-form ref="form" @submit.prevent="submit">
-    <va-input
-      v-model="paymentCard.name"
+  <VaForm ref="form" @submit.prevent="submit">
+    <VaInput
+      v-model="paymentCardLocal.name"
+      :rules="[(v) => !!v || 'Card Name field is required']"
       class="mb-4"
       label="Card Name"
-      :rules="[(v) => !!v || 'Card Name field is required']"
     />
-    <va-checkbox v-model="paymentCard.isPrimary" label="Primary Card" class="mb-4" />
-    <va-select
-      v-model="paymentCard.paymentSystem"
-      class="mb-4"
-      label="Payment System"
+    <VaCheckbox v-model="paymentCardLocal.isPrimary" class="mb-4" label="Primary Card" />
+    <VaSelect
+      v-model="paymentCardLocal.paymentSystem"
       :options="paymentSystemTypeOptions"
       :rules="[(v) => !!v || 'Payment System field is required']"
+      class="mb-4"
+      label="Payment System"
     />
-    <va-input
-      v-model="paymentCard.cardNumberMasked"
+    <VaInput
+      v-model="paymentCardLocal.cardNumberMasked"
+      :rules="[(v) => !!v || 'Card Number field is required']"
       class="mb-4"
       label="Card Number"
-      :rules="[(v) => !!v || 'Card Number field is required']"
       mask="creditCard"
       placeholder="#### #### #### ####"
     />
-    <va-input
-      v-model="paymentCard.expirationDate"
-      class="mb-4"
-      label="Expiration Date"
+    <VaInput
+      v-model="paymentCardLocal.expirationDate"
       :mask="{
         date: true,
         datePattern: ['m', 'y'],
@@ -34,42 +32,44 @@
         (v) => !!v || 'Expiration Date field is required',
         (v) => /^\d{4}$/.test(v) || 'Expiration Date must be in MM/YY format',
       ]"
+      class="mb-4"
+      label="Expiration Date"
     />
 
     <div class="flex justify-end gap-3">
-      <va-button preset="secondary" color="secondary" @click="emits('cancel')">Cancel</va-button>
-      <va-button @click="submit">{{ submitText }}</va-button>
+      <VaButton color="secondary" preset="secondary" @click="emits('cancel')">Cancel</VaButton>
+      <VaButton @click="submit">{{ submitText }}</VaButton>
     </div>
-  </va-form>
+  </VaForm>
 </template>
 
-<script setup lang="ts">
-  import { useForm } from 'vuestic-ui'
-  import { PaymentCard, PaymentSystemType } from '../../types'
-  import { defineEmits, watch, ref } from 'vue'
+<script lang="ts" setup>
+import { useForm } from 'vuestic-ui'
+import { PaymentCard, PaymentSystemType } from '../../types'
+import { watch, ref } from 'vue'
 
-  const { validate } = useForm('form')
-  const emits = defineEmits(['save', 'cancel'])
+const { validate } = useForm('form')
+const emits = defineEmits(['save', 'cancel'])
 
-  const props = defineProps<{
-    paymentCard: PaymentCard
-    submitText: string
-  }>()
+const props = defineProps<{
+  paymentCard: PaymentCard
+  submitText: string
+}>()
 
-  const paymentSystemTypeOptions = Object.values(PaymentSystemType)
-  const paymentCard = ref<PaymentCard>()
+const paymentSystemTypeOptions = Object.values(PaymentSystemType)
+const paymentCardLocal = ref({ ...props.paymentCard })
 
-  watch(
-    () => props.paymentCard,
-    (value) => {
-      paymentCard.value = { ...value }
-    },
-    { deep: true, immediate: true },
-  )
+watch(
+  () => props.paymentCard,
+  (value) => {
+    paymentCardLocal.value = { ...value }
+  },
+  { deep: true },
+)
 
-  const submit = () => {
-    if (validate()) {
-      emits('save', paymentCard.value)
-    }
+const submit = () => {
+  if (validate()) {
+    emits('save', paymentCardLocal.value)
   }
+}
 </script>

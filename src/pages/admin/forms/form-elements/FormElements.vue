@@ -1,84 +1,78 @@
 <template>
   <div class="form-elements grid grid-cols-12 gap-6">
-    <va-card class="col-span-12">
-      <va-card-title>{{ t('forms.inputs.title') }}</va-card-title>
-      <va-card-content>
+    <VaCard class="col-span-12">
+      <VaCardTitle>{{ t('forms.inputs.title') }}</VaCardTitle>
+      <VaCardContent>
         <form>
           <div class="grid grid-cols-12 gap-6">
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
-              <va-input v-model="simple" placeholder="Text Input" />
+              <VaInput v-model="simple" placeholder="Text Input" />
             </div>
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
-              <va-input v-model="withIcon" placeholder="Input With Icon">
+              <VaInput v-model="withIcon" placeholder="Input With Icon">
                 <template #prepend>
-                  <va-icon color="gray" name="envelope" />
+                  <VaIcon color="gray" name="envelope" />
                 </template>
-              </va-input>
+              </VaInput>
             </div>
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
-              <va-input v-model="withButton" placeholder="Input With Button">
+              <VaInput v-model="withButton" placeholder="Input With Button">
                 <template #append>
-                  <va-button style="margin-right: 0" small> UPLOAD </va-button>
+                  <VaButton small style="margin-right: 0"> UPLOAD</VaButton>
                 </template>
-              </va-input>
+              </VaInput>
             </div>
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
-              <va-input v-model="successfulEmail" type="email" label="Email (Validated with success)" success>
-              </va-input>
+              <VaInput v-model="successfulEmail" label="Email (Validated with success)" success type="email"></VaInput>
             </div>
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
-              <va-input v-model="clearableText" placeholder="Input With Clear Button" clearable />
+              <VaInput v-model="clearableText" clearable placeholder="Input With Clear Button" />
             </div>
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
-              <va-input
+              <VaInput
                 v-model="wrongEmail"
-                type="email"
-                label="Email (Validated)"
-                error
                 :error-messages="errorMessages"
+                error
+                label="Email (Validated)"
+                type="email"
               >
-              </va-input>
+              </VaInput>
             </div>
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
-              <va-input v-model="withDescription" placeholder="Text Input (with description)" :messages="messages" />
+              <VaInput v-model="withDescription" :messages="messages" placeholder="Text Input (with description)" />
             </div>
           </div>
         </form>
-      </va-card-content>
-    </va-card>
+      </VaCardContent>
+    </VaCard>
 
-    <va-card class="col-span-12">
-      <va-card-title>{{ t('forms.dateTimePicker.title') }}</va-card-title>
-      <va-card-content>
+    <VaCard class="col-span-12">
+      <VaCardTitle>{{ t('forms.dateTimePicker.title') }}</VaCardTitle>
+      <VaCardContent>
         <form>
           <div class="grid grid-cols-12 gap-6">
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
-              <va-date-input v-model="dateInput.simple" :label="t('forms.dateTimePicker.basic')" />
+              <VaDateInput v-model="dateInput.simple" :label="t('forms.dateTimePicker.basic')" />
             </div>
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
-              <va-date-input v-model="dateInput.simple" :label="t('forms.dateTimePicker.manualInput')" manual-input />
+              <VaDateInput v-model="dateInput.simple" :label="t('forms.dateTimePicker.manualInput')" manual-input />
             </div>
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
-              <va-date-input v-model="dateInput.disabled" :label="t('forms.dateTimePicker.disabled')" disabled />
+              <VaDateInput v-model="dateInput.disabled" :label="t('forms.dateTimePicker.disabled')" disabled />
             </div>
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
-              <va-date-input
+              <VaDateInput
                 v-model="dateInput.multiple"
                 :label="t('forms.dateTimePicker.multiple')"
+                clearable
                 mode="multiple"
-                clearable
               />
             </div>
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
-              <va-date-input
-                v-model="dateInput.range"
-                :label="t('forms.dateTimePicker.range')"
-                mode="range"
-                clearable
-              />
+              <VaDateInput v-model="dateInput.range" :label="t('forms.dateTimePicker.range')" clearable mode="range" />
             </div>
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
-              <va-date-input
+              <VaDateInput
                 v-model="dateInput.simple"
                 :label="t('forms.dateTimePicker.customFirstDay')"
                 first-weekday="Monday"
@@ -87,214 +81,215 @@
             </div>
           </div>
         </form>
-      </va-card-content>
+      </VaCardContent>
 
-      <va-divider />
+      <VaDivider />
 
-      <va-card-content>
+      <VaCardContent>
         <form>
           <div class="grid grid-cols-12 gap-6">
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
-              <va-time-input v-model="dateInput.simple" :label="t('forms.dateTimePicker.basic')" />
+              <VaTimeInput v-model="dateInput.simple" :label="t('forms.dateTimePicker.basic')" />
             </div>
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
-              <va-time-input v-model="dateInput.simple" :label="t('forms.dateTimePicker.manualInput')" manual-input />
+              <VaTimeInput v-model="dateInput.simple" :label="t('forms.dateTimePicker.manualInput')" manual-input />
             </div>
             <div class="flex md:col-span-4 sm:col-span-6 col-span-12">
-              <va-time-input v-model="dateInput.simple" :label="t('forms.dateTimePicker.disabled')" disabled />
+              <VaTimeInput v-model="dateInput.simple" :label="t('forms.dateTimePicker.disabled')" disabled />
             </div>
           </div>
         </form>
-      </va-card-content>
-    </va-card>
+      </VaCardContent>
+    </VaCard>
 
-    <va-card class="col-span-12">
-      <va-card-title>{{ t('forms.selects.title') }}</va-card-title>
-      <va-card-content>
+    <VaCard class="col-span-12">
+      <VaCardTitle>{{ t('forms.selects.title') }}</VaCardTitle>
+      <VaCardContent>
         <form>
           <div class="grid grid-cols-12 gap-6">
             <div class="flex md:col-span-6 col-span-12">
-              <va-select
+              <VaSelect
                 v-model="simpleSelectModel"
                 :label="t('forms.selects.simple')"
+                :options="simpleOptions"
                 text-by="description"
                 track-by="id"
-                :options="simpleOptions"
               />
             </div>
             <div class="flex md:col-span-6 col-span-12">
-              <va-select
+              <VaSelect
                 v-model="multiSelectModel"
                 :label="t('forms.selects.multi')"
+                :options="simpleOptions"
+                multiple
                 text-by="description"
                 track-by="id"
-                multiple
-                :options="simpleOptions"
               />
             </div>
             <div class="flex md:col-span-6 col-span-12">
-              <va-select v-model="chosenCountry" :label="t('forms.selects.country')" :options="countriesList" />
+              <VaSelect v-model="chosenCountry" :label="t('forms.selects.country')" :options="countriesList" />
             </div>
             <div class="flex md:col-span-6 col-span-12">
-              <va-select
+              <VaSelect
                 v-model="multiSelectCountriesModel"
                 :label="t('forms.selects.countryMulti')"
-                multiple
                 :options="countriesList"
+                multiple
               />
             </div>
             <div class="flex md:col-span-6 col-span-12">
-              <va-select
+              <VaSelect
                 v-model="searchableSelectModel"
                 :label="t('forms.selects.searchable')"
+                :options="simpleOptions"
                 searchable
                 text-by="description"
                 track-by="id"
-                :options="simpleOptions"
               />
             </div>
             <div class="flex md:col-span-6 col-span-12">
-              <va-select
+              <VaSelect
                 v-model="multiSearchableSelectModel"
                 :label="t('forms.selects.searchableMulti')"
-                text-by="description"
-                searchable
-                multiple
                 :options="countriesList"
+                multiple
+                searchable
+                text-by="description"
               />
             </div>
           </div>
         </form>
-      </va-card-content>
-    </va-card>
+      </VaCardContent>
+    </VaCard>
 
-    <va-card class="col-span-12">
-      <va-card-title>{{ t('forms.controls.title') }}</va-card-title>
-      <va-card-content>
+    <VaCard class="col-span-12">
+      <VaCardTitle>{{ t('forms.controls.title') }}</VaCardTitle>
+      <VaCardContent>
         <form>
           <div class="grid grid-cols-12 gap-6">
             <fieldset class="md:col-span-6 col-span-12 grid grid-cols-1 md:grid-cols-3 gap-2">
-              <va-checkbox v-model="checkbox.unselected" :label="t('forms.controls.unselected')" />
-              <va-checkbox v-model="checkbox.selected" :label="t('forms.controls.selected')" />
-              <va-checkbox v-model="checkbox.readonly" :label="t('forms.controls.readonly')" readonly />
-              <va-checkbox v-model="checkbox.disabled" :label="t('forms.controls.disabled')" disabled />
-              <va-checkbox v-model="checkbox.error" :label="t('forms.controls.error')" error />
-              <va-checkbox
+              <VaCheckbox v-model="checkbox.unselected" :label="t('forms.controls.unselected')" />
+              <VaCheckbox v-model="checkbox.selected" :label="t('forms.controls.selected')" />
+              <VaCheckbox v-model="checkbox.readonly" :label="t('forms.controls.readonly')" readonly />
+              <VaCheckbox v-model="checkbox.disabled" :label="t('forms.controls.disabled')" disabled />
+              <VaCheckbox v-model="checkbox.error" :label="t('forms.controls.error')" error />
+              <VaCheckbox
                 v-model="checkbox.errorMessages"
+                :error-count="2"
+                :error-messages="errorMessages"
                 :label="t('forms.controls.errorMessage')"
                 error
-                :error-messages="errorMessages"
-                :error-count="2"
               />
             </fieldset>
 
             <div class="md:col-span-6 col-span-12 grid grid-cols-2">
               <fieldset class="flex flex-col">
-                <va-radio v-model="radioSelectedOption" option="option1" label="Radio-1" />
-                <va-radio v-model="radioSelectedOption" option="option2" label="Radio-2" />
+                <VaRadio v-model="radioSelectedOption" label="Radio-1" option="option1" />
+                <VaRadio v-model="radioSelectedOption" label="Radio-2" option="option2" />
               </fieldset>
               <fieldset class="flex flex-col">
-                <va-radio v-model="radioSelectedDisableOption" option="option1" disabled label="Disabled Radio-1" />
-                <va-radio v-model="radioSelectedDisableOption" option="option2" disabled label="Disabled Radio-2" />
+                <VaRadio v-model="radioSelectedDisableOption" disabled label="Disabled Radio-1" option="option1" />
+                <VaRadio v-model="radioSelectedDisableOption" disabled label="Disabled Radio-2" option="option2" />
               </fieldset>
             </div>
 
             <div class="col-span-full md:col-span-8 grid grid-cols-1 md:grid-cols-3">
               <fieldset class="flex flex-col">
-                <va-switch v-model="toggles.selected" label="Selected toggle" class="mr-8 mb-2" />
-                <va-switch v-model="toggles.unselected" label="Unselected toggle" class="mr-8 mb-2" />
+                <VaSwitch v-model="toggles.selected" class="mr-8 mb-2" label="Selected toggle" />
+                <VaSwitch v-model="toggles.unselected" class="mr-8 mb-2" label="Unselected toggle" />
               </fieldset>
               <fieldset class="flex flex-col">
-                <va-switch v-model="toggles.disabled" disabled label="Disabled toggle" class="mr-8 mb-2" />
-                <va-switch v-model="toggles.disabled" readonly label="Readonly toggle" class="mr-8 mb-2" />
+                <VaSwitch v-model="toggles.disabled" class="mr-8 mb-2" disabled label="Disabled toggle" />
+                <VaSwitch v-model="toggles.disabled" class="mr-8 mb-2" label="Readonly toggle" readonly />
               </fieldset>
               <fieldset class="flex flex-col">
-                <va-switch v-model="toggles.small" size="small" label="Small toggle" class="mr-8 mb-2" />
-                <va-switch v-model="toggles.large" size="large" label="Large toggle" class="mr-8 mb-2" />
+                <VaSwitch v-model="toggles.small" class="mr-8 mb-2" label="Small toggle" size="small" />
+                <VaSwitch v-model="toggles.large" class="mr-8 mb-2" label="Large toggle" size="large" />
               </fieldset>
             </div>
           </div>
         </form>
-      </va-card-content>
-    </va-card>
+      </VaCardContent>
+    </VaCard>
   </div>
 </template>
 
-<script setup lang="ts">
-  import { ref } from 'vue'
-  import CountriesList from '../data/CountriesList'
-  import { useI18n } from 'vue-i18n'
-  const { t } = useI18n()
+<script lang="ts" setup>
+import { ref } from 'vue'
+import CountriesList from '../data/CountriesList'
+import { useI18n } from 'vue-i18n'
 
-  const countriesList = ref(CountriesList)
-  const chosenCountry = ref('')
-  const simple = ref('')
-  const withIcon = ref('')
-  const withButton = ref('')
-  const withDescription = ref('')
-  const clearableText = ref('Vasili Savitski')
-  const successfulEmail = ref('andrei@dreamsupport.io')
-  const wrongEmail = ref('andrei@dreamsupport')
-  const messages = ref([
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ' +
-      'incididunt ut labore et dolore magna aliqua.',
-  ])
-  const errorMessages = ref(['Field should contain a valid email'])
-  const simpleOptions = ref([
-    {
-      id: 1,
-      description: 'First option',
-    },
-    {
-      id: 2,
-      description: 'Second option',
-    },
-    {
-      id: 3,
-      description: 'Third option',
-    },
-  ])
+const { t } = useI18n()
 
-  const simpleSelectModel = ref('')
-  const multiSelectModel = ref([])
-  const multiSelectCountriesModel = ref([])
-  const searchableSelectModel = ref('')
-  const multiSearchableSelectModel = ref([])
-  const radioSelectedOption = ref('option1')
-  const radioSelectedDisableOption = ref('option1')
-  const checkbox = ref({
-    unselected: false,
-    selected: true,
-    readonly: true,
-    disabled: true,
-    error: false,
-    errorMessages: true,
-  })
+const countriesList = ref(CountriesList)
+const chosenCountry = ref('')
+const simple = ref('')
+const withIcon = ref('')
+const withButton = ref('')
+const withDescription = ref('')
+const clearableText = ref('Vasili Savitski')
+const successfulEmail = ref('andrei@dreamsupport.io')
+const wrongEmail = ref('andrei@dreamsupport')
+const messages = ref([
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ' +
+    'incididunt ut labore et dolore magna aliqua.',
+])
+const errorMessages = ref(['Field should contain a valid email'])
+const simpleOptions = ref([
+  {
+    id: 1,
+    description: 'First option',
+  },
+  {
+    id: 2,
+    description: 'Second option',
+  },
+  {
+    id: 3,
+    description: 'Third option',
+  },
+])
 
-  const toggles = ref({
-    unselected: false,
-    selected: true,
-    disabled: true,
-    small: false,
-    large: false,
-  })
+const simpleSelectModel = ref('')
+const multiSelectModel = ref([])
+const multiSelectCountriesModel = ref([])
+const searchableSelectModel = ref('')
+const multiSearchableSelectModel = ref([])
+const radioSelectedOption = ref('option1')
+const radioSelectedDisableOption = ref('option1')
+const checkbox = ref({
+  unselected: false,
+  selected: true,
+  readonly: true,
+  disabled: true,
+  error: false,
+  errorMessages: true,
+})
 
-  const datePlusDay = (date: Date, days: number) => {
-    const d = new Date(date)
-    d.setDate(d.getDate() + days)
-    return d
-  }
+const toggles = ref({
+  unselected: false,
+  selected: true,
+  disabled: true,
+  small: false,
+  large: false,
+})
 
-  const dateInput = ref({
-    simple: new Date(),
-    disabled: '2018-05-09',
-    range: { start: new Date(), end: datePlusDay(new Date(), 7) },
-    multiple: ['2018-04-25', '2018-04-27'],
-  })
+const datePlusDay = (date: Date, days: number) => {
+  const d = new Date(date)
+  d.setDate(d.getDate() + days)
+  return d
+}
+
+const dateInput = ref({
+  simple: new Date(),
+  disabled: '2018-05-09',
+  range: { start: new Date(), end: datePlusDay(new Date(), 7) },
+  multiple: ['2018-04-25', '2018-04-27'],
+})
 </script>
 
 <style lang="scss" scoped>
-  fieldset {
-    margin-bottom: 0.5rem;
-  }
+fieldset {
+  margin-bottom: 0.5rem;
+}
 </style>

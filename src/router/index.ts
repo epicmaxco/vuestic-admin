@@ -153,6 +153,21 @@ const routes: Array<RouteRecordRaw> = [
             path: 'payments',
             component: () => import('../pages/payments/PaymentsPage.vue'),
           },
+          {
+            name: 'billing',
+            path: 'billing',
+            component: () => import('../pages/billing/BillingPage.vue'),
+          },
+          {
+            name: 'preferences',
+            path: 'preferences',
+            component: () => import('../pages/preferences/Preferences.vue'),
+          },
+          {
+            name: 'pricing-plans',
+            path: 'pricing-plans',
+            component: () => import('../pages/pricing-plans/PricingPlans.vue'),
+          },
         ],
       },
       UIRoute,

@@ -1,9 +1,9 @@
 <template>
   <div class="medium-editor">
-    <va-card>
-      <va-card-title>{{ t('forms.mediumEditor.title') }}</va-card-title>
-      <va-card-content class="flex justify-center">
-        <va-medium-editor @initialized="handleEditorInitialization">
+    <VaCard>
+      <VaCardTitle>{{ t('forms.mediumEditor.title') }}</VaCardTitle>
+      <VaCardContent class="flex justify-center">
+        <VaMediumEditor @initialized="handleEditorInitialization">
           <h1>Select Text To Open Editor</h1>
 
           <p>
@@ -19,34 +19,34 @@
             Read the full article on
             <a href="https://medium.com/@dorn.anna/girl-no-you-dont-2e21e826c62c">Medium</a>
           </p>
-        </va-medium-editor>
-      </va-card-content>
-    </va-card>
+        </VaMediumEditor>
+      </VaCardContent>
+    </VaCard>
   </div>
 </template>
 
-<script setup lang="ts">
-  import { nextTick } from 'vue'
-  import { useI18n } from 'vue-i18n'
-  import type MediumEditor from 'medium-editor'
-  import VaMediumEditor from '../../../../components/va-medium-editor/VaMediumEditor.vue'
+<script lang="ts" setup>
+import { nextTick } from 'vue'
+import { useI18n } from 'vue-i18n'
+import type MediumEditor from 'medium-editor'
+import VaMediumEditor from '../../../../components/va-medium-editor/VaMediumEditor.vue'
 
-  const { t } = useI18n()
+const { t } = useI18n()
 
-  function handleEditorInitialization(editor: typeof MediumEditor) {
-    nextTick(() => highlightSampleText(editor))
-  }
+function handleEditorInitialization(editor: typeof MediumEditor) {
+  nextTick(() => highlightSampleText(editor))
+}
 
-  function highlightSampleText(editor: typeof MediumEditor) {
-    const sampleText = document.getElementsByClassName('default-selection')[0] as HTMLElement
-    editor.selectElement(sampleText)
-  }
+function highlightSampleText(editor: typeof MediumEditor) {
+  const sampleText = document.getElementsByClassName('default-selection')[0] as HTMLElement
+  editor.selectElement(sampleText)
+}
 </script>
 
 <style lang="scss">
-  .medium-editor {
-    a {
-      @apply text-blue-700;
-    }
+.medium-editor {
+  a {
+    @apply text-blue-700;
   }
+}
 </style>

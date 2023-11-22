@@ -1,60 +1,61 @@
 <template>
   <div class="flex flex-col gap-6">
-    <va-card>
-      <va-card-title>{{ t('chips.chips.title') }}</va-card-title>
-      <va-card-content class="my-3 flex flex-col gap-8">
+    <VaCard>
+      <VaCardTitle>{{ t('chips.chips.title') }}</VaCardTitle>
+      <VaCardContent class="my-3 flex flex-col gap-8">
         <div class="flex flex-wrap gap-2">
-          <va-chip shadow color="primary">{{ t('chips.chips.primary') }}</va-chip>
-          <va-chip shadow color="secondary">{{ t('chips.chips.secondary') }}</va-chip>
-          <va-chip shadow color="success">{{ t('chips.chips.success') }}</va-chip>
-          <va-chip shadow color="info">{{ t('chips.chips.info') }}</va-chip>
-          <va-chip shadow color="danger">{{ t('chips.chips.danger') }}</va-chip>
-          <va-chip shadow color="warning">{{ t('chips.chips.warning') }}</va-chip>
-          <va-chip shadow color="gray">{{ t('chips.chips.gray') }}</va-chip>
-          <va-chip shadow color="dark">{{ t('chips.chips.dark') }}</va-chip>
+          <VaChip color="primary" shadow>{{ t('chips.chips.primary') }}</VaChip>
+          <VaChip color="secondary" shadow>{{ t('chips.chips.secondary') }}</VaChip>
+          <VaChip color="success" shadow>{{ t('chips.chips.success') }}</VaChip>
+          <VaChip color="info" shadow>{{ t('chips.chips.info') }}</VaChip>
+          <VaChip color="danger" shadow>{{ t('chips.chips.danger') }}</VaChip>
+          <VaChip color="warning" shadow>{{ t('chips.chips.warning') }}</VaChip>
+          <VaChip color="gray" shadow>{{ t('chips.chips.gray') }}</VaChip>
+          <VaChip color="dark" shadow>{{ t('chips.chips.dark') }}</VaChip>
         </div>
         <div class="flex flex-wrap gap-2">
-          <va-chip outline color="primary">{{ t('chips.chips.primary') }}</va-chip>
-          <va-chip outline color="secondary">{{ t('chips.chips.secondary') }}</va-chip>
-          <va-chip outline color="success">{{ t('chips.chips.success') }}</va-chip>
-          <va-chip outline color="info">{{ t('chips.chips.info') }}</va-chip>
-          <va-chip outline color="danger">{{ t('chips.chips.danger') }}</va-chip>
-          <va-chip outline color="warning">{{ t('chips.chips.warning') }}</va-chip>
-          <va-chip outline color="gray">{{ t('chips.chips.gray') }}</va-chip>
-          <va-chip outline color="dark">{{ t('chips.chips.dark') }}</va-chip>
+          <VaChip color="primary" outline>{{ t('chips.chips.primary') }}</VaChip>
+          <VaChip color="secondary" outline>{{ t('chips.chips.secondary') }}</VaChip>
+          <VaChip color="success" outline>{{ t('chips.chips.success') }}</VaChip>
+          <VaChip color="info" outline>{{ t('chips.chips.info') }}</VaChip>
+          <VaChip color="danger" outline>{{ t('chips.chips.danger') }}</VaChip>
+          <VaChip color="warning" outline>{{ t('chips.chips.warning') }}</VaChip>
+          <VaChip color="gray" outline>{{ t('chips.chips.gray') }}</VaChip>
+          <VaChip color="dark" outline>{{ t('chips.chips.dark') }}</VaChip>
         </div>
-      </va-card-content>
-    </va-card>
+      </VaCardContent>
+    </VaCard>
 
-    <va-card>
-      <va-card-title>{{ t('chips.badges.title') }}</va-card-title>
-      <va-card-content class="my-3 flex flex-col gap-8">
+    <VaCard>
+      <VaCardTitle>{{ t('chips.badges.title') }}</VaCardTitle>
+      <VaCardContent class="my-3 flex flex-col gap-8">
         <div class="flex flex-wrap gap-2">
-          <va-badge color="primary" :text="t('chips.badges.primary')" />
-          <va-badge color="secondary" :text="t('chips.badges.secondary')" />
-          <va-badge color="success" :text="t('chips.badges.success')" />
-          <va-badge color="info" :text="t('chips.badges.info')" />
-          <va-badge color="danger" :text="t('chips.badges.danger')" />
-          <va-badge color="warning" :text="t('chips.badges.warning')" />
-          <va-badge color="gray" :text="t('chips.badges.gray')" />
-          <va-badge color="dark" :text="t('chips.badges.dark')" />
+          <VaBadge :text="t('chips.badges.primary')" color="primary" />
+          <VaBadge :text="t('chips.badges.secondary')" color="secondary" />
+          <VaBadge :text="t('chips.badges.success')" color="success" />
+          <VaBadge :text="t('chips.badges.info')" color="info" />
+          <VaBadge :text="t('chips.badges.danger')" color="danger" />
+          <VaBadge :text="t('chips.badges.warning')" color="warning" />
+          <VaBadge :text="t('chips.badges.gray')" color="gray" />
+          <VaBadge :text="t('chips.badges.dark')" color="dark" />
         </div>
         <div class="flex flex-wrap gap-2">
-          <va-badge color="primary" :text="t('chips.badges.primary')" transparent />
-          <va-badge color="secondary" :text="t('chips.badges.secondary')" transparent />
-          <va-badge color="success" :text="t('chips.badges.success')" transparent />
-          <va-badge color="info" :text="t('chips.badges.info')" transparent />
-          <va-badge color="danger" :text="t('chips.badges.danger')" transparent />
-          <va-badge color="warning" :text="t('chips.badges.warning')" transparent />
-          <va-badge color="gray" :text="t('chips.badges.gray')" transparent />
-          <va-badge color="dark" :text="t('chips.badges.dark')" transparent />
+          <VaBadge :text="t('chips.badges.primary')" color="primary" transparent />
+          <VaBadge :text="t('chips.badges.secondary')" color="secondary" transparent />
+          <VaBadge :text="t('chips.badges.success')" color="success" transparent />
+          <VaBadge :text="t('chips.badges.info')" color="info" transparent />
+          <VaBadge :text="t('chips.badges.danger')" color="danger" transparent />
+          <VaBadge :text="t('chips.badges.warning')" color="warning" transparent />
+          <VaBadge :text="t('chips.badges.gray')" color="gray" transparent />
+          <VaBadge :text="t('chips.badges.dark')" color="dark" transparent />
         </div>
-      </va-card-content>
-    </va-card>
+      </VaCardContent>
+    </VaCard>
   </div>
 </template>
 
-<script setup lang="ts">
-  import { useI18n } from 'vue-i18n'
-  const { t } = useI18n()
+<script lang="ts" setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 </script>

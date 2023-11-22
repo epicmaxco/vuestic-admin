@@ -1,5 +1,5 @@
 <template>
-  <svg class="va-icon-free" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.99 51.04">
+  <svg class="va-icon-free" viewBox="0 0 44.99 51.04" xmlns="http://www.w3.org/2000/svg">
     <defs />
     <title>overview_icon_2</title>
     <g id="Layer_2" data-name="Layer 2">
@@ -8,7 +8,7 @@
           class="cls-1"
           d="M1.08,28.21C1.08,13.62,8.38,6.29,19,6.29S37,13.69,37,28.21,29.66,50.54,19,50.54,1.08,42.8,1.08,28.21Zm23.56,0c0-11.3-2.58-16.9-5.62-16.9s-5.62,5.6-5.62,16.9S16,41.66,19,41.66,24.65,39.51,24.65,28.21Z"
         />
-        <line class="cls-2" x1="39.83" y1="47.62" x2="39.83" y2="50.96" />
+        <line class="cls-2" x1="39.83" x2="39.83" y1="47.62" y2="50.96" />
         <path
           class="cls-3"
           d="M18.73,9.64c-4.9,0-6.9,4.54-6.9,15.66,0,11.29,2.06,16.1,6.9,16.1s6.9-4.81,6.9-16.1C25.63,14.17,23.63,9.64,18.73,9.64Zm0,28.76c-1.07,0-3.9,0-3.9-13.1,0-12.66,2.64-12.66,3.9-12.66s3.9,0,3.9,12.66C22.63,38.4,19.8,38.4,18.73,38.4Z"
@@ -23,24 +23,24 @@
 </template>
 
 <style lang="scss">
-  .va-icon-free {
-    display: inline-block;
-    width: 55px;
-    height: 47.8px;
+.va-icon-free {
+  display: inline-block;
+  width: 55px;
+  height: 47.8px;
 
-    .cls-1 {
-      fill: #4ae387;
-    }
-
-    .cls-2 {
-      fill: none;
-      stroke: #34495e;
-      stroke-miterlimit: 10;
-      stroke-width: 3px;
-    }
-
-    .cls-3 {
-      fill: #34495e;
-    }
+  .cls-1 {
+    fill: #4ae387;
   }
+
+  .cls-2 {
+    fill: none;
+    stroke: #34495e;
+    stroke-miterlimit: 10;
+    stroke-width: 3px;
+  }
+
+  .cls-3 {
+    fill: #34495e;
+  }
+}
 </style>

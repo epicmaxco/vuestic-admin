@@ -1,16 +1,16 @@
 <template>
   <h1 class="page-title">Payment methods</h1>
 
-  <va-card class="mb-6">
-    <va-card-content>
+  <VaCard class="mb-6">
+    <VaCardContent>
       <div class="text-2xl font-bold leading-5 mb-6">My Cards</div>
 
       <PaymentCardList />
-    </va-card-content>
-  </va-card>
+    </VaCardContent>
+  </VaCard>
 
-  <va-card class="mb-6">
-    <va-card-content>
+  <VaCard class="mb-6">
+    <VaCardContent>
       <div class="text-2xl font-bold leading-5 mb-6">Billing Address</div>
 
       <BillingAddressList />
@@ -22,11 +22,11 @@
           <div class="text-sm text-primary underline">More Info</div>
         </div>
       </div>
-    </va-card-content>
-  </va-card>
+    </VaCardContent>
+  </VaCard>
 </template>
 
-<script setup lang="ts">
-  import PaymentCardList from './widgets/my-cards/PaymentCardList.vue'
-  import BillingAddressList from './widgets/billing-address/BillingAddressList.vue'
+<script lang="ts" setup>
+import PaymentCardList from './widgets/my-cards/PaymentCardList.vue'
+import BillingAddressList from './widgets/billing-address/BillingAddressList.vue'
 </script>
