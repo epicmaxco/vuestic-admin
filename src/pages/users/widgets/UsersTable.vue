@@ -1,8 +1,9 @@
 <script setup lang="ts">
   import { defineVaDataTableColumns } from 'vuestic-ui'
-  import { User, UserRole } from '../types'
-  import { useUsersStore } from '../../../stores/users'
+  import { InactiveUser, User, UserRole } from '../types'
   import UserAvatar from './UserAvatar.vue'
+  import { PropType, computed, toRef } from 'vue'
+  import { Filters } from '../../../data/pages/users'
 
   const columns = defineVaDataTableColumns([
     { label: 'Full Name', key: 'fullname', sortable: true },
@@ -13,7 +14,16 @@
     { label: ' ', key: 'actions', align: 'right' },
   ])
 
-  const users = useUsersStore()
+  const props = defineProps({
+    users: {
+      type: Array as PropType<(User | InactiveUser)[]>,
+      required: true,
+    },
+    loading: { type: Boolean, default: false },
+    pagination: { type: Object as PropType<Filters['pagination']>, required: true },
+  })
+
+  const users = toRef(props, 'users')
 
   const roleColors: Record<UserRole, string> = {
     admin: 'danger',
@@ -26,11 +36,13 @@
     (event: 'delete-user', user: User): void
   }>()
 
-  users.load()
+  const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagination.perPage))
+
+  const isActiveUser = (user: User) => !('resignedAt' in user)
 </script>
 
 <template>
-  <va-data-table :columns="columns" :items="users.users" :loading="users.loading">
+  <va-data-table :columns="columns" :items="users" :loading="$props.loading">
     <template #cell(fullname)="{ rowData }">
       <div class="flex items-center gap-2">
         <user-avatar :user="rowData" size="small" />
@@ -43,7 +55,7 @@
     </template>
 
     <template #cell(actions)="{ rowData }">
-      <div class="flex gap-2 justify-end">
+      <div v-if="isActiveUser(rowData)" class="flex gap-2 justify-end">
         <va-button preset="primary" icon="edit" size="small" @click="$emit('edit-user', rowData as User)" />
         <va-button
           preset="primary"
@@ -60,18 +72,29 @@
         <td colspan="9999">
           <div class="flex flex-col-reverse md:flex-row gap-2 justify-between items-center py-2">
             <div>
-              <b>{{ users.pagination.total }} results.</b>
+              <b>{{ $props.pagination.total }} results.</b>
               Results per page
-              <va-select v-model="users.pagination.perPage" class="w-16" :options="[10, 50, 100]" />
+              <va-select v-model="$props.pagination.perPage" class="!w-20" :options="[10, 50, 100]" />
             </div>
 
             <div class="flex">
-              <!-- <va-button preset="secondary" icon="va-arrow-left" :disabled="users.pagination.page === 0" />
-              <va-button preset="secondary" icon="va-arrow-right" :disabled="users.pagination.page === users.totalPages - 1" /> -->
+              <!-- <va-button
+                preset="secondary"
+                icon="va-arrow-left"
+                :disabled="$props.pagination.page === 0"
+                @click="$props.pagination.page--"
+              />
+              <va-button
+                class="mr-2"
+                preset="secondary"
+                icon="va-arrow-right"
+                :disabled="$props.pagination.page === totalPages - 1"
+                @click="$props.pagination.page++"
+              /> -->
               <va-pagination
-                v-model="users.pagination.page"
+                v-model="$props.pagination.page"
                 buttons-preset="secondary"
-                :pages="users.totalPages"
+                :pages="totalPages"
                 :visible-pages="5"
                 boundary-numbers
               />

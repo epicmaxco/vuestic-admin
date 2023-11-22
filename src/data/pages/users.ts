@@ -1,7 +1,8 @@
+import { sleep } from '../../services/utils'
 import { repeatArray } from '../../services/utils'
 import { InactiveUser, User } from './../../pages/users/types'
 
-export const activeUsers = repeatArray(50, [
+export const users = repeatArray<User | InactiveUser>(50, [
   {
     id: 1,
     fullname: 'Patrik Radkow',
@@ -102,9 +103,6 @@ export const activeUsers = repeatArray(50, [
     avatar: '',
     notes: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
   },
-]) satisfies User[]
-
-export const inactiveUsers = [
   {
     id: 0,
     fullname: 'Laura Smith',
@@ -127,4 +125,57 @@ export const inactiveUsers = [
     resignedAt: '2021-15-17',
     notes: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
   },
-] satisfies InactiveUser[]
+])
+
+// Simulate API calls
+export type Filters = {
+  isActive: boolean
+  search: string
+  pagination: {
+    page: number
+    perPage: number
+    total: number
+  }
+}
+
+export const getUsers = async (filters: Partial<Filters>) => {
+  await sleep(1000)
+  const { isActive, search } = filters
+  let filteredUsers = users
+
+  if (isActive) {
+    filteredUsers = users.filter((user) => !('resignedAt' in user))
+  } else {
+    filteredUsers = users.filter((user) => 'resignedAt' in user)
+  }
+
+  if (search) {
+    filteredUsers = users.filter((user) => user.fullname.toLowerCase().includes(search.toLowerCase()))
+  }
+
+  const { page = 1, perPage = 10 } = filters.pagination || {}
+  return {
+    data: filteredUsers.slice((page - 1) * perPage, page * perPage),
+    pagination: {
+      page,
+      perPage,
+      total: filteredUsers.length,
+    },
+  }
+}
+
+export const addUser = async (user: User) => {
+  await sleep(1000)
+  users.unshift(user)
+}
+
+export const updateUser = async (user: User) => {
+  await sleep(1000)
+  const index = users.findIndex((u) => u.id === user.id)
+  users[index] = user
+}
+
+export const removeUser = async (user: User) => {
+  await sleep(1000)
+  users.splice(users.indexOf(user), 1)
+}

@@ -1,17 +1,24 @@
 <script setup lang="ts">
-  import { reactive, ref } from 'vue'
+  import { ref } from 'vue'
   import UsersTable from './widgets/UsersTable.vue'
-  import InactiveUsersTable from './widgets/InactiveUsersTable.vue'
   import EditUserForm from './widgets/EditUserForm.vue'
   import { User } from './types'
-  import { useUsersStore } from '../../stores/users'
+  import { useUsers } from './composables/useUsers'
+  import { Filters } from '../../data/pages/users'
 
-  const filters = reactive({
+  const filters = ref<Filters>({
     isActive: true,
-    searchText: '',
+    search: '',
+    pagination: {
+      page: 1,
+      perPage: 10,
+      total: 250,
+    },
   })
 
   const doShowEditUserModal = ref(false)
+
+  const { users, isLoading, ...usersApi } = useUsers(filters)
 
   const userToEdit = ref<User | null>(null)
 
@@ -25,13 +32,11 @@
     doShowEditUserModal.value = true
   }
 
-  const users = useUsersStore()
-
   const onUserSaved = (user: User) => {
     if (userToEdit.value) {
-      users.updateUser(user)
+      usersApi.update(user)
     } else {
-      users.addNewUser(user)
+      usersApi.add(user)
     }
   }
 </script>
@@ -52,7 +57,7 @@
               { label: 'Inactive', value: false },
             ]"
           />
-          <va-input v-model="filters.searchText" placeholder="Search">
+          <va-input v-model="filters.search" placeholder="Search">
             <template #prependInner>
               <va-icon name="search" color="secondary" size="small" />
             </template>
@@ -63,11 +68,13 @@
       </div>
 
       <UsersTable
-        v-if="filters.isActive"
+        :users="users"
+        :loading="isLoading"
+        :pagination="filters.pagination"
         @edit-user="showEditUserModal"
-        @delete-user="(user) => users.removeUser(user)"
+        @delete-user="(user) => usersApi.remove(user)"
       />
-      <InactiveUsersTable v-else />
+      <!-- <InactiveUsersTable v-else /> -->
     </va-card-content>
   </va-card>
 
