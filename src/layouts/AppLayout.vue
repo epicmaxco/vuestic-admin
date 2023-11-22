@@ -44,23 +44,18 @@ const GlobalStore = useGlobalStore()
 
 const breakpoints = useBreakpoint()
 
-const mobileBreakPointPX = 640
-const tabletBreakPointPX = 768
-
 const sidebarWidth = ref('16rem')
 const sidebarMinimizedWidth = ref(undefined)
 
 const isMobile = ref(false)
 const isTablet = ref(false)
 const { isSidebarMinimized } = storeToRefs(GlobalStore)
-const checkIsTablet = () => window.innerWidth <= tabletBreakPointPX
-const checkIsMobile = () => window.innerWidth <= mobileBreakPointPX
 
 const onResize = () => {
-  isSidebarMinimized.value = checkIsTablet()
+  isSidebarMinimized.value = breakpoints.mdDown
 
-  isMobile.value = checkIsMobile()
-  isTablet.value = checkIsTablet()
+  isMobile.value = breakpoints.smDown
+  isTablet.value = breakpoints.mdDown
   sidebarMinimizedWidth.value = isMobile.value ? '0' : '4.5rem'
   sidebarWidth.value = isTablet.value ? '100%' : '16rem'
 }
@@ -74,7 +69,7 @@ onBeforeUnmount(() => {
 })
 
 onBeforeRouteUpdate(() => {
-  if (checkIsTablet()) {
+  if (breakpoints.mdDown) {
     // Collapse sidebar after route change for Mobile
     isSidebarMinimized.value = true
   }
@@ -89,54 +84,10 @@ const onCloseSidebarButtonClick = () => {
 }
 </script>
 
-<style lang="scss">
-$mobileBreakPointPX: 640px;
-$tabletBreakPointPX: 768px;
-
-.app-layout {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-
-  &__navbar {
-    min-height: 4rem;
-  }
-
-  &__content {
-    display: flex;
-    height: calc(100vh - 4rem);
-    flex: 1;
-
-    @media screen and (max-width: $tabletBreakPointPX) {
-      height: calc(100vh - 6.5rem);
-    }
-
-    .app-layout__sidebar-wrapper {
-      position: relative;
-      height: 100%;
-      background: #ffffff;
-
-      @media screen and (max-width: $tabletBreakPointPX) {
-        &:not(.minimized) {
-          width: 100%;
-          height: 100%;
-          position: fixed;
-          top: 0;
-          z-index: 999;
-        }
-
-        .va-sidebar:not(.va-sidebar--minimized) {
-          .va-sidebar__menu {
-            padding: 0;
-          }
-        }
-      }
-    }
-  }
-
-  &__page {
-    flex-grow: 2;
-    overflow-y: scroll;
-  }
+<style lang="scss" scoped>
+// Prevent icon jump on animation
+.va-sidebar {
+  width: unset !important;
+  min-width: unset !important;
 }
 </style>
