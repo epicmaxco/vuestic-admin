@@ -1,10 +1,10 @@
 import { Ref, ref, unref, watch } from 'vue'
 import { getUsers, updateUser, addUser, removeUser, type Filters } from '../../../data/pages/users'
-import { InactiveUser, User } from '../types'
+import { User } from '../types'
 
 export const useUsers = (filters: Ref<Filters>) => {
   const isLoading = ref(false)
-  const users = ref<(User | InactiveUser)[]>([])
+  const users = ref<User[]>([])
 
   let stopFiltersWatcher: () => void
   const fetch = async () => {

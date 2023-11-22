@@ -1,8 +1,8 @@
 import { sleep } from '../../services/utils'
 import { repeatArray } from '../../services/utils'
-import { InactiveUser, User } from './../../pages/users/types'
+import { User } from './../../pages/users/types'
 
-export const users = repeatArray<User | InactiveUser>(50, [
+export const users = repeatArray<User>(50, [
   {
     id: 1,
     fullname: 'Patrik Radkow',
@@ -11,6 +11,7 @@ export const users = repeatArray<User | InactiveUser>(50, [
     role: 'user',
     projects: 3,
     avatar: '',
+    active: true,
     notes: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
   },
   {
@@ -21,6 +22,7 @@ export const users = repeatArray<User | InactiveUser>(50, [
     role: 'admin',
     projects: 5,
     avatar: '😍',
+    active: true,
     notes: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
   },
   {
@@ -31,6 +33,7 @@ export const users = repeatArray<User | InactiveUser>(50, [
     role: 'user',
     projects: 2,
     avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
+    active: true,
     notes: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
   },
   {
@@ -41,6 +44,7 @@ export const users = repeatArray<User | InactiveUser>(50, [
     role: 'owner',
     projects: 1,
     avatar: '',
+    active: true,
     notes: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
   },
   {
@@ -51,6 +55,7 @@ export const users = repeatArray<User | InactiveUser>(50, [
     role: 'user',
     projects: 13,
     avatar: 'https://randomuser.me/api/portraits/men/2.jpg',
+    active: true,
     notes: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
   },
   {
@@ -61,6 +66,7 @@ export const users = repeatArray<User | InactiveUser>(50, [
     role: 'user',
     projects: 2,
     avatar: 'https://randomuser.me/api/portraits/men/3.jpg',
+    active: true,
     notes: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
   },
   {
@@ -71,6 +77,7 @@ export const users = repeatArray<User | InactiveUser>(50, [
     role: 'user',
     projects: 1,
     avatar: '',
+    active: true,
     notes: '',
   },
   {
@@ -81,6 +88,7 @@ export const users = repeatArray<User | InactiveUser>(50, [
     role: 'admin',
     projects: 1,
     avatar: 'https://avatars.githubusercontent.com/u/23530004?v=4',
+    active: true,
     notes: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
   },
   {
@@ -91,6 +99,7 @@ export const users = repeatArray<User | InactiveUser>(50, [
     role: 'user',
     projects: 1,
     avatar: '',
+    active: true,
     notes: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
   },
   {
@@ -101,31 +110,32 @@ export const users = repeatArray<User | InactiveUser>(50, [
     role: 'user',
     projects: 1,
     avatar: '',
+    active: true,
     notes: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
   },
   {
-    id: 0,
+    id: 11,
     fullname: 'Laura Smith',
     email: 'laura@example.gg',
     username: 'bbb',
     role: 'user',
     projects: 3,
     avatar: '',
-    resignedAt: '2021-01-01',
+    active: false,
     notes: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
   },
   {
-    id: 2,
+    id: 12,
     fullname: 'Ted Mosby',
     email: 'tedmosby@mail.com',
     username: 'gamer777',
     role: 'user',
     projects: 5,
     avatar: '😭',
-    resignedAt: '2021-15-17',
+    active: false,
     notes: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
   },
-])
+]).map((u, index) => ({ ...u, id: index }))
 
 // Simulate API calls
 export type Filters = {
@@ -143,11 +153,7 @@ export const getUsers = async (filters: Partial<Filters>) => {
   const { isActive, search } = filters
   let filteredUsers = users
 
-  if (isActive) {
-    filteredUsers = users.filter((user) => !('resignedAt' in user))
-  } else {
-    filteredUsers = users.filter((user) => 'resignedAt' in user)
-  }
+  filteredUsers = users.filter((user) => user.active === isActive)
 
   if (search) {
     filteredUsers = users.filter((user) => user.fullname.toLowerCase().includes(search.toLowerCase()))

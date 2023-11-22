@@ -9,8 +9,5 @@ export type User = {
   avatar: string
   projects: number
   notes: string
-}
-
-export type InactiveUser = User & {
-  resignedAt: string
+  active: boolean
 }

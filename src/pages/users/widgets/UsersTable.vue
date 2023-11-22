@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { defineVaDataTableColumns, useModal } from 'vuestic-ui'
-  import { InactiveUser, User, UserRole } from '../types'
+  import { User, UserRole } from '../types'
   import UserAvatar from './UserAvatar.vue'
   import { PropType, computed, toRef } from 'vue'
   import { Filters } from '../../../data/pages/users'
@@ -16,7 +16,7 @@
 
   const props = defineProps({
     users: {
-      type: Array as PropType<(User | InactiveUser)[]>,
+      type: Array as PropType<User[]>,
       required: true,
     },
     loading: { type: Boolean, default: false },
@@ -32,8 +32,6 @@
   }
 
   const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagination.perPage))
-
-  const isActiveUser = (user: User) => !('resignedAt' in user)
 
   const emit = defineEmits<{
     (event: 'edit-user', user: User): void
@@ -70,7 +68,7 @@
     </template>
 
     <template #cell(actions)="{ rowData }">
-      <div v-if="isActiveUser(rowData)" class="flex gap-2 justify-end">
+      <div v-if="rowData.active" class="flex gap-2 justify-end">
         <va-button preset="primary" icon="edit" size="small" @click="$emit('edit-user', rowData as User)" />
         <va-button preset="primary" icon="delete" size="small" color="danger" @click="onUserDelete(rowData as User)" />
       </div>

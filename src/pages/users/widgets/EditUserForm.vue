@@ -19,6 +19,7 @@
     username: '',
     notes: '',
     email: '',
+    active: true,
     // TODO: Not sure if project must be here
     projects: 0,
   })
@@ -103,7 +104,8 @@
       />
 
       <va-input v-model="newUser.username" label="Username" class="w-full" :rules="[required]" name="username" />
-      <va-input v-model="newUser.email" label="Email" class="w-full" :rules="[required]" name="username" />
+      <va-input v-model="newUser.email" label="Email" class="w-full" :rules="[required]" name="email" />
+      <va-checkbox v-model="newUser.active" label="Active" class="w-full" name="active" />
 
       <va-textarea v-model="newUser.notes" label="Notes" class="w-full" name="notes" />
       <div class="flex gap-2 flex-col-reverse items-stretch justify-end w-full sm:flex-row sm:items-center">

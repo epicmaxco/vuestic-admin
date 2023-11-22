@@ -93,7 +93,6 @@
         @edit-user="showEditUserModal"
         @delete-user="onUserDelete"
       />
-      <!-- <InactiveUsersTable v-else /> -->
     </va-card-content>
   </va-card>
 
