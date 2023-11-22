@@ -20,7 +20,7 @@
   })
 
   const isUrl = (avatar: string) => {
-    return avatar.startsWith('http')
+    return avatar.startsWith('http') || avatar.startsWith('blob:')
   }
 </script>
 
