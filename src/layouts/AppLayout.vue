@@ -9,12 +9,7 @@
     </template>
 
     <template #left>
-      <AppSidebar
-        :width="sidebarWidth"
-        :minimized="isSidebarMinimized"
-        :minimized-width="sidebarMinimizedWidth"
-        :animated="!isMobile"
-      />
+      <AppSidebar :minimized="isSidebarMinimized" :animated="!isMobile" />
     </template>
 
     <template #content>
@@ -37,6 +32,7 @@
 import { onBeforeUnmount, onMounted, ref, computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { onBeforeRouteUpdate } from 'vue-router'
+import { useBreakpoint } from 'vuestic-ui'
 
 import { useGlobalStore } from '../stores/global-store'
 
@@ -45,6 +41,8 @@ import AppNavbar from '../components/navbar/AppNavbar.vue'
 import AppSidebar from '../components/sidebar/AppSidebar.vue'
 
 const GlobalStore = useGlobalStore()
+
+const breakpoints = useBreakpoint()
 
 const mobileBreakPointPX = 640
 const tabletBreakPointPX = 768
