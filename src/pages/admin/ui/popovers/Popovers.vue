@@ -1,89 +1,90 @@
 <template>
   <div class="tooltips grid grid-cols-12 items-start gap-6">
-    <va-card class="col-span-12 md:col-span-6">
-      <va-card-title>{{ t('popovers.popoverStyle') }}</va-card-title>
-      <va-card-content>
-        <va-select v-model="popover.color" class="mb-8" label="color scheme" :options="colors" />
-        <va-select v-model="popover.icon" class="mb-8" label="icon (font-awesome)" :options="icons" track-by="icon" />
-        <va-input v-model="popover.title" class="mb-8" label="Title" />
-        <va-input v-model="popover.message" class="mb-8" label="Message" />
+    <VaCard class="col-span-12 md:col-span-6">
+      <VaCardTitle>{{ t('popovers.popoverStyle') }}</VaCardTitle>
+      <VaCardContent>
+        <VaSelect v-model="popover.color" :options="colors" class="mb-8" label="color scheme" />
+        <VaSelect v-model="popover.icon" :options="icons" class="mb-8" label="icon (font-awesome)" track-by="icon" />
+        <VaInput v-model="popover.title" class="mb-8" label="Title" />
+        <VaInput v-model="popover.message" class="mb-8" label="Message" />
         <div class="popover-example mt-5">
-          <va-popover
-            :icon="popover.icon.icon"
+          <VaPopover
             :color="popover.color"
-            :title="popover.title"
+            :icon="popover.icon.icon"
             :message="popover.message"
-            placement="right"
+            :title="popover.title"
             open
+            placement="right"
           >
-            <va-button>
+            <VaButton>
               {{ t('notificationsPage.popovers.showPopover') }}
-            </va-button>
-          </va-popover>
+            </VaButton>
+          </VaPopover>
         </div>
-      </va-card-content>
-    </va-card>
+      </VaCardContent>
+    </VaCard>
 
-    <va-card class="col-span-12 md:col-span-6">
-      <va-card-title>{{ t('popovers.popoverPlacement') }}</va-card-title>
-      <va-card-content>
+    <VaCard class="col-span-12 md:col-span-6">
+      <VaCardTitle>{{ t('popovers.popoverPlacement') }}</VaCardTitle>
+      <VaCardContent>
         <p class="my-2 mx-2">
           Any text can be used for
-          <va-popover placement="bottom" message="Bottom tooltip">
+          <VaPopover message="Bottom tooltip" placement="bottom">
             <a class="va-link">
               {{ t('notificationsPage.popovers.bottomTooltip') }}
             </a>
-          </va-popover>
+          </VaPopover>
           tooltip showcase. Just anything you can possibly imagine to test
-          <va-popover placement="right" message="Right tooltip">
+          <VaPopover message="Right tooltip" placement="right">
             <a class="va-link">
               {{ t('notificationsPage.popovers.rightTooltip') }}
             </a>
-          </va-popover>
+          </VaPopover>
           tooltip. But it can appear on the
-          <va-popover placement="left" message="Left tooltip">
+          <VaPopover message="Left tooltip" placement="left">
             <a class="va-link">
               {{ t('notificationsPage.popovers.leftTooltip') }}
             </a>
-          </va-popover>
+          </VaPopover>
           . Or just
-          <va-popover placement="top" message="Top tooltip">
+          <VaPopover message="Top tooltip" placement="top">
             <a class="va-link">
               {{ t('notificationsPage.popovers.topTooltip') }}
             </a>
-          </va-popover>
+          </VaPopover>
           the item.
         </p>
-      </va-card-content>
-    </va-card>
+      </VaCardContent>
+    </VaCard>
   </div>
 </template>
 
-<script setup lang="ts">
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
-  const { t } = useI18n()
+<script lang="ts" setup>
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-  const icons = ref([
-    {
-      icon: 'print',
-      text: 'print',
-    },
-    {
-      icon: 'star',
-      text: 'star',
-    },
-  ])
+const { t } = useI18n()
 
-  const colors = ref(['success', 'info', 'danger', 'warning', 'gray', 'dark'])
+const icons = ref([
+  {
+    icon: 'print',
+    text: 'print',
+  },
+  {
+    icon: 'star',
+    text: 'star',
+  },
+])
 
-  const popover = ref({
-    title: 'Hey folks!',
-    message: 'This tooltip is amazing :D',
-    icon: {
-      icon: 'print',
-      text: 'print',
-    },
-    color: 'warning',
-  })
+const colors = ref(['success', 'info', 'danger', 'warning', 'gray', 'dark'])
+
+const popover = ref({
+  title: 'Hey folks!',
+  message: 'This tooltip is amazing :D',
+  icon: {
+    icon: 'print',
+    text: 'print',
+  },
+  color: 'warning',
+})
 </script>

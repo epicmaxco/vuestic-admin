@@ -233,6 +233,10 @@ export default {
           name: 'users',
           displayName: 'menu.users',
         },
+        {
+          name: 'billing',
+          displayName: 'menu.billing',
+        },
       ],
     },
   ] as INavigationRoute[],

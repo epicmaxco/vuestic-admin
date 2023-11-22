@@ -42,6 +42,7 @@ export const usePaymentCardsStore = defineStore({
     loading: false,
   }),
   getters: {
+    currentPaymentCard: (state): PaymentCard | undefined => state.paymentCards.find((card) => card.isPrimary),
     allPaymentCards: (state) => state.paymentCards,
   },
   actions: {

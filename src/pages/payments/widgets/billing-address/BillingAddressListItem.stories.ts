@@ -26,11 +26,11 @@ export const Default = () => ({
   },
   template: `
     <BillingAddressListItem
-      :billingAddress="address"
-      @remove="lastEvent = 'remove'"
-      @edit="lastEvent = 'edit'"
+        :billingAddress="address"
+        @remove="lastEvent = 'remove'"
+        @edit="lastEvent = 'edit'"
     />
     <br>
-    <p>Last event: <span data-testid="lastEvent">{{lastEvent}}</span></p>
+    <p>Last event: <span data-testid="lastEvent">{{ lastEvent }}</span></p>
   `,
 })

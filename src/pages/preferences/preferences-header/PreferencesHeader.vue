@@ -1,5 +1,5 @@
 <template>
-  <va-avatar size="large" :src="store.pfp" />
+  <VaAvatar :src="store.pfp" size="large" />
   <div class="flex flex-col justify-center">
     <h2 class="text-[28px] md:text-[32px] leading-10 font-bold">{{ store.userName }}</h2>
     <div class="flex space-x-1 text-[13px] leading-4">
@@ -8,8 +8,8 @@
     </div>
   </div>
 </template>
-<script setup lang="ts">
-  import { useUserStore } from '../../../stores/user-store'
+<script lang="ts" setup>
+import { useUserStore } from '../../../stores/user-store'
 
-  const store = useUserStore()
+const store = useUserStore()
 </script>

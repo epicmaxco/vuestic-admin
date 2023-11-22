@@ -6,11 +6,11 @@
         {{ store.userName }}
       </div>
     </div>
-    <va-button class="w-fit h-fit" preset="primary" :style="buttonStyles" @click="emits('openNameModal')">
+    <VaButton :style="buttonStyles" class="w-fit h-fit" preset="primary" @click="emits('openNameModal')">
       Edit
-    </va-button>
+    </VaButton>
   </div>
-  <va-divider />
+  <VaDivider />
   <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 min-h-[36px] leading-5">
     <p class="font-bold w-[200px]">Email</p>
     <div class="flex-1">
@@ -24,11 +24,11 @@
     <div class="flex-1">
       <div class="max-w-[748px]">•••••••••••••</div>
     </div>
-    <va-button class="w-fit h-fit" preset="primary" :style="buttonStyles" @click="emits('openResetPasswordModal')">
+    <VaButton :style="buttonStyles" class="w-fit h-fit" preset="primary" @click="emits('openResetPasswordModal')">
       Reset Password
-    </va-button>
+    </VaButton>
   </div>
-  <va-divider />
+  <VaDivider />
   <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 min-h-[36px] leading-5">
     <p class="font-bold w-[200px]">Two-factor authentication</p>
     <div class="flex-1">
@@ -36,11 +36,11 @@
         {{ twoFA.content }}
       </div>
     </div>
-    <va-button class="w-fit h-fit" preset="primary" :style="buttonStyles" @click="toggle2FA">
+    <VaButton :style="buttonStyles" class="w-fit h-fit" preset="primary" @click="toggle2FA">
       {{ twoFA.button }}
-    </va-button>
+    </VaButton>
   </div>
-  <va-divider />
+  <VaDivider />
   <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 min-h-[36px] leading-5">
     <p class="font-bold w-[200px]">Email subscriptions</p>
     <div class="flex-1">
@@ -49,48 +49,48 @@
         <div class="flex space-x-1 w-fit">
           <p class="font-semibold text-primary">Subscriptions Preferences Center</p>
           <div>
-            <va-icon size="14px" color="primary" name="mso-arrow_outward" />
+            <VaIcon color="primary" name="mso-arrow_outward" size="14px" />
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
-<script setup lang="ts">
-  import { computed } from 'vue'
+<script lang="ts" setup>
+import { computed } from 'vue'
 
-  import { useToast } from 'vuestic-ui/web-components'
+import { useToast } from 'vuestic-ui/web-components'
 
-  import { useUserStore } from '../../../stores/user-store'
+import { useUserStore } from '../../../stores/user-store'
 
-  import { buttonStyles } from '../styles'
+import { buttonStyles } from '../styles'
 
-  const store = useUserStore()
+const store = useUserStore()
 
-  const { init } = useToast()
+const { init } = useToast()
 
-  const toastMessage = computed(() => (store.is2FAEnabled ? '2FA successfully enabled' : '2FA successfully disabled'))
+const toastMessage = computed(() => (store.is2FAEnabled ? '2FA successfully enabled' : '2FA successfully disabled'))
 
-  const twoFA = computed(() => {
-    if (store.is2FAEnabled) {
-      return {
-        button: 'Disable 2FA',
-        content:
-          'Two-Factor Authentication (2FA) is now enabled for your account, adding an extra layer of security to your sign-ins.',
-      }
-    } else {
-      return {
-        button: 'Set Up 2FA',
-        content:
-          'Add an extra layer of security to your account. To sign in, you’ll need to provide a code along with your username and password.',
-      }
+const twoFA = computed(() => {
+  if (store.is2FAEnabled) {
+    return {
+      button: 'Disable 2FA',
+      content:
+        'Two-Factor Authentication (2FA) is now enabled for your account, adding an extra layer of security to your sign-ins.',
     }
-  })
-
-  const toggle2FA = () => {
-    store.toggle2FA()
-    init({ message: toastMessage.value, color: 'success' })
+  } else {
+    return {
+      button: 'Set Up 2FA',
+      content:
+        'Add an extra layer of security to your account. To sign in, you’ll need to provide a code along with your username and password.',
+    }
   }
+})
 
-  const emits = defineEmits(['openNameModal', 'openResetPasswordModal'])
+const toggle2FA = () => {
+  store.toggle2FA()
+  init({ message: toastMessage.value, color: 'success' })
+}
+
+const emits = defineEmits(['openNameModal', 'openResetPasswordModal'])
 </script>

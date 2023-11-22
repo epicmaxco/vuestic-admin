@@ -1,9 +1,9 @@
 <template>
-  <va-content class="typography content">
+  <VaContent class="typography content">
     <div class="grid grid-cols-12 gap-6">
-      <va-card class="col-span-12">
-        <va-card-title>{{ t('typography.primary') }}</va-card-title>
-        <va-card-content>
+      <VaCard class="col-span-12">
+        <VaCardTitle>{{ t('typography.primary') }}</VaCardTitle>
+        <VaCardContent>
           <div class="mb-8">
             <h1>Display 1 Heading</h1>
             <p>
@@ -64,12 +64,12 @@
               it’s own satellite, the moon.
             </p>
           </div>
-        </va-card-content>
-      </va-card>
+        </VaCardContent>
+      </VaCard>
 
-      <va-card class="col-span-12">
-        <va-card-title>{{ t('typography.secondary') }}</va-card-title>
-        <va-card-content>
+      <VaCard class="col-span-12">
+        <VaCardTitle>{{ t('typography.secondary') }}</VaCardTitle>
+        <VaCardContent>
           <p class="va-h3">Lists</p>
           <ol class="va-ordered">
             <li>
@@ -135,8 +135,8 @@
           </ul>
           <p class="va-h3">Links</p>
           <div class="mb-8">
-            <a href="/default" class="link mr-8" @click.prevent> Default Link </a>
-            <a href="/secondary" class="link-secondary" @click.prevent> Secondary Link </a>
+            <a class="link mr-8" href="/default" @click.prevent> Default Link </a>
+            <a class="link-secondary" href="/secondary" @click.prevent> Secondary Link </a>
           </div>
           <div class="mb-8">
             <p class="va-h3">Other Elements</p>
@@ -147,7 +147,7 @@
             </p>
           </div>
           <div class="mb-8">
-            <blockquote class="va-blockquote" :style="{ borderColor: colors.primary }">
+            <blockquote :style="{ borderColor: colors.primary }" class="va-blockquote">
               <p>
                 BQ: Let’s talk about meat fondue recipes and what you need to know first. Meat fondue also known as oil
                 fondue is a method of cooking all kinds.
@@ -183,30 +183,30 @@
               </tbody>
             </table>
           </div>
-        </va-card-content>
-      </va-card>
+        </VaCardContent>
+      </VaCard>
     </div>
-  </va-content>
+  </VaContent>
 </template>
 
-<script setup lang="ts">
-  import { ref } from 'vue'
-  import { useI18n } from 'vue-i18n'
-  import { useColors } from 'vuestic-ui'
+<script lang="ts" setup>
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useColors } from 'vuestic-ui'
 
-  const { t } = useI18n()
-  const { colors } = useColors()
+const { t } = useI18n()
+const { colors } = useColors()
 
-  const tableData = ref([
-    ['Id', 'FooBar type', 'Actions'],
-    ['1', 'Zebra', 'Delete'],
-    ['2', 'Not Zebra', 'Remove'],
-    ['3', 'Very Zebra', 'Eradicate'],
-  ])
+const tableData = ref([
+  ['Id', 'FooBar type', 'Actions'],
+  ['1', 'Zebra', 'Delete'],
+  ['2', 'Not Zebra', 'Remove'],
+  ['3', 'Very Zebra', 'Eradicate'],
+])
 </script>
 
 <style lang="scss" scoped>
-  .text--secondary {
-    color: var(--va-secondary);
-  }
+.text--secondary {
+  color: var(--va-secondary);
+}
 </style>

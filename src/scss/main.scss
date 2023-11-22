@@ -6,19 +6,15 @@
 @import 'icon-fonts/index';
 
 html {
-  line-height: 1.15;
+  @apply text-base;
 }
 
 body {
-  line-height: 1;
-
   // TODO Move to some other place so that it's more elegant.
-  font-size: 14px;
   --va-checkbox-font-size: 0.875rem;
   --va-card-box-shadow: none; // TODO Remove after https://github.com/epicmaxco/vuestic-ui/issues/3964
   --va-card-padding: 1rem;
   --va-font-family: 'Inter', sans-serif;
-  --va-button-font-size: 0.875rem;
 }
 
 code,
@@ -36,12 +32,30 @@ pre {
 }
 
 .page-title {
-  @apply text-[32px] md:text-5xl font-bold leading-9 md:leading-[56px];
+  @apply text-[32px] md:text-5xl font-bold leading-9 md:leading-[56px] mb-6 md:mb-4;
 }
+
+.h1 {
+  @apply text-[32px] md:text-5xl font-bold leading-9 md:leading-[56px] mb-6 md:mb-4;
+}
+
+.h3 {
+  @apply text-2xl font-bold leading-[30px] mb-2;
+}
+
 .h5 {
   @apply font-bold leading-tight;
 }
 
+.block-title {
+  @apply text-2xl font-bold mb-2;
+}
+
 .pricing-plan-card-title {
   @apply text-[28px] md:text-[32px] leading-10 font-bold;
+}
+
+.text-regular-small {
+  font-size: 0.8125rem;
+  line-height: 1rem;
 }

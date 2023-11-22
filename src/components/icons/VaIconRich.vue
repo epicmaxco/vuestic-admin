@@ -1,10 +1,10 @@
 <template>
-  <svg class="va-icon-rich" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.99 55">
+  <svg class="va-icon-rich" viewBox="0 0 56.99 55" xmlns="http://www.w3.org/2000/svg">
     <defs />
     <title>overview_icon_6</title>
     <g id="Layer_2" data-name="Layer 2">
       <g id="Layer_1-2" data-name="Layer 1">
-        <rect class="cls-1" x="10.31" y="30.5" width="37.33" height="23" />
+        <rect class="cls-1" height="23" width="37.33" x="10.31" y="30.5" />
         <path
           class="cls-2"
           d="M57,41.18l-7.85-16V24H8.81v1.11L0,41.11l2.63,1.45L8.81,31.33V55H49.15V32L54.3,42.5ZM46.15,52H11.81V27H46.15Z"
@@ -24,17 +24,17 @@
 </template>
 
 <style lang="scss">
-  .va-icon-rich {
-    display: inline-block;
-    width: 57px;
-    height: 55px;
+.va-icon-rich {
+  display: inline-block;
+  width: 57px;
+  height: 55px;
 
-    .cls-1 {
-      fill: #4ae387;
-    }
-
-    .cls-2 {
-      fill: #34495e;
-    }
+  .cls-1 {
+    fill: #4ae387;
   }
+
+  .cls-2 {
+    fill: #34495e;
+  }
+}
 </style>
