@@ -20,7 +20,6 @@
     notes: '',
     email: '',
     active: true,
-    // TODO: Not sure if project must be here
     projects: 0,
   })
 
