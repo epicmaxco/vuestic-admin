@@ -177,5 +177,8 @@ export const updateUser = async (user: User) => {
 
 export const removeUser = async (user: User) => {
   await sleep(1000)
-  users.splice(users.indexOf(user), 1)
+  users.splice(
+    users.findIndex((u) => u.id === user.id),
+    1,
+  )
 }

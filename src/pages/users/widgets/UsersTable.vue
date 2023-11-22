@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { defineVaDataTableColumns } from 'vuestic-ui'
+  import { defineVaDataTableColumns, useModal } from 'vuestic-ui'
   import { InactiveUser, User, UserRole } from '../types'
   import UserAvatar from './UserAvatar.vue'
   import { PropType, computed, toRef } from 'vue'
@@ -31,14 +31,29 @@
     owner: 'warning',
   }
 
-  defineEmits<{
+  const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagination.perPage))
+
+  const isActiveUser = (user: User) => !('resignedAt' in user)
+
+  const emit = defineEmits<{
     (event: 'edit-user', user: User): void
     (event: 'delete-user', user: User): void
   }>()
 
-  const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagination.perPage))
+  const { confirm } = useModal()
 
-  const isActiveUser = (user: User) => !('resignedAt' in user)
+  const onUserDelete = async (user: User) => {
+    const agreed = await confirm({
+      message: `Are you sure you want to delete ${user.fullname}?`,
+      okText: 'Delete',
+      cancelText: 'Cancel',
+      size: 'small',
+    })
+
+    if (agreed) {
+      emit('delete-user', user)
+    }
+  }
 </script>
 
 <template>
@@ -57,13 +72,7 @@
     <template #cell(actions)="{ rowData }">
       <div v-if="isActiveUser(rowData)" class="flex gap-2 justify-end">
         <va-button preset="primary" icon="edit" size="small" @click="$emit('edit-user', rowData as User)" />
-        <va-button
-          preset="primary"
-          icon="delete"
-          size="small"
-          color="danger"
-          @click="$emit('delete-user', rowData as User)"
-        />
+        <va-button preset="primary" icon="delete" size="small" color="danger" @click="onUserDelete(rowData as User)" />
       </div>
     </template>
 

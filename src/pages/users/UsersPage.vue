@@ -5,6 +5,7 @@
   import { User } from './types'
   import { useUsers } from './composables/useUsers'
   import { Filters } from '../../data/pages/users'
+  import { useToast } from 'vuestic-ui'
 
   const filters = ref<Filters>({
     isActive: true,
@@ -32,12 +33,30 @@
     doShowEditUserModal.value = true
   }
 
-  const onUserSaved = (user: User) => {
+  const { init: notify } = useToast()
+
+  const onUserSaved = async (user: User) => {
     if (userToEdit.value) {
-      usersApi.update(user)
+      await usersApi.update(user)
+      notify({
+        message: `${user.fullname} has been updated`,
+        color: 'success',
+      })
     } else {
       usersApi.add(user)
+      notify({
+        message: `${user.fullname} has been updated`,
+        color: 'success',
+      })
     }
+  }
+
+  const onUserDelete = async (user: User) => {
+    await usersApi.remove(user)
+    notify({
+      message: `${user.fullname} has been deleted`,
+      color: 'success',
+    })
   }
 </script>
 
@@ -72,7 +91,7 @@
         :loading="isLoading"
         :pagination="filters.pagination"
         @edit-user="showEditUserModal"
-        @delete-user="(user) => usersApi.remove(user)"
+        @delete-user="onUserDelete"
       />
       <!-- <InactiveUsersTable v-else /> -->
     </va-card-content>
