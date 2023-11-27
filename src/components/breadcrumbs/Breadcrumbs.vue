@@ -20,19 +20,41 @@ import { useColors } from 'vuestic-ui'
 import VaIconMenuCollapsed from '../icons/VaIconMenuCollapsed.vue'
 import { storeToRefs } from 'pinia'
 import { useGlobalStore } from '../../stores/global-store'
+import NavigationRoutes from '../sidebar/NavigationRoutes'
 
 const { isSidebarMinimized } = storeToRefs(useGlobalStore())
 
 const route = useRoute()
 const { t } = useI18n()
 
-const items = computed(() => {
-  return route.matched.map((route) => {
-    return {
-      label: t(route.name),
-      to: route.path,
+const findRouteName = (name: string) => {
+  const traverse = (routers: any[]): string => {
+    for (const router of routers) {
+      if (router.name === name) {
+        return router.displayName
+      }
+      if (router.children) {
+        const result = traverse(router.children)
+        if (result) {
+          return result
+        }
+      }
     }
-  })
+    return ''
+  }
+
+  return traverse(NavigationRoutes.routes)
+}
+
+const items = computed(() => {
+  return route.matched
+    .map((route) => {
+      return {
+        label: t(findRouteName(route.name as string)),
+        to: route.path,
+      }
+    })
+    .filter((route) => route.label)
 })
 
 const { getColor } = useColors()
