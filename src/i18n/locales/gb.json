@@ -342,7 +342,8 @@
     "login-singup": "Login/Signup",
     "404-pages": "404 Pages",
     "faq": "Faq",
-    "users": "Users"
+    "users": "Users",
+    "projects": "Projects"
   },
   "messages": {
     "all": "See all messages",

@@ -234,6 +234,10 @@ export default {
           displayName: 'menu.users',
         },
         {
+          name: 'projects',
+          displayName: 'menu.projects',
+        },
+        {
           name: 'billing',
           displayName: 'menu.billing',
         },
