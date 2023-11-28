@@ -15,6 +15,8 @@ const filters = ref<Filters>({
     perPage: 10,
     total: 250,
   },
+  sortBy: 'fullname',
+  sortingOrder: null,
 })
 
 const doShowEditUserModal = ref(false)
@@ -87,6 +89,8 @@ const onUserDelete = async (user: User) => {
       </div>
 
       <UsersTable
+        v-model:sort-by="filters.sortBy"
+        v-model:sorting-order="filters.sortingOrder"
         :users="users"
         :loading="isLoading"
         :pagination="filters.pagination"

@@ -4,6 +4,7 @@ import { User, UserRole } from '../types'
 import UserAvatar from './UserAvatar.vue'
 import { PropType, computed, toRef } from 'vue'
 import { Filters } from '../../../data/pages/users'
+import { useVModel } from '@vueuse/core'
 
 const columns = defineVaDataTableColumns([
   { label: 'Full Name', key: 'fullname', sortable: true },
@@ -21,9 +22,20 @@ const props = defineProps({
   },
   loading: { type: Boolean, default: false },
   pagination: { type: Object as PropType<Filters['pagination']>, required: true },
+  sortBy: { type: String as PropType<Filters['sortBy']>, required: true },
+  sortingOrder: { type: String as PropType<Filters['sortingOrder']>, required: true },
 })
 
+const emit = defineEmits<{
+  (event: 'edit-user', user: User): void
+  (event: 'delete-user', user: User): void
+  (event: 'update:sortBy', sortBy: Filters['sortBy']): void
+  (event: 'update:sortingOrder', sortingOrder: Filters['sortingOrder']): void
+}>()
+
 const users = toRef(props, 'users')
+const sortByVModel = useVModel(props, 'sortBy', emit)
+const sortingOrderVModel = useVModel(props, 'sortingOrder', emit)
 
 const roleColors: Record<UserRole, string> = {
   admin: 'danger',
@@ -32,11 +44,6 @@ const roleColors: Record<UserRole, string> = {
 }
 
 const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagination.perPage))
-
-const emit = defineEmits<{
-  (event: 'edit-user', user: User): void
-  (event: 'delete-user', user: User): void
-}>()
 
 const { confirm } = useModal()
 
@@ -55,7 +62,13 @@ const onUserDelete = async (user: User) => {
 </script>
 
 <template>
-  <VaDataTable :columns="columns" :items="users" :loading="$props.loading">
+  <VaDataTable
+    v-model:sort-by="sortByVModel"
+    v-model:sorting-order="sortingOrderVModel"
+    :columns="columns"
+    :items="users"
+    :loading="$props.loading"
+  >
     <template #cell(fullname)="{ rowData }">
       <div class="flex items-center gap-2">
         <UserAvatar :user="rowData" size="small" />
@@ -68,7 +81,7 @@ const onUserDelete = async (user: User) => {
     </template>
 
     <template #cell(actions)="{ rowData }">
-      <div v-if="rowData.active" class="flex gap-2 justify-end">
+      <div class="flex gap-2 justify-end">
         <VaButton preset="primary" icon="edit" size="small" @click="$emit('edit-user', rowData as User)" />
         <VaButton preset="primary" icon="delete" size="small" color="danger" @click="onUserDelete(rowData as User)" />
       </div>
@@ -84,25 +97,27 @@ const onUserDelete = async (user: User) => {
               <VaSelect v-model="$props.pagination.perPage" class="!w-20" :options="[10, 50, 100]" />
             </div>
 
-            <div class="flex">
-              <!-- <va-button
+            <div v-if="totalPages > 1" class="flex">
+              <VaButton
                 preset="secondary"
                 icon="va-arrow-left"
-                :disabled="$props.pagination.page === 0"
+                :disabled="$props.pagination.page === 1"
                 @click="$props.pagination.page--"
               />
-              <va-button
+              <VaButton
                 class="mr-2"
                 preset="secondary"
                 icon="va-arrow-right"
-                :disabled="$props.pagination.page === totalPages - 1"
+                :disabled="$props.pagination.page === totalPages"
                 @click="$props.pagination.page++"
-              /> -->
+              />
               <VaPagination
                 v-model="$props.pagination.page"
                 buttons-preset="secondary"
                 :pages="totalPages"
                 :visible-pages="5"
+                :boundary-links="false"
+                :direction-links="false"
                 boundary-numbers
               />
             </div>

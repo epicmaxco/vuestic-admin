@@ -33,21 +33,21 @@ export const useUsers = (filters: Ref<Filters>) => {
     async add(user: User) {
       isLoading.value = true
       await addUser(user)
-      await fetch()
+      users.value.unshift(user)
       isLoading.value = false
     },
 
     async update(user: User) {
       isLoading.value = true
       await updateUser(user)
-      await fetch()
+      users.value = users.value.map((u) => (u.id === user.id ? user : u))
       isLoading.value = false
     },
 
     async remove(user: User) {
       isLoading.value = true
       await removeUser(user)
-      await fetch()
+      users.value = users.value.filter((u) => u.id !== user.id)
       isLoading.value = false
     },
   }
