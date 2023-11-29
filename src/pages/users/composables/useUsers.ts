@@ -2,7 +2,7 @@ import { Ref, ref, unref, watch } from 'vue'
 import { getUsers, updateUser, addUser, removeUser, type Filters } from '../../../data/pages/users'
 import { User } from '../types'
 
-export const useUsers = (filters: Ref<Filters>) => {
+export const useUsers = (filters: Ref<Partial<Filters>>) => {
   const isLoading = ref(false)
   const users = ref<User[]>([])
 

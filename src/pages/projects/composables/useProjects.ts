@@ -1,5 +1,5 @@
 import { Ref, ref, unref, watch } from 'vue'
-import { getProjects, Filters } from '../../../data/pages/projects'
+import { getProjects, addProject, updateProject, removeProject, Filters } from '../../../data/pages/projects'
 import { Project } from '../types'
 
 export const useProjects = (filters: Ref<Filters>) => {
@@ -30,25 +30,37 @@ export const useProjects = (filters: Ref<Filters>) => {
 
     fetch,
 
-    // async add(user: User) {
-    //   isLoading.value = true
-    //   await addUser(user)
-    //   projects.value.unshift(user)
-    //   isLoading.value = false
-    // },
+    async add(project: Omit<Project, 'id' | 'creation_date'>) {
+      isLoading.value = true
+      const createdProject = await addProject({
+        ...project,
+        project_owner: project.project_owner.id,
+        team: project.team.map((user) => user.id),
+      })
+      projects.value.unshift(createdProject as Project)
+      isLoading.value = false
+    },
 
-    // async update(user: User) {
-    //   isLoading.value = true
-    //   await updateUser(user)
-    //   projects.value = projects.value.map((u) => (u.id === user.id ? user : u))
-    //   isLoading.value = false
-    // },
+    async update(project: Project) {
+      isLoading.value = true
+      await updateProject({
+        ...project,
+        project_owner: project.project_owner.id,
+        team: project.team.map((user) => user.id),
+      })
+      projects.value = projects.value.map((u) => (u.id === project.id ? project : u))
+      isLoading.value = false
+    },
 
-    // async remove(user: User) {
-    //   isLoading.value = true
-    //   await removeUser(user)
-    //   projects.value = projects.value.filter((u) => u.id !== user.id)
-    //   isLoading.value = false
-    // },
+    async remove(project: Project) {
+      isLoading.value = true
+      await removeProject({
+        ...project,
+        project_owner: project.project_owner.id,
+        team: project.team.map((user) => user.id),
+      })
+      projects.value = projects.value.filter((u) => u.id !== project.id)
+      isLoading.value = false
+    },
   }
 }
