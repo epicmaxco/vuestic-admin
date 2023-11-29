@@ -20,7 +20,7 @@
           <VaListItem
             v-for="item in group.list"
             :key="item.name"
-            class="px-4 text-base cursor-pointer hover:bg-blue-50 active:bg-blue-50"
+            class="px-4 text-base cursor-pointer hover:bg-focus active:bg-focus hover:bg-opacity-10 active:bg-opacity-10"
             :to="item.redirectTo"
           >
             <VaIcon :name="item.icon" class="px-1" />
