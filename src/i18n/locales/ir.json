@@ -453,8 +453,15 @@
   },
   "user": {
     "language": "تغییر زبان",
-    "logout": "برون رفت",
-    "profile": "نمایه من"
+    "logout": "خروج",
+    "profile": "پروفایل من",
+    "settings": "تنظیمات",
+    "billing": "صورتحساب",
+    "faq": "سؤالات متداول",
+    "helpAndSupport": "کمک و پشتیبانی",
+    "projects": "پروژه ها",
+    "account": "حساب",
+    "explore": "کاوش"
   },
   "treeView": {
     "basic": "اصلی",
@@ -506,5 +513,9 @@
       "action1": "اقدام یک",
       "action2": "اقدام دو"
     }
+  },
+  "helpAndSupport": "کمک و پشتیبانی",
+  "search": {
+    "placeholder": "جستجو..."
   }
 }
