@@ -9,7 +9,7 @@
           </span>
         </VaButton>
       </template>
-      <VaDropdownContent class="profile-dropdown__content w-60 p-0">
+      <VaDropdownContent class="profile-dropdown__content md:w-60 p-0 w-full">
         <VaList v-for="group in options" :key="group.name" class="space-y-2 mb-2">
           <header
             v-if="group.name"
