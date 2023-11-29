@@ -57,7 +57,7 @@ const onProjectSaved = async (project: Project) => {
 </script>
 
 <template>
-  <h1 class="page-title">Users</h1>
+  <h1 class="page-title">Projects</h1>
 
   <VaCard>
     <VaCardContent>
