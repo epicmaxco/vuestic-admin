@@ -1,7 +1,9 @@
 <template>
-  <VaDropdown :offset="[13, 0]" class="color-dropdown pointer" stick-to-edges>
+  <VaDropdown :offset="[5, 0]" class="color-dropdown pointer" stick-to-edges>
     <template #anchor>
-      <VaIconColor />
+      <VaButton preset="secondary" color="textPrimary">
+        <VaIconColor />
+      </VaButton>
     </template>
 
     <VaDropdownContent class="color-dropdown__content pl-8 pr-8 pt-2 pb-2">

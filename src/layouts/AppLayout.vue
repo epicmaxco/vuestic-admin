@@ -5,7 +5,7 @@
     @leftOverlayClick="isSidebarVisible = false"
   >
     <template #top>
-      <AppNavbar />
+      <AppNavbar :is-mobile="isMobile" />
     </template>
 
     <template #left>

@@ -1,47 +1,33 @@
 <template>
   <div class="app-navbar-actions">
-    <ColorDropdown class="app-navbar-actions__item" />
-    <MessageDropdown class="app-navbar-actions__item" />
+    <SearchDropdown class="app-navbar-actions__item" :is-mobile="isMobile" />
+    <GithubButton v-if="!isMobile" class="app-navbar-actions__item" />
     <NotificationDropdown class="app-navbar-actions__item" />
-    <!-- <settings-dropdown class="app-navbar-actions__item" /> -->
-    <LanguageDropdown class="app-navbar-actions__item" />
-    <ProfileDropdown class="app-navbar-actions__item app-navbar-actions__item--profile">
-      <span>{{ userName }}</span>
-    </ProfileDropdown>
+    <VaButton
+      v-if="!isMobile"
+      preset="secondary"
+      to=""
+      color="textPrimary"
+      class="app-navbar-actions__item flex-shrink-0 mx-0"
+    >
+      {{ t('helpAndSupport') }}
+    </VaButton>
+    <ProfileDropdown class="app-navbar-actions__item app-navbar-actions__item--profile mr-0" />
   </div>
 </template>
 
 <script lang="ts" setup>
-import LanguageDropdown from './dropdowns/LanguageDropdown.vue'
 import ProfileDropdown from './dropdowns/ProfileDropdown.vue'
 import NotificationDropdown from './dropdowns/NotificationDropdown.vue'
-import MessageDropdown from './dropdowns/MessageDropdown.vue'
-import ColorDropdown from './dropdowns/ColorDropdown.vue'
+import SearchDropdown from './dropdowns/SearchDropdown.vue'
+import GithubButton from './GitHubButton.vue'
 
-withDefaults(
-  defineProps<{
-    userName?: string
-    isTopBar?: boolean
-  }>(),
-  {
-    userName: '',
-    isTopBar: false,
-  },
-)
+defineProps({
+  isMobile: { type: Boolean, default: false },
+})
 
-defineEmits<{
-  (e: 'update:isTopBar', isTopBar: boolean): void
-}>()
-
-// const isTopBarProxy = computed({
-//   get() {
-//     return props.isTopBar
-//   },
-//
-//   set(isTopBar: boolean) {
-//     emit('update:isTopBar', isTopBar)
-//   },
-// })
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 </script>
 
 <style lang="scss">
@@ -56,21 +42,16 @@ defineEmits<{
 
   &__item {
     padding: 0;
-    margin-left: 1.25rem;
-    margin-right: 1.25rem;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
 
     svg {
-      height: 24px;
-    }
-
-    &:last-of-type {
-      margin-right: 0;
+      height: 20px;
     }
 
     &--profile {
       display: flex;
       justify-content: center;
-      margin: auto 0 auto 1.25rem;
     }
 
     .va-dropdown-content {
@@ -78,20 +59,17 @@ defineEmits<{
     }
 
     @media screen and (max-width: 640px) {
+      margin-left: 0;
       margin-right: 0;
 
       &:first-of-type {
         margin-left: 0;
       }
-
-      &--profile {
-        position: absolute;
-        right: 0.75rem;
-        top: 1.25rem;
-        height: fit-content;
-        margin: auto;
-      }
     }
+  }
+
+  .fa-github {
+    color: var(--va-on-background-primary);
   }
 }
 </style>
