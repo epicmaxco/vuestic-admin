@@ -7,14 +7,20 @@
     />
 
     <VaBreadcrumbs>
-      <VaBreadcrumbsItem v-for="item in items" :key="item.label" :label="item.label" />
+      <VaBreadcrumbsItem
+        v-for="item in items"
+        :key="item.label"
+        :label="item.label"
+        class="cursor-pointer"
+        @click="redirectTo(item.to)"
+      />
     </VaBreadcrumbs>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useColors } from 'vuestic-ui'
 import VaIconMenuCollapsed from '../icons/VaIconMenuCollapsed.vue'
@@ -24,6 +30,7 @@ import NavigationRoutes from '../sidebar/NavigationRoutes'
 
 const { isSidebarMinimized } = storeToRefs(useGlobalStore())
 
+const router = useRouter()
 const route = useRoute()
 const { t } = useI18n()
 
@@ -60,6 +67,10 @@ const items = computed(() => {
 const { getColor } = useColors()
 
 const collapseIconColor = computed(() => getColor('secondary'))
+
+const redirectTo = (to: string) => {
+  router.push(to)
+}
 </script>
 
 <style lang="scss" scoped>
