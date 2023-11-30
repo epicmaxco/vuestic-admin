@@ -1,6 +1,5 @@
 <template>
   <div class="flex flex-col space-y-6 md:space-y-4">
-    <Navigation />
     <h1 class="page-title">
       Settings
     </h1>
@@ -21,10 +20,10 @@
         <VaIcon size="26px" name="mso-notifications_active" />
       </template>
       <div class="flex flex-col space-y-2">
-        <p class="text-[18px] font-bold leading-[26px]">
+        <p class="text-regularLarge font-bold">
           Your notification settings are regrouped and simplified
         </p>
-        <p class="leading-5">
+        <p class="text-regularMedium">
           Your previous setting choices aren't changed. <u><b>Learn more</b></u>
         </p>
       </div>
@@ -34,7 +33,6 @@
 </template>
 <script lang="ts" setup>
 import LanguageSwitcher from './language-switcher/LanguageSwitcher.vue'
-import Navigation from './navigation/Navigation.vue'
 import ThemeSwitcher from './theme-switcher/ThemeSwitcher.vue'
 import Notifications from './notifications/Notifications.vue'
 </script>

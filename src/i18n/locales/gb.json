@@ -585,10 +585,6 @@
     "hidden": "Tabs with Hidden slider",
     "grow": "Tabs Grow"
   },
-  "breadcrumbs": {
-    "home": "Home",
-    "users": "Users"
-  },
   "buttonSelect": {
     "dark": "Dark",
     "light": "Light"
