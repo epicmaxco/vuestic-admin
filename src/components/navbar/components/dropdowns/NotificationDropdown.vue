@@ -1,5 +1,5 @@
 <template>
-  <VaDropdown :offset="[5, 0]" class="notification-dropdown" stick-to-edges>
+  <VaDropdown :offset="[13, 0]" class="notification-dropdown" stick-to-edges>
     <template #anchor>
       <VaButton preset="secondary" color="textPrimary">
         <VaBadge overlap>

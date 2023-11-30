@@ -1,5 +1,5 @@
 <template>
-  <VaDropdown :offset="[5, 0]" stick-to-edges :close-on-content-click="false">
+  <VaDropdown :offset="[13, 0]" stick-to-edges :close-on-content-click="false">
     <template #anchor>
       <VaButton preset="secondary" color="textPrimary">
         <VaIcon name="search" />

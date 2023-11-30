@@ -1,6 +1,6 @@
 <template>
   <div class="profile-dropdown-wrapper">
-    <VaDropdown v-model="isShown" :offset="[5, 0]" class="profile-dropdown" stick-to-edges>
+    <VaDropdown v-model="isShown" :offset="[9, 0]" class="profile-dropdown" stick-to-edges>
       <template #anchor>
         <VaButton preset="secondary" color="textPrimary">
           <span class="profile-dropdown__anchor min-w-max">
@@ -9,8 +9,8 @@
           </span>
         </VaButton>
       </template>
-      <VaDropdownContent class="profile-dropdown__content md:w-60 p-0 w-full">
-        <VaList v-for="group in options" :key="group.name" class="space-y-2 mb-2">
+      <VaDropdownContent class="profile-dropdown__content md:w-60 px-0 py-4 w-full">
+        <VaList v-for="group in options" :key="group.name" class="space-y-2">
           <header
             v-if="group.name"
             class="profile-dropdown__group-header uppercase text-gray-400 font-bold text-xs px-4"
