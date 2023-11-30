@@ -16,21 +16,19 @@
       </h3>
       <LanguageSwitcher />
     </div>
-    <div class="!mt-0">
-      <VaAlert class="rounded-lg p-4 m-0" closeable color="info">
-        <template #icon>
-          <VaIcon size="26px" name="mso-notifications_active" />
-        </template>
-        <div class="flex flex-col space-y-2">
-          <p class="text-[18px] font-bold leading-[26px]">
-            Your notification settings are regrouped and simplified
-          </p>
-          <p class="leading-5">
-            Your previous setting choices aren't changed. <u><b>Learn more</b></u>
-          </p>
-        </div>
-      </VaAlert>
-    </div>
+    <VaAlert class="rounded-lg p-4 m-0" closeable color="info">
+      <template #icon>
+        <VaIcon size="26px" name="mso-notifications_active" />
+      </template>
+      <div class="flex flex-col space-y-2">
+        <p class="text-[18px] font-bold leading-[26px]">
+          Your notification settings are regrouped and simplified
+        </p>
+        <p class="leading-5">
+          Your previous setting choices aren't changed. <u><b>Learn more</b></u>
+        </p>
+      </div>
+    </VaAlert>
     <Notifications />
   </div>
 </template>
