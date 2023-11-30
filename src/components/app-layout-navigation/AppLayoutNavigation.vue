@@ -1,7 +1,9 @@
 <template>
   <div class="flex gap-2">
     <VaIconMenuCollapsed
-      :class="{ 'x-flip': isSidebarMinimized }"
+      v-if="!isMobile"
+      class="cursor-pointer"
+      :class="{ 'x-flip': !isSidebarMinimized }"
       :color="collapseIconColor"
       @click="isSidebarMinimized = !isSidebarMinimized"
     />
@@ -12,7 +14,7 @@
         :key="item.label"
         :label="item.label"
         class="cursor-pointer"
-        @click="redirectTo(item.to)"
+        @click="handleBreadcrumbClick(item)"
       />
     </VaBreadcrumbs>
   </div>
@@ -28,11 +30,21 @@ import { storeToRefs } from 'pinia'
 import { useGlobalStore } from '../../stores/global-store'
 import NavigationRoutes from '../sidebar/NavigationRoutes'
 
+defineProps({
+  isMobile: { type: Boolean, default: false },
+})
+
 const { isSidebarMinimized } = storeToRefs(useGlobalStore())
 
 const router = useRouter()
 const route = useRoute()
 const { t } = useI18n()
+
+type BreadcrumbNavigationItem = {
+  label: string
+  to: string
+  hasChildren: boolean
+}
 
 const findRouteName = (name: string) => {
   const traverse = (routers: any[]): string => {
@@ -59,6 +71,7 @@ const items = computed(() => {
       return {
         label: t(findRouteName(route.name as string)),
         to: route.path,
+        hasChildren: route.children && route.children.length > 0,
       }
     })
     .filter((route) => route.label)
@@ -68,8 +81,10 @@ const { getColor } = useColors()
 
 const collapseIconColor = computed(() => getColor('secondary'))
 
-const redirectTo = (to: string) => {
-  router.push(to)
+const handleBreadcrumbClick = (item: BreadcrumbNavigationItem) => {
+  if (!item.hasChildren) {
+    router.push(item.to)
+  }
 }
 </script>
 
