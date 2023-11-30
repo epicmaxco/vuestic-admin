@@ -9,7 +9,7 @@
     </template>
 
     <template #left>
-      <AppSidebar :minimized="isSidebarMinimized" :animated="!isMobile" />
+      <AppSidebar :minimized="isSidebarMinimized" :animated="!isMobile" :mobile="isMobile" />
     </template>
 
     <template #content>
@@ -18,7 +18,7 @@
           <VaButton class="px-4 py-4" color="dark" icon="md_close" preset="plain" @click="onCloseSidebarButtonClick" />
         </div>
       </div>
-      <Breadcrumbs class="p-4" />
+      <AppLayoutNavigation :is-mobile="isMobile" class="p-4" />
       <main class="p-4">
         <article>
           <RouterView />
@@ -36,7 +36,7 @@ import { useBreakpoint } from 'vuestic-ui'
 
 import { useGlobalStore } from '../stores/global-store'
 
-import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs.vue'
+import AppLayoutNavigation from '../components/app-layout-navigation/AppLayoutNavigation.vue'
 import AppNavbar from '../components/navbar/AppNavbar.vue'
 import AppSidebar from '../components/sidebar/AppSidebar.vue'
 
@@ -53,7 +53,6 @@ const { isSidebarMinimized } = storeToRefs(GlobalStore)
 
 const onResize = () => {
   isSidebarMinimized.value = breakpoints.mdDown
-
   isMobile.value = breakpoints.smDown
   isTablet.value = breakpoints.mdDown
   sidebarMinimizedWidth.value = isMobile.value ? '0' : '4.5rem'
@@ -62,6 +61,7 @@ const onResize = () => {
 
 onMounted(() => {
   window.addEventListener('resize', onResize)
+  onResize()
 })
 
 onBeforeUnmount(() => {
@@ -74,8 +74,6 @@ onBeforeRouteUpdate(() => {
     isSidebarMinimized.value = true
   }
 })
-
-onResize()
 
 const isFullScreenSidebar = computed(() => isTablet.value && !isSidebarMinimized.value)
 
