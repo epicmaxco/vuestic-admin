@@ -5,6 +5,7 @@ import UserAvatar from './UserAvatar.vue'
 import { PropType, computed, toRef } from 'vue'
 import { Filters } from '../../../data/pages/users'
 import { useVModel } from '@vueuse/core'
+import { Project } from '../../projects/types'
 
 const columns = defineVaDataTableColumns([
   { label: 'Full Name', key: 'fullname', sortable: true },
@@ -59,6 +60,23 @@ const onUserDelete = async (user: User) => {
     emit('delete-user', user)
   }
 }
+
+const formatProjectNames = (projects: Project[]) => {
+  if (projects.length === 0) return 'No projects'
+  if (projects.length <= 2) {
+    return projects.map((project) => project.project_name).join(', ')
+  }
+
+  return (
+    projects
+      .slice(0, 2)
+      .map((project) => project.project_name)
+      .join(', ') +
+    ' + ' +
+    (projects.length - 2) +
+    ' more'
+  )
+}
 </script>
 
 <template>
@@ -78,6 +96,10 @@ const onUserDelete = async (user: User) => {
 
     <template #cell(role)="{ rowData }">
       <VaBadge :text="rowData.role" :color="roleColors[rowData.role as UserRole]" />
+    </template>
+
+    <template #cell(projects)="{ rowData }">
+      {{ formatProjectNames(rowData.projects) }}
     </template>
 
     <template #cell(actions)="{ rowData }">

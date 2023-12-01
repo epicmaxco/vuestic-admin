@@ -1,3 +1,5 @@
+import { Project } from '../projects/types'
+
 export type UserRole = 'admin' | 'user' | 'owner'
 
 export type User = {
@@ -7,7 +9,7 @@ export type User = {
   username: string
   role: UserRole
   avatar: string
-  projects: number
+  projects: Project[]
   notes: string
   active: boolean
 }

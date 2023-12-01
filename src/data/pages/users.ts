@@ -5,8 +5,8 @@ import projectsDb from './projects-db.json'
 
 export const users = usersDb as User[]
 
-const getUserProjectsCount = (userId: number | string) => {
-  return projectsDb.filter((project) => project.team.includes(Number(userId))).length
+const getUserProjects = (userId: number | string) => {
+  return projectsDb.filter((project) => project.team.includes(Number(userId)))
 }
 
 // Simulate API calls
@@ -51,7 +51,7 @@ export const getUsers = async (filters: Partial<Filters>) => {
   return {
     data: filteredUsers
       .slice((page - 1) * perPage, page * perPage)
-      .map((user) => ({ ...user, projects: getUserProjectsCount(user.id) })),
+      .map((user) => ({ ...user, projects: getUserProjects(user.id) })),
     pagination: {
       page,
       perPage,
