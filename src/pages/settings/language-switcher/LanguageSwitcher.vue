@@ -17,14 +17,14 @@ interface LanguageMap {
   [key: string]: string
 }
 
-const { t, locale } = useI18n()
+const { locale } = useI18n()
 
 const languages: LanguageMap = {
-  english: t('language.english'),
-  spanish: t('language.spanish'),
-  brazilian_portuguese: t('language.brazilian_portuguese'),
-  simplified_chinese: t('language.simplified_chinese'),
-  persian: t('language.persian'),
+  english: 'English',
+  spanish: 'Spanish',
+  brazilian_portuguese: 'Português',
+  simplified_chinese: 'Simplified Chinese',
+  persian: 'Persian',
 }
 
 const languageCodes: LanguageMap = {
