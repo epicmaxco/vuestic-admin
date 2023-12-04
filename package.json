@@ -44,7 +44,7 @@
     "vue-i18n": "^9.6.2",
     "vue-router": "^4.2.5",
     "vue-yandex-maps": "^0.12.3",
-    "vuestic-ui": "^1.8.4"
+    "vuestic-ui": "^1.8.5"
   },
   "devDependencies": {
     "@intlify/unplugin-vue-i18n": "^1.5.0",

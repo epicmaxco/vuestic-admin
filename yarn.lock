@@ -9583,10 +9583,10 @@ vue@^3.3.7:
     "@vue/server-renderer" "3.3.8"
     "@vue/shared" "3.3.8"
 
-vuestic-ui@^1.8.4:
-  version "1.8.4"
-  resolved "https://registry.yarnpkg.com/vuestic-ui/-/vuestic-ui-1.8.4.tgz#583e64711051d704886af44d997f9ba30a5139bf"
-  integrity sha512-AH0RFsnvBR/lOsgTfowkzt9TRnYo7C2XcXAZt8ILP0LWU0atciMJdMZ4e89TcNj0L/SOoijb+1lPx9e62mJTBg==
+vuestic-ui@^1.8.5:
+  version "1.8.5"
+  resolved "https://registry.yarnpkg.com/vuestic-ui/-/vuestic-ui-1.8.5.tgz#8bfd7303daf2a563419e014a2d88f006f5ae96d6"
+  integrity sha512-G+eQoQs+fGh+9elb7fjdU3eOIPw2rxW8/k4oq/tUM3S+RlJ0IjtOsJWt15DPMW+Slfjjc3JjX5HjZVQ+bUhA3g==
   dependencies:
     "@floating-ui/vue" "^1.0.1"
     "@types/lodash" "^4.14.161"
