@@ -38,7 +38,7 @@ export const addProject = async (project: Omit<(typeof projectsDb)[number], 'id'
   const newProject = {
     ...project,
     id: projectsDb.length + 1,
-    creation_date: new Date().toLocaleDateString('gb', { day: 'numeric', month: 'long', year: 'numeric' }),
+    creation_date: new Date().toLocaleDateString('gb', { day: 'numeric', month: 'short', year: 'numeric' }),
   }
 
   projectsDb.push(newProject)
