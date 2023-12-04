@@ -2,7 +2,7 @@
   <VaModal :mobile-fullscreen="false" hide-default-actions model-value @update:modelValue="emits('cancel')">
     <div class="space-y-6">
       <h3>
-        Are you sure you want to switch to
+        Are you sure you want to switch to the
         <span class="font-bold text-primary">{{ yearlyPlan ? 'monthly' : 'annual' }}</span>
         plan?
       </h3>
