@@ -332,6 +332,7 @@
     "sliders": "Sliders",
     "popovers": "Popovers",
     "payments": "Payments",
+    "settings": "Settings",
     "pricing-plans": "Pricing plans",
     "chat": "Chat",
     "maplibre-maps": "MapLibre Maps",
@@ -583,5 +584,9 @@
     "overflow": "Tabs Overflow",
     "hidden": "Tabs with Hidden slider",
     "grow": "Tabs Grow"
+  },
+  "buttonSelect": {
+    "dark": "Dark",
+    "light": "Light"
   }
 }

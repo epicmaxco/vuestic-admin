@@ -168,6 +168,11 @@ const routes: Array<RouteRecordRaw> = [
             path: 'pricing-plans',
             component: () => import('../pages/pricing-plans/PricingPlans.vue'),
           },
+          {
+            name: 'settings',
+            path: 'settings',
+            component: () => import('../pages/settings/Settings.vue'),
+          },
         ],
       },
       UIRoute,
