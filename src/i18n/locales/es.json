@@ -252,7 +252,18 @@
   },
   "user": {
     "language": "Cambiar Idioma",
+    "logout": "Cerrar sesión",
     "profile": "Mi Perfil",
-    "logout": "Cerrar Sesión"
+    "settings": "Configuración",
+    "billing": "Facturación",
+    "faq": "Preguntas Frecuentes",
+    "helpAndSupport": "Ayuda & Soporte",
+    "projects": "Proyectos",
+    "account": "Cuenta",
+    "explore": "Explorar"
+  },
+  "helpAndSupport": "Ayuda y Soporte",
+  "search": {
+    "placeholder": "Buscar..."
   }
 }

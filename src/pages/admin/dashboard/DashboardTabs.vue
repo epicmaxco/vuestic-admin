@@ -18,7 +18,7 @@
         </template>
       </VaTabs>
       <VaSeparator />
-      <component :is="tabs[activeTabName]" @submit="submit" />
+      <Component :is="tabs[activeTabName]" @submit="submit" />
     </VaCardContent>
   </VaCard>
 </template>

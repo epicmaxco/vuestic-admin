@@ -1,10 +1,8 @@
 <template>
   <div class="flex items-center justify-between">
-    <p>
-      Language
-    </p>
+    <p>Language</p>
     <div class="w-40">
-      <VaSelect class="ellipsis" :options="options" v-model="model"/>
+      <VaSelect v-model="model" class="ellipsis" :options="options" />
     </div>
   </div>
 </template>
@@ -37,10 +35,14 @@ const languageCodes: LanguageMap = {
 
 const languageName: LanguageMap = Object.fromEntries(Object.entries(languageCodes).map(([key, value]) => [value, key]))
 
-const options = Object.entries(languageCodes).map(([_, option]) => option)
+const options = Object.entries(languageCodes).map((language) => language[1])
 
 const model = computed({
-  get () { return languageCodes[locale.value]  },
-  set (value) { return locale.value = languageName[value] },
+  get() {
+    return languageCodes[locale.value]
+  },
+  set(value) {
+    return (locale.value = languageName[value])
+  },
 })
 </script>

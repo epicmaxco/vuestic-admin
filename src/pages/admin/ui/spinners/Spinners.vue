@@ -36,7 +36,7 @@
       <div v-for="(group, i) in groups" :key="i" class="grid grid-cols-12 gap-6">
         <div v-for="item in group" :key="item" class="sm:col-span-6 col-span-12 lg:col-span-3 flex flex-col">
           <div class="h-[140px] flex justify-center items-center">
-            <component
+            <Component
               :is="getComponent(item)"
               :animation-duration="config.duration"
               :color="computedSpinnersColor"

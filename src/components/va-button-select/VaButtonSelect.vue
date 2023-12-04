@@ -1,5 +1,8 @@
 <template>
-  <div class="space-x-[1px] p-[2px] border rounded w-fit" :style="{ 'background-color': getColor($props.backgroundColor) }">
+  <div
+    class="space-x-[1px] p-[2px] border rounded w-fit"
+    :style="{ 'background-color': getColor($props.backgroundColor) }"
+  >
     <VaButton
       v-for="option in mapOptions(options)"
       :key="option.value"
@@ -35,8 +38,8 @@ const props = defineProps({
 })
 
 const mapOptions = (options: Array<string | number | ButtonSelectOptions>) => {
-  return options.map(option => option instanceof Object ? option : { name: option, value: option })
-} 
+  return options.map((option) => (option instanceof Object ? option : { name: option, value: option }))
+}
 
 const style = { ...buttonSelectStyles, width: props.buttonSize }
 

@@ -1,6 +1,6 @@
 <template>
   <!-- @vue-ignore -->
-  <component :is="chartComponent" ref="chart" :chart-data="data" :chart-options="chartOptions" class="va-chart" />
+  <Component :is="chartComponent" ref="chart" :chart-data="data" :chart-options="chartOptions" class="va-chart" />
 </template>
 
 <script lang="ts" setup>

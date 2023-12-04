@@ -503,7 +503,14 @@
   "user": {
     "language": "Change Language",
     "logout": "Logout",
-    "profile": "My Profile"
+    "profile": "Profile",
+    "settings": "Settings",
+    "billing": "Billing",
+    "faq": "FAQ",
+    "helpAndSupport": "Help & Support",
+    "projects": "Projects",
+    "account": "Account",
+    "explore": "Explore"
   },
   "treeView": {
     "basic": "Basic",
@@ -584,6 +591,10 @@
     "overflow": "Tabs Overflow",
     "hidden": "Tabs with Hidden slider",
     "grow": "Tabs Grow"
+  },
+  "helpAndSupport": "Help & Support",
+  "search": {
+    "placeholder": "Search..."
   },
   "buttonSelect": {
     "dark": "Dark",

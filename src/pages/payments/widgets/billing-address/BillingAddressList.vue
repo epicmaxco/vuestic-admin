@@ -22,7 +22,7 @@
       />
       <div
         class="sm:min-h-[114px] p-4 rounded-lg border border-dashed border-primary flex flex-col sm:flex-row items-start sm:items-center gap-4"
-        :style="{ backgroundColor: colorToRgba(getColor('primary'), .07) }"
+        :style="{ backgroundColor: colorToRgba(getColor('primary'), 0.07) }"
       >
         <div class="flex flex-col gap-2 flex-grow">
           <div class="text-lg font-bold leading-relaxed">Important note</div>

@@ -243,7 +243,14 @@
   "user": {
     "language": "Trocar Linguagem",
     "logout": "Sair",
-    "profile": "Meu Perfil"
+    "profile": "Meu Perfil",
+    "settings": "Configurações",
+    "billing": "Faturamento",
+    "faq": "FAQ",
+    "helpAndSupport": "Ajuda & Suporte",
+    "projects": "Projetos",
+    "account": "Conta",
+    "explore": "Explorar"
   },
   "treeView": {
     "basic": "Básico",
@@ -254,5 +261,9 @@
   },
   "chat": {
     "title": "Gráficos"
+  },
+  "helpAndSupport": "Ajuda & Suporte",
+  "search": {
+    "placeholder": "Buscar..."
   }
 }

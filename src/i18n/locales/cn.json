@@ -275,8 +275,15 @@
   },
   "user": {
     "language": "修改语言",
-    "logout": "注销",
-    "profile": "个人信息"
+    "logout": "登出",
+    "profile": "我的资料",
+    "settings": "设置",
+    "billing": "账单",
+    "faq": "常见问题",
+    "helpAndSupport": "帮助与支持",
+    "projects": "项目",
+    "account": "账户",
+    "explore": "探索"
   },
   "treeView": {
     "basic": "基本型",
@@ -319,5 +326,9 @@
       "action1": "行为 1",
       "action2": "行为 2"
     }
+  },
+  "helpAndSupport": "帮助与支持",
+  "search": {
+    "placeholder": "搜索..."
   }
 }
