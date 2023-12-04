@@ -2,11 +2,19 @@ import { sleep } from '../../services/utils'
 import { User } from './../../pages/users/types'
 import usersDb from './users-db.json'
 import projectsDb from './projects-db.json'
+import { Project } from '../../pages/projects/types'
 
 export const users = usersDb as User[]
 
 const getUserProjects = (userId: number | string) => {
-  return projectsDb.filter((project) => project.team.includes(Number(userId)))
+  return projectsDb
+    .filter((project) => project.team.includes(Number(userId)))
+    .map((project) => ({
+      ...project,
+      project_owner: users.find((user) => user.id === project.project_owner)!,
+      team: project.team.map((userId) => users.find((user) => user.id === userId)!),
+      status: project.status as Project['status'],
+    }))
 }
 
 // Simulate API calls
