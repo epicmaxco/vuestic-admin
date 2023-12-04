@@ -6,7 +6,7 @@ import ProjectCards from './widgets/ProjectCards.vue'
 import ProjectTable from './widgets/ProjectsTable.vue'
 import EditProjectForm from './widgets/EditProjectForm.vue'
 import { Project } from './types'
-import { useToast } from 'vuestic-ui'
+import { useModal, useToast } from 'vuestic-ui'
 
 const doShowAsCards = ref(true)
 
@@ -20,7 +20,7 @@ const filters = ref<Filters>({
   sortingOrder: 'desc',
 })
 
-const { projects, update, add } = useProjects(filters)
+const { projects, update, add, isLoading, remove } = useProjects(filters)
 
 const projectToEdit = ref<Project | null>(null)
 const doShowProjectFormModal = ref(false)
@@ -35,24 +35,46 @@ const createNewProject = () => {
   doShowProjectFormModal.value = true
 }
 
-const { init } = useToast()
+const { init: notify } = useToast()
 
 const onProjectSaved = async (project: Project) => {
+  isLoading.value = true
+  doShowProjectFormModal.value = false
   if ('id' in project) {
     await update(project as Project)
-    init({
+    notify({
       message: 'Project updated',
       color: 'success',
     })
   } else {
     await add(project as Project)
-    init({
+    notify({
       message: 'Project created',
       color: 'success',
     })
   }
 
-  doShowProjectFormModal.value = false
+  isLoading.value = false
+}
+
+const { confirm } = useModal()
+
+const onProjectDeleted = async (project: Project) => {
+  const response = await confirm({
+    title: 'Delete project',
+    message: `Are you sure you want to delete project "${project.project_name}"?`,
+    okText: 'Delete',
+  })
+
+  if (!response) {
+    return
+  }
+
+  await remove(project)
+  notify({
+    message: 'Project deleted',
+    color: 'success',
+  })
 }
 </script>
 
@@ -77,8 +99,14 @@ const onProjectSaved = async (project: Project) => {
         <VaButton icon="add" @click="createNewProject">Project</VaButton>
       </div>
 
-      <ProjectCards v-if="doShowAsCards" :projects="projects" @edit="editProject" />
-      <ProjectTable v-else :projects="projects" @edit="editProject" />
+      <ProjectCards
+        v-if="doShowAsCards"
+        :projects="projects"
+        :loading="isLoading"
+        @edit="editProject"
+        @delete="onProjectDeleted"
+      />
+      <ProjectTable v-else :projects="projects" :loading="isLoading" @edit="editProject" @delete="onProjectDeleted" />
     </VaCardContent>
 
     <VaModal v-slot="{ hide }" v-model="doShowProjectFormModal" stateful hide-default-actions>

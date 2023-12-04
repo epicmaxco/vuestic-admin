@@ -18,19 +18,24 @@ const getUserProjects = (userId: number | string) => {
 }
 
 // Simulate API calls
-export type Filters = {
-  isActive: boolean
-  search: string
-  pagination: {
-    page: number
-    perPage: number
-    total: number
-  }
+
+export type Pagination = {
+  page: number
+  perPage: number
+  total: number
+}
+
+export type Sorting = {
   sortBy: keyof User | undefined
   sortingOrder: 'asc' | 'desc' | null
 }
 
-export const getUsers = async (filters: Partial<Filters>) => {
+export type Filters = {
+  isActive: boolean
+  search: string
+}
+
+export const getUsers = async (filters: Partial<Filters & Pagination & Sorting>) => {
   await sleep(1000)
   const { isActive, search, sortBy, sortingOrder } = filters
   let filteredUsers = users
@@ -55,7 +60,7 @@ export const getUsers = async (filters: Partial<Filters>) => {
     })
   }
 
-  const { page = 1, perPage = 10 } = filters.pagination || {}
+  const { page = 1, perPage = 10 } = filters || {}
   return {
     data: filteredUsers
       .slice((page - 1) * perPage, page * perPage)

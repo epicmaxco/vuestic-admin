@@ -3,6 +3,7 @@ import { PropType } from 'vue'
 import { defineVaDataTableColumns } from 'vuestic-ui'
 import { Project } from '../types'
 import UserAvatar from '../../users/widgets/UserAvatar.vue'
+import ProjectStatusBadge from '../components/ProjectStatusBadge.vue'
 
 const columns = defineVaDataTableColumns([
   { label: 'Project name', key: 'project_name', sortable: true },
@@ -18,6 +19,10 @@ defineProps({
     type: Array as PropType<Project[]>,
     required: true,
   },
+  loading: {
+    type: Boolean,
+    required: true,
+  },
 })
 
 defineEmits<{
@@ -30,17 +35,10 @@ const avatarColor = (userName: string) => {
   const index = userName.charCodeAt(0) % colors.length
   return colors[index]
 }
-
-const chipColorMap: Record<Project['status'], string> = {
-  'in progress': 'primary',
-  archived: 'secondary',
-  completed: 'success',
-  important: 'warning',
-}
 </script>
 
 <template>
-  <VaDataTable v-if="projects.length > 0" :items="projects" :columns="columns">
+  <VaDataTable v-if="projects.length > 0" :items="projects" :columns="columns" :loading="loading">
     <template #cell(project_owner)="{ rowData }">
       <div class="flex items-center gap-2">
         <UserAvatar :user="rowData.project_owner" size="small" />
@@ -62,15 +60,13 @@ const chipColorMap: Record<Project['status'], string> = {
       />
     </template>
     <template #cell(status)="{ rowData: project }">
-      <VaChip square :color="chipColorMap[(project as Project).status]" size="small">
-        {{ project.status.toUpperCase() }}
-      </VaChip>
+      <ProjectStatusBadge :status="project.status" />
     </template>
 
     <template #cell(actions)="{ rowData: project }">
       <div class="flex gap-2 justify-end">
-        <VaButton preset="primary" icon="edit" color="primary" size="small" @click="$emit('edit', project)" />
-        <VaButton preset="primary" icon="delete" color="danger" size="small" @click="$emit('delete', project)" />
+        <VaButton preset="primary" icon="mso-edit" color="primary" @click="$emit('edit', project)" />
+        <VaButton preset="primary" icon="mso-delete" color="danger" @click="$emit('delete', project)" />
       </div>
     </template>
   </VaDataTable>

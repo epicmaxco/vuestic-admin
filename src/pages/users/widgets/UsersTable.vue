@@ -3,7 +3,7 @@ import { defineVaDataTableColumns, useModal } from 'vuestic-ui'
 import { User, UserRole } from '../types'
 import UserAvatar from './UserAvatar.vue'
 import { PropType, computed, toRef } from 'vue'
-import { Filters } from '../../../data/pages/users'
+import { Pagination, Sorting } from '../../../data/pages/users'
 import { useVModel } from '@vueuse/core'
 import { Project } from '../../projects/types'
 
@@ -22,16 +22,16 @@ const props = defineProps({
     required: true,
   },
   loading: { type: Boolean, default: false },
-  pagination: { type: Object as PropType<Filters['pagination']>, required: true },
-  sortBy: { type: String as PropType<Filters['sortBy']>, required: true },
-  sortingOrder: { type: String as PropType<Filters['sortingOrder']>, required: true },
+  pagination: { type: Object as PropType<Pagination>, required: true },
+  sortBy: { type: String as PropType<Sorting['sortBy']>, required: true },
+  sortingOrder: { type: String as PropType<Sorting['sortingOrder']>, required: true },
 })
 
 const emit = defineEmits<{
   (event: 'edit-user', user: User): void
   (event: 'delete-user', user: User): void
-  (event: 'update:sortBy', sortBy: Filters['sortBy']): void
-  (event: 'update:sortingOrder', sortingOrder: Filters['sortingOrder']): void
+  (event: 'update:sortBy', sortBy: Sorting['sortBy']): void
+  (event: 'update:sortingOrder', sortingOrder: Sorting['sortingOrder']): void
 }>()
 
 const users = toRef(props, 'users')
@@ -104,50 +104,43 @@ const formatProjectNames = (projects: Project[]) => {
 
     <template #cell(actions)="{ rowData }">
       <div class="flex gap-2 justify-end">
-        <VaButton preset="primary" icon="edit" size="small" @click="$emit('edit-user', rowData as User)" />
-        <VaButton preset="primary" icon="delete" size="small" color="danger" @click="onUserDelete(rowData as User)" />
+        <VaButton preset="primary" icon="mso-edit" @click="$emit('edit-user', rowData as User)" />
+        <VaButton preset="primary" icon="mso-delete" color="danger" @click="onUserDelete(rowData as User)" />
       </div>
     </template>
-
-    <template #bodyAppend>
-      <tr>
-        <td colspan="9999">
-          <div class="flex flex-col-reverse md:flex-row gap-2 justify-between items-center py-2">
-            <div>
-              <b>{{ $props.pagination.total }} results.</b>
-              Results per page
-              <VaSelect v-model="$props.pagination.perPage" class="!w-20" :options="[10, 50, 100]" />
-            </div>
-
-            <div v-if="totalPages > 1" class="flex">
-              <VaButton
-                preset="secondary"
-                icon="va-arrow-left"
-                :disabled="$props.pagination.page === 1"
-                @click="$props.pagination.page--"
-              />
-              <VaButton
-                class="mr-2"
-                preset="secondary"
-                icon="va-arrow-right"
-                :disabled="$props.pagination.page === totalPages"
-                @click="$props.pagination.page++"
-              />
-              <VaPagination
-                v-model="$props.pagination.page"
-                buttons-preset="secondary"
-                :pages="totalPages"
-                :visible-pages="5"
-                :boundary-links="false"
-                :direction-links="false"
-                boundary-numbers
-              />
-            </div>
-          </div>
-        </td>
-      </tr>
-    </template>
   </VaDataTable>
+
+  <div class="flex flex-col-reverse md:flex-row gap-2 justify-between items-center py-2">
+    <div>
+      <b>{{ $props.pagination.total }} results.</b>
+      Results per page
+      <VaSelect v-model="$props.pagination.perPage" class="!w-20" :options="[10, 50, 100]" />
+    </div>
+
+    <div v-if="totalPages > 1" class="flex">
+      <VaButton
+        preset="secondary"
+        icon="va-arrow-left"
+        :disabled="$props.pagination.page === 1"
+        @click="$props.pagination.page--"
+      />
+      <VaButton
+        class="mr-2"
+        preset="secondary"
+        icon="va-arrow-right"
+        :disabled="$props.pagination.page === totalPages"
+        @click="$props.pagination.page++"
+      />
+      <VaPagination
+        v-model="$props.pagination.page"
+        buttons-preset="secondary"
+        :pages="totalPages"
+        :visible-pages="5"
+        :boundary-links="false"
+        :direction-links="false"
+      />
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>

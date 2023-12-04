@@ -4,24 +4,11 @@ import UsersTable from './widgets/UsersTable.vue'
 import EditUserForm from './widgets/EditUserForm.vue'
 import { User } from './types'
 import { useUsers } from './composables/useUsers'
-import { Filters } from '../../data/pages/users'
 import { useToast } from 'vuestic-ui'
-
-const filters = ref<Filters>({
-  isActive: true,
-  search: '',
-  pagination: {
-    page: 1,
-    perPage: 10,
-    total: 250,
-  },
-  sortBy: 'fullname',
-  sortingOrder: null,
-})
 
 const doShowEditUserModal = ref(false)
 
-const { users, isLoading, ...usersApi } = useUsers(filters)
+const { users, isLoading, filters, sorting, pagination, ...usersApi } = useUsers()
 
 const userToEdit = ref<User | null>(null)
 
@@ -89,11 +76,11 @@ const onUserDelete = async (user: User) => {
       </div>
 
       <UsersTable
-        v-model:sort-by="filters.sortBy"
-        v-model:sorting-order="filters.sortingOrder"
+        v-model:sort-by="sorting.sortBy"
+        v-model:sorting-order="sorting.sortingOrder"
         :users="users"
         :loading="isLoading"
-        :pagination="filters.pagination"
+        :pagination="pagination"
         @editUser="showEditUserModal"
         @deleteUser="onUserDelete"
       />

@@ -3,6 +3,8 @@ import { ref, watch } from 'vue'
 import { EmptyProject, Project } from '../types'
 import { SelectOption } from 'vuestic-ui'
 import { useUsers } from '../../users/composables/useUsers'
+import ProjectStatusBadge from '../components/ProjectStatusBadge.vue'
+import UserAvatar from '../../users/widgets/UserAvatar.vue'
 
 const props = defineProps<{
   project: Project | null
@@ -37,79 +39,44 @@ watch(
 
 const required = (v: string | SelectOption) => !!v || 'This field is required'
 
-const teamFilters = ref({
-  search: '',
-  isActive: true,
-  pagination: {
-    page: 1,
-    perPage: 10,
-    total: 20,
-  },
-})
-
-const ownerFilters = ref({
-  search: '',
-  isActive: true,
-  pagination: {
-    page: 1,
-    perPage: 10,
-    total: 20,
-  },
-})
-
-const { users: teamUsers } = useUsers(teamFilters)
-const { users: ownerUsers } = useUsers(ownerFilters)
-
-const avatarColor = (userName: string) => {
-  const colors = ['primary', '#FFD43A', '#ADFF00', '#262824', 'danger']
-  const index = userName.charCodeAt(0) % colors.length
-  return colors[index]
-}
+const { users: teamUsers, filters: teamFilters } = useUsers({ pagination: ref({ page: 1, perPage: 100, total: 10 }) })
+const { users: ownerUsers, filters: ownerFilters } = useUsers({ pagination: ref({ page: 1, perPage: 100, total: 10 }) })
 </script>
 
 <template>
-  <VaForm v-slot="{ isValid, validate }" class="flex flex-col gap-2">
+  <VaForm v-slot="{ validate }" class="flex flex-col gap-2">
     <VaInput v-model="newProject.project_name" label="Project name" :rules="[required]" />
     <VaSelect
       v-model="newProject.project_owner"
       v-model:search="ownerFilters.search"
-      autocomplete
+      searchable
       label="Owner"
       text-by="fullname"
       :rules="[required]"
       :options="ownerUsers"
     >
-      <template #content="{ value }">
-        <div v-if="value[0]" class="flex items-center">
-          <VaAvatar
-            :src="value[0].avatar"
-            :fallback-text="value[0].fullname[0]"
-            :color="avatarColor(value[0].fullname)"
-            size="small"
-          />
+      <template #content="{ value: users }">
+        <div v-if="users[0]" :key="users[0].id" class="flex items-center gap-1 mr-4">
+          <UserAvatar :user="users[0]" size="18px" />
+          {{ users[0].fullname }}
         </div>
       </template>
     </VaSelect>
     <VaSelect
       v-model="newProject.team"
       v-model:search="teamFilters.search"
-      autocomplete
       label="Team"
       text-by="fullname"
       multiple
       :rules="[(v: any) => ('length' in v && v.length > 0) || 'This field is required']"
       :options="teamUsers"
+      :max-visible-options="3"
     >
       <template #content="{ value }">
-        <VaPopover v-for="(user, index) in value" :key="user.id" class="flex items-center" :message="user.fullname">
-          <VaAvatar
-            :class="{ '-ml-4': index !== 0 }"
-            :src="user.avatar"
-            :fallback-text="user.fullname[0]"
-            :color="avatarColor(user.fullname)"
-            size="small"
-          />
-        </VaPopover>
+        <div v-for="(user, index) in value" :key="user.id" class="flex items-center gap-1 mr-4">
+          <UserAvatar :user="user" size="18px" />
+          {{ user.fullname }}{{ index < value.length - 1 ? ',' : '' }}
+        </div>
       </template>
     </VaSelect>
     <VaSelect
@@ -124,14 +91,12 @@ const avatarColor = (userName: string) => {
       ]"
     >
       <template #content="{ valueString }">
-        <VaChip size="small">
-          {{ valueString }}
-        </VaChip>
+        <ProjectStatusBadge :status="valueString" />
       </template>
     </VaSelect>
     <div class="flex justify-end flex-col sm:flex-row mt-4 gap-2">
       <VaButton preset="secondary" @click="$emit('close')">Cancel</VaButton>
-      <VaButton :disabled="!isValid" @click="validate() && $emit('save', newProject as Project)">Save</VaButton>
+      <VaButton @click="validate() && $emit('save', newProject as Project)">Save</VaButton>
     </div>
   </VaForm>
 </template>

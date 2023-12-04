@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import { PropType } from 'vue'
 import { Project } from '../types'
+import ProjectStatusBadge from '../components/ProjectStatusBadge.vue'
 
 defineProps({
   projects: {
     type: Array as PropType<Project[]>,
+    required: true,
+  },
+  loading: {
+    type: Boolean,
     required: true,
   },
 })
@@ -19,20 +24,17 @@ const avatarColor = (userName: string) => {
   const index = userName.charCodeAt(0) % colors.length
   return colors[index]
 }
-
-const chipColorMap: Record<Project['status'], string> = {
-  'in progress': 'primary',
-  archived: 'secondary',
-  completed: 'success',
-  important: 'warning',
-}
 </script>
 
 <template>
-  <div v-if="projects.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <VaInnerLoading
+    v-if="projects.length > 0 || loading"
+    :loading="loading"
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 min-h-[4rem]"
+  >
     <VaCard v-for="project in projects" :key="project.project_name" outlined>
       <VaCardContent class="flex flex-col h-full">
-        <div>{{ project.creation_date }}</div>
+        <div class="text-[var(--va-secondary)]">{{ project.creation_date }}</div>
         <div class="flex flex-col justify-center items-center gap-4 flex-1">
           <h4 class="va-h4 text-center">{{ project.project_name }}</h4>
           <p>
@@ -52,19 +54,16 @@ const chipColorMap: Record<Project['status'], string> = {
             :max="5"
           />
 
-          <VaChip square :color="chipColorMap[project.status]" size="small">
-            {{ project.status.toUpperCase() }}
-          </VaChip>
+          <ProjectStatusBadge :status="project.status" />
         </div>
         <VaDivider class="my-6" />
 
         <div class="flex justify-between">
-          <VaButton preset="secondary" icon="add" color="secondary" @click="$emit('edit', project)" />
-          <VaButton preset="secondary" icon="message" color="secondary" />
-          <VaButton preset="secondary" icon="delete" color="danger" @click="$emit('delete', project)" />
+          <VaButton preset="secondary" icon="mso-edit" color="secondary" @click="$emit('edit', project)" />
+          <VaButton preset="secondary" icon="mso-delete" color="danger" @click="$emit('delete', project)" />
         </div>
       </VaCardContent>
     </VaCard>
-  </div>
+  </VaInnerLoading>
   <div v-else class="p-4 flex justify-center items-center text-[var(--va-secondary)]">No projects</div>
 </template>
