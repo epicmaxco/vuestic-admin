@@ -36,6 +36,7 @@ const submit = () => {
 </script>
 
 <style lang="scss">
+// TODO temporary before https://github.com/epicmaxco/vuestic-ui/issues/4020 fix
 .va-modal__inner {
   min-width: 326px;
 }
