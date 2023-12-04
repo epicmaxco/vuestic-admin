@@ -52,7 +52,6 @@ export const usePaymentCardsStore = defineStore({
       this.loading = false
     },
     create(card: PaymentCard) {
-      console.log('card', card)
       this.paymentCards.unshift(card)
     },
     update(card: PaymentCard) {

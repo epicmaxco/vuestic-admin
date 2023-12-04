@@ -332,6 +332,7 @@
     "sliders": "Sliders",
     "popovers": "Popovers",
     "payments": "Payments",
+    "settings": "Settings",
     "pricing-plans": "Pricing plans",
     "chat": "Chat",
     "maplibre-maps": "MapLibre Maps",
@@ -594,5 +595,9 @@
   "helpAndSupport": "Help & Support",
   "search": {
     "placeholder": "Search..."
+  },
+  "buttonSelect": {
+    "dark": "Dark",
+    "light": "Light"
   }
 }
