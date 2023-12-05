@@ -52,6 +52,7 @@ const { users: ownerUsers, filters: ownerFilters } = useUsers({ pagination: ref(
       searchable
       label="Owner"
       text-by="fullname"
+      track-by="id"
       :rules="[required]"
       :options="ownerUsers"
     >
@@ -67,6 +68,7 @@ const { users: ownerUsers, filters: ownerFilters } = useUsers({ pagination: ref(
       v-model:search="teamFilters.search"
       label="Team"
       text-by="fullname"
+      track-by="id"
       multiple
       :rules="[(v: any) => ('length' in v && v.length > 0) || 'This field is required']"
       :options="teamUsers"

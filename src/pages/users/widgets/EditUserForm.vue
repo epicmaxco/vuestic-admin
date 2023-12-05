@@ -117,6 +117,7 @@ const { projects } = useProjects()
         :rules="[required]"
         name="projects"
         text-by="project_name"
+        track-by="id"
         multiple
         :max-visible-options="3"
       />
