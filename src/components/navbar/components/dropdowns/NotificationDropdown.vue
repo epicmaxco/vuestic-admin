@@ -1,107 +1,80 @@
 <template>
   <VaDropdown :offset="[13, 0]" class="notification-dropdown" stick-to-edges>
     <template #anchor>
-      <VaIconNotification
-        :class="{ 'notification-dropdown__icon--unread': !allRead }"
-        class="notification-dropdown__icon"
-      />
+      <VaButton preset="secondary" color="textPrimary">
+        <VaBadge overlap>
+          <template #text> 2+</template>
+          <VaIconNotification class="notification-dropdown__icon" />
+        </VaBadge>
+      </VaButton>
     </template>
-    <VaDropdownContent class="notification-dropdown__content pl-4 pt-4 pt-2 pb-2">
-      <div
-        v-for="notification in notificationsProxy"
-        :key="notification.id"
-        :class="{ 'notification-dropdown__item--unread': notification.unread }"
-        class="notification-dropdown__item flex flex-1 flex-wrap pt-1 pb-1 mt-2 mb-2"
-        @click="notification.unread = false"
-      >
-        <img
-          v-if="notification.details.avatar"
-          :src="notification.details.avatar"
-          alt=""
-          class="mr-2 notification-dropdown__item__avatar"
-        />
-        <span class="ellipsis" style="max-width: 85%">
-          <span v-if="notification.details.name" class="font-bold">{{ notification.details.name }}</span>
-          {{ t(`notifications.${notification.name}`, { type: notification.details.type }) }}
-        </span>
-      </div>
-      <div class="grid grid-cols-2 justify-between mt-1">
-        <VaButton class="mr-2" size="small">{{ t('notifications.all') }}</VaButton>
-        <VaButton
-          :disabled="allRead"
-          border-color="primary"
-          class=""
-          preset="outline"
-          size="small"
-          @click="markAllAsRead"
-          >{{ t('notifications.mark_as_read') }}
-        </VaButton>
-      </div>
+    <VaDropdownContent class="md:max-w-[420px] p-4 w-full">
+      <VaList class="space-y-1 mb-2">
+        <template v-for="item in notifications" :key="item.id">
+          <VaListItem class="text-base cursor-pointer">
+            <VaListItemSection icon class="mx-0 p-0">
+              <VaIcon :name="item.icon" color="secondary" />
+            </VaListItemSection>
+            <VaListItemSection>
+              {{ item.message }}
+            </VaListItemSection>
+            <VaListItemSection icon class="mx-1">
+              {{ item.updateTimestamp }}
+            </VaListItemSection>
+          </VaListItem>
+          <VaListSeparator v-if="item.separator" class="mx-3" />
+        </template>
+      </VaList>
+      <VaButton preset="primary" class="w-full">{{ t('notifications.all') }}</VaButton>
     </VaDropdownContent>
   </VaDropdown>
 </template>
 
-<script lang="ts" setup>
-import { ref, computed } from 'vue'
+<script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import VaIconNotification from '../../../icons/VaIconNotification.vue'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
+
+const rtf = new Intl.RelativeTimeFormat(locale.value, { style: 'short' })
 
 interface INotification {
-  name: string
-  details: {
-    name: string
-    avatar: string
-    type?: string
-  }
-  unread: boolean
+  message: string
+  icon: string
   id: number
+  separator?: boolean
+  updateTimestamp: string
 }
 
-const props = withDefaults(
-  defineProps<{
-    notifications?: INotification[]
-  }>(),
+const notifications: INotification[] = [
   {
-    notifications: () => [
-      {
-        name: 'sentMessage',
-        details: { name: 'Vasily S', avatar: 'https://picsum.photos/123' },
-        unread: true,
-        id: 1,
-      },
-      {
-        name: 'uploadedZip',
-        details: {
-          name: 'Oleg M',
-          avatar: 'https://picsum.photos/100',
-          type: 'typography component',
-        },
-        unread: true,
-        id: 2,
-      },
-      {
-        name: 'startedTopic',
-        details: { name: 'Andrei H', avatar: 'https://picsum.photos/24' },
-        unread: true,
-        id: 3,
-      },
-    ],
+    message: '4 pending requests',
+    icon: 'favorite_outline',
+    id: 1,
+    separator: true,
+    updateTimestamp: rtf.format(-3, 'minutes').toString(),
   },
-)
-const notificationsProxy = ref<INotification[]>([...props.notifications])
-
-const allRead = computed(() => {
-  return notificationsProxy.value.every((notification) => !notification.unread)
-})
-
-function markAllAsRead() {
-  notificationsProxy.value = notificationsProxy.value.map((notification) => ({
-    ...notification,
-    unread: false,
-  }))
-}
+  {
+    message: '3 new reports',
+    icon: 'calendar_today',
+    id: 2,
+    separator: true,
+    updateTimestamp: rtf.format(-12, 'hours').toString(),
+  },
+  {
+    message: 'Whoops! Your trial period has expired.',
+    icon: 'error_outline',
+    id: 3,
+    separator: true,
+    updateTimestamp: rtf.format(-2, 'days').toString(),
+  },
+  {
+    message: 'It looks like your timezone is set incorrectly, please change it to avoid issues with Memory.',
+    icon: 'schedule',
+    id: 4,
+    updateTimestamp: rtf.format(-1, 'weeks').toString(),
+  },
+]
 </script>
 
 <style lang="scss" scoped>
@@ -112,55 +85,6 @@ function markAllAsRead() {
     position: relative;
     display: flex;
     align-items: center;
-
-    &--unread::before {
-      content: '';
-      position: absolute;
-      right: 0;
-      left: 0;
-      top: -0.5rem;
-      // background-color: $brand-danger;
-      height: 0.375rem;
-      width: 0.375rem;
-      margin: 0 auto;
-      border-radius: 0.187rem;
-    }
-  }
-
-  &__content {
-    max-width: 20rem;
-  }
-
-  &__item {
-    cursor: pointer;
-    margin-bottom: 0.75rem;
-    flex-wrap: nowrap;
-    position: relative;
-
-    &--unread {
-      &::after {
-        content: '';
-        position: absolute;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        height: 0.375rem;
-        width: 0.375rem;
-        margin: auto;
-        border-radius: 0.187rem;
-      }
-    }
-
-    &:hover {
-      color: var(--va-primary);
-    }
-
-    &__avatar {
-      border-radius: 50%;
-      width: 1.5rem;
-      height: 1.5rem;
-      min-width: 1.5rem;
-    }
   }
 
   .va-dropdown__anchor {

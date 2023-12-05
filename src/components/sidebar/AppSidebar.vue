@@ -1,5 +1,5 @@
 <template>
-  <VaSidebar v-model="writableVisible" :width="sidebarWidth" :color="color" :minimized="mobile">
+  <VaSidebar v-model="writableVisible" :width="sidebarWidth" :color="color" minimized-width="0">
     <VaAccordion v-model="value" multiple>
       <VaCollapse v-for="(route, index) in navigationRoutes.routes" :key="index">
         <template #header="{ value: isCollapsed }">
@@ -82,7 +82,7 @@ export default defineComponent({
     const setActiveExpand = () =>
       (value.value = navigationRoutes.routes.map((route: INavigationRoute) => routeHasActiveChild(route)))
 
-    const sidebarWidth = computed(() => (props.mobile ? '100%' : '280px'))
+    const sidebarWidth = computed(() => (props.mobile ? '100vw' : '280px'))
     const color = computed(() => getColor('background-secondary'))
     const activeColor = computed(() => colorToRgba(getColor('focus'), 0.1))
 

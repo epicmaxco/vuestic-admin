@@ -36,7 +36,7 @@
         {{ twoFA.content }}
       </div>
     </div>
-    <VaButton :style="buttonStyles" class="w-fit h-fit" preset="primary" @click="toggle2FA">
+    <VaButton :style="buttonStyles" class="w-fit h-fit" :color="twoFA.color" @click="toggle2FA">
       {{ twoFA.button }}
     </VaButton>
   </div>
@@ -74,12 +74,14 @@ const toastMessage = computed(() => (store.is2FAEnabled ? '2FA successfully enab
 const twoFA = computed(() => {
   if (store.is2FAEnabled) {
     return {
+      color: 'danger',
       button: 'Disable 2FA',
       content:
         'Two-Factor Authentication (2FA) is now enabled for your account, adding an extra layer of security to your sign-ins.',
     }
   } else {
     return {
+      color: 'primary',
       button: 'Set Up 2FA',
       content:
         'Add an extra layer of security to your account. To sign in, you’ll need to provide a code along with your username and password.',

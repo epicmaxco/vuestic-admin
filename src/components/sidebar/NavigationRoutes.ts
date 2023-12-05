@@ -238,6 +238,10 @@ export default {
           displayName: 'menu.projects',
         },
         {
+          name: 'settings',
+          displayName: 'menu.settings',
+        },
+        {
           name: 'billing',
           displayName: 'menu.billing',
         },

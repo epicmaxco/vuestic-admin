@@ -5,11 +5,9 @@
 @import 'vuestic-sass/index';
 @import 'icon-fonts/index';
 
-html {
-  @apply text-base;
-}
-
 body {
+  @apply text-regularMedium;
+
   // TODO Move to some other place so that it's more elegant.
   --va-checkbox-font-size: 0.875rem;
   --va-card-box-shadow: none; // TODO Remove after https://github.com/epicmaxco/vuestic-ui/issues/3964
@@ -40,7 +38,7 @@ pre {
 }
 
 .h3 {
-  @apply text-2xl font-bold leading-[30px] mb-2;
+  @apply text-2xl font-bold leading-[30px];
 }
 
 .h5 {

@@ -1,7 +1,9 @@
 import VaIcon from './components/va-icon'
 import iconsConfig from './icons-config/icons-config'
+import colors from './themes'
 
 export default {
+  colors,
   icons: iconsConfig,
   breakpoint: {
     enabled: true,

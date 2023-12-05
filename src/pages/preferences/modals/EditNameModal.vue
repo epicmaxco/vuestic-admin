@@ -1,6 +1,6 @@
 <template>
   <VaModal :mobile-fullscreen="false" hide-default-actions model-value @update:modelValue="emits('cancel')">
-    <VaForm ref="form" class="w-[326px] md:w-[288px]" @submit.prevent="submit">
+    <VaForm ref="form" @submit.prevent="submit">
       <VaInput v-model="Name" class="mb-4" label="Name" placeholder="Name" />
       <div class="flex flex-col-reverse md:flex-row md:items-center md:justify-end md:space-x-4">
         <VaButton :style="buttonStyles" preset="plain" @click="emits('cancel')"> Cancel</VaButton>
@@ -34,3 +34,10 @@ const submit = () => {
   emits('cancel')
 }
 </script>
+
+<style lang="scss">
+// TODO temporary before https://github.com/epicmaxco/vuestic-ui/issues/4020 fix
+.va-modal__inner {
+  min-width: 326px;
+}
+</style>
