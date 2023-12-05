@@ -1,25 +1,40 @@
-import { Ref, ref, unref, watch } from 'vue'
-import { getProjects, addProject, updateProject, removeProject, Filters } from '../../../data/pages/projects'
+import { Ref, ref, unref } from 'vue'
+import {
+  getProjects,
+  addProject,
+  updateProject,
+  removeProject,
+  Sorting,
+  Pagination,
+} from '../../../data/pages/projects'
 import { Project } from '../types'
+import { watchIgnorable } from '@vueuse/core'
 
-export const useProjects = (filters: Ref<Filters>) => {
+const makePaginationRef = () => ref<Pagination>({ page: 1, perPage: 10, total: 0 })
+const makeSortingRef = () => ref<Sorting>({ sortBy: 'project_name', sortingOrder: null })
+
+export const useProjects = (options?: { sorting: Ref<Sorting>; pagination: Ref<Pagination> }) => {
   const isLoading = ref(false)
   const projects = ref<Project[]>([])
 
-  let stopFiltersWatcher: () => void
+  const { sorting = makeSortingRef(), pagination = makePaginationRef() } = options ?? {}
+
   const fetch = async () => {
     isLoading.value = true
-    const { data, pagination } = await getProjects(unref(filters))
+    const { data, pagination: newPagination } = await getProjects({
+      ...unref(sorting),
+      ...unref(pagination),
+    })
     projects.value = data as Project[]
 
-    if (stopFiltersWatcher) {
-      stopFiltersWatcher()
-    }
-    filters.value.pagination = pagination
-    stopFiltersWatcher = watch(filters, fetch, { deep: true })
+    ignoreUpdates(() => {
+      pagination.value = newPagination
+    })
 
     isLoading.value = false
   }
+
+  const { ignoreUpdates } = watchIgnorable([pagination, sorting], fetch, { deep: true })
 
   fetch()
 
@@ -62,5 +77,8 @@ export const useProjects = (filters: Ref<Filters>) => {
       projects.value = projects.value.filter((u) => u.id !== project.id)
       isLoading.value = false
     },
+
+    pagination,
+    sorting,
   }
 }

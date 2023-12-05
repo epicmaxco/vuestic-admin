@@ -3,6 +3,7 @@ import { PropType, ref, watch } from 'vue'
 import { SelectOption, useForm } from 'vuestic-ui'
 import { User, UserRole } from '../types'
 import UserAvatar from './UserAvatar.vue'
+import { useProjects } from '../../projects/composables/useProjects'
 
 const props = defineProps({
   user: {
@@ -20,7 +21,7 @@ const newUser = ref<User>({
   notes: '',
   email: '',
   active: true,
-  projects: 0,
+  projects: [],
 })
 
 watch(
@@ -66,6 +67,8 @@ const roleSelectOptions: { text: Capitalize<UserRole>; value: UserRole }[] = [
   { text: 'User', value: 'user' },
   { text: 'Owner', value: 'owner' },
 ]
+
+const { projects } = useProjects()
 </script>
 
 <template>
@@ -105,6 +108,18 @@ const roleSelectOptions: { text: Capitalize<UserRole>; value: UserRole }[] = [
       <VaInput v-model="newUser.username" label="Username" class="w-full" :rules="[required]" name="username" />
       <VaInput v-model="newUser.email" label="Email" class="w-full" :rules="[required]" name="email" />
       <VaCheckbox v-model="newUser.active" label="Active" class="w-full" name="active" />
+
+      <VaSelect
+        v-model="newUser.projects"
+        label="Projects"
+        class="w-full"
+        :options="projects"
+        :rules="[required]"
+        name="projects"
+        text-by="project_name"
+        multiple
+        :max-visible-options="3"
+      />
 
       <VaTextarea v-model="newUser.notes" label="Notes" class="w-full" name="notes" />
       <div class="flex gap-2 flex-col-reverse items-stretch justify-end w-full sm:flex-row sm:items-center">

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useProjects } from './composables/useProjects'
-import { Filters } from '../../data/pages/projects'
 import ProjectCards from './widgets/ProjectCards.vue'
 import ProjectTable from './widgets/ProjectsTable.vue'
 import EditProjectForm from './widgets/EditProjectForm.vue'
@@ -10,17 +9,7 @@ import { useModal, useToast } from 'vuestic-ui'
 
 const doShowAsCards = ref(true)
 
-const filters = ref<Filters>({
-  pagination: {
-    page: 1,
-    perPage: 10,
-    total: 10,
-  },
-  sortBy: 'creation_date',
-  sortingOrder: 'desc',
-})
-
-const { projects, update, add, isLoading, remove } = useProjects(filters)
+const { projects, update, add, isLoading, remove, pagination, sorting } = useProjects()
 
 const projectToEdit = ref<Project | null>(null)
 const doShowProjectFormModal = ref(false)
@@ -106,7 +95,16 @@ const onProjectDeleted = async (project: Project) => {
         @edit="editProject"
         @delete="onProjectDeleted"
       />
-      <ProjectTable v-else :projects="projects" :loading="isLoading" @edit="editProject" @delete="onProjectDeleted" />
+      <ProjectTable
+        v-else
+        v-model:sort-by="sorting.sortBy"
+        v-model:sorting-order="sorting.sortingOrder"
+        v-model:pagination="pagination"
+        :projects="projects"
+        :loading="isLoading"
+        @edit="editProject"
+        @delete="onProjectDeleted"
+      />
     </VaCardContent>
 
     <VaModal v-slot="{ hide }" v-model="doShowProjectFormModal" stateful hide-default-actions>

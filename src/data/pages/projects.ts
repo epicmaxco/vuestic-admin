@@ -3,17 +3,18 @@ import projectsDb from './projects-db.json'
 import usersDb from './users-db.json'
 
 // Simulate API calls
-export type Filters = {
-  pagination: {
-    page: number
-    perPage: number
-    total: number
-  }
+export type Pagination = {
+  page: number
+  perPage: number
+  total: number
+}
+
+export type Sorting = {
   sortBy: keyof (typeof projectsDb)[number] | undefined
   sortingOrder: 'asc' | 'desc' | null
 }
 
-export const getProjects = async (filters: Filters) => {
+export const getProjects = async (options: Sorting & Pagination) => {
   await sleep(1000)
 
   const projects = projectsDb.map((project) => ({
@@ -22,11 +23,23 @@ export const getProjects = async (filters: Filters) => {
     team: usersDb.filter((user) => project.team.includes(user.id)) as (typeof usersDb)[number][],
   }))
 
+  if (options.sortBy && options.sortingOrder) {
+    projects.sort((a, b) => {
+      if (a[options.sortBy!] < b[options.sortBy!]) {
+        return options.sortingOrder === 'asc' ? -1 : 1
+      }
+      if (a[options.sortBy!] > b[options.sortBy!]) {
+        return options.sortingOrder === 'asc' ? 1 : -1
+      }
+      return 0
+    })
+  }
+
   return {
     data: projects,
     pagination: {
-      page: filters.pagination.page,
-      perPage: filters.pagination.perPage,
+      page: options.page,
+      perPage: options.perPage,
       total: projectsDb.length,
     },
   }
