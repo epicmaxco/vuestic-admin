@@ -131,6 +131,60 @@
   "user": {
     "language": "修改语言",
     "logout": "登出",
-    "profile": "我的资料"
+    "logout": "登出",
+    "profile": "我的资料",
+    "settings": "设置",
+    "billing": "账单",
+    "faq": "常见问题",
+    "helpAndSupport": "帮助与支持",
+    "projects": "项目",
+    "account": "账户",
+    "explore": "探索"
+  },
+  "treeView": {
+    "basic": "基本型",
+    "icons": "图标",
+    "selectable": "可选择",
+    "editable": "可编辑",
+    "advanced": "高级"
+  },
+  "chat": {
+    "title": "聊天"
+  },
+  "cards": {
+    "cards": "卡片",
+    "fixed": "固定的",
+    "floating": "浮动的",
+    "contentText": "独特的斑马条纹使它们成为人们最熟悉的动物之一。",
+    "rowHeight": "行高",
+    "title": {
+      "dark": "暗色背景",
+      "bright": "亮色卡片",
+      "titleOnImageNoOverlay": "图像上的标题，但没有叠加",
+      "normal": "标准卡",
+      "overlayAndTextOnImage": "图像上有覆盖和文本的卡片",
+      "stripeNoImage": "无图像条纹卡"
+    },
+    "button": {
+      "main": "主要",
+      "cancel": "取消"
+    },
+    "link": {
+      "edit": "编辑",
+      "setAsDefault": "设为默认",
+      "delete": "删除",
+      "traveling": "Traveling",
+      "france": "法国",
+      "review": "评论",
+      "feedback": "反馈信息",
+      "readFull": "阅读全文",
+      "secondaryAction": "第二行为",
+      "action1": "行为 1",
+      "action2": "行为 2"
+    }
+  },
+  "helpAndSupport": "帮助与支持",
+  "search": {
+    "placeholder": "搜索..."
   }
 }

@@ -68,6 +68,10 @@ export default {
           displayName: 'menu.pricing-plans',
         },
         {
+          name: 'settings',
+          displayName: 'menu.settings',
+        },
+        {
           name: 'billing',
           displayName: 'menu.billing',
         },

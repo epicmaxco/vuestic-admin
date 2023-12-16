@@ -129,8 +129,19 @@
     "startedTopic": "{name} inició un nuevo tema"
   },
   "user": {
-    "language": "Cambiar idioma",
+    "language": "Cambiar Idioma",
     "logout": "Cerrar sesión",
-    "profile": "Mi perfil"
+    "profile": "Mi Perfil",
+    "settings": "Configuración",
+    "billing": "Facturación",
+    "faq": "Preguntas Frecuentes",
+    "helpAndSupport": "Ayuda & Soporte",
+    "projects": "Proyectos",
+    "account": "Cuenta",
+    "explore": "Explorar"
+  },
+  "helpAndSupport": "Ayuda y Soporte",
+  "search": {
+    "placeholder": "Buscar..."
   }
 }

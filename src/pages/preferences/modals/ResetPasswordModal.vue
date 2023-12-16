@@ -1,6 +1,6 @@
 <template>
   <VaModal :mobile-fullscreen="false" hide-default-actions model-value @update:modelValue="emits('cancel')">
-    <VaForm ref="form" class="space-y-6 w-[326px] md:w-[608px]" @submit.prevent="submit">
+    <VaForm ref="form" class="space-y-6" @submit.prevent="submit">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <VaInput
           v-model="oldPassowrd"
@@ -85,3 +85,10 @@ const repeatNewPasswordRules = [
   (v: string) => v === newPassword.value || 'Confirm password does not match new password',
 ]
 </script>
+
+<style lang="scss">
+// TODO temporary before https://github.com/epicmaxco/vuestic-ui/issues/4020 fix
+.va-modal__inner {
+  min-width: 326px;
+}
+</style>
