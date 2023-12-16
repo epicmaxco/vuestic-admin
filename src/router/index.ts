@@ -69,18 +69,13 @@ const routes: Array<RouteRecordRaw> = [
         ],
       },
       {
-        name: 'pages',
-        path: 'pages',
+        name: 'payments',
+        path: '/payments',
         component: RouteViewComponent,
         children: [
           {
-            name: 'faq',
-            path: 'faq',
-            component: () => import('../pages/admin/pages/faq/FaqPage.vue'),
-          },
-          {
-            name: 'payments',
-            path: 'payments',
+            name: 'payment-methods',
+            path: 'payment-methods',
             component: () => import('../pages/payments/PaymentsPage.vue'),
           },
           {
@@ -131,6 +126,11 @@ const routes: Array<RouteRecordRaw> = [
         redirect: { name: 'login' },
       },
     ],
+  },
+  {
+    name: 'faq',
+    path: '/faq',
+    component: () => import('../pages/admin/pages/faq/FaqPage.vue'),
   },
   {
     name: '404',

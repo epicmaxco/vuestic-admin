@@ -49,28 +49,15 @@ export default {
       ],
     },
     {
-      name: 'pages',
-      displayName: 'menu.pages',
+      name: 'payments',
+      displayName: 'menu.payments',
       meta: {
-        icon: 'vuestic-iconset-files',
+        icon: 'credit_card',
       },
-      disabled: true,
       children: [
         {
-          name: 'login',
-          displayName: 'menu.login-singup',
-        },
-        {
-          name: '404',
-          displayName: 'menu.404-pages',
-        },
-        {
-          name: 'faq',
-          displayName: 'menu.faq',
-        },
-        {
-          name: 'payments',
-          displayName: 'menu.payments',
+          name: 'payment-methods',
+          displayName: 'menu.payment-methods',
         },
         {
           name: 'preferences',
@@ -85,6 +72,45 @@ export default {
           displayName: 'menu.billing',
         },
       ],
+    },
+    {
+      name: 'auth',
+      displayName: 'menu.auth',
+      meta: {
+        icon: 'login',
+      },
+      children: [
+        {
+          name: 'login',
+          displayName: 'menu.login',
+        },
+        {
+          name: 'signup',
+          displayName: 'menu.signup',
+        },
+        {
+          name: 'recover-password',
+          displayName: 'menu.recover-password',
+        },
+        {
+          name: 'recover-password-email',
+          displayName: 'menu.recover-password-email',
+        },
+      ],
+    },
+    {
+      name: 'faq',
+      displayName: 'menu.faq',
+      meta: {
+        icon: 'quiz',
+      },
+    },
+    {
+      name: '404',
+      displayName: 'menu.404',
+      meta: {
+        icon: 'vuestic-iconset-files',
+      },
     },
   ] as INavigationRoute[],
 }

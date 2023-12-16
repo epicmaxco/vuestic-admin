@@ -103,13 +103,16 @@
     "preferences": "Preferences",
     "payments": "Payments",
     "pricing-plans": "Pricing plans",
+    "payment-methods": "Payment methods",
     "maplibre-maps": "MapLibre Maps",
     "yandex-maps": "Yandex Maps",
     "leaflet-maps": "Leaflet Maps",
     "bubble-maps": "Bubble Maps",
     "line-maps": "Line Maps",
-    "login-singup": "Login/Signup",
-    "404-pages": "404 Pages",
+    "signup": "Signup",
+    "recover-password": "Recover Password",
+    "recover-password-email": "Recover Password Email",
+    "404": "404",
     "faq": "Faq"
   },
   "messages": {
