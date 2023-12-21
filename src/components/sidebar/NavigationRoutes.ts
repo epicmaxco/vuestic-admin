@@ -35,10 +35,16 @@ export default {
     {
       name: 'users',
       displayName: 'menu.users',
+      meta: {
+        icon: 'group',
+      },
     },
     {
       name: 'projects',
       displayName: 'menu.projects',
+      meta: {
+        icon: 'folder_shared',
+      },
     },
     {
       name: 'payments',
