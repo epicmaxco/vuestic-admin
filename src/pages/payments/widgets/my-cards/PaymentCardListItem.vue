@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, computed, defineEmits } from 'vue'
+import { computed } from 'vue'
 import PaymentSystem from '../../payment-system/PaymentSystem.vue'
 import { PaymentCard } from '../../types'
 

@@ -342,7 +342,9 @@
     "line-maps": "Line Maps",
     "login-singup": "Login/Signup",
     "404-pages": "404 Pages",
-    "faq": "Faq"
+    "faq": "Faq",
+    "users": "Users",
+    "projects": "Projects"
   },
   "messages": {
     "all": "See all messages",

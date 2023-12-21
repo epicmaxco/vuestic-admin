@@ -230,6 +230,14 @@ export default {
           displayName: 'menu.pricing-plans',
         },
         {
+          name: 'users',
+          displayName: 'menu.users',
+        },
+        {
+          name: 'projects',
+          displayName: 'menu.projects',
+        },
+        {
           name: 'settings',
           displayName: 'menu.settings',
         },
