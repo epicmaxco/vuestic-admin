@@ -22,51 +22,14 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('../pages/admin/dashboard/Dashboard.vue'),
       },
       {
-        name: 'maps',
-        path: 'maps',
-        component: RouteViewComponent,
-        children: [
-          {
-            name: 'maplibre-maps',
-            path: 'maplibre-maps',
-            component: () => import('../pages/admin/maps/maplibre-maps/MapLibreMapsPage.vue'),
-            meta: {
-              wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps',
-            },
-          },
-          {
-            name: 'yandex-maps',
-            path: 'yandex-maps',
-            component: () => import('../pages/admin/maps/yandex-maps/YandexMapsPage.vue'),
-            meta: {
-              wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps',
-            },
-          },
-          {
-            name: 'leaflet-maps',
-            path: 'leaflet-maps',
-            component: () => import('../pages/admin/maps/leaflet-maps/LeafletMapsPage.vue'),
-            meta: {
-              wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps',
-            },
-          },
-          {
-            name: 'bubble-maps',
-            path: 'bubble-maps',
-            component: () => import('../pages/admin/maps/bubble-maps/BubbleMapsPage.vue'),
-            meta: {
-              wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps',
-            },
-          },
-          {
-            name: 'line-maps',
-            path: 'line-maps',
-            component: () => import('../pages/admin/maps/line-maps/LineMapsPage.vue'),
-            meta: {
-              wikiLink: 'https://github.com/epicmaxco/vuestic-admin/wiki/Maps',
-            },
-          },
-        ],
+        name: 'settings',
+        path: 'settings',
+        component: () => import('../pages/settings/Settings.vue'),
+      },
+      {
+        name: 'preferences',
+        path: 'preferences',
+        component: () => import('../pages/preferences/Preferences.vue'),
       },
       {
         name: 'payments',
@@ -84,19 +47,9 @@ const routes: Array<RouteRecordRaw> = [
             component: () => import('../pages/billing/BillingPage.vue'),
           },
           {
-            name: 'preferences',
-            path: 'preferences',
-            component: () => import('../pages/preferences/Preferences.vue'),
-          },
-          {
             name: 'pricing-plans',
             path: 'pricing-plans',
             component: () => import('../pages/pricing-plans/PricingPlans.vue'),
-          },
-          {
-            name: 'settings',
-            path: 'settings',
-            component: () => import('../pages/settings/Settings.vue'),
           },
         ],
       },

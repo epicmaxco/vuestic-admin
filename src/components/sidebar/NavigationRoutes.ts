@@ -19,34 +19,18 @@ export default {
       },
     },
     {
-      name: 'maps',
-      displayName: 'menu.maps',
+      name: 'preferences',
+      displayName: 'menu.preferences',
       meta: {
-        icon: 'vuestic-iconset-maps',
+        icon: 'manage_accounts',
       },
-      disabled: true,
-      children: [
-        {
-          name: 'maplibre-maps',
-          displayName: 'menu.maplibre-maps',
-        },
-        {
-          name: 'yandex-maps',
-          displayName: 'menu.yandex-maps',
-        },
-        {
-          name: 'leaflet-maps',
-          displayName: 'menu.leaflet-maps',
-        },
-        {
-          name: 'bubble-maps',
-          displayName: 'menu.bubble-maps',
-        },
-        {
-          name: 'line-maps',
-          displayName: 'menu.line-maps',
-        },
-      ],
+    },
+    {
+      name: 'settings',
+      displayName: 'menu.settings',
+      meta: {
+        icon: 'settings',
+      },
     },
     {
       name: 'payments',
@@ -60,16 +44,8 @@ export default {
           displayName: 'menu.payment-methods',
         },
         {
-          name: 'preferences',
-          displayName: 'menu.preferences',
-        },
-        {
           name: 'pricing-plans',
           displayName: 'menu.pricing-plans',
-        },
-        {
-          name: 'settings',
-          displayName: 'menu.settings',
         },
         {
           name: 'billing',
@@ -96,12 +72,9 @@ export default {
           name: 'recover-password',
           displayName: 'menu.recover-password',
         },
-        {
-          name: 'recover-password-email',
-          displayName: 'menu.recover-password-email',
-        },
       ],
     },
+
     {
       name: 'faq',
       displayName: 'menu.faq',
