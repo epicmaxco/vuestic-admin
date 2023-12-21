@@ -33,6 +33,14 @@ export default {
       },
     },
     {
+      name: 'users',
+      displayName: 'menu.users',
+    },
+    {
+      name: 'projects',
+      displayName: 'menu.projects',
+    },
+    {
       name: 'payments',
       displayName: 'menu.payments',
       meta: {

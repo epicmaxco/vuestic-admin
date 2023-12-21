@@ -114,7 +114,9 @@
     "recover-password": "Recover Password",
     "recover-password-email": "Recover Password Email",
     "404": "404",
-    "faq": "Faq"
+    "faq": "Faq",
+    "users": "Users",
+    "projects": "Projects"
   },
   "messages": {
     "all": "See all messages",

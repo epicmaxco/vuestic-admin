@@ -5,8 +5,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { defineProps } from 'vue'
+<script setup lang="ts">
 import { PaymentSystemType } from '../types'
 
 const props = defineProps<{
