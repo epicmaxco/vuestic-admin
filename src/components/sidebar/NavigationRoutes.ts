@@ -19,233 +19,89 @@ export default {
       },
     },
     {
-      name: 'statistics',
-      displayName: 'menu.statistics',
+      name: 'preferences',
+      displayName: 'menu.preferences',
       meta: {
-        icon: 'vuestic-iconset-statistics',
+        icon: 'manage_accounts',
       },
-      disabled: true,
-      children: [
-        {
-          name: 'charts',
-          displayName: 'menu.charts',
-        },
-        {
-          name: 'progress-bars',
-          displayName: 'menu.progressBars',
-        },
-      ],
     },
     {
-      name: 'forms',
-      displayName: 'menu.forms',
+      name: 'settings',
+      displayName: 'menu.settings',
       meta: {
-        icon: 'vuestic-iconset-forms',
+        icon: 'settings',
       },
-      disabled: true,
-      children: [
-        {
-          name: 'form-elements',
-          displayName: 'menu.formElements',
-        },
-        {
-          name: 'medium-editor',
-          displayName: 'menu.mediumEditor',
-        },
-      ],
     },
     {
-      name: 'tables',
-      displayName: 'menu.tables',
+      name: 'users',
+      displayName: 'menu.users',
       meta: {
-        icon: 'vuestic-iconset-tables',
+        icon: 'group',
       },
-      children: [
-        {
-          name: 'markup',
-          displayName: 'menu.markupTables',
-        },
-        // {
-        //   name: 'data',
-        //   displayName: 'menu.dataTables',
-        // },
-      ],
     },
     {
-      name: 'ui',
-      displayName: 'menu.uiElements',
+      name: 'projects',
+      displayName: 'menu.projects',
       meta: {
-        icon: 'vuestic-iconset-ui-elements',
+        icon: 'folder_shared',
       },
-      disabled: true,
-      children: [
-        {
-          name: 'buttons',
-          displayName: 'menu.buttons',
-        },
-        {
-          name: 'cards',
-          displayName: 'menu.cards',
-        },
-        {
-          name: 'chat',
-          displayName: 'menu.chat',
-        },
-        {
-          name: 'chips',
-          displayName: 'menu.chips',
-        },
-        {
-          name: 'collapses',
-          displayName: 'menu.collapses',
-        },
-        {
-          name: 'colors',
-          displayName: 'menu.colors',
-        },
-        {
-          name: 'color-pickers',
-          displayName: 'menu.colorPickers',
-        },
-        {
-          name: 'file-upload',
-          displayName: 'menu.fileUpload',
-        },
-        {
-          name: 'icon-sets',
-          displayName: 'menu.icons',
-          children: [
-            {
-              displayName: 'concrete',
-              name: 'icon-set',
-            },
-          ],
-        },
-        {
-          name: 'lists',
-          displayName: 'menu.lists',
-        },
-        {
-          name: 'modals',
-          displayName: 'menu.modals',
-        },
-        {
-          name: 'notifications',
-          displayName: 'menu.notifications',
-        },
-        {
-          name: 'popovers',
-          displayName: 'menu.popovers',
-        },
-        {
-          name: 'rating',
-          displayName: 'menu.rating',
-        },
-        {
-          name: 'sliders',
-          displayName: 'menu.sliders',
-        },
-        {
-          name: 'spinners',
-          displayName: 'menu.spinners',
-        },
-        {
-          name: 'tabs',
-          displayName: 'menu.tabs',
-        },
-        // {
-        //   name: "timelines",
-        //   displayName: "menu.timelines",
-        // },
-        {
-          name: 'tree-view',
-          displayName: 'menu.treeView',
-        },
-        {
-          name: 'typography',
-          displayName: 'menu.typography',
-        },
-      ],
     },
     {
-      name: 'maps',
-      displayName: 'menu.maps',
+      name: 'payments',
+      displayName: 'menu.payments',
       meta: {
-        icon: 'vuestic-iconset-maps',
+        icon: 'credit_card',
       },
-      disabled: true,
       children: [
         {
-          name: 'maplibre-maps',
-          displayName: 'menu.maplibre-maps',
-        },
-        {
-          name: 'yandex-maps',
-          displayName: 'menu.yandex-maps',
-        },
-        {
-          name: 'leaflet-maps',
-          displayName: 'menu.leaflet-maps',
-        },
-        {
-          name: 'bubble-maps',
-          displayName: 'menu.bubble-maps',
-        },
-        {
-          name: 'line-maps',
-          displayName: 'menu.line-maps',
-        },
-      ],
-    },
-    {
-      name: 'pages',
-      displayName: 'menu.pages',
-      meta: {
-        icon: 'vuestic-iconset-files',
-      },
-      disabled: true,
-      children: [
-        {
-          name: 'login',
-          displayName: 'menu.login-singup',
-        },
-        {
-          name: '404',
-          displayName: 'menu.404-pages',
-        },
-        {
-          name: 'faq',
-          displayName: 'menu.faq',
-        },
-        {
-          name: 'payments',
-          displayName: 'menu.payments',
-        },
-        {
-          name: 'preferences',
-          displayName: 'menu.preferences',
+          name: 'payment-methods',
+          displayName: 'menu.payment-methods',
         },
         {
           name: 'pricing-plans',
           displayName: 'menu.pricing-plans',
         },
         {
-          name: 'users',
-          displayName: 'menu.users',
-        },
-        {
-          name: 'projects',
-          displayName: 'menu.projects',
-        },
-        {
-          name: 'settings',
-          displayName: 'menu.settings',
-        },
-        {
           name: 'billing',
           displayName: 'menu.billing',
         },
       ],
+    },
+    {
+      name: 'auth',
+      displayName: 'menu.auth',
+      meta: {
+        icon: 'login',
+      },
+      children: [
+        {
+          name: 'login',
+          displayName: 'menu.login',
+        },
+        {
+          name: 'signup',
+          displayName: 'menu.signup',
+        },
+        {
+          name: 'recover-password',
+          displayName: 'menu.recover-password',
+        },
+      ],
+    },
+
+    {
+      name: 'faq',
+      displayName: 'menu.faq',
+      meta: {
+        icon: 'quiz',
+      },
+    },
+    {
+      name: '404',
+      displayName: 'menu.404',
+      meta: {
+        icon: 'vuestic-iconset-files',
+      },
     },
   ] as INavigationRoute[],
 }

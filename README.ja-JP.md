@@ -117,7 +117,7 @@ $ yarn build --report
 [チャット](https://admin.vuestic.dev/#/admin/ui/chat) |
 [マップ (MapLibre, Yandex, Leaflet, amMap)](https://admin.vuestic.dev/#/admin/maps/maplibre-maps) |
 [ログイン/登録ページテンプレート](https://admin.vuestic.dev/#/auth/login) |
-[404 ページテンプレート](https://admin.vuestic.dev/#/admin/pages/404-pages) |
+[404 ページテンプレート](https://admin.vuestic.dev/#/admin/pages/404) |
 [i18n](https://admin.vuestic.dev/#/admin/dashboard)
 
 ## ブラウザサポート

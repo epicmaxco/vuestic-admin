@@ -117,7 +117,7 @@ $ yarn build --report
 [聊天系统](https://admin.vuestic.dev/#/admin/ui/chat) |
 [地图(MapLibre, Yandex, Leaflet, amMap)](https://admin.vuestic.dev/#/admin/maps/maplibre-maps) |
 [登录/注册页模板](https://admin.vuestic.dev/#/auth/login) |
-[404 页模板](https://admin.vuestic.dev/#/admin/pages/404-pages) |
+[404 页模板](https://admin.vuestic.dev/#/admin/pages/404) |
 [i18n](https://admin.vuestic.dev/#/admin/dashboard)
 
 ## 支持的浏览器

@@ -11,7 +11,7 @@
             hover-opacity="0.10"
           >
             <VaSidebarItemContent class="py-3 pr-2 pl-4">
-              <VaIcon :name="route.meta.icon" size="20px" :color="iconColor(route)" />
+              <VaIcon v-if="route.meta.icon" :name="route.meta.icon" size="20px" :color="iconColor(route)" />
               <VaSidebarItemTitle class="flex justify-between items-center leading-5 font-semibold">
                 {{ t(route.displayName) }}
                 <VaIcon v-if="route.children" :name="arrowDirection(isCollapsed)" size="20px" />

@@ -2,7 +2,7 @@
   <VaContent class="typography content">
     <div class="grid grid-cols-12 gap-6">
       <VaCard class="col-span-12">
-        <VaCardTitle>{{ t('typography.primary') }}</VaCardTitle>
+        <VaCardTitle>Primary text styles</VaCardTitle>
         <VaCardContent>
           <div class="mb-8">
             <h1>Display 1 Heading</h1>
@@ -53,10 +53,10 @@
           </div>
           <div class="mb-8">
             <pre class="code-snippet">
-&lt;p class=“code-snippet”>
-  This is a wonderful example.
-  &lt;a href=“#” onClick=“”>Read more&lt;/a>
-&lt;/p></pre
+    &lt;p class=“code-snippet”>
+      This is a wonderful example.
+      &lt;a href=“#” onClick=“”>Read more&lt;/a>
+    &lt;/p></pre
             >
             <p>
               Of all of the celestial bodies that capture our attention and fascination as astronomers,
@@ -68,7 +68,7 @@
       </VaCard>
 
       <VaCard class="col-span-12">
-        <VaCardTitle>{{ t('typography.secondary') }}</VaCardTitle>
+        <VaCardTitle>Secondary text styles</VaCardTitle>
         <VaCardContent>
           <p class="va-h3">Lists</p>
           <ol class="va-ordered">
@@ -147,7 +147,7 @@
             </p>
           </div>
           <div class="mb-8">
-            <blockquote :style="{ borderColor: colors.primary }" class="va-blockquote">
+            <blockquote class="va-blockquote border-primary">
               <p>
                 BQ: Let’s talk about meat fondue recipes and what you need to know first. Meat fondue also known as oil
                 fondue is a method of cooking all kinds.
@@ -190,14 +190,12 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { useI18n } from 'vue-i18n'
-import { useColors } from 'vuestic-ui'
+import { computed } from 'vue'
+// import { useI18n } from 'vue-i18n'
+//
+// const { t } = useI18n()
 
-const { t } = useI18n()
-const { colors } = useColors()
-
-const tableData = ref([
+const tableData = computed(() => [
   ['Id', 'FooBar type', 'Actions'],
   ['1', 'Zebra', 'Delete'],
   ['2', 'Not Zebra', 'Remove'],

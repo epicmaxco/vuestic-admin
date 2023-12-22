@@ -128,7 +128,7 @@ $ yarn build --report
 [maps (MapLibre, Yandex, Leaflet, amMap)](https://admin.vuestic.dev/admin/maps/maplibre-maps)
 |
 [login/signup pages templates](https://admin.vuestic.dev/auth/login) |
-[404 pages templates](https://admin.vuestic.dev/admin/pages/404-pages) |
+[404 pages templates](https://admin.vuestic.dev/admin/pages/404) |
 [i18n](https://admin.vuestic.dev/admin/dashboard)
 
 ### Browser Support

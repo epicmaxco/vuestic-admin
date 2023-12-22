@@ -1,247 +1,128 @@
 {
   "auth": {
     "agree": "Eu aceito.",
-    "alreadyJoined": "Já entrou.",
     "createAccount": "Criar conta",
     "createNewAccount": "Criar uma nova conta",
     "email": "Email",
     "login": "Entrar",
     "password": "Senha",
-    "signUp": "Cadastrar-se",
+    "recover_password": "Recuperar senha",
+    "sign_up": "Cadastrar-se",
+    "keep_logged_in": "Mantenha-me conectado",
     "termsOfUse": "Termos de uso.",
-    "welcome": "Bem vindo!"
+    "reset_password": "Redefinir senha"
   },
-  "buttons": {
-    "advanced": "Icones, Grupos, Dropdowns",
-    "button": "BOTÃO",
-    "colors": "Cores",
-    "disabled": "DESABILITADO",
-    "dropdown": "DROPDOWN",
-    "hover": "HOVER",
-    "main": "Primeiro & Segundo Botão",
-    "micro": "MICRO",
-    "pressed": "PRESSIONADO",
-    "small": "PEQUENO"
+  "404": {
+    "title": "Esta página está pescando.",
+    "text": "Se você acha que isso não está certo, envie-nos uma mensagem em ",
+    "back_button": "Voltar para o painel"
   },
-  "charts": {
-    "horizontalBarChart": "Barra de Gráfico Horizontal",
-    "verticalBarChart": "Barra de Gráfico Vertical",
-    "lineChart": "Gráfico de Linha",
-    "pieChart": "Gráfico Pizza",
-    "donutChart": "Gráfico Rosca",
-    "bubbleChart": "Gráfico Bolhas"
+  "typography": {
+    "primary": "Estilos de texto primários",
+    "secondary": "Estilos de texto secundários"
   },
   "dashboard": {
-    "success": "SUCESSO",
-    "successMessage": "Você leu com sucesso esta mensagem importante de alerta.",
-    "elements": "Elementos",
-    "teamMembers": "Membros da Equipe",
     "versions": "Versões",
-    "table": {
-      "title": "Mesa impressionante",
-      "brief": "Breve",
-      "detailed": "Detalhado",
-      "resolve": "Resolver",
-      "resolved": "Resolvido"
-    }
-  },
-  "notificationsPage": {
-    "alerts": {
-      "title": "Alertas",
-      "success": "SUCESSO",
-      "successMessage": "Você leu com sucesso esta mensagem importante de alerta.",
-      "info": "INFORMAÇÃO",
-      "infoMessage": "Esse alerta precisa da sua atenção, mas não é super importante.",
-      "warning": "AVISO",
-      "warningMessage": "Melhor verificar a si mesmo, você não está muito bem.",
-      "danger": "PERÍGO",
-      "dangerMessage": "Mude algumas coisas e tente enviar novamente."
+    "setupRemoteConnections": "Configurar Conexões Remotas",
+    "currentVisitors": "Visitantes Atuais",
+    "charts": {
+      "trendyTrends": "Tendências na moda",
+      "showInMoreDetail": "Mostrar em mais detalhes",
+      "showInLessDetail": "Mostrar em menos detalhes",
+      "loadingSpeed": "Velocidade de carregamento",
+      "topContributors": "Principais colaboradores",
+      "showNextFive": "Mostrar próximos cinco",
+      "commits": "Commits"
     },
-    "popovers": {
-      "title": "Dicas de ferramentas & Pop-Ups",
-      "popoverTitleLabel": "Título Popover",
-      "popoverTextLabel": "Texto Popover",
-      "popoverIconLabel": "Icone Popover (fontawesome)",
-      "showPopover": "Mostrar Popover",
-      "topTooltip": "top dicas de ferramentas",
-      "rightTooltip": "sugestão ao lado direito",
-      "leftTooltip": "esquerda",
-      "bottomTooltip": "abaixo"
+    "info": {
+      "componentRichTheme": "tema rico em componentes",
+      "completedPullRequests": "solicitações de pull concluídas",
+      "users": "usuários",
+      "points": "pontos",
+      "units": "unidades",
+      "exploreGallery": "Explorar galeria",
+      "viewLibrary": "Ver Biblioteca",
+      "commits": "commits",
+      "components": "componentes",
+      "teamMembers": "membros da equipe"
     },
-    "toasts": {
-      "title": "Torradas",
-      "textLabel": "Texto",
-      "durationLabel": "Duração (milisegundos)",
-      "iconLabel": "Icone (fontawesome)",
-      "fullWidthLabel": "Largura completa",
-      "launchToast": "Launch toast"
-    }
-  },
-  "forms": {
-    "controls": {
-      "title": "Checkboxes, Radios, Switches",
-      "radioDisabled": "Radio Desabilitado",
-      "radio": "Radio",
-      "subscribe": "Assine a newsletter"
+    "tabs": {
+      "overview": {
+        "title": "Visão Geral",
+        "built": "Construído com o framework Vue.js",
+        "free": "Totalmente gratuito para todos",
+        "fresh": "Design fresco e nítido",
+        "mobile": "Responsivo e otimizado para dispositivos móveis",
+        "components": "Toneladas de componentes úteis",
+        "nojQuery": "Completamente livre de jQuery"
+      },
+      "billingAddress": {
+        "title": "Endereço de Cobrança",
+        "personalInfo": "Informação Pessoal",
+        "firstName": "Nome e Sobrenome",
+        "email": "Email",
+        "address": "Endereço",
+        "companyInfo": "Informação da Empresa",
+        "city": "Cidade",
+        "country": "País",
+        "infiniteConnections": "Conexões infinitas",
+        "addConnection": "Adicionar Conexão"
+      },
+      "bankDetails": {
+        "title": "Detalhes Bancários",
+        "detailsFields": "Campos de Detalhes",
+        "bankName": "Nome do Banco",
+        "accountName": "Nome da Conta",
+        "sortCode": "Código de Ordenação",
+        "accountNumber": "Número da Conta",
+        "notes": "Notas",
+        "sendDetails": "Enviar Detalhes"
+      }
     },
-    "dateTimePicker": {
-      "title": "Seletores de data e hora",
-      "basic": "Básico",
-      "time": "Hora",
-      "range": "Alcance",
-      "multiple": "Múltiplo",
-      "manualInput": "Entrada manual",
-      "disabled": "Desabilitado"
-    },
-    "inputs": {
-      "emailValidatedSuccess": "Email (validado com sucesso)",
-      "emailValidated": "Email (validado)",
-      "inputWithIcon": "Entrada com ícone",
-      "inputWithButton": "Entrada com botão",
-      "inputWithClearButton": "Entrada com Botão Claro",
-      "inputWithRoundButton": "Entrada com Botão Redondo",
-      "textInput": "Entrada de Texto",
-      "textInputWithDescription": "Entrada de Texto (com descrição)",
-      "textArea": "Área de Texto",
-      "title": "Entrada",
-      "upload": "UPLOAD"
-    },
-    "mediumEditor": {
-      "title": "Editor Medium"
-    },
-    "selects": {
-      "country": "Selecionar Região",
-      "countryMulti": "Selecionar Multiplas Regiões",
-      "multi": "Selecionar Múltiplos",
-      "simple": "Selecionador Simples",
-      "title": "Selecionadores"
-    }
-  },
-  "grid": {
-    "desktop": "Grid Área de Trabalho",
-    "fixed": "Grid Fixo",
-    "offsets": "Offsets",
-    "responsive": "Grid Responssivo"
-  },
-  "icons": {
-    "back": "Retornar aos icones",
-    "none": "Incones não encontrados",
-    "search": "Pesquisar Icone",
-    "title": "Icones"
-  },
-  "spinners": {
-    "title": "Spinners",
-    "poweredBy": "Distribuido por"
+    "navigationLayout": "layout de navegação",
+    "topBarButton": "Barra Superior",
+    "sideBarButton": "Barra Lateral"
   },
   "language": {
     "brazilian_portuguese": "Português",
-    "english": "English",
-    "spanish": "Spanish",
-    "simplified_chinese": "Chinês simplificado"
+    "english": "Inglês",
+    "spanish": "Espanhol",
+    "simplified_chinese": "Chinês Simplificado",
+    "persian": "Persa"
   },
   "menu": {
-    "auth": "Autorização",
+    "auth": "Autenticação",
     "buttons": "Botões",
-    "charts": "Gráficos",
-    "colorPickers": "Colhedores de Cor",
-    "dashboard": "Painel principal",
-    "formElements": "Elementos de Formulários",
-    "forms": "Formulários",
-    "mediumEditor": "Editor Medium",
-    "grid": "Grid",
-    "icons": "Icones",
-    "cards": "Cards",
-    "spinners": "Spinners",
-    "login": "Login",
-    "maps": "Mapas",
-    "modals": "Modals",
-    "notifications": "Notificações",
-    "progressBars": "Barra de progresso",
+    "timelines": "Linhas do Tempo",
+    "dashboard": "Painel de Controle",
+    "billing": "Cobrança",
+    "login": "Entrar",
     "signUp": "Cadastrar-se",
-    "statistics": "Estatística",
-    "lists": "Listas",
-    "tables": "Tabelas",
-    "markupTables": "Tabelas de Marcação",
-    "dataTables": "Tabelas de Dados",
-    "typography": "Tipografia",
-    "uiElements": "Elementos UI",
-    "treeView": "Árvore de visualização",
-    "dateTimePickers": "Selecionar Data e Hora",
-    "chat": "Gráficos"
+    "preferences": "Preferências",
+    "payments": "Pagamentos",
+    "pricing-plans": "Planos de Preços",
+    "login-singup": "Entrar/Cadastrar",
+    "404": "Páginas 404",
+    "faq": "FAQ"
   },
   "messages": {
-    "all": "Ver todas as menssagens",
-    "new": "Nova menssagem de {name}"
-  },
-  "modal": {
-    "cancel": "CANCELAR",
-    "close": "FECHAR",
-    "confirm": "CONFIRMAR",
-    "large": "Grande",
-    "largeTitle": "Modal Grande",
-    "medium": "Médio",
-    "mediumTitle": "Modal Médio",
-    "small": "Pequeno",
-    "smallTitle": "Modal Pequeno",
-    "static": "Estático",
-    "staticMessage": "Este é um modal é estático, clicar no pano de fundo não o fechará.",
-    "staticTitle": "Modal Estático",
-    "title": "Modals"
+    "all": "Ver todas as mensagens",
+    "new": "Novas mensagens de {name}",
+    "mark_as_read": "Marcar como Lido"
   },
   "navbar": {
-    "messageUs": "Enviar uma pergunta ou feedback para"
+    "messageUs": "Perguntas de desenvolvimento web:",
+    "repository": "Repositório GitHub"
   },
   "notifications": {
     "all": "Ver todas as notificações",
-    "sentMessage": "{name} enviou uma menssagem",
-    "uploadedZip": "{name} fez uploaded de um novo arquivo Zip com {type}",
-    "startedTopic": "{name} iniciou um novo tópico"
-  },
-  "progressBars": {
-    "circle": "Círculo",
-    "horizontal": "Horizontal",
-    "state": "Doença",
-    "colors": "Cores"
-  },
-  "lists": {
-    "customers": "Clientes",
-    "recentMessages": "Mensagens Recentes",
-    "archieved": "Arquivado",
-    "starterKit": "Kit iniciante",
-    "notifications": "Notificações"
-  },
-  "tables": {
-    "basic": "Mesa Básica",
-    "stripedHoverable": "Listrado, flutuante",
-    "labelsActions": "Etiquetas, ações como botões",
-    "sortingPaginationActionsAsIcons": "Ordenação, Paginação, Ações como Ícones",
-    "star": "Star",
-    "unstar": "Unstar",
-    "edit": "Editar",
-    "delete": "Excluir",
-    "searchByName": "Procura por nome",
-    "searchTrendsBadges": "Pesquisa, Tendências, Emblemas",
-    "perPage": "Por página",
-    "report": "Relatório",
-    "infiniteScroll": "Rolagem infinita",
-    "selectable": "Selecionável",
-    "selected": "Selecionado",
-    "serverSidePagination": "Server-Side Paginação",
-    "emptyTable": "Mesa Vazia",
-    "noDataAvailable": "Nenhum dado disponível.",
-    "noReport": "Não há dados para exibir. O relatório estará disponível em 3 de novembro de 2018.",
-    "loading": "Carregando",
-    "headings": {
-      "email": "Email",
-      "name": "Nome",
-      "firstName": "Primeiro nome",
-      "lastName": "Último nome",
-      "status": "Status",
-      "country": "País"
-    }
+    "mark_as_read": "Marcar como lida",
+    "sentMessage": "enviou uma mensagem",
+    "uploadedZip": "fez upload de um novo arquivo Zip com {type}",
+    "startedTopic": "iniciou um novo tópico"
   },
   "user": {
-    "language": "Trocar Linguagem",
+    "language": "Mudar Idioma",
     "logout": "Sair",
     "profile": "Meu Perfil",
     "settings": "Configurações",
