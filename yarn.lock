@@ -1044,12 +1044,13 @@ autoprefixer@^10.4.13:
     picocolors "^1.0.0"
     postcss-value-parser "^4.2.0"
 
-axios@^0.27.2:
-  version "0.27.2"
-  resolved "https://registry.npmjs.org/axios/-/axios-0.27.2.tgz"
+axios@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.0.tgz#f1e5292f26b2fd5c2e66876adc5b06cdbd7d2102"
   dependencies:
-    follow-redirects "^1.14.9"
+    follow-redirects "^1.15.0"
     form-data "^4.0.0"
+    proxy-from-env "^1.1.0"
 
 balanced-match@^1.0.0:
   version "1.0.2"
@@ -2135,9 +2136,9 @@ flatted@^3.1.0:
   version "3.2.5"
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.2.5.tgz"
 
-follow-redirects@^1.14.9:
-  version "1.15.1"
-  resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.1.tgz"
+follow-redirects@^1.15.0:
+  version "1.15.3"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.3.tgz#fe2f3ef2690afce7e82ed0b44db08165b207123a"
 
 form-data@^4.0.0:
   version "4.0.0"
@@ -2970,6 +2971,10 @@ process-nextick-args@~2.0.0:
 protocol-buffers-schema@^3.3.1:
   version "3.6.0"
   resolved "https://registry.npmjs.org/protocol-buffers-schema/-/protocol-buffers-schema-3.6.0.tgz"
+
+proxy-from-env@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/proxy-from-env/-/proxy-from-env-1.1.0.tgz#e102f16ca355424865755d2c9e8ea4f24d58c3e2"
 
 punycode@^1.3.2:
   version "1.4.1"
