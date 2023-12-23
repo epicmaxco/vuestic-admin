@@ -51,10 +51,4 @@ export const useNotificationsStore = defineStore('notifications', {
       },
     }
   },
-
-  actions: {
-    update(newNotifications: typeof this.notifications) {
-      this.notifications = newNotifications
-    },
-  },
 })
