@@ -13,7 +13,6 @@
         v-for="item in items"
         :key="item.label"
         :label="item.label"
-        class="cursor-pointer"
         @click="handleBreadcrumbClick(item)"
       />
     </VaBreadcrumbs>
