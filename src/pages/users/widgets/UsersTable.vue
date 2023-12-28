@@ -8,11 +8,11 @@ import { useVModel } from '@vueuse/core'
 import { Project } from '../../projects/types'
 
 const columns = defineVaDataTableColumns([
-  { label: 'Full Name', key: 'fullname', sortable: true },
-  { label: 'Email', key: 'email', sortable: true },
-  { label: 'Username', key: 'username', sortable: true },
+  { label: 'Full Name', key: 'fullname', sortable: true, tdStyle: { maxWidth: '230px' } },
+  { label: 'Email', key: 'email', sortable: true, tdStyle: { maxWidth: '230px' } },
+  { label: 'Username', key: 'username', sortable: true, tdStyle: { maxWidth: '120px' } },
   { label: 'Role', key: 'role', sortable: true },
-  { label: 'Projects', key: 'projects', sortable: true },
+  { label: 'Projects', key: 'projects', sortable: true, tdStyle: { maxWidth: '320px' } },
   { label: ' ', key: 'actions', align: 'right' },
 ])
 
@@ -99,7 +99,9 @@ const formatProjectNames = (projects: Project[]) => {
     </template>
 
     <template #cell(projects)="{ rowData }">
-      {{ formatProjectNames(rowData.projects) }}
+      <div class="ellipsis">
+        {{ formatProjectNames(rowData.projects) }}
+      </div>
     </template>
 
     <template #cell(actions)="{ rowData }">
