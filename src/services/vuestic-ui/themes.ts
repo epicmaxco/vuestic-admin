@@ -5,8 +5,8 @@ export default {
       backgroundCardSecondary: '#ECFDE6',
     },
     dark: {
-      backgroundCardPrimary: '#000',
-      backgroundCardSecondary: '#000',
+      backgroundCardPrimary: '#111827',
+      backgroundCardSecondary: '#0f172a',
     },
   },
 }
