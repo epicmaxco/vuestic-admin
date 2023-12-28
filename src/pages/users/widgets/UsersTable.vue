@@ -50,10 +50,10 @@ const { confirm } = useModal()
 
 const onUserDelete = async (user: User) => {
   const agreed = await confirm({
+    title: 'Delete user',
     message: `Are you sure you want to delete ${user.fullname}?`,
     okText: 'Delete',
     cancelText: 'Cancel',
-    size: 'small',
   })
 
   if (agreed) {
