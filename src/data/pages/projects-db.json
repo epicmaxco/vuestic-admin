@@ -9,7 +9,7 @@
   },
   {
     "id": 1,
-    "project_name": "Mood board",
+    "project_name": "Mood board: lorem ipsum dolor sit amet, consectetur adipisicing elit.",
     "project_owner": 28,
     "team": [28, 10, 12, 28, 14, 27, 5, 4, 8, 23, 19, 18, 24, 11, 18, 12, 28],
     "status": "important",
@@ -25,7 +25,7 @@
   },
   {
     "id": 3,
-    "project_name": "S Springfield media",
+    "project_name": "S Springfield media: architecto, culpa deleniti dolores dolorum excepturi nulla obcaecati quam? Deserunt, excepturi quaerat.",
     "project_owner": 17,
     "team": [17, 25, 21, 9, 18, 12, 15, 0, 7, 2, 7],
     "status": "important",
