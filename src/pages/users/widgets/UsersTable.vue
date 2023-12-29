@@ -8,11 +8,11 @@ import { useVModel } from '@vueuse/core'
 import { Project } from '../../projects/types'
 
 const columns = defineVaDataTableColumns([
-  { label: 'Full Name', key: 'fullname', sortable: true, tdStyle: { maxWidth: '230px' } },
-  { label: 'Email', key: 'email', sortable: true, tdStyle: { maxWidth: '230px' } },
-  { label: 'Username', key: 'username', sortable: true, tdStyle: { maxWidth: '120px' } },
+  { label: 'Full Name', key: 'fullname', sortable: true },
+  { label: 'Email', key: 'email', sortable: true },
+  { label: 'Username', key: 'username', sortable: true },
   { label: 'Role', key: 'role', sortable: true },
-  { label: 'Projects', key: 'projects', sortable: true, tdStyle: { maxWidth: '320px' } },
+  { label: 'Projects', key: 'projects', sortable: true },
   { label: ' ', key: 'actions', align: 'right' },
 ])
 
@@ -88,9 +88,21 @@ const formatProjectNames = (projects: Project[]) => {
     :loading="$props.loading"
   >
     <template #cell(fullname)="{ rowData }">
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-2 max-w-[230px]">
         <UserAvatar :user="rowData" size="small" />
         {{ rowData.fullname }}
+      </div>
+    </template>
+
+    <template #cell(email)="{ rowData }">
+      <div class="max-w-[230px]">
+        {{ rowData.email }}
+      </div>
+    </template>
+
+    <template #cell(username)="{ rowData }">
+      <div class="max-w-[120px]">
+        {{ rowData.username }}
       </div>
     </template>
 
@@ -99,7 +111,7 @@ const formatProjectNames = (projects: Project[]) => {
     </template>
 
     <template #cell(projects)="{ rowData }">
-      <div class="ellipsis">
+      <div class="ellipsis max-w-[300px] lg:max-w-[450px]">
         {{ formatProjectNames(rowData.projects) }}
       </div>
     </template>
