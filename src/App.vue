@@ -13,5 +13,6 @@
 
 body {
   margin: 0;
+  min-width: 20rem;
 }
 </style>

@@ -35,8 +35,10 @@ const avatarColor = (userName: string) => {
     <VaCard v-for="project in projects" :key="project.project_name" outlined>
       <VaCardContent class="flex flex-col h-full">
         <div class="text-[var(--va-secondary)]">{{ project.creation_date }}</div>
-        <div class="flex flex-col justify-center items-center gap-4 flex-1">
-          <h4 class="va-h4 text-center">{{ project.project_name }}</h4>
+        <div class="flex flex-col items-center gap-4 grow">
+          <h4 class="va-h4 text-center self-stretch overflow-hidden line-clamp-2 text-ellipsis">
+            {{ project.project_name }}
+          </h4>
           <p>
             <span class="text-[var(--va-secondary)]">Owner: </span>
             <span>{{ project.project_owner.fullname }}</span>
@@ -53,11 +55,9 @@ const avatarColor = (userName: string) => {
             "
             :max="5"
           />
-
           <ProjectStatusBadge :status="project.status" />
         </div>
         <VaDivider class="my-6" />
-
         <div class="flex justify-between">
           <VaButton preset="secondary" icon="mso-edit" color="secondary" @click="$emit('edit', project)" />
           <VaButton preset="secondary" icon="mso-delete" color="danger" @click="$emit('delete', project)" />

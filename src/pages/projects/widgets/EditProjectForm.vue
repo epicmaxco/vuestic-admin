@@ -85,6 +85,7 @@ const { users: ownerUsers, filters: ownerFilters } = useUsers({ pagination: ref(
       v-model="newProject.status"
       label="Status"
       :rules="[required]"
+      track-by="value"
       :options="[
         { text: 'In progress', value: 'in progress' },
         { text: 'Archived', value: 'archived' },

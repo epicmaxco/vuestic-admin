@@ -65,8 +65,13 @@ const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagin
       :columns="columns"
       :loading="loading"
     >
+      <template #cell(project_name)="{ rowData }">
+        <div class="ellipsis max-w-[230px] lg:max-w-[450px]">
+          {{ rowData.project_name }}
+        </div>
+      </template>
       <template #cell(project_owner)="{ rowData }">
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 ellipsis max-w-[230px]">
           <UserAvatar :user="rowData.project_owner" size="small" />
           {{ rowData.project_owner.fullname }}
         </div>

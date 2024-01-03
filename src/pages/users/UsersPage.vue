@@ -34,7 +34,7 @@ const onUserSaved = async (user: User) => {
   } else {
     usersApi.add(user)
     notify({
-      message: `${user.fullname} has been updated`,
+      message: `${user.fullname} has been created`,
       color: 'success',
     })
   }

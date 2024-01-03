@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "project_name": "A Vuestic",
+    "project_name": "Vuestic",
     "project_owner": 13,
     "team": [13, 5, 28, 14, 17, 28, 23, 11, 16, 19, 12, 28, 11],
     "status": "in progress",
@@ -17,7 +17,7 @@
   },
   {
     "id": 2,
-    "project_name": "J Jenkins",
+    "project_name": "Jenkins",
     "project_owner": 3,
     "team": [3, 21, 7, 19, 4, 4, 7, 24],
     "status": "important",
@@ -25,7 +25,7 @@
   },
   {
     "id": 3,
-    "project_name": "S Springfield media",
+    "project_name": "Springfield media",
     "project_owner": 17,
     "team": [17, 25, 21, 9, 18, 12, 15, 0, 7, 2, 7],
     "status": "important",
@@ -33,7 +33,7 @@
   },
   {
     "id": 4,
-    "project_name": "G Galileo",
+    "project_name": "Galileo",
     "project_owner": 7,
     "team": [7, 1, 28, 19, 3],
     "status": "completed",
@@ -41,7 +41,7 @@
   },
   {
     "id": 5,
-    "project_name": "O Website Redesign",
+    "project_name": "Website redesign",
     "project_owner": 24,
     "team": [24, 19, 1, 8, 9],
     "status": "completed",
@@ -49,7 +49,7 @@
   },
   {
     "id": 6,
-    "project_name": "U Website Redesign",
+    "project_name": "Toolset landing",
     "project_owner": 15,
     "team": [15, 16, 8, 6, 11, 21, 3, 20],
     "status": "archived",
@@ -57,7 +57,7 @@
   },
   {
     "id": 7,
-    "project_name": "L Complete Product Redesign",
+    "project_name": "Complete product redesign",
     "project_owner": 25,
     "team": [25, 18, 24, 13, 5, 3, 4, 16, 25, 12, 18, 9, 22],
     "status": "completed",
@@ -65,7 +65,7 @@
   },
   {
     "id": 8,
-    "project_name": "Design Team Project",
+    "project_name": "Design team project",
     "project_owner": 17,
     "team": [17, 6, 21, 17, 7, 6, 14, 13, 27, 7, 20],
     "status": "archived",
@@ -73,7 +73,7 @@
   },
   {
     "id": 9,
-    "project_name": "R Regular logistics",
+    "project_name": "Regular logistics",
     "project_owner": 3,
     "team": [3, 26, 8, 15, 21, 23, 18, 11, 22, 6, 20, 9],
     "status": "archived",

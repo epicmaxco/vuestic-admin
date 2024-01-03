@@ -94,7 +94,8 @@ const { projects } = useProjects()
     </VaFileUpload>
     <div class="self-stretch flex-col justify-start items-start gap-4 flex">
       <VaInput v-model="newUser.fullname" label="Full name" class="w-full" :rules="[required]" name="fullname" />
-
+      <VaInput v-model="newUser.username" label="Username" class="w-full" :rules="[required]" name="username" />
+      <VaInput v-model="newUser.email" label="Email" class="w-full" :rules="[required]" name="email" />
       <VaSelect
         v-model="newUser.role"
         label="Role"
@@ -104,9 +105,6 @@ const { projects } = useProjects()
         name="role"
         value-by="value"
       />
-
-      <VaInput v-model="newUser.username" label="Username" class="w-full" :rules="[required]" name="username" />
-      <VaInput v-model="newUser.email" label="Email" class="w-full" :rules="[required]" name="email" />
       <VaCheckbox v-model="newUser.active" label="Active" class="w-full" name="active" />
 
       <VaSelect

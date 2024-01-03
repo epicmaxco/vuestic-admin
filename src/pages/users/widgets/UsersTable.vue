@@ -50,10 +50,10 @@ const { confirm } = useModal()
 
 const onUserDelete = async (user: User) => {
   const agreed = await confirm({
+    title: 'Delete user',
     message: `Are you sure you want to delete ${user.fullname}?`,
     okText: 'Delete',
     cancelText: 'Cancel',
-    size: 'small',
   })
 
   if (agreed) {
@@ -88,9 +88,21 @@ const formatProjectNames = (projects: Project[]) => {
     :loading="$props.loading"
   >
     <template #cell(fullname)="{ rowData }">
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-2 max-w-[230px]">
         <UserAvatar :user="rowData" size="small" />
         {{ rowData.fullname }}
+      </div>
+    </template>
+
+    <template #cell(email)="{ rowData }">
+      <div class="max-w-[230px]">
+        {{ rowData.email }}
+      </div>
+    </template>
+
+    <template #cell(username)="{ rowData }">
+      <div class="max-w-[120px]">
+        {{ rowData.username }}
       </div>
     </template>
 
@@ -99,7 +111,9 @@ const formatProjectNames = (projects: Project[]) => {
     </template>
 
     <template #cell(projects)="{ rowData }">
-      {{ formatProjectNames(rowData.projects) }}
+      <div class="ellipsis max-w-[300px] lg:max-w-[450px]">
+        {{ formatProjectNames(rowData.projects) }}
+      </div>
     </template>
 
     <template #cell(actions)="{ rowData }">

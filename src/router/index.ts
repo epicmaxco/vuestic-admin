@@ -32,6 +32,16 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('../pages/preferences/Preferences.vue'),
       },
       {
+        name: 'users',
+        path: 'users',
+        component: () => import('../pages/users/UsersPage.vue'),
+      },
+      {
+        name: 'projects',
+        path: 'projects',
+        component: () => import('../pages/projects/ProjectsPage.vue'),
+      },
+      {
         name: 'payments',
         path: '/payments',
         component: RouteViewComponent,
@@ -40,16 +50,6 @@ const routes: Array<RouteRecordRaw> = [
             name: 'payment-methods',
             path: 'payment-methods',
             component: () => import('../pages/payments/PaymentsPage.vue'),
-          },
-          {
-            name: 'users',
-            path: 'users',
-            component: () => import('../pages/users/UsersPage.vue'),
-          },
-          {
-            name: 'projects',
-            path: 'projects',
-            component: () => import('../pages/projects/ProjectsPage.vue'),
           },
           {
             name: 'billing',
@@ -62,6 +62,11 @@ const routes: Array<RouteRecordRaw> = [
             component: () => import('../pages/pricing-plans/PricingPlans.vue'),
           },
         ],
+      },
+      {
+        name: 'faq',
+        path: '/faq',
+        component: () => import('../pages/faq/FaqPage.vue'),
       },
     ],
   },
@@ -94,11 +99,6 @@ const routes: Array<RouteRecordRaw> = [
         redirect: { name: 'login' },
       },
     ],
-  },
-  {
-    name: 'faq',
-    path: '/faq',
-    component: () => import('../pages/admin/pages/faq/FaqPage.vue'),
   },
   {
     name: '404',

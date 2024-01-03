@@ -19,20 +19,6 @@ export default {
       },
     },
     {
-      name: 'preferences',
-      displayName: 'menu.preferences',
-      meta: {
-        icon: 'manage_accounts',
-      },
-    },
-    {
-      name: 'settings',
-      displayName: 'menu.settings',
-      meta: {
-        icon: 'settings',
-      },
-    },
-    {
       name: 'users',
       displayName: 'menu.users',
       meta: {
@@ -101,6 +87,20 @@ export default {
       displayName: 'menu.404',
       meta: {
         icon: 'vuestic-iconset-files',
+      },
+    },
+    {
+      name: 'preferences',
+      displayName: 'menu.preferences',
+      meta: {
+        icon: 'manage_accounts',
+      },
+    },
+    {
+      name: 'settings',
+      displayName: 'menu.settings',
+      meta: {
+        icon: 'settings',
       },
     },
   ] as INavigationRoute[],
