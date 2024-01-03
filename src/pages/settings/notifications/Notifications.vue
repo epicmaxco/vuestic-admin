@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col p-4 bg-backgroundSecondary rounded-lg">
     <h3 class="h3 mb-6">Notifications you receive</h3>
-    <div class="group" v-for="notification in notifications" :key="notification.name">
+    <div v-for="notification in notifications" :key="notification.name" class="group">
       <div class="flex items-center justify-between">
         <p class="text-regularLarge">
           {{ notification.name }}
