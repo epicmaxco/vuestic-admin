@@ -21,7 +21,7 @@
             v-for="item in group.list"
             :key="item.name"
             class="px-4 text-base cursor-pointer hover:bg-focus active:bg-focus hover:bg-opacity-10 active:bg-opacity-10"
-            :to="item.redirectTo"
+            v-bind="resolveLinkAttribute(item)"
           >
             <VaIcon :name="item.icon" class="px-1" />
             {{ t(`user.${item.name}`) }}
@@ -38,15 +38,17 @@ import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
+type ProfileListItem = {
+  name: string
+  redirectTo?: string
+  href?: string
+  icon: string
+}
 
 type ProfileOptions = {
   name: string
   separator: boolean
-  list: {
-    name: string
-    redirectTo: string
-    icon: string
-  }[]
+  list: ProfileListItem[]
 }
 
 withDefaults(
@@ -61,22 +63,22 @@ withDefaults(
         list: [
           {
             name: 'profile',
-            redirectTo: '',
+            redirectTo: 'preferences',
             icon: 'account_circle',
           },
           {
             name: 'settings',
-            redirectTo: '',
+            redirectTo: 'settings',
             icon: 'settings',
           },
           {
             name: 'billing',
-            redirectTo: '',
+            redirectTo: 'payments/billing',
             icon: 'receipt_long',
           },
           {
             name: 'projects',
-            redirectTo: '',
+            redirectTo: 'projects',
             icon: 'favorite_outline',
           },
         ],
@@ -87,12 +89,12 @@ withDefaults(
         list: [
           {
             name: 'faq',
-            redirectTo: '',
+            redirectTo: 'faq',
             icon: 'quiz',
           },
           {
             name: 'helpAndSupport',
-            redirectTo: '',
+            href: 'https://discord.gg/fnQ47XYB',
             icon: 'help_outline',
           },
         ],
@@ -113,6 +115,10 @@ withDefaults(
 )
 
 const isShown = ref(false)
+
+const resolveLinkAttribute = (item: ProfileListItem) => {
+  return item.redirectTo ? { to: item.redirectTo } : item.href ? { href: item.href, target: '_blank' } : {}
+}
 </script>
 
 <style lang="scss" scoped>
