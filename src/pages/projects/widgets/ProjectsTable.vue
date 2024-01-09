@@ -57,7 +57,7 @@ const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagin
 </script>
 
 <template>
-  <div v-if="projects.length > 0">
+  <div>
     <VaDataTable
       v-model:sort-by="sortByVModel"
       v-model:sorting-order="sortingOrderVModel"
@@ -96,8 +96,8 @@ const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagin
 
       <template #cell(actions)="{ rowData: project }">
         <div class="flex gap-2 justify-end">
-          <VaButton preset="primary" icon="mso-edit" color="primary" @click="$emit('edit', project)" />
-          <VaButton preset="primary" icon="mso-delete" color="danger" @click="$emit('delete', project)" />
+          <VaButton preset="primary" size="small" color="primary" @click="$emit('edit', project)">Edit</VaButton>
+          <VaButton preset="primary" size="small" icon="mso-delete" color="danger" @click="$emit('delete', project)" />
         </div>
       </template>
     </VaDataTable>
@@ -133,5 +133,4 @@ const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagin
       </div>
     </div>
   </div>
-  <div v-else class="p-4 flex justify-center items-center text-[var(--va-secondary)]">No projects</div>
 </template>

@@ -118,8 +118,14 @@ const formatProjectNames = (projects: Project[]) => {
 
     <template #cell(actions)="{ rowData }">
       <div class="flex gap-2 justify-end">
-        <VaButton preset="primary" icon="mso-edit" @click="$emit('edit-user', rowData as User)" />
-        <VaButton preset="primary" icon="mso-delete" color="danger" @click="onUserDelete(rowData as User)" />
+        <VaButton preset="primary" size="small" @click="$emit('edit-user', rowData as User)">Edit</VaButton>
+        <VaButton
+          preset="primary"
+          size="small"
+          icon="mso-delete"
+          color="danger"
+          @click="onUserDelete(rowData as User)"
+        />
       </div>
     </template>
   </VaDataTable>
