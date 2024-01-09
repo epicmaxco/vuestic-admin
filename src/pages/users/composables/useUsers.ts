@@ -61,28 +61,21 @@ export const useUsers = (options?: {
     async add(user: User) {
       isLoading.value = true
       await addUser(user)
-      users.value.unshift(user)
+      await fetch()
       isLoading.value = false
     },
 
     async update(user: User) {
       isLoading.value = true
       await updateUser(user)
-      users.value = users.value
-        .map((u) => (u.id === user.id ? user : u))
-        .filter((u) => u.active === filters.value.isActive)
-        .filter((u) => {
-          if (!filters.value.search) return true
-
-          return u.fullname.toLowerCase().includes(filters.value.search.toLowerCase())
-        })
+      await fetch()
       isLoading.value = false
     },
 
     async remove(user: User) {
       isLoading.value = true
       await removeUser(user)
-      users.value = users.value.filter((u) => u.id !== user.id)
+      await fetch()
       isLoading.value = false
     },
   }
