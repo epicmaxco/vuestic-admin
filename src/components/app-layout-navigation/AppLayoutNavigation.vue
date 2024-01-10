@@ -73,7 +73,7 @@ const items = computed(() => {
         hasChildren: route.children && route.children.length > 0,
       }
     })
-    .filter((route) => route.label && !route.hasChildren)
+    .filter((route) => route.label)
 })
 
 const { getColor } = useColors()
