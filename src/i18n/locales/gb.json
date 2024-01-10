@@ -121,6 +121,7 @@
   },
   "notifications": {
     "all": "See all notifications",
+    "less": "See less notifications",
     "mark_as_read": "Mark as read",
     "sentMessage": "sent you a message",
     "uploadedZip": "uploaded a new Zip file with {type}",

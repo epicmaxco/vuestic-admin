@@ -43,7 +43,7 @@ const props = withDefaults(
     end?: string
   }>(),
   {
-    height: 14,
+    height: 18,
     start: 'primary',
     end: undefined,
   },
