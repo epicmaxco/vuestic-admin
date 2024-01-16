@@ -56,6 +56,46 @@ export const defaultConfig = {
   animation: true,
 }
 
+export const doughnutConfig = {
+  scales: {
+    x: {
+      display: false,
+      grid: {
+        display: false, // Disable X-axis grid lines ("net")
+      },
+    },
+    y: {
+      display: false,
+      grid: {
+        display: false, // Disable Y-axis grid lines ("net")
+      },
+      ticks: {
+        display: false, // Hide Y-axis values
+      },
+    },
+  },
+  plugins: {
+    legend: {
+      display: false,
+    },
+  },
+  datasets: {
+    line: {
+      fill: 'origin',
+      tension: 0.3,
+      borderColor: 'transparent',
+    },
+    bubble: {
+      borderColor: 'transparent',
+    },
+    bar: {
+      borderColor: 'transparent',
+    },
+  },
+  maintainAspectRatio: false,
+  animation: true,
+}
+
 export const chartTypesMap = {
   pie: defineAsyncComponent(() => import('./chart-types/PieChart.vue')),
   doughnut: defineAsyncComponent(() => import('./chart-types/DoughnutChart.vue')),
