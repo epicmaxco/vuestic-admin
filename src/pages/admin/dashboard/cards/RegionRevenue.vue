@@ -5,15 +5,9 @@
     </VaCardTitle>
     <VaCardContent class="flex flex-col gap-1">
       <div class="flex justify-between">
-        <VaButtonToggle
-          v-model="selectedPeriod"
-          :options="periods"
-          color="background-element"
-          size="small"
-          class="w-1/2"
-        />
+        <VaButtonToggle v-model="selectedPeriod" :options="periods" color="background-element" size="small" />
 
-        <VaButton preset="primary" size="small"> Export </VaButton>
+        <VaButton preset="primary" size="small" @click="exportAsCSV"> Export </VaButton>
       </div>
 
       <VaDataTable
@@ -32,6 +26,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { downloadAsCSV } from '../../../../services/toCSV'
 
 const selectedPeriod = ref('Today')
 const periods = ['Today', 'Week', 'Month'].map((period) => ({ label: period, value: period }))
@@ -68,6 +63,10 @@ const data = [
     revenueMonth: '800,000',
   },
 ]
+
+const exportAsCSV = () => {
+  downloadAsCSV(data, 'region-revenue')
+}
 </script>
 
 <style lang="scss" scoped>

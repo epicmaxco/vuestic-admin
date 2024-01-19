@@ -1,6 +1,6 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-    <KeyDataPoint
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+    <DataSectionItem
       v-for="metric in dashboardMetrics"
       :key="metric.id"
       :title="metric.title"
@@ -12,12 +12,12 @@
       <template #icon>
         <VaIcon :name="metric.icon" size="large" />
       </template>
-    </KeyDataPoint>
+    </DataSectionItem>
   </div>
 </template>
 
 <script lang="ts" setup>
-import KeyDataPoint from './KeyDataPoint.vue'
+import DataSectionItem from './DataSectionItem.vue'
 
 interface DashboardMetric {
   id: string

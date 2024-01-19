@@ -24,7 +24,7 @@ import { VaCard } from 'vuestic-ui'
 import { LMap, LTileLayer, LGeoJson } from '@vue-leaflet/vue-leaflet'
 import type { PointExpression } from 'leaflet'
 import 'leaflet/dist/leaflet.css'
-import countriesGeoJSON from '../../../data/geo.json'
+import countriesGeoJSON from '../../../../data/geo.json'
 
 const styleCountry = () => {
   const revenue = Math.floor(Math.random() * 1000)

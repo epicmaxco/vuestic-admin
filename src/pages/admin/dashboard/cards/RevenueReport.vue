@@ -4,7 +4,7 @@
       <h1 class="card-title text-secondary font-bold uppercase">Revenue Report</h1>
       <div class="flex gap-2">
         <VaSelect v-model="selectedMonth" preset="small" :keep-anchor-width="false" :options="months" class="w-20" />
-        <VaButton class="h-2" size="small" preset="primary">Export</VaButton>
+        <VaButton class="h-2" size="small" preset="primary" @click="exportAsCSV">Export</VaButton>
       </div>
     </VaCardTitle>
     <VaCardContent class="flex flex-col md:flex-row justify-between gap-5 h-full">
@@ -31,7 +31,7 @@
         </div>
         <VaButton preset="primary" size="small">View full report</VaButton>
       </section>
-      <RevenueChart class="w-2/3 h-full" :revenues="revenues" :months="months" />
+      <RevenueReportChart class="w-2/3 h-full" :revenues="revenues" :months="months" />
     </VaCardContent>
   </VaCard>
 </template>
@@ -39,8 +39,8 @@
 <script lang="ts" setup>
 import { ref, computed } from 'vue'
 import { VaCard } from 'vuestic-ui'
-import RevenueChart from './RevenueChart.vue'
-
+import RevenueReportChart from './RevenueReportChart.vue'
+import { downloadAsCSV } from '../../../../services/toCSV'
 import {
   earningsColor,
   expensesColor,
@@ -48,7 +48,7 @@ import {
   generateRevenues,
   getRevenuePerMonth,
   formatMoney,
-} from '../../../data/charts/revenueChartData'
+} from '../../../../data/charts/revenueChartData'
 
 const revenues = generateRevenues(months)
 
@@ -58,4 +58,8 @@ const earningsForSelectedMonth = computed(() => getRevenuePerMonth(selectedMonth
 const totalEarnings = computed(() => {
   return earningsForSelectedMonth.value.earning + earningsForSelectedMonth.value.expenses
 })
+
+const exportAsCSV = () => {
+  downloadAsCSV(revenues, 'revenue-report')
+}
 </script>
