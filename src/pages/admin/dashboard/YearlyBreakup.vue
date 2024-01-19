@@ -3,8 +3,8 @@
     <VaCardTitle>
       <h1 class="card-title text-gray-500 font-bold uppercase">Yearly Breakup</h1>
     </VaCardTitle>
-    <VaCardContent class="grid grid-cols-5">
-      <section class="col-span-3">
+    <VaCardContent class="flex flex-row gap-1">
+      <section class="w-1/2">
         <div class="text-2xl font-bold mb-2">$36,358</div>
         <p class="text-xs text-success">
           <VaIcon name="arrow_outward" />
@@ -22,7 +22,7 @@
           </div>
         </div>
       </section>
-      <div class="col-span-2 flex items-center">
+      <div class="w-1/2 flex items-center">
         <VaChart :data="chartData" class="chart chart--donut" type="doughnut" :options="doughnutConfig" />
       </div>
     </VaCardContent>

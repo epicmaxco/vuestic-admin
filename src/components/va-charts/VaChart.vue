@@ -1,34 +1,30 @@
 <template>
-  <!-- @vue-ignore -->
-  <Component :is="chartComponent" ref="chart" :chart-data="data" :chart-options="chartOptions" class="va-chart" />
+  <component :is="chartComponent" :chart-data="data" :chart-options="chartOptions" class="va-chart" />
 </template>
 
-<script lang="ts" setup>
-import { computed, ref } from 'vue'
-import type { TChartOptions } from 'vue-chartjs/dist/types'
+<script lang="ts" setup generic="T extends 'line' | 'bar' | 'bubble' | 'doughnut' | 'pie'">
+import { computed } from 'vue'
+import type { TChartOptions, TChartData } from 'vue-chartjs/dist/types'
 import { defaultConfig, chartTypesMap } from './vaChartConfigs'
-import { TChartData } from '../../data/types'
 
 const props = defineProps<{
-  data: TChartData
-  options?: TChartOptions<'line' | 'bar' | 'bubble' | 'doughnut' | 'pie'>
-  type: keyof typeof chartTypesMap
+  data: TChartData<T>
+  options?: TChartOptions<T>
+  type: T
 }>()
 
-const chart = ref()
+const chartComponent = chartTypesMap[props.type]
 
-const chartComponent = computed(() => chartTypesMap[props.type])
-
-const chartOptions = computed(() => ({
-  ...defaultConfig,
+const chartOptions = computed<TChartOptions<T>>(() => ({
+  ...(defaultConfig as any),
   ...props.options,
 }))
 </script>
 
 <style lang="scss">
 .va-chart {
-  width: 100%;
-  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,7 +37,7 @@ const chartOptions = computed(() => ({
   canvas {
     width: 100%;
     height: auto;
-    min-height: 320px;
+    min-height: 20px;
   }
 }
 </style>

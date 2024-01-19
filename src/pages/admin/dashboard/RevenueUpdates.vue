@@ -1,11 +1,13 @@
 <template>
-  <VaCard class="p-4">
+  <VaCard class="p-4 flex flex-col">
     <VaCardTitle class="flex items-center justify-between">
       <h1 class="card-title text-gray-500 font-bold uppercase">Revenue Report</h1>
-      <VaSelect v-model="selectedMonth" :options="months" class="flex-grow-0" />
+      <div>
+        <VaSelect v-model="selectedMonth" :options="months" class="w-2" />
+      </div>
     </VaCardTitle>
-    <VaCardContent class="grid grid-cols-5">
-      <section>
+    <VaCardContent class="flex flex-col md:flex-row justify-between gap-5 h-full">
+      <section class="w-1/3">
         <div>
           <p class="text-2xl font-semibold">{{ formatMoney(totalEarnings) }}</p>
           <p>Total earnings</p>
@@ -25,7 +27,7 @@
           <div class="text-xl font-semibold">{{ formatMoney(earningsForSelectedMonth.expenses) }}</div>
         </div>
       </section>
-      <RevenueChart :revenues="revenues" :months="months" class="col-span-4" />
+      <RevenueChart class="w-2/3 h-full" :revenues="revenues" :months="months" />
     </VaCardContent>
   </VaCard>
 </template>

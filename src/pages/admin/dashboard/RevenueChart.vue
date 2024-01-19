@@ -1,11 +1,11 @@
 <template>
-  <div class="w-full">
-    <canvas ref="canvas"></canvas>
+  <div class="flex justify-center w-full h-full overflow-hidden relative">
+    <canvas ref="canvas" style="max-width: 100%"></canvas>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, nextTick } from 'vue'
 import { Chart, registerables } from 'chart.js'
 
 import type { Revenues } from '../../../data/charts/revenueChartData'
@@ -19,6 +19,8 @@ const { revenues, months } = defineProps<{
 Chart.register(...registerables)
 
 const canvas = ref<HTMLCanvasElement | null>(null)
+
+const doShowChart = ref(false)
 
 onMounted(() => {
   if (canvas.value) {
@@ -42,6 +44,7 @@ onMounted(() => {
           ],
         },
         options: {
+          maintainAspectRatio: false,
           plugins: {
             legend: {
               display: false,
@@ -61,7 +64,7 @@ onMounted(() => {
               },
               ticks: {
                 callback: function (value) {
-                  return formatMoney(value)
+                  return formatMoney(Number(value))
                 },
               },
             },
@@ -70,5 +73,17 @@ onMounted(() => {
       })
     }
   }
+
+  nextTick(() => {
+    doShowChart.value = true
+  })
 })
 </script>
+
+<style lang="scss" scoped>
+canvas {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+</style>

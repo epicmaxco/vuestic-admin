@@ -31,8 +31,12 @@ function addAddress(address: { city: string; country: string }) {
 defineExpose({ addAddress })
 </script>
 
-<style>
+<style lang="scss">
 .dashboard-map {
   height: 380px;
+
+  &.leaflet-container {
+    background: transparent;
+  }
 }
 </style>

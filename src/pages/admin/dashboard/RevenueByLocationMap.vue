@@ -4,7 +4,7 @@
       <h1 class="card-title text-gray-500 font-bold uppercase">Revenue by location</h1>
     </VaCardTitle>
     <VaCardContent>
-      <LMap :zoom="zoom" :center="center" style="height: 400px" :use-global-leaflet="false">
+      <LMap class="dashboard-map" :zoom="zoom" :center="center" style="height: 400px" :use-global-leaflet="false">
         <LTileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <LGeoJson :geojson="geoJson" :options-style="styleCountry" />
       </LMap>
@@ -56,9 +56,19 @@ const zoom = ref(2)
 const geoJson = countriesGeoJSON as GeoJSON.FeatureCollection
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .va-card--flex {
   display: flex;
   flex-direction: column;
+}
+
+.dashboard-map {
+  &.leaflet-container {
+    background: transparent;
+  }
+
+  [fill='#aad3df'] {
+    outline: 1px solid red;
+  }
 }
 </style>
