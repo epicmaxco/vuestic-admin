@@ -1,10 +1,16 @@
 <template>
-  <VaCard class="p-4">
+  <VaCard class="p-4 flex flex-col">
     <VaCardTitle class="flex items-center justify-between">
       <h1 class="card-title text-secondary font-bold uppercase">Revenue by location</h1>
     </VaCardTitle>
-    <VaCardContent>
-      <LMap class="dashboard-map" :zoom="zoom" :center="center" style="height: 400px" :use-global-leaflet="false">
+    <VaCardContent class="flex-1 flex">
+      <LMap
+        class="dashboard-map flex-1 min-h-72"
+        :zoom="zoom"
+        :center="center"
+        style="height: 100%"
+        :use-global-leaflet="false"
+      >
         <LTileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <LGeoJson :geojson="geoJson" :options-style="styleCountry" />
       </LMap>
@@ -16,7 +22,7 @@
 import { ref } from 'vue'
 import { VaCard } from 'vuestic-ui'
 import { LMap, LTileLayer, LGeoJson } from '@vue-leaflet/vue-leaflet'
-import type { PointExpression, GeoJSON } from 'leaflet'
+import type { PointExpression } from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import countriesGeoJSON from '../../../data/geo.json'
 

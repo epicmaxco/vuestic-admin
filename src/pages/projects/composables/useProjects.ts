@@ -13,11 +13,13 @@ import { watchIgnorable } from '@vueuse/core'
 const makePaginationRef = () => ref<Pagination>({ page: 1, perPage: 10, total: 0 })
 const makeSortingRef = () => ref<Sorting>({ sortBy: 'project_name', sortingOrder: null })
 
-export const useProjects = (options?: { sorting: Ref<Sorting>; pagination: Ref<Pagination> }) => {
+export const useProjects = (options?: { sorting?: Ref<Sorting>; pagination?: Ref<Pagination> }) => {
   const isLoading = ref(false)
   const projects = ref<Project[]>([])
 
   const { sorting = makeSortingRef(), pagination = makePaginationRef() } = options ?? {}
+
+  console.log(pagination.value.perPage)
 
   const fetch = async () => {
     isLoading.value = true

@@ -4,16 +4,20 @@ import { Project } from '../../projects/types'
 import UserAvatar from '../../users/widgets/UserAvatar.vue'
 import ProjectStatusBadge from '../../projects/components/ProjectStatusBadge.vue'
 import { useProjects } from '../../projects/composables/useProjects'
+import { Pagination } from '../../../data/pages/projects'
+import { ref } from 'vue'
 
 const columns = defineVaDataTableColumns([
   { label: 'Name', key: 'project_name', sortable: true },
   { label: 'Status', key: 'status', sortable: true },
   { label: 'Team', key: 'team', sortable: true },
-  { label: 'Creation Date', key: 'creation_date', sortable: true },
   { label: ' ', key: 'actions' },
 ])
 
-const { projects, isLoading, sorting } = useProjects()
+const pagination = ref<Pagination>({ page: 1, perPage: 5, total: 0 })
+const { projects, isLoading, sorting } = useProjects({
+  pagination,
+})
 
 const avatarColor = (userName: string) => {
   const colors = ['primary', '#FFD43A', '#ADFF00', '#262824', 'danger']
@@ -26,6 +30,7 @@ const avatarColor = (userName: string) => {
   <VaCard class="p-4">
     <VaCardTitle class="flex items-center justify-between">
       <h1 class="card-title text-secondary font-bold uppercase">Projects</h1>
+      <VaButton preset="primary" size="small" to="/projects">Add project</VaButton>
     </VaCardTitle>
     <VaCardContent>
       <div v-if="projects.length > 0">
@@ -67,7 +72,7 @@ const avatarColor = (userName: string) => {
 
           <template #cell(actions)>
             <div class="flex gap-2 justify-end">
-              <VaButton preset="primary" color="primary" to="/projects"> View</VaButton>
+              <VaButton preset="primary" size="small" color="primary" to="/projects"> View</VaButton>
             </div>
           </template>
         </VaDataTable>

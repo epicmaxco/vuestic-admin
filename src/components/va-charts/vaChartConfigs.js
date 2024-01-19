@@ -57,7 +57,7 @@ export const defaultConfig = {
 }
 
 export const doughnutConfig = {
-  cutout: 60,
+  cutout: '80%',
   scales: {
     x: {
       display: false,
