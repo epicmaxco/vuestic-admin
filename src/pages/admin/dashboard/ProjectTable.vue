@@ -25,7 +25,7 @@ const avatarColor = (userName: string) => {
 <template>
   <VaCard class="p-4">
     <VaCardTitle class="flex items-center justify-between">
-      <h1 class="card-title text-gray-500 font-bold uppercase">Projects</h1>
+      <h1 class="card-title text-secondary font-bold uppercase">Projects</h1>
     </VaCardTitle>
     <VaCardContent>
       <div v-if="projects.length > 0">

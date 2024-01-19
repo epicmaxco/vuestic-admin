@@ -1,7 +1,7 @@
 <template>
   <VaCard class="p-4">
     <VaCardTitle class="flex items-center justify-between">
-      <h1 class="card-title text-gray-500 font-bold uppercase">Revenue by location</h1>
+      <h1 class="card-title text-secondary font-bold uppercase">Revenue by location</h1>
     </VaCardTitle>
     <VaCardContent>
       <LMap class="dashboard-map" :zoom="zoom" :center="center" style="height: 400px" :use-global-leaflet="false">

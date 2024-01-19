@@ -1,7 +1,10 @@
 <template>
   <VaCard class="p-4">
-    <VaCardTitle>
-      <h1 class="card-title text-gray-500 font-bold uppercase">Monthly Earnings</h1>
+    <VaCardTitle class="flex justify-between">
+      <h1 class="card-title text-secondary font-bold uppercase">Monthly Earnings</h1>
+      <div class="p-1 bg-black rounded">
+        <VaIcon name="attach_money" color="#fff" size="large" />
+      </div>
     </VaCardTitle>
     <VaCardContent class="flex flex-col gap-1">
       <section>

@@ -1,7 +1,7 @@
 <template>
   <VaCard class="p-4">
     <VaCardTitle>
-      <h1 class="card-title text-gray-500 font-bold uppercase">Yearly Breakup</h1>
+      <h1 class="card-title text-secondary font-bold uppercase">Yearly Breakup</h1>
     </VaCardTitle>
     <VaCardContent class="flex flex-row gap-1">
       <section class="w-1/2">
@@ -14,11 +14,11 @@
         <div class="my-4 gap-4 flex items-center">
           <div class="flex items-center">
             <span class="inline-block w-2 h-2 mr-2" :style="{ backgroundColor: profitBackground }"></span>
-            <span class="text-gray-500">FE</span>
+            <span class="text-secondary">FE</span>
           </div>
           <div class="flex items-center">
             <span class="inline-block w-2 h-2 mr-2" :style="{ backgroundColor: earningsBackground }"></span>
-            <span class="text-gray-500">FE</span>
+            <span class="text-secondary">FE</span>
           </div>
         </div>
       </section>
@@ -31,10 +31,10 @@
 
 <script setup lang="ts">
 import { VaCard } from 'vuestic-ui'
-import VaChart from '../../../components/va-charts/VaChart.vue'
-import { useChartData } from '../../../data/charts/composables/useChartData'
-import { doughnutChartData, profitBackground, earningsBackground } from '../../../data/charts/doughnutChartData'
-import { doughnutConfig } from '../../../components/va-charts/vaChartConfigs'
+import VaChart from '../../../../components/va-charts/VaChart.vue'
+import { useChartData } from '../../../../data/charts/composables/useChartData'
+import { doughnutChartData, profitBackground, earningsBackground } from '../../../../data/charts/doughnutChartData'
+import { doughnutConfig } from '../../../../components/va-charts/vaChartConfigs'
 
 const chartData = useChartData(doughnutChartData)
 </script>

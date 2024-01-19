@@ -56,12 +56,13 @@ onMounted(() => {
               grid: {
                 display: false,
               },
+              border: {
+                width: 0,
+              },
             },
             y: {
+              display: false,
               beginAtZero: true,
-              grid: {
-                display: false,
-              },
               ticks: {
                 callback: function (value) {
                   return formatMoney(Number(value))

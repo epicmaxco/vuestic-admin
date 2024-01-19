@@ -8,11 +8,15 @@
         <MonthlyEarnings />
       </div>
     </div>
-    <!-- <DataSection class="col-span-8" />
-    <RevenueByLocationMap class="col-span-5" />
-    <div class="col-span-3">todo</div>
-    <ProjectTable class="col-span-4" />
-    <div class="col-span-4">todo</div> -->
+    <DataSection class="col-span-8" />
+    <div class="flex flex-row gap-4">
+      <RevenueByLocationMap class="w-3/5" />
+      <div>todo</div>
+    </div>
+    <div class="flex flex-row gap-4">
+      <ProjectTable class="w-1/2" />
+      <div>todo</div>
+    </div>
   </section>
 </template>
 
@@ -21,6 +25,6 @@ import RevenueUpdates from './RevenueUpdates.vue'
 import ProjectTable from './ProjectTable.vue'
 import RevenueByLocationMap from './RevenueByLocationMap.vue'
 import DataSection from './DataSection.vue'
-import YearlyBreakup from './YearlyBreakup.vue'
+import YearlyBreakup from './cards/YearlyBreakup.vue'
 import MonthlyEarnings from './cards/MonthlyEarnings.vue'
 </script>

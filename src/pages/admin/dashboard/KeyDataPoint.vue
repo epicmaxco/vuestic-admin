@@ -8,10 +8,13 @@
     </header>
     <div>
       <p class="text-gray-700 my-2">{{ title }}</p>
-      <p class="text-xs" :class="changeClass">
-        <span v-if="up">↑</span>
-        <span v-else>↓</span>
-        {{ changeText }}
+      <p class="text-xs">
+        <span :class="changeClass">
+          <template v-if="up">↑</template>
+          <template v-else>↓</template>
+          {{ changeText }}
+        </span>
+        since last month
       </p>
     </div>
   </section>
