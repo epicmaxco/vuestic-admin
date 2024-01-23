@@ -1,4 +1,4 @@
-import { defineAsyncComponent } from 'vue'
+import { defineAsyncComponent, markRaw } from 'vue'
 
 const DEFAULT_FONT_FAMILY = "'Inter', sans-serif"
 
@@ -56,11 +56,52 @@ export const defaultConfig = {
   animation: true,
 }
 
+export const doughnutConfig = {
+  cutout: '80%',
+  scales: {
+    x: {
+      display: false,
+      grid: {
+        display: false, // Disable X-axis grid lines ("net")
+      },
+    },
+    y: {
+      display: false,
+      grid: {
+        display: false, // Disable Y-axis grid lines ("net")
+      },
+      ticks: {
+        display: false, // Hide Y-axis values
+      },
+    },
+  },
+  plugins: {
+    legend: {
+      display: false,
+    },
+  },
+  datasets: {
+    line: {
+      fill: 'origin',
+      tension: 0.3,
+      borderColor: 'transparent',
+    },
+    bubble: {
+      borderColor: 'transparent',
+    },
+    bar: {
+      borderColor: 'transparent',
+    },
+  },
+  maintainAspectRatio: false,
+  animation: true,
+}
+
 export const chartTypesMap = {
-  pie: defineAsyncComponent(() => import('./chart-types/PieChart.vue')),
-  doughnut: defineAsyncComponent(() => import('./chart-types/DoughnutChart.vue')),
-  bubble: defineAsyncComponent(() => import('./chart-types/BubbleChart.vue')),
-  line: defineAsyncComponent(() => import('./chart-types/LineChart.vue')),
-  bar: defineAsyncComponent(() => import('./chart-types/BarChart.vue')),
-  'horizontal-bar': defineAsyncComponent(() => import('./chart-types/HorizontalBarChart.vue')),
+  pie: markRaw(defineAsyncComponent(() => import('./chart-types/PieChart.vue'))),
+  doughnut: markRaw(defineAsyncComponent(() => import('./chart-types/DoughnutChart.vue'))),
+  bubble: markRaw(defineAsyncComponent(() => import('./chart-types/BubbleChart.vue'))),
+  line: markRaw(defineAsyncComponent(() => import('./chart-types/LineChart.vue'))),
+  bar: markRaw(defineAsyncComponent(() => import('./chart-types/BarChart.vue'))),
+  'horizontal-bar': markRaw(defineAsyncComponent(() => import('./chart-types/HorizontalBarChart.vue'))),
 }

@@ -60,3 +60,11 @@
     min-height: 44px;
   }
 }
+
+.va-select {
+  &--small {
+    .va-input-wrapper__field {
+      padding: 0 0.25rem;
+    }
+  }
+}

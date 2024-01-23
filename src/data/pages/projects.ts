@@ -17,11 +17,13 @@ export type Sorting = {
 export const getProjects = async (options: Sorting & Pagination) => {
   await sleep(1000)
 
-  const projects = projectsDb.map((project) => ({
-    ...project,
-    project_owner: usersDb.find((user) => user.id === project.project_owner)! as (typeof usersDb)[number],
-    team: usersDb.filter((user) => project.team.includes(user.id)) as (typeof usersDb)[number][],
-  }))
+  const projects = projectsDb
+    .slice((options.page - 1) * options.perPage, options.page * options.perPage)
+    .map((project) => ({
+      ...project,
+      project_owner: usersDb.find((user) => user.id === project.project_owner)! as (typeof usersDb)[number],
+      team: usersDb.filter((user) => project.team.includes(user.id)) as (typeof usersDb)[number][],
+    }))
 
   if (options.sortBy && options.sortingOrder) {
     projects.sort((a, b) => {
