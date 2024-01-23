@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useLocalStorage } from '@vueuse/core'
 import { useProjects } from './composables/useProjects'
 import ProjectCards from './widgets/ProjectCards.vue'
 import ProjectTable from './widgets/ProjectsTable.vue'
@@ -7,7 +8,7 @@ import EditProjectForm from './widgets/EditProjectForm.vue'
 import { Project } from './types'
 import { useModal, useToast } from 'vuestic-ui'
 
-const doShowAsCards = ref(true)
+const doShowAsCards = useLocalStorage('projects-view', true)
 
 const { projects, update, add, isLoading, remove, pagination, sorting } = useProjects()
 
@@ -27,7 +28,6 @@ const createNewProject = () => {
 const { init: notify } = useToast()
 
 const onProjectSaved = async (project: Project) => {
-  isLoading.value = true
   doShowProjectFormModal.value = false
   if ('id' in project) {
     await update(project as Project)
@@ -42,8 +42,6 @@ const onProjectSaved = async (project: Project) => {
       color: 'success',
     })
   }
-
-  isLoading.value = false
 }
 
 const { confirm } = useModal()

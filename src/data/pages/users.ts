@@ -40,10 +40,10 @@ export const getUsers = async (filters: Partial<Filters & Pagination & Sorting>)
   const { isActive, search, sortBy, sortingOrder } = filters
   let filteredUsers = users
 
-  filteredUsers = users.filter((user) => user.active === isActive)
+  filteredUsers = filteredUsers.filter((user) => user.active === isActive)
 
   if (search) {
-    filteredUsers = users.filter((user) => user.fullname.toLowerCase().includes(search.toLowerCase()))
+    filteredUsers = filteredUsers.filter((user) => user.fullname.toLowerCase().includes(search.toLowerCase()))
   }
 
   if (sortBy && sortingOrder) {
