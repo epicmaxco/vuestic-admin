@@ -10,7 +10,7 @@ const fetchPaymentCards = async () => {
   return [
     {
       id: '1',
-      name: 'Main Card',
+      name: 'Main card',
       isPrimary: true,
       paymentSystem: PaymentSystemType.Visa,
       cardNumberMasked: '****1679',
@@ -18,7 +18,7 @@ const fetchPaymentCards = async () => {
     },
     {
       id: '2',
-      name: 'Online Shopping',
+      name: 'Online shopping',
       isPrimary: false,
       paymentSystem: PaymentSystemType.MasterCard,
       cardNumberMasked: '****8921',

@@ -3,7 +3,7 @@
 
   <VaCard class="mb-6">
     <VaCardContent>
-      <div class="text-2xl font-bold leading-5 mb-6">My Cards</div>
+      <div class="text-2xl font-bold leading-5 mb-6">My cards</div>
 
       <PaymentCardList />
     </VaCardContent>
@@ -11,15 +11,15 @@
 
   <VaCard class="mb-6">
     <VaCardContent>
-      <div class="text-2xl font-bold leading-5 mb-6">Billing Address</div>
+      <div class="text-2xl font-bold leading-5 mb-6">Billing address</div>
 
       <BillingAddressList />
 
       <div class="space-y-2 mt-6">
-        <div class="text-lg font-bold mb-2">Tax Location</div>
+        <div class="text-lg font-bold mb-2">Tax location</div>
         <div class="space-y-1">
           <div class="text-sm text-gray-500">United States - 10% VAT</div>
-          <div class="text-sm text-primary underline">More Info</div>
+          <div class="text-sm text-primary underline">More info</div>
         </div>
       </div>
     </VaCardContent>

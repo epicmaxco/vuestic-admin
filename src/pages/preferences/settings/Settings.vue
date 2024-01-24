@@ -47,10 +47,7 @@
       <div class="max-w-[748px]">
         <p>To manage what emails you get, visit the</p>
         <div class="flex space-x-1 w-fit">
-          <p class="font-semibold text-primary">Subscriptions Preferences Center</p>
-          <div>
-            <VaIcon color="primary" name="mso-arrow_outward" size="14px" />
-          </div>
+          <router-link :to="{name: 'settings'}" class="font-semibold text-primary">Notification settings</router-link>
         </div>
       </div>
     </div>

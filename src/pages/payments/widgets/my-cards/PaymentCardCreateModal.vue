@@ -1,6 +1,6 @@
 <template>
-  <VaModal hide-default-actions model-value size="small" @cancel="emits('close')">
-    <h3 class="va-h4 mb-4">Add Payment Card</h3>
+  <VaModal hide-default-actions model-value size="small" close-button @cancel="emits('close')">
+    <h3 class="va-h4 mb-4">Add payment card</h3>
     <PaymentCardEdit :payment-card="paymentCard" submit-text="Add Card" @cancel="emits('close')" @save="updateCard" />
   </VaModal>
 </template>
@@ -30,7 +30,7 @@ const paymentCard = reactive({
 const updateCard = (card: PaymentCard) => {
   isModalOpen.value = false
   store.create(card)
-  init({ message: "You've successfully created a new Payment Card", color: 'success' })
+  init({ message: "You've successfully created a new payment card", color: 'success' })
   emits('close')
 }
 </script>

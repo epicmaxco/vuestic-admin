@@ -105,7 +105,7 @@ const onProjectDeleted = async (project: Project) => {
       />
     </VaCardContent>
 
-    <VaModal v-slot="{ hide }" v-model="doShowProjectFormModal" stateful hide-default-actions>
+    <VaModal v-slot="{ hide }" v-model="doShowProjectFormModal" close-button stateful hide-default-actions>
       <h1 v-if="projectToEdit === null" class="va-h5 mb-4">Add project</h1>
       <h1 v-else class="va-h5 mb-4">Edit project</h1>
       <EditProjectForm :project="projectToEdit" @close="hide" @save="onProjectSaved" />

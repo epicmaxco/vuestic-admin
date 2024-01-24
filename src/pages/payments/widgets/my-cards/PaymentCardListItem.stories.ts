@@ -13,7 +13,7 @@ export const Default = () => ({
     return {
       card: {
         id: '1',
-        name: 'Main Card',
+        name: 'Main card',
         isPrimary: true,
         paymentSystem: PaymentSystemType.Visa,
         cardNumberMasked: '****1679',

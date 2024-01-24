@@ -19,7 +19,6 @@ export default defineVuesticConfig({
   },
   components: {
     VaIcon,
-
     presets: {
       VaSelect: {
         small: {

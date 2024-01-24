@@ -8,7 +8,7 @@ const fetchBillingAddresses = async () => {
   return [
     {
       id: '1',
-      name: 'Home Address',
+      name: 'Home address',
       isPrimary: true,
       street: 'Ap #285-7193 Ullamcorper Avenue',
       city: 'Amesbury',
@@ -18,7 +18,7 @@ const fetchBillingAddresses = async () => {
     },
     {
       id: '2',
-      name: 'Office Address',
+      name: 'Office address',
       isPrimary: false,
       street: 'P.O. Box 847, 8011 Nisl St.',
       city: 'Morgantown',
@@ -28,7 +28,7 @@ const fetchBillingAddresses = async () => {
     },
     {
       id: '3',
-      name: 'Vacation Home',
+      name: 'Vacation home',
       isPrimary: false,
       street: '883-2699 Egestas Rd.',
       city: 'Frederick',

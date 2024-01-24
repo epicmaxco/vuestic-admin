@@ -1,5 +1,5 @@
 <template>
-  <VaModal hide-default-actions model-value size="small" @cancel="emits('close')">
+  <VaModal hide-default-actions model-value size="small" close-button @cancel="emits('close')">
     <h3 class="va-h4 mb-4">Add Billing Address</h3>
     <AddressEdit
       :billing-address="billingAddress"

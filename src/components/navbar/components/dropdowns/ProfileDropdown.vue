@@ -5,7 +5,7 @@
         <VaButton preset="secondary" color="textPrimary">
           <span class="profile-dropdown__anchor min-w-max">
             <slot />
-            <img src="https://picsum.photos/123" alt="" class="h-8 w-8 rounded-full" />
+            <VaAvatar :size="32" color="warning"> 😍 </VaAvatar>
           </span>
         </VaButton>
       </template>
@@ -38,6 +38,7 @@ import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
+
 type ProfileListItem = {
   name: string
   redirectTo?: string

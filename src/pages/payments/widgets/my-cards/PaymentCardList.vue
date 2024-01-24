@@ -27,8 +27,7 @@
         <div class="flex flex-col gap-2 flex-grow">
           <div class="text-lg font-bold leading-relaxed">Important note</div>
           <div class="text-secondary text-sm leading-tight">
-            Please carefully read
-            <span class="underline">Product Terms</span> before adding your new payment card
+            Please carefully read Product Terms before adding your new payment card
           </div>
         </div>
         <VaButton class="flex-none w-full sm:w-auto" @click="showCreate = true">Add card</VaButton>

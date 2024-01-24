@@ -87,7 +87,7 @@ const onUserDelete = async (user: User) => {
     </VaCardContent>
   </VaCard>
 
-  <VaModal v-slot="{ hide }" v-model="doShowEditUserModal" hide-default-actions>
+  <VaModal v-slot="{ hide }" v-model="doShowEditUserModal" close-button hide-default-actions>
     <EditUserForm :user="userToEdit" @close="hide" @save="onUserSaved" />
   </VaModal>
 </template>

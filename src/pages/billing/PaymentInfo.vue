@@ -42,7 +42,7 @@
             </div>
           </div>
           <div class="md:w-48 flex justify-end">
-            <VaButton :to="{ name: 'payments' }" preset="primary">Payment preferences</VaButton>
+            <VaButton :to="{ name: 'payment-methods' }" preset="primary">Payment preferences</VaButton>
           </div>
         </div>
       </template>
