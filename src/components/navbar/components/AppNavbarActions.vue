@@ -12,7 +12,7 @@
     >
       {{ t('helpAndSupport') }}
     </VaButton>
-    <ProfileDropdown class="app-navbar-actions__item app-navbar-actions__item--profile" />
+    <ProfileDropdown class="app-navbar-actions__item app-navbar-actions__item--profile mr-2" />
   </div>
 </template>
 

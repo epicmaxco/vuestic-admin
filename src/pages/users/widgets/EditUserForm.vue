@@ -4,6 +4,7 @@ import { SelectOption, useForm } from 'vuestic-ui'
 import { User, UserRole } from '../types'
 import UserAvatar from './UserAvatar.vue'
 import { useProjects } from '../../projects/composables/useProjects'
+import { validators } from '../../../services/utils'
 
 const props = defineProps({
   user: {
@@ -49,8 +50,6 @@ watch(avatar, (newAvatar) => {
   newUser.value.avatar = newAvatar ? makeAvatarBlobUrl(newAvatar) : ''
 })
 
-const required = (v: string | SelectOption) => !!v || 'This field is required'
-
 const form = useForm('add-user-form')
 
 const emit = defineEmits(['close', 'save'])
@@ -93,15 +92,15 @@ const { projects } = useProjects()
       />
     </VaFileUpload>
     <div class="self-stretch flex-col justify-start items-start gap-4 flex">
-      <VaInput v-model="newUser.fullname" label="Full name" class="w-full" :rules="[required]" name="fullname" />
-      <VaInput v-model="newUser.username" label="Username" class="w-full" :rules="[required]" name="username" />
-      <VaInput v-model="newUser.email" label="Email" class="w-full" :rules="[required]" name="email" />
+      <VaInput v-model="newUser.fullname" label="Full name" class="w-full" :rules="[validators.required]" name="fullname" />
+      <VaInput v-model="newUser.username" label="Username" class="w-full" :rules="[validators.required]" name="username" />
+      <VaInput v-model="newUser.email" label="Email" class="w-full" :rules="[validators.required, validators.email]" name="email" />
       <VaSelect
         v-model="newUser.role"
         label="Role"
         class="w-full"
         :options="roleSelectOptions"
-        :rules="[required]"
+        :rules="[validators.required]"
         name="role"
         value-by="value"
       />
@@ -112,7 +111,7 @@ const { projects } = useProjects()
         label="Projects"
         class="w-full"
         :options="projects"
-        :rules="[required]"
+        :rules="[validators.required]"
         name="projects"
         text-by="project_name"
         track-by="id"

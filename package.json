@@ -43,7 +43,7 @@
     "vue-chartjs": "^4.1.1",
     "vue-i18n": "^9.6.2",
     "vue-router": "^4.2.5",
-    "vuestic-ui": "^1.8.5"
+    "vuestic-ui": "0.0.0-experimental-4aca7ac95-20240124"
   },
   "devDependencies": {
     "@intlify/unplugin-vue-i18n": "^1.5.0",

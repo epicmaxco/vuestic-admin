@@ -7,7 +7,7 @@
     </p>
     <VaInput
       v-model="formData.email"
-      :rules="[(v) => !!v || 'Email field is required']"
+      :rules="[validators.required, validators.email]"
       class="mb-4"
       label="Email"
       type="email"
@@ -15,7 +15,7 @@
     <VaValue v-slot="isPasswordVisible" :default-value="false">
       <VaInput
         v-model="formData.password"
-        :rules="[(v) => !!v || 'Password field is required']"
+        :rules="[validators.required]"
         :type="isPasswordVisible.value ? 'text' : 'password'"
         class="mb-4"
         label="Password"
@@ -48,6 +48,7 @@
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import { useForm, useToast } from 'vuestic-ui'
+import { validators } from '../../services/utils'
 
 const { validate } = useForm('form')
 const { push } = useRouter()

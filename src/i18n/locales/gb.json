@@ -25,60 +25,6 @@
     "versions": "Versions",
     "setupRemoteConnections": "Setup Remote Connections",
     "currentVisitors": "Current Visitors",
-    "charts": {
-      "trendyTrends": "Trendy Trends",
-      "showInMoreDetail": "Show in more detail",
-      "showInLessDetail": "Show in less detail",
-      "loadingSpeed": "Loading speed",
-      "topContributors": "Top contributors",
-      "showNextFive": "Show next five",
-      "commits": "Commits"
-    },
-    "info": {
-      "componentRichTheme": "component-rich theme",
-      "completedPullRequests": "completed pull requests",
-      "users": "users",
-      "points": "points",
-      "units": "units",
-      "exploreGallery": "Explore gallery",
-      "viewLibrary": "View Library",
-      "commits": "commits",
-      "components": "components",
-      "teamMembers": "team members"
-    },
-    "tabs": {
-      "overview": {
-        "title": "Overview",
-        "built": "Built with Vue.js framework",
-        "free": "Absolutely free for everyone",
-        "fresh": "Fresh and crisp design",
-        "mobile": "Responsive and optimized for mobile",
-        "components": "Tons of useful components",
-        "nojQuery": "Completely jQuery free"
-      },
-      "billingAddress": {
-        "title": "Billing Address",
-        "personalInfo": "Personal Info",
-        "firstName": "First name & Last Name",
-        "email": "Email",
-        "address": "Address",
-        "companyInfo": "Company Info",
-        "city": "City",
-        "country": "Country",
-        "infiniteConnections": "Infinite connections",
-        "addConnection": "Add Connection"
-      },
-      "bankDetails": {
-        "title": "Bank Details",
-        "detailsFields": "Details Fields",
-        "bankName": "Bank Name",
-        "accountName": "Account Name",
-        "sortCode": "Sort Code",
-        "accountNumber": "Account Number",
-        "notes": "Notes",
-        "sendDetails": "Send Details"
-      }
-    },
     "navigationLayout": "navigation layout",
     "topBarButton": "Top Bar",
     "sideBarButton": "Side Bar"
@@ -103,10 +49,10 @@
     "pricing-plans": "Pricing plans",
     "payment-methods": "Payment methods",
     "signup": "Signup",
-    "recover-password": "Recover Password",
-    "recover-password-email": "Recover Password Email",
+    "recover-password": "Recover password",
+    "recover-password-email": "Recover password email",
     "404": "404",
-    "faq": "Faq",
+    "faq": "FAQ",
     "users": "Users",
     "projects": "Projects"
   },
@@ -128,13 +74,13 @@
     "startedTopic": "started a new topic"
   },
   "user": {
-    "language": "Change Language",
+    "language": "Change language",
     "logout": "Logout",
     "profile": "Profile",
     "settings": "Settings",
     "billing": "Billing",
     "faq": "FAQ",
-    "helpAndSupport": "Help & Support",
+    "helpAndSupport": "Help & support",
     "projects": "Projects",
     "account": "Account",
     "explore": "Explore"
@@ -214,12 +160,12 @@
     }
   },
   "tabs": {
-    "alignment": "Tabs Alignment",
-    "overflow": "Tabs Overflow",
-    "hidden": "Tabs with Hidden slider",
-    "grow": "Tabs Grow"
+    "alignment": "Tabs alignment",
+    "overflow": "Tabs overflow",
+    "hidden": "Tabs with hidden slider",
+    "grow": "Tabs grow"
   },
-  "helpAndSupport": "Help & Support",
+  "helpAndSupport": "Help & support",
   "search": {
     "placeholder": "Search..."
   },

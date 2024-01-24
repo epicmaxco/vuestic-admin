@@ -1,6 +1,6 @@
 <template>
   <VaButton preset="secondary" color="textPrimary" href="https://github.com/epicmaxco/vuestic-admin" target="_blank">
-    <VaIcon :component="VaIconGitHub" color="#000" />
+    <VaIcon :component="VaIconGitHub" />
   </VaButton>
 </template>
 

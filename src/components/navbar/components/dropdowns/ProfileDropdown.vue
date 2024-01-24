@@ -41,7 +41,7 @@ const { t } = useI18n()
 
 type ProfileListItem = {
   name: string
-  redirectTo?: string
+  to?: string
   href?: string
   icon: string
 }
@@ -64,22 +64,22 @@ withDefaults(
         list: [
           {
             name: 'profile',
-            redirectTo: 'preferences',
+            to: 'preferences',
             icon: 'account_circle',
           },
           {
             name: 'settings',
-            redirectTo: 'settings',
+            to: 'settings',
             icon: 'settings',
           },
           {
             name: 'billing',
-            redirectTo: 'payments/billing',
+            to: 'payments/billing',
             icon: 'receipt_long',
           },
           {
             name: 'projects',
-            redirectTo: 'projects',
+            to: 'projects',
             icon: 'favorite_outline',
           },
         ],
@@ -90,7 +90,7 @@ withDefaults(
         list: [
           {
             name: 'faq',
-            redirectTo: 'faq',
+            to: 'faq',
             icon: 'quiz',
           },
           {
@@ -106,7 +106,7 @@ withDefaults(
         list: [
           {
             name: 'logout',
-            redirectTo: '',
+            to: 'login',
             icon: 'logout',
           },
         ],
@@ -118,7 +118,7 @@ withDefaults(
 const isShown = ref(false)
 
 const resolveLinkAttribute = (item: ProfileListItem) => {
-  return item.redirectTo ? { to: item.redirectTo } : item.href ? { href: item.href, target: '_blank' } : {}
+  return item.to ? { to: {name: item.to } } : item.href ? { href: item.href, target: '_blank' } : {}
 }
 </script>
 

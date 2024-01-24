@@ -9371,10 +9371,10 @@ vue@3.3.9, vue@^3.2.25:
     "@vue/server-renderer" "3.3.9"
     "@vue/shared" "3.3.9"
 
-vuestic-ui@0.0.0-experimental-c8b4621de-20240121:
-  version "0.0.0-experimental-c8b4621de-20240121"
-  resolved "https://registry.yarnpkg.com/vuestic-ui/-/vuestic-ui-0.0.0-experimental-c8b4621de-20240121.tgz#9ab8019e05dc4c5624d070831746f8a439e8f9f9"
-  integrity sha512-TufpMejdb7O9QLDG0EEUVD6DOwrBc0yoOr/H5gMaVEjsLQfJOfpPU6yEBzUEGFe9AQYTFGFKdzqd7g2AmTkS9w==
+vuestic-ui@0.0.0-experimental-4aca7ac95-20240124:
+  version "0.0.0-experimental-4aca7ac95-20240124"
+  resolved "https://registry.yarnpkg.com/vuestic-ui/-/vuestic-ui-0.0.0-experimental-4aca7ac95-20240124.tgz#772e5d37668e52f28a52a1850674b2ee108adb8b"
+  integrity sha512-JtNQRnfU8xKnsCOmc8FL3ZyGia9wZ2s3w4JmMKDcLpGqRBS8xx0eP0LGWfwPP+DMuWx/At8tVYfaUJYCzQSUWg==
   dependencies:
     "@floating-ui/vue" "^1.0.1"
     "@types/lodash" "^4.14.161"

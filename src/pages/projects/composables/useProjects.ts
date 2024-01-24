@@ -19,8 +19,6 @@ export const useProjects = (options?: { sorting?: Ref<Sorting>; pagination?: Ref
 
   const { sorting = makeSortingRef(), pagination = makePaginationRef() } = options ?? {}
 
-  console.log(pagination.value.perPage)
-
   const fetch = async () => {
     isLoading.value = true
     const { data, pagination: newPagination } = await getProjects({
