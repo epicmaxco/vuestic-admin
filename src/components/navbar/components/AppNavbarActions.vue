@@ -5,7 +5,7 @@
     <VaButton
       v-if="!isMobile"
       preset="secondary"
-      href="https://discord.gg/fnQ47XYB"
+      href="https://discord.gg/u7fQdqQt8c"
       target="_blank"
       color="textPrimary"
       class="app-navbar-actions__item flex-shrink-0 mx-0"

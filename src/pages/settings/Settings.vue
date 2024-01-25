@@ -15,9 +15,7 @@
       </template>
       <div class="flex flex-col space-y-2">
         <p class="text-regularLarge font-bold">Your notification settings are regrouped and simplified</p>
-        <p class="text-regularMedium">
-          Your previous setting choices aren't changed.
-        </p>
+        <p class="text-regularMedium">Your previous setting choices aren't changed.</p>
       </div>
     </VaAlert>
     <Notifications />

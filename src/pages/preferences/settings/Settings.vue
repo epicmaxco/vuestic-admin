@@ -47,7 +47,7 @@
       <div class="max-w-[748px]">
         <p>To manage what emails you get, visit the</p>
         <div class="flex space-x-1 w-fit">
-          <router-link :to="{name: 'settings'}" class="font-semibold text-primary">Notification settings</router-link>
+          <RouterLink :to="{ name: 'settings' }" class="font-semibold text-primary">Notification settings</RouterLink>
         </div>
       </div>
     </div>

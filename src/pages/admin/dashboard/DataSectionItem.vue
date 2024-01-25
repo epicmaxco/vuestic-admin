@@ -11,11 +11,11 @@
         <div>
           <p class="my-2">{{ title }}</p>
           <p class="text-xs">
-        <span :class="changeClass">
-          <template v-if="up">↑</template>
-          <template v-else>↓</template>
-          {{ changeText }}
-        </span>
+            <span :class="changeClass">
+              <template v-if="up">↑</template>
+              <template v-else>↓</template>
+              {{ changeText }}
+            </span>
             since last month
           </p>
         </div>
