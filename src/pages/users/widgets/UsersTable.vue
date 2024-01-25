@@ -90,7 +90,7 @@ const formatProjectNames = (projects: Project[]) => {
   >
     <template #cell(fullname)="{ rowData }">
       <div class="flex items-center gap-2 max-w-[230px]">
-        <UserAvatar :user="rowData" size="small" />
+        <UserAvatar :user="rowData as User" size="small" />
         {{ rowData.fullname }}
       </div>
     </template>

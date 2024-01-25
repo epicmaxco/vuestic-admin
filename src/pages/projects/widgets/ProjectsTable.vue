@@ -96,8 +96,16 @@ const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagin
 
       <template #cell(actions)="{ rowData: project }">
         <div class="flex gap-2 justify-end">
-          <VaButton preset="primary" size="small" color="primary" @click="$emit('edit', project)">Edit</VaButton>
-          <VaButton preset="primary" size="small" icon="mso-delete" color="danger" @click="$emit('delete', project)" />
+          <VaButton preset="primary" size="small" color="primary" @click="$emit('edit', project as Project)"
+            >Edit</VaButton
+          >
+          <VaButton
+            preset="primary"
+            size="small"
+            icon="mso-delete"
+            color="danger"
+            @click="$emit('delete', project as Project)"
+          />
         </div>
       </template>
     </VaDataTable>
