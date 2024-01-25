@@ -3,6 +3,7 @@
     :mobile-fullscreen="false"
     size="small"
     hide-default-actions
+    max-width="380px"
     model-value
     @update:modelValue="emits('cancel')"
   >

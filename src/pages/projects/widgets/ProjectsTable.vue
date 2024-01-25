@@ -96,9 +96,13 @@ const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagin
 
       <template #cell(actions)="{ rowData: project }">
         <div class="flex gap-2 justify-end">
-          <VaButton preset="primary" size="small" color="primary" @click="$emit('edit', project as Project)"
-            >Edit</VaButton
-          >
+          <VaButton
+            preset="primary"
+            size="small"
+            color="primary"
+            icon="mso-edit"
+            @click="$emit('edit', project as Project)"
+          />
           <VaButton
             preset="primary"
             size="small"
@@ -142,3 +146,11 @@ const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagin
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.va-data-table {
+  ::v-deep(tbody .va-data-table__table-tr) {
+    border-bottom: 1px solid var(--va-background-border);
+  }
+}
+</style>

@@ -78,5 +78,85 @@
     "team": [3, 26, 8, 15, 21, 23, 18, 11, 22, 6, 20, 9],
     "status": "archived",
     "creation_date": "2 Aug 2023"
+  },
+  {
+    "id": 10,
+    "project_name": "Aurora Analytics",
+    "project_owner": 12,
+    "team": [12, 7, 18, 24, 13, 5],
+    "status": "in progress",
+    "creation_date": "10 Dec 2023"
+  },
+  {
+    "id": 11,
+    "project_name": "Quantum Leap",
+    "project_owner": 14,
+    "team": [14, 17, 3, 21, 11, 20],
+    "status": "planning",
+    "creation_date": "22 Nov 2023"
+  },
+  {
+    "id": 12,
+    "project_name": "Deep Dive Research",
+    "project_owner": 8,
+    "team": [8, 15, 9, 3, 27, 6],
+    "status": "important",
+    "creation_date": "15 Nov 2023"
+  },
+  {
+    "id": 13,
+    "project_name": "Sky High Architecture",
+    "project_owner": 21,
+    "team": [21, 2, 17, 18, 4],
+    "status": "completed",
+    "creation_date": "1 Nov 2023"
+  },
+  {
+    "id": 14,
+    "project_name": "Tech Horizon",
+    "project_owner": 9,
+    "team": [9, 19, 24, 1, 22],
+    "status": "in progress",
+    "creation_date": "28 Oct 2023"
+  },
+  {
+    "id": 15,
+    "project_name": "Edge of Innovation",
+    "project_owner": 16,
+    "team": [16, 11, 5, 14, 23],
+    "status": "planning",
+    "creation_date": "21 Oct 2023"
+  },
+  {
+    "id": 16,
+    "project_name": "Crypto Ventures",
+    "project_owner": 20,
+    "team": [20, 7, 15, 26, 12],
+    "status": "important",
+    "creation_date": "10 Oct 2023"
+  },
+  {
+    "id": 17,
+    "project_name": "Blockchain Basics",
+    "project_owner": 4,
+    "team": [4, 8, 3, 22, 27],
+    "status": "archived",
+    "creation_date": "5 Oct 2023"
+  },
+  {
+    "id": 18,
+    "project_name": "Virtual Reality Exploration",
+    "project_owner": 26,
+    "team": [26, 2, 14, 20, 9],
+    "status": "in progress",
+    "creation_date": "29 Sept 2023"
+  },
+  {
+    "id": 19,
+    "project_name": "AI in Daily Life",
+    "project_owner": 2,
+    "team": [2, 13, 24, 5, 11],
+    "status": "completed",
+    "creation_date": "22 Sept 2023"
   }
 ]
