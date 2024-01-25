@@ -22,26 +22,6 @@
       </section>
     </VaCardContent>
   </VaCard>
-
-  <section class="p-4 bg-white rounded-lg w-full">
-    <header class="flex items-center justify-between">
-      <div class="text-lg font-semibold grow">{{ value }}</div>
-      <div class="p-1 text-white rounded" :class="iconBackground">
-        <slot name="icon"></slot>
-      </div>
-    </header>
-    <div>
-      <p class="text-gray-700 my-2">{{ title }}</p>
-      <p class="text-xs">
-        <span :class="changeClass">
-          <template v-if="up">↑</template>
-          <template v-else>↓</template>
-          {{ changeText }}
-        </span>
-        since last month
-      </p>
-    </div>
-  </section>
 </template>
 
 <script lang="ts" setup>
