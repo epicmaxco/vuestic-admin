@@ -32,7 +32,12 @@ const avatarColor = (userName: string) => {
     :loading="loading"
     class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 min-h-[4rem]"
   >
-    <VaCard v-for="project in projects" :key="project.project_name" outlined>
+    <VaCard
+      v-for="project in projects"
+      :key="project.project_name"
+      :style="{'--va-card-outlined-border': '1px solid var(--va-background-element)'}"
+      outlined
+    >
       <VaCardContent class="flex flex-col h-full">
         <div class="text-[var(--va-secondary)]">{{ project.creation_date }}</div>
         <div class="flex flex-col items-center gap-4 grow">

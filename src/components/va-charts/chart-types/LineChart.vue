@@ -30,6 +30,7 @@ const props = defineProps<{
   chartOptions?: TChartOptions<'line'>
 }>()
 
+
 const ctx = computed(() => {
   if (!chart.value) {
     return null
@@ -48,9 +49,9 @@ const computedChartData = computed(() => {
   }
 
   const makeGradient = (bg: string) => {
-    const gradient = ctx.value!.createLinearGradient(0, 0, 0, 70)
-    gradient.addColorStop(0, setHSLAColor(bg, { a: 0.3 }))
-    gradient.addColorStop(1, setHSLAColor(bg, { a: 0.05 }))
+    const gradient = ctx.value!.createLinearGradient(0, 0, 0, 90)
+    gradient.addColorStop(0, setHSLAColor(bg, { a: 0.4 }))
+    gradient.addColorStop(1, setHSLAColor(bg, { a: 0.00 }))
     return gradient
   }
 
@@ -62,6 +63,8 @@ const computedChartData = computed(() => {
       fill: true,
       backgroundColor: makeGradient(color),
       borderColor: color,
+      pointRadius: 0,
+      borderWidth: 2,
     }
   })
 

@@ -10,7 +10,6 @@ import Timeline from './cards/Timeline.vue'
 </script>
 
 <template>
-  <h1 class="h1">Dashboard</h1>
   <section class="flex flex-col gap-4">
     <div class="flex flex-col sm:flex-row gap-4">
       <RevenueUpdates class="w-full sm:w-2/3" />

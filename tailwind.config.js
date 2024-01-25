@@ -10,6 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontSize: {
+        tag: ['0.5625rem', '0.875rem'],
         regularSmall: ['0.8125rem', '1rem'],
         regularLarge: ['1.125rem', '1.625rem'],
         regularMedium: ['0.875rem', '1.25rem'],
