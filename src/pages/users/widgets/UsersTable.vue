@@ -55,6 +55,7 @@ const onUserDelete = async (user: User) => {
     okText: 'Delete',
     cancelText: 'Cancel',
     size: 'small',
+    maxWidth: '380px',
   })
 
   if (agreed) {
@@ -89,21 +90,21 @@ const formatProjectNames = (projects: Project[]) => {
     :loading="$props.loading"
   >
     <template #cell(fullname)="{ rowData }">
-      <div class="flex items-center gap-2 max-w-[230px]">
+      <div class="flex items-center gap-2 max-w-[230px] ellipsis">
         <UserAvatar :user="rowData as User" size="small" />
         {{ rowData.fullname }}
       </div>
     </template>
 
-    <template #cell(email)="{ rowData }">
-      <div class="max-w-[230px]">
-        {{ rowData.email }}
+    <template #cell(username)="{ rowData }">
+      <div class="max-w-[120px] ellipsis">
+        {{ rowData.username }}
       </div>
     </template>
 
-    <template #cell(username)="{ rowData }">
-      <div class="max-w-[120px]">
-        {{ rowData.username }}
+    <template #cell(email)="{ rowData }">
+      <div class="ellipsis max-w-[230px] ">
+        {{ rowData.email }}
       </div>
     </template>
 

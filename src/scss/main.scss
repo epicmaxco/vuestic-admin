@@ -30,11 +30,11 @@ pre {
 }
 
 .page-title {
-  @apply text-[32px] md:text-5xl font-bold leading-9 md:leading-[56px] mb-6 md:mb-4;
+  @apply text-[32px] md:text-5xl font-bold leading-9 md:leading-[56px] max-sm:mt-2 mb-6 md:mb-4;
 }
 
 .h1 {
-  @apply text-[32px] md:text-5xl font-bold leading-9 md:leading-[56px] mb-6 md:mb-4;
+  @apply text-[32px] md:text-5xl font-bold leading-9 md:leading-[56px] max-sm:mt-2 mb-6 md:mb-4;
 }
 
 .h3 {

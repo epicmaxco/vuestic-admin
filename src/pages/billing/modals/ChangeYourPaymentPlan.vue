@@ -2,6 +2,8 @@
   <VaModal
     :mobile-fullscreen="false"
     size="small"
+    max-width="380px"
+
     hide-default-actions
     model-value
     @update:modelValue="emits('cancel')"

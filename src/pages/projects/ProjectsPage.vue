@@ -52,6 +52,7 @@ const onProjectDeleted = async (project: Project) => {
     message: `Are you sure you want to delete project "${project.project_name}"?`,
     okText: 'Delete',
     size: 'small',
+    maxWidth: '380px',
   })
 
   if (!response) {
@@ -70,6 +71,7 @@ const editFormRef = ref()
 const beforeEditFormModalClose = async (hide: () => unknown) => {
   if (editFormRef.value.isFormHasUnsavedChanges) {
     const agreed = await confirm({
+      maxWidth: '380px',
       message: 'Form has unsaved changes. Are you sure you want to close it?',
       size: 'small',
     })
@@ -126,6 +128,8 @@ const beforeEditFormModalClose = async (hide: () => unknown) => {
       v-slot="{ cancel, ok }"
       v-model="doShowProjectFormModal"
       size="small"
+      mobile-fullscreen
+      max-height="100%"
       close-button
       stateful
       hide-default-actions

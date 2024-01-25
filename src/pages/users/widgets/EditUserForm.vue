@@ -86,7 +86,7 @@ const { projects } = useProjects()
 </script>
 
 <template>
-  <VaForm v-slot="{ isValid }" ref="add-user-form" class="flex-col justify-start items-start gap-4 inline-flex w-full">
+  <VaForm v-slot="{ isValid }" ref="add-user-form" class="flex-col justify-start items-start gap-4 inline-flex w-full w-full">
     <h1 class="va-h5">Add user</h1>
     <VaFileUpload
       v-model="avatar"

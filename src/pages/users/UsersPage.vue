@@ -55,6 +55,7 @@ const { confirm } = useModal()
 const beforeEditFormModalClose = async (hide: () => unknown) => {
   if (editFormRef.value.isFormHasUnsavedChanges) {
     const agreed = await confirm({
+      maxWidth: '380px',
       message: 'Form has unsaved changes. Are you sure you want to close it?',
       size: 'small',
     })
@@ -109,6 +110,8 @@ const beforeEditFormModalClose = async (hide: () => unknown) => {
     v-slot="{ cancel, ok }"
     v-model="doShowEditUserModal"
     size="small"
+    mobile-fullscreen
+    max-height="100%"
     close-button
     hide-default-actions
     :before-cancel="beforeEditFormModalClose"
