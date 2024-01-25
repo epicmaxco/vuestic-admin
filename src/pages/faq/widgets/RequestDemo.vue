@@ -11,8 +11,8 @@
     </div>
     <img alt="Send a message" src="../request-demo.svg" />
   </VaCard>
-  <VaModal v-model="showModal" :before-ok="submit" close-button ok-text="Request demo">
-    <VaForm ref="form" class="sm:w-96" @submit.prevent="submit">
+  <VaModal v-model="showModal" :before-ok="submit" close-button ok-text="Request demo" size="small">
+    <VaForm ref="form" @submit.prevent="submit">
       <h3 class="va-h3">Request free demo</h3>
       <p class="text-base mb-4 leading-5">
         Claim your spot now and ignite innovation with our exceptional software solution! 🔥

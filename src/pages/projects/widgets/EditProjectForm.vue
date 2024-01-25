@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { EmptyProject, Project } from '../types'
 import { SelectOption } from 'vuestic-ui'
 import { useUsers } from '../../users/composables/useUsers'
@@ -15,11 +15,29 @@ defineEmits<{
   (event: 'close'): void
 }>()
 
-const newProject = ref<EmptyProject>({
+const defaultNewProject: EmptyProject = {
   project_name: '',
   project_owner: undefined,
   team: [],
   status: 'in progress',
+}
+
+const newProject = ref({ ...defaultNewProject })
+
+const isFormHasUnsavedChanges = computed(() => {
+  return Object.keys(newProject.value).some((key) => {
+    if (key === 'team') {
+      return false
+    }
+
+    return (
+      newProject.value[key as keyof EmptyProject] !== (props.project ?? defaultNewProject)?.[key as keyof EmptyProject]
+    )
+  })
+})
+
+defineExpose({
+  isFormHasUnsavedChanges,
 })
 
 watch(

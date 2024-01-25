@@ -54,6 +54,7 @@ const onUserDelete = async (user: User) => {
     message: `Are you sure you want to delete ${user.fullname}?`,
     okText: 'Delete',
     cancelText: 'Cancel',
+    size: 'small',
   })
 
   if (agreed) {

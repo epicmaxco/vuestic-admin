@@ -8,11 +8,11 @@
         </VaBadge>
       </VaButton>
     </template>
-    <VaDropdownContent class="md:max-w-[420px] w-full">
+    <VaDropdownContent class="md:max-w-[420px] h-full sm:h-auto w-full">
       <section class="max-h-[320px] p-4 overflow-auto">
         <VaList class="space-y-1 mb-2">
-          <template v-for="item in getNotifications" :key="item.id">
-            <VaListItem class="text-base cursor-pointer">
+          <template v-for="(item, index) in notificationsWithRelativeTime" :key="item.id">
+            <VaListItem class="text-base">
               <VaListItemSection icon class="mx-0 p-0">
                 <VaIcon :name="item.icon" color="secondary" />
               </VaListItemSection>
@@ -23,7 +23,7 @@
                 {{ item.updateTimestamp }}
               </VaListItemSection>
             </VaListItem>
-            <VaListSeparator v-if="item.separator" class="mx-3" />
+            <VaListSeparator v-if="item.separator && index !== notificationsWithRelativeTime.length - 1" class="mx-3" />
           </template>
         </VaList>
 
@@ -51,7 +51,13 @@ interface INotification {
   icon: string
   id: number
   separator?: boolean
-  updateTimestamp: string
+  updateTimestamp: Date
+}
+
+const makeDateFromNow = (timeFromNow: number) => {
+  const date = new Date()
+  date.setTime(date.getTime() + timeFromNow)
+  return date
 }
 
 const notifications: INotification[] = [
@@ -60,60 +66,100 @@ const notifications: INotification[] = [
     icon: 'favorite_outline',
     id: 1,
     separator: true,
-    updateTimestamp: rtf.format(-3, 'minutes').toString(),
+    updateTimestamp: makeDateFromNow(-3 * 60 * 1000),
   },
   {
     message: '3 new reports',
     icon: 'calendar_today',
     id: 2,
     separator: true,
-    updateTimestamp: rtf.format(-12, 'hours').toString(),
+    updateTimestamp: makeDateFromNow(-12 * 60 * 60 * 1000),
   },
   {
     message: 'Whoops! Your trial period has expired.',
     icon: 'error_outline',
     id: 3,
     separator: true,
-    updateTimestamp: rtf.format(-2, 'days').toString(),
+    updateTimestamp: makeDateFromNow(-2 * 24 * 60 * 60 * 1000),
   },
   {
     message: 'It looks like your timezone is set incorrectly, please change it to avoid issues with Memory.',
     icon: 'schedule',
     id: 4,
-    updateTimestamp: rtf.format(-1, 'weeks').toString(),
+    updateTimestamp: makeDateFromNow(-2 * 7 * 24 * 60 * 60 * 1000),
   },
   {
     message: '2 new team members added',
     icon: 'group_add',
     id: 5,
     separator: false,
-    updateTimestamp: rtf.format(-15, 'minutes').toString(),
+    updateTimestamp: makeDateFromNow(-3 * 60 * 1000),
   },
   {
     message: 'Monthly budget exceeded by 10%',
     icon: 'trending_up',
     id: 6,
     separator: true,
-    updateTimestamp: rtf.format(-3, 'days').toString(),
+    updateTimestamp: makeDateFromNow(-3 * 24 * 60 * 60 * 1000),
   },
   {
     message: '7 tasks are approaching their deadlines',
     icon: 'alarm',
     id: 7,
     separator: false,
-    updateTimestamp: rtf.format(-5, 'hours').toString(),
+    updateTimestamp: makeDateFromNow(-5 * 60 * 60 * 1000),
   },
   {
     message: 'New software update available',
     icon: 'system_update',
     id: 8,
     separator: true,
-    updateTimestamp: rtf.format(-1, 'days').toString(),
+    updateTimestamp: makeDateFromNow(-1 * 24 * 60 * 60 * 1000),
   },
-]
+].sort((a, b) => new Date(b.updateTimestamp).getTime() - new Date(a.updateTimestamp).getTime())
 
-const getNotifications = computed(() => {
-  return displayAllNotifications.value ? notifications : notifications.slice(0, baseNumberOfVisibleNotifications)
+const TIME_NAMES = {
+  second: 1000,
+  minute: 1000 * 60,
+  hour: 1000 * 60 * 60,
+  day: 1000 * 60 * 60 * 24,
+  week: 1000 * 60 * 60 * 24 * 7,
+  month: 1000 * 60 * 60 * 24 * 30,
+  year: 1000 * 60 * 60 * 24 * 365,
+}
+
+const getTimeName = (differenceTime: number) => {
+  return Object.keys(TIME_NAMES).reduce(
+    (acc, key) => (TIME_NAMES[key as keyof typeof TIME_NAMES] < differenceTime ? key : acc),
+    'month',
+  ) as keyof typeof TIME_NAMES
+}
+
+const notificationsWithRelativeTime = computed(() => {
+  const list = displayAllNotifications.value ? notifications : notifications.slice(0, baseNumberOfVisibleNotifications)
+
+  return list.map((item, index) => {
+    const timeDifference = Math.round(new Date().getTime() - new Date(item.updateTimestamp).getTime())
+    const timeName = getTimeName(timeDifference)
+
+    let separator = false
+
+    const nextItem = list[index + 1]
+    if (nextItem) {
+      const nextItemDifference = Math.round(new Date().getTime() - new Date(nextItem.updateTimestamp).getTime())
+      const nextItemTimeName = getTimeName(nextItemDifference)
+
+      if (timeName !== nextItemTimeName) {
+        separator = true
+      }
+    }
+
+    return {
+      ...item,
+      updateTimestamp: rtf.format(-1 * Math.round(timeDifference / TIME_NAMES[timeName]), timeName),
+      separator,
+    }
+  })
 })
 </script>
 

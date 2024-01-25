@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { PropType, ref, watch } from 'vue'
-import { SelectOption, useForm } from 'vuestic-ui'
+import { PropType, computed, ref, watch } from 'vue'
+import { useForm } from 'vuestic-ui'
 import { User, UserRole } from '../types'
 import UserAvatar from './UserAvatar.vue'
 import { useProjects } from '../../projects/composables/useProjects'
@@ -13,7 +13,7 @@ const props = defineProps({
   },
 })
 
-const newUser = ref<User>({
+const defaultNewUser: User = {
   id: -1,
   avatar: '',
   fullname: '',
@@ -23,6 +23,22 @@ const newUser = ref<User>({
   email: '',
   active: true,
   projects: [],
+}
+
+const newUser = ref<User>({ ...defaultNewUser })
+
+const isFormHasUnsavedChanges = computed(() => {
+  return Object.keys(newUser.value).some((key) => {
+    if (key === 'avatar' || key === 'projects') {
+      return false
+    }
+
+    return newUser.value[key as keyof User] !== (props.user ?? defaultNewUser)?.[key as keyof User]
+  })
+})
+
+defineExpose({
+  isFormHasUnsavedChanges,
 })
 
 watch(
@@ -56,9 +72,8 @@ const emit = defineEmits(['close', 'save'])
 
 const onSave = () => {
   if (form.validate()) {
-    emit('close')
+    emit('save', newUser.value)
   }
-  emit('save', newUser.value)
 }
 
 const roleSelectOptions: { text: Capitalize<UserRole>; value: UserRole }[] = [
@@ -92,9 +107,27 @@ const { projects } = useProjects()
       />
     </VaFileUpload>
     <div class="self-stretch flex-col justify-start items-start gap-4 flex">
-      <VaInput v-model="newUser.fullname" label="Full name" class="w-full" :rules="[validators.required]" name="fullname" />
-      <VaInput v-model="newUser.username" label="Username" class="w-full" :rules="[validators.required]" name="username" />
-      <VaInput v-model="newUser.email" label="Email" class="w-full" :rules="[validators.required, validators.email]" name="email" />
+      <VaInput
+        v-model="newUser.fullname"
+        label="Full name"
+        class="w-full"
+        :rules="[validators.required]"
+        name="fullname"
+      />
+      <VaInput
+        v-model="newUser.username"
+        label="Username"
+        class="w-full"
+        :rules="[validators.required]"
+        name="username"
+      />
+      <VaInput
+        v-model="newUser.email"
+        label="Email"
+        class="w-full"
+        :rules="[validators.required, validators.email]"
+        name="email"
+      />
       <VaSelect
         v-model="newUser.role"
         label="Role"

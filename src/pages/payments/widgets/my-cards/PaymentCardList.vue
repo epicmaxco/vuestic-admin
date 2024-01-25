@@ -1,17 +1,20 @@
 <template>
   <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
-    <VaSkeletonGroup
-      v-if="loading"
-      class="min-h-[114px] p-4 rounded-lg border border-dashed border-backgroundBorder flex flex-row items-center gap-6"
-    >
-      <div class="flex flex-col gap-2 flex-grow">
-        <VaSkeleton class height="1.5rem" variant="text" width="10rem" />
-        <div class="flex gap-4">
-          <VaSkeleton height="3rem" variant="rounded" width="5rem" />
-          <VaSkeleton :lines="2" variant="text" />
+    <template v-if="loading">
+      <div
+        v-for="i in 4"
+        :key="i"
+        class="min-h-[114px] p-4 rounded-lg border border-dashed border-backgroundBorder flex flex-row items-center gap-6"
+      >
+        <div class="flex flex-col gap-2 flex-grow">
+          <VaSkeleton class height="1.5rem" variant="text" width="10rem" />
+          <div class="flex gap-4">
+            <VaSkeleton height="3rem" variant="rounded" width="5rem" />
+            <VaSkeleton :lines="2" variant="text" />
+          </div>
         </div>
       </div>
-    </VaSkeletonGroup>
+    </template>
     <template v-else>
       <CardListItem
         v-for="paymentCard in list"
@@ -60,7 +63,7 @@ const { init } = useToast()
 
 store.load()
 const remove = async (card: PaymentCard) => {
-  confirm('Are you really sure you want to delete this card?').then((ok) => {
+  confirm({ message: 'Are you really sure you want to delete this card?', size: 'small' }).then((ok) => {
     if (!ok) return
     store.remove(card.id)
     init({ message: 'Payment card has been deleted', color: 'success' })

@@ -51,6 +51,7 @@ const onProjectDeleted = async (project: Project) => {
     title: 'Delete project',
     message: `Are you sure you want to delete project "${project.project_name}"?`,
     okText: 'Delete',
+    size: 'small',
   })
 
   if (!response) {
@@ -62,6 +63,22 @@ const onProjectDeleted = async (project: Project) => {
     message: 'Project deleted',
     color: 'success',
   })
+}
+
+const editFormRef = ref()
+
+const beforeEditFormModalClose = async (hide: () => unknown) => {
+  if (editFormRef.value.isFormHasUnsavedChanges) {
+    const agreed = await confirm({
+      message: 'Form has unsaved changes. Are you sure you want to close it?',
+      size: 'small',
+    })
+    if (agreed) {
+      hide()
+    }
+  } else {
+    hide()
+  }
 }
 </script>
 
@@ -105,10 +122,28 @@ const onProjectDeleted = async (project: Project) => {
       />
     </VaCardContent>
 
-    <VaModal v-slot="{ hide }" v-model="doShowProjectFormModal" close-button stateful hide-default-actions>
+    <VaModal
+      v-slot="{ cancel, ok }"
+      v-model="doShowProjectFormModal"
+      size="small"
+      close-button
+      stateful
+      hide-default-actions
+      :before-cancel="beforeEditFormModalClose"
+    >
       <h1 v-if="projectToEdit === null" class="va-h5 mb-4">Add project</h1>
       <h1 v-else class="va-h5 mb-4">Edit project</h1>
-      <EditProjectForm :project="projectToEdit" @close="hide" @save="onProjectSaved" />
+      <EditProjectForm
+        ref="editFormRef"
+        :project="projectToEdit"
+        @close="cancel"
+        @save="
+          (project) => {
+            onProjectSaved(project)
+            ok()
+          }
+        "
+      />
     </VaModal>
   </VaCard>
 </template>

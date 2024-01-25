@@ -1,5 +1,11 @@
 <template>
-  <VaModal :mobile-fullscreen="false" hide-default-actions model-value @update:modelValue="emits('cancel')">
+  <VaModal
+    :mobile-fullscreen="false"
+    size="small"
+    hide-default-actions
+    model-value
+    @update:modelValue="emits('cancel')"
+  >
     <div class="space-y-6">
       <h3>
         Are you sure you want to switch to the

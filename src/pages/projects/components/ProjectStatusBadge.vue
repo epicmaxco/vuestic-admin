@@ -18,5 +18,5 @@ const badgeColorMap: Record<Project['status'], string> = {
 </script>
 
 <template>
-  <VaBadge square :color="badgeColorMap[$props.status.toLowerCase()]" :text="$props.status.toUpperCase()" />
+  <VaBadge square :color="badgeColorMap[$props.status]" :text="$props.status.toUpperCase()" />
 </template>

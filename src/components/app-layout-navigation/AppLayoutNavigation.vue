@@ -8,7 +8,7 @@
     />
 
     <VaBreadcrumbs>
-      <VaBreadcrumbsItem label="Home" :to="{name: 'dashboard'}" />
+      <VaBreadcrumbsItem label="Home" :to="{ name: 'dashboard' }" />
       <VaBreadcrumbsItem
         v-for="item in items"
         :key="item.label"

@@ -74,7 +74,7 @@ withDefaults(
           },
           {
             name: 'billing',
-            to: 'payments/billing',
+            to: 'billing',
             icon: 'receipt_long',
           },
           {
@@ -95,7 +95,7 @@ withDefaults(
           },
           {
             name: 'helpAndSupport',
-            href: 'https://discord.gg/fnQ47XYB',
+            href: 'https://discord.gg/u7fQdqQt8c',
             icon: 'help_outline',
           },
         ],
@@ -118,7 +118,7 @@ withDefaults(
 const isShown = ref(false)
 
 const resolveLinkAttribute = (item: ProfileListItem) => {
-  return item.to ? { to: {name: item.to } } : item.href ? { href: item.href, target: '_blank' } : {}
+  return item.to ? { to: { name: item.to } } : item.href ? { href: item.href, target: '_blank' } : {}
 }
 </script>
 

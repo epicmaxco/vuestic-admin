@@ -83,6 +83,7 @@ const createModal = (planModel: string) => {
   initModal({
     message: 'Are you sure you want to change plan?',
     mobileFullscreen: false,
+    size: 'small',
     onOk: () => selectPlan(planModel),
   })
 }

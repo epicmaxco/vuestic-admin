@@ -4,7 +4,7 @@ import UsersTable from './widgets/UsersTable.vue'
 import EditUserForm from './widgets/EditUserForm.vue'
 import { User } from './types'
 import { useUsers } from './composables/useUsers'
-import { useToast } from 'vuestic-ui'
+import { useModal, useToast } from 'vuestic-ui'
 
 const doShowEditUserModal = ref(false)
 
@@ -47,6 +47,24 @@ const onUserDelete = async (user: User) => {
     color: 'success',
   })
 }
+
+const editFormRef = ref()
+
+const { confirm } = useModal()
+
+const beforeEditFormModalClose = async (hide: () => unknown) => {
+  if (editFormRef.value.isFormHasUnsavedChanges) {
+    const agreed = await confirm({
+      message: 'Form has unsaved changes. Are you sure you want to close it?',
+      size: 'small',
+    })
+    if (agreed) {
+      hide()
+    }
+  } else {
+    hide()
+  }
+}
 </script>
 
 <template>
@@ -87,7 +105,24 @@ const onUserDelete = async (user: User) => {
     </VaCardContent>
   </VaCard>
 
-  <VaModal v-slot="{ hide }" v-model="doShowEditUserModal" close-button hide-default-actions>
-    <EditUserForm :user="userToEdit" @close="hide" @save="onUserSaved" />
+  <VaModal
+    v-slot="{ cancel, ok }"
+    v-model="doShowEditUserModal"
+    size="small"
+    close-button
+    hide-default-actions
+    :before-cancel="beforeEditFormModalClose"
+  >
+    <EditUserForm
+      ref="editFormRef"
+      :user="userToEdit"
+      @close="cancel"
+      @save="
+        (user) => {
+          onUserSaved(user)
+          ok()
+        }
+      "
+    />
   </VaModal>
 </template>

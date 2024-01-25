@@ -8,29 +8,35 @@
       </div>
     </VaCardTitle>
     <VaCardContent class="flex flex-col md:flex-row justify-between gap-5 h-full">
-      <RevenueReportChart class="w-full md:w-2/3 h-full order-2 md:order-1" :revenues="revenues" :months="months" />
+      <RevenueReportChart
+        class="w-full md:w-2/3 h-full min-h-56 order-2 md:order-1"
+        :revenues="revenues"
+        :months="months"
+      />
       <section class="w-full md:w-1/3 pt-8 flex flex-col justify-between items-start order-1 md:order-2">
-        <div class="ml-4">
+        <div class="sm:ml-4 w-full gap-4 flex flex-col">
           <div>
             <p class="text-2xl font-semibold">{{ formatMoney(totalEarnings) }}</p>
             <p>Total earnings</p>
           </div>
-          <div class="my-4">
-            <div class="flex items-center">
-              <span class="inline-block w-2 h-2 mr-2 -ml-4" :style="{ backgroundColor: earningsColor }"></span>
-              <span class="text-secondary">Earnings this month</span>
+          <div class="flex flex-row sm:flex-col gap-4 w-full">
+            <div>
+              <div class="flex items-center">
+                <span class="inline-block w-2 h-2 mr-2 sm:-ml-4" :style="{ backgroundColor: earningsColor }"></span>
+                <span class="text-secondary">Earnings this month</span>
+              </div>
+              <div class="text-xl font-semibold">{{ formatMoney(earningsForSelectedMonth.earning) }}</div>
             </div>
-            <div class="text-xl font-semibold">{{ formatMoney(earningsForSelectedMonth.earning) }}</div>
-          </div>
-          <div>
-            <div class="flex items-center">
-              <span class="inline-block w-2 h-2 mr-2 -ml-4" :style="{ backgroundColor: expensesColor }"></span>
-              <span class="text-secondary">Expense this month</span>
+            <div>
+              <div class="flex items-center">
+                <span class="inline-block w-2 h-2 mr-2 sm:-ml-4" :style="{ backgroundColor: expensesColor }"></span>
+                <span class="text-secondary">Expense this month</span>
+              </div>
+              <div class="text-xl font-semibold">{{ formatMoney(earningsForSelectedMonth.expenses) }}</div>
             </div>
-            <div class="text-xl font-semibold">{{ formatMoney(earningsForSelectedMonth.expenses) }}</div>
           </div>
         </div>
-        <VaButton preset="primary" size="small">View full report</VaButton>
+        <VaButton class="mt-4" preset="primary" size="small">View full report</VaButton>
       </section>
     </VaCardContent>
   </VaCard>
