@@ -8,7 +8,7 @@
         </VaBadge>
       </VaButton>
     </template>
-    <VaDropdownContent class="md:max-w-[420px] w-full">
+    <VaDropdownContent class="md:max-w-[420px] h-full sm:h-auto w-full">
       <section class="max-h-[320px] p-4 overflow-auto">
         <VaList class="space-y-1 mb-2">
           <template v-for="item in getNotifications" :key="item.id">
