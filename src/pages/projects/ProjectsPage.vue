@@ -51,6 +51,7 @@ const onProjectDeleted = async (project: Project) => {
     title: 'Delete project',
     message: `Are you sure you want to delete project "${project.project_name}"?`,
     okText: 'Delete',
+    size: 'small',
   })
 
   if (!response) {

@@ -60,7 +60,7 @@ const { init } = useToast()
 
 store.load()
 const remove = async (card: PaymentCard) => {
-  confirm('Are you really sure you want to delete this card?').then((ok) => {
+  confirm({ message: 'Are you really sure you want to delete this card?', size: 'small' }).then((ok) => {
     if (!ok) return
     store.remove(card.id)
     init({ message: 'Payment card has been deleted', color: 'success' })
