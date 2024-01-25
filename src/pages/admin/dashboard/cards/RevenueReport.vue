@@ -8,7 +8,8 @@
       </div>
     </VaCardTitle>
     <VaCardContent class="flex flex-col md:flex-row justify-between gap-5 h-full">
-      <section class="w-1/3 pt-8 flex flex-col justify-between items-start">
+      <RevenueReportChart class="w-full md:w-2/3 h-full order-2 md:order-1" :revenues="revenues" :months="months" />
+      <section class="w-full md:w-1/3 pt-8 flex flex-col justify-between items-start order-1 md:order-2">
         <div class="ml-4">
           <div>
             <p class="text-2xl font-semibold">{{ formatMoney(totalEarnings) }}</p>
@@ -31,7 +32,6 @@
         </div>
         <VaButton preset="primary" size="small">View full report</VaButton>
       </section>
-      <RevenueReportChart class="w-2/3 h-full" :revenues="revenues" :months="months" />
     </VaCardContent>
   </VaCard>
 </template>

@@ -1,7 +1,6 @@
 <template>
   <div class="flex gap-2">
     <VaIconMenuCollapsed
-      v-if="!isMobile"
       class="cursor-pointer"
       :class="{ 'x-flip': !isSidebarMinimized }"
       :color="collapseIconColor"
@@ -29,10 +28,6 @@ import VaIconMenuCollapsed from '../icons/VaIconMenuCollapsed.vue'
 import { storeToRefs } from 'pinia'
 import { useGlobalStore } from '../../stores/global-store'
 import NavigationRoutes from '../sidebar/NavigationRoutes'
-
-defineProps({
-  isMobile: { type: Boolean, default: false },
-})
 
 const { isSidebarMinimized } = storeToRefs(useGlobalStore())
 
