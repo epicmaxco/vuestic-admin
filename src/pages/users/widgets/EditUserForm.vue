@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { PropType, ref, watch } from 'vue'
-import { SelectOption, useForm } from 'vuestic-ui'
+import { useForm } from 'vuestic-ui'
 import { User, UserRole } from '../types'
 import UserAvatar from './UserAvatar.vue'
 import { useProjects } from '../../projects/composables/useProjects'
@@ -92,9 +92,27 @@ const { projects } = useProjects()
       />
     </VaFileUpload>
     <div class="self-stretch flex-col justify-start items-start gap-4 flex">
-      <VaInput v-model="newUser.fullname" label="Full name" class="w-full" :rules="[validators.required]" name="fullname" />
-      <VaInput v-model="newUser.username" label="Username" class="w-full" :rules="[validators.required]" name="username" />
-      <VaInput v-model="newUser.email" label="Email" class="w-full" :rules="[validators.required, validators.email]" name="email" />
+      <VaInput
+        v-model="newUser.fullname"
+        label="Full name"
+        class="w-full"
+        :rules="[validators.required]"
+        name="fullname"
+      />
+      <VaInput
+        v-model="newUser.username"
+        label="Username"
+        class="w-full"
+        :rules="[validators.required]"
+        name="username"
+      />
+      <VaInput
+        v-model="newUser.email"
+        label="Email"
+        class="w-full"
+        :rules="[validators.required, validators.email]"
+        name="email"
+      />
       <VaSelect
         v-model="newUser.role"
         label="Role"
