@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PropType, ref, watch } from 'vue'
+import { PropType, computed, ref, watch } from 'vue'
 import { useForm } from 'vuestic-ui'
 import { User, UserRole } from '../types'
 import UserAvatar from './UserAvatar.vue'
@@ -13,7 +13,7 @@ const props = defineProps({
   },
 })
 
-const newUser = ref<User>({
+const defaultNewUser: User = {
   id: -1,
   avatar: '',
   fullname: '',
@@ -23,6 +23,22 @@ const newUser = ref<User>({
   email: '',
   active: true,
   projects: [],
+}
+
+const newUser = ref<User>({ ...defaultNewUser })
+
+const isFormHasUnsavedChanges = computed(() => {
+  return Object.keys(newUser.value).some((key) => {
+    if (key === 'avatar' || key === 'projects') {
+      return false
+    }
+
+    return newUser.value[key as keyof User] !== (props.user ?? defaultNewUser)?.[key as keyof User]
+  })
+})
+
+defineExpose({
+  isFormHasUnsavedChanges,
 })
 
 watch(
@@ -56,9 +72,8 @@ const emit = defineEmits(['close', 'save'])
 
 const onSave = () => {
   if (form.validate()) {
-    emit('close')
+    emit('save', newUser.value)
   }
-  emit('save', newUser.value)
 }
 
 const roleSelectOptions: { text: Capitalize<UserRole>; value: UserRole }[] = [
