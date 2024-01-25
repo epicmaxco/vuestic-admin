@@ -1,4 +1,3 @@
-import VaIcon from './components/va-icon'
 import iconsConfig from './icons-config/icons-config'
 import colors from './themes'
 import { defineVuesticConfig } from 'vuestic-ui'
@@ -18,7 +17,19 @@ export default defineVuesticConfig({
     },
   },
   components: {
-    VaIcon,
+    VaIcon: {
+      sizesConfig: {
+        defaultSize: 19,
+        sizes: {
+          small: 14,
+          medium: 19,
+          large: 26,
+        },
+      },
+    },
+    VaModal: {
+      mobileFullscreen: false,
+    },
     presets: {
       VaSelect: {
         small: {
