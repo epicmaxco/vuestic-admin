@@ -1,12 +1,12 @@
 <template>
-  <VaCard class="p-4">
-    <VaCardTitle>
+  <VaCard>
+    <VaCardTitle class="pb-0!">
       <h1 class="card-title text-secondary font-bold uppercase">Yearly Breakup</h1>
     </VaCardTitle>
     <VaCardContent class="flex flex-row gap-1">
       <section class="w-1/2">
         <div class="text-2xl font-bold mb-2">$36,358</div>
-        <p class="text-xs text-success">
+        <p class="text-xs text-success whitespace-nowrap">
           <VaIcon name="arrow_outward" />
           +2,5%
           <span class="text-secondary"> last year</span>
@@ -22,7 +22,7 @@
           </div>
         </div>
       </section>
-      <div class="w-1/2 flex items-center">
+      <div class="w-1/2 flex items-center h-full flex-1 lg:pl-10 pl-2">
         <VaChart :data="chartData" class="chart chart--donut" type="doughnut" :options="doughnutConfig" />
       </div>
     </VaCardContent>

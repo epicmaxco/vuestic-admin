@@ -34,8 +34,9 @@ export default defineVuesticConfig({
       VaSelect: {
         small: {
           class: 'va-select--small',
+          keepAnchorWidth: false,
           style:
-            '--va-input-wrapper-min-height: 24px; --va-input-wrapper-border-radius: 2px; --va-input-wrapper-width: 72px;',
+            '--va-input-wrapper-min-height: 24px; --va-input-wrapper-border-radius: 2px; --va-input-wrapper-width: 100px;',
         },
       },
     },

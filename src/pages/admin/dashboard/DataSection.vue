@@ -8,6 +8,7 @@
       :change-text="metric.changeText"
       :up="metric.changeDirection === 'up'"
       :icon-background="metric.iconBackground"
+      :icon-color="metric.iconColor"
     >
       <template #icon>
         <VaIcon :name="metric.icon" size="large" />
@@ -27,17 +28,19 @@ interface DashboardMetric {
   changeText: string
   changeDirection: 'up' | 'down'
   iconBackground: string
+  iconColor: string
 }
 
 const dashboardMetrics: DashboardMetric[] = [
   {
     id: 'openInvoices',
     title: 'Open invoices',
-    value: '$35,548',
+    value: '$ 35,548',
     icon: 'attach_money',
     changeText: '$1, 450',
     changeDirection: 'down',
     iconBackground: 'bg-green-500',
+    iconColor: 'text-white',
   },
   {
     id: 'ongoingProjects',
@@ -47,6 +50,7 @@ const dashboardMetrics: DashboardMetric[] = [
     changeText: '25.36%',
     changeDirection: 'up',
     iconBackground: 'bg-blue-500',
+    iconColor: 'text-white',
   },
   {
     id: 'employees',
@@ -56,6 +60,7 @@ const dashboardMetrics: DashboardMetric[] = [
     changeText: '2.5%',
     changeDirection: 'up',
     iconBackground: 'bg-red-500',
+    iconColor: 'text-white',
   },
   {
     id: 'newProfit',
@@ -65,6 +70,7 @@ const dashboardMetrics: DashboardMetric[] = [
     changeText: '4%',
     changeDirection: 'up',
     iconBackground: 'bg-yellow-400',
+    iconColor: 'text-black',
   },
 ]
 </script>

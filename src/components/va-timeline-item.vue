@@ -63,6 +63,7 @@ defineProps({
     color: var(--va-secondary);
     text-wrap: nowrap;
     padding-left: 0.5rem;
+    text-align: end;
   }
 
   &:last-child {

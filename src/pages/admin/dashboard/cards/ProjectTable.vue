@@ -11,7 +11,6 @@ const columns = defineVaDataTableColumns([
   { label: 'Name', key: 'project_name', sortable: true },
   { label: 'Status', key: 'status', sortable: true },
   { label: 'Team', key: 'team', sortable: true },
-  { label: ' ', key: 'actions' },
 ])
 
 const pagination = ref<Pagination>({ page: 1, perPage: 5, total: 0 })
@@ -27,10 +26,10 @@ const avatarColor = (userName: string) => {
 </script>
 
 <template>
-  <VaCard class="p-4">
+  <VaCard>
     <VaCardTitle class="flex items-center justify-between">
       <h1 class="card-title text-secondary font-bold uppercase">Projects</h1>
-      <VaButton preset="primary" size="small" to="/projects">Add project</VaButton>
+      <VaButton preset="primary" size="small" to="/projects">View all projects</VaButton>
     </VaCardTitle>
     <VaCardContent>
       <div v-if="projects.length > 0">
@@ -63,17 +62,11 @@ const avatarColor = (userName: string) => {
                   color: avatarColor(user.fullname),
                 }))
               "
-              :max="5"
+              :max="2"
             />
           </template>
           <template #cell(status)="{ rowData: project }">
             <ProjectStatusBadge :status="project.status" />
-          </template>
-
-          <template #cell(actions)>
-            <div class="flex gap-2 justify-end">
-              <VaButton preset="primary" size="small" color="primary" to="/projects"> View</VaButton>
-            </div>
           </template>
         </VaDataTable>
       </div>

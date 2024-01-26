@@ -4,12 +4,12 @@
       <section>
         <header class="flex items-center justify-between">
           <div class="text-lg font-semibold grow">{{ value }}</div>
-          <div class="p-1 text-white rounded" :class="iconBackground">
+          <div class="p-1 text-white rounded" :class="[iconBackground, iconColor]">
             <slot name="icon"></slot>
           </div>
         </header>
         <div>
-          <p class="my-2">{{ title }}</p>
+          <p class="mb-2">{{ title }}</p>
           <p class="text-xs">
             <span :class="changeClass">
               <template v-if="up">↑</template>
@@ -34,6 +34,7 @@ const props = defineProps<{
   changeText: string
   up: boolean
   iconBackground: string
+  iconColor: string
 }>()
 
 const changeClass = computed(() => ({

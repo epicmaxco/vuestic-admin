@@ -1,5 +1,5 @@
 <template>
-  <VaCard class="p-4 flex flex-col">
+  <VaCard class="flex flex-col">
     <VaCardTitle class="flex items-center justify-between">
       <h1 class="card-title text-secondary font-bold uppercase">Revenue by location</h1>
     </VaCardTitle>

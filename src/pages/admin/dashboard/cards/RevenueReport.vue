@@ -1,43 +1,46 @@
 <template>
-  <VaCard class="p-4 flex flex-col">
+  <VaCard class="flex flex-col">
     <VaCardTitle class="flex items-start justify-between">
       <h1 class="card-title text-secondary font-bold uppercase">Revenue Report</h1>
       <div class="flex gap-2">
-        <VaSelect v-model="selectedMonth" preset="small" :keep-anchor-width="false" :options="months" class="w-20" />
+        <VaSelect
+          v-model="selectedMonth"
+          preset="small"
+          :keep-anchor-width="false"
+          :options="monthsWithCurrentYear"
+          class="w-64"
+        />
         <VaButton class="h-2" size="small" preset="primary" @click="exportAsCSV">Export</VaButton>
       </div>
     </VaCardTitle>
-    <VaCardContent class="flex flex-col md:flex-row justify-between gap-5 h-full">
+    <VaCardContent class="flex flex-col-reverse md:flex-row md:items-center justify-between gap-5 h-full">
+      <section class="flex flex-col items-start w-1/3 md:w-2/5 lg:w-1/4 gap-8 pl-4">
+        <div>
+          <p class="text-2xl font-semibold">{{ formatMoney(totalEarnings) }}</p>
+          <p class="whitespace-nowrap mt-2">Total earnings</p>
+        </div>
+        <div class="flex flex-col sm:flex-col gap-8 w-full">
+          <div>
+            <div class="flex items-center">
+              <span class="inline-block w-2 h-2 mr-2 -ml-4" :style="{ backgroundColor: earningsColor }"></span>
+              <span class="text-secondary">Earnings this month</span>
+            </div>
+            <div class="mt-2 text-xl font-semibold">{{ formatMoney(earningsForSelectedMonth.earning) }}</div>
+          </div>
+          <div>
+            <div class="flex items-center">
+              <span class="inline-block w-2 h-2 mr-2 -ml-4" :style="{ backgroundColor: expensesColor }"></span>
+              <span class="text-secondary">Expense this month</span>
+            </div>
+            <div class="mt-2 text-xl font-semibold">{{ formatMoney(earningsForSelectedMonth.expenses) }}</div>
+          </div>
+        </div>
+      </section>
       <RevenueReportChart
-        class="w-full md:w-2/3 h-full min-h-56 order-2 md:order-1"
+        class="w-2/3 md:w-3/5 lg:w-3/4 h-full min-h-72 sm:min-h-32 pt-4"
         :revenues="revenues"
         :months="months"
       />
-      <section class="w-full md:w-1/3 pt-8 flex flex-col justify-between items-start order-1 md:order-2">
-        <div class="sm:ml-4 w-full gap-4 flex flex-col">
-          <div>
-            <p class="text-2xl font-semibold">{{ formatMoney(totalEarnings) }}</p>
-            <p>Total earnings</p>
-          </div>
-          <div class="flex flex-row sm:flex-col gap-4 w-full">
-            <div>
-              <div class="flex items-center">
-                <span class="inline-block w-2 h-2 mr-2 sm:-ml-4" :style="{ backgroundColor: earningsColor }"></span>
-                <span class="text-secondary">Earnings this month</span>
-              </div>
-              <div class="text-xl font-semibold">{{ formatMoney(earningsForSelectedMonth.earning) }}</div>
-            </div>
-            <div>
-              <div class="flex items-center">
-                <span class="inline-block w-2 h-2 mr-2 sm:-ml-4" :style="{ backgroundColor: expensesColor }"></span>
-                <span class="text-secondary">Expense this month</span>
-              </div>
-              <div class="text-xl font-semibold">{{ formatMoney(earningsForSelectedMonth.expenses) }}</div>
-            </div>
-          </div>
-        </div>
-        <VaButton class="mt-4" preset="primary" size="small">View full report</VaButton>
-      </section>
     </VaCardContent>
   </VaCard>
 </template>
@@ -58,9 +61,12 @@ import {
 
 const revenues = generateRevenues(months)
 
-const selectedMonth = ref('Jan')
+const currentYear = new Date().getFullYear()
+const monthsWithCurrentYear = months.map((month) => `${month} ${currentYear}`)
 
-const earningsForSelectedMonth = computed(() => getRevenuePerMonth(selectedMonth.value, revenues))
+const selectedMonth = ref(monthsWithCurrentYear[0])
+
+const earningsForSelectedMonth = computed(() => getRevenuePerMonth(selectedMonth.value.split(' ')[0], revenues))
 const totalEarnings = computed(() => {
   return earningsForSelectedMonth.value.earning + earningsForSelectedMonth.value.expenses
 })

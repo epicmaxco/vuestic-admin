@@ -68,3 +68,9 @@
     }
   }
 }
+
+.va-card {
+  &__title {
+    padding-bottom: calc(var(--va-card-padding) / 2) !important;
+  }
+}
