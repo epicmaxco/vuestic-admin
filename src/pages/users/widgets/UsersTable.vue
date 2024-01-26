@@ -103,7 +103,7 @@ const formatProjectNames = (projects: Project[]) => {
     </template>
 
     <template #cell(email)="{ rowData }">
-      <div class="ellipsis max-w-[230px] ">
+      <div class="ellipsis max-w-[230px]">
         {{ rowData.email }}
       </div>
     </template>
@@ -120,12 +120,7 @@ const formatProjectNames = (projects: Project[]) => {
 
     <template #cell(actions)="{ rowData }">
       <div class="flex gap-2 justify-end">
-        <VaButton
-          preset="primary" 
-          size="small"
-          icon="mso-edit"
-          @click="$emit('edit-user', rowData as User)"
-        />
+        <VaButton preset="primary" size="small" icon="mso-edit" @click="$emit('edit-user', rowData as User)" />
         <VaButton
           preset="primary"
           size="small"

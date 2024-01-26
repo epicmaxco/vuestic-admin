@@ -35,7 +35,7 @@ const avatarColor = (userName: string) => {
     <VaCard
       v-for="project in projects"
       :key="project.project_name"
-      :style="{'--va-card-outlined-border': '1px solid var(--va-background-element)'}"
+      :style="{ '--va-card-outlined-border': '1px solid var(--va-background-element)' }"
       outlined
     >
       <VaCardContent class="flex flex-col h-full">
