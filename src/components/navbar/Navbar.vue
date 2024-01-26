@@ -1,19 +1,19 @@
 <template>
   <va-navbar class="app-layout-navbar">
     <template #left>
-      <div class="left">
+      <div class="flex items-center">
         <va-icon-menu-collapsed
           :class="{ 'x-flip': isSidebarMinimized }"
-          class="va-navbar__item"
+          class="cursor-pointer"
           :color="colors.primary"
           @click="isSidebarMinimized = !isSidebarMinimized"
         />
         <router-link to="/">
-          <vuestic-logo class="logo" />
+          <vuestic-logo class="ml-4" />
         </router-link>
       </div>
     </template>
-    <div class="app-navbar-center">
+    <div class="flex items-center">
       <span class="hidden md:block mr-2">{{ t('navbar.messageUs') }}</span>
       <a class="hidden md:block mr-2" href="mailto:hello@epicmax.co" target="_blank" :style="{ color: colors.primary }">
         hello@epicmax.co
@@ -29,7 +29,7 @@
       </va-button>
     </div>
     <template #right>
-      <app-navbar-actions class="app-navbar__actions" :user-name="userName" />
+      <app-navbar-actions class="flex justify-between" :user-name="userName" />
     </template>
   </va-navbar>
 </template>
@@ -54,55 +54,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .va-navbar {
-    box-shadow: var(--va-box-shadow);
-    z-index: 2;
-
-    @media screen and (max-width: 950px) {
-      .left {
-        width: 100%;
-      }
-
-      .app-navbar__actions {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-      }
-    }
-  }
-
-  .left {
-    display: flex;
-    align-items: center;
-
-    & > * {
-      margin-right: 1.5rem;
-    }
-
-    & > *:last-child {
-      margin-right: 0;
-    }
-  }
-
   .x-flip {
     transform: scaleX(-100%);
-  }
-
-  .app-navbar-center {
-    display: flex;
-    align-items: center;
-    height: 1rem;
-
-    @media screen and (max-width: 1200px) {
-      &__github-button {
-        display: none;
-      }
-    }
-
-    @media screen and (max-width: 950px) {
-      &__text {
-        display: none;
-      }
-    }
   }
 </style>
