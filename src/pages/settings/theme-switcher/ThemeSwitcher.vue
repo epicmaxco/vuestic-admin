@@ -1,15 +1,7 @@
 <template>
-  <VaButtonSelect
-    v-model="theme"
-    :options="options"
-    button-size="108px"
-    selected-color="backgroundSecondary"
-    background-color="backgroundElement"
-  />
+  <VaButtonToggle v-model="theme" :options="options" />
 </template>
 <script lang="ts" setup>
-import VaButtonSelect from '../../../components/va-button-select/VaButtonSelect.vue'
-
 import { computed } from 'vue'
 
 import { useI18n } from 'vue-i18n'
@@ -30,7 +22,7 @@ const theme = computed({
 const { t } = useI18n()
 
 const options = [
-  { name: t('buttonSelect.dark'), value: 'dark' },
-  { name: t('buttonSelect.light'), value: 'light' },
+  { label: t('buttonSelect.dark'), value: 'dark' },
+  { label: t('buttonSelect.light'), value: 'light' },
 ]
 </script>
