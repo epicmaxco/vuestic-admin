@@ -36,7 +36,7 @@
         {{ twoFA.content }}
       </div>
     </div>
-    <VaButton :style="buttonStyles" class="w-fit h-fit" :color="twoFA.color" @click="toggle2FA">
+    <VaButton :style="buttonStyles" class="w-fit h-fit" preset="primary" :color="twoFA.color" @click="toggle2FA">
       {{ twoFA.button }}
     </VaButton>
   </div>
@@ -79,7 +79,7 @@ const twoFA = computed(() => {
   } else {
     return {
       color: 'primary',
-      button: 'Set Up 2FA',
+      button: 'Set up 2FA',
       content:
         'Add an extra layer of security to your account. To sign in, you’ll need to provide a code along with your username and password.',
     }
