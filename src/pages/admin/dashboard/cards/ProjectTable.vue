@@ -27,7 +27,7 @@ const avatarColor = (userName: string) => {
 
 <template>
   <VaCard>
-    <VaCardTitle class="flex items-center justify-between">
+    <VaCardTitle class="flex items-start justify-between">
       <h1 class="card-title text-secondary font-bold uppercase">Projects</h1>
       <VaButton preset="primary" size="small" to="/projects">View all projects</VaButton>
     </VaCardTitle>

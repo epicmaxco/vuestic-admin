@@ -58,6 +58,10 @@ defineProps({
     margin-bottom: 1rem;
   }
 
+  &__content-cell {
+    width: 100%;
+  }
+
   &__date-cell {
     vertical-align: top;
     color: var(--va-secondary);

@@ -14,12 +14,12 @@
       </div>
     </VaCardTitle>
     <VaCardContent class="flex flex-col-reverse md:flex-row md:items-center justify-between gap-5 h-full">
-      <section class="flex flex-col items-start w-1/3 md:w-2/5 lg:w-1/4 gap-8 pl-4">
+      <section class="flex flex-col items-start w-1/3 md:w-2/5 lg:w-1/4 gap-2 md:gap-8 pl-4">
         <div>
-          <p class="text-2xl font-semibold">{{ formatMoney(totalEarnings) }}</p>
+          <p class="text-xl font-semibold">{{ formatMoney(totalEarnings) }}</p>
           <p class="whitespace-nowrap mt-2">Total earnings</p>
         </div>
-        <div class="flex flex-col sm:flex-col gap-8 w-full">
+        <div class="flex flex-col sm:flex-col gap-2 md:gap-8 w-full">
           <div>
             <div class="flex items-center">
               <span class="inline-block w-2 h-2 mr-2 -ml-4" :style="{ backgroundColor: earningsColor }"></span>

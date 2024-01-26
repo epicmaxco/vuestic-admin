@@ -35,7 +35,7 @@ const dashboardMetrics: DashboardMetric[] = [
   {
     id: 'openInvoices',
     title: 'Open invoices',
-    value: '$ 35,548',
+    value: '$35,548',
     icon: 'attach_money',
     changeText: '$1, 450',
     changeDirection: 'down',

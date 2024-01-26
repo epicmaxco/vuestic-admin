@@ -14,7 +14,7 @@
         class="region-revenue-table"
         :columns="[
           { key: 'name', label: 'Top Region' },
-          { key: 'revenue', label: 'Revenue' },
+          { key: 'revenue', label: 'Revenue', align: 'right' },
         ]"
         :items="data"
       >

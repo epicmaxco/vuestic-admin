@@ -74,3 +74,9 @@
     padding-bottom: calc(var(--va-card-padding) / 2) !important;
   }
 }
+
+.va-data-table {
+  .va-inner-loading__spinner {
+    margin-top: 32px;
+  }
+}

@@ -35,12 +35,12 @@ onMounted(() => {
               // Show relative expenses ratio
               data: revenues.map(({ earning, expenses }) => (expenses / earning) * 100),
               backgroundColor: expensesColor,
-              barThickness: 5,
+              barThickness: 4,
             },
             {
               data: revenues.map(() => 100),
               backgroundColor: earningsColor,
-              barThickness: 5,
+              barThickness: 4,
             },
           ],
         },

@@ -8,7 +8,7 @@
         <VaIcon name="attach_money" color="#fff" size="large" />
       </div>
       <section>
-        <div class="text-2xl font-bold mb-2">$6,820</div>
+        <div class="text-xl font-bold mb-2">$6,820</div>
         <p class="text-xs text-success">
           <VaIcon name="arrow_upward" />
           25.36%

@@ -13,16 +13,16 @@ import Timeline from './cards/Timeline.vue'
   <section class="flex flex-col gap-4">
     <h1 class="va-h1 my-0 font-bold">Dashboard</h1>
     <div class="flex flex-col sm:flex-row gap-4">
-      <RevenueUpdates class="w-full sm:w-2/3" />
-      <div class="flex flex-col gap-4 w-full sm:w-1/3">
-        <YearlyBreakup />
+      <RevenueUpdates class="w-full sm:w-[70%]" />
+      <div class="flex flex-col gap-4 w-full sm:w-[30%]">
+        <YearlyBreakup class="h-full" />
         <MonthlyEarnings />
       </div>
     </div>
     <DataSection />
     <div class="flex flex-col md:flex-row gap-4">
-      <RevenueByLocationMap class="w-full md:w-3/5" />
-      <RegionRevenue class="w-full md:w-2/5" />
+      <RevenueByLocationMap class="w-full md:w-4/6" />
+      <RegionRevenue class="w-full md:w-2/6" />
     </div>
     <div class="flex flex-col md:flex-row gap-4">
       <ProjectTable class="w-full md:w-1/2" />

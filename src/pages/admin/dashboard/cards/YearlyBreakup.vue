@@ -5,7 +5,7 @@
     </VaCardTitle>
     <VaCardContent class="flex flex-row gap-1">
       <section class="w-1/2">
-        <div class="text-2xl font-bold mb-2">$36,358</div>
+        <div class="text-xl font-bold mb-2">$36,358</div>
         <p class="text-xs text-success whitespace-nowrap">
           <VaIcon name="arrow_outward" />
           +2,5%
@@ -22,7 +22,7 @@
           </div>
         </div>
       </section>
-      <div class="w-1/2 flex items-center h-full flex-1 lg:pl-10 pl-2">
+      <div class="w-1/2 flex items-center h-full flex-1 lg:pl-16 pl-2">
         <VaChart :data="chartData" class="chart chart--donut" type="doughnut" :options="doughnutConfig" />
       </div>
     </VaCardContent>
