@@ -69,7 +69,10 @@ watch(
 
 const submit = () => {
   if (validate()) {
-    emits('save', paymentCardLocal.value)
+    emits('save', {
+      ...paymentCardLocal.value,
+      cardNumberMasked: paymentCardLocal.value.cardNumberMasked.replace(/\d{12}(.*)/g, '****$1'),
+    })
   }
 }
 </script>
