@@ -1,5 +1,5 @@
 <template>
-  <canvas ref="canvas" />
+  <canvas ref="canvas" style="max-width: 100%" />
 </template>
 
 <script lang="ts" setup>
@@ -59,6 +59,7 @@ watchEffect(() => {
           interpolate: getColor,
         },
       },
+      animation: false,
     },
   })
 })
