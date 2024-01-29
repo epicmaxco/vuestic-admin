@@ -140,6 +140,7 @@ const beforeEditFormModalClose = async (hide: () => unknown) => {
       <EditProjectForm
         ref="editFormRef"
         :project="projectToEdit"
+        :save-button-label="projectToEdit === null ? 'Add' : 'Save'"
         @close="cancel"
         @save="
           (project) => {

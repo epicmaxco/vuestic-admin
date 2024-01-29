@@ -8,6 +8,7 @@ import UserAvatar from '../../users/widgets/UserAvatar.vue'
 
 const props = defineProps<{
   project: Project | null
+  saveButtonLabel: string
 }>()
 
 defineEmits<{
@@ -19,7 +20,7 @@ const defaultNewProject: EmptyProject = {
   project_name: '',
   project_owner: undefined,
   team: [],
-  status: 'in progress',
+  status: undefined,
 }
 
 const newProject = ref({ ...defaultNewProject })
@@ -90,10 +91,10 @@ const { users: ownerUsers, filters: ownerFilters } = useUsers({ pagination: ref(
       multiple
       :rules="[(v: any) => ('length' in v && v.length > 0) || 'This field is required']"
       :options="teamUsers"
-      :max-visible-options="3"
+      :max-visible-options="$vaBreakpoint.mdUp ? 3 : 1"
     >
       <template #content="{ value }">
-        <div v-for="(user, index) in value" :key="user.id" class="flex items-center gap-1 mr-4">
+        <div v-for="(user, index) in value" :key="user.id" class="flex items-center gap-1 mr-2">
           <UserAvatar :user="user" size="18px" />
           {{ user.fullname }}{{ index < value.length - 1 ? ',' : '' }}
         </div>
@@ -115,15 +116,19 @@ const { users: ownerUsers, filters: ownerFilters } = useUsers({ pagination: ref(
         <ProjectStatusBadge :status="valueString" />
       </template>
     </VaSelect>
-    <div class="flex justify-end flex-col sm:flex-row mt-4 gap-2">
+    <div class="flex justify-end flex-col-reverse sm:flex-row mt-4 gap-2">
       <VaButton preset="secondary" @click="$emit('close')">Cancel</VaButton>
-      <VaButton @click="validate() && $emit('save', newProject as Project)">Save</VaButton>
+      <VaButton @click="validate() && $emit('save', newProject as Project)">{{ saveButtonLabel }}</VaButton>
     </div>
   </VaForm>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .va-select-content__autocomplete {
   flex: 1;
+}
+
+.va-input-wrapper__text {
+  gap: 0.2rem;
 }
 </style>
