@@ -8,8 +8,8 @@
         </VaBadge>
       </VaButton>
     </template>
-    <VaDropdownContent class="md:max-w-[420px] h-full sm:h-auto w-full">
-      <section class="max-h-[320px] p-4 overflow-auto">
+    <VaDropdownContent class="h-full sm:max-w-[420px] sm:h-auto">
+      <section class="sm:max-h-[320px] p-4 overflow-auto">
         <VaList class="space-y-1 mb-2">
           <template v-for="(item, index) in notificationsWithRelativeTime" :key="item.id">
             <VaListItem class="text-base">
