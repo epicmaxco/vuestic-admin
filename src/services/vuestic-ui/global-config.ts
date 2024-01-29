@@ -31,6 +31,11 @@ export default defineVuesticConfig({
       mobileFullscreen: false,
       closeButton: true,
     },
+    VaPagination: {
+      activeButtonProps: {
+        preset: 'primary',
+      },
+    },
     presets: {
       VaSelect: {
         small: {
