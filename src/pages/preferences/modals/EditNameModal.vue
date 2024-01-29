@@ -5,8 +5,10 @@
     hide-default-actions
     max-width="380px"
     model-value
+    close-button
     @update:modelValue="emits('cancel')"
   >
+    <h1 class="va-h5 mb-4">Reset password</h1>
     <VaForm ref="form" @submit.prevent="submit">
       <VaInput v-model="Name" class="mb-4" label="Name" placeholder="Name" />
       <div class="flex flex-col-reverse md:flex-row md:items-center md:justify-end md:space-x-4">
