@@ -29,6 +29,7 @@ export default defineVuesticConfig({
     },
     VaModal: {
       mobileFullscreen: false,
+      closeButton: true,
     },
     presets: {
       VaSelect: {
