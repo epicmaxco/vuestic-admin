@@ -18,6 +18,7 @@
 </template>
 
 <script lang="ts" setup>
+import { useColors } from 'vuestic-ui'
 import DataSectionItem from './DataSectionItem.vue'
 
 interface DashboardMetric {
@@ -31,46 +32,48 @@ interface DashboardMetric {
   iconColor: string
 }
 
+const { getColor } = useColors()
+
 const dashboardMetrics: DashboardMetric[] = [
   {
     id: 'openInvoices',
     title: 'Open invoices',
     value: '$35,548',
-    icon: 'attach_money',
+    icon: 'mso-attach_money',
     changeText: '$1, 450',
     changeDirection: 'down',
-    iconBackground: 'bg-green-500',
-    iconColor: 'text-white',
+    iconBackground: getColor('success'),
+    iconColor: getColor('on-success'),
   },
   {
     id: 'ongoingProjects',
     title: 'Ongoing project',
     value: '15',
-    icon: 'folder_open',
+    icon: 'mso-folder_open',
     changeText: '25.36%',
     changeDirection: 'up',
-    iconBackground: 'bg-blue-500',
-    iconColor: 'text-white',
+    iconBackground: getColor('info'),
+    iconColor: getColor('on-info'),
   },
   {
     id: 'employees',
     title: 'Employees',
     value: '25',
-    icon: 'account_circle',
+    icon: 'mso-account_circle',
     changeText: '2.5%',
     changeDirection: 'up',
-    iconBackground: 'bg-red-500',
-    iconColor: 'text-white',
+    iconBackground: getColor('danger'),
+    iconColor: getColor('on-danger'),
   },
   {
     id: 'newProfit',
     title: 'New profit',
     value: '27%',
-    icon: 'grade',
+    icon: 'mso-grade',
     changeText: '4%',
     changeDirection: 'up',
-    iconBackground: 'bg-yellow-400',
-    iconColor: 'text-black',
+    iconBackground: getColor('warning'),
+    iconColor: getColor('on-warning'),
   },
 ]
 </script>

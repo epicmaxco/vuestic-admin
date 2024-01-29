@@ -23,7 +23,7 @@
         </div>
       </section>
       <div class="w-1/2 flex items-center h-full flex-1 lg:pl-16 pl-2">
-        <VaChart :data="chartData" class="chart chart--donut" type="doughnut" :options="doughnutConfig" />
+        <VaChart :data="chartData" class="chart chart--donut" type="doughnut" :options="options" />
       </div>
     </VaCardContent>
   </VaCard>
@@ -35,6 +35,18 @@ import VaChart from '../../../../components/va-charts/VaChart.vue'
 import { useChartData } from '../../../../data/charts/composables/useChartData'
 import { doughnutChartData, profitBackground, earningsBackground } from '../../../../data/charts/doughnutChartData'
 import { doughnutConfig } from '../../../../components/va-charts/vaChartConfigs'
+import { ChartOptions } from 'chart.js'
+
+const options: ChartOptions<'doughnut'> = {
+  ...doughnutConfig,
+  plugins: {
+    ...doughnutConfig.plugins,
+    tooltip: {
+      // Chart to small to show tooltips
+      enabled: false,
+    },
+  },
+}
 
 const chartData = useChartData(doughnutChartData)
 </script>

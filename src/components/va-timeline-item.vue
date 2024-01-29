@@ -66,6 +66,7 @@ defineProps({
     vertical-align: top;
     color: var(--va-secondary);
     text-wrap: nowrap;
+    white-space: nowrap;
     padding-left: 0.5rem;
     text-align: end;
   }

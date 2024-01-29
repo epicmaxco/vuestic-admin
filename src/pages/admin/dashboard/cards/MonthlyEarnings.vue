@@ -5,7 +5,7 @@
     </VaCardTitle>
     <VaCardContent>
       <div class="p-1 bg-black rounded absolute right-4 top-4">
-        <VaIcon name="attach_money" color="#fff" size="large" />
+        <VaIcon name="mso-attach_money" color="#fff" size="large" />
       </div>
       <section>
         <div class="text-xl font-bold mb-2">$6,820</div>

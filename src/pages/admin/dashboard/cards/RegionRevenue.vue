@@ -62,6 +62,18 @@ const data = [
     revenueWeek: '180,000',
     revenueMonth: '800,000',
   },
+  {
+    name: 'Australia',
+    revenueToday: '15,000',
+    revenueWeek: '100,000',
+    revenueMonth: '500,000',
+  },
+  {
+    name: 'India',
+    revenueToday: '10,000',
+    revenueWeek: '50,000',
+    revenueMonth: '200,000',
+  },
 ]
 
 const exportAsCSV = () => {

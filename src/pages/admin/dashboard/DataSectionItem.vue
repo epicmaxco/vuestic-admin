@@ -4,7 +4,13 @@
       <section>
         <header class="flex items-center justify-between">
           <div class="text-lg font-semibold grow">{{ value }}</div>
-          <div class="p-1 rounded" :class="[iconBackground, iconColor]">
+          <div
+            class="p-1 rounded"
+            :style="{
+              backgroundColor: iconBackground,
+              color: iconColor,
+            }"
+          >
             <slot name="icon"></slot>
           </div>
         </header>
