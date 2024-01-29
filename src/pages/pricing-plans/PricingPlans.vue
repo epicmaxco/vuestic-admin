@@ -6,7 +6,14 @@
   </div>
   <div class="flex flex-col p-4 bg-backgroundSecondary">
     <div class="flex justify-center">
-      <VaButtonSelect v-model="selectedDuration" :options="['Monthly', 'Annual']" />
+      <VaButtonToggle
+        v-model="selectedDuration"
+        preset="primary"
+        :options="[
+          { label: 'Monthly', value: 'Monthly' },
+          { label: 'Annual', value: 'Annual' },
+        ]"
+      />
     </div>
     <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-x-6 md:space-y-0 mt-6">
       <VaCard
@@ -70,8 +77,6 @@ import { useToast, useModal } from 'vuestic-ui'
 import { badgeStyles, selectButtonStyles } from './styles'
 
 import { pricingPlans } from './options'
-
-import VaButtonSelect from '../../components/va-button-select/VaButtonSelect.vue'
 
 const { init } = useToast()
 const { init: initModal } = useModal()
