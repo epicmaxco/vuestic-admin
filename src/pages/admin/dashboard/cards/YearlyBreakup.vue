@@ -23,7 +23,7 @@
         </div>
       </section>
       <div class="w-1/2 flex items-center h-full flex-1 lg:pl-16 pl-2">
-        <VaChart :data="chartData" class="chart chart--donut h-24" type="doughnut" :options="options" />
+        <VaChart :data="chartData" class="chart chart--donut h-[90px] w-[90px]" type="doughnut" :options="options" />
       </div>
     </VaCardContent>
   </VaCard>

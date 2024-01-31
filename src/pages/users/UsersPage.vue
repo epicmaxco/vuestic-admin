@@ -111,7 +111,6 @@ const beforeEditFormModalClose = async (hide: () => unknown) => {
     v-model="doShowEditUserModal"
     size="small"
     mobile-fullscreen
-    max-height="100%"
     close-button
     hide-default-actions
     :before-cancel="beforeEditFormModalClose"

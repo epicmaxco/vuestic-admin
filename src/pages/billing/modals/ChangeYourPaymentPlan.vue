@@ -5,6 +5,7 @@
     max-width="380px"
     hide-default-actions
     model-value
+    close-button
     @update:modelValue="emits('cancel')"
   >
     <div class="space-y-6">
@@ -14,7 +15,7 @@
         plan?
       </h3>
       <div class="flex flex-col-reverse md:justify-end md:flex-row md:space-x-4">
-        <VaButton preset="plain" @click="emits('cancel')"> Cancel</VaButton>
+        <VaButton preset="secondary" color="secondary" @click="emits('cancel')"> Cancel</VaButton>
         <VaButton class="mb-4 md:mb-0" @click="confirm()"> Update Plan</VaButton>
       </div>
     </div>
