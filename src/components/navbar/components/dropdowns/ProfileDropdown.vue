@@ -9,24 +9,24 @@
           </span>
         </VaButton>
       </template>
-      <VaDropdownContent class="profile-dropdown__content md:w-60 px-0 py-4 w-full space-y-2">
-        <VaList v-for="group in options" :key="group.name" class="space-y-2">
-          <header
-            v-if="group.name"
-            class="profile-dropdown__group-header uppercase text-gray-400 font-bold text-xs px-4"
-          >
+      <VaDropdownContent
+        class="profile-dropdown__content md:w-60 px-0 py-4 w-full"
+        :style="{ '--hover-color': hoverColor }"
+      >
+        <VaList v-for="group in options" :key="group.name">
+          <header v-if="group.name" class="uppercase text-[var(--va-secondary)] opacity-80 font-bold text-xs px-4">
             {{ t(`user.${group.name}`) }}
           </header>
           <VaListItem
             v-for="item in group.list"
             :key="item.name"
-            class="px-4 text-base cursor-pointer hover:bg-focus active:bg-focus hover:bg-opacity-10 active:bg-opacity-10"
+            class="menu-item px-4 text-base cursor-pointer h-8"
             v-bind="resolveLinkAttribute(item)"
           >
-            <VaIcon :name="item.icon" class="px-1" />
+            <VaIcon :name="item.icon" class="pr-1" color="#262824" />
             {{ t(`user.${item.name}`) }}
           </VaListItem>
-          <VaListSeparator v-if="group.separator" class="mx-3" />
+          <VaListSeparator v-if="group.separator" class="mx-3 my-2" />
         </VaList>
       </VaDropdownContent>
     </VaDropdown>
@@ -34,8 +34,12 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useColors } from 'vuestic-ui'
+
+const { colors, setHSLAColor } = useColors()
+const hoverColor = computed(() => setHSLAColor(colors.focus, { a: 0.1 }))
 
 const { t } = useI18n()
 
@@ -65,22 +69,22 @@ withDefaults(
           {
             name: 'profile',
             to: 'preferences',
-            icon: 'account_circle',
+            icon: 'mso-account_circle',
           },
           {
             name: 'settings',
             to: 'settings',
-            icon: 'settings',
+            icon: 'mso-settings',
           },
           {
             name: 'billing',
             to: 'billing',
-            icon: 'receipt_long',
+            icon: 'mso-receipt_long',
           },
           {
             name: 'projects',
             to: 'projects',
-            icon: 'favorite_outline',
+            icon: 'mso-favorite',
           },
         ],
       },
@@ -96,7 +100,7 @@ withDefaults(
           {
             name: 'helpAndSupport',
             href: 'https://discord.gg/u7fQdqQt8c',
-            icon: 'help_outline',
+            icon: 'mso-help',
           },
         ],
       },
@@ -107,7 +111,7 @@ withDefaults(
           {
             name: 'logout',
             to: 'login',
-            icon: 'logout',
+            icon: 'mso-logout',
           },
         ],
       },
@@ -115,16 +119,22 @@ withDefaults(
   },
 )
 
-const isShown = ref(false)
+const isShown = ref(true)
 
 const resolveLinkAttribute = (item: ProfileListItem) => {
   return item.to ? { to: { name: item.to } } : item.href ? { href: item.href, target: '_blank' } : {}
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .profile-dropdown {
   cursor: pointer;
+
+  &__content {
+    .menu-item:hover {
+      background: var(--hover-color);
+    }
+  }
 
   &__anchor {
     display: inline-block;

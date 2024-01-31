@@ -6,6 +6,8 @@
           <VaIcon
             color="primary"
             :name="isSidebarMinimized ? 'menu' : 'close'"
+            size="24px"
+            style="margin-top: 3px"
             @click="isSidebarMinimized = !isSidebarMinimized"
           />
         </Transition>
@@ -54,10 +56,10 @@ const { isSidebarMinimized } = storeToRefs(GlobalStore)
 .left {
   display: flex;
   align-items: center;
-  margin-left: 1.5rem;
+  margin-left: 1rem;
 
   & > * {
-    margin-right: 1.5rem;
+    margin-right: 1rem;
   }
 
   & > *:last-child {

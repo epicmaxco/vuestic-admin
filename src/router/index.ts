@@ -117,7 +117,7 @@ const router = createRouter({
     if (to.hash) {
       return { el: to.hash, behavior: 'smooth' }
     } else {
-      document.querySelector('.app-layout__page')?.scrollTo(0, 0)
+      window.scrollTo(0, 0)
     }
   },
   routes,

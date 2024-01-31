@@ -73,7 +73,7 @@ const beforeEditFormModalClose = async (hide: () => unknown) => {
 
   <VaCard>
     <VaCardContent>
-      <div class="flex flex-col md:flex-row gap-2 mb-2">
+      <div class="flex flex-col md:flex-row gap-2 mb-2 justify-between">
         <div class="flex flex-col md:flex-row gap-2 justify-start">
           <VaButtonToggle
             v-model="filters.isActive"
@@ -90,7 +90,6 @@ const beforeEditFormModalClose = async (hide: () => unknown) => {
             </template>
           </VaInput>
         </div>
-        <VaSpacer />
         <VaButton @click="showAddUserModal">Add User</VaButton>
       </div>
 
