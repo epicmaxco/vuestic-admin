@@ -8,6 +8,13 @@
   width: 100%;
 }
 
+:root {
+  --va-modal-padding-top: 1rem;
+  --va-modal-padding-right: 1rem;
+  --va-modal-padding-bottom: 1rem;
+  --va-modal-padding-left: 1rem;
+}
+
 .va-modal {
   line-height: 20px;
 
@@ -21,10 +28,6 @@
     @media (min-width: 640px) {
       border-radius: 4px;
     }
-  }
-
-  &__inner {
-    padding: 16px;
   }
 }
 
