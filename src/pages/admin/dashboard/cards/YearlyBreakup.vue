@@ -23,7 +23,7 @@
         </div>
       </section>
       <div class="w-1/2 flex items-center h-full flex-1 lg:pl-16 pl-2">
-        <VaChart :data="chartData" class="chart chart--donut" type="doughnut" :options="options" />
+        <VaChart :data="chartData" class="chart chart--donut h-24" type="doughnut" :options="options" />
       </div>
     </VaCardContent>
   </VaCard>
@@ -36,6 +36,7 @@ import { useChartData } from '../../../../data/charts/composables/useChartData'
 import { doughnutChartData, profitBackground, earningsBackground } from '../../../../data/charts/doughnutChartData'
 import { doughnutConfig } from '../../../../components/va-charts/vaChartConfigs'
 import { ChartOptions } from 'chart.js'
+import { externalTooltipHandler } from '../../../../components/va-charts/external-tooltip'
 
 const options: ChartOptions<'doughnut'> = {
   ...doughnutConfig,
@@ -44,6 +45,8 @@ const options: ChartOptions<'doughnut'> = {
     tooltip: {
       // Chart to small to show tooltips
       enabled: false,
+      position: 'nearest',
+      external: externalTooltipHandler,
     },
   },
 }

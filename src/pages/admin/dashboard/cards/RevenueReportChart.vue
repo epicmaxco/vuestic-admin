@@ -18,6 +18,31 @@ const { revenues, months } = defineProps<{
 
 Chart.register(...registerables)
 
+const BR_THICKNESS = 4
+
+Chart.register([
+  {
+    id: 'background-color',
+    beforeDatasetDraw: function (chart) {
+      const ctx = chart.ctx
+      const config = chart.config
+
+      config.data.datasets.forEach(function (dataset, datasetIndex) {
+        const meta = chart.getDatasetMeta(datasetIndex)
+        if (meta.type === 'bar') {
+          const bgColor = earningsColor
+
+          // Loop through each bar in the dataset
+          meta.data.forEach(function (bar) {
+            ctx.fillStyle = bgColor
+            ctx.fillRect(bar.x - BR_THICKNESS / 2, 0, BR_THICKNESS, chart.chartArea.bottom)
+          })
+        }
+      })
+    },
+  },
+])
+
 const canvas = ref<HTMLCanvasElement | null>(null)
 
 const doShowChart = ref(false)
@@ -35,12 +60,7 @@ onMounted(() => {
               // Show relative expenses ratio
               data: revenues.map(({ earning, expenses }) => (expenses / earning) * 100),
               backgroundColor: expensesColor,
-              barThickness: 4,
-            },
-            {
-              data: revenues.map(() => 100),
-              backgroundColor: earningsColor,
-              barThickness: 4,
+              barThickness: BR_THICKNESS,
             },
           ],
         },
