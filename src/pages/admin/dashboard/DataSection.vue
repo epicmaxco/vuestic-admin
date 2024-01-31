@@ -18,6 +18,7 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue'
 import { useColors } from 'vuestic-ui'
 import DataSectionItem from './DataSectionItem.vue'
 
@@ -34,7 +35,7 @@ interface DashboardMetric {
 
 const { getColor } = useColors()
 
-const dashboardMetrics: DashboardMetric[] = [
+const dashboardMetrics = computed<DashboardMetric[]>(() => [
   {
     id: 'openInvoices',
     title: 'Open invoices',
@@ -75,5 +76,5 @@ const dashboardMetrics: DashboardMetric[] = [
     iconBackground: getColor('warning'),
     iconColor: getColor('on-warning'),
   },
-]
+])
 </script>

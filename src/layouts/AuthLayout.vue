@@ -1,5 +1,5 @@
 <template>
-  <VaLayout v-if="breakpoint.lgUp" class="h-screen">
+  <VaLayout v-if="breakpoint.lgUp" class="h-screen bg-[var(--va-background-secondary)]">
     <template #left>
       <RouterLink class="bg-primary h-full flex items-center justify-center" style="width: 35vw" to="/">
         <VuesticLogo :height="28" start="#FFF" />
@@ -12,7 +12,7 @@
     </template>
   </VaLayout>
 
-  <VaLayout v-else class="h-screen">
+  <VaLayout v-else class="h-screen bg-[var(--va-background-secondary)]">
     <template #content>
       <div class="p-4">
         <main class="h-full flex flex-row items-center justify-start mx-auto max-w-[420px]">
