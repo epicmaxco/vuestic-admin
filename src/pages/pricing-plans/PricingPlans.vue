@@ -8,7 +8,8 @@
     <div class="flex justify-center">
       <VaButtonToggle
         v-model="selectedDuration"
-        preset="primary"
+        color="background-element"
+        border-color="background-element"
         :options="[
           { label: 'Monthly', value: 'Monthly' },
           { label: 'Annual', value: 'Annual' },

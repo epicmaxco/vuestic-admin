@@ -119,7 +119,7 @@ withDefaults(
   },
 )
 
-const isShown = ref(true)
+const isShown = ref(false)
 
 const resolveLinkAttribute = (item: ProfileListItem) => {
   return item.to ? { to: { name: item.to } } : item.href ? { href: item.href, target: '_blank' } : {}

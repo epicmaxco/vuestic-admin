@@ -11,14 +11,14 @@
           +2,5%
           <span class="text-secondary"> last year</span>
         </p>
-        <div class="my-4 gap-4 flex items-center">
-          <div class="flex items-center">
-            <span class="inline-block w-2 h-2 mr-2" :style="{ backgroundColor: profitBackground }"></span>
-            <span class="text-secondary">FE</span>
-          </div>
+        <div class="my-4 gap-2 flex flex-col">
           <div class="flex items-center">
             <span class="inline-block w-2 h-2 mr-2" :style="{ backgroundColor: earningsBackground }"></span>
-            <span class="text-secondary">FE</span>
+            <span class="text-secondary">Earnings</span>
+          </div>
+          <div class="flex items-center">
+            <span class="inline-block w-2 h-2 mr-2" :style="{ backgroundColor: profitBackground }"></span>
+            <span class="text-secondary">Profit</span>
           </div>
         </div>
       </section>
@@ -38,6 +38,8 @@ import { doughnutConfig } from '../../../../components/va-charts/vaChartConfigs'
 import { ChartOptions } from 'chart.js'
 import { externalTooltipHandler } from '../../../../components/va-charts/external-tooltip'
 
+const chartData = useChartData(doughnutChartData)
+
 const options: ChartOptions<'doughnut'> = {
   ...doughnutConfig,
   plugins: {
@@ -49,7 +51,6 @@ const options: ChartOptions<'doughnut'> = {
       external: externalTooltipHandler,
     },
   },
+  circumference: 360 * (chartData.value.datasets[0].data.reduce((acc: number, d: number) => acc + d, 0) / 800),
 }
-
-const chartData = useChartData(doughnutChartData)
 </script>
