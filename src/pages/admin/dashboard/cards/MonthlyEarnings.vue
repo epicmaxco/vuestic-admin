@@ -27,10 +27,11 @@ import { VaCard } from 'vuestic-ui'
 import VaChart from '../../../../components/va-charts/VaChart.vue'
 import { useChartData } from '../../../../data/charts/composables/useChartData'
 import { lineChartData } from '../../../../data/charts/lineChartData'
+import { ChartOptions } from 'chart.js'
 
 const chartData = useChartData(lineChartData)
 
-const options = {
+const options: ChartOptions<'line'> = {
   scales: {
     x: {
       display: false,
@@ -48,9 +49,16 @@ const options = {
       },
     },
   },
+  interaction: {
+    intersect: false,
+    mode: 'index',
+  },
   plugins: {
     legend: {
       display: false,
+    },
+    tooltip: {
+      enabled: true,
     },
   },
 }
