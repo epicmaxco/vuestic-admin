@@ -105,6 +105,7 @@ const { users: ownerUsers, filters: ownerFilters } = useUsers({ pagination: ref(
       label="Status"
       :rules="[required]"
       track-by="value"
+      value-by="value"
       :options="[
         { text: 'In progress', value: 'in progress' },
         { text: 'Archived', value: 'archived' },
@@ -112,8 +113,8 @@ const { users: ownerUsers, filters: ownerFilters } = useUsers({ pagination: ref(
         { text: 'Important', value: 'important' },
       ]"
     >
-      <template #content="{ valueString }">
-        <ProjectStatusBadge :status="valueString" />
+      <template #content="{ value }">
+        <ProjectStatusBadge :status="value[0].value" />
       </template>
     </VaSelect>
     <div class="flex justify-end flex-col-reverse sm:flex-row mt-4 gap-2">

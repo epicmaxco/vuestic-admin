@@ -11,6 +11,10 @@ const props = defineProps({
     type: Object as PropType<User | null>,
     default: null,
   },
+  saveButtonLabel: {
+    type: String,
+    default: 'Save',
+  },
 })
 
 const defaultNewUser: User = {
@@ -82,16 +86,11 @@ const roleSelectOptions: { text: Capitalize<UserRole>; value: UserRole }[] = [
   { text: 'Owner', value: 'owner' },
 ]
 
-const { projects } = useProjects()
+const { projects } = useProjects({ pagination: ref({ page: 1, perPage: 9999, total: 10 }) })
 </script>
 
 <template>
-  <VaForm
-    v-slot="{ isValid }"
-    ref="add-user-form"
-    class="flex-col justify-start items-start gap-4 inline-flex w-full w-full"
-  >
-    <h1 class="va-h5">Add user</h1>
+  <VaForm v-slot="{ isValid }" ref="add-user-form" class="flex-col justify-start items-start gap-4 inline-flex w-full">
     <VaFileUpload
       v-model="avatar"
       type="single"
@@ -159,7 +158,7 @@ const { projects } = useProjects()
       <VaTextarea v-model="newUser.notes" label="Notes" class="w-full" name="notes" />
       <div class="flex gap-2 flex-col-reverse items-stretch justify-end w-full sm:flex-row sm:items-center">
         <VaButton preset="secondary" color="secondary" @click="$emit('close')">Cancel</VaButton>
-        <VaButton :disabled="!isValid" @click="onSave">Save</VaButton>
+        <VaButton :disabled="!isValid" @click="onSave">{{ saveButtonLabel }}</VaButton>
       </div>
     </div>
   </VaForm>
