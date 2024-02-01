@@ -1,7 +1,7 @@
 <template>
   <VaCard class="mb-6">
     <VaCardContent>
-      <h3 class="h3">Payment info</h3>
+      <h2 class="page-sub-title">Payment info</h2>
 
       <div class="flex items-center justify-between md:justify-items-stretch">
         <div

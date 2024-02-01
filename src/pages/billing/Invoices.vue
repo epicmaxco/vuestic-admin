@@ -1,7 +1,7 @@
 <template>
   <VaCard class="mb-6">
     <VaCardContent>
-      <h3 class="h3">Invoices</h3>
+      <h2 class="page-sub-title">Invoices</h2>
       <template v-for="(item, index) in itemsInView" :key="item.id">
         <div class="flex items-center justify-between md:justify-items-stretch">
           <div class="flex items-center w-48">

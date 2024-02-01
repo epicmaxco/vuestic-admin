@@ -7,15 +7,17 @@
       @click="isSidebarMinimized = !isSidebarMinimized"
     />
 
-    <VaBreadcrumbs>
-      <VaBreadcrumbsItem label="Home" :to="{ name: 'dashboard' }" />
-      <VaBreadcrumbsItem
-        v-for="item in items"
-        :key="item.label"
-        :label="item.label"
-        @click="handleBreadcrumbClick(item)"
-      />
-    </VaBreadcrumbs>
+    <nav class="flex items-center">
+      <VaBreadcrumbs>
+        <VaBreadcrumbsItem label="Home" :to="{ name: 'dashboard' }" />
+        <VaBreadcrumbsItem
+          v-for="item in items"
+          :key="item.label"
+          :label="item.label"
+          @click="handleBreadcrumbClick(item)"
+        />
+      </VaBreadcrumbs>
+    </nav>
   </div>
 </template>
 

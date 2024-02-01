@@ -120,12 +120,19 @@ const formatProjectNames = (projects: Project[]) => {
 
     <template #cell(actions)="{ rowData }">
       <div class="flex gap-2 justify-end">
-        <VaButton preset="primary" size="small" icon="mso-edit" @click="$emit('edit-user', rowData as User)" />
+        <VaButton
+          preset="primary"
+          size="small"
+          icon="mso-edit"
+          aria-label="Edit user"
+          @click="$emit('edit-user', rowData as User)"
+        />
         <VaButton
           preset="primary"
           size="small"
           icon="mso-delete"
           color="danger"
+          aria-label="Delete user"
           @click="onUserDelete(rowData as User)"
         />
       </div>
@@ -143,6 +150,7 @@ const formatProjectNames = (projects: Project[]) => {
       <VaButton
         preset="secondary"
         icon="va-arrow-left"
+        aria-label="Previous page"
         :disabled="$props.pagination.page === 1"
         @click="$props.pagination.page--"
       />
@@ -150,6 +158,7 @@ const formatProjectNames = (projects: Project[]) => {
         class="mr-2"
         preset="secondary"
         icon="va-arrow-right"
+        aria-label="Next page"
         :disabled="$props.pagination.page === totalPages"
         @click="$props.pagination.page++"
       />

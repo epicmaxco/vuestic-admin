@@ -9,7 +9,7 @@
       <VaCard class="col-span-3 md:col-span-1 min-h-[146px]" href="#">
         <VaCardContent class="leading-5 text-sm">
           <VaIcon :name="`mso-${category.icon}`" class="font-light mb-2" color="primary" size="2rem" />
-          <h3 class="text-primary mb-2 text-primary text-lg leading-7 font-bold">{{ category.name }}</h3>
+          <h2 class="text-primary mb-2 text-primary text-lg leading-7 font-bold">{{ category.name }}</h2>
           <p>{{ category.intro }}</p>
         </VaCardContent>
       </VaCard>

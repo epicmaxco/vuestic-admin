@@ -2,7 +2,7 @@
   <VaCard class="mb-5 pr-4 flex justify-between">
     <div>
       <VaCardContent>
-        <h5 class="va-h5">Got questions?</h5>
+        <h2 class="va-h5">Got questions?</h2>
         <p class="text-base leading-5">Request a free demo to have all your questions answered by an expert.</p>
       </VaCardContent>
       <VaCardActions align="left">

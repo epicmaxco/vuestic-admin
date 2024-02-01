@@ -1,7 +1,7 @@
 <template>
   <VaCard class="mb-4">
     <VaCardContent>
-      <h5 class="va-h5">Popular questions</h5>
+      <h2 class="va-h5">Popular questions</h2>
       <VaAccordion v-model="accordionState" :style="{ '--va-collapse-padding': '1rem 0' }" class="mb-1">
         <VaCollapse header="How do I reload a page?">
           <article class="max-w-3xl leading-5">

@@ -1,7 +1,12 @@
 <template>
   <VaLayout v-if="breakpoint.lgUp" class="h-screen bg-[var(--va-background-secondary)]">
     <template #left>
-      <RouterLink class="bg-primary h-full flex items-center justify-center" style="width: 35vw" to="/">
+      <RouterLink
+        class="bg-primary h-full flex items-center justify-center"
+        style="width: 35vw"
+        to="/"
+        aria-label="Visit homepage"
+      >
         <VuesticLogo :height="28" start="#FFF" />
       </RouterLink>
     </template>
@@ -17,7 +22,7 @@
       <div class="p-4">
         <main class="h-full flex flex-row items-center justify-start mx-auto max-w-[420px]">
           <div class="flex flex-col items-start">
-            <RouterLink class="py-4" to="/">
+            <RouterLink class="py-4" to="/" aria-label="Visit homepage">
               <VuesticLogo class="mb-2" start="#0E41C9" />
             </RouterLink>
             <RouterView />

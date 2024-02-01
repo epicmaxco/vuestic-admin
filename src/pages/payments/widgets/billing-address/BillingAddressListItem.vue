@@ -15,7 +15,7 @@
     </div>
     <div class="w-full sm:w-auto flex-none flex sm:block">
       <VaButton class="mr-2 flex-grow" preset="primary" @click="emits('edit')">Edit</VaButton>
-      <VaButton icon="mso-delete" preset="primary" @click="emits('remove')" />
+      <VaButton icon="mso-delete" preset="primary" aria-label="Remove" @click="emits('remove')" />
     </div>
   </div>
 </template>

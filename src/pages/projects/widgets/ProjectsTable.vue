@@ -101,6 +101,7 @@ const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagin
             size="small"
             color="primary"
             icon="mso-edit"
+            aria-label="Edit project"
             @click="$emit('edit', project as Project)"
           />
           <VaButton
@@ -108,6 +109,7 @@ const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagin
             size="small"
             icon="mso-delete"
             color="danger"
+            aria-label="Delete project"
             @click="$emit('delete', project as Project)"
           />
         </div>
@@ -124,6 +126,7 @@ const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagin
         <VaButton
           preset="secondary"
           icon="va-arrow-left"
+          aria-label="Previous page"
           :disabled="$props.pagination.page === 1"
           @click="$props.pagination.page--"
         />
@@ -131,6 +134,7 @@ const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagin
           class="mr-2"
           preset="secondary"
           icon="va-arrow-right"
+          aria-label="Next page"
           :disabled="$props.pagination.page === totalPages"
           @click="$props.pagination.page++"
         />

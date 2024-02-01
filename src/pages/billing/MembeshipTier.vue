@@ -1,7 +1,7 @@
 <template>
   <VaCard class="mb-6">
     <VaCardContent>
-      <h3 class="h3">Membership tier</h3>
+      <h2 class="page-sub-title">Membership tier</h2>
       <template v-for="(plan, index) in plans" :key="plan.id">
         <div class="flex items-center justify-between md:justify-items-stretch">
           <div
