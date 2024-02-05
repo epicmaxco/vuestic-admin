@@ -1,21 +1,25 @@
 <template>
-  <component :is="chartComponent" :chart-data="data" :chart-options="chartOptions" class="va-chart" />
+  <component :is="chartComponent" :chart-data="data" :data="data" :options="chartOptions" class="va-chart" />
 </template>
 
 <script lang="ts" setup generic="T extends 'line' | 'bar' | 'bubble' | 'doughnut' | 'pie'">
 import { computed } from 'vue'
-import type { TChartOptions, TChartData } from 'vue-chartjs/dist/types'
+import type { ChartOptions, ChartData } from 'chart.js'
 import { defaultConfig, chartTypesMap } from './vaChartConfigs'
 
+defineOptions({
+  name: 'VaChart',
+})
+
 const props = defineProps<{
-  data: TChartData<T>
-  options?: TChartOptions<T>
+  data: ChartData<T>
+  options?: ChartOptions<T>
   type: T
 }>()
 
 const chartComponent = chartTypesMap[props.type]
 
-const chartOptions = computed<TChartOptions<T>>(() => ({
+const chartOptions = computed<ChartOptions<T>>(() => ({
   ...(defaultConfig as any),
   ...props.options,
 }))

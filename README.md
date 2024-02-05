@@ -32,6 +32,7 @@
 </p>
 
 ### Quick start
+
 Use following command to quickly scaffold new [Vuestic Admin](admin.vuestic.ui) or empty Vite or Nuxt project with [Vuestic UI](ui.vuestic.dev).
 
 ```bash

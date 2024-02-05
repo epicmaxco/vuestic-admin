@@ -21,13 +21,9 @@
     ]
   },
   "dependencies": {
-    "@amcharts/amcharts5": "^5.5.6",
-    "@amcharts/amcharts5-geodata": "^5.1.1",
-    "@fortawesome/fontawesome-free": "^6.1.1",
     "@gtm-support/vue-gtm": "^2.0.0",
     "@vuestic/tailwind": "^0.1.3",
     "@vueuse/core": "^10.6.1",
-    "axios": "^1.6.1",
     "chart.js": "^4.4.1",
     "chartjs-chart-geo": "^4.2.8",
     "epic-spinners": "^2.0.0",
@@ -39,7 +35,7 @@
     "sass": "^1.69.5",
     "serve": "^14.2.1",
     "vue": "3.3.9",
-    "vue-chartjs": "^4.1.1",
+    "vue-chartjs": "^5.3.0",
     "vue-i18n": "^9.6.2",
     "vue-router": "^4.2.5",
     "vuestic-ui": "0.0.0-experimental-f57753ab1-20240129"

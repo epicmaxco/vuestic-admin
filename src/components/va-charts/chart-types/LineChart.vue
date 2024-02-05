@@ -1,11 +1,11 @@
 <template>
-  <Line ref="chart" :chart-data="computedChartData" :chart-options="chartOptions" />
+  <Line ref="chart" :data="computedChartData" :options="options" />
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { Line } from 'vue-chartjs'
-import type { TChartOptions } from 'vue-chartjs/dist/types'
+import type { ChartOptions } from 'chart.js'
 import {
   Chart as ChartJS,
   Title,
@@ -26,8 +26,8 @@ ChartJS.register(Title, Tooltip, Legend, LineElement, LinearScale, PointElement,
 const chart = ref<typeof Line>()
 
 const props = defineProps<{
-  chartData: TLineChartData
-  chartOptions?: TChartOptions<'line'>
+  data: TLineChartData
+  options?: ChartOptions<'line'>
 }>()
 
 const ctx = computed(() => {
@@ -35,16 +35,16 @@ const ctx = computed(() => {
     return null
   }
 
-  return chart.value.chart.ctx as CanvasRenderingContext2D
+  return chart.value.chart?.ctx ?? null
 })
 
 const { setHSLAColor, getColor } = useColors()
 
 const colors = ['primary', 'success', 'danger', 'warning']
 
-const computedChartData = computed(() => {
+const computedChartData = computed<TLineChartData>(() => {
   if (!ctx.value) {
-    return props.chartData
+    return props.data
   }
 
   const makeGradient = (bg: string) => {
@@ -54,7 +54,7 @@ const computedChartData = computed(() => {
     return gradient
   }
 
-  const datasets = props.chartData.datasets.map((dataset, index) => {
+  const datasets = props.data.datasets.map((dataset, index) => {
     const color = getColor(colors[index % colors.length])
 
     return {
@@ -67,6 +67,6 @@ const computedChartData = computed(() => {
     }
   })
 
-  return { ...props.chartData, datasets }
+  return { ...props.data, datasets }
 })
 </script>

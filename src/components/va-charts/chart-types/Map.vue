@@ -28,8 +28,8 @@ function getColor(revenue: number) {
 }
 
 const props = defineProps<{
-  chartOptions?: ChartOptions<'choropleth'>
-  chartData: ChartData<'choropleth', { feature: any; value: number }[], string>
+  options?: ChartOptions<'choropleth'>
+  data: ChartData<'choropleth', { feature: any; value: number }[], string>
 }>()
 
 watchEffect(() => {
@@ -39,7 +39,7 @@ watchEffect(() => {
 
   new ChartJS(canvas.value.getContext('2d')!, {
     type: 'choropleth',
-    data: props.chartData,
+    data: props.data,
     options: {
       plugins: {
         legend: {

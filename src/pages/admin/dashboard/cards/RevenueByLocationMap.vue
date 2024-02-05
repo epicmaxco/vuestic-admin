@@ -5,7 +5,7 @@
     </VaCardTitle>
     <VaCardContent class="flex-1 flex overflow-hidden">
       <VaAspectRatio class="w-full md:min-h-72 overflow-hidden relative flex items-center">
-        <Map v-if="geoJson" :chart-data="data" class="dashboard-map flex-1 h-full" />
+        <Map v-if="geoJson" :data="data" class="dashboard-map flex-1 h-full" />
         <VaProgressCircle v-else indeterminate class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
       </VaAspectRatio>
     </VaCardContent>
