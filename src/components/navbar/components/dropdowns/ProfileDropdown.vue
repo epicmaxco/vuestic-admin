@@ -23,7 +23,7 @@
             class="menu-item px-4 text-base cursor-pointer h-8"
             v-bind="resolveLinkAttribute(item)"
           >
-            <VaIcon :name="item.icon" class="pr-1" color="#262824" />
+            <VaIcon :name="item.icon" class="pr-1" color="secondary" />
             {{ t(`user.${item.name}`) }}
           </VaListItem>
           <VaListSeparator v-if="group.separator" class="mx-3 my-2" />
@@ -95,12 +95,12 @@ withDefaults(
           {
             name: 'faq',
             to: 'faq',
-            icon: 'quiz',
+            icon: 'mso-quiz',
           },
           {
             name: 'helpAndSupport',
             href: 'https://discord.gg/u7fQdqQt8c',
-            icon: 'mso-help',
+            icon: 'mso-error',
           },
         ],
       },

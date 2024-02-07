@@ -22,7 +22,7 @@
           </div>
         </div>
       </section>
-      <div class="w-1/2 flex items-center h-full flex-1 lg:pl-16 pl-2">
+      <div class="w-1/2 flex items-center h-full flex-1 lg:pl-16 pl-2 -mr-1">
         <VaChart
           v-if="chartData"
           :data="chartData"

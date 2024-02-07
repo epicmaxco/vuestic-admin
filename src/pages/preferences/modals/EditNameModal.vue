@@ -12,7 +12,7 @@
     <VaForm ref="form" @submit.prevent="submit">
       <VaInput v-model="Name" class="mb-4" label="Name" placeholder="Name" />
       <div class="flex flex-col-reverse md:flex-row md:items-center md:justify-end md:space-x-4">
-        <VaButton :style="buttonStyles" preset="plain" @click="emits('cancel')"> Cancel</VaButton>
+        <VaButton :style="buttonStyles" preset="secondary" color="secondary" @click="emits('cancel')"> Cancel</VaButton>
         <VaButton :style="buttonStyles" class="mb-4 md:mb-0" type="submit" @click="submit"> Save</VaButton>
       </div>
     </VaForm>

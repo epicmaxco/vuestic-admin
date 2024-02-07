@@ -16,7 +16,7 @@
         </header>
         <div>
           <p class="mb-2">{{ title }}</p>
-          <p class="text-xs">
+          <p class="text-xs text-secondary">
             <span :class="changeClass">
               <template v-if="up">↑</template>
               <template v-else>↓</template>
