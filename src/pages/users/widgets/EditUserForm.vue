@@ -110,50 +110,61 @@ const { projects } = useProjects({ pagination: ref({ page: 1, perPage: 9999, tot
       />
     </VaFileUpload>
     <div class="self-stretch flex-col justify-start items-start gap-4 flex">
-      <VaInput
-        v-model="newUser.fullname"
-        label="Full name"
-        class="w-full"
-        :rules="[validators.required]"
-        name="fullname"
-      />
-      <VaInput
-        v-model="newUser.username"
-        label="Username"
-        class="w-full"
-        :rules="[validators.required]"
-        name="username"
-      />
-      <VaInput
-        v-model="newUser.email"
-        label="Email"
-        class="w-full"
-        :rules="[validators.required, validators.email]"
-        name="email"
-      />
-      <VaSelect
-        v-model="newUser.role"
-        label="Role"
-        class="w-full"
-        :options="roleSelectOptions"
-        :rules="[validators.required]"
-        name="role"
-        value-by="value"
-      />
-      <VaCheckbox v-model="newUser.active" label="Active" class="w-full" name="active" />
+      <div class="flex gap-4 flex-col sm:flex-row w-full">
+        <VaInput
+          v-model="newUser.fullname"
+          label="Full name"
+          class="w-full sm:w-1/2"
+          :rules="[validators.required]"
+          name="fullname"
+        />
+        <VaInput
+          v-model="newUser.username"
+          label="Username"
+          class="w-full sm:w-1/2"
+          :rules="[validators.required]"
+          name="username"
+        />
+      </div>
+      <div class="flex gap-4 flex-col sm:flex-row w-full">
+        <VaInput
+          v-model="newUser.email"
+          label="Email"
+          class="w-full sm:w-1/2"
+          :rules="[validators.required, validators.email]"
+          name="email"
+        />
+        <VaSelect
+          v-model="newUser.projects"
+          label="Projects"
+          class="w-full sm:w-1/2"
+          :options="projects"
+          :rules="[validators.required]"
+          name="projects"
+          text-by="project_name"
+          track-by="id"
+          multiple
+          :max-visible-options="2"
+        />
+      </div>
 
-      <VaSelect
-        v-model="newUser.projects"
-        label="Projects"
-        class="w-full"
-        :options="projects"
-        :rules="[validators.required]"
-        name="projects"
-        text-by="project_name"
-        track-by="id"
-        multiple
-        :max-visible-options="3"
-      />
+      <div class="flex gap-4 w-full">
+        <div class="w-1/2">
+          <VaSelect
+            v-model="newUser.role"
+            label="Role"
+            class="w-full"
+            :options="roleSelectOptions"
+            :rules="[validators.required]"
+            name="role"
+            value-by="value"
+          />
+        </div>
+
+        <div class="flex items-center w-1/2 mt-4">
+          <VaCheckbox v-model="newUser.active" label="Active" class="w-full" name="active" />
+        </div>
+      </div>
 
       <VaTextarea v-model="newUser.notes" label="Notes" class="w-full" name="notes" />
       <div class="flex gap-2 flex-col-reverse items-stretch justify-end w-full sm:flex-row sm:items-center">

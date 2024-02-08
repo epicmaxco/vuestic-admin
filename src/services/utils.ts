@@ -8,5 +8,5 @@ export const validators = {
     const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     return pattern.test(v) || 'Please enter a valid email address'
   },
-  required: (v: string | boolean | number | Record<string, any>) => !!v || 'This field is required',
+  required: (v: any) => !!v || 'This field is required',
 }
