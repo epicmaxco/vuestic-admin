@@ -75,10 +75,10 @@ const { users: ownerUsers, filters: ownerFilters } = useUsers({ pagination: ref(
       :rules="[required]"
       :options="ownerUsers"
     >
-      <template #content="{ value: users }">
-        <div v-if="users[0]" :key="users[0].id" class="flex items-center gap-1 mr-4">
-          <UserAvatar :user="users[0]" size="18px" />
-          {{ users[0].fullname }}
+      <template #content="{ value: user }">
+        <div v-if="user" :key="user.id" class="flex items-center gap-1 mr-4">
+          <UserAvatar :user="user" size="18px" />
+          {{ user.fullname }}
         </div>
       </template>
     </VaSelect>
@@ -93,11 +93,11 @@ const { users: ownerUsers, filters: ownerFilters } = useUsers({ pagination: ref(
       :options="teamUsers"
       :max-visible-options="$vaBreakpoint.mdUp ? 3 : 1"
     >
-      <template #content="{ value }">
-        <template v-if="value">
-          <div v-for="(user, index) in value" :key="user.id" class="flex items-center gap-1 mr-2">
+      <template #content="{ valueArray }">
+        <template v-if="valueArray">
+          <div v-for="(user, index) in valueArray" :key="user.id" class="flex items-center gap-1 mr-2">
             <UserAvatar :user="user" size="18px" />
-            {{ user.fullname }}{{ index < value.length - 1 ? ',' : '' }}
+            {{ user.fullname }}{{ index < valueArray.length - 1 ? ',' : '' }}
           </div>
         </template>
       </template>
@@ -116,7 +116,7 @@ const { users: ownerUsers, filters: ownerFilters } = useUsers({ pagination: ref(
       ]"
     >
       <template #content="{ value }">
-        <ProjectStatusBadge v-if="value[0]" :status="value[0].value" />
+        <ProjectStatusBadge v-if="value" :status="value.value" />
       </template>
     </VaSelect>
     <div class="flex justify-end flex-col-reverse sm:flex-row mt-4 gap-2">

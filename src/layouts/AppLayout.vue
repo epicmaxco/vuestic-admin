@@ -19,7 +19,7 @@
         </div>
       </div>
       <AppLayoutNavigation v-if="!isMobile" class="p-4" />
-      <main class="p-4 py-0">
+      <main class="p-4 pt-0">
         <article>
           <RouterView />
         </article>

@@ -3,7 +3,7 @@
     <VaCardTitle class="flex items-start justify-between">
       <h1 class="card-title text-secondary font-bold uppercase">Revenue Report</h1>
       <div class="flex gap-2">
-        <VaSelect v-model="selectedMonth" preset="small" :options="monthsWithCurrentYear" class="w-64" />
+        <VaSelect v-model="selectedMonth" preset="small" :options="monthsWithCurrentYear" class="w-24" />
         <VaButton class="h-2" size="small" preset="primary" @click="exportAsCSV">Export</VaButton>
       </div>
     </VaCardTitle>

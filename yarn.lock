@@ -8306,10 +8306,10 @@ vue@3.3.9:
     "@vue/server-renderer" "3.3.9"
     "@vue/shared" "3.3.9"
 
-vuestic-ui@1.8.8-next-9307dca48-20240207:
-  version "1.8.8-next-9307dca48-20240207"
-  resolved "https://registry.yarnpkg.com/vuestic-ui/-/vuestic-ui-1.8.8-next-9307dca48-20240207.tgz#de57c90d917202eca0485e5f67e131b7cc39cd53"
-  integrity sha512-Wl23BKlg4SFGJMIKQQirwCaVoUyCzxHmvbKPM6N0as3DPFBoynwt5pliqU6L31XB3vKVsxpCPxU78ZX52ABpdg==
+vuestic-ui@1.8.8-next-221a5b7aa-20240209:
+  version "1.8.8-next-221a5b7aa-20240209"
+  resolved "https://registry.yarnpkg.com/vuestic-ui/-/vuestic-ui-1.8.8-next-221a5b7aa-20240209.tgz#cae934f6ba919d0d928ed522d66b385be93b158c"
+  integrity sha512-2afhlWjQFVHwDh1dcoY4bZ+3mEcOCIsNcv8FbzpyHMRMdFPqGpKppojl4wrClC8+qPSiS3yid008udu1mniRaQ==
   dependencies:
     "@floating-ui/vue" "^1.0.1"
     "@types/lodash" "^4.14.161"
