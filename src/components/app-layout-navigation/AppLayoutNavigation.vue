@@ -63,15 +63,20 @@ const findRouteName = (name: string) => {
 }
 
 const items = computed(() => {
-  return route.matched
-    .map((route) => {
-      return {
-        label: t(findRouteName(route.name as string)),
+  const result: {label: string, to: string, hasChildren: boolean}[] = []
+  route.matched
+    .forEach((route) => {
+      const labelKey = findRouteName(route.name as string)
+      if (!labelKey) {
+        return;
+      }
+      result.push({
+        label: t(labelKey),
         to: route.path,
         hasChildren: route.children && route.children.length > 0,
-      }
+      })
     })
-    .filter((route) => route.label)
+  return result
 })
 
 const { getColor } = useColors()
