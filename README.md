@@ -11,12 +11,12 @@
 </p>
 
 <p align="center">
-  <a href="https://admin.vuestic.dev/admin/dashboard"> Demo </a> | <a href="https://vuestic.dev"> Vuestic UI </a> | <a href="https://discord.gg/u7fQdqQt8c">Discord</a>
+  <a href="https://admin-demo.vuestic.dev"> Demo </a> | <a href="https://vuestic.dev"> Vuestic UI </a> | <a href="https://discord.gg/u7fQdqQt8c">Discord</a>
 </p>
 
 > Vuestic Admin is built with [Vuestic UI](https://ui.vuestic.dev). See our
 > <a href="https://github.com/epicmaxco/vuestic-ui/issues">issues</a>,
-> <a href="https://vuestic.dev/en/contribution/guide">contributing guide</a> and join discussions on our
+> <a href="https://ui.vuestic.dev/en/contribution/guide">contributing guide</a> and join discussions on our
 > <a href="https://discord.gg/jTKTjj2weV">Discord server</a> to help us improve Vuestic Admin & Vuestic UI experience.
 
 <p align="center">
@@ -33,7 +33,7 @@
 
 ### Quick start
 
-Use following command to quickly scaffold new [Vuestic Admin](admin.vuestic.ui) or empty Vite or Nuxt project with [Vuestic UI](ui.vuestic.dev).
+Use following command to quickly scaffold new [Vuestic Admin](admin-demo.vuestic.ui) or empty Vite or Nuxt project with [Vuestic UI](ui.vuestic.dev).
 
 ```bash
 npm create vuestic@latest
@@ -43,7 +43,7 @@ After [Vuestic Admin](admin.vuestic.ui) is installed, run `npm install` to insta
 
 ### Documentation
 
-Documentation, guides, examples and tutorials are available on [ui.vuestic.dev](https://vuestic.dev)
+Documentation, guides, examples and tutorials are available on [ui.vuestic.dev](https://ui.vuestic.dev)
 
 ### Contributing
 
@@ -55,7 +55,7 @@ Thanks for all your wonderful PRs, issues and ideas.
 <br>
 
 You’re always welcome to join: check out
-our <a href="https://vuestic.dev/en/contribution/guide">
+our <a href="https://ui.vuestic.dev/en/contribution/guide">
 contribution guides</a>
 , [open issues](https://github.com/epicmaxco/vuestic-ui/issues)
 and [Discord server](https://discord.gg/jTKTjj2weV)
@@ -69,14 +69,14 @@ Become a partner: [hello@epicmax.co](mailto:hello@epicmax.co)
 ## Can I hire you guys?
 
 [Epicmax](https://epicmax.co) is committed to Open Source from its beginning.
-[Vuestic UI](https://vuestic.dev) was created and backed by Epicmax, and is supported through all the years.
+[Vuestic UI](https://ui.vuestic.dev) was created and backed by Epicmax, and is supported through all the years.
 You can request a consultation or order web development services by Epicmax via this [form](https://epicmax.co/contacts) 😎
 
 Say hi: <a href="mailto:hello@epicmax.co">hello@epicmax.co</a>. We will be happy to work with you!
 
 [Other work](https://epicmax.co) we’ve done 🤘
 
-[Meet the Team](https://vuestic.dev/team)
+[Meet the Team](https://ui.vuestic.dev/team)
 
 ### Awards
 

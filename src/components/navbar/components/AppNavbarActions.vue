@@ -4,7 +4,7 @@
     <VaButton
       v-if="!isMobile"
       preset="secondary"
-      href="https://admin-landing.vuestic.dev/"
+      href="https://admin.vuestic.dev/"
       target="_blank"
       color="textPrimary"
       class="app-navbar-actions__item flex-shrink-0 mx-0"
