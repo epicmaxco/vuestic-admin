@@ -21,7 +21,7 @@
 
 <p align="center">
   <a href="https://admin.vuestic.dev" target="_blank">
-    <img src="./public/vuestic-admin-image.jpg" align="center" width="888px"/>
+    <img src="./public/vuestic-admin-image.png" align="center" width="888px"/>
   </a>
 </p>
 
