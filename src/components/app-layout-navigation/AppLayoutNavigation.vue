@@ -63,19 +63,18 @@ const findRouteName = (name: string) => {
 }
 
 const items = computed(() => {
-  const result: {label: string, to: string, hasChildren: boolean}[] = []
-  route.matched
-    .forEach((route) => {
-      const labelKey = findRouteName(route.name as string)
-      if (!labelKey) {
-        return;
-      }
-      result.push({
-        label: t(labelKey),
-        to: route.path,
-        hasChildren: route.children && route.children.length > 0,
-      })
+  const result: { label: string; to: string; hasChildren: boolean }[] = []
+  route.matched.forEach((route) => {
+    const labelKey = findRouteName(route.name as string)
+    if (!labelKey) {
+      return
+    }
+    result.push({
+      label: t(labelKey),
+      to: route.path,
+      hasChildren: route.children && route.children.length > 0,
     })
+  })
   return result
 })
 
