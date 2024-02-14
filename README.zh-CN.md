@@ -27,12 +27,6 @@
   </a>
 </p>
 
-<p align="center">
-  <a href="https://circleci.com/gh/epicmaxco/vuestic-admin">
-    <img src="https://img.shields.io/circleci/build/github/epicmaxco/vuestic-admin/master" alt="Circleci">
-  </a>
-</p>
-
 ### 快速入门
 
 使用以下命令快速搭建新的[Vuestic Admin](admin-demo.vuestic.ui)或使用[Vuestic UI](ui.vuestic.dev)的空白Vite或Nuxt项目。

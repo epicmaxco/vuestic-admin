@@ -27,12 +27,6 @@
   </a>
 </p>
 
-<p align="center">
-  <a href="https://circleci.com/gh/epicmaxco/vuestic-admin">
-    <img src="https://img.shields.io/circleci/build/github/epicmaxco/vuestic-admin/master" alt="Circleci">
-  </a>
-</p>
-
 ### Quick start
 
 Use following command to quickly scaffold new [Vuestic Admin](admin-demo.vuestic.ui) or empty Vite or Nuxt project with [Vuestic UI](ui.vuestic.dev).
