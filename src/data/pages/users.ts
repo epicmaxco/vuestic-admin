@@ -35,6 +35,14 @@ export type Filters = {
   search: string
 }
 
+const getSortItem = (obj: any, sortBy: string) => {
+  if (sortBy === 'projects') {
+    return obj.projects.map((project: any) => project.project_name).join(', ')
+  }
+
+  return obj[sortBy]
+}
+
 export const getUsers = async (filters: Partial<Filters & Pagination & Sorting>) => {
   await sleep(1000)
   const { isActive, search, sortBy, sortingOrder } = filters
@@ -46,10 +54,12 @@ export const getUsers = async (filters: Partial<Filters & Pagination & Sorting>)
     filteredUsers = filteredUsers.filter((user) => user.fullname.toLowerCase().includes(search.toLowerCase()))
   }
 
+  filteredUsers = filteredUsers.map((user) => ({ ...user, projects: getUserProjects(user.id) }))
+
   if (sortBy && sortingOrder) {
     filteredUsers = filteredUsers.sort((a, b) => {
-      const first = a[sortBy]
-      const second = b[sortBy]
+      const first = getSortItem(a, sortBy)
+      const second = getSortItem(b, sortBy)
       if (first > second) {
         return sortingOrder === 'asc' ? 1 : -1
       }
@@ -62,9 +72,7 @@ export const getUsers = async (filters: Partial<Filters & Pagination & Sorting>)
 
   const { page = 1, perPage = 10 } = filters || {}
   return {
-    data: filteredUsers
-      .slice((page - 1) * perPage, page * perPage)
-      .map((user) => ({ ...user, projects: getUserProjects(user.id) })),
+    data: filteredUsers.slice((page - 1) * perPage, page * perPage),
     pagination: {
       page,
       perPage,

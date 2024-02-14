@@ -14,31 +14,49 @@ export type Sorting = {
   sortingOrder: 'asc' | 'desc' | null
 }
 
+const getSortItem = (obj: any, sortBy: keyof (typeof projectsDb)[number]) => {
+  if (sortBy === 'project_owner') {
+    return obj.project_owner.fullname
+  }
+
+  if (sortBy === 'team') {
+    return obj.team.map((user: any) => user.fullname).join(', ')
+  }
+
+  if (sortBy === 'creation_date') {
+    return new Date(obj[sortBy])
+  }
+
+  return obj[sortBy]
+}
+
 export const getProjects = async (options: Sorting & Pagination) => {
   await sleep(1000)
 
-  const projects = projectsDb
-    .slice((options.page - 1) * options.perPage, options.page * options.perPage)
-    .map((project) => ({
-      ...project,
-      project_owner: usersDb.find((user) => user.id === project.project_owner)! as (typeof usersDb)[number],
-      team: usersDb.filter((user) => project.team.includes(user.id)) as (typeof usersDb)[number][],
-    }))
+  const projects = projectsDb.map((project) => ({
+    ...project,
+    project_owner: usersDb.find((user) => user.id === project.project_owner)! as (typeof usersDb)[number],
+    team: usersDb.filter((user) => project.team.includes(user.id)) as (typeof usersDb)[number][],
+  }))
 
   if (options.sortBy && options.sortingOrder) {
     projects.sort((a, b) => {
-      if (a[options.sortBy!] < b[options.sortBy!]) {
+      a = getSortItem(a, options.sortBy!)
+      b = getSortItem(b, options.sortBy!)
+      if (a < b) {
         return options.sortingOrder === 'asc' ? -1 : 1
       }
-      if (a[options.sortBy!] > b[options.sortBy!]) {
+      if (a > b) {
         return options.sortingOrder === 'asc' ? 1 : -1
       }
       return 0
     })
   }
 
+  const normalizedProjects = projects.slice((options.page - 1) * options.perPage, options.page * options.perPage)
+
   return {
-    data: projects,
+    data: normalizedProjects,
     pagination: {
       page: options.page,
       perPage: options.perPage,
