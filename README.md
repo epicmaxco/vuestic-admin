@@ -95,7 +95,7 @@ Say hi: <a href="mailto:hello@epicmax.co">hello@epicmax.co</a>. We will be happy
 
 [Other work](https://epicmax.co) we’ve done 🤘
 
-[Meet the Team](https://ui.vuestic.dev/team)
+[Meet the Team](https://ui.vuestic.dev/introduction/team)
 
 ### Awards
 

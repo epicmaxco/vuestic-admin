@@ -91,7 +91,7 @@ npm create vuestic@latest
 
 [我们做过的其他工作](https://epicmax.co) 🤘
 
-[认识团队](https://ui.vuestic.dev/team)
+[认识团队](https://ui.vuestic.dev/introduction/team)
 
 ### 奖项
 

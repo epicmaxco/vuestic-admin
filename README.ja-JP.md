@@ -83,8 +83,32 @@ npm create vuestic@latest
 
 パートナーになる: [hello@epicmax.co](mailto:hello@epicmax.co)
 
-### あなたたちを雇ってもいいですか？
+### お仕事の依頼はできますか？
 
-[Epicmax](https://epicmax.co) はその創業以来、オープンソースにコミットしています。Vuestic Admin は Epicmax によって作成され、すべての年月を通じてサポートされています。
+[Epicmax](https://epicmax.co) は初めからオープンソースにコミットしています。Vuestic Admin は Epicmax によって作成され、そしてこれまでのすべての年月を通じてサポートされています。
 
-6年以上にわたる商用およびオープンソースプロジェクト
+6年以上にわたる商業およびオープンソースプロジェクトへの専念した作業、および世界中のさまざまな分野で47以上のクライアントを持つことで、Epicmaxは特にVue.jsにおけるフロントエンド開発の深い専門知識を有しています。私たちはプロジェクトのコード監査を定期的に実施しており、これまでのクライアントだけでなく、フロントエンドコードの状態を理解し、セキュアで最新であることを確認したいすべての方にこのサービスを提供することに興奮しています！
+
+Epicmaxによるウェブ開発サービスの相談や注文は、この[フォーム](https://epicmax.co/contacts)からリクエストできます 😎
+
+こんにちはと言いたい方は: [hello@epicmax.co](mailto:hello@epicmax.co)。一緒に仕事ができることを嬉しく思います！
+
+[これまでの仕事](https://epicmax.co) 🤘
+
+[チームに会う](https://ui.vuestic.dev/introduction/team)
+
+### 受賞歴
+
+[<img src="https://i.imgur.com/ZeQPZ3Q.png" align="center" width="150px"/>](https://flatlogic.com/templates/vuestic-vue-free-admin)
+<p>
+  [Flatlogic](https://flatlogic.com/templates/vuestic-vue-free-admin) マーケットプレイスによる
+</p>
+
+### 私たちをフォローしてください
+
+最新のVuesticニュースをお知らせします！
+[Twitter](https://twitter.com/vuestic_ui) または [Linkedin](https://www.linkedin.com/company/18509340) でフォローしてください。
+
+### ライセンス
+
+[MIT](https://github.com/epicmaxco/vuestic-admin/blob/master/LICENSE) ライセンス。
