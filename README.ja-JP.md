@@ -48,6 +48,7 @@ npm create vuestic@latest
 ドキュメンテーション、ガイド、例、およびチュートリアルは [ui.vuestic.dev](https://ui.vuestic.dev) で利用可能です。
 
 ### 公式 Discord サーバー
+
 公式コミュニティの [Discord サーバー](https://discord.gg/jTKTjj2weV) で質問してください。
 
 ### 特徴
@@ -100,6 +101,7 @@ Epicmaxによるウェブ開発サービスの相談や注文は、この[フォ
 ### 受賞歴
 
 [<img src="https://i.imgur.com/ZeQPZ3Q.png" align="center" width="150px"/>](https://flatlogic.com/templates/vuestic-vue-free-admin)
+
 <p>
   [Flatlogic](https://flatlogic.com/templates/vuestic-vue-free-admin) マーケットプレイスによる
 </p>

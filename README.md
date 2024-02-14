@@ -48,6 +48,7 @@ After [Vuestic Admin](admin.vuestic.ui) is installed, run `npm install` to insta
 Documentation, guides, examples and tutorials are available on [ui.vuestic.dev](https://ui.vuestic.dev)
 
 ### Official Discord Server
+
 Ask questions at the official community [discord server](https://discord.gg/jTKTjj2weV)
 
 ### Features

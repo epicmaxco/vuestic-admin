@@ -48,6 +48,7 @@ npm create vuestic@latest
 文档、指南、示例和教程可在[ui.vuestic.dev](https://ui.vuestic.dev)上找到。
 
 ### 官方Discord服务器
+
 在官方社区的 [discord服务器](https://discord.gg/jTKTjj2weV)上提问。
 
 ### 特性
