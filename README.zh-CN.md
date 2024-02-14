@@ -1,22 +1,29 @@
 <p align="center">
-  <a href="./README.md"> English </a> | 简体中文 | <a href="./README.ja-JP.md"> 日本語 </a>
-</p>
-
-<h1 align="center"> Vuestic Admin </h1>
-
-<p align="center">
-  免费与美妙Vue.js管理模板包括38以上个定制用户界面组件</br>
-  由<a href="https://epicmax.co">Epicmax</a>开发。
-  由<a href="#">Vasili Savitski</a>设计
+  <a href="https://vuestic.dev" target="_blank">
+    <img alt="Vuestic UI Logo" width="220" src="./.github/assets/vuestic-admin-logo.png">
+  </a>
 </p>
 
 <p align="center">
-  <a href="https://admin.vuestic.dev"> 演示版 </a> | <a href="[THEME_URL]"> 新白色主题演示 </a> | <a href="https://github.com/epicmaxco/vuestic-admin/wiki"> 文档 </a>
+  免费且美观的管理模板，使用Vue 3、Vite、Pinia和Tailwind CSS构建。设计用于构建高效、响应式和快速加载的管理界面。</br>
+  由<a href="https://epicmax.co">Epicmax</a>开发。</br>
+  基于<a href="https://ui.vuestic.dev">Vuestic UI</a>库。
 </p>
+
+<p align="center">
+  <a href="https://admin-demo.vuestic.dev"> 在线演示 </a> |
+  <a href="https://admin-landing.vuestic.dev/"> 关于Vuestic Admin </a> |
+  <a href="https://ui.vuestic.dev/">Vuestic UI文档</a>
+</p>
+
+> Vuestic Admin是使用[Vuestic UI](https://ui.vuestic.dev)构建的。查看我们的
+> <a href="https://github.com/epicmaxco/vuestic-ui/issues">问题</a>，
+> <a href="https://ui.vuestic.dev/en/contribution/guide">贡献指南</a> 并参与我们的
+> <a href="https://discord.gg/jTKTjj2weV">Discord服务器</a>，帮助我们改进Vuestic Admin和Vuestic UI体验。
 
 <p align="center">
   <a href="https://admin.vuestic.dev" target="_blank">
-    <img src="https://i.imgur.com/hVxoYQM.jpg" align="center" width="888px"/>
+    <img src="./public/vuestic-admin-image.png" align="center" width="888px"/>
   </a>
 </p>
 
@@ -26,121 +33,76 @@
   </a>
 </p>
 
-<h2>
-  <a href="[THEME_URL]" target="_blank">
-    新白色主题演示
-  </a>
-</h2>
+### 快速入门
 
-<p align="center">
-  <a href="[THEME_URL]" target="_blank">
-    <img src="https://i.imgur.com/DnFcrjD.png" align="center" width="888px"/>
-  </a>
+使用以下命令快速搭建新的[Vuestic Admin](admin-demo.vuestic.ui)或使用[Vuestic UI](ui.vuestic.dev)的空白Vite或Nuxt项目。
+
+```bash
+npm create vuestic@latest
+```
+
+安装[Vuestic Admin](admin.vuestic.ui)后，运行 `npm install` 安装依赖，然后运行 `npm run dev` 启动本地开发服务器。
+
+### 文档
+
+文档、指南、示例和教程可在[ui.vuestic.dev](https://ui.vuestic.dev)上找到。
+
+### 官方Discord服务器
+在官方社区的 [discord服务器](https://discord.gg/jTKTjj2weV)上提问。
+
+### 特性
+
+- **Vue 3、Vite、Pinia和Tailwind CSS -** 快速高效的开发
+- **深色主题 -** 现代且引人注目
+- **全局配置 -** 轻松定制
+- **可访问性 -** 包容且用户友好
+- **i18n集成 -** 便于全球本地化
+- **教育资源 -** 适用于学习和提高技能
+- **响应式设计 -** 无缝适应所有设备
+- **专业支持 -** 专家提供可靠帮助
+- **高度可定制 -** 可根据项目风格定制
+
+### 贡献
+
+感谢您所有出色的PR、问题和想法。
+
+<a href="https://github.com/epicmaxco/vuestic-admin/graphs/contributors">
+<img src="https://opencollective.com/vuestic-admin/contributors.svg?width=890&button=false" />
+</a>
+<br>
+
+欢迎随时加入：查看我们的<a href="https://ui.vuestic.dev/en/contribution/guide">贡献指南</a>，[开放问题](https://github.com/epicmaxco/vuestic-ui/issues)和[Discord服务器](https://discord.gg/jTKTjj2weV)。
+
+### 合作伙伴与赞助商 ❤️
+
+<img src="./.github/assets/sponsors.png" loading="lazy" alt="Epicmax, vuejobs, ag-grid, flatlogic, browserstack and jetbrains" width="400px">
+
+成为合作伙伴：[hello@epicmax.co](mailto:hello@epicmax.co)
+
+### 我能雇佣你们吗？
+
+[Epicmax](https://epicmax.co) 从一开始就致力于开源。Vuestic Admin是由Epicmax创建并支持的，经过多年的支持。
+
+在前端开发方面，Epicmax在商业和开源项目上已经有超过6年的专业经验，与全球各个领域的47个以上的客户合作。我们定期对我们的项目进行代码审核，现在很高兴不仅向我们现有的客户提供此服务，而且向任何希望了解其前端代码状态并确保其安全和最新的人提供此服务！
+
+您可以通过[Epicmax的这个表单](https://epicmax.co/contacts)请求咨询或订购Web开发服务 😎
+
+打个招呼：<a href="mailto:hello@epicmax.co">hello@epicmax.co</a>。我们将很高兴与您合作！
+
+[我们做过的其他工作](https://epicmax.co) 🤘
+
+[认识团队](https://ui.vuestic.dev/introduction/team)
+
+### 奖项
+
+<a href="https://flatlogic.com/templates/vuestic-vue-free-admin" target="_blank">
+    <img src="https://i.imgur.com/ZeQPZ3Q.png" align="center" width="150px"/>
+</a>
+<p>
+  由<a href="https://flatlogic.com/templates/vuestic-vue-free-admin" target="_blank">@flatlogic</a>市场提供
 </p>
 
-## 安装
+### 关注我们
 
-首先确定 ni 安装所有的先决条件：
-
-- [Node.js](https://nodejs.org/en/) (>=8.9)
-- [npm](https://www.npmjs.com/get-npm) 3+版本 (或许[yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable) 1.16+版本) 和[Git](https://git-scm.com/)。
-
-检查先决条件之后，用简单指令之下安装与应用 Vuestic 管理台：
-
-```
-#克隆存储库
-$ git clone https://github.com/epicmaxco/vuestic-admin.git myproject
-
-#进入应用目录与安装依赖
-$ cd myproject
-
-```
-
-之后，如果您用 npm:
-
-```
-$ npm install
-
-#默认情况下在localhost:8080用热重载
-$ npm run dev
-
-#构建生产
-$ npm run build
-
-#构建生产与查看包分析报表
-$ npm run build --report
-```
-
-如果您用 yarn:
-
-```
-$ yarn install
-
-#默认情况下在localhost:8080用热重载
-$ yarn dev
-
-#构建生产
-$ yarn build
-
-#构建生产与查看包分析报表
-$ yarn build --report
-```
-
-## 功能
-
-[响应布局](https://admin.vuestic.dev/#/admin/dashboard) |
-[图表(Charts.js)](https://admin.vuestic.dev/#/admin/statistics/charts) |
-[进度表](https://admin.vuestic.dev/#/admin/statistics/progress-bars) |
-[表格](https://admin.vuestic.dev/#/admin/forms/form-elements) |
-[选辑](https://admin.vuestic.dev/#/admin/forms/form-elements) |
-[日期选择器](https://admin.vuestic.dev/#/admin/forms/form-elements) |
-[复选框和单选框](https://admin.vuestic.dev/#/admin/forms/form-elements) |
-[静态表与数据表](https://admin.vuestic.dev/#/admin/tables/data) |
-[medium editor](https://admin.vuestic.dev/#/admin/forms/medium-editor) |
-[平滑设计字体](https://admin.vuestic.dev/#/admin/ui/typography) |
-[按钮](https://admin.vuestic.dev/#/admin/ui/buttons) |
-[塌缩](https://admin.vuestic.dev/#/admin/ui/collapses) |
-[颜色选择器](https://admin.vuestic.dev/#/admin/ui/color-pickers) |
-[时间线](https://admin.vuestic.dev/#/admin/ui/timelines) |
-[土司通知](https://admin.vuestic.dev/#/admin/ui/notifications) |
-[工具提示](https://admin.vuestic.dev/#/admin/ui/popovers) |
-[弹窗](https://admin.vuestic.dev/#/admin/ui/popovers) |
-[图标](https://admin.vuestic.dev/#/admin/ui/icons/) |
-[自旋体](https://admin.vuestic.dev/#/admin/ui/spinners) |
-[模式](https://admin.vuestic.dev/#/admin/ui/modals) |
-[文件上传](https://admin.vuestic.dev/#/admin/ui/file-upload) |
-[厚切薯条通知](https://admin.vuestic.dev/#/admin/ui/chips) |
-[树](https://admin.vuestic.dev/#/admin/ui/tree-view) |
-[卡片](https://admin.vuestic.dev/#/admin/ui/cards) |
-[等级](https://admin.vuestic.dev/#/admin/ui/rating) |
-[滑动器](https://admin.vuestic.dev/#/admin/ui/sliders) |
-[聊天系统](https://admin.vuestic.dev/#/admin/ui/chat) |
-[地图(MapLibre, Yandex, Leaflet, amMap)](https://admin.vuestic.dev/#/admin/maps/maplibre-maps) |
-[登录/注册页模板](https://admin.vuestic.dev/#/auth/login) |
-[404 页模板](https://admin.vuestic.dev/#/admin/pages/404) |
-[i18n](https://admin.vuestic.dev/#/admin/dashboard)
-
-## 支持的浏览器
-
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IE11, Edge                                                                                                                                                                                                      | last 2 versions                                                                                                                                                                                                   | last 2 versions                                                                                                                                                                                               | last 2 versions                                                                                                                                                                                               | last 2 versions                                                                                                                                                                                           |
-
-## 参与贡献
-
-多谢您的出色公关、问题与注意。随时欢迎您的[加入](https://github.com/epicmaxco/vuestic-admin/blob/master/.github/CONTRIBUTING.md)!
-
-[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/0)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/0)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/1)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/1)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/2)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/2)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/3)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/3)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/4)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/4)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/5)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/5)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/6)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/6)[![](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/images/7)](https://sourcerer.io/fame/smartapant/epicmaxco/vuestic-admin/links/7)
-
-## 我可以雇佣你们吗？
-
-当然！给[hello@epicmax.co](mailto:hello@epicmax.co)发电子邮件 </br>
-和您一起工作我们将很高兴！查看我们其它项目 - [epicmax.co](https://epicmax.co)
-
-## 关注我们
-
-敬请期待 Vuestic 最新消息！关注我们[Twitter](https://twitter.com/epicmaxco)与[Facebook](https://facebook.com/epicmaxco)
-
-## 许可证
-
-[MIT](https://github.com/epicmaxco/vuestic-admin/blob/master/LICENSE)许可证.
+随时关注最新的Vuestic新闻！在[Twitter上](https://twitter.com/vuestic_ui)
+或[Linkedin上](

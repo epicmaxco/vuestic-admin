@@ -1,17 +1,19 @@
 <p align="center">
   <a href="https://vuestic.dev" target="_blank">
-    <img alt="Vuestic UI Logo" width="500" src="./public/vuestic-admin-logo.png">
+    <img alt="Vuestic UI Logo" width="220" src="./.github/assets/vuestic-admin-logo.png">
   </a>
 </p>
 
 <p align="center">
-  Free and beautiful Vue.js admin template with 44+ custom UI components.</br>
-  Developed by  <a href="https://epicmax.co">Epicmax</a>.
-  Designed by <a href="#">Vasili Savitski</a>
+  Free and beautiful Admin Template utilizing Vue 3, Vite, Pinia, and Tailwind CSS. Designed for building efficient, responsive, and fast-loading admin interfaces.</br>
+  Developed by  <a href="https://epicmax.co">Epicmax</a>.</br>
+  Based on <a href="https://ui.vuestic.dev">Vuestic UI</a> library.
 </p>
 
 <p align="center">
-  <a href="https://admin-demo.vuestic.dev"> Demo </a> | <a href="https://vuestic.dev"> Vuestic UI </a> | <a href="https://discord.gg/u7fQdqQt8c">Discord</a>
+  <a href="https://admin-demo.vuestic.dev"> Live Demo </a> |
+  <a href="https://admin-landing.vuestic.dev/"> About Vuestic Admin </a> |
+  <a href="https://ui.vuestic.dev/">Vuestic UI documentation</a>
 </p>
 
 > Vuestic Admin is built with [Vuestic UI](https://ui.vuestic.dev). See our
@@ -45,6 +47,21 @@ After [Vuestic Admin](admin.vuestic.ui) is installed, run `npm install` to insta
 
 Documentation, guides, examples and tutorials are available on [ui.vuestic.dev](https://ui.vuestic.dev)
 
+### Official Discord Server
+Ask questions at the official community [discord server](https://discord.gg/jTKTjj2weV)
+
+### Features
+
+- **Vue 3, Vite, Pinia, and Tailwind CSS -** Fast and efficient development
+- **Dark Theme -** Modern and eye-catching
+- **Global Configuration -** Effortless customization
+- **Accessibility -** Inclusive and user-friendly
+- **i18n Integration -** Easy localization for global reach
+- **Educational Resource -** Ideal for learning and improving skills
+- **Responsive Design -** Adapts seamlessly to all devices
+- **Professional Support -** Reliable help from the experts
+- **Highly Customizable -** Tailor to your project’s style
+
 ### Contributing
 
 Thanks for all your wonderful PRs, issues and ideas.
@@ -62,21 +79,23 @@ and [Discord server](https://discord.gg/jTKTjj2weV)
 
 ### Partners & Sponsors ❤️
 
-<img src="./.github/assets/sponsors.jpg" loading="lazy" alt="Epicmax, vuejobs, ag-grid, flatlogic, browserstack and jetbrains" width="400px">
+<img src="./.github/assets/sponsors.png" loading="lazy" alt="Epicmax, vuejobs, ag-grid, flatlogic, browserstack and jetbrains" width="400px">
 
 Become a partner: [hello@epicmax.co](mailto:hello@epicmax.co)
 
-## Can I hire you guys?
+### Can I hire you guys?
 
-[Epicmax](https://epicmax.co) is committed to Open Source from its beginning.
-[Vuestic UI](https://ui.vuestic.dev) was created and backed by Epicmax, and is supported through all the years.
+[Epicmax](https://epicmax.co) is committed to Open Source from its beginning. Vuestic Admin was created and backed by Epicmax, and is supported through all the years.
+
+With 6+ years of dedicated work on both commercial and open-source projects, and more than 47 clients worldwide across various fields, Epicmax has deep expertise in frontend development, especially in Vue.js. We regularly conduct code audits for our projects and now excited to offer this service not only to our existing clients but to anyone looking to understand the state of their frontend code and ensure it's secure and up-to-date!
+
 You can request a consultation or order web development services by Epicmax via this [form](https://epicmax.co/contacts) 😎
 
 Say hi: <a href="mailto:hello@epicmax.co">hello@epicmax.co</a>. We will be happy to work with you!
 
 [Other work](https://epicmax.co) we’ve done 🤘
 
-[Meet the Team](https://ui.vuestic.dev/team)
+[Meet the Team](https://ui.vuestic.dev/introduction/team)
 
 ### Awards
 
