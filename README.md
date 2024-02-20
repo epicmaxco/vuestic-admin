@@ -12,7 +12,7 @@
 
 <p align="center">
   <a href="https://admin-demo.vuestic.dev"> Live Demo </a> |
-  <a href="https://admin-landing.vuestic.dev/"> About Vuestic Admin </a> |
+  <a href="https://admin.vuestic.dev/"> About Vuestic Admin </a> |
   <a href="https://ui.vuestic.dev/">Vuestic UI documentation</a>
 </p>
 
