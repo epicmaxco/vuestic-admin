@@ -101,6 +101,11 @@ Say hi: <a href="mailto:hello@epicmax.co">hello@epicmax.co</a>. We will be happy
   By <a href="https://flatlogic.com/templates/vuestic-vue-free-admin" target="_blank">@flatlogic</a> marketplace
 </p>
 
+### Premium Support and Consulting
+Get Premium Support & Consulting services through our official development partner, Epicmax. As the main contributor to Vuestic UI and Vuestic Admin, Epicmax brings a wealth of expertise and experience to help you achieve your project goals efficiently and effectively.
+
+[Get a quote](https://www.epicmax.co/?ref=vuestic-consulting)
+
 ### Follow us
 
 Stay up to date with the latest Vuestic news! Follow us
