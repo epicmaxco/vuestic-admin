@@ -26,11 +26,11 @@ const props = defineProps({
     required: true,
   },
   sortBy: {
-    type: Object as PropType<Sorting['sortBy']>,
+    type: String as PropType<Sorting['sortBy']>,
     required: true,
   },
   sortingOrder: {
-    type: Object as PropType<Sorting['sortingOrder']>,
+    type: String as PropType<Sorting['sortingOrder']>,
     required: true,
   },
   pagination: {

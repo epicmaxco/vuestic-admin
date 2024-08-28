@@ -11,7 +11,7 @@ export type Pagination = {
 
 export type Sorting = {
   sortBy: keyof (typeof projectsDb)[number] | undefined
-  sortingOrder: 'asc' | 'desc' | null
+  sortingOrder: 'asc' | 'desc' | ''
 }
 
 const getSortItem = (obj: any, sortBy: keyof (typeof projectsDb)[number]) => {

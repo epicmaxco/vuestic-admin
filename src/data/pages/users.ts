@@ -27,7 +27,7 @@ export type Pagination = {
 
 export type Sorting = {
   sortBy: keyof User | undefined
-  sortingOrder: 'asc' | 'desc' | null
+  sortingOrder: 'asc' | 'desc' | ''
 }
 
 export type Filters = {
