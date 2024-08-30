@@ -1,0 +1,178 @@
+{
+  "auth": {
+    "agree": "동의합니다",
+    "createAccount": "계정 생성",
+    "createNewAccount": "새 계정 생성",
+    "email": "이메일",
+    "login": "로그인",
+    "password": "비밀번호",
+    "recover_password": "비밀번호 복구",
+    "sign_up": "가입하기",
+    "keep_logged_in": "로그인 상태 유지",
+    "termsOfUse": "이용 약관.",
+    "reset_password": "비밀번호 재설정"
+  },
+  "404": {
+    "title": "이 페이지는 낚시 중입니다.",
+    "text": "이게 잘못되었다고 생각하시면, 저희에게 메시지를 보내주세요: ",
+    "back_button": "대시보드로 돌아가기"
+  },
+  "typography": {
+    "primary": "기본 텍스트 스타일",
+    "secondary": "보조 텍스트 스타일"
+  },
+  "dashboard": {
+    "versions": "버전",
+    "setupRemoteConnections": "원격 연결 설정",
+    "currentVisitors": "현재 방문자",
+    "navigationLayout": "네비게이션 레이아웃",
+    "topBarButton": "상단 바",
+    "sideBarButton": "사이드 바"
+  },
+  "language": {
+    "brazilian_portuguese": "포르투갈어",
+    "english": "영어",
+    "spanish": "스페인어",
+    "simplified_chinese": "중국어(간체)",
+    "persian": "페르시아어"
+  },
+  "menu": {
+    "auth": "인증",
+    "buttons": "버튼",
+    "timelines": "타임라인",
+    "dashboard": "대시보드",
+    "billing": "청구",
+    "login": "로그인",
+    "preferences": "계정 설정",
+    "payments": "결제",
+    "settings": "애플리케이션 설정",
+    "pricing-plans": "요금제",
+    "payment-methods": "결제 방법",
+    "signup": "가입",
+    "recover-password": "비밀번호 복구",
+    "recover-password-email": "비밀번호 복구 이메일",
+    "404": "404",
+    "faq": "자주 묻는 질문",
+    "users": "사용자",
+    "projects": "프로젝트"
+  },
+  "messages": {
+    "all": "모든 메시지 보기",
+    "new": "{name}님의 새로운 메시지",
+    "mark_as_read": "읽음으로 표시"
+  },
+  "navbar": {
+    "messageUs": "웹 개발 문의:",
+    "repository": "GitHub 저장소"
+  },
+  "notifications": {
+    "all": "모든 알림 보기",
+    "less": "알림 줄이기",
+    "mark_as_read": "읽음으로 표시",
+    "sentMessage": "님이 메시지를 보냈습니다",
+    "uploadedZip": "{type} 파일을 새로 업로드했습니다",
+    "startedTopic": "새 주제를 시작했습니다"
+  },
+  "user": {
+    "language": "언어 변경",
+    "logout": "로그아웃",
+    "profile": "프로필",
+    "settings": "설정",
+    "billing": "청구",
+    "faq": "자주 묻는 질문",
+    "helpAndSupport": "도움말 및 지원",
+    "projects": "프로젝트",
+    "account": "계정",
+    "explore": "탐색"
+  },
+  "treeView": {
+    "basic": "기본",
+    "icons": "아이콘",
+    "selectable": "선택 가능",
+    "editable": "편집 가능",
+    "advanced": "고급"
+  },
+  "chat": {
+    "title": "채팅",
+    "sendButton": "보내기"
+  },
+  "spacingPlayground": {
+    "value": "값",
+    "margin": "여백",
+    "padding": "안쪽 여백"
+  },
+  "spacing": {
+    "title": "간격"
+  },
+  "cards": {
+    "cards": "카드",
+    "fixed": "고정",
+    "floating": "부동",
+    "contentText": "얼룩말의 독특한 줄무늬는 사람들에게 가장 익숙한 동물 중 하나입니다.",
+    "contentTextLong": "얼룩말의 독특한 줄무늬는 사람들에게 가장 익숙한 동물 중 하나입니다. 이들은 초원, 사바나, 삼림지대, 가시덤불 지대, 산악 지대, 해안 언덕 등 다양한 서식지에서 발견됩니다. 인간 활동은 얼룩말 개체수에 심각한 영향을 미쳤으며, 특히 가죽을 위한 사냥과 서식지 파괴가 문제로 나타났습니다. 그레비 얼룩말과 산악 얼룩말은 멸종 위기에 처해 있습니다. 평원 얼룩말은 더 많이 남아 있지만, 그 중 한 아종인 콰가는 멸종되었습니다.",
+    "rowHeight": "행 높이",
+    "title": {
+      "default": "기본",
+      "withControls": "컨트롤 포함",
+      "customHeader": "사용자 정의 헤더",
+      "withoutHeader": "헤더 없음",
+      "withImage": "이미지 포함",
+      "withTitleOnImage": "이미지 위 제목",
+      "withCustomTitleOnImage": "이미지 위 사용자 정의 제목",
+      "withStripe": "스트라이프 포함",
+      "withBackground": "배경 포함"
+    },
+    "button": {
+      "main": "주요",
+      "cancel": "취소",
+      "showMore": "더 보기",
+      "readMore": "더 보기"
+    },
+    "link": {
+      "edit": "편집",
+      "setAsDefault": "기본값으로 설정",
+      "delete": "삭제",
+      "traveling": "여행 중",
+      "france": "프랑스",
+      "review": "리뷰",
+      "feedback": "피드백 남기기",
+      "readFull": "전체 기사 읽기",
+      "secondaryAction": "보조 작업",
+      "action1": "작업 1",
+      "action2": "작업 2"
+    }
+  },
+  "colors": {
+    "themeColors": "테마 색상",
+    "extraColors": "추가 색상",
+    "gradients": {
+      "basic": {
+        "title": "버튼 그라디언트"
+      },
+      "hovered": {
+        "title": "호버 상태의 버튼 그라디언트",
+        "text": "호버 상태에서 원래 스타일(그라디언트 또는 평면 색상)에 15% 밝기를 적용합니다."
+      },
+      "pressed": {
+        "title": "눌린 버튼 그라디언트",
+        "text": "눌린 상태에서 원래 스타일(그라디언트 또는 평면 색상)에 15% 어둡게 적용합니다."
+      }
+    }
+  },
+  "tabs": {
+    "alignment": "탭 정렬",
+    "overflow": "탭 오버플로우",
+    "hidden": "슬라이더가 숨겨진 탭",
+    "grow": "탭 성장"
+  },
+  "helpAndSupport": "도움말 및 지원",
+  "aboutVuesticAdmin": "Vuestic Admin에 대하여",
+  "supportAndConsulting": "지원 및 상담",
+  "search": {
+    "placeholder": "검색..."
+  },
+  "buttonSelect": {
+    "dark": "어두운",
+    "light": "밝은"
+  }
+}
