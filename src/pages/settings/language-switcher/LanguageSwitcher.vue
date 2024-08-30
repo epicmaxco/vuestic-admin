@@ -16,6 +16,7 @@ type LanguageMap = Record<string, string>
 const { locale } = useI18n()
 
 const languages: LanguageMap = {
+  korean: 'Korean',
   english: 'English',
   spanish: 'Spanish',
   brazilian_portuguese: 'Português',
@@ -24,6 +25,7 @@ const languages: LanguageMap = {
 }
 
 const languageCodes: LanguageMap = {
+  kr: languages.korean,
   gb: languages.english,
   es: languages.spanish,
   br: languages.brazilian_portuguese,

@@ -19,7 +19,7 @@ Object.entries(fileNameToLocaleModuleDict)
 
 export default createI18n({
   legacy: false,
-  locale: 'gb',
-  fallbackLocale: 'gb',
+  locale: 'kr',
+  fallbackLocale: 'kr',
   messages,
 })
