@@ -1,0 +1,5 @@
+[build]
+publish = "dist"
+
+# Default build command.
+command = "yarn build:ci"
