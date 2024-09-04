@@ -29,13 +29,13 @@
 
 ### Quick start
 
-Use following command to quickly scaffold new [Vuestic Admin](admin-demo.vuestic.ui) or empty Vite or Nuxt project with [Vuestic UI](ui.vuestic.dev).
+Use following command to quickly scaffold new [Vuestic Admin](https://admin-demo.vuestic.dev) or empty Vite or Nuxt project with [Vuestic UI](https://ui.vuestic.dev).
 
 ```bash
 npm create vuestic@latest
 ```
 
-After [Vuestic Admin](admin.vuestic.ui) is installed, run `npm install` to install dependcies, then run `npm run dev` to start local development server.
+After [Vuestic Admin](https://admin.vuestic.dev) is installed, run `npm install` to install dependcies, then run `npm run dev` to start local development server.
 
 ### Documentation
 
@@ -100,6 +100,11 @@ Say hi: <a href="mailto:hello@epicmax.co">hello@epicmax.co</a>. We will be happy
 <p>
   By <a href="https://flatlogic.com/templates/vuestic-vue-free-admin" target="_blank">@flatlogic</a> marketplace
 </p>
+
+### Premium Support and Consulting
+Get Premium Support & Consulting services through our official development partner, Epicmax. As the main contributor to Vuestic UI and Vuestic Admin, Epicmax brings a wealth of expertise and experience to help you achieve your project goals efficiently and effectively.
+
+[Get a quote](https://www.epicmax.co/?ref=vuestic-consulting)
 
 ### Follow us
 
