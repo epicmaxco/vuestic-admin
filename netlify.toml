@@ -3,3 +3,8 @@ publish = "dist"
 
 # Default build command.
 command = "yarn build:ci"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
