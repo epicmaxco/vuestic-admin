@@ -1,9 +1,6 @@
-@import 'vuestic-sass/index';
+@import 'tailwind';
+@import 'vuestic';
 @import 'icon-fonts/index';
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 body {
   @apply text-regularMedium;
