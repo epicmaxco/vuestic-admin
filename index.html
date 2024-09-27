@@ -12,6 +12,11 @@
     <link rel="icon" href="/favicon.ico" />
 
     <title>Vuestic Admin</title>
+
+    <style>
+      /* Set vuestic higher priority over tailwind normalize css */
+      @layer tailwind.base, vuestic;
+    </style>
   </head>
   <body>
     <div id="app"></div>
