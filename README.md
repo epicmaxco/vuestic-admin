@@ -7,7 +7,7 @@
 <p align="center">
   Free and beautiful Admin Template utilizing Vue 3, Vite, Pinia, and Tailwind CSS. Designed for building efficient, responsive, and fast-loading admin interfaces.</br>
   Developed by  <a href="https://epicmax.co">Epicmax</a>.</br>
-  Based on <a href="https://ui.vuestic.dev">Vuestic UI</a> library.
+  Based on <a href="https://ui.vuestic.dev">Vuestic UI</a> library.
 </p>
 
 <p align="center">
@@ -43,7 +43,7 @@ Documentation, guides, examples and tutorials are available on [ui.vuestic.dev](
 
 ### Official Discord Server
 
-Ask questions at the official community [discord server](https://discord.gg/jTKTjj2weV)
+Ask questions at the official community [discord server](https://discord.gg/jTKTjj2weV)
 
 ### Features
 
@@ -80,7 +80,7 @@ Become a partner: [hello@epicmax.co](mailto:hello@epicmax.co)
 
 ### Can I hire you guys?
 
-[Epicmax](https://epicmax.co) is committed to Open Source from its beginning. Vuestic Admin was created and backed by Epicmax, and is supported through all the years.
+[Epicmax](https://epicmax.co) is committed to Open Source from its beginning. Vuestic Admin was created and backed by Epicmax, and is supported through all the years.
 
 With 6+ years of dedicated work on both commercial and open-source projects, and more than 47 clients worldwide across various fields, Epicmax has deep expertise in frontend development, especially in Vue.js. We regularly conduct code audits for our projects and now excited to offer this service not only to our existing clients but to anyone looking to understand the state of their frontend code and ensure it's secure and up-to-date!
 
