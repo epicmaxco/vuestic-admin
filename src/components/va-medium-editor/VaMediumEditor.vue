@@ -57,7 +57,7 @@ onBeforeUnmount(() => {
 @import 'variables';
 
 $medium-editor-shadow: var(--va-box-shadow);
-$medium-editor-background-color: var(--va-divider);
+$medium-editor-background-color: var(--va-background-primary);
 $medium-editor-text-color: var(--va-dark);
 $medium-editor-active-background-color: var(--va-primary);
 $medium-editor-active-text-color: var(--va-white);
@@ -129,13 +129,13 @@ $medium-editor-active-text-color: var(--va-white);
     }
   }
 
-  & > .medium-editor-action:not(:last-child) {
+  &>.medium-editor-action:not(:last-child) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: 0;
   }
 
-  & > .medium-editor-action + .medium-editor-action {
+  &>.medium-editor-action+.medium-editor-action {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-left: 0;
