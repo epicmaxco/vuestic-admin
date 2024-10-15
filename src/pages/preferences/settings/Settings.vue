@@ -56,7 +56,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 
-import { useToast } from 'vuestic-ui/web-components'
+import { useToast } from 'vuestic-ui'
 
 import { useUserStore } from '../../../stores/user-store'
 

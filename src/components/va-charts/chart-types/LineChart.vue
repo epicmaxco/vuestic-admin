@@ -19,7 +19,7 @@ import {
 } from 'chart.js'
 import { TLineChartData } from '../../../data/types'
 import { computed } from 'vue'
-import { useColors } from 'vuestic-ui/web-components'
+import { useColors } from 'vuestic-ui'
 
 ChartJS.register(Title, Tooltip, Legend, LineElement, LinearScale, PointElement, CategoryScale, Filler)
 
