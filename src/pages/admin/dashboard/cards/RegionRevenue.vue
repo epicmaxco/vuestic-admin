@@ -25,10 +25,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, Ref } from 'vue'
 import { downloadAsCSV } from '../../../../services/toCSV'
 
-const selectedPeriod = ref('Today')
+const selectedPeriod = ref('Today') as Ref<'Today' | 'Week' | 'Month'>
 const periods = ['Today', 'Week', 'Month'].map((period) => ({ label: period, value: period }))
 
 const data = [

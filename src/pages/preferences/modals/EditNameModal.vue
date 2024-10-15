@@ -23,7 +23,7 @@ import { ref } from 'vue'
 import { useUserStore } from '../../../stores/user-store'
 
 import { buttonStyles } from '../styles'
-import { useToast } from 'vuestic-ui/web-components'
+import { useToast } from 'vuestic-ui'
 
 const store = useUserStore()
 

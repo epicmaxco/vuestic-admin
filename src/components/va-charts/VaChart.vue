@@ -4,7 +4,7 @@
 
 <script lang="ts" setup generic="T extends 'line' | 'bar' | 'bubble' | 'doughnut' | 'pie'">
 import { computed } from 'vue'
-import type { ChartOptions, ChartData } from 'chart.js'
+import type { ChartOptions, ChartData, ChartComponent } from 'chart.js'
 import { defaultConfig, chartTypesMap } from './vaChartConfigs'
 
 defineOptions({
@@ -17,7 +17,7 @@ const props = defineProps<{
   type: T
 }>()
 
-const chartComponent = chartTypesMap[props.type]
+const chartComponent = chartTypesMap[props.type] as unknown as ChartComponent
 
 const chartOptions = computed<ChartOptions<T>>(() => ({
   ...(defaultConfig as any),
