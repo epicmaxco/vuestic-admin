@@ -1,16 +1,15 @@
-import { Project } from '../projects/types'
+export type UserRole = 'ADMIN' | 'USER' | 'OWNER'
 
-export type UserRole = 'admin' | 'user' | 'owner'
+export type UUID = `${string}-${string}-${string}-${string}-${string}`
 
-export type BaseUser = {
-  id: number
-  fullname: string
+export type User = {
+  id: UUID
+  fullName: string
   email: string
   username: string
   role: UserRole
   avatar: string
+  projects: string[]
   notes: string
-  active: boolean
+  isActive: boolean
 }
-
-export type User = BaseUser & { projects: Project[] }

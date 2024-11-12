@@ -17,19 +17,18 @@ const props = defineProps({
   },
 })
 
-const defaultNewUser: User = {
-  id: -1,
+const defaultNewUser: Omit<User, 'id'> = {
   avatar: '',
-  fullname: '',
-  role: 'user',
+  fullName: '',
+  role: 'USER',
   username: '',
   notes: '',
   email: '',
-  active: true,
+  isActive: true,
   projects: [],
 }
 
-const newUser = ref<User>({ ...defaultNewUser })
+const newUser = ref<User>({ ...defaultNewUser } as User)
 
 const isFormHasUnsavedChanges = computed(() => {
   return Object.keys(newUser.value).some((key) => {
@@ -37,7 +36,9 @@ const isFormHasUnsavedChanges = computed(() => {
       return false
     }
 
-    return newUser.value[key as keyof User] !== (props.user ?? defaultNewUser)?.[key as keyof User]
+    return (
+      newUser.value[key as keyof Omit<User, 'id'>] !== (props.user ?? defaultNewUser)?.[key as keyof Omit<User, 'id'>]
+    )
   })
 })
 
@@ -80,10 +81,10 @@ const onSave = () => {
   }
 }
 
-const roleSelectOptions: { text: Capitalize<UserRole>; value: UserRole }[] = [
-  { text: 'Admin', value: 'admin' },
-  { text: 'User', value: 'user' },
-  { text: 'Owner', value: 'owner' },
+const roleSelectOptions: { text: Capitalize<Lowercase<UserRole>>; value: UserRole }[] = [
+  { text: 'Admin', value: 'ADMIN' },
+  { text: 'User', value: 'USER' },
+  { text: 'Owner', value: 'OWNER' },
 ]
 
 const { projects } = useProjects({ pagination: ref({ page: 1, perPage: 9999, total: 10 }) })
@@ -112,11 +113,11 @@ const { projects } = useProjects({ pagination: ref({ page: 1, perPage: 9999, tot
     <div class="self-stretch flex-col justify-start items-start gap-4 flex">
       <div class="flex gap-4 flex-col sm:flex-row w-full">
         <VaInput
-          v-model="newUser.fullname"
+          v-model="newUser.fullName"
           label="Full name"
           class="w-full sm:w-1/2"
           :rules="[validators.required]"
-          name="fullname"
+          name="fullName"
         />
         <VaInput
           v-model="newUser.username"
@@ -138,11 +139,9 @@ const { projects } = useProjects({ pagination: ref({ page: 1, perPage: 9999, tot
           v-model="newUser.projects"
           label="Projects"
           class="w-full sm:w-1/2"
-          :options="projects"
+          :options="projects.map((p) => p.project_name)"
           :rules="[validators.required]"
           name="projects"
-          text-by="project_name"
-          track-by="id"
           multiple
           :max-visible-options="2"
         />
@@ -162,7 +161,7 @@ const { projects } = useProjects({ pagination: ref({ page: 1, perPage: 9999, tot
         </div>
 
         <div class="flex items-center w-1/2 mt-4">
-          <VaCheckbox v-model="newUser.active" label="Active" class="w-full" name="active" />
+          <VaCheckbox v-model="newUser.isActive" label="Active" class="w-full" name="active" />
         </div>
       </div>
 

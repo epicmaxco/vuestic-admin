@@ -28,13 +28,13 @@ const onUserSaved = async (user: User) => {
   if (userToEdit.value) {
     await usersApi.update(user)
     notify({
-      message: `${user.fullname} has been updated`,
+      message: `${user.fullName} has been updated`,
       color: 'success',
     })
   } else {
-    usersApi.add(user)
+    await usersApi.add(user)
     notify({
-      message: `${user.fullname} has been created`,
+      message: `${user.fullName} has been created`,
       color: 'success',
     })
   }
@@ -43,7 +43,7 @@ const onUserSaved = async (user: User) => {
 const onUserDelete = async (user: User) => {
   await usersApi.remove(user)
   notify({
-    message: `${user.fullname} has been deleted`,
+    message: `${user.fullName} has been deleted`,
     color: 'success',
   })
 }
