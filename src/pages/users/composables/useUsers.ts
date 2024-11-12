@@ -4,7 +4,7 @@ import { User } from '../types'
 import { watchIgnorable } from '@vueuse/core'
 
 const makePaginationRef = () => ref<Pagination>({ page: 1, perPage: 10, total: 0 })
-const makeSortingRef = () => ref<Sorting>({ sortBy: 'fullname', sortingOrder: null })
+const makeSortingRef = () => ref<Sorting>({ sortBy: 'fullName', sortingOrder: null })
 const makeFiltersRef = () => ref<Partial<Filters>>({ isActive: true, search: '' })
 
 export const useUsers = (options?: {

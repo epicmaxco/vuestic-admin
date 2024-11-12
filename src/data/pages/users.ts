@@ -1,23 +1,5 @@
-import { sleep } from '../../services/utils'
-import { User } from './../../pages/users/types'
-import usersDb from './users-db.json'
-import projectsDb from './projects-db.json'
-import { Project } from '../../pages/projects/types'
-
-export const users = usersDb as User[]
-
-const getUserProjects = (userId: number | string) => {
-  return projectsDb
-    .filter((project) => project.team.includes(Number(userId)))
-    .map((project) => ({
-      ...project,
-      project_owner: users.find((user) => user.id === project.project_owner)!,
-      team: project.team.map((userId) => users.find((user) => user.id === userId)!),
-      status: project.status as Project['status'],
-    }))
-}
-
-// Simulate API calls
+import { User } from '../../pages/users/types'
+import api from '../../services/api'
 
 export type Pagination = {
   page: number
@@ -37,24 +19,21 @@ export type Filters = {
 
 const getSortItem = (obj: any, sortBy: string) => {
   if (sortBy === 'projects') {
-    return obj.projects.map((project: any) => project.project_name).join(', ')
+    return obj.projects.map((project: any) => project).join(', ')
   }
 
   return obj[sortBy]
 }
 
 export const getUsers = async (filters: Partial<Filters & Pagination & Sorting>) => {
-  await sleep(1000)
   const { isActive, search, sortBy, sortingOrder } = filters
-  let filteredUsers = users
+  let filteredUsers: User[] = await fetch(api.getAllUsers()).then((r) => r.json())
 
-  filteredUsers = filteredUsers.filter((user) => user.active === isActive)
+  filteredUsers = filteredUsers.filter((user) => user.isActive === isActive)
 
   if (search) {
-    filteredUsers = filteredUsers.filter((user) => user.fullname.toLowerCase().includes(search.toLowerCase()))
+    filteredUsers = filteredUsers.filter((user) => user.fullName.toLowerCase().includes(search.toLowerCase()))
   }
-
-  filteredUsers = filteredUsers.map((user) => ({ ...user, projects: getUserProjects(user.id) }))
 
   if (sortBy && sortingOrder) {
     filteredUsers = filteredUsers.sort((a, b) => {
@@ -82,20 +61,18 @@ export const getUsers = async (filters: Partial<Filters & Pagination & Sorting>)
 }
 
 export const addUser = async (user: User) => {
-  await sleep(1000)
-  users.unshift(user)
+  const headers = new Headers()
+  headers.append('Content-Type', 'application/json')
+
+  return fetch(api.getAllUsers(), { method: 'POST', body: JSON.stringify(user), headers })
 }
 
 export const updateUser = async (user: User) => {
-  await sleep(1000)
-  const index = users.findIndex((u) => u.id === user.id)
-  users[index] = user
+  const headers = new Headers()
+  headers.append('Content-Type', 'application/json')
+  return fetch(api.getUser(user.id), { method: 'PUT', body: JSON.stringify(user), headers })
 }
 
 export const removeUser = async (user: User) => {
-  await sleep(1000)
-  users.splice(
-    users.findIndex((u) => u.id === user.id),
-    1,
-  )
+  return fetch(api.getUser(user.id), { method: 'DELETE' })
 }
