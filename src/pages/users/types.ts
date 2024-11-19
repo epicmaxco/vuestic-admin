@@ -1,15 +1,15 @@
-export type UserRole = 'ADMIN' | 'USER' | 'OWNER'
+export type UserRole = 'admin' | 'user' | 'owner'
 
 export type UUID = `${string}-${string}-${string}-${string}-${string}`
 
 export type User = {
   id: UUID
-  fullName: string
+  fullname: string
   email: string
   username: string
   role: UserRole
   avatar: string
-  projects: string[]
+  projects: UUID[]
   notes: string
-  isActive: boolean
+  active: boolean
 }
