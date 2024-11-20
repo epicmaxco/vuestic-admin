@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { BaseUser } from '../types'
+import { User } from '../types'
 
 const avatarColor = (userName: string) => {
   const colors = ['primary', '#FFD43A', '#ADFF00', '#262824', 'danger']
@@ -10,7 +10,7 @@ const avatarColor = (userName: string) => {
 
 defineProps({
   user: {
-    type: Object as PropType<BaseUser>,
+    type: Object as PropType<User>,
     required: true,
   },
   size: {
@@ -28,7 +28,7 @@ const isUrl = (avatar: string) => {
   <VaAvatar
     :size="size"
     :src="isUrl(user.avatar) ? user.avatar : ''"
-    :fallback-text="user.avatar || user.fullName[0]"
-    :color="avatarColor(user.fullName)"
+    :fallback-text="user.avatar || user.fullname[0]"
+    :color="avatarColor(user.fullname)"
   />
 </template>
