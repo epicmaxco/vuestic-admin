@@ -17,16 +17,8 @@ export type Filters = {
   search: string
 }
 
-const getSortItem = (obj: any, sortBy: string) => {
-  if (sortBy === 'projects') {
-    return obj.projects.map((project: any) => project).join(', ')
-  }
-
-  return obj[sortBy]
-}
-
 export const getUsers = async (filters: Partial<Filters & Pagination & Sorting>) => {
-  const { isActive, search, sortBy, sortingOrder } = filters
+  const { isActive, search } = filters
   let filteredUsers: User[] = await fetch(api.allUsers()).then((r) => r.json())
 
   filteredUsers = filteredUsers.filter((user) => user.active === isActive)
@@ -35,23 +27,9 @@ export const getUsers = async (filters: Partial<Filters & Pagination & Sorting>)
     filteredUsers = filteredUsers.filter((user) => user.fullname.toLowerCase().includes(search.toLowerCase()))
   }
 
-  if (sortBy && sortingOrder) {
-    filteredUsers = filteredUsers.sort((a, b) => {
-      const first = getSortItem(a, sortBy)
-      const second = getSortItem(b, sortBy)
-      if (first > second) {
-        return sortingOrder === 'asc' ? 1 : -1
-      }
-      if (first < second) {
-        return sortingOrder === 'asc' ? -1 : 1
-      }
-      return 0
-    })
-  }
-
   const { page = 1, perPage = 10 } = filters || {}
   return {
-    data: filteredUsers.slice((page - 1) * perPage, page * perPage),
+    data: filteredUsers,
     pagination: {
       page,
       perPage,
