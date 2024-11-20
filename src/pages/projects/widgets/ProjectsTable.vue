@@ -26,12 +26,12 @@ const props = defineProps({
     required: true,
   },
   sortBy: {
-    type: Object as PropType<Sorting['sortBy']>,
-    required: true,
+    type: String as PropType<Sorting['sortBy']>,
+    default: undefined,
   },
   sortingOrder: {
-    type: Object as PropType<Sorting['sortingOrder']>,
-    required: true,
+    type: String as PropType<Sorting['sortingOrder']>,
+    default: undefined,
   },
   pagination: {
     type: Object as PropType<Pagination>,
@@ -76,6 +76,10 @@ const { getUserById, getTeamOptions } = inject<any>('ProjectsPage')
       </template>
       <template #cell(status)="{ rowData: project }">
         <ProjectStatusBadge :status="project.status" />
+      </template>
+
+      <template #cell(created_at)="{ rowData: project }">
+        {{ new Date(project.created_at).toLocaleDateString() }}
       </template>
 
       <template #cell(actions)="{ rowData: project }">

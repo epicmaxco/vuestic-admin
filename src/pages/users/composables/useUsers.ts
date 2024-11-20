@@ -26,6 +26,7 @@ export const useUsers = (options?: {
     })
 
     isLoading.value = false
+    pagination.value = usersStore.pagination
   }
 
   watch(
@@ -40,13 +41,43 @@ export const useUsers = (options?: {
 
   fetch()
 
+  const users = computed(() => {
+    const getSortItem = (obj: any, sortBy: string) => {
+      if (sortBy === 'projects') {
+        return obj.projects.map((project: any) => project).join(', ')
+      }
+
+      return obj[sortBy]
+    }
+
+    const paginated = usersStore.items.slice(
+      (pagination.value.page - 1) * pagination.value.perPage,
+      pagination.value.page * pagination.value.perPage,
+    )
+
+    if (sorting.value.sortBy && sorting.value.sortingOrder) {
+      paginated.sort((a, b) => {
+        const first = getSortItem(a, sorting.value.sortBy!)
+        const second = getSortItem(b, sorting.value.sortBy!)
+        if (first > second) {
+          return sorting.value.sortingOrder === 'asc' ? 1 : -1
+        }
+        if (first < second) {
+          return sorting.value.sortingOrder === 'asc' ? -1 : 1
+        }
+        return 0
+      })
+    }
+    return paginated
+  })
+
   return {
     isLoading,
     filters,
     sorting,
     pagination,
 
-    users: computed(() => usersStore.items),
+    users,
 
     fetch,
 
