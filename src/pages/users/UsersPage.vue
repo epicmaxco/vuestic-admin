@@ -5,10 +5,12 @@ import EditUserForm from './widgets/EditUserForm.vue'
 import { User } from './types'
 import { useUsers } from './composables/useUsers'
 import { useModal, useToast } from 'vuestic-ui'
+import { useProjects } from '../projects/composables/useProjects'
 
 const doShowEditUserModal = ref(false)
 
 const { users, isLoading, filters, sorting, pagination, ...usersApi } = useUsers()
+const { projects } = useProjects()
 
 const userToEdit = ref<User | null>(null)
 
@@ -28,13 +30,13 @@ const onUserSaved = async (user: User) => {
   if (userToEdit.value) {
     await usersApi.update(user)
     notify({
-      message: `${user.fullName} has been updated`,
+      message: `${user.fullname} has been updated`,
       color: 'success',
     })
   } else {
     await usersApi.add(user)
     notify({
-      message: `${user.fullName} has been created`,
+      message: `${user.fullname} has been created`,
       color: 'success',
     })
   }
@@ -43,7 +45,7 @@ const onUserSaved = async (user: User) => {
 const onUserDelete = async (user: User) => {
   await usersApi.remove(user)
   notify({
-    message: `${user.fullName} has been deleted`,
+    message: `${user.fullname} has been deleted`,
     color: 'success',
   })
 }
@@ -97,6 +99,7 @@ const beforeEditFormModalClose = async (hide: () => unknown) => {
         v-model:sort-by="sorting.sortBy"
         v-model:sorting-order="sorting.sortingOrder"
         :users="users"
+        :projects="projects"
         :loading="isLoading"
         :pagination="pagination"
         @editUser="showEditUserModal"

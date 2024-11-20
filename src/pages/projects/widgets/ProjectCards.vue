@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { PropType } from 'vue'
-import { Project } from '../types'
+import { type PropType, inject } from 'vue'
+import { type Project } from '../types'
 import ProjectStatusBadge from '../components/ProjectStatusBadge.vue'
 
 defineProps({
@@ -19,11 +19,7 @@ defineEmits<{
   (event: 'delete', project: Project): void
 }>()
 
-const avatarColor = (userName: string) => {
-  const colors = ['primary', '#FFD43A', '#ADFF00', '#262824', 'danger']
-  const index = userName.charCodeAt(0) % colors.length
-  return colors[index]
-}
+const { getUserById, getTeamOptions } = inject<any>('ProjectsPage')
 </script>
 
 <template>
@@ -39,27 +35,16 @@ const avatarColor = (userName: string) => {
       outlined
     >
       <VaCardContent class="flex flex-col h-full">
-        <div class="text-[var(--va-secondary)]">{{ project.creation_date }}</div>
+        <div class="text-[var(--va-secondary)]">{{ new Date(project.created_at).toDateString() }}</div>
         <div class="flex flex-col items-center gap-4 grow">
           <h4 class="va-h4 text-center self-stretch overflow-hidden line-clamp-2 text-ellipsis">
             {{ project.project_name }}
           </h4>
           <p>
             <span class="text-[var(--va-secondary)]">Owner: </span>
-            <span>{{ project.project_owner.fullname }}</span>
+            <span v-if="getUserById(project.project_owner)">{{ getUserById(project.project_owner)!.fullname }}</span>
           </p>
-          <VaAvatarGroup
-            class="my-4"
-            :options="
-              project.team.map((user) => ({
-                label: user.fullname,
-                src: user.avatar,
-                fallbackText: user.fullname[0],
-                color: avatarColor(user.fullname),
-              }))
-            "
-            :max="5"
-          />
+          <VaAvatarGroup class="my-4" :options="getTeamOptions(project.team)" :max="5" />
           <ProjectStatusBadge :status="project.status" />
         </div>
         <VaDivider class="my-6" />

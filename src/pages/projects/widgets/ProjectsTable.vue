@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PropType, computed } from 'vue'
+import { PropType, computed, inject } from 'vue'
 import { defineVaDataTableColumns } from 'vuestic-ui'
 import { Project } from '../types'
 import UserAvatar from '../../users/widgets/UserAvatar.vue'
@@ -12,7 +12,7 @@ const columns = defineVaDataTableColumns([
   { label: 'Project owner', key: 'project_owner', sortable: true },
   { label: 'Team', key: 'team', sortable: true },
   { label: 'Status', key: 'status', sortable: true },
-  { label: 'Creation Date', key: 'creation_date', sortable: true },
+  { label: 'Creation Date', key: 'created_at', sortable: true },
   { label: ' ', key: 'actions' },
 ])
 
@@ -44,16 +44,11 @@ const emit = defineEmits<{
   (event: 'delete', project: Project): void
 }>()
 
-const avatarColor = (userName: string) => {
-  const colors = ['primary', '#FFD43A', '#ADFF00', '#262824', 'danger']
-  const index = userName.charCodeAt(0) % colors.length
-  return colors[index]
-}
-
 const sortByVModel = useVModel(props, 'sortBy', emit)
 const sortingOrderVModel = useVModel(props, 'sortingOrder', emit)
 
 const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagination.perPage))
+const { getUserById, getTeamOptions } = inject<any>('ProjectsPage')
 </script>
 
 <template>
@@ -71,24 +66,13 @@ const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagin
         </div>
       </template>
       <template #cell(project_owner)="{ rowData }">
-        <div class="flex items-center gap-2 ellipsis max-w-[230px]">
-          <UserAvatar :user="rowData.project_owner" size="small" />
-          {{ rowData.project_owner.fullname }}
+        <div v-if="getUserById(rowData.project_owner)" class="flex items-center gap-2 ellipsis max-w-[230px]">
+          <UserAvatar :user="getUserById(rowData.project_owner)" size="small" />
+          {{ getUserById(rowData.project_owner).fullname }}
         </div>
       </template>
       <template #cell(team)="{ rowData: project }">
-        <VaAvatarGroup
-          size="small"
-          :options="
-            (project as Project).team.map((user) => ({
-              label: user.fullname,
-              src: user.avatar,
-              fallbackText: user.fullname[0],
-              color: avatarColor(user.fullname),
-            }))
-          "
-          :max="5"
-        />
+        <VaAvatarGroup size="small" :options="getTeamOptions(project.team)" :max="5" />
       </template>
       <template #cell(status)="{ rowData: project }">
         <ProjectStatusBadge :status="project.status" />

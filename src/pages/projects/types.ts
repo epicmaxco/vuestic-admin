@@ -1,15 +1,17 @@
 import { User } from '../users/types'
 
+export type UUID = `${string}-${string}-${string}-${string}-${string}`
+
 export type Project = {
-  id: number
+  id: UUID
   project_name: string
-  project_owner: Omit<User, 'projects'>
-  team: Omit<User, 'projects'>[]
+  project_owner: User['id']
+  team: User['id'][]
   status: 'important' | 'completed' | 'archived' | 'in progress'
-  creation_date: string
+  created_at: string
 }
 
-export type EmptyProject = Omit<Project, 'id' | 'project_owner' | 'creation_date' | 'status'> & {
+export type EmptyProject = Omit<Project, 'id' | 'project_owner' | 'created_at' | 'status'> & {
   project_owner: Project['project_owner'] | undefined
   status: Project['status'] | undefined
 }

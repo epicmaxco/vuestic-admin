@@ -27,12 +27,12 @@ const getSortItem = (obj: any, sortBy: string) => {
 
 export const getUsers = async (filters: Partial<Filters & Pagination & Sorting>) => {
   const { isActive, search, sortBy, sortingOrder } = filters
-  let filteredUsers: User[] = await fetch(api.getAllUsers()).then((r) => r.json())
+  let filteredUsers: User[] = await fetch(api.allUsers()).then((r) => r.json())
 
-  filteredUsers = filteredUsers.filter((user) => user.isActive === isActive)
+  filteredUsers = filteredUsers.filter((user) => user.active === isActive)
 
   if (search) {
-    filteredUsers = filteredUsers.filter((user) => user.fullName.toLowerCase().includes(search.toLowerCase()))
+    filteredUsers = filteredUsers.filter((user) => user.fullname.toLowerCase().includes(search.toLowerCase()))
   }
 
   if (sortBy && sortingOrder) {
@@ -64,15 +64,15 @@ export const addUser = async (user: User) => {
   const headers = new Headers()
   headers.append('Content-Type', 'application/json')
 
-  return fetch(api.getAllUsers(), { method: 'POST', body: JSON.stringify(user), headers })
+  return fetch(api.allUsers(), { method: 'POST', body: JSON.stringify(user), headers }).then((r) => r.json())
 }
 
 export const updateUser = async (user: User) => {
   const headers = new Headers()
   headers.append('Content-Type', 'application/json')
-  return fetch(api.getUser(user.id), { method: 'PUT', body: JSON.stringify(user), headers })
+  return fetch(api.user(user.id), { method: 'PUT', body: JSON.stringify(user), headers }).then((r) => r.json())
 }
 
 export const removeUser = async (user: User) => {
-  return fetch(api.getUser(user.id), { method: 'DELETE' })
+  return fetch(api.user(user.id), { method: 'DELETE' })
 }
