@@ -1,4 +1,5 @@
 import { Ref, ref, unref, watch, computed } from 'vue'
+import { v4 as uuid } from 'uuid'
 import type { Filters, Pagination, Sorting } from '../../../data/pages/users'
 import { User } from '../types'
 import { useUsersStore } from '../../../stores/users'
@@ -13,20 +14,23 @@ export const useUsers = (options?: {
   filters?: Ref<Partial<Filters>>
 }) => {
   const isLoading = ref(false)
+  const error = ref()
   const usersStore = useUsersStore()
 
   const { filters = makeFiltersRef(), sorting = makeSortingRef(), pagination = makePaginationRef() } = options || {}
 
   const fetch = async () => {
     isLoading.value = true
-    await usersStore.getAll({
-      filters: unref(filters),
-      sorting: unref(sorting),
-      pagination: unref(pagination),
-    })
-
-    isLoading.value = false
-    pagination.value = usersStore.pagination
+    try {
+      await usersStore.getAll({
+        filters: unref(filters),
+        sorting: unref(sorting),
+        pagination: unref(pagination),
+      })
+      pagination.value = usersStore.pagination
+    } finally {
+      isLoading.value = false
+    }
   }
 
   watch(
@@ -72,6 +76,7 @@ export const useUsers = (options?: {
   })
 
   return {
+    error,
     isLoading,
     filters,
     sorting,
@@ -83,20 +88,43 @@ export const useUsers = (options?: {
 
     async add(user: User) {
       isLoading.value = true
-      await usersStore.add(user)
-      isLoading.value = false
+      try {
+        return await usersStore.add(user)
+      } catch (e) {
+        error.value = e
+      } finally {
+        isLoading.value = false
+      }
     },
 
     async update(user: User) {
       isLoading.value = true
-      await usersStore.update(user)
-      isLoading.value = false
+      try {
+        return await usersStore.update(user)
+      } catch (e) {
+        error.value = e
+      } finally {
+        isLoading.value = false
+      }
     },
 
     async remove(user: User) {
       isLoading.value = true
-      await usersStore.remove(user)
-      isLoading.value = false
+      try {
+        return await usersStore.remove(user)
+      } catch (e) {
+        error.value = e
+      } finally {
+        isLoading.value = false
+      }
+    },
+
+    async uploadAvatar(avatar: Blob) {
+      const formData = new FormData()
+      formData.append('avatar', avatar)
+      formData.append('id', uuid())
+
+      return usersStore.uploadAvatar(formData)
     },
   }
 }
