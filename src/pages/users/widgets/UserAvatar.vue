@@ -20,6 +20,8 @@ defineProps({
 })
 
 const isUrl = (avatar: string) => {
+  if (!avatar) return false
+
   return avatar.startsWith('http') || avatar.startsWith('blob:')
 }
 
