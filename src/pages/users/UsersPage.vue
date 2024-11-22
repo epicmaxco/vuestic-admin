@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watchEffect } from 'vue'
 import UsersTable from './widgets/UsersTable.vue'
 import EditUserForm from './widgets/EditUserForm.vue'
 import { User } from './types'
@@ -9,7 +9,7 @@ import { useProjects } from '../projects/composables/useProjects'
 
 const doShowEditUserModal = ref(false)
 
-const { users, isLoading, filters, sorting, pagination, ...usersApi } = useUsers()
+const { users, isLoading, filters, sorting, pagination, error, ...usersApi } = useUsers()
 const { projects } = useProjects()
 
 const userToEdit = ref<User | null>(null)
@@ -26,19 +26,39 @@ const showAddUserModal = () => {
 
 const { init: notify } = useToast()
 
+watchEffect(() => {
+  if (error.value) {
+    notify({
+      message: error.value.message,
+      color: 'danger',
+    })
+  }
+})
+
 const onUserSaved = async (user: User) => {
+  if (user.avatar.startsWith('blob:')) {
+    const blob = await fetch(user.avatar).then((r) => r.blob())
+    const { publicUrl } = await usersApi.uploadAvatar(blob)
+    user.avatar = publicUrl
+  }
+
   if (userToEdit.value) {
     await usersApi.update(user)
-    notify({
-      message: `${user.fullname} has been updated`,
-      color: 'success',
-    })
+    if (!error.value) {
+      notify({
+        message: `${user.fullname} has been updated`,
+        color: 'success',
+      })
+    }
   } else {
     await usersApi.add(user)
-    notify({
-      message: `${user.fullname} has been created`,
-      color: 'success',
-    })
+
+    if (!error.value) {
+      notify({
+        message: `${user.fullname} has been created`,
+        color: 'success',
+      })
+    }
   }
 }
 
