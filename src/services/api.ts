@@ -9,4 +9,5 @@ export default {
   project: (id: string) => `${apiBaseUrl}/projects/${id}`,
   projects: ({ page, pageSize }: { page: number; pageSize: number }) =>
     `${apiBaseUrl}/projects/?page=${page}&pageSize=${pageSize}`,
+  avatars: () => `${apiBaseUrl}/avatars`,
 }
