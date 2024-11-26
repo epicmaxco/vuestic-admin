@@ -12,11 +12,43 @@ export type Sorting = {
   sortingOrder: 'asc' | 'desc' | null
 }
 
+const getSortItem = (obj: any, sortBy: Sorting['sortBy']) => {
+  if (sortBy === 'project_owner') {
+    return obj.project_owner.fullname
+  }
+
+  if (sortBy === 'team') {
+    return obj.team.map((user: any) => user.fullname).join(', ')
+  }
+
+  if (sortBy === 'created_at') {
+    return new Date(obj[sortBy])
+  }
+
+  return obj[sortBy]
+}
+
 export const getProjects = async (options: Partial<Sorting> & Pagination) => {
   const projects: Project[] = await fetch(api.allProjects()).then((r) => r.json())
 
+  if (options.sortBy && options.sortingOrder) {
+    projects.sort((a, b) => {
+      a = getSortItem(a, options.sortBy!)
+      b = getSortItem(b, options.sortBy!)
+      if (a < b) {
+        return options.sortingOrder === 'asc' ? -1 : 1
+      }
+      if (a > b) {
+        return options.sortingOrder === 'asc' ? 1 : -1
+      }
+      return 0
+    })
+  }
+
+  const normalizedProjects = projects.slice((options.page - 1) * options.perPage, options.page * options.perPage)
+
   return {
-    data: projects,
+    data: normalizedProjects,
     pagination: {
       page: options.page,
       perPage: options.perPage,

@@ -35,7 +35,7 @@ const { getUserById, getTeamOptions } = inject<any>('ProjectsPage')
       outlined
     >
       <VaCardContent class="flex flex-col h-full">
-        <div class="text-[var(--va-secondary)]">{{ new Date(project.created_at).toLocaleDateString() }}</div>
+        <div class="text-[var(--va-secondary)]">{{ new Date(project.created_at).toDateString() }}</div>
         <div class="flex flex-col items-center gap-4 grow">
           <h4 class="va-h4 text-center self-stretch overflow-hidden line-clamp-2 text-ellipsis">
             {{ project.project_name }}
