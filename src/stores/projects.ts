@@ -6,22 +6,16 @@ export const useProjectsStore = defineStore('projects', {
   state: () => {
     return {
       items: [] as Project[],
-      pagination: {
-        page: 1,
-        perPage: 10,
-        total: 0,
-      } as Pagination,
     }
   },
 
   actions: {
     async getAll(options: { pagination: Pagination; sorting?: Sorting }) {
-      const { data, pagination } = await getProjects({
+      const { data } = await getProjects({
         ...options.sorting,
         ...options.pagination,
       })
       this.items = data
-      this.pagination = pagination
     },
 
     async add(project: Omit<Project, 'id' | 'created_at'>) {
