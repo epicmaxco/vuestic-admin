@@ -8,7 +8,7 @@ import { useVModel } from '@vueuse/core'
 import { Project } from '../../projects/types'
 
 const columns = defineVaDataTableColumns([
-  { label: 'Full Name', key: 'fullname', sortable: true },
+  { label: 'Full Name', key: 'fullName', sortable: true },
   { label: 'Email', key: 'email', sortable: true },
   { label: 'Username', key: 'username', sortable: true },
   { label: 'Role', key: 'role', sortable: true },
@@ -19,10 +19,6 @@ const columns = defineVaDataTableColumns([
 const props = defineProps({
   users: {
     type: Array as PropType<User[]>,
-    required: true,
-  },
-  projects: {
-    type: Array as PropType<Project[]>,
     required: true,
   },
   loading: { type: Boolean, default: false },
@@ -43,9 +39,9 @@ const sortByVModel = useVModel(props, 'sortBy', emit)
 const sortingOrderVModel = useVModel(props, 'sortingOrder', emit)
 
 const roleColors: Record<UserRole, string> = {
-  admin: 'danger',
-  user: 'background-element',
-  owner: 'warning',
+  ADMIN: 'danger',
+  USER: 'background-element',
+  OWNER: 'warning',
 }
 
 const totalPages = computed(() => Math.ceil(props.pagination.total / props.pagination.perPage))
@@ -55,7 +51,7 @@ const { confirm } = useModal()
 const onUserDelete = async (user: User) => {
   const agreed = await confirm({
     title: 'Delete user',
-    message: `Are you sure you want to delete ${user.fullname}?`,
+    message: `Are you sure you want to delete ${user.fullName}?`,
     okText: 'Delete',
     cancelText: 'Cancel',
     size: 'small',
@@ -67,28 +63,19 @@ const onUserDelete = async (user: User) => {
   }
 }
 
-const formatProjectNames = (projects: Project['id'][]) => {
-  const names = projects.reduce((acc, p) => {
-    const project = props.projects?.find(({ id }) => p === id)
-
-    if (project) {
-      acc.push(project.project_name)
-    }
-
-    return acc
-  }, [] as string[])
-  if (names.length === 0) return 'No projects'
-  if (names.length <= 2) {
-    return names.map((name) => name).join(', ')
+const formatProjectNames = (projects: Project[]) => {
+  if (projects.length === 0) return 'No projects'
+  if (projects.length <= 2) {
+    return projects.map((project) => project).join(', ')
   }
 
   return (
-    names
+    projects
       .slice(0, 2)
-      .map((name) => name)
+      .map((project) => project)
       .join(', ') +
     ' + ' +
-    (names.length - 2) +
+    (projects.length - 2) +
     ' more'
   )
 }
@@ -102,10 +89,10 @@ const formatProjectNames = (projects: Project['id'][]) => {
     :items="users"
     :loading="$props.loading"
   >
-    <template #cell(fullname)="{ rowData }">
+    <template #cell(fullName)="{ rowData }">
       <div class="flex items-center gap-2 max-w-[230px] ellipsis">
         <UserAvatar :user="rowData as User" size="small" />
-        {{ rowData.fullname }}
+        {{ rowData.fullName }}
       </div>
     </template>
 
