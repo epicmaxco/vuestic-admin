@@ -46,10 +46,8 @@ defineExpose({
   isFormHasUnsavedChanges,
 })
 
-const { projects } = useProjects({ pagination: ref({ page: 1, perPage: 9999, total: 10 }) })
-
 watch(
-  [() => props.user, projects],
+  () => props.user,
   () => {
     if (!props.user) {
       return
@@ -57,7 +55,6 @@ watch(
 
     newUser.value = {
       ...props.user,
-      projects: props.user.projects.filter((projectId) => projects.value.find(({ id }) => id === projectId)),
       avatar: props.user.avatar || '',
     }
   },
@@ -89,6 +86,8 @@ const roleSelectOptions: { text: Capitalize<Lowercase<UserRole>>; value: UserRol
   { text: 'User', value: 'user' },
   { text: 'Owner', value: 'owner' },
 ]
+
+const { projects } = useProjects({ pagination: ref({ page: 1, perPage: 9999, total: 10 }) })
 </script>
 
 <template>
