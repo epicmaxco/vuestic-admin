@@ -19,12 +19,12 @@ const props = defineProps({
 
 const defaultNewUser: Omit<User, 'id'> = {
   avatar: '',
-  fullname: '',
-  role: 'user',
+  fullName: '',
+  role: 'USER',
   username: '',
   notes: '',
   email: '',
-  active: true,
+  isActive: true,
   projects: [],
 }
 
@@ -82,9 +82,9 @@ const onSave = () => {
 }
 
 const roleSelectOptions: { text: Capitalize<Lowercase<UserRole>>; value: UserRole }[] = [
-  { text: 'Admin', value: 'admin' },
-  { text: 'User', value: 'user' },
-  { text: 'Owner', value: 'owner' },
+  { text: 'Admin', value: 'ADMIN' },
+  { text: 'User', value: 'USER' },
+  { text: 'Owner', value: 'OWNER' },
 ]
 
 const { projects } = useProjects({ pagination: ref({ page: 1, perPage: 9999, total: 10 }) })
@@ -113,7 +113,7 @@ const { projects } = useProjects({ pagination: ref({ page: 1, perPage: 9999, tot
     <div class="self-stretch flex-col justify-start items-start gap-4 flex">
       <div class="flex gap-4 flex-col sm:flex-row w-full">
         <VaInput
-          v-model="newUser.fullname"
+          v-model="newUser.fullName"
           label="Full name"
           class="w-full sm:w-1/2"
           :rules="[validators.required]"
@@ -139,9 +139,7 @@ const { projects } = useProjects({ pagination: ref({ page: 1, perPage: 9999, tot
           v-model="newUser.projects"
           label="Projects"
           class="w-full sm:w-1/2"
-          :options="projects"
-          value-by="id"
-          text-by="project_name"
+          :options="projects.map((p) => p.project_name)"
           :rules="[validators.required]"
           name="projects"
           multiple
@@ -163,7 +161,7 @@ const { projects } = useProjects({ pagination: ref({ page: 1, perPage: 9999, tot
         </div>
 
         <div class="flex items-center w-1/2 mt-4">
-          <VaCheckbox v-model="newUser.active" label="Active" class="w-full" name="active" />
+          <VaCheckbox v-model="newUser.isActive" label="Active" class="w-full" name="active" />
         </div>
       </div>
 

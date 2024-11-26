@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { defineVaDataTableColumns } from 'vuestic-ui'
+import { Project } from '../../../projects/types'
 import UserAvatar from '../../../users/widgets/UserAvatar.vue'
 import ProjectStatusBadge from '../../../projects/components/ProjectStatusBadge.vue'
 import { useProjects } from '../../../projects/composables/useProjects'
 import { Pagination } from '../../../../data/pages/projects'
 import { ref } from 'vue'
-import { useProjectUsers } from '../../../projects/composables/useProjectUsers'
 
 const columns = defineVaDataTableColumns([
   { label: 'Name', key: 'project_name', sortable: true },
@@ -18,7 +18,11 @@ const { projects, isLoading, sorting } = useProjects({
   pagination,
 })
 
-const { getTeamOptions, getUserById } = useProjectUsers()
+const avatarColor = (userName: string) => {
+  const colors = ['primary', '#FFD43A', '#ADFF00', '#262824', 'danger']
+  const index = userName.charCodeAt(0) % colors.length
+  return colors[index]
+}
 </script>
 
 <template>
@@ -43,16 +47,23 @@ const { getTeamOptions, getUserById } = useProjectUsers()
           </template>
           <template #cell(project_owner)="{ rowData }">
             <div class="flex items-center gap-2 ellipsis max-w-[230px]">
-              <UserAvatar
-                v-if="getUserById(rowData.project_owner)"
-                :user="getUserById(rowData.project_owner)!"
-                size="small"
-              />
-              {{ getUserById(rowData.project_owner)?.fullname }}
+              <UserAvatar :user="rowData.project_owner" size="small" />
+              {{ rowData.project_owner.fullname }}
             </div>
           </template>
           <template #cell(team)="{ rowData: project }">
-            <VaAvatarGroup size="small" :options="getTeamOptions(project.team)" :max="2" />
+            <VaAvatarGroup
+              size="small"
+              :options="
+                (project as Project).team.map((user) => ({
+                  label: user.fullname,
+                  src: user.avatar,
+                  fallbackText: user.fullname[0],
+                  color: avatarColor(user.fullname),
+                }))
+              "
+              :max="2"
+            />
           </template>
           <template #cell(status)="{ rowData: project }">
             <ProjectStatusBadge :status="project.status" />
