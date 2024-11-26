@@ -1,14 +1,5 @@
 import { defineStore } from 'pinia'
-import {
-  addUser,
-  type Filters,
-  getUsers,
-  Pagination,
-  removeUser,
-  Sorting,
-  updateUser,
-  uploadAvatar,
-} from '../data/pages/users'
+import { addUser, type Filters, getUsers, Pagination, removeUser, Sorting, updateUser } from '../data/pages/users'
 import { User } from '../pages/users/types'
 
 export const useUsersStore = defineStore('users', {
@@ -32,15 +23,13 @@ export const useUsersStore = defineStore('users', {
 
     async add(user: User) {
       const [newUser] = await addUser(user)
-      this.items.unshift(newUser)
-      return newUser
+      this.items.push(newUser)
     },
 
     async update(user: User) {
       const [updatedUser] = await updateUser(user)
       const index = this.items.findIndex(({ id }) => id === user.id)
       this.items.splice(index, 1, updatedUser)
-      return updatedUser
     },
 
     async remove(user: User) {
@@ -50,10 +39,6 @@ export const useUsersStore = defineStore('users', {
         const index = this.items.findIndex(({ id }) => id === user.id)
         this.items.splice(index, 1)
       }
-    },
-
-    async uploadAvatar(formData: FormData) {
-      return uploadAvatar(formData)
     },
   },
 })
