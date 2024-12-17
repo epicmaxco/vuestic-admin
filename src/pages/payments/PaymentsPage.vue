@@ -27,6 +27,6 @@
 </template>
 
 <script lang="ts" setup>
-import PaymentCardList from './widgets/my-cards/PaymentCardList.vue'
+import PaymentCardList from './widgets/my-cards/PaymentStripeCardList.vue'
 import BillingAddressList from './widgets/billing-address/BillingAddressList.vue'
 </script>
