@@ -23,7 +23,7 @@ export const stripeAddCard = async (paymentMethodId: string) => {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        customerId: 'cus_test_hardcoded_id',
+        // customerId: 'cus_test_hardcoded_id',
         paymentMethodId,
       }),
     })
@@ -33,7 +33,7 @@ export const stripeAddCard = async (paymentMethodId: string) => {
     }
 
     const data = (await response.json()).data as Stripe.PaymentMethod
-    console.log(data)
+
     return data
   } catch (error) {
     console.error('stripeAddCard error:', error)
@@ -52,6 +52,66 @@ export const stripeRemoveCard = async (paymentMethodId: string) => {
     }
   } catch (error) {
     console.error('stripeRemoveCard error:', error)
+    throw error // Re-throw the error so it can be handled by the caller
+  }
+}
+
+export const stripeCreatePaymentIntent = async (payload: any) => {
+  try {
+    const response = await fetch(`${SERVER_BASE}/api/payment-intent`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+
+    if (!response.ok) {
+      throw new Error(`Error creating payment intent: ${response.statusText}`)
+    }
+
+    return await response.json()
+  } catch (error) {
+    console.error('stripeRemoveCard error:', error)
+    throw error // Re-throw the error so it can be handled by the caller
+  }
+}
+
+export const stripeCreatePayment = async (payload: any) => {
+  try {
+    const response = await fetch(`${SERVER_BASE}/api/payment`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+
+    if (!response.ok) {
+      throw new Error(`Error creating payment intent: ${response.statusText}`)
+    }
+
+    return await response.json()
+  } catch (error) {
+    console.error('stripeRemoveCard error:', error)
+    throw error // Re-throw the error so it can be handled by the caller
+  }
+}
+
+export const stripeFetchInvoices = async (startingAfter: string | null = null) => {
+  try {
+    // Construct the URL with query params
+    const url = new URL(`${SERVER_BASE}/api/invoices`)
+    if (startingAfter) {
+      url.searchParams.append('starting_after', startingAfter)
+    }
+
+    const response = await fetch(url.toString())
+    if (!response.ok) {
+      throw new Error(`Error fetching invoices: ${response.statusText}`)
+    }
+
+    const data = await response.json()
+
+    return data
+  } catch (error) {
+    console.error('stripeFetchInvoices error:', error)
     throw error // Re-throw the error so it can be handled by the caller
   }
 }
