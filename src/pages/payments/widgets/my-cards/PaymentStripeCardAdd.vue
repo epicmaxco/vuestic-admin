@@ -1,5 +1,6 @@
 <template>
   <VaForm ref="form" @submit.prevent="submit">
+    <VaInnerLoading :loading="processingCardSave" />
     <VaInput
       v-model="cardholderName"
       :rules="[(v) => !!v || 'Cardholder Name is required']"
@@ -9,13 +10,8 @@
 
     <div class="mb-4">
       <label for="card-element">Card Details</label>
-      <StripeElements
-        v-if="stripeLoaded"
-        v-slot="{ elements }"
-        ref="elms"
-        stripe-key="pk_test_51QMQglG0RyyEe7XHRvDnZREz1UjN8w3IM0X8klwml2yDf2JcCpHM7WzqFNK1UpXJRTo0jr7uUNDM5CD2syxGLojV00wrOHlZb9"
-      >
-        <StripeElement ref="cardElement" :elements="elements" />
+      <StripeElements v-if="stripeLoaded" v-slot="{ elements }" ref="elms" :stripe-key="STRIPE_PUBLIC_KEY">
+        <StripeElement ref="cardElement" :elements="elements" :options="{ hidePostalCode: true }" />
       </StripeElements>
     </div>
 
@@ -27,20 +23,24 @@
 </template>
 
 <script lang="ts" setup>
-import { onBeforeMount, ref } from 'vue'
-import { loadStripe } from '@stripe/stripe-js'
-import { useToast } from 'vuestic-ui'
-
+import { ref } from 'vue'
+import { useToast, VaInnerLoading } from 'vuestic-ui'
 import { StripeElements, StripeElement } from 'vue-stripe-js'
+
+import { useStripe } from '../../../../composables/useStripe'
+
+import { STRIPE_PUBLIC_KEY } from '../../../../config/stripe'
 
 import type { Stripe } from 'stripe'
 
 const emits = defineEmits(['save', 'cancel'])
 
-const stripeLoaded = ref(false)
+const { stripeLoaded } = useStripe()
+
 const elms = ref(null)
 const cardElement = ref(null)
 const cardholderName = ref('')
+const processingCardSave = ref(false)
 const { init } = useToast()
 
 const submit = async () => {
@@ -53,13 +53,12 @@ const submit = async () => {
     init({ message: 'Stripe initialization failed', color: 'error' })
     return
   }
-
+  processingCardSave.value = true
   const { error, paymentMethod } = (await elms.value.instance.createPaymentMethod({
     type: 'card',
     card: cardElement.value.stripeElement,
     billing_details: { name: cardholderName.value },
   })) as { error?: Stripe.errors.StripeError; paymentMethod?: Stripe.PaymentMethod }
-  console.log('stripe add', paymentMethod)
   if (error) {
     init({ message: error.message, color: 'error' })
   } else {
@@ -68,27 +67,8 @@ const submit = async () => {
       brand: paymentMethod.card.brand,
       last4: paymentMethod.card.last4,
     })
-    init({ message: 'Card added successfully', color: 'success' })
   }
 }
-
-onBeforeMount(() => {
-  if (window.Stripe) {
-    stripeLoaded.value = true
-    return
-  }
-
-  loadStripe(
-    'pk_test_51QMQglG0RyyEe7XHRvDnZREz1UjN8w3IM0X8klwml2yDf2JcCpHM7WzqFNK1UpXJRTo0jr7uUNDM5CD2syxGLojV00wrOHlZb9',
-  )
-    .then((stripeInstance) => {
-      console.log('stripe loaded', stripeInstance)
-      stripeLoaded.value = true
-    })
-    .catch((error) => {
-      console.error('stripe load error', error)
-    })
-})
 </script>
 
 <style scoped>
