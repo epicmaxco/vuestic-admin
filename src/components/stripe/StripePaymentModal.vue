@@ -15,7 +15,7 @@ import { ref } from 'vue'
 import { useToast } from 'vuestic-ui'
 import { useStripePaymentCardsStore } from '../../stores/stripe-cards'
 import { useStripe } from '../../composables/useStripe'
-import CardList from '../../components/stripe/StripeCardList.vue'
+import CardList from './StripeCardList.vue'
 
 enum PaymentStatus {
   Paid = 'paid',

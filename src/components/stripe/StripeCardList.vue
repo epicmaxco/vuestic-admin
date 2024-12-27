@@ -36,7 +36,7 @@ import { onMounted, computed, ref } from 'vue'
 
 const emits = defineEmits(['select'])
 
-import CardListItem from './StripeCardListItem.vue'
+import CardListItem from './StripeCardItem.vue'
 
 import { useStripePaymentCardsStore } from '../../stores/stripe-cards'
 
