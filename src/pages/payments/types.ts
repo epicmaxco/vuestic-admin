@@ -11,6 +11,9 @@ export type PaymentCard = Stripe.PaymentMethod.Card & {
   id: string // Unique payment method ID from Stripe
   isPrimary?: boolean // Custom property for UI logic (optional)
   created: number // Unix timestamp
+  billingDetails: {
+    name: string
+  }
 }
 
 export interface BillingAddress {
