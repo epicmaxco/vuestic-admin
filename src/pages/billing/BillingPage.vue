@@ -18,7 +18,7 @@
 import MembeshipTier from './MembeshipTier.vue'
 import PaymentInfo from './PaymentInfo.vue'
 import { usePaymentCardsStore } from '../../stores/payment-cards'
-import Invoices from './Invoices.vue'
+import Invoices from './InvoicesStripe.vue'
 
 const cardStore = usePaymentCardsStore()
 cardStore.load()

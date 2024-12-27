@@ -23,7 +23,7 @@
         :class="{
           'md:!py-10 !bg-backgroundCardSecondary': plan.model === 'Advanced',
           '!bg-backgroundCardPrimary': plan.model !== 'Advanced',
-          'ring-2 ring-primary ring-offset-2': plan.model === selectedPlan,
+          'ring-2 ring-primary ring-offset-2': plan.model === selectedPlan.model,
         }"
         class="flex w-[326px] md:w-[349px] h-fit p-6 rounded-[13px]"
       >
@@ -59,9 +59,9 @@
           </div>
           <div class="flex justify-center">
             <VaButton
-              :disabled="plan.model === selectedPlan"
+              :disabled="plan.model === activePlan.model"
               :style="selectButtonStyles"
-              @click="createModal(plan.model)"
+              @click="createModal(plan)"
             >
               Select
             </VaButton>
@@ -69,34 +69,53 @@
         </div>
       </VaCard>
     </div>
+    <StripePaymentModal
+      :display="displayPaymentModal"
+      :amount="selectedPlan.price"
+      @close="displayPaymentModal = false"
+      @success="handleSuccess()"
+    />
   </div>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { useToast, useModal } from 'vuestic-ui'
+import { useModal } from 'vuestic-ui'
+
+import { useStripePaymentCardsStore } from '../../stores/stripe-cards'
+import StripePaymentModal from '../../components/stripe/StripePaymentModal.vue'
 
 import { badgeStyles, selectButtonStyles } from './styles'
 
 import { pricingPlans } from './options'
 
-const { init } = useToast()
+const store = useStripePaymentCardsStore()
+
 const { init: initModal } = useModal()
+store.load()
 
 const selectedDuration = ref<string>('Annual')
-const selectedPlan = ref<string>()
+const selectedPlan = ref<any>({})
+const activePlan = ref<any>({})
+const displayPaymentModal = ref<boolean>(false)
 
-const createModal = (planModel: string) => {
+const createModal = (plan: any) => {
   initModal({
     message: 'Are you sure you want to change plan?',
     mobileFullscreen: false,
     maxWidth: '380px',
     size: 'small',
-    onOk: () => selectPlan(planModel),
+    onOk: () => {
+      selectPlan(plan)
+      displayPaymentModal.value = true
+    },
   })
 }
 
-const selectPlan = (planModel: string) => {
-  init({ message: 'You successfully changed payment plan!', color: 'success' })
-  selectedPlan.value = planModel
+const selectPlan = (plan: any) => {
+  selectedPlan.value = plan
+}
+
+const handleSuccess = () => {
+  activePlan.value = selectedPlan.value
 }
 </script>

@@ -1,3 +1,5 @@
+import type { Stripe } from 'stripe'
+
 export enum PaymentSystemType {
   Visa = 'visa',
   MasterCard = 'mastercard',
@@ -5,13 +7,13 @@ export enum PaymentSystemType {
 
 export const paymentSystemTypeOptions = Object.values(PaymentSystemType)
 
-export interface PaymentCard {
-  id: string
-  name: string
-  isPrimary: boolean // show Primary badge
-  paymentSystem: PaymentSystemType // Enum or union type for various payment systems
-  cardNumberMasked: string // ****1679
-  expirationDate: string // 09/24
+export type PaymentCard = Stripe.PaymentMethod.Card & {
+  id: string // Unique payment method ID from Stripe
+  isPrimary?: boolean // Custom property for UI logic (optional)
+  created: number // Unix timestamp
+  billingDetails: {
+    name: string
+  }
 }
 
 export interface BillingAddress {
