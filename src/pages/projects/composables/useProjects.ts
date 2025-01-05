@@ -1,40 +1,69 @@
-import { Ref, ref, unref } from 'vue'
-import {
-  getProjects,
-  addProject,
-  updateProject,
-  removeProject,
-  Sorting,
-  Pagination,
-} from '../../../data/pages/projects'
+import { Ref, ref, unref, computed } from 'vue'
+import { Sorting, Pagination } from '../../../data/pages/projects'
 import { Project } from '../types'
-import { watchIgnorable } from '@vueuse/core'
+import { useProjectsStore } from '../../../stores/projects'
+import { useProjectUsers } from './useProjectUsers'
 
 const makePaginationRef = () => ref<Pagination>({ page: 1, perPage: 10, total: 0 })
-const makeSortingRef = () => ref<Sorting>({ sortBy: 'creation_date', sortingOrder: 'desc' })
+const makeSortingRef = () => ref<Sorting>({ sortBy: 'created_at', sortingOrder: 'desc' })
 
 export const useProjects = (options?: { sorting?: Ref<Sorting>; pagination?: Ref<Pagination> }) => {
   const isLoading = ref(false)
-  const projects = ref<Project[]>([])
+  const projectsStore = useProjectsStore()
+  const { getUserById } = useProjectUsers()
 
   const { sorting = makeSortingRef(), pagination = makePaginationRef() } = options ?? {}
 
   const fetch = async () => {
     isLoading.value = true
-    const { data, pagination: newPagination } = await getProjects({
-      ...unref(sorting),
-      ...unref(pagination),
+    await projectsStore.getAll({
+      sorting: unref(sorting),
+      pagination: unref(pagination),
     })
-    projects.value = data as Project[]
-
-    ignoreUpdates(() => {
-      pagination.value = newPagination
-    })
+    pagination.value = projectsStore.pagination
 
     isLoading.value = false
   }
 
-  const { ignoreUpdates } = watchIgnorable([pagination, sorting], fetch, { deep: true })
+  const projects = computed(() => {
+    const paginated = projectsStore.items.slice(
+      (pagination.value.page - 1) * pagination.value.perPage,
+      pagination.value.page * pagination.value.perPage,
+    )
+
+    const getSortItem = (obj: any, sortBy: Sorting['sortBy']) => {
+      if (sortBy === 'project_owner') {
+        return getUserById(obj.project_owner)?.fullname
+      }
+
+      if (sortBy === 'team') {
+        return obj.team.map((user: any) => getUserById(user)?.fullname || '').join(', ')
+      }
+
+      if (sortBy === 'created_at') {
+        return new Date(obj[sortBy])
+      }
+
+      return obj[sortBy]
+    }
+
+    if (sorting.value.sortBy && sorting.value.sortingOrder) {
+      paginated.sort((a, b) => {
+        a = getSortItem(a, sorting.value.sortBy!)
+        b = getSortItem(b, sorting.value.sortBy!)
+
+        if (a < b) {
+          return sorting.value.sortingOrder === 'asc' ? -1 : 1
+        }
+        if (a > b) {
+          return sorting.value.sortingOrder === 'asc' ? 1 : -1
+        }
+        return 0
+      })
+    }
+
+    return paginated
+  })
 
   fetch()
 
@@ -45,35 +74,23 @@ export const useProjects = (options?: { sorting?: Ref<Sorting>; pagination?: Ref
 
     fetch,
 
-    async add(project: Omit<Project, 'id' | 'creation_date'>) {
+    async add(project: Omit<Project, 'id' | 'created_at'>) {
       isLoading.value = true
-      await addProject({
-        ...project,
-        project_owner: project.project_owner.id,
-        team: project.team.map((user) => user.id),
-      })
+      await projectsStore.add(project)
       await fetch()
       isLoading.value = false
     },
 
     async update(project: Project) {
       isLoading.value = true
-      await updateProject({
-        ...project,
-        project_owner: project.project_owner.id,
-        team: project.team.map((user) => user.id),
-      })
+      await projectsStore.update(project)
       await fetch()
       isLoading.value = false
     },
 
     async remove(project: Project) {
       isLoading.value = true
-      await removeProject({
-        ...project,
-        project_owner: project.project_owner.id,
-        team: project.team.map((user) => user.id),
-      })
+      await projectsStore.remove(project)
       await fetch()
       isLoading.value = false
     },
