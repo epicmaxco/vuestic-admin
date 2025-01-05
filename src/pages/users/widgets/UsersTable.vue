@@ -21,10 +21,14 @@ const props = defineProps({
     type: Array as PropType<User[]>,
     required: true,
   },
+  projects: {
+    type: Array as PropType<Project[]>,
+    required: true,
+  },
   loading: { type: Boolean, default: false },
   pagination: { type: Object as PropType<Pagination>, required: true },
   sortBy: { type: String as PropType<Sorting['sortBy']>, required: true },
-  sortingOrder: { type: String as PropType<Sorting['sortingOrder']>, required: true },
+  sortingOrder: { type: String as PropType<Sorting['sortingOrder']>, default: null },
 })
 
 const emit = defineEmits<{
@@ -63,19 +67,28 @@ const onUserDelete = async (user: User) => {
   }
 }
 
-const formatProjectNames = (projects: Project[]) => {
-  if (projects.length === 0) return 'No projects'
-  if (projects.length <= 2) {
-    return projects.map((project) => project.project_name).join(', ')
+const formatProjectNames = (projects: Project['id'][]) => {
+  const names = projects.reduce((acc, p) => {
+    const project = props.projects?.find(({ id }) => p === id)
+
+    if (project) {
+      acc.push(project.project_name)
+    }
+
+    return acc
+  }, [] as string[])
+  if (names.length === 0) return 'No projects'
+  if (names.length <= 2) {
+    return names.map((name) => name).join(', ')
   }
 
   return (
-    projects
+    names
       .slice(0, 2)
-      .map((project) => project.project_name)
+      .map((name) => name)
       .join(', ') +
     ' + ' +
-    (projects.length - 2) +
+    (names.length - 2) +
     ' more'
   )
 }

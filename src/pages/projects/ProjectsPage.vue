@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, provide } from 'vue'
 import { useLocalStorage } from '@vueuse/core'
 import { useProjects } from './composables/useProjects'
 import ProjectCards from './widgets/ProjectCards.vue'
@@ -7,10 +7,19 @@ import ProjectTable from './widgets/ProjectsTable.vue'
 import EditProjectForm from './widgets/EditProjectForm.vue'
 import { Project } from './types'
 import { useModal, useToast } from 'vuestic-ui'
+import { useProjectUsers } from './composables/useProjectUsers'
 
 const doShowAsCards = useLocalStorage('projects-view', true)
 
 const { projects, update, add, isLoading, remove, pagination, sorting } = useProjects()
+
+const { users, getTeamOptions, getUserById } = useProjectUsers()
+
+provide('ProjectsPage', {
+  users,
+  getTeamOptions,
+  getUserById,
+})
 
 const projectToEdit = ref<Project | null>(null)
 const doShowProjectFormModal = ref(false)

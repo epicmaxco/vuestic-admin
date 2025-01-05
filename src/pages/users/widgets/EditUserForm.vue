@@ -17,8 +17,7 @@ const props = defineProps({
   },
 })
 
-const defaultNewUser: User = {
-  id: -1,
+const defaultNewUser: Omit<User, 'id'> = {
   avatar: '',
   fullname: '',
   role: 'user',
@@ -29,7 +28,7 @@ const defaultNewUser: User = {
   projects: [],
 }
 
-const newUser = ref<User>({ ...defaultNewUser })
+const newUser = ref<User>({ ...defaultNewUser } as User)
 
 const isFormHasUnsavedChanges = computed(() => {
   return Object.keys(newUser.value).some((key) => {
@@ -37,7 +36,9 @@ const isFormHasUnsavedChanges = computed(() => {
       return false
     }
 
-    return newUser.value[key as keyof User] !== (props.user ?? defaultNewUser)?.[key as keyof User]
+    return (
+      newUser.value[key as keyof Omit<User, 'id'>] !== (props.user ?? defaultNewUser)?.[key as keyof Omit<User, 'id'>]
+    )
   })
 })
 
@@ -45,8 +46,10 @@ defineExpose({
   isFormHasUnsavedChanges,
 })
 
+const { projects } = useProjects({ pagination: ref({ page: 1, perPage: 9999, total: 10 }) })
+
 watch(
-  () => props.user,
+  [() => props.user, projects],
   () => {
     if (!props.user) {
       return
@@ -54,6 +57,7 @@ watch(
 
     newUser.value = {
       ...props.user,
+      projects: props.user.projects.filter((projectId) => projects.value.find(({ id }) => id === projectId)),
       avatar: props.user.avatar || '',
     }
   },
@@ -80,13 +84,11 @@ const onSave = () => {
   }
 }
 
-const roleSelectOptions: { text: Capitalize<UserRole>; value: UserRole }[] = [
+const roleSelectOptions: { text: Capitalize<Lowercase<UserRole>>; value: UserRole }[] = [
   { text: 'Admin', value: 'admin' },
   { text: 'User', value: 'user' },
   { text: 'Owner', value: 'owner' },
 ]
-
-const { projects } = useProjects({ pagination: ref({ page: 1, perPage: 9999, total: 10 }) })
 </script>
 
 <template>
@@ -116,7 +118,7 @@ const { projects } = useProjects({ pagination: ref({ page: 1, perPage: 9999, tot
           label="Full name"
           class="w-full sm:w-1/2"
           :rules="[validators.required]"
-          name="fullname"
+          name="fullName"
         />
         <VaInput
           v-model="newUser.username"
@@ -139,10 +141,10 @@ const { projects } = useProjects({ pagination: ref({ page: 1, perPage: 9999, tot
           label="Projects"
           class="w-full sm:w-1/2"
           :options="projects"
+          value-by="id"
+          text-by="project_name"
           :rules="[validators.required]"
           name="projects"
-          text-by="project_name"
-          track-by="id"
           multiple
           :max-visible-options="2"
         />
