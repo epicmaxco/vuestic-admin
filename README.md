@@ -108,10 +108,8 @@ Get Premium Support & Consulting services through our official development partn
 [Get a quote](https://www.epicmax.co/?ref=vuestic-consulting)
 
 ### Follow us
-
-Stay up to date with the latest Vuestic news! Follow us
-on [Twitter](https://twitter.com/vuestic_ui)
-or [Linkedin](https://www.linkedin.com/company/18509340)
+## bypass husky
+git commit -n -m "Your commit message"
 
 ### License
 
