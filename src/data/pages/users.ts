@@ -1,4 +1,4 @@
-import { User } from '../../pages/users/types'
+import { User } from '../../pages/system-admin/user-profile/types'
 import api from '../../services/api'
 
 export type Pagination = {
@@ -19,12 +19,13 @@ export type Filters = {
 
 export const getUsers = async (filters: Partial<Filters & Pagination & Sorting>) => {
   const { isActive, search } = filters
-  let filteredUsers: User[] = await fetch(api.allUsers()).then((r) => r.json())
+  const response = await fetch(api.instance.get('/api/UserList/GetAllUsers'))
+  let filteredUsers: User[] = await response.json()
 
   filteredUsers = filteredUsers.filter((user) => user.active === isActive)
 
   if (search) {
-    filteredUsers = filteredUsers.filter((user) => user.fullname.toLowerCase().includes(search.toLowerCase()))
+    filteredUsers = filteredUsers.filter((user) => user.username.toLowerCase().includes(search.toLowerCase()))
   }
 
   const { page = 1, perPage = 10 } = filters || {}
@@ -39,18 +40,17 @@ export const getUsers = async (filters: Partial<Filters & Pagination & Sorting>)
 }
 
 export const addUser = async (user: User) => {
-  const headers = new Headers()
-  headers.append('Content-Type', 'application/json')
+  try {
+    const response = await api.instance.post('/api/Account/register', user)
 
-  const result = await fetch(api.allUsers(), { method: 'POST', body: JSON.stringify(user), headers }).then((r) =>
-    r.json(),
-  )
+    if (!response.data.error) {
+      return response.data
+    }
 
-  if (!result.error) {
-    return result
+    throw new Error(response.data.error)
+  } catch (error) {
+    throw new Error(error.response?.data?.message || `"Failed to register user"`)
   }
-
-  throw new Error(result.error)
 }
 
 export const updateUser = async (user: User) => {

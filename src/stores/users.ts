@@ -9,7 +9,7 @@ import {
   updateUser,
   uploadAvatar,
 } from '../data/pages/users'
-import { User } from '../pages/users/types'
+import { User } from '../pages/system-admin/user-profile/types'
 
 export const useUsersStore = defineStore('users', {
   state: () => {
