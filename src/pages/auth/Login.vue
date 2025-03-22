@@ -5,13 +5,7 @@
       New to Vuestic?
       <RouterLink :to="{ name: 'signup' }" class="font-semibold text-primary">Sign up</RouterLink>
     </p>
-    <VaInput
-      v-model="formData.email"
-      :rules="[validators.required, validators.email]"
-      class="mb-4"
-      label="Email"
-      type="email"
-    />
+    <VaInput v-model="formData.username" class="mb-4" label="Email" type="email" />
     <VaValue v-slot="isPasswordVisible" :default-value="false">
       <VaInput
         v-model="formData.password"
@@ -41,29 +35,52 @@
     <div class="flex justify-center mt-4">
       <VaButton class="w-full" @click="submit"> Login</VaButton>
     </div>
+
+    <div v-if="errorMessage" class="mb-4 text-sm text-red-600">
+      {{ errorMessage }}
+    </div>
   </VaForm>
 </template>
 
-<script lang="ts" setup>
-import { reactive } from 'vue'
+<script setup>
+import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useForm, useToast } from 'vuestic-ui'
 import { validators } from '../../services/utils'
+import { useAuthStore } from '../../../store/auth'
 
+const isLoading = ref(false)
+const errorMessage = ref('')
 const { validate } = useForm('form')
-const { push } = useRouter()
+const router = useRouter()
+const authStore = useAuthStore()
 const { init } = useToast()
 
 const formData = reactive({
-  email: '',
+  username: '',
   password: '',
   keepLoggedIn: false,
 })
-
 const submit = () => {
   if (validate()) {
-    init({ message: "You've successfully logged in", color: 'success' })
-    push({ name: 'dashboard' })
+    isLoading.value = true
+    errorMessage.value = ''
+    try {
+      authStore.login({
+        username: formData.username,
+        password: formData.password,
+      })
+
+      // Redirect to homepage after successful login
+      router.push('/dashboard')
+    } catch (error) {
+      init({ message: 'Login failed', error, color: 'danger' })
+    } finally {
+      isLoading.value = false
+    }
+    //init({ message: "You've successfully logged in", color: 'success' })
+
+    //push({ name: 'dashboard' })
   }
 }
 </script>

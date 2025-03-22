@@ -1,0 +1,402 @@
+[
+  {
+    "title": "System Admininstration",
+    "menuID": 1,
+    "icon": "heroicons:cog-8-tooth",
+    "route": null,
+    "items": [
+      {
+        "title": "Users Profile",
+        "menuID": 0,
+        "icon": null,
+        "route": "/admin/user-profile",
+        "items": []
+      },
+      {
+        "title": "Warehouses",
+        "menuID": 0,
+        "icon": null,
+        "route": "/admin/warehouse",
+        "items": []
+      },
+      {
+        "title": "Menu",
+        "menuID": 0,
+        "icon": null,
+        "route": "/admin/menu",
+        "items": []
+      },
+      {
+        "title": "Company Profile",
+        "menuID": 0,
+        "icon": null,
+        "route": "/admin/company-profile",
+        "items": []
+      },
+      {
+        "title": "User Warehouse Access",
+        "menuID": 0,
+        "icon": null,
+        "route": "/admin/user-warehouse-access",
+        "items": []
+      },
+      {
+        "title": "Reset Transaction",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/reset-transaction",
+        "items": []
+      },
+      {
+        "title": "Change Warehouse",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/change-warehouse",
+        "items": []
+      },
+      {
+        "title": "Printer",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/printer",
+        "items": []
+      }
+    ]
+  },
+  {
+    "title": "Warehouse Management",
+    "menuID": 2,
+    "icon": "heroicons:home-modern",
+    "route": null,
+    "items": [
+      {
+        "title": "Supplier Master",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/supplier",
+        "items": []
+      },
+      {
+        "title": "Trucker Master",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/trucker",
+        "items": []
+      },
+      {
+        "title": "Customer Master",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/customer",
+        "items": []
+      },
+      {
+        "title": "Location Group",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/location-group",
+        "items": []
+      },
+      {
+        "title": "&Location Master",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/location",
+        "items": []
+      },
+      {
+        "title": "Unit of Measures",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/uom",
+        "items": []
+      },
+      {
+        "title": "Item Master",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/item-master",
+        "items": []
+      }
+    ]
+  },
+  {
+    "title": "INBOUND",
+    "menuID": 53,
+    "icon": "heroicons:cube",
+    "route": null,
+    "items": [
+      {
+        "title": "Purchase Order",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/po",
+        "items": []
+      },
+      {
+        "title": "Receive Shipments",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/receive-shipments",
+        "items": []
+      },
+      {
+        "title": "Batch Tagging",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/batch-tagging",
+        "items": []
+      },
+      {
+        "title": "Confirm Batch Tag",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/confirm-batch",
+        "items": []
+      },
+      {
+        "title": "Cancel Batch Tag",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/cancel-batch",
+        "items": []
+      },
+      {
+        "title": "Batch Tag Picklist",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/batch-picklist",
+        "items": []
+      },
+      {
+        "title": "Put Away",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/put-away",
+        "items": []
+      },
+      {
+        "title": "Put Away Picklist",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/put-away-picklist",
+        "items": []
+      },
+      {
+        "title": "Put Away Confirm",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/put-away-confirm",
+        "items": []
+      },
+      {
+        "title": "PutAway Cancel",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/put-away-cancel",
+        "items": []
+      }
+    ]
+  },
+  {
+    "title": "Storage Management",
+    "menuID": 54,
+    "icon": "heroicons:circle-stack",
+    "route": null,
+    "items": [
+      {
+        "title": "Stock Transfer",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/stock-transfer",
+        "items": []
+      },
+      {
+        "title": "Stock Transfer Picklist",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/strock-transfer-picklist",
+        "items": []
+      },
+      {
+        "title": "Stock Transfer Confirm",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/stock-transfer-confirm",
+        "items": []
+      },
+      {
+        "title": "Stock Transfer Cancel",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/stock-trandfer-cancel",
+        "items": []
+      }
+    ]
+  },
+  {
+    "title": "OUTBOUND",
+    "menuID": 97,
+    "icon": "heroicons:cube",
+    "route": null,
+    "items": [
+      {
+        "title": "Issuance Request",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/issuance-request",
+        "items": []
+      },
+      {
+        "title": "Allocate Inventory",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/allocate-inventory",
+        "items": []
+      },
+      {
+        "title": "Issuance Picklist",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/issuance-picklist",
+        "items": []
+      },
+      {
+        "title": "Cancel Issuance Allocation",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/cancel-issuance-allocation",
+        "items": []
+      },
+      {
+        "title": "Issuance Pick Confirm",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/issucance-pick-confirm",
+        "items": []
+      },
+      {
+        "title": "Issuance Ship-out Confirm",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/issuance-ship-out-confirm",
+        "items": []
+      },
+      {
+        "title": "Issuance Ship-out Cancel",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/issuance-ship-out-cancel",
+        "items": []
+      }
+    ]
+  },
+  {
+    "title": "Report",
+    "menuID": 74,
+    "icon": "heroicons:document",
+    "route": null,
+    "items": [
+      {
+        "title": "Goods Received",
+        "menuID": 0,
+        "icon": null,
+        "route": "/rpt/good-received",
+        "items": []
+      },
+      {
+        "title": "Good Issued",
+        "menuID": 0,
+        "icon": null,
+        "route": "/rpt/good-issued",
+        "items": []
+      },
+      {
+        "title": "Item Inventory",
+        "menuID": 0,
+        "icon": null,
+        "route": "/rpt/inventory",
+        "items": []
+      },
+      {
+        "title": "Monthly Inventory Ageing",
+        "menuID": 0,
+        "icon": null,
+        "route": "/rpt/monthly-inv-ageing",
+        "items": []
+      },
+      {
+        "title": "Movement History",
+        "menuID": 0,
+        "icon": null,
+        "route": "/rpt/movement-history",
+        "items": []
+      },
+      {
+        "title": "Movement Pending",
+        "menuID": 0,
+        "icon": null,
+        "route": "/rpt/movement-pending",
+        "items": []
+      },
+      {
+        "title": "Batch Info Report",
+        "menuID": 0,
+        "icon": null,
+        "route": "/rpt/batch-info-report",
+        "items": []
+      }
+    ]
+  },
+  {
+    "title": "Upload Master Files",
+    "menuID": 113,
+    "icon": "heroicons:cube",
+    "route": null,
+    "items": [
+      {
+        "title": "Item Master Upload",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/item-upload",
+        "items": []
+      },
+      {
+        "title": "Location Master Upload",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/location-upload",
+        "items": []
+      },
+      {
+        "title": "Inventory Upload",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/inv-upload",
+        "items": []
+      }
+    ]
+  },
+  {
+    "title": "Data Maintenance",
+    "menuID": 117,
+    "icon": "heroicons:wrench-screwdriver",
+    "route": null,
+    "items": [
+      {
+        "title": "Batch Lot Update",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/batch-lot-update",
+        "items": []
+      },
+      {
+        "title": "Batch Lock",
+        "menuID": 0,
+        "icon": null,
+        "route": "/wm/batch-lock",
+        "items": []
+      }
+    ]
+  }
+]
