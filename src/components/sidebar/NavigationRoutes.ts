@@ -13,7 +13,7 @@ export default {
   routes: [
     {
       name: 'dashboard',
-      displayName: 'menu.dashboard',
+      displayName: 'dashboard',
       meta: {
         icon: 'vuestic-iconset-dashboard',
       },
@@ -50,6 +50,23 @@ export default {
         {
           name: 'billing',
           displayName: 'menu.billing',
+        },
+      ],
+    },
+    {
+      name: 'reports',
+      displayName: 'reports',
+      meta: {
+        icon: 'credit_card',
+      },
+      children: [
+        {
+          name: 'goods-received',
+          displayName: 'goods-received',
+        },
+        {
+          name: 'inventory-list',
+          displayName: 'inventory-list',
         },
       ],
     },
