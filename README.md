@@ -9,7 +9,6 @@
   Developed by  <a href="https://epicmax.co">Epicmax</a>.</br>
   Based on <a href="https://ui.vuestic.dev">Vuestic UI</a> library.
 </p>
-
 <p align="center">
   <a href="https://admin-demo.vuestic.dev"> Live Demo </a> |
   <a href="https://admin.vuestic.dev/"> About Vuestic Admin </a> |
