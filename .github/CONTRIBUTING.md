@@ -21,7 +21,6 @@ Hi! We are really excited that you are interested in contributing to Vuestic. Be
 ### Branches
 
 - Upstream branches (**epicmax/vuestic-admin**):
-
   - `master` - stable snapshot from `develop`. Releases and hotfixes only. Do not submit PR's to `master`!.
   - `develop` - main development branch.
 
