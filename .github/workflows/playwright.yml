@@ -22,10 +22,10 @@ jobs:
       cancel-in-progress: false
 
     steps:
-      - name: Checkout selected ref (pinned to master)
+      - name: Checkout selected ref (pinned to develop)
         uses: actions/checkout@v4
         with:
-          ref: master
+          ref: develop
           fetch-depth: 1
 
       - name: Setup Node
