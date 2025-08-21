@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import { EmptyProject, Project } from '../types'
-import { SelectOption } from 'vuestic-ui'
+import { SelectOption, useBreakpoint } from 'vuestic-ui'
 import ProjectStatusBadge from '../components/ProjectStatusBadge.vue'
 import UserAvatar from '../../users/widgets/UserAvatar.vue'
 import { useUsersStore } from '../../../stores/users'
@@ -15,6 +15,8 @@ defineEmits<{
   (event: 'save', project: Project): void
   (event: 'close'): void
 }>()
+
+const bp = useBreakpoint()
 
 const defaultNewProject: EmptyProject = {
   project_name: '',
@@ -95,7 +97,7 @@ const teamFiltersSearch = ref('')
       multiple
       :rules="[(v: any) => ('length' in v && v.length > 0) || 'This field is required']"
       :options="usersStore.items"
-      :max-visible-options="$vaBreakpoint.mdUp ? 3 : 1"
+      :max-visible-options="bp.mdUp ? 3 : 1"
     >
       <template #content="{ valueArray }">
         <template v-if="valueArray?.length">

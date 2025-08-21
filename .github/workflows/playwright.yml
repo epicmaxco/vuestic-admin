@@ -1,0 +1,46 @@
+name: Playwright Tests
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        options: [tests, snapshots]
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout current branch
+      uses: actions/checkout@v4
+
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: '.nvmrc'
+
+    - name: Install dependencies
+      run: npm install -g yarn && yarn
+
+    - name: Install Playwright Browsers
+      run: yarn playwright install --with-deps
+
+    - name: Generate/Update snapshots (baseline)
+      run: yarn e2e --update-snapshots
+      env:
+        E2E_BASE_URL: https://admin-demo.vuestic.dev
+
+    - name: Run Playwright tests
+      run: yarn e2e
+      env:
+        E2E_BASE_URL: https://admin-demo.vuestic.dev
+
+
+    - uses: actions/upload-artifact@v4
+      if: ${{ !cancelled() }}
+      with:
+        name: playwright-report-${{ github.sha }}
+        path: e2e/playwright-report/**

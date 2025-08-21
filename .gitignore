@@ -7,6 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+.yarn/install-state.gz
 node_modules
 dist
 dist-ssr
@@ -27,3 +28,9 @@ dist-ssr
 # Local Netlify folder
 .netlify
 
+# Playwright
+test-results
+playwright-report
+blob-report
+playwright/.cache
+__screenshots__
