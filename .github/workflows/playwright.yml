@@ -12,6 +12,11 @@ on:
         required: false
         default: https://admin-demo.vuestic.dev
         type: string
+      publish_report:
+        description: 'Publish Playwright report to Netlify (new deploy per run)'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   test:
@@ -78,3 +83,21 @@ jobs:
         with:
           name: playwright-report-${{ github.sha }}
           path: e2e/playwright-report/**
+
+      - name: Publish Playwright report to Netlify
+        if: ${{ always() && inputs.publish_report == true }}
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: 'e2e/playwright-report'
+          production-deploy: false
+          alias: run-${{ github.run_id }}
+          deploy-message: "Playwright report for ${{ github.sha }} (target: ${{ inputs.target_url }})"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_REPORT_SITE_ID }}
+
+      - name: Echo Netlify URLs
+        if: ${{ always() && inputs.publish_report == true }}
+        run: |
+          echo "Deploy URL: ${{ steps.netlify.outputs.deploy-url }}"
+          echo "Logs URL:   ${{ steps.netlify.outputs.logs-url }}"
