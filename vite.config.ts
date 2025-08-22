@@ -11,10 +11,7 @@ export default defineConfig({
     sourcemap: true,
   },
   plugins: [
-    vuestic({
-      devtools: true,
-      cssLayers: true,
-    }),
+    vuestic(),
     vue(),
     VueI18nPlugin({
       include: resolve(dirname(fileURLToPath(import.meta.url)), './src/i18n/locales/**'),
