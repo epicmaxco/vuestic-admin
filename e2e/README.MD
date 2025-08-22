@@ -67,5 +67,11 @@ These allow you to intercept, control, and replace backend requests with mocks d
 
 ## Local Usage
 
+Step 1:
+// Expect error
+Generate baseline screenshots: `E2E_BASE_URL=https://admin-demo.vuestic.dev yarn e2e:update-snapshots`
+
+Step 2:
+Build and run project locally: `yarn build:ci && yarn start:ci`
+// Use correct API base url in .env
 To run tests locally: `yarn e2e`
-To update snapshots: `yarn e2e:update-snapshots`
