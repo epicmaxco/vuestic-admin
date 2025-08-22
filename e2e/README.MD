@@ -19,8 +19,6 @@ You can provide:
 
 The workflow runs tests and uploads the Playwright HTML report as a GitHub Artifact, which can be downloaded and inspected locally.
 
-
-
 ### 2. `package.json` changes
 
 At the root level, add:
@@ -43,6 +41,7 @@ This ensures the E2E project is recognized as a Yarn workspace and provides a sh
 All configuration is stored in: `e2e/playwright.config.ts`
 
 Here you can customize:
+
 - Paths – where snapshots, reports, and test results are stored.
 - Snapshot Ratio – the allowed percent difference for visual comparisons.
 - Timeouts – global test and assertion timeouts.
@@ -70,4 +69,3 @@ These allow you to intercept, control, and replace backend requests with mocks d
 
 To run tests locally: `yarn e2e`
 To update snapshots: `yarn e2e:update-snapshots`
-
