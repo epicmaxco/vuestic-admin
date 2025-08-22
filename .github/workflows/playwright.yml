@@ -27,10 +27,10 @@ jobs:
       cancel-in-progress: false
 
     steps:
-      - name: Checkout selected ref (pinned to develop)
+      - name: Checkout selected ref (pinned to master)
         uses: actions/checkout@v4
         with:
-          ref: develop
+          ref: master
           fetch-depth: 1
 
       - name: Setup Node
@@ -95,9 +95,3 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_REPORT_SITE_ID }}
-
-      - name: Echo Netlify URLs
-        if: ${{ always() && inputs.publish_report == true }}
-        run: |
-          echo "Deploy URL: ${{ steps.netlify.outputs.deploy-url }}"
-          echo "Logs URL:   ${{ steps.netlify.outputs.logs-url }}"
