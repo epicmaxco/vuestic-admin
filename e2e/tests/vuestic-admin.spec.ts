@@ -25,16 +25,16 @@ const pageMocks: {
     name: 'Users',
     url: '/users',
     apiMocks: {
-      ['/projects']: getProjectsStub,
-      ['/users']: getUsersStub,
+      '/projects': getProjectsStub,
+      '/users': getUsersStub,
     },
   },
   {
     name: 'Projects',
     url: '/projects',
     apiMocks: {
-      ['/projects']: getProjectsStub,
-      ['/users']: getUsersStub,
+      '/projects': getProjectsStub,
+      '/users': getUsersStub,
     },
   },
   {

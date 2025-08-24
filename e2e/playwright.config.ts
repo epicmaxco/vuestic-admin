@@ -1,13 +1,5 @@
 import { defineConfig, devices } from '@playwright/test'
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
-
 // Chromium – 3 breakpoints
 const projectsChromium = [
   {
@@ -108,18 +100,12 @@ export default defineConfig({
     ...projectsFirefox,
   ],
 
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'pnpm run preview',
-  //   url: 'http://localhost:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
   snapshotPathTemplate: '__screenshots__/{projectName}/{testFilePath}/{testName}{ext}',
 
   expect: {
     timeout: process.env.CI ? 10_000 : 5_000,
-    toHaveScreenshot: {
-      // maxDiffPixelRatio: 0.02,
-    },
+    // toHaveScreenshot: {
+    // maxDiffPixelRatio: 0.02,
+    // },
   },
 })
