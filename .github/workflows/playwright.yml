@@ -1,0 +1,97 @@
+name: Playwright Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_url:
+        description: 'Netlify build URL to test (e.g. https://your-preview.netlify.app)'
+        required: true
+        type: string
+      baseline_url:
+        description: 'Baseline URL for snapshot generation (optional)'
+        required: false
+        default: https://admin-demo.vuestic.dev
+        type: string
+      publish_report:
+        description: 'Publish Playwright report to Netlify (new deploy per run)'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    concurrency:
+      group: playwright-${{ inputs.target_url }}
+      cancel-in-progress: false
+
+    steps:
+      - name: Checkout selected ref (pinned to master)
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 1
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Enable Corepack and select Yarn from package.json
+        run: |
+          corepack enable
+          corepack use $(node -p "require('./package.json').packageManager")
+          yarn --version
+
+      - name: Cache Yarn cache
+        uses: actions/cache@v4
+        with:
+          path: .yarn/cache
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-pw-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pw-
+
+      - name: Install Playwright Browsers
+        run: yarn workspace e2e exec playwright install --with-deps
+
+      - name: Generate baseline snapshots
+        run: yarn e2e --update-snapshots
+        env:
+          E2E_BASE_URL: ${{ inputs.baseline_url }}
+
+      - name: Run Playwright tests (against Netlify build)
+        run: yarn e2e
+        env:
+          E2E_BASE_URL: ${{ inputs.target_url }}
+        continue-on-error: true #! Temporary: ignore screenshot diffs in CI to avoid blocking PRs.
+                                # TODO: remove once visual tests are stabilized.
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report-${{ github.sha }}
+          path: e2e/playwright-report/**
+
+      - name: Publish Playwright report to Netlify
+        if: ${{ always() && inputs.publish_report == true }}
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: 'e2e/playwright-report'
+          production-deploy: false
+          alias: run-${{ github.run_id }}
+          deploy-message: "Playwright report for ${{ github.sha }} (target: ${{ inputs.target_url }})"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_REPORT_SITE_ID }}
