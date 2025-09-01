@@ -3,6 +3,9 @@
   "private": true,
   "version": "3.1.0",
   "type": "module",
+  "workspaces": [
+    "e2e"
+  ],
   "scripts": {
     "prepare": "husky install",
     "dev": "vite",
@@ -14,7 +17,9 @@
     "format": "prettier --write .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "e2e": "yarn workspace e2e test",
+    "e2e:update-snapshots": "yarn workspace e2e update"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,vue}": [
@@ -74,5 +79,6 @@
     "vite": "^5.4.9",
     "vue-eslint-parser": "^9.3.2",
     "vue-tsc": "^2.1.6"
-  }
+  },
+  "packageManager": "yarn@4.9.2"
 }

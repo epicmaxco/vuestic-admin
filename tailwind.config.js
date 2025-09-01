@@ -1,10 +1,3 @@
-const textSizes = {
-  regularSmall: {
-    fontSize: '0.8125rem',
-    lineHeight: '1rem',
-  },
-}
-
 export default {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
