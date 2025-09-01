@@ -14,8 +14,16 @@
 
     <template #content>
       <div :class="{ minimized: isSidebarMinimized }" class="app-layout__sidebar-wrapper">
-        <div v-if="isFullScreenSidebar" class="flex justify-end">
-          <VaButton class="px-4 py-4" icon="md_close" preset="plain" @click="onCloseSidebarButtonClick" />
+        <div v-if="isFullScreenSidebar" class="flex justify-end h-0">
+          <VaButton
+            class="px-4 py-4"
+            icon="md_close"
+            preset="plain"
+            text-opacity="0"
+            @click="onCloseSidebarButtonClick"
+          >
+            Close Sidebar
+          </VaButton>
         </div>
       </div>
       <AppLayoutNavigation v-if="!isMobile" class="p-4" />
